@@ -1,4 +1,5 @@
 import { compatMatrix, N, PRIOR, rake, shareMatrix, type EqrParams, type EquityData } from './model';
+import { PostflopModel, type FlopData } from './postflop';
 import { threeWayJoint, threeWayShareTables, threeWayValue, type ThreeWayData } from './threeway';
 import { N_PLAYERS, type DecisionNode, type Node, type ShowdownTerminal } from './tree';
 
@@ -59,9 +60,15 @@ export class PreflopSolver {
   private tables = new Map<number, Tables>();
   private showdown = new Map<number, ShowdownCache>();
   private compat: Float64Array;
+  private equityM: number[][];
   private threeWayTables = new Map<string, [Float32Array, Float32Array, Float32Array]>();
   iteration = 0;
   exploration = EXPLORE;
+  /** Diagnostyka: false = w najlepszej odpowiedzi gra po flopie zostaje na strategii uśrednionej (wykorzystywalność samego preflopu). */
+  postflopBestResponse = true;
+  /** Gra po flopie (wersja 3): terminal preflop → indeks puli w modelu. */
+  readonly postflop: PostflopModel | null;
+  private postflopIndex = new Map<number, number>();
 
   constructor(
     tree: { root: Node; nodes: Node[] },
@@ -69,10 +76,18 @@ export class PreflopSolver {
     readonly eqr: EqrParams,
     readonly dcfr: DcfrParams = DEFAULT_DCFR,
     private readonly threeWay: ThreeWayData | null = null,
+    flops: FlopData | null = null,
+    /** Minimalna liczba podbić, od której pula heads-up jest rozgrywana grą po flopie (2 = pule 3-betowane i wyżej). */
+    postflopMinRaises = 2,
+    /** Maksymalna liczba podbić dla gry po flopie (wyżej: model EQR). */
+    postflopMaxRaises = 99,
   ) {
     this.root = tree.root;
     this.nodes = tree.nodes;
+    this.postflop = flops ? new PostflopModel(flops, eqr, equity.equity, compatMatrix(equity.pairs)) : null;
+    if (this.postflop && process.env.SZKP_REGRET_WEIGHT === 'reach') this.postflop.regretWeight = 'reach';
     this.compat = compatMatrix(equity.pairs);
+    this.equityM = equity.equity;
     const shareCache = new Map<string, { oop: Float64Array; ip: Float64Array }>();
     for (const n of this.nodes) {
       if (n.kind === 'decision') {
@@ -82,6 +97,9 @@ export class PreflopSolver {
         const spr = n.remaining <= 0 ? 0 : n.remaining / n.pot;
         const aggOop = n.aggressor === n.oop;
         const raises = (n.path.match(/:(raise|allin)/g) ?? []).length;
+        if (this.postflop && raises >= postflopMinRaises && raises <= postflopMaxRaises && n.remaining > 0) {
+          this.postflopIndex.set(n.id, this.postflop.addTerminal(n.pot, [n.invested[n.oop]!, n.invested[n.ip]!], n.remaining));
+        }
         const role3 = eqr.role3 ?? eqr.role ?? 0;
         const role = raises >= 3 ? (eqr.role4 ?? role3) : raises === 2 ? role3 : (eqr.role ?? 0);
         const key = `${spr.toFixed(4)}|${aggOop}|${role}`;
@@ -133,7 +151,7 @@ export class PreflopSolver {
     return out;
   }
 
-  private terminalValue(node: Node, p: number, reach: Float64Array[]): Float64Array {
+  private terminalValue(node: Node, p: number, reach: Float64Array[], mode: 'train' | 'br' | 'avg' = 'avg'): Float64Array {
     const out = new Float64Array(N);
     if (node.kind === 'fold') {
       let mass = 1;
@@ -179,6 +197,12 @@ export class PreflopSolver {
     let mass = 1;
     for (let q = 0; q < N_PLAYERS; q++) if (q !== p && q !== opp) mass *= sum(reach[q]!);
     if (mass === 0) return out;
+    const pi = this.postflopIndex.get(sd.id);
+    if (pi !== undefined) {
+      const eps = mode === 'train' && this.iteration <= EXPLORE_ITERATIONS ? this.exploration / Math.sqrt(this.iteration) : 0;
+      const pm = mode === 'br' && !this.postflopBestResponse ? 'avg' : mode;
+      return this.postflop!.value(pi, p === sd.oop ? 0 : 1, reach[p]!, reach[opp]!, mass, pm, Math.max(this.iteration, 1), this.dcfr, eps);
+    }
     const w = p === sd.oop ? cache.wOop : cache.wIp;
     const share = matVec(w, reach[opp]!, new Float64Array(N));
     const compat = matVec(this.compat, reach[opp]!, new Float64Array(N));
@@ -192,7 +216,7 @@ export class PreflopSolver {
    * uśrednione), 'avg' (wartość strategii uśrednionych).
    */
   private traverse(node: Node, p: number, reach: Float64Array[], mode: 'train' | 'br' | 'avg'): Float64Array {
-    if (node.kind !== 'decision') return this.terminalValue(node, p, reach);
+    if (node.kind !== 'decision') return this.terminalValue(node, p, reach, mode);
     const dn = node as DecisionNode;
     const t = this.tables.get(dn.id)!;
     const nA = t.nA;
@@ -264,6 +288,38 @@ export class PreflopSolver {
   step(): void {
     this.iteration++;
     for (let p = 0; p < N_PLAYERS; p++) this.traverse(this.root, p, this.rootReach(), 'train');
+  }
+
+  /**
+   * Diagnostyka realizacji equity w puli heads-up (terminal `showdown`) przy strategiach uśrednionych:
+   * udział w puli netto, który gracz faktycznie zdobywa, wobec udziału wynikającego z samego equity.
+   */
+  realization(nodeId: number, reach: Float64Array[]): { player: number; equityShare: number; realizedShare: number; eqr: number }[] {
+    const sd = this.nodes[nodeId] as ShowdownTerminal;
+    const net = sd.pot - rake(sd.pot, this.eqr);
+    let mass = 1;
+    for (let q = 0; q < N_PLAYERS; q++) if (q !== sd.oop && q !== sd.ip) mass *= sum(reach[q]!);
+    return [sd.oop, sd.ip].map((p) => {
+      const o = p === sd.oop ? sd.ip : sd.oop;
+      const v = this.terminalValue(sd, p, reach, 'avg');
+      let ev = 0;
+      let cd = 0;
+      let joint = 0;
+      for (let h = 0; h < N; h++) {
+        const rp = reach[p]![h]!;
+        if (rp === 0) continue;
+        ev += rp * v[h]!;
+        for (let x = 0; x < N; x++) {
+          const c = rp * reach[o]![x]! * this.compat[h * N + x]! * mass;
+          joint += c;
+          cd += c * this.equityM[h]![x]!;
+        }
+      }
+      const inv = sd.invested[p]!;
+      const equityShare = cd / joint;
+      const realizedShare = (ev / joint + inv) / net;
+      return { player: p, equityShare, realizedShare, eqr: realizedShare / equityShare };
+    });
   }
 
   /** Wartość oczekiwana gracza (w bb) przy strategiach uśrednionych. */

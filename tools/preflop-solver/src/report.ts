@@ -101,3 +101,21 @@ export function rangeOf(s: PreflopSolver, node: DecisionNode, actionIndex: numbe
   });
   return out;
 }
+
+/** Realizacja equity w wybranych pulach heads-up (diagnostyka modelu gry po flopie). */
+export function realizationReport(s: PreflopSolver): string {
+  const paths = [
+    ['CO otwiera, BTN 3-bet, CO sprawdza', 'UTG:fold,HJ:fold,CO:raise2.5,BTN:raise7.5,SB:fold,BB:fold,CO:call'],
+    ['BTN otwiera, BB 3-bet, BTN sprawdza', 'UTG:fold,HJ:fold,CO:fold,BTN:raise2.5,SB:fold,BB:raise10,BTN:call'],
+    ['BTN otwiera, BB sprawdza (pula z jednym podbiciem)', 'UTG:fold,HJ:fold,CO:fold,BTN:raise2.5,SB:fold,BB:call'],
+    ['UTG otwiera, CO 3-bet, UTG sprawdza', 'UTG:raise2.5,HJ:fold,CO:raise7.5,BTN:fold,SB:fold,BB:fold,UTG:call'],
+  ];
+  const lines = ['Realizacja equity (udział w puli netto: zdobyty / z equity):'];
+  for (const [name, path] of paths) {
+    const node = s.nodes.find((n) => n.kind === 'showdown' && n.path === path);
+    if (!node) continue;
+    const r = s.realization(node.id, playerReach(s, node));
+    lines.push(`  ${name}: ` + r.map((x) => `${POSITIONS[x.player]} ${(x.realizedShare * 100).toFixed(1)}% / ${(x.equityShare * 100).toFixed(1)}% (EQR ${(x.eqr * 100).toFixed(0)}%)`).join(', '));
+  }
+  return lines.join('\n');
+}

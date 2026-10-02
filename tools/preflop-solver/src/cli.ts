@@ -1,8 +1,9 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { DEFAULT_EQR, N, validateEquity, type EqrParams, type EquityData } from './model';
-import { formatSummary, rangeOf, summarize } from './report';
+import { formatSummary, rangeOf, realizationReport, summarize } from './report';
 import { DEFAULT_DCFR, PreflopSolver } from './solver';
+import { loadFlops, type FlopData } from './postflop';
 import { loadThreeWay, type ThreeWayData } from './threeway';
 import { buildTree, DEFAULT_TREE, N_PLAYERS, POSITIONS, type DecisionNode } from './tree';
 
@@ -29,9 +30,19 @@ if (useThreeWay) {
   console.log(`Tablica equity 3-way: ${threeWay.samples} prób na trójkę (${((Date.now() - t0) / 1000).toFixed(0)} s wczytywania)`);
 }
 const treeConfig = { ...DEFAULT_TREE, bbOvercall: useThreeWay };
+// gra po flopie w pulach 3-betowanych i wyżej (wersja 3); --flops none = model EQR jak w wersji 2
+const flopsArg = arg('flops', 'tools/equity/flops.bin.gz');
+let flops: FlopData | null = null;
+if (flopsArg !== 'none') {
+  const path = resolve(root, flopsArg);
+  flops = loadFlops(readFileSync(path), flopsArg);
+  console.log(`Gra po flopie: ${flops.F} flopów, ${flops.B} koszyków (${flopsArg})`);
+}
+const postflopMinRaises = Number(arg('postflop-min-raises', '2'));
+const postflopMaxRaises = Number(arg('postflop-max-raises', '2'));
 
 function solve(eqr: EqrParams, iterations: number, log = true): PreflopSolver {
-  const s = new PreflopSolver(buildTree(treeConfig), equity, eqr, DEFAULT_DCFR, threeWay);
+  const s = new PreflopSolver(buildTree(treeConfig), equity, eqr, DEFAULT_DCFR, threeWay, flops, postflopMinRaises, postflopMaxRaises);
   const t0 = Date.now();
   for (let i = 1; i <= iterations; i++) {
     s.step();
@@ -84,6 +95,8 @@ if (args.includes('--calibrate')) {
   const s = solve(eqr, iterations);
   const summary = summarize(s);
   console.log(formatSummary(summary));
+  const realization = realizationReport(s);
+  console.log(realization);
   const expl = s.exploitability();
 
   // eksport: wszystkie węzły decyzyjne z rozkładem akcji na klasę ręki (jedno źródło prawdy dla zakresów)
@@ -115,6 +128,10 @@ if (args.includes('--calibrate')) {
           perPlayerGainBb: expl.perPlayer.map((x) => Number(x.toFixed(5))),
           equity: 'tools/equity/equity169.json (dokładne przeliczenie)',
           equity3: threeWay ? `tools/equity/equity3.bin.gz (${threeWay.samples} prób Monte Carlo na trójkę klas)` : null,
+          postflop: flops
+            ? { file: flopsArg, flops: flops.F, buckets: flops.B, minRaises: postflopMinRaises, maxRaises: postflopMaxRaises, regretWeight: s.postflop!.regretWeight, rounds: 'SPR ≥ 3: 3 rundy, inaczej 2; zakład geometryczny, przebicie all-in, bez nowych kart' }
+            : null,
+          realization,
           summary,
         },
         spots,
