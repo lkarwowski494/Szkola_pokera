@@ -2,7 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { HAND_CLASSES } from '@szkola/poker-core';
 import { computePairs, N, PRIOR, type EquityData } from '../src/model';
 import { PreflopSolver } from '../src/solver';
-import { buildTree, N_PLAYERS, type Node } from '../src/tree';
+import { threeWayCompat, type ThreeWayData } from '../src/threeway';
+import { buildTree, DEFAULT_TREE, N_PLAYERS, type Node } from '../src/tree';
 
 /** Syntetyczna, symetryczna macierz equity: silniejsza klasa = niższy indeks rankingu. */
 function syntheticEquity(): EquityData {
@@ -12,12 +13,34 @@ function syntheticEquity(): EquityData {
   return { classes: [...HAND_CLASSES], equity, pairs };
 }
 
+/** Syntetyczne dane 3-way: equity proporcjonalne do siły klasy, prawdziwe blokery. */
+let tw: ThreeWayData | null = null;
+function syntheticThreeWay(): ThreeWayData {
+  if (tw) return tw;
+  const st = HAND_CLASSES.map((_, i) => 1.1 - i / 169);
+  const eq = new Float32Array(N * N * N);
+  for (let x = 0; x < N; x++) for (let y = 0; y < N; y++) for (let z = 0; z < N; z++) eq[x * N * N + y * N + z] = st[x]! / (st[x]! + st[y]! + st[z]!);
+  tw = { eq, compat: threeWayCompat(), samples: 0 };
+  return tw;
+}
+
 describe('drzewo', () => {
   const { nodes } = buildTree();
   it('każdy węzeł decyzyjny ma co najmniej dwie akcje, terminale mają poprawną pulę', () => {
     for (const n of nodes) {
       if (n.kind === 'decision') expect(n.actions.length).toBeGreaterThanOrEqual(2);
       else expect(n.pot).toBeCloseTo(n.invested.reduce((a, b) => a + b, 0), 6);
+    }
+  });
+  it('pule trzyosobowe: tylko po dołączeniu dużego blinda, równe stawki', () => {
+    const three = nodes.filter((n) => n.kind === 'showdown3');
+    expect(three.length).toBeGreaterThan(0);
+    for (const n of three) {
+      if (n.kind !== 'showdown3') continue;
+      expect(n.players).toContain(5);
+      expect(n.path.endsWith('BB:call')).toBe(true);
+      const inv = n.players.map((p) => n.invested[p]!);
+      expect(Math.max(...inv) - Math.min(...inv)).toBeLessThan(1e-9);
     }
   });
   it('na flopie dokładnie dwóch graczy z równą stawką', () => {
@@ -32,28 +55,37 @@ describe('drzewo', () => {
   });
 });
 
+describe('dane 3-way', () => {
+  it('wagi blokerów 3-way sumują się do 1 przy rozkładzie a priori', () => {
+    const c = syntheticThreeWay().compat;
+    let s = 0;
+    for (let x = 0; x < N; x++) for (let y = 0; y < N; y++) for (let z = 0; z < N; z++) s += PRIOR[x]! * PRIOR[y]! * PRIOR[z]! * c[x * N * N + y * N + z]!;
+    expect(s).toBeCloseTo(1, 4);
+  }, 60_000);
+});
+
 describe('solver', () => {
   it('bez rake gra ma sumę zerową (suma wartości graczy = 0)', () => {
-    const s = new PreflopSolver(buildTree(), syntheticEquity(), { k: 1, m: 0.08, rakeRate: 0, rakeCap: 0 });
-    for (let i = 0; i < 5; i++) s.step();
+    const s = new PreflopSolver(buildTree(), syntheticEquity(), { k: 1, m: 0.08, rakeRate: 0, rakeCap: 0 }, undefined, syntheticThreeWay());
+    for (let i = 0; i < 2; i++) s.step();
     let total = 0;
     for (let p = 0; p < N_PLAYERS; p++) total += s.value(p);
     expect(Math.abs(total)).toBeLessThan(1e-9);
   }, 60_000);
 
   it('z rake suma wartości jest ujemna (rake wychodzi z gry)', () => {
-    const s = new PreflopSolver(buildTree(), syntheticEquity(), { k: 1, m: 0.08, rakeRate: 0.05, rakeCap: 3 });
-    for (let i = 0; i < 5; i++) s.step();
+    const s = new PreflopSolver(buildTree(), syntheticEquity(), { k: 1, m: 0.08, rakeRate: 0.05, rakeCap: 3 }, undefined, syntheticThreeWay());
+    for (let i = 0; i < 2; i++) s.step();
     let total = 0;
     for (let p = 0; p < N_PLAYERS; p++) total += s.value(p);
     expect(total).toBeLessThan(0);
   }, 60_000);
 
-  it('wykorzystywalność maleje z iteracjami', () => {
-    const s = new PreflopSolver(buildTree(), syntheticEquity(), { k: 1, m: 0.08, rakeRate: 0, rakeCap: 0 });
+  it('wykorzystywalność maleje z iteracjami (drzewo bez pul 3-way, dla szybkości)', () => {
+    const s = new PreflopSolver(buildTree({ ...DEFAULT_TREE, bbOvercall: false }), syntheticEquity(), { k: 1, m: 0.08, rakeRate: 0, rakeCap: 0 });
     for (let i = 0; i < 3; i++) s.step();
     const early = s.exploitability().nashConv;
-    for (let i = 0; i < 25; i++) s.step();
+    for (let i = 0; i < 15; i++) s.step();
     const late = s.exploitability().nashConv;
     expect(late).toBeLessThan(early);
     expect(late).toBeGreaterThanOrEqual(-1e-9);

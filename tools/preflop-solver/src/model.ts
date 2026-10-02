@@ -37,9 +37,13 @@ export interface EqrParams {
   /** Rake: odsetek puli i limit w bb; pobierany tylko, gdy jest flop. */
   rakeRate: number;
   rakeCap: number;
+  /** Wariant (opcja A, raport 10): premia realizacji dla ostatniego podbijającego, kara dla sprawdzającego. 0 = brak. */
+  role?: number;
+  /** Wariant (raport 10): jak `role`, ale tylko w pulach 3-betowanych i wyżej (pule z jednym podbiciem bez zmian). Domyślnie = role. */
+  role3?: number;
 }
 
-export const DEFAULT_EQR: EqrParams = { k: 1, m: 0.08, rakeRate: 0.05, rakeCap: 3 };
+export const DEFAULT_EQR: EqrParams = { k: 1, m: 0.08, rakeRate: 0.05, rakeCap: 3, role: 0 };
 
 /**
  * Waga grywalności klasy (przed skalowaniem k). Grupy i wartości: priorytety z researchu
@@ -71,10 +75,11 @@ export function playabilityWeight(hc: string): number {
  * Udział w puli gracza OOP z ręką h przeciw IP z ręką v (model „udziału w puli”, stała suma).
  * Przy SPR → 0 (all-in) wraca do czystego equity.
  */
-export function shareMatrix(eq: number[][], p: EqrParams, spr: number): Float64Array {
+export function shareMatrix(eq: number[][], p: EqrParams, spr: number, aggressorIsOop: boolean | null = null): Float64Array {
   const f = Math.min(spr, 8) / 8;
-  const fo = 1 - p.m * f;
-  const fi = 1 + p.m * f;
+  const r = (p.role ?? 0) * f;
+  const fo = (1 - p.m * f) * (aggressorIsOop === null ? 1 : aggressorIsOop ? 1 + r : 1 - r);
+  const fi = (1 + p.m * f) * (aggressorIsOop === null ? 1 : aggressorIsOop ? 1 - r : 1 + r);
   const w = HAND_CLASSES.map((hc) => 1 + p.k * (playabilityWeight(hc) - 1) * f);
   const out = new Float64Array(N * N);
   for (let h = 0; h < N; h++)

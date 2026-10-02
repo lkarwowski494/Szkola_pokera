@@ -2,8 +2,9 @@
  * Drzewo akcji preflop 6-max (ADR-20). Uproszczenia pierwszej wersji, opisane w dokumentacji:
  * - bez limpów (otwarcie albo pas), także w pojedynku blindów;
  * - jeden rozmiar na każdym poziomie podbicia; 5-bet to all-in;
- * - na flopie maksymalnie dwóch graczy: sprawdzenie otwarcia tylko przez pierwszego chętnego,
- *   sprawdzenie 3-betu i dalszych tylko w sytuacji heads-up.
+ * - sprawdzenie otwarcia przez pierwszego chętnego; gdy otwarcie ma już jedno sprawdzenie,
+ *   dołączyć może tylko duży blind (pula trzyosobowa, wersja 2 drzewa, decyzja właściciela: opcja B);
+ * - sprawdzenie 3-betu i dalszych tylko w sytuacji heads-up.
  */
 
 export const POSITIONS = ['UTG', 'HJ', 'CO', 'BTN', 'SB', 'BB'] as const;
@@ -24,6 +25,8 @@ export interface TreeConfig {
   /** 4-bet: mnożnik 3-betu w pozycji i bez pozycji. */
   fourBetIp: number;
   fourBetOop: number;
+  /** Czy duży blind może dołączyć do otwarcia z jednym sprawdzeniem (pula trzyosobowa). */
+  bbOvercall: boolean;
 }
 
 export const DEFAULT_TREE: TreeConfig = {
@@ -34,6 +37,7 @@ export const DEFAULT_TREE: TreeConfig = {
   threeBetOop: 4,
   fourBetIp: 2.3,
   fourBetOop: 2.5,
+  bbOvercall: true,
 };
 
 export interface DecisionNode {
@@ -63,6 +67,8 @@ export interface ShowdownTerminal {
   /** Gracz bez pozycji po flopie i gracz z pozycją. */
   oop: number;
   ip: number;
+  /** Ostatni podbijający preflop (inicjatywa). */
+  aggressor: number;
   invested: number[];
   pot: number;
   /** Stack pozostały efektywnie po preflopie (0 = all-in). */
@@ -70,7 +76,20 @@ export interface ShowdownTerminal {
   path: string;
 }
 
-export type Node = DecisionNode | FoldTerminal | ShowdownTerminal;
+/** Pula trzyosobowa na flopie (otwarcie, jedno sprawdzenie, dołączenie dużego blinda). */
+export interface Showdown3Terminal {
+  kind: 'showdown3';
+  id: number;
+  /** Gracze w kolejności postflop: bez pozycji, środkowy, z pozycją. */
+  players: [number, number, number];
+  aggressor: number;
+  invested: number[];
+  pot: number;
+  remaining: number;
+  path: string;
+}
+
+export type Node = DecisionNode | FoldTerminal | ShowdownTerminal | Showdown3Terminal;
 
 /** Kolejność postflop: blindy mówią pierwsze (SB, BB), potem UTG…BTN. Większy indeks = później. */
 export function postflopOrder(p: number): number {
@@ -113,12 +132,17 @@ export function buildTree(cfg: TreeConfig = DEFAULT_TREE): { root: Node; nodes: 
       return add<FoldTerminal>({ kind: 'fold', winner: active[0]!, invested: s.invested.slice(), pot, path: s.path.join(',') });
     }
     if (s.pending.length === 0) {
+      if (active.length === 3) {
+        const players = active.slice().sort((x, y) => postflopOrder(x) - postflopOrder(y)) as [number, number, number];
+        const remaining = round2(cfg.stack - Math.max(...players.map((q) => s.invested[q]!)));
+        return add<Showdown3Terminal>({ kind: 'showdown3', players, aggressor: s.lastRaiser, invested: s.invested.slice(), pot, remaining, path: s.path.join(',') });
+      }
       if (active.length !== 2) throw new Error(`Na flopie ${active.length} graczy: ${s.path.join(',')}`);
       const [a, b] = active as [number, number];
       const oop = isInPosition(a, b) ? b : a;
       const ip = oop === a ? b : a;
       const remaining = round2(cfg.stack - Math.max(s.invested[a]!, s.invested[b]!));
-      return add<ShowdownTerminal>({ kind: 'showdown', oop, ip, invested: s.invested.slice(), pot, remaining, path: s.path.join(',') });
+      return add<ShowdownTerminal>({ kind: 'showdown', oop, ip, aggressor: s.lastRaiser, invested: s.invested.slice(), pot, remaining, path: s.path.join(',') });
     }
 
     const p = s.pending[0]!;
@@ -140,7 +164,11 @@ export function buildTree(cfg: TreeConfig = DEFAULT_TREE): { root: Node; nodes: 
     const othersActive = activePlayers(s).length;
     const allinFacing = s.currentBet >= cfg.stack;
     const callAllowed =
-      s.raiseLevel === 1 ? s.callers === 0 && facing > 0 : s.raiseLevel >= 2 ? othersActive === 2 : false;
+      s.raiseLevel === 1
+        ? facing > 0 && (s.callers === 0 || (cfg.bbOvercall && s.callers === 1 && p === BB))
+        : s.raiseLevel >= 2
+          ? othersActive === 2
+          : false;
     if (callAllowed) {
       const invested = s.invested.slice();
       invested[p] = s.currentBet;

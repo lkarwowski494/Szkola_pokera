@@ -1,4 +1,5 @@
 import { compatMatrix, N, PRIOR, rake, shareMatrix, type EqrParams, type EquityData } from './model';
+import { threeWayJoint, threeWayShareTables, threeWayValue, type ThreeWayData } from './threeway';
 import { N_PLAYERS, type DecisionNode, type Node, type ShowdownTerminal } from './tree';
 
 /**
@@ -11,6 +12,15 @@ export interface DcfrParams {
   gamma: number;
 }
 export const DEFAULT_DCFR: DcfrParams = { alpha: 1.5, beta: 0, gamma: 2 };
+
+/**
+ * Eksploracja (drżąca ręka): w przejściu treningowym rywale grają (1−ε)·σ + ε·jednostajnie, ε = EXPLORE/√t.
+ * Bez tego węzły, do których rywal przestał docierać (np. odpowiedź UTG na 3-bet), zamierają ze strategią
+ * z pierwszych iteracji, a gracz ocenia swoje akcje wobec tej przestarzałej strategii.
+ */
+export const EXPLORE = 0.1;
+/** Po tej liczbie iteracji eksploracja jest wyłączana: zasięgi znów są rzadkie (szybsze pętle 3-way), a gra zbiega do równowagi modelu bez zaburzeń. */
+export const EXPLORE_ITERATIONS = 150;
 
 interface Tables {
   regrets: Float64Array;
@@ -49,13 +59,16 @@ export class PreflopSolver {
   private tables = new Map<number, Tables>();
   private showdown = new Map<number, ShowdownCache>();
   private compat: Float64Array;
+  private threeWayTables = new Map<string, [Float32Array, Float32Array, Float32Array]>();
   iteration = 0;
+  exploration = EXPLORE;
 
   constructor(
     tree: { root: Node; nodes: Node[] },
     equity: EquityData,
     readonly eqr: EqrParams,
     readonly dcfr: DcfrParams = DEFAULT_DCFR,
+    private readonly threeWay: ThreeWayData | null = null,
   ) {
     this.root = tree.root;
     this.nodes = tree.nodes;
@@ -67,10 +80,13 @@ export class PreflopSolver {
         this.tables.set(n.id, { regrets: new Float64Array(N * nA), stratSum: new Float64Array(N * nA), nA });
       } else if (n.kind === 'showdown') {
         const spr = n.remaining <= 0 ? 0 : n.remaining / n.pot;
-        const key = spr.toFixed(4);
+        const aggOop = n.aggressor === n.oop;
+        const raises = (n.path.match(/:(raise|allin)/g) ?? []).length;
+        const role = raises >= 2 ? (eqr.role3 ?? eqr.role ?? 0) : (eqr.role ?? 0);
+        const key = `${spr.toFixed(4)}|${aggOop}|${role}`;
         let mats = shareCache.get(key);
         if (!mats) {
-          const s = shareMatrix(equity.equity, eqr, spr);
+          const s = shareMatrix(equity.equity, { ...eqr, role }, spr, aggOop);
           const oop = new Float64Array(N * N);
           const ip = new Float64Array(N * N);
           for (let h = 0; h < N; h++)
@@ -83,6 +99,12 @@ export class PreflopSolver {
           shareCache.set(key, mats);
         }
         this.showdown.set(n.id, { wOop: mats.oop, wIp: mats.ip, netPot: n.pot - rake(n.pot, eqr) });
+      } else if (n.kind === 'showdown3') {
+        if (!this.threeWay) throw new Error('Drzewo zawiera pule trzyosobowe, a nie wczytano tablicy equity3');
+        const spr = n.remaining <= 0 ? 0 : n.remaining / n.pot;
+        const aggRole = n.players.indexOf(n.aggressor);
+        const key = `${Math.min(spr, 8).toFixed(4)}|${aggRole}`;
+        if (!this.threeWayTables.has(key)) this.threeWayTables.set(key, threeWayShareTables(this.threeWay, eqr, spr, aggRole));
       }
     }
   }
@@ -117,6 +139,24 @@ export class PreflopSolver {
       for (let q = 0; q < N_PLAYERS; q++) if (q !== p) mass *= sum(reach[q]!);
       const payoff = (node.winner === p ? node.pot : 0) - node.invested[p]!;
       out.fill(payoff * mass);
+      return out;
+    }
+    if (node.kind === 'showdown3') {
+      const d = this.threeWay!;
+      const role = node.players.indexOf(p);
+      let mass = 1;
+      for (let q = 0; q < N_PLAYERS; q++) if (!node.players.includes(q) && q !== p) mass *= sum(reach[q]!);
+      if (mass === 0) return out;
+      if (role < 0) {
+        const joint = threeWayJoint(d, node.players.map((q) => reach[q]!) as [Float64Array, Float64Array, Float64Array]);
+        out.fill(-node.invested[p]! * mass * joint);
+        return out;
+      }
+      const others = node.players.filter((q) => q !== p).map((q) => reach[q]!) as [Float64Array, Float64Array];
+      const spr = node.remaining <= 0 ? 0 : node.remaining / node.pot;
+      const tables = this.threeWayTables.get(`${Math.min(spr, 8).toFixed(4)}|${node.players.indexOf(node.aggressor)}`)!;
+      threeWayValue(d, tables[role]!, others, node.pot - rake(node.pot, this.eqr), node.invested[p]!, out);
+      for (let h = 0; h < N; h++) out[h] = out[h]! * mass;
       return out;
     }
     const sd = node as ShowdownTerminal;
@@ -161,11 +201,12 @@ export class PreflopSolver {
     if (q !== p) {
       // przycinanie: gdy któryś z rywali nie może tu dotrzeć, wartość = 0
       const out = new Float64Array(N);
+      const eps = mode === 'train' && this.iteration <= EXPLORE_ITERATIONS ? this.exploration / Math.sqrt(this.iteration) : 0;
       for (let a = 0; a < nA; a++) {
         const r = new Float64Array(N);
         let any = false;
         for (let h = 0; h < N; h++) {
-          r[h] = reach[q]![h]! * sigma[h * nA + a]!;
+          r[h] = reach[q]![h]! * ((1 - eps) * sigma[h * nA + a]! + eps / nA);
           if (r[h]! > 0) any = true;
         }
         if (!any) continue;

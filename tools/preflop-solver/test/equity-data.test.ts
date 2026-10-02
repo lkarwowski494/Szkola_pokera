@@ -47,3 +47,35 @@ describe.skipIf(!has)('solver: push/fold heads-up (wynik bez modelu EQR)', () =>
     void playerReach;
   }, 120_000);
 });
+
+const file3 = join(resolve(import.meta.dirname, '../../..'), 'tools/equity/equity3.bin.gz');
+const has3 = existsSync(file3);
+
+describe.skipIf(!has3)('tablica equity 3-way', () => {
+  it('udziały sumują się do 1 i zgadzają się z niezależnym Monte Carlo z poker-core', async () => {
+    const { loadThreeWay } = await import('../src/threeway');
+    const { classCombos, createRng, handEquity } = await import('@szkola/poker-core');
+    const d = loadThreeWay(readFileSync(file3));
+    const N2 = 169 * 169;
+    const at = (x: string, y: string, z: string) => d.eq[idx(x) * N2 + idx(y) * 169 + idx(z)]!;
+    for (const [x, y, z] of [
+      ['AA', 'KK', 'QQ'],
+      ['AKs', 'JTs', '22'],
+      ['72o', 'K9o', '65s'],
+    ] as const) {
+      expect(at(x, y, z) + at(y, x, z) + at(z, x, y)).toBeCloseTo(1, 3);
+      // niezależne odniesienie: losowe rozłączne trójki kombinacji, equity liczone przez poker-core
+      const rng = createRng(7);
+      const cx = classCombos(x), cy = classCombos(y), cz = classCombos(z);
+      let sum = 0;
+      let n = 0;
+      while (n < 60) {
+        const a = cx[Math.floor(rng() * cx.length)]!, b = cy[Math.floor(rng() * cy.length)]!, c = cz[Math.floor(rng() * cz.length)]!;
+        if (new Set([...a, ...b, ...c]).size < 6) continue;
+        sum += handEquity([a, b, c], [], { exactLimit: 0, iterations: 2000, rng }).equity[0]!;
+        n++;
+      }
+      expect(Math.abs(at(x, y, z) - sum / n)).toBeLessThan(0.02);
+    }
+  }, 300_000);
+});

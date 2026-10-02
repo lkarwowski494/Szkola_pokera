@@ -14,6 +14,7 @@ export function buildPushFoldTree(stack: number): { root: Node; nodes: Node[] } 
     id: 2,
     oop: 4,
     ip: 5,
+    aggressor: 4,
     invested: [0, 0, 0, 0, stack, stack],
     pot: 2 * stack,
     remaining: 0,

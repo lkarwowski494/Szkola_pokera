@@ -74,6 +74,9 @@ export function summarize(s: PreflopSolver, openSize = 2.5, sbOpen = 3): Summary
   spot('BTN vs CO', open(2));
   spot('BB vs UTG', `${open(0)},HJ:fold,CO:fold,BTN:fold,SB:fold`);
   spot('CO vs UTG', `${open(0)},HJ:fold`);
+  spot('BTN vs UTG', `${open(0)},HJ:fold,CO:fold`);
+  spot('BB vs UTG + CO call', `${open(0)},HJ:fold,CO:call,BTN:fold,SB:fold`);
+  spot('BB vs CO + BTN call', `${open(2)},BTN:call,SB:fold`);
   // otwierający wobec 3-betu z Buttona po otwarciu z CO
   const coOpen = open(2);
   const n3 = s.nodes.find((x) => x.kind === 'decision' && x.path.startsWith(`${coOpen},BTN:raise`) && x.path.endsWith('BB:fold') && x.player === 2);
