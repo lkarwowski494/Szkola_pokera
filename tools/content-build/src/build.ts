@@ -10,12 +10,14 @@ import {
   NumbersFile,
   RulesFile,
   type Block,
+  type CompiledRangeSpot,
   type Drill,
   type ModuleDef,
   type RuleDef,
 } from '@szkola/content-schema';
 import { parseCards } from '@szkola/poker-core';
 import { compileMarkdown } from './markdown';
+import { compileRanges } from './ranges';
 import { findHardcodedNumbers, resolveNumbers, substitute, type ResolvedNumber } from './numbers';
 
 export interface CompiledLesson {
@@ -36,6 +38,7 @@ export interface CompiledContent {
   lessons: CompiledLesson[];
   rules: RuleDef[];
   numbers: { key: string; value: number; display: string; source: string; population?: string; note?: string }[];
+  ranges: CompiledRangeSpot[];
   hash: string;
   warnings: string[];
 }
@@ -67,7 +70,12 @@ function splitFrontmatter(src: string, where: string): { fm: unknown; body: stri
 export function compileContent(contentDir: string, locale = 'pl'): CompiledContent {
   const warnings: string[] = [];
   const used = new Set<string>();
-  const numbers = resolveNumbers(parseOrThrow(NumbersFile, readYaml(join(contentDir, 'numbers.yaml')), 'numbers.yaml'));
+  const { spots: ranges } = compileRanges(contentDir);
+  const rangeIds = new Set(ranges.map((r) => r.id));
+  const numbers = resolveNumbers(
+    parseOrThrow(NumbersFile, readYaml(join(contentDir, 'numbers.yaml')), 'numbers.yaml'),
+    (id) => ranges.find((r) => r.id === id),
+  );
   const sub = (text: string, where: string) => substitute(text, numbers, where, used);
 
   const localeDir = join(contentDir, locale);
@@ -110,7 +118,14 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
         if (drillIds.has(d.id)) throw new Error(`powtórzone zadanie ${d.id}`);
         drillIds.add(d.id);
         for (const r of d.rules) if (!ruleIds.has(r)) throw new Error(`zadanie ${d.id}: nieznana reguła ${r}`);
-        if (d.kind === 'generated') return d;
+        if (d.kind === 'generated') {
+          if (d.generator === 'rangeDecision') {
+            const list = String(d.params.spots ?? '').split(',').map((x) => x.trim()).filter(Boolean);
+            if (list.length === 0) throw new Error(`zadanie ${d.id}: rangeDecision wymaga params.spots`);
+            for (const id of list) if (!rangeIds.has(id)) throw new Error(`zadanie ${d.id}: nieznany spot zakresu ${id}`);
+          }
+          return d;
+        }
         if (d.table) {
           const all = [d.table.hand, d.table.opp, d.table.board].filter(Boolean).join(' ');
           parseCards(all); // rzuca błąd przy powtórzonej karcie
@@ -122,6 +137,14 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
         };
       });
 
+      const compiledBody = compileMarkdown(sub(body, where));
+      const checkRanges = (bs: Block[]) => {
+        for (const b of bs) {
+          if (b.t === 'range' && !rangeIds.has(b.spot)) throw new Error(`nieznany spot zakresu ${b.spot}`);
+          if (b.t === 'note') checkRanges(b.c);
+        }
+      };
+      checkRanges(compiledBody);
       lessons.push({
         id: lesson.id,
         module: lesson.module,
@@ -129,7 +152,7 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
         title: lesson.title,
         sub: lesson.sub,
         rules: lesson.rules,
-        body: compileMarkdown(sub(body, where)),
+        body: compiledBody,
         drills,
       });
     } catch (e) {
@@ -157,7 +180,7 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
     ...(n.entry.note ? { note: n.entry.note } : {}),
   }));
 
-  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, modules, lessons, rules, numbers: numbersOut };
+  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, modules, lessons, rules, numbers: numbersOut, ranges };
   const hash = createHash('sha256').update(JSON.stringify(payload)).digest('hex').slice(0, 16);
   return { ...payload, hash, warnings };
 }
@@ -181,6 +204,7 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
     CREATE INDEX drills_family ON drills(family);
     CREATE TABLE rules (id TEXT PRIMARY KEY, module_id TEXT NOT NULL REFERENCES modules(id), level TEXT NOT NULL, if_text TEXT NOT NULL, then_text TEXT NOT NULL, because TEXT NOT NULL, source TEXT NOT NULL, population TEXT);
     CREATE TABLE numbers (key TEXT PRIMARY KEY, value REAL NOT NULL, display TEXT NOT NULL, source TEXT NOT NULL, population TEXT, note TEXT);
+    CREATE TABLE ranges (id TEXT PRIMARY KEY, title TEXT NOT NULL, hero TEXT NOT NULL, path TEXT NOT NULL, play_percent REAL NOT NULL, groups TEXT NOT NULL);
   `);
   const tx = (fn: () => void) => {
     db.exec('BEGIN');
@@ -204,6 +228,8 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
     for (const r of content.rules) ru.run(r.id, r.module, r.level, r.if, r.then, r.because, r.source, r.population ?? null);
     const nu = db.prepare('INSERT INTO numbers VALUES (?, ?, ?, ?, ?, ?)');
     for (const n of content.numbers) nu.run(n.key, n.value, n.display, n.source, n.population ?? null, n.note ?? null);
+    const ra = db.prepare('INSERT INTO ranges VALUES (?, ?, ?, ?, ?, ?)');
+    for (const r of content.ranges) ra.run(r.id, r.title, r.hero, r.path, r.playPercent, JSON.stringify(r.groups));
   });
   db.exec('VACUUM');
   db.close();

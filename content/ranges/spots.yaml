@@ -1,0 +1,51 @@
+# Nazwane spoty zakresów do lekcji i zadań. Liczby pochodzą wyłącznie z preflop-6max-100bb.json (solver, ADR-20).
+# path = ścieżka akcji w drzewie solvera; groups = akcje pokazywane w siatce (reszta to pas).
+# Tylko spoty, które przeszły walidację (tools/preflop-solver/REPORT.md). Spoty CO vs UTG, BB vs UTG
+# i gra wobec 3-betu wrócą po poprawie modelu.
+
+- id: rfi.utg
+  title: "UTG, nikt jeszcze nie wszedł do gry"
+  hero: UTG
+  path: ""
+  groups: { "Przebicie do 2,5bb": ["raise 2.5"] }
+- id: rfi.hj
+  title: "HJ, wszyscy przed tobą spasowali"
+  hero: HJ
+  path: "UTG:fold"
+  groups: { "Przebicie do 2,5bb": ["raise 2.5"] }
+- id: rfi.co
+  title: "CO, wszyscy przed tobą spasowali"
+  hero: CO
+  path: "UTG:fold,HJ:fold"
+  groups: { "Przebicie do 2,5bb": ["raise 2.5"] }
+- id: rfi.btn
+  title: "Button, wszyscy przed tobą spasowali"
+  hero: BTN
+  path: "UTG:fold,HJ:fold,CO:fold"
+  groups: { "Przebicie do 2,5bb": ["raise 2.5"] }
+- id: rfi.sb
+  title: "Mały blind, wszyscy spasowali, gra toczy się przeciw dużemu blindowi"
+  hero: SB
+  path: "UTG:fold,HJ:fold,CO:fold,BTN:fold"
+  groups: { "Przebicie do 3bb": ["raise 3"] }
+
+- id: vs-open.btn-vs-co
+  title: "Button, CO otworzył do 2,5bb"
+  hero: BTN
+  path: "UTG:fold,HJ:fold,CO:raise2.5"
+  groups: { "3-bet do 7,5bb": ["raise 7.5"], "Sprawdzenie": ["call 2.5"] }
+- id: vs-open.sb-vs-btn
+  title: "Mały blind, Button otworzył do 2,5bb"
+  hero: SB
+  path: "UTG:fold,HJ:fold,CO:fold,BTN:raise2.5"
+  groups: { "3-bet do 10bb": ["raise 10"], "Sprawdzenie": ["call 2.5"] }
+- id: vs-open.bb-vs-btn
+  title: "Duży blind, Button otworzył do 2,5bb, mały blind spasował"
+  hero: BB
+  path: "UTG:fold,HJ:fold,CO:fold,BTN:raise2.5,SB:fold"
+  groups: { "3-bet do 10bb": ["raise 10"], "Sprawdzenie": ["call 2.5"] }
+- id: vs-open.bb-vs-sb
+  title: "Duży blind, mały blind otworzył do 3bb"
+  hero: BB
+  path: "UTG:fold,HJ:fold,CO:fold,BTN:fold,SB:raise3"
+  groups: { "3-bet do 9bb": ["raise 9"], "Sprawdzenie": ["call 3"] }

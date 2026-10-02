@@ -103,8 +103,9 @@ function blocks(tokens: Token[]): Block[] {
       }
       case 'code': {
         const c = tok as Tokens.Code;
-        if (c.lang !== 'formula') throw new Error('Dozwolony tylko blok ```formula');
-        out.push({ t: 'formula', v: c.text });
+        if (c.lang === 'formula') out.push({ t: 'formula', v: c.text });
+        else if (c.lang === 'range') out.push({ t: 'range', spot: c.text.trim() });
+        else throw new Error('Dozwolone bloki: ```formula i ```range');
         break;
       }
       default:

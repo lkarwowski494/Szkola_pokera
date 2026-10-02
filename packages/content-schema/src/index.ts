@@ -18,8 +18,10 @@ export const NumberEntry = z
     /** Wartość podana wprost (np. z badań). */
     value: z.number().optional(),
     /** Wartość wyliczana przy budowie przez poker-core (np. requiredEquity(100, 50)). */
-    formula: z.enum(['requiredEquity', 'mdf', 'alpha', 'hitProbability', 'ruleOf2And4']).optional(),
+    formula: z.enum(['requiredEquity', 'mdf', 'alpha', 'hitProbability', 'ruleOf2And4', 'rangePlay']).optional(),
     args: z.array(z.number()).optional(),
+    /** Dla formuły rangePlay: identyfikator spotu z content/ranges/spots.yaml. */
+    spot: z.string().optional(),
     unit: NumberUnit,
     /** Liczba miejsc po przecinku przy wyświetlaniu. */
     decimals: z.number().int().min(0).max(3).default(0),
@@ -95,7 +97,7 @@ export const ChoiceDrill = z
   })
   .refine((d) => d.options.filter((o) => o.correct).length >= 1, 'zadanie musi mieć co najmniej jedną poprawną odpowiedź');
 
-export const GeneratorName = z.enum(['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall']);
+export const GeneratorName = z.enum(['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'rangeDecision']);
 export type GeneratorName = z.infer<typeof GeneratorName>;
 
 export const GeneratedDrill = z.object({
@@ -113,6 +115,36 @@ export const Drill = z.union([ChoiceDrill, GeneratedDrill]);
 export type Drill = z.infer<typeof Drill>;
 export type ChoiceDrill = z.infer<typeof ChoiceDrill>;
 export type GeneratedDrill = z.infer<typeof GeneratedDrill>;
+
+// ---------- Zakresy (wynik solvera preflop, ADR-20) ----------
+
+/**
+ * Nazwany spot zakresu: ścieżka akcji w drzewie solvera i akcja, którą pokazujemy w siatce.
+ * Plik content/ranges/spots.yaml; dane liczbowe wyłącznie z content/ranges/preflop-6max-100bb.json.
+ */
+export const RangeSpotDef = z.object({
+  id,
+  title: z.string().min(3),
+  /** Kto podejmuje decyzję. */
+  hero: z.enum(['UTG', 'HJ', 'CO', 'BTN', 'SB', 'BB']),
+  /** Ścieżka akcji w drzewie solvera ('' = korzeń). */
+  path: z.string(),
+  /** Akcje grupowane do pokazania, np. { "Przebij": ["raise 2.5"], "Sprawdź": ["call 2.5"] }. */
+  groups: z.record(z.string(), z.array(z.string()).min(1)),
+});
+export type RangeSpotDef = z.infer<typeof RangeSpotDef>;
+export const RangeSpotsFile = z.array(RangeSpotDef);
+
+/** Skompilowany spot: częstości grup akcji dla 169 klas (kolejność HAND_CLASSES). */
+export interface CompiledRangeSpot {
+  id: string;
+  title: string;
+  hero: string;
+  path: string;
+  groups: { name: string; freqs: number[] }[];
+  /** Udział rąk grających (nie pas), ważony liczbą kombinacji. */
+  playPercent: number;
+}
 
 // ---------- Lekcje ----------
 
@@ -139,4 +171,5 @@ export type Block =
   | { t: 'list'; ordered: boolean; items: Inline[][] }
   | { t: 'table'; head: Inline[][]; rows: Inline[][][] }
   | { t: 'note'; title: string; c: Block[] }
-  | { t: 'formula'; v: string };
+  | { t: 'formula'; v: string }
+  | { t: 'range'; spot: string };

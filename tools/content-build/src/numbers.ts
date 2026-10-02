@@ -8,8 +8,15 @@ export interface ResolvedNumber {
   entry: NumberEntry;
 }
 
-function compute(key: string, e: NumberEntry): number {
+export type SpotLookup = (spotId: string) => { playPercent: number } | undefined;
+
+function compute(key: string, e: NumberEntry, spots?: SpotLookup): number {
   if (e.value !== undefined) return e.value;
+  if (e.formula === 'rangePlay') {
+    const s = e.spot ? spots?.(e.spot) : undefined;
+    if (!s) throw new Error(`Liczba "${key}": nieznany spot zakresu ${e.spot}`);
+    return s.playPercent;
+  }
   const a = e.args ?? [];
   const need = (n: number) => {
     if (a.length !== n) throw new Error(`Liczba "${key}": formuła ${e.formula} wymaga ${n} argumentów`);
@@ -53,10 +60,10 @@ export function formatNumber(value: number, unit: NumberEntry['unit'], decimals:
   }
 }
 
-export function resolveNumbers(file: Record<string, NumberEntry>): Map<string, ResolvedNumber> {
+export function resolveNumbers(file: Record<string, NumberEntry>, spots?: SpotLookup): Map<string, ResolvedNumber> {
   const out = new Map<string, ResolvedNumber>();
   for (const [key, entry] of Object.entries(file)) {
-    const value = compute(key, entry);
+    const value = compute(key, entry, spots);
     if (!Number.isFinite(value)) throw new Error(`Liczba "${key}" nie jest skończona`);
     if (entry.unit === 'percent' && (value < 0 || value > 1)) throw new Error(`Liczba "${key}": procent spoza 0–1 (${value})`);
     out.set(key, { key, value, display: formatNumber(value, entry.unit, entry.decimals), entry });

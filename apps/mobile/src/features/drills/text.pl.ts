@@ -33,6 +33,14 @@ export function pct(x: number, decimals = 0): string {
 }
 
 export const t = {
+  range: {
+    fold: 'Pas',
+    right: (f: number) => `Tak. Solver gra tak w ${pct(f)} przypadków.`,
+    wrong: (f: number) => (f > 0 ? `Solver gra tak tylko w ${pct(f)} przypadków.` : 'Solver nigdy tak nie gra z tą ręką.'),
+    explanation: (hc: string, freqs: { name: string; f: number }[], mixed: boolean) =>
+      `${hc}: ${freqs.filter((x) => x.f >= 0.005).map((x) => `${x.name.toLowerCase()} ${pct(x.f)}`).join(', ')}.` +
+      (mixed ? ' To ręka graniczna: solver miesza akcje, więc każda często grana odpowiedź jest dobra.' : ''),
+  },
   whoWins: {
     prompt: 'Kto wygrywa to rozdanie?',
     hero: 'Ty',

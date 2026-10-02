@@ -28,3 +28,11 @@ pf.rfi.btn.low: { value: 0.40, unit: percent, source: "GTO Wizard, BeyondGTO, Fr
 pf.rfi.btn.high: { value: 0.48, unit: percent, source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08)" }
 pf.open-size: { value: 2.5, unit: bb, decimals: 1, source: "standard uproszczony: FreeBetRange, PokerCoaching (dokument 08)" }
 pf.open-size-sb: { value: 3, unit: bb, source: "standard uproszczony: FreeBetRange, PokerCoaching (dokument 08)" }
+
+# Wyniki własnego solvera preflop (ADR-20). Liczone przy budowie treści z content/ranges/preflop-6max-100bb.json.
+solver.rfi.utg: { formula: rangePlay, spot: rfi.utg, unit: percent, source: "solver preflop projektu (ADR-20), walidacja w tools/preflop-solver/REPORT.md" }
+solver.rfi.hj: { formula: rangePlay, spot: rfi.hj, unit: percent, source: "solver preflop projektu (ADR-20)" }
+solver.rfi.co: { formula: rangePlay, spot: rfi.co, unit: percent, source: "solver preflop projektu (ADR-20)" }
+solver.rfi.btn: { formula: rangePlay, spot: rfi.btn, unit: percent, source: "solver preflop projektu (ADR-20)" }
+solver.rfi.sb: { formula: rangePlay, spot: rfi.sb, unit: percent, source: "solver preflop projektu (ADR-20)" }
+format.stack: { value: 100, unit: bb, source: "format główny aplikacji: cash 6-max (ADR-01)" }

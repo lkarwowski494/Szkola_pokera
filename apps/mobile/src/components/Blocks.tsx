@@ -2,7 +2,10 @@ import type { Block, Inline } from '@szkola/content-schema';
 import { Fragment } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { radius, space, type as tp, useTokens } from '@/theme/tokens';
+import { useSQLiteContext } from 'expo-sqlite';
+import { getRangeSpot } from '@/data/content/repo';
 import { CardRow } from './PlayingCard';
+import { RangeGrid } from './RangeGrid';
 
 /** Renderer skompilowanej treści lekcji (ADR-16): drzewo JSON zbudowane offline, bez parsowania na telefonie. */
 
@@ -110,6 +113,8 @@ function BlockView({ block }: { block: Block }) {
           ))}
         </View>
       );
+    case 'range':
+      return <RangeBlock id={block.spot} />;
     case 'formula':
       return (
         <View style={[styles.formula, { borderColor: tk.felt, backgroundColor: tk.surface }]}>
@@ -117,6 +122,12 @@ function BlockView({ block }: { block: Block }) {
         </View>
       );
   }
+}
+
+function RangeBlock({ id }: { id: string }) {
+  const db = useSQLiteContext();
+  const spot = getRangeSpot(db, id);
+  return spot ? <RangeGrid spot={spot} /> : null;
 }
 
 export function Blocks({ blocks }: { blocks: Block[] }) {

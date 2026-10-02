@@ -58,3 +58,17 @@ describe('silnik zadań', () => {
     expect(new Set(session.map((s) => s.key)).size).toBe(6);
   });
 });
+
+describe('zadania z zakresów solvera', () => {
+  it('ręka graniczna akceptuje każdą często graną akcję, wyraźna tylko jedną', () => {
+    const freqs = Array.from({ length: 169 }, (_, i) => (i === 0 ? 1 : i === 1 ? 0.5 : 0));
+    const ctx = { range: () => ({ id: 's', title: 'Test', hero: 'BTN', path: '', playPercent: 0.1, groups: [{ name: 'Przebicie', freqs }] }) };
+    const drill: Drill = { kind: 'generated', id: 'r', family: 'r', rules: [], generator: 'rangeDecision', params: { spots: 's' }, count: 40 };
+    for (const inst of instantiate(drill, 'l', createRng(9), undefined, ctx)) {
+      const correct = inst.options.filter((o) => o.correct).map((o) => o.text);
+      expect(correct.length).toBeGreaterThanOrEqual(1);
+      expect(inst.table?.hand).toHaveLength(2);
+      expect(inst.explanation).toContain('%');
+    }
+  });
+});

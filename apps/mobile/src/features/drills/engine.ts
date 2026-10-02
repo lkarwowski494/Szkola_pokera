@@ -1,6 +1,9 @@
 import type { ChoiceDrill, Drill, GeneratedDrill } from '@szkola/content-schema';
 import {
   cardsToString,
+  classCombos,
+  combosCount,
+  HAND_CLASSES,
   generateBestHand,
   generateDrawCall,
   generateOuts,
@@ -12,17 +15,25 @@ import {
   type DrawKind,
   type Rng,
 } from '@szkola/poker-core';
+import type { RangeSpot } from '@/data/content/repo';
 import { categoryName, pct, t } from './text.pl';
 import type { DrillInstance, DrillOption, Position } from './types';
+
+/** Dane potrzebne generatorom poza samym zadaniem (np. zakresy z solvera). */
+export interface DrillContext {
+  range: (id: string) => RangeSpot | undefined;
+}
+
+const NO_CONTEXT: DrillContext = { range: () => undefined };
 
 /**
  * Zamienia definicję zadania z treści na konkretne zadania do pokazania.
  * Czysta funkcja (rng z zewnątrz), więc łatwa do testowania.
  */
-export function instantiate(drill: Drill, lessonId: string | null, rng: Rng, count?: number): DrillInstance[] {
+export function instantiate(drill: Drill, lessonId: string | null, rng: Rng, count?: number, ctx: DrillContext = NO_CONTEXT): DrillInstance[] {
   if (drill.kind === 'choice') return [fromChoice(drill, lessonId, rng)];
   const n = count ?? drill.count;
-  return Array.from({ length: n }, (_, i) => fromGenerator(drill, lessonId, rng, i));
+  return Array.from({ length: n }, (_, i) => fromGenerator(drill, lessonId, rng, i, ctx));
 }
 
 const split = (s?: string) => (s ? s.split(' ') : undefined);
@@ -53,8 +64,10 @@ function base(d: GeneratedDrill, lessonId: string | null, i: number) {
   return { key: `${d.id}#${i}`, drillId: d.id, family: d.family, lessonId, rules: d.rules };
 }
 
-function fromGenerator(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number): DrillInstance {
+function fromGenerator(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number, ctx: DrillContext): DrillInstance {
   switch (d.generator) {
+    case 'rangeDecision':
+      return rangeDecision(d, lessonId, rng, i, ctx);
     case 'whoWins':
     case 'whoWinsKicker':
       return whoWins(d, lessonId, rng, i, d.generator === 'whoWinsKicker');
@@ -178,5 +191,42 @@ function drawCall(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: numbe
       { text: t.drawCall.fold, correct: s.correct === 'fold', why: s.correct === 'fold' ? t.drawCall.right : t.drawCall.wrong },
     ],
     explanation: t.drawCall.explanation(s.outs, s.hitToRiver, s.required),
+  };
+}
+
+/** Próg, poniżej którego akcja z solvera uznawana jest za „rzadką” w ręce mieszanej. */
+const MIXED_MIN = 0.25;
+
+/**
+ * Zadanie z zakresu solvera: losowa ręka w danym spocie, częściej ręce graniczne.
+ * Poprawna jest akcja najczęstsza; w rękach mieszanych także każda akcja grana w co najmniej 25% przypadków.
+ */
+function rangeDecision(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number, ctx: DrillContext): DrillInstance {
+  const ids = String(d.params.spots ?? '').split(',').map((x) => x.trim()).filter(Boolean);
+  const spot = ctx.range(ids[Math.floor(rng() * ids.length)]!);
+  if (!spot) throw new Error(`Brak zakresu dla zadania ${d.id}`);
+  const play = (h: number) => spot.groups.reduce((s, g) => s + (g.freqs[h] ?? 0), 0);
+  // losowanie klasy: wagi = kombinacje × (0,25 + 4·p·(1−p)), więc ręce graniczne pojawiają się częściej
+  const weights = HAND_CLASSES.map((hc, h) => combosCount(hc) * (0.25 + 4 * play(h) * (1 - play(h))));
+  const total = weights.reduce((a, b) => a + b, 0);
+  let x = rng() * total;
+  let h = 0;
+  while (h < 168 && x >= weights[h]!) x -= weights[h++]!;
+  const hc = HAND_CLASSES[h]!;
+  const combos = classCombos(hc);
+  const [c1, c2] = combos[Math.floor(rng() * combos.length)]!;
+  const freqs = [...spot.groups.map((g) => ({ name: g.name, f: g.freqs[h] ?? 0 })), { name: t.range.fold, f: Math.max(0, 1 - play(h)) }];
+  const best = Math.max(...freqs.map((f) => f.f));
+  const mixed = best < 0.75;
+  const options: DrillOption[] = freqs.map((f) => {
+    const correct = f.f === best || (mixed && f.f >= MIXED_MIN);
+    return { text: f.name, correct, why: correct ? t.range.right(f.f) : t.range.wrong(f.f) };
+  });
+  return {
+    ...base(d, lessonId, i),
+    prompt: spot.title,
+    table: { hand: toStrings([c1, c2]), position: spot.hero as Position },
+    options,
+    explanation: t.range.explanation(hc, freqs, mixed),
   };
 }

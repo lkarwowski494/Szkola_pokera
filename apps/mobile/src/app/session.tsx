@@ -9,7 +9,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { RichText } from '@/components/RichText';
 import { TableFelt } from '@/components/TableFelt';
 import { Button, Muted, ProgressBar, Screen, Title } from '@/components/ui';
-import { getDrillsForFamilies, getLessonDrills } from '@/data/content/repo';
+import { getAllRangeSpots, getDrillsForFamilies, getLessonDrills } from '@/data/content/repo';
 import { userDb } from '@/data/user/db';
 import { allFamilies, dueFamilies, recordAnswer, saveLessonResult } from '@/data/user/repo';
 import type { DrillInstance } from '@/features/drills/types';
@@ -31,13 +31,15 @@ export default function SessionScreen() {
 
   const build = useCallback((): DrillInstance[] => {
     const rng = createRng(Date.now() & 0x7fffffff);
-    if (mode === 'lesson' && lessonId) return buildLessonSession(getLessonDrills(db, lessonId), rng);
+    const ranges = getAllRangeSpots(db);
+    const ctx = { range: (id: string) => ranges.get(id) };
+    if (mode === 'lesson' && lessonId) return buildLessonSession(getLessonDrills(db, lessonId), rng, ctx);
     if (mode === 'review') {
       const families = dueFamilies(userDb).slice(0, 8).map((c) => c.familyId);
-      return buildFamilySession(getDrillsForFamilies(db, families), families, rng, 2);
+      return buildFamilySession(getDrillsForFamilies(db, families), families, rng, 2, ctx);
     }
     const known = allFamilies(userDb);
-    return buildSpeedSession(getDrillsForFamilies(db, known), known, rng, 10);
+    return buildSpeedSession(getDrillsForFamilies(db, known), known, rng, 10, ctx);
   }, [db, mode, lessonId]);
 
   const [items, setItems] = useState<DrillInstance[]>(build);

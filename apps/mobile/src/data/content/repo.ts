@@ -121,3 +121,28 @@ export function getFamilyLabels(db: SQLiteDatabase): Map<string, string> {
   for (const r of rows) if (!out.has(r.family)) out.set(r.family, r.title);
   return out;
 }
+
+export interface RangeSpot {
+  id: string;
+  title: string;
+  hero: string;
+  path: string;
+  playPercent: number;
+  groups: { name: string; freqs: number[] }[];
+}
+
+export function getRangeSpot(db: SQLiteDatabase, id: string): RangeSpot | null {
+  const r = db.getFirstSync<{ id: string; title: string; hero: string; path: string; play_percent: number; groups: string }>(
+    'SELECT id, title, hero, path, play_percent, groups FROM ranges WHERE id = ?',
+    id,
+  );
+  if (!r) return null;
+  return { id: r.id, title: r.title, hero: r.hero, path: r.path, playPercent: r.play_percent, groups: JSON.parse(r.groups) };
+}
+
+export function getAllRangeSpots(db: SQLiteDatabase): Map<string, RangeSpot> {
+  const rows = db.getAllSync<{ id: string; title: string; hero: string; path: string; play_percent: number; groups: string }>(
+    'SELECT id, title, hero, path, play_percent, groups FROM ranges',
+  );
+  return new Map(rows.map((r) => [r.id, { id: r.id, title: r.title, hero: r.hero, path: r.path, playPercent: r.play_percent, groups: JSON.parse(r.groups) }]));
+}
