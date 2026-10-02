@@ -1,5 +1,6 @@
 import { compatMatrix, N, PRIOR, rake, shareMatrix, type EqrParams, type EquityData } from './model';
 import { PostflopModel, type FlopData } from './postflop';
+import { StreetModel, type StreetData } from './streets';
 import { threeWayJoint, threeWayShareTables, threeWayValue, type ThreeWayData } from './threeway';
 import { N_PLAYERS, type DecisionNode, type Node, type ShowdownTerminal } from './tree';
 
@@ -67,7 +68,7 @@ export class PreflopSolver {
   /** Diagnostyka: false = w najlepszej odpowiedzi gra po flopie zostaje na strategii uśrednionej (wykorzystywalność samego preflopu). */
   postflopBestResponse = true;
   /** Gra po flopie (wersja 3): terminal preflop → indeks puli w modelu. */
-  readonly postflop: PostflopModel | null;
+  readonly postflop: PostflopModel | StreetModel | null;
   private postflopIndex = new Map<number, number>();
 
   constructor(
@@ -76,7 +77,7 @@ export class PreflopSolver {
     readonly eqr: EqrParams,
     readonly dcfr: DcfrParams = DEFAULT_DCFR,
     private readonly threeWay: ThreeWayData | null = null,
-    flops: FlopData | null = null,
+    flops: FlopData | StreetData | null = null,
     /** Minimalna liczba podbić, od której pula heads-up jest rozgrywana grą po flopie (2 = pule 3-betowane i wyżej). */
     postflopMinRaises = 2,
     /** Maksymalna liczba podbić dla gry po flopie (wyżej: model EQR). */
@@ -84,7 +85,11 @@ export class PreflopSolver {
   ) {
     this.root = tree.root;
     this.nodes = tree.nodes;
-    this.postflop = flops ? new PostflopModel(flops, eqr, equity.equity, compatMatrix(equity.pairs)) : null;
+    this.postflop = !flops
+      ? null
+      : 'kind' in flops && flops.kind === 'streets'
+        ? new StreetModel(flops, eqr, equity.equity, compatMatrix(equity.pairs))
+        : new PostflopModel(flops as FlopData, eqr, equity.equity, compatMatrix(equity.pairs));
     if (this.postflop && process.env.SZKP_REGRET_WEIGHT === 'reach') this.postflop.regretWeight = 'reach';
     this.compat = compatMatrix(equity.pairs);
     this.equityM = equity.equity;
