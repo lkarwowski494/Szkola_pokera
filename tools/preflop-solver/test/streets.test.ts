@@ -44,7 +44,7 @@ describe('plansze trzech ulic', () => {
     for (const lv of [1, 2] as const) {
       const per = lv === 1 ? data.T : data.R;
       data.levels[lv].slice(0, 6).forEach((b, k) => {
-        const parent = data.levels[lv - 1][Math.floor(k / per)]!;
+        const parent = data.levels[lv - 1]![Math.floor(k / per)]!;
         for (let a = 0; a < B; a++) {
           if (parent.nBucket[a] === 0) continue;
           let s = 0;
