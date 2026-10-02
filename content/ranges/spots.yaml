@@ -1,7 +1,8 @@
 # Nazwane spoty zakresów do lekcji i zadań. Liczby pochodzą wyłącznie z preflop-6max-100bb.json (solver, ADR-20).
 # path = ścieżka akcji w drzewie solvera; groups = akcje pokazywane w siatce (reszta to pas).
-# Tylko spoty, które przeszły walidację (meta.summary w preflop-6max-100bb.json, dokument 10 na Drive). Gra wobec 3-betu wróci po poprawie modelu;
-# BB vs UTG i pule z dołączeniem BB czekają na cele walidacyjne z researchu.
+# Tylko spoty, które przeszły walidację (meta.summary w preflop-6max-100bb.json, dokument 10 na Drive). Gra wobec 3-betu wróci po poprawie modelu.
+# CO vs UTG: częstość 3-betu zgodna od wersji 2 solvera, ale skład zakresu (liniowy, bez blefów, z wąskim sprawdzaniem)
+# odbiega od publicznych solverów — czeka na decyzję. BB vs UTG i pule z dołączeniem BB czekają na cele walidacyjne.
 
 - id: rfi.utg
   title: "UTG, nikt jeszcze nie wszedł do gry"
@@ -29,11 +30,6 @@
   path: "UTG:fold,HJ:fold,CO:fold,BTN:fold"
   groups: { "Przebicie do 3bb": ["raise 3"] }
 
-- id: vs-open.co-vs-utg
-  title: "CO, UTG otworzył do 2,5bb, HJ spasował"
-  hero: CO
-  path: "UTG:raise2.5,HJ:fold"
-  groups: { "3-bet do 7,5bb": ["raise 7.5"], "Sprawdzenie": ["call 2.5"] }
 - id: vs-open.btn-vs-co
   title: "Button, CO otworzył do 2,5bb"
   hero: BTN
