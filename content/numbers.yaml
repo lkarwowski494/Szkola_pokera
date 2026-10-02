@@ -1,0 +1,30 @@
+# Jedno źródło prawdy dla liczb w treści (NFR-09). Tekst lekcji odwołuje się do nich przez {{n:klucz}}.
+# Wartości z formułą liczy poker-core przy budowie, więc tekst i obliczenia nie mogą się rozjechać.
+
+combos.total: { value: 1326, unit: count, source: "kombinatoryka: C(52,2)" }
+combos.pair: { value: 6, unit: count, source: "kombinatoryka: C(4,2)" }
+combos.suited: { value: 4, unit: count, source: "kombinatoryka: 4 kolory" }
+combos.offsuit: { value: 12, unit: count, source: "kombinatoryka: 4×3" }
+
+odds.flush.flop-river: { formula: hitProbability, args: [9, 47, 2], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
+odds.flush.turn-river: { formula: hitProbability, args: [9, 46, 1], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
+odds.oesd.flop-river: { formula: hitProbability, args: [8, 47, 2], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
+odds.oesd.turn-river: { formula: hitProbability, args: [8, 46, 1], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
+odds.gutshot.flop-river: { formula: hitProbability, args: [4, 47, 2], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
+odds.gutshot.turn-river: { formula: hitProbability, args: [4, 46, 1], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
+odds.flush.rule-turn: { formula: ruleOf2And4, args: [9, 1], unit: percent, source: "reguła 2 i 4" }
+odds.gutshot.rule-flop: { formula: ruleOf2And4, args: [4, 2], unit: percent, source: "reguła 2 i 4" }
+odds.gutshot.rule-turn: { formula: ruleOf2And4, args: [4, 1], unit: percent, source: "reguła 2 i 4" }
+
+eq.bet-pot: { formula: requiredEquity, args: [100, 100], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
+eq.bet-half: { formula: requiredEquity, args: [100, 50], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
+eq.bet-quarter: { formula: requiredEquity, args: [100, 25], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
+eq.bet-third: { formula: requiredEquity, args: [90, 30], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
+
+pf.aa-vs-kk: { value: 0.8195, unit: percent, source: "obliczenie dokładne, średnia po kombinacjach kolorów (dokument 08)" }
+pf.rfi.utg.low: { value: 0.15, unit: percent, source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08)" }
+pf.rfi.utg.high: { value: 0.18, unit: percent, source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08)" }
+pf.rfi.btn.low: { value: 0.40, unit: percent, source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08)" }
+pf.rfi.btn.high: { value: 0.48, unit: percent, source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08)" }
+pf.open-size: { value: 2.5, unit: bb, decimals: 1, source: "standard uproszczony: FreeBetRange, PokerCoaching (dokument 08)" }
+pf.open-size-sb: { value: 3, unit: bb, source: "standard uproszczony: FreeBetRange, PokerCoaching (dokument 08)" }

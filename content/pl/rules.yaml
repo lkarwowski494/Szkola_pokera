@@ -1,0 +1,118 @@
+# Reguły odruchowe „Jeśli X, to Y, bo Z”. Poziom: rules (zasady gry), math, gto, heuristic, exploit.
+# Reguła eksploatacyjna musi podać populację źródłową (walidacja w content-build).
+
+- id: R-M0-001
+  module: m0
+  if: "dwóch graczy ma różne układy"
+  then: "wygrywa układ wyżej w rankingu, niezależnie od wysokości kart"
+  because: "ranking układów rozstrzyga przed wysokością kart; kolor zawsze bije strita, full zawsze bije kolor"
+  level: rules
+  source: "zasady Texas Hold'em"
+- id: R-M0-002
+  module: m0
+  if: "obaj gracze mają tę samą parę"
+  then: "wygrywa wyższy kicker, o ile mieści się w najlepszych 5 kartach; inaczej pula jest dzielona"
+  because: "liczy się tylko najlepsza piątka z 7 kart"
+  level: rules
+  source: "zasady Texas Hold'em"
+- id: R-M0-003
+  module: m0
+  if: "najlepsze 5 kart obu graczy leży na stole"
+  then: "pula jest dzielona"
+  because: "obaj grają tę samą piątkę („gra stół”)"
+  level: rules
+  source: "zasady Texas Hold'em"
+
+- id: R-M1-001
+  module: m1
+  if: "nikt przed tobą nie postawił w tej rundzie"
+  then: "możesz czekać (check) albo postawić (bet)"
+  because: "sprawdzić i przebić można tylko istniejący zakład"
+  level: rules
+  source: "zasady Texas Hold'em"
+- id: R-M1-002
+  module: m1
+  if: "możesz czekać za darmo"
+  then: "nigdy nie pasujesz"
+  because: "pas oddaje pulę bez żadnej korzyści, a czekanie nic nie kosztuje"
+  level: rules
+  source: "zasady Texas Hold'em"
+- id: R-M1-003
+  module: m1
+  if: "ktoś postawił, a nie chcesz grać dalej"
+  then: "pasujesz"
+  because: "tracisz tylko to, co już wpłaciłeś; każde sprawdzenie bez powodu to dodatkowa strata"
+  level: rules
+  source: "zasady Texas Hold'em"
+
+- id: R-M2-001
+  module: m2
+  if: "na flopie masz 4 karty do koloru"
+  then: "masz 9 outów i ok. {{n:odds.flush.flop-river}} szans na kolor do rivera"
+  because: "w kolorze jest 13 kart, 4 widzisz; dwie karty przed tobą"
+  level: math
+  source: "obliczenie dokładne"
+- id: R-M2-002
+  module: m2
+  if: "masz policzone outy"
+  then: "szacujesz szansę: outy × 2 przy jednej karcie, outy × 4 przy dwóch"
+  because: "reguła 2 i 4 myli się o ok. 2 punkty procentowe przy maks. 10 outach"
+  level: math
+  source: "Upswing, outy i szanse (dokument 08)"
+- id: R-M2-003
+  module: m2
+  if: "przeciwnik betuje pół puli"
+  then: "do sprawdzenia potrzebujesz {{n:eq.bet-half}} equity"
+  because: "płacisz 1 część, żeby wygrać pulę 3 części razem z twoim sprawdzeniem"
+  level: math
+  source: "obliczenie: bet/(pula+2·bet)"
+- id: R-M2-004
+  module: m2
+  if: "przeciwnik betuje całą pulę"
+  then: "do sprawdzenia potrzebujesz {{n:eq.bet-pot}} equity"
+  because: "płacisz 1 część, żeby wygrać 3"
+  level: math
+  source: "obliczenie: bet/(pula+2·bet)"
+- id: R-M2-005
+  module: m2
+  if: "twoja szansa jest mniejsza niż potrzebne equity"
+  then: "pasujesz (bez dodatkowych argumentów, np. implied odds)"
+  because: "każde takie sprawdzenie traci pieniądze w długim terminie"
+  level: math
+  source: "obliczenie EV: equity × pula − koszt"
+
+- id: R-M3-001
+  module: m3
+  if: "jesteś na Buttonie"
+  then: "grasz najszerzej, bo od flopu mówisz ostatni"
+  because: "znasz decyzje wszystkich rywali przed swoją"
+  level: gto
+  source: "GTO Wizard, morfologia zakresów (dokument 08)"
+- id: R-M3-002
+  module: m3
+  if: "wszyscy spasowali do ciebie na UTG"
+  then: "otwierasz ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk, na {{n:pf.open-size}}"
+  because: "za tobą jest jeszcze pięciu graczy, więc ktoś częściej ma lepszą rękę"
+  level: gto
+  source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08)"
+- id: R-M3-003
+  module: m3
+  if: "wszyscy spasowali do ciebie na Buttonie"
+  then: "otwierasz ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk, na {{n:pf.open-size}}"
+  because: "zostały tylko blindy, a po flopie będziesz mieć pozycję"
+  level: gto
+  source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08)"
+- id: R-M3-004
+  module: m3
+  if: "wchodzisz do rozdania jako pierwszy"
+  then: "przebijasz albo pasujesz, nie dopłacasz samego blinda (limp)"
+  because: "przebicie może od razu wygrać blindy i daje inicjatywę; limp oddaje obie te rzeczy"
+  level: heuristic
+  source: "Upswing, mikrostawki; zakresy bez limpów (dokument 08)"
+- id: R-M3-005
+  module: m3
+  if: "możesz wybrać między tymi samymi kartami w jednym kolorze i w różnych"
+  then: "ręka w jednym kolorze (suited) jest silniejsza"
+  because: "daje dodatkową drogę do wygranej przez kolor"
+  level: math
+  source: "obliczenie equity"
