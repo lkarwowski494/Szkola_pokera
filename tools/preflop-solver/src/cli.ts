@@ -50,6 +50,8 @@ const eqr: EqrParams = {
   rakeCap: Number(arg('cap', String(DEFAULT_EQR.rakeCap))),
   role: Number(arg('role', '0')),
   ...(args.includes('--role3') ? { role3: Number(arg('role3', '0')) } : {}),
+  ...(args.includes('--role4') ? { role4: Number(arg('role4', '0')) } : {}),
+  ...(args.includes('--spr-full') ? { sprFull: Number(arg('spr-full', '8')) } : {}),
 };
 
 if (args.includes('--calibrate')) {
@@ -58,19 +60,23 @@ if (args.includes('--calibrate')) {
   const ms = arg('ms', '0.04,0.08,0.12').split(',').map(Number);
   const roles = arg('roles', String(eqr.role ?? 0)).split(',').map(Number);
   const role3s = args.includes('--role3s') ? arg('role3s', '0').split(',').map(Number) : [undefined];
-  console.log('k\tm\trole\trole3\tBTN RFI\tBB obrona vs BTN\tCO 3-bet vs UTG\tpas vs 3-bet');
+  const sprFulls = args.includes('--spr-fulls') ? arg('spr-fulls', '8').split(',').map(Number) : [eqr.sprFull];
+  console.log('sprFull\tk\tm\trole\trole3\tBTN RFI\tBB obrona vs BTN\tCO 3-bet vs UTG\tpas vs 3-bet\t| UTG\tHJ\tCO\tSB\tBB 3b vs BTN\tBB 3b vs SB\tSB 3b vs BTN\tBTN 3b vs CO\t4-bet vs 3b\tNashConv');
+  for (const sprFull of sprFulls)
   for (const role3 of role3s)
   for (const role of roles)
     for (const k of ks)
       for (const m of ms) {
-        const s = solve({ ...eqr, k, m, role, ...(role3 === undefined ? {} : { role3 }) }, iters, false);
+        const s = solve({ ...eqr, k, m, role, ...(role3 === undefined ? {} : { role3 }), ...(sprFull === undefined ? {} : { sprFull }) }, iters, false);
         const sum = summarize(s);
         const f = (name: string) => sum.spots.find((x) => x.name === name)!.freqs;
         const bb = f('BB vs BTN');
         const co = f('CO vs UTG');
         const v3 = f('CO vs 3-bet BTN');
         const raise = (x: Record<string, number>) => Object.entries(x).filter(([a]) => a.startsWith('raise')).reduce((t, [, v]) => t + v, 0);
-        console.log(`${k}\t${m}\t${role}\t${role3 ?? '-'}\t${(sum.rfi.BTN! * 100).toFixed(1)}\t${((1 - (bb.fold ?? 0)) * 100).toFixed(1)}\t${(raise(co) * 100).toFixed(1)}\t${((v3.fold ?? 0) * 100).toFixed(1)}`);
+        const p1 = (x: number) => (x * 100).toFixed(1);
+        const extra = [sum.rfi.UTG!, sum.rfi.HJ!, sum.rfi.CO!, sum.rfi.SB!, raise(bb), raise(f('BB vs SB')), raise(f('SB vs BTN')), raise(f('BTN vs CO')), raise(v3)].map(p1).join('\t');
+        console.log(`${sprFull ?? 8}\t${k}\t${m}\t${role}\t${role3 ?? '-'}\t${p1(sum.rfi.BTN!)}\t${p1(1 - (bb.fold ?? 0))}\t${p1(raise(co))}\t${p1(v3.fold ?? 0)}\t| ${extra}\t${s.exploitability().nashConv.toFixed(4)}`);
       }
 } else {
   const iterations = Number(arg('iterations', '600'));

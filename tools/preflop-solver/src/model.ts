@@ -32,7 +32,7 @@ export const PRIOR = Float64Array.from(COMBOS, (c) => c / 1326);
 export interface EqrParams {
   /** Siła wpływu grywalności ręki (0 = brak, 1 = wagi jak w tabeli). */
   k: number;
-  /** Przewaga pozycji: IP 1+m, OOP 1−m przy SPR ≥ 8. */
+  /** Przewaga pozycji: IP 1+m, OOP 1−m przy SPR ≥ sprFull (domyślnie 8). */
   m: number;
   /** Rake: odsetek puli i limit w bb; pobierany tylko, gdy jest flop. */
   rakeRate: number;
@@ -41,6 +41,10 @@ export interface EqrParams {
   role?: number;
   /** Wariant (raport 10): jak `role`, ale tylko w pulach 3-betowanych i wyżej (pule z jednym podbiciem bez zmian). Domyślnie = role. */
   role3?: number;
+  /** SPR, od którego przewaga pozycji i grywalności działa w pełni (niżej maleje liniowo do czystego equity). Domyślnie 8 (założenie bez źródła, raport 10). */
+  sprFull?: number;
+  /** Wariant: czynnik roli w pulach 4-betowanych i wyżej. Domyślnie = role3. */
+  role4?: number;
 }
 
 export const DEFAULT_EQR: EqrParams = { k: 1, m: 0.08, rakeRate: 0.05, rakeCap: 3, role: 0 };
@@ -76,7 +80,8 @@ export function playabilityWeight(hc: string): number {
  * Przy SPR → 0 (all-in) wraca do czystego equity.
  */
 export function shareMatrix(eq: number[][], p: EqrParams, spr: number, aggressorIsOop: boolean | null = null): Float64Array {
-  const f = Math.min(spr, 8) / 8;
+  const full = p.sprFull ?? 8;
+  const f = Math.min(spr, full) / full;
   const r = (p.role ?? 0) * f;
   const fo = (1 - p.m * f) * (aggressorIsOop === null ? 1 : aggressorIsOop ? 1 + r : 1 - r);
   const fi = (1 + p.m * f) * (aggressorIsOop === null ? 1 : aggressorIsOop ? 1 - r : 1 + r);

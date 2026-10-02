@@ -82,7 +82,8 @@ export class PreflopSolver {
         const spr = n.remaining <= 0 ? 0 : n.remaining / n.pot;
         const aggOop = n.aggressor === n.oop;
         const raises = (n.path.match(/:(raise|allin)/g) ?? []).length;
-        const role = raises >= 2 ? (eqr.role3 ?? eqr.role ?? 0) : (eqr.role ?? 0);
+        const role3 = eqr.role3 ?? eqr.role ?? 0;
+        const role = raises >= 3 ? (eqr.role4 ?? role3) : raises === 2 ? role3 : (eqr.role ?? 0);
         const key = `${spr.toFixed(4)}|${aggOop}|${role}`;
         let mats = shareCache.get(key);
         if (!mats) {
@@ -103,7 +104,7 @@ export class PreflopSolver {
         if (!this.threeWay) throw new Error('Drzewo zawiera pule trzyosobowe, a nie wczytano tablicy equity3');
         const spr = n.remaining <= 0 ? 0 : n.remaining / n.pot;
         const aggRole = n.players.indexOf(n.aggressor);
-        const key = `${Math.min(spr, 8).toFixed(4)}|${aggRole}`;
+        const key = `${Math.min(spr, eqr.sprFull ?? 8).toFixed(4)}|${aggRole}`;
         if (!this.threeWayTables.has(key)) this.threeWayTables.set(key, threeWayShareTables(this.threeWay, eqr, spr, aggRole));
       }
     }
@@ -154,7 +155,7 @@ export class PreflopSolver {
       }
       const others = node.players.filter((q) => q !== p).map((q) => reach[q]!) as [Float64Array, Float64Array];
       const spr = node.remaining <= 0 ? 0 : node.remaining / node.pot;
-      const tables = this.threeWayTables.get(`${Math.min(spr, 8).toFixed(4)}|${node.players.indexOf(node.aggressor)}`)!;
+      const tables = this.threeWayTables.get(`${Math.min(spr, this.eqr.sprFull ?? 8).toFixed(4)}|${node.players.indexOf(node.aggressor)}`)!;
       threeWayValue(d, tables[role]!, others, node.pot - rake(node.pot, this.eqr), node.invested[p]!, out);
       for (let h = 0; h < N; h++) out[h] = out[h]! * mass;
       return out;

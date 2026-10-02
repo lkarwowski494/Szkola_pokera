@@ -20,4 +20,4 @@ Na 2 rdzeniach krok 3 trwa ok. 13 minut, kalibracja ok. 8 minut na punkt siatki.
 
 Parametry, liczba iteracji, NashConv i metryki walidacyjne (`summary`) są zapisane w polu `meta` pliku wynikowego.
 
-Warianty modelu (nie kanon, tylko do pomiarów): `--role 0.2` (premia dla ostatniego podbijającego we wszystkich pulach), `--role3 0.3` (to samo tylko w pulach 3-betowanych), w kalibracji `--roles` i `--role3s`.
+Warianty modelu (nie kanon, tylko do pomiarów; żaden nie przeszedł walidacji, wyniki w dokumencie 10): `--role 0.2` (premia dla ostatniego podbijającego we wszystkich pulach), `--role3 0.3` (to samo w pulach 3-betowanych i wyżej), `--role4 0` (osobna wartość dla pul 4-betowanych), `--spr-full 4` (SPR, od którego przewaga pozycji działa w pełni; kanon 8). W kalibracji: `--roles`, `--role3s`, `--spr-fulls`.

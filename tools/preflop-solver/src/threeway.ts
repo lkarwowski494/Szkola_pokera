@@ -86,7 +86,8 @@ function nonZero(r: Float64Array): number[] {
  * Udział: uogólnienie modelu dwuosobowego, e·waga ręki·czynnik pozycji, znormalizowane do 1.
  */
 export function threeWayShareTables(d: ThreeWayData, eqr: EqrParams, spr: number, aggressorRole = -1): [Float32Array, Float32Array, Float32Array] {
-  const f = Math.min(spr, 8) / 8;
+  const full = eqr.sprFull ?? 8;
+  const f = Math.min(spr, full) / full;
   const r = (eqr.role ?? 0) * f;
   const pos = [1 - eqr.m * f, 1, 1 + eqr.m * f].map((x, i) => (aggressorRole < 0 ? x : x * (i === aggressorRole ? 1 + r : 1 - r)));
   const w = HAND_CLASSES.map((hc) => 1 + eqr.k * (playabilityWeight(hc) - 1) * f);
