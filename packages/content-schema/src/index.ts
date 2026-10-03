@@ -18,8 +18,13 @@ export const NumberEntry = z
     /** Wartość podana wprost (np. z badań). */
     value: z.number().optional(),
     /** Wartość wyliczana przy budowie przez poker-core (np. requiredEquity(100, 50)). */
-    formula: z.enum(['requiredEquity', 'mdf', 'alpha', 'hitProbability', 'ruleOf2And4', 'rangePlay']).optional(),
+    formula: z.enum(['requiredEquity', 'mdf', 'alpha', 'hitProbability', 'ruleOf2And4', 'rangePlay', 'product', 'sum', 'diff']).optional(),
     args: z.array(z.number()).optional(),
+    /**
+     * Klucze innych liczb zamiast wpisanych wartości (jedno źródło prawdy): dla product, sum, diff (pierwsza minus
+     * pozostałe) oraz zamiast args dla requiredEquity, mdf i alpha (pula, zakład).
+     */
+    refs: z.array(z.string()).optional(),
     /** Dla formuły rangePlay: identyfikator spotu z content/ranges/spots.yaml. */
     spot: z.string().optional(),
     unit: NumberUnit,

@@ -163,6 +163,15 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
   for (const m of modules) {
     if (!lessons.some((l) => l.module === m.id) && m.phase === 'mvp') warnings.push(`moduł ${m.id} (MVP) nie ma lekcji`);
   }
+  // liczby użyte pośrednio (przez refs innych liczb) też są w użyciu
+  const stack = [...used];
+  while (stack.length) {
+    const k = stack.pop()!;
+    for (const r of numbers.get(k)?.entry.refs ?? []) if (!used.has(r)) {
+      used.add(r);
+      stack.push(r);
+    }
+  }
   for (const key of numbers.keys()) if (!used.has(key)) warnings.push(`liczba ${key} nie jest nigdzie używana`);
 
   lessons.sort((a, b) => {

@@ -36,3 +36,62 @@ solver.rfi.co: { formula: rangePlay, spot: rfi.co, unit: percent, source: "solve
 solver.rfi.btn: { formula: rangePlay, spot: rfi.btn, unit: percent, source: "solver preflop projektu (ADR-20)" }
 solver.rfi.sb: { formula: rangePlay, spot: rfi.sb, unit: percent, source: "solver preflop projektu (ADR-20)" }
 format.stack: { value: 100, unit: bb, source: "format główny aplikacji: cash 6-max (ADR-01)" }
+
+# M4: gra wobec akcji preflop. Rozmiary i częstości z literatury (heurystyki; solver aplikacji nie przeszedł walidacji
+# w grze wobec 3-betu, dokumenty 10 i 11). Ceny i progi liczone dokładnie z rozmiarów.
+pf.3bet.size-ip: { value: 3, unit: multiplier, source: "Deepfold, The Complete 3-Bet Strategy (100bb); ten sam rozmiar w drzewie solvera aplikacji" }
+pf.3bet.size-oop: { value: 4, unit: multiplier, source: "Deepfold, The Complete 3-Bet Strategy (100bb); ten sam rozmiar w drzewie solvera aplikacji" }
+pf.3bet.ip-total: { formula: product, refs: [pf.open-size, pf.3bet.size-ip], unit: bb, decimals: 1, source: "obliczenie: otwarcie × rozmiar 3-betu w pozycji" }
+pf.3bet.oop-total: { formula: product, refs: [pf.open-size, pf.3bet.size-oop], unit: bb, source: "obliczenie: otwarcie × rozmiar 3-betu bez pozycji" }
+pf.4bet.size-ip.low: { value: 2.2, unit: multiplier, decimals: 1, source: "Deepfold, The Complete 3-Bet Strategy" }
+pf.4bet.size-ip.high: { value: 2.5, unit: multiplier, decimals: 1, source: "Deepfold, The Complete 3-Bet Strategy" }
+pf.4bet.size-oop.low: { value: 2.5, unit: multiplier, decimals: 1, source: "Deepfold, The Complete 3-Bet Strategy" }
+pf.4bet.size-oop.high: { value: 3, unit: multiplier, source: "Deepfold, The Complete 3-Bet Strategy" }
+pf.3bet-freq.btn-vs-co.low: { value: 0.12, unit: percent, source: "GTO Wizard (NL500, 100bb): ok. 12%; Preflop Wizard: 12–16%" }
+pf.3bet-freq.btn-vs-co.high: { value: 0.16, unit: percent, source: "Preflop Wizard, Poker 3-Bet Strategy (2026)" }
+pf.call-freq.btn-vs-co: { value: 0.05, unit: percent, source: "GTO Wizard, Playing Calls From the Button in Cash Games (NL500, 100bb)" }
+pf.3bet-freq.btn-vs-utg: { value: 0.075, unit: percent, decimals: 1, source: "GTO Wizard, Playing Calls From the Button in Cash Games (NL500, 100bb)" }
+pf.call-freq.btn-vs-utg: { value: 0.082, unit: percent, decimals: 1, source: "GTO Wizard, Playing Calls From the Button in Cash Games (NL500, 100bb)" }
+pf.vs3bet.fold.low: { value: 0.50, unit: percent, source: "Deepfold, The Complete 3-Bet Strategy: obrona wobec 3-betu z pozycji (jedno źródło, do potwierdzenia: backlog B-035)" }
+pf.vs3bet.fold.high: { value: 0.55, unit: percent, source: "Deepfold, The Complete 3-Bet Strategy (jedno źródło, do potwierdzenia: backlog B-035)" }
+pf.vs3bet.call.low: { value: 0.30, unit: percent, source: "Deepfold, The Complete 3-Bet Strategy (jedno źródło, do potwierdzenia: backlog B-035)" }
+pf.vs3bet.call.high: { value: 0.40, unit: percent, source: "Deepfold, The Complete 3-Bet Strategy (jedno źródło, do potwierdzenia: backlog B-035)" }
+pf.vs3bet.4bet.low: { value: 0.05, unit: percent, source: "Deepfold, The Complete 3-Bet Strategy (jedno źródło, do potwierdzenia: backlog B-035)" }
+pf.vs3bet.4bet.high: { value: 0.08, unit: percent, source: "Deepfold, The Complete 3-Bet Strategy (jedno źródło, do potwierdzenia: backlog B-035)" }
+pf.blind.sb: { value: 0.5, unit: bb, decimals: 1, source: "zasady: mały blind" }
+pf.blind.bb: { value: 1, unit: bb, source: "zasady: duży blind" }
+bb.call.vs-btn: { formula: diff, refs: [pf.open-size, pf.blind.bb], unit: bb, decimals: 1, source: "obliczenie: dopłata BB do otwarcia" }
+bb.pot-before.vs-btn: { formula: sum, refs: [pf.blind.sb, pf.blind.bb, pf.blind.bb], unit: bb, decimals: 1, source: "obliczenie: pula bez nadwyżki otwarcia (SB, BB i ta część otwarcia, która wyrównuje BB)" }
+bb.pot-after.vs-btn: { formula: sum, refs: [pf.open-size, pf.open-size, pf.blind.sb], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu BB" }
+eq.bb-vs-btn-open: { formula: requiredEquity, refs: [bb.pot-before.vs-btn, bb.call.vs-btn], unit: percent, source: "obliczenie: dopłata / pula po sprawdzeniu" }
+bb.call.vs-sb: { formula: diff, refs: [pf.open-size-sb, pf.blind.bb], unit: bb, source: "obliczenie: dopłata BB do otwarcia SB" }
+bb.pot-before.vs-sb: { formula: sum, refs: [pf.blind.bb, pf.blind.bb], unit: bb, source: "obliczenie: pula bez nadwyżki otwarcia SB" }
+bb.pot-after.vs-sb: { formula: sum, refs: [pf.open-size-sb, pf.open-size-sb], unit: bb, source: "obliczenie: pula po sprawdzeniu BB" }
+eq.bb-vs-sb-open: { formula: requiredEquity, refs: [bb.pot-before.vs-sb, bb.call.vs-sb], unit: percent, source: "obliczenie: dopłata / pula po sprawdzeniu" }
+vs3bet.call: { formula: diff, refs: [pf.3bet.ip-total, pf.open-size], unit: bb, source: "obliczenie: dopłata otwierającego do 3-betu z pozycji" }
+vs3bet.pot-before: { formula: sum, refs: [pf.open-size, pf.open-size, pf.blind.sb, pf.blind.bb], unit: bb, decimals: 1, source: "obliczenie: pula bez nadwyżki 3-betu (blindy spasowały)" }
+vs3bet.pot-after: { formula: sum, refs: [pf.3bet.ip-total, pf.3bet.ip-total, pf.blind.sb, pf.blind.bb], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu 3-betu" }
+vs3bet.win: { formula: sum, refs: [pf.open-size, pf.blind.sb, pf.blind.bb], unit: bb, source: "obliczenie: co wygrywa 3-bet, gdy otwierający spasuje" }
+eq.call-3bet-ip-size: { formula: requiredEquity, refs: [vs3bet.pot-before, vs3bet.call], unit: percent, source: "obliczenie: dopłata / pula po sprawdzeniu" }
+mdf.vs-3bet-ip-size: { formula: mdf, refs: [vs3bet.win, pf.3bet.ip-total], unit: percent, source: "obliczenie: 3-bet ryzykuje cały rozmiar, żeby wygrać otwarcie i blindy; poniżej tej obrony każdy 3-bet zarabia od razu" }
+alpha.vs-3bet-ip-size: { formula: alpha, refs: [vs3bet.win, pf.3bet.ip-total], unit: percent, source: "obliczenie: próg opłacalności 3-betu bez żadnej ręki" }
+pf.iso.base: { value: 3, unit: bb, source: "Upswing, How to Maximize Your Winnings Versus Multiple Limpers (online); Preflop Wizard, ISO Raise Strategy" }
+pf.iso.per-limper: { value: 1, unit: bb, source: "Upswing; Preflop Wizard, ISO Raise Strategy" }
+pf.iso.one-limper: { formula: sum, refs: [pf.iso.base, pf.iso.per-limper], unit: bb, source: "obliczenie: podstawa + 1 limper" }
+pf.iso.two-limpers: { formula: sum, refs: [pf.iso.base, pf.iso.per-limper, pf.iso.per-limper], unit: bb, source: "obliczenie: podstawa + 2 limperzy" }
+pf.iso.oop-extra: { value: 1, unit: bb, source: "Preflop Wizard, ISO Raise Strategy: bez pozycji o 1bb więcej" }
+pf.iso.btn.low: { value: 0.30, unit: percent, source: "Preflop Wizard, ISO Raise Strategy: Button wobec jednego limpera" }
+pf.iso.btn.high: { value: 0.40, unit: percent, source: "Preflop Wizard, ISO Raise Strategy: Button wobec jednego limpera" }
+solver.def.bb-vs-btn: { formula: rangePlay, spot: vs-open.bb-vs-btn, unit: percent, source: "solver preflop projektu (ADR-20): sprawdzenie + 3-bet" }
+solver.def.bb-vs-sb: { formula: rangePlay, spot: vs-open.bb-vs-sb, unit: percent, source: "solver preflop projektu (ADR-20): sprawdzenie + 3-bet" }
+solver.play.btn-vs-co: { formula: rangePlay, spot: vs-open.btn-vs-co, unit: percent, source: "solver preflop projektu (ADR-20): 3-bet + sprawdzenie" }
+solver.play.sb-vs-btn: { formula: rangePlay, spot: vs-open.sb-vs-btn, unit: percent, source: "solver preflop projektu (ADR-20): 3-bet + sprawdzenie" }
+pf.bb-def.gecko.low: { value: 0.45, unit: percent, source: "GTO Gecko, GTO Preflop Strategy: obrona BB wobec Buttona ok. 45–50%" }
+pf.bb-def.gecko.high: { value: 0.50, unit: percent, source: "GTO Gecko, GTO Preflop Strategy" }
+pf.4bet.example.low: { formula: product, refs: [pf.3bet.oop-total, pf.4bet.size-ip.low], unit: bb, source: "obliczenie: 4-bet z pozycją na 3-bet z blindów" }
+pf.4bet.example.high: { formula: product, refs: [pf.3bet.oop-total, pf.4bet.size-ip.high], unit: bb, source: "obliczenie: 4-bet z pozycją na 3-bet z blindów" }
+pf.iso.one-limper-oop: { formula: sum, refs: [pf.iso.base, pf.iso.per-limper, pf.iso.oop-extra], unit: bb, source: "obliczenie: podstawa + 1 limper + dopłata bez pozycji" }
+pf.min-raise: { value: 2, unit: bb, source: "zasady: minimalne przebicie limpowanej puli to podwojenie blinda" }
+pf.3bet.too-small: { value: 5, unit: bb, source: "przykład błędnego rozmiaru: 2 × otwarcie" }
+pf.3bet.too-big: { value: 12.5, unit: bb, decimals: 1, source: "przykład błędnego rozmiaru: 5 × otwarcie" }
+pf.4bet.too-small: { value: 15, unit: bb, source: "przykład błędnego rozmiaru: 1,5 × 3-bet" }

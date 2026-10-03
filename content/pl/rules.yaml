@@ -116,3 +116,103 @@
   because: "daje dodatkową drogę do wygranej przez kolor"
   level: math
   source: "obliczenie equity"
+
+# M4: gra wobec akcji preflop. Reguły „heuristic” pochodzą z literatury, nie z solvera aplikacji (dokument 11).
+- id: R-M4-001
+  module: m4
+  if: "ktoś otworzył, a ty chcesz przebić (3-bet) z pozycją"
+  then: "przebijasz do ok. {{n:pf.3bet.size-ip}} otwarcia, przy otwarciu {{n:pf.open-size}} to {{n:pf.3bet.ip-total}}"
+  because: "taki rozmiar daje dobry stosunek stacka do puli na flopie i nie daje rywalowi taniej ceny"
+  level: heuristic
+  source: "Deepfold, The Complete 3-Bet Strategy; drzewo solvera aplikacji"
+- id: R-M4-002
+  module: m4
+  if: "przebijasz otwarcie (3-bet) bez pozycji, np. z blindów wobec otwarcia z CO albo Buttona"
+  then: "przebijasz do ok. {{n:pf.3bet.size-oop}} otwarcia, przy otwarciu {{n:pf.open-size}} to {{n:pf.3bet.oop-total}}"
+  because: "po flopie będziesz mówić pierwszy, więc większym przebiciem odbierasz rywalowi tanie sprawdzenie z pozycją"
+  level: heuristic
+  source: "Deepfold, The Complete 3-Bet Strategy; drzewo solvera aplikacji"
+- id: R-M4-003
+  module: m4
+  if: "jesteś na małym blindzie, a otworzył CO albo Button"
+  then: "przebijasz albo pasujesz, prawie nigdy nie sprawdzasz"
+  because: "po sprawdzeniu grasz bez pozycji, a duży blind za tobą może jeszcze przebić albo dołączyć tanio"
+  level: gto
+  source: "GTO Gecko, GTO Preflop Strategy; solver aplikacji: sprawdzenia SB wobec Buttona poniżej kilku procent"
+- id: R-M4-004
+  module: m4
+  if: "jesteś na dużym blindzie, Button otworzył na {{n:pf.open-size}}, a mały blind spasował"
+  then: "bronisz szeroko, bo do sprawdzenia potrzebujesz tylko ok. {{n:eq.bb-vs-btn-open}} equity"
+  because: "dopłacasz niewiele do dużej puli; solver aplikacji broni tu {{n:solver.def.bb-vs-btn}} rąk"
+  level: math
+  source: "obliczenie ceny; solver preflop projektu (ADR-20)"
+- id: R-M4-005
+  module: m4
+  if: "z pozycji przebijasz otwarcie z HJ albo CO"
+  then: "3-betujesz głównie najlepsze ręce od góry plus asy w kolorze (zakres liniowy); część słabszych rąk, np. małe pary i łączniki w kolorze, sprawdzasz"
+  because: "rywal często sprawdza, więc chcesz mieć rękę, która dobrze gra w puli po sprawdzeniu"
+  level: gto
+  source: "GTO Gecko, GTO Preflop Strategy; solver aplikacji (Button wobec CO). Preflop Wizard nazywa ten zakres spolaryzowanym"
+- id: R-M4-006
+  module: m4
+  if: "z blindów przebijasz otwarcie z późnej pozycji"
+  then: "3-betujesz ręce najsilniejsze plus część słabszych asów w kolorze (A5s, A4s) jako blef (zakres spolaryzowany)"
+  because: "asy w kolorze blokują AA i AK rywala, a gdy dostaną sprawdzenie, mają szansę na kolor i strita"
+  level: gto
+  source: "GTO Gecko, GTO Preflop Strategy (polaryzacja z blindów); Deepfold, The Complete 3-Bet Strategy (A5s i A4s jako blefy)"
+- id: R-M4-007
+  module: m4
+  if: "dostajesz 3-bet od gracza, który po flopie będzie mieć pozycję"
+  then: "kontynuujesz (sprawdzasz albo 4-betujesz) mniej więcej połową zakresu otwarcia, resztę pasujesz"
+  because: "przy pasowaniu częściej niż {{n:alpha.vs-3bet-ip-size}} rywal zarabia na 3-becie z każdą ręką; Deepfold podaje pas ok. {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}}"
+  level: heuristic
+  source: "Deepfold, The Complete 3-Bet Strategy (jedno źródło, do potwierdzenia); próg z obliczenia"
+- id: R-M4-008
+  module: m4
+  if: "dostajesz 3-bet i po flopie będziesz bez pozycji"
+  then: "sprawdzasz tylko wysokimi kartami w kolorze, mocnymi asami w kolorze oraz średnimi i wysokimi parami; słabsze ręce w różnych kolorach (KJo, ATo, QTo) pasujesz"
+  because: "ręce w różnych kolorach są często zdominowane i źle realizują equity bez pozycji"
+  level: heuristic
+  source: "PokerCoaching, 3-bet calling ranges; Deepfold, The Complete 3-Bet Strategy"
+- id: R-M4-009
+  module: m4
+  if: "dostajesz 3-bet i po flopie będziesz mieć pozycję"
+  then: "sprawdzasz szerzej: pary od 66 do TT, ręce w kolorze z wysokimi kartami i łączniki w kolorze; najniższe pary pasujesz"
+  because: "z pozycją łatwiej zrealizować equity i wygrać dużą pulę, gdy trafisz"
+  level: heuristic
+  source: "Upswing, vs 3-bet in and out of position; Deepfold (najniższe pary pas). PokerCoaching dopuszcza sprawdzanie małych par z pozycją"
+- id: R-M4-010
+  module: m4
+  if: "dostajesz 3-bet z AA, KK albo AK"
+  then: "4-betujesz (dla wartości)"
+  because: "te ręce chcą wpłacić cały stack i dominują większość rąk, które sprawdzą 4-bet"
+  level: heuristic
+  source: "Upswing, vs 3-bet in and out of position; Deepfold, The Complete 3-Bet Strategy"
+- id: R-M4-011
+  module: m4
+  if: "4-betujesz"
+  then: "przebijasz do ok. {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}} 3-betu z pozycją i {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} bez pozycji"
+  because: "po sprawdzeniu takiego 4-betu w stackach zostaje ok. 1,5–2 razy tyle, ile jest w puli, więc dobre ręce łatwo wpłacą resztę"
+  level: heuristic
+  source: "Deepfold, The Complete 3-Bet Strategy"
+- id: R-M4-012
+  module: m4
+  if: "przed tobą jeden albo kilku graczy tylko wyrównało duży blind (limp)"
+  then: "przebijasz do {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} za każdego limpera, bez pozycji o {{n:pf.iso.oop-extra}} więcej"
+  because: "mniejsze przebicie daje limperom zbyt dobrą cenę i nie odbiera im rozdania"
+  level: heuristic
+  source: "Upswing, How to Maximize Your Winnings Versus Multiple Limpers; Preflop Wizard, ISO Raise Strategy"
+- id: R-M4-013
+  module: m4
+  if: "przed tobą limpuje więcej graczy"
+  then: "przebijasz węższym zakresem, głównie dla wartości; ręce spekulacyjne (małe pary, łączniki w kolorze) z pozycją raczej dopłacasz"
+  because: "każdy kolejny limper zwiększa szansę, że ktoś sprawdzi, więc blef preflop traci wartość"
+  level: heuristic
+  source: "Upswing, Versus Multiple Limpers; Preflop Wizard, ISO Raise Strategy (Preflop Wizard radzi nie dopłacać; przyjmujemy wersję Upswing)"
+- id: R-M4-014
+  module: m4
+  if: "jesteś na dużym blindzie, a mały blind otworzył na {{n:pf.open-size-sb}}"
+  then: "bronisz bardzo szeroko, choć do sprawdzenia potrzebujesz ok. {{n:eq.bb-vs-sb-open}} equity; 3-bet ma ok. {{n:pf.3bet.size-ip}} otwarcia"
+  because: "po flopie masz pozycję, więc realizujesz więcej equity; solver aplikacji broni tu {{n:solver.def.bb-vs-sb}} rąk"
+  level: math
+  source: "obliczenie ceny; solver preflop projektu (ADR-20); drzewo solvera (3-bet do 9bb)"

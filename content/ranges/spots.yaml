@@ -31,22 +31,24 @@
   groups: { "Przebicie do 3bb": ["raise 3"] }
 
 - id: vs-open.btn-vs-co
-  title: "Button, CO otworzył do 2,5bb"
+  title: "Button, CO otworzył na 2,5bb"
   hero: BTN
   path: "UTG:fold,HJ:fold,CO:raise2.5"
   groups: { "3-bet do 7,5bb": ["raise 7.5"], "Sprawdzenie": ["call 2.5"] }
 - id: vs-open.sb-vs-btn
-  title: "Mały blind, Button otworzył do 2,5bb"
+  title: "Mały blind, Button otworzył na 2,5bb"
   hero: SB
   path: "UTG:fold,HJ:fold,CO:fold,BTN:raise2.5"
-  groups: { "3-bet do 10bb": ["raise 10"], "Sprawdzenie": ["call 2.5"] }
+  # skład 3-betów z blindów odbiega od literatury (liniowy zamiast spolaryzowanego), więc pokazujemy tylko „gram / pas”
+  # (decyzja właściciela 3 października 2026); łączna częstość jest zwalidowana
+  groups: { "Gram (głównie 3-bet do 10bb)": ["raise 10", "call 2.5"] }
 - id: vs-open.bb-vs-btn
-  title: "Duży blind, Button otworzył do 2,5bb, mały blind spasował"
+  title: "Duży blind, Button otworzył na 2,5bb, mały blind spasował"
   hero: BB
   path: "UTG:fold,HJ:fold,CO:fold,BTN:raise2.5,SB:fold"
-  groups: { "3-bet do 10bb": ["raise 10"], "Sprawdzenie": ["call 2.5"] }
+  groups: { "Bronię (sprawdzenie albo 3-bet)": ["call 2.5", "raise 10"] }
 - id: vs-open.bb-vs-sb
-  title: "Duży blind, mały blind otworzył do 3bb"
+  title: "Duży blind, mały blind otworzył na 3bb"
   hero: BB
   path: "UTG:fold,HJ:fold,CO:fold,BTN:fold,SB:raise3"
-  groups: { "3-bet do 9bb": ["raise 9"], "Sprawdzenie": ["call 3"] }
+  groups: { "Bronię (sprawdzenie albo 3-bet)": ["call 3", "raise 9"] }

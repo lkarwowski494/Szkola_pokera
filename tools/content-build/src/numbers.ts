@@ -10,14 +10,23 @@ export interface ResolvedNumber {
 
 export type SpotLookup = (spotId: string) => { playPercent: number } | undefined;
 
-function compute(key: string, e: NumberEntry, spots?: SpotLookup): number {
+function compute(key: string, e: NumberEntry, spots: SpotLookup | undefined, ref: (k: string) => number): number {
   if (e.value !== undefined) return e.value;
+  if (e.formula === 'product' || e.formula === 'sum' || e.formula === 'diff') {
+    const r = e.refs ?? [];
+    if (r.length < 2) throw new Error(`Liczba "${key}": formuła ${e.formula} wymaga co najmniej dwóch odwołań (refs)`);
+    const vals = r.map(ref);
+    if (e.formula === 'product') return vals.reduce((a, b) => a * b, 1);
+    if (e.formula === 'sum') return vals.reduce((a, b) => a + b, 0);
+    return vals.slice(1).reduce((a, b) => a - b, vals[0]!);
+  }
+  if (e.refs && e.args) throw new Error(`Liczba "${key}": podaj args albo refs, nie oba`);
   if (e.formula === 'rangePlay') {
     const s = e.spot ? spots?.(e.spot) : undefined;
     if (!s) throw new Error(`Liczba "${key}": nieznany spot zakresu ${e.spot}`);
     return s.playPercent;
   }
-  const a = e.args ?? [];
+  const a = e.refs ? e.refs.map(ref) : (e.args ?? []);
   const need = (n: number) => {
     if (a.length !== n) throw new Error(`Liczba "${key}": formuła ${e.formula} wymaga ${n} argumentów`);
   };
@@ -62,8 +71,23 @@ export function formatNumber(value: number, unit: NumberEntry['unit'], decimals:
 
 export function resolveNumbers(file: Record<string, NumberEntry>, spots?: SpotLookup): Map<string, ResolvedNumber> {
   const out = new Map<string, ResolvedNumber>();
+  const values = new Map<string, number>();
+  const visiting = new Set<string>();
+  const ref = (k: string): number => {
+    const known = values.get(k);
+    if (known !== undefined) return known;
+    const e = file[k];
+    if (!e) throw new Error(`Odwołanie do nieznanej liczby "${k}"`);
+    if (visiting.has(k)) throw new Error(`Cykl odwołań w liczbach przy "${k}"`);
+    visiting.add(k);
+    const v = compute(k, e, spots, ref);
+    visiting.delete(k);
+    values.set(k, v);
+    return v;
+  };
   for (const [key, entry] of Object.entries(file)) {
-    const value = compute(key, entry, spots);
+    const value = ref(key);
+    void entry;
     if (!Number.isFinite(value)) throw new Error(`Liczba "${key}" nie jest skończona`);
     if (entry.unit === 'percent' && (value < 0 || value > 1)) throw new Error(`Liczba "${key}": procent spoza 0–1 (${value})`);
     out.set(key, { key, value, display: formatNumber(value, entry.unit, entry.decimals), entry });

@@ -31,6 +31,29 @@ describe('liczby', () => {
     expect(n.get('x')!.display).toBe('25%');
     expect(() => substitute('{{n:y}}', n, 'test', new Set())).toThrow(/nieznana liczba/);
   });
+  it('liczy formuły z odwołaniami do innych liczb (product, sum, diff, requiredEquity) i wykrywa cykle', () => {
+    const src = 'test';
+    const n = resolveNumbers({
+      open: { value: 2.5, unit: 'bb', decimals: 1, source: src },
+      mult: { value: 3, unit: 'multiplier', decimals: 0, source: src },
+      bb: { value: 1, unit: 'bb', decimals: 0, source: src },
+      sb: { value: 0.5, unit: 'bb', decimals: 1, source: src },
+      total: { formula: 'product', refs: ['open', 'mult'], unit: 'bb', decimals: 1, source: src },
+      call: { formula: 'diff', refs: ['open', 'bb'], unit: 'bb', decimals: 1, source: src },
+      before: { formula: 'sum', refs: ['sb', 'bb', 'bb'], unit: 'bb', decimals: 1, source: src },
+      price: { formula: 'requiredEquity', refs: ['before', 'call'], unit: 'percent', decimals: 1, source: src },
+    });
+    expect(n.get('total')!.display).toBe('7,5bb');
+    expect(n.get('call')!.display).toBe('1,5bb');
+    expect(n.get('price')!.display).toBe('27,3%');
+    expect(() =>
+      resolveNumbers({
+        a: { formula: 'sum', refs: ['b', 'b'], unit: 'bb', decimals: 0, source: src },
+        b: { formula: 'sum', refs: ['a', 'a'], unit: 'bb', decimals: 0, source: src },
+      }),
+    ).toThrow(/Cykl/);
+    expect(() => resolveNumbers({ a: { formula: 'sum', refs: ['zz', 'zz'], unit: 'bb', decimals: 0, source: src } })).toThrow(/nieznanej liczby/);
+  });
   it('wykrywa liczby wpisane ręcznie', () => {
     expect(findHardcodedNumbers('masz 25% i {{n:x}}, stawiasz 2,5bb')).toEqual(['25%', '2,5bb']);
   });
