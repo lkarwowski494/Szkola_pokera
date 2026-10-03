@@ -1,3 +1,4 @@
+import { closeSync, existsSync, openSync, readFileSync, renameSync, writeSync } from 'node:fs';
 import { compatMatrix, N, PRIOR, rake, shareMatrix, type EqrParams, type EquityData } from './model';
 import { PostflopModel, type FlopData } from './postflop';
 import { StreetModel, type StreetData } from './streets';
@@ -290,6 +291,50 @@ export class PreflopSolver {
   }
 
   /** Jedna iteracja: kolejno każdy gracz aktualizuje swoje węzły. */
+  /** Wszystkie tablice stanu w stałej kolejności (punkt kontrolny: zapis i wznowienie obliczeń). */
+  private stateArrays(): Float64Array[] {
+    const out: Float64Array[] = [];
+    for (const n of this.nodes) {
+      if (n.kind !== 'decision') continue;
+      const t = this.tables.get(n.id)!;
+      out.push(t.regrets, t.stratSum);
+    }
+    if (this.postflop) for (const t of this.postflop.terminals) out.push(t.regrets, t.stratSum);
+    return out;
+  }
+
+  /** Zapisuje stan (iteracja + tablice żalu i sum strategii) atomowo: plik tymczasowy, potem zmiana nazwy. */
+  saveState(path: string, fingerprint: string): void {
+    const arrays = this.stateArrays();
+    const header = Buffer.from(JSON.stringify({ iteration: this.iteration, fingerprint, sizes: arrays.map((a) => a.length) }), 'utf8');
+    const len = Buffer.alloc(4);
+    len.writeUInt32LE(header.length);
+    const fd = openSync(`${path}.tmp`, 'w');
+    writeSync(fd, len);
+    writeSync(fd, header);
+    for (const a of arrays) writeSync(fd, new Uint8Array(a.buffer, a.byteOffset, a.byteLength));
+    closeSync(fd);
+    renameSync(`${path}.tmp`, path);
+  }
+
+  /** Wczytuje stan zapisany przez saveState; zwraca false, gdy plik nie istnieje albo nie pasuje do konfiguracji. */
+  loadState(path: string, fingerprint: string): boolean {
+    if (!existsSync(path)) return false;
+    const buf = readFileSync(path);
+    const hl = buf.readUInt32LE(0);
+    const header = JSON.parse(buf.subarray(4, 4 + hl).toString('utf8')) as { iteration: number; fingerprint: string; sizes: number[] };
+    const arrays = this.stateArrays();
+    if (header.fingerprint !== fingerprint || header.sizes.length !== arrays.length || header.sizes.some((n, i) => n !== arrays[i]!.length)) return false;
+    let off = 4 + hl;
+    for (const a of arrays) {
+      const bytes = a.byteLength;
+      new Uint8Array(a.buffer, a.byteOffset, bytes).set(buf.subarray(off, off + bytes));
+      off += bytes;
+    }
+    this.iteration = header.iteration;
+    return true;
+  }
+
   step(): void {
     this.iteration++;
     for (let p = 0; p < N_PLAYERS; p++) this.traverse(this.root, p, this.rootReach(), 'train');

@@ -51,11 +51,20 @@ if (flopsArg !== 'none') {
 const postflopMinRaises = Number(arg('postflop-min-raises', '2'));
 const postflopMaxRaises = Number(arg('postflop-max-raises', '2'));
 
+// punkt kontrolny: --checkpoint PLIK (zapis co --checkpoint-every iteracji, wznowienie po restarcie)
+const checkpoint = args.includes('--checkpoint') ? resolve(arg('checkpoint', '')) : null;
+const checkpointEvery = Number(arg('checkpoint-every', '10'));
+
 function solve(eqr: EqrParams, iterations: number, log = true): PreflopSolver {
   const s = new PreflopSolver(buildTree(treeConfig), equity, eqr, DEFAULT_DCFR, threeWay, flops, postflopMinRaises, postflopMaxRaises);
+  const fingerprint = JSON.stringify({ eqr, flops: flopsArg, postflopMinRaises, postflopMaxRaises, tree: treeConfig });
+  if (checkpoint && s.loadState(checkpoint, fingerprint)) console.error(`Wznowiono z punktu kontrolnego: iteracja ${s.iteration}`);
   const t0 = Date.now();
-  for (let i = 1; i <= iterations; i++) {
+  const start = s.iteration + 1;
+  for (let i = start; i <= iterations; i++) {
     s.step();
+    if (i % 10 === 0) console.error(`iteracja ${i}/${iterations} (${((Date.now() - t0) / 1000).toFixed(0)} s od startu procesu)`);
+    if (checkpoint && i % checkpointEvery === 0) s.saveState(checkpoint, fingerprint);
     if (log && (i % 100 === 0 || i === iterations)) {
       const e = s.exploitability();
       console.log(`iteracja ${i}: NashConv ${e.nashConv.toFixed(4)} bb, max gracz ${Math.max(...e.perPlayer).toFixed(4)} bb (${((Date.now() - t0) / 1000).toFixed(0)} s)`);

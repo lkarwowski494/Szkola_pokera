@@ -1,3 +1,6 @@
+import { mkdtempSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { HAND_CLASSES } from '@szkola/poker-core';
 import { computePairs, N, PRIOR, type EquityData } from '../src/model';
@@ -90,6 +93,22 @@ describe('solver', () => {
     expect(late).toBeLessThan(early);
     expect(late).toBeGreaterThanOrEqual(-1e-9);
   }, 120_000);
+
+  it('punkt kontrolny: zapis i wczytanie odtwarzają stan (dalsze iteracje dają ten sam wynik)', () => {
+    const cfg = { ...DEFAULT_TREE, bbOvercall: false };
+    const eqr = { k: 1, m: 0.08, rakeRate: 0.05, rakeCap: 3 };
+    const a = new PreflopSolver(buildTree(cfg), syntheticEquity(), eqr);
+    for (let i = 0; i < 2; i++) a.step();
+    const path = join(mkdtempSync(join(tmpdir(), 'szkp-')), 'ck.bin');
+    a.saveState(path, 'test');
+    const b = new PreflopSolver(buildTree(cfg), syntheticEquity(), eqr);
+    expect(b.loadState(path, 'inny')).toBe(false);
+    expect(b.loadState(path, 'test')).toBe(true);
+    expect(b.iteration).toBe(2);
+    a.step();
+    b.step();
+    expect(b.value(0)).toBeCloseTo(a.value(0), 12);
+  }, 60_000);
 
   it('rozkład a priori sumuje się do 1', () => {
     let s = 0;
