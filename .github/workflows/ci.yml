@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   pull_request:
+  # ręczne uruchomienie (Actions → CI → Run workflow); dostępne tylko dla osób z prawem zapisu
+  workflow_dispatch:
 
 # domyślny token tylko do odczytu (workflow niczego nie publikuje)
 permissions:
