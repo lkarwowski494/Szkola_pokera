@@ -14,7 +14,7 @@ drills:
     table: { position: CO }
     options:
       - { text: "Ok. {{n:mdf.vs-3bet-ip-size}} zakresu otwarcia", correct: true, why: "Button ryzykuje {{n:pf.3bet.ip-total}}, żeby wygrać {{n:vs3bet.win}}. Jeśli pasujesz częściej niż {{n:alpha.vs-3bet-ip-size}}, jego 3-bet zarabia nawet z najgorszą ręką." }
-      - { text: "Ok. połowy zakresu", why: "Mniej więcej tyle kontynuuje się w praktyce według Deepfold, ale minimum wynikające z matematyki jest niższe: {{n:mdf.vs-3bet-ip-size}}." }
+      - { text: "Ok. połowy zakresu", why: "Za dużo jak na minimum: z matematyki wystarczy {{n:mdf.vs-3bet-ip-size}}. W praktyce otwierający pasuje ok. {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}} otwarć, więc kontynuuje mniej niż połową." }
       - { text: "Zawsze, każdą ręką", why: "Wtedy płacisz 3-bety rękami, które przegrywają z zakresem Buttona. Pas z najsłabszą częścią otwarcia jest poprawny." }
   - kind: choice
     id: m4.l3.q-kjo
@@ -90,14 +90,14 @@ drills:
 3-bet to odpowiedź rywala na twoje otwarcie. Masz trzy możliwości: pasujesz, sprawdzasz albo przebijasz jeszcze raz, czyli 4-betujesz.
 
 :::note Skąd te zasady
-Ta lekcja opiera się na literaturze (Deepfold, Upswing, PokerCoaching), nie na solverze aplikacji. W grze wobec 3-betu solver aplikacji jeszcze nie przeszedł walidacji, dlatego reguły są oznaczone jako heurystyki.
+Ta lekcja opiera się na literaturze (Deepfold, Upswing, PokerCoaching) i opublikowanych wynikach innych solverów (Poker Academy), nie na solverze aplikacji. W grze wobec 3-betu solver aplikacji jeszcze nie przeszedł walidacji, dlatego reguły są oznaczone jako heurystyki.
 :::
 
 ## Ile kontynuować
 
 Gdy Button przebija twoje otwarcie z CO do {{n:pf.3bet.ip-total}}, ryzykuje tyle, żeby wygrać {{n:vs3bet.win}}. Jeśli pasujesz częściej niż {{n:alpha.vs-3bet-ip-size}}, jego 3-bet zarabia z każdą ręką. Musisz więc kontynuować co najmniej ok. {{n:mdf.vs-3bet-ip-size}} zakresu otwarcia.
 
-Deepfold podaje dla otwierającego wobec 3-betu z pozycją: pas ok. {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}} otwarć, sprawdzenie ok. {{n:pf.vs3bet.call.low}}–{{n:pf.vs3bet.call.high}} i 4-bet ok. {{n:pf.vs3bet.4bet.low}}–{{n:pf.vs3bet.4bet.high}}. To na razie jedno źródło z liczbami, więc traktuj je jako orientacyjne. Do sprawdzenia potrzebujesz ok. {{n:eq.call-3bet-ip-size}} equity: dopłacasz {{n:vs3bet.call}} do puli, która po sprawdzeniu ma {{n:vs3bet.pot-after}}.
+Według rozwiązania solvera opublikowanego przez Poker Academy (CO wobec 3-betu Buttona do {{n:pf.3bet.ip-total}}) i tabel Pailiku otwierający wobec 3-betu z pozycją pasuje ok. {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}} otwarć, sprawdza ok. {{n:pf.vs3bet.call.low}}–{{n:pf.vs3bet.call.high}} i 4-betuje ok. {{n:pf.vs3bet.4bet.low}}–{{n:pf.vs3bet.4bet.high}}. Deepfold podaje mniej pasów i mniej 4-betów, więc traktuj te liczby jako orientacyjne. Górna granica pasów leży tuż pod progiem {{n:alpha.vs-3bet-ip-size}}: przy częstszym pasowaniu 3-bet Buttona zarabiałby z każdą ręką. Do sprawdzenia potrzebujesz ok. {{n:eq.call-3bet-ip-size}} equity: dopłacasz {{n:vs3bet.call}} do puli, która po sprawdzeniu ma {{n:vs3bet.pot-after}}.
 
 ## Bez pozycji wybieraj ostrożnie
 

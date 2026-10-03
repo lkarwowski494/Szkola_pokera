@@ -83,12 +83,12 @@ pf.3bet-freq.btn-vs-co.high: { value: 0.16, unit: percent, source: "Preflop Wiza
 pf.call-freq.btn-vs-co: { value: 0.05, unit: percent, source: "GTO Wizard, Playing Calls From the Button in Cash Games (NL500, 100bb)" }
 pf.3bet-freq.btn-vs-utg: { value: 0.075, unit: percent, decimals: 1, source: "GTO Wizard, Playing Calls From the Button in Cash Games (NL500, 100bb)" }
 pf.call-freq.btn-vs-utg: { value: 0.082, unit: percent, decimals: 1, source: "GTO Wizard, Playing Calls From the Button in Cash Games (NL500, 100bb)" }
-pf.vs3bet.fold.low: { value: 0.50, unit: percent, source: "Deepfold, The Complete 3-Bet Strategy: obrona wobec 3-betu z pozycji (jedno źródło, do potwierdzenia: backlog B-035)" }
-pf.vs3bet.fold.high: { value: 0.55, unit: percent, source: "Deepfold, The Complete 3-Bet Strategy (jedno źródło, do potwierdzenia: backlog B-035)" }
-pf.vs3bet.call.low: { value: 0.30, unit: percent, source: "Deepfold, The Complete 3-Bet Strategy (jedno źródło, do potwierdzenia: backlog B-035)" }
-pf.vs3bet.call.high: { value: 0.40, unit: percent, source: "Deepfold, The Complete 3-Bet Strategy (jedno źródło, do potwierdzenia: backlog B-035)" }
-pf.vs3bet.4bet.low: { value: 0.05, unit: percent, source: "Deepfold, The Complete 3-Bet Strategy (jedno źródło, do potwierdzenia: backlog B-035)" }
-pf.vs3bet.4bet.high: { value: 0.08, unit: percent, source: "Deepfold, The Complete 3-Bet Strategy (jedno źródło, do potwierdzenia: backlog B-035)" }
+pf.vs3bet.fold.low: { value: 0.55, unit: percent, source: "heurystyka z trzech źródeł (decyzja właściciela 3.10.2026, B-035): Poker Academy, solver NL200 CO wobec 3-betu BTN 63,7/17,2/19,1; Pailiku, tabela ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); wcześniej Deepfold 50–55/30–40/5–8 (dokument 10)" }
+pf.vs3bet.fold.high: { value: 0.65, unit: percent, source: "heurystyka z trzech źródeł (decyzja właściciela 3.10.2026, B-035): Poker Academy, solver NL200 CO wobec 3-betu BTN 63,7/17,2/19,1; Pailiku, tabela ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); wcześniej Deepfold 50–55/30–40/5–8 (dokument 10)" }
+pf.vs3bet.call.low: { value: 0.20, unit: percent, source: "heurystyka z trzech źródeł (decyzja właściciela 3.10.2026, B-035): Poker Academy, solver NL200 CO wobec 3-betu BTN 63,7/17,2/19,1; Pailiku, tabela ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); wcześniej Deepfold 50–55/30–40/5–8 (dokument 10)" }
+pf.vs3bet.call.high: { value: 0.30, unit: percent, source: "heurystyka z trzech źródeł (decyzja właściciela 3.10.2026, B-035): Poker Academy, solver NL200 CO wobec 3-betu BTN 63,7/17,2/19,1; Pailiku, tabela ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); wcześniej Deepfold 50–55/30–40/5–8 (dokument 10)" }
+pf.vs3bet.4bet.low: { value: 0.10, unit: percent, source: "heurystyka z trzech źródeł (decyzja właściciela 3.10.2026, B-035): Poker Academy, solver NL200 CO wobec 3-betu BTN 63,7/17,2/19,1; Pailiku, tabela ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); wcześniej Deepfold 50–55/30–40/5–8 (dokument 10)" }
+pf.vs3bet.4bet.high: { value: 0.15, unit: percent, source: "heurystyka z trzech źródeł (decyzja właściciela 3.10.2026, B-035): Poker Academy, solver NL200 CO wobec 3-betu BTN 63,7/17,2/19,1; Pailiku, tabela ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); wcześniej Deepfold 50–55/30–40/5–8 (dokument 10)" }
 pf.blind.sb: { value: 0.5, unit: bb, decimals: 1, source: "zasady: mały blind" }
 pf.blind.bb: { value: 1, unit: bb, source: "zasady: duży blind" }
 bb.call.vs-btn: { formula: diff, refs: [pf.open-size, pf.blind.bb], unit: bb, decimals: 1, source: "obliczenie: dopłata BB do otwarcia" }
@@ -105,7 +105,7 @@ vs3bet.pot-after: { formula: sum, refs: [pf.3bet.ip-total, pf.3bet.ip-total, pf.
 vs3bet.win: { formula: sum, refs: [pf.open-size, pf.blind.sb, pf.blind.bb], unit: bb, source: "obliczenie: co wygrywa 3-bet, gdy otwierający spasuje" }
 eq.call-3bet-ip-size: { formula: requiredEquity, refs: [vs3bet.pot-before, vs3bet.call], unit: percent, source: "obliczenie: dopłata / pula po sprawdzeniu" }
 mdf.vs-3bet-ip-size: { formula: mdf, refs: [vs3bet.win, pf.3bet.ip-total], unit: percent, source: "obliczenie: 3-bet ryzykuje cały rozmiar, żeby wygrać otwarcie i blindy; poniżej tej obrony każdy 3-bet zarabia od razu" }
-alpha.vs-3bet-ip-size: { formula: alpha, refs: [vs3bet.win, pf.3bet.ip-total], unit: percent, source: "obliczenie: próg opłacalności 3-betu bez żadnej ręki" }
+alpha.vs-3bet-ip-size: { formula: alpha, refs: [vs3bet.win, pf.3bet.ip-total], unit: percent, decimals: 1, source: "obliczenie: próg opłacalności 3-betu bez żadnej ręki" }
 pf.iso.base: { value: 3, unit: bb, source: "Upswing, How to Maximize Your Winnings Versus Multiple Limpers (online); Preflop Wizard, ISO Raise Strategy" }
 pf.iso.per-limper: { value: 1, unit: bb, source: "Upswing; Preflop Wizard, ISO Raise Strategy" }
 pf.iso.one-limper: { formula: sum, refs: [pf.iso.base, pf.iso.per-limper], unit: bb, source: "obliczenie: podstawa + 1 limper" }

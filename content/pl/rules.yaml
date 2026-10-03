@@ -163,10 +163,10 @@
 - id: R-M4-007
   module: m4
   if: "dostajesz 3-bet od gracza, który po flopie będzie mieć pozycję"
-  then: "kontynuujesz (sprawdzasz albo 4-betujesz) mniej więcej połową zakresu otwarcia, resztę pasujesz"
-  because: "przy pasowaniu częściej niż {{n:alpha.vs-3bet-ip-size}} rywal zarabia na 3-becie z każdą ręką; Deepfold podaje pas ok. {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}}"
+  then: "pasujesz ok. {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}} otwarć, sprawdzasz ok. {{n:pf.vs3bet.call.low}}–{{n:pf.vs3bet.call.high}}, a 4-betujesz ok. {{n:pf.vs3bet.4bet.low}}–{{n:pf.vs3bet.4bet.high}}"
+  because: "przy pasowaniu częściej niż {{n:alpha.vs-3bet-ip-size}} rywal zarabia na 3-becie z każdą ręką, więc pasujesz tuż poniżej tego progu"
   level: heuristic
-  source: "Deepfold, The Complete 3-Bet Strategy (jedno źródło, do potwierdzenia); próg z obliczenia"
+  source: "Poker Academy, wynik solvera (NL200, CO wobec 3-betu Buttona); Pailiku, tabele 100bb 6-max; Deepfold, The Complete 3-Bet Strategy (mniej pasów); próg z obliczenia"
 - id: R-M4-008
   module: m4
   if: "dostajesz 3-bet i po flopie będziesz bez pozycji"
