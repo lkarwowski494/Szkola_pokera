@@ -110,4 +110,5 @@ jobs:
           URL=$(node -e "const s=JSON.stringify(require('./upload.json')); const m=s.match(/https:\/\/expo\.dev\/[^\"]+/); console.log(m?m[0]:'')")
           [ -n "$URL" ] || { echo "::error::eas upload nie zwrócił linku (zawartość upload.json powyżej)"; exit 1; }
           { echo "## Instalacja na iPhonie (build lokalny, bez limitu Expo)"; echo; echo "Otwórz w Safari na iPhonie i kliknij **Install**:"; echo; echo "$URL"; } >> "$GITHUB_STEP_SUMMARY"
-          echo "$URL"
+          # adnotacja: link widać na stronie przebiegu i w API (podsumowania kroku API nie zwraca)
+          echo "::notice title=Link do instalacji::$URL"
