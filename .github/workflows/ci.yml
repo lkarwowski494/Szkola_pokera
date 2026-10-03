@@ -5,17 +5,23 @@ on:
     branches: [main]
   pull_request:
 
+# domyślny token tylko do odczytu (workflow niczego nie publikuje)
+permissions:
+  contents: read
+
 jobs:
   check:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      # najniższe wersje główne działające na Node 24 (pnpm/action-setup v5: pnpm 10 z pola packageManager)
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      # typy, testy (silnik, powtórki, treść, aplikacja) i aktualność bazy treści
-      - run: pnpm ci
+      # typy, testy (silnik, powtórki, treść, aplikacja) i aktualność bazy treści;
+      # `pnpm run ci`, bo samo `pnpm ci` to zarezerwowane, niezaimplementowane polecenie pnpm
+      - run: pnpm run ci
