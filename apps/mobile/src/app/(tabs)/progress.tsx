@@ -1,4 +1,4 @@
-import { useFocusEffect } from 'expo-router';
+import { router, useFocusEffect } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -95,6 +95,9 @@ export default function ProgressScreen() {
             <Text style={[tp.body, { color: tk.bad }]}>{t('progress.reset')}</Text>
           </Pressable>
         )}
+        <Pressable accessibilityRole="link" onPress={() => router.push('/diagnostics')}>
+          <Text style={[tp.body, { color: tk.felt }]}>{t('diagnostics.link')}</Text>
+        </Pressable>
         <Muted>{t('progress.contentVersion', { hash })}</Muted>
       </View>
     </Screen>

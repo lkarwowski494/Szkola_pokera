@@ -7,7 +7,8 @@
   "types": "src/index.ts",
   "scripts": {
     "test": "vitest run",
-    "typecheck": "tsc -p tsconfig.json"
+    "typecheck": "tsc -p tsconfig.json",
+    "bench": "tsx scripts/bench.ts"
   },
   "dependencies": {
     "@pokertools/evaluator": "1.0.20"

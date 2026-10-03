@@ -252,3 +252,14 @@ describe('outy i generatory', () => {
     }
   });
 });
+
+describe('pomiar wydajności (NFR-03)', () => {
+  it('liczy sensowne equity i zwraca komplet pomiarów', async () => {
+    const { runBenchmark } = await import('../src/bench');
+    const r = runBenchmark(() => Date.now(), 3, 1000);
+    expect(r.equityRunsMs).toHaveLength(3);
+    // AA vs KK przed flopem: ok. 82% (dokument 08), Monte Carlo 20 tys. prób mieści się w ±1,5 pp
+    expect(Math.abs(r.equityCheck - 0.8195)).toBeLessThan(0.015);
+    expect(r.evalsPerSecond).toBeGreaterThan(0);
+  });
+});
