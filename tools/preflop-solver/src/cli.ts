@@ -32,8 +32,9 @@ if (useThreeWay) {
   console.log(`Tablica equity 3-way: ${threeWay.samples} prób na trójkę (${((Date.now() - t0) / 1000).toFixed(0)} s wczytywania)`);
 }
 const treeConfig = { ...DEFAULT_TREE, bbOvercall: useThreeWay };
-// gra po flopie w pulach 3-betowanych i wyżej (wersja 3); --flops none = model EQR jak w wersji 2
-const flopsArg = arg('flops', 'tools/equity/flops.bin.gz');
+// gra po flopie w pulach 3-betowanych (wersja 3, wariant pomiarowy): --flops tools/equity/boards.bin.gz (trzy ulice)
+// albo tools/equity/flops.bin.gz (bez nowych kart). Domyślnie none = kanon (wersja 2, model EQR we wszystkich pulach).
+const flopsArg = arg('flops', 'none');
 let flops: FlopData | StreetData | null = null;
 if (flopsArg !== 'none') {
   const buf = readFileSync(resolve(root, flopsArg));
