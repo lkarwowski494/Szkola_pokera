@@ -29,22 +29,31 @@ pnpm --filter @szkola/mobile start   # serwer Metro dla development builda
 pnpm --filter @szkola/poker-core bench   # pomiar wydajności w Node (to samo co ekran „Pomiar wydajności” w aplikacji)
 ```
 
-## Pierwszy development build (tylko na twój iPhone, ADR-19)
+## Aplikacja na iPhonie (ad hoc, jak Trening)
 
-Wszystko z Windows, bez Maca. Build powstaje na serwerach Expo.
+Wszystko z przeglądarki, bez Maca i bez terminala. Aplikacja instaluje się z linku, ma własną ikonę i działa bez komputera; podpis jest ważny ok. roku.
+Kompilacja odbywa się na darmowym Macu w GitHub Actions (repozytorium publiczne, bez limitu minut), więc nie zużywa limitu 15 buildów iOS miesięcznie w Expo.
 
-1. `cd apps/mobile`
-2. `npx eas-cli@latest login`
-3. `npx eas-cli@latest init` (dopisze identyfikator projektu do `app.json`; zrób commit)
-4. `npx eas-cli@latest device:create` i otwórz link na iPhonie, żeby zainstalować profil. Jeśli iPhone jest już zarejestrowany w portalu Apple Developer, wybierz w tym poleceniu import urządzeń z portalu („Developer Portal”): EAS nie pobiera ich sam. Apple potrzebuje do 24–72 h na przetworzenie nowego urządzenia; zbyt wczesny build może się nie zainstalować.
-5. `npx eas-cli@latest build --profile development --platform ios`. Przy pierwszym buildzie zaloguj się Apple ID; EAS sam utworzy certyfikat i profil. Profil w `eas.json` przypina pnpm 10.28.0 (obraz EAS ma domyślnie nowszą wersję).
-6. Zainstaluj build z linku lub kodu QR z EAS na iPhonie. Włącz tryb dewelopera: Ustawienia → Prywatność i ochrona → Tryb dewelopera (wymagany dla każdego buildu z dystrybucją wewnętrzną).
-7. Na komputerze: `pnpm --filter @szkola/mobile start`. iPhone i komputer w tej samej sieci Wi-Fi; otwórz aplikację i wybierz serwer albo zeskanuj kod QR aparatem. Windows może zapytać o zgodę zapory dla Node.
-8. W aplikacji: Postęp → Pomiar wydajności → Zmierz. Zrób zrzut ekranu (backlog B-009; w development buildzie wynik jest zaniżony).
+Jednorazowo:
+1. Sekrety w GitHubie (Settings → Secrets and variables → Actions → New repository secret):
+   - `APPLE_TEAM_ID`: developer.apple.com/account → Membership details → Team ID,
+   - `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_API_KEY_P8`: App Store Connect → Users and Access → Integrations → App Store Connect API → Team Keys → + (dostęp Admin); plik .p8 można pobrać tylko raz, do sekretu wklej całą jego treść,
+   - `EXPO_TOKEN`: expo.dev → Account settings → Access tokens → Create token.
+2. Actions → **iPhone (EAS)** → Run workflow → `konfiguruj-podpis` (certyfikat i profil ad hoc ze wszystkimi urządzeniami zarejestrowanymi na koncie Expo).
+3. iPhone: Ustawienia → Prywatność i ochrona → Tryb dewelopera (wymagany dla instalacji ad hoc).
 
-Darmowy plan EAS (stan na 3 października 2026, expo.dev/pricing): 15 buildów iOS miesięcznie, kolejka o niskim priorytecie, limit 45 minut na build. Po wyczerpaniu limitu kolejne buildy są zablokowane do 1. dnia następnego miesiąca; plan darmowy nie nalicza opłat.
+Każda nowa wersja: Actions → **iPhone (lokalnie, bez limitu Expo)** → Run workflow → `instalacja`. Po ok. 20–40 minutach link jest w podsumowaniu przebiegu: otwórz go na iPhonie w Safari i wybierz Install. Tryb `tylko-kompilacja` sprawdza sam build iOS bez żadnych sekretów.
 
-Nowy build jest potrzebny tylko po zmianie części natywnej (nowa biblioteka natywna, zmiana `app.json`). Zmiany w kodzie JS i w treści widać od razu przez Metro.
+Zapas: **iPhone (EAS)** → `build-w-chmurze` buduje na serwerach Expo i zużywa 1 z 15 darmowych buildów iOS w miesiącu (stan na 3 października 2026: po wyczerpaniu limitu buildy są zablokowane do 1. dnia następnego miesiąca, bez opłat).
+
+Nowy iPhone (np. innej osoby) trzeba najpierw zarejestrować na koncie Expo (`npx eas-cli@latest device:create` na komputerze; urządzenie zarejestrowane tylko w portalu Apple importuje się tym samym poleceniem, opcja „Developer Portal”), potem ponownie `konfiguruj-podpis` i nowy build. Linku rejestracyjnego nie generujemy w GitHubie, bo logi publicznego repozytorium widzi każdy. Apple przetwarza nowe urządzenie do 24–72 h.
+
+Pomiar wydajności po instalacji: Postęp → Pomiar wydajności → Zmierz (backlog B-009).
+
+### Development build (praca nad kodem przy komputerze)
+
+Profil `development` wymaga serwera Metro na komputerze w tej samej sieci Wi-Fi przy każdym uruchomieniu:
+`cd apps/mobile`, `npx eas-cli@latest build --profile development --platform ios` (zużywa limit Expo), potem `pnpm --filter @szkola/mobile start`. Nowy build jest potrzebny tylko po zmianie części natywnej (nowa biblioteka natywna, zmiana `app.json`).
 
 ## Zasady
 
