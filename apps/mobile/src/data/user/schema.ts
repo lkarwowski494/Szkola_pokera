@@ -22,9 +22,11 @@ export const answers = sqliteTable(
     drillId: text('drill_id').notNull(),
     family: text('family').notNull(),
     lessonId: text('lesson_id'),
-    /** lesson | review | speed */
+    /** lesson | review | speed | exam */
     mode: text('mode').notNull(),
     correct: integer('correct', { mode: 'boolean' }).notNull(),
+    /** correct | close | size | wrong (od wersji 0001; starsze wiersze: null, wtedy liczy się tylko correct). */
+    grade: text('grade'),
     elapsedMs: integer('elapsed_ms').notNull(),
     answeredAt: integer('answered_at').notNull(),
   },
@@ -60,3 +62,17 @@ export const settings = sqliteTable('settings', {
   key: text('key').primaryKey(),
   value: text('value').notNull(),
 });
+
+/** Wyniki egzaminów modułów (FR-10, B-023). Każde podejście osobno. */
+export const examResults = sqliteTable(
+  'exam_results',
+  {
+    id: integer('id').primaryKey({ autoIncrement: true }),
+    moduleId: text('module_id').notNull(),
+    correct: integer('correct').notNull(),
+    total: integer('total').notNull(),
+    passed: integer('passed', { mode: 'boolean' }).notNull(),
+    takenAt: integer('taken_at').notNull(),
+  },
+  (t) => [index('exam_results_module').on(t.moduleId)],
+);

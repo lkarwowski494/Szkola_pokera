@@ -47,9 +47,9 @@
 
 - id: R-M2-001
   module: m2
-  if: "na flopie masz 4 karty do koloru"
-  then: "masz 9 outów i ok. {{n:odds.flush.flop-river}} szans na kolor do rivera"
-  because: "w kolorze jest 13 kart, 4 widzisz; dwie karty przed tobą"
+  if: "na flopie masz {{n:draw.flush.seen}} karty do koloru"
+  then: "masz {{n:outs.flush}} outów i ok. {{n:odds.flush.flop-river}} szans na kolor do rivera"
+  because: "w kolorze jest {{n:cards.per-suit}} kart, {{n:draw.flush.seen}} widzisz; dwie karty przed tobą"
   level: math
   source: "obliczenie dokładne"
 - id: R-M2-002

@@ -34,8 +34,13 @@ export function compileRanges(contentDir: string): { spots: CompiledRangeSpot[];
         if (i < 0) throw new Error(`spot ${def.id}: brak akcji "${l}" (są: ${node.actions.join(', ')})`);
         return i;
       });
-      return { name, freqs: HAND_CLASSES.map((hc) => Math.round(idx.reduce((s, i) => s + node.strategy[i]![hc]!, 0) * 1000) / 1000) };
+      const freqs = HAND_CLASSES.map((hc) => Math.round(idx.reduce((s, i) => s + node.strategy[i]![hc]!, 0) * 1000) / 1000);
+      const wrongSizes = def.wrongSizes?.[name];
+      return { name, freqs, ...(wrongSizes ? { wrongSizes } : {}) };
     });
+    for (const g of Object.keys(def.wrongSizes ?? {})) {
+      if (!(g in def.groups)) throw new Error(`spot ${def.id}: wrongSizes dla nieznanej grupy "${g}"`);
+    }
     const foldIdx = node.actions.indexOf('fold');
     const playPercent =
       HAND_CLASSES.reduce((s, hc) => s + combosCount(hc) * (1 - (foldIdx >= 0 ? node.strategy[foldIdx]![hc]! : 0)), 0) / 1326;

@@ -6,20 +6,51 @@ combos.pair: { value: 6, unit: count, source: "kombinatoryka: C(4,2)" }
 combos.suited: { value: 4, unit: count, source: "kombinatoryka: 4 kolory" }
 combos.offsuit: { value: 12, unit: count, source: "kombinatoryka: 4×3" }
 
-odds.flush.flop-river: { formula: hitProbability, args: [9, 47, 2], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
-odds.flush.turn-river: { formula: hitProbability, args: [9, 46, 1], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
-odds.oesd.flop-river: { formula: hitProbability, args: [8, 47, 2], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
-odds.oesd.turn-river: { formula: hitProbability, args: [8, 46, 1], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
-odds.gutshot.flop-river: { formula: hitProbability, args: [4, 47, 2], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
-odds.gutshot.turn-river: { formula: hitProbability, args: [4, 46, 1], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
-odds.flush.rule-turn: { formula: ruleOf2And4, args: [9, 1], unit: percent, source: "reguła 2 i 4" }
-odds.gutshot.rule-flop: { formula: ruleOf2And4, args: [4, 2], unit: percent, source: "reguła 2 i 4" }
-odds.gutshot.rule-turn: { formula: ruleOf2And4, args: [4, 1], unit: percent, source: "reguła 2 i 4" }
+# M2: outy i szanse. Wszystkie liczby w przykładach lekcji M2 też stąd, żeby tekst i obliczenia się nie rozjechały (B-038).
+cards.deck: { value: 52, unit: count, source: "zasady: talia" }
+cards.suits: { value: 4, unit: count, source: "zasady: 4 kolory" }
+cards.per-suit: { value: 13, unit: count, source: "zasady: 13 rang w kolorze" }
+cards.hole: { value: 2, unit: count, source: "zasady: 2 karty w ręce" }
+cards.board.flop: { value: 3, unit: count, source: "zasady: 3 karty na flopie" }
+cards.board.turn: { value: 4, unit: count, source: "zasady: 4 karty na stole na turnie" }
+cards.unseen.flop: { formula: diff, refs: [cards.deck, cards.hole, cards.board.flop], unit: count, source: "obliczenie: talia minus twoje karty i flop" }
+cards.unseen.turn: { formula: diff, refs: [cards.deck, cards.hole, cards.board.turn], unit: count, source: "obliczenie: talia minus twoje karty i stół na turnie" }
+draw.flush.seen: { value: 4, unit: count, source: "definicja: dobieranie do koloru to 4 widoczne karty w kolorze" }
+draw.oesd.ranks: { value: 2, unit: count, source: "definicja: strit otwarty z obu stron domyka każda z dwóch rang" }
+draw.gutshot.ranks: { value: 1, unit: count, source: "definicja: gutshot domyka jedna ranga" }
+outs.flush: { formula: diff, refs: [cards.per-suit, draw.flush.seen], unit: count, source: "obliczenie: 13 kart w kolorze minus 4 widoczne" }
+outs.oesd: { formula: product, refs: [draw.oesd.ranks, cards.suits], unit: count, source: "obliczenie: 2 rangi × 4 kolory" }
+outs.gutshot: { formula: product, refs: [draw.gutshot.ranks, cards.suits], unit: count, source: "obliczenie: 1 ranga × 4 kolory" }
+streets.flop-river: { value: 2, unit: count, source: "zasady: z flopu do rivera odkrywasz 2 karty" }
+streets.turn-river: { value: 1, unit: count, source: "zasady: z turnu do rivera odkrywasz 1 kartę" }
+odds.flush.flop-river: { formula: hitProbability, refs: [outs.flush, cards.unseen.flop, streets.flop-river], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
+odds.flush.turn-river: { formula: hitProbability, refs: [outs.flush, cards.unseen.turn, streets.turn-river], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
+odds.oesd.flop-river: { formula: hitProbability, refs: [outs.oesd, cards.unseen.flop, streets.flop-river], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
+odds.oesd.turn-river: { formula: hitProbability, refs: [outs.oesd, cards.unseen.turn, streets.turn-river], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
+odds.gutshot.flop-river: { formula: hitProbability, refs: [outs.gutshot, cards.unseen.flop, streets.flop-river], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
+odds.gutshot.turn-river: { formula: hitProbability, refs: [outs.gutshot, cards.unseen.turn, streets.turn-river], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
+odds.flush.rule-turn: { formula: ruleOf2And4, refs: [outs.flush, streets.turn-river], unit: percent, source: "reguła 2 i 4" }
+odds.gutshot.rule-flop: { formula: ruleOf2And4, refs: [outs.gutshot, streets.flop-river], unit: percent, source: "reguła 2 i 4" }
+odds.gutshot.rule-turn: { formula: ruleOf2And4, refs: [outs.gutshot, streets.turn-river], unit: percent, source: "reguła 2 i 4" }
 
-eq.bet-pot: { formula: requiredEquity, args: [100, 100], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
-eq.bet-half: { formula: requiredEquity, args: [100, 50], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
-eq.bet-quarter: { formula: requiredEquity, args: [100, 25], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
-eq.bet-third: { formula: requiredEquity, args: [90, 30], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
+# Przykładowe pule i zakłady z lekcji M2 (B-038): tekst przykładu i wynik liczą się z tych samych liczb.
+ex.pot: { value: 100, unit: count, source: "przykład w lekcji (pula w żetonach)" }
+ex.bet.pot: { formula: product, refs: [ex.pot, ex.frac.pot], unit: count, source: "obliczenie: zakład wielkości puli" }
+ex.bet.half: { formula: product, refs: [ex.pot, ex.frac.half], unit: count, source: "obliczenie: zakład pół puli" }
+ex.bet.quarter: { formula: product, refs: [ex.pot, ex.frac.quarter], unit: count, source: "obliczenie: zakład ćwierć puli" }
+ex.frac.pot: { value: 1, unit: ratio, source: "przykład: zakład = pula" }
+ex.frac.half: { value: 0.5, unit: ratio, decimals: 1, source: "przykład: zakład = pół puli" }
+ex.frac.quarter: { value: 0.25, unit: ratio, decimals: 2, source: "przykład: zakład = ćwierć puli" }
+ex.half.pot-after-bet: { formula: sum, refs: [ex.pot, ex.bet.half], unit: count, source: "obliczenie: pula po zakładzie pół puli" }
+ex.half.total: { formula: sum, refs: [ex.pot, ex.bet.half, ex.bet.half], unit: count, source: "obliczenie: pula po zakładzie i sprawdzeniu" }
+ex.third.pot: { value: 90, unit: count, source: "przykład w lekcji (pula w żetonach)" }
+ex.third.bet: { value: 30, unit: count, source: "przykład w lekcji (zakład 1/3 puli)" }
+ex.third.pot-after-bet: { formula: sum, refs: [ex.third.pot, ex.third.bet], unit: count, source: "obliczenie: pula po zakładzie" }
+ex.third.total: { formula: sum, refs: [ex.third.pot, ex.third.bet, ex.third.bet], unit: count, source: "obliczenie: pula po zakładzie i sprawdzeniu" }
+eq.bet-pot: { formula: requiredEquity, refs: [ex.pot, ex.bet.pot], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
+eq.bet-half: { formula: requiredEquity, refs: [ex.pot, ex.bet.half], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
+eq.bet-quarter: { formula: requiredEquity, refs: [ex.pot, ex.bet.quarter], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
+eq.bet-third: { formula: requiredEquity, refs: [ex.third.pot, ex.third.bet], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
 
 pf.aa-vs-kk: { value: 0.8195, unit: percent, source: "obliczenie dokładne, średnia po kombinacjach kolorów (dokument 08)" }
 pf.rfi.utg.low: { value: 0.15, unit: percent, source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08)" }
@@ -92,6 +123,9 @@ pf.4bet.example.low: { formula: product, refs: [pf.3bet.oop-total, pf.4bet.size-
 pf.4bet.example.high: { formula: product, refs: [pf.3bet.oop-total, pf.4bet.size-ip.high], unit: bb, source: "obliczenie: 4-bet z pozycją na 3-bet z blindów" }
 pf.iso.one-limper-oop: { formula: sum, refs: [pf.iso.base, pf.iso.per-limper, pf.iso.oop-extra], unit: bb, source: "obliczenie: podstawa + 1 limper + dopłata bez pozycji" }
 pf.min-raise: { value: 2, unit: bb, source: "zasady: minimalne przebicie limpowanej puli to podwojenie blinda" }
-pf.3bet.too-small: { value: 5, unit: bb, source: "przykład błędnego rozmiaru: 2 × otwarcie" }
-pf.3bet.too-big: { value: 12.5, unit: bb, decimals: 1, source: "przykład błędnego rozmiaru: 5 × otwarcie" }
-pf.4bet.too-small: { value: 15, unit: bb, source: "przykład błędnego rozmiaru: 1,5 × 3-bet" }
+pf.3bet.too-small.mult: { value: 2, unit: multiplier, source: "przykład błędnego rozmiaru: 2 × otwarcie (dobrany do ćwiczenia, bez źródła)" }
+pf.3bet.too-small: { formula: product, refs: [pf.open-size, pf.3bet.too-small.mult], unit: bb, source: "obliczenie: przykład błędnego rozmiaru" }
+pf.3bet.too-big.mult: { value: 5, unit: multiplier, source: "przykład błędnego rozmiaru: 5 × otwarcie (dobrany do ćwiczenia, bez źródła)" }
+pf.3bet.too-big: { formula: product, refs: [pf.open-size, pf.3bet.too-big.mult], unit: bb, decimals: 1, source: "obliczenie: przykład błędnego rozmiaru" }
+pf.4bet.too-small.mult: { value: 1.5, unit: multiplier, decimals: 1, source: "przykład błędnego rozmiaru: 1,5 × 3-bet (dobrany do ćwiczenia, bez źródła)" }
+pf.4bet.too-small: { formula: product, refs: [pf.3bet.oop-total, pf.4bet.too-small.mult], unit: bb, source: "obliczenie: przykład błędnego rozmiaru" }

@@ -96,6 +96,30 @@ export function getDrillsForFamilies(db: SQLiteDatabase, families: readonly stri
     .map(toDrill);
 }
 
+/** Wszystkie zadania modułu (do egzaminu). */
+export function getModuleDrills(db: SQLiteDatabase, moduleId: string): DrillRow[] {
+  return db
+    .getAllSync<{ id: string; lessonId: string; family: string; data: string }>(
+      `SELECT d.id, d.lesson_id AS lessonId, d.family, d.data
+         FROM drills d JOIN lessons l ON l.id = d.lesson_id
+        WHERE l.module_id = ? ORDER BY l.ord, d.ord`,
+      moduleId,
+    )
+    .map(toDrill);
+}
+
+/** Zadania ze wszystkich modułów wcześniejszych niż dany (część egzaminu z powtórką starszego materiału). */
+export function getDrillsBeforeModule(db: SQLiteDatabase, moduleId: string): DrillRow[] {
+  return db
+    .getAllSync<{ id: string; lessonId: string; family: string; data: string }>(
+      `SELECT d.id, d.lesson_id AS lessonId, d.family, d.data
+         FROM drills d JOIN lessons l ON l.id = d.lesson_id JOIN modules m ON m.id = l.module_id
+        WHERE m.ord < (SELECT ord FROM modules WHERE id = ?) ORDER BY m.ord, l.ord, d.ord`,
+      moduleId,
+    )
+    .map(toDrill);
+}
+
 export function getRules(db: SQLiteDatabase): RuleRow[] {
   return db.getAllSync<RuleRow>(
     `SELECT r.id, r.module_id AS moduleId, r.level, r.if_text AS ifText, r.then_text AS thenText, r.because, r.source, r.population
@@ -128,7 +152,7 @@ export interface RangeSpot {
   hero: string;
   path: string;
   playPercent: number;
-  groups: { name: string; freqs: number[] }[];
+  groups: { name: string; freqs: number[]; wrongSizes?: { text: string; why: string }[] }[];
 }
 
 export function getRangeSpot(db: SQLiteDatabase, id: string): RangeSpot | null {

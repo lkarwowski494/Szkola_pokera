@@ -37,6 +37,17 @@ drills:
       - { text: "Do {{n:pf.iso.one-limper}}", why: "To rozmiar z pozycją. Bez pozycji przebijasz trochę więcej, żeby rywal częściej pasował albo płacił drożej." }
       - { text: "Tylko dopłacam", why: "Z KK zawsze budujesz pulę." }
   - kind: choice
+    id: m4.l4.q-ajo
+    family: m4.iso.size
+    rules: [R-M4-012]
+    prompt: "Jeden gracz przed tobą tylko wyrównał duży blind (limp). Jesteś na Buttonie. Co robisz?"
+    table: { hand: "Ad Jc", position: BTN }
+    options:
+      - { text: "Przebijam do {{n:pf.iso.one-limper}}", correct: true, why: "AJ to ręka do izolacji: dominuje wiele rąk, którymi limpuje słabszy gracz, a po flopie masz pozycję. Rozmiar: {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} za limpera." }
+      - { text: "Przebijam do {{n:pf.min-raise}}", sizeError: true, why: "Dobra akcja, ale minimalne przebicie daje limperowi świetną cenę, więc prawie nigdy nie spasuje i nie grasz z nim sam na sam. Przebijasz do {{n:pf.iso.one-limper}}." }
+      - { text: "Dopłacam", why: "Oddajesz inicjatywę i wpuszczasz blindy tanio. Z ręką, która dominuje limpera, chcesz zbudować pulę." }
+      - { text: "Pasuję", why: "Za ciasno: wobec jednego limpera Button izoluje ok. {{n:pf.iso.btn.low}}–{{n:pf.iso.btn.high}} rąk, a AJ mieści się w nim z zapasem." }
+  - kind: choice
     id: m4.l4.q-many
     family: m4.iso.many
     rules: [R-M4-013]

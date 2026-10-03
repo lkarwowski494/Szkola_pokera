@@ -1,0 +1,64 @@
+/// <reference types="jest" />
+/// <reference types="node" />
+/**
+ * Test na prawdziwej treści: każde zadanie z content-v2.db daje się utworzyć i ocenić, a egzamin każdego modułu
+ * ma pełną długość. Łapie rozjazd między potokiem treści a silnikiem zadań.
+ */
+import { CONTENT_SCHEMA_VERSION, type Drill } from '@szkola/content-schema';
+import { createRng } from '@szkola/poker-core';
+import { join } from 'node:path';
+import type { DrillRow, RangeSpot } from '@/data/content/repo';
+import { instantiate } from '@/features/drills/engine';
+import { gradeAnswer } from '@/features/drills/grade';
+import { EXAM_SIZE, MIXED_HIGH } from '@/features/drills/thresholds';
+import { buildExamSession } from '@/features/session/build';
+
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { DatabaseSync } = require('node:sqlite') as typeof import('node:sqlite');
+
+const db = new DatabaseSync(join(__dirname, `../../../../assets/content/content-v${CONTENT_SCHEMA_VERSION}.db`), { readOnly: true });
+const rows = db.prepare('SELECT d.id, d.lesson_id AS lessonId, d.family, d.data, l.module_id AS moduleId, m.ord FROM drills d JOIN lessons l ON l.id = d.lesson_id JOIN modules m ON m.id = l.module_id').all() as {
+  id: string;
+  lessonId: string;
+  family: string;
+  data: string;
+  moduleId: string;
+  ord: number;
+}[];
+const ranges = new Map(
+  (db.prepare('SELECT id, title, hero, path, play_percent, groups FROM ranges').all() as { id: string; title: string; hero: string; path: string; play_percent: number; groups: string }[]).map(
+    (r): [string, RangeSpot] => [r.id, { id: r.id, title: r.title, hero: r.hero, path: r.path, playPercent: r.play_percent, groups: JSON.parse(r.groups) }],
+  ),
+);
+const ctx = { range: (id: string) => ranges.get(id) };
+const toRow = (r: (typeof rows)[number]): DrillRow => ({ id: r.id, lessonId: r.lessonId, family: r.family, drill: JSON.parse(r.data) as Drill });
+
+describe('treść w bazie a silnik zadań', () => {
+  it('każde zadanie daje się utworzyć i ma poprawną odpowiedź', () => {
+    for (const r of rows) {
+      const insts = instantiate(JSON.parse(r.data) as Drill, r.lessonId, createRng(1), undefined, ctx);
+      expect(insts.length).toBeGreaterThan(0);
+      for (const inst of insts) {
+        if (inst.kind === 'choice') {
+          const i = inst.options.findIndex((o) => o.correct);
+          expect(gradeAnswer(inst, { kind: 'choice', index: i })).toBe('correct');
+        } else if (inst.kind === 'numeric') {
+          expect(gradeAnswer(inst, { kind: 'numeric', value: inst.answer })).toBe('correct');
+        } else {
+          // zakres solvera narysowany dokładnie (ręce grane co najmniej z częstością MIXED_HIGH) zawsze zalicza
+          const play = inst.spot.groups[0]!.freqs.map((_, h) => inst.spot.groups.reduce((s, g) => s + g.freqs[h]!, 0));
+          expect(gradeAnswer(inst, { kind: 'paint', painted: play.map((p) => p >= MIXED_HIGH) })).toBe('correct');
+        }
+      }
+    }
+  });
+
+  it('egzamin każdego modułu ma pełną długość', () => {
+    const modules = [...new Set(rows.map((r) => r.moduleId))];
+    for (const m of modules) {
+      const ord = rows.find((r) => r.moduleId === m)!.ord;
+      const exam = buildExamSession(rows.filter((r) => r.moduleId === m).map(toRow), rows.filter((r) => r.ord < ord).map(toRow), createRng(3), ctx);
+      expect(exam).toHaveLength(EXAM_SIZE);
+    }
+  });
+});

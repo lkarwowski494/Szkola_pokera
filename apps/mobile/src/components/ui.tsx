@@ -3,13 +3,24 @@ import { Pressable, ScrollView, StyleSheet, Text, View, type ViewStyle } from 'r
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { radius, space, type as tp, useTokens } from '@/theme/tokens';
 
-export function Screen({ children, scroll = true, padTop = true }: { children: ReactNode; scroll?: boolean; padTop?: boolean }) {
+export function Screen({
+  children,
+  scroll = true,
+  padTop = true,
+  scrollEnabled = true,
+}: {
+  children: ReactNode;
+  scroll?: boolean;
+  padTop?: boolean;
+  /** Np. wyłączone na czas malowania siatki palcem. */
+  scrollEnabled?: boolean;
+}) {
   const tk = useTokens();
   const insets = useSafeAreaInsets();
   const style = { paddingTop: padTop ? insets.top + space.l : space.l, paddingBottom: insets.bottom + space.xxl, paddingHorizontal: space.l, gap: space.l };
   if (!scroll) return <View style={[{ flex: 1, backgroundColor: tk.bg }, style]}>{children}</View>;
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: tk.bg }} contentContainerStyle={style} contentInsetAdjustmentBehavior="automatic">
+    <ScrollView style={{ flex: 1, backgroundColor: tk.bg }} contentContainerStyle={style} contentInsetAdjustmentBehavior="automatic" scrollEnabled={scrollEnabled} keyboardShouldPersistTaps="handled">
       {children}
     </ScrollView>
   );

@@ -35,6 +35,10 @@
   hero: BTN
   path: "UTG:fold,HJ:fold,CO:raise2.5"
   groups: { "3-bet do 7,5bb": ["raise 7.5"], "Sprawdzenie": ["call 2.5"] }
+  # błędny rozmiar przy dobrej akcji = „niedokładność” (B-015, decyzja właściciela 3 października 2026)
+  wrongSizes:
+    "3-bet do 7,5bb":
+      - { text: "3-bet do {{n:pf.3bet.oop-total}}", why: "To rozmiar bez pozycji. Z pozycją przebijasz ok. {{n:pf.3bet.size-ip}} otwarcia, czyli do {{n:pf.3bet.ip-total}}." }
 - id: vs-open.sb-vs-btn
   title: "Mały blind, Button otworzył na 2,5bb"
   hero: SB

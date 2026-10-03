@@ -10,6 +10,12 @@ describe('srs', () => {
     expect(outcomeToRating({ correct: true, elapsedMs: 9000 })).toBe(Rating.Hard);
     expect(outcomeToRating({ correct: true, elapsedMs: 5000 })).toBe(Rating.Good);
     expect(outcomeToRating({ correct: true, elapsedMs: 2000 })).toBe(Rating.Easy);
+    // „blisko” to trudne, nie błąd, także przy szybkiej odpowiedzi
+    expect(outcomeToRating({ correct: false, close: true, elapsedMs: 2000 })).toBe(Rating.Hard);
+    expect(outcomeToRating({ correct: false, close: true, elapsedMs: 12000 })).toBe(Rating.Hard);
+    // zadanie bez presji czasu: dobrze = Good nawet po długim czasie
+    expect(outcomeToRating({ correct: true, untimed: true, elapsedMs: 60000 })).toBe(Rating.Good);
+    expect(outcomeToRating({ correct: false, untimed: true, elapsedMs: 60000 })).toBe(Rating.Again);
   });
 
   it('po poprawnej odpowiedzi termin nigdy nie jest w przeszłości', () => {

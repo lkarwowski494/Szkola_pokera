@@ -27,6 +27,18 @@ drills:
     generator: rangeDecision
     params: { spots: "rfi.sb" }
     count: 3
+  - kind: paint
+    id: m3.l3.p-btn
+    family: m3.paint.late
+    rules: [R-M3-003]
+    spot: rfi.btn
+    prompt: "Wszyscy przed tobą spasowali, jesteś na Buttonie. Pomaluj ręce, którymi otwierasz."
+  - kind: paint
+    id: m3.l3.p-utg
+    family: m3.paint.early
+    rules: [R-M3-002]
+    spot: rfi.utg
+    prompt: "Jesteś pierwszy do mówienia (UTG). Pomaluj ręce, którymi otwierasz."
 ---
 Zakres otwarcia to lista rąk, z którymi przebijasz, gdy wszyscy przed tobą spasowali. Siatki poniżej policzył solver preflop tej aplikacji dla stołu 6-osobowego i stacków {{n:format.stack}}.
 

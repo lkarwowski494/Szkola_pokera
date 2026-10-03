@@ -31,8 +31,12 @@ export interface ReviewLogRow {
 
 export interface Outcome {
   correct: boolean;
+  /** Odpowiedź bliska poprawnej (np. liczba w szerszej tolerancji): ocena Hard zamiast Again (B-017). */
+  close?: boolean;
   /** Czas decyzji w milisekundach. */
   elapsedMs: number;
+  /** Zadanie bez presji czasu (np. malowanie zakresu): poprawna odpowiedź = Good bez względu na czas. */
+  untimed?: boolean;
 }
 
 /** Progi czasu decyzji. Wartości domyślne to założenia do kalibracji (dokument 09, otwarte pytania). */
@@ -43,9 +47,13 @@ export interface SpeedThresholds {
 
 export const DEFAULT_THRESHOLDS: SpeedThresholds = { fastMs: 3000, slowMs: 8000 };
 
-/** Wynik zadania → ocena FSRS. Błąd = Again; dobrze i wolno = Hard; dobrze = Good; dobrze i szybko = Easy. */
+/**
+ * Wynik zadania → ocena FSRS. Błąd = Again; blisko (bez względu na czas) = Hard; dobrze i wolno = Hard;
+ * dobrze = Good; dobrze i szybko = Easy.
+ */
 export function outcomeToRating(outcome: Outcome, t: SpeedThresholds = DEFAULT_THRESHOLDS): Grade {
-  if (!outcome.correct) return Rating.Again;
+  if (!outcome.correct) return outcome.close ? Rating.Hard : Rating.Again;
+  if (outcome.untimed) return Rating.Good;
   if (outcome.elapsedMs >= t.slowMs) return Rating.Hard;
   if (outcome.elapsedMs <= t.fastMs) return Rating.Easy;
   return Rating.Good;

@@ -1,17 +1,20 @@
 import { review as fsrsReview, newCard, type Outcome, type StoredCard } from '@szkola/srs';
 import { and, desc, eq, gte, lte, sql } from 'drizzle-orm';
 import type { UserDb } from './db';
-import { answers, lessonProgress, reviewCards, reviewLogs, settings } from './schema';
+import { answers, examResults, lessonProgress, reviewCards, reviewLogs, settings } from './schema';
 
-export type AnswerMode = 'lesson' | 'review' | 'speed';
+export type AnswerMode = 'lesson' | 'review' | 'speed' | 'exam';
+export type AnswerGrade = 'correct' | 'close' | 'size' | 'wrong';
 
 export interface AnswerInput {
   drillId: string;
   family: string;
   lessonId: string | null;
   mode: AnswerMode;
-  correct: boolean;
+  grade: AnswerGrade;
   elapsedMs: number;
+  /** Zadanie bez presji czasu (malowanie zakresu): czas nie obniża oceny FSRS. */
+  untimed?: boolean;
 }
 
 /**
@@ -20,10 +23,12 @@ export interface AnswerInput {
  */
 export function recordAnswer(db: UserDb, a: AnswerInput, now = Date.now()): StoredCard {
   return db.transaction((tx) => {
-    tx.insert(answers).values({ ...a, answeredAt: now }).run();
+    const correct = a.grade === 'correct';
+    const { untimed, ...row } = a;
+    tx.insert(answers).values({ ...row, correct, answeredAt: now }).run();
     const existing = tx.select().from(reviewCards).where(eq(reviewCards.familyId, a.family)).get();
     const card: StoredCard = existing ?? newCard(a.family, now);
-    const outcome: Outcome = { correct: a.correct, elapsedMs: a.elapsedMs };
+    const outcome: Outcome = { correct, ...(a.grade === 'close' ? { close: true } : {}), ...(untimed ? { untimed: true } : {}), elapsedMs: a.elapsedMs };
     const { card: next, log } = fsrsReview(card, outcome, now);
     tx.insert(reviewCards)
       .values(next)
@@ -42,6 +47,33 @@ export function saveLessonResult(db: UserDb, lessonId: string, correct: number, 
     .values({ lessonId, bestCorrect: best, total, theorySeen: true, completedAt, updatedAt: now })
     .onConflictDoUpdate({ target: lessonProgress.lessonId, set: { bestCorrect: best, total, completedAt, updatedAt: now } })
     .run();
+}
+
+export function saveExamResult(db: UserDb, moduleId: string, correct: number, total: number, passed: boolean, now = Date.now()): void {
+  db.insert(examResults).values({ moduleId, correct, total, passed, takenAt: now }).run();
+}
+
+export interface ExamSummary {
+  best: number;
+  total: number;
+  passed: boolean;
+  attempts: number;
+}
+
+/** Najlepszy wynik egzaminu w każdym module. */
+export function examSummaryMap(db: UserDb): Map<string, ExamSummary> {
+  const out = new Map<string, ExamSummary>();
+  for (const r of db.select().from(examResults).all()) {
+    const prev = out.get(r.moduleId);
+    const better = !prev || r.correct / r.total > prev.best / prev.total;
+    out.set(r.moduleId, {
+      best: better ? r.correct : prev.best,
+      total: better ? r.total : prev.total,
+      passed: (prev?.passed ?? false) || r.passed,
+      attempts: (prev?.attempts ?? 0) + 1,
+    });
+  }
+  return out;
 }
 
 export function markTheorySeen(db: UserDb, lessonId: string, now = Date.now()): void {
@@ -124,6 +156,7 @@ export function resetProgress(db: UserDb): void {
     tx.delete(reviewCards).run();
     tx.delete(reviewLogs).run();
     tx.delete(lessonProgress).run();
+    tx.delete(examResults).run();
   });
 }
 

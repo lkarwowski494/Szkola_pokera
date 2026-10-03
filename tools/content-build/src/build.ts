@@ -77,6 +77,11 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
     (id) => ranges.find((r) => r.id === id),
   );
   const sub = (text: string, where: string) => substitute(text, numbers, where, used);
+  for (const r of ranges) {
+    for (const g of r.groups) {
+      if (g.wrongSizes) g.wrongSizes = g.wrongSizes.map((w) => ({ text: sub(w.text, r.id), why: sub(w.why, r.id) }));
+    }
+  }
 
   const localeDir = join(contentDir, locale);
   const modules = parseOrThrow(ModulesFile, readYaml(join(localeDir, 'modules.yaml')), 'modules.yaml');
@@ -118,6 +123,24 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
         if (drillIds.has(d.id)) throw new Error(`powtórzone zadanie ${d.id}`);
         drillIds.add(d.id);
         for (const r of d.rules) if (!ruleIds.has(r)) throw new Error(`zadanie ${d.id}: nieznana reguła ${r}`);
+        if (d.kind === 'paint') {
+          if (!rangeIds.has(d.spot)) throw new Error(`zadanie ${d.id}: nieznany spot zakresu ${d.spot}`);
+          return { ...d, prompt: sub(d.prompt, d.id) };
+        }
+        if (d.kind === 'numeric') {
+          const n = numbers.get(d.answer);
+          if (!n) throw new Error(`zadanie ${d.id}: nieznana liczba ${d.answer}`);
+          used.add(d.answer);
+          if (d.table) parseCards([d.table.hand, d.table.opp, d.table.board].filter(Boolean).join(' '));
+          return {
+            ...d,
+            prompt: sub(d.prompt, d.id),
+            explanation: sub(d.explanation, d.id),
+            value: n.value,
+            unit: n.entry.unit,
+            display: n.display,
+          };
+        }
         if (d.kind === 'generated') {
           if (d.generator === 'rangeDecision') {
             const list = String(d.params.spots ?? '').split(',').map((x) => x.trim()).filter(Boolean);

@@ -10,16 +10,16 @@ drills:
     id: m2.l2.q1
     family: m2.pot-odds
     rules: [R-M2-003]
-    prompt: "W puli jest 90. Przeciwnik stawia 30. Ile equity potrzebujesz do sprawdzenia?"
+    prompt: "W puli jest {{n:ex.third.pot}}. Przeciwnik stawia {{n:ex.third.bet}}. Ile equity potrzebujesz do sprawdzenia?"
     options:
-      - { text: "{{n:eq.bet-third}}", correct: true, why: "Pula po zakładzie to 120, dopłacasz 30, razem 150. 30 ÷ 150 = {{n:eq.bet-third}}." }
+      - { text: "{{n:eq.bet-third}}", correct: true, why: "Pula po zakładzie to {{n:ex.third.pot-after-bet}}, dopłacasz {{n:ex.third.bet}}, razem {{n:ex.third.total}}. {{n:ex.third.bet}} ÷ {{n:ex.third.total}} = {{n:eq.bet-third}}." }
       - { text: "{{n:eq.bet-pot}}", why: "Tyle potrzebujesz przy zakładzie wielkości puli. Tu zakład to 1/3 puli." }
-      - { text: "{{n:eq.bet-half}}", why: "To 30 ÷ 120. Do mianownika dolicz też swoje sprawdzenie." }
+      - { text: "{{n:eq.bet-half}}", why: "To {{n:ex.third.bet}} ÷ {{n:ex.third.pot-after-bet}}. Do mianownika dolicz też swoje sprawdzenie." }
   - kind: choice
     id: m2.l2.q2
     family: m2.draw-call
     rules: [R-M2-004, R-M2-005]
-    prompt: "Turn. Masz dobieranie do koloru. W puli 100, przeciwnik stawia 100."
+    prompt: "Turn. Masz dobieranie do koloru. W puli {{n:ex.pot}}, przeciwnik stawia {{n:ex.bet.pot}}."
     table: { hand: "Ah 5h", board: "Kh 8h 3c 2s" }
     options:
       - { text: "Pasuję", correct: true, why: "Potrzebujesz {{n:eq.bet-pot}}, a masz ok. {{n:odds.flush.turn-river}}. Cena jest za wysoka, takie sprawdzenie regularnie traci." }
@@ -29,7 +29,7 @@ drills:
     id: m2.l2.q3
     family: m2.draw-call
     rules: [R-M2-005]
-    prompt: "Ta sama ręka, ale przeciwnik stawia tylko 25 do puli 100."
+    prompt: "Ta sama ręka, ale przeciwnik stawia tylko {{n:ex.bet.quarter}} do puli {{n:ex.pot}}."
     table: { hand: "Ah 5h", board: "Kh 8h 3c 2s" }
     options:
       - { text: "Sprawdzam", correct: true, why: "Potrzebujesz {{n:eq.bet-quarter}}, a masz ok. {{n:odds.flush.turn-river}}. Mały zakład daje dobrą cenę." }
@@ -40,7 +40,7 @@ drills:
     rules: [R-M2-003]
     prompt: "Przeciwnik stawia pół puli. Ile equity potrzebujesz?"
     options:
-      - { text: "{{n:eq.bet-half}}", correct: true, why: "Pula 100, zakład 50. Dopłacasz 50 do łącznie 200, czyli {{n:eq.bet-half}}." }
+      - { text: "{{n:eq.bet-half}}", correct: true, why: "Pula {{n:ex.pot}}, zakład {{n:ex.bet.half}}. Dopłacasz {{n:ex.bet.half}} do łącznie {{n:ex.half.total}}, czyli {{n:eq.bet-half}}." }
       - { text: "50%", why: "Częsty błąd. Dzielisz przez wszystko, co możesz wygrać, łącznie ze swoim sprawdzeniem." }
       - { text: "{{n:eq.bet-pot}}", why: "Tyle potrzebujesz przy zakładzie wielkości całej puli." }
   - kind: generated
@@ -49,6 +49,20 @@ drills:
     rules: [R-M2-003]
     generator: potOdds
     count: 3
+  - kind: generated
+    id: m2.l2.n1
+    family: m2.pot-odds
+    rules: [R-M2-003]
+    generator: potOdds
+    params: { answer: numeric }
+    count: 2
+  - kind: numeric
+    id: m2.l2.n2
+    family: m2.pot-odds
+    rules: [R-M2-004]
+    prompt: "Przeciwnik stawia całą pulę. Ile procent equity potrzebujesz do sprawdzenia? Wpisz liczbę."
+    answer: eq.bet-pot
+    explanation: "Pula {{n:ex.pot}}, zakład {{n:ex.bet.pot}}. Dopłacasz {{n:ex.bet.pot}} do puli, która po twoim sprawdzeniu ma {{n:ex.pot}} + {{n:ex.bet.pot}} + {{n:ex.bet.pot}}. Dzielisz dopłatę przez całą pulę: {{n:eq.bet-pot}}, czyli jedna trzecia."
   - kind: generated
     id: m2.l2.g2
     family: m2.draw-call
@@ -64,7 +78,7 @@ Gdy przeciwnik stawia, a ty dobierasz, pytanie brzmi: czy cena jest dobra? Poró
 potrzebne equity = sprawdzenie ÷ (pula po zakładzie + sprawdzenie)
 ```
 
-Przykład: w puli jest 100, przeciwnik stawia 50. Pula ma teraz 150, ty dopłacasz 50, razem 200. Potrzebujesz 50 ÷ 200 = **{{n:eq.bet-half}}**.
+Przykład: w puli jest {{n:ex.pot}}, przeciwnik stawia {{n:ex.bet.half}}. Pula ma teraz {{n:ex.half.pot-after-bet}}, ty dopłacasz {{n:ex.bet.half}}, razem {{n:ex.half.total}}. Potrzebujesz {{n:ex.bet.half}} ÷ {{n:ex.half.total}} = **{{n:eq.bet-half}}**.
 
 ## Szybka ściąga
 

@@ -6,7 +6,8 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Muted, ProgressBar, Screen, Title } from '@/components/ui';
 import { getLessonSummaries, getModules } from '@/data/content/repo';
 import { userDb } from '@/data/user/db';
-import { lessonProgressMap } from '@/data/user/repo';
+import { examSummaryMap, lessonProgressMap } from '@/data/user/repo';
+import { EXAM_SIZE } from '@/features/drills/thresholds';
 import { radius, space, type as tp, useTokens } from '@/theme/tokens';
 
 /** Mapa nauki: moduły i lekcje. Każdą lekcję można otworzyć (FR-01). */
@@ -17,7 +18,13 @@ export default function LearnScreen() {
   const modules = useMemo(() => getModules(db), [db]);
   const lessons = useMemo(() => getLessonSummaries(db), [db]);
   const [progress, setProgress] = useState(() => lessonProgressMap(userDb));
-  useFocusEffect(useCallback(() => setProgress(lessonProgressMap(userDb)), []));
+  const [exams, setExams] = useState(() => examSummaryMap(userDb));
+  useFocusEffect(
+    useCallback(() => {
+      setProgress(lessonProgressMap(userDb));
+      setExams(examSummaryMap(userDb));
+    }, []),
+  );
 
   const done = lessons.filter((l) => progress.get(l.id)?.done).length;
 
@@ -65,6 +72,23 @@ export default function LearnScreen() {
                 </Pressable>
               );
             })}
+            {available ? (
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={`${t('exam.start')}. ${t('exam.hint', { count: EXAM_SIZE })}`}
+                onPress={() => router.push({ pathname: '/session', params: { mode: 'exam', moduleId: m.id } })}
+                style={({ pressed }) => [styles.lesson, { borderColor: exams.get(m.id)?.passed ? tk.felt : tk.line, borderStyle: 'dashed', opacity: pressed ? 0.85 : 1 }]}
+              >
+                <View style={[styles.dot, { borderColor: tk.felt, backgroundColor: exams.get(m.id)?.passed ? tk.felt : 'transparent' }]}>
+                  {exams.get(m.id)?.passed ? <Text style={{ color: tk.onFelt, fontWeight: '800' }}>✓</Text> : null}
+                </View>
+                <View style={{ flex: 1, gap: 2 }}>
+                  <Text style={[tp.body, { color: tk.ink, fontWeight: '600' }]}>{t('exam.start')}</Text>
+                  <Muted>{t('exam.hint', { count: EXAM_SIZE })}</Muted>
+                </View>
+                {exams.get(m.id) ? <Muted>{`${exams.get(m.id)!.best}/${exams.get(m.id)!.total}`}</Muted> : null}
+              </Pressable>
+            ) : null}
           </View>
         );
       })}

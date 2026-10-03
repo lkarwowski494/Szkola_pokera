@@ -4,7 +4,7 @@ import { z } from 'zod';
  * Kontrakt treści: wspólny dla potoku content-build (walidacja) i aplikacji (typy).
  * Zmiana tego pliku = zmiana wersji schematu (CONTENT_SCHEMA_VERSION).
  */
-export const CONTENT_SCHEMA_VERSION = 1;
+export const CONTENT_SCHEMA_VERSION = 2;
 
 const id = z.string().regex(/^[a-z0-9][a-z0-9.\-]*$/i, 'identyfikator: litery, cyfry, kropki, myślniki');
 const cardsText = z.string().regex(/^([2-9TJQKA][shdc])( [2-9TJQKA][shdc])*$/, 'karty w formacie "As Kd"');
@@ -77,11 +77,18 @@ export const RulesFile = z.array(RuleDef);
 
 // ---------- Zadania ----------
 
-export const ChoiceOption = z.object({
-  text: z.string().min(1),
-  correct: z.boolean().default(false),
-  why: z.string().min(3),
-});
+export const ChoiceOption = z
+  .object({
+    text: z.string().min(1),
+    correct: z.boolean().default(false),
+    /**
+     * Dobra akcja, zły rozmiar (np. 3-bet za duży): odpowiedź liczona jako błąd, ale pokazywana jako „niedokładność”
+     * z osobnym wyjaśnieniem rozmiaru (decyzja właściciela 3 października 2026, backlog B-015).
+     */
+    sizeError: z.boolean().optional(),
+    why: z.string().min(3),
+  })
+  .refine((o) => !(o.sizeError && o.correct), 'opcja z błędem rozmiaru nie może być poprawna');
 
 const Table = z.object({
   hand: cardsText.optional(),
@@ -102,6 +109,37 @@ export const ChoiceDrill = z
   })
   .refine((d) => d.options.filter((o) => o.correct).length >= 1, 'zadanie musi mieć co najmniej jedną poprawną odpowiedź');
 
+/**
+ * Zadanie z odpowiedzią liczbową wpisywaną z klawiatury (FR-04, backlog B-017).
+ * Poprawna wartość zawsze pochodzi z content/numbers.yaml (jedno źródło prawdy, NFR-09).
+ */
+export const NumericDrill = z.object({
+  kind: z.literal('numeric'),
+  id,
+  family: id,
+  rules: z.array(z.string()).default([]),
+  prompt: z.string().min(3),
+  table: Table.optional(),
+  /** Klucz liczby z numbers.yaml, która jest poprawną odpowiedzią. */
+  answer: id,
+  /** Wyjaśnienie pokazywane po odpowiedzi (zawsze razem z dokładną wartością). */
+  explanation: z.string().min(3),
+});
+
+/**
+ * Malowanie zakresu na siatce 13×13 (FR-04, backlog B-016): użytkownik zaznacza ręce, którymi gra w danym spocie.
+ * Ocena w module oceny aplikacji (gram / pas, ważona kombinacjami, ręce mieszane zaliczane w obie strony).
+ */
+export const PaintDrill = z.object({
+  kind: z.literal('paint'),
+  id,
+  family: id,
+  rules: z.array(z.string()).default([]),
+  /** Identyfikator spotu z content/ranges/spots.yaml. */
+  spot: id,
+  prompt: z.string().min(3),
+});
+
 export const GeneratorName = z.enum(['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'rangeDecision']);
 export type GeneratorName = z.infer<typeof GeneratorName>;
 
@@ -116,10 +154,15 @@ export const GeneratedDrill = z.object({
   count: z.number().int().min(1).max(20).default(3),
 });
 
-export const Drill = z.union([ChoiceDrill, GeneratedDrill]);
-export type Drill = z.infer<typeof Drill>;
+export const Drill = z.union([ChoiceDrill, GeneratedDrill, NumericDrill, PaintDrill]);
 export type ChoiceDrill = z.infer<typeof ChoiceDrill>;
 export type GeneratedDrill = z.infer<typeof GeneratedDrill>;
+export type PaintDrill = z.infer<typeof PaintDrill>;
+/** Zadanie liczbowe po kompilacji: odpowiedź i jednostka podstawione z numbers.yaml. */
+export type NumericDrill = z.infer<typeof NumericDrill> & { value?: number; unit?: NumberUnitName; display?: string };
+export type NumberUnitName = z.infer<typeof NumberUnit>;
+/** Zadanie po kompilacji (zadanie liczbowe z podstawioną odpowiedzią). */
+export type Drill = Exclude<z.infer<typeof Drill>, { kind: 'numeric' }> | NumericDrill;
 
 // ---------- Zakresy (wynik solvera preflop, ADR-20) ----------
 
@@ -136,6 +179,11 @@ export const RangeSpotDef = z.object({
   path: z.string(),
   /** Akcje grupowane do pokazania, np. { "Przebij": ["raise 2.5"], "Sprawdź": ["call 2.5"] }. */
   groups: z.record(z.string(), z.array(z.string()).min(1)),
+  /**
+   * Opcje „dobra akcja, zły rozmiar” do zadań z wyborem rozmiaru (backlog B-015): nazwa grupy → błędne rozmiary.
+   * Tekst może używać {{n:…}}.
+   */
+  wrongSizes: z.record(z.string(), z.array(z.object({ text: z.string().min(2), why: z.string().min(3) })).min(1)).optional(),
 });
 export type RangeSpotDef = z.infer<typeof RangeSpotDef>;
 export const RangeSpotsFile = z.array(RangeSpotDef);
@@ -146,7 +194,7 @@ export interface CompiledRangeSpot {
   title: string;
   hero: string;
   path: string;
-  groups: { name: string; freqs: number[] }[];
+  groups: { name: string; freqs: number[]; wrongSizes?: { text: string; why: string }[] }[];
   /** Udział rąk grających (nie pas), ważony liczbą kombinacji. */
   playPercent: number;
 }

@@ -6,16 +6,14 @@ title: "Obrona dużego blinda"
 sub: "Cena sprawdzenia i szeroka obrona"
 rules: [R-M4-004, R-M4-014, R-M4-002, R-M4-006]
 drills:
-  - kind: choice
-    id: m4.l2.q-price-btn
+  - kind: numeric
+    id: m4.l2.n-price-btn
     family: m4.bb.price
     rules: [R-M4-004]
-    prompt: "Button otworzył na {{n:pf.open-size}}, mały blind spasował. Ile equity potrzebujesz na dużym blindzie, żeby sprawdzenie się opłacało (bez uwzględnienia gry po flopie)?"
+    prompt: "Button otworzył na {{n:pf.open-size}}, mały blind spasował. Ile procent equity potrzebujesz na dużym blindzie, żeby sprawdzenie się opłacało (bez uwzględnienia gry po flopie)? Wpisz liczbę."
     table: { position: BB }
-    options:
-      - { text: "Ok. {{n:eq.bb-vs-btn-open}}", correct: true, why: "Dopłacasz {{n:bb.call.vs-btn}} do puli, która po sprawdzeniu ma {{n:bb.pot-after.vs-btn}}: to ok. {{n:eq.bb-vs-btn-open}}." }
-      - { text: "Ok. połowy", why: "Połowy equity potrzebowałbyś, gdyby w puli był tylko zakład rywala. Tu są w niej jeszcze blindy, więc cena jest dużo lepsza." }
-      - { text: "Ok. jednej dziesiątej", why: "Za mało: cena jest dobra, ale nie aż tak." }
+    answer: eq.bb-vs-btn-open
+    explanation: "Dopłacasz {{n:bb.call.vs-btn}} do puli, która po sprawdzeniu ma {{n:bb.pot-after.vs-btn}}: {{n:bb.call.vs-btn}} ÷ {{n:bb.pot-after.vs-btn}} to ok. {{n:eq.bb-vs-btn-open}}. Połowy potrzebowałbyś tylko wtedy, gdyby w puli był sam zakład rywala; blindy w puli poprawiają cenę."
   - kind: choice
     id: m4.l2.q-price-sb
     family: m4.bb.price
@@ -36,6 +34,17 @@ drills:
       - { text: "Bo bez pozycji nie zrealizujesz całego equity", correct: true, why: "Equity to szansa przy grze do końca bez zakładów. Bez pozycji często spasujesz rękę przed showdownem, więc słabe ręce w różnych kolorach realizują mniej, niż wskazuje equity." }
       - { text: "Bo Button zawsze ma silną rękę", why: "Button otwiera bardzo szeroko, dlatego obrona BB jest szeroka." }
       - { text: "Bo trzeba oszczędzać żetony", why: "Liczy się wartość oczekiwana, nie oszczędzanie żetonów." }
+  - kind: choice
+    id: m4.l2.q-qq
+    family: m4.bb.3bet-size
+    rules: [R-M4-002]
+    prompt: "Button otworzył na {{n:pf.open-size}}, mały blind spasował. Masz QQ na dużym blindzie. Co robisz?"
+    table: { hand: "Qs Qd", position: BB }
+    options:
+      - { text: "3-bet do {{n:pf.3bet.oop-total}}", correct: true, why: "QQ to ręka dla wartości. Bez pozycji przebijasz ok. {{n:pf.3bet.size-oop}} otwarcia, żeby Button nie sprawdzał tanio z pozycją." }
+      - { text: "3-bet do {{n:pf.3bet.ip-total}}", sizeError: true, why: "Dobra akcja, ale to rozmiar dla gracza z pozycją ({{n:pf.3bet.size-ip}} otwarcia). Bez pozycji przebijasz więcej: do {{n:pf.3bet.oop-total}}." }
+      - { text: "Sprawdzam", why: "Tracisz wartość: z QQ chcesz budować pulę przed flopem, a nie rozgrywać małej puli bez pozycji." }
+      - { text: "Pasuję", why: "QQ to jedna z najlepszych rąk preflop. Pas to duży błąd." }
   - kind: generated
     id: m4.l2.g-btn
     family: m4.vsopen.bb-vs-btn
@@ -50,6 +59,12 @@ drills:
     generator: rangeDecision
     params: { spots: "vs-open.bb-vs-sb" }
     count: 4
+  - kind: paint
+    id: m4.l2.p-btn
+    family: m4.paint.bb-vs-btn
+    rules: [R-M4-004]
+    spot: vs-open.bb-vs-btn
+    prompt: "Button otworzył na {{n:pf.open-size}}, mały blind spasował. Pomaluj ręce, którymi bronisz duży blind (sprawdzeniem albo 3-betem)."
 ---
 Duży blind ma już w puli cały blind, więc wobec otwarcia dopłaca niewiele. Gdy Button otwiera na {{n:pf.open-size}}, a mały blind pasuje, do sprawdzenia potrzebujesz tylko ok. {{n:eq.bb-vs-btn-open}} equity. Dlatego duży blind broni się najszerzej ze wszystkich pozycji.
 

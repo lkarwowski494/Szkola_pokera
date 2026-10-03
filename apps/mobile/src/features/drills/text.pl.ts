@@ -1,4 +1,4 @@
-import { cardsToString, HandCategory, type Card, type HandResult, type WinReason } from '@szkola/poker-core';
+import { cardsToString, combosCount, HandCategory, type Card, type HandResult, type WinReason } from '@szkola/poker-core';
 
 /**
  * Teksty zadań generowanych, po polsku. Karty w tekście zapisujemy jako [[As Kd]],
@@ -33,6 +33,17 @@ export function pct(x: number, decimals = 0): string {
 }
 
 export const t = {
+  paint: {
+    explanation: (title: string) =>
+      `${title}. Zielone pole: grasz i zaznaczyłeś. Znak „−”: ręka z zakresu, której brakuje. Znak „+”: zaznaczona, a solver ją pasuje. Kropka: ręka mieszana, solver gra ją tylko czasem, więc jest zaliczona w obie strony. Wynik liczy kombinacje (para ${combosCount('AA')}, w kolorze ${combosCount('AKs')}, w różnych kolorach ${combosCount('AKo')}) tylko wśród rąk z zakresu albo zaznaczonych.`,
+    score: (score: number, pass: number) => `Zgodność z solverem: ${pct(score)} (zaliczenie od ${pct(pass)}).`,
+  },
+  numeric: {
+    yours: (v: string) => `Twoja odpowiedź: ${v}`,
+    exact: (v: string) => `Dokładnie: ${v}`,
+    diffPp: (d: number) => `Różnica: ${d > 0 ? '+' : '−'}${Math.abs(d).toFixed(1).replace('.', ',')} pp`,
+    diff: (d: number) => `Różnica: ${d > 0 ? '+' : '−'}${String(Math.abs(Math.round(d * 100) / 100)).replace('.', ',')}`,
+  },
   range: {
     fold: 'Pas',
     right: (f: number) => `Tak. Solver gra tak w ${pct(f)} przypadków.`,

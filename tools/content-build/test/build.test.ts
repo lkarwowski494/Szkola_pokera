@@ -78,3 +78,34 @@ describe('treść projektu', () => {
     expect(compileContent(contentDir).hash).toBe(compileContent(contentDir).hash);
   });
 });
+
+describe('nowe typy zadań (B-015, B-016, B-017)', () => {
+  const c = compileContent(contentDir);
+  const drills = c.lessons.flatMap((l) => l.drills);
+
+  it('zadania liczbowe mają odpowiedź z numbers.yaml (wartość, jednostka, format)', () => {
+    const numeric = drills.filter((d) => d.kind === 'numeric');
+    expect(numeric.length).toBeGreaterThan(0);
+    for (const d of numeric) {
+      const n = c.numbers.find((x) => x.key === d.answer)!;
+      expect(d.value).toBe(n.value);
+      expect(d.display).toBe(n.display);
+      expect(d.unit).toBeTruthy();
+      expect(d.prompt + d.explanation).not.toContain('{{');
+    }
+  });
+
+  it('malowanie wskazuje istniejący spot', () => {
+    const ids = new Set(c.ranges.map((r) => r.id));
+    const paint = drills.filter((d) => d.kind === 'paint');
+    expect(paint.length).toBeGreaterThan(0);
+    for (const d of paint) expect(ids.has(d.spot)).toBe(true);
+  });
+
+  it('błędne rozmiary w spotach mają podstawione liczby; błąd rozmiaru nigdy nie jest poprawny', () => {
+    const sizes = c.ranges.flatMap((r) => r.groups.flatMap((g) => g.wrongSizes ?? []));
+    expect(sizes.length).toBeGreaterThan(0);
+    for (const w of sizes) expect(w.text + w.why).not.toContain('{{');
+    for (const d of drills) if (d.kind === 'choice') for (const o of d.options) expect(o.sizeError && o.correct).toBeFalsy();
+  });
+});

@@ -20,8 +20,6 @@ export default function RulesScreen() {
   const filtered = q.trim()
     ? rules.filter((r) => norm(`${r.ifText} ${r.thenText} ${r.because} ${r.id}`).includes(norm(q.trim())))
     : rules;
-
-  let lastModule = '';
   return (
     <Screen>
       <Title>{t('rules.title')}</Title>
@@ -36,9 +34,9 @@ export default function RulesScreen() {
       />
       {filtered.length === 0 ? <Muted>{t('rules.empty', { q })}</Muted> : null}
       <View style={{ gap: space.m }}>
-        {filtered.map((r) => {
-          const header = r.moduleId !== lastModule ? moduleTitles.get(r.moduleId) : null;
-          lastModule = r.moduleId;
+        {filtered.map((r, i) => {
+          // nagłówek modułu przy pierwszej regule danego modułu (lista jest posortowana po module)
+          const header = i === 0 || filtered[i - 1]!.moduleId !== r.moduleId ? moduleTitles.get(r.moduleId) : null;
           return (
             <View key={r.id} style={{ gap: space.s }}>
               {header ? <Muted style={{ marginTop: space.s, fontWeight: '700' }}>{header}</Muted> : null}
