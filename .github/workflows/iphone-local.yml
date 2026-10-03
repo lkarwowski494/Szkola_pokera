@@ -1,0 +1,113 @@
+# Instalacja „ad hoc” na iPhonie BEZ zużywania limitu buildów Expo — ten sam sposób co w repozytorium Treningu
+# (lkarwowski494/trening, workflow iphone-local.yml). Repozytorium jest publiczne (ADR-21), więc maszyna macOS w GitHub
+# Actions jest darmowa i bez limitu minut: kompilacja odbywa się tutaj (`eas build --local`, certyfikat i profil z EAS),
+# a do Expo trafia tylko gotowy plik (`eas upload`), który daje link do instalacji.
+#
+# Uruchamianie: Actions → „iPhone (lokalnie, bez limitu Expo)” → Run workflow → tryb:
+#   instalacja        — testy, build podpisany, link do instalacji w podsumowaniu przebiegu (sekret: EXPO_TOKEN;
+#                       wcześniej raz: „iPhone (EAS)” → konfiguruj-podpis),
+#   tylko-kompilacja  — bez żadnych sekretów: sprawdza, czy aplikacja kompiluje się na iOS (bez podpisu, bez instalacji).
+# Uruchamiany tylko ręcznie (workflow_dispatch), nigdy z cudzych propozycji zmian.
+name: iPhone (lokalnie, bez limitu Expo)
+on:
+  workflow_dispatch:
+    inputs:
+      tryb:
+        description: Co zrobić
+        type: choice
+        options: [instalacja, tylko-kompilacja]
+        default: instalacja
+permissions:
+  contents: read
+concurrency:
+  group: iphone-local
+  cancel-in-progress: false
+env:
+  EAS_CLI: 24.8.0
+  EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+  # eas-cli 24.8.0: synchronizacja uprawnień Apple jest wadliwa (expo/eas-cli#3986); aplikacja nie ma specjalnych uprawnień.
+  EXPO_NO_CAPABILITY_SYNC: '1'
+  # Logi są publiczne: UDID z listy urządzeń profilu zastępujemy znacznikiem (jak w Treningu).
+  UDID_SED: 's/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{16}/<UDID>/g; s/(^|[^0-9A-Za-z])[0-9a-fA-F]{40}([^0-9A-Za-z]|$)/\1<UDID>\2/g; s/(^|[^0-9A-Za-z])[0-9a-fA-F]{40}([^0-9A-Za-z]|$)/\1<UDID>\2/g'
+jobs:
+  build:
+    # Expo SDK 57 wymaga Xcode 26.4+; obraz macos-26 ma domyślnie Xcode 26.4.1 (actions/runner-images#14001)
+    runs-on: macos-26
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v5
+      - name: Xcode
+        run: |
+          xcodebuild -version
+          v=$(xcodebuild -version | head -1 | awk '{print $2}')
+          [ "$(printf '%s\n' 26.4 "$v" | sort -V | head -1)" = "26.4" ] || { echo "::error::Xcode $v jest za stary dla Expo SDK 57 (wymagane 26.4+). Dostępne:"; ls /Applications | grep -i xcode; exit 1; }
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Testy (jak w CI)
+        run: pnpm run ci
+
+      # ---------- tryb: tylko-kompilacja (bez sekretów) ----------
+      - name: Projekt iOS (expo prebuild)
+        if: inputs.tryb == 'tylko-kompilacja'
+        working-directory: apps/mobile
+        run: npx expo prebuild --platform ios --no-install --clean
+      - name: CocoaPods
+        if: inputs.tryb == 'tylko-kompilacja'
+        working-directory: apps/mobile/ios
+        run: pod install
+      - name: Kompilacja bez podpisu
+        if: inputs.tryb == 'tylko-kompilacja'
+        working-directory: apps/mobile/ios
+        run: |
+          set -o pipefail
+          WS=$(ls -d *.xcworkspace | head -1); SCHEME="${WS%.xcworkspace}"
+          echo "Workspace: $WS, schemat: $SCHEME"
+          xcodebuild -workspace "$WS" -scheme "$SCHEME" -configuration Release -sdk iphoneos \
+            -destination 'generic/platform=iOS' -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            2>&1 | tee xcodebuild.log | { if command -v xcbeautify >/dev/null; then xcbeautify; else cat; fi; }
+          APP=$(ls -d build/Build/Products/Release-iphoneos/*.app | head -1)
+          test -n "$APP" && test -f "$APP/main.jsbundle"
+          # treść lekcji musi być w paczce (baza content-vN.db)
+          find "$APP" -name 'content-v*.db' | grep -q . || { echo "::error::W paczce brak bazy treści content-v*.db"; exit 1; }
+          du -sh "$APP"
+      - uses: actions/upload-artifact@v5
+        if: failure() && inputs.tryb == 'tylko-kompilacja'
+        with:
+          name: xcodebuild-log
+          path: apps/mobile/ios/xcodebuild.log
+          retention-days: 7
+
+      # ---------- tryb: instalacja ----------
+      - name: Sekret
+        if: inputs.tryb == 'instalacja'
+        run: '[ -n "$EXPO_TOKEN" ] || { echo "::error::Brak sekretu EXPO_TOKEN (Settings → Secrets and variables → Actions)"; exit 1; }'
+      - name: Projekt Expo (połączenie po nazwie)
+        if: inputs.tryb == 'instalacja'
+        working-directory: apps/mobile
+        run: npx --yes eas-cli@$EAS_CLI init --non-interactive --force
+      - name: Build na tej maszynie (eas build --local)
+        if: inputs.tryb == 'instalacja'
+        working-directory: apps/mobile
+        run: |
+          set -o pipefail
+          mkdir -p build
+          npx --yes eas-cli@$EAS_CLI build -p ios --profile adhoc --local --non-interactive --output build/SzkolaPokera.ipa 2>&1 | sed -E "$UDID_SED"
+          test -s build/SzkolaPokera.ipa
+          ls -la build/SzkolaPokera.ipa
+          unzip -l build/SzkolaPokera.ipa | grep -E "Payload/[^/]+\.app/(Info\.plist|embedded\.mobileprovision)$" || { echo "::error::IPA bez Info.plist albo profilu"; exit 1; }
+      - name: Link do instalacji (eas upload — bez buildu w chmurze)
+        if: inputs.tryb == 'instalacja'
+        working-directory: apps/mobile
+        run: |
+          set -o pipefail
+          npx --yes eas-cli@$EAS_CLI upload -p ios --build-path build/SzkolaPokera.ipa --json --non-interactive > upload.json 2> >(sed -E "$UDID_SED" >&2)
+          sed -E "$UDID_SED" upload.json
+          URL=$(node -e "const s=JSON.stringify(require('./upload.json')); const m=s.match(/https:\/\/expo\.dev\/[^\"]+/); console.log(m?m[0]:'')")
+          [ -n "$URL" ] || { echo "::error::eas upload nie zwrócił linku (zawartość upload.json powyżej)"; exit 1; }
+          { echo "## Instalacja na iPhonie (build lokalny, bez limitu Expo)"; echo; echo "Otwórz w Safari na iPhonie i kliknij **Install**:"; echo; echo "$URL"; } >> "$GITHUB_STEP_SUMMARY"
+          echo "$URL"

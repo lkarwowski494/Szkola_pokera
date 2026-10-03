@@ -1,0 +1,84 @@
+# Konfiguracja podpisu i (awaryjnie) build w chmurze Expo — ten sam sposób co w repozytorium Treningu
+# (lkarwowski494/trening, workflow iphone-eas.yml). Job na Linuksie: w publicznym repozytorium minuty są darmowe.
+#
+# Uruchamianie: Actions → „iPhone (EAS)” → Run workflow → akcja:
+#   konfiguruj-podpis  — jednorazowo: certyfikat dystrybucyjny i profil ad hoc z urządzeniami zarejestrowanymi na koncie,
+#   build-w-chmurze    — build na maszynach Expo; ZUŻYWA 1 z 15 darmowych buildów iOS w miesiącu. Zwykle używaj
+#                        „iPhone (lokalnie, bez limitu Expo)”; ta akcja to zapas.
+# Rejestracja nowego iPhone'a: link rejestracyjny byłby publiczny w logach, więc nie generujemy go tutaj (README).
+#
+# Wymagane sekrety (Settings → Secrets and variables → Actions):
+#   EXPO_TOKEN, APPLE_TEAM_ID, ASC_KEY_ID, ASC_ISSUER_ID, ASC_API_KEY_P8 (cała treść pliku .p8).
+# Uruchamiany tylko ręcznie (workflow_dispatch), nigdy z cudzych propozycji zmian.
+name: iPhone (EAS)
+on:
+  workflow_dispatch:
+    inputs:
+      akcja:
+        description: Co zrobić
+        type: choice
+        options: [konfiguruj-podpis, build-w-chmurze]
+        default: konfiguruj-podpis
+concurrency:
+  group: iphone-eas
+  cancel-in-progress: false
+env:
+  EAS_CLI: 24.8.0
+  EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+  EXPO_APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+  EXPO_APPLE_TEAM_TYPE: INDIVIDUAL
+  EXPO_ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+  EXPO_ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+  EXPO_ASC_API_KEY_PATH: ${{ github.workspace }}/.secrets/asc.p8
+  EXPO_NO_CAPABILITY_SYNC: '1'
+  UDID_SED: 's/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{16}/<UDID>/g; s/(^|[^0-9A-Za-z])[0-9a-fA-F]{40}([^0-9A-Za-z]|$)/\1<UDID>\2/g; s/(^|[^0-9A-Za-z])[0-9a-fA-F]{40}([^0-9A-Za-z]|$)/\1<UDID>\2/g'
+permissions:
+  contents: read
+jobs:
+  eas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Sekrety
+        env:
+          ASC_P8: ${{ secrets.ASC_API_KEY_P8 }}
+        run: |
+          missing=""
+          for v in EXPO_TOKEN EXPO_APPLE_TEAM_ID EXPO_ASC_KEY_ID EXPO_ASC_ISSUER_ID ASC_P8; do [ -n "${!v}" ] || missing="$missing $v"; done
+          if [ -n "$missing" ]; then echo "::error::Brak sekretów:$missing (Settings → Secrets and variables → Actions; ASC_P8 = ASC_API_KEY_P8, EXPO_APPLE_TEAM_ID = APPLE_TEAM_ID)"; exit 1; fi
+          mkdir -p .secrets && printf '%s\n' "$ASC_P8" > .secrets/asc.p8 && chmod 600 .secrets/asc.p8
+          grep -q "BEGIN PRIVATE KEY" .secrets/asc.p8 || { echo "::error::ASC_API_KEY_P8 nie wygląda na plik .p8 (brak BEGIN PRIVATE KEY)"; exit 1; }
+      - run: pnpm install --frozen-lockfile
+      - name: Testy (jak w CI)
+        if: inputs.akcja == 'build-w-chmurze'
+        run: pnpm run ci
+      - name: Projekt Expo (utworzenie albo połączenie po nazwie)
+        working-directory: apps/mobile
+        run: npx --yes eas-cli@$EAS_CLI init --non-interactive --force
+      - name: Podpis (certyfikat i profil ad hoc)
+        if: inputs.akcja == 'konfiguruj-podpis'
+        working-directory: apps/mobile
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq expect
+          set -o pipefail
+          expect ../../scripts/eas/configure-credentials.exp 2>&1 | sed -E "$UDID_SED"
+      - name: Build w chmurze Expo (zużywa limit 15/mies.)
+        if: inputs.akcja == 'build-w-chmurze'
+        working-directory: apps/mobile
+        run: |
+          npx --yes eas-cli@$EAS_CLI build -p ios --profile adhoc --non-interactive --refresh-ad-hoc-provisioning-profile --wait --json > build.json 2> >(tee build.err | sed -E "$UDID_SED" >&2)
+          ID=$(jq -r '.[0].id' build.json); STATUS=$(jq -r '.[0].status' build.json)
+          PAGE=$(grep -o "https://expo.dev/accounts/[^ ]*/builds/${ID}" build.err | head -1)
+          [ -n "$PAGE" ] || PAGE="https://expo.dev/accounts/$(npx --yes eas-cli@$EAS_CLI whoami 2>/dev/null | head -1)/projects/szkola-pokera/builds/${ID}"
+          { echo "## Build: $STATUS"; echo; echo "Instalacja na iPhonie: otwórz w Safari i kliknij **Install**:"; echo; echo "$PAGE"; } >> "$GITHUB_STEP_SUMMARY"
+          echo "$PAGE"
+          [ "$STATUS" = "FINISHED" ]
+      - name: Sprzątanie klucza
+        if: always()
+        run: rm -rf .secrets
