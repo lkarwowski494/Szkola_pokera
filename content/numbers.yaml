@@ -129,3 +129,34 @@ pf.3bet.too-big.mult: { value: 5, unit: multiplier, source: "przykład błędneg
 pf.3bet.too-big: { formula: product, refs: [pf.open-size, pf.3bet.too-big.mult], unit: bb, decimals: 1, source: "obliczenie: przykład błędnego rozmiaru" }
 pf.4bet.too-small.mult: { value: 1.5, unit: multiplier, decimals: 1, source: "przykład błędnego rozmiaru: 1,5 × 3-bet (dobrany do ćwiczenia, bez źródła)" }
 pf.4bet.too-small: { formula: product, refs: [pf.3bet.oop-total, pf.4bet.too-small.mult], unit: bb, source: "obliczenie: przykład błędnego rozmiaru" }
+
+# M6: obrona na flopie. MDF = pula/(pula+bet), alpha = bet/(pula+bet), potrzebne equity = bet/(pula+2·bet).
+# Pule i zakłady z przykładów M2 (ex.*), żeby M2 i M6 liczyły z tych samych liczb. Rozmiary check-raise'u z literatury (heurystyki).
+ex.frac.three-quarters: { value: 0.75, unit: ratio, decimals: 2, source: "przykład: zakład = 3/4 puli" }
+ex.frac.overbet: { value: 1.5, unit: ratio, decimals: 1, source: "przykład: zakład = 1,5 puli (overbet)" }
+ex.bet.three-quarters: { formula: product, refs: [ex.pot, ex.frac.three-quarters], unit: count, source: "obliczenie: zakład 3/4 puli" }
+ex.bet.overbet: { formula: product, refs: [ex.pot, ex.frac.overbet], unit: count, source: "obliczenie: zakład 1,5 puli" }
+eq.bet-three-quarters: { formula: requiredEquity, refs: [ex.pot, ex.bet.three-quarters], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
+eq.bet-overbet: { formula: requiredEquity, refs: [ex.pot, ex.bet.overbet], unit: percent, decimals: 1, source: "obliczenie: bet/(pula+2·bet)" }
+mdf.bet-quarter: { formula: mdf, refs: [ex.pot, ex.bet.quarter], unit: percent, source: "obliczenie: pula/(pula+bet)" }
+mdf.bet-third: { formula: mdf, refs: [ex.third.pot, ex.third.bet], unit: percent, source: "obliczenie: pula/(pula+bet)" }
+mdf.bet-half: { formula: mdf, refs: [ex.pot, ex.bet.half], unit: percent, source: "obliczenie: pula/(pula+bet)" }
+mdf.bet-three-quarters: { formula: mdf, refs: [ex.pot, ex.bet.three-quarters], unit: percent, source: "obliczenie: pula/(pula+bet)" }
+mdf.bet-pot: { formula: mdf, refs: [ex.pot, ex.bet.pot], unit: percent, source: "obliczenie: pula/(pula+bet)" }
+mdf.bet-overbet: { formula: mdf, refs: [ex.pot, ex.bet.overbet], unit: percent, source: "obliczenie: pula/(pula+bet)" }
+alpha.bet-quarter: { formula: alpha, refs: [ex.pot, ex.bet.quarter], unit: percent, source: "obliczenie: bet/(pula+bet)" }
+alpha.bet-third: { formula: alpha, refs: [ex.third.pot, ex.third.bet], unit: percent, source: "obliczenie: bet/(pula+bet)" }
+alpha.bet-half: { formula: alpha, refs: [ex.pot, ex.bet.half], unit: percent, source: "obliczenie: bet/(pula+bet)" }
+alpha.bet-three-quarters: { formula: alpha, refs: [ex.pot, ex.bet.three-quarters], unit: percent, source: "obliczenie: bet/(pula+bet)" }
+alpha.bet-pot: { formula: alpha, refs: [ex.pot, ex.bet.pot], unit: percent, source: "obliczenie: bet/(pula+bet)" }
+alpha.bet-overbet: { formula: alpha, refs: [ex.pot, ex.bet.overbet], unit: percent, source: "obliczenie: bet/(pula+bet)" }
+xr.mult.example: { value: 3, unit: multiplier, source: "przykład do ćwiczenia (rachunek ceny); rozmiar z literatury do weryfikacji, gdy źródła będą dostępne" }
+xr.example: { formula: product, refs: [ex.third.bet, xr.mult.example], unit: count, source: "obliczenie: check-raise 3x c-betu z przykładu" }
+xr.too-small.mult: { value: 1.5, unit: multiplier, decimals: 1, source: "przykład błędnego rozmiaru: 1,5x c-betu (dobrany do ćwiczenia, bez źródła)" }
+xr.too-small: { formula: product, refs: [ex.third.bet, xr.too-small.mult], unit: count, source: "obliczenie: przykład błędnego rozmiaru" }
+xr.example.extra: { formula: diff, refs: [xr.example, ex.third.bet], unit: count, source: "obliczenie: dopłata Buttona do check-raise'u" }
+xr.too-small.extra: { formula: diff, refs: [xr.too-small, ex.third.bet], unit: count, source: "obliczenie: dopłata Buttona do check-raise'u" }
+xr.example.pot-after: { formula: sum, refs: [ex.third.pot, ex.third.bet, xr.example], unit: count, source: "obliczenie: pula po check-raise'ie" }
+xr.too-small.pot-after: { formula: sum, refs: [ex.third.pot, ex.third.bet, xr.too-small], unit: count, source: "obliczenie: pula po check-raise'ie" }
+eq.vs-xr.example: { formula: requiredEquity, refs: [ex.third.total, xr.example.extra], unit: percent, source: "obliczenie: dopłata/(pula po check-raise'ie + dopłata); pula przed nadwyżką = pula + c-bet + wyrównanie c-betu" }
+eq.vs-xr.too-small: { formula: requiredEquity, refs: [ex.third.total, xr.too-small.extra], unit: percent, source: "obliczenie: dopłata/(pula po check-raise'ie + dopłata)" }
