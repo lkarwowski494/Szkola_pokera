@@ -147,10 +147,33 @@ spr.4bet.high: { formula: quotient, refs: [spr.4bet.high.stack, spr.4bet.high.po
 range.mixed.low: { value: 0.25, unit: percent, source: "próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_LOW" }
 range.mixed.high: { value: 0.75, unit: percent, source: "próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_HIGH" }
 
-# M5: c-bet na flopie. Bez częstotliwości z literatury (źródeł nie dało się przeczytać, raport M5): tylko rozmiar
-# z programu nauczania, przykładowy duży rozmiar do obliczeń i matematyka liczona z tych samych liczb.
-cbet.size.small: { value: 0.333333, unit: percent, source: "program nauczania M5 (dokument projektu): c-bet ok. 1/3 puli na suchym, wysokim flopie" }
-cbet.size.big: { value: 0.75, unit: percent, source: "przykład dużego c-betu dobrany do ćwiczeń (bez źródła liczbowego; przedział z literatury do weryfikacji, raport M5)" }
+# M5: c-bet na flopie. Rozmiary i przedziały według decyzji D-20 (dokument 12 M4–M6); bez częstotliwości w procentach.
+cbet.size.small: { value: 0.333333, unit: percent, source: "GTO Wizard, Flop Heuristics: IP C-Betting in Cash Games (33%); Upswing, Bet Sizing Strategy: 8 Rules (25–35%, https://upswingpoker.com/bet-size-strategy-tips-rules/)" }
+cbet.size.big: { value: 0.75, unit: percent, source: "GTO Wizard, The Mechanics of C-Bet Sizing (75%); Upswing, Bet Sizing Strategy: 8 Rules (55–80%, https://upswingpoker.com/bet-size-strategy-tips-rules/)" }
+cbet.range.small.low: { value: 0.25, unit: percent, source: "Upswing, Bet Sizing Strategy: 8 Rules („Bet small (25-35% pot) on dry, static board textures”, https://upswingpoker.com/bet-size-strategy-tips-rules/)" }
+cbet.range.small.high: { value: 0.35, unit: percent, source: "Upswing, Bet Sizing Strategy: 8 Rules (25–35% puli, https://upswingpoker.com/bet-size-strategy-tips-rules/)" }
+cbet.range.big.low: { value: 0.55, unit: percent, source: "Upswing, Bet Sizing Strategy: 8 Rules (55–80% puli, https://upswingpoker.com/bet-size-strategy-tips-rules/)" }
+cbet.range.big.high: { value: 0.8, unit: percent, source: "Upswing, Bet Sizing Strategy: 8 Rules (55–80% puli, https://upswingpoker.com/bet-size-strategy-tips-rules/)" }
+cbet.oop.a94.check: { value: 0.96, unit: percent, source: "PokerCoaching, C-Betting On Ace-High Boards (CO vs BTN, A94r: „we will check over 96% of the time”)" }
+cbet.oop.a94.bet: { formula: diff, refs: [prob.certain, cbet.oop.a94.check], unit: percent, source: "obliczenie: 100% minus częstość czekania (PokerCoaching, A94r)" }
+cbet.solver.big.low: { value: 0.66, unit: percent, source: "GTO Wizard, Flop Heuristics: IP C-Betting in Cash Games („increased use of the 66% pot bet size”)" }
+# Mokrość flopa: te same wagi i progi co WETNESS_POINTS i WETNESS_THRESHOLDS w packages/poker-core/src/texture.ts
+# (zgodność pilnuje test w tools/content-build). Zmiana wag: najpierw kod, potem te wartości.
+tex.points.straight.made: { value: 3, unit: count, source: "definicja aplikacji: WETNESS_POINTS.straight.made (strit możliwy już na flopie)" }
+tex.points.straight.draw: { value: 1, unit: count, source: "definicja aplikacji: WETNESS_POINTS.straight.draw (możliwe tylko dobieranie do strita)" }
+tex.points.straight.none: { value: 0, unit: count, source: "definicja aplikacji: WETNESS_POINTS.straight.none" }
+tex.points.suits.rainbow: { value: 0, unit: count, source: "definicja aplikacji: WETNESS_POINTS.suits.rainbow" }
+tex.points.suits.two-tone: { value: 1, unit: count, source: "definicja aplikacji: WETNESS_POINTS.suits['two-tone']" }
+tex.points.suits.monotone: { value: 2, unit: count, source: "definicja aplikacji: WETNESS_POINTS.suits.monotone" }
+tex.threshold.medium: { value: 2, unit: count, source: "definicja aplikacji: WETNESS_THRESHOLDS.medium (od tylu punktów flop jest pośredni)" }
+tex.threshold.wet: { value: 3, unit: count, source: "definicja aplikacji: WETNESS_THRESHOLDS.wet (od tylu punktów flop jest mokry)" }
+tex.ex.k72: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.none], unit: count, source: "obliczenie: Ks 7d 2c, tęczowy, bez strita i bez dobierania do strita" }
+tex.ex.qq6: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.none], unit: count, source: "obliczenie: Qd Qs 6h, tęczowy, sparowany, bez dobierania do strita" }
+tex.ex.kq4: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.draw], unit: count, source: "obliczenie: Kh Qd 4c, tęczowy, półpołączony" }
+tex.ex.j74: { formula: sum, refs: [tex.points.suits.two-tone, tex.points.straight.draw], unit: count, source: "obliczenie: Jh 7h 4s, dwukolorowy, półpołączony" }
+tex.ex.k83: { formula: sum, refs: [tex.points.suits.monotone, tex.points.straight.none], unit: count, source: "obliczenie: Kh 8h 3h, monotoniczny, rozłączony" }
+tex.ex.987: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.made], unit: count, source: "obliczenie: 9h 8d 7c, tęczowy, połączony" }
+tex.ex.jt8: { formula: sum, refs: [tex.points.suits.two-tone, tex.points.straight.made], unit: count, source: "obliczenie: Jh Th 8c, dwukolorowy, połączony" }
 cbet.ex.small: { formula: product, refs: [ex.pot, cbet.size.small], unit: count, source: "obliczenie: c-bet 1/3 puli przy puli 100" }
 cbet.ex.big: { formula: product, refs: [ex.pot, cbet.size.big], unit: count, source: "obliczenie: duży c-bet przy puli 100" }
 alpha.cbet.small: { formula: alpha, refs: [ex.pot, cbet.ex.small], unit: percent, source: "obliczenie: zakład / (pula + zakład)" }
@@ -169,9 +192,17 @@ cards.two-hands: { formula: product, refs: [cards.hole, ex.hands.two], unit: cou
 cards.unseen.two-hands: { formula: diff, refs: [cards.deck, cards.two-hands], unit: count, source: "obliczenie: talia minus karty obu rąk (karty bohatera pomijamy, jak w szansie dla jednej ręki)" }
 flop.miss.two: { formula: missProbability, refs: [pair.outs.two-hands, cards.unseen.two-hands, cards.board.flop], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): żadna z 3 kart flopu nie paruje żadnej z dwóch rąk, C(36,3)/C(48,3); z kartami bohatera wychodzi ok. 39,4%" }
 flop.hit.unpaired: { formula: diff, refs: [prob.certain, flop.miss.unpaired], unit: percent, decimals: 1, source: "obliczenie: 100% minus szansa chybienia" }
+# D-19: dokładnie jedna karta flopu paruje rękę (PrimeDope: 28,96%) = 3 × (6/50) × szansa, że dwie pozostałe karty
+# (z 49) nie trafią żadnej z 5 pozostałych kart parujących.
+flop.one-pair.first: { formula: quotient, refs: [pair.outs.unpaired, cards.unseen.preflop], unit: ratio, decimals: 3, source: "obliczenie pomocnicze: pierwsza karta paruje rękę (6 z 50)" }
+pair.outs.unpaired.rest: { formula: diff, refs: [pair.outs.unpaired, math.one], unit: count, source: "obliczenie pomocnicze: karty parujące, które zostają po jednej trafionej" }
+cards.unseen.preflop.rest: { formula: diff, refs: [cards.unseen.preflop, math.one], unit: count, source: "obliczenie pomocnicze: nieznane karty po jednej karcie flopu" }
+flop.cards.rest: { formula: diff, refs: [cards.board.flop, math.one], unit: count, source: "obliczenie pomocnicze: pozostałe karty flopu" }
+flop.one-pair.rest: { formula: missProbability, refs: [pair.outs.unpaired.rest, cards.unseen.preflop.rest, flop.cards.rest], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): dwie pozostałe karty flopu nie parują ręki" }
+flop.hit.one-pair: { formula: product, refs: [cards.board.flop, flop.one-pair.first, flop.one-pair.rest], unit: percent, decimals: 0, source: "obliczenie dokładne: dokładnie jedna karta flopu paruje rękę, C(6,1)·C(44,2)/C(50,3); zgodne z PrimeDope (28,96%)" }
 
 # M6: obrona na flopie. MDF = pula/(pula+bet), alpha = bet/(pula+bet), potrzebne equity = bet/(pula+2·bet).
-# Pule i zakłady z przykładów M2 (ex.*), żeby M2 i M6 liczyły z tych samych liczb. Rozmiar check-raise'u tylko jako przykład do rachunku ceny; przedziały z literatury do weryfikacji.
+# Pule i zakłady z przykładów M2 (ex.*), żeby M2 i M6 liczyły z tych samych liczb. Rozmiar check-raise'u według decyzji D-29 (dokument 12 M4–M6).
 ex.frac.three-quarters: { value: 0.75, unit: ratio, decimals: 2, source: "przykład: zakład = 3/4 puli" }
 ex.frac.overbet: { value: 1.5, unit: ratio, decimals: 1, source: "przykład: zakład = 1,5 puli (overbet)" }
 ex.bet.three-quarters: { formula: product, refs: [ex.pot, ex.frac.three-quarters], unit: count, source: "obliczenie: zakład 3/4 puli" }
@@ -190,8 +221,9 @@ alpha.bet-half: { formula: alpha, refs: [ex.pot, ex.bet.half], unit: percent, so
 alpha.bet-three-quarters: { formula: alpha, refs: [ex.pot, ex.bet.three-quarters], unit: percent, source: "obliczenie: bet/(pula+bet)" }
 alpha.bet-pot: { formula: alpha, refs: [ex.pot, ex.bet.pot], unit: percent, source: "obliczenie: bet/(pula+bet)" }
 alpha.bet-overbet: { formula: alpha, refs: [ex.pot, ex.bet.overbet], unit: percent, source: "obliczenie: bet/(pula+bet)" }
-xr.mult.example: { value: 3, unit: multiplier, source: "przykład do ćwiczenia (rachunek ceny); rozmiar z literatury do weryfikacji, gdy źródła będą dostępne" }
-xr.example: { formula: product, refs: [ex.third.bet, xr.mult.example], unit: count, source: "obliczenie: check-raise 3x c-betu z przykładu" }
+xr.mult.example: { value: 4.5, unit: multiplier, decimals: 1, source: "Upswing, Level-Up Podcast ep. 1 (Blackwood): 4,5x wobec małych c-betów, 3,2x wobec dużych (https://upswingpoker.com/podcast/ep1-check-raise/); kierunek zgodny z GTO Wizard: im mniejszy bet, tym większa krotność" }
+xr.mult.low: { value: 3, unit: multiplier, source: "dolna granica przedziału „ok. 3–4,5 razy” (D-29): Upswing, Level-Up Podcast ep. 1 (Blackwood), 3,2x wobec dużych c-betów (https://upswingpoker.com/podcast/ep1-check-raise/)" }
+xr.example: { formula: product, refs: [ex.third.bet, xr.mult.example], unit: count, source: "obliczenie: check-raise 4,5x c-betu z przykładu" }
 xr.too-small.mult: { value: 1.5, unit: multiplier, decimals: 1, source: "przykład błędnego rozmiaru: 1,5x c-betu (dobrany do ćwiczenia, bez źródła)" }
 xr.too-small: { formula: product, refs: [ex.third.bet, xr.too-small.mult], unit: count, source: "obliczenie: przykład błędnego rozmiaru" }
 xr.example.extra: { formula: diff, refs: [xr.example, ex.third.bet], unit: count, source: "obliczenie: dopłata Buttona do check-raise'u" }

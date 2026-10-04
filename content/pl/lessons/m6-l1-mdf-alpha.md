@@ -79,8 +79,8 @@ drills:
     prompt: "Flop. Bronisz duży blind, Button stawia c-bet 1/3 puli. MDF wynosi {{n:mdf.bet-third}}. Czy musisz bronić aż tyle rąk?"
     table: { position: BB }
     options:
-      - { text: "Nie, bronisz mniej", correct: true, why: "MDF zakłada blef bez żadnych szans. Na flopie blefy Buttona mają jeszcze equity (dobierania, wysokie karty), a ty bez pozycji nie zrealizujesz całego equity słabych rąk. Dlatego bronisz mniej niż MDF." }
-      - { text: "Tak, inaczej Button zarabia każdą ręką", why: "Na riverze tak by było. Na flopie Button nie blefuje ręką bez szans: nawet gdy go sprawdzisz, może trafić. Obrona aż {{n:mdf.bet-third}} zmuszałaby cię do płacenia rękami, które tracą." }
+      - { text: "Nie, możesz bronić trochę mniej", correct: true, why: "MDF zakłada blef bez żadnych szans. Na flopie blefy Buttona mają jeszcze equity (dobierania, wysokie karty), a ty bez pozycji nie zrealizujesz całego equity słabych rąk. Dlatego możesz bronić trochę mniej niż MDF, ale na mały c-bet nie pasujesz masowo." }
+      - { text: "Tak, inaczej Button zarabia każdą ręką", why: "Na riverze tak by było. Na flopie Button nie blefuje ręką bez szans: nawet gdy go sprawdzisz, może trafić. MDF to punkt odniesienia, nie obowiązek." }
       - { text: "Nie, bronisz więcej, bo to dopiero flop", why: "Odwrotnie. Przyszłe ulice działają na korzyść betującego z pozycją, więc bronisz mniej, nie więcej." }
   - kind: choice
     id: m6.l1.q-exploit-river
@@ -127,9 +127,9 @@ Przykład z rivera: w puli jest {{n:ex.third.pot}}, rywal stawia {{n:ex.third.be
 
 Potrzebne equity z M2 dotyczy **jednej ręki**: czy sprawdzenie nią się opłaca. MDF dotyczy **całego zakresu**: jaką jego część bronisz. Przy becie 1/3 puli na riverze MDF podpowiada, żeby bronić ok. {{n:mdf.bet-third}} rąk, a pojedyncze sprawdzenie opłaca się, gdy ręka wygrywa w co najmniej {{n:eq.bet-third}} przypadków.
 
-## Na flopie bronisz mniej
+## Na flopie bez pozycji bronisz trochę mniej
 
-MDF zakłada, że blef rywala nie ma żadnych szans. To prawda tylko na riverze. Na flopie i turnie blefy mają jeszcze equity: dobierania i wysokie karty mogą się poprawić. Do tego bez pozycji nie zrealizujesz całego equity swoich słabych rąk. Dlatego na flopie bronisz mniej niż MDF i traktujesz go jako punkt odniesienia, a nie obowiązek.
+MDF zakłada, że blef rywala nie ma żadnych szans. Najbliżej prawdy jest to na riverze, gdzie dobierania już się nie poprawią. Na flopie blefy mają jeszcze equity: dobierania i wysokie karty mogą się poprawić. Do tego bez pozycji nie zrealizujesz całego equity swoich słabych rąk. Dlatego na flopie bez pozycji możesz bronić trochę mniej niż MDF i traktujesz go jako punkt odniesienia, a nie obowiązek; na małe c-bety nie pasujesz jednak masowo. Na turnie solver broni średnio blisko MDF, inaczej niż na flopie bez pozycji, gdzie broni mniej.
 
 :::note Gdy rywal rzadko blefuje
 MDF chroni cię przed graczem, który blefuje wystarczająco często. Na mikrostawkach wielu graczy, zwłaszcza pasywnych, blefuje dużymi betami na riverze za rzadko. Wobec nich pasujesz częściej, niż wskazuje MDF: sprawdzanie słabszą parą płaci głównie lepszym rękom. To eksploatacja, nie strategia wobec każdego.
