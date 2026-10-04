@@ -1,6 +1,8 @@
+import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { RuleDef } from '@szkola/content-schema';
+import { FlopHeight, FlopRanks, FlopSuits, FlopWetness, RuleDef, TextureAxis } from '@szkola/content-schema';
+import { TEXTURE_AXES, TEXTURE_VALUES, WETNESS_POINTS, WETNESS_THRESHOLDS, classifyFlop, parseCards } from '@szkola/poker-core';
 import { checkCbetCases, compileContent } from '../src/build';
 import { compileMarkdown } from '../src/markdown';
 import { findHardcodedNumbers, formatNumber, resolveNumbers, substitute } from '../src/numbers';
@@ -129,6 +131,46 @@ describe('flop: tekstura i c-bet (M5, schemat w wersji 3)', () => {
     expect(() => checkCbetCases('t', [{ height: ['high'] }, { suits: ['rainbow'] }])).toThrow(/pasują do tego samego flopu/);
     expect(() => checkCbetCases('t', [{ suits: ['monotone'], ranks: ['paired'] }])).toThrow(/nie pasuje do żadnego/);
     expect(() => checkCbetCases('t', [{ height: ['high'] }, { height: ['low'] }])).not.toThrow();
+  });
+
+  it('osie tekstury w schemacie treści są takie same jak w poker-core (classifyFlop)', () => {
+    expect(TextureAxis.options).toEqual([...TEXTURE_AXES]);
+    expect(FlopHeight.options).toEqual([...TEXTURE_VALUES.height]);
+    expect(FlopSuits.options).toEqual([...TEXTURE_VALUES.suits]);
+    expect(FlopRanks.options).toEqual([...TEXTURE_VALUES.ranks]);
+    expect(FlopWetness.options).toEqual([...TEXTURE_VALUES.wetness]);
+  });
+
+  it('punkty i progi mokrości w numbers.yaml są tymi samymi stałymi co w poker-core (jedno źródło prawdy)', () => {
+    const v = (k: string) => c.numbers.find((x) => x.key === k)?.value;
+    expect(v('tex.points.straight.made')).toBe(WETNESS_POINTS.straight.made);
+    expect(v('tex.points.straight.draw')).toBe(WETNESS_POINTS.straight.draw);
+    expect(v('tex.points.straight.none')).toBe(WETNESS_POINTS.straight.none);
+    expect(v('tex.points.suits.rainbow')).toBe(WETNESS_POINTS.suits.rainbow);
+    expect(v('tex.points.suits.two-tone')).toBe(WETNESS_POINTS.suits['two-tone']);
+    expect(v('tex.points.suits.monotone')).toBe(WETNESS_POINTS.suits.monotone);
+    expect(v('tex.threshold.medium')).toBe(WETNESS_THRESHOLDS.medium);
+    expect(v('tex.threshold.wet')).toBe(WETNESS_THRESHOLDS.wet);
+  });
+
+  it('tabela mokrości w lekcji m5.l1 zgadza się z classifyFlop (punkty i nazwa tekstury)', () => {
+    const src = readFileSync(join(contentDir, 'pl/lessons/m5-l1-tekstury.md'), 'utf8');
+    const names: Record<string, string> = { suchy: 'dry', 'pośredni': 'medium', mokry: 'wet' };
+    const value = (cell: string) => {
+      const key = /\{\{n:([^}]+)\}\}/.exec(cell)?.[1];
+      return c.numbers.find((x) => x.key === key)?.value;
+    };
+    const rows = src.split('\n').filter((l) => /^\| \[\[[^\]]+\]\] \|.*\{\{n:tex\./.test(l));
+    expect(rows.length).toBeGreaterThanOrEqual(5);
+    for (const row of rows) {
+      const cells = row.split('|').slice(1, -1).map((x) => x.trim());
+      const tex = classifyFlop(parseCards(/\[\[([^\]]+)\]\]/.exec(cells[0]!)![1]!));
+      const straight = tex.straightPossible ? 'made' : tex.straightDrawPossible ? 'draw' : 'none';
+      expect(value(cells[1]!), row).toBe(WETNESS_POINTS.suits[tex.suits]);
+      expect(value(cells[2]!), row).toBe(WETNESS_POINTS.straight[straight]);
+      expect(value(cells[3]!), row).toBe(tex.wetnessPoints);
+      expect(names[cells[4]!], row).toBe(tex.wetness);
+    }
   });
 
   it('moduł M5 ma lekcje z zadaniami klasyfikacji tekstury, reguły bez niepodstawionych liczb', () => {

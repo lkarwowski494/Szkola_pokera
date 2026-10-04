@@ -86,7 +86,7 @@ drills:
     rules: [R-M8-012, R-M6-001]
     prompt: "River. Rywal stawia pół puli. MDF wynosi {{n:mdf.bet-half}}. Które ręce bronisz w pierwszej kolejności?"
     options:
-      - { text: "Najlepsze bluff-catchery: wygrywają z większością blefów i mają dobre blokery", correct: true, why: "Bronisz ręce, które wygrywają z największą liczbą blefów i blokują wartość rywala. Pasujesz najsłabszymi rękami, które przegrywają nawet z blefami." }
+      - { text: "Najlepsze bluff-catchery: wygrywają z blefami i mają dobre blokery", correct: true, why: "Bronisz ręce, które wygrywają z blefami, a wśród rąk podobnej siły wybierasz te, które blokują wartość rywala i nie blokują jego blefów. Pasujesz rękami, które przegrywają nawet z blefami." }
       - { text: "Losowe {{n:mdf.bet-half}} zakresu", why: "MDF mówi, ile bronić, a nie czym. Losowa obrona płaci rękami, które nigdy nie wygrają." }
       - { text: "Tylko ręce dla wartości", why: "Wtedy bronisz za mało i rywal zarabia, blefując dowolnymi kartami. Do MDF dokładasz najlepsze bluff-catchery." }
   - kind: choice
@@ -111,11 +111,11 @@ Bluff-catcher wygrywa dokładnie wtedy, gdy rywal blefuje. Jego equity to więc 
 | 1/2 puli | {{n:eq.bet-half}} |
 | Cała pula | {{n:eq.bet-pot}} |
 
-Gdy rywal blefuje dokładnie w takiej proporcji, jak w poprzedniej lekcji ({{n:bluff.share.bet-pot}} przy całej puli), sprawdzenie wychodzi na zero. Gdy blefuje częściej, sprawdzasz; gdy rzadziej, pasujesz.
+Gdy rywal blefuje dokładnie w takiej proporcji, jak w poprzedniej lekcji ({{n:bluff.share.bet-pot}} przy całej puli), sprawdzenie wychodzi na zero. Gdy blefuje częściej, sprawdzasz; gdy rzadziej, pasujesz. Liczby są bez rake'u; rake trochę podnosi potrzebne equity.
 
 ## Ile bronić, a czym
 
-Ile bronić, mówi MDF z M6: przy becie pół puli ok. **{{n:mdf.bet-half}}** zakresu. Ta lekcja odpowiada na drugie pytanie: **którymi rękami**. Bronisz najlepszymi bluff-catcherami, a pasujesz najsłabszymi.
+Ile bronić, mówi MDF z M6: przy becie pół puli ok. **{{n:mdf.bet-half}}** zakresu. Ta lekcja odpowiada na drugie pytanie: **którymi rękami**. Sprawdzasz najlepszymi bluff-catcherami: wśród rąk podobnej siły wybierasz te z lepszymi blokerami; pasujesz rękami, które przegrywają nawet z blefami.
 
 Lepszy bluff-catcher:
 
@@ -132,5 +132,5 @@ To lustro poprzedniej lekcji. Gdy piki nie weszły, rywal blefuje nietrafionymi 
 Po przebiciu blefy spasują, a zapłacą tylko ręce, które cię biją. Bluff-catcherem sprawdzasz albo pasujesz.
 
 :::note Gdy rywal rzadko blefuje
-Te zasady zakładają rywala, który blefuje mniej więcej w równowadze. Wobec gracza, który rzadko blefuje dużym betem na riverze, pasujesz częściej, niż wskazuje MDF (reguła z M6). Zasady wyboru bluff-catcherów według blokerów pochodzą z artykułów znanych tylko ze streszczeń i czekają na weryfikację.
+Te zasady zakładają rywala, który blefuje mniej więcej w równowadze. Wobec gracza, który rzadko blefuje dużym betem na riverze, pasujesz częściej, niż wskazuje MDF: gdy blefów jest mniej, niż wymaga cena, sprawdzenie traci (rachunek z tej lekcji). Zasady wyboru bluff-catcherów według blokerów pochodzą z GTO Wizard (Principles of River Play, Understanding Blockers), Deepfold i Upswing: solver wybiera sprawdzenia bardziej według blokerów niż według samej siły ręki.
 :::

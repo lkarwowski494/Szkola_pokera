@@ -11,7 +11,8 @@ export interface DrawOuts {
   kind: 'none' | 'flush' | 'oesd' | 'gutshot' | 'double-gutshot' | 'combo';
 }
 
-function hasStraight(ranks: Set<number>): boolean {
+/** Czy wśród rang jest pięć kolejnych (as także jako 1). */
+export function hasStraight(ranks: ReadonlySet<number>): boolean {
   const has = (r: number) => ranks.has(r === -1 ? 12 : r);
   for (let top = 12; top >= 3; top--) {
     let ok = true;

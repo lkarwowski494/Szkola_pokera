@@ -47,7 +47,7 @@ drills:
     prompt: "Otworzyłeś z Buttona, duży blind sprawdził. Betowałeś na flopie i turnie, za każdym razem dostałeś sprawdzenie. River, duży blind czeka. Co robisz?"
     table: { hand: "Ah Kd", board: "Ks 9c 4d 2h 7s", position: BTN }
     options:
-      - { text: "Betuję dla wartości", correct: true, why: "Najwyższa para z najlepszym kickerem. Rywal, który sprawdził dwie ulice, ma dużo słabszych króli (KQ, KJ, KT) i dziewiątek, a dobierań na tym stole było mało. Gorsze ręce zapłacą znacznie częściej niż lepsze (dwie pary, sety)." }
+      - { text: "Betuję dla wartości", correct: true, why: "Najwyższa para z najlepszym kickerem. Rywal, który sprawdził dwie ulice, ma dużo słabszych króli (KQ, KJ, KT) i dziewiątek, a dobierań na tym stole było mało. Gorsze ręce zapłacą znacznie częściej niż lepsze (dwie pary, sety). Zwykle najwyższa para znosi dwie ulice wartości (M9); tu trzecią, bo rywal płaci słabszymi królami." }
       - { text: "Czekam, bo rywal mógł mieć seta", why: "Mógł, ale rzadko. Czekając, tracisz bet od wszystkich słabszych króli, którymi zapłaciłby. Liczysz, kto sprawdzi, a nie, czy istnieje lepsza ręka." }
       - { text: "Czekam, żeby rywal zablefował", why: "Rywal, który dwa razy sprawdzał, ma głównie pary i rzadko blefuje po twoim czekaniu. Pewniej zarobisz, betując w jego słabsze króle." }
   - kind: choice
@@ -67,8 +67,8 @@ drills:
     prompt: "Otworzyłeś z Buttona, duży blind sprawdził. Na flopie zagrałeś c-bet i dostałeś sprawdzenie, na turnie obaj czekaliście. River, duży blind czeka. Masz najwyższą parę z dziesiątką. Jakie ręce zapłacą mały bet i będą gorsze od twojej?"
     table: { hand: "Qd Td", board: "Qs 8h 4c 3d 2s", position: BTN }
     options:
-      - { text: "Ósemki, czwórki i damy ze słabszym kickerem", correct: true, why: "Te ręce sprawdziły flop i mają parę, więc często zapłacą mały bet. Przegrywasz z damą z lepszym kickerem, dwiema parami i setami, ale gorszych sprawdzeń jest więcej." }
-      - { text: "Ręce bez pary", why: "Ręka bez pary prawie nigdy nie zapłaci betu na riverze: przegrywa nawet z blefami. Ona spasuje." }
+      - { text: "Ósemki, czwórki i damy ze słabszym kickerem", correct: true, why: "Te ręce sprawdziły flop i mają parę, więc często zapłacą mały bet. Przegrywasz z damą z lepszym kickerem, dwiema parami, setami i stritami (A5, 65), ale gorszych sprawdzeń jest więcej." }
+      - { text: "Ręce bez pary", why: "Ręka bez pary rzadko zapłaci bet na riverze; czasem płaci as-high, ale gorszych par jest tu dużo więcej." }
       - { text: "Żadne, płacą tylko lepsze ręce", why: "Za ostrożnie: duży blind broni wielu par niższych od damy. Po czekaniu na turnie jego zakres zawiera ich sporo." }
   - kind: choice
     id: m8.l1.q-thin-size
@@ -118,7 +118,7 @@ Przykład: na {{n:value.ex.calls}} sprawdzeń {{n:value.ex.many}} to gorsze ręc
 
 Nie pytasz „czy mam dobrą rękę”, tylko „czym rywal zapłaci”. Pomaga przejście przez jego zakres:
 
-- ręce bez pary prawie nigdy nie płacą, bo przegrywają nawet z blefami,
+- ręce bez pary rzadko płacą; czasem płaci as-high, który bije blefy,
 - niższe pary i słabsze kickery często płacą mały bet,
 - lepsze ręce zapłacą zawsze, a czasem przebiją.
 
@@ -126,12 +126,14 @@ Gdy rywal może cię przebić, a ty musiałbyś wtedy spasować, próg jest jesz
 
 ## Thin value: mało, ale za cenę
 
-Thin value (cienka wartość) to bet ręką, która wygrywa z niewiele ponad połową sprawdzeń, np. najwyższą parą ze średnim kickerem. Taki bet robisz **mały**: małego zapłacą też słabsze pary, a na duży spasują i zostaną tylko lepsze ręce.
+Thin value (cienka wartość) to bet ręką, która wygrywa z niewiele ponad połową sprawdzeń, np. najwyższą parą ze średnim kickerem. Taki bet robisz **mniejszy** niż silną ręką, zwykle ok. 1/4–1/2 puli: mały bet zapłacą też słabsze pary, a na duży spasują i zostaną tylko lepsze ręce.
+
+To uproszczenie: solver bez ryzyka check-raise'u betuje thin value nawet ok. 1/4 puli, a przy tym ryzyku z pozycji rzadko schodzi poniżej 1/2 puli.
 
 ## Średnia ręka czeka
 
 Masz z pozycją średnią rękę, np. drugą parę. Gorsze ręce rywala na bet spasują, a zapłacą lepsze. Bet zamienia wtedy twoją rękę w blef. Czekasz: wygrasz showdown z gorszymi rękami bez dopłaty od lepszych.
 
 :::note Skąd te zasady
-Próg ponad połowy sprawdzeń to czysta matematyka. Zalecenie małego rozmiaru przy thin value i czekania średnią ręką pochodzą z artykułów, które znamy tylko ze streszczeń; czekają na weryfikację z pełnym tekstem.
+Próg ponad połowy sprawdzeń to czysta matematyka (bet z pozycją, bez przebicia i bez rake'u). Rozmiar thin value i czekanie średnią ręką pochodzą z analiz solvera GTO Wizard (turnieje z krótszymi stackami) oraz z materiałów Deepfold, PokerBank i GTO Gecko.
 :::

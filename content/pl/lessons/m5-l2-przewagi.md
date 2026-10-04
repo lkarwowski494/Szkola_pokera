@@ -20,11 +20,11 @@ drills:
     id: m5.l2.q-765
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "Otworzyłeś z Buttona, duży blind sprawdził. Flop: [[7s 6h 5d]]. Kto częściej ma tu bardzo silną rękę (dwie pary, seta, strita)?"
+    prompt: "Otworzyłeś z Buttona, duży blind sprawdził. Flop: [[7s 6h 5d]]. Kto częściej ma tu bardzo silną rękę (dwie pary albo strit)?"
     table: { position: BTN, board: "7s 6h 5d" }
     options:
-      - { text: "Duży blind", correct: true, why: "Tak: duży blind broni wielu łączników w kolorze, małych par i rąk z szóstką albo siódemką. Ty z Buttona masz więcej wysokich kart, które tu chybiły. To przewaga orzechowa dużego blinda." }
-      - { text: "Ty, otwierający z Buttona", why: "Nie: twój zakres jest pełen wysokich kart. Masz więcej nadpar (np. TT, JJ), ale mniej dwóch par, setów i stritów." }
+      - { text: "Duży blind", correct: true, why: "Tak: duży blind broni wielu łączników w kolorze i rąk z szóstką albo siódemką. Ty z Buttona masz więcej wysokich kart, które tu chybiły. To przewaga orzechowa dużego blinda." }
+      - { text: "Ty, otwierający z Buttona", why: "Nie: twój zakres jest pełen wysokich kart. Masz więcej nadpar (np. TT, JJ), ale mniej dwóch par i stritów; setów macie podobnie dużo." }
       - { text: "Obaj tak samo często", why: "Nie: zakresy różnią się składem. Szeroka obrona dużego blinda ma dużo małych kart, a twój zakres wysokie." }
   - kind: choice
     id: m5.l2.q-capped
@@ -35,7 +35,7 @@ drills:
     options:
       - { text: "Bo z tymi rękami najczęściej przebija przed flopem (3-bet)", correct: true, why: "Tak: najsilniejsze ręce duży blind gra 3-betem, więc po samym sprawdzeniu jego zakres ma mało najlepszych rąk. Ty masz w zakresie wszystkie." }
       - { text: "Bo duży blind nigdy nie gra asów", why: "Nie: duży blind broni wielu asów, np. A5 czy A9. Brakuje mu głównie tych najsilniejszych, które przebiłby." }
-      - { text: "Bo na flopie leży już jeden as", why: "As na stole zmniejsza liczbę kombinacji asów u obu graczy po równo. Różnica w zakresach bierze się z decyzji przed flopem." }
+      - { text: "Bo na flopie leży już jeden as", why: "As na stole zmniejsza liczbę kombinacji asów w obu zakresach, ale nie tworzy różnicy między nimi. Różnica bierze się z decyzji przed flopem." }
   - kind: choice
     id: m5.l2.q-kinds
     family: m5.advantage.why
@@ -85,7 +85,7 @@ Przed flopem zakresy graczy wyglądają różnie. Otwierający z Buttona ma wiel
 
 Masz przewagę zakresu, gdy na danym flopie twoje ręce są średnio silniejsze niż ręce rywala. Na [[Ks 7d 2c]] po otwarciu z Buttona to ty masz więcej króli z dobrym kickerem i więcej wysokich par. Duży blind ma tu dużo rąk, które chybiły.
 
-Na niskim, połączonym flopie, np. [[7s 6h 5d]], jest odwrotnie. Duży blind broni wielu łączników w kolorze i małych par, więc częściej ma dwie pary, seta albo strita.
+Na niskim, połączonym flopie, np. [[7s 6h 5d]], przewaga zakresu prawie znika, a najsilniejsze ręce częściej ma duży blind: broni wielu łączników w kolorze i rąk z szóstką albo siódemką, więc częściej ma dwie pary albo strita.
 
 ## Przewaga orzechowa
 
@@ -93,7 +93,7 @@ Przewaga orzechowa to więcej najsilniejszych rąk („orzechów”) w zakresie.
 
 ## Rywal zwykle chybia
 
-Ręka bez pary, np. [[Jc Td]], nie trafia pary na flopie w ok. {{n:flop.miss.unpaired}} przypadków. Spośród {{n:cards.unseen.preflop}} nieznanych kart tylko {{n:pair.outs.unpaired}} paruje jej karty. Dlatego zakład na flopie często wygrywa pulę od razu, nawet gdy sam niczego nie trafiłeś. Chybienie nie zawsze oznacza pas: rywal może mieć dobieranie albo dwie wysokie karty.
+Ręka bez pary, np. [[Jc Td]], nie trafia pary na flopie w ok. {{n:flop.miss.unpaired}} przypadków. Spośród {{n:cards.unseen.preflop}} nieznanych kart tylko {{n:pair.outs.unpaired}} paruje jej karty. Źródła podają często ok. {{n:flop.hit.one-pair}}: to szansa na dokładnie jedną parę; z dwiema parami i trójką trafienie wynosi ok. {{n:flop.hit.unpaired}}. Dlatego zakład na flopie często wygrywa pulę od razu, nawet gdy sam niczego nie trafiłeś. Chybienie nie zawsze oznacza pas: rywal może mieć dobieranie albo dwie wysokie karty.
 
 :::note Skąd te zasady
 Pojęcia przewagi zakresu i przewagi orzechowej pochodzą z GTO Wizard (słownik i artykuł o rozmiarach c-betu). Liczby w tej lekcji to dokładne obliczenia aplikacji.

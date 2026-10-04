@@ -161,7 +161,7 @@ export const GeneratedDrill = z.object({
 export const TextureAxis = z.enum(['height', 'suits', 'ranks', 'wetness']);
 export const FlopHeight = z.enum(['high', 'middle', 'low']);
 export const FlopSuits = z.enum(['rainbow', 'two-tone', 'monotone']);
-export const FlopRanks = z.enum(['paired', 'connected', 'disconnected']);
+export const FlopRanks = z.enum(['paired', 'connected', 'semi-connected', 'disconnected']);
 export const FlopWetness = z.enum(['dry', 'medium', 'wet']);
 
 /** Filtr tekstury: dla każdej osi lista dopuszczalnych wartości (brak osi = dowolna). */
@@ -255,6 +255,12 @@ export const RangeSpotDef = z.object({
    * Tekst może używać {{n:…}}.
    */
   wrongSizes: z.record(z.string(), z.array(z.object({ text: z.string().min(2), why: z.string().min(3) })).min(1)).optional(),
+  /**
+   * Klasy rąk „niepewne”: solver odbiega w nich od publicznych tabel (audyt 4.10.2026, K6 opcja B). Nie pojawiają się
+   * w zadaniach rangeDecision, a w malowaniu zakresu nie liczą się do wyniku (jak ręce mieszane). Spoty otwarć (M3)
+   * odwołują się do jednej listy (kotwica YAML w spots.yaml); spot SB wobec Buttona ma własną listę (B-045).
+   */
+  uncertain: z.array(z.string()).optional(),
 });
 export type RangeSpotDef = z.infer<typeof RangeSpotDef>;
 export const RangeSpotsFile = z.array(RangeSpotDef);
@@ -266,8 +272,10 @@ export interface CompiledRangeSpot {
   hero: string;
   path: string;
   groups: { name: string; freqs: number[]; wrongSizes?: { text: string; why: string }[] }[];
-  /** Udział rąk grających (nie pas), ważony liczbą kombinacji. */
+  /** Udział rąk w grupach akcji pokazywanych w siatce (reszta to pas), ważony liczbą kombinacji. */
   playPercent: number;
+  /** Klasy niepewne (RangeSpotDef.uncertain), w kolejności HAND_CLASSES; pusta lista = brak. */
+  uncertain: string[];
 }
 
 // ---------- Lekcje ----------

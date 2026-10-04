@@ -1,4 +1,4 @@
-import { cardsToString, combosCount, HandCategory, RANKS, rankOf, type Card, type FlopTexture, type HandResult, type TextureAxis, type WinReason } from '@szkola/poker-core';
+import { cardsToString, combosCount, HandCategory, RANKS, rankOf, type Card, type FlopTexture, type HandResult, type TextureAxis, type WinReason, WETNESS_POINTS, WETNESS_THRESHOLDS } from '@szkola/poker-core';
 
 /**
  * Teksty zadań generowanych, po polsku. Karty w tekście zapisujemy jako [[As Kd]],
@@ -17,9 +17,35 @@ const CATEGORY_NAMES: Record<number, string> = {
   [HandCategory.HighCard]: 'wysoka karta',
 };
 
+/** Biernik („Obaj macie parę”), w mowie potocznej: mieć strita, fulla, pokera. */
+const CATEGORY_NAMES_ACC: Record<number, string> = {
+  [HandCategory.StraightFlush]: 'pokera',
+  [HandCategory.FourOfAKind]: 'karetę',
+  [HandCategory.FullHouse]: 'fulla',
+  [HandCategory.Flush]: 'kolor',
+  [HandCategory.Straight]: 'strita',
+  [HandCategory.ThreeOfAKind]: 'trójkę',
+  [HandCategory.TwoPair]: 'dwie pary',
+  [HandCategory.OnePair]: 'parę',
+  [HandCategory.HighCard]: 'wysoką kartę',
+};
+
 export function categoryName(r: Pick<HandResult, 'category' | 'strength'>): string {
   if (r.category === HandCategory.StraightFlush && r.strength === 1) return 'poker królewski';
   return CATEGORY_NAMES[r.category]!;
+}
+
+/** Nazwa układu w bierniku (kogo? co? mamy). */
+export function categoryNameAcc(r: Pick<HandResult, 'category' | 'strength'>): string {
+  if (r.category === HandCategory.StraightFlush && r.strength === 1) return 'pokera królewskiego';
+  return CATEGORY_NAMES_ACC[r.category]!;
+}
+
+/** Polska odmiana po liczebniku: 1 out, 2–4 outy, 5 outów (12–14 jak 5). */
+export function plural(n: number, one: string, few: string, many: string): string {
+  const lastTwo = n % 100;
+  const last = n % 10;
+  return n === 1 ? one : last >= 2 && last <= 4 && (lastTwo < 12 || lastTwo > 14) ? few : many;
 }
 
 export function capitalize(s: string): string {
@@ -32,10 +58,29 @@ export function pct(x: number, decimals = 0): string {
   return `${(x * 100).toFixed(decimals).replace('.', ',')}%`;
 }
 
+/** Czy pct(x) z pełnymi procentami albo jedną cyfrą po przecinku jest dokładne (bez zaokrąglenia). */
+function exactAt(x: number, decimals: number): boolean {
+  const v = x * 100 * 10 ** decimals;
+  return Math.abs(v - Math.round(v)) < 1e-9;
+}
+
+/**
+ * Potrzebne equity (pot odds), ta sama konwencja co eq.* w numbers.yaml: pełne procenty (33%, 29%), a gdy wynik ma
+ * dokładnie jedną cyfrę po przecinku, z tą cyfrą (37,5%). Szanse trafienia (outy) pokazujemy z jedną cyfrą (19,6%).
+ */
+export function pctEquity(x: number): string {
+  return !exactAt(x, 0) && exactAt(x, 1) ? pct(x, 1) : pct(x);
+}
+
+/** „=” gdy pctEquity pokazuje wynik dokładny, „≈” gdy zaokrąglony. */
+export function eqSign(x: number): string {
+  return exactAt(x, 0) || exactAt(x, 1) ? '=' : '≈';
+}
+
 export const t = {
   paint: {
     explanation: (title: string) =>
-      `${title}. Zielone pole: grasz i zaznaczyłeś. Znak „−”: ręka z zakresu, której brakuje. Znak „+”: zaznaczona, a solver ją pasuje. Kropka: ręka mieszana, solver gra ją tylko czasem, więc jest zaliczona w obie strony. Wynik liczy kombinacje (para ${combosCount('AA')}, w kolorze ${combosCount('AKs')}, w różnych kolorach ${combosCount('AKo')}) tylko wśród rąk z zakresu albo zaznaczonych.`,
+      `${title}. Zielone pole: grasz i zaznaczyłeś. Znak „−”: ręka z zakresu, której brakuje. Znak „+”: zaznaczona, a solver ją pasuje. Kropka: ręka mieszana (solver gra ją tylko czasem) albo sporna (solver odbiega w niej od publicznych tabel), więc jest zaliczona w obie strony. Wynik liczy kombinacje (para ${combosCount('AA')}, w kolorze ${combosCount('AKs')}, w różnych kolorach ${combosCount('AKo')}) tylko wśród rąk z zakresu albo zaznaczonych.`,
     score: (score: number, pass: number) => `Zgodność z solverem: ${pct(score)} (zaliczenie od ${pct(pass)}).`,
   },
   numeric: {
@@ -64,9 +109,9 @@ export const t = {
         case 'category':
           return `${capitalize(categoryName(winner))} jest wyżej w rankingu niż ${categoryName(loser)}.`;
         case 'kicker':
-          return 'Układ jest ten sam, więc decyduje kicker, czyli najwyższa karta boczna w najlepszej piątce.';
+          return 'Układ jest ten sam, więc decyduje pierwsza różniąca się karta boczna (kicker) w najlepszej piątce.';
         case 'higher-same-category':
-          return `Obaj macie ${categoryName(winner)}, ale jeden układ jest wyższy.`;
+          return `Obaj macie ${categoryNameAcc(winner)}, ale jeden układ jest wyższy.`;
         case 'board-plays':
           return 'Najlepsza piątka obu graczy leży na stole, więc „gra stół” i pula jest dzielona.';
         case 'identical':
@@ -86,14 +131,16 @@ export const t = {
   outs: {
     prompt: (what: 'flush' | 'oesd' | 'gutshot') =>
       what === 'flush' ? 'Ile masz outów do koloru?' : 'Ile masz outów do strita?',
-    explanation: (what: 'flush' | 'oesd' | 'gutshot', outs: number, hit: number, street: 'flop' | 'turn') => {
+    explanation: (what: 'flush' | 'oesd' | 'gutshot', outs: number, hitNext: number, hitRiver: number, street: 'flop' | 'turn') => {
       const base =
         what === 'flush'
           ? 'Masz 4 karty w kolorze. W kolorze jest 13 kart, więc zostało 13 − 4 = 9.'
           : what === 'oesd'
             ? 'Masz 4 kolejne karty otwarte z obu stron. Strita daje każda z dwóch brakujących rang, po 4 kolory: 8 kart.'
             : 'Brakuje jednej karty w środku strita. Pasuje tylko jedna ranga, w 4 kolorach: 4 karty.';
-      return `${base} Szansa trafienia do rivera: ${pct(hit, 1)} (${street === 'flop' ? `${outs} × 4` : `${outs} × 2`} ≈ ${outs * (street === 'flop' ? 4 : 2)}%).`;
+      return street === 'flop'
+        ? `${base} Szansa na turnie: ${pct(hitNext, 1)} (${outs} × 2 ≈ ${outs * 2}%). Do rivera, jeśli zobaczysz obie karty bez dopłaty (np. po all-in): ${pct(hitRiver, 1)} (${outs} × 4 ≈ ${outs * 4}%).`
+        : `${base} Szansa na riverze: ${pct(hitNext, 1)} (${outs} × 2 ≈ ${outs * 2}%).`;
     },
     right: 'Tak.',
     wrong: (n: number, correct: number) => `Nie. ${n} to za ${n > correct ? 'dużo' : 'mało'} w tej sytuacji.`,
@@ -101,19 +148,32 @@ export const t = {
   potOdds: {
     prompt: (pot: number, bet: number) => `W puli jest ${pot}. Przeciwnik stawia ${bet}. Ile equity potrzebujesz do sprawdzenia?`,
     explanation: (pot: number, bet: number, req: number) =>
-      `Pula po zakładzie to ${pot + bet}, dopłacasz ${bet}, razem ${pot + 2 * bet}. ${bet} ÷ ${pot + 2 * bet} = ${pct(req, 1)}.`,
+      `Pula po zakładzie to ${pot + bet}, dopłacasz ${bet}, razem ${pot + 2 * bet}. ${bet} ÷ ${pot + 2 * bet} ${eqSign(req)} ${pctEquity(req)}.`,
     right: 'Tak.',
     mistakeNoCall: 'Nie. To zakład podzielony przez pulę po zakładzie. Do mianownika dolicz też swoje sprawdzenie.',
     mistakeBetOverPot: 'Nie. To zakład podzielony przez pulę sprzed zakładu. Liczysz wobec wszystkiego, co możesz wygrać.',
-    mistakeMdf: 'Nie. To MDF, czyli jak często bronić się przed zakładem, a nie ile equity potrzebujesz do sprawdzenia.',
+    mistakeInverted:
+      'Nie. To pula sprzed zakładu podzielona przez pulę po zakładzie, czyli ułamek odwrócony. Na górze ma być to, co dopłacasz, a na dole cała pula po twoim sprawdzeniu.',
   },
   drawCall: {
-    prompt: (pot: number, bet: number, what: 'flush' | 'oesd' | 'gutshot') =>
-      `Turn. W puli jest ${pot}, przeciwnik stawia ${bet}. Masz ${what === 'flush' ? 'dobieranie do koloru' : what === 'oesd' ? 'otwarte dobieranie do strita' : 'gutshot'}. Co robisz?`,
+    prompt: (pot: number, bet: number, what: 'flush' | 'oesd' | 'gutshot', street: 'flop' | 'turn') =>
+      `${street === 'flop' ? 'Flop' : 'Turn'}. W puli jest ${pot}, przeciwnik stawia ${bet}. Masz ${what === 'flush' ? 'dobieranie do koloru' : what === 'oesd' ? 'otwarte dobieranie do strita' : 'gutshot'}. Co robisz?`,
     call: 'Sprawdzam',
     fold: 'Pasuję',
-    explanation: (outs: number, hit: number, req: number) =>
-      `Masz ${outs} outów, czyli ${pct(hit, 1)} szans na riverze. Potrzebujesz ${pct(req, 1)}. ${hit > req ? 'Szansa jest większa niż cena, więc sprawdzenie się opłaca.' : 'Szansa jest mniejsza niż cena, więc sprawdzenie traci w długim terminie.'}`,
+    explanation: (s: { outs: number; unseen: number; hitNextCard: number; required: number; street: 'flop' | 'turn'; nearMiss: boolean }) => {
+      const next = s.street === 'flop' ? 'na turnie' : 'na riverze';
+      const why =
+        s.street === 'flop'
+          ? 'Liczy się szansa na jedną kartę, bo sprawdzasz tylko ten zakład: przed riverem zwykle zapłacisz kolejną cenę.'
+          : 'Liczy się szansa na jedną kartę: została już tylko jedna.';
+      const verdict =
+        s.hitNextCard > s.required
+          ? 'Szansa jest większa niż cena, więc sprawdzenie się opłaca.'
+          : s.nearMiss
+            ? `Szansa jest trochę mniejsza niż cena, więc samo sprawdzenie traci. Może się opłacić tylko dzięki implied odds, czyli gdy po trafieniu wygrasz więcej${s.street === 'flop' ? ', i pod warunkiem, że kolejna cena na turnie też nie będzie za wysoka' : ''}.`
+            : 'Szansa jest wyraźnie mniejsza niż cena, więc sprawdzenie traci w długim terminie.';
+      return `Masz ${s.outs} ${plural(s.outs, 'out', 'outy', 'outów')} z ${s.unseen} nieznanych kart, czyli ${pct(s.hitNextCard, 1)} szans ${next}. ${why} Potrzebujesz ${pctEquity(s.required)}. ${verdict}`;
+    },
     right: 'Tak.',
     wrong: 'Nie.',
   },
@@ -125,7 +185,7 @@ export const t = {
 export const TEXTURE_LABELS = {
   height: { high: 'Wysoki', middle: 'Średni', low: 'Niski' },
   suits: { rainbow: 'Tęczowy', 'two-tone': 'Dwukolorowy', monotone: 'Monotoniczny' },
-  ranks: { paired: 'Sparowany', connected: 'Połączony', disconnected: 'Rozłączony' },
+  ranks: { paired: 'Sparowany', connected: 'Połączony', 'semi-connected': 'Półpołączony', disconnected: 'Rozłączony' },
   wetness: { dry: 'Suchy', medium: 'Pośredni', wet: 'Mokry' },
 } as const satisfies { [A in TextureAxis]: Record<FlopTexture[A], string> };
 
@@ -135,6 +195,20 @@ export const TEXTURE_AXIS_LABELS: Record<TextureAxis, string> = {
   ranks: 'Rangi',
   wetness: 'Suchy czy mokry',
 };
+
+/** „1 punkt”, „2 punkty”, „5 punktów”. */
+export function points(n: number): string {
+  return `${n} ${plural(n, 'punkt', 'punkty', 'punktów')}`;
+}
+
+const WP = WETNESS_POINTS;
+const WT = WETNESS_THRESHOLDS;
+
+/** Skala mokrości słowami, liczby wprost ze stałych poker-core (jedno źródło prawdy). */
+export const WETNESS_SCALE =
+  `Liczymy punkty: strit możliwy już teraz ${WP.straight.made}, samo dobieranie do strita ${WP.straight.draw}; ` +
+  `flop dwukolorowy ${WP.suits['two-tone']}, monotoniczny ${WP.suits.monotone}. ` +
+  `Suchy to 0–${WT.medium - 1}, pośredni ${WT.wet - 1 === WT.medium ? WT.medium : `${WT.medium}–${WT.wet - 1}`}, mokry ${WT.wet} i więcej`;
 
 /** Definicje wartości (do wyjaśnienia każdej opcji). */
 const TEXTURE_DEFS = {
@@ -149,27 +223,47 @@ const TEXTURE_DEFS = {
     monotone: 'flop monotoniczny ma wszystkie trzy karty w jednym kolorze, więc kolor jest już możliwy',
   },
   ranks: {
-    paired: 'flop sparowany ma dwie albo trzy karty tej samej rangi; strit z dwiema kartami gracza jest wtedy niemożliwy',
+    paired: 'flop sparowany ma dwie albo trzy karty tej samej rangi; strit z dwiema kartami gracza jest wtedy niemożliwy, choć dobieranie do strita bywa możliwe',
     connected: 'flop połączony ma trzy różne rangi w obrębie pięciu kolejnych, więc strit jest możliwy już teraz (as liczy się też jako jedynka)',
-    disconnected: 'flop rozłączony ma trzy różne rangi zbyt odległe, żeby dwie karty gracza dały strita',
+    'semi-connected':
+      'flop półpołączony ma dwie rangi w obrębie pięciu kolejnych, ale nie trzy: strita jeszcze nie ma, a dobieranie do strita (otwarte albo gutshot) już jest możliwe',
+    disconnected: 'flop rozłączony ma rangi tak odległe, że żadne dwie nie mieszczą się w pięciu kolejnych, więc nikt nie ma nawet dobierania do strita',
   },
   wetness: {
-    dry: 'flop suchy nie daje żadnego dobierania: jest tęczowy i strit nie jest możliwy',
-    medium: 'flop pośredni daje jedną drogę do dobierania: kolor albo strita',
-    wet: 'flop mokry daje obie drogi naraz: kolor (dwa albo trzy karty w kolorze) i strita',
+    dry: `flop suchy daje mało dobierań. ${WETNESS_SCALE}`,
+    medium: `flop pośredni daje część dobierań. ${WETNESS_SCALE}`,
+    wet: `flop mokry daje dużo dobierań albo gotowe strity. ${WETNESS_SCALE}`,
   },
 } as const satisfies { [A in TextureAxis]: Record<FlopTexture[A], string> };
+
+/** Okna strita od najwyższego (A–T) do najniższego (5–A), jako rangi 0–12 (as w oknie 5–A jako 12). */
+function straightWindows(): number[][] {
+  const out: number[][] = [];
+  for (let top = 12; top >= 3; top--) out.push([0, 1, 2, 3, 4].map((k) => (top - k === -1 ? 12 : top - k)));
+  return out;
+}
 
 /** Przykładowe dwie rangi, które z połączonym flopem dają strita (najwyższy możliwy strit). */
 export function straightExample(flop: readonly Card[]): string | null {
   const ranks = new Set(flop.map(rankOf));
   if (ranks.size !== 3) return null;
-  for (let top = 12; top >= 3; top--) {
-    const window = [0, 1, 2, 3, 4].map((k) => (top - k === -1 ? 12 : top - k));
+  for (const window of straightWindows()) {
     if ([...ranks].every((r) => window.includes(r))) {
       const missing = window.filter((r) => !ranks.has(r));
       return missing.map((r) => RANKS[r]).join('');
     }
+  }
+  return null;
+}
+
+/** Przykładowe dwie rangi, które z flopem dają dobieranie do strita (cztery rangi z pięciu w jednym oknie). */
+export function straightDrawExample(flop: readonly Card[]): string | null {
+  const ranks = new Set(flop.map(rankOf));
+  for (const window of straightWindows()) {
+    const onBoard = window.filter((r) => ranks.has(r));
+    if (onBoard.length !== 2) continue;
+    const missing = window.filter((r) => !ranks.has(r));
+    return missing.slice(0, 2).map((r) => RANKS[r]).join('');
   }
   return null;
 }
@@ -183,8 +277,18 @@ function suitCountText(flop: readonly Card[]): string {
   return n === 3 ? 'trzy różne kolory' : n === 2 ? 'dwie karty w jednym kolorze' : 'trzy karty w jednym kolorze';
 }
 
-/** Co na tym flopie daje dobierania (do wyjaśnienia mokrości). */
+/** Fakt o stritach na tym flopie (do wyjaśnienia rang). */
+function rankFact(flop: readonly Card[], tex: FlopTexture): string {
+  if (tex.ranks === 'connected') return `Tu strit jest możliwy, np. z ${straightExample(flop)}.`;
+  const draw = tex.straightDrawPossible ? straightDrawExample(flop) : null;
+  if (tex.ranks === 'paired') return draw ? `Tu dwie karty mają tę samą rangę; dobieranie do strita daje np. ${draw}.` : 'Tu dwie karty mają tę samą rangę.';
+  if (tex.ranks === 'semi-connected') return `Tu strita jeszcze nie ma, ale dobieranie do strita daje np. ${draw}.`;
+  return 'Tu żadne dwie karty gracza nie dadzą nawet dobierania do strita.';
+}
+
+/** Co na tym flopie daje dobierania i ile to punktów (do wyjaśnienia mokrości). */
 function drawsText(flop: readonly Card[], tex: FlopTexture): string {
+  const suitPts = WP.suits[tex.suits];
   const color =
     tex.suits === 'rainbow'
       ? 'nie ma dobierania do koloru (trzy różne kolory)'
@@ -192,8 +296,15 @@ function drawsText(flop: readonly Card[], tex: FlopTexture): string {
         ? 'jest dobieranie do koloru (dwie karty w jednym kolorze)'
         : 'kolor jest już możliwy (trzy karty w jednym kolorze)';
   const ex = straightExample(flop);
-  const straight = tex.ranks === 'connected' && ex ? `strit jest możliwy, np. z ${ex}` : 'strit nie jest możliwy';
-  return `${color}, ${straight}`;
+  const drawEx = straightDrawExample(flop);
+  const straight =
+    tex.straightPossible && ex
+      ? `strit jest możliwy, np. z ${ex}`
+      : tex.straightDrawPossible && drawEx
+        ? `strita nie ma, ale jest dobieranie do strita, np. z ${drawEx}`
+        : 'nie ma strita ani dobierania do strita';
+  const straightPts = WP.straight[tex.straightPossible ? 'made' : tex.straightDrawPossible ? 'draw' : 'none'];
+  return `${color}: ${points(suitPts)}; ${straight}: ${points(straightPts)}. Razem ${points(tex.wetnessPoints)}`;
 }
 
 export const textureText = {
@@ -202,7 +313,7 @@ export const textureText = {
       ? {
           height: 'Jak wysoki jest ten flop?',
           suits: 'Ile kolorów ma ten flop?',
-          ranks: 'Czy ten flop jest sparowany, połączony czy rozłączony?',
+          ranks: 'Czy ten flop jest sparowany, połączony, półpołączony czy rozłączony?',
           wetness: 'Czy ten flop jest suchy, pośredni czy mokry?',
         }[axes[0]!]
       : 'Oceń teksturę flopa w każdym wierszu.',
@@ -216,14 +327,10 @@ export const textureText = {
         : axis === 'suits'
           ? `Tu: ${suitCountText(flop)}.`
           : axis === 'ranks'
-            ? tex.ranks === 'paired'
-              ? 'Tu dwie karty mają tę samą rangę.'
-              : tex.ranks === 'connected'
-                ? `Tu strit jest możliwy, np. z ${straightExample(flop)}.`
-                : 'Tu żadne dwie karty gracza nie dadzą strita.'
+            ? rankFact(flop, tex)
             : `Tu ${drawsText(flop, tex)}.`;
     return right ? `Tak: ${def}. ${fact}` : `Nie: ${def}. ${fact}`;
   },
   summary: (tex: FlopTexture) =>
-    `Ten flop jest ${TEXTURE_LABELS.height[tex.height].toLowerCase()}, ${TEXTURE_LABELS.suits[tex.suits].toLowerCase()} i ${TEXTURE_LABELS.ranks[tex.ranks].toLowerCase()}, czyli ${TEXTURE_LABELS.wetness[tex.wetness].toLowerCase()}.`,
+    `Ten flop jest ${TEXTURE_LABELS.height[tex.height].toLowerCase()}, ${TEXTURE_LABELS.suits[tex.suits].toLowerCase()} i ${TEXTURE_LABELS.ranks[tex.ranks].toLowerCase()}, czyli ${TEXTURE_LABELS.wetness[tex.wetness].toLowerCase()} (${points(tex.wetnessPoints)} mokrości).`,
 };

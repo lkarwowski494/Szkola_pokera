@@ -41,10 +41,13 @@ export function compileRanges(contentDir: string): { spots: CompiledRangeSpot[];
     for (const g of Object.keys(def.wrongSizes ?? {})) {
       if (!(g in def.groups)) throw new Error(`spot ${def.id}: wrongSizes dla nieznanej grupy "${g}"`);
     }
-    const foldIdx = node.actions.indexOf('fold');
+    // udział rąk w grupach pokazywanych w siatce (reszta to pas); spot może pominąć akcję, np. sprawdzenie w „3-bet / pas”
     const playPercent =
-      HAND_CLASSES.reduce((s, hc) => s + combosCount(hc) * (1 - (foldIdx >= 0 ? node.strategy[foldIdx]![hc]! : 0)), 0) / 1326;
-    return { id: def.id, title: def.title, hero: def.hero, path: def.path, groups, playPercent };
+      HAND_CLASSES.reduce((s, hc, h) => s + combosCount(hc) * groups.reduce((g, gr) => g + gr.freqs[h]!, 0), 0) / 1326;
+    const uncertainSet = new Set(def.uncertain ?? []);
+    for (const hc of uncertainSet) if (!HAND_CLASSES.includes(hc)) throw new Error(`spot ${def.id}: nieznana klasa rąk w uncertain: "${hc}"`);
+    const uncertain = HAND_CLASSES.filter((hc) => uncertainSet.has(hc));
+    return { id: def.id, title: def.title, hero: def.hero, path: def.path, groups, playPercent, uncertain };
   });
   return { spots, solverMeta: solver.meta };
 }

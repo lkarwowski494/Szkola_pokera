@@ -24,7 +24,7 @@ import {
   type Rng,
 } from '@szkola/poker-core';
 import type { RangeSpot } from '@/data/content/repo';
-import { categoryName, pct, t, TEXTURE_AXIS_LABELS, TEXTURE_LABELS, textureText } from './text.pl';
+import { categoryName, pctEquity, t, TEXTURE_AXIS_LABELS, TEXTURE_LABELS, textureText } from './text.pl';
 import { MIXED_HIGH, MIXED_LOW } from './thresholds';
 import type { DrillInstance, DrillOption, NumericInstance, Position, TextureAxisItem } from './types';
 
@@ -271,7 +271,7 @@ function outs(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number): 
       answer: s.outs,
       unit: 'count',
       display: String(s.outs),
-      explanation: t.outs.explanation(kind, s.outs, s.hitToRiver, street),
+      explanation: t.outs.explanation(kind, s.outs, s.hitNextCard, s.hitToRiver, street),
     };
   }
   const values = shuffle(rng, [s.outs, ...shuffle(rng, OUTS_DISTRACTORS[kind]).slice(0, 2)]);
@@ -280,7 +280,7 @@ function outs(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number): 
     prompt: t.outs.prompt(kind),
     table: { hand: toStrings(s.hole), board: toStrings(s.board) },
     options: values.map((v) => ({ text: String(v), correct: v === s.outs, why: v === s.outs ? t.outs.right : t.outs.wrong(v, s.outs) })),
-    explanation: t.outs.explanation(kind, s.outs, s.hitToRiver, street),
+    explanation: t.outs.explanation(kind, s.outs, s.hitNextCard, s.hitToRiver, street),
   };
 }
 
@@ -293,7 +293,7 @@ function potOdds(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number
       prompt: t.potOdds.prompt(s.pot, s.bet),
       answer: s.required * 100,
       unit: 'percent',
-      display: pct(s.required, 1),
+      display: pctEquity(s.required),
       explanation: t.potOdds.explanation(s.pot, s.bet, s.required),
     };
   }
@@ -304,13 +304,13 @@ function potOdds(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number
     const third =
       overPot < 1
         ? { value: overPot, why: t.potOdds.mistakeBetOverPot }
-        : { value: s.pot / (s.pot + s.bet), why: t.potOdds.mistakeMdf };
-    const vals = [s.required, noCall, third.value].map((v) => pct(v));
+        : { value: s.pot / (s.pot + s.bet), why: t.potOdds.mistakeInverted };
+    const vals = [s.required, noCall, third.value].map(pctEquity);
     if (new Set(vals).size < 3) continue;
     const options: DrillOption[] = [
-      { text: pct(s.required), correct: true, why: t.potOdds.right },
-      { text: pct(noCall), correct: false, why: t.potOdds.mistakeNoCall },
-      { text: pct(third.value), correct: false, why: third.why },
+      { text: pctEquity(s.required), correct: true, why: t.potOdds.right },
+      { text: pctEquity(noCall), correct: false, why: t.potOdds.mistakeNoCall },
+      { text: pctEquity(third.value), correct: false, why: third.why },
     ];
     return {
       ...base(d, lessonId, i),
@@ -322,17 +322,18 @@ function potOdds(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number
 }
 
 function drawCall(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number): DrillInstance {
-  const s = generateDrawCall(rng);
+  const street = d.params.street === 'flop' ? 'flop' : 'turn';
+  const s = generateDrawCall(rng, street);
   const what = s.draw.kind as 'flush' | 'oesd' | 'gutshot';
   return {
     ...base(d, lessonId, i),
-    prompt: t.drawCall.prompt(s.pot, s.bet, what),
+    prompt: t.drawCall.prompt(s.pot, s.bet, what, street),
     table: { hand: toStrings(s.hole), board: toStrings(s.board) },
     options: [
       { text: t.drawCall.call, correct: s.correct === 'call', why: s.correct === 'call' ? t.drawCall.right : t.drawCall.wrong },
       { text: t.drawCall.fold, correct: s.correct === 'fold', why: s.correct === 'fold' ? t.drawCall.right : t.drawCall.wrong },
     ],
-    explanation: t.drawCall.explanation(s.outs, s.hitToRiver, s.required),
+    explanation: t.drawCall.explanation(s),
   };
 }
 
@@ -346,8 +347,10 @@ function rangeDecision(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: 
   const spot = ctx.range(ids[Math.floor(rng() * ids.length)]!);
   if (!spot) throw new Error(`Brak zakresu dla zadania ${d.id}`);
   const play = (h: number) => spot.groups.reduce((s, g) => s + (g.freqs[h] ?? 0), 0);
-  // losowanie klasy: wagi = kombinacje × (0,25 + 4·p·(1−p)), więc ręce graniczne pojawiają się częściej
-  const weights = HAND_CLASSES.map((hc, h) => combosCount(hc) * (0.25 + 4 * play(h) * (1 - play(h))));
+  // losowanie klasy: wagi = kombinacje × (0,25 + 4·p·(1−p)), więc ręce graniczne pojawiają się częściej;
+  // klasy niepewne (solver odbiega od publicznych tabel, spots.yaml → uncertain) nie pojawiają się wcale
+  const uncertain = new Set(spot.uncertain ?? []);
+  const weights = HAND_CLASSES.map((hc, h) => (uncertain.has(hc) ? 0 : combosCount(hc) * (0.25 + 4 * play(h) * (1 - play(h)))));
   const total = weights.reduce((a, b) => a + b, 0);
   let x = rng() * total;
   let h = 0;

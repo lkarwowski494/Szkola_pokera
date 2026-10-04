@@ -5,7 +5,7 @@
  * ma pełną długość. Łapie rozjazd między potokiem treści a silnikiem zadań.
  */
 import { CONTENT_SCHEMA_VERSION, type Drill } from '@szkola/content-schema';
-import { createRng } from '@szkola/poker-core';
+import { classOf, createRng, parseCard } from '@szkola/poker-core';
 import { join } from 'node:path';
 import type { DrillRow, RangeSpot } from '@/data/content/repo';
 import { instantiate } from '@/features/drills/engine';
@@ -26,9 +26,20 @@ const rows = db.prepare('SELECT d.id, d.lesson_id AS lessonId, d.family, d.data,
   ord: number;
 }[];
 const ranges = new Map(
-  (db.prepare('SELECT id, title, hero, path, play_percent, groups FROM ranges').all() as { id: string; title: string; hero: string; path: string; play_percent: number; groups: string }[]).map(
-    (r): [string, RangeSpot] => [r.id, { id: r.id, title: r.title, hero: r.hero, path: r.path, playPercent: r.play_percent, groups: JSON.parse(r.groups) }],
-  ),
+  (
+    db.prepare('SELECT id, title, hero, path, play_percent, groups, uncertain FROM ranges').all() as {
+      id: string;
+      title: string;
+      hero: string;
+      path: string;
+      play_percent: number;
+      groups: string;
+      uncertain: string;
+    }[]
+  ).map((r): [string, RangeSpot] => [
+    r.id,
+    { id: r.id, title: r.title, hero: r.hero, path: r.path, playPercent: r.play_percent, groups: JSON.parse(r.groups), uncertain: JSON.parse(r.uncertain) },
+  ]),
 );
 const ctx = { range: (id: string) => ranges.get(id) };
 const toRow = (r: (typeof rows)[number]): DrillRow => ({ id: r.id, lessonId: r.lessonId, family: r.family, drill: JSON.parse(r.data) as Drill });
@@ -57,6 +68,20 @@ describe('treść w bazie a silnik zadań', () => {
           const play = inst.spot.groups[0]!.freqs.map((_, h) => inst.spot.groups.reduce((s, g) => s + g.freqs[h]!, 0));
           expect(gradeAnswer(inst, { kind: 'paint', painted: play.map((p) => p >= MIXED_HIGH) })).toBe('correct');
         }
+      }
+    }
+  });
+
+  it('zakresy otwarć (M3) mają listę klas niepewnych i te klasy nie trafiają do zadań z decyzją', () => {
+    for (const id of ['rfi.utg', 'rfi.hj', 'rfi.co', 'rfi.btn', 'rfi.sb']) expect(ranges.get(id)!.uncertain!.length).toBeGreaterThan(0);
+    const m3 = rows.filter((r) => r.moduleId === 'm3' && (JSON.parse(r.data) as Drill).kind === 'generated');
+    expect(m3.length).toBeGreaterThan(0);
+    for (const r of m3) {
+      for (const inst of instantiate(JSON.parse(r.data) as Drill, r.lessonId, createRng(5), 20, ctx)) {
+        if (inst.kind !== 'choice' || !inst.table?.hand) continue;
+        const spot = [...ranges.values()].find((s) => s.title === inst.prompt)!;
+        const hc = classOf(parseCard(inst.table.hand[0]!), parseCard(inst.table.hand[1]!));
+        expect(spot.uncertain).not.toContain(hc);
       }
     }
   });

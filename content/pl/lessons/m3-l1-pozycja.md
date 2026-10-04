@@ -4,7 +4,7 @@ module: m3
 order: 1
 title: "Pozycja przy stole"
 sub: "Dlaczego miejsce ma znaczenie"
-rules: [R-M3-001, R-M3-002, R-M3-003, R-M3-004]
+rules: [R-M3-001, R-M3-002, R-M3-006, R-M3-003, R-M3-004, R-M3-007]
 drills:
   - kind: choice
     id: m3.l1.q1
@@ -14,7 +14,7 @@ drills:
     options:
       - { text: "Button (BTN)", correct: true, why: "Od flopu Button mówi ostatni, więc zawsze zna decyzje rywali przed swoją." }
       - { text: "Duży blind (BB)", why: "BB płaci mniej za wejście, bo już wpłacił, ale od flopu mówi jako jeden z pierwszych." }
-      - { text: "UTG", why: "UTG mówi pierwszy preflop i ma za sobą cały stół. To najtrudniejsze miejsce." }
+      - { text: "UTG", why: "UTG mówi pierwszy preflop i ma za sobą cały stół. To najtrudniejsze miejsce do otwierania." }
   - kind: choice
     id: m3.l1.q2
     family: m3.open-early
@@ -52,10 +52,12 @@ Przycisk dealera (**BTN**, Button) przesuwa się co rozdanie. Od niego zależy k
 | Pozycja | Kiedy mówi | Jak szeroko otwierać |
 |---|---|---|
 | UTG | Pierwszy preflop | ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk |
-| HJ, CO | Coraz później | coraz szerzej |
+| HJ (Hijack), CO (Cutoff) | Po UTG; CO tuż przed Buttonem | coraz szerzej |
 | BTN | Ostatni od flopu | ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk |
-| SB, BB | Pierwsi od flopu | blindy bronią się osobnymi zasadami (moduł M4) |
+| SB, BB | Ostatni preflop, pierwsi od flopu | SB otwiera, gdy wszyscy spasują (lekcja o zakresach); obrona blindów w module M4 |
+
+**HJ** (Hijack) siedzi za UTG, dwa miejsca przed Buttonem, a **CO** (Cutoff) tuż przed Buttonem. To pozycje środkowe: za nimi jest mniej graczy niż za UTG, więc otwierasz z nich szerzej, ale wciąż węziej niż z Buttona.
 
 :::note Rozmiar otwarcia
-Otwierasz przebiciem do {{n:pf.open-size}} z każdej pozycji, a z małego blinda do {{n:pf.open-size-sb}}. Wchodząc jako pierwszy, nie dopłacasz samego blinda: przebicie może od razu wygrać pulę.
+Otwierasz przebiciem do {{n:pf.open-size}} z każdej pozycji, a z małego blinda do {{n:pf.open-size-sb}}. To uproszczenie: w rozwiązaniach solverów otwarcia z wczesnych pozycji są nieco mniejsze (np. {{n:pf.open-size.solver-utg}} z UTG i {{n:pf.open-size.solver-co}} z CO), ale jeden rozmiar jest łatwiejszy do nauki. Wchodząc jako pierwszy, nie dopłacasz samego blinda: przebicie może od razu wygrać pulę.
 :::

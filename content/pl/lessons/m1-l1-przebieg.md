@@ -4,7 +4,7 @@ module: m1
 order: 1
 title: "Przebieg rozdania"
 sub: "Blindy, ulice i dostępne ruchy"
-rules: [R-M1-001, R-M1-002, R-M1-003]
+rules: [R-M1-001, R-M1-002, R-M1-003, R-M1-004]
 drills:
   - kind: choice
     id: m1.l1.q1
@@ -18,6 +18,7 @@ drills:
   - kind: choice
     id: m1.l1.q2
     family: m1.streets
+    rules: [R-M1-004]
     prompt: "Ile kart wspólnych pojawia się na flopie?"
     options:
       - { text: "3", correct: true, why: "Flop to trzy karty naraz. Potem turn i river dokładają po jednej." }
@@ -35,9 +36,10 @@ drills:
   - kind: choice
     id: m1.l1.q4
     family: m1.streets
+    rules: [R-M1-004]
     prompt: "Która runda licytacji jest ostatnia?"
     options:
-      - { text: "River", correct: true, why: "River to piąta karta wspólna. Po licytacji na riverze gracze odkrywają karty." }
+      - { text: "River", correct: true, why: "River to piąta karta wspólna. Jeśli po licytacji na riverze zostało co najmniej dwóch graczy, odkrywają karty (showdown)." }
       - { text: "Turn", why: "Turn to czwarta karta. Po nim jest jeszcze river." }
       - { text: "Flop", why: "Flop to pierwsza runda z kartami wspólnymi." }
   - kind: choice
@@ -47,11 +49,13 @@ drills:
     prompt: "Jesteś na dużym blindzie, wszyscy spasowali, mały blind tylko dopłacił. Masz słabą rękę. Co robisz?"
     table: { hand: "7c 2d", position: BB }
     options:
-      - { text: "Czekam (check)", correct: true, why: "Nikt nie przebił, więc flop zobaczysz za darmo. Słaba ręka nie jest powodem do pasowania, gdy nic nie kosztuje." }
+      - { text: "Czekam (check)", correct: true, why: "Twój duży blind liczy się jak zakład, a mały blind tylko go wyrównał. Nikt nie przebił, więc flop zobaczysz za darmo. Słaba ręka nie jest powodem do pasowania, gdy nic nie kosztuje." }
       - { text: "Pasuję", why: "Pas, gdy możesz czekać za darmo, to czysta strata." }
-      - { text: "Przebijam", why: "Z najgorszą ręką i bez pozycji po flopie nie ma po co." }
+      - { text: "Przebijam", why: "Z 7-2 nie masz czego budować; czekanie daje darmowy flop." }
 ---
 Każde rozdanie ma stałą kolejność. Najpierw dwóch graczy wpłaca obowiązkowe stawki, czyli **blindy**: mały blind (SB) i duży blind (BB). Dzięki temu w puli zawsze jest o co grać.
+
+Przed flopem duży blind liczy się jak zakład: kto chce grać, musi go co najmniej sprawdzić. Duży blind mówi przed flopem ostatni. Jeśli nikt nie przebił, może czekać i zobaczyć flop bez dopłaty.
 
 ## Cztery rundy licytacji
 
@@ -60,14 +64,20 @@ Każde rozdanie ma stałą kolejność. Najpierw dwóch graczy wpłaca obowiązk
 3. **Turn**: czwarta karta.
 4. **River**: piąta, ostatnia karta.
 
+Jeśli po licytacji na riverze w grze zostało co najmniej dwóch graczy, odkrywają karty. To **showdown**: najlepszy układ wygrywa pulę. Gdy wszyscy poza jednym spasują wcześniej, ten jeden wygrywa pulę bez pokazywania kart.
+
 ## Dostępne ruchy
 
 - **Check (czekam)**: nic nie stawiasz. Tylko gdy nikt przed tobą nie postawił.
-- **Bet (stawiam)**: pierwszy zakład w rundzie.
+- **Bet, czyli zakład (stawiam)**: pierwszy zakład w rundzie. We wzorach w dalszych lekcjach piszemy krótko „bet”.
 - **Call (sprawdzam)**: dorównujesz do zakładu przeciwnika.
 - **Raise (przebijam)**: podnosisz cudzy zakład.
 - **Fold (pasuję)**: wyrzucasz karty i tracisz to, co już wpłaciłeś.
 
 :::note Do zapamiętania
 Jeśli ktoś postawił, możesz pasować, sprawdzić albo przebić. Jeśli nikt nie postawił, możesz czekać albo postawić.
+:::
+
+:::note All-in i pula boczna
+Nie możesz postawić więcej, niż masz przed sobą. Gdy wpłacasz wszystkie żetony, jesteś **all-in**: dalej już nie licytujesz, a pozostałe karty wspólne wychodzą do końca. Od każdego rywala możesz wygrać najwyżej tyle, ile sam wpłaciłeś. Jeśli inni grają dalej o więcej, nadwyżka trafia do **puli bocznej** (side pot), o którą walczą tylko oni.
 :::

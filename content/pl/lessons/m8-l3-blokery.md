@@ -111,8 +111,8 @@ Gdy dobieranie do koloru **nie weszło**, rywal spasuje swoje nietrafione dobier
 
 ## Najpierw siła przy showdownie
 
-Kolejność jest stała: najpierw odkładasz ręce, które mogą wygrać po czekaniu, a dopiero z reszty wybierasz blefy z najlepszymi blokerami. Dobry bloker nie zrobi blefu z pary, która wygrałaby showdown.
+Kolejność jest stała: najpierw odkładasz ręce, które mogą wygrać po czekaniu, a dopiero z reszty wybierasz blefy z najlepszymi blokerami. Dobry bloker nie zrobi blefu z pary, która wygrałaby showdown. Blokery przechylają wybór między podobnymi rękami; sam efekt jest niewielki.
 
 :::note Skąd te zasady
-Liczby kombinacji to kombinatoryka. Zasady wyboru blefów według blokerów pochodzą z programu nauczania i artykułów znanych tylko ze streszczeń; czekają na weryfikację z pełnym tekstem.
+Liczby kombinacji to kombinatoryka. Zasady wyboru blefów według blokerów pochodzą z programu nauczania oraz z GTO Wizard i Upswing. Gdy brakuje innych blefów, solver blefuje też nietrafionymi kolorami.
 :::

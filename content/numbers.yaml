@@ -5,6 +5,10 @@ combos.total: { value: 1326, unit: count, source: "kombinatoryka: C(52,2)" }
 combos.pair: { value: 6, unit: count, source: "kombinatoryka: C(4,2)" }
 combos.suited: { value: 4, unit: count, source: "kombinatoryka: 4 kolory" }
 combos.offsuit: { value: 12, unit: count, source: "kombinatoryka: 4×3" }
+combos.kinds.pair: { value: 13, unit: count, source: "kombinatoryka: 13 rang, jedna para na rangę" }
+combos.kinds.suited: { value: 78, unit: count, source: "kombinatoryka: C(13,2) par różnych rang" }
+combos.kinds.offsuit: { value: 78, unit: count, source: "kombinatoryka: C(13,2) par różnych rang" }
+combos.kinds: { formula: sum, refs: [combos.kinds.pair, combos.kinds.suited, combos.kinds.offsuit], unit: count, source: "obliczenie: rodzaje rąk startowych (pola siatki)" }
 
 # M2: outy i szanse. Wszystkie liczby w przykładach lekcji M2 też stąd, żeby tekst i obliczenia się nie rozjechały (B-038).
 cards.deck: { value: 52, unit: count, source: "zasady: talia" }
@@ -32,6 +36,14 @@ odds.gutshot.turn-river: { formula: hitProbability, refs: [outs.gutshot, cards.u
 odds.flush.rule-turn: { formula: ruleOf2And4, refs: [outs.flush, streets.turn-river], unit: percent, source: "reguła 2 i 4" }
 odds.gutshot.rule-flop: { formula: ruleOf2And4, refs: [outs.gutshot, streets.flop-river], unit: percent, source: "reguła 2 i 4" }
 odds.gutshot.rule-turn: { formula: ruleOf2And4, refs: [outs.gutshot, streets.turn-river], unit: percent, source: "reguła 2 i 4" }
+# K5 (audyt 4.10): zakład na flopie kupuje jedną kartę, więc cenę porównujesz z szansą na turnie, nie do rivera.
+streets.next-card: { value: 1, unit: count, source: "zasady: sprawdzenie zakładu kupuje jedną następną kartę" }
+odds.flush.flop-turn: { formula: hitProbability, refs: [outs.flush, cards.unseen.flop, streets.next-card], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): 9 z 47" }
+odds.oesd.flop-turn: { formula: hitProbability, refs: [outs.oesd, cards.unseen.flop, streets.next-card], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): 8 z 47" }
+odds.gutshot.flop-turn: { formula: hitProbability, refs: [outs.gutshot, cards.unseen.flop, streets.next-card], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): 4 z 47" }
+# D1 (dokument 12 M0–M3): w m2.l2.q2/q3 asy dają parę asów nad królem, więc liczą się jako dodatkowe (niepewne) outy.
+outs.flush-ace: { formula: sum, refs: [outs.flush, pair.outs.per-rank], unit: count, source: "obliczenie: 9 kart do koloru + 3 asy (dokument 12, D1)" }
+odds.flush-ace.turn-river: { formula: hitProbability, refs: [outs.flush-ace, cards.unseen.turn, streets.turn-river], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): 12 z 46 (dokument 12, D1)" }
 
 # Przykładowe pule i zakłady z lekcji M2 (B-038): tekst przykładu i wynik liczą się z tych samych liczb.
 ex.pot: { value: 100, unit: count, source: "przykład w lekcji (pula w żetonach)" }
@@ -51,14 +63,19 @@ eq.bet-pot: { formula: requiredEquity, refs: [ex.pot, ex.bet.pot], unit: percent
 eq.bet-half: { formula: requiredEquity, refs: [ex.pot, ex.bet.half], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
 eq.bet-quarter: { formula: requiredEquity, refs: [ex.pot, ex.bet.quarter], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
 eq.bet-third: { formula: requiredEquity, refs: [ex.third.pot, ex.third.bet], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
+eq.bet-third.no-call: { formula: quotient, refs: [ex.third.bet, ex.third.pot-after-bet], unit: percent, source: "przykład błędnego rachunku w m2.l2.q1: zakład ÷ pula po zakładzie, bez twojego sprawdzenia (30 ÷ 120)" }
 
 pf.aa-vs-kk: { value: 0.8195, unit: percent, source: "obliczenie dokładne, średnia po kombinacjach kolorów (dokument 08)" }
-pf.rfi.utg.low: { value: 0.15, unit: percent, source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08)" }
-pf.rfi.utg.high: { value: 0.18, unit: percent, source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08)" }
-pf.rfi.btn.low: { value: 0.40, unit: percent, source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08)" }
-pf.rfi.btn.high: { value: 0.48, unit: percent, source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08)" }
-pf.open-size: { value: 2.5, unit: bb, decimals: 1, source: "standard uproszczony: FreeBetRange, PokerCoaching (dokument 08)" }
-pf.open-size-sb: { value: 3, unit: bb, source: "standard uproszczony: FreeBetRange, PokerCoaching (dokument 08)" }
+pf.rfi.utg.low: { value: 0.15, unit: percent, source: "GTO Wizard, Range Morphology (https://blog.gtowizard.com/range-morphology/): UTG 17,6% (NL500); BeyondGTO, UTG open 6-max 100bb (NL500): ok. 17%; Preflop Wizard, 6-max preflop charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 15–17%; GTO Gecko: ok. 18%; przedział obejmuje wszystkie źródła (dokument 12 M0–M3, D6; dokument 12 M4–M6, D-07)" }
+pf.rfi.utg.high: { value: 0.18, unit: percent, source: "GTO Wizard, Range Morphology (https://blog.gtowizard.com/range-morphology/): UTG 17,6% (NL500); BeyondGTO, UTG open 6-max 100bb (NL500): ok. 17%; Preflop Wizard, 6-max preflop charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 15–17%; GTO Gecko: ok. 18%; przedział obejmuje wszystkie źródła (dokument 12 M0–M3, D6; dokument 12 M4–M6, D-07)" }
+pf.rfi.btn.low: { value: 0.40, unit: percent, source: "BeyondGTO, BTN open 6-max 100bb (NL500): „GTO opens about 42% of hands first-in from the Button”; Preflop Wizard, 6-max preflop charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): „BTN: 40-45%”; GTO Gecko: ok. 43% (dokument 12 M0–M3, D6; dokument 12 M4–M6, D-07)" }
+pf.rfi.btn.high: { value: 0.45, unit: percent, source: "BeyondGTO, BTN open 6-max 100bb (NL500): „GTO opens about 42% of hands first-in from the Button”; Preflop Wizard, 6-max preflop charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): „BTN: 40-45%”; GTO Gecko: ok. 43% (dokument 12 M0–M3, D6; dokument 12 M4–M6, D-07); było 0,48 bez przeczytanego źródła" }
+pf.rfi.sb.low: { value: 0.40, unit: percent, source: "BeyondGTO, SB open 6-max 100bb (NL500): „about 44% of hands first-in from the Small Blind”, raise-or-fold; Upswing, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): 40–50%; Preflop Wizard, 6-max preflop charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 39–47%; przedział 40–45% to część wspólna (dokument 12 M0–M3, D3)" }
+pf.rfi.sb.high: { value: 0.45, unit: percent, source: "BeyondGTO, SB open 6-max 100bb (NL500): „about 44% of hands first-in from the Small Blind”, raise-or-fold; Upswing, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): 40–50%; Preflop Wizard, 6-max preflop charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 39–47%; przedział 40–45% to część wspólna (dokument 12 M0–M3, D3)" }
+pf.open-size: { value: 2.5, unit: bb, decimals: 1, source: "uproszczenie: Preflop Wizard, 6-max preflop charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): „the standard open size is 2.5bb from all positions … 3bb from the small blind” (dokument 12 M0–M3, D8)" }
+pf.open-size-sb: { value: 3, unit: bb, source: "uproszczenie: Preflop Wizard, 6-max preflop charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): „the standard open size is 2.5bb from all positions … 3bb from the small blind” (dokument 12 M0–M3, D8)" }
+pf.open-size.solver-utg: { value: 2, unit: bb, source: "GTO Wizard, Range Morphology (https://blog.gtowizard.com/range-morphology/), NL500: „The smallest open is for the minimum of 2bb from UTG, the CO makes it 2.3bb, the BTN makes it 2.5bb, and the SB makes it 3bb” (dokument 12 M0–M3, D8)" }
+pf.open-size.solver-co: { value: 2.3, unit: bb, decimals: 1, source: "GTO Wizard, Range Morphology (https://blog.gtowizard.com/range-morphology/), NL500: „The smallest open is for the minimum of 2bb from UTG, the CO makes it 2.3bb, the BTN makes it 2.5bb, and the SB makes it 3bb” (dokument 12 M0–M3, D8)" }
 
 # Wyniki własnego solvera preflop (ADR-20). Liczone przy budowie treści z content/ranges/preflop-6max-100bb.json.
 solver.rfi.utg: { formula: rangePlay, spot: rfi.utg, unit: percent, source: "solver preflop projektu (ADR-20), walidacja: pole meta.summary w content/ranges/preflop-6max-100bb.json i dokument 10 na Drive" }
@@ -70,25 +87,32 @@ format.stack: { value: 100, unit: bb, source: "format główny aplikacji: cash 6
 
 # M4: gra wobec akcji preflop. Rozmiary i częstości z literatury (heurystyki; solver aplikacji nie przeszedł walidacji
 # w grze wobec 3-betu, dokumenty 10 i 11). Ceny i progi liczone dokładnie z rozmiarów.
-pf.3bet.size-ip: { value: 3, unit: multiplier, source: "Deepfold, The Complete 3-Bet Strategy (100bb); ten sam rozmiar w drzewie solvera aplikacji" }
-pf.3bet.size-oop: { value: 4, unit: multiplier, source: "Deepfold, The Complete 3-Bet Strategy (100bb); ten sam rozmiar w drzewie solvera aplikacji" }
+pf.3bet.size-ip: { value: 3, unit: multiplier, source: "Deepfold, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide), 100bb; ten sam rozmiar w drzewie solvera aplikacji" }
+pf.3bet.size-oop: { value: 4, unit: multiplier, source: "Deepfold, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide), 100bb; ten sam rozmiar w drzewie solvera aplikacji" }
 pf.3bet.ip-total: { formula: product, refs: [pf.open-size, pf.3bet.size-ip], unit: bb, decimals: 1, source: "obliczenie: otwarcie × rozmiar 3-betu w pozycji" }
 pf.3bet.oop-total: { formula: product, refs: [pf.open-size, pf.3bet.size-oop], unit: bb, source: "obliczenie: otwarcie × rozmiar 3-betu bez pozycji" }
-pf.4bet.size-ip.low: { value: 2.2, unit: multiplier, decimals: 1, source: "Deepfold, The Complete 3-Bet Strategy" }
-pf.4bet.size-ip.high: { value: 2.5, unit: multiplier, decimals: 1, source: "Deepfold, The Complete 3-Bet Strategy" }
-pf.4bet.size-oop.low: { value: 2.5, unit: multiplier, decimals: 1, source: "Deepfold, The Complete 3-Bet Strategy" }
-pf.4bet.size-oop.high: { value: 3, unit: multiplier, source: "Deepfold, The Complete 3-Bet Strategy" }
-pf.3bet-freq.btn-vs-co.low: { value: 0.12, unit: percent, source: "GTO Wizard (NL500, 100bb): ok. 12%; Preflop Wizard: 12–16%" }
+pf.4bet.size-ip.low: { value: 2.2, unit: multiplier, decimals: 1, source: "Deepfold, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide)" }
+pf.4bet.size-ip.high: { value: 2.5, unit: multiplier, decimals: 1, source: "Deepfold, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide)" }
+pf.4bet.size-oop.low: { value: 2.3, unit: multiplier, decimals: 1, source: "Poker Academy, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200: CO bez pozycji 4-betuje do 17,2bb, czyli 2,3 razy 3-bet do 7,5bb; Deepfold, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide): 2,5–3x, w jego własnym przykładzie 2,4x (dokument 12 M4–M6, D-06); było 2,5" }
+pf.4bet.size-oop.high: { value: 3, unit: multiplier, source: "Deepfold, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide)" }
+pf.3bet-freq.btn-vs-co.low: { value: 0.12, unit: percent, source: "GTO Wizard, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb: ok. 12%; Preflop Wizard: 12–16%" }
 pf.3bet-freq.btn-vs-co.high: { value: 0.16, unit: percent, source: "Preflop Wizard, Poker 3-Bet Strategy (2026)" }
-pf.call-freq.btn-vs-co: { value: 0.05, unit: percent, source: "GTO Wizard, Playing Calls From the Button in Cash Games (NL500, 100bb)" }
-pf.3bet-freq.btn-vs-utg: { value: 0.075, unit: percent, decimals: 1, source: "GTO Wizard, Playing Calls From the Button in Cash Games (NL500, 100bb)" }
-pf.call-freq.btn-vs-utg: { value: 0.082, unit: percent, decimals: 1, source: "GTO Wizard, Playing Calls From the Button in Cash Games (NL500, 100bb)" }
-pf.vs3bet.fold.low: { value: 0.55, unit: percent, source: "heurystyka z trzech źródeł (decyzja właściciela 3.10.2026, B-035): Poker Academy, solver NL200 CO wobec 3-betu BTN 63,7/17,2/19,1; Pailiku, tabela ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); wcześniej Deepfold 50–55/30–40/5–8 (dokument 10)" }
-pf.vs3bet.fold.high: { value: 0.65, unit: percent, source: "heurystyka z trzech źródeł (decyzja właściciela 3.10.2026, B-035): Poker Academy, solver NL200 CO wobec 3-betu BTN 63,7/17,2/19,1; Pailiku, tabela ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); wcześniej Deepfold 50–55/30–40/5–8 (dokument 10)" }
-pf.vs3bet.call.low: { value: 0.20, unit: percent, source: "heurystyka z trzech źródeł (decyzja właściciela 3.10.2026, B-035): Poker Academy, solver NL200 CO wobec 3-betu BTN 63,7/17,2/19,1; Pailiku, tabela ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); wcześniej Deepfold 50–55/30–40/5–8 (dokument 10)" }
-pf.vs3bet.call.high: { value: 0.30, unit: percent, source: "heurystyka z trzech źródeł (decyzja właściciela 3.10.2026, B-035): Poker Academy, solver NL200 CO wobec 3-betu BTN 63,7/17,2/19,1; Pailiku, tabela ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); wcześniej Deepfold 50–55/30–40/5–8 (dokument 10)" }
-pf.vs3bet.4bet.low: { value: 0.10, unit: percent, source: "heurystyka z trzech źródeł (decyzja właściciela 3.10.2026, B-035): Poker Academy, solver NL200 CO wobec 3-betu BTN 63,7/17,2/19,1; Pailiku, tabela ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); wcześniej Deepfold 50–55/30–40/5–8 (dokument 10)" }
-pf.vs3bet.4bet.high: { value: 0.15, unit: percent, source: "heurystyka z trzech źródeł (decyzja właściciela 3.10.2026, B-035): Poker Academy, solver NL200 CO wobec 3-betu BTN 63,7/17,2/19,1; Pailiku, tabela ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); wcześniej Deepfold 50–55/30–40/5–8 (dokument 10)" }
+pf.call-freq.btn-vs-co: { value: 0.05, unit: percent, source: "GTO Wizard, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb" }
+pf.3bet-freq.btn-vs-utg: { value: 0.075, unit: percent, decimals: 1, source: "GTO Wizard, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb" }
+pf.call-freq.btn-vs-utg: { value: 0.082, unit: percent, decimals: 1, source: "GTO Wizard, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb" }
+pf.3bet-freq.sb-vs-btn: { value: 0.14, unit: percent, source: "GTO Wizard, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, 100bb, SB vs BTN: 3-bet 14%, sprawdzenie 2% (dokument 10, rozstrzygnięcie B-045)" }
+pf.vs3bet.fold.low: { value: 0.55, unit: percent, source: "przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): Poker Academy, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; Pailiku, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); Deepfold 50–55/30–40/5–8 (szczebel 4, odbiega)" }
+pf.vs3bet.fold.high: { value: 0.65, unit: percent, source: "przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): Poker Academy, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; Pailiku, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); Deepfold 50–55/30–40/5–8 (szczebel 4, odbiega)" }
+pf.vs3bet.call.low: { value: 0.15, unit: percent, source: "przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): Poker Academy, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; Pailiku, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); Deepfold 50–55/30–40/5–8 (szczebel 4, odbiega)" }
+pf.vs3bet.call.high: { value: 0.30, unit: percent, source: "przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): Poker Academy, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; Pailiku, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); Deepfold 50–55/30–40/5–8 (szczebel 4, odbiega)" }
+pf.vs3bet.4bet.low: { value: 0.10, unit: percent, source: "przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): Poker Academy, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; Pailiku, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); Deepfold 50–55/30–40/5–8 (szczebel 4, odbiega)" }
+pf.vs3bet.4bet.high: { value: 0.20, unit: percent, source: "przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): Poker Academy, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; Pailiku, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (PokerStrategy, Poker Copilot); Deepfold 50–55/30–40/5–8 (szczebel 4, odbiega)" }
+pf.vs3bet.pa.fold: { value: 0.637, unit: percent, source: "Poker Academy, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb (dokument 12 M4–M6, D-04)" }
+pf.vs3bet.pa.call: { value: 0.172, unit: percent, source: "Poker Academy, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb (dokument 12 M4–M6, D-04)" }
+pf.vs3bet.pa.4bet: { value: 0.191, unit: percent, source: "Poker Academy, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb (dokument 12 M4–M6, D-04)" }
+pf.vs3bet.pailiku.fold: { value: 0.66, unit: percent, source: "Pailiku, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), CO wobec 3-betu Buttona, udział w zakresie otwarcia CO przeliczony z sum na stronie (dokument 10, B-035; dokument 12 M4–M6, D-04)" }
+pf.vs3bet.pailiku.call: { value: 0.23, unit: percent, source: "Pailiku, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), CO wobec 3-betu Buttona, udział w zakresie otwarcia CO przeliczony z sum na stronie (dokument 10, B-035; dokument 12 M4–M6, D-04)" }
+pf.vs3bet.pailiku.4bet: { value: 0.11, unit: percent, source: "Pailiku, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), CO wobec 3-betu Buttona, udział w zakresie otwarcia CO przeliczony z sum na stronie (dokument 10, B-035; dokument 12 M4–M6, D-04)" }
 pf.blind.sb: { value: 0.5, unit: bb, decimals: 1, source: "zasady: mały blind" }
 pf.blind.bb: { value: 1, unit: bb, source: "zasady: duży blind" }
 bb.call.vs-btn: { formula: diff, refs: [pf.open-size, pf.blind.bb], unit: bb, decimals: 1, source: "obliczenie: dopłata BB do otwarcia" }
@@ -116,9 +140,9 @@ pf.iso.btn.high: { value: 0.40, unit: percent, source: "Preflop Wizard, ISO Rais
 solver.def.bb-vs-btn: { formula: rangePlay, spot: vs-open.bb-vs-btn, unit: percent, source: "solver preflop projektu (ADR-20): sprawdzenie + 3-bet" }
 solver.def.bb-vs-sb: { formula: rangePlay, spot: vs-open.bb-vs-sb, unit: percent, source: "solver preflop projektu (ADR-20): sprawdzenie + 3-bet" }
 solver.play.btn-vs-co: { formula: rangePlay, spot: vs-open.btn-vs-co, unit: percent, source: "solver preflop projektu (ADR-20): 3-bet + sprawdzenie" }
-solver.play.sb-vs-btn: { formula: rangePlay, spot: vs-open.sb-vs-btn, unit: percent, source: "solver preflop projektu (ADR-20): 3-bet + sprawdzenie" }
-pf.bb-def.gecko.low: { value: 0.45, unit: percent, source: "GTO Gecko, GTO Preflop Strategy: obrona BB wobec Buttona ok. 45–50%" }
-pf.bb-def.gecko.high: { value: 0.50, unit: percent, source: "GTO Gecko, GTO Preflop Strategy" }
+solver.3bet.sb-vs-btn: { formula: rangePlay, spot: vs-open.sb-vs-btn, unit: percent, decimals: 1, source: "solver preflop projektu (ADR-20): 3-bet (siatka „3-bet / pas”, B-045)" }
+pf.bb-def.gecko.low: { value: 0.45, unit: percent, source: "GTO Gecko, GTO Preflop Strategy (https://gtogecko.com/blog/gto-preflop-strategy): obrona BB wobec Buttona ok. 45–50%" }
+pf.bb-def.gecko.high: { value: 0.50, unit: percent, source: "GTO Gecko, GTO Preflop Strategy (https://gtogecko.com/blog/gto-preflop-strategy)" }
 pf.4bet.example.low: { formula: product, refs: [pf.3bet.oop-total, pf.4bet.size-ip.low], unit: bb, source: "obliczenie: 4-bet z pozycją na 3-bet z blindów" }
 pf.4bet.example.high: { formula: product, refs: [pf.3bet.oop-total, pf.4bet.size-ip.high], unit: bb, source: "obliczenie: 4-bet z pozycją na 3-bet z blindów" }
 pf.iso.one-limper-oop: { formula: sum, refs: [pf.iso.base, pf.iso.per-limper, pf.iso.oop-extra], unit: bb, source: "obliczenie: podstawa + 1 limper + dopłata bez pozycji" }
@@ -129,11 +153,46 @@ pf.3bet.too-big.mult: { value: 5, unit: multiplier, source: "przykład błędneg
 pf.3bet.too-big: { formula: product, refs: [pf.open-size, pf.3bet.too-big.mult], unit: bb, decimals: 1, source: "obliczenie: przykład błędnego rozmiaru" }
 pf.4bet.too-small.mult: { value: 1.5, unit: multiplier, decimals: 1, source: "przykład błędnego rozmiaru: 1,5 × 3-bet (dobrany do ćwiczenia, bez źródła)" }
 pf.4bet.too-small: { formula: product, refs: [pf.3bet.oop-total, pf.4bet.too-small.mult], unit: bb, source: "obliczenie: przykład błędnego rozmiaru" }
+# S-13, S-14 (audyt 4.10): SPR po 4-becie dla obu rozmiarów 4-betu z pozycją; scenariusz jak spr.4bet (4-bet Buttona na 3-bet SB, BB spasował).
+spr.4bet.high.pot: { formula: sum, refs: [pf.4bet.example.high, pf.4bet.example.high, pf.blind.bb], unit: bb, source: "obliczenie: większy 4-bet Buttona na 3-bet SB sprawdzony, BB spasował" }
+spr.4bet.high.stack: { formula: diff, refs: [format.stack, pf.4bet.example.high], unit: bb, source: "obliczenie: stack minus większy 4-bet" }
+spr.4bet.high: { formula: quotient, refs: [spr.4bet.high.stack, spr.4bet.high.pot], unit: ratio, decimals: 1, source: "obliczenie: SPR = stack za pulą ÷ pula na flopie (75 ÷ 51)" }
+# D-06 (dokument 12 M4–M6): 4-bet bez pozycji, scenariusz Poker Academy: CO 4-betuje 3-bet Buttona do 7,5bb, blindy spasowały.
+pf.4bet.oop-example.low: { formula: product, refs: [pf.3bet.ip-total, pf.4bet.size-oop.low], unit: bb, decimals: 2, source: "obliczenie: 4-bet bez pozycji na 3-bet z pozycją (7,5bb × 2,3)" }
+spr.4bet.oop.pot: { formula: sum, refs: [pf.4bet.oop-example.low, pf.4bet.oop-example.low, pf.blind.sb, pf.blind.bb], unit: bb, decimals: 1, source: "obliczenie: 4-bet CO na 3-bet Buttona sprawdzony, blindy spasowały" }
+spr.4bet.oop.stack: { formula: diff, refs: [format.stack, pf.4bet.oop-example.low], unit: bb, decimals: 2, source: "obliczenie: stack minus 4-bet bez pozycji" }
+spr.4bet.oop: { formula: quotient, refs: [spr.4bet.oop.stack, spr.4bet.oop.pot], unit: ratio, decimals: 1, source: "obliczenie: SPR = stack za pulą ÷ pula na flopie (82,75 ÷ 36); najwyższy SPR po 4-becie w M4" }
+# Ręka mieszana: częstość, z jaką solver gra rękę (te same progi co MIXED_LOW i MIXED_HIGH w aplikacji).
+range.mixed.low: { value: 0.25, unit: percent, source: "próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_LOW" }
+range.mixed.high: { value: 0.75, unit: percent, source: "próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_HIGH" }
 
-# M5: c-bet na flopie. Bez częstotliwości z literatury (źródeł nie dało się przeczytać, raport M5): tylko rozmiar
-# z programu nauczania, przykładowy duży rozmiar do obliczeń i matematyka liczona z tych samych liczb.
-cbet.size.small: { value: 0.333333, unit: percent, source: "program nauczania M5 (dokument projektu): c-bet ok. 1/3 puli na suchym, wysokim flopie" }
-cbet.size.big: { value: 0.75, unit: percent, source: "przykład dużego c-betu dobrany do ćwiczeń (bez źródła liczbowego; przedział z literatury do weryfikacji, raport M5)" }
+# M5: c-bet na flopie. Rozmiary i przedziały według decyzji D-20 (dokument 12 M4–M6); bez częstotliwości w procentach.
+cbet.size.small: { value: 0.333333, unit: percent, source: "GTO Wizard, Flop Heuristics: IP C-Betting in Cash Games (33%); Upswing, Bet Sizing Strategy: 8 Rules (25–35%, https://upswingpoker.com/bet-size-strategy-tips-rules/)" }
+cbet.size.big: { value: 0.75, unit: percent, source: "GTO Wizard, The Mechanics of C-Bet Sizing (75%); Upswing, Bet Sizing Strategy: 8 Rules (55–80%, https://upswingpoker.com/bet-size-strategy-tips-rules/)" }
+cbet.range.small.low: { value: 0.25, unit: percent, source: "Upswing, Bet Sizing Strategy: 8 Rules („Bet small (25-35% pot) on dry, static board textures”, https://upswingpoker.com/bet-size-strategy-tips-rules/)" }
+cbet.range.small.high: { value: 0.35, unit: percent, source: "Upswing, Bet Sizing Strategy: 8 Rules (25–35% puli, https://upswingpoker.com/bet-size-strategy-tips-rules/)" }
+cbet.range.big.low: { value: 0.55, unit: percent, source: "Upswing, Bet Sizing Strategy: 8 Rules (55–80% puli, https://upswingpoker.com/bet-size-strategy-tips-rules/)" }
+cbet.range.big.high: { value: 0.8, unit: percent, source: "Upswing, Bet Sizing Strategy: 8 Rules (55–80% puli, https://upswingpoker.com/bet-size-strategy-tips-rules/)" }
+cbet.oop.a94.check: { value: 0.96, unit: percent, source: "PokerCoaching, C-Betting On Ace-High Boards (CO vs BTN, A94r: „we will check over 96% of the time”)" }
+cbet.oop.a94.bet: { formula: diff, refs: [prob.certain, cbet.oop.a94.check], unit: percent, source: "obliczenie: 100% minus częstość czekania (PokerCoaching, A94r)" }
+cbet.solver.big.low: { value: 0.66, unit: percent, source: "GTO Wizard, Flop Heuristics: IP C-Betting in Cash Games („increased use of the 66% pot bet size”)" }
+# Mokrość flopa: te same wagi i progi co WETNESS_POINTS i WETNESS_THRESHOLDS w packages/poker-core/src/texture.ts
+# (zgodność pilnuje test w tools/content-build). Zmiana wag: najpierw kod, potem te wartości.
+tex.points.straight.made: { value: 3, unit: count, source: "definicja aplikacji: WETNESS_POINTS.straight.made (strit możliwy już na flopie)" }
+tex.points.straight.draw: { value: 1, unit: count, source: "definicja aplikacji: WETNESS_POINTS.straight.draw (możliwe tylko dobieranie do strita)" }
+tex.points.straight.none: { value: 0, unit: count, source: "definicja aplikacji: WETNESS_POINTS.straight.none" }
+tex.points.suits.rainbow: { value: 0, unit: count, source: "definicja aplikacji: WETNESS_POINTS.suits.rainbow" }
+tex.points.suits.two-tone: { value: 1, unit: count, source: "definicja aplikacji: WETNESS_POINTS.suits['two-tone']" }
+tex.points.suits.monotone: { value: 2, unit: count, source: "definicja aplikacji: WETNESS_POINTS.suits.monotone" }
+tex.threshold.medium: { value: 2, unit: count, source: "definicja aplikacji: WETNESS_THRESHOLDS.medium (od tylu punktów flop jest pośredni)" }
+tex.threshold.wet: { value: 3, unit: count, source: "definicja aplikacji: WETNESS_THRESHOLDS.wet (od tylu punktów flop jest mokry)" }
+tex.ex.k72: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.none], unit: count, source: "obliczenie: Ks 7d 2c, tęczowy, bez strita i bez dobierania do strita" }
+tex.ex.qq6: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.none], unit: count, source: "obliczenie: Qd Qs 6h, tęczowy, sparowany, bez dobierania do strita" }
+tex.ex.kq4: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.draw], unit: count, source: "obliczenie: Kh Qd 4c, tęczowy, półpołączony" }
+tex.ex.j74: { formula: sum, refs: [tex.points.suits.two-tone, tex.points.straight.draw], unit: count, source: "obliczenie: Jh 7h 4s, dwukolorowy, półpołączony" }
+tex.ex.k83: { formula: sum, refs: [tex.points.suits.monotone, tex.points.straight.none], unit: count, source: "obliczenie: Kh 8h 3h, monotoniczny, rozłączony" }
+tex.ex.987: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.made], unit: count, source: "obliczenie: 9h 8d 7c, tęczowy, połączony" }
+tex.ex.jt8: { formula: sum, refs: [tex.points.suits.two-tone, tex.points.straight.made], unit: count, source: "obliczenie: Jh Th 8c, dwukolorowy, połączony" }
 cbet.ex.small: { formula: product, refs: [ex.pot, cbet.size.small], unit: count, source: "obliczenie: c-bet 1/3 puli przy puli 100" }
 cbet.ex.big: { formula: product, refs: [ex.pot, cbet.size.big], unit: count, source: "obliczenie: duży c-bet przy puli 100" }
 alpha.cbet.small: { formula: alpha, refs: [ex.pot, cbet.ex.small], unit: percent, source: "obliczenie: zakład / (pula + zakład)" }
@@ -146,11 +205,23 @@ pair.outs.unpaired: { formula: product, refs: [cards.hole, pair.outs.per-rank], 
 ex.wrong.half: { value: 0.5, unit: percent, source: "przykład błędnej odpowiedzi w zadaniach M2 (połowa)" }
 prob.certain: { value: 1, unit: percent, source: "definicja: zdarzenie pewne" }
 flop.miss.unpaired: { formula: missProbability, refs: [pair.outs.unpaired, cards.unseen.preflop, cards.board.flop], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): żadna z 3 kart flopu nie paruje ręki" }
-flop.miss.two: { formula: product, refs: [flop.miss.unpaired, flop.miss.unpaired], unit: percent, source: "obliczenie przybliżone: chybienia dwóch rywali traktowane jako niezależne (pomija karty w ich rękach)" }
+ex.hands.two: { value: 2, unit: count, source: "przykład w lekcji: dwie ręce rywali bez pary, cztery różne rangi" }
+pair.outs.two-hands: { formula: product, refs: [pair.outs.unpaired, ex.hands.two], unit: count, source: "obliczenie: 2 ręce × 6 kart parujących (cztery różne rangi, więc bez wspólnych outów)" }
+cards.two-hands: { formula: product, refs: [cards.hole, ex.hands.two], unit: count, source: "obliczenie: 2 ręce × 2 karty" }
+cards.unseen.two-hands: { formula: diff, refs: [cards.deck, cards.two-hands], unit: count, source: "obliczenie: talia minus karty obu rąk (karty bohatera pomijamy, jak w szansie dla jednej ręki)" }
+flop.miss.two: { formula: missProbability, refs: [pair.outs.two-hands, cards.unseen.two-hands, cards.board.flop], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): żadna z 3 kart flopu nie paruje żadnej z dwóch rąk, C(36,3)/C(48,3); z kartami bohatera wychodzi ok. 39,4%" }
 flop.hit.unpaired: { formula: diff, refs: [prob.certain, flop.miss.unpaired], unit: percent, decimals: 1, source: "obliczenie: 100% minus szansa chybienia" }
+# D-19: dokładnie jedna karta flopu paruje rękę (PrimeDope: 28,96%) = 3 × (6/50) × szansa, że dwie pozostałe karty
+# (z 49) nie trafią żadnej z 5 pozostałych kart parujących.
+flop.one-pair.first: { formula: quotient, refs: [pair.outs.unpaired, cards.unseen.preflop], unit: ratio, decimals: 3, source: "obliczenie pomocnicze: pierwsza karta paruje rękę (6 z 50)" }
+pair.outs.unpaired.rest: { formula: diff, refs: [pair.outs.unpaired, math.one], unit: count, source: "obliczenie pomocnicze: karty parujące, które zostają po jednej trafionej" }
+cards.unseen.preflop.rest: { formula: diff, refs: [cards.unseen.preflop, math.one], unit: count, source: "obliczenie pomocnicze: nieznane karty po jednej karcie flopu" }
+flop.cards.rest: { formula: diff, refs: [cards.board.flop, math.one], unit: count, source: "obliczenie pomocnicze: pozostałe karty flopu" }
+flop.one-pair.rest: { formula: missProbability, refs: [pair.outs.unpaired.rest, cards.unseen.preflop.rest, flop.cards.rest], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): dwie pozostałe karty flopu nie parują ręki" }
+flop.hit.one-pair: { formula: product, refs: [cards.board.flop, flop.one-pair.first, flop.one-pair.rest], unit: percent, decimals: 0, source: "obliczenie dokładne: dokładnie jedna karta flopu paruje rękę, C(6,1)·C(44,2)/C(50,3); zgodne z PrimeDope (28,96%)" }
 
 # M6: obrona na flopie. MDF = pula/(pula+bet), alpha = bet/(pula+bet), potrzebne equity = bet/(pula+2·bet).
-# Pule i zakłady z przykładów M2 (ex.*), żeby M2 i M6 liczyły z tych samych liczb. Rozmiar check-raise'u tylko jako przykład do rachunku ceny; przedziały z literatury do weryfikacji.
+# Pule i zakłady z przykładów M2 (ex.*), żeby M2 i M6 liczyły z tych samych liczb. Rozmiar check-raise'u według decyzji D-29 (dokument 12 M4–M6).
 ex.frac.three-quarters: { value: 0.75, unit: ratio, decimals: 2, source: "przykład: zakład = 3/4 puli" }
 ex.frac.overbet: { value: 1.5, unit: ratio, decimals: 1, source: "przykład: zakład = 1,5 puli (overbet)" }
 ex.bet.three-quarters: { formula: product, refs: [ex.pot, ex.frac.three-quarters], unit: count, source: "obliczenie: zakład 3/4 puli" }
@@ -169,8 +240,9 @@ alpha.bet-half: { formula: alpha, refs: [ex.pot, ex.bet.half], unit: percent, so
 alpha.bet-three-quarters: { formula: alpha, refs: [ex.pot, ex.bet.three-quarters], unit: percent, source: "obliczenie: bet/(pula+bet)" }
 alpha.bet-pot: { formula: alpha, refs: [ex.pot, ex.bet.pot], unit: percent, source: "obliczenie: bet/(pula+bet)" }
 alpha.bet-overbet: { formula: alpha, refs: [ex.pot, ex.bet.overbet], unit: percent, source: "obliczenie: bet/(pula+bet)" }
-xr.mult.example: { value: 3, unit: multiplier, source: "przykład do ćwiczenia (rachunek ceny); rozmiar z literatury do weryfikacji, gdy źródła będą dostępne" }
-xr.example: { formula: product, refs: [ex.third.bet, xr.mult.example], unit: count, source: "obliczenie: check-raise 3x c-betu z przykładu" }
+xr.mult.example: { value: 4.5, unit: multiplier, decimals: 1, source: "Upswing, Level-Up Podcast ep. 1 (Blackwood): 4,5x wobec małych c-betów, 3,2x wobec dużych (https://upswingpoker.com/podcast/ep1-check-raise/); kierunek zgodny z GTO Wizard: im mniejszy bet, tym większa krotność" }
+xr.mult.low: { value: 3, unit: multiplier, source: "dolna granica przedziału „ok. 3–4,5 razy” (D-29): Upswing, Level-Up Podcast ep. 1 (Blackwood), 3,2x wobec dużych c-betów (https://upswingpoker.com/podcast/ep1-check-raise/)" }
+xr.example: { formula: product, refs: [ex.third.bet, xr.mult.example], unit: count, source: "obliczenie: check-raise 4,5x c-betu z przykładu" }
 xr.too-small.mult: { value: 1.5, unit: multiplier, decimals: 1, source: "przykład błędnego rozmiaru: 1,5x c-betu (dobrany do ćwiczenia, bez źródła)" }
 xr.too-small: { formula: product, refs: [ex.third.bet, xr.too-small.mult], unit: count, source: "obliczenie: przykład błędnego rozmiaru" }
 xr.example.extra: { formula: diff, refs: [xr.example, ex.third.bet], unit: count, source: "obliczenie: dopłata Buttona do check-raise'u" }
@@ -181,10 +253,10 @@ eq.vs-xr.example: { formula: requiredEquity, refs: [ex.third.total, xr.example.e
 eq.vs-xr.too-small: { formula: requiredEquity, refs: [ex.third.total, xr.too-small.extra], unit: percent, source: "obliczenie: dopłata/(pula po check-raise'ie + dopłata)" }
 
 # M7: turn. Implied odds liczone z formuł: na trafieniach musisz wygrać łącznie dopłata × (karty nietrafiające ÷ outy),
-# bo wtedy equity × (pula po zakładzie + dodatkowa wygrana) = (1 − equity) × dopłata. Schemat nie ma formuły ilorazu,
-# więc 1 ÷ outy zapisujemy jako mdf(1, outy − 1) (potrzeba kodu w raporcie M7). Przykłady dobrane tak, żeby wyniki
-# w żetonach były całkowite (zadania liczbowe w żetonach oceniane są dokładnie).
-math.one: { value: 1, unit: count, source: "stała pomocnicza: jedynka do zapisu 1 ÷ outy przez formułę mdf" }
+# bo wtedy equity × (pula po zakładzie + dodatkowa wygrana) = (1 − equity) × dopłata. 1 ÷ outy liczy formuła quotient
+# (math.one ÷ outy). Przykłady dobrane tak, żeby wyniki w żetonach były całkowite (zadania liczbowe w żetonach oceniane
+# są dokładnie).
+math.one: { value: 1, unit: count, source: "stała pomocnicza: jedynka do zapisu 1 ÷ outy formułą quotient" }
 miss.flush.turn: { formula: diff, refs: [cards.unseen.turn, outs.flush], unit: count, source: "obliczenie: nieznane karty na turnie minus outy do koloru" }
 miss.oesd.turn: { formula: diff, refs: [cards.unseen.turn, outs.oesd], unit: count, source: "obliczenie: nieznane karty na turnie minus outy do strita otwartego" }
 miss.gutshot.turn: { formula: diff, refs: [cards.unseen.turn, outs.gutshot], unit: count, source: "obliczenie: nieznane karty na turnie minus outy do gutshota" }
@@ -205,16 +277,20 @@ io.oesd.extra: { formula: diff, refs: [io.oesd.need, io.oesd.pot-after-bet], uni
 io.gut.need: { formula: product, refs: [ex.bet.half, miss.gutshot.turn, inv.outs.gutshot], unit: count, source: "obliczenie: dopłata × nietrafiające ÷ outy" }
 io.gut.extra: { formula: diff, refs: [io.gut.need, ex.half.pot-after-bet], unit: count, source: "obliczenie: ile ponad pulę po zakładzie musisz wygrać po trafieniu (implied odds)" }
 spr.low: { value: 1.5, unit: ratio, decimals: 1, source: "przykład niskiego SPR dobrany do ćwiczeń (bez źródła liczbowego)" }
-spr.high: { value: 5, unit: ratio, source: "przykład wyższego SPR dobrany do ćwiczeń (bez źródła liczbowego)" }
+spr.high: { value: 5, unit: ratio, source: "przykład SPR na turnie z kilkoma pulami za rywalem, dobrany do ćwiczeń (bez źródła liczbowego); w strefach SPR z M9 (liczonych na flopie) to strefa środkowa" }
 spr.stack.low: { formula: product, refs: [ex.pot, spr.low], unit: count, source: "obliczenie: stack = SPR × pula" }
 spr.stack.high: { formula: product, refs: [ex.pot, spr.high], unit: count, source: "obliczenie: stack = SPR × pula" }
 draw.combo.overlap: { value: 2, unit: count, source: "kombinatoryka: dwie karty strita w kolorze dobierania są już policzone jako outy do koloru" }
 outs.combo.raw: { formula: sum, refs: [outs.flush, outs.oesd], unit: count, source: "obliczenie: outy do koloru plus outy do strita (z kartami liczonymi podwójnie)" }
 outs.combo: { formula: diff, refs: [outs.combo.raw, draw.combo.overlap], unit: count, source: "obliczenie: kolor + strit otwarty minus karty liczone podwójnie" }
 odds.combo.turn-river: { formula: hitProbability, refs: [outs.combo, cards.unseen.turn, streets.turn-river], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
+# S-04, A-M7-13 (audyt 4.10): kolor przeciw setowi na [Jh 7h 4s 2c]: [4h] i [2h] parują stół i dają setowi fulla (sprawdzone skryptem: 7 wygrywających riverów).
+set.boat.flush-cards: { value: 2, unit: count, source: "kombinatoryka: karty koloru, które parują stół (4h, 2h) i dają setowi fulla" }
+outs.flush.vs-set: { formula: diff, refs: [outs.flush, set.boat.flush-cards], unit: count, source: "obliczenie: outy do koloru minus karty, które dają setowi fulla (czyste outy)" }
+odds.flush.vs-set: { formula: hitProbability, refs: [outs.flush.vs-set, cards.unseen.turn, streets.turn-river], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): czyste outy ÷ nieznane karty z perspektywy dobierającego" }
 
-# M8: river. Bez częstotliwości i rozmiarów z literatury (źródła znane tylko ze streszczeń, raport M8): sama matematyka
-# z formuł i przykłady do ćwiczeń. Udział blefów w betach to bet/(pula+2·bet), czyli ta sama formuła co potrzebne equity
+# M8: river. Bez częstotliwości i rozmiarów z literatury (rozmiar thin value „ok. 1/4–1/2 puli” tylko słownie w R-M8-003,
+# decyzja D13 w dokumencie 12): sama matematyka z formuł i przykłady do ćwiczeń. Udział blefów w betach to bet/(pula+2·bet), czyli ta sama formuła co potrzebne equity
 # (requiredEquity) z tymi samymi refs co eq.bet-*: osobna nazwa mówi, co liczba oznacza, a wartości nie mogą się rozjechać.
 value.threshold: { value: 0.5, unit: percent, source: "matematyka: bet dla wartości na riverze (rywal tylko sprawdza albo pasuje) zarabia, gdy wygrywasz z więcej niż połową rąk, które sprawdzą" }
 value.ex.many: { value: 6, unit: count, source: "przykład w lekcji (liczba sprawdzeń)" }
@@ -237,9 +313,8 @@ combos.pair.one-blocked: { value: 3, unit: count, source: "kombinatoryka: C(3,2)
 catch.ex.bluffs-low: { value: 0.15, unit: percent, source: "przykład do ćwiczenia (założony udział blefów rywala, bez źródła)" }
 catch.ex.bluffs-high: { value: 0.40, unit: percent, source: "przykład do ćwiczenia (założony udział blefów rywala, bez źródła)" }
 
-# M9: plan rozdania (SPR, zaangażowanie, rozmiar geometryczny). Pule i stacki liczone formułami z liczb M2, M4 i M5.
-# content-build nie ma formuły ilorazu ani pierwiastka, więc SPR (stack ÷ pula) i ułamki geometryczne
-# f = ((1 + 2·SPR)^(1/n) − 1) / 2 są wpisane jako wartości z obliczeniem w polu source (raport M9: potrzeba formuł).
+# M9: plan rozdania (SPR, zaangażowanie, rozmiar geometryczny). Pule i stacki liczone formułami z liczb M2 i M4.
+# SPR (stack ÷ pula) liczy formuła quotient, ułamki geometryczne f = ((1 + 2·SPR)^(1/n) − 1) / 2 formuła geometric.
 # Łańcuchy zakładów (flop, turn, river) liczone formułami potwierdzają, że ułamek geometryczny daje all-in.
 spr.srp.stack: { formula: diff, refs: [format.stack, pf.open-size], unit: bb, decimals: 1, source: "obliczenie: stack minus otwarcie (stack za pulą na flopie po otwarciu Buttona i sprawdzeniu BB)" }
 spr.srp: { formula: quotient, refs: [spr.srp.stack, bb.pot-after.vs-btn], unit: ratio, decimals: 1, source: "obliczenie: SPR = stack za pulą ÷ pula na flopie (97,5 ÷ 5,5)" }
@@ -259,15 +334,15 @@ spr.short: { formula: quotient, refs: [spr.short.behind, bb.pot-after.vs-btn], u
 eq.jam.srp: { formula: requiredEquity, refs: [bb.pot-after.vs-btn, spr.srp.stack], unit: percent, source: "obliczenie: all-in za cały stack do puli; stack/(pula+2·stack)" }
 eq.jam.3bet-ip: { formula: requiredEquity, refs: [vs3bet.pot-after, spr.3bet-ip.stack], unit: percent, source: "obliczenie: stack/(pula+2·stack)" }
 eq.jam.4bet: { formula: requiredEquity, refs: [spr.4bet.pot, spr.4bet.stack], unit: percent, source: "obliczenie: stack/(pula+2·stack)" }
-spr.commit: { value: 2, unit: ratio, source: "program nauczania M9 (dokument projektu): heurystyka „SPR ok. 2: top para i lepsze grają o cały stack”; rachunek w lekcji m9.l2, próg do weryfikacji" }
+spr.commit: { value: 2, unit: ratio, source: "przykład SPR w strefie poniżej 3; GTO Wizard, Stack-to-Pot Ratio (SPR ok. 2). Granicą strefy jest spr.zone.low (D19)" }
 commit.stack: { formula: product, refs: [ex.pot, spr.commit], unit: count, source: "obliczenie: stack przy SPR 2 i puli 100" }
 eq.jam.spr2: { formula: requiredEquity, refs: [ex.pot, commit.stack], unit: percent, source: "obliczenie: stack/(pula+2·stack) przy SPR 2" }
 ex.pot.after-pot-call: { formula: sum, refs: [ex.pot, ex.bet.pot, ex.bet.pot], unit: count, source: "obliczenie: pula po zakładzie wielkości puli i sprawdzeniu" }
 commit.after-pot.call: { formula: diff, refs: [commit.stack, ex.bet.pot], unit: count, source: "obliczenie: reszta stacku po zakładzie wielkości puli" }
 eq.commit.after-pot: { formula: requiredEquity, refs: [ex.pot.after-pot-call, commit.after-pot.call], unit: percent, source: "obliczenie: dopłata/(pula przed nadwyżką + 2·dopłata)" }
-commit.after-small.pot: { formula: sum, refs: [ex.pot, cbet.ex.small, cbet.ex.small], unit: count, source: "obliczenie: pula z twoim zakładem 1/3 i wyrównaniem go przez rywala" }
-commit.after-small.call: { formula: diff, refs: [commit.stack, cbet.ex.small], unit: count, source: "obliczenie: reszta stacku po zakładzie 1/3 puli" }
-eq.commit.after-small: { formula: requiredEquity, refs: [commit.after-small.pot, commit.after-small.call], unit: percent, source: "obliczenie: dopłata/(pula przed nadwyżką + 2·dopłata)" }
+# S-15 (audyt 4.10): przykład z zakładem pół puli zamiast 1/3 (33,33), żeby kwoty były całkowite: pula po wyrównaniu = ex.half.total.
+commit.after-half.call: { formula: diff, refs: [commit.stack, ex.bet.half], unit: count, source: "obliczenie: reszta stacku po zakładzie pół puli" }
+eq.commit.after-half: { formula: requiredEquity, refs: [ex.half.total, commit.after-half.call], unit: percent, source: "obliczenie: dopłata/(pula przed nadwyżką + 2·dopłata)" }
 plan.streets.two: { value: 2, unit: count, source: "liczba ulic w planie (flop i turn albo turn i river)" }
 plan.streets.three: { value: 3, unit: count, source: "liczba ulic w planie (flop, turn i river)" }
 geo.spr2.2: { formula: geometric, refs: [spr.commit, plan.streets.two], unit: percent, source: "obliczenie: f = ((1 + 2·SPR)^(1/ulice) − 1) / 2, dwie ulice przy SPR 2" }
@@ -275,8 +350,7 @@ geo.spr2.flop: { formula: product, refs: [ex.pot, geo.spr2.2], unit: count, sour
 geo.spr2.flop-after: { formula: sum, refs: [ex.pot, geo.spr2.flop, geo.spr2.flop], unit: count, source: "obliczenie: pula po sprawdzeniu" }
 geo.spr2.turn: { formula: product, refs: [geo.spr2.flop-after, geo.spr2.2], unit: count, source: "obliczenie: zakład na turnie" }
 geo.spr2.total: { formula: sum, refs: [geo.spr2.flop, geo.spr2.turn], unit: count, source: "obliczenie: razem wpłacone (= stack 200)" }
-geo.ex.spr: { value: 13, unit: ratio, source: "przykład: SPR dobrany tak, że trzy zakłady wielkości puli dają all-in ((1+2·1)^3 = 1 + 2·13)" }
-geo.ex.stack: { formula: product, refs: [ex.pot, geo.ex.spr], unit: count, source: "obliczenie: stack = SPR × pula" }
+geo.ex.stack: { formula: product, refs: [ex.pot, spr.zone.deep], unit: count, source: "obliczenie: stack = SPR × pula" }
 geo.ex.turn: { formula: product, refs: [ex.pot.after-pot-call, ex.frac.pot], unit: count, source: "obliczenie: zakład wielkości puli na turnie" }
 geo.ex.turn-after: { formula: sum, refs: [ex.pot.after-pot-call, geo.ex.turn, geo.ex.turn], unit: count, source: "obliczenie: pula po sprawdzeniu" }
 geo.ex.river: { formula: product, refs: [geo.ex.turn-after, ex.frac.pot], unit: count, source: "obliczenie: zakład wielkości puli na riverze" }
@@ -317,10 +391,12 @@ srp.potbet.turn: { formula: product, refs: [srp.potbet.flop-after, ex.frac.pot],
 srp.potbet.turn-after: { formula: sum, refs: [srp.potbet.flop-after, srp.potbet.turn, srp.potbet.turn], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu" }
 srp.potbet.river: { formula: product, refs: [srp.potbet.turn-after, ex.frac.pot], unit: bb, decimals: 1, source: "obliczenie: zakład wielkości puli na riverze" }
 srp.potbet.total: { formula: sum, refs: [srp.potbet.flop, srp.potbet.turn, srp.potbet.river], unit: bb, decimals: 1, source: "obliczenie: razem wpłacone trzema zakładami wielkości puli" }
-# M9: strefy SPR z literatury (heurystyka, decyzja właściciela 4.10; progi do weryfikacji ze źródłem)
-spr.zone.low: { value: 3, unit: ratio, source: "Pokerology, SPR Poker; VIP-Grinders, Stack to Pot Ratio: granica niskiego SPR [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]" }
-spr.zone.mid: { value: 6, unit: ratio, source: "jak spr.zone.low: granica średniego SPR [do weryfikacji]" }
-spr.zone.deep: { value: 13, unit: ratio, source: "jak spr.zone.low: granica wysokiego SPR [do weryfikacji]" }
+# M9: strefy SPR 3/6/13 jako uproszczenie (heurystyka; decyzje D18 i D19 w dokumencie 12). Próg 13 liczony: SPR, przy
+# którym trzy zakłady wielkości puli dają all-in (geo.ex.total ÷ ex.pot; (1+2·1)^3 = 1 + 2·13). Ta sama liczba służy
+# za przykład w lekcji o rozmiarze geometrycznym (dawny klucz geo.ex.spr).
+spr.zone.low: { value: 3, unit: ratio, source: "SplitSuit, SPR Strategy; GTO Wizard, Stack-to-Pot Ratio: poniżej ok. 3 najwyższa para i lepsze grają o stack" }
+spr.zone.mid: { value: 6, unit: ratio, source: "SplitSuit, SPR Strategy; GTO Wizard, Stack-to-Pot Ratio: powyżej ok. 6 jedna para nie gra domyślnie o stack" }
+spr.zone.deep: { formula: quotient, refs: [geo.ex.total, ex.pot], unit: ratio, source: "obliczenie: (1+2·1)^3 = 1+2·13, trzy zakłady wielkości puli wpłacają 13 pul; Flynn, Mehta, Miller, Professional No-Limit Hold'em (przez PokerNews i recenzję cardsharp.org)" }
 
 # M12: wariancja i bankroll. Odchylenie i winrate ze źródeł (adresy i cytaty w raporcie M12), reszta liczona.
 # content-build nie ma pierwiastka, funkcji wykładniczej ani rozkładu normalnego: te wartości są wpisane z polem

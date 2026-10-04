@@ -29,9 +29,11 @@ export function playFreqs(spot: RangeSpot): number[] {
  * Malowanie zakresu (decyzja właściciela 3.10.2026, B-016): gram / pas, wynik ważony kombinacjami
  * (para 6, w kolorze 4, w różnych kolorach 12). Liczymy tylko ręce z zakresu solvera (z mieszanymi) albo zaznaczone,
  * żeby łatwe pasy nie zawyżały wyniku. Ręce mieszane (MIXED_LOW–MIXED_HIGH) są zaliczane w obie strony.
+ * Klasy niepewne spotu (spot.uncertain, audyt K6) traktujemy jak mieszane: zaliczone w obie strony, na siatce kropka.
  */
 export function scorePaint(spot: RangeSpot, painted: readonly boolean[]): PaintScore {
   const play = playFreqs(spot);
+  const uncertain = new Set(spot.uncertain ?? []);
   let relevant = 0;
   let ok = 0;
   let missCombos = 0;
@@ -41,8 +43,8 @@ export function scorePaint(spot: RangeSpot, painted: readonly boolean[]): PaintS
     const c = combosCount(hc);
     const p = play[h]!;
     const sel = !!painted[h];
-    const inRange = p >= MIXED_HIGH;
-    const mixed = p >= MIXED_LOW && p < MIXED_HIGH;
+    const mixed = uncertain.has(hc) || (p >= MIXED_LOW && p < MIXED_HIGH);
+    const inRange = !mixed && p >= MIXED_HIGH;
     if (inRange) targetCombos += c;
     if (!inRange && !mixed && !sel) return 'none';
     relevant += c;

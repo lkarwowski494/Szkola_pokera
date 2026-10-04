@@ -4,31 +4,45 @@
 # CO vs UTG: częstość 3-betu zgodna od wersji 2 solvera, ale skład zakresu (liniowy, bez blefów, z wąskim sprawdzaniem)
 # odbiega od publicznych solverów — czeka na decyzję. BB vs UTG i pule z dołączeniem BB czekają na cele walidacyjne.
 
+# Klasy niepewne (audyt 4.10.2026, K6 opcja B, decyzja właściciela): w tych rękach solver odbiega od publicznych tabel
+# otwarć (pasuje ręce w kolorze po kolei, otwiera słabe ręce w różnych kolorach). Nie pojawiają się w zadaniach
+# rangeDecision, a w malowaniu zakresu liczą się jak ręce mieszane (zaliczone w obie strony). Jedna lista (kotwica
+# &uncertain-rfi), spoty zakresów otwarć (M3) tylko się do niej odwołują. Usunąć po poprawie modelu solvera (A-M3-01).
 - id: rfi.utg
   title: "UTG, nikt jeszcze nie wszedł do gry"
   hero: UTG
   path: ""
   groups: { "Przebicie do 2,5bb": ["raise 2.5"] }
+  uncertain: &uncertain-rfi [
+    # ręce w kolorze po kolei i z jedną luką (oraz 85s, 74s z dwiema)
+    98s, 87s, 76s, 65s, 54s, 43s, T8s, 97s, 86s, 75s, 64s, 53s, 85s, 74s,
+    # słabe ręce w różnych kolorach
+    A9o, A8o, A7o, A6o, A5o, A4o, A3o, A2o, K9o, K8o, K7o, K6o, K5o, K4o, K3o, K2o, Q8o, J8o, T8o, 98o,
+  ]
 - id: rfi.hj
   title: "HJ, wszyscy przed tobą spasowali"
   hero: HJ
   path: "UTG:fold"
   groups: { "Przebicie do 2,5bb": ["raise 2.5"] }
+  uncertain: *uncertain-rfi
 - id: rfi.co
   title: "CO, wszyscy przed tobą spasowali"
   hero: CO
   path: "UTG:fold,HJ:fold"
   groups: { "Przebicie do 2,5bb": ["raise 2.5"] }
+  uncertain: *uncertain-rfi
 - id: rfi.btn
   title: "Button, wszyscy przed tobą spasowali"
   hero: BTN
   path: "UTG:fold,HJ:fold,CO:fold"
   groups: { "Przebicie do 2,5bb": ["raise 2.5"] }
+  uncertain: *uncertain-rfi
 - id: rfi.sb
   title: "Mały blind, wszyscy spasowali, gra toczy się przeciw dużemu blindowi"
   hero: SB
   path: "UTG:fold,HJ:fold,CO:fold,BTN:fold"
   groups: { "Przebicie do 3bb": ["raise 3"] }
+  uncertain: *uncertain-rfi
 
 - id: vs-open.btn-vs-co
   title: "Button, CO otworzył na 2,5bb"
@@ -43,9 +57,14 @@
   title: "Mały blind, Button otworzył na 2,5bb"
   hero: SB
   path: "UTG:fold,HJ:fold,CO:fold,BTN:raise2.5"
-  # skład 3-betów z blindów odbiega od literatury (liniowy zamiast spolaryzowanego), więc pokazujemy tylko „gram / pas”
-  # (decyzja właściciela 3 października 2026); łączna częstość jest zwalidowana
-  groups: { "Gram (głównie 3-bet do 10bb)": ["raise 10", "call 2.5"] }
+  # „3-bet / pas” (decyzja właściciela 4 października 2026, B-045): solvery grają tu 3-bet albo pas, a łączna częstość
+  # i skład 3-betu kanonu zgadzają się z GTO Wizard (Crush 3-Bet Pots OOP, SB vs BTN 14%) poza rękami niżej.
+  # Sprawdzenia kanonu (ok. 3%) liczą się w siatce jako pas.
+  groups: { "3-bet do 10bb": ["raise 10"] }
+  # Klasy niepewne tego spotu: 55, 66, A9o, A4s i T9s kanon gra inaczej niż GTO Wizard (różnica ponad 50 pp,
+  # dokument 10, B-045); 22–44, A3s, A2s, QJs, QTs i JTs kanon głównie sprawdza, a siatka „3-bet / pas” nie ma
+  # sprawdzenia. W zadaniach się nie pojawiają, w malowaniu są zaliczane w obie strony.
+  uncertain: ["22", "33", "44", "55", "66", A9o, A4s, A3s, A2s, T9s, QJs, QTs, JTs]
 - id: vs-open.bb-vs-btn
   title: "Duży blind, Button otworzył na 2,5bb, mały blind spasował"
   hero: BB

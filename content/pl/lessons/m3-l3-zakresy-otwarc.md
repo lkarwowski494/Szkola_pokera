@@ -4,19 +4,19 @@ module: m3
 order: 3
 title: "Zakresy otwarć"
 sub: "Z czym wchodzić jako pierwszy, pozycja po pozycji"
-rules: [R-M3-002, R-M3-003, R-M3-004]
+rules: [R-M3-002, R-M3-006, R-M3-003, R-M3-009, R-M3-004]
 drills:
   - kind: generated
     id: m3.l3.g-early
     family: m3.rfi.early
-    rules: [R-M3-002]
+    rules: [R-M3-002, R-M3-006]
     generator: rangeDecision
     params: { spots: "rfi.utg,rfi.hj" }
     count: 5
   - kind: generated
     id: m3.l3.g-late
     family: m3.rfi.late
-    rules: [R-M3-003]
+    rules: [R-M3-006, R-M3-003]
     generator: rangeDecision
     params: { spots: "rfi.co,rfi.btn" }
     count: 5
@@ -44,7 +44,7 @@ Zakres otwarcia to lista rąk, z którymi przebijasz, gdy wszyscy przed tobą sp
 
 ## Jak czytać siatkę
 
-Każde pole to jeden rodzaj ręki. Nad przekątną są ręce w jednym kolorze (np. AKs), pod nią w różnych kolorach (np. AKo), a na przekątnej pary. Zielone pole to przebicie, puste to pas. Częściowo wypełnione pole oznacza rękę graniczną, którą solver czasem otwiera, a czasem pasuje.
+Każde pole to jeden rodzaj ręki. Nad przekątną są ręce w jednym kolorze (np. AKs), pod nią w różnych kolorach (np. AKo), a na przekątnej pary. Zielone pole to przebicie, puste to pas. Częściowo wypełnione pole oznacza, że solver gra rękę tylko czasem. Jeśli otwiera ją z częstością od {{n:range.mixed.low}} do {{n:range.mixed.high}}, to ręka mieszana: w ćwiczeniach zaliczamy wtedy obie odpowiedzi.
 
 ## Od pierwszej pozycji do Buttona
 
@@ -62,7 +62,7 @@ rfi.hj
 rfi.co
 ```
 
-Z każdą pozycją bliżej Buttona zakres rośnie: HJ otwiera {{n:solver.rfi.hj}}, a CO już {{n:solver.rfi.co}} rąk.
+Z każdą pozycją bliżej Buttona zakres rośnie: HJ (Hijack) otwiera {{n:solver.rfi.hj}}, a CO (Cutoff) już {{n:solver.rfi.co}} rąk.
 
 ```range
 rfi.btn
@@ -74,10 +74,10 @@ Na Buttonie solver otwiera już {{n:solver.rfi.btn}} rąk, bo zostały tylko bli
 rfi.sb
 ```
 
-Mały blind gra tylko przeciw dużemu blindowi, ale po flopie mówi pierwszy, dlatego otwiera mniej niż Button: {{n:solver.rfi.sb}} rąk.
+Mały blind gra już tylko przeciw dużemu blindowi, więc otwiera podobnie szeroko jak Button: ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, mimo że po flopie mówi pierwszy. Na mikrostawkach z małego blinda przebijasz albo pasujesz, bez dopłacania do dużego blinda: przy prowizji od puli dopłacanie traci. Model solvera aplikacji otwiera z tej pozycji wyraźnie węziej niż publiczne źródła ({{n:solver.rfi.sb}} rąk), więc tej siatki nie traktuj jako wzoru.
 
 :::note Jak zapamiętać
-Nie ucz się 169 pól na pamięć. Zapamiętaj granice: które pary, które asy w kolorze i od której karty zaczynają się ręce w różnych kolorach. Ćwiczenia poniżej losują częściej właśnie ręce z granicy zakresu.
+Nie ucz się {{n:combos.kinds}} pól na pamięć. Zapamiętaj granice: które pary, które asy w kolorze i od której karty zaczynają się ręce w różnych kolorach. Ćwiczenia poniżej losują częściej właśnie ręce z granicy zakresu.
 :::
 
-Te zakresy pochodzą z modelu, który upraszcza grę po flopie, dlatego mogą różnić się od profesjonalnych tabel o pojedyncze ręce na granicy. Dla takich rąk różnica w wyniku jest bardzo mała.
+Te zakresy pochodzą z modelu, który upraszcza grę po flopie, dlatego na granicy zakresu różnią się od profesjonalnych tabel. Model zaniża ręce w kolorze po kolei, a zawyża słabe ręce w różnych kolorach. Trzymaj się zasady z lekcji „Ręce startowe”: ręce w kolorze po kolei dobrze grają z późnej pozycji. Dopóki takie ręce nie zostaną zweryfikowane ze źródłami, ćwiczenia ich nie oceniają.
