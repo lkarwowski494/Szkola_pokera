@@ -27,6 +27,8 @@ export const NUMERIC_TOLERANCE: Record<NumberUnitName, { ok: number; close: numb
   percent: { ok: 2, close: 5 },
   count: { ok: 0, close: 0 },
   bb: { ok: 0.05, close: 0.05 },
+  /** bb/100 (M12): jak bb. */
+  bb100: { ok: 0.05, close: 0.05 },
   multiplier: { ok: 0.05, close: 0.05 },
   ratio: { ok: 0.005, close: 0.005 },
   ms: { ok: 0, close: 0 },
