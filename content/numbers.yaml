@@ -321,3 +321,77 @@ srp.potbet.total: { formula: sum, refs: [srp.potbet.flop, srp.potbet.turn, srp.p
 spr.zone.low: { value: 3, unit: ratio, source: "Pokerology, SPR Poker; VIP-Grinders, Stack to Pot Ratio: granica niskiego SPR [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]" }
 spr.zone.mid: { value: 6, unit: ratio, source: "jak spr.zone.low: granica średniego SPR [do weryfikacji]" }
 spr.zone.deep: { value: 13, unit: ratio, source: "jak spr.zone.low: granica wysokiego SPR [do weryfikacji]" }
+
+# M12: wariancja i bankroll. Odchylenie i winrate ze źródeł (adresy i cytaty w raporcie M12), reszta liczona.
+# content-build nie ma pierwiastka, funkcji wykładniczej ani rozkładu normalnego: te wartości są wpisane z polem
+# source „obliczenie: …” (wzór i dane wejściowe w źródle), dopóki właściciel nie zdecyduje o nowych formułach.
+var.sd: { value: 80, unit: bb, source: "Primedope, Examples and Impacts of Variance in Cash Games („A typical SD for 6-max NLH is 75-95 bb/100”, przykład z SD 80); 888poker, Standard Deviation in Poker („usually around 80bb/100”)" }
+var.sd.low: { value: 75, unit: bb, source: "Primedope, Poker Variance Calculator („In 6-max NLHE, 75 to 100 BB/100 is a reasonable default”)" }
+var.sd.high: { value: 100, unit: bb, source: "Primedope, Poker Variance Calculator („In 6-max NLHE, 75 to 100 BB/100 is a reasonable default”)" }
+var.wr.ex: { value: 5, unit: bb, source: "przykład Primedope („5 bb/100 Winner, 80 bb/100 SD”); dla porównania BlackRain79: 5bb/100 to wynik elity na NL50 przy 1–8 stołach" }
+var.wr.typical.low: { value: 1, unit: bb, source: "BlackRain79, Good Poker Win Rate For Small Stakes („the vast majority of winning poker players will be in the 1bb/100 to 3bb/100 range”)" }
+var.wr.typical.high: { value: 3, unit: bb, source: "jak var.wr.typical.low" }
+var.hands.k: { value: 100, unit: count, source: "przykład w lekcji: 100 tys. rąk (ta sama próbka co w przykładzie Primedope)" }
+var.blocks-per-k: { value: 10, unit: count, source: "definicja: 1000 rąk = 10 bloków po 100 rąk (winrate i odchylenie podaje się na 100 rąk)" }
+var.blocks: { formula: product, refs: [var.hands.k, var.blocks-per-k], unit: count, source: "obliczenie: liczba bloków po 100 rąk w próbce" }
+var.sqrt-blocks: { value: 31.62, unit: ratio, decimals: 1, source: "obliczenie: √1000 = 31,62 (pierwiastek z var.blocks; content-build nie ma pierwiastka)" }
+var.exp.bb: { formula: product, refs: [var.wr.ex, var.blocks], unit: bb, source: "obliczenie: oczekiwany wynik = winrate × liczba bloków" }
+var.exp.bi: { formula: quotient, refs: [var.exp.bb, format.stack], unit: count, source: "obliczenie: wynik w wpisowych po 100bb" }
+var.sd.result.bb: { formula: product, refs: [var.sd, var.sqrt-blocks], unit: bb, source: "obliczenie: odchylenie wyniku = SD × √(liczba bloków)" }
+var.sd.result.bi: { formula: quotient, refs: [var.sd.result.bb, format.stack], unit: count, decimals: 1, source: "obliczenie: odchylenie wyniku w wpisowych" }
+var.z95: { value: 1.96, unit: ratio, decimals: 2, source: "rozkład normalny: 95% wyników mieści się w ±1,96 odchylenia" }
+var.ci.half.bi: { formula: product, refs: [var.z95, var.sd.result.bi], unit: count, source: "obliczenie: połowa szerokości przedziału 95% dla wyniku" }
+var.ci.low.bi: { formula: diff, refs: [var.exp.bi, var.ci.half.bi], unit: count, source: "obliczenie: dolna granica przedziału 95% (ok. 0,4 wpisowego)" }
+var.ci.high.bi: { formula: sum, refs: [var.exp.bi, var.ci.half.bi], unit: count, source: "obliczenie: górna granica przedziału 95%" }
+var.se.wr: { formula: quotient, refs: [var.sd, var.sqrt-blocks], unit: bb, decimals: 1, source: "obliczenie: błąd standardowy winrate = SD ÷ √(liczba bloków)" }
+var.ci.wr: { formula: product, refs: [var.z95, var.se.wr], unit: bb, decimals: 1, source: "obliczenie: połowa przedziału 95% dla winrate po 100 tys. rąk" }
+var.z.lose: { formula: quotient, refs: [var.exp.bi, var.sd.result.bi], unit: ratio, decimals: 2, source: "obliczenie: ile odchyleń dzieli oczekiwany wynik od zera" }
+var.p.lose: { value: 0.024, unit: percent, decimals: 1, source: "obliczenie: Φ(−1,98) = 2,4% (dystrybuanta rozkładu normalnego dla var.z.lose; content-build nie ma tej funkcji)" }
+var.target: { value: 2, unit: bb, source: "przykład w lekcji: chcesz znać winrate z dokładnością ±2bb/100 (ten sam cel co w dokumencie 08)" }
+var.need.num: { formula: product, refs: [var.z95, var.sd], unit: bb, decimals: 1, source: "obliczenie: 1,96 × SD" }
+var.need.ratio: { formula: quotient, refs: [var.need.num, var.target], unit: ratio, decimals: 1, source: "obliczenie: 1,96 × SD ÷ dokładność" }
+var.need.blocks: { formula: product, refs: [var.need.ratio, var.need.ratio], unit: count, source: "obliczenie: bloki = (1,96 × SD ÷ dokładność)²" }
+var.need.hands.k: { formula: quotient, refs: [var.need.blocks, var.blocks-per-k], unit: count, source: "obliczenie: potrzebna próbka w tysiącach rąk" }
+dd.bi.small: { value: 10, unit: count, source: "program nauczania (dokument 09): zjazd o 10 wpisowych" }
+dd.bi.big: { value: 20, unit: count, source: "przykład w lekcji: zjazd o 20 wpisowych" }
+dd.hands.short.k: { value: 20, unit: count, source: "przykład w lekcji: krótsza próbka, 20 tys. rąk" }
+dd.p.small.100k: { value: 0.95, unit: percent, source: "obliczenie: symulacja Monte Carlo, 50 tys. przebiegów po 100 tys. rąk, winrate 5bb/100, SD 80bb/100, kroki po 100 rąk, zjazd liczony od szczytu; wynik 95,0% (przy krokach po 10 rąk 97%, więc to dolne oszacowanie)", note: "Primedope podaje dla tego scenariusza 45%, a w FAQ tej samej strony inną liczbę dla 20 wpisowych; nasz rachunek i symulacja się z tym nie zgadzają (raport M12)" }
+dd.p.big.100k: { value: 0.27, unit: percent, source: "obliczenie: ta sama symulacja co dd.p.small.100k, zjazd o 20 wpisowych: 27,3% (przy krokach po 10 rąk 31%)" }
+dd.p.small.20k: { value: 0.40, unit: percent, source: "obliczenie: ta sama symulacja, próbka 20 tys. rąk: 39,6%" }
+dd.p.small.100k.wr-low: { value: 0.99, unit: percent, source: "obliczenie: ta sama symulacja przy winrate 2bb/100: 99,1%" }
+dd.p.big.100k.wr-low: { value: 0.58, unit: percent, source: "obliczenie: ta sama symulacja przy winrate 2bb/100, zjazd o 20 wpisowych: 58,5%" }
+dd.wr-low: { value: 2, unit: bb, source: "przykład w lekcji: winrate typowego wygrywającego na mikrostawkach (w przedziale BlackRain79 1–3bb/100)" }
+br.bi.base: { value: 30, unit: count, source: "PokerSkill, Bankroll Management („about 30 buy-ins for a clear winner”); BlackRain79 („Experienced poker players can get by with a bankroll of 30 buyins”); Primedope, Risk of Ruin Formula („25-30 buy-ins at NL25-NL50”)" }
+br.bi.beginner: { value: 50, unit: count, source: "BlackRain79, The Complete Guide to Bankroll Management („The best poker bankroll management strategy for beginners is to have 50 buyins”)" }
+br.bi.move-down: { formula: product, refs: [br.bi.base, ex.frac.half], unit: count, source: "obliczenie: połowa bankrollu bazowego; zgodne z PokerSkill („half the roll, which is the point to move down a stake”) i SplitSuit („If your bankroll drops below 15 buyins for your current stake, move down”)" }
+br.bi.src-low: { value: 20, unit: count, source: "SplitSuit, How Much Poker Money Do You Need („always have at least 20 buy-ins for the stake you are playing”)" }
+br.bi.src-high: { value: 100, unit: count, source: "Upswing Poker, Poker Bankroll Management („No-Limit Online Cash Games: 100+ buy-ins”)" }
+ror.two: { value: 2, unit: count, source: "wzór ryzyka bankructwa: stała 2 w wykładniku e^(−2·wr·BR/SD²)" }
+var.sd.sq: { formula: product, refs: [var.sd, var.sd], unit: count, source: "obliczenie: SD² (wariancja na 100 rąk)" }
+ror.exp.num: { formula: product, refs: [ror.two, var.wr.typical.high, br.base.bb], unit: count, source: "obliczenie: licznik wykładnika 2 × winrate × bankroll w bb" }
+ror.exp.base: { formula: quotient, refs: [ror.exp.num, var.sd.sq], unit: ratio, decimals: 2, source: "obliczenie: wykładnik 2 × 3bb/100 × 3000bb ÷ 80² wzoru ryzyka bankructwa" }
+ror.base: { value: 0.0601, unit: percent, source: "obliczenie: e^(−2·wr·BR/SD²) = e^(−2,81) = 6,0% przy winrate 3bb/100, SD 80bb/100 i 30 wpisowych; wzór: Primedope, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”, wzór Malmutha)" }
+ror.half: { value: 0.2451, unit: percent, source: "obliczenie: e^(−2·3·1500/6400) = e^(−1,41) = 24,5% (15 wpisowych, winrate 3bb/100, SD 80bb/100)" }
+ror.base.wr-ex: { value: 0.0092, unit: percent, decimals: 1, source: "obliczenie: e^(−2·5·3000/6400) = e^(−4,69) = 0,9% (30 wpisowych, winrate 5bb/100)" }
+ror.base.wr-min: { value: 0.3916, unit: percent, source: "obliczenie: e^(−2·1·3000/6400) = e^(−0,94) = 39,2% (30 wpisowych, winrate 1bb/100)" }
+ror.beginner.wr-min: { value: 0.2096, unit: percent, source: "obliczenie: e^(−2·1·5000/6400) = e^(−1,56) = 21,0% (50 wpisowych, winrate 1bb/100)" }
+study.beginner: { value: 0.8, unit: percent, source: "PokerStrategy (Barry Carter o zdaniu Dary O'Kearneya), What should your study-to-play ratio be („Early on, it should be 80/20 in favour of study”)" }
+study.winner: { value: 0.5, unit: percent, source: "jak study.beginner („the ideal would still be a 50/50 ratio”)" }
+study.min: { value: 0.2, unit: percent, source: "jak study.beginner („at a minimum never go under 20% study, 80% play”)" }
+var.sd.wrong.bb: { formula: product, refs: [var.sd, var.blocks], unit: bb, source: "obliczenie błędne celowo (dystraktor): SD × liczba bloków zamiast SD × √(liczba bloków)" }
+var.sd.wrong.bi: { formula: quotient, refs: [var.sd.wrong.bb, format.stack], unit: count, source: "obliczenie: dystraktor w wpisowych" }
+var.ci68.low.bi: { formula: diff, refs: [var.exp.bi, var.sd.result.bi], unit: count, source: "obliczenie: oczekiwany wynik minus jedno odchylenie (ok. 68% wyników)" }
+var.ci68.high.bi: { formula: sum, refs: [var.exp.bi, var.sd.result.bi], unit: count, source: "obliczenie: oczekiwany wynik plus jedno odchylenie" }
+var.wr.ci.low: { formula: diff, refs: [var.wr.ex, var.ci.wr], unit: bb, source: "obliczenie: dolna granica przedziału 95% dla winrate po 100 tys. rąk (ok. 0)" }
+var.wr.ci.high: { formula: sum, refs: [var.wr.ex, var.ci.wr], unit: bb, source: "obliczenie: górna granica przedziału 95% dla winrate po 100 tys. rąk" }
+res.kk-wins: { formula: diff, refs: [math.one, pf.aa-vs-kk], unit: percent, source: "obliczenie: 1 − equity AA wobec KK" }
+skill.hands: { value: 1500, unit: count, source: "van Loon, van den Assem i van Dolder (2015), Beyond Chance? The Persistence of Performance in Online Poker, PLoS ONE („skill dominates chance when performance is measured over 1,500 or more hands of play”)" }
+skill.ahead: { value: 0.75, unit: percent, source: "jak skill.hands: definicja przewagi umiejętności („outperform their less skilled counterparts more than 75 percent of the time”), porównanie najlepszego i najgorszego 1% graczy" }
+tilt.severe: { value: 0.88, unit: percent, source: "Palomäki, Laakasuo, Cowley i Lappi (2020), Poker as a Domain of Expertise, Journal of Expertise 3(2), za Palomäki i in. (2014): „88% of poker players reported having tilted severely at least once within their last 6 months”" }
+tilt.types: { value: 7, unit: count, source: "Tendler i Carter, The Mental Game of Poker (2011), fragment „Tilt Profile” (The Hendon Mob): siedem typów tiltu" }
+skill.pct: { value: 0.01, unit: percent, source: "van Loon, van den Assem i van Dolder (2015): porównanie najlepszego i najgorszego percentyla (1%) graczy" }
+skill.sample.m: { value: 76.9, unit: count, decimals: 1, source: "van Loon, van den Assem i van Dolder (2015): „76.9 million different hands” (456,1 mln obserwacji gracz–rozdanie)" }
+br.base.bb: { formula: product, refs: [br.bi.base, format.stack], unit: bb, source: "obliczenie: bankroll bazowy w bb" }
+br.ex.after-dd: { formula: diff, refs: [br.bi.base, dd.bi.small], unit: count, source: "obliczenie: bankroll bazowy po zjeździe o 10 wpisowych" }
+br.ex.below: { formula: diff, refs: [br.bi.move-down, math.one], unit: count, source: "obliczenie: przykład bankrollu tuż poniżej progu zejścia" }
+var.conf95: { value: 0.95, unit: percent, source: "definicja: poziom ufności przedziału ±1,96 odchylenia w rozkładzie normalnym" }
