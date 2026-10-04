@@ -119,13 +119,13 @@ Na c-bet rywal pasuje ręce bez pary i bez dobierania. Kto sprawdził, ma zwykle
 
 ## Która karta pomaga
 
-- **Wysoka karta na niższym stole** (as, król) pomaga otwierającemu: trafia jego AK, AQ, KQ, a każda para rywala spada o jedno miejsce niżej. Na takich kartach betujesz drugi raz częściej, także blefem.
+- **Wysoka karta na niższym stole** (as, król) zwykle pomaga otwierającemu: trafia jego AK, AQ, KQ, a każda para rywala spada o jedno miejsce niżej. Na takich kartach betujesz drugi raz częściej, także blefem.
 - **Niska karta, która łączy się ze stołem**, np. siódemka na [[9h 6c 2d]], pomaga dużemu blindowi: daje strity i dwie pary rękom, których broni najwięcej.
 - **Pusta karta**, np. dwójka na [[Kd 8c 3s]], niewiele zmienia. Decyduje twoja ręka.
 
 ## Czym betować drugi raz
 
-Betujesz silnymi rękami (dla wartości) i dobieraniami (półblef). Półblef wygrywa na dwa sposoby: gdy rywal spasuje albo gdy trafisz na riverze. Ręce bez pary i bez outów częściej odpuszczasz, bo wygrywają tylko na pasie.
+Betujesz silnymi rękami (dla wartości) i dobieraniami (półblef). Półblef wygrywa na dwa sposoby: gdy rywal spasuje albo gdy trafisz na riverze. Ręce bez pary i bez outów częściej odpuszczasz, bo wygrywają tylko na pasie, chyba że blokują ręce, którymi rywal zapłaci.
 
 Blef bez szans wychodzi na zero, gdy rywal pasuje w bet ÷ (pula + bet) przypadków (alpha z M6). Przy becie 3/4 puli to {{n:alpha.bet-three-quarters}}, przy pół puli {{n:alpha.bet-half}}.
 
@@ -134,5 +134,5 @@ Blef bez szans wychodzi na zero, gdy rywal pasuje w bet ÷ (pula + bet) przypadk
 Druga para albo najwyższa para ze słabym kickerem wygrywa z blefami, ale przegrywa z lepszymi parami. Na drugi bet gorsze ręce spasują, a lepsze zapłacą. Czekasz, trzymasz pulę małą i dochodzisz do showdownu.
 
 :::note Skąd te zasady
-Kierunki (wysokie karty sprzyjają drugiej beczce, blefy z outami zamiast bez outów, średnie ręce czekają) to heurystyki z literatury (PokerCoaching, GTO Wizard, Upswing). Aplikacja nie podaje, jak często betować w procentach, bo takie liczby pochodzą z wyników solverów.
+Kierunki (wysokie karty zwykle sprzyjają drugiej beczce, blefy z outami zamiast bez outów, średnie ręce czekają) to heurystyki z literatury (GTO Wizard, PokerListings, PokerCoaching, SplitSuit). Dotyczy to stacków ok. {{n:format.stack}}. To uproszczenie: solver blefuje też częścią rąk bez outów, gdy blokują wartość rywala. Aplikacja nie podaje, jak często betować w procentach, bo takie liczby zależą od konkretnego rozdania w wynikach solverów.
 :::

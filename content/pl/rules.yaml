@@ -425,29 +425,29 @@
   level: heuristic
   source: "wniosek z alpha (R-M6-002): blef potrzebuje pasów rywala"
 
-# M7: turn. Matematyka z formuł (numbers.yaml); zalecenia z literatury jako heurystyki, bez częstotliwości i bez wyników
-# solvera. Źródła znane tylko ze streszczeń wyszukiwarki są oznaczone „do weryfikacji”.
+# M7: turn. Matematyka z formuł (numbers.yaml); zalecenia z literatury jako heurystyki, bez częstotliwości.
+# Źródła przeczytane i potwierdzone w dokumencie 12 „Weryfikacja źródeł — M7–M9” (decyzje D1–D9).
 - id: R-M7-001
   module: m7
   if: "c-betowałeś flop z pozycji, rywal sprawdził, a na turnie spada wysoka karta (as albo król) na niższym stole"
   then: "częściej stawiasz drugą beczkę, także jako blef"
-  because: "ta karta częściej trafia twój zakres otwarcia niż zakres obrońcy, a każda para rywala spada o jedno miejsce niżej"
+  because: "ta karta zwykle częściej trafia twój zakres otwarcia niż zakres obrońcy, a każda para rywala spada o jedno miejsce niżej"
   level: heuristic
-  source: "PokerCoaching, When to Double Barrel the Turn as a Bluff; PokerListings, When to Fire a Second Barrel on the Turn; VIP-Grinders, Double Barrel Poker [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "GTO Wizard, The Worst Turn Card; PokerListings, When to Fire a Second Barrel; PokerCoaching, When to Double Barrel the Turn as a Bluff"
 - id: R-M7-002
   module: m7
   if: "blefujesz drugą beczką na turnie"
-  then: "wybierasz ręce z outami (dobieranie do koloru, strita, gutshot z wysoką kartą), a ręce bez outów częściej odpuszczasz"
-  because: "półblef wygrywa na dwa sposoby: gdy rywal spasuje albo gdy trafisz na riverze; blef bez outów ma tylko pierwszą drogę"
+  then: "blefujesz przede wszystkim rękami z outami (dobieranie do koloru, strita, gutshot z wysoką kartą); ręce bez outów częściej odpuszczasz, chyba że blokują ręce, którymi rywal zapłaci"
+  because: "półblef wygrywa na dwa sposoby: gdy rywal spasuje albo gdy trafisz na riverze; blef bez outów ma tylko pierwszą drogę (stacki ok. {{n:format.stack}})"
   level: heuristic
-  source: "GTO Wizard, From Gutshots to Airballs: Choosing Your Bluffs; SplitSuit, The Double Barrel Checklist; PokerCoaching, When to Double Barrel the Turn as a Bluff [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "GTO Wizard, From Gutshots to Airballs: Choosing Your Bluffs; SplitSuit, The Double Barrel Checklist; PokerCoaching, When to Double Barrel the Turn as a Bluff (przy ok. 100bb)"
 - id: R-M7-003
   module: m7
   if: "na turnie masz średnią rękę (np. drugą parę albo najwyższą parę ze słabym kickerem), a rywal sprawdził już c-bet"
   then: "częściej czekasz, zamiast betować drugi raz"
   because: "po sprawdzeniu flopu rywal ma zakres silniejszy niż przed nim: na bet spasuje gorsze ręce, a zapłaci lepszymi; czekając, trzymasz pulę małą i dochodzisz do showdownu"
   level: heuristic
-  source: "GTO Gecko, Polarized vs Merged Ranges; PokerCoaching, Poker Bet Sizing Strategy: 8 Tips [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "GTO Wizard (Brokos), Principles of Turn Strategy; PokerStrategy, Poker Basics: Polarised Ranges; GTO Wizard, Poker: The Battle for Information"
 - id: R-M7-004
   module: m7
   if: "blefujesz na turnie ręką, która sama prawie nie wygra"
@@ -461,14 +461,14 @@
   then: "wybierasz duży rozmiar, np. 3/4 puli, a średnie ręce czekają"
   because: "silne ręce chcą zbudować pulę przed riverem, blefy potrzebują pasów, a średnie ręce nie zyskują na dużej puli"
   level: heuristic
-  source: "GTO Gecko, Polarized vs Merged Ranges; PokerCoaching, How Much Should You Bet on Connected Boards?; PokerStrategy, Poker Basics: Polarised Ranges [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "GTO Gecko, Polarized vs Merged Ranges (definicje); PokerStrategy, Polarised Ranges; GTO Wizard, The Worst Turn Card"
 - id: R-M7-006
   module: m7
   if: "masz silną rękę na turnie, a rywal może dobierać do koloru"
   then: "betujesz dużo: przy becie 3/4 puli dobieranie potrzebuje {{n:eq.bet-three-quarters}} equity, a ma ok. {{n:odds.flush.turn-river}}"
   because: "przy becie 1/4 puli wystarczyłoby mu {{n:eq.bet-quarter}}, więc mały bet daje dobieraniu dobrą cenę"
   level: math
-  source: "obliczenie: potrzebne equity = bet/(pula+2·bet), szansa = outy ÷ nieznane karty"
+  source: "obliczenie: potrzebne equity = bet/(pula+2·bet), szansa = outy ÷ nieznane karty; kierunek (silna, wrażliwa ręka betuje dużo): PokerCoaching, How Much Should You Bet on Connected Boards?"
 - id: R-M7-007
   module: m7
   if: "dobierasz na turnie"
@@ -489,41 +489,41 @@
   then: "wierzysz w nie tylko wtedy, gdy za rywalem zostało dość żetonów (wysoki SPR), dobierasz do najlepszej ręki, a trafienie nie rzuca się w oczy"
   because: "dodatkowe żetony musi ci jeszcze zapłacić rywal; przy niskim SPR nie ma ich skąd wziąć, a widoczne trafienie (np. czwarty kier) go płoszy"
   level: heuristic
-  source: "VIP-Grinders, Implied Odds in Poker: When to Chase & When to Fold; SplitSuit, Implied Odds Calculator [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "SplitSuit, Implied Odds Calculator; PokerCoaching, Implied Odds"
 - id: R-M7-010
   module: m7
-  if: "dobierasz do słabszego koloru (bez asa) albo do strita, gdy na stole może wpaść kolor"
+  if: "dobierasz do niskiego koloru albo do strita, gdy na stole może wpaść kolor"
   then: "sprawdzasz ostrożniej i liczysz mniej outów"
   because: "trafiając, czasem nadal przegrywasz z lepszą ręką i wtedy płacisz najwięcej (odwrotne implied odds)"
   level: heuristic
-  source: "FlopTurnRiver, Back to Basics (Part 2): Reverse Implied Odds; PokerStrategy, Reverse Implied Odds (słownik); BlackRain79, Flush Draw Strategy [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "FlopTurnRiver, Back to Basics (Part 2): Reverse Implied Odds; SplitSuit, Implied Odds Calculator"
 - id: R-M7-011
   module: m7
   if: "bronisz duży blind, a Button po otwarciu nie zrobił c-betu na flopie (czekał)"
   then: "na turnie częściej betujesz sam (probe bet), zwłaszcza na niskich stołach; na stołach z asem albo królem rzadziej"
   because: "Button z wieloma silnymi rękami by betował, więc po czekaniu ma ich mniej; na wysokich stołach przewaga zakresu zostaje jednak po jego stronie"
   level: heuristic
-  source: "GTO Wizard, The Turn Probe Bet; Upswing, When to Attack After Your Opponent Checks Back; PokerCoaching, Probe Betting Explained [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "GTO Wizard, The Turn Probe Bet; Upswing, Turn Probe (Kanu7); PokerCoaching, Probe Betting Explained"
 - id: R-M7-012
   module: m7
   if: "stawiasz probe bet na turnie"
   then: "betujesz parami, które chcą zapłaty i ochrony, oraz mocnymi dobieraniami; ręce bez pary i bez outów czekają"
   because: "pary zarabiają na gorszych rękach Buttona i nie dają mu darmowej karty, dobierania wygrywają na dwa sposoby, a puste ręce nic nie zyskują"
   level: heuristic
-  source: "GTO Wizard, The Turn Probe Bet; PokerCoaching, Probe Betting Explained [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "GTO Wizard, The Turn Probe Bet; Upswing, Turn Probe (Kanu7); PokerCoaching, Probe Betting Explained"
 - id: R-M7-013
   module: m7
   if: "sprawdziłeś c-bet na flopie, a rywal betuje drugi raz na turnie"
   then: "bronisz węziej niż na flopie: dobierania sprawdzają tylko przy dobrej cenie albo implied odds, a ręce bez outów i najsłabsze pary pasują"
-  because: "drugą beczkę rywal stawia węższym zakresem niż c-bet, a dobierania mają już tylko jedną kartę"
+  because: "drugą beczkę rywal stawia węższym zakresem niż c-bet i zwykle większym rozmiarem, a dobierania mają już tylko jedną kartę"
   level: heuristic
-  source: "Upswing, What the Best Poker Pros Already Know About Playing vs. Double Barrels; PokerCoaching, When to Double Barrel the Turn as a Bluff [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "Upswing, What the Best Poker Pros Already Know About Playing vs. Double Barrels"
 
-# M8: river. Matematyka z formuł (numbers.yaml); zalecenia z literatury jako heurystyki, bez wyników solvera i bez
-# częstotliwości z literatury. Reguł eksploatacyjnych brak (populacja mikrostawek tylko w R-M6-004).
+# M8: river. Matematyka z formuł (numbers.yaml); zalecenia z literatury jako heurystyki, bez częstotliwości.
+# Źródła przeczytane i potwierdzone w dokumencie 12 (decyzje D10–D17). Reguł eksploatacyjnych brak (populacja mikrostawek tylko w R-M6-004).
 - id: R-M8-001
   module: m8
-  if: "na riverze chcesz betować dla wartości, a rywal może już tylko sprawdzić albo spasować"
+  if: "na riverze z pozycją chcesz betować dla wartości, a rywal może już tylko sprawdzić albo spasować"
   then: "betujesz, gdy ponad {{n:value.threshold}} rąk, które sprawdzą, to ręce gorsze od twojej; liczysz tylko ręce, które zapłacą, a nie wszystkie ręce rywala"
   because: "każde sprawdzenie gorszą ręką wygrywa jeden bet, a każde sprawdzenie lepszą przegrywa jeden bet; gdy rywal pasuje gorszą ręką, wygrywasz tę samą pulę, którą wygrałbyś po czekaniu"
   level: math
@@ -534,21 +534,21 @@
   then: "czekasz i idziesz do showdownu za darmo"
   because: "po becie gorsze ręce pasują, a płacą (albo przebijają) lepsze, więc bet zamienia rękę z wartością przy showdownie w blef"
   level: heuristic
-  source: "wniosek z R-M8-001; Upswing, Polarized vs Linear Ranges; GTO Gecko, Polarized vs Merged Ranges [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "wniosek z R-M8-001; GTO Wizard, Mastering Thin Value Bets in Checked-Down Pots; PokerBank, River; GTO Gecko, Polarized vs Merged Ranges"
 - id: R-M8-003
   module: m8
   if: "twoja ręka na riverze wygrywa z niewiele ponad połową rąk, które mogą sprawdzić (thin value)"
-  then: "betujesz mało, ok. 1/3 puli albo mniej, a nie dużo"
+  then: "betujesz mniej niż silną ręką, zwykle ok. 1/4–1/2 puli"
   because: "mały bet sprawdzą też słabsze ręce rywala; duży bet sprawdzą głównie lepsze, a wtedy gorszych sprawdzeń przestaje być więcej niż lepszych"
   level: heuristic
-  source: "PokerSkill, Thin Value (słownik); RiverOdds, Thin Value Bet Strategy [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "GTO Wizard, River Refinements; GTO Wizard, Mastering Thin Value Bets in Checked-Down Pots; Deepfold, Bluff Catching Principles"
 - id: R-M8-004
   module: m8
   if: "na riverze betujesz całą pulę zakresem złożonym z bardzo silnych rąk i blefów"
   then: "w równowadze ok. {{n:bluff.share.bet-pot}} twoich betów to blefy; ogólnie udział blefów = bet ÷ (pula + 2·bet)"
   because: "wtedy ręka rywala, która wygrywa tylko z blefami, ma dokładnie potrzebne equity ({{n:eq.bet-pot}}): nie zarabia ani sprawdzeniem, ani pasem, więc nie da się cię wykorzystać"
-  level: gto
-  source: "obliczenie: warunek obojętności ręki łapiącej blefy (model z zakresem spolaryzowanym); program nauczania M8"
+  level: math
+  source: "obliczenie: warunek obojętności ręki łapiącej blefy (uproszczony model: zakres spolaryzowany przeciw bluff-catcherowi); GTO Wizard, How to Solve Toy Games"
 - id: R-M8-005
   module: m8
   if: "na riverze zmieniasz rozmiar betu z zakresem spolaryzowanym"
@@ -562,21 +562,21 @@
   then: "blefujesz najsłabszymi rękami, które nie wygrają przy showdownie (np. nietrafionymi dobieraniami); ręce z wartością przy showdownie czekają"
   because: "blef z ręką, która często wygrywa po czekaniu, oddaje tę wygraną; ręka bez szans nic nie traci, gdy blef nie wyjdzie"
   level: heuristic
-  source: "Upswing, Polarized vs Linear Ranges; RiverOdds, River Betting Strategy; GTO Wizard, We're At The River. Our Hand Can't Win. Now What? [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "GTO Wizard, We're At The River. Our Hand Can't Win. Now What?; Upswing, Polarized vs Linear Ranges"
 - id: R-M8-007
   module: m8
   if: "wybierasz blef spośród rąk bez wartości przy showdownie"
   then: "wybierasz rękę z kartą, która blokuje silne ręce rywala, czyli te, którymi zapłaci (np. asa w kolorze, gdy na stole są trzy karty w kolorze)"
   because: "gdy trzymasz kartę z jego najsilniejszych rąk, rywal ma ich mniej kombinacji, więc częściej zostaje mu ręka do spasowania"
   level: heuristic
-  source: "program nauczania M8; GTO Wizard, Blockers & Unblockers: The Secret to Picking Great Bluffs; Upswing, What is Unblocking in Poker [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "program nauczania M8; GTO Wizard, Blockers & Unblockers: The Secret to Picking Great Bluffs; Upswing, What is Unblocking in Poker"
 - id: R-M8-008
   module: m8
   if: "dobieranie do koloru nie weszło, a ty wybierasz blef"
-  then: "wolisz blef bez kart w tym kolorze niż blef z nimi"
+  then: "gdy masz wybór blefów, wolisz blef bez kart w tym kolorze"
   because: "nietrafione dobierania rywal spasuje; karta w ich kolorze w twojej ręce zmniejsza liczbę jego rąk do spasowania"
   level: heuristic
-  source: "Upswing, What is Unblocking in Poker; GTO Wizard, Blockers & Unblockers: The Secret to Picking Great Bluffs [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "Upswing, What is Unblocking in Poker; GTO Wizard, Blockers & Unblockers: The Secret to Picking Great Bluffs"
 - id: R-M8-009
   module: m8
   if: "trzymasz jedną kartę danej rangi"
@@ -597,16 +597,17 @@
   then: "wolisz ręce z kartami, które blokują silne ręce rywala, i bez kart, które blokują jego blefy (np. bez kart w kolorze nietrafionego dobierania)"
   because: "gdy blokujesz jego wartość, w zakresie betów zostaje więcej blefów; gdy blokujesz jego blefy, zostaje więcej wartości"
   level: heuristic
-  source: "GTO Wizard, Understanding Blockers in Poker; Deepfold, Bluff Catching: When to Call and When to Let It Go [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "GTO Wizard, Understanding Blockers; Deepfold; Upswing, Bluff Catching Strategy"
 - id: R-M8-012
   module: m8
   if: "dostajesz bet na riverze i bronisz zakresem"
-  then: "sprawdzasz najlepszymi bluff-catcherami (wygrywają z największą liczbą blefów, mają dobre blokery), a pasujesz rękami, które przegrywają nawet z blefami"
+  then: "sprawdzasz najlepszymi bluff-catcherami: wśród rąk podobnej siły wybierasz te z lepszymi blokerami; pasujesz rękami, które przegrywają nawet z blefami"
   because: "ręka, która przegrywa ze wszystkimi betami rywala, nie zarabia sprawdzeniem nawet wtedy, gdy rywal blefuje dużo"
   level: heuristic
-  source: "wniosek z MDF (R-M6-001) i R-M8-010; Deepfold, Bluff Catching: When to Call and When to Let It Go [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "wniosek z MDF (R-M6-001) i R-M8-010; GTO Wizard, Principles of River Play; Deepfold, Bluff Catching Principles"
 
-# M9: plan rozdania. Matematyka z liczb (numbers.yaml); progi i liczba ulic wartości jako heurystyki, bez wyników solvera.
+# M9: plan rozdania. Matematyka z liczb (numbers.yaml); progi stref SPR i liczba ulic wartości jako heurystyki
+# (uproszczenia nazwane w lekcjach). Źródła przeczytane i potwierdzone w dokumencie 12 (decyzje D18–D22).
 - id: R-M9-001
   module: m9
   if: "liczysz SPR na flopie"
@@ -623,14 +624,14 @@
   source: "obliczenie: potrzebne equity = dopłata/(pula + 2·dopłata)"
 - id: R-M9-003
   module: m9
-  if: "SPR na flopie wynosi ok. {{n:spr.commit}} albo mniej, a masz top parę albo lepszą rękę"
-  then: "grasz o cały stack: betujesz albo sprawdzasz z planem wpłacenia wszystkiego i nie pasujesz na all-in"
-  because: "na all-in potrzebujesz najwyżej ok. {{n:eq.jam.spr2}} equity, a dwa zakłady po ok. {{n:geo.spr2.2}} puli wpłacają cały stack; top para zwykle zniesie dwie ulice wartości"
+  if: "SPR na flopie jest niższy niż ok. {{n:spr.zone.low}} (np. {{n:spr.commit}}), a masz najwyższą parę albo lepszą rękę"
+  then: "grasz o cały stack: betujesz albo sprawdzasz z planem wpłacenia wszystkiego i zwykle nie pasujesz na all-in"
+  because: "przy SPR {{n:spr.commit}} na all-in potrzebujesz najwyżej ok. {{n:eq.jam.spr2}} equity, a dwa zakłady po ok. {{n:geo.spr2.2}} puli wpłacają cały stack; najwyższa para zwykle zniesie dwie ulice wartości"
   level: heuristic
-  source: "program nauczania M9 (próg „SPR ok. 2”); rachunek ceny i rozmiaru w lekcji m9.l2; Pokerology, SPR Poker; VIP-Grinders, Stack to Pot Ratio [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "GTO Wizard, Stack-to-Pot Ratio; SplitSuit, SPR Strategy; rachunek w lekcji m9.l2"
 - id: R-M9-004
   module: m9
-  if: "po twoim zakładzie zostałoby ci w stacku mniej niż pula"
+  if: "po twoim zakładzie zostałoby ci w stacku mniej, niż wyniesie pula po jego sprawdzeniu"
   then: "nie planujesz zakładu i pasu na all-in: albo grasz o cały stack, albo czekasz"
   because: "przy SPR {{n:spr.commit}} po zakładzie wielkości puli potrzebujesz na all-in tylko {{n:eq.commit.after-pot}} equity, więc pas prawie nigdy się nie opłaca"
   level: math
@@ -641,14 +642,14 @@
   then: "grasz na wartość, ale zwykle nie planujesz wpłacenia całego stacku"
   because: "żeby wpłacić cały stack do rivera, trzeba betować więcej niż pulę na każdej ulicy, a rywal, który wpłaca tyle pieniędzy, rzadko ma rękę gorszą niż jedna para"
   level: heuristic
-  source: "rachunek rozmiaru geometrycznego (lekcja m9.l3); Pokerology, SPR Poker; VIP-Grinders, Stack to Pot Ratio [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "rachunek rozmiaru geometrycznego (m9.l3); GTO Wizard, Stack-to-Pot Ratio; Upswing, When to Check Top Pair"
 - id: R-M9-006
   module: m9
   if: "chcesz wpłacić cały stack równymi zakładami do rivera"
   then: "betujesz na każdej ulicy ten sam ułamek puli f, taki że (1 + 2f) do potęgi liczby ulic = 1 + 2·SPR; w puli 3-betowanej z pozycją to ok. {{n:geo.3bet-ip.3}} puli"
   because: "zakład f i sprawdzenie mnożą pulę przez (1 + 2f), a all-in wypada wtedy, gdy pula urośnie do pula + 2·stack"
   level: math
-  source: "obliczenie: rozmiar geometryczny; wzór zgodny z GTO Wizard, Pot Geometry i Upswing, Geometric Bet Sizing [wzór sprawdzony rachunkiem; artykuły znane tylko ze streszczenia wyszukiwarki]"
+  source: "obliczenie: rozmiar geometryczny; Upswing, Geometric Bet Sizing; GTO Wizard, Pot Geometry"
 - id: R-M9-007
   module: m9
   if: "w puli z jednym podbiciem przy stackach {{n:format.stack}} betujesz na trzech ulicach"
@@ -659,13 +660,13 @@
 - id: R-M9-008
   module: m9
   if: "przed zakładem na flopie planujesz rozdanie"
-  then: "oceniasz, ile ulic wartości zniesie ręka: bardzo silna (set, strit, wysokie dwie pary) trzy, top para z dobrym kickerem albo overpara zwykle dwie, słabsza para jedną albo żadnej"
+  then: "oceniasz, ile ulic wartości zniesie ręka: bardzo silna (set, strit, wysokie dwie pary) trzy, najwyższa para z dobrym kickerem albo nadpara zwykle dwie, trzecią wtedy, gdy rywal płaci słabszymi rękami; słabsza para jedną albo żadnej"
   because: "z każdą ulicą gorsze ręce rywala pasują, a w puli zostają głównie ręce lepsze od twojej"
   level: heuristic
-  source: "PokerCoaching, How Many Streets of Value; Upswing, How to Play Top Pair Top Kicker in Cash Games; CardPlayer (PokerCoaching), Going For Value With Top Pair [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "synteza: Upswing, Checking Flop With Top Pair (When to Check Top Pair); PokerCoaching, Streets of Value (MTT 30bb); GTO Wizard, Stack-to-Pot Ratio"
 - id: R-M9-009
   module: m9
-  if: "masz rękę na trzy ulice wartości i chcesz wpłacić cały stack"
+  if: "masz rękę na trzy ulice wartości, strefa SPR pozwala grać nią o cały stack (R-M9-010) i chcesz wpłacić cały stack"
   then: "już na flopie betujesz rozmiarem geometrycznym, a nie małym"
   because: "w puli 3-betowanej trzy zakłady po 1/3 puli wpłacają tylko ok. {{n:g3b.third.total}} ze stacku {{n:spr.3bet-ip.stack}}, więc większość stacku zostaje niewpłacona; przy ok. {{n:geo.3bet-ip.3}} puli na każdej ulicy wchodzi cały"
   level: math
@@ -673,7 +674,7 @@
 - id: R-M9-010
   module: m9
   if: "planujesz, czy z daną ręką grać o cały stack"
-  then: "patrzysz na strefę SPR: poniżej ok. {{n:spr.zone.low}} zwykle wystarcza top para, od {{n:spr.zone.low}} do {{n:spr.zone.mid}} top para jest ręką na granicy, od {{n:spr.zone.mid}} do {{n:spr.zone.deep}} potrzebujesz zwykle dwóch par albo lepiej, a powyżej {{n:spr.zone.deep}} setu, strita albo lepszej ręki"
-  because: "im wyższy SPR, tym więcej zakładów trzeba, żeby wpłacić cały stack, a do końca rywal płaci głównie silnymi rękami"
+  then: "patrzysz na strefę SPR (uproszczenie): poniżej ok. {{n:spr.zone.low}} zwykle wystarcza najwyższa para, od {{n:spr.zone.low}} do {{n:spr.zone.mid}} najwyższa para jest ręką na granicy, od {{n:spr.zone.mid}} do {{n:spr.zone.deep}} potrzebujesz zwykle wysokich dwóch par albo lepiej, a powyżej {{n:spr.zone.deep}} setu, strita albo lepszej ręki"
+  because: "im wyższy SPR, tym więcej zakładów trzeba, żeby wpłacić cały stack, a do końca rywal płaci głównie silnymi rękami; przy SPR {{n:spr.zone.deep}} cały stack wchodzi dopiero po trzech zakładach wielkości puli"
   level: heuristic
-  source: "Pokerology, SPR Poker; VIP-Grinders, Stack to Pot Ratio (strefy SPR) [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+  source: "SplitSuit, SPR Strategy; GTO Wizard, Stack-to-Pot Ratio (progi 3 i 6); strefa 6–13: część wspólna Bluffaces, PokerBank i Grindlab; próg 13: obliczenie (1+2·1)^3 = 1+2·13 oraz Flynn, Mehta, Miller, Professional No-Limit Hold'em (przez PokerNews i recenzję cardsharp.org)"

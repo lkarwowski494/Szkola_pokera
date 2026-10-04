@@ -22,12 +22,6 @@ drills:
     generator: outs
     params: { kind: oesd, street: turn }
     count: 2
-  - kind: generated
-    id: m7.l3.g-draw-call
-    family: m7.draw.call
-    rules: [R-M7-007]
-    generator: drawCall
-    count: 3
   - kind: numeric
     id: m7.l3.n-combo-outs
     family: m7.draw.outs
@@ -50,7 +44,7 @@ drills:
     family: m7.implied.math
     rules: [R-M7-008]
     prompt: "Turn. W puli jest {{n:ex.third.pot}}, rywal stawia {{n:io.flush.bet}}. Dobierasz do koloru: {{n:outs.flush}} outów z {{n:cards.unseen.turn}} kart. Ile żetonów musisz dodatkowo wygrać na riverze, gdy trafisz, żeby sprawdzenie wyszło na zero? Wpisz liczbę."
-    table: { hand: "Ah 5h", board: "Kh 8h 3c 2s" }
+    table: { hand: "Kh Jh", board: "Ah 8h 3c 2s" }
     answer: io.flush.extra
     explanation: "Potrzebujesz {{n:io.flush.eq}} equity, a masz ok. {{n:odds.flush.turn-river}}. Na {{n:cards.unseen.turn}} możliwych riverów trafiasz {{n:outs.flush}} razy, a chybiasz {{n:miss.flush.turn}} razy i za każdym razem tracisz {{n:io.flush.bet}}. Każde trafienie musi więc przynieść {{n:io.flush.bet}} × {{n:miss.flush.turn}} ÷ {{n:outs.flush}} = {{n:io.flush.need}}. W puli jest {{n:io.flush.pot-after-bet}}, brakuje {{n:io.flush.extra}}."
   - kind: choice
@@ -66,12 +60,12 @@ drills:
     id: m7.l3.q-nut-implied
     family: m7.implied.when
     rules: [R-M7-008, R-M7-009]
-    prompt: "Turn. W puli jest {{n:ex.third.pot}}, rywal stawia {{n:io.flush.bet}}. Za każdym z was zostało jeszcze {{n:spr.stack.high}}, a rywal chętnie płaci z parą króli. Co robisz?"
-    table: { hand: "Ah 5h", position: BB, board: "Kh 8h 3c 2s" }
+    prompt: "Turn. W puli jest {{n:ex.third.pot}}, rywal stawia {{n:io.flush.bet}}. Za każdym z was zostało jeszcze {{n:spr.stack.high}}, a rywal chętnie płaci z parą asów. Co robisz?"
+    table: { hand: "Kh Jh", position: BB, board: "Ah 8h 3c 2s" }
     options:
-      - { text: "Sprawdzam", correct: true, why: "Sama cena nie wystarcza ({{n:io.flush.eq}} wobec ok. {{n:odds.flush.turn-river}}), ale po trafieniu wystarczy wygrać jeszcze {{n:io.flush.extra}}. Dobierasz do najlepszego koloru, za rywalem jest dużo żetonów, a gracz z parą króli często zapłaci taki bet na riverze." }
+      - { text: "Sprawdzam", correct: true, why: "Sama cena nie wystarcza ({{n:io.flush.eq}} wobec ok. {{n:odds.flush.turn-river}}), ale po trafieniu wystarczy wygrać jeszcze {{n:io.flush.extra}}. Dobierasz do najlepszego koloru (as kier leży na stole, więc kolor z królem jest najwyższy), za rywalem jest dużo żetonów, a gracz z parą asów często zapłaci taki bet na riverze." }
       - { text: "Pasuję, bo {{n:odds.flush.turn-river}} to mniej niż {{n:io.flush.eq}}", why: "Pot odds mówią „pas”, ale pomijasz implied odds. Brakuje tylko {{n:io.flush.extra}}, a rywal ma za sobą {{n:spr.stack.high}} i rękę, która zapłaci." }
-      - { text: "Przebijam all-in", why: "Rywal z parą króli raczej sprawdzi, a ty masz wtedy tylko ok. {{n:odds.flush.turn-river}}. Lepiej tanio zobaczyć rivera i wygrać więcej, gdy trafisz." }
+      - { text: "Przebijam all-in", why: "Rywal z parą asów raczej sprawdzi, a ty masz wtedy tylko ok. {{n:odds.flush.turn-river}}. Lepiej tanio zobaczyć rivera i wygrać więcej, gdy trafisz." }
   - kind: choice
     id: m7.l3.q-gutshot-short
     family: m7.implied.when
@@ -99,7 +93,7 @@ drills:
     options:
       - { text: "Gdy dobierasz do najlepszej ręki, rywal ma silną rękę i dużo żetonów za sobą", correct: true, why: "Tak: wtedy po trafieniu wygrywasz, a rywal ma czym i z czym ci zapłacić." }
       - { text: "Gdy rywal ma mało żetonów (niski SPR)", why: "Odwrotnie: przy niskim SPR rywal nie ma już czego dopłacić, więc implied odds są małe." }
-      - { text: "Gdy dobierasz do słabszego koloru", why: "To odwrotne implied odds: czasem trafisz i nadal przegrasz, i to w dużej puli." }
+      - { text: "Gdy dobierasz do niskiego koloru", why: "To odwrotne implied odds: czasem trafisz i nadal przegrasz, i to w dużej puli." }
   - kind: choice
     id: m7.l3.q-spr
     family: m7.spr
@@ -137,17 +131,17 @@ Tu: {{n:io.flush.bet}} × {{n:miss.flush.turn}} ÷ {{n:outs.flush}} = **{{n:io.f
 
 ## SPR: ile żetonów jest za rywalem
 
-SPR (stack do puli) to efektywny stack, czyli mniejszy z dwóch, podzielony przez pulę na początku ulicy. Przy puli {{n:ex.pot}} i stacku {{n:spr.stack.high}} SPR wynosi {{n:spr.high}}, a przy stacku {{n:spr.stack.low}} tylko {{n:spr.low}}. Implied odds nie mogą być większe niż żetony, które rywal ma jeszcze przed sobą. Przy niskim SPR liczą się prawie wyłącznie pot odds. Więcej o SPR w module „Plan rozdania”.
+SPR (stack do puli) to efektywny stack, czyli mniejszy z dwóch, podzielony przez pulę na początku ulicy. SPR można liczyć na każdej ulicy; tu liczysz go na turnie. Przy puli {{n:ex.pot}} i stacku {{n:spr.stack.high}} SPR wynosi {{n:spr.high}}, czyli za rywalem jest jeszcze kilka pul, a przy stacku {{n:spr.stack.low}} tylko {{n:spr.low}}. Implied odds nie mogą być większe niż żetony, które rywal ma jeszcze przed sobą. Przy niskim SPR liczą się prawie wyłącznie pot odds. Więcej o SPR w module „Plan rozdania” (M9), który planuje rozdanie według SPR z flopu.
 
 ## Kiedy implied odds są prawdziwe
 
-- dobierasz do **najlepszej ręki** (np. kolor z asem),
+- dobierasz do **najlepszej ręki** (najwyższy możliwy kolor, zwykle z asem),
 - rywal ma **silną rękę**, z którą zapłaci,
 - za rywalem jest **dużo żetonów** (wysoki SPR),
 - trafienie **nie rzuca się w oczy** (np. gutshot jest mniej widoczny niż trzeci kier na stole).
 
-Odwrotne implied odds działają przeciw tobie: gdy dobierasz do słabszego koloru albo do strita, a na stole może wpaść kolor, czasem trafisz i nadal przegrasz, i to w dużej puli.
+Odwrotne implied odds działają przeciw tobie: gdy dobierasz do niskiego koloru albo do strita, a na stole może wpaść kolor, czasem trafisz i nadal przegrasz, i to w dużej puli.
 
 :::note Skąd te zasady
-Rachunek implied odds to dokładne obliczenie z wartości oczekiwanej. Warunki, kiedy implied odds są prawdziwe, oraz odwrotne implied odds to heurystyki z literatury (VIP-Grinders, SplitSuit, FlopTurnRiver, PokerStrategy).
+Rachunek implied odds to dokładne obliczenie z wartości oczekiwanej. Warunki, kiedy implied odds są prawdziwe, oraz odwrotne implied odds to heurystyki z literatury (SplitSuit, PokerCoaching, FlopTurnRiver).
 :::

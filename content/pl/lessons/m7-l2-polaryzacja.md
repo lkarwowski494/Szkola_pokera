@@ -13,7 +13,7 @@ drills:
     prompt: "Który zakres betu na turnie jest spolaryzowany?"
     options:
       - { text: "Sety, dwie pary i dobierania, bez średnich par", correct: true, why: "Tak: zakres spolaryzowany ma dwa bieguny, bardzo silne ręce i półblefy. Środka, czyli średnich rąk, w nim nie ma: te ręce czekają." }
-      - { text: "Najwyższe pary, średnie pary i słabsze pary", why: "To zakres liniowy: betujesz od najsilniejszych rąk w dół, bez blefów. Tak często betujesz mało na suchym flopie, a nie dużo na turnie." }
+      - { text: "Najwyższe pary, średnie pary i słabsze pary", why: "Tu nie ma żadnego bieguna: brakuje bardzo silnych rąk i półblefów, są same pary od góry w dół. Bliżej temu do zakresu liniowego, który betuje głównie rękami z wartością, zwykle małym rozmiarem, a nie dużym na turnie." }
       - { text: "Same blefy", why: "Zakres bez silnych rąk rywal łatwo rozpozna i będzie sprawdzał. Spolaryzowany zakres łączy blefy z bardzo silnymi rękami." }
   - kind: choice
     id: m7.l2.q-def-linear
@@ -41,9 +41,9 @@ drills:
     prompt: "Otworzyłeś z Buttona, duży blind sprawdził c-bet na flopie. Turn to dwójka. W puli jest {{n:ex.pot}}, rywal czeka. Masz seta. Co robisz?"
     table: { hand: "7c 7d", position: BTN, board: "Jh 7h 4s 2c" }
     options:
-      - { text: "Betuję {{n:ex.bet.three-quarters}}", correct: true, why: "Tak: rywal może dobierać do koloru (dwa kiery) i do strita (np. 65, T9). Przy becie 3/4 puli dobieranie do koloru potrzebuje {{n:eq.bet-three-quarters}} equity, a ma ok. {{n:odds.flush.turn-river}}: płaci za drogo." }
-      - { text: "Betuję {{n:ex.bet.quarter}}", sizeError: true, why: "Dobra akcja, zły rozmiar: przy becie 1/4 puli dobieranie potrzebuje tylko {{n:eq.bet-quarter}} equity, więc dostaje dobrą cenę. Z bardzo silną ręką na mokrym stole betujesz dużo." }
-      - { text: "Czekam", why: "Darmowa karta to prezent dla dobierań, a ty nie budujesz puli przed riverem. Set na mokrym stole betuje." }
+      - { text: "Betuję {{n:ex.bet.three-quarters}}", correct: true, why: "Tak: rywal może dobierać do koloru (dwa kiery) i do strita (np. 65, T9). Przy becie 3/4 puli dobieranie do koloru potrzebuje {{n:eq.bet-three-quarters}} equity, a kolor trafia w ok. {{n:odds.flush.turn-river}} przypadków. Przeciw twojemu setowi ma jeszcze mniej: [[4h]] i [[2h]] dają ci fulla, więc zostaje mu {{n:outs.flush.vs-set}} czystych outów, ok. {{n:odds.flush.vs-set}}. Płaci za drogo." }
+      - { text: "Betuję {{n:ex.bet.quarter}}", sizeError: true, why: "Dobra akcja, zły rozmiar: przy becie 1/4 puli dobieranie potrzebuje tylko {{n:eq.bet-quarter}} equity, więc dostaje dobrą cenę. Z bardzo silną ręką na stole z dobieraniem do koloru betujesz dużo." }
+      - { text: "Czekam", why: "Darmowa karta to prezent dla dobierań, a ty nie budujesz puli przed riverem. Set na stole z dobieraniem do koloru betuje." }
   - kind: choice
     id: m7.l2.q-semibluff-size
     family: m7.polar.size
@@ -89,6 +89,12 @@ drills:
       - { text: "Już od 1/3 puli: potrzebuje {{n:eq.bet-third}}", correct: true, why: "Tak: {{n:eq.bet-third}} to więcej niż {{n:odds.oesd.turn-river}}. Na turnie dobierania mają tylko jedną kartę, więc nawet średni bet daje im złą cenę." }
       - { text: "Dopiero od całej puli: potrzebuje {{n:eq.bet-pot}}", why: "Przy całej puli płaci dużo za drogo, ale już przy 1/3 puli potrzebuje {{n:eq.bet-third}}, więcej niż swoje {{n:odds.oesd.turn-river}}." }
       - { text: "Nigdy, dobieranie zawsze może sprawdzić", why: "Dobieranie sprawdza tylko przy dobrej cenie albo z implied odds (następna lekcja). Na turnie ma ok. {{n:odds.oesd.turn-river}}, więc większość betów to dla niego zła cena." }
+  - kind: generated
+    id: m7.l2.g-draw-call
+    family: m7.polar.price
+    rules: [R-M7-007]
+    generator: drawCall
+    count: 3
   - kind: numeric
     id: m7.l2.n-price-pot
     family: m7.polar.price
@@ -102,13 +108,15 @@ Na flopie często betowałeś mało prawie całym zakresem. Na turnie zakres bet
 ## Dwa rodzaje zakresu
 
 - **Liniowy (zmieszany):** betujesz od najsilniejszych rąk w dół, razem ze średnimi. Zwykle małym rozmiarem, np. c-bet {{n:cbet.size.small}} puli na [[Ks 7d 2c]].
-- **Spolaryzowany:** betują dwa bieguny, bardzo silne ręce (sety, dwie pary, mocne najwyższe pary) i półblefy (dobierania). Średnich rąk w nim nie ma.
+- **Spolaryzowany:** betują dwa bieguny, bardzo silne ręce (sety, dwie pary, strity, kolory) i półblefy (dobierania). Średnich rąk w nim nie ma.
+
+Ogólnie zakres spolaryzowany to bardzo silne ręce i blefy. Na turnie blefami są zwykle półblefy, a na riverze (M8) ręce bez szans przy showdownie.
 
 ## Dlaczego na turnie polaryzujesz
 
 Rywal sprawdził flop, więc ma parę albo dobieranie. Średnia ręka na drugi bet nic nie zyskuje: gorsze ręce pasują, a lepsze płacą. Silne ręce chcą zbudować pulę przed riverem, a półblefy potrzebują pasów i mają outy, gdy dostaną sprawdzenie.
 
-## Duży zakres, duży bet
+## Zakres spolaryzowany, duży bet
 
 Zakres spolaryzowany betuje dużo, np. 3/4 puli. Silne ręce wyciągają więcej żetonów, a półblefy częściej wygrywają od razu. Średnie ręce czekają. Gdy blefy i silne ręce betują tym samym rozmiarem, rywal nie wie, co masz.
 
@@ -124,8 +132,8 @@ Na turnie dobieranie ma tylko jedną kartę. Duży bet każe mu płacić za drog
 | 3/4 puli | {{n:eq.bet-three-quarters}} | {{n:odds.flush.turn-river}} | {{n:odds.oesd.turn-river}} |
 | Cała pula | {{n:eq.bet-pot}} | {{n:odds.flush.turn-river}} | {{n:odds.oesd.turn-river}} |
 
-Przy becie 1/4 puli dobieranie do koloru ma dobrą cenę. Od 1/3 puli wzwyż płaci za drogo, chyba że liczy na implied odds (następna lekcja).
+Przy becie 1/4 puli dobieranie do koloru ma dobrą cenę. Przy 1/3 puli cena jest prawie równa szansie koloru ({{n:eq.bet-third}} wobec {{n:odds.flush.turn-river}}), a od 1/2 puli wzwyż kolor płaci wyraźnie za drogo, chyba że liczy na implied odds (następna lekcja). Zadania z dobieraniem w tej lekcji liczą tylko pot odds.
 
 :::note Skąd te zasady
-Pojęcia zakresu spolaryzowanego i liniowego oraz zasada „spolaryzowany zakres betuje dużo, średnie ręce czekają” pochodzą z literatury (GTO Gecko, PokerCoaching, PokerStrategy) i są tu heurystyką. Rozmiar 3/4 puli to przykład do ćwiczeń, a nie jedyny dobry rozmiar. Ceny w tabeli to dokładne obliczenia aplikacji.
+Pojęcia zakresu spolaryzowanego i liniowego oraz zasada „spolaryzowany zakres betuje dużo, średnie ręce czekają” pochodzą z literatury (GTO Gecko, PokerStrategy, GTO Wizard) i są tu heurystyką; zalecenie dużego betu silną, wrażliwą ręką także z PokerCoaching. Solver na turnie używa też małych rozmiarów. Rozmiar 3/4 puli to przykład do ćwiczeń, a nie jedyny dobry rozmiar. Ceny w tabeli to dokładne obliczenia aplikacji.
 :::

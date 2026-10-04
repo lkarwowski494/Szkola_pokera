@@ -103,17 +103,17 @@ drills:
     prompt: "Dlaczego przeciw drugiej beczce bronisz węziej niż przeciw c-betowi na flopie?"
     table: { position: BB }
     options:
-      - { text: "Bo drugą beczkę rywal stawia węższym i silniejszym zakresem, a dobierania mają już tylko jedną kartę", correct: true, why: "Tak: część blefów rywal odpuszcza na turnie, a twoje dobierania tracą połowę szans. Słabe pary i ręce bez outów pasujesz częściej niż na flopie." }
+      - { text: "Bo drugą beczkę rywal stawia węższym zakresem i zwykle większym rozmiarem, a dobierania mają już tylko jedną kartę", correct: true, why: "Tak: część blefów rywal odpuszcza na turnie, większy bet obniża MDF (przy 3/4 puli {{n:mdf.bet-three-quarters}}), a twoje dobierania tracą połowę szans. Słabe pary i ręce bez outów pasujesz częściej niż na flopie." }
       - { text: "Bo na turnie trzeba oszczędzać żetony", why: "Liczy się wartość oczekiwana każdej decyzji, nie oszczędzanie. Bronisz węziej, bo rywal betuje silniejszymi rękami." }
       - { text: "Nie, bronisz szerzej, bo wpłaciłeś już dużo żetonów", why: "To, co już wpłaciłeś, nie wraca. Decyzję podejmujesz na podstawie ceny teraz i siły zakresu rywala." }
   - kind: numeric
     id: m7.l4.n-mdf-turn
-    family: m7.defend.concept
-    rules: [R-M7-013]
+    family: m7.defend.math
+    rules: [R-M6-001]
     prompt: "Turn. Rywal stawia {{n:ex.bet.three-quarters}} do puli {{n:ex.pot}}. Ile wynosi MDF? Wpisz liczbę w procentach."
     table: { position: BB }
     answer: mdf.bet-three-quarters
-    explanation: "MDF = pula ÷ (pula + bet) = {{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:mdf.bet-three-quarters}}. Na turnie, tak jak na flopie, bronisz mniej: blefy rywala mają jeszcze outy, a ty bez pozycji nie zrealizujesz całego equity."
+    explanation: "MDF = pula ÷ (pula + bet) = {{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:mdf.bet-three-quarters}}. Na turnie solver broni średnio blisko MDF, inaczej niż na flopie bez pozycji, gdzie broni mniej. Gdy wiesz, że rywal blefuje rzadziej, pasujesz częściej (rachunek w M8, lekcja o łapaniu blefów)."
 ---
 Na turnie spotkasz dwie nowe sytuacje: Button nie zrobił c-betu i czekał, albo zrobił c-bet i betuje drugi raz. W pierwszej możesz zaatakować sam, w drugiej bronisz się węziej niż na flopie.
 
@@ -139,8 +139,8 @@ Gdy sprawdziłeś c-bet, a Button betuje drugi raz, jego zakres jest węższy i 
 - ręce bez outów i najsłabsze pary częściej pasują,
 - najwyższa para zwykle nadal sprawdza.
 
-MDF pozostaje punktem odniesienia, nie obowiązkiem: przy becie 3/4 puli wynosi {{n:mdf.bet-three-quarters}}, ale na turnie, tak jak na flopie, bronisz mniej.
+MDF pozostaje punktem odniesienia: przy becie 3/4 puli wynosi {{n:mdf.bet-three-quarters}}. Na turnie solver broni średnio blisko tej wartości; mniej bronisz tylko wtedy, gdy rywal blefuje rzadziej, niż zakłada MDF.
 
 :::note Skąd te zasady
-Zasady probe betu i obrony przed drugą beczką to heurystyki z literatury (GTO Wizard, Upswing, PokerCoaching). Aplikacja nie podaje częstotliwości w procentach. Liczby o tym, czym gracze mikrostawek stawiają probe bety, wymagają sprawdzonego źródła z opisaną populacją, więc na razie ich tu nie ma.
+Zasady probe betu i obrony przed drugą beczką to heurystyki z literatury (GTO Wizard, Upswing, PokerCoaching). Obronę na turnie blisko MDF pokazują rozwiązania PIOSolvera omawiane na Upswing. Aplikacja nie podaje częstotliwości w procentach, bo źródła różnią się zależnie od stołu. Liczby o tym, czym gracze mikrostawek stawiają probe bety, wymagają źródła z opisaną populacją (próba, stawki, sale), więc ich tu nie ma.
 :::
