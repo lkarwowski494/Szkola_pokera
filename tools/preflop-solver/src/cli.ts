@@ -56,9 +56,24 @@ const postflopMaxRaises = Number(arg('postflop-max-raises', '2'));
 const checkpoint = args.includes('--checkpoint') ? resolve(arg('checkpoint', '')) : null;
 const checkpointEvery = Number(arg('checkpoint-every', '10'));
 
+// wariant pomiarowy B-045 (nie kanon): --lock-fold 0.6 wymusza częstość pasa otwierającego wobec 3-betu z blindów
+// (BTN vs 3-bet SB, BTN vs 3-bet BB, SB vs 3-bet BB)
+const lockFold = args.includes('--lock-fold') ? Number(arg('lock-fold', '0')) : null;
+const LOCK_PATHS = [
+  'UTG:fold,HJ:fold,CO:fold,BTN:raise2.5,SB:raise10,BB:fold',
+  'UTG:fold,HJ:fold,CO:fold,BTN:raise2.5,SB:fold,BB:raise10',
+  'UTG:fold,HJ:fold,CO:fold,BTN:fold,SB:raise3,BB:raise9',
+];
+
 function solve(eqr: EqrParams, iterations: number, log = true): PreflopSolver {
   const s = new PreflopSolver(buildTree(treeConfig), equity, eqr, DEFAULT_DCFR, threeWay, flops, postflopMinRaises, postflopMaxRaises);
-  const fingerprint = JSON.stringify({ eqr, flops: flopsArg, postflopMinRaises, postflopMaxRaises, tree: treeConfig });
+  if (lockFold !== null)
+    for (const path of LOCK_PATHS) {
+      const n = s.nodes.find((x) => x.kind === 'decision' && x.path === path) as DecisionNode | undefined;
+      if (!n || n.actions[0]!.kind !== 'fold') throw new Error(`Blokada pasa: brak węzła ${path}`);
+      s.foldLocks.set(n.id, lockFold);
+    }
+  const fingerprint = JSON.stringify({ eqr, flops: flopsArg, postflopMinRaises, postflopMaxRaises, tree: treeConfig, lockFold });
   if (checkpoint && s.loadState(checkpoint, fingerprint)) console.error(`Wznowiono z punktu kontrolnego: iteracja ${s.iteration}`);
   const t0 = Date.now();
   const start = s.iteration + 1;
@@ -141,6 +156,7 @@ if (args.includes('--calibrate')) {
           dcfr: DEFAULT_DCFR,
           tree: treeConfig,
           eqr,
+          ...(lockFold !== null ? { lock: { fold: lockFold, paths: LOCK_PATHS, note: 'wariant pomiarowy B-045, nie kanon' } } : {}),
           iterations,
           players: N_PLAYERS,
           handClasses: N,

@@ -71,6 +71,12 @@ export class PreflopSolver {
   /** Gra po flopie (wersja 3): terminal preflop → indeks puli w modelu. */
   readonly postflop: PostflopModel | StreetModel | null;
   private postflopIndex = new Map<number, number>();
+  /**
+   * Wariant pomiarowy (B-045, nie kanon): węzeł → wymuszona częstość pasa. Gracz pasuje dokładnie taką częścią
+   * swojego zasięgu w węźle, zaczynając od klas z najmniejszą przewagą kontynuacji nad pasem (skumulowany żal);
+   * podział reszty między sprawdzenie i podbicie zostaje swobodny.
+   */
+  readonly foldLocks = new Map<number, number>();
 
   constructor(
     tree: { root: Node; nodes: Node[] },
@@ -141,6 +147,31 @@ export class PreflopSolver {
       let pos = 0;
       for (let a = 0; a < nA; a++) pos += Math.max(regrets[h * nA + a]!, 0);
       for (let a = 0; a < nA; a++) out[h * nA + a] = pos > 0 ? Math.max(regrets[h * nA + a]!, 0) / pos : 1 / nA;
+    }
+    return out;
+  }
+
+  /** Strategia z blokadą częstości pasa (foldLocks) dla zasięgu `reach` gracza w węźle; akcja 0 to pas. */
+  private lockedStrategy(t: Tables, target: number, reach: Float64Array, out: Float64Array): Float64Array {
+    const { regrets, nA } = t;
+    this.currentStrategy(t, out);
+    const adv = new Float64Array(N);
+    for (let h = 0; h < N; h++) {
+      let best = -Infinity;
+      for (let a = 1; a < nA; a++) best = Math.max(best, regrets[h * nA + a]!);
+      adv[h] = best - regrets[h * nA]!;
+    }
+    const order = Array.from({ length: N }, (_, h) => h).sort((x, y) => adv[x]! - adv[y]!);
+    let left = target * sum(reach);
+    for (const h of order) {
+      const r = reach[h]!;
+      const f = r <= 0 ? 0 : Math.min(1, Math.max(0, left / r));
+      if (r > 0) left -= f * r;
+      // kontynuacja: podział z dopasowania żalu bez pasa; gdy nic nie ma dodatniego żalu, po równo
+      let pos = 0;
+      for (let a = 1; a < nA; a++) pos += Math.max(regrets[h * nA + a]!, 0);
+      out[h * nA] = f;
+      for (let a = 1; a < nA; a++) out[h * nA + a] = (1 - f) * (pos > 0 ? Math.max(regrets[h * nA + a]!, 0) / pos : 1 / (nA - 1));
     }
     return out;
   }
@@ -227,7 +258,13 @@ export class PreflopSolver {
     const t = this.tables.get(dn.id)!;
     const nA = t.nA;
     const q = dn.player;
-    const sigma = mode === 'train' ? this.currentStrategy(t, new Float64Array(N * nA)) : this.averageStrategy(dn.id);
+    const lock = this.foldLocks.get(dn.id);
+    const sigma =
+      mode !== 'train'
+        ? this.averageStrategy(dn.id)
+        : lock !== undefined
+          ? this.lockedStrategy(t, lock, reach[q]!, new Float64Array(N * nA))
+          : this.currentStrategy(t, new Float64Array(N * nA));
 
     if (q !== p) {
       // przycinanie: gdy któryś z rywali nie może tu dotrzeć, wartość = 0
@@ -252,13 +289,14 @@ export class PreflopSolver {
     const values: Float64Array[] = [];
     for (let a = 0; a < nA; a++) {
       const r = new Float64Array(N);
-      for (let h = 0; h < N; h++) r[h] = mode === 'br' ? reach[p]![h]! : reach[p]![h]! * sigma[h * nA + a]!;
+      // w węźle z blokadą najlepsza odpowiedź gra strategią zablokowaną (wykorzystywalność tylko poza blokadą)
+      for (let h = 0; h < N; h++) r[h] = mode === 'br' && lock === undefined ? reach[p]![h]! : reach[p]![h]! * sigma[h * nA + a]!;
       const next = reach.slice();
       next[p] = r;
       values.push(this.traverse(dn.children[a]!, p, next, mode));
     }
     const out = new Float64Array(N);
-    if (mode === 'br') {
+    if (mode === 'br' && lock === undefined) {
       for (let h = 0; h < N; h++) {
         let best = -Infinity;
         for (let a = 0; a < nA; a++) best = Math.max(best, values[a]![h]!);
@@ -267,7 +305,7 @@ export class PreflopSolver {
       return out;
     }
     for (let h = 0; h < N; h++) for (let a = 0; a < nA; a++) out[h] = out[h]! + sigma[h * nA + a]! * values[a]![h]!;
-    if (mode === 'avg') return out;
+    if (mode !== 'train') return out;
 
     // aktualizacja DCFR
     const tt = this.iteration;
