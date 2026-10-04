@@ -1,4 +1,4 @@
-import type { ChoiceDrill, Drill, GeneratedDrill, NumericDrill, PaintDrill } from '@szkola/content-schema';
+import type { CbetDrill, ChoiceDrill, Drill, GeneratedDrill, NumericDrill, PaintDrill, TextureDrill } from '@szkola/content-schema';
 import {
   cardsToString,
   classCombos,
@@ -9,16 +9,24 @@ import {
   generateOuts,
   generatePotOdds,
   generateWhoWins,
+  generateFlop,
+  generateTextureSpot,
   HandCategory,
+  pick,
+  TEXTURE_VALUES,
+  textureMatches,
+  type FlopTexture,
+  type TextureAxis,
+  type TextureFilter,
   shuffle,
   type Card,
   type DrawKind,
   type Rng,
 } from '@szkola/poker-core';
 import type { RangeSpot } from '@/data/content/repo';
-import { categoryName, pct, t } from './text.pl';
+import { categoryName, pct, t, TEXTURE_AXIS_LABELS, TEXTURE_LABELS, textureText } from './text.pl';
 import { MIXED_HIGH, MIXED_LOW } from './thresholds';
-import type { DrillInstance, DrillOption, NumericInstance, Position } from './types';
+import type { DrillInstance, DrillOption, NumericInstance, Position, TextureAxisItem } from './types';
 
 /** Dane potrzebne generatorom poza samym zadaniem (np. zakresy z solvera). */
 export interface DrillContext {
@@ -36,6 +44,8 @@ export function instantiate(drill: Drill, lessonId: string | null, rng: Rng, cou
   if (drill.kind === 'numeric') return [fromNumeric(drill, lessonId)];
   if (drill.kind === 'paint') return [fromPaint(drill, lessonId, ctx)];
   const n = count ?? drill.count;
+  if (drill.kind === 'texture') return Array.from({ length: n }, (_, i) => fromTexture(drill, lessonId, rng, i));
+  if (drill.kind === 'cbet') return Array.from({ length: n }, (_, i) => fromCbet(drill, lessonId, rng, i));
   return Array.from({ length: n }, (_, i) => fromGenerator(drill, lessonId, rng, i, ctx));
 }
 
@@ -106,7 +116,64 @@ function fromChoice(d: ChoiceDrill, lessonId: string | null, rng: Rng): DrillIns
   };
 }
 
-function base(d: GeneratedDrill, lessonId: string | null, i: number) {
+/** Zadania, które za każdym razem losują nowe rozdanie (w powtórce i egzaminie mogą wystąpić kilka razy). */
+export function isGenerative(d: Drill): boolean {
+  return d.kind === 'generated' || d.kind === 'texture' || d.kind === 'cbet';
+}
+
+/** Klasyfikacja tekstury flopa: losowy flop (rzadkie tekstury częściej), po jednej odpowiedzi na każdą oś. */
+function fromTexture(d: TextureDrill, lessonId: string | null, rng: Rng, i: number): DrillInstance {
+  const axes = d.axes as TextureAxis[];
+  const { flop, texture } = generateTextureSpot(rng, axes);
+  const items: TextureAxisItem[] = axes.map(<A extends TextureAxis>(axis: A) => ({
+    axis,
+    label: TEXTURE_AXIS_LABELS[axis],
+    options: (TEXTURE_VALUES[axis] as readonly FlopTexture[A][]).map((v) => ({
+      text: (TEXTURE_LABELS[axis] as Record<string, string>)[v as string]!,
+      correct: texture[axis] === v,
+      why: textureText.why(axis, v, flop, texture),
+    })),
+  }));
+  return {
+    kind: 'texture',
+    key: `${d.id}#${i}`,
+    drillId: d.id,
+    family: d.family,
+    lessonId,
+    rules: d.rules,
+    prompt: textureText.prompt(axes),
+    table: { board: toStrings(flop) },
+    axes: items,
+    explanation: textureText.summary(texture),
+  };
+}
+
+/**
+ * Decyzja c-betu: losujemy przypadek (równo), potem flop o jego teksturze. Opcje w stałej kolejności: czekam, mały,
+ * duży. Gdy najlepszy jest c-bet, drugi rozmiar to niedokładność (sizeError, ADR-22); przy „czekam” każdy c-bet to błąd.
+ */
+function fromCbet(d: CbetDrill, lessonId: string | null, rng: Rng, i: number): DrillInstance {
+  const c = pick(rng, d.cases);
+  const { flop, texture } = generateFlop(rng, c.when as TextureFilter);
+  // przypadki się wykluczają (sprawdza content-build), ale bronimy się przed treścią spoza potoku
+  const matching = d.cases.filter((x) => textureMatches(texture, x.when as TextureFilter));
+  if (matching.length !== 1) throw new Error(`Zadanie ${d.id}: flop pasuje do ${matching.length} przypadków`);
+  const actions = ['check', 'small', 'big'] as const;
+  const options: DrillOption[] = actions.map((a) => {
+    const correct = a === c.best;
+    const sizeError = !correct && a !== 'check' && c.best !== 'check';
+    return { text: d.options[a], correct, ...(sizeError ? { sizeError: true } : {}), why: c.why[a] };
+  });
+  return {
+    ...base(d, lessonId, i),
+    prompt: d.prompt,
+    table: { board: toStrings(flop), ...(d.position ? { position: d.position as Position } : {}) },
+    options,
+    explanation: textureText.summary(texture),
+  };
+}
+
+function base(d: Pick<GeneratedDrill, 'id' | 'family' | 'rules'>, lessonId: string | null, i: number) {
   return { kind: 'choice' as const, key: `${d.id}#${i}`, drillId: d.id, family: d.family, lessonId, rules: d.rules };
 }
 

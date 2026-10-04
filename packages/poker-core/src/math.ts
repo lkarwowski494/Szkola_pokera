@@ -40,6 +40,18 @@ export function hitProbability(outs: number, unseen: number, cardsToCome: 1 | 2)
   return 1 - miss;
 }
 
+/**
+ * Szansa, że wśród `draws` kart odkrytych z `unseen` nie pojawi się żaden z `outs` (rozkład hipergeometryczny),
+ * np. ręka bez pary nie trafia pary na flopie: missProbability(6, 50, 3).
+ */
+export function missProbability(outs: number, unseen: number, draws: number): number {
+  if (!Number.isInteger(outs) || !Number.isInteger(unseen) || !Number.isInteger(draws)) throw new Error('Liczby całkowite');
+  if (outs < 0 || outs > unseen || draws < 0 || draws > unseen) throw new Error('Nieprawidłowe argumenty');
+  let p = 1;
+  for (let i = 0; i < draws; i++) p *= (unseen - outs - i) / (unseen - i);
+  return Math.max(0, p);
+}
+
 /** Reguła 2 i 4 (przybliżenie w procentach jako ułamek). */
 export function ruleOf2And4(outs: number, cardsToCome: 1 | 2): number {
   return (outs * (cardsToCome === 2 ? 4 : 2)) / 100;

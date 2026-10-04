@@ -129,3 +129,22 @@ pf.3bet.too-big.mult: { value: 5, unit: multiplier, source: "przykład błędneg
 pf.3bet.too-big: { formula: product, refs: [pf.open-size, pf.3bet.too-big.mult], unit: bb, decimals: 1, source: "obliczenie: przykład błędnego rozmiaru" }
 pf.4bet.too-small.mult: { value: 1.5, unit: multiplier, decimals: 1, source: "przykład błędnego rozmiaru: 1,5 × 3-bet (dobrany do ćwiczenia, bez źródła)" }
 pf.4bet.too-small: { formula: product, refs: [pf.3bet.oop-total, pf.4bet.too-small.mult], unit: bb, source: "obliczenie: przykład błędnego rozmiaru" }
+
+# M5: c-bet na flopie. Bez częstotliwości z literatury (źródeł nie dało się przeczytać, raport M5): tylko rozmiar
+# z programu nauczania, przykładowy duży rozmiar do obliczeń i matematyka liczona z tych samych liczb.
+cbet.size.small: { value: 0.333333, unit: percent, source: "program nauczania M5 (dokument projektu): c-bet ok. 1/3 puli na suchym, wysokim flopie" }
+cbet.size.big: { value: 0.75, unit: percent, source: "przykład dużego c-betu dobrany do ćwiczeń (bez źródła liczbowego; przedział z literatury do weryfikacji, raport M5)" }
+cbet.ex.small: { formula: product, refs: [ex.pot, cbet.size.small], unit: count, source: "obliczenie: c-bet 1/3 puli przy puli 100" }
+cbet.ex.big: { formula: product, refs: [ex.pot, cbet.size.big], unit: count, source: "obliczenie: duży c-bet przy puli 100" }
+alpha.cbet.small: { formula: alpha, refs: [ex.pot, cbet.ex.small], unit: percent, source: "obliczenie: zakład / (pula + zakład)" }
+alpha.cbet.big: { formula: alpha, refs: [ex.pot, cbet.ex.big], unit: percent, source: "obliczenie: zakład / (pula + zakład)" }
+cbet.btn.small: { formula: product, refs: [bb.pot-after.vs-btn, cbet.size.small], unit: bb, decimals: 1, source: "obliczenie: 1/3 puli na flopie po otwarciu Buttona i sprawdzeniu BB" }
+cbet.btn.big: { formula: product, refs: [bb.pot-after.vs-btn, cbet.size.big], unit: bb, decimals: 1, source: "obliczenie: duży c-bet na flopie po otwarciu Buttona i sprawdzeniu BB" }
+cards.unseen.preflop: { formula: diff, refs: [cards.deck, cards.hole], unit: count, source: "obliczenie: talia minus twoje karty" }
+pair.outs.per-rank: { value: 3, unit: count, source: "kombinatoryka: z 4 kart danej rangi jedna jest w twojej ręce" }
+pair.outs.unpaired: { formula: product, refs: [cards.hole, pair.outs.per-rank], unit: count, source: "obliczenie: 2 rangi × 3 pozostałe karty" }
+ex.wrong.half: { value: 0.5, unit: percent, source: "przykład błędnej odpowiedzi w zadaniach M2 (połowa)" }
+prob.certain: { value: 1, unit: percent, source: "definicja: zdarzenie pewne" }
+flop.miss.unpaired: { formula: missProbability, refs: [pair.outs.unpaired, cards.unseen.preflop, cards.board.flop], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): żadna z 3 kart flopu nie paruje ręki" }
+flop.miss.two: { formula: product, refs: [flop.miss.unpaired, flop.miss.unpaired], unit: percent, source: "obliczenie przybliżone: chybienia dwóch rywali traktowane jako niezależne (pomija karty w ich rękach)" }
+flop.hit.unpaired: { formula: diff, refs: [prob.certain, flop.miss.unpaired], unit: percent, decimals: 1, source: "obliczenie: 100% minus szansa chybienia" }

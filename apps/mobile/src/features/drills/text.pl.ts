@@ -1,4 +1,4 @@
-import { cardsToString, combosCount, HandCategory, type Card, type HandResult, type WinReason } from '@szkola/poker-core';
+import { cardsToString, combosCount, HandCategory, RANKS, rankOf, type Card, type FlopTexture, type HandResult, type TextureAxis, type WinReason } from '@szkola/poker-core';
 
 /**
  * Teksty zadań generowanych, po polsku. Karty w tekście zapisujemy jako [[As Kd]],
@@ -117,4 +117,113 @@ export const t = {
     right: 'Tak.',
     wrong: 'Nie.',
   },
+};
+
+// ---------- Tekstura flopa (M5) ----------
+
+/** Nazwy wartości osi tekstury (te same słowa w lekcjach M5). */
+export const TEXTURE_LABELS = {
+  height: { high: 'Wysoki', middle: 'Średni', low: 'Niski' },
+  suits: { rainbow: 'Tęczowy', 'two-tone': 'Dwukolorowy', monotone: 'Monotoniczny' },
+  ranks: { paired: 'Sparowany', connected: 'Połączony', disconnected: 'Rozłączony' },
+  wetness: { dry: 'Suchy', medium: 'Pośredni', wet: 'Mokry' },
+} as const satisfies { [A in TextureAxis]: Record<FlopTexture[A], string> };
+
+export const TEXTURE_AXIS_LABELS: Record<TextureAxis, string> = {
+  height: 'Wysokość',
+  suits: 'Kolory',
+  ranks: 'Rangi',
+  wetness: 'Suchy czy mokry',
+};
+
+/** Definicje wartości (do wyjaśnienia każdej opcji). */
+const TEXTURE_DEFS = {
+  height: {
+    high: 'flop wysoki ma najwyższą kartę asa, króla albo damę',
+    middle: 'flop średni ma najwyższą kartę waleta albo dziesiątkę',
+    low: 'flop niski ma najwyższą kartę dziewiątkę albo niższą',
+  },
+  suits: {
+    rainbow: 'flop tęczowy ma trzy karty w trzech różnych kolorach, więc nikt nie ma jeszcze dobierania do koloru',
+    'two-tone': 'flop dwukolorowy ma dwie karty w jednym kolorze, więc dwie karty gracza w tym kolorze dają dobieranie do koloru',
+    monotone: 'flop monotoniczny ma wszystkie trzy karty w jednym kolorze, więc kolor jest już możliwy',
+  },
+  ranks: {
+    paired: 'flop sparowany ma dwie albo trzy karty tej samej rangi; strit z dwiema kartami gracza jest wtedy niemożliwy',
+    connected: 'flop połączony ma trzy różne rangi w obrębie pięciu kolejnych, więc strit jest możliwy już teraz (as liczy się też jako jedynka)',
+    disconnected: 'flop rozłączony ma trzy różne rangi zbyt odległe, żeby dwie karty gracza dały strita',
+  },
+  wetness: {
+    dry: 'flop suchy nie daje żadnego dobierania: jest tęczowy i strit nie jest możliwy',
+    medium: 'flop pośredni daje jedną drogę do dobierania: kolor albo strita',
+    wet: 'flop mokry daje obie drogi naraz: kolor (dwa albo trzy karty w kolorze) i strita',
+  },
+} as const satisfies { [A in TextureAxis]: Record<FlopTexture[A], string> };
+
+/** Przykładowe dwie rangi, które z połączonym flopem dają strita (najwyższy możliwy strit). */
+export function straightExample(flop: readonly Card[]): string | null {
+  const ranks = new Set(flop.map(rankOf));
+  if (ranks.size !== 3) return null;
+  for (let top = 12; top >= 3; top--) {
+    const window = [0, 1, 2, 3, 4].map((k) => (top - k === -1 ? 12 : top - k));
+    if ([...ranks].every((r) => window.includes(r))) {
+      const missing = window.filter((r) => !ranks.has(r));
+      return missing.map((r) => RANKS[r]).join('');
+    }
+  }
+  return null;
+}
+
+function topCard(flop: readonly Card[]): Card {
+  return flop.reduce((a, b) => (rankOf(b) > rankOf(a) ? b : a));
+}
+
+function suitCountText(flop: readonly Card[]): string {
+  const n = new Set(flop.map((c) => c & 3)).size;
+  return n === 3 ? 'trzy różne kolory' : n === 2 ? 'dwie karty w jednym kolorze' : 'trzy karty w jednym kolorze';
+}
+
+/** Co na tym flopie daje dobierania (do wyjaśnienia mokrości). */
+function drawsText(flop: readonly Card[], tex: FlopTexture): string {
+  const color =
+    tex.suits === 'rainbow'
+      ? 'nie ma dobierania do koloru (trzy różne kolory)'
+      : tex.suits === 'two-tone'
+        ? 'jest dobieranie do koloru (dwie karty w jednym kolorze)'
+        : 'kolor jest już możliwy (trzy karty w jednym kolorze)';
+  const ex = straightExample(flop);
+  const straight = tex.ranks === 'connected' && ex ? `strit jest możliwy, np. z ${ex}` : 'strit nie jest możliwy';
+  return `${color}, ${straight}`;
+}
+
+export const textureText = {
+  prompt: (axes: readonly TextureAxis[]) =>
+    axes.length === 1
+      ? {
+          height: 'Jak wysoki jest ten flop?',
+          suits: 'Ile kolorów ma ten flop?',
+          ranks: 'Czy ten flop jest sparowany, połączony czy rozłączony?',
+          wetness: 'Czy ten flop jest suchy, pośredni czy mokry?',
+        }[axes[0]!]
+      : 'Oceń teksturę flopa w każdym wierszu.',
+  /** Wyjaśnienie jednej opcji osi. */
+  why: <A extends TextureAxis>(axis: A, option: FlopTexture[A], flop: readonly Card[], tex: FlopTexture): string => {
+    const right = option === tex[axis];
+    const def = (TEXTURE_DEFS[axis] as Record<string, string>)[option]!;
+    const fact =
+      axis === 'height'
+        ? `Najwyższa karta to ${cards([topCard(flop)])}.`
+        : axis === 'suits'
+          ? `Tu: ${suitCountText(flop)}.`
+          : axis === 'ranks'
+            ? tex.ranks === 'paired'
+              ? 'Tu dwie karty mają tę samą rangę.'
+              : tex.ranks === 'connected'
+                ? `Tu strit jest możliwy, np. z ${straightExample(flop)}.`
+                : 'Tu żadne dwie karty gracza nie dadzą strita.'
+            : `Tu ${drawsText(flop, tex)}.`;
+    return right ? `Tak: ${def}. ${fact}` : `Nie: ${def}. ${fact}`;
+  },
+  summary: (tex: FlopTexture) =>
+    `Ten flop jest ${TEXTURE_LABELS.height[tex.height].toLowerCase()}, ${TEXTURE_LABELS.suits[tex.suits].toLowerCase()} i ${TEXTURE_LABELS.ranks[tex.ranks].toLowerCase()}, czyli ${TEXTURE_LABELS.wetness[tex.wetness].toLowerCase()}.`,
 };

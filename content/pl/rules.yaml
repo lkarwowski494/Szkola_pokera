@@ -216,3 +216,97 @@
   because: "po flopie masz pozycję, więc realizujesz więcej equity; solver aplikacji broni tu {{n:solver.def.bb-vs-sb}} rąk"
   level: math
   source: "obliczenie ceny; solver preflop projektu (ADR-20); drzewo solvera (3-bet do 9bb)"
+
+# M5: c-bet na flopie. Pula po otwarciu i jednym sprawdzeniu, 100bb. Reguły strategiczne to heurystyki z literatury
+# (ogólne zasady, bez częstotliwości z solverów); definicje tekstur i matematyka liczone w poker-core.
+- id: R-M5-001
+  module: m5
+  if: "flop ma trzy różne kolory i strit nie jest na nim możliwy (także gdy flop jest sparowany)"
+  then: "to flop suchy: nikt nie ma dobierania do koloru ani do strita"
+  because: "kolejne karty rzadko zmieniają lidera, więc ręka najlepsza na flopie zwykle zostaje najlepsza"
+  level: math
+  source: "definicja tekstury w aplikacji (poker-core); pojęcie flopu suchego: Upswing, Sizing Your C-Bets; GTO Gecko, What Is a Continuation Bet"
+- id: R-M5-002
+  module: m5
+  if: "flop ma dwie albo trzy karty w jednym kolorze, a strit jest na nim możliwy"
+  then: "to flop mokry: część rąk rywala to dobierania do koloru i do strita, czasem oba naraz"
+  because: "kolejne karty często zmieniają lidera, więc ręka dziś najlepsza jest mniej bezpieczna"
+  level: math
+  source: "definicja tekstury w aplikacji (poker-core); pojęcie flopu mokrego: Upswing, Sizing Your C-Bets; GTO Gecko, What Is a Continuation Bet"
+- id: R-M5-003
+  module: m5
+  if: "otworzyłeś przed flopem, duży blind sprawdził, a na flopie jest as albo król"
+  then: "masz przewagę zakresu: średnio twoje ręce są silniejsze niż ręce rywala"
+  because: "duży blind większość AA, KK i AK przebija przed flopem, więc po samym sprawdzeniu ma ich mało, a ty masz wszystkie"
+  level: heuristic
+  source: "GTO Wizard, Range advantage (słownik); PokerCoaching, C-Betting On Ace-High Boards"
+- id: R-M5-004
+  module: m5
+  if: "otworzyłeś przed flopem, a flop jest niski i połączony, np. 7-6-5"
+  then: "c-betujesz rzadziej niż na wysokich flopach, a wiele rąk czeka"
+  because: "duży blind broni wielu łączników w kolorze i małych par, więc częściej ma dwie pary, seta albo strita: to on ma przewagę orzechową"
+  level: heuristic
+  source: "Upswing, Check or Bet? (flop check-back); GTO Wizard, blog (gra dużego blinda na niskich połączonych flopach)"
+- id: R-M5-005
+  module: m5
+  if: "w twoim zakresie jest dużo więcej najsilniejszych rąk niż u rywala (przewaga orzechowa)"
+  then: "możesz betować większym rozmiarem; gdy masz tylko przewagę zakresu, betujesz mało"
+  because: "duży zakład wyciąga więcej z rąk średnich rywala, a ty rzadko trafisz na lepszą rękę, która cię przebije"
+  level: heuristic
+  source: "GTO Wizard, The Mechanics of C-Bet Sizing; GTO Wizard, Range advantage (słownik)"
+- id: R-M5-006
+  module: m5
+  if: "rywal ma rękę bez pary"
+  then: "flop nie sparuje żadnej z jego kart w ok. {{n:flop.miss.unpaired}} przypadków"
+  because: "spośród {{n:cards.unseen.preflop}} nieznanych kart tylko {{n:pair.outs.unpaired}} paruje jego rękę, a flop to tylko {{n:cards.board.flop}} karty"
+  level: math
+  source: "obliczenie dokładne (poker-core)"
+- id: R-M5-007
+  module: m5
+  if: "jako agresor preflop masz pozycję, a flop jest suchy i wysoki, np. K-7-2 w trzech kolorach"
+  then: "c-betujesz często i mało, ok. {{n:cbet.size.small}} puli"
+  because: "masz przewagę zakresu, a słabe ręce rywala prawie nie mają szans: mały zakład wystarczy, żeby je spasował, a gorsze pary wciąż go sprawdzą"
+  level: heuristic
+  source: "program nauczania M5; Upswing, Sizing Your C-Bets; PokerCoaching, Picking the Proper C-Bet Sizing on Ace-High Boards"
+- id: R-M5-008
+  module: m5
+  if: "jako agresor preflop masz pozycję, a flop jest mokry (połączony, z dobieraniem do koloru)"
+  then: "c-betujesz rzadziej, ale większym rozmiarem, np. {{n:cbet.size.big}} puli; ręce średnie bez dobierania częściej czekają"
+  because: "dobierania rywala mają dużo equity, więc duży zakład każe im drogo płacić za kolejną kartę"
+  level: heuristic
+  source: "Upswing, Sizing Your C-Bets; GTO Gecko, What Is a Continuation Bet (rzadziej na mokrych flopach)"
+- id: R-M5-009
+  module: m5
+  if: "jako agresor preflop masz pozycję, a flop jest sparowany, np. Q-Q-6"
+  then: "c-betujesz często i mało"
+  because: "na sparowanym flopie trudno o dobieranie, więc rywal bez pary rzadko może sprawdzić nawet mały zakład"
+  level: heuristic
+  source: "GTO Wizard, Flop Heuristics: IP C-Betting in Cash Games (zasada ogólna, do weryfikacji z tekstem źródła)"
+- id: R-M5-010
+  module: m5
+  if: "flop jest monotoniczny (trzy karty w jednym kolorze)"
+  then: "c-betujesz rzadziej niż zwykle i mało"
+  because: "kolor może już mieć każdy z graczy, więc przewaga orzechowa agresora maleje, a w dużej puli kolor rywala kosztuje dużo"
+  level: heuristic
+  source: "GTO Wizard, Flop Heuristics: IP C-Betting in Cash Games (zasada ogólna, do weryfikacji z tekstem źródła)"
+- id: R-M5-011
+  module: m5
+  if: "c-betujesz bez żadnej ręki, licząc tylko na pas rywala"
+  then: "przy zakładzie {{n:cbet.size.small}} puli rywal musi pasować częściej niż w {{n:alpha.cbet.small}} przypadków, a przy {{n:cbet.size.big}} puli częściej niż w {{n:alpha.cbet.big}}"
+  because: "ryzykujesz zakład, żeby wygrać pulę: próg to zakład ÷ (pula + zakład)"
+  level: math
+  source: "obliczenie: alpha = zakład / (pula + zakład)"
+- id: R-M5-012
+  module: m5
+  if: "otworzyłeś przed flopem, a rywal sprawdził z pozycji (np. Button wobec twojego otwarcia z CO)"
+  then: "c-betujesz rzadziej niż z pozycją i częściej czekasz, także z dobrymi rękami"
+  because: "zakres sprawdzającego z pozycji jest silny (słabe ręce pasował, a część najsilniejszych przebijał), a ty po flopie mówisz pierwszy na każdej ulicy"
+  level: heuristic
+  source: "GTO Wizard, C-Betting As the OOP Preflop Raiser; GTO Gecko, What Is a Continuation Bet"
+- id: R-M5-013
+  module: m5
+  if: "na flopie masz dwóch albo więcej rywali"
+  then: "c-betujesz dużo rzadziej, głównie silnymi rękami i mocnymi dobieraniami, a blefujesz mało"
+  because: "każdy kolejny rywal zwiększa szansę, że ktoś trafił: dwie ręce bez pary chybiają naraz tylko w ok. {{n:flop.miss.two}} przypadków"
+  level: heuristic
+  source: "PokerCoaching, C-Betting in Multiway Pots; GTO Gecko, What Is a Continuation Bet; przybliżenie z obliczenia"

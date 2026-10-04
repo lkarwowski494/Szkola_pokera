@@ -247,3 +247,84 @@ describe('egzamin i trening na czas', () => {
     expect(s.every((x) => x.kind !== 'paint')).toBe(true);
   });
 });
+
+describe('flop: tekstura i c-bet (M5)', () => {
+  const texture: Drill = { kind: 'texture', id: 'tx', family: 'tx', rules: [], axes: ['height', 'suits', 'ranks', 'wetness'], count: 60 };
+  const why = { check: 'bo czek', small: 'bo mały', big: 'bo duży' };
+  const cbet: Drill = {
+    kind: 'cbet',
+    id: 'cb',
+    family: 'cb',
+    rules: [],
+    prompt: 'Co robisz?',
+    position: 'BTN',
+    options: { check: 'Czekam', small: 'Mały', big: 'Duży' },
+    cases: [
+      { when: { height: ['high'], suits: ['rainbow'], ranks: ['disconnected'] }, best: 'small', why },
+      { when: { height: ['low'], ranks: ['connected'] }, best: 'check', why },
+      { when: { height: ['middle'], ranks: ['connected'], suits: ['two-tone'] }, best: 'big', why },
+    ],
+    count: 90,
+  };
+
+  it('tekstura: nowy flop w każdym zadaniu, jedna poprawna wartość na oś, wyjaśnienie każdej opcji', () => {
+    const insts = instantiate(texture, 'l', createRng(3));
+    expect(new Set(insts.map((i) => i.table!.board!.join(' '))).size).toBeGreaterThan(50);
+    for (const inst of insts) {
+      if (inst.kind !== 'texture') throw new Error('oczekiwano tekstury');
+      expect(inst.table!.board).toHaveLength(3);
+      expect(inst.axes.map((a) => a.axis)).toEqual(['height', 'suits', 'ranks', 'wetness']);
+      for (const a of inst.axes) {
+        expect(a.options.filter((o) => o.correct)).toHaveLength(1);
+        for (const o of a.options) expect(o.why).toMatch(o.correct ? /^Tak/ : /^Nie/);
+      }
+      const right = inst.axes.map((a) => a.options.findIndex((o) => o.correct));
+      expect(gradeAnswer(inst, { kind: 'texture', picks: right })).toBe('correct');
+      const oneWrong = right.map((r, i) => (i === 0 ? (r + 1) % 3 : r));
+      expect(gradeAnswer(inst, { kind: 'texture', picks: oneWrong })).toBe('wrong');
+      expect(gradeAnswer(inst, { kind: 'texture', picks: right.slice(1) })).toBe('wrong');
+    }
+  });
+
+  it('tekstura: połączony flop ma w wyjaśnieniu przykład strita', () => {
+    let seen = 0;
+    for (const inst of instantiate({ ...texture, axes: ['ranks'] } as Drill, 'l', createRng(8))) {
+      if (inst.kind !== 'texture') continue;
+      const right = inst.axes[0]!.options.find((o) => o.correct)!;
+      if (right.text === 'Połączony') {
+        seen++;
+        expect(right.why).toMatch(/np\. z [2-9TJQKA]{2}\./);
+      }
+    }
+    expect(seen).toBeGreaterThan(0);
+  });
+
+  it('c-bet: najlepszy plan poprawny, drugi rozmiar to niedokładność, przy „czekam” każdy c-bet to błąd', () => {
+    const seen = new Set<string>();
+    for (const raw of instantiate(cbet, 'l', createRng(4))) {
+      const inst = asChoice(raw);
+      expect(inst.options.map((o) => o.text)).toEqual(['Czekam', 'Mały', 'Duży']);
+      expect(inst.options.filter((o) => o.correct)).toHaveLength(1);
+      expect(inst.table?.position).toBe('BTN');
+      const best = inst.options.findIndex((o) => o.correct);
+      seen.add(inst.options[best]!.text);
+      for (let i = 0; i < 3; i++) {
+        const g = gradeAnswer(inst, { kind: 'choice', index: i });
+        if (i === best) expect(g).toBe('correct');
+        else if (best === 0 || i === 0) expect(g).toBe('wrong');
+        else expect(g).toBe('size');
+      }
+      expect(inst.explanation).toMatch(/^Ten flop jest/);
+    }
+    expect(seen).toEqual(new Set(['Czekam', 'Mały', 'Duży']));
+  });
+
+  it('c-bet i tekstura losują za każdym razem nowe rozdanie także w powtórce', () => {
+    const rows: DrillRow[] = [
+      { id: 'cb', lessonId: 'l', family: 'cb', drill: cbet },
+      { id: 'tx', lessonId: 'l', family: 'tx', drill: texture },
+    ];
+    const s = buildFamilySession(rows, ['cb', 'tx'], createRng(2), 3);
+    expect(s).toHaveLength(6);
+  });
+});

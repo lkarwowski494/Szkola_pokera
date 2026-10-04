@@ -34,7 +34,7 @@ drills:
     options:
       - { text: "Ok. {{n:odds.flush.turn-river}}", correct: true, why: "Jedna karta do odkrycia: {{n:outs.flush}} × 2 = {{n:odds.flush.rule-turn}}. Dokładnie {{n:outs.flush}} z {{n:cards.unseen.turn}} nieznanych kart, czyli {{n:odds.flush.turn-river}}." }
       - { text: "Ok. {{n:odds.flush.flop-river}}", why: "To szansa na flopie, gdy przed tobą są dwie karty. Na turnie została jedna." }
-      - { text: "Ok. 50%", why: "Dobieranie prawie zawsze jest słabsze od gotowej ręki. 50% to przecenianie szans." }
+      - { text: "Ok. {{n:ex.wrong.half}}", why: "Dobieranie prawie zawsze jest słabsze od gotowej ręki. {{n:ex.wrong.half}} to przecenianie szans." }
   - kind: choice
     id: m2.l1.q4
     family: m2.odds

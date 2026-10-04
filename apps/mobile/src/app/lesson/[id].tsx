@@ -17,9 +17,9 @@ export default function LessonScreen() {
   const { t } = useTranslation();
   const lesson = useMemo(() => getLesson(db, id), [db, id]);
   const rules = useMemo(() => (lesson ? getRulesByIds(db, lesson.rules) : []), [db, lesson]);
-  // liczba zadań w sesji: zadanie z generatora daje `count` rozdań
+  // liczba zadań w sesji: zadanie z generatora (także tekstura i c-bet) daje `count` rozdań
   const exerciseCount = useMemo(
-    () => getLessonDrills(db, id).reduce((n, r) => n + (r.drill.kind === 'generated' ? r.drill.count : 1), 0),
+    () => getLessonDrills(db, id).reduce((n, r) => n + (r.drill.kind === 'generated' || r.drill.kind === 'texture' || r.drill.kind === 'cbet' ? r.drill.count : 1), 0),
     [db, id],
   );
 

@@ -4,7 +4,7 @@ import { z } from 'zod';
  * Kontrakt treści: wspólny dla potoku content-build (walidacja) i aplikacji (typy).
  * Zmiana tego pliku = zmiana wersji schematu (CONTENT_SCHEMA_VERSION).
  */
-export const CONTENT_SCHEMA_VERSION = 2;
+export const CONTENT_SCHEMA_VERSION = 3;
 
 const id = z.string().regex(/^[a-z0-9][a-z0-9.\-]*$/i, 'identyfikator: litery, cyfry, kropki, myślniki');
 const cardsText = z.string().regex(/^([2-9TJQKA][shdc])( [2-9TJQKA][shdc])*$/, 'karty w formacie "As Kd"');
@@ -18,11 +18,12 @@ export const NumberEntry = z
     /** Wartość podana wprost (np. z badań). */
     value: z.number().optional(),
     /** Wartość wyliczana przy budowie przez poker-core (np. requiredEquity(100, 50)). */
-    formula: z.enum(['requiredEquity', 'mdf', 'alpha', 'hitProbability', 'ruleOf2And4', 'rangePlay', 'product', 'sum', 'diff']).optional(),
+    formula: z.enum(['requiredEquity', 'mdf', 'alpha', 'hitProbability', 'ruleOf2And4', 'rangePlay', 'product', 'sum', 'diff', 'missProbability']).optional(),
     args: z.array(z.number()).optional(),
     /**
      * Klucze innych liczb zamiast wpisanych wartości (jedno źródło prawdy): dla product, sum, diff (pierwsza minus
-     * pozostałe) oraz zamiast args dla requiredEquity, mdf i alpha (pula, zakład).
+     * pozostałe) oraz zamiast args dla requiredEquity, mdf i alpha (pula, zakład) i missProbability (outy, karty nieznane,
+     * liczba odkrywanych kart).
      */
     refs: z.array(z.string()).optional(),
     /** Dla formuły rangePlay: identyfikator spotu z content/ranges/spots.yaml. */
@@ -154,7 +155,77 @@ export const GeneratedDrill = z.object({
   count: z.number().int().min(1).max(20).default(3),
 });
 
-export const Drill = z.union([ChoiceDrill, GeneratedDrill, NumericDrill, PaintDrill]);
+// ---------- Flop: tekstura i c-bet (M5, schemat w wersji 3) ----------
+
+/** Osie tekstury flopa; wartości jak w poker-core (classifyFlop). */
+export const TextureAxis = z.enum(['height', 'suits', 'ranks', 'wetness']);
+export const FlopHeight = z.enum(['high', 'middle', 'low']);
+export const FlopSuits = z.enum(['rainbow', 'two-tone', 'monotone']);
+export const FlopRanks = z.enum(['paired', 'connected', 'disconnected']);
+export const FlopWetness = z.enum(['dry', 'medium', 'wet']);
+
+/** Filtr tekstury: dla każdej osi lista dopuszczalnych wartości (brak osi = dowolna). */
+export const TextureFilter = z
+  .object({
+    height: z.array(FlopHeight).min(1).optional(),
+    suits: z.array(FlopSuits).min(1).optional(),
+    ranks: z.array(FlopRanks).min(1).optional(),
+    wetness: z.array(FlopWetness).min(1).optional(),
+    trips: z.boolean().optional(),
+  })
+  .strict();
+export type TextureFilter = z.infer<typeof TextureFilter>;
+
+/**
+ * Klasyfikacja tekstury: losowy flop, użytkownik wybiera wartość każdej z podanych osi.
+ * Każda powtórka losuje nowy flop. Wyjaśnienia każdej opcji buduje aplikacja z faktów (classifyFlop).
+ */
+export const TextureDrill = z.object({
+  kind: z.literal('texture'),
+  id,
+  family: id,
+  rules: z.array(z.string()).default([]),
+  axes: z.array(TextureAxis).min(1).max(4),
+  /** Ile flopów w jednej lekcji. */
+  count: z.number().int().min(1).max(20).default(3),
+});
+
+export const CbetAction = z.enum(['check', 'small', 'big']);
+export type CbetAction = z.infer<typeof CbetAction>;
+
+/**
+ * Przypadek c-betu: flopy o danej teksturze i najlepszy plan z wyjaśnieniem każdej opcji.
+ * Reguła mieszka w treści (rules.yaml + ten przypadek), silnik tylko losuje flop i sprawdza dopasowanie.
+ */
+export const CbetCase = z.object({
+  when: TextureFilter,
+  best: CbetAction,
+  /** Reguła, z której wynika odpowiedź (R-M5-…). */
+  rule: z.string().optional(),
+  why: z.object({ check: z.string().min(3), small: z.string().min(3), big: z.string().min(3) }),
+});
+
+/**
+ * Decyzja c-betu na losowym flopie: czekam / mały c-bet / duży c-bet. Gdy najlepszy jest c-bet, drugi rozmiar to
+ * „niedokładność” (dobra akcja, zły rozmiar; ta sama ocena co sizeError w zadaniach z wyborem).
+ * Przypadki muszą się wykluczać: każdy flop pasuje do najwyżej jednego (sprawdza content-build).
+ */
+export const CbetDrill = z.object({
+  kind: z.literal('cbet'),
+  id,
+  family: id,
+  rules: z.array(z.string()).default([]),
+  prompt: z.string().min(3),
+  position: z.enum(['UTG', 'HJ', 'CO', 'BTN', 'SB', 'BB']).optional(),
+  options: z.object({ check: z.string().min(2), small: z.string().min(2), big: z.string().min(2) }),
+  cases: z.array(CbetCase).min(1),
+  count: z.number().int().min(1).max(20).default(3),
+});
+
+export const Drill = z.union([ChoiceDrill, GeneratedDrill, NumericDrill, PaintDrill, TextureDrill, CbetDrill]);
+export type TextureDrill = z.infer<typeof TextureDrill>;
+export type CbetDrill = z.infer<typeof CbetDrill>;
+export type CbetCase = z.infer<typeof CbetCase>;
 export type ChoiceDrill = z.infer<typeof ChoiceDrill>;
 export type GeneratedDrill = z.infer<typeof GeneratedDrill>;
 export type PaintDrill = z.infer<typeof PaintDrill>;

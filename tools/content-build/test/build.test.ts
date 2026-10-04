@@ -1,7 +1,7 @@
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { RuleDef } from '@szkola/content-schema';
-import { compileContent } from '../src/build';
+import { checkCbetCases, compileContent } from '../src/build';
 import { compileMarkdown } from '../src/markdown';
 import { findHardcodedNumbers, formatNumber, resolveNumbers, substitute } from '../src/numbers';
 
@@ -107,5 +107,34 @@ describe('nowe typy zadań (B-015, B-016, B-017)', () => {
     expect(sizes.length).toBeGreaterThan(0);
     for (const w of sizes) expect(w.text + w.why).not.toContain('{{');
     for (const d of drills) if (d.kind === 'choice') for (const o of d.options) expect(o.sizeError && o.correct).toBeFalsy();
+  });
+});
+
+describe('flop: tekstura i c-bet (M5, schemat w wersji 3)', () => {
+  const c = compileContent(contentDir);
+  const drills = c.lessons.flatMap((l) => l.drills);
+
+  it('missProbability: ręka bez pary chybia flop w 67,6% przypadków', () => {
+    const n = resolveNumbers({ x: { formula: 'missProbability', args: [6, 50, 3], unit: 'percent', decimals: 1, source: 'test' } });
+    expect(n.get('x')!.display).toBe('67,6%');
+  });
+
+  it('zadania c-bet mają podstawione liczby, a przypadki się wykluczają', () => {
+    const cbet = drills.filter((d) => d.kind === 'cbet');
+    expect(cbet.length).toBeGreaterThan(0);
+    for (const d of cbet) {
+      const texts = [d.prompt, ...Object.values(d.options), ...d.cases.flatMap((x) => Object.values(x.why))];
+      for (const t of texts) expect(t).not.toContain('{{');
+    }
+    expect(() => checkCbetCases('t', [{ height: ['high'] }, { suits: ['rainbow'] }])).toThrow(/pasują do tego samego flopu/);
+    expect(() => checkCbetCases('t', [{ suits: ['monotone'], ranks: ['paired'] }])).toThrow(/nie pasuje do żadnego/);
+    expect(() => checkCbetCases('t', [{ height: ['high'] }, { height: ['low'] }])).not.toThrow();
+  });
+
+  it('moduł M5 ma lekcje z zadaniami klasyfikacji tekstury, reguły bez niepodstawionych liczb', () => {
+    const m5 = c.lessons.filter((l) => l.module === 'm5');
+    expect(m5.length).toBeGreaterThanOrEqual(3);
+    expect(m5.flatMap((l) => l.drills).some((d) => d.kind === 'texture')).toBe(true);
+    for (const r of c.rules.filter((x) => x.module === 'm5')) expect(r.if + r.then + r.because).not.toContain('{{');
   });
 });

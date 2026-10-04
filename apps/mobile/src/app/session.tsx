@@ -16,7 +16,7 @@ import { allFamilies, dueFamilies, recordAnswer, saveExamResult, saveLessonResul
 import { gradeAnswer, parseNumberInput, scorePaint } from '@/features/drills/grade';
 import { pct, t as dt } from '@/features/drills/text.pl';
 import { EXAM_PASS, PAINT_PASS } from '@/features/drills/thresholds';
-import type { ChoiceInstance, DrillAnswer, DrillInstance, GradeResult, NumericInstance, PaintInstance } from '@/features/drills/types';
+import type { ChoiceInstance, DrillAnswer, DrillInstance, DrillOption, GradeResult, NumericInstance, PaintInstance, TextureInstance } from '@/features/drills/types';
 import { buildExamSession, buildFamilySession, buildLessonSession, buildSpeedSession, type SessionMode } from '@/features/session/build';
 import { useSettings } from '@/state/settings';
 import { radius, space, type as tp, useTokens } from '@/theme/tokens';
@@ -61,6 +61,7 @@ export default function SessionScreen() {
   const [records, setRecords] = useState<Record_[]>([]);
   const [painted, setPainted] = useState<boolean[]>(emptyGrid);
   const [numText, setNumText] = useState('');
+  const [texPicks, setTexPicks] = useState<(number | null)[]>([]);
   const [painting, setPainting] = useState(false);
   const [now, setNow] = useState(() => Date.now());
   const [startedAt, setStartedAt] = useState(() => Date.now());
@@ -72,6 +73,7 @@ export default function SessionScreen() {
     setCurrent(null);
     setPainted(emptyGrid());
     setNumText('');
+    setTexPicks([]);
     const n = Date.now();
     setStartedAt(n);
     setNow(n);
@@ -221,6 +223,15 @@ export default function SessionScreen() {
         <NumericEntry item={item} text={numText} onText={setNumText} onSubmit={(v) => commit({ kind: 'numeric', value: v })} />
       ) : null}
 
+      {item.kind === 'texture' && !current ? (
+        <TextureEntry
+          item={item}
+          picks={texPicks}
+          onPick={(axis, i) => setTexPicks((p) => item.axes.map((_, k) => (k === axis ? i : (p[k] ?? null))))}
+          onSubmit={(picks) => commit({ kind: 'texture', picks })}
+        />
+      ) : null}
+
       {item.kind === 'paint' && !current ? (
         <View style={{ gap: space.m }}>
           <PaintGrid painted={painted} onChange={setPainted} onActive={setPainting} />
@@ -324,6 +335,94 @@ function NumericEntry({ item, text, onText, onSubmit }: { item: NumericInstance;
   );
 }
 
+/**
+ * Klasyfikacja tekstury flopa (M5): w każdym wierszu jedna oś (np. wysokość) i jej wartości jako przyciski.
+ * „Sprawdź” aktywne dopiero po wyborze w każdym wierszu.
+ */
+function TextureEntry({
+  item,
+  picks,
+  onPick,
+  onSubmit,
+}: {
+  item: TextureInstance;
+  picks: readonly (number | null)[];
+  onPick: (axis: number, option: number) => void;
+  onSubmit: (picks: number[]) => void;
+}) {
+  const tk = useTokens();
+  const { t } = useTranslation();
+  const complete = item.axes.every((_, i) => picks[i] !== null && picks[i] !== undefined);
+  return (
+    <View style={{ gap: space.l }}>
+      {item.axes.map((a, ai) => (
+        <View key={a.axis} style={{ gap: space.xs }}>
+          <Muted>{a.label}</Muted>
+          <View style={styles.segments} accessibilityRole="radiogroup" accessibilityLabel={a.label}>
+            {a.options.map((o, oi) => {
+              const on = picks[ai] === oi;
+              return (
+                <Pressable
+                  key={o.text}
+                  accessibilityRole="radio"
+                  accessibilityState={{ selected: on, checked: on }}
+                  accessibilityLabel={`${a.label}: ${o.text}`}
+                  onPress={() => onPick(ai, oi)}
+                  style={({ pressed }) => [
+                    styles.segment,
+                    { backgroundColor: on ? tk.feltSoft : tk.surface, borderColor: on ? tk.felt : tk.line, opacity: pressed ? 0.85 : 1 },
+                  ]}
+                >
+                  <Text style={[tp.small, { color: tk.ink, fontWeight: on ? '700' : '500', textAlign: 'center' }]}>{o.text}</Text>
+                </Pressable>
+              );
+            })}
+          </View>
+        </View>
+      ))}
+      <Button label={t('session.check')} disabled={!complete} onPress={() => complete && onSubmit(picks.map((p) => p ?? -1))} />
+    </View>
+  );
+}
+
+/** Po ocenie: każda oś z zaznaczeniem poprawnej wartości, twojego wyboru i wyjaśnieniem każdej opcji. */
+function TextureFeedback({ item, picks }: { item: TextureInstance; picks: readonly number[] }) {
+  const tk = useTokens();
+  const { t } = useTranslation();
+  const tone = (o: DrillOption, picked: boolean) => (o.correct ? 'good' : picked ? 'bad' : 'none');
+  return (
+    <View style={{ gap: space.l }}>
+      {item.axes.map((a, ai) => (
+        <View key={a.axis} style={{ gap: space.xs }}>
+          <Text style={[tp.caption, { color: tk.muted, fontWeight: '700' }]}>{a.label}</Text>
+          {a.options.map((o, oi) => {
+            const picked = picks[ai] === oi;
+            const k = tone(o, picked);
+            return (
+              <View
+                key={o.text}
+                style={[
+                  styles.texOption,
+                  {
+                    backgroundColor: k === 'good' ? tk.goodSoft : k === 'bad' ? tk.badSoft : tk.surface,
+                    borderColor: k === 'good' ? tk.good : k === 'bad' ? tk.bad : tk.line,
+                  },
+                ]}
+              >
+                <Text style={[tp.body, { color: tk.ink, fontWeight: '600' }]}>
+                  {o.text}
+                  {picked ? <Text style={[tp.caption, { color: o.correct ? tk.good : tk.bad }]}>{`  ${t('session.yourAnswer')}`}</Text> : null}
+                </Text>
+                <RichText text={o.why} style={[tp.small, { color: tk.muted }]} />
+              </View>
+            );
+          })}
+        </View>
+      ))}
+    </View>
+  );
+}
+
 const fmtNum = (v: number, unit: NumericInstance['unit']) => {
   const s = String(Math.round(v * 100) / 100).replace('.', ',');
   return unit === 'percent' ? `${s}%` : unit === 'bb' ? `${s}bb` : unit === 'multiplier' ? `${s}x` : s;
@@ -340,6 +439,7 @@ function Feedback({ rec, painted, hideChoices }: { rec: Record_; painted?: boole
       ) : null}
       {item.kind === 'numeric' ? <NumericFeedback item={item} answer={answer} /> : null}
       {item.kind === 'paint' ? <PaintFeedback item={item} painted={painted ?? emptyGrid()} /> : null}
+      {item.kind === 'texture' ? <TextureFeedback item={item} picks={answer.kind === 'texture' ? answer.picks : []} /> : null}
       {item.explanation ? (
         <View style={[styles.explain, { backgroundColor: tk.feltSoft }]}>
           <RichText text={item.explanation} style={tp.small} />
@@ -380,6 +480,9 @@ const styles = StyleSheet.create({
   option: { borderWidth: 1.5, borderRadius: radius.m, padding: space.l, gap: space.xs },
   explain: { borderRadius: radius.m, padding: space.l },
   reviewItem: { borderWidth: 1.5, borderRadius: radius.m, padding: space.l, gap: space.s },
+  segments: { flexDirection: 'row', gap: space.s },
+  segment: { flex: 1, minHeight: 44, justifyContent: 'center', borderWidth: 1.5, borderRadius: radius.m, paddingHorizontal: space.s, paddingVertical: space.m },
+  texOption: { borderWidth: 1.5, borderRadius: radius.m, padding: space.m, gap: space.xs },
   inputRow: { flexDirection: 'row', alignItems: 'center', borderWidth: 1.5, borderRadius: radius.m, paddingHorizontal: space.l, gap: space.s },
   input: { flex: 1, fontSize: 28, fontWeight: '700', paddingVertical: space.m, fontVariant: ['tabular-nums'] },
   score: { fontSize: 56, lineHeight: 64, fontWeight: '800', fontVariant: ['tabular-nums'] },

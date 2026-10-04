@@ -43,14 +43,29 @@ export interface PaintInstance extends InstanceBase {
   spot: RangeSpot;
 }
 
+/** Jedna oś klasyfikacji tekstury flopa (np. wysokość) z opcjami i wyjaśnieniem każdej z nich. */
+export interface TextureAxisItem {
+  axis: 'height' | 'suits' | 'ranks' | 'wetness';
+  label: string;
+  options: DrillOption[];
+}
+
+/** Klasyfikacja tekstury flopa (M5): po jednej odpowiedzi na każdą oś. */
+export interface TextureInstance extends InstanceBase {
+  kind: 'texture';
+  axes: TextureAxisItem[];
+}
+
 /** Jedno konkretne zadanie do pokazania (z treści albo z generatora). */
-export type DrillInstance = ChoiceInstance | NumericInstance | PaintInstance;
+export type DrillInstance = ChoiceInstance | NumericInstance | PaintInstance | TextureInstance;
 
 /** Odpowiedź użytkownika. */
 export type DrillAnswer =
   | { kind: 'choice'; index: number }
   | { kind: 'numeric'; value: number }
   | { kind: 'paint'; painted: readonly boolean[] }
+  /** Indeks wybranej opcji dla każdej osi tekstury (w kolejności osi). */
+  | { kind: 'texture'; picks: readonly number[] }
   | { kind: 'timeout' };
 
 /**

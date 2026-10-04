@@ -13,9 +13,9 @@ import { space, type as tp, useTokens } from '@/theme/tokens';
 
 void SplashScreen.preventAutoHideAsync();
 
-// Nazwa pliku musi odpowiadać CONTENT_SCHEMA_VERSION (content-build zapisuje content-v2.db).
-const CONTENT_DB = 'content-v2.db';
-const contentAsset = require('../../assets/content/content-v2.db') as number;
+// Nazwa pliku musi odpowiadać CONTENT_SCHEMA_VERSION (content-build zapisuje content-v3.db).
+const CONTENT_DB = 'content-v3.db';
+const contentAsset = require('../../assets/content/content-v3.db') as number;
 
 export default function RootLayout() {
   const scheme = useColorScheme();

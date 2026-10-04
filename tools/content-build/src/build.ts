@@ -15,7 +15,7 @@ import {
   type ModuleDef,
   type RuleDef,
 } from '@szkola/content-schema';
-import { parseCards } from '@szkola/poker-core';
+import { classifyFlop, FULL_DECK, parseCards, textureMatches, type TextureFilter } from '@szkola/poker-core';
 import { compileMarkdown } from './markdown';
 import { compileRanges } from './ranges';
 import { findHardcodedNumbers, resolveNumbers, substitute, type ResolvedNumber } from './numbers';
@@ -76,7 +76,12 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
     parseOrThrow(NumbersFile, readYaml(join(contentDir, 'numbers.yaml')), 'numbers.yaml'),
     (id) => ranges.find((r) => r.id === id),
   );
-  const sub = (text: string, where: string) => substitute(text, numbers, where, used);
+  const sub = (text: string, where: string) => {
+    // liczby z % lub bb wpisane ręcznie wykrywamy też w zadaniach i regułach, nie tylko w tekście lekcji
+    const hard = findHardcodedNumbers(text);
+    if (hard.length) warnings.push(`${where}: liczby wpisane ręcznie (użyj {{n:…}}): ${hard.join(', ')}`);
+    return substitute(text, numbers, where, used);
+  };
   for (const r of ranges) {
     for (const g of r.groups) {
       if (g.wrongSizes) g.wrongSizes = g.wrongSizes.map((w) => ({ text: sub(w.text, r.id), why: sub(w.why, r.id) }));
@@ -116,9 +121,6 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
       if (!moduleIds.has(lesson.module)) throw new Error(`nieznany moduł ${lesson.module}`);
       for (const r of lesson.rules) if (!ruleIds.has(r)) throw new Error(`nieznana reguła ${r}`);
 
-      const hard = findHardcodedNumbers(body);
-      if (hard.length) warnings.push(`${where}: liczby wpisane ręcznie (użyj {{n:…}}): ${hard.join(', ')}`);
-
       const drills = lesson.drills.map((d) => {
         if (drillIds.has(d.id)) throw new Error(`powtórzone zadanie ${d.id}`);
         drillIds.add(d.id);
@@ -139,6 +141,23 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
             value: n.value,
             unit: n.entry.unit,
             display: n.display,
+          };
+        }
+        if (d.kind === 'texture') {
+          if (new Set(d.axes).size !== d.axes.length) throw new Error(`zadanie ${d.id}: powtórzona oś tekstury`);
+          return d;
+        }
+        if (d.kind === 'cbet') {
+          checkCbetCases(d.id, d.cases.map((c) => c.when));
+          for (const c of d.cases) if (c.rule && !ruleIds.has(c.rule)) throw new Error(`zadanie ${d.id}: nieznana reguła ${c.rule}`);
+          return {
+            ...d,
+            prompt: sub(d.prompt, d.id),
+            options: { check: sub(d.options.check, d.id), small: sub(d.options.small, d.id), big: sub(d.options.big, d.id) },
+            cases: d.cases.map((c) => ({
+              ...c,
+              why: { check: sub(c.why.check, d.id), small: sub(c.why.small, d.id), big: sub(c.why.big, d.id) },
+            })),
           };
         }
         if (d.kind === 'generated') {
@@ -215,6 +234,29 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
   const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, modules, lessons, rules, numbers: numbersOut, ranges };
   const hash = createHash('sha256').update(JSON.stringify(payload)).digest('hex').slice(0, 16);
   return { ...payload, hash, warnings };
+}
+
+/** Wszystkie 22 100 flopów z teksturą (do sprawdzania przypadków c-betu). */
+let allFlops: ReturnType<typeof classifyFlop>[] | null = null;
+function flopTextures() {
+  if (!allFlops) {
+    allFlops = [];
+    for (let a = 0; a < 52; a++) for (let b = a + 1; b < 52; b++) for (let c = b + 1; c < 52; c++) allFlops.push(classifyFlop([FULL_DECK[a]!, FULL_DECK[b]!, FULL_DECK[c]!]));
+  }
+  return allFlops;
+}
+
+/** Przypadki zadania c-bet: każdy pasuje do jakiegoś flopu i żaden flop nie pasuje do dwóch naraz. */
+export function checkCbetCases(drillId: string, filters: readonly TextureFilter[]): void {
+  const hits = filters.map(() => 0);
+  for (const t of flopTextures()) {
+    const matched = filters.flatMap((f, i) => (textureMatches(t, f) ? [i] : []));
+    if (matched.length > 1) throw new Error(`zadanie ${drillId}: przypadki ${matched.map((i) => i + 1).join(' i ')} pasują do tego samego flopu`);
+    for (const i of matched) hits[i]!++;
+  }
+  hits.forEach((n, i) => {
+    if (n === 0) throw new Error(`zadanie ${drillId}: przypadek ${i + 1} nie pasuje do żadnego flopu`);
+  });
 }
 
 export function contentDbFileName(): string {

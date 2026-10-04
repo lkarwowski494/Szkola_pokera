@@ -1,4 +1,4 @@
-import { alpha, hitProbability, mdf, requiredEquity, ruleOf2And4 } from '@szkola/poker-core';
+import { alpha, hitProbability, mdf, missProbability, requiredEquity, ruleOf2And4 } from '@szkola/poker-core';
 import type { NumberEntry } from '@szkola/content-schema';
 
 export interface ResolvedNumber {
@@ -43,6 +43,9 @@ function compute(key: string, e: NumberEntry, spots: SpotLookup | undefined, ref
     case 'hitProbability':
       need(3);
       return hitProbability(a[0]!, a[1]!, a[2]! as 1 | 2);
+    case 'missProbability':
+      need(3);
+      return missProbability(a[0]!, a[1]!, a[2]!);
     case 'ruleOf2And4':
       need(2);
       return ruleOf2And4(a[0]!, a[1]! as 1 | 2);

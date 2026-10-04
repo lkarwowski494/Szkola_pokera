@@ -94,5 +94,9 @@ export function gradeAnswer(inst: DrillInstance, answer: DrillAnswer): GradeResu
       return answer.kind === 'numeric' ? gradeNumeric(inst, answer.value) : 'wrong';
     case 'paint':
       return answer.kind === 'paint' && scorePaint(inst.spot, answer.painted).score >= PAINT_PASS ? 'correct' : 'wrong';
+    case 'texture':
+      // wszystkie osie trafione = dobrze; choćby jedna zła = źle (decyzja tymczasowa M5, bez oceny „blisko”)
+      if (answer.kind !== 'texture' || answer.picks.length !== inst.axes.length) return 'wrong';
+      return inst.axes.every((a, i) => a.options[answer.picks[i]!]?.correct === true) ? 'correct' : 'wrong';
   }
 }

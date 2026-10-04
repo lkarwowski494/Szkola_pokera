@@ -41,7 +41,7 @@ drills:
     prompt: "Przeciwnik stawia pół puli. Ile equity potrzebujesz?"
     options:
       - { text: "{{n:eq.bet-half}}", correct: true, why: "Pula {{n:ex.pot}}, zakład {{n:ex.bet.half}}. Dopłacasz {{n:ex.bet.half}} do łącznie {{n:ex.half.total}}, czyli {{n:eq.bet-half}}." }
-      - { text: "50%", why: "Częsty błąd. Dzielisz przez wszystko, co możesz wygrać, łącznie ze swoim sprawdzeniem." }
+      - { text: "{{n:ex.wrong.half}}", why: "Częsty błąd. Dzielisz przez wszystko, co możesz wygrać, łącznie ze swoim sprawdzeniem." }
       - { text: "{{n:eq.bet-pot}}", why: "Tyle potrzebujesz przy zakładzie wielkości całej puli." }
   - kind: generated
     id: m2.l2.g1

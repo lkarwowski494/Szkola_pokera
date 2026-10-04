@@ -1,7 +1,7 @@
 import { interleave } from '@szkola/srs';
 import { pick, shuffle, type Rng } from '@szkola/poker-core';
 import type { DrillRow } from '@/data/content/repo';
-import { instantiate, type DrillContext } from '@/features/drills/engine';
+import { instantiate, isGenerative, type DrillContext } from '@/features/drills/engine';
 import { EXAM_MAX_PAINT, EXAM_MODULE_SHARE, EXAM_SIZE } from '@/features/drills/thresholds';
 import type { DrillInstance } from '@/features/drills/types';
 
@@ -27,10 +27,10 @@ export function buildFamilySession(rows: readonly DrillRow[], families: readonly
     const candidates = byFamily.get(family)!;
     // zadania z generatora dają za każdym razem nowe rozdanie; zadania stałe (wybór, liczba, malowanie)
     // nie powtarzają się w jednej sesji
-    const fresh = candidates.filter((c) => c.drill.kind === 'generated' || !usedChoice.has(c.id));
+    const fresh = candidates.filter((c) => isGenerative(c.drill) || !usedChoice.has(c.id));
     if (fresh.length === 0) continue;
     const row = pick(rng, fresh);
-    if (row.drill.kind !== 'generated') usedChoice.add(row.id);
+    if (!isGenerative(row.drill)) usedChoice.add(row.id);
     out.push(...instantiate(row.drill, row.lessonId, rng, 1, ctx).map((d, i) => ({ ...d, key: `${d.key}@${out.length}-${i}` })));
   }
   return out;
@@ -53,7 +53,7 @@ function pickRows(rows: readonly DrillRow[], n: number, rng: Rng, used: Set<stri
   for (const r of rows) byFamily.set(r.family, [...(byFamily.get(r.family) ?? []), r]);
   const out: DrillRow[] = [];
   const usable = (r: DrillRow) =>
-    r.drill.kind === 'generated' ? true : r.drill.kind === 'paint' ? budget.paint > 0 && !used.has(r.id) : !used.has(r.id);
+    isGenerative(r.drill) ? true : r.drill.kind === 'paint' ? budget.paint > 0 && !used.has(r.id) : !used.has(r.id);
   while (out.length < n) {
     const families = shuffle(rng, [...byFamily.keys()].filter((f) => byFamily.get(f)!.some(usable)));
     if (families.length === 0) break;
@@ -62,7 +62,7 @@ function pickRows(rows: readonly DrillRow[], n: number, rng: Rng, used: Set<stri
       const candidates = byFamily.get(f)!.filter(usable);
       if (candidates.length === 0) continue;
       const row = pick(rng, candidates);
-      if (row.drill.kind !== 'generated') used.add(row.id);
+      if (!isGenerative(row.drill)) used.add(row.id);
       if (row.drill.kind === 'paint') budget.paint--;
       out.push(row);
     }

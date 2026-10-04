@@ -1,7 +1,7 @@
 /// <reference types="jest" />
 /// <reference types="node" />
 /**
- * Test na prawdziwej treści: każde zadanie z content-v2.db daje się utworzyć i ocenić, a egzamin każdego modułu
+ * Test na prawdziwej treści: każde zadanie z content-vN.db daje się utworzyć i ocenić, a egzamin każdego modułu
  * ma pełną długość. Łapie rozjazd między potokiem treści a silnikiem zadań.
  */
 import { CONTENT_SCHEMA_VERSION, type Drill } from '@szkola/content-schema';
@@ -44,6 +44,14 @@ describe('treść w bazie a silnik zadań', () => {
           expect(gradeAnswer(inst, { kind: 'choice', index: i })).toBe('correct');
         } else if (inst.kind === 'numeric') {
           expect(gradeAnswer(inst, { kind: 'numeric', value: inst.answer })).toBe('correct');
+        } else if (inst.kind === 'texture') {
+          // każda oś ma dokładnie jedną poprawną wartość, każda opcja ma wyjaśnienie
+          for (const a of inst.axes) {
+            expect(a.options.filter((o) => o.correct)).toHaveLength(1);
+            for (const o of a.options) expect(o.why.length).toBeGreaterThan(3);
+          }
+          const right = inst.axes.map((a) => a.options.findIndex((o) => o.correct));
+          expect(gradeAnswer(inst, { kind: 'texture', picks: right })).toBe('correct');
         } else {
           // zakres solvera narysowany dokładnie (ręce grane co najmniej z częstością MIXED_HIGH) zawsze zalicza
           const play = inst.spot.groups[0]!.freqs.map((_, h) => inst.spot.groups.reduce((s, g) => s + g.freqs[h]!, 0));

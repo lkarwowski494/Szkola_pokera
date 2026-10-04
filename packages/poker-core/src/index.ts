@@ -6,4 +6,5 @@ export * from './math';
 export * from './ranges';
 export * from './draws';
 export * from './drills';
+export * from './texture';
 export * from './bench';
