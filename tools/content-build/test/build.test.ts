@@ -5,7 +5,7 @@ import { FlopHeight, FlopRanks, FlopSuits, FlopWetness, RuleDef, TextureAxis } f
 import { TEXTURE_AXES, TEXTURE_VALUES, WETNESS_POINTS, WETNESS_THRESHOLDS, classifyFlop, parseCards } from '@szkola/poker-core';
 import { checkCbetCases, compileContent } from '../src/build';
 import { compileMarkdown } from '../src/markdown';
-import { findHardcodedNumbers, formatNumber, resolveNumbers, substitute } from '../src/numbers';
+import { findHardcodedNumbers, formatNumber, normCdf, resolveNumbers, substitute } from '../src/numbers';
 
 const contentDir = join(resolve(import.meta.dirname, '../../..'), 'content');
 
@@ -144,6 +144,7 @@ describe('flop: tekstura i c-bet (M5, schemat w wersji 3)', () => {
   it('punkty i progi mokrości w numbers.yaml są tymi samymi stałymi co w poker-core (jedno źródło prawdy)', () => {
     const v = (k: string) => c.numbers.find((x) => x.key === k)?.value;
     expect(v('tex.points.straight.made')).toBe(WETNESS_POINTS.straight.made);
+    expect(v('tex.points.straight.made-one')).toBe(WETNESS_POINTS.straight['made-one']);
     expect(v('tex.points.straight.draw')).toBe(WETNESS_POINTS.straight.draw);
     expect(v('tex.points.straight.none')).toBe(WETNESS_POINTS.straight.none);
     expect(v('tex.points.suits.rainbow')).toBe(WETNESS_POINTS.suits.rainbow);
@@ -165,9 +166,8 @@ describe('flop: tekstura i c-bet (M5, schemat w wersji 3)', () => {
     for (const row of rows) {
       const cells = row.split('|').slice(1, -1).map((x) => x.trim());
       const tex = classifyFlop(parseCards(/\[\[([^\]]+)\]\]/.exec(cells[0]!)![1]!));
-      const straight = tex.straightPossible ? 'made' : tex.straightDrawPossible ? 'draw' : 'none';
       expect(value(cells[1]!), row).toBe(WETNESS_POINTS.suits[tex.suits]);
-      expect(value(cells[2]!), row).toBe(WETNESS_POINTS.straight[straight]);
+      expect(value(cells[2]!), row).toBe(WETNESS_POINTS.straight[tex.straight]);
       expect(value(cells[3]!), row).toBe(tex.wetnessPoints);
       expect(names[cells[4]!], row).toBe(tex.wetness);
     }
@@ -208,5 +208,45 @@ describe('formuły ilorazu i rozmiaru geometrycznego (M7, M9)', () => {
   it('geometric: SPR 13 i trzy ulice dają zakład wielkości puli', () => {
     const n = resolveNumbers({ x: { formula: 'geometric', args: [13, 3], ...u } });
     expect(n.get('x')!.value).toBeCloseTo(1, 12);
+  });
+});
+
+describe('formuły sqrt, exp i normCdf oraz format bb/100 i tysięcy (M12)', () => {
+  const u = { unit: 'ratio' as const, decimals: 3, source: 'test' };
+
+  it('sqrt: odchylenie wyniku po 100 tys. rąk = 80 × √1000', () => {
+    const n = resolveNumbers({ b: { value: 1000, ...u }, r: { formula: 'sqrt', refs: ['b'], ...u }, sd: { value: 80, ...u }, x: { formula: 'product', refs: ['sd', 'r'], ...u, decimals: 0 } });
+    expect(n.get('r')!.value).toBeCloseTo(31.6228, 4);
+    expect(n.get('x')!.display).toBe('2530');
+  });
+
+  it('sqrt: liczba ujemna przerywa budowanie', () => {
+    expect(() => resolveNumbers({ x: { formula: 'sqrt', args: [-1], ...u } })).toThrow(/ujemnej/);
+  });
+
+  it('exp: ryzyko bankructwa e^(−2·5·2000/6400) = 4,4% (przykład Primedope)', () => {
+    const n = resolveNumbers({ x: { formula: 'exp', args: [(-2 * 5 * 2000) / 6400], unit: 'percent', decimals: 1, source: 'test' } });
+    expect(n.get('x')!.display).toBe('4,4%');
+  });
+
+  it('normCdf: wartości z tablic rozkładu normalnego', () => {
+    expect(normCdf(0)).toBeCloseTo(0.5, 7);
+    expect(normCdf(1.96)).toBeCloseTo(0.975002, 6);
+    expect(normCdf(-1.96)).toBeCloseTo(0.024998, 6);
+    expect(normCdf(-3)).toBeCloseTo(0.0013499, 6);
+    expect(normCdf(1) + normCdf(-1)).toBeCloseTo(1, 12);
+  });
+
+  it('formuły jednoargumentowe wymagają dokładnie jednego argumentu', () => {
+    expect(() => resolveNumbers({ x: { formula: 'exp', args: [1, 2], ...u } })).toThrow(/1 argumentów/);
+  });
+
+  it('format: bb/100 i twarda spacja co trzy cyfry od pięciu cyfr', () => {
+    expect(formatNumber(80, 'bb100', 0)).toBe('80bb/100');
+    expect(formatNumber(2.53, 'bb100', 1)).toBe('2,5bb/100');
+    expect(formatNumber(5000, 'bb', 0)).toBe('5000bb');
+    expect(formatNumber(80000, 'bb', 0)).toBe('80 000bb');
+    expect(formatNumber(1234567.5, 'count', 1)).toBe('1 234 567,5');
+    expect(formatNumber(-25000, 'count', 0)).toBe('-25 000');
   });
 });

@@ -1,4 +1,4 @@
-import { alpha, geometricFraction, hitProbability, mdf, missProbability, requiredEquity, ruleOf2And4 } from '@szkola/poker-core';
+import { alpha, FLOP_WETNESS, flopWetnessShares, geometricFraction, hitProbability, mdf, missProbability, requiredEquity, ruleOf2And4 } from '@szkola/poker-core';
 import type { NumberEntry } from '@szkola/content-schema';
 import { icmEquities } from './icm';
 
@@ -7,6 +7,18 @@ export interface ResolvedNumber {
   value: number;
   display: string;
   entry: NumberEntry;
+}
+
+/**
+ * Dystrybuanta standardowego rozkładu normalnego Φ(x) przez funkcję błędu erf (Abramowitz i Stegun 7.1.26,
+ * błąd bezwzględny erf poniżej 1,5·10⁻⁷, więc Φ z błędem poniżej 10⁻⁷).
+ */
+export function normCdf(x: number): number {
+  const z = Math.abs(x) / Math.SQRT2;
+  const t = 1 / (1 + 0.3275911 * z);
+  const poly = t * (0.254829592 + t * (-0.284496736 + t * (1.421413741 + t * (-1.453152027 + t * 1.061405429))));
+  const erf = 1 - poly * Math.exp(-z * z);
+  return x >= 0 ? (1 + erf) / 2 : (1 - erf) / 2;
 }
 
 export type SpotLookup = (spotId: string) => { playPercent: number } | undefined;
@@ -65,6 +77,22 @@ function compute(key: string, e: NumberEntry, spots: SpotLookup | undefined, ref
       // (SPR, liczba ulic) → ułamek puli na każdą ulicę, tak by all-in wypadł na ostatniej
       need(2);
       return geometricFraction(a[0]!, a[1]!);
+    case 'flopWetnessShare': {
+      need(1);
+      const w = FLOP_WETNESS[a[0]!];
+      if (!w) throw new Error(`Liczba "${key}": flopWetnessShare przyjmuje indeks 0–2`);
+      return flopWetnessShares()[w];
+    }
+    case 'sqrt':
+      need(1);
+      if (a[0]! < 0) throw new Error(`Liczba "${key}": pierwiastek z liczby ujemnej`);
+      return Math.sqrt(a[0]!);
+    case 'exp':
+      need(1);
+      return Math.exp(a[0]!);
+    case 'normCdf':
+      need(1);
+      return normCdf(a[0]!);
     case 'ruleOf2And4':
       need(2);
       return ruleOf2And4(a[0]!, a[1]! as 1 | 2);
@@ -73,14 +101,24 @@ function compute(key: string, e: NumberEntry, spots: SpotLookup | undefined, ref
   }
 }
 
-/** Format polski: przecinek dziesiętny, spacja przed jednostką tylko dla „bb” i „ms”. */
+/**
+ * Format polski: przecinek dziesiętny, bez spacji przed „bb”, spacja przed „s”. Liczby od 10 000 wzwyż mają
+ * twardą spację co trzy cyfry (polska norma: separator tysięcy przy co najmniej pięciu cyfrach).
+ */
 export function formatNumber(value: number, unit: NumberEntry['unit'], decimals: number): string {
-  const fmt = (v: number) => v.toFixed(decimals).replace('.', ',');
+  const fmt = (v: number) => {
+    const [int, frac] = v.toFixed(decimals).split('.') as [string, string | undefined];
+    const digits = int.replace('-', '');
+    const grouped = digits.length >= 5 ? digits.replace(/\B(?=(\d{3})+$)/g, '\u00a0') : digits;
+    return (int.startsWith('-') ? '-' : '') + grouped + (frac !== undefined ? `,${frac}` : '');
+  };
   switch (unit) {
     case 'percent':
       return `${fmt(value * 100)}%`;
     case 'bb':
       return `${fmt(value)}bb`;
+    case 'bb100':
+      return `${fmt(value)}bb/100`;
     case 'multiplier':
       return `${fmt(value)}x`;
     case 'ms':

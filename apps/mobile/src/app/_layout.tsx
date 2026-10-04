@@ -51,6 +51,7 @@ export default function RootLayout() {
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="lesson/[id]" options={{ title: '' }} />
           <Stack.Screen name="diagnostics" options={{ title: '' }} />
+          <Stack.Screen name="advancement" options={{ title: '' }} />
           <Stack.Screen name="session" options={{ presentation: 'fullScreenModal', headerShown: false, gestureEnabled: false }} />
         </Stack>
       </SQLiteProvider>

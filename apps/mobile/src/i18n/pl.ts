@@ -92,6 +92,23 @@ export const pl = {
     cancel: 'Anuluj',
     contentVersion: 'Wersja treści: {{hash}}',
   },
+  advancement: {
+    title: 'Wskaźnik zaawansowania',
+    outOf: 'na 100',
+    outOfLong: 'na 100 punktów',
+    openHint: 'Pokazuje wynik w obszarach kursu',
+    knowledge: 'Wiedza',
+    game: 'Gra',
+    gamePending: 'dostępne po trybie gry',
+    gamePendingLong:
+      'Część „gra” dojdzie razem z trybem gry: ocenią ją twoje decyzje przy stole. Do tego czasu wskaźnik pokazuje samą wiedzę.',
+    explain:
+      'Wiedza to przewidywana szansa, że za {{days}} dni, bez powtórki, rozwiążesz zadanie z każdej umiejętności kursu. Umiejętność, której jeszcze nie ćwiczyłeś, liczy się jako 0. Wynik rośnie z nowymi lekcjami i powtórkami, a spada, gdy długo nie powtarzasz.',
+    practiced: '{{done}} z {{total}} umiejętności przećwiczonych',
+    areas: 'Obszary',
+    noLessons: 'brak lekcji',
+    optional: 'Moduł opcjonalny: nie wchodzi do wyniku ogólnego.',
+  },
   diagnostics: {
     title: 'Pomiar wydajności',
     link: 'Pomiar wydajności',
