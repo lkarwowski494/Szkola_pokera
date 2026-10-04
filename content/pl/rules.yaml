@@ -310,3 +310,83 @@
   because: "każdy kolejny rywal zwiększa szansę, że ktoś trafił: dwie ręce bez pary chybiają naraz tylko w ok. {{n:flop.miss.two}} przypadków"
   level: heuristic
   source: "PokerCoaching, C-Betting in Multiway Pots; GTO Gecko, What Is a Continuation Bet; przybliżenie z obliczenia"
+
+# M6: obrona na flopie. Matematyka z formuł (numbers.yaml); zalecenia z literatury jako heurystyki, bez wyników solvera.
+- id: R-M6-001
+  module: m6
+  if: "przeciwnik betuje na riverze 1/3 puli"
+  then: "bronisz (sprawdzasz albo przebijasz) co najmniej ok. {{n:mdf.bet-third}} zakresu, czyli tyle wynosi MDF"
+  because: "blef bez szans ryzykuje 1 część, żeby wygrać 3; jeśli pasujesz częściej niż {{n:alpha.bet-third}}, rywal zarabia, blefując dowolnymi kartami"
+  level: math
+  source: "obliczenie: MDF = pula/(pula+bet); PokerCoaching, MDF in Poker: Why Most Players Misuse It (pokercoaching.com/blog/mdf-poker)"
+- id: R-M6-002
+  module: m6
+  if: "blefujesz ręką bez szans na wygraną"
+  then: "blef wychodzi na plus, gdy rywal pasuje częściej niż alpha = bet/(pula+bet); przy becie pół puli to {{n:alpha.bet-half}}"
+  because: "ryzykujesz bet, żeby wygrać pulę; im większy bet, tym częściej rywal musi pasować"
+  level: math
+  source: "obliczenie: alpha = bet/(pula+bet); GTO Wizard, MDF & Alpha (blog.gtowizard.com/mdf-alpha)"
+- id: R-M6-003
+  module: m6
+  if: "dostajesz bet na flopie (albo na turnie)"
+  then: "bronisz mniej, niż wskazuje MDF; MDF traktujesz jako punkt odniesienia, nie obowiązek"
+  because: "blefy rywala mają jeszcze equity i mogą się poprawić, a bez pozycji nie zrealizujesz całego equity swoich słabych rąk"
+  level: heuristic
+  source: "GTO Wizard, MDF & Alpha (blog.gtowizard.com/mdf-alpha); PokerCoaching, MDF in Poker: Why Most Players Misuse It (pokercoaching.com/blog/mdf-poker)"
+- id: R-M6-004
+  module: m6
+  if: "duży bet na riverze stawia gracz, który rzadko blefuje (np. pasywny gracz rekreacyjny)"
+  then: "pasujesz częściej, niż wskazuje MDF, także średnimi parami"
+  because: "MDF zakłada, że rywal blefuje wystarczająco często; gdy blefów brakuje, sprawdzenie słabszą ręką płaci głównie lepszym rękom"
+  level: exploit
+  population: "online mikrostawki cash (NL2–NL25): obserwacje populacji z forum 2+2 (wątek Population Tendencies and Exploits) i trenerów PokerCoaching; bez liczb z bazy rąk"
+  source: "PokerCoaching, MDF in Poker: Why Most Players Misuse It; Deepfold, Bluff Catching: When to Call and When to Let It Go (deepfold.co/en/blog/bluff-catching-principles); 2+2, [OFFICIAL] Population Tendencies and Exploits"
+- id: R-M6-005
+  module: m6
+  if: "rywal stawia większy bet"
+  then: "bronisz węższym zakresem: przy becie 1/3 puli MDF to {{n:mdf.bet-third}}, a przy becie wielkości puli {{n:mdf.bet-pot}}"
+  because: "większy bet daje gorszą cenę: potrzebne equity rośnie z {{n:eq.bet-third}} do {{n:eq.bet-pot}}"
+  level: math
+  source: "obliczenie: MDF = pula/(pula+bet), potrzebne equity = bet/(pula+2·bet)"
+- id: R-M6-006
+  module: m6
+  if: "na dużym blindzie dostajesz mały c-bet (ok. 1/3 puli)"
+  then: "sprawdzasz każdą parę, dobierania oraz wysokie karty z dodatkowym dobieraniem (backdoor); pasujesz rękami bez pary i bez dobierania"
+  because: "potrzebujesz tylko ok. {{n:eq.bet-third}} equity, a te ręce albo już wygrywają z blefami, albo mogą się poprawić"
+  level: heuristic
+  source: "Upswing, How to Defend Against Large Flop C-Bets; Upswing, Backdoor Flush/Straight Draws; PokerCoaching, Mastering Big Blind Strategy"
+- id: R-M6-007
+  module: m6
+  if: "masz dwie wysokie karty bez pary i bez dobierania, a c-bet jest duży (3/4 puli i więcej)"
+  then: "pasujesz"
+  because: "bez pozycji taka ręka rzadko dochodzi do showdownu, a para z wysokiej karty często i tak przegrywa; dodatkowe dobieranie zmienia to na sprawdzenie"
+  level: heuristic
+  source: "Upswing, Backdoor Flush/Straight Draws (dwie gołe wysokie karty to za mało na sprawdzenie); PokerCoaching, Mastering Big Blind Strategy (realizacja equity bez pozycji)"
+- id: R-M6-008
+  module: m6
+  if: "chcesz zrobić check-raise na flopie"
+  then: "robisz go najsilniejszymi rękami (dwie pary, sety) i mocnymi dobieraniami; średnie pary sprawdzasz"
+  because: "po check-raise'u gorsze ręce pasują, a lepsze płacą, więc średnia para zamienia się w blef; dobieranie ma dwie drogi do wygranej: pas rywala albo trafienie"
+  level: heuristic
+  source: "Upswing, How to Check-Raise Like a High Stakes Juggernaut; Upswing, 5 Winning Check-Raising Strategies"
+- id: R-M6-009
+  module: m6
+  if: "c-bet jest mały albo flop jest niski i połączony (np. 7-6-5)"
+  then: "robisz check-raise częściej; na flopach z asem albo królem i wobec dużych c-betów rzadziej"
+  because: "na niskich flopach duży blind ma więcej najsilniejszych układów (przewaga nutsów), a mały c-bet daje tanią okazję do przebicia"
+  level: heuristic
+  source: "Upswing, How to Check-Raise Like a High Stakes Juggernaut; Upswing, How to Use Positional, Range, and Nut Advantages"
+- id: R-M6-010
+  module: m6
+  if: "robisz check-raise na flopie"
+  then: "przebijasz kilka razy więcej niż c-bet, a nie minimalnie"
+  because: "przy check-raise'ie do {{n:xr.mult.example}} c-betu Button potrzebuje do sprawdzenia ok. {{n:eq.vs-xr.example}} equity, a przy {{n:xr.too-small.mult}} c-betu tylko {{n:eq.vs-xr.too-small}}; tak tanio zapłaci każdym dobieraniem"
+  level: math
+  source: "obliczenie: dopłata/(pula po przebiciu + dopłata); konkretny przedział rozmiarów z literatury do weryfikacji"
+- id: R-M6-011
+  module: m6
+  if: "rywal wyraźnie rzadko pasuje na flopie"
+  then: "robisz check-raise głównie dla wartości, a blefów w check-raise'ach robisz mniej i tylko z mocnymi dobieraniami"
+  because: "blef zarabia tylko wtedy, gdy rywal pasuje częściej niż alpha; gdy pasów brakuje, zostaje ci tylko szansa na trafienie"
+  level: heuristic
+  source: "wniosek z alpha (R-M6-002): blef potrzebuje pasów rywala"
