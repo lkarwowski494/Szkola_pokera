@@ -17,7 +17,7 @@ drills:
     id: m12.l4.q-ror-base
     family: m12.risk-of-ruin
     rules: [R-M12-009]
-    prompt: "Wygrywasz {{n:var.wr.typical.high}}/100 przy odchyleniu {{n:var.sd}}/100 i masz {{n:br.bi.base}} wpisowych ({{n:br.base.bb}}). Jakie jest ryzyko utraty całego bankrollu?"
+    prompt: "Wygrywasz {{n:var.wr.typical.high}} przy odchyleniu {{n:var.sd}} i masz {{n:br.bi.base}} wpisowych ({{n:br.base.bb}}). Jakie jest ryzyko utraty całego bankrollu?"
     options:
       - { text: "Ok. {{n:ror.base}}", correct: true, why: "Wykładnik to 2 × winrate × bankroll ÷ SD² = {{n:ror.two}} × {{n:var.wr.typical.high}} × {{n:br.base.bb}} ÷ {{n:var.sd.sq}} ≈ {{n:ror.exp.base}}, więc RoR = e^(−{{n:ror.exp.base}}) ≈ {{n:ror.base}}. To szansa, że kiedykolwiek stracisz cały bankroll, jeśli nigdy nie zejdziesz stawkę." }
       - { text: "Ok. {{n:ror.half}}", why: "Tyle wychodzi przy połowie bankrollu, {{n:br.bi.move-down}} wpisowych. Przy {{n:br.bi.base}} wykładnik jest dwa razy większy, więc ryzyko spada do ok. {{n:ror.base}}." }
@@ -26,18 +26,18 @@ drills:
     id: m12.l4.q-ror-winrate
     family: m12.risk-of-ruin
     rules: [R-M12-009, R-M12-010]
-    prompt: "Ten sam bankroll {{n:br.bi.base}} wpisowych, odchylenie {{n:var.sd}}/100, ale winrate tylko {{n:var.wr.typical.low}}/100. Jakie jest ryzyko utraty bankrollu?"
+    prompt: "Ten sam bankroll {{n:br.bi.base}} wpisowych, odchylenie {{n:var.sd}}, ale winrate tylko {{n:var.wr.typical.low}}. Jakie jest ryzyko utraty bankrollu?"
     options:
-      - { text: "Ok. {{n:ror.base.wr-min}}", correct: true, why: "Winrate stoi w wykładniku: przy {{n:var.wr.typical.low}}/100 zamiast {{n:var.wr.typical.high}}/100 wykładnik jest trzy razy mniejszy, a ryzyko rośnie z ok. {{n:ror.base}} do ok. {{n:ror.base.wr-min}}." }
+      - { text: "Ok. {{n:ror.base.wr-min}}", correct: true, why: "Winrate stoi w wykładniku: przy {{n:var.wr.typical.low}} zamiast {{n:var.wr.typical.high}} wykładnik jest trzy razy mniejszy, a ryzyko rośnie z ok. {{n:ror.base}} do ok. {{n:ror.base.wr-min}}." }
       - { text: "Ok. {{n:ror.base}}, bo bankroll jest ten sam", why: "Ryzyko zależy od iloczynu winrate × bankroll. Niższy winrate działa jak mniejszy bankroll: wychodzi ok. {{n:ror.base.wr-min}}." }
-      - { text: "Ok. {{n:ror.base.wr-ex}}", why: "Tyle wychodzi przy winrate {{n:var.wr.ex}}/100. Przy {{n:var.wr.typical.low}}/100 ryzyko jest kilkadziesiąt razy większe: ok. {{n:ror.base.wr-min}}." }
+      - { text: "Ok. {{n:ror.base.wr-ex}}", why: "Tyle wychodzi przy winrate {{n:var.wr.ex}}. Przy {{n:var.wr.typical.low}} ryzyko jest kilkadziesiąt razy większe: ok. {{n:ror.base.wr-min}}." }
   - kind: choice
     id: m12.l4.q-beginner
     family: m12.bankroll-size
     rules: [R-M12-010]
     prompt: "Zaczynasz grać na prawdziwe pieniądze i nie znasz jeszcze swojego winrate. Ile wpisowych powinieneś mieć na wybranej stawce?"
     options:
-      - { text: "Co najmniej {{n:br.bi.beginner}}", correct: true, why: "Bez potwierdzonego winrate zakładasz ostrożnie, że jest niski. Nawet {{n:br.bi.beginner}} wpisowych przy {{n:var.wr.typical.low}}/100 zostawia ok. {{n:ror.beginner.wr-min}} ryzyka, a {{n:br.bi.base}} aż ok. {{n:ror.base.wr-min}}." }
+      - { text: "Co najmniej {{n:br.bi.beginner}}", correct: true, why: "Bez potwierdzonego winrate zakładasz ostrożnie, że jest niski. Nawet {{n:br.bi.beginner}} wpisowych przy {{n:var.wr.typical.low}} zostawia ok. {{n:ror.beginner.wr-min}} ryzyka, a {{n:br.bi.base}} aż ok. {{n:ror.base.wr-min}}." }
       - { text: "Ok. {{n:dd.bi.small}}", why: "Zjazd o {{n:dd.bi.small}} wpisowych zdarza się prawie każdemu wygrywającemu, więc taki bankroll szybko by się skończył." }
       - { text: "Co najmniej {{n:br.bi.base}}", why: "To minimum dla gracza z potwierdzonym winrate. Bez tej wiedzy bierzesz zapas: {{n:br.bi.beginner}} wpisowych." }
   - kind: choice
@@ -113,13 +113,13 @@ Ryzyko, że kiedykolwiek stracisz cały bankroll, jeśli nigdy nie zejdziesz sta
 RoR = e^(−2 × winrate × bankroll ÷ SD²)
 ```
 
-Winrate i SD podajesz w bb/100, bankroll w bb. Przy odchyleniu {{n:var.sd}}/100:
+Winrate i SD podajesz w bb/100, bankroll w bb. Przy odchyleniu {{n:var.sd}}:
 
 | Winrate | {{n:br.bi.move-down}} wpisowych | {{n:br.bi.base}} wpisowych | {{n:br.bi.beginner}} wpisowych |
 |---|---|---|---|
-| {{n:var.wr.typical.low}}/100 | — | {{n:ror.base.wr-min}} | {{n:ror.beginner.wr-min}} |
-| {{n:var.wr.typical.high}}/100 | {{n:ror.half}} | {{n:ror.base}} | — |
-| {{n:var.wr.ex}}/100 | — | {{n:ror.base.wr-ex}} | — |
+| {{n:var.wr.typical.low}} | — | {{n:ror.base.wr-min}} | {{n:ror.beginner.wr-min}} |
+| {{n:var.wr.typical.high}} | {{n:ror.half}} | {{n:ror.base}} | — |
+| {{n:var.wr.ex}} | — | {{n:ror.base.wr-ex}} | — |
 
 Winrate i bankroll stoją we wzorze obok siebie: dwa razy niższy winrate wymaga dwa razy większego bankrollu dla tego samego ryzyka. Przy ujemnym winrate żaden bankroll nie pomoże, bo chroni przed wariancją, a nie przed słabą grą.
 

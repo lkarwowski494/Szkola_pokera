@@ -11,19 +11,21 @@ const cardsText = z.string().regex(/^([2-9TJQKA][shdc])( [2-9TJQKA][shdc])*$/, '
 
 // ---------- Liczby (jedno źródło prawdy) ----------
 
-export const NumberUnit = z.enum(['percent', 'bb', 'multiplier', 'count', 'ratio', 'ms']);
+/** bb100: winrate i odchylenie w bb na 100 rąk (M12), wyświetlane jako „80bb/100”. */
+export const NumberUnit = z.enum(['percent', 'bb', 'bb100', 'multiplier', 'count', 'ratio', 'ms']);
 
 export const NumberEntry = z
   .object({
     /** Wartość podana wprost (np. z badań). */
     value: z.number().optional(),
     /** Wartość wyliczana przy budowie przez poker-core (np. requiredEquity(100, 50)). */
-    formula: z.enum(['requiredEquity', 'mdf', 'alpha', 'hitProbability', 'ruleOf2And4', 'rangePlay', 'product', 'sum', 'diff', 'missProbability', 'quotient', 'geometric']).optional(),
+    formula: z.enum(['requiredEquity', 'mdf', 'alpha', 'hitProbability', 'ruleOf2And4', 'rangePlay', 'product', 'sum', 'diff', 'missProbability', 'quotient', 'geometric', 'sqrt', 'exp', 'normCdf']).optional(),
     args: z.array(z.number()).optional(),
     /**
      * Klucze innych liczb zamiast wpisanych wartości (jedno źródło prawdy): dla product, sum, diff (pierwsza minus
      * pozostałe) oraz zamiast args dla requiredEquity, mdf i alpha (pula, zakład) i missProbability (outy, karty nieznane,
-     * liczba odkrywanych kart).
+     * liczba odkrywanych kart). Jednoargumentowe sqrt, exp (e^x) i normCdf (dystrybuanta standardowego rozkładu
+     * normalnego) przyjmują jeden argument w args albo refs (M12: wariancja i ryzyko bankructwa).
      */
     refs: z.array(z.string()).optional(),
     /** Dla formuły rangePlay: identyfikator spotu z content/ranges/spots.yaml. */

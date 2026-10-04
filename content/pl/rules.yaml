@@ -693,20 +693,20 @@
   module: m12
   if: "oceniasz swój wynik albo winrate z próbki rąk"
   then: "liczysz przedział: winrate ± {{n:var.z95}} × SD ÷ √(liczba rąk ÷ 100)"
-  because: "przy SD {{n:var.sd}}/100 nawet po {{n:var.hands.k}} tys. rąk przedział {{n:var.conf95}} ma ok. ± {{n:var.ci.wr}}/100, więc wynik {{n:var.wr.ex}}/100 znaczy tylko „między ok. {{n:var.wr.ci.low}} a {{n:var.wr.ci.high}}”"
+  because: "przy SD {{n:var.sd}} nawet po {{n:var.hands.k}} tys. rąk przedział {{n:var.conf95}} ma ok. ± {{n:var.ci.wr}}, więc wynik {{n:var.wr.ex}} znaczy tylko „między ok. {{n:var.wr.ci.low}} a {{n:var.wr.ci.high}}”"
   level: math
   source: "obliczenie: błąd standardowy średniej (rozkład normalny); SD z Primedope, Examples and Impacts of Variance in Cash Games i Poker Variance Calculator"
 - id: R-M12-002
   module: m12
   if: "wpadasz w zjazd o {{n:dd.bi.small}} wpisowych"
   then: "nie traktujesz go jako dowodu złej gry, tylko sprawdzasz decyzje w przegranych rozdaniach"
-  because: "w {{n:var.hands.k}} tys. rąk taki zjazd od szczytu przytrafia się ok. {{n:dd.p.small.100k}} graczy wygrywających {{n:var.wr.ex}}/100 (SD {{n:var.sd}}/100)"
+  because: "w {{n:var.hands.k}} tys. rąk taki zjazd od szczytu przytrafia się ok. {{n:dd.p.small.100k}} graczy wygrywających {{n:var.wr.ex}} (SD {{n:var.sd}})"
   level: heuristic
   source: "obliczenie: symulacja Monte Carlo (numbers.yaml, klucze dd.*); Primedope, Examples and Impacts of Variance in Cash Games, podaje dla tego scenariusza niższą liczbę (raport M12)"
 - id: R-M12-003
   module: m12
   if: "chcesz wiedzieć, ile naprawdę wygrywasz"
-  then: "zbierasz setki tysięcy rąk: dokładność ± {{n:var.target}}/100 przy {{n:var.conf95}} pewności wymaga ok. {{n:var.need.hands.k}} tys. rąk"
+  then: "zbierasz setki tysięcy rąk: dokładność ± {{n:var.target}} przy {{n:var.conf95}} pewności wymaga ok. {{n:var.need.hands.k}} tys. rąk"
   because: "błąd oszacowania maleje z pierwiastkiem z liczby rąk: potrzebne bloki po 100 rąk = ({{n:var.z95}} × SD ÷ dokładność)²"
   level: math
   source: "obliczenie: (1,96 × 80 ÷ 2)² bloków; zgodne z rzędem wielkości w dokumencie 08 (ok. 615 tys. rąk)"
@@ -749,14 +749,14 @@
   module: m12
   if: "liczysz ryzyko utraty całego bankrollu"
   then: "używasz wzoru RoR = e^(−2 × winrate × bankroll ÷ SD²), z bankrollem w bb"
-  because: "przy {{n:var.wr.typical.high}}/100 i SD {{n:var.sd}}/100 bankroll {{n:br.bi.base}} wpisowych daje ok. {{n:ror.base}} ryzyka, a {{n:br.bi.move-down}} wpisowych już ok. {{n:ror.half}}"
+  because: "przy {{n:var.wr.typical.high}} i SD {{n:var.sd}} bankroll {{n:br.bi.base}} wpisowych daje ok. {{n:ror.base}} ryzyka, a {{n:br.bi.move-down}} wpisowych już ok. {{n:ror.half}}"
   level: math
   source: "Primedope, Risk of Ruin Formula for Poker Players („RoR = e^(-2 x WR x BR / SD^2)”, wzór Malmutha); wartości: obliczenie (numbers.yaml, klucze ror.*)"
 - id: R-M12-010
   module: m12
   if: "zaczynasz grać na prawdziwe pieniądze na danej stawce"
   then: "masz co najmniej {{n:br.bi.beginner}} wpisowych, póki nie znasz swojego winrate; z potwierdzonym winrate co najmniej {{n:br.bi.base}}"
-  because: "przy winrate {{n:var.wr.typical.low}}/100 nawet {{n:br.bi.base}} wpisowych daje ok. {{n:ror.base.wr-min}} ryzyka utraty bankrollu, a źródła zalecają od {{n:br.bi.src-low}} do ponad {{n:br.bi.src-high}} wpisowych"
+  because: "przy winrate {{n:var.wr.typical.low}} nawet {{n:br.bi.base}} wpisowych daje ok. {{n:ror.base.wr-min}} ryzyka utraty bankrollu, a źródła zalecają od {{n:br.bi.src-low}} do ponad {{n:br.bi.src-high}} wpisowych"
   level: heuristic
   source: "BlackRain79, The Complete Guide to Bankroll Management (50 dla początkujących, 30 dla doświadczonych); PokerSkill, Bankroll Management (ok. 30); SplitSuit (co najmniej 20); Upswing (100+ online); rachunek ryzyka bankructwa"
 - id: R-M12-011

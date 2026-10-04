@@ -65,7 +65,7 @@ drills:
     prompt: "Przez trzy sesje grałeś agresywniej niż zwykle i wygrałeś. Czy to dowód, że nowy styl jest lepszy?"
     options:
       - { text: "Nie, trzy sesje to za mało; oceniasz nowe zagrania w przeglądzie rozdań", correct: true, why: "Nawet ogromna różnica umiejętności (najlepszy {{n:skill.pct}} wobec najsłabszego {{n:skill.pct}}) wychodzi na prowadzenie w ok. {{n:skill.ahead}} przypadków dopiero po ok. {{n:skill.hands}} rękach. Różnica między dwoma twoimi stylami jest dużo mniejsza." }
-      - { text: "Tak, wynik pokazuje, co działa", why: "Wynik z kilku sesji to głównie szum. Przy odchyleniu ok. {{n:var.sd}}/100 nawet {{n:var.hands.k}} tys. rąk zostawia błąd ok. ± {{n:var.ci.wr}}/100." }
+      - { text: "Tak, wynik pokazuje, co działa", why: "Wynik z kilku sesji to głównie szum. Przy odchyleniu ok. {{n:var.sd}} nawet {{n:var.hands.k}} tys. rąk zostawia błąd ok. ± {{n:var.ci.wr}}." }
       - { text: "Tak, jeśli wygrałeś więcej niż zwykle", why: "Większa wygrana z małej próbki to wciąż mała próbka. Zagrania oceniasz rachunkiem i przeglądem rozdań." }
   - kind: choice
     id: m12.l2.q-skill-hands

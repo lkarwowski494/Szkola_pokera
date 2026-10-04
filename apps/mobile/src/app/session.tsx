@@ -312,7 +312,7 @@ function NumericEntry({ item, text, onText, onSubmit }: { item: NumericInstance;
   const tk = useTokens();
   const { t } = useTranslation();
   const value = parseNumberInput(text);
-  const suffix = item.unit === 'percent' ? '%' : item.unit === 'bb' ? 'bb' : item.unit === 'multiplier' ? 'x' : '';
+  const suffix = item.unit === 'percent' ? '%' : item.unit === 'bb' ? 'bb' : item.unit === 'bb100' ? 'bb/100' : item.unit === 'multiplier' ? 'x' : '';
   return (
     <View style={{ gap: space.m }}>
       <View style={[styles.inputRow, { borderColor: tk.line, backgroundColor: tk.surface }]}>
@@ -425,7 +425,7 @@ function TextureFeedback({ item, picks }: { item: TextureInstance; picks: readon
 
 const fmtNum = (v: number, unit: NumericInstance['unit']) => {
   const s = String(Math.round(v * 100) / 100).replace('.', ',');
-  return unit === 'percent' ? `${s}%` : unit === 'bb' ? `${s}bb` : unit === 'multiplier' ? `${s}x` : s;
+  return unit === 'percent' ? `${s}%` : unit === 'bb' ? `${s}bb` : unit === 'bb100' ? `${s}bb/100` : unit === 'multiplier' ? `${s}x` : s;
 };
 
 /** Informacja zwrotna po odpowiedzi (w lekcji od razu, w egzaminie w podsumowaniu). */
