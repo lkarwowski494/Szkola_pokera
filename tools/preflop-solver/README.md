@@ -33,3 +33,9 @@ pnpm --filter @szkola/preflop-solver solve --iterations 250 --k 1.25 --m 0.16 --
 Skrypty diagnostyczne w `scripts/`: `subgame.ts` i `subgame3.ts` (zbieżność i realizacja equity samej gry po flopie), `converge.ts` (zbieżność całości, z wykorzystywalnością samego preflopu), `checkdown.ts` (błąd przybliżenia koszyków), `timing.ts`.
 
 Warianty modelu (nie kanon, tylko do pomiarów; żaden nie przeszedł walidacji, wyniki w dokumencie 10): `--role 0.2` (premia dla ostatniego podbijającego we wszystkich pulach), `--role3 0.3` (to samo w pulach 3-betowanych i wyżej), `--role4 0` (osobna wartość dla pul 4-betowanych), `--spr-full 4` (SPR, od którego przewaga pozycji działa w pełni; kanon 8). W kalibracji: `--roles`, `--role3s`, `--spr-fulls`.
+
+Naprawa modelu EQR (4 października; warianty pomiarowe, żaden nie przeszedł walidacji, kanon bez zmian, wyniki w dokumencie 10, sekcja „Naprawa modelu EQR”): `--weights p22=0.95,p77=0.95` (wagi grup grywalności, klucze `PLAY_GROUPS` w `src/model.ts`), `--spr-play 16` (osobny próg SPR grywalności), `--io 0.15` (człon implied odds, dane `tools/equity/implied169.json` z `scripts/implied.ts`), `--mid 0.2` (człon ręki średniej siły), `--3bet-oop 4.4` (3-bet bez pozycji do 11bb). Skrypty: `fetch-targets.ts` (cele BeyondGTO do `targets/`, poza gitem), `compare.ts` (zgodność z celami), `decompose.ts` (wartość 3-betu rozłożona na odpowiedzi rywala), `fit-eqr.ts` (kalibracja m i roli na raportach EQR rangeconverter), `realization.ts` (realizacja equity w 9 pulach dla zapisanego wyniku).
+
+```bash
+npx tsx scripts/fetch-targets.ts && npx tsx scripts/compare.ts targets/beyondgto.json ../../content/ranges/preflop-6max-100bb.json
+```
