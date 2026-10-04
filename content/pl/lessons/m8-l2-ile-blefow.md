@@ -106,7 +106,7 @@ W pierwszej lekcji betowałeś dla wartości. Ale gdybyś betował na riverze wy
 
 ## Zakres spolaryzowany
 
-Na riverze z pozycją często betujesz **zakresem spolaryzowanym**: bardzo silne ręce dla wartości i blefy, bez rąk średnich (te czekają, jak w pierwszej lekcji). Rywal ma wtedy dużo rąk, które przegrywają z twoją wartością, a wygrywają z blefami. To **bluff-catchery** (ręce łapiące blefy).
+Na riverze z pozycją często betujesz **zakresem spolaryzowanym** (jak w M7): bardzo silne ręce dla wartości i blefy, bez rąk średnich (te czekają, jak w pierwszej lekcji). Na riverze blefami są ręce bez szans przy showdownie. Rywal ma wtedy dużo rąk, które przegrywają z twoją wartością, a wygrywają z blefami. To **bluff-catchery** (ręce łapiące blefy).
 
 ## Ile blefów
 
@@ -139,5 +139,5 @@ Alpha z M6 = bet ÷ (pula + bet) mówi, jak często rywal musi spasować, żeby 
 Na blefy wybierasz **najsłabsze ręce**, np. nietrafione dobierania: po czekaniu i tak by przegrały, więc nieudany blef nic im nie odbiera. Ręce z wartością przy showdownie czekają.
 
 :::note To punkt równowagi, nie przepis na każdego rywala
-Te proporcje chronią cię przed rywalem, który gra dobrze. Wobec konkretnych graczy można od nich odchodzić; o tym w module o eksploatacji mikrostawek. Zalecenie blefowania najsłabszymi rękami pochodzi z artykułów znanych tylko ze streszczeń i czeka na weryfikację.
+Te proporcje chronią cię przed rywalem, który gra dobrze. Wobec konkretnych graczy można od nich odchodzić; o tym w przyszłym module o eksploatacji mikrostawek (M10). Wzór na udział blefów to rachunek w uproszczonym modelu: zakres spolaryzowany przeciw ręce łapiącej blefy (GTO Wizard, How to Solve Toy Games). Zalecenie blefowania najsłabszymi rękami pochodzi z GTO Wizard i Upswing.
 :::

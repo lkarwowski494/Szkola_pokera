@@ -19,7 +19,7 @@ drills:
     rules: [R-M9-006]
     prompt: "W puli jest {{n:ex.pot}}. Na flopie, turnie i riverze betujesz całą pulę ({{n:ex.bet.pot}}, potem {{n:geo.ex.turn}}, potem {{n:geo.ex.river}}), a rywal za każdym razem sprawdza. Ile łącznie wpłaca każdy z was? Wpisz liczbę."
     answer: geo.ex.total
-    explanation: "{{n:ex.bet.pot}} + {{n:geo.ex.turn}} + {{n:geo.ex.river}} = {{n:geo.ex.total}}. Pula rośnie z {{n:ex.pot}} do {{n:ex.pot.after-pot-call}}, {{n:geo.ex.turn-after}} i {{n:geo.ex.river-after}}. Trzy zakłady wielkości puli dają więc all-in przy SPR {{n:geo.ex.spr}}."
+    explanation: "{{n:ex.bet.pot}} + {{n:geo.ex.turn}} + {{n:geo.ex.river}} = {{n:geo.ex.total}}. Pula rośnie z {{n:ex.pot}} do {{n:ex.pot.after-pot-call}}, {{n:geo.ex.turn-after}} i {{n:geo.ex.river-after}}. Trzy zakłady wielkości puli dają więc all-in przy SPR {{n:spr.zone.deep}}."
   - kind: choice
     id: m9.l3.q-half-spr
     family: m9.geo-math
@@ -27,7 +27,7 @@ drills:
     prompt: "Przy jakim SPR trzy zakłady pół puli (flop, turn, river, każdy sprawdzony) wpłacają dokładnie cały stack?"
     options:
       - { text: "{{n:geo.half.spr}}", correct: true, why: "Pula {{n:ex.pot}}: zakłady {{n:ex.bet.half}}, {{n:geo.half.turn}} i {{n:geo.half.river}} dają razem {{n:geo.half.total}}, czyli stack {{n:geo.half.stack}}. Ze wzoru: (1 + 2·{{n:ex.frac.half}}) do potęgi trzeciej = 1 + 2·{{n:geo.half.spr}}." }
-      - { text: "{{n:geo.ex.spr}}", why: "Przy SPR {{n:geo.ex.spr}} trzeba betować całą pulę na każdej ulicy. Zakłady pół puli wpłacą wtedy tylko {{n:geo.half.total}} z {{n:geo.ex.stack}}." }
+      - { text: "{{n:spr.zone.deep}}", why: "Przy SPR {{n:spr.zone.deep}} trzeba betować całą pulę na każdej ulicy. Zakłady pół puli wpłacą wtedy tylko {{n:geo.half.total}} z {{n:geo.ex.stack}}." }
       - { text: "{{n:spr.commit}}", why: "Przy SPR {{n:spr.commit}} trzy zakłady pół puli to za dużo: stack skończy się już na riverze, zanim postawisz pełne pół puli. Pasuje SPR {{n:geo.half.spr}}." }
   - kind: choice
     id: m9.l3.q-srp-half
@@ -83,7 +83,7 @@ drills:
     prompt: "Co oznacza rozmiar geometryczny?"
     options:
       - { text: "Ten sam ułamek puli na każdej ulicy, tak że ostatni zakład to all-in", correct: true, why: "Tak: zakład f i sprawdzenie mnożą pulę przez (1 + 2f) na każdej ulicy. Rozmiar dobierasz tak, żeby po ostatnim zakładzie cały stack był w puli." }
-      - { text: "Zawsze zakład wielkości całej puli", why: "Cała pula jest geometryczna tylko przy jednym SPR (np. {{n:geo.ex.spr}} na trzy ulice). Przy SPR ok. {{n:spr.3bet-ip}} wystarczy ok. {{n:geo.3bet-ip.3}} puli." }
+      - { text: "Zawsze zakład wielkości całej puli", why: "Cała pula jest geometryczna tylko przy jednym SPR (np. {{n:spr.zone.deep}} na trzy ulice). Przy SPR ok. {{n:spr.3bet-ip}} wystarczy ok. {{n:geo.3bet-ip.3}} puli." }
       - { text: "Zakłady coraz większe procentowo: mały na flopie, duży na riverze", why: "Kwoty rosną, bo rośnie pula, ale ułamek puli jest na każdej ulicy taki sam. W puli 3-betowanej to {{n:geo.3bet-ip.flop}}, {{n:geo.3bet-ip.turn}} i {{n:geo.3bet-ip.river}}, za każdym razem ok. {{n:geo.3bet-ip.3}} puli." }
 ---
 Zanim postawisz zakład na flopie, warto wiedzieć, ile pieniędzy da się wpłacić do rivera. Zakład i sprawdzenie nie dodają do puli stałej kwoty, tylko ją mnożą.
@@ -98,7 +98,7 @@ Zakład wielkości f puli i sprawdzenie mnożą pulę przez (1 + 2f). Przy zakł
 | Turn | {{n:ex.pot.after-pot-call}} | {{n:geo.ex.turn}} | {{n:geo.ex.turn-after}} |
 | River | {{n:geo.ex.turn-after}} | {{n:geo.ex.river}} | {{n:geo.ex.river-after}} |
 
-Każdy gracz wpłacił {{n:geo.ex.total}}, czyli {{n:geo.ex.spr}} pul. Trzy zakłady wielkości puli dają więc all-in dokładnie przy SPR {{n:geo.ex.spr}}.
+Każdy gracz wpłacił {{n:geo.ex.total}}, czyli {{n:spr.zone.deep}} pul. Trzy zakłady wielkości puli dają więc all-in dokładnie przy SPR {{n:spr.zone.deep}}. Stąd próg najwyższej strefy SPR z pierwszej lekcji.
 
 ## Wzór
 
