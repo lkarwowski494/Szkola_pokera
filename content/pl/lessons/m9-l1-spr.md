@@ -4,7 +4,7 @@ module: m9
 order: 1
 title: "SPR: stack do puli"
 sub: "Ile pieniędzy zostało za pulą"
-rules: [R-M9-001, R-M9-002]
+rules: [R-M9-001, R-M9-002, R-M9-010]
 drills:
   - kind: choice
     id: m9.l1.q-srp
@@ -73,6 +73,16 @@ drills:
       - { text: "Na flopie, zanim ktoś postawi zakład", correct: true, why: "Tak: SPR to stack za pulą podzielony przez pulę na początku flopu. Wtedy wiesz, ile stacków puli zostało do zagrania na trzech ulicach." }
       - { text: "Przed rozdaniem, zanim ktoś przebije", why: "Przed flopem nie wiesz jeszcze, jak duża będzie pula. SPR zależy właśnie od tego, co stało się przed flopem: po otwarciu ok. {{n:spr.srp}}, po 3-becie ok. {{n:spr.3bet-ip}}." }
       - { text: "Na riverze, przed ostatnim zakładem", why: "Na riverze zostaje tylko jedna decyzja. SPR jest najbardziej przydatny na flopie, żeby zaplanować wszystkie trzy ulice." }
+  - kind: choice
+    id: m9.l1.q-zone
+    family: m9.spr-zone
+    rules: [R-M9-010]
+    prompt: "Przebiłeś z Buttona (3-bet), CO sprawdził. SPR na flopie wynosi ok. {{n:spr.3bet-ip}}. Trafiłeś top parę z dobrym kickerem. Jak traktujesz tę rękę?"
+    table: { position: BTN }
+    options:
+      - { text: "Jako rękę na granicy: grasz dla wartości, ale all-in rywala nie zawsze sprawdzasz", correct: true, why: "SPR ok. {{n:spr.3bet-ip}} jest w strefie od {{n:spr.zone.low}} do {{n:spr.zone.mid}}, w której top para to ręka na granicy. Decyzja o całym stacku zależy od tego, jak gra rywal i jak wygląda stół." }
+      - { text: "Zawsze grasz o cały stack", why: "Tak jest przy SPR poniżej ok. {{n:spr.zone.low}}, np. po 4-becie (ok. {{n:spr.4bet}}). Przy SPR ok. {{n:spr.3bet-ip}} do all-inu trzeba więcej zakładów, a do końca płacą głównie silniejsze ręce." }
+      - { text: "Grasz ostrożnie jak przy bardzo wysokim SPR", why: "Tak ostrożnie grasz top parą powyżej ok. {{n:spr.zone.deep}}, np. w puli z jednym podbiciem (ok. {{n:spr.srp}}). Po 3-becie SPR jest dużo niższy." }
   - kind: numeric
     id: m9.l1.n-jam-spr2
     family: m9.spr-price
@@ -114,6 +124,19 @@ Każde przebicie przed flopem kilka razy powiększa pulę, a stack za nią malej
 | 3-bet z pozycją i sprawdzenie | {{n:vs3bet.pot-after}} | {{n:spr.3bet-ip.stack}} | {{n:spr.3bet-ip}} |
 | 3-bet z dużego blinda i sprawdzenie | {{n:spr.3bet-oop.pot}} | {{n:spr.3bet-oop.stack}} | {{n:spr.3bet-oop}} |
 | 4-bet i sprawdzenie | {{n:spr.4bet.pot}} | {{n:spr.4bet.stack}} | {{n:spr.4bet}} |
+
+## Strefy SPR
+
+W literaturze SPR dzieli się na strefy. Im wyższy SPR, tym silniejszej ręki potrzebujesz, żeby grać o cały stack:
+
+| SPR | Z czym zwykle grasz o cały stack |
+|---|---|
+| poniżej {{n:spr.zone.low}} | top para i lepsze |
+| od {{n:spr.zone.low}} do {{n:spr.zone.mid}} | top para to ręka na granicy |
+| od {{n:spr.zone.mid}} do {{n:spr.zone.deep}} | dwie pary i lepsze |
+| powyżej {{n:spr.zone.deep}} | set, strit i lepsze |
+
+Po otwarciu i sprawdzeniu (SPR ok. {{n:spr.srp}}) jesteś w najwyższej strefie, po 3-becie (ok. {{n:spr.3bet-ip}}) w strefie, w której top para jest na granicy, a po 4-becie (ok. {{n:spr.4bet}}) w najniższej. Progi stref to heurystyka z literatury; aplikacja oznacza je do weryfikacji ze źródłem.
 
 ## Niski SPR: lepsza cena na all-in
 

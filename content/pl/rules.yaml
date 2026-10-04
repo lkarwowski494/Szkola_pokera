@@ -636,3 +636,10 @@
   because: "w puli 3-betowanej trzy zakłady po 1/3 puli wpłacają tylko ok. {{n:g3b.third.total}} ze stacku {{n:spr.3bet-ip.stack}}, więc większość stacku zostaje niewpłacona; przy ok. {{n:geo.3bet-ip.3}} puli na każdej ulicy wchodzi cały"
   level: math
   source: "obliczenie: łańcuch zakładów i sprawdzeń (numbers.yaml, klucze g3b.third.* i geo.3bet-ip.*)"
+- id: R-M9-010
+  module: m9
+  if: "planujesz, czy z daną ręką grać o cały stack"
+  then: "patrzysz na strefę SPR: poniżej ok. {{n:spr.zone.low}} zwykle wystarcza top para, od {{n:spr.zone.low}} do {{n:spr.zone.mid}} top para jest ręką na granicy, od {{n:spr.zone.mid}} do {{n:spr.zone.deep}} potrzebujesz zwykle dwóch par albo lepiej, a powyżej {{n:spr.zone.deep}} setu, strita albo lepszej ręki"
+  because: "im wyższy SPR, tym więcej zakładów trzeba, żeby wpłacić cały stack, a do końca rywal płaci głównie silnymi rękami"
+  level: heuristic
+  source: "Pokerology, SPR Poker; VIP-Grinders, Stack to Pot Ratio (strefy SPR) [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"

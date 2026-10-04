@@ -53,7 +53,7 @@ drills:
     options:
       - { text: "Betuję {{n:ex.bet.three-quarters}}", correct: true, why: "Tak: dobieranie do koloru z dwiema wysokimi kartami to dobry półblef. Betujesz tym samym dużym rozmiarem co silne ręce, więc rywal nie odróżni blefu od wartości." }
       - { text: "Betuję {{n:ex.bet.quarter}}", sizeError: true, why: "Dobra akcja, zły rozmiar: tak tani bet rywal sprawdzi każdą parą, a półblef zarabia przede wszystkim na pasach. Gdyby małe bety oznaczały u ciebie dobierania, a duże silne ręce, rywal łatwo by to wykorzystał." }
-      - { text: "Czekam", why: "Nie jest to duży błąd, bo za darmo zobaczysz rivera, ale rezygnujesz z wygrania puli od razu. Dobieranie z wysokimi kartami to jeden z najlepszych półblefów." }
+      - { text: "Czekam", correct: true, why: "Też dobrze: za darmo zobaczysz rivera i trafisz kolor w {{n:odds.flush.turn-river}} przypadków. Bet jest jednak zwykle lepszy, bo dobieranie z wysokimi kartami to jeden z najlepszych półblefów, a czekając rezygnujesz z wygrania puli od razu." }
   - kind: choice
     id: m7.l2.q-medium-big
     family: m7.polar.size

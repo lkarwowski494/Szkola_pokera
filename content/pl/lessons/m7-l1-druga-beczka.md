@@ -45,7 +45,7 @@ drills:
     options:
       - { text: "Betuję {{n:ex.bet.three-quarters}}", correct: true, why: "Dobra druga beczka: as pasuje do twojego zakresu, a ty masz gutshot do strita (dziesiątka). Gdy rywal spasuje parę, wygrywasz od razu, a gdy sprawdzi, nadal możesz trafić." }
       - { text: "Betuję {{n:ex.bet.quarter}}", sizeError: true, why: "Dobra akcja, zły rozmiar: tak tani bet rywal sprawdzi każdą parą, a ten blef zarabia głównie na pasach. Na karcie, która ci pomaga, betuj dużo, tak jak silnymi rękami." }
-      - { text: "Czekam", why: "Nie jest to wielki błąd, bo masz outy, ale tracisz najlepszą okazję: as to jedna z kart, na których rywal najczęściej pasuje pary." }
+      - { text: "Czekam", correct: true, why: "Też dobrze: masz outy i za darmo zobaczysz rivera, więc czekanie nie jest błędem. Bet jest jednak zwykle lepszy, bo as to jedna z kart, na których rywal najczęściej pasuje pary, a czekając z niej rezygnujesz." }
   - kind: choice
     id: m7.l1.q-air-blank
     family: m7.barrel.bluff

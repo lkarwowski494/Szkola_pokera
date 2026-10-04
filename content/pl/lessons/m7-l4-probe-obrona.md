@@ -44,7 +44,7 @@ drills:
     table: { hand: "7h 6h", position: BB, board: "8c 5d 2s 3h" }
     options:
       - { text: "Betuję (probe bet)", correct: true, why: "Masz otwarte dobieranie do strita (czwórka albo dziewiątka) na niskim stole, który pasuje do twojego zakresu. Wygrywasz, gdy Button spasuje, a gdy sprawdzi, nadal masz {{n:outs.oesd}} outów." }
-      - { text: "Czekam", why: "Nie jest to duży błąd, ale oddajesz okazję: Button po czekaniu ma słaby zakres, a ty masz mocny półblef." }
+      - { text: "Czekam", correct: true, why: "Też dobrze: z dobieraniem możesz zobaczyć rivera za darmo, jeśli Button też poczeka. Probe bet jest jednak zwykle lepszy, bo Button po czekaniu na flopie ma słaby zakres, a ty masz mocny półblef." }
       - { text: "Pasuję", why: "Nikt nie postawił, więc możesz czekać za darmo (zasada z modułu 1). Pas oddaje pulę bez powodu." }
   - kind: choice
     id: m7.l4.q-probe-value
