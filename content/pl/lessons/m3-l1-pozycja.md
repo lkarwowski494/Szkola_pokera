@@ -59,5 +59,5 @@ Przycisk dealera (**BTN**, Button) przesuwa się co rozdanie. Od niego zależy k
 **HJ** (Hijack) siedzi za UTG, dwa miejsca przed Buttonem, a **CO** (Cutoff) tuż przed Buttonem. To pozycje środkowe: za nimi jest mniej graczy niż za UTG, więc otwierasz z nich szerzej, ale wciąż węziej niż z Buttona.
 
 :::note Rozmiar otwarcia
-Otwierasz przebiciem do {{n:pf.open-size}} z każdej pozycji, a z małego blinda do {{n:pf.open-size-sb}}. Wchodząc jako pierwszy, nie dopłacasz samego blinda: przebicie może od razu wygrać pulę.
+Otwierasz przebiciem do {{n:pf.open-size}} z każdej pozycji, a z małego blinda do {{n:pf.open-size-sb}}. To uproszczenie: w rozwiązaniach solverów otwarcia z wczesnych pozycji są nieco mniejsze (np. {{n:pf.open-size.solver-utg}} z UTG i {{n:pf.open-size.solver-co}} z CO), ale jeden rozmiar jest łatwiejszy do nauki. Wchodząc jako pierwszy, nie dopłacasz samego blinda: przebicie może od razu wygrać pulę.
 :::
