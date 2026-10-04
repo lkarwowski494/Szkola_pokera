@@ -31,7 +31,7 @@ drills:
           check: "Za ostrożnie: na sparowanym flopie trudno o dobieranie, więc rywal bez pary rzadko może zapłacić nawet mały zakład."
           small: "Tak: na sparowanym flopie betujesz często i mało. Rywal bez pary prawie nie ma czym sprawdzić, a trójkę mogą mieć obaj gracze, więc nie ma powodu ryzykować więcej."
           big: "Dobra akcja, zły rozmiar: na sparowanym flopie trójkę może mieć też rywal, a dobierań, przed którymi trzeba się bronić, prawie nie ma. Wystarczy ok. {{n:cbet.size.small}} puli."
-      - when: { height: [low], suits: [rainbow, two-tone], ranks: [connected] }
+      - when: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
         best: check
         rule: R-M5-004
         why:

@@ -44,7 +44,10 @@ export function compileRanges(contentDir: string): { spots: CompiledRangeSpot[];
     const foldIdx = node.actions.indexOf('fold');
     const playPercent =
       HAND_CLASSES.reduce((s, hc) => s + combosCount(hc) * (1 - (foldIdx >= 0 ? node.strategy[foldIdx]![hc]! : 0)), 0) / 1326;
-    return { id: def.id, title: def.title, hero: def.hero, path: def.path, groups, playPercent };
+    const uncertainSet = new Set(def.uncertain ?? []);
+    for (const hc of uncertainSet) if (!HAND_CLASSES.includes(hc)) throw new Error(`spot ${def.id}: nieznana klasa rąk w uncertain: "${hc}"`);
+    const uncertain = HAND_CLASSES.filter((hc) => uncertainSet.has(hc));
+    return { id: def.id, title: def.title, hero: def.hero, path: def.path, groups, playPercent, uncertain };
   });
   return { spots, solverMeta: solver.meta };
 }

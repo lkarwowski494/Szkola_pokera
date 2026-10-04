@@ -7,6 +7,8 @@ import {
   classOf,
   compareHands,
   createRng,
+  DRAW_CALL_MIN_GAP,
+  DRAW_CALL_NEAR_MISS,
   drawOuts,
   evaluateHand,
   generateDrawCall,
@@ -26,6 +28,7 @@ import {
   rangeStats,
   requiredEquity,
   geometricBetFraction,
+  straightOutPlaysBoard,
   strength,
 } from '../src';
 import { referenceCompare } from './reference-evaluator';
@@ -236,12 +239,34 @@ describe('outy i generatory', () => {
       }
     }
   });
-  it('decyzja z dobieraniem porównuje szansę z ceną', () => {
+  it('decyzja z dobieraniem porównuje szansę na jedną kartę z ceną (outy ÷ 47 na flopie, ÷ 46 na turnie)', () => {
     const rng = createRng(11);
-    for (let i = 0; i < 100; i++) {
-      const s = generateDrawCall(rng);
-      expect(s.correct).toBe(s.hitToRiver > s.required ? 'call' : 'fold');
-      expect(Math.abs(s.hitToRiver - s.required)).toBeGreaterThanOrEqual(0.02);
+    for (const street of ['flop', 'turn'] as const) {
+      for (let i = 0; i < 100; i++) {
+        const s = generateDrawCall(rng, street);
+        expect(s.street).toBe(street);
+        expect(s.board).toHaveLength(street === 'flop' ? 3 : 4);
+        expect(s.hitNextCard).toBeCloseTo(s.outs / (street === 'flop' ? 47 : 46), 12);
+        expect(s.correct).toBe(s.hitNextCard > s.required ? 'call' : 'fold');
+        expect(Math.abs(s.hitNextCard - s.required)).toBeGreaterThanOrEqual(DRAW_CALL_MIN_GAP);
+        expect(s.nearMiss).toBe(s.correct === 'fold' && s.required - s.hitNextCard <= DRAW_CALL_NEAR_MISS);
+      }
+    }
+  });
+  it('flop: OESD wobec zakładu pół puli to pas bez implied odds (8/47 = 17% < 25%), choć do rivera 31,5% > 25%', () => {
+    expect(hitProbability(8, 47, 1)).toBeLessThan(requiredEquity(100, 50));
+    expect(hitProbability(8, 47, 2)).toBeGreaterThan(requiredEquity(100, 50));
+  });
+  it('generator outów odrzuca outy do strita, które dają strita samemu stołowi', () => {
+    // stół 5-6-7-8 z AK: 4 i 9 dają strita na stole, czyli tylko podział
+    expect(straightOutPlaysBoard(parseCards('5c 6d 7h 8s'), drawOuts(parseCards('Ad Kc'), parseCards('5c 6d 7h 8s')).straight)).toBe(true);
+    expect(straightOutPlaysBoard(parseCards('5c 6d Kh 2s'), drawOuts(parseCards('7d 8c'), parseCards('5c 6d Kh 2s')).straight)).toBe(false);
+    const rng = createRng(21);
+    for (const kind of ['oesd', 'gutshot'] as const) {
+      for (let i = 0; i < 200; i++) {
+        const s = generateOuts(rng, kind, 'turn');
+        expect(straightOutPlaysBoard(s.board, s.draw.straight)).toBe(false);
+      }
     }
   });
   it('pot odds w generatorze', () => {

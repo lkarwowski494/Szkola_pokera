@@ -7,18 +7,20 @@ import { pick } from './rng';
  * Tekstura flopa (moduł M5). Czysta klasyfikacja faktów o trzech kartach; co z nią robić (c-bet, rozmiar),
  * mówią reguły w treści, nie silnik.
  *
- * Osie (decyzja tymczasowa, opisana w raporcie M5):
+ * Osie (decyzja właściciela po audycie 4.10.2026, K4):
  * - height: najwyższa karta: A, K, Q → high; J, T → middle; 9 i niżej → low,
  * - suits: trzy różne kolory → rainbow; dwie karty w jednym kolorze → two-tone; trzy → monotone,
- * - ranks: para (lub trójka) na stole → paired; trzy różne rangi mieszczące się w pięciu kolejnych
- *   (strit możliwy już z dwiema kartami gracza, as liczy się też jako 1) → connected; inaczej → disconnected,
- * - wetness (pochodna): liczba „dróg do dobierania” = kolor (two-tone lub monotone) + strit (connected);
- *   0 → dry, 1 → medium, 2 → wet.
+ * - ranks: para (lub trójka) na stole → paired; trzy różne rangi w jednym oknie pięciu kolejnych rang
+ *   (strit możliwy już z dwiema kartami gracza) → connected; dwie różne rangi w takim oknie (ktoś może mieć
+ *   dobieranie do strita: otwarte albo gutshot) → semi-connected; inaczej → disconnected. As liczy się też jako 1,
+ * - wetness (pochodna): suma punktów za strita i za kolory (WETNESS_POINTS), progi w WETNESS_THRESHOLDS.
+ *
+ * Wszystkie wagi i progi są tylko tutaj; treść (lekcje M5) opisuje je słowami.
  */
 
 export const FLOP_HEIGHTS = ['high', 'middle', 'low'] as const;
 export const FLOP_SUITS = ['rainbow', 'two-tone', 'monotone'] as const;
-export const FLOP_RANKS = ['paired', 'connected', 'disconnected'] as const;
+export const FLOP_RANKS = ['paired', 'connected', 'semi-connected', 'disconnected'] as const;
 export const FLOP_WETNESS = ['dry', 'medium', 'wet'] as const;
 
 export type FlopHeight = (typeof FLOP_HEIGHTS)[number];
@@ -36,6 +38,9 @@ export const TEXTURE_VALUES: { [A in TextureAxis]: readonly FlopTexture[A][] } =
   wetness: FLOP_WETNESS,
 };
 
+/** Co flop daje w stritach: strit możliwy już teraz, tylko dobieranie do strita albo nic. */
+export type FlopStraightPotential = 'made' | 'draw' | 'none';
+
 export interface FlopTexture {
   height: FlopHeight;
   suits: FlopSuits;
@@ -47,18 +52,63 @@ export interface FlopTexture {
   trips: boolean;
   /** Strit możliwy z dwiema kartami gracza (na stole bez pary). */
   straightPossible: boolean;
+  /** Któraś ręka może mieć dobieranie do strita (otwarte albo gutshot); także na flopie sparowanym, np. JJT. */
+  straightDrawPossible: boolean;
+  /** Punkty mokrości (WETNESS_POINTS), z których wynika wetness. */
+  wetnessPoints: number;
 }
 
 /** Najniższa ranga flopu „wysokiego” (Q) i „średniego” (T). */
 export const HIGH_MIN_RANK = 10;
 export const MIDDLE_MIN_RANK = 8;
 
-/** Czy trzy różne rangi mieszczą się w jednym oknie pięciu kolejnych rang (A także jako 1). */
+/** Długość strita: tyle kolejnych rang tworzy jedno okno. */
+export const STRAIGHT_LENGTH = 5;
+
+/**
+ * Punkty mokrości (jedno źródło prawdy dla aplikacji i testów).
+ * - Strit: strit możliwy już teraz (flop połączony) 3; tylko dobieranie do strita (półpołączony albo sparowany
+ *   z dwiema rangami w jednym oknie, np. JJT) 1; nic 0. Właściciel zaproponował 2 za flop połączony; przy 2 tęczowy
+ *   [987] wychodzi pośredni, a literatura nazywa go mokrym, więc waga to 3 (raport K4, z alternatywą).
+ * - Kolory: tęczowy 0, dwukolorowy 1, monotoniczny 2.
+ */
+export const WETNESS_POINTS = {
+  straight: { made: 3, draw: 1, none: 0 } as const satisfies Record<FlopStraightPotential, number>,
+  suits: { rainbow: 0, 'two-tone': 1, monotone: 2 } as const satisfies Record<FlopSuits, number>,
+};
+
+/** Progi mokrości: poniżej `medium` suchy (0–1), od `medium` pośredni (2), od `wet` mokry (3 i więcej). */
+export const WETNESS_THRESHOLDS = { medium: 2, wet: 3 } as const;
+
+export function wetnessFromPoints(points: number): FlopWetness {
+  return points >= WETNESS_THRESHOLDS.wet ? 'wet' : points >= WETNESS_THRESHOLDS.medium ? 'medium' : 'dry';
+}
+
+/** Pozycje rangi w skali 1–14 (as = 14 albo 1). */
+function positions(rank: number): number[] {
+  return rank === 12 ? [14, 1] : [rank + 2];
+}
+
+/** Czy wszystkie (różne) rangi mieszczą się w jednym oknie pięciu kolejnych rang (A także jako 1). */
 export function fitsStraightWindow(ranks: readonly number[]): boolean {
   if (new Set(ranks).size !== ranks.length) return false;
-  // pozycje w skali 1–14: as = 14 albo 1
-  const variants = [ranks.map((r) => r + 2), ranks.map((r) => (r === 12 ? 1 : r + 2))];
-  return variants.some((v) => Math.max(...v) - Math.min(...v) <= 4);
+  for (let low = 1; low + STRAIGHT_LENGTH - 1 <= 14; low++) {
+    const high = low + STRAIGHT_LENGTH - 1;
+    if (ranks.every((r) => positions(r).some((p) => p >= low && p <= high))) return true;
+  }
+  return false;
+}
+
+/**
+ * Czy jakieś dwie różne rangi flopu mieszczą się w jednym oknie pięciu kolejnych rang. Dokładnie wtedy istnieje ręka
+ * z dobieraniem do strita: gracz dokłada dwie brakujące rangi okna i ma cztery z pięciu (test wyczerpujący w texture.test.ts).
+ */
+export function hasStraightDrawPair(ranks: readonly number[]): boolean {
+  const distinct = [...new Set(ranks)];
+  for (let i = 0; i < distinct.length; i++) {
+    for (let j = i + 1; j < distinct.length; j++) if (fitsStraightWindow([distinct[i]!, distinct[j]!])) return true;
+  }
+  return false;
 }
 
 export function classifyFlop(flop: readonly Card[]): FlopTexture {
@@ -71,10 +121,22 @@ export function classifyFlop(flop: readonly Card[]): FlopTexture {
   const height: FlopHeight = top >= HIGH_MIN_RANK ? 'high' : top >= MIDDLE_MIN_RANK ? 'middle' : 'low';
   const suits: FlopSuits = distinctSuits === 3 ? 'rainbow' : distinctSuits === 2 ? 'two-tone' : 'monotone';
   const straightPossible = distinctRanks === 3 && fitsStraightWindow(ranks);
-  const rankShape: FlopRanks = distinctRanks < 3 ? 'paired' : straightPossible ? 'connected' : 'disconnected';
-  const draws = (suits === 'rainbow' ? 0 : 1) + (rankShape === 'connected' ? 1 : 0);
-  const wetness: FlopWetness = draws === 0 ? 'dry' : draws === 1 ? 'medium' : 'wet';
-  return { height, suits, ranks: rankShape, wetness, top, trips: distinctRanks === 1, straightPossible };
+  const straightDrawPossible = hasStraightDrawPair(ranks);
+  const rankShape: FlopRanks =
+    distinctRanks < 3 ? 'paired' : straightPossible ? 'connected' : straightDrawPossible ? 'semi-connected' : 'disconnected';
+  const straight: FlopStraightPotential = straightPossible ? 'made' : straightDrawPossible ? 'draw' : 'none';
+  const wetnessPoints = WETNESS_POINTS.straight[straight] + WETNESS_POINTS.suits[suits];
+  return {
+    height,
+    suits,
+    ranks: rankShape,
+    wetness: wetnessFromPoints(wetnessPoints),
+    top,
+    trips: distinctRanks === 1,
+    straightPossible,
+    straightDrawPossible,
+    wetnessPoints,
+  };
 }
 
 /** Filtr tekstury: dla każdej osi lista dopuszczalnych wartości (brak osi = dowolna). */
@@ -108,7 +170,7 @@ export function generateFlop(rng: Rng, filter: TextureFilter = {}): FlopSpot {
 
 /**
  * Flop do ćwiczenia klasyfikacji: najpierw losujemy wartość jednej z pytanych osi (równo), potem flop z tą wartością,
- * żeby rzadkie tekstury (monotoniczny, sparowany) pojawiały się często, a nie w kilku procentach zadań.
+ * żeby rzadkie tekstury (monotoniczny, sparowany, rozłączony) pojawiały się często, a nie w kilku procentach zadań.
  */
 export function generateTextureSpot(rng: Rng, axes: readonly TextureAxis[] = TEXTURE_AXES): FlopSpot {
   const axis = pick(rng, axes.length ? axes : TEXTURE_AXES);

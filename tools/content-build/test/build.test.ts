@@ -1,6 +1,7 @@
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { RuleDef } from '@szkola/content-schema';
+import { FlopHeight, FlopRanks, FlopSuits, FlopWetness, RuleDef, TextureAxis } from '@szkola/content-schema';
+import { TEXTURE_AXES, TEXTURE_VALUES } from '@szkola/poker-core';
 import { checkCbetCases, compileContent } from '../src/build';
 import { compileMarkdown } from '../src/markdown';
 import { findHardcodedNumbers, formatNumber, resolveNumbers, substitute } from '../src/numbers';
@@ -129,6 +130,14 @@ describe('flop: tekstura i c-bet (M5, schemat w wersji 3)', () => {
     expect(() => checkCbetCases('t', [{ height: ['high'] }, { suits: ['rainbow'] }])).toThrow(/pasują do tego samego flopu/);
     expect(() => checkCbetCases('t', [{ suits: ['monotone'], ranks: ['paired'] }])).toThrow(/nie pasuje do żadnego/);
     expect(() => checkCbetCases('t', [{ height: ['high'] }, { height: ['low'] }])).not.toThrow();
+  });
+
+  it('osie tekstury w schemacie treści są takie same jak w poker-core (classifyFlop)', () => {
+    expect(TextureAxis.options).toEqual([...TEXTURE_AXES]);
+    expect(FlopHeight.options).toEqual([...TEXTURE_VALUES.height]);
+    expect(FlopSuits.options).toEqual([...TEXTURE_VALUES.suits]);
+    expect(FlopRanks.options).toEqual([...TEXTURE_VALUES.ranks]);
+    expect(FlopWetness.options).toEqual([...TEXTURE_VALUES.wetness]);
   });
 
   it('moduł M5 ma lekcje z zadaniami klasyfikacji tekstury, reguły bez niepodstawionych liczb', () => {

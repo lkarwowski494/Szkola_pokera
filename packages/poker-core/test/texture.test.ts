@@ -1,7 +1,10 @@
 import fc from 'fast-check';
 import { describe, expect, it } from 'vitest';
 import {
+  cardsToString,
   classifyFlop,
+  drawOuts,
+  FULL_DECK,
   createRng,
   generateFlop,
   generateTextureSpot,
@@ -13,6 +16,8 @@ import {
   TEXTURE_AXES,
   TEXTURE_VALUES,
   textureMatches,
+  WETNESS_POINTS,
+  WETNESS_THRESHOLDS,
   type Card,
 } from '../src';
 
@@ -39,19 +44,56 @@ function referenceStraightPossible(flop: readonly Card[]): boolean {
 
 const tex = (s: string) => classifyFlop(parseCards(s));
 
+/** Wzorzec niezależny od klasyfikatora: czy jakaś ręka (dwie karty) ma na tym flopie dobieranie do strita (drawOuts). */
+function referenceStraightDraw(flop: readonly Card[]): boolean {
+  const free = (r: number, used: readonly Card[]) => FULL_DECK.filter((c) => rankOf(c) === r && !used.includes(c));
+  for (let a = 0; a < 13; a++) {
+    for (let b = a; b < 13; b++) {
+      const c1 = free(a, flop)[0];
+      if (c1 === undefined) continue;
+      const c2 = free(b, [...flop, c1])[0];
+      if (c2 === undefined) continue;
+      if (drawOuts([c1, c2], flop).straight.length > 0) return true;
+    }
+  }
+  return false;
+}
+
+/** Wszystkie strategicznie różne flopy (z dokładnością do zamiany kolorów): 1755. */
+function canonicalFlops(): Card[][] {
+  const perms: number[][] = [];
+  for (let a = 0; a < 4; a++) for (let b = 0; b < 4; b++) for (let c = 0; c < 4; c++) for (let d = 0; d < 4; d++) {
+    if (new Set([a, b, c, d]).size === 4) perms.push([a, b, c, d]);
+  }
+  const seen = new Map<string, Card[]>();
+  for (let x = 0; x < 52; x++) for (let y = x + 1; y < 52; y++) for (let z = y + 1; z < 52; z++) {
+    const keys = perms.map((p) => [x, y, z].map((c) => (c & ~3) | p[c & 3]!).sort((m, n) => m - n).join(','));
+    const key = keys.sort()[0]!;
+    if (!seen.has(key)) seen.set(key, [x, y, z]);
+  }
+  return [...seen.values()];
+}
+
 describe('tekstura flopa', () => {
-  it('przykłady z lekcji', () => {
-    expect(tex('Ks 7d 2c')).toMatchObject({ height: 'high', suits: 'rainbow', ranks: 'disconnected', wetness: 'dry' });
-    expect(tex('Ah 7d 2c')).toMatchObject({ height: 'high', ranks: 'disconnected', wetness: 'dry' });
-    expect(tex('Jh Th 8c')).toMatchObject({ height: 'middle', suits: 'two-tone', ranks: 'connected', wetness: 'wet' });
+  it('przykłady z lekcji i z audytu', () => {
+    expect(tex('Ks 7d 2c')).toMatchObject({ height: 'high', suits: 'rainbow', ranks: 'disconnected', wetness: 'dry', wetnessPoints: 0 });
+    expect(tex('Kh Qd 4c')).toMatchObject({ ranks: 'semi-connected', wetness: 'dry', wetnessPoints: 1, straightDrawPossible: true });
+    expect(tex('Jc Td 4s')).toMatchObject({ height: 'middle', ranks: 'semi-connected', wetness: 'dry' });
+    expect(tex('7d 6c 2h')).toMatchObject({ height: 'low', ranks: 'semi-connected', wetness: 'dry' });
+    expect(tex('Ah 7d 2c')).toMatchObject({ height: 'high', ranks: 'semi-connected', wetness: 'dry' }); // A i 2 w oknie A–5
+    expect(tex('Jh Th 8c')).toMatchObject({ height: 'middle', suits: 'two-tone', ranks: 'connected', wetness: 'wet', wetnessPoints: 4 });
     expect(tex('8s 7s 6s')).toMatchObject({ height: 'low', suits: 'monotone', ranks: 'connected', wetness: 'wet' });
-    expect(tex('Qd Qc 6h')).toMatchObject({ height: 'high', ranks: 'paired', wetness: 'dry' });
-    expect(tex('9h 8d 7c')).toMatchObject({ height: 'low', suits: 'rainbow', ranks: 'connected', wetness: 'medium' });
+    expect(tex('9h 8d 7c')).toMatchObject({ height: 'low', suits: 'rainbow', ranks: 'connected', wetness: 'wet', wetnessPoints: 3 });
+    expect(tex('Kh 8h 3h')).toMatchObject({ suits: 'monotone', ranks: 'disconnected', wetness: 'medium', wetnessPoints: 2 });
+    expect(tex('Kh 8h 4h')).toMatchObject({ suits: 'monotone', ranks: 'semi-connected', wetness: 'wet' });
+    expect(tex('Qd Qc 6h')).toMatchObject({ height: 'high', ranks: 'paired', wetness: 'dry', straightDrawPossible: false });
+    expect(tex('Qd Qh 6h')).toMatchObject({ suits: 'two-tone', ranks: 'paired', wetness: 'dry', wetnessPoints: 1 });
+    expect(tex('Jd Jc Ts')).toMatchObject({ ranks: 'paired', straightDrawPossible: true, wetness: 'dry', wetnessPoints: 1 });
+    expect(tex('Jd Jh Th')).toMatchObject({ ranks: 'paired', wetness: 'medium', wetnessPoints: 2 });
     expect(tex('Ah 5d 3c').ranks).toBe('connected'); // as jako 1: 2 i 4 dają strita od asa do piątki
     expect(tex('Ah Kd Tc').ranks).toBe('connected'); // QJ daje strita do asa
-    expect(tex('Ah Kd 9c').ranks).toBe('disconnected');
-    expect(tex('7h 7d 7c')).toMatchObject({ ranks: 'paired', trips: true });
-    expect(tex('Kh 8h 3h')).toMatchObject({ suits: 'monotone', ranks: 'disconnected', wetness: 'medium' });
+    expect(tex('Ah Kd 9c').ranks).toBe('semi-connected'); // QJ albo QT dają dobieranie do strita
+    expect(tex('7h 7d 7c')).toMatchObject({ ranks: 'paired', trips: true, straightDrawPossible: false, wetness: 'dry' });
   });
 
   it('nie zależy od kolejności kart ani od zamiany kolorów', () => {
@@ -82,24 +124,39 @@ describe('tekstura flopa', () => {
     );
   });
 
-  it('flop połączony wtedy i tylko wtedy, gdy dwie karty gracza mogą dać strita (wzorzec brute force)', () => {
-    fc.assert(
-      fc.property(flopArb, (flop) => {
-        const t = classifyFlop(flop);
-        expect(t.straightPossible).toBe(referenceStraightPossible(flop));
-        expect(t.ranks === 'connected').toBe(t.straightPossible);
-      }),
-      { numRuns: 1500 },
-    );
+  // Test wyczerpujący po wszystkich 1755 strategicznie różnych flopach (rangi × układ kolorów):
+  // połączony ⇔ strit możliwy, półpołączony/sparowany z dobieraniem ⇔ istnieje ręka z dobieraniem do strita.
+  const canon = canonicalFlops();
+  it('jest dokładnie 1755 strategicznie różnych flopów', () => {
+    expect(canon.length).toBe(1755);
   });
 
-  it('mokrość to liczba dróg do dobierania: kolor + strit', () => {
+  it('połączony ⇔ strit możliwy; dwie rangi w oknie pięciu ⇔ istnieje ręka z dobieraniem do strita (wszystkie 1755 flopów)', () => {
+    for (const flop of canon) {
+      const t = classifyFlop(flop);
+      const draw = referenceStraightDraw(flop);
+      expect(t.straightPossible, cardsToString(flop)).toBe(referenceStraightPossible(flop));
+      expect(t.ranks === 'connected').toBe(t.straightPossible);
+      expect(t.straightDrawPossible, cardsToString(flop)).toBe(draw);
+      if (t.ranks !== 'paired') expect(t.ranks === 'disconnected', cardsToString(flop)).toBe(!draw);
+    }
+  });
+
+  it('rozłączone są tylko flopy Q72, K72, K82 i K83 (w dowolnych kolorach)', () => {
+    const shapes = new Set(canon.filter((f) => classifyFlop(f).ranks === 'disconnected').map((f) => cardsToString(f).replace(/[shdc]/g, '').split(' ').sort().join('')));
+    expect([...shapes].sort()).toEqual(['27K', '27Q', '28K', '38K']);
+  });
+
+  it('mokrość to suma punktów za strita i kolory, z progami', () => {
     fc.assert(
       fc.property(flopArb, (flop) => {
         const t = classifyFlop(flop);
-        const draws = (t.suits === 'rainbow' ? 0 : 1) + (t.ranks === 'connected' ? 1 : 0);
-        expect(t.wetness).toBe(['dry', 'medium', 'wet'][draws]);
+        const straight = t.straightPossible ? 'made' : t.straightDrawPossible ? 'draw' : 'none';
+        const points = WETNESS_POINTS.straight[straight] + WETNESS_POINTS.suits[t.suits];
+        expect(t.wetnessPoints).toBe(points);
+        expect(t.wetness).toBe(points >= WETNESS_THRESHOLDS.wet ? 'wet' : points >= WETNESS_THRESHOLDS.medium ? 'medium' : 'dry');
         if (t.ranks === 'paired') expect(t.wetness).not.toBe('wet');
+        if (t.ranks === 'connected') expect(t.wetness).toBe('wet');
       }),
     );
   });
@@ -109,9 +166,10 @@ describe('tekstura flopa', () => {
       fc.property(
         fc.integer({ min: 1, max: 1_000_000 }),
         fc.constantFrom(...TEXTURE_AXES),
-        fc.nat(2),
+        fc.nat(3),
         (seed, axis, vi) => {
-          const value = TEXTURE_VALUES[axis][vi]!;
+          const values = TEXTURE_VALUES[axis];
+          const value = values[vi % values.length]!;
           const s = generateFlop(createRng(seed), { [axis]: [value] });
           expect(new Set(s.flop).size).toBe(3);
           expect(s.texture[axis]).toBe(value);

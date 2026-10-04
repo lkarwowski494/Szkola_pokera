@@ -146,7 +146,11 @@ pair.outs.unpaired: { formula: product, refs: [cards.hole, pair.outs.per-rank], 
 ex.wrong.half: { value: 0.5, unit: percent, source: "przykład błędnej odpowiedzi w zadaniach M2 (połowa)" }
 prob.certain: { value: 1, unit: percent, source: "definicja: zdarzenie pewne" }
 flop.miss.unpaired: { formula: missProbability, refs: [pair.outs.unpaired, cards.unseen.preflop, cards.board.flop], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): żadna z 3 kart flopu nie paruje ręki" }
-flop.miss.two: { formula: product, refs: [flop.miss.unpaired, flop.miss.unpaired], unit: percent, source: "obliczenie przybliżone: chybienia dwóch rywali traktowane jako niezależne (pomija karty w ich rękach)" }
+ex.hands.two: { value: 2, unit: count, source: "przykład w lekcji: dwie ręce rywali bez pary, cztery różne rangi" }
+pair.outs.two-hands: { formula: product, refs: [pair.outs.unpaired, ex.hands.two], unit: count, source: "obliczenie: 2 ręce × 6 kart parujących (cztery różne rangi, więc bez wspólnych outów)" }
+cards.two-hands: { formula: product, refs: [cards.hole, ex.hands.two], unit: count, source: "obliczenie: 2 ręce × 2 karty" }
+cards.unseen.two-hands: { formula: diff, refs: [cards.deck, cards.two-hands], unit: count, source: "obliczenie: talia minus karty obu rąk (karty bohatera pomijamy, jak w szansie dla jednej ręki)" }
+flop.miss.two: { formula: missProbability, refs: [pair.outs.two-hands, cards.unseen.two-hands, cards.board.flop], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): żadna z 3 kart flopu nie paruje żadnej z dwóch rąk, C(36,3)/C(48,3); z kartami bohatera wychodzi ok. 39,4%" }
 flop.hit.unpaired: { formula: diff, refs: [prob.certain, flop.miss.unpaired], unit: percent, decimals: 1, source: "obliczenie: 100% minus szansa chybienia" }
 
 # M6: obrona na flopie. MDF = pula/(pula+bet), alpha = bet/(pula+bet), potrzebne equity = bet/(pula+2·bet).
