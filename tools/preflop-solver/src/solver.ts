@@ -410,6 +410,19 @@ export class PreflopSolver {
     });
   }
 
+  /**
+   * Diagnostyka (B-045): wartość każdej akcji w węźle dla gracza, który w nim decyduje, przy strategiach uśrednionych,
+   * w bb na rękę. `reach` = zasięgi wszystkich graczy w węźle (report.playerReach). Normalizacja przez iloczyn mas
+   * zasięgów rywali bez usuwania kart (jak przy terminalach pasa), więc w pulach do showdownu wartość jest przybliżona
+   * o efekt blokerów; różnica między akcjami tej samej klasy ma poprawny znak.
+   */
+  actionValues(node: DecisionNode, reach: Float64Array[]): Float64Array[] {
+    const p = node.player;
+    let mass = 1;
+    for (let q = 0; q < N_PLAYERS; q++) if (q !== p) mass *= sum(reach[q]!);
+    return node.children.map((c) => this.traverse(c, p, reach, 'avg').map((x) => x / mass));
+  }
+
   /** Wartość oczekiwana gracza (w bb) przy strategiach uśrednionych. */
   value(p: number): number {
     const v = this.traverse(this.root, p, this.rootReach(), 'avg');

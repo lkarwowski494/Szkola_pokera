@@ -2,7 +2,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
 import { dirname, join, resolve } from 'node:path';
 import { DEFAULT_EQR, N, validateEquity, type EqrParams, type EquityData } from './model';
-import { formatSummary, rangeOf, realizationReport, summarize } from './report';
+import { evReport, formatSummary, rangeOf, realizationReport, summarize } from './report';
 import { DEFAULT_DCFR, PreflopSolver } from './solver';
 import { loadFlops, type FlopData } from './postflop';
 import { loadBoards, type StreetData } from './streets';
@@ -132,6 +132,8 @@ if (args.includes('--calibrate')) {
   console.log(formatSummary(summary));
   const realization = realizationReport(s);
   console.log(realization);
+  // diagnostyka B-045: wartość akcji w 3-betach z blindów (--ev-report)
+  if (args.includes('--ev-report')) console.log(evReport(s));
   const expl = s.exploitability();
 
   // eksport: wszystkie węzły decyzyjne z rozkładem akcji na klasę ręki (jedno źródło prawdy dla zakresów)

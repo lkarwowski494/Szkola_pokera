@@ -119,3 +119,32 @@ export function realizationReport(s: PreflopSolver): string {
   }
   return lines.join('\n');
 }
+
+/**
+ * Diagnostyka B-045: wartość akcji (bb) i częstość 3-betu dla rąk ze środka zakresu i typowych blefów w 3-betach z blindów.
+ */
+export function evReport(s: PreflopSolver): string {
+  const HANDS = ['55', '66', '77', '88', '99', 'ATo', 'A9o', 'KQo', 'AJo', 'A5s', 'A4s', 'A3s', 'A2s', '76s', '65s', 'T9s'];
+  const SPOTS: [string, string][] = [
+    ['SB vs BTN', 'UTG:fold,HJ:fold,CO:fold,BTN:raise2.5'],
+    ['BB vs BTN', 'UTG:fold,HJ:fold,CO:fold,BTN:raise2.5,SB:fold'],
+    ['BB vs SB', 'UTG:fold,HJ:fold,CO:fold,BTN:fold,SB:raise3'],
+  ];
+  const lines = ['Wartość akcji w bb (strategie uśrednione); kolumny: ręka, akcje, 3-bet minus najlepsza z pozostałych, częstość 3-betu:'];
+  for (const [name, path] of SPOTS) {
+    const node = findNode(s, path);
+    if (!node) continue;
+    const vals = s.actionValues(node, playerReach(s, node));
+    const st = s.averageStrategy(node.id);
+    const nA = node.actions.length;
+    const ri = node.actions.findIndex((a) => a.kind === 'raise' || a.kind === 'allin');
+    lines.push(`  ${name} (${node.actions.map((a) => a.label).join(' / ')}):`);
+    for (const hc of HANDS) {
+      const h = HAND_CLASSES.indexOf(hc);
+      const v = vals.map((x) => x[h]!);
+      const other = Math.max(...v.filter((_, a) => a !== ri));
+      lines.push(`    ${hc}\t${v.map((x) => x.toFixed(3)).join('\t')}\t${(v[ri]! - other >= 0 ? '+' : '') + (v[ri]! - other).toFixed(3)}\t${Math.round(st[h * nA + ri]! * 100)}%`);
+    }
+  }
+  return lines.join('\n');
+}
