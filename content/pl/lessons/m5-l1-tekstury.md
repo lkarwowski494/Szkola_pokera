@@ -44,7 +44,7 @@ drills:
     prompt: "Masz [[Ac Kd]], a flop to [[Ks 7d 2c]]. Dlaczego na takim flopie para z dobrym kickerem jest bezpieczniejsza niż na flopie mokrym?"
     table: { hand: "Ac Kd", board: "Ks 7d 2c" }
     options:
-      - { text: "Bo rywal nie ma żadnego dobierania, więc kolejne karty rzadko zmieniają lidera", correct: true, why: "Tak: flop jest tęczowy i strit nie jest możliwy. Rywal, który teraz przegrywa, potrzebuje zwykle dwóch dobrych kart z rzędu." }
+      - { text: "Bo rywal nie ma żadnego dobierania, więc kolejne karty rzadko zmieniają lidera", correct: true, why: "Tak: flop jest tęczowy i strit nie jest możliwy. Rywal, który teraz przegrywa, ma zwykle mało outów: kilka kart na trójkę albo dwie pary, a bez pary potrzebuje dwóch dobrych kart z rzędu." }
       - { text: "Bo na suchym flopie rywal zawsze pasuje", why: "Nie: rywal z siódemką, dwójką albo słabszym królem może sprawdzić. Suchy flop mówi o dobieraniach, nie o tym, czy rywal spasuje." }
       - { text: "Bo para króli zawsze wygrywa do rivera", why: "Nie: rywal może mieć seta albo dwie pary już teraz. Suchy flop zmniejsza tylko ryzyko, że ktoś cię dogoni." }
 ---
@@ -60,22 +60,37 @@ Flop **tęczowy** ma trzy różne kolory: nikt nie ma jeszcze dobierania do kolo
 
 ## Rangi
 
-Flop **sparowany** ma dwie karty tej samej rangi, np. [[Qd Qs 6h]]. Flop **połączony** ma trzy różne rangi w obrębie pięciu kolejnych, więc strit jest możliwy już teraz: na [[9h 7d 6c]] strita dają np. 85 i T8. As liczy się też jako jedynka, więc [[Ah 5d 3c]] też jest połączony. Pozostałe flopy są **rozłączone**, np. [[Ks 8d 3c]].
+Flop **sparowany** ma dwie karty tej samej rangi, np. [[Qd Qs 6h]]. Strita z dwiema kartami w ręce nikt na nim nie ma, choć dobieranie do strita bywa możliwe (np. na Q-Q-9).
+
+Flop **połączony** ma trzy różne rangi w obrębie pięciu kolejnych, więc strit jest możliwy już teraz: na [[9h 7d 6c]] strita dają np. 85 i T8. As liczy się też jako jedynka, więc [[Ah 5d 3c]] też jest połączony.
+
+Flop **półpołączony** ma w obrębie pięciu kolejnych rang tylko dwie swoje karty. Strita jeszcze nikt nie ma, ale ktoś może mieć dobieranie do strita (otwarte albo gutshot): na [[Kh Qd 4c]] daje je np. JT. Takich flopów jest dużo, bo wystarczą dwie karty blisko siebie.
+
+Flop **rozłączony** ma karty tak odległe, że żadne dwie nie mieszczą się w pięciu kolejnych rangach, np. [[Ks 8d 3c]]. Nikt nie ma tu nawet dobierania do strita. Takich flopów jest niewiele.
 
 ## Suchy czy mokry
 
-Liczymy drogi do dobierania: kolor (flop dwukolorowy albo monotoniczny) i strit (flop połączony). Flop **suchy** nie daje żadnej, **pośredni** daje jedną, **mokry** obie naraz.
+Liczymy punkty za to, co flop daje w kolorach i w stritach:
 
-| Flop | Kolor | Strit | Tekstura |
-|---|---|---|---|
-| [[Ks 7d 2c]] | nie | nie | suchy |
-| [[Qd Qs 6h]] | nie | nie | suchy |
-| [[9h 8d 7c]] | nie | tak | pośredni |
-| [[Kh 8h 3h]] | tak | nie | pośredni |
-| [[Jh Th 8c]] | tak | tak | mokry |
+- strit możliwy już teraz (flop połączony): {{n:tex.points.straight.made}} pkt; samo dobieranie do strita (flop półpołączony albo sparowany z dwiema kartami blisko siebie): {{n:tex.points.straight.draw}} pkt,
+- dwie karty w jednym kolorze: {{n:tex.points.suits.two-tone}} pkt; trzy karty w jednym kolorze: {{n:tex.points.suits.monotone}} pkt.
+
+Flop **suchy** ma mniej niż {{n:tex.threshold.medium}} pkt, **mokry** co najmniej {{n:tex.threshold.wet}} pkt, a **pośredni** jest pomiędzy.
+
+| Flop | Kolory | Strit | Razem | Tekstura |
+|---|---|---|---|---|
+| [[Ks 7d 2c]] | {{n:tex.points.suits.rainbow}} | {{n:tex.points.straight.none}} | {{n:tex.ex.k72}} | suchy |
+| [[Qd Qs 6h]] | {{n:tex.points.suits.rainbow}} | {{n:tex.points.straight.none}} | {{n:tex.ex.qq6}} | suchy |
+| [[Kh Qd 4c]] | {{n:tex.points.suits.rainbow}} | {{n:tex.points.straight.draw}} | {{n:tex.ex.kq4}} | suchy |
+| [[Jh 7h 4s]] | {{n:tex.points.suits.two-tone}} | {{n:tex.points.straight.draw}} | {{n:tex.ex.j74}} | pośredni |
+| [[Kh 8h 3h]] | {{n:tex.points.suits.monotone}} | {{n:tex.points.straight.none}} | {{n:tex.ex.k83}} | pośredni |
+| [[9h 8d 7c]] | {{n:tex.points.suits.rainbow}} | {{n:tex.points.straight.made}} | {{n:tex.ex.987}} | mokry |
+| [[Jh Th 8c]] | {{n:tex.points.suits.two-tone}} | {{n:tex.points.straight.made}} | {{n:tex.ex.jt8}} | mokry |
+
+Gotowy strit waży więcej niż samo dobieranie, bo zmienia układ sił już teraz.
 
 Na suchym flopie lider zwykle zostaje liderem do rivera. Na mokrym kolejne karty często zmieniają układ sił, więc ręka najlepsza na flopie jest mniej bezpieczna.
 
 :::note Skąd te definicje
-Pojęcia suchy i mokry pochodzą z literatury pokerowej (Upswing, GTO Gecko). Dokładne granice, np. że flop średni zaczyna się od dziesiątki, to umowa przyjęta w aplikacji, żeby każdy flop dało się ocenić jednoznacznie. W innych źródłach granice bywają trochę inne.
+Pojęcia suchy i mokry pochodzą z literatury pokerowej: za suche GTO Gecko i Upswing podają np. K-7-2, A-9-4 i A-A-6 w trzech kolorach, za mokre 9-8-7, Q-J-T i T-9-5-4. Punkty i dokładne granice, np. że flop średni zaczyna się od dziesiątki, to umowa przyjęta w aplikacji, żeby każdy flop dało się ocenić jednoznacznie. Źródła nie podają granic punktowych i nie rozstrzygają, jak nazywać flopy ani suche, ani mokre.
 :::

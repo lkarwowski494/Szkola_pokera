@@ -15,7 +15,7 @@ drills:
     options:
       - { text: "{{n:eq.bet-third}}", correct: true, why: "Dopłacasz {{n:ex.third.bet}} do puli, która po sprawdzeniu ma {{n:ex.third.total}}: {{n:ex.third.bet}} ÷ {{n:ex.third.total}} = {{n:eq.bet-third}}. Mały c-bet daje bardzo dobrą cenę." }
       - { text: "{{n:alpha.bet-third}}", why: "To alpha: jak często blef Buttona musi zadziałać. Do mianownika potrzebnego equity dolicz też swoje sprawdzenie." }
-      - { text: "{{n:mdf.bet-third}}", why: "To MDF, czyli część zakresu, a nie equity jednej ręki. Na flopie bronisz zresztą mniej niż MDF." }
+      - { text: "{{n:mdf.bet-third}}", why: "To MDF, czyli część zakresu, a nie equity jednej ręki. Na flopie bez pozycji bronisz zresztą trochę mniej niż MDF." }
   - kind: numeric
     id: m6.l2.n-price-three-quarters
     family: m6.flop.price
@@ -23,7 +23,7 @@ drills:
     prompt: "Flop. W puli jest {{n:ex.pot}}, Button stawia c-bet {{n:ex.bet.three-quarters}}. Ile procent equity potrzebujesz do sprawdzenia? Wpisz liczbę."
     table: { position: BB }
     answer: eq.bet-three-quarters
-    explanation: "Dopłacasz {{n:ex.bet.three-quarters}} do puli, która po sprawdzeniu ma {{n:ex.pot}} + {{n:ex.bet.three-quarters}} + {{n:ex.bet.three-quarters}}. {{n:ex.bet.three-quarters}} ÷ tę sumę = {{n:eq.bet-three-quarters}}. To ponad dwa razy więcej niż wobec c-betu 1/4 puli ({{n:eq.bet-quarter}})."
+    explanation: "Dopłacasz {{n:ex.bet.three-quarters}} do puli, która po sprawdzeniu ma {{n:ex.pot}} + {{n:ex.bet.three-quarters}} + {{n:ex.bet.three-quarters}}. {{n:ex.bet.three-quarters}} ÷ tę sumę = {{n:eq.bet-three-quarters}}. To prawie dwa razy więcej niż wobec c-betu 1/4 puli ({{n:eq.bet-quarter}})."
   - kind: choice
     id: m6.l2.q-size-narrow
     family: m6.flop.size
@@ -42,8 +42,8 @@ drills:
     table: { hand: "7h 6h", board: "Kc 7d 2s", position: BB }
     options:
       - { text: "Sprawdzam", correct: true, why: "Środkowa para wygrywa ze wszystkimi blefami Buttona (ręce bez pary), a do sprawdzenia potrzebujesz tylko {{n:eq.bet-third}} equity. Standardowa obrona." }
-      - { text: "Pasuję", why: "Za ciasno. Wobec małego c-betu pasujesz ręce bez pary i bez dobierania, a nie parę." }
-      - { text: "Check-raise", why: "Po przebiciu gorsze ręce Buttona spasują, a zapłacą lepsze (króle, wyższe pary). Średnia para zamienia się wtedy w blef. Lepiej sprawdzić." }
+      - { text: "Pasuję", why: "Za ciasno. Wobec małego c-betu pasujesz najsłabsze ręce bez pary i bez dobierania, a nie parę." }
+      - { text: "Check-raise", why: "Zwykle sprawdzasz. Po przebiciu płacą ci głównie lepsze ręce i dobierania; check-raise taką ręką to rzadkie zagranie solvera wobec małych c-betów." }
   - kind: choice
     id: m6.l2.q-bare-overcards
     family: m6.flop.fold
@@ -62,7 +62,7 @@ drills:
     table: { hand: "Qs Js", board: "7s 4h 2d", position: BB }
     options:
       - { text: "Sprawdzam", correct: true, why: "Dwie wysokie karty plus dodatkowe dobieranie do koloru (backdoor: trzy piki, potrzebujesz pika na turnie i na riverze). Przy cenie {{n:eq.bet-third}} to wystarczy do sprawdzenia." }
-      - { text: "Check-raise", correct: true, why: "Też dobrze, ale to zagranie zaawansowane. Blefy w check-raise'ach robisz przede wszystkim mocnymi dobieraniami (kolor, strit otwarty z obu stron); dodatkowe dobieranie jest słabsze, więc po sprawdzeniu przez rywala zwykle zostajesz z samymi wysokimi kartami. Doświadczeni gracze czasem tak blefują, bo masz piki i wysokie karty, ale na początek prościej jest sprawdzić." }
+      - { text: "Check-raise", why: "Zwykle nie. Check-raise robisz głównie najsilniejszymi rękami i dobieraniami (kolor, otwarte dobieranie do strita). Dodatkowe dobieranie do koloru jest słabe: gdy Button zapłaci, zwykle zostajesz z samymi wysokimi kartami. Tę rękę sprawdzasz." }
       - { text: "Pasuję", why: "Za ciasno wobec małego c-betu. Dodatkowe dobieranie i dwie wysokie karty dają dość equity przy cenie {{n:eq.bet-third}}." }
   - kind: choice
     id: m6.l2.q-gutshot-overcard
@@ -71,7 +71,7 @@ drills:
     prompt: "Bronisz duży blind przeciw otwarciu Buttona. Na flopie czekasz, Button stawia c-bet 1/3 puli. Co robisz?"
     table: { hand: "Kh 9h", board: "Jc Td 4s", position: BB }
     options:
-      - { text: "Sprawdzam", correct: true, why: "Masz gutshot do strita (dama) i króla wyższego od stołu. Sam gutshot daje ok. {{n:odds.gutshot.flop-river}} do rivera, a król dokłada szansę na najwyższą parę. Przy cenie {{n:eq.bet-third}} sprawdzenie się opłaca." }
+      - { text: "Sprawdzam", correct: true, why: "Masz gutshot do strita (dama) i króla wyższego od stołu. Sprawdzenie kupuje jedną kartę: gutshot trafisz na turnie w ok. {{n:odds.gutshot.flop-turn}}, a król dokłada kilka outów do najwyższej pary. Razem to mniej niż cena {{n:eq.bet-third}}, ale po trafieniu strita wygrasz więcej (implied odds), a sam król czasem wygrywa z blefami Buttona. Wobec małego c-betu to wystarcza do sprawdzenia." }
       - { text: "Pasuję", why: "Za ciasno: dobieranie plus wysoka karta to wystarczająco dużo wobec małego c-betu." }
       - { text: "Check-raise all-in", why: "Ryzykujesz cały stack ręką, która jeszcze nic nie ma. Taki rozmiar wypycha słabsze ręce, a płacą tylko lepsze." }
   - kind: choice
@@ -81,8 +81,8 @@ drills:
     prompt: "Bronisz duży blind przeciw otwarciu Buttona. Na flopie czekasz, Button stawia c-bet 1/3 puli. Co robisz?"
     table: { hand: "Jd 9c", board: "Ah Ks 4s", position: BB }
     options:
-      - { text: "Pasuję", correct: true, why: "Nie masz pary ani dobierania do koloru, a do strita brakuje ci dwóch kart. Na flopie z asem i królem Button ma dużo silnych rąk. Cena jest dobra, ale ta ręka prawie nigdy jej nie zrealizuje." }
-      - { text: "Sprawdzam, bo MDF wynosi {{n:mdf.bet-third}}", why: "MDF to punkt odniesienia dla całego zakresu, a nie powód, żeby płacić najsłabszymi rękami. Na flopie bronisz mniej niż MDF." }
+      - { text: "Pasuję", correct: true, why: "Nie masz pary ani dobierania do koloru; masz tylko słabe dodatkowe dobieranie do strita (potrzebujesz dwóch konkretnych kart), a żadna twoja karta nie jest wyższa od stołu. Na flopie z asem i królem Button ma dużo silnych rąk. Cena jest dobra, ale ta ręka prawie nigdy jej nie zrealizuje." }
+      - { text: "Sprawdzam, bo MDF wynosi {{n:mdf.bet-third}}", why: "MDF to punkt odniesienia dla całego zakresu, a nie powód, żeby płacić najsłabszymi rękami. Na flopie bez pozycji możesz bronić trochę mniej niż MDF." }
       - { text: "Check-raise", why: "Na flopie z asem i królem przewaga zakresu jest po stronie Buttona, a ty nie masz dobierania, które dawałoby drugą drogę do wygranej." }
   - kind: choice
     id: m6.l2.q-realize
@@ -109,7 +109,7 @@ Najpierw liczysz, ile equity potrzebujesz (wzór z M2). Mały c-bet daje świetn
 | 3/4 puli | {{n:eq.bet-three-quarters}} | {{n:mdf.bet-three-quarters}} |
 | Cała pula | {{n:eq.bet-pot}} | {{n:mdf.bet-pot}} |
 
-MDF pokazuje kierunek: im większy bet, tym mniej rąk bronisz. Na flopie bronisz mniej niż MDF, bo blefy Buttona mają jeszcze equity.
+MDF pokazuje kierunek: im większy bet, tym mniej rąk bronisz. Na flopie bez pozycji możesz bronić trochę mniej niż MDF, bo blefy Buttona mają jeszcze equity, ale na mały c-bet nie pasujesz masowo.
 
 ## Bez pozycji realizujesz mniej
 
@@ -117,15 +117,18 @@ Equity to szansa przy grze do końca bez dalszych zakładów. Bez pozycji mówis
 
 ## Czym sprawdzasz
 
-Wobec małego c-betu (ok. 1/3 puli):
+Wobec małego c-betu (ok. 1/3 puli) kontynuujesz:
 
-- każdą parą, także środkową i najniższą,
+- prawie każdą parą, także środkową i najniższą,
 - dobieraniami do koloru i strita, także gutshotem z wysoką kartą,
-- wysokimi kartami z dodatkowym dobieraniem (backdoor), np. trzema kartami w jednym kolorze.
+- wysokimi kartami z dodatkowym dobieraniem (backdoor), np. trzema kartami w jednym kolorze,
+- zwykle także asem jako najwyższą kartą.
+
+Pamiętaj z M2: sprawdzenie zakładu na flopie kupuje jedną kartę, więc dobieranie porównujesz z szansą na turnie. Ta szansa bywa trochę niższa od ceny małego c-betu. Sprawdzenie i tak się opłaca, gdy po trafieniu wygrasz więcej niż to, co jest teraz w puli (to tzw. implied odds, policzysz je w M7), albo gdy ręka czasem wygrywa bez trafienia, np. dzięki wysokiej karcie.
 
 ## Czym pasujesz
 
-- rękami bez pary i bez dobierania, zwłaszcza na flopach z asem albo królem, gdzie Button ma przewagę zakresu,
-- dwiema wysokimi kartami bez dobierania, gdy c-bet jest duży.
+- rękami bez pary i bez dobierania, które nie mają asa ani kart wyższych od stołu; na flopach z asem pasujesz ich więcej,
+- zwykle dwiema wysokimi kartami bez dobierania, gdy c-bet jest duży; sprawdzasz raczej wtedy, gdy masz dodatkowe dobieranie, najlepiej do najwyższego koloru.
 
 Gdy c-bet rośnie, kolejne najsłabsze ręce przechodzą ze sprawdzenia do pasa.

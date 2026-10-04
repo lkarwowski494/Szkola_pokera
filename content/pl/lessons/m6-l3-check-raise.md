@@ -14,7 +14,7 @@ drills:
     table: { hand: "6c 5c", board: "7h 6d 5s", position: BB }
     options:
       - { text: "Check-raise", correct: true, why: "Dwie pary na niskim, połączonym flopie to ręka dla wartości. Na takich flopach duży blind ma więcej najsilniejszych układów niż Button. Przebiciem budujesz pulę i każesz płacić parom i dobieraniom." }
-      - { text: "Sprawdzam", why: "Nie jest to duży błąd, ale tracisz wartość i ochronę: wiele kart na turnie (czwórka, ósemka, dziewiątka, pary na stole) osłabia twoją rękę albo zatrzymuje akcję." }
+      - { text: "Sprawdzam", correct: true, why: "Też dobre: na bardzo połączonym flopie część dwóch par solver tylko sprawdza. Check-raise częściej buduje pulę i chroni rękę." }
       - { text: "Pasuję", why: "Dwie pary to jedna z najsilniejszych rąk na tym flopie. Pas to duży błąd." }
   - kind: choice
     id: m6.l3.q-set-size
@@ -23,7 +23,7 @@ drills:
     prompt: "W puli jest {{n:ex.third.pot}}, Button stawia c-bet {{n:ex.third.bet}}. Masz seta i chcesz zrobić check-raise. Do ilu przebijasz?"
     table: { hand: "4s 4d", board: "Qc 9h 4h", position: BB }
     options:
-      - { text: "Do {{n:xr.example}}", correct: true, why: "To {{n:xr.mult.example}} c-betu. Button musi dopłacić {{n:xr.example.extra}} i potrzebuje do sprawdzenia ok. {{n:eq.vs-xr.example}} equity, więc dobierania płacą drogo, a gorsze pary nie mają dobrej ceny." }
+      - { text: "Do {{n:xr.example}}", correct: true, why: "To {{n:xr.mult.example}} c-betu. Button musi dopłacić {{n:xr.example.extra}} i potrzebuje ok. {{n:eq.vs-xr.example}} equity: gorsze pary i słabe dobierania (gutshot) nie mają ceny, a kolor i otwarte dobieranie do strita zapłacą już do dużej puli." }
       - { text: "Do {{n:xr.too-small}}", sizeError: true, why: "Dobra akcja, ale za mały rozmiar: Button dopłaca tylko {{n:xr.too-small.extra}} i potrzebuje ok. {{n:eq.vs-xr.too-small}} equity. Każde dobieranie do koloru albo strita zapłaci prawie za darmo." }
       - { text: "Sprawdzam", why: "Na flopie z dwoma kierami i kartami do strita tracisz wartość i ochronę: wiele kart na turnie zatrzyma akcję albo pobije twoją rękę. Set chce budować pulę od razu." }
   - kind: numeric
@@ -59,9 +59,9 @@ drills:
     prompt: "Bronisz duży blind przeciw otwarciu Buttona. Na flopie czekasz, Button stawia c-bet 1/3 puli. Co robisz?"
     table: { hand: "Ah 5h", board: "Kh 8h 3c", position: BB }
     options:
-      - { text: "Check-raise", correct: true, why: "Dobieranie do najlepszego koloru to dobry półblef: wygrywasz, gdy Button spasuje, a gdy zapłaci, nadal masz {{n:outs.flush}} outów (ok. {{n:odds.flush.flop-river}} do rivera)." }
-      - { text: "Sprawdzam", correct: true, why: "Też dobre: przy cenie {{n:eq.bet-third}} sprawdzenie dobieraniem do koloru się opłaca. Mocne dobierania grasz w obu wariantach, żeby twój check-raise nie oznaczał samych silnych rąk." }
-      - { text: "Pasuję", why: "Duży błąd: {{n:outs.flush}} outów do najlepszego koloru to dużo więcej niż potrzebne {{n:eq.bet-third}}." }
+      - { text: "Check-raise", correct: true, why: "Dobieranie do najlepszego koloru to dobry półblef: wygrywasz, gdy Button spasuje, a gdy zapłaci, nadal masz {{n:outs.flush}} outów (ok. {{n:odds.flush.flop-turn}} na turnie)." }
+      - { text: "Sprawdzam", correct: true, why: "Też dobre: kolor trafisz na turnie w ok. {{n:odds.flush.flop-turn}}, prawie tyle, ile wynosi cena {{n:eq.bet-third}}, a po trafieniu najlepszego koloru wygrasz więcej (implied odds). Mocne dobierania grasz w obu wariantach, żeby twój check-raise nie oznaczał samych silnych rąk." }
+      - { text: "Pasuję", why: "Duży błąd: z {{n:outs.flush}} outami trafisz najlepszy kolor na turnie w ok. {{n:odds.flush.flop-turn}}, prawie tyle, ile wynosi cena {{n:eq.bet-third}}, a po trafieniu wygrasz więcej (implied odds). Do tego możesz zrobić check-raise." }
   - kind: choice
     id: m6.l3.q-oesd
     family: m6.xr.semibluff
@@ -69,9 +69,9 @@ drills:
     prompt: "Bronisz duży blind przeciw otwarciu Buttona. Na flopie czekasz, Button stawia c-bet 1/3 puli. Co robisz?"
     table: { hand: "9s 8s", board: "7d 6c 2h", position: BB }
     options:
-      - { text: "Check-raise", correct: true, why: "Otwarte dobieranie do strita ({{n:outs.oesd}} outów) na niskim flopie, który lepiej pasuje do zakresu dużego blinda. Przebiciem możesz wygrać od razu, a gdy dostaniesz sprawdzenie, nadal możesz trafić." }
-      - { text: "Sprawdzam", correct: true, why: "Też dobre: przy cenie {{n:eq.bet-third}} dobieranie z {{n:outs.oesd}} outami spokojnie sprawdza. Część mocnych dobierań sprawdzasz, żeby twoje sprawdzenia nie były same słabe." }
-      - { text: "Pasuję", why: "Za ciasno: {{n:outs.oesd}} outów to ok. {{n:odds.oesd.flop-river}} do rivera, dużo więcej niż potrzebne {{n:eq.bet-third}}." }
+      - { text: "Check-raise", correct: true, why: "Otwarte dobieranie do strita (OESD, {{n:outs.oesd}} outów) wobec małego c-betu, który daje tanią okazję do przebicia. Przebiciem możesz wygrać od razu, a gdy dostaniesz sprawdzenie, nadal możesz trafić." }
+      - { text: "Sprawdzam", correct: true, why: "Też dobre: strita trafisz na turnie w ok. {{n:odds.oesd.flop-turn}}, trochę mniej niż cena {{n:eq.bet-third}}, ale po trafieniu wygrasz więcej (implied odds), a gdy na turnie nikt nie postawi, zobaczysz też rivera za darmo. Część mocnych dobierań sprawdzasz, żeby twoje sprawdzenia nie były same słabe." }
+      - { text: "Pasuję", why: "Za ciasno: z {{n:outs.oesd}} outami trafisz strita na turnie w ok. {{n:odds.oesd.flop-turn}}, niewiele mniej niż cena {{n:eq.bet-third}}; resztę dają implied odds i szansa na darmowego rivera. Do tego możesz zrobić check-raise." }
   - kind: choice
     id: m6.l3.q-top-pair-weak
     family: m6.xr.medium
@@ -80,17 +80,17 @@ drills:
     table: { hand: "Kd 9c", board: "Ks 7d 2c", position: BB }
     options:
       - { text: "Sprawdzam", correct: true, why: "Najwyższa para ze słabym kickerem to ręka do sprawdzania. Wygrywa z blefami Buttona, a sprawdzeniem trzymasz je w grze." }
-      - { text: "Check-raise", why: "Po przebiciu Button pasuje gorszymi rękami, a płaci lepszymi królami (AK, KQ, KJ) i setami. Średnio silną rękę zamieniasz w blef." }
+      - { text: "Check-raise", why: "Zwykle sprawdzasz. Po przebiciu płacą ci głównie lepsze ręce i dobierania; check-raise taką ręką to rzadkie zagranie solvera wobec małych c-betów." }
       - { text: "Pasuję", why: "Najwyższa para wobec małego c-betu to zdecydowanie za dużo, żeby pasować." }
   - kind: choice
     id: m6.l3.q-ace-high-board
     family: m6.xr.board
-    rules: [R-M6-009]
+    rules: [R-M6-008, R-M6-006]
     prompt: "Bronisz duży blind przeciw otwarciu Buttona. Na flopie czekasz, Button stawia c-bet 1/3 puli. Co robisz?"
     table: { hand: "6s 5s", board: "Ad Kc 8h", position: BB }
     options:
-      - { text: "Pasuję", correct: true, why: "Nie masz pary ani dobierania do koloru, a do strita brakuje dwóch kart. Flop z asem i królem pasuje do zakresu Buttona, więc blef check-raise'em ma tu małe szanse." }
-      - { text: "Check-raise jako blef", why: "Na flopach z asem i królem przewaga jest po stronie Buttona: ma dużo asów i królów, które nie spasują. Blefy w check-raise'ach lepiej robić na niskich flopach i z prawdziwym dobieraniem." }
+      - { text: "Pasuję", correct: true, why: "Nie masz pary ani dobierania do koloru; masz tylko słabe dodatkowe dobieranie do strita (potrzebujesz dwóch konkretnych kart), a żadna twoja karta nie jest wyższa od stołu. Na flopach z asem pasujesz takich rąk więcej." }
+      - { text: "Check-raise jako blef", why: "Blefy w check-raise'ach robisz głównie dobieraniami (kolor, otwarte dobieranie do strita), które wygrywają też po trafieniu. Ta ręka ma tylko słabe dodatkowe dobieranie, a Button ma tu dużo asów i królów, które nie spasują." }
       - { text: "Sprawdzam", why: "Cena jest dobra, ale ta ręka prawie nic nie trafi: nawet para szóstek albo piątek przegrywa z większością rąk, którymi Button zapłaci dalej." }
   - kind: choice
     id: m6.l3.q-when-more
@@ -99,9 +99,9 @@ drills:
     prompt: "Wobec którego c-betu Buttona robisz check-raise częściej?"
     table: { position: BB }
     options:
-      - { text: "1/4 puli", correct: true, why: "Mały c-bet daje tanią okazję do przebicia, a Button stawia go szerokim zakresem z wieloma słabymi rękami. Wobec dużego c-betu ręce do check-raise'u są te same, ale grasz je tak rzadziej." }
+      - { text: "1/4 puli", correct: true, why: "Mały c-bet daje tanią okazję do przebicia, a Button stawia go szerokim zakresem z wieloma słabymi rękami. Wobec dużego c-betu przebijasz rzadziej i węziej: głównie sety i dwie pary, mniej blefów." }
       - { text: "Cała pula", why: "Wobec dużego c-betu przebicie kosztuje dużo, a zakres Buttona jest silniejszy. Częściej sprawdzasz albo pasujesz." }
-      - { text: "Tak samo często", why: "Rodzaj rąk do check-raise'u się nie zmienia, ale częstość tak: wobec małych c-betów przebijasz częściej." }
+      - { text: "Tak samo często", why: "Wobec małych c-betów przebijasz częściej i szerzej; wobec dużych rzadziej, głównie najsilniejszymi rękami." }
   - kind: choice
     id: m6.l3.q-exploit-station
     family: m6.xr.exploit
@@ -110,29 +110,29 @@ drills:
     table: { hand: "Kh 9h", board: "Jc Td 4s", position: BB }
     options:
       - { text: "Sprawdzam", correct: true, why: "Gutshot z wysoką kartą to dobre sprawdzenie przy cenie {{n:eq.bet-third}}. Check-raise blefem zarabia na pasach, a ten rywal prawie nie pasuje, więc przebicie traci swoją główną zaletę." }
-      - { text: "Check-raise", why: "Wobec typowego gracza to możliwy półblef. Ale blef zarabia na pasach, a ten rywal prawie nie pasuje. Wobec niego przebijasz głównie dla wartości." }
+      - { text: "Check-raise", why: "Blefy w check-raise'ach robisz głównie mocnymi dobieraniami, a gutshot do nich nie należy. Do tego blef zarabia na pasach, a ten rywal prawie nie pasuje: wobec niego przebijasz głównie dla wartości." }
       - { text: "Pasuję", why: "Za ciasno: dobieranie z wysoką kartą przy tak dobrej cenie się broni, niezależnie od tego, z kim grasz." }
 ---
-Check-raise to czekanie, a potem przebicie zakładu rywala. Z dużego blinda to twoja główna broń wobec c-betów: bez niej Button mógłby c-betować tanio prawie każdą ręką.
+Check-raise to czekanie, a potem przebicie zakładu rywala. Z dużego blinda to ważna broń wobec c-betów (najczęściej i tak wybierasz między sprawdzeniem a pasem): bez niej Button mógłby c-betować tanio prawie każdą ręką.
 
 ## Po co przebijać
 
 Check-raise robisz z dwóch powodów:
 
 - **dla wartości**: masz bardzo silną rękę (dwie pary, set) i chcesz zbudować pulę,
-- **jako półblef**: masz mocne dobieranie, które wygrywa na dwa sposoby: gdy Button spasuje albo gdy trafisz.
+- **jako półblef**: masz dobieranie (kolor, otwarte dobieranie do strita), które wygrywa na dwa sposoby: gdy Button spasuje albo gdy trafisz.
 
-Średnie ręce, np. najwyższą parę ze słabym kickerem, zwykle sprawdzasz. Po przebiciu gorsze ręce Buttona spasują, a zapłacą lepsze.
+Średnie ręce, np. najwyższą parę ze słabym kickerem, zwykle sprawdzasz: po przebiciu gorsze ręce Buttona częściej spasują, a zapłacą lepsze. To uproszczenie: wobec małych c-betów solver przebija też część najwyższych par i słabych par dla ochrony. Z kolei dwie pary na bardzo połączonym flopie solver często tylko sprawdza.
 
 ## Kiedy częściej
 
-- **Wobec małego c-betu.** Przebicie jest tanie, a Button stawia mały c-bet szerokim zakresem. Wobec dużego c-betu przebijasz tymi samymi rękami, ale rzadziej.
-- **Na niskich, połączonych flopach** (np. [[7h 6d 5s]]). Duży blind broni wielu niskich rąk, więc zwykle ma tu więcej dwóch par, setów i stritów niż Button, czyli przewagę nutsów.
-- **Rzadziej na flopach z asem albo królem.** Tam przewagę zakresu ma Button (przypomnienie z M5).
+- **Wobec małego c-betu.** Przebicie jest tanie, a Button stawia mały c-bet szerokim zakresem. Wobec dużego c-betu przebijasz rzadziej i węziej: głównie sety i dwie pary, mniej blefów.
+- **Na niskich, połączonych flopach** (np. [[7h 6d 5s]]). Duży blind broni wielu niskich rąk, więc zwykle ma tu więcej dwóch par i stritów niż Button, czyli przewagę orzechową.
+- **Rzadziej na wysokich flopach dobrych dla Buttona**, np. K-J-T albo A-A-K: tam to on ma więcej najsilniejszych rąk.
 
 ## Jaki rozmiar
 
-Rozmiar check-raise'u liczysz od c-betu. Przykład: w puli jest {{n:ex.third.pot}}, c-bet {{n:ex.third.bet}}. Check-raise na {{n:xr.mult.example}} c-betu to przebicie do {{n:xr.example}}: Button dopłaca {{n:xr.example.extra}} i potrzebuje ok. **{{n:eq.vs-xr.example}}** equity. Przebicie tylko do {{n:xr.too-small}} daje mu cenę ok. **{{n:eq.vs-xr.too-small}}**: zapłaci prawie każdą ręką z jakimkolwiek dobieraniem. Dlatego przebijasz kilka razy więcej niż c-bet, a nie minimalnie.
+Rozmiar check-raise'u liczysz od c-betu. Przykład: w puli jest {{n:ex.third.pot}}, c-bet {{n:ex.third.bet}}. Check-raise na {{n:xr.mult.example}} c-betu to przebicie do {{n:xr.example}}: Button dopłaca {{n:xr.example.extra}} i potrzebuje ok. **{{n:eq.vs-xr.example}}** equity. Przebicie tylko do {{n:xr.too-small}} daje mu cenę ok. **{{n:eq.vs-xr.too-small}}**: zapłaci prawie każdą ręką z jakimkolwiek dobieraniem. Dlatego przebijasz ok. {{n:xr.mult.low}}–{{n:xr.mult.example}} c-betu, tym więcej, im mniejszy c-bet, a nie minimalnie.
 
 :::note Rywal, który nie pasuje
 Blef w check-raise'ie zarabia na pasach (przypomnij sobie alphę z pierwszej lekcji). Wobec gracza, który na flopie prawie nigdy nie pasuje, przebijasz głównie dla wartości, a blefy zostawiasz dla najmocniejszych dobierań.
