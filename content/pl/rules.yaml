@@ -13,21 +13,21 @@
   then: "wygrywa układ wyżej w rankingu, niezależnie od wysokości kart"
   because: "ranking układów rozstrzyga przed wysokością kart; kolor zawsze bije strita, full zawsze bije kolor"
   level: rules
-  source: "zasady Texas Hold'em"
+  source: "zasady Texas Hold'em: Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands), ranking od pokera królewskiego do wysokiej karty (dokument 12 M0–M3)"
 - id: R-M0-002
   module: m0
   if: "obaj gracze mają ten sam rdzeń układu: tę samą parę, trójkę albo te same dwie pary"
   then: "decydują kickery, porównywane kolejno od najwyższego, ale tylko te, które mieszczą się w najlepszych 5 kartach; jeśli piątki są identyczne, pula jest dzielona"
   because: "najpierw liczy się ranga układu, potem jego wysokość, a kickery dopiero przy identycznym rdzeniu; liczy się tylko najlepsza piątka z 7 kart"
   level: rules
-  source: "zasady Texas Hold'em"
+  source: "zasady Texas Hold'em: Wikipedia, Texas hold 'em („the best five-card poker hand from any combination of the seven cards”); Robert's Rules of Poker (https://briggsoft.com/docs/pmavens/Rules_Roberts.htm), sekcja 5; kolejność porównania: Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands) (dokument 12 M0–M3)"
 - id: R-M0-003
   module: m0
   if: "najlepsze 5 kart obu graczy leży na stole"
   then: "pula jest dzielona"
   because: "obaj grają tę samą piątkę („gra stół”)"
   level: rules
-  source: "zasady Texas Hold'em"
+  source: "zasady Texas Hold'em: Wikipedia, Texas hold 'em („playing the board”); Robert's Rules of Poker (https://briggsoft.com/docs/pmavens/Rules_Roberts.htm), sekcja 5 („play the board”) (dokument 12 M0–M3)"
 
 - id: R-M1-001
   module: m1
@@ -35,7 +35,7 @@
   then: "możesz czekać (check) albo postawić (bet)"
   because: "sprawdzić i przebić można tylko istniejący zakład"
   level: rules
-  source: "zasady Texas Hold'em"
+  source: "zasady Texas Hold'em: Robert's Rules of Poker (https://briggsoft.com/docs/pmavens/Rules_Roberts.htm), sekcja 3 („fold, check, bet, call, or raise”) (dokument 12 M0–M3)"
 - id: R-M1-002
   module: m1
   if: "możesz czekać za darmo"
@@ -49,14 +49,14 @@
   then: "pasujesz"
   because: "tracisz tylko to, co już wpłaciłeś; każde sprawdzenie bez powodu to dodatkowa strata"
   level: rules
-  source: "zasady Texas Hold'em"
+  source: "zasady Texas Hold'em: Robert's Rules of Poker (https://briggsoft.com/docs/pmavens/Rules_Roberts.htm), sekcja 3 (dokument 12 M0–M3)"
 - id: R-M1-004
   module: m1
   if: "rozdanie przechodzi do kolejnej rundy licytacji"
   then: "flop to 3 karty wspólne, turn i river po jednej; po licytacji na riverze gracze, którzy zostali (co najmniej dwóch), odkrywają karty (showdown)"
   because: "takie są zasady Texas Hold'em: cztery rundy licytacji, a river jest ostatnią"
   level: rules
-  source: "zasady Texas Hold'em"
+  source: "zasady Texas Hold'em: Robert's Rules of Poker (https://briggsoft.com/docs/pmavens/Rules_Roberts.htm), sekcja 5 („Three boardcards are turned simultaneously … The next two boardcards are turned one at a time”); Wikipedia, Texas hold 'em (dokument 12 M0–M3)"
 
 - id: R-M2-001
   module: m2
@@ -71,7 +71,7 @@
   then: "szacujesz szansę trafienia: outy × 2 przy jednej karcie, outy × 4 przy dwóch; przy zakładzie na flopie liczysz jedną kartę (× 2), a × 4 tylko wtedy, gdy zobaczysz turn i river bez dalszych zakładów (all-in)"
   because: "za rivera rywal może kazać ci zapłacić osobno; reguła 2 i 4 myli się o ok. 2 punkty procentowe przy maks. 10 outach"
   level: math
-  source: "Upswing, outy i szanse (dokument 08)"
+  source: "Upswing, Poker drawing odds & outs explained (https://upswingpoker.com/poker-drawing-odds-outs-explained/): „accurate within 2% … ten or fewer outs”; rachunek: największy błąd 1,7 pp przy 10 outach (dokument 12 M0–M3)"
 - id: R-M2-003
   module: m2
   if: "przeciwnik betuje pół puli"
@@ -96,32 +96,32 @@
 
 - id: R-M3-001
   module: m3
-  if: "jesteś na Buttonie"
-  then: "otwierasz najszerzej spośród pozycji wchodzących jako pierwsze, bo od flopu mówisz ostatni"
-  because: "znasz decyzje wszystkich rywali przed swoją"
+  if: "jesteś na Buttonie i wszyscy przed tobą spasowali"
+  then: "otwierasz najszerzej ze wszystkich pozycji przed blindami; tylko mały blind otwiera podobnie szeroko"
+  because: "od flopu mówisz ostatni i zostały za tobą tylko blindy"
   level: gto
-  source: "GTO Wizard, morfologia zakresów (dokument 08)"
+  source: "BeyondGTO, 6-max 100bb NL500: BTN 42%, SB 44%; Upswing, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): SB nieco szerzej niż Button, 40–50%; Preflop Wizard, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): BTN 40–45%, SB 39–47% (dokument 12, D2)"
 - id: R-M3-002
   module: m3
   if: "wszyscy spasowali do ciebie na UTG"
   then: "otwierasz ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk"
   because: "za tobą jest jeszcze pięciu graczy, więc ktoś częściej ma lepszą rękę"
   level: gto
-  source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08)"
+  source: "GTO Wizard, Range Morphology (https://blog.gtowizard.com/range-morphology/): UTG 17,6%; BeyondGTO (NL500): UTG 17%, HJ 22%, CO 28%, BTN 42%; Preflop Wizard, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 15–17 / 19–22 / 25–28 / 40–45% (dokument 12 M0–M3, D6)"
 - id: R-M3-003
   module: m3
   if: "wszyscy spasowali do ciebie na Buttonie"
   then: "otwierasz ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk"
   because: "zostały tylko blindy, a po flopie będziesz mieć pozycję"
   level: gto
-  source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08)"
+  source: "BeyondGTO, BTN open 6-max 100bb (NL500): ok. 42%; Preflop Wizard, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 40–45% (dokument 12 M0–M3, D6)"
 - id: R-M3-004
   module: m3
   if: "wchodzisz do rozdania jako pierwszy"
   then: "przebijasz albo pasujesz, nie dopłacasz samego blinda (limp)"
   because: "przebicie może od razu wygrać blindy i daje inicjatywę; limp oddaje obie te rzeczy"
   level: heuristic
-  source: "Upswing, mikrostawki; zakresy bez limpów (dokument 08)"
+  source: "Upswing, Why limping is bad (https://upswingpoker.com/why-limping-in-poker-is-bad/): „If you make everyone fold preflop, you win 100% of the pot … You can't ever do that in a pot you've limped into”; BeyondGTO, SB open 6-max 100bb: „raise-or-fold” (dokument 12 M0–M3)"
 - id: R-M3-005
   module: m3
   if: "możesz wybrać między tymi samymi kartami w jednym kolorze i w różnych"
@@ -135,21 +135,28 @@
   then: "otwierasz szerzej niż z UTG, a węziej niż z Buttona; z CO szerzej niż z HJ"
   because: "im mniej graczy zostało za tobą, tym rzadziej ktoś ma lepszą rękę i tym częściej po flopie masz pozycję"
   level: gto
-  source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08): zakres otwarcia rośnie od UTG do Buttona"
+  source: "GTO Wizard, Range Morphology (https://blog.gtowizard.com/range-morphology/): UTG 17,6%; BeyondGTO (NL500): UTG 17%, HJ 22%, CO 28%, BTN 42%; Preflop Wizard, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 15–17 / 19–22 / 25–28 / 40–45% (dokument 12 M0–M3, D6): zakres otwarcia rośnie od UTG do Buttona"
 - id: R-M3-007
   module: m3
   if: "wchodzisz do rozdania jako pierwszy przebiciem"
-  then: "przebijasz do {{n:pf.open-size}} z każdej pozycji, a z małego blinda do {{n:pf.open-size-sb}}"
+  then: "przebijasz do {{n:pf.open-size}} z każdej pozycji, a z małego blinda do {{n:pf.open-size-sb}} (uproszczenie)"
   because: "jeden rozmiar z każdej pozycji jest prosty i nie zdradza siły ręki; z małego blinda grasz bez pozycji, więc przebijasz trochę więcej"
   level: heuristic
-  source: "standard uproszczony: FreeBetRange, PokerCoaching (dokument 08)"
+  source: "Preflop Wizard, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): „the standard open size is 2.5bb from all positions … 3bb from the small blind”; GTO Wizard, Range Morphology (https://blog.gtowizard.com/range-morphology/): UTG 2bb, CO 2,3bb, BTN 2,5bb, SB 3bb (uproszczenie, dokument 12, D8)"
 - id: R-M3-008
   module: m3
   if: "masz rękę z grupy najmocniejszych (AA, KK, QQ, AK), a ktoś przed tobą przebił"
-  then: "przebijasz ponownie (3-bet) dla wartości, zamiast tylko sprawdzać"
+  then: "zwykle przebijasz ponownie (3-bet) dla wartości, zamiast tylko sprawdzać"
   because: "te ręce są faworytem wobec większości rąk, którymi rywal otwiera; 3-bet buduje pulę i zmniejsza liczbę rywali"
   level: heuristic
-  source: "lekcja m3.l2 (grupy rąk); zgodne z R-M4-010 (AA, KK i AK grają o cały stack) [do weryfikacji źródłem dla QQ i AK wobec wczesnych pozycji]"
+  source: "pokerpro.tools, 3-bet ranges (https://pokerpro.tools/preflop/3-bet-ranges): QQ+ i AK w części wartościowej wobec każdej pozycji („Mostly 3-bet”); Preflop Wizard, UTG strategy (https://www.preflopwizard.app/blog/poker-utg-strategy): AA–JJ i AKs (dokument 12, D9)"
+- id: R-M3-009
+  module: m3
+  if: "wszyscy spasowali do ciebie na małym blindzie"
+  then: "otwierasz szeroko, ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, przebiciem do {{n:pf.open-size-sb}} albo pasem"
+  because: "grasz już tylko przeciw dużemu blindowi; po flopie mówisz pierwszy, więc nie otwierasz szerzej niż z Buttona tylko dlatego, że rywal jest jeden"
+  level: gto
+  source: "BeyondGTO, SB open 6-max 100bb NL500: ok. 44%, raise-or-fold; Upswing, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): 40–50%; Preflop Wizard (https://www.preflopwizard.app/blog/6-max-preflop-charts): 39–47%; przedział 40–45% to część wspólna (dokument 12, D3)"
 
 # M4: gra wobec akcji preflop. Reguły „heuristic” pochodzą z literatury, nie z solvera aplikacji (dokument 11).
 - id: R-M4-001
@@ -158,21 +165,21 @@
   then: "przebijasz do ok. {{n:pf.3bet.size-ip}} otwarcia, przy otwarciu {{n:pf.open-size}} to {{n:pf.3bet.ip-total}}"
   because: "taki rozmiar daje dobry stosunek stacka do puli na flopie i nie daje rywalowi taniej ceny"
   level: heuristic
-  source: "Deepfold, The Complete 3-Bet Strategy; drzewo solvera aplikacji"
+  source: "Deepfold, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide); drzewo solvera aplikacji"
 - id: R-M4-002
   module: m4
   if: "przebijasz otwarcie (3-bet) bez pozycji, np. z blindów wobec otwarcia z CO albo Buttona"
   then: "przebijasz do ok. {{n:pf.3bet.size-oop}} otwarcia, przy otwarciu {{n:pf.open-size}} to {{n:pf.3bet.oop-total}}"
   because: "po flopie będziesz mówić pierwszy, więc większym przebiciem odbierasz rywalowi tanie sprawdzenie z pozycją"
   level: heuristic
-  source: "Deepfold, The Complete 3-Bet Strategy; drzewo solvera aplikacji"
+  source: "Deepfold, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide); drzewo solvera aplikacji"
 - id: R-M4-003
   module: m4
   if: "jesteś na małym blindzie, a otworzył CO albo Button"
-  then: "przebijasz albo pasujesz, prawie nigdy nie sprawdzasz"
-  because: "po sprawdzeniu grasz bez pozycji, a duży blind za tobą może jeszcze przebić albo dołączyć tanio"
+  then: "prawie nie sprawdzasz: 3-betujesz albo pasujesz; wobec Buttona 3-betujesz górę zakresu (ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, m.in. 77+, AJo+, KQo, A5s, A4s, T9s), a resztę pasujesz"
+  because: "po sprawdzeniu z małego blinda grasz bez pozycji, a duży blind za tobą może jeszcze przebić; 3-bet daje inicjatywę i szansę wygrania puli od razu"
   level: gto
-  source: "GTO Gecko, GTO Preflop Strategy; solver aplikacji: sprawdzenia SB wobec Buttona poniżej kilku procent"
+  source: "GTO Wizard, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, SB vs BTN: 3-bet 14%, sprawdzenie 2%; „the SB barely calls anything. Instead, they almost exclusively 3-bet or fold”; Upswing, 3-Bet Preflop Strategy (https://upswingpoker.com/3-bet-strategy-aggressive-preflop/): „3-bet-or-fold strategies from every position except the Big Blind” (dokument 10, rozstrzygnięcie B-045: treść R-M4-015 włączona do R-M4-003)"
 - id: R-M4-004
   module: m4
   if: "jesteś na dużym blindzie, Button otworzył na {{n:pf.open-size}}, a mały blind spasował"
@@ -183,52 +190,52 @@
 - id: R-M4-005
   module: m4
   if: "z pozycji przebijasz otwarcie z HJ albo CO"
-  then: "3-betujesz głównie najlepsze ręce od góry plus asy w kolorze (zakres liniowy); część słabszych rąk, np. małe pary i łączniki w kolorze, sprawdzasz"
+  then: "3-betujesz głównie najlepsze ręce od góry i dokładasz kilka blefów z asami w kolorze (A5s, A4s); część słabszych rąk, np. małe pary i łączniki w kolorze, sprawdzasz"
   because: "rywal często sprawdza, więc chcesz mieć rękę, która dobrze gra w puli po sprawdzeniu"
   level: gto
-  source: "GTO Gecko, GTO Preflop Strategy; solver aplikacji (Button wobec CO). Preflop Wizard nazywa ten zakres spolaryzowanym"
+  source: "GTO Wizard, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/): BTN vs CO 3-bet ok. 12%, sprawdzenie 5%; Deepfold, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide), tabela BTN vs CO: „QQ+, AKs, AKo, AQs (mixed), A5s, A4s…”; GTO Gecko (https://gtogecko.com/blog/gto-preflop-strategy) nazywa zakres liniowym, a Preflop Wizard spolaryzowanym (dokument 12 M4–M6, D-02)"
 - id: R-M4-006
   module: m4
-  if: "z blindów przebijasz otwarcie z późnej pozycji"
-  then: "3-betujesz ręce najsilniejsze plus część słabszych asów w kolorze (A5s, A4s) jako blef (zakres spolaryzowany)"
-  because: "asy w kolorze blokują AA i AK rywala, a gdy dostaną sprawdzenie, mają szansę na kolor i strita"
+  if: "z dużego blinda przebijasz otwarcie Buttona albo małego blinda"
+  then: "3-betujesz najsilniejsze ręce (TT+, AQ+, AJs+) plus blefy z dołu zakresu sprawdzenia: A5s, czasem A4s, i łączniki w kolorze; średnie i małe pary, KQo oraz asy w różnych kolorach (AJo–A9o) zwykle sprawdzasz"
+  because: "z dużego blinda sprawdzasz tanio i zamykasz akcję, więc średnie ręce zarabiają więcej po sprawdzeniu, a 3-bet zostawiasz rękom, które chcą dużej puli, i blefom, które dobrze grają po sprawdzeniu (asy w kolorze blokują AA i AK)"
   level: gto
-  source: "GTO Gecko, GTO Preflop Strategy (polaryzacja z blindów); Deepfold, The Complete 3-Bet Strategy (A5s i A4s jako blefy)"
+  source: "GTO Wizard, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, BB vs BTN: „TT+, AJs+, and AQo+ are 3-bet purely”, blefy „near the bottom of our calling range”; GTO Wizard, Range Morphology (https://blog.gtowizard.com/range-morphology/), BB vs SB; Poker Academy, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide) i Big blind defence (https://poker.academy/blog/post/big-blind-basics-explained-useful-tips-for-poker-players), NL200 i NL50 GG; ThinkGTO, Blind vs Blind Without a Solver (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics), GTO Ranges+; Upswing, 3-Bet Preflop Strategy (https://upswingpoker.com/3-bet-strategy-aggressive-preflop/), charty Lucid. Uproszczenie: skład zależy od rake'u i rozmiaru 3-betu; 99, KQo i AJo bywają mieszane (dokument 10, rozstrzygnięcie B-045)"
 - id: R-M4-007
   module: m4
   if: "dostajesz 3-bet od gracza, który po flopie będzie mieć pozycję"
   then: "pasujesz ok. {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}} otwarć, sprawdzasz ok. {{n:pf.vs3bet.call.low}}–{{n:pf.vs3bet.call.high}}, a 4-betujesz ok. {{n:pf.vs3bet.4bet.low}}–{{n:pf.vs3bet.4bet.high}}"
   because: "przy pasowaniu częściej niż {{n:alpha.vs-3bet-ip-size}} rywal zarabia na 3-becie z każdą ręką, więc pasujesz tuż poniżej tego progu"
   level: heuristic
-  source: "Poker Academy, wynik solvera (NL200, CO wobec 3-betu Buttona); Pailiku, tabele 100bb 6-max; Deepfold, The Complete 3-Bet Strategy (mniej pasów); próg z obliczenia"
+  source: "przedział obejmujący źródła (ADR-24): Poker Academy, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; Pailiku, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów; Deepfold 50–55/30–40/5–8 (szczebel 4, odbiega); próg z obliczenia (dokument 12 M4–M6, D-04)"
 - id: R-M4-008
   module: m4
   if: "dostajesz 3-bet i po flopie będziesz bez pozycji"
   then: "sprawdzasz tylko wysokimi kartami w kolorze, mocnymi asami w kolorze oraz średnimi i wysokimi parami; słabsze ręce w różnych kolorach (KJo, ATo, QTo) pasujesz"
   because: "ręce w różnych kolorach są często zdominowane i źle realizują equity bez pozycji"
   level: heuristic
-  source: "PokerCoaching, 3-bet calling ranges; Deepfold, The Complete 3-Bet Strategy"
+  source: "PokerCoaching, 3-bet calling ranges; Deepfold, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide)"
 - id: R-M4-009
   module: m4
   if: "dostajesz 3-bet i po flopie będziesz mieć pozycję"
   then: "sprawdzasz szerzej: pary od 66 do TT, ręce w kolorze z wysokimi kartami i łączniki w kolorze; najniższe pary pasujesz"
   because: "z pozycją łatwiej zrealizować equity i wygrać dużą pulę, gdy trafisz"
   level: heuristic
-  source: "Upswing, vs 3-bet in and out of position; Deepfold (najniższe pary pas). PokerCoaching dopuszcza sprawdzanie małych par z pozycją"
+  source: "Upswing, How to Play vs 3-Bets (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/): najniższe pary pas „even with position”; PokerCoaching dopuszcza sprawdzanie małych par z pozycją (dokument 12 M4–M6, D-05)"
 - id: R-M4-010
   module: m4
   if: "dostajesz 3-bet z AA, KK albo AK"
   then: "4-betujesz (dla wartości)"
   because: "te ręce chcą wpłacić cały stack i dominują większość rąk, które sprawdzą 4-bet"
   level: heuristic
-  source: "Upswing, vs 3-bet in and out of position; Deepfold, The Complete 3-Bet Strategy"
+  source: "Upswing, How to Play vs 3-Bets (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/); Deepfold, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide)"
 - id: R-M4-011
   module: m4
   if: "4-betujesz"
   then: "przebijasz do ok. {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}} 3-betu z pozycją i {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} bez pozycji"
-  because: "po sprawdzeniu takiego 4-betu w stackach zostaje ok. {{n:spr.4bet.high}}–{{n:spr.4bet}} razy tyle, ile jest w puli (przykład: 4-bet z Buttona na 3-bet małego blinda do {{n:pf.3bet.oop-total}}), więc dobre ręce łatwo wpłacą resztę"
+  because: "po sprawdzeniu takiego 4-betu w stackach zostaje ok. {{n:spr.4bet.high}}–{{n:spr.4bet.oop}} razy tyle, ile jest w puli (z pozycją, np. 4-bet z Buttona na 3-bet małego blinda do {{n:pf.3bet.oop-total}}: ok. {{n:spr.4bet.high}}–{{n:spr.4bet}}; bez pozycji, np. 4-bet z CO na 3-bet Buttona do {{n:pf.3bet.ip-total}}: ok. {{n:spr.4bet.oop}}), więc dobre ręce łatwo wpłacą resztę"
   level: heuristic
-  source: "Deepfold, The Complete 3-Bet Strategy"
+  source: "Poker Academy, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200: CO bez pozycji 4-betuje do 17,2bb, czyli 2,3 razy 3-bet do 7,5bb; Deepfold, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide): 2,2–2,5x z pozycją, 2,5–3x bez pozycji (w jego przykładzie 2,4x); SPR z obliczenia (dokument 12 M4–M6, D-06)"
 - id: R-M4-012
   module: m4
   if: "przed tobą jeden albo kilku graczy tylko wyrównało duży blind (limp)"

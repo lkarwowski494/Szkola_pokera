@@ -4,7 +4,7 @@ module: m3
 order: 3
 title: "Zakresy otwarć"
 sub: "Z czym wchodzić jako pierwszy, pozycja po pozycji"
-rules: [R-M3-002, R-M3-006, R-M3-003, R-M3-004]
+rules: [R-M3-002, R-M3-006, R-M3-003, R-M3-009, R-M3-004]
 drills:
   - kind: generated
     id: m3.l3.g-early
@@ -74,7 +74,7 @@ Na Buttonie solver otwiera już {{n:solver.rfi.btn}} rąk, bo zostały tylko bli
 rfi.sb
 ```
 
-Mały blind gra tylko przeciw dużemu blindowi, ale po flopie mówi pierwszy, dlatego otwiera mniej niż Button: {{n:solver.rfi.sb}} rąk. W modelu solvera aplikacji mały blind gra tylko przebiciem albo pasem, bez dopłacania do dużego blinda. Niektóre strategie z innych solverów dopłacają z małego blinda częścią rąk; tego wariantu tu nie uczymy.
+Mały blind gra już tylko przeciw dużemu blindowi, więc otwiera podobnie szeroko jak Button: ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, mimo że po flopie mówi pierwszy. Na mikrostawkach z małego blinda przebijasz albo pasujesz, bez dopłacania do dużego blinda: przy prowizji od puli dopłacanie traci. Model solvera aplikacji otwiera z tej pozycji wyraźnie węziej niż publiczne źródła ({{n:solver.rfi.sb}} rąk), więc tej siatki nie traktuj jako wzoru.
 
 :::note Jak zapamiętać
 Nie ucz się {{n:combos.kinds}} pól na pamięć. Zapamiętaj granice: które pary, które asy w kolorze i od której karty zaczynają się ręce w różnych kolorach. Ćwiczenia poniżej losują częściej właśnie ręce z granicy zakresu.

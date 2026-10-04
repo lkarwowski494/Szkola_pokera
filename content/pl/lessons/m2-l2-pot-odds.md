@@ -22,8 +22,8 @@ drills:
     prompt: "Turn. Masz dobieranie do koloru. W puli {{n:ex.pot}}, przeciwnik stawia {{n:ex.bet.pot}}."
     table: { hand: "Ah 5h", board: "Kh 8h 3c Jc" }
     options:
-      - { text: "Pasuję", correct: true, why: "Potrzebujesz {{n:eq.bet-pot}}, a masz ok. {{n:odds.flush.turn-river}}. Cena jest za wysoka, takie sprawdzenie regularnie traci." }
-      - { text: "Sprawdzam", why: "Kusi, bo dobierasz do najlepszego koloru, ale {{n:odds.flush.turn-river}} to wyraźnie mniej niż {{n:eq.bet-pot}}." }
+      - { text: "Pasuję", correct: true, why: "Potrzebujesz {{n:eq.bet-pot}}. Kolor daje {{n:outs.flush}} outów, czyli ok. {{n:odds.flush.turn-river}}. Nawet jeśli doliczysz {{n:pair.outs.per-rank}} asy, które dają parę asów (razem {{n:outs.flush-ace}} outów, ok. {{n:odds.flush-ace.turn-river}}), to wciąż wyraźnie mniej niż {{n:eq.bet-pot}}. Takie sprawdzenie traci w długim terminie." }
+      - { text: "Sprawdzam", why: "Kusi, bo dobierasz do najlepszego koloru, a as też może pomóc, ale nawet ok. {{n:odds.flush-ace.turn-river}} to mniej niż {{n:eq.bet-pot}}." }
       - { text: "Przebijam all-in", why: "U zaawansowanych bywa to zagraniem, ale bez dobrego powodu ryzykujesz cały stack ręką, która jeszcze nic nie ma." }
   - kind: choice
     id: m2.l2.q3
@@ -32,8 +32,8 @@ drills:
     prompt: "Ta sama ręka, ale przeciwnik stawia tylko {{n:ex.bet.quarter}} do puli {{n:ex.pot}}."
     table: { hand: "Ah 5h", board: "Kh 8h 3c Jc" }
     options:
-      - { text: "Sprawdzam", correct: true, why: "Potrzebujesz {{n:eq.bet-quarter}}, a masz ok. {{n:odds.flush.turn-river}}. Mały zakład daje dobrą cenę." }
-      - { text: "Pasuję", why: "Za tanio, żeby pasować: {{n:odds.flush.turn-river}} to więcej niż potrzebne {{n:eq.bet-quarter}}." }
+      - { text: "Sprawdzam", correct: true, why: "Potrzebujesz {{n:eq.bet-quarter}}, a masz ok. {{n:odds.flush.turn-river}}, a z asami jeszcze więcej. Mały zakład daje dobrą cenę." }
+      - { text: "Pasuję", why: "Za tanio, żeby pasować: {{n:odds.flush.turn-river}} to więcej niż potrzebne {{n:eq.bet-quarter}}, a z asami jeszcze więcej." }
   - kind: choice
     id: m2.l2.q4
     family: m2.pot-odds

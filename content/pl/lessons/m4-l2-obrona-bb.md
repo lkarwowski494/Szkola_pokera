@@ -89,5 +89,5 @@ vs-open.bb-vs-sb
 Solver aplikacji broni tu {{n:solver.def.bb-vs-sb}} rąk.
 
 :::note Jak przebijać z dużego blinda
-Siatki pokazują, czym się bronić, a nie jak: 3-bet i sprawdzenie są połączone, bo skład 3-betów z blindów w solverze aplikacji różni się od literatury. Wobec Buttona 3-bet z dużego blinda ma ok. {{n:pf.3bet.size-oop}} otwarcia i zakres spolaryzowany: najsilniejsze ręce plus część asów w kolorze jako blef. Wobec małego blinda masz pozycję, więc przebijasz mniej, ok. {{n:pf.3bet.size-ip}} otwarcia.
+Siatki pokazują, czym się bronić, a nie jak: 3-bet i sprawdzenie są połączone, bo skład 3-betów z dużego blinda w solverze aplikacji różni się od opublikowanych wyników innych solverów. Wobec Buttona 3-bet z dużego blinda ma ok. {{n:pf.3bet.size-oop}} otwarcia. 3-betujesz najsilniejsze ręce (TT+, AQ+, AJs+) plus blefy z dołu zakresu sprawdzenia: A5s, czasem A4s, i łączniki w kolorze. Średnie i małe pary, KQo oraz asy w różnych kolorach zwykle sprawdzasz. Wobec małego blinda masz pozycję, więc przebijasz mniej, ok. {{n:pf.3bet.size-ip}} otwarcia.
 :::

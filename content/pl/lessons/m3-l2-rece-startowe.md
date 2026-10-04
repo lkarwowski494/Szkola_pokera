@@ -50,7 +50,7 @@ Większość pieniędzy początkujący tracą, grając za dużo słabych rąk. D
 
 ## Grupy rąk
 
-- **Najmocniejsze**: [[As Ah]], [[Ks Kh]], [[Qs Qh]] oraz AK w kolorze i w różnych kolorach, np. [[As Ks]] i [[As Kd]]. Przebijasz, a gdy ktoś przebił przed tobą, przebijasz ponownie.
+- **Najmocniejsze**: [[As Ah]], [[Ks Kh]], [[Qs Qh]] oraz AK w kolorze i w różnych kolorach, np. [[As Ks]] i [[As Kd]]. Przebijasz, a gdy ktoś przebił przed tobą, zwykle przebijasz ponownie.
 - **Mocne**: JJ, TT, AQ, AJ w kolorze, KQ w kolorze.
 - **Spekulacyjne**: małe pary i karty po kolei w jednym kolorze, np. [[7h 6h]]. Dobre w późnej pozycji.
 - **Słabe**: rozrzucone, niskie, w różnych kolorach, np. [[9c 3d]]. Pas.

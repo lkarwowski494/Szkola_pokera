@@ -43,7 +43,7 @@ drills:
     prompt: "Jesteś na dużym blindzie wobec otwarcia z Buttona. Która z tych rąk jest typowym 3-betem jako blef?"
     table: { position: BB }
     options:
-      - { text: "A5 w kolorze", correct: true, why: "Blokuje AA i AK rywala, a po sprawdzeniu ma szansę na kolor i strita. To klasyczny blef w zakresie spolaryzowanym." }
+      - { text: "A5 w kolorze", correct: true, why: "Blokuje AA i AK rywala, a po sprawdzeniu ma szansę na kolor i strita. To typowy blef z dołu zakresu sprawdzenia: z dużego blinda 3-betujesz najsilniejsze ręce plus takie blefy." }
       - { text: "K7 w różnych kolorach", why: "Tą ręką bronisz się sprawdzeniem. Jako 3-bet nie blokuje niczego ważnego i słabo gra, gdy rywal sprawdzi." }
       - { text: "Para 22", why: "Najmniejsze pary bronią się sprawdzeniem: zarabiają, gdy trafią seta (trójkę z parą w ręce), a 3-bet z nimi źle znosi 4-bet." }
   - kind: generated
@@ -83,14 +83,16 @@ Z małego blinda prawie zawsze przebijasz albo pasujesz. Sprawdzenie oznacza gr�
 vs-open.sb-vs-btn
 ```
 
-Z małego blinda solver aplikacji gra wobec Buttona {{n:solver.play.sb-vs-btn}} rąk, zdecydowaną większość z nich przez 3-bet. Siatka pokazuje tylko, czym grać, a nie jak: który 3-bet jest blefem, mówi reguła o zakresie spolaryzowanym poniżej.
+Według rozwiązania GTO Wizard mały blind wobec Buttona prawie nic nie sprawdza: 3-betuje ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, górę zakresu (m.in. 77+, AJo+, KQo, A5s, A4s, T9s), a resztę pasuje. Solver aplikacji 3-betuje tu {{n:solver.3bet.sb-vs-btn}} rąk; jego nieliczne sprawdzenia siatka liczy jako pas. W kilku rękach, np. 55, 66 i A9o, solver aplikacji gra inaczej niż GTO Wizard, więc ćwiczenia ich nie oceniają.
 
 ## Zakres liniowy czy spolaryzowany
 
-Mając pozycję wobec otwarcia z HJ albo CO, 3-betujesz głównie najlepsze ręce od góry plus asy w kolorze, a część słabszych rąk, na przykład małe pary i łączniki w kolorze, sprawdzasz. To zakres liniowy: rywal często sprawdza, więc chcesz mieć rękę, która dobrze gra w puli po sprawdzeniu. Tak gra też solver aplikacji na Buttonie; Preflop Wizard opisuje taki zakres jako spolaryzowany, więc nazwy w źródłach bywają różne.
+Mając pozycję wobec otwarcia z HJ albo CO, 3-betujesz głównie najlepsze ręce od góry i dokładasz kilka blefów z asami w kolorze (A5s, A4s), a część słabszych rąk, na przykład małe pary i łączniki w kolorze, sprawdzasz: rywal często sprawdza, więc chcesz mieć rękę, która dobrze gra w puli po sprawdzeniu. Źródła nazywają taki zakres różnie: GTO Gecko liniowym, Preflop Wizard spolaryzowanym; ważniejsze jest, które ręce 3-betujesz, a które sprawdzasz.
 
-Z blindów zakres jest spolaryzowany: najsilniejsze ręce dla wartości plus część słabszych asów w kolorze, na przykład A5s i A4s, jako blef. Te asy blokują AA i AK rywala, a gdy dostaną sprawdzenie, wciąż mogą trafić kolor albo strita.
+Z dużego blinda wobec Buttona albo małego blinda 3-betujesz najsilniejsze ręce (TT+, AQ+, AJs+) plus blefy z dołu zakresu sprawdzenia: A5s, czasem A4s, i łączniki w kolorze. Asy w kolorze blokują AA i AK rywala, a gdy dostaną sprawdzenie, wciąż mogą trafić kolor albo strita. Średnie i małe pary, KQo oraz asy w różnych kolorach (AJo–A9o) zwykle tylko sprawdzasz: z dużego blinda wchodzisz tanio i zamykasz akcję, więc te ręce zarabiają więcej po sprawdzeniu. Skład zależy od prowizji i rozmiaru 3-betu, więc 99, KQo i AJo bywają grane różnie.
+
+Z małego blinda grasz inaczej: 3-bet albo pas, z górą zakresu w 3-becie.
 
 :::note Skąd te zasady
-Siatka Buttona pochodzi z solvera aplikacji i w przybliżeniu zgadza się ze źródłami. W siatce małego blinda łączymy 3-bet i sprawdzenie w jedno „gram”, bo skład 3-betów z blindów w solverze aplikacji różni się od literatury. Jak 3-betować z blindów, uczą reguły z GTO Gecko i Deepfold.
+Siatki Buttona i małego blinda pochodzą z solvera aplikacji i w przybliżeniu zgadzają się ze źródłami (w małym blindzie poza kilkoma rękami, których ćwiczenia nie oceniają). Jak 3-betować z dużego blinda, uczy reguła oparta na opublikowanych wynikach innych solverów (GTO Wizard, Poker Academy, ThinkGTO, Upswing): skład 3-betów z dużego blinda w solverze aplikacji od nich odbiega.
 :::
