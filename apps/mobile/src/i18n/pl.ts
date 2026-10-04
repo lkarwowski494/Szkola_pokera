@@ -108,6 +108,9 @@ export const pl = {
     areas: 'Obszary',
     noLessons: 'brak lekcji',
     optional: 'Moduł opcjonalny: nie wchodzi do wyniku ogólnego.',
+    recalcTitle: 'Nowe lekcje – wskaźnik przeliczony',
+    recalcBody: 'Kurs ma nowe umiejętności. Dopóki ich nie przećwiczysz, liczą się jako 0, dlatego wynik jest niższy.',
+    recalcDismiss: 'Zamknij',
   },
   diagnostics: {
     title: 'Pomiar wydajności',

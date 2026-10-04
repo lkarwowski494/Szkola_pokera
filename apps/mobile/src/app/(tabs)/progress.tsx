@@ -7,6 +7,7 @@ import { Button, H2, Muted, ProgressBar, Screen, Surface, Title } from '@/compon
 import { getContentHash, getFamilyLabels } from '@/data/content/repo';
 import { userDb } from '@/data/user/db';
 import { familyStats, resetProgress, streakDays } from '@/data/user/repo';
+import { AdvancementCard } from '@/features/advancement/AdvancementCard';
 import { useSettings } from '@/state/settings';
 import { space, type as tp, useTokens } from '@/theme/tokens';
 
@@ -34,6 +35,7 @@ export default function ProgressScreen() {
   return (
     <Screen>
       <Title>{t('progress.title')}</Title>
+      <AdvancementCard />
       {total === 0 ? (
         <Muted>{t('progress.noData')}</Muted>
       ) : (
