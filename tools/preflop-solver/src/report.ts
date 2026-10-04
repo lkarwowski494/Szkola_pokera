@@ -104,11 +104,17 @@ export function rangeOf(s: PreflopSolver, node: DecisionNode, actionIndex: numbe
 
 /** Realizacja equity w wybranych pulach heads-up (diagnostyka modelu gry po flopie). */
 export function realizationReport(s: PreflopSolver): string {
+  // pule z raportów zbiorczych rangeconverter (solver, 6-max 100bb; cel kalibracji wariantu naprawy EQR, raport 10)
   const paths = [
     ['CO otwiera, BTN 3-bet, CO sprawdza', 'UTG:fold,HJ:fold,CO:raise2.5,BTN:raise7.5,SB:fold,BB:fold,CO:call'],
     ['BTN otwiera, BB 3-bet, BTN sprawdza', 'UTG:fold,HJ:fold,CO:fold,BTN:raise2.5,SB:fold,BB:raise10,BTN:call'],
     ['BTN otwiera, BB sprawdza (pula z jednym podbiciem)', 'UTG:fold,HJ:fold,CO:fold,BTN:raise2.5,SB:fold,BB:call'],
     ['UTG otwiera, CO 3-bet, UTG sprawdza', 'UTG:raise2.5,HJ:fold,CO:raise7.5,BTN:fold,SB:fold,BB:fold,UTG:call'],
+    ['SB otwiera, BB sprawdza', 'UTG:fold,HJ:fold,CO:fold,BTN:fold,SB:raise3,BB:call'],
+    ['CO otwiera, BTN sprawdza', 'UTG:fold,HJ:fold,CO:raise2.5,BTN:call,SB:fold,BB:fold'],
+    ['BTN otwiera, SB 3-bet, BTN sprawdza', 'UTG:fold,HJ:fold,CO:fold,BTN:raise2.5,SB:raise10,BB:fold,BTN:call'],
+    ['SB otwiera, BB 3-bet, SB sprawdza', 'UTG:fold,HJ:fold,CO:fold,BTN:fold,SB:raise3,BB:raise9,SB:call'],
+    ['BTN otwiera, BB 3-bet, BTN 4-bet, BB sprawdza', 'UTG:fold,HJ:fold,CO:fold,BTN:raise2.5,SB:fold,BB:raise10,BTN:raise23,BB:call'],
   ];
   const lines = ['Realizacja equity (udział w puli netto: zdobyty / z equity):'];
   for (const [name, path] of paths) {

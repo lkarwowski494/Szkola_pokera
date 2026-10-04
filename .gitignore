@@ -9,3 +9,4 @@ ios/
 android/
 .env*.local
 npm-debug.*
+tools/preflop-solver/targets/

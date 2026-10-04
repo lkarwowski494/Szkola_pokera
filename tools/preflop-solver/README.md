@@ -34,6 +34,12 @@ Skrypty diagnostyczne w `scripts/`: `subgame.ts` i `subgame3.ts` (zbieżność i
 
 Warianty modelu (nie kanon, tylko do pomiarów; żaden nie przeszedł walidacji, wyniki w dokumencie 10): `--role 0.2` (premia dla ostatniego podbijającego we wszystkich pulach), `--role3 0.3` (to samo w pulach 3-betowanych i wyżej), `--role4 0` (osobna wartość dla pul 4-betowanych), `--spr-full 4` (SPR, od którego przewaga pozycji działa w pełni; kanon 8). W kalibracji: `--roles`, `--role3s`, `--spr-fulls`.
 
+Naprawa modelu EQR (4 października; warianty pomiarowe, żaden nie przeszedł walidacji, kanon bez zmian, wyniki w dokumencie 10, sekcja „Naprawa modelu EQR”): `--weights p22=0.95,p77=0.95` (wagi grup grywalności, klucze `PLAY_GROUPS` w `src/model.ts`), `--spr-play 16` (osobny próg SPR grywalności), `--io 0.15` (człon implied odds, dane `tools/equity/implied169.json` z `scripts/implied.ts`), `--mid 0.2` (człon ręki średniej siły), `--3bet-oop 4.4` (3-bet bez pozycji do 11bb). Skrypty: `fetch-targets.ts` (cele BeyondGTO do `targets/`, poza gitem), `compare.ts` (zgodność z celami), `decompose.ts` (wartość 3-betu rozłożona na odpowiedzi rywala), `fit-eqr.ts` (kalibracja m i roli na raportach EQR rangeconverter), `realization.ts` (realizacja equity w 9 pulach dla zapisanego wyniku).
+
+```bash
+npx tsx scripts/fetch-targets.ts && npx tsx scripts/compare.ts targets/beyondgto.json ../../content/ranges/preflop-6max-100bb.json
+```
+
 ## Push/fold do modułu M11
 
 Drzewa bez modelu EQR i rake'u (po all-inie nie ma dalszej gry): heads-up `src/pushfold.ts` (opcjonalne ante dużego blinda) i trzyosobowe `src/pushfold3.ts` (Button, mały blind, duży blind, równe stacki, pule trzyosobowe z tablicy equity3). Wynik: `content/ranges/pushfold.json` (5, 10 i 15bb heads-up, 10bb z ante, 7,5bb trzyosobowe).
