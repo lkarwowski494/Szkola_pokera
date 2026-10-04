@@ -92,6 +92,11 @@ export function nextDue(db: UserDb, now = Date.now()): number | null {
   return row?.due ?? null;
 }
 
+/** Wszystkie karty FSRS (do wskaźnika zaawansowania). */
+export function allCards(db: UserDb): StoredCard[] {
+  return db.select().from(reviewCards).all();
+}
+
 export function allFamilies(db: UserDb): string[] {
   return db.select({ id: reviewCards.familyId }).from(reviewCards).all().map((r) => r.id);
 }

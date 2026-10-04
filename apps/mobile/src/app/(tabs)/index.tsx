@@ -7,6 +7,7 @@ import { Muted, ProgressBar, Screen, Title } from '@/components/ui';
 import { getLessonSummaries, getModules } from '@/data/content/repo';
 import { userDb } from '@/data/user/db';
 import { examSummaryMap, lessonProgressMap } from '@/data/user/repo';
+import { AdvancementCard } from '@/features/advancement/AdvancementCard';
 import { EXAM_SIZE } from '@/features/drills/thresholds';
 import { radius, space, type as tp, useTokens } from '@/theme/tokens';
 
@@ -32,6 +33,7 @@ export default function LearnScreen() {
     <Screen>
       <Title>{t('learn.title')}</Title>
       <Muted>{t('learn.intro')}</Muted>
+      <AdvancementCard />
       <View style={{ gap: space.s }}>
         <ProgressBar value={lessons.length ? done / lessons.length : 0} />
         <Muted>{t('learn.lessonsDone', { done, total: lessons.length })}</Muted>
