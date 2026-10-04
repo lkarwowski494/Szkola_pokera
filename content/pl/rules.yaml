@@ -390,3 +390,97 @@
   because: "blef zarabia tylko wtedy, gdy rywal pasuje częściej niż alpha; gdy pasów brakuje, zostaje ci tylko szansa na trafienie"
   level: heuristic
   source: "wniosek z alpha (R-M6-002): blef potrzebuje pasów rywala"
+
+# M7: turn. Matematyka z formuł (numbers.yaml); zalecenia z literatury jako heurystyki, bez częstotliwości i bez wyników
+# solvera. Źródła znane tylko ze streszczeń wyszukiwarki są oznaczone „do weryfikacji”.
+- id: R-M7-001
+  module: m7
+  if: "c-betowałeś flop z pozycji, rywal sprawdził, a na turnie spada wysoka karta (as albo król) na niższym stole"
+  then: "częściej stawiasz drugą beczkę, także jako blef"
+  because: "ta karta częściej trafia twój zakres otwarcia niż zakres obrońcy, a każda para rywala spada o jedno miejsce niżej"
+  level: heuristic
+  source: "PokerCoaching, When to Double Barrel the Turn as a Bluff; PokerListings, When to Fire a Second Barrel on the Turn; VIP-Grinders, Double Barrel Poker [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M7-002
+  module: m7
+  if: "blefujesz drugą beczką na turnie"
+  then: "wybierasz ręce z outami (dobieranie do koloru, strita, gutshot z wysoką kartą), a ręce bez outów częściej odpuszczasz"
+  because: "półblef wygrywa na dwa sposoby: gdy rywal spasuje albo gdy trafisz na riverze; blef bez outów ma tylko pierwszą drogę"
+  level: heuristic
+  source: "GTO Wizard, From Gutshots to Airballs: Choosing Your Bluffs; SplitSuit, The Double Barrel Checklist; PokerCoaching, When to Double Barrel the Turn as a Bluff [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M7-003
+  module: m7
+  if: "na turnie masz średnią rękę (np. drugą parę albo najwyższą parę ze słabym kickerem), a rywal sprawdził już c-bet"
+  then: "częściej czekasz, zamiast betować drugi raz"
+  because: "po sprawdzeniu flopu rywal ma zakres silniejszy niż przed nim: na bet spasuje gorsze ręce, a zapłaci lepszymi; czekając, trzymasz pulę małą i dochodzisz do showdownu"
+  level: heuristic
+  source: "GTO Gecko, Polarized vs Merged Ranges; PokerCoaching, Poker Bet Sizing Strategy: 8 Tips [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M7-004
+  module: m7
+  if: "blefujesz na turnie ręką, która sama prawie nie wygra"
+  then: "przy becie 3/4 puli rywal musi pasować częściej niż w {{n:alpha.bet-three-quarters}} przypadków, przy becie pół puli częściej niż w {{n:alpha.bet-half}}"
+  because: "ryzykujesz bet, żeby wygrać pulę: próg to bet ÷ (pula + bet); outy, które masz, obniżają ten próg"
+  level: math
+  source: "obliczenie: alpha = bet/(pula+bet)"
+- id: R-M7-005
+  module: m7
+  if: "betujesz na turnie zakresem spolaryzowanym (bardzo silne ręce i półblefy z dobieraniem, bez średnich rąk)"
+  then: "wybierasz duży rozmiar, np. 3/4 puli, a średnie ręce czekają"
+  because: "silne ręce chcą zbudować pulę przed riverem, blefy potrzebują pasów, a średnie ręce nie zyskują na dużej puli"
+  level: heuristic
+  source: "GTO Gecko, Polarized vs Merged Ranges; PokerCoaching, How Much Should You Bet on Connected Boards?; PokerStrategy, Poker Basics: Polarised Ranges [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M7-006
+  module: m7
+  if: "masz silną rękę na turnie, a rywal może dobierać do koloru"
+  then: "betujesz dużo: przy becie 3/4 puli dobieranie potrzebuje {{n:eq.bet-three-quarters}} equity, a ma ok. {{n:odds.flush.turn-river}}"
+  because: "przy becie 1/4 puli wystarczyłoby mu {{n:eq.bet-quarter}}, więc mały bet daje dobieraniu dobrą cenę"
+  level: math
+  source: "obliczenie: potrzebne equity = bet/(pula+2·bet), szansa = outy ÷ nieznane karty"
+- id: R-M7-007
+  module: m7
+  if: "dobierasz na turnie"
+  then: "liczysz szansę na jedną kartę: kolor to ok. {{n:odds.flush.turn-river}}, a nie {{n:odds.flush.flop-river}} jak na flopie"
+  because: "do rivera zostaje jedna karta, więc szansa jest mniej więcej o połowę mniejsza niż na flopie"
+  level: math
+  source: "obliczenie dokładne (poker-core)"
+- id: R-M7-008
+  module: m7
+  if: "na turnie cena za dobieranie jest za wysoka (masz mniej equity, niż potrzebujesz)"
+  then: "sprawdzasz tylko wtedy, gdy po trafieniu wygrasz łącznie co najmniej dopłata × (karty nietrafiające ÷ outy); różnica ponad pulę to implied odds"
+  because: "wtedy wygrane na trafieniach pokrywają straty na chybieniach; przy kolorze i becie {{n:io.flush.bet}} do puli {{n:ex.third.pot}} to {{n:io.flush.extra}} ponad pulę"
+  level: math
+  source: "obliczenie EV: equity × (pula + dodatkowa wygrana) = (1 − equity) × dopłata"
+- id: R-M7-009
+  module: m7
+  if: "liczysz na implied odds"
+  then: "wierzysz w nie tylko wtedy, gdy za rywalem zostało dość żetonów (wysoki SPR), dobierasz do najlepszej ręki, a trafienie nie rzuca się w oczy"
+  because: "dodatkowe żetony musi ci jeszcze zapłacić rywal; przy niskim SPR nie ma ich skąd wziąć, a widoczne trafienie (np. czwarty kier) go płoszy"
+  level: heuristic
+  source: "VIP-Grinders, Implied Odds in Poker: When to Chase & When to Fold; SplitSuit, Implied Odds Calculator [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M7-010
+  module: m7
+  if: "dobierasz do słabszego koloru (bez asa) albo do strita, gdy na stole może wpaść kolor"
+  then: "sprawdzasz ostrożniej i liczysz mniej outów"
+  because: "trafiając, czasem nadal przegrywasz z lepszą ręką i wtedy płacisz najwięcej (odwrotne implied odds)"
+  level: heuristic
+  source: "FlopTurnRiver, Back to Basics (Part 2): Reverse Implied Odds; PokerStrategy, Reverse Implied Odds (słownik); BlackRain79, Flush Draw Strategy [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M7-011
+  module: m7
+  if: "bronisz duży blind, a Button po otwarciu nie zrobił c-betu na flopie (czekał)"
+  then: "na turnie częściej betujesz sam (probe bet), zwłaszcza na niskich stołach; na stołach z asem albo królem rzadziej"
+  because: "Button z wieloma silnymi rękami by betował, więc po czekaniu ma ich mniej; na wysokich stołach przewaga zakresu zostaje jednak po jego stronie"
+  level: heuristic
+  source: "GTO Wizard, The Turn Probe Bet; Upswing, When to Attack After Your Opponent Checks Back; PokerCoaching, Probe Betting Explained [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M7-012
+  module: m7
+  if: "stawiasz probe bet na turnie"
+  then: "betujesz parami, które chcą zapłaty i ochrony, oraz mocnymi dobieraniami; ręce bez pary i bez outów czekają"
+  because: "pary zarabiają na gorszych rękach Buttona i nie dają mu darmowej karty, dobierania wygrywają na dwa sposoby, a puste ręce nic nie zyskują"
+  level: heuristic
+  source: "GTO Wizard, The Turn Probe Bet; PokerCoaching, Probe Betting Explained [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M7-013
+  module: m7
+  if: "sprawdziłeś c-bet na flopie, a rywal betuje drugi raz na turnie"
+  then: "bronisz węziej niż na flopie: dobierania sprawdzają tylko przy dobrej cenie albo implied odds, a ręce bez outów i najsłabsze pary pasują"
+  because: "drugą beczkę rywal stawia węższym zakresem niż c-bet, a dobierania mają już tylko jedną kartę"
+  level: heuristic
+  source: "Upswing, What the Best Poker Pros Already Know About Playing vs. Double Barrels; PokerCoaching, When to Double Barrel the Turn as a Bluff [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"

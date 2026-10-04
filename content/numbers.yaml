@@ -179,3 +179,39 @@ xr.example.pot-after: { formula: sum, refs: [ex.third.pot, ex.third.bet, xr.exam
 xr.too-small.pot-after: { formula: sum, refs: [ex.third.pot, ex.third.bet, xr.too-small], unit: count, source: "obliczenie: pula po check-raise'ie" }
 eq.vs-xr.example: { formula: requiredEquity, refs: [ex.third.total, xr.example.extra], unit: percent, source: "obliczenie: dopłata/(pula po check-raise'ie + dopłata); pula przed nadwyżką = pula + c-bet + wyrównanie c-betu" }
 eq.vs-xr.too-small: { formula: requiredEquity, refs: [ex.third.total, xr.too-small.extra], unit: percent, source: "obliczenie: dopłata/(pula po check-raise'ie + dopłata)" }
+
+# M7: turn. Implied odds liczone z formuł: na trafieniach musisz wygrać łącznie dopłata × (karty nietrafiające ÷ outy),
+# bo wtedy equity × (pula po zakładzie + dodatkowa wygrana) = (1 − equity) × dopłata. Schemat nie ma formuły ilorazu,
+# więc 1 ÷ outy zapisujemy jako mdf(1, outy − 1) (potrzeba kodu w raporcie M7). Przykłady dobrane tak, żeby wyniki
+# w żetonach były całkowite (zadania liczbowe w żetonach oceniane są dokładnie).
+math.one: { value: 1, unit: count, source: "stała pomocnicza: jedynka do zapisu 1 ÷ outy przez formułę mdf" }
+miss.flush.turn: { formula: diff, refs: [cards.unseen.turn, outs.flush], unit: count, source: "obliczenie: nieznane karty na turnie minus outy do koloru" }
+miss.oesd.turn: { formula: diff, refs: [cards.unseen.turn, outs.oesd], unit: count, source: "obliczenie: nieznane karty na turnie minus outy do strita otwartego" }
+miss.gutshot.turn: { formula: diff, refs: [cards.unseen.turn, outs.gutshot], unit: count, source: "obliczenie: nieznane karty na turnie minus outy do gutshota" }
+outs.flush.less-one: { formula: diff, refs: [outs.flush, math.one], unit: count, source: "obliczenie pomocnicze: outy minus 1" }
+outs.oesd.less-one: { formula: diff, refs: [outs.oesd, math.one], unit: count, source: "obliczenie pomocnicze: outy minus 1" }
+outs.gutshot.less-one: { formula: diff, refs: [outs.gutshot, math.one], unit: count, source: "obliczenie pomocnicze: outy minus 1" }
+inv.outs.flush: { formula: mdf, refs: [math.one, outs.flush.less-one], unit: ratio, decimals: 3, source: "obliczenie pomocnicze: 1 ÷ (1 + outy − 1) = 1 ÷ outy" }
+inv.outs.oesd: { formula: mdf, refs: [math.one, outs.oesd.less-one], unit: ratio, decimals: 3, source: "obliczenie pomocnicze: 1 ÷ outy" }
+inv.outs.gutshot: { formula: mdf, refs: [math.one, outs.gutshot.less-one], unit: ratio, decimals: 3, source: "obliczenie pomocnicze: 1 ÷ outy" }
+io.flush.bet: { formula: product, refs: [ex.third.pot, ex.frac.half], unit: count, source: "obliczenie: zakład pół puli przy puli z przykładu M2" }
+io.flush.pot-after-bet: { formula: sum, refs: [ex.third.pot, io.flush.bet], unit: count, source: "obliczenie: pula po zakładzie" }
+io.flush.total: { formula: sum, refs: [ex.third.pot, io.flush.bet, io.flush.bet], unit: count, source: "obliczenie: pula po zakładzie i sprawdzeniu" }
+io.flush.eq: { formula: requiredEquity, refs: [ex.third.pot, io.flush.bet], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
+io.flush.need: { formula: product, refs: [io.flush.bet, miss.flush.turn, inv.outs.flush], unit: count, source: "obliczenie: dopłata × nietrafiające ÷ outy (łączna wygrana na trafieniach, przy której sprawdzenie wychodzi na zero)" }
+io.flush.extra: { formula: diff, refs: [io.flush.need, io.flush.pot-after-bet], unit: count, source: "obliczenie: ile ponad pulę po zakładzie musisz wygrać na riverze po trafieniu (implied odds)" }
+io.oesd.pot: { value: 80, unit: count, source: "przykład w lekcji (pula w żetonach)" }
+io.oesd.bet: { formula: product, refs: [io.oesd.pot, ex.frac.half], unit: count, source: "obliczenie: zakład pół puli" }
+io.oesd.pot-after-bet: { formula: sum, refs: [io.oesd.pot, io.oesd.bet], unit: count, source: "obliczenie: pula po zakładzie" }
+io.oesd.need: { formula: product, refs: [io.oesd.bet, miss.oesd.turn, inv.outs.oesd], unit: count, source: "obliczenie: dopłata × nietrafiające ÷ outy" }
+io.oesd.extra: { formula: diff, refs: [io.oesd.need, io.oesd.pot-after-bet], unit: count, source: "obliczenie: ile ponad pulę po zakładzie musisz wygrać po trafieniu (implied odds)" }
+io.gut.need: { formula: product, refs: [ex.bet.half, miss.gutshot.turn, inv.outs.gutshot], unit: count, source: "obliczenie: dopłata × nietrafiające ÷ outy" }
+io.gut.extra: { formula: diff, refs: [io.gut.need, ex.half.pot-after-bet], unit: count, source: "obliczenie: ile ponad pulę po zakładzie musisz wygrać po trafieniu (implied odds)" }
+spr.low: { value: 1.5, unit: ratio, decimals: 1, source: "przykład niskiego SPR dobrany do ćwiczeń (bez źródła liczbowego)" }
+spr.high: { value: 5, unit: ratio, source: "przykład wyższego SPR dobrany do ćwiczeń (bez źródła liczbowego)" }
+spr.stack.low: { formula: product, refs: [ex.pot, spr.low], unit: count, source: "obliczenie: stack = SPR × pula" }
+spr.stack.high: { formula: product, refs: [ex.pot, spr.high], unit: count, source: "obliczenie: stack = SPR × pula" }
+draw.combo.overlap: { value: 2, unit: count, source: "kombinatoryka: dwie karty strita w kolorze dobierania są już policzone jako outy do koloru" }
+outs.combo.raw: { formula: sum, refs: [outs.flush, outs.oesd], unit: count, source: "obliczenie: outy do koloru plus outy do strita (z kartami liczonymi podwójnie)" }
+outs.combo: { formula: diff, refs: [outs.combo.raw, draw.combo.overlap], unit: count, source: "obliczenie: kolor + strit otwarty minus karty liczone podwójnie" }
+odds.combo.turn-river: { formula: hitProbability, refs: [outs.combo, cards.unseen.turn, streets.turn-river], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
