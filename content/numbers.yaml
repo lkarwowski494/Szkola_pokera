@@ -494,3 +494,116 @@ br.base.bb: { formula: product, refs: [br.bi.base, format.stack], unit: bb, sour
 br.ex.after-dd: { formula: diff, refs: [br.bi.base, dd.bi.small], unit: count, source: "obliczenie: bankroll bazowy po zjeździe o 10 wpisowych" }
 br.ex.below: { formula: diff, refs: [br.bi.move-down, math.one], unit: count, source: "obliczenie: przykład bankrollu tuż poniżej progu zejścia" }
 var.conf95: { value: 0.95, unit: percent, source: "definicja: poziom ufności przedziału ±1,96 odchylenia w rozkładzie normalnym" }
+
+# M11: turnieje i krótkie stacki. Zakresy push/fold z własnego solvera (content/ranges/pushfold.json, heads-up mały
+# blind kontra duży blind, drzewo zwalidowane z równowagą Nasha przy 10bb, dokument 10). Progi z literatury (cytaty
+# w polu source), ICM liczony formułą icm (model Malmutha-Harville'a, tools/content-build/src/icm.ts).
+m11.depth.5: { value: 5, unit: bb, source: "wybór głębokości siatek M11 (raport M11): bardzo krótki stack, poniżej progu push/fold" }
+m11.depth.10: { value: 10, unit: bb, source: "wybór głębokości siatek M11 (raport M11): próg push/fold wspólny dla źródeł (m11.thr.pushfold); głębokość walidacji solvera (dokument 10)" }
+m11.depth.15: { value: 15, unit: bb, source: "wybór głębokości siatek M11 (raport M11): górna granica push/fold w źródłach (m11.thr.upper)" }
+m11.ante: { value: 1, unit: bb, source: "przykład: ante dużego blinda w wysokości jednego blinda (wariant 10bb-ante w pushfold.json)" }
+m11.thr.pushfold: { value: 10, unit: bb, source: "część wspólna źródeł: 888poker, Push/Fold Charts (https://www.888poker.com/magazine/strategy/push-fold-charts): „Push/fold is the default framework once your stack drops to around 10bb or less”; PokerCoaching, Short Stack Strategy (https://pokercoaching.com/blog/short-stack-strategy-2/): „At 10 big blinds or fewer, it is almost entirely push/fold”; GTO Wizard, Short-Stacked Play in MTTs (https://blog.gtowizard.com/short-stacked-play-in-mtts/): „The standard advice for a 10bb stack is to play an all-in or fold strategy, especially from late position”" }
+m11.thr.upper: { value: 15, unit: bb, source: "Upswing, Push/Fold Tournament Strategy (https://upswingpoker.com/push-fold-tournament-strategy-charts/): „Push/fold should be utilized when your stack becomes short — around 15 big blinds (bb) or fewer”; PokerCoaching, Push Fold Charts (https://pokercoaching.com/push-fold-charts/): „Push fold charts apply to stacks of 15 big blinds or less”; PokerCoaching, Short Stack Strategy: „At 15 big blinds, the landscape shifts significantly. Push/fold becomes your dominant framework for weak and medium holdings”" }
+m11.thr.raise: { value: 20, unit: bb, source: "Upswing, Push/Fold Tournament Strategy: „Once stack sizes generally become larger than 20bb there are definitely more +EV lines you can take by just Raising First In”; PokerCoaching, Short Stack Strategy: „At 20 big blinds, you still have meaningful post-flop maneuverability. Your primary open is a 2x min-raise”" }
+m11.push.5: { formula: rangePlay, spot: push.sb-5, unit: percent, source: "solver push/fold projektu (pushfold.json), heads-up, bez ante" }
+m11.push.10: { formula: rangePlay, spot: push.sb-10, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold.json), heads-up, bez ante; walidacja: dokument 10 (55–61%)" }
+m11.push.15: { formula: rangePlay, spot: push.sb-15, unit: percent, source: "solver push/fold projektu (pushfold.json), heads-up, bez ante" }
+m11.push.10-ante: { formula: rangePlay, spot: push.sb-10-ante, unit: percent, source: "solver push/fold projektu (pushfold.json), heads-up, ante dużego blinda 1bb" }
+m11.call.5: { formula: rangePlay, spot: call.bb-5, unit: percent, source: "solver push/fold projektu (pushfold.json), część wszystkich rąk BB" }
+m11.call.10: { formula: rangePlay, spot: call.bb-10, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold.json), część wszystkich rąk BB; walidacja: dokument 10 (34,5–40,5%)" }
+m11.call.15: { formula: rangePlay, spot: call.bb-15, unit: percent, source: "solver push/fold projektu (pushfold.json), część wszystkich rąk BB" }
+m11.call.10-ante: { formula: rangePlay, spot: call.bb-10-ante, unit: percent, source: "solver push/fold projektu (pushfold.json), część wszystkich rąk BB, ante dużego blinda 1bb" }
+m11.ext.push.10: { value: 0.566, unit: percent, decimals: 1, source: "PokerStrategy, Push/Fold Play: Nash Ranges (https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/), heads-up 10bb bez ante: „56.6%” zakres pushowania (porównanie z naszym solverem, nie dane aplikacji)" }
+m11.ext.call.10: { value: 0.385, unit: percent, decimals: 1, source: "PokerStrategy, Push/Fold Play: Nash Ranges, heads-up 10bb bez ante: „38.5%” zakres sprawdzenia (porównanie z naszym solverem)" }
+# cena sprawdzenia all-inu z dużego blinda (stack S): dopłacasz S − 1bb, pula po sprawdzeniu 2S (+ ante)
+m11.call.5.cost: { formula: diff, refs: [m11.depth.5, pf.blind.bb], unit: bb, source: "obliczenie: dopłata BB do all-inu (blind już leży w puli)" }
+m11.call.5.pot: { formula: sum, refs: [m11.depth.5, m11.depth.5], unit: bb, source: "obliczenie: pula po sprawdzeniu" }
+m11.call.5.eq: { formula: quotient, refs: [m11.call.5.cost, m11.call.5.pot], unit: percent, source: "obliczenie: potrzebne equity = dopłata ÷ pula po sprawdzeniu" }
+m11.call.10.cost: { formula: diff, refs: [m11.depth.10, pf.blind.bb], unit: bb, source: "obliczenie: dopłata BB do all-inu" }
+m11.call.10.pot: { formula: sum, refs: [m11.depth.10, m11.depth.10], unit: bb, source: "obliczenie: pula po sprawdzeniu" }
+m11.call.10.eq: { formula: quotient, refs: [m11.call.10.cost, m11.call.10.pot], unit: percent, source: "obliczenie: potrzebne equity = dopłata ÷ pula po sprawdzeniu" }
+m11.call.15.cost: { formula: diff, refs: [m11.depth.15, pf.blind.bb], unit: bb, source: "obliczenie: dopłata BB do all-inu" }
+m11.call.15.pot: { formula: sum, refs: [m11.depth.15, m11.depth.15], unit: bb, source: "obliczenie: pula po sprawdzeniu" }
+m11.call.15.eq: { formula: quotient, refs: [m11.call.15.cost, m11.call.15.pot], unit: percent, decimals: 1, source: "obliczenie: potrzebne equity = dopłata ÷ pula po sprawdzeniu" }
+m11.call.10-ante.pot: { formula: sum, refs: [m11.depth.10, m11.depth.10, m11.ante], unit: bb, source: "obliczenie: pula po sprawdzeniu z ante" }
+m11.call.10-ante.eq: { formula: quotient, refs: [m11.call.10.cost, m11.call.10-ante.pot], unit: percent, decimals: 1, source: "obliczenie: potrzebne equity z ante" }
+# co wygrywa all-in małego blinda, gdy BB spasuje, i ile ryzykuje
+m11.push.10.win: { formula: sum, refs: [pf.blind.sb, pf.blind.bb], unit: bb, decimals: 1, source: "obliczenie: blindy, które zgarnia all-in, gdy BB spasuje" }
+m11.push.10.win-ante: { formula: sum, refs: [pf.blind.sb, pf.blind.bb, m11.ante], unit: bb, decimals: 1, source: "obliczenie: blindy i ante" }
+m11.push.10.risk: { formula: diff, refs: [m11.depth.10, pf.blind.sb], unit: bb, decimals: 1, source: "obliczenie: ile SB dokłada do puli all-inem" }
+m11.push.10.alpha: { formula: alpha, refs: [m11.push.10.win, m11.push.10.risk], unit: percent, source: "obliczenie: jak często BB musi spasować, żeby all-in ręką bez szans wyszedł na zero (alpha z M6)" }
+m11.push.10.alpha-ante: { formula: alpha, refs: [m11.push.10.win-ante, m11.push.10.risk], unit: percent, source: "obliczenie: to samo z ante" }
+# M (Harrington): stack ÷ (blindy + ante); przykład 3000 żetonów przy blindach 100/200 i ante dużego blinda 200
+m11.m.stack: { value: 3000, unit: count, source: "przykład w lekcji (żetony)" }
+m11.m.sb: { value: 100, unit: count, source: "przykład w lekcji (mały blind w żetonach)" }
+m11.m.bb: { value: 200, unit: count, source: "przykład w lekcji (duży blind w żetonach)" }
+m11.m.ante: { value: 200, unit: count, source: "przykład w lekcji (ante dużego blinda w żetonach)" }
+m11.m.orbit: { formula: sum, refs: [m11.m.sb, m11.m.bb, m11.m.ante], unit: count, source: "obliczenie: koszt jednego okrążenia" }
+m11.m.value: { formula: quotient, refs: [m11.m.stack, m11.m.orbit], unit: ratio, source: "obliczenie: M = stack ÷ (SB + BB + ante); Wikipedia, M-ratio (https://en.wikipedia.org/wiki/M-ratio): „The M-ratio is calculated by the formula” (wzór jako ułamek: stack ÷ (small blind + big blind + total antes))" }
+m11.m.bbs: { formula: quotient, refs: [m11.m.stack, m11.m.bb], unit: bb, source: "obliczenie: ten sam stack w dużych blindach" }
+m11.m.example: { value: 3, unit: ratio, source: "przykład w zadaniu (M w strefie czerwonej)" }
+m11.m.green: { value: 20, unit: ratio, source: "Wikipedia, M-ratio (https://en.wikipedia.org/wiki/M-ratio), tabela stref: „Green zone”, „M ≥ 20”; PokerStrategy, Dan Harrington M-Factor: „Green zone: M > = 20”" }
+m11.m.red-alt: { value: 6, unit: ratio, source: "Wikipedia, M-ratio (https://en.wikipedia.org/wiki/M-ratio), tabela stref: „Red zone”, „1 ≤ M < 6” (inna granica niż PokerStrategy, m11.m.red)" }
+m11.m.red: { value: 5, unit: ratio, source: "część wspólna źródeł o strefie czerwonej Harringtona: Wikipedia, M-ratio (https://en.wikipedia.org/wiki/M-ratio), tabela stref: „Red zone”, „1 ≤ M < 6”, „Your only move is to move all-in or fold”; PokerStrategy, Dan Harrington M-Factor (https://www.pokerstrategy.com/strategy/mtt/dan-harrington-m-factor/): „Red zone: 1 < = M < = 5”; granica 5 albo 6 zależnie od źródła" }
+# ICM: trzech graczy, płatne dwa miejsca 60/40 (bańka), stacki 4500/3500/2000
+m11.icm.a.s1: { value: 4500, unit: count, source: "przykład w lekcji (żetony)" }
+m11.icm.a.s2: { value: 3500, unit: count, source: "przykład w lekcji (żetony)" }
+m11.icm.a.s3: { value: 2000, unit: count, source: "przykład w lekcji (żetony)" }
+m11.icm.a.p1: { value: 0.6, unit: percent, source: "przykład w lekcji: wypłata za 1. miejsce (część puli nagród)" }
+m11.icm.a.p2: { value: 0.4, unit: percent, source: "przykład w lekcji: wypłata za 2. miejsce" }
+m11.icm.a.total: { formula: sum, refs: [m11.icm.a.s1, m11.icm.a.s2, m11.icm.a.s3], unit: count, source: "obliczenie: wszystkie żetony w grze" }
+m11.icm.a.chips3: { formula: quotient, refs: [m11.icm.a.s3, m11.icm.a.total], unit: percent, source: "obliczenie: udział krótkiego stacku w żetonach = szansa na 1. miejsce w ICM" }
+m11.icm.a.chips1: { formula: quotient, refs: [m11.icm.a.s1, m11.icm.a.total], unit: percent, source: "obliczenie: udział dużego stacku w żetonach" }
+m11.icm.a.chips2: { formula: quotient, refs: [m11.icm.a.s2, m11.icm.a.total], unit: percent, source: "obliczenie: udział średniego stacku w żetonach" }
+m11.icm.a.rest1: { formula: diff, refs: [m11.icm.a.total, m11.icm.a.s1], unit: count, source: "obliczenie: żetony pozostałych, gdy duży stack wygra" }
+m11.icm.a.rest2: { formula: diff, refs: [m11.icm.a.total, m11.icm.a.s2], unit: count, source: "obliczenie: żetony pozostałych, gdy średni stack wygra" }
+m11.icm.a.eq1: { formula: icm, refs: [m11.icm.a.s1, m11.icm.a.s2, m11.icm.a.s3, m11.icm.a.p1, m11.icm.a.p2], args: [3, 0], unit: percent, decimals: 1, source: "obliczenie: ICM Malmutha-Harville'a" }
+m11.icm.a.eq2: { formula: icm, refs: [m11.icm.a.s1, m11.icm.a.s2, m11.icm.a.s3, m11.icm.a.p1, m11.icm.a.p2], args: [3, 1], unit: percent, decimals: 1, source: "obliczenie: ICM Malmutha-Harville'a" }
+m11.icm.a.eq3: { formula: icm, refs: [m11.icm.a.s1, m11.icm.a.s2, m11.icm.a.s3, m11.icm.a.p1, m11.icm.a.p2], args: [3, 2], unit: percent, decimals: 1, source: "obliczenie: ICM Malmutha-Harville'a" }
+m11.icm.a.second3.via1: { formula: quotient, refs: [m11.icm.a.s3, m11.icm.a.rest1], unit: percent, decimals: 1, source: "obliczenie: szansa krótkiego stacku na 2. miejsce, gdy duży stack zajmie 1." }
+m11.icm.a.second3.via2: { formula: quotient, refs: [m11.icm.a.s3, m11.icm.a.rest2], unit: percent, decimals: 1, source: "obliczenie: szansa krótkiego stacku na 2. miejsce, gdy średni stack zajmie 1." }
+m11.icm.a.second3.p1: { formula: product, refs: [m11.icm.a.chips1, m11.icm.a.second3.via1], unit: percent, decimals: 1, source: "obliczenie: duży wygrywa, krótki drugi" }
+m11.icm.a.second3.p2: { formula: product, refs: [m11.icm.a.chips2, m11.icm.a.second3.via2], unit: percent, decimals: 1, source: "obliczenie: średni wygrywa, krótki drugi" }
+m11.icm.a.second3: { formula: sum, refs: [m11.icm.a.second3.p1, m11.icm.a.second3.p2], unit: percent, decimals: 1, source: "obliczenie: szansa krótkiego stacku na 2. miejsce" }
+# Bubble factor: czterech graczy, płatne trzy miejsca 50/30/20, stacki 4000/3000/2000/1000. Ty (3000) sprawdzasz all-in
+# gracza z 2000; uproszczenie: pomijamy blindy w puli (bubble factor „when stacks are fully invested”, GTO Wizard)
+m11.bf.s1: { value: 4000, unit: count, source: "przykład w lekcji (żetony)" }
+m11.bf.s2: { value: 3000, unit: count, source: "przykład w lekcji (żetony; twój stack)" }
+m11.bf.s3: { value: 2000, unit: count, source: "przykład w lekcji (żetony; gracz all-in)" }
+m11.bf.s4: { value: 1000, unit: count, source: "przykład w lekcji (żetony)" }
+m11.bf.p1: { value: 0.5, unit: percent, source: "przykład w lekcji: wypłata za 1. miejsce" }
+m11.bf.p2: { value: 0.3, unit: percent, source: "przykład w lekcji: wypłata za 2. miejsce" }
+m11.bf.p3: { value: 0.2, unit: percent, source: "przykład w lekcji: wypłata za 3. miejsce" }
+m11.bf.win: { formula: sum, refs: [m11.bf.s2, m11.bf.s3], unit: count, source: "obliczenie: twój stack po wygranej" }
+m11.bf.lose: { formula: diff, refs: [m11.bf.s2, m11.bf.s3], unit: count, source: "obliczenie: twój stack po przegranej" }
+m11.bf.villain-after: { formula: sum, refs: [m11.bf.s3, m11.bf.s3], unit: count, source: "obliczenie: stack rywala po wygranej" }
+m11.bf.eq.now: { formula: icm, refs: [m11.bf.s1, m11.bf.s2, m11.bf.s3, m11.bf.s4, m11.bf.p1, m11.bf.p2, m11.bf.p3], args: [4, 1], unit: percent, decimals: 1, source: "obliczenie: ICM przed rozdaniem" }
+m11.bf.eq.win: { formula: icm, refs: [m11.bf.s1, m11.bf.win, m11.bf.s4, m11.bf.p1, m11.bf.p2, m11.bf.p3], args: [3, 1], unit: percent, decimals: 1, source: "obliczenie: ICM po wygranej (rywal odpada, trzech graczy w nagrodach)" }
+m11.bf.eq.lose: { formula: icm, refs: [m11.bf.s1, m11.bf.lose, m11.bf.villain-after, m11.bf.s4, m11.bf.p1, m11.bf.p2, m11.bf.p3], args: [4, 1], unit: percent, decimals: 1, source: "obliczenie: ICM po przegranej" }
+m11.bf.loss: { formula: diff, refs: [m11.bf.eq.now, m11.bf.eq.lose], unit: percent, decimals: 1, source: "obliczenie: ile equity tracisz przy przegranej" }
+m11.bf.gain: { formula: diff, refs: [m11.bf.eq.win, m11.bf.eq.now], unit: percent, decimals: 1, source: "obliczenie: ile equity zyskujesz przy wygranej" }
+m11.bf.value: { formula: quotient, refs: [m11.bf.loss, m11.bf.gain], unit: ratio, decimals: 2, source: "obliczenie: bubble factor = strata ÷ zysk; GTO Wizard, What Is the Bubble Factor (https://blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments/): „$EV lost when you lose / $EV gained when you win = Bubble Factor”" }
+m11.bf.range: { formula: diff, refs: [m11.bf.eq.win, m11.bf.eq.lose], unit: percent, decimals: 1, source: "obliczenie: różnica equity między wygraną a przegraną" }
+m11.bf.req: { formula: quotient, refs: [m11.bf.loss, m11.bf.range], unit: percent, decimals: 1, source: "obliczenie: potrzebne equity = strata ÷ (strata + zysk) = BF ÷ (BF + 1); GTO Wizard, What Is the Bubble Factor: „Required Equity = Bubble Factor / (Bubble Factor + 1)”" }
+m11.bf.req-chips: { formula: quotient, refs: [m11.bf.s3, m11.bf.villain-after], unit: percent, source: "obliczenie: w żetonach ryzykujesz 2000, żeby wygrać 2000 (bez blindów), więc wystarcza połowa" }
+m11.bf.example-eq: { value: 0.55, unit: percent, source: "przykład w zadaniu: equity ręki między progiem w żetonach a progiem ICM" }
+m11.bf.premium: { formula: diff, refs: [m11.bf.req, m11.bf.req-chips], unit: percent, decimals: 1, source: "obliczenie: premia za ryzyko = potrzebne equity w ICM − w żetonach; GTO Wizard, Risk Premium (https://gtowizard.com/en/glossary/risk-premium/): „RP = Required Equity (ICM) - Required Equity (cEV) when stacks are fully invested”" }
+# M11, trzech graczy (Button, mały blind, duży blind), stacki po 7,5bb: nasz solver (pushfold.json, drzewo src/pushfold3.ts)
+# i porównanie z opublikowaną równowagą (Ganzfried i Sandholm, AAMAS 2008, tabela 2, „single hand” i „tournament”)
+m11.depth.3max: { value: 7.5, unit: bb, decimals: 1, source: "Ganzfried i Sandholm, Computing an Approximate Jam/Fold Equilibrium for 3-player No-Limit Texas Hold'em Tournaments, AAMAS 2008 (https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf): „even chip stacks s1 = s2 = s3 = 4500 and blinds at SB = 300, BB = 600”, czyli 7,5bb" }
+m11.3max.push.btn: { formula: rangePlay, spot: push.btn-3max, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold.json, trzech graczy, 7,5bb); walidacja: Ganzfried i Sandholm, AAMAS 2008, tabela 11 (scripts/pushfold3-validate.ts)" }
+m11.3max.push.sb: { formula: rangePlay, spot: push.sb-3max, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold.json, trzech graczy, 7,5bb, Button spasował); walidacja: tabela 13 artykułu" }
+m11.3max.call.sb: { formula: rangePlay, spot: call.sb-vs-btn-3max, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold.json): mały blind wobec all-inu Buttona; walidacja: tabela 12 artykułu" }
+m11.3max.call.bb: { formula: rangePlay, spot: call.bb-vs-btn-3max, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold.json): duży blind wobec all-inu Buttona, SB spasował; walidacja: tabela 14 artykułu" }
+m11.3max.call.bb-two: { formula: rangePlay, spot: call.bb-vs-two-3max, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold.json): duży blind po all-inie Buttona i sprawdzeniu SB; walidacja: tabela 16 artykułu" }
+m11.gs.btn: { value: 0.355, unit: percent, decimals: 1, source: "Ganzfried i Sandholm, AAMAS 2008, tabela 2, „Button jam”, „Single hand prob.”: „0.355”" }
+m11.gs.overcall.single: { value: 0.197, unit: percent, decimals: 1, source: "Ganzfried i Sandholm, AAMAS 2008, tabela 2, „BB jam after jam/jam”, single hand: „0.197”" }
+m11.gs.overcall.tourn: { value: 0.021, unit: percent, decimals: 1, source: "Ganzfried i Sandholm, AAMAS 2008, tabela 2, „BB jam after jam/jam”, tournament: „0.021”; „In a tournament, the big blind only calls with the four highest pocket pairs and AKs”" }
+m11.3max.sb.cost: { formula: diff, refs: [m11.depth.3max, pf.blind.sb], unit: bb, decimals: 1, source: "obliczenie: dopłata SB do all-inu Buttona" }
+m11.3max.sb.pot: { formula: sum, refs: [m11.depth.3max, m11.depth.3max, pf.blind.bb], unit: bb, source: "obliczenie: pula po sprawdzeniu SB, gdy BB spasuje" }
+m11.3max.sb.eq: { formula: quotient, refs: [m11.3max.sb.cost, m11.3max.sb.pot], unit: percent, decimals: 1, source: "obliczenie: potrzebne equity SB wobec samego Buttona" }
+m11.3max.bb.cost: { formula: diff, refs: [m11.depth.3max, pf.blind.bb], unit: bb, decimals: 1, source: "obliczenie: dopłata BB do all-inu" }
+m11.3max.bb.pot: { formula: sum, refs: [m11.depth.3max, m11.depth.3max, pf.blind.sb], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu BB (Button all-in, SB spasował)" }
+m11.3max.bb.eq: { formula: quotient, refs: [m11.3max.bb.cost, m11.3max.bb.pot], unit: percent, decimals: 1, source: "obliczenie: potrzebne equity BB wobec Buttona" }
+m11.3max.bb-two.pot: { formula: sum, refs: [m11.depth.3max, m11.depth.3max, m11.depth.3max], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu BB, gdy all-in są już dwaj gracze" }
+m11.3max.bb-two.eq: { formula: quotient, refs: [m11.3max.bb.cost, m11.3max.bb-two.pot], unit: percent, decimals: 1, source: "obliczenie: potrzebne equity BB wobec dwóch rywali" }

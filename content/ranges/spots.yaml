@@ -75,3 +75,97 @@
   hero: BB
   path: "UTG:fold,HJ:fold,CO:fold,BTN:fold,SB:raise3"
   groups: { "Bronię (sprawdzenie albo 3-bet)": ["call 3", "raise 9"] }
+
+# M11: push/fold heads-up (mały blind kontra duży blind) z pliku pushfold.json, policzonego skryptem
+# tools/preflop-solver/scripts/pushfold-ranges.ts na drzewie zwalidowanym z równowagą Nasha (dokument 10: 10bb bez ante).
+# Gra tylko all-in albo pas (uproszczenie: pełne solvery przy tych stackach część rąk limpują albo podbijają minimalnie).
+- id: push.sb-5
+  title: "Mały blind, stack 5bb, wszyscy spasowali. All-in czy pas?"
+  hero: SB
+  solver: pushfold.json
+  path: "5bb|"
+  groups: { "All-in": ["all-in"] }
+- id: push.sb-10
+  title: "Mały blind, stack 10bb, wszyscy spasowali. All-in czy pas?"
+  hero: SB
+  solver: pushfold.json
+  path: "10bb|"
+  groups: { "All-in": ["all-in"] }
+- id: push.sb-15
+  title: "Mały blind, stack 15bb, wszyscy spasowali. All-in czy pas?"
+  hero: SB
+  solver: pushfold.json
+  path: "15bb|"
+  groups: { "All-in": ["all-in"] }
+- id: push.sb-10-ante
+  title: "Mały blind, stack 10bb, duży blind wpłacił ante 1bb, wszyscy spasowali. All-in czy pas?"
+  hero: SB
+  solver: pushfold.json
+  path: "10bb-ante|"
+  groups: { "All-in": ["all-in"] }
+- id: call.bb-5
+  title: "Duży blind, stack 5bb. Mały blind wszedł all-in. Sprawdzasz czy pasujesz?"
+  hero: BB
+  solver: pushfold.json
+  path: "5bb|SB:allin"
+  groups: { "Sprawdzam": ["call"] }
+- id: call.bb-10
+  title: "Duży blind, stack 10bb. Mały blind wszedł all-in. Sprawdzasz czy pasujesz?"
+  hero: BB
+  solver: pushfold.json
+  path: "10bb|SB:allin"
+  groups: { "Sprawdzam": ["call"] }
+- id: call.bb-15
+  title: "Duży blind, stack 15bb. Mały blind wszedł all-in. Sprawdzasz czy pasujesz?"
+  hero: BB
+  solver: pushfold.json
+  path: "15bb|SB:allin"
+  groups: { "Sprawdzam": ["call"] }
+- id: call.bb-10-ante
+  title: "Duży blind, stack 10bb, wpłaciłeś ante 1bb. Mały blind wszedł all-in. Sprawdzasz czy pasujesz?"
+  hero: BB
+  solver: pushfold.json
+  path: "10bb-ante|SB:allin"
+  groups: { "Sprawdzam": ["call"] }
+
+# M11, trzech graczy (Button, mały blind, duży blind), stacki po 7,5bb, bez ante, gra o żetony: z pliku pushfold.json
+# (drzewo src/pushfold3.ts). Zwalidowane z opublikowaną równowagą: Ganzfried i Sandholm, AAMAS 2008, tabele 11–16
+# („single hand”, stacki 4500 przy blindach 300/600); skrypt tools/preflop-solver/scripts/pushfold3-validate.ts.
+# Częstości węzłów zgodne z artykułem w granicach 1,2 pp. Klasy niepewne: ręce, w których poprawna odpowiedź w zadaniu
+# różni się od artykułu (nie pojawiają się w rangeDecision, w malowaniu liczą się jak ręce mieszane). Inne głębokości
+# trzyosobowe nie mają celu walidacji, więc ich nie pokazujemy (ADR-24).
+- id: push.btn-3max
+  title: "Button, trzech graczy, stacki po 7,5bb. Wchodzisz all-in czy pasujesz?"
+  hero: BTN
+  solver: pushfold.json
+  path: "3max-7.5bb|"
+  groups: { "All-in": ["all-in"] }
+  uncertain: [T9o]
+- id: push.sb-3max
+  title: "Mały blind, trzech graczy, stacki po 7,5bb, Button spasował. All-in czy pas?"
+  hero: SB
+  solver: pushfold.json
+  path: "3max-7.5bb|BTN:fold"
+  groups: { "All-in": ["all-in"] }
+  uncertain: [T3s, 63s, Q3o]
+- id: call.sb-vs-btn-3max
+  title: "Mały blind, trzech graczy, stacki po 7,5bb. Button wszedł all-in, za tobą jest jeszcze duży blind. Sprawdzasz czy pasujesz?"
+  hero: SB
+  solver: pushfold.json
+  path: "3max-7.5bb|BTN:allin"
+  groups: { "Sprawdzam": ["call"] }
+  uncertain: [A4o]
+- id: call.bb-vs-btn-3max
+  title: "Duży blind, trzech graczy, stacki po 7,5bb. Button wszedł all-in, mały blind spasował. Sprawdzasz czy pasujesz?"
+  hero: BB
+  solver: pushfold.json
+  path: "3max-7.5bb|BTN:allin,SB:fold"
+  groups: { "Sprawdzam": ["call"] }
+  uncertain: [Q5s]
+- id: call.bb-vs-two-3max
+  title: "Duży blind, trzech graczy, stacki po 7,5bb. Button wszedł all-in, mały blind sprawdził. Sprawdzasz czy pasujesz?"
+  hero: BB
+  solver: pushfold.json
+  path: "3max-7.5bb|BTN:allin,SB:call"
+  groups: { "Sprawdzam": ["call"] }
+  uncertain: [A4s, KTo]

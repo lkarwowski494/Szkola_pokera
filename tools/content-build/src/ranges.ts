@@ -9,24 +9,37 @@ interface SolverFile {
   spots: { path: string; player: string; actions: string[]; strategy: Record<string, number>[] }[];
 }
 
+const DEFAULT_SOLVER = 'preflop-6max-100bb.json';
+
 /**
  * Kompiluje nazwane spoty zakresów z wyniku solvera preflop (ADR-20).
  * Brak pliku solvera = brak zakresów (lekcje z blokiem ```range nie przejdą walidacji).
  */
 export function compileRanges(contentDir: string): { spots: CompiledRangeSpot[]; solverMeta: Record<string, unknown> | null } {
   const defsPath = join(contentDir, 'ranges/spots.yaml');
-  const solverPath = join(contentDir, 'ranges/preflop-6max-100bb.json');
+  const solverPath = join(contentDir, 'ranges', DEFAULT_SOLVER);
   if (!existsSync(defsPath) || !existsSync(solverPath)) return { spots: [], solverMeta: null };
   const r = RangeSpotsFile.safeParse(parseYaml(readFileSync(defsPath, 'utf8')));
   if (!r.success) throw new Error(`ranges/spots.yaml: ${r.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join('; ')}`);
   const solver = JSON.parse(readFileSync(solverPath, 'utf8')) as SolverFile;
-  const byPath = new Map(solver.spots.map((s) => [s.path, s]));
+  // inne pliki solvera (pole solver w spots.yaml, np. pushfold.json w M11): wczytywane raz, ścieżki węzłów osobno dla pliku
+  const files = new Map<string, Map<string, SolverFile['spots'][number]>>([[DEFAULT_SOLVER, new Map(solver.spots.map((s) => [s.path, s]))]]);
+  const nodesOf = (file: string) => {
+    let m = files.get(file);
+    if (!m) {
+      const p = join(contentDir, 'ranges', file);
+      if (!existsSync(p)) throw new Error(`ranges/spots.yaml: brak pliku solvera ranges/${file}`);
+      m = new Map((JSON.parse(readFileSync(p, 'utf8')) as SolverFile).spots.map((s) => [s.path, s]));
+      files.set(file, m);
+    }
+    return m;
+  };
   const ids = new Set<string>();
   const spots = r.data.map((def) => {
     if (ids.has(def.id)) throw new Error(`ranges/spots.yaml: powtórzony spot ${def.id}`);
     ids.add(def.id);
-    const node = byPath.get(def.path);
-    if (!node) throw new Error(`spot ${def.id}: brak węzła "${def.path}" w wyniku solvera`);
+    const node = nodesOf(def.solver ?? DEFAULT_SOLVER).get(def.path);
+    if (!node) throw new Error(`spot ${def.id}: brak węzła "${def.path}" w wyniku solvera ${def.solver ?? DEFAULT_SOLVER}`);
     if (node.player !== def.hero) throw new Error(`spot ${def.id}: w węźle decyduje ${node.player}, nie ${def.hero}`);
     const groups = Object.entries(def.groups).map(([name, labels]) => {
       const idx = labels.map((l) => {

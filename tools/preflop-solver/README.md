@@ -33,3 +33,16 @@ pnpm --filter @szkola/preflop-solver solve --iterations 250 --k 1.25 --m 0.16 --
 Skrypty diagnostyczne w `scripts/`: `subgame.ts` i `subgame3.ts` (zbieżność i realizacja equity samej gry po flopie), `converge.ts` (zbieżność całości, z wykorzystywalnością samego preflopu), `checkdown.ts` (błąd przybliżenia koszyków), `timing.ts`.
 
 Warianty modelu (nie kanon, tylko do pomiarów; żaden nie przeszedł walidacji, wyniki w dokumencie 10): `--role 0.2` (premia dla ostatniego podbijającego we wszystkich pulach), `--role3 0.3` (to samo w pulach 3-betowanych i wyżej), `--role4 0` (osobna wartość dla pul 4-betowanych), `--spr-full 4` (SPR, od którego przewaga pozycji działa w pełni; kanon 8). W kalibracji: `--roles`, `--role3s`, `--spr-fulls`.
+
+## Push/fold do modułu M11
+
+Drzewa bez modelu EQR i rake'u (po all-inie nie ma dalszej gry): heads-up `src/pushfold.ts` (opcjonalne ante dużego blinda) i trzyosobowe `src/pushfold3.ts` (Button, mały blind, duży blind, równe stacki, pule trzyosobowe z tablicy equity3). Wynik: `content/ranges/pushfold.json` (5, 10 i 15bb heads-up, 10bb z ante, 7,5bb trzyosobowe).
+
+```bash
+pnpm --filter @szkola/preflop-solver exec tsx scripts/pushfold-ranges.ts   # ok. 1 minuty
+# walidacja trzyosobowa z Ganzfried i Sandholm, AAMAS 2008, tabele 11–16 (tabel nie trzymamy w repozytorium)
+curl -sSLo gs08.pdf "https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf" && pdftotext -f 8 -l 8 -layout gs08.pdf gs08-p8.txt
+pnpm --filter @szkola/preflop-solver exec tsx scripts/pushfold3-validate.ts gs08-p8.txt
+```
+
+Klasy, w których poprawna odpowiedź różni się od artykułu, są w `content/ranges/spots.yaml` na liście `uncertain`.

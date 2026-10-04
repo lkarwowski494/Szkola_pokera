@@ -1,3 +1,4 @@
+import type { IcmCallSpot, IcmSpot } from '@szkola/poker-core';
 import { cardsToString, combosCount, HandCategory, RANKS, rankOf, type Card, type FlopTexture, type HandResult, type TextureAxis, type WinReason, WETNESS_POINTS, WETNESS_THRESHOLDS } from '@szkola/poker-core';
 
 /**
@@ -77,6 +78,19 @@ export function eqSign(x: number): string {
   return exactAt(x, 0) || exactAt(x, 1) ? '=' : '≈';
 }
 
+const chips = (n: number) => n.toLocaleString('pl-PL').replace(/\s/g, ' ');
+/** Nazwy graczy w zadaniach ICM: ty i gracze A, B, C w kolejności stacków z zadania. */
+function icmName(s: IcmSpot, i: number): string {
+  if (i === s.hero) return 'Ty';
+  const others = s.stacks.map((_, j) => j).filter((j) => j !== s.hero);
+  return `Gracz ${'ABC'[others.indexOf(i)]}`;
+}
+function icmTable(s: IcmSpot): string {
+  const pays = s.payouts.map((p) => pct(p)).join(', ');
+  const stacks = s.stacks.map((x, i) => `${icmName(s, i)} ${chips(x)}`).join(', ');
+  return `${s.stacks.length} graczy, płatne ${s.payouts.length} miejsca (${pays} puli nagród). Stacki: ${stacks}.`;
+}
+
 export const t = {
   paint: {
     explanation: (title: string) =>
@@ -144,6 +158,32 @@ export const t = {
     },
     right: 'Tak.',
     wrong: (n: number, correct: number) => `Nie. ${n} to za ${n > correct ? 'dużo' : 'mało'} w tej sytuacji.`,
+  },
+  icm: {
+    call: 'Sprawdzam',
+    fold: 'Pasuję',
+    callPrompt: (s: IcmCallSpot) =>
+      `Bańka: ${icmTable(s)} ${icmName(s, s.villain)} wchodzi all-in, w grze między wami jest ${chips(s.atRisk)} żetonów. Twoja ręka ma ${pct(s.handEquity)} equity wobec jego zakresu. Blindy pomijamy. Co robisz?`,
+    callRight: (s: IcmCallSpot) => `Tak. ${pct(s.handEquity)} to więcej niż potrzebne według ICM ${pct(s.required, 1)}.`,
+    callWrong: (s: IcmCallSpot) =>
+      `Nie. Według ICM potrzebujesz ${pct(s.required, 1)} equity, a masz ${pct(s.handEquity)}.` +
+      (s.handEquity > s.requiredChips ? ' W grze o żetony sprawdzenie by się opłacało, ale przegrana kosztuje tu więcej pieniędzy, niż wygrana dodaje.' : ''),
+    foldRight: (s: IcmCallSpot) =>
+      `Tak. Według ICM potrzebujesz ${pct(s.required, 1)} equity, a masz tylko ${pct(s.handEquity)}.` +
+      (s.handEquity > s.requiredChips ? ' W grze o żetony byłoby to sprawdzenie: to właśnie premia za ryzyko.' : ''),
+    foldWrong: (s: IcmCallSpot) => `Nie. ${pct(s.handEquity)} equity wystarcza: według ICM próg to ${pct(s.required, 1)}.`,
+    callExplanation: (s: IcmCallSpot) =>
+      `Twoje equity w puli nagród: teraz ${pct(s.eqNow, 1)}, po wygranej ${pct(s.eqWin, 1)}, po przegranej ${pct(s.eqLose, 1)}. ` +
+      `Bubble factor = strata ÷ zysk = ${pct(s.eqNow - s.eqLose, 1)} ÷ ${pct(s.eqWin - s.eqNow, 1)} ≈ ${s.bubbleFactor.toFixed(2).replace('.', ',')}, ` +
+      `więc potrzebujesz BF ÷ (BF + 1) ≈ ${pct(s.required, 1)} equity. W grze o żetony wystarczyłoby ${pct(s.requiredChips)}.`,
+    equityPrompt: (s: IcmSpot) => `${icmTable(s)} Ile według ICM jest wart twój stack (część puli nagród)?`,
+    share: (x: number) => pct(x, 1),
+    equityRight: 'Tak. To suma po miejscach: szansa na miejsce × wypłata za miejsce.',
+    equityChips: 'Nie. To twój udział w żetonach. W turnieju z wypłatami żetony nie przeliczają się na pieniądze jeden do jednego.',
+    equityFirstOnly: 'Nie. To tylko szansa na 1. miejsce × wypłata za 1. miejsce. Dolicz szanse na kolejne płatne miejsca.',
+    equityExplanation: (s: IcmSpot, icm: number, share: number) =>
+      `Szansa na 1. miejsce to twój stack ÷ wszystkie żetony (${pct(share, 1)}); kolejne miejsca liczysz tak samo spośród pozostałych graczy. ` +
+      `Razem ${pct(icm, 1)} puli nagród, ${icm > share ? 'więcej' : 'mniej'} niż udział w żetonach.`,
   },
   potOdds: {
     prompt: (pot: number, bet: number) => `W puli jest ${pot}. Przeciwnik stawia ${bet}. Ile equity potrzebujesz do sprawdzenia?`,

@@ -19,14 +19,16 @@ export const NumberEntry = z
     /** Wartość podana wprost (np. z badań). */
     value: z.number().optional(),
     /** Wartość wyliczana przy budowie przez poker-core (np. requiredEquity(100, 50)). */
-    formula: z.enum(['requiredEquity', 'mdf', 'alpha', 'hitProbability', 'ruleOf2And4', 'rangePlay', 'product', 'sum', 'diff', 'missProbability', 'quotient', 'geometric', 'flopWetnessShare', 'sqrt', 'exp', 'normCdf']).optional(),
+    formula: z.enum(['requiredEquity', 'mdf', 'alpha', 'hitProbability', 'ruleOf2And4', 'rangePlay', 'product', 'sum', 'diff', 'missProbability', 'quotient', 'geometric', 'flopWetnessShare', 'sqrt', 'exp', 'normCdf', 'icm']).optional(),
     /** Argumenty formuły; flopWetnessShare: [i], odsetek wszystkich flopów o mokrości FLOP_WETNESS[i] (0 suchy, 1 pośredni, 2 mokry). */
     args: z.array(z.number()).optional(),
     /**
      * Klucze innych liczb zamiast wpisanych wartości (jedno źródło prawdy): dla product, sum, diff (pierwsza minus
      * pozostałe) oraz zamiast args dla requiredEquity, mdf i alpha (pula, zakład) i missProbability (outy, karty nieznane,
      * liczba odkrywanych kart). Jednoargumentowe sqrt, exp (e^x) i normCdf (dystrybuanta standardowego rozkładu
-     * normalnego) przyjmują jeden argument w args albo refs (M12: wariancja i ryzyko bankructwa).
+     * normalnego) przyjmują jeden argument w args albo refs (M12: wariancja i ryzyko bankructwa). Dla icm (M11): stacki
+     * graczy, potem wypłaty za kolejne miejsca, a args = [liczba graczy, indeks gracza]; wynik to equity gracza w modelu
+     * Malmutha-Harville'a (w jednostkach wypłat).
      */
     refs: z.array(z.string()).optional(),
     /** Dla formuły rangePlay: identyfikator spotu z content/ranges/spots.yaml. */
@@ -144,7 +146,8 @@ export const PaintDrill = z.object({
   prompt: z.string().min(3),
 });
 
-export const GeneratorName = z.enum(['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'rangeDecision']);
+/** icm (M11): bańka turnieju z losowymi stackami; params.mode = "call" (sprawdzić all-in według ICM) albo "equity" (wycena stacku). */
+export const GeneratorName = z.enum(['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'rangeDecision', 'icm']);
 export type GeneratorName = z.infer<typeof GeneratorName>;
 
 export const GeneratedDrill = z.object({
@@ -264,6 +267,11 @@ export const RangeSpotDef = z.object({
    * odwołują się do jednej listy (kotwica YAML w spots.yaml); spot SB wobec Buttona ma własną listę (B-045).
    */
   uncertain: z.array(z.string()).optional(),
+  /**
+   * Plik wyniku solvera w content/ranges (domyślnie preflop-6max-100bb.json). M11: pushfold.json, zakresy push/fold
+   * heads-up z drzewa walidacyjnego (tools/preflop-solver/scripts/pushfold-ranges.ts).
+   */
+  solver: z.string().regex(/^[a-z0-9][a-z0-9.\-]*\.json$/, 'nazwa pliku .json w content/ranges').optional(),
 });
 export type RangeSpotDef = z.infer<typeof RangeSpotDef>;
 export const RangeSpotsFile = z.array(RangeSpotDef);
