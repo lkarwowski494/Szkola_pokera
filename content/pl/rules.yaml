@@ -571,3 +571,68 @@
   because: "ręka, która przegrywa ze wszystkimi betami rywala, nie zarabia sprawdzeniem nawet wtedy, gdy rywal blefuje dużo"
   level: heuristic
   source: "wniosek z MDF (R-M6-001) i R-M8-010; Deepfold, Bluff Catching: When to Call and When to Let It Go [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+
+# M9: plan rozdania. Matematyka z liczb (numbers.yaml); progi i liczba ulic wartości jako heurystyki, bez wyników solvera.
+- id: R-M9-001
+  module: m9
+  if: "liczysz SPR na flopie"
+  then: "dzielisz efektywny stack (mniejszy z dwóch, bez tego, co już jest w puli) przez pulę; po otwarciu i sprawdzeniu to ok. {{n:spr.srp}}, po 3-becie z pozycją ok. {{n:spr.3bet-ip}}, po 4-becie ok. {{n:spr.4bet}}"
+  because: "każde przebicie przed flopem kilka razy powiększa pulę, a stack za nią maleje dużo wolniej"
+  level: math
+  source: "obliczenie: SPR = efektywny stack ÷ pula na flopie (stacki i pule z liczb M4)"
+- id: R-M9-002
+  module: m9
+  if: "rywal idzie all-in na flopie za cały stack"
+  then: "do sprawdzenia potrzebujesz stack ÷ (pula + 2·stack) equity: przy SPR {{n:spr.commit}} to {{n:eq.jam.spr2}}, przy SPR {{n:spr.srp}} już {{n:eq.jam.srp}}"
+  because: "dopłacasz cały stack, żeby wygrać pulę i stack rywala; im niższy SPR, tym lepszą cenę dostajesz"
+  level: math
+  source: "obliczenie: potrzebne equity = dopłata/(pula + 2·dopłata)"
+- id: R-M9-003
+  module: m9
+  if: "SPR na flopie wynosi ok. {{n:spr.commit}} albo mniej, a masz top parę albo lepszą rękę"
+  then: "grasz o cały stack: betujesz albo sprawdzasz z planem wpłacenia wszystkiego i nie pasujesz na all-in"
+  because: "na all-in potrzebujesz najwyżej ok. {{n:eq.jam.spr2}} equity, a dwa zakłady po ok. {{n:geo.spr2.2}} puli wpłacają cały stack; top para zwykle zniesie dwie ulice wartości"
+  level: heuristic
+  source: "program nauczania M9 (próg „SPR ok. 2”); rachunek ceny i rozmiaru w lekcji m9.l2; Pokerology, SPR Poker; VIP-Grinders, Stack to Pot Ratio [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M9-004
+  module: m9
+  if: "po twoim zakładzie zostałoby ci w stacku mniej niż pula"
+  then: "nie planujesz zakładu i pasu na all-in: albo grasz o cały stack, albo czekasz"
+  because: "przy SPR {{n:spr.commit}} po zakładzie wielkości puli potrzebujesz na all-in tylko {{n:eq.commit.after-pot}} equity, więc pas prawie nigdy się nie opłaca"
+  level: math
+  source: "obliczenie: dopłata/(pula przed nadwyżką + 2·dopłata)"
+- id: R-M9-005
+  module: m9
+  if: "grasz pulę z jednym podbiciem przy pełnych stackach (SPR ok. {{n:spr.srp}}) i masz tylko jedną parę"
+  then: "grasz na wartość, ale zwykle nie planujesz wpłacenia całego stacku"
+  because: "żeby wpłacić cały stack do rivera, trzeba betować więcej niż pulę na każdej ulicy, a rywal, który wpłaca tyle pieniędzy, rzadko ma rękę gorszą niż jedna para"
+  level: heuristic
+  source: "rachunek rozmiaru geometrycznego (lekcja m9.l3); Pokerology, SPR Poker; VIP-Grinders, Stack to Pot Ratio [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M9-006
+  module: m9
+  if: "chcesz wpłacić cały stack równymi zakładami do rivera"
+  then: "betujesz na każdej ulicy ten sam ułamek puli f, taki że (1 + 2f) do potęgi liczby ulic = 1 + 2·SPR; w puli 3-betowanej z pozycją to ok. {{n:geo.3bet-ip.3}} puli"
+  because: "zakład f i sprawdzenie mnożą pulę przez (1 + 2f), a all-in wypada wtedy, gdy pula urośnie do pula + 2·stack"
+  level: math
+  source: "obliczenie: rozmiar geometryczny; wzór zgodny z GTO Wizard, Pot Geometry i Upswing, Geometric Bet Sizing [wzór sprawdzony rachunkiem; artykuły znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M9-007
+  module: m9
+  if: "w puli z jednym podbiciem przy stackach {{n:format.stack}} betujesz na trzech ulicach"
+  then: "pamiętasz, że trzy zakłady pół puli wpłacają tylko {{n:srp.half.total}}, a trzy zakłady wielkości puli {{n:srp.potbet.total}} ze stacku {{n:spr.srp.stack}}"
+  because: "pula na flopie jest mała względem stacku; cały stack wchodzi dopiero przy zakładach ok. {{n:geo.srp.3}} puli na każdej ulicy"
+  level: math
+  source: "obliczenie: zakład i sprawdzenie mnożą pulę przez (1 + 2f)"
+- id: R-M9-008
+  module: m9
+  if: "przed zakładem na flopie planujesz rozdanie"
+  then: "oceniasz, ile ulic wartości zniesie ręka: bardzo silna (set, strit, wysokie dwie pary) trzy, top para z dobrym kickerem albo overpara zwykle dwie, słabsza para jedną albo żadnej"
+  because: "z każdą ulicą gorsze ręce rywala pasują, a w puli zostają głównie ręce lepsze od twojej"
+  level: heuristic
+  source: "PokerCoaching, How Many Streets of Value; Upswing, How to Play Top Pair Top Kicker in Cash Games; CardPlayer (PokerCoaching), Going For Value With Top Pair [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M9-009
+  module: m9
+  if: "masz rękę na trzy ulice wartości i chcesz wpłacić cały stack"
+  then: "już na flopie betujesz rozmiarem geometrycznym, a nie małym"
+  because: "w puli 3-betowanej trzy zakłady po 1/3 puli wpłacają tylko ok. {{n:g3b.third.total}} ze stacku {{n:spr.3bet-ip.stack}}, więc większość stacku zostaje niewpłacona; przy ok. {{n:geo.3bet-ip.3}} puli na każdej ulicy wchodzi cały"
+  level: math
+  source: "obliczenie: łańcuch zakładów i sprawdzeń (numbers.yaml, klucze g3b.third.* i geo.3bet-ip.*)"

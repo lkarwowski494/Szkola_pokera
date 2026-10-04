@@ -239,3 +239,82 @@ combos.unpaired.both-blocked: { formula: product, refs: [pair.outs.per-rank, pai
 combos.pair.one-blocked: { value: 3, unit: count, source: "kombinatoryka: C(3,2), trzymasz jedną kartę danej rangi" }
 catch.ex.bluffs-low: { value: 0.15, unit: percent, source: "przykład do ćwiczenia (założony udział blefów rywala, bez źródła)" }
 catch.ex.bluffs-high: { value: 0.40, unit: percent, source: "przykład do ćwiczenia (założony udział blefów rywala, bez źródła)" }
+
+# M9: plan rozdania (SPR, zaangażowanie, rozmiar geometryczny). Pule i stacki liczone formułami z liczb M2, M4 i M5.
+# content-build nie ma formuły ilorazu ani pierwiastka, więc SPR (stack ÷ pula) i ułamki geometryczne
+# f = ((1 + 2·SPR)^(1/n) − 1) / 2 są wpisane jako wartości z obliczeniem w polu source (raport M9: potrzeba formuł).
+# Łańcuchy zakładów (flop, turn, river) liczone formułami potwierdzają, że ułamek geometryczny daje all-in.
+spr.srp.stack: { formula: diff, refs: [format.stack, pf.open-size], unit: bb, decimals: 1, source: "obliczenie: stack minus otwarcie (stack za pulą na flopie po otwarciu Buttona i sprawdzeniu BB)" }
+spr.srp: { value: 17.727273, unit: ratio, decimals: 1, source: "obliczenie: spr.srp.stack ÷ bb.pot-after.vs-btn = 97,5 ÷ 5,5" }
+spr.srp.wrong-full: { value: 18.181818, unit: ratio, decimals: 1, source: "przykład błędnego rachunku: pełny stack 100 ÷ 5,5 (pominięte otwarcie, które już jest w puli)" }
+spr.3bet-ip.stack: { formula: diff, refs: [format.stack, pf.3bet.ip-total], unit: bb, decimals: 1, source: "obliczenie: stack minus 3-bet z pozycji" }
+spr.3bet-ip: { value: 5.606061, unit: ratio, decimals: 1, source: "obliczenie: spr.3bet-ip.stack ÷ vs3bet.pot-after = 92,5 ÷ 16,5" }
+spr.3bet-ip.wrong-full: { value: 6.060606, unit: ratio, decimals: 1, source: "przykład błędnego rachunku: pełny stack 100 ÷ 16,5" }
+spr.3bet-oop.pot: { formula: sum, refs: [pf.3bet.oop-total, pf.3bet.oop-total, pf.blind.sb], unit: bb, decimals: 1, source: "obliczenie: 3-bet BB wobec Buttona sprawdzony, SB spasował" }
+spr.3bet-oop.stack: { formula: diff, refs: [format.stack, pf.3bet.oop-total], unit: bb, source: "obliczenie: stack minus 3-bet bez pozycji" }
+spr.3bet-oop: { value: 4.390244, unit: ratio, decimals: 1, source: "obliczenie: spr.3bet-oop.stack ÷ spr.3bet-oop.pot = 90 ÷ 20,5" }
+spr.4bet.pot: { formula: sum, refs: [pf.4bet.example.low, pf.4bet.example.low, pf.blind.bb], unit: bb, source: "obliczenie: 4-bet Buttona na 3-bet SB sprawdzony, BB spasował" }
+spr.4bet.stack: { formula: diff, refs: [format.stack, pf.4bet.example.low], unit: bb, source: "obliczenie: stack minus 4-bet" }
+spr.4bet: { value: 1.733333, unit: ratio, decimals: 1, source: "obliczenie: spr.4bet.stack ÷ spr.4bet.pot = 78 ÷ 45" }
+spr.short.stack: { value: 50, unit: bb, source: "przykład w lekcji: rywal z krótszym stackiem" }
+spr.short.behind: { formula: diff, refs: [spr.short.stack, pf.open-size], unit: bb, decimals: 1, source: "obliczenie: krótszy stack minus otwarcie" }
+spr.short: { value: 8.636364, unit: ratio, decimals: 1, source: "obliczenie: spr.short.behind ÷ bb.pot-after.vs-btn = 47,5 ÷ 5,5" }
+eq.jam.srp: { formula: requiredEquity, refs: [bb.pot-after.vs-btn, spr.srp.stack], unit: percent, source: "obliczenie: all-in za cały stack do puli; stack/(pula+2·stack)" }
+eq.jam.3bet-ip: { formula: requiredEquity, refs: [vs3bet.pot-after, spr.3bet-ip.stack], unit: percent, source: "obliczenie: stack/(pula+2·stack)" }
+eq.jam.4bet: { formula: requiredEquity, refs: [spr.4bet.pot, spr.4bet.stack], unit: percent, source: "obliczenie: stack/(pula+2·stack)" }
+spr.commit: { value: 2, unit: ratio, source: "program nauczania M9 (dokument projektu): heurystyka „SPR ok. 2: top para i lepsze grają o cały stack”; rachunek w lekcji m9.l2, próg do weryfikacji" }
+commit.stack: { formula: product, refs: [ex.pot, spr.commit], unit: count, source: "obliczenie: stack przy SPR 2 i puli 100" }
+eq.jam.spr2: { formula: requiredEquity, refs: [ex.pot, commit.stack], unit: percent, source: "obliczenie: stack/(pula+2·stack) przy SPR 2" }
+ex.pot.after-pot-call: { formula: sum, refs: [ex.pot, ex.bet.pot, ex.bet.pot], unit: count, source: "obliczenie: pula po zakładzie wielkości puli i sprawdzeniu" }
+commit.after-pot.call: { formula: diff, refs: [commit.stack, ex.bet.pot], unit: count, source: "obliczenie: reszta stacku po zakładzie wielkości puli" }
+eq.commit.after-pot: { formula: requiredEquity, refs: [ex.pot.after-pot-call, commit.after-pot.call], unit: percent, source: "obliczenie: dopłata/(pula przed nadwyżką + 2·dopłata)" }
+commit.after-small.pot: { formula: sum, refs: [ex.pot, cbet.ex.small, cbet.ex.small], unit: count, source: "obliczenie: pula z twoim zakładem 1/3 i wyrównaniem go przez rywala" }
+commit.after-small.call: { formula: diff, refs: [commit.stack, cbet.ex.small], unit: count, source: "obliczenie: reszta stacku po zakładzie 1/3 puli" }
+eq.commit.after-small: { formula: requiredEquity, refs: [commit.after-small.pot, commit.after-small.call], unit: percent, source: "obliczenie: dopłata/(pula przed nadwyżką + 2·dopłata)" }
+geo.spr2.2: { value: 0.618034, unit: percent, source: "obliczenie: f = (√(1 + 2·2) − 1) / 2, dwie ulice przy SPR 2" }
+geo.spr2.flop: { formula: product, refs: [ex.pot, geo.spr2.2], unit: count, source: "obliczenie: zakład na flopie" }
+geo.spr2.flop-after: { formula: sum, refs: [ex.pot, geo.spr2.flop, geo.spr2.flop], unit: count, source: "obliczenie: pula po sprawdzeniu" }
+geo.spr2.turn: { formula: product, refs: [geo.spr2.flop-after, geo.spr2.2], unit: count, source: "obliczenie: zakład na turnie" }
+geo.spr2.total: { formula: sum, refs: [geo.spr2.flop, geo.spr2.turn], unit: count, source: "obliczenie: razem wpłacone (= stack 200)" }
+geo.ex.spr: { value: 13, unit: ratio, source: "przykład: SPR dobrany tak, że trzy zakłady wielkości puli dają all-in ((1+2·1)^3 = 1 + 2·13)" }
+geo.ex.stack: { formula: product, refs: [ex.pot, geo.ex.spr], unit: count, source: "obliczenie: stack = SPR × pula" }
+geo.ex.turn: { formula: product, refs: [ex.pot.after-pot-call, ex.frac.pot], unit: count, source: "obliczenie: zakład wielkości puli na turnie" }
+geo.ex.turn-after: { formula: sum, refs: [ex.pot.after-pot-call, geo.ex.turn, geo.ex.turn], unit: count, source: "obliczenie: pula po sprawdzeniu" }
+geo.ex.river: { formula: product, refs: [geo.ex.turn-after, ex.frac.pot], unit: count, source: "obliczenie: zakład wielkości puli na riverze" }
+geo.ex.river-after: { formula: sum, refs: [geo.ex.turn-after, geo.ex.river, geo.ex.river], unit: count, source: "obliczenie: pula po sprawdzeniu" }
+geo.ex.total: { formula: sum, refs: [ex.bet.pot, geo.ex.turn, geo.ex.river], unit: count, source: "obliczenie: razem wpłacone przez każdego gracza (= geo.ex.stack)" }
+geo.half.spr: { value: 3.5, unit: ratio, decimals: 1, source: "przykład: SPR, przy którym trzy zakłady pół puli dają all-in ((1+2·0,5)^3 = 1 + 2·3,5)" }
+geo.half.stack: { formula: product, refs: [ex.pot, geo.half.spr], unit: count, source: "obliczenie: stack = SPR × pula" }
+geo.half.turn: { formula: product, refs: [ex.half.total, ex.frac.half], unit: count, source: "obliczenie: zakład pół puli na turnie" }
+geo.half.turn-after: { formula: sum, refs: [ex.half.total, geo.half.turn, geo.half.turn], unit: count, source: "obliczenie: pula po sprawdzeniu" }
+geo.half.river: { formula: product, refs: [geo.half.turn-after, ex.frac.half], unit: count, source: "obliczenie: zakład pół puli na riverze" }
+geo.half.total: { formula: sum, refs: [ex.bet.half, geo.half.turn, geo.half.river], unit: count, source: "obliczenie: razem wpłacone (= geo.half.stack)" }
+geo.srp.3: { value: 1.157883, unit: multiplier, decimals: 2, source: "obliczenie: f = ((1 + 2·17,73)^(1/3) − 1) / 2 dla puli z jednym podbiciem" }
+geo.3bet-ip.3: { value: 0.65142, unit: percent, source: "obliczenie: f = ((1 + 2·5,61)^(1/3) − 1) / 2" }
+geo.3bet-oop.3: { value: 0.569277, unit: percent, source: "obliczenie: f = ((1 + 2·4,39)^(1/3) − 1) / 2" }
+geo.4bet.3: { value: 0.323439, unit: percent, source: "obliczenie: f = ((1 + 2·1,73)^(1/3) − 1) / 2" }
+geo.4bet.2: { value: 0.556724, unit: percent, source: "obliczenie: f = (√(1 + 2·1,73) − 1) / 2" }
+geo.3bet-ip.flop: { formula: product, refs: [vs3bet.pot-after, geo.3bet-ip.3], unit: bb, decimals: 1, source: "obliczenie: zakład geometryczny na flopie" }
+geo.3bet-ip.flop-after: { formula: sum, refs: [vs3bet.pot-after, geo.3bet-ip.flop, geo.3bet-ip.flop], unit: bb, source: "obliczenie: pula po sprawdzeniu" }
+geo.3bet-ip.turn: { formula: product, refs: [geo.3bet-ip.flop-after, geo.3bet-ip.3], unit: bb, decimals: 1, source: "obliczenie: zakład geometryczny na turnie" }
+geo.3bet-ip.turn-after: { formula: sum, refs: [geo.3bet-ip.flop-after, geo.3bet-ip.turn, geo.3bet-ip.turn], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu" }
+geo.3bet-ip.river: { formula: product, refs: [geo.3bet-ip.turn-after, geo.3bet-ip.3], unit: bb, source: "obliczenie: zakład geometryczny na riverze (all-in)" }
+geo.3bet-ip.total: { formula: sum, refs: [geo.3bet-ip.flop, geo.3bet-ip.turn, geo.3bet-ip.river], unit: bb, decimals: 1, source: "obliczenie: razem wpłacone (≈ spr.3bet-ip.stack)" }
+g3b.third.flop: { formula: product, refs: [vs3bet.pot-after, cbet.size.small], unit: bb, decimals: 1, source: "obliczenie: zakład 1/3 puli na flopie w puli 3-betowanej" }
+g3b.third.turn: { formula: product, refs: [g3b.third.flop-after, cbet.size.small], unit: bb, decimals: 1, source: "obliczenie: zakład 1/3 puli na turnie" }
+g3b.third.flop-after: { formula: sum, refs: [vs3bet.pot-after, g3b.third.flop, g3b.third.flop], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu" }
+g3b.third.turn-after: { formula: sum, refs: [g3b.third.flop-after, g3b.third.turn, g3b.third.turn], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu" }
+g3b.third.river: { formula: product, refs: [g3b.third.turn-after, cbet.size.small], unit: bb, decimals: 1, source: "obliczenie: zakład 1/3 puli na riverze" }
+g3b.third.total: { formula: sum, refs: [g3b.third.flop, g3b.third.turn, g3b.third.river], unit: bb, source: "obliczenie: razem wpłacone trzema zakładami 1/3 puli" }
+srp.half.flop: { formula: product, refs: [bb.pot-after.vs-btn, ex.frac.half], unit: bb, decimals: 2, source: "obliczenie: pół puli na flopie po otwarciu Buttona i sprawdzeniu BB" }
+srp.half.flop-after: { formula: sum, refs: [bb.pot-after.vs-btn, srp.half.flop, srp.half.flop], unit: bb, source: "obliczenie: pula po sprawdzeniu" }
+srp.half.turn: { formula: product, refs: [srp.half.flop-after, ex.frac.half], unit: bb, decimals: 1, source: "obliczenie: pół puli na turnie" }
+srp.half.turn-after: { formula: sum, refs: [srp.half.flop-after, srp.half.turn, srp.half.turn], unit: bb, source: "obliczenie: pula po sprawdzeniu" }
+srp.half.river: { formula: product, refs: [srp.half.turn-after, ex.frac.half], unit: bb, source: "obliczenie: pół puli na riverze" }
+srp.half.total: { formula: sum, refs: [srp.half.flop, srp.half.turn, srp.half.river], unit: bb, decimals: 2, source: "obliczenie: razem wpłacone trzema zakładami pół puli" }
+srp.potbet.flop: { formula: product, refs: [bb.pot-after.vs-btn, ex.frac.pot], unit: bb, decimals: 1, source: "obliczenie: zakład wielkości puli na flopie" }
+srp.potbet.flop-after: { formula: sum, refs: [bb.pot-after.vs-btn, srp.potbet.flop, srp.potbet.flop], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu" }
+srp.potbet.turn: { formula: product, refs: [srp.potbet.flop-after, ex.frac.pot], unit: bb, decimals: 1, source: "obliczenie: zakład wielkości puli na turnie" }
+srp.potbet.turn-after: { formula: sum, refs: [srp.potbet.flop-after, srp.potbet.turn, srp.potbet.turn], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu" }
+srp.potbet.river: { formula: product, refs: [srp.potbet.turn-after, ex.frac.pot], unit: bb, decimals: 1, source: "obliczenie: zakład wielkości puli na riverze" }
+srp.potbet.total: { formula: sum, refs: [srp.potbet.flop, srp.potbet.turn, srp.potbet.river], unit: bb, decimals: 1, source: "obliczenie: razem wpłacone trzema zakładami wielkości puli" }
