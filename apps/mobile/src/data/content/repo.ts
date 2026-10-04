@@ -136,6 +136,14 @@ export function getContentHash(db: SQLiteDatabase): string {
   return db.getFirstSync<{ value: string }>("SELECT value FROM meta WHERE key = 'hash'")?.value ?? '?';
 }
 
+/** Każde zadanie z modułem (do obszarów wskaźnika zaawansowania). */
+export function getFamilyModules(db: SQLiteDatabase): { family: string; moduleId: string; moduleOrd: number }[] {
+  return db.getAllSync<{ family: string; moduleId: string; moduleOrd: number }>(
+    `SELECT DISTINCT d.family, m.id AS moduleId, m.ord AS moduleOrd
+       FROM drills d JOIN lessons l ON l.id = d.lesson_id JOIN modules m ON m.id = l.module_id`,
+  );
+}
+
 /** Mapa rodzina → tytuł lekcji (do czytelnych nazw w statystykach). */
 export function getFamilyLabels(db: SQLiteDatabase): Map<string, string> {
   const rows = db.getAllSync<{ family: string; title: string }>(

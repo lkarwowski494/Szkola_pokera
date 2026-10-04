@@ -1,23 +1,15 @@
-import { createEmptyCard, fsrs, Rating, type Card, type Grade } from 'ts-fsrs';
+import { createEmptyCard, Rating, type Card, type Grade } from 'ts-fsrs';
+import { scheduler } from './scheduler';
+import type { StoredCard } from './types';
+
+export type { StoredCard } from './types';
+export { retrievability } from './scheduler';
 
 /**
  * Powtórki w odstępach (ADR-05): FSRS na poziomie RODZINY spotów.
  * Jedna karta FSRS = jedna rodzina (np. "m2.outs.flush"); każda powtórka losuje nowe rozdanie.
  * Stan zapisujemy jako zwykły JSON (daty jako ms), żeby trzymać go w SQLite.
  */
-
-export interface StoredCard {
-  familyId: string;
-  due: number;
-  stability: number;
-  difficulty: number;
-  scheduledDays: number;
-  learningSteps: number;
-  reps: number;
-  lapses: number;
-  state: number;
-  lastReview: number | null;
-}
 
 export interface ReviewLogRow {
   familyId: string;
@@ -58,8 +50,6 @@ export function outcomeToRating(outcome: Outcome, t: SpeedThresholds = DEFAULT_T
   if (outcome.elapsedMs <= t.fastMs) return Rating.Easy;
   return Rating.Good;
 }
-
-const scheduler = fsrs({ request_retention: 0.9, enable_fuzz: false });
 
 function toStored(familyId: string, c: Card): StoredCard {
   return {
@@ -148,3 +138,4 @@ export function interleave(familyIds: readonly string[], perFamily: number): str
 }
 
 export { Rating };
+export * from './advancement';
