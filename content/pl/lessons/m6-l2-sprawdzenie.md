@@ -62,7 +62,7 @@ drills:
     table: { hand: "Qs Js", board: "7s 4h 2d", position: BB }
     options:
       - { text: "Sprawdzam", correct: true, why: "Dwie wysokie karty plus dodatkowe dobieranie do koloru (backdoor: trzy piki, potrzebujesz pika na turnie i na riverze). Przy cenie {{n:eq.bet-third}} to wystarczy do sprawdzenia." }
-      - { text: "Check-raise", why: "Blefy w check-raise'ach robisz przede wszystkim mocnymi dobieraniami (kolor, strit otwarty z obu stron). Dodatkowe dobieranie to słabe dobieranie: po przebiciu i sprawdzeniu zwykle zostajesz z samymi wysokimi kartami. Doświadczeni gracze czasem tak blefują, ale prościej i bezpieczniej jest sprawdzić." }
+      - { text: "Check-raise", correct: true, why: "Też dobrze, ale to zagranie zaawansowane. Blefy w check-raise'ach robisz przede wszystkim mocnymi dobieraniami (kolor, strit otwarty z obu stron); dodatkowe dobieranie jest słabsze, więc po sprawdzeniu przez rywala zwykle zostajesz z samymi wysokimi kartami. Doświadczeni gracze czasem tak blefują, bo masz piki i wysokie karty, ale na początek prościej jest sprawdzić." }
       - { text: "Pasuję", why: "Za ciasno wobec małego c-betu. Dodatkowe dobieranie i dwie wysokie karty dają dość equity przy cenie {{n:eq.bet-third}}." }
   - kind: choice
     id: m6.l2.q-gutshot-overcard

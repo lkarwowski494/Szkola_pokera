@@ -38,7 +38,8 @@ export function buildFamilySession(rows: readonly DrillRow[], families: readonly
 
 /** Trening na czas: losowe rodziny z już poznanych, krótka seria. Bez malowania zakresu (to nie jest decyzja na czas). */
 export function buildSpeedSession(rows: readonly DrillRow[], knownFamilies: readonly string[], rng: Rng, size = 10, ctx?: DrillContext): DrillInstance[] {
-  const timed = rows.filter((r) => r.drill.kind !== 'paint');
+  // malowanie zakresu i klasyfikacja tekstury (trzy wybory) poza treningiem na czas; tekstura do ponownej oceny po teście na telefonie (decyzja M5)
+  const timed = rows.filter((r) => r.drill.kind !== 'paint' && r.drill.kind !== 'texture');
   const usable = knownFamilies.filter((f) => timed.some((r) => r.family === f));
   const families = shuffle(rng, usable).slice(0, Math.max(1, Math.ceil(size / 2)));
   return buildFamilySession(timed, families, rng, 2, ctx).slice(0, size);

@@ -225,35 +225,35 @@
   then: "to flop suchy: nikt nie ma dobierania do koloru ani do strita"
   because: "kolejne karty rzadko zmieniają lidera, więc ręka najlepsza na flopie zwykle zostaje najlepsza"
   level: math
-  source: "definicja tekstury w aplikacji (poker-core); pojęcie flopu suchego: Upswing, Sizing Your C-Bets; GTO Gecko, What Is a Continuation Bet"
+  source: "definicja tekstury w aplikacji (poker-core); pojęcie flopu suchego: Upswing, Sizing Your C-Bets; GTO Gecko, What Is a Continuation Bet [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
 - id: R-M5-002
   module: m5
   if: "flop ma dwie albo trzy karty w jednym kolorze, a strit jest na nim możliwy"
   then: "to flop mokry: część rąk rywala to dobierania do koloru i do strita, czasem oba naraz"
   because: "kolejne karty często zmieniają lidera, więc ręka dziś najlepsza jest mniej bezpieczna"
   level: math
-  source: "definicja tekstury w aplikacji (poker-core); pojęcie flopu mokrego: Upswing, Sizing Your C-Bets; GTO Gecko, What Is a Continuation Bet"
+  source: "definicja tekstury w aplikacji (poker-core); pojęcie flopu mokrego: Upswing, Sizing Your C-Bets; GTO Gecko, What Is a Continuation Bet [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
 - id: R-M5-003
   module: m5
   if: "otworzyłeś przed flopem, duży blind sprawdził, a na flopie jest as albo król"
   then: "masz przewagę zakresu: średnio twoje ręce są silniejsze niż ręce rywala"
   because: "duży blind większość AA, KK i AK przebija przed flopem, więc po samym sprawdzeniu ma ich mało, a ty masz wszystkie"
   level: heuristic
-  source: "GTO Wizard, Range advantage (słownik); PokerCoaching, C-Betting On Ace-High Boards"
+  source: "GTO Wizard, Range advantage (słownik); PokerCoaching, C-Betting On Ace-High Boards [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
 - id: R-M5-004
   module: m5
   if: "otworzyłeś przed flopem, a flop jest niski i połączony, np. 7-6-5"
   then: "c-betujesz rzadziej niż na wysokich flopach, a wiele rąk czeka"
   because: "duży blind broni wielu łączników w kolorze i małych par, więc częściej ma dwie pary, seta albo strita: to on ma przewagę orzechową"
   level: heuristic
-  source: "Upswing, Check or Bet? (flop check-back); GTO Wizard, blog (gra dużego blinda na niskich połączonych flopach)"
+  source: "Upswing, Check or Bet? (flop check-back); GTO Wizard, blog (gra dużego blinda na niskich połączonych flopach) [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
 - id: R-M5-005
   module: m5
   if: "w twoim zakresie jest dużo więcej najsilniejszych rąk niż u rywala (przewaga orzechowa)"
   then: "możesz betować większym rozmiarem; gdy masz tylko przewagę zakresu, betujesz mało"
   because: "duży zakład wyciąga więcej z rąk średnich rywala, a ty rzadko trafisz na lepszą rękę, która cię przebije"
   level: heuristic
-  source: "GTO Wizard, The Mechanics of C-Bet Sizing; GTO Wizard, Range advantage (słownik)"
+  source: "GTO Wizard, The Mechanics of C-Bet Sizing; GTO Wizard, Range advantage (słownik) [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
 - id: R-M5-006
   module: m5
   if: "rywal ma rękę bez pary"
@@ -267,14 +267,14 @@
   then: "c-betujesz często i mało, ok. {{n:cbet.size.small}} puli"
   because: "masz przewagę zakresu, a słabe ręce rywala prawie nie mają szans: mały zakład wystarczy, żeby je spasował, a gorsze pary wciąż go sprawdzą"
   level: heuristic
-  source: "program nauczania M5; Upswing, Sizing Your C-Bets; PokerCoaching, Picking the Proper C-Bet Sizing on Ace-High Boards"
+  source: "program nauczania M5; Upswing, Sizing Your C-Bets; PokerCoaching, Picking the Proper C-Bet Sizing on Ace-High Boards [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
 - id: R-M5-008
   module: m5
   if: "jako agresor preflop masz pozycję, a flop jest mokry (połączony, z dobieraniem do koloru)"
   then: "c-betujesz rzadziej, ale większym rozmiarem, np. {{n:cbet.size.big}} puli; ręce średnie bez dobierania częściej czekają"
   because: "dobierania rywala mają dużo equity, więc duży zakład każe im drogo płacić za kolejną kartę"
   level: heuristic
-  source: "Upswing, Sizing Your C-Bets; GTO Gecko, What Is a Continuation Bet (rzadziej na mokrych flopach)"
+  source: "Upswing, Sizing Your C-Bets; GTO Gecko, What Is a Continuation Bet (rzadziej na mokrych flopach) [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
 - id: R-M5-009
   module: m5
   if: "jako agresor preflop masz pozycję, a flop jest sparowany, np. Q-Q-6"
@@ -302,14 +302,14 @@
   then: "c-betujesz rzadziej niż z pozycją i częściej czekasz, także z dobrymi rękami"
   because: "zakres sprawdzającego z pozycji jest silny (słabe ręce pasował, a część najsilniejszych przebijał), a ty po flopie mówisz pierwszy na każdej ulicy"
   level: heuristic
-  source: "GTO Wizard, C-Betting As the OOP Preflop Raiser; GTO Gecko, What Is a Continuation Bet"
+  source: "GTO Wizard, C-Betting As the OOP Preflop Raiser; GTO Gecko, What Is a Continuation Bet [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
 - id: R-M5-013
   module: m5
   if: "na flopie masz dwóch albo więcej rywali"
   then: "c-betujesz dużo rzadziej, głównie silnymi rękami i mocnymi dobieraniami, a blefujesz mało"
   because: "każdy kolejny rywal zwiększa szansę, że ktoś trafił: dwie ręce bez pary chybiają naraz tylko w ok. {{n:flop.miss.two}} przypadków"
   level: heuristic
-  source: "PokerCoaching, C-Betting in Multiway Pots; GTO Gecko, What Is a Continuation Bet; przybliżenie z obliczenia"
+  source: "PokerCoaching, C-Betting in Multiway Pots; GTO Gecko, What Is a Continuation Bet; przybliżenie z obliczenia [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
 
 # M6: obrona na flopie. Matematyka z formuł (numbers.yaml); zalecenia z literatury jako heurystyki, bez wyników solvera.
 - id: R-M6-001
@@ -318,21 +318,21 @@
   then: "bronisz (sprawdzasz albo przebijasz) co najmniej ok. {{n:mdf.bet-third}} zakresu, czyli tyle wynosi MDF"
   because: "blef bez szans ryzykuje 1 część, żeby wygrać 3; jeśli pasujesz częściej niż {{n:alpha.bet-third}}, rywal zarabia, blefując dowolnymi kartami"
   level: math
-  source: "obliczenie: MDF = pula/(pula+bet); PokerCoaching, MDF in Poker: Why Most Players Misuse It (pokercoaching.com/blog/mdf-poker)"
+  source: "obliczenie: MDF = pula/(pula+bet); PokerCoaching, MDF in Poker: Why Most Players Misuse It (pokercoaching.com/blog/mdf-poker) [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
 - id: R-M6-002
   module: m6
   if: "blefujesz ręką bez szans na wygraną"
   then: "blef wychodzi na plus, gdy rywal pasuje częściej niż alpha = bet/(pula+bet); przy becie pół puli to {{n:alpha.bet-half}}"
   because: "ryzykujesz bet, żeby wygrać pulę; im większy bet, tym częściej rywal musi pasować"
   level: math
-  source: "obliczenie: alpha = bet/(pula+bet); GTO Wizard, MDF & Alpha (blog.gtowizard.com/mdf-alpha)"
+  source: "obliczenie: alpha = bet/(pula+bet); GTO Wizard, MDF & Alpha (blog.gtowizard.com/mdf-alpha) [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
 - id: R-M6-003
   module: m6
   if: "dostajesz bet na flopie (albo na turnie)"
   then: "bronisz mniej, niż wskazuje MDF; MDF traktujesz jako punkt odniesienia, nie obowiązek"
   because: "blefy rywala mają jeszcze equity i mogą się poprawić, a bez pozycji nie zrealizujesz całego equity swoich słabych rąk"
   level: heuristic
-  source: "GTO Wizard, MDF & Alpha (blog.gtowizard.com/mdf-alpha); PokerCoaching, MDF in Poker: Why Most Players Misuse It (pokercoaching.com/blog/mdf-poker)"
+  source: "GTO Wizard, MDF & Alpha (blog.gtowizard.com/mdf-alpha); PokerCoaching, MDF in Poker: Why Most Players Misuse It (pokercoaching.com/blog/mdf-poker) [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
 - id: R-M6-004
   module: m6
   if: "duży bet na riverze stawia gracz, który rzadko blefuje (np. pasywny gracz rekreacyjny)"
@@ -340,7 +340,7 @@
   because: "MDF zakłada, że rywal blefuje wystarczająco często; gdy blefów brakuje, sprawdzenie słabszą ręką płaci głównie lepszym rękom"
   level: exploit
   population: "online mikrostawki cash (NL2–NL25): obserwacje populacji z forum 2+2 (wątek Population Tendencies and Exploits) i trenerów PokerCoaching; bez liczb z bazy rąk"
-  source: "PokerCoaching, MDF in Poker: Why Most Players Misuse It; Deepfold, Bluff Catching: When to Call and When to Let It Go (deepfold.co/en/blog/bluff-catching-principles); 2+2, [OFFICIAL] Population Tendencies and Exploits"
+  source: "PokerCoaching, MDF in Poker: Why Most Players Misuse It; Deepfold, Bluff Catching: When to Call and When to Let It Go (deepfold.co/en/blog/bluff-catching-principles); 2+2, [OFFICIAL] Population Tendencies and Exploits [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
 - id: R-M6-005
   module: m6
   if: "rywal stawia większy bet"
@@ -354,28 +354,28 @@
   then: "sprawdzasz każdą parę, dobierania oraz wysokie karty z dodatkowym dobieraniem (backdoor); pasujesz rękami bez pary i bez dobierania"
   because: "potrzebujesz tylko ok. {{n:eq.bet-third}} equity, a te ręce albo już wygrywają z blefami, albo mogą się poprawić"
   level: heuristic
-  source: "Upswing, How to Defend Against Large Flop C-Bets; Upswing, Backdoor Flush/Straight Draws; PokerCoaching, Mastering Big Blind Strategy"
+  source: "Upswing, How to Defend Against Large Flop C-Bets; Upswing, Backdoor Flush/Straight Draws; PokerCoaching, Mastering Big Blind Strategy [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
 - id: R-M6-007
   module: m6
   if: "masz dwie wysokie karty bez pary i bez dobierania, a c-bet jest duży (3/4 puli i więcej)"
   then: "pasujesz"
   because: "bez pozycji taka ręka rzadko dochodzi do showdownu, a para z wysokiej karty często i tak przegrywa; dodatkowe dobieranie zmienia to na sprawdzenie"
   level: heuristic
-  source: "Upswing, Backdoor Flush/Straight Draws (dwie gołe wysokie karty to za mało na sprawdzenie); PokerCoaching, Mastering Big Blind Strategy (realizacja equity bez pozycji)"
+  source: "Upswing, Backdoor Flush/Straight Draws (dwie gołe wysokie karty to za mało na sprawdzenie); PokerCoaching, Mastering Big Blind Strategy (realizacja equity bez pozycji) [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
 - id: R-M6-008
   module: m6
   if: "chcesz zrobić check-raise na flopie"
   then: "robisz go najsilniejszymi rękami (dwie pary, sety) i mocnymi dobieraniami; średnie pary sprawdzasz"
   because: "po check-raise'u gorsze ręce pasują, a lepsze płacą, więc średnia para zamienia się w blef; dobieranie ma dwie drogi do wygranej: pas rywala albo trafienie"
   level: heuristic
-  source: "Upswing, How to Check-Raise Like a High Stakes Juggernaut; Upswing, 5 Winning Check-Raising Strategies"
+  source: "Upswing, How to Check-Raise Like a High Stakes Juggernaut; Upswing, 5 Winning Check-Raising Strategies [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
 - id: R-M6-009
   module: m6
   if: "c-bet jest mały albo flop jest niski i połączony (np. 7-6-5)"
   then: "robisz check-raise częściej; na flopach z asem albo królem i wobec dużych c-betów rzadziej"
   because: "na niskich flopach duży blind ma więcej najsilniejszych układów (przewaga nutsów), a mały c-bet daje tanią okazję do przebicia"
   level: heuristic
-  source: "Upswing, How to Check-Raise Like a High Stakes Juggernaut; Upswing, How to Use Positional, Range, and Nut Advantages"
+  source: "Upswing, How to Check-Raise Like a High Stakes Juggernaut; Upswing, How to Use Positional, Range, and Nut Advantages [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
 - id: R-M6-010
   module: m6
   if: "robisz check-raise na flopie"
