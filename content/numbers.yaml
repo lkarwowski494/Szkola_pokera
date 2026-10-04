@@ -215,3 +215,27 @@ draw.combo.overlap: { value: 2, unit: count, source: "kombinatoryka: dwie karty 
 outs.combo.raw: { formula: sum, refs: [outs.flush, outs.oesd], unit: count, source: "obliczenie: outy do koloru plus outy do strita (z kartami liczonymi podwójnie)" }
 outs.combo: { formula: diff, refs: [outs.combo.raw, draw.combo.overlap], unit: count, source: "obliczenie: kolor + strit otwarty minus karty liczone podwójnie" }
 odds.combo.turn-river: { formula: hitProbability, refs: [outs.combo, cards.unseen.turn, streets.turn-river], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
+
+# M8: river. Bez częstotliwości i rozmiarów z literatury (źródła znane tylko ze streszczeń, raport M8): sama matematyka
+# z formuł i przykłady do ćwiczeń. Udział blefów w betach to bet/(pula+2·bet), czyli ta sama formuła co potrzebne equity
+# (requiredEquity) z tymi samymi refs co eq.bet-*: osobna nazwa mówi, co liczba oznacza, a wartości nie mogą się rozjechać.
+value.threshold: { value: 0.5, unit: percent, source: "matematyka: bet dla wartości na riverze (rywal tylko sprawdza albo pasuje) zarabia, gdy wygrywasz z więcej niż połową rąk, które sprawdzą" }
+value.ex.many: { value: 6, unit: count, source: "przykład w lekcji (liczba sprawdzeń)" }
+value.ex.few: { value: 4, unit: count, source: "przykład w lekcji (liczba sprawdzeń)" }
+value.ex.calls: { formula: sum, refs: [value.ex.many, value.ex.few], unit: count, source: "obliczenie: wszystkie sprawdzenia w przykładzie" }
+value.ex.net: { formula: diff, refs: [value.ex.many, value.ex.few], unit: count, source: "obliczenie: wygrane bety minus przegrane bety" }
+bluff.share.bet-third: { formula: requiredEquity, refs: [ex.third.pot, ex.third.bet], unit: percent, source: "obliczenie: udział blefów w betach = bet/(pula+2·bet), ta sama formuła i dane co eq.bet-third (obojętność ręki łapiącej blefy)" }
+bluff.share.bet-half: { formula: requiredEquity, refs: [ex.pot, ex.bet.half], unit: percent, source: "obliczenie: udział blefów w betach = bet/(pula+2·bet), ta sama formuła i dane co eq.bet-half" }
+bluff.share.bet-three-quarters: { formula: requiredEquity, refs: [ex.pot, ex.bet.three-quarters], unit: percent, source: "obliczenie: udział blefów w betach = bet/(pula+2·bet), ta sama formuła i dane co eq.bet-three-quarters" }
+bluff.share.bet-pot: { formula: requiredEquity, refs: [ex.pot, ex.bet.pot], unit: percent, source: "obliczenie: udział blefów w betach = bet/(pula+2·bet), ta sama formuła i dane co eq.bet-pot; program nauczania M8: przy becie całej puli 1/3 betów to blefy" }
+bluff.share.bet-overbet: { formula: requiredEquity, refs: [ex.pot, ex.bet.overbet], unit: percent, decimals: 1, source: "obliczenie: udział blefów w betach = bet/(pula+2·bet), ta sama formuła i dane co eq.bet-overbet" }
+bluff.ex.range: { value: 15, unit: count, source: "przykład w lekcji (kombinacje, którymi betujesz)" }
+bluff.ex.bluffs: { formula: product, refs: [bluff.ex.range, bluff.share.bet-pot], unit: count, source: "obliczenie: kombinacje × udział blefów przy becie całej puli" }
+bluff.ex.value: { formula: diff, refs: [bluff.ex.range, bluff.ex.bluffs], unit: count, source: "obliczenie: kombinacje minus blefy" }
+bluff.ex.wrong-alpha: { formula: product, refs: [bluff.ex.range, alpha.bet-pot], unit: count, decimals: 1, source: "przykład błędnej odpowiedzi: kombinacje × alpha zamiast udziału blefów" }
+combos.unpaired: { formula: sum, refs: [combos.suited, combos.offsuit], unit: count, source: "kombinatoryka: 4×4 kombinacje dwóch różnych rang" }
+combos.unpaired.one-blocked: { formula: product, refs: [pair.outs.per-rank, cards.suits], unit: count, source: "kombinatoryka: trzymasz jedną kartę danej rangi, zostają 3×4" }
+combos.unpaired.both-blocked: { formula: product, refs: [pair.outs.per-rank, pair.outs.per-rank], unit: count, source: "kombinatoryka: trzymasz po jednej karcie obu rang, zostają 3×3" }
+combos.pair.one-blocked: { value: 3, unit: count, source: "kombinatoryka: C(3,2), trzymasz jedną kartę danej rangi" }
+catch.ex.bluffs-low: { value: 0.15, unit: percent, source: "przykład do ćwiczenia (założony udział blefów rywala, bez źródła)" }
+catch.ex.bluffs-high: { value: 0.40, unit: percent, source: "przykład do ćwiczenia (założony udział blefów rywala, bez źródła)" }

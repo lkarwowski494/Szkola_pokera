@@ -484,3 +484,90 @@
   because: "drugą beczkę rywal stawia węższym zakresem niż c-bet, a dobierania mają już tylko jedną kartę"
   level: heuristic
   source: "Upswing, What the Best Poker Pros Already Know About Playing vs. Double Barrels; PokerCoaching, When to Double Barrel the Turn as a Bluff [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+
+# M8: river. Matematyka z formuł (numbers.yaml); zalecenia z literatury jako heurystyki, bez wyników solvera i bez
+# częstotliwości z literatury. Reguł eksploatacyjnych brak (populacja mikrostawek tylko w R-M6-004).
+- id: R-M8-001
+  module: m8
+  if: "na riverze chcesz betować dla wartości, a rywal może już tylko sprawdzić albo spasować"
+  then: "betujesz, gdy ponad {{n:value.threshold}} rąk, które sprawdzą, to ręce gorsze od twojej; liczysz tylko ręce, które zapłacą, a nie wszystkie ręce rywala"
+  because: "każde sprawdzenie gorszą ręką wygrywa jeden bet, a każde sprawdzenie lepszą przegrywa jeden bet; gdy rywal pasuje gorszą ręką, wygrywasz tę samą pulę, którą wygrałbyś po czekaniu"
+  level: math
+  source: "obliczenie: wartość oczekiwana betu względem czekania (program nauczania M8: value bet to ponad połowa wygranych przy sprawdzeniu)"
+- id: R-M8-002
+  module: m8
+  if: "na riverze masz z pozycją średnią rękę, a gorsze ręce rywala nie zapłacą betu"
+  then: "czekasz i idziesz do showdownu za darmo"
+  because: "po becie gorsze ręce pasują, a płacą (albo przebijają) lepsze, więc bet zamienia rękę z wartością przy showdownie w blef"
+  level: heuristic
+  source: "wniosek z R-M8-001; Upswing, Polarized vs Linear Ranges; GTO Gecko, Polarized vs Merged Ranges [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M8-003
+  module: m8
+  if: "twoja ręka na riverze wygrywa z niewiele ponad połową rąk, które mogą sprawdzić (thin value)"
+  then: "betujesz mało, ok. 1/3 puli albo mniej, a nie dużo"
+  because: "mały bet sprawdzą też słabsze ręce rywala; duży bet sprawdzą głównie lepsze, a wtedy gorszych sprawdzeń przestaje być więcej niż lepszych"
+  level: heuristic
+  source: "PokerSkill, Thin Value (słownik); RiverOdds, Thin Value Bet Strategy [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M8-004
+  module: m8
+  if: "na riverze betujesz całą pulę zakresem złożonym z bardzo silnych rąk i blefów"
+  then: "w równowadze ok. {{n:bluff.share.bet-pot}} twoich betów to blefy; ogólnie udział blefów = bet ÷ (pula + 2·bet)"
+  because: "wtedy ręka rywala, która wygrywa tylko z blefami, ma dokładnie potrzebne equity ({{n:eq.bet-pot}}): nie zarabia ani sprawdzeniem, ani pasem, więc nie da się cię wykorzystać"
+  level: gto
+  source: "obliczenie: warunek obojętności ręki łapiącej blefy (model z zakresem spolaryzowanym); program nauczania M8"
+- id: R-M8-005
+  module: m8
+  if: "na riverze zmieniasz rozmiar betu z zakresem spolaryzowanym"
+  then: "przy większym becie masz w nim więcej blefów, przy mniejszym mniej: przy 1/3 puli ok. {{n:bluff.share.bet-third}}, przy całej puli ok. {{n:bluff.share.bet-pot}}"
+  because: "większy bet daje rywalowi gorszą cenę, więc jego sprawdzenie potrzebuje więcej blefów w twoim zakresie, żeby się opłacić"
+  level: math
+  source: "obliczenie: udział blefów = bet/(pula+2·bet)"
+- id: R-M8-006
+  module: m8
+  if: "wybierasz, którymi rękami blefować na riverze"
+  then: "blefujesz najsłabszymi rękami, które nie wygrają przy showdownie (np. nietrafionymi dobieraniami); ręce z wartością przy showdownie czekają"
+  because: "blef z ręką, która często wygrywa po czekaniu, oddaje tę wygraną; ręka bez szans nic nie traci, gdy blef nie wyjdzie"
+  level: heuristic
+  source: "Upswing, Polarized vs Linear Ranges; RiverOdds, River Betting Strategy; GTO Wizard, We're At The River. Our Hand Can't Win. Now What? [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M8-007
+  module: m8
+  if: "wybierasz blef spośród rąk bez wartości przy showdownie"
+  then: "wybierasz rękę z kartą, która blokuje silne ręce rywala, czyli te, którymi zapłaci (np. asa w kolorze, gdy na stole są trzy karty w kolorze)"
+  because: "gdy trzymasz kartę z jego najsilniejszych rąk, rywal ma ich mniej kombinacji, więc częściej zostaje mu ręka do spasowania"
+  level: heuristic
+  source: "program nauczania M8; GTO Wizard, Blockers & Unblockers: The Secret to Picking Great Bluffs; Upswing, What is Unblocking in Poker [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M8-008
+  module: m8
+  if: "dobieranie do koloru nie weszło, a ty wybierasz blef"
+  then: "wolisz blef bez kart w tym kolorze niż blef z nimi"
+  because: "nietrafione dobierania rywal spasuje; karta w ich kolorze w twojej ręce zmniejsza liczbę jego rąk do spasowania"
+  level: heuristic
+  source: "Upswing, What is Unblocking in Poker; GTO Wizard, Blockers & Unblockers: The Secret to Picking Great Bluffs [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M8-009
+  module: m8
+  if: "trzymasz jedną kartę danej rangi"
+  then: "rywal ma mniej kombinacji z tą rangą: AK zamiast {{n:combos.unpaired}} ma {{n:combos.unpaired.one-blocked}}, a parę asów zamiast {{n:combos.pair}} tylko {{n:combos.pair.one-blocked}}"
+  because: "karta w twojej ręce nie może być w ręce rywala: z czterech kart tej rangi zostają mu {{n:pair.outs.per-rank}}"
+  level: math
+  source: "kombinatoryka"
+- id: R-M8-010
+  module: m8
+  if: "na riverze masz rękę, która wygrywa tylko z blefami rywala (bluff-catcher)"
+  then: "sprawdzasz, gdy blefy to więcej niż potrzebne equity, np. ponad {{n:eq.bet-pot}} betów wielkości puli; gdy blefów jest mniej, pasujesz"
+  because: "twoje equity to udział blefów w jego betach (wygrywasz z każdym blefem, przegrywasz z każdą ręką dla wartości); gdy rywal blefuje tyle, ile wynosi bet ÷ (pula + 2·bet), sprawdzenie wychodzi na zero"
+  level: math
+  source: "obliczenie: potrzebne equity = bet/(pula+2·bet)"
+- id: R-M8-011
+  module: m8
+  if: "wybierasz, którymi bluff-catcherami sprawdzić bet na riverze"
+  then: "wolisz ręce z kartami, które blokują silne ręce rywala, i bez kart, które blokują jego blefy (np. bez kart w kolorze nietrafionego dobierania)"
+  because: "gdy blokujesz jego wartość, w zakresie betów zostaje więcej blefów; gdy blokujesz jego blefy, zostaje więcej wartości"
+  level: heuristic
+  source: "GTO Wizard, Understanding Blockers in Poker; Deepfold, Bluff Catching: When to Call and When to Let It Go [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
+- id: R-M8-012
+  module: m8
+  if: "dostajesz bet na riverze i bronisz zakresem"
+  then: "sprawdzasz najlepszymi bluff-catcherami (wygrywają z największą liczbą blefów, mają dobre blokery), a pasujesz rękami, które przegrywają nawet z blefami"
+  because: "ręka, która przegrywa ze wszystkimi betami rywala, nie zarabia sprawdzeniem nawet wtedy, gdy rywal blefuje dużo"
+  level: heuristic
+  source: "wniosek z MDF (R-M6-001) i R-M8-010; Deepfold, Bluff Catching: When to Call and When to Let It Go [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]"
