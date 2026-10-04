@@ -10,54 +10,54 @@ drills:
     id: m3.l1.q1
     family: m3.position
     rules: [R-M3-001]
-    prompt: "Która pozycja jest najlepsza?"
+    prompt: "Która {{t:position}} jest najlepsza?"
     options:
-      - { text: "Button (BTN)", correct: true, why: "Od flopu Button mówi ostatni, więc zawsze zna decyzje rywali przed swoją." }
-      - { text: "Duży blind (BB)", why: "BB płaci mniej za wejście, bo już wpłacił, ale od flopu mówi jako jeden z pierwszych." }
-      - { text: "UTG", why: "UTG mówi pierwszy preflop i ma za sobą cały stół. To najtrudniejsze miejsce do otwierania." }
+      - { text: "Button ({{t:button|BTN}})", correct: true, why: "Od flopu Button mówi ostatni, więc zawsze zna decyzje rywali przed swoją." }
+      - { text: "{{t:big-blind|Duży blind}}", why: "{{t:big-blind|BB}} płaci mniej za wejście, bo już wpłacił, ale od flopu mówi jako jeden z pierwszych." }
+      - { text: "{{t:utg}}", why: "{{t:utg}} mówi pierwszy preflop i ma za sobą cały {{t:board}}. To najtrudniejsze miejsce do otwierania." }
   - kind: choice
     id: m3.l1.q2
     family: m3.open-early
     rules: [R-M3-002]
-    prompt: "Wszyscy przed tobą spasowali. Co robisz?"
+    prompt: "Wszyscy przed tobą {{t:fold|spasowali}}. Co robisz?"
     table: { hand: "Kc 8d", position: UTG }
     options:
-      - { text: "Pasuję", correct: true, why: "K8 w różnych kolorach jest poza zakresem otwarcia z UTG. Za tobą jest pięciu graczy i często ktoś ma króla z lepszym kickerem." }
-      - { text: "Przebijam", why: "Z UTG otwierasz tylko ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk. K8o łatwo trafia króla i przegrywa z KQ albo AK." }
-      - { text: "Dopłacam do dużego blinda", why: "Samo dopłacenie (limp) to słaby nawyk. Albo ręka jest warta przebicia, albo pasujesz." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "K8 w różnych kolorach jest poza {{t:range|zakresem}} {{t:open|otwarcia}} z {{t:utg}}. Za tobą jest pięciu graczy i często ktoś ma króla z lepszym kickerem." }
+      - { text: "{{t:raise|Przebijam}}", why: "Z {{t:utg}} {{t:open|otwierasz}} tylko ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk. K8o łatwo trafia króla i przegrywa z KQ albo AK." }
+      - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Samo dopłacenie (limp) to słaby nawyk. Albo ręka jest warta {{t:raise|przebicia}}, albo {{t:fold|pasujesz}}." }
   - kind: choice
     id: m3.l1.q3
     family: m3.open-late
     rules: [R-M3-003]
-    prompt: "Ta sama ręka, ale jesteś na Buttonie i wszyscy przed tobą spasowali."
+    prompt: "Ta sama ręka, ale jesteś na Buttonie i wszyscy przed tobą {{t:fold|spasowali}}."
     table: { hand: "Kc 8d", position: BTN }
     options:
-      - { text: "Przebijam", correct: true, why: "Zostały tylko blindy, a po flopie masz pozycję. Na Buttonie otwierasz ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk, a K8o się w tym mieści." }
-      - { text: "Pasuję", why: "Za ostrożnie. Przeciwko samym blindom ta ręka jest wystarczająco dobra, a pozycja dodaje jej wartości." }
-      - { text: "Dopłacam do dużego blinda", why: "Limp oddaje inicjatywę. Przebicie często od razu zgarnia blindy." }
+      - { text: "{{t:raise|Przebijam}}", correct: true, why: "Zostały tylko blindy, a po flopie masz {{t:position|pozycję}}. Na Buttonie {{t:open|otwierasz}} ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk, a K8o się w tym mieści." }
+      - { text: "{{t:fold|Pasuję}}", why: "Za ostrożnie. Przeciwko samym blindom ta ręka jest wystarczająco dobra, a {{t:position}} dodaje jej wartości." }
+      - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Limp oddaje inicjatywę. {{t:raise|Przebicie}} często od razu zgarnia blindy." }
   - kind: choice
     id: m3.l1.q4
     family: m3.position
     rules: [R-M3-001]
     prompt: "Dlaczego mówienie jako ostatni pomaga?"
     options:
-      - { text: "Wiem, co zrobili rywale, zanim zdecyduję", correct: true, why: "Każda akcja rywala to informacja. Ostatni ma ich najwięcej i może tanio czekać albo przejąć pulę, gdy inni pokażą słabość." }
-      - { text: "Dostaję lepsze karty", why: "Karty są losowe niezależnie od pozycji." }
+      - { text: "Wiem, co zrobili rywale, zanim zdecyduję", correct: true, why: "Każda akcja rywala to informacja. Ostatni ma ich najwięcej i może tanio {{t:check|czekać}} albo przejąć {{t:pot|pulę}}, gdy inni pokażą słabość." }
+      - { text: "Dostaję lepsze karty", why: "Karty są losowe niezależnie od {{t:position|pozycji}}." }
       - { text: "Płacę mniejsze blindy", why: "Na Buttonie nie płacisz blindów, ale to nie jest główna zaleta. Najważniejsza jest informacja." }
 ---
-Przycisk dealera (**BTN**, Button) przesuwa się co rozdanie. Od niego zależy kolejność mówienia. Od flopu Button mówi **ostatni**, a to ogromna przewaga: widzisz, co zrobili wszyscy inni, zanim sam zdecydujesz.
+Przycisk dealera (**{{t:button|BTN}}**, Button) przesuwa się co rozdanie. Od niego zależy kolejność mówienia. Od flopu Button mówi **ostatni**, a to ogromna przewaga: widzisz, co zrobili wszyscy inni, zanim sam zdecydujesz.
 
-## Pozycje przy stole 6-osobowym
+## {{t:position|Pozycje}} przy stole 6-osobowym
 
-| Pozycja | Kiedy mówi | Jak szeroko otwierać |
+| {{t:position|Pozycja}} | Kiedy mówi | Jak szeroko {{t:open|otwierać}} |
 |---|---|---|
-| UTG | Pierwszy preflop | ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk |
-| HJ (Hijack), CO (Cutoff) | Po UTG; CO tuż przed Buttonem | coraz szerzej |
-| BTN | Ostatni od flopu | ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk |
-| SB, BB | Ostatni preflop, pierwsi od flopu | SB otwiera, gdy wszyscy spasują (lekcja o zakresach); obrona blindów w module M4 |
+| {{t:utg}} | Pierwszy preflop | ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk |
+| {{t:hijack|HJ}}, {{t:cutoff|CO}} | Po {{t:utg}}; {{t:cutoff|CO}} tuż przed Buttonem | coraz szerzej |
+| {{t:button|BTN}} | Ostatni od flopu | ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk |
+| {{t:small-blind|SB}}, {{t:big-blind|BB}} | Ostatni preflop, pierwsi od flopu | {{t:small-blind|SB}} {{t:open|otwiera}}, gdy wszyscy {{t:fold|spasują}} (lekcja o {{t:range|zakresach}}); obrona blindów w module M4 |
 
-**HJ** (Hijack) siedzi za UTG, dwa miejsca przed Buttonem, a **CO** (Cutoff) tuż przed Buttonem. To pozycje środkowe: za nimi jest mniej graczy niż za UTG, więc otwierasz z nich szerzej, ale wciąż węziej niż z Buttona.
+**{{t:hijack|HJ}}** (Hijack) siedzi za {{t:utg}}, dwa miejsca przed Buttonem, a **{{t:cutoff|CO}}** (Cutoff) tuż przed Buttonem. To {{t:position|pozycje}} środkowe: za nimi jest mniej graczy niż za {{t:utg}}, więc {{t:open|otwierasz}} z nich szerzej, ale wciąż węziej niż z Buttona.
 
-:::note Rozmiar otwarcia
-Otwierasz przebiciem do {{n:pf.open-size}} z każdej pozycji, a z małego blinda do {{n:pf.open-size-sb}}. To uproszczenie: w rozwiązaniach solverów otwarcia z wczesnych pozycji są nieco mniejsze (np. {{n:pf.open-size.solver-utg}} z UTG i {{n:pf.open-size.solver-co}} z CO), ale jeden rozmiar jest łatwiejszy do nauki. Wchodząc jako pierwszy, nie dopłacasz samego blinda: przebicie może od razu wygrać pulę.
+:::note Rozmiar {{t:open|otwarcia}}
+{{t:open|Otwierasz}} {{t:raise|przebiciem}} do {{n:pf.open-size}} z każdej {{t:position|pozycji}}, a z {{t:small-blind|małego blinda}} do {{n:pf.open-size-sb}}. To uproszczenie: w rozwiązaniach solverów {{t:open|otwarcia}} z {{t:early-position|wczesnych pozycji}} są nieco mniejsze (np. {{n:pf.open-size.solver-utg}} z {{t:utg}} i {{n:pf.open-size.solver-co}} z {{t:cutoff|CO}}), ale jeden rozmiar jest łatwiejszy do nauki. Wchodząc jako pierwszy, nie dopłacasz samego blinda: {{t:raise}} może od razu wygrać {{t:pot|pulę}}.
 :::

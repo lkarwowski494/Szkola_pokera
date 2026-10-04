@@ -10,137 +10,137 @@ drills:
     id: m7.l4.q-probe-def
     family: m7.probe.concept
     rules: [R-M7-011]
-    prompt: "Button otworzył, ty w dużym blindzie sprawdziłeś. Na flopie obaj czekacie. Na turnie betujesz pierwszy. Jak nazywa się ten zakład?"
+    prompt: "Button {{t:open|otworzył}}, ty w {{t:big-blind|dużym blindzie}} {{t:call|sprawdziłeś}}. Na flopie obaj czekacie. Na turnie betujesz pierwszy. Jak nazywa się ten {{t:bet}}?"
     table: { position: BB }
     options:
-      - { text: "Probe bet", correct: true, why: "Tak: probe bet to zakład bez pozycji na turnie po tym, jak agresor przed flopem nie zrobił c-betu i czekał." }
-      - { text: "C-bet", why: "C-bet stawia gracz, który przebijał przed flopem. Ty tylko sprawdzałeś." }
-      - { text: "Check-raise", why: "Check-raise to czekanie, a potem przebicie zakładu rywala. Tu betujesz pierwszy, nikogo nie przebijasz." }
+      - { text: "Probe bet", correct: true, why: "Tak: probe bet to {{t:bet}} {{t:out-of-position}} na turnie po tym, jak {{t:aggressor}} przed flopem nie zrobił c-betu i {{t:check|czekał}}." }
+      - { text: "C-bet", why: "C-bet {{t:bet|stawia}} gracz, który {{t:raise|przebijał}} przed flopem. Ty tylko {{t:call|sprawdzałeś}}." }
+      - { text: "Check-raise", why: "Check-raise to {{t:check}}, a potem {{t:raise}} {{t:bet|zakładu}} rywala. Tu betujesz pierwszy, nikogo nie {{t:raise|przebijasz}}." }
   - kind: choice
     id: m7.l4.q-probe-why
     family: m7.probe.concept
     rules: [R-M7-011]
-    prompt: "Dlaczego po czekaniu Buttona na flopie możesz na turnie betować częściej niż zwykle?"
+    prompt: "Dlaczego po {{t:check|czekaniu}} Buttona na flopie możesz na turnie betować częściej niż zwykle?"
     table: { position: BB }
     options:
-      - { text: "Bo z wieloma silnymi rękami Button by betował, więc po czekaniu ma ich mniej", correct: true, why: "Tak: silne ręce zwykle robią c-bet. Zakres Buttona po czekaniu ma więcej rąk średnich i słabych, a ty możesz zaatakować go zakładem." }
-      - { text: "Bo czekanie zawsze oznacza, że Button nic nie ma", why: "Nie zawsze: Button czasem czeka z silną ręką, żeby cię złapać. Ma ich jednak mniej niż wtedy, gdy betuje." }
-      - { text: "Bo na turnie to ty masz pozycję", why: "Nie: Button mówi po tobie na każdej ulicy. Probe bet stawiasz bez pozycji." }
+      - { text: "Bo z wieloma silnymi rękami Button by betował, więc po {{t:check|czekaniu}} ma ich mniej", correct: true, why: "Tak: silne ręce zwykle robią c-bet. {{t:range|Zakres}} Buttona po {{t:check|czekaniu}} ma więcej rąk średnich i słabych, a ty możesz zaatakować go {{t:bet|zakładem}}." }
+      - { text: "Bo {{t:check}} zawsze oznacza, że Button nic nie ma", why: "Nie zawsze: Button czasem {{t:check|czeka}} z silną ręką, żeby cię złapać. Ma ich jednak mniej niż wtedy, gdy betuje." }
+      - { text: "Bo na turnie to ty masz {{t:position|pozycję}}", why: "Nie: Button mówi po tobie na każdej {{t:street|ulicy}}. Probe bet {{t:bet|stawiasz}} {{t:out-of-position}}." }
   - kind: choice
     id: m7.l4.q-probe-board
     family: m7.probe.concept
     rules: [R-M7-011]
-    prompt: "Button czekał na flopie. Na którym stole częściej stawiasz probe bet z dużego blinda?"
+    prompt: "Button {{t:check|czekał}} na flopie. Na którym {{t:board|stole}} częściej {{t:bet|stawiasz}} probe bet z {{t:big-blind|dużego blinda}}?"
     table: { position: BB }
     options:
-      - { text: "[[8c 5d 2s 3h]]", correct: true, why: "Tak: niskie karty częściej trafiają szeroką obronę dużego blinda (małe pary, łączniki), a Button po czekaniu rzadko ma tu silną rękę." }
-      - { text: "[[Ac Kd 8h Js]]", why: "Na wysokim stole przewagę zakresu ma Button: wiele jego asów i króli trafiło. Tu probe bet stawiasz rzadziej." }
-      - { text: "Na obu tak samo często", why: "Tekstura ma znaczenie, tak jak przy c-becie w M5: na niskich stołach betujesz częściej, na wysokich rzadziej." }
+      - { text: "[[8c 5d 2s 3h]]", correct: true, why: "Tak: niskie karty częściej trafiają szeroką obronę {{t:big-blind|dużego blinda}} (małe {{t:pair|pary}}, {{t:connectors|łączniki}}), a Button po {{t:check|czekaniu}} rzadko ma tu silną rękę." }
+      - { text: "[[Ac Kd 8h Js]]", why: "Na wysokim {{t:board|stole}} {{t:range-advantage|przewagę zakresu}} ma Button: wiele jego asów i króli trafiło. Tu probe bet {{t:bet|stawiasz}} rzadziej." }
+      - { text: "Na obu tak samo często", why: "{{t:texture|Tekstura}} ma znaczenie, tak jak przy c-becie w M5: na niskich stołach betujesz częściej, na wysokich rzadziej." }
   - kind: choice
     id: m7.l4.q-probe-oesd
     family: m7.probe.play
     rules: [R-M7-011, R-M7-012]
-    prompt: "Bronisz duży blind przeciw otwarciu Buttona. Na flopie obaj czekaliście. Turn to trójka. Mówisz pierwszy. Co robisz?"
+    prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie obaj {{t:check|czekaliście}}. Turn to {{t:three-of-a-kind}}. Mówisz pierwszy. Co robisz?"
     table: { hand: "7h 6h", position: BB, board: "8c 5d 2s 3h" }
     options:
-      - { text: "Betuję (probe bet)", correct: true, why: "Masz otwarte dobieranie do strita (czwórka albo dziewiątka) na niskim stole, który pasuje do twojego zakresu. Wygrywasz, gdy Button spasuje, a gdy sprawdzi, nadal masz {{n:outs.oesd}} outów." }
-      - { text: "Czekam", correct: true, why: "Też dobrze: z dobieraniem możesz zobaczyć rivera za darmo, jeśli Button też poczeka. Probe bet jest jednak zwykle lepszy, bo Button po czekaniu na flopie ma słaby zakres, a ty masz mocny półblef." }
-      - { text: "Pasuję", why: "Nikt nie postawił, więc możesz czekać za darmo (zasada z modułu 1). Pas oddaje pulę bez powodu." }
+      - { text: "Betuję (probe bet)", correct: true, why: "Masz {{t:oesd}} (czwórka albo dziewiątka) na niskim {{t:board|stole}}, który pasuje do twojego {{t:range|zakresu}}. Wygrywasz, gdy Button {{t:fold|spasuje}}, a gdy {{t:call|sprawdzi}}, nadal masz {{n:outs.oesd}} outów." }
+      - { text: "{{t:check|Czekam}}", correct: true, why: "Też dobrze: z {{t:draw|dobieraniem}} możesz zobaczyć rivera za darmo, jeśli Button też {{t:check|poczeka}}. Probe bet jest jednak zwykle lepszy, bo Button po {{t:check|czekaniu}} na flopie ma słaby {{t:range}}, a ty masz mocny {{t:semi-bluff}}." }
+      - { text: "{{t:fold|Pasuję}}", why: "Nikt nie {{t:bet|postawił}}, więc możesz {{t:check|czekać}} za darmo (zasada z modułu 1). {{t:fold|Pas}} oddaje {{t:pot|pulę}} bez powodu." }
   - kind: choice
     id: m7.l4.q-probe-value
     family: m7.probe.play
     rules: [R-M7-012]
-    prompt: "Bronisz duży blind przeciw otwarciu Buttona. Na flopie obaj czekaliście. Turn to trójka. Mówisz pierwszy. Co robisz?"
+    prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie obaj {{t:check|czekaliście}}. Turn to {{t:three-of-a-kind}}. Mówisz pierwszy. Co robisz?"
     table: { hand: "9c 8d", position: BB, board: "8h 5c 2d 3s" }
     options:
-      - { text: "Betuję (probe bet)", correct: true, why: "Najwyższa para to dobra ręka do probe betu: zapłacą ci słabsze pary i wysokie karty Buttona, a zakładem nie dajesz im darmowej karty." }
-      - { text: "Czekam", why: "Button po czekaniu na flopie często ma wysokie karty bez pary. Gdy znów czeka, dostaje darmową kartę, która może cię pobić, a ty nie zarabiasz na jego słabszych rękach." }
-      - { text: "Pasuję", why: "Nikt nie postawił, więc możesz czekać za darmo. A z najwyższą parą chcesz betować." }
+      - { text: "Betuję (probe bet)", correct: true, why: "{{t:top-pair|Najwyższa para}} to dobra ręka do probe betu: zapłacą ci słabsze {{t:pair|pary}} i wysokie karty Buttona, a {{t:bet|zakładem}} nie dajesz im darmowej karty." }
+      - { text: "{{t:check|Czekam}}", why: "Button po {{t:check|czekaniu}} na flopie często ma wysokie karty bez {{t:pair|pary}}. Gdy znów {{t:check|czeka}}, dostaje darmową kartę, która może cię pobić, a ty nie zarabiasz na jego słabszych rękach." }
+      - { text: "{{t:fold|Pasuję}}", why: "Nikt nie {{t:bet|postawił}}, więc możesz {{t:check|czekać}} za darmo. A z {{t:top-pair|najwyższą parą}} chcesz betować." }
   - kind: choice
     id: m7.l4.q-probe-air
     family: m7.probe.play
     rules: [R-M7-011, R-M7-012]
-    prompt: "Bronisz duży blind przeciw otwarciu Buttona. Na flopie obaj czekaliście. Turn to walet. Mówisz pierwszy. Co robisz?"
+    prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie obaj {{t:check|czekaliście}}. Turn to walet. Mówisz pierwszy. Co robisz?"
     table: { hand: "6d 4c", position: BB, board: "Ac Kd 8h Js" }
     options:
-      - { text: "Czekam", correct: true, why: "Nie masz pary ani dobierania, a wysoki stół sprzyja zakresowi Buttona. Probe bet bez outów na takim stole wygrywa tylko wtedy, gdy Button spasuje, a ma tu wiele asów, króli i waletów." }
-      - { text: "Betuję (probe bet)", why: "Probe bet stawiasz częściej na niskich stołach i z rękami, które mają parę albo outy. Tu nie masz ani jednego, ani drugiego." }
-      - { text: "Pasuję", why: "Możesz czekać za darmo, więc pas nic nie daje (zasada z modułu 1)." }
+      - { text: "{{t:check|Czekam}}", correct: true, why: "Nie masz {{t:pair|pary}} ani {{t:draw|dobierania}}, a wysoki {{t:board}} sprzyja {{t:range|zakresowi}} Buttona. Probe bet bez outów na takim {{t:board|stole}} wygrywa tylko wtedy, gdy Button {{t:fold|spasuje}}, a ma tu wiele asów, króli i waletów." }
+      - { text: "Betuję (probe bet)", why: "Probe bet {{t:bet|stawiasz}} częściej na niskich stołach i z rękami, które mają {{t:pair|parę}} albo outy. Tu nie masz ani jednego, ani drugiego." }
+      - { text: "{{t:fold|Pasuję}}", why: "Możesz {{t:check|czekać}} za darmo, więc {{t:fold}} nic nie daje (zasada z modułu 1)." }
   - kind: choice
     id: m7.l4.q-def-gutshot
     family: m7.defend.turn
     rules: [R-M7-013, R-M7-007]
-    prompt: "Bronisz duży blind. Sprawdziłeś c-bet Buttona na flopie. Turn to dwójka, czekasz, a Button stawia {{n:ex.bet.three-quarters}} do puli {{n:ex.pot}}. Co robisz?"
+    prompt: "Bronisz {{t:big-blind}}. {{t:call|Sprawdziłeś}} c-bet Buttona na flopie. Turn to dwójka, {{t:check|czekasz}}, a Button {{t:bet|stawia}} {{n:ex.bet.three-quarters}} do {{t:pot|puli}} {{n:ex.pot}}. Co robisz?"
     table: { hand: "Qc Td", position: BB, board: "Kh 9s 4d 2c" }
     options:
-      - { text: "Pasuję", correct: true, why: "Masz tylko gutshot (walet): ok. {{n:odds.gutshot.turn-river}} na riverze, a potrzebujesz {{n:eq.bet-three-quarters}}. Bez pary i z jedną kartą do końca ta ręka nie broni się przed drugą beczką." }
-      - { text: "Sprawdzam", why: "Cena jest kilka razy wyższa niż twoja szansa: {{n:eq.bet-three-quarters}} wobec ok. {{n:odds.gutshot.turn-river}}. Implied odds nie pokryją takiej różnicy." }
-      - { text: "Check-raise", why: "Druga beczka to silniejszy zakres niż c-bet: Button częściej ma króla albo lepszą rękę, która nie spasuje. Z {{n:outs.gutshot}} outami to drogi blef." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Masz tylko gutshot (walet): ok. {{n:odds.gutshot.turn-river}} na riverze, a potrzebujesz {{n:eq.bet-three-quarters}}. Bez {{t:pair|pary}} i z jedną kartą do końca ta ręka nie broni się przed {{t:second-barrel|drugą beczką}}." }
+      - { text: "{{t:call|Sprawdzam}}", why: "Cena jest kilka razy wyższa niż twoja szansa: {{n:eq.bet-three-quarters}} wobec ok. {{n:odds.gutshot.turn-river}}. Implied odds nie pokryją takiej różnicy." }
+      - { text: "Check-raise", why: "{{t:second-barrel|Druga beczka}} to silniejszy {{t:range}} niż c-bet: Button częściej ma króla albo lepszą rękę, która nie {{t:fold|spasuje}}. Z {{n:outs.gutshot}} outami to drogi {{t:bluff}}." }
   - kind: choice
     id: m7.l4.q-def-oesd-small
     family: m7.defend.turn
     rules: [R-M7-013, R-M7-007]
-    prompt: "Bronisz duży blind. Sprawdziłeś c-bet Buttona na flopie. Turn to król, czekasz, a Button stawia tylko {{n:ex.bet.quarter}} do puli {{n:ex.pot}}. Co robisz?"
+    prompt: "Bronisz {{t:big-blind}}. {{t:call|Sprawdziłeś}} c-bet Buttona na flopie. Turn to król, {{t:check|czekasz}}, a Button {{t:bet|stawia}} tylko {{n:ex.bet.quarter}} do {{t:pot|puli}} {{n:ex.pot}}. Co robisz?"
     table: { hand: "Ts 9s", position: BB, board: "8d 7c 2h Kc" }
     options:
-      - { text: "Sprawdzam", correct: true, why: "Masz otwarte dobieranie do strita (walet albo szóstka): ok. {{n:odds.oesd.turn-river}}. Mały bet wymaga tylko {{n:eq.bet-quarter}}, czyli prawie dokładnie tyle, a po trafieniu możesz jeszcze wygrać na riverze." }
-      - { text: "Pasuję", why: "Przy tak małym becie cena jest prawie równa twojej szansie ({{n:eq.bet-quarter}} wobec ok. {{n:odds.oesd.turn-river}}), a implied odds przechylają decyzję na sprawdzenie." }
-      - { text: "Przebijam all-in", why: "Ryzykujesz cały stack ręką, która jeszcze nic nie ma, a Button z królem nie spasuje. Przy tak dobrej cenie wystarczy sprawdzić." }
+      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Masz {{t:oesd}} (walet albo szóstka): ok. {{n:odds.oesd.turn-river}}. Mały bet wymaga tylko {{n:eq.bet-quarter}}, czyli prawie dokładnie tyle, a po trafieniu możesz jeszcze wygrać na riverze." }
+      - { text: "{{t:fold|Pasuję}}", why: "Przy tak małym becie cena jest prawie równa twojej szansie ({{n:eq.bet-quarter}} wobec ok. {{n:odds.oesd.turn-river}}), a implied odds przechylają decyzję na {{t:call}}." }
+      - { text: "{{t:raise|Przebijam}} all-in", why: "Ryzykujesz cały stack ręką, która jeszcze nic nie ma, a Button z królem nie {{t:fold|spasuje}}. Przy tak dobrej cenie wystarczy {{t:call|sprawdzić}}." }
   - kind: choice
     id: m7.l4.q-def-top-pair
     family: m7.defend.turn
     rules: [R-M7-013]
-    prompt: "Bronisz duży blind. Sprawdziłeś c-bet Buttona na flopie. Turn to piątka, czekasz, a Button stawia {{n:ex.bet.three-quarters}} do puli {{n:ex.pot}}. Co robisz?"
+    prompt: "Bronisz {{t:big-blind}}. {{t:call|Sprawdziłeś}} c-bet Buttona na flopie. Turn to piątka, {{t:check|czekasz}}, a Button {{t:bet|stawia}} {{n:ex.bet.three-quarters}} do {{t:pot|puli}} {{n:ex.pot}}. Co robisz?"
     table: { hand: "Kd Tc", position: BB, board: "Ks 7d 2c 5h" }
     options:
-      - { text: "Sprawdzam", correct: true, why: "Najwyższa para to za dużo, żeby pasować na pustej karcie: wygrywa z półblefami i słabszymi królami. Potrzebujesz {{n:eq.bet-three-quarters}}, a przeciw zakresowi drugiej beczki taka para zwykle ma tyle." }
-      - { text: "Pasuję", why: "Za ciasno. Druga beczka jest silniejsza niż c-bet, ale Button stawia ją też dobieraniami i blefami. Najwyższa para bije je wszystkie." }
-      - { text: "Przebijam", why: "Po przebiciu gorsze ręce spasują, a zapłacą lepsze króle i sety. Najwyższa para ze średnim kickerem nie jest ręką do przebicia." }
+      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "{{t:top-pair|Najwyższa para}} to za dużo, żeby {{t:fold|pasować}} na pustej karcie: wygrywa z {{t:semi-bluff|półblefami}} i słabszymi królami. Potrzebujesz {{n:eq.bet-three-quarters}}, a przeciw {{t:range|zakresowi}} {{t:second-barrel|drugiej beczki}} taka {{t:pair}} zwykle ma tyle." }
+      - { text: "{{t:fold|Pasuję}}", why: "Za ciasno. {{t:second-barrel|Druga beczka}} jest silniejsza niż c-bet, ale Button {{t:bet|stawia}} ją też {{t:draw|dobieraniami}} i {{t:bluff|blefami}}. {{t:top-pair|Najwyższa para}} bije je wszystkie." }
+      - { text: "{{t:raise|Przebijam}}", why: "Po {{t:raise|przebiciu}} gorsze ręce {{t:fold|spasują}}, a zapłacą lepsze króle i sety. {{t:top-pair|Najwyższa para}} ze średnim kickerem nie jest ręką do {{t:raise|przebicia}}." }
   - kind: choice
     id: m7.l4.q-def-why
     family: m7.defend.concept
     rules: [R-M7-013]
-    prompt: "Dlaczego przeciw drugiej beczce bronisz węziej niż przeciw c-betowi na flopie?"
+    prompt: "Dlaczego przeciw {{t:second-barrel|drugiej beczce}} bronisz węziej niż przeciw c-betowi na flopie?"
     table: { position: BB }
     options:
-      - { text: "Bo drugą beczkę rywal stawia węższym zakresem i zwykle większym rozmiarem, a dobierania mają już tylko jedną kartę", correct: true, why: "Tak: część blefów rywal odpuszcza na turnie, większy bet obniża MDF (przy 3/4 puli {{n:mdf.bet-three-quarters}}), a twoje dobierania tracą połowę szans. Słabe pary i ręce bez outów pasujesz częściej niż na flopie." }
-      - { text: "Bo na turnie trzeba oszczędzać żetony", why: "Liczy się wartość oczekiwana każdej decyzji, nie oszczędzanie. Bronisz węziej, bo rywal betuje silniejszymi rękami." }
-      - { text: "Nie, bronisz szerzej, bo wpłaciłeś już dużo żetonów", why: "To, co już wpłaciłeś, nie wraca. Decyzję podejmujesz na podstawie ceny teraz i siły zakresu rywala." }
+      - { text: "Bo {{t:second-barrel|drugą beczkę}} rywal {{t:bet|stawia}} węższym {{t:range|zakresem}} i zwykle większym rozmiarem, a {{t:draw|dobierania}} mają już tylko jedną kartę", correct: true, why: "Tak: część {{t:bluff|blefów}} rywal odpuszcza na turnie, większy bet obniża {{t:mdf}} (przy 3/4 {{t:pot|puli}} {{n:mdf.bet-three-quarters}}), a twoje {{t:draw|dobierania}} tracą połowę szans. Słabe {{t:pair|pary}} i ręce bez outów {{t:fold|pasujesz}} częściej niż na flopie." }
+      - { text: "Bo na turnie trzeba oszczędzać {{t:chips}}", why: "Liczy się {{t:expected-value}} każdej decyzji, nie oszczędzanie. Bronisz węziej, bo rywal betuje silniejszymi rękami." }
+      - { text: "Nie, bronisz szerzej, bo wpłaciłeś już dużo {{t:chips|żetonów}}", why: "To, co już wpłaciłeś, nie wraca. Decyzję podejmujesz na podstawie ceny teraz i siły {{t:range|zakresu}} rywala." }
   - kind: numeric
     id: m7.l4.n-mdf-turn
     family: m7.defend.math
     rules: [R-M6-001]
-    prompt: "Turn. Rywal stawia {{n:ex.bet.three-quarters}} do puli {{n:ex.pot}}. Ile wynosi MDF? Wpisz liczbę w procentach."
+    prompt: "Turn. Rywal {{t:bet|stawia}} {{n:ex.bet.three-quarters}} do {{t:pot|puli}} {{n:ex.pot}}. Ile wynosi {{t:mdf}}? Wpisz liczbę w procentach."
     table: { position: BB }
     answer: mdf.bet-three-quarters
-    explanation: "MDF = pula ÷ (pula + bet) = {{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:mdf.bet-three-quarters}}. Na turnie solver broni średnio blisko MDF, inaczej niż na flopie bez pozycji, gdzie broni mniej. Gdy wiesz, że rywal blefuje rzadziej, pasujesz częściej (rachunek w M8, lekcja o łapaniu blefów)."
+    explanation: "{{t:mdf}} = {{t:pot}} ÷ ({{t:pot}} + bet) = {{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:mdf.bet-three-quarters}}. Na turnie solver broni średnio blisko {{t:mdf}}, inaczej niż na flopie {{t:out-of-position}}, gdzie broni mniej. Gdy wiesz, że rywal {{t:bluff|blefuje}} rzadziej, {{t:fold|pasujesz}} częściej (rachunek w M8, lekcja o łapaniu {{t:bluff|blefów}})."
 ---
-Na turnie spotkasz dwie nowe sytuacje: Button nie zrobił c-betu i czekał, albo zrobił c-bet i betuje drugi raz. W pierwszej możesz zaatakować sam, w drugiej bronisz się węziej niż na flopie.
+Na turnie spotkasz dwie nowe sytuacje: Button nie zrobił c-betu i {{t:check|czekał}}, albo zrobił c-bet i betuje drugi raz. W pierwszej możesz zaatakować sam, w drugiej bronisz się węziej niż na flopie.
 
 ## Probe bet
 
-Probe bet to zakład bez pozycji na turnie po tym, jak agresor przed flopem czekał na flopie. Button z wieloma silnymi rękami zrobiłby c-bet, więc po czekaniu ma ich mniej. Jego zakres jest słabszy i możesz go zaatakować.
+Probe bet to {{t:bet}} {{t:out-of-position}} na turnie po tym, jak {{t:aggressor}} przed flopem {{t:check|czekał}} na flopie. Button z wieloma silnymi rękami zrobiłby c-bet, więc po {{t:check|czekaniu}} ma ich mniej. Jego {{t:range}} jest słabszy i możesz go zaatakować.
 
 - **Częściej na niskich stołach**, np. [[8c 5d 2s 3h]]: niskie karty trafiają twoją szeroką obronę.
-- **Rzadziej na wysokich**, np. [[Ac Kd 8h Js]]: przewaga zakresu zostaje po stronie Buttona.
+- **Rzadziej na wysokich**, np. [[Ac Kd 8h Js]]: {{t:range-advantage}} zostaje po stronie Buttona.
 
 ## Czym probe betować
 
-- **parami**, które chcą zapłaty od wysokich kart Buttona i nie chcą dawać mu darmowej karty,
-- **mocnymi dobieraniami**, które wygrywają na dwa sposoby.
+- **{{t:pair|parami}}**, które chcą zapłaty od wysokich kart Buttona i nie chcą dawać mu darmowej karty,
+- **mocnymi {{t:draw|dobieraniami}}**, które wygrywają na dwa sposoby.
 
-Ręce bez pary i bez outów czekają.
+Ręce bez {{t:pair|pary}} i bez outów {{t:check|czekają}}.
 
-## Obrona przed drugą beczką
+## Obrona przed {{t:second-barrel|drugą beczką}}
 
-Gdy sprawdziłeś c-bet, a Button betuje drugi raz, jego zakres jest węższy i silniejszy niż na flopie: część blefów odpuścił. Twoje dobierania mają już tylko jedną kartę. Dlatego:
+Gdy {{t:call|sprawdziłeś}} c-bet, a Button betuje drugi raz, jego {{t:range}} jest węższy i silniejszy niż na flopie: część {{t:bluff|blefów}} odpuścił. Twoje {{t:draw|dobierania}} mają już tylko jedną kartę. Dlatego:
 
-- dobierania sprawdzają tylko przy dobrej cenie albo z implied odds (poprzednia lekcja),
-- ręce bez outów i najsłabsze pary częściej pasują,
-- najwyższa para zwykle nadal sprawdza.
+- {{t:draw|dobierania}} {{t:call|sprawdzają}} tylko przy dobrej cenie albo z implied odds (poprzednia lekcja),
+- ręce bez outów i najsłabsze {{t:pair|pary}} częściej {{t:fold|pasują}},
+- {{t:top-pair}} zwykle nadal {{t:call|sprawdza}}.
 
-MDF pozostaje punktem odniesienia: przy becie 3/4 puli wynosi {{n:mdf.bet-three-quarters}}. Na turnie solver broni średnio blisko tej wartości; mniej bronisz tylko wtedy, gdy rywal blefuje rzadziej, niż zakłada MDF.
+{{t:mdf}} pozostaje punktem odniesienia: przy becie 3/4 {{t:pot|puli}} wynosi {{n:mdf.bet-three-quarters}}. Na turnie solver broni średnio blisko tej wartości; mniej bronisz tylko wtedy, gdy rywal {{t:bluff|blefuje}} rzadziej, niż zakłada {{t:mdf}}.
 
 :::note Skąd te zasady
-Zasady probe betu i obrony przed drugą beczką to heurystyki z literatury (GTO Wizard, Upswing, PokerCoaching). Obronę na turnie blisko MDF pokazują rozwiązania PIOSolvera omawiane na Upswing. Aplikacja nie podaje częstotliwości w procentach, bo źródła różnią się zależnie od stołu. Liczby o tym, czym gracze mikrostawek stawiają probe bety, wymagają źródła z opisaną populacją (próba, stawki, sale), więc ich tu nie ma.
+Zasady probe betu i obrony przed {{t:second-barrel|drugą beczką}} to heurystyki z literatury (GTO Wizard, Upswing, PokerCoaching). Obronę na turnie blisko {{t:mdf}} pokazują rozwiązania PIOSolvera omawiane na Upswing. Aplikacja nie podaje częstotliwości w procentach, bo źródła różnią się zależnie od stołu. Liczby o tym, czym gracze mikrostawek {{t:bet|stawiają}} probe bety, wymagają źródła z opisaną populacją (próba, stawki, sale), więc ich tu nie ma.
 :::

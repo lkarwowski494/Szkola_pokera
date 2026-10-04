@@ -19,7 +19,7 @@ drills:
     id: m12.l3.q-type-revenge
     family: m12.tilt-type
     rules: [R-M12-006]
-    prompt: "Ten sam rywal podbija twoje blindy czwarty raz z rzędu. Postanawiasz, że następnym razem przebijesz go dowolną ręką, żeby mu pokazać. Jaki to typ tiltu?"
+    prompt: "Ten sam rywal podbija twoje blindy czwarty raz z rzędu. Postanawiasz, że następnym razem {{t:raise|przebijesz}} go dowolną ręką, żeby mu pokazać. Jaki to typ tiltu?"
     options:
       - { text: "Tilt z zemsty", correct: true, why: "Brak szacunku, ciągła agresja rywala i chęć „pokazania mu” to wyzwalacze tiltu z zemsty. Decyzję zaczyna podejmować chęć odwetu, a nie rachunek." }
       - { text: "Tilt z poczucia, że ci się należy", why: "Ten typ wynika z przekonania, że zasługujesz na wygraną, bo jesteś lepszy. Tu chodzi o odwet na konkretnym rywalu." }
@@ -37,7 +37,7 @@ drills:
     id: m12.l3.q-type-mistake
     family: m12.tilt-type
     rules: [R-M12-008]
-    prompt: "Spasowałeś najlepszą rękę i od tej chwili nie możesz przestać o tym myśleć. Złościsz się na siebie i grasz coraz gorzej. Jaki to typ tiltu?"
+    prompt: "{{t:fold|Spasowałeś}} najlepszą rękę i od tej chwili nie możesz przestać o tym myśleć. Złościsz się na siebie i grasz coraz gorzej. Jaki to typ tiltu?"
     options:
       - { text: "Tilt z błędu", correct: true, why: "Złość na własne pomyłki to tilt z błędu. Tendler wiąże go z nierealistycznym oczekiwaniem, że ucząc się, nie popełnisz błędów." }
       - { text: "Tilt z niesprawiedliwości", why: "Tu nie winisz losu, tylko siebie. To tilt z błędu." }
@@ -57,14 +57,14 @@ drills:
     rules: [R-M12-006]
     prompt: "Po bad beacie czujesz, że rośnie w tobie złość, ale wciąż grasz poprawnie. Co robisz?"
     options:
-      - { text: "Reagujesz teraz: oddech i przygotowane zdanie, np. „To wariancja, graj dalej dobrze”", correct: true, why: "Tilt koryguje się, póki jest mały i możesz jeszcze myśleć. Gdy urośnie, wyłącza zdolność myślenia i kontrola staje się niemożliwa." }
+      - { text: "Reagujesz teraz: oddech i przygotowane zdanie, np. „To {{t:variance}}, graj dalej dobrze”", correct: true, why: "Tilt koryguje się, póki jest mały i możesz jeszcze myśleć. Gdy urośnie, wyłącza zdolność myślenia i kontrola staje się niemożliwa." }
       - { text: "Grasz dalej, aż zauważysz pierwszy błąd", why: "Wtedy tilt jest już większy i trudniej go zatrzymać. Najłatwiej reagować na pierwsze sygnały." }
       - { text: "Tłumisz złość i udajesz, że jej nie ma", why: "Tendler zaleca rozpoznać emocję i odpowiedzieć na jej przyczynę konkretną myślą. Samo tłumienie nie usuwa przyczyny." }
   - kind: choice
     id: m12.l3.q-quit
     family: m12.tilt-response
     rules: [R-M12-007]
-    prompt: "Od pół godziny grasz ręce, które zwykle pasujesz, i myślisz tylko o odegraniu się. Co robisz?"
+    prompt: "Od pół godziny grasz ręce, które zwykle {{t:fold|pasujesz}}, i myślisz tylko o odegraniu się. Co robisz?"
     options:
       - { text: "Kończysz sesję", correct: true, why: "To sygnały, że nie potrafisz już odzyskać jasnego myślenia. Wtedy celem jest skończyć jak najszybciej, a nie wygrać z powrotem pieniądze." }
       - { text: "Grasz dalej, ale tylko najlepsze ręce", why: "W tym stanie trudno trzymać się postanowień, bo emocja podejmuje decyzje za ciebie. Bezpieczniej skończyć." }
@@ -94,7 +94,7 @@ drills:
     prompt: "Jak sprawdzasz, czy twoja praca nad mental game daje efekt?"
     options:
       - { text: "Porównujesz najgorsze sesje z wcześniejszymi najgorszymi", correct: true, why: "Tendler radzi porównywać podobne z podobnym: najgorszą grę z wcześniejszą najgorszą. Postęp widać też po tym, że szybciej rozpoznajesz tilt i wcześniej kończysz sesję." }
-      - { text: "Patrzysz na wynik w złotówkach z ostatniego tygodnia", why: "Tydzień wyników to głównie wariancja (lekcja o wariancji). Jakość gry w najgorsze dni mówi więcej." }
+      - { text: "Patrzysz na wynik w złotówkach z ostatniego tygodnia", why: "Tydzień wyników to głównie {{t:variance}} (lekcja o {{t:variance|wariancji}}). Jakość gry w najgorsze dni mówi więcej." }
       - { text: "Porównujesz najlepszą sesję z najgorszą", why: "Takie porównanie pokazuje tylko rozrzut, a nie postęp. Porównuj najgorszą grę z wcześniejszą najgorszą." }
 ---
 Tilt to utrata kontroli pod wpływem negatywnych emocji, zwykle po bad beatach albo długiej serii strat. Kończy się słabymi decyzjami i stratą dużo większą niż zwykle. To nie rzadkość: w badaniu ankietowym {{n:tilt.severe}} graczy przyznało się do silnego tiltu co najmniej raz w ostatnich sześciu miesiącach.
@@ -107,7 +107,7 @@ Jared Tendler, autor *The Mental Game of Poker*, opisuje tilt jako problem ze z�
 |---|---|
 | Z serii złych kart | Inne typy tiltu wracają tak często, że umysł nie zdąży się zresetować przed kolejną sesją |
 | Z niesprawiedliwości | Bad beaty, coolery, trafienia rywala na riverze |
-| Z nienawiści do przegrywania | Sama przegrana, nawet gdy wiesz, że to wariancja |
+| Z nienawiści do przegrywania | Sama przegrana, nawet gdy wiesz, że to {{t:variance}} |
 | Z błędu | Twoje własne pomyłki |
 | Z poczucia, że ci się należy | Przekonanie, że zasługujesz na wygraną |
 | Z zemsty | Brak szacunku, ciągła agresja rywala |
@@ -115,14 +115,14 @@ Jared Tendler, autor *The Mental Game of Poker*, opisuje tilt jako problem ze z�
 
 ## Rozpoznaj sygnały
 
-Każdy tiltuje trochę inaczej. Spisz swój **profil tiltu**: co go wyzwala, co wtedy myślisz i czujesz, co robisz przy stole (np. sprawdzasz za szeroko, przebijasz z zemsty). Im lepiej znasz swoje sygnały, tym wcześniej je złapiesz.
+Każdy tiltuje trochę inaczej. Spisz swój **profil tiltu**: co go wyzwala, co wtedy myślisz i czujesz, co robisz przy stole (np. {{t:call|sprawdzasz}} za szeroko, {{t:raise|przebijasz}} z zemsty). Im lepiej znasz swoje sygnały, tym wcześniej je złapiesz.
 
 ## Reaguj, póki możesz myśleć
 
 Gdy tilt urośnie, wyłącza zdolność myślenia. Dlatego reagujesz na pierwsze sygnały:
 
 1. Oddech, który daje chwilę dystansu do emocji.
-2. Przygotowane zdanie, które odpowiada na przyczynę, np. „Słabsi gracze muszą czasem wygrywać, to wariancja. Graj dalej dobrze”.
+2. Przygotowane zdanie, które odpowiada na przyczynę, np. „Słabsi gracze muszą czasem wygrywać, to {{t:variance}}. Graj dalej dobrze”.
 3. Jeśli nie potrafisz już jasno myśleć, kończysz sesję. Postępem jest też to, że kończysz wcześniej, z dobrego powodu.
 
 ## A-game i C-game

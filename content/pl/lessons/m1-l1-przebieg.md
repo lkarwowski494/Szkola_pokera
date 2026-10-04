@@ -10,74 +10,74 @@ drills:
     id: m1.l1.q1
     family: m1.actions
     rules: [R-M1-001]
-    prompt: "Jest flop, nikt przed tobą nie postawił. Co możesz zrobić?"
+    prompt: "Jest flop, nikt przed tobą nie {{t:bet|postawił}}. Co możesz zrobić?"
     options:
-      - { text: "Czekać (check) albo postawić (bet)", correct: true, why: "Bez zakładu przed tobą masz dwie opcje: dać przejść za darmo albo samemu postawić." }
-      - { text: "Sprawdzić (call)", why: "Nie ma czego sprawdzać, bo nikt nic nie postawił." }
-      - { text: "Przebić (raise)", why: "Przebić można tylko czyjś zakład. Pierwszy zakład w rundzie to bet." }
+      - { text: "{{t:check|Czekać}} albo {{t:bet|postawić}}", correct: true, why: "Bez {{t:bet|zakładu}} przed tobą masz dwie opcje: dać przejść za darmo albo samemu {{t:bet|postawić}}." }
+      - { text: "{{t:call|Sprawdzić}}", why: "Nie ma czego {{t:call|sprawdzać}}, bo nikt nic nie {{t:bet|postawił}}." }
+      - { text: "{{t:raise|Przebić}}", why: "{{t:raise|Przebić}} można tylko czyjś {{t:bet}}. Pierwszy {{t:bet}} w rundzie to bet." }
   - kind: choice
     id: m1.l1.q2
     family: m1.streets
     rules: [R-M1-004]
-    prompt: "Ile kart wspólnych pojawia się na flopie?"
+    prompt: "Ile {{t:community-cards|kart wspólnych}} pojawia się na flopie?"
     options:
       - { text: "3", correct: true, why: "Flop to trzy karty naraz. Potem turn i river dokładają po jednej." }
       - { text: "1", why: "Po jednej karcie wychodzą turn i river." }
-      - { text: "5", why: "Pięć kart wspólnych jest dopiero na riverze." }
+      - { text: "5", why: "Pięć {{t:community-cards|kart wspólnych}} jest dopiero na riverze." }
   - kind: choice
     id: m1.l1.q3
     family: m1.actions
     rules: [R-M1-003]
-    prompt: "Przeciwnik postawił 20 żetonów. Masz słabą rękę i nie chcesz grać dalej. Co robisz?"
+    prompt: "Przeciwnik {{t:bet|postawił}} 20 {{t:chips|żetonów}}. Masz słabą rękę i nie chcesz grać dalej. Co robisz?"
     options:
-      - { text: "Pasuję (fold)", correct: true, why: "Gdy jest zakład, a nie chcesz płacić, pasujesz. Tracisz tylko to, co już wpłaciłeś." }
-      - { text: "Czekam (check)", why: "Check nie jest możliwy, gdy jest zakład do sprawdzenia." }
-      - { text: "Sprawdzam (call)", why: "Sprawdzenie kosztuje 20 żetonów. Skoro nie chcesz grać, to strata." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Gdy jest {{t:bet}}, a nie chcesz płacić, {{t:fold|pasujesz}}. Tracisz tylko to, co już wpłaciłeś." }
+      - { text: "{{t:check|Czekam}}", why: "Check nie jest możliwy, gdy jest {{t:bet}} do {{t:call|sprawdzenia}}." }
+      - { text: "{{t:call|Sprawdzam}}", why: "{{t:call|Sprawdzenie}} kosztuje 20 {{t:chips|żetonów}}. Skoro nie chcesz grać, to strata." }
   - kind: choice
     id: m1.l1.q4
     family: m1.streets
     rules: [R-M1-004]
-    prompt: "Która runda licytacji jest ostatnia?"
+    prompt: "Która {{t:betting-round}} jest ostatnia?"
     options:
-      - { text: "River", correct: true, why: "River to piąta karta wspólna. Jeśli po licytacji na riverze zostało co najmniej dwóch graczy, odkrywają karty (showdown)." }
+      - { text: "River", correct: true, why: "River to piąta {{t:community-cards|karta wspólna}}. Jeśli po licytacji na riverze zostało co najmniej dwóch graczy, odkrywają karty (showdown)." }
       - { text: "Turn", why: "Turn to czwarta karta. Po nim jest jeszcze river." }
-      - { text: "Flop", why: "Flop to pierwsza runda z kartami wspólnymi." }
+      - { text: "Flop", why: "Flop to pierwsza runda z {{t:community-cards|kartami wspólnymi}}." }
   - kind: choice
     id: m1.l1.q5
     family: m1.actions
     rules: [R-M1-002]
-    prompt: "Jesteś na dużym blindzie, wszyscy spasowali, mały blind tylko dopłacił. Masz słabą rękę. Co robisz?"
+    prompt: "Jesteś na {{t:big-blind|dużym blindzie}}, wszyscy {{t:fold|spasowali}}, {{t:small-blind}} tylko dopłacił. Masz słabą rękę. Co robisz?"
     table: { hand: "7c 2d", position: BB }
     options:
-      - { text: "Czekam (check)", correct: true, why: "Twój duży blind liczy się jak zakład, a mały blind tylko go wyrównał. Nikt nie przebił, więc flop zobaczysz za darmo. Słaba ręka nie jest powodem do pasowania, gdy nic nie kosztuje." }
-      - { text: "Pasuję", why: "Pas, gdy możesz czekać za darmo, to czysta strata." }
-      - { text: "Przebijam", why: "Z 7-2 nie masz czego budować; czekanie daje darmowy flop." }
+      - { text: "{{t:check|Czekam}}", correct: true, why: "Twój {{t:big-blind}} liczy się jak {{t:bet}}, a {{t:small-blind}} tylko go wyrównał. Nikt nie {{t:raise|przebił}}, więc flop zobaczysz za darmo. Słaba ręka nie jest powodem do pasowania, gdy nic nie kosztuje." }
+      - { text: "{{t:fold|Pasuję}}", why: "{{t:fold|Pas}}, gdy możesz {{t:check|czekać}} za darmo, to czysta strata." }
+      - { text: "{{t:raise|Przebijam}}", why: "Z 7-2 nie masz czego budować; {{t:check}} daje darmowy flop." }
 ---
-Każde rozdanie ma stałą kolejność. Najpierw dwóch graczy wpłaca obowiązkowe stawki, czyli **blindy**: mały blind (SB) i duży blind (BB). Dzięki temu w puli zawsze jest o co grać.
+Każde rozdanie ma stałą kolejność. Najpierw dwóch graczy wpłaca obowiązkowe stawki, czyli **blindy**: {{t:small-blind}} i {{t:big-blind}}. Dzięki temu w {{t:pot|puli}} zawsze jest o co grać.
 
-Przed flopem duży blind liczy się jak zakład: kto chce grać, musi go co najmniej sprawdzić. Duży blind mówi przed flopem ostatni. Jeśli nikt nie przebił, może czekać i zobaczyć flop bez dopłaty.
+Przed flopem {{t:big-blind}} liczy się jak {{t:bet}}: kto chce grać, musi go co najmniej {{t:call|sprawdzić}}. {{t:big-blind|Duży blind}} mówi przed flopem ostatni. Jeśli nikt nie {{t:raise|przebił}}, może {{t:check|czekać}} i zobaczyć flop bez dopłaty.
 
-## Cztery rundy licytacji
+## Cztery {{t:betting-round|rundy licytacji}}
 
 1. **Preflop**: masz tylko swoje 2 karty.
-2. **Flop**: na stół trafiają 3 karty wspólne.
+2. **Flop**: na {{t:board}} trafiają 3 {{t:community-cards}}.
 3. **Turn**: czwarta karta.
 4. **River**: piąta, ostatnia karta.
 
-Jeśli po licytacji na riverze w grze zostało co najmniej dwóch graczy, odkrywają karty. To **showdown**: najlepszy układ wygrywa pulę. Gdy wszyscy poza jednym spasują wcześniej, ten jeden wygrywa pulę bez pokazywania kart.
+Jeśli po licytacji na riverze w grze zostało co najmniej dwóch graczy, odkrywają karty. To **showdown**: najlepszy układ wygrywa {{t:pot|pulę}}. Gdy wszyscy poza jednym {{t:fold|spasują}} wcześniej, ten jeden wygrywa {{t:pot|pulę}} bez pokazywania kart.
 
 ## Dostępne ruchy
 
-- **Check (czekam)**: nic nie stawiasz. Tylko gdy nikt przed tobą nie postawił.
-- **Bet, czyli zakład (stawiam)**: pierwszy zakład w rundzie. We wzorach w dalszych lekcjach piszemy krótko „bet”.
-- **Call (sprawdzam)**: dorównujesz do zakładu przeciwnika.
-- **Raise (przebijam)**: podnosisz cudzy zakład.
-- **Fold (pasuję)**: wyrzucasz karty i tracisz to, co już wpłaciłeś.
+- **{{t:check|Czekam}}**: nic nie wpłacasz. Tylko gdy w tej rundzie nikt przed tobą jeszcze nic nie wpłacił.
+- **{{t:bet|Stawiam}}**: pierwszy {{t:bet}} w rundzie. We wzorach w dalszych lekcjach piszemy krótko „bet”.
+- **{{t:call|Sprawdzam}}**: dorównujesz do {{t:bet|zakładu}} przeciwnika.
+- **{{t:raise|Przebijam}}**: podnosisz cudzy {{t:bet}}.
+- **{{t:fold|Pasuję}}**: wyrzucasz karty i tracisz to, co już wpłaciłeś.
 
 :::note Do zapamiętania
-Jeśli ktoś postawił, możesz pasować, sprawdzić albo przebić. Jeśli nikt nie postawił, możesz czekać albo postawić.
+Jeśli ktoś {{t:bet|postawił}}, możesz {{t:fold|pasować}}, {{t:call|sprawdzić}} albo {{t:raise|przebić}}. Jeśli nikt nie {{t:bet|postawił}}, możesz {{t:check|czekać}} albo {{t:bet|postawić}}.
 :::
 
-:::note All-in i pula boczna
-Nie możesz postawić więcej, niż masz przed sobą. Gdy wpłacasz wszystkie żetony, jesteś **all-in**: dalej już nie licytujesz, a pozostałe karty wspólne wychodzą do końca. Od każdego rywala możesz wygrać najwyżej tyle, ile sam wpłaciłeś. Jeśli inni grają dalej o więcej, nadwyżka trafia do **puli bocznej** (side pot), o którą walczą tylko oni.
+:::note All-in i {{t:side-pot}}
+Nie możesz {{t:bet|postawić}} więcej, niż masz przed sobą. Gdy wpłacasz wszystkie {{t:chips}}, jesteś **all-in**: dalej już nie licytujesz, a pozostałe {{t:community-cards}} wychodzą do końca. Od każdego rywala możesz wygrać najwyżej tyle, ile sam wpłaciłeś. Jeśli inni grają dalej o więcej, nadwyżka trafia do **{{t:side-pot|puli bocznej}}** (side pot), o którą walczą tylko oni.
 :::

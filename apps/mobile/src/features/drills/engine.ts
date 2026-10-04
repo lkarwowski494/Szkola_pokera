@@ -27,8 +27,10 @@ import {
   type Rng,
 } from '@szkola/poker-core';
 import type { RangeSpot } from '@/data/content/repo';
-import { categoryName, pctEquity, t, TEXTURE_AXIS_LABELS, TEXTURE_LABELS, textureText } from './text.pl';
+import { capitalize, categoryName, pctEquity, t, TEXTURE_AXIS_LABELS, TEXTURE_LABELS, textureText } from './text.pl';
 import { MIXED_HIGH, MIXED_LOW } from './thresholds';
+import { tr } from './terms';
+import { vocabBatch } from './vocab';
 import type { DrillInstance, DrillOption, NumericInstance, Position, TextureAxisItem } from './types';
 
 /** Dane potrzebne generatorom poza samym zadaniem (np. zakresy z solvera). */
@@ -49,6 +51,8 @@ export function instantiate(drill: Drill, lessonId: string | null, rng: Rng, cou
   const n = count ?? drill.count;
   if (drill.kind === 'texture') return Array.from({ length: n }, (_, i) => fromTexture(drill, lessonId, rng, i));
   if (drill.kind === 'cbet') return Array.from({ length: n }, (_, i) => fromCbet(drill, lessonId, rng, i));
+  // słownictwo losuje całą serię naraz, żeby ten sam termin nie wypadł dwa razy w jednej lekcji
+  if (drill.generator === 'vocab') return vocabBatch(drill, lessonId, rng, n);
   return Array.from({ length: n }, (_, i) => fromGenerator(drill, lessonId, rng, i, ctx));
 }
 
@@ -204,6 +208,8 @@ function fromGenerator(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: 
       return drawCall(d, lessonId, rng, i);
     case 'icm':
       return d.params.mode === 'equity' ? icmEquity(d, lessonId, rng, i) : icmCall(d, lessonId, rng, i);
+    case 'vocab':
+      return vocabBatch(d, lessonId, rng, 1, i)[0]!;
   }
 }
 
@@ -280,7 +286,7 @@ function bestHand(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: numbe
   const distractors = shuffle(rng, candidates).slice(0, 3);
   const options = shuffle(rng, [correct, ...distractors]).map((cat) => {
     const name = categoryName({ category: cat as (typeof HandCategory)[keyof typeof HandCategory], strength: 9999 });
-    const text = name.charAt(0).toUpperCase() + name.slice(1);
+    const text = capitalize(tr(name));
     return {
       text,
       correct: cat === correct,
