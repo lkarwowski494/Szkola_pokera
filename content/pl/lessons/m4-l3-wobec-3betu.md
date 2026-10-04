@@ -14,7 +14,7 @@ drills:
     table: { position: CO }
     options:
       - { text: "Ok. {{n:mdf.vs-3bet-ip-size}} zakresu otwarcia", correct: true, why: "Button ryzykuje {{n:pf.3bet.ip-total}}, żeby wygrać {{n:vs3bet.win}}. Jeśli pasujesz częściej niż {{n:alpha.vs-3bet-ip-size}}, jego 3-bet zarabia nawet z najgorszą ręką." }
-      - { text: "Ok. połowy zakresu", why: "Za dużo jak na minimum: z matematyki wystarczy {{n:mdf.vs-3bet-ip-size}}. W praktyce otwierający pasuje ok. {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}} otwarć, więc kontynuuje mniej niż połową." }
+      - { text: "Ok. połowy zakresu", why: "Za dużo jak na minimum: z matematyki wystarczy {{n:mdf.vs-3bet-ip-size}}. W praktyce otwierający pasuje ok. {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}} otwarć, więc kontynuuje mniej niż połowę zakresu." }
       - { text: "Zawsze, każdą ręką", why: "Wtedy płacisz 3-bety rękami, które przegrywają z zakresem Buttona. Pas z najsłabszą częścią otwarcia jest poprawny." }
   - kind: choice
     id: m4.l3.q-kjo
@@ -64,7 +64,7 @@ drills:
     table: { hand: "Qs Qh", position: CO }
     options:
       - { text: "4-betuję", correct: true, why: "Upswing 4-betuje QQ (i JJ) w zdecydowanej większości przypadków: Button kontynuuje wieloma słabszymi parami i asami." }
-      - { text: "Sprawdzam", correct: true, why: "Też dobre zagranie: Deepfold umieszcza QQ w zakresie sprawdzenia, żeby nie wyrzucać słabszych rąk Buttona. Źródła grają QQ różnie, więc to ręka mieszana." }
+      - { text: "Sprawdzam", correct: true, why: "Też dobre zagranie: Deepfold umieszcza QQ w zakresie sprawdzenia, żeby nie wyrzucać słabszych rąk Buttona. Źródła się różnią, więc oba zagrania są dobre." }
       - { text: "Pasuję", why: "QQ to trzecia najlepsza ręka preflop. Pas jest dużym błędem." }
   - kind: choice
     id: m4.l3.q-ajs
@@ -80,10 +80,10 @@ drills:
     id: m4.l3.q-size
     family: m4.vs3bet.size
     rules: [R-M4-011]
-    prompt: "Otworzyłeś z Buttona na {{n:pf.open-size}}, mały blind spasował, duży blind przebił do {{n:pf.3bet.oop-total}}. Masz KK i chcesz 4-betować. Do ilu?"
+    prompt: "Otworzyłeś z Buttona na {{n:pf.open-size}}, mały blind przebił do {{n:pf.3bet.oop-total}}, duży blind spasował. Masz KK i chcesz 4-betować. Do ilu?"
     table: { hand: "Kh Kc", position: BTN }
     options:
-      - { text: "Do ok. {{n:pf.4bet.example.low}}–{{n:pf.4bet.example.high}}", correct: true, why: "Z pozycją 4-bet ma ok. {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}} 3-betu. Po sprawdzeniu w stackach zostaje ok. 1,5–2 razy tyle, ile jest w puli." }
+      - { text: "Do ok. {{n:pf.4bet.example.low}}–{{n:pf.4bet.example.high}}", correct: true, why: "Z pozycją 4-bet ma ok. {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}} 3-betu. Gdy mały blind sprawdzi, w puli jest ok. {{n:spr.4bet.pot}}–{{n:spr.4bet.high.pot}} (z martwym dużym blindem), a w stackach zostaje ok. {{n:spr.4bet.high}}–{{n:spr.4bet}} razy tyle, ile jest w puli." }
       - { text: "Do {{n:pf.4bet.too-small}}", why: "Za mało: dajesz rywalowi bardzo dobrą cenę na sprawdzenie bez pozycji." }
       - { text: "All-in za {{n:format.stack}}", why: "Przy stackach {{n:format.stack}} all-in wypycha słabsze ręce, którymi rywal zapłaciłby 4-bet. Zarabiasz mniej." }
 ---
@@ -109,4 +109,4 @@ Z pozycją sprawdzasz także pary od 66 do TT i łączniki w kolorze (T9s, 98s, 
 
 ## 4-bet
 
-AA, KK i AK 4-betujesz dla wartości. QQ i JJ źródła grają różnie: Upswing głównie 4-betuje, Deepfold sprawdza. Jako blef najlepsze są asy w kolorze, na przykład A5s: blokują AA i AK rywala, a po sprawdzeniu mają szansę na kolor i strita. Rozmiar 4-betu to ok. {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}} 3-betu z pozycją i {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} bez pozycji. Po sprawdzeniu w stackach zostaje wtedy ok. 1,5–2 razy tyle, ile jest w puli.
+AA, KK i AK 4-betujesz dla wartości. QQ i JJ źródła grają różnie: Upswing głównie 4-betuje, Deepfold sprawdza. Jako blef najlepsze są asy w kolorze, na przykład A5s: blokują AA i AK rywala, a po sprawdzeniu mają szansę na kolor i strita. Rozmiar 4-betu to ok. {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}} 3-betu z pozycją i {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} bez pozycji. Na przykład gdy z Buttona 4-betujesz 3-bet małego blinda do {{n:pf.3bet.oop-total}} (duży blind spasował), przebijasz do {{n:pf.4bet.example.low}}–{{n:pf.4bet.example.high}}. Po sprawdzeniu w stackach zostaje wtedy ok. {{n:spr.4bet.high}}–{{n:spr.4bet}} razy tyle, ile jest w puli, więc dobre ręce łatwo wpłacą resztę.

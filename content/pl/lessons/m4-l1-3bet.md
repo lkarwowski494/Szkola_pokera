@@ -34,7 +34,7 @@ drills:
     table: { position: SB }
     options:
       - { text: "Przebijam albo pasuję", correct: true, why: "Po sprawdzeniu grasz bez pozycji, a za tobą jest jeszcze duży blind. Z małego blinda wobec późnych otwarć solvery prawie zawsze przebijają albo pasują." }
-      - { text: "Sprawdzam szeroko, bo połowę blinda mam już w puli", why: "Połowa blinda to mało. Sprawdzenie bez pozycji z dużym blindem za plecami realizuje equity słabo." }
+      - { text: "Sprawdzam szeroko, bo połowę blinda mam już w puli", why: "Połowa blinda to mało. Sprawdzenie bez pozycji z dużym blindem za plecami słabo realizuje equity: wygrywasz mniejszą część puli, niż wskazuje equity ręki, bo często pasujesz przed showdownem." }
       - { text: "Zawsze pasuję", why: "Za ciasno: Button otwiera bardzo szeroko, więc z silnymi rękami i częścią blefów warto przebijać." }
   - kind: choice
     id: m4.l1.q-polar
@@ -45,7 +45,7 @@ drills:
     options:
       - { text: "A5 w kolorze", correct: true, why: "Blokuje AA i AK rywala, a po sprawdzeniu ma szansę na kolor i strita. To klasyczny blef w zakresie spolaryzowanym." }
       - { text: "K7 w różnych kolorach", why: "Tą ręką bronisz się sprawdzeniem. Jako 3-bet nie blokuje niczego ważnego i słabo gra, gdy rywal sprawdzi." }
-      - { text: "Para 22", why: "Najmniejsze pary bronią się sprawdzeniem: zarabiają, gdy trafią seta, a 3-bet z nimi źle znosi 4-bet." }
+      - { text: "Para 22", why: "Najmniejsze pary bronią się sprawdzeniem: zarabiają, gdy trafią seta (trójkę z parą w ręce), a 3-bet z nimi źle znosi 4-bet." }
   - kind: generated
     id: m4.l1.g-btn
     family: m4.vsopen.btn-vs-co
@@ -77,7 +77,7 @@ vs-open.btn-vs-co
 
 Solver aplikacji gra tu {{n:solver.play.btn-vs-co}} rąk Buttona. Jego 3-bety mieszczą się w przedziale ze źródeł, a sprawdzeń jest nieco więcej niż w GTO Wizard.
 
-Z małego blinda prawie zawsze przebijasz albo pasujesz. Sprawdzenie oznacza grę bez pozycji, a duży blind za tobą może jeszcze przebić.
+Z małego blinda prawie zawsze przebijasz albo pasujesz. Sprawdzenie oznacza grę bez pozycji, a duży blind za tobą może jeszcze przebić. Bez pozycji ręka gorzej **realizuje equity**: wygrywa mniejszą część puli, niż wskazuje jej equity, bo częściej pasujesz przed showdownem i trudniej ci wygrać pulę zakładem.
 
 ```range
 vs-open.sb-vs-btn
