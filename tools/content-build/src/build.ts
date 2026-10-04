@@ -161,6 +161,9 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
           };
         }
         if (d.kind === 'generated') {
+          if ((d.generator === 'outs' || d.generator === 'drawCall') && d.params.street !== undefined && d.params.street !== 'flop' && d.params.street !== 'turn') {
+            throw new Error(`zadanie ${d.id}: params.street to flop albo turn`);
+          }
           if (d.generator === 'rangeDecision') {
             const list = String(d.params.spots ?? '').split(',').map((x) => x.trim()).filter(Boolean);
             if (list.length === 0) throw new Error(`zadanie ${d.id}: rangeDecision wymaga params.spots`);
@@ -278,7 +281,7 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
     CREATE INDEX drills_family ON drills(family);
     CREATE TABLE rules (id TEXT PRIMARY KEY, module_id TEXT NOT NULL REFERENCES modules(id), level TEXT NOT NULL, if_text TEXT NOT NULL, then_text TEXT NOT NULL, because TEXT NOT NULL, source TEXT NOT NULL, population TEXT);
     CREATE TABLE numbers (key TEXT PRIMARY KEY, value REAL NOT NULL, display TEXT NOT NULL, source TEXT NOT NULL, population TEXT, note TEXT);
-    CREATE TABLE ranges (id TEXT PRIMARY KEY, title TEXT NOT NULL, hero TEXT NOT NULL, path TEXT NOT NULL, play_percent REAL NOT NULL, groups TEXT NOT NULL);
+    CREATE TABLE ranges (id TEXT PRIMARY KEY, title TEXT NOT NULL, hero TEXT NOT NULL, path TEXT NOT NULL, play_percent REAL NOT NULL, groups TEXT NOT NULL, uncertain TEXT NOT NULL);
   `);
   const tx = (fn: () => void) => {
     db.exec('BEGIN');
@@ -302,8 +305,8 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
     for (const r of content.rules) ru.run(r.id, r.module, r.level, r.if, r.then, r.because, r.source, r.population ?? null);
     const nu = db.prepare('INSERT INTO numbers VALUES (?, ?, ?, ?, ?, ?)');
     for (const n of content.numbers) nu.run(n.key, n.value, n.display, n.source, n.population ?? null, n.note ?? null);
-    const ra = db.prepare('INSERT INTO ranges VALUES (?, ?, ?, ?, ?, ?)');
-    for (const r of content.ranges) ra.run(r.id, r.title, r.hero, r.path, r.playPercent, JSON.stringify(r.groups));
+    const ra = db.prepare('INSERT INTO ranges VALUES (?, ?, ?, ?, ?, ?, ?)');
+    for (const r of content.ranges) ra.run(r.id, r.title, r.hero, r.path, r.playPercent, JSON.stringify(r.groups), JSON.stringify(r.uncertain));
   });
   db.exec('VACUUM');
   db.close();

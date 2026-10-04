@@ -1,6 +1,6 @@
 import type { Card } from './cards';
 import { dealCards, rankOf, suitOf } from './cards';
-import { drawOuts, type DrawOuts } from './draws';
+import { drawOuts, hasStraight, type DrawOuts } from './draws';
 import { evaluateHand, type HandCategory, type HandResult } from './evaluate';
 import { hitProbability, requiredEquity } from './math';
 import type { Rng } from './rng';
@@ -116,8 +116,18 @@ export interface OutsSpot {
   draw: DrawOuts;
   outs: number;
   street: 'flop' | 'turn';
-  /** Dokładna szansa trafienia do rivera. */
+  /** Liczba nieznanych kart (47 na flopie, 46 na turnie). */
+  unseen: number;
+  /** Dokładna szansa trafienia na następnej karcie (outy ÷ nieznane karty). */
+  hitNextCard: number;
+  /** Dokładna szansa trafienia do rivera, gdy zobaczysz wszystkie pozostałe karty (na turnie = hitNextCard). */
   hitToRiver: number;
+}
+
+/** Czy któryś out do strita daje strita samemu stołowi (np. stół 5-6-7-8 i out 4 albo 9): wtedy daje co najwyżej podział. */
+export function straightOutPlaysBoard(board: readonly Card[], straightOuts: readonly Card[]): boolean {
+  const boardRanks = board.map(rankOf);
+  return straightOuts.some((c) => hasStraight(new Set([...boardRanks, rankOf(c)])));
 }
 
 export function generateOuts(rng: Rng, kind: DrawKind, street: 'flop' | 'turn' = 'flop'): OutsSpot {
@@ -130,11 +140,22 @@ export function generateOuts(rng: Rng, kind: DrawKind, street: 'flop' | 'turn' =
     if (draw.kind !== kind) return null;
     // dobieranie do koloru musi korzystać z karty gracza, inaczej to „kolor na stole”
     if (draw.flush.length && !hole.some((c) => suitOf(c) === suitOf(draw.flush[0]!))) return null;
+    // out do strita, który daje strita samemu stołowi, nie jest pełnym outem (najwyżej podział puli)
+    if (straightOutPlaysBoard(board, draw.straight)) return null;
     const evaluated = evaluateHand([...hole, ...board]);
     if (evaluated.category <= 4) return null; // już gotowy strit lub lepiej
     const unseen = 52 - 2 - boardSize;
     const outs = draw.all.length;
-    return { hole, board, draw, outs, street, hitToRiver: hitProbability(outs, unseen, street === 'flop' ? 2 : 1) };
+    return {
+      hole,
+      board,
+      draw,
+      outs,
+      street,
+      unseen,
+      hitNextCard: hitProbability(outs, unseen, 1),
+      hitToRiver: hitProbability(outs, unseen, street === 'flop' ? 2 : 1),
+    };
   });
 }
 
@@ -156,29 +177,44 @@ export function generatePotOdds(rng: Rng): PotOddsSpot {
   return { pot, bet, fraction, required: requiredEquity(pot, bet) };
 }
 
-// ---------- Sprawdzić czy spasować z dobieraniem (turn) ----------
+// ---------- Sprawdzić czy spasować z dobieraniem (flop albo turn) ----------
+
+/** Pomijamy decyzje bliżej ceny niż 2 pp, żeby odpowiedź była jednoznaczna bez kalkulatora. */
+export const DRAW_CALL_MIN_GAP = 0.02;
+/**
+ * Szansa niższa od ceny najwyżej o tyle (5 pp) to „trochę za drogo”: wyjaśnienie wspomina wtedy implied odds
+ * i kolejną cenę (założenie dydaktyczne bez źródła; implied odds to M7).
+ */
+export const DRAW_CALL_NEAR_MISS = 0.05;
 
 export interface DrawCallSpot extends OutsSpot {
   pot: number;
   bet: number;
   required: number;
-  /** Poprawna decyzja bez implied odds. */
+  /** Poprawna decyzja bez implied odds: szansa na następnej karcie (hitNextCard) wobec ceny jednego zakładu. */
   correct: 'call' | 'fold';
+  /** Pas, ale szansa jest tylko trochę niższa od ceny (DRAW_CALL_NEAR_MISS). */
+  nearMiss: boolean;
 }
 
-export function generateDrawCall(rng: Rng): DrawCallSpot {
+/**
+ * Zakład trzeba porównać z szansą na jedną kartę: za kolejną kartę (na flopie) zapłacisz osobno,
+ * więc outy ÷ 47 na flopie i outy ÷ 46 na turnie, a nie szansa do rivera.
+ */
+export function generateDrawCall(rng: Rng, street: 'flop' | 'turn' = 'turn'): DrawCallSpot {
   return retry(() => {
     const kind = pick(rng, ['flush', 'oesd', 'gutshot'] as const);
-    const spot = generateOuts(rng, kind, 'turn');
+    const spot = generateOuts(rng, kind, street);
     const potOddsSpot = generatePotOdds(rng);
-    // pomijamy przypadki na granicy (±2 pp), żeby odpowiedź była jednoznaczna bez kalkulatora
-    if (Math.abs(spot.hitToRiver - potOddsSpot.required) < 0.02) return null;
+    const gap = spot.hitNextCard - potOddsSpot.required;
+    if (Math.abs(gap) < DRAW_CALL_MIN_GAP) return null;
     return {
       ...spot,
       pot: potOddsSpot.pot,
       bet: potOddsSpot.bet,
       required: potOddsSpot.required,
-      correct: spot.hitToRiver > potOddsSpot.required ? 'call' : 'fold',
+      correct: gap > 0 ? 'call' : 'fold',
+      nearMiss: gap < 0 && -gap <= DRAW_CALL_NEAR_MISS,
     };
   });
 }

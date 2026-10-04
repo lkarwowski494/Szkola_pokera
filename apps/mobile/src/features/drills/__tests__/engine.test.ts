@@ -1,11 +1,12 @@
 /// <reference types="jest" />
 import type { Drill } from '@szkola/content-schema';
-import { combosCount, createRng, HAND_CLASSES } from '@szkola/poker-core';
+import { classOf, combosCount, createRng, HAND_CLASSES, parseCard } from '@szkola/poker-core';
 import type { DrillRow, RangeSpot } from '@/data/content/repo';
 import { buildExamSession, buildFamilySession, buildSpeedSession, interleaveRows } from '@/features/session/build';
 import { instantiate } from '../engine';
 import { gradeAnswer, gradeNumeric, parseNumberInput, scorePaint } from '../grade';
 import { splitCardTokens } from '../cardTokens';
+import { pctEquity } from '../text.pl';
 import { EXAM_SIZE, MIXED_HIGH, MIXED_LOW, PAINT_PASS } from '../thresholds';
 import type { ChoiceInstance, DrillInstance, NumericInstance } from '../types';
 
@@ -93,6 +94,17 @@ describe('zadania z zakresów solvera', () => {
     }
   });
 
+  it('klasy niepewne spotu nie pojawiają się w zadaniach z decyzją', () => {
+    // AA i AKs to jedyne ręce grane; AKs niepewna, więc wśród rąk granych zostaje tylko AA
+    const spot = testSpot({ uncertain: ['AKs', 'AKo'] });
+    const drill: Drill = { kind: 'generated', id: 'r', family: 'r', rules: [], generator: 'rangeDecision', params: { spots: 's' }, count: 200 };
+    for (const raw of instantiate(drill, 'l', createRng(13), undefined, { range: () => spot })) {
+      const [a, b] = asChoice(raw).table!.hand!;
+      const hc = classOf(parseCard(a!), parseCard(b!));
+      expect(['AKs', 'AKo']).not.toContain(hc);
+    }
+  });
+
   it('błędny rozmiar: przy dobrej akcji to niedokładność, przy złej zwykły błąd', () => {
     const spot = testSpot({ groups: [{ ...testSpot().groups[0]!, wrongSizes: [{ text: 'Przebicie za duże', why: 'Za duży rozmiar.' }] }] });
     const ctx = { range: () => spot };
@@ -177,6 +189,17 @@ describe('malowanie zakresu', () => {
     expect(a.cells[idx('AKo')]).toBe('none'); // 10% < MIXED_LOW: pas, poprawnie niezaznaczony
     expect(MIXED_LOW).toBeLessThan(0.5);
     expect(MIXED_HIGH).toBeGreaterThan(0.5);
+  });
+
+  it('klasy niepewne liczą się jak mieszane: zaliczone w obie strony', () => {
+    const u = testSpot({ uncertain: ['AA', '72o'] });
+    for (const painted of [grid([]), grid(['AA', '72o']), grid(['72o'])]) {
+      const r = scorePaint(u, painted);
+      expect(r.cells[idx('AA')]).toBe('mixed');
+      expect(r.cells[idx('72o')]).toBe('mixed');
+      expect(r.score).toBe(1);
+      expect(r.targetCombos).toBe(0);
+    }
   });
 
   it('wynik ważony kombinacjami; brak i nadmiar obniżają wynik', () => {
@@ -326,5 +349,59 @@ describe('flop: tekstura i c-bet (M5)', () => {
     ];
     const s = buildFamilySession(rows, ['cb', 'tx'], createRng(2), 3);
     expect(s).toHaveLength(6);
+  });
+});
+
+describe('teksty generatorów (audyt A-GEN-02, K5)', () => {
+  it('nazwy układów w bierniku po „Obaj macie”', () => {
+    const rng = createRng(17);
+    let seen = 0;
+    for (let i = 0; i < 400 && seen < 30; i++) {
+      for (const raw of instantiate(gen('whoWins'), 'l', rng)) {
+        const e = raw.explanation ?? '';
+        const m = e.match(/Obaj macie ([^,]+),/);
+        if (!m) continue;
+        seen++;
+        expect(['pokera', 'pokera królewskiego', 'karetę', 'fulla', 'kolor', 'strita', 'trójkę', 'dwie pary', 'parę', 'wysoką kartę']).toContain(m[1]);
+      }
+    }
+    expect(seen).toBeGreaterThan(0);
+  });
+
+  it('kicker: decyduje pierwsza różniąca się karta boczna', () => {
+    const inst = instantiate(gen('whoWinsKicker'), 'l', createRng(2))[0]!;
+    expect(inst.explanation).toContain('pierwsza różniąca się karta boczna (kicker)');
+  });
+
+  it('pot odds: pełne procenty jak eq.* w numbers.yaml (33%, 37,5%), bez MDF w M2', () => {
+    expect(pctEquity(1 / 3)).toBe('33%');
+    expect(pctEquity(0.375)).toBe('37,5%');
+    expect(pctEquity(0.25)).toBe('25%');
+    expect(pctEquity(2 / 7)).toBe('29%');
+    for (const raw of instantiate(gen('potOdds'), 'l', createRng(8))) {
+      const inst = asChoice(raw);
+      for (const o of inst.options) {
+        expect(o.text).toMatch(/^\d+(,5)?%$/);
+        expect(o.why).not.toContain('MDF');
+      }
+    }
+  });
+
+  it('drawCall: szansa na jedną kartę (÷47 na flopie, ÷46 na turnie) i wzmianka o implied odds przy małej różnicy', () => {
+    let near = 0;
+    for (const street of ['flop', 'turn'] as const) {
+      for (const raw of instantiate(gen('drawCall', { street }), 'l', createRng(31), 80)) {
+        const inst = asChoice(raw);
+        expect(inst.prompt.startsWith(street === 'flop' ? 'Flop.' : 'Turn.')).toBe(true);
+        expect(inst.table!.board).toHaveLength(street === 'flop' ? 3 : 4);
+        expect(inst.explanation).toContain(`z ${street === 'flop' ? 47 : 46} nieznanych kart`);
+        expect(inst.explanation).toContain('szansa na jedną kartę');
+        if (inst.explanation!.includes('implied odds')) {
+          near++;
+          expect(inst.options.find((o) => o.correct)!.text).toBe('Pasuję');
+        }
+      }
+    }
+    expect(near).toBeGreaterThan(0);
   });
 });

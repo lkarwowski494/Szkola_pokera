@@ -82,7 +82,7 @@ drills:
           check: "Za ostrożnie: na suchym, wysokim flopie masz przewagę zakresu, a rywal zwykle chybił. Czekając, dajesz mu darmową kartę."
           small: "Tak: suchy, wysoki flop sprzyja tobie. Mały zakład wystarcza, żeby rywal spasował słabe ręce, a gorsze pary wciąż go sprawdzą."
           big: "Dobra akcja, zły rozmiar: rywal nie ma tu dobierań, którym trzeba odebrać equity, a na duży zakład spasuje też ręce, które sprawdziłyby mały. Betuj ok. {{n:cbet.size.small}} puli."
-      - when: { height: [low], suits: [rainbow, two-tone], ranks: [connected] }
+      - when: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
         best: check
         rule: R-M5-004
         why:
