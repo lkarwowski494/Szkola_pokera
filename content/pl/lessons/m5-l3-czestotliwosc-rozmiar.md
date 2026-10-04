@@ -119,6 +119,8 @@ Na flopie takim jak [[Jh Th 8c]] rywal ma wiele dobierań do koloru i strita. Si
 
 Na sparowanym flopie, np. [[Qd Qs 6h]], masz przewagę zakresu, a trudno o dobieranie, więc rywal bez pary rzadko może sprawdzić. Betujesz często i mało: duży zakład się nie opłaca, bo trójkę może mieć każdy z was. Na monotonicznym flopie, np. [[Kh 8h 3h]], kolor może mieć już każdy, więc betujesz rzadziej niż zwykle i mało.
 
+Uwaga: „mokry” nie znaczy „duży bet”. Monotoniczny flop jest w aplikacji zawsze mokry, a mimo to solver betuje na nim rzadko i małym rozmiarem (GTO Wizard). Rozmiar rośnie z mokrością tylko do pewnego poziomu: na najbardziej mokrych flopach, takich jak [[Qd 8d 7d]], znowu spada. Większy rozmiar z poprzedniej sekcji dotyczy mokrych flopów, które nie są monotoniczne.
+
 ## Niski z kartami blisko siebie: częściej czekasz
 
 Na [[7s 6h 5d]] to duży blind częściej ma dwie pary albo strita (lekcja o przewagach). Podobnie na innych niskich flopach połączonych i półpołączonych. C-betujesz rzadziej niż na wysokich flopach: wiele rąk czeka, a betują głównie bardzo silne ręce i mocne dobierania.
@@ -128,5 +130,5 @@ Na [[7s 6h 5d]] to duży blind częściej ma dwie pary albo strita (lekcja o prz
 Zakład (bet) bez żadnej ręki wychodzi na zero, gdy rywal pasuje w bet ÷ (pula + bet) przypadków. Przy {{n:cbet.size.small}} puli to {{n:alpha.cbet.small}}, przy {{n:cbet.size.big}} puli już {{n:alpha.cbet.big}}. Ręka bez pary chybia flop w ok. {{n:flop.miss.unpaired}} przypadków, dlatego mały c-bet tak często się opłaca.
 
 :::note Skąd te zasady
-Kierunki (suchy flop: mało i często, mokry: więcej i rzadziej, sparowany: mało, monotoniczny: rzadziej) to ogólne zasady z literatury (Upswing, PokerCoaching, GTO Wizard, GTO Gecko), oznaczone jako heurystyki. Rozmiary {{n:cbet.size.small}} i {{n:cbet.size.big}} puli to przykłady z przedziałów podanych wyżej (Upswing, Bet Sizing Strategy: 8 Rules; GTO Wizard). Aplikacja nie podaje, jak często betować w procentach, bo takie liczby pochodzą z wyników solverów.
+Kierunki (suchy flop: mało i często, mokry: więcej i rzadziej, sparowany: mało, monotoniczny: rzadziej i mało) to ogólne zasady z literatury (Upswing, PokerCoaching, GTO Wizard, GTO Gecko), oznaczone jako heurystyki. Rozmiary {{n:cbet.size.small}} i {{n:cbet.size.big}} puli to przykłady z przedziałów podanych wyżej (Upswing, Bet Sizing Strategy: 8 Rules; GTO Wizard). Aplikacja nie podaje, jak często betować w procentach, bo takie liczby pochodzą z wyników solverów.
 :::

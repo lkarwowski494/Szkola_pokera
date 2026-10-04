@@ -18,7 +18,8 @@ export const NumberEntry = z
     /** Wartość podana wprost (np. z badań). */
     value: z.number().optional(),
     /** Wartość wyliczana przy budowie przez poker-core (np. requiredEquity(100, 50)). */
-    formula: z.enum(['requiredEquity', 'mdf', 'alpha', 'hitProbability', 'ruleOf2And4', 'rangePlay', 'product', 'sum', 'diff', 'missProbability', 'quotient', 'geometric']).optional(),
+    formula: z.enum(['requiredEquity', 'mdf', 'alpha', 'hitProbability', 'ruleOf2And4', 'rangePlay', 'product', 'sum', 'diff', 'missProbability', 'quotient', 'geometric', 'flopWetnessShare']).optional(),
+    /** Argumenty formuły; flopWetnessShare: [i], odsetek wszystkich flopów o mokrości FLOP_WETNESS[i] (0 suchy, 1 pośredni, 2 mokry). */
     args: z.array(z.number()).optional(),
     /**
      * Klucze innych liczb zamiast wpisanych wartości (jedno źródło prawdy): dla product, sum, diff (pierwsza minus

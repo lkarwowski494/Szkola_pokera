@@ -178,21 +178,27 @@ cbet.oop.a94.bet: { formula: diff, refs: [prob.certain, cbet.oop.a94.check], uni
 cbet.solver.big.low: { value: 0.66, unit: percent, source: "GTO Wizard, Flop Heuristics: IP C-Betting in Cash Games („increased use of the 66% pot bet size”)" }
 # Mokrość flopa: te same wagi i progi co WETNESS_POINTS i WETNESS_THRESHOLDS w packages/poker-core/src/texture.ts
 # (zgodność pilnuje test w tools/content-build). Zmiana wag: najpierw kod, potem te wartości.
-tex.points.straight.made: { value: 3, unit: count, source: "definicja aplikacji: WETNESS_POINTS.straight.made (strit możliwy już na flopie)" }
+tex.points.straight.made: { value: 3, unit: count, source: "definicja aplikacji: WETNESS_POINTS.straight.made (strit możliwy w co najmniej dwóch oknach pięciu rang, czyli z co najmniej dwiema parami rang, np. 987, QJT, 986; decyzja D-39, dokument 12 M4–M6)" }
+tex.points.straight.made-one: { value: 2, unit: count, source: "definicja aplikacji: WETNESS_POINTS.straight['made-one'] (strit możliwy w dokładnie jednym oknie pięciu rang, czyli z jedną parą rang, np. AKT, A42, T86; decyzja D-39)" }
 tex.points.straight.draw: { value: 1, unit: count, source: "definicja aplikacji: WETNESS_POINTS.straight.draw (możliwe tylko dobieranie do strita)" }
 tex.points.straight.none: { value: 0, unit: count, source: "definicja aplikacji: WETNESS_POINTS.straight.none" }
 tex.points.suits.rainbow: { value: 0, unit: count, source: "definicja aplikacji: WETNESS_POINTS.suits.rainbow" }
 tex.points.suits.two-tone: { value: 1, unit: count, source: "definicja aplikacji: WETNESS_POINTS.suits['two-tone']" }
-tex.points.suits.monotone: { value: 2, unit: count, source: "definicja aplikacji: WETNESS_POINTS.suits.monotone" }
+tex.points.suits.monotone: { value: 3, unit: count, source: "definicja aplikacji: WETNESS_POINTS.suits.monotone (monotoniczny zawsze mokry; decyzja D-39, było 2)" }
 tex.threshold.medium: { value: 2, unit: count, source: "definicja aplikacji: WETNESS_THRESHOLDS.medium (od tylu punktów flop jest pośredni)" }
 tex.threshold.wet: { value: 3, unit: count, source: "definicja aplikacji: WETNESS_THRESHOLDS.wet (od tylu punktów flop jest mokry)" }
 tex.ex.k72: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.none], unit: count, source: "obliczenie: Ks 7d 2c, tęczowy, bez strita i bez dobierania do strita" }
+tex.ex.k72-two-tone: { formula: sum, refs: [tex.points.suits.two-tone, tex.points.straight.none], unit: count, source: "obliczenie: Kh 7h 2c, dwukolorowy, bez strita i bez dobierania do strita (D-39: suchy)" }
 tex.ex.qq6: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.none], unit: count, source: "obliczenie: Qd Qs 6h, tęczowy, sparowany, bez dobierania do strita" }
 tex.ex.kq4: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.draw], unit: count, source: "obliczenie: Kh Qd 4c, tęczowy, półpołączony" }
 tex.ex.j74: { formula: sum, refs: [tex.points.suits.two-tone, tex.points.straight.draw], unit: count, source: "obliczenie: Jh 7h 4s, dwukolorowy, półpołączony" }
-tex.ex.k83: { formula: sum, refs: [tex.points.suits.monotone, tex.points.straight.none], unit: count, source: "obliczenie: Kh 8h 3h, monotoniczny, rozłączony" }
-tex.ex.987: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.made], unit: count, source: "obliczenie: 9h 8d 7c, tęczowy, połączony" }
-tex.ex.jt8: { formula: sum, refs: [tex.points.suits.two-tone, tex.points.straight.made], unit: count, source: "obliczenie: Jh Th 8c, dwukolorowy, połączony" }
+tex.ex.akt: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.made-one], unit: count, source: "obliczenie: Ah Kd Tc, tęczowy, strit tylko z QJ (jedno okno; D-39: pośredni)" }
+tex.ex.k83: { formula: sum, refs: [tex.points.suits.monotone, tex.points.straight.none], unit: count, source: "obliczenie: Kh 8h 3h, monotoniczny, rozłączony (D-39: mokry)" }
+tex.ex.987: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.made], unit: count, source: "obliczenie: 9h 8d 7c, tęczowy, strit z JT, T6 albo 65 (trzy okna)" }
+tex.ex.jt8: { formula: sum, refs: [tex.points.suits.two-tone, tex.points.straight.made], unit: count, source: "obliczenie: Jh Th 8c, dwukolorowy, strit z Q9 albo 97 (dwa okna)" }
+tex.share.dry: { formula: flopWetnessShare, args: [0], unit: percent, source: "obliczenie (poker-core, classifyFlop): odsetek flopów suchych wśród wszystkich 22 100 flopów; wynik definicji aplikacji, źródła nie podają takiego rozkładu (raport 12a-22)" }
+tex.share.medium: { formula: flopWetnessShare, args: [1], unit: percent, source: "obliczenie (poker-core, classifyFlop): odsetek flopów pośrednich wśród wszystkich 22 100 flopów; wynik definicji aplikacji (raport 12a-22)" }
+tex.share.wet: { formula: flopWetnessShare, args: [2], unit: percent, source: "obliczenie (poker-core, classifyFlop): odsetek flopów mokrych wśród wszystkich 22 100 flopów; wynik definicji aplikacji (raport 12a-22)" }
 cbet.ex.small: { formula: product, refs: [ex.pot, cbet.size.small], unit: count, source: "obliczenie: c-bet 1/3 puli przy puli 100" }
 cbet.ex.big: { formula: product, refs: [ex.pot, cbet.size.big], unit: count, source: "obliczenie: duży c-bet przy puli 100" }
 alpha.cbet.small: { formula: alpha, refs: [ex.pot, cbet.ex.small], unit: percent, source: "obliczenie: zakład / (pula + zakład)" }
