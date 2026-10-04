@@ -57,9 +57,14 @@
   title: "Mały blind, Button otworzył na 2,5bb"
   hero: SB
   path: "UTG:fold,HJ:fold,CO:fold,BTN:raise2.5"
-  # skład 3-betów z blindów odbiega od literatury (liniowy zamiast spolaryzowanego), więc pokazujemy tylko „gram / pas”
-  # (decyzja właściciela 3 października 2026); łączna częstość jest zwalidowana
-  groups: { "Gram (głównie 3-bet do 10bb)": ["raise 10", "call 2.5"] }
+  # „3-bet / pas” (decyzja właściciela 4 października 2026, B-045): solvery grają tu 3-bet albo pas, a łączna częstość
+  # i skład 3-betu kanonu zgadzają się z GTO Wizard (Crush 3-Bet Pots OOP, SB vs BTN 14%) poza rękami niżej.
+  # Sprawdzenia kanonu (ok. 3%) liczą się w siatce jako pas.
+  groups: { "3-bet do 10bb": ["raise 10"] }
+  # Klasy niepewne tego spotu: 55, 66, A9o, A4s i T9s kanon gra inaczej niż GTO Wizard (różnica ponad 50 pp,
+  # dokument 10, B-045); 22–44, A3s, A2s, QJs, QTs i JTs kanon głównie sprawdza, a siatka „3-bet / pas” nie ma
+  # sprawdzenia. W zadaniach się nie pojawiają, w malowaniu są zaliczane w obie strony.
+  uncertain: ["22", "33", "44", "55", "66", A9o, A4s, A3s, A2s, T9s, QJs, QTs, JTs]
 - id: vs-open.bb-vs-btn
   title: "Duży blind, Button otworzył na 2,5bb, mały blind spasował"
   hero: BB
