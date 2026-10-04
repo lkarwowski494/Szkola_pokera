@@ -1,5 +1,6 @@
 import { alpha, geometricFraction, hitProbability, mdf, missProbability, requiredEquity, ruleOf2And4 } from '@szkola/poker-core';
 import type { NumberEntry } from '@szkola/content-schema';
+import { icmEquities } from './icm';
 
 export interface ResolvedNumber {
   key: string;
@@ -19,6 +20,16 @@ function compute(key: string, e: NumberEntry, spots: SpotLookup | undefined, ref
     if (e.formula === 'product') return vals.reduce((a, b) => a * b, 1);
     if (e.formula === 'sum') return vals.reduce((a, b) => a + b, 0);
     return vals.slice(1).reduce((a, b) => a - b, vals[0]!);
+  }
+  if (e.formula === 'icm') {
+    // refs: stacki wszystkich graczy, potem wypłaty za kolejne miejsca; args: [liczba graczy, indeks gracza od 0]
+    const r = (e.refs ?? []).map(ref);
+    const [players, index] = e.args ?? [];
+    if (players === undefined || index === undefined || e.args!.length !== 2) throw new Error(`Liczba "${key}": formuła icm wymaga args [liczba graczy, indeks gracza]`);
+    if (!Number.isInteger(players) || players < 2 || r.length <= players || !Number.isInteger(index) || index < 0 || index >= players) {
+      throw new Error(`Liczba "${key}": formuła icm wymaga refs: stacki ${players} graczy i co najmniej jednej wypłaty, indeks gracza 0–${players - 1}`);
+    }
+    return icmEquities(r.slice(0, players), r.slice(players))[index]!;
   }
   if (e.refs && e.args) throw new Error(`Liczba "${key}": podaj args albo refs, nie oba`);
   if (e.formula === 'rangePlay') {

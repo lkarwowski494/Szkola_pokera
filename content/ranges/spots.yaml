@@ -75,3 +75,55 @@
   hero: BB
   path: "UTG:fold,HJ:fold,CO:fold,BTN:fold,SB:raise3"
   groups: { "Bronię (sprawdzenie albo 3-bet)": ["call 3", "raise 9"] }
+
+# M11: push/fold heads-up (mały blind kontra duży blind) z pliku pushfold-hu.json, policzonego skryptem
+# tools/preflop-solver/scripts/pushfold-ranges.ts na drzewie zwalidowanym z równowagą Nasha (dokument 10: 10bb bez ante).
+# Gra tylko all-in albo pas (uproszczenie: pełne solvery przy tych stackach część rąk limpują albo podbijają minimalnie).
+- id: push.sb-5
+  title: "Mały blind, stack 5bb, wszyscy spasowali. All-in czy pas?"
+  hero: SB
+  solver: pushfold-hu.json
+  path: "5bb|"
+  groups: { "All-in": ["all-in"] }
+- id: push.sb-10
+  title: "Mały blind, stack 10bb, wszyscy spasowali. All-in czy pas?"
+  hero: SB
+  solver: pushfold-hu.json
+  path: "10bb|"
+  groups: { "All-in": ["all-in"] }
+- id: push.sb-15
+  title: "Mały blind, stack 15bb, wszyscy spasowali. All-in czy pas?"
+  hero: SB
+  solver: pushfold-hu.json
+  path: "15bb|"
+  groups: { "All-in": ["all-in"] }
+- id: push.sb-10-ante
+  title: "Mały blind, stack 10bb, duży blind wpłacił ante 1bb, wszyscy spasowali. All-in czy pas?"
+  hero: SB
+  solver: pushfold-hu.json
+  path: "10bb-ante|"
+  groups: { "All-in": ["all-in"] }
+- id: call.bb-5
+  title: "Duży blind, stack 5bb. Mały blind wszedł all-in. Sprawdzasz czy pasujesz?"
+  hero: BB
+  solver: pushfold-hu.json
+  path: "5bb|SB:allin"
+  groups: { "Sprawdzam": ["call"] }
+- id: call.bb-10
+  title: "Duży blind, stack 10bb. Mały blind wszedł all-in. Sprawdzasz czy pasujesz?"
+  hero: BB
+  solver: pushfold-hu.json
+  path: "10bb|SB:allin"
+  groups: { "Sprawdzam": ["call"] }
+- id: call.bb-15
+  title: "Duży blind, stack 15bb. Mały blind wszedł all-in. Sprawdzasz czy pasujesz?"
+  hero: BB
+  solver: pushfold-hu.json
+  path: "15bb|SB:allin"
+  groups: { "Sprawdzam": ["call"] }
+- id: call.bb-10-ante
+  title: "Duży blind, stack 10bb, wpłaciłeś ante 1bb. Mały blind wszedł all-in. Sprawdzasz czy pasujesz?"
+  hero: BB
+  solver: pushfold-hu.json
+  path: "10bb-ante|SB:allin"
+  groups: { "Sprawdzam": ["call"] }

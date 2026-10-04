@@ -18,12 +18,13 @@ export const NumberEntry = z
     /** Wartość podana wprost (np. z badań). */
     value: z.number().optional(),
     /** Wartość wyliczana przy budowie przez poker-core (np. requiredEquity(100, 50)). */
-    formula: z.enum(['requiredEquity', 'mdf', 'alpha', 'hitProbability', 'ruleOf2And4', 'rangePlay', 'product', 'sum', 'diff', 'missProbability', 'quotient', 'geometric']).optional(),
+    formula: z.enum(['requiredEquity', 'mdf', 'alpha', 'hitProbability', 'ruleOf2And4', 'rangePlay', 'product', 'sum', 'diff', 'missProbability', 'quotient', 'geometric', 'icm']).optional(),
     args: z.array(z.number()).optional(),
     /**
      * Klucze innych liczb zamiast wpisanych wartości (jedno źródło prawdy): dla product, sum, diff (pierwsza minus
      * pozostałe) oraz zamiast args dla requiredEquity, mdf i alpha (pula, zakład) i missProbability (outy, karty nieznane,
-     * liczba odkrywanych kart).
+     * liczba odkrywanych kart). Dla icm (M11): stacki graczy, potem wypłaty za kolejne miejsca, a args = [liczba graczy,
+     * indeks gracza]; wynik to equity gracza w modelu Malmutha-Harville'a (w jednostkach wypłat).
      */
     refs: z.array(z.string()).optional(),
     /** Dla formuły rangePlay: identyfikator spotu z content/ranges/spots.yaml. */
@@ -261,6 +262,11 @@ export const RangeSpotDef = z.object({
    * odwołują się do jednej listy (kotwica YAML w spots.yaml); spot SB wobec Buttona ma własną listę (B-045).
    */
   uncertain: z.array(z.string()).optional(),
+  /**
+   * Plik wyniku solvera w content/ranges (domyślnie preflop-6max-100bb.json). M11: pushfold-hu.json, zakresy push/fold
+   * heads-up z drzewa walidacyjnego (tools/preflop-solver/scripts/pushfold-ranges.ts).
+   */
+  solver: z.string().regex(/^[a-z0-9][a-z0-9.\-]*\.json$/, 'nazwa pliku .json w content/ranges').optional(),
 });
 export type RangeSpotDef = z.infer<typeof RangeSpotDef>;
 export const RangeSpotsFile = z.array(RangeSpotDef);
