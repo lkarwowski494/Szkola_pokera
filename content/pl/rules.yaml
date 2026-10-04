@@ -1,4 +1,10 @@
 # Reguły odruchowe „Jeśli X, to Y, bo Z”. Poziom: rules (zasady gry), math, gto, heuristic, exploit.
+# Kryteria poziomów (S-05, audyt 4.10):
+#   math      – twierdzenie, które samo jest rachunkiem (outy, szanse, cena sprawdzenia, znak EV, dominacja jednej akcji nad drugą);
+#   heuristic – zalecenie wyprowadzone z rachunku albo z literatury, bez wyniku solvera;
+#   gto       – opublikowany wynik solvera albo rozwiązania równowagi;
+#   exploit   – dostosowanie do typu gracza; musi podać populację;
+#   rules     – zasady gry i definicje.
 # Reguła eksploatacyjna musi podać populację źródłową (walidacja w content-build).
 
 - id: R-M0-001
@@ -10,9 +16,9 @@
   source: "zasady Texas Hold'em"
 - id: R-M0-002
   module: m0
-  if: "obaj gracze mają tę samą parę"
-  then: "wygrywa wyższy kicker, o ile mieści się w najlepszych 5 kartach; inaczej pula jest dzielona"
-  because: "liczy się tylko najlepsza piątka z 7 kart"
+  if: "obaj gracze mają ten sam rdzeń układu: tę samą parę, trójkę albo te same dwie pary"
+  then: "decydują kickery, porównywane kolejno od najwyższego, ale tylko te, które mieszczą się w najlepszych 5 kartach; jeśli piątki są identyczne, pula jest dzielona"
+  because: "najpierw liczy się ranga układu, potem jego wysokość, a kickery dopiero przy identycznym rdzeniu; liczy się tylko najlepsza piątka z 7 kart"
   level: rules
   source: "zasady Texas Hold'em"
 - id: R-M0-003
@@ -35,8 +41,8 @@
   if: "możesz czekać za darmo"
   then: "nigdy nie pasujesz"
   because: "pas oddaje pulę bez żadnej korzyści, a czekanie nic nie kosztuje"
-  level: rules
-  source: "zasady Texas Hold'em"
+  level: math
+  source: "obliczenie: czekanie kosztuje 0 i zachowuje szansę na pulę, więc nigdy nie jest gorsze od pasa"
 - id: R-M1-003
   module: m1
   if: "ktoś postawił, a nie chcesz grać dalej"
@@ -44,61 +50,68 @@
   because: "tracisz tylko to, co już wpłaciłeś; każde sprawdzenie bez powodu to dodatkowa strata"
   level: rules
   source: "zasady Texas Hold'em"
+- id: R-M1-004
+  module: m1
+  if: "rozdanie przechodzi do kolejnej rundy licytacji"
+  then: "flop to 3 karty wspólne, turn i river po jednej; po licytacji na riverze gracze, którzy zostali (co najmniej dwóch), odkrywają karty (showdown)"
+  because: "takie są zasady Texas Hold'em: cztery rundy licytacji, a river jest ostatnią"
+  level: rules
+  source: "zasady Texas Hold'em"
 
 - id: R-M2-001
   module: m2
   if: "na flopie masz {{n:draw.flush.seen}} karty do koloru"
-  then: "masz {{n:outs.flush}} outów i ok. {{n:odds.flush.flop-river}} szans na kolor do rivera"
-  because: "w kolorze jest {{n:cards.per-suit}} kart, {{n:draw.flush.seen}} widzisz; dwie karty przed tobą"
+  then: "masz {{n:outs.flush}} outów: ok. {{n:odds.flush.flop-turn}} szans na kolor na turnie, a ok. {{n:odds.flush.flop-river}} do rivera tylko wtedy, gdy zobaczysz obie karty bez dalszych zakładów (all-in)"
+  because: "w kolorze jest {{n:cards.per-suit}} kart, {{n:draw.flush.seen}} widzisz; sprawdzenie zakładu na flopie kupuje tylko jedną kartę"
   level: math
   source: "obliczenie dokładne"
 - id: R-M2-002
   module: m2
   if: "masz policzone outy"
-  then: "szacujesz szansę: outy × 2 przy jednej karcie, outy × 4 przy dwóch"
-  because: "reguła 2 i 4 myli się o ok. 2 punkty procentowe przy maks. 10 outach"
+  then: "szacujesz szansę trafienia: outy × 2 przy jednej karcie, outy × 4 przy dwóch; przy zakładzie na flopie liczysz jedną kartę (× 2), a × 4 tylko wtedy, gdy zobaczysz turn i river bez dalszych zakładów (all-in)"
+  because: "za rivera rywal może kazać ci zapłacić osobno; reguła 2 i 4 myli się o ok. 2 punkty procentowe przy maks. 10 outach"
   level: math
   source: "Upswing, outy i szanse (dokument 08)"
 - id: R-M2-003
   module: m2
   if: "przeciwnik betuje pół puli"
   then: "do sprawdzenia potrzebujesz {{n:eq.bet-half}} equity"
-  because: "płacisz 1 część, żeby wygrać pulę 3 części razem z twoim sprawdzeniem"
+  because: "płacisz 1 część, a pula po twoim sprawdzeniu ma 4 części (pula 2, bet 1, twoje sprawdzenie 1), więc potrzebujesz 1 z 4 części"
   level: math
   source: "obliczenie: bet/(pula+2·bet)"
 - id: R-M2-004
   module: m2
   if: "przeciwnik betuje całą pulę"
   then: "do sprawdzenia potrzebujesz {{n:eq.bet-pot}} equity"
-  because: "płacisz 1 część, żeby wygrać 3"
+  because: "płacisz 1 część, a pula po twoim sprawdzeniu ma 3 części (pula 1, bet 1, twoje sprawdzenie 1), więc potrzebujesz 1 z 3 części"
   level: math
   source: "obliczenie: bet/(pula+2·bet)"
 - id: R-M2-005
   module: m2
-  if: "twoja szansa jest mniejsza niż potrzebne equity"
+  if: "twoje equity jest mniejsze niż potrzebne equity (przy dobieraniu: szansa trafienia na kartach, które zobaczysz za tę cenę)"
   then: "pasujesz (bez dodatkowych argumentów, np. implied odds)"
   because: "każde takie sprawdzenie traci pieniądze w długim terminie"
   level: math
-  source: "obliczenie EV: equity × pula − koszt"
+  source: "obliczenie: EV = equity × (pula po twoim sprawdzeniu) − sprawdzenie; ujemne, gdy equity < sprawdzenie ÷ pula po twoim sprawdzeniu"
 
 - id: R-M3-001
   module: m3
   if: "jesteś na Buttonie"
-  then: "grasz najszerzej, bo od flopu mówisz ostatni"
+  then: "otwierasz najszerzej spośród pozycji wchodzących jako pierwsze, bo od flopu mówisz ostatni"
   because: "znasz decyzje wszystkich rywali przed swoją"
   level: gto
   source: "GTO Wizard, morfologia zakresów (dokument 08)"
 - id: R-M3-002
   module: m3
   if: "wszyscy spasowali do ciebie na UTG"
-  then: "otwierasz ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk, na {{n:pf.open-size}}"
+  then: "otwierasz ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk"
   because: "za tobą jest jeszcze pięciu graczy, więc ktoś częściej ma lepszą rękę"
   level: gto
   source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08)"
 - id: R-M3-003
   module: m3
   if: "wszyscy spasowali do ciebie na Buttonie"
-  then: "otwierasz ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk, na {{n:pf.open-size}}"
+  then: "otwierasz ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk"
   because: "zostały tylko blindy, a po flopie będziesz mieć pozycję"
   level: gto
   source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08)"
@@ -116,6 +129,27 @@
   because: "daje dodatkową drogę do wygranej przez kolor"
   level: math
   source: "obliczenie equity"
+- id: R-M3-006
+  module: m3
+  if: "wszyscy spasowali do ciebie na HJ (Hijack) albo CO (Cutoff)"
+  then: "otwierasz szerzej niż z UTG, a węziej niż z Buttona; z CO szerzej niż z HJ"
+  because: "im mniej graczy zostało za tobą, tym rzadziej ktoś ma lepszą rękę i tym częściej po flopie masz pozycję"
+  level: gto
+  source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08): zakres otwarcia rośnie od UTG do Buttona"
+- id: R-M3-007
+  module: m3
+  if: "wchodzisz do rozdania jako pierwszy przebiciem"
+  then: "przebijasz do {{n:pf.open-size}} z każdej pozycji, a z małego blinda do {{n:pf.open-size-sb}}"
+  because: "jeden rozmiar z każdej pozycji jest prosty i nie zdradza siły ręki; z małego blinda grasz bez pozycji, więc przebijasz trochę więcej"
+  level: heuristic
+  source: "standard uproszczony: FreeBetRange, PokerCoaching (dokument 08)"
+- id: R-M3-008
+  module: m3
+  if: "masz rękę z grupy najmocniejszych (AA, KK, QQ, AK), a ktoś przed tobą przebił"
+  then: "przebijasz ponownie (3-bet) dla wartości, zamiast tylko sprawdzać"
+  because: "te ręce są faworytem wobec większości rąk, którymi rywal otwiera; 3-bet buduje pulę i zmniejsza liczbę rywali"
+  level: heuristic
+  source: "lekcja m3.l2 (grupy rąk); zgodne z R-M4-010 (AA, KK i AK grają o cały stack) [do weryfikacji źródłem dla QQ i AK wobec wczesnych pozycji]"
 
 # M4: gra wobec akcji preflop. Reguły „heuristic” pochodzą z literatury, nie z solvera aplikacji (dokument 11).
 - id: R-M4-001
@@ -144,7 +178,7 @@
   if: "jesteś na dużym blindzie, Button otworzył na {{n:pf.open-size}}, a mały blind spasował"
   then: "bronisz szeroko, bo do sprawdzenia potrzebujesz tylko ok. {{n:eq.bb-vs-btn-open}} equity"
   because: "dopłacasz niewiele do dużej puli; solver aplikacji broni tu {{n:solver.def.bb-vs-btn}} rąk"
-  level: math
+  level: heuristic
   source: "obliczenie ceny; solver preflop projektu (ADR-20)"
 - id: R-M4-005
   module: m4
@@ -192,7 +226,7 @@
   module: m4
   if: "4-betujesz"
   then: "przebijasz do ok. {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}} 3-betu z pozycją i {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} bez pozycji"
-  because: "po sprawdzeniu takiego 4-betu w stackach zostaje ok. 1,5–2 razy tyle, ile jest w puli, więc dobre ręce łatwo wpłacą resztę"
+  because: "po sprawdzeniu takiego 4-betu w stackach zostaje ok. {{n:spr.4bet.high}}–{{n:spr.4bet}} razy tyle, ile jest w puli (przykład: 4-bet z Buttona na 3-bet małego blinda do {{n:pf.3bet.oop-total}}), więc dobre ręce łatwo wpłacą resztę"
   level: heuristic
   source: "Deepfold, The Complete 3-Bet Strategy"
 - id: R-M4-012
@@ -214,7 +248,7 @@
   if: "jesteś na dużym blindzie, a mały blind otworzył na {{n:pf.open-size-sb}}"
   then: "bronisz bardzo szeroko, choć do sprawdzenia potrzebujesz ok. {{n:eq.bb-vs-sb-open}} equity; 3-bet ma ok. {{n:pf.3bet.size-ip}} otwarcia"
   because: "po flopie masz pozycję, więc realizujesz więcej equity; solver aplikacji broni tu {{n:solver.def.bb-vs-sb}} rąk"
-  level: math
+  level: heuristic
   source: "obliczenie ceny; solver preflop projektu (ADR-20); drzewo solvera (3-bet do 9bb)"
 
 # M5: c-bet na flopie. Pula po otwarciu i jednym sprawdzeniu, 100bb. Reguły strategiczne to heurystyki z literatury

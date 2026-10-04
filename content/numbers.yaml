@@ -5,6 +5,10 @@ combos.total: { value: 1326, unit: count, source: "kombinatoryka: C(52,2)" }
 combos.pair: { value: 6, unit: count, source: "kombinatoryka: C(4,2)" }
 combos.suited: { value: 4, unit: count, source: "kombinatoryka: 4 kolory" }
 combos.offsuit: { value: 12, unit: count, source: "kombinatoryka: 4×3" }
+combos.kinds.pair: { value: 13, unit: count, source: "kombinatoryka: 13 rang, jedna para na rangę" }
+combos.kinds.suited: { value: 78, unit: count, source: "kombinatoryka: C(13,2) par różnych rang" }
+combos.kinds.offsuit: { value: 78, unit: count, source: "kombinatoryka: C(13,2) par różnych rang" }
+combos.kinds: { formula: sum, refs: [combos.kinds.pair, combos.kinds.suited, combos.kinds.offsuit], unit: count, source: "obliczenie: rodzaje rąk startowych (pola siatki)" }
 
 # M2: outy i szanse. Wszystkie liczby w przykładach lekcji M2 też stąd, żeby tekst i obliczenia się nie rozjechały (B-038).
 cards.deck: { value: 52, unit: count, source: "zasady: talia" }
@@ -32,6 +36,11 @@ odds.gutshot.turn-river: { formula: hitProbability, refs: [outs.gutshot, cards.u
 odds.flush.rule-turn: { formula: ruleOf2And4, refs: [outs.flush, streets.turn-river], unit: percent, source: "reguła 2 i 4" }
 odds.gutshot.rule-flop: { formula: ruleOf2And4, refs: [outs.gutshot, streets.flop-river], unit: percent, source: "reguła 2 i 4" }
 odds.gutshot.rule-turn: { formula: ruleOf2And4, refs: [outs.gutshot, streets.turn-river], unit: percent, source: "reguła 2 i 4" }
+# K5 (audyt 4.10): zakład na flopie kupuje jedną kartę, więc cenę porównujesz z szansą na turnie, nie do rivera.
+streets.next-card: { value: 1, unit: count, source: "zasady: sprawdzenie zakładu kupuje jedną następną kartę" }
+odds.flush.flop-turn: { formula: hitProbability, refs: [outs.flush, cards.unseen.flop, streets.next-card], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): 9 z 47" }
+odds.oesd.flop-turn: { formula: hitProbability, refs: [outs.oesd, cards.unseen.flop, streets.next-card], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): 8 z 47" }
+odds.gutshot.flop-turn: { formula: hitProbability, refs: [outs.gutshot, cards.unseen.flop, streets.next-card], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): 4 z 47" }
 
 # Przykładowe pule i zakłady z lekcji M2 (B-038): tekst przykładu i wynik liczą się z tych samych liczb.
 ex.pot: { value: 100, unit: count, source: "przykład w lekcji (pula w żetonach)" }
@@ -51,6 +60,7 @@ eq.bet-pot: { formula: requiredEquity, refs: [ex.pot, ex.bet.pot], unit: percent
 eq.bet-half: { formula: requiredEquity, refs: [ex.pot, ex.bet.half], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
 eq.bet-quarter: { formula: requiredEquity, refs: [ex.pot, ex.bet.quarter], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
 eq.bet-third: { formula: requiredEquity, refs: [ex.third.pot, ex.third.bet], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
+eq.bet-third.no-call: { formula: quotient, refs: [ex.third.bet, ex.third.pot-after-bet], unit: percent, source: "przykład błędnego rachunku w m2.l2.q1: zakład ÷ pula po zakładzie, bez twojego sprawdzenia (30 ÷ 120)" }
 
 pf.aa-vs-kk: { value: 0.8195, unit: percent, source: "obliczenie dokładne, średnia po kombinacjach kolorów (dokument 08)" }
 pf.rfi.utg.low: { value: 0.15, unit: percent, source: "GTO Wizard, BeyondGTO, FreeBetRange (dokument 08)" }
@@ -129,6 +139,13 @@ pf.3bet.too-big.mult: { value: 5, unit: multiplier, source: "przykład błędneg
 pf.3bet.too-big: { formula: product, refs: [pf.open-size, pf.3bet.too-big.mult], unit: bb, decimals: 1, source: "obliczenie: przykład błędnego rozmiaru" }
 pf.4bet.too-small.mult: { value: 1.5, unit: multiplier, decimals: 1, source: "przykład błędnego rozmiaru: 1,5 × 3-bet (dobrany do ćwiczenia, bez źródła)" }
 pf.4bet.too-small: { formula: product, refs: [pf.3bet.oop-total, pf.4bet.too-small.mult], unit: bb, source: "obliczenie: przykład błędnego rozmiaru" }
+# S-13, S-14 (audyt 4.10): SPR po 4-becie dla obu rozmiarów 4-betu z pozycją; scenariusz jak spr.4bet (4-bet Buttona na 3-bet SB, BB spasował).
+spr.4bet.high.pot: { formula: sum, refs: [pf.4bet.example.high, pf.4bet.example.high, pf.blind.bb], unit: bb, source: "obliczenie: większy 4-bet Buttona na 3-bet SB sprawdzony, BB spasował" }
+spr.4bet.high.stack: { formula: diff, refs: [format.stack, pf.4bet.example.high], unit: bb, source: "obliczenie: stack minus większy 4-bet" }
+spr.4bet.high: { formula: quotient, refs: [spr.4bet.high.stack, spr.4bet.high.pot], unit: ratio, decimals: 1, source: "obliczenie: SPR = stack za pulą ÷ pula na flopie (75 ÷ 51)" }
+# Ręka mieszana: częstość, z jaką solver gra rękę (te same progi co MIXED_LOW i MIXED_HIGH w aplikacji).
+range.mixed.low: { value: 0.25, unit: percent, source: "próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_LOW" }
+range.mixed.high: { value: 0.75, unit: percent, source: "próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_HIGH" }
 
 # M5: c-bet na flopie. Bez częstotliwości z literatury (źródeł nie dało się przeczytać, raport M5): tylko rozmiar
 # z programu nauczania, przykładowy duży rozmiar do obliczeń i matematyka liczona z tych samych liczb.

@@ -89,7 +89,7 @@ W Texas Hold'em dostajesz **2 karty własne**, a na stół trafia **5 kart wspó
 | 10 | Wysoka karta | [[Ac Qd 9s 6h 3c]] |
 
 :::note Kicker
-Gdy dwóch graczy ma ten sam układ, wygrywa ten, kto ma wyższą kartę dodatkową, czyli kickera. Liczy się jednak tylko najlepsza piątka. Jeśli obie piątki są identyczne, pula jest dzielona.
+Najpierw porównuje się rangę układu: trójka bije dwie pary. Przy tym samym układzie decyduje jego wysokość: para króli bije parę dam, a przy dwóch parach najpierw porównuje się wyższą parę. Dopiero gdy rdzeń układu jest identyczny (ta sama para, trójka albo te same dwie pary), decydują karty dodatkowe, czyli kickery: najpierw najwyższy, a przy remisie kolejny. Liczą się tylko kickery z najlepszej piątki. Jeśli obie piątki są identyczne, pula jest dzielona.
 :::
 
 As może być najniższą kartą strita: [[5h 4s 3c 2d Ah]] to najniższy strit, tak zwane koło.
