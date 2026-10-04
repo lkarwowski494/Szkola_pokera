@@ -495,24 +495,24 @@ br.ex.after-dd: { formula: diff, refs: [br.bi.base, dd.bi.small], unit: count, s
 br.ex.below: { formula: diff, refs: [br.bi.move-down, math.one], unit: count, source: "obliczenie: przykład bankrollu tuż poniżej progu zejścia" }
 var.conf95: { value: 0.95, unit: percent, source: "definicja: poziom ufności przedziału ±1,96 odchylenia w rozkładzie normalnym" }
 
-# M11: turnieje i krótkie stacki. Zakresy push/fold z własnego solvera (content/ranges/pushfold-hu.json, heads-up mały
+# M11: turnieje i krótkie stacki. Zakresy push/fold z własnego solvera (content/ranges/pushfold.json, heads-up mały
 # blind kontra duży blind, drzewo zwalidowane z równowagą Nasha przy 10bb, dokument 10). Progi z literatury (cytaty
 # w polu source), ICM liczony formułą icm (model Malmutha-Harville'a, tools/content-build/src/icm.ts).
 m11.depth.5: { value: 5, unit: bb, source: "wybór głębokości siatek M11 (raport M11): bardzo krótki stack, poniżej progu push/fold" }
 m11.depth.10: { value: 10, unit: bb, source: "wybór głębokości siatek M11 (raport M11): próg push/fold wspólny dla źródeł (m11.thr.pushfold); głębokość walidacji solvera (dokument 10)" }
 m11.depth.15: { value: 15, unit: bb, source: "wybór głębokości siatek M11 (raport M11): górna granica push/fold w źródłach (m11.thr.upper)" }
-m11.ante: { value: 1, unit: bb, source: "przykład: ante dużego blinda w wysokości jednego blinda (wariant 10bb-ante w pushfold-hu.json)" }
+m11.ante: { value: 1, unit: bb, source: "przykład: ante dużego blinda w wysokości jednego blinda (wariant 10bb-ante w pushfold.json)" }
 m11.thr.pushfold: { value: 10, unit: bb, source: "część wspólna źródeł: 888poker, Push/Fold Charts (https://www.888poker.com/magazine/strategy/push-fold-charts): „Push/fold is the default framework once your stack drops to around 10bb or less”; PokerCoaching, Short Stack Strategy (https://pokercoaching.com/blog/short-stack-strategy-2/): „At 10BB or fewer … it is almost entirely push/fold”; GTO Wizard, Short-Stacked Play in MTTs (https://blog.gtowizard.com/short-stacked-play-in-mtts/): „The standard advice for a 10bb stack is to play an all-in or fold strategy, especially from late position”" }
 m11.thr.upper: { value: 15, unit: bb, source: "Upswing, Push/Fold Tournament Strategy (https://upswingpoker.com/push-fold-tournament-strategy-charts/): „Push/fold should be utilized when your stack becomes short — around 15 big blinds (bb) or fewer”; PokerCoaching, Push Fold Charts (https://pokercoaching.com/push-fold-charts/): „Push fold charts apply to stacks of 15 big blinds or less”; PokerCoaching, Short Stack Strategy: „At 15BB: Push/fold becomes your dominant framework for weak and medium holdings”" }
 m11.thr.raise: { value: 20, unit: bb, source: "Upswing, Push/Fold Tournament Strategy: „Once stack sizes generally become larger than 20bb there are definitely more +EV lines you can take by just Raising First In”; PokerCoaching, Short Stack Strategy: „At 20BB … Your primary open is a 2x min-raise”" }
-m11.push.5: { formula: rangePlay, spot: push.sb-5, unit: percent, source: "solver push/fold projektu (pushfold-hu.json), heads-up, bez ante" }
-m11.push.10: { formula: rangePlay, spot: push.sb-10, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold-hu.json), heads-up, bez ante; walidacja: dokument 10 (55–61%)" }
-m11.push.15: { formula: rangePlay, spot: push.sb-15, unit: percent, source: "solver push/fold projektu (pushfold-hu.json), heads-up, bez ante" }
-m11.push.10-ante: { formula: rangePlay, spot: push.sb-10-ante, unit: percent, source: "solver push/fold projektu (pushfold-hu.json), heads-up, ante dużego blinda 1bb" }
-m11.call.5: { formula: rangePlay, spot: call.bb-5, unit: percent, source: "solver push/fold projektu (pushfold-hu.json), część wszystkich rąk BB" }
-m11.call.10: { formula: rangePlay, spot: call.bb-10, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold-hu.json), część wszystkich rąk BB; walidacja: dokument 10 (34,5–40,5%)" }
-m11.call.15: { formula: rangePlay, spot: call.bb-15, unit: percent, source: "solver push/fold projektu (pushfold-hu.json), część wszystkich rąk BB" }
-m11.call.10-ante: { formula: rangePlay, spot: call.bb-10-ante, unit: percent, source: "solver push/fold projektu (pushfold-hu.json), część wszystkich rąk BB, ante dużego blinda 1bb" }
+m11.push.5: { formula: rangePlay, spot: push.sb-5, unit: percent, source: "solver push/fold projektu (pushfold.json), heads-up, bez ante" }
+m11.push.10: { formula: rangePlay, spot: push.sb-10, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold.json), heads-up, bez ante; walidacja: dokument 10 (55–61%)" }
+m11.push.15: { formula: rangePlay, spot: push.sb-15, unit: percent, source: "solver push/fold projektu (pushfold.json), heads-up, bez ante" }
+m11.push.10-ante: { formula: rangePlay, spot: push.sb-10-ante, unit: percent, source: "solver push/fold projektu (pushfold.json), heads-up, ante dużego blinda 1bb" }
+m11.call.5: { formula: rangePlay, spot: call.bb-5, unit: percent, source: "solver push/fold projektu (pushfold.json), część wszystkich rąk BB" }
+m11.call.10: { formula: rangePlay, spot: call.bb-10, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold.json), część wszystkich rąk BB; walidacja: dokument 10 (34,5–40,5%)" }
+m11.call.15: { formula: rangePlay, spot: call.bb-15, unit: percent, source: "solver push/fold projektu (pushfold.json), część wszystkich rąk BB" }
+m11.call.10-ante: { formula: rangePlay, spot: call.bb-10-ante, unit: percent, source: "solver push/fold projektu (pushfold.json), część wszystkich rąk BB, ante dużego blinda 1bb" }
 m11.ext.push.10: { value: 0.566, unit: percent, decimals: 1, source: "PokerStrategy, Push/Fold Play: Nash Ranges (https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/), heads-up 10bb bez ante: „56.6%” zakres pushowania (porównanie z naszym solverem, nie dane aplikacji)" }
 m11.ext.call.10: { value: 0.385, unit: percent, decimals: 1, source: "PokerStrategy, Push/Fold Play: Nash Ranges, heads-up 10bb bez ante: „38.5%” zakres sprawdzenia (porównanie z naszym solverem)" }
 # cena sprawdzenia all-inu z dużego blinda (stack S): dopłacasz S − 1bb, pula po sprawdzeniu 2S (+ ante)
@@ -588,3 +588,22 @@ m11.bf.req: { formula: quotient, refs: [m11.bf.loss, m11.bf.range], unit: percen
 m11.bf.req-chips: { formula: quotient, refs: [m11.bf.s3, m11.bf.villain-after], unit: percent, source: "obliczenie: w żetonach ryzykujesz 2000, żeby wygrać 2000 (bez blindów), więc wystarcza połowa" }
 m11.bf.example-eq: { value: 0.55, unit: percent, source: "przykład w zadaniu: equity ręki między progiem w żetonach a progiem ICM" }
 m11.bf.premium: { formula: diff, refs: [m11.bf.req, m11.bf.req-chips], unit: percent, decimals: 1, source: "obliczenie: premia za ryzyko = potrzebne equity w ICM − w żetonach; GTO Wizard, Risk Premium (https://gtowizard.com/en/glossary/risk-premium/): „RP = Required Equity (ICM) - Required Equity (cEV) when stacks are fully invested”" }
+# M11, trzech graczy (Button, mały blind, duży blind), stacki po 7,5bb: nasz solver (pushfold.json, drzewo src/pushfold3.ts)
+# i porównanie z opublikowaną równowagą (Ganzfried i Sandholm, AAMAS 2008, tabela 2, „single hand” i „tournament”)
+m11.depth.3max: { value: 7.5, unit: bb, decimals: 1, source: "Ganzfried i Sandholm, Computing an Approximate Jam/Fold Equilibrium for 3-player No-Limit Texas Hold'em Tournaments, AAMAS 2008 (https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf): „even chip stacks s1 = s2 = s3 = 4500 and blinds at SB = 300, BB = 600”, czyli 7,5bb" }
+m11.3max.push.btn: { formula: rangePlay, spot: push.btn-3max, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold.json, trzech graczy, 7,5bb); walidacja: Ganzfried i Sandholm, AAMAS 2008, tabela 11 (scripts/pushfold3-validate.ts)" }
+m11.3max.push.sb: { formula: rangePlay, spot: push.sb-3max, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold.json, trzech graczy, 7,5bb, Button spasował); walidacja: tabela 13 artykułu" }
+m11.3max.call.sb: { formula: rangePlay, spot: call.sb-vs-btn-3max, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold.json): mały blind wobec all-inu Buttona; walidacja: tabela 12 artykułu" }
+m11.3max.call.bb: { formula: rangePlay, spot: call.bb-vs-btn-3max, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold.json): duży blind wobec all-inu Buttona, SB spasował; walidacja: tabela 14 artykułu" }
+m11.3max.call.bb-two: { formula: rangePlay, spot: call.bb-vs-two-3max, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold.json): duży blind po all-inie Buttona i sprawdzeniu SB; walidacja: tabela 16 artykułu" }
+m11.gs.btn: { value: 0.355, unit: percent, decimals: 1, source: "Ganzfried i Sandholm, AAMAS 2008, tabela 2, „Button jam”, „Single hand prob.”: „0.355”" }
+m11.gs.overcall.single: { value: 0.197, unit: percent, decimals: 1, source: "Ganzfried i Sandholm, AAMAS 2008, tabela 2, „BB jam after jam/jam”, single hand: „0.197”" }
+m11.gs.overcall.tourn: { value: 0.021, unit: percent, decimals: 1, source: "Ganzfried i Sandholm, AAMAS 2008, tabela 2, „BB jam after jam/jam”, tournament: „0.021”; „In a tournament, the big blind only calls with the four highest pocket pairs and AKs”" }
+m11.3max.sb.cost: { formula: diff, refs: [m11.depth.3max, pf.blind.sb], unit: bb, decimals: 1, source: "obliczenie: dopłata SB do all-inu Buttona" }
+m11.3max.sb.pot: { formula: sum, refs: [m11.depth.3max, m11.depth.3max, pf.blind.bb], unit: bb, source: "obliczenie: pula po sprawdzeniu SB, gdy BB spasuje" }
+m11.3max.sb.eq: { formula: quotient, refs: [m11.3max.sb.cost, m11.3max.sb.pot], unit: percent, decimals: 1, source: "obliczenie: potrzebne equity SB wobec samego Buttona" }
+m11.3max.bb.cost: { formula: diff, refs: [m11.depth.3max, pf.blind.bb], unit: bb, decimals: 1, source: "obliczenie: dopłata BB do all-inu" }
+m11.3max.bb.pot: { formula: sum, refs: [m11.depth.3max, m11.depth.3max, pf.blind.sb], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu BB (Button all-in, SB spasował)" }
+m11.3max.bb.eq: { formula: quotient, refs: [m11.3max.bb.cost, m11.3max.bb.pot], unit: percent, decimals: 1, source: "obliczenie: potrzebne equity BB wobec Buttona" }
+m11.3max.bb-two.pot: { formula: sum, refs: [m11.depth.3max, m11.depth.3max, m11.depth.3max], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu BB, gdy all-in są już dwaj gracze" }
+m11.3max.bb-two.eq: { formula: quotient, refs: [m11.3max.bb.cost, m11.3max.bb-two.pot], unit: percent, decimals: 1, source: "obliczenie: potrzebne equity BB wobec dwóch rywali" }

@@ -9,15 +9,15 @@ import type { DecisionNode } from '../src/tree';
 
 const ROOT = resolve(import.meta.dirname, '../../..');
 const eqFile = join(ROOT, 'tools/equity/equity169.json');
-const rangesFile = join(ROOT, 'content/ranges/pushfold-hu.json');
+const rangesFile = join(ROOT, 'content/ranges/pushfold.json');
 const has = existsSync(eqFile) && existsSync(rangesFile);
 
 interface File {
-  meta: { summary: Record<string, { push: number; call: number; nashConvBb: number }> };
+  meta: { summary: Record<string, { push: number; call: number; nashConvBb: number; nodes: Record<string, number> }> };
   spots: { path: string; player: string; actions: string[]; strategy: Record<string, number>[] }[];
 }
 
-describe.skipIf(!has)('zakresy push/fold M11 (content/ranges/pushfold-hu.json)', () => {
+describe.skipIf(!has)('zakresy push/fold M11 (content/ranges/pushfold.json)', () => {
   const file = has ? (JSON.parse(readFileSync(rangesFile, 'utf8')) as File) : null;
   it('10bb bez ante mieści się w celach walidacji z dokumentu 10', () => {
     const s = file!.meta.summary['10bb']!;
@@ -35,6 +35,19 @@ describe.skipIf(!has)('zakresy push/fold M11 (content/ranges/pushfold-hu.json)',
     expect(m['10bb']!.push).toBeGreaterThan(m['15bb']!.push);
     expect(m['5bb']!.call).toBeGreaterThan(m['10bb']!.call);
     expect(m['10bb']!.call).toBeGreaterThan(m['15bb']!.call);
+  });
+  it('trzech graczy, 7,5bb: częstości węzłów zgodne z Ganzfried i Sandholm (AAMAS 2008, tabela 2, single hand) w granicach 2 pp', () => {
+    // cytowane wartości zbiorcze z tabeli 2 artykułu (nie tabele zakresów); pełne porównanie: scripts/pushfold3-validate.ts
+    const paper: Record<string, number> = {
+      '': 0.355,
+      'BTN:allin': 0.234,
+      'BTN:fold': 0.633,
+      'BTN:allin,SB:fold': 0.308,
+      'BTN:fold,SB:allin': 0.466,
+      'BTN:allin,SB:call': 0.197,
+    };
+    const nodes = file!.meta.summary['3max-7.5bb']!.nodes;
+    for (const [path, f] of Object.entries(paper)) expect(Math.abs(nodes[path]! - f)).toBeLessThan(0.02);
   });
   it('plik jest aktualny: ponowne rozwiązanie 10bb z ante daje te same strategie', () => {
     const data = JSON.parse(readFileSync(eqFile, 'utf8')) as EquityData;

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { icmEquities } from '../src/icm';
+import { icmEquities } from '@szkola/poker-core';
 import { resolveNumbers } from '../src/numbers';
 
 /** Niezależne odniesienie: pełne wyliczenie wszystkich kolejności miejsc z prawdopodobieństwem Harville'a. */

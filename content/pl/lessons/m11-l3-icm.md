@@ -79,6 +79,20 @@ drills:
       - { text: "Możesz wpychać szerzej, bo rywale sprawdzają ciasno", correct: true, why: "Średni stack ryzykuje przy sprawdzeniu odpadnięcie tuż przed nagrodami, więc potrzebuje dużo equity. Ty przy przegranej tracisz tylko część stacku. Rywale sprawdzają ciasno, więc częściej zgarniasz pulę bez walki." }
       - { text: "Grasz ciaśniej, żeby nie stracić prowadzenia", why: "Lider ma najmniejsze ryzyko przy stole. Granie ciasno oddaje mu jego główną przewagę: presję na średnie stacki." }
       - { text: "Nic, bo ICM dotyczy tylko krótkich stacków", why: "ICM dotyczy wszystkich: zmienia, ile equity każdy potrzebuje do sprawdzenia, a to zależy od całego rozkładu stacków." }
+  - kind: generated
+    id: m11.l3.g-icm-equity
+    family: m11.icm.equity
+    rules: [R-M11-008]
+    generator: icm
+    params: { mode: equity }
+    count: 2
+  - kind: generated
+    id: m11.l3.g-icm-call
+    family: m11.icm.call
+    rules: [R-M11-009, R-M11-010]
+    generator: icm
+    params: { mode: call }
+    count: 3
   - kind: choice
     id: m11.l3.q-limits
     family: m11.icm.limits
@@ -136,6 +150,8 @@ potrzebne equity = BF ÷ (BF + 1)
 ```
 
 Wychodzi **{{n:m11.bf.req}}**. W grze o żetony ryzykujesz {{n:m11.bf.s3}}, żeby wygrać {{n:m11.bf.s3}}, więc wystarczyłoby {{n:m11.bf.req-chips}}. Różnica, {{n:m11.bf.premium}}, to **premia za ryzyko**.
+
+Ten sam kierunek widać w opublikowanej równowadze dla trzech graczy z równymi stackami (Ganzfried i Sandholm, 2008): gdy Button i mały blind są już all-in, duży blind w pojedynczym rozdaniu sprawdza {{n:m11.gs.overcall.single}} rąk, a w turnieju z wypłatami tylko {{n:m11.gs.overcall.tourn}}, czyli same najwyższe pary i AKs.
 
 :::note Kto sprawdza ciasno
 Średni stack na bańce sprawdza all-iny dużo ciaśniej niż w grze o żetony. Duży stack, który przykrywa rywali, ryzykuje mniej i może na tym grać: wpychać szerzej, bo rywale muszą pasować. Bubble factor zależy od wszystkich stacków przy stole, dlatego nie liczy się go przy stole, tylko ćwiczy na przykładach, żeby wyrobić wyczucie.

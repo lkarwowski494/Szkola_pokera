@@ -1,6 +1,6 @@
-import { alpha, FLOP_WETNESS, flopWetnessShares, geometricFraction, hitProbability, mdf, missProbability, requiredEquity, ruleOf2And4 } from '@szkola/poker-core';
+import { alpha, icmEquities, FLOP_WETNESS, flopWetnessShares, geometricFraction, hitProbability, mdf, missProbability, requiredEquity, ruleOf2And4 } from '@szkola/poker-core';
 import type { NumberEntry } from '@szkola/content-schema';
-import { icmEquities } from './icm';
+
 
 export interface ResolvedNumber {
   key: string;

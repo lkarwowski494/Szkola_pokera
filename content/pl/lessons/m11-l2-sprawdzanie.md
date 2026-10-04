@@ -4,7 +4,7 @@ module: m11
 order: 2
 title: "Sprawdzanie all-inu"
 sub: "Ile equity potrzebujesz i dlaczego sprawdzasz węziej"
-rules: [R-M11-006, R-M11-007]
+rules: [R-M11-006, R-M11-007, R-M11-012]
 drills:
   - kind: numeric
     id: m11.l2.n-price-10
@@ -40,7 +40,7 @@ drills:
     rules: [R-M11-007]
     generator: rangeDecision
     params: { spots: "call.bb-5,call.bb-10,call.bb-15" }
-    count: 5
+    count: 3
   - kind: paint
     id: m11.l2.p-call-10
     family: m11.paint.call
@@ -92,7 +92,24 @@ drills:
     rules: [R-M11-007]
     generator: rangeDecision
     params: { spots: "call.bb-10-ante" }
+    count: 1
+  - kind: generated
+    id: m11.l2.g-call-3max
+    family: m11.call.3max
+    rules: [R-M11-012]
+    generator: rangeDecision
+    params: { spots: "call.sb-vs-btn-3max,call.bb-vs-btn-3max,call.bb-vs-two-3max" }
     count: 2
+  - kind: choice
+    id: m11.l2.q-overcall
+    family: m11.call.3max
+    rules: [R-M11-012]
+    prompt: "Trzech graczy, stacki po {{n:m11.depth.3max}}. Button wszedł all-in, mały blind sprawdził. Na dużym blindzie potrzebujesz tylko {{n:m11.3max.bb-two.eq}} equity. Sprawdzasz szerzej niż wtedy, gdy all-in wszedł sam Button?"
+    table: { position: BB }
+    options:
+      - { text: "Nie, węziej", correct: true, why: "Cena jest lepsza, ale grasz przeciw dwóm zakresom, w tym przeciw sprawdzającemu, który ma silną rękę. Solver sprawdza tu ok. {{n:m11.3max.call.bb-two}} rąk, a gdy all-in jest tylko Button, ok. {{n:m11.3max.call.bb}}." }
+      - { text: "Tak, bo cena jest dużo lepsza", why: "Lepsza cena nie wystarcza: przeciw dwóm rywalom equity słabszych rąk szybko spada. Solver sprawdza tylko ok. {{n:m11.3max.call.bb-two}} rąk." }
+      - { text: "Tak samo, bo liczy się tylko twoja ręka", why: "Liczy się equity wobec rąk rywali. Sprawdzający po all-inie Buttona ma zakres silniejszy niż Button, więc sprawdzasz węziej." }
 ---
 Gdy rywal wchodzi all-in, a ty masz duży blind, decyzja jest prosta w formie: sprawdzasz albo pasujesz. Po sprawdzeniu nie ma już dalszej gry, więc liczy się tylko cena i twoje equity wobec zakresu all-inu.
 
@@ -131,6 +148,20 @@ call.bb-5
 ```
 
 Głębszy stack oznacza droższe sprawdzenie i węższy zakres all-inu rywala, więc sprawdzasz rzadziej: ok. {{n:m11.call.15}} przy {{n:m11.depth.15}}, a przy {{n:m11.depth.5}} aż ok. {{n:m11.call.5}}.
+
+## Gdy za tobą ktoś jeszcze jest
+
+Przy trzech graczach i stackach po {{n:m11.depth.3max}} mały blind sprawdza all-in Buttona tylko ok. {{n:m11.3max.call.sb}} rąk, choć potrzebuje {{n:m11.3max.sb.eq}} equity. Duży blind w tej samej sytuacji, gdy mały blind spasował, dopłaca {{n:m11.3max.bb.cost}} do puli {{n:m11.3max.bb.pot}}, potrzebuje {{n:m11.3max.bb.eq}} equity i sprawdza ok. {{n:m11.3max.call.bb}}. Różnica bierze się z gracza za tobą: mały blind może sprawdzić i trafić na jeszcze silniejszą rękę dużego blinda.
+
+```range
+call.sb-vs-btn-3max
+```
+
+Gdy all-in są już dwaj gracze, cena spada do {{n:m11.3max.bb-two.eq}}, a mimo to duży blind sprawdza tylko ok. {{n:m11.3max.call.bb-two}} rąk. Przeciw dwóm zakresom, z których jeden już sprawdził all-in, słabsze ręce szybko tracą equity.
+
+```range
+call.bb-vs-two-3max
+```
 
 ## Z ante sprawdzasz szerzej
 

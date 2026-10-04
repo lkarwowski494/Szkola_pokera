@@ -146,7 +146,8 @@ export const PaintDrill = z.object({
   prompt: z.string().min(3),
 });
 
-export const GeneratorName = z.enum(['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'rangeDecision']);
+/** icm (M11): bańka turnieju z losowymi stackami; params.mode = "call" (sprawdzić all-in według ICM) albo "equity" (wycena stacku). */
+export const GeneratorName = z.enum(['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'rangeDecision', 'icm']);
 export type GeneratorName = z.infer<typeof GeneratorName>;
 
 export const GeneratedDrill = z.object({
@@ -267,7 +268,7 @@ export const RangeSpotDef = z.object({
    */
   uncertain: z.array(z.string()).optional(),
   /**
-   * Plik wyniku solvera w content/ranges (domyślnie preflop-6max-100bb.json). M11: pushfold-hu.json, zakresy push/fold
+   * Plik wyniku solvera w content/ranges (domyślnie preflop-6max-100bb.json). M11: pushfold.json, zakresy push/fold
    * heads-up z drzewa walidacyjnego (tools/preflop-solver/scripts/pushfold-ranges.ts).
    */
   solver: z.string().regex(/^[a-z0-9][a-z0-9.\-]*\.json$/, 'nazwa pliku .json w content/ranges').optional(),

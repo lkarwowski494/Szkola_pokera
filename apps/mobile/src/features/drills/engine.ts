@@ -6,6 +6,9 @@ import {
   HAND_CLASSES,
   generateBestHand,
   generateDrawCall,
+  generateIcmCall,
+  generateIcmSpot,
+  icmEquities,
   generateOuts,
   generatePotOdds,
   generateWhoWins,
@@ -199,6 +202,46 @@ function fromGenerator(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: 
       return potOdds(d, lessonId, rng, i);
     case 'drawCall':
       return drawCall(d, lessonId, rng, i);
+    case 'icm':
+      return d.params.mode === 'equity' ? icmEquity(d, lessonId, rng, i) : icmCall(d, lessonId, rng, i);
+  }
+}
+
+/** M11: sprawdzić all-in na bańce według ICM (bubble factor), losowe stacki i equity ręki. */
+function icmCall(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number): DrillInstance {
+  const s = generateIcmCall(rng);
+  const call = s.correct === 'call';
+  return {
+    ...base(d, lessonId, i),
+    prompt: t.icm.callPrompt(s),
+    options: [
+      { text: t.icm.call, correct: call, why: call ? t.icm.callRight(s) : t.icm.callWrong(s) },
+      { text: t.icm.fold, correct: !call, why: call ? t.icm.foldWrong(s) : t.icm.foldRight(s) },
+    ],
+    explanation: t.icm.callExplanation(s),
+  };
+}
+
+/** M11: ile według ICM jest wart stack (trzy odpowiedzi: ICM, udział w żetonach, sama szansa na 1. miejsce). */
+function icmEquity(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number): DrillInstance {
+  for (;;) {
+    const s = generateIcmSpot(rng);
+    const total = s.stacks.reduce((a, b) => a + b, 0);
+    const icm = icmEquities(s.stacks, s.payouts)[s.hero]!;
+    const chips = s.stacks[s.hero]! / total;
+    const firstOnly = chips * s.payouts[0]!;
+    const texts = [icm, chips, firstOnly].map((x) => t.icm.share(x));
+    if (new Set(texts).size < 3) continue;
+    return {
+      ...base(d, lessonId, i),
+      prompt: t.icm.equityPrompt(s),
+      options: shuffle(rng, [
+        { text: texts[0]!, correct: true, why: t.icm.equityRight },
+        { text: texts[1]!, correct: false, why: t.icm.equityChips },
+        { text: texts[2]!, correct: false, why: t.icm.equityFirstOnly },
+      ]),
+      explanation: t.icm.equityExplanation(s, icm, chips),
+    };
   }
 }
 

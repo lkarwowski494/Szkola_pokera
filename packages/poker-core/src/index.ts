@@ -8,3 +8,4 @@ export * from './draws';
 export * from './drills';
 export * from './texture';
 export * from './bench';
+export * from './icm';

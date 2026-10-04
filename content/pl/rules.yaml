@@ -774,7 +774,7 @@
   level: heuristic
   source: "PokerStrategy, What should your study-to-play ratio be (Barry Carter o zdaniu Dary O'Kearneya); Southwick i in. (2026), Psychological Science (dokument 08)"
 
-# M11: turnieje i krótkie stacki (moduł opcjonalny). Zakresy push/fold z własnego solvera (pushfold-hu.json, heads-up mały
+# M11: turnieje i krótkie stacki (moduł opcjonalny). Zakresy push/fold z własnego solvera (pushfold.json, heads-up mały
 # blind kontra duży blind, zwalidowany z równowagą Nasha, dokument 10); progi i pojęcia z przeczytanych źródeł (raport M11).
 - id: R-M11-001
   module: m11
@@ -789,14 +789,14 @@
   then: "im krótszy stack, tym więcej rąk wpychasz all-in: przy {{n:m11.depth.15}} ok. {{n:m11.push.15}} rąk, przy {{n:m11.depth.10}} ok. {{n:m11.push.10}}, przy {{n:m11.depth.5}} ok. {{n:m11.push.5}}"
   because: "przy krótszym stacku ryzykujesz mniej względem blindów, które zgarniasz, gdy rywal spasuje, a rywal musi sprawdzać szerzej"
   level: gto
-  source: "solver push/fold projektu (content/ranges/pushfold-hu.json; heads-up, bez ante, równowaga Nasha gry „all-in albo pas”, walidacja przy 10bb w dokumencie 10); porównanie: PokerStrategy, Push/Fold Play: Nash Ranges (https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/), 10bb: „56.6%” pushowania"
+  source: "solver push/fold projektu (content/ranges/pushfold.json; heads-up, bez ante, równowaga Nasha gry „all-in albo pas”, walidacja przy 10bb w dokumencie 10); porównanie: PokerStrategy, Push/Fold Play: Nash Ranges (https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/), 10bb: „56.6%” pushowania"
 - id: R-M11-003
   module: m11
   if: "w puli leży ante"
   then: "wpychasz all-in więcej rąk niż bez ante: przy {{n:m11.depth.10}} i ante {{n:m11.ante}} ok. {{n:m11.push.10-ante}} zamiast {{n:m11.push.10}}"
   because: "ante powiększa pulę, którą zgarniasz, gdy rywal spasuje, a ryzyko all-inu zostaje to samo"
   level: gto
-  source: "solver push/fold projektu (pushfold-hu.json, wariant 10bb-ante); kierunek zgodny z literaturą: 888poker, Push/Fold Charts: „the bigger the ante relative to the big blind, the wider your shoving range”; PokerCoaching, Push Fold Charts (https://pokercoaching.com/push-fold-charts/): „When antes are in play, your preflop shoving range should be wider”"
+  source: "solver push/fold projektu (pushfold.json, wariant 10bb-ante); kierunek zgodny z literaturą: 888poker, Push/Fold Charts: „the bigger the ante relative to the big blind, the wider your shoving range”; PokerCoaching, Push Fold Charts (https://pokercoaching.com/push-fold-charts/): „When antes are in play, your preflop shoving range should be wider”"
 - id: R-M11-004
   module: m11
   if: "wchodzisz all-in jako pierwszy"
@@ -824,7 +824,7 @@
   then: "sprawdzasz węższym zakresem, niż sam wpychałbyś all-in: przy {{n:m11.depth.10}} BB sprawdza ok. {{n:m11.call.10}} rąk, a SB wpycha ok. {{n:m11.push.10}}"
   because: "sprawdzający wygrywa tylko na showdownie i to przeciw zakresowi, który już jest silniejszy niż losowy; wpychający wygrywa też wtedy, gdy rywal spasuje"
   level: gto
-  source: "solver push/fold projektu (pushfold-hu.json); PokerCoaching, Push Fold Charts (https://pokercoaching.com/push-fold-charts/): „Calling ranges are tighter than shoving ranges”; PokerStrategy, The Gap Concept (https://www.pokerstrategy.com/news/content/Poker-Basics-The-Gap-Concept_116890/): „you need a better hand to call a raise with than you would need to open a pot with a raise” (Sklansky)"
+  source: "solver push/fold projektu (pushfold.json); PokerCoaching, Push Fold Charts (https://pokercoaching.com/push-fold-charts/): „Calling ranges are tighter than shoving ranges”; PokerStrategy, The Gap Concept (https://www.pokerstrategy.com/news/content/Poker-Basics-The-Gap-Concept_116890/): „you need a better hand to call a raise with than you would need to open a pot with a raise” (Sklansky)"
 - id: R-M11-008
   module: m11
   if: "chcesz przeliczyć stacki turniejowe na pieniądze (ICM)"
@@ -845,4 +845,18 @@
   then: "sprawdzasz all-iny wyraźnie ciaśniej niż w grze o żetony, a duży stack, który cię przykrywa, może wpychać szerzej"
   because: "premia za ryzyko: żetony wygrane są warte mniej niż przegrane, a duży stack ryzykuje przy tym mniej niż ty"
   level: heuristic
-  source: "GTO Wizard, ICM Basics (https://blog.gtowizard.com/icm-basics/): „Chips won are worth less than chips lost”, „Big stacks can threaten smaller stacks as they take on less risk when stacking off”; Upswing, ICM at Final Tables (https://upswingpoker.com/icm-final-tables/): „When it comes to calling versus shoves, you have to tighten up dramatically when big money is on the line”; Upswing, Big Stack Advantage (https://upswingpoker.com/big-stack-advantage-stone-bubble/): „Risk premiums are the additional equity needed to play for stacks. This means responding ranges tighten up considerably”"
+  source: "GTO Wizard, ICM Basics (https://blog.gtowizard.com/icm-basics/): „Chips won are worth less than chips lost”, „Big stacks can threaten smaller stacks as they take on less risk when stacking off”; Upswing, ICM at Final Tables (https://upswingpoker.com/icm-final-tables/): „When it comes to calling versus shoves, you have to tighten up dramatically when big money is on the line”; Upswing, Big Stack Advantage (https://upswingpoker.com/big-stack-advantage-stone-bubble/): „Risk premiums are the additional equity needed to play for stacks. This means responding ranges tighten up considerably”; Ganzfried i Sandholm, AAMAS 2008 (https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf), tabela 2: duży blind po dwóch all-inach sprawdza w turnieju „0.021”, a w pojedynczym rozdaniu „0.197”"
+- id: R-M11-011
+  module: m11
+  if: "grasz push/fold, a za tobą zostało więcej graczy, którzy mogą sprawdzić"
+  then: "wpychasz all-in węziej: przy trzech graczach i {{n:m11.depth.3max}} Button ok. {{n:m11.3max.push.btn}} rąk, a mały blind po pasie Buttona ok. {{n:m11.3max.push.sb}}"
+  because: "każdy kolejny gracz to dodatkowa szansa, że ktoś obudzi się z silną ręką, więc pasy wszystkich zdarzają się rzadziej"
+  level: gto
+  source: "solver push/fold projektu (content/ranges/pushfold.json, trzech graczy); zgodny z Ganzfried i Sandholm, AAMAS 2008 (https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf), tabela 2, single hand: „Button jam … 0.355”, „SB jam after fold … 0.633” (częstości węzłów zgodne w granicach 1,2 pp, raport M11)"
+- id: R-M11-012
+  module: m11
+  if: "sprawdzasz all-in, a za tobą jest jeszcze gracz albo ktoś już sprawdził"
+  then: "sprawdzasz węziej: przy trzech graczach i {{n:m11.depth.3max}} mały blind sprawdza all-in Buttona ok. {{n:m11.3max.call.sb}} rąk, duży blind (gdy SB spasował) ok. {{n:m11.3max.call.bb}}, a gdy all-in są już dwaj gracze, tylko ok. {{n:m11.3max.call.bb-two}}, choć cena spada do {{n:m11.3max.bb-two.eq}}"
+  because: "gracz za tobą może mieć silną rękę i dołączyć, a przeciw dwóm zakresom equity twojej ręki szybko maleje"
+  level: gto
+  source: "solver push/fold projektu (pushfold.json, trzech graczy); zgodny z Ganzfried i Sandholm, AAMAS 2008, tabela 2, single hand: „SB jam after jam 0.234”, „BB jam after jam/fold 0.308”, „BB jam after jam/jam 0.197”"

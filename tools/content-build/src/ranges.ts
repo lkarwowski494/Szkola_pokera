@@ -22,7 +22,7 @@ export function compileRanges(contentDir: string): { spots: CompiledRangeSpot[];
   const r = RangeSpotsFile.safeParse(parseYaml(readFileSync(defsPath, 'utf8')));
   if (!r.success) throw new Error(`ranges/spots.yaml: ${r.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join('; ')}`);
   const solver = JSON.parse(readFileSync(solverPath, 'utf8')) as SolverFile;
-  // inne pliki solvera (pole solver w spots.yaml, np. pushfold-hu.json w M11): wczytywane raz, ścieżki węzłów osobno dla pliku
+  // inne pliki solvera (pole solver w spots.yaml, np. pushfold.json w M11): wczytywane raz, ścieżki węzłów osobno dla pliku
   const files = new Map<string, Map<string, SolverFile['spots'][number]>>([[DEFAULT_SOLVER, new Map(solver.spots.map((s) => [s.path, s]))]]);
   const nodesOf = (file: string) => {
     let m = files.get(file);

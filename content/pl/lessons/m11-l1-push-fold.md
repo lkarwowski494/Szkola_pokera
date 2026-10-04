@@ -4,7 +4,7 @@ module: m11
 order: 1
 title: "Krótki stack: all-in albo pas"
 sub: "Kiedy podbicie zamienia się w all-in"
-rules: [R-M11-001, R-M11-005, R-M11-002, R-M11-003, R-M11-004]
+rules: [R-M11-001, R-M11-005, R-M11-002, R-M11-011, R-M11-003, R-M11-004]
 drills:
   - kind: choice
     id: m11.l1.q-threshold
@@ -46,7 +46,7 @@ drills:
     rules: [R-M11-002]
     generator: rangeDecision
     params: { spots: "push.sb-5,push.sb-10,push.sb-15" }
-    count: 4
+    count: 3
   - kind: paint
     id: m11.l1.p-push-10
     family: m11.paint.push
@@ -96,6 +96,13 @@ drills:
     rules: [R-M11-003]
     generator: rangeDecision
     params: { spots: "push.sb-10-ante" }
+    count: 1
+  - kind: generated
+    id: m11.l1.g-push-3max
+    family: m11.push.3max
+    rules: [R-M11-011]
+    generator: rangeDecision
+    params: { spots: "push.btn-3max,push.sb-3max" }
     count: 2
 ---
 W turnieju blindy rosną, a stack nie. Prędzej czy później masz go tak mało, że zwykłe podbicie przestaje działać. Wtedy wchodzi strategia **push/fold**: z każdą ręką, którą grasz, wchodzisz all-in (push), a resztę pasujesz (fold).
@@ -143,6 +150,20 @@ push.sb-5
 ```
 
 Przy {{n:m11.depth.15}} wchodzisz all-in z ok. {{n:m11.push.15}} rąk, przy {{n:m11.depth.10}} z ok. {{n:m11.push.10}}, a przy {{n:m11.depth.5}} już z ok. {{n:m11.push.5}}. Im mniej ryzykujesz względem blindów, tym więcej rąk się opłaca. Dla porównania PokerStrategy podaje przy {{n:m11.depth.10}} {{n:m11.ext.push.10}}; różnica wynika z innego sposobu liczenia, kierunek jest ten sam.
+
+## Trzech graczy: im więcej rywali za tobą, tym węziej
+
+Gdy grasz z Buttona, za tobą są jeszcze dwaj gracze, a nie jeden. Każdy z nich może mieć silną rękę, więc pasy obu zdarzają się rzadziej. Przy trzech graczach i stackach po {{n:m11.depth.3max}} Button wchodzi all-in z ok. {{n:m11.3max.push.btn}} rąk, a mały blind, gdy Button spasował, z ok. {{n:m11.3max.push.sb}}.
+
+```range
+push.btn-3max
+```
+
+```range
+push.sb-3max
+```
+
+Te dwie siatki sprawdziliśmy z opublikowanym wynikiem równowagi dla tej samej sytuacji (Ganzfried i Sandholm, 2008: Button {{n:m11.gs.btn}}). Kilka rąk, w których wyniki się różnią, nie trafia do ćwiczeń.
 
 ## Dwa sposoby na wygraną
 

@@ -164,6 +164,9 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
           if ((d.generator === 'outs' || d.generator === 'drawCall') && d.params.street !== undefined && d.params.street !== 'flop' && d.params.street !== 'turn') {
             throw new Error(`zadanie ${d.id}: params.street to flop albo turn`);
           }
+          if (d.generator === 'icm' && d.params.mode !== 'call' && d.params.mode !== 'equity') {
+            throw new Error(`zadanie ${d.id}: generator icm wymaga params.mode = call albo equity`);
+          }
           if (d.generator === 'rangeDecision') {
             const list = String(d.params.spots ?? '').split(',').map((x) => x.trim()).filter(Boolean);
             if (list.length === 0) throw new Error(`zadanie ${d.id}: rangeDecision wymaga params.spots`);

@@ -10,7 +10,7 @@ import { pctEquity } from '../text.pl';
 import { EXAM_SIZE, MIXED_HIGH, MIXED_LOW, PAINT_PASS } from '../thresholds';
 import type { ChoiceInstance, DrillInstance, NumericInstance } from '../types';
 
-const generators = ['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall'] as const;
+const generators = ['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'icm'] as const;
 
 function gen(generator: (typeof generators)[number], params: Record<string, string> = {}): Drill {
   return { kind: 'generated', id: `t.${generator}`, family: `f.${generator}`, rules: [], generator, params, count: 25 };
@@ -35,13 +35,30 @@ function testSpot(extra: Partial<RangeSpot> = {}): RangeSpot {
 describe('silnik zadań', () => {
   it.each(generators)('%s: dokładnie jedna poprawna odpowiedź, unikalne opcje, wyjaśnienie', (g: (typeof generators)[number]) => {
     const rng = createRng(42);
-    const params: Record<string, string> = g === 'outs' ? { kind: 'oesd' } : {};
+    const params: Record<string, string> = g === 'outs' ? { kind: 'oesd' } : g === 'icm' ? { mode: 'call' } : {};
     for (const raw of instantiate(gen(g, params), 'l1', rng)) {
       const inst = asChoice(raw);
       expect(inst.options.filter((o) => o.correct)).toHaveLength(1);
       expect(new Set(inst.options.map((o) => o.text)).size).toBe(inst.options.length);
       expect(inst.explanation && inst.explanation.length).toBeTruthy();
       for (const o of inst.options) expect(o.why.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('icm (M11): decyzja zgodna z progiem z wyjaśnienia, a wycena stacku ma trzy różne odpowiedzi', () => {
+    const rng = createRng(5);
+    for (const raw of instantiate(gen('icm', { mode: 'call' }), 'l1', rng)) {
+      const inst = asChoice(raw);
+      expect(inst.prompt).toMatch(/Bańka: [34] graczy/);
+      expect(inst.explanation).toMatch(/Bubble factor/);
+      expect(inst.options.map((o) => o.text)).toEqual(['Sprawdzam', 'Pasuję']);
+    }
+    for (const raw of instantiate(gen('icm', { mode: 'equity' }), 'l1', rng)) {
+      const inst = asChoice(raw);
+      expect(inst.options).toHaveLength(3);
+      expect(inst.options.filter((o) => o.correct)).toHaveLength(1);
+      expect(new Set(inst.options.map((o) => o.text)).size).toBe(3);
+      expect(inst.prompt).toMatch(/Ty \d/);
     }
   });
 
