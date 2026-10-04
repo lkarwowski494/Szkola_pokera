@@ -138,3 +138,33 @@ describe('flop: tekstura i c-bet (M5, schemat w wersji 3)', () => {
     for (const r of c.rules.filter((x) => x.module === 'm5')) expect(r.if + r.then + r.because).not.toContain('{{');
   });
 });
+
+describe('formuły ilorazu i rozmiaru geometrycznego (M7, M9)', () => {
+  const u = { unit: 'ratio' as const, decimals: 3, source: 'test' };
+
+  it('quotient: SPR po otwarciu i sprawdzeniu = 97,5 ÷ 5,5', () => {
+    const n = resolveNumbers({ s: { value: 97.5, ...u }, p: { value: 5.5, ...u }, x: { formula: 'quotient', refs: ['s', 'p'], ...u, decimals: 1 } });
+    expect(n.get('x')!.display).toBe('17,7');
+  });
+
+  it('quotient: dzielenie przez zero przerywa budowanie', () => {
+    expect(() => resolveNumbers({ z: { value: 0, ...u }, x: { formula: 'quotient', args: [1, 0], ...u } })).toThrow(/zero/);
+  });
+
+  it('geometric: trzy zakłady geometryczne wpłacają dokładnie cały stack', () => {
+    const n = resolveNumbers({ x: { formula: 'geometric', args: [5.606061, 3], ...u } });
+    const f = n.get('x')!.value;
+    let pot = 1;
+    let paid = 0;
+    for (let i = 0; i < 3; i++) {
+      paid += f * pot;
+      pot += 2 * f * pot;
+    }
+    expect(paid).toBeCloseTo(5.606061, 9);
+  });
+
+  it('geometric: SPR 13 i trzy ulice dają zakład wielkości puli', () => {
+    const n = resolveNumbers({ x: { formula: 'geometric', args: [13, 3], ...u } });
+    expect(n.get('x')!.value).toBeCloseTo(1, 12);
+  });
+});

@@ -179,3 +179,145 @@ xr.example.pot-after: { formula: sum, refs: [ex.third.pot, ex.third.bet, xr.exam
 xr.too-small.pot-after: { formula: sum, refs: [ex.third.pot, ex.third.bet, xr.too-small], unit: count, source: "obliczenie: pula po check-raise'ie" }
 eq.vs-xr.example: { formula: requiredEquity, refs: [ex.third.total, xr.example.extra], unit: percent, source: "obliczenie: dopłata/(pula po check-raise'ie + dopłata); pula przed nadwyżką = pula + c-bet + wyrównanie c-betu" }
 eq.vs-xr.too-small: { formula: requiredEquity, refs: [ex.third.total, xr.too-small.extra], unit: percent, source: "obliczenie: dopłata/(pula po check-raise'ie + dopłata)" }
+
+# M7: turn. Implied odds liczone z formuł: na trafieniach musisz wygrać łącznie dopłata × (karty nietrafiające ÷ outy),
+# bo wtedy equity × (pula po zakładzie + dodatkowa wygrana) = (1 − equity) × dopłata. Schemat nie ma formuły ilorazu,
+# więc 1 ÷ outy zapisujemy jako mdf(1, outy − 1) (potrzeba kodu w raporcie M7). Przykłady dobrane tak, żeby wyniki
+# w żetonach były całkowite (zadania liczbowe w żetonach oceniane są dokładnie).
+math.one: { value: 1, unit: count, source: "stała pomocnicza: jedynka do zapisu 1 ÷ outy przez formułę mdf" }
+miss.flush.turn: { formula: diff, refs: [cards.unseen.turn, outs.flush], unit: count, source: "obliczenie: nieznane karty na turnie minus outy do koloru" }
+miss.oesd.turn: { formula: diff, refs: [cards.unseen.turn, outs.oesd], unit: count, source: "obliczenie: nieznane karty na turnie minus outy do strita otwartego" }
+miss.gutshot.turn: { formula: diff, refs: [cards.unseen.turn, outs.gutshot], unit: count, source: "obliczenie: nieznane karty na turnie minus outy do gutshota" }
+inv.outs.flush: { formula: quotient, refs: [math.one, outs.flush], unit: ratio, decimals: 3, source: "obliczenie pomocnicze: 1 ÷ outy" }
+inv.outs.oesd: { formula: quotient, refs: [math.one, outs.oesd], unit: ratio, decimals: 3, source: "obliczenie pomocnicze: 1 ÷ outy" }
+inv.outs.gutshot: { formula: quotient, refs: [math.one, outs.gutshot], unit: ratio, decimals: 3, source: "obliczenie pomocnicze: 1 ÷ outy" }
+io.flush.bet: { formula: product, refs: [ex.third.pot, ex.frac.half], unit: count, source: "obliczenie: zakład pół puli przy puli z przykładu M2" }
+io.flush.pot-after-bet: { formula: sum, refs: [ex.third.pot, io.flush.bet], unit: count, source: "obliczenie: pula po zakładzie" }
+io.flush.total: { formula: sum, refs: [ex.third.pot, io.flush.bet, io.flush.bet], unit: count, source: "obliczenie: pula po zakładzie i sprawdzeniu" }
+io.flush.eq: { formula: requiredEquity, refs: [ex.third.pot, io.flush.bet], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
+io.flush.need: { formula: product, refs: [io.flush.bet, miss.flush.turn, inv.outs.flush], unit: count, source: "obliczenie: dopłata × nietrafiające ÷ outy (łączna wygrana na trafieniach, przy której sprawdzenie wychodzi na zero)" }
+io.flush.extra: { formula: diff, refs: [io.flush.need, io.flush.pot-after-bet], unit: count, source: "obliczenie: ile ponad pulę po zakładzie musisz wygrać na riverze po trafieniu (implied odds)" }
+io.oesd.pot: { value: 80, unit: count, source: "przykład w lekcji (pula w żetonach)" }
+io.oesd.bet: { formula: product, refs: [io.oesd.pot, ex.frac.half], unit: count, source: "obliczenie: zakład pół puli" }
+io.oesd.pot-after-bet: { formula: sum, refs: [io.oesd.pot, io.oesd.bet], unit: count, source: "obliczenie: pula po zakładzie" }
+io.oesd.need: { formula: product, refs: [io.oesd.bet, miss.oesd.turn, inv.outs.oesd], unit: count, source: "obliczenie: dopłata × nietrafiające ÷ outy" }
+io.oesd.extra: { formula: diff, refs: [io.oesd.need, io.oesd.pot-after-bet], unit: count, source: "obliczenie: ile ponad pulę po zakładzie musisz wygrać po trafieniu (implied odds)" }
+io.gut.need: { formula: product, refs: [ex.bet.half, miss.gutshot.turn, inv.outs.gutshot], unit: count, source: "obliczenie: dopłata × nietrafiające ÷ outy" }
+io.gut.extra: { formula: diff, refs: [io.gut.need, ex.half.pot-after-bet], unit: count, source: "obliczenie: ile ponad pulę po zakładzie musisz wygrać po trafieniu (implied odds)" }
+spr.low: { value: 1.5, unit: ratio, decimals: 1, source: "przykład niskiego SPR dobrany do ćwiczeń (bez źródła liczbowego)" }
+spr.high: { value: 5, unit: ratio, source: "przykład wyższego SPR dobrany do ćwiczeń (bez źródła liczbowego)" }
+spr.stack.low: { formula: product, refs: [ex.pot, spr.low], unit: count, source: "obliczenie: stack = SPR × pula" }
+spr.stack.high: { formula: product, refs: [ex.pot, spr.high], unit: count, source: "obliczenie: stack = SPR × pula" }
+draw.combo.overlap: { value: 2, unit: count, source: "kombinatoryka: dwie karty strita w kolorze dobierania są już policzone jako outy do koloru" }
+outs.combo.raw: { formula: sum, refs: [outs.flush, outs.oesd], unit: count, source: "obliczenie: outy do koloru plus outy do strita (z kartami liczonymi podwójnie)" }
+outs.combo: { formula: diff, refs: [outs.combo.raw, draw.combo.overlap], unit: count, source: "obliczenie: kolor + strit otwarty minus karty liczone podwójnie" }
+odds.combo.turn-river: { formula: hitProbability, refs: [outs.combo, cards.unseen.turn, streets.turn-river], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
+
+# M8: river. Bez częstotliwości i rozmiarów z literatury (źródła znane tylko ze streszczeń, raport M8): sama matematyka
+# z formuł i przykłady do ćwiczeń. Udział blefów w betach to bet/(pula+2·bet), czyli ta sama formuła co potrzebne equity
+# (requiredEquity) z tymi samymi refs co eq.bet-*: osobna nazwa mówi, co liczba oznacza, a wartości nie mogą się rozjechać.
+value.threshold: { value: 0.5, unit: percent, source: "matematyka: bet dla wartości na riverze (rywal tylko sprawdza albo pasuje) zarabia, gdy wygrywasz z więcej niż połową rąk, które sprawdzą" }
+value.ex.many: { value: 6, unit: count, source: "przykład w lekcji (liczba sprawdzeń)" }
+value.ex.few: { value: 4, unit: count, source: "przykład w lekcji (liczba sprawdzeń)" }
+value.ex.calls: { formula: sum, refs: [value.ex.many, value.ex.few], unit: count, source: "obliczenie: wszystkie sprawdzenia w przykładzie" }
+value.ex.net: { formula: diff, refs: [value.ex.many, value.ex.few], unit: count, source: "obliczenie: wygrane bety minus przegrane bety" }
+bluff.share.bet-third: { formula: requiredEquity, refs: [ex.third.pot, ex.third.bet], unit: percent, source: "obliczenie: udział blefów w betach = bet/(pula+2·bet), ta sama formuła i dane co eq.bet-third (obojętność ręki łapiącej blefy)" }
+bluff.share.bet-half: { formula: requiredEquity, refs: [ex.pot, ex.bet.half], unit: percent, source: "obliczenie: udział blefów w betach = bet/(pula+2·bet), ta sama formuła i dane co eq.bet-half" }
+bluff.share.bet-three-quarters: { formula: requiredEquity, refs: [ex.pot, ex.bet.three-quarters], unit: percent, source: "obliczenie: udział blefów w betach = bet/(pula+2·bet), ta sama formuła i dane co eq.bet-three-quarters" }
+bluff.share.bet-pot: { formula: requiredEquity, refs: [ex.pot, ex.bet.pot], unit: percent, source: "obliczenie: udział blefów w betach = bet/(pula+2·bet), ta sama formuła i dane co eq.bet-pot; program nauczania M8: przy becie całej puli 1/3 betów to blefy" }
+bluff.share.bet-overbet: { formula: requiredEquity, refs: [ex.pot, ex.bet.overbet], unit: percent, decimals: 1, source: "obliczenie: udział blefów w betach = bet/(pula+2·bet), ta sama formuła i dane co eq.bet-overbet" }
+bluff.ex.range: { value: 15, unit: count, source: "przykład w lekcji (kombinacje, którymi betujesz)" }
+bluff.ex.bluffs: { formula: product, refs: [bluff.ex.range, bluff.share.bet-pot], unit: count, source: "obliczenie: kombinacje × udział blefów przy becie całej puli" }
+bluff.ex.value: { formula: diff, refs: [bluff.ex.range, bluff.ex.bluffs], unit: count, source: "obliczenie: kombinacje minus blefy" }
+bluff.ex.wrong-alpha: { formula: product, refs: [bluff.ex.range, alpha.bet-pot], unit: count, decimals: 1, source: "przykład błędnej odpowiedzi: kombinacje × alpha zamiast udziału blefów" }
+combos.unpaired: { formula: sum, refs: [combos.suited, combos.offsuit], unit: count, source: "kombinatoryka: 4×4 kombinacje dwóch różnych rang" }
+combos.unpaired.one-blocked: { formula: product, refs: [pair.outs.per-rank, cards.suits], unit: count, source: "kombinatoryka: trzymasz jedną kartę danej rangi, zostają 3×4" }
+combos.unpaired.both-blocked: { formula: product, refs: [pair.outs.per-rank, pair.outs.per-rank], unit: count, source: "kombinatoryka: trzymasz po jednej karcie obu rang, zostają 3×3" }
+combos.pair.one-blocked: { value: 3, unit: count, source: "kombinatoryka: C(3,2), trzymasz jedną kartę danej rangi" }
+catch.ex.bluffs-low: { value: 0.15, unit: percent, source: "przykład do ćwiczenia (założony udział blefów rywala, bez źródła)" }
+catch.ex.bluffs-high: { value: 0.40, unit: percent, source: "przykład do ćwiczenia (założony udział blefów rywala, bez źródła)" }
+
+# M9: plan rozdania (SPR, zaangażowanie, rozmiar geometryczny). Pule i stacki liczone formułami z liczb M2, M4 i M5.
+# content-build nie ma formuły ilorazu ani pierwiastka, więc SPR (stack ÷ pula) i ułamki geometryczne
+# f = ((1 + 2·SPR)^(1/n) − 1) / 2 są wpisane jako wartości z obliczeniem w polu source (raport M9: potrzeba formuł).
+# Łańcuchy zakładów (flop, turn, river) liczone formułami potwierdzają, że ułamek geometryczny daje all-in.
+spr.srp.stack: { formula: diff, refs: [format.stack, pf.open-size], unit: bb, decimals: 1, source: "obliczenie: stack minus otwarcie (stack za pulą na flopie po otwarciu Buttona i sprawdzeniu BB)" }
+spr.srp: { formula: quotient, refs: [spr.srp.stack, bb.pot-after.vs-btn], unit: ratio, decimals: 1, source: "obliczenie: SPR = stack za pulą ÷ pula na flopie (97,5 ÷ 5,5)" }
+spr.srp.wrong-full: { formula: quotient, refs: [format.stack, bb.pot-after.vs-btn], unit: ratio, decimals: 1, source: "przykład błędnego rachunku: pełny stack ÷ pula (pominięte otwarcie, które już jest w puli)" }
+spr.3bet-ip.stack: { formula: diff, refs: [format.stack, pf.3bet.ip-total], unit: bb, decimals: 1, source: "obliczenie: stack minus 3-bet z pozycji" }
+spr.3bet-ip: { formula: quotient, refs: [spr.3bet-ip.stack, vs3bet.pot-after], unit: ratio, decimals: 1, source: "obliczenie: SPR = stack za pulą ÷ pula na flopie (92,5 ÷ 16,5)" }
+spr.3bet-ip.wrong-full: { formula: quotient, refs: [format.stack, vs3bet.pot-after], unit: ratio, decimals: 1, source: "przykład błędnego rachunku: pełny stack ÷ pula" }
+spr.3bet-oop.pot: { formula: sum, refs: [pf.3bet.oop-total, pf.3bet.oop-total, pf.blind.sb], unit: bb, decimals: 1, source: "obliczenie: 3-bet BB wobec Buttona sprawdzony, SB spasował" }
+spr.3bet-oop.stack: { formula: diff, refs: [format.stack, pf.3bet.oop-total], unit: bb, source: "obliczenie: stack minus 3-bet bez pozycji" }
+spr.3bet-oop: { formula: quotient, refs: [spr.3bet-oop.stack, spr.3bet-oop.pot], unit: ratio, decimals: 1, source: "obliczenie: SPR = stack za pulą ÷ pula na flopie (90 ÷ 20,5)" }
+spr.4bet.pot: { formula: sum, refs: [pf.4bet.example.low, pf.4bet.example.low, pf.blind.bb], unit: bb, source: "obliczenie: 4-bet Buttona na 3-bet SB sprawdzony, BB spasował" }
+spr.4bet.stack: { formula: diff, refs: [format.stack, pf.4bet.example.low], unit: bb, source: "obliczenie: stack minus 4-bet" }
+spr.4bet: { formula: quotient, refs: [spr.4bet.stack, spr.4bet.pot], unit: ratio, decimals: 1, source: "obliczenie: SPR = stack za pulą ÷ pula na flopie (78 ÷ 45)" }
+spr.short.stack: { value: 50, unit: bb, source: "przykład w lekcji: rywal z krótszym stackiem" }
+spr.short.behind: { formula: diff, refs: [spr.short.stack, pf.open-size], unit: bb, decimals: 1, source: "obliczenie: krótszy stack minus otwarcie" }
+spr.short: { formula: quotient, refs: [spr.short.behind, bb.pot-after.vs-btn], unit: ratio, decimals: 1, source: "obliczenie: SPR = krótszy stack za pulą ÷ pula na flopie (47,5 ÷ 5,5)" }
+eq.jam.srp: { formula: requiredEquity, refs: [bb.pot-after.vs-btn, spr.srp.stack], unit: percent, source: "obliczenie: all-in za cały stack do puli; stack/(pula+2·stack)" }
+eq.jam.3bet-ip: { formula: requiredEquity, refs: [vs3bet.pot-after, spr.3bet-ip.stack], unit: percent, source: "obliczenie: stack/(pula+2·stack)" }
+eq.jam.4bet: { formula: requiredEquity, refs: [spr.4bet.pot, spr.4bet.stack], unit: percent, source: "obliczenie: stack/(pula+2·stack)" }
+spr.commit: { value: 2, unit: ratio, source: "program nauczania M9 (dokument projektu): heurystyka „SPR ok. 2: top para i lepsze grają o cały stack”; rachunek w lekcji m9.l2, próg do weryfikacji" }
+commit.stack: { formula: product, refs: [ex.pot, spr.commit], unit: count, source: "obliczenie: stack przy SPR 2 i puli 100" }
+eq.jam.spr2: { formula: requiredEquity, refs: [ex.pot, commit.stack], unit: percent, source: "obliczenie: stack/(pula+2·stack) przy SPR 2" }
+ex.pot.after-pot-call: { formula: sum, refs: [ex.pot, ex.bet.pot, ex.bet.pot], unit: count, source: "obliczenie: pula po zakładzie wielkości puli i sprawdzeniu" }
+commit.after-pot.call: { formula: diff, refs: [commit.stack, ex.bet.pot], unit: count, source: "obliczenie: reszta stacku po zakładzie wielkości puli" }
+eq.commit.after-pot: { formula: requiredEquity, refs: [ex.pot.after-pot-call, commit.after-pot.call], unit: percent, source: "obliczenie: dopłata/(pula przed nadwyżką + 2·dopłata)" }
+commit.after-small.pot: { formula: sum, refs: [ex.pot, cbet.ex.small, cbet.ex.small], unit: count, source: "obliczenie: pula z twoim zakładem 1/3 i wyrównaniem go przez rywala" }
+commit.after-small.call: { formula: diff, refs: [commit.stack, cbet.ex.small], unit: count, source: "obliczenie: reszta stacku po zakładzie 1/3 puli" }
+eq.commit.after-small: { formula: requiredEquity, refs: [commit.after-small.pot, commit.after-small.call], unit: percent, source: "obliczenie: dopłata/(pula przed nadwyżką + 2·dopłata)" }
+plan.streets.two: { value: 2, unit: count, source: "liczba ulic w planie (flop i turn albo turn i river)" }
+plan.streets.three: { value: 3, unit: count, source: "liczba ulic w planie (flop, turn i river)" }
+geo.spr2.2: { formula: geometric, refs: [spr.commit, plan.streets.two], unit: percent, source: "obliczenie: f = ((1 + 2·SPR)^(1/ulice) − 1) / 2, dwie ulice przy SPR 2" }
+geo.spr2.flop: { formula: product, refs: [ex.pot, geo.spr2.2], unit: count, source: "obliczenie: zakład na flopie" }
+geo.spr2.flop-after: { formula: sum, refs: [ex.pot, geo.spr2.flop, geo.spr2.flop], unit: count, source: "obliczenie: pula po sprawdzeniu" }
+geo.spr2.turn: { formula: product, refs: [geo.spr2.flop-after, geo.spr2.2], unit: count, source: "obliczenie: zakład na turnie" }
+geo.spr2.total: { formula: sum, refs: [geo.spr2.flop, geo.spr2.turn], unit: count, source: "obliczenie: razem wpłacone (= stack 200)" }
+geo.ex.spr: { value: 13, unit: ratio, source: "przykład: SPR dobrany tak, że trzy zakłady wielkości puli dają all-in ((1+2·1)^3 = 1 + 2·13)" }
+geo.ex.stack: { formula: product, refs: [ex.pot, geo.ex.spr], unit: count, source: "obliczenie: stack = SPR × pula" }
+geo.ex.turn: { formula: product, refs: [ex.pot.after-pot-call, ex.frac.pot], unit: count, source: "obliczenie: zakład wielkości puli na turnie" }
+geo.ex.turn-after: { formula: sum, refs: [ex.pot.after-pot-call, geo.ex.turn, geo.ex.turn], unit: count, source: "obliczenie: pula po sprawdzeniu" }
+geo.ex.river: { formula: product, refs: [geo.ex.turn-after, ex.frac.pot], unit: count, source: "obliczenie: zakład wielkości puli na riverze" }
+geo.ex.river-after: { formula: sum, refs: [geo.ex.turn-after, geo.ex.river, geo.ex.river], unit: count, source: "obliczenie: pula po sprawdzeniu" }
+geo.ex.total: { formula: sum, refs: [ex.bet.pot, geo.ex.turn, geo.ex.river], unit: count, source: "obliczenie: razem wpłacone przez każdego gracza (= geo.ex.stack)" }
+geo.half.spr: { value: 3.5, unit: ratio, decimals: 1, source: "przykład: SPR, przy którym trzy zakłady pół puli dają all-in ((1+2·0,5)^3 = 1 + 2·3,5)" }
+geo.half.stack: { formula: product, refs: [ex.pot, geo.half.spr], unit: count, source: "obliczenie: stack = SPR × pula" }
+geo.half.turn: { formula: product, refs: [ex.half.total, ex.frac.half], unit: count, source: "obliczenie: zakład pół puli na turnie" }
+geo.half.turn-after: { formula: sum, refs: [ex.half.total, geo.half.turn, geo.half.turn], unit: count, source: "obliczenie: pula po sprawdzeniu" }
+geo.half.river: { formula: product, refs: [geo.half.turn-after, ex.frac.half], unit: count, source: "obliczenie: zakład pół puli na riverze" }
+geo.half.total: { formula: sum, refs: [ex.bet.half, geo.half.turn, geo.half.river], unit: count, source: "obliczenie: razem wpłacone (= geo.half.stack)" }
+geo.srp.3: { formula: geometric, refs: [spr.srp, plan.streets.three], unit: multiplier, decimals: 2, source: "obliczenie: rozmiar geometryczny na trzy ulice w puli z jednym podbiciem" }
+geo.3bet-ip.3: { formula: geometric, refs: [spr.3bet-ip, plan.streets.three], unit: percent, source: "obliczenie: rozmiar geometryczny na trzy ulice po 3-becie z pozycją" }
+geo.3bet-oop.3: { formula: geometric, refs: [spr.3bet-oop, plan.streets.three], unit: percent, source: "obliczenie: rozmiar geometryczny na trzy ulice po 3-becie dużego blinda" }
+geo.4bet.3: { formula: geometric, refs: [spr.4bet, plan.streets.three], unit: percent, source: "obliczenie: rozmiar geometryczny na trzy ulice po 4-becie" }
+geo.4bet.2: { formula: geometric, refs: [spr.4bet, plan.streets.two], unit: percent, source: "obliczenie: rozmiar geometryczny na dwie ulice po 4-becie" }
+geo.3bet-ip.flop: { formula: product, refs: [vs3bet.pot-after, geo.3bet-ip.3], unit: bb, decimals: 1, source: "obliczenie: zakład geometryczny na flopie" }
+geo.3bet-ip.flop-after: { formula: sum, refs: [vs3bet.pot-after, geo.3bet-ip.flop, geo.3bet-ip.flop], unit: bb, source: "obliczenie: pula po sprawdzeniu" }
+geo.3bet-ip.turn: { formula: product, refs: [geo.3bet-ip.flop-after, geo.3bet-ip.3], unit: bb, decimals: 1, source: "obliczenie: zakład geometryczny na turnie" }
+geo.3bet-ip.turn-after: { formula: sum, refs: [geo.3bet-ip.flop-after, geo.3bet-ip.turn, geo.3bet-ip.turn], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu" }
+geo.3bet-ip.river: { formula: product, refs: [geo.3bet-ip.turn-after, geo.3bet-ip.3], unit: bb, source: "obliczenie: zakład geometryczny na riverze (all-in)" }
+geo.3bet-ip.total: { formula: sum, refs: [geo.3bet-ip.flop, geo.3bet-ip.turn, geo.3bet-ip.river], unit: bb, decimals: 1, source: "obliczenie: razem wpłacone (≈ spr.3bet-ip.stack)" }
+g3b.third.flop: { formula: product, refs: [vs3bet.pot-after, cbet.size.small], unit: bb, decimals: 1, source: "obliczenie: zakład 1/3 puli na flopie w puli 3-betowanej" }
+g3b.third.turn: { formula: product, refs: [g3b.third.flop-after, cbet.size.small], unit: bb, decimals: 1, source: "obliczenie: zakład 1/3 puli na turnie" }
+g3b.third.flop-after: { formula: sum, refs: [vs3bet.pot-after, g3b.third.flop, g3b.third.flop], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu" }
+g3b.third.turn-after: { formula: sum, refs: [g3b.third.flop-after, g3b.third.turn, g3b.third.turn], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu" }
+g3b.third.river: { formula: product, refs: [g3b.third.turn-after, cbet.size.small], unit: bb, decimals: 1, source: "obliczenie: zakład 1/3 puli na riverze" }
+g3b.third.total: { formula: sum, refs: [g3b.third.flop, g3b.third.turn, g3b.third.river], unit: bb, source: "obliczenie: razem wpłacone trzema zakładami 1/3 puli" }
+srp.half.flop: { formula: product, refs: [bb.pot-after.vs-btn, ex.frac.half], unit: bb, decimals: 2, source: "obliczenie: pół puli na flopie po otwarciu Buttona i sprawdzeniu BB" }
+srp.half.flop-after: { formula: sum, refs: [bb.pot-after.vs-btn, srp.half.flop, srp.half.flop], unit: bb, source: "obliczenie: pula po sprawdzeniu" }
+srp.half.turn: { formula: product, refs: [srp.half.flop-after, ex.frac.half], unit: bb, decimals: 1, source: "obliczenie: pół puli na turnie" }
+srp.half.turn-after: { formula: sum, refs: [srp.half.flop-after, srp.half.turn, srp.half.turn], unit: bb, source: "obliczenie: pula po sprawdzeniu" }
+srp.half.river: { formula: product, refs: [srp.half.turn-after, ex.frac.half], unit: bb, source: "obliczenie: pół puli na riverze" }
+srp.half.total: { formula: sum, refs: [srp.half.flop, srp.half.turn, srp.half.river], unit: bb, decimals: 2, source: "obliczenie: razem wpłacone trzema zakładami pół puli" }
+srp.potbet.flop: { formula: product, refs: [bb.pot-after.vs-btn, ex.frac.pot], unit: bb, decimals: 1, source: "obliczenie: zakład wielkości puli na flopie" }
+srp.potbet.flop-after: { formula: sum, refs: [bb.pot-after.vs-btn, srp.potbet.flop, srp.potbet.flop], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu" }
+srp.potbet.turn: { formula: product, refs: [srp.potbet.flop-after, ex.frac.pot], unit: bb, decimals: 1, source: "obliczenie: zakład wielkości puli na turnie" }
+srp.potbet.turn-after: { formula: sum, refs: [srp.potbet.flop-after, srp.potbet.turn, srp.potbet.turn], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu" }
+srp.potbet.river: { formula: product, refs: [srp.potbet.turn-after, ex.frac.pot], unit: bb, decimals: 1, source: "obliczenie: zakład wielkości puli na riverze" }
+srp.potbet.total: { formula: sum, refs: [srp.potbet.flop, srp.potbet.turn, srp.potbet.river], unit: bb, decimals: 1, source: "obliczenie: razem wpłacone trzema zakładami wielkości puli" }
+# M9: strefy SPR z literatury (heurystyka, decyzja właściciela 4.10; progi do weryfikacji ze źródłem)
+spr.zone.low: { value: 3, unit: ratio, source: "Pokerology, SPR Poker; VIP-Grinders, Stack to Pot Ratio: granica niskiego SPR [do weryfikacji: źródło znane tylko ze streszczenia wyszukiwarki]" }
+spr.zone.mid: { value: 6, unit: ratio, source: "jak spr.zone.low: granica średniego SPR [do weryfikacji]" }
+spr.zone.deep: { value: 13, unit: ratio, source: "jak spr.zone.low: granica wysokiego SPR [do weryfikacji]" }

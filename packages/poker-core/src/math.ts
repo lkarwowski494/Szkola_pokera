@@ -52,6 +52,15 @@ export function missProbability(outs: number, unseen: number, draws: number): nu
   return Math.max(0, p);
 }
 
+/**
+ * Rozmiar geometryczny: ułamek puli f stawiany na każdej z `streets` ulic, tak że po ostatnim zakładzie i sprawdzeniu
+ * cały stack jest w puli: (1 + 2f)^streets = 1 + 2·SPR, czyli f = ((1 + 2·SPR)^(1/streets) − 1) / 2.
+ */
+export function geometricFraction(spr: number, streets: number): number {
+  if (!(spr >= 0) || !Number.isInteger(streets) || streets < 1) throw new Error('Nieprawidłowe argumenty');
+  return ((1 + 2 * spr) ** (1 / streets) - 1) / 2;
+}
+
 /** Reguła 2 i 4 (przybliżenie w procentach jako ułamek). */
 export function ruleOf2And4(outs: number, cardsToCome: 1 | 2): number {
   return (outs * (cardsToCome === 2 ? 4 : 2)) / 100;
