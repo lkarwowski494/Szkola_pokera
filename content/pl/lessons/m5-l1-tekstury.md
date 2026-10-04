@@ -47,6 +47,13 @@ drills:
       - { text: "Bo rywal nie ma żadnego {{t:draw|dobierania}}, więc kolejne karty rzadko zmieniają lidera", correct: true, why: "Tak: flop jest {{t:rainbow}} i {{t:straight}} nie jest możliwy. Rywal, który teraz przegrywa, ma zwykle mało outów: kilka kart na {{t:three-of-a-kind|trójkę}} albo {{t:two-pair}}, a bez {{t:pair|pary}} potrzebuje dwóch dobrych kart z rzędu." }
       - { text: "Bo na {{t:dry|suchym}} flopie rywal zawsze {{t:fold|pasuje}}", why: "Nie: rywal z siódemką, dwójką albo słabszym królem może {{t:call|sprawdzić}}. {{t:dry|Suchy}} flop mówi o {{t:draw|dobieraniach}}, nie o tym, czy rywal {{t:fold|spasuje}}." }
       - { text: "Bo {{t:pair}} króli zawsze wygrywa do rivera", why: "Nie: rywal może mieć seta albo {{t:two-pair}} już teraz. {{t:dry|Suchy}} flop zmniejsza tylko ryzyko, że ktoś cię dogoni." }
+  # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar board
+  - kind: generated
+    id: m5.l1.g-vocab-board
+    family: vocab.board
+    generator: vocab
+    params: { area: board, dir: both }
+    count: 4
 ---
 Po flopie każdy gracz widzi już pięć z siedmiu swoich kart. To, jak trzy karty na {{t:board|stole}} pasują do rąk graczy, nazywamy {{t:texture|teksturą}} flopa. Od {{t:texture|tekstury}} zależy, kto częściej trafił i czy warto betować. Zanim nauczysz się c-betu ({{t:bet|zakładu}} na flopie po {{t:raise|przebiciu}} przed flopem), naucz się czytać flop na czterech osiach.
 

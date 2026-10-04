@@ -102,6 +102,13 @@ drills:
       - { text: "Że wszyscy grają równie dobrze, a o miejscach decydują tylko stacki", correct: true, why: "{{t:icm}} przelicza same stacki na szanse zajęcia miejsc. Nie zna {{t:position|pozycji}}, rosnących blindów ani przewagi umiejętności." }
       - { text: "Że lepszy gracz częściej wygrywa", why: "Odwrotnie: {{t:icm}} zakłada równe umiejętności. Przewagi gracza w ogóle nie uwzględnia." }
       - { text: "Że gracz na {{t:big-blind|dużym blindzie}} ma mniejsze szanse", why: "{{t:icm}} nie zna {{t:position|pozycji}} ani blindów: patrzy tylko na stacki. To jedno z jego ograniczeń." }
+  # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar tournament
+  - kind: generated
+    id: m11.l3.g-vocab-tournament
+    family: vocab.tournament
+    generator: vocab
+    params: { area: tournament, dir: both }
+    count: 4
 ---
 W grze o pieniądze (cash) {{t:chips|żeton}} to pieniądz: wygrany i przegrany są warte tyle samo. W {{t:tournament|turnieju}} tak nie jest. Nagrody dostaje kilka pierwszych miejsc, a zwycięzca nie zabiera całej {{t:prize-pool|puli nagród}}, choć zabiera wszystkie {{t:chips}}. Dlatego {{t:chips}} trzeba przeliczać na pieniądze.
 

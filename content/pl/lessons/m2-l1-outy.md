@@ -95,6 +95,13 @@ drills:
     generator: outs
     params: { kind: gutshot }
     count: 2
+  # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar math
+  - kind: generated
+    id: m2.l1.g-vocab-math
+    family: vocab.math
+    generator: vocab
+    params: { area: math, dir: both }
+    count: 4
 ---
 **Out** to karta, która poprawia twoją rękę na prawdopodobnie wygrywającą. Liczenie outów pozwala szybko oszacować szanse bez kalkulatora.
 

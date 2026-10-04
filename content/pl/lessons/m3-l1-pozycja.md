@@ -44,6 +44,13 @@ drills:
       - { text: "Wiem, co zrobili rywale, zanim zdecyduję", correct: true, why: "Każda akcja rywala to informacja. Ostatni ma ich najwięcej i może tanio {{t:check|czekać}} albo przejąć {{t:pot|pulę}}, gdy inni pokażą słabość." }
       - { text: "Dostaję lepsze karty", why: "Karty są losowe niezależnie od {{t:position|pozycji}}." }
       - { text: "Płacę mniejsze blindy", why: "Na Buttonie nie płacisz blindów, ale to nie jest główna zaleta. Najważniejsza jest informacja." }
+  # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar positions
+  - kind: generated
+    id: m3.l1.g-vocab-positions
+    family: vocab.positions
+    generator: vocab
+    params: { area: positions, dir: both }
+    count: 4
 ---
 Przycisk dealera (**{{t:button|BTN}}**, Button) przesuwa się co rozdanie. Od niego zależy kolejność mówienia. Od flopu Button mówi **ostatni**, a to ogromna przewaga: widzisz, co zrobili wszyscy inni, zanim sam zdecydujesz.
 

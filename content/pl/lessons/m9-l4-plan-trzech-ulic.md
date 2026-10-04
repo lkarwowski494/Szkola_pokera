@@ -84,6 +84,13 @@ drills:
       - { text: "Po turnie cały stack jest w {{t:pot|puli}}", correct: true, why: "Tak: {{n:geo.spr2.flop}} na flopie i {{n:geo.spr2.turn}} na turnie to razem {{n:geo.spr2.total}}. Dlatego przy {{t:spr}} {{n:spr.commit}} dwie {{t:value|ulice wartości}} {{t:top-pair|najwyższej pary}} wystarczą na grę o cały stack." }
       - { text: "Zostaje mniej więcej połowa na river", why: "{{t:pot|Pula}} rośnie mnożeniem: po flopie jest w niej ok. {{n:geo.spr2.flop-after}}, a {{t:bet}} ok. {{n:geo.spr2.2}} na turnie to ok. {{n:geo.spr2.turn}}, czyli reszta stacku." }
       - { text: "Zostaje prawie cały stack", why: "Przy {{t:spr}} {{n:spr.commit}} stack to tylko {{n:spr.commit}} {{t:pot|pule}}. Dwa {{t:bet|zakłady}} po ok. {{n:geo.spr2.2}} {{t:pot|puli}} wpłacają całe {{n:geo.spr2.total}}." }
+  # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar strategy
+  - kind: generated
+    id: m9.l4.g-vocab-strategy
+    family: vocab.strategy
+    generator: vocab
+    params: { area: strategy, dir: both }
+    count: 4
 ---
 Dobry plan zaczyna się na flopie, zanim {{t:bet|postawisz}} pierwszy {{t:bet}}. Pytasz: ile {{t:value|ulic wartości}} zniesie moja ręka i czy chcę grać o cały stack? Odpowiedź łączy siłę ręki z {{t:spr}}.
 

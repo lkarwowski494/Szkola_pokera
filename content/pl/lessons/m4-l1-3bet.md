@@ -60,6 +60,13 @@ drills:
     generator: rangeDecision
     params: { spots: "vs-open.sb-vs-btn" }
     count: 4
+  # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar preflop
+  - kind: generated
+    id: m4.l1.g-vocab-preflop
+    family: vocab.preflop
+    generator: vocab
+    params: { area: preflop, dir: both }
+    count: 4
 ---
 Gdy ktoś przed tobą {{t:open|otworzył}}, masz trzy możliwości: {{t:fold|pasujesz}}, {{t:call|sprawdzasz}} albo {{t:raise|przebijasz}} jeszcze raz. Ponowne {{t:raise}} nazywa się 3-betem, bo to trzeci {{t:bet}} w rozdaniu (blind, {{t:open}}, {{t:raise}}).
 

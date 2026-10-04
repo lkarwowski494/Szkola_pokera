@@ -70,6 +70,13 @@ drills:
     rules: [R-M0-001]
     generator: bestHand
     count: 2
+  # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar hands
+  - kind: generated
+    id: m0.l1.g-vocab-hands
+    family: vocab.hands
+    generator: vocab
+    params: { area: hands, dir: both }
+    count: 4
 ---
 W Texas Hold'em dostajesz **2 {{t:hole-cards}}**, a na {{t:board}} trafia **5 {{t:community-cards|kart wspólnych}}**. Z tych 7 kart budujesz najlepszy układ z **5**. Silniejszy układ wygrywa całą {{t:pot|pulę}}.
 

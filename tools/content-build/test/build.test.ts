@@ -297,6 +297,7 @@ describe('terminy PL ↔ EN (content/terms.yaml)', () => {
     expect(c.terms.length).toBeGreaterThan(80);
     for (const t of c.terms) expect(t.source).toMatch(/https?:\/\//);
     const vocab = c.lessons.flatMap((l) => l.drills).filter((d) => d.kind === 'generated' && d.generator === 'vocab');
+    expect(vocab.length).toBeGreaterThan(0);
     for (const d of vocab) {
       if (d.kind !== 'generated') continue;
       expect(c.terms.filter((t) => t.area === d.params.area && vocabEligible(t)).length).toBeGreaterThanOrEqual(VOCAB_MIN_TERMS);

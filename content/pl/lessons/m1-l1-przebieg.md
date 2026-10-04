@@ -52,6 +52,20 @@ drills:
       - { text: "{{t:check|Czekam}}", correct: true, why: "Twój {{t:big-blind}} liczy się jak {{t:bet}}, a {{t:small-blind}} tylko go wyrównał. Nikt nie {{t:raise|przebił}}, więc flop zobaczysz za darmo. Słaba ręka nie jest powodem do pasowania, gdy nic nie kosztuje." }
       - { text: "{{t:fold|Pasuję}}", why: "{{t:fold|Pas}}, gdy możesz {{t:check|czekać}} za darmo, to czysta strata." }
       - { text: "{{t:raise|Przebijam}}", why: "Z 7-2 nie masz czego budować; {{t:check}} daje darmowy flop." }
+  # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar actions
+  - kind: generated
+    id: m1.l1.g-vocab-actions
+    family: vocab.actions
+    generator: vocab
+    params: { area: actions, dir: both }
+    count: 4
+  # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar table
+  - kind: generated
+    id: m1.l1.g-vocab-table
+    family: vocab.table
+    generator: vocab
+    params: { area: table, dir: both }
+    count: 4
 ---
 Każde rozdanie ma stałą kolejność. Najpierw dwóch graczy wpłaca obowiązkowe stawki, czyli **blindy**: {{t:small-blind}} i {{t:big-blind}}. Dzięki temu w {{t:pot|puli}} zawsze jest o co grać.
 
