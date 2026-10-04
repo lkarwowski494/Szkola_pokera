@@ -7,6 +7,16 @@ export interface EquityData {
   classes: string[];
   equity: number[][];
   pairs: number[][];
+  /** Wariant (człon implied odds): dane z scripts/implied.ts (tools/equity/implied169.json). */
+  implied?: ImpliedData;
+}
+
+/** Prawdopodobieństwa na rivera dla każdej klasy: silna ręka wymagająca obu kart (nut) i najwyższa para / overpara (pay). */
+export interface ImpliedData {
+  nut: number[];
+  pay: number[];
+  /** Jedna para niższa od najwyższej karty stołu (ręka średniej siły); potrzebne tylko w wariancie mid. */
+  mid?: number[];
 }
 
 export function validateEquity(d: EquityData): void {
@@ -45,47 +55,103 @@ export interface EqrParams {
   sprFull?: number;
   /** Wariant: czynnik roli w pulach 4-betowanych i wyżej. Domyślnie = role3. */
   role4?: number;
+  /** Wariant (naprawa EQR, raport 10): wagi grywalności grup rąk zamiast tabeli kanonu (klucze: PLAY_GROUPS). */
+  weights?: Partial<Record<PlayGroup, number>>;
+  /** Wariant (naprawa EQR): SPR, od którego grywalność działa w pełni (osobno od pozycji). Domyślnie = sprFull. */
+  sprPlay?: number;
+  /**
+   * Wariant (naprawa EQR, człon implied odds): do udziału ręki h przeciw v dochodzi
+   * io · min(SPR, ioCap) · (nut(h)·pay(v) − nut(v)·pay(h)). Człon jest antysymetryczny, więc suma udziałów zostaje 1
+   * (gra o stałej sumie), ale udział może wyjść poza [0, 1]: ręka, która trafia seta, wygrywa od overpary więcej niż
+   * obecną pulę. 0 = brak (kanon).
+   */
+  io?: number;
+  ioCap?: number;
+  /**
+   * Wariant (naprawa EQR, człon ręki średniej siły): od udziału ręki h przeciw v odejmuje się
+   * mid · min(SPR, midCap) · (mid(h)·agg(v) − mid(v)·agg(h)), agg = nut + pay (ręce, które betują dla wartości).
+   * Udział w puli, więc w bb kara rośnie z wielkością puli (średnie ręce nie chcą dużych pul). 0 = brak (kanon).
+   */
+  mid?: number;
+  midCap?: number;
 }
+
+/** Człon implied odds dla pary klas (h, v) przy danym SPR, w udziałach puli (0 bez wariantu io). */
+export function impliedTerm(p: EqrParams, d: ImpliedData | undefined, spr: number, h: number, v: number): number {
+  if (!d) return 0;
+  let t = 0;
+  if (p.io) t += p.io * Math.min(spr, p.ioCap ?? Infinity) * (d.nut[h]! * d.pay[v]! - d.nut[v]! * d.pay[h]!);
+  if (p.mid && d.mid) {
+    const agg = (x: number) => d.nut[x]! + d.pay[x]!;
+    t -= p.mid * Math.min(spr, p.midCap ?? 4) * (d.mid[h]! * agg(v) - d.mid[v]! * agg(h));
+  }
+  return t;
+}
+
+/** Grupy rąk w modelu grywalności (wartości kanonu w CANON_WEIGHTS). */
+export const PLAY_GROUPS = ['p22', 'p77', 'pJJ', 'sBw', 'sConn', 'sAce', 'sGap', 'sOther', 'oBw', 'oAce', 'oConn', 'oOther'] as const;
+export type PlayGroup = (typeof PLAY_GROUPS)[number];
+export const CANON_WEIGHTS: Record<PlayGroup, number> = {
+  p22: 1.1,
+  p77: 1.05,
+  pJJ: 1.0,
+  sBw: 1.04,
+  sConn: 1.08,
+  sAce: 1.0,
+  sGap: 0.98,
+  sOther: 0.94,
+  oBw: 0.9,
+  oAce: 0.85,
+  oConn: 0.85,
+  oOther: 0.78,
+};
 
 export const DEFAULT_EQR: EqrParams = { k: 1, m: 0.08, rakeRate: 0.05, rakeCap: 3, role: 0 };
 
-/**
- * Waga grywalności klasy (przed skalowaniem k). Grupy i wartości: priorytety z researchu
- * (Deepfold, GTO Wizard: ręce w kolorze i połączone realizują więcej, offsuit mniej). Do kalibracji.
- */
-export function playabilityWeight(hc: string): number {
+/** Grupa grywalności klasy ręki. */
+export function playGroup(hc: string): PlayGroup {
   const R = '23456789TJQKA';
   const hi = R.indexOf(hc[0]!);
   const lo = R.indexOf(hc[1]!);
-  if (hc.length === 2) return hi <= 4 ? 1.1 : hi <= 8 ? 1.05 : 1.0; // 22–66, 77–TT, JJ+
+  if (hc.length === 2) return hi <= 4 ? 'p22' : hi <= 8 ? 'p77' : 'pJJ'; // 22–66, 77–TT, JJ+
   const suited = hc[2] === 's';
   const gap = hi - lo - 1;
   const broadway = lo >= 8;
   const ace = hi === 12;
   const connected = gap <= 1 && lo >= 3; // np. 54s, 65s, 97s
   if (suited) {
-    if (broadway) return 1.04;
-    if (connected) return 1.08;
-    if (ace) return 1.0;
-    return gap <= 2 ? 0.98 : 0.94;
+    if (broadway) return 'sBw';
+    if (connected) return 'sConn';
+    if (ace) return 'sAce';
+    return gap <= 2 ? 'sGap' : 'sOther';
   }
-  if (broadway) return 0.9;
-  if (ace) return 0.85;
-  if (connected) return 0.85;
-  return 0.78;
+  if (broadway) return 'oBw';
+  if (ace) return 'oAce';
+  if (connected) return 'oConn';
+  return 'oOther';
+}
+
+/**
+ * Waga grywalności klasy (przed skalowaniem k). Grupy i wartości: priorytety z researchu
+ * (Deepfold, GTO Wizard: ręce w kolorze i połączone realizują więcej, offsuit mniej). Do kalibracji.
+ */
+export function playabilityWeight(hc: string, weights?: Partial<Record<PlayGroup, number>>): number {
+  const g = playGroup(hc);
+  return weights?.[g] ?? CANON_WEIGHTS[g];
 }
 
 /**
  * Udział w puli gracza OOP z ręką h przeciw IP z ręką v (model „udziału w puli”, stała suma).
  * Przy SPR → 0 (all-in) wraca do czystego equity.
  */
-export function shareMatrix(eq: number[][], p: EqrParams, spr: number, aggressorIsOop: boolean | null = null): Float64Array {
+export function shareMatrix(eq: number[][], p: EqrParams, spr: number, aggressorIsOop: boolean | null = null, implied?: ImpliedData): Float64Array {
   const full = p.sprFull ?? 8;
   const f = Math.min(spr, full) / full;
   const r = (p.role ?? 0) * f;
   const fo = (1 - p.m * f) * (aggressorIsOop === null ? 1 : aggressorIsOop ? 1 + r : 1 - r);
   const fi = (1 + p.m * f) * (aggressorIsOop === null ? 1 : aggressorIsOop ? 1 - r : 1 + r);
-  const w = HAND_CLASSES.map((hc) => 1 + p.k * (playabilityWeight(hc) - 1) * f);
+  const fp = Math.min(spr, p.sprPlay ?? full) / (p.sprPlay ?? full);
+  const w = HAND_CLASSES.map((hc) => 1 + p.k * (playabilityWeight(hc, p.weights) - 1) * fp);
   const out = new Float64Array(N * N);
   for (let h = 0; h < N; h++)
     for (let v = 0; v < N; v++) {
@@ -96,7 +162,7 @@ export function shareMatrix(eq: number[][], p: EqrParams, spr: number, aggressor
       }
       const a = e * w[h]! * fo;
       const b = (1 - e) * w[v]! * fi;
-      out[h * N + v] = a + b > 0 ? a / (a + b) : 0.5;
+      out[h * N + v] = (a + b > 0 ? a / (a + b) : 0.5) + impliedTerm(p, implied, spr, h, v);
     }
   return out;
 }
