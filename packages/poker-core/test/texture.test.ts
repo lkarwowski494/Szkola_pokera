@@ -4,6 +4,8 @@ import {
   cardsToString,
   classifyFlop,
   drawOuts,
+  FLOP_COUNT,
+  flopWetnessShares,
   FULL_DECK,
   createRng,
   generateFlop,
@@ -84,7 +86,7 @@ describe('tekstura flopa', () => {
     expect(tex('Jh Th 8c')).toMatchObject({ height: 'middle', suits: 'two-tone', ranks: 'connected', wetness: 'wet', wetnessPoints: 4 });
     expect(tex('8s 7s 6s')).toMatchObject({ height: 'low', suits: 'monotone', ranks: 'connected', wetness: 'wet' });
     expect(tex('9h 8d 7c')).toMatchObject({ height: 'low', suits: 'rainbow', ranks: 'connected', wetness: 'wet', wetnessPoints: 3 });
-    expect(tex('Kh 8h 3h')).toMatchObject({ suits: 'monotone', ranks: 'disconnected', wetness: 'medium', wetnessPoints: 2 });
+    expect(tex('Kh 8h 3h')).toMatchObject({ suits: 'monotone', ranks: 'disconnected', wetness: 'wet', wetnessPoints: 3 });
     expect(tex('Kh 8h 4h')).toMatchObject({ suits: 'monotone', ranks: 'semi-connected', wetness: 'wet' });
     expect(tex('Qd Qc 6h')).toMatchObject({ height: 'high', ranks: 'paired', wetness: 'dry', straightDrawPossible: false });
     expect(tex('Qd Qh 6h')).toMatchObject({ suits: 'two-tone', ranks: 'paired', wetness: 'dry', wetnessPoints: 1 });
@@ -94,6 +96,49 @@ describe('tekstura flopa', () => {
     expect(tex('Ah Kd Tc').ranks).toBe('connected'); // QJ daje strita do asa
     expect(tex('Ah Kd 9c').ranks).toBe('semi-connected'); // QJ albo QT dają dobieranie do strita
     expect(tex('7h 7d 7c')).toMatchObject({ ranks: 'paired', trips: true, straightDrawPossible: false, wetness: 'dry' });
+  });
+
+  it('decyzja D-39: przykłady z raportu 12a-22', () => {
+    // dwukolorowy K72 suchy: jedynym dobieraniem jest kolor
+    expect(tex('Kh 7h 2c')).toMatchObject({ suits: 'two-tone', straight: 'none', wetness: 'dry', wetnessPoints: 1 });
+    // monotoniczny zawsze mokry
+    expect(tex('Kh 8h 3h')).toMatchObject({ wetness: 'wet', wetnessPoints: 3 });
+    expect(tex('Kh 7h 2h')).toMatchObject({ wetness: 'wet', wetnessPoints: 3 });
+    expect(tex('Qd 8d 7d')).toMatchObject({ wetness: 'wet' });
+    expect(tex('As 9s 6s')).toMatchObject({ wetness: 'wet' });
+    // strit w jednym oknie: pośredni (oś rang nadal „połączony”)
+    for (const f of ['Ah Kd Tc', 'Ah 4d 2c', 'Th 8d 6c', 'Kh Qd 9c']) {
+      expect(tex(f), f).toMatchObject({ ranks: 'connected', straightWindows: 1, straight: 'made-one', wetness: 'medium', wetnessPoints: 2 });
+    }
+    // strit w co najmniej dwóch oknach: mokry
+    expect(tex('9h 8d 7c')).toMatchObject({ straightWindows: 3, straight: 'made', wetness: 'wet', wetnessPoints: 3 });
+    expect(tex('Qh Jd Tc')).toMatchObject({ straightWindows: 3, wetness: 'wet' });
+    expect(tex('9h 8d 6c')).toMatchObject({ straightWindows: 2, straight: 'made', wetness: 'wet' });
+    expect(tex('7h 6h 5c')).toMatchObject({ wetness: 'wet', wetnessPoints: 4 });
+    expect(tex('Th 9h 5c')).toMatchObject({ wetness: 'medium', wetnessPoints: 2 });
+    // sparowane suche
+    expect(tex('Qd Qs 6h')).toMatchObject({ wetness: 'dry' });
+    expect(tex('Qd Qh 6h')).toMatchObject({ wetness: 'dry' });
+    expect(tex('Jd Jc Ts')).toMatchObject({ wetness: 'dry' });
+  });
+
+  it('rozkład mokrości po wszystkich 22 100 flopach: ok. 36,9 / 44,4 / 18,6%', () => {
+    const counts = { dry: 0, medium: 0, wet: 0 };
+    let n = 0;
+    for (let a = 0; a < 52; a++) for (let b = a + 1; b < 52; b++) for (let c = b + 1; c < 52; c++) {
+      counts[classifyFlop([a, b, c]).wetness]++;
+      n++;
+    }
+    expect(n).toBe(FLOP_COUNT);
+    expect(counts).toEqual({ dry: 8164, medium: 9816, wet: 4120 }); // raport 12a-22, niezależny skrypt
+    const pct = (k: keyof typeof counts) => (100 * counts[k]) / n;
+    expect(Math.abs(pct('dry') - 36.9)).toBeLessThanOrEqual(0.1);
+    expect(Math.abs(pct('medium') - 44.4)).toBeLessThanOrEqual(0.1);
+    expect(Math.abs(pct('wet') - 18.6)).toBeLessThanOrEqual(0.1);
+    const shares = flopWetnessShares();
+    expect(shares.dry * n).toBeCloseTo(counts.dry, 6);
+    expect(shares.medium * n).toBeCloseTo(counts.medium, 6);
+    expect(shares.wet * n).toBeCloseTo(counts.wet, 6);
   });
 
   it('nie zależy od kolejności kart ani od zamiany kolorów', () => {
@@ -142,6 +187,22 @@ describe('tekstura flopa', () => {
     }
   });
 
+  it('liczba okien = liczba par rang, które dają strita (wszystkie 1755 flopów)', () => {
+    for (const flop of canon) {
+      const board = new Set(flop.map(rankOf));
+      let pairs = 0;
+      if (board.size === 3) {
+        for (let a = 0; a < 13; a++) for (let b = a + 1; b < 13; b++) {
+          if (board.has(a) || board.has(b)) continue;
+          const all = new Set([...board, a, b]);
+          const r = (x: number) => (x === -1 ? 12 : x);
+          for (let top = 12; top >= 3; top--) if ([0, 1, 2, 3, 4].every((k) => all.has(r(top - k)))) { pairs++; break; }
+        }
+      }
+      expect(classifyFlop(flop).straightWindows, cardsToString(flop)).toBe(pairs);
+    }
+  });
+
   it('rozłączone są tylko flopy Q72, K72, K82 i K83 (w dowolnych kolorach)', () => {
     const shapes = new Set(canon.filter((f) => classifyFlop(f).ranks === 'disconnected').map((f) => cardsToString(f).replace(/[shdc]/g, '').split(' ').sort().join('')));
     expect([...shapes].sort()).toEqual(['27K', '27Q', '28K', '38K']);
@@ -151,12 +212,16 @@ describe('tekstura flopa', () => {
     fc.assert(
       fc.property(flopArb, (flop) => {
         const t = classifyFlop(flop);
-        const straight = t.straightPossible ? 'made' : t.straightDrawPossible ? 'draw' : 'none';
+        const straight =
+          t.straightWindows >= 2 ? 'made' : t.straightPossible ? 'made-one' : t.straightDrawPossible ? 'draw' : 'none';
+        expect(t.straight).toBe(straight);
         const points = WETNESS_POINTS.straight[straight] + WETNESS_POINTS.suits[t.suits];
         expect(t.wetnessPoints).toBe(points);
         expect(t.wetness).toBe(points >= WETNESS_THRESHOLDS.wet ? 'wet' : points >= WETNESS_THRESHOLDS.medium ? 'medium' : 'dry');
         if (t.ranks === 'paired') expect(t.wetness).not.toBe('wet');
-        if (t.ranks === 'connected') expect(t.wetness).toBe('wet');
+        if (t.ranks === 'connected') expect(t.wetness).not.toBe('dry');
+        if (t.straightWindows >= 2) expect(t.wetness).toBe('wet');
+        if (t.suits === 'monotone') expect(t.wetness).toBe('wet');
       }),
     );
   });

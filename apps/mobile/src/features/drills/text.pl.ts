@@ -206,7 +206,8 @@ const WT = WETNESS_THRESHOLDS;
 
 /** Skala mokrości słowami, liczby wprost ze stałych poker-core (jedno źródło prawdy). */
 export const WETNESS_SCALE =
-  `Liczymy punkty: strit możliwy już teraz ${WP.straight.made}, samo dobieranie do strita ${WP.straight.draw}; ` +
+  `Liczymy punkty: strit możliwy na kilka sposobów (z co najmniej dwiema parami rang) ${WP.straight.made}, ` +
+  `strit możliwy na jeden sposób ${WP.straight['made-one']}, samo dobieranie do strita ${WP.straight.draw}; ` +
   `flop dwukolorowy ${WP.suits['two-tone']}, monotoniczny ${WP.suits.monotone}. ` +
   `Suchy to 0–${WT.medium - 1}, pośredni ${WT.wet - 1 === WT.medium ? WT.medium : `${WT.medium}–${WT.wet - 1}`}, mokry ${WT.wet} i więcej`;
 
@@ -298,12 +299,14 @@ function drawsText(flop: readonly Card[], tex: FlopTexture): string {
   const ex = straightExample(flop);
   const drawEx = straightDrawExample(flop);
   const straight =
-    tex.straightPossible && ex
-      ? `strit jest możliwy, np. z ${ex}`
-      : tex.straightDrawPossible && drawEx
-        ? `strita nie ma, ale jest dobieranie do strita, np. z ${drawEx}`
-        : 'nie ma strita ani dobierania do strita';
-  const straightPts = WP.straight[tex.straightPossible ? 'made' : tex.straightDrawPossible ? 'draw' : 'none'];
+    tex.straight === 'made' && ex
+      ? `strit jest możliwy na kilka sposobów, np. z ${ex}`
+      : tex.straight === 'made-one' && ex
+        ? `strit jest możliwy tylko na jeden sposób, z ${ex}`
+        : tex.straightDrawPossible && drawEx
+          ? `strita nie ma, ale jest dobieranie do strita, np. z ${drawEx}`
+          : 'nie ma strita ani dobierania do strita';
+  const straightPts = WP.straight[tex.straight];
   return `${color}: ${points(suitPts)}; ${straight}: ${points(straightPts)}. Razem ${points(tex.wetnessPoints)}`;
 }
 

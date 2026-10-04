@@ -72,7 +72,9 @@ Flop **rozłączony** ma karty tak odległe, że żadne dwie nie mieszczą się 
 
 Liczymy punkty za to, co flop daje w kolorach i w stritach:
 
-- strit możliwy już teraz (flop połączony): {{n:tex.points.straight.made}} pkt; samo dobieranie do strita (flop półpołączony albo sparowany z dwiema kartami blisko siebie): {{n:tex.points.straight.draw}} pkt,
+- strit możliwy już teraz na kilka sposobów, czyli z co najmniej dwiema różnymi parami rang w ręce (na [[9h 8d 7c]] dają go JT, T6 i 65): {{n:tex.points.straight.made}} pkt,
+- strit możliwy tylko na jeden sposób (na [[Ah Kd Tc]] daje go tylko QJ, na [[Ah 4d 2c]] tylko 53): {{n:tex.points.straight.made-one}} pkt,
+- samo dobieranie do strita (flop półpołączony albo sparowany z dwiema kartami blisko siebie): {{n:tex.points.straight.draw}} pkt,
 - dwie karty w jednym kolorze: {{n:tex.points.suits.two-tone}} pkt; trzy karty w jednym kolorze: {{n:tex.points.suits.monotone}} pkt.
 
 Flop **suchy** ma mniej niż {{n:tex.threshold.medium}} pkt, **mokry** co najmniej {{n:tex.threshold.wet}} pkt, a **pośredni** jest pomiędzy.
@@ -81,16 +83,20 @@ Flop **suchy** ma mniej niż {{n:tex.threshold.medium}} pkt, **mokry** co najmni
 |---|---|---|---|---|
 | [[Ks 7d 2c]] | {{n:tex.points.suits.rainbow}} | {{n:tex.points.straight.none}} | {{n:tex.ex.k72}} | suchy |
 | [[Qd Qs 6h]] | {{n:tex.points.suits.rainbow}} | {{n:tex.points.straight.none}} | {{n:tex.ex.qq6}} | suchy |
+| [[Kh 7h 2c]] | {{n:tex.points.suits.two-tone}} | {{n:tex.points.straight.none}} | {{n:tex.ex.k72-two-tone}} | suchy |
 | [[Kh Qd 4c]] | {{n:tex.points.suits.rainbow}} | {{n:tex.points.straight.draw}} | {{n:tex.ex.kq4}} | suchy |
 | [[Jh 7h 4s]] | {{n:tex.points.suits.two-tone}} | {{n:tex.points.straight.draw}} | {{n:tex.ex.j74}} | pośredni |
-| [[Kh 8h 3h]] | {{n:tex.points.suits.monotone}} | {{n:tex.points.straight.none}} | {{n:tex.ex.k83}} | pośredni |
+| [[Ah Kd Tc]] | {{n:tex.points.suits.rainbow}} | {{n:tex.points.straight.made-one}} | {{n:tex.ex.akt}} | pośredni |
+| [[Kh 8h 3h]] | {{n:tex.points.suits.monotone}} | {{n:tex.points.straight.none}} | {{n:tex.ex.k83}} | mokry |
 | [[9h 8d 7c]] | {{n:tex.points.suits.rainbow}} | {{n:tex.points.straight.made}} | {{n:tex.ex.987}} | mokry |
 | [[Jh Th 8c]] | {{n:tex.points.suits.two-tone}} | {{n:tex.points.straight.made}} | {{n:tex.ex.jt8}} | mokry |
 
-Gotowy strit waży więcej niż samo dobieranie, bo zmienia układ sił już teraz.
+Gotowy strit waży więcej niż samo dobieranie, bo zmienia układ sił już teraz. Strit możliwy na kilka sposobów waży więcej niż strit możliwy na jeden: na [[9h 8d 7c]] wiele rąk ma strita albo otwarte dobieranie do strita, a na [[Ah Kd Tc]] strita daje tylko QJ, a otwartego dobierania nie ma nikt. Dlatego A-K-T w trzech kolorach jest pośredni, choć jest połączony.
+
+Dwukolorowy [[Kh 7h 2c]] to flop suchy z jednym dobieraniem do koloru: strita ani dobierania do strita nie ma. Monotoniczny flop jest zawsze mokry: na [[Kh 8h 3h]] kolor albo dobieranie do koloru ma więcej rąk niż strita albo otwarte dobieranie do strita na [[9h 8d 7c]].
 
 Na suchym flopie lider zwykle zostaje liderem do rivera. Na mokrym kolejne karty często zmieniają układ sił, więc ręka najlepsza na flopie jest mniej bezpieczna.
 
 :::note Skąd te definicje
-Pojęcia suchy i mokry pochodzą z literatury pokerowej: za suche GTO Gecko i Upswing podają np. K-7-2, A-9-4 i A-A-6 w trzech kolorach, za mokre 9-8-7, Q-J-T i T-9-5-4. Punkty i dokładne granice, np. że flop średni zaczyna się od dziesiątki, to umowa przyjęta w aplikacji, żeby każdy flop dało się ocenić jednoznacznie. Źródła nie podają granic punktowych i nie rozstrzygają, jak nazywać flopy ani suche, ani mokre.
+Pojęcia suchy i mokry pochodzą z literatury pokerowej: za suche GTO Gecko i Upswing podają np. K-7-2, A-9-4 i A-A-6 w trzech kolorach, za mokre 9-8-7, Q-J-T i T-9-5-4. Punkty i dokładne granice, np. że flop średni zaczyna się od dziesiątki, to umowa przyjęta w aplikacji, żeby każdy flop dało się ocenić jednoznacznie. Źródła nie podają granic punktowych i nie rozstrzygają, jak nazywać flopy ani suche, ani mokre. Według tej umowy suchych jest ok. {{n:tex.share.dry}} wszystkich flopów, pośrednich ok. {{n:tex.share.medium}}, a mokrych ok. {{n:tex.share.wet}}; to wynik definicji aplikacji, nie liczba z literatury.
 :::

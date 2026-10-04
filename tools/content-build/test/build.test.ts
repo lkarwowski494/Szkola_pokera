@@ -144,6 +144,7 @@ describe('flop: tekstura i c-bet (M5, schemat w wersji 3)', () => {
   it('punkty i progi mokrości w numbers.yaml są tymi samymi stałymi co w poker-core (jedno źródło prawdy)', () => {
     const v = (k: string) => c.numbers.find((x) => x.key === k)?.value;
     expect(v('tex.points.straight.made')).toBe(WETNESS_POINTS.straight.made);
+    expect(v('tex.points.straight.made-one')).toBe(WETNESS_POINTS.straight['made-one']);
     expect(v('tex.points.straight.draw')).toBe(WETNESS_POINTS.straight.draw);
     expect(v('tex.points.straight.none')).toBe(WETNESS_POINTS.straight.none);
     expect(v('tex.points.suits.rainbow')).toBe(WETNESS_POINTS.suits.rainbow);
@@ -165,9 +166,8 @@ describe('flop: tekstura i c-bet (M5, schemat w wersji 3)', () => {
     for (const row of rows) {
       const cells = row.split('|').slice(1, -1).map((x) => x.trim());
       const tex = classifyFlop(parseCards(/\[\[([^\]]+)\]\]/.exec(cells[0]!)![1]!));
-      const straight = tex.straightPossible ? 'made' : tex.straightDrawPossible ? 'draw' : 'none';
       expect(value(cells[1]!), row).toBe(WETNESS_POINTS.suits[tex.suits]);
-      expect(value(cells[2]!), row).toBe(WETNESS_POINTS.straight[straight]);
+      expect(value(cells[2]!), row).toBe(WETNESS_POINTS.straight[tex.straight]);
       expect(value(cells[3]!), row).toBe(tex.wetnessPoints);
       expect(names[cells[4]!], row).toBe(tex.wetness);
     }

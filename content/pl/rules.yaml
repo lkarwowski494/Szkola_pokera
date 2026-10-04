@@ -263,7 +263,7 @@
 # (dokument 12 M4–M6); bez częstotliwości w procentach.
 - id: R-M5-001
   module: m5
-  if: "flop zbiera mniej niż {{n:tex.threshold.medium}} pkt mokrości: strit możliwy już teraz daje {{n:tex.points.straight.made}} pkt, samo dobieranie do strita {{n:tex.points.straight.draw}}, dwie karty w jednym kolorze {{n:tex.points.suits.two-tone}}, trzy w jednym kolorze {{n:tex.points.suits.monotone}}"
+  if: "flop zbiera mniej niż {{n:tex.threshold.medium}} pkt mokrości: strit możliwy na kilka sposobów (z co najmniej dwiema parami rang) daje {{n:tex.points.straight.made}} pkt, strit możliwy na jeden sposób {{n:tex.points.straight.made-one}}, samo dobieranie do strita {{n:tex.points.straight.draw}}, dwie karty w jednym kolorze {{n:tex.points.suits.two-tone}}, trzy w jednym kolorze {{n:tex.points.suits.monotone}}"
   then: "to flop suchy: dobierań jest mało, a gotowego strita ani koloru nikt jeszcze nie ma"
   because: "kolejne karty rzadko zmieniają lidera, więc ręka najlepsza na flopie zwykle zostaje najlepsza"
   level: rules
@@ -312,7 +312,7 @@
   source: "GTO Wizard, Flop Heuristics: IP C-Betting in Cash Games (33%); Upswing, Bet Sizing Strategy: 8 Rules („Bet small (25-35% pot) on dry, static board textures”, https://upswingpoker.com/bet-size-strategy-tips-rules/); GTO Gecko, What Is a Continuation Bet (K72r); PokerCoaching, Picking the Proper C-Bet Sizing on Ace-High Boards (1/3 puli)"
 - id: R-M5-008
   module: m5
-  if: "jako agresor preflop masz pozycję, a flop jest mokry, np. połączony i dwukolorowy"
+  if: "jako agresor preflop masz pozycję, a flop jest mokry, ale nie monotoniczny, np. połączony i dwukolorowy"
   then: "c-betujesz rzadziej, ale większym rozmiarem, np. {{n:cbet.size.big}} puli; ręce średnie bez dobierania częściej czekają"
   because: "dobierania rywala mają dużo equity, więc duży zakład każe im drogo płacić za kolejną kartę"
   level: heuristic
@@ -330,7 +330,7 @@
   then: "c-betujesz rzadziej niż zwykle i mało"
   because: "kolor może już mieć każdy z graczy, więc przewaga orzechowa agresora maleje, a w dużej puli kolor rywala kosztuje dużo"
   level: heuristic
-  source: "GTO Wizard, Flop Heuristics: IP C-Betting in Cash Games („Monotone boards see a drastic decrease in betting frequency and sizing”, BTN vs BB)"
+  source: "GTO Wizard, Flop Heuristics: IP C-Betting in Cash Games („Monotone boards see a drastic decrease in betting frequency and sizing”, BTN vs BB, https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/); GTO Wizard, The Mechanics of C-Bet Sizing („when a very wet board like Q♦8♦7♦ is dealt, the bet sizing comes down again”, https://blog.gtowizard.com/the-mechanics-of-c-bet-sizing/): mokry flop nie oznacza dużego betu; Upswing, Monotone Flops (Kanu7, wyniki solvera: „c-betting half the time for a 25-33% pot sizing”, https://upswingpoker.com/monotone-flops-kanu7/); decyzja D-39 (dokument 12 M4–M6, raport 12a-22)"
 - id: R-M5-011
   module: m5
   if: "c-betujesz bez żadnej ręki, licząc tylko na pas rywala"

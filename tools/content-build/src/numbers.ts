@@ -1,4 +1,4 @@
-import { alpha, geometricFraction, hitProbability, mdf, missProbability, requiredEquity, ruleOf2And4 } from '@szkola/poker-core';
+import { alpha, FLOP_WETNESS, flopWetnessShares, geometricFraction, hitProbability, mdf, missProbability, requiredEquity, ruleOf2And4 } from '@szkola/poker-core';
 import type { NumberEntry } from '@szkola/content-schema';
 
 export interface ResolvedNumber {
@@ -54,6 +54,12 @@ function compute(key: string, e: NumberEntry, spots: SpotLookup | undefined, ref
       // (SPR, liczba ulic) → ułamek puli na każdą ulicę, tak by all-in wypadł na ostatniej
       need(2);
       return geometricFraction(a[0]!, a[1]!);
+    case 'flopWetnessShare': {
+      need(1);
+      const w = FLOP_WETNESS[a[0]!];
+      if (!w) throw new Error(`Liczba "${key}": flopWetnessShare przyjmuje indeks 0–2`);
+      return flopWetnessShares()[w];
+    }
     case 'ruleOf2And4':
       need(2);
       return ruleOf2And4(a[0]!, a[1]! as 1 | 2);
