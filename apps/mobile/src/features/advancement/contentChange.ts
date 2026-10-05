@@ -1,5 +1,5 @@
 import type { AreaInput } from '@szkola/srs';
-import { reportError } from '@/observability/observe';
+import { reportError } from '@/observability/crashReports';
 
 /** Klucz w tabeli settings (user.db): treść, którą użytkownik ostatnio widział we wskaźniku. */
 export const SEEN_CONTENT_KEY = 'advancement.seenContent';

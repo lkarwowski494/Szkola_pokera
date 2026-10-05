@@ -18,6 +18,8 @@ env:
   # wersja zmierzona 5.10.2026 (4/4 flowy, przebieg 37304275812); instalator czyta MAESTRO_VERSION
   MAESTRO_VERSION: 2.11.0
   MAESTRO_CLI_NO_ANALYTICS: '1'
+  # build bez sekretów: bez wysyłania map źródeł i dSYM do Sentry (skrypty Xcode z pluginu @sentry/react-native)
+  SENTRY_DISABLE_AUTO_UPLOAD: 'true'
 concurrency:
   group: e2e-${{ github.ref }}
   cancel-in-progress: true

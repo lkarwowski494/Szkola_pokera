@@ -9,13 +9,15 @@ jest.mock('@formatjs/intl-pluralrules/polyfill.js', () => ({}));
 jest.mock('@formatjs/intl-pluralrules/locale-data/pl.js', () => ({}));
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 
-const { Observe } = jest.requireMock<{ Observe: { reportError: jest.Mock } }>('expo-observe');
+// zgłoszenia idą przez moduł raportów awarii (bez DSN w testach Sentry jest wyłączone, więc sprawdzamy sam moduł)
+jest.mock('@/observability/crashReports', () => ({ reportError: jest.fn() }));
+const crash = jest.requireMock<{ reportError: jest.Mock }>('@/observability/crashReports');
 
 describe('ekran Pomoc', () => {
   let openURL: jest.SpyInstance;
   beforeEach(() => {
     openURL = jest.spyOn(Linking, 'openURL').mockResolvedValue(true);
-    Observe.reportError.mockClear();
+    crash.reportError.mockClear();
   });
   afterEach(() => openURL.mockRestore());
 
@@ -48,6 +50,6 @@ describe('ekran Pomoc', () => {
     await render(<HelpScreen />);
     await fireEvent.press(screen.getByText('Zadzwoń: 116 123'));
     expect(await screen.findByText('Nie udało się otworzyć: 116123. Wybierz numer albo adres ręcznie.')).toBeTruthy();
-    expect(Observe.reportError).toHaveBeenCalledWith(err);
+    expect(crash.reportError).toHaveBeenCalledWith(err);
   });
 });

@@ -6,7 +6,7 @@
   "build": {
     "base": {
       "pnpm": "10.28.0",
-      "uploadSourceMaps": true
+      "env": { "SENTRY_ALLOW_FAILURE": "true" }
     },
     "development": {
       "extends": "base",

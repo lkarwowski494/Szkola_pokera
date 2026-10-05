@@ -1,7 +1,6 @@
 import '@/i18n';
 
 import { useMigrations } from 'drizzle-orm/expo-sqlite/migrator';
-import { ObserveErrorBoundary, ObserveRoot } from 'expo-observe';
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { SQLiteProvider } from 'expo-sqlite';
@@ -10,19 +9,20 @@ import { Text, useColorScheme, View } from 'react-native';
 import migrations from '../../drizzle/migrations';
 import { RenderErrorScreen } from '@/components/RenderErrorScreen';
 import { userDb } from '@/data/user/db';
-import { configureObserve, reportError } from '@/observability/observe';
+import { CrashBoundary, initCrashReports, reportError } from '@/observability/crashReports';
+import { ObserveRoot } from '@/observability/observe';
 import { useSettings } from '@/state/settings';
 import { space, type as tp, useTokens } from '@/theme/tokens';
 
 void SplashScreen.preventAutoHideAsync();
-// przed zamontowaniem pierwszego ekranu (wymóg integracji expo-router w EAS Observe)
-configureObserve();
+// przed zamontowaniem pierwszego ekranu; bez DSN w app.json Sentry zostaje wyłączone
+initCrashReports();
 
 // Nazwa pliku musi odpowiadać CONTENT_SCHEMA_VERSION (content-build zapisuje content-v4.db).
 const CONTENT_DB = 'content-v4.db';
 const contentAsset = require('../../assets/content/content-v4.db') as number;
 
-/** Korzeń: EAS Observe mierzy pierwsze wyrenderowanie i obejmuje całe drzewo (ADR-17). */
+/** Korzeń: EAS Observe mierzy pierwsze wyrenderowanie (metryki startu, ADR-17). */
 export default function Root() {
   return (
     <ObserveRoot>
@@ -62,8 +62,8 @@ function RootLayout() {
 
   return (
     <ThemeProvider value={theme}>
-      {/* błąd renderowania: zgłoszenie z drzewem komponentów (Observe) i ekran z ponowieniem zamiast zamknięcia aplikacji */}
-      <ObserveErrorBoundary fallback={({ resetError }) => <RenderErrorScreen onRetry={resetError} />}>
+      {/* błąd renderowania: zgłoszenie z drzewem komponentów (Sentry) i ekran z ponowieniem zamiast zamknięcia aplikacji */}
+      <CrashBoundary fallback={({ resetError }) => <RenderErrorScreen onRetry={resetError} />}>
         {/* Treść jest kopiowana z paczki przy każdym starcie (forceOverwrite), więc nowa wersja treści zawsze wygrywa. */}
         <SQLiteProvider databaseName={CONTENT_DB} assetSource={{ assetId: contentAsset, forceOverwrite: true }} options={{ useNewConnection: false }}>
           <Stack screenOptions={{ headerBackTitle: 'Wróć', headerTintColor: tk.felt }}>
@@ -76,7 +76,7 @@ function RootLayout() {
             <Stack.Screen name="session" options={{ presentation: 'fullScreenModal', headerShown: false, gestureEnabled: false }} />
           </Stack>
         </SQLiteProvider>
-      </ObserveErrorBoundary>
+      </CrashBoundary>
     </ThemeProvider>
   );
 }

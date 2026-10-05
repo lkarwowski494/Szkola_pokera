@@ -1,4 +1,3 @@
-import { useObserve } from 'expo-observe';
 import { router, useFocusEffect } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -10,6 +9,7 @@ import { userDb } from '@/data/user/db';
 import { examSummaryMap, lessonProgressMap } from '@/data/user/repo';
 import { AdvancementCard } from '@/features/advancement/AdvancementCard';
 import { EXAM_SIZE } from '@/features/drills/thresholds';
+import { useObserve } from '@/observability/observe';
 import { radius, space, type as tp, useTokens } from '@/theme/tokens';
 
 /** Mapa nauki: moduły i lekcje. Każdą lekcję można otworzyć (FR-01). */

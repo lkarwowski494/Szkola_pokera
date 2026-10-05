@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Linking, Text, View } from 'react-native';
 import { Button, Muted, Screen, Surface, Title } from '@/components/ui';
 import { HELPLINES, type AppHelpline } from '@/data/content/helplines.generated';
-import { reportError } from '@/observability/observe';
+import { reportError } from '@/observability/crashReports';
 import { space, type as tp, useTokens } from '@/theme/tokens';
 
 const host = (url: string) => url.replace(/^https:\/\//, '').replace(/^www\./, '').replace(/\/$/, '');

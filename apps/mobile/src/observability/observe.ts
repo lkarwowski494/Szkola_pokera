@@ -1,25 +1,11 @@
-import { Observe } from 'expo-observe';
-
 /**
- * Raporty awarii i metryki startu przez EAS Observe (ADR-17, zmiana z 5.10.2026: zamiast Sentry). Jedno miejsce
- * konfiguracji i jedno wejście do zgłaszania złapanych wyjątków.
+ * EAS Observe tylko do metryk startu aplikacji (ADR-17, wariant C z 5.10.2026). W planie Free są „Launch metrics”,
+ * a panel błędów i panel nawigacji nie (expo.dev/pricing: „Errors dashboard — Free —”, „Navigation events dashboard
+ * — Free —”), dlatego błędy zgłaszamy do Sentry (crashReports.ts), a integracji expo-router nie włączamy.
  *
- * Prywatność: Observe identyfikuje instalację losowym identyfikatorem (bez konta, bez danych osobowych) i nie nagrywa
- * ekranu. Nie wysyłamy własnych atrybutów ani zdarzeń; zgłaszamy tylko obiekty błędów z kodu, a ich komunikaty nie
- * zawierają odpowiedzi ani danych użytkownika. Bez extra.eas.projectId w konfiguracji (build E2E bez sekretów) iOS
- * zbiera dane lokalnie i niczego nie wysyła.
+ * Co Observe mierzy: ObserveRoot w _layout zaznacza pierwsze wyrenderowanie, a markInteractive na mapie nauki czas do
+ * interakcji. Ograniczenie wersji 57.x: pakiet przy imporcie sam rejestruje nieobsłużone błędy JS i awarie natywne,
+ * a opcji errorHandlingEnabled (wyłączenie) nie ma przed linią 58; te zdarzenia liczą się do limitu planu Free.
+ * Bez danych osobowych: Observe identyfikuje instalację losowym identyfikatorem i nie nagrywa ekranu.
  */
-export function configureObserve(): void {
-  // jedno wywołanie z całą konfiguracją: każde kolejne zastępuje poprzednie (dokumentacja „Get started”, krok 7);
-  // parametry tras (identyfikatory lekcji) nie są danymi osobowymi, więc filteredParams jest zbędne
-  Observe.configure({ integrations: { 'expo-router': true } });
-}
-
-/** Wyjątek złapany i obsłużony w kodzie (zdarzenie „non-fatal”). Nigdy nie rzuca. */
-export function reportError(error: unknown): void {
-  try {
-    Observe.reportError(error);
-  } catch {
-    // zgłoszenie nie może zepsuć ścieżki, która właśnie obsługuje błąd
-  }
-}
+export { ObserveRoot, useObserve } from 'expo-observe';

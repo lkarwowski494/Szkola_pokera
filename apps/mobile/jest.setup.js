@@ -1,32 +1,39 @@
-// EAS Observe ma moduł natywny (ExpoObserve, ExpoAppMetrics) i instaluje globalny handler błędów przy imporcie,
-// więc w testach podmieniamy całą paczkę. Testy sprawdzają wywołania przez require('expo-observe').Observe.
+// Pakiety z modułami natywnymi podmieniamy w testach w całości.
+// EAS Observe (ExpoObserve, ExpoAppMetrics) instaluje przy imporcie globalny handler błędów; tu zostają tylko metryki startu.
 jest.mock('expo-observe', () => {
-  const Observe = {
-    configure: jest.fn(),
-    reportError: jest.fn(),
-    logEvent: jest.fn(),
-    markInteractive: jest.fn(),
-    setGlobalAttributes: jest.fn(),
-    dispatchEvents: jest.fn(() => Promise.resolve()),
-  };
-  const Pass = ({ children }) => children;
+  const Observe = { configure: jest.fn(), markInteractive: jest.fn(), dispatchEvents: jest.fn(() => Promise.resolve()) };
+  const ObserveRoot = ({ children }) => children;
+  return { Observe, default: Observe, ObserveRoot, useObserve: () => ({ markInteractive: Observe.markInteractive }) };
+});
+
+// Sentry: testy sprawdzają wywołania przez jest.requireMock('@sentry/react-native'). ErrorBoundary odwzorowuje kontrakt
+// Sentry.ErrorBoundary (fallback jako element albo funkcja z { error, componentStack, resetError }).
+jest.mock('@sentry/react-native', () => {
   const React = require('react');
-  class ObserveErrorBoundary extends React.Component {
+  const captureException = jest.fn();
+  class ErrorBoundary extends React.Component {
     constructor(props) {
       super(props);
-      this.state = { hasError: false, error: null };
+      this.state = { error: null };
     }
     static getDerivedStateFromError(error) {
-      return { hasError: true, error };
+      return { error };
     }
     componentDidCatch(error) {
-      Observe.reportError(error);
+      captureException(error);
     }
     render() {
-      if (!this.state.hasError) return this.props.children;
+      if (this.state.error === null) return this.props.children;
       const f = this.props.fallback;
-      return typeof f === 'function' ? f({ error: this.state.error, resetError: () => this.setState({ hasError: false, error: null }) }) : f;
+      return typeof f === 'function' ? f({ error: this.state.error, componentStack: '', resetError: () => this.setState({ error: null }) }) : f;
     }
   }
-  return { Observe, default: Observe, ObserveRoot: Pass, ObserveErrorBoundary, useObserve: () => ({ markInteractive: Observe.markInteractive }) };
+  return {
+    init: jest.fn(),
+    setUser: jest.fn(),
+    captureException,
+    breadcrumbsIntegration: jest.fn((opts) => ({ name: 'Breadcrumbs', opts })),
+    wrap: (c) => c,
+    ErrorBoundary,
+  };
 });
