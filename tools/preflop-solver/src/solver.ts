@@ -1,7 +1,9 @@
 import { closeSync, existsSync, openSync, readFileSync, renameSync, writeSync } from 'node:fs';
 import { compatMatrix, N, PRIOR, rake, shareMatrix, type EqrParams, type EquityData } from './model';
 import { PostflopModel, type FlopData } from './postflop';
-import { StreetModel, type StreetData } from './streets';
+import { StreetModel, V3B_TREE, type StreetData, type StreetTreeConfig } from './streets';
+import type { PostflopPool } from './pfpool';
+import type { PostflopMode } from './postflop';
 import { threeWayJoint, threeWayShareTables, threeWayValue, type ThreeWayData } from './threeway';
 import { N_PLAYERS, type DecisionNode, type Node, type ShowdownTerminal } from './tree';
 
@@ -77,6 +79,13 @@ export class PreflopSolver {
    * podział reszty między sprawdzenie i podbicie zostaje swobodny.
    */
   readonly foldLocks = new Map<number, number>();
+  /**
+   * Równoległa gra po flopie (v3c, pfpool.ts): przejście „collect” zbiera zlecenia dla końców z grą po flopie
+   * i nie zmienia żalu, potem wątki liczą wartości, a przejście „replay” powtarza to samo przejście z wynikami.
+   */
+  private phase: 'normal' | 'collect' | 'replay' = 'normal';
+  private pfJobs: { node: number; ti: number; role: 0 | 1; reachOwn: Float64Array; reachOpp: Float64Array; mass: number; mode: PostflopMode; eps: number }[] = [];
+  private pfResults = new Map<number, Float64Array>();
 
   constructor(
     tree: { root: Node; nodes: Node[] },
@@ -89,6 +98,8 @@ export class PreflopSolver {
     postflopMinRaises = 2,
     /** Maksymalna liczba podbić dla gry po flopie (wyżej: model EQR). */
     postflopMaxRaises = 99,
+    /** Drzewo gry po flopie (v3c) w zależności od SPR puli; domyślnie drzewo v3b. */
+    postflopTree: (spr: number) => StreetTreeConfig = () => V3B_TREE,
   ) {
     this.root = tree.root;
     this.nodes = tree.nodes;
@@ -110,7 +121,9 @@ export class PreflopSolver {
         const aggOop = n.aggressor === n.oop;
         const raises = (n.path.match(/:(raise|allin)/g) ?? []).length;
         if (this.postflop && raises >= postflopMinRaises && raises <= postflopMaxRaises && n.remaining > 0) {
-          this.postflopIndex.set(n.id, this.postflop.addTerminal(n.pot, [n.invested[n.oop]!, n.invested[n.ip]!], n.remaining));
+          const pm = this.postflop;
+          const pre: [number, number] = [n.invested[n.oop]!, n.invested[n.ip]!];
+          this.postflopIndex.set(n.id, pm instanceof StreetModel ? pm.addTerminal(n.pot, pre, n.remaining, postflopTree(spr)) : pm.addTerminal(n.pot, pre, n.remaining));
         }
         const role3 = eqr.role3 ?? eqr.role ?? 0;
         const role = raises >= 3 ? (eqr.role4 ?? role3) : raises === 2 ? role3 : (eqr.role ?? 0);
@@ -238,7 +251,16 @@ export class PreflopSolver {
     if (pi !== undefined) {
       const eps = mode === 'train' && this.iteration <= EXPLORE_ITERATIONS ? this.exploration / Math.sqrt(this.iteration) : 0;
       const pm = mode === 'br' && !this.postflopBestResponse ? 'avg' : mode;
-      return this.postflop!.value(pi, p === sd.oop ? 0 : 1, reach[p]!, reach[opp]!, mass, pm, Math.max(this.iteration, 1), this.dcfr, eps);
+      const role: 0 | 1 = p === sd.oop ? 0 : 1;
+      if (this.phase === 'collect') {
+        this.pfJobs.push({ node: sd.id, ti: pi, role, reachOwn: reach[p]!, reachOpp: reach[opp]!, mass, mode: pm, eps });
+        return out;
+      }
+      if (this.phase === 'replay') {
+        const r = this.pfResults.get(sd.id);
+        if (r) return r;
+      }
+      return this.postflop!.value(pi, role, reach[p]!, reach[opp]!, mass, pm, Math.max(this.iteration, 1), this.dcfr, eps);
     }
     const w = p === sd.oop ? cache.wOop : cache.wIp;
     const share = matVec(w, reach[opp]!, new Float64Array(N));
@@ -305,7 +327,7 @@ export class PreflopSolver {
       return out;
     }
     for (let h = 0; h < N; h++) for (let a = 0; a < nA; a++) out[h] = out[h]! + sigma[h * nA + a]! * values[a]![h]!;
-    if (mode !== 'train') return out;
+    if (mode !== 'train' || this.phase === 'collect') return out;
 
     // aktualizacja DCFR
     const tt = this.iteration;
@@ -376,6 +398,51 @@ export class PreflopSolver {
   step(): void {
     this.iteration++;
     for (let p = 0; p < N_PLAYERS; p++) this.traverse(this.root, p, this.rootReach(), 'train');
+  }
+
+  /** Przejście dla gracza p z grą po flopie liczoną w puli wątków (wynik identyczny z wersją synchroniczną). */
+  private async traverseParallel(pool: PostflopPool, p: number, mode: 'train' | 'br' | 'avg'): Promise<Float64Array> {
+    this.phase = 'collect';
+    this.pfJobs = [];
+    try {
+      this.traverse(this.root, p, this.rootReach(), mode);
+      const jobs = this.pfJobs;
+      const it = Math.max(this.iteration, 1);
+      const res = await pool.run(
+        jobs.map((j) => ({ ti: j.ti, role: j.role, reachOwn: j.reachOwn, reachOpp: j.reachOpp, mass: j.mass, mode: j.mode, iteration: it, dcfr: this.dcfr, eps: j.eps })),
+        (ti) => this.postflop!.terminals[ti]!.regrets.length,
+      );
+      this.pfResults = new Map(jobs.map((j, i) => [j.node, res[i]!]));
+      this.phase = 'replay';
+      return this.traverse(this.root, p, this.rootReach(), mode);
+    } finally {
+      this.phase = 'normal';
+      this.pfResults = new Map();
+      this.pfJobs = [];
+    }
+  }
+
+  async stepParallel(pool: PostflopPool): Promise<void> {
+    this.iteration++;
+    for (let p = 0; p < N_PLAYERS; p++) await this.traverseParallel(pool, p, 'train');
+  }
+
+  async valueParallel(pool: PostflopPool, p: number): Promise<number> {
+    const v = await this.traverseParallel(pool, p, 'avg');
+    let s = 0;
+    for (let h = 0; h < N; h++) s += PRIOR[h]! * v[h]!;
+    return s;
+  }
+
+  async exploitabilityParallel(pool: PostflopPool): Promise<{ perPlayer: number[]; nashConv: number }> {
+    const perPlayer: number[] = [];
+    for (let p = 0; p < N_PLAYERS; p++) {
+      const br = await this.traverseParallel(pool, p, 'br');
+      let s = 0;
+      for (let h = 0; h < N; h++) s += PRIOR[h]! * br[h]!;
+      perPlayer.push(s - (await this.valueParallel(pool, p)));
+    }
+    return { perPlayer, nashConv: perPlayer.reduce((a, b) => a + b, 0) };
   }
 
   /**
