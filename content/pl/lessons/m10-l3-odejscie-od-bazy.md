@@ -106,7 +106,9 @@ Czy {{t:bluff}} bez ręki się opłaca, mówi {{t:alpha}} z modułu 6:
 {{t:bluff}} zarabia, gdy rywal {{t:fold|pasuje}} częściej niż: bet ÷ (pula + bet)
 ```
 
-Przy c-becie 1/3 {{t:pot|puli}} to {{n:alpha.cbet.small}}, przy 3/4 {{t:pot|puli}} {{n:alpha.cbet.big}}. Fold to c-bet z {{t:hud|HUD-a}} pokazuje, czy rywal jest nad tym progiem, czy pod nim. To przybliżenie: statystyka łączy wszystkie rozmiary i stoły, a twoja ręka zwykle ma jeszcze trochę equity. Dla porównania: gracze GGPoker NL25 {{t:fold|pasują}} na c-bet na flopie średnio w {{n:mda.all.fcb}} przypadków.
+Przy c-becie 1/3 {{t:pot|puli}} to {{n:alpha.cbet.small}}, przy 3/4 {{t:pot|puli}} {{n:alpha.cbet.big}}. Fold to c-bet z {{t:hud|HUD-a}} pokazuje, czy rywal jest nad tym progiem, czy pod nim. To przybliżenie: statystyka łączy wszystkie rozmiary i flopy, a twoja ręka zwykle ma jeszcze trochę equity. Na flopie, który trafia w {{t:range}} rywala, {{t:fold|pasuje}} on rzadziej niż średnio.
+
+Gracze GGPoker NL25 {{t:fold|pasują}} na c-bet na flopie średnio w {{n:mda.all.fcb}} przypadków. To nie musi być błąd: także solver {{t:out-of-position}} na flopie {{t:fold|pasuje}} częściej, niż wskazuje {{t:mdf}} (moduł 6). Dlatego sama średnia populacji nad progiem nie uzasadnia c-betu bez ręki; potrzebujesz odczytu konkretnego rywala albo flopu, który nie trafia w jego {{t:range}}.
 
 ## 3-bet wobec gracza, który nie {{t:fold|pasuje}}
 
