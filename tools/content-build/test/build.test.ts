@@ -1,9 +1,10 @@
-import { readFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { FlopHeight, FlopRanks, FlopSuits, FlopWetness, RuleDef, TextureAxis } from '@szkola/content-schema';
 import { TEXTURE_AXES, TEXTURE_VALUES, WETNESS_POINTS, WETNESS_THRESHOLDS, classifyFlop, parseCards } from '@szkola/poker-core';
-import { checkCbetCases, compileContent, VOCAB_MIN_TERMS, vocabEligible } from '../src/build';
+import { checkCbetCases, compileContent, contentDbFileName, staleContentDbs, VOCAB_MIN_TERMS, vocabEligible } from '../src/build';
 import { loadTerms } from '../src/terms';
 import { compileMarkdown } from '../src/markdown';
 import { findHardcodedNumbers, formatNumber, normCdf, resolveNumbers, substitute } from '../src/numbers';
@@ -302,5 +303,15 @@ describe('terminy PL ↔ EN (content/terms.yaml)', () => {
       if (d.kind !== 'generated') continue;
       expect(c.terms.filter((t) => t.area === d.params.area && vocabEligible(t)).length).toBeGreaterThanOrEqual(VOCAB_MIN_TERMS);
     }
+  });
+});
+
+describe('plik bazy treści', () => {
+  it('stare wersje content-v*.db są wykrywane, aktualna i inne pliki nie', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'content-db-'));
+    for (const f of ['content-v3.db', contentDbFileName(), 'content-v3.db-journal', 'inne.db']) writeFileSync(join(dir, f), '');
+    expect(staleContentDbs(dir)).toEqual(['content-v3.db']);
+    expect(staleContentDbs(join(dir, 'brak'))).toEqual([]);
+    rmSync(dir, { recursive: true });
   });
 });

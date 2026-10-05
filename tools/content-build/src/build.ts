@@ -316,6 +316,12 @@ export function checkCbetCases(drillId: string, filters: readonly TextureFilter[
   });
 }
 
+/** Pliki content-v*.db innej wersji schematu niż aktualna (pozostałości po zmianie CONTENT_SCHEMA_VERSION). */
+export function staleContentDbs(outDir: string): string[] {
+  if (!existsSync(outDir)) return [];
+  return readdirSync(outDir).filter((f) => /^content-v\d+\.db$/.test(f) && f !== contentDbFileName());
+}
+
 export function contentDbFileName(): string {
   return `content-v${CONTENT_SCHEMA_VERSION}.db`;
 }
@@ -325,6 +331,8 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
   mkdirSync(outDir, { recursive: true });
   const path = join(outDir, contentDbFileName());
   if (existsSync(path)) rmSync(path);
+  // baza poprzedniej wersji schematu (np. content-v3.db) nie może zostać w paczce obok aktualnej
+  for (const f of staleContentDbs(outDir)) rmSync(join(outDir, f));
   const db = new DatabaseSync(path);
   db.exec(`
     PRAGMA journal_mode = DELETE;

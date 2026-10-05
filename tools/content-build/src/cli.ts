@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
-import { compileContent, contentDbFileName, readDbHash, writeContentDb } from './build';
+import { compileContent, contentDbFileName, readDbHash, staleContentDbs, writeContentDb } from './build';
 import { termsModuleSource } from './terms';
 
 const root = resolve(import.meta.dirname, '../../..');
@@ -20,6 +20,11 @@ try {
     const current = readDbHash(dbPath);
     if (current !== content.hash) {
       console.error(`Baza treści jest nieaktualna (${current ?? 'brak'} ≠ ${content.hash}). Uruchom: pnpm content:build`);
+      process.exit(1);
+    }
+    const stale = staleContentDbs(outDir);
+    if (stale.length > 0) {
+      console.error(`Stare bazy treści obok ${contentDbFileName()}: ${stale.join(', ')}. Uruchom: pnpm content:build`);
       process.exit(1);
     }
     if (!existsSync(termsModule) || readFileSync(termsModule, 'utf8') !== termsSrc) {
