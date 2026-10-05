@@ -998,3 +998,63 @@
   because: "gracz za tobą może mieć silną rękę i dołączyć, a przeciw dwóm {{t:range|zakresom}} equity twojej ręki szybko maleje"
   level: gto
   source: "solver push/fold projektu (pushfold.json, trzech graczy); zgodny z Ganzfried i Sandholm, AAMAS 2008, tabela 2, single hand: „SB jam after jam … 0.234”, „BB jam after jam/fold … 0.308”, „BB jam after jam/jam … 0.197”"
+
+# M13: analiza własnej gry (dokument 14, sekcja 8; decyzje D-M13-12…15 w dokumencie „12 Weryfikacja źródeł — M10–M13”).
+# „Decyzja, nie wynik” uczy R-M12-004 (jedna reguła na jedno pojęcie); mechanika powtórek z gry to opis aplikacji,
+# więc jest w tekście lekcji, a nie w księdze reguł.
+- id: R-M13-001
+  module: m13
+  if: "przegrałeś all-in, mając większe {{t:equity}} niż rywal"
+  then: "nie zmieniasz strategii z powodu tego rozdania: z {{t:equity}} e przegrywasz średnio w 1 − e takich rozdań, np. przy {{n:m13.eq.example}} w ok. {{n:m13.lose.example}}, czyli {{n:m13.lose.of-ten}} na {{n:m13.ten}}"
+  because: "{{t:equity}} to udział wygranych w wielu powtórzeniach tej samej sytuacji; przegrana mieści się w tym rachunku"
+  level: math
+  source: "obliczenie: P(przegrana) = 1 − equity (przy podziale puli odpowiednio mniej)"
+- id: R-M13-002
+  module: m13
+  if: "solver gra twoją rękę w danym spocie na dwa sposoby ({{t:mixed-hand|ręka mieszana}})"
+  then: "każde z tych zagrań jest poprawne; raport oznacza rzadsze jako dopuszczalne, gdy solver gra je w co najmniej {{n:range.mixed.min}}, ale rzadziej niż w {{n:range.mixed.low}} przypadków"
+  because: "w równowadze gracz miesza tylko zagrania o tej samej {{t:expected-value|wartości oczekiwanej}}"
+  level: gto
+  source: "GTO Wizard, Principles of GTO (https://blog.gtowizard.com/principles-of-gto/): „Unexploitable play mixes between two or more options only when these options have the same EV.”; próg rzadkiego ruchu: GTO Wizard, Measure Performance (https://help.gtowizard.com/measure-performance/): „Inaccuracy – Moves that are taken less than 3.5% of the time in GTO, but don’t lose significant EV.” (ADR-26)"
+- id: R-M13-003
+  module: m13
+  if: "zamienisz kolory wszystkich kart jedną zamianą (np. kiery na piki, piki na kiery)"
+  then: "poprawna decyzja się nie zmienia"
+  because: "siła rąk i {{t:draw|dobierań}} zależy od tego, czy kolory się zgadzają, a nie od tego, które to kolory; dlatego powtórka z gry pokazuje tę samą sytuację w innych kolorach"
+  level: math
+  source: "obliczenie: ranking układów nie rozróżnia kolorów (zasady Texas Hold'em), a permutacja kolorów zachowuje to, które karty mają wspólny kolor; sprawdzane w poker-core testem właściwości (dokument 02, dokument 14, 5.6)"
+- id: R-M13-004
+  module: m13
+  if: "po jednej {{t:session|sesji}} chcesz ocenić swoje częstotliwości (np. jak często wchodzisz do gry albo {{t:fold|pasujesz}} na 3-bet)"
+  then: "nie wyciągasz wniosku: liczysz okazje, a nie rozdania: na statystykę patrzysz od ok. {{n:hud.opps.look}} okazji, a pewności nabierasz przy ok. {{n:hud.opps.sure}}"
+  because: "nawet {{t:vpip}} czyta się po ok. {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} rękach (jak w M10), a rzadka sytuacja zdarza się w {{t:session|sesji}} kilka razy"
+  level: heuristic
+  source: "BlackRain79, Poker HUD Stats: The Sample Size You Need (https://www.blackrain79.com/2017/11/poker-hud-stat-sample-size.html): „For me personally I usually want at least 5 to even bother looking, and 10 to be sure.”; próby rąk jak w R-M10-003 (PokerCoaching, Deepfold)"
+- id: R-M13-005
+  module: m13
+  if: "w trakcie gry nie wiesz, co zrobić, albo rozdanie wydało ci się dziwne"
+  then: "tylko je oznaczasz, a analizujesz po {{t:session|sesji}}, po kilku godzinach albo dniach, z jasną głową"
+  because: "analiza tuż po dużej przegranej albo w zmęczeniu jest zabarwiona emocjami"
+  level: heuristic
+  source: "Checkreplay, How to Review Your Poker Hands (https://blog.checkreplay.com/poker-hand-review/): „Mark hands that felt interesting, confusing, or off. Don’t analyze them yet.”; „The best time to review is hours or days after the session, with a clear head.”; „What doesn’t work is reviewing while you’re still steaming or while you’re tired.”"
+- id: R-M13-006
+  module: m13
+  if: "przegrałeś dużą {{t:pot|pulę}} albo w rozdaniu nie wiedziałeś, co robić"
+  then: "przeglądasz to rozdanie; nad coolerem (dwie silne ręce, z których żadna nie mogła rozsądnie {{t:fold|spasować}}) i bad beatem nie spędzasz dużo czasu"
+  because: "coolery i bad beaty zdarzają się każdemu, a najwięcej uczą rozdania, w których decyzja była trudna"
+  level: heuristic
+  source: "Checkreplay, How to Review Your Poker Hands (https://blog.checkreplay.com/poker-hand-review/): „Big pots, especially the ones you lost.”; „Hands where you weren’t sure what to do.”; BlackRain79, How to Effectively Conduct Poker Hand Reviews (https://www.blackrain79.com/2014/02/how-to-effectively-conduct-poker.html): „Coolers and bad beats happen to everybody. Learn how to differentiate them from the hands that matter and don't spend much time on them”"
+- id: R-M13-007
+  module: m13
+  if: "przeglądasz trudną decyzję"
+  then: "najpierw zapisujesz pierwszą reakcję (np. „to łatwe {{t:call|sprawdzenie}}”), a dopiero potem liczysz"
+  because: "różnica między pierwszą reakcją a rachunkiem pokazuje, gdzie myli cię intuicja, i z czasem ją poprawia"
+  level: heuristic
+  source: "Upswing Poker, 6 Steps to Analyze a Poker Hand (https://upswingpoker.com/analyze-poker-hand-techniques/): „Step 4: Take note of your gut reaction”; „be sure to take notes regarding the differences between your initial presumption––which is typically optimistic, in my experience––and the realistic result. This will help you improve your intuitive strategy over time.”"
+- id: R-M13-008
+  module: m13
+  if: "nie wiesz, jak gra rywal, a przeglądasz decyzję wobec jego {{t:bet|zakładu}}"
+  then: "oceniasz ją przy założeniu optymistycznym, pesymistycznym i realistycznym o jego {{t:range|zakresie}}; jeśli decyzja jest dobra nawet przy pesymistycznym, nie musisz liczyć dalej"
+  because: "skrajne założenia wyznaczają przedział, w którym leży rzeczywistość, więc decyzja dobra przy obu jest odporna na błąd odczytu"
+  level: heuristic
+  source: "Upswing Poker, 6 Steps to Analyze a Poker Hand (https://upswingpoker.com/analyze-poker-hand-techniques/): „The Optimist The Pessimist The Realist”; „I pick the extremes first, because they shape the polar ends of the spectrum.”; „When the Pessimist gets such a favorable result, I don’t bother analyzing the hand through the Realist’s eyes, because it will also be favorable.”"

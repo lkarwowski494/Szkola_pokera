@@ -5,6 +5,7 @@
  * ma pełną długość. Łapie rozjazd między potokiem treści a silnikiem zadań.
  */
 import { CONTENT_SCHEMA_VERSION, type Drill } from '@szkola/content-schema';
+import { GAME_CARDS } from '@szkola/srs';
 import { classOf, createRng, parseCard } from '@szkola/poker-core';
 import { join } from 'node:path';
 import type { DrillRow, RangeSpot } from '@/data/content/repo';
@@ -102,5 +103,11 @@ describe('progi ADR-26: zadania i tryb gry M13 używają tych samych liczb', () 
     expect(num('range.mixed.min')).toBe(MIXED_MIN);
     expect(num('range.mixed.low')).toBe(MIXED_LOW);
     expect(num('range.mixed.high')).toBe(MIXED_HIGH);
+  });
+
+  it('progi powtórek z gry w lekcji M13 (game.recall.*) są równe stałym GAME_CARDS w srs', () => {
+    const num = (k: string) => (db.prepare('SELECT value FROM numbers WHERE key = ?').get(k) as { value: number }).value;
+    expect(num('game.recall.count')).toBe(GAME_CARDS.recallMistakes);
+    expect(num('game.recall.days')).toBe(GAME_CARDS.recallWindowDays);
   });
 });
