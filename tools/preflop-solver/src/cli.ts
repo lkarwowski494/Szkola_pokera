@@ -1,7 +1,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
 import { dirname, join, resolve } from 'node:path';
-import { DEFAULT_EQR, N, validateEquity, type EqrParams, type EquityData } from './model';
+import { DEFAULT_EQR, N, PLAY_GROUPS, validateEquity, type EqrParams, type EquityData, type PlayGroup } from './model';
 import { evReport, formatSummary, rangeOf, realizationReport, summarize } from './report';
 import { DEFAULT_DCFR, PreflopSolver } from './solver';
 import { loadFlops, type FlopData } from './postflop';
@@ -31,7 +31,8 @@ if (useThreeWay) {
   threeWay = loadThreeWay(readFileSync(threeWayFile));
   console.log(`Tablica equity 3-way: ${threeWay.samples} prób na trójkę (${((Date.now() - t0) / 1000).toFixed(0)} s wczytywania)`);
 }
-const treeConfig = { ...DEFAULT_TREE, bbOvercall: useThreeWay };
+// wariant pomiarowy (naprawa EQR): --3bet-oop 4.4 = 3-bet bez pozycji do 11bb po otwarciu 2,5bb (kanon 4, czyli 10bb)
+const treeConfig = { ...DEFAULT_TREE, bbOvercall: useThreeWay, ...(args.includes('--3bet-oop') ? { threeBetOop: Number(arg('3bet-oop', '4')) } : {}) };
 // gra po flopie w pulach 3-betowanych (wersja 3, wariant pomiarowy): --flops tools/equity/boards.bin.gz (trzy ulice)
 // albo tools/equity/flops.bin.gz (bez nowych kart). Domyślnie none = kanon (wersja 2, model EQR we wszystkich pulach).
 const flopsArg = arg('flops', 'none');
@@ -98,7 +99,31 @@ const eqr: EqrParams = {
   ...(args.includes('--role3') ? { role3: Number(arg('role3', '0')) } : {}),
   ...(args.includes('--role4') ? { role4: Number(arg('role4', '0')) } : {}),
   ...(args.includes('--spr-full') ? { sprFull: Number(arg('spr-full', '8')) } : {}),
+  // warianty pomiarowe (naprawa EQR, raport 10): --weights p22=1.2,oAce=0.75 (grupy: PLAY_GROUPS w model.ts), --spr-play 16
+  ...(args.includes('--weights') ? { weights: parseWeights(arg('weights', '')) } : {}),
+  ...(args.includes('--spr-play') ? { sprPlay: Number(arg('spr-play', '8')) } : {}),
+  // --io 0.1 [--io-cap 20]: człon implied odds (dane: tools/equity/implied169.json z scripts/implied.ts)
+  ...(args.includes('--io') ? { io: Number(arg('io', '0')) } : {}),
+  ...(args.includes('--io-cap') ? { ioCap: Number(arg('io-cap', '100')) } : {}),
+  // --mid 0.1 [--mid-cap 4]: człon ręki średniej siły (te same dane)
+  ...(args.includes('--mid') ? { mid: Number(arg('mid', '0')) } : {}),
+  ...(args.includes('--mid-cap') ? { midCap: Number(arg('mid-cap', '4')) } : {}),
 };
+if (eqr.io || eqr.mid) {
+  const d = JSON.parse(readFileSync(join(root, 'tools/equity/implied169.json'), 'utf8')) as { classes: string[]; nut: number[]; pay: number[]; mid: number[] };
+  if (d.classes.join() !== equity.classes.join()) throw new Error('implied169.json: inna kolejność klas niż w macierzy equity');
+  equity.implied = { nut: d.nut, pay: d.pay, mid: d.mid };
+}
+
+function parseWeights(s: string): Partial<Record<PlayGroup, number>> {
+  const out: Partial<Record<PlayGroup, number>> = {};
+  for (const kv of s.split(',').filter(Boolean)) {
+    const [g, v] = kv.split('=');
+    if (!(PLAY_GROUPS as readonly string[]).includes(g!) || !Number.isFinite(Number(v))) throw new Error(`--weights: nieznana grupa albo wartość „${kv}”`);
+    out[g as PlayGroup] = Number(v);
+  }
+  return out;
+}
 
 if (args.includes('--calibrate')) {
   const iters = Number(arg('iterations', '200'));

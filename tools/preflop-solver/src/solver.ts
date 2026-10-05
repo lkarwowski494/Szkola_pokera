@@ -117,7 +117,7 @@ export class PreflopSolver {
         const key = `${spr.toFixed(4)}|${aggOop}|${role}`;
         let mats = shareCache.get(key);
         if (!mats) {
-          const s = shareMatrix(equity.equity, { ...eqr, role }, spr, aggOop);
+          const s = shareMatrix(equity.equity, { ...eqr, role }, spr, aggOop, equity.implied);
           const oop = new Float64Array(N * N);
           const ip = new Float64Array(N * N);
           for (let h = 0; h < N; h++)
@@ -134,8 +134,8 @@ export class PreflopSolver {
         if (!this.threeWay) throw new Error('Drzewo zawiera pule trzyosobowe, a nie wczytano tablicy equity3');
         const spr = n.remaining <= 0 ? 0 : n.remaining / n.pot;
         const aggRole = n.players.indexOf(n.aggressor);
-        const key = `${Math.min(spr, eqr.sprFull ?? 8).toFixed(4)}|${aggRole}`;
-        if (!this.threeWayTables.has(key)) this.threeWayTables.set(key, threeWayShareTables(this.threeWay, eqr, spr, aggRole));
+        const key = `${Math.min(spr, Math.max(eqr.sprFull ?? 8, eqr.sprPlay ?? 0)).toFixed(4)}|${aggRole}`;
+        if (!this.threeWayTables.has(key)) this.threeWayTables.set(key, threeWayShareTables(this.threeWay, eqr, spr, aggRole, equity.implied));
       }
     }
   }
@@ -210,7 +210,7 @@ export class PreflopSolver {
       }
       const others = node.players.filter((q) => q !== p).map((q) => reach[q]!) as [Float64Array, Float64Array];
       const spr = node.remaining <= 0 ? 0 : node.remaining / node.pot;
-      const tables = this.threeWayTables.get(`${Math.min(spr, this.eqr.sprFull ?? 8).toFixed(4)}|${node.players.indexOf(node.aggressor)}`)!;
+      const tables = this.threeWayTables.get(`${Math.min(spr, Math.max(this.eqr.sprFull ?? 8, this.eqr.sprPlay ?? 0)).toFixed(4)}|${node.players.indexOf(node.aggressor)}`)!;
       threeWayValue(d, tables[role]!, others, node.pot - rake(node.pot, this.eqr), node.invested[p]!, out);
       for (let h = 0; h < N; h++) out[h] = out[h]! * mass;
       return out;
@@ -415,12 +415,21 @@ export class PreflopSolver {
    * w bb na rękę. `reach` = zasięgi wszystkich graczy w węźle (report.playerReach). Normalizacja przez iloczyn mas
    * zasięgów rywali bez usuwania kart (jak przy terminalach pasa), więc w pulach do showdownu wartość jest przybliżona
    * o efekt blokerów; różnica między akcjami tej samej klasy ma poprawny znak.
+   * Dalsze decyzje gracza: najlepsza odpowiedź (raport 10, naprawa EQR). Strategia uśredniona ręki, która nigdy nie
+   * dociera do węzła (np. 76s po 4-becie, gdy nie 3-betuje), jest jednostajna, więc tryb 'avg' zaniżał wartość blefów.
    */
   actionValues(node: DecisionNode, reach: Float64Array[]): Float64Array[] {
     const p = node.player;
     let mass = 1;
     for (let q = 0; q < N_PLAYERS; q++) if (q !== p) mass *= sum(reach[q]!);
-    return node.children.map((c) => this.traverse(c, p, reach, 'avg').map((x) => x / mass));
+    // gra po flopie (v3) zostaje na strategii uśrednionej: najlepsza odpowiedź tylko w decyzjach preflop
+    const keep = this.postflopBestResponse;
+    this.postflopBestResponse = false;
+    try {
+      return node.children.map((c) => this.traverse(c, p, reach, 'br').map((x) => x / mass));
+    } finally {
+      this.postflopBestResponse = keep;
+    }
   }
 
   /** Wartość oczekiwana gracza (w bb) przy strategiach uśrednionych. */

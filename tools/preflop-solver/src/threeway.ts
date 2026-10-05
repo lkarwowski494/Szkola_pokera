@@ -1,6 +1,6 @@
 import { gunzipSync } from 'node:zlib';
 import { combosCount, classCombos, HAND_CLASSES } from '@szkola/poker-core';
-import { N, playabilityWeight, type EqrParams } from './model';
+import { impliedTerm, N, playabilityWeight, type EqrParams, type ImpliedData } from './model';
 
 /**
  * Dane pul trzyosobowych (wersja 2 drzewa): gęste tablice 169³.
@@ -85,12 +85,13 @@ function nonZero(r: Float64Array): number[] {
  * graczy w kolejności ról (np. dla roli 1: a = bez pozycji, b = z pozycją).
  * Udział: uogólnienie modelu dwuosobowego, e·waga ręki·czynnik pozycji, znormalizowane do 1.
  */
-export function threeWayShareTables(d: ThreeWayData, eqr: EqrParams, spr: number, aggressorRole = -1): [Float32Array, Float32Array, Float32Array] {
+export function threeWayShareTables(d: ThreeWayData, eqr: EqrParams, spr: number, aggressorRole = -1, implied?: ImpliedData): [Float32Array, Float32Array, Float32Array] {
   const full = eqr.sprFull ?? 8;
   const f = Math.min(spr, full) / full;
   const r = (eqr.role ?? 0) * f;
   const pos = [1 - eqr.m * f, 1, 1 + eqr.m * f].map((x, i) => (aggressorRole < 0 ? x : x * (i === aggressorRole ? 1 + r : 1 - r)));
-  const w = HAND_CLASSES.map((hc) => 1 + eqr.k * (playabilityWeight(hc) - 1) * f);
+  const fp = Math.min(spr, eqr.sprPlay ?? full) / (eqr.sprPlay ?? full);
+  const w = HAND_CLASSES.map((hc) => 1 + eqr.k * (playabilityWeight(hc, eqr.weights) - 1) * fp);
   const out: [Float32Array, Float32Array, Float32Array] = [new Float32Array(N * N2), new Float32Array(N * N2), new Float32Array(N * N2)];
   // x = ręka bez pozycji, y = środek, z = z pozycją
   for (let x = 0; x < N; x++)
@@ -102,9 +103,13 @@ export function threeWayShareTables(d: ThreeWayData, eqr: EqrParams, spr: number
         const sy = d.eq[y * N2 + x * N + z]! * w[y]! * pos[1]!;
         const sz = d.eq[z * N2 + x * N + y]! * w[z]! * pos[2]!;
         const tot = sx + sy + sz;
-        out[0][x * N2 + y * N + z] = (c * sx) / tot;
-        out[1][y * N2 + x * N + z] = (c * sy) / tot;
-        out[2][z * N2 + x * N + y] = (c * sz) / tot;
+        // człon implied odds (wariant io): suma par dwuosobowych, antysymetryczna, więc udziały nadal sumują się do 1
+        const ix = impliedTerm(eqr, implied, spr, x, y) + impliedTerm(eqr, implied, spr, x, z);
+        const iy = impliedTerm(eqr, implied, spr, y, x) + impliedTerm(eqr, implied, spr, y, z);
+        const iz = impliedTerm(eqr, implied, spr, z, x) + impliedTerm(eqr, implied, spr, z, y);
+        out[0][x * N2 + y * N + z] = c * (sx / tot + ix);
+        out[1][y * N2 + x * N + z] = c * (sy / tot + iy);
+        out[2][z * N2 + x * N + y] = c * (sz / tot + iz);
       }
   return out;
 }

@@ -76,6 +76,17 @@ describe('solver', () => {
     expect(Math.abs(total)).toBeLessThan(1e-9);
   }, 60_000);
 
+  it('wariant z członem implied odds (io) i własnymi wagami: bez rake gra nadal ma sumę zerową (także pule 3-way)', () => {
+    const eq = syntheticEquity();
+    eq.implied = { nut: HAND_CLASSES.map((_, i) => ((i * 37) % 23) / 100), pay: HAND_CLASSES.map((_, i) => ((i * 11) % 31) / 100) };
+    const eqr = { k: 1.25, m: 0.16, rakeRate: 0, rakeCap: 0, io: 0.3, weights: { p22: 0.9 }, sprPlay: 16 };
+    const s = new PreflopSolver(buildTree(), eq, eqr, undefined, syntheticThreeWay());
+    for (let i = 0; i < 2; i++) s.step();
+    let total = 0;
+    for (let p = 0; p < N_PLAYERS; p++) total += s.value(p);
+    expect(Math.abs(total)).toBeLessThan(1e-9);
+  }, 60_000);
+
   it('z rake suma wartości jest ujemna (rake wychodzi z gry)', () => {
     const s = new PreflopSolver(buildTree(), syntheticEquity(), { k: 1, m: 0.08, rakeRate: 0.05, rakeCap: 3 }, undefined, syntheticThreeWay());
     for (let i = 0; i < 2; i++) s.step();
