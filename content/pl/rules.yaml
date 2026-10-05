@@ -698,9 +698,9 @@
   source: "obliczenie: błąd standardowy średniej (rozkład normalny); SD z Primedope, Examples and Impacts of Variance in Cash Games i Poker Variance Calculator"
 - id: R-M12-002
   module: m12
-  if: "wpadasz w zjazd o {{n:dd.bi.small}} {{t:buy-in|wpisowych}}"
+  if: "wpadasz w {{t:downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}}"
   then: "nie traktujesz go jako dowodu złej gry, tylko {{t:call|sprawdzasz}} decyzje w przegranych rozdaniach"
-  because: "w {{n:var.hands.k}} tys. rąk taki zjazd od szczytu przytrafia się ok. {{n:dd.p.small.100k}} graczy wygrywających {{n:var.wr.ex}} (SD {{n:var.sd}})"
+  because: "w {{n:var.hands.k}} tys. rąk taki {{t:downswing}} od szczytu przytrafia się ok. {{n:dd.p.small.100k}} graczy wygrywających {{n:var.wr.ex}} (SD {{n:var.sd}})"
   level: heuristic
   source: "obliczenie: symulacja Monte Carlo (numbers.yaml, klucze dd.*); Primedope, Examples and Impacts of Variance in Cash Games, podaje dla tego scenariusza niższą liczbę (raport M12)"
 - id: R-M12-003
@@ -719,7 +719,7 @@
   source: "Baron i Hershey (1988), Outcome bias in decision evaluation, J Pers Soc Psychol 54(4); Annie Duke o „resulting” (Masters in Business, Ritholtz 2018); equity AA–KK: obliczenie dokładne (dokument 08)"
 - id: R-M12-005
   module: m12
-  if: "wynik kilku sesji kusi cię do zmiany strategii"
+  if: "wynik kilku {{t:session|sesji}} kusi cię do zmiany strategii"
   then: "zmieniasz ją dopiero po przeglądzie rozdań, a nie na podstawie samego wyniku"
   because: "nawet najlepszy {{n:skill.pct}} graczy wyprzedza najsłabszy {{n:skill.pct}} w ok. {{n:skill.ahead}} przypadków dopiero po ok. {{n:skill.hands}} rękach, a mniejsze różnice umiejętności potrzebują znacznie więcej rąk"
   level: heuristic
@@ -734,7 +734,7 @@
 - id: R-M12-007
   module: m12
   if: "po serii strat nie potrafisz już spokojnie ocenić decyzji, chcesz się odegrać albo grasz ręce, które zwykle {{t:fold|pasujesz}}"
-  then: "kończysz sesję"
+  then: "kończysz {{t:session|sesję}}"
   because: "dalsza gra w tym stanie to gra na twoim najgorszym poziomie (C-game), a celem jest skończyć wcześniej, zanim stracisz zdolność jasnego myślenia"
   level: heuristic
   source: "Tendler i Carter, The Mental Game of Poker (2011), fragment „Inchworm” (The Hendon Mob): „quit sooner when it's no longer possible to recover a solid thought process”"
@@ -754,7 +754,7 @@
   source: "Primedope, Risk of Ruin Formula for Poker Players („RoR = e^(-2 x WR x BR / SD^2)”, wzór Malmutha); wartości: obliczenie (numbers.yaml, klucze ror.*)"
 - id: R-M12-010
   module: m12
-  if: "zaczynasz grać na prawdziwe pieniądze na danej stawce"
+  if: "zaczynasz grać na prawdziwe pieniądze na danej {{t:stakes|stawce}}"
   then: "masz co najmniej {{n:br.bi.beginner}} {{t:buy-in|wpisowych}}, póki nie znasz swojego winrate; z potwierdzonym winrate co najmniej {{n:br.bi.base}}"
   because: "przy winrate {{n:var.wr.typical.low}} nawet {{n:br.bi.base}} {{t:buy-in|wpisowych}} daje ok. {{n:ror.base.wr-min}} ryzyka utraty bankrollu, a źródła zalecają od {{n:br.bi.src-low}} do ponad {{n:br.bi.src-high}} {{t:buy-in|wpisowych}}"
   level: heuristic
@@ -762,14 +762,14 @@
 - id: R-M12-011
   module: m12
   if: "bankroll spadnie poniżej połowy założonej liczby {{t:buy-in|wpisowych}} (przy {{n:br.bi.base}} poniżej {{n:br.bi.move-down}})"
-  then: "schodzisz o jedną stawkę niżej i wracasz, gdy bankroll się odbuduje"
-  because: "zjazdy o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} zdarzają się prawie każdemu wygrywającemu, a przy {{n:br.bi.move-down}} {{t:buy-in|wpisowych}} ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}}"
+  then: "schodzisz o jedną {{t:stakes|stawkę}} niżej i wracasz, gdy bankroll się odbuduje"
+  because: "{{t:downswing|zjazdy}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} zdarzają się prawie każdemu wygrywającemu, a przy {{n:br.bi.move-down}} {{t:buy-in|wpisowych}} ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}}"
   level: heuristic
   source: "PokerSkill, Bankroll Management („half the roll, which is the point to move down a stake”); SplitSuit („If your bankroll drops below 15 buyins for your current stake, move down”); rachunek ryzyka bankructwa"
 - id: R-M12-012
   module: m12
   if: "planujesz czas na poker"
-  then: "na początku ok. {{n:study.beginner}} czasu przeznaczasz na naukę; gdy wygrywasz na swojej stawce, ok. {{n:study.winner}}, ale nigdy mniej niż {{n:study.min}}"
+  then: "na początku ok. {{n:study.beginner}} czasu przeznaczasz na naukę; gdy wygrywasz na swojej {{t:stakes|stawce}}, ok. {{n:study.winner}}, ale nigdy mniej niż {{n:study.min}}"
   because: "nauka z wyjaśnieniem i analiza rozdań dają więcej postępu niż sama gra"
   level: heuristic
   source: "PokerStrategy, What should your study-to-play ratio be (Barry Carter o zdaniu Dary O'Kearneya); Southwick i in. (2026), Psychological Science (dokument 08)"

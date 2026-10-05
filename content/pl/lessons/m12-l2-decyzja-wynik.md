@@ -62,10 +62,10 @@ drills:
     id: m12.l2.q-strategy-change
     family: m12.sample-size
     rules: [R-M12-005]
-    prompt: "Przez trzy sesje grałeś agresywniej niż zwykle i wygrałeś. Czy to dowód, że nowy styl jest lepszy?"
+    prompt: "Przez trzy {{t:session|sesje}} grałeś agresywniej niż zwykle i wygrałeś. Czy to dowód, że nowy styl jest lepszy?"
     options:
-      - { text: "Nie, trzy sesje to za mało; oceniasz nowe zagrania w przeglądzie rozdań", correct: true, why: "Nawet ogromna różnica umiejętności (najlepszy {{n:skill.pct}} wobec najsłabszego {{n:skill.pct}}) wychodzi na prowadzenie w ok. {{n:skill.ahead}} przypadków dopiero po ok. {{n:skill.hands}} rękach. Różnica między dwoma twoimi stylami jest dużo mniejsza." }
-      - { text: "Tak, wynik pokazuje, co działa", why: "Wynik z kilku sesji to głównie szum. Przy odchyleniu ok. {{n:var.sd}} nawet {{n:var.hands.k}} tys. rąk zostawia błąd ok. ± {{n:var.ci.wr}}." }
+      - { text: "Nie, trzy {{t:session|sesje}} to za mało; oceniasz nowe zagrania w przeglądzie rozdań", correct: true, why: "Nawet ogromna różnica umiejętności (najlepszy {{n:skill.pct}} wobec najsłabszego {{n:skill.pct}}) wychodzi na prowadzenie w ok. {{n:skill.ahead}} przypadków dopiero po ok. {{n:skill.hands}} rękach. Różnica między dwoma twoimi stylami jest dużo mniejsza." }
+      - { text: "Tak, wynik pokazuje, co działa", why: "Wynik z kilku {{t:session|sesji}} to głównie szum. Przy {{t:standard-deviation|odchyleniu}} ok. {{n:var.sd}} nawet {{n:var.hands.k}} tys. rąk zostawia błąd ok. ± {{n:var.ci.wr}}." }
       - { text: "Tak, jeśli wygrałeś więcej niż zwykle", why: "Większa wygrana z małej próbki to wciąż mała próbka. Zagrania oceniasz rachunkiem i przeglądem rozdań." }
   - kind: choice
     id: m12.l2.q-skill-hands
@@ -74,16 +74,16 @@ drills:
     prompt: "Badanie milionów rozdań online pokazało, kiedy umiejętność zaczyna przeważać nad losem. Co dokładnie zmierzono?"
     options:
       - { text: "Najlepszy {{n:skill.pct}} graczy wyprzedza najsłabszy {{n:skill.pct}} w ok. {{n:skill.ahead}} przypadków po ok. {{n:skill.hands}} rękach", correct: true, why: "Tak definiują to autorzy (van Loon i in., 2015). To porównanie skrajnych grup: przy mniejszych różnicach umiejętności potrzeba znacznie więcej rąk." }
-      - { text: "Po ok. {{n:skill.hands}} rękach każdy dobry gracz jest na plusie", why: "Badanie porównuje skrajne grupy graczy, a nie mówi, kiedy pojedynczy dobry gracz będzie na plusie. To zależy od winrate i odchylenia (lekcja o {{t:variance|wariancji}})." }
+      - { text: "Po ok. {{n:skill.hands}} rękach każdy dobry gracz jest na plusie", why: "Badanie porównuje skrajne grupy graczy, a nie mówi, kiedy pojedynczy dobry gracz będzie na plusie. To zależy od winrate i {{t:standard-deviation|odchylenia}} (lekcja o {{t:variance|wariancji}})." }
       - { text: "Po ok. {{n:skill.hands}} rękach los przestaje mieć znaczenie", why: "Los ma znaczenie zawsze. Badanie mówi tylko, kiedy przewaga najlepszych nad najgorszymi zaczyna wygrywać w większości porównań." }
   - kind: choice
     id: m12.l2.q-good-session
     family: m12.decision-review
     rules: [R-M12-004]
-    prompt: "Wygrałeś sesję dzięki dwóm sprawdzeniom bez dobrej ceny, które trafiły na riverze. Co robisz po sesji?"
+    prompt: "Wygrałeś {{t:session|sesję}} dzięki dwóm sprawdzeniom bez dobrej ceny, które trafiły na riverze. Co robisz po {{t:session|sesji}}?"
     options:
       - { text: "Zapisujesz te {{t:call|sprawdzenia}} jako błędy do poprawy", correct: true, why: "Wygrana nie zmienia ceny. Jeśli {{t:call}} wymagało więcej equity, niż miałeś, to był błąd, nawet jeśli się opłacił." }
-      - { text: "Nic, sesja była wygrana", why: "Błędy w wygranych sesjach są tak samo kosztowne, tylko trudniej je zauważyć. Analiza samych przegranych pomija połowę błędów." }
+      - { text: "Nic, {{t:session}} była wygrana", why: "Błędy w wygranych {{t:session|sesjach}} są tak samo kosztowne, tylko trudniej je zauważyć. Analiza samych przegranych pomija połowę błędów." }
       - { text: "Uznajesz, że czytasz rywali lepiej, niż mówi rachunek", why: "Dwa trafienia to za mało, żeby wnioskować o czytaniu rywali. Najprostsze wyjaśnienie to {{t:variance}}." }
 ---
 Poker daje informację zwrotną, która często kłamie. Dobra decyzja może przegrać, a zła wygrać. Jeśli oceniasz grę po wynikach, uczysz się na losowych sygnałach.
@@ -109,7 +109,7 @@ jakość decyzji = EV przy informacjach, które miałeś w chwili decyzji
 
 ## Kiedy wynik zaczyna coś znaczyć
 
-W badaniu ok. {{n:skill.sample.m}} mln rozdań online (van Loon i in., 2015) umiejętność zaczynała przeważać dopiero po ok. **{{n:skill.hands}}** rękach. Oznacza to, że najlepszy {{n:skill.pct}} graczy wyprzedzał najsłabszy {{n:skill.pct}} w ok. {{n:skill.ahead}} porównań. Dla mniejszych różnic umiejętności potrzeba wielokrotnie więcej rąk. Wynik kilku sesji nie mówi więc, który styl gry jest lepszy.
+W badaniu ok. {{n:skill.sample.m}} mln rozdań online (van Loon i in., 2015) umiejętność zaczynała przeważać dopiero po ok. **{{n:skill.hands}}** rękach. Oznacza to, że najlepszy {{n:skill.pct}} graczy wyprzedzał najsłabszy {{n:skill.pct}} w ok. {{n:skill.ahead}} porównań. Dla mniejszych różnic umiejętności potrzeba wielokrotnie więcej rąk. Wynik kilku {{t:session|sesji}} nie mówi więc, który styl gry jest lepszy.
 
 :::note Ocena w tej aplikacji
 Dlatego aplikacja ocenia twoje decyzje, a nie wynik rozdania. Kiedy wynik i decyzja się rozjeżdżają, ufaj rachunkowi.

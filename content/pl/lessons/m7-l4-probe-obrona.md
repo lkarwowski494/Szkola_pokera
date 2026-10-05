@@ -142,5 +142,5 @@ Gdy {{t:call|sprawdziłeś}} c-bet, a Button betuje drugi raz, jego {{t:range}} 
 {{t:mdf}} pozostaje punktem odniesienia: przy becie 3/4 {{t:pot|puli}} wynosi {{n:mdf.bet-three-quarters}}. Na turnie solver broni średnio blisko tej wartości; mniej bronisz tylko wtedy, gdy rywal {{t:bluff|blefuje}} rzadziej, niż zakłada {{t:mdf}}.
 
 :::note Skąd te zasady
-Zasady probe betu i obrony przed {{t:second-barrel|drugą beczką}} to heurystyki z literatury (GTO Wizard, Upswing, PokerCoaching). Obronę na turnie blisko {{t:mdf}} pokazują rozwiązania PIOSolvera omawiane na Upswing. Aplikacja nie podaje częstotliwości w procentach, bo źródła różnią się zależnie od stołu. Liczby o tym, czym gracze mikrostawek {{t:bet|stawiają}} probe bety, wymagają źródła z opisaną populacją (próba, stawki, sale), więc ich tu nie ma.
+Zasady probe betu i obrony przed {{t:second-barrel|drugą beczką}} to heurystyki z literatury (GTO Wizard, Upswing, PokerCoaching). Obronę na turnie blisko {{t:mdf}} pokazują rozwiązania PIOSolvera omawiane na Upswing. Aplikacja nie podaje częstotliwości w procentach, bo źródła różnią się zależnie od stołu. Liczby o tym, czym gracze mikrostawek {{t:bet|stawiają}} probe bety, wymagają źródła z opisaną populacją (próba, {{t:stakes|stawki}}, sale), więc ich tu nie ma.
 :::

@@ -53,7 +53,7 @@ describe('ćwiczenie słownictwa PL ↔ EN', () => {
   const drill = (area: string, dir = 'both') => ({ kind: 'generated' as const, id: `t.${area}`, family: `vocab.${area}`, rules: [], generator: 'vocab' as const, params: { area, dir }, count: 4 });
 
   it('cztery różne opcje, jedna poprawna, bez powtórzeń terminu w jednej serii', () => {
-    for (const area of ['hands', 'actions', 'table', 'positions', 'math', 'preflop', 'board', 'strategy', 'tournament']) {
+    for (const area of ['hands', 'actions', 'table', 'positions', 'math', 'preflop', 'board', 'strategy', 'mental', 'tournament']) {
       for (let seed = 1; seed <= 20; seed++) {
         const insts = instantiate(drill(area), null, createRng(seed));
         expect(new Set(insts.map((x) => x.prompt)).size).toBe(insts.length);

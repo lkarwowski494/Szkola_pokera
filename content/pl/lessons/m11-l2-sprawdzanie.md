@@ -21,7 +21,7 @@ drills:
     prompt: "Ten sam spot, ale stacki mają po {{n:m11.depth.5}}. Ile equity potrzebujesz do {{t:call|sprawdzenia}} all-inu?"
     table: { position: BB }
     options:
-      - { text: "{{n:m11.call.5.eq}}", correct: true, why: "Dopłacasz {{n:m11.call.5.cost}} do {{t:pot|puli}}, która po {{t:call|sprawdzeniu}} ma {{n:m11.call.5.pot}}: {{n:m11.call.5.eq}}. Przy krótszym stacku blind stanowi większą część stawki, więc cena jest lepsza." }
+      - { text: "{{n:m11.call.5.eq}}", correct: true, why: "Dopłacasz {{n:m11.call.5.cost}} do {{t:pot|puli}}, która po {{t:call|sprawdzeniu}} ma {{n:m11.call.5.pot}}: {{n:m11.call.5.eq}}. Przy krótszym stacku blind stanowi większą część {{t:stakes|stawki}}, więc cena jest lepsza." }
       - { text: "{{n:m11.call.10.eq}}", why: "To cena przy {{n:m11.depth.10}}. Przy {{n:m11.depth.5}} twój blind to większa część całej stawki, więc potrzebujesz mniej: {{n:m11.call.5.eq}}." }
       - { text: "Połowę", why: "Połowy potrzebowałbyś, gdybyś dokładał cały stack. Blind już leży w {{t:pot|puli}}, więc dopłacasz tylko {{n:m11.call.5.cost}}." }
   - kind: choice
@@ -32,7 +32,7 @@ drills:
     table: { position: BB }
     options:
       - { text: "{{n:m11.call.15.eq}}", correct: true, why: "Dopłacasz {{n:m11.call.15.cost}} do {{t:pot|puli}} {{n:m11.call.15.pot}}: {{n:m11.call.15.eq}}. Im głębszy stack, tym bliżej połowy." }
-      - { text: "{{n:m11.call.5.eq}}", why: "To cena przy {{n:m11.depth.5}}. Przy {{n:m11.depth.15}} blind jest mniejszą częścią stawki, więc cena rośnie do {{n:m11.call.15.eq}}." }
+      - { text: "{{n:m11.call.5.eq}}", why: "To cena przy {{n:m11.depth.5}}. Przy {{n:m11.depth.15}} blind jest mniejszą częścią stacku, więc cena rośnie do {{n:m11.call.15.eq}}." }
       - { text: "Ponad połowę", why: "Nawet przy bardzo głębokim stacku cena nie przekracza połowy: zawsze masz w {{t:pot|puli}} swój blind." }
   - kind: generated
     id: m11.l2.g-call

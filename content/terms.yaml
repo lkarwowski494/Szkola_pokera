@@ -716,6 +716,38 @@ winrate:
   area: mental
   source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Variance: … In poker, variance often refers to how \"swingy\" a game or strategy is relative to your win rate.”; „bb/100: A unit of measurement in poker equal to the average amount of big blinds won/lost per 100 hands.”"
 
+downswing:
+  pl: zjazd
+  en: downswing
+  area: mental
+  forms: [zjazd, zjazdu, zjazdem, zjeździe, zjazdy, zjazdów, zjazdami, zjazdach]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Downswing: A period during which a player has significant negative results, typically more than they would reasonably be expected to lose. The opposite of an upswing.”"
+session:
+  pl: sesja
+  en: session
+  area: mental
+  forms: [sesja, sesji, sesję, sesją, sesje, sesjach, sesjami]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Session: A term used to describe one period or sitting in which a player plays poker.”"
+stakes:
+  pl: stawka
+  en: stakes
+  area: mental
+  # „obowiązkowe stawki” w M1 to wpłaty blindów, nie poziom gry
+  forms: [stawka, stawki, stawkę, stawką, stawce, stawek, stawkach, stawkami]
+  skip: [obowiązkowe stawki, całej stawki]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Stakes: The size of the blinds/entry in a cash game or size of the entry fee in a tournament.”"
+standard-deviation:
+  pl: odchylenie standardowe
+  en: standard deviation
+  area: mental
+  forms: [odchylenie standardowe, odchylenia standardowego, odchyleniu standardowym, odchyleniem standardowym, odchylenie, odchylenia, odchyleniu, odchyleniem]
+  source: "GTO Wizard, Variance (https://gtowizard.com/en/glossary/variance/): „Variance can also be defined as the square of standard deviation, usually measured in bb/100.”"
+mental-game:
+  pl: mental game
+  en: mental game
+  area: mental
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Mental game: The psychological impact of playing poker. Mental game can refer to tilt, performance, and emotional control at the table.”"
+
 # ---------- Turnieje i krótkie stacki (M11) ----------
 tournament:
   pl: turniej
