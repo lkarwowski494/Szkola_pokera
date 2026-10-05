@@ -1,4 +1,4 @@
-import { closeSync, existsSync, openSync, readFileSync, renameSync, writeSync } from 'node:fs';
+import { closeSync, existsSync, openSync, readSync, renameSync, writeSync } from 'node:fs';
 import { compatMatrix, N, PRIOR, rake, shareMatrix, type EqrParams, type EquityData } from './model';
 import { PostflopModel, type FlopData } from './postflop';
 import { StreetModel, V3B_TREE, type StreetData, type StreetTreeConfig } from './streets';
@@ -389,19 +389,34 @@ export class PreflopSolver {
   /** Wczytuje stan zapisany przez saveState; zwraca false, gdy plik nie istnieje albo nie pasuje do konfiguracji. */
   loadState(path: string, fingerprint: string): boolean {
     if (!existsSync(path)) return false;
-    const buf = readFileSync(path);
-    const hl = buf.readUInt32LE(0);
-    const header = JSON.parse(buf.subarray(4, 4 + hl).toString('utf8')) as { iteration: number; fingerprint: string; sizes: number[] };
-    const arrays = this.stateArrays();
-    if (header.fingerprint !== fingerprint || header.sizes.length !== arrays.length || header.sizes.some((n, i) => n !== arrays[i]!.length)) return false;
-    let off = 4 + hl;
-    for (const a of arrays) {
-      const bytes = a.byteLength;
-      new Uint8Array(a.buffer, a.byteOffset, bytes).set(buf.subarray(off, off + bytes));
-      off += bytes;
+    // odczyt kawałkami prosto do tablic: punkt kontrolny 9-max ma ok. 4,6 GB, a readFileSync czyta najwyżej 2 GB
+    const fd = openSync(path, 'r');
+    try {
+      const read = (dst: Uint8Array, pos: number) => {
+        for (let done = 0; done < dst.length; ) {
+          const n = readSync(fd, dst, done, Math.min(dst.length - done, 1 << 28), pos + done);
+          if (n <= 0) throw new Error(`Punkt kontrolny ${path} jest ucięty`);
+          done += n;
+        }
+      };
+      const len = Buffer.alloc(4);
+      read(len, 0);
+      const hl = len.readUInt32LE(0);
+      const hb = Buffer.alloc(hl);
+      read(hb, 4);
+      const header = JSON.parse(hb.toString('utf8')) as { iteration: number; fingerprint: string; sizes: number[] };
+      const arrays = this.stateArrays();
+      if (header.fingerprint !== fingerprint || header.sizes.length !== arrays.length || header.sizes.some((n, i) => n !== arrays[i]!.length)) return false;
+      let off = 4 + hl;
+      for (const a of arrays) {
+        read(new Uint8Array(a.buffer, a.byteOffset, a.byteLength), off);
+        off += a.byteLength;
+      }
+      this.iteration = header.iteration;
+      return true;
+    } finally {
+      closeSync(fd);
     }
-    this.iteration = header.iteration;
-    return true;
   }
 
   step(): void {
