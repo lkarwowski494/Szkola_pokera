@@ -68,6 +68,11 @@ export class PreflopSolver {
   private threeWayTables = new Map<string, [Float32Array, Float32Array, Float32Array]>();
   iteration = 0;
   exploration = EXPLORE;
+  /**
+   * Do której iteracji działa eksploracja. Wariant v3c (raport 10): Infinity, bo po wyłączeniu eksploracji węzeł,
+   * do którego rywal przestał docierać (np. odpowiedź BTN na 3-bet SB), zamarza ze strategią z początku obliczeń.
+   */
+  exploreIterations = EXPLORE_ITERATIONS;
   /** Diagnostyka: false = w najlepszej odpowiedzi gra po flopie zostaje na strategii uśrednionej (wykorzystywalność samego preflopu). */
   postflopBestResponse = true;
   /** Gra po flopie (wersja 3): terminal preflop → indeks puli w modelu. */
@@ -249,7 +254,7 @@ export class PreflopSolver {
     if (mass === 0) return out;
     const pi = this.postflopIndex.get(sd.id);
     if (pi !== undefined) {
-      const eps = mode === 'train' && this.iteration <= EXPLORE_ITERATIONS ? this.exploration / Math.sqrt(this.iteration) : 0;
+      const eps = mode === 'train' && this.iteration <= this.exploreIterations ? this.exploration / Math.sqrt(this.iteration) : 0;
       const pm = mode === 'br' && !this.postflopBestResponse ? 'avg' : mode;
       const role: 0 | 1 = p === sd.oop ? 0 : 1;
       if (this.phase === 'collect') {
@@ -291,7 +296,7 @@ export class PreflopSolver {
     if (q !== p) {
       // przycinanie: gdy któryś z rywali nie może tu dotrzeć, wartość = 0
       const out = new Float64Array(N);
-      const eps = mode === 'train' && this.iteration <= EXPLORE_ITERATIONS ? this.exploration / Math.sqrt(this.iteration) : 0;
+      const eps = mode === 'train' && this.iteration <= this.exploreIterations ? this.exploration / Math.sqrt(this.iteration) : 0;
       for (let a = 0; a < nA; a++) {
         const r = new Float64Array(N);
         let any = false;

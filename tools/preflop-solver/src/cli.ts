@@ -65,6 +65,8 @@ const sprHigh = Number(arg('pf-spr-high', '8'));
 const postflopTree = (spr: number): StreetTreeConfig => (highTree && spr >= sprHigh ? highTree : V3B_TREE);
 // --threads N: gra po flopie liczona w N wątkach (tylko z --flops dla tablic z nowymi kartami)
 const threads = Number(arg('threads', '1'));
+// --explore-iters N: eksploracja do iteracji N (domyślnie 150; 0 = przez cały przebieg)
+const exploreIters = args.includes('--explore-iters') ? Number(arg('explore-iters', '150')) || Infinity : null;
 
 // punkt kontrolny: --checkpoint PLIK (zapis co --checkpoint-every iteracji, wznowienie po restarcie)
 const checkpoint = args.includes('--checkpoint') ? resolve(arg('checkpoint', '')) : null;
@@ -87,7 +89,8 @@ async function solve(eqr: EqrParams, iterations: number, log = true): Promise<{ 
       if (!n || n.actions[0]!.kind !== 'fold') throw new Error(`Blokada pasa: brak węzła ${path}`);
       s.foldLocks.set(n.id, lockFold);
     }
-  const fingerprint = JSON.stringify({ eqr, flops: flopsArg, postflopMinRaises, postflopMaxRaises, tree: treeConfig, lockFold, ...(highTree ? { highTree, sprHigh } : {}) });
+  if (exploreIters !== null) s.exploreIterations = exploreIters;
+  const fingerprint = JSON.stringify({ eqr, flops: flopsArg, postflopMinRaises, postflopMaxRaises, tree: treeConfig, lockFold, ...(highTree ? { highTree, sprHigh } : {}), ...(exploreIters !== null ? { exploreIters: String(exploreIters) } : {}) });
   if (checkpoint && s.loadState(checkpoint, fingerprint)) console.error(`Wznowiono z punktu kontrolnego: iteracja ${s.iteration}`);
   const pool = threads > 1 && s.postflop instanceof StreetModel ? new PostflopPool(s.postflop, { equityFile: join(root, 'tools/equity/equity169.json'), boardsFile: resolve(root, flopsArg) }, eqr, threads) : null;
   const expl = () => (pool ? s.exploitabilityParallel(pool) : Promise.resolve(s.exploitability()));
@@ -204,6 +207,7 @@ if (args.includes('--calibrate')) {
           eqr,
           ...(lockFold !== null ? { lock: { fold: lockFold, paths: LOCK_PATHS, note: 'wariant pomiarowy B-045, nie kanon' } } : {}),
           iterations,
+          ...(exploreIters !== null ? { exploreIterations: String(exploreIters) } : {}),
           players: N_PLAYERS,
           handClasses: N,
           nashConvBb: Number(expl.nashConv.toFixed(5)),
