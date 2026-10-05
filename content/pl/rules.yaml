@@ -378,7 +378,7 @@
   source: "GTO Wizard, MDF & Alpha (blog.gtowizard.com/mdf-alpha: „On average, BB is consistently over-folding to all bet sizes on the flop”; z pozycji „calls much closer to MDF on average”); na turnie solver broni średnio blisko MDF: Upswing, What the Best Poker Pros Already Know About Playing vs. Double Barrels (https://upswingpoker.com/vs-double-barrels-turn/); obrona na małe c-bety: R-M6-006"
 - id: R-M6-004
   module: m6
-  if: "duży bet na riverze {{t:bet|stawia}} gracz, który rzadko {{t:bluff|blefuje}} (np. pasywny gracz rekreacyjny)"
+  if: "duży bet na riverze {{t:bet|stawia}} gracz, który rzadko {{t:bluff|blefuje}} (np. pasywny {{t:recreational|gracz rekreacyjny}})"
   then: "{{t:fold|pasujesz}} częściej, niż wskazuje {{t:mdf}}, także średnimi {{t:pair|parami}}"
   because: "{{t:mdf}} zakłada, że rywal {{t:bluff|blefuje}} wystarczająco często; gdy {{t:bluff|blefów}} brakuje, {{t:call}} słabszą ręką płaci głównie lepszym rękom"
   level: exploit
@@ -687,6 +687,120 @@
   because: "im wyższy {{t:spr}}, tym więcej {{t:bet|zakładów}} trzeba, żeby wpłacić cały stack, a do końca rywal płaci głównie silnymi rękami; przy {{t:spr}} {{n:spr.zone.deep}} cały stack wchodzi dopiero po trzech {{t:bet|zakładach}} wielkości {{t:pot|puli}}"
   level: heuristic
   source: "SplitSuit, SPR Strategy; GTO Wizard, Stack-to-Pot Ratio (progi 3 i 6); strefa 6–13: część wspólna Bluffaces, PokerBank i Grindlab; próg 13: obliczenie (1+2·1)^3 = 1+2·13 oraz Flynn, Mehta, Miller, Professional No-Limit Hold'em (przez PokerNews i recenzję cardsharp.org)"
+
+# M10: eksploatacja mikrostawek. Każde dostosowanie to odejście od bazy z M3–M9 (ADR-03). Definicje statystyk: rules;
+# błąd próby, próg blefu i wpływ rake'u na cenę: math; progi typów graczy i próby z serwisów szkoleniowych: heuristic;
+# wynik solvera: gto; dostosowanie do typu gracza: exploit z populacją (dane Bluffaces MDA albo odczyt HUD rywala z próbą).
+# Decyzje D-M10-01…14 w raporcie M10 (do dokumentu 12 „Weryfikacja źródeł — M10–M13”).
+- id: R-M10-001
+  module: m10
+  if: "czytasz {{t:vpip}} i {{t:pfr}} rywala"
+  then: "{{t:vpip}} to odsetek rąk, w których dobrowolnie wkłada {{t:chips|żetony}} przed flopem ({{t:call|sprawdza}} albo {{t:raise|przebija}}; blindy się nie liczą), a {{t:pfr}} odsetek rąk, w których {{t:raise|przebija}} przed flopem ({{t:open|otwarcie}}, 3-bet, 4-bet); {{t:pfr}} nigdy nie przekracza {{t:vpip}}"
+  because: "każde {{t:raise|przebicie}} jest też dobrowolnym włożeniem {{t:chips|żetonów}}, więc różnica {{t:vpip}} − {{t:pfr}} to ręce, które rywal tylko {{t:call|sprawdził}} albo zalimpował"
+  level: rules
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „VPIP: … a statistic that measures the frequency with which a player voluntarily puts money into the pot preflop.”; PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „Anytime a player makes a call or a raise before the flop, their VPIP goes up”, „a player’s PFR stat goes up anytime they make a raise before the flop, which includes all 3-bets and 4-bets as well as open raises”"
+- id: R-M10-002
+  module: m10
+  if: "statystyka rywala opiera się na n okazjach"
+  then: "jej błąd standardowy to √(p × (1 − p) ÷ n): przy {{t:vpip}} {{n:hud.se.ex.p}} po {{n:hud.se.ex.n}} rękach ok. {{n:hud.se.ex}}, więc prawdziwy {{t:vpip}} leży z ok. {{n:var.conf95}} pewnością między {{n:hud.ci.ex.low}} a {{n:hud.ci.ex.high}}"
+  because: "każda ręka to losowa próba z jego strategii, a błąd takiej średniej maleje dopiero z pierwiastkiem z liczby okazji, tak jak błąd winrate w module 12"
+  level: math
+  source: "obliczenie: błąd standardowy odsetka w rozkładzie dwumianowym, √(p(1 − p) ÷ n), i przedział ±1,96 błędu (numbers.yaml, klucze hud.se.*, hud.ci.*)"
+- id: R-M10-003
+  module: m10
+  if: "oceniasz rywala po statystykach {{t:hud|HUD-a}}"
+  then: "poniżej ok. {{n:hud.hands.random}} rąk traktujesz je jak przypadkowe i grasz z nim jak z nieznanym; {{t:vpip}} i {{t:pfr}} czytasz po ok. {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} rękach, a 3-bet i fold to 3-bet po ok. {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}"
+  because: "{{t:vpip}} rośnie o jedną okazję w każdej ręce, a fold to 3-bet tylko wtedy, gdy rywal {{t:open|otworzył}} i dostał 3-bet, więc z tej samej liczby rąk ma wielokrotnie mniej okazji i większy błąd"
+  level: heuristic
+  source: "PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „For VPIP and PFR, you need at least 100 to 200 hands before the numbers begin to stabilize.”, „For 3-bet and fold to 3-bet, closer to 500 hands is the threshold.”; Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „Below 30 hands, treat the HUD numbers as random and use hand-observation reads only.”, „Fold to 3-bet | 200+ hands”; przedziały obejmują oba źródła (D-M10-04)"
+- id: R-M10-004
+  module: m10
+  if: "{{t:vpip}} rywala jest o ponad {{n:hud.gap.passive}} punktów procentowych wyższy niż jego {{t:pfr}}"
+  then: "to gracz pasywny: dużo {{t:call|sprawdza}} i limpuje, mało {{t:raise|przebija}}"
+  because: "większość rąk, które gra, wkłada do {{t:pot|puli}} {{t:call|sprawdzeniem}}; u regularów różnica jest mała, bo prawie każdą rękę zaczynają {{t:raise|przebiciem}}"
+  level: heuristic
+  source: "PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „When a player’s PFR is more than 10 points below their VPIP, I immediately flag them as a passive player who calls too much and raises too little.”; Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „Gap > 10 → Passive player. Lots of cold-calls and limps.”; dane kontrolne Bluffaces MDA, GGPoker NL25 6-max: gracze rekreacyjni 42/18, regulary 23/18 (mda.rec.*, mda.reg.*)"
+- id: R-M10-005
+  module: m10
+  if: "przypisujesz rywalowi typ po {{t:vpip}} i {{t:pfr}} (6-max, co najmniej ok. {{n:hud.hands.vpip.low}} rąk)"
+  then: "{{t:nit}} gra do ok. {{n:hud.vpip.nit-max}} rąk; {{t:regular}} ok. {{n:hud.vpip.reg.low}}–{{n:hud.vpip.reg.high}} z małą różnicą {{t:vpip}} − {{t:pfr}}; gracz luźny od ok. {{n:hud.vpip.loose}}: z różnicą ponad {{n:hud.gap.passive}} punktów to pasywny {{t:recreational|gracz rekreacyjny}} ({{t:calling-station}}), z różnicą poniżej {{n:hud.gap.aggressive}} punktów to {{t:maniac|maniak}}"
+  because: "typ mówi, w którą stronę rywal odchodzi od bazy: gra za mało rąk, za dużo rąk, za często {{t:call|sprawdza}} albo za często {{t:raise|przebija}}"
+  level: heuristic
+  source: "PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/), tabela 6-max cash: „22 to 28”, „35+”, „14 or below”; „a player playing a 45 VPIP is either a maniac or a calling station”; „When the gap is less than 3 points, I flag them as highly aggressive”; Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „10-15% | Very tight (nit)”, „18-22% | Tight-aggressive (TAG)”, „25-30% | Loose-aggressive (LAG)”, „35%+ | Loose (likely recreational)”, profile „Nit (15/12/3%)”, „Whale / Recreational (45/8/2%)”, „Maniac (38/35/15%+)”; Bluffaces MDA: Regulars „VPIP = 18-32”, Recreationals „VPIP > 40”; progi jako część wspólna albo przedział obejmujący źródła (D-M10-03)"
+- id: R-M10-006
+  module: m10
+  if: "grasz przeciw pasywnemu {{t:recreational|graczowi rekreacyjnemu}} ({{t:vpip}} od ok. {{n:hud.vpip.loose}}, różnica {{t:vpip}} − {{t:pfr}} ponad {{n:hud.gap.passive}} punktów)"
+  then: "betujesz {{t:value|dla wartości}} więcej rąk, także cieńszych, a {{t:bluff|blefujesz}} rzadziej niż w bazie z modułu 8, zwłaszcza na riverze"
+  because: "taki gracz częściej dochodzi do showdownu i częściej tam przegrywa, czyli {{t:call|sprawdza}} słabszymi rękami: więcej jego {{t:call|sprawdzeń}} to ręce gorsze od twojej (próg value betu z modułu 8), a {{t:bluff}} zarabia tylko wtedy, gdy rywal {{t:fold|pasuje}} częściej niż {{t:alpha}}"
+  level: exploit
+  population: "GGPoker NL25–NL100 6-max, gracze rekreacyjni według definicji bazy (VPIP > 40, wynik < −20bb/100): WTSD 32% wobec 28% u regularów, wygrane showdowny 46% wobec 57%, wynik −47bb/100; wszystkie rozdania z 12 miesięcy przed 5.10.2026 (Bluffaces MDA, liczba rąk nie podana)"
+  source: "Bluffaces, Poker MDA (https://bluffaces.com/calculators/mda/), filtry GGPoker NL25/NL50/NL100 6-max, Recreationals i Regulars (mda.rec.*, mda.reg.*); PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): wysoki WTSD „instantly tells you to bluff them less and value bet them more across all betting streets, especially on the river.”; Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „>30% → Calling station. Value bet thinly, never bluff river.”; próg value betu R-M8-001 i alpha z modułu 6 bez zmian (D-M10-06)"
+- id: R-M10-007
+  module: m10
+  if: "{{t:raise|przebija}} albo 3-betuje {{t:nit}} ({{t:vpip}} do ok. {{n:hud.vpip.nit-max}} po co najmniej ok. {{n:hud.hands.vpip.low}} rękach)"
+  then: "{{t:fold|pasujesz}} częściej niż w bazie z modułu 4 rękami z dołu {{t:range|zakresu}} {{t:call|sprawdzenia}}, a jego blindy kradniesz częściej"
+  because: "kto gra tak mało rąk, ten {{t:raise|przebija}} głównie najsilniejszymi, więc twoje średnie ręce częściej są zdominowane; a gdy sam broni blindów wąsko, twoje {{t:open|otwarcie}} częściej wygrywa od razu"
+  level: exploit
+  population: "pojedynczy rywal: odczyt HUD z co najmniej ok. 100 rąk (VPIP do 14%); progi typu z PokerCoaching i Deepfold (6-max cash online); bez danych o całej populacji, bo nity to mniejszość stołu (D-M10-02)"
+  source: "PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „anyone significantly below is a nit whose raises you can nearly always fold to”; Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): nit „Plays only premium hands. Steal their blinds relentlessly, fold to their 3-bets without thought, bluff-catch sparingly.”; „10-15% | Very tight (nit) | Folds preflop too much; bluff their open ranges, fold to their 3-bets”"
+- id: R-M10-008
+  module: m10
+  if: "grasz przeciw {{t:maniac|maniakowi}} ({{t:vpip}} od ok. {{n:hud.vpip.loose}}, {{t:pfr}} prawie równy {{t:vpip}})"
+  then: "nie {{t:bluff|blefujesz}} go, {{t:call|sprawdzasz}} szerzej ręce łapiące {{t:bluff|blefy}}, a z bardzo silnymi rękami pozwalasz mu betować"
+  because: "jego bety i {{t:raise|przebicia}} zawierają więcej {{t:bluff|blefów}} niż w bazie, więc ręce, które w bazie są na granicy {{t:call|sprawdzenia}}, zarabiają, a {{t:bluff|blef}} przeciw komuś, kto rzadko {{t:fold|pasuje}}, traci"
+  level: exploit
+  population: "pojedynczy rywal: odczyt HUD z co najmniej ok. 100 rąk (VPIP od 35%, VPIP − PFR poniżej 3 punktów); progi typu z PokerCoaching i Deepfold (6-max cash online); bez danych o całej populacji (D-M10-02)"
+  source: "Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): maniak „Trap with premium hands by flat-calling preflop and letting them stack off. Don't try to out-bluff them; just let them hang themselves.”; PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „a player playing a 45 VPIP is either a maniac or a calling station”; zasada rąk mieszanych: GTO Wizard, Calling Down Over-Bluffed Lines in Lower Limits (R-M10-009)"
+- id: R-M10-009
+  module: m10
+  if: "wiesz, że rywal w danej linii {{t:bluff|blefuje}} częściej albo rzadziej niż w równowadze"
+  then: "najpierw zmieniasz decyzję rękami, które w bazie mieszają {{t:call}} i {{t:fold}}: przy nadmiarze {{t:bluff|blefów}} {{t:call|sprawdzasz}} nimi zawsze, przy niedoborze zawsze {{t:fold|pasujesz}}"
+  because: "w równowadze te ręce są obojętne, bo rywal ma dokładnie tyle {{t:bluff|blefów}}, ile trzeba; już mała nadwyżka albo niedobór przesuwa je na jedną stronę, a reszta {{t:range|zakresu}} zmienia się dopiero przy dużej różnicy"
+  level: gto
+  source: "GTO Wizard, Calling Down Over-Bluffed Lines in Lower Limits (https://blog.gtowizard.com/calling-down-the-over-bluffed-lines-in-lower-limits/), analiza z nodelockiem: „Hands that mix calls and folds in theory do so because Villain’s bet size is strategically balanced, making them indifferent to calling and folding since no option is the best.”; „If they are bluffing just a single combo more than they should, all of our indifferent bluff catchers become profitable calls and vice versa (we always fold when they are under-bluffing even slightly).”; „I only changed Villain’s strategy to bluff ~31% instead of ~27% of the time for our strategy to shift completely to never folding.”"
+- id: R-M10-010
+  module: m10
+  if: "rywal {{t:fold|pasuje}} na c-bet częściej, niż wynosi {{t:alpha}} twojego rozmiaru"
+  then: "c-bet bez żadnej ręki zarabia od razu: przy c-becie 1/3 {{t:pot|puli}} wystarczy ponad {{n:alpha.cbet.small}} {{t:fold|pasów}}, przy c-becie 3/4 {{t:pot|puli}} ponad {{n:alpha.cbet.big}}"
+  because: "{{t:bluff}} ryzykuje bet, żeby wygrać {{t:pot|pulę}}; zarabia, gdy odsetek {{t:fold|pasów}} przekracza bet ÷ ({{t:pot}} + bet); fold to c-bet z {{t:hud|HUD-a}} łączy wszystkie rozmiary i stoły, więc to tylko przybliżenie"
+  level: math
+  source: "obliczenie: EV czystego blefu = pas × pula − (1 − pas) × bet > 0 ⇔ pas > bet ÷ (pula + bet) (alpha, moduł 6; numbers.yaml alpha.cbet.*); GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Alpha (α): The minimum frequency your opponent needs to fold to a bet, in order to break even with a pure (0% equity) bluff.”"
+- id: R-M10-011
+  module: m10
+  if: "rywal {{t:fold|pasuje}} na 3-bet rzadko (fold to 3-bet poniżej ok. {{n:hud.f3b.low}}), np. typowy {{t:recreational|gracz rekreacyjny}}"
+  then: "3-betujesz go {{t:range|zakresem}} {{t:linear|liniowym}}: więcej silnych rąk {{t:value|dla wartości}}, prawie bez {{t:bluff|blefów}}"
+  because: "3-bet {{t:in-position}} do {{n:pf.3bet.ip-total}} zarabia bez żadnej ręki dopiero przy ponad {{n:alpha.vs-3bet-ip-size}} {{t:fold|pasów}}; gdy rywal {{t:fold|pasuje}} rzadko, {{t:bluff|blefy}} grają w dużej {{t:pot|puli}} słabymi rękami, a silne ręce dostają więcej {{t:call|sprawdzeń}}"
+  level: exploit
+  population: "GGPoker NL25–NL100 6-max (Bluffaces MDA, 12 miesięcy przed 5.10.2026, liczba rąk nie podana): fold to 3-bet graczy rekreacyjnych 31% (NL50 30%, NL100 32%), regularów 55% (NL50 57%, NL100 55%)"
+  source: "Bluffaces, Poker MDA (https://bluffaces.com/calculators/mda/), Fold to 3bet (mda.rec.f3b, mda.reg.f3b); PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „if a player has a low Fold to 3-Bet, you will want to adjust your 3-betting range against them and play a more linear range made up of almost solely value hands and very few bluffs.”; Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „<50% → They call 3-bets wide. Drop bluff 3-bets; value-bet thinner and exploit postflop.”; próg alpha z modułu 4 (alpha.vs-3bet-ip-size)"
+- id: R-M10-012
+  module: m10
+  if: "masz na rywala małą próbę albo tylko ogólną wiedzę o populacji"
+  then: "odchodzisz od bazy tylko w kierunku, który pokazują statystyki, i tylko rękami granicznymi; duże odejście, z całym {{t:range|zakresem}}, dopiero przy dużej próbie i wyraźnym błędzie rywala"
+  because: "przy małej próbie błąd statystyki jest duży, a odejście od bazy samo daje się wykorzystać: przy złym odczycie oddajesz więcej, niż zarabiasz"
+  level: heuristic
+  source: "PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „The directional signal (very high VPIP, very low PFR) may still be useful even with small samples, but specific exploitation based on percentage points requires a much larger hand history.”; GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Exploit: To deviate from a baseline strategy in order to take advantage of a (future or prior) mistake in your opponent's strategy.”; błąd próby: R-M10-002"
+- id: R-M10-013
+  module: m10
+  if: "grasz cash 6-max na mikrostawkach (NL2–NL25)"
+  then: "liczysz wynik po {{t:rake|rake'u}}: sala pobiera ok. {{n:rake.micro.low}}–{{n:rake.micro.high}}, czyli kilka razy więcej niż winrate typowego wygrywającego gracza ({{n:var.wr.typical.low}}–{{n:var.wr.typical.high}})"
+  because: "{{t:rake}} płacą wszyscy gracze z każdej {{t:pot|puli}}, która dojdzie do flopu; żeby wygrywać, musisz ogrywać rywali o więcej, niż wynosi {{t:rake}}"
+  level: heuristic
+  source: "Primedope, Online Poker Rake Comparison 2026 (https://www.primedope.com/online-poker-rake-comparison-rake-calculator/), NLH 6-max (rake.micro.*); GipsyTeam, How Many Winning Cash Games Players Are There? It Depends on Rake (https://www.gipsyteam.com/news/12-12-2025/number-of-winning-cash-game-players), Tombos21: „Reminder that your biggest villain is the house.”, „Pre-rake winners 90% post-rake winners 53%”; BlackRain79 (var.wr.typical.*, moduł 12)"
+- id: R-M10-014
+  module: m10
+  if: "dostajesz {{t:open|otwarcie}} w grze z {{t:rake|rake'iem}} pobieranym tylko od {{t:pot|pul}}, które dochodzą do flopu"
+  then: "{{t:call|sprawdzasz}} rzadziej niż w grze bez {{t:rake|rake'u}}; część rąk, które bez {{t:rake|rake'u}} by {{t:call|sprawdziły}}, 3-betuje, a resztę {{t:fold|pasujesz}}"
+  because: "{{t:rake}} zabiera część {{t:pot|puli}} po flopie, a {{t:pot}} zakończona przed flopem jest od niego wolna: {{t:call|sprawdzenie}} traci, 3-bet i {{t:fold}} nie"
+  level: gto
+  source: "GTO Wizard, Preflop Raise Sizing: Examining 2 Key Factors (https://blog.gtowizard.com/preflop-raise-sizing-examining-2-key-factors/), rozwiązania 200bb 6-max z rake'iem NL100: „Facing a LJ raise, the HJ, CO, and BTN all VPIP 25%-35% fewer hands in the raked game.”, „Rake makes calling raises considerably less appealing, leading to much lower VPIPs and somewhat higher 3-betting frequencies in “no flop, no drop” games.”, „BB calls a min-raise in the raked game barely 60% as often as in the unraked game”; uproszczenie: wynik dla 200bb, autor: „many of the principles will generalize”"
+- id: R-M10-015
+  module: m10
+  if: "liczysz potrzebne equity w grze z {{t:rake|rake'iem}}"
+  then: "dzielisz dopłatę przez {{t:pot|pulę}} po {{t:call|sprawdzeniu}} pomniejszoną o {{t:rake}}: przy becie pół {{t:pot|puli}} i {{t:rake|rake'u}} {{n:rake.ex.pct}} potrzebujesz {{n:eq.bet-half.rake}} zamiast {{n:eq.bet-half}}"
+  because: "wygrywasz {{t:pot|pulę}} bez {{t:rake|rake'u}}, a dopłacasz całą kwotę; na mikrostawkach {{t:pot|pule}} rzadko dochodzą do {{t:rake-cap|limitu rake'u}}, więc liczy się procent"
+  level: math
+  source: "obliczenie: dopłata ÷ (pula po sprawdzeniu × (1 − rake)) (numbers.yaml eq.bet-half.rake); Primedope, Online Poker Rake Comparison 2026 (https://www.primedope.com/online-poker-rake-comparison-rake-calculator/): „micro-stakes pots rarely hit caps, so percentage matters most”"
 
 # M12: mental game i bankroll. Poziomy według ADR-24: rachunek = math, zalecenie oparte na rachunku lub literaturze = heuristic.
 - id: R-M12-001

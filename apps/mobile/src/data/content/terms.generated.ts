@@ -155,6 +155,20 @@ export const TERMS = {
   "heads-up": { pl: "heads-up", en: "heads up", enAlt: [], area: "tournament" },
   "dead-money": { pl: "dead money", en: "dead money", enAlt: [], area: "tournament" },
   "stack-off": { pl: "stack off", en: "stack off", enAlt: [], area: "tournament" },
+  "exploit": { pl: "eksploatacja", en: "exploit", enAlt: ["exploitative play"], area: "strategy", forms: ["eksploatacja","eksploatacji","eksploatację","eksploatacją","eksploatacje","eksploatacjach"] },
+  "hud": { pl: "HUD", en: "heads-up display", enAlt: [], area: "strategy", forms: ["HUD"] },
+  "vpip": { pl: "VPIP", en: "voluntarily put in pot", enAlt: [], area: "strategy", forms: ["VPIP"] },
+  "pfr": { pl: "PFR", en: "preflop raise", enAlt: [], area: "strategy", forms: ["PFR"] },
+  "wtsd": { pl: "WTSD", en: "went to showdown", enAlt: [], area: "strategy", forms: ["WTSD"] },
+  "nit": { pl: "nit", en: "nit", enAlt: [], area: "strategy" },
+  "regular": { pl: "regular", en: "regular", enAlt: ["reg"], area: "strategy" },
+  "tag": { pl: "TAG", en: "tight aggressive", enAlt: [], area: "strategy", forms: ["TAG"] },
+  "lag": { pl: "LAG", en: "loose aggressive", enAlt: [], area: "strategy", forms: ["LAG"] },
+  "recreational": { pl: "gracz rekreacyjny", en: "recreational player", enAlt: ["fish"], area: "strategy", forms: ["gracz rekreacyjny","gracza rekreacyjnego","graczowi rekreacyjnemu","graczem rekreacyjnym","graczu rekreacyjnym","gracze rekreacyjni","graczy rekreacyjnych","graczom rekreacyjnym","graczami rekreacyjnymi","graczach rekreacyjnych"] },
+  "calling-station": { pl: "calling station", en: "calling station", enAlt: [], area: "strategy" },
+  "maniac": { pl: "maniak", en: "maniac", enAlt: [], area: "strategy", forms: ["maniak","maniaka","maniakowi","maniakiem","maniaku","maniacy","maniaków","maniakom","maniakami"] },
+  "rake": { pl: "rake", en: "rake", enAlt: [], area: "strategy" },
+  "rake-cap": { pl: "limit rake'u", en: "rake cap", enAlt: [], area: "strategy", forms: ["limit rake'u","limitu rake'u","limitem rake'u"] },
 } as const satisfies Record<string, AppTerm>;
 
 export type TermKey = keyof typeof TERMS;

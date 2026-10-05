@@ -1,6 +1,6 @@
 /// <reference types="jest" />
 import type { Drill } from '@szkola/content-schema';
-import { classOf, combosCount, createRng, HAND_CLASSES, parseCard } from '@szkola/poker-core';
+import { classifyHud, classOf, combosCount, createRng, HAND_CLASSES, hudThresholdsFromParams, parseCard, PLAYER_TYPES } from '@szkola/poker-core';
 import type { DrillRow, RangeSpot } from '@/data/content/repo';
 import { buildExamSession, buildFamilySession, buildSpeedSession, interleaveRows } from '@/features/session/build';
 import { instantiate } from '../engine';
@@ -60,6 +60,30 @@ describe('silnik zadań', () => {
       expect(new Set(inst.options.map((o) => o.text)).size).toBe(3);
       expect(inst.prompt).toMatch(/Ty \d/);
     }
+  });
+
+  it('playerType (M10): progi z parametrów, jedna poprawna odpowiedź zgodna z klasyfikacją, wyjaśnienie z dostosowaniem', () => {
+    // te same wartości co hud.* w numbers.yaml po podstawieniu „n:klucz” (VPIP jako ułamek, reszta w punktach i rękach)
+    const params = { nitMax: 0.14, regLow: 0.18, regHigh: 0.3, loose: 0.35, passiveGap: 10, aggressiveGap: 3, minHands: 30, readHands: 100 };
+    const th = hudThresholdsFromParams(params);
+    const drill: Drill = { kind: 'generated', id: 't.pt', family: 'f.pt', rules: [], generator: 'playerType', params, count: 40 };
+    const seen = new Set<string>();
+    for (const raw of instantiate(drill, 'l1', createRng(11))) {
+      const inst = asChoice(raw);
+      const m = /VPIP \(voluntarily put in pot\) (\d+)%, PFR \(preflop raise\) (\d+)%, próba (\d+)/.exec(inst.prompt);
+      expect(m).not.toBeNull();
+      const type = classifyHud({ vpip: Number(m![1]), pfr: Number(m![2]), hands: Number(m![3]) }, th);
+      expect(type).not.toBeNull();
+      const correct = inst.options.filter((o) => o.correct);
+      expect(correct).toHaveLength(1);
+      expect(inst.options.map((o) => o.text)).toEqual(['Nit', 'Regular', 'Pasywny gracz rekreacyjny (recreational player)', 'Maniak (maniac)', 'Za mało rąk, żeby ocenić']);
+      expect(inst.options[PLAYER_TYPES.indexOf(type!)]!.correct).toBe(true);
+      expect(correct[0]!.why).toMatch(/^Tak\./);
+      expect(inst.explanation).toMatch(/^Najpierw próba/);
+      seen.add(type!);
+    }
+    expect(seen.size).toBeGreaterThanOrEqual(4);
+    expect(() => instantiate({ ...drill, params: { ...params, loose: 'n:hud.vpip.loose' } }, 'l1', createRng(1))).toThrow(/musi być liczbą/);
   });
 
   it('karty w tekście wyjaśnień mają poprawny format', () => {

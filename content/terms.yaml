@@ -906,3 +906,88 @@ stack-off:
   en: stack off
   area: tournament
   source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „All-in: … Some people will say that they \"stacked off\", which means the same as \"went all-in\".”"
+
+# ---------- Eksploatacja mikrostawek (M10) ----------
+exploit:
+  pl: eksploatacja
+  en: exploit
+  en_alt: [exploitative play]
+  area: strategy
+  forms: [eksploatacja, eksploatacji, eksploatację, eksploatacją, eksploatacje, eksploatacjach]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Exploit: To deviate from a baseline strategy in order to take advantage of a (future or prior) mistake in your opponent's strategy.”"
+hud:
+  pl: HUD
+  en: heads-up display
+  area: strategy
+  forms: [HUD]
+  source: "Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „A Heads-Up Display (HUD) overlays opponent statistics directly on your poker table.”; PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „Heads-Up Displays (HUDs)”"
+vpip:
+  pl: VPIP
+  en: voluntarily put in pot
+  area: strategy
+  forms: [VPIP]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „VPIP: An online poker acronym which stands for ‘Voluntarily Put In Pot’, a statistic that measures the frequency with which a player voluntarily puts money into the pot preflop.”"
+pfr:
+  pl: PFR
+  en: preflop raise
+  area: strategy
+  forms: [PFR]
+  source: "BlackRain79, What is a Good PFR in Poker? (https://www.blackrain79.com/2019/10/what-is-good-pfr-in-poker.html): „PFR stands for preflop raise percentage”; PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „PFR stands for pre-flop raise”"
+wtsd:
+  pl: WTSD
+  en: went to showdown
+  area: strategy
+  forms: [WTSD]
+  source: "PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „WTSD% (Went to Showdown): Reveals how frequently a player goes to showdown after seeing the flop”"
+nit:
+  pl: nit
+  en: nit
+  area: strategy
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Nit: A term that describes players that are considered to be very tight. For example, entering the pot with very few hands preflop.”"
+regular:
+  pl: regular
+  en: regular
+  en_alt: [reg]
+  area: strategy
+  source: "Bluffaces, Poker MDA (https://bluffaces.com/calculators/mda/): grupa „Regulars”, „For 6max: VPIP = 18-32, EV bb/100 > -2.”; Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „TAG Reg (22/19/7%)”"
+tag:
+  pl: TAG
+  en: tight aggressive
+  area: strategy
+  forms: [TAG]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „TAG: An acronym meaning \"Tight Aggressive\" which refers to the playstyle of a player that is characterized by playing a small number of hands in an aggressive manner.”"
+lag:
+  pl: LAG
+  en: loose aggressive
+  area: strategy
+  forms: [LAG]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „LAG: An acronym meaning \"Loose Aggressive\" which refers to the playstyle of a player that is characterized by playing a large number of hands in an aggressive manner.”"
+recreational:
+  pl: gracz rekreacyjny
+  en: recreational player
+  en_alt: [fish]
+  area: strategy
+  forms: [gracz rekreacyjny, gracza rekreacyjnego, graczowi rekreacyjnemu, graczem rekreacyjnym, graczu rekreacyjnym, gracze rekreacyjni, graczy rekreacyjnych, graczom rekreacyjnym, graczami rekreacyjnymi, graczach rekreacyjnych]
+  source: "BlackRain79, What is a Good PFR in Poker? (https://www.blackrain79.com/2019/10/what-is-good-pfr-in-poker.html): „The classic stats of a passive recreational poker player (fish) are something like”; GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Fish: A pejorative term used to describe a weak player.”"
+calling-station:
+  pl: calling station
+  en: calling station
+  area: strategy
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Calling station: A pejorative term used to describe players who frequently call, often with weak hands or draws.”"
+maniac:
+  pl: maniak
+  en: maniac
+  area: strategy
+  forms: [maniak, maniaka, maniakowi, maniakiem, maniaku, maniacy, maniaków, maniakom, maniakami]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Maniac: A pejorative term that describes a very loose and aggressive player who is considered to be a weak player.”"
+rake:
+  pl: rake
+  en: rake
+  area: strategy
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Rake: The money taken from the pot by the casino, cardroom, website or game runner as a fee for operating the game.”"
+rake-cap:
+  pl: limit rake'u
+  en: rake cap
+  area: strategy
+  forms: [limit rake'u, limitu rake'u, limitem rake'u]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Rake cap: The maximum amount the house is permitted to charge for rake per hand.”"

@@ -607,3 +607,106 @@ m11.3max.bb.pot: { formula: sum, refs: [m11.depth.3max, m11.depth.3max, pf.blind
 m11.3max.bb.eq: { formula: quotient, refs: [m11.3max.bb.cost, m11.3max.bb.pot], unit: percent, decimals: 1, source: "obliczenie: potrzebne equity BB wobec Buttona" }
 m11.3max.bb-two.pot: { formula: sum, refs: [m11.depth.3max, m11.depth.3max, m11.depth.3max], unit: bb, decimals: 1, source: "obliczenie: pula po sprawdzeniu BB, gdy all-in są już dwaj gracze" }
 m11.3max.bb-two.eq: { formula: quotient, refs: [m11.3max.bb.cost, m11.3max.bb-two.pot], unit: percent, decimals: 1, source: "obliczenie: potrzebne equity BB wobec dwóch rywali" }
+
+# M10: eksploatacja mikrostawek. Progi typów graczy to konwencje trenerów (szczebel 4), wartości populacji to dane z baz
+# rąk (szczebel 5, pole population), błędy próby i progi blefów to rachunek (szczebel 1). Decyzje D-M10-xx w raporcie M10.
+hud.vpip.nit-max: { value: 0.14, unit: percent, source: "PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/), tabela 6-max cash: „Warning: too tight” „14 or below”; Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „10-15% | Very tight (nit)”; część wspólna: do 14%" }
+hud.vpip.reg.low: { value: 0.18, unit: percent, source: "Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „18-22% | Tight-aggressive (TAG)”, „25-30% | Loose-aggressive (LAG)”; Bluffaces, Poker MDA (https://bluffaces.com/calculators/mda/): Regulars „For 6max: VPIP = 18-32”; PokerCoaching: „a VPIP of 22 to 28 is typical for a well-balanced player”; przedział obejmujący TAG i LAG z Deepfold" }
+hud.vpip.reg.high: { value: 0.30, unit: percent, source: "jak hud.vpip.reg.low (górna granica LAG według Deepfold)" }
+hud.vpip.loose: { value: 0.35, unit: percent, source: "PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/), tabela 6-max cash: „Warning: too loose” „35+”; Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „35%+ | Loose (likely recreational)”" }
+hud.gap.passive: { value: 10, unit: count, source: "PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „When a player’s PFR is more than 10 points below their VPIP, I immediately flag them as a passive player who calls too much and raises too little.”; Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „Gap > 10 → Passive player.”" }
+hud.gap.aggressive: { value: 3, unit: count, source: "PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „When the gap is less than 3 points, I flag them as highly aggressive”; Deepfold: „Gap < 5 → Aggressive player who rarely limps. Most regs.”; część wspólna: poniżej 3 punktów" }
+hud.hands.random: { value: 30, unit: count, source: "Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „Below 30 hands, treat the HUD numbers as random and use hand-observation reads only.”" }
+hud.hands.rough.high: { value: 50, unit: count, source: "Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „30-50 hands for a rough VPIP/PFR estimate (player type identification).”" }
+hud.hands.vpip.low: { value: 100, unit: count, source: "PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „For VPIP and PFR, you need at least 100 to 200 hands before the numbers begin to stabilize.”" }
+hud.hands.vpip.high: { value: 200, unit: count, source: "jak hud.hands.vpip.low" }
+hud.hands.3bet.low: { value: 200, unit: count, source: "Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide), tabela: „Fold to 3-bet | 200+ hands”; przedział obejmujący oba źródła" }
+hud.hands.3bet.high: { value: 500, unit: count, source: "PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „For 3-bet and fold to 3-bet, closer to 500 hands is the threshold.”, tabela „400 to 500”" }
+hud.f3b.low: { value: 0.50, unit: percent, source: "PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „good players fold to 3-bets about 50% of the time”, „if a player has a low Fold to 3-Bet, you will want to adjust your 3-betting range against them and play a more linear range made up of almost solely value hands and very few bluffs.”; Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „<50% → They call 3-bets wide. Drop bluff 3-bets; value-bet thinner and exploit postflop.”" }
+hud.wtsd.high: { value: 0.30, unit: percent, source: "Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „>30% → Calling station. Value bet thinly, never bluff river.”; PokerCoaching (https://pokercoaching.com/blog/poker-stats/): „In most cases, your WTSD% should be around 30”" }
+
+# Błąd próby statystyki HUD: odsetek p z n okazji ma błąd standardowy √(p(1 − p) ÷ n) (rozkład dwumianowy).
+hud.se.ex.p: { value: 0.25, unit: percent, source: "przykład w lekcji: VPIP 25%" }
+hud.se.ex.n: { value: 100, unit: count, source: "przykład w lekcji: 100 rąk (każda ręka to okazja do VPIP)" }
+hud.se.ex.q: { formula: diff, refs: [math.one, hud.se.ex.p], unit: percent, source: "obliczenie: 1 − p" }
+hud.se.ex.pq: { formula: product, refs: [hud.se.ex.p, hud.se.ex.q], unit: ratio, decimals: 3, source: "obliczenie: p × (1 − p)" }
+hud.se.ex.var: { formula: quotient, refs: [hud.se.ex.pq, hud.se.ex.n], unit: ratio, decimals: 3, source: "obliczenie: wariancja odsetka p(1 − p) ÷ n" }
+hud.se.ex: { formula: sqrt, refs: [hud.se.ex.var], unit: percent, decimals: 1, source: "obliczenie: błąd standardowy odsetka √(p(1 − p) ÷ n)" }
+hud.ci.ex: { formula: product, refs: [var.z95, hud.se.ex], unit: percent, decimals: 1, source: "obliczenie: połowa przedziału 95% (1,96 błędu standardowego)" }
+hud.ci.ex.low: { formula: diff, refs: [hud.se.ex.p, hud.ci.ex], unit: percent, decimals: 1, source: "obliczenie: dolna granica przedziału 95%" }
+hud.ci.ex.high: { formula: sum, refs: [hud.se.ex.p, hud.ci.ex], unit: percent, decimals: 1, source: "obliczenie: górna granica przedziału 95%" }
+hud.se.f3b.p: { value: 0.50, unit: percent, source: "przykład w lekcji: fold to 3-bet 50%" }
+hud.se.f3b.n: { value: 20, unit: count, source: "przykład w lekcji: 20 sytuacji, w których rywal dostał 3-bet" }
+hud.se.f3b.q: { formula: diff, refs: [math.one, hud.se.f3b.p], unit: percent, source: "obliczenie: 1 − p" }
+hud.se.f3b.pq: { formula: product, refs: [hud.se.f3b.p, hud.se.f3b.q], unit: ratio, decimals: 3, source: "obliczenie: p × (1 − p)" }
+hud.se.f3b.var: { formula: quotient, refs: [hud.se.f3b.pq, hud.se.f3b.n], unit: ratio, decimals: 3, source: "obliczenie: p(1 − p) ÷ n" }
+hud.se.f3b: { formula: sqrt, refs: [hud.se.f3b.var], unit: percent, decimals: 1, source: "obliczenie: błąd standardowy odsetka" }
+hud.ci.f3b: { formula: product, refs: [var.z95, hud.se.f3b], unit: percent, decimals: 1, source: "obliczenie: połowa przedziału 95%" }
+hud.ci.f3b.low: { formula: diff, refs: [hud.se.f3b.p, hud.ci.f3b], unit: percent, decimals: 1, source: "obliczenie: dolna granica przedziału 95%" }
+hud.ci.f3b.high: { formula: sum, refs: [hud.se.f3b.p, hud.ci.f3b], unit: percent, decimals: 1, source: "obliczenie: górna granica przedziału 95%" }
+
+hud.ex.wrong.vpip: { value: 0.20, unit: percent, source: "przykład w zadaniu: błędny zapis statystyk (PFR większy niż VPIP)" }
+hud.ex.wrong.pfr: { value: 0.25, unit: percent, source: "przykład w zadaniu: błędny zapis statystyk (PFR większy niż VPIP)" }
+hud.ex.few.hands: { value: 12, unit: count, source: "przykład w zadaniu: próba mniejsza niż hud.hands.random" }
+hud.ex.few.vpip: { value: 0.58, unit: percent, source: "przykład w zadaniu: statystyki z bardzo małej próby" }
+hud.ex.few.pfr: { value: 0.08, unit: percent, source: "przykład w zadaniu: statystyki z bardzo małej próby" }
+
+hud.ex.reg.hands: { value: 400, unit: count, source: "przykład w zadaniu: próba, przy której VPIP i PFR są już czytelne (powyżej hud.hands.vpip.high)" }
+hud.ex.passive.vpip: { value: 0.28, unit: percent, source: "przykład w zadaniu: gracz pasywny o średnim VPIP" }
+hud.ex.passive.pfr: { value: 0.12, unit: percent, source: "przykład w zadaniu: gracz pasywny o średnim VPIP" }
+hud.ex.passive.gap.frac: { formula: diff, refs: [hud.ex.passive.vpip, hud.ex.passive.pfr], unit: percent, source: "obliczenie: VPIP − PFR" }
+hud.ex.passive.gap: { formula: product, refs: [hud.ex.passive.gap.frac, math.hundred], unit: count, source: "obliczenie: VPIP − PFR w punktach procentowych" }
+hud.ex.nit.vpip: { value: 0.11, unit: percent, source: "przykład w zadaniu: nit (profil Deepfold „Nit (15/12/3%)”, PokerCoaching „a 12% VPIP is guaranteed to be a nit”)" }
+hud.ex.nit.pfr: { value: 0.09, unit: percent, source: "przykład w zadaniu: nit" }
+hud.ex.maniac.vpip: { value: 0.48, unit: percent, source: "przykład w zadaniu: maniak (profil Deepfold „Maniac (38/35/15%+)”)" }
+hud.ex.maniac.pfr: { value: 0.46, unit: percent, source: "przykład w zadaniu: maniak" }
+
+hud.ex.fcb.high: { value: 0.70, unit: percent, source: "przykład w zadaniu: rywal, który często pasuje na c-bet (Deepfold: „>65% → Bluff every flop you raised preflop”)" }
+hud.ex.fcb.low: { value: 0.35, unit: percent, source: "przykład w zadaniu: rywal, który rzadko pasuje na c-bet" }
+hud.ex.mid.hands: { value: 60, unit: count, source: "przykład w zadaniu: próba między hud.hands.random a hud.hands.vpip.low" }
+
+# Populacja GGPoker NL25 6-max (Bluffaces MDA, odczyt 5.10.2026; dane z filtrów strony, NL50 i NL100 w raporcie M10).
+math.hundred: { value: 100, unit: count, source: "stała pomocnicza: zamiana ułamka na punkty procentowe" }
+mda.period.months: { value: 12, unit: count, source: "Bluffaces, Poker MDA (https://bluffaces.com/calculators/mda/): „We analyzed all the hands played in the last 12 months”", population: "GGPoker 6-max, baza Bluffaces" }
+mda.reg.def.low: { value: 0.18, unit: percent, source: "Bluffaces, Poker MDA (https://bluffaces.com/calculators/mda/): grupa Regulars „For 6max: VPIP = 18-32, EV bb/100 > -2.”", population: "GGPoker 6-max, definicja grupy w bazie Bluffaces" }
+mda.reg.def.high: { value: 0.32, unit: percent, source: "jak mda.reg.def.low", population: "jak mda.reg.def.low" }
+mda.reg.def.wr: { value: -2, unit: bb100, source: "jak mda.reg.def.low (EV bb/100 > -2)", population: "jak mda.reg.def.low" }
+mda.rec.def.wr: { value: -20, unit: bb100, source: "Bluffaces, Poker MDA: grupa Recreationals „For 6max: VPIP > 40, EV bb/100 < -20.”", population: "GGPoker 6-max, definicja grupy w bazie Bluffaces" }
+mda.reg.wr: { value: 0.7, unit: bb100, decimals: 1, source: "Bluffaces, Poker MDA, filtr GGPoker NL25 6-max Regulars: Winrate, bb/100 0.7 (NL50 0.8, NL100 0.9)", population: "jak mda.reg.vpip" }
+mda.rec.def: { value: 0.40, unit: percent, source: "Bluffaces, Poker MDA (https://bluffaces.com/calculators/mda/): grupa Recreationals „For 6max: VPIP > 40, EV bb/100 < -20.”", population: "GGPoker, 6-max NLH, definicja grupy w bazie Bluffaces" }
+mda.rec.vpip: { value: 0.42, unit: percent, source: "Bluffaces, Poker MDA (https://bluffaces.com/calculators/mda/): „We analyzed all the hands played in the last 12 months”; filtr GGPoker, NL25, 6-max, Recreationals: VPIP 42 (odczyt 5.10.2026; NL50 43, NL100 42)", population: "GGPoker NL25 6-max, gracze rekreacyjni (VPIP > 40, wynik < −20bb/100), wszystkie rozdania z 12 miesięcy przed 5.10.2026; liczba rąk nie podana" }
+mda.rec.pfr: { value: 0.18, unit: percent, source: "Bluffaces, Poker MDA, filtr GGPoker NL25 6-max Recreationals: PFR 18 (NL50 18, NL100 18)", population: "jak mda.rec.vpip" }
+mda.rec.gap: { formula: diff, refs: [mda.rec.vpip, mda.rec.pfr], unit: percent, source: "obliczenie: VPIP − PFR graczy rekreacyjnych", population: "jak mda.rec.vpip" }
+mda.rec.gap.pp: { formula: product, refs: [mda.rec.gap, math.hundred], unit: count, source: "obliczenie: VPIP − PFR graczy rekreacyjnych w punktach procentowych", population: "jak mda.rec.vpip" }
+mda.rec.f3b: { value: 0.31, unit: percent, source: "Bluffaces, Poker MDA, filtr GGPoker NL25 6-max Recreationals: Fold to 3bet 31 (NL50 30, NL100 32)", population: "jak mda.rec.vpip" }
+mda.rec.wtsd: { value: 0.32, unit: percent, source: "Bluffaces, Poker MDA, filtr GGPoker NL25 6-max Recreationals: WTSD 32 (NL50 32, NL100 32)", population: "jak mda.rec.vpip" }
+mda.rec.wsd: { value: 0.46, unit: percent, source: "Bluffaces, Poker MDA, filtr GGPoker NL25 6-max Recreationals: W$SD 46 (NL50 46, NL100 47)", population: "jak mda.rec.vpip" }
+mda.rec.fcb: { value: 0.43, unit: percent, source: "Bluffaces, Poker MDA, filtr GGPoker NL25 6-max Recreationals: FvCbet Flop 43 (NL50 43, NL100 42)", population: "jak mda.rec.vpip" }
+mda.rec.wr: { value: -47, unit: bb100, source: "Bluffaces, Poker MDA, filtr GGPoker NL25 6-max Recreationals: Winrate, bb/100 -47 (NL50 -48, NL100 -47)", population: "jak mda.rec.vpip" }
+mda.reg.vpip: { value: 0.23, unit: percent, source: "Bluffaces, Poker MDA (https://bluffaces.com/calculators/mda/), filtr GGPoker NL25 6-max Regulars („For 6max: VPIP = 18-32, EV bb/100 > -2.”): VPIP 23 (NL50 24, NL100 25)", population: "GGPoker NL25 6-max, regulary (VPIP 18–32, wynik > −2bb/100), wszystkie rozdania z 12 miesięcy przed 5.10.2026; liczba rąk nie podana" }
+mda.reg.pfr: { value: 0.18, unit: percent, source: "Bluffaces, Poker MDA, filtr GGPoker NL25 6-max Regulars: PFR 18 (NL50 19, NL100 20)", population: "jak mda.reg.vpip" }
+mda.reg.f3b: { value: 0.55, unit: percent, source: "Bluffaces, Poker MDA, filtr GGPoker NL25 6-max Regulars: Fold to 3bet 55 (NL50 57, NL100 55)", population: "jak mda.reg.vpip" }
+mda.reg.wtsd: { value: 0.28, unit: percent, source: "Bluffaces, Poker MDA, filtr GGPoker NL25 6-max Regulars: WTSD 28 (NL50 28, NL100 28)", population: "jak mda.reg.vpip" }
+mda.reg.wsd: { value: 0.57, unit: percent, source: "Bluffaces, Poker MDA, filtr GGPoker NL25 6-max Regulars: W$SD 57 (NL50 57, NL100 56)", population: "jak mda.reg.vpip" }
+mda.reg.fcb: { value: 0.48, unit: percent, source: "Bluffaces, Poker MDA, filtr GGPoker NL25 6-max Regulars: FvCbet Flop 48 (NL50 47, NL100 45)", population: "jak mda.reg.vpip" }
+mda.all.fcb: { value: 0.45, unit: percent, source: "Bluffaces, Poker MDA (https://bluffaces.com/calculators/mda/), filtr GGPoker NL25 6-max All players: FvCbet Flop 45 (widoczne w kodzie strony bez filtrów; NL50 44, NL100 44)", population: "GGPoker NL25 6-max, wszyscy gracze, wszystkie rozdania z 12 miesięcy przed 5.10.2026; liczba rąk nie podana" }
+
+# Rake (Primedope: harmonogramy sal przeliczone na bb/100 na rozkładzie pul z kilku milionów rąk; API strony, odczyt 5.10.2026).
+rake.micro.low: { value: 8.8, unit: bb100, decimals: 1, source: "Primedope, Online Poker Rake Comparison 2026 (https://www.primedope.com/online-poker-rake-comparison-rake-calculator/): „The calculator applies each operator's rake rules to actual pot size distributions compiled from several million NLH cash game hands”; NLH 6-max, PokerStars NL10: 8,76bb/100 (najniżej wśród PokerStars, GGPoker, iPoker, Winamax.fr przy NL2–NL10)", population: "harmonogramy rake'u sal na rozkładzie pul NLH 6-max z kilku milionów rąk (Primedope), stan na 5.10.2026" }
+rake.micro.high: { value: 11.1, unit: bb100, decimals: 1, source: "Primedope, Online Poker Rake Comparison 2026: NLH 6-max NL2: 888Poker 11,14bb/100, PokerStars Europe 10,54; GGPoker 9,10, PokerStars 8,92 (NL2–NL10 w przedziale 8,8–11,1)", population: "jak rake.micro.low" }
+rake.nl500.low: { value: 3.2, unit: bb100, decimals: 1, source: "Primedope, Online Poker Rake Comparison 2026: NLH 6-max NL500: PokerStars i Winamax.fr 3,15bb/100, iPoker i 888Poker 3,65, GGPoker 5,58", population: "jak rake.micro.low" }
+rake.nl500.high: { value: 5.6, unit: bb100, decimals: 1, source: "jak rake.nl500.low (GGPoker 5,58bb/100)", population: "jak rake.micro.low" }
+rake.ex.pct: { value: 0.05, unit: percent, source: "Primedope, Online Poker Rake Comparison 2026: PokerStars, GGPoker, iPoker i Winamax.fr przy NL2–NL10: 5% puli; „micro-stakes pots rarely hit caps, so percentage matters most”" }
+rake.ex.keep: { formula: diff, refs: [math.one, rake.ex.pct], unit: percent, source: "obliczenie: część puli, która zostaje po rake'u" }
+rake.ex.pot-after: { formula: product, refs: [ex.half.total, rake.ex.keep], unit: count, source: "obliczenie: pula po sprawdzeniu minus rake" }
+eq.bet-half.rake: { formula: quotient, refs: [ex.bet.half, rake.ex.pot-after], unit: percent, decimals: 1, source: "obliczenie: dopłata ÷ pula po sprawdzeniu pomniejszona o rake" }
+tombos.nl100.loss: { value: 7.3, unit: bb100, decimals: 1, source: "GipsyTeam, How Many Winning Cash Games Players Are There? It Depends on Rake (https://www.gipsyteam.com/news/12-12-2025/number-of-winning-cash-game-players), Tom „Tombos21” Boshoff: „If you're sitting at an NL100 6-max table, on average each players loses 7.3 bb/100”", population: "6-max NLH NL10–NL500, sale śledzone publicznie 2023–2025, raport populacji PokerTracker 4 (Tombos21)" }
+tombos.winners.low: { value: 0.25, unit: percent, source: "GipsyTeam (Tombos21), jak tombos.nl100.loss: „In short: about 25-30% of players are winning at poker.”", population: "jak tombos.nl100.loss; gracze z co najmniej 100 rękami" }
+tombos.winners.high: { value: 0.30, unit: percent, source: "jak tombos.winners.low", population: "jak tombos.winners.low" }
+tombos.reg.prerake: { value: 0.90, unit: percent, source: "GipsyTeam (Tombos21), jak tombos.nl100.loss: „Pre-rake winners 90% post-rake winners 53%”", population: "jak tombos.nl100.loss; regulary z co najmniej 5 tys. rąk, wynik z korektą bayesowską" }
+tombos.reg.postrake: { value: 0.53, unit: percent, source: "jak tombos.reg.prerake", population: "jak tombos.reg.prerake" }
+gtow.rake.vpip-drop.low: { value: 0.25, unit: percent, source: "GTO Wizard, Preflop Raise Sizing: Examining 2 Key Factors (https://blog.gtowizard.com/preflop-raise-sizing-examining-2-key-factors/), rozwiązania 200bb 6-max z rake'iem NL100: „Facing a LJ raise, the HJ, CO, and BTN all VPIP 25%-35% fewer hands in the raked game.”" }
+gtow.rake.vpip-drop.high: { value: 0.35, unit: percent, source: "jak gtow.rake.vpip-drop.low" }
+gtow.rake.bb-minraise: { value: 0.60, unit: percent, source: "GTO Wizard, Preflop Raise Sizing: Examining 2 Key Factors: „BB calls a min-raise in the raked game barely 60% as often as in the unraked game”" }
+gtow.ob.base: { value: 0.27, unit: percent, source: "GTO Wizard, Calling Down Over-Bluffed Lines in Lower Limits (https://blog.gtowizard.com/calling-down-the-over-bluffed-lines-in-lower-limits/): „I only changed Villain’s strategy to bluff ~31% instead of ~27% of the time for our strategy to shift completely to never folding.”" }
+gtow.ob.lock: { value: 0.31, unit: percent, source: "jak gtow.ob.base" }
