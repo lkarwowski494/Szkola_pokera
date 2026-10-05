@@ -90,7 +90,9 @@ jobs:
         run: |
           set -o pipefail
           # numery do flowu „Pomoc” z content/helplines.yaml (przez moduł wygenerowany przez content-build)
-          mapfile -t HELP_ENV < <(node apps/mobile/e2e/helplines-env.mjs)
+          # bash 3.2 na macOS nie ma mapfile
+          HELP_ENV=(); while IFS= read -r l; do HELP_ENV+=("$l"); done < <(node apps/mobile/e2e/helplines-env.mjs)
+          test "${#HELP_ENV[@]}" -gt 0
           mkdir -p e2e-out
           maestro --device "$SIM_UDID" test "${HELP_ENV[@]}" --format junit --output e2e-out/report.xml \
             --test-output-dir e2e-out apps/mobile/e2e
