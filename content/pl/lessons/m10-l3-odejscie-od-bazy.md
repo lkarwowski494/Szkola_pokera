@@ -89,12 +89,12 @@ drills:
 ---
 {{t:exploit|Eksploatacja}} nie zastępuje bazy, tylko ją przesuwa. Najpierw wiesz, jak gra się w równowadze (moduły 3–9), potem z danych widzisz, w którą stronę rywal od niej odchodzi, i przesuwasz własną grę w tę samą stronę. Pytanie brzmi: którymi rękami i jak daleko.
 
-## Najpierw ręce mieszane
+## Najpierw {{t:mixed-hand|ręce mieszane}}
 
 W równowadze część rąk gra dwie akcje, np. czasem {{t:call|sprawdza}}, a czasem {{t:fold|pasuje}}. Robi tak, bo obie akcje dają to samo: rywal ma dokładnie tyle {{t:bluff|blefów}}, żeby ręka była obojętna. To te ręce reagują na błąd rywala pierwsze:
 
-- rywal {{t:bluff|blefuje}} za często: ręce mieszane zawsze {{t:call|sprawdzają}};
-- rywal {{t:bluff|blefuje}} za rzadko: ręce mieszane zawsze {{t:fold|pasują}}.
+- rywal {{t:bluff|blefuje}} za często: {{t:mixed-hand|ręce mieszane}} zawsze {{t:call|sprawdzają}};
+- rywal {{t:bluff|blefuje}} za rzadko: {{t:mixed-hand|ręce mieszane}} zawsze {{t:fold|pasują}}.
 
 Wystarczy niewiele. W przykładzie GTO Wizard (Button betuje na riverze po linii bet, {{t:check}}, bet) zmiana {{t:bluff|blefów}} rywala z ok. {{n:gtow.ob.base}} do ok. {{n:gtow.ob.lock}} przestawiła obronę {{t:big-blind|dużego blinda}} na samo {{t:call|sprawdzanie}}. Ręce, które w bazie zawsze {{t:fold|pasują}} albo zawsze grają dalej, zmieniają decyzję dopiero przy dużym {{t:standard-deviation|odchyleniu}}.
 
@@ -126,5 +126,5 @@ W bazie {{t:bluff|blefy}} 3-betem żyją z {{t:fold|pasów}} i z equity po flopi
 Im mniejsza próba, tym większy błąd statystyki (lekcja 1). Przy małej próbie przesuwasz tylko ręce graniczne i tylko w kierunku odczytu. Duże odejście, z całym {{t:range|zakresem}}, ma sens dopiero przy dużej próbie i wyraźnym błędzie rywala. Odejście od bazy samo jest błędem, który dobry rywal może wykorzystać.
 
 :::note Źródła
-Zasada rąk mieszanych pochodzi z analizy GTO Wizard z zablokowaną strategią rywala (rozwiązanie solvera, nie dane o populacji). Progi {{t:alpha}} to rachunek. Fold to 3-bet i fold to c-bet populacji pochodzą z bazy Bluffaces (GGPoker NL25–NL100, {{n:mda.period.months}} miesięcy przed październikiem 2026). Granica fold to 3-bet i zasada „mała próba, małe odejście” to zalecenia PokerCoaching i Deepfold.
+Zasada {{t:mixed-hand|rąk mieszanych}} pochodzi z analizy GTO Wizard z zablokowaną strategią rywala (rozwiązanie solvera, nie dane o populacji). Progi {{t:alpha}} to rachunek. Fold to 3-bet i fold to c-bet populacji pochodzą z bazy Bluffaces (GGPoker NL25–NL100, {{n:mda.period.months}} miesięcy przed październikiem 2026). Granica fold to 3-bet i zasada „mała próba, małe odejście” to zalecenia PokerCoaching i Deepfold.
 :::
