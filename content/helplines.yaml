@@ -1,0 +1,59 @@
+# Telefony i miejsca pomocy przy problemach z hazardem: jedno źródło prawdy (B-058, decyzja właściciela z 5.10.2026).
+# Korzystają z niego: ramka „Odpowiedzialna gra” w lekcji M12-L4 (znacznik {{helplines}}, rozwijany przez content-build)
+# i ekran „Pomoc” w ustawieniach (moduł apps/mobile/src/data/content/helplines.generated.ts, też z content-build).
+# Numerów z tego pliku nie wpisuj ręcznie w lekcjach: content-build przerywa budowanie, gdy znajdzie je poza znacznikiem.
+#
+# Zakres: tylko Polska. Bez nazw pokoi pokerowych (ADR-13). Każdy wpis ma przeczytane źródło (adres i dosłowny cytat).
+# W polu `abroad` {{phone:id}} wstawia numer z wpisu o danym id.
+checked: '2026-10-05'
+abroad: 'Za granicą: lokalny numer pomocy lub {{phone:emergency}}.'
+entries:
+  - id: behavioral
+    name: Telefon Zaufania uzależnienia behawioralne
+    phone: 801 889 880
+    hours: codziennie 17.00–22.00
+    cost: opłata według taryfy operatora
+    info: Prowadzi go Instytut Psychologii Zdrowia PTP; numer podaje Krajowe Centrum Przeciwdziałania Uzależnieniom.
+    links:
+      - label: Test „Czy mam problem z hazardem?” i baza placówek pomocy
+        url: https://uzaleznieniabehawioralne.pl/
+    sources:
+      - url: https://kcpu.gov.pl/
+        quote: 'Telefon Zaufania uzależnienia behawioralne / codziennie w godzinach 17.00-22.00. / Stawka za połączenie zależna od taryfy operatora. / 801 889 880'
+      - url: https://uzaleznieniabehawioralne.pl/
+        quote: 'Baza placówek pomocowych / Znajdź pomoc / TELEFON ZAUFANIA 801 889 880 czynny codziennie 17.00-22.00'
+      - url: https://uzaleznieniabehawioralne.pl/hazard/testy-diagnostyczne-patologiczny-hazard/
+        quote: 'Czy mam problem z hazardem?'
+
+  - id: crisis
+    name: Telefon dla dorosłych w kryzysie emocjonalnym
+    phone: 116 123
+    hours: całą dobę
+    cost: bezpłatnie
+    links:
+      # 116sos.pl zamiast 116123.edu.pl: ta druga strona miała 5.10.2026 wadliwy certyfikat TLS
+      - label: Czat
+        url: https://116sos.pl/
+    sources:
+      - url: https://116sos.pl/
+        quote: 'telefon 116 123 / dostępny 24/7'
+      - url: https://116sos.pl/
+        quote: 'Bezpłatne'
+
+  - id: gamblers-anonymous
+    name: Anonimowi Hazardziści
+    hours: mityngi w całej Polsce i online
+    cost: bezpłatnie
+    links:
+      - label: Lista mityngów
+        url: https://anonimowihazardzisci.org/
+    sources:
+      - url: https://anonimowihazardzisci.org/
+        quote: 'Nie istnieją żadne opłaty za uczestnictwo w grupach Anonimowych Hazardzistów'
+
+  - id: emergency
+    name: W sytuacji zagrożenia życia
+    phone: '112'
+    sources:
+      - url: https://www.gov.pl/web/numer-alarmowy-112
+        quote: 'Aplikacja mobilna Alarm112 umożliwia w sytuacji zagrożenia życia, zdrowia, mienia, środowiska, bezpieczeństwa i porządku publicznego przekazanie zgłoszenia alarmowego do Centrum Powiadamiania Ratunkowego'

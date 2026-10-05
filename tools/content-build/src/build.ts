@@ -5,6 +5,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { parse as parseYaml } from 'yaml';
 import {
   CONTENT_SCHEMA_VERSION,
+  HelplinesFile,
   LessonFrontmatter,
   ModulesFile,
   NumbersFile,
@@ -20,6 +21,7 @@ import {
   type RuleDef,
 } from '@szkola/content-schema';
 import { classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, textureMatches, type TextureFilter } from '@szkola/poker-core';
+import { expandHelplines, loadHelplines, type Helplines } from './helplines';
 import { compileMarkdown } from './markdown';
 import { compileRanges } from './ranges';
 import { findHardcodedNumbers, resolveNumbers, substitute, type ResolvedNumber } from './numbers';
@@ -53,6 +55,8 @@ export interface CompiledContent {
   numbers: { key: string; value: number; display: string; source: string; population?: string; note?: string }[];
   ranges: CompiledRangeSpot[];
   terms: (CompiledTerm & { forms?: string[]; skip?: string[] })[];
+  /** Telefony pomocy (content/helplines.yaml): do modułu TS ekranu „Pomoc”; w lekcji już rozwinięte. */
+  helplines: Helplines;
   hash: string;
   warnings: string[];
 }
@@ -92,6 +96,8 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
   );
   const terms = loadTerms(parseOrThrow(TermsFile, readYaml(join(contentDir, 'terms.yaml')), 'terms.yaml'));
   const termErrors: string[] = [];
+  const helplines = loadHelplines(parseOrThrow(HelplinesFile, readYaml(join(contentDir, 'helplines.yaml')), 'helplines.yaml'));
+  const helplinesUsed = { count: 0 };
   /**
    * Jedna jednostka tekstu: liczby {{n:…}}, potem terminy {{t:…}}. `seen` łączy pola tej samej jednostki (reguła).
    * `checkTerms: false` tylko dla tytułów (nazwy w nawigacji, decyzja T-03).
@@ -148,7 +154,10 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
   for (const file of readdirSync(lessonDir).filter((f) => f.endsWith('.md')).sort()) {
     const where = `lessons/${file}`;
     try {
-      const { fm, body } = splitFrontmatter(readFileSync(join(lessonDir, file), 'utf8'), where);
+      const split = splitFrontmatter(readFileSync(join(lessonDir, file), 'utf8'), where);
+      const fm = split.fm;
+      // telefony pomocy przed liczbami i terminami: rozwinięty tekst przechodzi te same kontrole co reszta lekcji
+      const body = expandHelplines(split.body, helplines, where, helplinesUsed);
       const lesson = parseOrThrow(LessonFrontmatter, fm, where);
       if (lessonIds.has(lesson.id)) throw new Error(`powtórzona lekcja ${lesson.id}`);
       lessonIds.add(lesson.id);
@@ -282,6 +291,7 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
     }
   }
   for (const key of numbers.keys()) if (!used.has(key)) warnings.push(`liczba ${key} nie jest nigdzie używana`);
+  if (helplinesUsed.count === 0) warnings.push('telefony pomocy (helplines.yaml) nie są użyte w żadnej lekcji ({{helplines}})');
   if (termErrors.length) {
     const shown = termErrors.slice(0, 40);
     throw new Error(
@@ -307,7 +317,7 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
 
   const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, modules, lessons, rules, numbers: numbersOut, ranges, terms: terms.compiled };
   const hash = createHash('sha256').update(JSON.stringify(payload)).digest('hex').slice(0, 16);
-  return { ...payload, hash, warnings };
+  return { ...payload, helplines, hash, warnings };
 }
 
 /** Wszystkie 22 100 flopów z teksturą (do sprawdzania przypadków c-betu). */

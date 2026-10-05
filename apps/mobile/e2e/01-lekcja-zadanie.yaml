@@ -1,0 +1,26 @@
+# Start → mapa nauki → lekcja → zadanie → odpowiedź.
+appId: pl.lkarwowski.szkolapokera
+name: Lekcja i pierwsze zadanie
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: 'No-Limit Hold’em od zera.*'
+    timeout: 30000
+- tapOn:
+    id: 'lesson-m0.l1'
+- assertVisible: 'Układy kart'
+- scrollUntilVisible:
+    element: 'Ćwiczenia'
+    direction: DOWN
+    timeout: 30000
+- tapOn: 'Ćwiczenia'
+- assertVisible: '1 z \d+'
+- tapOn:
+    id: 'option-0'
+# każda odpowiedź daje ocenę; sprawdzamy, że zadanie przyjęło odpowiedź i pokazało wyjaśnienie
+- assertVisible: '(Dobrze|Tym razem nie)'
+- tapOn: 'Dalej'
+- assertVisible: '2 z \d+'
+- tapOn: 'Zamknij'
+- assertVisible: 'Układy kart'

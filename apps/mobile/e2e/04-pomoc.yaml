@@ -1,0 +1,22 @@
+# Postęp → Pomoc. Numery i teksty przychodzą z content/helplines.yaml przez helplines-env.mjs (maestro test -e …),
+# więc flow ich nie powiela. Nie dzwonimy: symulator nie ma aplikacji Telefon.
+appId: pl.lkarwowski.szkolapokera
+name: Pomoc
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: 'No-Limit Hold’em od zera.*'
+    timeout: 30000
+- tapOn: 'Postęp'
+- scrollUntilVisible:
+    element: 'Pomoc: gdy granie wymyka się spod kontroli'
+    direction: DOWN
+- tapOn: 'Pomoc: gdy granie wymyka się spod kontroli'
+- assertVisible: '${HELP_FIRST_NAME}'
+- assertVisible: 'Zadzwoń pod numer ${HELP_FIRST_PHONE}.*'
+- scrollUntilVisible:
+    element: '${HELP_CHECKED}'
+    direction: DOWN
+- assertVisible: 'Zadzwoń pod numer ${HELP_LAST_PHONE}.*'
+- assertVisible: '${HELP_ABROAD}'

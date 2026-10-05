@@ -282,6 +282,7 @@ function ChoiceOptions({ item, picked, onPick, readOnly }: { item: ChoiceInstanc
         return (
           <Pressable
             key={`${item.key}-${i}`}
+            testID={`option-${i}`}
             accessibilityRole="button"
             accessibilityState={{ disabled: answered || readOnly, selected: isPicked }}
             disabled={answered || readOnly}
