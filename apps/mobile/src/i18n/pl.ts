@@ -121,7 +121,7 @@ export const pl = {
     gameExplain:
       'Gra to odsetek decyzji ocenionych jako zgodne albo dopuszczalne wśród ostatnich {{window}} ocenionych decyzji w obszarze, przy stole 6-osobowym ze stackami 100bb. Wynik pojawia się od {{min}} decyzji (do {{window}} jako wstępny). W obszarze liczą się po równo wiedza i gra; wynik rozdań w {{t:chips|żetonach}} nie wchodzi do wskaźnika.',
     history: 'Historia',
-    historyHint: 'Jeden słupek na dzień, w którym otworzyłeś aplikację. Ostatni: {{last}}.',
+    historyHint: 'Jeden słupek na dzień, w którym korzystałeś z aplikacji. Ostatni: {{last}}.',
     historyEmpty: 'Historia pojawi się po kolejnych dniach nauki.',
   },
   glossary: {
