@@ -49,7 +49,7 @@ export function compileRanges(contentDir: string): { spots: CompiledRangeSpot[];
       });
       const freqs = HAND_CLASSES.map((hc) => Math.round(idx.reduce((s, i) => s + node.strategy[i]![hc]!, 0) * 1000) / 1000);
       const wrongSizes = def.wrongSizes?.[name];
-      return { name, freqs, ...(wrongSizes ? { wrongSizes } : {}) };
+      return { name, labels: [...labels], freqs, ...(wrongSizes ? { wrongSizes } : {}) };
     });
     for (const g of Object.keys(def.wrongSizes ?? {})) {
       if (!(g in def.groups)) throw new Error(`spot ${def.id}: wrongSizes dla nieznanej grupy "${g}"`);

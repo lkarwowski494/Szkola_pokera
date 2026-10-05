@@ -1,11 +1,9 @@
-import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   applyAction,
   BOT_POLICY,
   BOT_POLICY_VERSION,
   botDecide,
-  botKnowledgeFrom,
   botView,
   classOf,
   combosCount,
@@ -14,30 +12,11 @@ import {
   startHand,
   styleOf,
   validateAction,
-  type BotKnowledge,
   type HandState,
   type StyleId,
   type TableConfig,
 } from '@szkola/poker-core';
-import { compileContent } from '../src/build';
-
-const contentDir = join(resolve(import.meta.dirname, '../../..'), 'content');
-const content = compileContent(contentDir);
-const numbers = new Map(content.numbers.map((n) => [n.key, n.value]));
-const cbetCases = content.lessons
-  .flatMap((l) => l.drills)
-  .flatMap((d) => (d.kind === 'cbet' && d.position === 'BTN' ? d.cases.map((c) => ({ when: c.when, best: c.best })) : []));
-
-const knowledge: BotKnowledge = botKnowledgeFrom({
-  number: (k) => {
-    const v = numbers.get(k);
-    if (v === undefined) throw new Error(`brak liczby ${k}`);
-    return v;
-  },
-  spots: content.ranges,
-  handRanking: content.handRanking,
-  cbetCases,
-});
+import { content, knowledge } from './kit';
 
 const BB = 100;
 const table = (button: number): TableConfig => ({ stacks: Array(6).fill(100 * BB), smallBlind: BB / 2, bigBlind: BB, button });
@@ -90,7 +69,7 @@ describe('boty M13: wiedza z treści', () => {
     expect(knowledge.handRanking.indexOf('AKs')).toBeLessThan(knowledge.handRanking.indexOf('72o'));
     expect(knowledge.handRanking[168]).toBe('32o');
     expect(knowledge.cbetCases.length).toBeGreaterThan(0);
-    expect(knowledge.sizes.open).toBe(numbers.get('pf.open-size'));
+    expect(knowledge.sizes.open).toBe(content.numbers.find((n) => n.key === 'pf.open-size')!.value);
   });
 });
 

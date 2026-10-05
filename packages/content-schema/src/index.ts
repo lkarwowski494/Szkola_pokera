@@ -102,6 +102,38 @@ export const ModulesFile = z.array(ModuleDef);
 // ---------- Reguły odruchowe ----------
 
 export const RuleLevel = z.enum(['rules', 'math', 'gto', 'heuristic', 'exploit']);
+export type RuleLevel = z.infer<typeof RuleLevel>;
+
+/**
+ * Warunek reguły sprawdzalny automatycznie w trybie gry M13 (dokument 14, 4.4.3 i 6.2 A): rodzaj sprawdzenia
+ * w silniku oceny (poker-core, grading.ts) i jego parametry. Liczby jako „n:klucz” z numbers.yaml.
+ * players i stackBb ograniczają regułę do konfiguracji stołu, której dotyczy jej źródło (dokument 14, 5.5);
+ * brak = każda konfiguracja (reguły rachunkowe).
+ */
+export const RuleCheckKind = z.enum([
+  'free-check-fold',
+  'no-limp',
+  'solver-spot',
+  'open-size',
+  'three-bet-size',
+  'iso-size',
+  'cbet-case',
+  'draw-price',
+  'implied-odds',
+]);
+export type RuleCheckKind = z.infer<typeof RuleCheckKind>;
+export const RuleCheck = z.object({
+  kind: RuleCheckKind,
+  players: z.array(z.number().int().min(2).max(9)).optional(),
+  stackBb: z.array(z.number().positive()).optional(),
+  streets: z.array(z.enum(['preflop', 'flop', 'turn', 'river'])).optional(),
+  /** solver-spot: identyfikatory spotów z content/ranges/spots.yaml. */
+  spots: z.array(z.string()).optional(),
+  /** cbet-case: zadanie kind: cbet, którego przypadki (pole rule = ta reguła) oceniają decyzję. */
+  drill: z.string().optional(),
+  params: z.record(z.string(), z.union([z.number(), z.string()])).optional(),
+});
+export type RuleCheck = z.infer<typeof RuleCheck>;
 
 export const RuleDef = z
   .object({
@@ -113,6 +145,7 @@ export const RuleDef = z
     level: RuleLevel,
     source: z.string().min(3),
     population: z.string().optional(),
+    check: RuleCheck.optional(),
   })
   .refine((r) => r.level !== 'exploit' || !!r.population, 'reguła eksploatacyjna musi podać populację źródłową');
 export type RuleDef = z.infer<typeof RuleDef>;
@@ -326,7 +359,8 @@ export interface CompiledRangeSpot {
   title: string;
   hero: string;
   path: string;
-  groups: { name: string; freqs: number[]; wrongSizes?: { text: string; why: string }[] }[];
+  /** labels: akcje węzła solvera należące do grupy (np. „raise 7.5”), do oceny decyzji w trybie gry M13. */
+  groups: { name: string; labels: string[]; freqs: number[]; wrongSizes?: { text: string; why: string }[] }[];
   /** Udział rąk w grupach akcji pokazywanych w siatce (reszta to pas), ważony liczbą kombinacji. */
   playPercent: number;
   /** Klasy niepewne (RangeSpotDef.uncertain), w kolejności HAND_CLASSES; pusta lista = brak. */
@@ -338,6 +372,21 @@ export interface CompiledRangeSpot {
    * w wyniku solvera („fold”, „call 2.5”, „raise 7.5”, „all-in”). Dla botów trybu gry M13 (dokument 14, 4.4.2).
    */
   actions: { label: string; freqs: number[] }[];
+}
+
+/**
+ * Reguła z warunkiem sprawdzalnym w trybie gry (content-build → game_kit.evalRules): parametry z rozwiązanymi
+ * liczbami, przypadki c-betu z zadania (cbet-case) i rodziny zadań powołujących się na regułę (dokument 14, 2 i 5.7).
+ */
+export interface CompiledEvalRule {
+  id: string;
+  module: string;
+  level: RuleLevel;
+  check: Omit<RuleCheck, 'params'> & {
+    params: Record<string, number | string>;
+    cases?: { when: TextureFilter; best: CbetAction; rule?: string }[];
+  };
+  families: string[];
 }
 
 // ---------- Lekcje ----------

@@ -14,6 +14,7 @@ import {
   termNeedsEnglish,
   type Block,
   type CompiledTerm,
+  type CompiledEvalRule,
   type CompiledRangeSpot,
   type Drill,
   type ModuleDef,
@@ -52,6 +53,8 @@ export interface CompiledContent {
   rules: RuleDef[];
   numbers: { key: string; value: number; display: string; source: string; population?: string; note?: string }[];
   ranges: CompiledRangeSpot[];
+  /** Reguły z warunkiem sprawdzalnym w trybie gry M13 (pole check w rules.yaml). */
+  evalRules: CompiledEvalRule[];
   /** Ranking 169 klas od najsilniejszej (equity wobec losowej ręki); dla botów trybu gry M13. */
   handRanking: string[];
   terms: (CompiledTerm & { forms?: string[]; skip?: string[] })[];
@@ -274,6 +277,12 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
   for (const m of modules) {
     if (!lessons.some((l) => l.module === m.id) && m.phase === 'mvp') warnings.push(`moduł ${m.id} (MVP) nie ma lekcji`);
   }
+  const evalRules = compileEvalRules(rulesRaw, lessons, modules, rangeIds, (key, where) => {
+    const n = numbers.get(key);
+    if (!n) throw new Error(`${where}: nieznana liczba ${key}`);
+    used.add(key);
+    return n.value;
+  });
   // liczby użyte pośrednio (przez refs innych liczb) też są w użyciu
   const stack = [...used];
   while (stack.length) {
@@ -308,7 +317,7 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
   }));
 
   const { ranking: handRanking } = compileHandRanking(join(contentDir, '..', 'tools', 'equity', 'equity169.json'));
-  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, modules, lessons, rules, numbers: numbersOut, ranges, handRanking, terms: terms.compiled };
+  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, modules, lessons, rules, numbers: numbersOut, ranges, evalRules, handRanking, terms: terms.compiled };
   const hash = createHash('sha256').update(JSON.stringify(payload)).digest('hex').slice(0, 16);
   return { ...payload, hash, warnings };
 }
@@ -393,7 +402,9 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
     for (const r of content.ranges) {
       ra.run(r.id, r.title, r.hero, r.path, r.playPercent, JSON.stringify(r.groups), JSON.stringify(r.uncertain), r.solver, JSON.stringify(r.actions));
     }
-    db.prepare('INSERT INTO game_kit VALUES (?, ?)').run('handRanking', JSON.stringify(content.handRanking));
+    const kit = db.prepare('INSERT INTO game_kit VALUES (?, ?)');
+    kit.run('handRanking', JSON.stringify(content.handRanking));
+    kit.run('evalRules', JSON.stringify(content.evalRules));
     const te = db.prepare('INSERT INTO terms VALUES (?, ?, ?, ?, ?, ?, ?)');
     for (const t of content.terms) te.run(t.key, t.pl, t.en, JSON.stringify(t.enAlt), t.abbr ?? null, t.area, t.source);
   });
@@ -409,4 +420,55 @@ export function readDbHash(path: string): string | null {
   const row = db.prepare("SELECT value FROM meta WHERE key = 'hash'").get() as { value: string } | undefined;
   db.close();
   return row?.value ?? null;
+}
+
+/**
+ * Reguły z polem check (dokument 14, 4.4.3, 6.2 A): sprawdza spójność warunku z treścią (spoty, zadanie c-betu,
+ * liczby) i dokłada rodziny zadań, które powołują się na regułę (do kart z błędów i reguły „3 razy”, 5.7).
+ */
+export function compileEvalRules(
+  rules: readonly RuleDef[],
+  lessons: readonly CompiledLesson[],
+  modules: readonly ModuleDef[],
+  rangeIds: ReadonlySet<string>,
+  number: (key: string, where: string) => number,
+): CompiledEvalRule[] {
+  const ord = (l: CompiledLesson) => [modules.findIndex((m) => m.id === l.module), l.order] as const;
+  const sorted = [...lessons].sort((a, b) => ord(a)[0] - ord(b)[0] || ord(a)[1] - ord(b)[1]);
+  const drills = sorted.flatMap((l) => l.drills);
+  const out: CompiledEvalRule[] = [];
+  for (const r of rules) {
+    if (!r.check) continue;
+    const where = `${r.id}.check`;
+    const c = r.check;
+    if (r.level === 'exploit') throw new Error(`${where}: reguły exploit nie oceniają w wersji 1 (brak populacji botów, dokument 14, 5.5)`);
+    const params = Object.fromEntries(
+      Object.entries(c.params ?? {}).map(([k, v]) => [k, typeof v === 'string' && v.startsWith('n:') ? number(v.slice(2), `${where}.params.${k}`) : v]),
+    );
+    for (const id of c.spots ?? []) if (!rangeIds.has(id)) throw new Error(`${where}: nieznany spot ${id}`);
+    if (c.kind === 'solver-spot' && !(c.spots ?? []).length) throw new Error(`${where}: solver-spot wymaga spots`);
+    let cases: CompiledEvalRule['check']['cases'];
+    if (c.kind === 'cbet-case') {
+      const d = drills.find((x) => x.id === c.drill);
+      if (!d || d.kind !== 'cbet') throw new Error(`${where}: drill musi wskazywać zadanie kind: cbet (jest ${c.drill})`);
+      cases = d.cases.map((x) => ({ when: x.when, best: x.best, ...(x.rule ? { rule: x.rule } : {}) }));
+      if (!cases.some((x) => x.rule === r.id)) throw new Error(`${where}: zadanie ${c.drill} nie ma przypadku z rule: ${r.id}`);
+    }
+    const need: Partial<Record<string, string[]>> = {
+      'open-size': ['open', 'openSb'],
+      'three-bet-size': ['mult', 'position'],
+      'iso-size': ['base', 'perLimper', 'oopExtra'],
+      'implied-odds': ['sprMin'],
+    };
+    for (const k of need[c.kind] ?? []) if (!(k in params)) throw new Error(`${where}: ${c.kind} wymaga params.${k}`);
+    // rodziny zadań z tą regułą; dla spotów solvera także zadania z tych spotów (rangeDecision, malowanie)
+    const usesSpot = (d: (typeof drills)[number]) =>
+      (d.kind === 'paint' && (c.spots ?? []).includes(d.spot)) ||
+      (d.kind === 'generated' && d.generator === 'rangeDecision' && String(d.params.spots ?? '').split(',').some((x) => (c.spots ?? []).includes(x.trim())));
+    const families = [...new Set([...drills.filter((d) => d.rules.includes(r.id)), ...drills.filter(usesSpot)].map((d) => d.family))];
+    const { params: _p, ...rest } = c;
+    void _p;
+    out.push({ id: r.id, module: r.module, level: r.level, check: { ...rest, params, ...(cases ? { cases } : {}) }, families });
+  }
+  return out;
 }

@@ -288,11 +288,16 @@ function pathToken(e: HandEvent, bb: number): string {
   return e.type;
 }
 
-function preflopPath(v: BotView): string {
-  return v.events
+/** Ścieżka akcji przed flopem w zapisie drzewa solvera, np. „UTG:fold,HJ:fold,CO:raise2.5”. */
+export function solverPath(events: readonly HandEvent[], positions: readonly string[], bigBlind: number): string {
+  return events
     .filter((e) => e.street === 'preflop' && e.type !== 'post-sb' && e.type !== 'post-bb')
-    .map((e) => `${v.positions[e.seat]}:${pathToken(e, v.bigBlind)}`)
+    .map((e) => `${positions[e.seat]}:${pathToken(e, bigBlind)}`)
     .join(',');
+}
+
+function preflopPath(v: BotView): string {
+  return solverPath(v.events, v.positions, v.bigBlind);
 }
 
 /** Rozdanie w formacie spotów solvera: liczba graczy, pełne stacki, blindy 0,5/1. */

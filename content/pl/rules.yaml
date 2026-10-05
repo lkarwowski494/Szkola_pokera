@@ -6,6 +6,10 @@
 #   exploit   – dostosowanie do typu gracza; musi podać populację;
 #   rules     – zasady gry i definicje.
 # Reguła eksploatacyjna musi podać populację źródłową (walidacja w content-build).
+# Pole check (tryb gry M13, dokument 14, 4.4.3 i 6.2 A): warunek sprawdzalny automatycznie w silniku oceny
+# (packages/poker-core/src/grading.ts). kind = rodzaj sprawdzenia, players/stackBb = konfiguracje stołu, których
+# dotyczy źródło reguły (5.5; brak = każda, reguły rachunkowe), streets, spots (spoty solvera), drill (przypadki
+# c-betu), params (liczby jako n:klucz). Reguły-zakazy (free-check-fold, no-limp) oceniają tylko naruszenie.
 
 - id: R-M0-001
   module: m0
@@ -42,6 +46,7 @@
   then: "nigdy nie {{t:fold|pasujesz}}"
   because: "{{t:fold}} oddaje {{t:pot|pulę}} bez żadnej korzyści, a {{t:check}} nic nie kosztuje"
   level: math
+  check: { kind: free-check-fold }
   source: "obliczenie: czekanie kosztuje 0 i zachowuje szansę na pulę, więc nigdy nie jest gorsze od pasa"
 - id: R-M1-003
   module: m1
@@ -92,6 +97,7 @@
   then: "{{t:fold|pasujesz}} (bez dodatkowych argumentów, np. implied odds)"
   because: "każde takie {{t:call}} traci pieniądze w długim terminie"
   level: math
+  check: { kind: draw-price, streets: [flop] }
   source: "obliczenie: EV = equity × (pula po twoim sprawdzeniu) − sprawdzenie; ujemne, gdy equity < sprawdzenie ÷ pula po twoim sprawdzeniu"
 
 - id: R-M3-001
@@ -107,6 +113,7 @@
   then: "{{t:open|otwierasz}} ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk"
   because: "za tobą jest jeszcze pięciu graczy, więc ktoś częściej ma lepszą rękę"
   level: gto
+  check: { kind: solver-spot, players: [6], stackBb: [100], spots: [rfi.utg] }
   source: "GTO Wizard, Range Morphology (https://blog.gtowizard.com/range-morphology/): UTG 17,6%; BeyondGTO (NL500): UTG 17%, HJ 22%, CO 28%, BTN 42%; Preflop Wizard, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 15–17 / 19–22 / 25–28 / 40–45% (dokument 12 M0–M3, D6)"
 - id: R-M3-003
   module: m3
@@ -114,6 +121,7 @@
   then: "{{t:open|otwierasz}} ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk"
   because: "zostały tylko blindy, a po flopie będziesz mieć {{t:position|pozycję}}"
   level: gto
+  check: { kind: solver-spot, players: [6], stackBb: [100], spots: [rfi.btn] }
   source: "BeyondGTO, BTN open 6-max 100bb (NL500): ok. 42%; Preflop Wizard, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 40–45% (dokument 12 M0–M3, D6)"
 - id: R-M3-004
   module: m3
@@ -121,6 +129,7 @@
   then: "{{t:raise|przebijasz}} albo {{t:fold|pasujesz}}, nie dopłacasz samego blinda (limp)"
   because: "{{t:raise}} może od razu wygrać blindy i daje {{t:initiative|inicjatywę}}; limp oddaje obie te rzeczy"
   level: heuristic
+  check: { kind: no-limp, players: [6], stackBb: [100] }
   source: "Upswing, Why limping is bad (https://upswingpoker.com/why-limping-in-poker-is-bad/): „If you make everyone fold preflop, you win 100% of the pot … You can't ever do that in a pot you've limped into”; BeyondGTO, SB open 6-max 100bb: „raise-or-fold” (dokument 12 M0–M3)"
 - id: R-M3-005
   module: m3
@@ -135,6 +144,7 @@
   then: "{{t:open|otwierasz}} szerzej niż z {{t:utg}}, a węziej niż z Buttona; z {{t:cutoff|CO}} szerzej niż z {{t:hijack|HJ}}"
   because: "im mniej graczy zostało za tobą, tym rzadziej ktoś ma lepszą rękę i tym częściej po flopie masz {{t:position|pozycję}}"
   level: gto
+  check: { kind: solver-spot, players: [6], stackBb: [100], spots: [rfi.hj, rfi.co] }
   source: "GTO Wizard, Range Morphology (https://blog.gtowizard.com/range-morphology/): UTG 17,6%; BeyondGTO (NL500): UTG 17%, HJ 22%, CO 28%, BTN 42%; Preflop Wizard, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 15–17 / 19–22 / 25–28 / 40–45% (dokument 12 M0–M3, D6): zakres otwarcia rośnie od UTG do Buttona"
 - id: R-M3-007
   module: m3
@@ -142,6 +152,7 @@
   then: "{{t:raise|przebijasz}} do {{n:pf.open-size}} z każdej {{t:position|pozycji}}, a z {{t:small-blind|małego blinda}} do {{n:pf.open-size-sb}} (uproszczenie)"
   because: "jeden rozmiar z każdej {{t:position|pozycji}} jest prosty i nie zdradza siły ręki; z {{t:small-blind|małego blinda}} grasz {{t:out-of-position}}, więc {{t:raise|przebijasz}} trochę więcej"
   level: heuristic
+  check: { kind: open-size, players: [6], stackBb: [100], params: { open: "n:pf.open-size", openSb: "n:pf.open-size-sb" } }
   source: "Preflop Wizard, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): „the standard open size is 2.5bb from all positions … 3bb from the small blind”; GTO Wizard, Range Morphology (https://blog.gtowizard.com/range-morphology/): UTG 2bb, CO 2,3bb, BTN 2,5bb, SB 3bb (uproszczenie, dokument 12, D8)"
 - id: R-M3-008
   module: m3
@@ -156,6 +167,7 @@
   then: "{{t:open|otwierasz}} szeroko, ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, {{t:raise|przebiciem}} do {{n:pf.open-size-sb}} albo {{t:fold|pasem}}"
   because: "grasz już tylko przeciw {{t:big-blind|dużemu blindowi}}; po flopie mówisz pierwszy, więc nie {{t:open|otwierasz}} szerzej niż z Buttona tylko dlatego, że rywal jest jeden"
   level: gto
+  check: { kind: solver-spot, players: [6], stackBb: [100], spots: [rfi.sb] }
   source: "BeyondGTO, SB open 6-max 100bb NL500: ok. 44%, raise-or-fold; Upswing, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): 40–50%; Preflop Wizard (https://www.preflopwizard.app/blog/6-max-preflop-charts): 39–47%; przedział 40–45% to część wspólna (dokument 12, D3)"
 
 # M4: gra wobec akcji preflop. Reguły „heuristic” pochodzą z literatury, nie z solvera aplikacji (dokument 11).
@@ -165,6 +177,7 @@
   then: "{{t:raise|przebijasz}} do ok. {{n:pf.3bet.size-ip}} {{t:open|otwarcia}}, przy {{t:open|otwarciu}} {{n:pf.open-size}} to {{n:pf.3bet.ip-total}}"
   because: "taki rozmiar daje dobry stosunek stacka do {{t:pot|puli}} na flopie i nie daje rywalowi taniej ceny"
   level: heuristic
+  check: { kind: three-bet-size, players: [6], stackBb: [100], params: { mult: "n:pf.3bet.size-ip", position: ip } }
   source: "Deepfold, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide); drzewo solvera aplikacji"
 - id: R-M4-002
   module: m4
@@ -172,6 +185,7 @@
   then: "{{t:raise|przebijasz}} do ok. {{n:pf.3bet.size-oop}} {{t:open|otwarcia}}, przy {{t:open|otwarciu}} {{n:pf.open-size}} to {{n:pf.3bet.oop-total}}"
   because: "po flopie będziesz mówić pierwszy, więc większym {{t:raise|przebiciem}} odbierasz rywalowi tanie {{t:call}} {{t:in-position}}"
   level: heuristic
+  check: { kind: three-bet-size, players: [6], stackBb: [100], params: { mult: "n:pf.3bet.size-oop", position: oop } }
   source: "Deepfold, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide); drzewo solvera aplikacji"
 - id: R-M4-003
   module: m4
@@ -179,6 +193,7 @@
   then: "prawie nie {{t:call|sprawdzasz}}: 3-betujesz albo {{t:fold|pasujesz}}; wobec Buttona 3-betujesz górę {{t:range|zakresu}} (ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, m.in. 77+, AJo+, KQo, A5s, A4s, T9s), a resztę {{t:fold|pasujesz}}"
   because: "po {{t:call|sprawdzeniu}} z {{t:small-blind|małego blinda}} grasz {{t:out-of-position}}, a {{t:big-blind}} za tobą może jeszcze {{t:raise|przebić}}; 3-bet daje {{t:initiative|inicjatywę}} i szansę wygrania {{t:pot|puli}} od razu"
   level: gto
+  check: { kind: solver-spot, players: [6], stackBb: [100], spots: [vs-open.sb-vs-btn] }
   source: "GTO Wizard, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, SB vs BTN: 3-bet 14%, sprawdzenie 2%; „the SB barely calls anything. Instead, they almost exclusively 3-bet or fold”; Upswing, 3-Bet Preflop Strategy (https://upswingpoker.com/3-bet-strategy-aggressive-preflop/): „3-bet-or-fold strategies from every position except the Big Blind” (dokument 10, rozstrzygnięcie B-045: treść R-M4-015 włączona do R-M4-003)"
 - id: R-M4-004
   module: m4
@@ -186,6 +201,7 @@
   then: "bronisz szeroko, bo do {{t:call|sprawdzenia}} potrzebujesz tylko ok. {{n:eq.bb-vs-btn-open}} equity"
   because: "dopłacasz niewiele do dużej {{t:pot|puli}}; solver aplikacji broni tu {{n:solver.def.bb-vs-btn}} rąk"
   level: heuristic
+  check: { kind: solver-spot, players: [6], stackBb: [100], spots: [vs-open.bb-vs-btn] }
   source: "obliczenie ceny; solver preflop projektu (ADR-20)"
 - id: R-M4-005
   module: m4
@@ -193,6 +209,7 @@
   then: "3-betujesz głównie najlepsze ręce od góry i dokładasz kilka {{t:bluff|blefów}} z asami w kolorze (A5s, A4s); część słabszych rąk, np. małe {{t:pair|pary}} i {{t:connectors|łączniki}} w kolorze, {{t:call|sprawdzasz}}"
   because: "rywal często {{t:call|sprawdza}}, więc chcesz mieć rękę, która dobrze gra w {{t:pot|puli}} po {{t:call|sprawdzeniu}}"
   level: gto
+  check: { kind: solver-spot, players: [6], stackBb: [100], spots: [vs-open.btn-vs-co] }
   source: "GTO Wizard, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/): BTN vs CO 3-bet ok. 12%, sprawdzenie 5%; Deepfold, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide), tabela BTN vs CO: „QQ+, AKs, AKo, AQs (mixed), A5s, A4s…”; GTO Gecko (https://gtogecko.com/blog/gto-preflop-strategy) nazywa zakres liniowym, a Preflop Wizard spolaryzowanym (dokument 12 M4–M6, D-02)"
 - id: R-M4-006
   module: m4
@@ -242,6 +259,7 @@
   then: "{{t:raise|przebijasz}} do {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} za każdego limpera, {{t:out-of-position}} o {{n:pf.iso.oop-extra}} więcej"
   because: "mniejsze {{t:raise}} daje limperom zbyt dobrą cenę i nie odbiera im rozdania"
   level: heuristic
+  check: { kind: iso-size, players: [6], stackBb: [100], params: { base: "n:pf.iso.base", perLimper: "n:pf.iso.per-limper", oopExtra: "n:pf.iso.oop-extra" } }
   source: "Upswing, How to Maximize Your Winnings Versus Multiple Limpers; Preflop Wizard, ISO Raise Strategy"
 - id: R-M4-013
   module: m4
@@ -256,6 +274,7 @@
   then: "bronisz bardzo szeroko, choć do {{t:call|sprawdzenia}} potrzebujesz ok. {{n:eq.bb-vs-sb-open}} equity; 3-bet ma ok. {{n:pf.3bet.size-ip}} {{t:open|otwarcia}}"
   because: "po flopie masz {{t:position|pozycję}}, więc realizujesz więcej equity; solver aplikacji broni tu {{n:solver.def.bb-vs-sb}} rąk"
   level: heuristic
+  check: { kind: solver-spot, players: [6], stackBb: [100], spots: [vs-open.bb-vs-sb] }
   source: "obliczenie ceny; solver preflop projektu (ADR-20); drzewo solvera (3-bet do 9bb)"
 
 # M5: c-bet na flopie. Pula po otwarciu i jednym sprawdzeniu, 100bb. Definicje tekstur liczy poker-core (texture.ts),
@@ -288,6 +307,7 @@
   then: "c-betujesz rzadziej niż na wysokich flopach, a wiele rąk {{t:check|czeka}}; po {{t:open|otwarciu}} z {{t:early-position|wczesnej pozycji}} jeszcze częściej"
   because: "{{t:big-blind}} broni wielu {{t:connectors|łączników}} w kolorze i małych {{t:pair|par}}, więc częściej ma {{t:two-pair}} albo {{t:straight|strita}}: to on ma {{t:nuts-advantage|przewagę orzechową}}"
   level: heuristic
+  check: { kind: cbet-case, players: [6], stackBb: [100], drill: m5.l3.c-btn }
   source: "kombinatoryka: Button otwiera wszystkie pary 55–77, a duży blind je sprawdza, więc setów obaj mają podobnie; GTO Wizard, Bullying the Blinds (na 654r Button czeka ponad połowę zakresu; „Even on 654r… BB has less than 52% equity”)"
 - id: R-M5-005
   module: m5
@@ -309,6 +329,7 @@
   then: "c-betujesz często i mało, ok. {{n:cbet.size.small}} {{t:pot|puli}}"
   because: "masz {{t:range-advantage|przewagę zakresu}}, a słabe ręce rywala prawie nie mają szans: mały {{t:bet}} wystarczy, żeby je {{t:fold|spasował}}, a gorsze {{t:pair|pary}} wciąż go {{t:call|sprawdzą}}"
   level: heuristic
+  check: { kind: cbet-case, players: [6], stackBb: [100], drill: m5.l3.c-btn }
   source: "GTO Wizard, Flop Heuristics: IP C-Betting in Cash Games (33%); Upswing, Bet Sizing Strategy: 8 Rules („Bet small (25-35% pot) on dry, static board textures”, https://upswingpoker.com/bet-size-strategy-tips-rules/); GTO Gecko, What Is a Continuation Bet (K72r); PokerCoaching, Picking the Proper C-Bet Sizing on Ace-High Boards (1/3 puli)"
 - id: R-M5-008
   module: m5
@@ -323,6 +344,7 @@
   then: "c-betujesz często i mało"
   because: "masz {{t:range-advantage|przewagę zakresu}}, a na {{t:paired|sparowanym}} flopie trudno o {{t:draw}}, więc rywal bez {{t:pair|pary}} rzadko może {{t:call|sprawdzić}} nawet mały {{t:bet}}; duży {{t:bet}} się nie opłaca, bo {{t:three-of-a-kind|trójkę}} może mieć każdy z was"
   level: heuristic
+  check: { kind: cbet-case, players: [6], stackBb: [100], drill: m5.l3.c-btn }
   source: "GTO Wizard, Flop Heuristics: IP C-Betting in Cash Games („Paired flops are bet significantly more often… only be bet for small sizing… reduced nut advantage from trips being in both player's ranges”; „On paired boards, it's also much harder to have a draw”)"
 - id: R-M5-010
   module: m5
@@ -484,6 +506,7 @@
   then: "liczysz szansę na jedną kartę: {{t:flush}} to ok. {{n:odds.flush.turn-river}}, a nie {{n:odds.flush.flop-river}} jak na flopie"
   because: "do rivera zostaje jedna karta, więc szansa jest mniej więcej o połowę mniejsza niż na flopie"
   level: math
+  check: { kind: draw-price, streets: [turn] }
   source: "obliczenie dokładne (poker-core)"
 - id: R-M7-008
   module: m7
@@ -491,6 +514,7 @@
   then: "{{t:call|sprawdzasz}} tylko wtedy, gdy po trafieniu wygrasz łącznie co najmniej dopłata × (karty nietrafiające ÷ outy); różnica ponad {{t:pot|pulę}} to implied odds"
   because: "wtedy wygrane na trafieniach pokrywają straty na chybieniach; przy kolorze i becie {{n:io.flush.bet}} do {{t:pot|puli}} {{n:ex.third.pot}} to {{n:io.flush.extra}} ponad {{t:pot|pulę}}"
   level: math
+  check: { kind: implied-odds, streets: [flop, turn], params: { sprMin: "n:spr.zone.mid" } }
   source: "obliczenie EV: equity × (pula + dodatkowa wygrana) = (1 − equity) × dopłata"
 - id: R-M7-009
   module: m7
