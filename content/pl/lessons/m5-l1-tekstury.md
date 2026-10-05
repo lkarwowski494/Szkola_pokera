@@ -71,7 +71,7 @@ Flop **{{t:paired}}** ma dwie karty tej samej rangi, np. [[Qd Qs 6h]]. {{t:strai
 
 Flop **{{t:connected}}** ma trzy różne rangi w obrębie pięciu kolejnych, więc {{t:straight}} jest możliwy już teraz: na [[9h 7d 6c]] {{t:straight|strita}} dają np. 85 i T8. As liczy się też jako jedynka, więc [[Ah 5d 3c]] też jest {{t:connected}}.
 
-Flop **półpołączony** ma w obrębie pięciu kolejnych rang tylko dwie swoje karty. {{t:straight|Strita}} jeszcze nikt nie ma, ale ktoś może mieć {{t:straight-draw}} (otwarte albo gutshot): na [[Kh Qd 4c]] daje je np. JT. Takich flopów jest dużo, bo wystarczą dwie karty blisko siebie.
+Flop **{{t:semi-connected|półpołączony}}** ma w obrębie pięciu kolejnych rang tylko dwie swoje karty. {{t:straight|Strita}} jeszcze nikt nie ma, ale ktoś może mieć {{t:straight-draw}} (otwarte albo gutshot): na [[Kh Qd 4c]] daje je np. JT. Takich flopów jest dużo, bo wystarczą dwie karty blisko siebie.
 
 Flop **{{t:disconnected}}** ma karty tak odległe, że żadne dwie nie mieszczą się w pięciu kolejnych rangach, np. [[Ks 8d 3c]]. Nikt nie ma tu nawet {{t:straight-draw|dobierania do strita}}. Takich flopów jest niewiele.
 
@@ -81,7 +81,7 @@ Liczymy punkty za to, co flop daje w kolorach i w {{t:straight|stritach}}:
 
 - {{t:straight}} możliwy już teraz na kilka sposobów, czyli z co najmniej dwoma różnymi zestawami dwóch rang w ręce (na [[9h 8d 7c]] dają go JT, T6 i 65): {{n:tex.points.straight.made}} pkt,
 - {{t:straight}} możliwy tylko na jeden sposób (na [[Ah Kd Tc]] daje go tylko QJ, na [[Ah 4d 2c]] tylko 53): {{n:tex.points.straight.made-one}} pkt,
-- samo {{t:straight-draw}} (flop półpołączony albo {{t:paired}} z dwiema kartami blisko siebie): {{n:tex.points.straight.draw}} pkt,
+- samo {{t:straight-draw}} (flop {{t:semi-connected|półpołączony}} albo {{t:paired}} z dwiema kartami blisko siebie): {{n:tex.points.straight.draw}} pkt,
 - dwie karty w jednym kolorze: {{n:tex.points.suits.two-tone}} pkt; trzy karty w jednym kolorze: {{n:tex.points.suits.monotone}} pkt.
 
 Flop **{{t:dry}}** ma mniej niż {{n:tex.threshold.medium}} pkt, **{{t:wet}}** co najmniej {{n:tex.threshold.wet}} pkt, a **pośredni** jest pomiędzy.

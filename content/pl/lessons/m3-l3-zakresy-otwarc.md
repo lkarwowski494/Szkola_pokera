@@ -44,7 +44,7 @@ drills:
 
 ## Jak czytać siatkę
 
-Każde pole to jeden rodzaj ręki. Nad przekątną są ręce w jednym kolorze (np. AKs), pod nią w różnych kolorach (np. AKo), a na przekątnej {{t:pair|pary}}. Zielone pole to {{t:raise}}, puste to {{t:fold}}. Częściowo wypełnione pole oznacza, że solver gra rękę tylko czasem. Jeśli {{t:open|otwiera}} ją z częstością od {{n:range.mixed.low}} do {{n:range.mixed.high}}, to ręka mieszana: w ćwiczeniach zaliczamy wtedy obie odpowiedzi.
+Każde pole to jeden rodzaj ręki. Nad przekątną są ręce w jednym kolorze (np. AKs), pod nią w różnych kolorach (np. AKo), a na przekątnej {{t:pair|pary}}. Zielone pole to {{t:raise}}, puste to {{t:fold}}. Częściowo wypełnione pole oznacza, że solver gra rękę tylko czasem. Jeśli {{t:open|otwiera}} ją z częstością od {{n:range.mixed.low}} do {{n:range.mixed.high}}, to {{t:mixed-hand|ręka mieszana}}: w ćwiczeniach zaliczamy wtedy obie odpowiedzi. Akcję, którą solver gra rzadziej niż w {{n:range.mixed.low}} przypadków, ale co najmniej w {{n:range.mixed.min}}, ćwiczenia uznają za dopuszczalną: to nie błąd, ale powtórka tego zadania wróci szybciej. Akcja grana rzadziej niż w {{n:range.mixed.min}} przypadków to błąd.
 
 ## Od pierwszej {{t:position|pozycji}} do Buttona
 

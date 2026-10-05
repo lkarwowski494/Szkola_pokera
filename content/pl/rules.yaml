@@ -119,7 +119,7 @@
   module: m3
   if: "wchodzisz do rozdania jako pierwszy"
   then: "{{t:raise|przebijasz}} albo {{t:fold|pasujesz}}, nie dopłacasz samego blinda (limp)"
-  because: "{{t:raise}} może od razu wygrać blindy i daje inicjatywę; limp oddaje obie te rzeczy"
+  because: "{{t:raise}} może od razu wygrać blindy i daje {{t:initiative|inicjatywę}}; limp oddaje obie te rzeczy"
   level: heuristic
   source: "Upswing, Why limping is bad (https://upswingpoker.com/why-limping-in-poker-is-bad/): „If you make everyone fold preflop, you win 100% of the pot … You can't ever do that in a pot you've limped into”; BeyondGTO, SB open 6-max 100bb: „raise-or-fold” (dokument 12 M0–M3)"
 - id: R-M3-005
@@ -177,7 +177,7 @@
   module: m4
   if: "jesteś na {{t:small-blind|małym blindzie}}, a {{t:open|otworzył}} {{t:cutoff|CO}} albo Button"
   then: "prawie nie {{t:call|sprawdzasz}}: 3-betujesz albo {{t:fold|pasujesz}}; wobec Buttona 3-betujesz górę {{t:range|zakresu}} (ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, m.in. 77+, AJo+, KQo, A5s, A4s, T9s), a resztę {{t:fold|pasujesz}}"
-  because: "po {{t:call|sprawdzeniu}} z {{t:small-blind|małego blinda}} grasz {{t:out-of-position}}, a {{t:big-blind}} za tobą może jeszcze {{t:raise|przebić}}; 3-bet daje inicjatywę i szansę wygrania {{t:pot|puli}} od razu"
+  because: "po {{t:call|sprawdzeniu}} z {{t:small-blind|małego blinda}} grasz {{t:out-of-position}}, a {{t:big-blind}} za tobą może jeszcze {{t:raise|przebić}}; 3-bet daje {{t:initiative|inicjatywę}} i szansę wygrania {{t:pot|puli}} od razu"
   level: gto
   source: "GTO Wizard, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, SB vs BTN: 3-bet 14%, sprawdzenie 2%; „the SB barely calls anything. Instead, they almost exclusively 3-bet or fold”; Upswing, 3-Bet Preflop Strategy (https://upswingpoker.com/3-bet-strategy-aggressive-preflop/): „3-bet-or-fold strategies from every position except the Big Blind” (dokument 10, rozstrzygnięcie B-045: treść R-M4-015 włączona do R-M4-003)"
 - id: R-M4-004
@@ -263,14 +263,14 @@
 # (dokument 12 M4–M6); bez częstotliwości w procentach.
 - id: R-M5-001
   module: m5
-  if: "flop zbiera mniej niż {{n:tex.threshold.medium}} pkt mokrości: {{t:straight}} możliwy na kilka sposobów (z co najmniej dwoma zestawami dwóch rang) daje {{n:tex.points.straight.made}} pkt, {{t:straight}} możliwy na jeden sposób {{n:tex.points.straight.made-one}}, samo {{t:straight-draw}} {{n:tex.points.straight.draw}}, dwie karty w jednym kolorze {{n:tex.points.suits.two-tone}}, trzy w jednym kolorze {{n:tex.points.suits.monotone}}"
+  if: "flop zbiera mniej niż {{n:tex.threshold.medium}} pkt {{t:wetness|mokrości}}: {{t:straight}} możliwy na kilka sposobów (z co najmniej dwoma zestawami dwóch rang) daje {{n:tex.points.straight.made}} pkt, {{t:straight}} możliwy na jeden sposób {{n:tex.points.straight.made-one}}, samo {{t:straight-draw}} {{n:tex.points.straight.draw}}, dwie karty w jednym kolorze {{n:tex.points.suits.two-tone}}, trzy w jednym kolorze {{n:tex.points.suits.monotone}}"
   then: "to flop {{t:dry}}: {{t:draw|dobierań}} jest mało, a gotowego {{t:straight|strita}} ani {{t:flush|koloru}} nikt jeszcze nie ma"
   because: "kolejne karty rzadko zmieniają lidera, więc ręka najlepsza na flopie zwykle zostaje najlepsza"
   level: rules
   source: "definicja tekstury w aplikacji (poker-core, texture.ts: WETNESS_POINTS, WETNESS_THRESHOLDS); pojęcie flopu suchego: Upswing, Sizing Your C-Bets; GTO Gecko, What Is a Continuation Bet; przykłady flopów suchych: GTO Gecko (K72r, A94r), Upswing (AA6r); granica sucha/pośrednia to umowa aplikacji"
 - id: R-M5-002
   module: m5
-  if: "flop zbiera co najmniej {{n:tex.threshold.wet}} pkt mokrości (punkty jak w definicji flopu {{t:dry|suchego}})"
+  if: "flop zbiera co najmniej {{n:tex.threshold.wet}} pkt {{t:wetness|mokrości}} (punkty jak w definicji flopu {{t:dry|suchego}})"
   then: "to flop {{t:wet}}: rywal często ma {{t:draw|dobierania}}, a czasem już {{t:straight|strita}} albo {{t:flush}}"
   because: "kolejne karty często zmieniają lidera, więc ręka dziś najlepsza jest mniej bezpieczna"
   level: rules
@@ -284,7 +284,7 @@
   source: "GTO Wizard, Range advantage (słownik); GTO Wizard, The Turn Probe Bet („BB lacks the stronger Ace-highs because they would have 3-bet with them preflop”)"
 - id: R-M5-004
   module: m5
-  if: "{{t:open|otworzyłeś}} przed flopem, a flop jest niski i {{t:connected}} albo półpołączony, np. 7-6-5"
+  if: "{{t:open|otworzyłeś}} przed flopem, a flop jest niski i {{t:connected}} albo {{t:semi-connected|półpołączony}}, np. 7-6-5"
   then: "c-betujesz rzadziej niż na wysokich flopach, a wiele rąk {{t:check|czeka}}; po {{t:open|otwarciu}} z {{t:early-position|wczesnej pozycji}} jeszcze częściej"
   because: "{{t:big-blind}} broni wielu {{t:connectors|łączników}} w kolorze i małych {{t:pair|par}}, więc częściej ma {{t:two-pair}} albo {{t:straight|strita}}: to on ma {{t:nuts-advantage|przewagę orzechową}}"
   level: heuristic
@@ -842,7 +842,7 @@
 - id: R-M11-010
   module: m11
   if: "jest {{t:bubble}} albo {{t:final-table}}, a ty masz średni stack"
-  then: "{{t:call|sprawdzasz}} all-iny wyraźnie ciaśniej niż w grze o {{t:chips}}, a duży stack, który cię przykrywa, może {{t:shove|wpychać}} szerzej"
+  then: "{{t:call|sprawdzasz}} all-iny wyraźnie ciaśniej niż w grze o {{t:chips}}, a duży stack, który cię {{t:cover|przykrywa}}, może {{t:shove|wpychać}} szerzej"
   because: "{{t:risk-premium}}: {{t:chips}} wygrane są warte mniej niż przegrane, a duży stack ryzykuje przy tym mniej niż ty"
   level: heuristic
   source: "GTO Wizard, ICM Basics (https://blog.gtowizard.com/icm-basics/): „chips won are worth less than chips lost” (tekst bez znaczników kolorów), „Big stacks can threaten smaller stacks as they take on less risk when stacking off”; Upswing, ICM at Final Tables (https://upswingpoker.com/icm-final-tables/): „When it comes to calling versus shoves, you have to tighten up dramatically when big money is on the line”; Upswing, Big Stack Advantage (https://upswingpoker.com/big-stack-advantage-stone-bubble/): „Risk premiums are the additional equity needed to play for stacks. This means responding ranges tighten up considerably”; Ganzfried i Sandholm, AAMAS 2008 (https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf), tabela 2: duży blind po dwóch all-inach sprawdza w turnieju „0.021”, a w pojedynczym rozdaniu „0.197”"

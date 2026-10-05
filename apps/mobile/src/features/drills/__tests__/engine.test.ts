@@ -3,11 +3,11 @@ import type { Drill } from '@szkola/content-schema';
 import { classOf, combosCount, createRng, HAND_CLASSES, parseCard } from '@szkola/poker-core';
 import type { DrillRow, RangeSpot } from '@/data/content/repo';
 import { buildExamSession, buildFamilySession, buildSpeedSession, interleaveRows } from '@/features/session/build';
-import { instantiate } from '../engine';
-import { gradeAnswer, gradeNumeric, parseNumberInput, scorePaint } from '../grade';
+import { instantiate, rangeVerdict } from '../engine';
+import { gradeAnswer, gradeNumeric, isPass, parseNumberInput, scorePaint } from '../grade';
 import { splitCardTokens } from '../cardTokens';
 import { pctEquity } from '../text.pl';
-import { EXAM_SIZE, MIXED_HIGH, MIXED_LOW, PAINT_PASS } from '../thresholds';
+import { EXAM_SIZE, MIXED_HIGH, MIXED_LOW, MIXED_MIN, PAINT_PASS } from '../thresholds';
 import type { ChoiceInstance, DrillInstance, NumericInstance } from '../types';
 
 const generators = ['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'icm'] as const;
@@ -133,13 +133,76 @@ describe('zadania z zakresów solvera', () => {
       const raise = inst.options.find((o) => o.text === 'Przebicie')!;
       const big = inst.options.find((o) => o.text === 'Przebicie za duże')!;
       expect(big.correct).toBe(false);
-      expect(!!big.sizeError).toBe(raise.correct);
+      const raiseOk = raise.correct || !!raise.acceptable;
+      expect(!!big.sizeError).toBe(raiseOk);
       if (big.sizeError) sawSize = true;
       else sawPlain = true;
       const bigIdx = inst.options.indexOf(big);
-      expect(gradeAnswer(inst, { kind: 'choice', index: bigIdx })).toBe(raise.correct ? 'size' : 'wrong');
+      expect(gradeAnswer(inst, { kind: 'choice', index: bigIdx })).toBe(raiseOk ? 'size' : 'wrong');
     }
     expect(sawSize && sawPlain).toBe(true);
+  });
+});
+
+describe('skala oceny akcji solvera (ADR-26)', () => {
+  it('progi: 3,5% z GTO Wizard (Measure Performance), 25% granica ręki mieszanej', () => {
+    expect(MIXED_MIN).toBe(0.035);
+    expect(MIXED_MIN).toBeLessThan(MIXED_LOW);
+  });
+
+  it('zgodna: najczęstsza albo ≥ 25%; dopuszczalna: 3,5–25%; błąd: poniżej 3,5%', () => {
+    expect(rangeVerdict([0.9, 0.1])).toEqual(['correct', 'acceptable']);
+    expect(rangeVerdict([0.5, 0.3, 0.2])).toEqual(['correct', 'correct', 'acceptable']);
+    expect(rangeVerdict([0.75, 0.25])).toEqual(['correct', 'correct']);
+    expect(rangeVerdict([0.97, 0.03])).toEqual(['correct', 'wrong']);
+    expect(rangeVerdict([0.965, 0.035])).toEqual(['correct', 'acceptable']);
+    expect(rangeVerdict([1, 0])).toEqual(['correct', 'wrong']);
+    // remis najczęstszych: obie zgodne, nawet poniżej 25%
+    expect(rangeVerdict([0.2, 0.2, 0.2, 0.2, 0.2])).toEqual(['correct', 'correct', 'correct', 'correct', 'correct']);
+  });
+
+  it('w zadaniu akcja rzadka jest dopuszczalna, zalicza i nie jest oznaczona jako zgodna', () => {
+    // każda ręka: przebicie 10%, pas 90%
+    const spot = testSpot({ groups: [{ name: 'Przebicie', freqs: HAND_CLASSES.map(() => 0.1) }] });
+    const drill: Drill = { kind: 'generated', id: 'r', family: 'r', rules: [], generator: 'rangeDecision', params: { spots: 's' }, count: 20 };
+    let seen = 0;
+    for (const raw of instantiate(drill, 'l', createRng(21), undefined, { range: () => spot })) {
+      const inst = asChoice(raw);
+      seen++;
+      const raiseIdx = inst.options.findIndex((o) => o.text === 'Przebicie');
+      const foldIdx = inst.options.findIndex((o) => o.text !== 'Przebicie');
+      const raise = inst.options[raiseIdx]!;
+      expect(raise.correct).toBe(false);
+      expect(raise.acceptable).toBe(true);
+      expect(raise.why).toContain('Dopuszczalne');
+      expect(gradeAnswer(inst, { kind: 'choice', index: raiseIdx })).toBe('acceptable');
+      expect(gradeAnswer(inst, { kind: 'choice', index: foldIdx })).toBe('correct');
+      expect(inst.explanation).toContain('dopuszczalna');
+    }
+    expect(seen).toBeGreaterThan(0);
+  });
+
+  it('akcja poniżej 3,5% to błąd', () => {
+    // każda ręka: przebicie 98%, pas 2%
+    const spot = testSpot({ groups: [{ name: 'Przebicie', freqs: HAND_CLASSES.map(() => 0.98) }] });
+    const drill: Drill = { kind: 'generated', id: 'r', family: 'r', rules: [], generator: 'rangeDecision', params: { spots: 's' }, count: 20 };
+    let seen = 0;
+    for (const raw of instantiate(drill, 'l', createRng(4), undefined, { range: () => spot })) {
+      const inst = asChoice(raw);
+      seen++;
+      const foldIdx = inst.options.findIndex((o) => o.text !== 'Przebicie');
+      expect(inst.options[foldIdx]!.acceptable).toBeFalsy();
+      expect(gradeAnswer(inst, { kind: 'choice', index: foldIdx })).toBe('wrong');
+    }
+    expect(seen).toBeGreaterThan(0);
+  });
+
+  it('zaliczenie: zgodna i dopuszczalna tak; blisko, niedokładność i błąd nie', () => {
+    expect(isPass('correct')).toBe(true);
+    expect(isPass('acceptable')).toBe(true);
+    expect(isPass('close')).toBe(false);
+    expect(isPass('size')).toBe(false);
+    expect(isPass('wrong')).toBe(false);
   });
 });
 

@@ -39,6 +39,8 @@ export const pl = {
     check: 'Sprawdź',
     clear: 'Wyczyść',
     near: 'Blisko',
+    acceptable: 'Dopuszczalne: solver gra tak rzadko',
+    yourAnswerAcceptable: 'Twoja odpowiedź: dopuszczalna, ale rzadka',
     sizeError: 'Niedokładność: dobra akcja, zły rozmiar',
     yourAnswerSize: 'Twoja odpowiedź: dobra akcja, zły rozmiar',
     numberLabel: 'Twoja odpowiedź liczbowa',

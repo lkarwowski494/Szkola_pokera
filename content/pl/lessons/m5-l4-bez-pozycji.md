@@ -15,7 +15,7 @@ drills:
     options:
       - { text: "{{t:check|Czekam}} częściej niż {{t:in-position}}", correct: true, why: "Tak: Button {{t:call|sprawdził}} z {{t:position|pozycji}}, więc ma silny {{t:range}}, a flop średni i {{t:connected}} dobrze trafia jego {{t:pair|pary}} i {{t:connectors|łączniki}}. {{t:out-of-position|Bez pozycji}} {{t:check|czekasz}} tu bardzo często, także z silnymi rękami." }
       - { text: "C-bet często i mało, jak na Buttonie", why: "To plan {{t:in-position}} na {{t:dry|suchym}}, wysokim flopie. Tu nie masz {{t:position|pozycji}}, a flop nie sprzyja twojemu {{t:range|zakresowi}}." }
-      - { text: "C-bet ze wszystkimi rękami, żeby nie stracić inicjatywy", why: "Inicjatywa nie wygrywa sama: {{t:range}} Buttona jest tu silny, a ty po każdym {{t:bet|zakładzie}} mówisz pierwszy także na turnie i riverze." }
+      - { text: "C-bet ze wszystkimi rękami, żeby nie stracić {{t:initiative|inicjatywy}}", why: "{{t:initiative|Inicjatywa}} nie wygrywa sama: {{t:range}} Buttona jest tu silny, a ty po każdym {{t:bet|zakładzie}} mówisz pierwszy także na turnie i riverze." }
   - kind: choice
     id: m5.l4.q-oop-why
     family: m5.cbet.oop

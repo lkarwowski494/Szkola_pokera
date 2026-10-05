@@ -25,6 +25,11 @@ export interface Outcome {
   correct: boolean;
   /** Odpowiedź bliska poprawnej (np. liczba w szerszej tolerancji): ocena Hard zamiast Again (B-017). */
   close?: boolean;
+  /**
+   * Odpowiedź dopuszczalna: akcja grana przez solver rzadko (3,5–25%, ADR-26). Zalicza (correct = true), ale ocena
+   * to Hard bez względu na czas: nie lapse jak błąd, krótszy odstęp niż przy akcji zgodnej.
+   */
+  acceptable?: boolean;
   /** Czas decyzji w milisekundach. */
   elapsedMs: number;
   /** Zadanie bez presji czasu (np. malowanie zakresu): poprawna odpowiedź = Good bez względu na czas. */
@@ -40,11 +45,12 @@ export interface SpeedThresholds {
 export const DEFAULT_THRESHOLDS: SpeedThresholds = { fastMs: 3000, slowMs: 8000 };
 
 /**
- * Wynik zadania → ocena FSRS. Błąd = Again; blisko (bez względu na czas) = Hard; dobrze i wolno = Hard;
- * dobrze = Good; dobrze i szybko = Easy.
+ * Wynik zadania → ocena FSRS. Błąd = Again; blisko (bez względu na czas) = Hard; dopuszczalna (bez względu na czas,
+ * ADR-26) = Hard; dobrze i wolno = Hard; dobrze = Good; dobrze i szybko = Easy.
  */
 export function outcomeToRating(outcome: Outcome, t: SpeedThresholds = DEFAULT_THRESHOLDS): Grade {
   if (!outcome.correct) return outcome.close ? Rating.Hard : Rating.Again;
+  if (outcome.acceptable) return Rating.Hard;
   if (outcome.untimed) return Rating.Good;
   if (outcome.elapsedMs >= t.slowMs) return Rating.Hard;
   if (outcome.elapsedMs <= t.fastMs) return Rating.Easy;

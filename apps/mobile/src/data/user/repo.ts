@@ -4,7 +4,7 @@ import type { UserDb } from './db';
 import { answers, examResults, lessonProgress, reviewCards, reviewLogs, settings } from './schema';
 
 export type AnswerMode = 'lesson' | 'review' | 'speed' | 'exam';
-export type AnswerGrade = 'correct' | 'close' | 'size' | 'wrong';
+export type AnswerGrade = 'correct' | 'acceptable' | 'close' | 'size' | 'wrong';
 
 export interface AnswerInput {
   drillId: string;
@@ -20,15 +20,22 @@ export interface AnswerInput {
 /**
  * Zapis odpowiedzi + aktualizacja karty FSRS rodziny w jednej transakcji.
  * Pierwsza odpowiedź z danej rodziny zakłada kartę (rodzina trafia do powtórek).
+ * „Dopuszczalna” (ADR-26) zalicza (answers.correct = true), a w FSRS daje Hard.
  */
 export function recordAnswer(db: UserDb, a: AnswerInput, now = Date.now()): StoredCard {
   return db.transaction((tx) => {
-    const correct = a.grade === 'correct';
+    const correct = a.grade === 'correct' || a.grade === 'acceptable';
     const { untimed, ...row } = a;
     tx.insert(answers).values({ ...row, correct, answeredAt: now }).run();
     const existing = tx.select().from(reviewCards).where(eq(reviewCards.familyId, a.family)).get();
     const card: StoredCard = existing ?? newCard(a.family, now);
-    const outcome: Outcome = { correct, ...(a.grade === 'close' ? { close: true } : {}), ...(untimed ? { untimed: true } : {}), elapsedMs: a.elapsedMs };
+    const outcome: Outcome = {
+      correct,
+      ...(a.grade === 'close' ? { close: true } : {}),
+      ...(a.grade === 'acceptable' ? { acceptable: true } : {}),
+      ...(untimed ? { untimed: true } : {}),
+      elapsedMs: a.elapsedMs,
+    };
     const { card: next, log } = fsrsReview(card, outcome, now);
     tx.insert(reviewCards)
       .values(next)

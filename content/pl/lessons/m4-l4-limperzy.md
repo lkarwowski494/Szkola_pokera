@@ -25,7 +25,7 @@ drills:
     options:
       - { text: "Do {{n:pf.iso.two-limpers}}", correct: true, why: "{{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} za każdego z dwóch limperów." }
       - { text: "Do {{n:pf.iso.one-limper}}", why: "To rozmiar wobec jednego limpera. Każdy kolejny dodaje {{n:pf.iso.per-limper}}." }
-      - { text: "Tylko dopłacam", why: "AQ w kolorze to ręka do {{t:raise|przebicia}} {{t:value|dla wartości}}. Dopłata oddaje inicjatywę i wpuszcza wszystkich tanio." }
+      - { text: "Tylko dopłacam", why: "AQ w kolorze to ręka do {{t:raise|przebicia}} {{t:value|dla wartości}}. Dopłata oddaje {{t:initiative|inicjatywę}} i wpuszcza wszystkich tanio." }
   - kind: choice
     id: m4.l4.q-oop
     family: m4.iso.size
@@ -45,7 +45,7 @@ drills:
     options:
       - { text: "{{t:raise|Przebijam}} do {{n:pf.iso.one-limper}}", correct: true, why: "AJ to ręka do {{t:isolation|izolacji}}: dominuje wiele rąk, którymi limpuje słabszy gracz, a po flopie masz {{t:position|pozycję}}. Rozmiar: {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} za limpera." }
       - { text: "{{t:raise|Przebijam}} do {{n:pf.min-raise}}", sizeError: true, why: "Dobra akcja, ale minimalne {{t:raise}} daje limperowi świetną cenę, więc prawie nigdy nie {{t:fold|spasuje}} i nie grasz z nim sam na sam. {{t:raise|Przebijasz}} do {{n:pf.iso.one-limper}}." }
-      - { text: "Dopłacam", why: "Oddajesz inicjatywę i wpuszczasz blindy tanio. Z ręką, która dominuje limpera, chcesz zbudować {{t:pot|pulę}}." }
+      - { text: "Dopłacam", why: "Oddajesz {{t:initiative|inicjatywę}} i wpuszczasz blindy tanio. Z ręką, która dominuje limpera, chcesz zbudować {{t:pot|pulę}}." }
       - { text: "{{t:fold|Pasuję}}", why: "Za ciasno: wobec jednego limpera Button {{t:isolation|izoluje}} ok. {{n:pf.iso.btn.low}}–{{n:pf.iso.btn.high}} rąk, a AJ mieści się w nim z zapasem." }
   - kind: choice
     id: m4.l4.q-many
