@@ -1,0 +1,908 @@
+# Terminy pokerowe PL ↔ EN: jedno źródło prawdy (decyzja właściciela z 4.10.2026: przy polskim terminie zawsze nazwa
+# angielska). Treść odwołuje się do terminu znacznikiem {{t:klucz}} albo {{t:klucz|forma}}, gdzie forma to polska postać
+# odmieniona w miejscu użycia; angielska nazwa zawsze pochodzi stąd. Renderowanie: „forma (en)”.
+#
+# Pola:
+#   pl      – polska nazwa w mianowniku, tak jak w kursie (tabela terminologii, dokument 13, S-10/S-11);
+#   en      – nazwa angielska z przeczytanego źródła (ADR-24);
+#   en_alt  – inne nazwy angielskie, gdy źródła się różnią albo podają synonim (pokazywane w ćwiczeniu słownictwa);
+#   abbr    – skrót używany przy stole (UTG, SB, OESD); w nawiasie dochodzi do nazwy angielskiej;
+#   area    – obszar ćwiczenia słownictwa (rodzina FSRS vocab.<area>);
+#   forms   – polskie formy, które w tekście MUSZĄ mieć znacznik (content-build zgłasza błąd przy formie bez znacznika);
+#             tylko formy jednoznaczne: słowa wieloznaczne (np. „pasuje do”, „kolor kart”) wyłącza skip;
+#   skip    – frazy, w których forma nie jest terminem (np. „pasuje do planu”); nie wymagają znacznika;
+#   source  – adres i cytat ze źródła nazwy angielskiej.
+#
+# Reguła nawiasu (dokument 13, decyzja T-01): nawias z nazwą angielską dostaje termin, którego polska nazwa różni się od
+# angielskiej. Termin, który w polskim tekście jest już angielski albo jest spolszczoną odmianą angielskiego słowa
+# (c-bet, 3-bet, flop, equity, outy, betujesz, Buttona), nie dostaje nawiasu ani nie wymaga znacznika. Skrót (UTG, CO, SPR)
+# dostaje w nawiasie rozwinięcie; pełna nazwa pozycji (Button, Hijack) dostaje skrót. Nawias pojawia się przy pierwszym
+# użyciu terminu w jednostce tekstu (pole zadania, odpowiedź, wyjaśnienie, reguła, sekcja lekcji „##”); kolejne użycia
+# w tej samej jednostce są bez nawiasu.
+
+# ---------- Układy (M0) ----------
+royal-flush:
+  pl: poker królewski
+  en: royal flush
+  area: hands
+  forms: [poker królewski, pokera królewskiego, pokerem królewskim, pokerze królewskim]
+  source: "Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands): „A royal flush or royal straight flush is a hand that contains an ace-high straight flush”"
+straight-flush:
+  pl: poker
+  en: straight flush
+  area: hands
+  # samo „poker” to też nazwa gry, więc znacznik stawiamy ręcznie; obowiązkowa jest tylko forma opisowa
+  forms: [strit w kolorze]
+  source: "Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands): „A straight flush is a hand that contains five cards of sequential rank, all of the same suit”; Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „STRAIGHT FLUSH: Five cards in consecutive rank of the same suit.”"
+four-of-a-kind:
+  pl: kareta
+  en: four of a kind
+  en_alt: [quads]
+  area: hands
+  forms: [kareta, karety, karetę, karetą, karecie, karet]
+  source: "Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands): „Four of a kind, also known as quads or four cards, is a hand that contains four cards of one rank”; GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Quads: A made hand containing all four cards of a specific rank.”"
+full-house:
+  pl: full
+  en: full house
+  en_alt: [boat]
+  area: hands
+  forms: [full, fulla, fullem, fullu, fulle]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „FULL HOUSE: A hand consisting of three of a kind and a pair.”; Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands): „A full house, also known as a full boat or a tight or a boat”"
+flush:
+  pl: kolor
+  en: flush
+  area: hands
+  # „kolorze”, „kolory”, „kolorach” to zwykle kolor karty (suit), więc obowiązkowe są tylko „kolor” i „koloru”
+  forms: [kolor, koloru]
+  skip: [kolor kart, kolor karty, kolor kier, jeden kolor, ten sam kolor, tego samego koloru, jednego koloru, kolor ręki]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „FLUSH: A poker hand consisting of five cards of the same suit.”"
+straight:
+  pl: strit
+  en: straight
+  area: hands
+  forms: [strit, strita, stritem, stricie, strity, stritów, stritami, stritach, stritom]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „STRAIGHT: Five cards in consecutive rank.”"
+three-of-a-kind:
+  pl: trójka
+  en: three of a kind
+  en_alt: [trips, set]
+  area: hands
+  # „trójki” to też karty rangi 3 („ósemki, trójki”), więc obowiązkowe tylko formy liczby pojedynczej
+  forms: [trójka, trójkę, trójką, trójce]
+  source: "Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands): „Three of a kind, also known as trips or a set”; GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Three of a kind: A made hand consisting of three cards of the same rank. Synonymous with \"trips\". Both 'trips' and a 'set' could technically be classified as three of a kind but are often different”"
+set:
+  pl: set
+  en: set
+  area: hands
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Set: A three of a kind hand where the player has a pocket pair and the third card is on the board.”; Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands): „three of a kind is called a set only when it comprises a pocket pair and a third card on the board”"
+two-pair:
+  pl: dwie pary
+  en: two pair
+  area: hands
+  forms: [dwie pary, dwóch par, dwoma parami, dwiema parami, dwu par]
+  source: "Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands): „Two pair is a hand that contains two cards of one rank, two cards of another rank and one card of a third rank”"
+pair:
+  pl: para
+  en: pair
+  en_alt: [one pair]
+  area: hands
+  forms: [para, pary, parę, parą, parze, par, parami, parom, parach]
+  skip: [w parze z]
+  source: "Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands): „One pair, or simply a pair, is a hand that contains two cards of one rank and three cards of three other ranks”"
+high-card:
+  pl: wysoka karta
+  en: high card
+  en_alt: [no pair]
+  area: hands
+  # w kursie „wysoka karta” to zwykle też karta wyższa od stołu (overcard), więc znacznik tylko przy układzie (M0)
+  source: "Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands): „High card, also known as no pair or simply nothing, is a hand that does not fall into any other category”"
+kicker:
+  pl: kicker
+  en: kicker
+  area: hands
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „KICKER: The highest unpaired card that helps determine the value of a five-card poker hand.”"
+wheel:
+  pl: koło
+  en: wheel
+  area: hands
+  # „koło” to też „około” w mowie potocznej, więc znacznik ręcznie
+  source: "Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „wheel: A five-high straight (A-2-3-4-5), with the ace playing low.”; GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Wheel: A low straight made with the cards A 2 3 4 5”"
+
+# ---------- Akcje (M1) ----------
+check:
+  pl: czekanie
+  en: check
+  area: actions
+  forms: [czekanie, czekania, czekaniu, czekaniem, czekam, czekasz, czeka, czekamy, czekają, czekać, czekał, czekała, czekałeś, czekali, czekaliście, czekając, czekaj, poczekasz, poczeka]
+  skip: [czeka na, czekają na, czekać na, czekasz na]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „CHECK: To waive the right to initiate the betting in a round, but to retain the right to act if another player initiates the betting.”"
+bet:
+  pl: zakład
+  en: bet
+  area: actions
+  forms: [zakład, zakładu, zakładzie, zakładem, zakłady, zakładów, zakładami, zakładach, zakładom, stawiasz, stawia, stawiam, stawiają, stawiać, postawił, postawiłeś, postawić, postawisz, postawi]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „BET: The act of placing a wager in turn into the pot on any betting round, or the chips put into the pot.”"
+call:
+  pl: sprawdzenie
+  en: call
+  area: actions
+  forms: [sprawdzenie, sprawdzenia, sprawdzeniu, sprawdzeniem, sprawdzeń, sprawdzeniach, sprawdzeniami, sprawdzam, sprawdzasz, sprawdza, sprawdzają, sprawdzamy, sprawdzić, sprawdzał, sprawdzała, sprawdzałeś, sprawdzali, sprawdził, sprawdziła, sprawdziłeś, sprawdzili, sprawdzi, sprawdzą, sprawdzisz, sprawdzać, sprawdzanie, sprawdzania, sprawdzaniu, sprawdzając, sprawdzaj, sprawdzającego]
+  skip: ["sprawdza, czy", "sprawdzić, czy", "sprawdzisz, czy", "sprawdzasz, czy", "sprawdzaj, czy", "sprawdzam, czy"]
+  source: "Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „call: To match a bet or raise.”; GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Call: When a player matches the amount that has previously been bet, they have “called” the bet.”"
+raise:
+  pl: przebicie
+  en: raise
+  area: actions
+  forms: [przebicie, przebicia, przebiciu, przebiciem, przebić, przebijam, przebijasz, przebija, przebijają, przebijać, przebił, przebiła, przebiłeś, przebili, przebijał, przebijałeś, przebije, przebijesz, przebij, przebiją, przebijając, przebiciami, przebiciach]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „RAISE: To increase the amount of a previous wager.”"
+fold:
+  pl: pas
+  en: fold
+  area: actions
+  # „pasuje/pasują/pasować” bywa też „pasuje do”; te frazy wyłącza skip
+  forms: [pas, pasu, pasem, pasy, pasów, pasach, pasom, pasuję, pasujesz, pasujemy, pasuje, pasują, pasować, pasował, pasowała, pasowałeś, pasowali, spasować, spasuje, spasują, spasujesz, spasował, spasowała, spasowałeś, spasowali, spasowały, spasuję, pasując]
+  skip: [pasuje do, pasują do, pasować do, pasował do, pasowała do, pasuje tu, pasuje najlepiej, pasuje lepiej]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „FOLD: To throw a hand away and relinquish all interest in a pot.”"
+check-raise:
+  pl: check-raise
+  en: check-raise
+  area: actions
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „CHECK-RAISE: To waive the right to bet until a bet has been made by an opponent, and then to increase the bet”"
+all-in:
+  pl: all-in
+  en: all-in
+  area: actions
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „ALL-IN: When you have put all of your playable money and chips into the pot during the course of a hand, you are said to be all-in.”"
+
+# ---------- Stół i przebieg rozdania (M1) ----------
+pot:
+  pl: pula
+  en: pot
+  area: table
+  forms: [pula, puli, pulę, pulą, pul, pule, pulach, pulami, pulom]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Pot: The total value of chips that have been bet in the present hand.”"
+side-pot:
+  pl: pula boczna
+  en: side pot
+  area: table
+  forms: [pula boczna, puli bocznej, pulę boczną, pulą boczną, pule boczne, pul bocznych]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „SIDE POT: A separate pot formed when one or more players are all in.”"
+split-pot:
+  pl: podział puli
+  en: split pot
+  area: table
+  forms: [podział puli, podziału puli, podziałem puli, pula jest dzielona, pulę dzielicie]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „SPLIT POT: A pot that is divided among players, either because of a tie for the best hand or by agreement prior to the showdown.”"
+playing-the-board:
+  pl: gra stół
+  en: playing the board
+  en_alt: [play the board]
+  area: table
+  forms: [gra stół]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „PLAY THE BOARD: Using all five community cards for your hand in hold'em.”; GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Playing the board: When, on the river, a player’s best five card hand is the five cards on the board.”"
+board:
+  pl: stół
+  en: board
+  area: table
+  forms: [stół, stołu, stole, stołem]
+  skip: [przy stole, przy stół, przy stołach, do stołu, od stołu, przy stoliku]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „BOARD: … (2) Cards faceup on the table common to each of the hands.”; GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Board: The face up community cards that are shared by all players in the poker game.”"
+community-cards:
+  pl: karty wspólne
+  en: community cards
+  area: table
+  forms: [karty wspólne, kart wspólnych, kartami wspólnymi, kartach wspólnych, kartom wspólnym, karta wspólna, kartę wspólną, karty wspólnej]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „COMMUNITY CARDS: The cards dealt faceup in the center of the table that can be used by all players to form their best hand in the games of hold'em and Omaha.”"
+hole-cards:
+  pl: karty własne
+  en: hole cards
+  en_alt: [pocket cards]
+  area: table
+  forms: [karty własne, kart własnych, kartami własnymi, kartach własnych]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „HOLECARDS: The cards dealt facedown to a player.”; Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „hole cards, hole: Face-down cards. Also pocket cards”"
+small-blind:
+  pl: mały blind
+  en: small blind
+  abbr: SB
+  area: table
+  forms: [mały blind, małego blinda, małemu blindowi, małym blindem, małym blindzie, SB]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „SMALL BLIND: In a game with multiple blind bets, the smallest blind.”; GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „who acts after the small blind (SB)”"
+big-blind:
+  pl: duży blind
+  en: big blind
+  abbr: BB
+  area: table
+  forms: [duży blind, dużego blinda, dużemu blindowi, dużym blindem, dużym blindzie, dużych blindach, BB]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „BIG BLIND: The largest regular blind in a game.”; GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „It's also the name of the seat that places this bet (BB)”"
+chips:
+  pl: żetony
+  en: chips
+  area: table
+  forms: [żetony, żetonów, żetonami, żetonach, żetonom, żeton, żetonu]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „STACK: Chips in front of a player.”"
+stack:
+  pl: stack
+  en: stack
+  area: table
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „STACK: Chips in front of a player.”"
+street:
+  pl: ulica
+  en: street
+  area: table
+  forms: [ulica, ulicy, ulicę, ulicą, ulice, ulic, ulicach, ulicami, ulicom]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Street: A slang poker term for a round of betting. Preflop, flop, turn and river are all different \"streets\"”; Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „street: A street is another term for a dealt card or betting round.”"
+betting-round:
+  pl: runda licytacji
+  en: betting round
+  area: table
+  forms: [runda licytacji, rundy licytacji, rundzie licytacji, rundę licytacji, rund licytacji, rundach licytacji, rundą licytacji]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „BET: The act of placing a wager in turn into the pot on any betting round”"
+preflop:
+  pl: preflop
+  en: preflop
+  area: table
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Preflop: The first betting street in no limit hold ‘em, which occurs before the flop has been dealt.”"
+flop:
+  pl: flop
+  en: flop
+  area: table
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „FLOP: In hold'em or Omaha, the three community cards that are turned simultaneously after the first round of betting is complete.”"
+turn:
+  pl: turn
+  en: turn
+  area: table
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „TURNCARD: The fourth street card in hold'em or Omaha.”; GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Turn: The fourth community card dealt in a poker hand”"
+river:
+  pl: river
+  en: river
+  area: table
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „River: The fifth and last community card dealt in a poker hand”"
+showdown:
+  pl: showdown
+  en: showdown
+  area: table
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „SHOWDOWN: The showing of cards to determine the pot-winner after all the betting is over.”"
+
+# ---------- Pozycje (M3) ----------
+position:
+  pl: pozycja
+  en: position
+  area: positions
+  forms: [pozycja, pozycji, pozycję, pozycją, pozycje, pozycjach, pozycjami]
+  skip: [pozycję niżej, pozycję wyżej, pozycje niżej]
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „POSITION: (1) The relation of a player's seat to the blinds or the button. (2) The order of acting on a betting round or deal.”"
+in-position:
+  pl: z pozycją
+  en: in position
+  abbr: IP
+  area: positions
+  forms: [z pozycją, w pozycji]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „In position (IP): The player who acts last postflop is said to be in position.”"
+out-of-position:
+  pl: bez pozycji
+  en: out of position
+  abbr: OOP
+  area: positions
+  forms: [bez pozycji]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Out Of Position (OOP): Describes a player’s relative position at the table, always at least the person who is not last to act postflop.”"
+early-position:
+  pl: wczesna pozycja
+  en: early position
+  abbr: EP
+  area: positions
+  forms: [wczesna pozycja, wczesnej pozycji, wczesną pozycję, wczesne pozycje, wczesnych pozycji, wczesnych pozycjach]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Early Position: In a 6-handed game, refers to the first person to act postflop. In a 9-person game, several players after the first to act postflop can be referred to as Early Position (EP) +1, +2”"
+late-position:
+  pl: późna pozycja
+  en: late position
+  area: positions
+  forms: [późna pozycja, późnej pozycji, późną pozycję, późne pozycje, późnych pozycji, późnych pozycjach]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Late Position: A term that generally refers to the Button and positions close to it”"
+utg:
+  pl: UTG
+  en: under the gun
+  area: positions
+  forms: [UTG]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Under The Gun (UTG): The position to the immediate left of the Big Blind.”; Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „under the gun: The playing position to the direct left of the blinds”"
+hijack:
+  pl: Hijack
+  en: hijack
+  abbr: HJ
+  area: positions
+  forms: [HJ]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Hijack: The position immediately to the right of and acting before the cutoff.”; Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „hijack seat: The seat to the right of the cutoff seat”"
+cutoff:
+  pl: Cutoff
+  en: cutoff
+  abbr: CO
+  area: positions
+  forms: [CO]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Cutoff (CO): The player to the immediate right of the Button and left of the Hijack.”"
+button:
+  pl: Button
+  en: button
+  abbr: BTN
+  area: positions
+  forms: [BTN]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Button (BTN or BU): A widely used short form for dealer button”; Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „BUTTON: A player who is in the designated dealer position.”"
+
+# ---------- Outy, szanse, pot odds (M2) ----------
+outs:
+  pl: out
+  en: out
+  en_alt: [outs]
+  area: math
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Outs: The number of cards in the deck that will improve a player's hand or complete their draw.”"
+draw:
+  pl: dobieranie
+  en: draw
+  area: math
+  forms: [dobieranie, dobierania, dobieraniu, dobieraniem, dobierań, dobieraniami, dobieraniach, dobieraniom, dobierasz, dobiera, dobierają, dobierać, dobierający, dobierając]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Draw: A hand that has the chance to improve to a strong made hand on certain future community cards.”"
+flush-draw:
+  pl: dobieranie do koloru
+  en: flush draw
+  area: math
+  forms: [dobieranie do koloru, dobierania do koloru, dobieraniu do koloru, dobieraniem do koloru, dobierań do koloru, dobieraniami do koloru, dobierania do kolorów, dobierasz do koloru, dobiera do koloru, dobierają do koloru]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Outs: … For example, a player with a flush draw on the flop can be said to have nine outs”; Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „combo draw: A hand containing both a flush draw and a straight draw.”"
+straight-draw:
+  pl: dobieranie do strita
+  en: straight draw
+  area: math
+  forms: [dobieranie do strita, dobierania do strita, dobieraniu do strita, dobieraniem do strita, dobierań do strita, dobieraniami do strita, dobierasz do strita, dobiera do strita]
+  source: "Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „combo draw: A hand containing both a flush draw and a straight draw.”; GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Open-ended straight draw: A straight draw where the player already has four consecutive cards”"
+oesd:
+  pl: otwarte dobieranie do strita
+  en: open-ended straight draw
+  en_alt: [outside straight draw, double-ended straight draw]
+  abbr: OESD
+  area: math
+  forms: [otwarte dobieranie do strita, otwartego dobierania do strita, otwartym dobieraniem do strita, otwartych dobierań do strita, otwarte dobierania do strita, otwartemu dobieraniu do strita, OESD]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Open-ended straight draw: A straight draw where the player already has four consecutive cards, using the board and their hand, and will make a straight if a card at either end of their four completes”; Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „open-ended straight draw, open-ended: An outside straight draw. Also two-way straight draw or double-ended straight draw”"
+gutshot:
+  pl: gutshot
+  en: gutshot
+  en_alt: [inside straight draw]
+  area: math
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Gutter / gutshot: A slang poker term for an inside straight draw, which requires one specific card rank to complete it. A 4-out straight draw.”"
+backdoor:
+  pl: backdoor
+  en: backdoor
+  area: math
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Backdoor: A draw, on the flop, which requires specific cards to come, on both the turn and river to complete.”"
+pot-odds:
+  pl: pot odds
+  en: pot odds
+  area: math
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Pot odds: The ratio of [the size of the bet a player is facing] in relation to [the size of the pot].”"
+implied-odds:
+  pl: implied odds
+  en: implied odds
+  area: math
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Implied odds: A calculation of odds that takes into consideration future betting”"
+equity:
+  pl: equity
+  en: equity
+  area: math
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Equity: The percentage chance that a player will win a hand, assuming all players go to showdown.”"
+equity-realization:
+  pl: realizacja equity
+  en: equity realization
+  abbr: EQR
+  area: preflop
+  forms: [realizacja equity, realizacji equity, realizację equity, realizacją equity, realizuje equity, realizują equity, realizujesz equity, zrealizujesz equity]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Equity Realization (EQR): The ability of a hand to \"realize\" its raw equity.”"
+expected-value:
+  pl: wartość oczekiwana
+  en: expected value
+  abbr: EV
+  area: strategy
+  forms: [wartość oczekiwana, wartości oczekiwanej, wartość oczekiwaną, wartością oczekiwaną, EV]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Expected Value (EV): The anticipated value one expects from any hand, position, or play.”"
+combo:
+  pl: kombinacja
+  en: combo
+  en_alt: [combination]
+  area: preflop
+  forms: [kombinacja, kombinacji, kombinację, kombinacje, kombinacjami, kombinacjach, kombinacją]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Combo: Short for \"combination\", which refers to a specific hand's combination of two cards of certain ranks and suits.”"
+
+# ---------- Preflop (M3–M4) ----------
+range:
+  pl: zakres
+  en: range
+  area: preflop
+  forms: [zakres, zakresu, zakresie, zakresem, zakresy, zakresów, zakresom, zakresowi, zakresach, zakresami]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Range: A collection of hands that a player could feasibly be holding given the action of the current hand.”"
+open:
+  pl: otwarcie
+  en: open
+  en_alt: [open-raise]
+  area: preflop
+  forms: [otwarcie, otwarcia, otwarciu, otwarciem, otwarć, otwarciach, otwierasz, otwiera, otwierają, otwierać, otwierający, otwierającego, otwierającemu, otwierającym, otworzył, otworzyłeś, otworzyła, otworzyli, otworzysz]
+  source: "Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „open: To bet first.”; GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „First in: … There are two ways to do that: via open-raising or open-limping.”"
+suited:
+  pl: w kolorze
+  en: suited
+  area: preflop
+  # „w kolorze” znaczy też „pięć kart w jednym kolorze”, więc znacznik ręcznie (przy rękach startowych)
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Suited: A term which describes hole cards containing cards of the same suit.”"
+offsuit:
+  pl: w różnych kolorach
+  en: offsuit
+  area: preflop
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Offsuit: A term which describes hole cards containing cards of different suits.”"
+pocket-pair:
+  pl: para w ręce
+  en: pocket pair
+  area: preflop
+  forms: [para w ręce, pary w ręce, parę w ręce, parą w ręce, parami w ręce]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Pocket pair: Any two hole cards that are of the same rank.”"
+connectors:
+  pl: łącznik
+  en: connectors
+  en_alt: [connector]
+  area: preflop
+  forms: [łącznik, łącznika, łączniki, łączników, łącznikami, łącznikom, łącznikach]
+  source: "Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „connectors: Two or more cards of consecutive or close to consecutive rank”"
+3-bet:
+  pl: 3-bet
+  en: 3-bet
+  en_alt: [three-bet]
+  area: preflop
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Three-bet (3-bet): Literally describes the act of putting in the third bet on one street. However, the term is widely used preflop to describe the act of raising the open-raiser”"
+4-bet:
+  pl: 4-bet
+  en: 4-bet
+  en_alt: [four-bet]
+  area: preflop
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Four-bet (4-bet): The 4th bet/raise on a single street.”"
+limp:
+  pl: limp
+  en: limp
+  area: preflop
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Limp: To call the big blind preflop, before anyone has made a raise.”"
+isolation:
+  pl: izolacja
+  en: isolation raise
+  en_alt: [iso]
+  area: preflop
+  forms: [izolacja, izolacji, izolację, izolacją, izolujesz, izoluje, izolować, izolując]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Isolation raise (Iso): To raise over one or several limpers, often with the express purpose of isolating a weaker player postflop.”"
+
+# ---------- Flop: tekstura (M5) ----------
+texture:
+  pl: tekstura
+  en: texture
+  en_alt: [board texture]
+  area: board
+  forms: [tekstura, tekstury, teksturę, teksturą, teksturze, tekstur, teksturach]
+  source: "GTO Wizard, Board texture (https://gtowizard.com/glossary/board-texture/): „Describes the nature of hands that can be made from the community cards.”"
+dry:
+  pl: suchy
+  en: dry
+  en_alt: [static]
+  area: board
+  forms: [suchy, sucha, suche, suchego, suchym, suchych, suchymi, suchej, suchą]
+  source: "GTO Wizard, Board texture (https://gtowizard.com/glossary/board-texture/): „Common categorizations include wet (many strong draws or strong made hands are possible), dry (few draws or strong made hands are possible).”; Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „dry board: See static board”"
+wet:
+  pl: mokry
+  en: wet
+  en_alt: [dynamic]
+  area: board
+  forms: [mokry, mokra, mokre, mokrego, mokrym, mokrych, mokrymi, mokrej, mokrą]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Wet: A term used to describe board textures with many possible draws or strong hands.”; Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „wet board: See dynamic board”"
+rainbow:
+  pl: tęczowy
+  en: rainbow
+  area: board
+  forms: [tęczowy, tęczowa, tęczowe, tęczowego, tęczowym, tęczowych, tęczowej]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Rainbow: When none of the community cards are the same suit; no flush draws possible.”"
+two-tone:
+  pl: dwukolorowy
+  en: two-tone
+  area: board
+  forms: [dwukolorowy, dwukolorowa, dwukolorowe, dwukolorowego, dwukolorowym, dwukolorowych, dwukolorowej]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Two-tone: All of the community cards are of two of the four suits. … A term mostly used to describe flops and indicative of the possibility of flush draws.”"
+monotone:
+  pl: monotoniczny
+  en: monotone
+  area: board
+  forms: [monotoniczny, monotoniczna, monotoniczne, monotonicznego, monotonicznym, monotonicznych, monotonicznej]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Monotone: All of the community cards are of the same suit.”"
+paired:
+  pl: sparowany
+  en: paired
+  area: board
+  forms: [sparowany, sparowana, sparowane, sparowanego, sparowanym, sparowanych, sparowanej]
+  source: "GTO Wizard, Board texture (https://gtowizard.com/glossary/board-texture/): „Pairing can be categorized as unpaired, paired, tripled, quadrupled or double-paired.”; GTO Wizard, Flop Heuristics: IP C-Betting in Cash Games (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/): „Paired flops are bet significantly more often than unpaired flops.”"
+connected:
+  pl: połączony
+  en: connected
+  area: board
+  forms: [połączony, połączonego, połączonym, połączonych, połączone, połączona]
+  skip: [połączone z, połączony z]
+  source: "GTO Wizard, Flop Heuristics: IP C-Betting in Cash Games (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/): „We classify flops as connected if it allows for the possibility of a flopped straight.”"
+disconnected:
+  pl: rozłączony
+  en: disconnected
+  area: board
+  forms: [rozłączony, rozłączonego, rozłączonym, rozłączonych, rozłączone, rozłączona]
+  source: "GTO Wizard, Flop Heuristics: IP C-Betting in Cash Games (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/): „Disconnected boards are the hardest for either player to connect with.”"
+top-pair:
+  pl: najwyższa para
+  en: top pair
+  area: board
+  forms: [najwyższa para, najwyższej pary, najwyższą parę, najwyższą parą, najwyższej parze, najwyższe pary, najwyższych par, najwyższymi parami]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Top pair: The highest one-pair hand available using community cards.”; Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „top pair is a pair comprising a pocket card and the highest-ranking card on the board”"
+second-pair:
+  pl: druga para
+  en: second pair
+  area: board
+  forms: [druga para, drugiej pary, drugą parę, drugą parą, drugiej parze]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Second pair: A pair made with the second highest community card on the board.”"
+overpair:
+  pl: nadpara
+  en: overpair
+  area: board
+  forms: [nadpara, nadpary, nadparę, nadparą, nadpar, nadparami, nadparze]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Overpair: A pocket pair that is higher than the highest community card currently on the board.”"
+c-bet:
+  pl: c-bet
+  en: c-bet
+  en_alt: [continuation bet]
+  area: board
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Continuation bet (c-bet): A bet made by the previous-street aggressor.”"
+aggressor:
+  pl: agresor
+  en: aggressor
+  area: board
+  forms: [agresor, agresora, agresorem, agresorowi, agresorze]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Continuation bet (c-bet): A bet made by the previous-street aggressor.”; „Donk bet: Any bet made by a player before the previous street aggressor has had an opportunity to act.”"
+
+# ---------- Strategia po flopie (M5–M9) ----------
+range-advantage:
+  pl: przewaga zakresu
+  en: range advantage
+  area: strategy
+  forms: [przewaga zakresu, przewagi zakresu, przewagę zakresu, przewagą zakresu, przewadze zakresu]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Range advantage: A general term meaning one player's range equity distribution is stronger on a given board.”"
+nuts-advantage:
+  pl: przewaga orzechowa
+  en: nuts advantage
+  area: strategy
+  forms: [przewaga orzechowa, przewagi orzechowej, przewagę orzechową, przewagą orzechową, przewadze orzechowej]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Nuts advantage: An advantage coming from having proportionally more \"nuts\" (very strong hands) than another player.”"
+nuts:
+  pl: orzechy
+  en: nuts
+  area: strategy
+  forms: [orzechy, orzechów, orzechami, orzechach]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Nuts: Describes the strongest possible hand on a certain board.”; Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „nut hand (the nuts): The nut hand is the best possible hand in a given situation.”"
+polarized:
+  pl: spolaryzowany
+  en: polarized
+  area: strategy
+  forms: [spolaryzowany, spolaryzowana, spolaryzowane, spolaryzowanego, spolaryzowanym, spolaryzowanych, spolaryzowanej, spolaryzowaną]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Polarized: Describes a range that is mainly very strong made hands or bluffs, with very few middle-strength hands.”"
+linear:
+  pl: liniowy
+  en: linear
+  en_alt: [merged]
+  area: strategy
+  forms: [liniowy, liniowa, liniowe, liniowego, liniowym, liniowych, liniowej, liniową]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Linear: A range construction that consists of the top-down strongest hands.”; „Merged: A merged range is often described as a range morphology between linear and polarized.”"
+condensed:
+  pl: skondensowany
+  en: condensed
+  en_alt: [depolarized]
+  area: strategy
+  forms: [skondensowany, skondensowana, skondensowane, skondensowanego, skondensowanym, skondensowanych]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Condensed: A capped range that is also tight. … Also known as \"depolarized\".”"
+value:
+  pl: wartość
+  en: value
+  area: strategy
+  # samo „wartość” bywa ogólne („wartość liczby”), więc obowiązkowe są tylko frazy z betem dla wartości
+  forms: [dla wartości, za wartość, ulice wartości, ulic wartości, ulica wartości, ulicę wartości]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Value bet: A bet made with a made hand for the purpose of getting called by worse hands.”; Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „value bet: A bet made by a player who wants it to be called (as opposed to a bluff or protection bet).”"
+value-bet:
+  pl: value bet
+  en: value bet
+  area: strategy
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Value bet: A bet made with a made hand for the purpose of getting called by worse hands.”"
+bluff:
+  pl: blef
+  en: bluff
+  area: strategy
+  forms: [blef, blefu, blefem, blefie, blefy, blefów, blefami, blefach, blefom, blefuje, blefujesz, blefuję, blefują, blefować, blefował, blefowałeś, blefując, blefuj, blefowania, blefowanie, blefowaniu]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Bluff: A bet made with a weak hand that is unlikely to win at showdown, with the intention of getting the opponent to fold better hands.”"
+semi-bluff:
+  pl: półblef
+  en: semi-bluff
+  area: strategy
+  forms: [półblef, półblefu, półblefem, półblefy, półblefów, półblefami, półblefach, półblefie]
+  source: "Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „semi-bluff: In a game with multiple betting rounds, a bet or raise made with a hand that has decent chance of improving”; GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Semi-bluffs: A bet made with a currently mediocre hand (such as a draw) but that has the chance to improve on future cards.”"
+blocker:
+  pl: bloker
+  en: blocker
+  area: strategy
+  forms: [bloker, blokera, blokerem, blokery, blokerów, blokerami, blokerach, blokerze]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Blocker: The card removal effect of holding a hole card that blocks a relevant portion of your opponent's range.”"
+bluff-catcher:
+  pl: bluff-catcher
+  en: bluff catcher
+  area: strategy
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Bluff catcher: A hand that is likely only able to beat the opponent’s bluffs”"
+barrel:
+  pl: beczka
+  en: barrel
+  area: strategy
+  forms: [beczka, beczki, beczkę, beczką, beczce, beczek, beczkami]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Barreling: Barreling is the act of betting consecutively across multiple streets.”; Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „barreling: … Sometimes called firing a second barrel or a double barrel.”"
+second-barrel:
+  pl: druga beczka
+  en: second barrel
+  en_alt: [double barrel]
+  area: strategy
+  forms: [druga beczka, drugiej beczki, drugą beczkę, drugą beczką, drugiej beczce]
+  source: "Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „barreling: When the preflop raiser continuation bets the flop, then bets again on the turn. Sometimes called firing a second barrel or a double barrel.”"
+probe-bet:
+  pl: probe
+  en: probe bet
+  area: strategy
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Probe bet: A bet made on the turn by the player who is out of position after the in position player, who is also the preflop aggressor in the hand, chose not to make a continuation bet”"
+donk-bet:
+  pl: donk bet
+  en: donk bet
+  area: strategy
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Donk bet: Any bet made by a player before the previous street aggressor has had an opportunity to act.”"
+overbet:
+  pl: overbet
+  en: overbet
+  area: strategy
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Overbet: Any bet made postflop that is larger than the size of the pot.”"
+effective-stack:
+  pl: efektywny stack
+  en: effective stack
+  area: strategy
+  forms: [efektywny stack, efektywnego stacku, efektywnym stackiem, efektywnym stacku, efektywne stacki, efektywnych stacków, stack efektywny, stacku efektywnego, stackiem efektywnym]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Effective stack: The maximum amount any player can risk in a hand. In 2-player situations, this will always be the smallest of both players' stacks.”"
+spr:
+  pl: SPR
+  en: stack-to-pot ratio
+  area: strategy
+  forms: [SPR]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Stack-to-Pot Ratio (SPR): The effective stack divided by the size of the pot.”"
+mdf:
+  pl: MDF
+  en: minimum defense frequency
+  area: strategy
+  forms: [MDF]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Minimum Defense Frequency (MDF): The minimum percentage of your range that must be defended against a bet to prevent the opponent from profitably bluffing a 0% equity hand.”"
+alpha:
+  pl: alpha
+  en: alpha
+  area: strategy
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Alpha (α): The minimum frequency your opponent needs to fold to a bet, in order to break even with a pure (0% equity) bluff.”"
+
+# ---------- Bankroll i mental game (M12) ----------
+variance:
+  pl: wariancja
+  en: variance
+  area: mental
+  forms: [wariancja, wariancji, wariancję, wariancją]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Variance: Variance measures how far a set of numbers differs from the mean. In poker, variance often refers to how \"swingy\" a game or strategy is relative to your win rate.”; Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „variance: The statistical measure of how far actual results differ from expectation.”"
+buy-in:
+  pl: wpisowe
+  en: buy-in
+  area: mental
+  forms: [wpisowe, wpisowego, wpisowym, wpisowych, wpisowymi]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Buy-in: The amount of money an individual must pay to enter a tournament, or the minimum amount of money to sit at a table in a cash game.”; Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „BUY-IN: The minimum amount of money required to enter any game.”"
+bankroll:
+  pl: bankroll
+  en: bankroll
+  area: mental
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Bankroll: The money that a player allocated specifically to use for playing poker.”"
+tilt:
+  pl: tilt
+  en: tilt
+  area: mental
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Tilt: A mental state whereby a player’s decisions are heavily influenced by their emotions.”"
+winrate:
+  pl: winrate
+  en: win rate
+  en_alt: [bb/100]
+  area: mental
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Variance: … In poker, variance often refers to how \"swingy\" a game or strategy is relative to your win rate.”; „bb/100: A unit of measurement in poker equal to the average amount of big blinds won/lost per 100 hands.”"
+
+downswing:
+  pl: zjazd
+  en: downswing
+  area: mental
+  forms: [zjazd, zjazdu, zjazdem, zjeździe, zjazdy, zjazdów, zjazdami, zjazdach]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Downswing: A period during which a player has significant negative results, typically more than they would reasonably be expected to lose. The opposite of an upswing.”"
+session:
+  pl: sesja
+  en: session
+  area: mental
+  forms: [sesja, sesji, sesję, sesją, sesje, sesjach, sesjami]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Session: A term used to describe one period or sitting in which a player plays poker.”"
+stakes:
+  pl: stawka
+  en: stakes
+  area: mental
+  # „obowiązkowe stawki” w M1 to wpłaty blindów, nie poziom gry
+  forms: [stawka, stawki, stawkę, stawką, stawce, stawek, stawkach, stawkami]
+  skip: [obowiązkowe stawki]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Stakes: The size of the blinds/entry in a cash game or size of the entry fee in a tournament.”"
+standard-deviation:
+  pl: odchylenie standardowe
+  en: standard deviation
+  area: mental
+  forms: [odchylenie standardowe, odchylenia standardowego, odchyleniu standardowym, odchyleniem standardowym, odchylenie, odchylenia, odchyleniu, odchyleniem]
+  source: "GTO Wizard, Variance (https://gtowizard.com/en/glossary/variance/): „Variance can also be defined as the square of standard deviation, usually measured in bb/100.”"
+risk-of-ruin:
+  pl: ryzyko bankructwa
+  en: risk of ruin
+  abbr: RoR
+  area: mental
+  forms: [ryzyko bankructwa, ryzyka bankructwa, ryzyku bankructwa, ryzykiem bankructwa]
+  source: "PrimeDope, Risk of Ruin Formula (https://www.primedope.com/risk-of-ruin-formula-for-poker-players/): „Risk of ruin is the probability that your bankroll hits zero before reaching a target or before you quit.”"
+mental-game:
+  pl: mental game
+  en: mental game
+  area: mental
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Mental game: The psychological impact of playing poker. Mental game can refer to tilt, performance, and emotional control at the table.”"
+
+# ---------- Turnieje i krótkie stacki (M11) ----------
+tournament:
+  pl: turniej
+  en: tournament
+  area: tournament
+  forms: [turniej, turnieju, turnieje, turniejach, turniejem, turniejów, turniejami]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Tournament: A structure of a poker game where play continues until one player has all of the chips.”"
+push-fold:
+  pl: push/fold
+  en: push/fold
+  area: tournament
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Push: Used as a verb to describe the act of going all-in. Synonymous with \"shove\" or \"jam\".”"
+shove:
+  pl: wpychanie
+  en: shove
+  en_alt: [jam, push]
+  area: tournament
+  forms: [wpychanie, wpychania, wpychasz, wpycha, wpychać, wpychają, wpychający, wpychając, wpychaj, wepchnąć, wpchnąć]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Shove: Used as a verb to describe the act of going all-in. Synonymous with \"push\" or \"jam\".”"
+icm:
+  pl: ICM
+  en: Independent Chip Model
+  area: tournament
+  forms: [ICM]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „ICM: A commonly used acronym for the term Independent Chip Model. ICM is a model that translates the value of a tournament chip to actual cash value”; Wikipedia, Independent Chip Model (https://en.wikipedia.org/wiki/Independent_Chip_Model): „the Independent Chip Model (ICM), also known as the Malmuth–Harville method”"
+bubble:
+  pl: bańka
+  en: bubble
+  area: tournament
+  forms: [bańka, bańki, bańce, bańkę, bańką]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Bubble: The phase of a tournament when only a few players need to bust before the remainder of the players are in the money.”"
+bubble-factor:
+  pl: bubble factor
+  en: bubble factor
+  area: tournament
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Bubble Factor: Bubble Factor (BF) measures how much more losing hurts than winning helps you in MTTs.”"
+risk-premium:
+  pl: premia za ryzyko
+  en: risk premium
+  area: tournament
+  forms: [premia za ryzyko, premii za ryzyko, premię za ryzyko, premią za ryzyko]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Risk Premium: Risk Premium measures the extra risk you take stacking off in an MTT.”"
+m-ratio:
+  pl: M
+  en: M-ratio
+  area: tournament
+  # pojedyncza litera, więc znacznik ręcznie przy definicji
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „M-ratio: A metric used in tournament poker that measures the health of a player's chip stack.”; Wikipedia, M-ratio (https://en.wikipedia.org/wiki/M-ratio): „Dan Harrington studied the concept in great detail in Harrington on Holdem”"
+red-zone:
+  pl: strefa czerwona
+  en: red zone
+  area: tournament
+  forms: [strefa czerwona, strefie czerwonej, strefę czerwoną, strefy czerwonej, strefą czerwoną]
+  source: "Wikipedia, M-ratio (https://en.wikipedia.org/wiki/M-ratio): tabela stref Harringtona („Green zone”, „Red zone”), za Harrington on Holdem, tom II"
+green-zone:
+  pl: strefa zielona
+  en: green zone
+  area: tournament
+  forms: [strefa zielona, strefie zielonej, strefę zieloną, strefy zielonej, strefą zieloną]
+  source: "Wikipedia, M-ratio (https://en.wikipedia.org/wiki/M-ratio): tabela stref Harringtona („Green zone: Most desirable situation, freedom to play conservatively or aggressively as you choose”)"
+ante:
+  pl: ante
+  en: ante
+  area: tournament
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „ANTE: A prescribed amount posted before the start of a hand by all players.”"
+bb-ante:
+  pl: ante dużego blinda
+  en: big blind ante
+  en_alt: [BB ante]
+  area: tournament
+  forms: [ante dużego blinda]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Big blind ante: The big blind ante is a poker format where, instead of each player posting a separate ante, the player in the Big Blind will post antes for the entire table”"
+fold-equity:
+  pl: fold equity
+  en: fold equity
+  area: tournament
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Fold equity: The amount of value a player will win by making another player fold.”"
+gap-concept:
+  pl: gap concept
+  en: gap concept
+  area: tournament
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Gap Concept: The Gap Concept argues that a player needs a stronger hand to call an open, than they need to open themselves.”"
+chip-ev:
+  pl: chip EV
+  en: chip EV
+  en_alt: [cEV]
+  area: tournament
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Chip EV: The average amount of chips an action is expected to yield.”"
+tournament-equity:
+  pl: equity turniejowe
+  en: tournament equity
+  area: tournament
+  forms: [equity turniejowe, equity turniejowego, equity turniejowym]
+  source: "GTO Wizard, ICM Basics (https://blog.gtowizard.com/icm-basics/): „then assigns tournament equity based on the payouts of those positions. Tournament equity is your expected share of the prize pool, given the payout structure and stack sizes”"
+prize-pool:
+  pl: pula nagród
+  en: prize pool
+  area: tournament
+  forms: [pula nagród, puli nagród, pulę nagród, pulą nagród]
+  source: "GTO Wizard, ICM Basics (https://blog.gtowizard.com/icm-basics/): „Tournament equity is your expected share of the prize pool, given the payout structure and stack sizes”; GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Purse: The total value of the prize pool in a poker tournament.”"
+payout:
+  pl: wypłata
+  en: payout
+  area: tournament
+  forms: [wypłata, wypłaty, wypłat, wypłatami, wypłatach, wypłatę, wypłatą, wypłacie]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Payout structure: The payout structure refers to how prize money is distributed among players in a tournament.”; GTO Wizard, ICM Basics (https://blog.gtowizard.com/icm-basics/): „multiplies those probabilities by the payouts of each position”"
+pay-jump:
+  pl: skok wypłaty
+  en: pay jump
+  area: tournament
+  forms: [skok wypłaty, skoku wypłaty, skoki wypłat, skoków wypłat, skokiem wypłaty]
+  source: "GTO Wizard, ICM Basics (https://blog.gtowizard.com/icm-basics/): „Pay attention to the payout structure. Big pay jumps are associated with a higher risk premium.”"
+final-table:
+  pl: stół finałowy
+  en: final table
+  abbr: FT
+  area: tournament
+  forms: [stół finałowy, stołu finałowego, stole finałowym, stołem finałowym]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Final Table: The last table remaining in a poker tournament. Often, people use the abbreviation FT to refer to it.”"
+short-stack:
+  pl: krótki stack
+  en: short stack
+  area: tournament
+  forms: [krótki stack, krótkiego stacka, krótkiego stacku, krótkim stackiem, krótkim stacku, krótkie stacki, krótkich stacków, krótkimi stackami]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Short stack: … In tournaments, a short stack is a small stack with few remaining big blinds, typically under 20bb”"
+nash-equilibrium:
+  pl: równowaga Nasha
+  en: Nash equilibrium
+  area: tournament
+  forms: [równowaga Nasha, równowagi Nasha, równowagę Nasha, równowadze Nasha, równowagą Nasha]
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Nash Equilibrium: A stable set of adversarial strategies where no player can gain by unilaterally changing their own strategy.”"
+overcall:
+  pl: overcall
+  en: overcall
+  area: tournament
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Overcall: To call a bet when at least one other player has already called.”"
+heads-up:
+  pl: heads-up
+  en: heads up
+  area: tournament
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Heads up: When there are only two players at a table playing against each other.”; Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „HEADS-UP PLAY: Only two players involved in play.”"
+dead-money:
+  pl: dead money
+  en: dead money
+  area: tournament
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Dead money: Money in the pot put in by players that cannot win the pot.”; Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „DEAD MONEY: Chips that are taken into the center of the pot because they are not considered part of a particular player's bet.”"
+stack-off:
+  pl: stack off
+  en: stack off
+  area: tournament
+  source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „All-in: … Some people will say that they \"stacked off\", which means the same as \"went all-in\".”"

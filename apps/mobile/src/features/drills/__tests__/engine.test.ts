@@ -49,9 +49,9 @@ describe('silnik zadań', () => {
     const rng = createRng(5);
     for (const raw of instantiate(gen('icm', { mode: 'call' }), 'l1', rng)) {
       const inst = asChoice(raw);
-      expect(inst.prompt).toMatch(/Bańka: [34] graczy/);
+      expect(inst.prompt).toMatch(/Bańka \(bubble\): [34] graczy/);
       expect(inst.explanation).toMatch(/Bubble factor/);
-      expect(inst.options.map((o) => o.text)).toEqual(['Sprawdzam', 'Pasuję']);
+      expect(inst.options.map((o) => o.text)).toEqual(['Sprawdzam (call)', 'Pasuję (fold)']);
     }
     for (const raw of instantiate(gen('icm', { mode: 'equity' }), 'l1', rng)) {
       const inst = asChoice(raw);
@@ -331,7 +331,7 @@ describe('flop: tekstura i c-bet (M5)', () => {
     for (const inst of instantiate({ ...texture, axes: ['ranks'] } as Drill, 'l', createRng(8))) {
       if (inst.kind !== 'texture') continue;
       const right = inst.axes[0]!.options.find((o) => o.correct)!;
-      if (right.text === 'Połączony') {
+      if (right.text === 'Połączony (connected)') {
         seen++;
         expect(right.why).toMatch(/np\. z [2-9TJQKA]{2}\./);
       }
@@ -379,7 +379,8 @@ describe('teksty generatorów (audyt A-GEN-02, K5)', () => {
         const m = e.match(/Obaj macie ([^,]+),/);
         if (!m) continue;
         seen++;
-        expect(['pokera', 'pokera królewskiego', 'karetę', 'fulla', 'kolor', 'strita', 'trójkę', 'dwie pary', 'parę', 'wysoką kartę']).toContain(m[1]);
+        // nazwa w bierniku z nazwą angielską z terms.yaml (decyzja właściciela 4.10.2026)
+        expect(['pokera (straight flush)', 'pokera królewskiego (royal flush)', 'karetę (four of a kind)', 'fulla (full house)', 'kolor (flush)', 'strita (straight)', 'trójkę (three of a kind)', 'dwie pary (two pair)', 'parę (pair)', 'wysoką kartę (high card)']).toContain(m[1]);
       }
     }
     expect(seen).toBeGreaterThan(0);
@@ -415,7 +416,7 @@ describe('teksty generatorów (audyt A-GEN-02, K5)', () => {
         expect(inst.explanation).toContain('szansa na jedną kartę');
         if (inst.explanation!.includes('implied odds')) {
           near++;
-          expect(inst.options.find((o) => o.correct)!.text).toBe('Pasuję');
+          expect(inst.options.find((o) => o.correct)!.text).toBe('Pasuję (fold)');
         }
       }
     }

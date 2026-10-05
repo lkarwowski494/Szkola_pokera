@@ -1,9 +1,11 @@
-import { readFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { FlopHeight, FlopRanks, FlopSuits, FlopWetness, RuleDef, TextureAxis } from '@szkola/content-schema';
 import { TEXTURE_AXES, TEXTURE_VALUES, WETNESS_POINTS, WETNESS_THRESHOLDS, classifyFlop, parseCards } from '@szkola/poker-core';
-import { checkCbetCases, compileContent } from '../src/build';
+import { checkCbetCases, compileContent, contentDbFileName, staleContentDbs, VOCAB_MIN_TERMS, vocabEligible } from '../src/build';
+import { loadTerms } from '../src/terms';
 import { compileMarkdown } from '../src/markdown';
 import { findHardcodedNumbers, formatNumber, normCdf, resolveNumbers, substitute } from '../src/numbers';
 
@@ -169,7 +171,9 @@ describe('flop: tekstura i c-bet (M5, schemat w wersji 3)', () => {
       expect(value(cells[1]!), row).toBe(WETNESS_POINTS.suits[tex.suits]);
       expect(value(cells[2]!), row).toBe(WETNESS_POINTS.straight[tex.straight]);
       expect(value(cells[3]!), row).toBe(tex.wetnessPoints);
-      expect(names[cells[4]!], row).toBe(tex.wetness);
+      // nazwa może stać w znaczniku terminu: {{t:dry}} albo {{t:wet|mokry}}
+      const name = cells[4]!.replace(/^\{\{t:(dry|wet)\}\}$/, (_m, k: string) => (k === 'dry' ? 'suchy' : 'mokry')).replace(/^\{\{t:[a-z-]+\|([^}]+)\}\}$/, '$1');
+      expect(names[name], row).toBe(tex.wetness);
     }
   });
 
@@ -248,5 +252,66 @@ describe('formuły sqrt, exp i normCdf oraz format bb/100 i tysięcy (M12)', () 
     expect(formatNumber(80000, 'bb', 0)).toBe('80 000bb');
     expect(formatNumber(1234567.5, 'count', 1)).toBe('1 234 567,5');
     expect(formatNumber(-25000, 'count', 0)).toBe('-25 000');
+  });
+});
+
+describe('terminy PL ↔ EN (content/terms.yaml)', () => {
+  const terms = loadTerms({
+    flush: { pl: 'kolor', en: 'flush', area: 'hands', forms: ['kolor', 'koloru'], skip: ['kolor kart'], source: 'test https://example.com' },
+    'small-blind': { pl: 'mały blind', en: 'small blind', abbr: 'SB', area: 'table', forms: ['mały blind', 'SB'], source: 'test https://example.com' },
+    equity: { pl: 'equity', en: 'equity', area: 'math', source: 'test https://example.com' },
+  });
+  it('renderuje „forma (en)” przy pierwszym użyciu w jednostce, potem samą formę', () => {
+    expect(terms.render('Masz {{t:flush}}, a rywal nie ma {{t:flush|koloru}}.', 'x')).toBe('Masz kolor (flush), a rywal nie ma koloru.');
+    expect(terms.render('{{t:small-blind}} i {{t:small-blind|SB}}', 'x')).toBe('mały blind (small blind, SB) i SB');
+    expect(terms.render('{{t:small-blind|SB}} płaci', 'x')).toBe('SB (small blind) płaci');
+    expect(terms.render('{{t:equity}}', 'x')).toBe('equity');
+  });
+  it('jednostka tekstu: wspólny stan dla pól reguły', () => {
+    const seen = new Set<string>();
+    expect(terms.render('{{t:flush}}', 'r', seen)).toBe('kolor (flush)');
+    expect(terms.render('{{t:flush}}', 'r', seen)).toBe('kolor');
+  });
+  it('bez „(…) (…)” i bez nawiasu w nawiasie', () => {
+    expect(terms.render('{{t:flush}} (9 outów)', 'x')).toBe('kolor (flush; 9 outów)');
+    expect(terms.render('{{t:flush}} (9 outów), a potem {{t:flush}}', 'x')).toBe('kolor (9 outów), a potem kolor (flush)');
+    expect(terms.render('(dobierasz do {{t:flush|koloru}})', 'x')).toBe('(dobierasz do koloru [flush])');
+  });
+  it('nieznany klucz przerywa budowanie', () => {
+    expect(() => terms.render('{{t:kolorr}}', 'm0.l1.q1')).toThrow(/m0.l1.q1: nieznany termin/);
+  });
+  it('wykrywa polską formę bez znacznika, pomija znaczniki, karty, adresy i frazy skip', () => {
+    expect(terms.unmarked('Kolor bije strita, {{t:flush}} też.').map((m) => m.form)).toEqual(['Kolor']);
+    expect(terms.unmarked('Kolor kart ma znaczenie. [[As Ks]] https://x.pl/kolor SB')).toEqual([{ form: 'SB', key: 'small-blind' }]);
+  });
+  it('odrzuca formy dla terminu bez nawiasu i powtórzoną formę', () => {
+    expect(() => loadTerms({ x: { pl: 'flop', en: 'flop', area: 'table', forms: ['flop'], source: 'test https://example.com' } })).toThrow(/nie wymaga znacznika/);
+    expect(() =>
+      loadTerms({
+        a: { pl: 'a', en: 'x', area: 'table', forms: ['zz'], source: 'test https://example.com' },
+        b: { pl: 'b', en: 'y', area: 'table', forms: ['zz'], source: 'test https://example.com' },
+      }),
+    ).toThrow(/należy do a i b/);
+  });
+  it('prawdziwa treść: każdy termin ma źródło z adresem, ćwiczenie słownictwa ma w obszarze co najmniej 4 terminy', () => {
+    const c = compileContent(contentDir);
+    expect(c.terms.length).toBeGreaterThan(80);
+    for (const t of c.terms) expect(t.source).toMatch(/https?:\/\//);
+    const vocab = c.lessons.flatMap((l) => l.drills).filter((d) => d.kind === 'generated' && d.generator === 'vocab');
+    expect(vocab.length).toBeGreaterThan(0);
+    for (const d of vocab) {
+      if (d.kind !== 'generated') continue;
+      expect(c.terms.filter((t) => t.area === d.params.area && vocabEligible(t)).length).toBeGreaterThanOrEqual(VOCAB_MIN_TERMS);
+    }
+  });
+});
+
+describe('plik bazy treści', () => {
+  it('stare wersje content-v*.db są wykrywane, aktualna i inne pliki nie', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'content-db-'));
+    for (const f of ['content-v3.db', contentDbFileName(), 'content-v3.db-journal', 'inne.db']) writeFileSync(join(dir, f), '');
+    expect(staleContentDbs(dir)).toEqual(['content-v3.db']);
+    expect(staleContentDbs(join(dir, 'brak'))).toEqual([]);
+    rmSync(dir, { recursive: true });
   });
 });

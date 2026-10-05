@@ -13,9 +13,9 @@ import { space, type as tp, useTokens } from '@/theme/tokens';
 
 void SplashScreen.preventAutoHideAsync();
 
-// Nazwa pliku musi odpowiadać CONTENT_SCHEMA_VERSION (content-build zapisuje content-v3.db).
-const CONTENT_DB = 'content-v3.db';
-const contentAsset = require('../../assets/content/content-v3.db') as number;
+// Nazwa pliku musi odpowiadać CONTENT_SCHEMA_VERSION (content-build zapisuje content-v4.db).
+const CONTENT_DB = 'content-v4.db';
+const contentAsset = require('../../assets/content/content-v4.db') as number;
 
 export default function RootLayout() {
   const scheme = useColorScheme();
@@ -52,6 +52,7 @@ export default function RootLayout() {
           <Stack.Screen name="lesson/[id]" options={{ title: '' }} />
           <Stack.Screen name="diagnostics" options={{ title: '' }} />
           <Stack.Screen name="advancement" options={{ title: '' }} />
+          <Stack.Screen name="glossary" options={{ title: '' }} />
           <Stack.Screen name="session" options={{ presentation: 'fullScreenModal', headerShown: false, gestureEnabled: false }} />
         </Stack>
       </SQLiteProvider>

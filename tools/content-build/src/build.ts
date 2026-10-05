@@ -9,7 +9,11 @@ import {
   ModulesFile,
   NumbersFile,
   RulesFile,
+  TermArea,
+  TermsFile,
+  termNeedsEnglish,
   type Block,
+  type CompiledTerm,
   type CompiledRangeSpot,
   type Drill,
   type ModuleDef,
@@ -19,6 +23,15 @@ import { classifyFlop, FULL_DECK, parseCards, textureMatches, type TextureFilter
 import { compileMarkdown } from './markdown';
 import { compileRanges } from './ranges';
 import { findHardcodedNumbers, resolveNumbers, substitute, type ResolvedNumber } from './numbers';
+import { loadTerms } from './terms';
+
+/** Ile różnych terminów (z nazwą angielską inną niż polska albo ze skrótem) musi mieć obszar ćwiczenia słownictwa. */
+export const VOCAB_MIN_TERMS = 4;
+
+/** Terminy, o które może pytać ćwiczenie słownictwa: polska nazwa różna od angielskiej albo skrót. */
+export function vocabEligible(t: Pick<CompiledTerm, 'pl' | 'en' | 'abbr'>): boolean {
+  return termNeedsEnglish(t) || !!t.abbr;
+}
 
 export interface CompiledLesson {
   id: string;
@@ -39,6 +52,7 @@ export interface CompiledContent {
   rules: RuleDef[];
   numbers: { key: string; value: number; display: string; source: string; population?: string; note?: string }[];
   ranges: CompiledRangeSpot[];
+  terms: (CompiledTerm & { forms?: string[]; skip?: string[] })[];
   hash: string;
   warnings: string[];
 }
@@ -76,30 +90,50 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
     parseOrThrow(NumbersFile, readYaml(join(contentDir, 'numbers.yaml')), 'numbers.yaml'),
     (id) => ranges.find((r) => r.id === id),
   );
-  const sub = (text: string, where: string) => {
+  const terms = loadTerms(parseOrThrow(TermsFile, readYaml(join(contentDir, 'terms.yaml')), 'terms.yaml'));
+  const termErrors: string[] = [];
+  /**
+   * Jedna jednostka tekstu: liczby {{n:…}}, potem terminy {{t:…}}. `seen` łączy pola tej samej jednostki (reguła).
+   * `checkTerms: false` tylko dla tytułów (nazwy w nawigacji, decyzja T-03).
+   */
+  const sub = (text: string, where: string, seen: Set<string> = new Set(), checkTerms = true, checkNumbers = true) => {
     // liczby z % lub bb wpisane ręcznie wykrywamy też w zadaniach i regułach, nie tylko w tekście lekcji
     const hard = findHardcodedNumbers(text);
-    if (hard.length) warnings.push(`${where}: liczby wpisane ręcznie (użyj {{n:…}}): ${hard.join(', ')}`);
-    return substitute(text, numbers, where, used);
+    if (hard.length && checkNumbers) warnings.push(`${where}: liczby wpisane ręcznie (użyj {{n:…}}): ${hard.join(', ')}`);
+    if (checkTerms) {
+      // bloki ```formula i ```range nie są zdaniami: wzory zostają bez nawiasów
+      const raw = terms.unmarked(text.replace(/```[\s\S]*?```/g, ''));
+      if (raw.length) termErrors.push(`${where}: termin bez znacznika: ${raw.map((m) => `„${m.form}” → {{t:${m.key}|${m.form}}}`).join(', ')}`);
+    }
+    const out = terms.render(substitute(text, numbers, where, used), where, seen);
+    // nawias z nazwą angielską tuż przed nawiasem z treści daje „(…) (…)”: przeredaguj zdanie
+    if (/\)\s\(/.test(out) && /\{\{t:/.test(text)) warnings.push(`${where}: dwa nawiasy obok siebie: ${out.match(/[^\s]+ \([^)]*\) \([^)]*\)/)?.[0] ?? ''}`);
+    return out;
   };
   for (const r of ranges) {
+    // tytuł spotu i nazwy grup to treść zadań (prompt i odpowiedzi); rozmiary w nich są etykietami ścieżki solvera
+    r.title = sub(r.title, r.id, undefined, true, false);
     for (const g of r.groups) {
+      g.name = sub(g.name, r.id, undefined, true, false);
       if (g.wrongSizes) g.wrongSizes = g.wrongSizes.map((w) => ({ text: sub(w.text, r.id), why: sub(w.why, r.id) }));
     }
   }
 
   const localeDir = join(contentDir, locale);
-  const modules = parseOrThrow(ModulesFile, readYaml(join(localeDir, 'modules.yaml')), 'modules.yaml');
+  const modules = parseOrThrow(ModulesFile, readYaml(join(localeDir, 'modules.yaml')), 'modules.yaml').map((m) => ({
+    ...m,
+    title: sub(m.title, m.id, undefined, false),
+    sub: sub(m.sub, m.id, undefined, false),
+  }));
   const moduleIds = new Set(modules.map((m) => m.id));
   if (moduleIds.size !== modules.length) throw new Error('modules.yaml: powtórzony identyfikator modułu');
 
   const rulesRaw = parseOrThrow(RulesFile, readYaml(join(localeDir, 'rules.yaml')), 'rules.yaml');
-  const rules = rulesRaw.map((r) => ({
-    ...r,
-    if: sub(r.if, r.id),
-    then: sub(r.then, r.id),
-    because: sub(r.because, r.id),
-  }));
+  const rules = rulesRaw.map((r) => {
+    // reguła to jedna jednostka tekstu („Jeśli …, to …, bo …”): nazwa angielska przy pierwszym użyciu
+    const seen = new Set<string>();
+    return { ...r, if: sub(r.if, r.id, seen), then: sub(r.then, r.id, seen), because: sub(r.because, r.id, seen) };
+  });
   const ruleIds = new Set<string>();
   for (const r of rules) {
     if (ruleIds.has(r.id)) throw new Error(`rules.yaml: powtórzona reguła ${r.id}`);
@@ -167,6 +201,14 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
           if (d.generator === 'icm' && d.params.mode !== 'call' && d.params.mode !== 'equity') {
             throw new Error(`zadanie ${d.id}: generator icm wymaga params.mode = call albo equity`);
           }
+          if (d.generator === 'vocab') {
+            const area = TermArea.safeParse(d.params.area);
+            if (!area.success) throw new Error(`zadanie ${d.id}: vocab wymaga params.area (${TermArea.options.join(', ')})`);
+            const n = terms.compiled.filter((t) => t.area === area.data && vocabEligible(t)).length;
+            if (n < VOCAB_MIN_TERMS) throw new Error(`zadanie ${d.id}: obszar ${area.data} ma ${n} terminów do ćwiczenia (minimum ${VOCAB_MIN_TERMS})`);
+            const dir = d.params.dir ?? 'both';
+            if (dir !== 'both' && dir !== 'pl-en' && dir !== 'en-pl') throw new Error(`zadanie ${d.id}: params.dir to pl-en, en-pl albo both`);
+          }
           if (d.generator === 'rangeDecision') {
             const list = String(d.params.spots ?? '').split(',').map((x) => x.trim()).filter(Boolean);
             if (list.length === 0) throw new Error(`zadanie ${d.id}: rangeDecision wymaga params.spots`);
@@ -185,7 +227,9 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
         };
       });
 
-      const compiledBody = compileMarkdown(sub(body, where));
+      // sekcja lekcji (od nagłówka „## ” do następnego) to jedna jednostka tekstu dla nawiasów z nazwą angielską
+      const sections = body.split(/(?=^## )/m);
+      const compiledBody = compileMarkdown(sections.map((sec, i) => sub(sec, `${where} §${i}`)).join(''));
       const checkRanges = (bs: Block[]) => {
         for (const b of bs) {
           if (b.t === 'range' && !rangeIds.has(b.spot)) throw new Error(`nieznany spot zakresu ${b.spot}`);
@@ -197,8 +241,8 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
         id: lesson.id,
         module: lesson.module,
         order: lesson.order,
-        title: lesson.title,
-        sub: lesson.sub,
+        title: sub(lesson.title, where, undefined, false),
+        sub: sub(lesson.sub, where, undefined, false),
         rules: lesson.rules,
         body: compiledBody,
         drills,
@@ -221,6 +265,13 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
     }
   }
   for (const key of numbers.keys()) if (!used.has(key)) warnings.push(`liczba ${key} nie jest nigdzie używana`);
+  if (termErrors.length) {
+    const shown = termErrors.slice(0, 40);
+    throw new Error(
+      `Terminy bez znacznika {{t:…}} (${termErrors.length} miejsc; decyzja T-02, content/terms.yaml):\n${shown.map((e) => `  - ${e}`).join('\n')}` +
+        (termErrors.length > shown.length ? `\n  … i ${termErrors.length - shown.length} więcej` : ''),
+    );
+  }
 
   lessons.sort((a, b) => {
     const ma = modules.find((m) => m.id === a.module)!.order;
@@ -237,7 +288,7 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
     ...(n.entry.note ? { note: n.entry.note } : {}),
   }));
 
-  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, modules, lessons, rules, numbers: numbersOut, ranges };
+  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, modules, lessons, rules, numbers: numbersOut, ranges, terms: terms.compiled };
   const hash = createHash('sha256').update(JSON.stringify(payload)).digest('hex').slice(0, 16);
   return { ...payload, hash, warnings };
 }
@@ -265,6 +316,12 @@ export function checkCbetCases(drillId: string, filters: readonly TextureFilter[
   });
 }
 
+/** Pliki content-v*.db innej wersji schematu niż aktualna (pozostałości po zmianie CONTENT_SCHEMA_VERSION). */
+export function staleContentDbs(outDir: string): string[] {
+  if (!existsSync(outDir)) return [];
+  return readdirSync(outDir).filter((f) => /^content-v\d+\.db$/.test(f) && f !== contentDbFileName());
+}
+
 export function contentDbFileName(): string {
   return `content-v${CONTENT_SCHEMA_VERSION}.db`;
 }
@@ -274,6 +331,8 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
   mkdirSync(outDir, { recursive: true });
   const path = join(outDir, contentDbFileName());
   if (existsSync(path)) rmSync(path);
+  // baza poprzedniej wersji schematu (np. content-v3.db) nie może zostać w paczce obok aktualnej
+  for (const f of staleContentDbs(outDir)) rmSync(join(outDir, f));
   const db = new DatabaseSync(path);
   db.exec(`
     PRAGMA journal_mode = DELETE;
@@ -285,6 +344,7 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
     CREATE TABLE rules (id TEXT PRIMARY KEY, module_id TEXT NOT NULL REFERENCES modules(id), level TEXT NOT NULL, if_text TEXT NOT NULL, then_text TEXT NOT NULL, because TEXT NOT NULL, source TEXT NOT NULL, population TEXT);
     CREATE TABLE numbers (key TEXT PRIMARY KEY, value REAL NOT NULL, display TEXT NOT NULL, source TEXT NOT NULL, population TEXT, note TEXT);
     CREATE TABLE ranges (id TEXT PRIMARY KEY, title TEXT NOT NULL, hero TEXT NOT NULL, path TEXT NOT NULL, play_percent REAL NOT NULL, groups TEXT NOT NULL, uncertain TEXT NOT NULL);
+    CREATE TABLE terms (key TEXT PRIMARY KEY, pl TEXT NOT NULL, en TEXT NOT NULL, en_alt TEXT NOT NULL, abbr TEXT, area TEXT NOT NULL, source TEXT NOT NULL);
   `);
   const tx = (fn: () => void) => {
     db.exec('BEGIN');
@@ -310,6 +370,8 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
     for (const n of content.numbers) nu.run(n.key, n.value, n.display, n.source, n.population ?? null, n.note ?? null);
     const ra = db.prepare('INSERT INTO ranges VALUES (?, ?, ?, ?, ?, ?, ?)');
     for (const r of content.ranges) ra.run(r.id, r.title, r.hero, r.path, r.playPercent, JSON.stringify(r.groups), JSON.stringify(r.uncertain));
+    const te = db.prepare('INSERT INTO terms VALUES (?, ?, ?, ?, ?, ?, ?)');
+    for (const t of content.terms) te.run(t.key, t.pl, t.en, JSON.stringify(t.enAlt), t.abbr ?? null, t.area, t.source);
   });
   db.exec('VACUUM');
   db.close();

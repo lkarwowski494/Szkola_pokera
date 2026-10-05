@@ -4,12 +4,14 @@ import '@formatjs/intl-pluralrules/locale-data/pl.js';
 
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import { trDeep } from '@/features/drills/terms';
 import { pl } from './pl';
 
 void i18n.use(initReactI18next).init({
   lng: 'pl',
   fallbackLng: 'pl',
-  resources: { pl: { translation: pl } },
+  // znaczniki terminów {{t:…}} podstawiamy przed i18next (jego interpolacja też używa {{…}})
+  resources: { pl: { translation: trDeep(pl) } },
   interpolation: { escapeValue: false },
   returnNull: false,
 });

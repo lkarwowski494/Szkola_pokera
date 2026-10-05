@@ -1,10 +1,12 @@
 import { z } from 'zod';
 
+export * from './terms';
+
 /**
  * Kontrakt treści: wspólny dla potoku content-build (walidacja) i aplikacji (typy).
  * Zmiana tego pliku = zmiana wersji schematu (CONTENT_SCHEMA_VERSION).
  */
-export const CONTENT_SCHEMA_VERSION = 3;
+export const CONTENT_SCHEMA_VERSION = 4;
 
 const id = z.string().regex(/^[a-z0-9][a-z0-9.\-]*$/i, 'identyfikator: litery, cyfry, kropki, myślniki');
 const cardsText = z.string().regex(/^([2-9TJQKA][shdc])( [2-9TJQKA][shdc])*$/, 'karty w formacie "As Kd"');
@@ -47,6 +49,41 @@ export const NumberEntry = z
 export type NumberEntry = z.infer<typeof NumberEntry>;
 
 export const NumbersFile = z.record(id, NumberEntry);
+
+// ---------- Terminy PL ↔ EN (content/terms.yaml, schemat w wersji 4) ----------
+
+/** Obszar terminów = rodzina ćwiczenia słownictwa (vocab.<obszar>). */
+export const TermArea = z.enum(['hands', 'actions', 'table', 'positions', 'math', 'preflop', 'board', 'strategy', 'mental', 'tournament']);
+export type TermArea = z.infer<typeof TermArea>;
+
+const termForm = z.string().min(1).regex(/^[^{}|]+$/, 'forma bez „{”, „}” i „|”');
+
+export const TermEntry = z
+  .object({
+    pl: termForm,
+    en: z.string().min(1),
+    en_alt: z.array(z.string().min(1)).optional(),
+    abbr: z.string().min(1).optional(),
+    area: TermArea,
+    forms: z.array(termForm).optional(),
+    skip: z.array(z.string().min(1)).optional(),
+    /** Adres i cytat ze źródła nazwy angielskiej (ADR-24). */
+    source: z.string().min(10).regex(/https?:\/\//, 'źródło musi mieć adres'),
+  })
+  .strict();
+export type TermEntry = z.infer<typeof TermEntry>;
+export const TermsFile = z.record(id, TermEntry);
+
+/** Termin po kompilacji (tabela terms w bazie i moduł TS w aplikacji). */
+export interface CompiledTerm {
+  key: string;
+  pl: string;
+  en: string;
+  enAlt: string[];
+  abbr?: string;
+  area: TermArea;
+  source: string;
+}
 
 // ---------- Moduły ----------
 
@@ -147,7 +184,7 @@ export const PaintDrill = z.object({
 });
 
 /** icm (M11): bańka turnieju z losowymi stackami; params.mode = "call" (sprawdzić all-in według ICM) albo "equity" (wycena stacku). */
-export const GeneratorName = z.enum(['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'rangeDecision', 'icm']);
+export const GeneratorName = z.enum(['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'rangeDecision', 'icm', 'vocab']);
 export type GeneratorName = z.infer<typeof GeneratorName>;
 
 export const GeneratedDrill = z.object({
