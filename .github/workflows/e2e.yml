@@ -12,9 +12,6 @@ on:
     # 03:17 UTC codziennie (poza pełną godziną, kiedy kolejka harmonogramów GitHuba jest najdłuższa)
     - cron: '17 3 * * *'
   workflow_dispatch:
-  # TYMCZASOWO do pomiaru na gałęzi przed scaleniem (workflow_dispatch działa dopiero z main); usunąć przed scaleniem
-  push:
-    branches: [pomoc-observe-e2e]
 permissions:
   contents: read
 env:
