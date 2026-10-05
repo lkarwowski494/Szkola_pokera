@@ -113,6 +113,16 @@ export const pl = {
     recalcTitle: 'Nowe lekcje – wskaźnik przeliczony',
     recalcBody: 'Kurs ma nowe umiejętności. Dopóki ich nie przećwiczysz, liczą się jako 0, dlatego wynik jest niższy.',
     recalcDismiss: 'Zamknij',
+    gameAreas: '{{n}} z {{total}} obszarów z wynikiem gry',
+    gameNone: 'bez gry',
+    gameTooLittle: 'za mało gry: {{n}} z {{min}} decyzji',
+    gameProvisional: '{{score}} (wstępny)',
+    areaLine: 'Wiedza {{k}} · Gra: {{g}}',
+    gameExplain:
+      'Gra to odsetek decyzji ocenionych jako zgodne albo dopuszczalne wśród ostatnich {{window}} ocenionych decyzji w obszarze, przy stole 6-osobowym ze stackami 100bb. Wynik pojawia się od {{min}} decyzji (do {{window}} jako wstępny). W obszarze liczą się po równo wiedza i gra; wynik rozdań w {{t:chips|żetonach}} nie wchodzi do wskaźnika.',
+    history: 'Historia',
+    historyHint: 'Jeden słupek na dzień, w którym otworzyłeś aplikację. Ostatni: {{last}}.',
+    historyEmpty: 'Historia pojawi się po kolejnych dniach nauki.',
   },
   glossary: {
     title: 'Słowniczek',

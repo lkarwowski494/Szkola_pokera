@@ -1,4 +1,6 @@
+import type { AdvancementReport } from '@szkola/srs';
 import { router } from 'expo-router';
+import type { TFunction } from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Muted } from '@/components/ui';
@@ -17,6 +19,7 @@ export function AdvancementCard() {
   const value = r.overall === null ? '–' : String(r.overall);
   const knowledge = r.knowledge.score === null ? '–' : String(r.knowledge.score);
   const notice = useContentChangeNotice();
+  const gameText = gameSummary(t, r);
   return (
     <View style={{ gap: space.s }}>
       {notice.visible ? (
@@ -32,7 +35,7 @@ export function AdvancementCard() {
       ) : null}
       <Pressable
         accessibilityRole="button"
-        accessibilityLabel={`${t('advancement.title')}: ${value} ${t('advancement.outOf')}. ${t('advancement.knowledge')} ${knowledge}. ${t('advancement.game')}: ${t('advancement.gamePending')}.`}
+        accessibilityLabel={`${t('advancement.title')}: ${value} ${t('advancement.outOf')}. ${t('advancement.knowledge')} ${knowledge}. ${t('advancement.game')}: ${gameText}.`}
         accessibilityHint={t('advancement.openHint')}
         onPress={() => router.push('/advancement')}
         style={({ pressed }) => [styles.card, { backgroundColor: tk.surface, borderColor: tk.line, opacity: pressed ? 0.85 : 1 }]}
@@ -43,12 +46,19 @@ export function AdvancementCard() {
         <View style={{ flex: 1, gap: 2 }}>
           <Text style={[tp.body, { color: tk.ink, fontWeight: '700' }]}>{t('advancement.title')}</Text>
           <Muted>{`${t('advancement.knowledge')} ${knowledge}`}</Muted>
-          <Muted>{`${t('advancement.game')}: ${t('advancement.gamePending')}`}</Muted>
+          <Muted>{`${t('advancement.game')}: ${gameText}`}</Muted>
         </View>
         <Text style={[tp.h2, { color: tk.muted }]}>›</Text>
       </Pressable>
     </View>
   );
+}
+
+/** Krótki opis części „gra”: ile obszarów z grą ma już wynik (albo „dostępne po trybie gry”). */
+export function gameSummary(t: TFunction, r: AdvancementReport): string {
+  if (r.game.status !== 'active') return t('advancement.gamePending');
+  const withGame = r.game.areas.filter((g) => g.status !== 'no-game');
+  return t('advancement.gameAreas', { n: withGame.filter((g) => g.score !== null).length, total: withGame.length });
 }
 
 const styles = StyleSheet.create({

@@ -1,6 +1,6 @@
 import fc from 'fast-check';
 import { describe, expect, it } from 'vitest';
-import { ADVANCEMENT, computeAdvancement, newCard, retrievability, review, skillKnowledge, type StoredCard } from '../src';
+import { ADVANCEMENT, areaGame, computeAdvancement, newCard, retrievability, review, skillKnowledge, type StoredCard } from '../src';
 
 const DAY = 86_400_000;
 const T0 = Date.UTC(2026, 9, 1);
@@ -103,5 +103,44 @@ describe('wskaźnik zaawansowania: wiedza', () => {
         return r.overall! >= 0 && r.overall! <= 100 && r.knowledge.raw! >= fewer.knowledge.raw!;
       }),
     );
+  });
+});
+
+describe('wskaźnik zaawansowania: część „gra” (dokument 14, 4.8)', () => {
+  const NOW = Date.UTC(2026, 9, 5);
+  const areas = [
+    { id: 'm1', skills: ['a1', 'a2'], counted: true },
+    { id: 'm3', skills: ['b1', 'b2', 'b3'], counted: true },
+    { id: 'm11', skills: ['c1'], counted: false },
+  ];
+  const ones = (n: number) => Array<0 | 1>(n).fill(1);
+  const zeros = (n: number) => Array<0 | 1>(n).fill(0);
+
+  it('bez gry wynik ogólny równa się wiedzy, a obszary pokazują samą wiedzę', () => {
+    const r = computeAdvancement(areas, [], NOW, { config: ADVANCEMENT.defaultConfig, points: new Map() });
+    const k = computeAdvancement(areas, [], NOW);
+    expect(r.overall).toBe(k.overall);
+    expect(r.combined.every((a) => a.knowledgeOnly)).toBe(true);
+    expect(k.game).toEqual({ status: 'pending' });
+  });
+
+  it('próg 40 decyzji, „wstępny” do 100, okno ostatnich 100', () => {
+    expect(areaGame('m3', ones(ADVANCEMENT.gameMin - 1)).status).toBe('too-little');
+    expect(areaGame('m3', ones(ADVANCEMENT.gameMin))).toMatchObject({ status: 'provisional', score: 100 });
+    expect(areaGame('m3', ones(ADVANCEMENT.gameWindow))).toMatchObject({ status: 'ok', score: 100 });
+    // najnowsze 100: 50 dobrych, potem 100 starych błędów → 50 dobrych i 50 błędów w oknie
+    expect(areaGame('m3', [...ones(50), ...zeros(100)])).toMatchObject({ decisions: 100, score: 50 });
+    expect(areaGame('m1', ones(200)).status).toBe('no-game');
+  });
+
+  it('obszar łączy wiedzę i grę po równo; wynik ogólny ważony liczbą umiejętności, bez modułu opcjonalnego', () => {
+    const r = computeAdvancement(areas, [], NOW, { config: '6-100', points: new Map([['m3', [...ones(60), ...zeros(40)]], ['m1', ones(100)]]) });
+    const m3 = r.combined.find((a) => a.id === 'm3')!;
+    // wiedza 0 (nic nie przećwiczone), gra 60 → 30
+    expect(m3).toMatchObject({ score: 30, knowledgeOnly: false, provisional: false });
+    expect(r.combined.find((a) => a.id === 'm1')!.knowledgeOnly).toBe(true);
+    // (2 × 0 + 3 × 0,3) / 5 = 0,18
+    expect(r.overall).toBe(18);
+    expect(r.knowledge.score).toBe(0);
   });
 });
