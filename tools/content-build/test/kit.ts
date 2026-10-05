@@ -1,5 +1,5 @@
 import { join, resolve } from 'node:path';
-import { BOT_SOLVER_FILE, BOT_SOLVER_PLAYERS, botKnowledgeFrom, gradingKitFrom, type BotKnowledge, type GradingKit } from '@szkola/poker-core';
+import { BOT_SOLVER_FILE, BOT_SOLVER_PLAYERS, botKnowledgeFrom, gradingKitFrom, type AreaContext, type BotKnowledge, type GradingKit } from '@szkola/poker-core';
 import { compileContent } from '../src/build';
 
 /** Skompilowana treść i zestawy dla botów i oceny (wspólne dla testów trybu gry). */
@@ -15,3 +15,4 @@ export const cbetCases = content.lessons
   .flatMap((d) => (d.kind === 'cbet' && d.position === 'BTN' ? d.cases.map((c) => ({ when: c.when, best: c.best })) : []));
 export const knowledge: BotKnowledge = botKnowledgeFrom({ number, spots: content.ranges, handRanking: content.handRanking, cbetCases });
 export const kit: GradingKit = gradingKitFrom({ number, rules: content.evalRules, spots: content.ranges, solverFile: BOT_SOLVER_FILE, players: BOT_SOLVER_PLAYERS });
+export const areaCtx: AreaContext = { spots: kit.spots, sizes: knowledge.sizes, cbetCases };

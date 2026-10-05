@@ -389,6 +389,13 @@ export interface CompiledEvalRule {
   families: string[];
 }
 
+/** Obszar trybu gry (content/pl/areas.yaml, dokument 14, 4.3). */
+export const AreaGenerator = z.enum(['flop-draw', 'rfi', 'vs-open', 'cbet-ip', 'turn-draw']);
+export type AreaGenerator = z.infer<typeof AreaGenerator>;
+export const AreaDef = z.object({ module: id, generator: AreaGenerator, rules: z.array(z.string()).min(1) });
+export type AreaDef = z.infer<typeof AreaDef>;
+export const AreasFile = z.array(AreaDef);
+
 // ---------- Lekcje ----------
 
 export const LessonFrontmatter = z.object({

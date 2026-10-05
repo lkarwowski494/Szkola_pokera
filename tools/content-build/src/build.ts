@@ -6,6 +6,7 @@ import { parse as parseYaml } from 'yaml';
 import {
   CONTENT_SCHEMA_VERSION,
   LessonFrontmatter,
+  AreasFile,
   ModulesFile,
   NumbersFile,
   RulesFile,
@@ -14,6 +15,7 @@ import {
   termNeedsEnglish,
   type Block,
   type CompiledTerm,
+  type AreaDef,
   type CompiledEvalRule,
   type CompiledRangeSpot,
   type Drill,
@@ -57,6 +59,8 @@ export interface CompiledContent {
   evalRules: CompiledEvalRule[];
   /** Ranking 169 klas od najsilniejszej (equity wobec losowej ręki); dla botów trybu gry M13. */
   handRanking: string[];
+  /** Obszary trybu gry (areas.yaml). */
+  areas: AreaDef[];
   terms: (CompiledTerm & { forms?: string[]; skip?: string[] })[];
   hash: string;
   warnings: string[];
@@ -277,6 +281,8 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
   for (const m of modules) {
     if (!lessons.some((l) => l.module === m.id) && m.phase === 'mvp') warnings.push(`moduł ${m.id} (MVP) nie ma lekcji`);
   }
+  const areasPath = join(localeDir, 'areas.yaml');
+  const areas: AreaDef[] = existsSync(areasPath) ? parseOrThrow(AreasFile, readYaml(areasPath), 'areas.yaml') : [];
   const evalRules = compileEvalRules(rulesRaw, lessons, modules, rangeIds, (key, where) => {
     const n = numbers.get(key);
     if (!n) throw new Error(`${where}: nieznana liczba ${key}`);
@@ -291,6 +297,14 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
       used.add(r);
       stack.push(r);
     }
+  }
+  const checked = new Set(evalRules.map((r) => r.id));
+  const areaModules = new Set<string>();
+  for (const a of areas) {
+    if (!moduleIds.has(a.module)) throw new Error(`areas.yaml: nieznany moduł ${a.module}`);
+    if (areaModules.has(a.module)) throw new Error(`areas.yaml: powtórzony obszar ${a.module}`);
+    areaModules.add(a.module);
+    for (const r of a.rules) if (!checked.has(r)) throw new Error(`areas.yaml: obszar ${a.module}: reguła ${r} nie ma pola check`);
   }
   for (const key of numbers.keys()) if (!used.has(key)) warnings.push(`liczba ${key} nie jest nigdzie używana`);
   if (termErrors.length) {
@@ -317,7 +331,7 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
   }));
 
   const { ranking: handRanking } = compileHandRanking(join(contentDir, '..', 'tools', 'equity', 'equity169.json'));
-  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, modules, lessons, rules, numbers: numbersOut, ranges, evalRules, handRanking, terms: terms.compiled };
+  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, modules, lessons, rules, numbers: numbersOut, ranges, evalRules, handRanking, areas, terms: terms.compiled };
   const hash = createHash('sha256').update(JSON.stringify(payload)).digest('hex').slice(0, 16);
   return { ...payload, hash, warnings };
 }
@@ -405,6 +419,7 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
     const kit = db.prepare('INSERT INTO game_kit VALUES (?, ?)');
     kit.run('handRanking', JSON.stringify(content.handRanking));
     kit.run('evalRules', JSON.stringify(content.evalRules));
+    kit.run('areas', JSON.stringify(content.areas));
     const te = db.prepare('INSERT INTO terms VALUES (?, ?, ?, ?, ?, ?, ?)');
     for (const t of content.terms) te.run(t.key, t.pl, t.en, JSON.stringify(t.enAlt), t.abbr ?? null, t.area, t.source);
   });

@@ -15,3 +15,4 @@ export * from './holding';
 export * from './bots';
 export * from './grading';
 export * from './situation';
+export * from './play';
