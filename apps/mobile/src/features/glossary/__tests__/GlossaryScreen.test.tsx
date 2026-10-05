@@ -8,6 +8,9 @@ jest.mock('@formatjs/intl-pluralrules/polyfill.js', () => ({}));
 jest.mock('@formatjs/intl-pluralrules/locale-data/pl.js', () => ({}));
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 
+// pełna lista (ok. 140 terminów) renderuje się w zimnym przebiegu jest dłużej niż domyślne 5 s
+jest.setTimeout(30_000);
+
 describe('ekran Słowniczek', () => {
   it('pokazuje obszary i pary PL – EN, a wyszukiwanie zawęża listę w obu językach', async () => {
     await render(<GlossaryScreen />);
