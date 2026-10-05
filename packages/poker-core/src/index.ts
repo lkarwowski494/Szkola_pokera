@@ -10,3 +10,4 @@ export * from './texture';
 export * from './bench';
 export * from './icm';
 export * from './hud';
+export * from './table';
