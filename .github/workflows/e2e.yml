@@ -12,11 +12,12 @@ on:
     # 03:17 UTC codziennie (poza pełną godziną, kiedy kolejka harmonogramów GitHuba jest najdłuższa)
     - cron: '17 3 * * *'
   workflow_dispatch:
-  # TYMCZASOWO do pomiaru na gałęzi przed scaleniem (workflow_dispatch działa dopiero z main); usunąć przed scaleniem
-  push:
-    branches: [pomoc-observe-e2e]
 permissions:
   contents: read
+env:
+  # wersja zmierzona 5.10.2026 (4/4 flowy, przebieg 37304275812); instalator czyta MAESTRO_VERSION
+  MAESTRO_VERSION: 2.11.0
+  MAESTRO_CLI_NO_ANALYTICS: '1'
 concurrency:
   group: e2e-${{ github.ref }}
   cancel-in-progress: true
