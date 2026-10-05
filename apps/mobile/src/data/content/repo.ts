@@ -181,3 +181,13 @@ export function getAllRangeSpots(db: SQLiteDatabase): Map<string, RangeSpot> {
   const rows = db.getAllSync<RangeRow>(`SELECT ${RANGE_COLUMNS} FROM ranges`);
   return new Map(rows.map((r) => [r.id, rangeFromRow(r)]));
 }
+
+/** Pierwsza lekcja (w kolejności kursu), która uczy danej reguły: do odnośnika z raportu gry. */
+export function getRuleLessons(db: SQLiteDatabase): Map<string, string> {
+  const rows = db.getAllSync<{ id: string; rules: string }>(
+    'SELECT l.id, l.rules FROM lessons l JOIN modules m ON m.id = l.module_id ORDER BY m.ord, l.ord',
+  );
+  const out = new Map<string, string>();
+  for (const r of rows) for (const rule of JSON.parse(r.rules) as string[]) if (!out.has(rule)) out.set(rule, r.id);
+  return out;
+}

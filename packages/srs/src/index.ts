@@ -145,3 +145,4 @@ export function interleave(familyIds: readonly string[], perFamily: number): str
 
 export { Rating };
 export * from './advancement';
+export * from './game';

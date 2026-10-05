@@ -41,6 +41,15 @@ export default function LearnScreen() {
       <Title>{t('learn.title')}</Title>
       <Muted>{t('learn.intro')}</Muted>
       <AdvancementCard />
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel={`${t('play.entry')}. ${t('play.entryHint')}`}
+        onPress={() => router.push('/play')}
+        style={({ pressed }) => [styles.play, { backgroundColor: tk.feltDeep, opacity: pressed ? 0.9 : 1 }]}
+      >
+        <Text style={[tp.h3, { color: tk.onFelt }]}>{t('play.entry')}</Text>
+        <Text style={[tp.small, { color: tk.onFelt, opacity: 0.85 }]}>{t('play.entryHint')}</Text>
+      </Pressable>
       <View style={{ gap: space.s }}>
         <ProgressBar value={lessons.length ? done / lessons.length : 0} />
         <Muted>{t('learn.lessonsDone', { done, total: lessons.length })}</Muted>
@@ -107,6 +116,7 @@ export default function LearnScreen() {
 }
 
 const styles = StyleSheet.create({
+  play: { padding: space.l, borderRadius: radius.l, gap: space.xs },
   moduleHead: { flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', marginTop: space.m },
   lesson: { flexDirection: 'row', alignItems: 'center', gap: space.m, padding: space.l, borderRadius: radius.m, borderWidth: 1.5 },
   dot: { width: 26, height: 26, borderRadius: 13, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },

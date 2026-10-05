@@ -1,7 +1,7 @@
-import { review as fsrsReview, newCard, type Outcome, type StoredCard } from '@szkola/srs';
-import { and, desc, eq, gte, lte, sql } from 'drizzle-orm';
+import { GAME_CARDS, review as fsrsReview, newCard, type Outcome, type StoredCard } from '@szkola/srs';
+import { and, desc, eq, gte, lte, notLike, sql } from 'drizzle-orm';
 import type { UserDb } from './db';
-import { answers, examResults, lessonProgress, reviewCards, reviewLogs, settings } from './schema';
+import { advancementHistory, answers, examResults, gameCards, gameFindings, gameHands, gameSessions, lessonProgress, reviewCards, reviewLogs, settings } from './schema';
 
 export type AnswerMode = 'lesson' | 'review' | 'speed' | 'exam';
 export type AnswerGrade = 'correct' | 'acceptable' | 'close' | 'size' | 'wrong';
@@ -90,12 +90,21 @@ export function markTheorySeen(db: UserDb, lessonId: string, now = Date.now()): 
     .run();
 }
 
+/** Karty rodzin zadań (bez kart z gry M13, które mają własną kolejkę sytuacji, przestrzeń nazw „game:”). */
+const familyCardsOnly = notLike(reviewCards.familyId, `${GAME_CARDS.prefix}%`);
+
 export function dueFamilies(db: UserDb, now = Date.now()): StoredCard[] {
-  return db.select().from(reviewCards).where(lte(reviewCards.due, now)).orderBy(reviewCards.due).all();
+  return db.select().from(reviewCards).where(and(lte(reviewCards.due, now), familyCardsOnly)).orderBy(reviewCards.due).all();
 }
 
 export function nextDue(db: UserDb, now = Date.now()): number | null {
-  const row = db.select({ due: reviewCards.due }).from(reviewCards).where(gte(reviewCards.due, now)).orderBy(reviewCards.due).limit(1).get();
+  const row = db
+    .select({ due: reviewCards.due })
+    .from(reviewCards)
+    .where(and(gte(reviewCards.due, now), familyCardsOnly))
+    .orderBy(reviewCards.due)
+    .limit(1)
+    .get();
   return row?.due ?? null;
 }
 
@@ -105,7 +114,7 @@ export function allCards(db: UserDb): StoredCard[] {
 }
 
 export function allFamilies(db: UserDb): string[] {
-  return db.select({ id: reviewCards.familyId }).from(reviewCards).all().map((r) => r.id);
+  return db.select({ id: reviewCards.familyId }).from(reviewCards).where(familyCardsOnly).all().map((r) => r.id);
 }
 
 export interface FamilyStat {
@@ -169,6 +178,11 @@ export function resetProgress(db: UserDb): void {
     tx.delete(reviewLogs).run();
     tx.delete(lessonProgress).run();
     tx.delete(examResults).run();
+    tx.delete(gameCards).run();
+    tx.delete(gameFindings).run();
+    tx.delete(gameHands).run();
+    tx.delete(gameSessions).run();
+    tx.delete(advancementHistory).run();
   });
 }
 

@@ -15,6 +15,13 @@
       "when": 1791026114079,
       "tag": "0001_exam_grade",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1791199735544,
+      "tag": "0002_game",
+      "breakpoints": true
     }
   ]
 }

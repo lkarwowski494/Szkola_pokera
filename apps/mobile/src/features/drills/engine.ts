@@ -19,6 +19,7 @@ import {
   generateTextureSpot,
   HandCategory,
   pick,
+  rangeVerdict as coreRangeVerdict,
   TEXTURE_VALUES,
   textureMatches,
   type FlopTexture,
@@ -417,8 +418,7 @@ function drawCall(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: numbe
  * acceptable (MIXED_MIN ≤ f < MIXED_LOW), wrong (f < MIXED_MIN). Wspólna dla zadań i przyszłej oceny gry (M13).
  */
 export function rangeVerdict(freqs: readonly number[]): ('correct' | 'acceptable' | 'wrong')[] {
-  const best = Math.max(...freqs);
-  return freqs.map((f) => (f === best || f >= MIXED_LOW ? 'correct' : f >= MIXED_MIN ? 'acceptable' : 'wrong'));
+  return coreRangeVerdict(freqs, { mixedMin: MIXED_MIN, mixedLow: MIXED_LOW });
 }
 
 function rangeDecision(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number, ctx: DrillContext): DrillInstance {

@@ -713,3 +713,15 @@ gtow.rake.vpip-drop.high: { value: 0.35, unit: percent, source: "jak gtow.rake.v
 gtow.rake.bb-minraise: { value: 0.60, unit: percent, source: "GTO Wizard, Preflop Raise Sizing: Examining 2 Key Factors: „BB calls a min-raise in the raked game barely 60% as often as in the unraked game”" }
 gtow.ob.base: { value: 0.27, unit: percent, source: "GTO Wizard, Calling Down Over-Bluffed Lines in Lower Limits (https://blog.gtowizard.com/calling-down-the-over-bluffed-lines-in-lower-limits/): „I only changed Villain’s strategy to bluff ~31% instead of ~27% of the time for our strategy to shift completely to never folding.”" }
 gtow.ob.lock: { value: 0.31, unit: percent, source: "jak gtow.ob.base" }
+
+# M13 Analiza własnej gry (dokument 14, sekcja 8; decyzje D-M13-12…15 w dokumencie „12 Weryfikacja źródeł — M10–M13”).
+m13.eq.example: { value: 0.8, unit: percent, source: "przykład w lekcji: all-in z equity 80%" }
+m13.lose.example: { formula: diff, refs: [prob.certain, m13.eq.example], unit: percent, source: "obliczenie: z equity e przegrywasz w 1 − e takich rozdań" }
+m13.ten: { value: 10, unit: count, source: "przykład w lekcji: dziesięć takich rozdań" }
+m13.lose.of-ten: { formula: product, refs: [m13.ten, m13.lose.example], unit: count, source: "obliczenie: 10 × (1 − e)" }
+m13.eq.example2: { value: 0.65, unit: percent, source: "przykład w lekcji: all-in z equity 65%" }
+m13.lose.example2: { formula: diff, refs: [prob.certain, m13.eq.example2], unit: percent, source: "obliczenie: 1 − e" }
+hud.opps.look: { value: 5, unit: count, source: "BlackRain79, Poker HUD Stats: The Sample Size You Need (https://www.blackrain79.com/2017/11/poker-hud-stat-sample-size.html): „For me personally I usually want at least 5 to even bother looking, and 10 to be sure.” (liczba okazji, nie rąk)" }
+hud.opps.sure: { value: 10, unit: count, source: "jak hud.opps.look" }
+game.recall.count: { value: 3, unit: count, source: "mechanika aplikacji: GAME_CARDS.recallMistakes w packages/srs/src/game.ts (dokument 14, 5.7); wartość startowa bez źródła, do kalibracji; test pilnuje zgodności" }
+game.recall.days: { value: 30, unit: count, source: "mechanika aplikacji: GAME_CARDS.recallWindowDays w packages/srs/src/game.ts (dokument 14, 5.7); wartość startowa bez źródła, do kalibracji; test pilnuje zgodności" }

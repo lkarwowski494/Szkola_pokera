@@ -49,7 +49,7 @@ export function compileRanges(contentDir: string): { spots: CompiledRangeSpot[];
       });
       const freqs = HAND_CLASSES.map((hc) => Math.round(idx.reduce((s, i) => s + node.strategy[i]![hc]!, 0) * 1000) / 1000);
       const wrongSizes = def.wrongSizes?.[name];
-      return { name, freqs, ...(wrongSizes ? { wrongSizes } : {}) };
+      return { name, labels: [...labels], freqs, ...(wrongSizes ? { wrongSizes } : {}) };
     });
     for (const g of Object.keys(def.wrongSizes ?? {})) {
       if (!(g in def.groups)) throw new Error(`spot ${def.id}: wrongSizes dla nieznanej grupy "${g}"`);
@@ -60,7 +60,44 @@ export function compileRanges(contentDir: string): { spots: CompiledRangeSpot[];
     const uncertainSet = new Set(def.uncertain ?? []);
     for (const hc of uncertainSet) if (!HAND_CLASSES.includes(hc)) throw new Error(`spot ${def.id}: nieznana klasa rąk w uncertain: "${hc}"`);
     const uncertain = HAND_CLASSES.filter((hc) => uncertainSet.has(hc));
-    return { id: def.id, title: def.title, hero: def.hero, path: def.path, groups, playPercent, uncertain };
+    const actions = node.actions.map((label, i) => ({
+      label,
+      freqs: HAND_CLASSES.map((hc) => Math.round(node.strategy[i]![hc]! * 1000) / 1000),
+    }));
+    const solverFile = def.solver ?? DEFAULT_SOLVER;
+    return { id: def.id, title: def.title, hero: def.hero, path: def.path, groups, playPercent, uncertain, solver: solverFile, actions };
   });
   return { spots, solverMeta: solver.meta };
+}
+
+interface EquityFile {
+  classes: string[];
+  /** equity[i][j]: equity klasy i wobec klasy j (dokładne przeliczenie, tools/equity/equity169.c). */
+  equity: number[][];
+  /** pairs[i][j]: liczba par kombinacji bez wspólnych kart. */
+  pairs: number[][];
+}
+
+/**
+ * Ranking 169 klas od najsilniejszej według equity wobec losowej ręki: średnia equity[i][j] ważona liczbą par
+ * kombinacji bez wspólnych kart (rachunek z tools/equity/equity169.json, z uwzględnieniem usuniętych kart).
+ * Używają go boty trybu gry (style i heurystyki poza spotami solvera); brak pliku = pusta lista.
+ */
+export function compileHandRanking(equityPath: string): { ranking: string[]; equityVsRandom: Record<string, number> } {
+  if (!existsSync(equityPath)) return { ranking: [], equityVsRandom: {} };
+  const f = JSON.parse(readFileSync(equityPath, 'utf8')) as EquityFile;
+  const eq: Record<string, number> = {};
+  f.classes.forEach((hc, i) => {
+    let w = 0;
+    let s = 0;
+    f.classes.forEach((_, j) => {
+      const n = f.pairs[i]![j]!;
+      w += n;
+      s += n * f.equity[i]![j]!;
+    });
+    eq[hc] = s / w;
+  });
+  for (const hc of HAND_CLASSES) if (!(hc in eq)) throw new Error(`equity169.json: brak klasy ${hc}`);
+  const ranking = [...HAND_CLASSES].sort((a, b) => eq[b]! - eq[a]! || HAND_CLASSES.indexOf(a) - HAND_CLASSES.indexOf(b));
+  return { ranking, equityVsRandom: eq };
 }
