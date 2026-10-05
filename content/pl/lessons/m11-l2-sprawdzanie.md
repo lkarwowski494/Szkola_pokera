@@ -21,8 +21,8 @@ drills:
     prompt: "Ten sam spot, ale stacki mają po {{n:m11.depth.5}}. Ile equity potrzebujesz do {{t:call|sprawdzenia}} all-inu?"
     table: { position: BB }
     options:
-      - { text: "{{n:m11.call.5.eq}}", correct: true, why: "Dopłacasz {{n:m11.call.5.cost}} do {{t:pot|puli}}, która po {{t:call|sprawdzeniu}} ma {{n:m11.call.5.pot}}: {{n:m11.call.5.eq}}. Przy krótszym stacku blind stanowi większą część {{t:stakes|stawki}}, więc cena jest lepsza." }
-      - { text: "{{n:m11.call.10.eq}}", why: "To cena przy {{n:m11.depth.10}}. Przy {{n:m11.depth.5}} twój blind to większa część całej stawki, więc potrzebujesz mniej: {{n:m11.call.5.eq}}." }
+      - { text: "{{n:m11.call.5.eq}}", correct: true, why: "Dopłacasz {{n:m11.call.5.cost}} do {{t:pot|puli}}, która po {{t:call|sprawdzeniu}} ma {{n:m11.call.5.pot}}: {{n:m11.call.5.eq}}. Przy krótszym stacku blind stanowi większą część stacku, więc cena jest lepsza." }
+      - { text: "{{n:m11.call.10.eq}}", why: "To cena przy {{n:m11.depth.10}}. Przy {{n:m11.depth.5}} twój blind to większa część całego stacku, więc potrzebujesz mniej: {{n:m11.call.5.eq}}." }
       - { text: "Połowę", why: "Połowy potrzebowałbyś, gdybyś dokładał cały stack. Blind już leży w {{t:pot|puli}}, więc dopłacasz tylko {{n:m11.call.5.cost}}." }
   - kind: choice
     id: m11.l2.q-price-15
@@ -127,7 +127,7 @@ potrzebne equity = dopłata ÷ pula po sprawdzeniu
 | {{n:m11.depth.10}} | {{n:m11.call.10.cost}} | {{n:m11.call.10.pot}} | {{n:m11.call.10.eq}} |
 | {{n:m11.depth.15}} | {{n:m11.call.15.cost}} | {{n:m11.call.15.pot}} | {{n:m11.call.15.eq}} |
 
-Im krótszy stack, tym lepsza cena, bo twój blind jest większą częścią całej stawki.
+Im krótszy stack, tym lepsza cena, bo twój blind jest większą częścią całego stacku.
 
 ## {{t:call|Sprawdzasz}} węziej, niż {{t:shove|wpychasz}}
 

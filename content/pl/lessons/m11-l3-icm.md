@@ -120,7 +120,7 @@ Model niezależnych {{t:chips|żetonów}} ({{t:icm}}, model Malmutha-Harville'a)
 szansa na 1. miejsce = twój stack ÷ wszystkie żetony
 ```
 
-Szansę na 2. miejsce liczysz tak samo, ale osobno dla każdego możliwego zwycięzcy: odejmujesz jego {{t:chips}} i dzielisz przez to, co zostało. Equity stacku to suma: szansa na miejsce × {{t:payout}} za miejsce.
+Szansę na 2. miejsce liczysz tak samo, ale osobno dla każdego możliwego zwycięzcy: odejmujesz jego {{t:chips}} i dzielisz przez to, co zostało. {{t:tournament-equity|Equity turniejowe}} stacku, czyli jego oczekiwany udział w {{t:prize-pool|puli nagród}}, to suma: szansa na miejsce × {{t:payout}} za miejsce.
 
 ## Przykład: trzech graczy na {{t:bubble|bańce}}
 

@@ -747,7 +747,7 @@
   source: "Tendler i Carter, The Mental Game of Poker (2011), fragment „Inchworm” (The Hendon Mob); Tendler, The Inchworm Concept (jaredtendler.com)"
 - id: R-M12-009
   module: m12
-  if: "liczysz ryzyko utraty całego bankrollu"
+  if: "liczysz {{t:risk-of-ruin|ryzyko bankructwa}}, czyli utraty całego bankrollu"
   then: "używasz wzoru RoR = e^(−2 × winrate × bankroll ÷ SD²), z bankrollem w bb"
   because: "przy {{n:var.wr.typical.high}} i SD {{n:var.sd}} bankroll {{n:br.bi.base}} {{t:buy-in|wpisowych}} daje ok. {{n:ror.base}} ryzyka, a {{n:br.bi.move-down}} {{t:buy-in|wpisowych}} już ok. {{n:ror.half}}"
   level: math

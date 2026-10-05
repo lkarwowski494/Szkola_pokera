@@ -48,7 +48,7 @@ drills:
     options:
       - { text: "Schodzisz o jedną {{t:stakes|stawkę}} niżej", correct: true, why: "Spadłeś poniżej połowy założonego bankrollu ({{n:br.bi.move-down}}). Przy tylu {{t:buy-in|wpisowych}} ryzyko utraty reszty jest kilka razy większe niż przy {{n:br.bi.base}}. Na niższej {{t:stakes|stawce}} te same pieniądze to znów pełny bankroll." }
       - { text: "Grasz dalej, bo to tylko {{t:variance}}", why: "To prawda, że to pewnie {{t:variance}}, ale właśnie przed nią chroni zejście {{t:stakes|stawkę}}. Z {{n:br.ex.below}} {{t:buy-in|wpisowymi}} kolejny {{t:downswing}} może zabrać wszystko." }
-      - { text: "Przechodzisz na wyższą {{t:stakes|stawkę}}, żeby szybciej odrobić", why: "To tilt z desperacji. Wyższa {{t:stakes}} przy mniejszym bankrollu w {{t:buy-in|wpisowych}} gwałtownie zwiększa ryzyko bankructwa." }
+      - { text: "Przechodzisz na wyższą {{t:stakes|stawkę}}, żeby szybciej odrobić", why: "To tilt z desperacji. Wyższa {{t:stakes}} przy mniejszym bankrollu w {{t:buy-in|wpisowych}} gwałtownie zwiększa {{t:risk-of-ruin|ryzyko bankructwa}}." }
   - kind: choice
     id: m12.l4.q-stay
     family: m12.move-down
@@ -112,9 +112,9 @@ drills:
 ---
 Bankroll to pieniądze przeznaczone wyłącznie na pokera, oddzielone od pieniędzy na życie. Liczysz go w **{{t:buy-in|wpisowych}}**: jedno {{t:buy-in}} to pełny stack {{n:format.stack}} na {{t:stakes|stawce}}, na której grasz.
 
-## Ryzyko bankructwa
+## {{t:risk-of-ruin|Ryzyko bankructwa}}
 
-Ryzyko, że kiedykolwiek stracisz cały bankroll, jeśli nigdy nie zejdziesz {{t:stakes|stawkę}}:
+To prawdopodobieństwo, że kiedykolwiek stracisz cały bankroll, jeśli nigdy nie zejdziesz {{t:stakes|stawkę}}:
 
 ```formula
 RoR = e^(−2 × winrate × bankroll ÷ SD²)

@@ -734,7 +734,7 @@ stakes:
   area: mental
   # „obowiązkowe stawki” w M1 to wpłaty blindów, nie poziom gry
   forms: [stawka, stawki, stawkę, stawką, stawce, stawek, stawkach, stawkami]
-  skip: [obowiązkowe stawki, całej stawki]
+  skip: [obowiązkowe stawki]
   source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Stakes: The size of the blinds/entry in a cash game or size of the entry fee in a tournament.”"
 standard-deviation:
   pl: odchylenie standardowe
@@ -742,6 +742,13 @@ standard-deviation:
   area: mental
   forms: [odchylenie standardowe, odchylenia standardowego, odchyleniu standardowym, odchyleniem standardowym, odchylenie, odchylenia, odchyleniu, odchyleniem]
   source: "GTO Wizard, Variance (https://gtowizard.com/en/glossary/variance/): „Variance can also be defined as the square of standard deviation, usually measured in bb/100.”"
+risk-of-ruin:
+  pl: ryzyko bankructwa
+  en: risk of ruin
+  abbr: RoR
+  area: mental
+  forms: [ryzyko bankructwa, ryzyka bankructwa, ryzyku bankructwa, ryzykiem bankructwa]
+  source: "PrimeDope, Risk of Ruin Formula (https://www.primedope.com/risk-of-ruin-formula-for-poker-players/): „Risk of ruin is the probability that your bankroll hits zero before reaching a target or before you quit.”"
 mental-game:
   pl: mental game
   en: mental game
@@ -836,6 +843,12 @@ chip-ev:
   en_alt: [cEV]
   area: tournament
   source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Chip EV: The average amount of chips an action is expected to yield.”"
+tournament-equity:
+  pl: equity turniejowe
+  en: tournament equity
+  area: tournament
+  forms: [equity turniejowe, equity turniejowego, equity turniejowym]
+  source: "GTO Wizard, ICM Basics (https://blog.gtowizard.com/icm-basics/): „then assigns tournament equity based on the payouts of those positions. Tournament equity is your expected share of the prize pool, given the payout structure and stack sizes”"
 prize-pool:
   pl: pula nagród
   en: prize pool
