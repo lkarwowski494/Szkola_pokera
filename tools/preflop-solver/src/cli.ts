@@ -90,7 +90,8 @@ async function solve(eqr: EqrParams, iterations: number, log = true): Promise<{ 
       s.foldLocks.set(n.id, lockFold);
     }
   if (exploreIters !== null) s.exploreIterations = exploreIters;
-  const fingerprint = JSON.stringify({ eqr, flops: flopsArg, postflopMinRaises, postflopMaxRaises, tree: treeConfig, lockFold, ...(highTree ? { highTree, sprHigh } : {}), ...(exploreIters !== null ? { exploreIters: String(exploreIters) } : {}) });
+  const fingerprint = JSON.stringify({ eqr, flops: flopsArg, postflopMinRaises, postflopMaxRaises, tree: treeConfig, lockFold, ...(highTree ? { highTree, sprHigh } : {}) });
+  // harmonogram eksploracji nie należy do odcisku: wolno go zmienić przy wznowieniu (np. wyłączyć eksplorację po zbiegnięciu)
   if (checkpoint && s.loadState(checkpoint, fingerprint)) console.error(`Wznowiono z punktu kontrolnego: iteracja ${s.iteration}`);
   const pool = threads > 1 && s.postflop instanceof StreetModel ? new PostflopPool(s.postflop, { equityFile: join(root, 'tools/equity/equity169.json'), boardsFile: resolve(root, flopsArg) }, eqr, threads) : null;
   const expl = () => (pool ? s.exploitabilityParallel(pool) : Promise.resolve(s.exploitability()));
