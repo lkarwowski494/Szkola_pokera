@@ -113,7 +113,20 @@ export function loadBoards(buf: Buffer, source = 'boards.bin'): StreetData {
 
 // ---------- drzewo ----------
 
-type SAction = 'check' | 'bet' | 'fold' | 'call' | 'allin';
+/** Akcje: check, fold, call, allin, bet0…betN (rozmiar z listy), raise (przebicie, które nie jest all-inem). */
+type SAction = string;
+
+/**
+ * Rozmiary zakładów w drzewie jednej puli (wersja v3c). sizes[l] = ułamki puli na ulicy l (0 = zakład geometryczny
+ * na pozostałe ulice, tak jak w v3b); raise = mnożnik zakładu dla przebicia innego niż all-in (0 = tylko all-in).
+ * Po przebiciu zostaje tylko pas, sprawdzenie albo all-in.
+ */
+export interface StreetTreeConfig {
+  sizes: [number[], number[], number[]];
+  raise: number;
+}
+/** Drzewo v3b: jeden zakład geometryczny na ulicę, przebicie all-in. */
+export const V3B_TREE: StreetTreeConfig = { sizes: [[0], [0], [0]], raise: 0 };
 
 export interface SDecision {
   kind: 'decision';
@@ -145,8 +158,11 @@ export interface STree {
   decisions: number;
 }
 
-/** Drzewo trzech ulic: na każdej OOP czeka albo zakłada, zakład geometryczny na pozostałe ulice, przebicie all-in. */
-export function buildStreetTree(pot0: number, stack: number, boardsPerLevel: [number, number, number], B: number): STree {
+/**
+ * Drzewo trzech ulic: na każdej OOP czeka albo zakłada (rozmiary z cfg), IP odpowiada; wobec zakładu pas, sprawdzenie,
+ * przebicie (cfg.raise) albo all-in. Z domyślną konfiguracją (V3B_TREE) drzewo jest identyczne z wersją v3b.
+ */
+export function buildStreetTree(pot0: number, stack: number, boardsPerLevel: [number, number, number], B: number, cfg: StreetTreeConfig = V3B_TREE): STree {
   let size = 0;
   let decisions = 0;
   const dec = (player: 0 | 1, level: number, actions: SAction[], mk: (a: SAction) => SNode): SDecision => {
@@ -161,27 +177,47 @@ export function buildStreetTree(pot0: number, stack: number, boardsPerLevel: [nu
     if (c[0] >= stack - 1e-9) return leaf('showdown', level, 0, c);
     const pot = pot0 + c[0] + c[1];
     const left = stack - c[0];
-    let bet = level === 2 ? left : Math.min(geometricFraction(pot, left, 3 - level) * pot, left);
-    if (left - bet < 1e-6) bet = left;
-    const isAllin = bet >= left - 1e-9;
+    // rozmiary zakładów na tej ulicy (bez duplikatów; zakład bliski all-ina staje się all-inem)
+    const bets: number[] = [];
+    for (const f of cfg.sizes[level]!) {
+      let bet = level === 2 && f === 0 ? left : Math.min((f === 0 ? geometricFraction(pot, left, 3 - level) : f) * pot, left);
+      if (left - bet < 1e-6) bet = left;
+      if (!bets.some((x) => Math.abs(x - bet) < 1e-6)) bets.push(bet);
+    }
     const next = (cc: [number, number]): SNode => (level === 2 ? leaf('showdown', 2, 0, cc) : { kind: 'chance', level, child: street(level + 1, cc) });
-    const facing = (bettor: 0 | 1, cc: [number, number]): SDecision => {
+    const facing = (bettor: 0 | 1, bet: number, cc: [number, number]): SDecision => {
       const caller: 0 | 1 = bettor === 0 ? 1 : 0;
-      const acts: SAction[] = isAllin ? ['fold', 'call'] : ['fold', 'call', 'allin'];
+      const isAllin = cc[bettor] >= stack - 1e-9;
+      const raiseTo = c[caller] + cfg.raise * bet;
+      const canRaise = !isAllin && cfg.raise > 0 && raiseTo < stack - 1e-6;
+      const acts: SAction[] = isAllin ? ['fold', 'call'] : canRaise ? ['fold', 'call', 'raise', 'allin'] : ['fold', 'call', 'allin'];
+      const afterRaise = (to: number): SNode => {
+        const k: [number, number] = caller === 0 ? [to, cc[1]] : [cc[0], to];
+        const allin = to >= stack - 1e-9;
+        return dec(bettor, level, allin ? ['fold', 'call'] : ['fold', 'call', 'allin'], (b) => {
+          if (b === 'fold') return leaf('fold', level, bettor, k);
+          if (b === 'call') return allin ? leaf('showdown', level, 0, [stack, stack]) : next([to, to]);
+          const k2: [number, number] = bettor === 0 ? [stack, to] : [to, stack];
+          return dec(caller, level, ['fold', 'call'], (x) => (x === 'fold' ? leaf('fold', level, caller, k2) : leaf('showdown', level, 0, [stack, stack])));
+        });
+      };
       return dec(caller, level, acts, (a) => {
         if (a === 'fold') return leaf('fold', level, caller, cc);
         if (a === 'call') {
           const k: [number, number] = [cc[bettor], cc[bettor]];
           return isAllin ? leaf('showdown', level, 0, k) : next(k);
         }
-        const k: [number, number] = caller === 0 ? [stack, cc[1]] : [cc[0], stack];
-        return dec(bettor, level, ['fold', 'call'], (b) => (b === 'fold' ? leaf('fold', level, bettor, k) : leaf('showdown', level, 0, [stack, stack])));
+        return afterRaise(a === 'raise' ? raiseTo : stack);
       });
     };
-    return dec(0, level, ['check', 'bet'], (a) => {
-      if (a === 'bet') return facing(0, [c[0] + bet, c[1]]);
-      return dec(1, level, ['check', 'bet'], (b) => (b === 'check' ? next(c) : facing(1, [c[0], c[1] + bet])));
-    });
+    const opener = (player: 0 | 1, cc: [number, number], onCheck: () => SNode): SDecision =>
+      dec(player, level, ['check', ...bets.map((_, i) => `bet${i}`)], (a) => {
+        if (a === 'check') return onCheck();
+        const bet = bets[Number(a.slice(3))]!;
+        const k: [number, number] = player === 0 ? [cc[0] + bet, cc[1]] : [cc[0], cc[1] + bet];
+        return facing(player, bet, k);
+      });
+    return opener(0, c, () => opener(1, c, () => next(c)));
   };
   const root = street(0, [0, 0]);
   return { root, size, decisions };
@@ -205,6 +241,9 @@ const RIVER_NORM = 48 / 44;
 
 export class StreetModel {
   readonly terminals: STerminal[] = [];
+  /** Parametry każdego końca drzewa (do odtworzenia modelu w wątkach roboczych, pfpool.ts). */
+  readonly stacks: number[] = [];
+  readonly configs: StreetTreeConfig[] = [];
   readonly B: number;
   controlVariate = true;
   regretWeight: 'reach' | 'chance' = 'chance';
@@ -248,8 +287,10 @@ export class StreetModel {
     });
   }
 
-  addTerminal(pot0: number, preInvested: [number, number], stack: number): number {
-    const tree = buildStreetTree(pot0, stack, this.nb, this.B);
+  addTerminal(pot0: number, preInvested: [number, number], stack: number, cfg: StreetTreeConfig = V3B_TREE): number {
+    const tree = buildStreetTree(pot0, stack, this.nb, this.B, cfg);
+    this.stacks.push(stack);
+    this.configs.push(cfg);
     this.terminals.push({ tree, preInvested, pot0, regrets: new Float64Array(tree.size), stratSum: new Float64Array(tree.size) });
     return this.terminals.length - 1;
   }

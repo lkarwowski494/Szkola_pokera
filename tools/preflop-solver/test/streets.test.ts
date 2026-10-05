@@ -70,6 +70,29 @@ describe('drzewo trzech ulic', () => {
     }
     expect(allinRiver).toBe(true);
   });
+
+  it('v3c: kilka rozmiarów i przebicie; showdown tylko przy równych wkładach, pas zawsze przy nierównych', () => {
+    const cfg = { sizes: [[0.33, 0.75], [0.66], [0]] as [number[], number[], number[]], raise: 3 };
+    const nb: [number, number, number] = [data.F, data.F * data.T, data.F * data.T * data.R];
+    const t = buildStreetTree(5.5, 97.5, nb, data.B, cfg);
+    const v3b = buildStreetTree(5.5, 97.5, nb, data.B);
+    expect(t.decisions).toBeGreaterThan(v3b.decisions);
+    let raises = 0;
+    const walk = (n: SNode): void => {
+      if (n.kind === 'decision') {
+        if (n.actions.includes('raise')) raises++;
+        n.children.forEach(walk);
+        return;
+      }
+      if (n.kind === 'chance') return walk(n.child);
+      expect(n.pot).toBeCloseTo(5.5 + n.contrib[0] + n.contrib[1], 9);
+      expect(Math.max(...n.contrib)).toBeLessThanOrEqual(97.5 + 1e-9);
+      if (n.kind === 'showdown') expect(n.contrib[0]).toBeCloseTo(n.contrib[1], 9);
+      else expect(Math.abs(n.contrib[0] - n.contrib[1])).toBeGreaterThan(1e-9);
+    };
+    walk(t.root);
+    expect(raises).toBeGreaterThan(0);
+  });
 });
 
 describe('gra trzech ulic', () => {

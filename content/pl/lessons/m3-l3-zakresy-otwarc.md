@@ -74,10 +74,10 @@ Na Buttonie solver {{t:open|otwiera}} już {{n:solver.rfi.btn}} rąk, bo został
 rfi.sb
 ```
 
-{{t:small-blind|Mały blind}} gra już tylko przeciw {{t:big-blind|dużemu blindowi}}, więc {{t:open|otwiera}} podobnie szeroko jak Button: ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, mimo że po flopie mówi pierwszy. Na mikrostawkach z {{t:small-blind|małego blinda}} {{t:raise|przebijasz}} albo {{t:fold|pasujesz}}, bez dopłacania do {{t:big-blind|dużego blinda}}: przy {{t:rake|rake'u}} pobieranym od {{t:pot|puli}} dopłacanie traci. Model solvera aplikacji {{t:open|otwiera}} z tej {{t:position|pozycji}} wyraźnie węziej niż publiczne źródła ({{n:solver.rfi.sb}} rąk), więc tej siatki nie traktuj jako wzoru.
+{{t:small-blind|Mały blind}} gra już tylko przeciw {{t:big-blind|dużemu blindowi}}, więc {{t:open|otwiera}} podobnie szeroko jak Button: ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, mimo że po flopie mówi pierwszy. Na mikrostawkach z {{t:small-blind|małego blinda}} {{t:raise|przebijasz}} albo {{t:fold|pasujesz}}, bez dopłacania do {{t:big-blind|dużego blinda}}: przy {{t:rake|rake'u}} pobieranym od {{t:pot|puli}} dopłacanie traci. Solver aplikacji {{t:open|otwiera}} stąd {{n:solver.rfi.sb}} rąk, czyli w przedziale ze źródeł.
 
 :::note Jak zapamiętać
 Nie ucz się {{n:combos.kinds}} pól na pamięć. Zapamiętaj granice: które {{t:pair|pary}}, które asy w kolorze i od której karty zaczynają się ręce w różnych kolorach. Ćwiczenia poniżej losują częściej właśnie ręce z granicy {{t:range|zakresu}}.
 :::
 
-Te {{t:range|zakresy}} pochodzą z modelu, który upraszcza grę po flopie, dlatego na granicy {{t:range|zakresu}} różnią się od profesjonalnych tabel. Model zaniża ręce w kolorze po kolei, a zawyża słabe ręce w różnych kolorach. Trzymaj się zasady z lekcji „Ręce startowe”: ręce w kolorze po kolei dobrze grają z {{t:late-position|późnej pozycji}}. Dopóki takie ręce nie zostaną zweryfikowane ze źródłami, ćwiczenia ich nie oceniają.
+Te {{t:range|zakresy}} pochodzą z modelu, który upraszcza grę po flopie, dlatego w kilkunastu rękach na granicy {{t:range|zakresu}} różnią się od profesjonalnych tabel, raz w jedną, raz w drugą stronę. To głównie ręce w kolorze z luką (np. 75s, 97s) i słabe ręce w różnych kolorach (np. A4o, K7o). Ćwiczenia tych rąk nie oceniają.

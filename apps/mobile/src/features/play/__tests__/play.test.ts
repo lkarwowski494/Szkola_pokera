@@ -5,8 +5,14 @@ import {
   actionMenu,
   botDecide,
   botView,
+  applyAction,
+  classOf,
   createRng,
   dealPlayHand,
+  gradeDecision,
+  HAND_CLASSES,
+  parseCards,
+  startHand,
   finishPlayHand,
   heroAct,
   nextActor,
@@ -90,6 +96,35 @@ describe('tryb gry: zestaw z treści i ekrany (logika)', () => {
       if (i.detail) clean(i.detail);
       for (const s of i.log) for (const l of s.lines) clean(l);
       expect(i.hole).toHaveLength(2);
+    }
+  });
+
+  it('BB wobec SB i Button wobec CO: sprawdzenie i 3-bet tą samą ręką mają ten sam werdykt (ocenia się tylko gram / pas)', () => {
+    // podział 3-bet / sprawdzenie w tych spotach nie przeszedł walidacji solvera (dokument 10: BB vs SB odstępstwo od K1,
+    // BTN vs CO decyzja A2), więc ocena nie może karać za wybór jednej z dwóch akcji „gram”
+    // 6 graczy, button na miejscu 3: UTG = 0, HJ = 1, CO = 2, BTN = 3, SB = 4, BB = 5
+    const cases = [
+      { spot: 'vs-open.bb-vs-sb', hero: 5, folds: 4, open: 300, threeBet: 900, cards: { AA: 'AsAh', A5s: 'As5s', '76s': '7s6s', K9o: 'Ks9d', '22': '2s2h', T7o: 'Ts7d', ATo: 'AsTd', Q4s: 'Qs4s' } },
+      { spot: 'vs-open.btn-vs-co', hero: 3, folds: 2, open: 250, threeBet: 750, cards: { AA: 'AsAh', KQs: 'KsQs', A5s: 'As5s', '55': '5s5h', T9s: 'Ts9s', KJo: 'KsJd', '72o': '7s2d', J5o: 'Js5d' } },
+    ];
+    for (const c of cases) {
+      const spot = kit.grading.spots.find((s) => s.id === c.spot)!;
+      expect(spot.groups).toHaveLength(1);
+      for (const [hc, txt] of Object.entries(c.cards)) {
+        const hole = parseCards(txt) as [number, number];
+        expect(classOf(hole[0], hole[1])).toBe(hc);
+        const holes: ([number, number] | null)[] = Array(6).fill(null);
+        holes[c.hero] = hole;
+        let st = startHand({ stacks: Array(6).fill(10000), smallBlind: 50, bigBlind: 100, button: 3 }, 1, { holes });
+        for (let i = 0; i < c.folds; i++) st = applyAction(st, { type: 'fold' });
+        st = applyAction(st, { type: 'raise', to: c.open });
+        const call = gradeDecision(st, { type: 'call' }, kit.grading);
+        const threeBet = gradeDecision(st, { type: 'raise', to: c.threeBet }, kit.grading);
+        expect(call.ruleId).not.toBeNull();
+        expect(threeBet.verdict).toBe(call.verdict);
+        const play = spot.groups[0]!.freqs[HAND_CLASSES.indexOf(hc as never)]!;
+        if (play > 0.9) expect(call.verdict).toBe('compliant');
+      }
     }
   });
 

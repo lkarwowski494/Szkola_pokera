@@ -5,7 +5,8 @@ import { DEFAULT_EQR, N, PLAY_GROUPS, validateEquity, type EqrParams, type Equit
 import { evReport, formatSummary, rangeOf, realizationReport, summarize } from './report';
 import { DEFAULT_DCFR, PreflopSolver } from './solver';
 import { loadFlops, type FlopData } from './postflop';
-import { loadBoards, type StreetData } from './streets';
+import { loadBoards, StreetModel, V3B_TREE, type StreetData, type StreetTreeConfig } from './streets';
+import { PostflopPool } from './pfpool';
 import { loadThreeWay, type ThreeWayData } from './threeway';
 import { buildTree, DEFAULT_TREE, N_PLAYERS, POSITIONS, type DecisionNode } from './tree';
 
@@ -52,6 +53,20 @@ if (flopsArg !== 'none') {
 }
 const postflopMinRaises = Number(arg('postflop-min-raises', '2'));
 const postflopMaxRaises = Number(arg('postflop-max-raises', '2'));
+// v3c: drzewo gry po flopie dla pul o SPR ≥ --pf-spr-high (domyślnie 8): --pf-high-sizes "0.33,0.75/0.66/0"
+// (ułamki puli na flopie / turnie / riverze, 0 = zakład geometryczny), --pf-high-raise 3 (przebicie do 3x zakładu, 0 = all-in)
+const parseSizes = (x: string): StreetTreeConfig['sizes'] => {
+  const parts = x.split('/');
+  const lv = (i: number) => (parts[Math.min(i, parts.length - 1)] ?? '0').split(',').map(Number);
+  return [lv(0), lv(1), lv(2)];
+};
+const highTree: StreetTreeConfig | null = args.includes('--pf-high-sizes') ? { sizes: parseSizes(arg('pf-high-sizes', '0')), raise: Number(arg('pf-high-raise', '0')) } : null;
+const sprHigh = Number(arg('pf-spr-high', '8'));
+const postflopTree = (spr: number): StreetTreeConfig => (highTree && spr >= sprHigh ? highTree : V3B_TREE);
+// --threads N: gra po flopie liczona w N wątkach (tylko z --flops dla tablic z nowymi kartami)
+const threads = Number(arg('threads', '1'));
+// --explore-iters N: eksploracja do iteracji N (domyślnie 150; 0 = przez cały przebieg)
+const exploreIters = args.includes('--explore-iters') ? Number(arg('explore-iters', '150')) || Infinity : null;
 
 // punkt kontrolny: --checkpoint PLIK (zapis co --checkpoint-every iteracji, wznowienie po restarcie)
 const checkpoint = args.includes('--checkpoint') ? resolve(arg('checkpoint', '')) : null;
@@ -66,28 +81,33 @@ const LOCK_PATHS = [
   'UTG:fold,HJ:fold,CO:fold,BTN:fold,SB:raise3,BB:raise9',
 ];
 
-function solve(eqr: EqrParams, iterations: number, log = true): PreflopSolver {
-  const s = new PreflopSolver(buildTree(treeConfig), equity, eqr, DEFAULT_DCFR, threeWay, flops, postflopMinRaises, postflopMaxRaises);
+async function solve(eqr: EqrParams, iterations: number, log = true): Promise<{ s: PreflopSolver; pool: PostflopPool | null }> {
+  const s = new PreflopSolver(buildTree(treeConfig), equity, eqr, DEFAULT_DCFR, threeWay, flops, postflopMinRaises, postflopMaxRaises, postflopTree);
   if (lockFold !== null)
     for (const path of LOCK_PATHS) {
       const n = s.nodes.find((x) => x.kind === 'decision' && x.path === path) as DecisionNode | undefined;
       if (!n || n.actions[0]!.kind !== 'fold') throw new Error(`Blokada pasa: brak węzła ${path}`);
       s.foldLocks.set(n.id, lockFold);
     }
-  const fingerprint = JSON.stringify({ eqr, flops: flopsArg, postflopMinRaises, postflopMaxRaises, tree: treeConfig, lockFold });
+  if (exploreIters !== null) s.exploreIterations = exploreIters;
+  const fingerprint = JSON.stringify({ eqr, flops: flopsArg, postflopMinRaises, postflopMaxRaises, tree: treeConfig, lockFold, ...(highTree ? { highTree, sprHigh } : {}) });
+  // harmonogram eksploracji nie należy do odcisku: wolno go zmienić przy wznowieniu (np. wyłączyć eksplorację po zbiegnięciu)
   if (checkpoint && s.loadState(checkpoint, fingerprint)) console.error(`Wznowiono z punktu kontrolnego: iteracja ${s.iteration}`);
+  const pool = threads > 1 && s.postflop instanceof StreetModel ? new PostflopPool(s.postflop, { equityFile: join(root, 'tools/equity/equity169.json'), boardsFile: resolve(root, flopsArg) }, eqr, threads) : null;
+  const expl = () => (pool ? s.exploitabilityParallel(pool) : Promise.resolve(s.exploitability()));
   const t0 = Date.now();
   const start = s.iteration + 1;
   for (let i = start; i <= iterations; i++) {
-    s.step();
+    if (pool) await s.stepParallel(pool);
+    else s.step();
     if (i % 10 === 0) console.error(`iteracja ${i}/${iterations} (${((Date.now() - t0) / 1000).toFixed(0)} s od startu procesu)`);
     if (checkpoint && i % checkpointEvery === 0) s.saveState(checkpoint, fingerprint);
     if (log && (i % 100 === 0 || i === iterations)) {
-      const e = s.exploitability();
+      const e = await expl();
       console.log(`iteracja ${i}: NashConv ${e.nashConv.toFixed(4)} bb, max gracz ${Math.max(...e.perPlayer).toFixed(4)} bb (${((Date.now() - t0) / 1000).toFixed(0)} s)`);
     }
   }
-  return s;
+  return { s, pool };
 }
 
 const eqr: EqrParams = {
@@ -138,7 +158,7 @@ if (args.includes('--calibrate')) {
   for (const role of roles)
     for (const k of ks)
       for (const m of ms) {
-        const s = solve({ ...eqr, k, m, role, ...(role3 === undefined ? {} : { role3 }), ...(sprFull === undefined ? {} : { sprFull }) }, iters, false);
+        const { s, pool } = await solve({ ...eqr, k, m, role, ...(role3 === undefined ? {} : { role3 }), ...(sprFull === undefined ? {} : { sprFull }) }, iters, false);
         const sum = summarize(s);
         const f = (name: string) => sum.spots.find((x) => x.name === name)!.freqs;
         const bb = f('BB vs BTN');
@@ -147,19 +167,22 @@ if (args.includes('--calibrate')) {
         const raise = (x: Record<string, number>) => Object.entries(x).filter(([a]) => a.startsWith('raise')).reduce((t, [, v]) => t + v, 0);
         const p1 = (x: number) => (x * 100).toFixed(1);
         const extra = [sum.rfi.UTG!, sum.rfi.HJ!, sum.rfi.CO!, sum.rfi.SB!, raise(bb), raise(f('BB vs SB')), raise(f('SB vs BTN')), raise(f('BTN vs CO')), raise(v3)].map(p1).join('\t');
-        console.log(`${sprFull ?? 8}\t${k}\t${m}\t${role}\t${role3 ?? '-'}\t${p1(sum.rfi.BTN!)}\t${p1(1 - (bb.fold ?? 0))}\t${p1(raise(co))}\t${p1(v3.fold ?? 0)}\t| ${extra}\t${s.exploitability().nashConv.toFixed(4)}`);
+        const nc = pool ? (await s.exploitabilityParallel(pool)).nashConv : s.exploitability().nashConv;
+        await pool?.close();
+        console.log(`${sprFull ?? 8}\t${k}\t${m}\t${role}\t${role3 ?? '-'}\t${p1(sum.rfi.BTN!)}\t${p1(1 - (bb.fold ?? 0))}\t${p1(raise(co))}\t${p1(v3.fold ?? 0)}\t| ${extra}\t${nc.toFixed(4)}`);
       }
 } else {
   const iterations = Number(arg('iterations', '600'));
   console.log(`Solver: DCFR ${JSON.stringify(DEFAULT_DCFR)}, EQR ${JSON.stringify(eqr)}, ${iterations} iteracji`);
-  const s = solve(eqr, iterations);
+  const { s, pool } = await solve(eqr, iterations);
   const summary = summarize(s);
   console.log(formatSummary(summary));
   const realization = realizationReport(s);
   console.log(realization);
   // diagnostyka B-045: wartość akcji w 3-betach z blindów (--ev-report)
   if (args.includes('--ev-report')) console.log(evReport(s));
-  const expl = s.exploitability();
+  const expl = pool ? await s.exploitabilityParallel(pool) : s.exploitability();
+  await pool?.close();
 
   // eksport: wszystkie węzły decyzyjne z rozkładem akcji na klasę ręki (jedno źródło prawdy dla zakresów)
   const spots = s.nodes
@@ -185,6 +208,7 @@ if (args.includes('--calibrate')) {
           eqr,
           ...(lockFold !== null ? { lock: { fold: lockFold, paths: LOCK_PATHS, note: 'wariant pomiarowy B-045, nie kanon' } } : {}),
           iterations,
+          ...(exploreIters !== null ? { exploreIterations: String(exploreIters) } : {}),
           players: N_PLAYERS,
           handClasses: N,
           nashConvBb: Number(expl.nashConv.toFixed(5)),
@@ -193,7 +217,7 @@ if (args.includes('--calibrate')) {
           equity3: threeWay ? `tools/equity/equity3.bin.gz (${threeWay.samples} prób Monte Carlo na trójkę klas)` : null,
           postflop: flops
             ? 'kind' in flops && flops.kind === 'streets'
-              ? { file: flopsArg, model: 'flop, turn i river jako osobne ulice', flops: flops.F, turnsPerFlop: flops.T, riversPerTurn: flops.R, buckets: flops.B, minRaises: postflopMinRaises, maxRaises: postflopMaxRaises, regretWeight: s.postflop!.regretWeight, betting: 'na każdej ulicy czekanie albo zakład geometryczny na pozostałe ulice, przebicie all-in' }
+              ? { file: flopsArg, model: 'flop, turn i river jako osobne ulice', ...(highTree ? { highSprTree: highTree, sprHigh } : {}), flops: flops.F, turnsPerFlop: flops.T, riversPerTurn: flops.R, buckets: flops.B, minRaises: postflopMinRaises, maxRaises: postflopMaxRaises, regretWeight: s.postflop!.regretWeight, betting: 'na każdej ulicy czekanie albo zakład geometryczny na pozostałe ulice, przebicie all-in' }
               : { file: flopsArg, model: 'bez nowych kart', flops: flops.F, buckets: flops.B, minRaises: postflopMinRaises, maxRaises: postflopMaxRaises, regretWeight: s.postflop!.regretWeight, rounds: 'SPR ≥ 3: 3 rundy, inaczej 2; zakład geometryczny, przebicie all-in' }
             : null,
           realization,
