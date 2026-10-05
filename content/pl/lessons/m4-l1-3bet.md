@@ -76,13 +76,13 @@ Gdy ktoś przed tobą {{t:open|otworzył}}, masz trzy możliwości: {{t:fold|pas
 
 ## {{t:position|Pozycja}} decyduje, czy {{t:call|sprawdzać}}
 
-Według rozwiązań GTO Wizard Button wobec {{t:open|otwarcia}} z {{t:cutoff|CO}} {{t:raise|przebija}} ok. {{n:pf.3bet-freq.btn-vs-co.low}} rąk, a {{t:call|sprawdza}} tylko ok. {{n:pf.call-freq.btn-vs-co}}; Preflop Wizard podaje 3-bety w przedziale {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}}. Wobec {{t:open|otwarcia}} z {{t:utg}} {{t:call|sprawdzeń}} jest już nieco więcej niż 3-betów: ok. {{n:pf.call-freq.btn-vs-utg}} wobec {{n:pf.3bet-freq.btn-vs-utg}}. {{t:range|Zakres}} {{t:utg}} jest silny, więc 3-bet częściej dostaje 4-bet i rzadziej wygrywa {{t:pot|pulę}} od razu.
+Według rozwiązań solverów (GTO Wizard i BeyondGTO) Button wobec {{t:open|otwarcia}} z {{t:cutoff|CO}} zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a {{t:call|sprawdza}} tylko ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}. Wobec {{t:open|otwarcia}} z {{t:utg}} {{t:call|sprawdzeń}} jest już nieco więcej niż 3-betów: ok. {{n:pf.call-freq.btn-vs-utg}} wobec {{n:pf.3bet-freq.btn-vs-utg}}. {{t:range|Zakres}} {{t:utg}} jest silny, więc 3-bet częściej dostaje 4-bet i rzadziej wygrywa {{t:pot|pulę}} od razu.
 
 ```range
 vs-open.btn-vs-co
 ```
 
-Solver aplikacji gra tu {{n:solver.play.btn-vs-co}} rąk Buttona. Jego 3-bety mieszczą się w przedziale ze źródeł, a {{t:call|sprawdzeń}} jest nieco więcej niż w GTO Wizard.
+Siatka pokazuje tylko, które ręce Button gra (3-betem albo {{t:call|sprawdzeniem}}), a które {{t:fold|pasuje}}. Podziału między 3-bet i {{t:call|sprawdzenie}} ucz się z liczb powyżej: solver aplikacji prawie nie {{t:call|sprawdza}} w tym spocie, więc tego podziału nie odtwarza. W kilkunastu rękach, np. A8s, 98s i 44, solver aplikacji gra inaczej niż BeyondGTO, więc ćwiczenia ich nie oceniają.
 
 Z {{t:small-blind|małego blinda}} prawie zawsze {{t:raise|przebijasz}} albo {{t:fold|pasujesz}}. {{t:call|Sprawdzenie}} oznacza grę {{t:out-of-position}}, a {{t:big-blind}} za tobą może jeszcze {{t:raise|przebić}}. {{t:out-of-position|Bez pozycji}} ręka gorzej **{{t:equity-realization|realizuje equity}}**: wygrywa mniejszą część {{t:pot|puli}}, niż wskazuje jej equity, bo częściej {{t:fold|pasujesz}} przed showdownem i trudniej ci wygrać {{t:pot|pulę}} {{t:bet|zakładem}}.
 
@@ -90,7 +90,7 @@ Z {{t:small-blind|małego blinda}} prawie zawsze {{t:raise|przebijasz}} albo {{t
 vs-open.sb-vs-btn
 ```
 
-Według rozwiązania GTO Wizard {{t:small-blind}} wobec Buttona prawie nic nie {{t:call|sprawdza}}: 3-betuje ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, górę {{t:range|zakresu}} (m.in. 77+, AJo+, KQo, A5s, A4s, T9s), a resztę {{t:fold|pasuje}}. Solver aplikacji 3-betuje tu {{n:solver.3bet.sb-vs-btn}} rąk; jego nieliczne {{t:call|sprawdzenia}} siatka liczy jako {{t:fold}}. W kilku rękach, np. 55, 66 i A9o, solver aplikacji gra inaczej niż GTO Wizard, więc ćwiczenia ich nie oceniają.
+Według rozwiązania GTO Wizard {{t:small-blind}} wobec Buttona prawie nic nie {{t:call|sprawdza}}: 3-betuje ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, górę {{t:range|zakresu}} (m.in. 77+, AJo+, KQo, A5s, A4s, T9s), a resztę {{t:fold|pasuje}}. Solver aplikacji 3-betuje tu {{n:solver.3bet.sb-vs-btn}} rąk; jego nieliczne {{t:call|sprawdzenia}} siatka liczy jako {{t:fold}}. W kilku rękach, np. ATo, T9s i A4s, solver aplikacji gra inaczej niż BeyondGTO, więc ćwiczenia ich nie oceniają.
 
 ## {{t:range|Zakres}} {{t:linear}} czy {{t:polarized}}
 

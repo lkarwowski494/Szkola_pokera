@@ -206,11 +206,11 @@
 - id: R-M4-005
   module: m4
   if: "z {{t:position|pozycji}} {{t:raise|przebijasz}} {{t:open}} z {{t:hijack|HJ}} albo {{t:cutoff|CO}}"
-  then: "3-betujesz głównie najlepsze ręce od góry i dokładasz kilka {{t:bluff|blefów}} z asami w kolorze (A5s, A4s); część słabszych rąk, np. małe {{t:pair|pary}} i {{t:connectors|łączniki}} w kolorze, {{t:call|sprawdzasz}}"
+  then: "3-betujesz głównie najlepsze ręce od góry i dokładasz kilka {{t:bluff|blefów}} z asami w kolorze (A5s, A4s); część słabszych rąk, np. małe {{t:pair|pary}} i {{t:connectors|łączniki}} w kolorze, {{t:call|sprawdzasz}}. Button wobec {{t:cutoff|CO}} zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a {{t:call|sprawdza}} ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}"
   because: "rywal często {{t:call|sprawdza}}, więc chcesz mieć rękę, która dobrze gra w {{t:pot|puli}} po {{t:call|sprawdzeniu}}"
   level: gto
   check: { kind: solver-spot, players: [6], stackBb: [100], spots: [vs-open.btn-vs-co] }
-  source: "GTO Wizard, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/): BTN vs CO 3-bet ok. 12%, sprawdzenie 5%; Deepfold, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide), tabela BTN vs CO: „QQ+, AKs, AKo, AQs (mixed), A5s, A4s…”; GTO Gecko (https://gtogecko.com/blog/gto-preflop-strategy) nazywa zakres liniowym, a Preflop Wizard spolaryzowanym (dokument 12 M4–M6, D-02)"
+  source: "GTO Wizard, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb: „Against a CO open, BTN will 3-bet ~12% of hands, while calling only 5%.”; BeyondGTO, BTN vs CO (https://beyondgto.com/defense/btn-vs-co), NL500, 100bb: „roughly 9% as a flat call and 10% as a 3-bet”; liczby to część wspólna obu źródeł (decyzja A2, dokument 10). Solver aplikacji tego podziału nie odtwarza (prawie nie sprawdza), więc siatka i ocena w trybie gry sprawdzają tylko „gram / pas”; Deepfold, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide), tabela BTN vs CO: „QQ+, AKs, AKo, AQs (mixed), A5s, A4s…”; GTO Gecko (https://gtogecko.com/blog/gto-preflop-strategy) nazywa zakres liniowym, a Preflop Wizard spolaryzowanym (dokument 12 M4–M6, D-02)"
 - id: R-M4-006
   module: m4
   if: "z {{t:big-blind|dużego blinda}} {{t:raise|przebijasz}} {{t:open}} Buttona albo {{t:small-blind|małego blinda}}"
@@ -271,11 +271,11 @@
 - id: R-M4-014
   module: m4
   if: "jesteś na {{t:big-blind|dużym blindzie}}, a {{t:small-blind}} {{t:open|otworzył}} na {{n:pf.open-size-sb}}"
-  then: "bronisz bardzo szeroko, choć do {{t:call|sprawdzenia}} potrzebujesz ok. {{n:eq.bb-vs-sb-open}} equity; 3-bet ma ok. {{n:pf.3bet.size-ip}} {{t:open|otwarcia}}"
-  because: "po flopie masz {{t:position|pozycję}}, więc realizujesz więcej equity; solver aplikacji broni tu {{n:solver.def.bb-vs-sb}} rąk"
+  then: "bronisz szeroko, ponad połowę rąk, choć do {{t:call|sprawdzenia}} potrzebujesz ok. {{n:eq.bb-vs-sb-open}} equity; 3-bet ma ok. {{n:pf.3bet.size-ip}} {{t:open|otwarcia}}"
+  because: "po flopie masz {{t:position|pozycję}}, więc realizujesz więcej equity; solver aplikacji broni tu {{n:solver.def.bb-vs-sb}} rąk, BeyondGTO ok. {{n:pf.bb-def.vs-sb.beyondgto}}"
   level: heuristic
   check: { kind: solver-spot, players: [6], stackBb: [100], spots: [vs-open.bb-vs-sb] }
-  source: "obliczenie ceny; solver preflop projektu (ADR-20); drzewo solvera (3-bet do 9bb)"
+  source: "obliczenie ceny; solver preflop projektu (ADR-20); drzewo solvera (3-bet do 9bb); BeyondGTO, BB vs SB (https://beyondgto.com/defense/bb-vs-sb), NL500, 100bb: „GTO defends the Big Blind with about 56% of hands”"
 
 # M5: c-bet na flopie. Pula po otwarciu i jednym sprawdzeniu, 100bb. Definicje tekstur liczy poker-core (texture.ts),
 # punkty i progi mokrości są w numbers.yaml (tex.*). Reguły strategiczne według rejestru decyzji D-01–D-21
