@@ -1,4 +1,4 @@
-import type { IcmCallSpot, IcmSpot } from '@szkola/poker-core';
+import type { HudSpot, HudThresholds, IcmCallSpot, IcmSpot, PlayerType } from '@szkola/poker-core';
 import { MIXED_LOW, MIXED_MIN } from './thresholds';
 import { tr, trAll } from './terms';
 import { cardsToString, combosCount, HandCategory, RANKS, rankOf, type Card, type FlopTexture, type HandResult, type TextureAxis, type WinReason, WETNESS_POINTS, WETNESS_THRESHOLDS } from '@szkola/poker-core';
@@ -91,6 +91,42 @@ function icmTable(s: IcmSpot): string {
   const pays = s.payouts.map((p) => pct(p)).join(', ');
   const stacks = s.stacks.map((x, i) => `${icmName(s, i)} ${chips(x)}`).join(', ');
   return `${s.stacks.length} graczy, płatne ${s.payouts.length} miejsca (${pays} {{t:prize-pool|puli nagród}}). Stacki: ${stacks}.`;
+}
+
+// ---------- Typy graczy po HUD (M10) ----------
+
+const PLAYER_TYPE_NAMES: Record<PlayerType, string> = {
+  nit: 'Nit',
+  regular: 'Regular',
+  passive: 'Pasywny {{t:recreational|gracz rekreacyjny}}',
+  maniac: '{{t:maniac|Maniak}}',
+  unknown: 'Za mało rąk, żeby ocenić',
+};
+
+/** Co z typu wynika przy stole (reguły R-M10-006…008 i R-M10-003). */
+const PLAYER_TYPE_ADJUST: Record<PlayerType, string> = {
+  nit: 'Jego {{t:raise|przebicia}} i 3-bety szanujesz, rękami z dołu {{t:range|zakresu}} {{t:fold|pasujesz}} częściej, a jego blindy kradniesz częściej.',
+  regular: 'Grasz blisko bazy z modułów 3–9 i odchodzisz od niej tylko przy wyraźnym błędzie w jego statystykach.',
+  passive: 'Więcej {{t:value-bet|value betów}}, także cieńszych, i mniej {{t:bluff|blefów}}, zwłaszcza na riverze.',
+  maniac: 'Nie {{t:bluff|blefujesz}} go, ręce łapiące {{t:bluff|blefy}} {{t:call|sprawdzasz}} szerzej, a z bardzo silną ręką pozwalasz mu betować.',
+  unknown: 'Grasz z nim jak z nieznanym graczem, czyli według bazy, i zbierasz kolejne ręce.',
+};
+
+/** Próg typu x i statystyki rywala; progi z treści (numbers.yaml, klucze hud.*). */
+function hudFact(s: HudSpot, x: PlayerType, th: HudThresholds): string {
+  const gap = s.vpip - s.pfr;
+  switch (x) {
+    case 'unknown':
+      return `Poniżej ${th.minHands} rąk statystyki są przypadkowe; tu jest ${s.hands}.`;
+    case 'nit':
+      return `Nit gra do ${th.nitMax}% rąk ({{t:vpip}}); ten gracz gra ${s.vpip}%.`;
+    case 'regular':
+      return `Regular gra ok. ${th.regLow}–${th.regHigh}% rąk z różnicą {{t:vpip}} − {{t:pfr}} do ${points(th.passiveGap)}; tu ${s.vpip}% i różnica ${gap}.`;
+    case 'passive':
+      return `Pasywny gracz luźny gra od ${th.loose}% rąk z różnicą {{t:vpip}} − {{t:pfr}} ponad ${points(th.passiveGap)}; tu ${s.vpip}% i różnica ${gap}.`;
+    case 'maniac':
+      return `{{t:maniac|Maniak}} gra od ${th.loose}% rąk z różnicą {{t:vpip}} − {{t:pfr}} mniejszą niż ${points(th.aggressiveGap)}; tu ${s.vpip}% i różnica ${gap}.`;
+  }
 }
 
 export const t = trAll({
@@ -192,6 +228,20 @@ export const t = trAll({
     equityExplanation: (s: IcmSpot, icm: number, share: number) =>
       `Szansa na 1. miejsce to twój stack ÷ wszystkie {{t:chips}} (${pct(share, 1)}); kolejne miejsca liczysz tak samo spośród pozostałych graczy. ` +
       `Razem ${pct(icm, 1)} {{t:prize-pool|puli nagród}}, ${icm > share ? 'więcej' : 'mniej'} niż udział w {{t:chips|żetonach}}.`,
+  },
+  playerType: {
+    prompt: (s: HudSpot) =>
+      `Rywal przy stole 6-max, statystyki z {{t:hud|HUD-a}}: {{t:vpip}} ${s.vpip}%, {{t:pfr}} ${s.pfr}%, próba ${s.hands} ${plural(s.hands, 'ręka', 'ręce', 'rąk')}. Jaki to typ gracza?`,
+    option: (x: PlayerType) => PLAYER_TYPE_NAMES[x],
+    why: (s: HudSpot, x: PlayerType, th: HudThresholds) =>
+      x === s.type ? `Tak. ${hudFact(s, x, th)} ${PLAYER_TYPE_ADJUST[x]}` : `Nie. ${hudFact(s, x, th)}`,
+    explanation: (s: HudSpot, th: HudThresholds) => {
+      const read =
+        s.hands < th.minHands
+          ? `mniej niż ${th.minHands}, więc statystyki są przypadkowe`
+          : `co najmniej ${th.readHands}, więc {{t:vpip}} i {{t:pfr}} da się czytać`;
+      return `Najpierw próba: ${s.hands} ${plural(s.hands, 'ręka', 'ręce', 'rąk')} to ${read}. ${hudFact(s, s.type, th)} ${PLAYER_TYPE_ADJUST[s.type]}`;
+    },
   },
   potOdds: {
     prompt: (pot: number, bet: number) => `W {{t:pot|puli}} jest ${pot}. Przeciwnik {{t:bet|stawia}} ${bet}. Ile equity potrzebujesz do {{t:call|sprawdzenia}}?`,

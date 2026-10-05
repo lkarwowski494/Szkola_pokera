@@ -9,3 +9,4 @@ export * from './drills';
 export * from './texture';
 export * from './bench';
 export * from './icm';
+export * from './hud';

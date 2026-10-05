@@ -18,7 +18,7 @@ export const pl = {
     notFound: 'Nie ma takiej lekcji.',
   },
   rule: { if: 'Jeśli', then: 'to', because: 'bo' },
-  level: { rules: 'Zasady gry', math: 'Matematyka', gto: 'Teoria (GTO)', heuristic: 'Heurystyka', exploit: 'Eksploatacja' },
+  level: { rules: 'Zasady gry', math: 'Matematyka', gto: 'Teoria (GTO)', heuristic: 'Heurystyka', exploit: '{{t:exploit|Eksploatacja}}' },
   session: {
     of: '{{n}} z {{total}}',
     next: 'Dalej',

@@ -19,7 +19,7 @@ import {
   type ModuleDef,
   type RuleDef,
 } from '@szkola/content-schema';
-import { classifyFlop, FULL_DECK, parseCards, textureMatches, type TextureFilter } from '@szkola/poker-core';
+import { classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, textureMatches, type TextureFilter } from '@szkola/poker-core';
 import { compileMarkdown } from './markdown';
 import { compileRanges } from './ranges';
 import { findHardcodedNumbers, resolveNumbers, substitute, type ResolvedNumber } from './numbers';
@@ -155,7 +155,8 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
       if (!moduleIds.has(lesson.module)) throw new Error(`nieznany moduł ${lesson.module}`);
       for (const r of lesson.rules) if (!ruleIds.has(r)) throw new Error(`nieznana reguła ${r}`);
 
-      const drills = lesson.drills.map((d) => {
+      const drills = lesson.drills.map((drill) => {
+        let d = drill;
         if (drillIds.has(d.id)) throw new Error(`powtórzone zadanie ${d.id}`);
         drillIds.add(d.id);
         for (const r of d.rules) if (!ruleIds.has(r)) throw new Error(`zadanie ${d.id}: nieznana reguła ${r}`);
@@ -195,6 +196,22 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
           };
         }
         if (d.kind === 'generated') {
+          // „n:klucz” w parametrach → wartość z numbers.yaml (progi generatora z jednego źródła prawdy)
+          const params = Object.fromEntries(
+            Object.entries(d.params).map(([k, v]) => {
+              if (typeof v !== 'string' || !v.startsWith('n:')) return [k, v];
+              const key = v.slice(2);
+              const n = numbers.get(key);
+              if (!n) throw new Error(`zadanie ${d.id}: params.${k}: nieznana liczba ${key}`);
+              used.add(key);
+              return [k, n.value];
+            }),
+          );
+          d = { ...d, params };
+          if (d.generator === 'playerType') {
+            for (const k of HUD_PARAMS) if (!(k in d.params)) throw new Error(`zadanie ${d.id}: playerType wymaga params.${k} (n:klucz)`);
+            hudThresholdsFromParams(d.params);
+          }
           if ((d.generator === 'outs' || d.generator === 'drawCall') && d.params.street !== undefined && d.params.street !== 'flop' && d.params.street !== 'turn') {
             throw new Error(`zadanie ${d.id}: params.street to flop albo turn`);
           }

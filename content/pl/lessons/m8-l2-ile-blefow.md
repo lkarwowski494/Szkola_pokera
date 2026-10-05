@@ -139,5 +139,5 @@ Alpha z M6 = bet ÷ ({{t:pot}} + bet) mówi, jak często rywal musi {{t:fold|spa
 Na {{t:bluff|blefy}} wybierasz **najsłabsze ręce**, np. nietrafione {{t:draw|dobierania}}: po {{t:check|czekaniu}} i tak by przegrały, więc nieudany {{t:bluff}} nic im nie odbiera. Ręce z wartością przy showdownie {{t:check|czekają}}.
 
 :::note To punkt równowagi, nie przepis na każdego rywala
-Te proporcje chronią cię przed rywalem, który gra dobrze. Wobec konkretnych graczy można od nich odchodzić; o tym w przyszłym module o eksploatacji mikrostawek (M10). Wzór na udział {{t:bluff|blefów}} to rachunek w uproszczonym modelu: {{t:range}} {{t:polarized}} przeciw ręce łapiącej {{t:bluff|blefy}} (GTO Wizard, How to Solve Toy Games). Zalecenie {{t:bluff|blefowania}} najsłabszymi rękami pochodzi z GTO Wizard i Upswing.
+Te proporcje chronią cię przed rywalem, który gra dobrze. Wobec konkretnych graczy można od nich odchodzić; o tym w module o {{t:exploit|eksploatacji}} mikrostawek (M10). Wzór na udział {{t:bluff|blefów}} to rachunek w uproszczonym modelu: {{t:range}} {{t:polarized}} przeciw ręce łapiącej {{t:bluff|blefy}} (GTO Wizard, How to Solve Toy Games). Zalecenie {{t:bluff|blefowania}} najsłabszymi rękami pochodzi z GTO Wizard i Upswing.
 :::

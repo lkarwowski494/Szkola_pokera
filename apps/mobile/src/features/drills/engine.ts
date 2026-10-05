@@ -7,6 +7,9 @@ import {
   generateBestHand,
   generateDrawCall,
   generateIcmCall,
+  generateHudSpot,
+  hudThresholdsFromParams,
+  PLAYER_TYPES,
   generateIcmSpot,
   icmEquities,
   generateOuts,
@@ -210,7 +213,24 @@ function fromGenerator(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: 
       return d.params.mode === 'equity' ? icmEquity(d, lessonId, rng, i) : icmCall(d, lessonId, rng, i);
     case 'vocab':
       return vocabBatch(d, lessonId, rng, 1, i)[0]!;
+    case 'playerType':
+      return playerType(d, lessonId, rng, i);
   }
+}
+
+/**
+ * M10: typ gracza po statystykach HUD. Progi przychodzą z treści (params po podstawieniu „n:klucz”), opcje w stałej
+ * kolejności (nit, regular, pasywny, maniak, za mało rąk); wyjaśnienie każdej opcji podaje próg i dostosowanie.
+ */
+function playerType(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number): DrillInstance {
+  const th = hudThresholdsFromParams(d.params);
+  const s = generateHudSpot(rng, th);
+  return {
+    ...base(d, lessonId, i),
+    prompt: t.playerType.prompt(s),
+    options: PLAYER_TYPES.map((x) => ({ text: t.playerType.option(x), correct: x === s.type, why: t.playerType.why(s, x, th) })),
+    explanation: t.playerType.explanation(s, th),
+  };
 }
 
 /** M11: sprawdzić all-in na bańce według ICM (bubble factor), losowe stacki i equity ręki. */

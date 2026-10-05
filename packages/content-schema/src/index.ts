@@ -183,8 +183,11 @@ export const PaintDrill = z.object({
   prompt: z.string().min(3),
 });
 
-/** icm (M11): bańka turnieju z losowymi stackami; params.mode = "call" (sprawdzić all-in według ICM) albo "equity" (wycena stacku). */
-export const GeneratorName = z.enum(['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'rangeDecision', 'icm', 'vocab']);
+/**
+ * icm (M11): bańka turnieju z losowymi stackami; params.mode = "call" (sprawdzić all-in według ICM) albo "equity" (wycena stacku).
+ * playerType (M10): typ gracza po VPIP, PFR i próbie z HUD; progi w params jako "n:klucz" z numbers.yaml (poker-core HUD_PARAMS).
+ */
+export const GeneratorName = z.enum(['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'rangeDecision', 'icm', 'vocab', 'playerType']);
 export type GeneratorName = z.infer<typeof GeneratorName>;
 
 export const GeneratedDrill = z.object({
@@ -193,6 +196,10 @@ export const GeneratedDrill = z.object({
   family: id,
   rules: z.array(z.string()).default([]),
   generator: GeneratorName,
+  /**
+   * Parametry generatora. Tekst „n:klucz” content-build zamienia na wartość liczby z numbers.yaml (jedno źródło prawdy
+   * dla progów używanych przez generator, np. playerType).
+   */
   params: z.record(z.string(), z.union([z.string(), z.number(), z.boolean()])).default({}),
   /** Ile losowych zadań z tego generatora w jednej lekcji. */
   count: z.number().int().min(1).max(20).default(3),
