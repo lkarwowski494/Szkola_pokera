@@ -6,11 +6,19 @@ import type { NumberUnitName } from '@szkola/content-schema';
  */
 
 /**
- * Ręka „mieszana” w zakresie solvera: grana z częstością od MIXED_LOW do MIXED_HIGH.
- * W zadaniach z decyzją każda akcja grana w co najmniej MIXED_LOW przypadków jest dobra,
- * a w malowaniu zakresu taka ręka jest zaliczana bez względu na to, czy ją zaznaczysz.
- * Założenie do kalibracji (bez źródła); ta sama granica obowiązuje w obu typach zadań.
+ * Jedna skala oceny akcji z zakresu solvera (ADR-26, dokument 14, sekcja 5.2), wspólna dla zadań i trybu gry M13:
+ * - zgodna: akcja najczęstsza albo grana w co najmniej MIXED_LOW przypadków;
+ * - dopuszczalna: akcja grana w co najmniej MIXED_MIN, ale mniej niż MIXED_LOW przypadków. Nie jest błędem;
+ *   w powtórkach FSRS ocena Hard (jak „blisko”);
+ * - błąd: akcja grana rzadziej niż w MIXED_MIN przypadków albo wcale.
+ * MIXED_MIN: GTO Wizard, Measure Performance (help.gtowizard.com/measure-performance), „Inaccuracy – Moves that are
+ * taken less than 3.5% of the time in GTO”; „Correct Move – Moves that are correct at some frequency”. Bez danych EV
+ * akcję poniżej 3,5% liczymy jako błąd (nazwane uproszczenie, dokument 14, 5.2).
+ * MIXED_LOW i MIXED_HIGH: granica ręki „mieszanej” (25–75%), założenie do kalibracji bez źródła (ADR-22, B-044).
+ * W malowaniu zakresu ręka grana w MIXED_LOW–MIXED_HIGH jest zaliczana bez względu na to, czy ją zaznaczysz;
+ * malowanie ocenia strategię całej klasy, nie pojedynczą decyzję, więc MIXED_MIN go nie dotyczy (ADR-26).
  */
+export const MIXED_MIN = 0.035;
 export const MIXED_LOW = 0.25;
 export const MIXED_HIGH = 0.75;
 

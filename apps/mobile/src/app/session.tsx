@@ -13,7 +13,7 @@ import { Button, Muted, ProgressBar, Screen, Title } from '@/components/ui';
 import { getAllRangeSpots, getDrillsBeforeModule, getDrillsForFamilies, getLessonDrills, getModuleDrills } from '@/data/content/repo';
 import { userDb } from '@/data/user/db';
 import { allFamilies, dueFamilies, recordAnswer, saveExamResult, saveLessonResult } from '@/data/user/repo';
-import { gradeAnswer, parseNumberInput, scorePaint } from '@/features/drills/grade';
+import { gradeAnswer, isPass, parseNumberInput, scorePaint } from '@/features/drills/grade';
 import { pct, t as dt } from '@/features/drills/text.pl';
 import { EXAM_PASS, PAINT_PASS } from '@/features/drills/thresholds';
 import type { ChoiceInstance, DrillAnswer, DrillInstance, DrillOption, GradeResult, NumericInstance, PaintInstance, TextureInstance } from '@/features/drills/types';
@@ -84,7 +84,7 @@ export default function SessionScreen() {
       const nextIdx = idx + 1;
       if (nextIdx >= items.length && !savedRef.current) {
         savedRef.current = true;
-        const correct = all.filter((r) => r.grade === 'correct').length;
+        const correct = all.filter((r) => isPass(r.grade)).length;
         if (mode === 'lesson' && lessonId) saveLessonResult(userDb, lessonId, correct, items.length);
         if (exam && moduleId) saveExamResult(userDb, moduleId, correct, items.length, correct / items.length >= EXAM_PASS);
       }
@@ -156,7 +156,7 @@ export default function SessionScreen() {
   }
 
   if (finished || !item) {
-    const correct = records.filter((r) => r.grade === 'correct').length;
+    const correct = records.filter((r) => isPass(r.grade)).length;
     const avg = records.reduce((s, r) => s + r.elapsedMs, 0) / Math.max(1, records.length) / 1000;
     const passed = correct / items.length >= EXAM_PASS;
     return (
@@ -263,7 +263,7 @@ function gradeColor(tk: Tk, g: GradeResult): string {
 }
 
 function gradeLabel(t: TFn, g: GradeResult): string {
-  return g === 'correct' ? t('session.correct') : g === 'close' ? t('session.near') : g === 'size' ? t('session.sizeError') : t('session.wrong');
+  return g === 'correct' ? t('session.correct') : g === 'acceptable' ? t('session.acceptable') : g === 'close' ? t('session.near') : g === 'size' ? t('session.sizeError') : t('session.wrong');
 }
 
 /** Opcje zadania z wyborem. `picked`: null = jeszcze bez odpowiedzi, -1 = brak wyboru (czas minął). */
@@ -276,8 +276,9 @@ function ChoiceOptions({ item, picked, onPick, readOnly }: { item: ChoiceInstanc
       {item.options.map((o, i) => {
         const isPicked = picked === i;
         const showRight = answered && o.correct;
-        const showSize = answered && isPicked && !o.correct && !!o.sizeError;
-        const showWrong = answered && isPicked && !o.correct && !o.sizeError;
+        const showOk = answered && isPicked && !o.correct && !!o.acceptable;
+        const showSize = answered && isPicked && !o.correct && !o.acceptable && !!o.sizeError;
+        const showWrong = answered && isPicked && !o.correct && !o.acceptable && !o.sizeError;
         return (
           <Pressable
             key={`${item.key}-${i}`}
@@ -288,15 +289,23 @@ function ChoiceOptions({ item, picked, onPick, readOnly }: { item: ChoiceInstanc
             style={({ pressed }) => [
               styles.option,
               {
-                backgroundColor: showRight ? tk.goodSoft : showWrong ? tk.badSoft : showSize ? tk.warnSoft : tk.surface,
-                borderColor: showRight ? tk.good : showWrong ? tk.bad : showSize ? tk.warn : tk.line,
-                opacity: answered && !showRight && !showWrong && !showSize ? 0.75 : pressed ? 0.85 : 1,
+                backgroundColor: showRight ? tk.goodSoft : showWrong ? tk.badSoft : showSize || showOk ? tk.warnSoft : tk.surface,
+                borderColor: showRight ? tk.good : showWrong ? tk.bad : showSize || showOk ? tk.warn : tk.line,
+                opacity: answered && !showRight && !showWrong && !showSize && !showOk ? 0.75 : pressed ? 0.85 : 1,
               },
             ]}
           >
-            {showRight || showWrong || showSize ? (
-              <Text style={[tp.caption, { color: showRight ? tk.good : showSize ? tk.warn : tk.bad, fontWeight: '700' }]}>
-                {showRight ? (isPicked ? t('session.yourAnswer') : t('session.rightAnswer')) : showSize ? t('session.yourAnswerSize') : t('session.yourAnswer')}
+            {showRight || showWrong || showSize || showOk ? (
+              <Text style={[tp.caption, { color: showRight ? tk.good : showSize || showOk ? tk.warn : tk.bad, fontWeight: '700' }]}>
+                {showRight
+                  ? isPicked
+                    ? t('session.yourAnswer')
+                    : t('session.rightAnswer')
+                  : showOk
+                    ? t('session.yourAnswerAcceptable')
+                    : showSize
+                      ? t('session.yourAnswerSize')
+                      : t('session.yourAnswer')}
               </Text>
             ) : null}
             <RichText text={o.text} style={[tp.body, { fontWeight: '600' }]} />

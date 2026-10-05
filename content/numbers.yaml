@@ -163,6 +163,8 @@ spr.4bet.oop.pot: { formula: sum, refs: [pf.4bet.oop-example.low, pf.4bet.oop-ex
 spr.4bet.oop.stack: { formula: diff, refs: [format.stack, pf.4bet.oop-example.low], unit: bb, decimals: 2, source: "obliczenie: stack minus 4-bet bez pozycji" }
 spr.4bet.oop: { formula: quotient, refs: [spr.4bet.oop.stack, spr.4bet.oop.pot], unit: ratio, decimals: 1, source: "obliczenie: SPR = stack za pulą ÷ pula na flopie (82,75 ÷ 36); najwyższy SPR po 4-becie w M4" }
 # Ręka mieszana: częstość, z jaką solver gra rękę (te same progi co MIXED_LOW i MIXED_HIGH w aplikacji).
+# Akcja dopuszczalna (ADR-26): solver gra ją w co najmniej range.mixed.min, ale mniej niż range.mixed.low przypadków.
+range.mixed.min: { value: 0.035, unit: percent, decimals: 1, source: "GTO Wizard, Measure Performance (https://help.gtowizard.com/measure-performance/): „Inaccuracy – Moves that are taken less than 3.5% of the time in GTO, but don't lose significant EV”; próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_MIN (ADR-26)" }
 range.mixed.low: { value: 0.25, unit: percent, source: "próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_LOW" }
 range.mixed.high: { value: 0.75, unit: percent, source: "próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_HIGH" }
 

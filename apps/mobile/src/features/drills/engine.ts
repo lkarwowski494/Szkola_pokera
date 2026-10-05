@@ -28,7 +28,7 @@ import {
 } from '@szkola/poker-core';
 import type { RangeSpot } from '@/data/content/repo';
 import { capitalize, categoryName, pctEquity, t, TEXTURE_AXIS_LABELS, TEXTURE_LABELS, textureText } from './text.pl';
-import { MIXED_HIGH, MIXED_LOW } from './thresholds';
+import { MIXED_HIGH, MIXED_LOW, MIXED_MIN } from './thresholds';
 import { tr } from './terms';
 import { vocabBatch } from './vocab';
 import type { DrillInstance, DrillOption, NumericInstance, Position, TextureAxisItem } from './types';
@@ -388,9 +388,19 @@ function drawCall(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: numbe
 
 /**
  * Zadanie z zakresu solvera: losowa ręka w danym spocie, częściej ręce graniczne.
- * Poprawna jest akcja najczęstsza; w rękach mieszanych (najczęstsza poniżej MIXED_HIGH) także każda akcja
- * grana w co najmniej MIXED_LOW przypadków. Grupa z wrongSizes dostaje dodatkowe opcje „zły rozmiar” (B-015).
+ * Skala ADR-26 (wspólna z trybem gry, dokument 14, 5.2): zgodna jest akcja najczęstsza i każda grana w co najmniej
+ * MIXED_LOW przypadków; dopuszczalna każda grana w MIXED_MIN–MIXED_LOW; rzadziej to błąd. Grupa z wrongSizes
+ * dostaje dodatkowe opcje „zły rozmiar” (B-015): przy akcji zgodnej albo dopuszczalnej to niedokładność.
  */
+/**
+ * Werdykt każdej akcji według częstości solvera (ADR-26): correct (najczęstsza albo ≥ MIXED_LOW),
+ * acceptable (MIXED_MIN ≤ f < MIXED_LOW), wrong (f < MIXED_MIN). Wspólna dla zadań i przyszłej oceny gry (M13).
+ */
+export function rangeVerdict(freqs: readonly number[]): ('correct' | 'acceptable' | 'wrong')[] {
+  const best = Math.max(...freqs);
+  return freqs.map((f) => (f === best || f >= MIXED_LOW ? 'correct' : f >= MIXED_MIN ? 'acceptable' : 'wrong'));
+}
+
 function rangeDecision(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number, ctx: DrillContext): DrillInstance {
   const ids = String(d.params.spots ?? '').split(',').map((x) => x.trim()).filter(Boolean);
   const spot = ctx.range(ids[Math.floor(rng() * ids.length)]!);
@@ -410,17 +420,19 @@ function rangeDecision(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: 
   const freqs = [...spot.groups.map((g) => ({ name: g.name, f: g.freqs[h] ?? 0 })), { name: t.range.fold, f: Math.max(0, 1 - play(h)) }];
   const best = Math.max(...freqs.map((f) => f.f));
   const mixed = best < MIXED_HIGH;
-  const isCorrect = (f: number) => f === best || (mixed && f >= MIXED_LOW);
-  const options: DrillOption[] = freqs.map((f) => {
-    const correct = isCorrect(f.f);
-    return { text: f.name, correct, why: correct ? t.range.right(f.f) : t.range.wrong(f.f) };
+  const verdict = rangeVerdict(freqs.map((f) => f.f));
+  const options: DrillOption[] = freqs.map((f, fi) => {
+    const v = verdict[fi]!;
+    if (v === 'correct') return { text: f.name, correct: true, why: t.range.right(f.f) };
+    if (v === 'acceptable') return { text: f.name, correct: false, acceptable: true, why: t.range.acceptable(f.f) };
+    return { text: f.name, correct: false, why: t.range.wrong(f.f) };
   });
   // błędne rozmiary dokładamy na końcu listy (kolejność opcji generatora jest stała: grupy, pas, złe rozmiary)
   spot.groups.forEach((g, gi) => {
     const f = freqs[gi]!.f;
     for (const w of g.wrongSizes ?? []) {
       options.push(
-        isCorrect(f) ? { text: w.text, correct: false, sizeError: true, why: w.why } : { text: w.text, correct: false, why: `${t.range.wrong(f)} ${w.why}` },
+        verdict[gi] !== 'wrong' ? { text: w.text, correct: false, sizeError: true, why: w.why } : { text: w.text, correct: false, why: `${t.range.wrong(f)} ${w.why}` },
       );
     }
   });

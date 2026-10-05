@@ -25,7 +25,7 @@ export const answers = sqliteTable(
     /** lesson | review | speed | exam */
     mode: text('mode').notNull(),
     correct: integer('correct', { mode: 'boolean' }).notNull(),
-    /** correct | close | size | wrong (od wersji 0001; starsze wiersze: null, wtedy liczy się tylko correct). */
+    /** correct | acceptable | close | size | wrong (od wersji 0001; acceptable od ADR-26; starsze wiersze: null, wtedy liczy się tylko correct). */
     grade: text('grade'),
     elapsedMs: integer('elapsed_ms').notNull(),
     answeredAt: integer('answered_at').notNull(),
