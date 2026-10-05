@@ -294,3 +294,37 @@ export function gameSessionsList(db: UserDb, limit = 20) {
 export function gameFindingsForSession(db: UserDb, sessionId: number) {
   return db.select().from(gameFindings).where(eq(gameFindings.sessionId, sessionId)).orderBy(asc(gameFindings.id)).all();
 }
+
+/** Liczba decyzji sesji: wszystkie i ocenione (bez „bez oceny”), do nagłówka raportu „Oceniono X z Y”. */
+export function gameVerdictCounts(db: UserDb, sessionId: number): { all: number; rated: number } {
+  const rows = db.select({ v: gameFindings.verdict }).from(gameFindings).where(eq(gameFindings.sessionId, sessionId)).all();
+  return { all: rows.length, rated: rows.filter((r) => r.v !== 'unrated').length };
+}
+
+export function gameSession(db: UserDb, id: number) {
+  return db.select().from(gameSessions).where(eq(gameSessions.id, id)).get() ?? null;
+}
+
+export function gameHandsForSession(db: UserDb, sessionId: number) {
+  return db.select().from(gameHands).where(eq(gameHands.sessionId, sessionId)).orderBy(asc(gameHands.handNo)).all();
+}
+
+/** Liczba kart z gry do powtórki teraz (wprowadzonych, niewycofanych). */
+export function dueGameCardCount(db: UserDb, now = Date.now()): number {
+  return db
+    .select({ id: reviewCards.familyId })
+    .from(reviewCards)
+    .innerJoin(gameCards, eq(gameCards.cardId, reviewCards.familyId))
+    .where(and(lte(reviewCards.due, now), isNull(gameCards.retiredAt)))
+    .all().length;
+}
+
+/** Ile kart powstało z danej sesji (do raportu). */
+export function gameCardsFromSession(db: UserDb, sessionId: number): number {
+  return db
+    .select({ id: gameCards.cardId })
+    .from(gameCards)
+    .innerJoin(gameFindings, eq(gameFindings.id, gameCards.findingId))
+    .where(eq(gameFindings.sessionId, sessionId))
+    .all().length;
+}
