@@ -1,11 +1,12 @@
 import type { Block, Inline } from '@szkola/content-schema';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { radius, space, type as tp, useTokens } from '@/theme/tokens';
 import { useSQLiteContext } from 'expo-sqlite';
 import { getRangeSpot } from '@/data/content/repo';
 import { CardRow } from './PlayingCard';
 import { RangeGrid } from './RangeGrid';
+import { columnWidths } from './tableLayout';
 
 /** Renderer skompilowanej treści lekcji (ADR-16): drzewo JSON zbudowane offline, bez parsowania na telefonie. */
 
@@ -49,14 +50,34 @@ function InlineRun({ items, style }: { items: Inline[]; style?: object }) {
   );
 }
 
-/** Szerokość kolumn z długości treści (tabela przewija się poziomo, gdy jest szersza niż ekran). */
-function columnWidths(head: Inline[][], rows: Inline[][][]): number[] {
-  const len = (cell: Inline[]) =>
-    cell.reduce((n, it) => n + (it.t === 'text' ? it.v.length * 7.5 : it.v.length * 24 + 4), 0);
-  return head.map((_, c) => {
-    const longest = Math.max(len(head[c]!), ...rows.map((r) => len(r[c] ?? [])));
-    return Math.max(48, Math.min(200, Math.ceil(longest + 2 * space.s)));
-  });
+function TableBlock({ block }: { block: Extract<Block, { t: 'table' }> }) {
+  const tk = useTokens();
+  const [avail, setAvail] = useState<number | undefined>(undefined);
+  const widths = columnWidths(block.head, block.rows, avail);
+  return (
+    <View onLayout={(e) => setAvail(Math.floor(e.nativeEvent.layout.width) - 2)}>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <View style={[styles.table, { borderColor: tk.line }]}>
+          <View style={[styles.tr, { backgroundColor: tk.feltSoft }]}>
+            {block.head.map((cell, i) => (
+              <View key={i} style={[styles.td, { width: widths[i] }]}>
+                <InlineRun items={cell} style={[tp.small, { fontWeight: '700' }]} />
+              </View>
+            ))}
+          </View>
+          {block.rows.map((row, r) => (
+            <View key={r} style={[styles.tr, { borderTopColor: tk.line, borderTopWidth: StyleSheet.hairlineWidth }]}>
+              {row.map((cell, i) => (
+                <View key={i} style={[styles.td, { width: widths[i] }]}>
+                  <InlineRun items={cell} style={tp.small} />
+                </View>
+              ))}
+            </View>
+          ))}
+        </View>
+      </ScrollView>
+    </View>
+  );
 }
 
 function BlockView({ block }: { block: Block }) {
@@ -79,31 +100,8 @@ function BlockView({ block }: { block: Block }) {
           ))}
         </View>
       );
-    case 'table': {
-      const widths = columnWidths(block.head, block.rows);
-      return (
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          <View style={[styles.table, { borderColor: tk.line }]}>
-            <View style={[styles.tr, { backgroundColor: tk.feltSoft }]}>
-              {block.head.map((cell, i) => (
-                <View key={i} style={[styles.td, { width: widths[i] }]}>
-                  <InlineRun items={cell} style={[tp.small, { fontWeight: '700' }]} />
-                </View>
-              ))}
-            </View>
-            {block.rows.map((row, r) => (
-              <View key={r} style={[styles.tr, { borderTopColor: tk.line, borderTopWidth: StyleSheet.hairlineWidth }]}>
-                {row.map((cell, i) => (
-                  <View key={i} style={[styles.td, { width: widths[i] }]}>
-                    <InlineRun items={cell} style={tp.small} />
-                  </View>
-                ))}
-              </View>
-            ))}
-          </View>
-        </ScrollView>
-      );
-    }
+    case 'table':
+      return <TableBlock block={block} />;
     case 'note':
       return (
         <View style={[styles.note, { backgroundColor: tk.feltSoft }]}>
