@@ -34,7 +34,7 @@ drills:
     table: { hand: "As Kd", position: CO }
     options:
       - { text: "4-betuję", correct: true, why: "AK chce wpłacić stack: blokuje AA i KK rywala i dominuje AQ, KQ i słabsze asy." }
-      - { text: "{{t:call|Sprawdzam}}", why: "{{t:call|Sprawdzenie}} nie jest złe, ale {{t:out-of-position}} tracisz inicjatywę i wartość. Standard to 4-bet." }
+      - { text: "{{t:call|Sprawdzam}}", why: "{{t:call|Sprawdzenie}} nie jest złe, ale {{t:out-of-position}} tracisz {{t:initiative|inicjatywę}} i wartość. Standard to 4-bet." }
       - { text: "{{t:fold|Pasuję}}", why: "AK to jedna z najlepszych rąk preflop. {{t:fold|Pas}} tu to duży błąd." }
   - kind: choice
     id: m4.l3.q-87s

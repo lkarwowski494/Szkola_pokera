@@ -92,7 +92,7 @@ drills:
     prompt: "Którymi rękami najczęściej {{t:bet|stawiasz}} {{t:second-barrel|drugą beczkę}} na turnie?"
     options:
       - { text: "Silnymi rękami i {{t:draw|dobieraniami}}; średnie ręce {{t:check|czekają}}", correct: true, why: "Tak: silne ręce chcą zapłaty, {{t:draw|dobierania}} wygrywają na dwa sposoby, a średnie ręce nie zyskują na kolejnym {{t:bet|zakładzie}}." }
-      - { text: "Wszystkimi, żeby nie stracić inicjatywy", why: "Inicjatywa sama nie wygrywa. Rywal {{t:call|sprawdził}} flop, więc ma silniejszy {{t:range}}, a ręce bez outów i średnie {{t:pair|pary}} tracą na ciągłym betowaniu." }
+      - { text: "Wszystkimi, żeby nie stracić {{t:initiative|inicjatywy}}", why: "{{t:initiative|Inicjatywa}} sama nie wygrywa. Rywal {{t:call|sprawdził}} flop, więc ma silniejszy {{t:range}}, a ręce bez outów i średnie {{t:pair|pary}} tracą na ciągłym betowaniu." }
       - { text: "Tylko najsilniejszymi rękami", why: "Wtedy rywal pasowałby za każdym razem, gdy betujesz, i płaciłby tylko wtedy, gdy cię bije. {{t:draw|Dobierania}} to naturalne {{t:semi-bluff|półblefy}}." }
   - kind: numeric
     id: m7.l1.n-alpha-turn

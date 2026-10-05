@@ -74,7 +74,7 @@ drills:
     id: m11.l3.q-covering
     family: m11.icm.call
     rules: [R-M11-010]
-    prompt: "{{t:bubble|Bańka}} {{t:tournament|turnieju}}. Masz największy stack przy stole i przykrywasz wszystkich. Średni stack pasuje do ciebie bardzo często. Co z tego wynika?"
+    prompt: "{{t:bubble|Bańka}} {{t:tournament|turnieju}}. Masz największy stack przy stole i {{t:cover|przykrywasz}} wszystkich. Średni stack pasuje do ciebie bardzo często. Co z tego wynika?"
     options:
       - { text: "Możesz {{t:shove|wpychać}} szerzej, bo rywale {{t:call|sprawdzają}} ciasno", correct: true, why: "Średni stack ryzykuje przy {{t:call|sprawdzeniu}} odpadnięcie tuż przed nagrodami, więc potrzebuje dużo equity. Ty przy przegranej tracisz tylko część stacku. Rywale {{t:call|sprawdzają}} ciasno, więc częściej zgarniasz {{t:pot|pulę}} bez walki." }
       - { text: "Grasz ciaśniej, żeby nie stracić prowadzenia", why: "Lider ma najmniejsze ryzyko przy stole. Granie ciasno oddaje mu jego główną przewagę: presję na średnie stacki." }
@@ -140,7 +140,7 @@ Płatne są dwa miejsca: {{n:m11.icm.a.p1}} i {{n:m11.icm.a.p2}} {{t:prize-pool|
 
 ## Bubble factor: przegrana boli bardziej
 
-Czterech graczy, płatne trzy miejsca: {{n:m11.bf.p1}}, {{n:m11.bf.p2}} i {{n:m11.bf.p3}}. Stacki {{n:m11.bf.s1}}, {{n:m11.bf.s2}} (ty), {{n:m11.bf.s3}} i {{n:m11.bf.s4}}. Gracz z {{n:m11.bf.s3}} wchodzi all-in, ty go przykrywasz. Dla prostoty pomijamy blindy w {{t:pot|puli}}.
+Czterech graczy, płatne trzy miejsca: {{n:m11.bf.p1}}, {{n:m11.bf.p2}} i {{n:m11.bf.p3}}. Stacki {{n:m11.bf.s1}}, {{n:m11.bf.s2}} (ty), {{n:m11.bf.s3}} i {{n:m11.bf.s4}}. Gracz z {{n:m11.bf.s3}} wchodzi all-in, ty go {{t:cover|przykrywasz}}. Dla prostoty pomijamy blindy w {{t:pot|puli}}.
 
 - Teraz twój stack jest wart {{n:m11.bf.eq.now}} {{t:prize-pool|puli nagród}}.
 - Wygrasz: masz {{n:m11.bf.win}}, rywal odpada, wszyscy są w nagrodach. Twoje equity rośnie do {{n:m11.bf.eq.win}}, czyli o **{{n:m11.bf.gain}}**.
@@ -161,7 +161,7 @@ Wychodzi **{{n:m11.bf.req}}**. W grze o {{t:chips}} ryzykujesz {{n:m11.bf.s3}}, 
 Ten sam kierunek widać w opublikowanej równowadze dla trzech graczy z równymi stackami (Ganzfried i Sandholm, 2008): gdy Button i {{t:small-blind}} są już all-in, {{t:big-blind}} w pojedynczym rozdaniu {{t:call|sprawdza}} {{n:m11.gs.overcall.single}} rąk, a w {{t:tournament|turnieju}} z {{t:payout|wypłatami}} tylko {{n:m11.gs.overcall.tourn}}, czyli same {{t:top-pair|najwyższe pary}} i AKs.
 
 :::note Kto {{t:call|sprawdza}} ciasno
-Średni stack na {{t:bubble|bańce}} {{t:call|sprawdza}} all-iny dużo ciaśniej niż w grze o {{t:chips}}. Duży stack, który przykrywa rywali, ryzykuje mniej i może na tym grać: {{t:shove|wpychać}} szerzej, bo rywale muszą {{t:fold|pasować}}. Bubble factor zależy od wszystkich stacków przy stole, dlatego nie liczy się go przy stole, tylko ćwiczy na przykładach, żeby wyrobić wyczucie.
+Średni stack na {{t:bubble|bańce}} {{t:call|sprawdza}} all-iny dużo ciaśniej niż w grze o {{t:chips}}. Duży stack, który {{t:cover|przykrywa}} rywali, ryzykuje mniej i może na tym grać: {{t:shove|wpychać}} szerzej, bo rywale muszą {{t:fold|pasować}}. Bubble factor zależy od wszystkich stacków przy stole, dlatego nie liczy się go przy stole, tylko ćwiczy na przykładach, żeby wyrobić wyczucie.
 :::
 
 ## Ograniczenia {{t:icm}}

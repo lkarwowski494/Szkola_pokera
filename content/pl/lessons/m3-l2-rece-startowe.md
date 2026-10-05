@@ -44,7 +44,7 @@ drills:
     options:
       - { text: "{{t:raise|Przebijam}}", correct: true, why: "QJ w kolorze to bardzo dobra ręka do ataku na blindy z {{t:position|pozycji}}: trafia {{t:straight|strity}}, kolory i wysokie {{t:pair|pary}}." }
       - { text: "{{t:fold|Pasuję}}", why: "Na Buttonie ta ręka jest za dobra na {{t:fold}}." }
-      - { text: "{{t:call|Sprawdzam}}", why: "Lepiej {{t:raise|przebić}}: masz szansę zgarnąć blindy od razu i grasz z inicjatywą." }
+      - { text: "{{t:call|Sprawdzam}}", why: "Lepiej {{t:raise|przebić}}: masz szansę zgarnąć blindy od razu i grasz z {{t:initiative|inicjatywą}}." }
 ---
 Większość pieniędzy początkujący tracą, grając za dużo słabych rąk. Dobra selekcja na starcie to najszybszy sposób, żeby przestać przegrywać.
 

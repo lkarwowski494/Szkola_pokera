@@ -414,6 +414,12 @@ range:
   area: preflop
   forms: [zakres, zakresu, zakresie, zakresem, zakresy, zakresów, zakresom, zakresowi, zakresach, zakresami]
   source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Range: A collection of hands that a player could feasibly be holding given the action of the current hand.”"
+mixed-hand:
+  pl: ręka mieszana
+  en: mixing hand
+  area: preflop
+  forms: [ręka mieszana, ręki mieszanej, ręce mieszanej, rękę mieszaną, ręką mieszaną, ręce mieszane, rąk mieszanych, rękom mieszanym, rękami mieszanymi, rękach mieszanych]
+  source: "GTO Wizard, Heads up! Exploiting SB’s Preflop Mistakes (https://blog.gtowizard.com/heads-up-exploiting-sbs-preflop-mistakes/): „SB prefers to do so by increasing the frequencies of mixing hands because the pure limping hands don’t gain anything from adding opens”; GTO Wizard, Aggregate Flop Strategy: SB C-Betting in SRP (https://blog.gtowizard.com/aggregate-flop-strategy-sb-c-betting-in-srp/): „SB has no pure raises and many hands that mix call and raise”; GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Mixed strategy To mix between different actions with the same hand.”"
 open:
   pl: otwarcie
   en: open
@@ -529,6 +535,18 @@ disconnected:
   area: board
   forms: [rozłączony, rozłączonego, rozłączonym, rozłączonych, rozłączone, rozłączona]
   source: "GTO Wizard, Flop Heuristics: IP C-Betting in Cash Games (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/): „Disconnected boards are the hardest for either player to connect with.”"
+semi-connected:
+  pl: półpołączony
+  en: semi-connected
+  area: board
+  forms: [półpołączony, półpołączonego, półpołączonym, półpołączonych, półpołączone, półpołączona]
+  source: "GTO Wizard, The Four-Point Checklist for Calling Turn Barrels (https://blog.gtowizard.com/the-four-point-checklist-for-calling-turn-barrels/), o stole T♣8♣3♥ 4♥ (dobieranie do strita możliwe, strit nie): „The board is semi-connected”"
+wetness:
+  pl: mokrość
+  en: wetness
+  area: board
+  forms: [mokrość, mokrości, mokrością]
+  source: "GTO Wizard, The Mechanics of C-Bet Sizing (https://blog.gtowizard.com/the-mechanics-of-c-bet-sizing/): „We can explore this further with a concept called “the wetness parabola.””; Upswing Poker, 3 Tips For Playing Sets to Help You Get Max Value (https://upswingpoker.com/flopped-sets-lucid/): „Wet boards feature connected cards and/or flush draws (depending on the wetness of the board)”"
 top-pair:
   pl: najwyższa para
   en: top pair
@@ -559,6 +577,13 @@ aggressor:
   area: board
   forms: [agresor, agresora, agresorem, agresorowi, agresorze]
   source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Continuation bet (c-bet): A bet made by the previous-street aggressor.”; „Donk bet: Any bet made by a player before the previous street aggressor has had an opportunity to act.”"
+initiative:
+  pl: inicjatywa
+  en: initiative
+  en_alt: [betting initiative]
+  area: board
+  forms: [inicjatywa, inicjatywy, inicjatywę, inicjatywą, inicjatywie]
+  source: "GTO Wizard, When Checking the Nuts Beats Betting Them (https://blog.gtowizard.com/when-checking-the-nuts-beats-betting-them/): „we may not want to check any of our top-tier hands and instead take the initiative”; Upswing Poker, Delayed C-Bet Strategy (https://upswingpoker.com/delayed-continuation-bet-c-bet-strategy/): „many players c-bet at almost every opportunity just because they have the betting initiative”"
 
 # ---------- Strategia po flopie (M5–M9) ----------
 range-advantage:
@@ -585,6 +610,12 @@ polarized:
   area: strategy
   forms: [spolaryzowany, spolaryzowana, spolaryzowane, spolaryzowanego, spolaryzowanym, spolaryzowanych, spolaryzowanej, spolaryzowaną]
   source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Polarized: Describes a range that is mainly very strong made hands or bluffs, with very few middle-strength hands.”"
+polarization:
+  pl: polaryzacja
+  en: polarization
+  area: strategy
+  forms: [polaryzacja, polaryzacji, polaryzację, polaryzacją]
+  source: "GTO Wizard, Range Morphology (https://blog.gtowizard.com/range-morphology/): „Why Does Polarization Exist? Why Not Just Bet Linear?”; GTO Wizard, Interpreting Equity Distributions (https://blog.gtowizard.com/interpreting-equity-distributions/): „This is an extreme example of polarization.”"
 linear:
   pl: liniowy
   en: linear
@@ -791,6 +822,13 @@ bubble-factor:
   en: bubble factor
   area: tournament
   source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Bubble Factor: Bubble Factor (BF) measures how much more losing hurts than winning helps you in MTTs.”"
+cover:
+  pl: przykrywać
+  en: cover
+  area: tournament
+  # w tekście czasownik: „przykrywasz wszystkich” = masz więcej żetonów niż każdy z nich
+  forms: [przykrywać, przykrywasz, przykrywa, przykrywają, przykrywam, przykrywający, przykrywającego]
+  source: "GTO Wizard, ICM Basics (https://blog.gtowizard.com/icm-basics/): „Your risk premium is higher against stacks that cover you and lower against smaller stacks that you have covered.”; Upswing Poker, A Quick Guide to ICM in Tournaments (https://upswingpoker.com/icm-quick-guide/): „We aren’t going to be defending our Big Blind wide because we don’t want to go postflop versus stacks that cover us”"
 risk-premium:
   pl: premia za ryzyko
   en: risk premium

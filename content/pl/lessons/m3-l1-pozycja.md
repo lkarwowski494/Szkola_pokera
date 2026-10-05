@@ -34,7 +34,7 @@ drills:
     options:
       - { text: "{{t:raise|Przebijam}}", correct: true, why: "Zostały tylko blindy, a po flopie masz {{t:position|pozycję}}. Na Buttonie {{t:open|otwierasz}} ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk, a K8o się w tym mieści." }
       - { text: "{{t:fold|Pasuję}}", why: "Za ostrożnie. Przeciwko samym blindom ta ręka jest wystarczająco dobra, a {{t:position}} dodaje jej wartości." }
-      - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Limp oddaje inicjatywę. {{t:raise|Przebicie}} często od razu zgarnia blindy." }
+      - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Limp oddaje {{t:initiative|inicjatywę}}. {{t:raise|Przebicie}} często od razu zgarnia blindy." }
   - kind: choice
     id: m3.l1.q4
     family: m3.position

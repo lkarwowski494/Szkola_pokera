@@ -96,7 +96,7 @@ function icmTable(s: IcmSpot): string {
 export const t = trAll({
   paint: {
     explanation: (title: string) =>
-      `${title}. Zielone pole: grasz i zaznaczyłeś. Znak „−”: ręka z {{t:range|zakresu}}, której brakuje. Znak „+”: zaznaczona, a solver ją {{t:fold|pasuje}}. Kropka: ręka mieszana (solver gra ją tylko czasem) albo sporna (solver odbiega w niej od publicznych tabel), więc jest zaliczona w obie strony. Wynik liczy {{t:combo|kombinacje}} ({{t:pair}} ${combosCount('AA')}, w kolorze ${combosCount('AKs')}, w różnych kolorach ${combosCount('AKo')}) tylko wśród rąk z {{t:range|zakresu}} albo zaznaczonych.`,
+      `${title}. Zielone pole: grasz i zaznaczyłeś. Znak „−”: ręka z {{t:range|zakresu}}, której brakuje. Znak „+”: zaznaczona, a solver ją {{t:fold|pasuje}}. Kropka: {{t:mixed-hand|ręka mieszana}} (solver gra ją tylko czasem) albo sporna (solver odbiega w niej od publicznych tabel), więc jest zaliczona w obie strony. Wynik liczy {{t:combo|kombinacje}} ({{t:pair}} ${combosCount('AA')}, w kolorze ${combosCount('AKs')}, w różnych kolorach ${combosCount('AKo')}) tylko wśród rąk z {{t:range|zakresu}} albo zaznaczonych.`,
     score: (score: number, pass: number) => `Zgodność z solverem: ${pct(score)} (zaliczenie od ${pct(pass)}).`,
   },
   numeric: {
@@ -233,7 +233,7 @@ export const t = trAll({
 export const TEXTURE_LABELS = trAll({
   height: { high: 'Wysoki', middle: 'Średni', low: 'Niski' },
   suits: { rainbow: '{{t:rainbow|Tęczowy}}', 'two-tone': '{{t:two-tone|Dwukolorowy}}', monotone: '{{t:monotone|Monotoniczny}}' },
-  ranks: { paired: '{{t:paired|Sparowany}}', connected: '{{t:connected|Połączony}}', 'semi-connected': 'Półpołączony', disconnected: '{{t:disconnected|Rozłączony}}' },
+  ranks: { paired: '{{t:paired|Sparowany}}', connected: '{{t:connected|Połączony}}', 'semi-connected': '{{t:semi-connected|Półpołączony}}', disconnected: '{{t:disconnected|Rozłączony}}' },
   wetness: { dry: '{{t:dry|Suchy}}', medium: 'Pośredni', wet: '{{t:wet|Mokry}}' },
 } as const satisfies { [A in TextureAxis]: Record<FlopTexture[A], string> });
 
@@ -275,7 +275,7 @@ const TEXTURE_DEFS = {
     paired: 'flop {{t:paired}} ma dwie albo trzy karty tej samej rangi; {{t:straight}} z dwiema kartami gracza jest wtedy niemożliwy, choć {{t:straight-draw}} bywa możliwe',
     connected: 'flop {{t:connected}} ma trzy różne rangi w obrębie pięciu kolejnych, więc {{t:straight}} jest możliwy już teraz (as liczy się też jako jedynka)',
     'semi-connected':
-      'flop półpołączony ma dwie rangi w obrębie pięciu kolejnych, ale nie trzy: {{t:straight|strita}} jeszcze nie ma, a {{t:straight-draw}} (otwarte albo gutshot) już jest możliwe',
+      'flop {{t:semi-connected|półpołączony}} ma dwie rangi w obrębie pięciu kolejnych, ale nie trzy: {{t:straight|strita}} jeszcze nie ma, a {{t:straight-draw}} (otwarte albo gutshot) już jest możliwe',
     disconnected: 'flop {{t:disconnected}} ma rangi tak odległe, że żadne dwie nie mieszczą się w pięciu kolejnych, więc nikt nie ma nawet {{t:straight-draw|dobierania do strita}}',
   },
   wetness: {
@@ -364,7 +364,7 @@ export const textureText = trAll({
       ? {
           height: 'Jak wysoki jest ten flop?',
           suits: 'Ile kolorów ma ten flop?',
-          ranks: 'Czy ten flop jest {{t:paired}}, {{t:connected}}, półpołączony czy {{t:disconnected}}?',
+          ranks: 'Czy ten flop jest {{t:paired}}, {{t:connected}}, {{t:semi-connected|półpołączony}} czy {{t:disconnected}}?',
           wetness: 'Czy ten flop jest {{t:dry}}, pośredni czy {{t:wet}}?',
         }[axes[0]!]
       : 'Oceń {{t:texture|teksturę}} flopa w każdym wierszu.',
@@ -383,7 +383,7 @@ export const textureText = trAll({
     return right ? `Tak: ${def}. ${fact}` : `Nie: ${def}. ${fact}`;
   },
   summary: (tex: FlopTexture) =>
-    `Ten flop jest ${TEXTURE_LABELS.height[tex.height].toLowerCase()}, ${TEXTURE_LABELS.suits[tex.suits].toLowerCase()} i ${TEXTURE_LABELS.ranks[tex.ranks].toLowerCase()}, czyli ${TEXTURE_LABELS.wetness[tex.wetness].toLowerCase()} (${points(tex.wetnessPoints)} mokrości).`,
+    `Ten flop jest ${TEXTURE_LABELS.height[tex.height].toLowerCase()}, ${TEXTURE_LABELS.suits[tex.suits].toLowerCase()} i ${TEXTURE_LABELS.ranks[tex.ranks].toLowerCase()}, czyli ${TEXTURE_LABELS.wetness[tex.wetness].toLowerCase()} (${points(tex.wetnessPoints)} {{t:wetness|mokrości}}).`,
 });
 
 // ---------- Słownictwo PL ↔ EN (ćwiczenie vocab) ----------
