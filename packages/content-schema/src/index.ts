@@ -331,6 +331,13 @@ export interface CompiledRangeSpot {
   playPercent: number;
   /** Klasy niepewne (RangeSpotDef.uncertain), w kolejności HAND_CLASSES; pusta lista = brak. */
   uncertain: string[];
+  /** Plik wyniku solvera w content/ranges, z którego pochodzi spot (np. preflop-6max-100bb.json). */
+  solver: string;
+  /**
+   * Wszystkie akcje węzła solvera z częstościami dla 169 klas (kolejność HAND_CLASSES), z pasem włącznie; etykiety jak
+   * w wyniku solvera („fold”, „call 2.5”, „raise 7.5”, „all-in”). Dla botów trybu gry M13 (dokument 14, 4.4.2).
+   */
+  actions: { label: string; freqs: number[] }[];
 }
 
 // ---------- Lekcje ----------

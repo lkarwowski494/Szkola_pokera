@@ -21,7 +21,7 @@ import {
 } from '@szkola/content-schema';
 import { classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, textureMatches, type TextureFilter } from '@szkola/poker-core';
 import { compileMarkdown } from './markdown';
-import { compileRanges } from './ranges';
+import { compileHandRanking, compileRanges } from './ranges';
 import { findHardcodedNumbers, resolveNumbers, substitute, type ResolvedNumber } from './numbers';
 import { loadTerms } from './terms';
 
@@ -52,6 +52,8 @@ export interface CompiledContent {
   rules: RuleDef[];
   numbers: { key: string; value: number; display: string; source: string; population?: string; note?: string }[];
   ranges: CompiledRangeSpot[];
+  /** Ranking 169 klas od najsilniejszej (equity wobec losowej ręki); dla botów trybu gry M13. */
+  handRanking: string[];
   terms: (CompiledTerm & { forms?: string[]; skip?: string[] })[];
   hash: string;
   warnings: string[];
@@ -305,7 +307,8 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
     ...(n.entry.note ? { note: n.entry.note } : {}),
   }));
 
-  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, modules, lessons, rules, numbers: numbersOut, ranges, terms: terms.compiled };
+  const { ranking: handRanking } = compileHandRanking(join(contentDir, '..', 'tools', 'equity', 'equity169.json'));
+  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, modules, lessons, rules, numbers: numbersOut, ranges, handRanking, terms: terms.compiled };
   const hash = createHash('sha256').update(JSON.stringify(payload)).digest('hex').slice(0, 16);
   return { ...payload, hash, warnings };
 }
@@ -360,7 +363,8 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
     CREATE INDEX drills_family ON drills(family);
     CREATE TABLE rules (id TEXT PRIMARY KEY, module_id TEXT NOT NULL REFERENCES modules(id), level TEXT NOT NULL, if_text TEXT NOT NULL, then_text TEXT NOT NULL, because TEXT NOT NULL, source TEXT NOT NULL, population TEXT);
     CREATE TABLE numbers (key TEXT PRIMARY KEY, value REAL NOT NULL, display TEXT NOT NULL, source TEXT NOT NULL, population TEXT, note TEXT);
-    CREATE TABLE ranges (id TEXT PRIMARY KEY, title TEXT NOT NULL, hero TEXT NOT NULL, path TEXT NOT NULL, play_percent REAL NOT NULL, groups TEXT NOT NULL, uncertain TEXT NOT NULL);
+    CREATE TABLE ranges (id TEXT PRIMARY KEY, title TEXT NOT NULL, hero TEXT NOT NULL, path TEXT NOT NULL, play_percent REAL NOT NULL, groups TEXT NOT NULL, uncertain TEXT NOT NULL, solver TEXT NOT NULL, actions TEXT NOT NULL);
+    CREATE TABLE game_kit (key TEXT PRIMARY KEY, value TEXT NOT NULL);
     CREATE TABLE terms (key TEXT PRIMARY KEY, pl TEXT NOT NULL, en TEXT NOT NULL, en_alt TEXT NOT NULL, abbr TEXT, area TEXT NOT NULL, source TEXT NOT NULL);
   `);
   const tx = (fn: () => void) => {
@@ -385,8 +389,11 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
     for (const r of content.rules) ru.run(r.id, r.module, r.level, r.if, r.then, r.because, r.source, r.population ?? null);
     const nu = db.prepare('INSERT INTO numbers VALUES (?, ?, ?, ?, ?, ?)');
     for (const n of content.numbers) nu.run(n.key, n.value, n.display, n.source, n.population ?? null, n.note ?? null);
-    const ra = db.prepare('INSERT INTO ranges VALUES (?, ?, ?, ?, ?, ?, ?)');
-    for (const r of content.ranges) ra.run(r.id, r.title, r.hero, r.path, r.playPercent, JSON.stringify(r.groups), JSON.stringify(r.uncertain));
+    const ra = db.prepare('INSERT INTO ranges VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
+    for (const r of content.ranges) {
+      ra.run(r.id, r.title, r.hero, r.path, r.playPercent, JSON.stringify(r.groups), JSON.stringify(r.uncertain), r.solver, JSON.stringify(r.actions));
+    }
+    db.prepare('INSERT INTO game_kit VALUES (?, ?)').run('handRanking', JSON.stringify(content.handRanking));
     const te = db.prepare('INSERT INTO terms VALUES (?, ?, ?, ?, ?, ?, ?)');
     for (const t of content.terms) te.run(t.key, t.pl, t.en, JSON.stringify(t.enAlt), t.abbr ?? null, t.area, t.source);
   });

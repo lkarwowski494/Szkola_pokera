@@ -11,3 +11,5 @@ export * from './bench';
 export * from './icm';
 export * from './hud';
 export * from './table';
+export * from './holding';
+export * from './bots';
