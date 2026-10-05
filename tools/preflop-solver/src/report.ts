@@ -1,7 +1,7 @@
 import { HAND_CLASSES } from '@szkola/poker-core';
 import { N, PRIOR } from './model';
 import type { PreflopSolver } from './solver';
-import { N_PLAYERS, POSITIONS, type DecisionNode, type Node } from './tree';
+import { POSITIONS, positionsFor, type DecisionNode, type Node } from './tree';
 
 export function findNode(s: PreflopSolver, path: string): DecisionNode | null {
   const n = s.nodes.find((x) => x.kind === 'decision' && x.path === path);
@@ -25,7 +25,7 @@ export function actionFrequencies(s: PreflopSolver, node: DecisionNode, weights:
 
 /** Rozkład rąk gracza docierającego do węzła (iloczyn jego decyzji po drodze). */
 export function playerReach(s: PreflopSolver, target: DecisionNode | Node): Float64Array[] {
-  const reach = Array.from({ length: N_PLAYERS }, () => Float64Array.from(PRIOR));
+  const reach = Array.from({ length: s.nPlayers }, () => Float64Array.from(PRIOR));
   const walk = (node: Node, r: Float64Array[]): Float64Array[] | null => {
     if (node === target) return r;
     if (node.kind !== 'decision') return null;
@@ -53,6 +53,7 @@ export interface Summary {
 
 /** Najważniejsze liczby do walidacji z celami z researchu. */
 export function summarize(s: PreflopSolver, openSize = 2.5, sbOpen = 3): Summary {
+  if (s.nPlayers === 9) return summarize9(s, openSize);
   const rfi: Record<string, number> = {};
   for (let i = 0; i < 5; i++) {
     const node = findNode(s, FOLDS(i));
@@ -81,6 +82,30 @@ export function summarize(s: PreflopSolver, openSize = 2.5, sbOpen = 3): Summary
   const coOpen = open(2);
   const n3 = s.nodes.find((x) => x.kind === 'decision' && x.path.startsWith(`${coOpen},BTN:raise`) && x.path.endsWith('BB:fold') && x.player === 2);
   if (n3) spots.push({ name: 'CO vs 3-bet BTN', freqs: actionFrequencies(s, n3 as DecisionNode, playerReach(s, n3)[2]!) });
+  return { rfi, spots };
+}
+
+/**
+ * 9-max: liczone są tylko poddrzewa otwarć z UTG, UTG+1 i UTG+2 (reszta to kanon 6-max, TreeConfig.externalFolds),
+ * więc podsumowanie obejmuje otwarcia tych pozycji i odpowiedzi na nie.
+ */
+function summarize9(s: PreflopSolver, openSize: number): Summary {
+  const POS = positionsFor(9);
+  const folds = (n: number) => POS.slice(0, n).map((p) => `${p}:fold`);
+  const rfi: Record<string, number> = {};
+  for (let i = 0; i < 3; i++) {
+    const node = findNode(s, folds(i).join(','));
+    if (node) rfi[POS[i]!] = 1 - (actionFrequencies(s, node).fold ?? 0);
+  }
+  const spots: Summary['spots'] = [];
+  const spot = (name: string, path: string) => {
+    const node = findNode(s, path);
+    if (!node) return;
+    spots.push({ name, freqs: actionFrequencies(s, node, playerReach(s, node)[node.player]!) });
+  };
+  // otwarcie z pozycji i, potem pasy aż do pozycji j (j > i), która odpowiada
+  const facing = (i: number, j: number) => [...folds(i), `${POS[i]}:raise${openSize}`, ...POS.slice(i + 1, j).map((p) => `${p}:fold`)].join(',');
+  for (let i = 0; i < 3; i++) for (const j of [i + 1, 5, 6, 8]) if (j > i) spot(`${POS[j]} vs ${POS[i]}`, facing(i, j));
   return { rfi, spots };
 }
 

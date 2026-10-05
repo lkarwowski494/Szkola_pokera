@@ -1,5 +1,5 @@
 /**
- * Drzewo akcji preflop 6-max (ADR-20). Uproszczenia pierwszej wersji, opisane w dokumentacji:
+ * Drzewo akcji preflop 6-max (ADR-20), od wersji 9-max także dla 9 graczy (TreeConfig.players). Uproszczenia pierwszej wersji, opisane w dokumentacji:
  * - bez limpów (otwarcie albo pas), także w pojedynku blindów;
  * - jeden rozmiar na każdym poziomie podbicia; 5-bet to all-in;
  * - sprawdzenie otwarcia przez pierwszego chętnego; gdy otwarcie ma już jedno sprawdzenie,
@@ -10,8 +10,15 @@
 export const POSITIONS = ['UTG', 'HJ', 'CO', 'BTN', 'SB', 'BB'] as const;
 export type Position = (typeof POSITIONS)[number];
 export const N_PLAYERS = 6;
-const SB = 4;
-const BB = 5;
+/** Pozycje stołu 9-max: trzy wczesne przed pozycjami 6-max (LJ odpowiada UTG w 6-max). */
+export const POSITIONS_9 = ['UTG', 'UTG+1', 'UTG+2', 'LJ', 'HJ', 'CO', 'BTN', 'SB', 'BB'] as const;
+
+/** Nazwy pozycji dla stołu z `n` graczami (6 albo 9). */
+export function positionsFor(n: number): readonly string[] {
+  if (n === 6) return POSITIONS;
+  if (n === 9) return POSITIONS_9;
+  throw new Error(`Nieobsługiwana liczba graczy: ${n}`);
+}
 
 export type ActionKind = 'fold' | 'call' | 'raise' | 'allin';
 
@@ -27,6 +34,14 @@ export interface TreeConfig {
   fourBetOop: number;
   /** Czy duży blind może dołączyć do otwarcia z jednym sprawdzeniem (pula trzyosobowa). */
   bbOvercall: boolean;
+  /** Liczba graczy (domyślnie 6). */
+  players?: number;
+  /**
+   * 9-max: gdy pierwszych `externalFolds` graczy spasuje, reszta drzewa to dokładnie gra 6-max (te same blindy i stacki;
+   * model nie uwzględnia blokerów spasowanych graczy), więc zamiast niej jest końcówka `external` o wartości 0, a
+   * strategię tego poddrzewa bierze się z wyniku 6-max (scripts/merge-9max.ts, dokument 10).
+   */
+  externalFolds?: number;
 }
 
 export const DEFAULT_TREE: TreeConfig = {
@@ -89,16 +104,26 @@ export interface Showdown3Terminal {
   path: string;
 }
 
-export type Node = DecisionNode | FoldTerminal | ShowdownTerminal | Showdown3Terminal;
+/**
+ * Poddrzewo liczone osobno (9-max: wszyscy wcześni gracze spasowali, dalej gra 6-max). Wartość 0 dla każdego gracza:
+ * spasowani wcześni gracze nic nie włożyli, a żal pozostałych graczy w węzłach poza tym poddrzewem od niego nie zależy.
+ */
+export interface ExternalTerminal {
+  kind: 'external';
+  id: number;
+  path: string;
+}
+
+export type Node = DecisionNode | FoldTerminal | ShowdownTerminal | Showdown3Terminal | ExternalTerminal;
 
 /** Kolejność postflop: blindy mówią pierwsze (SB, BB), potem UTG…BTN. Większy indeks = później. */
-export function postflopOrder(p: number): number {
-  return p === SB ? 0 : p === BB ? 1 : p + 2;
+export function postflopOrder(p: number, n = N_PLAYERS): number {
+  return p === n - 2 ? 0 : p === n - 1 ? 1 : p + 2;
 }
 
 /** Czy gracz `a` ma pozycję na graczu `b` po flopie. */
-export function isInPosition(a: number, b: number): boolean {
-  return postflopOrder(a) > postflopOrder(b);
+export function isInPosition(a: number, b: number, n = N_PLAYERS): boolean {
+  return postflopOrder(a, n) > postflopOrder(b, n);
 }
 
 interface State {
@@ -115,7 +140,15 @@ interface State {
 
 const round2 = (x: number) => Math.round(x * 100) / 100;
 
-export function buildTree(cfg: TreeConfig = DEFAULT_TREE): { root: Node; nodes: Node[] } {
+export function buildTree(cfg: TreeConfig = DEFAULT_TREE): { root: Node; nodes: Node[]; players: number; positions: readonly string[] } {
+  const nP = cfg.players ?? N_PLAYERS;
+  const POS = positionsFor(nP);
+  const SB = nP - 2;
+  const BB = nP - 1;
+  const order = (p: number) => postflopOrder(p, nP);
+  const inPos = (a: number, b: number) => isInPosition(a, b, nP);
+  const ext = cfg.externalFolds ?? 0;
+  const extPath = POS.slice(0, ext).map((x) => `${x}:fold`).join(',');
   const nodes: Node[] = [];
   const add = <T extends Node>(n: Omit<T, 'id'>): T => {
     const node = { ...n, id: nodes.length } as T;
@@ -126,6 +159,7 @@ export function buildTree(cfg: TreeConfig = DEFAULT_TREE): { root: Node; nodes: 
   const activePlayers = (s: State) => s.folded.map((f, i) => (f ? -1 : i)).filter((i) => i >= 0);
 
   const build = (s: State): Node => {
+    if (ext > 0 && s.path.length === ext && s.path.join(',') === extPath) return add<ExternalTerminal>({ kind: 'external', path: extPath });
     const active = activePlayers(s);
     const pot = round2(s.invested.reduce((a, b) => a + b, 0));
     if (active.length === 1) {
@@ -133,13 +167,13 @@ export function buildTree(cfg: TreeConfig = DEFAULT_TREE): { root: Node; nodes: 
     }
     if (s.pending.length === 0) {
       if (active.length === 3) {
-        const players = active.slice().sort((x, y) => postflopOrder(x) - postflopOrder(y)) as [number, number, number];
+        const players = active.slice().sort((x, y) => order(x) - order(y)) as [number, number, number];
         const remaining = round2(cfg.stack - Math.max(...players.map((q) => s.invested[q]!)));
         return add<Showdown3Terminal>({ kind: 'showdown3', players, aggressor: s.lastRaiser, invested: s.invested.slice(), pot, remaining, path: s.path.join(',') });
       }
       if (active.length !== 2) throw new Error(`Na flopie ${active.length} graczy: ${s.path.join(',')}`);
       const [a, b] = active as [number, number];
-      const oop = isInPosition(a, b) ? b : a;
+      const oop = inPos(a, b) ? b : a;
       const ip = oop === a ? b : a;
       const remaining = round2(cfg.stack - Math.max(s.invested[a]!, s.invested[b]!));
       return add<ShowdownTerminal>({ kind: 'showdown', oop, ip, aggressor: s.lastRaiser, invested: s.invested.slice(), pot, remaining, path: s.path.join(',') });
@@ -150,7 +184,7 @@ export function buildTree(cfg: TreeConfig = DEFAULT_TREE): { root: Node; nodes: 
     const actions: DecisionNode['actions'] = [];
     const childStates: State[] = [];
     const facing = s.currentBet - s.invested[p]!;
-    const name = POSITIONS[p];
+    const name = POS[p];
 
     // pas (gdy jest co sprawdzać)
     if (facing > 0) {
@@ -181,8 +215,8 @@ export function buildTree(cfg: TreeConfig = DEFAULT_TREE): { root: Node; nodes: 
       let to: number;
       let kind: ActionKind = 'raise';
       if (s.raiseLevel === 0) to = p === SB ? cfg.openSizeSb : cfg.openSize;
-      else if (s.raiseLevel === 1) to = s.currentBet * (isInPosition(p, s.lastRaiser) ? cfg.threeBetIp : cfg.threeBetOop);
-      else if (s.raiseLevel === 2) to = s.currentBet * (isInPosition(p, s.lastRaiser) ? cfg.fourBetIp : cfg.fourBetOop);
+      else if (s.raiseLevel === 1) to = s.currentBet * (inPos(p, s.lastRaiser) ? cfg.threeBetIp : cfg.threeBetOop);
+      else if (s.raiseLevel === 2) to = s.currentBet * (inPos(p, s.lastRaiser) ? cfg.fourBetIp : cfg.fourBetOop);
       else to = cfg.stack;
       to = round2(Math.min(to, cfg.stack));
       if (to >= cfg.stack) {
@@ -193,8 +227,8 @@ export function buildTree(cfg: TreeConfig = DEFAULT_TREE): { root: Node; nodes: 
       invested[p] = to;
       // po podbiciu odpowiadają wszyscy pozostali aktywni, w kolejności od gracza za podbijającym
       const order: number[] = [];
-      for (let k = 1; k < N_PLAYERS; k++) {
-        const q = (p + k) % N_PLAYERS;
+      for (let k = 1; k < nP; k++) {
+        const q = (p + k) % nP;
         if (!s.folded[q]) order.push(q);
       }
       actions.push({ kind, to, label: kind === 'allin' ? 'all-in' : `raise ${to}` });
@@ -220,16 +254,16 @@ export function buildTree(cfg: TreeConfig = DEFAULT_TREE): { root: Node; nodes: 
     return node;
   };
 
-  const invested = [0, 0, 0, 0, 0.5, 1];
+  const invested = Array.from({ length: nP }, (_, i) => (i === SB ? 0.5 : i === BB ? 1 : 0));
   const root = build({
     invested,
-    folded: [false, false, false, false, false, false],
-    pending: [0, 1, 2, 3, 4, 5],
+    folded: Array(nP).fill(false),
+    pending: Array.from({ length: nP }, (_, i) => i),
     currentBet: 1,
     raiseLevel: 0,
     callers: 0,
     lastRaiser: BB,
     path: [],
   });
-  return { root, nodes };
+  return { root, nodes, players: nP, positions: POS };
 }

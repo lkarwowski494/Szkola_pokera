@@ -61,6 +61,8 @@ function sum(x: Float64Array): number {
 export class PreflopSolver {
   readonly nodes: Node[];
   readonly root: Node;
+  /** Liczba graczy przy stole (z drzewa; 6 albo 9). */
+  readonly nPlayers: number;
   private tables = new Map<number, Tables>();
   private showdown = new Map<number, ShowdownCache>();
   private compat: Float64Array;
@@ -93,7 +95,7 @@ export class PreflopSolver {
   private pfResults = new Map<number, Float64Array>();
 
   constructor(
-    tree: { root: Node; nodes: Node[] },
+    tree: { root: Node; nodes: Node[]; players?: number },
     equity: EquityData,
     readonly eqr: EqrParams,
     readonly dcfr: DcfrParams = DEFAULT_DCFR,
@@ -108,6 +110,7 @@ export class PreflopSolver {
   ) {
     this.root = tree.root;
     this.nodes = tree.nodes;
+    this.nPlayers = tree.players ?? N_PLAYERS;
     this.postflop = !flops
       ? null
       : 'kind' in flops && flops.kind === 'streets'
@@ -208,9 +211,10 @@ export class PreflopSolver {
 
   private terminalValue(node: Node, p: number, reach: Float64Array[], mode: 'train' | 'br' | 'avg' = 'avg'): Float64Array {
     const out = new Float64Array(N);
+    if (node.kind === 'external') return out;
     if (node.kind === 'fold') {
       let mass = 1;
-      for (let q = 0; q < N_PLAYERS; q++) if (q !== p) mass *= sum(reach[q]!);
+      for (let q = 0; q < this.nPlayers; q++) if (q !== p) mass *= sum(reach[q]!);
       const payoff = (node.winner === p ? node.pot : 0) - node.invested[p]!;
       out.fill(payoff * mass);
       return out;
@@ -219,7 +223,7 @@ export class PreflopSolver {
       const d = this.threeWay!;
       const role = node.players.indexOf(p);
       let mass = 1;
-      for (let q = 0; q < N_PLAYERS; q++) if (!node.players.includes(q) && q !== p) mass *= sum(reach[q]!);
+      for (let q = 0; q < this.nPlayers; q++) if (!node.players.includes(q) && q !== p) mass *= sum(reach[q]!);
       if (mass === 0) return out;
       if (role < 0) {
         const joint = threeWayJoint(d, node.players.map((q) => reach[q]!) as [Float64Array, Float64Array, Float64Array]);
@@ -238,7 +242,7 @@ export class PreflopSolver {
     if (p !== sd.oop && p !== sd.ip) {
       // gracz już spasował: traci swoją stawkę; waga = prawdopodobieństwo, że obaj pozostali tu dotarli (z blokerami)
       let mass = 1;
-      for (let q = 0; q < N_PLAYERS; q++) if (q !== p && q !== sd.oop && q !== sd.ip) mass *= sum(reach[q]!);
+      for (let q = 0; q < this.nPlayers; q++) if (q !== p && q !== sd.oop && q !== sd.ip) mass *= sum(reach[q]!);
       if (mass === 0) return out;
       const ra = reach[sd.oop]!;
       if (sum(ra) === 0 || sum(reach[sd.ip]!) === 0) return out;
@@ -250,7 +254,7 @@ export class PreflopSolver {
     }
     const opp = p === sd.oop ? sd.ip : sd.oop;
     let mass = 1;
-    for (let q = 0; q < N_PLAYERS; q++) if (q !== p && q !== opp) mass *= sum(reach[q]!);
+    for (let q = 0; q < this.nPlayers; q++) if (q !== p && q !== opp) mass *= sum(reach[q]!);
     if (mass === 0) return out;
     const pi = this.postflopIndex.get(sd.id);
     if (pi !== undefined) {
@@ -352,7 +356,7 @@ export class PreflopSolver {
   }
 
   private rootReach(): Float64Array[] {
-    return Array.from({ length: N_PLAYERS }, () => Float64Array.from(PRIOR));
+    return Array.from({ length: this.nPlayers }, () => Float64Array.from(PRIOR));
   }
 
   /** Jedna iteracja: kolejno każdy gracz aktualizuje swoje węzły. */
@@ -402,7 +406,7 @@ export class PreflopSolver {
 
   step(): void {
     this.iteration++;
-    for (let p = 0; p < N_PLAYERS; p++) this.traverse(this.root, p, this.rootReach(), 'train');
+    for (let p = 0; p < this.nPlayers; p++) this.traverse(this.root, p, this.rootReach(), 'train');
   }
 
   /** Przejście dla gracza p z grą po flopie liczoną w puli wątków (wynik identyczny z wersją synchroniczną). */
@@ -429,7 +433,7 @@ export class PreflopSolver {
 
   async stepParallel(pool: PostflopPool): Promise<void> {
     this.iteration++;
-    for (let p = 0; p < N_PLAYERS; p++) await this.traverseParallel(pool, p, 'train');
+    for (let p = 0; p < this.nPlayers; p++) await this.traverseParallel(pool, p, 'train');
   }
 
   async valueParallel(pool: PostflopPool, p: number): Promise<number> {
@@ -441,7 +445,7 @@ export class PreflopSolver {
 
   async exploitabilityParallel(pool: PostflopPool): Promise<{ perPlayer: number[]; nashConv: number }> {
     const perPlayer: number[] = [];
-    for (let p = 0; p < N_PLAYERS; p++) {
+    for (let p = 0; p < this.nPlayers; p++) {
       const br = await this.traverseParallel(pool, p, 'br');
       let s = 0;
       for (let h = 0; h < N; h++) s += PRIOR[h]! * br[h]!;
@@ -458,7 +462,7 @@ export class PreflopSolver {
     const sd = this.nodes[nodeId] as ShowdownTerminal;
     const net = sd.pot - rake(sd.pot, this.eqr);
     let mass = 1;
-    for (let q = 0; q < N_PLAYERS; q++) if (q !== sd.oop && q !== sd.ip) mass *= sum(reach[q]!);
+    for (let q = 0; q < this.nPlayers; q++) if (q !== sd.oop && q !== sd.ip) mass *= sum(reach[q]!);
     return [sd.oop, sd.ip].map((p) => {
       const o = p === sd.oop ? sd.ip : sd.oop;
       const v = this.terminalValue(sd, p, reach, 'avg');
@@ -493,7 +497,7 @@ export class PreflopSolver {
   actionValues(node: DecisionNode, reach: Float64Array[]): Float64Array[] {
     const p = node.player;
     let mass = 1;
-    for (let q = 0; q < N_PLAYERS; q++) if (q !== p) mass *= sum(reach[q]!);
+    for (let q = 0; q < this.nPlayers; q++) if (q !== p) mass *= sum(reach[q]!);
     // gra po flopie (v3) zostaje na strategii uśrednionej: najlepsza odpowiedź tylko w decyzjach preflop
     const keep = this.postflopBestResponse;
     this.postflopBestResponse = false;
@@ -515,7 +519,7 @@ export class PreflopSolver {
   /** Zysk z najlepszej odpowiedzi każdego gracza i ich suma (NashConv), w bb na rozdanie. */
   exploitability(): { perPlayer: number[]; nashConv: number } {
     const perPlayer: number[] = [];
-    for (let p = 0; p < N_PLAYERS; p++) {
+    for (let p = 0; p < this.nPlayers; p++) {
       const br = this.traverse(this.root, p, this.rootReach(), 'br');
       let s = 0;
       for (let h = 0; h < N; h++) s += PRIOR[h]! * br[h]!;

@@ -8,7 +8,7 @@ import { loadFlops, type FlopData } from './postflop';
 import { loadBoards, StreetModel, V3B_TREE, type StreetData, type StreetTreeConfig } from './streets';
 import { PostflopPool } from './pfpool';
 import { loadThreeWay, type ThreeWayData } from './threeway';
-import { buildTree, DEFAULT_TREE, N_PLAYERS, POSITIONS, type DecisionNode } from './tree';
+import { buildTree, DEFAULT_TREE, positionsFor, type DecisionNode } from './tree';
 
 /**
  * Użycie:
@@ -33,7 +33,14 @@ if (useThreeWay) {
   console.log(`Tablica equity 3-way: ${threeWay.samples} prób na trójkę (${((Date.now() - t0) / 1000).toFixed(0)} s wczytywania)`);
 }
 // wariant pomiarowy (naprawa EQR): --3bet-oop 4.4 = 3-bet bez pozycji do 11bb po otwarciu 2,5bb (kanon 4, czyli 10bb)
-const treeConfig = { ...DEFAULT_TREE, bbOvercall: useThreeWay, ...(args.includes('--3bet-oop') ? { threeBetOop: Number(arg('3bet-oop', '4')) } : {}) };
+// --players 9: stół 9-max; poddrzewo „UTG, UTG+1 i UTG+2 pasują” to gra 6-max liczona osobno (TreeConfig.externalFolds)
+const players = Number(arg('players', '6'));
+const treeConfig = {
+  ...DEFAULT_TREE,
+  bbOvercall: useThreeWay,
+  ...(args.includes('--3bet-oop') ? { threeBetOop: Number(arg('3bet-oop', '4')) } : {}),
+  ...(players !== 6 ? { players, externalFolds: players - 6 } : {}),
+};
 // gra po flopie w pulach 3-betowanych (wersja 3, wariant pomiarowy): --flops tools/equity/boards.bin.gz (trzy ulice)
 // albo tools/equity/flops.bin.gz (bez nowych kart). Domyślnie none = kanon (wersja 2, model EQR we wszystkich pulach).
 const flopsArg = arg('flops', 'none');
@@ -189,7 +196,7 @@ if (args.includes('--calibrate')) {
     .filter((n): n is DecisionNode => n.kind === 'decision')
     .map((n) => ({
       path: n.path,
-      player: POSITIONS[n.player],
+      player: positionsFor(s.nPlayers)[n.player],
       raiseLevel: n.raiseLevel,
       actions: n.actions.map((a) => a.label),
       strategy: n.actions.map((_, i) => rangeOf(s, n, i)),
@@ -209,7 +216,8 @@ if (args.includes('--calibrate')) {
           ...(lockFold !== null ? { lock: { fold: lockFold, paths: LOCK_PATHS, note: 'wariant pomiarowy B-045, nie kanon' } } : {}),
           iterations,
           ...(exploreIters !== null ? { exploreIterations: String(exploreIters) } : {}),
-          players: N_PLAYERS,
+          players: s.nPlayers,
+          ...(s.nPlayers !== 6 ? { external: { path: positionsFor(s.nPlayers).slice(0, s.nPlayers - 6).map((p) => `${p}:fold`).join(','), note: 'poddrzewo liczone jako gra 6-max (wynik 6-max); NashConv i perPlayerGainBb bez tego poddrzewa' } } : {}),
           handClasses: N,
           nashConvBb: Number(expl.nashConv.toFixed(5)),
           perPlayerGainBb: expl.perPlayer.map((x) => Number(x.toFixed(5))),
