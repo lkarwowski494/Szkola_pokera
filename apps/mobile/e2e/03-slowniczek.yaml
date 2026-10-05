@@ -1,0 +1,17 @@
+# Postęp → Słowniczek → wyszukiwanie po angielsku.
+appId: pl.lkarwowski.szkolapokera
+name: Słowniczek
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: 'No-Limit Hold’em od zera.*'
+    timeout: 30000
+- tapOn: 'Postęp'
+- scrollUntilVisible:
+    element: 'Słowniczek PL–EN'
+    direction: DOWN
+- tapOn: 'Słowniczek PL–EN'
+- tapOn: 'Szukaj po polsku albo po angielsku'
+- inputText: 'bubble'
+- assertVisible: 'bańka.*'

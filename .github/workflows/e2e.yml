@@ -1,0 +1,109 @@
+# Testy E2E (B-028; ADR-10 po zmianie z 5.10.2026): Maestro na symulatorze iOS w GitHub Actions, bez EAS Workflows.
+# Repozytorium jest publiczne, więc standardowy runner macos-26 jest darmowy. Runnery „large” są płatne także dla
+# publicznych repozytoriów: tu tylko standardowy.
+#
+# Build pod symulator bez podpisu i bez sekretów (expo prebuild + xcodebuild -sdk iphonesimulator, konfiguracja Release,
+# więc JavaScript jest w paczce i Metro nie jest potrzebne). Flowy: apps/mobile/e2e/*.yaml.
+# Uruchamiany raz dziennie i ręcznie (Actions → „E2E (Maestro, symulator iOS)” → Run workflow). Nie ma wyzwalacza
+# pull_request, a warunek repozytorium wyłącza harmonogram w forkach.
+name: E2E (Maestro, symulator iOS)
+on:
+  schedule:
+    # 03:17 UTC codziennie (poza pełną godziną, kiedy kolejka harmonogramów GitHuba jest najdłuższa)
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: e2e-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  e2e:
+    if: github.repository == 'lkarwowski494/szkola_pokera'
+    # Expo SDK 57 wymaga Xcode 26.4+; obraz macos-26 ma domyślnie Xcode 26.4.1 (jak w iphone-local.yml)
+    runs-on: macos-26
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v5
+      - name: Start pomiaru
+        run: echo "E2E_START=$(date +%s)" >> "$GITHUB_ENV"
+      - name: Xcode
+        run: |
+          xcodebuild -version
+          v=$(xcodebuild -version | head -1 | awk '{print $2}')
+          [ "$(printf '%s\n' 26.4 "$v" | sort -V | head -1)" = "26.4" ] || { echo "::error::Xcode $v jest za stary dla Expo SDK 57 (wymagane 26.4+)"; exit 1; }
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Treść aktualna
+        run: pnpm content:check
+
+      - name: Projekt iOS (expo prebuild)
+        working-directory: apps/mobile
+        run: npx expo prebuild --platform ios --no-install --clean
+      - name: CocoaPods
+        working-directory: apps/mobile/ios
+        run: pod install
+      - name: Kompilacja na symulator (bez podpisu)
+        working-directory: apps/mobile/ios
+        run: |
+          set -o pipefail
+          WS=$(ls -d *.xcworkspace | head -1); SCHEME="${WS%.xcworkspace}"
+          echo "Workspace: $WS, schemat: $SCHEME"
+          xcodebuild -workspace "$WS" -scheme "$SCHEME" -configuration Release -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            2>&1 | tee xcodebuild.log | { if command -v xcbeautify >/dev/null; then xcbeautify; else cat; fi; }
+          APP=$(ls -d build/Build/Products/Release-iphonesimulator/*.app | head -1)
+          test -n "$APP" && test -f "$APP/main.jsbundle"
+          echo "APP_PATH=$PWD/$APP" >> "$GITHUB_ENV"
+          echo "E2E_BUILT=$(date +%s)" >> "$GITHUB_ENV"
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Maestro
+        run: |
+          curl -fsSL https://get.maestro.mobile.dev | bash
+          echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
+          "$HOME/.maestro/bin/maestro" --version
+      - name: Symulator
+        run: |
+          # najnowszy dostępny iPhone z obrazu runnera
+          UDID=$(xcrun simctl list devices available --json | node -e '
+            const d = JSON.parse(require("fs").readFileSync(0, "utf8")).devices;
+            const rt = Object.keys(d).filter((k) => k.includes("iOS")).sort((a, b) => a.localeCompare(b, "en", { numeric: true })).reverse();
+            for (const k of rt) { const p = d[k].find((x) => /^iPhone \d+$/.test(x.name)) ?? d[k].find((x) => x.name.startsWith("iPhone")); if (p) { console.error(k, p.name); console.log(p.udid); break; } }')
+          test -n "$UDID"
+          xcrun simctl boot "$UDID"
+          xcrun simctl bootstatus "$UDID" -b
+          xcrun simctl install "$UDID" "$APP_PATH"
+          echo "SIM_UDID=$UDID" >> "$GITHUB_ENV"
+      - name: Flowy Maestro
+        run: |
+          set -o pipefail
+          # numery do flowu „Pomoc” z content/helplines.yaml (przez moduł wygenerowany przez content-build)
+          mapfile -t HELP_ENV < <(node apps/mobile/e2e/helplines-env.mjs)
+          mkdir -p e2e-out
+          maestro --device "$SIM_UDID" test "${HELP_ENV[@]}" --format junit --output e2e-out/report.xml \
+            --test-output-dir e2e-out apps/mobile/e2e
+      - name: Czas przebiegu
+        if: always()
+        run: |
+          end=$(date +%s)
+          b=$(( ${E2E_BUILT:-$end} - E2E_START )); t=$(( end - ${E2E_BUILT:-$end} ))
+          { echo "## E2E"; echo; echo "- build i instalacja zależności: $((b / 60)) min $((b % 60)) s"; echo "- symulator i flowy: $((t / 60)) min $((t % 60)) s"; } >> "$GITHUB_STEP_SUMMARY"
+          echo "::notice title=Czas E2E::build $((b / 60)) min $((b % 60)) s, flowy $((t / 60)) min $((t % 60)) s"
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: e2e-wyniki
+          path: |
+            e2e-out
+            apps/mobile/ios/xcodebuild.log
+          retention-days: 7
+          if-no-files-found: ignore

@@ -55,18 +55,24 @@ export function Button({
   variant = 'primary',
   disabled,
   style,
+  accessibilityLabel,
+  accessibilityRole = 'button',
 }: {
   label: string;
   onPress: () => void;
   variant?: 'primary' | 'ghost';
   disabled?: boolean;
   style?: ViewStyle;
+  accessibilityLabel?: string;
+  /** „link” dla przycisków otwierających stronę w przeglądarce. */
+  accessibilityRole?: 'button' | 'link';
 }) {
   const tk = useTokens();
   const primary = variant === 'primary';
   return (
     <Pressable
-      accessibilityRole="button"
+      accessibilityRole={accessibilityRole}
+      accessibilityLabel={accessibilityLabel}
       onPress={onPress}
       disabled={disabled}
       style={({ pressed }) => [

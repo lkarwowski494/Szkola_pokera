@@ -137,6 +137,15 @@ export const pl = {
       tournament: 'Gra turniejowa',
     },
   },
+  help: {
+    title: 'Pomoc',
+    link: 'Pomoc: gdy granie wymyka się spod kontroli',
+    intro: 'Poker na pieniądze to gra hazardowa. Jeśli granie przestaje być pod kontrolą, możesz porozmawiać ze specjalistą albo z osobami, które przeszły to samo.',
+    call: 'Zadzwoń: {{phone}}',
+    callA11y: 'Zadzwoń pod numer {{phone}}: {{name}}',
+    openA11y: '{{label}}: otwórz {{host}} w przeglądarce',
+    openFailed: 'Nie udało się otworzyć: {{target}}. Wybierz numer albo adres ręcznie.',
+  },
   diagnostics: {
     title: 'Pomiar wydajności',
     link: 'Pomiar wydajności',

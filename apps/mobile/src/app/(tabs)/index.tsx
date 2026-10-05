@@ -1,6 +1,7 @@
+import { useObserve } from 'expo-observe';
 import { router, useFocusEffect } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Muted, ProgressBar, Screen, Title } from '@/components/ui';
@@ -26,6 +27,12 @@ export default function LearnScreen() {
       setExams(examSummaryMap(userDb));
     }, []),
   );
+
+  // EAS Observe: czas do interakcji liczony do pierwszego wyświetlenia mapy nauki (ekran startowy); kolejne wywołania nic nie robią
+  const { markInteractive } = useObserve();
+  useEffect(() => {
+    markInteractive();
+  }, [markInteractive]);
 
   const done = lessons.filter((l) => progress.get(l.id)?.done).length;
 
@@ -55,6 +62,7 @@ export default function LearnScreen() {
               return (
                 <Pressable
                   key={l.id}
+                  testID={`lesson-${l.id}`}
                   accessibilityRole="button"
                   accessibilityLabel={`${l.title}. ${l.sub}`}
                   onPress={() => router.push({ pathname: '/lesson/[id]', params: { id: l.id } })}

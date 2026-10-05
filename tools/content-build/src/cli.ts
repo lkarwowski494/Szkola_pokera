@@ -1,6 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { compileContent, contentDbFileName, readDbHash, staleContentDbs, writeContentDb } from './build';
+import { helplinesModuleSource } from './helplines';
 import { termsModuleSource } from './terms';
 
 const root = resolve(import.meta.dirname, '../../..');
@@ -8,6 +9,8 @@ const contentDir = join(root, 'content');
 const outDir = join(root, 'apps/mobile/assets/content');
 /** Terminy dla kodu aplikacji (teksty zadań generowanych, ćwiczenie słownictwa): moduł TS z tego samego terms.yaml. */
 const termsModule = join(root, 'apps/mobile/src/data/content/terms.generated.ts');
+/** Telefony pomocy dla ekranu „Pomoc”: moduł TS z content/helplines.yaml (to samo źródło co ramka w lekcji M12-L4). */
+const helplinesModule = join(root, 'apps/mobile/src/data/content/helplines.generated.ts');
 
 const mode = process.argv[2] ?? 'build';
 
@@ -16,6 +19,7 @@ try {
   for (const w of content.warnings) console.warn(`uwaga: ${w}`);
   const dbPath = join(outDir, contentDbFileName());
   const termsSrc = termsModuleSource(content.terms);
+  const helplinesSrc = helplinesModuleSource(content.helplines);
   if (mode === 'check') {
     const current = readDbHash(dbPath);
     if (current !== content.hash) {
@@ -31,11 +35,16 @@ try {
       console.error('Moduł terminów apps/mobile/src/data/content/terms.generated.ts jest nieaktualny. Uruchom: pnpm content:build');
       process.exit(1);
     }
+    if (!existsSync(helplinesModule) || readFileSync(helplinesModule, 'utf8') !== helplinesSrc) {
+      console.error('Moduł telefonów pomocy apps/mobile/src/data/content/helplines.generated.ts jest nieaktualny. Uruchom: pnpm content:build');
+      process.exit(1);
+    }
     console.log(`Treść aktualna (${content.hash}): ${content.lessons.length} lekcji, ${content.rules.length} reguł, ${content.terms.length} terminów.`);
   } else {
     writeContentDb(content, outDir);
     mkdirSync(dirname(termsModule), { recursive: true });
     writeFileSync(termsModule, termsSrc);
+    writeFileSync(helplinesModule, helplinesSrc);
     console.log(`Zapisano ${dbPath} (${content.hash}): ${content.lessons.length} lekcji, ${content.rules.length} reguł, ${content.numbers.length} liczb, ${content.terms.length} terminów.`);
   }
 } catch (e) {

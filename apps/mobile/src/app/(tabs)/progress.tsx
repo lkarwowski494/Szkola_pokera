@@ -100,6 +100,9 @@ export default function ProgressScreen() {
         <Pressable accessibilityRole="link" onPress={() => router.push('/glossary')}>
           <Text style={[tp.body, { color: tk.felt }]}>{t('glossary.link')}</Text>
         </Pressable>
+        <Pressable accessibilityRole="link" onPress={() => router.push('/help')}>
+          <Text style={[tp.body, { color: tk.felt }]}>{t('help.link')}</Text>
+        </Pressable>
         <Pressable accessibilityRole="link" onPress={() => router.push('/diagnostics')}>
           <Text style={[tp.body, { color: tk.felt }]}>{t('diagnostics.link')}</Text>
         </Pressable>

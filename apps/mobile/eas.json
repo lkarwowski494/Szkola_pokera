@@ -5,7 +5,8 @@
   },
   "build": {
     "base": {
-      "pnpm": "10.28.0"
+      "pnpm": "10.28.0",
+      "uploadSourceMaps": true
     },
     "development": {
       "extends": "base",
