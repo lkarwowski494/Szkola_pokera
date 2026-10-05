@@ -9,6 +9,9 @@ import {
   gradeHand,
   HAND_CLASSES,
   makesCard,
+  permuteSituation,
+  replaySituation,
+  situationAt,
   parseCards,
   rangeVerdict,
   startHand,
@@ -187,6 +190,22 @@ describe('ocena M13: zasady ogólne', () => {
       const b = gradeHand(cfg(), i, st.actions, 0, kit, { preset: { holes, board: st.runout } });
       expect(b.map((f) => [f.verdict, f.ruleId])).toEqual(a.map((f) => [f.verdict, f.ruleId]));
     }
+  });
+
+  it('karta z błędu: ta sama sytuacja z zamienionymi kolorami ma ten sam werdykt (5.6)', () => {
+    let checked = 0;
+    for (let i = 0; i < 200; i++) {
+      const st = playHand(3000 + i);
+      for (const f of gradeHand(cfg(), 3000 + i, st.actions, 0, kit)) {
+        const sit = situationAt(cfg(), 3000 + i, st.actions, f.index);
+        const swapped = permuteSituation(sit, createRng(i));
+        expect(swapped.holes).not.toEqual(sit.holes);
+        const g = gradeDecision(replaySituation(swapped), f.action, kit);
+        expect([g.verdict, g.ruleId]).toEqual([f.verdict, f.ruleId]);
+        checked++;
+      }
+    }
+    expect(checked).toBeGreaterThan(200);
   });
 
   it('przekroczony czas: osobny werdykt, karta powtórek, poza wskaźnikiem gry (5.11)', () => {
