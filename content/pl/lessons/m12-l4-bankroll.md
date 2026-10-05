@@ -150,8 +150,8 @@ Poker na pieniądze to w Polsce gra hazardowa, dozwolona tylko dla osób pełnol
 
 Gdzie szukać pomocy:
 
-- **Telefon Zaufania uzależnienia behawioralne: 801 889 880**, codziennie 17.00–22.00 (opłata według taryfy operatora). Prowadzi go Instytut Psychologii Zdrowia PTP na zlecenie Krajowego Centrum Przeciwdziałania Uzależnieniom. Na stronie uzaleznieniabehawioralne.pl jest test „Czy mam problem z hazardem?” i baza placówek pomocy.
-- **116 123**, telefon dla dorosłych w kryzysie emocjonalnym: bezpłatnie, całą dobę.
+- **Telefon Zaufania uzależnienia behawioralne: 801 889 880**, codziennie 17.00–22.00 (opłata według taryfy operatora). Prowadzi go Instytut Psychologii Zdrowia PTP; numer podaje Krajowe Centrum Przeciwdziałania Uzależnieniom. Na stronie uzaleznieniabehawioralne.pl jest test „Czy mam problem z hazardem?” i baza placówek pomocy.
+- **116 123**, telefon dla dorosłych w kryzysie emocjonalnym: bezpłatnie, całą dobę; także czat na 116sos.pl.
 - **Anonimowi Hazardziści**: bezpłatne mityngi w całej Polsce i online (anonimowihazardzisci.org).
 - W sytuacji zagrożenia życia: **112**.
 :::
