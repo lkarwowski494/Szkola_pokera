@@ -7,6 +7,9 @@ import {
   generateBestHand,
   generateDrawCall,
   generateIcmCall,
+  generateHudSpot,
+  hudThresholdsFromParams,
+  PLAYER_TYPES,
   generateIcmSpot,
   icmEquities,
   generateOuts,
@@ -16,6 +19,7 @@ import {
   generateTextureSpot,
   HandCategory,
   pick,
+  rangeVerdict as coreRangeVerdict,
   TEXTURE_VALUES,
   textureMatches,
   type FlopTexture,
@@ -27,8 +31,10 @@ import {
   type Rng,
 } from '@szkola/poker-core';
 import type { RangeSpot } from '@/data/content/repo';
-import { categoryName, pctEquity, t, TEXTURE_AXIS_LABELS, TEXTURE_LABELS, textureText } from './text.pl';
-import { MIXED_HIGH, MIXED_LOW } from './thresholds';
+import { capitalize, categoryName, pctEquity, t, TEXTURE_AXIS_LABELS, TEXTURE_LABELS, textureText } from './text.pl';
+import { MIXED_HIGH, MIXED_LOW, MIXED_MIN } from './thresholds';
+import { tr } from './terms';
+import { vocabBatch } from './vocab';
 import type { DrillInstance, DrillOption, NumericInstance, Position, TextureAxisItem } from './types';
 
 /** Dane potrzebne generatorom poza samym zadaniem (np. zakresy z solvera). */
@@ -49,6 +55,8 @@ export function instantiate(drill: Drill, lessonId: string | null, rng: Rng, cou
   const n = count ?? drill.count;
   if (drill.kind === 'texture') return Array.from({ length: n }, (_, i) => fromTexture(drill, lessonId, rng, i));
   if (drill.kind === 'cbet') return Array.from({ length: n }, (_, i) => fromCbet(drill, lessonId, rng, i));
+  // słownictwo losuje całą serię naraz, żeby ten sam termin nie wypadł dwa razy w jednej lekcji
+  if (drill.generator === 'vocab') return vocabBatch(drill, lessonId, rng, n);
   return Array.from({ length: n }, (_, i) => fromGenerator(drill, lessonId, rng, i, ctx));
 }
 
@@ -204,7 +212,26 @@ function fromGenerator(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: 
       return drawCall(d, lessonId, rng, i);
     case 'icm':
       return d.params.mode === 'equity' ? icmEquity(d, lessonId, rng, i) : icmCall(d, lessonId, rng, i);
+    case 'vocab':
+      return vocabBatch(d, lessonId, rng, 1, i)[0]!;
+    case 'playerType':
+      return playerType(d, lessonId, rng, i);
   }
+}
+
+/**
+ * M10: typ gracza po statystykach HUD. Progi przychodzą z treści (params po podstawieniu „n:klucz”), opcje w stałej
+ * kolejności (nit, regular, pasywny, maniak, za mało rąk); wyjaśnienie każdej opcji podaje próg i dostosowanie.
+ */
+function playerType(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number): DrillInstance {
+  const th = hudThresholdsFromParams(d.params);
+  const s = generateHudSpot(rng, th);
+  return {
+    ...base(d, lessonId, i),
+    prompt: t.playerType.prompt(s),
+    options: PLAYER_TYPES.map((x) => ({ text: t.playerType.option(x), correct: x === s.type, why: t.playerType.why(s, x, th) })),
+    explanation: t.playerType.explanation(s, th),
+  };
 }
 
 /** M11: sprawdzić all-in na bańce według ICM (bubble factor), losowe stacki i equity ręki. */
@@ -280,7 +307,7 @@ function bestHand(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: numbe
   const distractors = shuffle(rng, candidates).slice(0, 3);
   const options = shuffle(rng, [correct, ...distractors]).map((cat) => {
     const name = categoryName({ category: cat as (typeof HandCategory)[keyof typeof HandCategory], strength: 9999 });
-    const text = name.charAt(0).toUpperCase() + name.slice(1);
+    const text = capitalize(tr(name));
     return {
       text,
       correct: cat === correct,
@@ -382,9 +409,18 @@ function drawCall(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: numbe
 
 /**
  * Zadanie z zakresu solvera: losowa ręka w danym spocie, częściej ręce graniczne.
- * Poprawna jest akcja najczęstsza; w rękach mieszanych (najczęstsza poniżej MIXED_HIGH) także każda akcja
- * grana w co najmniej MIXED_LOW przypadków. Grupa z wrongSizes dostaje dodatkowe opcje „zły rozmiar” (B-015).
+ * Skala ADR-26 (wspólna z trybem gry, dokument 14, 5.2): zgodna jest akcja najczęstsza i każda grana w co najmniej
+ * MIXED_LOW przypadków; dopuszczalna każda grana w MIXED_MIN–MIXED_LOW; rzadziej to błąd. Grupa z wrongSizes
+ * dostaje dodatkowe opcje „zły rozmiar” (B-015): przy akcji zgodnej albo dopuszczalnej to niedokładność.
  */
+/**
+ * Werdykt każdej akcji według częstości solvera (ADR-26): correct (najczęstsza albo ≥ MIXED_LOW),
+ * acceptable (MIXED_MIN ≤ f < MIXED_LOW), wrong (f < MIXED_MIN). Wspólna dla zadań i przyszłej oceny gry (M13).
+ */
+export function rangeVerdict(freqs: readonly number[]): ('correct' | 'acceptable' | 'wrong')[] {
+  return coreRangeVerdict(freqs, { mixedMin: MIXED_MIN, mixedLow: MIXED_LOW });
+}
+
 function rangeDecision(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number, ctx: DrillContext): DrillInstance {
   const ids = String(d.params.spots ?? '').split(',').map((x) => x.trim()).filter(Boolean);
   const spot = ctx.range(ids[Math.floor(rng() * ids.length)]!);
@@ -404,17 +440,19 @@ function rangeDecision(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: 
   const freqs = [...spot.groups.map((g) => ({ name: g.name, f: g.freqs[h] ?? 0 })), { name: t.range.fold, f: Math.max(0, 1 - play(h)) }];
   const best = Math.max(...freqs.map((f) => f.f));
   const mixed = best < MIXED_HIGH;
-  const isCorrect = (f: number) => f === best || (mixed && f >= MIXED_LOW);
-  const options: DrillOption[] = freqs.map((f) => {
-    const correct = isCorrect(f.f);
-    return { text: f.name, correct, why: correct ? t.range.right(f.f) : t.range.wrong(f.f) };
+  const verdict = rangeVerdict(freqs.map((f) => f.f));
+  const options: DrillOption[] = freqs.map((f, fi) => {
+    const v = verdict[fi]!;
+    if (v === 'correct') return { text: f.name, correct: true, why: t.range.right(f.f) };
+    if (v === 'acceptable') return { text: f.name, correct: false, acceptable: true, why: t.range.acceptable(f.f) };
+    return { text: f.name, correct: false, why: t.range.wrong(f.f) };
   });
   // błędne rozmiary dokładamy na końcu listy (kolejność opcji generatora jest stała: grupy, pas, złe rozmiary)
   spot.groups.forEach((g, gi) => {
     const f = freqs[gi]!.f;
     for (const w of g.wrongSizes ?? []) {
       options.push(
-        isCorrect(f) ? { text: w.text, correct: false, sizeError: true, why: w.why } : { text: w.text, correct: false, why: `${t.range.wrong(f)} ${w.why}` },
+        verdict[gi] !== 'wrong' ? { text: w.text, correct: false, sizeError: true, why: w.why } : { text: w.text, correct: false, why: `${t.range.wrong(f)} ${w.why}` },
       );
     }
   });

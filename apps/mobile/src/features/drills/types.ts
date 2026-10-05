@@ -8,6 +8,11 @@ export interface DrillOption {
   correct: boolean;
   /** Dobra akcja, zły rozmiar: liczone jako błąd, pokazywane jako „niedokładność”. */
   sizeError?: boolean;
+  /**
+   * Akcja dopuszczalna (ADR-26): solver gra ją rzadko (MIXED_MIN–MIXED_LOW). Nie jest błędem, ale nie jest
+   * odpowiedzią „zgodną”; correct pozostaje false, a ocena to „acceptable” (FSRS: Hard).
+   */
+  acceptable?: boolean;
   /** Wyjaśnienie tej konkretnej opcji (pokazywane po odpowiedzi). */
   why: string;
 }
@@ -69,7 +74,8 @@ export type DrillAnswer =
   | { kind: 'timeout' };
 
 /**
- * Ocena: correct = dobrze; close = blisko (FSRS: trudne); size = dobra akcja, zły rozmiar (liczone jako błąd);
+ * Ocena: correct = dobrze; acceptable = dopuszczalna akcja rzadka solvera (nie błąd, liczona jako zaliczona,
+ * FSRS: trudne; ADR-26); close = blisko (FSRS: trudne); size = dobra akcja, zły rozmiar (liczone jako błąd);
  * wrong = źle.
  */
-export type GradeResult = 'correct' | 'close' | 'size' | 'wrong';
+export type GradeResult = 'correct' | 'acceptable' | 'close' | 'size' | 'wrong';

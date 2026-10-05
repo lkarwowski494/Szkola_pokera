@@ -10,85 +10,85 @@ drills:
     id: m7.l2.q-def-polar
     family: m7.polar.concept
     rules: [R-M7-005]
-    prompt: "Który zakres betu na turnie jest spolaryzowany?"
+    prompt: "Który {{t:range}} betu na turnie jest {{t:polarized}}?"
     options:
-      - { text: "Sety, dwie pary i dobierania, bez średnich par", correct: true, why: "Tak: zakres spolaryzowany ma dwa bieguny, bardzo silne ręce i półblefy. Środka, czyli średnich rąk, w nim nie ma: te ręce czekają." }
-      - { text: "Najwyższe pary, średnie pary i słabsze pary", why: "Tu nie ma żadnego bieguna: brakuje bardzo silnych rąk i półblefów, są same pary od góry w dół. Bliżej temu do zakresu liniowego, który betuje głównie rękami z wartością, zwykle małym rozmiarem, a nie dużym na turnie." }
-      - { text: "Same blefy", why: "Zakres bez silnych rąk rywal łatwo rozpozna i będzie sprawdzał. Spolaryzowany zakres łączy blefy z bardzo silnymi rękami." }
+      - { text: "Sety, {{t:two-pair}} i {{t:draw|dobierania}}, bez średnich {{t:pair|par}}", correct: true, why: "Tak: {{t:range}} {{t:polarized}} ma dwa bieguny, bardzo silne ręce i {{t:semi-bluff|półblefy}}. Środka, czyli średnich rąk, w nim nie ma: te ręce {{t:check|czekają}}." }
+      - { text: "{{t:top-pair|Najwyższe pary}}, średnie {{t:pair|pary}} i słabsze {{t:pair|pary}}", why: "Tu nie ma żadnego bieguna: brakuje bardzo silnych rąk i {{t:semi-bluff|półblefów}}, są same {{t:pair|pary}} od góry w dół. Bliżej temu do {{t:range|zakresu}} {{t:linear|liniowego}}, który betuje głównie rękami z wartością, zwykle małym rozmiarem, a nie dużym na turnie." }
+      - { text: "Same {{t:bluff|blefy}}", why: "{{t:range|Zakres}} bez silnych rąk rywal łatwo rozpozna i będzie {{t:call|sprawdzał}}. {{t:polarized|Spolaryzowany}} {{t:range}} łączy {{t:bluff|blefy}} z bardzo silnymi rękami." }
   - kind: choice
     id: m7.l2.q-def-linear
     family: m7.polar.concept
     rules: [R-M7-005]
-    prompt: "Na suchym flopie [[Ks 7d 2c]] betowałeś mało prawie wszystkimi rękami: od seta po słabe pary. Jak nazywa się taki zakres betu?"
+    prompt: "Na {{t:dry|suchym}} flopie [[Ks 7d 2c]] betowałeś mało prawie wszystkimi rękami: od seta po słabe {{t:pair|pary}}. Jak nazywa się taki {{t:range}} betu?"
     table: { position: BTN, board: "Ks 7d 2c" }
     options:
-      - { text: "Liniowy (zmieszany)", correct: true, why: "Tak: silne i średnie ręce betują razem, małym rozmiarem. To plan z M5 na suchym, wysokim flopie, gdzie masz przewagę zakresu." }
-      - { text: "Spolaryzowany", why: "Spolaryzowany zakres nie ma średnich rąk: betują tylko bardzo silne ręce i blefy. Tu betowały też słabe pary." }
-      - { text: "Ograniczony", why: "Ograniczony zakres to taki, w którym brakuje najsilniejszych rąk. Ty betowałeś także setami." }
+      - { text: "{{t:linear|Liniowy}} (zmieszany)", correct: true, why: "Tak: silne i średnie ręce betują razem, małym rozmiarem. To plan z M5 na {{t:dry|suchym}}, wysokim flopie, gdzie masz {{t:range-advantage|przewagę zakresu}}." }
+      - { text: "{{t:polarized|Spolaryzowany}}", why: "{{t:polarized|Spolaryzowany}} {{t:range}} nie ma średnich rąk: betują tylko bardzo silne ręce i {{t:bluff|blefy}}. Tu betowały też słabe {{t:pair|pary}}." }
+      - { text: "Ograniczony", why: "Ograniczony {{t:range}} to taki, w którym brakuje najsilniejszych rąk. Ty betowałeś także setami." }
   - kind: choice
     id: m7.l2.q-why-medium
     family: m7.polar.concept
     rules: [R-M7-003, R-M7-005]
-    prompt: "Dlaczego średnia para nie lubi dużego betu na turnie?"
+    prompt: "Dlaczego średnia {{t:pair}} nie lubi dużego betu na turnie?"
     options:
-      - { text: "Bo gorsze ręce spasują, a zapłacą lepsze", correct: true, why: "Tak: duży bet średnią parą zarabia tylko wtedy, gdy zapłaci gorsza ręka, a takie ręce na duży bet zwykle pasują. Zostają sprawdzenia od rąk, które cię biją." }
-      - { text: "Bo duży bet zawsze jest blefem", why: "Nie: duży bet stawiają też najsilniejsze ręce. Kłopot średniej pary polega na tym, kto jej zapłaci." }
-      - { text: "Bo średnia para nie może wygrać", why: "Może: wygrywa z blefami i z gorszymi parami. Dlatego czeka i dochodzi do showdownu tanio." }
+      - { text: "Bo gorsze ręce {{t:fold|spasują}}, a zapłacą lepsze", correct: true, why: "Tak: duży bet średnią {{t:pair|parą}} zarabia tylko wtedy, gdy zapłaci gorsza ręka, a takie ręce na duży bet zwykle {{t:fold|pasują}}. Zostają {{t:call|sprawdzenia}} od rąk, które cię biją." }
+      - { text: "Bo duży bet zawsze jest {{t:bluff|blefem}}", why: "Nie: duży bet {{t:bet|stawiają}} też najsilniejsze ręce. Kłopot średniej {{t:pair|pary}} polega na tym, kto jej zapłaci." }
+      - { text: "Bo średnia {{t:pair}} nie może wygrać", why: "Może: wygrywa z {{t:bluff|blefami}} i z gorszymi {{t:pair|parami}}. Dlatego {{t:check|czeka}} i dochodzi do showdownu tanio." }
   - kind: choice
     id: m7.l2.q-set-wet
     family: m7.polar.size
     rules: [R-M7-005, R-M7-006]
-    prompt: "Otworzyłeś z Buttona, duży blind sprawdził c-bet na flopie. Turn to dwójka. W puli jest {{n:ex.pot}}, rywal czeka. Masz seta. Co robisz?"
+    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} c-bet na flopie. Turn to dwójka. W {{t:pot|puli}} jest {{n:ex.pot}}, rywal {{t:check|czeka}}. Masz seta. Co robisz?"
     table: { hand: "7c 7d", position: BTN, board: "Jh 7h 4s 2c" }
     options:
-      - { text: "Betuję {{n:ex.bet.three-quarters}}", correct: true, why: "Tak: rywal może dobierać do koloru (dwa kiery) i do strita (np. 65, T9). Przy becie 3/4 puli dobieranie do koloru potrzebuje {{n:eq.bet-three-quarters}} equity, a kolor trafia w ok. {{n:odds.flush.turn-river}} przypadków. Przeciw twojemu setowi ma jeszcze mniej: [[4h]] i [[2h]] dają ci fulla, więc zostaje mu {{n:outs.flush.vs-set}} czystych outów, ok. {{n:odds.flush.vs-set}}. Płaci za drogo." }
-      - { text: "Betuję {{n:ex.bet.quarter}}", sizeError: true, why: "Dobra akcja, zły rozmiar: przy becie 1/4 puli dobieranie potrzebuje tylko {{n:eq.bet-quarter}} equity, więc dostaje dobrą cenę. Z bardzo silną ręką na stole z dobieraniem do koloru betujesz dużo." }
-      - { text: "Czekam", why: "Darmowa karta to prezent dla dobierań, a ty nie budujesz puli przed riverem. Set na stole z dobieraniem do koloru betuje." }
+      - { text: "Betuję {{n:ex.bet.three-quarters}}", correct: true, why: "Tak: rywal może {{t:draw|dobierać}} do {{t:flush|koloru}} (dwa kiery) i do {{t:straight|strita}} (np. 65, T9). Przy becie 3/4 {{t:pot|puli}} {{t:flush-draw}} potrzebuje {{n:eq.bet-three-quarters}} equity, a {{t:flush}} trafia w ok. {{n:odds.flush.turn-river}} przypadków. Przeciw twojemu setowi ma jeszcze mniej: [[4h]] i [[2h]] dają ci {{t:full-house|fulla}}, więc zostaje mu {{n:outs.flush.vs-set}} czystych outów, ok. {{n:odds.flush.vs-set}}. Płaci za drogo." }
+      - { text: "Betuję {{n:ex.bet.quarter}}", sizeError: true, why: "Dobra akcja, zły rozmiar: przy becie 1/4 {{t:pot|puli}} {{t:draw}} potrzebuje tylko {{n:eq.bet-quarter}} equity, więc dostaje dobrą cenę. Z bardzo silną ręką na {{t:board|stole}} z {{t:flush-draw|dobieraniem do koloru}} betujesz dużo." }
+      - { text: "{{t:check|Czekam}}", why: "Darmowa karta to prezent dla {{t:draw|dobierań}}, a ty nie budujesz {{t:pot|puli}} przed riverem. Set na {{t:board|stole}} z {{t:flush-draw|dobieraniem do koloru}} betuje." }
   - kind: choice
     id: m7.l2.q-semibluff-size
     family: m7.polar.size
     rules: [R-M7-005, R-M7-002]
-    prompt: "Otworzyłeś z Buttona, duży blind sprawdził c-bet na flopie. Turn to trójka. W puli jest {{n:ex.pot}}, rywal czeka. Co robisz?"
+    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} c-bet na flopie. Turn to {{t:three-of-a-kind}}. W {{t:pot|puli}} jest {{n:ex.pot}}, rywal {{t:check|czeka}}. Co robisz?"
     table: { hand: "Qh Jh", position: BTN, board: "Th 6h 2c 3s" }
     options:
-      - { text: "Betuję {{n:ex.bet.three-quarters}}", correct: true, why: "Tak: dobieranie do koloru z dwiema wysokimi kartami to dobry półblef. Betujesz tym samym dużym rozmiarem co silne ręce, więc rywal nie odróżni blefu od wartości." }
-      - { text: "Betuję {{n:ex.bet.quarter}}", sizeError: true, why: "Dobra akcja, zły rozmiar: tak tani bet rywal sprawdzi każdą parą, a półblef zarabia przede wszystkim na pasach. Gdyby małe bety oznaczały u ciebie dobierania, a duże silne ręce, rywal łatwo by to wykorzystał." }
-      - { text: "Czekam", correct: true, why: "Też dobrze: za darmo zobaczysz rivera i trafisz kolor w {{n:odds.flush.turn-river}} przypadków. Bet jest jednak zwykle lepszy, bo dobieranie z wysokimi kartami to jeden z najlepszych półblefów, a czekając rezygnujesz z wygrania puli od razu." }
+      - { text: "Betuję {{n:ex.bet.three-quarters}}", correct: true, why: "Tak: {{t:flush-draw}} z dwiema wysokimi kartami to dobry {{t:semi-bluff}}. Betujesz tym samym dużym rozmiarem co silne ręce, więc rywal nie odróżni {{t:bluff|blefu}} od wartości." }
+      - { text: "Betuję {{n:ex.bet.quarter}}", sizeError: true, why: "Dobra akcja, zły rozmiar: tak tani bet rywal {{t:call|sprawdzi}} każdą {{t:pair|parą}}, a {{t:semi-bluff}} zarabia przede wszystkim na {{t:fold|pasach}}. Gdyby małe bety oznaczały u ciebie {{t:draw|dobierania}}, a duże silne ręce, rywal łatwo by to wykorzystał." }
+      - { text: "{{t:check|Czekam}}", correct: true, why: "Też dobrze: za darmo zobaczysz rivera i trafisz {{t:flush}} w {{n:odds.flush.turn-river}} przypadków. Bet jest jednak zwykle lepszy, bo {{t:draw}} z wysokimi kartami to jeden z najlepszych {{t:semi-bluff|półblefów}}, a {{t:check|czekając}} rezygnujesz z wygrania {{t:pot|puli}} od razu." }
   - kind: choice
     id: m7.l2.q-medium-big
     family: m7.polar.size
     rules: [R-M7-003, R-M7-005]
-    prompt: "Otworzyłeś z Buttona, duży blind sprawdził c-bet na flopie. Turn to piątka. W puli jest {{n:ex.pot}}, rywal czeka. Co robisz?"
+    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} c-bet na flopie. Turn to piątka. W {{t:pot|puli}} jest {{n:ex.pot}}, rywal {{t:check|czeka}}. Co robisz?"
     table: { hand: "Kh 9c", position: BTN, board: "Ks 7d 2c 5h" }
     options:
-      - { text: "Czekam", correct: true, why: "Najwyższa para ze słabym kickerem to średnia ręka. Na duży bet zapłacą głównie lepsze króle (AK, KQ, KJ), a gorsze ręce spasują. Czekając, dochodzisz tanio do showdownu." }
-      - { text: "Betuję {{n:ex.bet.three-quarters}}", why: "Duży bet pasuje do zakresu spolaryzowanego. Z tą ręką zarabiasz głównie od rąk, które cię biją." }
-      - { text: "Betuję {{n:ex.bet.pot}}", why: "Jeszcze większa pula z ręką średniej siły: gorsze ręce prawie zawsze spasują, a lepsze zapłacą." }
+      - { text: "{{t:check|Czekam}}", correct: true, why: "{{t:top-pair|Najwyższa para}} ze słabym kickerem to średnia ręka. Na duży bet zapłacą głównie lepsze króle (AK, KQ, KJ), a gorsze ręce {{t:fold|spasują}}. {{t:check|Czekając}}, dochodzisz tanio do showdownu." }
+      - { text: "Betuję {{n:ex.bet.three-quarters}}", why: "Duży bet pasuje do {{t:range|zakresu}} {{t:polarized|spolaryzowanego}}. Z tą ręką zarabiasz głównie od rąk, które cię biją." }
+      - { text: "Betuję {{n:ex.bet.pot}}", why: "Jeszcze większa {{t:pot}} z ręką średniej siły: gorsze ręce prawie zawsze {{t:fold|spasują}}, a lepsze zapłacą." }
   - kind: numeric
     id: m7.l2.n-price-big
     family: m7.polar.price
     rules: [R-M7-006]
-    prompt: "Turn. W puli jest {{n:ex.pot}}, betujesz {{n:ex.bet.three-quarters}} z bardzo silną ręką. Ile procent equity potrzebuje rywal z dobieraniem, żeby sprawdzić? Wpisz liczbę."
+    prompt: "Turn. W {{t:pot|puli}} jest {{n:ex.pot}}, betujesz {{n:ex.bet.three-quarters}} z bardzo silną ręką. Ile procent equity potrzebuje rywal z {{t:draw|dobieraniem}}, żeby {{t:call|sprawdzić}}? Wpisz liczbę."
     answer: eq.bet-three-quarters
-    explanation: "Rywal dopłaca {{n:ex.bet.three-quarters}} do puli, która po sprawdzeniu ma {{n:ex.pot}} + {{n:ex.bet.three-quarters}} + {{n:ex.bet.three-quarters}}: {{n:eq.bet-three-quarters}}. Dobieranie do koloru ma na turnie ok. {{n:odds.flush.turn-river}}, więc płaci za drogo."
+    explanation: "Rywal dopłaca {{n:ex.bet.three-quarters}} do {{t:pot|puli}}, która po {{t:call|sprawdzeniu}} ma {{n:ex.pot}} + {{n:ex.bet.three-quarters}} + {{n:ex.bet.three-quarters}}: {{n:eq.bet-three-quarters}}. {{t:flush-draw|Dobieranie do koloru}} ma na turnie ok. {{n:odds.flush.turn-river}}, więc płaci za drogo."
   - kind: choice
     id: m7.l2.q-quarter-price
     family: m7.polar.price
     rules: [R-M7-006]
-    prompt: "Turn. Masz seta i betujesz tylko {{n:ex.bet.quarter}} do puli {{n:ex.pot}}. Rywal dobiera do koloru (ok. {{n:odds.flush.turn-river}} na riverze). Co z tego wynika?"
+    prompt: "Turn. Masz seta i betujesz tylko {{n:ex.bet.quarter}} do {{t:pot|puli}} {{n:ex.pot}}. Rywal {{t:flush-draw|dobiera do koloru}} (ok. {{n:odds.flush.turn-river}} na riverze). Co z tego wynika?"
     options:
-      - { text: "Dostaje dobrą cenę: potrzebuje tylko {{n:eq.bet-quarter}}", correct: true, why: "Tak: {{n:ex.bet.quarter}} ÷ ({{n:ex.pot}} + {{n:ex.bet.quarter}} + {{n:ex.bet.quarter}}) = {{n:eq.bet-quarter}}, mniej niż jego {{n:odds.flush.turn-river}}. Sprawdzenie mu się opłaca, a tobie mały bet oddaje część wartości." }
-      - { text: "Musi spasować, bo potrzebuje {{n:eq.bet-three-quarters}}", why: "Tyle potrzebowałby przy becie 3/4 puli. Przy becie 1/4 puli wystarcza mu {{n:eq.bet-quarter}}." }
+      - { text: "Dostaje dobrą cenę: potrzebuje tylko {{n:eq.bet-quarter}}", correct: true, why: "Tak: {{n:ex.bet.quarter}} ÷ ({{n:ex.pot}} + {{n:ex.bet.quarter}} + {{n:ex.bet.quarter}}) = {{n:eq.bet-quarter}}, mniej niż jego {{n:odds.flush.turn-river}}. {{t:call|Sprawdzenie}} mu się opłaca, a tobie mały bet oddaje część wartości." }
+      - { text: "Musi {{t:fold|spasować}}, bo potrzebuje {{n:eq.bet-three-quarters}}", why: "Tyle potrzebowałby przy becie 3/4 {{t:pot|puli}}. Przy becie 1/4 {{t:pot|puli}} wystarcza mu {{n:eq.bet-quarter}}." }
       - { text: "Cena nie ma znaczenia, bo i tak go bijesz", why: "Teraz go bijesz, ale w ok. {{n:odds.flush.turn-river}} przypadków wygra na riverze. Rozmiar betu decyduje, czy płaci za tę szansę za dużo, czy za mało." }
   - kind: choice
     id: m7.l2.q-oesd-threshold
     family: m7.polar.price
     rules: [R-M7-006]
-    prompt: "Rywal ma na turnie otwarte dobieranie do strita: ok. {{n:odds.oesd.turn-river}} na riverze. Od jakiego twojego betu płaci za drogo (licząc tylko pot odds)?"
+    prompt: "Rywal ma na turnie {{t:oesd}}: ok. {{n:odds.oesd.turn-river}} na riverze. Od jakiego twojego betu płaci za drogo (licząc tylko pot odds)?"
     options:
-      - { text: "Już od 1/3 puli: potrzebuje {{n:eq.bet-third}}", correct: true, why: "Tak: {{n:eq.bet-third}} to więcej niż {{n:odds.oesd.turn-river}}. Na turnie dobierania mają tylko jedną kartę, więc nawet średni bet daje im złą cenę." }
-      - { text: "Dopiero od całej puli: potrzebuje {{n:eq.bet-pot}}", why: "Przy całej puli płaci dużo za drogo, ale już przy 1/3 puli potrzebuje {{n:eq.bet-third}}, więcej niż swoje {{n:odds.oesd.turn-river}}." }
-      - { text: "Nigdy, dobieranie zawsze może sprawdzić", why: "Dobieranie sprawdza tylko przy dobrej cenie albo z implied odds (następna lekcja). Na turnie ma ok. {{n:odds.oesd.turn-river}}, więc większość betów to dla niego zła cena." }
+      - { text: "Już od 1/3 {{t:pot|puli}}: potrzebuje {{n:eq.bet-third}}", correct: true, why: "Tak: {{n:eq.bet-third}} to więcej niż {{n:odds.oesd.turn-river}}. Na turnie {{t:draw|dobierania}} mają tylko jedną kartę, więc nawet średni bet daje im złą cenę." }
+      - { text: "Dopiero od całej {{t:pot|puli}}: potrzebuje {{n:eq.bet-pot}}", why: "Przy całej {{t:pot|puli}} płaci dużo za drogo, ale już przy 1/3 {{t:pot|puli}} potrzebuje {{n:eq.bet-third}}, więcej niż swoje {{n:odds.oesd.turn-river}}." }
+      - { text: "Nigdy, {{t:draw}} zawsze może {{t:call|sprawdzić}}", why: "{{t:draw|Dobieranie}} {{t:call|sprawdza}} tylko przy dobrej cenie albo z implied odds (następna lekcja). Na turnie ma ok. {{n:odds.oesd.turn-river}}, więc większość betów to dla niego zła cena." }
   - kind: generated
     id: m7.l2.g-draw-call
     family: m7.polar.price
@@ -99,41 +99,41 @@ drills:
     id: m7.l2.n-price-pot
     family: m7.polar.price
     rules: [R-M7-006]
-    prompt: "Turn. W puli jest {{n:ex.pot}}, betujesz całą pulę: {{n:ex.bet.pot}}. Ile procent equity potrzebuje rywal, żeby sprawdzić? Wpisz liczbę."
+    prompt: "Turn. W {{t:pot|puli}} jest {{n:ex.pot}}, betujesz całą {{t:pot|pulę}}: {{n:ex.bet.pot}}. Ile procent equity potrzebuje rywal, żeby {{t:call|sprawdzić}}? Wpisz liczbę."
     answer: eq.bet-pot
-    explanation: "Rywal dopłaca {{n:ex.bet.pot}} do puli, która po sprawdzeniu ma {{n:ex.pot}} + {{n:ex.bet.pot}} + {{n:ex.bet.pot}}: {{n:eq.bet-pot}}. Ani kolor (ok. {{n:odds.flush.turn-river}}), ani strit otwarty (ok. {{n:odds.oesd.turn-river}}) nie mają takiej szansy."
+    explanation: "Rywal dopłaca {{n:ex.bet.pot}} do {{t:pot|puli}}, która po {{t:call|sprawdzeniu}} ma {{n:ex.pot}} + {{n:ex.bet.pot}} + {{n:ex.bet.pot}}: {{n:eq.bet-pot}}. Ani {{t:flush}} (ok. {{n:odds.flush.turn-river}}), ani {{t:straight}} otwarty (ok. {{n:odds.oesd.turn-river}}) nie mają takiej szansy."
 ---
-Na flopie często betowałeś mało prawie całym zakresem. Na turnie zakres betu się zmienia: zostają w nim bardzo silne ręce i półblefy, a średnie ręce czekają. Taki zakres nazywamy spolaryzowanym.
+Na flopie często betowałeś mało prawie całym {{t:range|zakresem}}. Na turnie {{t:range}} betu się zmienia: zostają w nim bardzo silne ręce i {{t:semi-bluff|półblefy}}, a średnie ręce {{t:check|czekają}}. Taki {{t:range}} nazywamy {{t:polarized|spolaryzowanym}}.
 
-## Dwa rodzaje zakresu
+## Dwa rodzaje {{t:range|zakresu}}
 
-- **Liniowy (zmieszany):** betujesz od najsilniejszych rąk w dół, razem ze średnimi. Zwykle małym rozmiarem, np. c-bet {{n:cbet.size.small}} puli na [[Ks 7d 2c]].
-- **Spolaryzowany:** betują dwa bieguny, bardzo silne ręce (sety, dwie pary, strity, kolory) i półblefy (dobierania). Średnich rąk w nim nie ma.
+- **{{t:linear|Liniowy}} (zmieszany):** betujesz od najsilniejszych rąk w dół, razem ze średnimi. Zwykle małym rozmiarem, np. c-bet {{n:cbet.size.small}} {{t:pot|puli}} na [[Ks 7d 2c]].
+- **{{t:polarized|Spolaryzowany}}:** betują dwa bieguny, bardzo silne ręce (sety, {{t:two-pair}}, {{t:straight|strity}}, kolory) i {{t:semi-bluff|półblefy}} ({{t:draw|dobierania}}). Średnich rąk w nim nie ma.
 
-Ogólnie zakres spolaryzowany to bardzo silne ręce i blefy. Na turnie blefami są zwykle półblefy, a na riverze (M8) ręce bez szans przy showdownie.
+Ogólnie {{t:range}} {{t:polarized}} to bardzo silne ręce i {{t:bluff|blefy}}. Na turnie {{t:bluff|blefami}} są zwykle {{t:semi-bluff|półblefy}}, a na riverze (M8) ręce bez szans przy showdownie.
 
 ## Dlaczego na turnie polaryzujesz
 
-Rywal sprawdził flop, więc ma parę albo dobieranie. Średnia ręka na drugi bet nic nie zyskuje: gorsze ręce pasują, a lepsze płacą. Silne ręce chcą zbudować pulę przed riverem, a półblefy potrzebują pasów i mają outy, gdy dostaną sprawdzenie.
+Rywal {{t:call|sprawdził}} flop, więc ma {{t:pair|parę}} albo {{t:draw}}. Średnia ręka na drugi bet nic nie zyskuje: gorsze ręce {{t:fold|pasują}}, a lepsze płacą. Silne ręce chcą zbudować {{t:pot|pulę}} przed riverem, a {{t:semi-bluff|półblefy}} potrzebują {{t:fold|pasów}} i mają outy, gdy dostaną {{t:call}}.
 
-## Zakres spolaryzowany, duży bet
+## {{t:range|Zakres}} {{t:polarized}}, duży bet
 
-Zakres spolaryzowany betuje dużo, np. 3/4 puli. Silne ręce wyciągają więcej żetonów, a półblefy częściej wygrywają od razu. Średnie ręce czekają. Gdy blefy i silne ręce betują tym samym rozmiarem, rywal nie wie, co masz.
+{{t:range|Zakres}} {{t:polarized}} betuje dużo, np. 3/4 {{t:pot|puli}}. Silne ręce wyciągają więcej {{t:chips|żetonów}}, a {{t:semi-bluff|półblefy}} częściej wygrywają od razu. Średnie ręce {{t:check|czekają}}. Gdy {{t:bluff|blefy}} i silne ręce betują tym samym rozmiarem, rywal nie wie, co masz.
 
-## Cena dla dobierań
+## Cena dla {{t:draw|dobierań}}
 
-Na turnie dobieranie ma tylko jedną kartę. Duży bet każe mu płacić za drogo:
+Na turnie {{t:draw}} ma tylko jedną kartę. Duży bet każe mu płacić za drogo:
 
-| Twój bet | Rywal potrzebuje | Kolor ma | Strit otwarty ma |
+| Twój bet | Rywal potrzebuje | {{t:flush|Kolor}} ma | {{t:straight|Strit}} otwarty ma |
 |---|---|---|---|
-| 1/4 puli | {{n:eq.bet-quarter}} | {{n:odds.flush.turn-river}} | {{n:odds.oesd.turn-river}} |
-| 1/3 puli | {{n:eq.bet-third}} | {{n:odds.flush.turn-river}} | {{n:odds.oesd.turn-river}} |
-| 1/2 puli | {{n:eq.bet-half}} | {{n:odds.flush.turn-river}} | {{n:odds.oesd.turn-river}} |
-| 3/4 puli | {{n:eq.bet-three-quarters}} | {{n:odds.flush.turn-river}} | {{n:odds.oesd.turn-river}} |
-| Cała pula | {{n:eq.bet-pot}} | {{n:odds.flush.turn-river}} | {{n:odds.oesd.turn-river}} |
+| 1/4 {{t:pot|puli}} | {{n:eq.bet-quarter}} | {{n:odds.flush.turn-river}} | {{n:odds.oesd.turn-river}} |
+| 1/3 {{t:pot|puli}} | {{n:eq.bet-third}} | {{n:odds.flush.turn-river}} | {{n:odds.oesd.turn-river}} |
+| 1/2 {{t:pot|puli}} | {{n:eq.bet-half}} | {{n:odds.flush.turn-river}} | {{n:odds.oesd.turn-river}} |
+| 3/4 {{t:pot|puli}} | {{n:eq.bet-three-quarters}} | {{n:odds.flush.turn-river}} | {{n:odds.oesd.turn-river}} |
+| Cała {{t:pot}} | {{n:eq.bet-pot}} | {{n:odds.flush.turn-river}} | {{n:odds.oesd.turn-river}} |
 
-Przy becie 1/4 puli dobieranie do koloru ma dobrą cenę. Przy 1/3 puli cena jest prawie równa szansie koloru ({{n:eq.bet-third}} wobec {{n:odds.flush.turn-river}}), a od 1/2 puli wzwyż kolor płaci wyraźnie za drogo, chyba że liczy na implied odds (następna lekcja). Zadania z dobieraniem w tej lekcji liczą tylko pot odds.
+Przy becie 1/4 {{t:pot|puli}} {{t:flush-draw}} ma dobrą cenę. Przy 1/3 {{t:pot|puli}} cena jest prawie równa szansie {{t:flush|koloru}} ({{n:eq.bet-third}} wobec {{n:odds.flush.turn-river}}), a od 1/2 {{t:pot|puli}} wzwyż {{t:flush}} płaci wyraźnie za drogo, chyba że liczy na implied odds (następna lekcja). Zadania z {{t:draw|dobieraniem}} w tej lekcji liczą tylko pot odds.
 
 :::note Skąd te zasady
-Pojęcia zakresu spolaryzowanego i liniowego oraz zasada „spolaryzowany zakres betuje dużo, średnie ręce czekają” pochodzą z literatury (GTO Gecko, PokerStrategy, GTO Wizard) i są tu heurystyką; zalecenie dużego betu silną, wrażliwą ręką także z PokerCoaching. Solver na turnie używa też małych rozmiarów. Rozmiar 3/4 puli to przykład do ćwiczeń, a nie jedyny dobry rozmiar. Ceny w tabeli to dokładne obliczenia aplikacji.
+Pojęcia {{t:range|zakresu}} {{t:polarized|spolaryzowanego}} i {{t:linear|liniowego}} oraz zasada „{{t:polarized}} {{t:range}} betuje dużo, średnie ręce {{t:check|czekają}}” pochodzą z literatury (GTO Gecko, PokerStrategy, GTO Wizard) i są tu heurystyką; zalecenie dużego betu silną, wrażliwą ręką także z PokerCoaching. Solver na turnie używa też małych rozmiarów. Rozmiar 3/4 {{t:pot|puli}} to przykład do ćwiczeń, a nie jedyny dobry rozmiar. Ceny w tabeli to dokładne obliczenia aplikacji.
 :::

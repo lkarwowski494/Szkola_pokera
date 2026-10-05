@@ -32,27 +32,27 @@ drills:
     family: m3.paint.late
     rules: [R-M3-003]
     spot: rfi.btn
-    prompt: "Wszyscy przed tobą spasowali, jesteś na Buttonie. Pomaluj ręce, którymi otwierasz."
+    prompt: "Wszyscy przed tobą {{t:fold|spasowali}}, jesteś na Buttonie. Pomaluj ręce, którymi {{t:open|otwierasz}}."
   - kind: paint
     id: m3.l3.p-utg
     family: m3.paint.early
     rules: [R-M3-002]
     spot: rfi.utg
-    prompt: "Jesteś pierwszy do mówienia (UTG). Pomaluj ręce, którymi otwierasz."
+    prompt: "Jesteś pierwszy do mówienia ({{t:utg}}). Pomaluj ręce, którymi {{t:open|otwierasz}}."
 ---
-Zakres otwarcia to lista rąk, z którymi przebijasz, gdy wszyscy przed tobą spasowali. Siatki poniżej policzył solver preflop tej aplikacji dla stołu 6-osobowego i stacków {{n:format.stack}}.
+{{t:range|Zakres}} {{t:open|otwarcia}} to lista rąk, z którymi {{t:raise|przebijasz}}, gdy wszyscy przed tobą {{t:fold|spasowali}}. Siatki poniżej policzył solver preflop tej aplikacji dla {{t:board|stołu}} 6-osobowego i stacków {{n:format.stack}}.
 
 ## Jak czytać siatkę
 
-Każde pole to jeden rodzaj ręki. Nad przekątną są ręce w jednym kolorze (np. AKs), pod nią w różnych kolorach (np. AKo), a na przekątnej pary. Zielone pole to przebicie, puste to pas. Częściowo wypełnione pole oznacza, że solver gra rękę tylko czasem. Jeśli otwiera ją z częstością od {{n:range.mixed.low}} do {{n:range.mixed.high}}, to ręka mieszana: w ćwiczeniach zaliczamy wtedy obie odpowiedzi.
+Każde pole to jeden rodzaj ręki. Nad przekątną są ręce w jednym kolorze (np. AKs), pod nią w różnych kolorach (np. AKo), a na przekątnej {{t:pair|pary}}. Zielone pole to {{t:raise}}, puste to {{t:fold}}. Częściowo wypełnione pole oznacza, że solver gra rękę tylko czasem. Jeśli {{t:open|otwiera}} ją z częstością od {{n:range.mixed.low}} do {{n:range.mixed.high}}, to {{t:mixed-hand|ręka mieszana}}: w ćwiczeniach zaliczamy wtedy obie odpowiedzi. Akcję, którą solver gra rzadziej niż w {{n:range.mixed.low}} przypadków, ale co najmniej w {{n:range.mixed.min}}, ćwiczenia uznają za dopuszczalną: to nie błąd, ale powtórka tego zadania wróci szybciej. Akcja grana rzadziej niż w {{n:range.mixed.min}} przypadków to błąd.
 
-## Od pierwszej pozycji do Buttona
+## Od pierwszej {{t:position|pozycji}} do Buttona
 
 ```range
 rfi.utg
 ```
 
-Z UTG solver otwiera {{n:solver.rfi.utg}} rąk. Profesjonalne źródła podają {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}.
+Z {{t:utg}} solver {{t:open|otwiera}} {{n:solver.rfi.utg}} rąk. Profesjonalne źródła podają {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}.
 
 ```range
 rfi.hj
@@ -62,22 +62,22 @@ rfi.hj
 rfi.co
 ```
 
-Z każdą pozycją bliżej Buttona zakres rośnie: HJ (Hijack) otwiera {{n:solver.rfi.hj}}, a CO (Cutoff) już {{n:solver.rfi.co}} rąk.
+Z każdą {{t:position|pozycją}} bliżej Buttona {{t:range}} rośnie: {{t:hijack|HJ}} {{t:open|otwiera}} {{n:solver.rfi.hj}}, a {{t:cutoff|CO}} już {{n:solver.rfi.co}} rąk.
 
 ```range
 rfi.btn
 ```
 
-Na Buttonie solver otwiera już {{n:solver.rfi.btn}} rąk, bo zostały tylko blindy, a po flopie masz pozycję.
+Na Buttonie solver {{t:open|otwiera}} już {{n:solver.rfi.btn}} rąk, bo zostały tylko blindy, a po flopie masz {{t:position|pozycję}}.
 
 ```range
 rfi.sb
 ```
 
-Mały blind gra już tylko przeciw dużemu blindowi, więc otwiera podobnie szeroko jak Button: ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, mimo że po flopie mówi pierwszy. Na mikrostawkach z małego blinda przebijasz albo pasujesz, bez dopłacania do dużego blinda: przy prowizji od puli dopłacanie traci. Model solvera aplikacji otwiera z tej pozycji wyraźnie węziej niż publiczne źródła ({{n:solver.rfi.sb}} rąk), więc tej siatki nie traktuj jako wzoru.
+{{t:small-blind|Mały blind}} gra już tylko przeciw {{t:big-blind|dużemu blindowi}}, więc {{t:open|otwiera}} podobnie szeroko jak Button: ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, mimo że po flopie mówi pierwszy. Na mikrostawkach z {{t:small-blind|małego blinda}} {{t:raise|przebijasz}} albo {{t:fold|pasujesz}}, bez dopłacania do {{t:big-blind|dużego blinda}}: przy {{t:rake|rake'u}} pobieranym od {{t:pot|puli}} dopłacanie traci. Model solvera aplikacji {{t:open|otwiera}} z tej {{t:position|pozycji}} wyraźnie węziej niż publiczne źródła ({{n:solver.rfi.sb}} rąk), więc tej siatki nie traktuj jako wzoru.
 
 :::note Jak zapamiętać
-Nie ucz się {{n:combos.kinds}} pól na pamięć. Zapamiętaj granice: które pary, które asy w kolorze i od której karty zaczynają się ręce w różnych kolorach. Ćwiczenia poniżej losują częściej właśnie ręce z granicy zakresu.
+Nie ucz się {{n:combos.kinds}} pól na pamięć. Zapamiętaj granice: które {{t:pair|pary}}, które asy w kolorze i od której karty zaczynają się ręce w różnych kolorach. Ćwiczenia poniżej losują częściej właśnie ręce z granicy {{t:range|zakresu}}.
 :::
 
-Te zakresy pochodzą z modelu, który upraszcza grę po flopie, dlatego na granicy zakresu różnią się od profesjonalnych tabel. Model zaniża ręce w kolorze po kolei, a zawyża słabe ręce w różnych kolorach. Trzymaj się zasady z lekcji „Ręce startowe”: ręce w kolorze po kolei dobrze grają z późnej pozycji. Dopóki takie ręce nie zostaną zweryfikowane ze źródłami, ćwiczenia ich nie oceniają.
+Te {{t:range|zakresy}} pochodzą z modelu, który upraszcza grę po flopie, dlatego na granicy {{t:range|zakresu}} różnią się od profesjonalnych tabel. Model zaniża ręce w kolorze po kolei, a zawyża słabe ręce w różnych kolorach. Trzymaj się zasady z lekcji „Ręce startowe”: ręce w kolorze po kolei dobrze grają z {{t:late-position|późnej pozycji}}. Dopóki takie ręce nie zostaną zweryfikowane ze źródłami, ćwiczenia ich nie oceniają.

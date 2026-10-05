@@ -5,12 +5,13 @@
  * ma pełną długość. Łapie rozjazd między potokiem treści a silnikiem zadań.
  */
 import { CONTENT_SCHEMA_VERSION, type Drill } from '@szkola/content-schema';
+import { GAME_CARDS } from '@szkola/srs';
 import { classOf, createRng, parseCard } from '@szkola/poker-core';
 import { join } from 'node:path';
 import type { DrillRow, RangeSpot } from '@/data/content/repo';
 import { instantiate } from '@/features/drills/engine';
 import { gradeAnswer } from '@/features/drills/grade';
-import { EXAM_SIZE, MIXED_HIGH } from '@/features/drills/thresholds';
+import { EXAM_SIZE, MIXED_HIGH, MIXED_LOW, MIXED_MIN } from '@/features/drills/thresholds';
 import { buildExamSession } from '@/features/session/build';
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -93,5 +94,20 @@ describe('treść w bazie a silnik zadań', () => {
       const exam = buildExamSession(rows.filter((r) => r.moduleId === m).map(toRow), rows.filter((r) => r.ord < ord).map(toRow), createRng(3), ctx);
       expect(exam).toHaveLength(EXAM_SIZE);
     }
+  });
+});
+
+describe('progi ADR-26: zadania i tryb gry M13 używają tych samych liczb', () => {
+  it('MIXED_* w thresholds.ts są równe range.mixed.* w numbers.yaml (ocena gry czyta je z treści)', () => {
+    const num = (k: string) => (db.prepare('SELECT value FROM numbers WHERE key = ?').get(k) as { value: number }).value;
+    expect(num('range.mixed.min')).toBe(MIXED_MIN);
+    expect(num('range.mixed.low')).toBe(MIXED_LOW);
+    expect(num('range.mixed.high')).toBe(MIXED_HIGH);
+  });
+
+  it('progi powtórek z gry w lekcji M13 (game.recall.*) są równe stałym GAME_CARDS w srs', () => {
+    const num = (k: string) => (db.prepare('SELECT value FROM numbers WHERE key = ?').get(k) as { value: number }).value;
+    expect(num('game.recall.count')).toBe(GAME_CARDS.recallMistakes);
+    expect(num('game.recall.days')).toBe(GAME_CARDS.recallWindowDays);
   });
 });

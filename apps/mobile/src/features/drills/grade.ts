@@ -83,6 +83,14 @@ export function gradeNumeric(inst: Pick<NumericInstance, 'answer' | 'unit'>, val
   return 'wrong';
 }
 
+/**
+ * Czy odpowiedź zalicza zadanie (wynik lekcji i egzaminu, kolumna answers.correct): zgodna albo dopuszczalna.
+ * Dopuszczalna nie jest błędem (ADR-26, dokument 14, 5.2); „blisko” i niedokładność rozmiaru nie zaliczają.
+ */
+export function isPass(g: GradeResult): boolean {
+  return g === 'correct' || g === 'acceptable';
+}
+
 export function gradeAnswer(inst: DrillInstance, answer: DrillAnswer): GradeResult {
   if (answer.kind === 'timeout') return 'wrong';
   switch (inst.kind) {
@@ -90,7 +98,7 @@ export function gradeAnswer(inst: DrillInstance, answer: DrillAnswer): GradeResu
       if (answer.kind !== 'choice') return 'wrong';
       const o = inst.options[answer.index];
       if (!o) return 'wrong';
-      return o.correct ? 'correct' : o.sizeError ? 'size' : 'wrong';
+      return o.correct ? 'correct' : o.acceptable ? 'acceptable' : o.sizeError ? 'size' : 'wrong';
     }
     case 'numeric':
       return answer.kind === 'numeric' ? gradeNumeric(inst, answer.value) : 'wrong';

@@ -1,0 +1,11 @@
+# Zakładka Powtórki: świeża instalacja nie ma nic do powtórki.
+appId: pl.lkarwowski.szkolapokera
+name: Powtórki
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: 'No-Limit Hold’em od zera.*'
+    timeout: 30000
+- tapOn: 'Powtórki'
+- assertVisible: 'Nic nie czeka na powtórkę.*'

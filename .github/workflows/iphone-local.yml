@@ -7,6 +7,8 @@
 #   instalacja        — testy, build podpisany, link do instalacji w podsumowaniu przebiegu (sekret: EXPO_TOKEN;
 #                       wcześniej raz: „iPhone (EAS)” → konfiguruj-podpis),
 #   tylko-kompilacja  — bez żadnych sekretów: sprawdza, czy aplikacja kompiluje się na iOS (bez podpisu, bez instalacji).
+# Sentry (ADR-17): w trybie instalacja mapy źródeł i dSYM idą do Sentry tylko z sekretem SENTRY_AUTH_TOKEN i z organizacją
+# i projektem wpisanymi w apps/mobile/app.json; bez nich krok jest pomijany, a build idzie dalej.
 # Uruchamiany tylko ręcznie (workflow_dispatch), nigdy z cudzych propozycji zmian.
 name: iPhone (lokalnie, bez limitu Expo)
 on:
@@ -25,6 +27,7 @@ concurrency:
 env:
   EAS_CLI: 24.8.0
   EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
   # eas-cli 24.8.0: synchronizacja uprawnień Apple jest wadliwa (expo/eas-cli#3986); aplikacja nie ma specjalnych uprawnień.
   EXPO_NO_CAPABILITY_SYNC: '1'
   # Logi są publiczne: UDID z listy urządzeń profilu zastępujemy znacznikiem (jak w Treningu).
@@ -62,6 +65,8 @@ jobs:
       - name: Kompilacja bez podpisu
         if: inputs.tryb == 'tylko-kompilacja'
         working-directory: apps/mobile/ios
+        env:
+          SENTRY_DISABLE_AUTO_UPLOAD: 'true'
         run: |
           set -o pipefail
           WS=$(ls -d *.xcworkspace | head -1); SCHEME="${WS%.xcworkspace}"
@@ -86,6 +91,20 @@ jobs:
       - name: Sekret
         if: inputs.tryb == 'instalacja'
         run: '[ -n "$EXPO_TOKEN" ] || { echo "::error::Brak sekretu EXPO_TOKEN (Settings → Secrets and variables → Actions)"; exit 1; }'
+      - name: Sentry (mapy źródeł i dSYM)
+        if: inputs.tryb == 'instalacja'
+        working-directory: apps/mobile
+        run: |
+          ORG_PROJECT=$(node -e '
+            const p = require("./app.json").expo.plugins.find((x) => Array.isArray(x) && x[0] === "@sentry/react-native/expo");
+            const o = p ? p[1] : {};
+            console.log(o.organization && o.project ? "ok" : "");')
+          if [ -n "$SENTRY_AUTH_TOKEN" ] && [ -n "$ORG_PROJECT" ]; then
+            echo "Sentry: mapy źródeł i dSYM zostaną wysłane podczas buildu"
+          else
+            echo "::notice title=Sentry::Pomijam wysyłanie map źródeł i dSYM (brak sekretu SENTRY_AUTH_TOKEN albo organizacji i projektu w app.json)"
+            echo "SENTRY_DISABLE_AUTO_UPLOAD=true" >> "$GITHUB_ENV"
+          fi
       - name: Projekt Expo (połączenie po nazwie)
         if: inputs.tryb == 'instalacja'
         working-directory: apps/mobile

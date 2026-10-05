@@ -1,13 +1,13 @@
 /// <reference types="jest" />
 import type { Drill } from '@szkola/content-schema';
-import { classOf, combosCount, createRng, HAND_CLASSES, parseCard } from '@szkola/poker-core';
+import { classifyHud, classOf, combosCount, createRng, HAND_CLASSES, hudThresholdsFromParams, parseCard, PLAYER_TYPES } from '@szkola/poker-core';
 import type { DrillRow, RangeSpot } from '@/data/content/repo';
 import { buildExamSession, buildFamilySession, buildSpeedSession, interleaveRows } from '@/features/session/build';
-import { instantiate } from '../engine';
-import { gradeAnswer, gradeNumeric, parseNumberInput, scorePaint } from '../grade';
+import { instantiate, rangeVerdict } from '../engine';
+import { gradeAnswer, gradeNumeric, isPass, parseNumberInput, scorePaint } from '../grade';
 import { splitCardTokens } from '../cardTokens';
 import { pctEquity } from '../text.pl';
-import { EXAM_SIZE, MIXED_HIGH, MIXED_LOW, PAINT_PASS } from '../thresholds';
+import { EXAM_SIZE, MIXED_HIGH, MIXED_LOW, MIXED_MIN, PAINT_PASS } from '../thresholds';
 import type { ChoiceInstance, DrillInstance, NumericInstance } from '../types';
 
 const generators = ['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'icm'] as const;
@@ -49,9 +49,9 @@ describe('silnik zadań', () => {
     const rng = createRng(5);
     for (const raw of instantiate(gen('icm', { mode: 'call' }), 'l1', rng)) {
       const inst = asChoice(raw);
-      expect(inst.prompt).toMatch(/Bańka: [34] graczy/);
+      expect(inst.prompt).toMatch(/Bańka \(bubble\): [34] graczy/);
       expect(inst.explanation).toMatch(/Bubble factor/);
-      expect(inst.options.map((o) => o.text)).toEqual(['Sprawdzam', 'Pasuję']);
+      expect(inst.options.map((o) => o.text)).toEqual(['Sprawdzam (call)', 'Pasuję (fold)']);
     }
     for (const raw of instantiate(gen('icm', { mode: 'equity' }), 'l1', rng)) {
       const inst = asChoice(raw);
@@ -60,6 +60,30 @@ describe('silnik zadań', () => {
       expect(new Set(inst.options.map((o) => o.text)).size).toBe(3);
       expect(inst.prompt).toMatch(/Ty \d/);
     }
+  });
+
+  it('playerType (M10): progi z parametrów, jedna poprawna odpowiedź zgodna z klasyfikacją, wyjaśnienie z dostosowaniem', () => {
+    // te same wartości co hud.* w numbers.yaml po podstawieniu „n:klucz” (VPIP jako ułamek, reszta w punktach i rękach)
+    const params = { nitMax: 0.14, regLow: 0.18, regHigh: 0.3, loose: 0.35, passiveGap: 10, aggressiveGap: 3, minHands: 30, readHands: 100 };
+    const th = hudThresholdsFromParams(params);
+    const drill: Drill = { kind: 'generated', id: 't.pt', family: 'f.pt', rules: [], generator: 'playerType', params, count: 40 };
+    const seen = new Set<string>();
+    for (const raw of instantiate(drill, 'l1', createRng(11))) {
+      const inst = asChoice(raw);
+      const m = /VPIP \(voluntarily put in pot\) (\d+)%, PFR \(preflop raise\) (\d+)%, próba (\d+)/.exec(inst.prompt);
+      expect(m).not.toBeNull();
+      const type = classifyHud({ vpip: Number(m![1]), pfr: Number(m![2]), hands: Number(m![3]) }, th);
+      expect(type).not.toBeNull();
+      const correct = inst.options.filter((o) => o.correct);
+      expect(correct).toHaveLength(1);
+      expect(inst.options.map((o) => o.text)).toEqual(['Nit', 'Regular', 'Pasywny gracz rekreacyjny (recreational player)', 'Maniak (maniac)', 'Za mało rąk, żeby ocenić']);
+      expect(inst.options[PLAYER_TYPES.indexOf(type!)]!.correct).toBe(true);
+      expect(correct[0]!.why).toMatch(/^Tak\./);
+      expect(inst.explanation).toMatch(/^Najpierw próba/);
+      seen.add(type!);
+    }
+    expect(seen.size).toBeGreaterThanOrEqual(4);
+    expect(() => instantiate({ ...drill, params: { ...params, loose: 'n:hud.vpip.loose' } }, 'l1', createRng(1))).toThrow(/musi być liczbą/);
   });
 
   it('karty w tekście wyjaśnień mają poprawny format', () => {
@@ -133,13 +157,76 @@ describe('zadania z zakresów solvera', () => {
       const raise = inst.options.find((o) => o.text === 'Przebicie')!;
       const big = inst.options.find((o) => o.text === 'Przebicie za duże')!;
       expect(big.correct).toBe(false);
-      expect(!!big.sizeError).toBe(raise.correct);
+      const raiseOk = raise.correct || !!raise.acceptable;
+      expect(!!big.sizeError).toBe(raiseOk);
       if (big.sizeError) sawSize = true;
       else sawPlain = true;
       const bigIdx = inst.options.indexOf(big);
-      expect(gradeAnswer(inst, { kind: 'choice', index: bigIdx })).toBe(raise.correct ? 'size' : 'wrong');
+      expect(gradeAnswer(inst, { kind: 'choice', index: bigIdx })).toBe(raiseOk ? 'size' : 'wrong');
     }
     expect(sawSize && sawPlain).toBe(true);
+  });
+});
+
+describe('skala oceny akcji solvera (ADR-26)', () => {
+  it('progi: 3,5% z GTO Wizard (Measure Performance), 25% granica ręki mieszanej', () => {
+    expect(MIXED_MIN).toBe(0.035);
+    expect(MIXED_MIN).toBeLessThan(MIXED_LOW);
+  });
+
+  it('zgodna: najczęstsza albo ≥ 25%; dopuszczalna: 3,5–25%; błąd: poniżej 3,5%', () => {
+    expect(rangeVerdict([0.9, 0.1])).toEqual(['correct', 'acceptable']);
+    expect(rangeVerdict([0.5, 0.3, 0.2])).toEqual(['correct', 'correct', 'acceptable']);
+    expect(rangeVerdict([0.75, 0.25])).toEqual(['correct', 'correct']);
+    expect(rangeVerdict([0.97, 0.03])).toEqual(['correct', 'wrong']);
+    expect(rangeVerdict([0.965, 0.035])).toEqual(['correct', 'acceptable']);
+    expect(rangeVerdict([1, 0])).toEqual(['correct', 'wrong']);
+    // remis najczęstszych: obie zgodne, nawet poniżej 25%
+    expect(rangeVerdict([0.2, 0.2, 0.2, 0.2, 0.2])).toEqual(['correct', 'correct', 'correct', 'correct', 'correct']);
+  });
+
+  it('w zadaniu akcja rzadka jest dopuszczalna, zalicza i nie jest oznaczona jako zgodna', () => {
+    // każda ręka: przebicie 10%, pas 90%
+    const spot = testSpot({ groups: [{ name: 'Przebicie', freqs: HAND_CLASSES.map(() => 0.1) }] });
+    const drill: Drill = { kind: 'generated', id: 'r', family: 'r', rules: [], generator: 'rangeDecision', params: { spots: 's' }, count: 20 };
+    let seen = 0;
+    for (const raw of instantiate(drill, 'l', createRng(21), undefined, { range: () => spot })) {
+      const inst = asChoice(raw);
+      seen++;
+      const raiseIdx = inst.options.findIndex((o) => o.text === 'Przebicie');
+      const foldIdx = inst.options.findIndex((o) => o.text !== 'Przebicie');
+      const raise = inst.options[raiseIdx]!;
+      expect(raise.correct).toBe(false);
+      expect(raise.acceptable).toBe(true);
+      expect(raise.why).toContain('Dopuszczalne');
+      expect(gradeAnswer(inst, { kind: 'choice', index: raiseIdx })).toBe('acceptable');
+      expect(gradeAnswer(inst, { kind: 'choice', index: foldIdx })).toBe('correct');
+      expect(inst.explanation).toContain('dopuszczalna');
+    }
+    expect(seen).toBeGreaterThan(0);
+  });
+
+  it('akcja poniżej 3,5% to błąd', () => {
+    // każda ręka: przebicie 98%, pas 2%
+    const spot = testSpot({ groups: [{ name: 'Przebicie', freqs: HAND_CLASSES.map(() => 0.98) }] });
+    const drill: Drill = { kind: 'generated', id: 'r', family: 'r', rules: [], generator: 'rangeDecision', params: { spots: 's' }, count: 20 };
+    let seen = 0;
+    for (const raw of instantiate(drill, 'l', createRng(4), undefined, { range: () => spot })) {
+      const inst = asChoice(raw);
+      seen++;
+      const foldIdx = inst.options.findIndex((o) => o.text !== 'Przebicie');
+      expect(inst.options[foldIdx]!.acceptable).toBeFalsy();
+      expect(gradeAnswer(inst, { kind: 'choice', index: foldIdx })).toBe('wrong');
+    }
+    expect(seen).toBeGreaterThan(0);
+  });
+
+  it('zaliczenie: zgodna i dopuszczalna tak; blisko, niedokładność i błąd nie', () => {
+    expect(isPass('correct')).toBe(true);
+    expect(isPass('acceptable')).toBe(true);
+    expect(isPass('close')).toBe(false);
+    expect(isPass('size')).toBe(false);
+    expect(isPass('wrong')).toBe(false);
   });
 });
 
@@ -331,7 +418,7 @@ describe('flop: tekstura i c-bet (M5)', () => {
     for (const inst of instantiate({ ...texture, axes: ['ranks'] } as Drill, 'l', createRng(8))) {
       if (inst.kind !== 'texture') continue;
       const right = inst.axes[0]!.options.find((o) => o.correct)!;
-      if (right.text === 'Połączony') {
+      if (right.text === 'Połączony (connected)') {
         seen++;
         expect(right.why).toMatch(/np\. z [2-9TJQKA]{2}\./);
       }
@@ -379,7 +466,8 @@ describe('teksty generatorów (audyt A-GEN-02, K5)', () => {
         const m = e.match(/Obaj macie ([^,]+),/);
         if (!m) continue;
         seen++;
-        expect(['pokera', 'pokera królewskiego', 'karetę', 'fulla', 'kolor', 'strita', 'trójkę', 'dwie pary', 'parę', 'wysoką kartę']).toContain(m[1]);
+        // nazwa w bierniku z nazwą angielską z terms.yaml (decyzja właściciela 4.10.2026)
+        expect(['pokera (straight flush)', 'pokera królewskiego (royal flush)', 'karetę (four of a kind)', 'fulla (full house)', 'kolor (flush)', 'strita (straight)', 'trójkę (three of a kind)', 'dwie pary (two pair)', 'parę (pair)', 'wysoką kartę (high card)']).toContain(m[1]);
       }
     }
     expect(seen).toBeGreaterThan(0);
@@ -415,7 +503,7 @@ describe('teksty generatorów (audyt A-GEN-02, K5)', () => {
         expect(inst.explanation).toContain('szansa na jedną kartę');
         if (inst.explanation!.includes('implied odds')) {
           near++;
-          expect(inst.options.find((o) => o.correct)!.text).toBe('Pasuję');
+          expect(inst.options.find((o) => o.correct)!.text).toBe('Pasuję (fold)');
         }
       }
     }

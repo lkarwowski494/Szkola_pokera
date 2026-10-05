@@ -1,10 +1,13 @@
 import { z } from 'zod';
 
+export * from './helplines';
+export * from './terms';
+
 /**
  * Kontrakt treści: wspólny dla potoku content-build (walidacja) i aplikacji (typy).
  * Zmiana tego pliku = zmiana wersji schematu (CONTENT_SCHEMA_VERSION).
  */
-export const CONTENT_SCHEMA_VERSION = 3;
+export const CONTENT_SCHEMA_VERSION = 4;
 
 const id = z.string().regex(/^[a-z0-9][a-z0-9.\-]*$/i, 'identyfikator: litery, cyfry, kropki, myślniki');
 const cardsText = z.string().regex(/^([2-9TJQKA][shdc])( [2-9TJQKA][shdc])*$/, 'karty w formacie "As Kd"');
@@ -48,6 +51,41 @@ export type NumberEntry = z.infer<typeof NumberEntry>;
 
 export const NumbersFile = z.record(id, NumberEntry);
 
+// ---------- Terminy PL ↔ EN (content/terms.yaml, schemat w wersji 4) ----------
+
+/** Obszar terminów = rodzina ćwiczenia słownictwa (vocab.<obszar>). */
+export const TermArea = z.enum(['hands', 'actions', 'table', 'positions', 'math', 'preflop', 'board', 'strategy', 'mental', 'tournament']);
+export type TermArea = z.infer<typeof TermArea>;
+
+const termForm = z.string().min(1).regex(/^[^{}|]+$/, 'forma bez „{”, „}” i „|”');
+
+export const TermEntry = z
+  .object({
+    pl: termForm,
+    en: z.string().min(1),
+    en_alt: z.array(z.string().min(1)).optional(),
+    abbr: z.string().min(1).optional(),
+    area: TermArea,
+    forms: z.array(termForm).optional(),
+    skip: z.array(z.string().min(1)).optional(),
+    /** Adres i cytat ze źródła nazwy angielskiej (ADR-24). */
+    source: z.string().min(10).regex(/https?:\/\//, 'źródło musi mieć adres'),
+  })
+  .strict();
+export type TermEntry = z.infer<typeof TermEntry>;
+export const TermsFile = z.record(id, TermEntry);
+
+/** Termin po kompilacji (tabela terms w bazie i moduł TS w aplikacji). */
+export interface CompiledTerm {
+  key: string;
+  pl: string;
+  en: string;
+  enAlt: string[];
+  abbr?: string;
+  area: TermArea;
+  source: string;
+}
+
 // ---------- Moduły ----------
 
 export const ModuleDef = z.object({
@@ -65,6 +103,38 @@ export const ModulesFile = z.array(ModuleDef);
 // ---------- Reguły odruchowe ----------
 
 export const RuleLevel = z.enum(['rules', 'math', 'gto', 'heuristic', 'exploit']);
+export type RuleLevel = z.infer<typeof RuleLevel>;
+
+/**
+ * Warunek reguły sprawdzalny automatycznie w trybie gry M13 (dokument 14, 4.4.3 i 6.2 A): rodzaj sprawdzenia
+ * w silniku oceny (poker-core, grading.ts) i jego parametry. Liczby jako „n:klucz” z numbers.yaml.
+ * players i stackBb ograniczają regułę do konfiguracji stołu, której dotyczy jej źródło (dokument 14, 5.5);
+ * brak = każda konfiguracja (reguły rachunkowe).
+ */
+export const RuleCheckKind = z.enum([
+  'free-check-fold',
+  'no-limp',
+  'solver-spot',
+  'open-size',
+  'three-bet-size',
+  'iso-size',
+  'cbet-case',
+  'draw-price',
+  'implied-odds',
+]);
+export type RuleCheckKind = z.infer<typeof RuleCheckKind>;
+export const RuleCheck = z.object({
+  kind: RuleCheckKind,
+  players: z.array(z.number().int().min(2).max(9)).optional(),
+  stackBb: z.array(z.number().positive()).optional(),
+  streets: z.array(z.enum(['preflop', 'flop', 'turn', 'river'])).optional(),
+  /** solver-spot: identyfikatory spotów z content/ranges/spots.yaml. */
+  spots: z.array(z.string()).optional(),
+  /** cbet-case: zadanie kind: cbet, którego przypadki (pole rule = ta reguła) oceniają decyzję. */
+  drill: z.string().optional(),
+  params: z.record(z.string(), z.union([z.number(), z.string()])).optional(),
+});
+export type RuleCheck = z.infer<typeof RuleCheck>;
 
 export const RuleDef = z
   .object({
@@ -76,6 +146,7 @@ export const RuleDef = z
     level: RuleLevel,
     source: z.string().min(3),
     population: z.string().optional(),
+    check: RuleCheck.optional(),
   })
   .refine((r) => r.level !== 'exploit' || !!r.population, 'reguła eksploatacyjna musi podać populację źródłową');
 export type RuleDef = z.infer<typeof RuleDef>;
@@ -146,8 +217,11 @@ export const PaintDrill = z.object({
   prompt: z.string().min(3),
 });
 
-/** icm (M11): bańka turnieju z losowymi stackami; params.mode = "call" (sprawdzić all-in według ICM) albo "equity" (wycena stacku). */
-export const GeneratorName = z.enum(['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'rangeDecision', 'icm']);
+/**
+ * icm (M11): bańka turnieju z losowymi stackami; params.mode = "call" (sprawdzić all-in według ICM) albo "equity" (wycena stacku).
+ * playerType (M10): typ gracza po VPIP, PFR i próbie z HUD; progi w params jako "n:klucz" z numbers.yaml (poker-core HUD_PARAMS).
+ */
+export const GeneratorName = z.enum(['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'rangeDecision', 'icm', 'vocab', 'playerType']);
 export type GeneratorName = z.infer<typeof GeneratorName>;
 
 export const GeneratedDrill = z.object({
@@ -156,6 +230,10 @@ export const GeneratedDrill = z.object({
   family: id,
   rules: z.array(z.string()).default([]),
   generator: GeneratorName,
+  /**
+   * Parametry generatora. Tekst „n:klucz” content-build zamienia na wartość liczby z numbers.yaml (jedno źródło prawdy
+   * dla progów używanych przez generator, np. playerType).
+   */
   params: z.record(z.string(), z.union([z.string(), z.number(), z.boolean()])).default({}),
   /** Ile losowych zadań z tego generatora w jednej lekcji. */
   count: z.number().int().min(1).max(20).default(3),
@@ -282,12 +360,42 @@ export interface CompiledRangeSpot {
   title: string;
   hero: string;
   path: string;
-  groups: { name: string; freqs: number[]; wrongSizes?: { text: string; why: string }[] }[];
+  /** labels: akcje węzła solvera należące do grupy (np. „raise 7.5”), do oceny decyzji w trybie gry M13. */
+  groups: { name: string; labels: string[]; freqs: number[]; wrongSizes?: { text: string; why: string }[] }[];
   /** Udział rąk w grupach akcji pokazywanych w siatce (reszta to pas), ważony liczbą kombinacji. */
   playPercent: number;
   /** Klasy niepewne (RangeSpotDef.uncertain), w kolejności HAND_CLASSES; pusta lista = brak. */
   uncertain: string[];
+  /** Plik wyniku solvera w content/ranges, z którego pochodzi spot (np. preflop-6max-100bb.json). */
+  solver: string;
+  /**
+   * Wszystkie akcje węzła solvera z częstościami dla 169 klas (kolejność HAND_CLASSES), z pasem włącznie; etykiety jak
+   * w wyniku solvera („fold”, „call 2.5”, „raise 7.5”, „all-in”). Dla botów trybu gry M13 (dokument 14, 4.4.2).
+   */
+  actions: { label: string; freqs: number[] }[];
 }
+
+/**
+ * Reguła z warunkiem sprawdzalnym w trybie gry (content-build → game_kit.evalRules): parametry z rozwiązanymi
+ * liczbami, przypadki c-betu z zadania (cbet-case) i rodziny zadań powołujących się na regułę (dokument 14, 2 i 5.7).
+ */
+export interface CompiledEvalRule {
+  id: string;
+  module: string;
+  level: RuleLevel;
+  check: Omit<RuleCheck, 'params'> & {
+    params: Record<string, number | string>;
+    cases?: { when: TextureFilter; best: CbetAction; rule?: string }[];
+  };
+  families: string[];
+}
+
+/** Obszar trybu gry (content/pl/areas.yaml, dokument 14, 4.3). */
+export const AreaGenerator = z.enum(['flop-draw', 'rfi', 'vs-open', 'cbet-ip', 'turn-draw']);
+export type AreaGenerator = z.infer<typeof AreaGenerator>;
+export const AreaDef = z.object({ module: id, generator: AreaGenerator, rules: z.array(z.string()).min(1) });
+export type AreaDef = z.infer<typeof AreaDef>;
+export const AreasFile = z.array(AreaDef);
 
 // ---------- Lekcje ----------
 

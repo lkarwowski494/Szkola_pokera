@@ -1,4 +1,5 @@
 import type { AreaInput } from '@szkola/srs';
+import { reportError } from '@/observability/crashReports';
 
 /** Klucz w tabeli settings (user.db): treść, którą użytkownik ostatnio widział we wskaźniku. */
 export const SEEN_CONTENT_KEY = 'advancement.seenContent';
@@ -23,7 +24,9 @@ export function parseSeen(value: string | null): SeenContent | null {
     const v = JSON.parse(value) as Partial<SeenContent>;
     if (typeof v.hash !== 'string' || !Array.isArray(v.skills)) return null;
     return { hash: v.hash, skills: v.skills.filter((s): s is string => typeof s === 'string') };
-  } catch {
+  } catch (e) {
+    // uszkodzony zapis w user.db: zaczynamy od nowa, ale zgłaszamy (w komunikacie tylko hash treści i nazwy umiejętności)
+    reportError(e);
     return null;
   }
 }

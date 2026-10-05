@@ -1,6 +1,6 @@
 import { router, useFocusEffect } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Muted, ProgressBar, Screen, Title } from '@/components/ui';
@@ -9,6 +9,7 @@ import { userDb } from '@/data/user/db';
 import { examSummaryMap, lessonProgressMap } from '@/data/user/repo';
 import { AdvancementCard } from '@/features/advancement/AdvancementCard';
 import { EXAM_SIZE } from '@/features/drills/thresholds';
+import { useObserve } from '@/observability/observe';
 import { radius, space, type as tp, useTokens } from '@/theme/tokens';
 
 /** Mapa nauki: moduły i lekcje. Każdą lekcję można otworzyć (FR-01). */
@@ -27,6 +28,12 @@ export default function LearnScreen() {
     }, []),
   );
 
+  // EAS Observe: czas do interakcji liczony do pierwszego wyświetlenia mapy nauki (ekran startowy); kolejne wywołania nic nie robią
+  const { markInteractive } = useObserve();
+  useEffect(() => {
+    markInteractive();
+  }, [markInteractive]);
+
   const done = lessons.filter((l) => progress.get(l.id)?.done).length;
 
   return (
@@ -34,6 +41,15 @@ export default function LearnScreen() {
       <Title>{t('learn.title')}</Title>
       <Muted>{t('learn.intro')}</Muted>
       <AdvancementCard />
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel={`${t('play.entry')}. ${t('play.entryHint')}`}
+        onPress={() => router.push('/play')}
+        style={({ pressed }) => [styles.play, { backgroundColor: tk.feltDeep, opacity: pressed ? 0.9 : 1 }]}
+      >
+        <Text style={[tp.h3, { color: tk.onFelt }]}>{t('play.entry')}</Text>
+        <Text style={[tp.small, { color: tk.onFelt, opacity: 0.85 }]}>{t('play.entryHint')}</Text>
+      </Pressable>
       <View style={{ gap: space.s }}>
         <ProgressBar value={lessons.length ? done / lessons.length : 0} />
         <Muted>{t('learn.lessonsDone', { done, total: lessons.length })}</Muted>
@@ -55,6 +71,7 @@ export default function LearnScreen() {
               return (
                 <Pressable
                   key={l.id}
+                  testID={`lesson-${l.id}`}
                   accessibilityRole="button"
                   accessibilityLabel={`${l.title}. ${l.sub}`}
                   onPress={() => router.push({ pathname: '/lesson/[id]', params: { id: l.id } })}
@@ -99,6 +116,7 @@ export default function LearnScreen() {
 }
 
 const styles = StyleSheet.create({
+  play: { padding: space.l, borderRadius: radius.l, gap: space.xs },
   moduleHead: { flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', marginTop: space.m },
   lesson: { flexDirection: 'row', alignItems: 'center', gap: space.m, padding: space.l, borderRadius: radius.m, borderWidth: 1.5 },
   dot: { width: 26, height: 26, borderRadius: 13, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },

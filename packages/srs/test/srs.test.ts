@@ -13,6 +13,10 @@ describe('srs', () => {
     // „blisko” to trudne, nie błąd, także przy szybkiej odpowiedzi
     expect(outcomeToRating({ correct: false, close: true, elapsedMs: 2000 })).toBe(Rating.Hard);
     expect(outcomeToRating({ correct: false, close: true, elapsedMs: 12000 })).toBe(Rating.Hard);
+    // „dopuszczalna” (akcja rzadka solvera, ADR-26): zalicza, ale zawsze Hard, nigdy Again ani Easy
+    expect(outcomeToRating({ correct: true, acceptable: true, elapsedMs: 1000 })).toBe(Rating.Hard);
+    expect(outcomeToRating({ correct: true, acceptable: true, elapsedMs: 5000 })).toBe(Rating.Hard);
+    expect(outcomeToRating({ correct: true, acceptable: true, untimed: true, elapsedMs: 5000 })).toBe(Rating.Hard);
     // zadanie bez presji czasu: dobrze = Good nawet po długim czasie
     expect(outcomeToRating({ correct: true, untimed: true, elapsedMs: 60000 })).toBe(Rating.Good);
     expect(outcomeToRating({ correct: false, untimed: true, elapsedMs: 60000 })).toBe(Rating.Again);
