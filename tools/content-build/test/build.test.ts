@@ -78,9 +78,10 @@ describe('treść projektu', () => {
     expect(c.warnings.filter((w) => w.includes('wpisane ręcznie'))).toEqual([]);
     expect(c.warnings.filter((w) => w.includes('nie jest nigdzie używana'))).toEqual([]);
   });
+  // dwie pełne kompilacje treści; przy rosnącej treści i obciążonym runnerze domyślne 5 s bywało za mało
   it('jest deterministyczna (ten sam hash)', () => {
     expect(compileContent(contentDir).hash).toBe(compileContent(contentDir).hash);
-  });
+  }, 30_000);
 });
 
 describe('nowe typy zadań (B-015, B-016, B-017)', () => {
