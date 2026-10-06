@@ -10,9 +10,18 @@ import { PaintGrid } from '@/components/PaintGrid';
 import { RichText } from '@/components/RichText';
 import { TableFelt } from '@/components/TableFelt';
 import { Button, Muted, ProgressBar, Screen, Title } from '@/components/ui';
-import { getAllRangeSpots, getDrillsBeforeModule, getDrillsForFamilies, getLessonDrills, getModuleDrills } from '@/data/content/repo';
+import {
+  getAllRangeSpots,
+  getDrillsBeforeModule,
+  getDrillsForFamilies,
+  getExamDrills,
+  getExamDrillsBeforeModule,
+  getLessonDrills,
+  getModuleDrills,
+  getSeenExamDrillsForFamilies,
+} from '@/data/content/repo';
 import { userDb } from '@/data/user/db';
-import { allFamilies, dueFamilies, recordAnswer, saveExamResult, saveLessonResult } from '@/data/user/repo';
+import { allFamilies, dueFamilies, examDrillIdsSeen, recordAnswer, saveExamResult, saveLessonResult } from '@/data/user/repo';
 import { gradeAnswer, isPass, parseNumberInput, scorePaint } from '@/features/drills/grade';
 import { pct, t as dt } from '@/features/drills/text.pl';
 import { EXAM_PASS, PAINT_PASS } from '@/features/drills/thresholds';
@@ -46,13 +55,24 @@ export default function SessionScreen() {
     const ranges = getAllRangeSpots(db);
     const ctx = { range: (id: string) => ranges.get(id) };
     if (mode === 'lesson' && lessonId) return buildLessonSession(getLessonDrills(db, lessonId), rng, ctx);
-    if (mode === 'exam' && moduleId) return buildExamSession(getModuleDrills(db, moduleId), getDrillsBeforeModule(db, moduleId), rng, ctx);
+    const seen = examDrillIdsSeen(userDb);
+    if (mode === 'exam' && moduleId) {
+      const src = {
+        modulePool: getExamDrills(db, moduleId),
+        moduleLessons: getModuleDrills(db, moduleId),
+        earlierPool: getExamDrillsBeforeModule(db, moduleId),
+        earlierLessons: getDrillsBeforeModule(db, moduleId),
+      };
+      return buildExamSession(src, rng, ctx, undefined, seen);
+    }
+    // zadania z puli egzaminacyjnej trafiają do powtórek dopiero po tym, jak użytkownik zobaczył je na egzaminie
+    const familyRows = (families: readonly string[]) => [...getDrillsForFamilies(db, families), ...getSeenExamDrillsForFamilies(db, families, seen)];
     if (mode === 'review') {
       const families = dueFamilies(userDb).slice(0, 8).map((c) => c.familyId);
-      return buildFamilySession(getDrillsForFamilies(db, families), families, rng, 2, ctx);
+      return buildFamilySession(familyRows(families), families, rng, 2, ctx);
     }
     const known = allFamilies(userDb);
-    return buildSpeedSession(getDrillsForFamilies(db, known), known, rng, 10, ctx);
+    return buildSpeedSession(familyRows(known), known, rng, 10, ctx);
   }, [db, mode, lessonId, moduleId]);
 
   const [items, setItems] = useState<DrillInstance[]>(build);

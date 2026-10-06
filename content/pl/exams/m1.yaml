@@ -1,0 +1,75 @@
+# Pula egzaminacyjna M1 (przebieg rozdania): te same reguły co lekcja m1.l1, inne sytuacje i sformułowania.
+module: m1
+drills:
+  - kind: choice
+    id: m1.exam.q1
+    family: m1.actions
+    rules: [R-M1-001]
+    prompt: "Na flopie rywal {{t:bet|postawił}}, a ty {{t:call|sprawdziłeś}}. Na turnie mówisz pierwszy. Co możesz zrobić?"
+    options:
+      - { text: "{{t:check|Czekać}} albo {{t:bet|postawić}}", correct: true, why: "Turn to nowa {{t:betting-round}}. Nikt jeszcze w niej nic nie wpłacił, więc masz te same dwie opcje co na początku każdej rundy." }
+      - { text: "Tylko {{t:call|sprawdzić}} albo {{t:fold|spasować}}", why: "{{t:bet|Zakład}} z flopu został już wyrównany. Na turnie nie ma czego {{t:call|sprawdzać}}." }
+      - { text: "{{t:raise|Przebić}} {{t:bet|zakład}} z flopu", why: "{{t:raise|Przebić}} można tylko {{t:bet}} w bieżącej rundzie. Ten z flopu jest zamknięty." }
+  - kind: choice
+    id: m1.exam.q2
+    family: m1.actions
+    rules: [R-M1-001]
+    prompt: "Rywal przed tobą {{t:bet|postawił}}. Którego ruchu nie możesz teraz wykonać?"
+    options:
+      - { text: "{{t:check|Czekać}}", correct: true, why: "{{t:check|Czekać}} można tylko wtedy, gdy w tej rundzie nikt nic nie wpłacił. Teraz musisz {{t:fold|spasować}}, {{t:call|sprawdzić}} albo {{t:raise|przebić}}." }
+      - { text: "{{t:raise|Przebić}}", why: "{{t:raise|Przebicie}} jest możliwe właśnie dlatego, że jest {{t:bet}} do podniesienia." }
+      - { text: "{{t:fold|Spasować}}", why: "{{t:fold|Pas}} jest zawsze dostępny, gdy trzeba dopłacić." }
+  - kind: choice
+    id: m1.exam.q3
+    family: m1.actions
+    rules: [R-M1-002]
+    prompt: "River. Rywal {{t:check|czekał}}, a twoja ręka prawie na pewno przegrywa. Co robisz?"
+    options:
+      - { text: "{{t:check|Czekam}}", correct: true, why: "{{t:check|Czekanie}} nic nie kosztuje, a rywal mógł też nie trafić. {{t:fold|Pas}} oddałby {{t:pot|pulę}} bez walki." }
+      - { text: "{{t:fold|Pasuję}}", why: "Gdy możesz {{t:check|czekać}} za darmo, {{t:fold}} tylko oddaje szansę na {{t:pot|pulę}}. Nie zyskujesz nic." }
+      - { text: "{{t:call|Sprawdzam}}", why: "Rywal nic nie {{t:bet|postawił}}, więc nie ma czego {{t:call|sprawdzać}}." }
+  - kind: choice
+    id: m1.exam.q4
+    family: m1.actions
+    rules: [R-M1-003]
+    prompt: "{{t:bet|Postawiłeś}} na flopie, a rywal {{t:raise|przebił}}. Nie chcesz grać dalej. Co robisz?"
+    options:
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Jest {{t:raise}} do wyrównania, a ty nie chcesz płacić. Tracisz tylko to, co już wpłaciłeś." }
+      - { text: "{{t:check|Czekam}}", why: "Po {{t:raise|przebiciu}} rywala nie możesz {{t:check|czekać}}: trzeba dopłacić albo {{t:fold|spasować}}." }
+      - { text: "{{t:call|Sprawdzam}}, żeby zobaczyć turn", why: "Skoro nie chcesz grać dalej, każda dopłata to dodatkowa strata." }
+  - kind: choice
+    id: m1.exam.q5
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "Ile {{t:community-cards|kart wspólnych}} leży na {{t:board|stole}} podczas licytacji na turnie?"
+    options:
+      - { text: "4", correct: true, why: "Flop dał trzy karty, turn dokłada czwartą. Piąta wyjdzie dopiero na riverze." }
+      - { text: "3", why: "Trzy karty są na flopie. Turn dokłada jedną." }
+      - { text: "5", why: "Pięć kart jest dopiero na riverze." }
+  - kind: choice
+    id: m1.exam.q6
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "Po licytacji na riverze w grze zostałeś ty i jeden rywal. Co dalej?"
+    options:
+      - { text: "Odkrywacie karty (showdown)", correct: true, why: "River jest ostatnią {{t:betting-round|rundą licytacji}}. Gdy zostało co najmniej dwóch graczy, pokazują karty i najlepszy układ wygrywa {{t:pot|pulę}}." }
+      - { text: "Wychodzi jeszcze jedna karta", why: "Na {{t:board|stole}} jest najwyżej pięć kart. Po riverze nie ma kolejnych." }
+      - { text: "{{t:pot|Pulę}} dzieli się zawsze po równo", why: "Podział jest tylko przy równych układach. Zwykle wygrywa lepsza ręka." }
+  - kind: choice
+    id: m1.exam.q7
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "{{t:bet|Stawiasz}} na flopie i wszyscy pozostali {{t:fold|pasują}}. Co się dzieje?"
+    options:
+      - { text: "Wygrywasz {{t:pot|pulę}} bez pokazywania kart", correct: true, why: "Showdown jest tylko wtedy, gdy po riverze zostało co najmniej dwóch graczy. Gdy zostajesz sam, rozdanie się kończy." }
+      - { text: "Wychodzą turn i river, potem pokazujesz karty", why: "Nie ma z kim grać dalej, więc kolejne karty nie wychodzą." }
+      - { text: "Musisz pokazać karty, żeby zabrać {{t:pot|pulę}}", why: "Karty pokazuje się na showdownie, a tu do niego nie doszło." }
+  - kind: choice
+    id: m1.exam.q8
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "Rozdanie doszło do showdownu. Ile {{t:betting-round|rund licytacji}} się odbyło, jeśli liczyć preflop?"
+    options:
+      - { text: "4", correct: true, why: "Preflop, flop, turn i river. Showdown jest po ostatniej rundzie, na riverze." }
+      - { text: "3", why: "Flop, turn i river to trzy rundy, ale przed nimi jest jeszcze preflop." }
+      - { text: "5", why: "{{t:community-cards|Kart wspólnych}} jest pięć, ale {{t:betting-round|rund licytacji}} cztery: flop wykłada trzy karty naraz." }

@@ -5,6 +5,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { parse as parseYaml } from 'yaml';
 import {
   CONTENT_SCHEMA_VERSION,
+  ExamFile,
   HelplinesFile,
   LessonFrontmatter,
   AreasFile,
@@ -49,11 +50,18 @@ export interface CompiledLesson {
   drills: Drill[];
 }
 
+/** Pula egzaminacyjna modułu (zadania spoza lekcji). */
+export interface CompiledExam {
+  module: string;
+  drills: Drill[];
+}
+
 export interface CompiledContent {
   schemaVersion: number;
   locale: string;
   modules: ModuleDef[];
   lessons: CompiledLesson[];
+  exams: CompiledExam[];
   rules: RuleDef[];
   numbers: { key: string; value: number; display: string; source: string; population?: string; note?: string }[];
   ranges: CompiledRangeSpot[];
@@ -156,10 +164,100 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
     ruleIds.add(r.id);
   }
 
+  const drillIds = new Set<string>();
+  /** Jedno zadanie (lekcja albo pula egzaminacyjna): walidacja i podstawienie liczb i terminów. */
+  const compileDrill = (drill: Drill): Drill => {
+    let d = drill;
+    if (drillIds.has(d.id)) throw new Error(`powtórzone zadanie ${d.id}`);
+    drillIds.add(d.id);
+    for (const r of d.rules) if (!ruleIds.has(r)) throw new Error(`zadanie ${d.id}: nieznana reguła ${r}`);
+    if (d.kind === 'paint') {
+      if (!rangeIds.has(d.spot)) throw new Error(`zadanie ${d.id}: nieznany spot zakresu ${d.spot}`);
+      return { ...d, prompt: sub(d.prompt, d.id) };
+    }
+    if (d.kind === 'numeric') {
+      const n = numbers.get(d.answer);
+      if (!n) throw new Error(`zadanie ${d.id}: nieznana liczba ${d.answer}`);
+      used.add(d.answer);
+      if (d.table) parseCards([d.table.hand, d.table.opp, d.table.board].filter(Boolean).join(' '));
+      return {
+        ...d,
+        prompt: sub(d.prompt, d.id),
+        explanation: sub(d.explanation, d.id),
+        value: n.value,
+        unit: n.entry.unit,
+        display: n.display,
+      };
+    }
+    if (d.kind === 'texture') {
+      if (new Set(d.axes).size !== d.axes.length) throw new Error(`zadanie ${d.id}: powtórzona oś tekstury`);
+      return d;
+    }
+    if (d.kind === 'cbet') {
+      checkCbetCases(d.id, d.cases.map((c) => c.when));
+      for (const c of d.cases) if (c.rule && !ruleIds.has(c.rule)) throw new Error(`zadanie ${d.id}: nieznana reguła ${c.rule}`);
+      return {
+        ...d,
+        prompt: sub(d.prompt, d.id),
+        options: { check: sub(d.options.check, d.id), small: sub(d.options.small, d.id), big: sub(d.options.big, d.id) },
+        cases: d.cases.map((c) => ({
+          ...c,
+          why: { check: sub(c.why.check, d.id), small: sub(c.why.small, d.id), big: sub(c.why.big, d.id) },
+        })),
+      };
+    }
+    if (d.kind === 'generated') {
+      // „n:klucz” w parametrach → wartość z numbers.yaml (progi generatora z jednego źródła prawdy)
+      const params = Object.fromEntries(
+        Object.entries(d.params).map(([k, v]) => {
+          if (typeof v !== 'string' || !v.startsWith('n:')) return [k, v];
+          const key = v.slice(2);
+          const n = numbers.get(key);
+          if (!n) throw new Error(`zadanie ${d.id}: params.${k}: nieznana liczba ${key}`);
+          used.add(key);
+          return [k, n.value];
+        }),
+      );
+      d = { ...d, params };
+      if (d.generator === 'playerType') {
+        for (const k of HUD_PARAMS) if (!(k in d.params)) throw new Error(`zadanie ${d.id}: playerType wymaga params.${k} (n:klucz)`);
+        hudThresholdsFromParams(d.params);
+      }
+      if ((d.generator === 'outs' || d.generator === 'drawCall') && d.params.street !== undefined && d.params.street !== 'flop' && d.params.street !== 'turn') {
+        throw new Error(`zadanie ${d.id}: params.street to flop albo turn`);
+      }
+      if (d.generator === 'icm' && d.params.mode !== 'call' && d.params.mode !== 'equity') {
+        throw new Error(`zadanie ${d.id}: generator icm wymaga params.mode = call albo equity`);
+      }
+      if (d.generator === 'vocab') {
+        const area = TermArea.safeParse(d.params.area);
+        if (!area.success) throw new Error(`zadanie ${d.id}: vocab wymaga params.area (${TermArea.options.join(', ')})`);
+        const n = terms.compiled.filter((t) => t.area === area.data && vocabEligible(t)).length;
+        if (n < VOCAB_MIN_TERMS) throw new Error(`zadanie ${d.id}: obszar ${area.data} ma ${n} terminów do ćwiczenia (minimum ${VOCAB_MIN_TERMS})`);
+        const dir = d.params.dir ?? 'both';
+        if (dir !== 'both' && dir !== 'pl-en' && dir !== 'en-pl') throw new Error(`zadanie ${d.id}: params.dir to pl-en, en-pl albo both`);
+      }
+      if (d.generator === 'rangeDecision') {
+        const list = String(d.params.spots ?? '').split(',').map((x) => x.trim()).filter(Boolean);
+        if (list.length === 0) throw new Error(`zadanie ${d.id}: rangeDecision wymaga params.spots`);
+        for (const id of list) if (!rangeIds.has(id)) throw new Error(`zadanie ${d.id}: nieznany spot zakresu ${id}`);
+      }
+      return d;
+    }
+    if (d.table) {
+      const all = [d.table.hand, d.table.opp, d.table.board].filter(Boolean).join(' ');
+      parseCards(all); // rzuca błąd przy powtórzonej karcie
+    }
+    return {
+      ...d,
+      prompt: sub(d.prompt, d.id),
+      options: d.options.map((o) => ({ ...o, text: sub(o.text, d.id), why: sub(o.why, d.id) })),
+    };
+  };
+
   const lessonDir = join(localeDir, 'lessons');
   const lessons: CompiledLesson[] = [];
   const lessonIds = new Set<string>();
-  const drillIds = new Set<string>();
   for (const file of readdirSync(lessonDir).filter((f) => f.endsWith('.md')).sort()) {
     const where = `lessons/${file}`;
     try {
@@ -173,94 +271,7 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
       if (!moduleIds.has(lesson.module)) throw new Error(`nieznany moduł ${lesson.module}`);
       for (const r of lesson.rules) if (!ruleIds.has(r)) throw new Error(`nieznana reguła ${r}`);
 
-      const drills = lesson.drills.map((drill) => {
-        let d = drill;
-        if (drillIds.has(d.id)) throw new Error(`powtórzone zadanie ${d.id}`);
-        drillIds.add(d.id);
-        for (const r of d.rules) if (!ruleIds.has(r)) throw new Error(`zadanie ${d.id}: nieznana reguła ${r}`);
-        if (d.kind === 'paint') {
-          if (!rangeIds.has(d.spot)) throw new Error(`zadanie ${d.id}: nieznany spot zakresu ${d.spot}`);
-          return { ...d, prompt: sub(d.prompt, d.id) };
-        }
-        if (d.kind === 'numeric') {
-          const n = numbers.get(d.answer);
-          if (!n) throw new Error(`zadanie ${d.id}: nieznana liczba ${d.answer}`);
-          used.add(d.answer);
-          if (d.table) parseCards([d.table.hand, d.table.opp, d.table.board].filter(Boolean).join(' '));
-          return {
-            ...d,
-            prompt: sub(d.prompt, d.id),
-            explanation: sub(d.explanation, d.id),
-            value: n.value,
-            unit: n.entry.unit,
-            display: n.display,
-          };
-        }
-        if (d.kind === 'texture') {
-          if (new Set(d.axes).size !== d.axes.length) throw new Error(`zadanie ${d.id}: powtórzona oś tekstury`);
-          return d;
-        }
-        if (d.kind === 'cbet') {
-          checkCbetCases(d.id, d.cases.map((c) => c.when));
-          for (const c of d.cases) if (c.rule && !ruleIds.has(c.rule)) throw new Error(`zadanie ${d.id}: nieznana reguła ${c.rule}`);
-          return {
-            ...d,
-            prompt: sub(d.prompt, d.id),
-            options: { check: sub(d.options.check, d.id), small: sub(d.options.small, d.id), big: sub(d.options.big, d.id) },
-            cases: d.cases.map((c) => ({
-              ...c,
-              why: { check: sub(c.why.check, d.id), small: sub(c.why.small, d.id), big: sub(c.why.big, d.id) },
-            })),
-          };
-        }
-        if (d.kind === 'generated') {
-          // „n:klucz” w parametrach → wartość z numbers.yaml (progi generatora z jednego źródła prawdy)
-          const params = Object.fromEntries(
-            Object.entries(d.params).map(([k, v]) => {
-              if (typeof v !== 'string' || !v.startsWith('n:')) return [k, v];
-              const key = v.slice(2);
-              const n = numbers.get(key);
-              if (!n) throw new Error(`zadanie ${d.id}: params.${k}: nieznana liczba ${key}`);
-              used.add(key);
-              return [k, n.value];
-            }),
-          );
-          d = { ...d, params };
-          if (d.generator === 'playerType') {
-            for (const k of HUD_PARAMS) if (!(k in d.params)) throw new Error(`zadanie ${d.id}: playerType wymaga params.${k} (n:klucz)`);
-            hudThresholdsFromParams(d.params);
-          }
-          if ((d.generator === 'outs' || d.generator === 'drawCall') && d.params.street !== undefined && d.params.street !== 'flop' && d.params.street !== 'turn') {
-            throw new Error(`zadanie ${d.id}: params.street to flop albo turn`);
-          }
-          if (d.generator === 'icm' && d.params.mode !== 'call' && d.params.mode !== 'equity') {
-            throw new Error(`zadanie ${d.id}: generator icm wymaga params.mode = call albo equity`);
-          }
-          if (d.generator === 'vocab') {
-            const area = TermArea.safeParse(d.params.area);
-            if (!area.success) throw new Error(`zadanie ${d.id}: vocab wymaga params.area (${TermArea.options.join(', ')})`);
-            const n = terms.compiled.filter((t) => t.area === area.data && vocabEligible(t)).length;
-            if (n < VOCAB_MIN_TERMS) throw new Error(`zadanie ${d.id}: obszar ${area.data} ma ${n} terminów do ćwiczenia (minimum ${VOCAB_MIN_TERMS})`);
-            const dir = d.params.dir ?? 'both';
-            if (dir !== 'both' && dir !== 'pl-en' && dir !== 'en-pl') throw new Error(`zadanie ${d.id}: params.dir to pl-en, en-pl albo both`);
-          }
-          if (d.generator === 'rangeDecision') {
-            const list = String(d.params.spots ?? '').split(',').map((x) => x.trim()).filter(Boolean);
-            if (list.length === 0) throw new Error(`zadanie ${d.id}: rangeDecision wymaga params.spots`);
-            for (const id of list) if (!rangeIds.has(id)) throw new Error(`zadanie ${d.id}: nieznany spot zakresu ${id}`);
-          }
-          return d;
-        }
-        if (d.table) {
-          const all = [d.table.hand, d.table.opp, d.table.board].filter(Boolean).join(' ');
-          parseCards(all); // rzuca błąd przy powtórzonej karcie
-        }
-        return {
-          ...d,
-          prompt: sub(d.prompt, d.id),
-          options: d.options.map((o) => ({ ...o, text: sub(o.text, d.id), why: sub(o.why, d.id) })),
-        };
-      });
+      const drills = lesson.drills.map(compileDrill);
 
       // sekcja lekcji (od nagłówka „## ” do następnego) to jedna jednostka tekstu dla nawiasów z nazwą angielską
       const sections = body.split(/(?=^## )/m);
@@ -284,6 +295,24 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
       });
     } catch (e) {
       throw new Error(`${where}: ${fmt(e)}`);
+    }
+  }
+
+  // pula egzaminacyjna (content/<locale>/exams/<moduł>.yaml): zadania tylko do egzaminu, sprawdzane po lekcjach
+  const examDir = join(localeDir, 'exams');
+  const exams: CompiledExam[] = [];
+  const familiesByModule = new Map<string, Set<string>>();
+  for (const l of lessons) for (const d of l.drills) familiesByModule.set(l.module, (familiesByModule.get(l.module) ?? new Set()).add(d.family));
+  if (existsSync(examDir)) {
+    for (const file of readdirSync(examDir).filter((f) => f.endsWith('.yaml')).sort()) {
+      const where = `exams/${file}`;
+      try {
+        const exam = parseOrThrow(ExamFile, readYaml(join(examDir, file)), where);
+        checkExamFile(exam, file, { moduleIds, familiesByModule, examModules: new Set(exams.map((e) => e.module)) });
+        exams.push({ module: exam.module, drills: exam.drills.map(compileDrill) });
+      } catch (e) {
+        throw new Error(`${where}: ${fmt(e)}`);
+      }
     }
   }
 
@@ -341,9 +370,30 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
   }));
 
   const { ranking: handRanking } = compileHandRanking(join(contentDir, '..', 'tools', 'equity', 'equity169.json'));
-  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, modules, lessons, rules, numbers: numbersOut, ranges, evalRules, handRanking, areas, terms: terms.compiled };
+  exams.sort((a, b) => modules.find((m) => m.id === a.module)!.order - modules.find((m) => m.id === b.module)!.order);
+  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, modules, lessons, exams, rules, numbers: numbersOut, ranges, evalRules, handRanking, areas, terms: terms.compiled };
   const hash = createHash('sha256').update(JSON.stringify(payload)).digest('hex').slice(0, 16);
   return { ...payload, helplines, hash, warnings };
+}
+
+/**
+ * Plik puli egzaminacyjnej: nazwa pliku = moduł, moduł istnieje i ma jeden plik, identyfikatory `<moduł>.exam.…`,
+ * rodzina każdego zadania istnieje w lekcjach tego modułu (karta FSRS rodziny powstaje w lekcjach).
+ * Reguły, liczby, spoty i powtórzone identyfikatory sprawdza kompilacja zadania (wspólna z lekcjami).
+ */
+export function checkExamFile(
+  exam: { module: string; drills: readonly { id: string; family: string }[] },
+  file: string,
+  ctx: { moduleIds: ReadonlySet<string>; familiesByModule: ReadonlyMap<string, ReadonlySet<string>>; examModules: ReadonlySet<string> },
+): void {
+  if (!ctx.moduleIds.has(exam.module)) throw new Error(`nieznany moduł ${exam.module}`);
+  if (file !== `${exam.module}.yaml`) throw new Error(`plik puli modułu ${exam.module} musi się nazywać ${exam.module}.yaml`);
+  if (ctx.examModules.has(exam.module)) throw new Error(`powtórzona pula modułu ${exam.module}`);
+  const families = ctx.familiesByModule.get(exam.module) ?? new Set<string>();
+  for (const d of exam.drills) {
+    if (!d.id.startsWith(`${exam.module}.exam.`)) throw new Error(`zadanie ${d.id}: identyfikator musi zaczynać się od ${exam.module}.exam.`);
+    if (!families.has(d.family)) throw new Error(`zadanie ${d.id}: rodzina ${d.family} nie występuje w lekcjach modułu ${exam.module}`);
+  }
 }
 
 /** Wszystkie 22 100 flopów z teksturą (do sprawdzania przypadków c-betu). */
@@ -394,6 +444,9 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
     CREATE TABLE lessons (id TEXT PRIMARY KEY, module_id TEXT NOT NULL REFERENCES modules(id), ord INTEGER NOT NULL, title TEXT NOT NULL, sub TEXT NOT NULL, rules TEXT NOT NULL, body TEXT NOT NULL);
     CREATE TABLE drills (id TEXT PRIMARY KEY, lesson_id TEXT NOT NULL REFERENCES lessons(id), ord INTEGER NOT NULL, family TEXT NOT NULL, kind TEXT NOT NULL, data TEXT NOT NULL);
     CREATE INDEX drills_family ON drills(family);
+    CREATE TABLE exam_drills (id TEXT PRIMARY KEY, module_id TEXT NOT NULL REFERENCES modules(id), ord INTEGER NOT NULL, family TEXT NOT NULL, kind TEXT NOT NULL, data TEXT NOT NULL);
+    CREATE INDEX exam_drills_module ON exam_drills(module_id);
+    CREATE INDEX exam_drills_family ON exam_drills(family);
     CREATE TABLE rules (id TEXT PRIMARY KEY, module_id TEXT NOT NULL REFERENCES modules(id), level TEXT NOT NULL, if_text TEXT NOT NULL, then_text TEXT NOT NULL, because TEXT NOT NULL, source TEXT NOT NULL, population TEXT);
     CREATE TABLE numbers (key TEXT PRIMARY KEY, value REAL NOT NULL, display TEXT NOT NULL, source TEXT NOT NULL, population TEXT, note TEXT);
     CREATE TABLE ranges (id TEXT PRIMARY KEY, title TEXT NOT NULL, hero TEXT NOT NULL, path TEXT NOT NULL, play_percent REAL NOT NULL, groups TEXT NOT NULL, uncertain TEXT NOT NULL, solver TEXT NOT NULL, actions TEXT NOT NULL);
@@ -418,6 +471,8 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
       les.run(l.id, l.module, l.order, l.title, l.sub, JSON.stringify(l.rules), JSON.stringify(l.body));
       l.drills.forEach((d, i) => dr.run(d.id, l.id, i, d.family, d.kind, JSON.stringify(d)));
     }
+    const ex = db.prepare('INSERT INTO exam_drills VALUES (?, ?, ?, ?, ?, ?)');
+    for (const e of content.exams) e.drills.forEach((d, i) => ex.run(d.id, e.module, i, d.family, d.kind, JSON.stringify(d)));
     const ru = db.prepare('INSERT INTO rules VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
     for (const r of content.rules) ru.run(r.id, r.module, r.level, r.if, r.then, r.because, r.source, r.population ?? null);
     const nu = db.prepare('INSERT INTO numbers VALUES (?, ?, ?, ?, ?, ?)');

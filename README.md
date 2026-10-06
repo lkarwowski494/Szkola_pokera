@@ -11,7 +11,7 @@ Aplikacja iOS do nauki No-Limit Texas Hold'em od zera, po polsku. Dokumentacja p
 | `packages/srs` | Powtórki FSRS na poziomie rodzin zadań |
 | `packages/content-schema` | Schematy treści (Zod), wspólne dla aplikacji i potoku treści |
 | `tools/content-build` | Kompiluje `content/` do `apps/mobile/assets/content/content-vN.db` (N = `CONTENT_SCHEMA_VERSION` w `packages/content-schema`) |
-| `content/` | Treść: `numbers.yaml` (jedyne źródło liczb), `pl/modules.yaml`, `pl/rules.yaml`, `pl/lessons/*.md` |
+| `content/` | Treść: `numbers.yaml` (jedyne źródło liczb), `pl/modules.yaml`, `pl/rules.yaml`, `pl/lessons/*.md`, `pl/exams/<moduł>.yaml` (pula pytań tylko do egzaminu modułu: schemat zadania jak w lekcjach, identyfikatory `mN.exam.…`, rodzina z lekcji modułu) |
 
 ## Wymagania
 
