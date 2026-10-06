@@ -2,7 +2,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
 import { dirname, join, resolve } from 'node:path';
 import { DEFAULT_EQR, N, PLAY_GROUPS, validateEquity, type EqrParams, type EquityData, type PlayGroup } from './model';
-import { evReport, formatSummary, rangeOf, realizationReport, summarize } from './report';
+import { evReport, formatSummary, nodeGains, rangeOf, realizationReport, summarize } from './report';
 import { DEFAULT_DCFR, PreflopSolver } from './solver';
 import { loadFlops, type FlopData } from './postflop';
 import { loadBoards, StreetModel, V3B_TREE, type StreetData, type StreetTreeConfig } from './streets';
@@ -182,6 +182,17 @@ if (args.includes('--calibrate')) {
   const iterations = Number(arg('iterations', '600'));
   console.log(`Solver: DCFR ${JSON.stringify(DEFAULT_DCFR)}, EQR ${JSON.stringify(eqr)}, ${iterations} iteracji`);
   const { s, pool } = await solve(eqr, iterations);
+  // diagnostyka zbieżności (dokument 10, 9-max): --node-gains UTG+1,UTG+2 wypisuje węzły z największym zyskiem z odchylenia
+  if (args.includes('--node-gains')) {
+    const pos = positionsFor(s.nPlayers);
+    for (const name of arg('node-gains', '').split(',')) {
+      const g = nodeGains(s, pos.indexOf(name));
+      console.log(`${name}: suma zysków lokalnych ${g.reduce((t, x) => t + x.gain, 0).toFixed(5)} bb`);
+      for (const x of g.slice(0, 12)) console.log(`  ${x.gain.toFixed(5)} bb\tmasa rywali ${x.oppMass.toExponential(2)}\twłasna ${x.ownMass.toExponential(2)}\t${x.path}`);
+    }
+    await pool?.close();
+    process.exit(0);
+  }
   const summary = summarize(s);
   console.log(formatSummary(summary));
   const realization = realizationReport(s);

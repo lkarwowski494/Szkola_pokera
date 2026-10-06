@@ -179,3 +179,56 @@ export function evReport(s: PreflopSolver): string {
   }
   return lines.join('\n');
 }
+
+/**
+ * Diagnostyka zbieżności (9-max, dokument 10): dla gracza p w każdym jego węźle zysk z najlepszej akcji wobec strategii
+ * uśrednionej, przy strategiach uśrednionych wszędzie indziej (natychmiastowy żal strategii uśrednionej). Jednostki jak
+ * w NashConv: Σ_h zasięg własny(h)·(max_a v_a(h) − Σ_a σ(h,a)·v_a(h)), zasięg własny = rozkład a priori × własne decyzje.
+ * `oppMass` = iloczyn mas zasięgów rywali w węźle (0 = rywale tu nie docierają, węzeł poza ścieżką gry).
+ */
+export function nodeGains(s: PreflopSolver, p: number): { path: string; gain: number; oppMass: number; ownMass: number }[] {
+  const tv = (s as unknown as { terminalValue: (n: Node, p: number, r: Float64Array[], m: 'avg') => Float64Array }).terminalValue.bind(s);
+  const out: { path: string; gain: number; oppMass: number; ownMass: number }[] = [];
+  const total = (x: Float64Array) => x.reduce((a, b) => a + b, 0);
+  const walk = (node: Node, reach: Float64Array[], own: Float64Array): Float64Array => {
+    if (node.kind !== 'decision') return tv(node, p, reach, 'avg');
+    const st = s.averageStrategy(node.id);
+    const nA = node.actions.length;
+    const q = node.player;
+    if (q !== p) {
+      const v = new Float64Array(N);
+      for (let a = 0; a < nA; a++) {
+        const r = new Float64Array(N);
+        let any = false;
+        for (let h = 0; h < N; h++) if ((r[h] = reach[q]![h]! * st[h * nA + a]!) > 0) any = true;
+        if (!any) continue;
+        const next = reach.slice();
+        next[q] = r;
+        const c = walk(node.children[a]!, next, own);
+        for (let h = 0; h < N; h++) v[h] = v[h]! + c[h]!;
+      }
+      return v;
+    }
+    const vals = node.children.map((c, a) => {
+      const o = new Float64Array(N);
+      for (let h = 0; h < N; h++) o[h] = own[h]! * st[h * nA + a]!;
+      return walk(c, reach, o);
+    });
+    const v = new Float64Array(N);
+    let gain = 0;
+    for (let h = 0; h < N; h++) {
+      let best = -Infinity;
+      for (let a = 0; a < nA; a++) {
+        v[h] = v[h]! + st[h * nA + a]! * vals[a]![h]!;
+        best = Math.max(best, vals[a]![h]!);
+      }
+      gain += own[h]! * (best - v[h]!);
+    }
+    let oppMass = 1;
+    for (let r = 0; r < s.nPlayers; r++) if (r !== p) oppMass *= total(reach[r]!);
+    out.push({ path: node.path, gain, oppMass, ownMass: total(own) / total(PRIOR) });
+    return v;
+  };
+  walk(s.root, Array.from({ length: s.nPlayers }, () => Float64Array.from(PRIOR)), Float64Array.from(PRIOR));
+  return out.sort((a, b) => b.gain - a.gain);
+}
