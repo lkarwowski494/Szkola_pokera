@@ -1,0 +1,95 @@
+# Pula egzaminacyjna M3 (pozycja, ręce startowe, zakresy otwarć): reguły lekcji m3.l1–m3.l3, inne ręce i pozycje.
+# Decyzje otwarcia zgodne ze spotami solvera aplikacji (rfi.*): ręce poza listą klas niepewnych, częstość 0 albo ≥ 0,94.
+module: m3
+drills:
+  - kind: choice
+    id: m3.exam.q1
+    family: m3.position
+    rules: [R-M3-001]
+    prompt: "Button {{t:open|otworzył}}, {{t:small-blind}} {{t:fold|spasował}}, a {{t:big-blind}} {{t:call|sprawdził}}. Kto mówi pierwszy na flopie?"
+    options:
+      - { text: "{{t:big-blind|Duży blind}}", correct: true, why: "Od flopu blindy mówią pierwsze, a Button ostatni. Dlatego Button ma tu {{t:position|pozycję}}, a {{t:big-blind}} gra {{t:out-of-position}}." }
+      - { text: "Button, bo {{t:open|otworzył}}", why: "Kolejność mówienia zależy od miejsca przy stole, a nie od tego, kto {{t:open|otwierał}}. Button od flopu mówi zawsze ostatni." }
+      - { text: "Ten, kto mówił ostatni preflop", why: "Preflop blindy mówią ostatnie, ale od flopu pierwsze. To dlatego {{t:position}} Buttona jest najlepsza." }
+  - kind: choice
+    id: m3.exam.q2
+    family: m3.open-early
+    rules: [R-M3-002]
+    prompt: "Mówisz pierwszy preflop, nikt jeszcze nie wszedł do gry. Co robisz?"
+    table: { hand: "Ac Td", position: UTG }
+    options:
+      - { text: "{{t:raise|Przebijam}}", correct: true, why: "AT w różnych kolorach mieści się w {{t:range|zakresie}} {{t:open|otwarcia}} z {{t:utg}} (ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk). Solver aplikacji gra ją tu zawsze." }
+      - { text: "{{t:fold|Pasuję}}", why: "Za ciasno. Z {{t:utg}} grasz wąsko, ale AT jest jeszcze w {{t:range|zakresie}}." }
+      - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Jako pierwszy {{t:raise|przebijasz}} albo {{t:fold|pasujesz}}. Limp oddaje {{t:initiative|inicjatywę}} i szansę na zgarnięcie blindów od razu." }
+  - kind: choice
+    id: m3.exam.q3
+    family: m3.rfi.early
+    rules: [R-M3-006]
+    prompt: "{{t:utg}} {{t:fold|spasował}}, ty jesteś następny. Co robisz?"
+    table: { hand: "Ah 9d", position: HJ }
+    options:
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Za tobą jest jeszcze czterech graczy. A9 w różnych kolorach często trafia asa ze słabszym kickerem niż AT, AJ czy AQ rywali. Solver aplikacji {{t:fold|pasuje}} nią z {{t:hijack|HJ}} zawsze." }
+      - { text: "{{t:raise|Przebijam}}", why: "As kusi, ale z {{t:hijack|HJ}} {{t:open|otwierasz}} węziej niż z {{t:cutoff|CO}} i Buttona. A9o mieści się dopiero w {{t:range|zakresie}} {{t:cutoff|CO}}." }
+  - kind: choice
+    id: m3.exam.q4
+    family: m3.rfi.late
+    rules: [R-M3-006]
+    prompt: "Wszyscy przed tobą {{t:fold|spasowali}}. Co robisz?"
+    table: { hand: "Ah 9d", position: CO }
+    options:
+      - { text: "{{t:raise|Przebijam}}", correct: true, why: "Za tobą zostali tylko Button i blindy, więc {{t:open|otwierasz}} szerzej niż z {{t:hijack|HJ}}. Solver aplikacji gra tu A9o prawie zawsze." }
+      - { text: "{{t:fold|Pasuję}}", why: "Tak grasz tą ręką z {{t:hijack|HJ}}. Z {{t:cutoff|CO}} za tobą jest o jednego gracza mniej i {{t:range}} jest szerszy." }
+  - kind: choice
+    id: m3.exam.q5
+    family: m3.open-late
+    rules: [R-M3-003]
+    prompt: "Wszyscy {{t:fold|spasowali}} do ciebie. Co robisz?"
+    table: { hand: "Jd 9c", position: BTN }
+    options:
+      - { text: "{{t:raise|Przebijam}}", correct: true, why: "Na Buttonie {{t:open|otwierasz}} ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk. Zostały tylko blindy, a po flopie masz {{t:position|pozycję}}, więc J9 w różnych kolorach się mieści." }
+      - { text: "{{t:fold|Pasuję}}", why: "Z {{t:cutoff|CO}} solver gra tę rękę rzadko, ale na Buttonie zawsze. Wobec samych blindów to za ciasno." }
+      - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Limp oddaje {{t:initiative|inicjatywę}}. {{t:raise|Przebicie}} często od razu zgarnia blindy." }
+  - kind: choice
+    id: m3.exam.q6
+    family: m3.rfi.sb
+    rules: [R-M3-004, R-M3-007, R-M3-009]
+    prompt: "Wszyscy {{t:fold|spasowali}} do ciebie na {{t:small-blind|małym blindzie}}. Co robisz?"
+    table: { hand: "Td 8c", position: SB }
+    options:
+      - { text: "{{t:raise|Przebijam}} do {{n:pf.open-size-sb}}", correct: true, why: "Grasz już tylko przeciw {{t:big-blind|dużemu blindowi}}, więc {{t:open|otwierasz}} szeroko, ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk. Po flopie mówisz pierwszy, dlatego z {{t:small-blind|małego blinda}} {{t:raise|przebijasz}} trochę więcej niż z innych {{t:position|pozycji}}." }
+      - { text: "{{t:raise|Przebijam}} do {{n:pf.open-size}}", sizeError: true, why: "Dobra akcja, zły rozmiar: {{n:pf.open-size}} to {{t:open}} z pozostałych {{t:position|pozycji}}. Z {{t:small-blind|małego blinda}} grasz {{t:out-of-position}}, więc {{t:raise|przebijasz}} do {{n:pf.open-size-sb}}." }
+      - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Wchodząc pierwszy, {{t:raise|przebijasz}} albo {{t:fold|pasujesz}}. Dopłata oddaje {{t:initiative|inicjatywę}} i szansę na zgarnięcie blindów od razu." }
+      - { text: "{{t:fold|Pasuję}}", why: "Za ciasno: wobec jednego rywala solver aplikacji gra T8o z {{t:small-blind|małego blinda}} zawsze." }
+  - kind: numeric
+    id: m3.exam.n1
+    family: m3.open-early
+    rules: [R-M3-007]
+    prompt: "Wszyscy przed tobą {{t:fold|spasowali}}, jesteś na {{t:hijack|HJ}} i {{t:open|otwierasz}}. Do ilu bb {{t:raise|przebijasz}}? Wpisz liczbę."
+    table: { hand: "Kh Qh", position: HJ }
+    answer: pf.open-size
+    explanation: "{{t:open|Otwierasz}} do {{n:pf.open-size}} z każdej {{t:position|pozycji}} poza {{t:small-blind|małym blindem}} (tam {{n:pf.open-size-sb}}). Jeden rozmiar jest prosty i nie zdradza siły ręki. To uproszczenie: solvery z {{t:early-position|wczesnych pozycji}} {{t:open|otwierają}} nieco mniej."
+  - kind: choice
+    id: m3.exam.q7
+    family: m3.suited
+    rules: [R-M3-005]
+    prompt: "Dlaczego T9 w jednym kolorze gra lepiej niż T9 w różnych kolorach?"
+    options:
+      - { text: "Ma dodatkową drogę do wygranej przez {{t:flush}}", correct: true, why: "Rangi są te same, więc {{t:pair|pary}} i {{t:straight|strity}} trafiasz tak samo. Ręka w kolorze dokłada do tego szansę na {{t:flush|kolor}}." }
+      - { text: "Częściej trafia {{t:pair|parę}}", why: "Szansa na {{t:pair|parę}} zależy od rang, a te są takie same." }
+      - { text: "Częściej trafia {{t:straight|strita}}", why: "{{t:straight|Strity}} zależą od rang kart, a nie od tego, czy karty są w jednym kolorze." }
+  - kind: choice
+    id: m3.exam.q8
+    family: m3.premium
+    rules: [R-M3-008]
+    prompt: "{{t:utg}} {{t:raise|przebił}}, reszta {{t:fold|spasowała}} do ciebie. Co robisz?"
+    table: { hand: "Ks Kd", position: BTN }
+    options:
+      - { text: "{{t:raise|Przebijam}} ponownie (3-bet)", correct: true, why: "KK to jedna z najmocniejszych rąk i faworyt wobec większości rąk, którymi {{t:utg}} {{t:open|otwiera}}. 3-bet buduje {{t:pot|pulę}} i zwykle zostawia cię z jednym rywalem." }
+      - { text: "Tylko {{t:call|sprawdzam}}", why: "Bywa grane dla zmyłki, ale jako zasada oddajesz wartość i wpuszczasz blindy tanio do gry." }
+      - { text: "{{t:fold|Pasuję}}, bo {{t:utg}} ma silny {{t:range}}", why: "{{t:range|Zakres}} {{t:utg}} jest wąski, ale KK wciąż jest wobec niego wyraźnym faworytem." }
+  - kind: paint
+    id: m3.exam.p-co
+    family: m3.paint.late
+    rules: [R-M3-006]
+    spot: rfi.co
+    prompt: "Wszyscy przed tobą {{t:fold|spasowali}}, jesteś na {{t:cutoff|CO}}. Pomaluj ręce, którymi {{t:open|otwierasz}}."
