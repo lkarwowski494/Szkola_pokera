@@ -44,6 +44,13 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
+      - name: Klucz API działa i aplikacja istnieje (ok. 1 min, przed długim buildem)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+        run: |
+          BUNDLE_ID=$(node -p "require('./apps/mobile/app.json').expo.ios.bundleIdentifier") node scripts/ci/asc-check.mjs
       - run: pnpm install --frozen-lockfile
       - name: Testy (jak w CI)
         run: pnpm run ci
@@ -70,7 +77,11 @@ jobs:
       - name: Klucz API na dysk (dopiero po instalacji zależności, testach i pod install)
         env:
           ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
-        run: umask 077; printf '%s\n' "$ASC_KEY_P8" > "$RUNNER_TEMP/AuthKey.p8"
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+        # ten sam skrypt co na początku: normalizuje wklejony klucz (\r, dosłowne „\n”) i zapisuje go z uprawnieniami 600
+        run: |
+          OUT="$RUNNER_TEMP/AuthKey.p8" BUNDLE_ID=$(node -p "require('./apps/mobile/app.json').expo.ios.bundleIdentifier") node scripts/ci/asc-check.mjs
       - name: Archiwum (podpis automatyczny kluczem API)
         working-directory: apps/mobile/ios
         env:
