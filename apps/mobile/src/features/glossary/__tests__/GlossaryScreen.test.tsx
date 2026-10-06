@@ -24,6 +24,9 @@ describe('ekran Słowniczek', () => {
     expect(screen.queryByText('zjazd')).toBeNull();
     expect(screen.queryByText('Bankroll i psychika')).toBeNull();
 
+    // definicja pod terminem (wariant „słowniczek + ćwiczenie”)
+    expect(screen.getByText(/Faza turnieju tuż przed miejscami płatnymi/)).toBeTruthy();
+
     await fireEvent.changeText(search, 'odchylenie');
     expect(screen.getByText('standard deviation')).toBeTruthy();
 

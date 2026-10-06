@@ -51,12 +51,15 @@ function Entry({ entry }: { entry: GlossaryEntry }) {
   const { t } = useTranslation();
   const en = englishLabel(entry);
   return (
-    <View style={styles.row} accessible accessibilityLabel={`${entry.pl}: ${en}`}>
-      <Text style={[tp.body, { color: tk.ink, fontWeight: '600', flex: 1 }]}>{entry.pl}</Text>
-      <View style={{ flex: 1, gap: 2 }}>
-        <Text style={[tp.body, { color: tk.felt }]}>{en}</Text>
-        {entry.enAlt.length > 0 ? <Muted>{t('glossary.alsoEn', { list: entry.enAlt.join(', ') })}</Muted> : null}
+    <View style={{ gap: space.xs }} accessible accessibilityLabel={`${entry.pl}: ${en}${entry.def ? `. ${entry.def}` : ''}`}>
+      <View style={styles.row}>
+        <Text style={[tp.body, { color: tk.ink, fontWeight: '600', flex: 1 }]}>{entry.pl}</Text>
+        <View style={{ flex: 1, gap: 2 }}>
+          <Text style={[tp.body, { color: tk.felt }]}>{en}</Text>
+          {entry.enAlt.length > 0 ? <Muted>{t('glossary.alsoEn', { list: entry.enAlt.join(', ') })}</Muted> : null}
+        </View>
       </View>
+      {entry.def ? <Text style={[tp.small, { color: tk.ink }]}>{entry.def}</Text> : null}
     </View>
   );
 }

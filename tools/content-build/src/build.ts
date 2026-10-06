@@ -13,6 +13,7 @@ import {
   RulesFile,
   TermArea,
   TermsFile,
+  termDefRevealsName,
   termNeedsEnglish,
   type Block,
   type CompiledTerm,
@@ -33,9 +34,12 @@ import { loadTerms } from './terms';
 /** Ile różnych terminów (z nazwą angielską inną niż polska albo ze skrótem) musi mieć obszar ćwiczenia słownictwa. */
 export const VOCAB_MIN_TERMS = 4;
 
-/** Terminy, o które może pytać ćwiczenie słownictwa: polska nazwa różna od angielskiej albo skrót. */
-export function vocabEligible(t: Pick<CompiledTerm, 'pl' | 'en' | 'abbr'>): boolean {
-  return termNeedsEnglish(t) || !!t.abbr;
+/**
+ * Terminy, o które może pytać ćwiczenie słownictwa: polska nazwa różna od angielskiej albo skrót (pytanie o nazwę)
+ * albo definicja, która nie zdradza nazwy terminu (pytanie o znaczenie, kierunek def).
+ */
+export function vocabEligible(t: Pick<CompiledTerm, 'pl' | 'en' | 'abbr' | 'def'> & { enAlt?: readonly string[]; forms?: readonly string[] }): boolean {
+  return termNeedsEnglish(t) || !!t.abbr || (!!t.def && !termDefRevealsName(t));
 }
 
 export interface CompiledLesson {
@@ -242,7 +246,7 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
             const n = terms.compiled.filter((t) => t.area === area.data && vocabEligible(t)).length;
             if (n < VOCAB_MIN_TERMS) throw new Error(`zadanie ${d.id}: obszar ${area.data} ma ${n} terminów do ćwiczenia (minimum ${VOCAB_MIN_TERMS})`);
             const dir = d.params.dir ?? 'both';
-            if (dir !== 'both' && dir !== 'pl-en' && dir !== 'en-pl') throw new Error(`zadanie ${d.id}: params.dir to pl-en, en-pl albo both`);
+            if (dir !== 'both' && dir !== 'pl-en' && dir !== 'en-pl' && dir !== 'def') throw new Error(`zadanie ${d.id}: params.dir to pl-en, en-pl, def albo both`);
           }
           if (d.generator === 'rangeDecision') {
             const list = String(d.params.spots ?? '').split(',').map((x) => x.trim()).filter(Boolean);

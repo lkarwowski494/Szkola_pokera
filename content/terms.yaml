@@ -33,7 +33,7 @@ royal-flush:
 straight-flush:
   pl: poker
   en: straight flush
-  def: "Pięć kolejnych kart w jednym kolorze, np. 5♥ 6♥ 7♥ 8♥ 9♥. Najwyższa odmiana (od asa) to poker królewski."
+  def: "Pięć kolejnych kart w jednym kolorze, np. 5♥ 6♥ 7♥ 8♥ 9♥. Najwyższa odmiana (od asa do dziesiątki) ma osobną nazwę i jest najsilniejszym układem w grze."
   area: hands
   # samo „poker” to też nazwa gry, więc znacznik stawiamy ręcznie; obowiązkowa jest tylko forma opisowa
   forms: [strit w kolorze]
@@ -112,7 +112,7 @@ high-card:
 kicker:
   pl: kicker
   en: kicker
-  def: "Najwyższa karta spoza układu, która rozstrzyga remis. Przykład: para asów z królem wygrywa z parą asów z damą, bo ma lepszy kicker."
+  def: "Najwyższa karta spoza układu, która rozstrzyga remis. Przykład: para asów z królem wygrywa z parą asów z damą."
   area: hands
   source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „KICKER: The highest unpaired card that helps determine the value of a five-card poker hand.”"
 wheel:
@@ -127,7 +127,7 @@ wheel:
 check:
   pl: czekanie
   en: check
-  def: "Granie dalej bez stawiania żetonów, możliwe tylko wtedy, gdy w tej rundzie licytacji nikt jeszcze nie postawił."
+  def: "Granie dalej bez stawiania żetonów, możliwe tylko wtedy, gdy w tej rundzie licytacji nikt jeszcze nie postawił. Nie mylić ze „sprawdzam” – to call, czyli dołożenie do zakładu rywala."
   area: actions
   forms: [czekanie, czekania, czekaniu, czekaniem, czekam, czekasz, czeka, czekamy, czekają, czekać, czekał, czekała, czekałeś, czekali, czekaliście, czekając, czekaj, poczekasz, poczeka]
   skip: [czeka na, czekają na, czekać na, czekasz na]
@@ -142,7 +142,7 @@ bet:
 call:
   pl: sprawdzenie
   en: call
-  def: "Dołożenie do puli tyle, ile wynosi zakład lub przebicie rywala, żeby grać dalej."
+  def: "Dołożenie do puli tyle, ile wynosi zakład lub przebicie rywala, żeby grać dalej. Nie mylić z „czekam” – to check, czyli granie dalej bez stawiania, gdy nikt nie postawił."
   area: actions
   forms: [sprawdzenie, sprawdzenia, sprawdzeniu, sprawdzeniem, sprawdzeń, sprawdzeniach, sprawdzeniami, sprawdzam, sprawdzasz, sprawdza, sprawdzają, sprawdzamy, sprawdzić, sprawdzał, sprawdzała, sprawdzałeś, sprawdzali, sprawdził, sprawdziła, sprawdziłeś, sprawdzili, sprawdzi, sprawdzą, sprawdzisz, sprawdzać, sprawdzanie, sprawdzania, sprawdzaniu, sprawdzając, sprawdzaj, sprawdzającego]
   skip: ["sprawdza, czy", "sprawdzić, czy", "sprawdzisz, czy", "sprawdzasz, czy", "sprawdzaj, czy", "sprawdzam, czy"]
@@ -194,7 +194,7 @@ side-pot:
 split-pot:
   pl: podział puli
   en: split pot
-  def: "Podział puli między graczy z równymi układami, np. gdy obaj grają ten sam strit leżący na stole."
+  def: "Sytuacja, w której pulę dzielą gracze z równymi układami, np. gdy obaj grają ten sam strit leżący na stole."
   area: table
   forms: [podział puli, podziału puli, podziałem puli, pula jest dzielona, pulę dzielicie]
   source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „SPLIT POT: A pot that is divided among players, either because of a tie for the best hand or by agreement prior to the showdown.”"
@@ -209,7 +209,7 @@ playing-the-board:
 board:
   pl: stół
   en: board
-  def: "Odkryte karty wspólne na środku stołu (flop, turn, river), z których korzystają wszyscy gracze."
+  def: "Odkryte karty wspólne na środku (flop, turn, river), z których korzystają wszyscy gracze."
   area: table
   forms: [stół, stołu, stole, stołem]
   skip: [przy stole, przy stół, przy stołach, do stołu, od stołu, przy stoliku]
@@ -241,7 +241,7 @@ big-blind:
   pl: duży blind
   en: big blind
   abbr: BB
-  def: "Większa obowiązkowa stawka wpłacana przed rozdaniem przez drugiego gracza na lewo od Buttona; tak nazywa się też to miejsce. Służy też za jednostkę stacków i wyników (bb)."
+  def: "Większa obowiązkowa stawka wpłacana przed rozdaniem przez drugiego gracza na lewo od Buttona; tak nazywa się też to miejsce. Służy też za jednostkę wielkości stacków i wyników."
   area: table
   forms: [duży blind, dużego blinda, dużemu blindowi, dużym blindem, dużym blindzie, dużych blindach, BB]
   source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „BIG BLIND: The largest regular blind in a game.”; GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „It's also the name of the seat that places this bet (BB)”"
@@ -255,7 +255,7 @@ chips:
 stack:
   pl: stack
   en: stack
-  def: "Wszystkie żetony, które gracz ma przed sobą; zwykle podaje się go w dużych blindach (np. stack 100 bb)."
+  def: "Wszystkie żetony, które gracz ma przed sobą; zwykle podaje się je w dużych blindach (np. 100 dużych blindów)."
   area: table
   source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „STACK: Chips in front of a player.”"
 street:
@@ -456,7 +456,7 @@ expected-value:
   pl: wartość oczekiwana
   en: expected value
   abbr: EV
-  def: "Średni wynik zagrania, gdyby powtarzać je wiele razy. Zagranie z dodatnim EV zarabia w długim okresie, nawet jeśli tym razem przegra."
+  def: "Średni wynik zagrania, gdyby powtarzać je wiele razy. Zagranie, które średnio daje plus, zarabia w długim okresie, nawet jeśli tym razem przegra."
   area: strategy
   forms: [wartość oczekiwana, wartości oczekiwanej, wartość oczekiwaną, wartością oczekiwaną, EV]
   source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Expected Value (EV): The anticipated value one expects from any hand, position, or play.”"
@@ -464,7 +464,7 @@ combo:
   pl: kombinacja
   en: combo
   en_alt: [combination]
-  def: "Jedno konkretne ułożenie dwóch kart z kolorami, np. A♠ K♥. Liczenie kombinacji pokazuje, ile danych rąk naprawdę jest w zakresie."
+  def: "Jedno konkretne ułożenie dwóch kart z kolorami, np. A♠ K♥. Liczenie takich ułożeń pokazuje, ile danych rąk naprawdę jest w zakresie."
   area: preflop
   forms: [kombinacja, kombinacji, kombinację, kombinacje, kombinacjami, kombinacjach, kombinacją]
   source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Combo: Short for \"combination\", which refers to a specific hand's combination of two cards of certain ranks and suits.”"
@@ -502,7 +502,7 @@ suited:
 offsuit:
   pl: w różnych kolorach
   en: offsuit
-  def: "Dwie karty własne w różnych kolorach, np. A♥ K♣ (zapis AKo)."
+  def: "Dwie karty własne, każda innego koloru, np. A♥ K♣ (zapis AKo)."
   area: preflop
   source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Offsuit: A term which describes hole cards containing cards of different suits.”"
 pocket-pair:
@@ -554,7 +554,7 @@ texture:
   pl: tekstura
   en: texture
   en_alt: [board texture]
-  def: "Charakter kart wspólnych: ile jest kolorów, czy karty są blisko siebie, czy leży para. Od tekstury zależy, jakie układy i drawy są możliwe."
+  def: "Charakter kart wspólnych: ile jest kolorów, czy karty są blisko siebie, czy leży para. Od tego zależy, jakie układy i drawy są możliwe."
   area: board
   forms: [tekstura, tekstury, teksturę, teksturą, teksturze, tekstur, teksturach]
   source: "GTO Wizard, Board texture (https://gtowizard.com/glossary/board-texture/): „Describes the nature of hands that can be made from the community cards.”"
@@ -730,7 +730,7 @@ condensed:
 value:
   pl: wartość
   en: value
-  def: "Gra dla wartości: zakład z silną ręką po to, żeby rywal sprawdził go słabszą ręką."
+  def: "Zakładanie z silną ręką po to, żeby rywal sprawdził zakład słabszą ręką."
   area: strategy
   # samo „wartość” bywa ogólne („wartość liczby”), więc obowiązkowe są tylko frazy z betem dla wartości
   forms: [dla wartości, za wartość, ulice wartości, ulic wartości, ulica wartości, ulicę wartości]
@@ -1037,7 +1037,7 @@ prize-pool:
 payout:
   pl: wypłata
   en: payout
-  def: "Nagroda za konkretne miejsce w turnieju; wszystkie razem tworzą strukturę wypłat."
+  def: "Nagroda za konkretne miejsce w turnieju; wszystkie razem tworzą rozkład nagród."
   area: tournament
   forms: [wypłata, wypłaty, wypłat, wypłatami, wypłatach, wypłatę, wypłatą, wypłacie]
   source: "GTO Wizard, Poker Glossary (https://gtowizard.com/en/glossary/): „Payout structure: The payout structure refers to how prize money is distributed among players in a tournament.”; GTO Wizard, ICM Basics (https://blog.gtowizard.com/icm-basics/): „multiplies those probabilities by the payouts of each position”"

@@ -443,15 +443,20 @@ interface VocabTerm {
   en: string;
   enAlt: readonly string[];
   abbr?: string;
+  /** Definicja z content/terms.yaml (pole def). */
+  def?: string;
 }
 
-const vocabLine = (t: VocabTerm) => `„${t.pl}” to po angielsku „${t.en}”${t.abbr ? `, skrót ${t.abbr}` : ''}`;
+const vocabLine = (t: VocabTerm) =>
+  t.pl.toLowerCase() === t.en.toLowerCase() ? `„${t.pl}”${t.abbr ? ` (skrót ${t.abbr})` : ''}` : `„${t.pl}” to po angielsku „${t.en}”${t.abbr ? `, skrót ${t.abbr}` : ''}`;
+const vocabDef = (t: VocabTerm) => (t.def ? ` Znaczenie: ${t.def}` : '');
 
 export const vocabText = {
   promptPlEn: (pl: string) => `Jak po angielsku nazywa się „${pl}”?`,
   promptEnPl: (en: string) => `Co po polsku znaczy „${en}”?`,
   promptAbbr: (abbr: string) => `Co oznacza skrót „${abbr}”?`,
+  promptDef: (def: string) => `Który termin pasuje do opisu? „${def}”`,
   right: (t: VocabTerm) => `Tak: ${vocabLine(t)}.`,
-  wrong: (t: VocabTerm, _enPl: boolean) => `Nie: ${vocabLine(t)}.`,
-  explanation: (t: VocabTerm) => `${vocabLine(t)}.${t.enAlt.length ? ` Spotkasz też: ${t.enAlt.join(', ')}.` : ''}`,
+  wrong: (t: VocabTerm, _enPl: boolean) => `Nie: ${vocabLine(t)}.${vocabDef(t)}`,
+  explanation: (t: VocabTerm) => `${vocabLine(t)}.${vocabDef(t)}${t.enAlt.length ? ` Spotkasz też: ${t.enAlt.join(', ')}.` : ''}`,
 };

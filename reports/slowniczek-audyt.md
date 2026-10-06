@@ -8,7 +8,7 @@ Data: 6 października 2026. Gałąź `slowniczek-audyt`. Zakres: wszystkie 162 t
 - **Zmienić nazwę PL:** 26 (kalki, których polskie źródła nie używają, albo forma wyraźnie rzadsza od innej).
 - **Poprawić en_alt:** 2 (trójka, winrate; trzecia poprawka en_alt, „merged” przy `linear`, jest w grupie „nie potwierdzono”); **poprawić cytat źródła EN:** 1.
 - **Nie potwierdzono polskiej nazwy:** 6 (brak przeczytanego polskiego źródła; do decyzji, nie do zgadywania).
-- **Brak definicji** dotyczył wszystkich 162 terminów. Pole `def` jest już w `terms.yaml` i w `terms.generated.ts`; ekrany i ćwiczenie jeszcze go nie pokazują (decyzja właściciela).
+- **Brak definicji** dotyczył wszystkich 162 terminów. Pole `def` jest już w `terms.yaml` i w `terms.generated.ts`; słowniczek i ćwiczenie pokazują je od części C.
 
 Zgłoszenie właściciela potwierdziło się tylko częściowo. „Ulica” jest w polskim użyciu (GGPoker PL, PokerGround, PokerStrategy PL); brakowało jej definicji, nazwa jest w porządku. Kalkami, których nikt nie używa, okazały się natomiast: orzechy, przewaga orzechowa, dobieranie (i pochodne), beczka/druga beczka (w PokerGround sporadycznie), wpychanie, przykrywać, łącznik, bańka, zjazd, nadpara, półblef, tęczowy, monotoniczny, rozłączony, gra stół, premia za ryzyko, krótki stack, ante dużego blinda. Po stronie angielskiej: `trójka` miała w en_alt „set” (i „trips”), `liniowy` miał „merged”, `winrate` miał jednostkę „bb/100”.
 
@@ -83,7 +83,17 @@ Razem dla zmian nazw PL i terminów „nie potwierdzono”: lekcje 261 znacznik�
 - Schemat: `def` (opcjonalny tekst, min. 10 znaków, bez znaczników `{{…}}`) w `TermEntry` (`packages/content-schema`), w `CompiledTerm` i w module `apps/mobile/src/data/content/terms.generated.ts` (`AppTerm.def`). Wypełnione dla 162/162 terminów.
 - Definicje opisują pojęcie, a nie nazwę: tam, gdzie nazwa PL jest do zmiany, definicja nie używa spornego słowa, więc po zmianie nazw nie trzeba jej przepisywać.
 - Tabeli `terms` w bazie `content-v4.db` nie zmieniałem, bo aplikacja czyta terminy z `terms.generated.ts`. Dlatego nie podbiłem też `CONTENT_SCHEMA_VERSION`, mimo komentarza „zmiana tego pliku = zmiana wersji schematu”: w poprzedniej zmianie (e1341c7) podbicie wynikało z nowej tabeli w bazie. Jeśli koordynator woli trzymać się reguły dosłownie, druga opcja to kolumna `def` w tabeli `terms` i wersja 5.
-- Ekrany (`glossary.tsx`) i ćwiczenie (`vocab.ts`) bez zmian: sposób pokazania definicji wybiera właściciel.
+- Sposób pokazania definicji wybrał właściciel: wariant „słowniczek + ćwiczenie” (część C).
+
+## Część C: definicje w słowniczku i w ćwiczeniu (wariant „słowniczek + ćwiczenie”)
+
+- Ekran `glossary.tsx`: definicja pod każdym terminem; czytnik ekranu dostaje ją w etykiecie wiersza.
+- Ćwiczenie (`vocab.ts`, `text.pl.ts`): wyjaśnienie po odpowiedzi zawiera „Znaczenie: …”, a uzasadnienie złej odpowiedzi definicję wybranego terminu.
+- Nowy kierunek `def`: pytanie „Który termin pasuje do opisu? „…””, cztery opcje w postaci polskiego terminu z angielskim w nawiasie wg T-01 (`termText`, np. „kolor (flush)”, „flop”), dystraktory najpierw z tego samego obszaru. Obejmuje też terminy bez nawiasu (flop, c-bet, equity). `params.dir: def` daje tylko ten kierunek, `both` losuje spośród wszystkich kierunków dostępnych dla terminu, więc istniejące zadania słownictwa w lekcjach dostały pytania o znaczenie bez zmian w treści. content-build przyjmuje `dir: def`.
+- Termin trafia do kierunku `def` tylko wtedy, gdy jego definicja nie zawiera jego nazwy (polskiej, formy, angielskiej, en_alt, skrótu); sprawdza to `termDefRevealsName` w `content-schema`, wspólne dla aplikacji i content-build. Dwanaście definicji przeredagowałem, żeby nie zdradzały nazwy (m.in. kicker, stack, board, combo, value). Cztery zostają poza kierunkiem `def`, bo nazwa jest tam istotną informacją: `street` (przykład „value na trzech ulicach”), `recreational` („fish”), `winrate` („bb/100”), `three-of-a-kind` (set i trips w en_alt; po usunięciu en_alt wejdzie automatycznie). Kierunkiem `def` objętych jest 158 z 162 terminów.
+- Pary terminów o prawie tej samej definicji albo zawierające się (`DEF_CONFUSABLE` w `vocab.ts`: value/value-bet, polarized/polarization, board/community-cards, street/betting-round, barrel/second-barrel, shove/stack-off/all-in, wet/wetness, texture/wetness, UTG/early position, Button i Cutoff/late position) nie stają obok siebie jako odpowiedź i dystraktor. Rozważałem też pole w `terms.yaml`, ale to reguła ćwiczenia, nie treść terminu.
+- Check/call: para potwierdzona w polskich źródłach. Wikipedia PL, Poker (https://pl.wikipedia.org/wiki/Poker): „czekanie (ang. check) – gracz nie przebija stawki ani nie pasuje”, „sprawdzenie (ang. call) – gracz wyrównuje do kwoty postawionej w danej rundzie przez innego gracza”; słownik PokerStrategy PL (https://polska.pokerstrategy.com/glossary/Czekanie/): „Czekanie (check) jest zagraniem możliwym tylko wtedy, kiedy przed graczem, który chce je wykonać nikt wcześniej nie wnosił zakładów.”, (https://polska.pokerstrategy.com/glossary/Sprawdzenie/): „Sprawdzenie to zagranie, jakie może wykonać gracz, kiedy jego przeciwnik lub przeciwnicy wnieśli wcześniej zakłady.”; PokerListings PL (https://www.pokerlistings.pl/pokerowy-slownik): „sprawdzamy go (call)”. Definicje mają uwagę: check „Nie mylić ze „sprawdzam” – to call…”, call „Nie mylić z „czekam” – to check…”. Polskiego klienta PokerStars/GGPoker nie dało się przeczytać (strony przekierowują na wersję angielską), więc przyciski klienta nie są tu źródłem.
+- Testy: kierunek def (definicja w pytaniu, poprawna opcja = `termText`, cztery różne opcje, dystraktory z obszaru, brak par mylących się, terminy bez nawiasu, wykluczenie definicji zdradzających nazwę), definicja w wyjaśnieniu, uwagi check/call, definicja na ekranie słowniczka.
 
 ## Wszystkie terminy
 
@@ -103,7 +113,7 @@ Format: polska nazwa / angielska (en_alt). **Werdykt.** Użycie: liczba wystąpi
 - Użycie w korpusie: PS 0, PG 0.
 - Cytat polski: Słownik PokerStrategy PL, https://polska.pokerstrategy.com/glossary/Straight-Flush/: „Układ złożony z pięciu kolejnych kart w tym samym kolorze. Popularnie zwany pokerem.”
 - Nazwa angielska: poprawna; cytat w polu `source`.
-- Definicja: Pięć kolejnych kart w jednym kolorze, np. 5♥ 6♥ 7♥ 8♥ 9♥. Najwyższa odmiana (od asa) to poker królewski.
+- Definicja: Pięć kolejnych kart w jednym kolorze, np. 5♥ 6♥ 7♥ 8♥ 9♥. Najwyższa odmiana (od asa do dziesiątki) ma osobną nazwę i jest najsilniejszym układem w grze.
 - Uwagi: Wikipedia PL i PokerStrategy PL: „poker” = straight flush. Uwaga: „poker” to też nazwa gry, więc w tekście często „strit w kolorze”.
 
 ### `four-of-a-kind`: kareta / four of a kind (quads)
@@ -187,7 +197,7 @@ Format: polska nazwa / angielska (en_alt). **Werdykt.** Użycie: liczba wystąpi
 - Użycie w korpusie: PS 528, PG 152.
 - Cytat polski: Słownik PokerStrategy PL, https://polska.pokerstrategy.com/glossary/Top-Kicker/: „Najwyższa karta, która nie wchodzi w skład układu.”
 - Nazwa angielska: poprawna; cytat w polu `source`.
-- Definicja: Najwyższa karta spoza układu, która rozstrzyga remis. Przykład: para asów z królem wygrywa z parą asów z damą, bo ma lepszy kicker.
+- Definicja: Najwyższa karta spoza układu, która rozstrzyga remis. Przykład: para asów z królem wygrywa z parą asów z damą.
 
 ### `wheel`: koło / wheel
 
@@ -204,7 +214,7 @@ Format: polska nazwa / angielska (en_alt). **Werdykt.** Użycie: liczba wystąpi
 - Użycie w korpusie: PS 168, PG 151.
 - Cytat polski: Wikipedia PL, Poker, https://pl.wikipedia.org/wiki/Poker: „czekanie (ang. check) – gracz nie przebija stawki ani nie pasuje, czekając na ruch innych graczy. Czekanie jest możliwe tylko wtedy, gdy stawka w danej rundzie…”
 - Nazwa angielska: poprawna; cytat w polu `source`.
-- Definicja: Granie dalej bez stawiania żetonów, możliwe tylko wtedy, gdy w tej rundzie licytacji nikt jeszcze nie postawił.
+- Definicja: Granie dalej bez stawiania żetonów, możliwe tylko wtedy, gdy w tej rundzie licytacji nikt jeszcze nie postawił. Nie mylić ze „sprawdzam” – to call, czyli dołożenie do zakładu rywala.
 
 ### `bet`: zakład / bet
 
@@ -221,7 +231,7 @@ Format: polska nazwa / angielska (en_alt). **Werdykt.** Użycie: liczba wystąpi
 - Użycie w korpusie: PS 2488, PG 977.
 - Cytat polski: Wikipedia PL, Poker, https://pl.wikipedia.org/wiki/Poker: „sprawdzenie (ang. call) – gracz wyrównuje do kwoty postawionej w danej rundzie przez innego gracza.”
 - Nazwa angielska: poprawna; cytat w polu `source`.
-- Definicja: Dołożenie do puli tyle, ile wynosi zakład lub przebicie rywala, żeby grać dalej.
+- Definicja: Dołożenie do puli tyle, ile wynosi zakład lub przebicie rywala, żeby grać dalej. Nie mylić z „czekam” – to check, czyli granie dalej bez stawiania, gdy nikt nie postawił.
 
 ### `raise`: przebicie / raise
 
@@ -278,7 +288,7 @@ Format: polska nazwa / angielska (en_alt). **Werdykt.** Użycie: liczba wystąpi
 - Użycie w korpusie: PS 59, PG 15.
 - Cytat polski: Wikipedia PL, Texas Hold’em, https://pl.wikipedia.org/wiki/Texas_Hold%E2%80%99em: „…ma wyższą piątą kartę (piąta karta może być wybrana zarówno z ręki, jak i ze stołu), jeśli także jest taka sama to jest remis i następuje podział puli.”
 - Nazwa angielska: poprawna; cytat w polu `source`.
-- Definicja: Podział puli między graczy z równymi układami, np. gdy obaj grają ten sam strit leżący na stole.
+- Definicja: Sytuacja, w której pulę dzielą gracze z równymi układami, np. gdy obaj grają ten sam strit leżący na stole.
 
 ### `playing-the-board`: gra stół / playing the board (play the board)
 
@@ -295,7 +305,7 @@ Format: polska nazwa / angielska (en_alt). **Werdykt.** Użycie: liczba wystąpi
 - Użycie w korpusie: PS 2935, PG 1070.
 - Cytat polski: Słownik PokerStrategy PL, https://polska.pokerstrategy.com/glossary/Dry-Suchy_2031/: „Dry (suchy) board opisuje stół, który nie zawiera wcale albo zawiera bardzo mało drawów.”
 - Nazwa angielska: poprawna; cytat w polu `source`.
-- Definicja: Odkryte karty wspólne na środku stołu (flop, turn, river), z których korzystają wszyscy gracze.
+- Definicja: Odkryte karty wspólne na środku (flop, turn, river), z których korzystają wszyscy gracze.
 - Uwagi: W korpusie także „board” (PokerGround częściej „board”).
 
 ### `community-cards`: karty wspólne / community cards
@@ -330,7 +340,7 @@ Format: polska nazwa / angielska (en_alt). **Werdykt.** Użycie: liczba wystąpi
 - Użycie w korpusie: PS 68, PG 28.
 - Cytat polski: Słownik PokerStrategy PL, https://polska.pokerstrategy.com/glossary/Limp/: „W grach, w których występują blindy, gracz limpuje, kiedy wykonując swój pierwszy ruch sprawdza blindy. Sprawdza dużego blinda, ale nie przebija.”
 - Nazwa angielska: poprawna; cytat w polu `source`.
-- Definicja: Większa obowiązkowa stawka wpłacana przed rozdaniem przez drugiego gracza na lewo od Buttona; tak nazywa się też to miejsce. Służy też za jednostkę stacków i wyników (bb).
+- Definicja: Większa obowiązkowa stawka wpłacana przed rozdaniem przez drugiego gracza na lewo od Buttona; tak nazywa się też to miejsce. Służy też za jednostkę wielkości stacków i wyników.
 - Uwagi: jw.: Wikipedia PL „duża ciemna (big blind)”.
 
 ### `chips`: żetony / chips
@@ -347,7 +357,7 @@ Format: polska nazwa / angielska (en_alt). **Werdykt.** Użycie: liczba wystąpi
 - Użycie w korpusie: PS 4658, PG 2329.
 - Cytat polski: Słownik PokerStrategy PL, https://polska.pokerstrategy.com/glossary/Bust-out/: „Gracz jest bust out, kiedy przegrywa cały stack przy stole lub został wyeliminowany z turnieju. To bust out oznacza w języku angielskim wyeliminować kogoś z turnieju lub wysadzić z…”
 - Nazwa angielska: poprawna; cytat w polu `source`.
-- Definicja: Wszystkie żetony, które gracz ma przed sobą; zwykle podaje się go w dużych blindach (np. stack 100 bb).
+- Definicja: Wszystkie żetony, które gracz ma przed sobą; zwykle podaje się je w dużych blindach (np. 100 dużych blindów).
 
 ### `street`: ulica / street
 
@@ -577,7 +587,7 @@ Format: polska nazwa / angielska (en_alt). **Werdykt.** Użycie: liczba wystąpi
 - Użycie w korpusie: PS 774, PG 18.
 - Cytat polski: Wikipedia PL, Texas Hold’em, https://pl.wikipedia.org/wiki/Texas_Hold%E2%80%99em: „Dla uproszczenia skomplikowanej matematyki obliczania wartości oczekiwanej stosuje się zasadę „mnożenia przez dwa” lub „mnożenia przez cztery”.”
 - Nazwa angielska: poprawna; cytat w polu `source`.
-- Definicja: Średni wynik zagrania, gdyby powtarzać je wiele razy. Zagranie z dodatnim EV zarabia w długim okresie, nawet jeśli tym razem przegra.
+- Definicja: Średni wynik zagrania, gdyby powtarzać je wiele razy. Zagranie, które średnio daje plus, zarabia w długim okresie, nawet jeśli tym razem przegra.
 
 ### `combo`: kombinacja / combo (combination)
 
@@ -585,7 +595,7 @@ Format: polska nazwa / angielska (en_alt). **Werdykt.** Użycie: liczba wystąpi
 - Użycie w korpusie: PS 691, PG 388.
 - Cytat polski: PokerGround, artykuł, https://pokerground.com/dara-okearney-gra-koncowa/: „16 kombinacji AK i 6 kombinacji AA”
 - Nazwa angielska: poprawna; cytat w polu `source`.
-- Definicja: Jedno konkretne ułożenie dwóch kart z kolorami, np. A♠ K♥. Liczenie kombinacji pokazuje, ile danych rąk naprawdę jest w zakresie.
+- Definicja: Jedno konkretne ułożenie dwóch kart z kolorami, np. A♠ K♥. Liczenie takich ułożeń pokazuje, ile danych rąk naprawdę jest w zakresie.
 - Uwagi: Spotykane też „combo”.
 
 ### `range`: zakres / range
@@ -628,7 +638,7 @@ Format: polska nazwa / angielska (en_alt). **Werdykt.** Użycie: liczba wystąpi
 - Użycie w korpusie: PS 35, PG 28.
 - Cytat polski: PokerGround, artykuł, https://pokerground.com/jak-rozpoznac-ze-ktos-nie-blefuje/: „jest jeszcze sześć kombinacji AK w różnych kolorach”
 - Nazwa angielska: poprawna; cytat w polu `source`.
-- Definicja: Dwie karty własne w różnych kolorach, np. A♥ K♣ (zapis AKo).
+- Definicja: Dwie karty własne, każda innego koloru, np. A♥ K♣ (zapis AKo).
 - Uwagi: W korpusie częściej „offsuit”; polska forma też potwierdzona.
 
 ### `pocket-pair`: para w ręce / pocket pair
@@ -687,7 +697,7 @@ Format: polska nazwa / angielska (en_alt). **Werdykt.** Użycie: liczba wystąpi
 - Użycie w korpusie: PS 202, PG 70.
 - Cytat polski: Słownik PokerStrategy PL, https://polska.pokerstrategy.com/glossary/Texture-Tekstura_1952/: „Tekstura stołu opisuje kompozycje na boardzie w pokerze.”
 - Nazwa angielska: poprawna; cytat w polu `source`.
-- Definicja: Charakter kart wspólnych: ile jest kolorów, czy karty są blisko siebie, czy leży para. Od tekstury zależy, jakie układy i drawy są możliwe.
+- Definicja: Charakter kart wspólnych: ile jest kolorów, czy karty są blisko siebie, czy leży para. Od tego zależy, jakie układy i drawy są możliwe.
 
 ### `dry`: suchy / dry (static)
 
@@ -887,7 +897,7 @@ Format: polska nazwa / angielska (en_alt). **Werdykt.** Użycie: liczba wystąpi
 - Użycie w korpusie: PS 41, PG 180.
 - Cytat polski: PokerStrategy PL, artykuł, https://polska.pokerstrategy.com/strategy/weekly-no-limit/3-betowane-poty-overkarty-equity/: „…Ręka Gracz 1 48.84% 42.93% 11.82% 45.25% 77+, AJs+, KQs, 87s, 76s, 65s, AQo+ Gracz 2 51.16% 45.25% 11.82% 42.93% AKo 3-betujesz preflop dla wartości. Postflop: Analiza Equity Board 7 4 4 Equity Wygrana Podział Przegrana Ręka Gracz 1 60.87% 53.37% 15% 31.63% 77+, AJs+, KQs, 87s, 76s,…”
 - Nazwa angielska: poprawna; cytat w polu `source`.
-- Definicja: Gra dla wartości: zakład z silną ręką po to, żeby rywal sprawdził go słabszą ręką.
+- Definicja: Zakładanie z silną ręką po to, żeby rywal sprawdził zakład słabszą ręką.
 
 ### `value-bet`: value bet / value bet
 
@@ -1251,7 +1261,7 @@ Format: polska nazwa / angielska (en_alt). **Werdykt.** Użycie: liczba wystąpi
 - Użycie w korpusie: PS 188, PG 102.
 - Cytat polski: Słownik PokerStrategy PL, https://polska.pokerstrategy.com/glossary/Struktura-wyplat/: „Struktura wypłat turnieju określa jak dzielona jest pula nagród pośród zwycięzców turnieju.”
 - Nazwa angielska: poprawna; cytat w polu `source`.
-- Definicja: Nagroda za konkretne miejsce w turnieju; wszystkie razem tworzą strukturę wypłat.
+- Definicja: Nagroda za konkretne miejsce w turnieju; wszystkie razem tworzą rozkład nagród.
 - Uwagi: Uwaga na wieloznaczność: hasło „Wypłata” w słowniku PokerStrategy PL to wypłata pieniędzy z konta (withdrawal); w znaczeniu nagrody turniejowej używa się „struktura wypłat”.
 
 ### `pay-jump`: skok wypłaty / pay jump

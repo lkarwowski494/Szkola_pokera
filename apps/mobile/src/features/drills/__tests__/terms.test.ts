@@ -7,12 +7,13 @@
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { termMatcher, TERM_PLACEHOLDER, type TermInfo } from '@szkola/content-schema';
+import { termDefRevealsName, termMatcher, termText, TERM_PLACEHOLDER, type TermInfo } from '@szkola/content-schema';
 import { createRng } from '@szkola/poker-core';
-import { TERMS } from '@/data/content/terms.generated';
+import { TERMS, type AppTerm } from '@/data/content/terms.generated';
 import { instantiate } from '../engine';
 import { gradeAnswer } from '../grade';
 import { term, tr } from '../terms';
+import { DEF_CONFUSABLE, vocabModes } from '../vocab';
 
 const SOURCES = ['features/drills/text.pl.ts', 'i18n/pl.ts'].map((p) => join(__dirname, '../../..', p));
 
@@ -81,6 +82,86 @@ describe('ćwiczenie słownictwa PL ↔ EN', () => {
       if (inst.kind !== 'choice') throw new Error();
       const right = inst.options.find((o) => o.correct)!.text;
       expect(Object.values(TERMS).some((t) => t.pl === right && inst.prompt.includes(`„${t.en}”`))).toBe(true);
+    }
+  });
+
+  it('wyjaśnienie po odpowiedzi zawiera definicję terminu', () => {
+    for (let seed = 1; seed <= 10; seed++) {
+      for (const inst of instantiate(drill('actions'), null, createRng(seed))) {
+        if (inst.kind !== 'choice') throw new Error();
+        expect(Object.values(TERMS).some((t) => !!t.def && !!inst.explanation?.includes(t.def))).toBe(true);
+      }
+    }
+  });
+
+  it('check i call: definicje ostrzegają przed pomyleniem „czekam” ze „sprawdzam”', () => {
+    expect(TERMS.check.def).toContain('Nie mylić ze „sprawdzam” – to call');
+    expect(TERMS.call.def).toContain('Nie mylić z „czekam” – to check');
+  });
+});
+
+describe('ćwiczenie słownictwa: definicja → termin (kierunek def)', () => {
+  const AREAS = ['hands', 'actions', 'table', 'positions', 'math', 'preflop', 'board', 'strategy', 'mental', 'tournament'];
+  const drill = (area: string) => ({ kind: 'generated' as const, id: `d.${area}`, family: `vocab.${area}`, rules: [], generator: 'vocab' as const, params: { area, dir: 'def' }, count: 4 });
+  const entries = Object.entries(TERMS as Record<string, AppTerm>);
+  const byDef = (prompt: string) => entries.find(([, t]) => !!t.def && prompt.includes(`„${t.def}”`));
+
+  it('pytanie pokazuje definicję, poprawna opcja to polski termin z angielskim w nawiasie (T-01), cztery różne opcje', () => {
+    for (const area of AREAS) {
+      for (let seed = 1; seed <= 15; seed++) {
+        for (const inst of instantiate(drill(area), null, createRng(seed))) {
+          if (inst.kind !== 'choice') throw new Error();
+          const hit = byDef(inst.prompt);
+          expect(hit).toBeDefined();
+          const [key, target] = hit!;
+          expect(target.area).toBe(area);
+          expect(inst.options).toHaveLength(4);
+          expect(new Set(inst.options.map((o) => o.text)).size).toBe(4);
+          const right = inst.options.filter((o) => o.correct);
+          expect(right).toHaveLength(1);
+          expect(right[0]!.text).toBe(termText(target as TermInfo));
+          expect(gradeAnswer(inst, { kind: 'choice', index: inst.options.findIndex((o) => o.correct) })).toBe('correct');
+          // żaden dystraktor nie jest terminem o niemal tej samej definicji
+          const optionKeys = inst.options.map((o) => entries.find(([, t]) => termText(t as TermInfo) === o.text)![0]);
+          for (const k of optionKeys) if (k !== key) expect(DEF_CONFUSABLE.some(([a, b]) => (a === key && b === k) || (a === k && b === key))).toBe(false);
+        }
+      }
+    }
+  });
+
+  it('dystraktory najpierw z tego samego obszaru', () => {
+    for (let seed = 1; seed <= 15; seed++) {
+      for (const inst of instantiate(drill('tournament'), null, createRng(seed))) {
+        if (inst.kind !== 'choice') throw new Error();
+        const areas = inst.options.map((o) => entries.find(([, t]) => termText(t as TermInfo) === o.text)![1].area);
+        expect(areas.every((a) => a === 'tournament')).toBe(true);
+      }
+    }
+  });
+
+  it('obejmuje terminy bez nawiasu (polska nazwa = angielska), np. flop i c-bet', () => {
+    expect(vocabModes(TERMS.flop)).toEqual(['def']);
+    expect(vocabModes(TERMS['c-bet'])).toEqual(['def']);
+    const asked = new Set<string>();
+    for (let seed = 1; seed <= 40; seed++) {
+      for (const inst of instantiate(drill('table'), null, createRng(seed))) asked.add(byDef(inst.prompt)![0]);
+    }
+    expect(asked.has('flop')).toBe(true);
+  });
+
+  it('nie pyta o termin, którego definicja zdradza nazwę', () => {
+    for (const [key, t] of entries) {
+      if (vocabModes(t).includes('def')) expect([key, termDefRevealsName(t)]).toEqual([key, false]);
+    }
+    // „ulica”: przykład w definicji („value na trzech ulicach”) zdradza nazwę, więc tylko kierunki z nazwami
+    expect(termDefRevealsName(TERMS.street)).toBe(true);
+    expect(vocabModes(TERMS.street)).not.toContain('def');
+  });
+
+  it('pary mylących się definicji odnoszą się do istniejących terminów', () => {
+    for (const [a, b] of DEF_CONFUSABLE) {
+      expect(a in TERMS).toBe(true);
+      expect(b in TERMS).toBe(true);
     }
   });
 });
