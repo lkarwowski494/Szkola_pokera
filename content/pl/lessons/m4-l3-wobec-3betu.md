@@ -43,7 +43,7 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z Buttona na {{n:pf.open-size}}, {{t:small-blind}} {{t:fold|spasował}}, {{t:big-blind}} {{t:raise|przebił}} do {{n:pf.3bet.oop-total}}. Co robisz?"
     table: { hand: "8h 7h", position: BTN }
     options:
-      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "{{t:connectors|Łącznik}} w kolorze {{t:in-position}} dobrze {{t:equity-realization|realizuje equity}}: trafia {{t:straight|strity}} i kolory, a gdy chybi, łatwo go {{t:fold|spasować}} na flopie." }
+      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "{{t:connectors|Konektor}} w kolorze {{t:in-position}} dobrze {{t:equity-realization|realizuje equity}}: trafia {{t:straight|strity}} i kolory, a gdy chybi, łatwo go {{t:fold|spasować}} na flopie." }
       - { text: "{{t:fold|Pasuję}}", why: "{{t:in-position|Z pozycją}} ta ręka jest wystarczająco grywalna, żeby bronić. {{t:fold|Pas}} byłby zbyt ciasny." }
       - { text: "4-betuję", why: "Jako {{t:bluff}} lepiej nadają się asy w kolorze, bo blokują AA i AK. 87s woli zobaczyć flop." }
   - kind: choice
@@ -105,7 +105,7 @@ Według rozwiązania solvera opublikowanego przez Poker Academy ({{t:cutoff|CO}}
 
 ## {{t:in-position|Z pozycją}} bronisz szerzej
 
-{{t:in-position|Z pozycją}} {{t:call|sprawdzasz}} także {{t:pair|pary}} od 66 do TT i {{t:connectors|łączniki}} w kolorze (T9s, 98s, 87s). Według Upswing najniższe {{t:pair|pary}} wobec dużego 3-betu {{t:fold|pasujesz}} nawet {{t:in-position}}: zarabiają głównie na trafieniu seta, a cena jest za wysoka. PokerCoaching dopuszcza ich {{t:call|sprawdzanie}} {{t:in-position}}.
+{{t:in-position|Z pozycją}} {{t:call|sprawdzasz}} także {{t:pair|pary}} od 66 do TT i {{t:connectors|konektory}} w kolorze (T9s, 98s, 87s). Według Upswing najniższe {{t:pair|pary}} wobec dużego 3-betu {{t:fold|pasujesz}} nawet {{t:in-position}}: zarabiają głównie na trafieniu seta, a cena jest za wysoka. PokerCoaching dopuszcza ich {{t:call|sprawdzanie}} {{t:in-position}}.
 
 ## 4-bet
 

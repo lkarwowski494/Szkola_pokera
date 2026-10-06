@@ -21,7 +21,7 @@ function bruteForce(stacks: number[], payouts: number[]): number[] {
 describe('ICM Malmutha-Harville’a (M11)', () => {
   it('przykład z lekcji m11.l3 policzony ręcznie: 4500/3500/2000, wypłaty 60/40', () => {
     const [a, b, c] = icmEquities([4500, 3500, 2000], [0.6, 0.4]);
-    // krótki stack: 0,6·0,2 + 0,4·(0,45·2000/5500 + 0,35·2000/6500)
+    // short stack: 0,6·0,2 + 0,4·(0,45·2000/5500 + 0,35·2000/6500)
     expect(c).toBeCloseTo(0.6 * 0.2 + 0.4 * (0.45 * (2000 / 5500) + 0.35 * (2000 / 6500)), 12);
     expect(a! + b! + c!).toBeCloseTo(1, 12);
   });

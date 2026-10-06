@@ -13,7 +13,7 @@ interface Spot {
 
 const C = HAND_CLASSES.map(combosCount);
 const idx = (hc: string) => HAND_CLASSES.indexOf(hc);
-// grupy z B-045: blefy (słabe asy w kolorze, łączniki w kolorze) i środek (ręce, które w zakresie spolaryzowanym raczej sprawdzają)
+// grupy z B-045: blefy (słabe asy w kolorze, konektory w kolorze) i środek (ręce, które w zakresie spolaryzowanym raczej sprawdzają)
 const BLUFFS = ['A5s', 'A4s', 'A3s', 'A2s', '54s', '65s', '76s', '87s', '98s', 'T9s'];
 const MIDDLE = ['55', '66', '77', '88', '99', 'ATo', 'A9o', 'KQo'];
 const VALUE = ['AA', 'KK', 'QQ', 'AKs', 'AKo'];

@@ -29,7 +29,7 @@ describe('siła ręki po flopie (model bota)', () => {
     expect(h('Qs Jd', '5c 5h 5s 5d Qh')).toMatchObject({ improvesBoard: false });
   });
 
-  it('na riverze nie ma dobierań; zamiana kolorów nie zmienia klasy', () => {
+  it('na riverze nie ma drawów; zamiana kolorów nie zmienia klasy', () => {
     expect(h('Ah Kh', 'Qh 7h 2s 3c 4d').draw).toBeNull();
     fc.assert(
       fc.property(fc.integer({ min: 3, max: 5 }), fc.integer(), (n, seed) => {

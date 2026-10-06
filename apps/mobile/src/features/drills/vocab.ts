@@ -37,6 +37,14 @@ export const DEF_CONFUSABLE: readonly (readonly [string, string])[] = [
   ['utg', 'early-position'],
   ['button', 'late-position'],
   ['cutoff', 'late-position'],
+  ['three-of-a-kind', 'set'],
+  ['draw', 'flush-draw'],
+  ['draw', 'straight-draw'],
+  ['draw', 'oesd'],
+  ['draw', 'gutshot'],
+  ['draw', 'backdoor'],
+  ['straight-draw', 'oesd'],
+  ['straight-draw', 'gutshot'],
 ];
 
 function confusable(a: string, b: string): boolean {

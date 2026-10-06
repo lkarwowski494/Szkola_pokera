@@ -38,13 +38,13 @@ drills:
     prompt: "Zaczynasz grać na prawdziwe pieniądze i nie znasz jeszcze swojego winrate. Ile {{t:buy-in|wpisowych}} powinieneś mieć na wybranej {{t:stakes|stawce}}?"
     options:
       - { text: "Co najmniej {{n:br.bi.beginner}}", correct: true, why: "Bez potwierdzonego winrate zakładasz ostrożnie, że jest niski. Nawet {{n:br.bi.beginner}} {{t:buy-in|wpisowych}} przy {{n:var.wr.typical.low}} zostawia ok. {{n:ror.beginner.wr-min}} ryzyka, a {{n:br.bi.base}} aż ok. {{n:ror.base.wr-min}}." }
-      - { text: "Ok. {{n:dd.bi.small}}", why: "{{t:downswing|Zjazd}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} zdarza się prawie każdemu wygrywającemu, więc taki bankroll szybko by się skończył." }
+      - { text: "Ok. {{n:dd.bi.small}}", why: "{{t:downswing|Downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} zdarza się prawie każdemu wygrywającemu, więc taki bankroll szybko by się skończył." }
       - { text: "Co najmniej {{n:br.bi.base}}", why: "To minimum dla gracza z potwierdzonym winrate. Bez tej wiedzy bierzesz zapas: {{n:br.bi.beginner}} {{t:buy-in|wpisowych}}." }
   - kind: choice
     id: m12.l4.q-move-down
     family: m12.move-down
     rules: [R-M12-011]
-    prompt: "Zacząłeś {{t:stakes|stawkę}} z {{n:br.bi.base}} {{t:buy-in|wpisowymi}}. Po {{t:downswing|zjeździe}} masz {{n:br.ex.below}}. Co robisz?"
+    prompt: "Zacząłeś {{t:stakes|stawkę}} z {{n:br.bi.base}} {{t:buy-in|wpisowymi}}. Po {{t:downswing|downswingu}} masz {{n:br.ex.below}}. Co robisz?"
     options:
       - { text: "Schodzisz o jedną {{t:stakes|stawkę}} niżej", correct: true, why: "Spadłeś poniżej połowy założonego bankrollu ({{n:br.bi.move-down}}). Przy tylu {{t:buy-in|wpisowych}} ryzyko utraty reszty jest kilka razy większe niż przy {{n:br.bi.base}}. Na niższej {{t:stakes|stawce}} te same pieniądze to znów pełny bankroll." }
       - { text: "Grasz dalej, bo to tylko {{t:variance}}", why: "To prawda, że to pewnie {{t:variance}}, ale właśnie przed nią chroni zejście {{t:stakes|stawkę}}. Z {{n:br.ex.below}} {{t:buy-in|wpisowymi}} kolejny {{t:downswing}} może zabrać wszystko." }
@@ -55,9 +55,9 @@ drills:
     rules: [R-M12-011, R-M12-002]
     prompt: "Zacząłeś {{t:stakes|stawkę}} z {{n:br.bi.base}} {{t:buy-in|wpisowymi}} i straciłeś {{n:dd.bi.small}}. Masz teraz {{n:br.ex.after-dd}}. Co robisz?"
     options:
-      - { text: "Zostajesz na {{t:stakes|stawce}} i przeglądasz decyzje w przegranych rozdaniach", correct: true, why: "{{n:br.ex.after-dd}} {{t:buy-in|wpisowych}} to wciąż więcej niż próg {{n:br.bi.move-down}}. {{t:downswing|Zjazd}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} jest normalny, a przegląd rozdań sprawdza, czy to nie błędy." }
-      - { text: "Schodzisz {{t:stakes|stawkę}} od razu", why: "Próg zejścia to połowa bankrollu: {{n:br.bi.move-down}} {{t:buy-in|wpisowych}}. Schodzenie po każdym {{t:downswing|zjeździe}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} oznaczałoby schodzenie prawie zawsze, bo taki {{t:downswing}} trafia ok. {{n:dd.p.small.100k}} wygrywających w {{n:var.hands.k}} tys. rąk." }
-      - { text: "Dokładasz pieniądze, żeby mieć znów {{n:br.bi.base}}", why: "Dokładanie pieniędzy po każdym {{t:downswing|zjeździe}} zaciera sens bankrollu jako granicy ryzyka. Ustalasz próg z góry i trzymasz się go." }
+      - { text: "Zostajesz na {{t:stakes|stawce}} i przeglądasz decyzje w przegranych rozdaniach", correct: true, why: "{{n:br.ex.after-dd}} {{t:buy-in|wpisowych}} to wciąż więcej niż próg {{n:br.bi.move-down}}. {{t:downswing|Downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} jest normalny, a przegląd rozdań sprawdza, czy to nie błędy." }
+      - { text: "Schodzisz {{t:stakes|stawkę}} od razu", why: "Próg zejścia to połowa bankrollu: {{n:br.bi.move-down}} {{t:buy-in|wpisowych}}. Schodzenie po każdym {{t:downswing|downswingu}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} oznaczałoby schodzenie prawie zawsze, bo taki {{t:downswing}} trafia ok. {{n:dd.p.small.100k}} wygrywających w {{n:var.hands.k}} tys. rąk." }
+      - { text: "Dokładasz pieniądze, żeby mieć znów {{n:br.bi.base}}", why: "Dokładanie pieniędzy po każdym {{t:downswing|downswingu}} zaciera sens bankrollu jako granicy ryzyka. Ustalasz próg z góry i trzymasz się go." }
   - kind: choice
     id: m12.l4.q-move-up
     family: m12.bankroll-size

@@ -12,7 +12,7 @@ function score5(cards: Card[]): number[] {
   let straightHigh = -1;
   if (uniq.length === 5) {
     if (uniq[0]! - uniq[4]! === 4) straightHigh = uniq[0]!;
-    else if (uniq.join(',') === '12,3,2,1,0') straightHigh = 3; // koło A-5
+    else if (uniq.join(',') === '12,3,2,1,0') straightHigh = 3; // wheel A-5
   }
   const counts = new Map<number, number>();
   for (const r of ranks) counts.set(r, (counts.get(r) ?? 0) + 1);

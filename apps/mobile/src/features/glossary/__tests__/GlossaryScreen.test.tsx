@@ -15,17 +15,17 @@ describe('ekran Słowniczek', () => {
   it('pokazuje obszary i pary PL – EN, a wyszukiwanie zawęża listę w obu językach', async () => {
     await render(<GlossaryScreen />);
     expect(screen.getByText('Gra turniejowa')).toBeTruthy();
-    expect(screen.getByText('zjazd')).toBeTruthy();
-    expect(screen.getByText('downswing')).toBeTruthy();
+    expect(screen.getByText('wariancja')).toBeTruthy();
+    expect(screen.getByText('variance')).toBeTruthy();
 
     const search = screen.getByLabelText('Szukaj po polsku albo po angielsku');
-    await fireEvent.changeText(search, 'bubble');
-    expect(screen.getByText('bańka')).toBeTruthy();
-    expect(screen.queryByText('zjazd')).toBeNull();
+    await fireEvent.changeText(search, 'monotone');
+    expect(screen.getByText('jednokolorowy')).toBeTruthy();
+    expect(screen.queryByText('wariancja')).toBeNull();
     expect(screen.queryByText('Bankroll i psychika')).toBeNull();
 
     // definicja pod terminem (wariant „słowniczek + ćwiczenie”)
-    expect(screen.getByText(/Faza turnieju tuż przed miejscami płatnymi/)).toBeTruthy();
+    expect(screen.getByText(/Flop z trzema kartami w jednym kolorze/)).toBeTruthy();
 
     await fireEvent.changeText(search, 'odchylenie');
     expect(screen.getByText('standard deviation')).toBeTruthy();

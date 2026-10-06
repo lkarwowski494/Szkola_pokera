@@ -165,7 +165,7 @@ function limpDeal(rng: Rng, players: number, ctx: AreaContext) {
   return { button, preset: { holes: holesWithHero(players, hero) }, script };
 }
 
-/** Otwarcie z Buttona, sprawdzenie dużego blinda, flop (i turn) z teksturą albo dobieraniem gracza. */
+/** Otwarcie z Buttona, sprawdzenie dużego blinda, flop (i turn) z teksturą albo drawem gracza. */
 function postflopDeal(area: 'cbet-ip' | 'flop-draw' | 'turn-draw', rng: Rng, players: number, bb: number, ctx: AreaContext) {
   const button = buttonFor(players, 'BTN');
   const btnSpot = ctx.spots.find((s) => s.id === 'rfi.btn');

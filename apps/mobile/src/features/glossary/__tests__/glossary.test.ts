@@ -39,8 +39,8 @@ describe('słowniczek PL ↔ EN', () => {
     expect(fold('  ZJEŹDZIE ')).toBe('zjezdzie');
     expect(fold('Łańcuch')).toBe('lancuch');
     expect(keysOf('ODCHYLENIE')).toContain('standard-deviation');
-    expect(keysOf('bańka')).toEqual(keysOf('banka'));
-    expect(keysOf('zjeździe')).toContain('downswing');
+    expect(keysOf('żetony')).toEqual(keysOf('zetony'));
+    expect(keysOf('niepołączonym')).toContain('disconnected');
   });
 
   it('zapytanie bez wyników daje pustą listę obszarów', () => {

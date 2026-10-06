@@ -227,7 +227,7 @@ function postflopHandKey(hole: readonly [Card, Card], board: readonly Card[]): s
 
 function combine(cands: Candidate[]): Candidate | null {
   if (!cands.length) return null;
-  // implied odds (R-M7-008) zastępuje ocenę samej ceny dobierania
+  // implied odds (R-M7-008) zastępuje ocenę samej ceny drawa
   const implied = cands.find((c) => c.detail.kind === 'draw' && c.detail.implied);
   if (implied) cands = cands.filter((c) => c === implied || c.detail.kind !== 'draw');
   const actions = cands.filter((c) => !c.sizeOnly);
@@ -417,7 +417,7 @@ function sizeCandidate(rule: EvalRule, expectedBb: number, actualBb: number): Ca
   return { rule, verdict: near(expectedBb, actualBb) ? 'compliant' : 'inaccuracy', detail: { kind: 'size', expectedBb, actualBb }, sizeOnly: true };
 }
 
-/** Fakty o dobieraniu wobec zakładu (dokument 14, 5.4): outy z samych dobierań, dokładna szansa z kart nieznanych. */
+/** Fakty o drawie wobec zakładu (dokument 14, 5.4): outy z samych drawów, dokładna szansa z kart nieznanych. */
 function drawFacts(ctx: Ctx): { base: { outs: number; unseen: number; cards: 1 | 2; hit: number; required: number } } | null {
   const st = ctx.st;
   if ((st.street !== 'flop' && st.street !== 'turn') || ctx.toCall <= 0) return null;

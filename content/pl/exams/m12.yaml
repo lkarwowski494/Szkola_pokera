@@ -40,7 +40,7 @@ drills:
     id: m12.exam.q5
     family: m12.resulting
     rules: [R-M12-004]
-    prompt: "Turn. Masz czyste {{t:flush-draw}}, w {{t:pot|puli}} {{n:ex.pot}}. Rywal wchodzi all-in za {{n:ex.bet.half}}, więcej nie da się już wygrać. {{t:call|Sprawdzasz}}, {{t:flush}} wchodzi na riverze i wygrywasz. Jak oceniasz {{t:call}}?"
+    prompt: "Turn. Masz czysty {{t:flush-draw}}, w {{t:pot|puli}} {{n:ex.pot}}. Rywal wchodzi all-in za {{n:ex.bet.half}}, więcej nie da się już wygrać. {{t:call|Sprawdzasz}}, {{t:flush}} wchodzi na riverze i wygrywasz. Jak oceniasz {{t:call}}?"
     options:
       - { text: "Było złe, mimo wygranej", correct: true, why: "Potrzebowałeś {{n:eq.bet-half}} equity, a {{t:flush-draw}} trafia na riverze w ok. {{n:odds.flush.turn-river}} przypadków. Rywal jest all-in, więc nie dopłaci ci już nic później. Przy wielu powtórzeniach takie {{t:call}} traci." }
       - { text: "Było dobre, bo wygrałeś {{t:pot|pulę}}", why: "Wynik jednego rozdania nie zmienia ceny. Ocena dotyczy decyzji przy informacjach, które miałeś: {{n:odds.flush.turn-river}} equity wobec potrzebnych {{n:eq.bet-half}}." }
@@ -77,7 +77,7 @@ drills:
     id: m12.exam.q9
     family: m12.move-down
     rules: [R-M12-011]
-    prompt: "Jako początkujący założyłeś bankroll {{n:br.bi.beginner}} {{t:buy-in|wpisowych}}. Po {{t:downswing|zjeździe}} masz {{n:exam.m12.md.now}}. Co robisz?"
+    prompt: "Jako początkujący założyłeś bankroll {{n:br.bi.beginner}} {{t:buy-in|wpisowych}}. Po {{t:downswing|downswingu}} masz {{n:exam.m12.md.now}}. Co robisz?"
     options:
       - { text: "Schodzę o jedną {{t:stakes|stawkę}} niżej", correct: true, why: "Próg zejścia to połowa założonej liczby {{t:buy-in|wpisowych}}: przy {{n:br.bi.beginner}} to {{n:exam.m12.md.half}}. Masz {{n:exam.m12.md.now}}, czyli mniej. Na niższej {{t:stakes|stawce}} te same pieniądze znów są pełnym bankrollem." }
       - { text: "Zostaję, bo {{n:exam.m12.md.now}} to więcej niż próg {{n:br.bi.move-down}}", why: "Próg {{n:br.bi.move-down}} to połowa bankrollu {{n:br.bi.base}} {{t:buy-in|wpisowych}}. Liczysz go od bankrollu, który sam założyłeś. Jako początkujący założyłeś {{n:br.bi.beginner}}, więc schodzisz poniżej {{n:exam.m12.md.half}}." }
@@ -90,4 +90,4 @@ drills:
     options:
       - { text: "Co najmniej {{n:exam.m12.bi.pln.beginner}} zł", correct: true, why: "Póki nie znasz swojego winrate, masz co najmniej {{n:br.bi.beginner}} {{t:buy-in|wpisowych}}: {{n:br.bi.beginner}} × {{n:exam.m12.bi.pln}} zł = {{n:exam.m12.bi.pln.beginner}} zł." }
       - { text: "Co najmniej {{n:exam.m12.bi.pln.base}} zł", why: "{{n:br.bi.base}} {{t:buy-in|wpisowych}} to minimum dla gracza, który potwierdził, że wygrywa. Bez znanego winrate zakładasz ostrożnie, że jest niski, i masz {{n:br.bi.beginner}}." }
-      - { text: "Wystarczy {{n:exam.m12.bi.pln}} zł, bo przy stole i tak siedzisz z jednym stackiem", why: "Jedno {{t:buy-in}} wystarczy na jeden stack, ale {{t:downswing|zjazdy}} o wiele {{t:buy-in|wpisowych}} zdarzają się każdemu. Bankroll liczysz w dziesiątkach {{t:buy-in|wpisowych}}." }
+      - { text: "Wystarczy {{n:exam.m12.bi.pln}} zł, bo przy stole i tak siedzisz z jednym stackiem", why: "Jedno {{t:buy-in}} wystarczy na jeden stack, ale {{t:downswing|downswingi}} o wiele {{t:buy-in|wpisowych}} zdarzają się każdemu. Bankroll liczysz w dziesiątkach {{t:buy-in|wpisowych}}." }

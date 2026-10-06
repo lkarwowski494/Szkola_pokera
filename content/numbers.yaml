@@ -19,7 +19,7 @@ cards.board.flop: { value: 3, unit: count, source: "zasady: 3 karty na flopie" }
 cards.board.turn: { value: 4, unit: count, source: "zasady: 4 karty na stole na turnie" }
 cards.unseen.flop: { formula: diff, refs: [cards.deck, cards.hole, cards.board.flop], unit: count, source: "obliczenie: talia minus twoje karty i flop" }
 cards.unseen.turn: { formula: diff, refs: [cards.deck, cards.hole, cards.board.turn], unit: count, source: "obliczenie: talia minus twoje karty i stół na turnie" }
-draw.flush.seen: { value: 4, unit: count, source: "definicja: dobieranie do koloru to 4 widoczne karty w kolorze" }
+draw.flush.seen: { value: 4, unit: count, source: "definicja: draw do koloru to 4 widoczne karty w kolorze" }
 draw.oesd.ranks: { value: 2, unit: count, source: "definicja: strit otwarty z obu stron domyka każda z dwóch rang" }
 draw.gutshot.ranks: { value: 1, unit: count, source: "definicja: gutshot domyka jedna ranga" }
 outs.flush: { formula: diff, refs: [cards.per-suit, draw.flush.seen], unit: count, source: "obliczenie: 13 kart w kolorze minus 4 widoczne" }
@@ -183,21 +183,21 @@ cbet.solver.big.low: { value: 0.66, unit: percent, source: "GTO Wizard, Flop Heu
 # (zgodność pilnuje test w tools/content-build). Zmiana wag: najpierw kod, potem te wartości.
 tex.points.straight.made: { value: 3, unit: count, source: "definicja aplikacji: WETNESS_POINTS.straight.made (strit możliwy w co najmniej dwóch oknach pięciu rang, czyli z co najmniej dwiema parami rang, np. 987, QJT, 986; decyzja D-39, dokument 12 M4–M6)" }
 tex.points.straight.made-one: { value: 2, unit: count, source: "definicja aplikacji: WETNESS_POINTS.straight['made-one'] (strit możliwy w dokładnie jednym oknie pięciu rang, czyli z jedną parą rang, np. AKT, A42, T86; decyzja D-39)" }
-tex.points.straight.draw: { value: 1, unit: count, source: "definicja aplikacji: WETNESS_POINTS.straight.draw (możliwe tylko dobieranie do strita)" }
+tex.points.straight.draw: { value: 1, unit: count, source: "definicja aplikacji: WETNESS_POINTS.straight.draw (możliwy tylko draw do strita)" }
 tex.points.straight.none: { value: 0, unit: count, source: "definicja aplikacji: WETNESS_POINTS.straight.none" }
 tex.points.suits.rainbow: { value: 0, unit: count, source: "definicja aplikacji: WETNESS_POINTS.suits.rainbow" }
 tex.points.suits.two-tone: { value: 1, unit: count, source: "definicja aplikacji: WETNESS_POINTS.suits['two-tone']" }
-tex.points.suits.monotone: { value: 3, unit: count, source: "definicja aplikacji: WETNESS_POINTS.suits.monotone (monotoniczny zawsze mokry; decyzja D-39, było 2)" }
+tex.points.suits.monotone: { value: 3, unit: count, source: "definicja aplikacji: WETNESS_POINTS.suits.monotone (jednokolorowy zawsze mokry; decyzja D-39, było 2)" }
 tex.threshold.medium: { value: 2, unit: count, source: "definicja aplikacji: WETNESS_THRESHOLDS.medium (od tylu punktów flop jest pośredni)" }
 tex.threshold.wet: { value: 3, unit: count, source: "definicja aplikacji: WETNESS_THRESHOLDS.wet (od tylu punktów flop jest mokry)" }
-tex.ex.k72: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.none], unit: count, source: "obliczenie: Ks 7d 2c, tęczowy, bez strita i bez dobierania do strita" }
-tex.ex.k72-two-tone: { formula: sum, refs: [tex.points.suits.two-tone, tex.points.straight.none], unit: count, source: "obliczenie: Kh 7h 2c, dwukolorowy, bez strita i bez dobierania do strita (D-39: suchy)" }
-tex.ex.qq6: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.none], unit: count, source: "obliczenie: Qd Qs 6h, tęczowy, sparowany, bez dobierania do strita" }
-tex.ex.kq4: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.draw], unit: count, source: "obliczenie: Kh Qd 4c, tęczowy, półpołączony" }
+tex.ex.k72: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.none], unit: count, source: "obliczenie: Ks 7d 2c, rainbow, bez strita i bez drawa do strita" }
+tex.ex.k72-two-tone: { formula: sum, refs: [tex.points.suits.two-tone, tex.points.straight.none], unit: count, source: "obliczenie: Kh 7h 2c, dwukolorowy, bez strita i bez drawa do strita (D-39: suchy)" }
+tex.ex.qq6: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.none], unit: count, source: "obliczenie: Qd Qs 6h, rainbow, sparowany, bez drawa do strita" }
+tex.ex.kq4: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.draw], unit: count, source: "obliczenie: Kh Qd 4c, rainbow, półpołączony" }
 tex.ex.j74: { formula: sum, refs: [tex.points.suits.two-tone, tex.points.straight.draw], unit: count, source: "obliczenie: Jh 7h 4s, dwukolorowy, półpołączony" }
-tex.ex.akt: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.made-one], unit: count, source: "obliczenie: Ah Kd Tc, tęczowy, strit tylko z QJ (jedno okno; D-39: pośredni)" }
-tex.ex.k83: { formula: sum, refs: [tex.points.suits.monotone, tex.points.straight.none], unit: count, source: "obliczenie: Kh 8h 3h, monotoniczny, rozłączony (D-39: mokry)" }
-tex.ex.987: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.made], unit: count, source: "obliczenie: 9h 8d 7c, tęczowy, strit z JT, T6 albo 65 (trzy okna)" }
+tex.ex.akt: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.made-one], unit: count, source: "obliczenie: Ah Kd Tc, rainbow, strit tylko z QJ (jedno okno; D-39: pośredni)" }
+tex.ex.k83: { formula: sum, refs: [tex.points.suits.monotone, tex.points.straight.none], unit: count, source: "obliczenie: Kh 8h 3h, jednokolorowy, niepołączony (D-39: mokry)" }
+tex.ex.987: { formula: sum, refs: [tex.points.suits.rainbow, tex.points.straight.made], unit: count, source: "obliczenie: 9h 8d 7c, rainbow, strit z JT, T6 albo 65 (trzy okna)" }
 tex.ex.jt8: { formula: sum, refs: [tex.points.suits.two-tone, tex.points.straight.made], unit: count, source: "obliczenie: Jh Th 8c, dwukolorowy, strit z Q9 albo 97 (dwa okna)" }
 tex.share.dry: { formula: flopWetnessShare, args: [0], unit: percent, source: "obliczenie (poker-core, classifyFlop): odsetek flopów suchych wśród wszystkich 22 100 flopów; wynik definicji aplikacji, źródła nie podają takiego rozkładu (raport 12a-22)" }
 tex.share.medium: { formula: flopWetnessShare, args: [1], unit: percent, source: "obliczenie (poker-core, classifyFlop): odsetek flopów pośrednich wśród wszystkich 22 100 flopów; wynik definicji aplikacji (raport 12a-22)" }
@@ -289,7 +289,7 @@ spr.low: { value: 1.5, unit: ratio, decimals: 1, source: "przykład niskiego SPR
 spr.high: { value: 5, unit: ratio, source: "przykład SPR na turnie z kilkoma pulami za rywalem, dobrany do ćwiczeń (bez źródła liczbowego); w strefach SPR z M9 (liczonych na flopie) to strefa środkowa" }
 spr.stack.low: { formula: product, refs: [ex.pot, spr.low], unit: count, source: "obliczenie: stack = SPR × pula" }
 spr.stack.high: { formula: product, refs: [ex.pot, spr.high], unit: count, source: "obliczenie: stack = SPR × pula" }
-draw.combo.overlap: { value: 2, unit: count, source: "kombinatoryka: dwie karty strita w kolorze dobierania są już policzone jako outy do koloru" }
+draw.combo.overlap: { value: 2, unit: count, source: "kombinatoryka: dwie karty strita w kolorze drawa są już policzone jako outy do koloru" }
 outs.combo.raw: { formula: sum, refs: [outs.flush, outs.oesd], unit: count, source: "obliczenie: outy do koloru plus outy do strita (z kartami liczonymi podwójnie)" }
 outs.combo: { formula: diff, refs: [outs.combo.raw, draw.combo.overlap], unit: count, source: "obliczenie: kolor + strit otwarty minus karty liczone podwójnie" }
 odds.combo.turn-river: { formula: hitProbability, refs: [outs.combo, cards.unseen.turn, streets.turn-river], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core)" }
@@ -409,7 +409,7 @@ spr.zone.deep: { formula: quotient, refs: [geo.ex.total, ex.pot], unit: ratio, s
 
 # M12: wariancja i bankroll. Odchylenie i winrate ze źródeł (adresy i cytaty w raporcie M12), reszta liczona.
 # Pierwiastek, e^x i rozkład normalny liczą formuły sqrt, exp i normCdf. Wpisane zostają tylko wyniki symulacji
-# zjazdów (dd.p.*), z opisem metody i ziarna w polu source.
+# downswingów (dd.p.*), z opisem metody i ziarna w polu source.
 var.sd: { value: 80, unit: bb100, source: "Primedope, Examples and Impacts of Variance in Cash Games („A typical SD for 6-max NLH is 75-95 bb/100”, przykład z SD 80); 888poker, Standard Deviation in Poker („usually around 80bb/100”)" }
 var.sd.low: { value: 75, unit: bb100, source: "Primedope, Poker Variance Calculator („In 6-max NLHE, 75 to 100 BB/100 is a reasonable default”)" }
 var.sd.high: { value: 100, unit: bb100, source: "Primedope, Poker Variance Calculator („In 6-max NLHE, 75 to 100 BB/100 is a reasonable default”)" }
@@ -439,14 +439,14 @@ var.need.num: { formula: product, refs: [var.z95, var.sd], unit: ratio, decimals
 var.need.ratio: { formula: quotient, refs: [var.need.num, var.target], unit: ratio, decimals: 1, source: "obliczenie: 1,96 × SD ÷ dokładność" }
 var.need.blocks: { formula: product, refs: [var.need.ratio, var.need.ratio], unit: count, source: "obliczenie: bloki = (1,96 × SD ÷ dokładność)²" }
 var.need.hands.k: { formula: quotient, refs: [var.need.blocks, var.blocks-per-k], unit: count, source: "obliczenie: potrzebna próbka w tysiącach rąk" }
-dd.bi.small: { value: 10, unit: count, source: "program nauczania (dokument 09): zjazd o 10 wpisowych" }
-dd.bi.big: { value: 20, unit: count, source: "przykład w lekcji: zjazd o 20 wpisowych" }
+dd.bi.small: { value: 10, unit: count, source: "program nauczania (dokument 09): downswing o 10 wpisowych" }
+dd.bi.big: { value: 20, unit: count, source: "przykład w lekcji: downswing o 20 wpisowych" }
 dd.hands.short.k: { value: 20, unit: count, source: "przykład w lekcji: krótsza próbka, 20 tys. rąk" }
-dd.p.small.100k: { value: 0.95, unit: percent, source: "obliczenie: symulacja Monte Carlo (Python/NumPy, generator default_rng z ziarnem 20261004), 50 tys. przebiegów po 100 tys. rąk, wynik bloku 100 rąk z rozkładu normalnego (średnia = winrate, odchylenie = SD), SD 80bb/100, zjazd liczony od szczytu, winrate 5bb/100; wynik 95,0% (przy krokach po 10 rąk 97%, więc to dolne oszacowanie)", note: "Primedope podaje dla tego scenariusza 45%, a w FAQ tej samej strony inną liczbę dla 20 wpisowych; nasz rachunek i symulacja się z tym nie zgadzają (raport M12)" }
-dd.p.big.100k: { value: 0.27, unit: percent, source: "obliczenie: ta sama symulacja co dd.p.small.100k, zjazd o 20 wpisowych: 27,3% (przy krokach po 10 rąk 31%)" }
+dd.p.small.100k: { value: 0.95, unit: percent, source: "obliczenie: symulacja Monte Carlo (Python/NumPy, generator default_rng z ziarnem 20261004), 50 tys. przebiegów po 100 tys. rąk, wynik bloku 100 rąk z rozkładu normalnego (średnia = winrate, odchylenie = SD), SD 80bb/100, downswing liczony od szczytu, winrate 5bb/100; wynik 95,0% (przy krokach po 10 rąk 97%, więc to dolne oszacowanie)", note: "Primedope podaje dla tego scenariusza 45%, a w FAQ tej samej strony inną liczbę dla 20 wpisowych; nasz rachunek i symulacja się z tym nie zgadzają (raport M12)" }
+dd.p.big.100k: { value: 0.27, unit: percent, source: "obliczenie: ta sama symulacja co dd.p.small.100k, downswing o 20 wpisowych: 27,3% (przy krokach po 10 rąk 31%)" }
 dd.p.small.20k: { value: 0.40, unit: percent, source: "obliczenie: ta sama symulacja, próbka 20 tys. rąk: 39,6%" }
 dd.p.small.100k.wr-low: { value: 0.99, unit: percent, source: "obliczenie: ta sama symulacja przy winrate 2bb/100: 99,1%" }
-dd.p.big.100k.wr-low: { value: 0.58, unit: percent, source: "obliczenie: ta sama symulacja przy winrate 2bb/100, zjazd o 20 wpisowych: 58,5%" }
+dd.p.big.100k.wr-low: { value: 0.58, unit: percent, source: "obliczenie: ta sama symulacja przy winrate 2bb/100, downswing o 20 wpisowych: 58,5%" }
 dd.wr-low: { value: 2, unit: bb100, source: "przykład w lekcji: winrate typowego wygrywającego na mikrostawkach (w przedziale BlackRain79 1–3bb/100)" }
 br.bi.base: { value: 30, unit: count, source: "PokerSkill, Bankroll Management („about 30 buy-ins for a clear winner”); BlackRain79 („Experienced poker players can get by with a bankroll of 30 buyins”); Primedope, Risk of Ruin Formula („25-30 buy-ins at NL25-NL50”)" }
 br.bi.beginner: { value: 50, unit: count, source: "BlackRain79, The Complete Guide to Bankroll Management („The best poker bankroll management strategy for beginners is to have 50 buyins”)" }
@@ -498,24 +498,24 @@ br.ex.after-dd: { formula: diff, refs: [br.bi.base, dd.bi.small], unit: count, s
 br.ex.below: { formula: diff, refs: [br.bi.move-down, math.one], unit: count, source: "obliczenie: przykład bankrollu tuż poniżej progu zejścia" }
 var.conf95: { value: 0.95, unit: percent, source: "definicja: poziom ufności przedziału ±1,96 odchylenia w rozkładzie normalnym" }
 
-# M11: turnieje i krótkie stacki. Zakresy push/fold z własnego solvera (content/ranges/pushfold.json, heads-up mały
+# M11: turnieje i short stacki. Zakresy push/fold z własnego solvera (content/ranges/pushfold.json, heads-up mały
 # blind kontra duży blind, drzewo zwalidowane z równowagą Nasha przy 10bb, dokument 10). Progi z literatury (cytaty
 # w polu source), ICM liczony formułą icm (model Malmutha-Harville'a, tools/content-build/src/icm.ts).
-m11.depth.5: { value: 5, unit: bb, source: "wybór głębokości siatek M11 (raport M11): bardzo krótki stack, poniżej progu push/fold" }
+m11.depth.5: { value: 5, unit: bb, source: "wybór głębokości siatek M11 (raport M11): bardzo short stack, poniżej progu push/fold" }
 m11.depth.10: { value: 10, unit: bb, source: "wybór głębokości siatek M11 (raport M11): próg push/fold wspólny dla źródeł (m11.thr.pushfold); głębokość walidacji solvera (dokument 10)" }
 m11.depth.15: { value: 15, unit: bb, source: "wybór głębokości siatek M11 (raport M11): górna granica push/fold w źródłach (m11.thr.upper)" }
-m11.ante: { value: 1, unit: bb, source: "przykład: ante dużego blinda w wysokości jednego blinda (wariant 10bb-ante w pushfold.json)" }
+m11.ante: { value: 1, unit: bb, source: "przykład: big blind ante w wysokości jednego blinda (wariant 10bb-ante w pushfold.json)" }
 m11.thr.pushfold: { value: 10, unit: bb, source: "część wspólna źródeł: 888poker, Push/Fold Charts (https://www.888poker.com/magazine/strategy/push-fold-charts): „Push/fold is the default framework once your stack drops to around 10bb or less”; PokerCoaching, Short Stack Strategy (https://pokercoaching.com/blog/short-stack-strategy-2/): „At 10 big blinds or fewer, it is almost entirely push/fold”; GTO Wizard, Short-Stacked Play in MTTs (https://blog.gtowizard.com/short-stacked-play-in-mtts/): „The standard advice for a 10bb stack is to play an all-in or fold strategy, especially from late position”" }
 m11.thr.upper: { value: 15, unit: bb, source: "Upswing, Push/Fold Tournament Strategy (https://upswingpoker.com/push-fold-tournament-strategy-charts/): „Push/fold should be utilized when your stack becomes short — around 15 big blinds (bb) or fewer”; PokerCoaching, Push Fold Charts (https://pokercoaching.com/push-fold-charts/): „Push fold charts apply to stacks of 15 big blinds or less”; PokerCoaching, Short Stack Strategy: „At 15 big blinds, the landscape shifts significantly. Push/fold becomes your dominant framework for weak and medium holdings”" }
 m11.thr.raise: { value: 20, unit: bb, source: "Upswing, Push/Fold Tournament Strategy: „Once stack sizes generally become larger than 20bb there are definitely more +EV lines you can take by just Raising First In”; PokerCoaching, Short Stack Strategy: „At 20 big blinds, you still have meaningful post-flop maneuverability. Your primary open is a 2x min-raise”" }
 m11.push.5: { formula: rangePlay, spot: push.sb-5, unit: percent, source: "solver push/fold projektu (pushfold.json), heads-up, bez ante" }
 m11.push.10: { formula: rangePlay, spot: push.sb-10, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold.json), heads-up, bez ante; walidacja: dokument 10 (55–61%)" }
 m11.push.15: { formula: rangePlay, spot: push.sb-15, unit: percent, source: "solver push/fold projektu (pushfold.json), heads-up, bez ante" }
-m11.push.10-ante: { formula: rangePlay, spot: push.sb-10-ante, unit: percent, source: "solver push/fold projektu (pushfold.json), heads-up, ante dużego blinda 1bb" }
+m11.push.10-ante: { formula: rangePlay, spot: push.sb-10-ante, unit: percent, source: "solver push/fold projektu (pushfold.json), heads-up, big blind ante 1bb" }
 m11.call.5: { formula: rangePlay, spot: call.bb-5, unit: percent, source: "solver push/fold projektu (pushfold.json), część wszystkich rąk BB" }
 m11.call.10: { formula: rangePlay, spot: call.bb-10, unit: percent, decimals: 1, source: "solver push/fold projektu (pushfold.json), część wszystkich rąk BB; walidacja: dokument 10 (34,5–40,5%)" }
 m11.call.15: { formula: rangePlay, spot: call.bb-15, unit: percent, source: "solver push/fold projektu (pushfold.json), część wszystkich rąk BB" }
-m11.call.10-ante: { formula: rangePlay, spot: call.bb-10-ante, unit: percent, source: "solver push/fold projektu (pushfold.json), część wszystkich rąk BB, ante dużego blinda 1bb" }
+m11.call.10-ante: { formula: rangePlay, spot: call.bb-10-ante, unit: percent, source: "solver push/fold projektu (pushfold.json), część wszystkich rąk BB, big blind ante 1bb" }
 m11.ext.push.10: { value: 0.566, unit: percent, decimals: 1, source: "PokerStrategy, Push/Fold Play: Nash Ranges (https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/), heads-up 10bb bez ante: „56.6%” zakres pushowania (porównanie z naszym solverem, nie dane aplikacji)" }
 m11.ext.call.10: { value: 0.385, unit: percent, decimals: 1, source: "PokerStrategy, Push/Fold Play: Nash Ranges, heads-up 10bb bez ante: „38.5%” zakres sprawdzenia (porównanie z naszym solverem)" }
 # cena sprawdzenia all-inu z dużego blinda (stack S): dopłacasz S − 1bb, pula po sprawdzeniu 2S (+ ante)
@@ -536,11 +536,11 @@ m11.push.10.win-ante: { formula: sum, refs: [pf.blind.sb, pf.blind.bb, m11.ante]
 m11.push.10.risk: { formula: diff, refs: [m11.depth.10, pf.blind.sb], unit: bb, decimals: 1, source: "obliczenie: ile SB dokłada do puli all-inem" }
 m11.push.10.alpha: { formula: alpha, refs: [m11.push.10.win, m11.push.10.risk], unit: percent, source: "obliczenie: jak często BB musi spasować, żeby all-in ręką bez szans wyszedł na zero (alpha z M6)" }
 m11.push.10.alpha-ante: { formula: alpha, refs: [m11.push.10.win-ante, m11.push.10.risk], unit: percent, source: "obliczenie: to samo z ante" }
-# M (Harrington): stack ÷ (blindy + ante); przykład 3000 żetonów przy blindach 100/200 i ante dużego blinda 200
+# M (Harrington): stack ÷ (blindy + ante); przykład 3000 żetonów przy blindach 100/200 i big blind ante 200
 m11.m.stack: { value: 3000, unit: count, source: "przykład w lekcji (żetony)" }
 m11.m.sb: { value: 100, unit: count, source: "przykład w lekcji (mały blind w żetonach)" }
 m11.m.bb: { value: 200, unit: count, source: "przykład w lekcji (duży blind w żetonach)" }
-m11.m.ante: { value: 200, unit: count, source: "przykład w lekcji (ante dużego blinda w żetonach)" }
+m11.m.ante: { value: 200, unit: count, source: "przykład w lekcji (big blind ante w żetonach)" }
 m11.m.orbit: { formula: sum, refs: [m11.m.sb, m11.m.bb, m11.m.ante], unit: count, source: "obliczenie: koszt jednego okrążenia" }
 m11.m.value: { formula: quotient, refs: [m11.m.stack, m11.m.orbit], unit: ratio, source: "obliczenie: M = stack ÷ (SB + BB + ante); Wikipedia, M-ratio (https://en.wikipedia.org/wiki/M-ratio): „The M-ratio is calculated by the formula” (wzór jako ułamek: stack ÷ (small blind + big blind + total antes))" }
 m11.m.bbs: { formula: quotient, refs: [m11.m.stack, m11.m.bb], unit: bb, source: "obliczenie: ten sam stack w dużych blindach" }
@@ -548,14 +548,14 @@ m11.m.example: { value: 3, unit: ratio, source: "przykład w zadaniu (M w strefi
 m11.m.green: { value: 20, unit: ratio, source: "Wikipedia, M-ratio (https://en.wikipedia.org/wiki/M-ratio), tabela stref: „Green zone”, „M ≥ 20”; PokerStrategy, Dan Harrington M-Factor: „Green zone: M > = 20”" }
 m11.m.red-alt: { value: 6, unit: ratio, source: "Wikipedia, M-ratio (https://en.wikipedia.org/wiki/M-ratio), tabela stref: „Red zone”, „1 ≤ M < 6” (inna granica niż PokerStrategy, m11.m.red)" }
 m11.m.red: { value: 5, unit: ratio, source: "część wspólna źródeł o strefie czerwonej Harringtona: Wikipedia, M-ratio (https://en.wikipedia.org/wiki/M-ratio), tabela stref: „Red zone”, „1 ≤ M < 6”, „Your only move is to move all-in or fold”; PokerStrategy, Dan Harrington M-Factor (https://www.pokerstrategy.com/strategy/mtt/dan-harrington-m-factor/): „Red zone: 1 < = M < = 5”; granica 5 albo 6 zależnie od źródła" }
-# ICM: trzech graczy, płatne dwa miejsca 60/40 (bańka), stacki 4500/3500/2000
+# ICM: trzech graczy, płatne dwa miejsca 60/40 (bubble), stacki 4500/3500/2000
 m11.icm.a.s1: { value: 4500, unit: count, source: "przykład w lekcji (żetony)" }
 m11.icm.a.s2: { value: 3500, unit: count, source: "przykład w lekcji (żetony)" }
 m11.icm.a.s3: { value: 2000, unit: count, source: "przykład w lekcji (żetony)" }
 m11.icm.a.p1: { value: 0.6, unit: percent, source: "przykład w lekcji: wypłata za 1. miejsce (część puli nagród)" }
 m11.icm.a.p2: { value: 0.4, unit: percent, source: "przykład w lekcji: wypłata za 2. miejsce" }
 m11.icm.a.total: { formula: sum, refs: [m11.icm.a.s1, m11.icm.a.s2, m11.icm.a.s3], unit: count, source: "obliczenie: wszystkie żetony w grze" }
-m11.icm.a.chips3: { formula: quotient, refs: [m11.icm.a.s3, m11.icm.a.total], unit: percent, source: "obliczenie: udział krótkiego stacku w żetonach = szansa na 1. miejsce w ICM" }
+m11.icm.a.chips3: { formula: quotient, refs: [m11.icm.a.s3, m11.icm.a.total], unit: percent, source: "obliczenie: udział short stacku w żetonach = szansa na 1. miejsce w ICM" }
 m11.icm.a.chips1: { formula: quotient, refs: [m11.icm.a.s1, m11.icm.a.total], unit: percent, source: "obliczenie: udział dużego stacku w żetonach" }
 m11.icm.a.chips2: { formula: quotient, refs: [m11.icm.a.s2, m11.icm.a.total], unit: percent, source: "obliczenie: udział średniego stacku w żetonach" }
 m11.icm.a.rest1: { formula: diff, refs: [m11.icm.a.total, m11.icm.a.s1], unit: count, source: "obliczenie: żetony pozostałych, gdy duży stack wygra" }
@@ -563,11 +563,11 @@ m11.icm.a.rest2: { formula: diff, refs: [m11.icm.a.total, m11.icm.a.s2], unit: c
 m11.icm.a.eq1: { formula: icm, refs: [m11.icm.a.s1, m11.icm.a.s2, m11.icm.a.s3, m11.icm.a.p1, m11.icm.a.p2], args: [3, 0], unit: percent, decimals: 1, source: "obliczenie: ICM Malmutha-Harville'a" }
 m11.icm.a.eq2: { formula: icm, refs: [m11.icm.a.s1, m11.icm.a.s2, m11.icm.a.s3, m11.icm.a.p1, m11.icm.a.p2], args: [3, 1], unit: percent, decimals: 1, source: "obliczenie: ICM Malmutha-Harville'a" }
 m11.icm.a.eq3: { formula: icm, refs: [m11.icm.a.s1, m11.icm.a.s2, m11.icm.a.s3, m11.icm.a.p1, m11.icm.a.p2], args: [3, 2], unit: percent, decimals: 1, source: "obliczenie: ICM Malmutha-Harville'a" }
-m11.icm.a.second3.via1: { formula: quotient, refs: [m11.icm.a.s3, m11.icm.a.rest1], unit: percent, decimals: 1, source: "obliczenie: szansa krótkiego stacku na 2. miejsce, gdy duży stack zajmie 1." }
-m11.icm.a.second3.via2: { formula: quotient, refs: [m11.icm.a.s3, m11.icm.a.rest2], unit: percent, decimals: 1, source: "obliczenie: szansa krótkiego stacku na 2. miejsce, gdy średni stack zajmie 1." }
+m11.icm.a.second3.via1: { formula: quotient, refs: [m11.icm.a.s3, m11.icm.a.rest1], unit: percent, decimals: 1, source: "obliczenie: szansa short stacku na 2. miejsce, gdy duży stack zajmie 1." }
+m11.icm.a.second3.via2: { formula: quotient, refs: [m11.icm.a.s3, m11.icm.a.rest2], unit: percent, decimals: 1, source: "obliczenie: szansa short stacku na 2. miejsce, gdy średni stack zajmie 1." }
 m11.icm.a.second3.p1: { formula: product, refs: [m11.icm.a.chips1, m11.icm.a.second3.via1], unit: percent, decimals: 1, source: "obliczenie: duży wygrywa, krótki drugi" }
 m11.icm.a.second3.p2: { formula: product, refs: [m11.icm.a.chips2, m11.icm.a.second3.via2], unit: percent, decimals: 1, source: "obliczenie: średni wygrywa, krótki drugi" }
-m11.icm.a.second3: { formula: sum, refs: [m11.icm.a.second3.p1, m11.icm.a.second3.p2], unit: percent, decimals: 1, source: "obliczenie: szansa krótkiego stacku na 2. miejsce" }
+m11.icm.a.second3: { formula: sum, refs: [m11.icm.a.second3.p1, m11.icm.a.second3.p2], unit: percent, decimals: 1, source: "obliczenie: szansa short stacku na 2. miejsce" }
 # Bubble factor: czterech graczy, płatne trzy miejsca 50/30/20, stacki 4000/3000/2000/1000. Ty (3000) sprawdzasz all-in
 # gracza z 2000; uproszczenie: pomijamy blindy w puli (bubble factor „when stacks are fully invested”, GTO Wizard)
 m11.bf.s1: { value: 4000, unit: count, source: "przykład w lekcji (żetony)" }
@@ -747,13 +747,13 @@ exam.m11.mid.stack: { value: 12, unit: bb, source: "przykład w zadaniu egzaminu
 exam.m11.m.stack: { value: 2400, unit: count, source: "przykład w zadaniu egzaminu (żetony)" }
 exam.m11.m.sb: { value: 200, unit: count, source: "przykład w zadaniu egzaminu (mały blind w żetonach)" }
 exam.m11.m.bb: { value: 400, unit: count, source: "przykład w zadaniu egzaminu (duży blind w żetonach)" }
-exam.m11.m.ante: { value: 400, unit: count, source: "przykład w zadaniu egzaminu (ante dużego blinda w żetonach)" }
+exam.m11.m.ante: { value: 400, unit: count, source: "przykład w zadaniu egzaminu (big blind ante w żetonach)" }
 exam.m11.m.orbit: { formula: sum, refs: [exam.m11.m.sb, exam.m11.m.bb, exam.m11.m.ante], unit: count, source: "obliczenie: koszt jednego okrążenia" }
 exam.m11.m.value: { formula: quotient, refs: [exam.m11.m.stack, exam.m11.m.orbit], unit: ratio, decimals: 1, source: "obliczenie: M = stack ÷ (SB + BB + ante)" }
 exam.m11.fe.depth: { value: 6, unit: bb, source: "przykład w zadaniu egzaminu: stack małego blinda" }
 exam.m11.fe.risk: { formula: diff, refs: [exam.m11.fe.depth, pf.blind.sb], unit: bb, decimals: 1, source: "obliczenie: ile SB dokłada do puli all-inem" }
 exam.m11.fe.alpha: { formula: alpha, refs: [m11.push.10.win, exam.m11.fe.risk], unit: percent, source: "obliczenie: jak często BB musi spasować, żeby all-in ręką bez szans wyszedł na zero" }
-exam.m11.fe.alpha-ante: { formula: alpha, refs: [m11.push.10.win-ante, exam.m11.fe.risk], unit: percent, source: "obliczenie: to samo z ante dużego blinda" }
+exam.m11.fe.alpha-ante: { formula: alpha, refs: [m11.push.10.win-ante, exam.m11.fe.risk], unit: percent, source: "obliczenie: to samo z big blind ante" }
 exam.m11.call.depth: { value: 8, unit: bb, source: "przykład w zadaniu egzaminu: stacki po 8bb" }
 exam.m11.call.cost: { formula: diff, refs: [exam.m11.call.depth, pf.blind.bb], unit: bb, source: "obliczenie: dopłata BB do all-inu (blind już leży w puli)" }
 exam.m11.call.pot: { formula: sum, refs: [exam.m11.call.depth, exam.m11.call.depth], unit: bb, source: "obliczenie: pula po sprawdzeniu" }

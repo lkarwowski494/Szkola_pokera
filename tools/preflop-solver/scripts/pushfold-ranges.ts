@@ -23,7 +23,7 @@ const ROOT = resolve(import.meta.dirname, '../../..');
 const ITERATIONS = 3000;
 /** Drzewo trzyosobowe: pętle pul trzyosobowych są wolniejsze, NashConv poniżej 1e-5bb po 2000 iteracjach. */
 const ITERATIONS_3 = 2000;
-/** Głębokości (stack efektywny w bb) i ante dużego blinda w bb. */
+/** Głębokości (stack efektywny w bb) i big blind ante w bb. */
 const VARIANTS: { label: string; stack: number; ante: number; players: 2 | 3 }[] = [
   { label: '5bb', stack: 5, ante: 0, players: 2 },
   { label: '10bb', stack: 10, ante: 0, players: 2 },

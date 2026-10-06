@@ -12,7 +12,7 @@ import { pick } from './rng';
  * - suits: trzy różne kolory → rainbow; dwie karty w jednym kolorze → two-tone; trzy → monotone,
  * - ranks: para (lub trójka) na stole → paired; trzy różne rangi w jednym oknie pięciu kolejnych rang
  *   (strit możliwy już z dwiema kartami gracza) → connected; dwie różne rangi w takim oknie (ktoś może mieć
- *   dobieranie do strita: otwarte albo gutshot) → semi-connected; inaczej → disconnected. As liczy się też jako 1,
+ *   draw do strita: otwarty albo gutshot) → semi-connected; inaczej → disconnected. As liczy się też jako 1,
  * - wetness (pochodna): suma punktów za strita i za kolory (WETNESS_POINTS), progi w WETNESS_THRESHOLDS. Punkty za
  *   strita zależą od liczby okien pięciu kolejnych rang, w których mieszczą się wszystkie trzy karty (decyzja D-39).
  *
@@ -41,7 +41,7 @@ export const TEXTURE_VALUES: { [A in TextureAxis]: readonly FlopTexture[A][] } =
 
 /**
  * Co flop daje w stritach: strit możliwy w co najmniej dwóch oknach pięciu rang (`made`, np. 987, QJT, 986), strit
- * możliwy w dokładnie jednym oknie (`made-one`, np. AKT, A42, T86), tylko dobieranie do strita albo nic.
+ * możliwy w dokładnie jednym oknie (`made-one`, np. AKT, A42, T86), tylko draw do strita albo nic.
  */
 export type FlopStraightPotential = 'made' | 'made-one' | 'draw' | 'none';
 
@@ -60,7 +60,7 @@ export interface FlopTexture {
   straightWindows: number;
   /** Co flop daje w stritach (do punktów mokrości). */
   straight: FlopStraightPotential;
-  /** Któraś ręka może mieć dobieranie do strita (otwarte albo gutshot); także na flopie sparowanym, np. JJT. */
+  /** Któraś ręka może mieć draw do strita (otwarty albo gutshot); także na flopie sparowanym, np. JJT. */
   straightDrawPossible: boolean;
   /** Punkty mokrości (WETNESS_POINTS), z których wynika wetness. */
   wetnessPoints: number;
@@ -76,10 +76,10 @@ export const STRAIGHT_LENGTH = 5;
 /**
  * Punkty mokrości (jedno źródło prawdy dla aplikacji i testów). Decyzja D-39 (dokument 12 M4–M6, raport 12a-22).
  * - Strit: strit możliwy w co najmniej dwóch oknach pięciu rang („bardzo połączony”, np. 987, QJT, 986) 3; w dokładnie
- *   jednym oknie (np. AKT, A42, T86, KQ9) 2; tylko dobieranie do strita (półpołączony albo sparowany z dwiema rangami
- *   w jednym oknie, np. JJT) 1; nic 0. Na 987r strita daje 48 kombinacji i jest 324 z otwartym dobieraniem, na AKTr
+ *   jednym oknie (np. AKT, A42, T86, KQ9) 2; tylko draw do strita (półpołączony albo sparowany z dwiema rangami
+ *   w jednym oknie, np. JJT) 1; nic 0. Na 987r strita daje 48 kombinacji i jest 324 z OESD, na AKTr
  *   i A42r 16 i 0, dlatego jedno okno waży mniej.
- * - Kolory: tęczowy 0, dwukolorowy 1 (K♥7♥2♣ zostaje suchy), monotoniczny 3 (zawsze mokry; było 2).
+ * - Kolory: rainbow 0, dwukolorowy 1 (K♥7♥2♣ zostaje suchy), jednokolorowy 3 (zawsze mokry; było 2).
  */
 export const WETNESS_POINTS = {
   straight: { made: 3, 'made-one': 2, draw: 1, none: 0 } as const satisfies Record<FlopStraightPotential, number>,
@@ -119,7 +119,7 @@ export function fitsStraightWindow(ranks: readonly number[]): boolean {
 
 /**
  * Czy jakieś dwie różne rangi flopu mieszczą się w jednym oknie pięciu kolejnych rang. Dokładnie wtedy istnieje ręka
- * z dobieraniem do strita: gracz dokłada dwie brakujące rangi okna i ma cztery z pięciu (test wyczerpujący w texture.test.ts).
+ * z drawem do strita: gracz dokłada dwie brakujące rangi okna i ma cztery z pięciu (test wyczerpujący w texture.test.ts).
  */
 export function hasStraightDrawPair(ranks: readonly number[]): boolean {
   const distinct = [...new Set(ranks)];
@@ -207,7 +207,7 @@ export function generateFlop(rng: Rng, filter: TextureFilter = {}): FlopSpot {
 
 /**
  * Flop do ćwiczenia klasyfikacji: najpierw losujemy wartość jednej z pytanych osi (równo), potem flop z tą wartością,
- * żeby rzadkie tekstury (monotoniczny, sparowany, rozłączony) pojawiały się często, a nie w kilku procentach zadań.
+ * żeby rzadkie tekstury (jednokolorowy, sparowany, niepołączony) pojawiały się często, a nie w kilku procentach zadań.
  */
 export function generateTextureSpot(rng: Rng, axes: readonly TextureAxis[] = TEXTURE_AXES): FlopSpot {
   const axis = pick(rng, axes.length ? axes : TEXTURE_AXES);

@@ -120,7 +120,7 @@ describe('sesja gry M13', () => {
     }
   });
 
-  it('obszary M2 i M7: dobieranie wobec zakładu na flopie i turnie, ocena rachunkiem', () => {
+  it('obszary M2 i M7: draw wobec zakładu na flopie i turnie, ocena rachunkiem', () => {
     for (const [area, street, module] of [['flop-draw', 'flop', 'm2'], ['turn-draw', 'turn', 'm7']] as const) {
       for (let s = 0; s < 60; s++) {
         const { pc, h } = firstHero(area, s);

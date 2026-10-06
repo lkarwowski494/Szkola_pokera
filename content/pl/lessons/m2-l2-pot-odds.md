@@ -23,7 +23,7 @@ drills:
     table: { hand: "Ah 5h", board: "Kh 8h 3c Jc" }
     options:
       - { text: "{{t:fold|Pasuję}}", correct: true, why: "Potrzebujesz {{n:eq.bet-pot}}. {{t:flush|Kolor}} daje {{n:outs.flush}} outów, czyli ok. {{n:odds.flush.turn-river}}. Nawet jeśli doliczysz {{n:pair.outs.per-rank}} asy, które dają {{t:pair|parę}} asów (razem {{n:outs.flush-ace}} outów, ok. {{n:odds.flush-ace.turn-river}}), to wciąż wyraźnie mniej niż {{n:eq.bet-pot}}. Takie {{t:call}} traci w długim terminie." }
-      - { text: "{{t:call|Sprawdzam}}", why: "Kusi, bo {{t:draw|dobierasz}} do najlepszego {{t:flush|koloru}}, a as też może pomóc, ale nawet ok. {{n:odds.flush-ace.turn-river}} to mniej niż {{n:eq.bet-pot}}." }
+      - { text: "{{t:call|Sprawdzam}}", why: "Kusi, bo masz {{t:draw}} do najlepszego {{t:flush|koloru}}, a as też może pomóc, ale nawet ok. {{n:odds.flush-ace.turn-river}} to mniej niż {{n:eq.bet-pot}}." }
       - { text: "{{t:raise|Przebijam}} all-in", why: "U zaawansowanych bywa to zagraniem, ale bez dobrego powodu ryzykujesz cały stack ręką, która jeszcze nic nie ma." }
   - kind: choice
     id: m2.l2.q3
@@ -70,10 +70,10 @@ drills:
     generator: drawCall
     count: 3
 ---
-Gdy przeciwnik {{t:bet|stawia}}, a ty {{t:draw|dobierasz}}, pytanie brzmi: czy cena jest dobra? Porównujesz dwie liczby: **ile musisz wygrywać** i **ile naprawdę wygrywasz**.
+Gdy przeciwnik {{t:bet|stawia}}, a ty masz {{t:draw}}, pytanie brzmi: czy cena jest dobra? Porównujesz dwie liczby: **ile musisz wygrywać** i **ile naprawdę wygrywasz**.
 
 :::note Equity a szansa trafienia
-**Equity** to twoja część {{t:pot|puli}}: jak często wygrasz, gdy rozdanie dojdzie do showdownu bez dalszych {{t:bet|zakładów}}. **Szansa trafienia** z lekcji o outach to tylko prawdopodobieństwo, że wyjdzie out. Przy czystym {{t:draw|dobieraniu}}, które wygrywa tylko po trafieniu, szansa trafienia na kartach, które naprawdę zobaczysz za tę cenę, jest przybliżeniem equity. Przy {{t:bet|zakładzie}} na flopie to szansa na jedną kartę, a nie do rivera.
+**Equity** to twoja część {{t:pot|puli}}: jak często wygrasz, gdy rozdanie dojdzie do showdownu bez dalszych {{t:bet|zakładów}}. **Szansa trafienia** z lekcji o outach to tylko prawdopodobieństwo, że wyjdzie out. Przy czystym {{t:draw|drawie}}, który wygrywa tylko po trafieniu, szansa trafienia na kartach, które naprawdę zobaczysz za tę cenę, jest przybliżeniem equity. Przy {{t:bet|zakładzie}} na flopie to szansa na jedną kartę, a nie do rivera.
 :::
 
 ## Ile musisz wygrywać

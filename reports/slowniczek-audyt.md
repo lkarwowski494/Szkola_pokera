@@ -1,5 +1,7 @@
 # Audyt słowniczka (content/terms.yaml)
 
+> Sekcje „Wynik”, „Proponowane zmiany” i „Wszystkie terminy” opisują stan przed wdrożeniem (nazwy z 6.10.2026 rano). Co wdrożono, opisuje sekcja „Wdrożenie”; aktualne nazwy i definicje są w `content/terms.yaml`.
+
 Data: 6 października 2026. Gałąź `slowniczek-audyt`. Zakres: wszystkie 162 terminy. Część A (audyt) bez zmian nazw w treści; część B dodała pole `def` z definicjami z tego raportu.
 
 ## Wynik w skrócie
@@ -94,6 +96,28 @@ Razem dla zmian nazw PL i terminów „nie potwierdzono”: lekcje 261 znacznik�
 - Pary terminów o prawie tej samej definicji albo zawierające się (`DEF_CONFUSABLE` w `vocab.ts`: value/value-bet, polarized/polarization, board/community-cards, street/betting-round, barrel/second-barrel, shove/stack-off/all-in, wet/wetness, texture/wetness, UTG/early position, Button i Cutoff/late position) nie stają obok siebie jako odpowiedź i dystraktor. Rozważałem też pole w `terms.yaml`, ale to reguła ćwiczenia, nie treść terminu.
 - Check/call: para potwierdzona w polskich źródłach. Wikipedia PL, Poker (https://pl.wikipedia.org/wiki/Poker): „czekanie (ang. check) – gracz nie przebija stawki ani nie pasuje”, „sprawdzenie (ang. call) – gracz wyrównuje do kwoty postawionej w danej rundzie przez innego gracza”; słownik PokerStrategy PL (https://polska.pokerstrategy.com/glossary/Czekanie/): „Czekanie (check) jest zagraniem możliwym tylko wtedy, kiedy przed graczem, który chce je wykonać nikt wcześniej nie wnosił zakładów.”, (https://polska.pokerstrategy.com/glossary/Sprawdzenie/): „Sprawdzenie to zagranie, jakie może wykonać gracz, kiedy jego przeciwnik lub przeciwnicy wnieśli wcześniej zakłady.”; PokerListings PL (https://www.pokerlistings.pl/pokerowy-slownik): „sprawdzamy go (call)”. Definicje mają uwagę: check „Nie mylić ze „sprawdzam” – to call…”, call „Nie mylić z „czekam” – to check…”. Polskiego klienta PokerStars/GGPoker nie dało się przeczytać (strony przekierowują na wersję angielską), więc przyciski klienta nie są tu źródłem.
 - Testy: kierunek def (definicja w pytaniu, poprawna opcja = `termText`, cztery różne opcje, dystraktory z obszaru, brak par mylących się, terminy bez nawiasu, wykluczenie definicji zdradzających nazwę), definicja w wyjaśnieniu, uwagi check/call, definicja na ekranie słowniczka.
+
+## Wdrożenie (decyzja koordynatora z 6.10.2026, ADR-24)
+
+Zasada: kurs używa nazw, których faktycznie używają polscy gracze i polskie media pokerowe (korpus PokerStrategy PL i PokerGround, słowniki PokerStrategy PL i GGPoker PL). Gdy nazwa to anglicyzm, reguła T-01 działa jak dla flop/c-bet (bez nawiasu, gdy nazwa polska = angielska).
+
+**Wdrożone zmiany nazw PL (26):** orzechy → nuts; przewaga orzechowa → przewaga nutsów; dobieranie → draw; dobieranie do koloru → draw do koloru; dobieranie do strita → draw do strita; otwarte dobieranie do strita → OESD (rozwinięcie w definicji; pole `abbr` usunięte jak przy UTG); beczka → barrel; druga beczka → second barrel; wpychanie → push (en zostaje shove); przykrywać → pokrywać; łącznik → konektory; bańka → bubble; zjazd → downswing; gra stół → gra na stole; koło → wheel; nadpara → overpara; półblef → semi-blef; tęczowy → rainbow; monotoniczny → jednokolorowy; rozłączony → niepołączony; para w ręce → pocket para; premia za ryzyko → risk premium; krótki stack → short stack; ante dużego blinda → big blind ante; skok wypłaty → pay jump; regular → reg.
+
+**Odrzucone alternatywy:** zostawić kalki (w korpusie 0–20 wystąpień, w słownikach brak); „monotonny” zamiast „jednokolorowy” (jednokolorowy jest jaśniejszy dla początkującego i to forma PokerStrategy PL); „shove” jako nazwa PL zamiast „push” (push jest hasłem słownika PokerStrategy PL); „semiblef” bez łącznika (koordynator wybrał „semi-blef”, formę PokerGround).
+
+**EN / en_alt:** trójka bez „set” i „trips” w en_alt (różnicę wyjaśnia definicja); winrate bez „bb/100”; liniowy bez „merged”; żetony z nowym cytatem źródła (Robert’s Rules: „All cash should be changed into chips in order to play.”); ręka mieszana: en „mixed strategy” (hasło glosariusza GTO Wizard), en_alt „mixing hand”.
+
+**Nie potwierdzono, nazwy zostają:** ręka mieszana, półpołączony, mokrość, liniowy, equity turniejowe. Definicje podają, jak się mówi w praktyce, gdy źródło to podaje („mieszana strategia”, „merged range” z zastrzeżeniem GTO Wizard, „skoordynowany”, „$EV”).
+
+**Zakres zmian w treści:** pola `pl`, `forms`, `skip` w `terms.yaml`; znaczniki w lekcjach, `rules.yaml` i nowej puli `content/pl/exams/*.yaml` (po zmianie 363 znaczniki z formą i 180 bez formy dla tych 26 terminów); teksty `text.pl.ts` i `i18n/pl.ts`; podtytuły modułów (`modules.yaml`); opisy źródeł w `numbers.yaml`; komentarze i nazwy testów w `poker-core`, `content-build`, `preflop-solver` (lekcja 10: nazwy żyją w komentarzach).
+
+**Gramatyka:** draw (rodzaj męski) zamiast dobierania (nijaki) wymagał przejrzenia każdego zdania, także znaczników bez formy. Formy rozdzielone na dopełniacz „drawa” i liczbę mnogą „drawy”. Czasowniki „dobierasz/dobiera/dobierać (do koloru)” zamienione na „masz/ma/mieć draw (do koloru)”. Poprawione uzgodnienia, np. „dodatkowy draw do koloru”, „OESD nie wszedł”, „draw do strita (otwarty albo gutshot) jest możliwy”, „twojemu second barrelowi”, „second barrel … niż pierwszy”. Przy okazji wyszły trzy błędne znaczniki: „dobierasz liczbę blefów” i „rozmiar dobierasz” (czyli wybierasz) były oznaczone jako draw. Znaczniki zdjąłem.
+
+**Wyjątki w `skip`:** „push/fold”, „push or fold” (osobny termin push-fold); „pokrywa się”, „pokrywają straty” (inne znaczenie „pokrywać”). Test znaczników w tekstach aplikacji pomija nazwy wywoływanych metod (`out.push(`).
+
+**Kierunek def po zmianach:** trójka weszła do pytań o znaczenie po usunięciu en_alt. OESD wypadł, bo definicja zawiera rozwinięcie „open-ended straight draw” (nazwę angielską). Do `DEF_CONFUSABLE` doszły pary o pojęciach nadrzędnych i podrzędnych: trójka/set, draw z draw do koloru, draw do strita, OESD, gutshot i backdoor, draw do strita z OESD i gutshotem.
+
+**Schemat treści:** po scaleniu z main obowiązuje `CONTENT_SCHEMA_VERSION` 5 i `content-v5.db`. Pole `def` jest tylko w `terms.generated.ts`, bez kolumny w bazie (decyzja koordynatora).
 
 ## Wszystkie terminy
 

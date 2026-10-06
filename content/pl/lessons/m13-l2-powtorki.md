@@ -12,16 +12,16 @@ drills:
     rules: [R-M13-003]
     prompt: "W grze miałeś A♥ K♥ na {{t:board|stole}} Q♥ 7♥ 2♣ i popełniłeś błąd. W powtórce widzisz A♠ K♠ na {{t:board|stole}} Q♠ 7♠ 2♦. Czy poprawna decyzja jest ta sama?"
     options:
-      - { text: "Tak: wszystkie kolory zamieniono jedną zamianą", correct: true, why: "Kiery stały się pikami, a trefle karami, wszędzie naraz. Nadal masz {{t:flush-draw|dobieranie do koloru}} z asem i tę samą siłę ręki, więc decyzja się nie zmienia." }
+      - { text: "Tak: wszystkie kolory zamieniono jedną zamianą", correct: true, why: "Kiery stały się pikami, a trefle karami, wszędzie naraz. Nadal masz {{t:flush-draw|draw do koloru}} z asem i tę samą siłę ręki, więc decyzja się nie zmienia." }
       - { text: "Nie: piki są mocniejsze od kierów", why: "W Texas Hold'em kolory są równe: liczy się tylko, czy karty są w tym samym kolorze, a nie w którym." }
-      - { text: "Nie wiadomo, trzeba policzyć od nowa", why: "Nie trzeba: zamiana wszystkich kolorów naraz zachowuje każdy układ i każde {{t:draw|dobieranie}}. To rachunek, a nie przybliżenie." }
+      - { text: "Nie wiadomo, trzeba policzyć od nowa", why: "Nie trzeba: zamiana wszystkich kolorów naraz zachowuje każdy układ i każdy {{t:draw|draw}}. To rachunek, a nie przybliżenie." }
   - kind: choice
     id: m13.l2.q-swap-wrong
     family: m13.suit-swap
     rules: [R-M13-003]
     prompt: "Która z tych zmian NIE zachowuje decyzji z sytuacji: K♥ Q♥ na {{t:board|stole}} J♥ 8♥ 3♠?"
     options:
-      - { text: "K♥ Q♥ na {{t:board|stole}} J♠ 8♠ 3♥", correct: true, why: "Tu zamieniono kolory tylko na {{t:board|stole}}: twoje kiery przestały pasować do {{t:board|stołu}} i {{t:flush-draw|dobieranie do koloru}} zniknęło. To już inna sytuacja." }
+      - { text: "K♥ Q♥ na {{t:board|stole}} J♠ 8♠ 3♥", correct: true, why: "Tu zamieniono kolory tylko na {{t:board|stole}}: twoje kiery przestały pasować do {{t:board|stołu}} i {{t:flush-draw|draw do koloru}} zniknął. To już inna sytuacja." }
       - { text: "K♠ Q♠ na {{t:board|stole}} J♠ 8♠ 3♥", why: "To jedna zamiana dla wszystkich kart (kiery ↔ piki), więc decyzja jest ta sama." }
       - { text: "K♦ Q♦ na {{t:board|stole}} J♦ 8♦ 3♠", why: "To jedna zamiana (kiery → kara) dla wszystkich kart, więc decyzja jest ta sama." }
   - kind: choice
@@ -76,7 +76,7 @@ Każdy błąd z raportu wraca do ciebie w powtórkach. Ta lekcja pokazuje, jak.
 
 Błąd, niedokładność i decyzja po przekroczonym czasie stają się kartami powtórek. Karta pokazuje tę samą sytuację: te same {{t:position|pozycje}}, akcje i rozmiary, te same rangi kart. Zmieniają się tylko kolory: aplikacja zamienia je jedną zamianą dla wszystkich kart naraz, np. kiery na piki, a piki na kiery.
 
-Taka zamiana nie zmienia siły żadnej ręki ani żadnego {{t:draw|dobierania}}, bo liczy się tylko to, czy karty są w tym samym kolorze. Poprawna decyzja jest więc ta sama, a ty uczysz się rozpoznawać sytuację, a nie zapamiętywać obrazek.
+Taka zamiana nie zmienia siły żadnej ręki ani żadnego {{t:draw|drawa}}, bo liczy się tylko to, czy karty są w tym samym kolorze. Poprawna decyzja jest więc ta sama, a ty uczysz się rozpoznawać sytuację, a nie zapamiętywać obrazek.
 
 Ta sama reguła z tą samą klasą ręki w tym samym spocie daje jedną kartę, nie kilka. Nowe karty z gry wchodzą do powtórek w granicach dziennego limitu; reszta czeka na kolejne dni.
 

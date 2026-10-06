@@ -17,9 +17,12 @@ import { DEF_CONFUSABLE, vocabModes } from '../vocab';
 
 const SOURCES = ['features/drills/text.pl.ts', 'i18n/pl.ts'].map((p) => join(__dirname, '../../..', p));
 
-/** Kod bez komentarzy (komentarze nie trafiają do interfejsu). */
+/** Kod bez komentarzy i nazw wywoływanych metod (np. `out.push(`): ani jedno, ani drugie nie trafia do interfejsu. */
 function stripComments(src: string): string {
-  return src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/(^|[^:])\/\/.*$/gm, '$1');
+  return src
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/(^|[^:])\/\/.*$/gm, '$1')
+    .replace(/\.[A-Za-z_$][\w$]*\(/g, '.(');
 }
 
 describe('terminy w tekstach aplikacji', () => {

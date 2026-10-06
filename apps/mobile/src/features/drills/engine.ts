@@ -221,7 +221,7 @@ function fromGenerator(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: 
 
 /**
  * M10: typ gracza po statystykach HUD. Progi przychodzą z treści (params po podstawieniu „n:klucz”), opcje w stałej
- * kolejności (nit, regular, pasywny, maniak, za mało rąk); wyjaśnienie każdej opcji podaje próg i dostosowanie.
+ * kolejności (nit, reg, pasywny, maniak, za mało rąk); wyjaśnienie każdej opcji podaje próg i dostosowanie.
  */
 function playerType(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number): DrillInstance {
   const th = hudThresholdsFromParams(d.params);
@@ -234,7 +234,7 @@ function playerType(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: num
   };
 }
 
-/** M11: sprawdzić all-in na bańce według ICM (bubble factor), losowe stacki i equity ręki. */
+/** M11: sprawdzić all-in na bubble według ICM (bubble factor), losowe stacki i equity ręki. */
 function icmCall(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number): DrillInstance {
   const s = generateIcmCall(rng);
   const call = s.correct === 'call';

@@ -26,7 +26,7 @@ drills:
     id: m12.l2.q-draw-good
     family: m12.resulting
     rules: [R-M12-004]
-    prompt: "Turn. Masz czyste {{t:flush-draw}} ({{n:outs.flush}} outów), w {{t:pot|puli}} {{n:ex.pot}}, rywal {{t:bet|stawia}} {{n:ex.bet.quarter}}. {{t:call|Sprawdzasz}}, {{t:flush}} nie wchodzi i tracisz {{n:ex.bet.quarter}}. Jak oceniasz {{t:call}}?"
+    prompt: "Turn. Masz czysty {{t:flush-draw}} ({{n:outs.flush}} outów), w {{t:pot|puli}} {{n:ex.pot}}, rywal {{t:bet|stawia}} {{n:ex.bet.quarter}}. {{t:call|Sprawdzasz}}, {{t:flush}} nie wchodzi i tracisz {{n:ex.bet.quarter}}. Jak oceniasz {{t:call}}?"
     options:
       - { text: "Było dobre", correct: true, why: "Potrzebowałeś {{n:eq.bet-quarter}} equity, a miałeś ok. {{n:odds.flush.turn-river}}. Takie {{t:call}} zarabia na dłuższą metę, choć przegrywa w większości pojedynczych rozdań." }
       - { text: "Było złe, bo {{t:flush}} nie wszedł", why: "{{t:flush|Kolor}} wchodzi tylko w ok. {{n:odds.flush.turn-river}} przypadków, więc chybienie było najbardziej prawdopodobnym wynikiem. Decyzję oceniasz po cenie, a ta była dobra." }
@@ -35,7 +35,7 @@ drills:
     id: m12.l2.q-draw-bad
     family: m12.resulting
     rules: [R-M12-004]
-    prompt: "Turn. Czyste {{t:flush-draw}}, w {{t:pot|puli}} {{n:ex.pot}}, rywal {{t:bet|stawia}} całą {{t:pot|pulę}}: {{n:ex.bet.pot}}. {{t:call|Sprawdzasz}} i {{t:flush}} wchodzi na riverze. Jak oceniasz {{t:call}}?"
+    prompt: "Turn. Czysty {{t:flush-draw}}, w {{t:pot|puli}} {{n:ex.pot}}, rywal {{t:bet|stawia}} całą {{t:pot|pulę}}: {{n:ex.bet.pot}}. {{t:call|Sprawdzasz}} i {{t:flush}} wchodzi na riverze. Jak oceniasz {{t:call}}?"
     options:
       - { text: "Było złe, mimo wygranej", correct: true, why: "Potrzebowałeś {{n:eq.bet-pot}} equity, a miałeś ok. {{n:odds.flush.turn-river}}. Wygrałeś tym razem, ale przy wielu powtórzeniach takie {{t:call}} traci." }
       - { text: "Było dobre, bo wygrałeś {{t:pot|pulę}}", why: "Wygrana nie poprawia decyzji. Przy cenie {{n:eq.bet-pot}} i szansie ok. {{n:odds.flush.turn-river}} to {{t:call}} na dłuższą metę traci." }
@@ -94,7 +94,7 @@ Gracze nazywają to *resulting*: zakładasz, że jakość wyniku mówi ci o jako
 
 ## Dobra decyzja też przegrywa
 
-All-in z {{t:pair|parą}} asów wobec {{t:pair|pary}} króli to najlepsza możliwa decyzja, a przegrywa w ok. **{{n:res.kk-wins}}** przypadków. Z drugiej strony {{t:call}} z {{t:flush-draw|dobieraniem do koloru}} za całą {{t:pot|pulę}} na turnie jest złe (potrzebujesz {{n:eq.bet-pot}}, masz ok. {{n:odds.flush.turn-river}}), a mimo to wygrywa mniej więcej raz na pięć.
+All-in z {{t:pair|parą}} asów wobec {{t:pair|pary}} króli to najlepsza możliwa decyzja, a przegrywa w ok. **{{n:res.kk-wins}}** przypadków. Z drugiej strony {{t:call}} z {{t:flush-draw|drawem do koloru}} za całą {{t:pot|pulę}} na turnie jest złe (potrzebujesz {{n:eq.bet-pot}}, masz ok. {{n:odds.flush.turn-river}}), a mimo to wygrywa mniej więcej raz na pięć.
 
 ```formula
 jakość decyzji = EV przy informacjach, które miałeś w chwili decyzji

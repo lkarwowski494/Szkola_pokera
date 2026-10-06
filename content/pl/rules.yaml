@@ -93,7 +93,7 @@
   source: "obliczenie: bet/(pula+2·bet)"
 - id: R-M2-005
   module: m2
-  if: "twoje equity jest mniejsze niż potrzebne equity (przy {{t:draw|dobieraniu}}: szansa trafienia na kartach, które zobaczysz za tę cenę)"
+  if: "twoje equity jest mniejsze niż potrzebne equity (przy {{t:draw|drawie}}: szansa trafienia na kartach, które zobaczysz za tę cenę)"
   then: "{{t:fold|pasujesz}} (bez dodatkowych argumentów, np. implied odds)"
   because: "każde takie {{t:call}} traci pieniądze w długim terminie"
   level: math
@@ -206,7 +206,7 @@
 - id: R-M4-005
   module: m4
   if: "z {{t:position|pozycji}} {{t:raise|przebijasz}} {{t:open}} z {{t:hijack|HJ}} albo {{t:cutoff|CO}}"
-  then: "3-betujesz głównie najlepsze ręce od góry i dokładasz kilka {{t:bluff|blefów}} z asami w kolorze (A5s, A4s); część słabszych rąk, np. małe {{t:pair|pary}} i {{t:connectors|łączniki}} w kolorze, {{t:call|sprawdzasz}}. Button wobec {{t:cutoff|CO}} zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a {{t:call|sprawdza}} ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}"
+  then: "3-betujesz głównie najlepsze ręce od góry i dokładasz kilka {{t:bluff|blefów}} z asami w kolorze (A5s, A4s); część słabszych rąk, np. małe {{t:pair|pary}} i {{t:connectors|konektory}} w kolorze, {{t:call|sprawdzasz}}. Button wobec {{t:cutoff|CO}} zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a {{t:call|sprawdza}} ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}"
   because: "rywal często {{t:call|sprawdza}}, więc chcesz mieć rękę, która dobrze gra w {{t:pot|puli}} po {{t:call|sprawdzeniu}}"
   level: gto
   check: { kind: solver-spot, players: [6], stackBb: [100], spots: [vs-open.btn-vs-co] }
@@ -214,7 +214,7 @@
 - id: R-M4-006
   module: m4
   if: "z {{t:big-blind|dużego blinda}} {{t:raise|przebijasz}} {{t:open}} Buttona albo {{t:small-blind|małego blinda}}"
-  then: "3-betujesz najsilniejsze ręce (TT+, AQ+, AJs+) plus {{t:bluff|blefy}} z dołu {{t:range|zakresu}} {{t:call|sprawdzenia}}: A5s, czasem A4s, i {{t:connectors|łączniki}} w kolorze; średnie i małe {{t:pair|pary}}, KQo oraz asy w różnych kolorach (AJo–A9o) zwykle {{t:call|sprawdzasz}}"
+  then: "3-betujesz najsilniejsze ręce (TT+, AQ+, AJs+) plus {{t:bluff|blefy}} z dołu {{t:range|zakresu}} {{t:call|sprawdzenia}}: A5s, czasem A4s, i {{t:connectors|konektory}} w kolorze; średnie i małe {{t:pair|pary}}, KQo oraz asy w różnych kolorach (AJo–A9o) zwykle {{t:call|sprawdzasz}}"
   because: "z {{t:big-blind|dużego blinda}} {{t:call|sprawdzasz}} tanio i zamykasz akcję, więc średnie ręce zarabiają więcej po {{t:call|sprawdzeniu}}, a 3-bet zostawiasz rękom, które chcą dużej {{t:pot|puli}}, i {{t:bluff|blefom}}, które dobrze grają po {{t:call|sprawdzeniu}} (asy w kolorze blokują AA i AK)"
   level: gto
   source: "GTO Wizard, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, BB vs BTN: „TT+, AJs+, and AQo+ are 3-bet purely”, blefy „near the bottom of our calling range”; GTO Wizard, Range Morphology (https://blog.gtowizard.com/range-morphology/), BB vs SB; Poker Academy, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide) i Big blind defence (https://poker.academy/blog/post/big-blind-basics-explained-useful-tips-for-poker-players), NL200 i NL50 GG; ThinkGTO, Blind vs Blind Without a Solver (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics), GTO Ranges+; Upswing, 3-Bet Preflop Strategy (https://upswingpoker.com/3-bet-strategy-aggressive-preflop/), charty Lucid. Uproszczenie: skład zależy od rake'u i rozmiaru 3-betu; 99, KQo i AJo bywają mieszane (dokument 10, rozstrzygnięcie B-045)"
@@ -235,7 +235,7 @@
 - id: R-M4-009
   module: m4
   if: "dostajesz 3-bet i po flopie będziesz mieć {{t:position|pozycję}}"
-  then: "{{t:call|sprawdzasz}} szerzej: {{t:pair|pary}} od 66 do TT, ręce w kolorze z wysokimi kartami i {{t:connectors|łączniki}} w kolorze; najniższe {{t:pair|pary}} {{t:fold|pasujesz}}"
+  then: "{{t:call|sprawdzasz}} szerzej: {{t:pair|pary}} od 66 do TT, ręce w kolorze z wysokimi kartami i {{t:connectors|konektory}} w kolorze; najniższe {{t:pair|pary}} {{t:fold|pasujesz}}"
   because: "{{t:in-position}} łatwiej zrealizować equity i wygrać dużą {{t:pot|pulę}}, gdy trafisz"
   level: heuristic
   source: "Upswing, How to Play vs 3-Bets (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/): najniższe pary pas „even with position”; PokerCoaching dopuszcza sprawdzanie małych par z pozycją (dokument 12 M4–M6, D-05)"
@@ -264,7 +264,7 @@
 - id: R-M4-013
   module: m4
   if: "przed tobą limpuje więcej graczy"
-  then: "{{t:raise|przebijasz}} węższym {{t:range|zakresem}}, głównie {{t:value|dla wartości}}; ręce spekulacyjne (małe {{t:pair|pary}}, {{t:connectors|łączniki}} w kolorze) {{t:in-position}} raczej dopłacasz"
+  then: "{{t:raise|przebijasz}} węższym {{t:range|zakresem}}, głównie {{t:value|dla wartości}}; ręce spekulacyjne (małe {{t:pair|pary}}, {{t:connectors|konektory}} w kolorze) {{t:in-position}} raczej dopłacasz"
   because: "każdy kolejny limper zwiększa szansę, że ktoś {{t:call|sprawdzi}}, więc {{t:bluff}} preflop traci wartość"
   level: heuristic
   source: "Upswing, Versus Multiple Limpers; Preflop Wizard, ISO Raise Strategy (Preflop Wizard radzi nie dopłacać; przyjmujemy wersję Upswing)"
@@ -282,15 +282,15 @@
 # (dokument 12 M4–M6); bez częstotliwości w procentach.
 - id: R-M5-001
   module: m5
-  if: "flop zbiera mniej niż {{n:tex.threshold.medium}} pkt {{t:wetness|mokrości}}: {{t:straight}} możliwy na kilka sposobów (z co najmniej dwoma zestawami dwóch rang) daje {{n:tex.points.straight.made}} pkt, {{t:straight}} możliwy na jeden sposób {{n:tex.points.straight.made-one}}, samo {{t:straight-draw}} {{n:tex.points.straight.draw}}, dwie karty w jednym kolorze {{n:tex.points.suits.two-tone}}, trzy w jednym kolorze {{n:tex.points.suits.monotone}}"
-  then: "to flop {{t:dry}}: {{t:draw|dobierań}} jest mało, a gotowego {{t:straight|strita}} ani {{t:flush|koloru}} nikt jeszcze nie ma"
+  if: "flop zbiera mniej niż {{n:tex.threshold.medium}} pkt {{t:wetness|mokrości}}: {{t:straight}} możliwy na kilka sposobów (z co najmniej dwoma zestawami dwóch rang) daje {{n:tex.points.straight.made}} pkt, {{t:straight}} możliwy na jeden sposób {{n:tex.points.straight.made-one}}, sam {{t:straight-draw}} {{n:tex.points.straight.draw}}, dwie karty w jednym kolorze {{n:tex.points.suits.two-tone}}, trzy w jednym kolorze {{n:tex.points.suits.monotone}}"
+  then: "to flop {{t:dry}}: {{t:draw|drawów}} jest mało, a gotowego {{t:straight|strita}} ani {{t:flush|koloru}} nikt jeszcze nie ma"
   because: "kolejne karty rzadko zmieniają lidera, więc ręka najlepsza na flopie zwykle zostaje najlepsza"
   level: rules
   source: "definicja tekstury w aplikacji (poker-core, texture.ts: WETNESS_POINTS, WETNESS_THRESHOLDS); pojęcie flopu suchego: Upswing, Sizing Your C-Bets; GTO Gecko, What Is a Continuation Bet; przykłady flopów suchych: GTO Gecko (K72r, A94r), Upswing (AA6r); granica sucha/pośrednia to umowa aplikacji"
 - id: R-M5-002
   module: m5
   if: "flop zbiera co najmniej {{n:tex.threshold.wet}} pkt {{t:wetness|mokrości}} (punkty jak w definicji flopu {{t:dry|suchego}})"
-  then: "to flop {{t:wet}}: rywal często ma {{t:draw|dobierania}}, a czasem już {{t:straight|strita}} albo {{t:flush}}"
+  then: "to flop {{t:wet}}: rywal często ma {{t:draw|drawy}}, a czasem już {{t:straight|strita}} albo {{t:flush}}"
   because: "kolejne karty często zmieniają lidera, więc ręka dziś najlepsza jest mniej bezpieczna"
   level: rules
   source: "definicja tekstury w aplikacji (poker-core, texture.ts: WETNESS_POINTS, WETNESS_THRESHOLDS); pojęcie flopu mokrego: Upswing, Sizing Your C-Bets; GTO Gecko, What Is a Continuation Bet; przykłady flopów mokrych: GTO Gecko (987, QJT), Upswing, Bet Sizing Strategy: 8 Rules (T954, https://upswingpoker.com/bet-size-strategy-tips-rules/); granica pośrednia/mokra to umowa aplikacji"
@@ -305,7 +305,7 @@
   module: m5
   if: "{{t:open|otworzyłeś}} przed flopem, a flop jest niski i {{t:connected}} albo {{t:semi-connected|półpołączony}}, np. 7-6-5"
   then: "c-betujesz rzadziej niż na wysokich flopach, a wiele rąk {{t:check|czeka}}; po {{t:open|otwarciu}} z {{t:early-position|wczesnej pozycji}} jeszcze częściej"
-  because: "{{t:big-blind}} broni wielu {{t:connectors|łączników}} w kolorze i małych {{t:pair|par}}, więc częściej ma {{t:two-pair}} albo {{t:straight|strita}}: to on ma {{t:nuts-advantage|przewagę orzechową}}"
+  because: "{{t:big-blind}} broni wielu {{t:connectors|konektorów}} w kolorze i małych {{t:pair|par}}, więc częściej ma {{t:two-pair}} albo {{t:straight|strita}}: to on ma {{t:nuts-advantage|przewagę nutsów}}"
   level: heuristic
   check: { kind: cbet-case, players: [6], stackBb: [100], drill: m5.l3.c-btn }
   source: "kombinatoryka: Button otwiera wszystkie pary 55–77, a duży blind je sprawdza, więc setów obaj mają podobnie; GTO Wizard, Bullying the Blinds (na 654r Button czeka ponad połowę zakresu; „Even on 654r… BB has less than 52% equity”)"
@@ -334,8 +334,8 @@
 - id: R-M5-008
   module: m5
   if: "jako {{t:aggressor}} preflop masz {{t:position|pozycję}}, a flop jest {{t:wet}}, ale nie {{t:monotone}}, np. {{t:connected}} i {{t:two-tone}}"
-  then: "c-betujesz rzadziej, ale większym rozmiarem, np. {{n:cbet.size.big}} {{t:pot|puli}}; ręce średnie bez {{t:draw|dobierania}} częściej {{t:check|czekają}}"
-  because: "{{t:draw|dobierania}} rywala mają dużo equity, więc duży {{t:bet}} każe im drogo płacić za kolejną kartę"
+  then: "c-betujesz rzadziej, ale większym rozmiarem, np. {{n:cbet.size.big}} {{t:pot|puli}}; ręce średnie bez {{t:draw|drawa}} częściej {{t:check|czekają}}"
+  because: "{{t:draw|drawy}} rywala mają dużo equity, więc duży {{t:bet}} każe im drogo płacić za kolejną kartę"
   level: heuristic
   source: "GTO Wizard, Flop Heuristics: IP C-Betting in Cash Games („increased use of the 66% pot bet size, but decreased overall betting frequency”); Upswing, Bet Sizing Strategy: 8 Rules (55–80%, https://upswingpoker.com/bet-size-strategy-tips-rules/); PokerCoaching, Picking the Proper C-Bet Sizing on Ace-High Boards (2/3 puli)"
 - id: R-M5-009
@@ -370,7 +370,7 @@
 - id: R-M5-013
   module: m5
   if: "na flopie masz dwóch albo więcej rywali"
-  then: "c-betujesz dużo rzadziej, głównie silnymi rękami i mocnymi {{t:draw|dobieraniami}}; {{t:bluff|blefujesz}} mało, a gdy betujesz, to mało"
+  then: "c-betujesz dużo rzadziej, głównie silnymi rękami i mocnymi {{t:draw|drawami}}; {{t:bluff|blefujesz}} mało, a gdy betujesz, to mało"
   because: "każdy kolejny rywal zwiększa szansę, że ktoś trafił: dwie ręce bez {{t:pair|pary}} chybiają naraz tylko w ok. {{n:flop.miss.two}} przypadków"
   level: heuristic
   source: "GTO Gecko, Multiway Pots in Poker; PokerCoaching, C-Betting in Multiway Pots („Check even pocket kings… the solver checks its entire range”; „around a quarter to a third of pot”); obliczenie dokładne: C(36,3)/C(48,3)"
@@ -416,24 +416,24 @@
 - id: R-M6-006
   module: m6
   if: "na {{t:big-blind|dużym blindzie}} dostajesz mały c-bet (ok. 1/3 {{t:pot|puli}})"
-  then: "kontynuujesz prawie każdą {{t:pair|parą}}, {{t:draw|dobieraniami}}, wysokimi kartami z dodatkowym {{t:draw|dobieraniem}} (backdoor) i zwykle także asem jako najwyższą kartą; {{t:fold|pasujesz}} najsłabszymi rękami bez {{t:pair|pary}} i bez {{t:draw|dobierania}}"
+  then: "kontynuujesz prawie każdą {{t:pair|parą}}, {{t:draw|drawami}}, wysokimi kartami z dodatkowym {{t:draw|drawem}} (backdoor) i zwykle także asem jako najwyższą kartą; {{t:fold|pasujesz}} najsłabszymi rękami bez {{t:pair|pary}} i bez {{t:draw|drawa}}"
   because: "potrzebujesz tylko ok. {{n:eq.bet-third}} equity, a te ręce albo już wygrywają z {{t:bluff|blefami}}, albo mogą się poprawić"
   level: heuristic
   source: "PokerCoaching, Defending the BB on High Card Boards (solver: „we will continue with pretty much all pairs including the underpairs and even A-high hands”)"
 - id: R-M6-007
   module: m6
-  if: "masz dwie wysokie karty bez {{t:pair|pary}} i bez {{t:draw|dobierania}}, a c-bet jest duży (3/4 {{t:pot|puli}} i więcej)"
+  if: "masz dwie wysokie karty bez {{t:pair|pary}} i bez {{t:draw|drawa}}, a c-bet jest duży (3/4 {{t:pot|puli}} i więcej)"
   then: "zwykle {{t:fold|pasujesz}}"
-  because: "{{t:out-of-position}} taka ręka rzadko dochodzi do showdownu, a {{t:pair}} z wysokiej karty często i tak przegrywa; {{t:call|sprawdzasz}} raczej wtedy, gdy masz dodatkowe {{t:draw}}, najlepiej do najwyższego {{t:flush|koloru}}"
+  because: "{{t:out-of-position}} taka ręka rzadko dochodzi do showdownu, a {{t:pair}} z wysokiej karty często i tak przegrywa; {{t:call|sprawdzasz}} raczej wtedy, gdy masz dodatkowy {{t:draw}}, najlepiej do najwyższego {{t:flush|koloru}}"
   level: heuristic
   source: "Upswing, When to Call With Ace-High (J42, 66%: „the solver does not call with any Ace-high hand that doesn't have a significant backdoor draw”); PokerCoaching, Defending the BB on High Card Boards (K84: solver sprawdza część asów także wobec 2/3 puli)"
 - id: R-M6-008
   module: m6
   if: "chcesz zrobić check-raise na flopie"
-  then: "robisz go głównie najsilniejszymi rękami ({{t:two-pair}}, sety) i {{t:draw|dobieraniami}} ({{t:flush}}, {{t:oesd}}); średnie {{t:pair|pary}} zwykle {{t:call|sprawdzasz}} (uproszczenie: wobec małych c-betów solver {{t:raise|przebija}} też część {{t:top-pair|najwyższych par}} i słabych {{t:pair|par}} dla ochrony)"
+  then: "robisz go głównie najsilniejszymi rękami ({{t:two-pair}}, sety) i {{t:draw|drawami}} ({{t:flush}}, {{t:oesd}}); średnie {{t:pair|pary}} zwykle {{t:call|sprawdzasz}} (uproszczenie: wobec małych c-betów solver {{t:raise|przebija}} też część {{t:top-pair|najwyższych par}} i słabych {{t:pair|par}} dla ochrony)"
   because: "po check-raise'u gorsze ręce zwykle {{t:fold|pasują}}, a lepsze płacą, więc średnia {{t:pair}} rzadko na nim zyskuje; {{t:draw}} ma dwie drogi do wygranej: {{t:fold}} rywala albo trafienie"
   level: heuristic
-  source: "Upswing, 5 Winning Check-Raising Strategies (solvery „check-raise all sorts of top pairs versus small bets”); Upswing/Lucid (sety i dobierania jako check-raise; słabe pary dla ochrony)"
+  source: "Upswing, 5 Winning Check-Raising Strategies (solvery „check-raise all sorts of top pairs versus small bets”); Upswing/Lucid (sety i drawy jako check-raise; słabe pary dla ochrony)"
 - id: R-M6-009
   module: m6
   if: "c-bet jest mały albo flop jest niski i {{t:connected}} (np. 7-6-5)"
@@ -445,14 +445,14 @@
   module: m6
   if: "robisz check-raise na flopie"
   then: "{{t:raise|przebijasz}} ok. {{n:xr.mult.low}}–{{n:xr.mult.example}} c-betu, tym więcej, im mniejszy c-bet; nie minimalnie"
-  because: "przy check-raise'ie do {{n:xr.mult.example}} c-betu Button potrzebuje do {{t:call|sprawdzenia}} ok. {{n:eq.vs-xr.example}} equity, a przy {{n:xr.too-small.mult}} c-betu tylko {{n:eq.vs-xr.too-small}}; tak tanio zapłaci każdym {{t:draw|dobieraniem}}"
+  because: "przy check-raise'ie do {{n:xr.mult.example}} c-betu Button potrzebuje do {{t:call|sprawdzenia}} ok. {{n:eq.vs-xr.example}} equity, a przy {{n:xr.too-small.mult}} c-betu tylko {{n:eq.vs-xr.too-small}}; tak tanio zapłaci każdym {{t:draw|drawem}}"
   level: heuristic
   source: "obliczenie ceny: dopłata/(pula po przebiciu + dopłata); Upswing, Level-Up Podcast ep. 1 (Blackwood): 4,5x wobec małych c-betów, 3,2x wobec dużych (https://upswingpoker.com/podcast/ep1-check-raise/); kierunek zgodny z GTO Wizard: im mniejszy bet, tym większa krotność"
 - id: R-M6-011
   module: m6
   if: "rozważasz check-raise jako {{t:bluff}} albo {{t:semi-bluff}}"
-  then: "wybierasz do niego głównie mocne {{t:draw|dobierania}}; im rzadziej rywal {{t:fold|pasuje}}, tym mniej takich {{t:bluff|blefów}}, a gdy prawie nie {{t:fold|pasuje}}, check-raise robisz głównie {{t:value|dla wartości}}"
-  because: "{{t:bluff}} zarabia tylko wtedy, gdy rywal {{t:fold|pasuje}} częściej niż alpha (R-M6-002); mocne {{t:draw}} wygrywa też po trafieniu, więc traci najmniej, gdy {{t:fold|pasów}} brakuje"
+  then: "wybierasz do niego głównie mocne {{t:draw|drawy}}; im rzadziej rywal {{t:fold|pasuje}}, tym mniej takich {{t:bluff|blefów}}, a gdy prawie nie {{t:fold|pasuje}}, check-raise robisz głównie {{t:value|dla wartości}}"
+  because: "{{t:bluff}} zarabia tylko wtedy, gdy rywal {{t:fold|pasuje}} częściej niż alpha (R-M6-002); mocny {{t:draw}} wygrywa też po trafieniu, więc traci najmniej, gdy {{t:fold|pasów}} brakuje"
   level: heuristic
   source: "wniosek z alpha (R-M6-002): blef potrzebuje pasów rywala; Upswing, 5 Winning Check-Raising Strategies („tighten your bluffing range to include only strong draws”)"
 
@@ -461,13 +461,13 @@
 - id: R-M7-001
   module: m7
   if: "c-betowałeś flop z {{t:position|pozycji}}, rywal {{t:call|sprawdził}}, a na turnie spada wysoka karta (as albo król) na niższym {{t:board|stole}}"
-  then: "częściej {{t:bet|stawiasz}} {{t:second-barrel|drugą beczkę}}, także jako {{t:bluff}}"
+  then: "częściej {{t:bet|stawiasz}} {{t:second-barrel|second barrel}}, także jako {{t:bluff}}"
   because: "ta karta zwykle częściej trafia twój {{t:range}} {{t:open|otwarcia}} niż {{t:range}} obrońcy, a każda {{t:pair}} rywala spada o jedno miejsce niżej"
   level: heuristic
   source: "GTO Wizard, The Worst Turn Card; PokerListings, When to Fire a Second Barrel; PokerCoaching, When to Double Barrel the Turn as a Bluff"
 - id: R-M7-002
   module: m7
-  if: "{{t:bluff|blefujesz}} {{t:second-barrel|drugą beczką}} na turnie"
+  if: "{{t:bluff|blefujesz}} {{t:second-barrel|second barrelem}} na turnie"
   then: "{{t:bluff|blefujesz}} przede wszystkim rękami z outami ({{t:flush-draw}}, {{t:straight|strita}}, gutshot z wysoką kartą); ręce bez outów częściej odpuszczasz, chyba że blokują ręce, którymi rywal zapłaci"
   because: "{{t:semi-bluff}} wygrywa na dwa sposoby: gdy rywal {{t:fold|spasuje}} albo gdy trafisz na riverze; {{t:bluff}} bez outów ma tylko pierwszą drogę (stacki ok. {{n:format.stack}})"
   level: heuristic
@@ -488,21 +488,21 @@
   source: "obliczenie: alpha = bet/(pula+bet)"
 - id: R-M7-005
   module: m7
-  if: "betujesz na turnie {{t:range|zakresem}} {{t:polarized|spolaryzowanym}} (bardzo silne ręce i {{t:semi-bluff|półblefy}} z {{t:draw|dobieraniem}}, bez średnich rąk)"
+  if: "betujesz na turnie {{t:range|zakresem}} {{t:polarized|spolaryzowanym}} (bardzo silne ręce i {{t:semi-bluff|semi-blefy}} z {{t:draw|drawem}}, bez średnich rąk)"
   then: "wybierasz duży rozmiar, np. 3/4 {{t:pot|puli}}, a średnie ręce {{t:check|czekają}}"
   because: "silne ręce chcą zbudować {{t:pot|pulę}} przed riverem, {{t:bluff|blefy}} potrzebują {{t:fold|pasów}}, a średnie ręce nie zyskują na dużej {{t:pot|puli}}"
   level: heuristic
   source: "GTO Gecko, Polarized vs Merged Ranges (definicje); PokerStrategy, Polarised Ranges; GTO Wizard, The Worst Turn Card"
 - id: R-M7-006
   module: m7
-  if: "masz silną rękę na turnie, a rywal może {{t:draw|dobierać}} do {{t:flush|koloru}}"
+  if: "masz silną rękę na turnie, a rywal może mieć {{t:flush-draw}}"
   then: "betujesz dużo: przy becie 3/4 {{t:pot|puli}} {{t:draw}} potrzebuje {{n:eq.bet-three-quarters}} equity, a ma ok. {{n:odds.flush.turn-river}}"
-  because: "przy becie 1/4 {{t:pot|puli}} wystarczyłoby mu {{n:eq.bet-quarter}}, więc mały bet daje {{t:draw|dobieraniu}} dobrą cenę"
+  because: "przy becie 1/4 {{t:pot|puli}} wystarczyłoby mu {{n:eq.bet-quarter}}, więc mały bet daje {{t:draw|drawie}} dobrą cenę"
   level: math
   source: "obliczenie: potrzebne equity = bet/(pula+2·bet), szansa = outy ÷ nieznane karty; kierunek (silna, wrażliwa ręka betuje dużo): PokerCoaching, How Much Should You Bet on Connected Boards?"
 - id: R-M7-007
   module: m7
-  if: "{{t:draw|dobierasz}} na turnie"
+  if: "masz {{t:draw}} na turnie"
   then: "liczysz szansę na jedną kartę: {{t:flush}} to ok. {{n:odds.flush.turn-river}}, a nie {{n:odds.flush.flop-river}} jak na flopie"
   because: "do rivera zostaje jedna karta, więc szansa jest mniej więcej o połowę mniejsza niż na flopie"
   level: math
@@ -519,13 +519,13 @@
 - id: R-M7-009
   module: m7
   if: "liczysz na implied odds"
-  then: "wierzysz w nie tylko wtedy, gdy za rywalem zostało dość {{t:chips|żetonów}} (wysoki {{t:spr}}), {{t:draw|dobierasz}} do najlepszej ręki, a trafienie nie rzuca się w oczy"
+  then: "wierzysz w nie tylko wtedy, gdy za rywalem zostało dość {{t:chips|żetonów}} (wysoki {{t:spr}}), masz {{t:draw}} do najlepszej ręki, a trafienie nie rzuca się w oczy"
   because: "dodatkowe {{t:chips}} musi ci jeszcze zapłacić rywal; przy niskim {{t:spr}} nie ma ich skąd wziąć, a widoczne trafienie (np. czwarty kier) go płoszy"
   level: heuristic
   source: "SplitSuit, Implied Odds Calculator; PokerCoaching, Implied Odds"
 - id: R-M7-010
   module: m7
-  if: "{{t:draw|dobierasz}} do niskiego {{t:flush|koloru}} albo do {{t:straight|strita}}, gdy na {{t:board|stole}} może wpaść {{t:flush}}"
+  if: "masz {{t:draw}} do niskiego {{t:flush|koloru}} albo do {{t:straight|strita}}, gdy na {{t:board|stole}} może wpaść {{t:flush}}"
   then: "{{t:call|sprawdzasz}} ostrożniej i liczysz mniej outów"
   because: "trafiając, czasem nadal przegrywasz z lepszą ręką i wtedy płacisz najwięcej (odwrotne implied odds)"
   level: heuristic
@@ -540,15 +540,15 @@
 - id: R-M7-012
   module: m7
   if: "{{t:bet|stawiasz}} probe bet na turnie"
-  then: "betujesz {{t:pair|parami}}, które chcą zapłaty i ochrony, oraz mocnymi {{t:draw|dobieraniami}}; ręce bez {{t:pair|pary}} i bez outów {{t:check|czekają}}"
-  because: "{{t:pair|pary}} zarabiają na gorszych rękach Buttona i nie dają mu darmowej karty, {{t:draw|dobierania}} wygrywają na dwa sposoby, a puste ręce nic nie zyskują"
+  then: "betujesz {{t:pair|parami}}, które chcą zapłaty i ochrony, oraz mocnymi {{t:draw|drawami}}; ręce bez {{t:pair|pary}} i bez outów {{t:check|czekają}}"
+  because: "{{t:pair|pary}} zarabiają na gorszych rękach Buttona i nie dają mu darmowej karty, {{t:draw|drawy}} wygrywają na dwa sposoby, a puste ręce nic nie zyskują"
   level: heuristic
   source: "GTO Wizard, The Turn Probe Bet; Upswing, Turn Probe (Kanu7); PokerCoaching, Probe Betting Explained"
 - id: R-M7-013
   module: m7
   if: "{{t:call|sprawdziłeś}} c-bet na flopie, a rywal betuje drugi raz na turnie"
-  then: "bronisz węziej niż na flopie: {{t:draw|dobierania}} {{t:call|sprawdzają}} tylko przy dobrej cenie albo implied odds, a ręce bez outów i najsłabsze {{t:pair|pary}} {{t:fold|pasują}}"
-  because: "{{t:second-barrel|drugą beczkę}} rywal {{t:bet|stawia}} węższym {{t:range|zakresem}} niż c-bet i zwykle większym rozmiarem, a {{t:draw|dobierania}} mają już tylko jedną kartę"
+  then: "bronisz węziej niż na flopie: {{t:draw|drawy}} {{t:call|sprawdzają}} tylko przy dobrej cenie albo implied odds, a ręce bez outów i najsłabsze {{t:pair|pary}} {{t:fold|pasują}}"
+  because: "{{t:second-barrel|second barrel}} rywal {{t:bet|stawia}} węższym {{t:range|zakresem}} niż c-bet i zwykle większym rozmiarem, a {{t:draw|drawy}} mają już tylko jedną kartę"
   level: heuristic
   source: "Upswing, What the Best Poker Pros Already Know About Playing vs. Double Barrels"
 
@@ -592,7 +592,7 @@
 - id: R-M8-006
   module: m8
   if: "wybierasz, którymi rękami {{t:bluff|blefować}} na riverze"
-  then: "{{t:bluff|blefujesz}} najsłabszymi rękami, które nie wygrają przy showdownie (np. nietrafionymi {{t:draw|dobieraniami}}); ręce z wartością przy showdownie {{t:check|czekają}}"
+  then: "{{t:bluff|blefujesz}} najsłabszymi rękami, które nie wygrają przy showdownie (np. nietrafionymi {{t:draw|drawami}}); ręce z wartością przy showdownie {{t:check|czekają}}"
   because: "{{t:bluff}} z ręką, która często wygrywa po {{t:check|czekaniu}}, oddaje tę wygraną; ręka bez szans nic nie traci, gdy {{t:bluff}} nie wyjdzie"
   level: heuristic
   source: "GTO Wizard, We're At The River. Our Hand Can't Win. Now What?; Upswing, Polarized vs Linear Ranges"
@@ -605,9 +605,9 @@
   source: "program nauczania M8; GTO Wizard, Blockers & Unblockers: The Secret to Picking Great Bluffs; Upswing, What is Unblocking in Poker"
 - id: R-M8-008
   module: m8
-  if: "{{t:flush-draw}} nie weszło, a ty wybierasz {{t:bluff}}"
+  if: "{{t:flush-draw}} nie wszedł, a ty wybierasz {{t:bluff}}"
   then: "gdy masz wybór {{t:bluff|blefów}}, wolisz {{t:bluff}} bez kart w tym kolorze"
-  because: "nietrafione {{t:draw|dobierania}} rywal {{t:fold|spasuje}}; karta w ich kolorze w twojej ręce zmniejsza liczbę jego rąk do spasowania"
+  because: "nietrafione {{t:draw|drawy}} rywal {{t:fold|spasuje}}; karta w ich kolorze w twojej ręce zmniejsza liczbę jego rąk do spasowania"
   level: heuristic
   source: "Upswing, What is Unblocking in Poker; GTO Wizard, Blockers & Unblockers: The Secret to Picking Great Bluffs"
 - id: R-M8-009
@@ -627,7 +627,7 @@
 - id: R-M8-011
   module: m8
   if: "wybierasz, którymi bluff-catcherami {{t:call|sprawdzić}} bet na riverze"
-  then: "wolisz ręce z kartami, które blokują silne ręce rywala, i bez kart, które blokują jego {{t:bluff|blefy}} (np. bez kart w kolorze nietrafionego {{t:draw|dobierania}})"
+  then: "wolisz ręce z kartami, które blokują silne ręce rywala, i bez kart, które blokują jego {{t:bluff|blefy}} (np. bez kart w kolorze nietrafionego {{t:draw|drawa}})"
   because: "gdy blokujesz jego wartość, w {{t:range|zakresie}} betów zostaje więcej {{t:bluff|blefów}}; gdy blokujesz jego {{t:bluff|blefy}}, zostaje więcej wartości"
   level: heuristic
   source: "GTO Wizard, Understanding Blockers; Deepfold; Upswing, Bluff Catching Strategy"
@@ -741,9 +741,9 @@
   module: m10
   if: "{{t:vpip}} rywala jest o ponad {{n:hud.gap.passive}} punktów procentowych wyższy niż jego {{t:pfr}}"
   then: "to gracz pasywny: dużo {{t:call|sprawdza}} i limpuje, mało {{t:raise|przebija}}"
-  because: "większość rąk, które gra, wkłada do {{t:pot|puli}} {{t:call|sprawdzeniem}}; u regularów różnica jest mała, bo prawie każdą rękę zaczynają {{t:raise|przebiciem}}"
+  because: "większość rąk, które gra, wkłada do {{t:pot|puli}} {{t:call|sprawdzeniem}}; u {{t:regular|regów}} różnica jest mała, bo prawie każdą rękę zaczynają {{t:raise|przebiciem}}"
   level: heuristic
-  source: "PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „When a player’s PFR is more than 10 points below their VPIP, I immediately flag them as a passive player who calls too much and raises too little.”; Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „Gap > 10 → Passive player. Lots of cold-calls and limps.”; dane kontrolne Bluffaces MDA, GGPoker NL25 6-max: gracze rekreacyjni 42/18, regulary 23/18 (mda.rec.*, mda.reg.*)"
+  source: "PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „When a player’s PFR is more than 10 points below their VPIP, I immediately flag them as a passive player who calls too much and raises too little.”; Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „Gap > 10 → Passive player. Lots of cold-calls and limps.”; dane kontrolne Bluffaces MDA, GGPoker NL25 6-max: gracze rekreacyjni 42/18, regi 23/18 (mda.rec.*, mda.reg.*)"
 - id: R-M10-005
   module: m10
   if: "przypisujesz rywalowi typ po {{t:vpip}} i {{t:pfr}} (6-max, co najmniej ok. {{n:hud.hands.vpip.low}} rąk)"
@@ -757,8 +757,8 @@
   then: "betujesz {{t:value|dla wartości}} więcej rąk, także cieńszych, a {{t:bluff|blefujesz}} rzadziej niż w bazie z modułu 8, zwłaszcza na riverze"
   because: "taki gracz częściej dochodzi do showdownu i częściej tam przegrywa, czyli {{t:call|sprawdza}} słabszymi rękami: więcej jego {{t:call|sprawdzeń}} to ręce gorsze od twojej (próg value betu z modułu 8), a {{t:bluff}} zarabia tylko wtedy, gdy rywal {{t:fold|pasuje}} częściej niż {{t:alpha}}"
   level: exploit
-  population: "GGPoker NL25–NL100 6-max, gracze rekreacyjni według definicji bazy (VPIP > 40, wynik < −20bb/100): WTSD 32% wobec 28% u regularów, wygrane showdowny 46% wobec 57%, wynik −47bb/100; wszystkie rozdania z 12 miesięcy przed 5.10.2026 (Bluffaces MDA, liczba rąk nie podana)"
-  source: "Bluffaces, Poker MDA (https://bluffaces.com/calculators/mda/), filtry GGPoker NL25/NL50/NL100 6-max, Recreationals i Regulars (mda.rec.*, mda.reg.*), liczba rąk niepodana; PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): wysoki WTSD „instantly tells you to bluff them less and value bet them more across all betting streets, especially on the river.”; Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „>30% → Calling station. Value bet thinly, never bluff river.” (tego progu WTSD nie uczymy: PokerCoaching podaje „In most cases, your WTSD% should be around 30”, a w danych Bluffaces regulary mają 28%, gracze rekreacyjni 32%; D-M10-07); próg value betu R-M8-001 i alpha z modułu 6 bez zmian (D-M10-06)"
+  population: "GGPoker NL25–NL100 6-max, gracze rekreacyjni według definicji bazy (VPIP > 40, wynik < −20bb/100): WTSD 32% wobec 28% u regów, wygrane showdowny 46% wobec 57%, wynik −47bb/100; wszystkie rozdania z 12 miesięcy przed 5.10.2026 (Bluffaces MDA, liczba rąk nie podana)"
+  source: "Bluffaces, Poker MDA (https://bluffaces.com/calculators/mda/), filtry GGPoker NL25/NL50/NL100 6-max, Recreationals i Regulars (mda.rec.*, mda.reg.*), liczba rąk niepodana; PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): wysoki WTSD „instantly tells you to bluff them less and value bet them more across all betting streets, especially on the river.”; Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „>30% → Calling station. Value bet thinly, never bluff river.” (tego progu WTSD nie uczymy: PokerCoaching podaje „In most cases, your WTSD% should be around 30”, a w danych Bluffaces regi mają 28%, gracze rekreacyjni 32%; D-M10-07); próg value betu R-M8-001 i alpha z modułu 6 bez zmian (D-M10-06)"
 - id: R-M10-007
   module: m10
   if: "{{t:raise|przebija}} albo 3-betuje {{t:nit}} ({{t:vpip}} do ok. {{n:hud.vpip.nit-max}} po co najmniej ok. {{n:hud.hands.vpip.low}} rękach)"
@@ -795,7 +795,7 @@
   then: "3-betujesz go {{t:range|zakresem}} {{t:linear|liniowym}}: więcej silnych rąk {{t:value|dla wartości}}, prawie bez {{t:bluff|blefów}}"
   because: "3-bet {{t:in-position}} do {{n:pf.3bet.ip-total}} zarabia bez żadnej ręki dopiero przy ponad {{n:alpha.vs-3bet-ip-size}} {{t:fold|pasów}}; gdy rywal {{t:fold|pasuje}} rzadko, {{t:bluff|blefy}} grają w dużej {{t:pot|puli}} słabymi rękami, a silne ręce dostają więcej {{t:call|sprawdzeń}}"
   level: exploit
-  population: "GGPoker NL25–NL100 6-max (Bluffaces MDA, 12 miesięcy przed 5.10.2026, liczba rąk nie podana): fold to 3-bet graczy rekreacyjnych 31% (NL50 30%, NL100 32%), regularów 55% (NL50 57%, NL100 55%)"
+  population: "GGPoker NL25–NL100 6-max (Bluffaces MDA, 12 miesięcy przed 5.10.2026, liczba rąk nie podana): fold to 3-bet graczy rekreacyjnych 31% (NL50 30%, NL100 32%), regów 55% (NL50 57%, NL100 55%)"
   source: "Bluffaces, Poker MDA (https://bluffaces.com/calculators/mda/), Fold to 3bet (mda.rec.f3b, mda.reg.f3b), liczba rąk niepodana; PokerCoaching, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „if a player has a low Fold to 3-Bet, you will want to adjust your 3-betting range against them and play a more linear range made up of almost solely value hands and very few bluffs.”; Deepfold, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „<50% → They call 3-bets wide. Drop bluff 3-bets; value-bet thinner and exploit postflop.”; próg alpha z modułu 4 (alpha.vs-3bet-ip-size)"
 - id: R-M10-012
   module: m10
@@ -901,7 +901,7 @@
   module: m12
   if: "bankroll spadnie poniżej połowy założonej liczby {{t:buy-in|wpisowych}} (przy {{n:br.bi.base}} poniżej {{n:br.bi.move-down}})"
   then: "schodzisz o jedną {{t:stakes|stawkę}} niżej i wracasz, gdy bankroll się odbuduje"
-  because: "{{t:downswing|zjazdy}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} zdarzają się prawie każdemu wygrywającemu, a przy {{n:br.bi.move-down}} {{t:buy-in|wpisowych}} ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}}"
+  because: "{{t:downswing|downswingi}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} zdarzają się prawie każdemu wygrywającemu, a przy {{n:br.bi.move-down}} {{t:buy-in|wpisowych}} ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}}"
   level: heuristic
   source: "PokerSkill, Bankroll Management („half the roll, which is the point to move down a stake”); SplitSuit („If your bankroll drops below 15 buyins for your current stake, move down”); rachunek ryzyka bankructwa"
 - id: R-M12-012
@@ -912,26 +912,26 @@
   level: heuristic
   source: "PokerStrategy, What should your study-to-play ratio be (Barry Carter o zdaniu Dary O'Kearneya); Southwick i in. (2026), Psychological Science (dokument 08)"
 
-# M11: turnieje i krótkie stacki (moduł opcjonalny). Zakresy push/fold z własnego solvera (pushfold.json, heads-up mały
+# M11: turnieje i short stacki (moduł opcjonalny). Zakresy push/fold z własnego solvera (pushfold.json, heads-up mały
 # blind kontra duży blind, zwalidowany z równowagą Nasha, dokument 10); progi i pojęcia z przeczytanych źródeł (raport M11).
 - id: R-M11-001
   module: m11
   if: "masz w {{t:tournament|turnieju}} ok. {{n:m11.thr.pushfold}} lub mniej, a wszyscy przed tobą {{t:fold|spasowali}}"
   then: "grasz all-in albo {{t:fold}} (push/fold); między {{n:m11.thr.pushfold}} a {{n:m11.thr.upper}} push/fold jest główną metodą dla słabszych i średnich rąk, a powyżej ok. {{n:m11.thr.raise}} zwykle zwyczajnie podbijasz"
-  because: "przy {{t:short-stack|krótkim stacku}} podbicie i {{t:fold}} po {{t:raise|przebiciu}} oddaje za dużo {{t:chips|żetonów}}, a all-in wyciska z nich najwięcej {{t:fold|pasów}} rywala; to uproszczenie: solvery z większym wyborem akcji część rąk limpują albo podbijają minimalnie"
+  because: "przy {{t:short-stack|short stacku}} podbicie i {{t:fold}} po {{t:raise|przebiciu}} oddaje za dużo {{t:chips|żetonów}}, a all-in wyciska z nich najwięcej {{t:fold|pasów}} rywala; to uproszczenie: solvery z większym wyborem akcji część rąk limpują albo podbijają minimalnie"
   level: heuristic
   source: "888poker, Push/Fold Charts (https://www.888poker.com/magazine/strategy/push-fold-charts): „Push/fold is the default framework once your stack drops to around 10bb or less”, „an all-in gets the most fold equity out of the chips you have”; PokerCoaching, Short Stack Strategy (https://pokercoaching.com/blog/short-stack-strategy-2/): „At 10 big blinds or fewer, it is almost entirely push/fold”, „At 15 big blinds, the landscape shifts significantly. Push/fold becomes your dominant framework for weak and medium holdings”; Upswing, Push/Fold Tournament Strategy (https://upswingpoker.com/push-fold-tournament-strategy-charts/): „around 15 big blinds (bb) or fewer”, „larger than 20bb … Raising First In”; GTO Wizard, Short-Stacked Play in MTTs (https://blog.gtowizard.com/short-stacked-play-in-mtts/): „The standard advice for a 10bb stack is to play an all-in or fold strategy”; uproszczenie: Upswing (ta sama strona): „the all-in or fold binary was grossly suboptimal”; Poker Academy, heads-up 10bb (https://poker.academy/blog/post/how-to-play-heads-up-poker-in-tournaments): „61.1% limp, 28.8% all-in, 10.1% fold”"
 - id: R-M11-002
   module: m11
   if: "grasz push/fold z {{t:small-blind|małego blinda}} przeciw {{t:big-blind|dużemu blindowi}}"
-  then: "im krótszy stack, tym więcej rąk {{t:shove|wpychasz}} all-in: przy {{n:m11.depth.15}} ok. {{n:m11.push.15}} rąk, przy {{n:m11.depth.10}} ok. {{n:m11.push.10}}, przy {{n:m11.depth.5}} ok. {{n:m11.push.5}}"
+  then: "im krótszy stack, tym więcej rąk {{t:shove|pushujesz}} all-in: przy {{n:m11.depth.15}} ok. {{n:m11.push.15}} rąk, przy {{n:m11.depth.10}} ok. {{n:m11.push.10}}, przy {{n:m11.depth.5}} ok. {{n:m11.push.5}}"
   because: "przy krótszym stacku ryzykujesz mniej względem blindów, które zgarniasz, gdy rywal {{t:fold|spasuje}}, a rywal musi {{t:call|sprawdzać}} szerzej"
   level: gto
   source: "solver push/fold projektu (content/ranges/pushfold.json; heads-up, bez ante, równowaga Nasha gry all-in albo pas, walidacja przy 10bb w dokumencie 10); porównanie: PokerStrategy, Push/Fold Play: Nash Ranges (https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/), 10bb: „56.6%” pushowania"
 - id: R-M11-003
   module: m11
   if: "w {{t:pot|puli}} leży ante"
-  then: "{{t:shove|wpychasz}} all-in więcej rąk niż bez ante: przy {{n:m11.depth.10}} i ante {{n:m11.ante}} ok. {{n:m11.push.10-ante}} zamiast {{n:m11.push.10}}"
+  then: "{{t:shove|pushujesz}} all-in więcej rąk niż bez ante: przy {{n:m11.depth.10}} i ante {{n:m11.ante}} ok. {{n:m11.push.10-ante}} zamiast {{n:m11.push.10}}"
   because: "ante powiększa {{t:pot|pulę}}, którą zgarniasz, gdy rywal {{t:fold|spasuje}}, a ryzyko all-inu zostaje to samo"
   level: gto
   source: "solver push/fold projektu (pushfold.json, wariant 10bb-ante); kierunek zgodny z literaturą: 888poker, Push/Fold Charts: „the bigger the ante relative to the big blind, the wider your shoving range”; PokerCoaching, Push Fold Charts (https://pokercoaching.com/push-fold-charts/): „When antes are in play, your preflop shoving range should be wider”"
@@ -959,8 +959,8 @@
 - id: R-M11-007
   module: m11
   if: "rywal wszedł all-in, a ty decydujesz, czy {{t:call|sprawdzić}}"
-  then: "{{t:call|sprawdzasz}} węższym {{t:range|zakresem}}, niż sam wpychałbyś all-in: przy {{n:m11.depth.10}} {{t:big-blind|BB}} {{t:call|sprawdza}} ok. {{n:m11.call.10}} rąk, a {{t:small-blind|SB}} {{t:shove|wpycha}} ok. {{n:m11.push.10}}"
-  because: "sprawdzający wygrywa tylko na showdownie i to przeciw {{t:range|zakresowi}}, który już jest silniejszy niż losowy; {{t:shove|wpychający}} wygrywa też wtedy, gdy rywal {{t:fold|spasuje}}"
+  then: "{{t:call|sprawdzasz}} węższym {{t:range|zakresem}}, niż sam {{t:shove|pushowałbyś}} all-in: przy {{n:m11.depth.10}} {{t:big-blind|BB}} {{t:call|sprawdza}} ok. {{n:m11.call.10}} rąk, a {{t:small-blind|SB}} {{t:shove|pushuje}} ok. {{n:m11.push.10}}"
+  because: "sprawdzający wygrywa tylko na showdownie i to przeciw {{t:range|zakresowi}}, który już jest silniejszy niż losowy; {{t:shove|pushujący}} wygrywa też wtedy, gdy rywal {{t:fold|spasuje}}"
   level: gto
   source: "solver push/fold projektu (pushfold.json); PokerCoaching, Push Fold Charts (https://pokercoaching.com/push-fold-charts/): „Calling ranges are tighter than shoving ranges”; PokerStrategy, The Gap Concept (https://www.pokerstrategy.com/news/content/Poker-Basics-The-Gap-Concept_116890/): „you need a better hand to call a raise with than you would need to open a pot with a raise” (Sklansky)"
 - id: R-M11-008
@@ -980,14 +980,14 @@
 - id: R-M11-010
   module: m11
   if: "jest {{t:bubble}} albo {{t:final-table}}, a ty masz średni stack"
-  then: "{{t:call|sprawdzasz}} all-iny wyraźnie ciaśniej niż w grze o {{t:chips}}, a duży stack, który cię {{t:cover|przykrywa}}, może {{t:shove|wpychać}} szerzej"
+  then: "{{t:call|sprawdzasz}} all-iny wyraźnie ciaśniej niż w grze o {{t:chips}}, a duży stack, który cię {{t:cover|pokrywa}}, może {{t:shove|pushować}} szerzej"
   because: "{{t:risk-premium}}: {{t:chips}} wygrane są warte mniej niż przegrane, a duży stack ryzykuje przy tym mniej niż ty"
   level: heuristic
   source: "GTO Wizard, ICM Basics (https://blog.gtowizard.com/icm-basics/): „chips won are worth less than chips lost” (tekst bez znaczników kolorów), „Big stacks can threaten smaller stacks as they take on less risk when stacking off”; Upswing, ICM at Final Tables (https://upswingpoker.com/icm-final-tables/): „When it comes to calling versus shoves, you have to tighten up dramatically when big money is on the line”; Upswing, Big Stack Advantage (https://upswingpoker.com/big-stack-advantage-stone-bubble/): „Risk premiums are the additional equity needed to play for stacks. This means responding ranges tighten up considerably”; Ganzfried i Sandholm, AAMAS 2008 (https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf), tabela 2: duży blind po dwóch all-inach sprawdza w turnieju „0.021”, a w pojedynczym rozdaniu „0.197”"
 - id: R-M11-011
   module: m11
   if: "grasz push/fold, a za tobą zostało więcej graczy, którzy mogą {{t:call|sprawdzić}}"
-  then: "{{t:shove|wpychasz}} all-in węziej: przy trzech graczach i {{n:m11.depth.3max}} Button ok. {{n:m11.3max.push.btn}} rąk, a {{t:small-blind}} po pasie Buttona ok. {{n:m11.3max.push.sb}}"
+  then: "{{t:shove|pushujesz}} all-in węziej: przy trzech graczach i {{n:m11.depth.3max}} Button ok. {{n:m11.3max.push.btn}} rąk, a {{t:small-blind}} po pasie Buttona ok. {{n:m11.3max.push.sb}}"
   because: "każdy kolejny gracz to dodatkowa szansa, że ktoś obudzi się z silną ręką, więc {{t:fold|pasy}} wszystkich zdarzają się rzadziej"
   level: gto
   source: "solver push/fold projektu (content/ranges/pushfold.json, trzech graczy); zgodny z Ganzfried i Sandholm, AAMAS 2008 (https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf), tabela 2, single hand: „Button jam … 0.355”, „SB jam after fold … 0.633” (częstości węzłów zgodne w granicach 1,2 pp, raport M11)"
@@ -1020,7 +1020,7 @@
   module: m13
   if: "zamienisz kolory wszystkich kart jedną zamianą (np. kiery na piki, piki na kiery)"
   then: "poprawna decyzja się nie zmienia"
-  because: "siła rąk i {{t:draw|dobierań}} zależy od tego, czy kolory się zgadzają, a nie od tego, które to kolory; dlatego powtórka z gry pokazuje tę samą sytuację w innych kolorach"
+  because: "siła rąk i {{t:draw|drawów}} zależy od tego, czy kolory się zgadzają, a nie od tego, które to kolory; dlatego powtórka z gry pokazuje tę samą sytuację w innych kolorach"
   level: math
   source: "obliczenie: ranking układów nie rozróżnia kolorów (zasady Texas Hold'em), a permutacja kolorów zachowuje to, które karty mają wspólny kolor; sprawdzane w poker-core testem właściwości (dokument 02, dokument 14, 5.6)"
 - id: R-M13-004

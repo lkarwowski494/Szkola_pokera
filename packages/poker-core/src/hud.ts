@@ -14,7 +14,7 @@ export const PLAYER_TYPES: readonly PlayerType[] = ['nit', 'regular', 'passive',
 export interface HudThresholds {
   /** nit: VPIP nie wyżej niż ten próg */
   nitMax: number;
-  /** regular: VPIP w przedziale [regLow, regHigh] i różnica nie większa niż passiveGap */
+  /** regular (reg): VPIP w przedziale [regLow, regHigh] i różnica nie większa niż passiveGap */
   regLow: number;
   regHigh: number;
   /** gracz luźny: VPIP od tego progu */

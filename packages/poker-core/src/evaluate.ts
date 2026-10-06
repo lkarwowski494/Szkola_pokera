@@ -70,7 +70,7 @@ function* combinations5(cards: readonly Card[]): Generator<Card[]> {
           for (let e = d + 1; e < n; e++) yield [cards[a]!, cards[b]!, cards[c]!, cards[d]!, cards[e]!];
 }
 
-/** Pełny wynik z najlepszymi pięcioma kartami (do wyjaśnień „gra stół”, kicker). */
+/** Pełny wynik z najlepszymi pięcioma kartami (do wyjaśnień „gra na stole”, kicker). */
 export function evaluateHand(cards: readonly Card[]): HandResult {
   const s = strength(cards);
   let best: Card[] | null = null;
@@ -85,7 +85,7 @@ export function evaluateHand(cards: readonly Card[]): HandResult {
   const counts = new Map<number, number>();
   for (const c of best) counts.set(rankOf(c), (counts.get(rankOf(c)) ?? 0) + 1);
   best.sort((x, y) => counts.get(rankOf(y))! - counts.get(rankOf(x))! || rankOf(y) - rankOf(x) || (x & 3) - (y & 3));
-  // koło A-2-3-4-5: as na końcu
+  // wheel A-2-3-4-5: as na końcu
   if (categoryOf(s) === HandCategory.Straight || categoryOf(s) === HandCategory.StraightFlush) {
     const ranks = best.map(rankOf);
     if (ranks[0] === 12 && ranks[1] === 3) best.push(best.shift()!);

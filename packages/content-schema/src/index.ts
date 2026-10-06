@@ -221,7 +221,7 @@ export const PaintDrill = z.object({
 });
 
 /**
- * icm (M11): bańka turnieju z losowymi stackami; params.mode = "call" (sprawdzić all-in według ICM) albo "equity" (wycena stacku).
+ * icm (M11): bubble turnieju z losowymi stackami; params.mode = "call" (sprawdzić all-in według ICM) albo "equity" (wycena stacku).
  * playerType (M10): typ gracza po VPIP, PFR i próbie z HUD; progi w params jako "n:klucz" z numbers.yaml (poker-core HUD_PARAMS).
  */
 export const GeneratorName = z.enum(['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'rangeDecision', 'icm', 'vocab', 'playerType']);

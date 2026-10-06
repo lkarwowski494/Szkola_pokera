@@ -23,7 +23,7 @@ drills:
         why:
           check: "Za ostrożnie: na {{t:dry|suchym}}, wysokim flopie masz {{t:range-advantage|przewagę zakresu}}, a rywal zwykle chybił. {{t:check|Czekając}}, dajesz mu darmową kartę."
           small: "Tak: {{t:dry}}, wysoki flop sprzyja tobie. Mały {{t:bet}} wystarcza, żeby rywal {{t:fold|spasował}} słabe ręce, a gorsze {{t:pair|pary}} wciąż go {{t:call|sprawdzą}}."
-          big: "Dobra akcja, zły rozmiar: na {{t:dry|suchym}} flopie rywal ma mało {{t:draw|dobierań}}, a ręce, które chybiły, {{t:fold|spasują}} także na mały {{t:bet}}. Większy {{t:bet}} nie {{t:fold|spasuje}} więcej rąk, a ryzykuje więcej. Betuj ok. {{n:cbet.size.small}} {{t:pot|puli}}."
+          big: "Dobra akcja, zły rozmiar: na {{t:dry|suchym}} flopie rywal ma mało {{t:draw|drawów}}, a ręce, które chybiły, {{t:fold|spasują}} także na mały {{t:bet}}. Większy {{t:bet}} nie {{t:fold|spasuje}} więcej rąk, a ryzykuje więcej. Betuj ok. {{n:cbet.size.small}} {{t:pot|puli}}."
       - when: { height: [high, middle], suits: [rainbow, two-tone], ranks: [paired], trips: false }
         best: small
         rule: R-M5-009
@@ -35,8 +35,8 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Tak: niski flop z kartami blisko siebie sprzyja {{t:big-blind|dużemu blindowi}}, który częściej ma tu {{t:two-pair}} albo {{t:straight|strita}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|dobierania}}."
-          small: "Za często: na niskim flopie z kartami blisko siebie to {{t:big-blind}} ma {{t:nuts-advantage|przewagę orzechową}}. Częste c-bety, nawet małe, dają mu okazję do {{t:raise|przebicia}} (check-raise) najsilniejszymi rękami."
+          check: "Tak: niski flop z kartami blisko siebie sprzyja {{t:big-blind|dużemu blindowi}}, który częściej ma tu {{t:two-pair}} albo {{t:straight|strita}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|drawy}}."
+          small: "Za często: na niskim flopie z kartami blisko siebie to {{t:big-blind}} ma {{t:nuts-advantage|przewagę nutsów}}. Częste c-bety, nawet małe, dają mu okazję do {{t:raise|przebicia}} (check-raise) najsilniejszymi rękami."
           big: "Za często i za drogo: {{t:big-blind}} częściej trafił tu {{t:two-pair}} albo {{t:straight|strita}}. Częsty duży c-bet ryzykuje dużo, gdy sam zwykle masz tylko wysokie karty."
     count: 6
   - kind: choice
@@ -46,8 +46,8 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i {{t:check|czeka}}. Masz {{t:pair|parę}} króli z waletem. Co robisz?"
     table: { hand: "Kh Jc", position: BTN, board: "Ks 7d 2c" }
     options:
-      - { text: "C-bet {{n:cbet.btn.small}} ({{n:cbet.size.small}} {{t:pot|puli}})", correct: true, why: "Tak: {{t:top-pair}} na {{t:dry|suchym}} flopie. Mały {{t:bet}} dostanie {{t:call}} od siódemek, dwójek i słabszych króli, a rywal prawie nie ma {{t:draw|dobierań}}." }
-      - { text: "C-bet {{n:cbet.btn.big}} ({{n:cbet.size.big}} {{t:pot|puli}})", sizeError: true, why: "Dobra akcja, zły rozmiar: na {{t:dry|suchym}} flopie rywal nie ma {{t:draw|dobierań}}, a ręce, które chybiły, {{t:fold|spasują}} także na mały {{t:bet}}. Większy {{t:bet}} nie {{t:fold|spasuje}} więcej rąk, a ryzykuje więcej. Betuj ok. {{n:cbet.size.small}} {{t:pot|puli}}." }
+      - { text: "C-bet {{n:cbet.btn.small}} ({{n:cbet.size.small}} {{t:pot|puli}})", correct: true, why: "Tak: {{t:top-pair}} na {{t:dry|suchym}} flopie. Mały {{t:bet}} dostanie {{t:call}} od siódemek, dwójek i słabszych króli, a rywal prawie nie ma {{t:draw|drawów}}." }
+      - { text: "C-bet {{n:cbet.btn.big}} ({{n:cbet.size.big}} {{t:pot|puli}})", sizeError: true, why: "Dobra akcja, zły rozmiar: na {{t:dry|suchym}} flopie rywal nie ma {{t:draw|drawów}}, a ręce, które chybiły, {{t:fold|spasują}} także na mały {{t:bet}}. Większy {{t:bet}} nie {{t:fold|spasuje}} więcej rąk, a ryzykuje więcej. Betuj ok. {{n:cbet.size.small}} {{t:pot|puli}}." }
       - { text: "{{t:check|Czekam}}", why: "Tracisz wartość: rywal ma wiele słabszych {{t:pair|par}} i rąk z asem, które zapłaciłyby mały {{t:bet}}. Na {{t:dry|suchym}} flopie z {{t:top-pair|najwyższą parą}} betujesz." }
   - kind: choice
     id: m5.l3.q-set-wet
@@ -56,9 +56,9 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i {{t:check|czeka}}. Masz seta waletów na {{t:wet|mokrym}} flopie. Co robisz?"
     table: { hand: "Jc Js", position: BTN, board: "Jh Th 8c" }
     options:
-      - { text: "C-bet {{n:cbet.btn.big}} ({{n:cbet.size.big}} {{t:pot|puli}})", correct: true, why: "Tak: na {{t:wet|mokrym}} flopie rywal ma wiele {{t:flush-draw|dobierań do koloru}} i {{t:straight|strita}} (np. KQ, A9, dwa kiery). Duży {{t:bet}} każe im drogo płacić za kolejną kartę." }
-      - { text: "C-bet {{n:cbet.btn.small}} ({{n:cbet.size.small}} {{t:pot|puli}})", sizeError: true, why: "Dobra akcja, zły rozmiar: mały {{t:bet}} daje {{t:draw|dobieraniom}} rywala tanią kartę, a twój set może przegrać z kolorem albo {{t:straight|stritem}}. Na {{t:wet|mokrym}} flopie betuj dużo." }
-      - { text: "{{t:check|Czekam}}, żeby nie spłoszyć rywala", why: "Na {{t:wet|mokrym}} flopie darmowa karta to prezent dla {{t:draw|dobierań}}. Z bardzo silną ręką budujesz {{t:pot|pulę}} od razu." }
+      - { text: "C-bet {{n:cbet.btn.big}} ({{n:cbet.size.big}} {{t:pot|puli}})", correct: true, why: "Tak: na {{t:wet|mokrym}} flopie rywal ma wiele {{t:flush-draw|drawów do koloru}} i {{t:straight|strita}} (np. KQ, A9, dwa kiery). Duży {{t:bet}} każe im drogo płacić za kolejną kartę." }
+      - { text: "C-bet {{n:cbet.btn.small}} ({{n:cbet.size.small}} {{t:pot|puli}})", sizeError: true, why: "Dobra akcja, zły rozmiar: mały {{t:bet}} daje {{t:draw|drawom}} rywala tanią kartę, a twój set może przegrać z kolorem albo {{t:straight|stritem}}. Na {{t:wet|mokrym}} flopie betuj dużo." }
+      - { text: "{{t:check|Czekam}}, żeby nie spłoszyć rywala", why: "Na {{t:wet|mokrym}} flopie darmowa karta to prezent dla {{t:draw|drawów}}. Z bardzo silną ręką budujesz {{t:pot|pulę}} od razu." }
   - kind: choice
     id: m5.l3.q-paired
     family: m5.cbet.texture
@@ -77,7 +77,7 @@ drills:
     table: { position: BTN, board: "Kh 8h 3h" }
     options:
       - { text: "C-bet rzadziej niż zwykle i mało", correct: true, why: "Tak: {{t:flush}} może mieć już każdy z graczy, więc twoja {{t:nuts-advantage}} jest mniejsza niż na zwykłym wysokim flopie. Betujesz rzadziej i małym rozmiarem, żeby nie budować dużej {{t:pot|puli}} przeciw kolorowi." }
-      - { text: "C-bet często i dużo, żeby {{t:draw|dobierania}} płaciły", why: "Na {{t:monotone|monotonicznym}} flopie duża {{t:pot}} jest groźna: rywal może mieć gotowy {{t:flush}}, a twoje ręce bez kiera słabo się bronią." }
+      - { text: "C-bet często i dużo, żeby {{t:draw|drawy}} płaciły", why: "Na {{t:monotone|jednokolorowym}} flopie duża {{t:pot}} jest groźna: rywal może mieć gotowy {{t:flush}}, a twoje ręce bez kiera słabo się bronią." }
       - { text: "Zawsze {{t:check|czekam}}", why: "Za ostrożnie: wysoki flop nadal ci sprzyja, a część rąk (np. z wysokim kierem) chętnie betuje mało." }
   - kind: numeric
     id: m5.l3.n-alpha-small
@@ -99,31 +99,31 @@ drills:
     rules: [R-M5-011]
     prompt: "Dlaczego na {{t:dry|suchym}} flopie c-bet {{n:cbet.size.small}} {{t:pot|puli}} z ręką bez szans opłaca się częściej niż c-bet {{n:cbet.size.big}} {{t:pot|puli}}?"
     options:
-      - { text: "Bo mały {{t:bet}} potrzebuje pasa tylko w {{n:alpha.cbet.small}} przypadków, a duży w {{n:alpha.cbet.big}}", correct: true, why: "Tak: na {{t:dry|suchym}} flopie najsłabsze ręce rywala (bez {{t:pair|pary}} i bez {{t:draw|dobierania}}) {{t:fold|pasują}} na oba rozmiary, więc mały {{t:bet}} osiąga ten sam efekt taniej." }
+      - { text: "Bo mały {{t:bet}} potrzebuje pasa tylko w {{n:alpha.cbet.small}} przypadków, a duży w {{n:alpha.cbet.big}}", correct: true, why: "Tak: na {{t:dry|suchym}} flopie najsłabsze ręce rywala (bez {{t:pair|pary}} i bez {{t:draw|drawa}}) {{t:fold|pasują}} na oba rozmiary, więc mały {{t:bet}} osiąga ten sam efekt taniej." }
       - { text: "Bo mały {{t:bet}} zawsze dostaje {{t:fold}}", why: "Nie: rywal {{t:call|sprawdza}} mały {{t:bet}} każdą {{t:pair|parą}}. Mały {{t:bet}} po prostu ryzykuje mniej, więc potrzebuje mniej {{t:fold|pasów}}." }
-      - { text: "Bo duży {{t:bet}} jest zawsze błędem", why: "Nie: na {{t:wet|mokrym}} flopie i z {{t:nuts-advantage|przewagą orzechową}} duży {{t:bet}} bywa najlepszy. Na {{t:dry|suchym}} flopie nie daje jednak nic w zamian za większe ryzyko." }
+      - { text: "Bo duży {{t:bet}} jest zawsze błędem", why: "Nie: na {{t:wet|mokrym}} flopie i z {{t:nuts-advantage|przewagą nutsów}} duży {{t:bet}} bywa najlepszy. Na {{t:dry|suchym}} flopie nie daje jednak nic w zamian za większe ryzyko." }
 ---
 C-bet ({{t:bet}} kontynuacyjny) to {{t:bet}} na flopie gracza, który ostatni {{t:raise|przebijał}} przed flopem. W tej lekcji grasz {{t:in-position}}: {{t:open|otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i na flopie {{t:check|czeka}}. {{t:pot|Pula}} na flopie to {{n:bb.pot-after.vs-btn}}. Pytania są dwa: jak często betować i jak dużo.
 
 ## {{t:dry|Suchy}} i wysoki flop: często i mało
 
-Na flopie takim jak [[Ks 7d 2c]] masz {{t:range-advantage|przewagę zakresu}}, a rywal prawie nie ma {{t:draw|dobierań}}. Betujesz często i mało, ok. {{n:cbet.size.small}} {{t:pot|puli}}, czyli ok. {{n:cbet.btn.small}}. Mały {{t:bet}} wystarczy, żeby rywal {{t:fold|spasował}} ręce, które chybiły, a gorsze {{t:pair|pary}} wciąż go {{t:call|sprawdzą}}. Większy {{t:bet}} nie {{t:fold|spasuje}} więcej rąk, a ryzykuje więcej.
+Na flopie takim jak [[Ks 7d 2c]] masz {{t:range-advantage|przewagę zakresu}}, a rywal prawie nie ma {{t:draw|drawów}}. Betujesz często i mało, ok. {{n:cbet.size.small}} {{t:pot|puli}}, czyli ok. {{n:cbet.btn.small}}. Mały {{t:bet}} wystarczy, żeby rywal {{t:fold|spasował}} ręce, które chybiły, a gorsze {{t:pair|pary}} wciąż go {{t:call|sprawdzą}}. Większy {{t:bet}} nie {{t:fold|spasuje}} więcej rąk, a ryzykuje więcej.
 
 Typowy mały c-bet to ok. {{n:cbet.range.small.low}}–{{n:cbet.range.small.high}} {{t:pot|puli}}, a duży ok. {{n:cbet.range.big.low}}–{{n:cbet.range.big.high}} (Upswing); solvery używają zwykle {{n:cbet.size.small}} oraz {{n:cbet.solver.big.low}}–{{n:cbet.size.big}} (GTO Wizard).
 
 ## {{t:wet|Mokry}} flop: rzadziej, ale więcej
 
-Na flopie takim jak [[Jh Th 8c]] rywal ma wiele {{t:flush-draw|dobierań do koloru}} i {{t:straight|strita}}. Silne ręce i mocne {{t:draw|dobierania}} betują większym rozmiarem, np. {{n:cbet.size.big}} {{t:pot|puli}}, żeby {{t:draw|dobierania}} płaciły drogo za kolejną kartę. Ręce średnie bez {{t:draw|dobierania}} częściej {{t:check|czekają}}.
+Na flopie takim jak [[Jh Th 8c]] rywal ma wiele {{t:flush-draw|drawów do koloru}} i {{t:straight|strita}}. Silne ręce i mocne {{t:draw|drawy}} betują większym rozmiarem, np. {{n:cbet.size.big}} {{t:pot|puli}}, żeby {{t:draw|drawy}} płaciły drogo za kolejną kartę. Ręce średnie bez {{t:draw|drawa}} częściej {{t:check|czekają}}.
 
 ## {{t:paired|Sparowany}} i {{t:monotone}}
 
-Na {{t:paired|sparowanym}} flopie, np. [[Qd Qs 6h]], masz {{t:range-advantage|przewagę zakresu}}, a trudno o {{t:draw}}, więc rywal bez {{t:pair|pary}} rzadko może {{t:call|sprawdzić}}. Betujesz często i mało: duży {{t:bet}} się nie opłaca, bo {{t:three-of-a-kind|trójkę}} może mieć każdy z was. Na {{t:monotone|monotonicznym}} flopie, np. [[Kh 8h 3h]], {{t:flush}} może mieć już każdy, więc betujesz rzadziej niż zwykle i mało.
+Na {{t:paired|sparowanym}} flopie, np. [[Qd Qs 6h]], masz {{t:range-advantage|przewagę zakresu}}, a trudno o {{t:draw}}, więc rywal bez {{t:pair|pary}} rzadko może {{t:call|sprawdzić}}. Betujesz często i mało: duży {{t:bet}} się nie opłaca, bo {{t:three-of-a-kind|trójkę}} może mieć każdy z was. Na {{t:monotone|jednokolorowym}} flopie, np. [[Kh 8h 3h]], {{t:flush}} może mieć już każdy, więc betujesz rzadziej niż zwykle i mało.
 
-Uwaga: „{{t:wet}}” nie znaczy „duży bet”. {{t:monotone|Monotoniczny}} flop jest w aplikacji zawsze {{t:wet}}, a mimo to solver betuje na nim rzadko i małym rozmiarem (GTO Wizard). Rozmiar rośnie z {{t:wetness|mokrością}} tylko do pewnego poziomu: na najbardziej {{t:wet|mokrych}} flopach, takich jak [[Qd 8d 7d]], znowu spada. Większy rozmiar z poprzedniej sekcji dotyczy {{t:wet|mokrych}} flopów, które nie są {{t:monotone|monotoniczne}}.
+Uwaga: „{{t:wet}}” nie znaczy „duży bet”. {{t:monotone|Jednokolorowy}} flop jest w aplikacji zawsze {{t:wet}}, a mimo to solver betuje na nim rzadko i małym rozmiarem (GTO Wizard). Rozmiar rośnie z {{t:wetness|mokrością}} tylko do pewnego poziomu: na najbardziej {{t:wet|mokrych}} flopach, takich jak [[Qd 8d 7d]], znowu spada. Większy rozmiar z poprzedniej sekcji dotyczy {{t:wet|mokrych}} flopów, które nie są {{t:monotone|jednokolorowe}}.
 
 ## Niski z kartami blisko siebie: częściej {{t:check|czekasz}}
 
-Na [[7s 6h 5d]] to {{t:big-blind}} częściej ma {{t:two-pair}} albo {{t:straight|strita}} (lekcja o przewagach). Podobnie na innych niskich flopach {{t:connected|połączonych}} i {{t:semi-connected|półpołączonych}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie bardzo silne ręce i mocne {{t:draw|dobierania}}.
+Na [[7s 6h 5d]] to {{t:big-blind}} częściej ma {{t:two-pair}} albo {{t:straight|strita}} (lekcja o przewagach). Podobnie na innych niskich flopach {{t:connected|połączonych}} i {{t:semi-connected|półpołączonych}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie bardzo silne ręce i mocne {{t:draw|drawy}}.
 
 ## Ile musi {{t:fold|spasować}} rywal
 

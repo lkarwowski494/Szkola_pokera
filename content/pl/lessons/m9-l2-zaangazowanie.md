@@ -27,7 +27,7 @@ drills:
     prompt: "Flop, {{t:spr}} {{n:spr.commit}}. Masz {{t:top-pair|najwyższą parę}}, betujesz całą {{t:pot|pulę}}, rywal idzie all-in. Do {{t:call|sprawdzenia}} potrzebujesz {{n:eq.commit.after-pot}} equity. Co robisz?"
     table: { hand: "Ah Qd", board: "Qs 8c 4d" }
     options:
-      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Tak: cena jest bardzo dobra. Rywal przy niskim {{t:spr}} idzie all-in także z {{t:draw|dobieraniami}} i słabszymi damami, więc {{t:top-pair}} z asem ma zwykle dużo więcej niż {{n:eq.commit.after-pot}} equity. Przegrywa wyraźnie tylko z {{t:two-pair|dwiema parami}} i setami." }
+      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Tak: cena jest bardzo dobra. Rywal przy niskim {{t:spr}} idzie all-in także z {{t:draw|drawami}} i słabszymi damami, więc {{t:top-pair}} z asem ma zwykle dużo więcej niż {{n:eq.commit.after-pot}} equity. Przegrywa wyraźnie tylko z {{t:two-pair|dwiema parami}} i setami." }
       - { text: "{{t:fold|Pasuję}}, bo all-in pokazuje silną rękę", why: "{{t:fold|Pas}} oddaje {{t:pot|pulę}}, do której już sporo włożyłeś. Wygrywać musisz tylko raz na pięć, czyli w {{n:eq.commit.after-pot}} przypadków. Jeśli zamierzałeś tu {{t:fold|pasować}}, lepiej było nie betować całej {{t:pot|puli}}." }
       - { text: "{{t:fold|Pasuję}}, bo {{t:spr}} jest niski", why: "Niski {{t:spr}} działa odwrotnie: przy nim łatwiej grać o cały stack, bo cena na all-in jest lepsza." }
   - kind: choice
@@ -56,7 +56,7 @@ drills:
     prompt: "Dlaczego przy {{t:spr}} ok. {{n:spr.commit}} {{t:top-pair}} zwykle gra o cały stack?"
     options:
       - { text: "Bo na all-in potrzebujesz ok. {{n:eq.jam.spr2}} equity, a dwa {{t:bet|zakłady}} po ok. {{n:geo.spr2.2}} {{t:pot|puli}} wpłacają cały stack", correct: true, why: "Tak: cena jest dobra, a do wpłacenia stacku wystarczą dwie {{t:value|ulice wartości}}. Tyle {{t:top-pair}} zwykle zniesie. Sam próg to heurystyka: liczy się też, czym rywal gra." }
-      - { text: "Bo {{t:top-pair}} zawsze wygrywa", why: "Nie zawsze: czasem rywal ma {{t:two-pair}} albo seta. Przy niskim {{t:spr}} gorsze ręce i {{t:draw|dobierania}} wpłacają jednak dość pieniędzy, a cena jest dobra." }
+      - { text: "Bo {{t:top-pair}} zawsze wygrywa", why: "Nie zawsze: czasem rywal ma {{t:two-pair}} albo seta. Przy niskim {{t:spr}} gorsze ręce i {{t:draw|drawy}} wpłacają jednak dość pieniędzy, a cena jest dobra." }
       - { text: "Bo przy {{t:spr}} {{n:spr.commit}} zasady nie pozwalają {{t:fold|spasować}}", why: "{{t:fold|Spasować}} możesz zawsze. Chodzi o to, że {{t:fold}} zwykle kosztuje więcej, niż daje: na all-in potrzebujesz tylko ok. {{n:eq.jam.spr2}} equity." }
   - kind: choice
     id: m9.l2.q-tp-srp

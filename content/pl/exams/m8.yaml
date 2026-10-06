@@ -43,8 +43,8 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i na riverze {{t:check|czeka}}. Którą z tych rąk najlepiej {{t:bluff|zablefować}}?"
     table: { board: "Qs Tc 6d 3h 2s", position: BTN }
     options:
-      - { text: "[[Kc Jc]]", correct: true, why: "Tak: {{t:oesd|dobieranie do strita}} nie weszło, a sam król jako najwyższa karta prawie nigdy nie wygra przy showdownie. Ręka bez szans nic nie traci, gdy {{t:bluff}} się nie uda." }
-      - { text: "[[Ts 9s]]", why: "{{t:second-pair|Druga para}} wygrywa po {{t:check|czekaniu}} z nietrafionymi {{t:draw|dobieraniami}} i słabszymi rękami. {{t:bluff|Blefem}} oddałbyś tę wygraną." }
+      - { text: "[[Kc Jc]]", correct: true, why: "Tak: {{t:oesd|OESD}} nie wszedł, a sam król jako najwyższa karta prawie nigdy nie wygra przy showdownie. Ręka bez szans nic nie traci, gdy {{t:bluff}} się nie uda." }
+      - { text: "[[Ts 9s]]", why: "{{t:second-pair|Druga para}} wygrywa po {{t:check|czekaniu}} z nietrafionymi {{t:draw|drawami}} i słabszymi rękami. {{t:bluff|Blefem}} oddałbyś tę wygraną." }
       - { text: "[[Qd 8d]]", why: "{{t:top-pair|Najwyższa para}} ma wartość przy showdownie. Nie {{t:bluff|blefujesz}} ręką, która często wygrywa po {{t:check|czekaniu}}." }
   - kind: choice
     id: m8.exam.q6
@@ -79,8 +79,8 @@ drills:
     prompt: "Bronisz {{t:big-blind}}. Kiery nie weszły, a river dał {{t:straight}} rękom T7 i 75. {{t:check|Czekasz}}, a Button {{t:bet|stawia}} całą {{t:pot|pulę}}. Masz {{t:top-pair|najwyższą parę}} ze słabym kickerem. Z którą z tych rąk {{t:call}} jest lepsze?"
     table: { board: "Kh 9h 6c 2s 8d", position: BB }
     options:
-      - { text: "[[Kc 7c]]", correct: true, why: "Tak: siódemka blokuje oba nowe {{t:straight|strity}} (T7 i 75), czyli część wartości Buttona, a bez kierów nie blokujesz nietrafionych {{t:flush-draw|dobierań do koloru}}, jego głównych {{t:bluff|blefów}}. W jego betach zostaje więcej {{t:bluff|blefów}}." }
-      - { text: "[[Ks 3h]]", why: "Karta [[3h]] blokuje część nietrafionych {{t:flush-draw|dobierań do koloru}}, czyli {{t:bluff|blefów}} Buttona, a ta ręka nie blokuje żadnego {{t:straight|strita}}. W jego betach zostaje więcej wartości." }
+      - { text: "[[Kc 7c]]", correct: true, why: "Tak: siódemka blokuje oba nowe {{t:straight|strity}} (T7 i 75), czyli część wartości Buttona, a bez kierów nie blokujesz nietrafionych {{t:flush-draw|drawów do koloru}}, jego głównych {{t:bluff|blefów}}. W jego betach zostaje więcej {{t:bluff|blefów}}." }
+      - { text: "[[Ks 3h]]", why: "Karta [[3h]] blokuje część nietrafionych {{t:flush-draw|drawów do koloru}}, czyli {{t:bluff|blefów}} Buttona, a ta ręka nie blokuje żadnego {{t:straight|strita}}. W jego betach zostaje więcej wartości." }
   - kind: choice
     id: m8.exam.q10
     family: m8.value.check
@@ -88,6 +88,6 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}}. Na flopie c-bet i {{t:call}}, na turnie obaj {{t:check|czekaliście}}. River, {{t:big-blind}} {{t:check|czeka}}. Masz {{t:pair|parę}} szóstek. Co robisz?"
     table: { hand: "6d 6s", board: "Jc 8h 4d 3s Kc", position: BTN }
     options:
-      - { text: "{{t:check|Czekam}}", correct: true, why: "Tak: {{t:pair|para}} szóstek wygrywa z nietrafionymi {{t:draw|dobieraniami}} i wysokimi kartami, ale te ręce na bet {{t:fold|spasują}}. Zapłacą głównie walety, ósemki i króle. {{t:check|Czekając}}, idziesz do showdownu za darmo." }
+      - { text: "{{t:check|Czekam}}", correct: true, why: "Tak: {{t:pair|para}} szóstek wygrywa z nietrafionymi {{t:draw|drawami}} i wysokimi kartami, ale te ręce na bet {{t:fold|spasują}}. Zapłacą głównie walety, ósemki i króle. {{t:check|Czekając}}, idziesz do showdownu za darmo." }
       - { text: "Betuję mało {{t:value|dla wartości}}", why: "Mały bet też {{t:call|sprawdzą}} głównie lepsze {{t:pair|pary}}. Gorsze ręce rywala to tu głównie ręce bez {{t:pair|pary}} i najsłabsze {{t:pair|pary}}, a one rzadko zapłacą." }
       - { text: "Betuję dużo, żeby rywal {{t:fold|spasował}} lepszą {{t:pair|parę}}", why: "Bet zamienia rękę z wartością przy showdownie w {{t:bluff}}. {{t:bluff|Blefujesz}} rękami bez szans, a ta ręka często wygrywa po {{t:check|czekaniu}}." }
