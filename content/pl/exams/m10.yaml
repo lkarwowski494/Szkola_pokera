@@ -58,7 +58,7 @@ drills:
     id: m10.exam.q7
     family: m10.base.alpha
     rules: [R-M10-010]
-    prompt: "Rywal ma fold to c-bet {{n:exam.m10.fcb}} po {{n:exam.m10.long.hands}} rękach. Nie trafiłeś flopu i nie masz {{t:draw|dobierania}}. Który c-bet bez ręki zarabia od razu?"
+    prompt: "Rywal ma fold to c-bet {{n:exam.m10.fcb}} po {{n:exam.m10.long.hands}} rękach. Nie trafiłeś flopu i nie masz {{t:draw|drawa}}. Który c-bet bez ręki zarabia od razu?"
     options:
       - { text: "Tylko mały, 1/3 {{t:pot|puli}}", correct: true, why: "c-bet 1/3 {{t:pot|puli}} wychodzi na zero przy {{n:alpha.cbet.small}} {{t:fold|pasów}}, a 3/4 {{t:pot|puli}} dopiero przy {{n:alpha.cbet.big}}. {{n:exam.m10.fcb}} wystarcza tylko na mały. Fold to c-bet łączy wszystkie rozmiary i stoły, więc to przybliżenie." }
       - { text: "Oba, bo rywal {{t:fold|pasuje}} często", why: "Duży c-bet ryzykuje więcej i potrzebuje ponad {{n:alpha.cbet.big}} {{t:fold|pasów}}. Rywal {{t:fold|pasuje}} w {{n:exam.m10.fcb}}, czyli za rzadko." }

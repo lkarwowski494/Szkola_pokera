@@ -40,9 +40,9 @@ drills:
     rules: [R-M13-003]
     prompt: "W grze miałeś J♣ T♣ na {{t:board|stole}} 9♣ 8♦ 2♣. Który z tych układów jest tą samą sytuacją, czyli ma tę samą poprawną decyzję?"
     options:
-      - { text: "J♦ T♦ na {{t:board|stole}} 9♦ 8♣ 2♦", correct: true, why: "Trefle zamieniono na kara, a kara na trefle, wszędzie naraz. Nadal masz {{t:flush-draw|dobieranie do koloru}} i {{t:oesd|otwarte dobieranie do strita}}, więc decyzja się nie zmienia." }
-      - { text: "J♣ T♣ na {{t:board|stole}} 9♦ 8♣ 2♦", why: "Kolory zamieniono tylko na {{t:board|stole}}: twoje trefle przestały pasować do {{t:board|stołu}} i {{t:flush-draw|dobieranie do koloru}} zniknęło. To inna sytuacja." }
-      - { text: "J♥ T♥ na {{t:board|stole}} 9♣ 8♦ 2♣", why: "Kolory zamieniono tylko w twojej ręce: kiery nie pasują do trefli na {{t:board|stole}}, więc {{t:flush-draw|dobierania do koloru}} już nie ma." }
+      - { text: "J♦ T♦ na {{t:board|stole}} 9♦ 8♣ 2♦", correct: true, why: "Trefle zamieniono na kara, a kara na trefle, wszędzie naraz. Nadal masz {{t:flush-draw|draw do koloru}} i {{t:oesd|OESD}}, więc decyzja się nie zmienia." }
+      - { text: "J♣ T♣ na {{t:board|stole}} 9♦ 8♣ 2♦", why: "Kolory zamieniono tylko na {{t:board|stole}}: twoje trefle przestały pasować do {{t:board|stołu}} i {{t:flush-draw|draw do koloru}} zniknął. To inna sytuacja." }
+      - { text: "J♥ T♥ na {{t:board|stole}} 9♣ 8♦ 2♣", why: "Kolory zamieniono tylko w twojej ręce: kiery nie pasują do trefli na {{t:board|stole}}, więc {{t:flush-draw|drawa do koloru}} już nie ma." }
   - kind: choice
     id: m13.exam.q6
     family: m13.sample

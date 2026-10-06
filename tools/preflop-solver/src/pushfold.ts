@@ -3,7 +3,7 @@ import type { DecisionNode, FoldTerminal, Node, ShowdownTerminal } from './tree'
 /**
  * Drzewo push/fold heads-up (SB vs BB) do walidacji solvera: po all-in nie ma dalszej gry,
  * więc wynik zależy wyłącznie od equity i jest porównywalny z tablicami Nasha.
- * `stack` to stack efektywny w bb bez ante. `ante` (M11) to ante dużego blinda w bb: martwe pieniądze w puli,
+ * `stack` to stack efektywny w bb bez ante. `ante` (M11) to big blind ante w bb: martwe pieniądze w puli,
  * wpłacone przez BB obok blinda i stacku (0 = drzewo walidacyjne z dokumentu 10).
  */
 export function buildPushFoldTree(stack: number, ante = 0): { root: Node; nodes: Node[] } {

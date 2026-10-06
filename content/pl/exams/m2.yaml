@@ -9,7 +9,7 @@ drills:
     table: { hand: "Ad Tc", board: "Kd 8d 3d" }
     options:
       - { text: "{{n:outs.flush}}", correct: true, why: "Liczy się, ile kart w kolorze widzisz łącznie: 1 w ręce i 3 na {{t:board|stole}}, razem {{n:draw.flush.seen}}. Zostaje {{n:cards.per-suit}} − {{n:draw.flush.seen}} = {{n:outs.flush}} kart w karo." }
-      - { text: "{{n:outs.oesd}}", why: "Tyle outów ma {{t:oesd|otwarte dobieranie do strita}}. Do {{t:flush|koloru}} brakuje jednej z {{n:outs.flush}} pozostałych kart w karo." }
+      - { text: "{{n:outs.oesd}}", why: "Tyle outów ma {{t:oesd|OESD}}. Do {{t:flush|koloru}} brakuje jednej z {{n:outs.flush}} pozostałych kart w karo." }
       - { text: "{{n:cards.per-suit}}", why: "{{n:cards.per-suit}} to wszystkie karty w karo w talii, ale {{n:draw.flush.seen}} z nich już widzisz." }
   - kind: choice
     id: m2.exam.q2
@@ -33,16 +33,16 @@ drills:
     id: m2.exam.q3
     family: m2.odds
     rules: [R-M2-002]
-    prompt: "Flop. Rywal jest all-in, a ty masz {{t:oesd|otwarte dobieranie do strita}} ({{n:outs.oesd}} outów). Jeśli {{t:call|sprawdzisz}}, jaka jest szansa trafienia do rivera?"
+    prompt: "Flop. Rywal jest all-in, a ty masz {{t:oesd|OESD}} ({{n:outs.oesd}} outów). Jeśli {{t:call|sprawdzisz}}, jaka jest szansa trafienia do rivera?"
     options:
       - { text: "Ok. {{n:odds.oesd.flop-river}}", correct: true, why: "Rywal jest all-in, więc zobaczysz turn i rivera bez dalszych {{t:bet|zakładów}}. Liczysz dwie karty: {{n:outs.oesd}} × 4 ≈ {{n:odds.oesd.flop-river}}." }
       - { text: "Ok. {{n:odds.oesd.flop-turn}}", why: "Tyle wynosi szansa na samym turnie. Przy all-inie zobaczysz też rivera." }
-      - { text: "Ok. {{n:odds.flush.flop-river}}", why: "To szansa dla {{t:flush-draw|dobierania do koloru}} z {{n:outs.flush}} outami. Ty masz {{n:outs.oesd}}." }
+      - { text: "Ok. {{n:odds.flush.flop-river}}", why: "To szansa dla {{t:flush-draw|drawa do koloru}} z {{n:outs.flush}} outami. Ty masz {{n:outs.oesd}}." }
   - kind: choice
     id: m2.exam.q4
     family: m2.odds
     rules: [R-M2-002]
-    prompt: "Flop. Masz {{t:oesd|otwarte dobieranie do strita}}, a rywal {{t:bet|stawia}} pół {{t:pot|puli}}. Stacki są głębokie. Jaką szansę trafienia porównujesz z ceną?"
+    prompt: "Flop. Masz {{t:oesd|OESD}}, a rywal {{t:bet|stawia}} pół {{t:pot|puli}}. Stacki są głębokie. Jaką szansę trafienia porównujesz z ceną?"
     table: { hand: "Qh Jc", board: "Td 9s 3c" }
     options:
       - { text: "Ok. {{n:odds.oesd.flop-turn}}, tylko na turnie", correct: true, why: "{{t:call|Sprawdzenie}} kupuje jedną kartę. Na turnie rywal może {{t:bet|postawić}} znowu, więc liczysz {{n:outs.oesd}} × 2: {{n:outs.oesd}} z {{n:cards.unseen.flop}}, czyli ok. {{n:odds.oesd.flop-turn}}." }
@@ -74,7 +74,7 @@ drills:
     id: m2.exam.q6
     family: m2.draw-call
     rules: [R-M2-004, R-M2-005]
-    prompt: "Flop. Masz {{t:flush-draw|dobieranie do koloru}}, stacki są głębokie, a rywal {{t:bet|stawia}} całą {{t:pot|pulę}}. Licz tylko cenę i szansę trafienia (bez implied odds). Co robisz?"
+    prompt: "Flop. Masz {{t:flush-draw|draw do koloru}}, stacki są głębokie, a rywal {{t:bet|stawia}} całą {{t:pot|pulę}}. Licz tylko cenę i szansę trafienia (bez implied odds). Co robisz?"
     table: { hand: "Js 6s", board: "Qs 4s 9d" }
     options:
       - { text: "{{t:fold|Pasuję}}", correct: true, why: "Potrzebujesz {{n:eq.bet-pot}}. {{t:call|Sprawdzenie}} kupuje tylko turn, a na nim trafisz z szansą ok. {{n:odds.flush.flop-turn}}. To wyraźnie za mało." }
@@ -83,7 +83,7 @@ drills:
     id: m2.exam.q7
     family: m2.draw-call
     rules: [R-M2-005]
-    prompt: "Turn. Masz {{t:oesd|otwarte dobieranie do strita}}. W {{t:pot|puli}} jest {{n:exam.m2.third.pot}}, rywal {{t:bet|stawia}} {{n:exam.m2.third.bet}}. Licz tylko cenę i szansę trafienia. Co robisz?"
+    prompt: "Turn. Masz {{t:oesd|OESD}}. W {{t:pot|puli}} jest {{n:exam.m2.third.pot}}, rywal {{t:bet|stawia}} {{n:exam.m2.third.bet}}. Licz tylko cenę i szansę trafienia. Co robisz?"
     table: { hand: "9h 8h", board: "Tc 7d 2s Kd" }
     options:
       - { text: "{{t:fold|Pasuję}}", correct: true, why: "Potrzebujesz {{n:exam.m2.third.bet}} ÷ {{n:exam.m2.third.total}} = {{n:exam.m2.third.eq}}. {{t:straight|Strit}} daje {{n:outs.oesd}} outów, czyli {{n:outs.oesd}} z {{n:cards.unseen.turn}}: ok. {{n:odds.oesd.turn-river}}. Nawet mały {{t:bet}} jest tu za drogi." }
@@ -92,7 +92,7 @@ drills:
     id: m2.exam.q8
     family: m2.draw-call
     rules: [R-M2-003, R-M2-002]
-    prompt: "Flop. Rywal wchodzi all-in za pół {{t:pot|puli}}, a ty masz {{t:flush-draw|dobieranie do koloru}}. Załóż, że wygrywasz tylko wtedy, gdy trafisz {{t:flush|kolor}}. Co robisz?"
+    prompt: "Flop. Rywal wchodzi all-in za pół {{t:pot|puli}}, a ty masz {{t:flush-draw|draw do koloru}}. Załóż, że wygrywasz tylko wtedy, gdy trafisz {{t:flush|kolor}}. Co robisz?"
     table: { hand: "Kc Tc", board: "8c 3c Jd" }
     options:
       - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Potrzebujesz {{n:eq.bet-half}}. Rywal jest all-in, więc zobaczysz turn i rivera bez dalszych {{t:bet|zakładów}}: {{n:outs.flush}} outów daje ok. {{n:odds.flush.flop-river}}. To więcej niż potrzebujesz." }

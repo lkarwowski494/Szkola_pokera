@@ -38,12 +38,12 @@ drills:
     table: { hand: "Jh Th", position: BB, board: "9h 8c 2h 3s" }
     options:
       - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Masz {{n:outs.combo}} outów, czyli ok. {{n:odds.combo.turn-river}} na riverze. Potrzebujesz {{n:eq.bet-three-quarters}}, więc {{t:call}} opłaca się nawet bez implied odds." }
-      - { text: "{{t:fold|Pasuję}}, bo {{t:draw}} na turnie to za mało", why: "Zwykłe {{t:draw}} przy tej cenie rzeczywiście {{t:fold|pasuje}}, ale {{t:flush}} razem ze {{t:straight|stritem}} daje ok. {{n:odds.combo.turn-river}}, więcej niż potrzebne {{n:eq.bet-three-quarters}}." }
+      - { text: "{{t:fold|Pasuję}}, bo {{t:draw}} na turnie to za mało", why: "Zwykły {{t:draw}} przy tej cenie rzeczywiście {{t:fold|pasuje}}, ale {{t:flush}} razem ze {{t:straight|stritem}} daje ok. {{n:odds.combo.turn-river}}, więcej niż potrzebne {{n:eq.bet-three-quarters}}." }
   - kind: numeric
     id: m7.l3.n-implied-flush
     family: m7.implied.math
     rules: [R-M7-008]
-    prompt: "Turn. W {{t:pot|puli}} jest {{n:ex.third.pot}}, rywal {{t:bet|stawia}} {{n:io.flush.bet}}. {{t:flush-draw|Dobierasz do koloru}}: {{n:outs.flush}} outów z {{n:cards.unseen.turn}} kart. Ile {{t:chips|żetonów}} musisz dodatkowo wygrać na riverze, gdy trafisz, żeby {{t:call}} wyszło na zero? Wpisz liczbę."
+    prompt: "Turn. W {{t:pot|puli}} jest {{n:ex.third.pot}}, rywal {{t:bet|stawia}} {{n:io.flush.bet}}. Masz {{t:flush-draw}}: {{n:outs.flush}} outów z {{n:cards.unseen.turn}} kart. Ile {{t:chips|żetonów}} musisz dodatkowo wygrać na riverze, gdy trafisz, żeby {{t:call}} wyszło na zero? Wpisz liczbę."
     table: { hand: "Kh Jh", board: "Ah 8h 3c 2s" }
     answer: io.flush.extra
     explanation: "Potrzebujesz {{n:io.flush.eq}} equity, a masz ok. {{n:odds.flush.turn-river}}. Na {{n:cards.unseen.turn}} możliwych riverów trafiasz {{n:outs.flush}} razy, a chybiasz {{n:miss.flush.turn}} razy i za każdym razem tracisz {{n:io.flush.bet}}. Każde trafienie musi więc przynieść {{n:io.flush.bet}} × {{n:miss.flush.turn}} ÷ {{n:outs.flush}} = {{n:io.flush.need}}. W {{t:pot|puli}} jest {{n:io.flush.pot-after-bet}}, brakuje {{n:io.flush.extra}}."
@@ -63,7 +63,7 @@ drills:
     prompt: "Turn. W {{t:pot|puli}} jest {{n:ex.third.pot}}, rywal {{t:bet|stawia}} {{n:io.flush.bet}}. Za każdym z was zostało jeszcze {{n:spr.stack.high}}, a rywal chętnie płaci z {{t:pair|parą}} asów. Co robisz?"
     table: { hand: "Kh Jh", position: BB, board: "Ah 8h 3c 2s" }
     options:
-      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Sama cena nie wystarcza ({{n:io.flush.eq}} wobec ok. {{n:odds.flush.turn-river}}), ale po trafieniu wystarczy wygrać jeszcze {{n:io.flush.extra}}. {{t:draw|Dobierasz}} do najlepszego {{t:flush|koloru}} (as kier leży na {{t:board|stole}}, więc {{t:flush}} z królem jest najwyższy), za rywalem jest dużo {{t:chips|żetonów}}, a gracz z {{t:pair|parą}} asów często zapłaci taki bet na riverze." }
+      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Sama cena nie wystarcza ({{n:io.flush.eq}} wobec ok. {{n:odds.flush.turn-river}}), ale po trafieniu wystarczy wygrać jeszcze {{n:io.flush.extra}}. Masz {{t:draw}} do najlepszego {{t:flush|koloru}} (as kier leży na {{t:board|stole}}, więc {{t:flush}} z królem jest najwyższy), za rywalem jest dużo {{t:chips|żetonów}}, a gracz z {{t:pair|parą}} asów często zapłaci taki bet na riverze." }
       - { text: "{{t:fold|Pasuję}}, bo {{n:odds.flush.turn-river}} to mniej niż {{n:io.flush.eq}}", why: "Pot odds mówią „{{t:fold}}”, ale pomijasz implied odds. Brakuje tylko {{n:io.flush.extra}}, a rywal ma za sobą {{n:spr.stack.high}} i rękę, która zapłaci." }
       - { text: "{{t:raise|Przebijam}} all-in", why: "Rywal z {{t:pair|parą}} asów raczej {{t:call|sprawdzi}}, a ty masz wtedy tylko ok. {{n:odds.flush.turn-river}}. Lepiej tanio zobaczyć rivera i wygrać więcej, gdy trafisz." }
   - kind: choice
@@ -91,9 +91,9 @@ drills:
     rules: [R-M7-009, R-M7-010]
     prompt: "Kiedy implied odds są największe?"
     options:
-      - { text: "Gdy {{t:draw|dobierasz}} do najlepszej ręki, rywal ma silną rękę i dużo {{t:chips|żetonów}} za sobą", correct: true, why: "Tak: wtedy po trafieniu wygrywasz, a rywal ma czym i z czym ci zapłacić." }
+      - { text: "Gdy masz {{t:draw}} do najlepszej ręki, rywal ma silną rękę i dużo {{t:chips|żetonów}} za sobą", correct: true, why: "Tak: wtedy po trafieniu wygrywasz, a rywal ma czym i z czym ci zapłacić." }
       - { text: "Gdy rywal ma mało {{t:chips|żetonów}} (niski {{t:spr}})", why: "Odwrotnie: przy niskim {{t:spr}} rywal nie ma już czego dopłacić, więc implied odds są małe." }
-      - { text: "Gdy {{t:draw|dobierasz}} do niskiego {{t:flush|koloru}}", why: "To odwrotne implied odds: czasem trafisz i nadal przegrasz, i to w dużej {{t:pot|puli}}." }
+      - { text: "Gdy masz {{t:draw}} do niskiego {{t:flush|koloru}}", why: "To odwrotne implied odds: czasem trafisz i nadal przegrasz, i to w dużej {{t:pot|puli}}." }
   - kind: choice
     id: m7.l3.q-spr
     family: m7.spr
@@ -104,22 +104,22 @@ drills:
       - { text: "{{n:spr.low}}", why: "Tyle byłoby przy stacku {{n:spr.stack.low}}. Tu stack to {{n:spr.stack.high}}." }
       - { text: "{{n:ex.pot}}", why: "To {{t:pot}}. {{t:spr}} to stosunek: stack podzielony przez {{t:pot|pulę}}." }
 ---
-Na turnie zostaje już tylko jedna karta. Szansa {{t:draw|dobierania}} spada mniej więcej o połowę, a cena za kolejną kartę zwykle rośnie. Dlatego na turnie liczysz dokładniej i zadajesz nowe pytanie: ile mogę wygrać później, gdy trafię?
+Na turnie zostaje już tylko jedna karta. Szansa {{t:draw|drawa}} spada mniej więcej o połowę, a cena za kolejną kartę zwykle rośnie. Dlatego na turnie liczysz dokładniej i zadajesz nowe pytanie: ile mogę wygrać później, gdy trafię?
 
 ## Jedna karta do końca
 
-| {{t:draw|Dobieranie}} | Outy | Flop → river | Turn → river |
+| {{t:draw|Draw}} | Outy | Flop → river | Turn → river |
 |---|---|---|---|
 | {{t:flush|Kolor}} | {{n:outs.flush}} | {{n:odds.flush.flop-river}} | {{n:odds.flush.turn-river}} |
 | {{t:straight|Strit}} otwarty | {{n:outs.oesd}} | {{n:odds.oesd.flop-river}} | {{n:odds.oesd.turn-river}} |
 | Gutshot | {{n:outs.gutshot}} | {{n:odds.gutshot.flop-river}} | {{n:odds.gutshot.turn-river}} |
 | {{t:flush|Kolor}} + {{t:straight}} otwarty | {{n:outs.combo}} | – | {{n:odds.combo.turn-river}} |
 
-Z regułą 2 i 4 z M2 mnożysz outy przez 2. Gdy dwa {{t:draw|dobierania}} mają wspólne karty, liczysz je raz.
+Z regułą 2 i 4 z M2 mnożysz outy przez 2. Gdy dwa {{t:draw|drawy}} mają wspólne karty, liczysz je raz.
 
 ## Implied odds
 
-Implied odds (szanse ukryte) to {{t:chips}}, które wygrasz na riverze, gdy trafisz. Przykład: w {{t:pot|puli}} jest {{n:ex.third.pot}}, rywal {{t:bet|stawia}} {{n:io.flush.bet}}, ty {{t:flush-draw|dobierasz do koloru}}. Potrzebujesz {{n:io.flush.bet}} ÷ {{n:io.flush.total}} = {{n:io.flush.eq}} equity, a masz ok. {{n:odds.flush.turn-river}}. Sama {{t:pot}} nie wystarcza.
+Implied odds (szanse ukryte) to {{t:chips}}, które wygrasz na riverze, gdy trafisz. Przykład: w {{t:pot|puli}} jest {{n:ex.third.pot}}, rywal {{t:bet|stawia}} {{n:io.flush.bet}}, ty masz {{t:flush-draw}}. Potrzebujesz {{n:io.flush.bet}} ÷ {{n:io.flush.total}} = {{n:io.flush.eq}} equity, a masz ok. {{n:odds.flush.turn-river}}. Sama {{t:pot}} nie wystarcza.
 
 Na {{n:cards.unseen.turn}} możliwych riverów trafiasz {{n:outs.flush}} razy, a chybiasz {{n:miss.flush.turn}} razy. Żeby wyjść na zero, każde trafienie musi przynieść tyle, ile kosztują chybienia:
 
@@ -135,12 +135,12 @@ Tu: {{n:io.flush.bet}} × {{n:miss.flush.turn}} ÷ {{n:outs.flush}} = **{{n:io.f
 
 ## Kiedy implied odds są prawdziwe
 
-- {{t:draw|dobierasz}} do **najlepszej ręki** (najwyższy możliwy {{t:flush}}, zwykle z asem),
+- masz {{t:draw}} do **najlepszej ręki** (najwyższy możliwy {{t:flush}}, zwykle z asem),
 - rywal ma **silną rękę**, z którą zapłaci,
 - za rywalem jest **dużo {{t:chips|żetonów}}** (wysoki {{t:spr}}),
 - trafienie **nie rzuca się w oczy** (np. gutshot jest mniej widoczny niż trzeci kier na {{t:board|stole}}).
 
-Odwrotne implied odds działają przeciw tobie: gdy {{t:draw|dobierasz}} do niskiego {{t:flush|koloru}} albo do {{t:straight|strita}}, a na {{t:board|stole}} może wpaść {{t:flush}}, czasem trafisz i nadal przegrasz, i to w dużej {{t:pot|puli}}.
+Odwrotne implied odds działają przeciw tobie: gdy masz {{t:draw}} do niskiego {{t:flush|koloru}} albo do {{t:straight|strita}}, a na {{t:board|stole}} może wpaść {{t:flush}}, czasem trafisz i nadal przegrasz, i to w dużej {{t:pot|puli}}.
 
 :::note Skąd te zasady
 Rachunek implied odds to dokładne obliczenie z {{t:expected-value|wartości oczekiwanej}}. Warunki, kiedy implied odds są prawdziwe, oraz odwrotne implied odds to heurystyki z literatury (SplitSuit, PokerCoaching, FlopTurnRiver).

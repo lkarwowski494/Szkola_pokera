@@ -94,7 +94,7 @@ describe('kto wygrywa', () => {
     expect(s.winner).toBe('hero');
     expect(s.reason).toBe('kicker');
   });
-  it('gra stół: strit na stole dzieli pulę', () => {
+  it('gra na stole: strit na stole dzieli pulę', () => {
     const s = analyseShowdown(parseCards('Ac Ad'), parseCards('Kc 2d'), parseCards('5h 6h 7c 8d 9s'));
     expect(s.winner).toBe('split');
     expect(s.reason).toBe('board-plays');
@@ -239,7 +239,7 @@ describe('outy i generatory', () => {
       }
     }
   });
-  it('decyzja z dobieraniem porównuje szansę na jedną kartę z ceną (outy ÷ 47 na flopie, ÷ 46 na turnie)', () => {
+  it('decyzja z drawem porównuje szansę na jedną kartę z ceną (outy ÷ 47 na flopie, ÷ 46 na turnie)', () => {
     const rng = createRng(11);
     for (const street of ['flop', 'turn'] as const) {
       for (let i = 0; i < 100; i++) {

@@ -70,7 +70,7 @@ drills:
 
 ## Cena to nie wszystko
 
-Equity mówi, jak często wygrasz, gdy obaj dojdziecie do showdownu bez dalszych {{t:bet|zakładów}}. {{t:out-of-position|Bez pozycji}} często {{t:fold|spasujesz}} po flopie, więc słabe ręce w różnych kolorach realizują mniej niż ich equity. Ręce w kolorze, {{t:connectors|łączniki}} i średnie {{t:pair|pary}} realizują więcej, dlatego w siatce bronisz nimi chętniej.
+Equity mówi, jak często wygrasz, gdy obaj dojdziecie do showdownu bez dalszych {{t:bet|zakładów}}. {{t:out-of-position|Bez pozycji}} często {{t:fold|spasujesz}} po flopie, więc słabe ręce w różnych kolorach realizują mniej niż ich equity. Ręce w kolorze, {{t:connectors|konektory}} i średnie {{t:pair|pary}} realizują więcej, dlatego w siatce bronisz nimi chętniej.
 
 ```range
 vs-open.bb-vs-btn
@@ -89,5 +89,5 @@ vs-open.bb-vs-sb
 Solver aplikacji broni tu {{n:solver.def.bb-vs-sb}} rąk, a BeyondGTO podaje ok. {{n:pf.bb-def.vs-sb.beyondgto}}.
 
 :::note Jak {{t:raise|przebijać}} z {{t:big-blind|dużego blinda}}
-Siatki pokazują, czym się bronić, a nie jak: 3-bet i {{t:call}} są {{t:connected|połączone}}, bo skład 3-betów z {{t:big-blind|dużego blinda}} w solverze aplikacji różni się od opublikowanych wyników innych solverów. Wobec Buttona 3-bet z {{t:big-blind|dużego blinda}} ma ok. {{n:pf.3bet.size-oop}} {{t:open|otwarcia}}. 3-betujesz najsilniejsze ręce (TT+, AQ+, AJs+) plus {{t:bluff|blefy}} z dołu {{t:range|zakresu}} {{t:call|sprawdzenia}}: A5s, czasem A4s, i {{t:connectors|łączniki}} w kolorze. Średnie i małe {{t:pair|pary}}, KQo oraz asy w różnych kolorach zwykle {{t:call|sprawdzasz}}. Wobec {{t:small-blind|małego blinda}} masz {{t:position|pozycję}}, więc {{t:raise|przebijasz}} mniej, ok. {{n:pf.3bet.size-ip}} {{t:open|otwarcia}}.
+Siatki pokazują, czym się bronić, a nie jak: 3-bet i {{t:call}} są {{t:connected|połączone}}, bo skład 3-betów z {{t:big-blind|dużego blinda}} w solverze aplikacji różni się od opublikowanych wyników innych solverów. Wobec Buttona 3-bet z {{t:big-blind|dużego blinda}} ma ok. {{n:pf.3bet.size-oop}} {{t:open|otwarcia}}. 3-betujesz najsilniejsze ręce (TT+, AQ+, AJs+) plus {{t:bluff|blefy}} z dołu {{t:range|zakresu}} {{t:call|sprawdzenia}}: A5s, czasem A4s, i {{t:connectors|konektory}} w kolorze. Średnie i małe {{t:pair|pary}}, KQo oraz asy w różnych kolorach zwykle {{t:call|sprawdzasz}}. Wobec {{t:small-blind|małego blinda}} masz {{t:position|pozycję}}, więc {{t:raise|przebijasz}} mniej, ok. {{n:pf.3bet.size-ip}} {{t:open|otwarcia}}.
 :::

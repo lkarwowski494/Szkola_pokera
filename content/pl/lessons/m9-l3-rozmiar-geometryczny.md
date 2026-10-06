@@ -82,7 +82,7 @@ drills:
     rules: [R-M9-006]
     prompt: "Co oznacza rozmiar geometryczny?"
     options:
-      - { text: "Ten sam ułamek {{t:pot|puli}} na każdej {{t:street|ulicy}}, tak że ostatni {{t:bet}} to all-in", correct: true, why: "Tak: {{t:bet}} f i {{t:call}} mnożą {{t:pot|pulę}} przez (1 + 2f) na każdej {{t:street|ulicy}}. Rozmiar {{t:draw|dobierasz}} tak, żeby po ostatnim {{t:bet|zakładzie}} cały stack był w {{t:pot|puli}}." }
+      - { text: "Ten sam ułamek {{t:pot|puli}} na każdej {{t:street|ulicy}}, tak że ostatni {{t:bet}} to all-in", correct: true, why: "Tak: {{t:bet}} f i {{t:call}} mnożą {{t:pot|pulę}} przez (1 + 2f) na każdej {{t:street|ulicy}}. Rozmiar dobierasz tak, żeby po ostatnim {{t:bet|zakładzie}} cały stack był w {{t:pot|puli}}." }
       - { text: "Zawsze {{t:bet}} wielkości całej {{t:pot|puli}}", why: "Cała {{t:pot}} jest geometryczna tylko przy jednym {{t:spr}} (np. {{n:spr.zone.deep}} na trzy {{t:street|ulice}}). Przy {{t:spr}} ok. {{n:spr.3bet-ip}} wystarczy ok. {{n:geo.3bet-ip.3}} {{t:pot|puli}}." }
       - { text: "{{t:bet|Zakłady}} coraz większe procentowo: mały na flopie, duży na riverze", why: "Kwoty rosną, bo rośnie {{t:pot}}, ale ułamek {{t:pot|puli}} jest na każdej {{t:street|ulicy}} taki sam. W {{t:pot|puli}} 3-betowanej to {{n:geo.3bet-ip.flop}}, {{n:geo.3bet-ip.turn}} i {{n:geo.3bet-ip.river}}, za każdym razem ok. {{n:geo.3bet-ip.3}} {{t:pot|puli}}." }
 ---

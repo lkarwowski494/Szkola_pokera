@@ -7,7 +7,7 @@ describe('ICM (M11)', () => {
     eq.forEach((e) => expect(e).toBeCloseTo(0.25, 12));
     expect(icmEquities([7, 1, 1, 1, 5], [0.4, 0.3, 0.2, 0.1]).reduce((a, b) => a + b, 0)).toBeCloseTo(1, 12);
   });
-  it('krótki stack jest wart więcej niż jego udział w żetonach, duży mniej', () => {
+  it('short stack jest wart więcej niż jego udział w żetonach, duży mniej', () => {
     const [big, , short] = icmEquities([4500, 3500, 2000], [0.6, 0.4]);
     expect(short).toBeGreaterThan(0.2);
     expect(big).toBeLessThan(0.45);

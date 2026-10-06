@@ -105,10 +105,10 @@ drills:
 ---
 **Out** to karta, która poprawia twoją rękę na prawdopodobnie wygrywającą. Liczenie outów pozwala szybko oszacować szanse bez kalkulatora.
 
-## Typowe {{t:draw|dobierania}}
+## Typowe {{t:draw|drawy}}
 
 - **Do {{t:flush|koloru}}** ({{n:draw.flush.seen}} karty w kolorze): **{{n:outs.flush}} outów**. W kolorze jest {{n:cards.per-suit}} kart, {{n:draw.flush.seen}} widzisz.
-- **{{t:oesd|Otwarte dobieranie do strita}}**, np. [[8c 9d]] na {{t:board|stole}} [[6s 7h Kd]]: **{{n:outs.oesd}} outów**, czyli cztery piątki i cztery dziesiątki.
+- **{{t:oesd|OESD}}**, np. [[8c 9d]] na {{t:board|stole}} [[6s 7h Kd]]: **{{n:outs.oesd}} outów**, czyli cztery piątki i cztery dziesiątki.
 - **Dziura w {{t:straight|stricie}} (gutshot)**, np. 5-6-8-9 bez siódemki: **{{n:outs.gutshot}} outy**.
 
 ## Reguła 2 i 4
@@ -118,7 +118,7 @@ szansa ≈ outy × 2   (jedna karta do odkrycia)
 szansa ≈ outy × 4   (dwie karty, tylko gdy zobaczysz obie bez dalszych zakładów)
 ```
 
-| {{t:draw|Dobieranie}} | Outy | Flop → turn | Flop → river (all-in) | Turn → river |
+| {{t:draw|Draw}} | Outy | Flop → turn | Flop → river (all-in) | Turn → river |
 |---|---|---|---|---|
 | {{t:flush|Kolor}} | {{n:outs.flush}} | {{n:odds.flush.flop-turn}} | {{n:odds.flush.flop-river}} | {{n:odds.flush.turn-river}} |
 | {{t:oesd|OESD}} | {{n:outs.oesd}} | {{n:odds.oesd.flop-turn}} | {{n:odds.oesd.flop-river}} | {{n:odds.oesd.turn-river}} |

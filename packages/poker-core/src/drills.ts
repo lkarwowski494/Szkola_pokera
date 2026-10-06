@@ -138,7 +138,7 @@ export function generateOuts(rng: Rng, kind: DrawKind, street: 'flop' | 'turn' =
     const board = cards.slice(2);
     const draw = drawOuts(hole, board);
     if (draw.kind !== kind) return null;
-    // dobieranie do koloru musi korzystać z karty gracza, inaczej to „kolor na stole”
+    // draw do koloru musi korzystać z karty gracza, inaczej to „kolor na stole”
     if (draw.flush.length && !hole.some((c) => suitOf(c) === suitOf(draw.flush[0]!))) return null;
     // out do strita, który daje strita samemu stołowi, nie jest pełnym outem (najwyżej podział puli)
     if (straightOutPlaysBoard(board, draw.straight)) return null;
@@ -177,7 +177,7 @@ export function generatePotOdds(rng: Rng): PotOddsSpot {
   return { pot, bet, fraction, required: requiredEquity(pot, bet) };
 }
 
-// ---------- Sprawdzić czy spasować z dobieraniem (flop albo turn) ----------
+// ---------- Sprawdzić czy spasować z drawem (flop albo turn) ----------
 
 /** Pomijamy decyzje bliżej ceny niż 2 pp, żeby odpowiedź była jednoznaczna bez kalkulatora. */
 export const DRAW_CALL_MIN_GAP = 0.02;

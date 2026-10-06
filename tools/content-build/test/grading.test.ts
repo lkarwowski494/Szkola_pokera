@@ -118,7 +118,7 @@ describe('ocena M13: zakresy solvera przed flopem (5.2, ADR-26)', () => {
   });
 });
 
-describe('ocena M13: dobieranie (5.4)', () => {
+describe('ocena M13: draw (5.4)', () => {
   // BTN otwiera, BB sprawdza; flop z dwoma pikami; BB betuje, BTN (gracz) z kolorem
   const preset: HandPreset = { holes: [null, null, null, hole('As 5s'), null, hole('Kd Qc')], board: parseCards('Ks 7s 2d 9h 3c') };
   const pre = [F, F, F, R(2.5), F, C];
@@ -139,14 +139,14 @@ describe('ocena M13: dobieranie (5.4)', () => {
     expect(gradeLast([...seq, F], preset)).toMatchObject({ verdict: 'mistake', ruleId: 'R-M2-005' });
   });
 
-  it('implied odds: głęboki stack i dobieranie do najlepszej ręki dają sprawdzenie dopuszczalne', () => {
+  it('implied odds: głęboki stack i draw do najlepszej ręki dają sprawdzenie dopuszczalne', () => {
     const seq = [...pre, B(Math.round(pot / 2))];
     const f = gradeLast([...seq, C], preset, cfg(300 * BB));
     expect(f).toMatchObject({ verdict: 'acceptable', ruleId: 'R-M7-008' });
     expect(f.detail).toMatchObject({ kind: 'draw', implied: { nutDraw: true, mathOk: true } });
     // ten sam spot przy płytkich stackach: implied odds nie ma skąd wziąć, sprawdzenie to błąd
     expect(gradeLast([...seq, C], preset, cfg(10 * BB))).toMatchObject({ verdict: 'mistake', ruleId: 'R-M7-008' });
-    // dobieranie nie do najlepszej ręki (niski kolor przy możliwym wyższym)
+    // draw nie do najlepszej ręki (niski kolor przy możliwym wyższym)
     const weak: HandPreset = { holes: [null, null, null, hole('6s 5s'), null, hole('Kd Qc')], board: parseCards('Ks 7s 2d 9h 3c') };
     expect(gradeLast([...seq, C], weak, cfg(300 * BB))).toMatchObject({ verdict: 'mistake', ruleId: 'R-M7-008' });
   });

@@ -13,7 +13,7 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z {{t:cutoff|CO}}, Button {{t:call|sprawdził}}, blindy {{t:fold|spasowały}}. Flop jest średni i {{t:connected}}. Mówisz pierwszy. Jaki plan {{t:fold|pasuje}}?"
     table: { position: CO, board: "Jd 9s 8c" }
     options:
-      - { text: "{{t:check|Czekam}} częściej niż {{t:in-position}}", correct: true, why: "Tak: Button {{t:call|sprawdził}} z {{t:position|pozycji}}, więc ma silny {{t:range}}, a flop średni i {{t:connected}} dobrze trafia jego {{t:pair|pary}} i {{t:connectors|łączniki}}. {{t:out-of-position|Bez pozycji}} {{t:check|czekasz}} tu bardzo często, także z silnymi rękami." }
+      - { text: "{{t:check|Czekam}} częściej niż {{t:in-position}}", correct: true, why: "Tak: Button {{t:call|sprawdził}} z {{t:position|pozycji}}, więc ma silny {{t:range}}, a flop średni i {{t:connected}} dobrze trafia jego {{t:pair|pary}} i {{t:connectors|konektory}}. {{t:out-of-position|Bez pozycji}} {{t:check|czekasz}} tu bardzo często, także z silnymi rękami." }
       - { text: "C-bet często i mało, jak na Buttonie", why: "To plan {{t:in-position}} na {{t:dry|suchym}}, wysokim flopie. Tu nie masz {{t:position|pozycji}}, a flop nie sprzyja twojemu {{t:range|zakresowi}}." }
       - { text: "C-bet ze wszystkimi rękami, żeby nie stracić {{t:initiative|inicjatywy}}", why: "{{t:initiative|Inicjatywa}} nie wygrywa sama: {{t:range}} Buttona jest tu silny, a ty po każdym {{t:bet|zakładzie}} mówisz pierwszy także na turnie i riverze." }
   - kind: choice
@@ -40,12 +40,12 @@ drills:
     id: m5.l4.q-multi
     family: m5.cbet.multi
     rules: [R-M5-013]
-    prompt: "{{t:open|Otworzyłeś}} z {{t:cutoff|CO}}, {{t:call|sprawdzili}} Button i {{t:big-blind}}. Na flopie {{t:big-blind}} {{t:check|czeka}}, a Button mówi po tobie. Masz same wysokie karty bez {{t:draw|dobierania}}. Co robisz?"
+    prompt: "{{t:open|Otworzyłeś}} z {{t:cutoff|CO}}, {{t:call|sprawdzili}} Button i {{t:big-blind}}. Na flopie {{t:big-blind}} {{t:check|czeka}}, a Button mówi po tobie. Masz same wysokie karty bez {{t:draw|drawa}}. Co robisz?"
     table: { hand: "Ad Qc", position: CO, board: "9h 7h 4s" }
     options:
-      - { text: "{{t:check|Czekam}}", correct: true, why: "Tak: przeciw dwóm rywalom ręka bez {{t:pair|pary}} i bez {{t:draw|dobierania}} rzadko wygrywa {{t:pot|pulę}} {{t:bet|zakładem}}. Ktoś z dwóch częściej trafił ten flop." }
+      - { text: "{{t:check|Czekam}}", correct: true, why: "Tak: przeciw dwóm rywalom ręka bez {{t:pair|pary}} i bez {{t:draw|drawa}} rzadko wygrywa {{t:pot|pulę}} {{t:bet|zakładem}}. Ktoś z dwóch częściej trafił ten flop." }
       - { text: "C-bet mały, jak w grze jeden na jednego", why: "Przeciw dwóm rywalom {{t:bluff}} musi przejść przez obu, a obaj chybiają naraz dużo rzadziej niż jeden." }
-      - { text: "C-bet duży, żeby wypchnąć obu", why: "Duży {{t:bluff}} przeciw dwóm rywalom ryzykuje dużo, a szansa, że obaj {{t:fold|spasują}}, jest mała. Na tym flopie mają wiele {{t:pair|par}} i {{t:draw|dobierań}}." }
+      - { text: "C-bet duży, żeby wypchnąć obu", why: "Duży {{t:bluff}} przeciw dwóm rywalom ryzykuje dużo, a szansa, że obaj {{t:fold|spasują}}, jest mała. Na tym flopie mają wiele {{t:pair|par}} i {{t:draw|drawów}}." }
   - kind: choice
     id: m5.l4.q-multi-value
     family: m5.cbet.multi
@@ -82,13 +82,13 @@ drills:
         why:
           check: "Za ostrożnie: na {{t:dry|suchym}}, wysokim flopie masz {{t:range-advantage|przewagę zakresu}}, a rywal zwykle chybił. {{t:check|Czekając}}, dajesz mu darmową kartę."
           small: "Tak: {{t:dry}}, wysoki flop sprzyja tobie. Mały {{t:bet}} wystarcza, żeby rywal {{t:fold|spasował}} słabe ręce, a gorsze {{t:pair|pary}} wciąż go {{t:call|sprawdzą}}."
-          big: "Dobra akcja, zły rozmiar: na {{t:dry|suchym}} flopie rywal ma mało {{t:draw|dobierań}}, a ręce, które chybiły, {{t:fold|spasują}} także na mały {{t:bet}}. Większy {{t:bet}} nie {{t:fold|spasuje}} więcej rąk, a ryzykuje więcej. Betuj ok. {{n:cbet.size.small}} {{t:pot|puli}}."
+          big: "Dobra akcja, zły rozmiar: na {{t:dry|suchym}} flopie rywal ma mało {{t:draw|drawów}}, a ręce, które chybiły, {{t:fold|spasują}} także na mały {{t:bet}}. Większy {{t:bet}} nie {{t:fold|spasuje}} więcej rąk, a ryzykuje więcej. Betuj ok. {{n:cbet.size.small}} {{t:pot|puli}}."
       - when: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
         best: check
         rule: R-M5-004
         why:
-          check: "Tak: niski flop z kartami blisko siebie sprzyja {{t:big-blind|dużemu blindowi}}, który częściej ma tu {{t:two-pair}} albo {{t:straight|strita}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|dobierania}}."
-          small: "Za często: na niskim flopie z kartami blisko siebie to {{t:big-blind}} ma {{t:nuts-advantage|przewagę orzechową}}. Częste c-bety, nawet małe, dają mu okazję do {{t:raise|przebicia}} (check-raise) najsilniejszymi rękami."
+          check: "Tak: niski flop z kartami blisko siebie sprzyja {{t:big-blind|dużemu blindowi}}, który częściej ma tu {{t:two-pair}} albo {{t:straight|strita}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|drawy}}."
+          small: "Za często: na niskim flopie z kartami blisko siebie to {{t:big-blind}} ma {{t:nuts-advantage|przewagę nutsów}}. Częste c-bety, nawet małe, dają mu okazję do {{t:raise|przebicia}} (check-raise) najsilniejszymi rękami."
           big: "Za często i za drogo: {{t:big-blind}} częściej trafił tu {{t:two-pair}} albo {{t:straight|strita}}. Częsty duży c-bet ryzykuje dużo, gdy sam zwykle masz tylko wysokie karty."
     count: 3
 ---

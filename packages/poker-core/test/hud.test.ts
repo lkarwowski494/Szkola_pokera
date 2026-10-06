@@ -12,7 +12,7 @@ describe('typy graczy po statystykach HUD (M10)', () => {
     expect(classifyHud({ hands: 500, vpip: 42, pfr: 18 }, T)).toBe('passive');
     expect(classifyHud({ hands: 500, vpip: 38, pfr: 36 }, T)).toBe('maniac');
     expect(classifyHud({ hands: 20, vpip: 42, pfr: 18 }, T)).toBe('unknown');
-    // strefy przejściowe: VPIP między nitem a regularem, luźny z różnicą 3–10, próba między progami
+    // strefy przejściowe: VPIP między nitem a regiem, luźny z różnicą 3–10, próba między progami
     expect(classifyHud({ hands: 500, vpip: 16, pfr: 13 }, T)).toBeNull();
     expect(classifyHud({ hands: 500, vpip: 40, pfr: 34 }, T)).toBeNull();
     expect(classifyHud({ hands: 60, vpip: 23, pfr: 18 }, T)).toBeNull();

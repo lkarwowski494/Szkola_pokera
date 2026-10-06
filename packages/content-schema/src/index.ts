@@ -65,6 +65,8 @@ export const TermEntry = z
     en: z.string().min(1),
     en_alt: z.array(z.string().min(1)).optional(),
     abbr: z.string().min(1).optional(),
+    /** Definicja po polsku dla początkującego (1–2 zdania, zgodna ze źródłem); czysty tekst bez znaczników. */
+    def: z.string().min(10).regex(/^[^{}]+$/, 'definicja bez znaczników {{…}}').optional(),
     area: TermArea,
     forms: z.array(termForm).optional(),
     skip: z.array(z.string().min(1)).optional(),
@@ -82,6 +84,7 @@ export interface CompiledTerm {
   en: string;
   enAlt: string[];
   abbr?: string;
+  def?: string;
   area: TermArea;
   source: string;
 }
@@ -218,7 +221,7 @@ export const PaintDrill = z.object({
 });
 
 /**
- * icm (M11): bańka turnieju z losowymi stackami; params.mode = "call" (sprawdzić all-in według ICM) albo "equity" (wycena stacku).
+ * icm (M11): bubble turnieju z losowymi stackami; params.mode = "call" (sprawdzić all-in według ICM) albo "equity" (wycena stacku).
  * playerType (M10): typ gracza po VPIP, PFR i próbie z HUD; progi w params jako "n:klucz" z numbers.yaml (poker-core HUD_PARAMS).
  */
 export const GeneratorName = z.enum(['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'rangeDecision', 'icm', 'vocab', 'playerType']);

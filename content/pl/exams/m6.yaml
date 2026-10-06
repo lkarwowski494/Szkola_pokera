@@ -51,12 +51,12 @@ drills:
     id: m6.exam.q6
     family: m6.flop.call
     rules: [R-M6-006]
-    prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie {{t:check|czekasz}}, Button {{t:bet|stawia}} c-bet 1/3 {{t:pot|puli}}. Masz asa jako najwyższą kartę, bez {{t:draw|dobierania}}. Co robisz?"
+    prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie {{t:check|czekasz}}, Button {{t:bet|stawia}} c-bet 1/3 {{t:pot|puli}}. Masz asa jako najwyższą kartę, bez {{t:draw|drawa}}. Co robisz?"
     table: { hand: "Ac 6h", board: "Js 8d 3d", position: BB }
     options:
-      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Tak: wobec małego c-betu potrzebujesz tylko ok. {{n:eq.bet-third}} equity. As jako najwyższa karta wygrywa z częścią {{t:bluff|blefów}} Buttona i może trafić {{t:pair|parę}}, więc zwykle go bronisz. {{t:fold|Pasujesz}} najsłabsze ręce bez {{t:pair|pary}} i bez {{t:draw|dobierania}}." }
-      - { text: "{{t:fold|Pasuję}}", why: "Za ciasno: wobec małego c-betu as jako najwyższa karta zwykle się broni. {{t:fold|Pasujesz}} słabsze ręce bez {{t:pair|pary}} i bez {{t:draw|dobierania}}." }
-      - { text: "Check-raise", why: "Check-raise robisz głównie najsilniejszymi rękami i {{t:draw|dobieraniami}}. Ta ręka nie ma ani wartości, ani {{t:draw|dobierania}}, które dałoby drugą drogę do wygranej." }
+      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Tak: wobec małego c-betu potrzebujesz tylko ok. {{n:eq.bet-third}} equity. As jako najwyższa karta wygrywa z częścią {{t:bluff|blefów}} Buttona i może trafić {{t:pair|parę}}, więc zwykle go bronisz. {{t:fold|Pasujesz}} najsłabsze ręce bez {{t:pair|pary}} i bez {{t:draw|drawa}}." }
+      - { text: "{{t:fold|Pasuję}}", why: "Za ciasno: wobec małego c-betu as jako najwyższa karta zwykle się broni. {{t:fold|Pasujesz}} słabsze ręce bez {{t:pair|pary}} i bez {{t:draw|drawa}}." }
+      - { text: "Check-raise", why: "Check-raise robisz głównie najsilniejszymi rękami i {{t:draw|drawami}}. Ta ręka nie ma ani wartości, ani {{t:draw|drawa}}, który dałby drugą drogę do wygranej." }
   - kind: choice
     id: m6.exam.q7
     family: m6.flop.fold
@@ -64,8 +64,8 @@ drills:
     prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie [[8c 4d 2h]] {{t:check|czekasz}}, a Button {{t:bet|stawia}} c-bet 3/4 {{t:pot|puli}}. Z którą z tych rąk {{t:call}} ma więcej sensu?"
     table: { board: "8c 4d 2h", position: BB }
     options:
-      - { text: "[[Ad Jd]]", correct: true, why: "Tak: obie ręce to dwie wysokie karty bez {{t:pair|pary}}, ale AJ w karach ma dodatkowe {{t:flush-draw}} (backdoor) do najwyższego {{t:flush|koloru}}: z karem na {{t:board|stole}} potrzebuje jeszcze dwóch kar. Wobec dużego c-betu {{t:call|sprawdzasz}} raczej właśnie taką ręką." }
-      - { text: "[[Ks Qs]]", why: "KQ w pikach nie ma tu żadnego {{t:draw|dobierania}}: na {{t:board|stole}} nie ma pika, a do {{t:straight|strita}} jest za daleko. Dwie wysokie karty bez {{t:draw|dobierania}} wobec dużego c-betu zwykle {{t:fold|pasujesz}}." }
+      - { text: "[[Ad Jd]]", correct: true, why: "Tak: obie ręce to dwie wysokie karty bez {{t:pair|pary}}, ale AJ w karach ma dodatkowy {{t:flush-draw}} (backdoor) do najwyższego {{t:flush|koloru}}: z karem na {{t:board|stole}} potrzebuje jeszcze dwóch kar. Wobec dużego c-betu {{t:call|sprawdzasz}} raczej właśnie taką ręką." }
+      - { text: "[[Ks Qs]]", why: "KQ w pikach nie ma tu żadnego {{t:draw|drawa}}: na {{t:board|stole}} nie ma pika, a do {{t:straight|strita}} jest za daleko. Dwie wysokie karty bez {{t:draw|drawa}} wobec dużego c-betu zwykle {{t:fold|pasujesz}}." }
   - kind: choice
     id: m6.exam.q8
     family: m6.xr.semibluff
@@ -73,9 +73,9 @@ drills:
     prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie [[Jh 8c 4h]] {{t:check|czekasz}}, a Button {{t:bet|stawia}} c-bet 1/3 {{t:pot|puli}}. Którą z tych rąk najlepiej zagrać check-raise'em?"
     table: { board: "Jh 8c 4h", position: BB }
     options:
-      - { text: "[[Qh Th]]", correct: true, why: "Tak: {{t:flush-draw}} i gutshot (dziewiątka) to mocne {{t:draw}}. Check-raise wygrywa, gdy Button {{t:fold|spasuje}}, a gdy zapłaci, nadal masz wiele outów." }
+      - { text: "[[Qh Th]]", correct: true, why: "Tak: {{t:flush-draw}} i gutshot (dziewiątka) to mocny {{t:draw}}. Check-raise wygrywa, gdy Button {{t:fold|spasuje}}, a gdy zapłaci, nadal masz wiele outów." }
       - { text: "[[Jd 5d]]", why: "{{t:top-pair|Najwyższa para}} ze słabym kickerem to ręka do {{t:call|sprawdzania}}. Po check-raise'ie gorsze ręce zwykle {{t:fold|pasują}}, a lepsze płacą." }
-      - { text: "[[As 3c]]", why: "As jako najwyższa karta bez {{t:draw|dobierania}} nie ma drugiej drogi do wygranej. Check-raise jako {{t:bluff}} robisz głównie {{t:draw|dobieraniami}}." }
+      - { text: "[[As 3c]]", why: "As jako najwyższa karta bez {{t:draw|drawa}} nie ma drugiej drogi do wygranej. Check-raise jako {{t:bluff}} robisz głównie {{t:draw|drawami}}." }
   - kind: numeric
     id: m6.exam.q9
     family: m6.xr.size

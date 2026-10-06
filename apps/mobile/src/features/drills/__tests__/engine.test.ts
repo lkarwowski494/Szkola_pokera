@@ -49,7 +49,7 @@ describe('silnik zadań', () => {
     const rng = createRng(5);
     for (const raw of instantiate(gen('icm', { mode: 'call' }), 'l1', rng)) {
       const inst = asChoice(raw);
-      expect(inst.prompt).toMatch(/Bańka \(bubble\): [34] graczy/);
+      expect(inst.prompt).toMatch(/Bubble: [34] graczy/);
       expect(inst.explanation).toMatch(/Bubble factor/);
       expect(inst.options.map((o) => o.text)).toEqual(['Sprawdzam (call)', 'Pasuję (fold)']);
     }
@@ -76,7 +76,7 @@ describe('silnik zadań', () => {
       expect(type).not.toBeNull();
       const correct = inst.options.filter((o) => o.correct);
       expect(correct).toHaveLength(1);
-      expect(inst.options.map((o) => o.text)).toEqual(['Nit', 'Regular', 'Pasywny gracz rekreacyjny (recreational player)', 'Maniak (maniac)', 'Za mało rąk, żeby ocenić']);
+      expect(inst.options.map((o) => o.text)).toEqual(['Nit', 'Reg (regular)', 'Pasywny gracz rekreacyjny (recreational player)', 'Maniak (maniac)', 'Za mało rąk, żeby ocenić']);
       expect(inst.options[PLAYER_TYPES.indexOf(type!)]!.correct).toBe(true);
       expect(correct[0]!.why).toMatch(/^Tak\./);
       expect(inst.explanation).toMatch(/^Najpierw próba/);

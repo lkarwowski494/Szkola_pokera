@@ -19,17 +19,17 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}}. Na którym z tych flopów to {{t:big-blind}} częściej niż ty ma {{t:two-pair}} albo {{t:straight|strita}}?"
     table: { position: BTN }
     options:
-      - { text: "[[8h 6d 5c]]", correct: true, why: "Tak: niski, {{t:connected}} flop trafia {{t:connectors|łączniki}} i ręce z małymi kartami, których {{t:big-blind}} broni dużo. Ty z Buttona masz więcej wysokich kart, które tu chybiły. To {{t:nuts-advantage}} {{t:big-blind|dużego blinda}}." }
+      - { text: "[[8h 6d 5c]]", correct: true, why: "Tak: niski, {{t:connected}} flop trafia {{t:connectors|konektory}} i ręce z małymi kartami, których {{t:big-blind}} broni dużo. Ty z Buttona masz więcej wysokich kart, które tu chybiły. To {{t:nuts-advantage}} {{t:big-blind|dużego blinda}}." }
       - { text: "[[Kd Td 3s]]", why: "Nie: wysoki flop sprzyja {{t:open|otwierającemu}}. Masz więcej króli z dobrym kickerem, KT i wysokich {{t:pair|par}}." }
       - { text: "[[Ah Ad 7c]]", why: "Nie: na flopie z {{t:pair|parą}} asów więcej asów masz ty, bo {{t:big-blind}} najsilniejsze asy {{t:raise|przebija}} przed flopem. {{t:straight|Strita}} nikt tu nie ma." }
   - kind: choice
     id: m5.exam.q3
     family: m5.advantage.why
     rules: [R-M5-005]
-    prompt: "Na flopie oceniasz dwie przewagi: {{t:range-advantage|przewagę zakresu}} i {{t:nuts-advantage|przewagę orzechową}}. Która z nich podpowiada, jak dużo betować?"
+    prompt: "Na flopie oceniasz dwie przewagi: {{t:range-advantage|przewagę zakresu}} i {{t:nuts-advantage|przewagę nutsów}}. Która z nich podpowiada, jak dużo betować?"
     options:
-      - { text: "{{t:nuts-advantage|Przewaga orzechowa}}", correct: true, why: "Tak: gdy masz dużo więcej najsilniejszych rąk niż rywal, rzadko trafisz na lepszą rękę, więc możesz betować większym rozmiarem. {{t:range-advantage|Przewaga zakresu}} mówi, jak często betować." }
-      - { text: "{{t:range-advantage|Przewaga zakresu}}", why: "Nie: {{t:range-advantage}} mówi, że możesz betować często. Bez {{t:nuts-advantage|przewagi orzechowej}} betujesz mało, bo duży {{t:bet}} ryzykuje dużo przeciw najsilniejszym rękom rywala." }
+      - { text: "{{t:nuts-advantage|Przewaga nutsów}}", correct: true, why: "Tak: gdy masz dużo więcej najsilniejszych rąk niż rywal, rzadko trafisz na lepszą rękę, więc możesz betować większym rozmiarem. {{t:range-advantage|Przewaga zakresu}} mówi, jak często betować." }
+      - { text: "{{t:range-advantage|Przewaga zakresu}}", why: "Nie: {{t:range-advantage}} mówi, że możesz betować często. Bez {{t:nuts-advantage|przewagi nutsów}} betujesz mało, bo duży {{t:bet}} ryzykuje dużo przeciw najsilniejszym rękom rywala." }
       - { text: "Żadna: rozmiar zależy tylko od twojej ręki", why: "Rywal nie widzi twojej ręki, tylko {{t:range}}. Rozmiar wybierasz tak, żeby pasował do wielu twoich rąk naraz, a o tym decydują przewagi." }
   - kind: choice
     id: m5.exam.q4
@@ -75,19 +75,19 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z {{t:hijack|HJ}}, {{t:call|sprawdzili}} Button i {{t:big-blind}}. Z których rąk przeciw dwóm rywalom rezygnujesz z c-betu w pierwszej kolejności?"
     table: { position: HJ }
     options:
-      - { text: "Z {{t:bluff|blefów}} bez {{t:pair|pary}} i bez {{t:draw|dobierania}}", correct: true, why: "Tak: {{t:bluff}} musi przejść przez obu rywali, a dwie ręce bez {{t:pair|pary}} chybiają naraz tylko w ok. {{n:flop.miss.two}} przypadków. Betujesz rzadko, głównie silnymi rękami i mocnymi {{t:draw|dobieraniami}}." }
-      - { text: "Z mocnych {{t:draw|dobierań}}", why: "Nie: mocne {{t:draw|dobierania}} należą do rąk, które przeciw kilku rywalom wciąż czasem betują, bo wygrywają też po trafieniu." }
+      - { text: "Z {{t:bluff|blefów}} bez {{t:pair|pary}} i bez {{t:draw|drawa}}", correct: true, why: "Tak: {{t:bluff}} musi przejść przez obu rywali, a dwie ręce bez {{t:pair|pary}} chybiają naraz tylko w ok. {{n:flop.miss.two}} przypadków. Betujesz rzadko, głównie silnymi rękami i mocnymi {{t:draw|drawami}}." }
+      - { text: "Z mocnych {{t:draw|drawów}}", why: "Nie: mocne {{t:draw|drawy}} należą do rąk, które przeciw kilku rywalom wciąż czasem betują, bo wygrywają też po trafieniu." }
       - { text: "Z żadnych: c-betujesz tak samo jak przeciw jednemu", why: "Nie: każdy kolejny rywal zwiększa szansę, że ktoś trafił flop. Przeciw dwóm c-betujesz dużo rzadziej." }
   - kind: choice
     id: m5.exam.q9
     family: m5.cbet.size
     rules: [R-M5-008]
-    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i {{t:check|czeka}}. Flop jest {{t:wet}}. Masz {{t:pair|parę}} siódemek z asem, bez {{t:draw|dobierania}}. Co robisz?"
+    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i {{t:check|czeka}}. Flop jest {{t:wet}}. Masz {{t:pair|parę}} siódemek z asem, bez {{t:draw|drawa}}. Co robisz?"
     table: { hand: "As 7c", position: BTN, board: "Td 9d 7s" }
     options:
-      - { text: "{{t:check|Czekam}}", correct: true, why: "Tak: na {{t:wet|mokrym}} flopie betujesz rzadziej, głównie silnymi rękami i mocnymi {{t:draw|dobieraniami}}. Najniższa {{t:pair}} bez {{t:draw|dobierania}} to co najwyżej ręka średnia: {{t:bet}} {{t:call|sprawdzą}} głównie lepsze ręce i {{t:draw|dobierania}}, które mają przeciw niej dużo equity." }
-      - { text: "C-bet {{n:cbet.size.big}} {{t:pot|puli}}", why: "Duży rozmiar na {{t:wet|mokrym}} flopie jest dla silnych rąk i mocnych {{t:draw|dobierań}}. Z najniższą {{t:pair|parą}} budujesz dużą {{t:pot|pulę}} przeciw rękom, które często cię biją albo mają dużo equity." }
-      - { text: "C-bet {{n:cbet.size.small}} {{t:pot|puli}}", why: "Na {{t:wet|mokrym}} flopie ręce średnie bez {{t:draw|dobierania}} częściej {{t:check|czekają}}. Mały {{t:bet}} daje {{t:draw|dobieraniom}} tanią kartę, a słabsze ręce i tak rzadko zapłacą." }
+      - { text: "{{t:check|Czekam}}", correct: true, why: "Tak: na {{t:wet|mokrym}} flopie betujesz rzadziej, głównie silnymi rękami i mocnymi {{t:draw|drawami}}. Najniższa {{t:pair}} bez {{t:draw|drawa}} to co najwyżej ręka średnia: {{t:bet}} {{t:call|sprawdzą}} głównie lepsze ręce i {{t:draw|drawy}}, które mają przeciw niej dużo equity." }
+      - { text: "C-bet {{n:cbet.size.big}} {{t:pot|puli}}", why: "Duży rozmiar na {{t:wet|mokrym}} flopie jest dla silnych rąk i mocnych {{t:draw|drawów}}. Z najniższą {{t:pair|parą}} budujesz dużą {{t:pot|pulę}} przeciw rękom, które często cię biją albo mają dużo equity." }
+      - { text: "C-bet {{n:cbet.size.small}} {{t:pot|puli}}", why: "Na {{t:wet|mokrym}} flopie ręce średnie bez {{t:draw|drawa}} częściej {{t:check|czekają}}. Mały {{t:bet}} daje {{t:draw|drawom}} tanią kartę, a słabsze ręce i tak rzadko zapłacą." }
   - kind: choice
     id: m5.exam.q10
     family: m5.cbet.texture
@@ -95,6 +95,6 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i {{t:check|czeka}}. Flop jest {{t:monotone}}, więc według punktacji aplikacji {{t:wet}}. Gdy już c-betujesz, jakim rozmiarem?"
     table: { position: BTN, board: "Jd 7d 2d" }
     options:
-      - { text: "Mało", correct: true, why: "Tak: {{t:flush}} może mieć już każdy z graczy, więc twoja {{t:nuts-advantage}} jest mniejsza. Na {{t:monotone|monotonicznym}} flopie betujesz rzadziej niż zwykle i małym rozmiarem, żeby nie budować dużej {{t:pot|puli}} przeciw kolorowi." }
-      - { text: "Dużo, bo flop jest {{t:wet}}", why: "„{{t:wet|Mokry}}” nie znaczy „duży bet”. Większy rozmiar dotyczy {{t:wet|mokrych}} flopów, które nie są {{t:monotone|monotoniczne}}. Na {{t:monotone|monotonicznym}} duża {{t:pot}} jest groźna, bo rywal może mieć gotowy {{t:flush}}." }
-      - { text: "Całą {{t:pot|pulę}}, żeby {{t:draw|dobierania}} płaciły drogo", why: "Na {{t:monotone|monotonicznym}} flopie najgroźniejsze nie są {{t:draw|dobierania}}, tylko gotowe kolory rywala. Bet wielkości {{t:pot|puli}} ryzykuje najwięcej właśnie przeciw nim." }
+      - { text: "Mało", correct: true, why: "Tak: {{t:flush}} może mieć już każdy z graczy, więc twoja {{t:nuts-advantage}} jest mniejsza. Na {{t:monotone|jednokolorowym}} flopie betujesz rzadziej niż zwykle i małym rozmiarem, żeby nie budować dużej {{t:pot|puli}} przeciw kolorowi." }
+      - { text: "Dużo, bo flop jest {{t:wet}}", why: "„{{t:wet|Mokry}}” nie znaczy „duży bet”. Większy rozmiar dotyczy {{t:wet|mokrych}} flopów, które nie są {{t:monotone|jednokolorowe}}. Na {{t:monotone|jednokolorowym}} duża {{t:pot}} jest groźna, bo rywal może mieć gotowy {{t:flush}}." }
+      - { text: "Całą {{t:pot|pulę}}, żeby {{t:draw|drawy}} płaciły drogo", why: "Na {{t:monotone|jednokolorowym}} flopie najgroźniejsze nie są {{t:draw|drawy}}, tylko gotowe kolory rywala. Bet wielkości {{t:pot|puli}} ryzykuje najwięcej właśnie przeciw nim." }

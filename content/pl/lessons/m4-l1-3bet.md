@@ -45,7 +45,7 @@ drills:
     options:
       - { text: "A5 w kolorze", correct: true, why: "Blokuje AA i AK rywala, a po {{t:call|sprawdzeniu}} ma szansę na {{t:flush}} i {{t:straight|strita}}. To typowy {{t:bluff}} z dołu {{t:range|zakresu}} {{t:call|sprawdzenia}}: z {{t:big-blind|dużego blinda}} 3-betujesz najsilniejsze ręce plus takie {{t:bluff|blefy}}." }
       - { text: "K7 w różnych kolorach", why: "Tą ręką bronisz się {{t:call|sprawdzeniem}}. Jako 3-bet nie blokuje niczego ważnego i słabo gra, gdy rywal {{t:call|sprawdzi}}." }
-      - { text: "{{t:pair|Para}} 22", why: "Najmniejsze {{t:pair|pary}} bronią się {{t:call|sprawdzeniem}}: zarabiają, gdy trafią seta ({{t:three-of-a-kind|trójkę}} z {{t:pocket-pair|parą w ręce}}), a 3-bet z nimi źle znosi 4-bet." }
+      - { text: "{{t:pair|Para}} 22", why: "Najmniejsze {{t:pair|pary}} bronią się {{t:call|sprawdzeniem}}: zarabiają, gdy trafią seta ({{t:three-of-a-kind|trójkę}} z {{t:pocket-pair|pocket parą}}), a 3-bet z nimi źle znosi 4-bet." }
   - kind: generated
     id: m4.l1.g-btn
     family: m4.vsopen.btn-vs-co
@@ -94,9 +94,9 @@ Według rozwiązania GTO Wizard {{t:small-blind}} wobec Buttona prawie nic nie {
 
 ## {{t:range|Zakres}} {{t:linear}} czy {{t:polarized}}
 
-Mając {{t:position|pozycję}} wobec {{t:open|otwarcia}} z {{t:hijack|HJ}} albo {{t:cutoff|CO}}, 3-betujesz głównie najlepsze ręce od góry i dokładasz kilka {{t:bluff|blefów}} z asami w kolorze (A5s, A4s), a część słabszych rąk, na przykład małe {{t:pair|pary}} i {{t:connectors|łączniki}} w kolorze, {{t:call|sprawdzasz}}: rywal często {{t:call|sprawdza}}, więc chcesz mieć rękę, która dobrze gra w {{t:pot|puli}} po {{t:call|sprawdzeniu}}. Źródła nazywają taki {{t:range}} różnie: GTO Gecko {{t:linear|liniowym}}, Preflop Wizard {{t:polarized|spolaryzowanym}}; ważniejsze jest, które ręce 3-betujesz, a które {{t:call|sprawdzasz}}.
+Mając {{t:position|pozycję}} wobec {{t:open|otwarcia}} z {{t:hijack|HJ}} albo {{t:cutoff|CO}}, 3-betujesz głównie najlepsze ręce od góry i dokładasz kilka {{t:bluff|blefów}} z asami w kolorze (A5s, A4s), a część słabszych rąk, na przykład małe {{t:pair|pary}} i {{t:connectors|konektory}} w kolorze, {{t:call|sprawdzasz}}: rywal często {{t:call|sprawdza}}, więc chcesz mieć rękę, która dobrze gra w {{t:pot|puli}} po {{t:call|sprawdzeniu}}. Źródła nazywają taki {{t:range}} różnie: GTO Gecko {{t:linear|liniowym}}, Preflop Wizard {{t:polarized|spolaryzowanym}}; ważniejsze jest, które ręce 3-betujesz, a które {{t:call|sprawdzasz}}.
 
-Z {{t:big-blind|dużego blinda}} wobec Buttona albo {{t:small-blind|małego blinda}} 3-betujesz najsilniejsze ręce (TT+, AQ+, AJs+) plus {{t:bluff|blefy}} z dołu {{t:range|zakresu}} {{t:call|sprawdzenia}}: A5s, czasem A4s, i {{t:connectors|łączniki}} w kolorze. Asy w kolorze blokują AA i AK rywala, a gdy dostaną {{t:call}}, wciąż mogą trafić {{t:flush}} albo {{t:straight|strita}}. Średnie i małe {{t:pair|pary}}, KQo oraz asy w różnych kolorach (AJo–A9o) zwykle tylko {{t:call|sprawdzasz}}: z {{t:big-blind|dużego blinda}} wchodzisz tanio i zamykasz akcję, więc te ręce zarabiają więcej po {{t:call|sprawdzeniu}}. Skład zależy od {{t:rake|rake'u}} i rozmiaru 3-betu, więc 99, KQo i AJo bywają grane różnie.
+Z {{t:big-blind|dużego blinda}} wobec Buttona albo {{t:small-blind|małego blinda}} 3-betujesz najsilniejsze ręce (TT+, AQ+, AJs+) plus {{t:bluff|blefy}} z dołu {{t:range|zakresu}} {{t:call|sprawdzenia}}: A5s, czasem A4s, i {{t:connectors|konektory}} w kolorze. Asy w kolorze blokują AA i AK rywala, a gdy dostaną {{t:call}}, wciąż mogą trafić {{t:flush}} albo {{t:straight|strita}}. Średnie i małe {{t:pair|pary}}, KQo oraz asy w różnych kolorach (AJo–A9o) zwykle tylko {{t:call|sprawdzasz}}: z {{t:big-blind|dużego blinda}} wchodzisz tanio i zamykasz akcję, więc te ręce zarabiają więcej po {{t:call|sprawdzeniu}}. Skład zależy od {{t:rake|rake'u}} i rozmiaru 3-betu, więc 99, KQo i AJo bywają grane różnie.
 
 Z {{t:small-blind|małego blinda}} grasz inaczej: 3-bet albo {{t:fold}}, z górą {{t:range|zakresu}} w 3-becie.
 

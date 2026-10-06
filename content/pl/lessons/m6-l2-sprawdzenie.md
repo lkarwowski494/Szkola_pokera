@@ -42,8 +42,8 @@ drills:
     table: { hand: "7h 6h", board: "Kc 7d 2s", position: BB }
     options:
       - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Środkowa {{t:pair}} wygrywa ze wszystkimi {{t:bluff|blefami}} Buttona (ręce bez {{t:pair|pary}}), a do {{t:call|sprawdzenia}} potrzebujesz tylko {{n:eq.bet-third}} equity. Standardowa obrona." }
-      - { text: "{{t:fold|Pasuję}}", why: "Za ciasno. Wobec małego c-betu {{t:fold|pasujesz}} najsłabsze ręce bez {{t:pair|pary}} i bez {{t:draw|dobierania}}, a nie {{t:pair|parę}}." }
-      - { text: "Check-raise", why: "Zwykle {{t:call|sprawdzasz}}. Po {{t:raise|przebiciu}} płacą ci głównie lepsze ręce i {{t:draw|dobierania}}; check-raise taką ręką to rzadkie zagranie solvera wobec małych c-betów." }
+      - { text: "{{t:fold|Pasuję}}", why: "Za ciasno. Wobec małego c-betu {{t:fold|pasujesz}} najsłabsze ręce bez {{t:pair|pary}} i bez {{t:draw|drawa}}, a nie {{t:pair|parę}}." }
+      - { text: "Check-raise", why: "Zwykle {{t:call|sprawdzasz}}. Po {{t:raise|przebiciu}} płacą ci głównie lepsze ręce i {{t:draw|drawy}}; check-raise taką ręką to rzadkie zagranie solvera wobec małych c-betów." }
   - kind: choice
     id: m6.l2.q-bare-overcards
     family: m6.flop.fold
@@ -51,9 +51,9 @@ drills:
     prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie {{t:check|czekasz}}, Button {{t:bet|stawia}} c-bet 3/4 {{t:pot|puli}}. Co robisz?"
     table: { hand: "Qd Jc", board: "7s 4h 2s", position: BB }
     options:
-      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Nie masz {{t:pair|pary}} ani {{t:draw|dobierania}} (żadnego pika, a {{t:straight}} jest daleko). Wobec dużego c-betu potrzebujesz {{n:eq.bet-three-quarters}} equity, a {{t:out-of-position}} rzadko dojdziesz z samymi wysokimi kartami do showdownu. {{t:pair|Para}} damy albo waleta też nie zawsze wygra." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Nie masz {{t:pair|pary}} ani {{t:draw|drawa}} (żadnego pika, a {{t:straight}} jest daleko). Wobec dużego c-betu potrzebujesz {{n:eq.bet-three-quarters}} equity, a {{t:out-of-position}} rzadko dojdziesz z samymi wysokimi kartami do showdownu. {{t:pair|Para}} damy albo waleta też nie zawsze wygra." }
       - { text: "{{t:call|Sprawdzam}}", why: "Kusi, bo dama i walet są wyższe od stołu. Ale gołe wysokie karty to za mało przy takiej cenie: na turnie często dostaniesz kolejny bet i {{t:fold|spasujesz}}." }
-      - { text: "Check-raise", why: "Do {{t:bluff|blefu}} lepiej nadają się ręce z {{t:draw|dobieraniem}}, które mają drugą drogę do wygranej. Ta ręka nie ma żadnej." }
+      - { text: "Check-raise", why: "Do {{t:bluff|blefu}} lepiej nadają się ręce z {{t:draw|drawem}}, które mają drugą drogę do wygranej. Ta ręka nie ma żadnej." }
   - kind: choice
     id: m6.l2.q-backdoor
     family: m6.flop.call
@@ -61,9 +61,9 @@ drills:
     prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie {{t:check|czekasz}}, Button {{t:bet|stawia}} c-bet 1/3 {{t:pot|puli}}. Co robisz?"
     table: { hand: "Qs Js", board: "7s 4h 2d", position: BB }
     options:
-      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Dwie wysokie karty plus dodatkowe {{t:flush-draw}} (backdoor: trzy piki, potrzebujesz pika na turnie i na riverze). Przy cenie {{n:eq.bet-third}} to wystarczy do {{t:call|sprawdzenia}}." }
-      - { text: "Check-raise", why: "Zwykle nie. Check-raise robisz głównie najsilniejszymi rękami i {{t:draw|dobieraniami}} ({{t:flush}}, {{t:oesd}}). Dodatkowe {{t:flush-draw}} jest słabe: gdy Button zapłaci, zwykle zostajesz z samymi wysokimi kartami. Tę rękę {{t:call|sprawdzasz}}." }
-      - { text: "{{t:fold|Pasuję}}", why: "Za ciasno wobec małego c-betu. Dodatkowe {{t:draw}} i dwie wysokie karty dają dość equity przy cenie {{n:eq.bet-third}}." }
+      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Dwie wysokie karty plus dodatkowy {{t:flush-draw}} (backdoor: trzy piki, potrzebujesz pika na turnie i na riverze). Przy cenie {{n:eq.bet-third}} to wystarczy do {{t:call|sprawdzenia}}." }
+      - { text: "Check-raise", why: "Zwykle nie. Check-raise robisz głównie najsilniejszymi rękami i {{t:draw|drawami}} ({{t:flush}}, {{t:oesd}}). Dodatkowy {{t:flush-draw}} jest słaby: gdy Button zapłaci, zwykle zostajesz z samymi wysokimi kartami. Tę rękę {{t:call|sprawdzasz}}." }
+      - { text: "{{t:fold|Pasuję}}", why: "Za ciasno wobec małego c-betu. Dodatkowy {{t:draw}} i dwie wysokie karty dają dość equity przy cenie {{n:eq.bet-third}}." }
   - kind: choice
     id: m6.l2.q-gutshot-overcard
     family: m6.flop.call
@@ -81,9 +81,9 @@ drills:
     prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie {{t:check|czekasz}}, Button {{t:bet|stawia}} c-bet 1/3 {{t:pot|puli}}. Co robisz?"
     table: { hand: "Jd 9c", board: "Ah Ks 4s", position: BB }
     options:
-      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Nie masz {{t:pair|pary}} ani {{t:flush-draw|dobierania do koloru}}; masz tylko słabe dodatkowe {{t:straight-draw}} (potrzebujesz dwóch konkretnych kart), a żadna twoja karta nie jest wyższa od stołu. Na flopie z asem i królem Button ma dużo silnych rąk. Cena jest dobra, ale ta ręka prawie nigdy jej nie zrealizuje." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Nie masz {{t:pair|pary}} ani {{t:flush-draw|drawa do koloru}}; masz tylko słaby dodatkowy {{t:straight-draw}} (potrzebujesz dwóch konkretnych kart), a żadna twoja karta nie jest wyższa od stołu. Na flopie z asem i królem Button ma dużo silnych rąk. Cena jest dobra, ale ta ręka prawie nigdy jej nie zrealizuje." }
       - { text: "{{t:call|Sprawdzam}}, bo {{t:mdf}} wynosi {{n:mdf.bet-third}}", why: "{{t:mdf}} to punkt odniesienia dla całego {{t:range|zakresu}}, a nie powód, żeby płacić najsłabszymi rękami. Na flopie {{t:out-of-position}} możesz bronić trochę mniej niż {{t:mdf}}." }
-      - { text: "Check-raise", why: "Na flopie z asem i królem {{t:range-advantage}} jest po stronie Buttona, a ty nie masz {{t:draw|dobierania}}, które dawałoby drugą drogę do wygranej." }
+      - { text: "Check-raise", why: "Na flopie z asem i królem {{t:range-advantage}} jest po stronie Buttona, a ty nie masz {{t:draw|drawa}}, który dawałby drugą drogę do wygranej." }
   - kind: choice
     id: m6.l2.q-realize
     family: m6.flop.realize
@@ -113,22 +113,22 @@ Najpierw liczysz, ile equity potrzebujesz (wzór z M2). Mały c-bet daje świetn
 
 ## {{t:out-of-position|Bez pozycji}} realizujesz mniej
 
-Equity to szansa przy grze do końca bez dalszych {{t:bet|zakładów}}. {{t:out-of-position|Bez pozycji}} mówisz pierwszy na każdej {{t:street|ulicy}}, więc często {{t:fold|spasujesz}}, zanim zobaczysz showdown. Słabe ręce bez {{t:draw|dobierania}} realizują mniej, niż wynika z equity. Ręce w kolorze, {{t:connectors|łączniki}} i {{t:pair|pary}} realizują więcej, bo trafiają mocne układy albo już wygrywają.
+Equity to szansa przy grze do końca bez dalszych {{t:bet|zakładów}}. {{t:out-of-position|Bez pozycji}} mówisz pierwszy na każdej {{t:street|ulicy}}, więc często {{t:fold|spasujesz}}, zanim zobaczysz showdown. Słabe ręce bez {{t:draw|drawa}} realizują mniej, niż wynika z equity. Ręce w kolorze, {{t:connectors|konektory}} i {{t:pair|pary}} realizują więcej, bo trafiają mocne układy albo już wygrywają.
 
 ## Czym {{t:call|sprawdzasz}}
 
 Wobec małego c-betu (ok. 1/3 {{t:pot|puli}}) kontynuujesz:
 
 - prawie każdą {{t:pair|parą}}, także środkową i najniższą,
-- {{t:flush-draw|dobieraniami do koloru}} i {{t:straight|strita}}, także gutshotem z wysoką kartą,
-- wysokimi kartami z dodatkowym {{t:draw|dobieraniem}} (backdoor), np. trzema kartami w jednym kolorze,
+- {{t:flush-draw|drawami do koloru}} i {{t:straight|strita}}, także gutshotem z wysoką kartą,
+- wysokimi kartami z dodatkowym {{t:draw|drawem}} (backdoor), np. trzema kartami w jednym kolorze,
 - zwykle także asem jako najwyższą kartą.
 
 Pamiętaj z M2: {{t:call}} {{t:bet|zakładu}} na flopie kupuje jedną kartę, więc {{t:draw}} porównujesz z szansą na turnie. Ta szansa bywa trochę niższa od ceny małego c-betu. {{t:call|Sprawdzenie}} i tak się opłaca, gdy po trafieniu wygrasz więcej niż to, co jest teraz w {{t:pot|puli}} (to tzw. implied odds, policzysz je w M7), albo gdy ręka czasem wygrywa bez trafienia, np. dzięki wysokiej karcie.
 
 ## Czym {{t:fold|pasujesz}}
 
-- rękami bez {{t:pair|pary}} i bez {{t:draw|dobierania}}, które nie mają asa ani kart wyższych od stołu; na flopach z asem {{t:fold|pasujesz}} ich więcej,
-- zwykle dwiema wysokimi kartami bez {{t:draw|dobierania}}, gdy c-bet jest duży; {{t:call|sprawdzasz}} raczej wtedy, gdy masz dodatkowe {{t:draw}}, najlepiej do najwyższego {{t:flush|koloru}}.
+- rękami bez {{t:pair|pary}} i bez {{t:draw|drawa}}, które nie mają asa ani kart wyższych od stołu; na flopach z asem {{t:fold|pasujesz}} ich więcej,
+- zwykle dwiema wysokimi kartami bez {{t:draw|drawa}}, gdy c-bet jest duży; {{t:call|sprawdzasz}} raczej wtedy, gdy masz dodatkowy {{t:draw}}, najlepiej do najwyższego {{t:flush|koloru}}.
 
 Gdy c-bet rośnie, kolejne najsłabsze ręce przechodzą ze {{t:call|sprawdzenia}} do pasa.
