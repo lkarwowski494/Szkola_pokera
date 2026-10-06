@@ -54,7 +54,9 @@ jobs:
         working-directory: apps/mobile/ios
         run: |
           BUILD_NUMBER=$((1000 + GITHUB_RUN_NUMBER))
-          WS=$(ls -d *.xcworkspace | head -1); SCHEME="${WS%.xcworkspace}"
+          # workspace powstaje dopiero po pod install, więc nazwę schematu bierzemy z projektu .xcodeproj
+          PROJ=$(ls -d *.xcodeproj | head -1); SCHEME="${PROJ%.xcodeproj}"; WS="$SCHEME.xcworkspace"
+          test -n "$PROJ" && test -f "$SCHEME/Info.plist" || { echo "::error::Brak projektu iOS albo $SCHEME/Info.plist po prebuild"; ls; exit 1; }
           echo "BUILD_NUMBER=$BUILD_NUMBER" >> "$GITHUB_ENV"
           echo "WS=$WS" >> "$GITHUB_ENV"
           echo "SCHEME=$SCHEME" >> "$GITHUB_ENV"
@@ -62,7 +64,9 @@ jobs:
           echo "Workspace: $WS, schemat: $SCHEME, build: $BUILD_NUMBER"
       - name: CocoaPods
         working-directory: apps/mobile/ios
-        run: pod install
+        run: |
+          pod install
+          test -d "$WS" || { echo "::error::Po pod install brak $WS"; ls; exit 1; }
       - name: Klucz API na dysk (dopiero po instalacji zależności, testach i pod install)
         env:
           ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
