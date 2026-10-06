@@ -1,0 +1,96 @@
+# Pula pytań egzaminacyjnych modułu M6 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m6.*).
+module: m6
+drills:
+  - kind: numeric
+    id: m6.exam.q1
+    family: m6.mdf
+    rules: [R-M6-001, R-M6-005]
+    prompt: "River. W {{t:pot|puli}} jest {{n:exam.m6.pot}}, rywal {{t:bet|stawia}} {{n:exam.m6.bet.three-quarters}}. Ile wynosi {{t:mdf}}, czyli jaką co najmniej część {{t:range|zakresu}} bronisz? Wpisz liczbę w procentach."
+    answer: exam.m6.mdf.three-quarters
+    explanation: "{{t:mdf}} = {{t:pot}} ÷ ({{t:pot}} + bet) = {{n:exam.m6.pot}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}}) = {{n:exam.m6.mdf.three-quarters}}. Gdy {{t:fold|pasujesz}} częściej, {{t:bluff}} bez szans zarabia automatycznie."
+  - kind: choice
+    id: m6.exam.q2
+    family: m6.alpha
+    rules: [R-M6-002]
+    prompt: "River. W {{t:pot|puli}} jest {{n:exam.m6.pot}}. {{t:bluff|Blefujesz}} ręką bez szans za {{n:exam.m6.bet.quarter}}. Jak często rywal musi {{t:fold|pasować}}, żeby ten {{t:bluff}} wyszedł na zero?"
+    options:
+      - { text: "Częściej niż w {{n:exam.m6.alpha.quarter}} przypadków", correct: true, why: "Tak: alpha = bet ÷ ({{t:pot}} + bet) = {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}}) = {{n:exam.m6.alpha.quarter}}. Mały {{t:bluff}} ryzykuje mało, więc wystarczą mu rzadkie {{t:fold|pasy}}." }
+      - { text: "Częściej niż w {{n:exam.m6.mdf.quarter}} przypadków", why: "To {{t:mdf}}: część {{t:range|zakresu}}, którą rywal powinien bronić. Alpha to reszta do całości: {{n:exam.m6.alpha.quarter}}." }
+      - { text: "Częściej niż w {{n:exam.m6.eq.quarter}} przypadków", why: "To equity, którego rywal potrzebuje do {{t:call|sprawdzenia}}; w mianowniku jest jeszcze jego {{t:call}}. Próg dla {{t:bluff|blefu}} to bet ÷ ({{t:pot}} + bet) = {{n:exam.m6.alpha.quarter}}." }
+  - kind: choice
+    id: m6.exam.q3
+    family: m6.mdf-concept
+    rules: [R-M6-003]
+    prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Button {{t:bet|stawia}} na flopie c-bet 1/4 {{t:pot|puli}}. Kolega {{t:fold|pasuje}} tu ponad połowę rąk, bo „{{t:mdf}} to tylko punkt odniesienia”. Co jest nie tak?"
+    table: { position: BB }
+    options:
+      - { text: "Na flopie można bronić trochę mniej niż {{t:mdf}}, ale na małe c-bety nie {{t:fold|pasuje}} się masowo", correct: true, why: "Tak: przy c-becie 1/4 {{t:pot|puli}} {{t:mdf}} wynosi {{n:exam.m6.mdf.quarter}}. Na flopie {{t:out-of-position}} wolno bronić trochę mniej, bo {{t:bluff|blefy}} Buttona mają jeszcze equity, ale {{t:fold}} ponad połowy rąk oddaje mu {{t:pot|pulę}} za bezcen." }
+      - { text: "Nic: na flopie {{t:mdf}} w ogóle nie obowiązuje", why: "{{t:mdf}} na flopie to punkt odniesienia: możesz bronić trochę mniej, nie dowolnie mniej. Przy małym c-becie i tak masz wiele rąk, które mają dość equity." }
+      - { text: "Na flopie trzeba bronić więcej niż {{t:mdf}}", why: "Odwrotnie: na flopie {{t:out-of-position}} możesz bronić trochę mniej, bo nie zrealizujesz całego equity słabych rąk. Błąd kolegi polega na tym, że {{t:fold|pasuje}} dużo za dużo." }
+  - kind: choice
+    id: m6.exam.q4
+    family: m6.exploit
+    rules: [R-M6-004]
+    prompt: "Mikrostawki. Pasywny {{t:recreational|gracz rekreacyjny}}, który rzadko {{t:bluff|blefuje}}, {{t:bet|stawia}} na riverze 3/4 {{t:pot|puli}}. Masz {{t:pair|parę}} dam, a na {{t:board|stole}} są as i król. Co robisz?"
+    table: { hand: "Qd Qc", board: "Ah Jd 7c 4s Ks" }
+    options:
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Tak: twoja {{t:pair}} jest niższa niż as i król na {{t:board|stole}}, więc wygrywa głównie z {{t:bluff|blefami}}. Pasywni gracze na mikrostawkach rzadko {{t:bluff|blefują}} dużym betem na riverze, więc wobec nich {{t:fold|pasujesz}} częściej, niż wskazuje {{t:mdf}}." }
+      - { text: "{{t:call|Sprawdzam}}, bo {{t:mdf}} każe bronić ok. {{n:exam.m6.mdf.three-quarters}}", why: "{{t:mdf}} zakłada, że rywal {{t:bluff|blefuje}} wystarczająco często. Ten gracz tego nie robi, więc {{t:call}} płaci głównie lepszym rękom." }
+      - { text: "{{t:raise|Przebijam}}", why: "Po {{t:raise|przebiciu}} gorsze ręce {{t:fold|spasują}}, a zapłacą lepsze. {{t:pair|Para}} niższa niż dwie karty {{t:board|stołu}} nie jest ręką do {{t:raise|przebicia}}." }
+  - kind: choice
+    id: m6.exam.q5
+    family: m6.flop.price
+    rules: [R-M6-005]
+    prompt: "Flop. W {{t:pot|puli}} jest {{n:exam.m6.pot}}. Button {{t:bet|stawia}} raz {{n:exam.m6.bet.quarter}}, a w innym rozdaniu {{n:exam.m6.bet.three-quarters}}. Ile equity potrzebujesz do {{t:call|sprawdzenia}} w każdym z tych przypadków?"
+    table: { position: BB }
+    options:
+      - { text: "Ok. {{n:exam.m6.eq.quarter}} i {{n:exam.m6.eq.three-quarters}}", correct: true, why: "Tak: bet ÷ ({{t:pot}} + 2·bet). {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}} + {{n:exam.m6.bet.quarter}}) = {{n:exam.m6.eq.quarter}}, a {{n:exam.m6.bet.three-quarters}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}} + {{n:exam.m6.bet.three-quarters}}) = {{n:exam.m6.eq.three-quarters}}. Przy większym becie bronisz węższym {{t:range|zakresem}}." }
+      - { text: "Ok. {{n:exam.m6.alpha.quarter}} i {{n:exam.m6.eq.three-quarters}}", why: "Pierwsza liczba to alpha (bet ÷ ({{t:pot}} + bet)), czyli próg dla {{t:bluff|blefu}} Buttona. Do ceny {{t:call|sprawdzenia}} dolicz swoje {{t:call}}: {{n:exam.m6.eq.quarter}}." }
+      - { text: "Tyle samo w obu, bo to ta sama {{t:pot}}", why: "Nie: cena zależy od rozmiaru betu. Większy bet to gorsza cena: {{n:exam.m6.eq.three-quarters}} zamiast {{n:exam.m6.eq.quarter}}." }
+  - kind: choice
+    id: m6.exam.q6
+    family: m6.flop.call
+    rules: [R-M6-006]
+    prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie {{t:check|czekasz}}, Button {{t:bet|stawia}} c-bet 1/3 {{t:pot|puli}}. Masz asa jako najwyższą kartę, bez {{t:draw|dobierania}}. Co robisz?"
+    table: { hand: "Ac 6h", board: "Js 8d 3d", position: BB }
+    options:
+      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Tak: wobec małego c-betu potrzebujesz tylko ok. {{n:eq.bet-third}} equity. As jako najwyższa karta wygrywa z częścią {{t:bluff|blefów}} Buttona i może trafić {{t:pair|parę}}, więc zwykle go bronisz. {{t:fold|Pasujesz}} najsłabsze ręce bez {{t:pair|pary}} i bez {{t:draw|dobierania}}." }
+      - { text: "{{t:fold|Pasuję}}", why: "Za ciasno: wobec małego c-betu as jako najwyższa karta zwykle się broni. {{t:fold|Pasujesz}} słabsze ręce bez {{t:pair|pary}} i bez {{t:draw|dobierania}}." }
+      - { text: "Check-raise", why: "Check-raise robisz głównie najsilniejszymi rękami i {{t:draw|dobieraniami}}. Ta ręka nie ma ani wartości, ani {{t:draw|dobierania}}, które dałoby drugą drogę do wygranej." }
+  - kind: choice
+    id: m6.exam.q7
+    family: m6.flop.fold
+    rules: [R-M6-007]
+    prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie [[8c 4d 2h]] {{t:check|czekasz}}, a Button {{t:bet|stawia}} c-bet 3/4 {{t:pot|puli}}. Z którą z tych rąk {{t:call}} ma więcej sensu?"
+    table: { board: "8c 4d 2h", position: BB }
+    options:
+      - { text: "[[Ad Jd]]", correct: true, why: "Tak: obie ręce to dwie wysokie karty bez {{t:pair|pary}}, ale AJ w karach ma dodatkowe {{t:flush-draw}} (backdoor) do najwyższego {{t:flush|koloru}}: z karem na {{t:board|stole}} potrzebuje jeszcze dwóch kar. Wobec dużego c-betu {{t:call|sprawdzasz}} raczej właśnie taką ręką." }
+      - { text: "[[Ks Qs]]", why: "KQ w pikach nie ma tu żadnego {{t:draw|dobierania}}: na {{t:board|stole}} nie ma pika, a do {{t:straight|strita}} jest za daleko. Dwie wysokie karty bez {{t:draw|dobierania}} wobec dużego c-betu zwykle {{t:fold|pasujesz}}." }
+  - kind: choice
+    id: m6.exam.q8
+    family: m6.xr.semibluff
+    rules: [R-M6-008]
+    prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie [[Jh 8c 4h]] {{t:check|czekasz}}, a Button {{t:bet|stawia}} c-bet 1/3 {{t:pot|puli}}. Którą z tych rąk najlepiej zagrać check-raise'em?"
+    table: { board: "Jh 8c 4h", position: BB }
+    options:
+      - { text: "[[Qh Th]]", correct: true, why: "Tak: {{t:flush-draw}} i gutshot (dziewiątka) to mocne {{t:draw}}. Check-raise wygrywa, gdy Button {{t:fold|spasuje}}, a gdy zapłaci, nadal masz wiele outów." }
+      - { text: "[[Jd 5d]]", why: "{{t:top-pair|Najwyższa para}} ze słabym kickerem to ręka do {{t:call|sprawdzania}}. Po check-raise'ie gorsze ręce zwykle {{t:fold|pasują}}, a lepsze płacą." }
+      - { text: "[[As 3c]]", why: "As jako najwyższa karta bez {{t:draw|dobierania}} nie ma drugiej drogi do wygranej. Check-raise jako {{t:bluff}} robisz głównie {{t:draw|dobieraniami}}." }
+  - kind: numeric
+    id: m6.exam.q9
+    family: m6.xr.size
+    rules: [R-M6-010]
+    prompt: "Flop. W {{t:pot|puli}} jest {{n:exam.m6.pot}}, Button {{t:bet|stawia}} mały c-bet {{n:exam.m6.bet.quarter}}. Robisz check-raise na {{n:xr.mult.example}} c-betu. Do ilu {{t:raise|przebijasz}}? Wpisz liczbę {{t:chips|żetonów}}."
+    table: { position: BB }
+    answer: exam.m6.xr
+    explanation: "{{n:exam.m6.bet.quarter}} × {{n:xr.mult.example}} = {{n:exam.m6.xr}}. Wobec małego c-betu {{t:raise|przebijasz}} bliżej górnej granicy przedziału {{n:xr.mult.low}}–{{n:xr.mult.example}}: minimalny check-raise dałby Buttonowi bardzo dobrą cenę."
+  - kind: choice
+    id: m6.exam.q10
+    family: m6.xr.when
+    rules: [R-M6-009]
+    prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na którym flopie robisz check-raise najczęściej?"
+    table: { position: BB }
+    options:
+      - { text: "[[8d 6c 5h]]", correct: true, why: "Tak: na niskim, {{t:connected|połączonym}} flopie {{t:big-blind}} ma więcej najsilniejszych układów ({{t:two-pair}}, {{t:straight|strity}}) niż Button, więc check-raise robi tu częściej." }
+      - { text: "[[Ks Qd Jh]]", why: "Wysoki flop z kartami blisko siebie dobrze trafia {{t:range}} Buttona (AK, AQ, KQ, wysokie {{t:pair|pary}}). Tu check-raise robisz rzadziej." }
+      - { text: "[[Ah Ad Qc]]", why: "Na flopie z {{t:pair|parą}} asów najsilniejsze ręce częściej ma Button, który {{t:open|otwierał}} wieloma asami. Check-raise robisz tu rzadko." }

@@ -748,3 +748,54 @@ exam.m4.bb-vs-sb.3bet-oop-size: { formula: product, refs: [pf.open-size-sb, pf.3
 exam.m4.4bet.oop.high: { formula: product, refs: [pf.3bet.ip-total, pf.4bet.size-oop.high], unit: bb, decimals: 1, source: "obliczenie: 4-bet bez pozycji na 3-bet z pozycją (7,5bb × 3)" }
 exam.m4.iso.two-oop: { formula: sum, refs: [pf.iso.base, pf.iso.per-limper, pf.iso.per-limper, pf.iso.oop-extra], unit: bb, source: "obliczenie: izolacja dwóch limperów bez pozycji (podstawa + 2 × limper + dodatek bez pozycji)" }
 exam.m4.iso.three: { formula: sum, refs: [pf.iso.base, pf.iso.per-limper, pf.iso.per-limper, pf.iso.per-limper], unit: bb, source: "obliczenie: izolacja trzech limperów z pozycją (podstawa + 3 × limper)" }
+# Egzaminy M5–M9 (pula pytań egzaminacyjnych, content/pl/exams): przykłady z innymi pulami i zakładami niż lekcje,
+# żeby egzamin nie powtarzał liczb z ćwiczeń. Wyniki liczone tymi samymi formułami co w lekcjach.
+exam.m5.hands.three: { value: 3, unit: count, source: "przykład na egzaminie: trzy ręce rywali bez pary, sześć różnych rang" }
+exam.m5.pair.outs.three: { formula: product, refs: [pair.outs.unpaired, exam.m5.hands.three], unit: count, source: "obliczenie: 3 ręce × 6 kart parujących (sześć różnych rang, więc bez wspólnych outów)" }
+exam.m5.cards.three: { formula: product, refs: [cards.hole, exam.m5.hands.three], unit: count, source: "obliczenie: 3 ręce × 2 karty" }
+exam.m5.unseen.three: { formula: diff, refs: [cards.deck, exam.m5.cards.three], unit: count, source: "obliczenie: talia minus karty trzech rąk (karty bohatera pomijamy, jak w flop.miss.two)" }
+exam.m5.miss.three: { formula: missProbability, refs: [exam.m5.pair.outs.three, exam.m5.unseen.three, cards.board.flop], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): żadna z 3 kart flopu nie paruje żadnej z trzech rąk" }
+exam.m6.pot: { value: 80, unit: count, source: "przykład na egzaminie (pula w żetonach)" }
+exam.m6.bet.quarter: { formula: product, refs: [exam.m6.pot, ex.frac.quarter], unit: count, source: "obliczenie: zakład 1/4 puli" }
+exam.m6.bet.three-quarters: { formula: product, refs: [exam.m6.pot, ex.frac.three-quarters], unit: count, source: "obliczenie: zakład 3/4 puli" }
+exam.m6.mdf.three-quarters: { formula: mdf, refs: [exam.m6.pot, exam.m6.bet.three-quarters], unit: percent, source: "obliczenie: pula/(pula+bet)" }
+exam.m6.mdf.quarter: { formula: mdf, refs: [exam.m6.pot, exam.m6.bet.quarter], unit: percent, source: "obliczenie: pula/(pula+bet)" }
+exam.m6.alpha.quarter: { formula: alpha, refs: [exam.m6.pot, exam.m6.bet.quarter], unit: percent, source: "obliczenie: bet/(pula+bet)" }
+exam.m6.eq.quarter: { formula: requiredEquity, refs: [exam.m6.pot, exam.m6.bet.quarter], unit: percent, decimals: 1, source: "obliczenie: bet/(pula+2·bet)" }
+exam.m6.eq.three-quarters: { formula: requiredEquity, refs: [exam.m6.pot, exam.m6.bet.three-quarters], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
+exam.m6.xr: { formula: product, refs: [exam.m6.bet.quarter, xr.mult.example], unit: count, source: "obliczenie: check-raise 4,5x c-betu 1/4 puli (R-M6-010: wobec małych c-betów górna granica przedziału)" }
+exam.m7.pot: { value: 120, unit: count, source: "przykład na egzaminie (pula w żetonach)" }
+exam.m7.bet.half: { formula: product, refs: [exam.m7.pot, ex.frac.half], unit: count, source: "obliczenie: zakład pół puli" }
+exam.m7.bet.quarter: { formula: product, refs: [exam.m7.pot, ex.frac.quarter], unit: count, source: "obliczenie: zakład 1/4 puli" }
+exam.m7.bet.three-quarters: { formula: product, refs: [exam.m7.pot, ex.frac.three-quarters], unit: count, source: "obliczenie: zakład 3/4 puli" }
+exam.m7.alpha.half: { formula: alpha, refs: [exam.m7.pot, exam.m7.bet.half], unit: percent, source: "obliczenie: bet/(pula+bet)" }
+exam.m7.eq.quarter: { formula: requiredEquity, refs: [exam.m7.pot, exam.m7.bet.quarter], unit: percent, decimals: 1, source: "obliczenie: bet/(pula+2·bet)" }
+exam.m7.eq.three-quarters: { formula: requiredEquity, refs: [exam.m7.pot, exam.m7.bet.three-quarters], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
+exam.m7.io.pot-after-bet: { formula: sum, refs: [exam.m7.pot, exam.m7.bet.half], unit: count, source: "obliczenie: pula po zakładzie" }
+exam.m7.io.need: { formula: product, refs: [exam.m7.bet.half, miss.oesd.turn, inv.outs.oesd], unit: count, source: "obliczenie: dopłata × nietrafiające ÷ outy (strit otwarty na turnie)" }
+exam.m7.io.extra: { formula: diff, refs: [exam.m7.io.need, exam.m7.io.pot-after-bet], unit: count, source: "obliczenie: ile ponad pulę po zakładzie musisz wygrać po trafieniu (implied odds)" }
+exam.m7.oesd.flush-cards: { value: 2, unit: count, source: "kombinatoryka: na stole Td 7d 2c 3h dwa z ośmiu outów do strita (Jd, 6d) dają trzecią kartę w kolorze karo" }
+exam.m7.oesd.clean: { formula: diff, refs: [outs.oesd, exam.m7.oesd.flush-cards], unit: count, source: "obliczenie: outy do strita minus karty, po których możliwy jest kolor" }
+exam.m8.call.worse: { value: 3, unit: count, source: "przykład na egzaminie (sprawdzenia gorszymi rękami)" }
+exam.m8.call.better: { value: 4, unit: count, source: "przykład na egzaminie (sprawdzenia lepszymi rękami)" }
+exam.m8.range.worse: { value: 10, unit: count, source: "przykład na egzaminie (wszystkie gorsze ręce rywala, także te, które spasują)" }
+exam.m8.net.loss: { formula: diff, refs: [exam.m8.call.better, exam.m8.call.worse], unit: count, source: "obliczenie: przegrane bety minus wygrane bety" }
+exam.m8.pot: { value: 90, unit: count, source: "przykład na egzaminie (pula w żetonach)" }
+exam.m8.bet: { value: 60, unit: count, source: "przykład na egzaminie (zakład 2/3 puli)" }
+exam.m8.share: { formula: requiredEquity, refs: [exam.m8.pot, exam.m8.bet], unit: percent, decimals: 1, source: "obliczenie: bet/(pula+2·bet); to zarazem udział blefów w równowadze i equity potrzebne do sprawdzenia (R-M8-004, R-M8-010)" }
+exam.m8.range: { value: 21, unit: count, source: "przykład na egzaminie (kombinacje, którymi betujesz)" }
+exam.m8.bluffs: { formula: product, refs: [exam.m8.range, exam.m8.share], unit: count, source: "obliczenie: kombinacje × udział blefów" }
+exam.m8.value-combos: { formula: diff, refs: [exam.m8.range, exam.m8.bluffs], unit: count, source: "obliczenie: kombinacje minus blefy" }
+exam.m8.bluffs.wrong-pot: { formula: product, refs: [exam.m8.range, bluff.share.bet-pot], unit: count, source: "przykład błędnej odpowiedzi: udział blefów dla betu całej puli zamiast 2/3" }
+exam.m8.bluffs.est: { value: 0.2, unit: percent, source: "przykład do ćwiczenia (założony udział blefów rywala, bez źródła)" }
+exam.m9.pot: { value: 120, unit: count, source: "przykład na egzaminie (pula na flopie w żetonach)" }
+exam.m9.stack.you: { value: 600, unit: count, source: "przykład na egzaminie (twój stack za pulą)" }
+exam.m9.stack.opp: { value: 480, unit: count, source: "przykład na egzaminie (stack rywala za pulą, mniejszy)" }
+exam.m9.spr: { formula: quotient, refs: [exam.m9.stack.opp, exam.m9.pot], unit: ratio, source: "obliczenie: SPR = efektywny stack ÷ pula" }
+exam.m9.spr.wrong: { formula: quotient, refs: [exam.m9.stack.you, exam.m9.pot], unit: ratio, source: "przykład błędnego rachunku: większy stack zamiast efektywnego" }
+exam.m9.spr.inverted: { formula: quotient, refs: [exam.m9.pot, exam.m9.stack.opp], unit: ratio, decimals: 2, source: "przykład błędnego rachunku: pula ÷ stack" }
+exam.m9.eq.jam: { formula: requiredEquity, refs: [exam.m9.pot, exam.m9.stack.opp], unit: percent, decimals: 1, source: "obliczenie: all-in za cały stack do puli; stack/(pula+2·stack)" }
+exam.m9.geo.two: { formula: geometric, refs: [exam.m9.spr, plan.streets.two], unit: percent, source: "obliczenie: rozmiar geometryczny na dwie ulice przy SPR 4 ((1+2·1)^2 = 1+2·4)" }
+exam.m9.geo.three: { formula: geometric, refs: [exam.m9.spr, plan.streets.three], unit: percent, source: "obliczenie: rozmiar geometryczny na trzy ulice przy SPR 4" }
+exam.m9.low.left: { formula: diff, refs: [spr.stack.low, ex.bet.half], unit: count, source: "obliczenie: stack po zakładzie pół puli przy SPR 1,5" }
+exam.m9.eq.low-after-half: { formula: requiredEquity, refs: [ex.half.total, exam.m9.low.left], unit: percent, source: "obliczenie: dopłata/(pula przed nadwyżką + 2·dopłata)" }

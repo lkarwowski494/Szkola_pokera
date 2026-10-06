@@ -134,7 +134,8 @@ drills:
 `;
   it('zapisuje pulę osobno od lekcji i sprawdza reguły zadań', () => {
     const c = withExam(examYaml('R-M2-002'));
-    expect(c.exams).toEqual([{ module: 'm2', drills: [expect.objectContaining({ id: 'm2.exam.test1', family: 'm2.odds' })] }]);
+    // inne pule (np. m5–m9 z treści) zostają; plik testowy zastępuje tylko pulę m2
+    expect(c.exams.find((e) => e.module === 'm2')).toEqual({ module: 'm2', drills: [expect.objectContaining({ id: 'm2.exam.test1', family: 'm2.odds' })] });
     expect(c.lessons.flatMap((l) => l.drills).some((d) => d.id.includes('.exam.'))).toBe(false);
     expect(() => withExam(examYaml('R-M2-999'))).toThrow(/exams\/m2.yaml: zadanie m2.exam.test1: nieznana reguła R-M2-999/);
   }, 30_000);

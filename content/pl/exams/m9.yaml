@@ -1,0 +1,86 @@
+# Pula pytań egzaminacyjnych modułu M9 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m9.*).
+module: m9
+drills:
+  - kind: choice
+    id: m9.exam.q1
+    family: m9.spr
+    rules: [R-M9-001]
+    prompt: "Na flopie w {{t:pot|puli}} jest {{n:exam.m9.pot}}. Za tobą zostało {{n:exam.m9.stack.you}}, za rywalem {{n:exam.m9.stack.opp}}. Ile wynosi {{t:spr}}?"
+    options:
+      - { text: "{{n:exam.m9.spr}}", correct: true, why: "Tak: liczysz z {{t:effective-stack|efektywnego stacku}}, czyli mniejszego z dwóch: {{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}. Więcej, niż ma rywal, nie da się w tym rozdaniu wygrać ani przegrać." }
+      - { text: "{{n:exam.m9.spr.wrong}}", why: "To twój stack ÷ {{t:pot}}. Rywal ma mniej, więc w rozdaniu może wejść najwyżej {{n:exam.m9.stack.opp}}: {{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}." }
+      - { text: "{{n:exam.m9.spr.inverted}}", why: "Odwrotnie: {{t:spr}} to stack podzielony przez {{t:pot|pulę}}, a nie {{t:pot}} przez stack." }
+  - kind: choice
+    id: m9.exam.q2
+    family: m9.spr-zone
+    rules: [R-M9-010]
+    prompt: "{{t:spr}} na flopie wynosi {{n:exam.m9.spr}}. Która z tych rąk jest według stref {{t:spr}} ręką na granicy: grasz nią {{t:value|dla wartości}}, ale all-in rywala nie zawsze {{t:call|sprawdzasz}}?"
+    options:
+      - { text: "{{t:top-pair|Najwyższa para}} z dobrym kickerem", correct: true, why: "Tak: {{n:exam.m9.spr}} to strefa od {{n:spr.zone.low}} do {{n:spr.zone.mid}}, w której {{t:top-pair}} jest ręką na granicy (to uproszczenie). Poniżej {{n:spr.zone.low}} zwykle grałaby o cały stack." }
+      - { text: "Set", why: "Set gra o cały stack nawet przy {{t:spr}} powyżej {{n:spr.zone.deep}}. Przy {{t:spr}} {{n:exam.m9.spr}} jest to ręka zdecydowanie na cały stack." }
+      - { text: "{{t:two-pair|Dwie pary}} z dwóch najwyższych kart {{t:board|stołu}}", why: "Wysokie {{t:two-pair}} wystarczają do gry o stack nawet w strefie od {{n:spr.zone.mid}} do {{n:spr.zone.deep}}. Przy {{t:spr}} {{n:exam.m9.spr}} to ręka na cały stack, nie na granicy." }
+  - kind: numeric
+    id: m9.exam.q3
+    family: m9.spr-price
+    rules: [R-M9-002]
+    prompt: "Flop. W {{t:pot|puli}} jest {{n:exam.m9.pot}}, rywal idzie all-in za {{n:exam.m9.stack.opp}} ({{t:spr}} {{n:exam.m9.spr}}). Ile equity potrzebujesz do {{t:call|sprawdzenia}}? Wpisz liczbę w procentach."
+    answer: exam.m9.eq.jam
+    explanation: "Dopłacasz {{n:exam.m9.stack.opp}}, żeby wygrać {{t:pot|pulę}} i stack rywala: {{n:exam.m9.stack.opp}} ÷ ({{n:exam.m9.pot}} + 2·{{n:exam.m9.stack.opp}}) = {{n:exam.m9.eq.jam}}. Im niższy {{t:spr}}, tym lepsza cena."
+  - kind: choice
+    id: m9.exam.q4
+    family: m9.commit-plan
+    rules: [R-M9-004, R-M9-003]
+    prompt: "Flop, {{t:spr}} {{n:spr.low}}: w {{t:pot|puli}} {{n:ex.pot}}, stacki po {{n:spr.stack.low}}. Masz {{t:overpair}}. Rozważasz bet pół {{t:pot|puli}} ({{n:ex.bet.half}}), po którym zostanie ci {{n:exam.m9.low.left}}. Jaki plan?"
+    table: { hand: "Qh Qc", board: "Jd 7s 3c" }
+    options:
+      - { text: "Bet z planem gry o cały stack", correct: true, why: "Tak: po becie i {{t:call|sprawdzeniu}} w {{t:pot|puli}} byłoby {{n:ex.half.total}}, więcej niż {{n:exam.m9.low.left}}, które zostaje ci w stacku. Na all-in rywala potrzebowałbyś tylko {{n:exam.m9.eq.low-after-half}} equity, a {{t:overpair}} przy tak niskim {{t:spr}} gra o cały stack." }
+      - { text: "Bet {{n:ex.bet.half}} i {{t:fold}}, jeśli rywal pójdzie all-in", why: "Bet i {{t:fold}} nie ma tu sensu: po twoim becie do {{t:call|sprawdzenia}} all-inu wystarczy {{n:exam.m9.eq.low-after-half}} equity. Albo grasz o cały stack, albo {{t:check|czekasz}}." }
+      - { text: "{{t:check|Czekam}} i {{t:fold|pasuję}} na każdy bet", why: "{{t:overpair}} przy {{t:spr}} poniżej {{n:spr.zone.low}} to ręka na cały stack. {{t:fold}} na bet oddaje {{t:pot|pulę}} z bardzo silną ręką." }
+  - kind: choice
+    id: m9.exam.q5
+    family: m9.geo-size
+    rules: [R-M9-006]
+    prompt: "{{t:spr}} na flopie wynosi {{n:exam.m9.spr}}. Chcesz wpłacić cały stack w dwóch równych {{t:bet|zakładach}}: na flopie i na turnie. Jaki ułamek {{t:pot|puli}} betujesz?"
+    options:
+      - { text: "Ok. {{n:exam.m9.geo.two}} {{t:pot|puli}}", correct: true, why: "Tak: (1 + 2f) do kwadratu = 1 + 2·{{n:exam.m9.spr}}, więc 1 + 2f = 3 i f = {{n:exam.m9.geo.two}}. Bet wielkości {{t:pot|puli}} i {{t:call}} potrajają {{t:pot|pulę}}, a drugi taki bet na turnie to all-in." }
+      - { text: "Ok. {{n:exam.m9.geo.three}} {{t:pot|puli}}", why: "To rozmiar na trzy {{t:street|ulice}}: (1 + 2f) do potęgi trzeciej = 1 + 2·{{n:exam.m9.spr}}. Na dwie {{t:street|ulice}} każdy {{t:bet}} musi być większy." }
+      - { text: "Ok. {{n:cbet.size.small}} {{t:pot|puli}}", why: "Dwa {{t:bet|zakłady}} po 1/3 {{t:pot|puli}} wpłacą tylko małą część stacku. Rozmiar geometryczny liczysz ze wzoru (1 + 2f) do potęgi liczby {{t:street|ulic}} = 1 + 2·{{t:spr}}." }
+  - kind: choice
+    id: m9.exam.q6
+    family: m9.plan-streets
+    rules: [R-M9-008]
+    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}}. Masz {{t:overpair}} walety na {{t:dry|suchym}}, niskim flopie. Ile {{t:value|ulic wartości}} zwykle zniesie ta ręka?"
+    table: { hand: "Jc Jd", board: "9h 5c 2d", position: BTN }
+    options:
+      - { text: "Zwykle dwie, trzecią wtedy, gdy rywal płaci słabszymi rękami", correct: true, why: "Tak: {{t:overpair}} zapłacą dziewiątki, piątki i słabsze {{t:pair|pary}}, ale z każdą {{t:street|ulicą}} gorsze ręce {{t:fold|pasują}}, a w {{t:pot|puli}} zostają głównie lepsze." }
+      - { text: "Trzy, zawsze", why: "Trzy {{t:value|ulice wartości}} znoszą zwykle bardzo silne ręce: sety, {{t:straight|strity}}, wysokie {{t:two-pair}}. Po trzecim {{t:bet|zakładzie}} {{t:overpair}} walety często płaci lepszym rękom." }
+      - { text: "Żadnej: grasz {{t:check|czekaniem}} do showdownu", why: "Za ostrożnie: na {{t:dry|suchym}} flopie {{t:overpair}} wygrywa z wieloma rękami, które zapłacą jeden albo dwa {{t:bet|zakłady}}." }
+  - kind: choice
+    id: m9.exam.q7
+    family: m9.geo-srp
+    rules: [R-M9-007]
+    prompt: "{{t:pot|Pula}} z jednym podbiciem, stacki po {{n:format.stack}}: na flopie {{t:pot}} wynosi {{n:bb.pot-after.vs-btn}}, za każdym z was {{n:spr.srp.stack}}. Betujesz całą {{t:pot|pulę}} na flopie, turnie i riverze, a rywal zawsze {{t:call|sprawdza}}. Ile łącznie wpłacisz?"
+    table: { position: BTN }
+    options:
+      - { text: "{{n:srp.potbet.total}}: mniej niż cały stack", correct: true, why: "Tak: {{n:srp.potbet.flop}} + {{n:srp.potbet.turn}} + {{n:srp.potbet.river}} = {{n:srp.potbet.total}} ze stacku {{n:spr.srp.stack}}. {{t:pot|Pula}} na flopie jest mała względem stacku, więc cały stack wchodzi dopiero przy {{t:bet|zakładach}} ok. {{n:geo.srp.3}} {{t:pot|puli}} na każdej {{t:street|ulicy}}." }
+      - { text: "Cały stack: {{n:spr.srp.stack}}", why: "Trzy bety wielkości {{t:pot|puli}} wpłacają {{n:srp.potbet.total}}. Żeby wpłacić cały stack, trzeba betować więcej niż {{t:pot|pulę}} na każdej {{t:street|ulicy}}." }
+      - { text: "{{n:srp.half.total}}", why: "Tyle wpłacą trzy bety pół {{t:pot|puli}}. Bety wielkości {{t:pot|puli}} wpłacają więcej: {{n:srp.potbet.total}}." }
+  - kind: choice
+    id: m9.exam.q8
+    family: m9.geo-size
+    rules: [R-M9-009]
+    prompt: "{{t:pot|Pula}} 3-betowana, masz {{t:position|pozycję}}, {{t:spr}} ok. {{n:spr.3bet-ip}}. Masz rękę na trzy {{t:value|ulice wartości}} i chcesz wpłacić cały stack. Kolega radzi małe bety po 1/3 {{t:pot|puli}} na każdej {{t:street|ulicy}}. Co się stanie, gdy rywal trzy razy {{t:call|sprawdzi}}?"
+    table: { position: BTN }
+    options:
+      - { text: "Wpłacisz tylko ok. {{n:g3b.third.total}} ze stacku {{n:spr.3bet-ip.stack}}", correct: true, why: "Tak: małe bety zostawiają małą {{t:pot|pulę}} na późniejsze {{t:street|ulice}}. Cały stack wchodzi przy ok. {{n:geo.3bet-ip.3}} {{t:pot|puli}} na każdej {{t:street|ulicy}}, więc rozmiar geometryczny wybierasz już na flopie." }
+      - { text: "Na riverze cały stack będzie w {{t:pot|puli}}", why: "Nie: trzy bety po 1/3 {{t:pot|puli}} wpłacają tylko ok. {{n:g3b.third.total}}. Większość stacku ({{n:spr.3bet-ip.stack}}) zostaje niewpłacona." }
+      - { text: "Wpłacisz cały stack już na turnie", why: "Odwrotnie: małe bety rosną powoli, bo {{t:pot}} rośnie mnożeniem. Dopiero rozmiar ok. {{n:geo.3bet-ip.3}} {{t:pot|puli}} wpłaca cały stack, i to na riverze." }
+  - kind: choice
+    id: m9.exam.q9
+    family: m9.spr-zone
+    rules: [R-M9-010]
+    prompt: "Bardzo głębokie stacki: {{t:spr}} na flopie jest wyższy niż {{n:spr.zone.deep}}. Masz wysokie {{t:two-pair}}. Czy planujesz grę o cały stack?"
+    options:
+      - { text: "Zwykle nie: przy takim {{t:spr}} na cały stack potrzebujesz setu, {{t:straight|strita}} albo lepszej ręki", correct: true, why: "Tak: powyżej {{n:spr.zone.deep}} cały stack wchodzi dopiero po więcej niż trzech {{t:bet|zakładach}} wielkości {{t:pot|puli}}, a do końca rywal płaci głównie bardzo silnymi rękami (to uproszczenie stref {{t:spr}})." }
+      - { text: "Tak: wysokie {{t:two-pair}} zawsze grają o stack", why: "Wysokie {{t:two-pair}} wystarczają zwykle w strefie od {{n:spr.zone.mid}} do {{n:spr.zone.deep}}. Wyżej rywal, który wpłaca cały stack, ma często set albo lepiej." }
+      - { text: "Tak, bo wysoki {{t:spr}} daje dobrą cenę na all-in", why: "Odwrotnie: im wyższy {{t:spr}}, tym gorsza cena na all-in i tym silniejszej ręki potrzebujesz, żeby grać o cały stack." }
