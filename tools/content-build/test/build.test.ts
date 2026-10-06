@@ -1,10 +1,10 @@
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { FlopHeight, FlopRanks, FlopSuits, FlopWetness, RuleDef, TextureAxis } from '@szkola/content-schema';
 import { TEXTURE_AXES, TEXTURE_VALUES, WETNESS_POINTS, WETNESS_THRESHOLDS, classifyFlop, parseCards } from '@szkola/poker-core';
-import { checkCbetCases, compileContent, contentDbFileName, staleContentDbs, VOCAB_MIN_TERMS, vocabEligible } from '../src/build';
+import { checkCbetCases, checkExamFile, compileContent, contentDbFileName, staleContentDbs, VOCAB_MIN_TERMS, vocabEligible } from '../src/build';
 import { loadTerms } from '../src/terms';
 import { compileMarkdown } from '../src/markdown';
 import { findHardcodedNumbers, formatNumber, normCdf, resolveNumbers, substitute } from '../src/numbers';
@@ -81,6 +81,60 @@ describe('treść projektu', () => {
   // dwie pełne kompilacje treści; przy rosnącej treści i obciążonym runnerze domyślne 5 s bywało za mało
   it('jest deterministyczna (ten sam hash)', () => {
     expect(compileContent(contentDir).hash).toBe(compileContent(contentDir).hash);
+  }, 30_000);
+});
+
+describe('pula egzaminacyjna (content/pl/exams)', () => {
+  const ctx = {
+    moduleIds: new Set(['m1', 'm2']),
+    familiesByModule: new Map([['m2', new Set(['m2.odds'])], ['m1', new Set(['m1.flow'])]]),
+    examModules: new Set<string>(),
+  };
+  const ok = { module: 'm2', drills: [{ id: 'm2.exam.q1', family: 'm2.odds' }] };
+  it('przyjmuje poprawny plik', () => {
+    expect(() => checkExamFile(ok, 'm2.yaml', ctx)).not.toThrow();
+  });
+  it('odrzuca nieznany moduł, złą nazwę pliku, powtórzoną pulę, zły identyfikator i rodzinę spoza lekcji modułu', () => {
+    expect(() => checkExamFile({ ...ok, module: 'm9' }, 'm9.yaml', ctx)).toThrow(/nieznany moduł/);
+    expect(() => checkExamFile(ok, 'm3.yaml', ctx)).toThrow(/musi się nazywać m2.yaml/);
+    expect(() => checkExamFile(ok, 'm2.yaml', { ...ctx, examModules: new Set(['m2']) })).toThrow(/powtórzona pula/);
+    expect(() => checkExamFile({ module: 'm2', drills: [{ id: 'm2.q1', family: 'm2.odds' }] }, 'm2.yaml', ctx)).toThrow(/m2\.exam\./);
+    expect(() => checkExamFile({ module: 'm2', drills: [{ id: 'm2.exam.q1', family: 'm1.flow' }] }, 'm2.yaml', ctx)).toThrow(/nie występuje w lekcjach modułu m2/);
+  });
+
+  // kopia treści z dodatkową pulą: zadania egzaminu przechodzą tę samą kompilację co zadania lekcji i nie trafiają do lekcji
+  const withExam = (yaml: string) => {
+    const root = mkdtempSync(join(tmpdir(), 'exam-'));
+    try {
+      cpSync(contentDir, join(root, 'content'), { recursive: true });
+      symlinkSync(join(contentDir, '..', 'tools'), join(root, 'tools'));
+      mkdirSync(join(root, 'content/pl/exams'), { recursive: true });
+      writeFileSync(join(root, 'content/pl/exams/m2.yaml'), yaml);
+      return compileContent(join(root, 'content'));
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  };
+  const examYaml = (rule: string) => `module: m2
+drills:
+  - kind: choice
+    id: m2.exam.test1
+    family: m2.odds
+    rules: [${rule}]
+    prompt: Test
+    options:
+      - text: Tak
+        correct: true
+        why: Bo tak.
+      - text: Nie
+        correct: false
+        why: Bo nie.
+`;
+  it('zapisuje pulę osobno od lekcji i sprawdza reguły zadań', () => {
+    const c = withExam(examYaml('R-M2-002'));
+    expect(c.exams).toEqual([{ module: 'm2', drills: [expect.objectContaining({ id: 'm2.exam.test1', family: 'm2.odds' })] }]);
+    expect(c.lessons.flatMap((l) => l.drills).some((d) => d.id.includes('.exam.'))).toBe(false);
+    expect(() => withExam(examYaml('R-M2-999'))).toThrow(/exams\/m2.yaml: zadanie m2.exam.test1: nieznana reguła R-M2-999/);
   }, 30_000);
 });
 

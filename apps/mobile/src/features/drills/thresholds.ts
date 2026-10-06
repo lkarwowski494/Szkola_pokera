@@ -48,3 +48,8 @@ export const EXAM_MODULE_SHARE = 2 / 3;
 export const EXAM_PASS = 0.85;
 /** W egzaminie co najwyżej jedno malowanie zakresu (zajmuje kilka razy dłużej niż decyzja). Założenie bez źródła. */
 export const EXAM_MAX_PAINT = 1;
+/**
+ * Ile razy jeden generator może dać zadanie w jednym egzaminie, zanim sięgniemy po zadania stałe z lekcji
+ * (pula egzaminacyjna ma pierwszeństwo, generator nie może zdominować egzaminu). Założenie bez źródła.
+ */
+export const EXAM_MAX_PER_GENERATOR = 2;
