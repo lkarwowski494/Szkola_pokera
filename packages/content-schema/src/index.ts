@@ -65,6 +65,8 @@ export const TermEntry = z
     en: z.string().min(1),
     en_alt: z.array(z.string().min(1)).optional(),
     abbr: z.string().min(1).optional(),
+    /** Definicja po polsku dla początkującego (1–2 zdania, zgodna ze źródłem); czysty tekst bez znaczników. */
+    def: z.string().min(10).regex(/^[^{}]+$/, 'definicja bez znaczników {{…}}').optional(),
     area: TermArea,
     forms: z.array(termForm).optional(),
     skip: z.array(z.string().min(1)).optional(),
@@ -82,6 +84,7 @@ export interface CompiledTerm {
   en: string;
   enAlt: string[];
   abbr?: string;
+  def?: string;
   area: TermArea;
   source: string;
 }
