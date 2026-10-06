@@ -10,6 +10,7 @@
     "ios": {
       "icon": "./assets/expo.icon",
       "bundleIdentifier": "pl.lkarwowski.szkolapokera",
+      "appleTeamId": "8NQ9GHY8GF",
       "supportsTablet": false,
       "infoPlist": { "ITSAppUsesNonExemptEncryption": false },
       "privacyManifests": {
