@@ -190,7 +190,7 @@
 - id: R-M4-003
   module: m4
   if: "jesteś na {{t:small-blind|małym blindzie}}, a {{t:open|otworzył}} {{t:cutoff|CO}} albo Button"
-  then: "prawie nie {{t:call|sprawdzasz}}: 3-betujesz albo {{t:fold|pasujesz}}; wobec Buttona 3-betujesz górę {{t:range|zakresu}} (ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, m.in. 77+, AJo+, KQo, A5s, A4s, T9s), a resztę {{t:fold|pasujesz}}"
+  then: "prawie nie {{t:call|sprawdzasz}}: 3-betujesz albo {{t:fold|pasujesz}}; wobec Buttona 3-betujesz górę {{t:range|zakresu}} (ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, m.in. 77+ (solver aplikacji także 55 i 66), AJo+, KQo, A5s, A4s, T9s), a resztę {{t:fold|pasujesz}}"
   because: "po {{t:call|sprawdzeniu}} z {{t:small-blind|małego blinda}} grasz {{t:out-of-position}}, a {{t:big-blind}} za tobą może jeszcze {{t:raise|przebić}}; 3-bet daje {{t:initiative|inicjatywę}} i szansę wygrania {{t:pot|puli}} od razu"
   level: gto
   check: { kind: solver-spot, players: [6], stackBb: [100], spots: [vs-open.sb-vs-btn] }
