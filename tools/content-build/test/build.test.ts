@@ -108,6 +108,8 @@ describe('pula egzaminacyjna (content/pl/exams)', () => {
     try {
       cpSync(contentDir, join(root, 'content'), { recursive: true });
       symlinkSync(join(contentDir, '..', 'tools'), join(root, 'tools'));
+      // tylko pula testowa: prawdziwe pule modułów z kopii treści nie wchodzą do porównania
+      rmSync(join(root, 'content/pl/exams'), { recursive: true, force: true });
       mkdirSync(join(root, 'content/pl/exams'), { recursive: true });
       writeFileSync(join(root, 'content/pl/exams/m2.yaml'), yaml);
       return compileContent(join(root, 'content'));
