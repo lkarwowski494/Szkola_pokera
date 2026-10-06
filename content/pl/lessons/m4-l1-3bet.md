@@ -90,7 +90,7 @@ Z {{t:small-blind|małego blinda}} prawie zawsze {{t:raise|przebijasz}} albo {{t
 vs-open.sb-vs-btn
 ```
 
-Według rozwiązania GTO Wizard {{t:small-blind}} wobec Buttona prawie nic nie {{t:call|sprawdza}}: 3-betuje ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, górę {{t:range|zakresu}} (m.in. 77+, AJo+, KQo, A5s, A4s, T9s), a resztę {{t:fold|pasuje}}. Solver aplikacji 3-betuje tu {{n:solver.3bet.sb-vs-btn}} rąk; jego nieliczne {{t:call|sprawdzenia}} siatka liczy jako {{t:fold}}. W kilku rękach, np. ATo, T9s i A4s, solver aplikacji gra inaczej niż BeyondGTO, więc ćwiczenia ich nie oceniają.
+Według rozwiązania GTO Wizard {{t:small-blind}} wobec Buttona prawie nic nie {{t:call|sprawdza}}: 3-betuje ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, górę {{t:range|zakresu}} (m.in. 77+, AJo+, KQo, A5s, A4s, T9s), a resztę {{t:fold|pasuje}}. Solver aplikacji 3-betuje tu {{n:solver.3bet.sb-vs-btn}} rąk, w tym także {{t:pair|pary}} 55 i 66; jego nieliczne {{t:call|sprawdzenia}} siatka liczy jako {{t:fold}}. W kilku rękach, np. ATo, T9s i A4s, solver aplikacji gra inaczej niż BeyondGTO, więc ćwiczenia ich nie oceniają.
 
 ## {{t:range|Zakres}} {{t:linear}} czy {{t:polarized}}
 

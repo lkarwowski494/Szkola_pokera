@@ -1,0 +1,93 @@
+# Pula pytań egzaminacyjnych modułu M8 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m8.*).
+module: m8
+drills:
+  - kind: choice
+    id: m8.exam.q1
+    family: m8.value.threshold
+    rules: [R-M8-001]
+    prompt: "River, rywal {{t:check|czeka}} i nie może cię {{t:raise|przebić}}. W jego {{t:range|zakresie}} jest {{n:exam.m8.range.worse}} rąk gorszych od twojej, ale twój bet {{t:call|sprawdzi}} tylko {{n:exam.m8.call.worse}} z nich. Zapłaci też {{n:exam.m8.call.better}} razy lepszą ręką. Betujesz?"
+    options:
+      - { text: "Nie, {{t:check|czekam}}", correct: true, why: "Tak: liczysz tylko ręce, które zapłacą. Bet wygrywa {{n:exam.m8.call.worse}} razy i przegrywa {{n:exam.m8.call.better}} razy, czyli na czysto traci {{n:exam.m8.net.loss}} bet. Gorsze ręce, które {{t:fold|spasują}}, i tak przegrałyby z tobą po {{t:check|czekaniu}}." }
+      - { text: "Tak, bo gorszych rąk jest więcej niż lepszych", why: "Rywal ma {{n:exam.m8.range.worse}} gorszych rąk, ale większość z nich na bet {{t:fold|spasuje}}. Wśród rąk, które zapłacą, lepszych jest więcej ({{n:exam.m8.call.better}} wobec {{n:exam.m8.call.worse}})." }
+      - { text: "Tak, żeby się dowiedzieć, gdzie jestem", why: "Bet „dla informacji” płaci lepszym rękom, a gorsze {{t:fold|pasują}}. Tę samą informację dostajesz za darmo po {{t:check|czekaniu}}, przy showdownie." }
+  - kind: choice
+    id: m8.exam.q2
+    family: m8.value.size
+    rules: [R-M8-003]
+    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}}. Na flopie c-bet i {{t:call}}, na turnie obaj {{t:check|czekaliście}}. River, {{t:big-blind}} {{t:check|czeka}}. Masz {{t:top-pair|najwyższą parę}} z dziewiątką i szacujesz, że wygrywasz z niewiele ponad połową rąk, które zapłacą. Co robisz?"
+    table: { hand: "Jh 9h", board: "Jc 7s 4d 2h 2c", position: BTN }
+    options:
+      - { text: "Bet ok. 1/3 {{t:pot|puli}}", correct: true, why: "Tak: to thin value. Mały bet {{t:call|sprawdzą}} też siódemki, czwórki i słabsze walety, więc wśród {{t:call|sprawdzeń}} zostaje więcej gorszych rąk niż lepszych." }
+      - { text: "Bet całej {{t:pot|puli}}", sizeError: true, why: "Dobra akcja, zły rozmiar: na bet wielkości {{t:pot|puli}} siódemki i czwórki {{t:fold|spasują}}, a zapłacą głównie lepsze walety i silniejsze ręce. Thin value betujesz mniej, zwykle ok. 1/4–1/2 {{t:pot|puli}}." }
+      - { text: "{{t:check|Czekam}}, bo ręka jest za słaba na bet", why: "Tracisz wartość: wygrywasz z ponad połową rąk, które zapłacą mały bet. Wystarczy wybrać mniejszy rozmiar." }
+  - kind: numeric
+    id: m8.exam.q3
+    family: m8.bluff.share
+    rules: [R-M8-004, R-M8-005]
+    prompt: "River. W {{t:pot|puli}} jest {{n:exam.m8.pot}}, betujesz {{n:exam.m8.bet}} {{t:range|zakresem}} złożonym z bardzo silnych rąk i {{t:bluff|blefów}}. Jaką część twoich betów stanowią w równowadze {{t:bluff|blefy}}? Wpisz liczbę w procentach."
+    answer: exam.m8.share
+    explanation: "Udział {{t:bluff|blefów}} = bet ÷ ({{t:pot}} + 2·bet) = {{n:exam.m8.bet}} ÷ ({{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}) = {{n:exam.m8.share}}. Tyle samo equity potrzebuje ręka rywala łapiąca {{t:bluff|blefy}}, więc nie zarabia ani {{t:call|sprawdzeniem}}, ani {{t:fold|pasem}}."
+  - kind: choice
+    id: m8.exam.q4
+    family: m8.bluff.combos
+    rules: [R-M8-004]
+    prompt: "River. W {{t:pot|puli}} jest {{n:exam.m8.pot}}, betujesz {{n:exam.m8.bet}} {{t:range|zakresem}} z {{n:exam.m8.range}} {{t:combo|kombinacji}}: wartości i {{t:bluff|blefów}}. Udział {{t:bluff|blefów}} w równowadze to {{n:exam.m8.share}}. Ile {{t:combo|kombinacji}} to {{t:bluff|blefy}}?"
+    options:
+      - { text: "{{n:exam.m8.bluffs}}", correct: true, why: "Tak: {{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}} {{t:bluff|blefów}} i {{n:exam.m8.value-combos}} {{t:combo|kombinacji}} {{t:value|dla wartości}}." }
+      - { text: "{{n:exam.m8.bluffs.wrong-pot}}", why: "Tyle byłoby przy becie całej {{t:pot|puli}} (udział {{n:bluff.share.bet-pot}}). Przy mniejszym becie {{t:bluff|blefów}} jest mniej: {{n:exam.m8.share}}." }
+      - { text: "{{n:exam.m8.value-combos}}", why: "To liczba {{t:combo|kombinacji}} {{t:value|dla wartości}}. {{t:bluff|Blefy}} to mniejsza część: {{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}}." }
+  - kind: choice
+    id: m8.exam.q5
+    family: m8.bluff.hands
+    rules: [R-M8-006]
+    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i na riverze {{t:check|czeka}}. Którą z tych rąk najlepiej {{t:bluff|zablefować}}?"
+    table: { board: "Qs Tc 6d 3h 2s", position: BTN }
+    options:
+      - { text: "[[Kc Jc]]", correct: true, why: "Tak: {{t:oesd|dobieranie do strita}} nie weszło, a sam król jako najwyższa karta prawie nigdy nie wygra przy showdownie. Ręka bez szans nic nie traci, gdy {{t:bluff}} się nie uda." }
+      - { text: "[[Ts 9s]]", why: "{{t:second-pair|Druga para}} wygrywa po {{t:check|czekaniu}} z nietrafionymi {{t:draw|dobieraniami}} i słabszymi rękami. {{t:bluff|Blefem}} oddałbyś tę wygraną." }
+      - { text: "[[Qd 8d]]", why: "{{t:top-pair|Najwyższa para}} ma wartość przy showdownie. Nie {{t:bluff|blefujesz}} ręką, która często wygrywa po {{t:check|czekaniu}}." }
+  - kind: choice
+    id: m8.exam.q6
+    family: m8.blockers.bluff
+    rules: [R-M8-007]
+    prompt: "River. {{t:big-blind|Duży blind}} {{t:check|czeka}}. Na {{t:board|stole}} {{t:straight}} mają KT i T8. Obie ręce poniżej nie mają {{t:pair|pary}} ani szans przy showdownie. Którą lepiej {{t:bluff|zablefować}}?"
+    table: { board: "Qd Jc 4s 2h 9d", position: BTN }
+    options:
+      - { text: "[[Ts 7s]]", correct: true, why: "Tak: dziesiątka blokuje oba {{t:straight|strity}} (KT i T8), czyli ręce, którymi rywal na pewno zapłaci. Ma ich mniej {{t:combo|kombinacji}}, więc częściej zostaje mu ręka do spasowania." }
+      - { text: "[[6s 5s]]", why: "Ta ręka nie blokuje żadnej silnej ręki rywala. Przy wyborze między {{t:bluff|blefami}} bez szans wolisz ten, który blokuje jego wartość." }
+  - kind: numeric
+    id: m8.exam.q7
+    family: m8.blockers.combos
+    rules: [R-M8-009]
+    prompt: "KQ bez żadnej wiedzy ma {{n:combos.unpaired}} {{t:combo|kombinacji}}. Trzymasz [[Ad Qc]]. Ile {{t:combo|kombinacji}} KQ może mieć rywal? Wpisz liczbę."
+    table: { hand: "Ad Qc" }
+    answer: combos.unpaired.one-blocked
+    explanation: "Trzymasz jedną damę, więc rywalowi zostają {{n:pair.outs.per-rank}} damy i wszystkie {{n:cards.suits}} króle: {{n:pair.outs.per-rank}} × {{n:cards.suits}} = {{n:combos.unpaired.one-blocked}}. As nie wpływa na liczbę KQ."
+  - kind: choice
+    id: m8.exam.q8
+    family: m8.catch.math
+    rules: [R-M8-010]
+    prompt: "River. W {{t:pot|puli}} jest {{n:exam.m8.pot}}, rywal {{t:bet|stawia}} {{n:exam.m8.bet}}. Masz bluff-catcher i szacujesz, że {{t:bluff|blefy}} to ok. {{n:exam.m8.bluffs.est}} jego betów. Co robisz?"
+    options:
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Tak: potrzebujesz {{n:exam.m8.bet}} ÷ ({{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}) = {{n:exam.m8.share}} equity, a bluff-catcher wygrywa tylko z {{t:bluff|blefami}}, czyli w ok. {{n:exam.m8.bluffs.est}} przypadków. {{t:call|Sprawdzenie}} traci." }
+      - { text: "{{t:call|Sprawdzam}}", why: "Twoje equity to udział {{t:bluff|blefów}} w jego betach: {{n:exam.m8.bluffs.est}}. To mniej niż potrzebne {{n:exam.m8.share}}, więc {{t:call}} traci." }
+      - { text: "{{t:raise|Przebijam}}", why: "Po {{t:raise|przebiciu}} {{t:bluff|blefy}} {{t:fold|spasują}}, a zapłacą tylko lepsze ręce. Bluff-catcherem nie {{t:raise|przebijasz}}." }
+  - kind: choice
+    id: m8.exam.q9
+    family: m8.catch.blockers
+    rules: [R-M8-011]
+    prompt: "Bronisz {{t:big-blind}}. Kiery nie weszły, a river dał {{t:straight}} rękom T7 i 75. {{t:check|Czekasz}}, a Button {{t:bet|stawia}} całą {{t:pot|pulę}}. Masz {{t:top-pair|najwyższą parę}} ze słabym kickerem. Z którą z tych rąk {{t:call}} jest lepsze?"
+    table: { board: "Kh 9h 6c 2s 8d", position: BB }
+    options:
+      - { text: "[[Kc 7c]]", correct: true, why: "Tak: siódemka blokuje oba nowe {{t:straight|strity}} (T7 i 75), czyli część wartości Buttona, a bez kierów nie blokujesz nietrafionych {{t:flush-draw|dobierań do koloru}}, jego głównych {{t:bluff|blefów}}. W jego betach zostaje więcej {{t:bluff|blefów}}." }
+      - { text: "[[Ks 3h]]", why: "Karta [[3h]] blokuje część nietrafionych {{t:flush-draw|dobierań do koloru}}, czyli {{t:bluff|blefów}} Buttona, a ta ręka nie blokuje żadnego {{t:straight|strita}}. W jego betach zostaje więcej wartości." }
+  - kind: choice
+    id: m8.exam.q10
+    family: m8.value.check
+    rules: [R-M8-002]
+    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}}. Na flopie c-bet i {{t:call}}, na turnie obaj {{t:check|czekaliście}}. River, {{t:big-blind}} {{t:check|czeka}}. Masz {{t:pair|parę}} szóstek. Co robisz?"
+    table: { hand: "6d 6s", board: "Jc 8h 4d 3s Kc", position: BTN }
+    options:
+      - { text: "{{t:check|Czekam}}", correct: true, why: "Tak: {{t:pair|para}} szóstek wygrywa z nietrafionymi {{t:draw|dobieraniami}} i wysokimi kartami, ale te ręce na bet {{t:fold|spasują}}. Zapłacą głównie walety, ósemki i króle. {{t:check|Czekając}}, idziesz do showdownu za darmo." }
+      - { text: "Betuję mało {{t:value|dla wartości}}", why: "Mały bet też {{t:call|sprawdzą}} głównie lepsze {{t:pair|pary}}. Gorsze ręce rywala to tu głównie ręce bez {{t:pair|pary}} i najsłabsze {{t:pair|pary}}, a one rzadko zapłacą." }
+      - { text: "Betuję dużo, żeby rywal {{t:fold|spasował}} lepszą {{t:pair|parę}}", why: "Bet zamienia rękę z wartością przy showdownie w {{t:bluff}}. {{t:bluff|Blefujesz}} rękami bez szans, a ta ręka często wygrywa po {{t:check|czekaniu}}." }

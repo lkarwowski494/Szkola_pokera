@@ -46,6 +46,18 @@ export function recordAnswer(db: UserDb, a: AnswerInput, now = Date.now()): Stor
   });
 }
 
+/** Identyfikatory zadań, na które użytkownik odpowiadał na egzaminie (pula egzaminacyjna: „już widziane”). */
+export function examDrillIdsSeen(db: UserDb): Set<string> {
+  return new Set(
+    db
+      .selectDistinct({ id: answers.drillId })
+      .from(answers)
+      .where(eq(answers.mode, 'exam'))
+      .all()
+      .map((r) => r.id),
+  );
+}
+
 export function saveLessonResult(db: UserDb, lessonId: string, correct: number, total: number, now = Date.now()): void {
   const prev = db.select().from(lessonProgress).where(eq(lessonProgress.lessonId, lessonId)).get();
   const best = Math.max(prev?.bestCorrect ?? 0, correct);

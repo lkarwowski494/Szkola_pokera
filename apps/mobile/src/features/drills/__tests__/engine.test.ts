@@ -7,7 +7,7 @@ import { instantiate, rangeVerdict } from '../engine';
 import { gradeAnswer, gradeNumeric, isPass, parseNumberInput, scorePaint } from '../grade';
 import { splitCardTokens } from '../cardTokens';
 import { pctEquity } from '../text.pl';
-import { EXAM_SIZE, MIXED_HIGH, MIXED_LOW, MIXED_MIN, PAINT_PASS } from '../thresholds';
+import { EXAM_MAX_PER_GENERATOR, EXAM_SIZE, MIXED_HIGH, MIXED_LOW, MIXED_MIN, PAINT_PASS } from '../thresholds';
 import type { ChoiceInstance, DrillInstance, NumericInstance } from '../types';
 
 const generators = ['whoWins', 'whoWinsKicker', 'bestHand', 'outs', 'potOdds', 'drawCall', 'icm'] as const;
@@ -331,7 +331,7 @@ describe('egzamin i trening na czas', () => {
     const moduleRows = [row('m1', 'a'), row('m2', 'b'), row('m3', 'c'), paintRow('p1', 'p'), paintRow('p2', 'q')];
     const earlier = [row('e1', 'x'), row('e2', 'y')];
     for (let seed = 1; seed < 15; seed++) {
-      const exam = buildExamSession(moduleRows, earlier, createRng(seed), ctx);
+      const exam = buildExamSession({ modulePool: [], moduleLessons: moduleRows, earlierPool: [], earlierLessons: earlier }, createRng(seed), ctx);
       expect(exam).toHaveLength(EXAM_SIZE);
       expect(exam.filter((e) => e.kind === 'paint').length).toBeLessThanOrEqual(1);
       expect(exam.filter((e) => ['x', 'y'].includes(e.family))).toHaveLength(EXAM_SIZE - Math.round(EXAM_SIZE * (2 / 3)));
@@ -347,10 +347,61 @@ describe('egzamin i trening na czas', () => {
       family,
       drill: { kind: 'choice', id, family, rules: [], prompt: 'P', options: [{ text: 'A', correct: true, why: 'bo A' }, { text: 'B', correct: false, why: 'bo B' }] },
     });
-    const exam = buildExamSession([choice('c1', 'a'), choice('c2', 'b'), row('g1', 'c')], [], createRng(2), ctx);
+    const exam = buildExamSession({ modulePool: [], moduleLessons: [choice('c1', 'a'), choice('c2', 'b'), row('g1', 'c')], earlierPool: [], earlierLessons: [] }, createRng(2), ctx);
     expect(exam).toHaveLength(EXAM_SIZE);
     expect(exam.filter((e) => e.drillId === 'c1')).toHaveLength(1);
     expect(exam.filter((e) => e.drillId === 'c2')).toHaveLength(1);
+  });
+
+  describe('pula egzaminacyjna (zadania spoza lekcji)', () => {
+    const choice = (id: string, family: string, lessonId: string | null = 'l'): DrillRow => ({
+      id,
+      lessonId,
+      family,
+      drill: { kind: 'choice', id, family, rules: [], prompt: 'P', options: [{ text: 'A', correct: true, why: 'bo A' }, { text: 'B', correct: false, why: 'bo B' }] },
+    });
+    const fams = ['a', 'b', 'c', 'd', 'e'];
+    const pool = (m: string, k: number) => Array.from({ length: k }, (_, i) => choice(`${m}.exam.q${i}`, fams[i % fams.length]!, null));
+    const lessonFixed = (m: string) => fams.map((f, i) => choice(`${m}.l.q${i}`, f));
+
+    it('nie bierze zadań stałych z lekcji, gdy pula i generatory wystarczają', () => {
+      const src = {
+        modulePool: pool('m2', 8),
+        moduleLessons: [...lessonFixed('m2'), row('m2.gen', 'a')],
+        earlierPool: pool('m1', 4),
+        earlierLessons: [...lessonFixed('m1'), row('m1.gen', 'x')],
+      };
+      for (let seed = 1; seed < 20; seed++) {
+        const exam = buildExamSession(src, createRng(seed), ctx);
+        expect(exam).toHaveLength(EXAM_SIZE);
+        expect(exam.filter((e) => e.drillId.includes('.l.'))).toHaveLength(0);
+        // generator najwyżej EXAM_MAX_PER_GENERATOR razy, zadanie z puli najwyżej raz
+        expect(exam.filter((e) => e.drillId === 'm2.gen').length).toBeLessThanOrEqual(EXAM_MAX_PER_GENERATOR);
+        const ids = exam.filter((e) => e.drillId.includes('.exam.')).map((e) => e.drillId);
+        expect(new Set(ids).size).toBe(ids.length);
+        expect(exam.filter((e) => e.drillId.startsWith('m1.'))).toHaveLength(EXAM_SIZE - Math.round(EXAM_SIZE * (2 / 3)));
+      }
+    });
+
+    it('zadania stałe z lekcji tylko jako uzupełnienie, gdy puli brakuje', () => {
+      const src = { modulePool: pool('m2', 3), moduleLessons: lessonFixed('m2'), earlierPool: [], earlierLessons: [] };
+      const exam = buildExamSession(src, createRng(4), ctx, 6);
+      expect(exam).toHaveLength(6);
+      expect(exam.filter((e) => e.drillId.includes('.exam.'))).toHaveLength(3);
+    });
+
+    it('w kolejnym podejściu najpierw zadania z puli niewidziane na egzaminie', () => {
+      const p = pool('m2', 10);
+      const seen = new Set(p.slice(0, 5).map((r) => r.id));
+      for (let seed = 1; seed < 10; seed++) {
+        const exam = buildExamSession({ modulePool: p, moduleLessons: [], earlierPool: [], earlierLessons: [] }, createRng(seed), ctx, 5, seen);
+        expect(exam.filter((e) => seen.has(e.drillId))).toHaveLength(0);
+      }
+      // gdy niewidzianych brakuje, wracają widziane (a nie zadania z lekcji)
+      const all = new Set(p.map((r) => r.id));
+      const again = buildExamSession({ modulePool: p, moduleLessons: lessonFixed('m2'), earlierPool: [], earlierLessons: [] }, createRng(1), ctx, 10, all);
+      expect(again.filter((e) => e.drillId.includes('.exam.'))).toHaveLength(10);
+    });
   });
 
   it('przeplatanie zachowuje wszystkie elementy', () => {

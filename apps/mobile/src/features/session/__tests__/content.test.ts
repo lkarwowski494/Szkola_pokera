@@ -42,12 +42,20 @@ const ranges = new Map(
     { id: r.id, title: r.title, hero: r.hero, path: r.path, playPercent: r.play_percent, groups: JSON.parse(r.groups), uncertain: JSON.parse(r.uncertain) },
   ]),
 );
+const examRows = db.prepare('SELECT e.id, NULL AS lessonId, e.family, e.data, e.module_id AS moduleId, m.ord FROM exam_drills e JOIN modules m ON m.id = e.module_id').all() as {
+  id: string;
+  lessonId: null;
+  family: string;
+  data: string;
+  moduleId: string;
+  ord: number;
+}[];
 const ctx = { range: (id: string) => ranges.get(id) };
-const toRow = (r: (typeof rows)[number]): DrillRow => ({ id: r.id, lessonId: r.lessonId, family: r.family, drill: JSON.parse(r.data) as Drill });
+const toRow = (r: (typeof rows)[number] | (typeof examRows)[number]): DrillRow => ({ id: r.id, lessonId: r.lessonId, family: r.family, drill: JSON.parse(r.data) as Drill });
 
 describe('treść w bazie a silnik zadań', () => {
   it('każde zadanie daje się utworzyć i ma poprawną odpowiedź', () => {
-    for (const r of rows) {
+    for (const r of [...rows, ...examRows]) {
       const insts = instantiate(JSON.parse(r.data) as Drill, r.lessonId, createRng(1), undefined, ctx);
       expect(insts.length).toBeGreaterThan(0);
       for (const inst of insts) {
@@ -91,8 +99,22 @@ describe('treść w bazie a silnik zadań', () => {
     const modules = [...new Set(rows.map((r) => r.moduleId))];
     for (const m of modules) {
       const ord = rows.find((r) => r.moduleId === m)!.ord;
-      const exam = buildExamSession(rows.filter((r) => r.moduleId === m).map(toRow), rows.filter((r) => r.ord < ord).map(toRow), createRng(3), ctx);
+      const src = {
+        modulePool: examRows.filter((r) => r.moduleId === m).map(toRow),
+        moduleLessons: rows.filter((r) => r.moduleId === m).map(toRow),
+        earlierPool: examRows.filter((r) => r.ord < ord).map(toRow),
+        earlierLessons: rows.filter((r) => r.ord < ord).map(toRow),
+      };
+      const exam = buildExamSession(src, createRng(3), ctx);
       expect(exam).toHaveLength(EXAM_SIZE);
+    }
+  });
+
+  it('zadania z puli egzaminacyjnej nie występują w lekcjach, a ich rodziny tak (w tym samym module)', () => {
+    const lessonIds = new Set(rows.map((r) => r.id));
+    for (const e of examRows) {
+      expect(lessonIds.has(e.id)).toBe(false);
+      expect(rows.some((r) => r.moduleId === e.moduleId && r.family === e.family)).toBe(true);
     }
   });
 });

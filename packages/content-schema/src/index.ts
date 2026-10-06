@@ -7,7 +7,7 @@ export * from './terms';
  * Kontrakt treści: wspólny dla potoku content-build (walidacja) i aplikacji (typy).
  * Zmiana tego pliku = zmiana wersji schematu (CONTENT_SCHEMA_VERSION).
  */
-export const CONTENT_SCHEMA_VERSION = 4;
+export const CONTENT_SCHEMA_VERSION = 5;
 
 const id = z.string().regex(/^[a-z0-9][a-z0-9.\-]*$/i, 'identyfikator: litery, cyfry, kropki, myślniki');
 const cardsText = z.string().regex(/^([2-9TJQKA][shdc])( [2-9TJQKA][shdc])*$/, 'karty w formacie "As Kd"');
@@ -412,6 +412,18 @@ export const LessonFrontmatter = z.object({
   drills: z.array(Drill).min(1),
 });
 export type LessonFrontmatter = z.infer<typeof LessonFrontmatter>;
+
+// ---------- Pula egzaminacyjna (content/pl/exams/<moduł>.yaml) ----------
+
+/**
+ * Zadania tylko do egzaminu modułu (nie pojawiają się w lekcjach): ten sam schemat zadania co w lekcjach,
+ * identyfikatory `<moduł>.exam.…`, rodzina istniejąca w lekcjach tego modułu (wspólna karta FSRS).
+ */
+export const ExamFile = z.object({
+  module: id,
+  drills: z.array(Drill).min(1),
+});
+export type ExamFile = z.infer<typeof ExamFile>;
 
 // ---------- Skompilowana treść (AST lekcji) ----------
 
