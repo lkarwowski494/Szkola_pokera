@@ -64,5 +64,6 @@ describe('telefony pomocy (helplines.yaml)', () => {
     }
     // w module aplikacji nie ma ani jednej nazwy spoza helplines.yaml (bez nazw pokoi, ADR-13)
     expect(src).not.toMatch(/stars|ggpoker|partypoker|888|winamax/i);
-  });
+    // pełna kompilacja treści (z pulą egzaminacyjną) przekracza domyślne 5 s na wolniejszej maszynie
+  }, 30_000);
 });
