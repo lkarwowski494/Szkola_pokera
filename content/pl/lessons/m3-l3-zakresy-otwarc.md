@@ -4,7 +4,7 @@ module: m3
 order: 3
 title: "Zakresy otwarć"
 sub: "Z czym wchodzić jako pierwszy, pozycja po pozycji"
-rules: [R-M3-002, R-M3-006, R-M3-003, R-M3-009, R-M3-004]
+rules: [R-M3-002, R-M3-006, R-M3-003, R-M3-009, R-M3-004, R-M3-010]
 drills:
   - kind: generated
     id: m3.l3.g-early
@@ -75,6 +75,10 @@ rfi.sb
 ```
 
 {{t:small-blind|Mały blind}} gra już tylko przeciw {{t:big-blind|dużemu blindowi}}, więc {{t:open|otwiera}} podobnie szeroko jak Button: ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, mimo że po flopie mówi pierwszy. Na mikrostawkach z {{t:small-blind|małego blinda}} {{t:raise|przebijasz}} albo {{t:fold|pasujesz}}, bez dopłacania do {{t:big-blind|dużego blinda}}: przy {{t:rake|rake'u}} pobieranym od {{t:pot|puli}} dopłacanie traci. Solver aplikacji {{t:open|otwiera}} stąd {{n:solver.rfi.sb}} rąk, czyli w przedziale ze źródeł.
+
+:::note Przy stole 9-osobowym
+Przy stole 9-osobowym przed {{t:hijack|HJ}} są jeszcze trzy {{t:position|pozycje}}: {{t:utg}}, {{t:utg|UTG}}+1 i {{t:utg|UTG}}+2, a za nimi LJ. Za {{t:utg}} siedzi wtedy ośmiu graczy, więc {{t:range|zakres}} jest węższy: solver aplikacji {{t:open|otwiera}} z {{t:utg}} {{n:solver9.rfi.utg}} rąk, z {{t:utg|UTG}}+1 {{n:solver9.rfi.utg1}}, a z {{t:utg|UTG}}+2 {{n:solver9.rfi.utg2}}. Gdy ci trzej gracze {{t:fold|spasują}}, LJ gra jak {{t:utg}} przy stole 6-osobowym, a dalsze {{t:position|pozycje}} tak samo jak w siatkach powyżej. Dla wczesnych {{t:position|pozycji}} przy stole 9-osobowym podajemy tylko częstości: składu tych {{t:range|zakresów}} nie sprawdziliśmy jeszcze ze źródłami.
+:::
 
 :::note Jak zapamiętać
 Nie ucz się {{n:combos.kinds}} pól na pamięć. Zapamiętaj granice: które {{t:pair|pary}}, które asy w kolorze i od której karty zaczynają się ręce w różnych kolorach. Ćwiczenia poniżej losują częściej właśnie ręce z granicy {{t:range|zakresu}}.

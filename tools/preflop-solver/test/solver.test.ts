@@ -6,7 +6,7 @@ import { HAND_CLASSES } from '@szkola/poker-core';
 import { computePairs, N, PRIOR, type EquityData } from '../src/model';
 import { PreflopSolver } from '../src/solver';
 import { threeWayCompat, type ThreeWayData } from '../src/threeway';
-import { buildTree, DEFAULT_TREE, N_PLAYERS, type Node } from '../src/tree';
+import { buildTree, DEFAULT_TREE, isInPosition, N_PLAYERS, POSITIONS, positionsFor, postflopOrder, type Node } from '../src/tree';
 
 /** Syntetyczna, symetryczna macierz equity: silniejsza klasa = niższy indeks rankingu. */
 function syntheticEquity(): EquityData {
@@ -32,7 +32,7 @@ describe('drzewo', () => {
   it('każdy węzeł decyzyjny ma co najmniej dwie akcje, terminale mają poprawną pulę', () => {
     for (const n of nodes) {
       if (n.kind === 'decision') expect(n.actions.length).toBeGreaterThanOrEqual(2);
-      else expect(n.pot).toBeCloseTo(n.invested.reduce((a, b) => a + b, 0), 6);
+      else if (n.kind !== 'external') expect(n.pot).toBeCloseTo(n.invested.reduce((a, b) => a + b, 0), 6);
     }
   });
   it('pule trzyosobowe: tylko po dołączeniu dużego blinda, równe stawki', () => {
@@ -54,7 +54,44 @@ describe('drzewo', () => {
     }
   });
   it('nikt nie wkłada więcej niż stack', () => {
-    for (const n of nodes) if (n.kind !== 'decision') for (const x of n.invested) expect(x).toBeLessThanOrEqual(100);
+    for (const n of nodes) if (n.kind !== 'decision' && n.kind !== 'external') for (const x of n.invested) expect(x).toBeLessThanOrEqual(100);
+  });
+});
+
+describe('drzewo 9-max', () => {
+  const POS9 = positionsFor(9);
+  const prefix = 'UTG:fold,UTG+1:fold,UTG+2:fold';
+  // ścieżka 6-max → 9-max: UTG 6-max to LJ 9-max, reszta nazw bez zmian
+  const to9 = (path: string) => [prefix, ...(path ? path.split(',').map((x) => (x.startsWith('UTG:') ? `LJ:${x.slice(4)}` : x)) : [])].join(',');
+  const sig = (n: Node, pos: readonly string[], map: (p: string) => string) =>
+    n.kind === 'decision'
+      ? `D ${map(n.path)} ${pos[n.player]} ${n.actions.map((a) => a.label).join('/')}`
+      : n.kind === 'external'
+        ? `X ${n.path}`
+        : `${n.kind} ${map(n.path)} ${n.pot.toFixed(2)} ${n.kind === 'showdown' ? `${pos[n.oop]}-${pos[n.ip]}` : n.kind === 'showdown3' ? n.players.map((q) => pos[q]).join('-') : pos[n.winner]}`;
+
+  it('po pasach UTG, UTG+1 i UTG+2 poddrzewo jest dokładnie drzewem 6-max (te same węzły, akcje, pule i pozycje)', () => {
+    const six = buildTree();
+    const nine = buildTree({ ...DEFAULT_TREE, players: 9 });
+    const sub9 = nine.nodes.filter((n) => n.path === prefix || n.path.startsWith(`${prefix},`)).map((n) => sig(n, POS9, (x) => x)).sort();
+    const sub6 = six.nodes.map((n) => sig(n, POS9.slice(3), to9)).sort();
+    expect(POSITIONS.slice(1)).toEqual(POS9.slice(4));
+    expect(sub9).toEqual(sub6);
+  });
+
+  it('z externalFolds poddrzewo 6-max jest jedną końcówką external, a reszta drzewa się nie zmienia', () => {
+    const full = buildTree({ ...DEFAULT_TREE, players: 9 });
+    const ext = buildTree({ ...DEFAULT_TREE, players: 9, externalFolds: 3 });
+    expect(ext.players).toBe(9);
+    const outside = (n: Node) => !(n.path === prefix || n.path.startsWith(`${prefix},`));
+    expect(ext.nodes.filter(outside).map((n) => sig(n, POS9, (x) => x)).sort()).toEqual(full.nodes.filter(outside).map((n) => sig(n, POS9, (x) => x)).sort());
+    const x = ext.nodes.filter((n) => n.kind === 'external');
+    expect(x).toHaveLength(1);
+    expect(x[0]!.path).toBe(prefix);
+    // blindy 9-max to miejsca 7 i 8; po flopie mówią pierwsze
+    expect(postflopOrder(7, 9)).toBe(0);
+    expect(postflopOrder(8, 9)).toBe(1);
+    expect(isInPosition(6, 5, 9)).toBe(true);
   });
 });
 

@@ -13,6 +13,7 @@ import { dueGameCards, introduceGameCards, recordGameReview } from '@/data/user/
 import { codes, fmtBb, menuLabel } from '@/features/play/format';
 import { handLog } from '@/features/play/log';
 import { detailText } from '@/features/play/report';
+import { playFormat } from '@/features/play/kit';
 import { usePlayKit } from '@/features/play/usePlayKit';
 import { radius, space, type as tp, useTokens } from '@/theme/tokens';
 
@@ -53,7 +54,7 @@ export default function GameReviewScreen() {
   const bb = st.config.bigBlind;
   const pot = st.seats.reduce((s, x) => s + x.committed, 0);
   const choose = (action: PlayerAction) => {
-    const finding = gradeDecision(st, action, kit.grading);
+    const finding = gradeDecision(st, action, playFormat(kit, st.seats.length).grading);
     recordGameReview(userDb, item.cardId, finding.verdict, Date.now() - shownAt.current);
     setAnswer({ finding, action });
   };
@@ -96,7 +97,7 @@ export default function GameReviewScreen() {
       ))}
       {!answer ? (
         <View style={styles.actions}>
-          {actionMenu(st, kit.knowledge.sizes).map((m, i) => (
+          {actionMenu(st, playFormat(kit, st.seats.length).knowledge.sizes).map((m, i) => (
             <Pressable
               key={i}
               accessibilityRole="button"

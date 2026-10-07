@@ -2,13 +2,13 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
 import { dirname, join, resolve } from 'node:path';
 import { DEFAULT_EQR, N, PLAY_GROUPS, validateEquity, type EqrParams, type EquityData, type PlayGroup } from './model';
-import { evReport, formatSummary, rangeOf, realizationReport, summarize } from './report';
+import { evReport, formatSummary, nodeGains, rangeOf, realizationReport, summarize } from './report';
 import { DEFAULT_DCFR, PreflopSolver } from './solver';
 import { loadFlops, type FlopData } from './postflop';
 import { loadBoards, StreetModel, V3B_TREE, type StreetData, type StreetTreeConfig } from './streets';
 import { PostflopPool } from './pfpool';
 import { loadThreeWay, type ThreeWayData } from './threeway';
-import { buildTree, DEFAULT_TREE, N_PLAYERS, POSITIONS, type DecisionNode } from './tree';
+import { buildTree, DEFAULT_TREE, positionsFor, type DecisionNode } from './tree';
 
 /**
  * Użycie:
@@ -33,7 +33,14 @@ if (useThreeWay) {
   console.log(`Tablica equity 3-way: ${threeWay.samples} prób na trójkę (${((Date.now() - t0) / 1000).toFixed(0)} s wczytywania)`);
 }
 // wariant pomiarowy (naprawa EQR): --3bet-oop 4.4 = 3-bet bez pozycji do 11bb po otwarciu 2,5bb (kanon 4, czyli 10bb)
-const treeConfig = { ...DEFAULT_TREE, bbOvercall: useThreeWay, ...(args.includes('--3bet-oop') ? { threeBetOop: Number(arg('3bet-oop', '4')) } : {}) };
+// --players 9: stół 9-max; poddrzewo „UTG, UTG+1 i UTG+2 pasują” to gra 6-max liczona osobno (TreeConfig.externalFolds)
+const players = Number(arg('players', '6'));
+const treeConfig = {
+  ...DEFAULT_TREE,
+  bbOvercall: useThreeWay,
+  ...(args.includes('--3bet-oop') ? { threeBetOop: Number(arg('3bet-oop', '4')) } : {}),
+  ...(players !== 6 ? { players, externalFolds: players - 6 } : {}),
+};
 // gra po flopie w pulach 3-betowanych (wersja 3, wariant pomiarowy): --flops tools/equity/boards.bin.gz (trzy ulice)
 // albo tools/equity/flops.bin.gz (bez nowych kart). Domyślnie none = kanon (wersja 2, model EQR we wszystkich pulach).
 const flopsArg = arg('flops', 'none');
@@ -175,6 +182,17 @@ if (args.includes('--calibrate')) {
   const iterations = Number(arg('iterations', '600'));
   console.log(`Solver: DCFR ${JSON.stringify(DEFAULT_DCFR)}, EQR ${JSON.stringify(eqr)}, ${iterations} iteracji`);
   const { s, pool } = await solve(eqr, iterations);
+  // diagnostyka zbieżności (dokument 10, 9-max): --node-gains UTG+1,UTG+2 wypisuje węzły z największym zyskiem z odchylenia
+  if (args.includes('--node-gains')) {
+    const pos = positionsFor(s.nPlayers);
+    for (const name of arg('node-gains', '').split(',')) {
+      const g = nodeGains(s, pos.indexOf(name));
+      console.log(`${name}: suma zysków lokalnych ${g.reduce((t, x) => t + x.gain, 0).toFixed(5)} bb`);
+      for (const x of g.slice(0, 12)) console.log(`  ${x.gain.toFixed(5)} bb\tmasa rywali ${x.oppMass.toExponential(2)}\twłasna ${x.ownMass.toExponential(2)}\t${x.path}`);
+    }
+    await pool?.close();
+    process.exit(0);
+  }
   const summary = summarize(s);
   console.log(formatSummary(summary));
   const realization = realizationReport(s);
@@ -189,7 +207,7 @@ if (args.includes('--calibrate')) {
     .filter((n): n is DecisionNode => n.kind === 'decision')
     .map((n) => ({
       path: n.path,
-      player: POSITIONS[n.player],
+      player: positionsFor(s.nPlayers)[n.player],
       raiseLevel: n.raiseLevel,
       actions: n.actions.map((a) => a.label),
       strategy: n.actions.map((_, i) => rangeOf(s, n, i)),
@@ -209,7 +227,8 @@ if (args.includes('--calibrate')) {
           ...(lockFold !== null ? { lock: { fold: lockFold, paths: LOCK_PATHS, note: 'wariant pomiarowy B-045, nie kanon' } } : {}),
           iterations,
           ...(exploreIters !== null ? { exploreIterations: String(exploreIters) } : {}),
-          players: N_PLAYERS,
+          players: s.nPlayers,
+          ...(s.nPlayers !== 6 ? { external: { path: positionsFor(s.nPlayers).slice(0, s.nPlayers - 6).map((p) => `${p}:fold`).join(','), note: 'poddrzewo liczone jako gra 6-max (wynik 6-max); NashConv i perPlayerGainBb bez tego poddrzewa' } } : {}),
           handClasses: N,
           nashConvBb: Number(expl.nashConv.toFixed(5)),
           perPlayerGainBb: expl.perPlayer.map((x) => Number(x.toFixed(5))),
