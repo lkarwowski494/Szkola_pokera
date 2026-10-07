@@ -1,4 +1,4 @@
-import { BOT_POLICY, STYLE_IDS, type StyleId, type TablePresetId } from '@szkola/poker-core';
+import { BOT_POLICY, PLAY_TABLE_SIZES, presetStyles, STYLE_IDS, type StyleId, type TablePresetId } from '@szkola/poker-core';
 import { router, useFocusEffect } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { useCallback, useMemo, useState } from 'react';
@@ -39,7 +39,9 @@ export default function PlaySetupScreen() {
   const moduleTitle = (id: string) => modules.find((m) => m.id === id)?.title ?? id;
   const styleName = (s: StyleId) => t(`play.styles.${s}`);
 
-  const choosePreset = (p: TablePresetId) => setup.set({ tablePreset: p, seatStyles: [...BOT_POLICY.tables[p]] });
+  const choosePreset = (p: TablePresetId) => setup.set({ tablePreset: p, seatStyles: presetStyles(p, 9) });
+  // obszary treningowe rozdają sytuacje ze spotów 6-max, więc grają przy stole 6-osobowym
+  const players = setup.areaModule ? 6 : setup.players;
   const setSeat = (i: number, s: StyleId) => {
     const seatStyles = setup.seatStyles.slice();
     seatStyles[i] = s;
@@ -65,6 +67,21 @@ export default function PlaySetupScreen() {
         />
       ))}
 
+      <H2>{t('play.tableSize')}</H2>
+      {setup.areaModule ? (
+        <Muted>{t('play.tableSizeAreas')}</Muted>
+      ) : (
+        <>
+          <Choice
+            label={t('play.tableSize')}
+            value={setup.players}
+            onChange={(n) => setup.set({ players: n })}
+            options={PLAY_TABLE_SIZES.map((n) => ({ value: n, label: t('play.tableSizeOpt', { n }) }))}
+          />
+          {setup.players === 9 ? <Muted>{t('play.tableSizeHint9')}</Muted> : null}
+        </>
+      )}
+
       <H2>{t('play.hands')}</H2>
       <Choice label={t('play.hands')} value={setup.hands} onChange={(hands) => setup.set({ hands })} options={[10, 20, 50].map((n) => ({ value: n as 10 | 20 | 50, label: String(n) }))} />
 
@@ -81,7 +98,7 @@ export default function PlaySetupScreen() {
         <Switch value={advanced} onValueChange={setAdvanced} trackColor={{ true: tk.felt }} accessibilityLabel={t('play.advanced')} />
       </View>
       {advanced
-        ? setup.seatStyles.map((s, i) => (
+        ? setup.seatStyles.slice(0, players - 1).map((s, i) => (
             <View key={i} style={{ gap: space.xs }}>
               <Text style={[tp.small, { color: tk.muted }]}>{t('play.seat', { n: i + 1 })}</Text>
               <Choice label={t('play.seat', { n: i + 1 })} value={s} onChange={(v) => setSeat(i, v)} options={STYLE_IDS.map((id) => ({ value: id, label: styleName(id), hint: t(`play.styleHints.${id}`) }))} />

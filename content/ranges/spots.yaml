@@ -52,12 +52,12 @@
   # jedna grupa „gram” (decyzja A2 koordynatora 5.10.2026, dokument 10): solver v3c prawie nie sprawdza w tym spocie
   # (sprawdzenie 0% wobec 5–9% w źródłach), więc podziału 3-bet / sprawdzenie nie oceniają ani siatka, ani tryb gry (M13);
   # lekcja uczy go regułą R-M4-005 z liczbami GTO Wizard i BeyondGTO
-  groups: { "Gram (3-bet do 7,5bb albo {{t:call}})": ["raise 7.5", "call 2.5"] }
+  groups: &g-btn-vs-co { "Gram (3-bet do 7,5bb albo {{t:call}})": ["raise 7.5", "call 2.5"] }
   # klasy niepewne: kanon różni się od BeyondGTO (defense/btn-vs-co, NL500, 100bb) w „gram / pas” o 50 pp lub więcej
   # (dokument 10, „Pomiary v3c”); w zadaniach się nie pojawiają, w malowaniu są zaliczane w obie strony
-  uncertain: [A9s, A8s, A7s, A6s, A3s, A2s, K9s, K8s, Q9s, T7s, 98s, 97s, 87s, 75s, 65s, AJo, ATo, "44", "33", "22"]
+  uncertain: &u-btn-vs-co [A9s, A8s, A7s, A6s, A3s, A2s, K9s, K8s, Q9s, T7s, 98s, 97s, 87s, 75s, 65s, AJo, ATo, "44", "33", "22"]
   # błędny rozmiar przy dobrej akcji = „niedokładność” (B-015, decyzja właściciela 3 października 2026)
-  wrongSizes:
+  wrongSizes: &w-btn-vs-co
     "Gram (3-bet do 7,5bb albo {{t:call}})":
       - { text: "3-bet do {{n:pf.3bet.oop-total}}", why: "To rozmiar {{t:out-of-position}}. {{t:in-position|Z pozycją}} {{t:raise|przebijasz}} ok. {{n:pf.3bet.size-ip}} {{t:open|otwarcia}}, czyli do {{n:pf.3bet.ip-total}}." }
 - id: vs-open.sb-vs-btn
@@ -67,23 +67,112 @@
   # „3-bet / pas” (decyzja właściciela 4 października 2026, B-045): solvery grają tu 3-bet albo pas, a łączna częstość
   # i skład 3-betu kanonu zgadzają się z GTO Wizard (Crush 3-Bet Pots OOP, SB vs BTN 14%) poza rękami niżej.
   # Sprawdzenia kanonu (solver v3c: ok. 0,5%) liczą się w siatce jako pas.
-  groups: { "3-bet do 10bb": ["raise 10"] }
+  groups: &g-sb-vs-btn { "3-bet do 10bb": ["raise 10"] }
   # Klasy niepewne tego spotu (przeliczone dla solvera v3c 5.10.2026, dokument 10 „Pomiary v3c”): częstość 3-betu
   # kanonu różni się od BeyondGTO (defense/sb-vs-btn, NL500, 100bb) o 50 pp lub więcej. W zadaniach się nie
   # pojawiają, w malowaniu są zaliczane w obie strony.
-  uncertain: [A8s, A7s, A6s, A4s, A3s, K8s, Q9s, T9s, 98s, 75s, ATo]
+  uncertain: &u-sb-vs-btn [A8s, A7s, A6s, A4s, A3s, K8s, Q9s, T9s, 98s, 75s, ATo]
 - id: vs-open.bb-vs-btn
   title: "{{t:big-blind|Duży blind}}, Button {{t:open|otworzył}} na 2,5bb, {{t:small-blind}} {{t:fold|spasował}}"
   hero: BB
   path: "UTG:fold,HJ:fold,CO:fold,BTN:raise2.5,SB:fold"
-  groups: { "Bronię ({{t:call}} albo 3-bet)": ["call 2.5", "raise 10"] }
+  groups: &g-bb-vs-btn { "Bronię ({{t:call}} albo 3-bet)": ["call 2.5", "raise 10"] }
 - id: vs-open.bb-vs-sb
   title: "{{t:big-blind|Duży blind}}, {{t:small-blind}} {{t:open|otworzył}} na 3bb"
   hero: BB
   path: "UTG:fold,HJ:fold,CO:fold,BTN:fold,SB:raise3"
   # jedna grupa „bronię”: podział 3-bet / sprawdzenie w tym spocie nie przeszedł walidacji (solver v3c: 3-bet 25,7%
   # wobec 15–19% w źródłach, odstępstwo od K1, dokument 10), więc ani siatka, ani ocena w trybie gry (M13) go nie oceniają
-  groups: { "Bronię ({{t:call}} albo 3-bet)": ["call 3", "raise 9"] }
+  groups: &g-bb-vs-sb { "Bronię ({{t:call}} albo 3-bet)": ["call 3", "raise 9"] }
+
+# Stół 9-osobowy, 100bb (tryb gry M13; dokument 10, „Pomiar N9a końcowy”): plik preflop-9max-100bb.json. Otwarcia UTG,
+# UTG+1 i UTG+2 policzył solver 9-max (walidacja częściowa N1–N4: łączne częstości; składu nie walidowaliśmy, N5), więc
+# każdy z tych spotów ma jedną grupę „przebicie” (gram / pas). Klasy niepewne: ręce, których częstość gry zmieniała się
+# o 10 pp lub więcej między iteracjami 2820, 3300, 3820 i 3940 (skład jeszcze niestabilny). Po pasach UTG–UTG+2 gra jest
+# dokładnie grą 6-max (LJ = UTG w 6-max), więc spoty LJ…BB mają te same grupy i klasy niepewne co spoty 6-max wyżej.
+# Odpowiedzi na otwarcia z UTG–UTG+2 nie mają celów walidacji, więc spotów nie mają (boty grają tam heurystykami).
+- id: nine.rfi.utg
+  title: "{{t:utg}} przy stole 9-osobowym, nikt jeszcze nie wszedł do gry"
+  hero: UTG
+  solver: preflop-9max-100bb.json
+  path: ""
+  groups: { "{{t:raise|Przebicie}} do 2,5bb": ["raise 2.5"] }
+  uncertain: [A4s, KTs, T9s]
+- id: nine.rfi.utg1
+  title: "{{t:utg|UTG}}+1 przy stole 9-osobowym, {{t:utg}} {{t:fold|spasował}}"
+  hero: UTG+1
+  solver: preflop-9max-100bb.json
+  path: "UTG:fold"
+  groups: { "{{t:raise|Przebicie}} do 2,5bb": ["raise 2.5"] }
+  uncertain: ["55", K9s]
+- id: nine.rfi.utg2
+  title: "{{t:utg|UTG}}+2 przy stole 9-osobowym, wszyscy przed tobą {{t:fold|spasowali}}"
+  hero: UTG+2
+  solver: preflop-9max-100bb.json
+  path: "UTG:fold,UTG+1:fold"
+  groups: { "{{t:raise|Przebicie}} do 2,5bb": ["raise 2.5"] }
+- id: nine.rfi.lj
+  title: "LJ przy stole 9-osobowym, wszyscy przed tobą {{t:fold|spasowali}}"
+  hero: LJ
+  solver: preflop-9max-100bb.json
+  path: "UTG:fold,UTG+1:fold,UTG+2:fold"
+  groups: { "{{t:raise|Przebicie}} do 2,5bb": ["raise 2.5"] }
+  uncertain: *uncertain-rfi
+- id: nine.rfi.hj
+  title: "{{t:hijack|HJ}} przy stole 9-osobowym, wszyscy przed tobą {{t:fold|spasowali}}"
+  hero: HJ
+  solver: preflop-9max-100bb.json
+  path: "UTG:fold,UTG+1:fold,UTG+2:fold,LJ:fold"
+  groups: { "{{t:raise|Przebicie}} do 2,5bb": ["raise 2.5"] }
+  uncertain: *uncertain-rfi
+- id: nine.rfi.co
+  title: "{{t:cutoff|CO}} przy stole 9-osobowym, wszyscy przed tobą {{t:fold|spasowali}}"
+  hero: CO
+  solver: preflop-9max-100bb.json
+  path: "UTG:fold,UTG+1:fold,UTG+2:fold,LJ:fold,HJ:fold"
+  groups: { "{{t:raise|Przebicie}} do 2,5bb": ["raise 2.5"] }
+  uncertain: *uncertain-rfi
+- id: nine.rfi.btn
+  title: "Button przy stole 9-osobowym, wszyscy przed tobą {{t:fold|spasowali}}"
+  hero: BTN
+  solver: preflop-9max-100bb.json
+  path: "UTG:fold,UTG+1:fold,UTG+2:fold,LJ:fold,HJ:fold,CO:fold"
+  groups: { "{{t:raise|Przebicie}} do 2,5bb": ["raise 2.5"] }
+  uncertain: *uncertain-rfi
+- id: nine.rfi.sb
+  title: "{{t:small-blind|Mały blind}} przy stole 9-osobowym, wszyscy {{t:fold|spasowali}}"
+  hero: SB
+  solver: preflop-9max-100bb.json
+  path: "UTG:fold,UTG+1:fold,UTG+2:fold,LJ:fold,HJ:fold,CO:fold,BTN:fold"
+  groups: { "{{t:raise|Przebicie}} do 3bb": ["raise 3"] }
+  uncertain: *uncertain-rfi
+- id: nine.vs-open.btn-vs-co
+  title: "Button przy stole 9-osobowym, {{t:cutoff|CO}} {{t:open|otworzył}} na 2,5bb"
+  hero: BTN
+  solver: preflop-9max-100bb.json
+  path: "UTG:fold,UTG+1:fold,UTG+2:fold,LJ:fold,HJ:fold,CO:raise2.5"
+  groups: *g-btn-vs-co
+  uncertain: *u-btn-vs-co
+  wrongSizes: *w-btn-vs-co
+- id: nine.vs-open.sb-vs-btn
+  title: "{{t:small-blind|Mały blind}} przy stole 9-osobowym, Button {{t:open|otworzył}} na 2,5bb"
+  hero: SB
+  solver: preflop-9max-100bb.json
+  path: "UTG:fold,UTG+1:fold,UTG+2:fold,LJ:fold,HJ:fold,CO:fold,BTN:raise2.5"
+  groups: *g-sb-vs-btn
+  uncertain: *u-sb-vs-btn
+- id: nine.vs-open.bb-vs-btn
+  title: "{{t:big-blind|Duży blind}} przy stole 9-osobowym, Button {{t:open|otworzył}} na 2,5bb, {{t:small-blind}} {{t:fold|spasował}}"
+  hero: BB
+  solver: preflop-9max-100bb.json
+  path: "UTG:fold,UTG+1:fold,UTG+2:fold,LJ:fold,HJ:fold,CO:fold,BTN:raise2.5,SB:fold"
+  groups: *g-bb-vs-btn
+- id: nine.vs-open.bb-vs-sb
+  title: "{{t:big-blind|Duży blind}} przy stole 9-osobowym, {{t:small-blind}} {{t:open|otworzył}} na 3bb"
+  hero: BB
+  solver: preflop-9max-100bb.json
+  path: "UTG:fold,UTG+1:fold,UTG+2:fold,LJ:fold,HJ:fold,CO:fold,BTN:fold,SB:raise3"
+  groups: *g-bb-vs-sb
 
 # M11: push/fold heads-up (mały blind kontra duży blind) z pliku pushfold.json, policzonego skryptem
 # tools/preflop-solver/scripts/pushfold-ranges.ts na drzewie zwalidowanym z równowagą Nasha (dokument 10: 10bb bez ante).

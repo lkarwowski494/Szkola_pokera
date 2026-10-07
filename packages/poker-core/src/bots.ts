@@ -4,7 +4,7 @@ import { classifyHolding, type HoldingClass } from './holding';
 import { hitProbability } from './math';
 import { classOf, combosCount, HAND_CLASSES, type HandClass } from './ranges';
 import type { Rng } from './rng';
-import { legalActions, tableSeats, type HandEvent, type HandState, type LegalActions, type PlayerAction, type Street } from './table';
+import { legalActions, positionNames, tableSeats, type HandEvent, type HandState, type LegalActions, type PlayerAction, type Street } from './table';
 import { classifyFlop, textureMatches, type TextureFilter } from './texture';
 
 /**
@@ -125,6 +125,15 @@ export const BOT_POLICY_VERSION = BOT_POLICY.version;
 
 export function styleOf(id: StyleId): BotStyle {
   return BOT_POLICY.styles[id];
+}
+
+/**
+ * Style rywali zestawu stołu dla `players` graczy (rywale na miejscach 1…players−1). Zestawy mają pięciu rywali
+ * (stół 6-osobowy); przy większym stole kolejne miejsca powtarzają zestaw od początku.
+ */
+export function presetStyles(id: TablePresetId, players: number): StyleId[] {
+  const t = BOT_POLICY.tables[id];
+  return Array.from({ length: players - 1 }, (_, i) => t[i % t.length]!);
 }
 
 /** Częstości jednego węzła solvera dla 169 klas (kolejność HAND_CLASSES). Etykiety jak w wyniku solvera: „fold”, „call 2.5”, „raise 7.5”, „all-in”. */
@@ -383,11 +392,12 @@ function pfToAction(v: BotView, a: PfAction): PlayerAction {
 /** Szerokość otwarcia (udział rąk) z pozycji: ze spotów solvera według liczby graczy za botem. */
 function rfiWidth(v: BotView, k: BotKnowledge, behind: number): number {
   const widths = new Map<number, number>();
+  const order = positionNames(k.solverFormat.players);
   for (const s of k.spots) {
-    if (!/^((UTG|HJ|CO|BTN):fold,?)*$/.test(s.path)) continue;
+    // spot otwarcia: przed graczem same pasy (6-max: UTG…BTN, 9-max także UTG+1, UTG+2 i LJ)
+    if (!/^([A-Z0-9+]+:fold,?)*$/.test(s.path)) continue;
     const raise = s.actions.findIndex((a) => a.label.startsWith('raise'));
     if (raise < 0) continue;
-    const order = ['UTG', 'HJ', 'CO', 'BTN', 'SB'];
     const b = k.solverFormat.players - 1 - order.indexOf(s.hero);
     const w = HAND_CLASSES.reduce((sum, hc, i) => sum + combosCount(hc) * s.actions[raise]!.freqs[i]!, 0) / 1326;
     widths.set(b, w);
@@ -616,25 +626,41 @@ export const BOT_NUMBER_KEYS = {
 /** Plik solvera, którego spoty grają boty (6-max, 100bb). */
 export const BOT_SOLVER_FILE = 'preflop-6max-100bb.json';
 export const BOT_SOLVER_PLAYERS = 6;
+/**
+ * Pliki solvera według liczby graczy przy stole (tryb gry M13). 9-max: otwarcia UTG–UTG+2 z solvera 9-max, reszta to
+ * kanon 6-max pod pasami UTG–UTG+2 (dokument 10, „Pomiar N9a końcowy”).
+ */
+export const SOLVER_FILES: Readonly<Record<number, string>> = { 6: BOT_SOLVER_FILE, 9: 'preflop-9max-100bb.json' };
+/** Liczby graczy, przy których można grać w trybie gry (stół z botami i oceną decyzji). */
+export const PLAY_TABLE_SIZES = [6, 9] as const;
 
 /**
- * Składa BotKnowledge z treści: liczby po kluczach, spoty zakresów (tylko z pliku solvera 6-max 100bb; spots.yaml
- * zawiera wyłącznie spoty zwalidowane), ranking rąk i przypadki c-betu z zadań M5. Przedziały z treści zamienia na
- * ich środek.
+ * Składa BotKnowledge z treści: liczby po kluczach, spoty zakresów (tylko z pliku solvera dla danej liczby graczy,
+ * domyślnie 6-max 100bb; spots.yaml zawiera wyłącznie spoty zwalidowane), ranking rąk i przypadki c-betu z zadań M5.
+ * Przedziały z treści zamienia na ich środek.
  */
+/** Plik solvera dla liczby graczy (błąd dla stołu bez wyniku solvera). */
+export function solverFile(players: number): string {
+  const f = SOLVER_FILES[players];
+  if (!f) throw new Error(`Brak wyniku solvera dla stołu ${players}-osobowego`);
+  return f;
+}
+
 export function botKnowledgeFrom(src: {
   number: (key: string) => number;
   spots: readonly { hero: string; path: string; solver: string; actions: readonly { label: string; freqs: readonly number[] }[] }[];
   handRanking: readonly HandClass[];
   cbetCases: readonly { when: TextureFilter; best: 'check' | 'small' | 'big' }[];
+  /** Liczba graczy przy stole (6 albo 9); wybiera plik solvera z SOLVER_FILES. */
+  players?: number;
 }): BotKnowledge {
   const K = BOT_NUMBER_KEYS;
   const n = src.number;
   const mid = (keys: readonly [string, string]) => (n(keys[0]) + n(keys[1])) / 2;
   if (src.handRanking.length !== HAND_CLASSES.length) throw new Error('Ranking rąk musi mieć 169 klas');
   return {
-    solverFormat: { players: BOT_SOLVER_PLAYERS, stackBb: n(K.stack) },
-    spots: src.spots.filter((s) => s.solver === BOT_SOLVER_FILE).map((s) => ({ hero: s.hero, path: s.path, actions: s.actions })),
+    solverFormat: { players: src.players ?? BOT_SOLVER_PLAYERS, stackBb: n(K.stack) },
+    spots: src.spots.filter((s) => s.solver === solverFile(src.players ?? BOT_SOLVER_PLAYERS)).map((s) => ({ hero: s.hero, path: s.path, actions: s.actions })),
     handRanking: src.handRanking,
     sizes: {
       open: n(K.open),

@@ -19,7 +19,7 @@ import * as Haptics from 'expo-haptics';
 import { router, Stack } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Alert, Pressable, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CardRow } from '@/components/PlayingCard';
 import { Button, Muted } from '@/components/ui';
@@ -27,6 +27,8 @@ import { userDb } from '@/data/user/db';
 import { createGameSession, endGameSession, introduceGameCards, saveGameHand } from '@/data/user/game';
 import { codes, fmtBb, menuLabel } from '@/features/play/format';
 import { eventLine } from '@/features/play/log';
+import { playFormat } from '@/features/play/kit';
+import { FELT_MIN_HEIGHT, seatLayout, type Box } from '@/features/play/seatLayout';
 import { usePlayKit } from '@/features/play/usePlayKit';
 import { usePlaySetup } from '@/state/play';
 import { useSettings } from '@/state/settings';
@@ -36,18 +38,7 @@ import { radius, space, type as tp, useTokens } from '@/theme/tokens';
 const BOT_DELAY_MS = 650;
 const SCRIPT_DELAY_MS = 200;
 const STACK_BB = 100;
-const PLAYERS = 6;
 const BIG_BLIND = 100;
-
-/** Rozmieszczenie miejsc wokół stołu względem gracza (u dołu), w procentach szerokości i wysokości. */
-const SEAT_SPOTS: readonly { left: string; top: string }[] = [
-  { left: '50%', top: '88%' },
-  { left: '10%', top: '68%' },
-  { left: '10%', top: '22%' },
-  { left: '50%', top: '6%' },
-  { left: '90%', top: '22%' },
-  { left: '90%', top: '68%' },
-];
 
 export default function PlayTableScreen() {
   const tk = useTokens();
@@ -58,12 +49,19 @@ export default function PlayTableScreen() {
   const haptics = useSettings((s) => s.haptics);
 
   const area = setup.areaModule ? (kit.areas.find((a) => a.module === setup.areaModule)?.generator as AreaGeneratorId | undefined) ?? null : null;
+  // obszary treningowe rozdają sytuacje ze spotów 6-max; stół 9-osobowy tylko w grze swobodnej
+  const players = area ? 6 : setup.players;
+  const seatStyleIds = setup.seatStyles.slice(0, players - 1);
+  const fmt = playFormat(kit, players);
+  const [felt, setFelt] = useState({ w: 0, h: FELT_MIN_HEIGHT });
+  const onFelt = (e: LayoutChangeEvent) => setFelt({ w: e.nativeEvent.layout.width, h: e.nativeEvent.layout.height });
+  const layout = useMemo(() => seatLayout(players, felt.w, felt.h), [players, felt]);
   const pc: PlayConfig = useMemo(
     () => ({
-      players: PLAYERS,
+      players: players,
       stackBb: STACK_BB,
       bigBlind: BIG_BLIND,
-      seatStyles: setup.seatStyles.map(styleOf),
+      seatStyles: seatStyleIds.map(styleOf),
       hands: setup.hands,
       seed: Date.now() & 0x7fffffff,
       area,
@@ -80,8 +78,8 @@ export default function PlayTableScreen() {
       areaModule: setup.areaModule,
       handsPlanned: setup.hands,
       tablePreset: setup.tablePreset,
-      seatStyles: setup.seatStyles,
-      players: PLAYERS,
+      seatStyles: seatStyleIds,
+      players: players,
       stackBb: STACK_BB,
       timeLimitS: setup.timeLimitS,
       botVersion: BOT_POLICY_VERSION,
@@ -100,15 +98,15 @@ export default function PlayTableScreen() {
   useEffect(() => {
     if (actor !== 'auto') return;
     const scripted = hp.script.length > 0;
-    const id = setTimeout(() => setHp((h) => stepAuto(h, kit.knowledge, pc)), scripted ? SCRIPT_DELAY_MS : BOT_DELAY_MS);
+    const id = setTimeout(() => setHp((h) => stepAuto(h, fmt.knowledge, pc)), scripted ? SCRIPT_DELAY_MS : BOT_DELAY_MS);
     return () => clearTimeout(id);
-  }, [hp, actor, kit.knowledge, pc]);
+  }, [hp, actor, fmt.knowledge, pc]);
 
   // koniec rozdania: ocena i zapis (raz na rozdanie)
   useEffect(() => {
     if (actor !== 'done' || savedHand.current === hp.handNo) return;
     savedHand.current = hp.handNo;
-    const r = finishPlayHand(hp, kit.grading);
+    const r = finishPlayHand(hp, fmt.grading);
     saveGameHand(
       userDb,
       ensureSession(),
@@ -169,7 +167,7 @@ export default function PlayTableScreen() {
   const bb = st.config.bigBlind;
   const pot = st.seats.reduce((s, x) => s + x.committed, 0);
   const shown = new Set(st.result?.shown ?? []);
-  const menu = actor === 'hero' ? actionMenu(st, kit.knowledge.sizes) : [];
+  const menu = actor === 'hero' ? actionMenu(st, fmt.knowledge.sizes) : [];
   const log = st.events
     .map((e) => eventLine(t, st, e, t('play.you')))
     .filter((x): x is string => !!x)
@@ -191,23 +189,25 @@ export default function PlayTableScreen() {
         </Pressable>
       </View>
 
-      <View style={[styles.felt, { backgroundColor: tk.feltDeep }]}>
-        <View style={styles.center}>
-          <CardRow cards={codes(st.board)} size="md" />
+      <View onLayout={onFelt} style={[styles.felt, { backgroundColor: tk.feltDeep }]}>
+        <View style={[styles.center, { left: Math.max(0, layout.board.x), top: layout.board.y, width: layout.board.w }]}>
+          <CardRow cards={codes(st.board)} size={layout.boardSize} />
           <Text style={[tp.small, { color: tk.onFelt, fontWeight: '700' }]}>{t('play.potLabel', { bb: fmtBb(pot / bb) })}</Text>
         </View>
-        {st.seats.map((s) => (
+        {/* miejsca dopiero po zmierzeniu sukna (układ zależy od jego szerokości) */}
+        {felt.w > 0 ? st.seats.map((s) => (
           <SeatView
             key={s.seat}
             s={s}
             bb={bb}
-            spot={SEAT_SPOTS[(s.seat - HERO_SEAT + PLAYERS) % PLAYERS]!}
-            name={s.seat === HERO_SEAT ? t('play.you') : t(`play.styles.${setup.seatStyles[s.seat - 1]}`)}
+            box={layout.seats[(s.seat - HERO_SEAT + players) % players]!}
+            compact={layout.compact}
+            name={s.seat === HERO_SEAT ? t('play.you') : t(`play.styles.${seatStyleIds[s.seat - 1]}`)}
             active={st.toAct === s.seat}
             reveal={s.seat === HERO_SEAT || shown.has(s.seat)}
             foldedLabel={t('play.folded')}
           />
-        ))}
+        )) : null}
       </View>
 
       <View style={{ minHeight: 64 }}>
@@ -263,7 +263,8 @@ export default function PlayTableScreen() {
 function SeatView({
   s,
   bb,
-  spot,
+  box,
+  compact,
   name,
   active,
   reveal,
@@ -271,7 +272,8 @@ function SeatView({
 }: {
   s: SeatState;
   bb: number;
-  spot: { left: string; top: string };
+  box: Box;
+  compact: boolean;
   name: string;
   active: boolean;
   reveal: boolean;
@@ -279,38 +281,47 @@ function SeatView({
 }) {
   const tk = useTokens();
   const hero = s.seat === HERO_SEAT;
+  const cardsShown = !hero && reveal && !s.folded;
+  const backs = !hero && !reveal && !s.folded;
+  const bet = s.streetBet > 0 ? <Text style={[tp.caption, { color: tk.felt, fontWeight: '700' }]}>{`${fmtBb(s.streetBet / bb)}bb`}</Text> : null;
+  const label = `${name}, ${s.position}, ${fmtBb(s.stack / bb)}bb${s.folded ? `, ${foldedLabel}` : ''}`;
+  const frame = {
+    left: box.x,
+    top: box.y,
+    width: box.w,
+    height: box.h,
+    borderColor: active ? tk.warn : 'transparent',
+    backgroundColor: tk.surface,
+    opacity: s.folded ? 0.45 : 1,
+  };
+  if (compact) {
+    // stół 9-osobowy: pozycja i stack w jednej linii; pod spodem styl rywala albo odkryte karty, potem zakład albo rewersy
+    return (
+      <View accessible accessibilityLabel={label} style={[styles.seat, frame]}>
+        <Text numberOfLines={1} style={[tp.caption, { color: tk.ink, fontWeight: '700' }]}>{`${s.position} · ${fmtBb(s.stack / bb)}bb`}</Text>
+        {cardsShown ? <CardRow cards={codes(s.hole)} size="sm" /> : <Text numberOfLines={1} style={[tp.caption, { color: tk.muted }]}>{name}</Text>}
+        {cardsShown ? null : bet ?? (backs ? <View style={styles.backs}>{[0, 1].map((i) => <View key={i} style={[styles.backSm, { backgroundColor: tk.felt, borderColor: tk.cardEdge }]} />)}</View> : null)}
+      </View>
+    );
+  }
   return (
-    <View
-      accessible
-      accessibilityLabel={`${name}, ${s.position}, ${fmtBb(s.stack / bb)}bb${s.folded ? `, ${foldedLabel}` : ''}`}
-      style={[
-        styles.seat,
-        {
-          left: spot.left as `${number}%`,
-          top: spot.top as `${number}%`,
-          borderColor: active ? tk.warn : 'transparent',
-          backgroundColor: tk.surface,
-          opacity: s.folded ? 0.45 : 1,
-        },
-      ]}
-    >
+    <View accessible accessibilityLabel={label} style={[styles.seat, frame]}>
       <Text numberOfLines={1} style={[tp.caption, { color: tk.ink, fontWeight: '700' }]}>{`${s.position} · ${name}`}</Text>
       <Text style={[tp.caption, { color: tk.muted }]}>{`${fmtBb(s.stack / bb)}bb`}</Text>
-      {!hero ? (
-        reveal && !s.folded ? <CardRow cards={codes(s.hole)} size="sm" /> : !s.folded ? <View style={styles.backs}>{[0, 1].map((i) => <View key={i} style={[styles.back, { backgroundColor: tk.felt, borderColor: tk.cardEdge }]} />)}</View> : null
-      ) : null}
-      {s.streetBet > 0 ? <Text style={[tp.caption, { color: tk.felt, fontWeight: '700' }]}>{`${fmtBb(s.streetBet / bb)}bb`}</Text> : null}
+      {cardsShown ? <CardRow cards={codes(s.hole)} size="sm" /> : backs ? <View style={styles.backs}>{[0, 1].map((i) => <View key={i} style={[styles.back, { backgroundColor: tk.felt, borderColor: tk.cardEdge }]} />)}</View> : null}
+      {bet}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   top: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-  felt: { flex: 1, minHeight: 300, borderRadius: 140, marginVertical: space.s },
-  center: { position: 'absolute', left: 0, right: 0, top: '38%', alignItems: 'center', gap: space.xs },
-  seat: { position: 'absolute', width: 104, marginLeft: -52, marginTop: -30, padding: space.xs, borderRadius: radius.s, borderWidth: 2, alignItems: 'center', gap: 1 },
+  felt: { flex: 1, minHeight: FELT_MIN_HEIGHT, borderRadius: 140, marginVertical: space.s },
+  center: { position: 'absolute', alignItems: 'center', gap: space.xs },
+  seat: { position: 'absolute', padding: space.xs, borderRadius: radius.s, borderWidth: 2, alignItems: 'center', gap: 1, overflow: 'hidden' },
   backs: { flexDirection: 'row', gap: 2 },
   back: { width: 16, height: 22, borderRadius: 3, borderWidth: 1 },
+  backSm: { width: 11, height: 15, borderRadius: 2, borderWidth: 1 },
   hero: { flexDirection: 'row', alignItems: 'center', gap: space.m },
   actions: { flexDirection: 'row', flexWrap: 'wrap', gap: space.s },
   action: { minHeight: 48, paddingHorizontal: space.m, borderRadius: radius.m, borderWidth: 1.5, justifyContent: 'center', flexGrow: 1 },

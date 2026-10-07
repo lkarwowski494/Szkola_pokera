@@ -326,13 +326,14 @@ export type Drill = Exclude<z.infer<typeof Drill>, { kind: 'numeric' }> | Numeri
 
 /**
  * Nazwany spot zakresu: ścieżka akcji w drzewie solvera i akcja, którą pokazujemy w siatce.
- * Plik content/ranges/spots.yaml; dane liczbowe wyłącznie z content/ranges/preflop-6max-100bb.json.
+ * Plik content/ranges/spots.yaml; dane liczbowe wyłącznie z wyników solvera w content/ranges (domyślnie
+ * preflop-6max-100bb.json; stół 9-osobowy: preflop-9max-100bb.json).
  */
 export const RangeSpotDef = z.object({
   id,
   title: z.string().min(3),
   /** Kto podejmuje decyzję. */
-  hero: z.enum(['UTG', 'HJ', 'CO', 'BTN', 'SB', 'BB']),
+  hero: z.enum(['UTG', 'UTG+1', 'UTG+2', 'LJ', 'HJ', 'CO', 'BTN', 'SB', 'BB']),
   /** Ścieżka akcji w drzewie solvera ('' = korzeń). */
   path: z.string(),
   /** Akcje grupowane do pokazania, np. { "Przebij": ["raise 2.5"], "Sprawdź": ["call 2.5"] }. */

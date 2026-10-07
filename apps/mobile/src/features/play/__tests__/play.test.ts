@@ -12,6 +12,7 @@ import {
   gradeDecision,
   HAND_CLASSES,
   parseCards,
+  presetStyles,
   startHand,
   finishPlayHand,
   heroAct,
@@ -139,6 +140,78 @@ describe('tryb gry: zestaw z treści i ekrany (logika)', () => {
         for (const m of menu) clean(menuLabel(t, m));
         h = heroAct(h, menu[(n + k) % menu.length]!.action);
       }
+    }
+  });
+});
+
+describe('tryb gry: stół 9-osobowy', () => {
+  const nine = kit.formats[9]!;
+  const pc9: PlayConfig = { players: 9, stackBb: 100, bigBlind: 100, seatStyles: presetStyles('mixed', 9).map(styleOf), hands: 20, seed: 23, area: null };
+  const deal9 = (button: number, seat: number, cards: string) => {
+    const holes: ([number, number] | null)[] = Array(9).fill(null);
+    holes[seat] = parseCards(cards) as [number, number];
+    return startHand({ stacks: Array(9).fill(10000), smallBlind: 50, bigBlind: 100, button }, 1, { holes });
+  };
+
+  it('wiedza botów i ocena z pliku 9-max: otwarcia UTG…SB i cztery spoty obrony pod pasami UTG–UTG+2', () => {
+    expect(nine.knowledge.solverFormat.players).toBe(9);
+    expect(nine.knowledge.spots).toHaveLength(12);
+    expect(nine.grading.spots.every((s) => s.id.startsWith('nine.'))).toBe(true);
+    expect(nine.grading.spots.find((s) => s.id === 'nine.rfi.utg')!.path).toBe('');
+    // 6-max bez zmian
+    expect(kit.formats[6]!.knowledge).toBe(kit.knowledge);
+  });
+
+  it('20 rozdań z ośmioma botami: rozdania się kończą, raport bez brakujących tekstów', () => {
+    const { db } = openTestDb();
+    const sid = createGameSession(db, { mode: 'free', areaModule: null, handsPlanned: 20, tablePreset: 'mixed', seatStyles: presetStyles('mixed', 9), players: 9, stackBb: 100, timeLimitS: null, botVersion: 1, contentHash: kit.contentHash, seed: 23 });
+    for (let n = 0; n < 20; n++) {
+      let h = dealPlayHand(pc9, n, null);
+      expect(h.state.seats.map((s) => s.position).sort()).toEqual(['BB', 'BTN', 'CO', 'HJ', 'LJ', 'SB', 'UTG', 'UTG+1', 'UTG+2']);
+      for (let i = 0; i < 300 && nextActor(h) !== 'done'; i++) {
+        h = runAuto(h, nine.knowledge, pc9);
+        if (nextActor(h) === 'hero') h = heroAct(h, botDecide(botView(h.state), nine.knowledge, styleOf('balanced'), createRng(i + h.seed)));
+      }
+      expect(nextActor(h)).toBe('done');
+      const r = finishPlayHand(h, nine.grading);
+      saveGameHand(db, sid, { handNo: n, seed: h.seed, config: h.config, preset: h.preset, actions: h.state.actions, heroSeat: 0, timeouts: h.timeouts, resultBb: r.resultBb }, r.findings, r.situations, { contentHash: kit.contentHash, stackBb: 100 });
+    }
+    const items = buildReport(t, gameFindingsForSession(db, sid), gameHandsForSession(db, sid));
+    expect(items.length).toBeGreaterThan(0);
+    for (const i of items) {
+      clean(i.action);
+      if (i.detail) clean(i.detail);
+    }
+  });
+
+  it('UTG+1: otwarcie oceniane regułą R-M3-010 (gram / pas); klasa niepewna (55) bez oceny solverem', () => {
+    // 9 graczy, button na miejscu 5: SB 6, BB 7, UTG 8, UTG+1 0
+    const grade = (cards: string) => {
+      let st = deal9(5, 0, cards);
+      st = applyAction(st, { type: 'fold' });
+      expect(st.seats[0]!.position).toBe('UTG+1');
+      return gradeDecision(st, { type: 'raise', to: 250 }, nine.grading);
+    };
+    const aa = grade('AsAh');
+    expect(aa.ruleId).toBe('R-M3-010');
+    expect(aa.verdict).toBe('compliant');
+    expect(grade('7s2d').verdict).toBe('mistake');
+    expect(grade('5s5h').ruleId).not.toBe('R-M3-010');
+  });
+
+  it('Button wobec otwarcia CO: sprawdzenie i 3-bet tą samą ręką mają ten sam werdykt (gram / pas, jak w 6-max)', () => {
+    const spot = nine.grading.spots.find((s) => s.id === 'nine.vs-open.btn-vs-co')!;
+    for (const [hc, cards] of [['AA', 'AsAh'], ['KQs', 'KsQs'], ['72o', '7s2d'], ['J5o', 'Js5d']] as const) {
+      // button na miejscu 0: UTG 3 … CO 8
+      let st = deal9(0, 0, cards);
+      for (let i = 0; i < 5; i++) st = applyAction(st, { type: 'fold' });
+      st = applyAction(st, { type: 'raise', to: 250 });
+      expect(st.seats[0]!.position).toBe('BTN');
+      const call = gradeDecision(st, { type: 'call' }, nine.grading);
+      const threeBet = gradeDecision(st, { type: 'raise', to: 750 }, nine.grading);
+      expect(call.ruleId).toBe('R-M4-005');
+      expect(threeBet.verdict).toBe(call.verdict);
+      if (spot.groups[0]!.freqs[HAND_CLASSES.indexOf(hc)]! > 0.9) expect(call.verdict).toBe('compliant');
     }
   });
 });

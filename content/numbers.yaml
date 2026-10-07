@@ -83,6 +83,9 @@ solver.rfi.hj: { formula: rangePlay, spot: rfi.hj, unit: percent, source: "solve
 solver.rfi.co: { formula: rangePlay, spot: rfi.co, unit: percent, source: "solver preflop projektu (ADR-20)" }
 solver.rfi.btn: { formula: rangePlay, spot: rfi.btn, unit: percent, source: "solver preflop projektu (ADR-20)" }
 solver.rfi.sb: { formula: rangePlay, spot: rfi.sb, unit: percent, source: "solver preflop projektu (ADR-20)" }
+solver9.rfi.utg: { formula: rangePlay, spot: nine.rfi.utg, unit: percent, source: "solver preflop projektu, stół 9-osobowy 100bb (ADR-20; dokument 10, „Pomiar N9a końcowy”: walidacja częściowa N1–N4, skład niezweryfikowany)" }
+solver9.rfi.utg1: { formula: rangePlay, spot: nine.rfi.utg1, unit: percent, source: "solver preflop projektu, stół 9-osobowy 100bb (ADR-20; dokument 10, „Pomiar N9a końcowy”: walidacja częściowa N1–N4, skład niezweryfikowany)" }
+solver9.rfi.utg2: { formula: rangePlay, spot: nine.rfi.utg2, unit: percent, source: "solver preflop projektu, stół 9-osobowy 100bb (ADR-20; dokument 10, „Pomiar N9a końcowy”: walidacja częściowa N1–N4, skład niezweryfikowany)" }
 format.stack: { value: 100, unit: bb, source: "format główny aplikacji: cash 6-max (ADR-01)" }
 
 # M4: gra wobec akcji preflop. Rozmiary i częstości z literatury (heurystyki; solver aplikacji nie przeszedł walidacji
