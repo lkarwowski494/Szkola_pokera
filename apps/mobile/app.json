@@ -8,7 +8,7 @@
     "scheme": "szkolapokera",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon",
+      "icon": "./assets/images/icon.png",
       "bundleIdentifier": "pl.lkarwowski.szkolapokera",
       "appleTeamId": "8NQ9GHY8GF",
       "supportsTablet": false,
@@ -29,7 +29,7 @@
     "android": {
       "package": "pl.lkarwowski.szkolapokera",
       "adaptiveIcon": {
-        "backgroundColor": "#1F5E45",
+        "backgroundColor": "#0A1430",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
@@ -41,7 +41,7 @@
       "expo-localization",
       [
         "expo-splash-screen",
-        { "backgroundColor": "#1F5E45", "image": "./assets/images/splash-icon.png", "imageWidth": 76 }
+        { "backgroundColor": "#0A1430", "image": "./assets/images/splash-icon.png", "imageWidth": 180 }
       ],
       ["@sentry/react-native/expo", { "url": "https://de.sentry.io/", "organization": "", "project": "" }]
     ],

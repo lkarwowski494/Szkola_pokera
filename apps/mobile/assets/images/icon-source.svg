@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22488A"/><stop offset="1" stop-color="#0A1430"/></linearGradient>
+ <radialGradient id="glow" cx="50%" cy="38%" r="55%"><stop offset="0" stop-color="#3A6BC4" stop-opacity=".45"/><stop offset="1" stop-color="#3A6BC4" stop-opacity="0"/></radialGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7CF63"/><stop offset="1" stop-color="#D49A1E"/></linearGradient>
+ <linearGradient id="card" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFDF7"/><stop offset="1" stop-color="#F1EADB"/></linearGradient>
+ <filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#000" flood-opacity=".45"/></filter>
+</defs>
+<rect width="1024" height="1024" fill="url(#bg)"/><rect width="1024" height="1024" fill="url(#glow)"/>
+<g filter="url(#sh)" transform="translate(500 650)">
+ <g transform="rotate(-13) translate(-128 0)">
+  <rect x="-150" y="-215" width="300" height="430" rx="34" fill="url(#card)"/>
+  <text x="-112" y="-118" font-family="DejaVu Sans" font-weight="bold" font-size="92" fill="#C8102E">K</text>
+  <text x="0" y="92" text-anchor="middle" font-family="DejaVu Sans" font-size="210" fill="#C8102E">♥</text>
+ </g>
+ <g transform="rotate(11) translate(104 -14)">
+  <rect x="-150" y="-215" width="300" height="430" rx="34" fill="url(#card)"/>
+  <text x="-112" y="-118" font-family="DejaVu Sans" font-weight="bold" font-size="92" fill="#0A1430">A</text>
+  <text x="0" y="96" text-anchor="middle" font-family="DejaVu Sans" font-size="225" fill="url(#gold)">♠</text>
+ </g>
+</g>
+<g filter="url(#sh)" transform="translate(555 282) rotate(7) scale(0.8)">
+ <path d="M-170,45 L-170,125 C-170,175 170,175 170,125 L170,45 L0,102 Z" fill="#D9DFEC"/>
+ <polygon points="0,-100 310,0 0,100 -310,0" fill="#FFFFFF"/>
+ <circle cx="0" cy="0" r="16" fill="url(#gold)"/>
+ <path d="M0,0 L262,26 L262,168" stroke="url(#gold)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <path d="M244,160 L280,160 L292,222 L232,222 Z" fill="url(#gold)"/>
+</g>
+</svg>
