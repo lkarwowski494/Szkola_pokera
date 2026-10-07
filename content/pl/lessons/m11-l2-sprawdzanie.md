@@ -65,7 +65,7 @@ drills:
     table: { hand: "2d 2c", position: BB }
     options:
       - { text: "{{t:fold|Pasuje}}", correct: true, why: "Przy {{n:m11.depth.15}} cena rośnie do {{n:m11.call.15.eq}}, a {{t:range}} all-inu jest węższy (ok. {{n:m11.push.15}} rąk), więc {{t:pair}} dwójek częściej trafia na wyższą {{t:pair|parę}}. {{t:range|Zakres}} {{t:call|sprawdzenia}} spada z ok. {{n:m11.call.10}} do ok. {{n:m11.call.15}} rąk." }
-      - { text: "{{t:call|Sprawdza}}, bo {{t:pair}} zawsze jest faworytem", why: "{{t:pair|Para}} dwójek wobec dwóch wyższych kart to mniej więcej rzut monetą, a wobec każdej wyższej {{t:pair|pary}} jest wyraźnym outsiderem. Przy głębszym stacku rywal {{t:shove|wpycha}} mniej słabych rąk, więc {{t:pair|pary}} stanowią większą część jego {{t:range|zakresu}}." }
+      - { text: "{{t:call|Sprawdza}}, bo {{t:pair}} zawsze jest faworytem", why: "{{t:pair|Para}} dwójek wobec dwóch wyższych kart to mniej więcej rzut monetą, a wobec każdej wyższej {{t:pair|pary}} jest wyraźnym outsiderem. Przy głębszym stacku rywal {{t:shove|pushuje}} mniej słabych rąk, więc {{t:pair|pary}} stanowią większą część jego {{t:range|zakresu}}." }
       - { text: "{{t:call|Sprawdza}}, bo im głębszy stack, tym szerzej", why: "Odwrotnie: im głębszy stack, tym więcej kosztuje {{t:call}} i tym węższy {{t:range}} {{t:call|sprawdzenia}}." }
   - kind: choice
     id: m11.l2.q-why-tighter
@@ -129,7 +129,7 @@ potrzebne equity = dopłata ÷ pula po sprawdzeniu
 
 Im krótszy stack, tym lepsza cena, bo twój blind jest większą częścią całego stacku.
 
-## {{t:call|Sprawdzasz}} węziej, niż {{t:shove|wpychasz}}
+## {{t:call|Sprawdzasz}} węziej, niż {{t:shove|pushujesz}}
 
 Wchodząc all-in pierwszy, wygrywasz także wtedy, gdy rywal {{t:fold|spasuje}}. {{t:call|Sprawdzając}}, wygrywasz tylko na showdownie, i to przeciw rękom, które rywal wybrał do all-inu. Dlatego do {{t:call|sprawdzenia}} potrzebujesz lepszej ręki niż do wejścia all-in pierwszy (David Sklansky nazwał to „gap concept”).
 
@@ -137,7 +137,7 @@ Wchodząc all-in pierwszy, wygrywasz także wtedy, gdy rywal {{t:fold|spasuje}}.
 call.bb-10
 ```
 
-Przy {{n:m11.depth.10}} {{t:small-blind}} wchodzi all-in z ok. {{n:m11.push.10}} rąk, a {{t:big-blind}} {{t:call|sprawdza}} ok. {{n:m11.call.10}}. Ręce takie jak [[7s 6s]] {{t:shove|wpychasz}} z {{t:small-blind|małego blinda}}, ale {{t:fold|pasujesz}} je wobec all-inu: bez fold equity mają za mało equity przeciw wysokim kartom i {{t:pair|parom}}. Dla porównania PokerStrategy podaje przy {{n:m11.depth.10}} {{t:range}} {{t:call|sprawdzenia}} {{n:m11.ext.call.10}}.
+Przy {{n:m11.depth.10}} {{t:small-blind}} wchodzi all-in z ok. {{n:m11.push.10}} rąk, a {{t:big-blind}} {{t:call|sprawdza}} ok. {{n:m11.call.10}}. Ręce takie jak [[7s 6s]] {{t:shove|pushujesz}} z {{t:small-blind|małego blinda}}, ale {{t:fold|pasujesz}} je wobec all-inu: bez fold equity mają za mało equity przeciw wysokim kartom i {{t:pair|parom}}. Dla porównania PokerStrategy podaje przy {{n:m11.depth.10}} {{t:range}} {{t:call|sprawdzenia}} {{n:m11.ext.call.10}}.
 
 ```range
 call.bb-15
@@ -165,7 +165,7 @@ call.bb-vs-two-3max
 
 ## Z ante {{t:call|sprawdzasz}} szerzej
 
-Ante zostaje w {{t:pot|puli}}, więc za tę samą dopłatę wygrywasz więcej: przy {{n:m11.depth.10}} i ante {{n:m11.ante}} potrzebujesz {{n:m11.call.10-ante.eq}} zamiast {{n:m11.call.10.eq}}. Rywal z ante także {{t:shove|wpycha}} szerzej, więc solver {{t:call|sprawdza}} ok. {{n:m11.call.10-ante}} rąk.
+Ante zostaje w {{t:pot|puli}}, więc za tę samą dopłatę wygrywasz więcej: przy {{n:m11.depth.10}} i ante {{n:m11.ante}} potrzebujesz {{n:m11.call.10-ante.eq}} zamiast {{n:m11.call.10.eq}}. Rywal z ante także {{t:shove|pushuje}} szerzej, więc solver {{t:call|sprawdza}} ok. {{n:m11.call.10-ante}} rąk.
 
 ```range
 call.bb-10-ante

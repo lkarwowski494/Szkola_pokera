@@ -46,6 +46,7 @@ export function loadTerms(file: Record<string, TermEntry>): Terms {
     en: t.en,
     enAlt: [...(t.enAlt ?? [])],
     ...(t.abbr ? { abbr: t.abbr } : {}),
+    ...(file[key]!.def ? { def: file[key]!.def } : {}),
     area: t.area as CompiledTerm['area'],
     source: file[key]!.source,
     ...(t.forms?.length ? { forms: [...t.forms] } : {}),
@@ -65,6 +66,7 @@ export function termsModuleSource(terms: (CompiledTerm & { forms?: string[]; ski
   const rows = terms.map((t) => {
     const fields = [`pl: ${JSON.stringify(t.pl)}`, `en: ${JSON.stringify(t.en)}`, `enAlt: ${JSON.stringify(t.enAlt)}`];
     if (t.abbr) fields.push(`abbr: ${JSON.stringify(t.abbr)}`);
+    if (t.def) fields.push(`def: ${JSON.stringify(t.def)}`);
     fields.push(`area: ${JSON.stringify(t.area)}`);
     if (t.forms?.length) fields.push(`forms: ${JSON.stringify(t.forms)}`);
     if (t.skip?.length) fields.push(`skip: ${JSON.stringify(t.skip)}`);
@@ -79,6 +81,8 @@ export function termsModuleSource(terms: (CompiledTerm & { forms?: string[]; ski
     '  en: string;',
     '  enAlt: readonly string[];',
     '  abbr?: string;',
+    '  /** Definicja po polsku dla początkującego (pole def w terms.yaml). */',
+    '  def?: string;',
     '  area: TermArea;',
     '  /** Formy wymagające znacznika (test tekstów aplikacji). */',
     '  forms?: readonly string[];',

@@ -13,9 +13,9 @@ drills:
     prompt: "Bronisz {{t:big-blind}}. Na riverze {{t:check|czekasz}}, a Button {{t:bet|stawia}} całą {{t:pot|pulę}}. Piki nie weszły. Jaką rolę ma twoja {{t:pair}} dziewiątek?"
     table: { hand: "9c 8c", board: "Kd 9s 5s 2c 3h", position: BB }
     options:
-      - { text: "Bluff-catcher: wygrywa tylko z {{t:bluff|blefami}}", correct: true, why: "Za całą {{t:pot|pulę}} Button betuje {{t:value|dla wartości}} co najmniej królem, a {{t:bluff|blefuje}} głównie nietrafionymi {{t:draw|dobieraniami}}. Twoja {{t:pair}} przegrywa z każdą jego ręką {{t:value|dla wartości}} i wygrywa z każdym {{t:bluff|blefem}}." }
+      - { text: "Bluff-catcher: wygrywa tylko z {{t:bluff|blefami}}", correct: true, why: "Za całą {{t:pot|pulę}} Button betuje {{t:value|dla wartości}} co najmniej królem, a {{t:bluff|blefuje}} głównie nietrafionymi {{t:draw|drawami}}. Twoja {{t:pair}} przegrywa z każdą jego ręką {{t:value|dla wartości}} i wygrywa z każdym {{t:bluff|blefem}}." }
       - { text: "Ręka {{t:value|dla wartości}}", why: "Ręka {{t:value|dla wartości}} wygrywa z rękami, które płacą lub betują {{t:value|dla wartości}}. {{t:pair|Para}} dziewiątek przegrywa z każdym królem i lepszą ręką Buttona." }
-      - { text: "Ręka bez szans", why: "{{t:pair|Para}} dziewiątek wygrywa z nietrafionymi {{t:draw|dobieraniami}}, a tymi Button {{t:bluff|blefuje}}. Ma szanse, ale tylko przeciw {{t:bluff|blefom}}." }
+      - { text: "Ręka bez szans", why: "{{t:pair|Para}} dziewiątek wygrywa z nietrafionymi {{t:draw|drawami}}, a tymi Button {{t:bluff|blefuje}}. Ma szanse, ale tylko przeciw {{t:bluff|blefom}}." }
   - kind: numeric
     id: m8.l4.n-need-pot
     family: m8.catch.math
@@ -57,8 +57,8 @@ drills:
     prompt: "Piki nie weszły. Na riverze {{t:check|czekasz}}, a Button {{t:bet|stawia}} całą {{t:pot|pulę}}. Masz {{t:top-pair|najwyższą parę}} z dziesiątką. Z którą z tych dwóch rąk {{t:call}} jest lepsze?"
     table: { board: "Kd 9s 5s 2c 3h", position: BB }
     options:
-      - { text: "[[Kc Tc]]", correct: true, why: "Bez pików nie blokujesz nietrafionych {{t:flush-draw|dobierań do koloru}}, czyli głównych {{t:bluff|blefów}} Buttona (np. dziesiątka z waletem w pikach). W jego {{t:range|zakresie}} zostaje więcej {{t:bluff|blefów}}, z którymi wygrywasz." }
-      - { text: "[[Kc Ts]]", why: "Dziesiątka pik zabiera Buttonowi część nietrafionych {{t:draw|dobierań}}, którymi {{t:bluff|blefuje}} (np. walet z dziesiątką w pikach). Zostaje mu relatywnie więcej wartości, więc {{t:call}} jest gorsze." }
+      - { text: "[[Kc Tc]]", correct: true, why: "Bez pików nie blokujesz nietrafionych {{t:flush-draw|drawów do koloru}}, czyli głównych {{t:bluff|blefów}} Buttona (np. dziesiątka z waletem w pikach). W jego {{t:range|zakresie}} zostaje więcej {{t:bluff|blefów}}, z którymi wygrywasz." }
+      - { text: "[[Kc Ts]]", why: "Dziesiątka pik zabiera Buttonowi część nietrafionych {{t:draw|drawów}}, którymi {{t:bluff|blefuje}} (np. walet z dziesiątką w pikach). Zostaje mu relatywnie więcej wartości, więc {{t:call}} jest gorsze." }
       - { text: "Bez różnicy", why: "Siła przy showdownie jest ta sama, ale pik w twojej ręce blokuje {{t:bluff|blefy}} Buttona. To zmienia, z czym naprawdę grasz." }
   - kind: choice
     id: m8.l4.q-block-value
@@ -125,7 +125,7 @@ Lepszy bluff-catcher:
 
 ## {{t:blocker|Blokery}} przy {{t:call|sprawdzaniu}}
 
-To lustro poprzedniej lekcji. Gdy piki nie weszły, rywal {{t:bluff|blefuje}} nietrafionymi {{t:flush-draw|dobieraniami do koloru}}. Pik w twojej ręce zabiera mu część {{t:bluff|blefów}}, więc {{t:call}} jest gorsze. Gdy {{t:flush}} wszedł, as w tym kolorze w twojej ręce zabiera mu najsilniejsze kolory, więc {{t:call}} jest lepsze.
+To lustro poprzedniej lekcji. Gdy piki nie weszły, rywal {{t:bluff|blefuje}} nietrafionymi {{t:flush-draw|drawami do koloru}}. Pik w twojej ręce zabiera mu część {{t:bluff|blefów}}, więc {{t:call}} jest gorsze. Gdy {{t:flush}} wszedł, as w tym kolorze w twojej ręce zabiera mu najsilniejsze kolory, więc {{t:call}} jest lepsze.
 
 ## Nie przebijaj bluff-catcherem
 

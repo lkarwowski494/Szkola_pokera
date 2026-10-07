@@ -99,4 +99,4 @@ W Texas Hold'em dostajesz **2 {{t:hole-cards}}**, a na {{t:board}} trafia **5 {{
 Najpierw porównuje się rangę układu: {{t:three-of-a-kind}} bije {{t:two-pair}}. Przy tym samym układzie decyduje jego wysokość: {{t:pair}} króli bije {{t:pair|parę}} dam, a przy dwóch {{t:pair|parach}} najpierw porównuje się wyższą {{t:pair|parę}}. Dopiero gdy rdzeń układu jest identyczny (ta sama {{t:pair}}, {{t:three-of-a-kind}} albo te same {{t:two-pair}}), decydują karty dodatkowe, czyli kickery: najpierw najwyższy, a przy remisie kolejny. Liczą się tylko kickery z najlepszej piątki. Jeśli obie piątki są identyczne, {{t:split-pot|pula jest dzielona}}.
 :::
 
-As może być najniższą kartą {{t:straight|strita}}: [[5h 4s 3c 2d Ah]] to najniższy {{t:straight}}, tak zwane {{t:wheel}}.
+As może być najniższą kartą {{t:straight|strita}}: [[5h 4s 3c 2d Ah]] to najniższy {{t:straight}}, tak zwany {{t:wheel}}.

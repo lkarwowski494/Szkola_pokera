@@ -64,7 +64,7 @@ export function permuteCard(c: Card, perm: readonly number[]): Card {
 }
 
 /**
- * Ta sama sytuacja z kolorami zamienionymi jedną permutacją dla wszystkich kart naraz (5.6): siła rąk i dobierań się
+ * Ta sama sytuacja z kolorami zamienionymi jedną permutacją dla wszystkich kart naraz (5.6): siła rąk i drawów się
  * nie zmienia, więc poprawna decyzja też nie. Losuje permutację inną niż tożsamość.
  */
 export function permuteSituation(s: GameSituation, rng: Rng): GameSituation {

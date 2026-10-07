@@ -4,7 +4,7 @@ import { drawOuts, type DrawOuts } from './draws';
 import { categoryOf, HandCategory, strength } from './evaluate';
 
 /**
- * Siła ręki gracza po flopie względem stołu (dokument 14, 4.4.2): fakty o układzie i dobieraniach oraz klasa
+ * Siła ręki gracza po flopie względem stołu (dokument 14, 4.4.2): fakty o układzie i drawach oraz klasa
  * dla polityki botów. Fakty (pairKind, kicker, outy) są rachunkiem; podział na klasy to model bota (BOT_POLICY),
  * a nie reguła kursu, więc nie trafia do treści jako twierdzenie.
  */
@@ -29,13 +29,13 @@ export interface Holding {
   cls: HoldingClass;
 }
 
-/** Granice klas (model bota): kicker przy najwyższej parze, od którego para jest „silna”, i outy dobierania. */
+/** Granice klas (model bota): kicker przy najwyższej parze, od którego para jest „silna”, i outy drawa. */
 export const HOLDING_LIMITS = {
   /** Najwyższa para z kickerem od tej rangi (T) jest silna, niżej średnia. */
   strongKickerMin: 8,
-  /** Od tylu outów dobieranie jest pełnoprawne (kolor 9, strit otwarty 8). */
+  /** Od tylu outów draw jest pełnoprawny (kolor 9, strit otwarty 8). */
   drawOutsMin: 8,
-  /** Od tylu outów dobieranie gra jak silna ręka (np. kolor ze stritem). */
+  /** Od tylu outów draw gra jak silna ręka (np. kolor ze stritem). */
   comboOutsMin: 12,
 } as const;
 
@@ -62,7 +62,7 @@ export function classifyHolding(hole: readonly [Card, Card], board: readonly Car
     (category === HandCategory.OnePair && improvesBoard) || (category === HandCategory.TwoPair && boardPaired && holePairsBoard.length + (h1 === h2 ? 1 : 0) === 1);
   if (onePairWithHole) {
     if (h1 === h2) {
-      // para w ręce między najwyższą a drugą kartą stołu gra jak druga para
+      // pocket para między najwyższą a drugą kartą stołu gra jak druga para
       pairKind = h1 > top ? 'overpair' : h1 > (boardRanks[1] ?? -1) ? 'second' : 'underpair';
     } else {
       const paired = holePairsBoard[0]!;

@@ -62,16 +62,16 @@ drills:
     rules: [R-M12-002]
     prompt: "Gracz wygrywa {{n:var.wr.ex}} przy {{t:standard-deviation|odchyleniu}} {{n:var.sd}}. Jak często w ciągu {{n:var.hands.k}} tys. rąk zdarzy mu się {{t:downswing}} o co najmniej {{n:dd.bi.small}} {{t:buy-in|wpisowych}} od najwyższego punktu?"
     options:
-      - { text: "Prawie zawsze, ok. {{n:dd.p.small.100k}}", correct: true, why: "Symulacja {{n:var.hands.k}} tys. rąk przy tych parametrach daje taki {{t:downswing}} w ok. {{n:dd.p.small.100k}} przebiegów. {{t:downswing|Zjazd}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} jest normalną częścią gry wygrywającego gracza." }
+      - { text: "Prawie zawsze, ok. {{n:dd.p.small.100k}}", correct: true, why: "Symulacja {{n:var.hands.k}} tys. rąk przy tych parametrach daje taki {{t:downswing}} w ok. {{n:dd.p.small.100k}} przebiegów. {{t:downswing|Downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} jest normalną częścią gry wygrywającego gracza." }
       - { text: "W ok. {{n:dd.p.small.20k}} przypadków", why: "Tyle wychodzi dla krótszej próbki, {{n:dd.hands.short.k}} tys. rąk. W {{n:var.hands.k}} tys. rąk szans na głęboki {{t:downswing}} jest dużo więcej: ok. {{n:dd.p.small.100k}}." }
-      - { text: "Rzadko, ok. {{n:var.p.lose}}", why: "Tak rzadko gracz {{n:var.wr.ex}} kończy {{n:var.hands.k}} tys. rąk na minusie. {{t:downswing|Zjazd}} po drodze to coś innego: zdarza się prawie zawsze." }
+      - { text: "Rzadko, ok. {{n:var.p.lose}}", why: "Tak rzadko gracz {{n:var.wr.ex}} kończy {{n:var.hands.k}} tys. rąk na minusie. {{t:downswing|Downswing}} po drodze to coś innego: zdarza się prawie zawsze." }
   - kind: choice
     id: m12.l1.q-dd-wr-low
     family: m12.downswing
     rules: [R-M12-002]
     prompt: "Dwóch graczy, {{t:standard-deviation|odchylenie}} {{n:var.sd}}, {{n:var.hands.k}} tys. rąk. Jeden wygrywa {{n:var.wr.ex}}, drugi {{n:dd.wr-low}}. Jak często każdy z nich trafi {{t:downswing}} o {{n:dd.bi.big}} {{t:buy-in|wpisowych}}?"
     options:
-      - { text: "Pierwszy w ok. {{n:dd.p.big.100k}}, drugi w ok. {{n:dd.p.big.100k.wr-low}} przypadków", correct: true, why: "Niższy winrate słabiej ciągnie wynik w górę, więc {{t:downswing|zjazdy}} są głębsze i częstsze. Przy {{n:dd.wr-low}}, typowym dla wygrywających na mikrostawkach, {{t:downswing}} o {{n:dd.bi.big}} {{t:buy-in|wpisowych}} zdarza się częściej niż w co drugiej próbce." }
+      - { text: "Pierwszy w ok. {{n:dd.p.big.100k}}, drugi w ok. {{n:dd.p.big.100k.wr-low}} przypadków", correct: true, why: "Niższy winrate słabiej ciągnie wynik w górę, więc {{t:downswing|downswingi}} są głębsze i częstsze. Przy {{n:dd.wr-low}}, typowym dla wygrywających na mikrostawkach, {{t:downswing}} o {{n:dd.bi.big}} {{t:buy-in|wpisowych}} zdarza się częściej niż w co drugiej próbce." }
       - { text: "Obaj tak samo często, bo {{t:standard-deviation|odchylenie}} jest to samo", why: "{{t:standard-deviation|Odchylenie}} decyduje o wahaniach, ale winrate o tym, jak szybko wynik od nich ucieka. Przy {{n:dd.wr-low}} {{t:downswing}} o {{n:dd.bi.big}} {{t:buy-in|wpisowych}} zdarza się w ok. {{n:dd.p.big.100k.wr-low}} próbek, przy {{n:var.wr.ex}} w ok. {{n:dd.p.big.100k}}." }
       - { text: "Żaden: {{t:downswing}} o {{n:dd.bi.big}} {{t:buy-in|wpisowych}} zdarza się tylko przegrywającym", why: "Nieprawda. Nawet gracz {{n:var.wr.ex}} trafia go w ok. {{n:dd.p.big.100k}} próbek {{n:var.hands.k}} tys. rąk." }
   - kind: choice
@@ -80,9 +80,9 @@ drills:
     rules: [R-M12-002]
     prompt: "Od miesiąca jesteś {{n:dd.bi.small}} {{t:buy-in|wpisowych}} pod kreską. Co z tego wynika?"
     options:
-      - { text: "Sam {{t:downswing}} niczego nie przesądza; {{t:call|sprawdzasz}} decyzje w przegranych rozdaniach", correct: true, why: "{{t:downswing|Zjazd}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} trafia prawie każdego wygrywającego gracza. O tym, czy grasz dobrze, mówi przegląd decyzji, a nie sam wynik." }
-      - { text: "Grasz źle i musisz zmienić cały styl gry", why: "{{t:downswing|Zjazdy}} tej wielkości zdarzają się graczom wygrywającym w ok. {{n:dd.p.small.100k}} próbek {{n:var.hands.k}} tys. rąk. Zmiana stylu z powodu samego wyniku to reagowanie na szum." }
-      - { text: "Na pewno masz pecha, nic nie musisz {{t:call|sprawdzać}}", why: "{{t:downswing|Zjazd}} może też wynikać z błędów. Wynik nie odróżni pecha od błędu, ale przegląd rozdań może to zrobić." }
+      - { text: "Sam {{t:downswing}} niczego nie przesądza; {{t:call|sprawdzasz}} decyzje w przegranych rozdaniach", correct: true, why: "{{t:downswing|Downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} trafia prawie każdego wygrywającego gracza. O tym, czy grasz dobrze, mówi przegląd decyzji, a nie sam wynik." }
+      - { text: "Grasz źle i musisz zmienić cały styl gry", why: "{{t:downswing|Downswingi}} tej wielkości zdarzają się graczom wygrywającym w ok. {{n:dd.p.small.100k}} próbek {{n:var.hands.k}} tys. rąk. Zmiana stylu z powodu samego wyniku to reagowanie na szum." }
+      - { text: "Na pewno masz pecha, nic nie musisz {{t:call|sprawdzać}}", why: "{{t:downswing|Downswing}} może też wynikać z błędów. Wynik nie odróżni pecha od błędu, ale przegląd rozdań może to zrobić." }
   - kind: choice
     id: m12.l1.q-sd-typical
     family: m12.sd-concept
@@ -124,15 +124,15 @@ potrzebne bloki = ({{n:var.z95}} × SD ÷ dokładność)²
 
 Po {{n:var.hands.k}} tys. rąk błąd wynosi ok. {{n:var.se.wr}}, więc przedział {{n:var.conf95}} to ± {{n:var.ci.wr}}. Wynik {{n:var.wr.ex}} znaczy wtedy tylko tyle, że prawdziwy winrate leży gdzieś między ok. {{n:var.wr.ci.low}} a {{n:var.wr.ci.high}}. Żeby poznać winrate z dokładnością ± {{n:var.target}}, potrzebujesz ok. **{{n:var.need.hands.k}} tys. rąk**.
 
-## {{t:downswing|Zjazdy}} są normalne
+## {{t:downswing|Downswingi}} są normalne
 
-{{t:downswing|Zjazd}} to spadek wyniku od najwyższego punktu. Symulacja gracza {{n:var.wr.ex}} przy SD {{n:var.sd}}:
+{{t:downswing|Downswing}} to spadek wyniku od najwyższego punktu. Symulacja gracza {{n:var.wr.ex}} przy SD {{n:var.sd}}:
 
-| {{t:downswing|Zjazd}} od szczytu | W {{n:dd.hands.short.k}} tys. rąk | W {{n:var.hands.k}} tys. rąk | W {{n:var.hands.k}} tys. rąk przy {{n:dd.wr-low}} |
+| {{t:downswing|Downswing}} od szczytu | W {{n:dd.hands.short.k}} tys. rąk | W {{n:var.hands.k}} tys. rąk | W {{n:var.hands.k}} tys. rąk przy {{n:dd.wr-low}} |
 |---|---|---|---|
 | {{n:dd.bi.small}} {{t:buy-in|wpisowych}} | {{n:dd.p.small.20k}} | {{n:dd.p.small.100k}} | {{n:dd.p.small.100k.wr-low}} |
 | {{n:dd.bi.big}} {{t:buy-in|wpisowych}} | — | {{n:dd.p.big.100k}} | {{n:dd.p.big.100k.wr-low}} |
 
 :::note Skąd te liczby
-Wyniki symulacji: tysiące przebiegów gry po {{n:var.hands.k}} tys. rąk z losowym wynikiem każdego bloku. Prawdziwe {{t:downswing|zjazdy}} bywają nieco głębsze, bo wynik zmienia się z każdym rozdaniem, a nie co 100 rąk. Wniosek: {{t:downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} nie dowodzi, że grasz źle.
+Wyniki symulacji: tysiące przebiegów gry po {{n:var.hands.k}} tys. rąk z losowym wynikiem każdego bloku. Prawdziwe {{t:downswing|downswingi}} bywają nieco głębsze, bo wynik zmienia się z każdym rozdaniem, a nie co 100 rąk. Wniosek: {{t:downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} nie dowodzi, że grasz źle.
 :::

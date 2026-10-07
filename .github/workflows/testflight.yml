@@ -1,0 +1,141 @@
+# TestFlight — testy wewnętrzne (decyzja właściciela 06.10.2026: limit Expo na buildy lokalne wyczerpany do 01.11.2026,
+# a własny link ad hoc ujawniałby UDID iPhone'a w publicznym pliku). Wzorzec: workflow testflight.yml z repozytorium Treningu.
+# Build i podpis wyłącznie narzędziami Apple (bez Expo/EAS): xcodebuild archive z automatycznym podpisem przez klucz
+# App Store Connect API, eksport z wysyłką do App Store Connect. Tester wewnętrzny (właściciel) dostaje build w aplikacji
+# TestFlight bez recenzji Apple.
+# Uruchamianie: Actions → „TestFlight (testy wewnętrzne)” → Run workflow (tylko ręcznie; sekrety niedostępne dla forków).
+#
+# Sekrety repozytorium (Settings → Secrets and variables → Actions) — nigdy w repo ani na czacie:
+#   ASC_KEY_ID     — identyfikator klucza API (10 znaków)
+#   ASC_ISSUER_ID  — Issuer ID (App Store Connect → Users and Access → Integrations)
+#   ASC_KEY_P8     — pełna treść pliku AuthKey_XXXX.p8 (razem z liniami BEGIN/END)
+# Klucz ma rolę Admin (podpis w chmurze przy eksporcie wymaga uprawnień do certyfikatów dystrybucyjnych); może to być ten sam
+# klucz co w Treningu (klucz należy do zespołu, nie do aplikacji).
+# Numer buildu: 1000 + numer przebiegu tego workflow — tylko rośnie.
+name: TestFlight (testy wewnętrzne)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: testflight
+  cancel-in-progress: false
+jobs:
+  build:
+    # Expo SDK 57 wymaga Xcode 26.4+; obraz macos-26 ma domyślnie Xcode 26.4.1 (jak iphone-local.yml)
+    runs-on: macos-26
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v5
+      - name: Xcode
+        run: |
+          xcodebuild -version
+          v=$(xcodebuild -version | head -1 | awk '{print $2}')
+          [ "$(printf '%s\n' 26.4 "$v" | sort -V | head -1)" = "26.4" ] || { echo "::error::Xcode $v jest za stary dla Expo SDK 57 (wymagane 26.4+)"; exit 1; }
+      - name: Sekrety obecne (bez wypisywania wartości)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+        run: |
+          for v in ASC_KEY_ID ASC_ISSUER_ID ASC_KEY_P8; do [ -n "${!v}" ] || { echo "::error::Brak sekretu $v (Settings → Secrets and variables → Actions)"; exit 1; }; done
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Klucz API działa i aplikacja istnieje (ok. 1 min, przed długim buildem)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+        run: |
+          BUNDLE_ID=$(node -p "require('./apps/mobile/app.json').expo.ios.bundleIdentifier") node scripts/ci/asc-check.mjs
+      - run: pnpm install --frozen-lockfile
+      - name: Testy (jak w CI)
+        run: pnpm run ci
+      - name: Projekt iOS (expo prebuild)
+        working-directory: apps/mobile
+        run: npx expo prebuild --platform ios --no-install --clean
+      - name: Numer buildu
+        working-directory: apps/mobile/ios
+        run: |
+          BUILD_NUMBER=$((1000 + GITHUB_RUN_NUMBER))
+          # workspace powstaje dopiero po pod install, więc nazwę schematu bierzemy z projektu .xcodeproj
+          PROJ=$(ls -d *.xcodeproj | head -1); SCHEME="${PROJ%.xcodeproj}"; WS="$SCHEME.xcworkspace"
+          test -n "$PROJ" && test -f "$SCHEME/Info.plist" || { echo "::error::Brak projektu iOS albo $SCHEME/Info.plist po prebuild"; ls; exit 1; }
+          echo "BUILD_NUMBER=$BUILD_NUMBER" >> "$GITHUB_ENV"
+          echo "WS=$WS" >> "$GITHUB_ENV"
+          echo "SCHEME=$SCHEME" >> "$GITHUB_ENV"
+          /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUMBER" "$SCHEME/Info.plist"
+          echo "Workspace: $WS, schemat: $SCHEME, build: $BUILD_NUMBER"
+      - name: CocoaPods
+        working-directory: apps/mobile/ios
+        run: |
+          pod install
+          test -d "$WS" || { echo "::error::Po pod install brak $WS"; ls; exit 1; }
+      - name: Klucz API na dysk (dopiero po instalacji zależności, testach i pod install)
+        env:
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+        # ten sam skrypt co na początku: normalizuje wklejony klucz (\r, dosłowne „\n”) i zapisuje go z uprawnieniami 600
+        run: |
+          OUT="$RUNNER_TEMP/AuthKey.p8" BUNDLE_ID=$(node -p "require('./apps/mobile/app.json').expo.ios.bundleIdentifier") node scripts/ci/asc-check.mjs
+      - name: Archiwum (podpis automatyczny kluczem API)
+        working-directory: apps/mobile/ios
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          SENTRY_DISABLE_AUTO_UPLOAD: 'true'
+        run: |
+          set -o pipefail
+          # identyfikatory klucza poza środowiskiem xcodebuild (surowy log idzie do artefaktu, a tam GitHub nie maskuje)
+          KID="$ASC_KEY_ID"; ISS="$ASC_ISSUER_ID"; unset ASC_KEY_ID ASC_ISSUER_ID
+          TEAM=$(node -p "require('../app.json').expo.ios.appleTeamId")
+          xcodebuild -workspace "$WS" -scheme "$SCHEME" -configuration Release -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/App.xcarchive" archive \
+            -allowProvisioningUpdates -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" \
+            -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" \
+            CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM="$TEAM" CURRENT_PROJECT_VERSION=$BUILD_NUMBER \
+            2>&1 | tee xcodebuild.log | { if command -v xcbeautify >/dev/null; then xcbeautify; else cat; fi; }
+          # treść lekcji musi być w paczce (baza content-vN.db)
+          find "$RUNNER_TEMP/App.xcarchive" -name 'content-v*.db' | grep -q . || { echo "::error::W archiwum brak bazy treści content-v*.db"; exit 1; }
+      - name: Eksport i wysyłka do App Store Connect
+        working-directory: apps/mobile/ios
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+        run: |
+          set -o pipefail
+          KID="$ASC_KEY_ID"; ISS="$ASC_ISSUER_ID"; unset ASC_KEY_ID ASC_ISSUER_ID
+          TEAM=$(node -p "require('../app.json').expo.ios.appleTeamId")
+          cat > "$RUNNER_TEMP/ExportOptions.plist" <<PLIST
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>method</key><string>app-store-connect</string>
+            <key>destination</key><string>upload</string>
+            <key>teamID</key><string>$TEAM</string>
+            <key>signingStyle</key><string>automatic</string>
+            <key>manageAppVersionAndBuildNumber</key><false/>
+          </dict></plist>
+          PLIST
+          xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/App.xcarchive" -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
+            -exportPath "$RUNNER_TEMP/export" -allowProvisioningUpdates -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" \
+            -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" \
+            2>&1 | tee export.log | { if command -v xcbeautify >/dev/null; then xcbeautify; else cat; fi; }
+          echo "## TestFlight: build $BUILD_NUMBER wysłany" >> "$GITHUB_STEP_SUMMARY"
+          echo "Po przetworzeniu przez Apple (zwykle 10–30 min) pojawi się w aplikacji TestFlight na iPhonie." >> "$GITHUB_STEP_SUMMARY"
+          echo "::notice title=TestFlight::Build $BUILD_NUMBER wysłany do App Store Connect"
+      - name: Usunięcie klucza z maszyny
+        if: always()
+        run: rm -f "$RUNNER_TEMP/AuthKey.p8"
+      - uses: actions/upload-artifact@v5
+        if: failure()
+        with:
+          name: testflight-logi
+          retention-days: 1
+          path: |
+            apps/mobile/ios/xcodebuild.log
+            apps/mobile/ios/export.log

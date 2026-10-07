@@ -33,6 +33,16 @@ export function termNeedsEnglish(t: Pick<TermInfo, 'pl' | 'en'>): boolean {
   return norm(t.pl) !== norm(t.en);
 }
 
+/**
+ * Czy definicja zdradza nazwę własnego terminu (polską nazwę, formę, nazwę angielską, inną nazwę angielską albo skrót).
+ * Takiego terminu ćwiczenie słownictwa nie pyta w kierunku „definicja → termin”, bo odpowiedź stałaby w pytaniu.
+ */
+export function termDefRevealsName(t: Pick<TermInfo, 'pl' | 'en' | 'enAlt' | 'abbr' | 'forms'> & { def?: string }): boolean {
+  if (!t.def) return false;
+  const names = [t.pl, t.en, ...(t.enAlt ?? []), ...(t.abbr ? [t.abbr] : []), ...(t.forms ?? [])];
+  return names.some((n) => new RegExp(`(?<![${LETTER}])${escapeRe(n)}(?![${LETTER}])`, 'iu').test(t.def!));
+}
+
 /** Zawartość nawiasu dla danej formy albo null, gdy nawias niepotrzebny. */
 export function termGloss(t: TermInfo, form: string): string | null {
   const isAbbr = !!t.abbr && form === t.abbr;

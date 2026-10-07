@@ -3,7 +3,7 @@ id: m10.l2
 module: m10
 order: 2
 title: "Typy graczy"
-sub: "Nit, regular, gracz pasywny, maniak"
+sub: "Nit, reg, gracz pasywny, maniak"
 rules: [R-M10-004, R-M10-005, R-M10-006, R-M10-007, R-M10-008]
 drills:
   - kind: generated
@@ -26,7 +26,7 @@ drills:
     id: m10.l2.q-data-passive
     family: m10.types.adjust
     rules: [R-M10-006]
-    prompt: "Według danych z GGPoker NL25 {{t:recreational|gracze rekreacyjni}} dochodzą do showdownu w {{n:mda.rec.wtsd}} przypadków i wygrywają {{n:mda.rec.wsd}} showdownów; regulary {{n:mda.reg.wtsd}} i {{n:mda.reg.wsd}}. Co z tego wynika?"
+    prompt: "Według danych z GGPoker NL25 {{t:recreational|gracze rekreacyjni}} dochodzą do showdownu w {{n:mda.rec.wtsd}} przypadków i wygrywają {{n:mda.rec.wsd}} showdownów; {{t:regular|regi}} {{n:mda.reg.wtsd}} i {{n:mda.reg.wsd}}. Co z tego wynika?"
     options:
       - { text: "{{t:recreational|Gracze rekreacyjni}} częściej płacą do końca i częściej przegrywają: {{t:call|sprawdzają}} słabszymi rękami", correct: true, why: "Częściej dochodzą do showdownu, a rzadziej go wygrywają, więc idą tam słabszymi rękami. Wobec nich betujesz {{t:value|dla wartości}} więcej rąk, a {{t:bluff|blefujesz}} mniej." }
       - { text: "{{t:recreational|Gracze rekreacyjni}} częściej {{t:bluff|blefują}}", why: "Te liczby mówią o tym, jak często dochodzą do showdownu i z czym, a nie o {{t:bluff|blefach}}. Wygrywają mniej showdownów, bo {{t:call|sprawdzają}} słabszymi rękami." }
@@ -46,7 +46,7 @@ drills:
     family: m10.types.adjust
     rules: [R-M10-006]
     table: { hand: "9h 8h", board: "Ac Kd 5h 2c Js" }
-    prompt: "River, nietrafione {{t:straight-draw}}. Rywal to pasywny {{t:recreational|gracz rekreacyjny}} ({{t:wtsd}} {{n:mda.rec.wtsd}}), {{t:call|sprawdzał}} flop i turn. {{t:check|Czeka}}. Co robisz?"
+    prompt: "River, nietrafiony {{t:straight-draw}}. Rywal to pasywny {{t:recreational|gracz rekreacyjny}} ({{t:wtsd}} {{n:mda.rec.wtsd}}), {{t:call|sprawdzał}} flop i turn. {{t:check|Czeka}}. Co robisz?"
     options:
       - { text: "{{t:check|Czekam}} i oddaję {{t:pot|pulę}}", correct: true, why: "{{t:bluff}} zarabia tylko wtedy, gdy rywal {{t:fold|pasuje}} częściej niż {{t:alpha}} twojego betu. Gracz, który {{t:call|sprawdzał}} dwie {{t:street|ulice}} i często dochodzi do showdownu, rzadko {{t:fold|pasuje}} na riverze." }
       - { text: "Betuję dużo, bo nie mam wartości przy showdownie", why: "W bazie (moduł 8) taki {{t:bluff}} bywa dobry, ale wobec tego gracza brakuje {{t:fold|pasów}}: {{t:bluff|blef}} traci." }
@@ -113,9 +113,9 @@ Pasywnego gracza z dużą różnicą nazywa się też {{t:calling-station}}. Mi�
 
 ## Co mówią dane z populacji
 
-Baza Bluffaces podaje średnie statystyki graczy GGPoker NL25 6-max ze wszystkich rozdań z ostatnich {{n:mda.period.months}} miesięcy. {{t:regular|Regulary}} to w niej gracze z {{t:vpip}} {{n:mda.reg.def.low}}–{{n:mda.reg.def.high}} i wynikiem powyżej {{n:mda.reg.def.wr}}, a {{t:recreational|gracze rekreacyjni}} to {{t:vpip}} ponad {{n:mda.rec.def}} i wynik poniżej {{n:mda.rec.def.wr}}:
+Baza Bluffaces podaje średnie statystyki graczy GGPoker NL25 6-max ze wszystkich rozdań z ostatnich {{n:mda.period.months}} miesięcy. {{t:regular|Regi}} to w niej gracze z {{t:vpip}} {{n:mda.reg.def.low}}–{{n:mda.reg.def.high}} i wynikiem powyżej {{n:mda.reg.def.wr}}, a {{t:recreational|gracze rekreacyjni}} to {{t:vpip}} ponad {{n:mda.rec.def}} i wynik poniżej {{n:mda.rec.def.wr}}:
 
-| Statystyka | {{t:regular|Regulary}} | {{t:recreational|Gracze rekreacyjni}} |
+| Statystyka | {{t:regular|Regi}} | {{t:recreational|Gracze rekreacyjni}} |
 |---|---|---|
 | {{t:vpip}} / {{t:pfr}} | {{n:mda.reg.vpip}} / {{n:mda.reg.pfr}} | {{n:mda.rec.vpip}} / {{n:mda.rec.pfr}} |
 | Fold to 3-bet | {{n:mda.reg.f3b}} | {{n:mda.rec.f3b}} |

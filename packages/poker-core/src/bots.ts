@@ -101,7 +101,7 @@ export const BOT_POLICY = {
     oopAggressor: 0.7,
     /** Bet bez inicjatywy, bez pozycji, na flopie (donk). */
     donk: 0.5,
-    /** Kilku rywali (R-M5-013): blefy i dobierania × ten mnożnik. */
+    /** Kilku rywali (R-M5-013): blefy i drawy × ten mnożnik. */
     multiwayBluff: 0.3,
     /** Wobec zakładu: częstość podbicia według klasy. */
     raise: { 'very-strong': 0.35, strong: 0.08, medium: 0.02, weak: 0, draw: 0.15, air: 0.04 } satisfies Record<HoldingClass, number>,
@@ -507,7 +507,7 @@ function suitedOrPair(hc: HandClass): boolean {
   return hc.length === 2 || hc[2] === 's';
 }
 
-/** Ręce spekulacyjne z R-M4-013: małe i średnie pary oraz łączniki w kolorze. */
+/** Ręce spekulacyjne z R-M4-013: małe i średnie pary oraz konektory w kolorze. */
 function speculative(hc: HandClass): boolean {
   if (hc.length === 2) return true;
   if (hc[2] !== 's') return false;

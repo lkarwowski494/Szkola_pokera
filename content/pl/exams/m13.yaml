@@ -1,0 +1,90 @@
+module: m13
+drills:
+  - kind: numeric
+    id: m13.exam.q1
+    family: m13.equity-loss
+    rules: [R-M13-001]
+    prompt: "{{n:exam.m13.n}} razy wpłacasz all-in z {{t:equity}} {{n:exam.m13.eq}}. Ile z tych rozdań przegrasz średnio? Wpisz liczbę."
+    answer: exam.m13.lose.of-n
+    explanation: "Z {{t:equity}} {{n:exam.m13.eq}} przegrywasz w 1 − {{n:exam.m13.eq}} = {{n:exam.m13.lose}} takich rozdań: {{n:exam.m13.n}} × {{n:exam.m13.lose}} = {{n:exam.m13.lose.of-n}}. Każda z tych przegranych mieści się w rachunku i nie jest powodem do zmiany strategii."
+  - kind: choice
+    id: m13.exam.q2
+    family: m13.equity-loss
+    rules: [R-M13-001]
+    prompt: "Dwa razy w jednej {{t:session|sesji}} przegrałeś all-in, mając {{t:equity}} {{n:exam.m13.eq.big}}. Co z tego wynika dla twojej strategii?"
+    options:
+      - { text: "Nic: z takim {{t:equity}} przegrywasz w ok. {{n:exam.m13.lose.big}} rozdań, a te dwa do nich należały", correct: true, why: "{{t:equity}} to udział wygranych w wielu powtórzeniach tej samej sytuacji. Przegrane w ok. {{n:exam.m13.lose.big}} przypadków są jego częścią, nawet gdy trafią się blisko siebie." }
+      - { text: "Że w tych spotach trzeba grać ostrożniej", why: "Decyzja z {{t:equity}} {{n:exam.m13.eq.big}} była dobra. Zmiana strategii z powodu wyniku oznaczałaby rezygnację z zagrań, które wygrywają w ok. {{n:exam.m13.eq.big}} przypadków." }
+      - { text: "Że rywale lepiej czytają twoją grę", why: "W all-inie liczy się tylko {{t:equity}}: odczyt rywala nie zmienia kart, które spadną. Dwie przegrane z {{n:exam.m13.lose.big}} szans na każdą to {{t:variance}}." }
+  - kind: choice
+    id: m13.exam.q3
+    family: m13.verdicts
+    rules: [R-M13-002]
+    prompt: "Solver gra twoją rękę {{t:raise|przebiciem}} w {{n:exam.m13.solver.main}} przypadków, a {{t:fold|pasem}} w {{n:exam.m13.solver.rare}}. {{t:fold|Spasowałeś}}. Jak oceni to raport?"
+    options:
+      - { text: "Dopuszczalna", correct: true, why: "Solver gra {{t:fold}} w {{n:exam.m13.solver.rare}} przypadków: co najmniej {{n:range.mixed.min}}, ale rzadziej niż {{n:range.mixed.low}}. To rzadsze zagranie {{t:mixed-hand|ręki mieszanej}}, więc nie błąd, tylko decyzja dopuszczalna." }
+      - { text: "Zgodna", why: "Zgodna jest akcja grana przez solver w co najmniej {{n:range.mixed.low}} przypadków. {{t:fold}} w {{n:exam.m13.solver.rare}} jest rzadszy." }
+      - { text: "Błąd", why: "Błąd to akcja grana przez solver rzadziej niż w {{n:range.mixed.min}} przypadków. {{n:exam.m13.solver.rare}} to więcej, więc oba zagrania są poprawne." }
+  - kind: choice
+    id: m13.exam.q4
+    family: m13.verdicts
+    rules: [R-M13-002]
+    prompt: "Solver {{t:fold|pasuje}} twoją ręką w {{n:exam.m13.solver.main2}} przypadków, a {{t:call|sprawdza}} w {{n:exam.m13.solver.tiny}}. {{t:call|Sprawdziłeś}}. Jaki werdykt?"
+    options:
+      - { text: "Błąd", correct: true, why: "{{t:call}} w {{n:exam.m13.solver.tiny}} przypadków to mniej niż {{n:range.mixed.min}}. Taka akcja nie jest już częścią {{t:mixed-hand|ręki mieszanej}}, tylko błędem." }
+      - { text: "Dopuszczalna, bo solver też czasem {{t:call|sprawdza}}", why: "Dopuszczalna jest akcja grana co najmniej w {{n:range.mixed.min}} przypadków. {{n:exam.m13.solver.tiny}} to za mało." }
+      - { text: "Bez oceny", why: "„Bez oceny” dostaje decyzja, do której aplikacja nie ma reguły ani wyniku solvera. Tu wynik solvera jest." }
+  - kind: choice
+    id: m13.exam.q5
+    family: m13.suit-swap
+    rules: [R-M13-003]
+    prompt: "W grze miałeś J♣ T♣ na {{t:board|stole}} 9♣ 8♦ 2♣. Który z tych układów jest tą samą sytuacją, czyli ma tę samą poprawną decyzję?"
+    options:
+      - { text: "J♦ T♦ na {{t:board|stole}} 9♦ 8♣ 2♦", correct: true, why: "Trefle zamieniono na kara, a kara na trefle, wszędzie naraz. Nadal masz {{t:flush-draw|draw do koloru}} i {{t:oesd|OESD}}, więc decyzja się nie zmienia." }
+      - { text: "J♣ T♣ na {{t:board|stole}} 9♦ 8♣ 2♦", why: "Kolory zamieniono tylko na {{t:board|stole}}: twoje trefle przestały pasować do {{t:board|stołu}} i {{t:flush-draw|draw do koloru}} zniknął. To inna sytuacja." }
+      - { text: "J♥ T♥ na {{t:board|stole}} 9♣ 8♦ 2♣", why: "Kolory zamieniono tylko w twojej ręce: kiery nie pasują do trefli na {{t:board|stole}}, więc {{t:flush-draw|drawa do koloru}} już nie ma." }
+  - kind: choice
+    id: m13.exam.q6
+    family: m13.sample
+    rules: [R-M13-004]
+    prompt: "W ciągu tygodnia miałeś {{n:exam.m13.opps}} okazji do obrony {{t:big-blind|dużego blinda}} przed {{t:open|otwarciem}} z Buttona. Co możesz powiedzieć o swojej częstotliwości obrony?"
+    options:
+      - { text: "Mogę już na nią spojrzeć, ale bez pewności", correct: true, why: "Liczysz okazje, a nie rozdania. Na statystykę patrzysz od ok. {{n:hud.opps.look}} okazji, a pewności nabierasz przy ok. {{n:hud.opps.sure}}. {{n:exam.m13.opps}} to wstępny sygnał, nie wniosek." }
+      - { text: "Wiem już, jak często bronię", why: "{{n:exam.m13.opps}} okazji to wciąż mniej niż ok. {{n:hud.opps.sure}}, przy których nabierasz pewności." }
+      - { text: "Nic, bo statystyki potrzebują tysięcy rąk", why: "Liczą się okazje do tej konkretnej decyzji. Od ok. {{n:hud.opps.look}} okazji możesz już na statystykę spojrzeć." }
+  - kind: choice
+    id: m13.exam.q7
+    family: m13.review-when
+    rules: [R-M13-005]
+    prompt: "Kończysz długą {{t:session|sesję}}, jesteś zmęczony i masz kilka oznaczonych rozdań. Kiedy je analizujesz?"
+    options:
+      - { text: "Za kilka godzin albo jutro, z jasną głową", correct: true, why: "Analiza w zmęczeniu albo tuż po dużej przegranej jest zabarwiona emocjami. Oznaczone rozdania nie uciekną." }
+      - { text: "Od razu, póki wszystko pamiętam", why: "Do przeglądu wystarczy krótki zapis rozdania. Zmęczenie psuje ocenę, więc lepiej przejrzeć je później, z jasną głową." }
+      - { text: "Między kolejnymi rozdaniami następnej {{t:session|sesji}}", why: "W trakcie gry rozdania tylko oznaczasz. Analiza przy stole zabiera uwagę od następnych decyzji." }
+  - kind: choice
+    id: m13.exam.q8
+    family: m13.review-which
+    rules: [R-M13-006]
+    prompt: "Które z tych rozdań z ostatniej {{t:session|sesji}} najbardziej warto przejrzeć?"
+    options:
+      - { text: "Duża {{t:pot|pula}}, w której długo się wahałeś, zanim {{t:call|sprawdziłeś}} na riverze", correct: true, why: "Najwięcej uczą rozdania z trudną decyzją, a duża {{t:pot|pula}} waży najwięcej. Wahanie pokazuje, że nie wiedziałeś, co robić." }
+      - { text: "All-in przed flopem z {{t:pair|parą}} asów przeciw {{t:pair|parze}} króli, przegrany na riverze", why: "To bad beat: decyzja była oczywista, a przegrana to {{t:variance}}. Nad takimi rozdaniami nie spędzasz dużo czasu." }
+      - { text: "Mała {{t:pot|pula}} wygrana bez showdownu po c-becie", why: "Mała {{t:pot|pula}} bez trudnej decyzji uczy niewiele. Czas na przegląd lepiej przeznaczyć na duże {{t:pot|pule}} i decyzje, przy których się wahałeś." }
+  - kind: choice
+    id: m13.exam.q9
+    family: m13.review-how
+    rules: [R-M13-008]
+    prompt: "Przeglądasz {{t:call|sprawdzenie}} na riverze. Przy optymistycznym założeniu o {{t:range|zakresie}} rywala (dużo {{t:bluff|blefów}}) {{t:call}} zarabia, przy pesymistycznym traci. Co dalej?"
+    options:
+      - { text: "Szacuję {{t:range}} realistyczny: od niego zależy ocena", correct: true, why: "Skrajne założenia wyznaczają przedział, w którym leży rzeczywistość. Gdy decyzja jest dobra przy jednym, a zła przy drugim, rozstrzyga założenie realistyczne." }
+      - { text: "Uznaję {{t:call}} za dobre, bo jest dobre przy optymistycznym założeniu", why: "Optymistyczne założenie to tylko jeden koniec przedziału. Skoro przy pesymistycznym {{t:call}} traci, ocena zależy od tego, jak naprawdę gra rywal." }
+      - { text: "Uznaję {{t:call}} za błąd, bo traci przy pesymistycznym założeniu", why: "Decyzja dobra przy pesymistycznym założeniu jest odporna na błąd odczytu, ale zła przy nim nie musi być błędem. Rozstrzyga założenie realistyczne." }
+  - kind: choice
+    id: m13.exam.q10
+    family: m13.review-how
+    rules: [R-M13-007]
+    prompt: "Kolega przegląda rozdania tak, że od razu liczy equity i cenę, bez zapisywania pierwszej reakcji. Co traci?"
+    options:
+      - { text: "Nie widzi, w których decyzjach myli go intuicja", correct: true, why: "Różnica między pierwszą reakcją a rachunkiem pokazuje, gdzie intuicja się myli, i z czasem ją poprawia. Bez zapisu reakcji tej różnicy nie widać." }
+      - { text: "Nic: liczy się tylko wynik rachunku", why: "Rachunek ocenia jedną decyzję. Porównanie pierwszej reakcji z rachunkiem pokazuje, gdzie myli cię intuicja, i z czasem ją poprawia." }
+      - { text: "Dokładność rachunku, bo pierwsza reakcja go poprawia", why: "Pierwsza reakcja nie zmienia rachunku. Jej wartość to porównanie z rachunkiem, które pokazuje, gdzie myli cię intuicja." }

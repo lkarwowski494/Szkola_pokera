@@ -54,7 +54,7 @@ drills:
     prompt: "Trzech graczy przed tobą tylko wyrównało {{t:big-blind}}. Jesteś na Buttonie. Co robisz?"
     table: { hand: "7s 6s", position: BTN }
     options:
-      - { text: "Dopłacam", correct: true, why: "Wobec wielu limperów {{t:connectors}} w kolorze to ręka spekulacyjna: tanio zobaczysz flop {{t:in-position}} i możesz trafić dużą rękę. Upswing zaleca tu dopłatę." }
+      - { text: "Dopłacam", correct: true, why: "Wobec wielu limperów {{t:connectors}} w kolorze to ręce spekulacyjne: tanio zobaczysz flop {{t:in-position}} i możesz trafić dużą rękę. Upswing zaleca tu dopłatę." }
       - { text: "{{t:fold|Pasuję}}", why: "Preflop Wizard radzi grać tylko {{t:raise|przebiciem}} albo {{t:fold|pasem}}, ale {{t:in-position}} wobec słabych limperów dopłata z 76s jest bardziej opłacalna: cena jest niska, a trafiona ręka wygrywa dużą {{t:pot|pulę}}." }
       - { text: "{{t:raise|Przebijam}} do {{n:pf.iso.two-limpers}}", why: "Przy trzech limperach {{t:bluff}} {{t:raise|przebiciem}} rzadko odbiera {{t:pot|pulę}}, a rozmiar powinien być jeszcze większy. 76s nie nadaje się do {{t:raise|przebicia}} {{t:value|dla wartości}}." }
 ---
@@ -70,6 +70,6 @@ Online {{t:raise|przebijasz}} do {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} 
 
 ## {{t:range|Zakres}} {{t:isolation|izolacji}}
 
-Na Buttonie wobec jednego limpera {{t:isolation|izolujesz}} szeroko, ok. {{n:pf.iso.btn.low}}–{{n:pf.iso.btn.high}} rąk: średnie i wysokie {{t:pair|pary}}, asy w kolorze, mocne asy w różnych kolorach, wysokie karty i część {{t:connectors|łączników}} w kolorze. Im wcześniejsza {{t:position}} i im więcej limperów, tym węższy {{t:range}}: wobec trzech limperów {{t:raise|przebijasz}} głównie {{t:value|dla wartości}}.
+Na Buttonie wobec jednego limpera {{t:isolation|izolujesz}} szeroko, ok. {{n:pf.iso.btn.low}}–{{n:pf.iso.btn.high}} rąk: średnie i wysokie {{t:pair|pary}}, asy w kolorze, mocne asy w różnych kolorach, wysokie karty i część {{t:connectors|konektorów}} w kolorze. Im wcześniejsza {{t:position}} i im więcej limperów, tym węższy {{t:range}}: wobec trzech limperów {{t:raise|przebijasz}} głównie {{t:value|dla wartości}}.
 
-Ręce spekulacyjne, takie jak małe {{t:pair|pary}} i {{t:connectors|łączniki}} w kolorze, wobec wielu limperów {{t:in-position}} najlepiej dopłacić. Tu źródła się różnią: Upswing zaleca dopłatę, Preflop Wizard radzi jej unikać; w ćwiczeniach przyjmujemy wersję Upswing.
+Ręce spekulacyjne, takie jak małe {{t:pair|pary}} i {{t:connectors|konektory}} w kolorze, wobec wielu limperów {{t:in-position}} najlepiej dopłacić. Tu źródła się różnią: Upswing zaleca dopłatę, Preflop Wizard radzi jej unikać; w ćwiczeniach przyjmujemy wersję Upswing.

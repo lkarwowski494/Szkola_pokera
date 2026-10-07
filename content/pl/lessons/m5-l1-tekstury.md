@@ -36,7 +36,7 @@ drills:
     options:
       - { text: "Gracz z dwiema kartami w tym kolorze ma już {{t:flush}}", correct: true, why: "Tak: trzy kiery na {{t:board|stole}} i dwa w ręce to pięć kart w kolorze. Gracz z jednym kierem ma {{t:flush-draw}}." }
       - { text: "Nikt nie może mieć jeszcze {{t:flush|koloru}}", why: "Nie: do {{t:flush|koloru}} potrzeba pięciu kart, a trzy już leżą na {{t:board|stole}}. Wystarczą dwie w ręce." }
-      - { text: "{{t:flush|Kolor}} jest możliwy dopiero od turnu", why: "Nie: tak jest na flopie {{t:two-tone|dwukolorowym}}. Na {{t:monotone|monotonicznym}} {{t:flush}} może być gotowy już teraz." }
+      - { text: "{{t:flush|Kolor}} jest możliwy dopiero od turnu", why: "Nie: tak jest na flopie {{t:two-tone|dwukolorowym}}. Na {{t:monotone|jednokolorowym}} {{t:flush}} może być gotowy już teraz." }
   - kind: choice
     id: m5.l1.q-dry
     family: m5.texture.facts
@@ -44,8 +44,8 @@ drills:
     prompt: "Masz [[Ac Kd]], a flop to [[Ks 7d 2c]]. Dlaczego na takim flopie {{t:pair}} z dobrym kickerem jest bezpieczniejsza niż na flopie {{t:wet|mokrym}}?"
     table: { hand: "Ac Kd", board: "Ks 7d 2c" }
     options:
-      - { text: "Bo rywal nie ma żadnego {{t:draw|dobierania}}, więc kolejne karty rzadko zmieniają lidera", correct: true, why: "Tak: flop jest {{t:rainbow}} i {{t:straight}} nie jest możliwy. Rywal, który teraz przegrywa, ma zwykle mało outów: kilka kart na {{t:three-of-a-kind|trójkę}} albo {{t:two-pair}}, a bez {{t:pair|pary}} potrzebuje dwóch dobrych kart z rzędu." }
-      - { text: "Bo na {{t:dry|suchym}} flopie rywal zawsze {{t:fold|pasuje}}", why: "Nie: rywal z siódemką, dwójką albo słabszym królem może {{t:call|sprawdzić}}. {{t:dry|Suchy}} flop mówi o {{t:draw|dobieraniach}}, nie o tym, czy rywal {{t:fold|spasuje}}." }
+      - { text: "Bo rywal nie ma żadnego {{t:draw|drawa}}, więc kolejne karty rzadko zmieniają lidera", correct: true, why: "Tak: flop jest {{t:rainbow}} i {{t:straight}} nie jest możliwy. Rywal, który teraz przegrywa, ma zwykle mało outów: kilka kart na {{t:three-of-a-kind|trójkę}} albo {{t:two-pair}}, a bez {{t:pair|pary}} potrzebuje dwóch dobrych kart z rzędu." }
+      - { text: "Bo na {{t:dry|suchym}} flopie rywal zawsze {{t:fold|pasuje}}", why: "Nie: rywal z siódemką, dwójką albo słabszym królem może {{t:call|sprawdzić}}. {{t:dry|Suchy}} flop mówi o {{t:draw|drawach}}, nie o tym, czy rywal {{t:fold|spasuje}}." }
       - { text: "Bo {{t:pair}} króli zawsze wygrywa do rivera", why: "Nie: rywal może mieć seta albo {{t:two-pair}} już teraz. {{t:dry|Suchy}} flop zmniejsza tylko ryzyko, że ktoś cię dogoni." }
   # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar board
   - kind: generated
@@ -63,17 +63,17 @@ Patrzymy na najwyższą kartę. Flop **wysoki** ma najwyższą kartę asa, król
 
 ## Kolory
 
-Flop **{{t:rainbow}}** ma trzy różne kolory: nikt nie ma jeszcze {{t:flush-draw|dobierania do koloru}}. Flop **{{t:two-tone}}** ma dwie karty w jednym kolorze, np. [[Jh Th 8c]]: dwie karty gracza w tym kolorze dają {{t:flush-draw}}. Flop **{{t:monotone}}** ma wszystkie trzy karty w jednym kolorze, np. [[Kh 8h 3h]]: {{t:flush}} może już być gotowy.
+Flop **{{t:rainbow}}** ma trzy różne kolory: nikt nie ma jeszcze {{t:flush-draw|drawa do koloru}}. Flop **{{t:two-tone}}** ma dwie karty w jednym kolorze, np. [[Jh Th 8c]]: dwie karty gracza w tym kolorze dają {{t:flush-draw}}. Flop **{{t:monotone}}** ma wszystkie trzy karty w jednym kolorze, np. [[Kh 8h 3h]]: {{t:flush}} może już być gotowy.
 
 ## Rangi
 
-Flop **{{t:paired}}** ma dwie karty tej samej rangi, np. [[Qd Qs 6h]]. {{t:straight|Strita}} z dwiema kartami w ręce nikt na nim nie ma, choć {{t:straight-draw}} bywa możliwe (np. na Q-Q-9).
+Flop **{{t:paired}}** ma dwie karty tej samej rangi, np. [[Qd Qs 6h]]. {{t:straight|Strita}} z dwiema kartami w ręce nikt na nim nie ma, choć {{t:straight-draw}} bywa możliwy (np. na Q-Q-9).
 
 Flop **{{t:connected}}** ma trzy różne rangi w obrębie pięciu kolejnych, więc {{t:straight}} jest możliwy już teraz: na [[9h 7d 6c]] {{t:straight|strita}} dają np. 85 i T8. As liczy się też jako jedynka, więc [[Ah 5d 3c]] też jest {{t:connected}}.
 
-Flop **{{t:semi-connected|półpołączony}}** ma w obrębie pięciu kolejnych rang tylko dwie swoje karty. {{t:straight|Strita}} jeszcze nikt nie ma, ale ktoś może mieć {{t:straight-draw}} (otwarte albo gutshot): na [[Kh Qd 4c]] daje je np. JT. Takich flopów jest dużo, bo wystarczą dwie karty blisko siebie.
+Flop **{{t:semi-connected|półpołączony}}** ma w obrębie pięciu kolejnych rang tylko dwie swoje karty. {{t:straight|Strita}} jeszcze nikt nie ma, ale ktoś może mieć {{t:straight-draw}} (otwarty albo gutshot): na [[Kh Qd 4c]] daje go np. JT. Takich flopów jest dużo, bo wystarczą dwie karty blisko siebie.
 
-Flop **{{t:disconnected}}** ma karty tak odległe, że żadne dwie nie mieszczą się w pięciu kolejnych rangach, np. [[Ks 8d 3c]]. Nikt nie ma tu nawet {{t:straight-draw|dobierania do strita}}. Takich flopów jest niewiele.
+Flop **{{t:disconnected}}** ma karty tak odległe, że żadne dwie nie mieszczą się w pięciu kolejnych rangach, np. [[Ks 8d 3c]]. Nikt nie ma tu nawet {{t:straight-draw|drawa do strita}}. Takich flopów jest niewiele.
 
 ## {{t:dry|Suchy}} czy {{t:wet}}
 
@@ -81,7 +81,7 @@ Liczymy punkty za to, co flop daje w kolorach i w {{t:straight|stritach}}:
 
 - {{t:straight}} możliwy już teraz na kilka sposobów, czyli z co najmniej dwoma różnymi zestawami dwóch rang w ręce (na [[9h 8d 7c]] dają go JT, T6 i 65): {{n:tex.points.straight.made}} pkt,
 - {{t:straight}} możliwy tylko na jeden sposób (na [[Ah Kd Tc]] daje go tylko QJ, na [[Ah 4d 2c]] tylko 53): {{n:tex.points.straight.made-one}} pkt,
-- samo {{t:straight-draw}} (flop {{t:semi-connected|półpołączony}} albo {{t:paired}} z dwiema kartami blisko siebie): {{n:tex.points.straight.draw}} pkt,
+- sam {{t:straight-draw}} (flop {{t:semi-connected|półpołączony}} albo {{t:paired}} z dwiema kartami blisko siebie): {{n:tex.points.straight.draw}} pkt,
 - dwie karty w jednym kolorze: {{n:tex.points.suits.two-tone}} pkt; trzy karty w jednym kolorze: {{n:tex.points.suits.monotone}} pkt.
 
 Flop **{{t:dry}}** ma mniej niż {{n:tex.threshold.medium}} pkt, **{{t:wet}}** co najmniej {{n:tex.threshold.wet}} pkt, a **pośredni** jest pomiędzy.
@@ -98,9 +98,9 @@ Flop **{{t:dry}}** ma mniej niż {{n:tex.threshold.medium}} pkt, **{{t:wet}}** c
 | [[9h 8d 7c]] | {{n:tex.points.suits.rainbow}} | {{n:tex.points.straight.made}} | {{n:tex.ex.987}} | {{t:wet}} |
 | [[Jh Th 8c]] | {{n:tex.points.suits.two-tone}} | {{n:tex.points.straight.made}} | {{n:tex.ex.jt8}} | {{t:wet}} |
 
-Gotowy {{t:straight}} waży więcej niż samo {{t:draw}}, bo zmienia układ sił już teraz. {{t:straight|Strit}} możliwy na kilka sposobów waży więcej niż {{t:straight}} możliwy na jeden: na [[9h 8d 7c]] wiele rąk ma {{t:straight|strita}} albo {{t:oesd}}, a na [[Ah Kd Tc]] {{t:straight|strita}} daje tylko QJ, a otwartego {{t:draw|dobierania}} nie ma nikt. Dlatego A-K-T w trzech kolorach jest pośredni, choć jest {{t:connected}}.
+Gotowy {{t:straight}} waży więcej niż sam {{t:draw}}, bo zmienia układ sił już teraz. {{t:straight|Strit}} możliwy na kilka sposobów waży więcej niż {{t:straight}} możliwy na jeden: na [[9h 8d 7c]] wiele rąk ma {{t:straight|strita}} albo {{t:oesd}}, a na [[Ah Kd Tc]] {{t:straight|strita}} daje tylko QJ, a otwartego {{t:draw|drawa}} nie ma nikt. Dlatego A-K-T w trzech kolorach jest pośredni, choć jest {{t:connected}}.
 
-{{t:two-tone|Dwukolorowy}} [[Kh 7h 2c]] to flop {{t:dry}} z jednym {{t:flush-draw|dobieraniem do koloru}}: {{t:straight|strita}} ani {{t:straight-draw|dobierania do strita}} nie ma. {{t:monotone|Monotoniczny}} flop jest zawsze {{t:wet}}: na [[Kh 8h 3h]] {{t:flush}} albo {{t:flush-draw}} ma więcej rąk niż {{t:straight|strita}} albo {{t:oesd}} na [[9h 8d 7c]].
+{{t:two-tone|Dwukolorowy}} [[Kh 7h 2c]] to flop {{t:dry}} z jednym {{t:flush-draw|drawem do koloru}}: {{t:straight|strita}} ani {{t:straight-draw|drawa do strita}} nie ma. {{t:monotone|Jednokolorowy}} flop jest zawsze {{t:wet}}: na [[Kh 8h 3h]] {{t:flush}} albo {{t:flush-draw}} ma więcej rąk niż {{t:straight|strita}} albo {{t:oesd}} na [[9h 8d 7c]].
 
 Na {{t:dry|suchym}} flopie lider zwykle zostaje liderem do rivera. Na {{t:wet|mokrym}} kolejne karty często zmieniają układ sił, więc ręka najlepsza na flopie jest mniej bezpieczna.
 

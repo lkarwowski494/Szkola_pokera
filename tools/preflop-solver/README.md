@@ -42,7 +42,7 @@ npx tsx scripts/fetch-targets.ts && npx tsx scripts/compare.ts targets/beyondgto
 
 ## Push/fold do modułu M11
 
-Drzewa bez modelu EQR i rake'u (po all-inie nie ma dalszej gry): heads-up `src/pushfold.ts` (opcjonalne ante dużego blinda) i trzyosobowe `src/pushfold3.ts` (Button, mały blind, duży blind, równe stacki, pule trzyosobowe z tablicy equity3). Wynik: `content/ranges/pushfold.json` (5, 10 i 15bb heads-up, 10bb z ante, 7,5bb trzyosobowe).
+Drzewa bez modelu EQR i rake'u (po all-inie nie ma dalszej gry): heads-up `src/pushfold.ts` (opcjonalne big blind ante) i trzyosobowe `src/pushfold3.ts` (Button, mały blind, duży blind, równe stacki, pule trzyosobowe z tablicy equity3). Wynik: `content/ranges/pushfold.json` (5, 10 i 15bb heads-up, 10bb z ante, 7,5bb trzyosobowe).
 
 ```bash
 pnpm --filter @szkola/preflop-solver exec tsx scripts/pushfold-ranges.ts   # ok. 1 minuty

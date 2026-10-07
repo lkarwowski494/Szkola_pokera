@@ -1,0 +1,86 @@
+module: m11
+drills:
+  - kind: choice
+    id: m11.exam.q1
+    family: m11.threshold
+    rules: [R-M11-001]
+    prompt: "{{t:tournament|Turniej}}. Masz {{n:exam.m11.mid.stack}}, wszyscy przed tobą {{t:fold|spasowali}}. Twoja ręka jest średnia: za dobra, żeby ją oddać, za słaba na grę po flopie. Jaki plan zalecają źródła?"
+    options:
+      - { text: "All-in albo {{t:fold}}", correct: true, why: "Między {{n:m11.thr.pushfold}} a {{n:m11.thr.upper}} push/fold jest główną metodą dla słabszych i średnich rąk. All-in wyciska z takiego stacku najwięcej {{t:fold|pasów}} rywala. To uproszczenie: solvery część rąk grają też inaczej." }
+      - { text: "Podbicie minimalne, a na all-in rywala {{t:fold}}", why: "Przy {{n:exam.m11.mid.stack}} podbicie i {{t:fold}} po {{t:raise|przebiciu}} oddaje sporą część stacku bez walki. Zwykłe podbijanie źródła zalecają od ok. {{n:m11.thr.raise}}." }
+      - { text: "Limp, żeby tanio zobaczyć flop", why: "Limp nie daje szansy wygrania {{t:pot|puli}} od razu, a z {{t:short-stack|short stackiem}} to właśnie {{t:fold|pasy}} rywali są głównym źródłem zysku." }
+  - kind: numeric
+    id: m11.exam.q2
+    family: m11.m
+    rules: [R-M11-005]
+    prompt: "Masz {{n:exam.m11.m.stack}} {{t:chips|żetonów}}. Blindy to {{n:exam.m11.m.sb}}/{{n:exam.m11.m.bb}}, a {{t:big-blind}} wpłaca jeszcze ante {{n:exam.m11.m.ante}}. Ile wynosi twoje M? Wpisz liczbę z jednym miejscem po przecinku."
+    answer: exam.m11.m.value
+    explanation: "Okrążenie kosztuje {{n:exam.m11.m.sb}} + {{n:exam.m11.m.bb}} + {{n:exam.m11.m.ante}} = {{n:exam.m11.m.orbit}}, więc M = {{n:exam.m11.m.stack}} ÷ {{n:exam.m11.m.orbit}} = {{n:exam.m11.m.value}}. To dużo poniżej ok. {{n:m11.m.red}}: grasz już tylko all-in albo {{t:fold}} i starasz się wejść do {{t:pot|puli}} pierwszy."
+  - kind: choice
+    id: m11.exam.q3
+    family: m11.fold-equity
+    rules: [R-M11-004]
+    prompt: "{{t:small-blind|Mały blind}}, {{n:exam.m11.fe.depth}}, bez ante, wszyscy {{t:fold|spasowali}}. Jak często {{t:big-blind}} musiałby {{t:fold|pasować}}, żeby all-in ręką bez żadnych szans wyszedł na zero?"
+    options:
+      - { text: "W ponad {{n:exam.m11.fe.alpha}} przypadków", correct: true, why: "Dokładasz {{n:exam.m11.fe.risk}}, żeby wygrać {{n:m11.push.10.win}} blindów: {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha}}. Rywal tak często nie {{t:fold|pasuje}}, więc all-in potrzebuje też equity, gdy rywal {{t:call|sprawdzi}}." }
+      - { text: "W ponad połowie przypadków", why: "Ryzykujesz dużo więcej, niż wygrywasz: {{n:exam.m11.fe.risk}} wobec {{n:m11.push.10.win}}. Próg to ryzyko ÷ (wygrana + ryzyko), czyli ok. {{n:exam.m11.fe.alpha}}." }
+      - { text: "Nigdy nie musi: z {{n:exam.m11.fe.depth}} all-in zawsze się opłaca", why: "Ręka bez szans przy showdownie zarabia tylko na {{t:fold|pasach}}, a tych potrzebuje ok. {{n:exam.m11.fe.alpha}}. Dlatego {{t:range}} all-inu, choć szeroki, nie obejmuje wszystkich rąk." }
+  - kind: choice
+    id: m11.exam.q4
+    family: m11.ante
+    rules: [R-M11-003, R-M11-004]
+    prompt: "Ten sam stack {{n:exam.m11.fe.depth}} na {{t:small-blind|małym blindzie}}, ale {{t:big-blind}} wpłacił ante {{n:m11.ante}}. Jak często musi teraz {{t:fold|pasować}}, żeby all-in ręką bez szans wyszedł na zero?"
+    options:
+      - { text: "W ponad {{n:exam.m11.fe.alpha-ante}} przypadków, więc {{t:shove|pushujesz}} więcej rąk", correct: true, why: "Ante powiększa {{t:pot|pulę}}, którą zgarniasz po {{t:fold|pasie}}: {{n:m11.push.10.win-ante}} zamiast {{n:m11.push.10.win}}, a ryzyko zostaje to samo ({{n:exam.m11.fe.risk}}). {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win-ante}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha-ante}} zamiast {{n:exam.m11.fe.alpha}}." }
+      - { text: "Tak samo jak bez ante: w ponad {{n:exam.m11.fe.alpha}}", why: "Ante leży w {{t:pot|puli}} i zgarniasz je, gdy rywal {{t:fold|spasuje}}. Większa nagroda przy tym samym ryzyku obniża próg do ok. {{n:exam.m11.fe.alpha-ante}}." }
+      - { text: "Częściej, bo w {{t:pot|puli}} jest więcej do stracenia", why: "Ante jest już w {{t:pot|puli}}, a nie w twoim ryzyku. Dokładasz tyle samo, a wygrywasz więcej, więc próg spada." }
+  - kind: numeric
+    id: m11.exam.q5
+    family: m11.call.price
+    rules: [R-M11-006]
+    prompt: "Stacki po {{n:exam.m11.call.depth}}, bez ante. Jesteś na {{t:big-blind|dużym blindzie}}, a {{t:small-blind}} wszedł all-in. Ile procent equity potrzebujesz, żeby {{t:call}} się opłacało? Wpisz liczbę."
+    answer: exam.m11.call.eq
+    explanation: "Blind już leży w {{t:pot|puli}}, więc dopłacasz {{n:exam.m11.call.depth}} − {{n:pf.blind.bb}} = {{n:exam.m11.call.cost}}. {{t:pot|Pula}} po {{t:call|sprawdzeniu}} ma {{n:exam.m11.call.pot}}: {{n:exam.m11.call.cost}} ÷ {{n:exam.m11.call.pot}} ≈ {{n:exam.m11.call.eq}}."
+  - kind: choice
+    id: m11.exam.q6
+    family: m11.call.gap
+    rules: [R-M11-007]
+    prompt: "Stacki po {{n:m11.depth.5}}, {{t:small-blind}} wszedł all-in, ty jesteś na {{t:big-blind|dużym blindzie}}. Kolega radzi: „{{t:call|Sprawdzaj}} każdą ręką, z którą sam {{t:shove|pushowałbyś}} all-in z {{t:small-blind|małego blinda}}”. Co na to solver?"
+    options:
+      - { text: "{{t:call|Sprawdzasz}} węziej: ok. {{n:m11.call.5}} rąk wobec ok. {{n:m11.push.5}} all-inu", correct: true, why: "{{t:call|Sprawdzający}} wygrywa tylko na showdownie i to przeciw {{t:range|zakresowi}}, który już przeszedł selekcję. {{t:shove|Pushujący}} wygrywa też wtedy, gdy rywal {{t:fold|spasuje}}. Nawet przy tak {{t:short-stack|short stacku}} i dobrej cenie {{t:range}} {{t:call|sprawdzenia}} jest węższy." }
+      - { text: "Kolega ma rację: przy {{n:m11.depth.5}} oba {{t:range|zakresy}} są takie same", why: "{{t:short-stack|Short stack}} poszerza oba {{t:range|zakresy}}, ale nie wyrównuje ich: all-in ma fold equity, a {{t:call}} nie. Solver {{t:call|sprawdza}} ok. {{n:m11.call.5}} rąk, a {{t:shove|pushuje}} ok. {{n:m11.push.5}}." }
+      - { text: "{{t:call|Sprawdzasz}} szerzej, bo cena jest dobra", why: "Cena przy {{n:m11.depth.5}} jest dobra ({{n:m11.call.5.eq}}), ale grasz przeciw {{t:range|zakresowi}} all-inu, a nie przeciw losowej ręce. Solver {{t:call|sprawdza}} węziej, niż {{t:shove|pushuje}}." }
+  - kind: numeric
+    id: m11.exam.q7
+    family: m11.bf
+    rules: [R-M11-009]
+    prompt: "{{t:bubble|Bubble}}: czterech graczy, płatne trzy miejsca ({{n:m11.bf.p1}}, {{n:m11.bf.p2}}, {{n:m11.bf.p3}} {{t:prize-pool|puli nagród}}). Stacki: {{n:exam.m11.bf.s1}}, twoje {{n:exam.m11.bf.s2}}, rywal all-in {{n:exam.m11.bf.s3}} i {{n:exam.m11.bf.s4}}. Według {{t:icm}} {{t:call|sprawdzając}} tracisz przy przegranej {{n:exam.m11.bf.loss}} {{t:prize-pool|puli nagród}}, a przy wygranej zyskujesz {{n:exam.m11.bf.gain}}. Ile wynosi bubble factor? Wpisz liczbę z dwoma miejscami po przecinku."
+    answer: exam.m11.bf.value
+    explanation: "Bubble factor = strata ÷ zysk = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.gain}} ≈ {{n:exam.m11.bf.value}}. Twoje equity teraz to {{n:exam.m11.bf.eq.now}}, po wygranej {{n:exam.m11.bf.eq.win}}, po przegranej {{n:exam.m11.bf.eq.lose}}: przegrana kosztuje więcej, niż wygrana dodaje."
+  - kind: choice
+    id: m11.exam.q8
+    family: m11.bf
+    rules: [R-M11-009]
+    prompt: "Ten sam spot: bubble factor {{n:exam.m11.bf.value}}. W grze o {{t:chips}} do {{t:call|sprawdzenia}} wystarczy {{n:exam.m11.bf.req-chips}} equity. Ile potrzebujesz według {{t:icm}}?"
+    options:
+      - { text: "Ok. {{n:exam.m11.bf.req}}", correct: true, why: "Potrzebne equity = BF ÷ (BF + 1) = strata ÷ (strata + zysk) = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.range}} ≈ {{n:exam.m11.bf.req}}. Różnica wobec {{n:exam.m11.bf.req-chips}} to {{t:risk-premium|risk premium}}." }
+      - { text: "{{n:exam.m11.bf.req-chips}}, tak samo jak w {{t:chips|żetonach}}", why: "W {{t:tournament|turnieju}} z {{t:payout|wypłatami}} przegrana kosztuje więcej pieniędzy, niż wygrana dodaje, więc {{t:call}} musi wygrywać częściej: ok. {{n:exam.m11.bf.req}}." }
+      - { text: "Mniej niż {{n:exam.m11.bf.req-chips}}, bo {{t:bubble|bubble}} zmusza rywala do {{t:bluff|blefów}}", why: "Bubble factor powyżej 1 zawsze podnosi potrzebne equity ponad cenę w {{t:chips|żetonach}}. Tu do ok. {{n:exam.m11.bf.req}}." }
+  - kind: choice
+    id: m11.exam.q9
+    family: m11.icm.call
+    rules: [R-M11-010]
+    prompt: "{{t:bubble|Bubble}} {{t:tournament|turnieju}}. Masz średni stack. Największy stack przy stole, który cię {{t:cover|pokrywa}}, wchodzi all-in. Jak {{t:call|sprawdzasz}} w porównaniu z grą o {{t:chips}}?"
+    options:
+      - { text: "Wyraźnie ciaśniej", correct: true, why: "Przegrana wyrzuca cię tuż przed nagrodami, a wygrana dodaje mniej, niż przegrana zabiera: {{t:chips}} wygrane są warte mniej niż przegrane. Dlatego potrzebujesz wyraźnie więcej equity niż w grze o {{t:chips}}." }
+      - { text: "Szerzej, bo duży stack {{t:shove|pushuje}} dużo rąk", why: "Duży stack rzeczywiście może {{t:shove|pushować}} szerzej, ale właśnie dlatego, że ty musisz {{t:call|sprawdzać}} ciasno. {{t:risk-premium|Risk premium}} podnosi twoje wymagania." }
+      - { text: "Tak samo: {{t:icm}} liczy się dopiero przy {{t:final-table|stole finałowym}}", why: "Ostrożniejsze {{t:call|sprawdzanie}} obowiązuje i na {{t:final-table|stole finałowym}}, i na {{t:bubble|bubble}}: tu od twojego przetrwania zależy, czy w ogóle coś wygrasz." }
+  - kind: choice
+    id: m11.exam.q10
+    family: m11.push.3max
+    rules: [R-M11-011]
+    prompt: "Trzech graczy, stacki po {{n:m11.depth.3max}}. Skąd {{t:shove|pushujesz}} all-in szerzej: z Buttona, gdy za tobą są oba blindy, czy z {{t:small-blind|małego blinda}} po {{t:fold|pasie}} Buttona?"
+    options:
+      - { text: "Z {{t:small-blind|małego blinda}}: ok. {{n:m11.3max.push.sb}} rąk wobec ok. {{n:m11.3max.push.btn}} z Buttona", correct: true, why: "Każdy gracz za tobą to dodatkowa szansa, że ktoś obudzi się z silną ręką. Z Buttona {{t:fold|spasować}} muszą dwaj gracze, z {{t:small-blind|małego blinda}} tylko jeden." }
+      - { text: "Z Buttona, bo ma najlepszą {{t:position|pozycję}}", why: "Po all-inie nikt już nie podejmuje decyzji po flopie, więc {{t:position|pozycja}} nic tu nie daje. Liczy się, ilu graczy może {{t:call|sprawdzić}}: za Buttonem jest ich dwóch." }
+      - { text: "Tak samo z obu miejsc", why: "Solver {{t:shove|pushuje}} z Buttona ok. {{n:m11.3max.push.btn}}, a z {{t:small-blind|małego blinda}} ok. {{n:m11.3max.push.sb}} rąk. Różnicę robi liczba graczy za tobą." }

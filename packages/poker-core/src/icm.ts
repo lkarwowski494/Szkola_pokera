@@ -32,10 +32,10 @@ export function icmEquities(stacks: readonly number[], payouts: readonly number[
   return out;
 }
 
-// ---------- Generator zadań: sprawdzić all-in na bańce według ICM ----------
+// ---------- Generator zadań: sprawdzić all-in na bubble według ICM ----------
 
 /**
- * Struktury bańki do zadań: trzech graczy i dwa płatne miejsca albo czterech i trzy. Wypłaty to przykłady
+ * Struktury bubble do zadań: trzech graczy i dwa płatne miejsca albo czterech i trzy. Wypłaty to przykłady
  * dydaktyczne (te same co w lekcji m11.l3), nie dane z konkretnego turnieju.
  */
 export const ICM_STRUCTURES: readonly { players: number; payouts: readonly number[] }[] = [
@@ -80,7 +80,7 @@ function randomStacks(rng: Rng, players: number): number[] {
   return stacks.map((u) => u * ICM_STACK_STEP);
 }
 
-/** Equity gracza `who` po rozdaniu: gracze z zerem odpadają, a ich miejsca są poza nagrodami (bańka). */
+/** Equity gracza `who` po rozdaniu: gracze z zerem odpadają, a ich miejsca są poza nagrodami (bubble). */
 function equityAfter(stacks: number[], payouts: readonly number[], who: number): number {
   if (stacks[who]! <= 0) return 0;
   const alive = stacks.map((s, i) => [s, i] as const).filter(([s]) => s > 0);

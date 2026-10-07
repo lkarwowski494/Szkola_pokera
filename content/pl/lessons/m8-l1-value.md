@@ -47,7 +47,7 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}}. Betowałeś na flopie i turnie, za każdym razem dostałeś {{t:call}}. River, {{t:big-blind}} {{t:check|czeka}}. Co robisz?"
     table: { hand: "Ah Kd", board: "Ks 9c 4d 2h 7s", position: BTN }
     options:
-      - { text: "Betuję {{t:value|dla wartości}}", correct: true, why: "{{t:top-pair|Najwyższa para}} z najlepszym kickerem. Rywal, który {{t:call|sprawdził}} dwie {{t:street|ulice}}, ma dużo słabszych króli (KQ, KJ, KT) i dziewiątek, a {{t:draw|dobierań}} na tym {{t:board|stole}} było mało. Gorsze ręce zapłacą znacznie częściej niż lepsze ({{t:two-pair}}, sety). Zwykle {{t:top-pair}} znosi dwie {{t:value|ulice wartości}} (M9); tu trzecią, bo rywal płaci słabszymi królami." }
+      - { text: "Betuję {{t:value|dla wartości}}", correct: true, why: "{{t:top-pair|Najwyższa para}} z najlepszym kickerem. Rywal, który {{t:call|sprawdził}} dwie {{t:street|ulice}}, ma dużo słabszych króli (KQ, KJ, KT) i dziewiątek, a {{t:draw|drawów}} na tym {{t:board|stole}} było mało. Gorsze ręce zapłacą znacznie częściej niż lepsze ({{t:two-pair}}, sety). Zwykle {{t:top-pair}} znosi dwie {{t:value|ulice wartości}} (M9); tu trzecią, bo rywal płaci słabszymi królami." }
       - { text: "{{t:check|Czekam}}, bo rywal mógł mieć seta", why: "Mógł, ale rzadko. {{t:check|Czekając}}, tracisz bet od wszystkich słabszych króli, którymi zapłaciłby. Liczysz, kto {{t:call|sprawdzi}}, a nie, czy istnieje lepsza ręka." }
       - { text: "{{t:check|Czekam}}, żeby rywal zablefował", why: "Rywal, który dwa razy {{t:call|sprawdzał}}, ma głównie {{t:pair|pary}} i rzadko {{t:bluff|blefuje}} po twoim {{t:check|czekaniu}}. Pewniej zarobisz, betując w jego słabsze króle." }
   - kind: choice
@@ -57,7 +57,7 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}}. Na flopie zagrałeś c-bet i dostałeś {{t:call}}, na turnie obaj {{t:check|czekaliście}}. River, {{t:big-blind}} {{t:check|czeka}}. Co robisz?"
     table: { hand: "Tc 9c", board: "Kd Th 5s 3c 2d", position: BTN }
     options:
-      - { text: "{{t:check|Czekam}}", correct: true, why: "{{t:second-pair|Druga para}} ze słabym kickerem wygrywa z nietrafionymi {{t:draw|dobieraniami}} i słabszymi {{t:pair|parami}}, ale te ręce na bet {{t:fold|spasują}}. Zapłacą głównie króle i lepsze dziesiątki. {{t:check|Czekasz}} i zobaczysz showdown za darmo." }
+      - { text: "{{t:check|Czekam}}", correct: true, why: "{{t:second-pair|Druga para}} ze słabym kickerem wygrywa z nietrafionymi {{t:draw|drawami}} i słabszymi {{t:pair|parami}}, ale te ręce na bet {{t:fold|spasują}}. Zapłacą głównie króle i lepsze dziesiątki. {{t:check|Czekasz}} i zobaczysz showdown za darmo." }
       - { text: "Betuję {{t:value|dla wartości}}", why: "Kto zapłaci? Ręce bez {{t:pair|pary}} {{t:fold|spasują}}, a króle i lepsze dziesiątki {{t:call|sprawdzą}}. Większość {{t:call|sprawdzeń}} byłaby lepsza od twojej ręki." }
       - { text: "Betuję dużo jako {{t:bluff}}", why: "Twoja ręka często wygrywa przy showdownie. {{t:bluff|Blefując}}, oddajesz tę wygraną: gorsze ręce i tak by {{t:fold|spasowały}}, a króle rzadko {{t:fold|pasują}}." }
   - kind: choice
@@ -93,7 +93,7 @@ drills:
     id: m8.l1.q-busted-draw
     family: m8.value.concept
     rules: [R-M8-001]
-    prompt: "Twoje {{t:flush-draw}} nie weszło. Na riverze rozważasz bet. Jaki to byłby bet?"
+    prompt: "Twój {{t:flush-draw}} nie wszedł. Na riverze rozważasz bet. Jaki to byłby bet?"
     table: { hand: "Qs Js", board: "Kd 9s 5s 2c 3h", position: BTN }
     options:
       - { text: "{{t:bluff|Blef}}", correct: true, why: "Masz tylko damę jako najwyższą kartę. Żadna ręka, która cię {{t:call|sprawdzi}}, nie będzie gorsza, więc bet może wygrać tylko wtedy, gdy rywal {{t:fold|spasuje}}. To {{t:bluff}} (o wyborze {{t:bluff|blefów}} w kolejnych lekcjach)." }

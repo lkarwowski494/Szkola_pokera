@@ -97,7 +97,7 @@ function icmTable(s: IcmSpot): string {
 
 const PLAYER_TYPE_NAMES: Record<PlayerType, string> = {
   nit: 'Nit',
-  regular: 'Regular',
+  regular: '{{t:regular|Reg}}',
   passive: 'Pasywny {{t:recreational|gracz rekreacyjny}}',
   maniac: '{{t:maniac|Maniak}}',
   unknown: 'Za mało rąk, żeby ocenić',
@@ -121,7 +121,7 @@ function hudFact(s: HudSpot, x: PlayerType, th: HudThresholds): string {
     case 'nit':
       return `Nit gra do ${th.nitMax}% rąk ({{t:vpip}}); ten gracz gra ${s.vpip}%.`;
     case 'regular':
-      return `Regular gra ok. ${th.regLow}–${th.regHigh}% rąk z różnicą {{t:vpip}} − {{t:pfr}} do ${points(th.passiveGap)}; tu ${s.vpip}% i różnica ${gap}.`;
+      return `{{t:regular|Reg}} gra ok. ${th.regLow}–${th.regHigh}% rąk z różnicą {{t:vpip}} − {{t:pfr}} do ${points(th.passiveGap)}; tu ${s.vpip}% i różnica ${gap}.`;
     case 'passive':
       return `Pasywny gracz luźny gra od ${th.loose}% rąk z różnicą {{t:vpip}} − {{t:pfr}} ponad ${points(th.passiveGap)}; tu ${s.vpip}% i różnica ${gap}.`;
     case 'maniac':
@@ -207,7 +207,7 @@ export const t = trAll({
     call: '{{t:call|Sprawdzam}}',
     fold: '{{t:fold|Pasuję}}',
     callPrompt: (s: IcmCallSpot) =>
-      `{{t:bubble|Bańka}}: ${icmTable(s)} ${icmName(s, s.villain)} wchodzi all-in, w grze między wami jest ${chips(s.atRisk)} {{t:chips|żetonów}}. Twoja ręka ma ${pct(s.handEquity)} equity wobec jego {{t:range|zakresu}}. Blindy pomijamy. Co robisz?`,
+      `{{t:bubble|Bubble}}: ${icmTable(s)} ${icmName(s, s.villain)} wchodzi all-in, w grze między wami jest ${chips(s.atRisk)} {{t:chips|żetonów}}. Twoja ręka ma ${pct(s.handEquity)} equity wobec jego {{t:range|zakresu}}. Blindy pomijamy. Co robisz?`,
     callRight: (s: IcmCallSpot) => `Tak. ${pct(s.handEquity)} to więcej niż potrzebne według {{t:icm}} ${pct(s.required, 1)}.`,
     callWrong: (s: IcmCallSpot) =>
       `Nie. Według {{t:icm}} potrzebujesz ${pct(s.required, 1)} equity, a masz ${pct(s.handEquity)}.` +
@@ -282,8 +282,8 @@ export const t = trAll({
 /** Nazwy wartości osi tekstury (te same słowa w lekcjach M5). */
 export const TEXTURE_LABELS = trAll({
   height: { high: 'Wysoki', middle: 'Średni', low: 'Niski' },
-  suits: { rainbow: '{{t:rainbow|Tęczowy}}', 'two-tone': '{{t:two-tone|Dwukolorowy}}', monotone: '{{t:monotone|Monotoniczny}}' },
-  ranks: { paired: '{{t:paired|Sparowany}}', connected: '{{t:connected|Połączony}}', 'semi-connected': '{{t:semi-connected|Półpołączony}}', disconnected: '{{t:disconnected|Rozłączony}}' },
+  suits: { rainbow: '{{t:rainbow|Rainbow}}', 'two-tone': '{{t:two-tone|Dwukolorowy}}', monotone: '{{t:monotone|Jednokolorowy}}' },
+  ranks: { paired: '{{t:paired|Sparowany}}', connected: '{{t:connected|Połączony}}', 'semi-connected': '{{t:semi-connected|Półpołączony}}', disconnected: '{{t:disconnected|Niepołączony}}' },
   wetness: { dry: '{{t:dry|Suchy}}', medium: 'Pośredni', wet: '{{t:wet|Mokry}}' },
 } as const satisfies { [A in TextureAxis]: Record<FlopTexture[A], string> });
 
@@ -305,7 +305,7 @@ const WT = WETNESS_THRESHOLDS;
 /** Skala mokrości słowami, liczby wprost ze stałych poker-core (jedno źródło prawdy). */
 export const WETNESS_SCALE =
   `Liczymy punkty: {{t:straight}} możliwy na kilka sposobów (z co najmniej dwoma zestawami dwóch rang) ${WP.straight.made}, ` +
-  `{{t:straight}} możliwy na jeden sposób ${WP.straight['made-one']}, samo {{t:straight-draw}} ${WP.straight.draw}; ` +
+  `{{t:straight}} możliwy na jeden sposób ${WP.straight['made-one']}, sam {{t:straight-draw}} ${WP.straight.draw}; ` +
   `flop {{t:two-tone}} ${WP.suits['two-tone']}, {{t:monotone}} ${WP.suits.monotone}. ` +
   `{{t:dry|Suchy}} to 0–${WT.medium - 1}, pośredni ${WT.wet - 1 === WT.medium ? WT.medium : `${WT.medium}–${WT.wet - 1}`}, {{t:wet}} ${WT.wet} i więcej`;
 
@@ -317,21 +317,21 @@ const TEXTURE_DEFS = {
     low: 'flop niski ma najwyższą kartę dziewiątkę albo niższą',
   },
   suits: {
-    rainbow: 'flop {{t:rainbow}} ma trzy karty w trzech różnych kolorach, więc nikt nie ma jeszcze {{t:flush-draw|dobierania do koloru}}',
+    rainbow: 'flop {{t:rainbow}} ma trzy karty w trzech różnych kolorach, więc nikt nie ma jeszcze {{t:flush-draw|drawa do koloru}}',
     'two-tone': 'flop {{t:two-tone}} ma dwie karty w jednym kolorze, więc dwie karty gracza w tym kolorze dają {{t:flush-draw}}',
     monotone: 'flop {{t:monotone}} ma wszystkie trzy karty w jednym kolorze, więc {{t:flush}} jest już możliwy',
   },
   ranks: {
-    paired: 'flop {{t:paired}} ma dwie albo trzy karty tej samej rangi; {{t:straight}} z dwiema kartami gracza jest wtedy niemożliwy, choć {{t:straight-draw}} bywa możliwe',
+    paired: 'flop {{t:paired}} ma dwie albo trzy karty tej samej rangi; {{t:straight}} z dwiema kartami gracza jest wtedy niemożliwy, choć {{t:straight-draw}} bywa możliwy',
     connected: 'flop {{t:connected}} ma trzy różne rangi w obrębie pięciu kolejnych, więc {{t:straight}} jest możliwy już teraz (as liczy się też jako jedynka)',
     'semi-connected':
-      'flop {{t:semi-connected|półpołączony}} ma dwie rangi w obrębie pięciu kolejnych, ale nie trzy: {{t:straight|strita}} jeszcze nie ma, a {{t:straight-draw}} (otwarte albo gutshot) już jest możliwe',
-    disconnected: 'flop {{t:disconnected}} ma rangi tak odległe, że żadne dwie nie mieszczą się w pięciu kolejnych, więc nikt nie ma nawet {{t:straight-draw|dobierania do strita}}',
+      'flop {{t:semi-connected|półpołączony}} ma dwie rangi w obrębie pięciu kolejnych, ale nie trzy: {{t:straight|strita}} jeszcze nie ma, a {{t:straight-draw}} (otwarty albo gutshot) już jest możliwy',
+    disconnected: 'flop {{t:disconnected}} ma rangi tak odległe, że żadne dwie nie mieszczą się w pięciu kolejnych, więc nikt nie ma nawet {{t:straight-draw|drawa do strita}}',
   },
   wetness: {
-    dry: `flop {{t:dry}} daje mało {{t:draw|dobierań}}. ${WETNESS_SCALE}`,
-    medium: `flop pośredni daje część {{t:draw|dobierań}}. ${WETNESS_SCALE}`,
-    wet: `flop {{t:wet}} daje dużo {{t:draw|dobierań}} albo gotowe {{t:straight|strity}}. ${WETNESS_SCALE}`,
+    dry: `flop {{t:dry}} daje mało {{t:draw|drawów}}. ${WETNESS_SCALE}`,
+    medium: `flop pośredni daje część {{t:draw|drawów}}. ${WETNESS_SCALE}`,
+    wet: `flop {{t:wet}} daje dużo {{t:draw|drawów}} albo gotowe {{t:straight|strity}}. ${WETNESS_SCALE}`,
   },
 } as const satisfies { [A in TextureAxis]: Record<FlopTexture[A], string> };
 
@@ -355,7 +355,7 @@ export function straightExample(flop: readonly Card[]): string | null {
   return null;
 }
 
-/** Przykładowe dwie rangi, które z flopem dają dobieranie do strita (cztery rangi z pięciu w jednym oknie). */
+/** Przykładowe dwie rangi, które z flopem dają draw do strita (cztery rangi z pięciu w jednym oknie). */
 export function straightDrawExample(flop: readonly Card[]): string | null {
   const ranks = new Set(flop.map(rankOf));
   for (const window of straightWindows()) {
@@ -382,15 +382,15 @@ function rankFact(flop: readonly Card[], tex: FlopTexture): string {
   const draw = tex.straightDrawPossible ? straightDrawExample(flop) : null;
   if (tex.ranks === 'paired') return draw ? `Tu dwie karty mają tę samą rangę; {{t:straight-draw}} daje np. ${draw}.` : 'Tu dwie karty mają tę samą rangę.';
   if (tex.ranks === 'semi-connected') return `Tu {{t:straight|strita}} jeszcze nie ma, ale {{t:straight-draw}} daje np. ${draw}.`;
-  return 'Tu żadne dwie karty gracza nie dadzą nawet {{t:straight-draw|dobierania do strita}}.';
+  return 'Tu żadne dwie karty gracza nie dadzą nawet {{t:straight-draw|drawa do strita}}.';
 }
 
-/** Co na tym flopie daje dobierania i ile to punktów (do wyjaśnienia mokrości). */
+/** Co na tym flopie daje drawy i ile to punktów (do wyjaśnienia mokrości). */
 function drawsText(flop: readonly Card[], tex: FlopTexture): string {
   const suitPts = WP.suits[tex.suits];
   const color =
     tex.suits === 'rainbow'
-      ? 'nie ma {{t:flush-draw|dobierania do koloru}} (trzy różne kolory)'
+      ? 'nie ma {{t:flush-draw|drawa do koloru}} (trzy różne kolory)'
       : tex.suits === 'two-tone'
         ? 'jest {{t:flush-draw}} (dwie karty w jednym kolorze)'
         : '{{t:flush}} jest już możliwy (trzy karty w jednym kolorze)';
@@ -403,7 +403,7 @@ function drawsText(flop: readonly Card[], tex: FlopTexture): string {
         ? `{{t:straight}} jest możliwy tylko na jeden sposób, z ${ex}`
         : tex.straightDrawPossible && drawEx
           ? `{{t:straight|strita}} nie ma, ale jest {{t:straight-draw}}, np. z ${drawEx}`
-          : 'nie ma {{t:straight|strita}} ani {{t:straight-draw|dobierania do strita}}';
+          : 'nie ma {{t:straight|strita}} ani {{t:straight-draw|drawa do strita}}';
   const straightPts = WP.straight[tex.straight];
   return `${color}: ${points(suitPts)}; ${straight}: ${points(straightPts)}. Razem ${points(tex.wetnessPoints)}`;
 }
@@ -443,15 +443,20 @@ interface VocabTerm {
   en: string;
   enAlt: readonly string[];
   abbr?: string;
+  /** Definicja z content/terms.yaml (pole def). */
+  def?: string;
 }
 
-const vocabLine = (t: VocabTerm) => `„${t.pl}” to po angielsku „${t.en}”${t.abbr ? `, skrót ${t.abbr}` : ''}`;
+const vocabLine = (t: VocabTerm) =>
+  t.pl.toLowerCase() === t.en.toLowerCase() ? `„${t.pl}”${t.abbr ? ` (skrót ${t.abbr})` : ''}` : `„${t.pl}” to po angielsku „${t.en}”${t.abbr ? `, skrót ${t.abbr}` : ''}`;
+const vocabDef = (t: VocabTerm) => (t.def ? ` Znaczenie: ${t.def}` : '');
 
 export const vocabText = {
   promptPlEn: (pl: string) => `Jak po angielsku nazywa się „${pl}”?`,
   promptEnPl: (en: string) => `Co po polsku znaczy „${en}”?`,
   promptAbbr: (abbr: string) => `Co oznacza skrót „${abbr}”?`,
+  promptDef: (def: string) => `Który termin pasuje do opisu? „${def}”`,
   right: (t: VocabTerm) => `Tak: ${vocabLine(t)}.`,
-  wrong: (t: VocabTerm, _enPl: boolean) => `Nie: ${vocabLine(t)}.`,
-  explanation: (t: VocabTerm) => `${vocabLine(t)}.${t.enAlt.length ? ` Spotkasz też: ${t.enAlt.join(', ')}.` : ''}`,
+  wrong: (t: VocabTerm, _enPl: boolean) => `Nie: ${vocabLine(t)}.${vocabDef(t)}`,
+  explanation: (t: VocabTerm) => `${vocabLine(t)}.${vocabDef(t)}${t.enAlt.length ? ` Spotkasz też: ${t.enAlt.join(', ')}.` : ''}`,
 };

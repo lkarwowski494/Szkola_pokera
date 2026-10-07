@@ -20,19 +20,19 @@ drills:
     family: m3.open-early
     rules: [R-M3-002]
     prompt: "Wszyscy przed tobą {{t:fold|spasowali}}. Co robisz?"
-    table: { hand: "Kc 8d", position: UTG }
+    table: { hand: "Kc 9d", position: UTG }
     options:
-      - { text: "{{t:fold|Pasuję}}", correct: true, why: "K8 w różnych kolorach jest poza {{t:range|zakresem}} {{t:open|otwarcia}} z {{t:utg}}. Za tobą jest pięciu graczy i często ktoś ma króla z lepszym kickerem." }
-      - { text: "{{t:raise|Przebijam}}", why: "Z {{t:utg}} {{t:open|otwierasz}} tylko ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk. K8o łatwo trafia króla i przegrywa z KQ albo AK." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "K9 w różnych kolorach jest poza {{t:range|zakresem}} {{t:open|otwarcia}} z {{t:utg}}. Za tobą jest pięciu graczy i często ktoś ma króla z lepszym kickerem." }
+      - { text: "{{t:raise|Przebijam}}", why: "Z {{t:utg}} {{t:open|otwierasz}} tylko ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk. K9o łatwo trafia króla i przegrywa z KQ albo AK." }
       - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Samo dopłacenie (limp) to słaby nawyk. Albo ręka jest warta {{t:raise|przebicia}}, albo {{t:fold|pasujesz}}." }
   - kind: choice
     id: m3.l1.q3
     family: m3.open-late
     rules: [R-M3-003]
     prompt: "Ta sama ręka, ale jesteś na Buttonie i wszyscy przed tobą {{t:fold|spasowali}}."
-    table: { hand: "Kc 8d", position: BTN }
+    table: { hand: "Kc 9d", position: BTN }
     options:
-      - { text: "{{t:raise|Przebijam}}", correct: true, why: "Zostały tylko blindy, a po flopie masz {{t:position|pozycję}}. Na Buttonie {{t:open|otwierasz}} ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk, a K8o się w tym mieści." }
+      - { text: "{{t:raise|Przebijam}}", correct: true, why: "Zostały tylko blindy, a po flopie masz {{t:position|pozycję}}. Na Buttonie {{t:open|otwierasz}} ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk, a K9o się w tym mieści." }
       - { text: "{{t:fold|Pasuję}}", why: "Za ostrożnie. Przeciwko samym blindom ta ręka jest wystarczająco dobra, a {{t:position}} dodaje jej wartości." }
       - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Limp oddaje {{t:initiative|inicjatywę}}. {{t:raise|Przebicie}} często od razu zgarnia blindy." }
   - kind: choice

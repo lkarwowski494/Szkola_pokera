@@ -1,0 +1,92 @@
+# Pula egzaminacyjna M0 (układy kart): te same reguły co lekcja m0.l1, inne rozdania i sformułowania.
+module: m0
+drills:
+  - kind: choice
+    id: m0.exam.q1
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "Rywal ma {{t:three-of-a-kind|trójkę}} asów, ty {{t:straight|strita}} do waleta. Kto wygrywa?"
+    table: { hand: "Th 9h", opp: "Ac Ad", board: "As 8c 7d Jh 2s" }
+    options:
+      - { text: "Ty", correct: true, why: "Twoja piątka to J-10-9-8-7, czyli {{t:straight}}. {{t:straight|Strit}} jest w rankingu nad {{t:three-of-a-kind|trójką}}, więc wysokość kart rywala nie ma znaczenia." }
+      - { text: "Rywal, bo ma asy", why: "Asy liczą się dopiero przy tym samym układzie. Tu układy są różne: {{t:straight}} bije {{t:three-of-a-kind|trójkę}}." }
+      - { text: "{{t:split-pot|Podział puli}}", why: "Różne układy nie remisują. Wygrywa ten wyżej w rankingu." }
+  - kind: choice
+    id: m0.exam.q2
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "Ty masz {{t:four-of-a-kind|karetę}} dziewiątek, rywal {{t:full-house|fulla}} na królach. Kto wygrywa?"
+    table: { hand: "9c 9d", opp: "Kh 2c", board: "9h 9s Kd Kc 3h" }
+    options:
+      - { text: "Ty", correct: true, why: "{{t:four-of-a-kind|Kareta}} jest w rankingu na 3. miejscu, {{t:full-house}} na 4. Króle rywala nie pomagają, bo układy są różne." }
+      - { text: "Rywal, bo króle są wyższe od dziewiątek", why: "Wysokość kart porównuje się tylko przy tym samym układzie. {{t:four-of-a-kind|Kareta}} zawsze bije {{t:full-house|fulla}}." }
+      - { text: "{{t:split-pot|Podział puli}}, bo obaj korzystacie ze {{t:board|stołu}}", why: "Obaj korzystacie z {{t:community-cards|kart wspólnych}}, ale każdy buduje inną piątkę: ty {{t:four-of-a-kind|karetę}}, rywal {{t:full-house|fulla}}." }
+  - kind: choice
+    id: m0.exam.q3
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "Rywal ma {{t:pair|parę}} asów, a ty {{t:two-pair}}: siódemki i dwójki. Kto wygrywa?"
+    options:
+      - { text: "Ty", correct: true, why: "{{t:two-pair|Dwie pary}} są w rankingu nad {{t:pair|parą}}, nawet gdy są niskie. Najpierw porównuje się rangę układu." }
+      - { text: "Rywal, bo asy są najwyższe", why: "{{t:pair|Para}} asów to wciąż tylko {{t:pair}}. Wysokość decyduje dopiero przy tym samym układzie." }
+      - { text: "Zależy od kickera", why: "Kicker liczy się tylko przy identycznym rdzeniu układu. Tu układy są różne." }
+  - kind: choice
+    id: m0.exam.q4
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Obaj macie {{t:two-pair}}: damy i ósemki ze {{t:board|stołu}}. Kto wygrywa?"
+    table: { hand: "Ah 3c", opp: "Kd 4s", board: "Qs Qd 8h 8c 2s" }
+    options:
+      - { text: "Ty", correct: true, why: "Rdzeń układu jest ten sam (damy i ósemki), więc decyduje piąta karta. Twój as bije króla rywala." }
+      - { text: "Rywal", why: "Rywal ma króla jako piątą kartę, a ty asa. As jest wyższy." }
+      - { text: "{{t:split-pot|Podział puli}}", why: "Podział byłby przy identycznej piątce. Tu piąte karty są różne: as kontra król." }
+  - kind: choice
+    id: m0.exam.q5
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Obaj macie {{t:pair|parę}} króli i asa. Twoja druga karta (4) jest wyższa niż druga karta rywala (3). Kto wygrywa?"
+    table: { hand: "Ac 4d", opp: "As 3h", board: "Kh Kd Qc Js 9h" }
+    options:
+      - { text: "{{t:split-pot|Podział puli}}", correct: true, why: "Najlepsza piątka obu graczy to K-K-A-Q-J. Karty 4 i 3 nie mieszczą się w piątce, więc nic nie zmieniają." }
+      - { text: "Ty, bo 4 jest wyższa niż 3", why: "Kicker liczy się tylko wtedy, gdy wchodzi do najlepszych 5 kart. Tu damę i waleta daje {{t:board}}, więc czwórka jest szóstą kartą." }
+      - { text: "Rywal", why: "Rywal ma tę samą piątkę co ty: K-K-A-Q-J." }
+  - kind: choice
+    id: m0.exam.q6
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Obaj macie {{t:straight|strita}}. Kto wygrywa?"
+    table: { hand: "Ah 2c", opp: "6d 7s", board: "3s 4d 5h Kc 9d" }
+    options:
+      - { text: "Rywal", correct: true, why: "Twój {{t:straight}} to A-2-3-4-5, czyli {{t:wheel}}, najniższy {{t:straight}}: as liczy się tu jako jedynka. Rywal ma 3-4-5-6-7, więc jego {{t:straight}} jest wyższy." }
+      - { text: "Ty, bo masz asa", why: "W {{t:straight|stricie}} od asa do piątki as jest najniższą kartą. Przy tym samym układzie wygrywa wyższy {{t:straight}}: 7 bije 5." }
+      - { text: "{{t:split-pot|Podział puli}}", why: "Obaj macie {{t:straight|strita}}, ale różnej wysokości. Podział byłby przy identycznej piątce." }
+  - kind: choice
+    id: m0.exam.q7
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Obaj macie {{t:flush|kolor}} w kierach z asem na {{t:board|stole}}. Kto wygrywa?"
+    table: { hand: "Kh 4h", opp: "Qh Jh", board: "Ah 9h 3h 7c 2d" }
+    options:
+      - { text: "Ty", correct: true, why: "{{t:flush|Kolory}} porównuje się od najwyższej karty. As jest wspólny, a druga karta to twój król kontra dama rywala." }
+      - { text: "Rywal, bo ma dwie wysokie karty", why: "Liczy się kolejno najwyższa różniąca się karta. Twój król bije damę, więc dalsze karty nie mają znaczenia." }
+      - { text: "{{t:split-pot|Podział puli}}", why: "Piątki są różne: A-K-9-4-3 i A-Q-J-9-3." }
+  - kind: choice
+    id: m0.exam.q8
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "Na {{t:board|stole}} leży {{t:full-house}}: trzy asy i dwa króle. Ty masz {{t:pair|parę}} dam. Kto wygrywa?"
+    table: { hand: "Qc Qd", opp: "7s 2c", board: "Ah Ad Ac Ks Kh" }
+    options:
+      - { text: "{{t:split-pot|Podział puli}}", correct: true, why: "Najlepsza piątka obu graczy to A-A-A-K-K ze {{t:board|stołu}}. Twoje damy dałyby słabszego {{t:full-house|fulla}} (asy z damami), więc nie wchodzą do piątki." }
+      - { text: "Ty, bo masz {{t:pair|parę}} dam", why: "Asy z damami są słabsze niż asy z królami, które leżą na {{t:board|stole}}. Grasz więc {{t:board|stołem}}, tak samo jak rywal." }
+      - { text: "Rywal", why: "Rywal też gra piątką ze {{t:board|stołu}}. Jego karty nic nie dodają, tak jak twoje." }
+  - kind: choice
+    id: m0.exam.q9
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "Na {{t:board|stole}} leży {{t:straight}} od dziewiątki do króla. Kto wygrywa?"
+    table: { hand: "Ac 2d", opp: "3c 3d", board: "Ts Jd Qc Kh 9s" }
+    options:
+      - { text: "Ty", correct: true, why: "Twój as przedłuża {{t:straight|strita}} do A-K-Q-J-10. Rywal gra piątką ze {{t:board|stołu}} (K-Q-J-10-9), a twoja jest wyższa." }
+      - { text: "{{t:split-pot|Podział puli}}", why: "Podział jest tylko wtedy, gdy najlepsza piątka obu graczy leży na {{t:board|stole}}. Ty masz lepszą piątkę dzięki asowi." }
+      - { text: "Rywal, bo ma {{t:pair|parę}}", why: "{{t:pair|Para}} trójek jest słabsza niż {{t:straight}} ze {{t:board|stołu}}, więc rywal gra {{t:board|stołem}}." }

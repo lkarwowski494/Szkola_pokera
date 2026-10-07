@@ -79,7 +79,7 @@ drills:
     prompt: "Flop. Bronisz {{t:big-blind}}, Button {{t:bet|stawia}} c-bet 1/3 {{t:pot|puli}}. {{t:mdf}} wynosi {{n:mdf.bet-third}}. Czy musisz bronić aż tyle rąk?"
     table: { position: BB }
     options:
-      - { text: "Nie, możesz bronić trochę mniej", correct: true, why: "{{t:mdf}} zakłada {{t:bluff}} bez żadnych szans. Na flopie {{t:bluff|blefy}} Buttona mają jeszcze equity ({{t:draw|dobierania}}, wysokie karty), a ty {{t:out-of-position}} nie zrealizujesz całego equity słabych rąk. Dlatego możesz bronić trochę mniej niż {{t:mdf}}, ale na mały c-bet nie {{t:fold|pasujesz}} masowo." }
+      - { text: "Nie, możesz bronić trochę mniej", correct: true, why: "{{t:mdf}} zakłada {{t:bluff}} bez żadnych szans. Na flopie {{t:bluff|blefy}} Buttona mają jeszcze equity ({{t:draw|drawy}}, wysokie karty), a ty {{t:out-of-position}} nie zrealizujesz całego equity słabych rąk. Dlatego możesz bronić trochę mniej niż {{t:mdf}}, ale na mały c-bet nie {{t:fold|pasujesz}} masowo." }
       - { text: "Tak, inaczej Button zarabia każdą ręką", why: "Na riverze tak by było. Na flopie Button nie {{t:bluff|blefuje}} ręką bez szans: nawet gdy go {{t:call|sprawdzisz}}, może trafić. {{t:mdf}} to punkt odniesienia, nie obowiązek." }
       - { text: "Nie, bronisz więcej, bo to dopiero flop", why: "Odwrotnie. Przyszłe {{t:street|ulice}} działają na korzyść betującego {{t:in-position}}, więc bronisz mniej, nie więcej." }
   - kind: choice
@@ -129,7 +129,7 @@ Potrzebne equity z M2 dotyczy **jednej ręki**: czy {{t:call}} nią się opłaca
 
 ## Na flopie {{t:out-of-position}} bronisz trochę mniej
 
-{{t:mdf}} zakłada, że {{t:bluff}} rywala nie ma żadnych szans. Najbliżej prawdy jest to na riverze, gdzie {{t:draw|dobierania}} już się nie poprawią. Na flopie {{t:bluff|blefy}} mają jeszcze equity: {{t:draw|dobierania}} i wysokie karty mogą się poprawić. Do tego {{t:out-of-position}} nie zrealizujesz całego equity swoich słabych rąk. Dlatego na flopie {{t:out-of-position}} możesz bronić trochę mniej niż {{t:mdf}} i traktujesz go jako punkt odniesienia, a nie obowiązek; na małe c-bety nie {{t:fold|pasujesz}} jednak masowo. Na turnie solver broni średnio blisko {{t:mdf}}, inaczej niż na flopie {{t:out-of-position}}, gdzie broni mniej.
+{{t:mdf}} zakłada, że {{t:bluff}} rywala nie ma żadnych szans. Najbliżej prawdy jest to na riverze, gdzie {{t:draw|drawy}} już się nie poprawią. Na flopie {{t:bluff|blefy}} mają jeszcze equity: {{t:draw|drawy}} i wysokie karty mogą się poprawić. Do tego {{t:out-of-position}} nie zrealizujesz całego equity swoich słabych rąk. Dlatego na flopie {{t:out-of-position}} możesz bronić trochę mniej niż {{t:mdf}} i traktujesz go jako punkt odniesienia, a nie obowiązek; na małe c-bety nie {{t:fold|pasujesz}} jednak masowo. Na turnie solver broni średnio blisko {{t:mdf}}, inaczej niż na flopie {{t:out-of-position}}, gdzie broni mniej.
 
 :::note Gdy rywal rzadko {{t:bluff|blefuje}}
 {{t:mdf}} chroni cię przed graczem, który {{t:bluff|blefuje}} wystarczająco często. Na mikrostawkach wielu graczy, zwłaszcza pasywnych, {{t:bluff|blefuje}} dużymi betami na riverze za rzadko. Wobec nich {{t:fold|pasujesz}} częściej, niż wskazuje {{t:mdf}}: {{t:call|sprawdzanie}} słabszą {{t:pair|parą}} płaci głównie lepszym rękom. To {{t:exploit|eksploatacja}}, nie strategia wobec każdego (więcej w module 10).

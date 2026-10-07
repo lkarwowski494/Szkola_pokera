@@ -64,7 +64,7 @@ drills:
     options:
       - { text: "Bo ręka rywala łapiąca {{t:bluff|blefy}} wygrywa dokładnie wtedy, gdy {{t:bluff|blefujesz}}", correct: true, why: "Jego ręka przegrywa z twoją wartością i wygrywa z {{t:bluff|blefami}}, więc jej equity to udział {{t:bluff|blefów}}. Gdy jest on równy potrzebnemu equity, {{t:call}} wychodzi na zero i rywal nie może cię wykorzystać ani sprawdzaniem, ani pasowaniem." }
       - { text: "To przypadek, wzory tylko wyglądają podobnie", why: "To nie przypadek. Udział {{t:bluff|blefów}} wybierasz tak, żeby equity ręki łapiącej {{t:bluff|blefy}} było równe jej cenie." }
-      - { text: "Bo rywal zawsze ma dokładnie potrzebne equity", why: "Rywal ma tyle equity, ile wynika z twoich betów. To ty {{t:draw|dobierasz}} liczbę {{t:bluff|blefów}} tak, żeby wyszło na zero." }
+      - { text: "Bo rywal zawsze ma dokładnie potrzebne equity", why: "Rywal ma tyle equity, ile wynika z twoich betów. To ty dobierasz liczbę {{t:bluff|blefów}} tak, żeby wyszło na zero." }
   - kind: choice
     id: m8.l2.q-too-many
     family: m8.bluff.balance
@@ -98,7 +98,7 @@ drills:
     rules: [R-M8-006]
     prompt: "Na riverze potrzebujesz kilku {{t:bluff|blefów}} do betów całą {{t:pot|pulą}}. Które ręce na nie wybierasz?"
     options:
-      - { text: "Najsłabsze, np. nietrafione {{t:draw|dobierania}}", correct: true, why: "Ręka bez szans przy showdownie nic nie traci, gdy {{t:bluff}} się nie uda: po {{t:check|czekaniu}} i tak by przegrała. Dlatego ona {{t:bluff|blefuje}}." }
+      - { text: "Najsłabsze, np. nietrafione {{t:draw|drawy}}", correct: true, why: "Ręka bez szans przy showdownie nic nie traci, gdy {{t:bluff}} się nie uda: po {{t:check|czekaniu}} i tak by przegrała. Dlatego ona {{t:bluff|blefuje}}." }
       - { text: "Średnie {{t:pair|pary}}", why: "Średnia {{t:pair}} często wygrywa po {{t:check|czekaniu}}. Gdy nią {{t:bluff|blefujesz}}, gorsze ręce {{t:fold|pasują}}, a lepsze płacą: oddajesz wygraną przy showdownie." }
       - { text: "Dowolne, byle proporcja się zgadzała", why: "Proporcja to nie wszystko. {{t:bluff|Blef}} z ręką, która wygrałaby showdown, kosztuje więcej niż {{t:bluff}} ręką bez szans." }
 ---
@@ -110,7 +110,7 @@ Na riverze {{t:in-position}} często betujesz **{{t:range|zakresem}} {{t:polariz
 
 ## Ile {{t:bluff|blefów}}
 
-Liczbę {{t:bluff|blefów}} {{t:draw|dobierasz}} tak, żeby bluff-catcher rywala wychodził na zero niezależnie od tego, czy {{t:call|sprawdzi}}, czy {{t:fold|spasuje}}:
+Liczbę {{t:bluff|blefów}} dobierasz tak, żeby bluff-catcher rywala wychodził na zero niezależnie od tego, czy {{t:call|sprawdzi}}, czy {{t:fold|spasuje}}:
 
 ```formula
 udział blefów = bet ÷ (pula + 2·bet)
@@ -136,7 +136,7 @@ Alpha z M6 = bet ÷ ({{t:pot}} + bet) mówi, jak często rywal musi {{t:fold|spa
 
 ## Czym {{t:bluff|blefować}}
 
-Na {{t:bluff|blefy}} wybierasz **najsłabsze ręce**, np. nietrafione {{t:draw|dobierania}}: po {{t:check|czekaniu}} i tak by przegrały, więc nieudany {{t:bluff}} nic im nie odbiera. Ręce z wartością przy showdownie {{t:check|czekają}}.
+Na {{t:bluff|blefy}} wybierasz **najsłabsze ręce**, np. nietrafione {{t:draw|drawy}}: po {{t:check|czekaniu}} i tak by przegrały, więc nieudany {{t:bluff}} nic im nie odbiera. Ręce z wartością przy showdownie {{t:check|czekają}}.
 
 :::note To punkt równowagi, nie przepis na każdego rywala
 Te proporcje chronią cię przed rywalem, który gra dobrze. Wobec konkretnych graczy można od nich odchodzić; o tym w module o {{t:exploit|eksploatacji}} mikrostawek (M10). Wzór na udział {{t:bluff|blefów}} to rachunek w uproszczonym modelu: {{t:range}} {{t:polarized}} przeciw ręce łapiącej {{t:bluff|blefy}} (GTO Wizard, How to Solve Toy Games). Zalecenie {{t:bluff|blefowania}} najsłabszymi rękami pochodzi z GTO Wizard i Upswing.

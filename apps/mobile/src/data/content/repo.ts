@@ -28,7 +28,8 @@ export interface Lesson extends LessonSummary {
 
 export interface DrillRow {
   id: string;
-  lessonId: string;
+  /** Lekcja zadania; null dla zadań z puli egzaminacyjnej (tabela exam_drills, poza lekcjami). */
+  lessonId: string | null;
   family: string;
   drill: Drill;
 }
@@ -72,7 +73,7 @@ export function getLesson(db: SQLiteDatabase, id: string): Lesson | null {
   return { ...row, rules: JSON.parse(row.rules) as string[], body: JSON.parse(row.body) as Block[] };
 }
 
-function toDrill(r: { id: string; lessonId: string; family: string; data: string }): DrillRow {
+function toDrill(r: { id: string; lessonId: string | null; family: string; data: string }): DrillRow {
   return { id: r.id, lessonId: r.lessonId, family: r.family, drill: JSON.parse(r.data) as Drill };
 }
 
@@ -117,6 +118,44 @@ export function getDrillsBeforeModule(db: SQLiteDatabase, moduleId: string): Dri
         WHERE m.ord < (SELECT ord FROM modules WHERE id = ?) ORDER BY m.ord, l.ord, d.ord`,
       moduleId,
     )
+    .map(toDrill);
+}
+
+/** Pula egzaminacyjna modułu (zadania tylko do egzaminu, nie ma ich w lekcjach). */
+export function getExamDrills(db: SQLiteDatabase, moduleId: string): DrillRow[] {
+  return db
+    .getAllSync<{ id: string; lessonId: null; family: string; data: string }>(
+      'SELECT id, NULL AS lessonId, family, data FROM exam_drills WHERE module_id = ? ORDER BY ord',
+      moduleId,
+    )
+    .map(toDrill);
+}
+
+/** Pule egzaminacyjne modułów wcześniejszych niż dany (część egzaminu ze starszego materiału). */
+export function getExamDrillsBeforeModule(db: SQLiteDatabase, moduleId: string): DrillRow[] {
+  return db
+    .getAllSync<{ id: string; lessonId: null; family: string; data: string }>(
+      `SELECT e.id, NULL AS lessonId, e.family, e.data
+         FROM exam_drills e JOIN modules m ON m.id = e.module_id
+        WHERE m.ord < (SELECT ord FROM modules WHERE id = ?) ORDER BY m.ord, e.ord`,
+      moduleId,
+    )
+    .map(toDrill);
+}
+
+/**
+ * Zadania z puli egzaminacyjnej z danych rodzin, ale tylko te, które użytkownik już widział na egzaminie
+ * (`seen`): do powtórek trafiają dopiero po pierwszym egzaminie.
+ */
+export function getSeenExamDrillsForFamilies(db: SQLiteDatabase, families: readonly string[], seen: ReadonlySet<string>): DrillRow[] {
+  if (families.length === 0 || seen.size === 0) return [];
+  const marks = families.map(() => '?').join(',');
+  return db
+    .getAllSync<{ id: string; lessonId: null; family: string; data: string }>(
+      `SELECT id, NULL AS lessonId, family, data FROM exam_drills WHERE family IN (${marks})`,
+      ...families,
+    )
+    .filter((r) => seen.has(r.id))
     .map(toDrill);
 }
 

@@ -2,7 +2,7 @@ import { interleave } from '@szkola/srs';
 import { pick, shuffle, type Rng } from '@szkola/poker-core';
 import type { DrillRow } from '@/data/content/repo';
 import { instantiate, isGenerative, type DrillContext } from '@/features/drills/engine';
-import { EXAM_MAX_PAINT, EXAM_MODULE_SHARE, EXAM_SIZE } from '@/features/drills/thresholds';
+import { EXAM_MAX_PAINT, EXAM_MAX_PER_GENERATOR, EXAM_MODULE_SHARE, EXAM_SIZE } from '@/features/drills/thresholds';
 import type { DrillInstance } from '@/features/drills/types';
 
 export type SessionMode = 'lesson' | 'review' | 'speed' | 'exam';
@@ -47,27 +47,61 @@ export function buildSpeedSession(rows: readonly DrillRow[], knownFamilies: read
 
 /**
  * Wybór `n` zadań z wierszy: rodziny po kolei w losowej kolejności (każda rodzina raz, zanim któraś się powtórzy),
- * zadania stałe bez powtórek, malowanie zakresu najwyżej `budget.paint` razy.
+ * zadania stałe bez powtórek, generator najwyżej `genCap` razy, malowanie zakresu najwyżej `budget.paint` razy.
+ * W rodzinie najpierw zadania jeszcze niewidziane na egzaminie (`seen`) i generatory, potem już widziane.
  */
-function pickRows(rows: readonly DrillRow[], n: number, rng: Rng, used: Set<string>, budget: { paint: number }): DrillRow[] {
+function pickRows(
+  rows: readonly DrillRow[],
+  n: number,
+  rng: Rng,
+  used: Map<string, number>,
+  budget: { paint: number },
+  genCap = Infinity,
+  seen: ReadonlySet<string> = new Set(),
+): DrillRow[] {
   const byFamily = new Map<string, DrillRow[]>();
   for (const r of rows) byFamily.set(r.family, [...(byFamily.get(r.family) ?? []), r]);
   const out: DrillRow[] = [];
+  const count = (r: DrillRow) => used.get(r.id) ?? 0;
   const usable = (r: DrillRow) =>
-    isGenerative(r.drill) ? true : r.drill.kind === 'paint' ? budget.paint > 0 && !used.has(r.id) : !used.has(r.id);
+    isGenerative(r.drill) ? count(r) < genCap : r.drill.kind === 'paint' ? budget.paint > 0 && count(r) === 0 : count(r) === 0;
+  const stale = (r: DrillRow) => !isGenerative(r.drill) && seen.has(r.id);
   while (out.length < n) {
     const families = shuffle(rng, [...byFamily.keys()].filter((f) => byFamily.get(f)!.some(usable)));
     if (families.length === 0) break;
     for (const f of families) {
       if (out.length >= n) break;
-      const candidates = byFamily.get(f)!.filter(usable);
-      if (candidates.length === 0) continue;
-      const row = pick(rng, candidates);
-      if (!isGenerative(row.drill)) used.add(row.id);
+      const all = byFamily.get(f)!.filter(usable);
+      if (all.length === 0) continue;
+      const fresh = all.filter((r) => !stale(r));
+      const row = pick(rng, fresh.length ? fresh : all);
+      used.set(row.id, count(row) + 1);
       if (row.drill.kind === 'paint') budget.paint--;
       out.push(row);
     }
   }
+  return out;
+}
+
+/**
+ * Jedna część egzaminu (moduł albo wcześniejsze moduły): najpierw pula egzaminacyjna i generatory z lekcji
+ * (każdy najwyżej EXAM_MAX_PER_GENERATOR razy), zadania stałe z lekcji tylko jako uzupełnienie, a na końcu
+ * generatory bez limitu, gdy niczego innego nie ma.
+ */
+function pickExamPart(
+  pool: readonly DrillRow[],
+  lessons: readonly DrillRow[],
+  n: number,
+  rng: Rng,
+  used: Map<string, number>,
+  budget: { paint: number },
+  seen: ReadonlySet<string>,
+): DrillRow[] {
+  const gens = lessons.filter((r) => isGenerative(r.drill));
+  const fixed = lessons.filter((r) => !isGenerative(r.drill));
+  const out = pickRows([...pool, ...gens], n, rng, used, budget, EXAM_MAX_PER_GENERATOR, seen);
+  if (out.length < n) out.push(...pickRows(fixed, n - out.length, rng, used, budget));
+  if (out.length < n) out.push(...pickRows(gens, n - out.length, rng, used, budget));
   return out;
 }
 
@@ -89,16 +123,27 @@ export function interleaveRows<T extends { family: string }>(items: readonly T[]
   return out;
 }
 
+/** Źródła egzaminu: pule egzaminacyjne (exam_drills) i zadania z lekcji, osobno dla modułu i wcześniejszych modułów. */
+export interface ExamSources {
+  modulePool: readonly DrillRow[];
+  moduleLessons: readonly DrillRow[];
+  earlierPool: readonly DrillRow[];
+  earlierLessons: readonly DrillRow[];
+}
+
 /**
  * Egzamin modułu (FR-10, B-023): EXAM_SIZE zadań, ok. EXAM_MODULE_SHARE z modułu, reszta z wcześniejszych modułów,
- * przeplatane. Gdy wcześniejszych modułów brak, wszystkie zadania są z modułu.
+ * przeplatane. Gdy wcześniejszych modułów brak, wszystkie zadania są z modułu. Zadania z puli egzaminacyjnej
+ * i generatory mają pierwszeństwo przed zadaniami stałymi z lekcji (żeby egzamin nie powtarzał ćwiczeń),
+ * a z puli najpierw te, których użytkownik nie widział jeszcze na egzaminie (`seen`).
  */
-export function buildExamSession(moduleRows: readonly DrillRow[], earlierRows: readonly DrillRow[], rng: Rng, ctx?: DrillContext, size = EXAM_SIZE): DrillInstance[] {
-  const used = new Set<string>();
+export function buildExamSession(src: ExamSources, rng: Rng, ctx?: DrillContext, size = EXAM_SIZE, seen: ReadonlySet<string> = new Set()): DrillInstance[] {
+  const used = new Map<string, number>();
   const budget = { paint: EXAM_MAX_PAINT };
-  const nModule = earlierRows.length > 0 ? Math.round(size * EXAM_MODULE_SHARE) : size;
-  const fromModule = pickRows(moduleRows, nModule, rng, used, budget);
-  const fromEarlier = pickRows(earlierRows, size - fromModule.length, rng, used, budget);
+  const hasEarlier = src.earlierPool.length + src.earlierLessons.length > 0;
+  const nModule = hasEarlier ? Math.round(size * EXAM_MODULE_SHARE) : size;
+  const fromModule = pickExamPart(src.modulePool, src.moduleLessons, nModule, rng, used, budget, seen);
+  const fromEarlier = pickExamPart(src.earlierPool, src.earlierLessons, size - fromModule.length, rng, used, budget, seen);
   return interleaveRows([...fromModule, ...fromEarlier], rng).map((row, i) => {
     const inst = instantiate(row.drill, row.lessonId, rng, 1, ctx)[0]!;
     return { ...inst, key: `${inst.key}@exam-${i}` };

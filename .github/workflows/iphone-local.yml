@@ -1,4 +1,6 @@
-# Instalacja „ad hoc” na iPhonie BEZ zużywania limitu buildów Expo — ten sam sposób co w repozytorium Treningu
+# UWAGA (6.10.2026): założenie „bez limitu Expo” okazało się błędne — `eas upload` liczy się do miesięcznego limitu buildów
+# lokalnych darmowego planu (wyczerpany do 01.11.2026). Na iPhone'a właściciela idzie teraz TestFlight (testflight.yml).
+# Instalacja „ad hoc” na iPhonie — ten sam sposób co w repozytorium Treningu
 # (lkarwowski494/trening, workflow iphone-local.yml). Repozytorium jest publiczne (ADR-21), więc maszyna macOS w GitHub
 # Actions jest darmowa i bez limitu minut: kompilacja odbywa się tutaj (`eas build --local`, certyfikat i profil z EAS),
 # a do Expo trafia tylko gotowy plik (`eas upload`), który daje link do instalacji.

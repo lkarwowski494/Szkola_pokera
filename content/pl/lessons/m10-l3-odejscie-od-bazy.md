@@ -53,7 +53,7 @@ drills:
     id: m10.l3.q-alpha-low
     family: m10.base.alpha
     rules: [R-M10-010, R-M10-006]
-    prompt: "Rywal ma fold to c-bet {{n:hud.ex.fcb.low}} po {{n:hud.ex.reg.hands}} rękach. Nie trafiłeś flopu i nie masz {{t:draw|dobierania}}. Rozważasz c-bet 3/4 {{t:pot|puli}}. Co robisz?"
+    prompt: "Rywal ma fold to c-bet {{n:hud.ex.fcb.low}} po {{n:hud.ex.reg.hands}} rękach. Nie trafiłeś flopu i nie masz {{t:draw|drawa}}. Rozważasz c-bet 3/4 {{t:pot|puli}}. Co robisz?"
     options:
       - { text: "{{t:check|Czekam}}: ten rywal {{t:fold|pasuje}} rzadziej, niż potrzebuje duży c-bet", correct: true, why: "c-bet 3/4 {{t:pot|puli}} wychodzi na zero dopiero przy {{n:alpha.cbet.big}} {{t:fold|pasów}}, a rywal {{t:fold|pasuje}} w {{n:hud.ex.fcb.low}}. Bez ręki i bez outów taki {{t:bluff}} traci." }
       - { text: "Betuję, bo c-bet to standard", why: "c-bet bez ręki jest dobry tylko wtedy, gdy rywal {{t:fold|pasuje}} dość często albo gdy ręka ma equity. Tu nie ma ani jednego, ani drugiego." }
@@ -72,9 +72,9 @@ drills:
     id: m10.l3.q-3bet-data
     family: m10.base.3bet
     rules: [R-M10-011]
-    prompt: "Według danych GGPoker NL25 regulary {{t:fold|pasują}} na 3-bet w {{n:mda.reg.f3b}}, a {{t:recreational|gracze rekreacyjni}} w {{n:mda.rec.f3b}}. 3-bet z {{t:position|pozycji}} do {{n:pf.3bet.ip-total}} zarabia bez ręki przy ponad {{n:alpha.vs-3bet-ip-size}} {{t:fold|pasów}}. Co z tego wynika?"
+    prompt: "Według danych GGPoker NL25 {{t:regular|regi}} {{t:fold|pasują}} na 3-bet w {{n:mda.reg.f3b}}, a {{t:recreational|gracze rekreacyjni}} w {{n:mda.rec.f3b}}. 3-bet z {{t:position|pozycji}} do {{n:pf.3bet.ip-total}} zarabia bez ręki przy ponad {{n:alpha.vs-3bet-ip-size}} {{t:fold|pasów}}. Co z tego wynika?"
     options:
-      - { text: "Wobec {{t:recreational|graczy rekreacyjnych}} 3-betujesz prawie bez {{t:bluff|blefów}}, wobec regularów {{t:bluff|blefy}} zostają, ale tylko z rękami, które mają equity", correct: true, why: "Żadna grupa nie {{t:fold|pasuje}} tak często, żeby 3-bet zarabiał bez ręki. {{t:bluff|Blefy}} 3-betem w bazie żyją z equity po flopie i z {{t:fold|pasów}}; wobec gracza, który {{t:fold|pasuje}} w {{n:mda.rec.f3b}}, zostaje głównie equity, więc 3-betujesz {{t:range|zakresem}} {{t:linear|liniowym}}." }
+      - { text: "Wobec {{t:recreational|graczy rekreacyjnych}} 3-betujesz prawie bez {{t:bluff|blefów}}, wobec {{t:regular|regów}} {{t:bluff|blefy}} zostają, ale tylko z rękami, które mają equity", correct: true, why: "Żadna grupa nie {{t:fold|pasuje}} tak często, żeby 3-bet zarabiał bez ręki. {{t:bluff|Blefy}} 3-betem w bazie żyją z equity po flopie i z {{t:fold|pasów}}; wobec gracza, który {{t:fold|pasuje}} w {{n:mda.rec.f3b}}, zostaje głównie equity, więc 3-betujesz {{t:range|zakresem}} {{t:linear|liniowym}}." }
       - { text: "3-betujesz każdego dowolną ręką, bo wszyscy dużo {{t:fold|pasują}}", why: "Nikt tu nie {{t:fold|pasuje}} częściej niż {{n:alpha.vs-3bet-ip-size}}. 3-bet każdą ręką traciłby." }
       - { text: "Wobec {{t:recreational|graczy rekreacyjnych}} przestajesz 3-betować w ogóle", why: "Przeciwnie: gracz, który {{t:call|sprawdza}} 3-bety słabszymi rękami, płaci twoim silnym rękom. Zmieniasz skład 3-betu, nie rezygnujesz z niego." }
   - kind: choice
@@ -116,7 +116,7 @@ Gracze GGPoker NL25 {{t:fold|pasują}} na c-bet na flopie średnio w {{n:mda.all
 
 | Grupa | Fold to 3-bet |
 |---|---|
-| {{t:regular|Regulary}} | {{n:mda.reg.f3b}} |
+| {{t:regular|Regi}} | {{n:mda.reg.f3b}} |
 | {{t:recreational|Gracze rekreacyjni}} | {{n:mda.rec.f3b}} |
 
 W bazie {{t:bluff|blefy}} 3-betem żyją z {{t:fold|pasów}} i z equity po flopie. Wobec gracza, który {{t:fold|pasuje}} w {{n:mda.rec.f3b}}, {{t:fold|pasów}} prawie nie ma, za to {{t:call|sprawdza}} on słabszymi rękami. Dlatego 3-betujesz go {{t:range|zakresem}} {{t:linear|liniowym}}: więcej silnych rąk {{t:value|dla wartości}}, prawie bez {{t:bluff|blefów}}. Trenerzy PokerCoaching i Deepfold {{t:bet|stawiają}} tę granicę przy fold to 3-bet ok. {{n:hud.f3b.low}}.

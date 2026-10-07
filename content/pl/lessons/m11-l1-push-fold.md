@@ -23,7 +23,7 @@ drills:
     options:
       - { text: "Zwykle podbijam (np. minimalnie)", correct: true, why: "Przy ponad ok. {{n:m11.thr.raise}} źródła zalecają zwykłe podbicie: masz jeszcze miejsce, żeby {{t:fold|spasować}} na {{t:raise}} albo grać po flopie." }
       - { text: "Zawsze all-in", why: "All-in z tak dużym stackiem ryzykuje dużo, żeby wygrać tylko blindy. {{t:fold|Pasują}} ci słabsze ręce, a płacą lepsze." }
-      - { text: "Push/fold jak przy {{n:m11.thr.pushfold}}", why: "Push/fold to narzędzie dla {{t:short-stack|krótkiego stacku}}: do ok. {{n:m11.thr.pushfold}}, a dla słabszych rąk do ok. {{n:m11.thr.upper}}." }
+      - { text: "Push/fold jak przy {{n:m11.thr.pushfold}}", why: "Push/fold to narzędzie dla {{t:short-stack|short stacku}}: do ok. {{n:m11.thr.pushfold}}, a dla słabszych rąk do ok. {{n:m11.thr.upper}}." }
   - kind: numeric
     id: m11.l1.n-m
     family: m11.m
@@ -62,7 +62,7 @@ drills:
     options:
       - { text: "{{t:fold|Pasuje}}", correct: true, why: "Przy {{n:m11.depth.15}} ryzykujesz więcej względem blindów, więc {{t:range}} all-inu zwęża się z ok. {{n:m11.push.10}} do ok. {{n:m11.push.15}} rąk. K2o z niego wypada." }
       - { text: "All-in, bo król to silna karta", why: "Przy {{n:m11.depth.15}} K2o za często trafia na lepszego króla albo asa w {{t:range|zakresie}} {{t:call|sprawdzenia}}. Solver ją {{t:fold|pasuje}}." }
-      - { text: "All-in, bo im głębszy stack, tym szerzej", why: "Odwrotnie: im głębszy stack, tym węższy {{t:range}} all-inu. Najszerzej {{t:shove|wpychasz}} przy bardzo {{t:short-stack|krótkim stacku}}." }
+      - { text: "All-in, bo im głębszy stack, tym szerzej", why: "Odwrotnie: im głębszy stack, tym węższy {{t:range}} all-inu. Najszerzej {{t:shove|pushujesz}} przy bardzo {{t:short-stack|short stacku}}." }
   - kind: choice
     id: m11.l1.q-fold-equity
     family: m11.fold-equity
@@ -76,7 +76,7 @@ drills:
     id: m11.l1.q-two-ways
     family: m11.fold-equity
     rules: [R-M11-004]
-    prompt: "Dlaczego z {{t:short-stack|krótkim stackiem}} wolisz wejść all-in pierwszy, niż {{t:check|czekać}}, aż ktoś inny wejdzie all-in, i {{t:call|sprawdzić}}?"
+    prompt: "Dlaczego z {{t:short-stack|short stackiem}} wolisz wejść all-in pierwszy, niż {{t:check|czekać}}, aż ktoś inny wejdzie all-in, i {{t:call|sprawdzić}}?"
     options:
       - { text: "Bo all-in wygrywa na dwa sposoby", correct: true, why: "Wchodząc pierwszy, zgarniasz {{t:pot|pulę}}, gdy wszyscy {{t:fold|spasują}}, albo wygrywasz na showdownie. {{t:call|Sprawdzając}}, wygrywasz tylko na showdownie." }
       - { text: "Bo all-in ma zawsze więcej equity", why: "Equity ręki nie zależy od tego, kto wszedł pierwszy. Różnica jest w tym, że all-in daje rywalowi szansę {{t:fold|spasować}}." }
@@ -88,7 +88,7 @@ drills:
     prompt: "Ten sam stack {{n:m11.depth.10}} na {{t:small-blind|małym blindzie}}, ale {{t:big-blind}} wpłacił ante {{n:m11.ante}}. Jak zmienia się {{t:range}} all-inu?"
     options:
       - { text: "Rośnie: ok. {{n:m11.push.10-ante}} zamiast {{n:m11.push.10}}", correct: true, why: "Ante powiększa {{t:pot|pulę}}, którą zgarniasz, gdy rywal {{t:fold|spasuje}}: {{n:m11.push.10.win-ante}} zamiast {{n:m11.push.10.win}}. Ręka bez szans potrzebuje już tylko ponad {{n:m11.push.10.alpha-ante}} {{t:fold|pasów}}, więc opłaca się więcej all-inów." }
-      - { text: "Maleje, bo rywal ma więcej w {{t:pot|puli}} i częściej {{t:call|sprawdzi}}", why: "Rywal rzeczywiście {{t:call|sprawdza}} szerzej, ale większa {{t:pot}} do zgarnięcia przeważa. Solver {{t:shove|wpycha}} ok. {{n:m11.push.10-ante}} rąk." }
+      - { text: "Maleje, bo rywal ma więcej w {{t:pot|puli}} i częściej {{t:call|sprawdzi}}", why: "Rywal rzeczywiście {{t:call|sprawdza}} szerzej, ale większa {{t:pot}} do zgarnięcia przeważa. Solver {{t:shove|pushuje}} ok. {{n:m11.push.10-ante}} rąk." }
       - { text: "Nie zmienia się", why: "Ante zmienia stosunek ryzyka do nagrody. Bez ante ok. {{n:m11.push.10}}, z ante ok. {{n:m11.push.10-ante}}." }
   - kind: generated
     id: m11.l1.g-push-ante
@@ -105,7 +105,7 @@ drills:
     params: { spots: "push.btn-3max,push.sb-3max" }
     count: 2
 ---
-W {{t:tournament|turnieju}} blindy rosną, a stack nie. Prędzej czy później masz go tak mało, że zwykłe podbicie przestaje działać. Wtedy wchodzi strategia **push/fold**: z każdą ręką, którą grasz, wchodzisz all-in (push), a resztę {{t:fold|pasujesz}}.
+W {{t:tournament|turnieju}} blindy rosną, a stack nie. Prędzej czy później masz go tak mało, że zwykłe podbicie przestaje działać. Wtedy wchodzi strategia **push/fold**: z każdą ręką, którą grasz, robisz {{t:shove|push}}, czyli wchodzisz all-in, a resztę {{t:fold|pasujesz}}.
 
 ## Kiedy all-in albo {{t:fold}}
 

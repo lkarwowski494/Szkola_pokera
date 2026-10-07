@@ -24,7 +24,7 @@ export function hasStraight(ranks: ReadonlySet<number>): boolean {
 
 /**
  * Outy do koloru i strita dla ręki gracza na flopie lub turnie.
- * Liczy karty kończące dobieranie, bez oceny, czy wynik wygra z przeciwnikiem.
+ * Liczy karty kończące draw, bez oceny, czy wynik wygra z przeciwnikiem.
  */
 export function drawOuts(hole: readonly Card[], board: readonly Card[]): DrawOuts {
   if (board.length < 3 || board.length > 4) throw new Error('Outy liczymy na flopie lub turnie');

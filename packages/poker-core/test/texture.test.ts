@@ -46,7 +46,7 @@ function referenceStraightPossible(flop: readonly Card[]): boolean {
 
 const tex = (s: string) => classifyFlop(parseCards(s));
 
-/** Wzorzec niezależny od klasyfikatora: czy jakaś ręka (dwie karty) ma na tym flopie dobieranie do strita (drawOuts). */
+/** Wzorzec niezależny od klasyfikatora: czy jakaś ręka (dwie karty) ma na tym flopie draw do strita (drawOuts). */
 function referenceStraightDraw(flop: readonly Card[]): boolean {
   const free = (r: number, used: readonly Card[]) => FULL_DECK.filter((c) => rankOf(c) === r && !used.includes(c));
   for (let a = 0; a < 13; a++) {
@@ -94,14 +94,14 @@ describe('tekstura flopa', () => {
     expect(tex('Jd Jh Th')).toMatchObject({ ranks: 'paired', wetness: 'medium', wetnessPoints: 2 });
     expect(tex('Ah 5d 3c').ranks).toBe('connected'); // as jako 1: 2 i 4 dają strita od asa do piątki
     expect(tex('Ah Kd Tc').ranks).toBe('connected'); // QJ daje strita do asa
-    expect(tex('Ah Kd 9c').ranks).toBe('semi-connected'); // QJ albo QT dają dobieranie do strita
+    expect(tex('Ah Kd 9c').ranks).toBe('semi-connected'); // QJ albo QT dają draw do strita
     expect(tex('7h 7d 7c')).toMatchObject({ ranks: 'paired', trips: true, straightDrawPossible: false, wetness: 'dry' });
   });
 
   it('decyzja D-39: przykłady z raportu 12a-22', () => {
-    // dwukolorowy K72 suchy: jedynym dobieraniem jest kolor
+    // dwukolorowy K72 suchy: jedynym drawem jest kolor
     expect(tex('Kh 7h 2c')).toMatchObject({ suits: 'two-tone', straight: 'none', wetness: 'dry', wetnessPoints: 1 });
-    // monotoniczny zawsze mokry
+    // jednokolorowy zawsze mokry
     expect(tex('Kh 8h 3h')).toMatchObject({ wetness: 'wet', wetnessPoints: 3 });
     expect(tex('Kh 7h 2h')).toMatchObject({ wetness: 'wet', wetnessPoints: 3 });
     expect(tex('Qd 8d 7d')).toMatchObject({ wetness: 'wet' });
@@ -170,13 +170,13 @@ describe('tekstura flopa', () => {
   });
 
   // Test wyczerpujący po wszystkich 1755 strategicznie różnych flopach (rangi × układ kolorów):
-  // połączony ⇔ strit możliwy, półpołączony/sparowany z dobieraniem ⇔ istnieje ręka z dobieraniem do strita.
+  // połączony ⇔ strit możliwy, półpołączony/sparowany z drawem ⇔ istnieje ręka z drawem do strita.
   const canon = canonicalFlops();
   it('jest dokładnie 1755 strategicznie różnych flopów', () => {
     expect(canon.length).toBe(1755);
   });
 
-  it('połączony ⇔ strit możliwy; dwie rangi w oknie pięciu ⇔ istnieje ręka z dobieraniem do strita (wszystkie 1755 flopów)', () => {
+  it('połączony ⇔ strit możliwy; dwie rangi w oknie pięciu ⇔ istnieje ręka z drawem do strita (wszystkie 1755 flopów)', () => {
     for (const flop of canon) {
       const t = classifyFlop(flop);
       const draw = referenceStraightDraw(flop);
@@ -203,7 +203,7 @@ describe('tekstura flopa', () => {
     }
   });
 
-  it('rozłączone są tylko flopy Q72, K72, K82 i K83 (w dowolnych kolorach)', () => {
+  it('niepołączone są tylko flopy Q72, K72, K82 i K83 (w dowolnych kolorach)', () => {
     const shapes = new Set(canon.filter((f) => classifyFlop(f).ranks === 'disconnected').map((f) => cardsToString(f).replace(/[shdc]/g, '').split(' ').sort().join('')));
     expect([...shapes].sort()).toEqual(['27K', '27Q', '28K', '38K']);
   });

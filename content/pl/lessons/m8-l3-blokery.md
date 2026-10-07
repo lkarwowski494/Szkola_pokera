@@ -52,11 +52,11 @@ drills:
     id: m8.l3.q-missed-flush
     family: m8.blockers.bluff
     rules: [R-M8-008]
-    prompt: "{{t:flush-draw|Dobieranie do koloru}} w pikach nie weszło. {{t:big-blind|Duży blind}} czeka na riverze. Obie ręce mają tylko damę z ósemką. Którą lepiej zablefować?"
+    prompt: "{{t:flush-draw|Draw do koloru}} w pikach nie wszedł. {{t:big-blind|Duży blind}} czeka na riverze. Obie ręce mają tylko damę z ósemką. Którą lepiej zablefować?"
     table: { board: "Kd 9s 5s 2c 3h", position: BTN }
     options:
-      - { text: "[[Qd 8c]]", correct: true, why: "Bez pików nie blokujesz nietrafionych {{t:draw|dobierań}} rywala, a to ręce, które na twój bet {{t:fold|spasują}}. Pozostałe karty obu rąk są takie same." }
-      - { text: "[[Qd 8s]]", why: "Ósemka pik blokuje część nietrafionych {{t:flush-draw|dobierań do koloru}} (np. [[8s 7s]]), którymi rywal by {{t:fold|spasował}}. Zostaje mu relatywnie więcej rąk, którymi zapłaci." }
+      - { text: "[[Qd 8c]]", correct: true, why: "Bez pików nie blokujesz nietrafionych {{t:draw|drawów}} rywala, a to ręce, które na twój bet {{t:fold|spasują}}. Pozostałe karty obu rąk są takie same." }
+      - { text: "[[Qd 8s]]", why: "Ósemka pik blokuje część nietrafionych {{t:flush-draw|drawów do koloru}} (np. [[8s 7s]]), którymi rywal by {{t:fold|spasował}}. Zostaje mu relatywnie więcej rąk, którymi zapłaci." }
       - { text: "Bez różnicy", why: "Różnica jest w kolorze ósemki. Pik w twojej ręce zabiera rywalowi część rąk do spasowania." }
   - kind: choice
     id: m8.l3.q-showdown-first
@@ -65,7 +65,7 @@ drills:
     prompt: "Ta sama sytuacja: piki nie weszły, {{t:big-blind}} {{t:check|czeka}}. Masz jedną z dwóch rąk. Którą {{t:bluff|blefujesz}}, a którą {{t:check|czekasz}}?"
     table: { board: "Kd 9s 5s 2c 3h", position: BTN }
     options:
-      - { text: "{{t:bluff|Blefuję}} [[Qc Jd]], {{t:check|czekam}} z [[9c 8c]]", correct: true, why: "{{t:pair|Para}} dziewiątek wygrywa z nietrafionymi {{t:draw|dobieraniami}} po {{t:check|czekaniu}}. Dama z waletem przegrywa prawie z każdą ręką, więc tylko {{t:bluff|blefem}} może wygrać {{t:pot|pulę}}." }
+      - { text: "{{t:bluff|Blefuję}} [[Qc Jd]], {{t:check|czekam}} z [[9c 8c]]", correct: true, why: "{{t:pair|Para}} dziewiątek wygrywa z nietrafionymi {{t:draw|drawami}} po {{t:check|czekaniu}}. Dama z waletem przegrywa prawie z każdą ręką, więc tylko {{t:bluff|blefem}} może wygrać {{t:pot|pulę}}." }
       - { text: "{{t:bluff|Blefuję}} [[9c 8c]], {{t:check|czekam}} z [[Qc Jd]]", why: "Odwrotnie. {{t:bluff|Blef}} {{t:pair|parą}} dziewiątek oddaje wygraną przy showdownie, a {{t:check}} z damą z waletem oddaje {{t:pot|pulę}} bez walki." }
       - { text: "{{t:bluff|Blefuję}} obiema", why: "{{t:pair|Para}} dziewiątek nie potrzebuje {{t:bluff|blefu}}: wygrywa z wieloma rękami po {{t:check|czekaniu}}. {{t:bluff|Blefujesz}} rękami bez wartości przy showdownie." }
   - kind: choice
@@ -75,7 +75,7 @@ drills:
     prompt: "Wybierasz {{t:bluff}} na riverze spośród rąk bez wartości przy showdownie. Która karta w ręce pomaga najbardziej?"
     options:
       - { text: "Karta z rąk, którymi rywal zapłaci", correct: true, why: "Blokujesz jego wartość: ma mniej silnych rąk, więc częściej zostaje mu ręka do spasowania." }
-      - { text: "Karta w kolorze nietrafionego {{t:draw|dobierania}}", why: "Ona blokuje ręce, którymi rywal {{t:fold|spasuje}}. {{t:bluff|Blef}} działa wtedy rzadziej." }
+      - { text: "Karta w kolorze nietrafionego {{t:draw|drawa}}", why: "Ona blokuje ręce, którymi rywal {{t:fold|spasuje}}. {{t:bluff|Blef}} działa wtedy rzadziej." }
       - { text: "Najwyższa karta, niezależnie od stołu", why: "Wysoka karta daje trochę siły przy showdownie, ale nie mówi nic o tym, co blokujesz. Patrz, które ręce rywala zapłacą." }
   - kind: choice
     id: m8.l3.q-blocker-not-enough
@@ -107,7 +107,7 @@ Dobry {{t:bluff}} ma kartę z rąk, którymi rywal **{{t:call|sprawdzi}}**. Przy
 
 ## Nie blokuj rąk, którymi rywal {{t:fold|spasuje}}
 
-Gdy {{t:flush-draw}} **nie weszło**, rywal {{t:fold|spasuje}} swoje nietrafione {{t:draw|dobierania}}. Jeśli masz kartę w tym kolorze, ma ich mniej, więc twój {{t:bluff}} częściej trafi na rękę, która zapłaci. Z dwóch podobnych {{t:bluff|blefów}} wybierasz ten bez kart w kolorze nietrafionego {{t:draw|dobierania}}.
+Gdy {{t:flush-draw}} **nie wszedł**, rywal {{t:fold|spasuje}} swoje nietrafione {{t:draw|drawy}}. Jeśli masz kartę w tym kolorze, ma ich mniej, więc twój {{t:bluff}} częściej trafi na rękę, która zapłaci. Z dwóch podobnych {{t:bluff|blefów}} wybierasz ten bez kart w kolorze nietrafionego {{t:draw|drawa}}.
 
 ## Najpierw siła przy showdownie
 
