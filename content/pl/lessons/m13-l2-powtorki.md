@@ -57,7 +57,7 @@ drills:
     rules: [R-M13-004]
     prompt: "W {{t:session|sesji}} dostałeś 4-bet dwa razy i dwa razy {{t:fold|spasowałeś}}. Czy wiesz już, że {{t:fold|pasujesz}} na 4-bet za często?"
     options:
-      - { text: "Nie: liczą się okazje, a dwie to za mało", correct: true, why: "BlackRain79 patrzy na statystykę dopiero przy ok. {{n:hud.opps.look}} okazjach, a pewności nabiera przy ok. {{n:hud.opps.sure}}. Dwie okazje to szum; oceniasz każdą z tych decyzji osobno." }
+      - { text: "Nie: liczą się okazje, a dwie to za mało", correct: true, why: "Trenerzy patrzą na statystykę dopiero przy ok. {{n:hud.opps.look}} okazjach, a pewności nabierają przy ok. {{n:hud.opps.sure}}. Dwie okazje to szum; oceniasz każdą z tych decyzji osobno." }
       - { text: "Tak: {{t:fold|pasujesz}} w każdej sytuacji", why: "Dwa razy na dwa wygląda jak „zawsze”, ale przy dwóch okazjach nawet strategia, która {{t:fold|pasuje}} w połowie przypadków, często da taki wynik." }
       - { text: "Tak, jeśli to było w jednej {{t:session|sesji}}", why: "Jedna {{t:session}} niczego nie dodaje: liczba okazji jest dalej mała." }
   - kind: choice
@@ -90,8 +90,8 @@ Obszar gry to jeden moduł kursu. Odblokowuje się po ukończeniu wszystkich lek
 
 ## Jedna {{t:session|sesja}} to nie statystyka
 
-Raport nie pokazuje twoich częstotliwości, np. jak często wchodzisz do gry. Nawet {{t:vpip}} czyta się po ok. {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} rękach, a rzadkie sytuacje zdarzają się w {{t:session|sesji}} kilka razy. BlackRain79 radzi liczyć okazje, a nie rozdania: patrzy na statystykę przy ok. {{n:hud.opps.look}} okazjach, a pewności nabiera przy ok. {{n:hud.opps.sure}}.
+Raport nie pokazuje twoich częstotliwości, np. jak często wchodzisz do gry. Nawet {{t:vpip}} czyta się po ok. {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} rękach, a rzadkie sytuacje zdarzają się w {{t:session|sesji}} kilka razy. Trenerzy radzą liczyć okazje, a nie rozdania: na statystykę patrzy się przy ok. {{n:hud.opps.look}} okazjach, a pewności nabiera się przy ok. {{n:hud.opps.sure}}.
 
 :::note Skąd te zasady
-Zamiana kolorów to rachunek: ranking układów nie rozróżnia kolorów. Próby rąk jak w module o {{t:exploit|eksploatacji}} (PokerCoaching, Deepfold), liczba okazji: BlackRain79, Poker {{t:hud|HUD}} Stats: The Sample Size You Need. Progi powtórek to ustawienia aplikacji, bez źródła.
+Zamiana kolorów to rachunek: ranking układów nie rozróżnia kolorów. Próby rąk jak w module o {{t:exploit|eksploatacji}} (dwa materiały szkoleniowe), liczba okazji: materiał szkoleniowy o wielkości próby dla statystyk {{t:hud|HUD-a}}. Progi powtórek to ustawienia aplikacji, bez źródła.
 :::

@@ -114,5 +114,5 @@ Gdy {{t:flush-draw}} **nie wszedł**, rywal {{t:fold|spasuje}} swoje nietrafione
 Kolejność jest stała: najpierw odkładasz ręce, które mogą wygrać po {{t:check|czekaniu}}, a dopiero z reszty wybierasz {{t:bluff|blefy}} z najlepszymi {{t:blocker|blokerami}}. Dobry {{t:blocker}} nie zrobi {{t:bluff|blefu}} z {{t:pair|pary}}, która wygrałaby showdown. {{t:blocker|Blokery}} przechylają wybór między podobnymi rękami; sam efekt jest niewielki.
 
 :::note Skąd te zasady
-Liczby {{t:combo|kombinacji}} to kombinatoryka. Zasady wyboru {{t:bluff|blefów}} według {{t:blocker|blokerów}} pochodzą z programu nauczania oraz z GTO Wizard i Upswing. Gdy brakuje innych {{t:bluff|blefów}}, solver {{t:bluff|blefuje}} też nietrafionymi kolorami.
+Liczby {{t:combo|kombinacji}} to kombinatoryka. Zasady wyboru {{t:bluff|blefów}} według {{t:blocker|blokerów}} pochodzą z programu nauczania oraz z materiałów szkoleniowych i analiz solverów. Gdy brakuje innych {{t:bluff|blefów}}, solver {{t:bluff|blefuje}} też nietrafionymi kolorami.
 :::

@@ -23,7 +23,7 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z {{t:cutoff|CO}} na {{n:pf.open-size}}, Button {{t:raise|przebił}} do {{n:pf.3bet.ip-total}}, blindy {{t:fold|spasowały}}. Co robisz?"
     table: { hand: "Kc Jd", position: CO }
     options:
-      - { text: "{{t:fold|Pasuję}}", correct: true, why: "KJ w różnych kolorach {{t:out-of-position}} często jest zdominowany przez AK, AJ i KQ, a po flopie trudno go rozegrać. PokerCoaching i Deepfold zalecają tu {{t:fold}}." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "KJ w różnych kolorach {{t:out-of-position}} często jest zdominowany przez AK, AJ i KQ, a po flopie trudno go rozegrać. Materiały szkoleniowe zalecają tu {{t:fold}}." }
       - { text: "{{t:call|Sprawdzam}}", why: "Kusi, bo to wysokie karty, ale {{t:out-of-position}} ta ręka {{t:equity-realization|realizuje equity}} słabo i często przegrywa z lepszym kickerem." }
       - { text: "4-betuję", why: "KJo jest za słaby na 4-bet {{t:value|dla wartości}}, a jako {{t:bluff}} nie blokuje rąk, którymi Button kontynuuje." }
   - kind: choice
@@ -53,7 +53,7 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z Buttona na {{n:pf.open-size}}, {{t:small-blind}} {{t:fold|spasował}}, {{t:big-blind}} {{t:raise|przebił}} do {{n:pf.3bet.oop-total}}. Co robisz?"
     table: { hand: "3c 3d", position: BTN }
     options:
-      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Według Upswing najniższe {{t:pair|pary}} wobec dużego 3-betu {{t:fold|pasujesz}} nawet {{t:in-position}}: zarabiają głównie na trafieniu seta, a cena jest za wysoka. PokerCoaching dopuszcza ich {{t:call|sprawdzanie}} {{t:in-position}}." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Według jednego ze źródeł najniższe {{t:pair|pary}} wobec dużego 3-betu {{t:fold|pasujesz}} nawet {{t:in-position}}: zarabiają głównie na trafieniu seta, a cena jest za wysoka. Inne źródło dopuszcza ich {{t:call|sprawdzanie}} {{t:in-position}}." }
       - { text: "{{t:call|Sprawdzam}}, bo mam {{t:position|pozycję}}", why: "{{t:position|Pozycja}} pomaga, ale przy 3-becie do {{n:pf.3bet.oop-total}} cena jest za wysoka jak na rękę, która musi trafić seta." }
       - { text: "4-betuję", why: "{{t:pair|Para}} 33 nie jest ręką do 4-betu: ani wartość, ani dobry {{t:bluff}}." }
   - kind: choice
@@ -63,8 +63,8 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z {{t:cutoff|CO}} na {{n:pf.open-size}}, Button {{t:raise|przebił}} do {{n:pf.3bet.ip-total}}, blindy {{t:fold|spasowały}}. Co robisz?"
     table: { hand: "Qs Qh", position: CO }
     options:
-      - { text: "4-betuję", correct: true, why: "Upswing 4-betuje QQ (i JJ) w zdecydowanej większości przypadków: Button kontynuuje wieloma słabszymi {{t:pair|parami}} i asami." }
-      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Też dobre zagranie: Deepfold umieszcza QQ w {{t:range|zakresie}} {{t:call|sprawdzenia}}, żeby nie wyrzucać słabszych rąk Buttona. Źródła się różnią, więc oba zagrania są dobre." }
+      - { text: "4-betuję", correct: true, why: "Jedno ze źródeł 4-betuje QQ (i JJ) w zdecydowanej większości przypadków: Button kontynuuje wieloma słabszymi {{t:pair|parami}} i asami." }
+      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Też dobre zagranie: inne źródło umieszcza QQ w {{t:range|zakresie}} {{t:call|sprawdzenia}}, żeby nie wyrzucać słabszych rąk Buttona. Źródła się różnią, więc oba zagrania są dobre." }
       - { text: "{{t:fold|Pasuję}}", why: "QQ to trzecia najlepsza ręka preflop. {{t:fold|Pas}} jest dużym błędem." }
   - kind: choice
     id: m4.l3.q-ajs
@@ -90,14 +90,14 @@ drills:
 3-bet to odpowiedź rywala na twoje {{t:open}}. Masz trzy możliwości: {{t:fold|pasujesz}}, {{t:call|sprawdzasz}} albo {{t:raise|przebijasz}} jeszcze raz, czyli 4-betujesz.
 
 :::note Skąd te zasady
-Ta lekcja opiera się na literaturze (Deepfold, Upswing, PokerCoaching) i opublikowanych wynikach innych solverów (Poker Academy), nie na solverze aplikacji. W grze wobec 3-betu solver aplikacji jeszcze nie przeszedł walidacji, dlatego reguły są oznaczone jako heurystyki.
+Ta lekcja opiera się na materiałach szkoleniowych z kilku źródeł i opublikowanych wynikach innych solverów, nie na solverze aplikacji. W grze wobec 3-betu solver aplikacji jeszcze nie przeszedł walidacji, dlatego reguły są oznaczone jako heurystyki.
 :::
 
 ## Ile kontynuować
 
 Gdy Button {{t:raise|przebija}} twoje {{t:open}} z {{t:cutoff|CO}} do {{n:pf.3bet.ip-total}}, ryzykuje tyle, żeby wygrać {{n:vs3bet.win}}. Jeśli {{t:fold|pasujesz}} częściej niż {{n:alpha.vs-3bet-ip-size}}, jego 3-bet zarabia z każdą ręką. Musisz więc kontynuować co najmniej ok. {{n:mdf.vs-3bet-ip-size}} {{t:range|zakresu}} {{t:open|otwarcia}}.
 
-Według rozwiązania solvera opublikowanego przez Poker Academy ({{t:cutoff|CO}} wobec 3-betu Buttona do {{n:pf.3bet.ip-total}}) {{t:open|otwierający}} {{t:fold|pasuje}} ok. {{n:pf.vs3bet.pub1.fold}} {{t:open|otwarć}}, {{t:call|sprawdza}} ok. {{n:pf.vs3bet.pub1.call}} i 4-betuje ok. {{n:pf.vs3bet.pub1.4bet}}; uproszczone tabele Pailiku dają ok. {{n:pf.vs3bet.pub2.fold}} / {{n:pf.vs3bet.pub2.call}} / {{n:pf.vs3bet.pub2.4bet}}. Przyjmujemy przedziały obejmujące oba źródła: {{t:fold}} ok. {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}}, {{t:call}} ok. {{n:pf.vs3bet.call.low}}–{{n:pf.vs3bet.call.high}}, 4-bet ok. {{n:pf.vs3bet.4bet.low}}–{{n:pf.vs3bet.4bet.high}}. Górna granica {{t:fold|pasów}} leży tuż pod progiem {{n:alpha.vs-3bet-ip-size}}: przy częstszym pasowaniu 3-bet Buttona zarabiałby z każdą ręką. Do {{t:call|sprawdzenia}} potrzebujesz ok. {{n:eq.call-3bet-ip-size}} equity: dopłacasz {{n:vs3bet.call}} do {{t:pot|puli}}, która po {{t:call|sprawdzeniu}} ma {{n:vs3bet.pot-after}}.
+Według opublikowanego rozwiązania solvera ({{t:cutoff|CO}} wobec 3-betu Buttona do {{n:pf.3bet.ip-total}}) {{t:open|otwierający}} {{t:fold|pasuje}} ok. {{n:pf.vs3bet.pub1.fold}} {{t:open|otwarć}}, {{t:call|sprawdza}} ok. {{n:pf.vs3bet.pub1.call}} i 4-betuje ok. {{n:pf.vs3bet.pub1.4bet}}; uproszczone tabele z innego źródła dają ok. {{n:pf.vs3bet.pub2.fold}} / {{n:pf.vs3bet.pub2.call}} / {{n:pf.vs3bet.pub2.4bet}}. Przyjmujemy przedziały obejmujące oba źródła: {{t:fold}} ok. {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}}, {{t:call}} ok. {{n:pf.vs3bet.call.low}}–{{n:pf.vs3bet.call.high}}, 4-bet ok. {{n:pf.vs3bet.4bet.low}}–{{n:pf.vs3bet.4bet.high}}. Górna granica {{t:fold|pasów}} leży tuż pod progiem {{n:alpha.vs-3bet-ip-size}}: przy częstszym pasowaniu 3-bet Buttona zarabiałby z każdą ręką. Do {{t:call|sprawdzenia}} potrzebujesz ok. {{n:eq.call-3bet-ip-size}} equity: dopłacasz {{n:vs3bet.call}} do {{t:pot|puli}}, która po {{t:call|sprawdzeniu}} ma {{n:vs3bet.pot-after}}.
 
 ## {{t:out-of-position|Bez pozycji}} wybieraj ostrożnie
 
@@ -105,8 +105,8 @@ Według rozwiązania solvera opublikowanego przez Poker Academy ({{t:cutoff|CO}}
 
 ## {{t:in-position|Z pozycją}} bronisz szerzej
 
-{{t:in-position|Z pozycją}} {{t:call|sprawdzasz}} także {{t:pair|pary}} od 66 do TT i {{t:connectors|konektory}} w kolorze (T9s, 98s, 87s). Według Upswing najniższe {{t:pair|pary}} wobec dużego 3-betu {{t:fold|pasujesz}} nawet {{t:in-position}}: zarabiają głównie na trafieniu seta, a cena jest za wysoka. PokerCoaching dopuszcza ich {{t:call|sprawdzanie}} {{t:in-position}}.
+{{t:in-position|Z pozycją}} {{t:call|sprawdzasz}} także {{t:pair|pary}} od 66 do TT i {{t:connectors|konektory}} w kolorze (T9s, 98s, 87s). Według jednego ze źródeł najniższe {{t:pair|pary}} wobec dużego 3-betu {{t:fold|pasujesz}} nawet {{t:in-position}}: zarabiają głównie na trafieniu seta, a cena jest za wysoka. Inne źródło dopuszcza ich {{t:call|sprawdzanie}} {{t:in-position}}.
 
 ## 4-bet
 
-AA, KK i AK 4-betujesz {{t:value|dla wartości}}. QQ i JJ źródła grają różnie: Upswing głównie 4-betuje, Deepfold {{t:call|sprawdza}}. Jako {{t:bluff}} najlepsze są asy w kolorze, na przykład A5s: blokują AA i AK rywala, a po {{t:call|sprawdzeniu}} mają szansę na {{t:flush}} i {{t:straight|strita}}. Rozmiar 4-betu to ok. {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}} 3-betu {{t:in-position}} i {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} {{t:out-of-position}}. Na przykład gdy z Buttona 4-betujesz 3-bet {{t:small-blind|małego blinda}} do {{n:pf.3bet.oop-total}} ({{t:big-blind}} {{t:fold|spasował}}), {{t:raise|przebijasz}} do {{n:pf.4bet.example.low}}–{{n:pf.4bet.example.high}}; gdy z {{t:cutoff|CO}} 4-betujesz 3-bet Buttona do {{n:pf.3bet.ip-total}}, {{t:raise|przebijasz}} do ok. {{n:pf.4bet.oop-example.low}}. Po {{t:call|sprawdzeniu}} w stackach zostaje ok. {{n:spr.4bet.high}}–{{n:spr.4bet.oop}} razy tyle, ile jest w {{t:pot|puli}}, więc dobre ręce łatwo wpłacą resztę.
+AA, KK i AK 4-betujesz {{t:value|dla wartości}}. QQ i JJ źródła grają różnie: jedno głównie 4-betuje, drugie {{t:call|sprawdza}}. Jako {{t:bluff}} najlepsze są asy w kolorze, na przykład A5s: blokują AA i AK rywala, a po {{t:call|sprawdzeniu}} mają szansę na {{t:flush}} i {{t:straight|strita}}. Rozmiar 4-betu to ok. {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}} 3-betu {{t:in-position}} i {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} {{t:out-of-position}}. Na przykład gdy z Buttona 4-betujesz 3-bet {{t:small-blind|małego blinda}} do {{n:pf.3bet.oop-total}} ({{t:big-blind}} {{t:fold|spasował}}), {{t:raise|przebijasz}} do {{n:pf.4bet.example.low}}–{{n:pf.4bet.example.high}}; gdy z {{t:cutoff|CO}} 4-betujesz 3-bet Buttona do {{n:pf.3bet.ip-total}}, {{t:raise|przebijasz}} do ok. {{n:pf.4bet.oop-example.low}}. Po {{t:call|sprawdzeniu}} w stackach zostaje ok. {{n:spr.4bet.high}}–{{n:spr.4bet.oop}} razy tyle, ile jest w {{t:pot|puli}}, więc dobre ręce łatwo wpłacą resztę.

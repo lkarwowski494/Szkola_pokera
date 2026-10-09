@@ -55,7 +55,7 @@ drills:
     rules: [R-M12-004]
     prompt: "Kolega pyta cię o to samo zagranie w dwóch rozdaniach: w jednym wygrał, w drugim przegrał. Wydaje ci się, że za pierwszym razem zagrał lepiej. Co się dzieje?"
     options:
-      - { text: "To efekt wyniku: oceniasz decyzję po tym, jak się skończyła", correct: true, why: "W badaniach Barona i Hersheya ludzie oceniali tę samą decyzję wyżej, gdy wynik był dobry, nawet jeśli uważali, że wynik nie powinien mieć znaczenia. Pomaga ocena przed poznaniem wyniku." }
+      - { text: "To efekt wyniku: oceniasz decyzję po tym, jak się skończyła", correct: true, why: "W badaniach psychologicznych ludzie oceniali tę samą decyzję wyżej, gdy wynik był dobry, nawet jeśli uważali, że wynik nie powinien mieć znaczenia. Pomaga ocena przed poznaniem wyniku." }
       - { text: "Pierwsza decyzja była lepsza, bo zadziałała", why: "Skoro zagranie jest to samo, decyzja jest ta sama. Różni się tylko wynik, czyli los." }
       - { text: "Druga decyzja była lepsza, bo uczy pokory", why: "Ocena nie zależy od wyniku w żadną stronę. Ta sama decyzja ma tę samą jakość." }
   - kind: choice
@@ -73,7 +73,7 @@ drills:
     rules: [R-M12-005]
     prompt: "Badanie milionów rozdań online pokazało, kiedy umiejętność zaczyna przeważać nad losem. Co dokładnie zmierzono?"
     options:
-      - { text: "Najlepszy {{n:skill.pct}} graczy wyprzedza najsłabszy {{n:skill.pct}} w ok. {{n:skill.ahead}} przypadków po ok. {{n:skill.hands}} rękach", correct: true, why: "Tak definiują to autorzy (van Loon i in., 2015). To porównanie skrajnych grup: przy mniejszych różnicach umiejętności potrzeba znacznie więcej rąk." }
+      - { text: "Najlepszy {{n:skill.pct}} graczy wyprzedza najsłabszy {{n:skill.pct}} w ok. {{n:skill.ahead}} przypadków po ok. {{n:skill.hands}} rękach", correct: true, why: "Tak definiują to autorzy badania (2015). To porównanie skrajnych grup: przy mniejszych różnicach umiejętności potrzeba znacznie więcej rąk." }
       - { text: "Po ok. {{n:skill.hands}} rękach każdy dobry gracz jest na plusie", why: "Badanie porównuje skrajne grupy graczy, a nie mówi, kiedy pojedynczy dobry gracz będzie na plusie. To zależy od winrate i {{t:standard-deviation|odchylenia}} (lekcja o {{t:variance|wariancji}})." }
       - { text: "Po ok. {{n:skill.hands}} rękach los przestaje mieć znaczenie", why: "Los ma znaczenie zawsze. Badanie mówi tylko, kiedy przewaga najlepszych nad najgorszymi zaczyna wygrywać w większości porównań." }
   - kind: choice
@@ -90,7 +90,7 @@ Poker daje informację zwrotną, która często kłamie. Dobra decyzja może prz
 
 ## Resulting: ocena po wyniku
 
-Gracze nazywają to *resulting*: zakładasz, że jakość wyniku mówi ci o jakości decyzji. Psychologowie opisują to samo zjawisko jako **efekt wyniku**. W badaniu Barona i Hersheya (1988) ludzie oceniali tę samą decyzję jako lepszą, a decydującego jako bardziej kompetentnego, gdy wynik był korzystny. Robili tak nawet wtedy, gdy sami uważali, że wyniku nie powinni brać pod uwagę.
+Gracze nazywają to *resulting*: zakładasz, że jakość wyniku mówi ci o jakości decyzji. Psychologowie opisują to samo zjawisko jako **efekt wyniku**. W klasycznym badaniu psychologicznym (1988) ludzie oceniali tę samą decyzję jako lepszą, a decydującego jako bardziej kompetentnego, gdy wynik był korzystny. Robili tak nawet wtedy, gdy sami uważali, że wyniku nie powinni brać pod uwagę.
 
 ## Dobra decyzja też przegrywa
 
@@ -109,7 +109,7 @@ jakość decyzji = EV przy informacjach, które miałeś w chwili decyzji
 
 ## Kiedy wynik zaczyna coś znaczyć
 
-W badaniu ok. {{n:skill.sample.m}} mln rozdań online (van Loon i in., 2015) umiejętność zaczynała przeważać dopiero po ok. **{{n:skill.hands}}** rękach. Oznacza to, że najlepszy {{n:skill.pct}} graczy wyprzedzał najsłabszy {{n:skill.pct}} w ok. {{n:skill.ahead}} porównań. Dla mniejszych różnic umiejętności potrzeba wielokrotnie więcej rąk. Wynik kilku {{t:session|sesji}} nie mówi więc, który styl gry jest lepszy.
+W badaniu ok. {{n:skill.sample.m}} mln rozdań online (badanie z 2015 roku) umiejętność zaczynała przeważać dopiero po ok. **{{n:skill.hands}}** rękach. Oznacza to, że najlepszy {{n:skill.pct}} graczy wyprzedzał najsłabszy {{n:skill.pct}} w ok. {{n:skill.ahead}} porównań. Dla mniejszych różnic umiejętności potrzeba wielokrotnie więcej rąk. Wynik kilku {{t:session|sesji}} nie mówi więc, który styl gry jest lepszy.
 
 :::note Ocena w tej aplikacji
 Dlatego aplikacja ocenia twoje decyzje, a nie wynik rozdania. Kiedy wynik i decyzja się rozjeżdżają, ufaj rachunkowi.

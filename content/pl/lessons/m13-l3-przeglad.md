@@ -84,5 +84,5 @@ Nad coolerem i bad beatem nie spędzasz dużo czasu. Cooler to rozdanie, w któr
 5. Zapisz różnicę między pierwszą reakcją a rachunkiem. Z czasem intuicja się poprawia.
 
 :::note Skąd te zasady
-Checkreplay, How to Review Your Poker Hands (kiedy i co przeglądać); BlackRain79, How to Effectively Conduct Poker Hand Reviews (coolery i bad beaty); Upswing Poker, 6 Steps to Analyze a Poker Hand (pierwsza reakcja i trzy założenia o rywalu). To heurystyki trenerów, nie wyniki solvera.
+Trzy materiały szkoleniowe o przeglądaniu rozdań: kiedy i co przeglądać; coolery i bad beaty; pierwsza reakcja i trzy założenia o rywalu. To heurystyki trenerów, nie wyniki solvera.
 :::

@@ -127,5 +127,5 @@ Linia to plan akcji na kolejnych {{t:street|ulicach}}. Kilka podstawowych:
 {{t:pot|Pula}} rośnie mnożeniem, więc mały {{t:bet}} na flopie zostawia małą {{t:pot|pulę}} na kolejne {{t:street|ulice}}. W {{t:pot|puli}} 3-betowanej trzy {{t:bet|zakłady}} po 1/3 {{t:pot|puli}} wpłacają tylko ok. {{n:g3b.third.total}} ze stacku {{n:spr.3bet-ip.stack}}, a trzy {{t:bet|zakłady}} po ok. {{n:geo.3bet-ip.3}} {{t:pot|puli}} cały stack.
 
 :::note Plan to nie wyrok
-Na turnie i riverze plan {{t:call|sprawdzasz}} na nowo: groźna karta może zmniejszyć liczbę {{t:value|ulic wartości}}. Jak grać turn i river, uczą moduły M7 i M8. Liczba {{t:value|ulic wartości}} dla klas rąk to heurystyka, synteza z Upswing, PokerCoaching i GTO Wizard: w {{t:pot|puli}} z jednym podbiciem {{t:spr}} jest za wysoki, żeby wiele {{t:top-pair|najwyższych par}} wygodnie zebrało trzy {{t:value|ulice wartości}}.
+Na turnie i riverze plan {{t:call|sprawdzasz}} na nowo: groźna karta może zmniejszyć liczbę {{t:value|ulic wartości}}. Jak grać turn i river, uczą moduły M7 i M8. Liczba {{t:value|ulic wartości}} dla klas rąk to heurystyka, synteza kilku materiałów szkoleniowych: w {{t:pot|puli}} z jednym podbiciem {{t:spr}} jest za wysoki, żeby wiele {{t:top-pair|najwyższych par}} wygodnie zebrało trzy {{t:value|ulice wartości}}.
 :::

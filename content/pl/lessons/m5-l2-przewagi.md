@@ -96,5 +96,5 @@ Na niskim, {{t:connected|połączonym}} flopie, np. [[7s 6h 5d]], {{t:range-adva
 Ręka bez {{t:pair|pary}}, np. [[Jc Td]], nie trafia {{t:pair|pary}} na flopie w ok. {{n:flop.miss.unpaired}} przypadków. Spośród {{n:cards.unseen.preflop}} nieznanych kart tylko {{n:pair.outs.unpaired}} paruje jej karty. Źródła podają często ok. {{n:flop.hit.one-pair}}: to szansa na dokładnie jedną {{t:pair|parę}}; z {{t:two-pair|dwiema parami}} i {{t:three-of-a-kind|trójką}} trafienie wynosi ok. {{n:flop.hit.unpaired}}. Dlatego {{t:bet}} na flopie często wygrywa {{t:pot|pulę}} od razu, nawet gdy sam niczego nie trafiłeś. Chybienie nie zawsze oznacza {{t:fold}}: rywal może mieć {{t:draw}} albo dwie wysokie karty.
 
 :::note Skąd te zasady
-Pojęcia {{t:range-advantage|przewagi zakresu}} i {{t:nuts-advantage|przewagi nutsów}} pochodzą z GTO Wizard (słownik i artykuł o rozmiarach c-betu). Liczby w tej lekcji to dokładne obliczenia aplikacji.
+Pojęcia {{t:range-advantage|przewagi zakresu}} i {{t:nuts-advantage|przewagi nutsów}} pochodzą z materiałów o teorii gry opartych na wynikach solverów (słownik pojęć i artykuł o rozmiarach c-betu). Liczby w tej lekcji to dokładne obliczenia aplikacji.
 :::

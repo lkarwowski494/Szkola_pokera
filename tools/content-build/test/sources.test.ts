@@ -41,17 +41,15 @@ describe('nazwy marek (decyzja właściciela z 9.10.2026)', () => {
     expect(findBrandNames('przeciwieństwo upswingu; downswing; run it twice; solver aplikacji')).toEqual([]);
   });
 
-  // lekcje i zadania (tabele lessons, drills, exam_drills) sprawdza osobny test tą samą listą (gałąź porzadki-lekcje)
-  const LESSON_TABLES = new Set(['lessons', 'drills', 'exam_drills']);
-  it('reguły, liczby, terminy, zakresy, moduły, słowniczek i telefony pomocy w aplikacji nie zawierają nazw marek ani autorów', () => {
+  it('lekcje, zadania, egzaminy, reguły, liczby, terminy, zakresy, moduły, słowniczek i telefony pomocy w aplikacji nie zawierają nazw marek ani autorów', () => {
     const content = compileContent(contentDir);
     const dir = mkdtempSync(join(tmpdir(), 'brands-'));
     try {
       const db = new DatabaseSync(writeContentDb(content, dir), { readOnly: true });
       const hits: string[] = [];
       const tables = db.prepare("SELECT name FROM sqlite_master WHERE type = 'table'").all() as { name: string }[];
-      expect(tables.map((t) => t.name)).toEqual(expect.arrayContaining([...LESSON_TABLES, 'rules', 'numbers', 'terms', 'ranges', 'modules', 'game_kit']));
-      for (const { name } of tables.filter((t) => !LESSON_TABLES.has(t.name))) {
+      expect(tables.map((t) => t.name)).toEqual(expect.arrayContaining(['lessons', 'drills', 'exam_drills', 'rules', 'numbers', 'terms', 'ranges', 'modules', 'game_kit']));
+      for (const { name } of tables) {
         for (const row of db.prepare(`SELECT * FROM ${name}`).all() as Record<string, unknown>[]) {
           for (const [col, v] of Object.entries(row)) {
             if (typeof v !== 'string') continue;

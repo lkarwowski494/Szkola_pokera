@@ -54,6 +54,17 @@ const BRANDS: readonly [name: string, pattern: RegExp][] = [
   ['Unibet', /unibet/i],
   ['PokerCharts', /pokercharts/i],
   ['Tombos21', /tombos/i],
+  ['Hand2Note', /hand2note/i],
+  ['Flopzilla', /flopzilla/i],
+  ['Equilab', /equilab/i],
+  ['PokerSnowie', /\bSnowie/i],
+  ['DeepSolver', /deep[\s-]?solver/i],
+  ['Jesolver', /jesolver/i],
+  ['Bovada', /bovada/i],
+  ['Americas Cardroom', /americas[\s-]?cardroom/i],
+  ['iPoker', /\biPoker\b/],
+  ['Simple GTO', /simple[\s-]?gto/i],
+  ['GTO Base', /gto[\s-]?base\b/i],
 ];
 
 /**
@@ -77,6 +88,9 @@ const AUTHORS: readonly [name: string, pattern: RegExp][] = [
   ['Janda', /\bJand(a|y|zie|ą)\b/],
   ['Acevedo', /\bAcevedo/],
   ['Ankenman', /\bAnkenman/],
+  ['Flynn', /\bFlynn/],
+  ['Mehta', /\bMehta/],
+  ['Negreanu', /\bNegreanu/],
 ];
 
 /** Wszystkie nazwy, których nie ma w tekstach aplikacji: marki, potem autorzy. */
