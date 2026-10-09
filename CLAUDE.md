@@ -37,3 +37,11 @@ Folder „Szkoła Pokera” na Google Drive: 00 Roadmapa, 01 Wymagania, 02 Archi
 - `poker-core`, `srs` i `content-schema` nie importują React Native.
 - Tożsamość git w tym repozytorium: `Łukasz Karwowski <336954459+lkarwowski494@users.noreply.github.com>` (repozytorium jest publiczne; nigdy prywatny adres e-mail). Ustaw ją lokalnie w każdym nowym klonie i worktree przed pierwszym commitem.
 - Właściciel płaci tylko za Apple Developer. Przed użyciem płatnych usług albo dużej części darmowych limitów (EAS, GitHub Actions) uprzedź go.
+
+## Audyty i wydania (decyzja właściciela z 9 października 2026, obowiązuje we wszystkich jego aplikacjach do odwołania)
+
+1. Próg wydania: wydanie blokują tylko znaleziska KRYTYCZNE i WYSOKIE: utrata lub zepsucie danych (także migracja, import, kopia), awaria albo funkcja nie do użycia, błędne liczby lub twierdzenia merytoryczne, prywatność, bezpieczeństwo, sekrety, prawa autorskie, bariera dostępności, ryzyko odrzucenia przez Apple. ŚREDNIE i NISKIE trafiają do backlogu z przypisaną wersją i nie wstrzymują wydania.
+2. Jeden audyt na wydanie, bez pętli: naprawy znalezisk sprawdza test odtwarzający, pełna weryfikacja (`pnpm run ci`) i E2E, nie kolejny audyt. Nowy błąd wykryty przy naprawie oceniany tym samym progiem.
+3. Zamrożenie zakresu: od startu audytu do wydania żadnych nowych funkcji, tylko naprawy blokerów; pomysły do backlogu.
+4. Głębokość: wydanie testowe (TestFlight) — audyt zmian od poprzedniego wydania plus stała lista kontrolna (dane, migracje, prywatność); przed upublicznieniem w App Store i co ok. 3 wydania — pełny, głęboki audyt całości.
+5. Bez limitu czasu: audyt i naprawy na spokojnie. Jeśli bloker wymaga dużej przebudowy, właściciel decyduje: naprawa teraz albo wydanie bez tej funkcji (wyłączona lub cofnięta).
