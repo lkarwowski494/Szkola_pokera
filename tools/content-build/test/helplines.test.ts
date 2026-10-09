@@ -3,6 +3,7 @@ import { join, resolve } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { describe, expect, it } from 'vitest';
 import { formatPolishDate, HelplinesFile, resolvePhoneRefs, telUri } from '@szkola/content-schema';
+import { findBrandNames } from '../src/brands';
 import { compileContent } from '../src/build';
 import { displayHost, expandHelplines, helplinesMarkdown, helplinesModuleSource, loadHelplines } from '../src/helplines';
 
@@ -62,8 +63,8 @@ describe('telefony pomocy (helplines.yaml)', () => {
         expect(src).toContain(JSON.stringify(v));
       }
     }
-    // w module aplikacji nie ma ani jednej nazwy spoza helplines.yaml (bez nazw pokoi, ADR-13)
-    expect(src).not.toMatch(/stars|ggpoker|partypoker|888|winamax/i);
+    // w module aplikacji nie ma ani jednej nazwy spoza helplines.yaml (bez nazw pokoi, ADR-13; lista marek: src/brands.ts)
+    expect(findBrandNames(src)).toEqual([]);
     // pełna kompilacja treści (z pulą egzaminacyjną) przekracza domyślne 5 s na wolniejszej maszynie
   }, 30_000);
 });

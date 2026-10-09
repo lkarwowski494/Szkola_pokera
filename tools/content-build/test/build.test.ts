@@ -2,7 +2,8 @@ import { cpSync, mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writ
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { FlopHeight, FlopRanks, FlopSuits, FlopWetness, RuleDef, TextureAxis } from '@szkola/content-schema';
+import { parse as parseYaml } from 'yaml';
+import { FlopHeight, FlopRanks, FlopSuits, FlopWetness, RuleDef, TermsFile, TextureAxis } from '@szkola/content-schema';
 import { TEXTURE_AXES, TEXTURE_VALUES, WETNESS_POINTS, WETNESS_THRESHOLDS, classifyFlop, parseCards } from '@szkola/poker-core';
 import { checkCbetCases, checkExamFile, compileContent, contentDbFileName, staleContentDbs, VOCAB_MIN_TERMS, vocabEligible } from '../src/build';
 import { loadTerms } from '../src/terms';
@@ -65,9 +66,9 @@ describe('liczby', () => {
 
 describe('schemat', () => {
   it('reguła eksploatacyjna wymaga populacji', () => {
-    const base = { id: 'R-M10-001', module: 'm10', if: 'abc', then: 'abc', because: 'abc', level: 'exploit', source: 'abc' };
+    const base = { id: 'R-M10-001', module: 'm10', if: 'abc', then: 'abc', because: 'abc', level: 'exploit', source: 'abc', sources: [{ kind: 'population' }] };
     expect(RuleDef.safeParse(base).success).toBe(false);
-    expect(RuleDef.safeParse({ ...base, population: 'NL25, Ignition' }).success).toBe(true);
+    expect(RuleDef.safeParse({ ...base, population: 'NL25, pokój online' }).success).toBe(true);
   });
 });
 
@@ -286,7 +287,7 @@ describe('formuły sqrt, exp i normCdf oraz format bb/100 i tysięcy (M12)', () 
     expect(() => resolveNumbers({ x: { formula: 'sqrt', args: [-1], ...u } })).toThrow(/ujemnej/);
   });
 
-  it('exp: ryzyko bankructwa e^(−2·5·2000/6400) = 4,4% (przykład Primedope)', () => {
+  it('exp: ryzyko bankructwa e^(−2·5·2000/6400) = 4,4% (przykład z kalkulatora wariancji, numbers.yaml ror.*)', () => {
     const n = resolveNumbers({ x: { formula: 'exp', args: [(-2 * 5 * 2000) / 6400], unit: 'percent', decimals: 1, source: 'test' } });
     expect(n.get('x')!.display).toBe('4,4%');
   });
@@ -354,7 +355,9 @@ describe('terminy PL ↔ EN (content/terms.yaml)', () => {
   it('prawdziwa treść: każdy termin ma źródło z adresem, ćwiczenie słownictwa ma w obszarze co najmniej 4 terminy', () => {
     const c = compileContent(contentDir);
     expect(c.terms.length).toBeGreaterThan(80);
-    for (const t of c.terms) expect(t.source).toMatch(/https?:\/\//);
+    // źródło nazwy zostaje w terms.yaml (do bazy aplikacji nie trafia, decyzja właściciela z 9.10.2026)
+    const file = TermsFile.parse(parseYaml(readFileSync(join(contentDir, 'terms.yaml'), 'utf8')));
+    for (const t of c.terms) expect(file[t.key]!.source).toMatch(/https?:\/\//);
     const vocab = c.lessons.flatMap((l) => l.drills).filter((d) => d.kind === 'generated' && d.generator === 'vocab');
     expect(vocab.length).toBeGreaterThan(0);
     for (const d of vocab) {

@@ -19,7 +19,7 @@ drills:
     id: m10.l4.q-population-loss
     family: m10.rake.cost
     rules: [R-M10-013]
-    prompt: "W danych Tombos21 z cash 6-max każdy gracz NL100 traci średnio {{n:tombos.nl100.loss}}. Skąd ta strata?"
+    prompt: "W danych Tombos21 z cash 6-max każdy gracz NL100 traci średnio {{n:rake.pop.nl100.loss}}. Skąd ta strata?"
     options:
       - { text: "To {{t:rake}}: bez niego gracze razem wychodziliby na zero", correct: true, why: "Gracze grają przeciw sobie, więc to, co jeden wygrywa, drugi przegrywa. Średnio wszyscy tracą tylko to, co zabiera sala. Autor: „your biggest villain is the house”." }
       - { text: "Z tego, że większość graczy gra słabo", why: "Słaba gra przenosi pieniądze od słabszych graczy do lepszych, ale nie zmienia średniej. Średnią obniża tylko {{t:rake}}." }
@@ -28,11 +28,11 @@ drills:
     id: m10.l4.q-reg-prerake
     family: m10.rake.cost
     rules: [R-M10-013]
-    prompt: "Według tych samych danych wśród graczy z co najmniej {{n:tombos.reg.hands}} rąk ok. {{n:tombos.reg.prerake}} wygrywa przed odliczeniem {{t:rake|rake'u}}. Ilu wygrywa po jego odliczeniu?"
+    prompt: "Według tych samych danych wśród graczy z co najmniej {{n:rake.pop.reg.hands}} rąk ok. {{n:rake.pop.reg.prerake}} wygrywa przed odliczeniem {{t:rake|rake'u}}. Ilu wygrywa po jego odliczeniu?"
     options:
-      - { text: "Ok. {{n:tombos.reg.postrake}}", correct: true, why: "{{t:rake}} zabiera prawie połowę wygrywających: ok. {{n:tombos.reg.prerake}} przed rake'iem, ok. {{n:tombos.reg.postrake}} po nim. Dlatego winrate liczysz zawsze po rake'u." }
-      - { text: "Prawie tyle samo, ok. {{n:tombos.reg.prerake}}", why: "Gdyby {{t:rake}} był mały, tak by było. Przy kilku bb/100 rake'u wielu graczy wygrywających przed nim schodzi poniżej zera." }
-      - { text: "Prawie nikt", why: "Przesada: ok. {{n:tombos.reg.postrake}} tej grupy wciąż wygrywa. {{t:rake}} jest dużą przeszkodą, ale nie zamyka drogi do wygrywania." }
+      - { text: "Ok. {{n:rake.pop.reg.postrake}}", correct: true, why: "{{t:rake}} zabiera prawie połowę wygrywających: ok. {{n:rake.pop.reg.prerake}} przed rake'iem, ok. {{n:rake.pop.reg.postrake}} po nim. Dlatego winrate liczysz zawsze po rake'u." }
+      - { text: "Prawie tyle samo, ok. {{n:rake.pop.reg.prerake}}", why: "Gdyby {{t:rake}} był mały, tak by było. Przy kilku bb/100 rake'u wielu graczy wygrywających przed nim schodzi poniżej zera." }
+      - { text: "Prawie nikt", why: "Przesada: ok. {{n:rake.pop.reg.postrake}} tej grupy wciąż wygrywa. {{t:rake}} jest dużą przeszkodą, ale nie zamyka drogi do wygrywania." }
   - kind: choice
     id: m10.l4.q-higher-stakes
     family: m10.rake.cost
@@ -64,14 +64,14 @@ drills:
     rules: [R-M10-014]
     prompt: "Grasz na sali, która pobiera {{t:rake}} tylko od {{t:pot|pul}}, które dochodzą do flopu. Ktoś przed tobą {{t:open|otwiera}}, ty jesteś w {{t:position|pozycji}} z ręką, która bez rake'u byłaby na granicy {{t:call|sprawdzenia}}. Co zmienia {{t:rake}}?"
     options:
-      - { text: "{{t:call|Sprawdzam}} rzadziej: ręce z granicy {{t:call|sprawdzenia}} częściej {{t:fold|pasuję}} albo 3-betuję", correct: true, why: "W rozwiązaniach GTO Wizard z rake'iem gracze w {{t:position|pozycji}} wobec {{t:open|otwarcia}} grają o ok. {{n:gtow.rake.vpip-drop.low}}–{{n:gtow.rake.vpip-drop.high}} mniej rąk. Traci samo {{t:call|sprawdzenie}}, bo {{t:pot}} po flopie płaci {{t:rake}}, a {{t:pot}} wygrana 3-betem przed flopem nie." }
+      - { text: "{{t:call|Sprawdzam}} rzadziej: ręce z granicy {{t:call|sprawdzenia}} częściej {{t:fold|pasuję}} albo 3-betuję", correct: true, why: "W rozwiązaniach GTO Wizard z rake'iem gracze w {{t:position|pozycji}} wobec {{t:open|otwarcia}} grają o ok. {{n:rake.solver.vpip-drop.low}}–{{n:rake.solver.vpip-drop.high}} mniej rąk. Traci samo {{t:call|sprawdzenie}}, bo {{t:pot}} po flopie płaci {{t:rake}}, a {{t:pot}} wygrana 3-betem przed flopem nie." }
       - { text: "Nic: {{t:rake}} dotyczy tylko gry po flopie", why: "Właśnie dlatego zmienia decyzję przed flopem: {{t:call|sprawdzenie}} prowadzi do flopu i do rake'u, a 3-bet albo {{t:fold}} często kończą rozdanie bez niego." }
       - { text: "{{t:call|Sprawdzam}} częściej, bo {{t:pot|pule}} po flopie są duże", why: "Odwrotnie: {{t:rake}} zabiera część właśnie tych {{t:pot|pul}}. Solver z rake'iem {{t:call|sprawdza}} wyraźnie rzadziej." }
   - kind: choice
     id: m10.l4.q-bb-minraise
     family: m10.rake.preflop
     rules: [R-M10-014]
-    prompt: "W tych samych rozwiązaniach GTO Wizard {{t:big-blind}} {{t:call|sprawdza}} min-raise w grze z rake'iem tylko w ok. {{n:gtow.rake.bb-minraise}} tych przypadków, w których {{t:call|sprawdza}} go bez rake'u. Co z tego wynika dla ciebie na {{t:big-blind|dużym blindzie}}?"
+    prompt: "W tych samych rozwiązaniach GTO Wizard {{t:big-blind}} {{t:call|sprawdza}} min-raise w grze z rake'iem tylko w ok. {{n:rake.solver.bb-minraise}} tych przypadków, w których {{t:call|sprawdza}} go bez rake'u. Co z tego wynika dla ciebie na {{t:big-blind|dużym blindzie}}?"
     options:
       - { text: "Bronię nadal dużo rąk, ale węziej niż w tabelach liczonych bez rake'u", correct: true, why: "{{t:big-blind}} wciąż broni często, bo ma już {{t:chips|żetony}} w {{t:pot|puli}} i zamyka akcję. {{t:rake}} odcina jednak najsłabsze {{t:call|sprawdzenia}}, więc tabele bez rake'u są dla ciebie za szerokie." }
       - { text: "Przestaję bronić {{t:big-blind|dużego blinda}} {{t:call|sprawdzeniem}}", why: "Nie: według autora {{t:call|sprawdzanie}} z blindów pozostaje ważną częścią strategii także z rake'iem. Zmienia się szerokość obrony, nie jej istnienie." }
@@ -101,7 +101,7 @@ Primedope przelicza harmonogramy sal na bb/100 na rozkładzie {{t:pot|pul}} z ki
 
 Typowy wygrywający gracz na niskich {{t:stakes|stawkach}} ma winrate {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}} (moduł 12): kilka razy mniej, niż płaci sali. Przy wyższych {{t:stakes|stawkach}} ten sam limit w dolarach to ułamek bb, więc {{t:rake}} w bb/100 spada.
 
-Dane z populacji mówią to samo. W raporcie Tombos21 (cash 6-max, NL10–NL500) każdy gracz traci średnio {{n:tombos.nl10.loss}} przy NL10, {{n:tombos.nl100.loss}} przy NL100 i {{n:tombos.nl500.loss}} przy NL500. Wśród graczy z co najmniej {{n:tombos.reg.hands}} rąk ok. {{n:tombos.reg.prerake}} wygrywa przed odliczeniem rake'u, a po odliczeniu ok. {{n:tombos.reg.postrake}}.
+Dane z populacji mówią to samo. W raporcie Tombos21 (cash 6-max, NL10–NL500) każdy gracz traci średnio {{n:rake.pop.nl10.loss}} przy NL10, {{n:rake.pop.nl100.loss}} przy NL100 i {{n:rake.pop.nl500.loss}} przy NL500. Wśród graczy z co najmniej {{n:rake.pop.reg.hands}} rąk ok. {{n:rake.pop.reg.prerake}} wygrywa przed odliczeniem rake'u, a po odliczeniu ok. {{n:rake.pop.reg.postrake}}.
 
 ## Próg {{t:call|sprawdzenia}} z rake'iem
 
@@ -117,11 +117,11 @@ Bet {{n:ex.bet.half}} do {{t:pot|puli}} {{n:ex.pot}}: bez rake'u potrzebujesz {{
 
 Na wielu salach {{t:rake}} pobiera się tylko od {{t:pot|pul}}, które dochodzą do flopu („no flop, no drop”). Wtedy {{t:pot}} wygrana przed flopem jest od niego wolna, a {{t:pot}} po {{t:call|sprawdzeniu}} płaci. W rozwiązaniach GTO Wizard z rake'iem NL100:
 
-- gracze w {{t:position|pozycji}} wobec {{t:open|otwarcia}} grają o ok. {{n:gtow.rake.vpip-drop.low}}–{{n:gtow.rake.vpip-drop.high}} mniej rąk; traci głównie {{t:call|sprawdzenie}}, a 3-betów jest trochę więcej;
-- {{t:big-blind}} {{t:call|sprawdza}} min-raise tylko w ok. {{n:gtow.rake.bb-minraise}} tych przypadków, co bez rake'u, choć obrona z blindów nadal opiera się na {{t:call|sprawdzaniu}}.
+- gracze w {{t:position|pozycji}} wobec {{t:open|otwarcia}} grają o ok. {{n:rake.solver.vpip-drop.low}}–{{n:rake.solver.vpip-drop.high}} mniej rąk; traci głównie {{t:call|sprawdzenie}}, a 3-betów jest trochę więcej;
+- {{t:big-blind}} {{t:call|sprawdza}} min-raise tylko w ok. {{n:rake.solver.bb-minraise}} tych przypadków, co bez rake'u, choć obrona z blindów nadal opiera się na {{t:call|sprawdzaniu}}.
 
 Z tego samego powodu w module 3 z {{t:small-blind|małego blinda}} {{t:raise|przebijasz}} albo {{t:fold|pasujesz}}, bez dopłacania do {{t:big-blind|dużego blinda}}. GGPoker pobiera {{t:rake}} także od {{t:pot|pul}} z 3-betem, które kończą się przed flopem; tam 3-bet nie jest od niego wolny.
 
 :::note Źródła
-Wysokość rake'u: Primedope, Online Poker Rake Comparison 2026 (harmonogramy GGPoker i PokerStars przeliczone na bb/100, odczyt 5 października 2026); inne sale mają inne liczby. Strata populacji: raport Tombos21 omówiony przez GipsyTeam (cash 6-max NLHE, „tracked sites”, gracze z co najmniej 100 rękami; sal i okresu autor nie podaje). Wpływ rake'u na grę przed flopem: GTO Wizard, Preflop Raise Sizing, rozwiązania dla stacków {{n:gtow.rake.depth}}; autor pisze, że wnioski w dużej mierze przenoszą się na inne formaty, więc dla stacku {{n:format.stack}} to uproszczenie. Próg equity to rachunek.
+Wysokość rake'u: Primedope, Online Poker Rake Comparison 2026 (harmonogramy GGPoker i PokerStars przeliczone na bb/100, odczyt 5 października 2026); inne sale mają inne liczby. Strata populacji: raport Tombos21 omówiony przez GipsyTeam (cash 6-max NLHE, „tracked sites”, gracze z co najmniej 100 rękami; sal i okresu autor nie podaje). Wpływ rake'u na grę przed flopem: GTO Wizard, Preflop Raise Sizing, rozwiązania dla stacków {{n:rake.solver.depth}}; autor pisze, że wnioski w dużej mierze przenoszą się na inne formaty, więc dla stacku {{n:format.stack}} to uproszczenie. Próg equity to rachunek.
 :::

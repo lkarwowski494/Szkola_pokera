@@ -7,7 +7,7 @@ export * from './terms';
  * Kontrakt treści: wspólny dla potoku content-build (walidacja) i aplikacji (typy).
  * Zmiana tego pliku = zmiana wersji schematu (CONTENT_SCHEMA_VERSION).
  */
-export const CONTENT_SCHEMA_VERSION = 5;
+export const CONTENT_SCHEMA_VERSION = 6;
 
 const id = z.string().regex(/^[a-z0-9][a-z0-9.\-]*$/i, 'identyfikator: litery, cyfry, kropki, myślniki');
 const cardsText = z.string().regex(/^([2-9TJQKA][shdc])( [2-9TJQKA][shdc])*$/, 'karty w formacie "As Kd"');
@@ -77,7 +77,7 @@ export const TermEntry = z
 export type TermEntry = z.infer<typeof TermEntry>;
 export const TermsFile = z.record(id, TermEntry);
 
-/** Termin po kompilacji (tabela terms w bazie i moduł TS w aplikacji). */
+/** Termin po kompilacji (tabela terms w bazie i moduł TS w aplikacji); źródło nazwy zostaje w terms.yaml. */
 export interface CompiledTerm {
   key: string;
   pl: string;
@@ -86,7 +86,6 @@ export interface CompiledTerm {
   abbr?: string;
   def?: string;
   area: TermArea;
-  source: string;
 }
 
 // ---------- Moduły ----------
@@ -139,6 +138,39 @@ export const RuleCheck = z.object({
 });
 export type RuleCheck = z.infer<typeof RuleCheck>;
 
+/**
+ * Rodzaj źródła reguły (decyzja właściciela z 9.10.2026): aplikacja pokazuje tylko rodzaj i liczbę niezależnych
+ * źródeł, pełny opis (source) zostaje w repozytorium. math: rachunek; rules: zasady gry; solver-pub: opublikowane
+ * rozwiązanie solvera; solver-app: solver aplikacji; book: książka; study: badanie naukowe; reference: encyklopedia;
+ * training: serwis szkoleniowy; population: dane o populacji graczy.
+ */
+export const SourceKind = z.enum(['math', 'rules', 'solver-pub', 'solver-app', 'book', 'study', 'reference', 'training', 'population']);
+export type SourceKind = z.infer<typeof SourceKind>;
+
+/** Jedno niezależne źródło (jedna organizacja albo autor); url, gdy opis źródła go podaje. */
+export const RuleSource = z.object({ kind: SourceKind, url: z.string().regex(/^https?:\/\/\S+$/, 'adres http(s)').optional() }).strict();
+export type RuleSource = z.infer<typeof RuleSource>;
+
+/** Rodzaj źródła z liczbą niezależnych źródeł: to trafia do bazy aplikacji (tabela rules, kolumna sources). */
+export interface RuleSourceSummary {
+  kind: SourceKind;
+  n: number;
+}
+
+/** Domena bez poddomeny (blog.example.com i example.com to ten sam serwis). */
+function siteOf(url: string): string {
+  const host = /^https?:\/\/([^/?#:]+)/i.exec(url)?.[1] ?? url;
+  return host.toLowerCase().replace(/^www\./, '').split('.').slice(-2).join('.');
+}
+
+/** Liczba niezależnych źródeł per rodzaj, w kolejności SourceKind. */
+export function summarizeSources(sources: readonly Pick<RuleSource, 'kind'>[]): RuleSourceSummary[] {
+  return SourceKind.options.flatMap((kind) => {
+    const n = sources.filter((s) => s.kind === kind).length;
+    return n ? [{ kind, n }] : [];
+  });
+}
+
 export const RuleDef = z
   .object({
     id: z.string().regex(/^R-[A-Z0-9]+-\d{3}$/, 'identyfikator reguły: R-M0-001'),
@@ -147,11 +179,19 @@ export const RuleDef = z
     then: z.string().min(3),
     because: z.string().min(3),
     level: RuleLevel,
+    /** Pełny opis źródeł z adresami i krótkimi cytatami (repozytorium; do aplikacji nie trafia). */
     source: z.string().min(3),
+    /** Niezależne źródła reguły: z nich aplikacja pokazuje rodzaj i liczbę. */
+    sources: z.array(RuleSource).min(1),
     population: z.string().optional(),
     check: RuleCheck.optional(),
   })
-  .refine((r) => r.level !== 'exploit' || !!r.population, 'reguła eksploatacyjna musi podać populację źródłową');
+  .refine((r) => r.level !== 'exploit' || !!r.population, 'reguła eksploatacyjna musi podać populację źródłową')
+  .refine((r) => r.sources.every((s) => !s.url || r.source.includes(s.url)), 'adres z sources musi być w opisie source')
+  .refine((r) => {
+    const sites = r.sources.flatMap((s) => (s.url ? [siteOf(s.url)] : []));
+    return new Set(sites).size === sites.length;
+  }, 'dwa źródła z tego samego serwisu to jedno źródło');
 export type RuleDef = z.infer<typeof RuleDef>;
 export const RulesFile = z.array(RuleDef);
 

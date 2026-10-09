@@ -158,7 +158,7 @@ potrzebne equity = BF ÷ (BF + 1)
 
 Wychodzi **{{n:m11.bf.req}}**. W grze o {{t:chips}} ryzykujesz {{n:m11.bf.s3}}, żeby wygrać {{n:m11.bf.s3}}, więc wystarczyłoby {{n:m11.bf.req-chips}}. Różnica, {{n:m11.bf.premium}}, to **{{t:risk-premium}}**.
 
-Ten sam kierunek widać w opublikowanej równowadze dla trzech graczy z równymi stackami (Ganzfried i Sandholm, 2008): gdy Button i {{t:small-blind}} są już all-in, {{t:big-blind}} w pojedynczym rozdaniu {{t:call|sprawdza}} {{n:m11.gs.overcall.single}} rąk, a w {{t:tournament|turnieju}} z {{t:payout|wypłatami}} tylko {{n:m11.gs.overcall.tourn}}, czyli same {{t:top-pair|najwyższe pary}} i AKs.
+Ten sam kierunek widać w opublikowanej równowadze dla trzech graczy z równymi stackami (Ganzfried i Sandholm, 2008): gdy Button i {{t:small-blind}} są już all-in, {{t:big-blind}} w pojedynczym rozdaniu {{t:call|sprawdza}} {{n:m11.jamfold3.overcall.single}} rąk, a w {{t:tournament|turnieju}} z {{t:payout|wypłatami}} tylko {{n:m11.jamfold3.overcall.tourn}}, czyli same {{t:top-pair|najwyższe pary}} i AKs.
 
 :::note Kto {{t:call|sprawdza}} ciasno
 Średni stack na {{t:bubble|bubble}} {{t:call|sprawdza}} all-iny dużo ciaśniej niż w grze o {{t:chips}}. Duży stack, który {{t:cover|pokrywa}} rywali, ryzykuje mniej i może na tym grać: {{t:shove|pushować}} szerzej, bo rywale muszą {{t:fold|pasować}}. Bubble factor zależy od wszystkich stacków przy stole, dlatego nie liczy się go przy stole, tylko ćwiczy na przykładach, żeby wyrobić wyczucie.

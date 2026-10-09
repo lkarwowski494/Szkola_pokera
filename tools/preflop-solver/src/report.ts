@@ -129,7 +129,7 @@ export function rangeOf(s: PreflopSolver, node: DecisionNode, actionIndex: numbe
 
 /** Realizacja equity w wybranych pulach heads-up (diagnostyka modelu gry po flopie). */
 export function realizationReport(s: PreflopSolver): string {
-  // pule z raportów zbiorczych rangeconverter (solver, 6-max 100bb; cel kalibracji wariantu naprawy EQR, raport 10)
+  // pule z opublikowanych raportów zbiorczych solvera (6-max 100bb, adres w scripts/fit-eqr.ts; cel kalibracji wariantu naprawy EQR, raport 10)
   const paths = [
     ['CO otwiera, BTN 3-bet, CO sprawdza', 'UTG:fold,HJ:fold,CO:raise2.5,BTN:raise7.5,SB:fold,BB:fold,CO:call'],
     ['BTN otwiera, BB 3-bet, BTN sprawdza', 'UTG:fold,HJ:fold,CO:fold,BTN:raise2.5,SB:fold,BB:raise10,BTN:call'],

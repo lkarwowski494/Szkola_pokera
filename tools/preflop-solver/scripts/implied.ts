@@ -11,7 +11,7 @@ import { categoryOf, classCombos, createRng, HandCategory, HAND_CLASSES, rankOf,
 //  pay: ręka ma dokładnie jedną parę, z kartą ręki, nie niższą od najwyższej karty stołu (najwyższa para albo overpara).
 //       To ręce, które płacą przy głębokich stackach (reverse implied odds).
 //  mid: ręka ma dokładnie jedną parę z kartą ręki, niższą od najwyższej karty stołu (druga para i niżej, para kieszonkowa
-//       pod kartą stołu). To ręce średniej siły, które według GTO Wizard („Equity Realization”) realizują najsłabiej.
+//       pod kartą stołu). To ręce średniej siły, które według opublikowanej analizy solvera („Equity Realization”) realizują najsłabiej.
 
 const samples = Number(process.argv[2] ?? 200_000);
 const rng = createRng(1);

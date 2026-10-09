@@ -133,7 +133,7 @@ export function playGroup(hc: string): PlayGroup {
 
 /**
  * Waga grywalności klasy (przed skalowaniem k). Grupy i wartości: priorytety z researchu
- * (Deepfold, GTO Wizard: ręce w kolorze i połączone realizują więcej, offsuit mniej). Do kalibracji.
+ * (serwis szkoleniowy i opublikowane analizy solvera: ręce w kolorze i połączone realizują więcej, offsuit mniej). Do kalibracji.
  */
 export function playabilityWeight(hc: string, weights?: Partial<Record<PlayGroup, number>>): number {
   const g = playGroup(hc);

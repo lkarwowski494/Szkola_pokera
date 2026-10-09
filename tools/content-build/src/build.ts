@@ -16,6 +16,7 @@ import {
   TermsFile,
   termDefRevealsName,
   termNeedsEnglish,
+  summarizeSources,
   type Block,
   type CompiledTerm,
   type AreaDef,
@@ -30,6 +31,7 @@ import { expandHelplines, loadHelplines, type Helplines } from './helplines';
 import { compileMarkdown } from './markdown';
 import { compileHandRanking, compileRanges } from './ranges';
 import { findHardcodedNumbers, resolveNumbers, substitute, type ResolvedNumber } from './numbers';
+import { checkSourceQuotes } from './sources';
 import { loadTerms } from './terms';
 
 /** Ile różnych terminów (z nazwą angielską inną niż polska albo ze skrótem) musi mieć obszar ćwiczenia słownictwa. */
@@ -64,7 +66,8 @@ export interface CompiledContent {
   lessons: CompiledLesson[];
   exams: CompiledExam[];
   rules: RuleDef[];
-  numbers: { key: string; value: number; display: string; source: string; population?: string; note?: string }[];
+  /** Liczby do bazy aplikacji: bez opisów źródeł (zostają w numbers.yaml). */
+  numbers: { key: string; value: number; display: string }[];
   ranges: CompiledRangeSpot[];
   /** Reguły z warunkiem sprawdzalnym w trybie gry M13 (pole check w rules.yaml). */
   evalRules: CompiledEvalRule[];
@@ -112,7 +115,8 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
     parseOrThrow(NumbersFile, readYaml(join(contentDir, 'numbers.yaml')), 'numbers.yaml'),
     (id) => ranges.find((r) => r.id === id),
   );
-  const terms = loadTerms(parseOrThrow(TermsFile, readYaml(join(contentDir, 'terms.yaml')), 'terms.yaml'));
+  const termsFile = parseOrThrow(TermsFile, readYaml(join(contentDir, 'terms.yaml')), 'terms.yaml');
+  const terms = loadTerms(termsFile);
   const termErrors: string[] = [];
   const helplines = loadHelplines(parseOrThrow(HelplinesFile, readYaml(join(contentDir, 'helplines.yaml')), 'helplines.yaml'));
   const helplinesUsed = { count: 0 };
@@ -158,6 +162,15 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
     const seen = new Set<string>();
     return { ...r, if: sub(r.if, r.id, seen), then: sub(r.then, r.id, seen), because: sub(r.because, r.id, seen) };
   });
+  // cytaty w polach źródeł: najwyżej 2 zdania (decyzja właściciela z 9.10.2026)
+  const quoteErrors = [
+    ...rulesRaw.flatMap((r) => [r.source, r.population ?? ''].flatMap((t) => checkSourceQuotes(t).map((e) => `${r.id}: ${e}`))),
+    ...[...numbers.values()].flatMap((n) =>
+      [n.entry.source, n.entry.population ?? '', n.entry.note ?? ''].flatMap((t) => checkSourceQuotes(t).map((e) => `liczba ${n.key}: ${e}`)),
+    ),
+    ...Object.entries(termsFile).flatMap(([k, t]) => checkSourceQuotes(t.source).map((e) => `termin ${k}: ${e}`)),
+  ];
+  if (quoteErrors.length) throw new Error(`Za długie cytaty w polach źródeł:\n${quoteErrors.map((e) => `  - ${e}`).join('\n')}`);
   const ruleIds = new Set<string>();
   for (const r of rules) {
     if (ruleIds.has(r.id)) throw new Error(`rules.yaml: powtórzona reguła ${r.id}`);
@@ -361,14 +374,7 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
     return ma - mb || a.order - b.order;
   });
 
-  const numbersOut = [...numbers.values()].map((n: ResolvedNumber) => ({
-    key: n.key,
-    value: n.value,
-    display: n.display,
-    source: n.entry.source,
-    ...(n.entry.population ? { population: n.entry.population } : {}),
-    ...(n.entry.note ? { note: n.entry.note } : {}),
-  }));
+  const numbersOut = [...numbers.values()].map((n: ResolvedNumber) => ({ key: n.key, value: n.value, display: n.display }));
 
   const { ranking: handRanking } = compileHandRanking(join(contentDir, '..', 'tools', 'equity', 'equity169.json'));
   exams.sort((a, b) => modules.find((m) => m.id === a.module)!.order - modules.find((m) => m.id === b.module)!.order);
@@ -448,11 +454,11 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
     CREATE TABLE exam_drills (id TEXT PRIMARY KEY, module_id TEXT NOT NULL REFERENCES modules(id), ord INTEGER NOT NULL, family TEXT NOT NULL, kind TEXT NOT NULL, data TEXT NOT NULL);
     CREATE INDEX exam_drills_module ON exam_drills(module_id);
     CREATE INDEX exam_drills_family ON exam_drills(family);
-    CREATE TABLE rules (id TEXT PRIMARY KEY, module_id TEXT NOT NULL REFERENCES modules(id), level TEXT NOT NULL, if_text TEXT NOT NULL, then_text TEXT NOT NULL, because TEXT NOT NULL, source TEXT NOT NULL, population TEXT);
-    CREATE TABLE numbers (key TEXT PRIMARY KEY, value REAL NOT NULL, display TEXT NOT NULL, source TEXT NOT NULL, population TEXT, note TEXT);
+    CREATE TABLE rules (id TEXT PRIMARY KEY, module_id TEXT NOT NULL REFERENCES modules(id), level TEXT NOT NULL, if_text TEXT NOT NULL, then_text TEXT NOT NULL, because TEXT NOT NULL, sources TEXT NOT NULL, population TEXT);
+    CREATE TABLE numbers (key TEXT PRIMARY KEY, value REAL NOT NULL, display TEXT NOT NULL);
     CREATE TABLE ranges (id TEXT PRIMARY KEY, title TEXT NOT NULL, hero TEXT NOT NULL, path TEXT NOT NULL, play_percent REAL NOT NULL, groups TEXT NOT NULL, uncertain TEXT NOT NULL, solver TEXT NOT NULL, actions TEXT NOT NULL);
     CREATE TABLE game_kit (key TEXT PRIMARY KEY, value TEXT NOT NULL);
-    CREATE TABLE terms (key TEXT PRIMARY KEY, pl TEXT NOT NULL, en TEXT NOT NULL, en_alt TEXT NOT NULL, abbr TEXT, area TEXT NOT NULL, source TEXT NOT NULL);
+    CREATE TABLE terms (key TEXT PRIMARY KEY, pl TEXT NOT NULL, en TEXT NOT NULL, en_alt TEXT NOT NULL, abbr TEXT, area TEXT NOT NULL);
   `);
   const tx = (fn: () => void) => {
     db.exec('BEGIN');
@@ -475,9 +481,10 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
     const ex = db.prepare('INSERT INTO exam_drills VALUES (?, ?, ?, ?, ?, ?)');
     for (const e of content.exams) e.drills.forEach((d, i) => ex.run(d.id, e.module, i, d.family, d.kind, JSON.stringify(d)));
     const ru = db.prepare('INSERT INTO rules VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-    for (const r of content.rules) ru.run(r.id, r.module, r.level, r.if, r.then, r.because, r.source, r.population ?? null);
-    const nu = db.prepare('INSERT INTO numbers VALUES (?, ?, ?, ?, ?, ?)');
-    for (const n of content.numbers) nu.run(n.key, n.value, n.display, n.source, n.population ?? null, n.note ?? null);
+    // pełny opis źródła zostaje w rules.yaml; aplikacja dostaje rodzaj i liczbę niezależnych źródeł
+    for (const r of content.rules) ru.run(r.id, r.module, r.level, r.if, r.then, r.because, JSON.stringify(summarizeSources(r.sources)), r.population ?? null);
+    const nu = db.prepare('INSERT INTO numbers VALUES (?, ?, ?)');
+    for (const n of content.numbers) nu.run(n.key, n.value, n.display);
     const ra = db.prepare('INSERT INTO ranges VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
     for (const r of content.ranges) {
       ra.run(r.id, r.title, r.hero, r.path, r.playPercent, JSON.stringify(r.groups), JSON.stringify(r.uncertain), r.solver, JSON.stringify(r.actions));
@@ -486,8 +493,8 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
     kit.run('handRanking', JSON.stringify(content.handRanking));
     kit.run('evalRules', JSON.stringify(content.evalRules));
     kit.run('areas', JSON.stringify(content.areas));
-    const te = db.prepare('INSERT INTO terms VALUES (?, ?, ?, ?, ?, ?, ?)');
-    for (const t of content.terms) te.run(t.key, t.pl, t.en, JSON.stringify(t.enAlt), t.abbr ?? null, t.area, t.source);
+    const te = db.prepare('INSERT INTO terms VALUES (?, ?, ?, ?, ?, ?)');
+    for (const t of content.terms) te.run(t.key, t.pl, t.en, JSON.stringify(t.enAlt), t.abbr ?? null, t.area);
   });
   db.exec('VACUUM');
   db.close();

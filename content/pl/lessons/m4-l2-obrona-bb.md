@@ -76,7 +76,7 @@ Equity mówi, jak często wygrasz, gdy obaj dojdziecie do showdownu bez dalszych
 vs-open.bb-vs-btn
 ```
 
-Solver aplikacji broni tu {{n:solver.def.bb-vs-btn}} rąk ({{t:call}} i 3-bet razem). GTO Gecko podaje ok. {{n:pf.bb-def.gecko.low}}–{{n:pf.bb-def.gecko.high}}, więc solver aplikacji jest na górnej granicy tego przedziału.
+Solver aplikacji broni tu {{n:solver.def.bb-vs-btn}} rąk ({{t:call}} i 3-bet razem). GTO Gecko podaje ok. {{n:pf.bb-def.vs-btn.pub.low}}–{{n:pf.bb-def.vs-btn.pub.high}}, więc solver aplikacji jest na górnej granicy tego przedziału.
 
 ## Wobec {{t:small-blind|małego blinda}}
 
@@ -86,7 +86,7 @@ Solver aplikacji broni tu {{n:solver.def.bb-vs-btn}} rąk ({{t:call}} i 3-bet ra
 vs-open.bb-vs-sb
 ```
 
-Solver aplikacji broni tu {{n:solver.def.bb-vs-sb}} rąk, a BeyondGTO podaje ok. {{n:pf.bb-def.vs-sb.beyondgto}}.
+Solver aplikacji broni tu {{n:solver.def.bb-vs-sb}} rąk, a BeyondGTO podaje ok. {{n:pf.bb-def.vs-sb.pub}}.
 
 :::note Jak {{t:raise|przebijać}} z {{t:big-blind|dużego blinda}}
 Siatki pokazują, czym się bronić, a nie jak: 3-bet i {{t:call}} są {{t:connected|połączone}}, bo skład 3-betów z {{t:big-blind|dużego blinda}} w solverze aplikacji różni się od opublikowanych wyników innych solverów. Wobec Buttona 3-bet z {{t:big-blind|dużego blinda}} ma ok. {{n:pf.3bet.size-oop}} {{t:open|otwarcia}}. 3-betujesz najsilniejsze ręce (TT+, AQ+, AJs+) plus {{t:bluff|blefy}} z dołu {{t:range|zakresu}} {{t:call|sprawdzenia}}: A5s, czasem A4s, i {{t:connectors|konektory}} w kolorze. Średnie i małe {{t:pair|pary}}, KQo oraz asy w różnych kolorach zwykle {{t:call|sprawdzasz}}. Wobec {{t:small-blind|małego blinda}} masz {{t:position|pozycję}}, więc {{t:raise|przebijasz}} mniej, ok. {{n:pf.3bet.size-ip}} {{t:open|otwarcia}}.

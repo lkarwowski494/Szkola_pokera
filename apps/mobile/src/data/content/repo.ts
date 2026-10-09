@@ -1,4 +1,4 @@
-import type { Block, Drill } from '@szkola/content-schema';
+import type { Block, Drill, RuleSourceSummary } from '@szkola/content-schema';
 import type { SQLiteDatabase } from 'expo-sqlite';
 
 /** Odczyt treści z content-vN.db (tylko do odczytu, ADR-08). */
@@ -41,7 +41,8 @@ export interface RuleRow {
   ifText: string;
   thenText: string;
   because: string;
-  source: string;
+  /** Rodzaj i liczba niezależnych źródeł; pełny opis źródła zostaje w repozytorium (content/pl/rules.yaml). */
+  sources: RuleSourceSummary[];
   population: string | null;
 }
 
@@ -160,10 +161,12 @@ export function getSeenExamDrillsForFamilies(db: SQLiteDatabase, families: reado
 }
 
 export function getRules(db: SQLiteDatabase): RuleRow[] {
-  return db.getAllSync<RuleRow>(
-    `SELECT r.id, r.module_id AS moduleId, r.level, r.if_text AS ifText, r.then_text AS thenText, r.because, r.source, r.population
-       FROM rules r JOIN modules m ON m.id = r.module_id ORDER BY m.ord, r.id`,
-  );
+  return db
+    .getAllSync<Omit<RuleRow, 'sources'> & { sources: string }>(
+      `SELECT r.id, r.module_id AS moduleId, r.level, r.if_text AS ifText, r.then_text AS thenText, r.because, r.sources, r.population
+         FROM rules r JOIN modules m ON m.id = r.module_id ORDER BY m.ord, r.id`,
+    )
+    .map((r) => ({ ...r, sources: JSON.parse(r.sources) as RuleSourceSummary[] }));
 }
 
 export function getRulesByIds(db: SQLiteDatabase, ids: readonly string[]): RuleRow[] {

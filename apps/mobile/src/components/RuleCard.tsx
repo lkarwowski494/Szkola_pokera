@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
 import type { RuleRow } from '@/data/content/repo';
+import { formatRuleSources } from './ruleSources';
 import { radius, space, type as tp, useTokens } from '@/theme/tokens';
 
 /** Reguła odruchowa w formacie „Jeśli X, to Y, bo Z”. */
@@ -24,8 +25,8 @@ export function RuleCard({ rule, showSource = false }: { rule: RuleRow; showSour
       </Text>
       {showSource ? (
         <Text style={[tp.caption, { color: tk.muted }]}>
-          {t('rules.source')}: {rule.source}
-          {rule.population ? `. Populacja: ${rule.population}` : ''}
+          {formatRuleSources(rule.sources, t)}
+          {rule.population ? `. ${t('rules.population', { population: rule.population })}` : ''}
         </Text>
       ) : null}
     </View>

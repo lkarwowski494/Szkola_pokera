@@ -9,10 +9,10 @@ import { loadThreeWay } from '../src/threeway';
 import { buildTree } from '../src/tree';
 // użycie: tsx scripts/fit-eqr.ts WYNIK.json "m1,m2" "r1,r2" "s1,s2" ["r3a,r3b" (role3, domyślnie = role)] ["r4a" (role4)]
 // Kalibracja wariantu naprawy EQR (raport 10): realizacja equity zakresów w 8 pulach heads-up przy STAŁYCH zakresach
-// z pliku wynikowego, dla siatki m (pozycja) × role (inicjatywa) × sprFull, wobec celów z raportów zbiorczych
-// rangeconverter (solver, 6-max 100bb). Błąd = pierwiastek ze średniego kwadratu różnicy EQR (w pp).
+// z pliku wynikowego, dla siatki m (pozycja) × role (inicjatywa) × sprFull, wobec celów z opublikowanych raportów zbiorczych
+// solvera (6-max 100bb, adres niżej). Błąd = pierwiastek ze średniego kwadratu różnicy EQR (w pp).
 
-// [nazwa, ścieżka terminala, EQR bez pozycji, EQR z pozycją] — rangeconverter.com/reports/No-Limit-Texas-Holdem-Poker-Cash-Game/6-max-100bb
+// [nazwa, ścieżka terminala, EQR bez pozycji, EQR z pozycją] — https://rangeconverter.com/reports/No-Limit-Texas-Holdem-Poker-Cash-Game/6-max-100bb
 const TARGETS: [string, string, number, number][] = [
   ['BTN-BB SRP', 'UTG:fold,HJ:fold,CO:fold,BTN:raise2.5,SB:fold,BB:call', 81.38, 115.15],
   ['SB-BB SRP', 'UTG:fold,HJ:fold,CO:fold,BTN:fold,SB:raise3,BB:call', 96.69, 103.66],

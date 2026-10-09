@@ -1,11 +1,13 @@
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
-// użycie: tsx scripts/fetch-targets.ts [PLIK.json]  (domyślnie tools/preflop-solver/targets/beyondgto.json, poza gitem)
-// Pobiera cele walidacji modelu EQR (dokument 10, sekcja „Naprawa modelu EQR”): siatki BeyondGTO (solver, NL500, 6-max 100bb)
+// użycie: tsx scripts/fetch-targets.ts [PLIK.json]  (domyślnie tools/preflop-solver/targets/pub-6max-100bb.json, poza gitem)
+// Pobiera cele walidacji modelu EQR (dokument 10, sekcja „Naprawa modelu EQR”): opublikowane siatki solvera (NL500, 6-max 100bb; adres w PAGES_URL)
 // dla otwarć i obrony blindów. Dane służą wyłącznie do porównania z wynikiem naszego solvera (ADR-02, ADR-20);
 // nie trafiają do repozytorium ani do aplikacji.
 
+/** Serwis z opublikowanymi siatkami solvera (dokument 10, „Naprawa modelu EQR”). */
+const PAGES_URL = 'https://beyondgto.com';
 const PAGES: Record<string, string> = {
   'rfi.UTG': 'ranges/lj-open-6max-100bb',
   'rfi.HJ': 'ranges/hj-open-6max-100bb',
@@ -17,12 +19,12 @@ const PAGES: Record<string, string> = {
   'BB vs SB': 'defense/bb-vs-sb',
 };
 
-const out = resolve(process.argv[2] ?? resolve(import.meta.dirname, '../targets/beyondgto.json'));
+const out = resolve(process.argv[2] ?? resolve(import.meta.dirname, '../targets/pub-6max-100bb.json'));
 const result: Record<string, { url: string; source: string; freqs: Record<string, Record<string, number>> }> = {};
 for (const [name, page] of Object.entries(PAGES)) {
-  const url = `https://beyondgto.com/${page}`;
+  const url = `${PAGES_URL}/${page}`;
   const html = execFileSync('curl', ['-sSL', '--fail', url], { encoding: 'utf8', maxBuffer: 1 << 24 });
-  const source = /Crafty Penguin[^<]*/.exec(html)?.[0]?.replace(/\s+/g, ' ').trim() ?? '';
+  const source = /<title>([^<]*)<\/title>/.exec(html)?.[1]?.replace(/\s+/g, ' ').trim() ?? '';
   const freqs: Record<string, Record<string, number>> = {};
   // komórka siatki: data-tip="A5s · 3-bet 100% · defend 100%"; akcje: raise, 3-bet, call, fold (pozostałe pola to sumy)
   for (const m of html.matchAll(/data-tip="([^"]*)"/g)) {

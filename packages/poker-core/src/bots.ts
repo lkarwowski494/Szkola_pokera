@@ -18,7 +18,7 @@ import { classifyFlop, textureMatches, type TextureFilter } from './texture';
  * - po flopie: klasa siły ręki (holding.ts), tekstura, cena sprawdzenia, liczba rywali, pozycja, z losowością;
  *   c-bet według przypadków z lekcji M5.
  * Styl modyfikuje politykę bazową (looseness: szerzej/węziej przed flopem i częściej/rzadziej sprawdza po flopie;
- * aggression: przesuwa masę między sprawdzeniem a podbiciem), na wzór „virtual incentives” z profili GTO Wizard.
+ * aggression: przesuwa masę między sprawdzeniem a podbiciem), na wzór „virtual incentives” z opublikowanych profili rywali komercyjnego solvera.
  *
  * Bot widzi tylko BotView: swoje karty, karty wspólne i publiczne akcje (nie widzi kart gracza ani talii).
  * Parametry BOT_POLICY to model przeciwnika, nie twierdzenia kursu: nie trafiają do treści i nie oceniają gracza

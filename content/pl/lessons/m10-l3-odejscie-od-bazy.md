@@ -19,7 +19,7 @@ drills:
     id: m10.l3.q-small-shift
     family: m10.base.mixed
     rules: [R-M10-009]
-    prompt: "W przykładzie GTO Wizard rywal na riverze {{t:bluff|blefuje}} ok. {{n:gtow.ob.lock}} zamiast ok. {{n:gtow.ob.base}} betów. Jak zmienia się odpowiedź na jego bet rękami łapiącymi {{t:bluff|blefy}}?"
+    prompt: "W przykładzie GTO Wizard rywal na riverze {{t:bluff|blefuje}} ok. {{n:overbluff.lock}} zamiast ok. {{n:overbluff.base}} betów. Jak zmienia się odpowiedź na jego bet rękami łapiącymi {{t:bluff|blefy}}?"
     options:
       - { text: "Przestajesz {{t:fold|pasować}}: ręce, które w bazie mieszały, teraz zawsze {{t:call|sprawdzają}}", correct: true, why: "Tyle wystarczyło, żeby w rozwiązaniu z zablokowaną strategią rywala obrona przeszła na samo {{t:call|sprawdzanie}}. Ręce obojętne reagują na najmniejszą nadwyżkę {{t:bluff|blefów}}." }
       - { text: "Prawie nic: kilka punktów to za mało, żeby coś zmienić", why: "Dla rąk obojętnych kilka punktów to dużo: w równowadze {{t:call}} i {{t:fold}} dają im to samo, więc każda nadwyżka {{t:bluff|blefów}} rozstrzyga na korzyść {{t:call|sprawdzenia}}." }
@@ -96,7 +96,7 @@ W równowadze część rąk gra dwie akcje, np. czasem {{t:call|sprawdza}}, a cz
 - rywal {{t:bluff|blefuje}} za często: {{t:mixed-hand|ręce mieszane}} zawsze {{t:call|sprawdzają}};
 - rywal {{t:bluff|blefuje}} za rzadko: {{t:mixed-hand|ręce mieszane}} zawsze {{t:fold|pasują}}.
 
-Wystarczy niewiele. W przykładzie GTO Wizard (Button betuje na riverze po linii bet, {{t:check}}, bet) zmiana {{t:bluff|blefów}} rywala z ok. {{n:gtow.ob.base}} do ok. {{n:gtow.ob.lock}} przestawiła obronę {{t:big-blind|dużego blinda}} na samo {{t:call|sprawdzanie}}. Ręce, które w bazie zawsze {{t:fold|pasują}} albo zawsze grają dalej, zmieniają decyzję dopiero przy dużym {{t:standard-deviation|odchyleniu}}.
+Wystarczy niewiele. W przykładzie GTO Wizard (Button betuje na riverze po linii bet, {{t:check}}, bet) zmiana {{t:bluff|blefów}} rywala z ok. {{n:overbluff.base}} do ok. {{n:overbluff.lock}} przestawiła obronę {{t:big-blind|dużego blinda}} na samo {{t:call|sprawdzanie}}. Ręce, które w bazie zawsze {{t:fold|pasują}} albo zawsze grają dalej, zmieniają decyzję dopiero przy dużym {{t:standard-deviation|odchyleniu}}.
 
 ## {{t:bluff|Blef}} liczony progiem
 

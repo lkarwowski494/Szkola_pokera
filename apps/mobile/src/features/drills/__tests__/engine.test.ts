@@ -169,7 +169,7 @@ describe('zadania z zakresów solvera', () => {
 });
 
 describe('skala oceny akcji solvera (ADR-26)', () => {
-  it('progi: 3,5% z GTO Wizard (Measure Performance), 25% granica ręki mieszanej', () => {
+  it('progi: 3,5% ze skali oceny opublikowanego solvera (ADR-26), 25% granica ręki mieszanej', () => {
     expect(MIXED_MIN).toBe(0.035);
     expect(MIXED_MIN).toBeLessThan(MIXED_LOW);
   });

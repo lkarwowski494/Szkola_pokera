@@ -5,7 +5,7 @@
 # odbiega od publicznych solverów — czeka na decyzję. BB vs UTG i pule z dołączeniem BB czekają na cele walidacyjne.
 
 # Klasy niepewne (audyt 4.10.2026, K6 opcja B; skrócone z 34 do 13 klas po przejściu na solver v3c 5.10.2026,
-# dokument 10): w tych rękach kanon odbiega od publicznych tabel otwarć (BeyondGTO). Nie pojawiają się w zadaniach
+# dokument 10): w tych rękach kanon odbiega od publicznych tabel otwarć solvera. Nie pojawiają się w zadaniach
 # rangeDecision, a w malowaniu zakresu liczą się jak ręce mieszane (zaliczone w obie strony). Jedna lista (kotwica
 # &uncertain-rfi), spoty zakresów otwarć (M3) tylko się do niej odwołują.
 - id: rfi.utg
@@ -15,7 +15,7 @@
   groups: { "{{t:raise|Przebicie}} do 2,5bb": ["raise 2.5"] }
   uncertain: &uncertain-rfi [
     # solver v3c (5.10.2026, dokument 10 „Pomiary v3c”): klasy, w których kanon w co najmniej jednej pozycji różni się
-    # od BeyondGTO o 50 pp lub więcej; ręce w kolorze z luką
+    # od opublikowanych tabel solvera o 50 pp lub więcej; ręce w kolorze z luką
     65s, 75s, T8s, 97s, 86s, 53s, 85s,
     # słabe ręce w różnych kolorach
     A8o, A4o, K8o, K7o, Q8o, 98o,
@@ -51,9 +51,9 @@
   path: "UTG:fold,HJ:fold,CO:raise2.5"
   # jedna grupa „gram” (decyzja A2 koordynatora 5.10.2026, dokument 10): solver v3c prawie nie sprawdza w tym spocie
   # (sprawdzenie 0% wobec 5–9% w źródłach), więc podziału 3-bet / sprawdzenie nie oceniają ani siatka, ani tryb gry (M13);
-  # lekcja uczy go regułą R-M4-005 z liczbami GTO Wizard i BeyondGTO
+  # lekcja uczy go regułą R-M4-005 z liczbami z dwóch opublikowanych rozwiązań solvera
   groups: &g-btn-vs-co { "Gram (3-bet do 7,5bb albo {{t:call}})": ["raise 7.5", "call 2.5"] }
-  # klasy niepewne: kanon różni się od BeyondGTO (defense/btn-vs-co, NL500, 100bb) w „gram / pas” o 50 pp lub więcej
+  # klasy niepewne: kanon różni się od opublikowanych tabel solvera (defense/btn-vs-co, NL500, 100bb) w „gram / pas” o 50 pp lub więcej
   # (dokument 10, „Pomiary v3c”); w zadaniach się nie pojawiają, w malowaniu są zaliczane w obie strony
   uncertain: &u-btn-vs-co [A9s, A8s, A7s, A6s, A3s, A2s, K9s, K8s, Q9s, T7s, 98s, 97s, 87s, 75s, 65s, AJo, ATo, "44", "33", "22"]
   # błędny rozmiar przy dobrej akcji = „niedokładność” (B-015, decyzja właściciela 3 października 2026)
@@ -65,11 +65,11 @@
   hero: SB
   path: "UTG:fold,HJ:fold,CO:fold,BTN:raise2.5"
   # „3-bet / pas” (decyzja właściciela 4 października 2026, B-045): solvery grają tu 3-bet albo pas, a łączna częstość
-  # i skład 3-betu kanonu zgadzają się z GTO Wizard (Crush 3-Bet Pots OOP, SB vs BTN 14%) poza rękami niżej.
+  # i skład 3-betu kanonu zgadzają się z opublikowanym rozwiązaniem solvera (Crush 3-Bet Pots OOP, SB vs BTN 14%) poza rękami niżej.
   # Sprawdzenia kanonu (solver v3c: ok. 0,5%) liczą się w siatce jako pas.
   groups: &g-sb-vs-btn { "3-bet do 10bb": ["raise 10"] }
   # Klasy niepewne tego spotu (przeliczone dla solvera v3c 5.10.2026, dokument 10 „Pomiary v3c”): częstość 3-betu
-  # kanonu różni się od BeyondGTO (defense/sb-vs-btn, NL500, 100bb) o 50 pp lub więcej. W zadaniach się nie
+  # kanonu różni się od opublikowanych tabel solvera (defense/sb-vs-btn, NL500, 100bb) o 50 pp lub więcej. W zadaniach się nie
   # pojawiają, w malowaniu są zaliczane w obie strony.
   uncertain: &u-sb-vs-btn [A8s, A7s, A6s, A4s, A3s, K8s, Q9s, T9s, 98s, 75s, ATo]
 - id: vs-open.bb-vs-btn

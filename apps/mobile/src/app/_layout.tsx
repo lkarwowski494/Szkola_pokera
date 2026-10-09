@@ -18,9 +18,9 @@ void SplashScreen.preventAutoHideAsync();
 // przed zamontowaniem pierwszego ekranu; bez DSN w app.json Sentry zostaje wyłączone
 initCrashReports();
 
-// Nazwa pliku musi odpowiadać CONTENT_SCHEMA_VERSION (content-build zapisuje content-v5.db).
-const CONTENT_DB = 'content-v5.db';
-const contentAsset = require('../../assets/content/content-v5.db') as number;
+// Nazwa pliku musi odpowiadać CONTENT_SCHEMA_VERSION (content-build zapisuje content-v6.db).
+const CONTENT_DB = 'content-v6.db';
+const contentAsset = require('../../assets/content/content-v6.db') as number;
 
 /** Korzeń: EAS Observe mierzy pierwsze wyrenderowanie (metryki startu, ADR-17). */
 export default function Root() {

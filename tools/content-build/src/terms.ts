@@ -48,7 +48,6 @@ export function loadTerms(file: Record<string, TermEntry>): Terms {
     ...(t.abbr ? { abbr: t.abbr } : {}),
     ...(file[key]!.def ? { def: file[key]!.def } : {}),
     area: t.area as CompiledTerm['area'],
-    source: file[key]!.source,
     ...(t.forms?.length ? { forms: [...t.forms] } : {}),
     ...(t.skip?.length ? { skip: [...t.skip] } : {}),
   }));

@@ -11,8 +11,8 @@ import type { NumberUnitName } from '@szkola/content-schema';
  * - dopuszczalna: akcja grana w co najmniej MIXED_MIN, ale mniej niż MIXED_LOW przypadków. Nie jest błędem;
  *   w powtórkach FSRS ocena Hard (jak „blisko”);
  * - błąd: akcja grana rzadziej niż w MIXED_MIN przypadków albo wcale.
- * MIXED_MIN: GTO Wizard, Measure Performance (help.gtowizard.com/measure-performance), „Inaccuracy – Moves that are
- * taken less than 3.5% of the time in GTO”; „Correct Move – Moves that are correct at some frequency”. Bez danych EV
+ * MIXED_MIN: skala oceny ruchów komercyjnego solvera (https://help.gtowizard.com/measure-performance/), „Inaccuracy – Moves
+ * that are taken less than 3.5% of the time in GTO”. Bez danych EV
  * akcję poniżej 3,5% liczymy jako błąd (nazwane uproszczenie, dokument 14, 5.2).
  * MIXED_LOW i MIXED_HIGH: granica ręki „mieszanej” (25–75%), założenie do kalibracji bez źródła (ADR-22, B-044).
  * W malowaniu zakresu ręka grana w MIXED_LOW–MIXED_HIGH jest zaliczana bez względu na to, czy ją zaznaczysz;
@@ -22,7 +22,7 @@ export const MIXED_MIN = 0.035;
 export const MIXED_LOW = 0.25;
 export const MIXED_HIGH = 0.75;
 
-/** Malowanie zakresu: zaliczenie od 90% (decyzja właściciela 3.10.2026, B-016; GTO Wizard zaleca 90–95%). */
+/** Malowanie zakresu: zaliczenie od 90% (decyzja właściciela 3.10.2026, B-016; komercyjny solver zaleca 90–95%). */
 export const PAINT_PASS = 0.9;
 
 /**

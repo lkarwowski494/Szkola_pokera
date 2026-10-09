@@ -163,7 +163,7 @@ push.btn-3max
 push.sb-3max
 ```
 
-Te dwie siatki sprawdziliśmy z opublikowanym wynikiem równowagi dla tej samej sytuacji (Ganzfried i Sandholm, 2008: Button {{n:m11.gs.btn}}). Kilka rąk, w których wyniki się różnią, nie trafia do ćwiczeń.
+Te dwie siatki sprawdziliśmy z opublikowanym wynikiem równowagi dla tej samej sytuacji (Ganzfried i Sandholm, 2008: Button {{n:m11.jamfold3.btn}}). Kilka rąk, w których wyniki się różnią, nie trafia do ćwiczeń.
 
 ## Dwa sposoby na wygraną
 
