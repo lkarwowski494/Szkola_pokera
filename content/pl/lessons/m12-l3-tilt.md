@@ -10,7 +10,7 @@ drills:
     id: m12.l3.q-type-injustice
     family: m12.tilt-type
     rules: [R-M12-006]
-    prompt: "Trzeci raz w godzinę rywal trafia na riverze kartę, która go ratuje. Czujesz, że gra jest niesprawiedliwa i ktoś się na ciebie uwziął. Jaki to typ tiltu według Tendlera?"
+    prompt: "Trzeci raz w godzinę rywal trafia na riverze kartę, która go ratuje. Czujesz, że gra jest niesprawiedliwa i ktoś się na ciebie uwziął. Jaki to typ tiltu według podziału z tej lekcji?"
     options:
       - { text: "Tilt z niesprawiedliwości", correct: true, why: "Bad beaty, coolery i trafienia rywala na riverze dają poczucie, że poker jest niesprawiedliwy. To typowy wyzwalacz tiltu z niesprawiedliwości." }
       - { text: "Tilt z błędu", why: "Tilt z błędu dotyczy twoich własnych pomyłek. Tu złości cię los, a nie twoja decyzja." }
@@ -39,7 +39,7 @@ drills:
     rules: [R-M12-008]
     prompt: "{{t:fold|Spasowałeś}} najlepszą rękę i od tej chwili nie możesz przestać o tym myśleć. Złościsz się na siebie i grasz coraz gorzej. Jaki to typ tiltu?"
     options:
-      - { text: "Tilt z błędu", correct: true, why: "Złość na własne pomyłki to tilt z błędu. Tendler wiąże go z nierealistycznym oczekiwaniem, że ucząc się, nie popełnisz błędów." }
+      - { text: "Tilt z błędu", correct: true, why: "Złość na własne pomyłki to tilt z błędu. Źródłem jest zwykle nierealistyczne oczekiwanie, że ucząc się, nie popełnisz błędów." }
       - { text: "Tilt z niesprawiedliwości", why: "Tu nie winisz losu, tylko siebie. To tilt z błędu." }
       - { text: "Tilt z zemsty", why: "Zemsta jest skierowana na rywala. Tu złość dotyczy twojej decyzji." }
   - kind: choice
@@ -59,7 +59,7 @@ drills:
     options:
       - { text: "Reagujesz teraz: oddech i przygotowane zdanie, np. „To {{t:variance}}, graj dalej dobrze”", correct: true, why: "Tilt koryguje się, póki jest mały i możesz jeszcze myśleć. Gdy urośnie, wyłącza zdolność myślenia i kontrola staje się niemożliwa." }
       - { text: "Grasz dalej, aż zauważysz pierwszy błąd", why: "Wtedy tilt jest już większy i trudniej go zatrzymać. Najłatwiej reagować na pierwsze sygnały." }
-      - { text: "Tłumisz złość i udajesz, że jej nie ma", why: "Tendler zaleca rozpoznać emocję i odpowiedzieć na jej przyczynę konkretną myślą. Samo tłumienie nie usuwa przyczyny." }
+      - { text: "Tłumisz złość i udajesz, że jej nie ma", why: "Lepiej rozpoznać emocję i odpowiedzieć na jej przyczynę konkretną myślą. Samo tłumienie nie usuwa przyczyny." }
   - kind: choice
     id: m12.l3.q-quit
     family: m12.tilt-response
@@ -73,7 +73,7 @@ drills:
     id: m12.l3.q-profile
     family: m12.tilt-response
     rules: [R-M12-006]
-    prompt: "Chcesz szybciej łapać tilt. Od czego zaczynasz według Tendlera?"
+    prompt: "Chcesz szybciej łapać tilt. Od czego zaczynasz?"
     options:
       - { text: "Od spisania profilu: co cię wyzwala, co myślisz i czujesz, jak zmienia się twoja gra", correct: true, why: "Każdy gracz tiltuje trochę inaczej i z innych powodów. Profil pozwala rozpoznać sygnały, zanim tilt urośnie: nie da się kontrolować czegoś, czego się nie rozumie." }
       - { text: "Od gry na wyższych {{t:stakes|stawkach}}, żeby się zahartować", why: "Większa presja nie uczy rozpoznawania tiltu. Najpierw musisz wiedzieć, jak on u ciebie wygląda." }
@@ -82,18 +82,18 @@ drills:
     id: m12.l3.q-c-game
     family: m12.abc-game
     rules: [R-M12-008]
-    prompt: "Twoja gra ma dobre i złe dni. Gdzie według Tendlera jest najszybszy stały postęp?"
+    prompt: "Twoja gra ma dobre i złe dni. Gdzie jest najszybszy stały postęp?"
     options:
       - { text: "W poprawie najgorszej gry (C-game)", correct: true, why: "Postęp przypomina ruch gąsienicy: krok naprzód z przodu (lepsza A-game) i krok z tyłu (mniej fatalna C-game). Usunięcie najgorszych błędów zwalnia też uwagę na naukę nowych rzeczy." }
       - { text: "Tylko w szlifowaniu najlepszej gry (A-game)", why: "A-game jest ważna, ale to C-game kosztuje najwięcej. Bez poprawy najgorszych dni postęp z przodu łatwo traci się z tyłu." }
-      - { text: "Nigdzie, forma to kwestia szczęścia", why: "Rozrzut formy da się zawężać: gracze dobrze kontrolujący tilt mają węższy rozkład poziomu gry (Palomäki i in., 2020)." }
+      - { text: "Nigdzie, forma to kwestia szczęścia", why: "Rozrzut formy da się zawężać: gracze dobrze kontrolujący tilt mają węższy rozkład poziomu gry (badanie z 2020 roku)." }
   - kind: choice
     id: m12.l3.q-compare
     family: m12.abc-game
     rules: [R-M12-008]
     prompt: "Jak sprawdzasz, czy twoja praca nad mental game daje efekt?"
     options:
-      - { text: "Porównujesz najgorsze {{t:session|sesje}} z wcześniejszymi najgorszymi", correct: true, why: "Tendler radzi porównywać podobne z podobnym: najgorszą grę z wcześniejszą najgorszą. Postęp widać też po tym, że szybciej rozpoznajesz tilt i wcześniej kończysz {{t:session|sesję}}." }
+      - { text: "Porównujesz najgorsze {{t:session|sesje}} z wcześniejszymi najgorszymi", correct: true, why: "Porównuj podobne z podobnym: najgorszą grę z wcześniejszą najgorszą. Postęp widać też po tym, że szybciej rozpoznajesz tilt i wcześniej kończysz {{t:session|sesję}}." }
       - { text: "Patrzysz na wynik w złotówkach z ostatniego tygodnia", why: "Tydzień wyników to głównie {{t:variance}} (lekcja o {{t:variance|wariancji}}). Jakość gry w najgorsze dni mówi więcej." }
       - { text: "Porównujesz najlepszą {{t:session|sesję}} z najgorszą", why: "Takie porównanie pokazuje tylko rozrzut, a nie postęp. Porównuj najgorszą grę z wcześniejszą najgorszą." }
 ---
@@ -101,7 +101,7 @@ Tilt to utrata kontroli pod wpływem negatywnych emocji, zwykle po bad beatach a
 
 ## Siedem typów tiltu
 
-Jared Tendler, autor *The Mental Game of Poker*, opisuje tilt jako problem ze złością i wyróżnia {{n:tilt.types}} typów:
+Uznany podręcznik psychologii pokera opisuje tilt jako problem ze złością i wyróżnia {{n:tilt.types}} typów:
 
 | Typ | Co go wyzwala |
 |---|---|
@@ -127,8 +127,8 @@ Gdy tilt urośnie, wyłącza zdolność myślenia. Dlatego reagujesz na pierwsze
 
 ## A-game i C-game
 
-Twoja gra ma rozrzut: od najlepszej (A-game) do najgorszej (C-game). Tendler porównuje postęp do gąsienicy: krok naprzód z przodu, gdy najlepsza gra staje się lepsza, i krok z tyłu, gdy najgorsza staje się mniej fatalna. Najwięcej kosztuje C-game, więc od niej zaczynasz.
+Twoja gra ma rozrzut: od najlepszej (A-game) do najgorszej (C-game). Postęp przypomina ruch gąsienicy: krok naprzód z przodu, gdy najlepsza gra staje się lepsza, i krok z tyłu, gdy najgorsza staje się mniej fatalna. Najwięcej kosztuje C-game, więc od niej zaczynasz.
 
 :::note Gdy to coś więcej niż tilt
-Tendler odróżnia problem z grą od problemu z hazardem. Jeśli stale grasz dłużej niż planujesz, odgrywasz się albo grasz za pieniądze, których nie możesz stracić, przeczytaj kartę o odpowiedzialnej grze w lekcji o bankrollu.
+Ten sam podręcznik odróżnia problem z grą od problemu z hazardem. Jeśli stale grasz dłużej niż planujesz, odgrywasz się albo grasz za pieniądze, których nie możesz stracić, przeczytaj kartę o odpowiedzialnej grze w lekcji o bankrollu.
 :::

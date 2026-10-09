@@ -143,5 +143,5 @@ Tu: {{n:io.flush.bet}} × {{n:miss.flush.turn}} ÷ {{n:outs.flush}} = **{{n:io.f
 Odwrotne implied odds działają przeciw tobie: gdy masz {{t:draw}} do niskiego {{t:flush|koloru}} albo do {{t:straight|strita}}, a na {{t:board|stole}} może wpaść {{t:flush}}, czasem trafisz i nadal przegrasz, i to w dużej {{t:pot|puli}}.
 
 :::note Skąd te zasady
-Rachunek implied odds to dokładne obliczenie z {{t:expected-value|wartości oczekiwanej}}. Warunki, kiedy implied odds są prawdziwe, oraz odwrotne implied odds to heurystyki z literatury (SplitSuit, PokerCoaching, FlopTurnRiver).
+Rachunek implied odds to dokładne obliczenie z {{t:expected-value|wartości oczekiwanej}}. Warunki, kiedy implied odds są prawdziwe, oraz odwrotne implied odds to heurystyki z materiałów szkoleniowych.
 :::

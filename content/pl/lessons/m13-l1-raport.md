@@ -98,12 +98,12 @@ Na górze raportu jest liczba „Oceniono X z Y decyzji”. Po flopie wiele decy
 
 ## {{t:mixed-hand|Ręka mieszana}}
 
-Gdy solver gra twoją rękę na dwa sposoby, oba są poprawne. GTO Wizard tłumaczy to zasadą obojętności: gracz miesza tylko zagrania, które mają tę samą {{t:expected-value|wartość oczekiwaną}}. Dlatego raport nie karze za wybór jednej z nich, a rzadsze zagranie oznacza najwyżej jako dopuszczalne.
+Gdy solver gra twoją rękę na dwa sposoby, oba są poprawne. Teoria równowagi tłumaczy to zasadą obojętności: gracz miesza tylko zagrania, które mają tę samą {{t:expected-value|wartość oczekiwaną}}. Dlatego raport nie karze za wybór jednej z nich, a rzadsze zagranie oznacza najwyżej jako dopuszczalne.
 
 ## Wynik w {{t:chips|żetonach}}
 
-Wynik jest na dole raportu, małą czcionką. PokerCharts pisze, że nawet po ok. dwóch i pół tysiąca rąk wynik to prawie sam szum: gracz wygrywający może być na minusie, a przegrywający na dużym plusie. {{t:session|Sesja}} ma kilkadziesiąt rozdań, więc wynik prawie nic nie mówi o twojej grze.
+Wynik jest na dole raportu, małą czcionką. Według analizy {{t:variance|wariancji}} wyników nawet po ok. dwóch i pół tysiąca rąk wynik to prawie sam szum: gracz wygrywający może być na minusie, a przegrywający na dużym plusie. {{t:session|Sesja}} ma kilkadziesiąt rozdań, więc wynik prawie nic nie mówi o twojej grze.
 
 :::note Skąd te zasady
-Zasada obojętności: GTO Wizard, Principles of GTO. Próg rzadkiego ruchu: GTO Wizard, Measure Performance. {{t:variance|Wariancja}} wyniku: PokerCharts, How Many Hours Until You Can Trust Your Win Rate. Szansa przegranej to rachunek.
+Zasada obojętności: materiały o podstawach teorii równowagi. Próg rzadkiego ruchu: materiał o ocenie własnej gry względem solvera. {{t:variance|Wariancja}} wyniku: analiza tego, po ilu godzinach gry można ufać swojemu winrate. Szansa przegranej to rachunek.
 :::

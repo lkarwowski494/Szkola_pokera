@@ -110,5 +110,5 @@ Rachunek nie wyznacza jednak dokładnego progu. Czy {{t:top-pair}} ma dość equ
 W {{t:pot|puli}} z jednym podbiciem {{t:spr}} wynosi ok. {{n:spr.srp}}. Żeby wpłacić cały stack do rivera, trzeba by betować więcej niż {{t:pot|pulę}} na każdej {{t:street|ulicy}} (lekcja o rozmiarze geometrycznym). Rywal, który wpłaca tyle pieniędzy, rzadko ma rękę gorszą niż jedna {{t:pair}}. Dlatego z jedną {{t:pair|parą}} w takiej {{t:pot|puli}} grasz na wartość, ale zwykle nie planujesz gry o cały stack.
 
 :::note Skąd te zasady
-Granica ok. {{n:spr.zone.low}} pochodzi ze SplitSuit i z analizy solvera GTO Wizard (przy {{t:spr}} ok. {{n:spr.commit}} każda {{t:top-pair}} i lepsza ręka gra o stack). Ostrożność z jedną {{t:pair|parą}} przy wysokim {{t:spr}} potwierdzają GTO Wizard i Upswing. Liczby ceny i rozmiarów w tej lekcji to czysta matematyka.
+Granica ok. {{n:spr.zone.low}} pochodzi z materiałów szkoleniowych i z opublikowanej analizy solvera (przy {{t:spr}} ok. {{n:spr.commit}} każda {{t:top-pair}} i lepsza ręka gra o stack). Ostrożność z jedną {{t:pair|parą}} przy wysokim {{t:spr}} potwierdzają materiały szkoleniowe i analizy solverów. Liczby ceny i rozmiarów w tej lekcji to czysta matematyka.
 :::

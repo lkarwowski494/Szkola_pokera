@@ -35,7 +35,7 @@ drills:
     id: m11.l1.q-m-zone
     family: m11.m
     rules: [R-M11-005]
-    prompt: "Twoje M spadło do ok. {{n:m11.m.example}}. Co mówi o tym model Harringtona?"
+    prompt: "Twoje M spadło do ok. {{n:m11.m.example}}. Co mówi o tym model stref M?"
     options:
       - { text: "{{t:red-zone|Strefa czerwona}}: tylko all-in albo {{t:fold}}, najlepiej jako pierwszy", correct: true, why: "Poniżej ok. {{n:m11.m.red}} (źródła różnią się granicą: {{n:m11.m.red}} albo {{n:m11.m.red-alt}}) zostaje ci tylko all-in albo {{t:fold}}. Wejście pierwszy daje szansę, że wszyscy {{t:fold|spasują}}." }
       - { text: "{{t:green-zone|Strefa zielona}}: grasz normalnie", why: "Zielona strefa zaczyna się dopiero od M ok. {{n:m11.m.green}}. Przy M ok. {{n:m11.m.example}} stack starczy na {{n:m11.m.example}} okrążenia." }
@@ -125,7 +125,7 @@ Push/fold to uproszczenie. Solvery, które mają do wyboru także limp i małe p
 
 ## M: ile okrążeń przetrwasz
 
-Dan Harrington liczy {{t:short-stack}} inaczej: **M** to stack podzielony przez koszt jednego okrążenia {{t:board|stołu}}.
+Popularny model turniejowy liczy {{t:short-stack}} inaczej: **M** to stack podzielony przez koszt jednego okrążenia {{t:board|stołu}}.
 
 ```formula
 M = stack ÷ (mały blind + duży blind + ante)
@@ -149,7 +149,7 @@ push.sb-10
 push.sb-5
 ```
 
-Przy {{n:m11.depth.15}} wchodzisz all-in z ok. {{n:m11.push.15}} rąk, przy {{n:m11.depth.10}} z ok. {{n:m11.push.10}}, a przy {{n:m11.depth.5}} już z ok. {{n:m11.push.5}}. Im mniej ryzykujesz względem blindów, tym więcej rąk się opłaca. Dla porównania PokerStrategy podaje przy {{n:m11.depth.10}} {{n:m11.ext.push.10}}; różnica wynika z innego sposobu liczenia, kierunek jest ten sam.
+Przy {{n:m11.depth.15}} wchodzisz all-in z ok. {{n:m11.push.15}} rąk, przy {{n:m11.depth.10}} z ok. {{n:m11.push.10}}, a przy {{n:m11.depth.5}} już z ok. {{n:m11.push.5}}. Im mniej ryzykujesz względem blindów, tym więcej rąk się opłaca. Dla porównania tabela z serwisu szkoleniowego podaje przy {{n:m11.depth.10}} {{n:m11.ext.push.10}}; różnica wynika z innego sposobu liczenia, kierunek jest ten sam.
 
 ## Trzech graczy: im więcej rywali za tobą, tym węziej
 
@@ -163,7 +163,7 @@ push.btn-3max
 push.sb-3max
 ```
 
-Te dwie siatki sprawdziliśmy z opublikowanym wynikiem równowagi dla tej samej sytuacji (Ganzfried i Sandholm, 2008: Button {{n:m11.gs.btn}}). Kilka rąk, w których wyniki się różnią, nie trafia do ćwiczeń.
+Te dwie siatki sprawdziliśmy z opublikowanym wynikiem równowagi dla tej samej sytuacji (praca naukowa z 2008 roku: Button {{n:m11.gs.btn}}). Kilka rąk, w których wyniki się różnią, nie trafia do ćwiczeń.
 
 ## Dwa sposoby na wygraną
 

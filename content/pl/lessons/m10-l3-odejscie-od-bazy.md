@@ -19,7 +19,7 @@ drills:
     id: m10.l3.q-small-shift
     family: m10.base.mixed
     rules: [R-M10-009]
-    prompt: "W przykładzie GTO Wizard rywal na riverze {{t:bluff|blefuje}} ok. {{n:gtow.ob.lock}} zamiast ok. {{n:gtow.ob.base}} betów. Jak zmienia się odpowiedź na jego bet rękami łapiącymi {{t:bluff|blefy}}?"
+    prompt: "W opublikowanym przykładzie z solvera rywal na riverze {{t:bluff|blefuje}} ok. {{n:gtow.ob.lock}} zamiast ok. {{n:gtow.ob.base}} betów. Jak zmienia się odpowiedź na jego bet rękami łapiącymi {{t:bluff|blefy}}?"
     options:
       - { text: "Przestajesz {{t:fold|pasować}}: ręce, które w bazie mieszały, teraz zawsze {{t:call|sprawdzają}}", correct: true, why: "Tyle wystarczyło, żeby w rozwiązaniu z zablokowaną strategią rywala obrona przeszła na samo {{t:call|sprawdzanie}}. Ręce obojętne reagują na najmniejszą nadwyżkę {{t:bluff|blefów}}." }
       - { text: "Prawie nic: kilka punktów to za mało, żeby coś zmienić", why: "Dla rąk obojętnych kilka punktów to dużo: w równowadze {{t:call}} i {{t:fold}} dają im to samo, więc każda nadwyżka {{t:bluff|blefów}} rozstrzyga na korzyść {{t:call|sprawdzenia}}." }
@@ -30,7 +30,7 @@ drills:
     rules: [R-M10-009]
     prompt: "Wiesz, że rywal w danej linii {{t:bluff|blefuje}} rzadziej niż w równowadze. Co robisz z ręką łapiącą {{t:bluff|blefy}}, która w bazie czasem {{t:call|sprawdza}}, a czasem {{t:fold|pasuje}}?"
     options:
-      - { text: "Zawsze {{t:fold|pasuję}}", correct: true, why: "Gdy {{t:bluff|blefów}} jest mniej, niż wymaga równowaga, ręce obojętne tracą na {{t:call|sprawdzeniu}}. GTO Wizard: przy niedoborze {{t:bluff|blefów}} „we always fold”." }
+      - { text: "Zawsze {{t:fold|pasuję}}", correct: true, why: "Gdy {{t:bluff|blefów}} jest mniej, niż wymaga równowaga, ręce obojętne tracą na {{t:call|sprawdzeniu}}. Wynik solvera: przy niedoborze {{t:bluff|blefów}} zawsze {{t:fold|pasujesz}}." }
       - { text: "Zawsze {{t:call|sprawdzam}}, żeby rywal nie wykorzystał mnie {{t:bluff|blefami}}", why: "Rywal, który {{t:bluff|blefuje}} za rzadko, nie wykorzysta twojego {{t:fold|pasowania}}. To ty wykorzystujesz jego błąd, {{t:fold|pasując}}." }
       - { text: "Gram jak w bazie, pół na pół", why: "Mieszanie ma sens tylko wtedy, gdy obie decyzje dają to samo. Przy niedoborze {{t:bluff|blefów}} {{t:fold}} daje więcej." }
   - kind: numeric
@@ -72,7 +72,7 @@ drills:
     id: m10.l3.q-3bet-data
     family: m10.base.3bet
     rules: [R-M10-011]
-    prompt: "Według danych GGPoker NL25 {{t:regular|regi}} {{t:fold|pasują}} na 3-bet w {{n:mda.reg.f3b}}, a {{t:recreational|gracze rekreacyjni}} w {{n:mda.rec.f3b}}. 3-bet z {{t:position|pozycji}} do {{n:pf.3bet.ip-total}} zarabia bez ręki przy ponad {{n:alpha.vs-3bet-ip-size}} {{t:fold|pasów}}. Co z tego wynika?"
+    prompt: "Według danych z populacji mikrostawek online (NL25) {{t:regular|regi}} {{t:fold|pasują}} na 3-bet w {{n:mda.reg.f3b}}, a {{t:recreational|gracze rekreacyjni}} w {{n:mda.rec.f3b}}. 3-bet z {{t:position|pozycji}} do {{n:pf.3bet.ip-total}} zarabia bez ręki przy ponad {{n:alpha.vs-3bet-ip-size}} {{t:fold|pasów}}. Co z tego wynika?"
     options:
       - { text: "Wobec {{t:recreational|graczy rekreacyjnych}} 3-betujesz prawie bez {{t:bluff|blefów}}, wobec {{t:regular|regów}} {{t:bluff|blefy}} zostają, ale tylko z rękami, które mają equity", correct: true, why: "Żadna grupa nie {{t:fold|pasuje}} tak często, żeby 3-bet zarabiał bez ręki. {{t:bluff|Blefy}} 3-betem w bazie żyją z equity po flopie i z {{t:fold|pasów}}; wobec gracza, który {{t:fold|pasuje}} w {{n:mda.rec.f3b}}, zostaje głównie equity, więc 3-betujesz {{t:range|zakresem}} {{t:linear|liniowym}}." }
       - { text: "3-betujesz każdego dowolną ręką, bo wszyscy dużo {{t:fold|pasują}}", why: "Nikt tu nie {{t:fold|pasuje}} częściej niż {{n:alpha.vs-3bet-ip-size}}. 3-bet każdą ręką traciłby." }
@@ -96,7 +96,7 @@ W równowadze część rąk gra dwie akcje, np. czasem {{t:call|sprawdza}}, a cz
 - rywal {{t:bluff|blefuje}} za często: {{t:mixed-hand|ręce mieszane}} zawsze {{t:call|sprawdzają}};
 - rywal {{t:bluff|blefuje}} za rzadko: {{t:mixed-hand|ręce mieszane}} zawsze {{t:fold|pasują}}.
 
-Wystarczy niewiele. W przykładzie GTO Wizard (Button betuje na riverze po linii bet, {{t:check}}, bet) zmiana {{t:bluff|blefów}} rywala z ok. {{n:gtow.ob.base}} do ok. {{n:gtow.ob.lock}} przestawiła obronę {{t:big-blind|dużego blinda}} na samo {{t:call|sprawdzanie}}. Ręce, które w bazie zawsze {{t:fold|pasują}} albo zawsze grają dalej, zmieniają decyzję dopiero przy dużym {{t:standard-deviation|odchyleniu}}.
+Wystarczy niewiele. W opublikowanym przykładzie z solvera (Button betuje na riverze po linii bet, {{t:check}}, bet) zmiana {{t:bluff|blefów}} rywala z ok. {{n:gtow.ob.base}} do ok. {{n:gtow.ob.lock}} przestawiła obronę {{t:big-blind|dużego blinda}} na samo {{t:call|sprawdzanie}}. Ręce, które w bazie zawsze {{t:fold|pasują}} albo zawsze grają dalej, zmieniają decyzję dopiero przy dużym {{t:standard-deviation|odchyleniu}}.
 
 ## {{t:bluff|Blef}} liczony progiem
 
@@ -108,23 +108,23 @@ Czy {{t:bluff}} bez ręki się opłaca, mówi {{t:alpha}} z modułu 6:
 
 Przy c-becie 1/3 {{t:pot|puli}} to {{n:alpha.cbet.small}}, przy 3/4 {{t:pot|puli}} {{n:alpha.cbet.big}}. Fold to c-bet z {{t:hud|HUD-a}} pokazuje, czy rywal jest nad tym progiem, czy pod nim. To przybliżenie: statystyka łączy wszystkie rozmiary i flopy, a twoja ręka zwykle ma jeszcze trochę equity. Na flopie, który trafia w {{t:range}} rywala, {{t:fold|pasuje}} on rzadziej niż średnio.
 
-Gracze GGPoker NL25 {{t:fold|pasują}} na c-bet na flopie średnio w {{n:mda.all.fcb}} przypadków. To nie musi być błąd: także solver {{t:out-of-position}} na flopie {{t:fold|pasuje}} częściej, niż wskazuje {{t:mdf}} (moduł 6). Dlatego sama średnia populacji nad progiem nie uzasadnia c-betu bez ręki; potrzebujesz odczytu konkretnego rywala albo flopu, który nie trafia w jego {{t:range}}.
+Gracze populacji mikrostawek online (NL25) {{t:fold|pasują}} na c-bet na flopie średnio w {{n:mda.all.fcb}} przypadków. To nie musi być błąd: także solver {{t:out-of-position}} na flopie {{t:fold|pasuje}} częściej, niż wskazuje {{t:mdf}} (moduł 6). Dlatego sama średnia populacji nad progiem nie uzasadnia c-betu bez ręki; potrzebujesz odczytu konkretnego rywala albo flopu, który nie trafia w jego {{t:range}}.
 
 ## 3-bet wobec gracza, który nie {{t:fold|pasuje}}
 
-3-bet z {{t:position|pozycji}} do {{n:pf.3bet.ip-total}} zarabia bez żadnej ręki dopiero wtedy, gdy rywal {{t:fold|pasuje}} częściej niż {{n:alpha.vs-3bet-ip-size}} (moduł 4). Dane z GGPoker NL25:
+3-bet z {{t:position|pozycji}} do {{n:pf.3bet.ip-total}} zarabia bez żadnej ręki dopiero wtedy, gdy rywal {{t:fold|pasuje}} częściej niż {{n:alpha.vs-3bet-ip-size}} (moduł 4). Dane z populacji mikrostawek online (NL25):
 
 | Grupa | Fold to 3-bet |
 |---|---|
 | {{t:regular|Regi}} | {{n:mda.reg.f3b}} |
 | {{t:recreational|Gracze rekreacyjni}} | {{n:mda.rec.f3b}} |
 
-W bazie {{t:bluff|blefy}} 3-betem żyją z {{t:fold|pasów}} i z equity po flopie. Wobec gracza, który {{t:fold|pasuje}} w {{n:mda.rec.f3b}}, {{t:fold|pasów}} prawie nie ma, za to {{t:call|sprawdza}} on słabszymi rękami. Dlatego 3-betujesz go {{t:range|zakresem}} {{t:linear|liniowym}}: więcej silnych rąk {{t:value|dla wartości}}, prawie bez {{t:bluff|blefów}}. Trenerzy PokerCoaching i Deepfold {{t:bet|stawiają}} tę granicę przy fold to 3-bet ok. {{n:hud.f3b.low}}.
+W bazie {{t:bluff|blefy}} 3-betem żyją z {{t:fold|pasów}} i z equity po flopie. Wobec gracza, który {{t:fold|pasuje}} w {{n:mda.rec.f3b}}, {{t:fold|pasów}} prawie nie ma, za to {{t:call|sprawdza}} on słabszymi rękami. Dlatego 3-betujesz go {{t:range|zakresem}} {{t:linear|liniowym}}: więcej silnych rąk {{t:value|dla wartości}}, prawie bez {{t:bluff|blefów}}. Trenerzy w dwóch materiałach szkoleniowych {{t:bet|stawiają}} tę granicę przy fold to 3-bet ok. {{n:hud.f3b.low}}.
 
 ## Mała próba, małe odejście
 
 Im mniejsza próba, tym większy błąd statystyki (lekcja 1). Przy małej próbie przesuwasz tylko ręce graniczne i tylko w kierunku odczytu. Duże odejście, z całym {{t:range|zakresem}}, ma sens dopiero przy dużej próbie i wyraźnym błędzie rywala. Odejście od bazy samo jest błędem, który dobry rywal może wykorzystać.
 
 :::note Źródła
-Zasada {{t:mixed-hand|rąk mieszanych}} pochodzi z analizy GTO Wizard z zablokowaną strategią rywala (rozwiązanie solvera, nie dane o populacji). Progi {{t:alpha}} to rachunek. Fold to 3-bet i fold to c-bet populacji pochodzą z bazy Bluffaces (GGPoker NL25–NL100, {{n:mda.period.months}} miesięcy przed październikiem 2026). Granica fold to 3-bet i zasada „mała próba, małe odejście” to zalecenia PokerCoaching i Deepfold.
+Zasada {{t:mixed-hand|rąk mieszanych}} pochodzi z opublikowanej analizy solvera z zablokowaną strategią rywala (rozwiązanie solvera, nie dane o populacji). Progi {{t:alpha}} to rachunek. Fold to 3-bet i fold to c-bet populacji pochodzą z publicznej bazy statystyk (jedna duża sala online, NL25–NL100, {{n:mda.period.months}} miesięcy przed październikiem 2026). Granica fold to 3-bet i zasada „mała próba, małe odejście” to zalecenia z dwóch materiałów szkoleniowych.
 :::

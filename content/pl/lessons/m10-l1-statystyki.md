@@ -127,5 +127,5 @@ Trenerzy podają podobne progi:
 - 3-bet i fold to 3-bet potrzebują ok. {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}} rąk, statystyki z turnu i rivera jeszcze więcej.
 
 :::note Gdy sala zakazuje {{t:hud|HUD-a}}
-Część sal (według Deepfold m.in. GGPoker, WPT Global i PokerStars na niskich {{t:stakes|stawkach}}) zabrania programów z {{t:hud|HUD-em}} przy stole. Wtedy przeglądasz własną historię rąk po {{t:session|sesji}}, zapisujesz notatki o stałych rywalach i korzystasz z danych o populacji swojej {{t:stakes|stawki}} (lekcja 2). Progi prób pochodzą z PokerCoaching i Deepfold; przedziały obejmują oba źródła. Wzór na błąd to rachunek.
+Część sal (według materiałów szkoleniowych także duże sale na niskich {{t:stakes|stawkach}}) zabrania programów z {{t:hud|HUD-em}} przy stole. Wtedy przeglądasz własną historię rąk po {{t:session|sesji}}, zapisujesz notatki o stałych rywalach i korzystasz z danych o populacji swojej {{t:stakes|stawki}} (lekcja 2). Progi prób pochodzą z dwóch materiałów szkoleniowych; przedziały obejmują oba źródła. Wzór na błąd to rachunek.
 :::

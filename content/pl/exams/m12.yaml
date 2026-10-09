@@ -49,7 +49,7 @@ drills:
     id: m12.exam.q6
     family: m12.tilt-type
     rules: [R-M12-006]
-    prompt: "Przegrałeś dużą {{t:pot|pulę}}. Wiesz, że zagrałeś dobrze i że to {{t:variance}}, a rywal też zagrał poprawnie. Mimo to sama przegrana tak cię złości, że nie możesz się skupić. Jaki to typ tiltu według Tendlera?"
+    prompt: "Przegrałeś dużą {{t:pot|pulę}}. Wiesz, że zagrałeś dobrze i że to {{t:variance}}, a rywal też zagrał poprawnie. Mimo to sama przegrana tak cię złości, że nie możesz się skupić. Jaki to typ tiltu według podziału z lekcji o tilcie?"
     options:
       - { text: "Tilt z nienawiści do przegrywania", correct: true, why: "Wyzwalaczem jest sama przegrana, nawet gdy wiesz, że to {{t:variance}}. Nie winisz losu, siebie ani rywala." }
       - { text: "Tilt z niesprawiedliwości", why: "Ten typ wyzwala poczucie, że poker jest niesprawiedliwy: bad beaty, coolery, trafienia rywala na riverze. Tu wiesz, że wszystko odbyło się normalnie, a złości cię sama przegrana." }

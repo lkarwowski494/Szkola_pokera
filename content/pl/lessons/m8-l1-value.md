@@ -135,5 +135,5 @@ To uproszczenie: solver bez ryzyka check-raise'u betuje thin value nawet ok. 1/4
 Masz {{t:in-position}} średnią rękę, np. {{t:second-pair|drugą parę}}. Gorsze ręce rywala na bet {{t:fold|spasują}}, a zapłacą lepsze. Bet zamienia wtedy twoją rękę w {{t:bluff}}. {{t:check|Czekasz}}: wygrasz showdown z gorszymi rękami bez dopłaty od lepszych.
 
 :::note Skąd te zasady
-Próg ponad połowy {{t:call|sprawdzeń}} to czysta matematyka (bet {{t:in-position}}, bez {{t:raise|przebicia}} i bez rake'u). Rozmiar thin value i {{t:check}} średnią ręką pochodzą z analiz solvera GTO Wizard ({{t:tournament|turnieje}} z krótszymi stackami) oraz z materiałów Deepfold, PokerBank i GTO Gecko.
+Próg ponad połowy {{t:call|sprawdzeń}} to czysta matematyka (bet {{t:in-position}}, bez {{t:raise|przebicia}} i bez rake'u). Rozmiar thin value i {{t:check}} średnią ręką pochodzą z opublikowanych analiz solvera ({{t:tournament|turnieje}} z krótszymi stackami) oraz z materiałów szkoleniowych.
 :::

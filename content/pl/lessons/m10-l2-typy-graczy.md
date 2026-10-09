@@ -26,7 +26,7 @@ drills:
     id: m10.l2.q-data-passive
     family: m10.types.adjust
     rules: [R-M10-006]
-    prompt: "Według danych z GGPoker NL25 {{t:recreational|gracze rekreacyjni}} dochodzą do showdownu w {{n:mda.rec.wtsd}} przypadków i wygrywają {{n:mda.rec.wsd}} showdownów; {{t:regular|regi}} {{n:mda.reg.wtsd}} i {{n:mda.reg.wsd}}. Co z tego wynika?"
+    prompt: "Według danych z populacji mikrostawek online (NL25) {{t:recreational|gracze rekreacyjni}} dochodzą do showdownu w {{n:mda.rec.wtsd}} przypadków i wygrywają {{n:mda.rec.wsd}} showdownów; {{t:regular|regi}} {{n:mda.reg.wtsd}} i {{n:mda.reg.wsd}}. Co z tego wynika?"
     options:
       - { text: "{{t:recreational|Gracze rekreacyjni}} częściej płacą do końca i częściej przegrywają: {{t:call|sprawdzają}} słabszymi rękami", correct: true, why: "Częściej dochodzą do showdownu, a rzadziej go wygrywają, więc idą tam słabszymi rękami. Wobec nich betujesz {{t:value|dla wartości}} więcej rąk, a {{t:bluff|blefujesz}} mniej." }
       - { text: "{{t:recreational|Gracze rekreacyjni}} częściej {{t:bluff|blefują}}", why: "Te liczby mówią o tym, jak często dochodzą do showdownu i z czym, a nie o {{t:bluff|blefach}}. Wygrywają mniej showdownów, bo {{t:call|sprawdzają}} słabszymi rękami." }
@@ -113,7 +113,7 @@ Pasywnego gracza z dużą różnicą nazywa się też {{t:calling-station}}. Mi�
 
 ## Co mówią dane z populacji
 
-Baza Bluffaces podaje średnie statystyki graczy GGPoker NL25 6-max ze wszystkich rozdań z ostatnich {{n:mda.period.months}} miesięcy. {{t:regular|Regi}} to w niej gracze z {{t:vpip}} {{n:mda.reg.def.low}}–{{n:mda.reg.def.high}} i wynikiem powyżej {{n:mda.reg.def.wr}}, a {{t:recreational|gracze rekreacyjni}} to {{t:vpip}} ponad {{n:mda.rec.def}} i wynik poniżej {{n:mda.rec.def.wr}}:
+Publiczna baza statystyk podaje średnie statystyki graczy jednej dużej sali online, NL25 6-max, ze wszystkich rozdań z ostatnich {{n:mda.period.months}} miesięcy. {{t:regular|Regi}} to w niej gracze z {{t:vpip}} {{n:mda.reg.def.low}}–{{n:mda.reg.def.high}} i wynikiem powyżej {{n:mda.reg.def.wr}}, a {{t:recreational|gracze rekreacyjni}} to {{t:vpip}} ponad {{n:mda.rec.def}} i wynik poniżej {{n:mda.rec.def.wr}}:
 
 | Statystyka | {{t:regular|Regi}} | {{t:recreational|Gracze rekreacyjni}} |
 |---|---|---|
@@ -139,5 +139,5 @@ Baza z modułu 8 się nie zmienia: betujesz {{t:value|dla wartości}}, gdy ponad
 **{{t:maniac|Maniak}}** gra dużo rąk i prawie każdą {{t:raise|przebija}}. Jego bety zawierają więcej {{t:bluff|blefów}} niż w bazie, więc ręce na granicy {{t:call|sprawdzenia}} {{t:call|sprawdzasz}}, z bardzo silnymi rękami pozwalasz mu betować, a sam nie {{t:bluff|blefujesz}}: rzadko {{t:fold|pasuje}}.
 
 :::note Skąd te progi
-Progi typów to konwencje trenerów (PokerCoaching i Deepfold, 6-max cash online): bierzemy część wspólną albo przedział obejmujący oba źródła. Dane populacji pochodzą z bazy Bluffaces (GGPoker NL25–NL100, wszystkie rozdania z {{n:mda.period.months}} miesięcy przed październikiem 2026; liczby rąk strona nie podaje). Odczyt typu u {{t:nit|nita}} i {{t:maniac|maniaka}} opiera się na statystykach konkretnego rywala, a nie na danych o całej populacji, więc wymaga próby.
+Progi typów to konwencje trenerów (dwa materiały szkoleniowe, 6-max cash online): bierzemy część wspólną albo przedział obejmujący oba źródła. Dane populacji pochodzą z publicznej bazy statystyk (jedna duża sala online, NL25–NL100, wszystkie rozdania z {{n:mda.period.months}} miesięcy przed październikiem 2026; liczby rąk strona nie podaje). Odczyt typu u {{t:nit|nita}} i {{t:maniac|maniaka}} opiera się na statystykach konkretnego rywala, a nie na danych o całej populacji, więc wymaga próby.
 :::

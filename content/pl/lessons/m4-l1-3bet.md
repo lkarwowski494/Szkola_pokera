@@ -76,13 +76,13 @@ Gdy ktoś przed tobą {{t:open|otworzył}}, masz trzy możliwości: {{t:fold|pas
 
 ## {{t:position|Pozycja}} decyduje, czy {{t:call|sprawdzać}}
 
-Według rozwiązań solverów (GTO Wizard i BeyondGTO) Button wobec {{t:open|otwarcia}} z {{t:cutoff|CO}} zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a {{t:call|sprawdza}} tylko ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}. Wobec {{t:open|otwarcia}} z {{t:utg}} {{t:call|sprawdzeń}} jest już nieco więcej niż 3-betów: ok. {{n:pf.call-freq.btn-vs-utg}} wobec {{n:pf.3bet-freq.btn-vs-utg}}. {{t:range|Zakres}} {{t:utg}} jest silny, więc 3-bet częściej dostaje 4-bet i rzadziej wygrywa {{t:pot|pulę}} od razu.
+Według opublikowanych rozwiązań solverów Button wobec {{t:open|otwarcia}} z {{t:cutoff|CO}} zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a {{t:call|sprawdza}} tylko ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}. Wobec {{t:open|otwarcia}} z {{t:utg}} {{t:call|sprawdzeń}} jest już nieco więcej niż 3-betów: ok. {{n:pf.call-freq.btn-vs-utg}} wobec {{n:pf.3bet-freq.btn-vs-utg}}. {{t:range|Zakres}} {{t:utg}} jest silny, więc 3-bet częściej dostaje 4-bet i rzadziej wygrywa {{t:pot|pulę}} od razu.
 
 ```range
 vs-open.btn-vs-co
 ```
 
-Siatka pokazuje tylko, które ręce Button gra (3-betem albo {{t:call|sprawdzeniem}}), a które {{t:fold|pasuje}}. Podziału między 3-bet i {{t:call|sprawdzenie}} ucz się z liczb powyżej: solver aplikacji prawie nie {{t:call|sprawdza}} w tym spocie, więc tego podziału nie odtwarza. W kilkunastu rękach, np. A8s, 98s i 44, solver aplikacji gra inaczej niż BeyondGTO, więc ćwiczenia ich nie oceniają.
+Siatka pokazuje tylko, które ręce Button gra (3-betem albo {{t:call|sprawdzeniem}}), a które {{t:fold|pasuje}}. Podziału między 3-bet i {{t:call|sprawdzenie}} ucz się z liczb powyżej: solver aplikacji prawie nie {{t:call|sprawdza}} w tym spocie, więc tego podziału nie odtwarza. W kilkunastu rękach, np. A8s, 98s i 44, solver aplikacji gra inaczej niż opublikowane rozwiązania, więc ćwiczenia ich nie oceniają.
 
 Z {{t:small-blind|małego blinda}} prawie zawsze {{t:raise|przebijasz}} albo {{t:fold|pasujesz}}. {{t:call|Sprawdzenie}} oznacza grę {{t:out-of-position}}, a {{t:big-blind}} za tobą może jeszcze {{t:raise|przebić}}. {{t:out-of-position|Bez pozycji}} ręka gorzej **{{t:equity-realization|realizuje equity}}**: wygrywa mniejszą część {{t:pot|puli}}, niż wskazuje jej equity, bo częściej {{t:fold|pasujesz}} przed showdownem i trudniej ci wygrać {{t:pot|pulę}} {{t:bet|zakładem}}.
 
@@ -90,16 +90,16 @@ Z {{t:small-blind|małego blinda}} prawie zawsze {{t:raise|przebijasz}} albo {{t
 vs-open.sb-vs-btn
 ```
 
-Według rozwiązania GTO Wizard {{t:small-blind}} wobec Buttona prawie nic nie {{t:call|sprawdza}}: 3-betuje ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, górę {{t:range|zakresu}} (m.in. 77+, AJo+, KQo, A5s, A4s, T9s), a resztę {{t:fold|pasuje}}. Solver aplikacji 3-betuje tu {{n:solver.3bet.sb-vs-btn}} rąk, w tym także {{t:pair|pary}} 55 i 66; jego nieliczne {{t:call|sprawdzenia}} siatka liczy jako {{t:fold}}. W kilku rękach, np. ATo, T9s i A4s, solver aplikacji gra inaczej niż BeyondGTO, więc ćwiczenia ich nie oceniają.
+Według opublikowanego rozwiązania solvera {{t:small-blind}} wobec Buttona prawie nic nie {{t:call|sprawdza}}: 3-betuje ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, górę {{t:range|zakresu}} (m.in. 77+, AJo+, KQo, A5s, A4s, T9s), a resztę {{t:fold|pasuje}}. Solver aplikacji 3-betuje tu {{n:solver.3bet.sb-vs-btn}} rąk, w tym także {{t:pair|pary}} 55 i 66; jego nieliczne {{t:call|sprawdzenia}} siatka liczy jako {{t:fold}}. W kilku rękach, np. ATo, T9s i A4s, solver aplikacji gra inaczej niż opublikowane rozwiązania, więc ćwiczenia ich nie oceniają.
 
 ## {{t:range|Zakres}} {{t:linear}} czy {{t:polarized}}
 
-Mając {{t:position|pozycję}} wobec {{t:open|otwarcia}} z {{t:hijack|HJ}} albo {{t:cutoff|CO}}, 3-betujesz głównie najlepsze ręce od góry i dokładasz kilka {{t:bluff|blefów}} z asami w kolorze (A5s, A4s), a część słabszych rąk, na przykład małe {{t:pair|pary}} i {{t:connectors|konektory}} w kolorze, {{t:call|sprawdzasz}}: rywal często {{t:call|sprawdza}}, więc chcesz mieć rękę, która dobrze gra w {{t:pot|puli}} po {{t:call|sprawdzeniu}}. Źródła nazywają taki {{t:range}} różnie: GTO Gecko {{t:linear|liniowym}}, Preflop Wizard {{t:polarized|spolaryzowanym}}; ważniejsze jest, które ręce 3-betujesz, a które {{t:call|sprawdzasz}}.
+Mając {{t:position|pozycję}} wobec {{t:open|otwarcia}} z {{t:hijack|HJ}} albo {{t:cutoff|CO}}, 3-betujesz głównie najlepsze ręce od góry i dokładasz kilka {{t:bluff|blefów}} z asami w kolorze (A5s, A4s), a część słabszych rąk, na przykład małe {{t:pair|pary}} i {{t:connectors|konektory}} w kolorze, {{t:call|sprawdzasz}}: rywal często {{t:call|sprawdza}}, więc chcesz mieć rękę, która dobrze gra w {{t:pot|puli}} po {{t:call|sprawdzeniu}}. Źródła nazywają taki {{t:range}} różnie: jedne {{t:linear|liniowym}}, inne {{t:polarized|spolaryzowanym}}; ważniejsze jest, które ręce 3-betujesz, a które {{t:call|sprawdzasz}}.
 
 Z {{t:big-blind|dużego blinda}} wobec Buttona albo {{t:small-blind|małego blinda}} 3-betujesz najsilniejsze ręce (TT+, AQ+, AJs+) plus {{t:bluff|blefy}} z dołu {{t:range|zakresu}} {{t:call|sprawdzenia}}: A5s, czasem A4s, i {{t:connectors|konektory}} w kolorze. Asy w kolorze blokują AA i AK rywala, a gdy dostaną {{t:call}}, wciąż mogą trafić {{t:flush}} albo {{t:straight|strita}}. Średnie i małe {{t:pair|pary}}, KQo oraz asy w różnych kolorach (AJo–A9o) zwykle tylko {{t:call|sprawdzasz}}: z {{t:big-blind|dużego blinda}} wchodzisz tanio i zamykasz akcję, więc te ręce zarabiają więcej po {{t:call|sprawdzeniu}}. Skład zależy od {{t:rake|rake'u}} i rozmiaru 3-betu, więc 99, KQo i AJo bywają grane różnie.
 
 Z {{t:small-blind|małego blinda}} grasz inaczej: 3-bet albo {{t:fold}}, z górą {{t:range|zakresu}} w 3-becie.
 
 :::note Skąd te zasady
-Siatki Buttona i {{t:small-blind|małego blinda}} pochodzą z solvera aplikacji i w przybliżeniu zgadzają się ze źródłami (w {{t:small-blind|małym blindzie}} poza kilkoma rękami, których ćwiczenia nie oceniają). Jak 3-betować z {{t:big-blind|dużego blinda}}, uczy reguła oparta na opublikowanych wynikach innych solverów (GTO Wizard, Poker Academy, ThinkGTO, Upswing): skład 3-betów z {{t:big-blind|dużego blinda}} w solverze aplikacji od nich odbiega.
+Siatki Buttona i {{t:small-blind|małego blinda}} pochodzą z solvera aplikacji i w przybliżeniu zgadzają się ze źródłami (w {{t:small-blind|małym blindzie}} poza kilkoma rękami, których ćwiczenia nie oceniają). Jak 3-betować z {{t:big-blind|dużego blinda}}, uczy reguła oparta na opublikowanych wynikach innych solverów z kilku niezależnych źródeł: skład 3-betów z {{t:big-blind|dużego blinda}} w solverze aplikacji od nich odbiega.
 :::
