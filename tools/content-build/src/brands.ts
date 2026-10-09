@@ -65,6 +65,7 @@ const BRANDS: readonly [name: string, pattern: RegExp][] = [
   ['iPoker', /\biPoker\b/],
   ['Simple GTO', /simple[\s-]?gto/i],
   ['GTO Base', /gto[\s-]?base\b/i],
+  ['GTO+', /\bGTO\+/],
 ];
 
 /**
@@ -91,6 +92,9 @@ const AUTHORS: readonly [name: string, pattern: RegExp][] = [
   ['Flynn', /\bFlynn/],
   ['Mehta', /\bMehta/],
   ['Negreanu', /\bNegreanu/],
+  ['The Mental Game of Poker', /Mental Game of Poker/i],
+  ['The Mathematics of Poker', /Mathematics of Poker/i],
+  ['Kill Everyone', /Kill Everyone/i],
 ];
 
 /** Wszystkie nazwy, których nie ma w tekstach aplikacji: marki, potem autorzy. */
