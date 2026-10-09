@@ -11,9 +11,9 @@ Właściciel decyduje o sprawach **produktowych**: zakres i kolejność prac, no
 ### Hierarchia źródeł (wyższy szczebel wygrywa)
 
 1. Rachunek: prawdopodobieństwo, pot odds, MDF, alpha, kombinatoryka, SPR; liczony w aplikacji i sprawdzony niezależnie.
-2. Opublikowane wyniki solverów i rozwiązań równowagi z uznanych źródeł (np. GTO Wizard, analizy PioSolvera na Upswing, Poker Academy) oraz nasz solver tylko tam, gdzie przeszedł walidację (dokument 10 na Drive).
+2. Opublikowane wyniki solverów i rozwiązań równowagi z uznanych źródeł (komercyjne serwisy solverów publikujące rozwiązania, szkoły publikujące analizy solverów; lista z nazwami: dokument 03, ADR-24, uzupełnienie z 9.10.2026) oraz nasz solver tylko tam, gdzie przeszedł walidację (dokument 10 na Drive).
 3. Książki uznanych autorów, czytane przez dostępne fragmenty, artykuły i wykłady autorów lub omówienia z cytatami: m.in. Chen i Ankenman „The Mathematics of Poker”, Janda „Applications of No-Limit Hold'em”, Acevedo „Modern Poker Theory”, Flynn, Mehta i Miller „Professional No-Limit Hold'em”, Brokos „Play Optimal Poker”, Tendler „The Mental Game of Poker”; turnieje: Harrington, „Kill Everyone”.
-4. Materiały uznanych serwisów szkoleniowych (Upswing, PokerCoaching, Deepfold, Run It Once, SplitSuit, GTO Gecko).
+4. Materiały uznanych serwisów szkoleniowych (lista z nazwami: dokument 03, ADR-24, uzupełnienie z 9.10.2026).
 5. Eksploatacja: tylko z danymi o populacji (próba, stawki, pokój). Bez nich nie ma reguły eksploatacyjnej.
 
 ### Zasady rozstrzygania
