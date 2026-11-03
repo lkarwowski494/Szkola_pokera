@@ -5,7 +5,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 
 | Rola | Tryb | Stan | Commit | Artefakty | Otwarte decyzje |
 |---|---|---|---|---|---|
-| 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | rynek PL (karta 48: wszędzie poza Polską); wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
+| 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -49,6 +49,8 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 ## Decyzje właściciela z E1b (2026-11-03)
 - Model i cena: „Twój wariant 0,99/6,99/14,99” (USD mies./rok/dożywotni; wynik normalny 3 130,75 USD/rok, zapas 6,3× nad progiem). Odrzucone: ceny rynku 14,99/89,99/149,99 (rekomendowane, 24 958 USD), jednorazowy 99,99 (17 893 USD), środek 4,99/29,99/59,99 (10 784 USD). Ryzyko przyjęte: sam iOS spada pod próg, jeśli udział nowej aplikacji okaże się pesymistyczny; najtańsza kontrola po wydaniu: App Store Connect Analytics, 90 dni.
 - Nowa sesja: „Nie” — kontynuacja w tej sesji.
+- Rynek PL: „Tak, bez PL, polski zostaje” — storefront PL odznaczony w App Store Connect (i Google Play), język pl zostaje w 35 językach; potwierdza decyzję z karty 48 (01.11.2026). Odrzucone: bez PL i bez polskiego; z Polską. Wynik bramki bez PL: 32,77 / 3 112,14 / 264 341,02 USD, „budować”.
+- Dalej: „Rola 01 w tej sesji”.
 
 ## Następny krok
-Model i cena rozstrzygnięte (2026-11-03). (1) potwierdzenie właściciela: storefront PL wyłączony (karta 48, 01.11.2026); (2) wpis decyzji E0 i E1b w rejestrze 03 (konektor Google Docs); (3) rola 01 (BRD) w trybie build, potem 02 → 03 → 04 → 05.
+Model i cena rozstrzygnięte (2026-11-03). (1) rynek PL rozstrzygnięty (bez storefrontu PL, pl w językach); (2) wpis decyzji E0 i E1b w rejestrze 03 (konektor Google Docs); (3) rola 01 (BRD) w trybie build, potem 02 → 03 → 04 → 05.

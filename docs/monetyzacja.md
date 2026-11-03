@@ -151,7 +151,7 @@ Wybór ceny to decyzja produktowa właściciela (CLAUDE.md). **Decyzja właścic
 | Oceny US: Preflop Wizard / Poker Trainer | 3 483 / 1 165 (2026-11-03) | 3 471 / 1 142 (18.10.2026) | przyrost w 16 dni |
 | Darmowa alternatywa | `[ZAŁOŻENIE]` 50 / 70 / 90% popytu niezabranego | Texas Hold'em (Apple), 74 183 ocen — „nie pokrywa” (gra bez lekcji) | zgodne kierunkowo; karta nie zna Poker Skill (darmowy kurs, dokument z Dysku) |
 | Reklamy | pominięte (standard wysoki) | 2 557 USD (2. marka) | decyzja właściciela E0: standard wysoki |
-| **Rynki** | lista krótka **z PL** (rynek domowy) | **„wszędzie poza Polską”** (decyzja o rynkach z 01.11.2026, art. 29 u.g.h., `dane/poker-prawo-hazard.md`) | E0 tej roli nie odczytało karty (D-023). Przeliczenie bez PL: 32,77 / 3 112,14 / 264 341,02 USD; sam iOS 29,79 / 1 945,09 / 88 113,67 — werdykt bez zmian („budować”). Wymaga potwierdzenia właściciela: storefront PL wyłączony, język pl zostaje w 35 językach? |
+| **Rynki** | lista krótka **z PL** (rynek domowy) | **„wszędzie poza Polską”** (decyzja o rynkach z 01.11.2026, art. 29 u.g.h., `dane/poker-prawo-hazard.md`) | E0 tej roli nie odczytało karty (D-023). Przeliczenie bez PL: 32,77 / 3 112,14 / 264 341,02 USD; sam iOS 29,79 / 1 945,09 / 88 113,67 — werdykt bez zmian („budować”). **Decyzja właściciela 2026-11-03: „Tak, bez PL, polski zostaje”** (storefront PL wyłączony, pl w 35 językach). |
 
 **Dokument z Dysku** „Aplikacje Mobilne do Nauki Pokera” (id 121Gf18Z…, odczyt 2026-11-03):
 
@@ -178,7 +178,7 @@ Wniosek: rozbieżności cen nie zmieniają median kategorii rzędu wielkości (w
 | OP-02 | [DO USTALENIA] Płatności App Store w storefroncie RU | 02, E1b | przesiew |
 | OP-03 | [DO USTALENIA] Instalacje na ocenę i udział nowej aplikacji: brak przeczytanego benchmarku → `[ZAŁOŻENIE]` z rozrzutem ≥ 10× | 02, E1b | bramka |
 | OP-04 | [DO WYJAŚNIENIA] Wpis decyzji E0 w rejestrze 03 na Dysku wymaga konektora Google Docs (sesja ma tylko Drive) | właściciel | rejestr |
-| OP-05 | [DO WYJAŚNIENIA] Decyzja o rynkach z karty portfela (01.11.2026: wszędzie poza Polską) wobec listy krótkiej z PL i polityki 35 języków z pl — potwierdzenie właściciela | właściciel | rynki, rola 09 |
+| OP-05 | Rozstrzygnięte 2026-11-03: bez storefrontu PL, pl w językach (decyzja właściciela) | — | rynki, rola 09 |
 | OP-06 | [DO USTALENIA] Stawki VAT FR/DE/PL/JP/TW/VN u źródła (wpływ < 5%) | 02, krok cennika | rachunek |
 | OP-07 | [DO USTALENIA] Benchmark instalacji na ocenę i konwersji według ceny (przeczytane źródło) — najtańsze sprawdzenie werdyktu | 02, przed cennikiem | bramka |
 
