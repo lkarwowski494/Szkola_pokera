@@ -32,6 +32,13 @@ Prompt: `assemble.mjs 02-monetyzacja --tryb build` (prompts c025063; moduły aud
 - E2: co najmniej 3 opcje (decyzja z 2026-11-03: kwartał + rok + dożywotni; sam zakup dożywotni; sama subskrypcja), `rachunek.json` + `rachunek.mjs`, decyzje: okres próbny, Family Sharing, podział darmowe/płatne dla 03; ok. 2–3 h; właściciel: 3–4 pytania.
 - E3: kontrakt płatności, szkic ADR biblioteki, wektory dostępu, przekazanie do 03, 04, 05, 07, 08; ok. 2 h; właściciel: bramka i kroki w App Store Connect (produkty, progi cen, zapis do Small Business Program, jeśli go nie ma).
 
+## Zmiana podziału darmowe/płatne (decyzja właściciela 2026-11-03, po bramce E3)
+- Pytanie właściciela: „Może jeszcze oprócz lekcji jakieś egzaminy i zapisywanie postępów jest płatne?”; propozycja właściciela: „lekcje i egzaminy i postęp darmowe ale dwa podejścia do egzaminów dziennie za darmo plus x sesji ćwiczeń za darmo plus ileś powtórek za darmo i ileś scenariuszy za darmo”.
+- Decyzja: „Jedna dzienna pula (Recommended)” — lekcje, pierwsze podejście do egzaminu modułu, postęp i eksport zawsze darmowe; darmowa dzienna pula „N zadań dziennie” wspólna dla sesji ćwiczeń, powtórek, scenariuszy i powtórnych podejść do egzaminu; Pro (kwartał 9,99 / rok 14,99 / dożywotni 19,99 USD) zdejmuje limit. Odrzucone: cztery osobne limity, pula z powtórkami bez limitu, bez zmian (wszystko poza lekcjami tylko w Pro).
+- Płatne zapisywanie postępu: odrzucone przez rolę 02 jako niedozwolone (5.6: „trick them into making unwanted purchases … any other manipulative practices”; tabela „Etyka” wzorców roli: dane jako zakładnik); wzór Treningu (`docs/monetyzacja.md:33` w repo `trening`: historia zawsze dostępna) i Oczka (`README.md:140`: historia tylko do odczytu po próbie).
+- Skutki: limit użycia, nie czasu, to nie okres próbny 3.1.1 (wzorce roli, „Kalibracja”), więc bez mechanizmu „XX-day Trial”; licznik jawny przed startem zadania, nie w trakcie; licznik odporny na ponowną instalację [DO USTALENIA] (OP-10: czy wystarczy licznik lokalny, skoro reset daje tylko jeden dodatkowy dzień puli); wartość N to parametr produktowy [DO WYJAŚNIENIA] (OP-11: rola 03 z właścicielem, korekta po danych ze sklepu); zablokowana powtórka przesuwa harmonogram, nie kasuje danych — komunikat mówi to wprost. Ryzyko: skargi na „limit energii” u konkurencji (BRD, rynek) — limit musi być widoczny i hojny.
+- Zastępuje propozycję z bramki E2 („Wszystkie lekcje darmowe”: płatne sesje, powtórki, scenariusze bez darmowej części). Zależy od: ZAL-005.
+
 ## Decyzje właściciela na bramce E2 (2026-11-03)
 - Model: „A: drabina 9,99/14,99/19,99” — potwierdza decyzję z 2026-11-03; odrzucone: B sam jednorazowy 19,99 (rekomendacja roli 02, 6 400,43 vs 5 199,87 USD norm.), C sama subskrypcja. Ryzyko przyjęte: drabina wymaga konwersji ≥ 1,23× zakupu jednorazowego, żeby mu dorównać; kontrola po wydaniu: App Store Connect (Sales and Trends, udział planów), 90 dni. Zależy od: ZAL-MON-01, ZAL-011.
 - Podział darmowe/płatne (propozycja dla roli 03): „Wszystkie lekcje darmowe (Recommended)” — darmowe lekcje z ćwiczeniami w środku; płatne sesje ćwiczeń z oceną poza lekcją, powtórki, scenariusze; odrzucone: darmowe M0–M2, dzienny limit. Zależy od: ZAL-005 (H-01).
@@ -50,10 +57,10 @@ Dla ról 04, 05, 07, 08. Ceny US; inne kraje według tabel cen sklepów (krok w�
 | Przepływ (PR) | Akcja | Bez dostępu (co widzi użytkownik) | Dane zawsze dostępne |
 |---|---|---|---|
 | PR-01 ocena poziomu | cała | — (darmowe) | wynik oceny |
-| PR-02 lekcja | lekcja z ćwiczeniami w środku, test modułu | — (darmowe) | postęp lekcji |
-| PR-03 sesja ćwiczeń | zadania z oceną i wyjaśnieniem poza lekcją | ekran zakupu jako stan przepływu po wejściu w sesję, z opisem tego, co daje dostęp; powrót do lekcji jednym ruchem | historia odpowiedzi z lekcji |
-| PR-04 powtórki | kolejka powtórek | to samo; lista błędów z lekcji widoczna, powtórka w harmonogramie po zakupie | lista błędów |
-| PR-05 scenariusz | scenariusz całego rozdania | to samo; opis scenariusza widoczny | — |
+| PR-02 lekcja | lekcja z ćwiczeniami w środku, pierwsze podejście do egzaminu modułu | — (darmowe) | postęp lekcji |
+| PR-03 sesja ćwiczeń | zadania z oceną i wyjaśnieniem poza lekcją; powtórne podejście do egzaminu | darmowa pula N zadań dziennie (licznik widoczny przed startem); po wyczerpaniu ekran zakupu jako stan przepływu, z informacją, kiedy pula się odnowi; powrót do lekcji jednym ruchem | historia odpowiedzi |
+| PR-04 powtórki | kolejka powtórek | ta sama pula; po wyczerpaniu harmonogram się przesuwa (bez utraty danych), komunikat mówi to wprost | lista błędów, harmonogram |
+| PR-05 scenariusz | scenariusz całego rozdania | ta sama pula; opis scenariusza widoczny | wyniki scenariuszy |
 | PR-06 zakup | zakup, przywracanie, zarządzanie subskrypcją | zawsze dostępne | — |
 | PR-07 dane | eksport, import, usunięcie | zawsze dostępne, bez zakupu | cały postęp |
 | PR-08 pomoc | numer pomocy | zawsze dostępne, bez zakupu | — |
@@ -368,6 +375,8 @@ Wniosek: rozbieżności cen nie zmieniają median kategorii rzędu wielkości (w
 | OP-04 | [DO WYJAŚNIENIA] Wpis decyzji E0 w rejestrze 03 na Dysku wymaga konektora Google Docs (sesja ma tylko Drive) | właściciel | rejestr |
 | OP-05 | Rozstrzygnięte 2026-11-03: bez storefrontu PL, pl w językach (decyzja właściciela) | — | rynki, rola 09 |
 | OP-06 | [DO USTALENIA] Stawki VAT FR/DE/PL/JP/TW/VN u źródła (wpływ < 5%) | 02, krok cennika | rachunek |
+| OP-10 | [DO USTALENIA] Licznik dziennej puli: lokalny czy odporny na ponowną instalację (Keychain); realność obejścia: brzegowa (jeden dzień puli) | 05 | kontrakt płatności |
+| OP-11 | [DO WYJAŚNIENIA] Wartość N darmowej puli dziennie | 03 z właścicielem | kontrakt płatności, F-07, F-10, F-12, F-04 |
 | OP-09 | [DO USTALENIA] Zakup dożywotniego przy aktywnej subskrypcji: czy StoreKit i Google Play Billing pozwalają anulować subskrypcję z aplikacji, czy tylko wskazać ustawienia | 05, 07 | kontrakt płatności |
 | OP-08 | [DO USTALENIA] Google Play: pełne warunki subskrypcji i produktów jednorazowych (ujawnienia, okres próbny, przywracanie) przed cennikiem | 02, E3 | kontrakt płatności |
 | OP-07 | [DO USTALENIA] Benchmark instalacji na ocenę i konwersji według ceny (przeczytane źródło) — najtańsze sprawdzenie werdyktu | 02, przed cennikiem | bramka |

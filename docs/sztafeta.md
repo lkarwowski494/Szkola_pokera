@@ -146,5 +146,8 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 
 - Bramka E3: „Akceptuję, dalej rola 03 (Recommended)”; nowa sesja: „Nie” — rola 03 w tej sesji.
 
+## Zmiana podziału darmowe/płatne (2026-11-03, po bramce E3 roli 02)
+- Właściciel: „Jedna dzienna pula (Recommended)” — lekcje, pierwsze podejście do egzaminu, postęp i eksport darmowe; wspólna dzienna pula N zadań (ćwiczenia, powtórki, scenariusze, powtórne egzaminy); Pro bez limitu. Płatny zapis postępu odrzucony (5.6). Szczegóły: `docs/monetyzacja.md`, „Zmiana podziału”; N: OP-11 (03 z właścicielem).
+
 ## Następny krok
 **Rola 03 build, E1** (pętla główna, wzorzec najlepszych, pominięcia) po decyzji o apetycie. Prompt: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build` (prompts c025063). Stan: `docs/scope-contract.md`.

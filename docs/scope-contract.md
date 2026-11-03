@@ -11,7 +11,7 @@ Prompt: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build` (pro
 **Wejście jako hipotezy:**
 | ID | Treść (skrót) | Status | Skutek dla zakresu |
 |---|---|---|---|
-| H-01 / ZAL-005 | darmowa część z prawdziwą nauką zwiększa sprzedaż | hipoteza; propozycja „wszystkie lekcje darmowe” wybrana przez właściciela na bramce E2 roli 02 | podział darmowe/płatne: lekcje (PR-02) darmowe, sesje ćwiczeń (PR-03), powtórki (PR-04), scenariusze (PR-05) płatne |
+| H-01 / ZAL-005 | darmowa część z prawdziwą nauką zwiększa sprzedaż | hipoteza; zmiana podziału właściciela 2026-11-03: „Jedna dzienna pula” (`docs/monetyzacja.md`) | lekcje, pierwsze podejście do egzaminu, postęp i eksport darmowe; sesje ćwiczeń, powtórki, scenariusze i powtórne egzaminy z darmową pulą N dziennie (OP-11 w `docs/monetyzacja.md`), Pro bez limitu |
 | H-02 / ZAL-001, ZAL-002 | jedna ścieżka dla wszystkich poziomów z oceną na starcie | hipoteza | F-01 w pętli |
 | H-03 / ZAL-003, ZAL-004 | 35 języków, kolejność przeglądu według popytu | ZAL-003 częściowo potwierdzone | F-16; polityka języków to decyzja właściciela (CLAUDE.md) |
 | H-04 / ZAL-002 | jedna aplikacja z modułami | hipoteza | podział w E2 |
@@ -27,15 +27,15 @@ Prompt: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build` (pro
 | F-01 | Ocena poziomu i punkt startu | BR-ONB-001, BR-ONB-002, BR-ONB-003 | WTP-2 (R) | — | darmowa |
 | F-02 | Pierwszy ekran: czym aplikacja jest | BR-ONB-004 | WTP-0 (B) | prawo: OG-07, NFR-ZGOD-002 | darmowa |
 | F-03 | Kurs: lekcje w kolejności z ćwiczeniami (treść) | BR-KURS-001, BR-KURS-003, BR-KURS-004, BR-KURS-005 | WTP-1 (R) | — | darmowa (decyzja E2 roli 02) |
-| F-04 | Test modułu do pominięcia znanych treści | BR-KURS-002 | WTP-2 (R) | — | darmowa |
-| F-05 | Ocena zagrania i wyjaśnienie „dlaczego” | BR-CWI-001, BR-CWI-002 | WTP-1 (R) | bezpieczeństwo merytoryczne: RD-01–RD-08, RD-11 (bloker wydania) | w lekcji darmowa, w sesji płatna |
+| F-04 | Test modułu do pominięcia znanych treści | BR-KURS-002 | WTP-2 (R) | — | pierwsze podejście darmowe, powtórne z puli |
+| F-05 | Ocena zagrania i wyjaśnienie „dlaczego” | BR-CWI-001, BR-CWI-002 | WTP-1 (R) | bezpieczeństwo merytoryczne: RD-01–RD-08, RD-11 (bloker wydania) | w lekcji darmowa, w sesji z puli |
 | F-06 | Szanse trafienia i ranking układów | BR-CWI-003, BR-CWI-007 | WTP-0 (B) | RD-04, RD-05 | darmowa |
-| F-07 | Krótka sesja ćwiczeń, przerwanie bez straty | BR-CWI-004 | WTP-0 (R) | dane: postęp sesji | płatna (sesja poza lekcją) |
-| F-08 | Ćwiczenia ICM w turniejach | BR-CWI-005 | WTP-2 (B) | RD-09 | płatna |
-| F-09 | Plan rozdania: SPR i rozmiar geometryczny | BR-CWI-006 | WTP-2 (B) | RD-06, RD-07 | płatna |
-| F-10 | Powtórki rozłożone w czasie | BR-POW-001, BR-POW-002 | WTP-1 (R) | dane: historia powtórek | płatna |
+| F-07 | Krótka sesja ćwiczeń, przerwanie bez straty | BR-CWI-004 | WTP-0 (R) | dane: postęp sesji | pula dzienna, Pro bez limitu |
+| F-08 | Ćwiczenia ICM w turniejach | BR-CWI-005 | WTP-2 (B) | RD-09 | pula dzienna |
+| F-09 | Plan rozdania: SPR i rozmiar geometryczny | BR-CWI-006 | WTP-2 (B) | RD-06, RD-07 | pula dzienna |
+| F-10 | Powtórki rozłożone w czasie | BR-POW-001, BR-POW-002 | WTP-1 (R) | dane: historia powtórek | pula dzienna |
 | F-11 | Lokalne przypomnienie za zgodą | BR-POW-003 | WTP-2 (R) | — | darmowa |
-| F-12 | Scenariusz całego rozdania bez stosu | BR-SCN-001, BR-SCN-002, BR-SCN-003, BR-SCN-004 | WTP-1 (R) | prawo: OG-01, OG-02 | płatna |
+| F-12 | Scenariusz całego rozdania bez stosu | BR-SCN-001, BR-SCN-002, BR-SCN-003, BR-SCN-004 | WTP-1 (R) | prawo: OG-01, OG-02 | pula dzienna |
 | F-13 | Zakup, przywracanie, anulowanie | BR-ZAK-001, BR-ZAK-002, BR-ZAK-003, BR-ZAK-004 | WTP-0 (B) | prawo: OG-06 | zawsze dostępne |
 | F-14 | Eksport, import, usunięcie i zachowanie postępu | BR-DANE-001, BR-DANE-002, BR-DANE-003, BR-DANE-004 | — (dane nigdy płatne) | dane: odczyt / eksport / usunięcie | zawsze darmowe |
 | F-15 | Pomoc przy problemie z hazardem | BR-POM-001, BR-POM-002 | WTP-0 (B) | bezpieczeństwo: RD-12 (reguła krytyczna) | zawsze darmowe |
