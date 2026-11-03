@@ -1,7 +1,36 @@
 # Monetyzacja: Szkoła Pokera
-Stan: E1b bramki opłacalności zakończone (werdykt „budować”, słaby dowód) (rola 02, krok 0, `--moduly oplacalnosc`) · Aktualizacja: 2026-11-03 · Wejście: brak BRD (krok 0 przed rolą 01), decyzje właściciela z E0 w `docs/sztafeta.md`
+Stan: sesja 2, E0 (2026-11-03); bramka opłacalności (krok 0) zakończona werdyktem „budować” (słaby dowód) · Aktualizacja: 2026-11-03 · Wejście: brak BRD (krok 0 przed rolą 01), decyzje właściciela z E0 w `docs/sztafeta.md`
 
 Dane surowe: `docs/monetyzacja/e1-rynek-2026-11-03.json` (lookup, zakupy w aplikacji US/PL/DE/GB, 45 storefrontów, StatCounter, NBP, Google Play). Parsery: `docs/monetyzacja/iap.mjs`, `plany.mjs`. Niezależność (D-023): przed zapisaniem `oplacalnosc-wlasna.json` nie otwierano karty portfela ani dokumentu „Aplikacje Mobilne do Nauki Pokera”; otwarto dokument 07 (Dysk, za zgodą z przekazania) i ADR-11.
+
+## Sesja 2, E0: rama (2026-11-03, po BRD roli 01)
+Prompt: `assemble.mjs 02-monetyzacja --tryb build` (prompts c025063; moduły audyt-paywalla, cena-i-rachunek, rachunek, storekit-expo), przeczytany od kontraktu roli (część wspólna taka sama jak w prompcie roli 01 z tej sesji).
+
+**Środowisko (2026-11-03, ok. 18:50 UTC):** `itunes.apple.com/search` → 200 (w E1 było 403: OP-01 można teraz zamknąć w E1), RSS recenzji → 200, `apps.apple.com/us/app/id…` → 301 na stronę aplikacji, `developer.apple.com` → 200. Konto App Store Connect jest, umowa Paid Apps podpisana (E0 bramki). Mac z Xcode: brak, więc testy StoreKit są krokiem właściciela. Kod: brak biblioteki płatności w `apps/mobile/package.json`; jest `@sentry/react-native` ~7.11.0 (do usunięcia, OP-12 w BRD, rola 05/08).
+
+**Wejście z roli 01 jako hipotezy** (BRD `docs/brd/`, commit 6ab5453):
+| ID | Treść (skrót) | Status przed tą sesją | Co sprawdzam |
+|---|---|---|---|
+| H-01 / ZAL-005 | darmowa część z prawdziwą nauką zwiększa sprzedaż; rekomendacja 01: lekcje darmowe, płatna wartość ciągła | hipoteza | E1.3 (WTP), E2 (podział dla 03) |
+| H-09 / ZAL-011 | subskrypcja broni się powtórkami, scenariuszami i aktualizacjami (OG-05) | hipoteza | E2: reguła 3.1.2(a) wobec każdej opcji |
+| ZAL-MON-01 | drabina 9,99 kwartał / 14,99 rok / 19,99 dożywotni kieruje do dożywotniego | hipoteza (właściciel) | E2: rachunek wariantów udziału planów |
+| ZAL-006 | brak synchronizacji jest akceptowany; zakup przywraca sklep | hipoteza | E3: kontrakt (przywracanie, nowe urządzenie) |
+| ZAL-009 | mnożniki bramki | hipoteza | bez zmian; OP-03, OP-07 |
+| BR-ZAK-001–BR-ZAK-004, OG-05, OG-06, OP-16 | zakup, ujawnienia, przywracanie, anulowanie | wymagania | E3 |
+
+**Reguły sklepu na dziś** (odczyt 2026-11-03, surowy tekst stron):
+- App Review Guidelines, „Last Updated: October 16, 2026”. 3.1.1: „setting up a Non-Consumable IAP item at Price Tier 0 that follows the naming convention: “XX-day Trial.” Prior to the start of the trial, your app must clearly identify its duration, the content or services that will no longer be accessible when the trial ends”; „you should make sure you have a restore mechanism for any restorable in-app purchases”. 3.1.2(a): „you must provide ongoing value to the customer, and the subscription period must last at least seven days and be available across all of the user’s devices”. 5.6: „Apps should never prey on users or attempt to rip off customers, trick them into making unwanted purchases”.
+- developer.apple.com/app-store/subscriptions: „clearly indicate how long the free trial lasts and the price billed once the free trial is over”; „the amount that will be billed must be the most prominent pricing element in the layout”; „A way for current subscribers to sign in or restore purchases”; „use the showManageSubscriptions(in:) method”.
+- developer.apple.com/app-store/small-business-program: „a reduced commission rate of 15% on paid apps and Apple In-App Purchases”.
+- Family Sharing (pomoc App Store Connect): „once you turn on Family Sharing for an In-App Purchases in App Store Connect, you can't turn it off” — decyzja w E2.
+- Google Play, zasady subskrypcji (support.google.com/googleplay/android-developer/answer/9900533): „You must be transparent about your offer. This includes clearly and explicitly disclosing your offer terms, the cost of your subscription, the frequency of your…” (cytat urwany na końcu fragmentu; pełne brzmienie w E2).
+
+**Sprzeczność do E3 (ADR z rolą 05):** ADR-18 „RevenueCat vs expo-iap” jest „Do decyzji”, a decyzja OP-12 (etykieta „Data Not Collected”) wyklucza praktycznie RevenueCat: biblioteka wymaga ujawnienia „Purchases” w App Privacy (wzorce roli, odczyt 18.10.2026; ponowny odczyt w E3).
+
+**Plan i czas (agent / oczekiwanie / właściciel):**
+- E1.3–E1.4: klasy WTP dla 35 BR z danymi konkurencji (`docs/brd/dane/`), wyszukiwanie z OP-01, statusy H i ZAL; ok. 2 h agenta, limit wyszukiwarki ok. 20 wywołań/min; właściciel: bramka E1 (1 pytanie).
+- E2: co najmniej 3 opcje (decyzja z 2026-11-03: kwartał + rok + dożywotni; sam zakup dożywotni; sama subskrypcja), `rachunek.json` + `rachunek.mjs`, decyzje: okres próbny, Family Sharing, podział darmowe/płatne dla 03; ok. 2–3 h; właściciel: 3–4 pytania.
+- E3: kontrakt płatności, szkic ADR biblioteki, wektory dostępu, przekazanie do 03, 04, 05, 07, 08; ok. 2 h; właściciel: bramka i kroki w App Store Connect (produkty, progi cen, zapis do Small Business Program, jeśli go nie ma).
 
 ## Środowisko E1 (2026-11-03)
 - Działa: `itunes.apple.com/lookup`, `apps.apple.com` (strony aplikacji), RSS recenzji, `api.nbp.pl`, `gs.statcounter.com`, `play.google.com/store/apps/details`.

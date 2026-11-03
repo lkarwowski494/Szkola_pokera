@@ -7,6 +7,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 |---|---|---|---|---|---|
 | 01 Odkrywanie | build | zakończona 2026-11-03 (E4, przekazanie niżej) | (commit E4) | `docs/brd/` (README, wywiad, odkrywanie, wymagania, wymagania-nauka, wymagania-sklep, reguly, errata, zrodla, dane/), `tests/wektory/brd.json`, `docs/zalozenia.md`, „Stan projektu” w `CLAUDE.md` | OP-10, OP-14, OP-16, OP-18 (źródła), OP-19 (04), OP-20, OP-22 (03 z właścicielem), OP-21 (05) |
 | 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
+| 02 Monetyzacja (sesja 2) | build | E0 zakończone, STOP na decyzję właściciela (2026-11-03) | (commit E0) | `docs/monetyzacja.md` („Sesja 2, E0”) | plan E1–E3 |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -135,4 +136,4 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - Tożsamość commitów: hook środowiska prosi o autora `noreply@anthropic.com`; zostaje tożsamość z `CLAUDE.md` (noreply właściciela), zgodnie z wcześniejszymi commitami gałęzi.
 
 ## Następny krok
-**Rola 02 build, sesja 2** (model i kontrakt płatności). Prompt: `node /home/user/prompts/tools/assemble.mjs 02-monetyzacja --tryb build` (prompts c025063). Wejście: paczka z przekazania roli 01 wyżej.
+**Rola 02 build, sesja 2: E1.3–E1.4** (WTP dla 35 BR, statusy H i ZAL) po akceptacji E0; stan E0: `docs/monetyzacja.md`, „Sesja 2, E0”. Model i kontrakt płatności w E2–E3. Prompt: `node /home/user/prompts/tools/assemble.mjs 02-monetyzacja --tryb build` (prompts c025063). Wejście: paczka z przekazania roli 01 wyżej.
