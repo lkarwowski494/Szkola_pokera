@@ -10,7 +10,8 @@ Ten plik obowiązuje w każdej sesji pracującej na tym repozytorium. Zasady pon
 - Próg opłacalności: 500 USD netto/rok globalnie; wynik bramki: `docs/monetyzacja.md` („budować”, słaby dowód).
 - Model i cena: 0,99 / 6,99 / 14,99 USD mies./rok/dożywotni (decyzja właściciela 2026-11-03).
 - Polityka języków: szeroka, 35 jak Trening (zastępuje ADR-14 „Polski na start”), w tym pl.
-- Przegląd treści krytycznych: [DO WYJAŚNIENIA] (człowiek / zastępczy, D-027 biblioteki).
+- Przegląd treści krytycznych: zastępczy (D-027 biblioteki; decyzja właściciela 2026-11-03); przegląd eksperta, gdy aplikacja zyska użytkowników.
+- BRD: `docs/brd/` w repo, skrót na Dysku (decyzja właściciela 2026-11-03); PRD „01 Wymagania” na Dysku to wejście historyczne.
 - Cel: monetyzacja; „Tam nie ma być hazardu. Pełna nauka w 35 językach jak trening.” (właściciel, 2026-11-03).
 
 ## Kto o czym decyduje (ADR-24, decyzja właściciela z 4 października 2026)
