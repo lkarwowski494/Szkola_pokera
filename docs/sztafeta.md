@@ -5,7 +5,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 
 | Rola | Tryb | Stan | Commit | Artefakty | Otwarte decyzje |
 |---|---|---|---|---|---|
-| 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | wybór modelu i ceny; dołączenie repo `prompts`; wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
+| 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | dołączenie repo `prompts`; wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -45,6 +45,10 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 - **Blokady środowiska:** `add_repo lkarwowski494/prompts` odrzucony przez klasyfikator („Access Added As A Means”) → brak promptu roli z `assemble.mjs`, przykładów kontrolnych, karty portfela 48 i zasady 18. Konektor Google Docs nadal niedostępny (jest tylko Drive) → wpis E0 w rejestrze 03 niezrobiony, nowego pliku nie tworzono.
 - VAT FR/DE/PL/JP/TW/VN: próby odczytu u źródła nieudane (OP-06), wpływ < 5%.
 - Rozbieżności z dokumentem „Aplikacje Mobilne do Nauki Pokera”: tabela w `docs/monetyzacja.md`; główna: niepełna lista konkurentów (brak m.in. Poker Skill, River, Pokr).
+
+## Decyzje właściciela z E1b (2026-11-03)
+- Model i cena: „Twój wariant 0,99/6,99/14,99” (USD mies./rok/dożywotni; wynik normalny 3 130,75 USD/rok, zapas 6,3× nad progiem). Odrzucone: ceny rynku 14,99/89,99/149,99 (rekomendowane, 24 958 USD), jednorazowy 99,99 (17 893 USD), środek 4,99/29,99/59,99 (10 784 USD). Ryzyko przyjęte: sam iOS spada pod próg, jeśli udział nowej aplikacji okaże się pesymistyczny; najtańsza kontrola po wydaniu: App Store Connect Analytics, 90 dni.
+- Nowa sesja: „Nie” — kontynuacja w tej sesji.
 
 ## Następny krok
 Po decyzji właściciela o modelu i cenie: (1) gdy repo `prompts` dostępne — kontrola skryptów na przykładach biblioteki (A 55,26 zł „porzucić”, B 455,36 zł „odłożyć”; rachunek 13,81 zł, próg 28), karta portfela 48 do tabeli rozbieżności, zasada 18 w podłodze; (2) wpis decyzji E0 i E1b w rejestrze 03 (konektor Google Docs); (3) rola 01 (BRD) w trybie build, potem 02 → 03 → 04 → 05.

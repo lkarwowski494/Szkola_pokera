@@ -137,7 +137,7 @@ Najwyższy wynik normalny: **rynek 14,99 $/mies., 89,99 $/rok, 149,99 $ dożywot
 - wytyczne sklepów: subskrypcja tylko z bieżącą wartością (3.1.2(a): aktualizacje treści, powtórki SRS), plan dożywotni jako zakup nieodnawialny, bez gry na pieniądze i pomocy w czasie gry (5.3.4); odpowiedniki w Google Play [DO SPRAWDZENIA przez rolę 02 w kroku cennika];
 - standard marki wysoki: bez reklam i SDK śledzących — spełnione we wszystkich wariantach macierzy;
 - zasada 18 biblioteki: [DO SPRAWDZENIA] — treść niedostępna w tej sesji (repo `prompts` nie dołączone).
-Wybór ceny to decyzja produktowa właściciela (CLAUDE.md) — opcje w pytaniu na STOP.
+Wybór ceny to decyzja produktowa właściciela (CLAUDE.md). **Decyzja właściciela 2026-11-03: wariant 0,99 / 6,99 / 14,99 USD** (odrzucone: ceny rynku, jednorazowy 99,99, środek; szczegóły w `docs/sztafeta.md`). Podłoga powyżej obowiązuje także dla tego wariantu.
 
 ### Rozbieżności z kartą portfela i dokumentem „Aplikacje Mobilne do Nauki Pokera” (otwarte po zapisaniu dowodu, D-023)
 Karta `portfel-aplikacji/karty/48-szkola-pokera.md`: **nieotwarta** — leży w repo `prompts`, którego ta sesja nie może dołączyć (OP-05). Dokument z Dysku (id 121Gf18Z…, odczyt 2026-11-03):
