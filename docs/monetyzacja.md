@@ -143,6 +143,7 @@ Założenia nowe (`[ZAŁOŻENIE]`, `generuj-warianty.mjs`): kwartał = 1 płatno
 | drabina 7,99 / 14,99 / 19,99 | 47,22 / 5 599,84 / 401 929,43 | 3 499,90 | 11,2× | 13,38 $ |
 | drabina 9,99 / 14,99 / 19,99 | 50,93 / 5 199,87 / 363 501,94 | 3 249,92 | 10,4× | 13,80 $ |
 | zapas: mies. 5,99 / rok 14,99 / dożywotni 19,99 | 43,52 / 5 421,92 / 394 913,07 | 3 388,70 | 10,8× | 12,88 $ |
+| propozycja: mies. 6,99 / kwartał 9,99 / rok 14,99 / dożywotni 19,99 | 42,78 / 5 439,63 / 396 079,35 | 3 399,77 | 10,9× | 13,00 $ |
 | poprzedni wybór 0,99 / 6,99 / 14,99 (bez PL) | 32,77 / 3 112,14 / 264 341,02 | 1 945,09 | 6,2× | 6,61 $ |
 
 Kwartał jest dostępny w obu sklepach: App Store Connect Help („Offer auto-renewable subscriptions”, odczyt 2026-11-03): „Possible durations are 1 week, 1 month, 2 months, 3 months, 6 months, and 1 year.” i „The duration can’t be changed after you submit for review.”; Play Console Help answer/140504: okres rozliczeniowy „Every 3 months”. Wariant zapasowy z miesięczną (właściciel: „jeżeli nie da się zrobić kwartalnej”) policzony dla porównania: miesiąc = 1 płatność w roku, konwersja jak przy 7,99 (`dowody/drabina-mies-2026-11-03.txt`).
@@ -155,7 +156,7 @@ Najwyższy wynik normalny: **rynek 14,99 $/mies., 89,99 $/rok, 149,99 $ dożywot
 - wytyczne sklepów: subskrypcja tylko z bieżącą wartością (3.1.2(a): aktualizacje treści, powtórki SRS), plan dożywotni jako zakup nieodnawialny, bez gry na pieniądze i pomocy w czasie gry (5.3.4); odpowiedniki w Google Play [DO SPRAWDZENIA przez rolę 02 w kroku cennika];
 - standard marki wysoki: bez reklam i SDK śledzących — spełnione we wszystkich wariantach macierzy;
 - zasada 18 biblioteki („Tylko funkcje z wartością i intuicyjne; żadnych kombajnów”, `shared/zasady.md`, wersja 2026-10-31): dotyczy funkcji, nie ceny; wariant nie dodaje funkcji — spełnione; podział darmowe/płatne i WTP-X ocenia sesja 2 roli 02 z rolą 03.
-Wybór ceny to decyzja produktowa właściciela (CLAUDE.md). **Decyzja właściciela 2026-11-03: wariant 0,99 / 6,99 / 14,99 USD** (odrzucone: ceny rynku, jednorazowy 99,99, środek; szczegóły w `docs/sztafeta.md`). Podłoga powyżej obowiązuje także dla tego wariantu.
+Wybór ceny to decyzja produktowa właściciela (CLAUDE.md). **Decyzja właściciela 2026-11-03 (zmiana): kwartał 9,99 / rok 14,99 / dożywotni 19,99 USD** („Ok zgodnie z rekomendacją”); zastępuje wcześniejszy wybór 0,99 / 6,99 / 14,99 (odrzucone też: 7,99/14,99/19,99, mies. 5,99/14,99/19,99). Dodanie miesięcznej 6,99 — pytanie otwarte (sekcja „Drabina cen właściciela”). Podłoga powyżej obowiązuje także dla tego wariantu.
 
 ### Rozbieżności z kartą portfela i dokumentem „Aplikacje Mobilne do Nauki Pokera” (otwarte po zapisaniu dowodu, D-023)
 **Karta portfela** `portfel-aplikacji/karty/48-szkola-pokera.md` (commit 262a076, otwarta 2026-11-03 po zapisaniu dowodu):

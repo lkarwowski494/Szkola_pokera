@@ -8,7 +8,7 @@ Ten plik obowiązuje w każdej sesji pracującej na tym repozytorium. Zasady pon
 - Rynek główny: US; kolejne: JP, CA, GB, BR, FR, TW, VN, DE; **bez storefrontu PL** (decyzja właściciela 2026-11-03, art. 29 u.g.h.) · repo treści prywatnych: brak.
 - Standard marki: wysoki (bez reklam i SDK śledzących).
 - Próg opłacalności: 500 USD netto/rok globalnie; wynik bramki: `docs/monetyzacja.md` („budować”, słaby dowód).
-- Model i cena: 0,99 / 6,99 / 14,99 USD mies./rok/dożywotni (decyzja właściciela 2026-11-03).
+- Model i cena: kwartał 9,99 / rok 14,99 / dożywotni 19,99 USD (decyzja właściciela 2026-11-03, zastępuje 0,99/6,99/14,99); aplikacja poza oficjalnym portfelem Apps4brew, osobna strona z materiałami później.
 - Polityka języków: szeroka, 35 jak Trening (zastępuje ADR-14 „Polski na start”), w tym pl.
 - Przegląd treści krytycznych: zastępczy (D-027 biblioteki; decyzja właściciela 2026-11-03); przegląd eksperta, gdy aplikacja zyska użytkowników.
 - BRD: `docs/brd/` w repo, skrót na Dysku (decyzja właściciela 2026-11-03); PRD „01 Wymagania” na Dysku to wejście historyczne.

@@ -1,0 +1,26 @@
+Uruchomienie: 2026-11-03 17:50 UTC · node oplacalnosc.mjs warianty/drabina4-6.99-9.99-14.99-19.99.json
+Bramka opłacalności 2026-11-03 (USD netto/rok, pes. / norm. / opt.; bez kosztów portfela i czasu, D-024)
+ios/us: płacący 2,13 / 119,23 / 2874,39; netto 20,89 / 1549,63 / 41388,37
+android/us: płacący 0,21 / 71,54 / 5748,78; netto 2,09 / 929,78 / 82776,74
+ios/jp: płacący 1,03 / 86,25 / 4158,42; netto 7,15 / 795,80 / 42509,10
+android/jp: płacący 0,10 / 51,75 / 8316,85; netto 0,72 / 477,48 / 85018,21
+ios/ca: płacący 0,29 / 16,21 / 390,66; netto 2,28 / 169,10 / 4516,49
+android/ca: płacący 0,03 / 9,72 / 781,31; netto 0,23 / 101,46 / 9032,98
+ios/gb: płacący 0,17 / 9,46 / 228,17; netto 1,85 / 137,59 / 3674,73
+android/gb: płacący 0,02 / 5,68 / 456,35; netto 0,19 / 82,55 / 7349,47
+ios/br: płacący 0,17 / 14,27 / 688,16; netto 1,56 / 173,25 / 9254,54
+android/br: płacący 0,02 / 8,56 / 1376,32; netto 0,16 / 103,95 / 18509,07
+ios/fr: płacący 0,17 / 13,98 / 673,93; netto 1,56 / 173,50 / 9267,88
+android/fr: płacący 0,02 / 8,39 / 1347,86; netto 0,16 / 104,10 / 18535,75
+ios/tw: płacący 0,16 / 13,32 / 642,42; netto 1,53 / 169,87 / 9074,17
+android/tw: płacący 0,02 / 7,99 / 1284,84; netto 0,15 / 101,92 / 18148,34
+ios/vn: płacący 0,14 / 11,56 / 557,28; netto 1,16 / 129,33 / 6908,28
+android/vn: płacący 0,01 / 6,94 / 1114,56; netto 0,12 / 77,60 / 13816,56
+ios/de: płacący 0,10 / 8,13 / 391,77; netto 0,91 / 101,71 / 5432,89
+android/de: płacący 0,01 / 4,88 / 783,54; netto 0,09 / 61,02 / 10865,78
+ios: po kosztach 38,89 / 3399,77 / 132026,45
+android: po kosztach 3,89 / 2039,86 / 264052,90
+A (dowody storefrontów): razem 42,78 / 5439,63 / 396079,35; werdykt wobec progu 500,00 [decyzja właściciela 2026-11-03: „500 USD/rok” netto, globalnie (docs/sztafeta.md)]: budować; wynik normalny wobec progu zmienia: żadne założenie
+Sam iOS (A): razem 38,89 / 3399,77 / 132026,45; werdykt wobec progu 500,00 [decyzja właściciela 2026-11-03: „500 USD/rok” netto, globalnie (docs/sztafeta.md)]: budować; wynik normalny wobec progu zmienia: żadne założenie
+Największy wpływ (A, pes. → opt.): instalacje_na_ocene (wszystkie sklepy) 1813,21 → 18132,08; udzial_nowej (wszystkie sklepy) 1359,91 → 13599,06; konwersja (wszystkie sklepy) 1631,89 → 12239,16
+Przybliżenie z jawnych założeń, nie prognoza; bez podatku dochodowego i składek.
