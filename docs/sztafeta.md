@@ -96,5 +96,11 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 - Kontrola: `node kontrola-brd.mjs docs/brd` (bez `--szkic`) → kod 0, 35 BR, 12 RD, 80 wektorów, 15 OP, 0 błędów, 0 uwag.
 - Poza gitem bez zmian: wpisy do rejestru 03 i dokumentu 13 na Dysku (W-07, ER-01, OP-11, OP-12, decyzje E0/E1b bramki i E0 roli 01) czekają na właściciela; konektor Drive nie edytuje Google Docs.
 
+## Decyzje właściciela na bramce E3 (2026-11-03)
+- Bramka: „Akceptuję, przejdź do E4 (Recommended)”; odrzucone: najpierw zmiany, zatrzymać.
+- OP-13: „Bez opinii teraz (Recommended)” — wraca przy storefroncie PL; odrzucone: opinia przed wydaniem, usunięcie pl.
+- OP-15: „Wszystkie poza PL” — odrzucona rekomendacja roli 01 (lista 9 rynków). Skutek: RD-12 (bloker) obejmuje każdy kraj sprzedaży; dla krajów bez przeczytanego numeru pomocy gałąź RD-12-W6 (numer alarmowy ze źródła), zakres OP-10 rośnie (rola 06).
+- Nowa sesja: „Tak, otwórz nową i zarchiwizuj tę (Recommended)”.
+
 ## Następny krok
-**Rola 01 build, E4** (przekazanie do 02 i 03, definicja ukończenia z dowodami), po akceptacji bramki E3 przez właściciela; potem rola 02 sesja 2. Prompt: `node /home/user/prompts/tools/assemble.mjs 01-odkrywanie --tryb build` (prompts c025063). Wejście: `docs/brd/` (README z blokerami i OP, wymagania*.md, reguly, errata, zrodla), `tests/wektory/brd.json`, `docs/zalozenia.md`, `docs/monetyzacja.md`. Otwarte u właściciela: OP-13 (opinia prawna art. 29), OP-15 (storefronty), OP-20 i OP-22 (z rolą 03).
+**Rola 01 build, E4** (przekazanie do 02 i 03, definicja ukończenia z dowodami), po akceptacji bramki E3 przez właściciela; potem rola 02 sesja 2. Prompt: `node /home/user/prompts/tools/assemble.mjs 01-odkrywanie --tryb build` (prompts c025063). Wejście: `docs/brd/` (README z blokerami i OP, wymagania*.md, reguly, errata, zrodla), `tests/wektory/brd.json`, `docs/zalozenia.md`, `docs/monetyzacja.md`. Otwarte: OP-20 i OP-22 (rola 03 z właścicielem); OP-10 po OP-15 obejmuje wszystkie kraje poza PL.

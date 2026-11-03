@@ -5,7 +5,7 @@ Ten plik obowiązuje w każdej sesji pracującej na tym repozytorium. Zasady pon
 ## Stan projektu (aktualizacja: 2026-11-03, rola 01 E3: wymagania w `docs/brd/`)
 - Etap: w budowie, przebudowa „prawie od nowa” (sztafeta ról 01–05, `docs/sztafeta.md`); TestFlight tylko testy wewnętrzne (buildy 1005–1008), poza właścicielem brak użytkowników i ich danych.
 - Sklep: App Store Connect częściowo (aplikacja do TestFlight, umowa Paid Apps podpisana); Google Play: nic.
-- Rynek główny: US; kolejne: JP, CA, GB, BR, FR, TW, VN, DE; **bez storefrontu PL** (decyzja właściciela 2026-11-03, art. 29 u.g.h.) · repo treści prywatnych: brak.
+- Rynek główny: US; kolejne: JP, CA, GB, BR, FR, TW, VN, DE; **bez storefrontu PL** (decyzja właściciela 2026-11-03, art. 29 u.g.h.), pozostałe storefronty wszystkie (OP-15, 2026-11-03); opinia prawna art. 29: nie teraz (OP-13) · repo treści prywatnych: brak.
 - Standard marki: wysoki (bez reklam i SDK śledzących).
 - Próg opłacalności: 500 USD netto/rok globalnie; wynik bramki: `docs/monetyzacja.md` („budować”, słaby dowód).
 - Model i cena: kwartał 9,99 / rok 14,99 / dożywotni 19,99 USD (decyzja właściciela 2026-11-03, zastępuje 0,99/6,99/14,99); aplikacja poza oficjalnym portfelem Apps4brew, osobna strona z materiałami później.

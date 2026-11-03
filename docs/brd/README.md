@@ -42,12 +42,12 @@ Numery od 2 do 8 nie są używane w BRD (te numery pytań ma `docs/monetyzacja.m
 |---|---|---|---|
 | OP-01 | Rozstrzygnięte 2026-11-03: bez rozmów z graczami — „Nie, wystarczą recenzje” (ryzyko RYZ-06) | właściciel | P-1, J-01 |
 | OP-09 | [DO USTALENIA] Zgodność modelu ICM Malmutha–Harville'a z literaturą szczebla 3 (cytat) | 06 | RD-09 |
-| OP-10 | [DO USTALENIA] Numery pomocy przy problemie z hazardem z oficjalnych źródeł dla każdego kraju sprzedaży (US i GB przeczytane: S-39–S-41; JP, CA, BR, FR, TW, VN, DE i pozostałe — brak) | 06, 01 | RD-12, ER-04 |
+| OP-10 | [DO USTALENIA] Numery pomocy przy problemie z hazardem z oficjalnych źródeł dla każdego kraju sprzedaży — po OP-15 wszystkie storefronty poza PL (US i GB przeczytane: S-39–S-41; JP, CA, BR, FR, TW, VN, DE najpierw; dla pozostałych numer alarmowy kraju ze źródła i brzmienie RD-12-W6) | 06, 01 | RD-12, ER-04 |
 | OP-11 | Rozstrzygnięte 2026-11-03: „Jakość decyzji, bez obietnicy (Recommended)” — bez obietnicy wygranej i bez wskazania gry online; odrzucone: cel z PRD | właściciel | ER-03 |
 | OP-12 | Rozstrzygnięte 2026-11-03: „Usunąć SDK (Recommended)” — raporty awarii z App Store Connect i Play Console, etykieta „Data Not Collected”; odrzucone: zostawić wyłączone, włączyć bez danych osobowych; zmienia ADR-17 (wpis w rejestrze 03: krok właściciela) | właściciel | ER-06 |
-| OP-13 | [DO WYJAŚNIENIA] Czy opinia prawna o art. 29 u.g.h. jest potrzebna przy braku storefrontu PL i języku pl | właściciel | ER-09, OG-07 |
+| OP-13 | Rozstrzygnięte 2026-11-03: „Bez opinii teraz (Recommended)” — kontrole zostają (zero operatorów i zachęt, NFR-ZGOD-001–002); wraca przy storefroncie PL; odrzucone: opinia przed wydaniem, usunięcie pl | właściciel | ER-09, OG-07 |
 | OP-14 | [DO USTALENIA] Co Apple uznaje za „gambling aid” (brak definicji w wytycznych) | 01, 07 | OG-01 |
-| OP-15 | [DO WYJAŚNIENIA] Dostępność: wszystkie storefronty poza PL czy lista rynków (KR i AU mają osobne skutki kategorii) | właściciel | OG-03 |
+| OP-15 | Rozstrzygnięte 2026-11-03: „Wszystkie poza PL” (odrzucona rekomendacja: lista 9 rynków). Skutek: RD-12 dla każdego kraju sprzedaży, dla krajów bez wpisu gałąź RD-12-W6 (OP-10); OG-03 (AU, BR, KR) działa tylko przy H-07 albo odpowiedzi innej niż „brak” | właściciel | OG-03, RD-12 |
 | OP-16 | [DO USTALENIA] Wymogi informacji o subskrypcji ze Schedule 2 umowy Apple | 02 | OG-06 |
 | OP-17 | Rozstrzygnięte 2026-11-03: status przedsiębiorcy DSA już jest na koncie (właściciel; repo `trening`, `docs/45-formalnosci-asc.md:21`) | właściciel | OG-13 |
 | OP-18 | [DO USTALENIA] Czy scenariusz bez stosu do wygrania to „brak” symulowanego hazardu w ankiecie Apple i IARC | recenzja Apple, ankieta IARC; rola 01 przygotowuje odpowiedzi i notatkę dla recenzenta | OG-02, ZAL-012 |
