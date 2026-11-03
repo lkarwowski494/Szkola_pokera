@@ -66,3 +66,60 @@ Gra często (np. „4 times/week for 10 years” (recenzja S-05)), sprawdza stra
 - Trener AI z rozmową: nie na start; hipoteza z warunkiem powrotu (W-04).
 - Konto i serwer: nie; dane na telefonie, eksport i import pliku dla wszystkich (W-05).
 - Analityka: tylko zbiorcze dane sklepów (W-06).
+
+## Ograniczenia z polityk sklepów i prawa (E2, odczyt 2026-11-03)
+Pełne cytaty w `zrodla.md`. OG to skutek dla aplikacji; brzmienie polityki jest w źródle.
+
+### OG-01: Bez gry na pieniądze, nagród i żetonów z wartością; bez pomocy w czasie gry
+Gra z botami jest dozwolona tylko na żetony, których nie da się kupić ani wymienić, bez nagród w rankingach i konkursach; solver i kalkulatory działają na rozdaniach z aplikacji, nie jako podpowiedź przy grze na żywo [FAKT S-08, S-25, S-35]. Apple nie definiuje „gambling aid” [DO USTALENIA] (OP-14). Dotyczy J-04, J-01, ZP-01.
+
+### OG-02: Kategoria wiekowa Apple 18+ przy grze z botami
+Licytacja żetonami bez wartości to „Simulated Gambling”; „Frequent” daje 18+, „Infrequent” 13+, a ankietę trzeba wypełnić zgodnie z prawdą [FAKT S-19, S-20, S-21, S-09]. Apple nie podaje progu częstości. Gra z botami jest stałą funkcją (W-03), więc rola 01 rekomenduje „Frequent” (18+); 21 z 29 konkurentów ma dziś 17+ (`docs/monetyzacja.md`). Ikona i zrzuty mimo to na poziomie 4+ [FAKT S-18]. Dotyczy J-04, H-08.
+
+### OG-03: Storefronty z osobnymi skutkami kategorii wiekowej
+Australia: R 18+ już przy „Infrequent” [FAKT S-22]; Brazylia: A18 przy „Frequent” [FAKT S-24]; Korea: przy „Frequent” tylko z numerem RCN [FAKT S-23]. Korei nie ma na liście rynków bramki; czy aplikacja ma być we wszystkich storefrontach poza PL: [DO WYJAŚNIENIA] (OP-15).
+
+### OG-04: Google Play: IARC, PEGI 18 w Europie, nie dla dzieci
+Kategorię nadaje IARC z ankiety [FAKT S-26]; PEGI klasyfikuje symulację gier kasynowych jako PEGI 18 [FAKT S-27], ESRB jako Teen [FAKT S-28]. Aplikacji nie wolno kierować do dzieci [FAKT S-29]; obowiązkowa blokada nieletnich dotyczy tylko gry na prawdziwe pieniądze [FAKT S-34]. Dotyczy J-04, grupa docelowa 18+.
+
+### OG-05: Subskrypcja wymaga stałej wartości
+Apple: „ongoing value”, okres ≥ 7 dni, dostęp na wszystkich urządzeniach użytkownika [FAKT S-11]; Google: „sustained or recurring value”, nie jednorazowa korzyść [FAKT S-30]. Statyczny kurs nie uzasadnia subskrypcji; uzasadnieniem są powtórki generowane na bieżąco, nowe ćwiczenia i aktualizacje treści. Dotyczy H-01, D-029. Ryzyko RYZ-01.
+
+### OG-06: Uczciwy zakup: ujawnienia, przywracanie, anulowanie, lokalizacja cen
+Przed subskrypcją opis tego, co użytkownik dostaje, cena, okres i automatyczne odnawianie [FAKT S-12, S-31]; przywracanie zakupów [FAKT S-10]; w aplikacji dostęp do anulowania [FAKT S-33]; plan roczny nie eksponuje najmocniej ceny miesięcznej, a ceny i warunki są w pełni przetłumaczone [FAKT S-32]. Schedule 2 umowy Apple (wymogi informacji o subskrypcji) nieprzeczytany [DO USTALENIA] (OP-16). Dotyczy J-06, H-01.
+
+### OG-07: Art. 29 u.g.h.: bez reklamy i promocji gier w karty
+Zakaz reklamy i promocji gier w karty [FAKT S-36]; promocja obejmuje „publiczną prezentację” i „publiczne zachęcanie” [FAKT S-37]. Poker jest grą w karty w rozumieniu ustawy tylko o nagrody pieniężne lub rzeczowe [FAKT S-35]. Skutek: zero nazw, znaków i linków operatorów, afiliacji i zachęt do gry na pieniądze (ADR-13); nazwa i grafika bez podobieństwa do kasyn. Czy nauka bez nagród publikowana z Polski za granicę mieści się w zakazie: [DO USTALENIA] (OP-13). Dotyczy ZP-01, ZP-05, komunikat w sklepie.
+
+### OG-08: Bez modułu typu automat
+Gra komercyjna o charakterze losowym, nawet bez wygranej, może być grą na automatach [FAKT S-38]. Poza zakresem: video poker, sloty, „koło fortuny” z nagrodą. Dotyczy pomysłów na grywalizację.
+
+### OG-09: Jedna aplikacja dla wszystkich języków i krajów
+Warianty dla miejsc w jednej aplikacji, nie osobne aplikacje [FAKT S-14]. Dotyczy H-04 (podział) i ZP-02.
+
+### OG-10: Więcej niż książka
+Aplikacja, która jest tylko książką lub poradnikiem, trafia do Apple Books [FAKT S-13]; lekcje, ćwiczenia, powtórki i gra spełniają 4.2. Dotyczy H-01 (darmowa część nie może być samą czytanką bez ćwiczeń — wniosek roli 01).
+
+### OG-11: Prywatność bez konta
+Polityka prywatności w metadanych i w aplikacji [FAKT S-15]; dane do stron trzecich (raporty awarii, przyszły trener AI) tylko za jawną zgodą [FAKT S-17]. Dotyczy W-05, W-06, ER-06, H-06.
+
+### OG-12: Wydawca indywidualny a „gambling” w 5.1.1(ix)
+Aplikacje świadczące usługi w hazardzie mają być wydawane przez osobę prawną [FAKT S-16]. Aplikacja nauki takiej usługi nie świadczy; recenzent może zapytać. Kontrola: w notatce dla recenzenta wprost „no real-money gaming, no prizes, chips have no value”. Ryzyko RYZ-02.
+
+### OG-13: DSA: dane kontaktowe sprzedawcy publikowane w UE
+Przy dystrybucji w UE Apple publikuje adres, telefon i e-mail sprzedawcy na stronie produktu [FAKT S-07]. Z listy rynków dotyczy FR i DE. Decyzja właściciela: [DO WYJAŚNIENIA] (OP-17). Ryzyko RYZ-07.
+
+### OG-14: Telefon pomocy dla kraju użytkownika
+Aplikacja z symulowanym hazardem i ramką „Odpowiedzialna gra” ma dziś numery tylko dla Polski (ER-04). Źródła dla rynku głównego: US 1-800-MY-RESET [FAKT S-39], w kryzysie 911 albo 988 [FAKT S-40]; 1-800-GAMBLER prowadzi od 2025 r. organizacja z New Jersey [FAKT S-42]; GB: Anglia i Szkocja 0808 8020 133, Walia 0808 2819 265 [FAKT S-41]. Pozostałe kraje sprzedaży: [DO USTALENIA] (OP-10). Dotyczy RD-12.
+
+## Ryzyka produktu
+| ID | Ryzyko | Ocena | Dowód | Kontrola |
+|---|---|---|---|---|
+| RYZ-01 | Odrzucenie subskrypcji za brak stałej wartości | realny | OG-05 | plan aktualizacji i powtórek w opisie i w notatce dla recenzenta (rola 02, 03) |
+| RYZ-02 | Pytanie recenzenta o hazard (5.3.4, 5.1.1(ix)) | brzegowy | OG-01, OG-12 | notatka dla recenzenta; żetony bez wartości w kodzie i w opisie |
+| RYZ-03 | Funkcje obliczeń przyjmują błędne dane bez błędu | brzegowy | ER-11 | testy z wektorami RD-05-W6 i RD-08-W4 (rola 07) |
+| RYZ-04 | Zarzut promocji pokera z art. 29 przy języku pl | teoretyczny po decyzji „bez PL” | OG-07 | brak storefrontu PL; zero operatorów i zachęt; opinia prawna do decyzji (OP-13) |
+| RYZ-05 | Brak telefonu pomocy w kraju użytkownika | realny | ER-04, OG-14 | RD-12, bloker wydania |
+| RYZ-06 | Persony z recenzji konkurencji, bez rozmów z graczami | realny dla trafności | OP-01 | po wydaniu recenzje własne i dane sklepu (W-06) |
+| RYZ-07 | Publikacja adresu i telefonu właściciela w UE | realny (prywatność właściciela) | OG-13 | decyzja OP-17 |
+| RYZ-08 | Ocena zagrań surowsza niż źródło zniechęca zaawansowanych | realny | ER-01, recenzja S-04 | RD-11 według S-06 |
