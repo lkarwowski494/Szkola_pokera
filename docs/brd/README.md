@@ -1,5 +1,5 @@
 # BRD: Szkoła Pokera
-Stan: E3 (2026-11-03): przepływy i wymagania do akceptacji właściciela · Rola 01 build · Stan sztafety: `docs/sztafeta.md` · Założenia: `docs/zalozenia.md`
+Stan: E4 (2026-11-03): BRD zakończone i przekazane (definicja ukończenia z dowodami i przekazanie: `docs/sztafeta.md`, „Rola 01, E4”) · Rola 01 build · Stan sztafety: `docs/sztafeta.md` · Założenia: `docs/zalozenia.md`
 
 | Plik | Zawartość | Stan |
 |---|---|---|

@@ -1,11 +1,11 @@
 # Stan sztafety
-Ścieżka: greenfield (przebudowa istniejącej aplikacji „prawie od nowa”) · Aktualizacja: 2026-11-03
+Ścieżka: greenfield (przebudowa istniejącej aplikacji „prawie od nowa”) · Aktualizacja: 2026-11-03 (rola 01 E4)
 
 Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szkoła Pokera przez role 1–5 w trybie build z prompts i zrobić ją prawie od nowa, ale wykorzystując elementy aktualnej aplikacji, które są dobre. Cel: monetyzacja. […] Tam nie ma być hazardu. Pełna nauka w 35 językach jak trening. Całkiem od nowa UX, przepływy, ocena monetyzacji, BRD.” Kolejność (wybór właściciela): bramka opłacalności (02, krok 0) → 01 → 02 → 03 → 04 → 05.
 
 | Rola | Tryb | Stan | Commit | Artefakty | Otwarte decyzje |
 |---|---|---|---|---|---|
-| 01 Odkrywanie | build | E2 zakończone, decyzja „Kontynuować do E3” (2026-11-03) | 2e9d37e | „Stan projektu” w `CLAUDE.md`, `docs/brd/` (README, wywiad, odkrywanie, reguly, errata, zrodla, dane/), `docs/zalozenia.md` | OP-13 (opinia prawna art. 29), OP-15 (storefronty) — w E3 |
+| 01 Odkrywanie | build | zakończona 2026-11-03 (E4, przekazanie niżej) | (commit E4) | `docs/brd/` (README, wywiad, odkrywanie, wymagania, wymagania-nauka, wymagania-sklep, reguly, errata, zrodla, dane/), `tests/wektory/brd.json`, `docs/zalozenia.md`, „Stan projektu” w `CLAUDE.md` | OP-10, OP-14, OP-16, OP-18 (źródła), OP-19 (04), OP-20, OP-22 (03 z właścicielem), OP-21 (05) |
 | 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
 
 ## E0 bramki: ustalenia (2026-11-03)
@@ -102,5 +102,31 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 - OP-15: „Wszystkie poza PL” — odrzucona rekomendacja roli 01 (lista 9 rynków). Skutek: RD-12 (bloker) obejmuje każdy kraj sprzedaży; dla krajów bez przeczytanego numeru pomocy gałąź RD-12-W6 (numer alarmowy ze źródła), zakres OP-10 rośnie (rola 06).
 - Nowa sesja: „Tak, otwórz nową i zarchiwizuj tę (Recommended)”.
 
+## Rola 01, E4: definicja ukończenia (2026-11-03, piąta sesja)
+Prompt: `assemble.mjs 01-odkrywanie --tryb build` (prompts c025063), przeczytany w całości; `kontrola-brd.mjs` wycięty z modułu `kontrola-brd` bez zmian.
+
+| Punkt definicji (build) | Wynik | Dowód |
+|---|---|---|
+| każdy [FAKT] ma S-nn przeczytane w dniu pracy; reszta w OP | spełnione | 51 znaczników [FAKT], każdy z S-nn (skrypt: 0 błędów); 54 źródła, wszystkie z odczytem 2026-11-03; szczeble: 41 × 1, 1 × 4, 12 × 5 (szczebel 5 tylko jako recenzje, nigdy jedyne źródło faktu: skrypt) |
+| pytania produktowe pojedynczo, z opcjami; odpowiedzi dosłownie z datą; merytoryka hierarchią | spełnione | `docs/brd/wywiad.md` W-01–W-07 z datami; decyzje bramek E0–E3 w tym pliku, słowami właściciela; decyzja merytoryczna ER-01 według S-06 |
+| RD: wzór, jednostki, granica, podstawa, ≥ 3 wektory z granicą i obiema stronami; krytyczne tylko ze szczebla 1–3, oznaczone dla 06 | spełnione | skrypt bez `--szkic`: 12 RD, 80 wektorów, 0 błędów, 0 uwag; jedyna krytyczna RD-12 (`reguly.md:211`, „przegląd roli 06, przegląd zastępczy D-027”), źródła S-39–S-41 szczebla 1 |
+| BR z PR, PR z J; scenariusz główny z obserwowalnym wynikiem; liczby ze źródła, decyzji albo [DO USTALENIA]; NFR mierzalne | spełnione | skrypt: każde z 35 BR ma PR, „Dowód potrzeby”, Scenariusz z „Wtedy”; PR-01–PR-08 mają J; 13 NFR z Miarą, Progiem, Metodą; przegląd `grep` kroków z liczbami w `wymagania-*.md`: każda liczba z wektorem RD-nn-Wn albo decyzją, M0–M13 to nazwy modułów kursu |
+| OG z polityk użytych w przepływach przypisane do wymagań | spełnione z wyjątkiem nazwanym | 10 z 14 OG ma odwołanie w `wymagania*.md`; bez odwołania: OG-03 i OG-04 (tylko przy H-07 albo innej odpowiedzi w ankiecie, OP-18), OG-09 (podział, H-04 dla 03), OG-13 (DSA, formalność konta, już spełniona) — żaden nie dotyczy przepływu PR-01–PR-08 |
+| cena, zakres MVP, podział tylko jako H | spełnione | `grep -i "MVP\|pierwsza wersja" wymagania*.md`: brak; podział H-04, monetyzacja H-01 i H-09, zakres H-02, H-03, H-06, H-07; cena to decyzja właściciela z bramki 02, nie roli 01 |
+| `kontrola-brd.mjs` bez `--szkic` z kodem 0; BRD w miejscu z CLAUDE.md; w publicznym repo brak danych rozmówców i cudzych materiałów | spełnione w repo; skrót na Dysku brak | `node kontrola-brd.mjs docs/brd` → kod 0, 9 plików, 35 BR, 12 RD, 80 wektorów, 15 OP, 0 błędów, 0 uwag (2026-11-03); rozmowy z graczami nie odbyły się (OP-01), `dane/konkurencja-2026-11-03.json` bez cudzych opisów i recenzji, w BRD tylko krótkie cytaty z adresem; **skrótu BRD na Dysku nie ma** (wyszukanie Dysku 2026-11-03: brak pliku „BRD” zmienionego od 1.11) — krok właściciela niżej |
+
+Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)” po decyzji właściciela; zastąpione skutkiem decyzji.
+
+### Przekazanie do następnej roli
+- Zakończono: rola 01, build, E0–E4, gałąź `claude/sleepy-brahmagupta-2065nu` (commit E4); artefakty: `docs/brd/`, `tests/wektory/brd.json`, `docs/zalozenia.md` (ZAL-001–ZAL-012).
+- **02 Monetyzacja (sesja 2: model i kontrakt płatności):** hipotezy H-01 (co darmowe, co płatne; rekomendacja roli 01: (b) lekcje darmowe, płatna wartość ciągła) i H-09 (subskrypcja broni się aktualizacjami, OG-05, RYZ-01); ceny konkurencji z datą odczytu 2026-11-03: `docs/monetyzacja.md` (mediany US 14,99 $/mies., 89,99 $/rok, 149,99 $ dożywotni) i `docs/brd/dane/konkurencja-2026-11-03.json` (102 aplikacje), Poker Skill S-43; wymagania zakupu BR-ZAK-001–BR-ZAK-004, OG-06, OP-16 (Schedule 2). Cena 9,99/14,99/19,99 USD to decyzja właściciela z 2026-11-03.
+- **03 Zakres:** przepływy PR-01–PR-08 (`wymagania.md`) i 35 BR (`wymagania-nauka.md`, `wymagania-sklep.md`); hipotezy zakresu H-02, H-03, H-05, H-06, H-07, H-08; propozycja podziału H-04 (rekomendacja: jedna aplikacja z modułami, turnieje M11 jako wariant); blokery wydania: tabela w `docs/brd/README.md`; OP-20 i OP-22 z właścicielem.
+- **06 Treść (później):** RD-01–RD-12 i S-01–S-54 do rejestru twierdzeń; RD-12 krytyczna do przeglądu (zastępczy, D-027), OP-10 obejmuje wszystkie storefronty poza PL; OP-09, OP-14; ER-01 (ocena zagrań według S-06). Po weryfikacji rejestr 06 ma pierwszeństwo, rozbieżność przez ER do roli 01.
+- **07 i 08:** RD-01–RD-12 i `tests/wektory/brd.json` tylko do odczytu, zmiana przez ER; ER-11 (2 funkcje bez kontroli wejścia); znalezisko: E2E na `main` wyłączony 20.10.2026.
+- **Właściciel (kroki zewnętrzne):** (1) wpisy w rejestrze 03 i dokumencie 13 na Dysku: W-07, ER-01, OP-11, OP-12 (zmiana ADR-17), OP-13, OP-15, ADR-14 → 35 języków, decyzje E0/E1b bramki i E0 roli 01 (konektor nie edytuje Google Docs); (2) skrót BRD na Dysku z odnośnikiem do `docs/brd/` (decyzja „Repo + skrót na Dysku”); (3) storefront PL odznaczony w App Store Connect; (4) rozmowy z graczami: nie (OP-01).
+- Następny krok ścieżki: **02-monetyzacja**, tryb `build`, sesja 2; nowa sesja: opus, wysiłek high. Polecenie: `node /home/user/prompts/tools/assemble.mjs 02-monetyzacja --tryb build`.
+- Paczka wejściowa: `docs/monetyzacja.md`, `docs/brd/README.md`, `docs/brd/odkrywanie.md` (H, OG, RYZ), `docs/brd/wymagania-sklep.md`, `docs/zalozenia.md`, ten plik.
+- Otwarte decyzje: OP-16 (02), OP-20 i OP-22 (03 z właścicielem), H-01 i H-04 (02/03 z właścicielem).
+
 ## Następny krok
-**Rola 01 build, E4** (przekazanie do 02 i 03, definicja ukończenia z dowodami), po akceptacji bramki E3 przez właściciela; potem rola 02 sesja 2. Prompt: `node /home/user/prompts/tools/assemble.mjs 01-odkrywanie --tryb build` (prompts c025063). Wejście: `docs/brd/` (README z blokerami i OP, wymagania*.md, reguly, errata, zrodla), `tests/wektory/brd.json`, `docs/zalozenia.md`, `docs/monetyzacja.md`. Otwarte: OP-20 i OP-22 (rola 03 z właścicielem); OP-10 po OP-15 obejmuje wszystkie kraje poza PL.
+**Rola 02 build, sesja 2** (model i kontrakt płatności). Prompt: `node /home/user/prompts/tools/assemble.mjs 02-monetyzacja --tryb build` (prompts c025063). Wejście: paczka z przekazania roli 01 wyżej.
