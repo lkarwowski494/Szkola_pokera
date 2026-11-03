@@ -2,6 +2,17 @@
 
 Ten plik obowiązuje w każdej sesji pracującej na tym repozytorium. Zasady poniżej mają pierwszeństwo przed domyślnym sposobem pracy, a w sprawach treści pokerowej także przed ogólną preferencją właściciela „zawsze przedstaw opcje i zostaw decyzję człowiekowi”.
 
+## Stan projektu (aktualizacja: 2026-11-03, szkic roli 01 do zatwierdzenia)
+- Etap: w budowie, przebudowa „prawie od nowa” (sztafeta ról 01–05, `docs/sztafeta.md`); TestFlight tylko testy wewnętrzne (buildy 1005–1008), poza właścicielem brak użytkowników i ich danych.
+- Sklep: App Store Connect częściowo (aplikacja do TestFlight, umowa Paid Apps podpisana); Google Play: nic.
+- Rynek główny: US; kolejne: JP, CA, GB, BR, FR, TW, VN, DE; **bez storefrontu PL** (decyzja właściciela 2026-11-03, art. 29 u.g.h.) · repo treści prywatnych: brak.
+- Standard marki: wysoki (bez reklam i SDK śledzących).
+- Próg opłacalności: 500 USD netto/rok globalnie; wynik bramki: `docs/monetyzacja.md` („budować”, słaby dowód).
+- Model i cena: 0,99 / 6,99 / 14,99 USD mies./rok/dożywotni (decyzja właściciela 2026-11-03).
+- Polityka języków: szeroka, 35 jak Trening (zastępuje ADR-14 „Polski na start”), w tym pl.
+- Przegląd treści krytycznych: [DO WYJAŚNIENIA] (człowiek / zastępczy, D-027 biblioteki).
+- Cel: monetyzacja; „Tam nie ma być hazardu. Pełna nauka w 35 językach jak trening.” (właściciel, 2026-11-03).
+
 ## Kto o czym decyduje (ADR-24, decyzja właściciela z 4 października 2026)
 
 Właściciel nie jest ekspertem od teorii pokera i **nie rozstrzyga kwestii merytorycznych**. Nie przedstawiaj mu opcji do wyboru w sprawach teorii (strategia, zakresy, rozmiary, częstotliwości, poziomy pewności reguł, brzmienie reguł). Rozstrzygaj je sam według metodologii poniżej, zapisz decyzję w rejestrze i poinformuj właściciela, co postanowiłeś i na jakiej podstawie. Właściciel może każdą decyzję zawetować.

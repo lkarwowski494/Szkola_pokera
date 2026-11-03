@@ -5,6 +5,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 
 | Rola | Tryb | Stan | Commit | Artefakty | Otwarte decyzje |
 |---|---|---|---|---|---|
+| 01 Odkrywanie | build | E0 rama: raport, STOP na decyzje (2026-11-03) | (ten commit) | szkic „Stan projektu” w `CLAUDE.md` | miejsce BRD; przegląd treści krytycznych |
 | 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
 
 ## E0 bramki: ustalenia (2026-11-03)
@@ -51,6 +52,16 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 - Nowa sesja: „Nie” — kontynuacja w tej sesji.
 - Rynek PL: „Tak, bez PL, polski zostaje” — storefront PL odznaczony w App Store Connect (i Google Play), język pl zostaje w 35 językach; potwierdza decyzję z karty 48 (01.11.2026). Odrzucone: bez PL i bez polskiego; z Polską. Wynik bramki bez PL: 32,77 / 3 112,14 / 264 341,02 USD, „budować”.
 - Dalej: „Rola 01 w tej sesji”.
+
+## Rola 01, E0: rama (2026-11-03)
+- Prompt: `node tools/assemble.mjs 01-odkrywanie --tryb build` (prompts c025063, kod 0; moduły kontrola-brd, repozytorium, rynek-i-polityki, wywiad), przeczytany.
+- Środowisko: jak w E0 bramki; dodatkowo Dysk (konektor Drive: odczyt i zapis plików, bez edycji Google Docs), repo `prompts` i `portfel-aplikacji` dołączone do odczytu. Autor commitów: noreply (repo publiczne). Repo istnieje — moduł `repozytorium` pominięty.
+- Pomysł słowami właściciela (2026-11-03): „Przejść dla aplikacji Szkoła Pokera przez role 1–5 w trybie build z prompts i zrobić ją prawie od nowa, ale wykorzystując elementy aktualnej aplikacji, które są dobre. Cel: monetyzacja. […] Tam nie ma być hazardu. Pełna nauka w 35 językach jak trening.”
+- Hierarchia źródeł dziedziny: z `CLAUDE.md` (ADR-24, 5 szczebli: rachunek → solvery → książki → serwisy szkoleniowe → eksploatacja z populacją). Bez nowej decyzji.
+- Wejście jako hipotezy: PRD na Dysku („01 Wymagania (PRD)”, stan 4.10.2026: FR-01–19, NFR-01–11), roadmapa (00), przekazanie 17 (11.10.2026), karta portfela 48, wynik bramki 02. Kod: 44 lekcje, 14 egzaminów, 142 reguły, 162 terminy, poker-core, srs (FSRS), solver preflop, tryb gry.
+- **Sprzeczności wejścia z nowym celem** (do E1–E2): PRD „aplikacja na iOS po polsku” i wyróżnik „tworzona od początku po polsku” wobec 35 języków, iOS + Android i braku storefrontu PL; FR-16 „subskrypcja i paywall w fazie 4” wobec monetyzacji jako celu; karta 48 „model optymalny: pojedynczy zakup” wobec wybranego 0,99/6,99/14,99.
+- Wielkość BRD: **dzielony** (wiele modułów nauki, > 3 reguły dziedzinowe, reguły krytyczne prawne: hazard i telefony pomocy). Pliki według wzorców: README, odkrywanie, wymagania-<moduł>, reguly, zrodla, errata.
+- Plan i czas: E1 wywiad ~5–8 pytań pojedynczo (agent ~1 h, właściciel ~15–20 min); E2 rynek, OG, RD z istniejących reguł (agent ~3–4 h, sieć); E3 przepływy, BR, NFR, wektory, `kontrola-brd.mjs` (agent ~4–6 h); E4 przekazanie (~1 h). Czeka się na: odpowiedzi właściciela na bramkach.
 
 ## Następny krok
 Model i cena rozstrzygnięte (2026-11-03). (1) rynek PL rozstrzygnięty (bez storefrontu PL, pl w językach); (2) wpis decyzji E0 i E1b w rejestrze 03 (konektor Google Docs); (3) rola 01 (BRD) w trybie build, potem 02 → 03 → 04 → 05.
