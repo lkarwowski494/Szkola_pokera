@@ -131,6 +131,21 @@ Margines wariantu właściciela: werdykt spada do „odłożyć”, gdy dwa z tr
 
 Zastrzeżenie: kolejność wariantów zależy od założonej konwersji przy danej cenie (`[ZAŁOŻENIE]`, np. 4,5% przy 0,99 USD wobec 3% przy 14,99 USD). Różnice między miejscami 2–7 mieszczą się w błędzie tego założenia; pewna jest tylko różnica rzędu wielkości między cenami rynku a wariantem właściciela (8× w wyniku normalnym).
 
+### Drabina cen właściciela (2026-11-03, przeliczenie ad hoc, bez storefrontu PL)
+Propozycja właściciela (2026-11-03): bez miesięcznej, „kwartalna … roczna … i Lifetime”; uzasadnienie jego słowami: „9.99 na kwartał to zakup impulsywny. Ale wtedy ktoś widzi że rok jest za niewiele więcej więc dokłada te 5 USD. Ale wtedy widzi że za 5 USD więcej ma Lifetime”; „Ludzie porzucają naukę po max miesiącu więc ważne żeby Lifetime wydawał się okazja.” Aplikacja poza oficjalnym portfelem Apps4brew, z osobną stroną z materiałami szkoleniowymi (później).
+
+Ceny najtańszej konkurencji (US, apps.apple.com, odczyt 2026-11-03, `e1-rynek-2026-11-03.json`): kwartał 49,99 $ (GTO Preflop Wizard „VIP Access 3 Months”), rok 49,99 $ (Poker AI „One Year Membership”), dożywotni 59,99 $ (Preflop+ „Lifetime Upgrade”); najtańszy jednorazowy dostęp 29,99 $ (GTO Preflop „Access to all ranges”). Obie drabiny są w każdym planie poniżej najtańszego konkurenta (kwartał 5–6×, rok 3,3×, dożywotni 3×).
+
+Założenia nowe (`[ZAŁOŻENIE]`, `generuj-warianty.mjs`): kwartał = 1 płatność w roku (porzucenie po miesiącu, słowa właściciela); podział płacących kwartał / rok / dożywotni: pes. 50/25/25%, norm. 25/25/50%, opt. 15/20/65% (hipoteza drabiny właściciela); konwersja 7,99: 1,2 / 4,0 / 9,0%; 9,99: 1,2 / 3,6 / 8,0% (jak jednorazowy 19,99). Reszta jak w macierzy.
+
+| Wariant | Razem pes. / norm. / opt. (USD netto/rok) | Sam iOS norm. | Zapas nad progiem (norm.) | Wpływ na płacącego US (norm.) |
+|---|---|---|---|---|
+| drabina 7,99 / 14,99 / 19,99 | 47,22 / 5 599,84 / 401 929,43 | 3 499,90 | 11,2× | 13,38 $ |
+| drabina 9,99 / 14,99 / 19,99 | 50,93 / 5 199,87 / 363 501,94 | 3 249,92 | 10,4× | 13,80 $ |
+| poprzedni wybór 0,99 / 6,99 / 14,99 (bez PL) | 32,77 / 3 112,14 / 264 341,02 | 1 945,09 | 6,2× | 6,61 $ |
+
+Wniosek: obie drabiny ~1,7–1,8× nad poprzednim wyborem i bez żadnego pojedynczego założenia, które zmienia werdykt (także sam iOS). Różnica 7,99 vs 9,99 wynika tylko z założonej konwersji: wpływ na płacącego przy 9,99 jest o 3% wyższy, więc 9,99 wygrywa, jeśli jego konwersja jest ≥ 97% konwersji przy 7,99 — tego nie rozstrzygnie rachunek, tylko dane ze sklepu. Dowód: `dowody/warianty-2026-11-03-drabina.txt` (17:43 UTC). Podłoga dla drabiny: cena kwartału jako największy element (bez „2,66 $/mies.”), dożywotni jako stała cena bez fałszywego odliczania (2005/29/WE zał. I pkt 7), przypomnienie o odnowieniu kwartału zgodne ze sklepem; dożywotni zmniejsza ryzyko skarg „keeps charging” (17 z 349 recenzji).
+
 ### Model optymalny (najwyższy wynik normalny w podłodze)
 Najwyższy wynik normalny: **rynek 14,99 $/mies., 89,99 $/rok, 149,99 $ dożywotni** (ceny lokalne według tabel cen Apple). Podłoga:
 - bez ciemnych wzorców: darmowa część z prawdziwą nauką przed zakupem (H-E1-04), okres próbny tylko przez App Store Connect z jasnym ujawnieniem ceny po okresie, bez fałszywych promocji „50%” (H-E1-05), łatwe anulowanie przez ustawienia systemu, działające „Przywróć zakupy”;

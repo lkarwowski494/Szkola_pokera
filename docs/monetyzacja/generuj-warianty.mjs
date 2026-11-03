@@ -56,10 +56,17 @@ const ANDROID = { s: [0.1, 0.6, 2.0], zrodlo: Z('Android ÷ iOS w kategorii: rec
 const MIES = { platnosci_w_roku: 4, platnosci_zrodlo: Z('średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji') };
 const udz = (s, t) => ({ s, zrodlo: Z(t) });
 const MIX3 = 'podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)';
+const KW = { platnosci_w_roku: 1, platnosci_zrodlo: Z('1 opłacony kwartał na płacącego plan kwartalny w roku; właściciel 2026-11-03: „Ludzie porzucają naukę po max miesiącu” (bez przeczytanego źródła retencji)') };
+const DRABINA = 'podział płacących kwartał/rok/dożywotni; hipoteza właściciela (2026-11-03): dożywotni za 5 USD więcej niż rok przyciąga większość; pes.: większość zostaje przy kwartale';
 const KONW = (s, t) => ({ s, zrodlo: Z(`konwersja pobranie → płacący przy cenie wariantu; ${t}`) });
 const WARIANTY = [
   { id: 'wlasciciel-0.99-6.99-14.99', opis: 'właściciel D-029: mies. 0,99 / rok 6,99 / dożywotni 14,99 USD', konw: KONW([0.015, 0.045, 0.12], 'cena 10–15× poniżej mediany kategorii: 1,5–2× konwersji wariantu rynkowego'),
     produkty: [{ id: 'mies', cena: 0.99, ...MIES, u: [0.5, 0.4, 0.3] }, { id: 'rok', cena: 6.99, u: [0.3, 0.35, 0.4] }, { id: 'dozywotni', cena: 14.99, u: [0.2, 0.25, 0.3] }] },
+  // Drabina właściciela (2026-11-03): kwartał / rok / dożywotni, bez miesięcznej; hipoteza właściciela: tani kwartał jako wejście, dożywotni jako okazja.
+  { id: 'drabina-7.99-14.99-19.99', opis: 'kwartał 7,99 / rok 14,99 / dożywotni 19,99 USD (właściciel, 2026-11-03)', konw: KONW([0.012, 0.04, 0.09], 'każdy plan poniżej najtańszego konkurenta (kwartał 49,99, rok 49,99, dożywotni 59,99 USD, US 2026-11-03); wejście 7,99 bliżej zakupu impulsowego niż 19,99 jednorazowo'),
+    produkty: [{ id: 'kwartal', cena: 7.99, ...KW, u: [0.5, 0.25, 0.15] }, { id: 'rok', cena: 14.99, u: [0.25, 0.25, 0.2] }, { id: 'dozywotni', cena: 19.99, u: [0.25, 0.5, 0.65] }], mix: DRABINA },
+  { id: 'drabina-9.99-14.99-19.99', opis: 'kwartał 9,99 / rok 14,99 / dożywotni 19,99 USD (właściciel, 2026-11-03; konwersja wobec najtańszej konkurencji)', konw: KONW([0.012, 0.036, 0.08], 'wejście 9,99 = ok. 1/5 najtańszego kwartału i dożywotni 1/3 najtańszego dożywotniego konkurenta (US 2026-11-03); jak jednorazowy 19,99'),
+    produkty: [{ id: 'kwartal', cena: 9.99, ...KW, u: [0.5, 0.25, 0.15] }, { id: 'rok', cena: 14.99, u: [0.25, 0.25, 0.2] }, { id: 'dozywotni', cena: 19.99, u: [0.25, 0.5, 0.65] }], mix: DRABINA },
   { id: 'srodek-4.99-29.99-59.99', opis: 'mies. 4,99 / rok 29,99 / dożywotni 59,99 USD (ok. 1/3 mediany)', konw: KONW([0.012, 0.036, 0.08], 'cena ok. 1/3 mediany: 1,2–1,3× konwersji wariantu rynkowego'),
     produkty: [{ id: 'mies', cena: 4.99, ...MIES, u: [0.5, 0.4, 0.3] }, { id: 'rok', cena: 29.99, u: [0.3, 0.35, 0.4] }, { id: 'dozywotni', cena: 59.99, u: [0.2, 0.25, 0.3] }] },
   { id: 'rynek-14.99-89.99-149.99', opis: 'mediana kategorii US: mies. 14,99 / rok 89,99 / dożywotni 149,99 USD', konw: KONW([0.01, 0.03, 0.06], 'poziom bazowy przy cenie mediany kategorii'),
@@ -77,12 +84,13 @@ const WARIANTY = [
 
 function dane(w) {
   const sklepy = [];
-  for (const [k, kr] of Object.entries(KRAJE)) for (const platforma of ['ios', 'android']) {
+  // Bez storefrontu PL: decyzja właściciela 2026-11-03 („Tak, bez PL, polski zostaje”; karta portfela 48, 01.11.2026).
+  for (const [k, kr] of Object.entries(KRAJE).filter(([k]) => k !== 'pl')) for (const platforma of ['ios', 'android']) {
     const lok = kr.jez === 'en' ? LOK.en : kr.jez === 'pl' ? LOK.pl : LOK.inne;
     const produkty = w.produkty.map((p) => {
       const o = { id: p.id, cena_brutto: Math.round(p.cena * kr.wsp * 100) / 100 };
       if (p.platnosci_w_roku) Object.assign(o, { platnosci_w_roku: p.platnosci_w_roku, platnosci_zrodlo: p.platnosci_zrodlo });
-      if (w.produkty.length > 1) o.udzial = udz(p.u, MIX3);
+      if (w.produkty.length > 1) o.udzial = udz(p.u, w.mix ?? MIX3);
       return o;
     });
     sklepy.push({
