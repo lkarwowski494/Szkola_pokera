@@ -15,3 +15,8 @@ Odpowiedź (wybór z opcji + komentarz): „Każdy, ścieżka od zera do GTO ale
 Odpowiedź na opinię roli 01 do W-02 i pytanie o granice (gra z botami na żetony bez wartości: a tak / b tylko rozdania-zadania / c osobny moduł treningowy):
 „1. To nie problem z APi i kontrolami Claude. Przetestowałem to w 3 innych aplikacjachz 2. Zgoda 3. Zgoda. granice: a”
 [streszczenie roli 01] (1) Objętość treści × 35 języków właściciel uważa za rozwiązaną (tłumaczenie przez API i kontrole Claude, sprawdzone w 3 innych aplikacjach) — wejście do roli 09, kontrole D-026 zostają. (2) Komunikat w sklepie do jednej grupy (gracz rekreacyjny, który chce przestać przegrywać): zgoda. (3) Ocena poziomu krótka, do pominięcia, korygowana po ćwiczeniach: zgoda. Granica: gra z botami na żetony bez wartości zostaje (wariant a; odrzucone b i c) — skutek: symulowany hazard w kategorii wiekowej, OG w E2.
+
+## W-04 (2026-11-03)
+Pytanie: Trener AI z rozmową w aplikacji (a bez AI — granica / b trener AI w planie płatnym przez serwer / c na start bez AI, trener jako hipoteza z warunkiem powrotu). Właściciel dopytał: „Poczekaj ostanie - czym się różni a i c ?” — rola 01 wyjaśniła: pierwsza wersja ta sama; (a) granica zamknięta, (c) lista odcięć z warunkiem powrotu, architektura nie zamyka drogi.
+Odpowiedź: „Ok to w takim razie C”
+[streszczenie roli 01] Na start bez AI, wyjaśnienia przygotowane offline; trener AI jako H dla 02/03 z warunkiem powrotu (dane ze sklepu: płacący, recenzje proszące o własne pytania); odrzucone a i b.
