@@ -13,3 +13,4 @@ Jeden rejestr dla wszystkich ról (szablon biblioteki `prompts`, c025063). Zało
 | ZAL-008 | Na start trener AI z rozmową nie jest potrzebny do sprzedaży | 01 | hipoteza | W-04 (2026-11-03); warunek powrotu w H-06 | H-06 |
 | ZAL-009 | Mnożniki bramki: instalacje na ocenę, konwersja, udział nowej aplikacji | 02 | hipoteza | `docs/monetyzacja.md` (`[ZAŁOŻENIE]`, OP-03, OP-07; 2026-11-03) | werdykt bramki „budować”, D-029 |
 | ZAL-010 | Typowa sesja nauki trwa 5–10 minut, w dojeździe, często bez sieci | 01 | hipoteza | recenzja S-01 (2026-11-03) | kontekst J-01, J-03; NFR offline (E3) |
+| ZAL-MON-01 | Drabina kwartał 9,99 / rok 14,99 / dożywotni 19,99 kieruje większość kupujących do planu dożywotniego (efekt „dołóż 5 USD”) | właściciel, 02 | hipoteza | słowa właściciela 2026-11-03 (`docs/monetyzacja.md`, „Drabina cen właściciela”); brak przeczytanego badania; sprawdzenie: udział planów w App Store Connect po wydaniu | cena (decyzja 2026-11-03), H-MON-01 |
