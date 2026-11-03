@@ -1,5 +1,5 @@
 # Monetyzacja: Szkoła Pokera
-Stan: sesja 2, E1 (2026-11-03); bramka opłacalności (krok 0) zakończona werdyktem „budować” (słaby dowód) · Aktualizacja: 2026-11-03 · Wejście: brak BRD (krok 0 przed rolą 01), decyzje właściciela z E0 w `docs/sztafeta.md`
+Stan: sesja 2, E2 (2026-11-03); bramka opłacalności (krok 0) zakończona werdyktem „budować” (słaby dowód) · Aktualizacja: 2026-11-03 · Wejście: brak BRD (krok 0 przed rolą 01), decyzje właściciela z E0 w `docs/sztafeta.md`
 
 Dane surowe: `docs/monetyzacja/e1-rynek-2026-11-03.json` (lookup, zakupy w aplikacji US/PL/DE/GB, 45 storefrontów, StatCounter, NBP, Google Play). Parsery: `docs/monetyzacja/iap.mjs`, `plany.mjs`. Niezależność (D-023): przed zapisaniem `oplacalnosc-wlasna.json` nie otwierano karty portfela ani dokumentu „Aplikacje Mobilne do Nauki Pokera”; otwarto dokument 07 (Dysk, za zgodą z przekazania) i ADR-11.
 
@@ -31,6 +31,27 @@ Prompt: `assemble.mjs 02-monetyzacja --tryb build` (prompts c025063; moduły aud
 - E1.3–E1.4: klasy WTP dla 35 BR z danymi konkurencji (`docs/brd/dane/`), wyszukiwanie z OP-01, statusy H i ZAL; ok. 2 h agenta, limit wyszukiwarki ok. 20 wywołań/min; właściciel: bramka E1 (1 pytanie).
 - E2: co najmniej 3 opcje (decyzja z 2026-11-03: kwartał + rok + dożywotni; sam zakup dożywotni; sama subskrypcja), `rachunek.json` + `rachunek.mjs`, decyzje: okres próbny, Family Sharing, podział darmowe/płatne dla 03; ok. 2–3 h; właściciel: 3–4 pytania.
 - E3: kontrakt płatności, szkic ADR biblioteki, wektory dostępu, przekazanie do 03, 04, 05, 07, 08; ok. 2 h; właściciel: bramka i kroki w App Store Connect (produkty, progi cen, zapis do Small Business Program, jeśli go nie ma).
+
+## Sesja 2, E2: modele i rachunek (2026-11-03)
+Dowody uruchomienia: `node oplacalnosc.mjs warianty/<wariant>.json` (kod 0 dla trzech opcji; wyniki w scratchpadzie sesji, liczby niżej), `node rachunek.mjs rachunek.json` (kod 0) → `docs/monetyzacja/dowody/rachunek-2026-11-03.txt`. Nowy wariant C dopisany do `generuj-warianty.mjs` (`sub-9.99-14.99`); pozostałe 15 plików wariantów po ponownym wygenerowaniu bez zmian (`git status`: tylko nowy plik). Bez storefrontu PL. Kwoty: USD netto/rok, pes. / norm. / opt.
+
+| Opcja | Produkty (US) | Razem | Sam iOS (norm.) | Reguła sklepu | Ryzyko etyczne | Koszt utrzymania |
+|---|---|---|---|---|---|---|
+| A: drabina (decyzja właściciela 2026-11-03) | subskrypcje kwartał 9,99 i rok 14,99, niezużywalny dożywotni 19,99 | 50,93 / 5 199,87 / 363 501,94 | 3 249,92 | 3.1.2(a): „you must provide ongoing value to the customer, and the subscription period must last at least seven days” (odczyt 2026-11-03); ujawnienia ze strony subskrypcji („the amount that will be billed must be the most prominent pricing element”) | kwartał odnawia się, a uczący się porzuca po miesiącu (słowa właściciela): ryzyko skarg „keeps charging” (17 z 349 recenzji) | stałe aktualizacje treści uzasadniające subskrypcję (OG-05, RYZ-01) |
+| B: sam zakup jednorazowy | niezużywalny „pełny dostęp” 19,99 | 74,10 / 6 400,43 / 415 450,83 | 4 000,27 | 3.1.1: odblokowanie przez zakup w aplikacji, „restore mechanism for any restorable in-app purchases”; okres próbny tylko jako „XX-day Trial” | najmniejsze: brak odnowień | brak obowiązku stałej wartości; aktualizacje bez przychodu z odnowień |
+| C: sama subskrypcja | kwartał 9,99 i rok 14,99 | 34,72 / 3 554,95 / 240 795,32 | 2 221,84 | jak A | jak A, bez wyjścia „bez odnowień” | jak A |
+
+Pozostałe modele z wymiaru pokrycia (bramka, `dowody/warianty-2026-11-03*.txt`): bez opłat — wpływ 0 wobec progu 500 USD; napiwek 2,99 — „odłożyć”; płatne pobranie 9,99 — skargi na płacenie przed wypróbowaniem (23 z 349). Bez reklam (standard marki wysoki).
+
+**Wpływ na płacącego** (`rachunek.mjs`, US, prowizja 15%): kwartał 8,49, rok 12,74, dożywotni 16,99 USD; bez Small Business Program dożywotni 13,99 USD (30%). Próg kosztu Apple Developer (99 USD, koszt portfela): 6–12 płacących/rok.
+
+**Skąd różnica A–B** [RACHUNEK]: w obu opcjach założona konwersja jest ta sama (3,6% norm.), a w A ćwierć płacących wybiera kwartał za 9,99 zamiast 19,99. Opcja A wygrywa tylko wtedy, gdy tańsze wejście podnosi konwersję co najmniej 1,23× (6 400,43 / 5 199,87). Tego nie rozstrzygnie rachunek, a App Store nie testuje cen A/B. Odnowienia rocznej subskrypcji w drugim roku nie są liczone (brak źródła retencji, OP-03). Odwracalność: przejście B → A później nie odbiera niczego kupującym; przejście A → B kończy subskrypcje opłacone przez ludzi (3.1.2(a): „you should not take away the primary functionality existing users have already paid for”, wzorce roli).
+
+**Okres próbny** (wymiar pokrycia): subskrypcja tylko przez ofertę wprowadzającą w App Store Connect („clearly indicate how long the free trial lasts and the price billed once the free trial is over”); zakup jednorazowy tylko „XX-day Trial” (3.1.1). Darmowa część kursu daje próbę bez mechanizmu sklepu.
+
+**Family Sharing**: tylko niezużywalne i subskrypcje odnawiane; „once you turn on Family Sharing … you can't turn it off” (odczyt 2026-11-03). Wyłączone na start da się włączyć później, odwrotnie nie.
+
+**Google Play**: okres „Every 3 months” jest dostępny (E1b); zasady subskrypcji: „You must be transparent about your offer” (answer/9900533, odczyt 2026-11-03); zakup jednorazowy jako produkt jednorazowy Play. Pełny odczyt warunków przed cennikiem: OP-08 niżej.
 
 ## Sesja 2, E1: wartość funkcji (2026-11-03)
 Klasy według słownika WTP z wzorców roli (pierwsza pasująca), poziom dowodu R/W/B/H. Dowody rynku z BRD (`docs/brd/odkrywanie.md`, „Rynek”, odczyt 2026-11-03; 102 aplikacje, 828 recenzji) i z E1 bramki (349 recenzji). Ceny to fakty zmienne z datą 2026-11-03.
@@ -266,5 +287,6 @@ Wniosek: rozbieżności cen nie zmieniają median kategorii rzędu wielkości (w
 | OP-04 | [DO WYJAŚNIENIA] Wpis decyzji E0 w rejestrze 03 na Dysku wymaga konektora Google Docs (sesja ma tylko Drive) | właściciel | rejestr |
 | OP-05 | Rozstrzygnięte 2026-11-03: bez storefrontu PL, pl w językach (decyzja właściciela) | — | rynki, rola 09 |
 | OP-06 | [DO USTALENIA] Stawki VAT FR/DE/PL/JP/TW/VN u źródła (wpływ < 5%) | 02, krok cennika | rachunek |
+| OP-08 | [DO USTALENIA] Google Play: pełne warunki subskrypcji i produktów jednorazowych (ujawnienia, okres próbny, przywracanie) przed cennikiem | 02, E3 | kontrakt płatności |
 | OP-07 | [DO USTALENIA] Benchmark instalacji na ocenę i konwersji według ceny (przeczytane źródło) — najtańsze sprawdzenie werdyktu | 02, przed cennikiem | bramka |
 

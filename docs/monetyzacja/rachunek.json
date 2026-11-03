@@ -1,0 +1,22 @@
+{
+ "data": "2026-11-03",
+ "waluta": "USD",
+ "vat": {"stawka": 0, "zrodlo": "[ZAŁOŻENIE] storefront US: ceny bez podatku sprzedaży, podatek pobiera Apple ponad cenę (jak oplacalnosc-wlasna.json, 2026-11-03)"},
+ "prowizja": {"stawka": 0.15, "zrodlo": "developer.apple.com/app-store/small-business-program: „a reduced commission rate of 15% on paid apps and Apple In-App Purchases” (odczyt 2026-11-03)"},
+ "kursy": {},
+ "koszty_roczne": [
+  {"nazwa": "Apple Developer Program (koszt portfela, pokazany dla progu)", "kwota": 99, "waluta": "USD", "zrodlo": "developer.apple.com/programs/enroll: 99 USD rocznie (wzorce roli, odczyt 2026-10-18; kwota z faktury właściciela, jeśli inna) 2026-11-03"}
+ ],
+ "produkty": [
+  {"id": "kwartal-9.99 (subskrypcja odnawiana)", "cena_brutto": 9.99, "platnosci_w_roku": 1, "platnosci_zrodlo": "[OCENA] 1 opłacony kwartał na płacącego w roku; właściciel 2026-11-03: „Ludzie porzucają naukę po max miesiącu”"},
+  {"id": "rok-14.99 (subskrypcja odnawiana)", "cena_brutto": 14.99},
+  {"id": "dozywotni-19.99 (niezużywalny)", "cena_brutto": 19.99},
+  {"id": "prowizja-30: dozywotni-19.99 bez Small Business Program", "cena_brutto": 19.99, "prowizja": {"stawka": 0.30, "zrodlo": "Schedule 2 pkt 3.4(a) umowy DPLA: 30% bez programu (wzorce roli, odczyt 2026-10-18; ponowny odczyt przed cennikiem) 2026-11-03"}}
+ ],
+ "lejek": [
+  {"nazwa": "opcja A, kwartał (25% płacących)", "produkt": "kwartal-9.99 (subskrypcja odnawiana)", "odslony_strony": 10000, "konwersja": 0.3, "zakup": 0.009, "zrodlo": "[OCENA] 10 000 odsłon strony US/rok i konwersja 0,3 bez źródła (format z biblioteki); zakup = 3,6% (norm. drabiny 9,99, generuj-warianty.mjs) × 25% udziału kwartału"},
+  {"nazwa": "opcja A, rok (25%)", "produkt": "rok-14.99 (subskrypcja odnawiana)", "odslony_strony": 10000, "konwersja": 0.3, "zakup": 0.009, "zrodlo": "[OCENA] jak wyżej × 25% udziału roku"},
+  {"nazwa": "opcja A, dożywotni (50%)", "produkt": "dozywotni-19.99 (niezużywalny)", "odslony_strony": 10000, "konwersja": 0.3, "zakup": 0.018, "zrodlo": "[OCENA] jak wyżej × 50% udziału dożywotniego (ZAL-MON-01)"},
+  {"nazwa": "opcja B, jednorazowy 19,99 (100%)", "produkt": "dozywotni-19.99 (niezużywalny)", "odslony_strony": 10000, "konwersja": 0.3, "zakup": 0.036, "zrodlo": "[OCENA] jak wyżej; konwersja 3,6% jak jednorazowy-19.99 w generuj-warianty.mjs"}
+ ]
+}

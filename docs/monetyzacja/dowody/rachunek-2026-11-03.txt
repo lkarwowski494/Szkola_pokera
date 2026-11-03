@@ -1,0 +1,12 @@
+Rachunek z 2026-11-03 (USD); VAT 0% [[ZAŁOŻENIE] storefront US: ceny bez podatku sprzedaży, podatek pobiera Apple ponad cenę (jak oplacalnosc-wlasna.json, 2026-11-03)]; prowizja 15% [developer.apple.com/app-store/small-business-program: „a reduced commission rate of 15% on paid apps and Apple In-App Purchases” (odczyt 2026-11-03)]
+Koszt roczny: Apple Developer Program (koszt portfela, pokazany dla progu) 99 USD
+Koszty roczne razem: 99,00 USD
+kwartal-9.99 (subskrypcja odnawiana): cena 9,99 → bez VAT 9,99 → prowizja 15% → wpływ 8,49 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 8,49; próg: 12 płacących/rok
+rok-14.99 (subskrypcja odnawiana): cena 14,99 → bez VAT 14,99 → prowizja 15% → wpływ 12,74 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 12,74; próg: 8 płacących/rok
+dozywotni-19.99 (niezużywalny): cena 19,99 → bez VAT 19,99 → prowizja 15% → wpływ 16,99 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 16,99; próg: 6 płacących/rok
+prowizja-30: dozywotni-19.99 bez Small Business Program: cena 19,99 → bez VAT 19,99 → prowizja 30% → wpływ 13,99 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 13,99; próg: 8 płacących/rok
+Lejek „opcja A, kwartał (25% płacących)”: płacący 27,0 → wpływ 229,27 USD/rok → pokrycie kosztów 232%
+Lejek „opcja A, rok (25%)”: płacący 27,0 → wpływ 344,02 USD/rok → pokrycie kosztów 347%
+Lejek „opcja A, dożywotni (50%)”: płacący 54,0 → wpływ 917,54 USD/rok → pokrycie kosztów 927%
+Lejek „opcja B, jednorazowy 19,99 (100%)”: płacący 108,0 → wpływ 1835,08 USD/rok → pokrycie kosztów 1854%
+Bez podatku dochodowego i składek; przybliżenie z danych wejściowych, nie prognoza.
