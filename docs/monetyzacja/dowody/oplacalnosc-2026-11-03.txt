@@ -1,0 +1,28 @@
+Uruchomienie: 2026-11-03 16:58 UTC · node v22.23.4 · node oplacalnosc.mjs oplacalnosc-wlasna.json · commit wejścia 4f42797
+Bramka opłacalności 2026-11-03 (USD netto/rok, pes. / norm. / opt.; bez kosztów portfela i czasu, D-024)
+ios/us: płacący 2,66 / 134,14 / 3832,52; netto 16,01 / 886,83 / 27628,08
+android/us: płacący 0,27 / 80,48 / 7665,05; netto 1,60 / 532,10 / 55256,16
+ios/jp: płacący 1,28 / 97,03 / 5544,56; netto 5,47 / 455,15 / 28367,25
+android/jp: płacący 0,13 / 58,22 / 11089,13; netto 0,55 / 273,09 / 56734,50
+ios/ca: płacący 0,36 / 18,23 / 520,88; netto 1,74 / 96,66 / 3012,43
+android/ca: płacący 0,04 / 10,94 / 1041,75; netto 0,17 / 57,99 / 6024,86
+ios/gb: płacący 0,21 / 10,65 / 304,23; netto 1,42 / 78,75 / 2453,22
+android/gb: płacący 0,02 / 6,39 / 608,46; netto 0,14 / 47,25 / 4906,43
+ios/br: płacący 0,21 / 16,06 / 917,54; netto 1,19 / 99,05 / 6173,78
+android/br: płacący 0,02 / 9,63 / 1835,09; netto 0,12 / 59,43 / 12347,57
+ios/fr: płacący 0,21 / 15,73 / 898,58; netto 1,19 / 99,21 / 6182,88
+android/fr: płacący 0,02 / 9,44 / 1797,15; netto 0,12 / 59,52 / 12365,76
+ios/tw: płacący 0,20 / 14,99 / 856,56; netto 1,17 / 97,22 / 6057,59
+android/tw: płacący 0,02 / 8,99 / 1713,12; netto 0,12 / 58,33 / 12115,19
+ios/vn: płacący 0,17 / 13,00 / 743,04; netto 0,89 / 74,06 / 4613,99
+android/vn: płacący 0,02 / 7,80 / 1486,07; netto 0,09 / 44,44 / 9227,98
+ios/de: płacący 0,12 / 9,14 / 522,36; netto 0,70 / 58,16 / 3624,45
+android/de: płacący 0,01 / 5,48 / 1044,72; netto 0,07 / 34,89 / 7248,89
+ios/pl: płacący 0,03 / 1,70 / 81,01; netto 0,17 / 11,63 / 603,98
+android/pl: płacący 0,00 / 1,02 / 162,02; netto 0,02 / 6,98 / 1207,96
+ios: po kosztach 29,97 / 1956,72 / 88717,65
+android: po kosztach 3,00 / 1174,03 / 177435,31
+A (dowody storefrontów): razem 32,96 / 3130,75 / 266152,96; werdykt wobec progu 500,00 [decyzja właściciela 2026-11-03: „500 USD/rok” netto, globalnie (docs/sztafeta.md)]: budować; wynik normalny wobec progu zmienia: żadne założenie
+Sam iOS (A): razem 29,97 / 1956,72 / 88717,65; werdykt wobec progu 500,00 [decyzja właściciela 2026-11-03: „500 USD/rok” netto, globalnie (docs/sztafeta.md)]: budować; wynik normalny wobec progu zmienia: udzial_nowej (wszystkie sklepy)
+Największy wpływ (A, pes. → opt.): instalacje_na_ocene (wszystkie sklepy) 1043,58 → 10435,84; konwersja (wszystkie sklepy) 1043,58 → 8348,67; udzial_nowej (wszystkie sklepy) 782,69 → 7826,88
+Przybliżenie z jawnych założeń, nie prognoza; bez podatku dochodowego i składek.

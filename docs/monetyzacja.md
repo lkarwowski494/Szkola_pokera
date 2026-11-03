@@ -1,5 +1,5 @@
 # Monetyzacja: Szkoła Pokera
-Stan: E1 bramki opłacalności (rola 02, krok 0, `--moduly oplacalnosc`) · Aktualizacja: 2026-11-03 · Wejście: brak BRD (krok 0 przed rolą 01), decyzje właściciela z E0 w `docs/sztafeta.md`
+Stan: E1b bramki opłacalności zakończone (werdykt „budować”, słaby dowód) (rola 02, krok 0, `--moduly oplacalnosc`) · Aktualizacja: 2026-11-03 · Wejście: brak BRD (krok 0 przed rolą 01), decyzje właściciela z E0 w `docs/sztafeta.md`
 
 Dane surowe: `docs/monetyzacja/e1-rynek-2026-11-03.json` (lookup, zakupy w aplikacji US/PL/DE/GB, 45 storefrontów, StatCounter, NBP, Google Play). Parsery: `docs/monetyzacja/iap.mjs`, `plany.mjs`. Niezależność (D-023): przed zapisaniem `oplacalnosc-wlasna.json` nie otwierano karty portfela ani dokumentu „Aplikacje Mobilne do Nauki Pokera”; otwarto dokument 07 (Dysk, za zgodą z przekazania) i ADR-11.
 
@@ -82,8 +82,81 @@ Suma ocen iOS 20 aplikacji w 45 storefrontach: 31 554.
 ## Reguły sklepu
 Z E0 (App Review Guidelines „Last Updated: October 16, 2026”, odczyt 2026-11-03): 3.1.1, 3.1.2(a), 3.2.2(x), 4.2, 4.3(b), 5.6, 5.3.4 — cytaty w `docs/sztafeta.md`. Kategoria wiekowa: 21 z 29 konkurentów ma „17+”, 5 (m.in. NTPoker, Poker Coaching) „4+”, 3 „12+” (lookup, `contentAdvisoryRating`) — wejście do ADR-12, decyzja po E1b.
 
-## Opłacalność
-E1b (następny krok): `oplacalnosc-wlasna.json`, `oplacalnosc.mjs`, macierz wariantów D-028, werdykt wobec progu 500 USD/rok netto.
+## Opłacalność (E1b, 2026-11-03)
+Dowody uruchomienia: `docs/monetyzacja/dowody/oplacalnosc-2026-11-03.txt` (wariant właściciela, 16:58 UTC) i `dowody/warianty-2026-11-03.txt` (macierz). Próg: 500 USD/rok netto, globalnie (decyzja właściciela 2026-11-03). Kwoty: USD netto/rok po VAT i prowizji 15%, przed podatkiem dochodowym, bez kosztów portfela (Apple Developer, rejestracja Google Play — D-024). Wartości pes. / norm. / opt.
+
+**Kontrola skryptów:** przykłady biblioteki (`prompts/tests/fixtures`) niedostępne — klasyfikator środowiska odrzucił dołączenie repo `prompts` (add_repo, „Access Added As A Means”, 2026-11-03). Zastępczo: niezależne przeliczenie ios/us bez importu skryptu (oceny/rok 3548,6 × założenia normalne = 134,14 płacących × 6,6113 USD = **886,83 USD**) — zgodne z wynikiem skryptu co do grosza. Kontrola na przykładach biblioteki zostaje do zrobienia (OP-05).
+
+### Werdykt: **budować** (wariant właściciela 0,99 / 6,99 / 14,99 USD, D-029)
+| Zakres | pes. | norm. | opt. |
+|---|---|---|---|
+| ios/us | 16,01 | 886,83 | 27 628,08 |
+| ios/jp | 5,47 | 455,15 | 28 367,25 |
+| ios/ca · gb · br · fr · tw · vn · de | 0,70–1,74 | 58–99 | 2 453–6 183 |
+| ios/pl | 0,17 | 11,63 | 603,98 |
+| android/us | 1,60 | 532,10 | 55 256,16 |
+| android/jp | 0,55 | 273,09 | 56 734,50 |
+| android, pozostałe 8 sklepów | 0,02–0,17 | 7–59 | 1 208–12 366 |
+| **iOS razem** | 29,97 | 1 956,72 | 88 717,65 |
+| **Android razem** | 3,00 | 1 174,03 | 177 435,31 |
+| **Razem** | **32,96** | **3 130,75** | **266 152,96** |
+| **Sam iOS** | 29,97 | 1 956,72 | 88 717,65 → też „budować” |
+
+Siła dowodu: **słaba**. Wynik normalny jest 6,3× nad progiem, ale pesymistyczny 15× pod nim, a rozrzut pes.–opt. to ~8000×. Popyt (oceny konkurentów, ceny, VAT GB, prowizja) jest odczytany u źródła; trzy mnożniki o największym wpływie to `[ZAŁOŻENIE]` bez przeczytanego benchmarku. US i JP dają 69% wyniku normalnego (2 147,17 z 3 130,75); PL (rynek domowy) poniżej 1%.
+
+### Wrażliwość
+| Założenie (wszystkie sklepy) | Wynik przy pes. → opt. (reszta norm.) | Zmienia werdykt? | Najtańsze sprawdzenie |
+|---|---|---|---|
+| instalacje na ocenę (20 / 60 / 200) | 1 043,58 → 10 435,84 | nie sam | przeczytany raport branżowy o stosunku ocen do pobrań (0 zł, ~1 h agenta) |
+| konwersja pobranie → płacący (1,5 / 4,5 / 12%) | 1 043,58 → 8 348,67 | nie sam | publiczny raport subskrypcji aplikacji z konwersją według ceny i kategorii (0 zł, ~1 h agenta) |
+| udział nowej aplikacji (0,5 / 2 / 5%) | 782,69 → 7 826,88 | **tak dla „sam iOS”** (1 956,72 ÷ 4 < 500) | po wydaniu: App Store Connect Analytics, 90 dni (0 zł, czas oczekiwania) |
+| VAT FR/DE/PL/JP/TW/VN (`[ZAŁOŻENIE]`) | < 5% wyniku | nie | odczyt stawek u źródła: próby 2026-11-03 nieudane (gov.pl, nta.go.jp bez stawki w HTML; impots.gouv 404; BMF 503) — OP-06 |
+
+Margines wariantu właściciela: werdykt spada do „odłożyć”, gdy dwa z trzech głównych założeń są pesymistyczne naraz (np. 3 × 4 = 12 > 6,3). Margines wariantu rynkowego: ~50×, spada dopiero przy prawie wszystkich pesymistycznych.
+
+### Macierz wariantów (D-028; reklamy pominięte: standard marki wysoki, brak przeczytanego źródła przychodu)
+| Wariant | Razem pes. / norm. / opt. (USD) | Sam iOS norm. | Werdykt |
+|---|---|---|---|
+| rynek 14,99 mies. / 89,99 rok / 149,99 dożywotni | 270 / 24 958 / 1 553 497 | 15 599 | budować |
+| jednorazowy 99,99 | 186 / 17 893 / 1 046 198 | 11 183 | budować |
+| rok 59,99 | 149 / 13 419 / 784 592 | 8 387 | budować |
+| jednorazowy 49,99 | 155 / 13 418 / 784 563 | 8 386 | budować |
+| mies. 9,99 + rok 59,99 | 149 / 13 414 / 883 728 | 8 384 | budować |
+| środek 4,99 / 29,99 / 59,99 | 116 / 10 784 / 752 977 | 6 740 | budować |
+| mies. 9,99 | 124 / 10 725 / 627 108 | 6 703 | budować |
+| jednorazowy 19,99 | 75 / 6 439 / 418 298 | 4 024 | budować |
+| **właściciel 0,99 / 6,99 / 14,99** | 33 / 3 131 / 266 153 | 1 957 | budować |
+| płatna z góry 9,99 | 16 / 1 341 / 104 518 | 838 | budować (sam iOS: zależny od 3 założeń) |
+| napiwek 2,99 | 2 / 134 / 7 826 | 84 | odłożyć |
+
+Zastrzeżenie: kolejność wariantów zależy od założonej konwersji przy danej cenie (`[ZAŁOŻENIE]`, np. 4,5% przy 0,99 USD wobec 3% przy 14,99 USD). Różnice między miejscami 2–7 mieszczą się w błędzie tego założenia; pewna jest tylko różnica rzędu wielkości między cenami rynku a wariantem właściciela (8× w wyniku normalnym).
+
+### Model optymalny (najwyższy wynik normalny w podłodze)
+Najwyższy wynik normalny: **rynek 14,99 $/mies., 89,99 $/rok, 149,99 $ dożywotni** (ceny lokalne według tabel cen Apple). Podłoga:
+- bez ciemnych wzorców: darmowa część z prawdziwą nauką przed zakupem (H-E1-04), okres próbny tylko przez App Store Connect z jasnym ujawnieniem ceny po okresie, bez fałszywych promocji „50%” (H-E1-05), łatwe anulowanie przez ustawienia systemu, działające „Przywróć zakupy”;
+- wytyczne sklepów: subskrypcja tylko z bieżącą wartością (3.1.2(a): aktualizacje treści, powtórki SRS), plan dożywotni jako zakup nieodnawialny, bez gry na pieniądze i pomocy w czasie gry (5.3.4); odpowiedniki w Google Play [DO SPRAWDZENIA przez rolę 02 w kroku cennika];
+- standard marki wysoki: bez reklam i SDK śledzących — spełnione we wszystkich wariantach macierzy;
+- zasada 18 biblioteki: [DO SPRAWDZENIA] — treść niedostępna w tej sesji (repo `prompts` nie dołączone).
+Wybór ceny to decyzja produktowa właściciela (CLAUDE.md) — opcje w pytaniu na STOP.
+
+### Rozbieżności z kartą portfela i dokumentem „Aplikacje Mobilne do Nauki Pokera” (otwarte po zapisaniu dowodu, D-023)
+Karta `portfel-aplikacji/karty/48-szkola-pokera.md`: **nieotwarta** — leży w repo `prompts`, którego ta sesja nie może dołączyć (OP-05). Dokument z Dysku (id 121Gf18Z…, odczyt 2026-11-03):
+
+| Wielkość | Nasza (E1, lookup/strony App Store 2026-11-03) | Dokument | Przyczyna |
+|---|---|---|---|
+| Liczba aplikacji w kategorii | 29 (z dokumentu 07 i list „podobne”) | 45–50 aktywnych, 33 wiodące | `itunes.apple.com/search` 403 → pominięte m.in. Poker Skill, River, Pokr, LeakSeek, Insta Poker Coach, PokerCruncher, Poker Sense (OP-01). Skutek: popyt (oceny/rok) zaniżony, a konkurencja darmowa i zlokalizowana też zaniżona — kierunek wpływu na wynik nieznany |
+| Darmowa alternatywa | `[ZAŁOŻENIE]` 50 / 70 / 90% popytu niezabranego | Poker Skill „Free forever” (lekcje, 8 języków w aplikacji) | brak tej aplikacji w naszych danych; mnożnik może być zawyżony dla początkujących |
+| Luka lokalizacji (poza EN) | 25 z 29 tylko EN; mnożnik 1 / 1,5 / 3 | ~70% tylko EN; River 8 języków (w tym JA, FR, DE, PT-BR), Poker Skill 8, Pokr 6 | dokument ma aplikacje spoza naszej listy; mnożnik dla JP/FR/DE/BR/TW może być zawyżony |
+| Języki Poker Academy | EN (metadane App Store) | 5 (PL, EN, ES, FR, ZH-Hans), przełącznik w aplikacji | inne źródło: metadane sklepu vs język wewnątrz aplikacji |
+| Języki NTPoker / POKER Q'z | 17 (metadane App Store) | 2+ / 3+ | dokument liczy języki treści, my metadane sklepu |
+| Preflop+ mies. / dożywotni (US) | 5,99 $ / 59,99 $ | 9,99 $ / 129,99 $ | my bierzemy najniższą cenę z listy zakupów (z promocjami „Special”); dokument cenę podstawową; dokument opisuje testy cen A/B |
+| Solver+ mies. / dożywotni | 17,99 $ / 299,99 $ | 22,99–50 $ / 349,99 $ | jak wyżej |
+| GTO Gecko mies. / rok | 14,99 $ / — | 24,99 $ / 149,99 $ | jak wyżej; inny plan (1 format vs All-Access) |
+| Preflop Wizard | 19,99 $ mies., 89,99 $ rok | 10,83 $/mies. przy rocznym (≈ 129,99 $/rok) | testy cen / inny odczyt [DO USTALENIA] |
+| POKER Q'z mies. | 17,99 $ | 13,99 $ | jak wyżej |
+| Zgodne | Poker Trainer (14,99 / 59,99 / 269,99), NTPoker (9,99 / 69,99), DTO (9,99 / 89,99), Postflop+ (14,99), Poker Academy (9,99 $ / 49,99 zł) | | |
+
+Wniosek: rozbieżności cen nie zmieniają median kategorii rzędu wielkości (wariant właściciela pozostaje 10× pod rynkiem). Istotna jest **niepełna lista konkurentów** (OP-01): przy ponownym przebiegu dodać brakujące aplikacje (popyt i darmowa/zlokalizowana podaż), zanim cena trafi do cennika.
 
 ## Otwarte pytania
 | ID | Pytanie | Rozstrzyga | Dotyczy |
@@ -92,3 +165,7 @@ E1b (następny krok): `oplacalnosc-wlasna.json`, `oplacalnosc.mjs`, macierz wari
 | OP-02 | [DO USTALENIA] Płatności App Store w storefroncie RU | 02, E1b | przesiew |
 | OP-03 | [DO USTALENIA] Instalacje na ocenę i udział nowej aplikacji: brak przeczytanego benchmarku → `[ZAŁOŻENIE]` z rozrzutem ≥ 10× | 02, E1b | bramka |
 | OP-04 | [DO WYJAŚNIENIA] Wpis decyzji E0 w rejestrze 03 na Dysku wymaga konektora Google Docs (sesja ma tylko Drive) | właściciel | rejestr |
+| OP-05 | [DO WYJAŚNIENIA] Repo `prompts` niedostępne w sesji (add_repo odrzucony przez klasyfikator): kontrola skryptów na przykładach biblioteki, karta portfela 48, zasada 18 | właściciel (dołączenie repo / reguła uprawnień) | kontrola, rozbieżności, podłoga |
+| OP-06 | [DO USTALENIA] Stawki VAT FR/DE/PL/JP/TW/VN u źródła (wpływ < 5%) | 02, krok cennika | rachunek |
+| OP-07 | [DO USTALENIA] Benchmark instalacji na ocenę i konwersji według ceny (przeczytane źródło) — najtańsze sprawdzenie werdyktu | 02, przed cennikiem | bramka |
+

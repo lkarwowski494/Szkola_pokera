@@ -1,0 +1,44 @@
+Uruchomienie: 2026-11-03 17:01 UTC · node oplacalnosc.mjs warianty/*.json (macierz D-028)
+| Wariant | Razem pes. / norm. / opt. | Werdykt |
+|---|---|---|
+| rynek-14.99-89.99-149.99 | 270,24 / 24957,78 / 1553496,75 USD | budować |
+| jednorazowy-99.99 | 186,40 / 17892,86 / 1046197,62 USD | budować |
+| rok-59.99 | 149,11 / 13418,70 / 784591,65 USD | budować |
+| jednorazowy-49.99 | 155,32 / 13418,22 / 784563,37 USD | budować |
+| mies-rok-9.99-59.99 | 149,05 / 13413,95 / 883728,13 USD | budować |
+| srodek-4.99-29.99-59.99 | 115,50 / 10784,06 / 752977,45 USD | budować |
+| mies-9.99 | 124,15 / 10725,47 / 627107,65 USD | budować |
+| jednorazowy-19.99 | 74,53 / 6438,70 / 418298,03 USD | budować |
+| wlasciciel-0.99-6.99-14.99 | 32,96 / 3130,75 / 266152,96 USD | budować |
+| platna-z-gory-9.99 | 15,52 / 1340,68 / 104517,94 USD | budować |
+| napiwek-2.99 | 1,86 / 133,82 / 7826,22 USD | odłożyć |
+Najwyższy wynik normalny: rynek-14.99-89.99-149.99 (optymalny tylko, jeśli przechodzi podłogę).
+
+Wariant o najwyższym wyniku normalnym, szczegóły:
+Bramka opłacalności 2026-11-03 (USD netto/rok, pes. / norm. / opt.; bez kosztów portfela i czasu, D-024)
+ios/us: płacący 1,77 / 89,43 / 1916,26; netto 131,17 / 7067,42 / 161222,44
+android/us: płacący 0,18 / 53,66 / 3832,52; netto 13,12 / 4240,45 / 322444,88
+ios/jp: płacący 0,86 / 64,69 / 2772,28; netto 44,92 / 3629,87 / 165606,31
+android/jp: płacący 0,09 / 38,81 / 5544,56; netto 4,49 / 2177,92 / 331212,62
+ios/ca: płacący 0,24 / 12,15 / 260,44; netto 14,32 / 771,34 / 17595,54
+android/ca: płacący 0,02 / 7,29 / 520,88; netto 1,43 / 462,81 / 35191,09
+ios/gb: płacący 0,14 / 7,10 / 152,12; netto 11,65 / 627,45 / 14313,19
+android/gb: płacący 0,01 / 4,26 / 304,23; netto 1,16 / 376,47 / 28626,39
+ios/br: płacący 0,14 / 10,70 / 458,77; netto 9,78 / 790,16 / 36050,27
+android/br: płacący 0,01 / 6,42 / 917,54; netto 0,98 / 474,09 / 72100,54
+ios/fr: płacący 0,14 / 10,48 / 449,29; netto 9,79 / 791,26 / 36100,22
+android/fr: płacący 0,01 / 6,29 / 898,58; netto 0,98 / 474,75 / 72200,43
+ios/tw: płacący 0,13 / 9,99 / 428,28; netto 9,59 / 774,74 / 35346,71
+android/tw: płacący 0,01 / 6,00 / 856,56; netto 0,96 / 464,84 / 70693,41
+ios/vn: płacący 0,11 / 8,67 / 371,52; netto 7,30 / 589,86 / 26911,11
+android/vn: płacący 0,01 / 5,20 / 743,04; netto 0,73 / 353,91 / 53822,22
+ios/de: płacący 0,08 / 6,09 / 261,18; netto 5,74 / 463,84 / 21162,19
+android/de: płacący 0,01 / 3,66 / 522,36; netto 0,57 / 278,30 / 42324,39
+ios/pl: płacący 0,02 / 1,13 / 40,50; netto 1,43 / 92,70 / 3524,26
+android/pl: płacący 0,00 / 0,68 / 81,01; netto 0,14 / 55,62 / 7048,53
+ios: po kosztach 245,68 / 15598,61 / 517832,25
+android: po kosztach 24,57 / 9359,17 / 1035664,50
+A (dowody storefrontów): razem 270,24 / 24957,78 / 1553496,75; werdykt wobec progu 500,00 [decyzja właściciela 2026-11-03: „500 USD/rok” netto, globalnie (docs/sztafeta.md)]: budować; wynik normalny wobec progu zmienia: żadne założenie
+Sam iOS (A): razem 245,68 / 15598,61 / 517832,25; werdykt wobec progu 500,00 [decyzja właściciela 2026-11-03: „500 USD/rok” netto, globalnie (docs/sztafeta.md)]: budować; wynik normalny wobec progu zmienia: żadne założenie
+Największy wpływ (A, pes. → opt.): instalacje_na_ocene (wszystkie sklepy) 8319,26 → 83192,61; udzial_nowej (wszystkie sklepy) 6239,45 → 62394,46; konwersja (wszystkie sklepy) 8319,26 → 49915,56
+Przybliżenie z jawnych założeń, nie prognoza; bez podatku dochodowego i składek.
