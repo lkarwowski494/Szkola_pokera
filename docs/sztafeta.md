@@ -162,5 +162,9 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - Pominięcia: ER-12 (pętla opinii i zgłoszenie błędu w zadaniu), ER-13 (zasady dziennej puli jako BR).
 - ZAL-005: dopisany dowód przeciw w części, status bez zmian.
 
+## Decyzje właściciela na bramce E1 roli 03 (2026-11-03)
+- ER-12 i ER-13: „Najpierw BR, potem E2 (Recommended)” — rola 01 w trybie fix dopisuje BR, potem cięcie E2 (analogia: Piekarz D-041). Odrzucone: E2 teraz z BR równolegle; zmiana ustaleń E1.
+- Nowa sesja: „Nie” — kontynuacja w tej sesji (odrzucona rekomendacja: nowa z archiwizacją).
+
 ## Następny krok
-**Bramka E1 roli 03** (decyzja właściciela: kto i kiedy dopisuje BR dla ER-12 i ER-13); potem E2 (cięcie, warianty, H-04, N puli). Prompt: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build` (prompts c025063). Stan: `docs/scope-contract.md`, sekcja E1.
+**Rola 01 fix: BR dla ER-12 i ER-13**, potem rola 03 E2 (cięcie, warianty, H-04, N puli). Prompt: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build` (prompts c025063). Stan: `docs/scope-contract.md`, sekcja E1.

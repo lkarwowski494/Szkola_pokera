@@ -205,3 +205,57 @@ Podział na część darmową i płatną to hipoteza H-01 (role 02 i 03); wymaga
     - Zakładając, że lekcja pokazuje szansę trafienia koloru od flopu do rivera
     - Gdy użytkownik przełączy język z pl na en
     - Wtedy wartość jest ta sama: „34,97%” po polsku i „34.97%” po angielsku (RD-04-W1)
+
+## Opinie (OPIN)
+
+### BR-OPIN-001: Systemowa prośba o ocenę po skończonej pracy
+- Przepływ: PR-09
+- Dowód potrzeby: J-07; OG-15 [FAKT S-55, S-57, S-59, S-60]; OG-16 [FAKT S-61, S-62]; wzór Treningu (`docs/26-prosba-o-ocene.md` w repo `trening`: prośba od 3. ukończonego treningu) i Piekarza (D-067: od 3. wypieku, odstęp 14 dni)
+- Kryteria akceptacji:
+  - Scenariusz: Prośba po trzeciej skończonej pracy
+    - Zakładając, że użytkownik skończył trzecią lekcję albo sesję ćwiczeń od instalacji (decyzja agenta przez analogię do Treningu i Piekarza, 2026-11-03, ER-12)
+    - Gdy zobaczy podsumowanie tej lekcji albo sesji
+    - Wtedy aplikacja wywołuje systemową prośbę o ocenę, bez własnego okna i bez pytania wstępnego
+  - Scenariusz: Bez prośby w trakcie zadania i przy pierwszym uruchomieniu
+    - Zakładając, że użytkownik jest w trakcie zadania, oceny poziomu albo na ekranie zakupu
+    - Gdy spełnia warunek liczby skończonych prac
+    - Wtedy prośba nie jest wywoływana, a czeka do najbliższego podsumowania lekcji albo sesji
+  - Scenariusz: Odstęp między prośbami
+    - Zakładając, że aplikacja wywołała prośbę mniej niż 14 dni temu (decyzja agenta przez analogię do Piekarza D-067, 2026-11-03)
+    - Gdy użytkownik skończy kolejną lekcję
+    - Wtedy prośba nie jest wywoływana
+  - Scenariusz: Dostęp niezależny od oceny
+    - Zakładając, że użytkownik zamknął prośbę bez oceny
+    - Gdy wróci do nauki
+    - Wtedy wszystkie funkcje działają jak przed prośbą [FAKT S-56]
+
+### BR-OPIN-002: „Oceń w sklepie” i „Napisz do nas” w ustawieniach
+- Przepływ: PR-09
+- Dowód potrzeby: J-07; OG-15 [FAKT S-58]; NFR-PRYW-001 (bez SDK i bez serwera); wzór Treningu (`docs/34-wsparcie-i-opinie.md:13`: „Napisz do nas” jako `mailto`)
+- Kryteria akceptacji:
+  - Scenariusz: Ocena w sklepie
+    - Zakładając, że użytkownik jest w ustawieniach na iOS
+    - Gdy wybierze „Oceń w sklepie”
+    - Wtedy otwiera się strona aplikacji w App Store z polem recenzji (adres z parametrem `action=write-review`) [FAKT S-58]
+  - Scenariusz: Kontakt
+    - Zakładając, że użytkownik jest w ustawieniach
+    - Gdy wybierze „Napisz do nas”
+    - Wtedy otwiera się nowa wiadomość w jego programie pocztowym z adresem kontaktowym, a aplikacja niczego nie wysyła sama
+  - Scenariusz: Brak programu pocztowego
+    - Zakładając, że telefon nie ma skonfigurowanej poczty
+    - Gdy użytkownik wybierze „Napisz do nas”
+    - Wtedy widzi adres kontaktowy z możliwością skopiowania
+
+### BR-OPIN-003: Zgłoszenie błędu w zadaniu
+- Przepływ: PR-09
+- Dowód potrzeby: J-07 (recenzje S-63, S-64, S-65); reguły oceny RD-11 i RD-01–RD-08 (błąd w treści to bloker, BR-CWI-001, BR-CWI-002)
+- Kryteria akceptacji:
+  - Scenariusz: Zgłoszenie z oceny zadania
+    - Zakładając, że użytkownik widzi ocenę i wyjaśnienie zadania
+    - Gdy wybierze „Zgłoś błąd”
+    - Wtedy otwiera się nowa wiadomość z identyfikatorem zadania, wersją aplikacji i językiem w treści, bez innych danych z telefonu
+  - Scenariusz: Zgłoszenie nie zmienia oceny ani postępu
+    - Zakładając, że użytkownik wysłał zgłoszenie albo z niego zrezygnował
+    - Gdy wróci do aplikacji
+    - Wtedy jest w tym samym miejscu zadania, a ocena i postęp są bez zmian
+

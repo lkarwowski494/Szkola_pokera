@@ -33,6 +33,11 @@ Kiedy otwieram aplikację pierwszy raz, chcę w kilku pytaniach (poziom, cel) do
 Kiedy zmieniam telefon albo reinstaluję aplikację, chcę zachować postęp i zakup, żeby nie zaczynać od nowa (W-05).
 - Dowód: „My subscription doesn't show on my new iPad” (`docs/monetyzacja.md`, recenzje, 4 z 349).
 
+### J-07: Zgłosić błąd i ocenić aplikację
+Kiedy uważam, że ocena zadania albo wyjaśnienie jest błędne, chcę to zgłosić jednym ruchem z miejsca zadania i wiedzieć, że ktoś to przeczyta, żeby ufać ocenom; kiedy aplikacja mi pomogła, chcę ją ocenić bez szukania strony w sklepie (ER-12, 2026-11-03).
+- Dowód: spór o poprawność oceny trafia dziś do recenzji, bo nie ma kanału w aplikacji: „Some answers even contradict the provided charts” (recenzja S-63), „plugging in the lines to big name solvers there are some major discrepancies” (recenzja S-64), „the app told me to call as a semi-bluff” (recenzja S-65); dopasowania „błędna treść” to w 19 z 21 przypadków recenzje ≤ 3★ (`docs/zakres/wzorzec-2026-11-03.json`, 186 recenzji, 2026-11-03).
+- Częstotliwość: rzadko [OCENA].
+
 ## Persony
 
 ### P-1: Gracz rekreacyjny przy niskich stawkach (główna, komunikat w sklepie — W-03 pkt 2)
@@ -139,6 +144,12 @@ Przy dystrybucji w UE Apple publikuje adres, telefon i e-mail sprzedawcy na stro
 
 ### OG-14: Telefon pomocy dla kraju użytkownika
 Aplikacja z symulowanym hazardem i ramką „Odpowiedzialna gra” ma dziś numery tylko dla Polski (ER-04). Źródła dla rynku głównego: US 1-800-MY-RESET [FAKT S-39], w kryzysie 911 albo 988 [FAKT S-40]; 1-800-GAMBLER prowadzi od 2025 r. organizacja z New Jersey [FAKT S-42]; GB: Anglia i Szkocja 0808 8020 133, Walia 0808 2819 265 [FAKT S-41]. Pozostałe kraje sprzedaży: [DO USTALENIA] (OP-10). Dotyczy RD-12.
+
+### OG-15: Prośba o ocenę w App Store tylko systemowa i bez warunku
+Własne okna prośby o ocenę są zakazane, prośba idzie przez API systemu [FAKT S-55]; dostępu do funkcji nie wolno uzależniać od oceny [FAKT S-56]. System pokazuje prośbę najwyżej 3 razy w 365 dniach i sam decyduje, czy ją pokaże [FAKT S-57], więc aplikacja nie wie, czy okno się pojawiło. Stały odnośnik do oceny w ustawieniach jest dozwolony, z parametrem `action=write-review` [FAKT S-58]. Prośba po okazanym zaangażowaniu, bez przerywania zadania, z odstępem tygodnia lub dwóch [FAKT S-59, S-60]. Dotyczy J-07, BR-OPIN-001, BR-OPIN-002.
+
+### OG-16: Prośba o ocenę w Google Play: limit i bez pytań wstępnych
+Google Play ogranicza, jak często pokazuje okno oceny, a limit może się zmienić bez zapowiedzi [FAKT S-61]; aplikacja nie zadaje pytań przed oknem ani w jego trakcie („Do you like the app?”) [FAKT S-62]. Dotyczy BR-OPIN-001.
 
 ## Hipotezy dla ról 02 i 03
 Każda H ma wpis w `docs/zalozenia.md`. Rola 01 nie rozstrzyga ceny, zakresu pierwszej wersji ani podziału.

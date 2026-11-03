@@ -45,6 +45,12 @@ Przepływy powstały z prac J-01–J-06 (`odkrywanie.md`) przed wymaganiami; ka�
 - Kroki: otwiera „Pomoc” z ustawień albo z ramki w lekcji o bankrollu i tilcie (M12); widzi numer pomocy dla swojego kraju i numer alarmowy w kryzysie; dzwoni jednym dotknięciem.
 - Sytuacje brzegowe: kraj bez wpisu (RD-12-W6); język aplikacji inny niż kraj (RD-12-W5); urządzenie bez funkcji telefonu (numer do przepisania).
 
+### PR-09: Zgłoszenie błędu i ocena aplikacji
+- Kto: P-1, P-2, P-3 · Praca: J-07 · Częstotliwość: rzadko [OCENA] · Kontekst: zaraz po ocenie zadania albo po skończonej lekcji lub sesji; sieć dowolna (wysyłka przez program pocztowy użytkownika)
+- Kroki: przy ocenie zadania wybiera „Zgłoś błąd”; widzi wiadomość e-mail z identyfikatorem zadania, wersją aplikacji i językiem do uzupełnienia własnymi słowami; wysyła ją swoim programem pocztowym. Osobno: po skończonej lekcji albo sesji system może pokazać prośbę o ocenę; w ustawieniach są „Oceń w sklepie” i „Napisz do nas”.
+- Sytuacje brzegowe: brak programu pocztowego (adres do skopiowania); brak sieci (wiadomość czeka w programie pocztowym); prośba systemu się nie pokazuje (limit OG-15, OG-16, bez reakcji aplikacji).
+- Pętla opinii jest domyślnie w pierwszej wersji (polecenie roli 03, E2 pkt 6); zakres potwierdza rola 03 (ER-12).
+
 ## Wymagania niefunkcjonalne
 
 ### NFR-OFF-001: Nauka bez sieci
