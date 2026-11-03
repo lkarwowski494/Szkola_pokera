@@ -10,3 +10,8 @@ Odpowiedź: „Zacząłem lekcje ale później wciągnąłem się w robienie apl
 Pytanie: Kogo obsłużyć najpierw (rekreacyjny przegrywający / całkiem początkujący / średnio zaawansowany GTO / każdy, ścieżka od zera do GTO)?
 Odpowiedź (wybór z opcji + komentarz): „Każdy, ścieżka od zera do GTO ale na początku assesment poziomu który pozwala dopasować go z kilkoma pytaniami, celem itd. Co myślisz ? I wtedy wszystko się dopasuje”
 [streszczenie roli 01] Zapis jako hipoteza H (zakres i podział rozstrzyga rola 03): jedna ścieżka dla wszystkich poziomów z oceną poziomu i celu na starcie. Opinia roli 01 w odpowiedzi właścicielowi: kierunek dobry (konkurent River ma „test poziomujący”, stary PRD FR-02 ten sam pomysł), ryzyka: objętość treści × 35 języków, komunikat w sklepie musi nazwać jedną główną grupę, ocena poziomu ma być krótka i do pominięcia.
+
+## W-03 (2026-11-03)
+Odpowiedź na opinię roli 01 do W-02 i pytanie o granice (gra z botami na żetony bez wartości: a tak / b tylko rozdania-zadania / c osobny moduł treningowy):
+„1. To nie problem z APi i kontrolami Claude. Przetestowałem to w 3 innych aplikacjachz 2. Zgoda 3. Zgoda. granice: a”
+[streszczenie roli 01] (1) Objętość treści × 35 języków właściciel uważa za rozwiązaną (tłumaczenie przez API i kontrole Claude, sprawdzone w 3 innych aplikacjach) — wejście do roli 09, kontrole D-026 zostają. (2) Komunikat w sklepie do jednej grupy (gracz rekreacyjny, który chce przestać przegrywać): zgoda. (3) Ocena poziomu krótka, do pominięcia, korygowana po ćwiczeniach: zgoda. Granica: gra z botami na żetony bez wartości zostaje (wariant a; odrzucone b i c) — skutek: symulowany hazard w kategorii wiekowej, OG w E2.
