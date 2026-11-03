@@ -11,4 +11,4 @@ Stan: E1 zakończone, STOP (2026-11-03) · Rola 01 build · Stan sztafety: `docs
 ## Otwarte pytania
 | ID | Pytanie | Rozstrzyga | Dotyczy |
 |---|---|---|---|
-| OP-01 | [DO WYJAŚNIENIA] Rozmowy z 3–5 graczami rekreacyjnymi (krok właściciela, opcjonalny) — potwierdziłyby P-1 i J-01 poza recenzjami | właściciel | P-1, J-01 |
+| OP-01 | Rozstrzygnięte 2026-11-03: bez rozmów z graczami — „Nie, wystarczą recenzje” (ryzyko: persony z recenzji płacących za konkurencję) | właściciel | P-1, J-01 |

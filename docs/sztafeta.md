@@ -5,7 +5,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 
 | Rola | Tryb | Stan | Commit | Artefakty | Otwarte decyzje |
 |---|---|---|---|---|---|
-| 01 Odkrywanie | build | E1 zakończone, STOP (2026-11-03) | 8ce11d7 | „Stan projektu” w `CLAUDE.md`, `docs/brd/` (README, wywiad, odkrywanie, zrodla) | OP-01 rozmowy z graczami (opcjonalne) |
+| 01 Odkrywanie | build | E1 zakończone, STOP (2026-11-03) | 8ce11d7 | „Stan projektu” w `CLAUDE.md`, `docs/brd/` (README, wywiad, odkrywanie, zrodla) | — (OP-01: bez rozmów z graczami, decyzja 2026-11-03) |
 | 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
 
 ## E0 bramki: ustalenia (2026-11-03)
