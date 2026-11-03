@@ -69,6 +69,82 @@ Podział na część darmową i płatną to hipoteza H-01 (role 02 i 03); wymaga
 
 ## Dane użytkownika (DANE)
 
+## Dzienny limit darmowych zadań (LIM)
+Decyzja właściciela 2026-11-03 („Jedna dzienna pula”, `docs/monetyzacja.md`, „Zmiana podziału”): lekcje, pierwsze podejście do egzaminu modułu, postęp i eksport zawsze darmowe; jeden wspólny dzienny limit N darmowych zadań dla sesji ćwiczeń, powtórek, scenariuszy i powtórnych podejść do egzaminu; Pro bez limitu. Nazwa: „dzienny limit”, nie „pula”, bo „pula” to w treści pokerowej pot (RD-01, RD-06; jedna nazwa na jedno pojęcie, `CLAUDE.md`). Jednostka limitu i wartość N: [DO WYJAŚNIENIA] (OP-23).
+
+### BR-LIM-001: Licznik przed startem i wyczerpany limit
+- Przepływ: PR-03
+- Dowód potrzeby: decyzja właściciela 2026-11-03; kontrakt płatności (`docs/monetyzacja.md`, tabela PR-03–PR-05); skargi na nieczytelny i za mały limit u konkurencji (recenzje S-66, S-67); darmowe zadania co dzień jako wzór rynku [FAKT S-68]
+- Kryteria akceptacji:
+  - Scenariusz: Licznik przed startem
+    - Zakładając, że użytkownik bez Pro ma dziś jeszcze darmowe zadania
+    - Gdy otworzy start sesji ćwiczeń, powtórek, scenariusza albo powtórnego egzaminu
+    - Wtedy przed startem widzi, ile darmowych zadań zostało mu dziś z N (OP-23), a w trakcie zadania licznika nie ma
+  - Scenariusz: Jeden wspólny limit
+    - Zakładając, że użytkownik bez Pro zużył część limitu w sesji ćwiczeń
+    - Gdy otworzy powtórki
+    - Wtedy licznik pokazuje tę samą liczbę pozostałych zadań co po sesji
+  - Scenariusz: Limit wyczerpany
+    - Zakładając, że użytkownik bez Pro zużył dziś cały limit
+    - Gdy spróbuje zacząć sesję, powtórki, scenariusz albo powtórny egzamin
+    - Wtedy widzi ekran zakupu jako stan tego przepływu z informacją, kiedy limit się odnowi, oraz powrót do lekcji jednym ruchem
+  - Scenariusz: Pro bez limitu
+    - Zakładając, że użytkownik ma aktywny plan Pro (BR-ZAK-002)
+    - Gdy zacznie dowolną sesję
+    - Wtedy nie widzi licznika, a liczba zadań nie jest ograniczona
+
+### BR-LIM-002: Rozpoczęta sesja kończy się bez przerwania
+- Przepływ: PR-03
+- Dowód potrzeby: zakaz ekranu zakupu w środku nauki (`docs/monetyzacja.md`, „Zakazane wzorce”); wzór Treningu (`docs/monetyzacja.md:18` w repo `trening`: „Blokada dotyczy tylko startu treningu w nowym dniu ponad limit”)
+- Kryteria akceptacji:
+  - Scenariusz: Limit kończy się w trakcie sesji
+    - Zakładając, że użytkownik bez Pro zaczął sesję albo scenariusz, gdy miał co najmniej jedno darmowe zadanie
+    - Gdy limit spadnie do zera w trakcie
+    - Wtedy kończy sesję albo scenariusz do podsumowania bez ekranu zakupu
+  - Scenariusz: Przerwana sesja po wyczerpaniu limitu
+    - Zakładając, że użytkownik przerwał taką sesję (BR-CWI-004)
+    - Gdy wróci tego samego dnia
+    - Wtedy może ją dokończyć bez ekranu zakupu
+
+### BR-LIM-003: Nauka i dane poza limitem
+- Przepływ: PR-02
+- Dowód potrzeby: decyzja właściciela 2026-11-03 (lekcje, pierwszy egzamin, postęp i eksport zawsze darmowe); zakaz danych jako zakładnika (`docs/monetyzacja.md`, „Zakazane wzorce”; wytyczna 5.6, `docs/monetyzacja.md`, „Zmiana podziału”)
+- Kryteria akceptacji:
+  - Scenariusz: Lekcja przy wyczerpanym limicie
+    - Zakładając, że użytkownik bez Pro zużył dziś cały limit
+    - Gdy otworzy lekcję, jej ćwiczenia, pierwsze podejście do egzaminu modułu albo ocenę poziomu
+    - Wtedy wszystko działa bez ekranu zakupu, a licznik limitu się nie zmienia
+  - Scenariusz: Dane przy wyczerpanym limicie
+    - Zakładając, że użytkownik bez Pro zużył dziś cały limit
+    - Gdy otworzy postęp, historię odpowiedzi, eksport, import, usunięcie postępu albo pomoc
+    - Wtedy każda z tych funkcji działa bez zakupu (BR-DANE-001–003, BR-POM-002)
+
+### BR-LIM-004: Powtórki czekają bez utraty
+- Przepływ: PR-04
+- Dowód potrzeby: kontrakt płatności (`docs/monetyzacja.md`, PR-04: „harmonogram się przesuwa (bez utraty danych), komunikat mówi to wprost”); BR-POW-002 (powrót bez kary)
+- Kryteria akceptacji:
+  - Scenariusz: Zaległe powtórki przy wyczerpanym limicie
+    - Zakładając, że użytkownik bez Pro ma powtórki na dziś i zużył cały limit
+    - Gdy otworzy powtórki
+    - Wtedy widzi komunikat, że powtórki poczekają do odnowienia limitu i nic nie zostanie utracone
+  - Scenariusz: Powtórki po odnowieniu
+    - Zakładając, że powtórki czekały z powodu limitu
+    - Gdy limit się odnowi
+    - Wtedy wszystkie zaległe powtórki są w kolejce, a ich historia jest bez zmian
+
+### BR-LIM-005: Odnowienie limitu w dniu kalendarzowym telefonu
+- Przepływ: PR-03
+- Dowód potrzeby: decyzja właściciela 2026-11-03 („dziennie”); wzór Treningu (`docs/monetyzacja.md:17-19` w repo `trening`: limit w miesiącu kalendarzowym strefy użytkownika; zmiana daty w telefonie jako ryzyko przyjęte R-M5-2)
+- Kryteria akceptacji:
+  - Scenariusz: Nowy dzień
+    - Zakładając, że użytkownik bez Pro zużył cały limit dnia według daty i strefy telefonu
+    - Gdy w telefonie zacznie się następny dzień kalendarzowy
+    - Wtedy licznik znów pokazuje N darmowych zadań (OP-23)
+  - Scenariusz: Ponowna instalacja
+    - Zakładając, że użytkownik zużył dziś limit i przeinstalował aplikację
+    - Gdy zacznie sesję tego samego dnia
+    - Wtedy zachowanie licznika wynika z decyzji roli 05 [DO USTALENIA] (OP-24), a postęp z kopii albo eksportu jest bez zmian
+
 ### BR-DANE-001: Eksport postępu do pliku
 - Przepływ: PR-07
 - Dowód potrzeby: W-05 („5a”: eksport i import pliku dla wszystkich); utrata postępu w recenzjach (recenzja S-51; 10 z 828)

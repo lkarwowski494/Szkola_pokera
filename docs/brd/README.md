@@ -6,12 +6,12 @@ Stan: E4 (2026-11-03): BRD zakończone i przekazane (definicja ukończenia z dow
 | `wywiad.md` | wywiad z właścicielem W-01–W-07 | W-07 z E2 (scenariusze zamiast gry z botami) |
 | `odkrywanie.md` | prace J, persony P, kontekst, zasady ZP, granice, rynek, ograniczenia OG-01–OG-16, hipotezy H-01–H-09, ryzyka RYZ-01–RYZ-08 | E2 |
 | `reguly.md` | reguły RD-01–RD-12, 80 wektorów (RD-12 krytyczna, część krajów bez źródeł: OP-10); eksport `tests/wektory/brd.json` | E3 |
-| `errata.md` | ER-01–ER-12: sprzeczności PRD, karty 48 i kodu z celem i źródłami; prośba roli 03 (ER-12) | fix 2026-11-03 |
-| `zrodla.md` | źródła S-01–S-65 | fix 2026-11-03 |
+| `errata.md` | ER-01–ER-13: sprzeczności PRD, karty 48 i kodu z celem i źródłami; prośby roli 03 (ER-12, ER-13) | fix 2026-11-03 |
+| `zrodla.md` | źródła S-01–S-68 | fix 2026-11-03 |
 | `dane/konkurencja-2026-11-03.json` | 102 aplikacje nauki: oceny, ceny, wiek, języki, typ (bez cudzych opisów i recenzji) | E2 |
 | `wymagania.md` | przepływy PR-01–PR-09, NFR (13), pokrycie wymiarów | fix 2026-11-03 |
 | `wymagania-nauka.md` | BR: ocena poziomu (ONB), kurs (KURS), ćwiczenia (CWI), powtórki (POW), scenariusze (SCN) | E3 |
-| `wymagania-sklep.md` | BR: zakup (ZAK), dane (DANE), pomoc (POM), języki (JEZ), opinie (OPIN) | fix 2026-11-03 |
+| `wymagania-sklep.md` | BR: zakup (ZAK), dane (DANE), pomoc (POM), języki (JEZ), dzienny limit (LIM), opinie (OPIN) | fix 2026-11-03 |
 
 ## Streszczenie E2
 - Rynek: 102 aplikacje nauki (72 nowe wobec skanu roli 02). Płatne są zadania z oceną i analizą; gra z botami jest u konkurencji przeważnie darmowa. Najczęstsza potrzeba w recenzjach: wyjaśnienie „dlaczego”.
@@ -32,6 +32,7 @@ Wejście dla roli 07 (werdykt gotowości). Niespełnienie któregokolwiek blokuj
 | BR-CWI-001, BR-SCN-003 (RD-11) | błędna ocena zagrań, sprzeczna ze źródłem (ER-01) |
 | BR-CWI-002, BR-CWI-003 | błędne liczby w wyjaśnieniach (RD-01–RD-08) |
 | BR-ONB-001, BR-KURS-001, BR-CWI-004 | główny przepływ nauki (PR-01–PR-03) |
+| BR-LIM-002, BR-LIM-003, BR-LIM-004 | nauka przerwana ekranem zakupu albo dane i powtórki jako zakładnik (5.6, `docs/monetyzacja.md`) |
 | NFR-DOST-001 | bariera dostępności: informacja tylko kolorem [FAKT S-54] |
 | BR-OPIN-001 (OG-15, OG-16) | polityka sklepu: własne okno prośby o ocenę albo dostęp zależny od oceny (5.6.1, 3.2.2(x)) |
 | OG-05 (RYZ-01) | subskrypcja bez stałej wartości: ryzyko odrzucenia; kontrola po stronie ról 02 i 03 (H-09) |
@@ -56,3 +57,5 @@ Numery od 2 do 8 nie są używane w BRD (te numery pytań ma `docs/monetyzacja.m
 | OP-20 | [DO WYJAŚNIENIA] Liczba pytań i najdłuższy czas oceny poziomu | 03 i 04 z właścicielem | BR-ONB-001 |
 | OP-21 | [DO USTALENIA] Budżet czasu od uruchomienia do pierwszej decyzji i najstarszy wspierany telefon | 05 (pomiar) | NFR-WYD-001 |
 | OP-22 | [DO WYJAŚNIENIA] Próg zaliczenia testu modułu | 03 z właścicielem | BR-KURS-002 |
+| OP-23 | [DO WYJAŚNIENIA] Jednostka dziennego limitu (zadanie, sesja, scenariusz) i wartość N (OP-11 w `docs/monetyzacja.md`) | 03 z właścicielem (E2) | BR-LIM-001, BR-LIM-005 |
+| OP-24 | [DO USTALENIA] Licznik dziennego limitu po ponownej instalacji: lokalny czy odporny (Keychain); realność obejścia brzegowa (jeden dodatkowy limit dnia); to samo pytanie co OP-10 w `docs/monetyzacja.md` | 05 | BR-LIM-005 |
