@@ -5,7 +5,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 
 | Rola | Tryb | Stan | Commit | Artefakty | Otwarte decyzje |
 |---|---|---|---|---|---|
-| 01 Odkrywanie | build | E2 zakończone, STOP na decyzję właściciela (2026-11-03) | (ten commit) | „Stan projektu” w `CLAUDE.md`, `docs/brd/` (README, wywiad, odkrywanie, reguly, errata, zrodla, dane/), `docs/zalozenia.md` | E2: kontynuować / zmienić kierunek / zatrzymać; OP-11, OP-12, OP-13, OP-15 |
+| 01 Odkrywanie | build | E2 zakończone, decyzja „Kontynuować do E3” (2026-11-03) | 2e9d37e | „Stan projektu” w `CLAUDE.md`, `docs/brd/` (README, wywiad, odkrywanie, reguly, errata, zrodla, dane/), `docs/zalozenia.md` | OP-13 (opinia prawna art. 29), OP-15 (storefronty) — w E3 |
 | 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
 
 ## E0 bramki: ustalenia (2026-11-03)
@@ -79,5 +79,12 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 - Kontrola: `node kontrola-brd.mjs docs/brd --szkic` → kod 0, 0 błędów, 4 uwagi (wektory błędnych danych RD-05, RD-09, RD-10; pochodzenie RD-12-W6) — do E3.
 - Repo `trening` (publiczne, odczyt) to wzór formalności App Store Connect (polecenie właściciela 2026-11-03).
 
+## Decyzje właściciela na bramce E2 (2026-11-03)
+- Bramka: „Kontynuować do E3 (Recommended)”; odrzucone: zmienić kierunek, zatrzymać.
+- OP-12 raporty awarii: „Usunąć SDK (Recommended)” — bez Sentry, raporty sklepów, etykieta „Data Not Collected” jak w Treningu; zmienia ADR-17; odrzucone: zostawić wyłączone, włączyć bez danych osobowych.
+- OP-11 cel: „Jakość decyzji, bez obietnicy (Recommended)” — bez obietnicy wygranej i bez wskazania gry online; odrzucone: cel z PRD.
+- Nowa sesja: „Tak, otwórz i zarchiwizuj tę (Recommended)”.
+- Do wpisu w rejestrze 03 i 13 na Dysku (krok właściciela, brak edycji Google Docs): W-07, ER-01, OP-11, OP-12.
+
 ## Następny krok
-**Rola 01 build, E3** (przepływy PR, wymagania BR i NFR, wektory `tests/wektory/brd.json`, kontrola bez `--szkic` z kodem 0), po decyzji właściciela na bramce E2. Prompt: `node /home/user/prompts/tools/assemble.mjs 01-odkrywanie --tryb build` (prompts c025063). Wejście: `docs/brd/` (README, odkrywanie, reguly, errata, zrodla), `docs/zalozenia.md`, `docs/monetyzacja.md` (cena: kwartał 9,99 / rok 14,99 / dożywotni 19,99 USD), PRD na Dysku jako hipoteza. Skrypt kontroli: blok `kontrola-brd.mjs` z promptu (moduł `kontrola-brd`). Potem E4 (przekazanie), rola 02 sesja 2.
+**Rola 01 build, E3** (przepływy PR, wymagania BR i NFR, wektory `tests/wektory/brd.json`, kontrola bez `--szkic` z kodem 0), decyzja właściciela na bramce E2: „Kontynuować do E3”. Prompt: `node /home/user/prompts/tools/assemble.mjs 01-odkrywanie --tryb build` (prompts c025063). Wejście: `docs/brd/` (README, odkrywanie, reguly, errata, zrodla), `docs/zalozenia.md`, `docs/monetyzacja.md` (cena: kwartał 9,99 / rok 14,99 / dożywotni 19,99 USD), PRD na Dysku jako hipoteza. Skrypt kontroli: blok `kontrola-brd.mjs` z promptu (moduł `kontrola-brd`). Potem E4 (przekazanie), rola 02 sesja 2.

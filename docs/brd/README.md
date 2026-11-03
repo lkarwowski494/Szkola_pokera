@@ -1,5 +1,5 @@
 # BRD: Szkoła Pokera
-Stan: E2 zakończone, STOP (2026-11-03) · Rola 01 build · Stan sztafety: `docs/sztafeta.md` · Założenia: `docs/zalozenia.md`
+Stan: E2 zakończone, decyzja właściciela „Kontynuować do E3” (2026-11-03) · Rola 01 build · Stan sztafety: `docs/sztafeta.md` · Założenia: `docs/zalozenia.md`
 
 | Plik | Zawartość | Stan |
 |---|---|---|
@@ -30,8 +30,8 @@ Numery od 2 do 8 nie są używane w BRD (te numery pytań ma `docs/monetyzacja.m
 | OP-01 | Rozstrzygnięte 2026-11-03: bez rozmów z graczami — „Nie, wystarczą recenzje” (ryzyko RYZ-06) | właściciel | P-1, J-01 |
 | OP-09 | [DO USTALENIA] Zgodność modelu ICM Malmutha–Harville'a z literaturą szczebla 3 (cytat) | 06 | RD-09 |
 | OP-10 | [DO USTALENIA] Numery pomocy przy problemie z hazardem z oficjalnych źródeł dla każdego kraju sprzedaży (US i GB przeczytane: S-39–S-41; JP, CA, BR, FR, TW, VN, DE i pozostałe — brak) | 06, 01 | RD-12, ER-04 |
-| OP-11 | [DO WYJAŚNIENIA] Cel z PRD „wygrywać na mikrostawkach online” zastąpić „jakością decyzji” bez obietnicy wygranej | właściciel | ER-03 |
-| OP-12 | [DO WYJAŚNIENIA] Raporty awarii: zostawić Sentry (ADR-17) czy usunąć SDK i korzystać z raportów sklepów | właściciel z 05 | ER-06 |
+| OP-11 | Rozstrzygnięte 2026-11-03: „Jakość decyzji, bez obietnicy (Recommended)” — bez obietnicy wygranej i bez wskazania gry online; odrzucone: cel z PRD | właściciel | ER-03 |
+| OP-12 | Rozstrzygnięte 2026-11-03: „Usunąć SDK (Recommended)” — raporty awarii z App Store Connect i Play Console, etykieta „Data Not Collected”; odrzucone: zostawić wyłączone, włączyć bez danych osobowych; zmienia ADR-17 (wpis w rejestrze 03: krok właściciela) | właściciel | ER-06 |
 | OP-13 | [DO WYJAŚNIENIA] Czy opinia prawna o art. 29 u.g.h. jest potrzebna przy braku storefrontu PL i języku pl | właściciel | ER-09, OG-07 |
 | OP-14 | [DO USTALENIA] Co Apple uznaje za „gambling aid” (brak definicji w wytycznych) | 01, 07 | OG-01 |
 | OP-15 | [DO WYJAŚNIENIA] Dostępność: wszystkie storefronty poza PL czy lista rynków (KR i AU mają osobne skutki kategorii) | właściciel | OG-03 |
