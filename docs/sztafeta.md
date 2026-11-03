@@ -8,7 +8,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 01 Odkrywanie | build | zakończona 2026-11-03 (E4, przekazanie niżej) | (commit E4) | `docs/brd/` (README, wywiad, odkrywanie, wymagania, wymagania-nauka, wymagania-sklep, reguly, errata, zrodla, dane/), `tests/wektory/brd.json`, `docs/zalozenia.md`, „Stan projektu” w `CLAUDE.md` | OP-10, OP-14, OP-16, OP-18 (źródła), OP-19 (04), OP-20, OP-22 (03 z właścicielem), OP-21 (05) |
 | 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
 | 02 Monetyzacja (sesja 2) | build | zakończona 2026-11-03 (E3 zaakceptowane) | (commit E3) | `docs/monetyzacja.md` („Sesja 2, E0–E3”), `docs/monetyzacja/rachunek.json`, `dowody/rachunek-2026-11-03.txt` | OP-09 (monetyzacja), OP-20, OP-22, H-04 |
-| 03 Zakres | build | E0 zakończone, STOP na decyzję właściciela (apetyt) (2026-11-03) | (commit E0) | `docs/scope-contract.md` (E0) | apetyt wersji 1 |
+| 03 Zakres | build | E1 zakończone, STOP na bramce E1 (2026-11-03, szósta sesja) | (commit E1) | `docs/scope-contract.md` (E0, E1), `docs/zakres/wzorzec-2026-11-03.json` | ER-12, ER-13 (BR przed cięciem?) |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -154,5 +154,13 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - Delegacja decyzji: sekcja „Delegacja decyzji” w `CLAUDE.md` (Trening jako wzór analogii; Oczko, Piekarz: wzory procesu decyzji).
 - Nowa sesja: „Tak, otwórz nową i zarchiwizuj tę (Recommended)”.
 
+## Rola 03 E1: wynik (2026-11-03, szósta sesja)
+- Wzory decyzji przeczytane: Trening (limit tylko przy starcie, prośba o ocenę przed blokadą), Piekarz (E1 roli 03, ER przed cięciem D-041), Oczko (rejestr bieżący); miejsca w `docs/scope-contract.md`, E1.
+- Pętla główna: F-02 → F-01 → F-03 → F-05 → F-07 → F-10 → F-04; krok „sprawdź się” F-12; podłogi F-13, F-14, F-15, F-06.
+- Wzorzec (odczyt 20:49 UTC, US): GTO Preflop Wizard (3483), Postflop+ (1982), Poker Trainer (1165); tło Poker Skill (417); 186 recenzji, cytaty sprawdzone na surowym JSON. Wniosek: pętla to standard niszy; wyróżnik to sposób (darmowa nauka, „dlaczego”, poprawność, bez konta, 35 języków); skargi: płatność i błędna treść; pula ma być hojna i jawna.
+- Nadmiar w kodzie: tryb „na czas”, księga reguł, diagnostyka, pomoc i słownik schowane w Postępie, gra z botami — do E2.
+- Pominięcia: ER-12 (pętla opinii i zgłoszenie błędu w zadaniu), ER-13 (zasady dziennej puli jako BR).
+- ZAL-005: dopisany dowód przeciw w części, status bez zmian.
+
 ## Następny krok
-**Rola 03 build, E1** (pętla główna, wzorzec najlepszych, pominięcia); apetyt i delegacja zapisane wyżej. Najpierw: przeczytać proces decyzji w Treningu, Oczku i Piekarzu. Prompt: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build` (prompts c025063). Stan: `docs/scope-contract.md`.
+**Bramka E1 roli 03** (decyzja właściciela: kto i kiedy dopisuje BR dla ER-12 i ER-13); potem E2 (cięcie, warianty, H-04, N puli). Prompt: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build` (prompts c025063). Stan: `docs/scope-contract.md`, sekcja E1.

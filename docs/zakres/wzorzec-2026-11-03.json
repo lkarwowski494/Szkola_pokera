@@ -1,0 +1,389 @@
+{
+ "data": "2026-11-03T20:49Z",
+ "zrodla": [
+  "https://itunes.apple.com/lookup?id=<id>&country=us",
+  "https://itunes.apple.com/us/rss/customerreviews/page=1..3/id=<id>/sortby=mostrecent/json"
+ ],
+ "uwaga": "Bez treści opisów i recenzji (cudze materiały); tylko liczby i ID recenzji. Kategorie to dopasowanie wzorców słów (heurystyka), nie ręczna klasyfikacja.",
+ "wzorce": {
+  "paywall": "/paywall|pay wall|subscription|subscribe|free trial|not free/i",
+  "bledna_tresc": "/wrong|incorrect|inaccura|error|contradict/i",
+  "ankieta_przed_zakupem": "/survey|questionnaire|questions/i",
+  "limit_dzienny": "/limit|energy|per day|free (hands|drills|spots)/i",
+  "konfiguracja": "/set ?up|settings|configur/i",
+  "powtarzalnosc": "/repetitive|same (exercise|spots|hands)|over and over/i",
+  "dlaczego": "/\\bwhy\\b|explain/i"
+ },
+ "aplikacje": [
+  {
+   "id": 6590603158,
+   "nazwa": "GTO Preflop Wizard Poker AI",
+   "userRatingCount": 3483,
+   "srednia": 4.76,
+   "wersja": "4.0",
+   "wersja_z": "2026-10-27"
+  },
+  {
+   "id": 1622947056,
+   "nazwa": "GTO Preflop - Texas Hold'em",
+   "userRatingCount": 2486,
+   "srednia": 4.89,
+   "wersja": "1.3.2",
+   "wersja_z": "2026-06-10"
+  },
+  {
+   "id": 1488850006,
+   "nazwa": "Postflop+ GTO Poker Trainer",
+   "userRatingCount": 1982,
+   "srednia": 4.67,
+   "wersja": "4.11.1",
+   "wersja_z": "2026-08-05"
+  },
+  {
+   "id": 6478522482,
+   "nazwa": "Poker Trainer - Learn Poker",
+   "userRatingCount": 1165,
+   "srednia": 4.74,
+   "wersja": "4.7.4",
+   "wersja_z": "2026-10-19"
+  },
+  {
+   "id": 1530767783,
+   "nazwa": "Solver+ Poker : GTO Strategy",
+   "userRatingCount": 1163,
+   "srednia": 4.66,
+   "wersja": "3.4.3",
+   "wersja_z": "2026-08-04"
+  },
+  {
+   "id": 1435468870,
+   "nazwa": "Preflop+ Poker GTO Nash Charts",
+   "userRatingCount": 1022,
+   "srednia": 4.61,
+   "wersja": "26.0",
+   "wersja_z": "2026-10-26"
+  },
+  {
+   "id": 6748104711,
+   "nazwa": "Poker Skill - Learn Holdem",
+   "userRatingCount": 417,
+   "srednia": 4.74,
+   "wersja": "2.1.59",
+   "wersja_z": "2026-11-03"
+  },
+  {
+   "id": 6747833042,
+   "nazwa": "Poker Trainer: Flop Factor",
+   "userRatingCount": 360,
+   "srednia": 4.71,
+   "wersja": "1.15.4",
+   "wersja_z": "2026-10-07"
+  },
+  {
+   "id": 6747779080,
+   "nazwa": "Preflop AI: GTO Poker Trainer",
+   "userRatingCount": 298,
+   "srednia": 4.65,
+   "wersja": "2.15.3",
+   "wersja_z": "2026-09-30"
+  },
+  {
+   "id": 1458491856,
+   "nazwa": "DTO MTT - GTO Poker Trainer",
+   "userRatingCount": 283,
+   "srednia": 4.69,
+   "wersja": "8.1.11",
+   "wersja_z": "2025-11-20"
+  }
+ ],
+ "recenzje": {
+  "1488850006": {
+   "n": 51,
+   "od": "2019-12-23",
+   "do": "2026-10-05",
+   "kategorie": {
+    "paywall": {
+     "wszystkie": 5,
+     "niskie_le3": 5,
+     "id": [
+      "14186853651",
+      "11867265195",
+      "11210166849",
+      "9833559443",
+      "9097375600"
+     ]
+    },
+    "bledna_tresc": {
+     "wszystkie": 5,
+     "niskie_le3": 4,
+     "id": [
+      "14250610266",
+      "11898004026",
+      "10284905203",
+      "9501183556",
+      "6554666285"
+     ]
+    },
+    "ankieta_przed_zakupem": {
+     "wszystkie": 2,
+     "niskie_le3": 0,
+     "id": [
+      "11724997436",
+      "5420602369"
+     ]
+    },
+    "limit_dzienny": {
+     "wszystkie": 1,
+     "niskie_le3": 1,
+     "id": [
+      "9097375600"
+     ]
+    },
+    "konfiguracja": {
+     "wszystkie": 1,
+     "niskie_le3": 1,
+     "id": [
+      "10156319406"
+     ]
+    },
+    "powtarzalnosc": {
+     "wszystkie": 0,
+     "niskie_le3": 0,
+     "id": []
+    },
+    "dlaczego": {
+     "wszystkie": 7,
+     "niskie_le3": 2,
+     "id": [
+      "12444905278",
+      "11210166849",
+      "10269993599",
+      "8836081104",
+      "6554666285",
+      "5741671277",
+      "5523069226"
+     ]
+    }
+   }
+  },
+  "6478522482": {
+   "n": 17,
+   "od": "2024-07-08",
+   "do": "2026-07-11",
+   "kategorie": {
+    "paywall": {
+     "wszystkie": 2,
+     "niskie_le3": 2,
+     "id": [
+      "13501504393",
+      "12952953616"
+     ]
+    },
+    "bledna_tresc": {
+     "wszystkie": 2,
+     "niskie_le3": 2,
+     "id": [
+      "14001432063",
+      "12356128106"
+     ]
+    },
+    "ankieta_przed_zakupem": {
+     "wszystkie": 0,
+     "niskie_le3": 0,
+     "id": []
+    },
+    "limit_dzienny": {
+     "wszystkie": 0,
+     "niskie_le3": 0,
+     "id": []
+    },
+    "konfiguracja": {
+     "wszystkie": 2,
+     "niskie_le3": 1,
+     "id": [
+      "14216952501",
+      "11893304334"
+     ]
+    },
+    "powtarzalnosc": {
+     "wszystkie": 0,
+     "niskie_le3": 0,
+     "id": []
+    },
+    "dlaczego": {
+     "wszystkie": 1,
+     "niskie_le3": 1,
+     "id": [
+      "14216952501"
+     ]
+    }
+   }
+  },
+  "6590603158": {
+   "n": 76,
+   "od": "2024-08-09",
+   "do": "2026-10-20",
+   "kategorie": {
+    "paywall": {
+     "wszystkie": 23,
+     "niskie_le3": 21,
+     "id": [
+      "14691504722",
+      "14345129943",
+      "14254773505",
+      "14247888876",
+      "14143460695",
+      "13801015914",
+      "13765551155",
+      "13736619726",
+      "13682252187",
+      "13664805687",
+      "13652144505",
+      "13622071565",
+      "13214571273",
+      "13136575808",
+      "13061451475",
+      "12979620426",
+      "12965355503",
+      "12770343174",
+      "12359272199",
+      "12053258831",
+      "11917848765",
+      "11845115763",
+      "11780336775"
+     ]
+    },
+    "bledna_tresc": {
+     "wszystkie": 12,
+     "niskie_le3": 11,
+     "id": [
+      "14410324609",
+      "13980288304",
+      "13647171992",
+      "12845950290",
+      "12817325244",
+      "12673123115",
+      "12482872374",
+      "12350737141",
+      "12307929672",
+      "11917848765",
+      "11886855500",
+      "11757328769"
+     ]
+    },
+    "ankieta_przed_zakupem": {
+     "wszystkie": 7,
+     "niskie_le3": 7,
+     "id": [
+      "14345129943",
+      "14023174988",
+      "13736619726",
+      "13685624387",
+      "13664805687",
+      "13624018258",
+      "11757328769"
+     ]
+    },
+    "limit_dzienny": {
+     "wszystkie": 4,
+     "niskie_le3": 4,
+     "id": [
+      "13653168475",
+      "13214571273",
+      "12482872374",
+      "12359272199"
+     ]
+    },
+    "konfiguracja": {
+     "wszystkie": 1,
+     "niskie_le3": 1,
+     "id": [
+      "11917848765"
+     ]
+    },
+    "powtarzalnosc": {
+     "wszystkie": 3,
+     "niskie_le3": 3,
+     "id": [
+      "13622071565",
+      "13502588968",
+      "13214571273"
+     ]
+    },
+    "dlaczego": {
+     "wszystkie": 7,
+     "niskie_le3": 4,
+     "id": [
+      "14179464867",
+      "12845950290",
+      "12482872374",
+      "12439825260",
+      "12350737141",
+      "11845115763",
+      "11795051159"
+     ]
+    }
+   }
+  },
+  "6748104711": {
+   "n": 42,
+   "od": "2025-11-02",
+   "do": "2026-09-02",
+   "kategorie": {
+    "paywall": {
+     "wszystkie": 4,
+     "niskie_le3": 3,
+     "id": [
+      "14080410507",
+      "13897032335",
+      "13757741639",
+      "13757401533"
+     ]
+    },
+    "bledna_tresc": {
+     "wszystkie": 2,
+     "niskie_le3": 2,
+     "id": [
+      "13757741639",
+      "13749382199"
+     ]
+    },
+    "ankieta_przed_zakupem": {
+     "wszystkie": 3,
+     "niskie_le3": 1,
+     "id": [
+      "13735467525",
+      "13423716681",
+      "13352727480"
+     ]
+    },
+    "limit_dzienny": {
+     "wszystkie": 3,
+     "niskie_le3": 2,
+     "id": [
+      "13768277186",
+      "13757401533",
+      "13749382199"
+     ]
+    },
+    "konfiguracja": {
+     "wszystkie": 0,
+     "niskie_le3": 0,
+     "id": []
+    },
+    "powtarzalnosc": {
+     "wszystkie": 0,
+     "niskie_le3": 0,
+     "id": []
+    },
+    "dlaczego": {
+     "wszystkie": 1,
+     "niskie_le3": 0,
+     "id": [
+      "14200160045"
+     ]
+    }
+   }
+  }
+ }
+}
