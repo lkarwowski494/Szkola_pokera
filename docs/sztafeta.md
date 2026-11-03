@@ -5,7 +5,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 
 | Rola | Tryb | Stan | Commit | Artefakty | Otwarte decyzje |
 |---|---|---|---|---|---|
-| 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | dołączenie repo `portfel-aplikacji` (karta 48); wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
+| 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | rynek PL (karta 48: wszędzie poza Polską); wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -42,7 +42,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 - Skrypty uruchomione za zgodą właściciela: `oplacalnosc.mjs oplacalnosc-wlasna.json` (kod 0) → `dowody/oplacalnosc-2026-11-03.txt` (16:58 UTC); macierz → `dowody/warianty-2026-11-03.txt`. `generuj-warianty.mjs` bez zmian (dane przyjęte).
 - Wariant właściciela 0,99/6,99/14,99: razem 32,96 / 3130,75 / 266 152,96 USD; sam iOS 29,97 / 1956,72 / 88 717,65 → „budować” (słaby dowód: pes. 15× pod progiem). Najwyższy wynik normalny: rynek 14,99/89,99/149,99 (24 958 USD). Napiwek: „odłożyć”.
 - Kontrola skryptów na przykładach biblioteki (prompts c025063, dołączone za zgodą właściciela): A 55,26 zł „porzucić”, B 455,36 zł „odłożyć”, próg 1948,70 zł; rachunek 13,81 zł, próg 28 — zgodne. Prompt roli złożony `assemble.mjs` (kod 0, 66 169 znaków) i przeczytany.
-- **Blokady środowiska:** repo `portfel-aplikacji` (karta 48) — dołączenie odrzucone przez klasyfikator („Access Added As A Means”). Konektor Google Docs nadal niedostępny (jest tylko Drive) → wpis E0 w rejestrze 03 niezrobiony, nowego pliku nie tworzono.
+- Karta portfela 48 (portfel-aplikacji 262a076) przeczytana po zapisaniu dowodu; tabela rozbieżności w `docs/monetyzacja.md`. **Sprzeczność:** karta ma decyzję o rynkach z 01.11.2026 „wszędzie poza Polską” (art. 29 u.g.h.), lista krótka E1 zawiera PL. Bez PL: 3 112,14 USD norm., werdykt bez zmian. Konektor Google Docs nadal niedostępny (jest tylko Drive) → wpis E0 w rejestrze 03 niezrobiony, nowego pliku nie tworzono.
 - VAT FR/DE/PL/JP/TW/VN: próby odczytu u źródła nieudane (OP-06), wpływ < 5%.
 - Rozbieżności z dokumentem „Aplikacje Mobilne do Nauki Pokera”: tabela w `docs/monetyzacja.md`; główna: niepełna lista konkurentów (brak m.in. Poker Skill, River, Pokr).
 
@@ -51,4 +51,4 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 - Nowa sesja: „Nie” — kontynuacja w tej sesji.
 
 ## Następny krok
-Model i cena rozstrzygnięte (2026-11-03). (1) gdy repo `portfel-aplikacji` dostępne — karta 48 do tabeli rozbieżności; (2) wpis decyzji E0 i E1b w rejestrze 03 (konektor Google Docs); (3) rola 01 (BRD) w trybie build, potem 02 → 03 → 04 → 05.
+Model i cena rozstrzygnięte (2026-11-03). (1) potwierdzenie właściciela: storefront PL wyłączony (karta 48, 01.11.2026); (2) wpis decyzji E0 i E1b w rejestrze 03 (konektor Google Docs); (3) rola 01 (BRD) w trybie build, potem 02 → 03 → 04 → 05.

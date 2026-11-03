@@ -140,7 +140,20 @@ Najwyższy wynik normalny: **rynek 14,99 $/mies., 89,99 $/rok, 149,99 $ dożywot
 Wybór ceny to decyzja produktowa właściciela (CLAUDE.md). **Decyzja właściciela 2026-11-03: wariant 0,99 / 6,99 / 14,99 USD** (odrzucone: ceny rynku, jednorazowy 99,99, środek; szczegóły w `docs/sztafeta.md`). Podłoga powyżej obowiązuje także dla tego wariantu.
 
 ### Rozbieżności z kartą portfela i dokumentem „Aplikacje Mobilne do Nauki Pokera” (otwarte po zapisaniu dowodu, D-023)
-Karta `portfel-aplikacji/karty/48-szkola-pokera.md`: **nieotwarta** — leży w osobnym repo `portfel-aplikacji`; jego dołączenie odrzucił klasyfikator środowiska (2026-11-03, OP-05). Dokument z Dysku (id 121Gf18Z…, odczyt 2026-11-03):
+**Karta portfela** `portfel-aplikacji/karty/48-szkola-pokera.md` (commit 262a076, otwarta 2026-11-03 po zapisaniu dowodu):
+
+| Wielkość | Nasza (E1b) | Karta | Przyczyna |
+|---|---|---|---|
+| Wynik wariantu 0,99/6,99/14,99 | 33 / 3 131 / 266 153 USD netto/rok (pes./norm./opt.) | 1 698 USD (średnia, 3. rok) | inna metoda: karta — benchmark młodych aplikacji z rozkładem P10–P90, rok 3; my — oceny konkurentów × jawne założenia, stan ustalony. Rząd wielkości zgodny |
+| Model optymalny | rynek 14,99/89,99/149,99 (najwyższy normalny); wybrany przez właściciela: 0,99/6,99/14,99 | pojedynczy zakup 14,99 USD: 3 582 USD (P10/P50/P90: 0 / 175 / 10 187) | karta nie liczyła cen rynku ani subskrypcji z ceną rynku; nasz jednorazowy 19,99 = 6 439 USD (norm.), 14,99 nie liczony. Obie metody: jednorazowy > wariant 0,99/6,99/14,99 |
+| Instalacje nowej aplikacji na rok | 800 / 16 796 / 395 036 (wszystkie 20 sklepów) | 534 / 44 310 / 109 873 (młode porównywalne, 16 sklepów) | nasza norma 2,6× niżej, rozrzut szerszy; karta ma benchmark 10 młodych aplikacji, my `[ZAŁOŻENIE]` (OP-03) — benchmark karty to kandydat na źródło do OP-07 (do przeczytania u źródła) |
+| Udział USA | 45% wyniku normalnego (iOS + Android) | 69% | my mamy mnożnik lokalizacji dla JP/BR/FR/TW/VN/DE; karta zakłada angielski |
+| Oceny US: Preflop Wizard / Poker Trainer | 3 483 / 1 165 (2026-11-03) | 3 471 / 1 142 (18.10.2026) | przyrost w 16 dni |
+| Darmowa alternatywa | `[ZAŁOŻENIE]` 50 / 70 / 90% popytu niezabranego | Texas Hold'em (Apple), 74 183 ocen — „nie pokrywa” (gra bez lekcji) | zgodne kierunkowo; karta nie zna Poker Skill (darmowy kurs, dokument z Dysku) |
+| Reklamy | pominięte (standard wysoki) | 2 557 USD (2. marka) | decyzja właściciela E0: standard wysoki |
+| **Rynki** | lista krótka **z PL** (rynek domowy) | **„wszędzie poza Polską”** (decyzja o rynkach z 01.11.2026, art. 29 u.g.h., `dane/poker-prawo-hazard.md`) | E0 tej roli nie odczytało karty (D-023). Przeliczenie bez PL: 32,77 / 3 112,14 / 264 341,02 USD; sam iOS 29,79 / 1 945,09 / 88 113,67 — werdykt bez zmian („budować”). Wymaga potwierdzenia właściciela: storefront PL wyłączony, język pl zostaje w 35 językach? |
+
+**Dokument z Dysku** „Aplikacje Mobilne do Nauki Pokera” (id 121Gf18Z…, odczyt 2026-11-03):
 
 | Wielkość | Nasza (E1, lookup/strony App Store 2026-11-03) | Dokument | Przyczyna |
 |---|---|---|---|
@@ -165,7 +178,7 @@ Wniosek: rozbieżności cen nie zmieniają median kategorii rzędu wielkości (w
 | OP-02 | [DO USTALENIA] Płatności App Store w storefroncie RU | 02, E1b | przesiew |
 | OP-03 | [DO USTALENIA] Instalacje na ocenę i udział nowej aplikacji: brak przeczytanego benchmarku → `[ZAŁOŻENIE]` z rozrzutem ≥ 10× | 02, E1b | bramka |
 | OP-04 | [DO WYJAŚNIENIA] Wpis decyzji E0 w rejestrze 03 na Dysku wymaga konektora Google Docs (sesja ma tylko Drive) | właściciel | rejestr |
-| OP-05 | [DO WYJAŚNIENIA] Repo `portfel-aplikacji` niedostępne w sesji (add_repo odrzucony przez klasyfikator 2026-11-03): karta 48 do tabeli rozbieżności. Repo `prompts` dołączone (kontrola skryptów i zasada 18 zrobione) | właściciel (zgoda na dołączenie repo) | rozbieżności |
+| OP-05 | [DO WYJAŚNIENIA] Decyzja o rynkach z karty portfela (01.11.2026: wszędzie poza Polską) wobec listy krótkiej z PL i polityki 35 języków z pl — potwierdzenie właściciela | właściciel | rynki, rola 09 |
 | OP-06 | [DO USTALENIA] Stawki VAT FR/DE/PL/JP/TW/VN u źródła (wpływ < 5%) | 02, krok cennika | rachunek |
 | OP-07 | [DO USTALENIA] Benchmark instalacji na ocenę i konwersji według ceny (przeczytane źródło) — najtańsze sprawdzenie werdyktu | 02, przed cennikiem | bramka |
 
