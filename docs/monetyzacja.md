@@ -1,5 +1,5 @@
 # Monetyzacja: Szkoła Pokera
-Stan: sesja 2, E0 (2026-11-03); bramka opłacalności (krok 0) zakończona werdyktem „budować” (słaby dowód) · Aktualizacja: 2026-11-03 · Wejście: brak BRD (krok 0 przed rolą 01), decyzje właściciela z E0 w `docs/sztafeta.md`
+Stan: sesja 2, E1 (2026-11-03); bramka opłacalności (krok 0) zakończona werdyktem „budować” (słaby dowód) · Aktualizacja: 2026-11-03 · Wejście: brak BRD (krok 0 przed rolą 01), decyzje właściciela z E0 w `docs/sztafeta.md`
 
 Dane surowe: `docs/monetyzacja/e1-rynek-2026-11-03.json` (lookup, zakupy w aplikacji US/PL/DE/GB, 45 storefrontów, StatCounter, NBP, Google Play). Parsery: `docs/monetyzacja/iap.mjs`, `plany.mjs`. Niezależność (D-023): przed zapisaniem `oplacalnosc-wlasna.json` nie otwierano karty portfela ani dokumentu „Aplikacje Mobilne do Nauki Pokera”; otwarto dokument 07 (Dysk, za zgodą z przekazania) i ADR-11.
 
@@ -31,6 +31,44 @@ Prompt: `assemble.mjs 02-monetyzacja --tryb build` (prompts c025063; moduły aud
 - E1.3–E1.4: klasy WTP dla 35 BR z danymi konkurencji (`docs/brd/dane/`), wyszukiwanie z OP-01, statusy H i ZAL; ok. 2 h agenta, limit wyszukiwarki ok. 20 wywołań/min; właściciel: bramka E1 (1 pytanie).
 - E2: co najmniej 3 opcje (decyzja z 2026-11-03: kwartał + rok + dożywotni; sam zakup dożywotni; sama subskrypcja), `rachunek.json` + `rachunek.mjs`, decyzje: okres próbny, Family Sharing, podział darmowe/płatne dla 03; ok. 2–3 h; właściciel: 3–4 pytania.
 - E3: kontrakt płatności, szkic ADR biblioteki, wektory dostępu, przekazanie do 03, 04, 05, 07, 08; ok. 2 h; właściciel: bramka i kroki w App Store Connect (produkty, progi cen, zapis do Small Business Program, jeśli go nie ma).
+
+## Sesja 2, E1: wartość funkcji (2026-11-03)
+Klasy według słownika WTP z wzorców roli (pierwsza pasująca), poziom dowodu R/W/B/H. Dowody rynku z BRD (`docs/brd/odkrywanie.md`, „Rynek”, odczyt 2026-11-03; 102 aplikacje, 828 recenzji) i z E1 bramki (349 recenzji). Ceny to fakty zmienne z datą 2026-11-03.
+
+| Wymaganie (BR) | Funkcja | WTP | Dowód | Propozycja: darmowa / płatna / do roli 03 |
+|---|---|---|---|---|
+| BR-ONB-001–BR-ONB-003 | ocena poziomu, punkt startu, korekta ścieżki | WTP-2 | R: River ma test poziomujący (S-44, płatna 19,99 $/mies.); skarga na brak pomijania (S-49); B: W-03 | darmowa (droga do głównej pracy) |
+| BR-ONB-004 | pierwszy ekran mówi, czym aplikacja jest | WTP-0 | B: OG-07, NFR-ZGOD-002 | darmowa |
+| BR-KURS-001 | lekcje w kolejności, każda z ćwiczeniem | WTP-1 | R: kursy płatne u River (19,99 $/mies.) i Poker Skill Plus 9,99–14,99 $/mies. (S-43); przeciw: Gambit darmowy (S-52), skarga „requires payment before you even finish the first lesson” (S-53) | do roli 03 (H-01: część lekcji darmowa przed zakupem, ZAL-005) |
+| BR-KURS-002 | test modułu pozwala pominąć znane treści | WTP-2 | R: S-49 (brak pomijania) | darmowa |
+| BR-KURS-003, BR-KURS-005 | termin przed użyciem, uproszczenia nazwane | WTP-0 | B: CLAUDE.md (spójność), RD-02, RD-05, RD-09 | darmowa (jakość treści) |
+| BR-KURS-004 | powrót do miejsca w lekcji | WTP-0 | R: utrata postępu u konkurenta (S-51) | darmowa |
+| BR-CWI-001 | ocena zagrania w czterech stopniach | WTP-1 | R: płatne zadania z oceną: GTO Preflop Wizard 19,99 $/mies. (S-46), Postflop+ 14,99 $/mies. (S-04, skarga na ocenę „blunder”) | płatna (zadania poza lekcjami); w lekcjach darmowa |
+| BR-CWI-002 | wyjaśnienie „dlaczego” z liczbami | WTP-1 | R: ok. 85 z 828 recenzji (BRD, rynek); „doesn’t tell you the why” u płatnego lidera (`docs/monetyzacja.md`); „It has paid for itself” (1435468870) | płatna w zadaniach; w lekcjach darmowa |
+| BR-CWI-003, BR-CWI-007 | szanse trafienia, ranking układów | WTP-0 | B: J-02, moduły M0, M2 (podstawa w każdym kursie od zera) | darmowa |
+| BR-CWI-004 | krótka sesja, przerwanie bez straty | WTP-0 | R: „The drills are quick and chill usually 5-10 mins” (S-01) | darmowa (sposób działania, nie funkcja płatna) |
+| BR-CWI-005 | ćwiczenia ICM w turniejach | WTP-2 | B: moduł M11, P-3; brak płatnego odpowiednika w danych konkurencji | do roli 03 (wariant H-04 c: pakiet turniejowy) |
+| BR-CWI-006 | plan rozdania: SPR i rozmiar geometryczny | WTP-2 | B: moduł M9, P-3 | do roli 03 |
+| BR-POW-001 | błąd wraca wcześniej (powtórki) | WTP-1 | R: „I use this app nearly daily to review ranges … drills to help range study so I can more easily commit them to memory” (S-02, aplikacja płatna 1435468870) | płatna (wartość ciągła, OG-05) |
+| BR-POW-002 | powrót po przerwie bez kary | WTP-0 | R: S-51 (start od początku po przerwie) | darmowa |
+| BR-POW-003 | lokalne przypomnienie za zgodą | WTP-2 | R: S-02 („nearly daily”); B: J-03 | darmowa |
+| BR-SCN-001, BR-SCN-003 | scenariusz całego rozdania z oceną każdej decyzji | WTP-1 | R: 2 aplikacje scenariuszy z prawdziwych rozdań, płatne pakiety 2,99–4,99 $ (BRD, rynek); W-07 | płatna |
+| BR-SCN-002, BR-SCN-004 | bez stosu do wygrania, bez losowania | WTP-0 | B: OG-01, OG-02, W-07 (warunek zgodności) | warunek, nie funkcja |
+| BR-ZAK-001–BR-ZAK-004 | informacja, odblokowanie, przywracanie, anulowanie | WTP-0 | B: OG-06; reguły sklepu z E0 | zawsze dostępne |
+| BR-DANE-001–BR-DANE-004 | eksport, import, usunięcie, zachowanie postępu | — | zasada uczciwości: dane nigdy płatne (wzorce roli) | zawsze darmowe |
+| BR-POM-001, BR-POM-002 | numer pomocy, pomoc pod ręką | WTP-0 | B: RD-12 (reguła krytyczna) | zawsze darmowe |
+| BR-JEZ-001, BR-JEZ-002 | język systemu, zapis liczb | WTP-2 | R: liderzy JP z japońskim (NTPoker, POKER Q'z, `docs/monetyzacja.md`); ZAL-003 częściowo potwierdzone | darmowa (wszystkie języki w każdym planie) |
+
+**WTP-X: brak.** Każde z 35 BR ma dowód potrzeby w BRD (skrypt `kontrola-brd.mjs`: 0 błędów), więc żadne nie trafia na listę odcięć z tej roli. Najsłabszy dowód (tylko B, bez rynku): BR-CWI-005 i BR-CWI-006 (moduły M9 i M11, persona P-3). Rola 03 może je przesunąć, ale to decyzja o zakresie, nie wynik braku wartości.
+
+**Wnioski E1 (hipotezy, rozstrzyga E2 z właścicielem i rola 03):**
+- Płaci się za ćwiczenie z oceną i wyjaśnieniem (CWI-001, CWI-002), powtórki (POW-001) i scenariusze (SCN-001, SCN-003). To jest wartość ciągła, więc nadaje się na subskrypcję (OG-05, ZAL-011).
+- Lekcje kursu są płatne u części konkurencji i darmowe u innych. Skarga S-53 i 23 z 349 recenzji o ścianie płatności wskazują, że część lekcji powinna być darmowa przed zakupem (H-01, ZAL-005). Granicę ustala E2 (opcje) i rola 03.
+- Plan dożywotni: 13 z 349 recenzji go wymienia, m.in. „Lifetime membership is most +EV” (1488850006, 2022-01-18). To wspiera ZAL-MON-01, ale nie mówi o udziale planów (rachunek w E2).
+
+**Statusy po E1:** H-01 / ZAL-005: hipoteza (dowód R kierunkowy, bez pomiaru konwersji). H-09 / ZAL-011: hipoteza (sprawdzenie wobec 3.1.2(a) w E2). ZAL-MON-01: hipoteza, wsparta jakościowo (R). ZAL-003: bez zmian (częściowo potwierdzone). OP-01 z tego dokumentu: zamknięte, bo rola 01 w E2 przeszukała wyszukiwarkę Apple frazami (72 nowe aplikacje, `docs/brd/dane/`).
+
+**Sprzeczności z wejściem roli 01:** brak. Uwaga dla roli 03: BR-CWI-001 i BR-CWI-002 występują w lekcjach (PR-02) i w sesji ćwiczeń (PR-03). Podział darmowe/płatne wymaga rozróżnienia tych dwóch miejsc w kontrakcie zakresu.
 
 ## Środowisko E1 (2026-11-03)
 - Działa: `itunes.apple.com/lookup`, `apps.apple.com` (strony aplikacji), RSS recenzji, `api.nbp.pl`, `gs.statcounter.com`, `play.google.com/store/apps/details`.
@@ -222,7 +260,7 @@ Wniosek: rozbieżności cen nie zmieniają median kategorii rzędu wielkości (w
 ## Otwarte pytania
 | ID | Pytanie | Rozstrzyga | Dotyczy |
 |---|---|---|---|
-| OP-01 | [DO USTALENIA] Powtórzyć `itunes.apple.com/search` (fraza w językach listy krótkiej) — czy nie pominięto konkurentów | 02, kolejna sesja | lista konkurentów |
+| OP-01 | Zamknięte 2026-11-03 (rola 01 E2: wyszukiwarka frazami, 72 nowe aplikacje). Było: powtórzyć `itunes.apple.com/search` (fraza w językach listy krótkiej) — czy nie pominięto konkurentów | 02, kolejna sesja | lista konkurentów |
 | OP-02 | [DO USTALENIA] Płatności App Store w storefroncie RU | 02, E1b | przesiew |
 | OP-03 | [DO USTALENIA] Instalacje na ocenę i udział nowej aplikacji: brak przeczytanego benchmarku → `[ZAŁOŻENIE]` z rozrzutem ≥ 10× | 02, E1b | bramka |
 | OP-04 | [DO WYJAŚNIENIA] Wpis decyzji E0 w rejestrze 03 na Dysku wymaga konektora Google Docs (sesja ma tylko Drive) | właściciel | rejestr |
