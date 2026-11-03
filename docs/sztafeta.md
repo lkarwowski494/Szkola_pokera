@@ -51,4 +51,4 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 - Nowa sesja: „Nie” — kontynuacja w tej sesji.
 
 ## Następny krok
-Po decyzji właściciela o modelu i cenie: (1) gdy repo `portfel-aplikacji` dostępne — karta 48 do tabeli rozbieżności; (2) wpis decyzji E0 i E1b w rejestrze 03 (konektor Google Docs); (3) rola 01 (BRD) w trybie build, potem 02 → 03 → 04 → 05.
+Model i cena rozstrzygnięte (2026-11-03). (1) gdy repo `portfel-aplikacji` dostępne — karta 48 do tabeli rozbieżności; (2) wpis decyzji E0 i E1b w rejestrze 03 (konektor Google Docs); (3) rola 01 (BRD) w trybie build, potem 02 → 03 → 04 → 05.
