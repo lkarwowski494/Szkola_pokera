@@ -14,6 +14,12 @@ Ten plik obowiązuje w każdej sesji pracującej na tym repozytorium. Zasady pon
 - BRD: `docs/brd/` w repo, skrót na Dysku (decyzja właściciela 2026-11-03); PRD „01 Wymagania” na Dysku to wejście historyczne.
 - Cel: monetyzacja; „Tam nie ma być hazardu. Pełna nauka w 35 językach jak trening.” (właściciel, 2026-11-03).
 
+## Delegacja decyzji (decyzja właściciela 2026-11-03, obowiązuje do odwołania)
+- Testy: agent testuje sam z kontrolami zastępczymi (opus/high); właściciel robi tylko testy na telefonie z listą kontrolną od agenta.
+- Przed pytaniem produktowym: sprawdź analogiczną funkcję, problem albo decyzję w Treningu (publiczne repo `lkarwowski494/trening`); jest — decyzja analogiczna, zapisana z odwołaniem; wzory procesu decyzji także w Oczku i Piekarzu.
+- Tymczasowo agent podejmuje decyzje produktowe na podstawie własnego researchu i swojej rekomendacji; właścicielowi zostaje kilka kluczowych decyzji produktowych. Każdą decyzję zapisz od razu z datą i odrzuconymi opcjami; właściciel może zawetować.
+- Literatura: gdy potrzebna, agent podaje tytuły, właściciel próbuje je kupić.
+
 ## Kto o czym decyduje (ADR-24, decyzja właściciela z 4 października 2026)
 
 Właściciel nie jest ekspertem od teorii pokera i **nie rozstrzyga kwestii merytorycznych**. Nie przedstawiaj mu opcji do wyboru w sprawach teorii (strategia, zakresy, rozmiary, częstotliwości, poziomy pewności reguł, brzmienie reguł). Rozstrzygaj je sam według metodologii poniżej, zapisz decyzję w rejestrze i poinformuj właściciela, co postanowiłeś i na jakiej podstawie. Właściciel może każdą decyzję zawetować.

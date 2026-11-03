@@ -50,7 +50,9 @@ Kontrola przypisania: 16 funkcji, 35 BR, każde raz (sprawdzi `zakres.mjs --brd`
 - E2: test zasady 18, ranking RICE w godzinach właściciela, co najmniej dwa warianty zakresu, podział na aplikacje (H-04), funkcje TEST. Agent ok. 1,5 h; właściciel: 2–3 pytania.
 - E3: kontrakt, `zakres.mjs` z kodem 0, przekazanie do 04–08. Agent ok. 1 h; właściciel: bramka.
 
-**Pytanie o apetyt (E0, [OCENA] godzin właściciela: decyzje, testy na telefonie, przegląd wydań; metoda: 1–2 h na prostą funkcję, 4–8 h na funkcję z treścią albo zakupem; liczby doprecyzuje ranking w E2):**
+**Apetyt (odpowiedź właściciela 2026-11-03):** bez liczby godzin; zaangażowanie właściciela = kilka decyzji produktowych i testy na telefonie z listą kontrolną; resztę testuje i decyduje agent (`CLAUDE.md`, „Delegacja decyzji”). Linia cięcia w E2 wynika z zasady 18 i kosztu utrzymania, nie z czasu przeglądu właściciela.
+
+**Pytanie o apetyt, zadane w E0 ( [OCENA] godzin właściciela: decyzje, testy na telefonie, przegląd wydań; metoda: 1–2 h na prostą funkcję, 4–8 h na funkcję z treścią albo zakupem; liczby doprecyzuje ranking w E2):**
 - (a) ok. 25 h: pętla nauki i podłogi (F-01–F-07, F-13–F-16); płatna część to tylko sesje ćwiczeń, więc słaby argument „stałej wartości” dla subskrypcji (OG-05, RYZ-01).
 - (b) ok. 40 h: jak (a) oraz powtórki (F-10) i scenariusze (F-12), czyli cała płatna część z decyzji E2 roli 02.
 - (c) ok. 50 h: wszystko, także ICM (F-08), SPR (F-09) i przypomnienie (F-11).

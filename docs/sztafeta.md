@@ -149,5 +149,10 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 ## Zmiana podziału darmowe/płatne (2026-11-03, po bramce E3 roli 02)
 - Właściciel: „Jedna dzienna pula (Recommended)” — lekcje, pierwsze podejście do egzaminu, postęp i eksport darmowe; wspólna dzienna pula N zadań (ćwiczenia, powtórki, scenariusze, powtórne egzaminy); Pro bez limitu. Płatny zapis postępu odrzucony (5.6). Szczegóły: `docs/monetyzacja.md`, „Zmiana podziału”; N: OP-11 (03 z właścicielem).
 
+## Rola 03 E0: odpowiedź właściciela (2026-11-03)
+- Apetyt: właściciel nie podał liczby godzin; jego słowa: „wszystko jesteś w stanie wytestować sam i z kontrolami zastępczymi na opus high […] Moje zaangażowanie ograniczy się do kilku decyzji produktowych oraz ewentualnych testów na telefonie z checklistą którą mi dasz.” Skutek: apetyt mierzony godzinami właściciela = testy na telefonie z listy kontrolnej i kilka decyzji; funkcje nie wypadają z powodu jego czasu przeglądu. Odrzucone opcje pytania: 25 h, 40 h (rekomendacja), 50 h.
+- Delegacja decyzji: sekcja „Delegacja decyzji” w `CLAUDE.md` (Trening jako wzór analogii; Oczko, Piekarz: wzory procesu decyzji).
+- Nowa sesja: „Tak, otwórz nową i zarchiwizuj tę (Recommended)”.
+
 ## Następny krok
-**Rola 03 build, E1** (pętla główna, wzorzec najlepszych, pominięcia) po decyzji o apetycie. Prompt: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build` (prompts c025063). Stan: `docs/scope-contract.md`.
+**Rola 03 build, E1** (pętla główna, wzorzec najlepszych, pominięcia); apetyt i delegacja zapisane wyżej. Najpierw: przeczytać proces decyzji w Treningu, Oczku i Piekarzu. Prompt: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build` (prompts c025063). Stan: `docs/scope-contract.md`.
