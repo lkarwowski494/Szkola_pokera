@@ -57,6 +57,7 @@ const MIES = { platnosci_w_roku: 4, platnosci_zrodlo: Z('średnio 4 opłacone mi
 const udz = (s, t) => ({ s, zrodlo: Z(t) });
 const MIX3 = 'podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)';
 const KW = { platnosci_w_roku: 1, platnosci_zrodlo: Z('1 opłacony kwartał na płacącego plan kwartalny w roku; właściciel 2026-11-03: „Ludzie porzucają naukę po max miesiącu” (bez przeczytanego źródła retencji)') };
+const MIES1 = { platnosci_w_roku: 1, platnosci_zrodlo: Z('1 opłacony miesiąc na płacącego plan miesięczny w roku; właściciel 2026-11-03: „Ludzie porzucają naukę po max miesiącu”') };
 const DRABINA = 'podział płacących kwartał/rok/dożywotni; hipoteza właściciela (2026-11-03): dożywotni za 5 USD więcej niż rok przyciąga większość; pes.: większość zostaje przy kwartale';
 const KONW = (s, t) => ({ s, zrodlo: Z(`konwersja pobranie → płacący przy cenie wariantu; ${t}`) });
 const WARIANTY = [
@@ -67,6 +68,8 @@ const WARIANTY = [
     produkty: [{ id: 'kwartal', cena: 7.99, ...KW, u: [0.5, 0.25, 0.15] }, { id: 'rok', cena: 14.99, u: [0.25, 0.25, 0.2] }, { id: 'dozywotni', cena: 19.99, u: [0.25, 0.5, 0.65] }], mix: DRABINA },
   { id: 'drabina-9.99-14.99-19.99', opis: 'kwartał 9,99 / rok 14,99 / dożywotni 19,99 USD (właściciel, 2026-11-03; konwersja wobec najtańszej konkurencji)', konw: KONW([0.012, 0.036, 0.08], 'wejście 9,99 = ok. 1/5 najtańszego kwartału i dożywotni 1/3 najtańszego dożywotniego konkurenta (US 2026-11-03); jak jednorazowy 19,99'),
     produkty: [{ id: 'kwartal', cena: 9.99, ...KW, u: [0.5, 0.25, 0.15] }, { id: 'rok', cena: 14.99, u: [0.25, 0.25, 0.2] }, { id: 'dozywotni', cena: 19.99, u: [0.25, 0.5, 0.65] }], mix: DRABINA },
+  { id: 'drabina-mies-5.99-14.99-19.99', opis: 'zapas właściciela: mies. 5,99 / rok 14,99 / dożywotni 19,99 USD (2026-11-03)', konw: KONW([0.012, 0.04, 0.09], 'wejście 5,99 = najtańszy miesięczny konkurent (Preflop+, US 2026-11-03); rok i dożywotni 3× poniżej najtańszych'),
+    produkty: [{ id: 'mies', cena: 5.99, ...MIES1, u: [0.5, 0.25, 0.15] }, { id: 'rok', cena: 14.99, u: [0.25, 0.25, 0.2] }, { id: 'dozywotni', cena: 19.99, u: [0.25, 0.5, 0.65] }], mix: DRABINA },
   { id: 'srodek-4.99-29.99-59.99', opis: 'mies. 4,99 / rok 29,99 / dożywotni 59,99 USD (ok. 1/3 mediany)', konw: KONW([0.012, 0.036, 0.08], 'cena ok. 1/3 mediany: 1,2–1,3× konwersji wariantu rynkowego'),
     produkty: [{ id: 'mies', cena: 4.99, ...MIES, u: [0.5, 0.4, 0.3] }, { id: 'rok', cena: 29.99, u: [0.3, 0.35, 0.4] }, { id: 'dozywotni', cena: 59.99, u: [0.2, 0.25, 0.3] }] },
   { id: 'rynek-14.99-89.99-149.99', opis: 'mediana kategorii US: mies. 14,99 / rok 89,99 / dożywotni 149,99 USD', konw: KONW([0.01, 0.03, 0.06], 'poziom bazowy przy cenie mediany kategorii'),

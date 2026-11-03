@@ -142,7 +142,10 @@ Założenia nowe (`[ZAŁOŻENIE]`, `generuj-warianty.mjs`): kwartał = 1 płatno
 |---|---|---|---|---|
 | drabina 7,99 / 14,99 / 19,99 | 47,22 / 5 599,84 / 401 929,43 | 3 499,90 | 11,2× | 13,38 $ |
 | drabina 9,99 / 14,99 / 19,99 | 50,93 / 5 199,87 / 363 501,94 | 3 249,92 | 10,4× | 13,80 $ |
+| zapas: mies. 5,99 / rok 14,99 / dożywotni 19,99 | 43,52 / 5 421,92 / 394 913,07 | 3 388,70 | 10,8× | 12,88 $ |
 | poprzedni wybór 0,99 / 6,99 / 14,99 (bez PL) | 32,77 / 3 112,14 / 264 341,02 | 1 945,09 | 6,2× | 6,61 $ |
+
+Kwartał jest dostępny w obu sklepach: App Store Connect Help („Offer auto-renewable subscriptions”, odczyt 2026-11-03): „Possible durations are 1 week, 1 month, 2 months, 3 months, 6 months, and 1 year.” i „The duration can’t be changed after you submit for review.”; Play Console Help answer/140504: okres rozliczeniowy „Every 3 months”. Wariant zapasowy z miesięczną (właściciel: „jeżeli nie da się zrobić kwartalnej”) policzony dla porównania: miesiąc = 1 płatność w roku, konwersja jak przy 7,99 (`dowody/drabina-mies-2026-11-03.txt`).
 
 Wniosek: obie drabiny ~1,7–1,8× nad poprzednim wyborem i bez żadnego pojedynczego założenia, które zmienia werdykt (także sam iOS). Różnica 7,99 vs 9,99 wynika tylko z założonej konwersji: wpływ na płacącego przy 9,99 jest o 3% wyższy, więc 9,99 wygrywa, jeśli jego konwersja jest ≥ 97% konwersji przy 7,99 — tego nie rozstrzygnie rachunek, tylko dane ze sklepu. Dowód: `dowody/warianty-2026-11-03-drabina.txt` (17:43 UTC). Podłoga dla drabiny: cena kwartału jako największy element (bez „2,66 $/mies.”), dożywotni jako stała cena bez fałszywego odliczania (2005/29/WE zał. I pkt 7), przypomnienie o odnowieniu kwartału zgodne ze sklepem; dożywotni zmniejsza ryzyko skarg „keeps charging” (17 z 349 recenzji).
 
