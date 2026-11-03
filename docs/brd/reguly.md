@@ -1,5 +1,5 @@
 # Reguły dziedzinowe: Szkoła Pokera
-Stan: E2 (2026-11-03) · Rola 01 build · Źródła: `zrodla.md` · Errata: `errata.md`
+Stan: E3 (2026-11-03) · Rola 01 build · Źródła: `zrodla.md` · Errata: `errata.md`
 
 Zakres: RD to tylko to, co aplikacja **liczy, ocenia albo wyzwala** (`packages/poker-core`, `packages/srs`, `content/helplines.yaml`). 142 reguły treści z `content/pl/rules.yaml` (39 math, 17 gto, 72 heuristic, 5 exploit, 9 rules; 21 z polem `check` używanym przez silnik oceny) to twierdzenia, których aplikacja uczy. Trafiają do rejestru twierdzeń roli 06, nie do RD; ich źródła i poziomy pewności są w samym pliku (hierarchia ADR-24).
 
@@ -93,6 +93,7 @@ Wektory policzono niezależnie od kodu: skrypt w Pythonie na ułamkach dokładny
 | RD-05-W4 | 0 | 2 | 0 | 0 | granica | rachunek |
 | RD-05-W5 | 1 | 1 | 2 | 0 | powyżej | rachunek |
 | RD-05-W6 | -1 | 2 | błąd danych | — | poniżej | rachunek: o ≥ 0 |
+| RD-05-W7 | brak | 2 | błąd danych | — | błąd | rachunek: brak liczby outów |
 
 ### RD-06: Stosunek stacka do puli (SPR)
 - Wzór: `SPR = S / P`
@@ -159,6 +160,7 @@ Wektory policzono niezależnie od kodu: skrypt w Pythonie na ułamkach dokładny
 | RD-09-W4 | 6000; 4000; 0 | 65; 35 | 53; 47; 0 | 0,001 | granica | rachunek: stack 0 nie zajmuje płatnego miejsca |
 | RD-09-W5 | -1; 3; 2 | 65; 35 | błąd danych | — | poniżej | rachunek: s ≥ 0 |
 | RD-09-W6 | 1; 1 | 50; 30; 20 | błąd danych | — | powyżej | rachunek: więcej wypłat niż graczy |
+| RD-09-W7 | brak | 65; 35 | błąd danych | — | błąd | rachunek: brak stacków |
 
 ### RD-10: Ranking układów i liczba układów pięciokartowych
 - Wzór: kolejność od najrzadszego: poker (w tym królewski) > kareta > full > kolor > strit > trójka > dwie pary > para > wysoka karta; rzadszy układ wygrywa; przy tej samej kategorii kickery (treść R-M0-002)
@@ -179,6 +181,7 @@ Wektory policzono niezależnie od kodu: skrypt w Pythonie na ułamkach dokładny
 | RD-10-W7 | dwie pary | 123552 | 0 | typowy | rachunek: wyliczenie |
 | RD-10-W8 | para | 1098240 | 0 | typowy | rachunek: wyliczenie |
 | RD-10-W9 | wysoka karta | 1302540 | 0 | typowy | rachunek: wyliczenie; suma 2 598 960 |
+| RD-10-W10 | kategoria spoza listy | błąd danych | — | błąd | rachunek: dziewięć rozłącznych kategorii wyczerpuje 2 598 960 układów |
 
 ### RD-11: Ocena zagrania z częstości solvera
 - Wzór: f = częstość zagrania w rozwiązaniu, f_max = częstość najczęstszego zagrania; f = f_max albo f ≥ L → **zgodne**; M ≤ f < L → **dopuszczalne**; 0 < f < M → **niedokładność**; f = 0 → **błąd**
@@ -215,4 +218,4 @@ Wektory policzono niezależnie od kodu: skrypt w Pythonie na ułamkach dokładny
 | RD-12-W3 | GB (Anglia, Szkocja) | en | 0808 8020 133 | — | typowy | S-41 |
 | RD-12-W4 | GB (Walia) | en | 0808 2819 265 | — | typowy | S-41 |
 | RD-12-W5 | US | pl | 1-800-MY-RESET (1-800-697-3738) | — | typowy | S-39: decyduje region, nie język |
-| RD-12-W6 | kraj bez wpisu | dowolny | numer alarmowy kraju + informacja o lokalnej pomocy | — | błąd | OP-10 (do ustalenia przez rolę 06) |
+| RD-12-W6 | kraj bez wpisu | dowolny | numer alarmowy kraju + informacja o lokalnej pomocy | — | błąd | rachunek: gałąź „brak wpisu” we wzorze RD-12 (logika reguły, nie fakt); numery i brzmienie: OP-10, rola 06 |

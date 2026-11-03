@@ -1,0 +1,1204 @@
+[
+  {
+    "regula": "RD-01",
+    "id": "RD-01-W1",
+    "wejscie": {
+      "P [żetony]": 100,
+      "B [żetony]": 50
+    },
+    "oczekiwane": {
+      "e [-]": 0.25
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 50 / 200",
+    "miejsce": "docs/brd/reguly.md:18"
+  },
+  {
+    "regula": "RD-01",
+    "id": "RD-01-W2",
+    "wejscie": {
+      "P [żetony]": 100,
+      "B [żetony]": 100
+    },
+    "oczekiwane": {
+      "e [-]": 0.3333
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 100 / 300",
+    "miejsce": "docs/brd/reguly.md:19"
+  },
+  {
+    "regula": "RD-01",
+    "id": "RD-01-W3",
+    "wejscie": {
+      "P [żetony]": 100,
+      "B [żetony]": 1
+    },
+    "oczekiwane": {
+      "e [-]": 0.0098
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: 1 / 102",
+    "miejsce": "docs/brd/reguly.md:20"
+  },
+  {
+    "regula": "RD-01",
+    "id": "RD-01-W4",
+    "wejscie": {
+      "P [żetony]": 100,
+      "B [żetony]": 0
+    },
+    "oczekiwane": {
+      "e [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: B > 0 ostra",
+    "miejsce": "docs/brd/reguly.md:21"
+  },
+  {
+    "regula": "RD-01",
+    "id": "RD-01-W5",
+    "wejscie": {
+      "P [żetony]": 100,
+      "B [żetony]": -10
+    },
+    "oczekiwane": {
+      "e [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: poza granicą",
+    "miejsce": "docs/brd/reguly.md:22"
+  },
+  {
+    "regula": "RD-01",
+    "id": "RD-01-W6",
+    "wejscie": {
+      "P [żetony]": "brak",
+      "B [żetony]": 50
+    },
+    "oczekiwane": {
+      "e [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: brak puli",
+    "miejsce": "docs/brd/reguly.md:23"
+  },
+  {
+    "regula": "RD-02",
+    "id": "RD-02-W1",
+    "wejscie": {
+      "P [żetony]": 100,
+      "B [żetony]": 50
+    },
+    "oczekiwane": {
+      "MDF [-]": 0.6667
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 100 / 150",
+    "miejsce": "docs/brd/reguly.md:36"
+  },
+  {
+    "regula": "RD-02",
+    "id": "RD-02-W2",
+    "wejscie": {
+      "P [żetony]": 100,
+      "B [żetony]": 100
+    },
+    "oczekiwane": {
+      "MDF [-]": 0.5
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 100 / 200",
+    "miejsce": "docs/brd/reguly.md:37"
+  },
+  {
+    "regula": "RD-02",
+    "id": "RD-02-W3",
+    "wejscie": {
+      "P [żetony]": 100,
+      "B [żetony]": 1
+    },
+    "oczekiwane": {
+      "MDF [-]": 0.9901
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: 100 / 101",
+    "miejsce": "docs/brd/reguly.md:38"
+  },
+  {
+    "regula": "RD-02",
+    "id": "RD-02-W4",
+    "wejscie": {
+      "P [żetony]": 100,
+      "B [żetony]": 0
+    },
+    "oczekiwane": {
+      "MDF [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: B > 0 ostra",
+    "miejsce": "docs/brd/reguly.md:39"
+  },
+  {
+    "regula": "RD-02",
+    "id": "RD-02-W5",
+    "wejscie": {
+      "P [żetony]": 100,
+      "B [żetony]": -1
+    },
+    "oczekiwane": {
+      "MDF [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: poza granicą",
+    "miejsce": "docs/brd/reguly.md:40"
+  },
+  {
+    "regula": "RD-02",
+    "id": "RD-02-W6",
+    "wejscie": {
+      "P [żetony]": 100,
+      "B [żetony]": "brak"
+    },
+    "oczekiwane": {
+      "MDF [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: brak zakładu",
+    "miejsce": "docs/brd/reguly.md:41"
+  },
+  {
+    "regula": "RD-03",
+    "id": "RD-03-W1",
+    "wejscie": {
+      "P [żetony]": 100,
+      "B [żetony]": 50
+    },
+    "oczekiwane": {
+      "α [-]": 0.3333
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 50 / 150",
+    "miejsce": "docs/brd/reguly.md:53"
+  },
+  {
+    "regula": "RD-03",
+    "id": "RD-03-W2",
+    "wejscie": {
+      "P [żetony]": 100,
+      "B [żetony]": 100
+    },
+    "oczekiwane": {
+      "α [-]": 0.5
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 100 / 200",
+    "miejsce": "docs/brd/reguly.md:54"
+  },
+  {
+    "regula": "RD-03",
+    "id": "RD-03-W3",
+    "wejscie": {
+      "P [żetony]": 100,
+      "B [żetony]": 1
+    },
+    "oczekiwane": {
+      "α [-]": 0.0099
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: 1 / 101",
+    "miejsce": "docs/brd/reguly.md:55"
+  },
+  {
+    "regula": "RD-03",
+    "id": "RD-03-W4",
+    "wejscie": {
+      "P [żetony]": 100,
+      "B [żetony]": 0
+    },
+    "oczekiwane": {
+      "α [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: B > 0 ostra",
+    "miejsce": "docs/brd/reguly.md:56"
+  },
+  {
+    "regula": "RD-03",
+    "id": "RD-03-W5",
+    "wejscie": {
+      "P [żetony]": -100,
+      "B [żetony]": 50
+    },
+    "oczekiwane": {
+      "α [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: P > 0 ostra",
+    "miejsce": "docs/brd/reguly.md:57"
+  },
+  {
+    "regula": "RD-03",
+    "id": "RD-03-W6",
+    "wejscie": {
+      "P [żetony]": 100,
+      "B [żetony]": "brak"
+    },
+    "oczekiwane": {
+      "α [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: brak zakładu",
+    "miejsce": "docs/brd/reguly.md:58"
+  },
+  {
+    "regula": "RD-04",
+    "id": "RD-04-W1",
+    "wejscie": {
+      "o [karty]": 9,
+      "n [karty]": 47,
+      "k [karty]": 2
+    },
+    "oczekiwane": {
+      "p [-]": 0.3497
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 378/1081 (kolor flop–river)",
+    "miejsce": "docs/brd/reguly.md:70"
+  },
+  {
+    "regula": "RD-04",
+    "id": "RD-04-W2",
+    "wejscie": {
+      "o [karty]": 9,
+      "n [karty]": 46,
+      "k [karty]": 1
+    },
+    "oczekiwane": {
+      "p [-]": 0.1957
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 9/46 (kolor turn–river)",
+    "miejsce": "docs/brd/reguly.md:71"
+  },
+  {
+    "regula": "RD-04",
+    "id": "RD-04-W3",
+    "wejscie": {
+      "o [karty]": 8,
+      "n [karty]": 47,
+      "k [karty]": 2
+    },
+    "oczekiwane": {
+      "p [-]": 0.3145
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 340/1081 (strit otwarty)",
+    "miejsce": "docs/brd/reguly.md:72"
+  },
+  {
+    "regula": "RD-04",
+    "id": "RD-04-W4",
+    "wejscie": {
+      "o [karty]": 0,
+      "n [karty]": 47,
+      "k [karty]": 2
+    },
+    "oczekiwane": {
+      "p [-]": 0
+    },
+    "tolerancja": 0,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs/brd/reguly.md:73"
+  },
+  {
+    "regula": "RD-04",
+    "id": "RD-04-W5",
+    "wejscie": {
+      "o [karty]": 47,
+      "n [karty]": 47,
+      "k [karty]": 2
+    },
+    "oczekiwane": {
+      "p [-]": 1
+    },
+    "tolerancja": 0,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs/brd/reguly.md:74"
+  },
+  {
+    "regula": "RD-04",
+    "id": "RD-04-W6",
+    "wejscie": {
+      "o [karty]": 1,
+      "n [karty]": 47,
+      "k [karty]": 2
+    },
+    "oczekiwane": {
+      "p [-]": 0.0426
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: 2/47",
+    "miejsce": "docs/brd/reguly.md:75"
+  },
+  {
+    "regula": "RD-04",
+    "id": "RD-04-W7",
+    "wejscie": {
+      "o [karty]": -1,
+      "n [karty]": 47,
+      "k [karty]": 2
+    },
+    "oczekiwane": {
+      "p [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: o ≥ 0",
+    "miejsce": "docs/brd/reguly.md:76"
+  },
+  {
+    "regula": "RD-04",
+    "id": "RD-04-W8",
+    "wejscie": {
+      "o [karty]": 48,
+      "n [karty]": 47,
+      "k [karty]": 2
+    },
+    "oczekiwane": {
+      "p [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: o ≤ n",
+    "miejsce": "docs/brd/reguly.md:77"
+  },
+  {
+    "regula": "RD-05",
+    "id": "RD-05-W1",
+    "wejscie": {
+      "o [karty]": 9,
+      "k [karty]": 2
+    },
+    "oczekiwane": {
+      "p [%]": 36
+    },
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 4 × 9 (dokładnie 34,97)",
+    "miejsce": "docs/brd/reguly.md:90"
+  },
+  {
+    "regula": "RD-05",
+    "id": "RD-05-W2",
+    "wejscie": {
+      "o [karty]": 9,
+      "k [karty]": 1
+    },
+    "oczekiwane": {
+      "p [%]": 18
+    },
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 2 × 9 (dokładnie 19,57 przy n = 46)",
+    "miejsce": "docs/brd/reguly.md:91"
+  },
+  {
+    "regula": "RD-05",
+    "id": "RD-05-W3",
+    "wejscie": {
+      "o [karty]": 15,
+      "k [karty]": 2
+    },
+    "oczekiwane": {
+      "p [%]": 60
+    },
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 4 × 15 (dokładnie 54,12)",
+    "miejsce": "docs/brd/reguly.md:92"
+  },
+  {
+    "regula": "RD-05",
+    "id": "RD-05-W4",
+    "wejscie": {
+      "o [karty]": 0,
+      "k [karty]": 2
+    },
+    "oczekiwane": {
+      "p [%]": 0
+    },
+    "tolerancja": 0,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs/brd/reguly.md:93"
+  },
+  {
+    "regula": "RD-05",
+    "id": "RD-05-W5",
+    "wejscie": {
+      "o [karty]": 1,
+      "k [karty]": 1
+    },
+    "oczekiwane": {
+      "p [%]": 2
+    },
+    "tolerancja": 0,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs/brd/reguly.md:94"
+  },
+  {
+    "regula": "RD-05",
+    "id": "RD-05-W6",
+    "wejscie": {
+      "o [karty]": -1,
+      "k [karty]": 2
+    },
+    "oczekiwane": {
+      "p [%]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: o ≥ 0",
+    "miejsce": "docs/brd/reguly.md:95"
+  },
+  {
+    "regula": "RD-05",
+    "id": "RD-05-W7",
+    "wejscie": {
+      "o [karty]": "brak",
+      "k [karty]": 2
+    },
+    "oczekiwane": {
+      "p [%]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: brak liczby outów",
+    "miejsce": "docs/brd/reguly.md:96"
+  },
+  {
+    "regula": "RD-06",
+    "id": "RD-06-W1",
+    "wejscie": {
+      "S [żetony]": 100,
+      "P [żetony]": 10
+    },
+    "oczekiwane": {
+      "SPR [-]": 10
+    },
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs/brd/reguly.md:108"
+  },
+  {
+    "regula": "RD-06",
+    "id": "RD-06-W2",
+    "wejscie": {
+      "S [żetony]": 1,
+      "P [żetony]": 10
+    },
+    "oczekiwane": {
+      "SPR [-]": 0.1
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs/brd/reguly.md:109"
+  },
+  {
+    "regula": "RD-06",
+    "id": "RD-06-W3",
+    "wejscie": {
+      "S [żetony]": 100,
+      "P [żetony]": 0
+    },
+    "oczekiwane": {
+      "SPR [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: P > 0 ostra",
+    "miejsce": "docs/brd/reguly.md:110"
+  },
+  {
+    "regula": "RD-06",
+    "id": "RD-06-W4",
+    "wejscie": {
+      "S [żetony]": -5,
+      "P [żetony]": 10
+    },
+    "oczekiwane": {
+      "SPR [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: S > 0 ostra",
+    "miejsce": "docs/brd/reguly.md:111"
+  },
+  {
+    "regula": "RD-06",
+    "id": "RD-06-W5",
+    "wejscie": {
+      "S [żetony]": "brak",
+      "P [żetony]": 10
+    },
+    "oczekiwane": {
+      "SPR [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs/brd/reguly.md:112"
+  },
+  {
+    "regula": "RD-07",
+    "id": "RD-07-W1",
+    "wejscie": {
+      "SPR [-]": 4,
+      "u [ulice]": 2
+    },
+    "oczekiwane": {
+      "f [-]": 1
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: (√9 − 1)/2",
+    "miejsce": "docs/brd/reguly.md:124"
+  },
+  {
+    "regula": "RD-07",
+    "id": "RD-07-W2",
+    "wejscie": {
+      "SPR [-]": 13,
+      "u [ulice]": 3
+    },
+    "oczekiwane": {
+      "f [-]": 1
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: (∛27 − 1)/2",
+    "miejsce": "docs/brd/reguly.md:125"
+  },
+  {
+    "regula": "RD-07",
+    "id": "RD-07-W3",
+    "wejscie": {
+      "SPR [-]": 0,
+      "u [ulice]": 2
+    },
+    "oczekiwane": {
+      "f [-]": 0
+    },
+    "tolerancja": 0,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs/brd/reguly.md:126"
+  },
+  {
+    "regula": "RD-07",
+    "id": "RD-07-W4",
+    "wejscie": {
+      "SPR [-]": 1,
+      "u [ulice]": 1
+    },
+    "oczekiwane": {
+      "f [-]": 1
+    },
+    "tolerancja": 0,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: (3 − 1)/2",
+    "miejsce": "docs/brd/reguly.md:127"
+  },
+  {
+    "regula": "RD-07",
+    "id": "RD-07-W5",
+    "wejscie": {
+      "SPR [-]": 4,
+      "u [ulice]": 0
+    },
+    "oczekiwane": {
+      "f [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: u ≥ 1",
+    "miejsce": "docs/brd/reguly.md:128"
+  },
+  {
+    "regula": "RD-07",
+    "id": "RD-07-W6",
+    "wejscie": {
+      "SPR [-]": -1,
+      "u [ulice]": 2
+    },
+    "oczekiwane": {
+      "f [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: SPR ≥ 0",
+    "miejsce": "docs/brd/reguly.md:129"
+  },
+  {
+    "regula": "RD-08",
+    "id": "RD-08-W1",
+    "wejscie": {
+      "e [-]": 0.25,
+      "P [żetony]": 100,
+      "B [żetony]": 50
+    },
+    "oczekiwane": {
+      "EV [żetony]": 0
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: 0,25 × 200 − 50 (zgodne z RD-01-W1)",
+    "miejsce": "docs/brd/reguly.md:141"
+  },
+  {
+    "regula": "RD-08",
+    "id": "RD-08-W2",
+    "wejscie": {
+      "e [-]": 0.3,
+      "P [żetony]": 100,
+      "B [żetony]": 50
+    },
+    "oczekiwane": {
+      "EV [żetony]": 10
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: 60 − 50",
+    "miejsce": "docs/brd/reguly.md:142"
+  },
+  {
+    "regula": "RD-08",
+    "id": "RD-08-W3",
+    "wejscie": {
+      "e [-]": 0.2,
+      "P [żetony]": 100,
+      "B [żetony]": 50
+    },
+    "oczekiwane": {
+      "EV [żetony]": -10
+    },
+    "tolerancja": 0.0001,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: 40 − 50",
+    "miejsce": "docs/brd/reguly.md:143"
+  },
+  {
+    "regula": "RD-08",
+    "id": "RD-08-W4",
+    "wejscie": {
+      "e [-]": 1.2,
+      "P [żetony]": 100,
+      "B [żetony]": 50
+    },
+    "oczekiwane": {
+      "EV [żetony]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: e ≤ 1",
+    "miejsce": "docs/brd/reguly.md:144"
+  },
+  {
+    "regula": "RD-09",
+    "id": "RD-09-W1",
+    "wejscie": {
+      "s [żetony]": "5000; 3000; 2000",
+      "w [%]": "65; 35"
+    },
+    "oczekiwane": {
+      "equity [%]": "44,375; 32,625; 23"
+    },
+    "tolerancja": 0.001,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek (ułamki dokładne)",
+    "miejsce": "docs/brd/reguly.md:157"
+  },
+  {
+    "regula": "RD-09",
+    "id": "RD-09-W2",
+    "wejscie": {
+      "s [żetony]": "1; 1; 1",
+      "w [%]": "65; 35"
+    },
+    "oczekiwane": {
+      "equity [%]": "33,3333; 33,3333; 33,3333"
+    },
+    "tolerancja": 0.001,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: symetria",
+    "miejsce": "docs/brd/reguly.md:158"
+  },
+  {
+    "regula": "RD-09",
+    "id": "RD-09-W3",
+    "wejscie": {
+      "s [żetony]": "4000; 3000; 2000; 1000",
+      "w [%]": "50; 30; 20"
+    },
+    "oczekiwane": {
+      "equity [%]": "33,6032; 29,4881; 23,5873; 13,3214"
+    },
+    "tolerancja": 0.001,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek (ułamki dokładne)",
+    "miejsce": "docs/brd/reguly.md:159"
+  },
+  {
+    "regula": "RD-09",
+    "id": "RD-09-W4",
+    "wejscie": {
+      "s [żetony]": "6000; 4000; 0",
+      "w [%]": "65; 35"
+    },
+    "oczekiwane": {
+      "equity [%]": "53; 47; 0"
+    },
+    "tolerancja": 0.001,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: stack 0 nie zajmuje płatnego miejsca",
+    "miejsce": "docs/brd/reguly.md:160"
+  },
+  {
+    "regula": "RD-09",
+    "id": "RD-09-W5",
+    "wejscie": {
+      "s [żetony]": "-1; 3; 2",
+      "w [%]": "65; 35"
+    },
+    "oczekiwane": {
+      "equity [%]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: s ≥ 0",
+    "miejsce": "docs/brd/reguly.md:161"
+  },
+  {
+    "regula": "RD-09",
+    "id": "RD-09-W6",
+    "wejscie": {
+      "s [żetony]": "1; 1",
+      "w [%]": "50; 30; 20"
+    },
+    "oczekiwane": {
+      "equity [%]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: więcej wypłat niż graczy",
+    "miejsce": "docs/brd/reguly.md:162"
+  },
+  {
+    "regula": "RD-09",
+    "id": "RD-09-W7",
+    "wejscie": {
+      "s [żetony]": "brak",
+      "w [%]": "65; 35"
+    },
+    "oczekiwane": {
+      "equity [%]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: brak stacków",
+    "miejsce": "docs/brd/reguly.md:163"
+  },
+  {
+    "regula": "RD-10",
+    "id": "RD-10-W1",
+    "wejscie": {
+      "Kategoria [-]": "poker"
+    },
+    "oczekiwane": {
+      "liczba [układy]": 40
+    },
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: wyliczenie",
+    "miejsce": "docs/brd/reguly.md:175"
+  },
+  {
+    "regula": "RD-10",
+    "id": "RD-10-W2",
+    "wejscie": {
+      "Kategoria [-]": "kareta"
+    },
+    "oczekiwane": {
+      "liczba [układy]": 624
+    },
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: wyliczenie",
+    "miejsce": "docs/brd/reguly.md:176"
+  },
+  {
+    "regula": "RD-10",
+    "id": "RD-10-W3",
+    "wejscie": {
+      "Kategoria [-]": "full"
+    },
+    "oczekiwane": {
+      "liczba [układy]": 3744
+    },
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: wyliczenie",
+    "miejsce": "docs/brd/reguly.md:177"
+  },
+  {
+    "regula": "RD-10",
+    "id": "RD-10-W4",
+    "wejscie": {
+      "Kategoria [-]": "kolor"
+    },
+    "oczekiwane": {
+      "liczba [układy]": 5108
+    },
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: wyliczenie",
+    "miejsce": "docs/brd/reguly.md:178"
+  },
+  {
+    "regula": "RD-10",
+    "id": "RD-10-W5",
+    "wejscie": {
+      "Kategoria [-]": "strit"
+    },
+    "oczekiwane": {
+      "liczba [układy]": 10200
+    },
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: wyliczenie (z A-2-3-4-5)",
+    "miejsce": "docs/brd/reguly.md:179"
+  },
+  {
+    "regula": "RD-10",
+    "id": "RD-10-W6",
+    "wejscie": {
+      "Kategoria [-]": "trójka"
+    },
+    "oczekiwane": {
+      "liczba [układy]": 54912
+    },
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: wyliczenie",
+    "miejsce": "docs/brd/reguly.md:180"
+  },
+  {
+    "regula": "RD-10",
+    "id": "RD-10-W7",
+    "wejscie": {
+      "Kategoria [-]": "dwie pary"
+    },
+    "oczekiwane": {
+      "liczba [układy]": 123552
+    },
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: wyliczenie",
+    "miejsce": "docs/brd/reguly.md:181"
+  },
+  {
+    "regula": "RD-10",
+    "id": "RD-10-W8",
+    "wejscie": {
+      "Kategoria [-]": "para"
+    },
+    "oczekiwane": {
+      "liczba [układy]": 1098240
+    },
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: wyliczenie",
+    "miejsce": "docs/brd/reguly.md:182"
+  },
+  {
+    "regula": "RD-10",
+    "id": "RD-10-W9",
+    "wejscie": {
+      "Kategoria [-]": "wysoka karta"
+    },
+    "oczekiwane": {
+      "liczba [układy]": 1302540
+    },
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: wyliczenie; suma 2 598 960",
+    "miejsce": "docs/brd/reguly.md:183"
+  },
+  {
+    "regula": "RD-10",
+    "id": "RD-10-W10",
+    "wejscie": {
+      "Kategoria [-]": "kategoria spoza listy"
+    },
+    "oczekiwane": {
+      "liczba [układy]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: dziewięć rozłącznych kategorii wyczerpuje 2 598 960 układów",
+    "miejsce": "docs/brd/reguly.md:184"
+  },
+  {
+    "regula": "RD-11",
+    "id": "RD-11-W1",
+    "wejscie": {
+      "f [-]": 0.6,
+      "f_max [-]": 0.6
+    },
+    "oczekiwane": {
+      "ocena [-]": "zgodne"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-06: „Best Move”",
+    "miejsce": "docs/brd/reguly.md:196"
+  },
+  {
+    "regula": "RD-11",
+    "id": "RD-11-W2",
+    "wejscie": {
+      "f [-]": 0.3,
+      "f_max [-]": 0.6
+    },
+    "oczekiwane": {
+      "ocena [-]": "zgodne"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: f ≥ L, L z ADR-26",
+    "miejsce": "docs/brd/reguly.md:197"
+  },
+  {
+    "regula": "RD-11",
+    "id": "RD-11-W3",
+    "wejscie": {
+      "f [-]": 0.25,
+      "f_max [-]": 0.715
+    },
+    "oczekiwane": {
+      "ocena [-]": "zgodne"
+    },
+    "tolerancja": null,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: L włączna (ADR-26)",
+    "miejsce": "docs/brd/reguly.md:198"
+  },
+  {
+    "regula": "RD-11",
+    "id": "RD-11-W4",
+    "wejscie": {
+      "f [-]": 0.1,
+      "f_max [-]": 0.6
+    },
+    "oczekiwane": {
+      "ocena [-]": "dopuszczalne"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-06: „Correct Move”",
+    "miejsce": "docs/brd/reguly.md:199"
+  },
+  {
+    "regula": "RD-11",
+    "id": "RD-11-W5",
+    "wejscie": {
+      "f [-]": 0.035,
+      "f_max [-]": 0.715
+    },
+    "oczekiwane": {
+      "ocena [-]": "dopuszczalne"
+    },
+    "tolerancja": null,
+    "rodzaj": "granica",
+    "pochodzenie": "S-06: „less than 3.5%” to niedokładność, więc 3,5% już nie",
+    "miejsce": "docs/brd/reguly.md:200"
+  },
+  {
+    "regula": "RD-11",
+    "id": "RD-11-W6",
+    "wejscie": {
+      "f [-]": 0.0349,
+      "f_max [-]": 0.7151
+    },
+    "oczekiwane": {
+      "ocena [-]": "niedokładność"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "S-06: „Inaccuracy”",
+    "miejsce": "docs/brd/reguly.md:201"
+  },
+  {
+    "regula": "RD-11",
+    "id": "RD-11-W7",
+    "wejscie": {
+      "f [-]": 0,
+      "f_max [-]": 0.7
+    },
+    "oczekiwane": {
+      "ocena [-]": "błąd"
+    },
+    "tolerancja": null,
+    "rodzaj": "granica",
+    "pochodzenie": "S-06: „Wrong Move – Moves that are not taken in GTO”",
+    "miejsce": "docs/brd/reguly.md:202"
+  },
+  {
+    "regula": "RD-11",
+    "id": "RD-11-W8",
+    "wejscie": {
+      "f [-]": 0.2,
+      "f_max [-]": 0.2
+    },
+    "oczekiwane": {
+      "ocena [-]": "zgodne"
+    },
+    "tolerancja": null,
+    "rodzaj": "powyżej",
+    "pochodzenie": "S-06: „Best Move” (f = f_max), także poniżej L",
+    "miejsce": "docs/brd/reguly.md:203"
+  },
+  {
+    "regula": "RD-11",
+    "id": "RD-11-W9",
+    "wejscie": {
+      "f [-]": -0.1,
+      "f_max [-]": 0.6
+    },
+    "oczekiwane": {
+      "ocena [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: f ≥ 0",
+    "miejsce": "docs/brd/reguly.md:204"
+  },
+  {
+    "regula": "RD-12",
+    "id": "RD-12-W1",
+    "wejscie": {
+      "Region [ISO]": "US",
+      "Język [-]": "en"
+    },
+    "oczekiwane": {
+      "numer [-]": "1-800-MY-RESET (1-800-697-3738)"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-39",
+    "miejsce": "docs/brd/reguly.md:216"
+  },
+  {
+    "regula": "RD-12",
+    "id": "RD-12-W2",
+    "wejscie": {
+      "Region [ISO]": "US, sytuacja kryzysowa",
+      "Język [-]": "en"
+    },
+    "oczekiwane": {
+      "numer [-]": "911 albo 988"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-40",
+    "miejsce": "docs/brd/reguly.md:217"
+  },
+  {
+    "regula": "RD-12",
+    "id": "RD-12-W3",
+    "wejscie": {
+      "Region [ISO]": "GB (Anglia, Szkocja)",
+      "Język [-]": "en"
+    },
+    "oczekiwane": {
+      "numer [-]": 8088020133
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-41",
+    "miejsce": "docs/brd/reguly.md:218"
+  },
+  {
+    "regula": "RD-12",
+    "id": "RD-12-W4",
+    "wejscie": {
+      "Region [ISO]": "GB (Walia)",
+      "Język [-]": "en"
+    },
+    "oczekiwane": {
+      "numer [-]": 8082819265
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-41",
+    "miejsce": "docs/brd/reguly.md:219"
+  },
+  {
+    "regula": "RD-12",
+    "id": "RD-12-W5",
+    "wejscie": {
+      "Region [ISO]": "US",
+      "Język [-]": "pl"
+    },
+    "oczekiwane": {
+      "numer [-]": "1-800-MY-RESET (1-800-697-3738)"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-39: decyduje region, nie język",
+    "miejsce": "docs/brd/reguly.md:220"
+  },
+  {
+    "regula": "RD-12",
+    "id": "RD-12-W6",
+    "wejscie": {
+      "Region [ISO]": "kraj bez wpisu",
+      "Język [-]": "dowolny"
+    },
+    "oczekiwane": {
+      "numer [-]": "numer alarmowy kraju + informacja o lokalnej pomocy"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: gałąź „brak wpisu” we wzorze RD-12 (logika reguły, nie fakt); numery i brzmienie: OP-10, rola 06",
+    "miejsce": "docs/brd/reguly.md:221"
+  }
+]

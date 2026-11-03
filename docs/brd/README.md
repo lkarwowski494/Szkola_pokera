@@ -1,26 +1,39 @@
 # BRD: Szkoła Pokera
-Stan: E2 zakończone, decyzja właściciela „Kontynuować do E3” (2026-11-03) · Rola 01 build · Stan sztafety: `docs/sztafeta.md` · Założenia: `docs/zalozenia.md`
+Stan: E3 (2026-11-03): przepływy i wymagania do akceptacji właściciela · Rola 01 build · Stan sztafety: `docs/sztafeta.md` · Założenia: `docs/zalozenia.md`
 
 | Plik | Zawartość | Stan |
 |---|---|---|
 | `wywiad.md` | wywiad z właścicielem W-01–W-07 | W-07 z E2 (scenariusze zamiast gry z botami) |
 | `odkrywanie.md` | prace J, persony P, kontekst, zasady ZP, granice, rynek, ograniczenia OG-01–OG-14, hipotezy H-01–H-09, ryzyka RYZ-01–RYZ-08 | E2 |
-| `reguly.md` | reguły RD-01–RD-12 z wektorami (RD-12 krytyczna, bez źródeł: OP-10) | E2 |
+| `reguly.md` | reguły RD-01–RD-12, 80 wektorów (RD-12 krytyczna, część krajów bez źródeł: OP-10); eksport `tests/wektory/brd.json` | E3 |
 | `errata.md` | ER-01–ER-11: sprzeczności PRD, karty 48 i kodu z celem i źródłami | E2 |
-| `zrodla.md` | źródła S-01–S-53 | E2 |
+| `zrodla.md` | źródła S-01–S-54 | E3 |
 | `dane/konkurencja-2026-11-03.json` | 102 aplikacje nauki: oceny, ceny, wiek, języki, typ (bez cudzych opisów i recenzji) | E2 |
-| `wymagania-*.md` | przepływy PR, wymagania BR, NFR | E3 |
+| `wymagania.md` | przepływy PR-01–PR-08, NFR (13), pokrycie wymiarów | E3 |
+| `wymagania-nauka.md` | BR: ocena poziomu (ONB), kurs (KURS), ćwiczenia (CWI), powtórki (POW), scenariusze (SCN) | E3 |
+| `wymagania-sklep.md` | BR: zakup (ZAK), dane (DANE), pomoc (POM), języki (JEZ) | E3 |
 
 ## Streszczenie E2
 - Rynek: 102 aplikacje nauki (72 nowe wobec skanu roli 02). Płatne są zadania z oceną i analizą; gra z botami jest u konkurencji przeważnie darmowa. Najczęstsza potrzeba w recenzjach: wyjaśnienie „dlaczego”.
 - Polityki: nic nie blokuje funkcji (bez gry na pieniądze, nagród i żetonów z wartością). Kategoria wiekowa zależy od tego, czy jest zakład (OG-02); kierunek W-07 (scenariusze bez stosu) prawdopodobnie ją obniża, ale progu nie podaje żadne źródło (OP-18).
 - Dziedzina: 11 reguł obliczeniowych z wektorami niezależnymi od kodu; ocena zagrań ma iść za źródłem (ER-01). Reguła krytyczna: telefon pomocy według kraju (RD-12, ER-04).
 
-## Blokery wydania (wstępne, pełna lista w E3)
-- RD-12 / ER-04: brak telefonu pomocy dla krajów sprzedaży (zdrowie użytkownika, aplikacja o pokerze).
-- OG-05 / RYZ-01: subskrypcja bez stałej wartości grozi odrzuceniem.
-- OG-06: ujawnienia przed zakupem, przywracanie, anulowanie, pełna lokalizacja cen.
-- OG-01: żetony bez wartości, bez nagród, bez pomocy w czasie gry.
+## Blokery wydania
+Wejście dla roli 07 (werdykt gotowości). Niespełnienie któregokolwiek blokuje wydanie publiczne.
+
+| Wymaganie | Skutek niespełnienia |
+|---|---|
+| BR-POM-001, BR-POM-002 (RD-12) | reguła krytyczna: brak numeru pomocy w kraju sprzedaży (zdrowie użytkownika); dziś tylko PL, OP-10 otwarte |
+| NFR-ZGOD-001, NFR-ZGOD-003, BR-SCN-002 | polityka sklepu: hazard, wartość żetonów, pomoc w czasie gry (OG-01, OG-02) |
+| NFR-ZGOD-002, BR-ONB-004 | obietnica wygranej (OP-11, OG-07) |
+| BR-ZAK-001, BR-ZAK-003, BR-ZAK-004 | polityka sklepu: ujawnienia, przywracanie, anulowanie (OG-06) |
+| NFR-DANE-001, BR-DANE-002, BR-DANE-004 | utrata danych użytkownika (zasada wspólna 10) |
+| NFR-PRYW-001 | obietnica prywatności „Data Not Collected” (OP-12) |
+| BR-CWI-001, BR-SCN-003 (RD-11) | błędna ocena zagrań, sprzeczna ze źródłem (ER-01) |
+| BR-CWI-002, BR-CWI-003 | błędne liczby w wyjaśnieniach (RD-01–RD-08) |
+| BR-ONB-001, BR-KURS-001, BR-CWI-004 | główny przepływ nauki (PR-01–PR-03) |
+| NFR-DOST-001 | bariera dostępności: informacja tylko kolorem [FAKT S-54] |
+| OG-05 (RYZ-01) | subskrypcja bez stałej wartości: ryzyko odrzucenia; kontrola po stronie ról 02 i 03 (H-09) |
 
 ## Otwarte pytania
 Numery od 2 do 8 nie są używane w BRD (te numery pytań ma `docs/monetyzacja.md`).
@@ -38,3 +51,7 @@ Numery od 2 do 8 nie są używane w BRD (te numery pytań ma `docs/monetyzacja.m
 | OP-16 | [DO USTALENIA] Wymogi informacji o subskrypcji ze Schedule 2 umowy Apple | 02 | OG-06 |
 | OP-17 | Rozstrzygnięte 2026-11-03: status przedsiębiorcy DSA już jest na koncie (właściciel; repo `trening`, `docs/45-formalnosci-asc.md:21`) | właściciel | OG-13 |
 | OP-18 | [DO USTALENIA] Czy scenariusz bez stosu do wygrania to „brak” symulowanego hazardu w ankiecie Apple i IARC | recenzja Apple, ankieta IARC; rola 01 przygotowuje odpowiedzi i notatkę dla recenzenta | OG-02, ZAL-012 |
+| OP-19 | [DO USTALENIA] Podłogi dostępności: czytnik ekranu i największy rozmiar tekstu (odsetek, kryteria) | 04 (źródła: WCAG, wytyczne Apple i Google) | NFR-DOST-002 |
+| OP-20 | [DO WYJAŚNIENIA] Liczba pytań i najdłuższy czas oceny poziomu | 03 i 04 z właścicielem | BR-ONB-001 |
+| OP-21 | [DO USTALENIA] Budżet czasu od uruchomienia do pierwszej decyzji i najstarszy wspierany telefon | 05 (pomiar) | NFR-WYD-001 |
+| OP-22 | [DO WYJAŚNIENIA] Próg zaliczenia testu modułu | 03 z właścicielem | BR-KURS-002 |

@@ -86,5 +86,15 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 - Nowa sesja: „Tak, otwórz i zarchiwizuj tę (Recommended)”.
 - Do wpisu w rejestrze 03 i 13 na Dysku (krok właściciela, brak edycji Google Docs): W-07, ER-01, OP-11, OP-12.
 
+## Rola 01, E3: wynik (2026-11-03, czwarta sesja)
+- Prompt: `assemble.mjs 01-odkrywanie --tryb build` (prompts c025063), przeczytany w całości; skrypt `kontrola-brd.mjs` z modułu `kontrola-brd`.
+- Przepływy PR-01–PR-08 z pracami J-01–J-06 i sytuacjami brzegowymi (`docs/brd/wymagania.md`).
+- Wymagania: 35 BR z kryteriami w Gherkinie (`wymagania-nauka.md`: ONB, KURS, CWI, POW, SCN; `wymagania-sklep.md`: ZAK, DANE, POM, JEZ), 13 NFR z miarą, progiem i metodą; liczby w kryteriach z wektorów RD albo z decyzji.
+- Reguły: dopisane wektory błędnych danych RD-05-W7, RD-09-W7, RD-10-W10, pochodzenie RD-12-W6; 80 wektorów, eksport `tests/wektory/brd.json`.
+- Źródło S-54 (WCAG 2.2, 1.4.1, odczyt surowego tekstu 2026-11-03) dla NFR-DOST-001. Lista 35 języków: `locales/` w repo `trening` (commit 2e4b0f8).
+- Blokery wydania: tabela w `docs/brd/README.md`. Nowe OP-19–OP-22 (dostępność 04, długość oceny poziomu i próg testu modułu 03 z właścicielem, budżet startu 05).
+- Kontrola: `node kontrola-brd.mjs docs/brd` (bez `--szkic`) → kod 0, 35 BR, 12 RD, 80 wektorów, 15 OP, 0 błędów, 0 uwag.
+- Poza gitem bez zmian: wpisy do rejestru 03 i dokumentu 13 na Dysku (W-07, ER-01, OP-11, OP-12, decyzje E0/E1b bramki i E0 roli 01) czekają na właściciela; konektor Drive nie edytuje Google Docs.
+
 ## Następny krok
-**Rola 01 build, E3** (przepływy PR, wymagania BR i NFR, wektory `tests/wektory/brd.json`, kontrola bez `--szkic` z kodem 0), decyzja właściciela na bramce E2: „Kontynuować do E3”. Prompt: `node /home/user/prompts/tools/assemble.mjs 01-odkrywanie --tryb build` (prompts c025063). Wejście: `docs/brd/` (README, odkrywanie, reguly, errata, zrodla), `docs/zalozenia.md`, `docs/monetyzacja.md` (cena: kwartał 9,99 / rok 14,99 / dożywotni 19,99 USD), PRD na Dysku jako hipoteza. Skrypt kontroli: blok `kontrola-brd.mjs` z promptu (moduł `kontrola-brd`). Potem E4 (przekazanie), rola 02 sesja 2.
+**Rola 01 build, E4** (przekazanie do 02 i 03, definicja ukończenia z dowodami), po akceptacji bramki E3 przez właściciela; potem rola 02 sesja 2. Prompt: `node /home/user/prompts/tools/assemble.mjs 01-odkrywanie --tryb build` (prompts c025063). Wejście: `docs/brd/` (README z blokerami i OP, wymagania*.md, reguly, errata, zrodla), `tests/wektory/brd.json`, `docs/zalozenia.md`, `docs/monetyzacja.md`. Otwarte u właściciela: OP-13 (opinia prawna art. 29), OP-15 (storefronty), OP-20 i OP-22 (z rolą 03).
