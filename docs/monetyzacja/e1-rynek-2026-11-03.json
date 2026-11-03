@@ -1,0 +1,11102 @@
+{
+ "data": "2026-11-03",
+ "zrodla": {
+  "lookup": "https://itunes.apple.com/lookup?id=<ids>&country=<kraj> (odczyt 2026-11-03T16:35:16Z; storefronty 2026-11-03T16:40:06Z)",
+  "iap": "https://apps.apple.com/<kraj>/app/id<id>, blok In-App Purchases, parser iap.mjs (odczyt 2026-11-03T16:36:10Z)",
+  "statcounter": "https://gs.statcounter.com/os-market-share/mobile/<kraj> (październik 2026, odczyt 2026-11-03)",
+  "nbp": "https://api.nbp.pl/api/exchangerates/rates/a/<waluta>/?format=json",
+  "google_play": "https://play.google.com/store/apps/details?id=<pakiet>&hl=en&gl=us (odczyt 2026-11-03T16:41:40Z)"
+ },
+ "uwaga": "Wyszukiwarka itunes.apple.com/search zwraca 403 z serwera Apple (2026-11-03) dla każdej frazy; ID konkurentów z dokumentu 07 (Dysk, 2.10.2026) i z list „podobne aplikacje” na stronach apps.apple.com.",
+ "konkurenci_us": [
+  {
+   "id": 1488850006,
+   "nazwa": "Postflop+ GTO Poker Trainer",
+   "cena_pobrania": "Free",
+   "oceny_us": 1982,
+   "srednia": 4.67,
+   "wydanie": "2019-12-08",
+   "aktualizacja": "2026-08-05",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": {
+    "us": [
+     [
+      "MONTHLY",
+      "$14.99"
+     ],
+     [
+      "Weekly Subscription",
+      "$4.99"
+     ],
+     [
+      "Weekly Special",
+      "$9.99"
+     ],
+     [
+      "YEARLY",
+      "$99.99"
+     ],
+     [
+      "Lifetime",
+      "$199.99"
+     ],
+     [
+      "Lifetime",
+      "$149.99"
+     ],
+     [
+      "Monthly Special",
+      "$14.99"
+     ]
+    ],
+    "pl": [
+     [
+      "MONTHLY",
+      "72,99 zł"
+     ],
+     [
+      "Weekly Special",
+      "49,99 zł"
+     ],
+     [
+      "Weekly Subscription",
+      "29,99 zł"
+     ],
+     [
+      "Lifetime",
+      "699,99 zł"
+     ],
+     [
+      "Lifetime",
+      "999,99 zł"
+     ],
+     [
+      "Monthly Special",
+      "49,99 zł"
+     ],
+     [
+      "Lifetime Special",
+      "699,99 zł"
+     ],
+     [
+      "Monthly LIP Special",
+      "79,99 zł"
+     ],
+     [
+      "Yearly LIP",
+      "489,99 zł"
+     ]
+    ],
+    "de": [],
+    "gb": [
+     [
+      "MONTHLY",
+      "£14.99"
+     ],
+     [
+      "Weekly Subscription",
+      "£4.99"
+     ],
+     [
+      "Weekly Special",
+      "£9.99"
+     ],
+     [
+      "YEARLY",
+      "£99.99"
+     ],
+     [
+      "Lifetime",
+      "£149.99"
+     ],
+     [
+      "Lifetime",
+      "£199.99"
+     ],
+     [
+      "Monthly Special",
+      "£14.99"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 6471915869,
+   "nazwa": "DTO Cash - GTO Poker Trainer",
+   "cena_pobrania": "Free",
+   "oceny_us": 3,
+   "srednia": 2.33,
+   "wydanie": "2023-11-30",
+   "aktualizacja": "2025-09-23",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": {
+    "us": [
+     [
+      "Cash Beginner (1 Month)",
+      "$9.99"
+     ],
+     [
+      "Cash Pro (1 Month)",
+      "$29.99"
+     ],
+     [
+      "Cash Beginner (12 Months) ",
+      "$89.99"
+     ],
+     [
+      "Cash Pro (1 Year)",
+      "$299.99"
+     ],
+     [
+      "Cash Pro (6 Month)",
+      "$149.99"
+     ],
+     [
+      "Cash Beginner (6 Months)",
+      "$49.99"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 1458491856,
+   "nazwa": "DTO MTT - GTO Poker Trainer",
+   "cena_pobrania": "Free",
+   "oceny_us": 283,
+   "srednia": 4.69,
+   "wydanie": "2019-09-04",
+   "aktualizacja": "2025-11-20",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": {
+    "us": [
+     [
+      "Grinder (1 Month)",
+      "$9.99"
+     ],
+     [
+      "High Roller (1 Month)",
+      "$29.99"
+     ],
+     [
+      "High Roller (1 Year)",
+      "$269.99"
+     ],
+     [
+      "Grinder (12 Months)",
+      "$89.99"
+     ],
+     [
+      "High Roller (6 Months)",
+      "$149.99"
+     ],
+     [
+      "Grinder (6 Months)",
+      "$49.99"
+     ]
+    ],
+    "pl": [
+     [
+      "Grinder (1 Month)",
+      "44,99 zł"
+     ],
+     [
+      "High Roller (1 Month)",
+      "147,99 zł"
+     ],
+     [
+      "High Roller (1 Year)",
+      "1 299,99 zł"
+     ],
+     [
+      "High Roller (6 Months)",
+      "729,99 zł"
+     ],
+     [
+      "Grinder (12 Months)",
+      "419,99 zł"
+     ],
+     [
+      "Grinder (6 Months)",
+      "229,99 zł"
+     ]
+    ],
+    "de": [],
+    "gb": [
+     [
+      "Grinder (1 Month)",
+      "£9.49"
+     ],
+     [
+      "High Roller (1 Month)",
+      "£29.49"
+     ],
+     [
+      "Grinder (12 Months)",
+      "£85.99"
+     ],
+     [
+      "High Roller (1 Year)",
+      "£259.99"
+     ],
+     [
+      "Grinder (6 Months)",
+      "£47.99"
+     ],
+     [
+      "High Roller (6 Months)",
+      "£144.99"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 1630961215,
+   "nazwa": "NTPoker – GTO Poker Trainer",
+   "cena_pobrania": "Free",
+   "oceny_us": 163,
+   "srednia": 4.5,
+   "wydanie": "2022-06-30",
+   "aktualizacja": "2026-10-22",
+   "wiek": "4+",
+   "jezyki": [
+    "EN",
+    "FR",
+    "DE",
+    "HI",
+    "ID",
+    "IT",
+    "JA",
+    "KO",
+    "PL",
+    "PT",
+    "RU",
+    "ZH",
+    "ES",
+    "TH",
+    "ZH",
+    "TR",
+    "VI"
+   ],
+   "iap": {
+    "us": [
+     [
+      "NTPoker Pro",
+      "$19.99"
+     ],
+     [
+      "NTPoker Standard Monthly",
+      "$9.99"
+     ],
+     [
+      "NTPoker Standard (Annual)",
+      "$69.99"
+     ],
+     [
+      "NTPoker Master Annual",
+      "$149.99"
+     ],
+     [
+      "NTPoker Master Monthly",
+      "$19.99"
+     ]
+    ],
+    "pl": [
+     [
+      "NTPoker Standard Monthly",
+      "49,99 zł"
+     ],
+     [
+      "NTPoker Pro",
+      "99,99 zł"
+     ],
+     [
+      "NTPoker Master Annual",
+      "799,99 zł"
+     ],
+     [
+      "NTPoker Master Monthly",
+      "99,99 zł"
+     ],
+     [
+      "NTPoker Standard (Annual)",
+      "399,99 zł"
+     ]
+    ],
+    "de": [],
+    "gb": [
+     [
+      "NTPoker Pro",
+      "£19.99"
+     ],
+     [
+      "NTPoker Standard Monthly",
+      "£9.99"
+     ],
+     [
+      "NTPoker Master Annual",
+      "£149.99"
+     ],
+     [
+      "NTPoker Standard (Annual)",
+      "£69.99"
+     ],
+     [
+      "NTPoker Master Monthly",
+      "£19.99"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 6737678499,
+   "nazwa": "Poker Trainer GTO - POKER Q'z",
+   "cena_pobrania": "Free",
+   "oceny_us": 31,
+   "srednia": 4.71,
+   "wydanie": "2025-03-11",
+   "aktualizacja": "2026-11-03",
+   "wiek": "12+",
+   "jezyki": [
+    "EN",
+    "FR",
+    "DE",
+    "HI",
+    "ID",
+    "IT",
+    "JA",
+    "KO",
+    "PL",
+    "PT",
+    "RU",
+    "ZH",
+    "ES",
+    "TH",
+    "ZH",
+    "TR",
+    "VI"
+   ],
+   "iap": {
+    "us": [
+     [
+      "POKER Q'z Ring - Yearly",
+      "$109.99"
+     ],
+     [
+      "POKER Q'z Tournament - Yearly",
+      "$109.99"
+     ],
+     [
+      "POKER Q'z Ring - Monthly",
+      "$17.99"
+     ],
+     [
+      "POKER Q'z Tournament - Monthly",
+      "$17.99"
+     ],
+     [
+      "1,000 Coins",
+      "$5.09"
+     ],
+     [
+      "100 Points",
+      "$0.49"
+     ],
+     [
+      "9,000 Coins",
+      "$40.49"
+     ],
+     [
+      "Elite Pack Part 2+3",
+      "$99.99"
+     ],
+     [
+      "Elite Pack Part 2+3 Member",
+      "$59.99"
+     ],
+     [
+      "Elite Pack Part 2 Member",
+      "$59.99"
+     ]
+    ],
+    "pl": [
+     [
+      "POKER Q'z Ring - Yearly",
+      "499,99 zł"
+     ],
+     [
+      "POKER Q'z Tournament - Yearly",
+      "499,99 zł"
+     ],
+     [
+      "Elite Pack Part 2+3",
+      "499,99 zł"
+     ],
+     [
+      "Elite Pack Part 2+3 Member",
+      "299,99 zł"
+     ],
+     [
+      "Elite Pack Part 2 Member",
+      "299,99 zł"
+     ],
+     [
+      "Elite Pack Part 2",
+      "399,99 zł"
+     ],
+     [
+      "Elite Pack Set",
+      "999,99 zł"
+     ],
+     [
+      "Elite Pack Part 1",
+      "399,99 zł"
+     ],
+     [
+      "Elite Pack Set Member",
+      "499,99 zł"
+     ],
+     [
+      "Elite Pack Part 1 Member",
+      "299,99 zł"
+     ]
+    ],
+    "de": [],
+    "gb": [
+     [
+      "POKER Q'z Tournament - Yearly",
+      "£84.99"
+     ],
+     [
+      "POKER Q'z Ring - Yearly",
+      "£84.99"
+     ],
+     [
+      "POKER Q'z Tournament - Monthly",
+      "£13.99"
+     ],
+     [
+      "POKER Q'z Ring - Monthly",
+      "£13.99"
+     ],
+     [
+      "Elite Pack Part 2+3",
+      "£99.99"
+     ],
+     [
+      "Elite Pack Part 2+3 Member",
+      "£59.99"
+     ],
+     [
+      "Elite Pack Part 2 Member",
+      "£59.99"
+     ],
+     [
+      "Elite Pack Part 2",
+      "£79.99"
+     ],
+     [
+      "Elite Pack Set",
+      "£199.99"
+     ],
+     [
+      "Elite Pack Part 1",
+      "£79.99"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 1444569705,
+   "nazwa": "Poker Coaching",
+   "cena_pobrania": "Free",
+   "oceny_us": 73,
+   "srednia": 4.11,
+   "wydanie": "2020-05-12",
+   "aktualizacja": "2026-08-16",
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": {
+    "us": [
+     [
+      "Premium Membership",
+      "$146.99"
+     ],
+     [
+      "Standard Membership",
+      "$48.99"
+     ],
+     [
+      "Poker Coaching Standard",
+      "$48.99"
+     ]
+    ],
+    "pl": [
+     [
+      "Standard Membership",
+      "249,99 zł"
+     ],
+     [
+      "Poker Coaching Standard",
+      "249,99 zł"
+     ],
+     [
+      "Premium Membership",
+      "799,99 zł"
+     ]
+    ],
+    "de": [],
+    "gb": [
+     [
+      "Standard Membership",
+      "£49.99"
+     ],
+     [
+      "Premium Membership",
+      "£149.99"
+     ],
+     [
+      "Poker Coaching Standard",
+      "£49.99"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 1626050814,
+   "nazwa": "Poker Academy: Learn GTO poker",
+   "cena_pobrania": "Free",
+   "oceny_us": 8,
+   "srednia": 5,
+   "wydanie": "2022-06-08",
+   "aktualizacja": "2026-11-02",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": {
+    "us": [
+     [
+      "Mobile Plan",
+      "$29.99"
+     ],
+     [
+      "Premium Plan",
+      "$119.00"
+     ],
+     [
+      "Preflop Mobile Monthly",
+      "$9.99"
+     ],
+     [
+      "Essential Plan",
+      "$79.99"
+     ],
+     [
+      "Mobile Plan",
+      "$299.99"
+     ],
+     [
+      "Standard Plan",
+      "$109.00"
+     ],
+     [
+      "Preflop Mobile Yearly",
+      "$99.99"
+     ]
+    ],
+    "pl": [
+     [
+      "Mobile Plan",
+      "129,99 zł"
+     ],
+     [
+      "Preflop Mobile Monthly",
+      "49,99 zł"
+     ],
+     [
+      "Preflop Mobile Yearly",
+      "499,99 zł"
+     ],
+     [
+      "Mobile Plan",
+      "1 299,99 zł"
+     ],
+     [
+      "Premium Plan",
+      "699,99 zł"
+     ],
+     [
+      "Standard Plan",
+      "599,99 zł"
+     ],
+     [
+      "Essential Plan",
+      "399,99 zł"
+     ]
+    ],
+    "de": [],
+    "gb": [
+     [
+      "Mobile Plan",
+      "£24.99"
+     ],
+     [
+      "Mobile Plan",
+      "£249.99"
+     ],
+     [
+      "Premium Plan",
+      "£119.00"
+     ],
+     [
+      "Preflop Mobile Monthly",
+      "£9.99"
+     ],
+     [
+      "Preflop Mobile Yearly",
+      "£99.99"
+     ],
+     [
+      "Standard Plan",
+      "£99.00"
+     ],
+     [
+      "Essential Plan",
+      "£79.99"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 6503668923,
+   "nazwa": "Lucid Poker Trainer",
+   "cena_pobrania": "Free",
+   "oceny_us": 22,
+   "srednia": 3.95,
+   "wydanie": "2024-08-22",
+   "aktualizacja": "2026-08-25",
+   "wiek": "12+",
+   "jezyki": [],
+   "iap": null
+  },
+  {
+   "id": 1530767783,
+   "nazwa": "Solver+ Poker : GTO Strategy",
+   "cena_pobrania": "Free",
+   "oceny_us": 1163,
+   "srednia": 4.66,
+   "wydanie": "2020-09-21",
+   "aktualizacja": "2026-08-04",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": {
+    "us": [
+     [
+      "Monthly Subscription",
+      "$19.99"
+     ],
+     [
+      "Weekly Subscription",
+      "$4.99"
+     ],
+     [
+      "Weekly Special",
+      "$9.99"
+     ],
+     [
+      "Annual Subscription",
+      "$149.99"
+     ],
+     [
+      "Lifetime Loyalty Upgrade",
+      "$299.99"
+     ],
+     [
+      "Monthly Subscription",
+      "$17.99"
+     ],
+     [
+      "Lifetime Upgrade",
+      "$399.99"
+     ],
+     [
+      "Monthly Travis Subscription",
+      "$19.99"
+     ]
+    ],
+    "pl": [
+     [
+      "Monthly Subscription",
+      "99,99 zł"
+     ],
+     [
+      "Weekly Subscription",
+      "29,99 zł"
+     ],
+     [
+      "Weekly Special",
+      "49,99 zł"
+     ],
+     [
+      "Monthly Special",
+      "49,99 zł"
+     ],
+     [
+      "Lifetime Special",
+      "999,99 zł"
+     ],
+     [
+      "Lifetime  Upgrade",
+      "999,99 zł"
+     ],
+     [
+      "Lifetime Upgrade",
+      "999,99 zł"
+     ]
+    ],
+    "de": [],
+    "gb": [
+     [
+      "Monthly Subscription",
+      "£19.99"
+     ],
+     [
+      "Weekly Subscription",
+      "£4.99"
+     ],
+     [
+      "Weekly Special",
+      "£9.99"
+     ],
+     [
+      "Annual Subscription",
+      "£149.99"
+     ],
+     [
+      "Monthly Subscription",
+      "£17.99"
+     ],
+     [
+      "Lifetime Loyalty Upgrade",
+      "£299.99"
+     ],
+     [
+      "Lifetime Upgrade",
+      "£399.99"
+     ],
+     [
+      "Monthly Travis Subscription",
+      "£19.99"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 1066838405,
+   "nazwa": "SnapShove",
+   "cena_pobrania": "Free",
+   "oceny_us": 22,
+   "srednia": 2.5,
+   "wydanie": "2016-02-12",
+   "aktualizacja": "2026-10-20",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": null
+  },
+  {
+   "id": 6590603158,
+   "nazwa": "GTO Preflop Wizard Poker AI",
+   "cena_pobrania": "Free",
+   "oceny_us": 3483,
+   "srednia": 4.76,
+   "wydanie": "2024-08-08",
+   "aktualizacja": "2026-10-27",
+   "wiek": "12+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": {
+    "us": [
+     [
+      "Monthly VIP Access",
+      "$29.99"
+     ],
+     [
+      "Weekly VIP Access",
+      "$6.99"
+     ],
+     [
+      "Monthly VIP Access",
+      "$19.99"
+     ],
+     [
+      "Annual VIP Access",
+      "$129.99"
+     ],
+     [
+      "VIP Access 3 Months",
+      "$64.99"
+     ],
+     [
+      "Annual VIP Access",
+      "$89.99"
+     ],
+     [
+      "VIP Access 3 Months",
+      "$49.99"
+     ]
+    ],
+    "pl": [
+     [
+      "Weekly VIP Access",
+      "39,99 zł"
+     ],
+     [
+      "Monthly VIP Access",
+      "149,99 zł"
+     ],
+     [
+      "Monthly VIP Access",
+      "99,99 zł"
+     ],
+     [
+      "Annual VIP Access",
+      "699,99 zł"
+     ],
+     [
+      "VIP Access 3 Months",
+      "349,99 zł"
+     ],
+     [
+      "Annual VIP Access",
+      "229,99 zł"
+     ],
+     [
+      "Annual VIP Access",
+      "499,99 zł"
+     ],
+     [
+      "Annual VIP Access",
+      "999,99 zł"
+     ],
+     [
+      "Annual VIP Access",
+      "99,99 zł"
+     ]
+    ],
+    "de": [],
+    "gb": [
+     [
+      "Monthly VIP Access",
+      "£29.99"
+     ],
+     [
+      "Weekly VIP Access",
+      "£6.99"
+     ],
+     [
+      "Monthly VIP Access",
+      "£19.99"
+     ],
+     [
+      "VIP Access 3 Months",
+      "£59.99"
+     ],
+     [
+      "Annual VIP Access",
+      "£129.99"
+     ],
+     [
+      "Annual VIP Access",
+      "£89.99"
+     ],
+     [
+      "VIP Access 3 Months",
+      "£49.99"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 6478522482,
+   "nazwa": "Poker Trainer - Learn Poker",
+   "cena_pobrania": "Free",
+   "oceny_us": 1165,
+   "srednia": 4.74,
+   "wydanie": "2024-03-19",
+   "aktualizacja": "2026-10-19",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": {
+    "us": [
+     [
+      "Weekly subscription",
+      "$6.99"
+     ],
+     [
+      "Yearly subscription",
+      "$89.99"
+     ],
+     [
+      "Monthly subscription",
+      "$14.99"
+     ],
+     [
+      "Yearly subscription",
+      "$59.99"
+     ],
+     [
+      "Lifetime premium",
+      "$269.99"
+     ]
+    ],
+    "pl": [
+     [
+      "Yearly subscription",
+      "499,99 zł"
+     ],
+     [
+      "Weekly subscription",
+      "29,99 zł"
+     ],
+     [
+      "Monthly subscription",
+      "79,99 zł"
+     ],
+     [
+      "Yearly subscription",
+      "299,99 zł"
+     ],
+     [
+      "Lifetime premium",
+      "1 199,99 zł"
+     ]
+    ],
+    "de": [],
+    "gb": [
+     [
+      "Weekly subscription",
+      "£6.99"
+     ],
+     [
+      "Yearly subscription",
+      "£89.99"
+     ],
+     [
+      "Monthly subscription",
+      "£14.99"
+     ],
+     [
+      "Yearly subscription",
+      "£59.99"
+     ],
+     [
+      "Lifetime premium",
+      "£249.99"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 6747833042,
+   "nazwa": "Poker Trainer: Flop Factor",
+   "cena_pobrania": "Free",
+   "oceny_us": 360,
+   "srednia": 4.71,
+   "wydanie": "2025-09-16",
+   "aktualizacja": "2026-10-07",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": {
+    "us": [
+     [
+      "Pro Plan",
+      "$19.99"
+     ],
+     [
+      "Pro Plan",
+      "$9.99"
+     ],
+     [
+      "Pro Plan",
+      "$59.99"
+     ],
+     [
+      "Pro Plan",
+      "$89.99"
+     ],
+     [
+      "Pro Plan",
+      "$24.99"
+     ],
+     [
+      "Pro Plan",
+      "$49.99"
+     ],
+     [
+      "Lifetime",
+      "$149.99"
+     ]
+    ],
+    "pl": [
+     [
+      "Lifetime",
+      "699,99 zł"
+     ],
+     [
+      "Pro Plan",
+      "399,99 zł"
+     ],
+     [
+      "Pro Plan",
+      "229,99 zł"
+     ],
+     [
+      "Pro Plan",
+      "99,99 zł"
+     ],
+     [
+      "Pro Plan",
+      "299,99 zł"
+     ],
+     [
+      "Pro Plan",
+      "49,99 zł"
+     ]
+    ],
+    "de": [],
+    "gb": [
+     [
+      "Pro Plan",
+      "£19.99"
+     ],
+     [
+      "Pro Plan",
+      "£9.99"
+     ],
+     [
+      "Pro Plan",
+      "£59.99"
+     ],
+     [
+      "Pro Plan",
+      "£89.99"
+     ],
+     [
+      "Lifetime",
+      "£149.99"
+     ],
+     [
+      "Pro Plan",
+      "£49.99"
+     ],
+     [
+      "Pro Plan",
+      "£24.99"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 6738748434,
+   "nazwa": "GTO Gecko: Poker Study",
+   "cena_pobrania": "Free",
+   "oceny_us": 62,
+   "srednia": 4.69,
+   "wydanie": "2024-12-02",
+   "aktualizacja": "2026-11-03",
+   "wiek": "17+",
+   "jezyki": [
+    "DA",
+    "EN",
+    "FI",
+    "FR",
+    "DE",
+    "JA",
+    "KO",
+    "NB",
+    "ZH",
+    "ES",
+    "SV"
+   ],
+   "iap": {
+    "us": [
+     [
+      "Access to Pro features",
+      "$19.99"
+     ],
+     [
+      "Cash Game Base Monthly",
+      "$24.99"
+     ],
+     [
+      "Cashgame Module - Month",
+      "$14.99"
+     ],
+     [
+      "MTT Base Monthly",
+      "$24.99"
+     ],
+     [
+      "Full Access Pro (All) – Monthly",
+      "$39.99"
+     ],
+     [
+      "Full Access Cashgame – Monthly",
+      "$24.99"
+     ],
+     [
+      "Full Access",
+      "$119.99"
+     ],
+     [
+      "Pro Weekly",
+      "$13.49"
+     ],
+     [
+      "Elite Pro Monthly",
+      "$89.99"
+     ],
+     [
+      "Base MTT Weekly",
+      "$7.99"
+     ]
+    ],
+    "pl": [
+     [
+      "MTT Base Monthly",
+      "99,99 zł"
+     ],
+     [
+      "Cash Game Base Monthly",
+      "99,99 zł"
+     ],
+     [
+      "Full Access Pro (All) – Monthly",
+      "199,99 zł"
+     ],
+     [
+      "Full Access MTT – Monthly",
+      "129,99 zł"
+     ],
+     [
+      "Full Access",
+      "699,99 zł"
+     ],
+     [
+      "Tournament Module - Month",
+      "79,99 zł"
+     ],
+     [
+      "Cashgame Module - Month",
+      "79,99 zł"
+     ],
+     [
+      "Elite MTT Weekly",
+      "99,99 zł"
+     ],
+     [
+      "Elite Cash Games Weekly",
+      "99,99 zł"
+     ],
+     [
+      "Base MTT Annual",
+      "699,99 zł"
+     ]
+    ],
+    "de": [],
+    "gb": [
+     [
+      "Access to Pro features",
+      "£19.99"
+     ],
+     [
+      "Elite Cash Game Monthly",
+      "£59.99"
+     ],
+     [
+      "Cash Game Base Monthly",
+      "£24.99"
+     ],
+     [
+      "Full Access MTT – Monthly",
+      "£24.99"
+     ],
+     [
+      "Tournament Module - Month",
+      "£14.99"
+     ],
+     [
+      "Full Access",
+      "£119.99"
+     ],
+     [
+      "Full Access Pro (All) – Monthly",
+      "£39.99"
+     ],
+     [
+      "MTT Base Monthly",
+      "£24.99"
+     ],
+     [
+      "Full Access Cashgame – Monthly",
+      "£24.99"
+     ],
+     [
+      "Cashgame Module - Month",
+      "£14.99"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 6738063395,
+   "nazwa": "PeakGTO",
+   "cena_pobrania": "Free",
+   "oceny_us": 6,
+   "srednia": 3.17,
+   "wydanie": "2025-08-19",
+   "aktualizacja": "2026-02-07",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": null
+  },
+  {
+   "id": 6736561338,
+   "nazwa": "GTO Battle+ : Poker Puzzles!",
+   "cena_pobrania": "Free",
+   "oceny_us": 6,
+   "srednia": 4.33,
+   "wydanie": "2024-10-07",
+   "aktualizacja": "2025-09-16",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": null
+  },
+  {
+   "id": 6747779080,
+   "nazwa": "Preflop AI: GTO Poker Trainer",
+   "cena_pobrania": "Free",
+   "oceny_us": 298,
+   "srednia": 4.65,
+   "wydanie": "2025-07-09",
+   "aktualizacja": "2026-09-30",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": {
+    "us": [
+     [
+      "Monthly Premium",
+      "$29.99"
+     ],
+     [
+      " Monthly Premium",
+      "$19.99"
+     ],
+     [
+      "Yearly Premium",
+      "$89.99"
+     ],
+     [
+      "Yearly plan",
+      "$69.99"
+     ],
+     [
+      "Monthly Premium",
+      "$16.00"
+     ],
+     [
+      "Monthly Premium",
+      "$14.49"
+     ],
+     [
+      "Yearly Super Discount",
+      "$49.99"
+     ],
+     [
+      "Monthly Premium",
+      "$39.99"
+     ],
+     [
+      "Yearly plan",
+      "$119.99"
+     ]
+    ],
+    "pl": [
+     [
+      "Yearly plan",
+      "289,00 zł"
+     ],
+     [
+      "Monthly Premium",
+      "119,99 zł"
+     ],
+     [
+      "Yearly plan",
+      "444,99 zł"
+     ],
+     [
+      "Yearly Super Discount",
+      "147,99 zł"
+     ],
+     [
+      "Monthly Premium",
+      "147,99 zł"
+     ],
+     [
+      "Yearly Premium",
+      "384,99 zł"
+     ],
+     [
+      " Monthly Premium",
+      "86,99 zł"
+     ],
+     [
+      "Yearly Premium",
+      "339,99 zł"
+     ],
+     [
+      "Monthly Premium",
+      "79,99 zł"
+     ]
+    ],
+    "de": [],
+    "gb": [
+     [
+      " Monthly Premium",
+      "£18.99"
+     ],
+     [
+      "Monthly Premium",
+      "£27.99"
+     ],
+     [
+      "Monthly Premium",
+      "£14.99"
+     ],
+     [
+      "Yearly plan",
+      "£63.99"
+     ],
+     [
+      "Yearly plan",
+      "£110.99"
+     ],
+     [
+      "Yearly Super Discount",
+      "£45.99"
+     ],
+     [
+      "Monthly Premium",
+      "£36.99"
+     ],
+     [
+      "Yearly Premium",
+      "£83.99"
+     ],
+     [
+      "Yearly Premium",
+      "£74.99"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 6475799969,
+   "nazwa": "Pot Odds Pro - Poker Trainer",
+   "cena_pobrania": "Free",
+   "oceny_us": 2,
+   "srednia": 5,
+   "wydanie": "2024-01-12",
+   "aktualizacja": "2024-02-11",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": null
+  },
+  {
+   "id": 6504085713,
+   "nazwa": "Live Poker Theory GTO Preflop",
+   "cena_pobrania": "Free",
+   "oceny_us": 5,
+   "srednia": 5,
+   "wydanie": "2024-06-11",
+   "aktualizacja": "2025-10-10",
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": null
+  },
+  {
+   "id": 1629141961,
+   "nazwa": "GTO Preflop",
+   "cena_pobrania": "Free",
+   "oceny_us": 243,
+   "srednia": 4.81,
+   "wydanie": "2022-06-16",
+   "aktualizacja": "2026-09-25",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": {
+    "us": [
+     [
+      "Access to all ranges",
+      "$29.99"
+     ],
+     [
+      "Pro - 1 Month",
+      "$19.99"
+     ],
+     [
+      "Pro Weekly",
+      "$7.99"
+     ],
+     [
+      "Pro Monthly",
+      "$19.99"
+     ],
+     [
+      "Pro version - Billed annually",
+      "$119.00"
+     ],
+     [
+      "Pro Monthly",
+      "$29.99"
+     ],
+     [
+      "Pro Weekly",
+      "$11.99"
+     ],
+     [
+      "Pro Yearly",
+      "$119.99"
+     ],
+     [
+      "Full feature access - Lifetime",
+      "$359.00"
+     ],
+     [
+      "Pro Weekly",
+      "$14.99"
+     ]
+    ],
+    "pl": [
+     [
+      "Pro - 1 Month",
+      "99,99 zł"
+     ],
+     [
+      "Access to all ranges",
+      "149,99 zł"
+     ],
+     [
+      "Pro Weekly",
+      "39,99 zł"
+     ],
+     [
+      "Pro Monthly",
+      "99,99 zł"
+     ],
+     [
+      "Pro Quarterly",
+      "199,99 zł"
+     ],
+     [
+      "Pro Yearly",
+      "799,99 zł"
+     ],
+     [
+      "Pro Yearly",
+      "699,99 zł"
+     ],
+     [
+      "Pro Quarterly",
+      "299,99 zł"
+     ],
+     [
+      "Pro Monthly",
+      "149,99 zł"
+     ],
+     [
+      "Pro Monthly",
+      "129,99 zł"
+     ]
+    ],
+    "de": [],
+    "gb": [
+     [
+      "Access to all ranges",
+      "£29.99"
+     ],
+     [
+      "Pro Monthly",
+      "£19.99"
+     ],
+     [
+      "Pro - 1 Month",
+      "£19.99"
+     ],
+     [
+      "Pro Weekly",
+      "£7.99"
+     ],
+     [
+      "Pro year",
+      "£119.00"
+     ],
+     [
+      "Pro Weekly",
+      "£11.99"
+     ],
+     [
+      "Pro Monthly",
+      "£29.99"
+     ],
+     [
+      "Pro Yearly",
+      "£119.99"
+     ],
+     [
+      "Pro Yearly",
+      "£179.99"
+     ],
+     [
+      "Pro Yearly",
+      "£149.99"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 6450212963,
+   "nazwa": "GTO Poker Trainer: Preflop",
+   "cena_pobrania": "Free",
+   "oceny_us": 17,
+   "srednia": 4.88,
+   "wydanie": "2024-06-24",
+   "aktualizacja": "2026-10-03",
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": null
+  },
+  {
+   "id": 6448717874,
+   "nazwa": "GTO Poker Trainer: Postflop",
+   "cena_pobrania": "Free",
+   "oceny_us": 50,
+   "srednia": 4.72,
+   "wydanie": "2023-05-04",
+   "aktualizacja": "2026-10-18",
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": null
+  },
+  {
+   "id": 1619585130,
+   "nazwa": "GTO Poker Ranges By Red Chip",
+   "cena_pobrania": "Free",
+   "oceny_us": 11,
+   "srednia": 4,
+   "wydanie": "2022-06-06",
+   "aktualizacja": "2025-03-10",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": null
+  },
+  {
+   "id": 1553727514,
+   "nazwa": "Poker AI - Game & Strategy",
+   "cena_pobrania": "Free",
+   "oceny_us": 714,
+   "srednia": 4.65,
+   "wydanie": "2021-06-15",
+   "aktualizacja": "2026-08-12",
+   "wiek": "17+",
+   "jezyki": [
+    "EN",
+    "ZH",
+    "ZH"
+   ],
+   "iap": {
+    "us": [
+     [
+      "1,200 Chips",
+      "$0.99"
+     ],
+     [
+      "6,000 Chips",
+      "$4.99"
+     ],
+     [
+      "One Year Membership",
+      "$49.99"
+     ],
+     [
+      "30,000 Chips",
+      "$19.99"
+     ],
+     [
+      "Permanent Membership",
+      "$149.99"
+     ]
+    ],
+    "pl": [
+     [
+      "30,000 Chips",
+      "99,99 zł"
+     ],
+     [
+      "6,000 Chips",
+      "24,99 zł"
+     ],
+     [
+      "1,200 Chips",
+      "4,99 zł"
+     ],
+     [
+      "Permanent Membership",
+      "699,99 zł"
+     ],
+     [
+      "One Year Membership",
+      "229,99 zł"
+     ]
+    ],
+    "de": [],
+    "gb": [
+     [
+      "1,200 Chips",
+      "£0.99"
+     ],
+     [
+      "6,000 Chips",
+      "£4.99"
+     ],
+     [
+      "One Year Membership",
+      "£49.99"
+     ],
+     [
+      "30,000 Chips",
+      "£19.99"
+     ],
+     [
+      "Permanent Membership",
+      "£149.99"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 1523876570,
+   "nazwa": "GTO Sensei",
+   "cena_pobrania": "Free",
+   "oceny_us": 9,
+   "srednia": 1.89,
+   "wydanie": "2020-08-26",
+   "aktualizacja": "2021-05-12",
+   "wiek": "17+",
+   "jezyki": [],
+   "iap": null
+  },
+  {
+   "id": 6744236466,
+   "nazwa": "PLO+: Pot Limit Omaha Trainer",
+   "cena_pobrania": "Free",
+   "oceny_us": 46,
+   "srednia": 4.67,
+   "wydanie": "2025-04-14",
+   "aktualizacja": "2026-08-09",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": null
+  },
+  {
+   "id": 1435468870,
+   "nazwa": "Preflop+ Poker GTO Nash Charts",
+   "cena_pobrania": "Free",
+   "oceny_us": 1022,
+   "srednia": 4.61,
+   "wydanie": "2018-09-11",
+   "aktualizacja": "2026-10-26",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": {
+    "us": [
+     [
+      "MONTHLY",
+      "$9.99"
+     ],
+     [
+      "YEARLY",
+      "$79.99"
+     ],
+     [
+      "Loyalty Lifetime",
+      "$64.99"
+     ],
+     [
+      "Lifetime",
+      "$129.99"
+     ],
+     [
+      "Monthly Special",
+      "$5.99"
+     ],
+     [
+      "Lifetime Upgrade",
+      "$59.99"
+     ]
+    ],
+    "pl": [
+     [
+      "MONTHLY",
+      "47,99 zł"
+     ],
+     [
+      "Loyalty Lifetime",
+      "299,99 zł"
+     ],
+     [
+      "YEARLY",
+      "389,99 zł"
+     ],
+     [
+      "Lifetime Special",
+      "299,99 zł"
+     ],
+     [
+      "Monthly Special",
+      "29,99 zł"
+     ],
+     [
+      "YEARLY",
+      "449,99 zł"
+     ],
+     [
+      "MONTHLY",
+      "59,99 zł"
+     ],
+     [
+      "Lifetime For LIP Poker",
+      "299,99 zł"
+     ],
+     [
+      "YEARLY UPGRADE",
+      "449,99 zł"
+     ]
+    ],
+    "de": [],
+    "gb": [
+     [
+      "MONTHLY",
+      "£9.99"
+     ],
+     [
+      "Loyalty Lifetime",
+      "£59.99"
+     ],
+     [
+      "YEARLY",
+      "£79.99"
+     ],
+     [
+      "Lifetime",
+      "£129.99"
+     ],
+     [
+      "Monthly Special",
+      "£5.99"
+     ],
+     [
+      "YEARLY UPGRADE",
+      "£79.99"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 6746586602,
+   "nazwa": "Poker Coach+ | AI Assistant",
+   "cena_pobrania": "Free",
+   "oceny_us": 8,
+   "srednia": 5,
+   "wydanie": "2025-06-04",
+   "aktualizacja": "2026-07-30",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": null
+  },
+  {
+   "id": 6458732631,
+   "nazwa": "GTO Ranges+ Poker Solver",
+   "cena_pobrania": "Free",
+   "oceny_us": 126,
+   "srednia": 4.68,
+   "wydanie": "2023-08-17",
+   "aktualizacja": "2026-08-09",
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "iap": null
+  }
+ ],
+ "storefronty": {
+  "ar": [
+   {
+    "id": 6590603158,
+    "oceny": 30,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 13,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 6,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 19,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 7,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 1,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 8,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 3,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 44,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 4,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 9,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 28,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 1,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 1,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 0,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "at": [
+   {
+    "id": 6590603158,
+    "oceny": 20,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 10,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 9,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 17,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 13,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 1,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 2,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 16,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 3,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 4,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 1,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 1,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 1,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 2,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 1,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "au": [
+   {
+    "id": 6590603158,
+    "oceny": 214,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 150,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 39,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 103,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 64,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 30,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 1,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 7,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 11,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 25,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 16,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 3,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 4,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 1,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 18,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 3,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "be": [
+   {
+    "id": 6590603158,
+    "oceny": 42,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 19,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 10,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 8,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 11,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 5,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 1,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 1,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 8,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 16,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 3,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 2,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 0,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 1,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 0,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "bg": [
+   {
+    "id": 6590603158,
+    "oceny": 17,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 14,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 2,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 5,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 2,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 0,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 8,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 5,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 1,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 0,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 0,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 1,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 2,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 2,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "br": [
+   {
+    "id": 6590603158,
+    "oceny": 158,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 90,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 19,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 111,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 1,
+    "wydanie": "2024-11-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 10,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 1,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 9,
+    "wydanie": "2025-08-05",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 36,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 284,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 87,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2026-05-10",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 52,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 53,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 1,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 19,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 22,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 4,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 1,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "ca": [
+   {
+    "id": 6590603158,
+    "oceny": 492,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 246,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 102,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 193,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 127,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 30,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 102,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 6,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 54,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 38,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 15,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 7,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 9,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 4,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 1,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 25,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 10,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 1,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 2,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 1,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "ch": [
+   {
+    "id": 6590603158,
+    "oceny": 29,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 21,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 20,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 18,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 15,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 10,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 3,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 2,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 14,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 10,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 5,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 2,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 9,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 0,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 5,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 4,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "co": [
+   {
+    "id": 6590603158,
+    "oceny": 47,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 15,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 6,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 10,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 3,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 0,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 8,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 1,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 29,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 6,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 5,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 1,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 1,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 2,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "cz": [
+   {
+    "id": 6590603158,
+    "oceny": 23,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 15,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 3,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 5,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 19,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 2,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 1,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 7,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 5,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 2,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 3,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 1,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 0,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 0,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 1,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "de": [
+   {
+    "id": 6590603158,
+    "oceny": 96,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 151,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 47,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 84,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 117,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 13,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 3,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 5,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 89,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 16,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 20,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 5,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 5,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 12,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 22,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 2,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 4,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 1,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 2,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "dk": [
+   {
+    "id": 6590603158,
+    "oceny": 23,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 15,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 14,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 10,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 9,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 0,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 3,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 9,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 6,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 4,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 2,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 2,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 1,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 1,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 1,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 3,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "ee": [
+   {
+    "id": 6590603158,
+    "oceny": 6,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 7,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 0,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 6,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 3,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 0,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 5,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 1,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 1,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 3,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 0,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 1,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 0,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "es": [
+   {
+    "id": 6590603158,
+    "oceny": 72,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 69,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 21,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 31,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 49,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 5,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 2,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 16,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 12,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 34,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 26,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 4,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 27,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 0,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 3,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 1,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "fi": [
+   {
+    "id": 6590603158,
+    "oceny": 24,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 11,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 3,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 5,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 6,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 0,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 1,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 4,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 3,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 9,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 1,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 0,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 0,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 2,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 2,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 1,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "fr": [
+   {
+    "id": 6590603158,
+    "oceny": 156,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 262,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 42,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 123,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 150,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 12,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 6,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 13,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 29,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 96,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 87,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 1,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 33,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 33,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 22,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 13,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 8,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 1,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "gb": [
+   {
+    "id": 6590603158,
+    "oceny": 234,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 244,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 105,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 138,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 132,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 38,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 7,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 4,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 101,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 37,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 17,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 10,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 8,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 4,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 1,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 19,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 12,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 2,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 3,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 1,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "gr": [
+   {
+    "id": 6590603158,
+    "oceny": 19,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 7,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 3,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 11,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 3,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 1,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 10,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 10,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 0,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 2,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 0,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 1,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 1,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 1,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "hk": [
+   {
+    "id": 6590603158,
+    "oceny": 63,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 130,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 5,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 181,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 24,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 215,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 1,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 2,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 37,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 48,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 1,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 11,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 6,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 7,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 17,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 2,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "hr": [
+   {
+    "id": 6590603158,
+    "oceny": 4,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 9,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 0,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 5,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 6,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 0,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 3,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 6,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 0,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 1,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 0,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 1,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 2,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "hu": [
+   {
+    "id": 6590603158,
+    "oceny": 18,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 12,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 1,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 7,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 14,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 4,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 8,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 15,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 2,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 2,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 2,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 1,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 5,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 3,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "id": [
+   {
+    "id": 6590603158,
+    "oceny": 31,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 1,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 0,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 2,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 0,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 1,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 3,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 0,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 0,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 0,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 0,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 2,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "in": [
+   {
+    "id": 6590603158,
+    "oceny": 72,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 33,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 9,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 28,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 13,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 5,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 1,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 10,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 7,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 15,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 3,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 2,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 0,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 2,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 4,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "it": [
+   {
+    "id": 6590603158,
+    "oceny": 75,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 64,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 16,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 47,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 35,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 3,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 2,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 1,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 15,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 49,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 20,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 3,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 12,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 36,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 6,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 7,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "jp": [
+   {
+    "id": 6590603158,
+    "oceny": 31,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 647,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 5,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 772,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 145,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 25,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 1,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 8,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 72,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 2601,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 1,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 17,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 1570,
+    "wydanie": "2024-12-03",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 21,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 4,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 1,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "kr": [
+   {
+    "id": 6590603158,
+    "oceny": 76,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 423,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2026-05-10",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 22,
+    "wydanie": "2026-04-27",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 2,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 44,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 1,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   }
+  ],
+  "lt": [
+   {
+    "id": 6590603158,
+    "oceny": 12,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 14,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 0,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 3,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 8,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 0,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 8,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 5,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 1,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 3,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 0,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 1,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 1,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "lv": [
+   {
+    "id": 6590603158,
+    "oceny": 5,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 10,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 1,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 3,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 8,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 0,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 4,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 1,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 0,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 2,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 0,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 0,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 1,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "mx": [
+   {
+    "id": 6590603158,
+    "oceny": 172,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 18,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 14,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 27,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 14,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 6,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 27,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 4,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 82,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 10,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 18,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 34,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 5,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 2,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 6,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 1,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "my": [
+   {
+    "id": 6590603158,
+    "oceny": 32,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 19,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 2,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 20,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 3,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 8,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 2,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 14,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 3,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 4,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 0,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 1,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 5,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "nl": [
+   {
+    "id": 6590603158,
+    "oceny": 56,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 40,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 13,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 33,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 13,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 4,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 5,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 17,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 12,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 5,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 2,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 3,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 0,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 5,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 3,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "no": [
+   {
+    "id": 6590603158,
+    "oceny": 33,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 16,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 9,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 12,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 12,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 2,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 2,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 3,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 8,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 5,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 3,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 2,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 1,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 2,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 1,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "pl": [
+   {
+    "id": 6590603158,
+    "oceny": 28,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 25,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 3,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 13,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 21,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 1,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 13,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 16,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 11,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 2,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 3,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 1,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 15,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 1,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 4,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "pt": [
+   {
+    "id": 6590603158,
+    "oceny": 17,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 18,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 4,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 18,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 19,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 2,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 1,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 3,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 6,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 2,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 2,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 0,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 4,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 1,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "ro": [
+   {
+    "id": 6590603158,
+    "oceny": 97,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 10,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 9,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 14,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 20,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 1,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 1,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 12,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 24,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 3,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 4,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 1,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 2,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 3,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 1,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 2,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "rs": [
+   {
+    "id": 6590603158,
+    "oceny": 13,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 1,
+    "wydanie": "2020-04-10",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 1,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 0,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 1,
+    "wydanie": "2020-04-10",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 0,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 0,
+    "wydanie": "2020-04-10",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 3,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 0,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 0,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 0,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 0,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 2,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "ru": [
+   {
+    "id": 6590603158,
+    "oceny": 7,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 176,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 13,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 108,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 196,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 4,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 2,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 1,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 24,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 12,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 114,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 1,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 4,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 1,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 14,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 1,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 2,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "se": [
+   {
+    "id": 6590603158,
+    "oceny": 31,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 15,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 20,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 11,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 10,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 1,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 2,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 9,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 5,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 1,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 1,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 4,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 1,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 3,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 1,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 2,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "si": [
+   {
+    "id": 6590603158,
+    "oceny": 10,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 2,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 3,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 0,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 1,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 0,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 1,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 6,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 3,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 1,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 1,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 1,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 0,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 0,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 1,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "sk": [
+   {
+    "id": 6590603158,
+    "oceny": 10,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 2,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 3,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 1,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 3,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 0,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 2,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 4,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 0,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 0,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 0,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 0,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 0,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "tr": [
+   {
+    "id": 6590603158,
+    "oceny": 41,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 13,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 6,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 5,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 5,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 4,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 4,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 17,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 0,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 3,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 1,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 1,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 0,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 4,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 0,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 1,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "tw": [
+   {
+    "id": 6590603158,
+    "oceny": 27,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 212,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 7,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 265,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 53,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 314,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 1,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 10,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 98,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 171,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 1,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 14,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 54,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 0,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 7,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 12,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 1,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 2,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "ua": [
+   {
+    "id": 6590603158,
+    "oceny": 23,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 72,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 6,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 34,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 53,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 1,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 0,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 10,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 23,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 14,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 1,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 5,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 0,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 1,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 7,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 3,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 1,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "us": [
+   {
+    "id": 6590603158,
+    "oceny": 3483,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 1982,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 1165,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 1163,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 1022,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 714,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 360,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 298,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 283,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 243,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 163,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 73,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 62,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 31,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 8,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 126,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 50,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 17,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 22,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 3,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ],
+  "vn": [
+   {
+    "id": 6590603158,
+    "oceny": 159,
+    "wydanie": "2024-08-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1488850006,
+    "oceny": 164,
+    "wydanie": "2019-12-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6478522482,
+    "oceny": 12,
+    "wydanie": "2024-03-19",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1530767783,
+    "oceny": 90,
+    "wydanie": "2020-09-21",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1435468870,
+    "oceny": 57,
+    "wydanie": "2018-09-11",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1553727514,
+    "oceny": 17,
+    "wydanie": "2021-06-15",
+    "jezyki": [
+     "EN",
+     "ZH",
+     "ZH"
+    ]
+   },
+   {
+    "id": 6747833042,
+    "oceny": 0,
+    "wydanie": "2025-09-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6747779080,
+    "oceny": 1,
+    "wydanie": "2025-07-09",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1458491856,
+    "oceny": 3,
+    "wydanie": "2019-09-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1629141961,
+    "oceny": 176,
+    "wydanie": "2022-06-16",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 1630961215,
+    "oceny": 80,
+    "wydanie": "2022-06-30",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1444569705,
+    "oceny": 0,
+    "wydanie": "2020-05-12",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6738748434,
+    "oceny": 41,
+    "wydanie": "2024-12-02",
+    "jezyki": [
+     "DA",
+     "EN",
+     "FI",
+     "FR",
+     "DE",
+     "JA",
+     "KO",
+     "NB",
+     "ZH",
+     "ES",
+     "SV"
+    ]
+   },
+   {
+    "id": 6737678499,
+    "oceny": 13,
+    "wydanie": "2025-03-11",
+    "jezyki": [
+     "EN",
+     "FR",
+     "DE",
+     "HI",
+     "ID",
+     "IT",
+     "JA",
+     "KO",
+     "PL",
+     "PT",
+     "RU",
+     "ZH",
+     "ES",
+     "TH",
+     "ZH",
+     "TR",
+     "VI"
+    ]
+   },
+   {
+    "id": 1626050814,
+    "oceny": 1,
+    "wydanie": "2022-06-08",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6458732631,
+    "oceny": 11,
+    "wydanie": "2023-08-17",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6448717874,
+    "oceny": 42,
+    "wydanie": "2023-05-04",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6450212963,
+    "oceny": 1,
+    "wydanie": "2024-06-24",
+    "jezyki": [
+     "EN"
+    ]
+   },
+   {
+    "id": 6503668923,
+    "oceny": 0,
+    "wydanie": "2024-08-22",
+    "jezyki": []
+   },
+   {
+    "id": 6471915869,
+    "oceny": 0,
+    "wydanie": "2023-11-30",
+    "jezyki": [
+     "EN"
+    ]
+   }
+  ]
+ },
+ "statcounter": [
+  {
+   "kraj": "us",
+   "ios": 51.96,
+   "android": 48.02,
+   "android_do_ios": 0.92,
+   "okres": "United States Of America - October 2026"
+  },
+  {
+   "kraj": "jp",
+   "ios": 53.8,
+   "android": 46.18,
+   "android_do_ios": 0.86,
+   "okres": "Japan - October 2026"
+  },
+  {
+   "kraj": "ca",
+   "ios": 64.74,
+   "android": 35.26,
+   "android_do_ios": 0.54,
+   "okres": "Canada - October 2026"
+  },
+  {
+   "kraj": "br",
+   "ios": 26.23,
+   "android": 73.76,
+   "android_do_ios": 2.81,
+   "okres": "Brazil - October 2026"
+  },
+  {
+   "kraj": "gb",
+   "ios": 50.14,
+   "android": 49.85,
+   "android_do_ios": 0.99,
+   "okres": "United Kingdom - October 2026"
+  },
+  {
+   "kraj": "fr",
+   "ios": 35.83,
+   "android": 64.15,
+   "android_do_ios": 1.79,
+   "okres": "France - October 2026"
+  },
+  {
+   "kraj": "tw",
+   "ios": 51.63,
+   "android": 48.36,
+   "android_do_ios": 0.94,
+   "okres": "Taiwan - October 2026"
+  },
+  {
+   "kraj": "vn",
+   "ios": 38.27,
+   "android": 61.71,
+   "android_do_ios": 1.61,
+   "okres": "Viet Nam - October 2026"
+  },
+  {
+   "kraj": "au",
+   "ios": 62.09,
+   "android": 37.9,
+   "android_do_ios": 0.61,
+   "okres": "Australia - October 2026"
+  },
+  {
+   "kraj": "mx",
+   "ios": 25.89,
+   "android": 74.1,
+   "android_do_ios": 2.86,
+   "okres": "Mexico - October 2026"
+  },
+  {
+   "kraj": "de",
+   "ios": 27.7,
+   "android": 72.29,
+   "android_do_ios": 2.61,
+   "okres": "Germany - October 2026"
+  },
+  {
+   "kraj": "hk",
+   "ios": 46.44,
+   "android": 53.55,
+   "android_do_ios": 1.15,
+   "okres": "Hong Kong - October 2026"
+  },
+  {
+   "kraj": "it",
+   "ios": 38.04,
+   "android": 61.95,
+   "android_do_ios": 1.63,
+   "okres": "Italy - October 2026"
+  },
+  {
+   "kraj": "es",
+   "ios": 27.25,
+   "android": 72.75,
+   "android_do_ios": 2.67,
+   "okres": "Spain - October 2026"
+  },
+  {
+   "kraj": "pl",
+   "ios": 38.96,
+   "android": 61.02,
+   "android_do_ios": 1.57,
+   "okres": "Poland - October 2026"
+  },
+  {
+   "kraj": "kr",
+   "ios": 39.32,
+   "android": 60.67,
+   "android_do_ios": 1.54,
+   "okres": "South Korea - October 2026"
+  }
+ ],
+ "nbp": [
+  {
+   "code": "USD",
+   "t": "214/A/NBP/2026",
+   "d": "2026-11-03",
+   "k": 3.9526
+  },
+  {
+   "code": "EUR",
+   "t": "214/A/NBP/2026",
+   "d": "2026-11-03",
+   "k": 4.4233
+  },
+  {
+   "code": "JPY",
+   "t": "214/A/NBP/2026",
+   "d": "2026-11-03",
+   "k": 0.024998
+  }
+ ],
+ "google_play": [
+  {
+   "pakiet": "com.preflopwizard",
+   "ios_id": 6590603158,
+   "pobrania": "10K+",
+   "recenzje": 605,
+   "ios_oceny_45_storefrontow": 6328
+  },
+  {
+   "pakiet": "com.pekasoftware.gtopostflopsolver.gto_postflop_solver",
+   "ios_id": 6738748434,
+   "pobrania": "10K+",
+   "recenzje": 1100,
+   "ios_oceny_45_storefrontow": 371
+  }
+ ]
+}

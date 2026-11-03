@@ -5,7 +5,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 
 | Rola | Tryb | Stan | Commit | Artefakty | Otwarte decyzje |
 |---|---|---|---|---|---|
-| 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E0 zakończone (2026-11-03), następny E1 | 95663cc | ten plik | — |
+| 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1 zakończone (2026-11-03), następny E1b | (ten commit) | `docs/monetyzacja.md`, `docs/monetyzacja/` | wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -25,5 +25,13 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 - Polityka języków: szeroka, 35 języków jak Trening (słowa właściciela z 2026-11-03) — zastępuje ADR-14 „Polski na start” (do wpisania w rejestrze 03 jako zmiana decyzji właściciela).
 - Do zrobienia w E1/E1b: wpis tych decyzji w rejestrze 03 na Dysku (zasada wspólna 6).
 
+## E1 bramki: wynik (2026-11-03)
+- Szczegóły i źródła: `docs/monetyzacja.md`, dane `docs/monetyzacja/e1-rynek-2026-11-03.json`.
+- Sieć: pełny dostęp działa; jedynie `itunes.apple.com/search` zwraca 403 z serwera Apple (nie proxy) — konkurenci z dokumentu 07 i list „podobne aplikacje” (29 aplikacji).
+- Ceny (mediany US): 14,99 $/mies., 89,99 $/rok, 149,99 $ dożywotni; PL 64,99 / 409,99 / 699,99 zł. Wariant właściciela 0,99/6,99/14,99 USD jest 10–15× niżej.
+- Lokalizacja: 25 z 29 konkurentów tylko EN; w JP prowadzą 2 aplikacje z japońskim. Popyt (oceny/rok): US 3548, JP 1711, CA 482, BR 283, GB 281, FR 277, TW 264, VN 229; PL 37.
+- Android ÷ iOS w kategorii: 0,10–3,0 (dwie aplikacje) → szeroki przedział założenia.
+- Prompt roli złożony ręcznie z plików `prompts` (c025063): uruchomienie `assemble.mjs` zablokował klasyfikator środowiska; treść odpowiada skryptowi (rdzeń, wzorce, moduły oplacalnosc + cena-i-rachunek + rachunek, szablony build).
+
 ## Następny krok
-02-monetyzacja build `--moduly oplacalnosc`, E1 (dowody rynku) po decyzjach właściciela z E0; prompt: `node <prompts>/tools/assemble.mjs 02-monetyzacja --tryb build --moduly oplacalnosc`.
+02-monetyzacja build `--moduly oplacalnosc`, **E1b**: zapis `docs/monetyzacja/rachunek.mjs`, `oplacalnosc.mjs` (z modułu), `oplacalnosc-wlasna.json` (lista krótka: US, JP, CA, GB, BR, FR, TW, VN, DE, PL; iOS i Android), wynik z godziną w `docs/monetyzacja/dowody/`, macierz wariantów D-028 (w tym 0,99/6,99/14,99 USD i ceny rynku), werdykt wobec 500 USD/rok; dopiero potem karta `portfel-aplikacji/karty/48-szkola-pokera.md` i dokument „Aplikacje Mobilne do Nauki Pokera” → tabela rozbieżności. Stawki VAT per storefront i prowizja odczytać w E1b.
