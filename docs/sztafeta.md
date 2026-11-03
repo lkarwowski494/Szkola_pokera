@@ -8,7 +8,8 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 01 Odkrywanie | build | zakończona 2026-11-03 (E4, przekazanie niżej) | (commit E4) | `docs/brd/` (README, wywiad, odkrywanie, wymagania, wymagania-nauka, wymagania-sklep, reguly, errata, zrodla, dane/), `tests/wektory/brd.json`, `docs/zalozenia.md`, „Stan projektu” w `CLAUDE.md` | OP-10, OP-14, OP-16, OP-18 (źródła), OP-19 (04), OP-20, OP-22 (03 z właścicielem), OP-21 (05) |
 | 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
 | 02 Monetyzacja (sesja 2) | build | zakończona 2026-11-03 (E3 zaakceptowane) | (commit E3) | `docs/monetyzacja.md` („Sesja 2, E0–E3”), `docs/monetyzacja/rachunek.json`, `dowody/rachunek-2026-11-03.txt` | OP-09 (monetyzacja), OP-20, OP-22, H-04 |
-| 03 Zakres | build | E1 zakończone, STOP na bramce E1 (2026-11-03, szósta sesja) | (commit E1) | `docs/scope-contract.md` (E0, E1), `docs/zakres/wzorzec-2026-11-03.json` | ER-12, ER-13 (BR przed cięciem?) |
+| 03 Zakres | build | E2 zakończone, STOP na bramce E2 (2026-11-03, szósta sesja) | (commit E2) | `docs/scope-contract.md` (E0–E2), `docs/zakres/wzorzec-2026-11-03.json`, `docs/decyzje.md` | D-102 wariant, D-107 limit |
+| 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -166,5 +167,10 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - ER-12 i ER-13: „Najpierw BR, potem E2 (Recommended)” — rola 01 w trybie fix dopisuje BR, potem cięcie E2 (analogia: Piekarz D-041). Odrzucone: E2 teraz z BR równolegle; zmiana ustaleń E1.
 - Nowa sesja: „Nie” — kontynuacja w tej sesji (odrzucona rekomendacja: nowa z archiwizacją).
 
+## Rola 01 fix i rola 03 E2 (2026-11-03, szósta sesja)
+- Rola 01 fix (prompt `assemble.mjs 01-odkrywanie --tryb fix --zadania ER-12,ER-13`): klasa D obu znalezisk; czerwień: brak BR w `docs/brd` (grep); po: 43 BR, `kontrola-brd.mjs` bez `--szkic` kod 0; `pnpm run ci` kod 0 (pierwszy przebieg padł na limicie czasu 5 s testu `tools/content-build` „kompiluje się bez błędów…”, drugi zielony 91/91: test niestabilny — znalezisko dla roli 07). Wyjątki nazwane (zasada 7): bez osobnej gałęzi `naprawy/…` (jedna gałąź sztafety) i bez STOP E0/E2 trybu fix (decyzja właściciela D-101 obejmowała plan; dowody w commitach).
+- Nowe w BRD: J-07, PR-09, OG-15, OG-16, BR-OPIN-001–003, BR-LIM-001–005, S-55–S-68, OP-23, OP-24, ER-12, ER-13. Nazwa „dzienny limit” zamiast „pula” (D-111).
+- Rola 03 E2: warianty 1–3, D-103–D-106, D-108–D-111 decyzjami agenta (delegacja), D-102 i D-107 do właściciela; `zakres.mjs --brd --apetyt 16.5` kod 0. Rejestr w repo: `docs/decyzje.md` (do przeniesienia na Dysk).
+
 ## Następny krok
-**Rola 01 fix: BR dla ER-12 i ER-13**, potem rola 03 E2 (cięcie, warianty, H-04, N puli). Prompt: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build` (prompts c025063). Stan: `docs/scope-contract.md`, sekcja E1.
+**Bramka E2 roli 03** (D-102 wariant, D-107 jednostka i N limitu), potem E3 (kontrakt, przekazanie do 04–08). Prompt: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build` (prompts c025063). Stan: `docs/scope-contract.md`, sekcja E2; decyzje: `docs/decyzje.md`.
