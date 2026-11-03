@@ -5,7 +5,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 
 | Rola | Tryb | Stan | Commit | Artefakty | Otwarte decyzje |
 |---|---|---|---|---|---|
-| 01 Odkrywanie | build | E1 zakończone, STOP (2026-11-03) | 8ce11d7 | „Stan projektu” w `CLAUDE.md`, `docs/brd/` (README, wywiad, odkrywanie, zrodla) | — (OP-01: bez rozmów z graczami, decyzja 2026-11-03) |
+| 01 Odkrywanie | build | E2 zakończone, STOP na decyzję właściciela (2026-11-03) | (ten commit) | „Stan projektu” w `CLAUDE.md`, `docs/brd/` (README, wywiad, odkrywanie, reguly, errata, zrodla, dane/), `docs/zalozenia.md` | E2: kontynuować / zmienić kierunek / zatrzymać; OP-11, OP-12, OP-13, OP-15 |
 | 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
 
 ## E0 bramki: ustalenia (2026-11-03)
@@ -68,6 +68,16 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 - Właściciel: drabina bez miesięcznej (kwartał / rok / dożywotni), warianty 7,99/14,99/19,99 i 9,99/14,99/19,99 USD; aplikacja poza oficjalnym portfelem Apps4brew, osobna strona z materiałami później. Przeliczenie: `docs/monetyzacja.md`, „Drabina cen właściciela”. Macierz przeliczona bez storefrontu PL (`generuj-warianty.mjs`).
 - **Decyzja właściciela 2026-11-03:** „Ok zgodnie z rekomendacją” — kwartał 9,99 / rok 14,99 / dożywotni 19,99 USD zastępuje 0,99/6,99/14,99 (odrzucone: 7,99/14,99/19,99; mies. 5,99/14,99/19,99). Kwartał dostępny w obu sklepach (odczyt 2026-11-03). Miesięczna 6,99: decyzja właściciela 2026-11-03 „A” — nie na start; hipoteza z warunkiem powrotu (dane ze sklepu: dużo wyświetleń ekranu zakupu bez zakupu). Odrzucone: dodać od razu (wariant 4 planów: 5 439,63 USD norm., 13,00 $ na płacącego).
 
-## Następny krok
-**Rola 01 build, E2** (rynek, polityki, dziedzina): prompt `node /home/user/prompts/tools/assemble.mjs 01-odkrywanie --tryb build` (prompts c025063). Wejście: `docs/brd/odkrywanie.md` (J-01–J-06, P-1–P-3, ZP-01–05, granice W-03–W-06), `docs/monetyzacja.md` (rynek, ceny, rozbieżności z dokumentem z Dysku), PRD i roadmapa na Dysku jako hipotezy. Do zrobienia: (1) skan konkurencji z brakującymi aplikacjami (Poker Skill, River, Pokr, LeakSeek — lookup po ID, wyszukiwarka 403); (2) OG: App Review 5.3.4, 1.4?, kategorie wiekowe (symulowany hazard przy grze z botami, W-03), 3.1, 4.2, 4.3, Google Play (hazard, symulowany hazard, kategoria wiekowa), art. 29 u.g.h. (karta 48, `portfel-aplikacji/dane/poker-prawo-hazard.md`); (3) RD z `content/pl/rules.yaml` (142 reguły) i `content/numbers.yaml` — które aplikacja liczy (pot odds, MDF, equity, outy), reguły krytyczne (odpowiedzialna gra, telefony pomocy `content/helplines.yaml`); (4) H dla 02/03: ocena poziomu (W-02), trener AI z warunkiem (W-04), raport postępu za zgodą (W-06), podział (jedna ścieżka vs moduły), ZAL w `docs/zalozenia.md`; (5) ER: sprzeczności PRD z nowym celem (E0 roli 01). Potem STOP E2 z decyzją kontynuować / zmienić kierunek / zatrzymać; dalej E3, E4, rola 02 sesja 2.
+## Rola 01, E2: wynik (2026-11-03)
+- Prompt: `assemble.mjs 01-odkrywanie --tryb build` (prompts c025063, kod 0, 60 369 znaków), przeczytany; sesja opus, wysiłek high (ustawiony przez właściciela).
+- Rynek: 102 aplikacje nauki (72 nowe; wyszukiwarka Apple działała z przerwami), 828 recenzji; dane `docs/brd/dane/konkurencja-2026-11-03.json`. Płatne są zadania z oceną; gra z botami przeważnie darmowa; najczęstsza potrzeba: „dlaczego” (ok. 85 z 828).
+- Polityki (odczyt 2026-11-03, cytaty sprawdzone na surowym tekście): OG-01–OG-14; nic nie blokuje funkcji; DSA zamknięte (status przedsiębiorcy z konta, repo `trening`); subskrypcja wymaga stałej wartości (OG-05).
+- Dziedzina: RD-01–RD-12, 77 wektorów liczonych niezależnie od kodu; kod zgodny w 9 funkcjach, 2 bez kontroli wejścia (ER-11). Decyzja merytoryczna roli 01: ocena zagrań według źródła progu — 0 < f < 3,5% to niedokładność, nie błąd (ER-01; wpis do dokumentu 13 na Dysku: krok właściciela, brak edycji Google Docs).
+- Reguła krytyczna RD-12: telefony pomocy tylko dla PL, a storefrontu PL nie ma (ER-04, bloker); US: 1-800-MY-RESET (nie 1-800-GAMBLER), GB: 0808 8020 133 / Walia 0808 2819 265.
+- Decyzja właściciela W-07 (2026-11-03): „B: scenariusze (Recommended)” — całe rozdania jako scenariusze bez stosu do wygrania; gra z botami jako H-07 z warunkiem powrotu (zmienia W-03 „a”). Odrzucone: A, C.
+- Hipotezy H-01–H-09 dla ról 02 i 03, założenia ZAL-001–ZAL-012, erraty ER-01–ER-11 (sprzeczności PRD z celem).
+- Kontrola: `node kontrola-brd.mjs docs/brd --szkic` → kod 0, 0 błędów, 4 uwagi (wektory błędnych danych RD-05, RD-09, RD-10; pochodzenie RD-12-W6) — do E3.
+- Repo `trening` (publiczne, odczyt) to wzór formalności App Store Connect (polecenie właściciela 2026-11-03).
 
+## Następny krok
+**Rola 01 build, E3** (przepływy PR, wymagania BR i NFR, wektory `tests/wektory/brd.json`, kontrola bez `--szkic` z kodem 0), po decyzji właściciela na bramce E2. Prompt: `node /home/user/prompts/tools/assemble.mjs 01-odkrywanie --tryb build` (prompts c025063). Wejście: `docs/brd/` (README, odkrywanie, reguly, errata, zrodla), `docs/zalozenia.md`, `docs/monetyzacja.md` (cena: kwartał 9,99 / rok 14,99 / dożywotni 19,99 USD), PRD na Dysku jako hipoteza. Skrypt kontroli: blok `kontrola-brd.mjs` z promptu (moduł `kontrola-brd`). Potem E4 (przekazanie), rola 02 sesja 2.

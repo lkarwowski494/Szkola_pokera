@@ -31,5 +31,11 @@ Pytanie: Pomiar sukcesu przy standardzie wysokim (a tylko zbiorcze dane App Stor
 Odpowiedź: „A”
 [streszczenie roli 01] Bez SDK i bez własnej analityki; miary z App Store Connect i Play Console. (b) jako hipoteza przy wysokich porzuceniach. Odrzucone c.
 
+## W-07 (2026-11-03, E2: zmiana granicy z W-03)
+Pytanie właściciela: „Mówisz o grze z botami jako symulowany hazard ? A co z odgrywaniem roli? W sensie że użytkownik zamiast grać z botami, znajduje się w środku predefiniowanych sytuacji które nie zależą od botów. Czyli zagranie drugiej strony jest z góry zaprogramowane”
+Odpowiedź na pierwsze pytanie z opcjami (A gra z botami / B scenariusze / C oba): „Chce się dowiedzieć co się lepiej sprzeda i jest bardziej potrzebne. Podejrzewam że gra z botami ?”
+Rola 01 sprawdziła dane (102 aplikacje, 828 recenzji, odczyt 2026-11-03; `odkrywanie.md`, „Rynek”): przypuszczenie niepotwierdzone. Odpowiedź po danych: „B: scenariusze (Recommended)”.
+[streszczenie roli 01] Kierunek do BRD: całe rozdania jako scenariusze z gotowymi liniami rywala, bez stosu żetonów do wygrania, wynikiem jest ocena decyzji z wyjaśnieniem; gra z botami przechodzi z granic (W-03 a) do hipotez z warunkiem powrotu (H-07). Odrzucone: A (gra z botami zostaje), C (oba). Zakres potwierdza rola 03.
+
 ## Koniec wywiadu (2026-11-03)
 [streszczenie roli 01] Kolejne pytanie nie zmieniłoby wymagań: problem i potrzeby użytkownika pochodzą z dowodów rynku (właściciel nie jest użytkownikiem, W-01); granice ustalone W-03–W-06. Rozmowy z graczami (krok właściciela, opcjonalnie) — OP w BRD.

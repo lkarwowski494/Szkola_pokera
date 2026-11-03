@@ -1,0 +1,3208 @@
+{
+ "data": "2026-11-03",
+ "zrodla": {
+  "lookup": "https://itunes.apple.com/lookup?country=us&id=<ids>",
+  "zakupy": "https://apps.apple.com/us/app/id<id>, blok In-App Purchases",
+  "recenzje": "https://itunes.apple.com/us/rss/customerreviews/page=<1-3>/id=<id>/sortby=mostrecent/json, 828 recenzji; w repo tylko krótkie cytaty w BRD"
+ },
+ "uwaga": "bez opisów i treści recenzji (cudze materiały); search z przerwami (11 x 403 na 30 wywołań)",
+ "aplikacje": [
+  {
+   "id": 6590603158,
+   "nazwa": "GTO Preflop Wizard Poker AI",
+   "oceny_us": 3483,
+   "srednia": 4.76,
+   "wiek": "12+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2024-08-08",
+   "aktualizacja": "2026-10-27",
+   "zakupy_us": [
+    [
+     "Monthly VIP Access",
+     "$29.99"
+    ],
+    [
+     "Weekly VIP Access",
+     "$6.99"
+    ],
+    [
+     "Monthly VIP Access",
+     "$19.99"
+    ],
+    [
+     "Annual VIP Access",
+     "$129.99"
+    ],
+    [
+     "VIP Access 3 Months",
+     "$64.99"
+    ],
+    [
+     "Annual VIP Access",
+     "$89.99"
+    ],
+    [
+     "VIP Access 3 Months",
+     "$49.99"
+    ]
+   ],
+   "typ": "zadania + ćwiczenia z AI",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 1622947056,
+   "nazwa": "GTO Preflop - Texas Hold'em",
+   "oceny_us": 2486,
+   "srednia": 4.89,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2022-05-15",
+   "aktualizacja": "2026-06-10",
+   "zakupy_us": [
+    [
+     "Premium",
+     "$9.99"
+    ]
+   ],
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 1488850006,
+   "nazwa": "Postflop+ GTO Poker Trainer",
+   "oceny_us": 1982,
+   "srednia": 4.67,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2019-12-08",
+   "aktualizacja": "2026-08-05",
+   "zakupy_us": [
+    [
+     "MONTHLY",
+     "$14.99"
+    ],
+    [
+     "Weekly Subscription",
+     "$4.99"
+    ],
+    [
+     "Weekly Special",
+     "$9.99"
+    ],
+    [
+     "YEARLY",
+     "$99.99"
+    ],
+    [
+     "Lifetime",
+     "$199.99"
+    ],
+    [
+     "Lifetime",
+     "$149.99"
+    ],
+    [
+     "Monthly Special",
+     "$14.99"
+    ]
+   ],
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 555222027,
+   "nazwa": "Enterra Poker Calculator",
+   "oceny_us": 1416,
+   "srednia": 4.76,
+   "wiek": "4+",
+   "jezyki": [
+    "EN",
+    "DE",
+    "RU"
+   ],
+   "wydanie": "2012-09-01",
+   "aktualizacja": "2018-08-23",
+   "zakupy_us": "brak sekcji",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6478522482,
+   "nazwa": "Poker Trainer - Learn Poker",
+   "oceny_us": 1165,
+   "srednia": 4.74,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2024-03-19",
+   "aktualizacja": "2026-10-19",
+   "zakupy_us": [
+    [
+     "Weekly subscription",
+     "$6.99"
+    ],
+    [
+     "Yearly subscription",
+     "$89.99"
+    ],
+    [
+     "Monthly subscription",
+     "$14.99"
+    ],
+    [
+     "Yearly subscription",
+     "$59.99"
+    ],
+    [
+     "Lifetime premium",
+     "$269.99"
+    ]
+   ],
+   "typ": "zadania + symulator rozdań",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 1530767783,
+   "nazwa": "Solver+ Poker : GTO Strategy",
+   "oceny_us": 1163,
+   "srednia": 4.66,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2020-09-21",
+   "aktualizacja": "2026-08-04",
+   "zakupy_us": [
+    [
+     "Monthly Subscription",
+     "$19.99"
+    ],
+    [
+     "Weekly Subscription",
+     "$4.99"
+    ],
+    [
+     "Weekly Special",
+     "$9.99"
+    ],
+    [
+     "Annual Subscription",
+     "$149.99"
+    ],
+    [
+     "Lifetime Loyalty Upgrade",
+     "$299.99"
+    ],
+    [
+     "Monthly Subscription",
+     "$17.99"
+    ],
+    [
+     "Lifetime Upgrade",
+     "$399.99"
+    ],
+    [
+     "Monthly Travis Subscription",
+     "$19.99"
+    ]
+   ],
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 1435468870,
+   "nazwa": "Preflop+ Poker GTO Nash Charts",
+   "oceny_us": 1022,
+   "srednia": 4.61,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2018-09-11",
+   "aktualizacja": "2026-10-26",
+   "zakupy_us": [
+    [
+     "MONTHLY",
+     "$9.99"
+    ],
+    [
+     "YEARLY",
+     "$79.99"
+    ],
+    [
+     "Loyalty Lifetime",
+     "$64.99"
+    ],
+    [
+     "Lifetime",
+     "$129.99"
+    ],
+    [
+     "Monthly Special",
+     "$5.99"
+    ],
+    [
+     "Lifetime Upgrade",
+     "$59.99"
+    ]
+   ],
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 1553727514,
+   "nazwa": "Poker AI - Game & Strategy",
+   "oceny_us": 714,
+   "srednia": 4.65,
+   "wiek": "17+",
+   "jezyki": [
+    "EN",
+    "ZH",
+    "ZH"
+   ],
+   "wydanie": "2021-06-15",
+   "aktualizacja": "2026-08-12",
+   "zakupy_us": [
+    [
+     "1,200 Chips",
+     "$0.99"
+    ],
+    [
+     "6,000 Chips",
+     "$4.99"
+    ],
+    [
+     "One Year Membership",
+     "$49.99"
+    ],
+    [
+     "30,000 Chips",
+     "$19.99"
+    ],
+    [
+     "Permanent Membership",
+     "$149.99"
+    ]
+   ],
+   "typ": "gra z botami",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 6748414132,
+   "nazwa": "Learn Poker Offline - Hold 'Em",
+   "oceny_us": 598,
+   "srednia": 4.72,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2025-07-16",
+   "aktualizacja": "2026-09-09",
+   "zakupy_us": "brak sekcji",
+   "typ": "gra z botami",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6748104711,
+   "nazwa": "Poker Skill - Learn Holdem",
+   "oceny_us": 417,
+   "srednia": 4.74,
+   "wiek": "4+",
+   "jezyki": [
+    "EN",
+    "FR",
+    "DE",
+    "IT",
+    "JA",
+    "KO",
+    "PT",
+    "ES"
+   ],
+   "wydanie": "2025-10-27",
+   "aktualizacja": "2026-11-03",
+   "zakupy_us": [
+    [
+     "Poker Skill Plus, Yearly",
+     "$64.99"
+    ],
+    [
+     "Poker Skill Plus, Monthly",
+     "$9.99"
+    ],
+    [
+     "Poker Skill Plus, Yearly",
+     "$99.99"
+    ],
+    [
+     "Poker Skill Plus, Monthly",
+     "$14.99"
+    ],
+    [
+     "Poker Skill Plus, Yearly",
+     "$64.99"
+    ],
+    [
+     "Poker Skill Plus, Yearly",
+     "$99.99"
+    ],
+    [
+     "Poker Skill Plus, Yearly",
+     "$89.99"
+    ],
+    [
+     "Poker Skill Plus, Yearly",
+     "$89.99"
+    ],
+    [
+     "Poker Skill Plus, Monthly",
+     "$13.99"
+    ],
+    [
+     "Poker Skill Plus, Yearly",
+     "$89.99"
+    ]
+   ],
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6747833042,
+   "nazwa": "Poker Trainer: Flop Factor",
+   "oceny_us": 360,
+   "srednia": 4.71,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2025-09-16",
+   "aktualizacja": "2026-10-07",
+   "zakupy_us": [
+    [
+     "Pro Plan",
+     "$19.99"
+    ],
+    [
+     "Pro Plan",
+     "$9.99"
+    ],
+    [
+     "Pro Plan",
+     "$59.99"
+    ],
+    [
+     "Pro Plan",
+     "$89.99"
+    ],
+    [
+     "Pro Plan",
+     "$24.99"
+    ],
+    [
+     "Pro Plan",
+     "$49.99"
+    ],
+    [
+     "Lifetime",
+     "$149.99"
+    ]
+   ],
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 581867383,
+   "nazwa": "Tournament Poker Coach",
+   "oceny_us": 312,
+   "srednia": 4.54,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2012-12-20",
+   "aktualizacja": "2019-10-28",
+   "zakupy_us": [
+    [
+     "The Fundamentals Of Solid Play by Jonathan Little",
+     "$2.99"
+    ],
+    [
+     "Flop Decisions by Jonathan Little",
+     "$2.99"
+    ],
+    [
+     "Perils of Premium Hands by Jonathan Little",
+     "$3.99"
+    ],
+    [
+     "The Challenge of JJ in Tournaments by Jonathan Little",
+     "$2.99"
+    ],
+    [
+     "The Fundamentals of Table Dynamics by Jonathan Little",
+     "$3.99"
+    ],
+    [
+     "WPT Final Table: Legends of Poker Episode 1201B by Jonathan Little",
+     "$3.99"
+    ],
+    [
+     "The Odds by Matthew Sanes",
+     "$2.99"
+    ],
+    [
+     "Ultimate Hand-Pack Bundle",
+     "$64.99"
+    ],
+    [
+     "Basic Concepts: Tournament by Jonathan Little",
+     "$3.99"
+    ],
+    [
+     "The Postflop Game by Jonathan Little",
+     "$3.99"
+    ]
+   ],
+   "typ": "scenariusze z prawdziwych rozdań",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6747779080,
+   "nazwa": "Preflop AI: GTO Poker Trainer",
+   "oceny_us": 298,
+   "srednia": 4.65,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2025-07-09",
+   "aktualizacja": "2026-09-30",
+   "zakupy_us": [
+    [
+     "Monthly Premium",
+     "$29.99"
+    ],
+    [
+     " Monthly Premium",
+     "$19.99"
+    ],
+    [
+     "Yearly Premium",
+     "$89.99"
+    ],
+    [
+     "Yearly plan",
+     "$69.99"
+    ],
+    [
+     "Monthly Premium",
+     "$16.00"
+    ],
+    [
+     "Monthly Premium",
+     "$14.49"
+    ],
+    [
+     "Yearly Super Discount",
+     "$49.99"
+    ],
+    [
+     "Monthly Premium",
+     "$39.99"
+    ],
+    [
+     "Yearly plan",
+     "$119.99"
+    ]
+   ],
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 1458491856,
+   "nazwa": "DTO MTT - GTO Poker Trainer",
+   "oceny_us": 283,
+   "srednia": 4.69,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2019-09-04",
+   "aktualizacja": "2025-11-20",
+   "zakupy_us": [
+    [
+     "Grinder (1 Month)",
+     "$9.99"
+    ],
+    [
+     "High Roller (1 Month)",
+     "$29.99"
+    ],
+    [
+     "High Roller (1 Year)",
+     "$269.99"
+    ],
+    [
+     "Grinder (12 Months)",
+     "$89.99"
+    ],
+    [
+     "High Roller (6 Months)",
+     "$149.99"
+    ],
+    [
+     "Grinder (6 Months)",
+     "$49.99"
+    ]
+   ],
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 505831997,
+   "nazwa": "Insta Poker Coach Texas Holdem",
+   "oceny_us": 254,
+   "srednia": 4.32,
+   "wiek": "17+",
+   "jezyki": [
+    "EN",
+    "FR",
+    "DE",
+    "IT",
+    "JA",
+    "PT",
+    "ZH",
+    "ES",
+    "ZH"
+   ],
+   "wydanie": "2012-03-26",
+   "aktualizacja": "2019-10-28",
+   "zakupy_us": [
+    [
+     "Beating Cash Games: Pro Strategies for Rec Players by Daniel O'Brien",
+     "$4.99"
+    ],
+    [
+     "Basic Concepts: Cash",
+     "$2.99"
+    ],
+    [
+     "The Key Scenarios: Small Stake Cash by Jonathan Little",
+     "$2.99"
+    ],
+    [
+     "Preflop Critical Decisions by Matt Berkey",
+     "$4.99"
+    ],
+    [
+     "Avoiding Pitfalls: Eliminate Costly Mistakes by Jonathan Little",
+     "$5.99"
+    ],
+    [
+     "The Playbook: Premium Hands by Matt Berkey",
+     "$5.99"
+    ],
+    [
+     "Dominate Your Home Game by Jonathan Little",
+     "$5.99"
+    ],
+    [
+     "The Playbook: Sticky Spots by Matt Berkey",
+     "$6.99"
+    ],
+    [
+     "Basic Concepts: Tournament by Jonathan Little",
+     "$2.99"
+    ],
+    [
+     "Combat Aggression by Jonathan Little",
+     "$3.99"
+    ]
+   ],
+   "typ": "scenariusze z prawdziwych rozdań",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 294379237,
+   "nazwa": "PokerCruncher - Advanced Odds",
+   "oceny_us": 254,
+   "srednia": 4.88,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2008-10-27",
+   "aktualizacja": "2026-11-02",
+   "zakupy_us": "brak sekcji",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 1629141961,
+   "nazwa": "GTO Preflop",
+   "oceny_us": 243,
+   "srednia": 4.81,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2022-06-16",
+   "aktualizacja": "2026-09-25",
+   "zakupy_us": [
+    [
+     "Access to all ranges",
+     "$29.99"
+    ],
+    [
+     "Pro - 1 Month",
+     "$19.99"
+    ],
+    [
+     "Pro Weekly",
+     "$7.99"
+    ],
+    [
+     "Pro Monthly",
+     "$19.99"
+    ],
+    [
+     "Pro version - Billed annually",
+     "$119.00"
+    ],
+    [
+     "Pro Monthly",
+     "$29.99"
+    ],
+    [
+     "Pro Weekly",
+     "$11.99"
+    ],
+    [
+     "Pro Yearly",
+     "$119.99"
+    ],
+    [
+     "Full feature access - Lifetime",
+     "$359.00"
+    ],
+    [
+     "Pro Weekly",
+     "$14.99"
+    ]
+   ],
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 6742486598,
+   "nazwa": "PokerArena: Play & Learn Poker",
+   "oceny_us": 220,
+   "srednia": 4.83,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2025-06-27",
+   "aktualizacja": "2026-09-12",
+   "zakupy_us": "brak sekcji",
+   "typ": "gra z botami (play & learn)",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 1445519206,
+   "nazwa": "Evenbet Poker Calculator",
+   "oceny_us": 175,
+   "srednia": 4.82,
+   "wiek": "17+",
+   "jezyki": [
+    "EN",
+    "DE",
+    "RU"
+   ],
+   "wydanie": "2018-12-16",
+   "aktualizacja": "2024-04-03",
+   "zakupy_us": "brak sekcji",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 1630961215,
+   "nazwa": "NTPoker – GTO Poker Trainer",
+   "oceny_us": 163,
+   "srednia": 4.5,
+   "wiek": "4+",
+   "jezyki": [
+    "EN",
+    "FR",
+    "DE",
+    "HI",
+    "ID",
+    "IT",
+    "JA",
+    "KO",
+    "PL",
+    "PT",
+    "RU",
+    "ZH",
+    "ES",
+    "TH",
+    "ZH",
+    "TR",
+    "VI"
+   ],
+   "wydanie": "2022-06-30",
+   "aktualizacja": "2026-10-22",
+   "zakupy_us": [
+    [
+     "NTPoker Pro",
+     "$19.99"
+    ],
+    [
+     "NTPoker Standard Monthly",
+     "$9.99"
+    ],
+    [
+     "NTPoker Standard (Annual)",
+     "$69.99"
+    ],
+    [
+     "NTPoker Master Annual",
+     "$149.99"
+    ],
+    [
+     "NTPoker Master Monthly",
+     "$19.99"
+    ]
+   ],
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 6758732164,
+   "nazwa": "Gambit -  Play and Learn Poker",
+   "oceny_us": 134,
+   "srednia": 4.38,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-05-18",
+   "aktualizacja": "2026-10-21",
+   "zakupy_us": [
+    [
+     "All-in Membership",
+     "$59.99"
+    ],
+    [
+     "All-in Membership",
+     "$8.99"
+    ]
+   ],
+   "typ": "kurs + gra z botami",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6458732631,
+   "nazwa": "GTO Ranges+ Poker Solver",
+   "oceny_us": 126,
+   "srednia": 4.68,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2023-08-17",
+   "aktualizacja": "2026-08-09",
+   "zakupy_us": null,
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 1559404571,
+   "nazwa": "Poker Power Play",
+   "oceny_us": 126,
+   "srednia": 3.65,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2022-01-20",
+   "aktualizacja": "2026-09-24",
+   "zakupy_us": "brak sekcji",
+   "typ": "gra towarzyska z botami",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 1494263170,
+   "nazwa": "Learn Poker",
+   "oceny_us": 103,
+   "srednia": 4.32,
+   "wiek": "4+",
+   "jezyki": [],
+   "wydanie": "2020-01-12",
+   "aktualizacja": "2020-08-23",
+   "zakupy_us": [
+    [
+     "Module 4 quizzes",
+     "$0.99"
+    ]
+   ],
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 1444569705,
+   "nazwa": "Poker Coaching",
+   "oceny_us": 73,
+   "srednia": 4.11,
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2020-05-12",
+   "aktualizacja": "2026-08-16",
+   "zakupy_us": [
+    [
+     "Premium Membership",
+     "$146.99"
+    ],
+    [
+     "Standard Membership",
+     "$48.99"
+    ],
+    [
+     "Poker Coaching Standard",
+     "$48.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 1519633344,
+   "nazwa": "Poker Range Calculator",
+   "oceny_us": 68,
+   "srednia": 4.65,
+   "wiek": "12+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2020-06-23",
+   "aktualizacja": "2026-10-22",
+   "zakupy_us": [
+    [
+     "Pro Annual",
+     "$119.99"
+    ],
+    [
+     "Pro Weekly",
+     "$6.00"
+    ],
+    [
+     "Pro Weekly",
+     "$6.00"
+    ],
+    [
+     "6,500 Gems",
+     "$19.99"
+    ],
+    [
+     "3,000 Gems",
+     "$9.99"
+    ],
+    [
+     "1200 Gems",
+     "$4.99"
+    ],
+    [
+     "Pro Weekly",
+     "$6.00"
+    ],
+    [
+     "1000 Coach Credits",
+     "$4.99"
+    ],
+    [
+     "3000 Coach Credits",
+     "$9.99"
+    ],
+    [
+     "250 Coach Credits",
+     "$1.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6755294637,
+   "nazwa": "Pokr: GTO & AI Poker Coach",
+   "oceny_us": 63,
+   "srednia": 4.92,
+   "wiek": "4+",
+   "jezyki": [
+    "EN",
+    "FR",
+    "PT",
+    "RU",
+    "ZH",
+    "ES"
+   ],
+   "wydanie": "2025-11-23",
+   "aktualizacja": "2026-11-02",
+   "zakupy_us": [
+    [
+     "Pokr Monthly Subscription",
+     "$19.99"
+    ],
+    [
+     "Pokr Quarterly Subscription",
+     "$44.99"
+    ],
+    [
+     "Pokr Monthly Subscription",
+     "$14.99"
+    ],
+    [
+     "Pokr Quarterly Subscription",
+     "$35.99"
+    ],
+    [
+     "Pokr Yearly Subscription",
+     "$124.99"
+    ],
+    [
+     "Pokr Yearly Subscription",
+     "$99.99"
+    ],
+    [
+     "Starter Monthly",
+     "$4.99"
+    ],
+    [
+     "Starter Quarterly",
+     "$11.99"
+    ],
+    [
+     "Small Energy Pack",
+     "$4.99"
+    ],
+    [
+     "Medium Energy Pack",
+     "$9.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 1286135510,
+   "nazwa": "Poker Caddy - Quizzes & Tools",
+   "oceny_us": 63,
+   "srednia": 4.4,
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2017-09-22",
+   "aktualizacja": "2021-02-22",
+   "zakupy_us": [
+    [
+     "600% More Questions",
+     "$4.99"
+    ],
+    [
+     "Remove Adverts",
+     "$1.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6738748434,
+   "nazwa": "GTO Gecko: Poker Study",
+   "oceny_us": 62,
+   "srednia": 4.69,
+   "wiek": "17+",
+   "jezyki": [
+    "DA",
+    "EN",
+    "FI",
+    "FR",
+    "DE",
+    "JA",
+    "KO",
+    "NB",
+    "ZH",
+    "ES",
+    "SV"
+   ],
+   "wydanie": "2024-12-02",
+   "aktualizacja": "2026-11-03",
+   "zakupy_us": [
+    [
+     "Access to Pro features",
+     "$19.99"
+    ],
+    [
+     "Cash Game Base Monthly",
+     "$24.99"
+    ],
+    [
+     "Cashgame Module - Month",
+     "$14.99"
+    ],
+    [
+     "MTT Base Monthly",
+     "$24.99"
+    ],
+    [
+     "Full Access Pro (All) – Monthly",
+     "$39.99"
+    ],
+    [
+     "Full Access Cashgame – Monthly",
+     "$24.99"
+    ],
+    [
+     "Full Access",
+     "$119.99"
+    ],
+    [
+     "Pro Weekly",
+     "$13.49"
+    ],
+    [
+     "Elite Pro Monthly",
+     "$89.99"
+    ],
+    [
+     "Base MTT Weekly",
+     "$7.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 6761502652,
+   "nazwa": "Handly: Learn Poker Offline",
+   "oceny_us": 53,
+   "srednia": 4.83,
+   "wiek": "12+",
+   "jezyki": [
+    "EN",
+    "FR",
+    "DE",
+    "IT",
+    "JA",
+    "KO",
+    "PT",
+    "RU",
+    "ZH",
+    "ES",
+    "VI"
+   ],
+   "wydanie": "2026-06-23",
+   "aktualizacja": "2026-10-04",
+   "zakupy_us": [
+    [
+     "Handly Pro (Yearly)",
+     "$29.99"
+    ],
+    [
+     "Handly Pro",
+     "$4.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6448717874,
+   "nazwa": "GTO Poker Trainer: Postflop",
+   "oceny_us": 50,
+   "srednia": 4.72,
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2023-05-04",
+   "aktualizacja": "2026-10-18",
+   "zakupy_us": null,
+   "typ": "nie klasyfikowano",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 6744236466,
+   "nazwa": "PLO+: Pot Limit Omaha Trainer",
+   "oceny_us": 46,
+   "srednia": 4.67,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2025-04-14",
+   "aktualizacja": "2026-08-09",
+   "zakupy_us": null,
+   "typ": "nie klasyfikowano",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 6737678499,
+   "nazwa": "Poker Trainer GTO - POKER Q'z",
+   "oceny_us": 31,
+   "srednia": 4.71,
+   "wiek": "12+",
+   "jezyki": [
+    "EN",
+    "FR",
+    "DE",
+    "HI",
+    "ID",
+    "IT",
+    "JA",
+    "KO",
+    "PL",
+    "PT",
+    "RU",
+    "ZH",
+    "ES",
+    "TH",
+    "ZH",
+    "TR",
+    "VI"
+   ],
+   "wydanie": "2025-03-11",
+   "aktualizacja": "2026-11-03",
+   "zakupy_us": [
+    [
+     "POKER Q'z Ring - Yearly",
+     "$109.99"
+    ],
+    [
+     "POKER Q'z Tournament - Yearly",
+     "$109.99"
+    ],
+    [
+     "POKER Q'z Ring - Monthly",
+     "$17.99"
+    ],
+    [
+     "POKER Q'z Tournament - Monthly",
+     "$17.99"
+    ],
+    [
+     "1,000 Coins",
+     "$5.09"
+    ],
+    [
+     "100 Points",
+     "$0.49"
+    ],
+    [
+     "9,000 Coins",
+     "$40.49"
+    ],
+    [
+     "Elite Pack Part 2+3",
+     "$99.99"
+    ],
+    [
+     "Elite Pack Part 2+3 Member",
+     "$59.99"
+    ],
+    [
+     "Elite Pack Part 2 Member",
+     "$59.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 308077124,
+   "nazwa": "Poker Odds Teacher",
+   "oceny_us": 28,
+   "srednia": 4.39,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2009-03-27",
+   "aktualizacja": "2026-10-21",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6503668923,
+   "nazwa": "Lucid Poker Trainer",
+   "oceny_us": 22,
+   "srednia": 3.95,
+   "wiek": "12+",
+   "jezyki": [],
+   "wydanie": "2024-08-22",
+   "aktualizacja": "2026-08-25",
+   "zakupy_us": null,
+   "typ": "nie klasyfikowano",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 1066838405,
+   "nazwa": "SnapShove",
+   "oceny_us": 22,
+   "srednia": 2.5,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2016-02-12",
+   "aktualizacja": "2026-10-20",
+   "zakupy_us": null,
+   "typ": "nie klasyfikowano",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 1547131406,
+   "nazwa": "Poker Hands Quiz",
+   "oceny_us": 22,
+   "srednia": 3.36,
+   "wiek": "4+",
+   "jezyki": [
+    "AR",
+    "NL",
+    "EN",
+    "FR",
+    "DE",
+    "IT",
+    "JA",
+    "KO",
+    "PL",
+    "PT",
+    "RU",
+    "ZH",
+    "ZH",
+    "TR"
+   ],
+   "wydanie": "2021-01-02",
+   "aktualizacja": "2026-05-04",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 1591933670,
+   "nazwa": "GTOBase - GTO Poker Train&View",
+   "oceny_us": 19,
+   "srednia": 3.95,
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2022-01-11",
+   "aktualizacja": "2023-07-02",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6450212963,
+   "nazwa": "GTO Poker Trainer: Preflop",
+   "oceny_us": 17,
+   "srednia": 4.88,
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2024-06-24",
+   "aktualizacja": "2026-10-03",
+   "zakupy_us": null,
+   "typ": "nie klasyfikowano",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 1541518500,
+   "nazwa": "Evenbet Poker Trainer",
+   "oceny_us": 15,
+   "srednia": 4.53,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2020-11-23",
+   "aktualizacja": "2020-11-23",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 299137599,
+   "nazwa": "Hold'em Odds Quizzer",
+   "oceny_us": 15,
+   "srednia": 4.87,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2008-12-09",
+   "aktualizacja": "2026-10-23",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 342578302,
+   "nazwa": "Tournament Cruncher (ICM)",
+   "oceny_us": 15,
+   "srednia": 4.8,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2009-12-07",
+   "aktualizacja": "2026-10-09",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 1547516642,
+   "nazwa": "Hold'em Odds Simulator",
+   "oceny_us": 14,
+   "srednia": 4.43,
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2021-01-25",
+   "aktualizacja": "2021-01-27",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6793457596,
+   "nazwa": "Poker Trainer: DePoker",
+   "oceny_us": 12,
+   "srednia": 4.67,
+   "wiek": "17+",
+   "jezyki": [
+    "EN",
+    "JA",
+    "KO",
+    "ZH",
+    "ZH"
+   ],
+   "wydanie": "2026-09-10",
+   "aktualizacja": "2026-11-02",
+   "zakupy_us": [
+    [
+     "Plus Annual",
+     "$59.99"
+    ],
+    [
+     "Plus Monthly",
+     "$7.99"
+    ],
+    [
+     "Pro Annual",
+     "$149.99"
+    ],
+    [
+     "Pro Monthly",
+     "$19.99"
+    ],
+    [
+     "Ultra Annual",
+     "$299.99"
+    ],
+    [
+     "Ultra Monthly",
+     "$39.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 1619585130,
+   "nazwa": "GTO Poker Ranges By Red Chip",
+   "oceny_us": 11,
+   "srednia": 4,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2022-06-06",
+   "aktualizacja": "2025-03-10",
+   "zakupy_us": null,
+   "typ": "nie klasyfikowano",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 1523876570,
+   "nazwa": "GTO Sensei",
+   "oceny_us": 9,
+   "srednia": 1.89,
+   "wiek": "17+",
+   "jezyki": [],
+   "wydanie": "2020-08-26",
+   "aktualizacja": "2021-05-12",
+   "zakupy_us": null,
+   "typ": "nie klasyfikowano",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 1626050814,
+   "nazwa": "Poker Academy: Learn GTO poker",
+   "oceny_us": 8,
+   "srednia": 5,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2022-06-08",
+   "aktualizacja": "2026-11-02",
+   "zakupy_us": [
+    [
+     "Mobile Plan",
+     "$29.99"
+    ],
+    [
+     "Premium Plan",
+     "$119.00"
+    ],
+    [
+     "Preflop Mobile Monthly",
+     "$9.99"
+    ],
+    [
+     "Essential Plan",
+     "$79.99"
+    ],
+    [
+     "Mobile Plan",
+     "$299.99"
+    ],
+    [
+     "Standard Plan",
+     "$109.00"
+    ],
+    [
+     "Preflop Mobile Yearly",
+     "$99.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 6746586602,
+   "nazwa": "Poker Coach+ | AI Assistant",
+   "oceny_us": 8,
+   "srednia": 5,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2025-06-04",
+   "aktualizacja": "2026-07-30",
+   "zakupy_us": null,
+   "typ": "nie klasyfikowano",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 6749024750,
+   "nazwa": "PokerOS - AI Coach",
+   "oceny_us": 8,
+   "srednia": 4,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2025-08-11",
+   "aktualizacja": "2026-09-26",
+   "zakupy_us": [
+    [
+     "Monthly Subscription",
+     "$12.49"
+    ],
+    [
+     "Monthly Subscription",
+     "$29.00"
+    ],
+    [
+     "Annual Subscription",
+     "$150.00"
+    ],
+    [
+     "Annual Subscription",
+     "$290.00"
+    ],
+    [
+     "Yearly Subscription (1 Month Free)",
+     "$290.00"
+    ],
+    [
+     "Monthly Subscription (1 Month Free)",
+     "$29.00"
+    ],
+    [
+     "Monthly Subscription",
+     "$24.99"
+    ],
+    [
+     "Annual Subscription",
+     "$249.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 1494460783,
+   "nazwa": "ATHYLPS - Poker Trainer",
+   "oceny_us": 7,
+   "srednia": 4.29,
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2021-10-04",
+   "aktualizacja": "2025-11-29",
+   "zakupy_us": [
+    [
+     "Pro 1 month",
+     "$5.99"
+    ],
+    [
+     "Pro 3 months",
+     "$14.99"
+    ],
+    [
+     "Pro 6 months",
+     "$24.99"
+    ],
+    [
+     "Pro Annual",
+     "$44.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6743416127,
+   "nazwa": "AceSolver: Poker Coach/Trainer",
+   "oceny_us": 7,
+   "srednia": 4.71,
+   "wiek": "17+",
+   "jezyki": [
+    "EN",
+    "FR",
+    "DE",
+    "JA",
+    "PT",
+    "ES",
+    "ZH"
+   ],
+   "wydanie": "2025-09-04",
+   "aktualizacja": "2026-11-02",
+   "zakupy_us": [
+    [
+     "Expert Monthly",
+     "$24.99"
+    ],
+    [
+     "Expert Annual",
+     "$199.00"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6738063395,
+   "nazwa": "PeakGTO",
+   "oceny_us": 6,
+   "srednia": 3.17,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2025-08-19",
+   "aktualizacja": "2026-02-07",
+   "zakupy_us": null,
+   "typ": "nie klasyfikowano",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 6736561338,
+   "nazwa": "GTO Battle+ : Poker Puzzles!",
+   "oceny_us": 6,
+   "srednia": 4.33,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2024-10-07",
+   "aktualizacja": "2025-09-16",
+   "zakupy_us": null,
+   "typ": "nie klasyfikowano",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 1539392915,
+   "nazwa": "Trivia Poker - The Quiz App",
+   "oceny_us": 6,
+   "srednia": 4.83,
+   "wiek": "12+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2020-12-13",
+   "aktualizacja": "2022-10-09",
+   "zakupy_us": [
+    [
+     "99 Coins",
+     "$2.99"
+    ],
+    [
+     "55 Coins",
+     "$1.99"
+    ],
+    [
+     "18 Coins",
+     "$0.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6504085713,
+   "nazwa": "Live Poker Theory GTO Preflop",
+   "oceny_us": 5,
+   "srednia": 5,
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2024-06-11",
+   "aktualizacja": "2025-10-10",
+   "zakupy_us": null,
+   "typ": "nie klasyfikowano",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 6782936673,
+   "nazwa": "Vibe Poker: Learn Texas Holdem",
+   "oceny_us": 5,
+   "srednia": 4.2,
+   "wiek": "17+",
+   "jezyki": [
+    "AR",
+    "BG",
+    "CA",
+    "HR",
+    "CS",
+    "DA",
+    "NL",
+    "EN",
+    "FI",
+    "FR",
+    "KA",
+    "DE",
+    "EL",
+    "HE",
+    "HI",
+    "HU",
+    "ID",
+    "IT",
+    "JA",
+    "KO",
+    "MS",
+    "NB",
+    "PL",
+    "PT",
+    "RO",
+    "RU",
+    "SK",
+    "ES",
+    "SV",
+    "TH",
+    "ZH",
+    "TR",
+    "UK",
+    "VI"
+   ],
+   "wydanie": "2026-07-01",
+   "aktualizacja": "2026-10-31",
+   "zakupy_us": [
+    [
+     "400 Gold",
+     "$0.99"
+    ],
+    [
+     "Pro Monthly",
+     "$4.99"
+    ],
+    [
+     "Pro Annual",
+     "$39.99"
+    ],
+    [
+     "Stack",
+     "$0.99"
+    ],
+    [
+     "Pouch",
+     "$4.99"
+    ],
+    [
+     "Jackpot",
+     "$49.99"
+    ],
+    [
+     "Vault",
+     "$19.99"
+    ],
+    [
+     "Chest",
+     "$9.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6759539690,
+   "nazwa": "Texas Holdem AI Poker Trainer",
+   "oceny_us": 4,
+   "srednia": 5,
+   "wiek": "17+",
+   "jezyki": [
+    "EN",
+    "ZH",
+    "ZH"
+   ],
+   "wydanie": "2026-03-13",
+   "aktualizacja": "2026-10-29",
+   "zakupy_us": [
+    [
+     "VIP monthly plan",
+     "$2.99"
+    ],
+    [
+     "6 hands Dcoin",
+     "$4.99"
+    ],
+    [
+     "VIP yearly plan",
+     "$24.99"
+    ],
+    [
+     "One Hand of D Coins",
+     "$0.99"
+    ],
+    [
+     "Lifetime VIP",
+     "$59.90"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6745097958,
+   "nazwa": "Poker Odds Calculator Pro",
+   "oceny_us": 4,
+   "srednia": 4.75,
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2025-04-30",
+   "aktualizacja": "2025-07-16",
+   "zakupy_us": [
+    [
+     "NoAds",
+     "$1.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6471915869,
+   "nazwa": "DTO Cash - GTO Poker Trainer",
+   "oceny_us": 3,
+   "srednia": 2.33,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2023-11-30",
+   "aktualizacja": "2025-09-23",
+   "zakupy_us": [
+    [
+     "Cash Beginner (1 Month)",
+     "$9.99"
+    ],
+    [
+     "Cash Pro (1 Month)",
+     "$29.99"
+    ],
+    [
+     "Cash Beginner (12 Months) ",
+     "$89.99"
+    ],
+    [
+     "Cash Pro (1 Year)",
+     "$299.99"
+    ],
+    [
+     "Cash Pro (6 Month)",
+     "$149.99"
+    ],
+    [
+     "Cash Beginner (6 Months)",
+     "$49.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 6756941420,
+   "nazwa": "River: Poker Lessons & Trainer",
+   "oceny_us": 3,
+   "srednia": 5,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2025-12-31",
+   "aktualizacja": "2026-09-30",
+   "zakupy_us": [
+    [
+     "Premium Monthly",
+     "$19.99"
+    ],
+    [
+     "Premium Annual",
+     "$179.99"
+    ],
+    [
+     "Premium Annual",
+     "$179.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 1575159331,
+   "nazwa": "Rounders Poker Calculator",
+   "oceny_us": 3,
+   "srednia": 2.33,
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2021-07-07",
+   "aktualizacja": "2026-02-18",
+   "zakupy_us": [
+    [
+     "Display outs",
+     "$2.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6475799969,
+   "nazwa": "Pot Odds Pro - Poker Trainer",
+   "oceny_us": 2,
+   "srednia": 5,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2024-01-12",
+   "aktualizacja": "2024-02-11",
+   "zakupy_us": null,
+   "typ": "nie klasyfikowano",
+   "skan": "E1 (docs/monetyzacja)"
+  },
+  {
+   "id": 6761329446,
+   "nazwa": "Poker Reflex: GTO Trainer",
+   "oceny_us": 2,
+   "srednia": 4.5,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-04-14",
+   "aktualizacja": "2026-07-28",
+   "zakupy_us": [
+    [
+     "Poker Reflex Pro Monthly",
+     "$8.99"
+    ],
+    [
+     "Poker Reflex Pro Lifetime",
+     "$349.99"
+    ],
+    [
+     "Poker Reflex Pro Annual",
+     "$149.99"
+    ],
+    [
+     "Poker Reflex Pro Monthly",
+     "$17.99"
+    ],
+    [
+     "Poker Reflex Pro Lifetime",
+     "$179.99"
+    ],
+    [
+     "Poker Reflex Advanced Annual",
+     "$444.99"
+    ],
+    [
+     "Poker Reflex Advanced Monthly",
+     "$44.99"
+    ],
+    [
+     "Poker Reflex Pro Annual",
+     "$79.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6759055250,
+   "nazwa": "LeakSeek - Poker Trainer",
+   "oceny_us": 2,
+   "srednia": 5,
+   "wiek": "17+",
+   "jezyki": [
+    "EN",
+    "FR"
+   ],
+   "wydanie": "2026-05-25",
+   "aktualizacja": "2026-10-28",
+   "zakupy_us": [
+    [
+     "LeakSeek Grind Monthly",
+     "$19.99"
+    ],
+    [
+     "LeakSeek Learn Monthly",
+     "$9.99"
+    ],
+    [
+     "LeakSeek Learn Annual",
+     "$59.99"
+    ],
+    [
+     "Monthly Subscription",
+     "$15.99"
+    ],
+    [
+     "LeakSeek Grind Annual",
+     "$99.99"
+    ],
+    [
+     "Annual subscription (Beta)",
+     "$69.99"
+    ],
+    [
+     "Annual subscription",
+     "$99.99"
+    ],
+    [
+     "Monthly subscription - Beta",
+     "$9.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6753086543,
+   "nazwa": "Poker Master - GTO Training",
+   "oceny_us": 2,
+   "srednia": 5,
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-01-25",
+   "aktualizacja": "2026-10-31",
+   "zakupy_us": [
+    [
+     "Weekly Premium Subscription",
+     "$2.99"
+    ],
+    [
+     "Monthly Premium Subscription",
+     "$4.99"
+    ],
+    [
+     "Yearly Premium Subscription",
+     "$39.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6785714176,
+   "nazwa": "Raise Ready: Learn Poker",
+   "oceny_us": 2,
+   "srednia": 5,
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-07-20",
+   "aktualizacja": "2026-07-21",
+   "zakupy_us": [
+    [
+     "Raise Ready Pro",
+     "$7.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6776164594,
+   "nazwa": "Poker Study AI",
+   "oceny_us": 2,
+   "srednia": 5,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-06-14",
+   "aktualizacja": "2026-11-03",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6768238692,
+   "nazwa": "Minimal Poker Trainer GTO",
+   "oceny_us": 2,
+   "srednia": 2,
+   "wiek": "4+",
+   "jezyki": [
+    "AR",
+    "CA",
+    "HR",
+    "CS",
+    "DA",
+    "NL",
+    "EN",
+    "FI",
+    "FR",
+    "DE",
+    "EL",
+    "HE",
+    "HI",
+    "HU",
+    "ID",
+    "IT",
+    "JA",
+    "KO",
+    "MS",
+    "NB",
+    "PL",
+    "PT",
+    "RO",
+    "RU",
+    "ZH",
+    "SK",
+    "ES",
+    "SV",
+    "TH",
+    "ZH",
+    "TR",
+    "UK",
+    "VI"
+   ],
+   "wydanie": "2026-05-13",
+   "aktualizacja": "2026-10-23",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6811922452,
+   "nazwa": "Suited Up | Poker Trainer",
+   "oceny_us": 2,
+   "srednia": 5,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-10-06",
+   "aktualizacja": "2026-10-06",
+   "zakupy_us": [
+    [
+     "Suited Up Pro",
+     "$4.99"
+    ],
+    [
+     "Suited Up Yearly",
+     "$24.99"
+    ],
+    [
+     "Suited Up Monthly",
+     "$4.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 1479286750,
+   "nazwa": "Preflopper: PLO GTO Trainer",
+   "oceny_us": 1,
+   "srednia": 5,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2020-07-28",
+   "aktualizacja": "2026-10-31",
+   "zakupy_us": [
+    [
+     "Monthly Access",
+     "$19.99"
+    ],
+    [
+     "Weekly Access",
+     "$6.99"
+    ],
+    [
+     "Lifetime Access",
+     "$149.99"
+    ],
+    [
+     "Yearly Subscription",
+     "$99.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6760467336,
+   "nazwa": "Live Poker Trainer",
+   "oceny_us": 1,
+   "srednia": 5,
+   "wiek": "17+",
+   "jezyki": [
+    "EN",
+    "JA",
+    "ES"
+   ],
+   "wydanie": "2026-03-18",
+   "aktualizacja": "2026-10-16",
+   "zakupy_us": [
+    [
+     "Pro Monthly",
+     "$19.99"
+    ],
+    [
+     "Base Monthly",
+     "$24.99"
+    ],
+    [
+     "Pro 3 Months",
+     "$39.99"
+    ],
+    [
+     "Pro Annual",
+     "$119.99"
+    ],
+    [
+     "Base Annual",
+     "$224.99"
+    ],
+    [
+     "Base 3-Month",
+     "$65.99"
+    ],
+    [
+     "Elite 3-Month",
+     "$157.99"
+    ],
+    [
+     "Base Annual Offer",
+     "$112.99"
+    ],
+    [
+     "Elite Monthly",
+     "$59.99"
+    ],
+    [
+     "Elite Annual Offer",
+     "$269.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6757102601,
+   "nazwa": "GTOMaster",
+   "oceny_us": 1,
+   "srednia": 5,
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-01-29",
+   "aktualizacja": "2026-01-29",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6749474456,
+   "nazwa": "GTO Preflop Trainer: RePoker",
+   "oceny_us": 1,
+   "srednia": 5,
+   "wiek": "4+",
+   "jezyki": [
+    "NL",
+    "EN",
+    "FR",
+    "DE",
+    "HI",
+    "IT",
+    "JA",
+    "KO",
+    "PT",
+    "RU",
+    "ZH",
+    "ES",
+    "SV",
+    "ZH",
+    "UK"
+   ],
+   "wydanie": "2025-08-11",
+   "aktualizacja": "2026-11-02",
+   "zakupy_us": [
+    [
+     "weekly member",
+     "$9.99"
+    ],
+    [
+     "Annual Offer",
+     "$34.99"
+    ],
+    [
+     "annual",
+     "$69.99"
+    ],
+    [
+     "Monthly Member",
+     "$14.99"
+    ],
+    [
+     "weekly member",
+     "$6.99"
+    ],
+    [
+     "Annual Offer",
+     "$34.99"
+    ],
+    [
+     "annual",
+     "$69.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6813610475,
+   "nazwa": "Pokerly: Poker Trainer & Odds",
+   "oceny_us": 1,
+   "srednia": 5,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-09-28",
+   "aktualizacja": "2026-10-27",
+   "zakupy_us": [
+    [
+     "All In — Yearly",
+     "$99.99"
+    ],
+    [
+     "All In — Monthly",
+     "$12.99"
+    ],
+    [
+     "All In — Weekly",
+     "$4.99"
+    ],
+    [
+     "All In — Yearly, Half Off",
+     "$83.99"
+    ],
+    [
+     "3,000 chips",
+     "$9.99"
+    ],
+    [
+     "6,500 chips",
+     "$19.99"
+    ],
+    [
+     "1,200 chips",
+     "$4.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6787552890,
+   "nazwa": "PostFlop GTO Poker Trainer",
+   "oceny_us": 1,
+   "srednia": 5,
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-07-13",
+   "aktualizacja": "2026-10-02",
+   "zakupy_us": [
+    [
+     "Pro Monthly",
+     "$7.99"
+    ],
+    [
+     "Pro Yearly",
+     "$49.99"
+    ],
+    [
+     "Pro Lifetime",
+     "$99.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6759849568,
+   "nazwa": "StackWise Poker Trainer",
+   "oceny_us": 1,
+   "srednia": 5,
+   "wiek": "12+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-05-05",
+   "aktualizacja": "2026-05-05",
+   "zakupy_us": [
+    [
+     "StackWise Pro (Monthly)",
+     "$3.99"
+    ],
+    [
+     "StackWise Pro (Yearly)",
+     "$24.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6816316055,
+   "nazwa": "Felt IQ: Poker Trainer",
+   "oceny_us": 1,
+   "srednia": 5,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-10-16",
+   "aktualizacja": "2026-10-26",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6806506088,
+   "nazwa": "GTOトレーナー - ポーカー戦略学習",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "4+",
+   "jezyki": [
+    "JA"
+   ],
+   "wydanie": "2026-09-01",
+   "aktualizacja": "2026-10-23",
+   "zakupy_us": [
+    [
+     "特訓 Pro（年額）",
+     "$59.99"
+    ],
+    [
+     "特訓 Pro（月額）",
+     "$5.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6787468007,
+   "nazwa": "GTO Trainer",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "17+",
+   "jezyki": [
+    "EN",
+    "HE"
+   ],
+   "wydanie": "2026-07-20",
+   "aktualizacja": "2026-08-01",
+   "zakupy_us": [
+    [
+     "Pro Monthly",
+     "$6.99"
+    ],
+    [
+     "Pro Yearly",
+     "$59.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6461776324,
+   "nazwa": "Poker PreFlop Trainer GTO",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "4+",
+   "jezyki": [
+    "EN",
+    "PT",
+    "ES"
+   ],
+   "wydanie": "2023-09-03",
+   "aktualizacja": "2024-03-20",
+   "zakupy_us": [
+    [
+     "Pro (Every Two Months)",
+     "$2.99"
+    ],
+    [
+     "Pro Lifetime",
+     "$19.99"
+    ],
+    [
+     "Pro (Monthly)",
+     "$1.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6760000223,
+   "nazwa": "Poker GTO Solver & Trainer",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "4+",
+   "jezyki": [
+    "EN",
+    "ZH"
+   ],
+   "wydanie": "2026-03-16",
+   "aktualizacja": "2026-11-02",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6816915250,
+   "nazwa": "GTOMaster: GTO Poker Trainer",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "17+",
+   "jezyki": [
+    "EN",
+    "ZH",
+    "ZH"
+   ],
+   "wydanie": "2026-10-01",
+   "aktualizacja": "2026-10-02",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6789286272,
+   "nazwa": "Poker Coach: GTO Training",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "4+",
+   "jezyki": [
+    "NL",
+    "EN",
+    "FR",
+    "DE",
+    "HI",
+    "ID",
+    "IT",
+    "JA",
+    "KO",
+    "MS",
+    "PL",
+    "PT",
+    "RU",
+    "ZH",
+    "ES",
+    "SV",
+    "TH",
+    "ZH",
+    "UK",
+    "VI"
+   ],
+   "wydanie": "2026-07-29",
+   "aktualizacja": "2026-10-30",
+   "zakupy_us": [
+    [
+     "Member · Monthly",
+     "$4.99"
+    ],
+    [
+     "Member · Yearly",
+     "$39.99"
+    ],
+    [
+     "Ultimate",
+     "$6.99"
+    ],
+    [
+     "Plus",
+     "$0.99"
+    ],
+    [
+     "Ultra",
+     "$5.99"
+    ],
+    [
+     "Pro",
+     "$2.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6791753299,
+   "nazwa": "Learn Poker: Hyperdrive",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "4+",
+   "jezyki": [
+    "AR",
+    "EN",
+    "FR",
+    "DE",
+    "JA",
+    "KO",
+    "PT",
+    "ZH",
+    "ES",
+    "ZH"
+   ],
+   "wydanie": "2026-07-28",
+   "aktualizacja": "2026-11-01",
+   "zakupy_us": [
+    [
+     "Pro Lifetime",
+     "$9.99"
+    ],
+    [
+     "Monthly Pro",
+     "$4.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6812949802,
+   "nazwa": "Suited Fours: Poker Trainer",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-10-28",
+   "aktualizacja": "2026-11-02",
+   "zakupy_us": [
+    [
+     "Poker Coaching, Yearly",
+     "$79.99"
+    ],
+    [
+     "Poker Coaching, Yearly",
+     "$79.99"
+    ],
+    [
+     "Poker Coaching, Yearly",
+     "$79.99"
+    ],
+    [
+     "Poker Coaching, Yearly",
+     "$79.99"
+    ],
+    [
+     "Poker Coaching, Monthly",
+     "$9.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6759155325,
+   "nazwa": "Gameplan: Learn Poker",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-03-18",
+   "aktualizacja": "2026-11-03",
+   "zakupy_us": [
+    [
+     "Gameplan PRO Yearly",
+     "$19.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6797011715,
+   "nazwa": "RiverMind Poker Trainer",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "17+",
+   "jezyki": [
+    "EN",
+    "JA",
+    "PT",
+    "ZH",
+    "ES",
+    "ZH"
+   ],
+   "wydanie": "2026-08-26",
+   "aktualizacja": "2026-09-17",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 583376357,
+   "nazwa": "Poker Master: Trainer & Games",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2013-01-21",
+   "aktualizacja": "2026-11-03",
+   "zakupy_us": [
+    [
+     "200 Poker Master Coins",
+     "$0.99"
+    ],
+    [
+     "500 Poker Master Coins",
+     "$1.99"
+    ],
+    [
+     "1000 Poker Master Coins",
+     "$3.99"
+    ],
+    [
+     "10,000 Poker Master Coins",
+     "$17.99"
+    ],
+    [
+     "5000 Poker Master Coins - BEST VALUE",
+     "$9.99"
+    ],
+    [
+     "100,000 Poker Master Coins. MEGA PACK",
+     "$99.99"
+    ],
+    [
+     "Pro Yearly",
+     "$49.99"
+    ],
+    [
+     "Pro Monthly",
+     "$9.99"
+    ],
+    [
+     "Piggy Bank Unlock",
+     "$2.99"
+    ],
+    [
+     "High Roller Unlock",
+     "$4.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6757344680,
+   "nazwa": "PokerCoach AI",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-03-16",
+   "aktualizacja": "2026-03-16",
+   "zakupy_us": [
+    [
+     "Basic 6-Month",
+     "$79.99"
+    ],
+    [
+     "Platinum 6-Month",
+     "$184.99"
+    ],
+    [
+     "Started Annual",
+     "$119.99"
+    ],
+    [
+     "Starter Monthly",
+     "$14.99"
+    ],
+    [
+     "Platinum Monthly",
+     "$36.99"
+    ],
+    [
+     "Pro Monthly",
+     "$109.99"
+    ],
+    [
+     "Pro 6-Month",
+     "$549.99"
+    ],
+    [
+     "Platinum Annual",
+     "$369.99"
+    ],
+    [
+     "Pro Annual",
+     "$849.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6785995969,
+   "nazwa": "HoldemLab Poker Trainer",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "12+",
+   "jezyki": [
+    "EN",
+    "KO",
+    "PT",
+    "ES"
+   ],
+   "wydanie": "2026-07-08",
+   "aktualizacja": "2026-11-02",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6754072638,
+   "nazwa": "Hatsoff Poker",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2025-12-10",
+   "aktualizacja": "2026-09-07",
+   "zakupy_us": [
+    [
+     "Lifetime Launch Offer",
+     "$249.99"
+    ],
+    [
+     "Hatsoff Plus (Monthly)",
+     "$4.99"
+    ],
+    [
+     "Hatsoff Plus (Yearly)",
+     "$49.99"
+    ],
+    [
+     "Hatsoff All-in (Lifetime Access)",
+     "$999.99"
+    ],
+    [
+     "Hatsoff Pro (Yearly)",
+     "$179.99"
+    ],
+    [
+     "Hatsoff Pro (Monthly)",
+     "$17.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6804905477,
+   "nazwa": "Poker Sense Training",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-09-03",
+   "aktualizacja": "2026-10-21",
+   "zakupy_us": [
+    [
+     "Pro Annual",
+     "$149.99"
+    ],
+    [
+     "Pro Monthly",
+     "$14.99"
+    ],
+    [
+     "Basic Annual",
+     "$99.99"
+    ],
+    [
+     "Basic Monthly",
+     "$9.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6781971531,
+   "nazwa": "Poker Sense: Odds Trainer",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "4+",
+   "jezyki": [
+    "KO"
+   ],
+   "wydanie": "2026-06-23",
+   "aktualizacja": "2026-06-23",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6761001570,
+   "nazwa": "Poker Maths Trainer",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-04-04",
+   "aktualizacja": "2026-10-29",
+   "zakupy_us": [
+    [
+     "No Ads",
+     "$4.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6501981867,
+   "nazwa": "All-In-One Poker Trainer",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2024-05-01",
+   "aktualizacja": "2024-05-01",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6760972162,
+   "nazwa": "Poker Decision Lab",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-03-24",
+   "aktualizacja": "2026-09-21",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6759113126,
+   "nazwa": "Train Poker Strategy - flopIQ",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "4+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-03-19",
+   "aktualizacja": "2026-09-28",
+   "zakupy_us": [
+    [
+     "Premium Monthly",
+     "$9.99"
+    ],
+    [
+     "Premium Yearly",
+     "$29.99"
+    ],
+    [
+     "Premium Weekly",
+     "$4.99"
+    ],
+    [
+     "Premium Monthly",
+     "$15.99"
+    ],
+    [
+     "Premium Weekly",
+     "$6.99"
+    ],
+    [
+     "Premium Yearly",
+     "$49.99"
+    ],
+    [
+     "Premium",
+     "$9.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6777056101,
+   "nazwa": "Poker Situations - Trainer",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "12+",
+   "jezyki": [
+    "EN",
+    "ES"
+   ],
+   "wydanie": "2026-06-11",
+   "aktualizacja": "2026-06-11",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6790252338,
+   "nazwa": "SharkfinPoker Trainer",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-07-25",
+   "aktualizacja": "2026-08-04",
+   "zakupy_us": [
+    [
+     "Sharkfin Pro Yearly",
+     "$39.99"
+    ],
+    [
+     "Sharkfin Pro Monthly",
+     "$6.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6761499367,
+   "nazwa": "ICM Trainer: MTT Mastery",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "17+",
+   "jezyki": [
+    "EN"
+   ],
+   "wydanie": "2026-04-06",
+   "aktualizacja": "2026-10-21",
+   "zakupy_us": [
+    [
+     "Elite - Monthly",
+     "$59.99"
+    ],
+    [
+     "Elite - Annual Offer",
+     "$269.99"
+    ],
+    [
+     "Elite - 3 Months",
+     "$157.99"
+    ],
+    [
+     "Elite - Annual",
+     "$539.99"
+    ],
+    [
+     "Base - Annual Offer",
+     "$111.99"
+    ],
+    [
+     "Base - Annual",
+     "$224.99"
+    ],
+    [
+     "Base - 3 Months",
+     "$65.99"
+    ],
+    [
+     "Base Monthly",
+     "$24.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6447117790,
+   "nazwa": "Poker hand calc:Texas hold'em",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "17+",
+   "jezyki": [
+    "EN",
+    "JA"
+   ],
+   "wydanie": "2023-04-03",
+   "aktualizacja": "2026-01-16",
+   "zakupy_us": "brak sekcji",
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  },
+  {
+   "id": 6773373269,
+   "nazwa": "Poker & Poker",
+   "oceny_us": 0,
+   "srednia": 0,
+   "wiek": "17+",
+   "jezyki": [
+    "AR",
+    "HR",
+    "CS",
+    "DA",
+    "NL",
+    "EN",
+    "FI",
+    "FR",
+    "DE",
+    "EL",
+    "HE",
+    "HI",
+    "HU",
+    "ID",
+    "IT",
+    "JA",
+    "KO",
+    "MS",
+    "NB",
+    "PT",
+    "RO",
+    "RU",
+    "ZH",
+    "ES",
+    "SV",
+    "TH",
+    "ZH",
+    "TR",
+    "UK",
+    "VI"
+   ],
+   "wydanie": "2026-06-10",
+   "aktualizacja": "2026-10-17",
+   "zakupy_us": [
+    [
+     "Small Tip",
+     "$2.99"
+    ],
+    [
+     "Large Tip",
+     "$299.99"
+    ],
+    [
+     "Medium Tip",
+     "$29.99"
+    ],
+    [
+     "Remove Ads Forever",
+     "$1.99"
+    ]
+   ],
+   "typ": "nie klasyfikowano",
+   "skan": "E2 roli 01"
+  }
+ ]
+}

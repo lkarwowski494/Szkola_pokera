@@ -191,19 +191,28 @@ Wektory policzono niezależnie od kodu: skrypt w Pythonie na ułamkach dokładny
 | ID | f [-] | f_max [-] | Oczekiwane: ocena [-] | Tolerancja | Rodzaj | Pochodzenie |
 |---|---|---|---|---|---|---|
 | RD-11-W1 | 0,6 | 0,6 | zgodne | — | typowy | S-06: „Best Move” |
-| RD-11-W2 | 0,3 | 0,6 | zgodne | — | typowy | parametr L (ADR-26) |
-| RD-11-W3 | 0,25 | 0,715 | zgodne | — | granica | L włączna |
+| RD-11-W2 | 0,3 | 0,6 | zgodne | — | typowy | rachunek: f ≥ L, L z ADR-26 |
+| RD-11-W3 | 0,25 | 0,715 | zgodne | — | granica | rachunek: L włączna (ADR-26) |
 | RD-11-W4 | 0,1 | 0,6 | dopuszczalne | — | typowy | S-06: „Correct Move” |
 | RD-11-W5 | 0,035 | 0,715 | dopuszczalne | — | granica | S-06: „less than 3.5%” to niedokładność, więc 3,5% już nie |
 | RD-11-W6 | 0,0349 | 0,7151 | niedokładność | — | poniżej | S-06: „Inaccuracy” |
 | RD-11-W7 | 0 | 0,7 | błąd | — | granica | S-06: „Wrong Move – Moves that are not taken in GTO” |
-| RD-11-W8 | 0,2 | 0,2 | zgodne | — | powyżej | f = f_max zawsze zgodne, także poniżej L |
+| RD-11-W8 | 0,2 | 0,2 | zgodne | — | powyżej | S-06: „Best Move” (f = f_max), także poniżej L |
 | RD-11-W9 | -0,1 | 0,6 | błąd danych | — | błąd | rachunek: f ≥ 0 |
 
 ### RD-12: Telefon pomocy przy problemie z hazardem według kraju użytkownika
-- Wzór: kraj = region urządzenia (nie język aplikacji); wpis z `content/helplines.yaml` dla kraju; brak wpisu → numer alarmowy kraju i odnośnik do listy pomocy (do ustalenia przez rolę 06)
+- Wzór: kraj = region urządzenia (nie język aplikacji); wpis z `content/helplines.yaml` dla kraju (i regionu kraju, gdy numery różnią się, np. Walia); brak wpisu → numer alarmowy kraju i informacja o lokalnej pomocy (brzmienie: rola 06)
 - Jednostki: kraj [ISO 3166-1], numer [-]
 - Granica: brak
-- Podstawa: [DO USTALENIA] (OP-10) — numery z oficjalnych źródeł każdego kraju w sprzedaży (szczebel 1); dziś plik ma tylko Polskę, a storefrontu PL nie będzie (ER-04)
+- Podstawa: S-39, S-40 (US), S-41 (GB), szczebel 1 (operatorzy infolinii i regulator); pozostałe kraje sprzedaży [DO USTALENIA] (OP-10). Dziś plik ma tylko Polskę, a storefrontu PL nie będzie (ER-04)
 - Krytyczna: tak (zdrowie użytkownika; przegląd roli 06, przegląd zastępczy D-027)
 - Kod: `content/helplines.yaml`, ekran „Pomoc” (`apps/mobile/src/features/help`), ramka w lekcji M12-L4
+
+| ID | Region [ISO] | Język [-] | Oczekiwane: numer [-] | Tolerancja | Rodzaj | Pochodzenie |
+|---|---|---|---|---|---|---|
+| RD-12-W1 | US | en | 1-800-MY-RESET (1-800-697-3738) | — | typowy | S-39 |
+| RD-12-W2 | US, sytuacja kryzysowa | en | 911 albo 988 | — | typowy | S-40 |
+| RD-12-W3 | GB (Anglia, Szkocja) | en | 0808 8020 133 | — | typowy | S-41 |
+| RD-12-W4 | GB (Walia) | en | 0808 2819 265 | — | typowy | S-41 |
+| RD-12-W5 | US | pl | 1-800-MY-RESET (1-800-697-3738) | — | typowy | S-39: decyduje region, nie język |
+| RD-12-W6 | kraj bez wpisu | dowolny | numer alarmowy kraju + informacja o lokalnej pomocy | — | błąd | OP-10 (do ustalenia przez rolę 06) |
