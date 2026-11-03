@@ -5,7 +5,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 
 | Rola | Tryb | Stan | Commit | Artefakty | Otwarte decyzje |
 |---|---|---|---|---|---|
-| 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1 zakończone (2026-11-03), następny E1b | (ten commit) | `docs/monetyzacja.md`, `docs/monetyzacja/` | wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
+| 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1 zakończone, E1b: dane gotowe, bez uruchomienia skryptu (2026-11-03) | (ten commit) | `docs/monetyzacja.md`, `docs/monetyzacja/` | wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -33,5 +33,10 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 - Android ÷ iOS w kategorii: 0,10–3,0 (dwie aplikacje) → szeroki przedział założenia.
 - Prompt roli złożony ręcznie z plików `prompts` (c025063): uruchomienie `assemble.mjs` zablokował klasyfikator środowiska; treść odpowiada skryptowi (rdzeń, wzorce, moduły oplacalnosc + cena-i-rachunek + rachunek, szablony build).
 
+## E1b bramki: stan (2026-11-03)
+- Zapisane: `docs/monetyzacja/rachunek.mjs` i `oplacalnosc.mjs` (bloki z modułów `rachunek` i `oplacalnosc`, prompts c025063, bez zmian), `generuj-warianty.mjs`, `oplacalnosc-wlasna.json` (wariant właściciela D-029), `warianty/*.json` (11 wariantów D-028: właściciel, środek, rynek, mies.+rok, mies., rok, jednorazowy ×3, płatna z góry, napiwek; reklamy pominięte: standard wysoki i brak przeczytanego źródła przychodu na użytkownika).
+- Lista krótka: US, JP, CA, GB, BR, FR, TW, VN, DE, PL × iOS i Android (20 sklepów). Prowizja 15% (Apple SBP, Google Play; odczyt 2026-11-03), VAT GB odczytany, pozostałe `[ZAŁOŻENIE]`.
+- **Blokada:** klasyfikator środowiska odrzucił uruchomienie `oplacalnosc.mjs` i `rachunek.mjs` („Code from External”, kod z repo `prompts`). Skrypty przeczytane: czytają tylko podany JSON i wypisują wynik. Potrzebna zgoda właściciela (reguła uprawnień dla `node` w `docs/monetyzacja/`).
+
 ## Następny krok
-02-monetyzacja build `--moduly oplacalnosc`, **E1b**: zapis `docs/monetyzacja/rachunek.mjs`, `oplacalnosc.mjs` (z modułu), `oplacalnosc-wlasna.json` (lista krótka: US, JP, CA, GB, BR, FR, TW, VN, DE, PL; iOS i Android), wynik z godziną w `docs/monetyzacja/dowody/`, macierz wariantów D-028 (w tym 0,99/6,99/14,99 USD i ceny rynku), werdykt wobec 500 USD/rok; dopiero potem karta `portfel-aplikacji/karty/48-szkola-pokera.md` i dokument „Aplikacje Mobilne do Nauki Pokera” → tabela rozbieżności. Stawki VAT per storefront i prowizja odczytać w E1b.
+02-monetyzacja build `--moduly oplacalnosc`, **E1b dokończenie**: `cd docs/monetyzacja && node rachunek.mjs <test> && node oplacalnosc.mjs /home/user/prompts/tests/fixtures/oplacalnosc-przyklad.json` (kontrola: A 55,26 zł „porzucić”, B 455,36 zł „odłożyć”), potem `node oplacalnosc.mjs oplacalnosc-wlasna.json > dowody/oplacalnosc-2026-11-03.txt` (z godziną) i `node oplacalnosc.mjs warianty/*.json`; werdykt, wrażliwość, model optymalny; dopiero potem karta portfela i dokument „Aplikacje Mobilne do Nauki Pokera” → tabela rozbieżności. Wpis decyzji E0 w rejestrze 03: konektor Google Docs (właściciel go włącza, 2026-11-03).

@@ -1,0 +1,3835 @@
+{
+ "data": "2026-11-03",
+ "waluta": "USD",
+ "tryb": "build",
+ "wariant": "rynek-14.99-89.99-149.99",
+ "opis": "mediana kategorii US: mies. 14,99 / rok 89,99 / dożywotni 149,99 USD",
+ "kursy": {},
+ "prog": {
+  "kwota": 500,
+  "waluta": "USD",
+  "zrodlo": "decyzja właściciela 2026-11-03: „500 USD/rok” netto, globalnie (docs/sztafeta.md)"
+ },
+ "platformy": {
+  "ios": {
+   "koszty_roczne": 0,
+   "koszty_zrodlo": "Apple Developer 99 USD/rok to koszt portfela (D-024); aplikacja offline bez płatnych usług tylko dla niej [ZAŁOŻENIE do potwierdzenia przez rolę 05]"
+  },
+  "android": {
+   "koszty_roczne": 0,
+   "koszty_zrodlo": "rejestracja Google Play 25 USD jednorazowo to koszt portfela (D-024, decyzja właściciela 2026-11-03)"
+  }
+ },
+ "sklepy": [
+  {
+   "platforma": "ios",
+   "kraj": "us",
+   "vat": {
+    "stawka": 0,
+    "zrodlo": "[ZAŁOŻENIE] ceny w US bez podatku sprzedaży (2026-11-03); podatek pobiera Apple ponad cenę"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "developer.apple.com/app-store/small-business-program: „a reduced commission rate of 15% on paid apps and Apple In-App Purchases” (odczyt 2026-11-03); warunek: zapis właściciela do programu [DO WYJAŚNIENIA]"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 14.99,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 89.99,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 149.99,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 3483,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 1982,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 1165,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 1163,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 1022,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 714,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 360,
+     "wydanie": "2025-09-16",
+     "zrodlo": "itunes.apple.com/lookup?id=6747833042&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 298,
+     "wydanie": "2025-07-09",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 283,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 243,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 163,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 73,
+     "wydanie": "2020-05-12",
+     "zrodlo": "itunes.apple.com/lookup?id=1444569705&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 62,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 31,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 8,
+     "wydanie": "2022-06-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1626050814&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 126,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 50,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 17,
+     "wydanie": "2024-06-24",
+     "zrodlo": "itunes.apple.com/lookup?id=6450212963&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 22,
+     "wydanie": "2024-08-22",
+     "zrodlo": "itunes.apple.com/lookup?id=6503668923&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 3,
+     "wydanie": "2023-11-30",
+     "zrodlo": "itunes.apple.com/lookup?id=6471915869&country=us (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1,
+      1
+     ],
+     "zrodlo": "[ZAŁOŻENIE] rynek anglojęzyczny: brak luki lokalizacji (wszyscy konkurenci EN), 2026-11-03"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 1 (współczynnik ceny brutto us: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "android",
+   "kraj": "us",
+   "vat": {
+    "stawka": 0,
+    "zrodlo": "[ZAŁOŻENIE] ceny w US bez podatku sprzedaży (2026-11-03); podatek pobiera Apple ponad cenę"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "support.google.com/googleplay/android-developer/answer/112622: „First $1M (USD) of annual earnings 10% + 5% billing fee” (US, EOG, UK, AU, JP), „15% for the first $1M (USD)” w pozostałych rynkach (odczyt 2026-11-03)"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 14.99,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 89.99,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 149.99,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 3483,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 1982,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 1165,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 1163,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 1022,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 714,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 360,
+     "wydanie": "2025-09-16",
+     "zrodlo": "itunes.apple.com/lookup?id=6747833042&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 298,
+     "wydanie": "2025-07-09",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 283,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 243,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 163,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 73,
+     "wydanie": "2020-05-12",
+     "zrodlo": "itunes.apple.com/lookup?id=1444569705&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 62,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 31,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 8,
+     "wydanie": "2022-06-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1626050814&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 126,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 50,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 17,
+     "wydanie": "2024-06-24",
+     "zrodlo": "itunes.apple.com/lookup?id=6450212963&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 22,
+     "wydanie": "2024-08-22",
+     "zrodlo": "itunes.apple.com/lookup?id=6503668923&country=us (2026-11-03)"
+    },
+    {
+     "oceny": 3,
+     "wydanie": "2023-11-30",
+     "zrodlo": "itunes.apple.com/lookup?id=6471915869&country=us (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1,
+      1
+     ],
+     "zrodlo": "[ZAŁOŻENIE] rynek anglojęzyczny: brak luki lokalizacji (wszyscy konkurenci EN), 2026-11-03"
+    },
+    "android_do_ios": {
+     "s": [
+      0.1,
+      0.6,
+      2
+     ],
+     "zrodlo": "[ZAŁOŻENIE] Android ÷ iOS w kategorii: recenzje Google Play ÷ oceny iOS 0,10 (Preflop Wizard) i 3,0 (GTO Gecko), play.google.com i lookup 2026-11-03; StatCounter 10/2026: 0,54 (CA) – 2,86 (MX) dla całego ruchu"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 1 (współczynnik ceny brutto us: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "ios",
+   "kraj": "jp",
+   "vat": {
+    "stawka": 0.1,
+    "zrodlo": "[ZAŁOŻENIE] stawka podstawowa 10% (jp); niesprawdzona u źródła 2026-11-03 (strona europa.eu ładuje stawki skryptem); wpływ ±5 pp na wynik < 5%"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "developer.apple.com/app-store/small-business-program: „a reduced commission rate of 15% on paid apps and Apple In-App Purchases” (odczyt 2026-11-03); warunek: zapis właściciela do programu [DO WYJAŚNIENIA]"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 11.71,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 70.28,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 117.14,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 31,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 647,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 5,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 772,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 145,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 25,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2025-07-09",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 8,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 72,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 2601,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2020-05-12",
+     "zrodlo": "itunes.apple.com/lookup?id=1444569705&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 17,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 1570,
+     "wydanie": "2024-12-03",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 21,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 4,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2023-11-30",
+     "zrodlo": "itunes.apple.com/lookup?id=6471915869&country=jp (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1.5,
+      3
+     ],
+     "zrodlo": "[ZAŁOŻENIE] luka lokalizacji: czołowi konkurenci storefrontu tylko EN (lookup 2026-11-03); górna granica z JP: aplikacje z JA mają 2–4× więcej ocen niż EN"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 0.781 (współczynnik ceny brutto jp: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "android",
+   "kraj": "jp",
+   "vat": {
+    "stawka": 0.1,
+    "zrodlo": "[ZAŁOŻENIE] stawka podstawowa 10% (jp); niesprawdzona u źródła 2026-11-03 (strona europa.eu ładuje stawki skryptem); wpływ ±5 pp na wynik < 5%"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "support.google.com/googleplay/android-developer/answer/112622: „First $1M (USD) of annual earnings 10% + 5% billing fee” (US, EOG, UK, AU, JP), „15% for the first $1M (USD)” w pozostałych rynkach (odczyt 2026-11-03)"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 11.71,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 70.28,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 117.14,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 31,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 647,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 5,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 772,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 145,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 25,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2025-07-09",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 8,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 72,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 2601,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2020-05-12",
+     "zrodlo": "itunes.apple.com/lookup?id=1444569705&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 17,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 1570,
+     "wydanie": "2024-12-03",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 21,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 4,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=jp (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2023-11-30",
+     "zrodlo": "itunes.apple.com/lookup?id=6471915869&country=jp (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1.5,
+      3
+     ],
+     "zrodlo": "[ZAŁOŻENIE] luka lokalizacji: czołowi konkurenci storefrontu tylko EN (lookup 2026-11-03); górna granica z JP: aplikacje z JA mają 2–4× więcej ocen niż EN"
+    },
+    "android_do_ios": {
+     "s": [
+      0.1,
+      0.6,
+      2
+     ],
+     "zrodlo": "[ZAŁOŻENIE] Android ÷ iOS w kategorii: recenzje Google Play ÷ oceny iOS 0,10 (Preflop Wizard) i 3,0 (GTO Gecko), play.google.com i lookup 2026-11-03; StatCounter 10/2026: 0,54 (CA) – 2,86 (MX) dla całego ruchu"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 0.781 (współczynnik ceny brutto jp: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "ios",
+   "kraj": "ca",
+   "vat": {
+    "stawka": 0,
+    "zrodlo": "[ZAŁOŻENIE] ceny w CA bez podatku (2026-11-03), jak w US"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "developer.apple.com/app-store/small-business-program: „a reduced commission rate of 15% on paid apps and Apple In-App Purchases” (odczyt 2026-11-03); warunek: zapis właściciela do programu [DO WYJAŚNIENIA]"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 12.04,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 72.26,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 120.44,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 492,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 246,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 102,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 193,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 127,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 30,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 102,
+     "wydanie": "2025-09-16",
+     "zrodlo": "itunes.apple.com/lookup?id=6747833042&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 6,
+     "wydanie": "2025-07-09",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 54,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 38,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 15,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 7,
+     "wydanie": "2020-05-12",
+     "zrodlo": "itunes.apple.com/lookup?id=1444569705&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 9,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 4,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2022-06-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1626050814&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 25,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 10,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2024-06-24",
+     "zrodlo": "itunes.apple.com/lookup?id=6450212963&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 2,
+     "wydanie": "2024-08-22",
+     "zrodlo": "itunes.apple.com/lookup?id=6503668923&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2023-11-30",
+     "zrodlo": "itunes.apple.com/lookup?id=6471915869&country=ca (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1,
+      1
+     ],
+     "zrodlo": "[ZAŁOŻENIE] rynek anglojęzyczny: brak luki lokalizacji (wszyscy konkurenci EN), 2026-11-03"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 0.803 (współczynnik ceny brutto ca: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "android",
+   "kraj": "ca",
+   "vat": {
+    "stawka": 0,
+    "zrodlo": "[ZAŁOŻENIE] ceny w CA bez podatku (2026-11-03), jak w US"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "support.google.com/googleplay/android-developer/answer/112622: „First $1M (USD) of annual earnings 10% + 5% billing fee” (US, EOG, UK, AU, JP), „15% for the first $1M (USD)” w pozostałych rynkach (odczyt 2026-11-03)"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 12.04,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 72.26,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 120.44,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 492,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 246,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 102,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 193,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 127,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 30,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 102,
+     "wydanie": "2025-09-16",
+     "zrodlo": "itunes.apple.com/lookup?id=6747833042&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 6,
+     "wydanie": "2025-07-09",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 54,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 38,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 15,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 7,
+     "wydanie": "2020-05-12",
+     "zrodlo": "itunes.apple.com/lookup?id=1444569705&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 9,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 4,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2022-06-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1626050814&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 25,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 10,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2024-06-24",
+     "zrodlo": "itunes.apple.com/lookup?id=6450212963&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 2,
+     "wydanie": "2024-08-22",
+     "zrodlo": "itunes.apple.com/lookup?id=6503668923&country=ca (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2023-11-30",
+     "zrodlo": "itunes.apple.com/lookup?id=6471915869&country=ca (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1,
+      1
+     ],
+     "zrodlo": "[ZAŁOŻENIE] rynek anglojęzyczny: brak luki lokalizacji (wszyscy konkurenci EN), 2026-11-03"
+    },
+    "android_do_ios": {
+     "s": [
+      0.1,
+      0.6,
+      2
+     ],
+     "zrodlo": "[ZAŁOŻENIE] Android ÷ iOS w kategorii: recenzje Google Play ÷ oceny iOS 0,10 (Preflop Wizard) i 3,0 (GTO Gecko), play.google.com i lookup 2026-11-03; StatCounter 10/2026: 0,54 (CA) – 2,86 (MX) dla całego ruchu"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 0.803 (współczynnik ceny brutto ca: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "ios",
+   "kraj": "gb",
+   "vat": {
+    "stawka": 0.2,
+    "zrodlo": "gov.uk/vat-rates: „Standard rate … 20% … Most goods and services” (odczyt 2026-11-03)"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "developer.apple.com/app-store/small-business-program: „a reduced commission rate of 15% on paid apps and Apple In-App Purchases” (odczyt 2026-11-03); warunek: zapis właściciela do programu [DO WYJAŚNIENIA]"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 20.12,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 120.77,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 201.29,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 234,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 244,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 105,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 138,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 132,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 38,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 7,
+     "wydanie": "2025-09-16",
+     "zrodlo": "itunes.apple.com/lookup?id=6747833042&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 4,
+     "wydanie": "2025-07-09",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 101,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 37,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 17,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 10,
+     "wydanie": "2020-05-12",
+     "zrodlo": "itunes.apple.com/lookup?id=1444569705&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 8,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 4,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2022-06-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1626050814&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 19,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 12,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 2,
+     "wydanie": "2024-06-24",
+     "zrodlo": "itunes.apple.com/lookup?id=6450212963&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 3,
+     "wydanie": "2024-08-22",
+     "zrodlo": "itunes.apple.com/lookup?id=6503668923&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2023-11-30",
+     "zrodlo": "itunes.apple.com/lookup?id=6471915869&country=gb (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1,
+      1
+     ],
+     "zrodlo": "[ZAŁOŻENIE] rynek anglojęzyczny: brak luki lokalizacji (wszyscy konkurenci EN), 2026-11-03"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 1.342 (współczynnik ceny brutto gb: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "android",
+   "kraj": "gb",
+   "vat": {
+    "stawka": 0.2,
+    "zrodlo": "gov.uk/vat-rates: „Standard rate … 20% … Most goods and services” (odczyt 2026-11-03)"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "support.google.com/googleplay/android-developer/answer/112622: „First $1M (USD) of annual earnings 10% + 5% billing fee” (US, EOG, UK, AU, JP), „15% for the first $1M (USD)” w pozostałych rynkach (odczyt 2026-11-03)"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 20.12,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 120.77,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 201.29,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 234,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 244,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 105,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 138,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 132,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 38,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 7,
+     "wydanie": "2025-09-16",
+     "zrodlo": "itunes.apple.com/lookup?id=6747833042&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 4,
+     "wydanie": "2025-07-09",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 101,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 37,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 17,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 10,
+     "wydanie": "2020-05-12",
+     "zrodlo": "itunes.apple.com/lookup?id=1444569705&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 8,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 4,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2022-06-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1626050814&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 19,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 12,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 2,
+     "wydanie": "2024-06-24",
+     "zrodlo": "itunes.apple.com/lookup?id=6450212963&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 3,
+     "wydanie": "2024-08-22",
+     "zrodlo": "itunes.apple.com/lookup?id=6503668923&country=gb (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2023-11-30",
+     "zrodlo": "itunes.apple.com/lookup?id=6471915869&country=gb (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1,
+      1
+     ],
+     "zrodlo": "[ZAŁOŻENIE] rynek anglojęzyczny: brak luki lokalizacji (wszyscy konkurenci EN), 2026-11-03"
+    },
+    "android_do_ios": {
+     "s": [
+      0.1,
+      0.6,
+      2
+     ],
+     "zrodlo": "[ZAŁOŻENIE] Android ÷ iOS w kategorii: recenzje Google Play ÷ oceny iOS 0,10 (Preflop Wizard) i 3,0 (GTO Gecko), play.google.com i lookup 2026-11-03; StatCounter 10/2026: 0,54 (CA) – 2,86 (MX) dla całego ruchu"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 1.342 (współczynnik ceny brutto gb: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "ios",
+   "kraj": "br",
+   "vat": {
+    "stawka": 0,
+    "zrodlo": "[ZAŁOŻENIE] podatki BR w cenie i rozliczane przez Apple; efektywnie 0 w tym rachunku (2026-11-03) [DO USTALENIA]"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "developer.apple.com/app-store/small-business-program: „a reduced commission rate of 15% on paid apps and Apple In-App Purchases” (odczyt 2026-11-03); warunek: zapis właściciela do programu [DO WYJAŚNIENIA]"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 14,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 84.05,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 140.09,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 158,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 90,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 19,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 111,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2024-11-19",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 10,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2025-09-16",
+     "zrodlo": "itunes.apple.com/lookup?id=6747833042&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 9,
+     "wydanie": "2025-08-05",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 36,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 284,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 87,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 52,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 53,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2022-06-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1626050814&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 19,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 22,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 4,
+     "wydanie": "2024-06-24",
+     "zrodlo": "itunes.apple.com/lookup?id=6450212963&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2024-08-22",
+     "zrodlo": "itunes.apple.com/lookup?id=6503668923&country=br (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1.5,
+      3
+     ],
+     "zrodlo": "[ZAŁOŻENIE] luka lokalizacji: czołowi konkurenci storefrontu tylko EN (lookup 2026-11-03); górna granica z JP: aplikacje z JA mają 2–4× więcej ocen niż EN"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 0.934 (współczynnik ceny brutto br: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "android",
+   "kraj": "br",
+   "vat": {
+    "stawka": 0,
+    "zrodlo": "[ZAŁOŻENIE] podatki BR w cenie i rozliczane przez Apple; efektywnie 0 w tym rachunku (2026-11-03) [DO USTALENIA]"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "support.google.com/googleplay/android-developer/answer/112622: „First $1M (USD) of annual earnings 10% + 5% billing fee” (US, EOG, UK, AU, JP), „15% for the first $1M (USD)” w pozostałych rynkach (odczyt 2026-11-03)"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 14,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 84.05,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 140.09,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 158,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 90,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 19,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 111,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2024-11-19",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 10,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2025-09-16",
+     "zrodlo": "itunes.apple.com/lookup?id=6747833042&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 9,
+     "wydanie": "2025-08-05",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 36,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 284,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 87,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 52,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 53,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2022-06-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1626050814&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 19,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 22,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 4,
+     "wydanie": "2024-06-24",
+     "zrodlo": "itunes.apple.com/lookup?id=6450212963&country=br (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2024-08-22",
+     "zrodlo": "itunes.apple.com/lookup?id=6503668923&country=br (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1.5,
+      3
+     ],
+     "zrodlo": "[ZAŁOŻENIE] luka lokalizacji: czołowi konkurenci storefrontu tylko EN (lookup 2026-11-03); górna granica z JP: aplikacje z JA mają 2–4× więcej ocen niż EN"
+    },
+    "android_do_ios": {
+     "s": [
+      0.1,
+      0.6,
+      2
+     ],
+     "zrodlo": "[ZAŁOŻENIE] Android ÷ iOS w kategorii: recenzje Google Play ÷ oceny iOS 0,10 (Preflop Wizard) i 3,0 (GTO Gecko), play.google.com i lookup 2026-11-03; StatCounter 10/2026: 0,54 (CA) – 2,86 (MX) dla całego ruchu"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 0.934 (współczynnik ceny brutto br: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "ios",
+   "kraj": "fr",
+   "vat": {
+    "stawka": 0.2,
+    "zrodlo": "[ZAŁOŻENIE] stawka podstawowa 20% (fr); niesprawdzona u źródła 2026-11-03 (strona europa.eu ładuje stawki skryptem); wpływ ±5 pp na wynik < 5%"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "developer.apple.com/app-store/small-business-program: „a reduced commission rate of 15% on paid apps and Apple In-App Purchases” (odczyt 2026-11-03); warunek: zapis właściciela do programu [DO WYJAŚNIENIA]"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 17.18,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 103.13,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 171.89,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 156,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 262,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 42,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 123,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 150,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 12,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 6,
+     "wydanie": "2025-09-16",
+     "zrodlo": "itunes.apple.com/lookup?id=6747833042&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 13,
+     "wydanie": "2025-07-09",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 29,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 96,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 87,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2020-05-12",
+     "zrodlo": "itunes.apple.com/lookup?id=1444569705&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 33,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 33,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 22,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 13,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 8,
+     "wydanie": "2024-06-24",
+     "zrodlo": "itunes.apple.com/lookup?id=6450212963&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2024-08-22",
+     "zrodlo": "itunes.apple.com/lookup?id=6503668923&country=fr (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1.5,
+      3
+     ],
+     "zrodlo": "[ZAŁOŻENIE] luka lokalizacji: czołowi konkurenci storefrontu tylko EN (lookup 2026-11-03); górna granica z JP: aplikacje z JA mają 2–4× więcej ocen niż EN"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 1.146 (współczynnik ceny brutto fr: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "android",
+   "kraj": "fr",
+   "vat": {
+    "stawka": 0.2,
+    "zrodlo": "[ZAŁOŻENIE] stawka podstawowa 20% (fr); niesprawdzona u źródła 2026-11-03 (strona europa.eu ładuje stawki skryptem); wpływ ±5 pp na wynik < 5%"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "support.google.com/googleplay/android-developer/answer/112622: „First $1M (USD) of annual earnings 10% + 5% billing fee” (US, EOG, UK, AU, JP), „15% for the first $1M (USD)” w pozostałych rynkach (odczyt 2026-11-03)"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 17.18,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 103.13,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 171.89,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 156,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 262,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 42,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 123,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 150,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 12,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 6,
+     "wydanie": "2025-09-16",
+     "zrodlo": "itunes.apple.com/lookup?id=6747833042&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 13,
+     "wydanie": "2025-07-09",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 29,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 96,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 87,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2020-05-12",
+     "zrodlo": "itunes.apple.com/lookup?id=1444569705&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 33,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 33,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 22,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 13,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 8,
+     "wydanie": "2024-06-24",
+     "zrodlo": "itunes.apple.com/lookup?id=6450212963&country=fr (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2024-08-22",
+     "zrodlo": "itunes.apple.com/lookup?id=6503668923&country=fr (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1.5,
+      3
+     ],
+     "zrodlo": "[ZAŁOŻENIE] luka lokalizacji: czołowi konkurenci storefrontu tylko EN (lookup 2026-11-03); górna granica z JP: aplikacje z JA mają 2–4× więcej ocen niż EN"
+    },
+    "android_do_ios": {
+     "s": [
+      0.1,
+      0.6,
+      2
+     ],
+     "zrodlo": "[ZAŁOŻENIE] Android ÷ iOS w kategorii: recenzje Google Play ÷ oceny iOS 0,10 (Preflop Wizard) i 3,0 (GTO Gecko), play.google.com i lookup 2026-11-03; StatCounter 10/2026: 0,54 (CA) – 2,86 (MX) dla całego ruchu"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 1.146 (współczynnik ceny brutto fr: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "ios",
+   "kraj": "tw",
+   "vat": {
+    "stawka": 0.05,
+    "zrodlo": "[ZAŁOŻENIE] stawka podstawowa 5% (tw); niesprawdzona u źródła 2026-11-03 (strona europa.eu ładuje stawki skryptem); wpływ ±5 pp na wynik < 5%"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "developer.apple.com/app-store/small-business-program: „a reduced commission rate of 15% on paid apps and Apple In-App Purchases” (odczyt 2026-11-03); warunek: zapis właściciela do programu [DO WYJAŚNIENIA]"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 15.44,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 92.69,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 154.49,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 27,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 212,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 7,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 265,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 53,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 314,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2025-07-09",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 10,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 98,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 171,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2020-05-12",
+     "zrodlo": "itunes.apple.com/lookup?id=1444569705&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 14,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 54,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 7,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 12,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2024-06-24",
+     "zrodlo": "itunes.apple.com/lookup?id=6450212963&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 2,
+     "wydanie": "2023-11-30",
+     "zrodlo": "itunes.apple.com/lookup?id=6471915869&country=tw (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1.5,
+      3
+     ],
+     "zrodlo": "[ZAŁOŻENIE] luka lokalizacji: czołowi konkurenci storefrontu tylko EN (lookup 2026-11-03); górna granica z JP: aplikacje z JA mają 2–4× więcej ocen niż EN"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 1.03 (współczynnik ceny brutto tw: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "android",
+   "kraj": "tw",
+   "vat": {
+    "stawka": 0.05,
+    "zrodlo": "[ZAŁOŻENIE] stawka podstawowa 5% (tw); niesprawdzona u źródła 2026-11-03 (strona europa.eu ładuje stawki skryptem); wpływ ±5 pp na wynik < 5%"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "support.google.com/googleplay/android-developer/answer/112622: „First $1M (USD) of annual earnings 10% + 5% billing fee” (US, EOG, UK, AU, JP), „15% for the first $1M (USD)” w pozostałych rynkach (odczyt 2026-11-03)"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 15.44,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 92.69,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 154.49,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 27,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 212,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 7,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 265,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 53,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 314,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2025-07-09",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 10,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 98,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 171,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2020-05-12",
+     "zrodlo": "itunes.apple.com/lookup?id=1444569705&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 14,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 54,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 7,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 12,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2024-06-24",
+     "zrodlo": "itunes.apple.com/lookup?id=6450212963&country=tw (2026-11-03)"
+    },
+    {
+     "oceny": 2,
+     "wydanie": "2023-11-30",
+     "zrodlo": "itunes.apple.com/lookup?id=6471915869&country=tw (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1.5,
+      3
+     ],
+     "zrodlo": "[ZAŁOŻENIE] luka lokalizacji: czołowi konkurenci storefrontu tylko EN (lookup 2026-11-03); górna granica z JP: aplikacje z JA mają 2–4× więcej ocen niż EN"
+    },
+    "android_do_ios": {
+     "s": [
+      0.1,
+      0.6,
+      2
+     ],
+     "zrodlo": "[ZAŁOŻENIE] Android ÷ iOS w kategorii: recenzje Google Play ÷ oceny iOS 0,10 (Preflop Wizard) i 3,0 (GTO Gecko), play.google.com i lookup 2026-11-03; StatCounter 10/2026: 0,54 (CA) – 2,86 (MX) dla całego ruchu"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 1.03 (współczynnik ceny brutto tw: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "ios",
+   "kraj": "vn",
+   "vat": {
+    "stawka": 0.1,
+    "zrodlo": "[ZAŁOŻENIE] stawka podstawowa 10% (vn); niesprawdzona u źródła 2026-11-03 (strona europa.eu ładuje stawki skryptem); wpływ ±5 pp na wynik < 5%"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "developer.apple.com/app-store/small-business-program: „a reduced commission rate of 15% on paid apps and Apple In-App Purchases” (odczyt 2026-11-03); warunek: zapis właściciela do programu [DO WYJAŚNIENIA]"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 14.2,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 85.22,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 142.04,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 159,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 164,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 12,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 90,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 57,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 17,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2025-07-09",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 3,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 176,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 80,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 41,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 13,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2022-06-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1626050814&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 11,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 42,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2024-06-24",
+     "zrodlo": "itunes.apple.com/lookup?id=6450212963&country=vn (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1.5,
+      3
+     ],
+     "zrodlo": "[ZAŁOŻENIE] luka lokalizacji: czołowi konkurenci storefrontu tylko EN (lookup 2026-11-03); górna granica z JP: aplikacje z JA mają 2–4× więcej ocen niż EN"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 0.947 (współczynnik ceny brutto vn: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "android",
+   "kraj": "vn",
+   "vat": {
+    "stawka": 0.1,
+    "zrodlo": "[ZAŁOŻENIE] stawka podstawowa 10% (vn); niesprawdzona u źródła 2026-11-03 (strona europa.eu ładuje stawki skryptem); wpływ ±5 pp na wynik < 5%"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "support.google.com/googleplay/android-developer/answer/112622: „First $1M (USD) of annual earnings 10% + 5% billing fee” (US, EOG, UK, AU, JP), „15% for the first $1M (USD)” w pozostałych rynkach (odczyt 2026-11-03)"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 14.2,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 85.22,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 142.04,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 159,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 164,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 12,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 90,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 57,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 17,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2025-07-09",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 3,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 176,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 80,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 41,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 13,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2022-06-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1626050814&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 11,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 42,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=vn (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2024-06-24",
+     "zrodlo": "itunes.apple.com/lookup?id=6450212963&country=vn (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1.5,
+      3
+     ],
+     "zrodlo": "[ZAŁOŻENIE] luka lokalizacji: czołowi konkurenci storefrontu tylko EN (lookup 2026-11-03); górna granica z JP: aplikacje z JA mają 2–4× więcej ocen niż EN"
+    },
+    "android_do_ios": {
+     "s": [
+      0.1,
+      0.6,
+      2
+     ],
+     "zrodlo": "[ZAŁOŻENIE] Android ÷ iOS w kategorii: recenzje Google Play ÷ oceny iOS 0,10 (Preflop Wizard) i 3,0 (GTO Gecko), play.google.com i lookup 2026-11-03; StatCounter 10/2026: 0,54 (CA) – 2,86 (MX) dla całego ruchu"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 0.947 (współczynnik ceny brutto vn: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "ios",
+   "kraj": "de",
+   "vat": {
+    "stawka": 0.19,
+    "zrodlo": "[ZAŁOŻENIE] stawka podstawowa 19% (de); niesprawdzona u źródła 2026-11-03 (strona europa.eu ładuje stawki skryptem); wpływ ±5 pp na wynik < 5%"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "developer.apple.com/app-store/small-business-program: „a reduced commission rate of 15% on paid apps and Apple In-App Purchases” (odczyt 2026-11-03); warunek: zapis właściciela do programu [DO WYJAŚNIENIA]"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 17.18,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 103.13,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 171.89,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 96,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 151,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 47,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 84,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 117,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 13,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 3,
+     "wydanie": "2025-09-16",
+     "zrodlo": "itunes.apple.com/lookup?id=6747833042&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 5,
+     "wydanie": "2025-07-09",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 89,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 16,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 20,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 5,
+     "wydanie": "2020-05-12",
+     "zrodlo": "itunes.apple.com/lookup?id=1444569705&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 5,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 12,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 22,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 2,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 4,
+     "wydanie": "2024-06-24",
+     "zrodlo": "itunes.apple.com/lookup?id=6450212963&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2024-08-22",
+     "zrodlo": "itunes.apple.com/lookup?id=6503668923&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 2,
+     "wydanie": "2023-11-30",
+     "zrodlo": "itunes.apple.com/lookup?id=6471915869&country=de (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1.5,
+      3
+     ],
+     "zrodlo": "[ZAŁOŻENIE] luka lokalizacji: czołowi konkurenci storefrontu tylko EN (lookup 2026-11-03); górna granica z JP: aplikacje z JA mają 2–4× więcej ocen niż EN"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 1.146 (współczynnik ceny brutto de: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "android",
+   "kraj": "de",
+   "vat": {
+    "stawka": 0.19,
+    "zrodlo": "[ZAŁOŻENIE] stawka podstawowa 19% (de); niesprawdzona u źródła 2026-11-03 (strona europa.eu ładuje stawki skryptem); wpływ ±5 pp na wynik < 5%"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "support.google.com/googleplay/android-developer/answer/112622: „First $1M (USD) of annual earnings 10% + 5% billing fee” (US, EOG, UK, AU, JP), „15% for the first $1M (USD)” w pozostałych rynkach (odczyt 2026-11-03)"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 17.18,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 103.13,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 171.89,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 96,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 151,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 47,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 84,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 117,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 13,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 3,
+     "wydanie": "2025-09-16",
+     "zrodlo": "itunes.apple.com/lookup?id=6747833042&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 5,
+     "wydanie": "2025-07-09",
+     "zrodlo": "itunes.apple.com/lookup?id=6747779080&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 89,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 16,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 20,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 5,
+     "wydanie": "2020-05-12",
+     "zrodlo": "itunes.apple.com/lookup?id=1444569705&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 5,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 12,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 22,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 2,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 4,
+     "wydanie": "2024-06-24",
+     "zrodlo": "itunes.apple.com/lookup?id=6450212963&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2024-08-22",
+     "zrodlo": "itunes.apple.com/lookup?id=6503668923&country=de (2026-11-03)"
+    },
+    {
+     "oceny": 2,
+     "wydanie": "2023-11-30",
+     "zrodlo": "itunes.apple.com/lookup?id=6471915869&country=de (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1.5,
+      3
+     ],
+     "zrodlo": "[ZAŁOŻENIE] luka lokalizacji: czołowi konkurenci storefrontu tylko EN (lookup 2026-11-03); górna granica z JP: aplikacje z JA mają 2–4× więcej ocen niż EN"
+    },
+    "android_do_ios": {
+     "s": [
+      0.1,
+      0.6,
+      2
+     ],
+     "zrodlo": "[ZAŁOŻENIE] Android ÷ iOS w kategorii: recenzje Google Play ÷ oceny iOS 0,10 (Preflop Wizard) i 3,0 (GTO Gecko), play.google.com i lookup 2026-11-03; StatCounter 10/2026: 0,54 (CA) – 2,86 (MX) dla całego ruchu"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 1.146 (współczynnik ceny brutto de: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "ios",
+   "kraj": "pl",
+   "vat": {
+    "stawka": 0.23,
+    "zrodlo": "[ZAŁOŻENIE] stawka podstawowa 23% (pl); niesprawdzona u źródła 2026-11-03 (strona europa.eu ładuje stawki skryptem); wpływ ±5 pp na wynik < 5%"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "developer.apple.com/app-store/small-business-program: „a reduced commission rate of 15% on paid apps and Apple In-App Purchases” (odczyt 2026-11-03); warunek: zapis właściciela do programu [DO WYJAŚNIENIA]"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 19.07,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 114.47,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 190.79,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 28,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 25,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 3,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 13,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 21,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 13,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 16,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 11,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 2,
+     "wydanie": "2020-05-12",
+     "zrodlo": "itunes.apple.com/lookup?id=1444569705&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 3,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 15,
+     "wydanie": "2022-06-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1626050814&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 4,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=pl (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1.2,
+      2
+     ],
+     "zrodlo": "[ZAŁOŻENIE] PL: luka częściowa (NTPoker i POKER Q'z mają PL, lookup 2026-11-03); górna granica połowy efektu z JP"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 1.272 (współczynnik ceny brutto pl: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  },
+  {
+   "platforma": "android",
+   "kraj": "pl",
+   "vat": {
+    "stawka": 0.23,
+    "zrodlo": "[ZAŁOŻENIE] stawka podstawowa 23% (pl); niesprawdzona u źródła 2026-11-03 (strona europa.eu ładuje stawki skryptem); wpływ ±5 pp na wynik < 5%"
+   },
+   "prowizja": {
+    "stawka": 0.15,
+    "zrodlo": "support.google.com/googleplay/android-developer/answer/112622: „First $1M (USD) of annual earnings 10% + 5% billing fee” (US, EOG, UK, AU, JP), „15% for the first $1M (USD)” w pozostałych rynkach (odczyt 2026-11-03)"
+   },
+   "produkty": [
+    {
+     "id": "mies",
+     "cena_brutto": 19.07,
+     "platnosci_w_roku": 4,
+     "platnosci_zrodlo": "[ZAŁOŻENIE] średnio 4 opłacone miesiące na płacącego plan miesięczny w roku; brak przeczytanego źródła retencji",
+     "udzial": {
+      "s": [
+       0.5,
+       0.4,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "rok",
+     "cena_brutto": 114.47,
+     "udzial": {
+      "s": [
+       0.3,
+       0.35,
+       0.4
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    },
+    {
+     "id": "dozywotni",
+     "cena_brutto": 190.79,
+     "udzial": {
+      "s": [
+       0.2,
+       0.25,
+       0.3
+      ],
+      "zrodlo": "[ZAŁOŻENIE] podział płacących mies./rok/dożywotni; kierunek: plan dożywotni u 8 z 16 konkurentów i chwalony w recenzjach (13 z 349)"
+     }
+    }
+   ],
+   "konkurenci": [
+    {
+     "oceny": 28,
+     "wydanie": "2024-08-08",
+     "zrodlo": "itunes.apple.com/lookup?id=6590603158&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 25,
+     "wydanie": "2019-12-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1488850006&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 3,
+     "wydanie": "2024-03-19",
+     "zrodlo": "itunes.apple.com/lookup?id=6478522482&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 13,
+     "wydanie": "2020-09-21",
+     "zrodlo": "itunes.apple.com/lookup?id=1530767783&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 21,
+     "wydanie": "2018-09-11",
+     "zrodlo": "itunes.apple.com/lookup?id=1435468870&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2021-06-15",
+     "zrodlo": "itunes.apple.com/lookup?id=1553727514&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 13,
+     "wydanie": "2019-09-04",
+     "zrodlo": "itunes.apple.com/lookup?id=1458491856&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 16,
+     "wydanie": "2022-06-16",
+     "zrodlo": "itunes.apple.com/lookup?id=1629141961&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 11,
+     "wydanie": "2022-06-30",
+     "zrodlo": "itunes.apple.com/lookup?id=1630961215&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 2,
+     "wydanie": "2020-05-12",
+     "zrodlo": "itunes.apple.com/lookup?id=1444569705&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 3,
+     "wydanie": "2024-12-02",
+     "zrodlo": "itunes.apple.com/lookup?id=6738748434&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2025-03-11",
+     "zrodlo": "itunes.apple.com/lookup?id=6737678499&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 15,
+     "wydanie": "2022-06-08",
+     "zrodlo": "itunes.apple.com/lookup?id=1626050814&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 1,
+     "wydanie": "2023-08-17",
+     "zrodlo": "itunes.apple.com/lookup?id=6458732631&country=pl (2026-11-03)"
+    },
+    {
+     "oceny": 4,
+     "wydanie": "2023-05-04",
+     "zrodlo": "itunes.apple.com/lookup?id=6448717874&country=pl (2026-11-03)"
+    }
+   ],
+   "zalozenia": {
+    "instalacje_na_ocene": {
+     "s": [
+      20,
+      60,
+      200
+     ],
+     "zrodlo": "[ZAŁOŻENIE] instalacje na jedną ocenę w App Store; brak przeczytanego benchmarku (OP-03), rozrzut 10×"
+    },
+    "udzial_nowej": {
+     "s": [
+      0.005,
+      0.02,
+      0.05
+     ],
+     "zrodlo": "[ZAŁOŻENIE] udział nowej aplikacji w rocznych instalacjach 20 aplikacji kategorii w storefroncie; rozrzut 10×"
+    },
+    "darmowa_alternatywa": {
+     "s": [
+      0.5,
+      0.7,
+      0.9
+     ],
+     "zrodlo": "[ZAŁOŻENIE] część popytu, której nie zabierają darmowe plany konkurentów i darmowe materiały; dowód kierunku: skargi na ścianę płatności 23 z 349 recenzji (2026-11-03)"
+    },
+    "lokalizacja_mnoznik": {
+     "s": [
+      1,
+      1.2,
+      2
+     ],
+     "zrodlo": "[ZAŁOŻENIE] PL: luka częściowa (NTPoker i POKER Q'z mają PL, lookup 2026-11-03); górna granica połowy efektu z JP"
+    },
+    "android_do_ios": {
+     "s": [
+      0.1,
+      0.6,
+      2
+     ],
+     "zrodlo": "[ZAŁOŻENIE] Android ÷ iOS w kategorii: recenzje Google Play ÷ oceny iOS 0,10 (Preflop Wizard) i 3,0 (GTO Gecko), play.google.com i lookup 2026-11-03; StatCounter 10/2026: 0,54 (CA) – 2,86 (MX) dla całego ruchu"
+    },
+    "konwersja": {
+     "s": [
+      0.01,
+      0.03,
+      0.06
+     ],
+     "zrodlo": "[ZAŁOŻENIE] konwersja pobranie → płacący przy cenie wariantu; poziom bazowy przy cenie mediany kategorii"
+    }
+   },
+   "uwaga_ceny": "cena = cena US × 1.272 (współczynnik ceny brutto pl: średnia z 6 par planów (Postflop+, Preflop+, NTPoker; apps.apple.com 2026-11-03) przeliczona kursem NBP 214/A/NBP/2026 (2026-11-03), TWD i VND 043/B/NBP/2026 (2026-10-28))"
+  }
+ ]
+}
