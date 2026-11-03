@@ -5,7 +5,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 
 | Rola | Tryb | Stan | Commit | Artefakty | Otwarte decyzje |
 |---|---|---|---|---|---|
-| 01 Odkrywanie | build | E0 zakończone, E1 wywiad w toku (2026-11-03) | (ten commit) | „Stan projektu” w `CLAUDE.md`, `docs/brd/` (od E1) | — |
+| 01 Odkrywanie | build | E1 zakończone, STOP (2026-11-03) | 8ce11d7 | „Stan projektu” w `CLAUDE.md`, `docs/brd/` (README, wywiad, odkrywanie, zrodla) | OP-01 rozmowy z graczami (opcjonalne) |
 | 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
 
 ## E0 bramki: ustalenia (2026-11-03)
@@ -65,4 +65,5 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 - Plan i czas: E1 wywiad ~5–8 pytań pojedynczo (agent ~1 h, właściciel ~15–20 min); E2 rynek, OG, RD z istniejących reguł (agent ~3–4 h, sieć); E3 przepływy, BR, NFR, wektory, `kontrola-brd.mjs` (agent ~4–6 h); E4 przekazanie (~1 h). Czeka się na: odpowiedzi właściciela na bramkach.
 
 ## Następny krok
-Model i cena rozstrzygnięte (2026-11-03). (1) rynek PL rozstrzygnięty (bez storefrontu PL, pl w językach); (2) wpis decyzji E0 i E1b w rejestrze 03 (konektor Google Docs); (3) rola 01 (BRD) w trybie build, potem 02 → 03 → 04 → 05.
+**Rola 01 build, E2** (rynek, polityki, dziedzina): prompt `node /home/user/prompts/tools/assemble.mjs 01-odkrywanie --tryb build` (prompts c025063). Wejście: `docs/brd/odkrywanie.md` (J-01–J-06, P-1–P-3, ZP-01–05, granice W-03–W-06), `docs/monetyzacja.md` (rynek, ceny, rozbieżności z dokumentem z Dysku), PRD i roadmapa na Dysku jako hipotezy. Do zrobienia: (1) skan konkurencji z brakującymi aplikacjami (Poker Skill, River, Pokr, LeakSeek — lookup po ID, wyszukiwarka 403); (2) OG: App Review 5.3.4, 1.4?, kategorie wiekowe (symulowany hazard przy grze z botami, W-03), 3.1, 4.2, 4.3, Google Play (hazard, symulowany hazard, kategoria wiekowa), art. 29 u.g.h. (karta 48, `portfel-aplikacji/dane/poker-prawo-hazard.md`); (3) RD z `content/pl/rules.yaml` (142 reguły) i `content/numbers.yaml` — które aplikacja liczy (pot odds, MDF, equity, outy), reguły krytyczne (odpowiedzialna gra, telefony pomocy `content/helplines.yaml`); (4) H dla 02/03: ocena poziomu (W-02), trener AI z warunkiem (W-04), raport postępu za zgodą (W-06), podział (jedna ścieżka vs moduły), ZAL w `docs/zalozenia.md`; (5) ER: sprzeczności PRD z nowym celem (E0 roli 01). Potem STOP E2 z decyzją kontynuować / zmienić kierunek / zatrzymać; dalej E3, E4, rola 02 sesja 2.
+
