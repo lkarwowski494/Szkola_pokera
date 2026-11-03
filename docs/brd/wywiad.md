@@ -20,3 +20,8 @@ Odpowiedź na opinię roli 01 do W-02 i pytanie o granice (gra z botami na żeto
 Pytanie: Trener AI z rozmową w aplikacji (a bez AI — granica / b trener AI w planie płatnym przez serwer / c na start bez AI, trener jako hipoteza z warunkiem powrotu). Właściciel dopytał: „Poczekaj ostanie - czym się różni a i c ?” — rola 01 wyjaśniła: pierwsza wersja ta sama; (a) granica zamknięta, (c) lista odcięć z warunkiem powrotu, architektura nie zamyka drogi.
 Odpowiedź: „Ok to w takim razie C”
 [streszczenie roli 01] Na start bez AI, wyjaśnienia przygotowane offline; trener AI jako H dla 02/03 z warunkiem powrotu (dane ze sklepu: płacący, recenzje proszące o własne pytania); odrzucone a i b.
+
+## W-05 (2026-11-03)
+Pytanie: Postęp między telefonami (a bez konta, dane na telefonie, eksport/import pliku i kopia systemu / b synchronizacja iCloud i Google / c konto i własny serwer).
+Odpowiedź: „5a”
+[streszczenie roli 01] Bez konta i serwera; dane nauki tylko na urządzeniu; eksport i import pliku dla wszystkich (także bez zakupu); kopia zapasowa systemu w obrębie platformy. Odrzucone b, c.
