@@ -1,5 +1,5 @@
 # Monetyzacja: Szkoła Pokera
-Stan: sesja 2, E2 (2026-11-03); bramka opłacalności (krok 0) zakończona werdyktem „budować” (słaby dowód) · Aktualizacja: 2026-11-03 · Wejście: brak BRD (krok 0 przed rolą 01), decyzje właściciela z E0 w `docs/sztafeta.md`
+Stan: sesja 2, E3 (2026-11-03): kontrakt płatności i przekazanie; bramka opłacalności (krok 0) zakończona werdyktem „budować” (słaby dowód) · Aktualizacja: 2026-11-03 · Wejście: brak BRD (krok 0 przed rolą 01), decyzje właściciela z E0 w `docs/sztafeta.md`
 
 Dane surowe: `docs/monetyzacja/e1-rynek-2026-11-03.json` (lookup, zakupy w aplikacji US/PL/DE/GB, 45 storefrontów, StatCounter, NBP, Google Play). Parsery: `docs/monetyzacja/iap.mjs`, `plany.mjs`. Niezależność (D-023): przed zapisaniem `oplacalnosc-wlasna.json` nie otwierano karty portfela ani dokumentu „Aplikacje Mobilne do Nauki Pokera”; otwarto dokument 07 (Dysk, za zgodą z przekazania) i ADR-11.
 
@@ -31,6 +31,87 @@ Prompt: `assemble.mjs 02-monetyzacja --tryb build` (prompts c025063; moduły aud
 - E1.3–E1.4: klasy WTP dla 35 BR z danymi konkurencji (`docs/brd/dane/`), wyszukiwanie z OP-01, statusy H i ZAL; ok. 2 h agenta, limit wyszukiwarki ok. 20 wywołań/min; właściciel: bramka E1 (1 pytanie).
 - E2: co najmniej 3 opcje (decyzja z 2026-11-03: kwartał + rok + dożywotni; sam zakup dożywotni; sama subskrypcja), `rachunek.json` + `rachunek.mjs`, decyzje: okres próbny, Family Sharing, podział darmowe/płatne dla 03; ok. 2–3 h; właściciel: 3–4 pytania.
 - E3: kontrakt płatności, szkic ADR biblioteki, wektory dostępu, przekazanie do 03, 04, 05, 07, 08; ok. 2 h; właściciel: bramka i kroki w App Store Connect (produkty, progi cen, zapis do Small Business Program, jeśli go nie ma).
+
+## Decyzje właściciela na bramce E2 (2026-11-03)
+- Model: „A: drabina 9,99/14,99/19,99” — potwierdza decyzję z 2026-11-03; odrzucone: B sam jednorazowy 19,99 (rekomendacja roli 02, 6 400,43 vs 5 199,87 USD norm.), C sama subskrypcja. Ryzyko przyjęte: drabina wymaga konwersji ≥ 1,23× zakupu jednorazowego, żeby mu dorównać; kontrola po wydaniu: App Store Connect (Sales and Trends, udział planów), 90 dni. Zależy od: ZAL-MON-01, ZAL-011.
+- Podział darmowe/płatne (propozycja dla roli 03): „Wszystkie lekcje darmowe (Recommended)” — darmowe lekcje z ćwiczeniami w środku; płatne sesje ćwiczeń z oceną poza lekcją, powtórki, scenariusze; odrzucone: darmowe M0–M2, dzienny limit. Zależy od: ZAL-005 (H-01).
+- Okres próbny i Family Sharing: „Bez próby, Family Sharing wył. (Recommended)”; odrzucone: Family Sharing wł., próba 7 dni. Obie decyzje odwracalne (włączenie później).
+- Nowa sesja: „Nie”.
+
+## Sesja 2, E3: kontrakt płatności (2026-11-03)
+Dla ról 04, 05, 07, 08. Ceny US; inne kraje według tabel cen sklepów (krok właściciela w App Store Connect i Play Console). ID produktów to propozycja (prefiks z `apps/mobile/app.json`: `pl.lkarwowski.szkolapokera`); ID zatwierdza rola 05.
+
+| Produkt (ID) | Typ | Cena (US) | Family Sharing | Odblokowuje |
+|---|---|---|---|---|
+| `pl.lkarwowski.szkolapokera.kwartal` | subskrypcja odnawiana, 3 miesiące, grupa „pelny” | 9,99 USD | wył. (decyzja E2) | część płatna |
+| `pl.lkarwowski.szkolapokera.rok` | subskrypcja odnawiana, 1 rok, ta sama grupa | 14,99 USD | wył. | część płatna |
+| `pl.lkarwowski.szkolapokera.dozywotni` | niezużywalny (Non-Consumable); w Google Play produkt jednorazowy | 19,99 USD | wył. | część płatna, bez końca |
+
+| Przepływ (PR) | Akcja | Bez dostępu (co widzi użytkownik) | Dane zawsze dostępne |
+|---|---|---|---|
+| PR-01 ocena poziomu | cała | — (darmowe) | wynik oceny |
+| PR-02 lekcja | lekcja z ćwiczeniami w środku, test modułu | — (darmowe) | postęp lekcji |
+| PR-03 sesja ćwiczeń | zadania z oceną i wyjaśnieniem poza lekcją | ekran zakupu jako stan przepływu po wejściu w sesję, z opisem tego, co daje dostęp; powrót do lekcji jednym ruchem | historia odpowiedzi z lekcji |
+| PR-04 powtórki | kolejka powtórek | to samo; lista błędów z lekcji widoczna, powtórka w harmonogramie po zakupie | lista błędów |
+| PR-05 scenariusz | scenariusz całego rozdania | to samo; opis scenariusza widoczny | — |
+| PR-06 zakup | zakup, przywracanie, zarządzanie subskrypcją | zawsze dostępne | — |
+| PR-07 dane | eksport, import, usunięcie | zawsze dostępne, bez zakupu | cały postęp |
+| PR-08 pomoc | numer pomocy | zawsze dostępne, bez zakupu | — |
+
+- **Źródło dostępu:** transakcje sklepu (StoreKit `Transaction.currentEntitlements`, Google Play Billing); lokalny zapis to tylko pamięć podręczna ostatniego udanego odczytu (produkty, data końca opłaconego okresu). Po ponownej instalacji i na nowym urządzeniu dostęp wraca z transakcji sklepu (wzorce roli: „the app automatically has all transactions available to it upon initial launch”).
+- **Bez sieci:** pamięć podręczna daje dostęp do końca opłaconego okresu (subskrypcja) albo bez końca (dożywotni); błąd odczytu to nie brak zakupu (logika dostępu z modułu `storekit-expo`).
+- **Przywracanie:** przycisk „Przywróć zakupy” na ekranie zakupu i w ustawieniach; wywołuje synchronizację tylko na żądanie użytkownika (`AppStore.sync()`: „Call this function only in response to an explicit user action”). Przywracanie bez zakupu: komunikat, brak dostępu.
+- **Okres próbny:** brak (decyzja E2); próbę daje darmowy kurs.
+- **Zarządzanie subskrypcją w aplikacji:** `showManageSubscriptions(in:)` (expo-iap: `showManageSubscriptionsIOS`, `deepLinkToSubscriptions`).
+- **Zmiana planu:** kwartał i rok w jednej grupie subskrypcji (zmiana bez podwójnej opłaty); zakup dożywotniego przy aktywnej subskrypcji: ujawnienie, że subskrypcję trzeba anulować w ustawieniach (sklep nie anuluje jej sam) [DO USTALENIA] (OP-09: czy StoreKit lub Play pozwalają to zrobić z aplikacji).
+- **Ujawnienia dla roli 04** (ekran zakupu; strona subskrypcji Apple i zasady Play, odczyt 2026-11-03): tytuł i długość każdego okresu; pełna cena odnowienia jako największy element ceny („the amount that will be billed must be the most prominent pricing element”), bez przeliczenia „za miesiąc” większym krojem; dożywotni jako jednorazowa opłata bez odnowień; droga do przywracania; odnośniki do warunków (Terms of Use) i polityki prywatności; co zostaje darmowe.
+- **Zakazane wzorce** (tabela „Etyka” we wzorcach roli): fałszywe odliczanie i „promocje”, zawstydzanie przy odmowie, ekran zakupu wyskakujący w środku lekcji, dane jako zakładnik, „najpopularniejszy” bez danych, nacisk na ocenę w zamian za dostęp.
+
+### Szkic ADR biblioteki płatności (dla roli 05; zastępuje „Do decyzji” w ADR-18)
+| Opcja (npm, odczyt 2026-11-03) | Koszt i prywatność | Uwagi |
+|---|---|---|
+| `expo-iap` 6.4.1, MIT | bez usługi zewnętrznej i opłat; brak danych wychodzących do stron trzecich | iOS i Android; `restorePurchases`, `getAvailablePurchases`, nasłuch transakcji (wzorce roli); **rekomendacja** |
+| `react-native-purchases` 11.0.0, MIT (RevenueCat) | „Pay nothing for up to $2,500 in monthly tracked revenue. Then pay 1%” (revenuecat.com/pricing); „If you are using RevenueCat, you must disclose that your app collects ‘Purchases’ information from the App Privacy tab” (revenuecat.com/docs, apple-app-privacy) | sprzeczne z decyzją OP-12 („Data Not Collected”) i standardem marki wysokim |
+| własny moduł StoreKit 2 | bez opłat | tylko iOS; Android osobno; koszt kodu natywnego |
+Rekomendacja: `expo-iap`. Potwierdzenie: test logiki dostępu (niżej) i scenariusze na urządzeniu (krok właściciela, TestFlight i zamknięty test Play). Wymaga buildu deweloperskiego, nie Expo Go (wzorce roli).
+
+### Logika dostępu: wektory (wzorzec dla 07 i 08)
+`odblokowuja = ['kwartal', 'rok', 'dozywotni']` (pełne ID z tabeli produktów), `teraz = T`; funkcja `decyzja()` z modułu `storekit-expo` biblioteki.
+
+| Scenariusz | Odczyt | Pamięć | Oczekiwane |
+|---|---|---|---|
+| dożywotni | sklep: `dozywotni`, bez końca | brak | dostęp, `sklep`; pamięć `['dozywotni']`, bez końca |
+| ponowna instalacja | sklep: `dozywotni` | brak (wyczyszczona) | dostęp, `sklep` |
+| subskrypcja roczna trwa | sklep: `rok`, wygasa T+1 | brak | dostęp, `sklep`; pamięć wygasa T+1 |
+| brak sieci, roczna trwa | błąd | `['rok']`, wygasa T+1 | dostęp, `pamiec` |
+| brak sieci, kwartał wygasł | błąd | `['kwartal']`, wygasa T−1 | brak dostępu |
+| brak sieci, nigdy nie kupił | błąd | brak | brak dostępu |
+| zwrot dożywotniego | sklep: `dozywotni`, odebrane | `['dozywotni']` | brak dostępu, pamięć wyczyszczona |
+| dożywotni i wygasły kwartał | sklep: `dozywotni` bez końca, `kwartal` T−1 | brak | dostęp; pamięć `['dozywotni']`, bez końca |
+| przywracanie bez zakupu | sklep: pusta lista | brak | brak dostępu i komunikat |
+Testy tylko na telefonie (krok właściciela): zakup, ponowna instalacja, tryb samolotowy, przywracanie na drugim urządzeniu, zwrot (sandbox), zmiana kwartał ↔ rok.
+
+### Definicja ukończenia (build, sesja 2)
+| Punkt | Wynik | Dowód |
+|---|---|---|
+| ceny, stawki, reguły sklepu z adresem, cytatem i datą | spełnione z wyjątkami w OP | reguły: „Sesja 2, E0” (odczyt 2026-11-03); ceny konkurencji z 2026-11-03 (E1 bramki, BRD); VAT US i retencja jako [ZAŁOŻENIE]/[OCENA]; VAT innych krajów OP-06, Google Play OP-08, Schedule 2 OP-16 (BRD) |
+| ≥ 2 modele z regułą, kompromisem, ryzykiem etycznym i rachunkiem; rekomendacja; wybór właściciela słowami z datą | spełnione | „Sesja 2, E2” (A, B, C + bez opłat, napiwek, płatne pobranie); rekomendacja B; wybór „A: drabina 9,99/14,99/19,99” (2026-11-03) |
+| bramka: `oplacalnosc.mjs` kod 0, werdykt, interpretacje A/B | spełnione w sesji 1 | „Opłacalność (E1b)”; w E2 ponowne uruchomienie dla A, B, C (kod 0) |
+| `rachunek.mjs` kod 0, wejścia ze źródłem albo [OCENA] | spełnione | `dowody/rachunek-2026-11-03.txt`, `rachunek.json` |
+| każda funkcja z BR ma klasę WTP; WTP-X zgłoszone 03 | spełnione | „Sesja 2, E1”: 35 z 35 BR (skrypt pokrycia), WTP-X brak |
+| kontrakt płatności: produkty, uprawnienia, bramki, przywracanie, bez sieci, okres próbny, Family Sharing, ujawnienia | spełnione | ta sekcja |
+| H i ZAL ze statusem; sprzeczność z 01 jako ER | spełnione | statusy w „Sesja 2, E1” i decyzjach E2; sprzeczności z BRD: brak (ER nie potrzebne) |
+
+### Przekazanie do następnej roli
+- Zakończono: rola 02, build, sesja 2 (E0–E3), gałąź `claude/sleepy-brahmagupta-2065nu`; artefakty: `docs/monetyzacja.md`, `docs/monetyzacja/rachunek.json`, `docs/monetyzacja/dowody/rachunek-2026-11-03.txt`, `docs/monetyzacja/warianty/`.
+- **03 Zakres:** tabela WTP („Sesja 2, E1”), propozycja podziału: wszystkie lekcje darmowe, płatne sesje ćwiczeń poza lekcją, powtórki, scenariusze (decyzja właściciela E2); WTP-X brak; najsłabszy dowód: BR-CWI-005, BR-CWI-006; rozróżnienie CWI w lekcji (PR-02) i w sesji (PR-03).
+- **04 Projekt:** ekran zakupu jako stan przepływu PR-03, PR-04, PR-05; ujawnienia i zakazane wzorce z „Kontrakt płatności”; przywracanie i zarządzanie subskrypcją.
+- **05 Architektura:** szkic ADR biblioteki (rekomendacja `expo-iap`), ID produktów, pamięć podręczna uprawnień (JSON, miejsce w ADR), brak danych wychodzących (inwentarz prywatności: „Data Not Collected”), usunięcie `@sentry/react-native` (OP-12).
+- **07 i 08:** wektory logiki dostępu wyżej, lista testów tylko na telefonie, ryzyka: OG-05/RYZ-01 (stała wartość subskrypcji), OP-09 (dożywotni przy aktywnej subskrypcji).
+- **Właściciel (App Store Connect i Play Console):** zapis do Small Business Program, jeśli go nie ma (15% zamiast 30%); produkty z tabeli w grupie subskrypcji; ceny według tabel cen sklepów; Family Sharing wyłączone; storefront PL odznaczony.
+- Następny krok ścieżki greenfield: **03-zakres**, tryb `build`; nowa sesja: opus, wysiłek high. Polecenie: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build`.
+- Paczka wejściowa: `docs/brd/`, `docs/monetyzacja.md` („Sesja 2”), `docs/zalozenia.md`, `docs/sztafeta.md`.
+- Otwarte decyzje: OP-20, OP-22 (BRD, 03 z właścicielem), H-04 podział aplikacji (03 z właścicielem), OP-09 (dożywotni przy subskrypcji).
 
 ## Sesja 2, E2: modele i rachunek (2026-11-03)
 Dowody uruchomienia: `node oplacalnosc.mjs warianty/<wariant>.json` (kod 0 dla trzech opcji; wyniki w scratchpadzie sesji, liczby niżej), `node rachunek.mjs rachunek.json` (kod 0) → `docs/monetyzacja/dowody/rachunek-2026-11-03.txt`. Nowy wariant C dopisany do `generuj-warianty.mjs` (`sub-9.99-14.99`); pozostałe 15 plików wariantów po ponownym wygenerowaniu bez zmian (`git status`: tylko nowy plik). Bez storefrontu PL. Kwoty: USD netto/rok, pes. / norm. / opt.
@@ -287,6 +368,7 @@ Wniosek: rozbieżności cen nie zmieniają median kategorii rzędu wielkości (w
 | OP-04 | [DO WYJAŚNIENIA] Wpis decyzji E0 w rejestrze 03 na Dysku wymaga konektora Google Docs (sesja ma tylko Drive) | właściciel | rejestr |
 | OP-05 | Rozstrzygnięte 2026-11-03: bez storefrontu PL, pl w językach (decyzja właściciela) | — | rynki, rola 09 |
 | OP-06 | [DO USTALENIA] Stawki VAT FR/DE/PL/JP/TW/VN u źródła (wpływ < 5%) | 02, krok cennika | rachunek |
+| OP-09 | [DO USTALENIA] Zakup dożywotniego przy aktywnej subskrypcji: czy StoreKit i Google Play Billing pozwalają anulować subskrypcję z aplikacji, czy tylko wskazać ustawienia | 05, 07 | kontrakt płatności |
 | OP-08 | [DO USTALENIA] Google Play: pełne warunki subskrypcji i produktów jednorazowych (ujawnienia, okres próbny, przywracanie) przed cennikiem | 02, E3 | kontrakt płatności |
 | OP-07 | [DO USTALENIA] Benchmark instalacji na ocenę i konwersji według ceny (przeczytane źródło) — najtańsze sprawdzenie werdyktu | 02, przed cennikiem | bramka |
 

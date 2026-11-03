@@ -7,7 +7,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 |---|---|---|---|---|---|
 | 01 Odkrywanie | build | zakończona 2026-11-03 (E4, przekazanie niżej) | (commit E4) | `docs/brd/` (README, wywiad, odkrywanie, wymagania, wymagania-nauka, wymagania-sklep, reguly, errata, zrodla, dane/), `tests/wektory/brd.json`, `docs/zalozenia.md`, „Stan projektu” w `CLAUDE.md` | OP-10, OP-14, OP-16, OP-18 (źródła), OP-19 (04), OP-20, OP-22 (03 z właścicielem), OP-21 (05) |
 | 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
-| 02 Monetyzacja (sesja 2) | build | E2: opcje i rachunek gotowe, STOP na decyzje właściciela (2026-11-03); E0 i E1 zaakceptowane | (commit E2) | `docs/monetyzacja.md` („Sesja 2, E0–E2”), `docs/monetyzacja/rachunek.json`, `dowody/rachunek-2026-11-03.txt` | model, podział, okres próbny, Family Sharing |
+| 02 Monetyzacja (sesja 2) | build | E3 zakończone: kontrakt płatności i przekazanie, STOP na akceptację właściciela (2026-11-03) | (commit E3) | `docs/monetyzacja.md` („Sesja 2, E0–E3”), `docs/monetyzacja/rachunek.json`, `dowody/rachunek-2026-11-03.txt` | OP-09 (monetyzacja), OP-20, OP-22, H-04 |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -140,5 +140,8 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - E1 (wynik): klasy WTP dla 35 BR (`docs/monetyzacja.md`, „Sesja 2, E1”); WTP-1: CWI-001, CWI-002, POW-001, SCN-001, SCN-003, KURS-001 (z dowodem przeciw); WTP-X: brak; statusy H-01, H-09, ZAL-005, ZAL-011, ZAL-MON-01 bez zmian (hipotezy).
 - Bramka E1: „Akceptuję, dalej E2 (Recommended)”; nowa sesja: „Nie”.
 
+- Bramka E2: model „A: drabina 9,99/14,99/19,99” (odrzucona rekomendacja B: sam jednorazowy 19,99); podział „Wszystkie lekcje darmowe (Recommended)”; „Bez próby, Family Sharing wył. (Recommended)”; nowa sesja: „Nie”. Szczegóły: `docs/monetyzacja.md`, „Decyzje właściciela na bramce E2”.
+- E3: kontrakt płatności, szkic ADR biblioteki (`expo-iap`), wektory dostępu, definicja ukończenia i przekazanie: `docs/monetyzacja.md`, „Sesja 2, E3”.
+
 ## Następny krok
-**Rola 02 build, sesja 2: E2** (opcje modelu z regułami sklepu i `rachunek.mjs`, decyzje: okres próbny, Family Sharing, podział darmowe/płatne dla 03) po akceptacji E1. Prompt: `node /home/user/prompts/tools/assemble.mjs 02-monetyzacja --tryb build` (prompts c025063). Wejście: paczka z przekazania roli 01 wyżej.
+**Rola 03 build** (zakres i kontrakt MVP) po akceptacji E3 roli 02. Prompt: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build` (prompts c025063); nowa sesja: opus, wysiłek high. Paczka: `docs/brd/`, `docs/monetyzacja.md` („Sesja 2”), `docs/zalozenia.md`, ten plik.
