@@ -107,7 +107,7 @@ Polityka prywatności w metadanych i w aplikacji [FAKT S-15]; dane do stron trze
 Aplikacje świadczące usługi w hazardzie mają być wydawane przez osobę prawną [FAKT S-16]. Aplikacja nauki takiej usługi nie świadczy; recenzent może zapytać. Kontrola: w notatce dla recenzenta wprost „no real-money gaming, no prizes, chips have no value”. Ryzyko RYZ-02.
 
 ### OG-13: DSA: dane kontaktowe sprzedawcy publikowane w UE
-Przy dystrybucji w UE Apple publikuje adres, telefon i e-mail sprzedawcy na stronie produktu [FAKT S-07]. Z listy rynków dotyczy FR i DE. Decyzja właściciela: [DO WYJAŚNIENIA] (OP-17). Ryzyko RYZ-07.
+Przy dystrybucji w UE Apple publikuje adres, telefon i e-mail sprzedawcy na stronie produktu [FAKT S-07]. Konto dewelopera ma już status przedsiębiorcy (trader), zweryfikowany przez Apple 20.10.2026 (repo `trening`, `docs/45-formalnosci-asc.md:21`, odczyt 2026-11-03); właściciel 2026-11-03: „Dwa już mam. […] Chodziło o DSA”. Skutek: FR i DE bez dodatkowego kroku; formalności App Store Connect sprawdzać według wzoru z repo `trening` (polecenie właściciela 2026-11-03).
 
 ### OG-14: Telefon pomocy dla kraju użytkownika
 Aplikacja z symulowanym hazardem i ramką „Odpowiedzialna gra” ma dziś numery tylko dla Polski (ER-04). Źródła dla rynku głównego: US 1-800-MY-RESET [FAKT S-39], w kryzysie 911 albo 988 [FAKT S-40]; 1-800-GAMBLER prowadzi od 2025 r. organizacja z New Jersey [FAKT S-42]; GB: Anglia i Szkocja 0808 8020 133, Walia 0808 2819 265 [FAKT S-41]. Pozostałe kraje sprzedaży: [DO USTALENIA] (OP-10). Dotyczy RD-12.
@@ -121,5 +121,5 @@ Aplikacja z symulowanym hazardem i ramką „Odpowiedzialna gra” ma dziś nume
 | RYZ-04 | Zarzut promocji pokera z art. 29 przy języku pl | teoretyczny po decyzji „bez PL” | OG-07 | brak storefrontu PL; zero operatorów i zachęt; opinia prawna do decyzji (OP-13) |
 | RYZ-05 | Brak telefonu pomocy w kraju użytkownika | realny | ER-04, OG-14 | RD-12, bloker wydania |
 | RYZ-06 | Persony z recenzji konkurencji, bez rozmów z graczami | realny dla trafności | OP-01 | po wydaniu recenzje własne i dane sklepu (W-06) |
-| RYZ-07 | Publikacja adresu i telefonu właściciela w UE | realny (prywatność właściciela) | OG-13 | decyzja OP-17 |
+| RYZ-07 | Publikacja adresu i telefonu właściciela w UE | zamknięte 2026-11-03 (status przedsiębiorcy już jest) | OG-13 | — |
 | RYZ-08 | Ocena zagrań surowsza niż źródło zniechęca zaawansowanych | realny | ER-01, recenzja S-04 | RD-11 według S-06 |
