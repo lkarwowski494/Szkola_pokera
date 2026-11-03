@@ -85,7 +85,7 @@ Z E0 (App Review Guidelines „Last Updated: October 16, 2026”, odczyt 2026-11
 ## Opłacalność (E1b, 2026-11-03)
 Dowody uruchomienia: `docs/monetyzacja/dowody/oplacalnosc-2026-11-03.txt` (wariant właściciela, 16:58 UTC) i `dowody/warianty-2026-11-03.txt` (macierz). Próg: 500 USD/rok netto, globalnie (decyzja właściciela 2026-11-03). Kwoty: USD netto/rok po VAT i prowizji 15%, przed podatkiem dochodowym, bez kosztów portfela (Apple Developer, rejestracja Google Play — D-024). Wartości pes. / norm. / opt.
 
-**Kontrola skryptów:** przykłady biblioteki (`prompts/tests/fixtures`) niedostępne — klasyfikator środowiska odrzucił dołączenie repo `prompts` (add_repo, „Access Added As A Means”, 2026-11-03). Zastępczo: niezależne przeliczenie ios/us bez importu skryptu (oceny/rok 3548,6 × założenia normalne = 134,14 płacących × 6,6113 USD = **886,83 USD**) — zgodne z wynikiem skryptu co do grosza. Kontrola na przykładach biblioteki zostaje do zrobienia (OP-05).
+**Kontrola skryptów (2026-11-03, prompts c025063):** `node oplacalnosc.mjs prompts/tests/fixtures/oplacalnosc-przyklad.json` → A 55,26 zł „porzucić”, B 455,36 zł „odłożyć” przy progu 1948,70 zł; `node rachunek.mjs prompts/tests/fixtures/rachunek-przyklad.json` → wpływ 13,81 zł, próg 28 płacących/rok (kod 0, zgodne z oczekiwanymi). Dodatkowo niezależne przeliczenie ios/us bez importu skryptu: 3548,6 ocen/rok × założenia normalne = 134,14 płacących × 6,6113 USD = **886,83 USD**, zgodne ze skryptem.
 
 ### Werdykt: **budować** (wariant właściciela 0,99 / 6,99 / 14,99 USD, D-029)
 | Zakres | pes. | norm. | opt. |
@@ -136,11 +136,11 @@ Najwyższy wynik normalny: **rynek 14,99 $/mies., 89,99 $/rok, 149,99 $ dożywot
 - bez ciemnych wzorców: darmowa część z prawdziwą nauką przed zakupem (H-E1-04), okres próbny tylko przez App Store Connect z jasnym ujawnieniem ceny po okresie, bez fałszywych promocji „50%” (H-E1-05), łatwe anulowanie przez ustawienia systemu, działające „Przywróć zakupy”;
 - wytyczne sklepów: subskrypcja tylko z bieżącą wartością (3.1.2(a): aktualizacje treści, powtórki SRS), plan dożywotni jako zakup nieodnawialny, bez gry na pieniądze i pomocy w czasie gry (5.3.4); odpowiedniki w Google Play [DO SPRAWDZENIA przez rolę 02 w kroku cennika];
 - standard marki wysoki: bez reklam i SDK śledzących — spełnione we wszystkich wariantach macierzy;
-- zasada 18 biblioteki: [DO SPRAWDZENIA] — treść niedostępna w tej sesji (repo `prompts` nie dołączone).
+- zasada 18 biblioteki („Tylko funkcje z wartością i intuicyjne; żadnych kombajnów”, `shared/zasady.md`, wersja 2026-10-31): dotyczy funkcji, nie ceny; wariant nie dodaje funkcji — spełnione; podział darmowe/płatne i WTP-X ocenia sesja 2 roli 02 z rolą 03.
 Wybór ceny to decyzja produktowa właściciela (CLAUDE.md). **Decyzja właściciela 2026-11-03: wariant 0,99 / 6,99 / 14,99 USD** (odrzucone: ceny rynku, jednorazowy 99,99, środek; szczegóły w `docs/sztafeta.md`). Podłoga powyżej obowiązuje także dla tego wariantu.
 
 ### Rozbieżności z kartą portfela i dokumentem „Aplikacje Mobilne do Nauki Pokera” (otwarte po zapisaniu dowodu, D-023)
-Karta `portfel-aplikacji/karty/48-szkola-pokera.md`: **nieotwarta** — leży w repo `prompts`, którego ta sesja nie może dołączyć (OP-05). Dokument z Dysku (id 121Gf18Z…, odczyt 2026-11-03):
+Karta `portfel-aplikacji/karty/48-szkola-pokera.md`: **nieotwarta** — leży w osobnym repo `portfel-aplikacji`; jego dołączenie odrzucił klasyfikator środowiska (2026-11-03, OP-05). Dokument z Dysku (id 121Gf18Z…, odczyt 2026-11-03):
 
 | Wielkość | Nasza (E1, lookup/strony App Store 2026-11-03) | Dokument | Przyczyna |
 |---|---|---|---|
@@ -165,7 +165,7 @@ Wniosek: rozbieżności cen nie zmieniają median kategorii rzędu wielkości (w
 | OP-02 | [DO USTALENIA] Płatności App Store w storefroncie RU | 02, E1b | przesiew |
 | OP-03 | [DO USTALENIA] Instalacje na ocenę i udział nowej aplikacji: brak przeczytanego benchmarku → `[ZAŁOŻENIE]` z rozrzutem ≥ 10× | 02, E1b | bramka |
 | OP-04 | [DO WYJAŚNIENIA] Wpis decyzji E0 w rejestrze 03 na Dysku wymaga konektora Google Docs (sesja ma tylko Drive) | właściciel | rejestr |
-| OP-05 | [DO WYJAŚNIENIA] Repo `prompts` niedostępne w sesji (add_repo odrzucony przez klasyfikator): kontrola skryptów na przykładach biblioteki, karta portfela 48, zasada 18 | właściciel (dołączenie repo / reguła uprawnień) | kontrola, rozbieżności, podłoga |
+| OP-05 | [DO WYJAŚNIENIA] Repo `portfel-aplikacji` niedostępne w sesji (add_repo odrzucony przez klasyfikator 2026-11-03): karta 48 do tabeli rozbieżności. Repo `prompts` dołączone (kontrola skryptów i zasada 18 zrobione) | właściciel (zgoda na dołączenie repo) | rozbieżności |
 | OP-06 | [DO USTALENIA] Stawki VAT FR/DE/PL/JP/TW/VN u źródła (wpływ < 5%) | 02, krok cennika | rachunek |
 | OP-07 | [DO USTALENIA] Benchmark instalacji na ocenę i konwersji według ceny (przeczytane źródło) — najtańsze sprawdzenie werdyktu | 02, przed cennikiem | bramka |
 
