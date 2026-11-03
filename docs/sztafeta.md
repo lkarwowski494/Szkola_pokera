@@ -113,7 +113,7 @@ Prompt: `assemble.mjs 01-odkrywanie --tryb build` (prompts c025063), przeczytany
 | BR z PR, PR z J; scenariusz główny z obserwowalnym wynikiem; liczby ze źródła, decyzji albo [DO USTALENIA]; NFR mierzalne | spełnione | skrypt: każde z 35 BR ma PR, „Dowód potrzeby”, Scenariusz z „Wtedy”; PR-01–PR-08 mają J; 13 NFR z Miarą, Progiem, Metodą; przegląd `grep` kroków z liczbami w `wymagania-*.md`: każda liczba z wektorem RD-nn-Wn albo decyzją, M0–M13 to nazwy modułów kursu |
 | OG z polityk użytych w przepływach przypisane do wymagań | spełnione z wyjątkiem nazwanym | 10 z 14 OG ma odwołanie w `wymagania*.md`; bez odwołania: OG-03 i OG-04 (tylko przy H-07 albo innej odpowiedzi w ankiecie, OP-18), OG-09 (podział, H-04 dla 03), OG-13 (DSA, formalność konta, już spełniona) — żaden nie dotyczy przepływu PR-01–PR-08 |
 | cena, zakres MVP, podział tylko jako H | spełnione | `grep -i "MVP\|pierwsza wersja" wymagania*.md`: brak; podział H-04, monetyzacja H-01 i H-09, zakres H-02, H-03, H-06, H-07; cena to decyzja właściciela z bramki 02, nie roli 01 |
-| `kontrola-brd.mjs` bez `--szkic` z kodem 0; BRD w miejscu z CLAUDE.md; w publicznym repo brak danych rozmówców i cudzych materiałów | spełnione w repo; skrót na Dysku brak | `node kontrola-brd.mjs docs/brd` → kod 0, 9 plików, 35 BR, 12 RD, 80 wektorów, 15 OP, 0 błędów, 0 uwag (2026-11-03); rozmowy z graczami nie odbyły się (OP-01), `dane/konkurencja-2026-11-03.json` bez cudzych opisów i recenzji, w BRD tylko krótkie cytaty z adresem; **skrótu BRD na Dysku nie ma** (wyszukanie Dysku 2026-11-03: brak pliku „BRD” zmienionego od 1.11) — krok właściciela niżej |
+| `kontrola-brd.mjs` bez `--szkic` z kodem 0; BRD w miejscu z CLAUDE.md; w publicznym repo brak danych rozmówców i cudzych materiałów | spełnione | `node kontrola-brd.mjs docs/brd` → kod 0, 9 plików, 35 BR, 12 RD, 80 wektorów, 15 OP, 0 błędów, 0 uwag (2026-11-03); rozmowy z graczami nie odbyły się (OP-01), `dane/konkurencja-2026-11-03.json` bez cudzych opisów i recenzji, w BRD tylko krótkie cytaty z adresem; skrót BRD na Dysku założony po decyzji właściciela na bramce E4: „BRD — Szkoła Pokera (skrót)” w folderze „Szkoła Pokera” (2026-11-03, treść odczytana po zapisie) |
 
 Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)” po decyzji właściciela; zastąpione skutkiem decyzji.
 
@@ -123,10 +123,16 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - **03 Zakres:** przepływy PR-01–PR-08 (`wymagania.md`) i 35 BR (`wymagania-nauka.md`, `wymagania-sklep.md`); hipotezy zakresu H-02, H-03, H-05, H-06, H-07, H-08; propozycja podziału H-04 (rekomendacja: jedna aplikacja z modułami, turnieje M11 jako wariant); blokery wydania: tabela w `docs/brd/README.md`; OP-20 i OP-22 z właścicielem.
 - **06 Treść (później):** RD-01–RD-12 i S-01–S-54 do rejestru twierdzeń; RD-12 krytyczna do przeglądu (zastępczy, D-027), OP-10 obejmuje wszystkie storefronty poza PL; OP-09, OP-14; ER-01 (ocena zagrań według S-06). Po weryfikacji rejestr 06 ma pierwszeństwo, rozbieżność przez ER do roli 01.
 - **07 i 08:** RD-01–RD-12 i `tests/wektory/brd.json` tylko do odczytu, zmiana przez ER; ER-11 (2 funkcje bez kontroli wejścia); znalezisko: E2E na `main` wyłączony 20.10.2026.
-- **Właściciel (kroki zewnętrzne):** (1) wpisy w rejestrze 03 i dokumencie 13 na Dysku: W-07, ER-01, OP-11, OP-12 (zmiana ADR-17), OP-13, OP-15, ADR-14 → 35 języków, decyzje E0/E1b bramki i E0 roli 01 (konektor nie edytuje Google Docs); (2) skrót BRD na Dysku z odnośnikiem do `docs/brd/` (decyzja „Repo + skrót na Dysku”); (3) storefront PL odznaczony w App Store Connect; (4) rozmowy z graczami: nie (OP-01).
+- **Właściciel (kroki zewnętrzne):** (1) wpisy w rejestrze 03 i dokumencie 13 na Dysku: W-07, ER-01, OP-11, OP-12 (zmiana ADR-17), OP-13, OP-15, ADR-14 → 35 języków, decyzje E0/E1b bramki i E0 roli 01 (konektor nie edytuje Google Docs); (2) skrót BRD na Dysku: zrobione 2026-11-03; (3) storefront PL odznaczony w App Store Connect; (4) rozmowy z graczami: nie (OP-01).
 - Następny krok ścieżki: **02-monetyzacja**, tryb `build`, sesja 2; nowa sesja: opus, wysiłek high. Polecenie: `node /home/user/prompts/tools/assemble.mjs 02-monetyzacja --tryb build`.
 - Paczka wejściowa: `docs/monetyzacja.md`, `docs/brd/README.md`, `docs/brd/odkrywanie.md` (H, OG, RYZ), `docs/brd/wymagania-sklep.md`, `docs/zalozenia.md`, ten plik.
 - Otwarte decyzje: OP-16 (02), OP-20 i OP-22 (03 z właścicielem), H-01 i H-04 (02/03 z właścicielem).
+
+## Decyzje właściciela na bramce E4 (2026-11-03)
+- Bramka: „Akceptuję, dalej rola 02 (Recommended)”; odrzucone: najpierw zmiany w E4.
+- Skrót BRD: „Załóż plik w folderze projektu (Recommended)”; odrzucone: zrobię to sam.
+- Nowa sesja: „Nie” — rola 02 sesja 2 w tej sesji; odrzucone: nowa sesja z archiwizacją tej (rekomendacja), nowa bez archiwizacji.
+- Tożsamość commitów: hook środowiska prosi o autora `noreply@anthropic.com`; zostaje tożsamość z `CLAUDE.md` (noreply właściciela), zgodnie z wcześniejszymi commitami gałęzi.
 
 ## Następny krok
 **Rola 02 build, sesja 2** (model i kontrakt płatności). Prompt: `node /home/user/prompts/tools/assemble.mjs 02-monetyzacja --tryb build` (prompts c025063). Wejście: paczka z przekazania roli 01 wyżej.
