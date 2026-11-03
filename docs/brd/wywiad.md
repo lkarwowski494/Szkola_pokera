@@ -25,3 +25,11 @@ Odpowiedź: „Ok to w takim razie C”
 Pytanie: Postęp między telefonami (a bez konta, dane na telefonie, eksport/import pliku i kopia systemu / b synchronizacja iCloud i Google / c konto i własny serwer).
 Odpowiedź: „5a”
 [streszczenie roli 01] Bez konta i serwera; dane nauki tylko na urządzeniu; eksport i import pliku dla wszystkich (także bez zakupu); kopia zapasowa systemu w obrębie platformy. Odrzucone b, c.
+
+## W-06 (2026-11-03)
+Pytanie: Pomiar sukcesu przy standardzie wysokim (a tylko zbiorcze dane App Store Connect i Play Console / b plus raport postępu wysyłany przez użytkownika za zgodą / c własna anonimowa analityka).
+Odpowiedź: „A”
+[streszczenie roli 01] Bez SDK i bez własnej analityki; miary z App Store Connect i Play Console. (b) jako hipoteza przy wysokich porzuceniach. Odrzucone c.
+
+## Koniec wywiadu (2026-11-03)
+[streszczenie roli 01] Kolejne pytanie nie zmieniłoby wymagań: problem i potrzeby użytkownika pochodzą z dowodów rynku (właściciel nie jest użytkownikiem, W-01); granice ustalone W-03–W-06. Rozmowy z graczami (krok właściciela, opcjonalnie) — OP w BRD.
