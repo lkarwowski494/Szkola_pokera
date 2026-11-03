@@ -1,0 +1,15 @@
+# Rejestr założeń: Szkoła Pokera
+Jeden rejestr dla wszystkich ról (szablon biblioteki `prompts`, c025063). Założenie to twierdzenie, na którym stoją decyzje, a którego prawdziwość nie wynika z kodu. Przy zmianie na „podważone” albo „obalone”: `grep -rn "ZAL-0nn" docs/ apps/ packages/ content/` i lista zależnych pozycji do decyzji właściciela.
+
+| ID | Założenie | Rola | Status | Dowód (źródło, data) | Zależą od niego |
+|---|---|---|---|---|---|
+| ZAL-001 | Główna grupa płacąca to gracz rekreacyjny przy niskich stawkach (gry domowe, kasyno), który chce przestać przegrywać i rozumieć decyzje | 01 | hipoteza | recenzje S-01, S-05 (2026-11-03); bez rozmów z graczami (OP-01 w `docs/brd/README.md`) | P-1, komunikat w sklepie (W-03), H-02 |
+| ZAL-002 | Jedna ścieżka od zera do GTO z krótką oceną poziomu i celu na starcie obsłuży wszystkie poziomy bez rozmycia komunikatu | 01 | hipoteza | W-02, W-03 (2026-11-03); konkurent z testem poziomującym (`docs/brd/odkrywanie.md`, rynek) | J-05, H-02, H-04 |
+| ZAL-003 | Lokalizacja (35 języków) zbiera popyt poza US, bo kategoria jest prawie tylko po angielsku | 01, 02 | częściowo potwierdzone | `docs/monetyzacja.md`: 25 z 29 aplikacji tylko EN; w JP prowadzą 2 aplikacje z japońskim (2026-11-03); pozostałe kraje bez dowodu | ZP-02, H-03, mnożnik lokalizacji w bramce |
+| ZAL-004 | Tłumaczenie treści przez API z kontrolami daje jakość wystarczającą dla treści merytorycznej (liczby, terminy) | 01, 09 | hipoteza | W-03 pkt 1 (właściciel: sprawdzone w 3 innych aplikacjach, 2026-11-03); brak pomiaru w tej dziedzinie | ZP-02, rola 09, NFR języków (E3) |
+| ZAL-005 | Darmowa część z prawdziwą nauką przed zakupem zwiększa sprzedaż w tej kategorii | 01, 02 | hipoteza | `docs/monetyzacja.md` H-E1-04: 23 z 349 recenzji skarży się na ścianę płatności u lidera (2026-11-03) | H-01 |
+| ZAL-006 | Użytkownik akceptuje brak synchronizacji: postęp przenosi eksport i import pliku albo kopia systemu, zakup przywraca sklep | 01 | hipoteza | W-05 (2026-11-03); przeciw: 4 z 349 recenzji o zakupie niewidocznym na nowym urządzeniu (zakup, nie postęp) | J-06, H-05 |
+| ZAL-007 | Gra z botami na żetony bez wartości nie czyni aplikacji grą hazardową ani „real money gaming” w rozumieniu sklepów i prawa rynków w sprzedaży | 01 | hipoteza | E2 (OG w `docs/brd/odkrywanie.md`, 2026-11-03) | J-04, ZP-01, kategoria wiekowa |
+| ZAL-008 | Na start trener AI z rozmową nie jest potrzebny do sprzedaży | 01 | hipoteza | W-04 (2026-11-03); warunek powrotu w H-06 | H-06 |
+| ZAL-009 | Mnożniki bramki: instalacje na ocenę, konwersja, udział nowej aplikacji | 02 | hipoteza | `docs/monetyzacja.md` (`[ZAŁOŻENIE]`, OP-03, OP-07; 2026-11-03) | werdykt bramki „budować”, D-029 |
+| ZAL-010 | Typowa sesja nauki trwa 5–10 minut, w dojeździe, często bez sieci | 01 | hipoteza | recenzja S-01 (2026-11-03) | kontekst J-01, J-03; NFR offline (E3) |
