@@ -34,7 +34,7 @@ drills:
     prompt: "Mikrostawki. Pasywny {{t:recreational|gracz rekreacyjny}}, który rzadko {{t:bluff|blefuje}}, {{t:bet|stawia}} na riverze 3/4 {{t:pot|puli}}. Masz {{t:pair|parę}} dam, a na {{t:board|stole}} są as i król. Co robisz?"
     table: { hand: "Qd Qc", board: "Ah Jd 7c 4s Ks" }
     options:
-      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Tak: twoja {{t:pair}} jest niższa niż as i król na {{t:board|stole}}, więc wygrywa głównie z {{t:bluff|blefami}}. Pasywni gracze na mikrostawkach rzadko {{t:bluff|blefują}} dużym betem na riverze, więc wobec nich {{t:fold|pasujesz}} częściej, niż wskazuje {{t:mdf}}." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Tak: twoja {{t:pair}} jest niższa niż as i król na {{t:board|stole}}, więc wygrywa głównie z {{t:bluff|blefami}}. Ten gracz rzadko {{t:bluff|blefuje}}, więc wobec niego {{t:fold|pasujesz}} częściej, niż wskazuje {{t:mdf}}." }
       - { text: "{{t:call|Sprawdzam}}, bo {{t:mdf}} każe bronić ok. {{n:exam.m6.mdf.three-quarters}}", why: "{{t:mdf}} zakłada, że rywal {{t:bluff|blefuje}} wystarczająco często. Ten gracz tego nie robi, więc {{t:call}} płaci głównie lepszym rękom." }
       - { text: "{{t:raise|Przebijam}}", why: "Po {{t:raise|przebiciu}} gorsze ręce {{t:fold|spasują}}, a zapłacą lepsze. {{t:pair|Para}} niższa niż dwie karty {{t:board|stołu}} nie jest ręką do {{t:raise|przebicia}}." }
   - kind: choice
