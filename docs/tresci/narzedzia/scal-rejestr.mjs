@@ -3,7 +3,7 @@
 // --sprawdz (CI): nie zapisuje rejestr.json, tylko zgłasza błąd, gdy zapisany plik różni się od scalenia partii (strażnik content-build czyta ten plik).
 // Kod wyjścia: 0 bez błędów, 1 błędy. Pokrycie: każda reguła (rules.yaml), liczba (numbers.yaml), termin (terms.yaml)
 // i wpis pomocy ma wpis w rejestrze albo w bez-twierdzen.json. Dlaczego: D-141 (rejestr nad istniejącym systemem treści).
-import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, readdirSync, writeFileSync, existsSync, statSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { sprawdzRejestr, skrot } from './kontrole-tresci.mjs';
 const require = createRequire(new URL('../../../tools/content-build/package.json', import.meta.url));
@@ -65,13 +65,14 @@ const jednostki = (w) => {
   if (wpisRules.has(w.id)) out.push(`rules.yaml#${w.id}\n${JSON.stringify(wpisRules.get(w.id))}`);
   if (w.id.startsWith('n:') && w.id.slice(2) in nums) out.push(`numbers.yaml#${w.id}\n${JSON.stringify(nums[w.id.slice(2)])}`);
   if (w.id.startsWith('t:') && w.id.slice(2) in terms) out.push(`terms.yaml#${w.id}\n${JSON.stringify(terms[w.id.slice(2)])}`);
-  for (const e of pomoc.filter((e) => e.claim === w.id)) out.push(`helplines.yaml#${e.id}\n${JSON.stringify(e)}`);
+  // indeks wpisu w pliku: kolejność decyduje, który numer ekran pokazuje pierwszy (przegląd D-043, E3)
+  pomoc.forEach((e, i) => { if (e.claim === w.id) out.push(`helplines.yaml#${i}#${e.id}\n${JSON.stringify(e)}`); });
   const wzor = w.id.startsWith('n:') ? new RegExp(`\\{\\{n:${esc(w.id.slice(2))}\\}\\}`) : w.id.startsWith('t:') ? null : new RegExp(`(?<![\\w-])${esc(w.id)}(?![\\w-])`);
   if (wzor) for (const [p, t] of tekst) if (wzor.test(t)) out.push(`${p}\n${t}`);
   for (const p of w.uzyte_w ?? []) {
     if (p === 'helplines.yaml#ramka') { const h = YAML.parse(readFileSync('content/helplines.yaml', 'utf8')); out.push(`${p}\n${JSON.stringify({ pointer: h.pointer, fallback: h.fallback })}`); }
-    else if (existsSync(p)) out.push(`${p}\n${readFileSync(p, 'utf8')}`);
-    else bledy.push(`rejestr ${w.id}: pole uzyte_w wskazuje nieistniejący plik ${p}`);
+    else if (existsSync(p) && statSync(p).isFile()) out.push(`${p}\n${readFileSync(p, 'utf8')}`);
+    else bledy.push(`rejestr ${w.id}: pole uzyte_w wskazuje nieistniejący plik albo katalog ${p}`);
   }
   return out;
 };

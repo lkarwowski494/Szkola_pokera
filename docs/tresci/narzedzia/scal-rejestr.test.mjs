@@ -66,3 +66,16 @@ test('przegląd zastępczy bez polityki --przeglad zastępczy jest błędem', ()
     assert.match(uruchom(d).stdout, /BŁĄD rejestr H-US-1: krytyczne bez przeglądu człowieka \(zastępczy bez polityki D-027\)/);
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
+
+test('zamiana kolejności wpisów pomocy jednego twierdzenia zmienia skrót (który numer ekran pokazuje pierwszy)', () => {
+  const d = kopia();
+  try {
+    const przed = skrotZ(uruchom(d, '--przed-przegladem', '--skroty').stdout, 'H-VN-3');
+    const h = join(d, 'content/helplines.yaml'), t = readFileSync(h, 'utf8');
+    const a = t.indexOf('  - id: vn-115\n'), b = t.indexOf('  - id: vn-113\n'), c = t.indexOf('  # --- DE ---');
+    assert.ok(a > 0 && b > a && c > b);
+    writeFileSync(h, t.slice(0, a) + t.slice(b, c) + t.slice(a, b) + t.slice(c));
+    const po = skrotZ(uruchom(d, '--przed-przegladem', '--skroty').stdout, 'H-VN-3');
+    assert.notEqual(po, przed);
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
