@@ -23,7 +23,7 @@ drills:
     options:
       - { text: "To {{t:rake}}: bez niego gracze razem wychodziliby na zero", correct: true, why: "Gracze grają przeciw sobie, więc to, co jeden wygrywa, drugi przegrywa. Średnio wszyscy tracą tylko to, co zabiera sala. Autor: „your biggest villain is the house”." }
       - { text: "Z tego, że większość graczy gra słabo", why: "Słaba gra przenosi pieniądze od słabszych graczy do lepszych, ale nie zmienia średniej. Średnią obniża tylko {{t:rake}}." }
-      - { text: "Z {{t:variance|wariancji}}: przy większej próbie wyjdzie zero", why: "{{t:variance|Wariancja}} rozrzuca wyniki pojedynczych graczy w obie strony. Średnia całej populacji jest ujemna, bo {{t:rake}} płacą wszyscy." }
+      - { text: "Z {{t:variance|wariancji}}: przy większej próbie wyjdzie zero", why: "{{t:variance|Wariancja}}, czyli rozrzut wyników wokół {{t:expected-value|wartości oczekiwanej}}, działa na wyniki pojedynczych graczy w obie strony. Średnia całej populacji jest ujemna, bo {{t:rake}} płacą wszyscy." }
   - kind: choice
     id: m10.l4.q-reg-prerake
     family: m10.rake.cost

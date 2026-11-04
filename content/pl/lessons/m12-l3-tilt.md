@@ -91,7 +91,7 @@ drills:
     id: m12.l3.q-compare
     family: m12.abc-game
     rules: [R-M12-008]
-    prompt: "Jak sprawdzasz, czy twoja praca nad mental game daje efekt?"
+    prompt: "Jak sprawdzasz, czy twoja praca nad {{t:mental-game}}, czyli radzeniem sobie z tiltem, emocjami i koncentracją, daje efekt?"
     options:
       - { text: "Porównujesz najgorsze {{t:session|sesje}} z wcześniejszymi najgorszymi", correct: true, why: "Porównuj podobne z podobnym: najgorszą grę z wcześniejszą najgorszą. Postęp widać też po tym, że szybciej rozpoznajesz tilt i wcześniej kończysz {{t:session|sesję}}." }
       - { text: "Patrzysz na wynik w złotówkach z ostatniego tygodnia", why: "Tydzień wyników to głównie {{t:variance}} (lekcja o {{t:variance|wariancji}}). Jakość gry w najgorsze dni mówi więcej." }

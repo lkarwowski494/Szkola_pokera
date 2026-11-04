@@ -24,7 +24,7 @@ drills:
     options:
       - { text: "{{t:fold|Pasuję}}", correct: true, why: "Potrzebujesz {{n:eq.bet-pot}}. {{t:flush|Kolor}} daje {{n:outs.flush}} outów, czyli ok. {{n:odds.flush.turn-river}}. Nawet jeśli doliczysz {{n:pair.outs.per-rank}} asy, które dają {{t:pair|parę}} asów (razem {{n:outs.flush-ace}} outów, ok. {{n:odds.flush-ace.turn-river}}), to wciąż wyraźnie mniej niż {{n:eq.bet-pot}}. Takie {{t:call}} traci w długim terminie." }
       - { text: "{{t:call|Sprawdzam}}", why: "Kusi, bo masz {{t:draw}} do najlepszego {{t:flush|koloru}}, a as też może pomóc, ale nawet ok. {{n:odds.flush-ace.turn-river}} to mniej niż {{n:eq.bet-pot}}." }
-      - { text: "{{t:raise|Przebijam}} all-in", why: "U zaawansowanych bywa to zagraniem, ale bez dobrego powodu ryzykujesz cały stack ręką, która jeszcze nic nie ma." }
+      - { text: "{{t:raise|Przebijam}} all-in", why: "U zaawansowanych bywa to zagraniem, ale bez dobrego powodu ryzykujesz cały stack (wszystkie {{t:chips|żetony}}, które masz przed sobą) ręką, która jeszcze nic nie ma." }
   - kind: choice
     id: m2.l2.q3
     family: m2.draw-call
@@ -94,5 +94,5 @@ Przykład: w {{t:pot|puli}} jest {{n:ex.pot}}, przeciwnik {{t:bet|stawia}} {{n:e
 | Ćwierć {{t:pot|puli}} | {{n:eq.bet-quarter}} |
 
 :::note Decyzja
-Jeśli twoje equity jest większe niż potrzebne, {{t:call|sprawdzasz}}. Jeśli mniejsze, {{t:fold|pasujesz}}. Wynika to z {{t:expected-value|wartości oczekiwanej}}: {{t:expected-value|EV}} {{t:call|sprawdzenia}} = equity × {{t:pot}} po twoim {{t:call|sprawdzeniu}} − {{t:call}}, a to jest ujemne dokładnie wtedy, gdy equity jest mniejsze od potrzebnego. Ten jeden rachunek eliminuje większość kosztownych błędów początkujących.
+Jeśli twoje equity jest większe niż potrzebne, {{t:call|sprawdzasz}}. Jeśli mniejsze, {{t:fold|pasujesz}}. Wynika to z {{t:expected-value|wartości oczekiwanej}}: {{t:expected-value|EV}} {{t:call|sprawdzenia}} = equity × {{t:pot}} po twoim {{t:call|sprawdzeniu}} − {{t:call}}, a to jest ujemne dokładnie wtedy, gdy equity jest mniejsze od potrzebnego. Ten jeden rachunek eliminuje większość kosztownych błędów początkujących. Na razie pomijasz {{t:implied-odds}}, czyli {{t:chips|żetony}}, które spodziewasz się wygrać później w rozdaniu, jeśli trafisz swój układ; wrócą w dalszych modułach.
 :::

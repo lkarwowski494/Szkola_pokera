@@ -38,7 +38,7 @@ drills:
     prompt: "Twoje M spadło do ok. {{n:m11.m.example}}. Co mówi o tym model stref M?"
     options:
       - { text: "{{t:red-zone|Strefa czerwona}}: tylko all-in albo {{t:fold}}, najlepiej jako pierwszy", correct: true, why: "Poniżej ok. {{n:m11.m.red}} zostaje ci tylko all-in albo {{t:fold}}. Wejście pierwszy daje szansę, że wszyscy {{t:fold|spasują}}." }
-      - { text: "{{t:green-zone|Strefa zielona}}: grasz normalnie", why: "Zielona strefa zaczyna się dopiero od M ok. {{n:m11.m.green}}. Przy M ok. {{n:m11.m.example}} stack starczy na {{n:m11.m.example}} okrążenia." }
+      - { text: "{{t:green-zone|Strefa zielona}}: grasz normalnie", why: "{{t:green-zone|Strefa zielona}}, w której stack pozwala grać swobodnie, zaczyna się dopiero od M ok. {{n:m11.m.green}}. Przy M ok. {{n:m11.m.example}} stack starczy na {{n:m11.m.example}} okrążenia." }
       - { text: "Czekasz na asy, bo i tak masz czas", why: "Przy M ok. {{n:m11.m.example}} blindy zjedzą stack, zanim doczekasz się silnej ręki. Trzeba wejść all-in z szerszym {{t:range|zakresem}}." }
   - kind: generated
     id: m11.l1.g-push
@@ -125,7 +125,7 @@ Push/fold to uproszczenie. Solvery, które mają do wyboru także limp i małe p
 
 ## M: ile okrążeń przetrwasz
 
-Popularny model turniejowy liczy {{t:short-stack}} inaczej: **M** to stack podzielony przez koszt jednego okrążenia {{t:board|stołu}}.
+Popularny model turniejowy liczy {{t:short-stack}} inaczej: **M** to stack podzielony przez koszt jednego okrążenia graczy przy stole.
 
 ```formula
 M = stack ÷ (mały blind + duży blind + ante)

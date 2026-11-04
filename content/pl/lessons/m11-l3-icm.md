@@ -140,7 +140,7 @@ Płatne są dwa miejsca: {{n:m11.icm.a.p1}} i {{n:m11.icm.a.p2}} {{t:prize-pool|
 
 ## Bubble factor: przegrana boli bardziej
 
-Czterech graczy, płatne trzy miejsca: {{n:m11.bf.p1}}, {{n:m11.bf.p2}} i {{n:m11.bf.p3}}. Stacki {{n:m11.bf.s1}}, {{n:m11.bf.s2}} (ty), {{n:m11.bf.s3}} i {{n:m11.bf.s4}}. Gracz z {{n:m11.bf.s3}} wchodzi all-in, ty go {{t:cover|pokrywasz}}. Dla prostoty pomijamy blindy w {{t:pot|puli}}.
+Czterech graczy, płatne trzy miejsca: {{n:m11.bf.p1}}, {{n:m11.bf.p2}} i {{n:m11.bf.p3}}. Stacki {{n:m11.bf.s1}}, {{n:m11.bf.s2}} (ty), {{n:m11.bf.s3}} i {{n:m11.bf.s4}}. Gracz z {{n:m11.bf.s3}} wchodzi all-in, ty go {{t:cover|pokrywasz}}, czyli masz więcej {{t:chips|żetonów}}. Dla prostoty pomijamy blindy w {{t:pot|puli}}.
 
 - Teraz twój stack jest wart {{n:m11.bf.eq.now}} {{t:prize-pool|puli nagród}}.
 - Wygrasz: masz {{n:m11.bf.win}}, rywal odpada, wszyscy są w nagrodach. Twoje equity rośnie do {{n:m11.bf.eq.win}}, czyli o **{{n:m11.bf.gain}}**.
@@ -161,7 +161,7 @@ Wychodzi **{{n:m11.bf.req}}**. W grze o {{t:chips}} ryzykujesz {{n:m11.bf.s3}}, 
 Ten sam kierunek widać w opublikowanej równowadze dla trzech graczy z równymi stackami (praca naukowa z 2008 roku): gdy Button i {{t:small-blind}} są już all-in, {{t:big-blind}} w pojedynczym rozdaniu {{t:call|sprawdza}} {{n:m11.jamfold3.overcall.single}} rąk, a w {{t:tournament|turnieju}} z {{t:payout|wypłatami}} tylko {{n:m11.jamfold3.overcall.tourn}}, czyli same {{t:top-pair|najwyższe pary}} i AKs.
 
 :::note Kto {{t:call|sprawdza}} ciasno
-Średni stack na {{t:bubble|bubble}} {{t:call|sprawdza}} all-iny dużo ciaśniej niż w grze o {{t:chips}}. Duży stack, który {{t:cover|pokrywa}} rywali, ryzykuje mniej i może na tym grać: {{t:shove|pushować}} szerzej, bo rywale muszą {{t:fold|pasować}}. Bubble factor zależy od wszystkich stacków przy stole, dlatego nie liczy się go przy stole, tylko ćwiczy na przykładach, żeby wyrobić wyczucie.
+Średni stack na {{t:bubble|bubble}} albo przy {{t:final-table|stole finałowym}} (ostatnim stoliku {{t:tournament|turnieju}}, przy którym gra się o najwyższe nagrody) {{t:call|sprawdza}} all-iny dużo ciaśniej niż w grze o {{t:chips}}. Duży stack, który {{t:cover|pokrywa}} rywali, ryzykuje mniej i może na tym grać: {{t:shove|pushować}} szerzej, bo rywale muszą {{t:fold|pasować}}. Bubble factor zależy od wszystkich stacków przy stole, dlatego nie liczy się go przy stole, tylko ćwiczy na przykładach, żeby wyrobić wyczucie.
 :::
 
 ## Ograniczenia {{t:icm}}

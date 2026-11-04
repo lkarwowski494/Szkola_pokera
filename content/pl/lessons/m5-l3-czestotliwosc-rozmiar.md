@@ -36,7 +36,7 @@ drills:
         rule: R-M5-004
         why:
           check: "Tak: niski flop z kartami blisko siebie sprzyja {{t:big-blind|dużemu blindowi}}, który częściej ma tu {{t:two-pair}} albo {{t:straight|strita}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|drawy}}."
-          small: "Za często: na niskim flopie z kartami blisko siebie to {{t:big-blind}} ma {{t:nuts-advantage|przewagę nutsów}}. Częste c-bety, nawet małe, dają mu okazję do {{t:raise|przebicia}} (check-raise) najsilniejszymi rękami."
+          small: "Za często: na niskim flopie z kartami blisko siebie to {{t:big-blind}} ma {{t:nuts-advantage|przewagę nutsów}}. Częste c-bety, nawet małe, dają mu okazję do {{t:raise|przebicia}} po wcześniejszym {{t:check|czekaniu}} (check-raise) najsilniejszymi rękami."
           big: "Za często i za drogo: {{t:big-blind}} częściej trafił tu {{t:two-pair}} albo {{t:straight|strita}}. Częsty duży c-bet ryzykuje dużo, gdy sam zwykle masz tylko wysokie karty."
     count: 6
   - kind: choice
@@ -46,7 +46,7 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i {{t:check|czeka}}. Masz {{t:pair|parę}} króli z waletem. Co robisz?"
     table: { hand: "Kh Jc", position: BTN, board: "Ks 7d 2c" }
     options:
-      - { text: "C-bet {{n:cbet.btn.small}} ({{n:cbet.size.small}} {{t:pot|puli}})", correct: true, why: "Tak: {{t:top-pair}} na {{t:dry|suchym}} flopie. Mały {{t:bet}} dostanie {{t:call}} od siódemek, dwójek i słabszych króli, a rywal prawie nie ma {{t:draw|drawów}}." }
+      - { text: "C-bet {{n:cbet.btn.small}} ({{n:cbet.size.small}} {{t:pot|puli}})", correct: true, why: "Tak: {{t:top-pair}} ({{t:pair|para}} z najwyższą kartą na {{t:board|stole}}) na {{t:dry|suchym}} flopie. Mały {{t:bet}} dostanie {{t:call}} od siódemek, dwójek i słabszych króli, a rywal prawie nie ma {{t:draw|drawów}}." }
       - { text: "C-bet {{n:cbet.btn.big}} ({{n:cbet.size.big}} {{t:pot|puli}})", sizeError: true, why: "Dobra akcja, zły rozmiar: na {{t:dry|suchym}} flopie rywal nie ma {{t:draw|drawów}}, a ręce, które chybiły, {{t:fold|spasują}} także na mały {{t:bet}}. Większy {{t:bet}} nie {{t:fold|spasuje}} więcej rąk, a ryzykuje więcej. Betuj ok. {{n:cbet.size.small}} {{t:pot|puli}}." }
       - { text: "{{t:check|Czekam}}", why: "Tracisz wartość: rywal ma wiele słabszych {{t:pair|par}} i rąk z asem, które zapłaciłyby mały {{t:bet}}. Na {{t:dry|suchym}} flopie z {{t:top-pair|najwyższą parą}} betujesz." }
   - kind: choice

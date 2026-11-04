@@ -65,8 +65,8 @@ drills:
     prompt: "Nowy rywal, {{n:hud.ex.few.hands}} rąk w {{t:hud|HUD-zie}}: {{t:vpip}} {{n:hud.ex.few.vpip}}, {{t:pfr}} {{n:hud.ex.few.pfr}}. Jak z nim grasz?"
     options:
       - { text: "Jak z nieznanym graczem, według bazy; zbieram kolejne ręce", correct: true, why: "Poniżej ok. {{n:hud.hands.random}} rąk statystyki są przypadkowe: kilka dobrych kart z rzędu daje taki {{t:vpip}}. Typ gracza zgrubnie widać po ok. {{n:hud.hands.random}}–{{n:hud.hands.rough.high}} rękach, a {{t:vpip}} i {{t:pfr}} stabilizują się po ok. {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}}." }
-      - { text: "Jak z {{t:maniac|maniakiem}}: {{t:call|sprawdzam}} szeroko", why: "Po {{n:hud.ex.few.hands}} rękach to może być każdy typ. Szerokie {{t:call|sprawdzanie}} na podstawie przypadku kosztuje, gdy rywal okaże się zwykłym {{t:regular|regiem}}." }
-      - { text: "Jak z {{t:nit|nitem}}, bo większość graczy to nity", why: "Tego też nie wiesz. Bez próby nie ma odczytu, więc wracasz do bazy." }
+      - { text: "Jak z {{t:maniac|maniakiem}}: {{t:call|sprawdzam}} szeroko", why: "{{t:maniac|Maniak}}, czyli gracz bardzo luźny i agresywny, to tylko jedna z możliwości: po {{n:hud.ex.few.hands}} rękach to może być każdy typ. Szerokie {{t:call|sprawdzanie}} na podstawie przypadku kosztuje, gdy rywal okaże się zwykłym {{t:regular|regiem}}, czyli stałym bywalcem, który gra w miarę solidnie." }
+      - { text: "Jak z {{t:nit|nitem}}, bo większość graczy to nity", why: "Tego też nie wiesz: {{t:nit}}, czyli bardzo ciasny gracz, to tylko jeden z typów. Bez próby nie ma odczytu, więc wracasz do bazy." }
   - kind: choice
     id: m10.l1.q-slow-stat
     family: m10.hud.sample

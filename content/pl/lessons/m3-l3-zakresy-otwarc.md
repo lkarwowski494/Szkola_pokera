@@ -40,7 +40,7 @@ drills:
     spot: rfi.utg
     prompt: "Jesteś pierwszy do mówienia ({{t:utg}}). Pomaluj ręce, którymi {{t:open|otwierasz}}."
 ---
-{{t:range|Zakres}} {{t:open|otwarcia}} to lista rąk, z którymi {{t:raise|przebijasz}}, gdy wszyscy przed tobą {{t:fold|spasowali}}. Siatki poniżej policzył solver preflop tej aplikacji dla {{t:board|stołu}} 6-osobowego i stacków {{n:format.stack}}.
+{{t:range|Zakres}} {{t:open|otwarcia}} to lista rąk, z którymi {{t:raise|przebijasz}}, gdy wszyscy przed tobą {{t:fold|spasowali}}. Siatki poniżej policzył solver preflop tej aplikacji dla gry przy stole 6-osobowym i stacków {{n:format.stack}}.
 
 ## Jak czytać siatkę
 

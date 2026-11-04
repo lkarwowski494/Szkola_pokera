@@ -24,7 +24,7 @@ drills:
     table: { position: BTN, board: "7s 6h 5d" }
     options:
       - { text: "{{t:big-blind|Duży blind}}", correct: true, why: "Tak: {{t:big-blind}} broni wielu {{t:connectors|konektorów}} w kolorze i rąk z szóstką albo siódemką. Ty z Buttona masz więcej wysokich kart, które tu chybiły. To {{t:nuts-advantage}} {{t:big-blind|dużego blinda}}." }
-      - { text: "Ty, {{t:open|otwierający}} z Buttona", why: "Nie: twój {{t:range}} jest pełen wysokich kart. Masz więcej {{t:overpair|overpar}} (np. TT, JJ), ale mniej {{t:two-pair|dwóch par}} i {{t:straight|stritów}}; setów macie podobnie dużo." }
+      - { text: "Ty, {{t:open|otwierający}} z Buttona", why: "Nie: twój {{t:range}} jest pełen wysokich kart. Masz więcej {{t:overpair|overpar}} ({{t:pocket-pair|pocket par}} wyższych od każdej karty na {{t:board|stole}}, np. TT, JJ), ale mniej {{t:two-pair|dwóch par}} i {{t:straight|stritów}}; setów (trójek z {{t:pocket-pair|pocket parą}}) macie podobnie dużo." }
       - { text: "Obaj tak samo często", why: "Nie: {{t:range|zakresy}} różnią się składem. Szeroka obrona {{t:big-blind|dużego blinda}} ma dużo małych kart, a twój {{t:range}} wysokie." }
   - kind: choice
     id: m5.l2.q-capped
@@ -70,7 +70,7 @@ drills:
     options:
       - { text: "Rywal często nie ma nic, więc nawet mały {{t:bet}} często wygrywa {{t:pot|pulę}} od razu", correct: true, why: "Tak: to podstawa c-betu. Chybienie nie zawsze oznacza {{t:fold}} (rywal może mieć {{t:draw}} albo wysokie karty), ale słabych rąk w jego {{t:range|zakresie}} jest dużo." }
       - { text: "Rywal {{t:fold|spasuje}} dokładnie w {{n:flop.miss.unpaired}} przypadków", why: "Nie: rywal bez {{t:pair|pary}} czasem {{t:call|sprawdza}} z {{t:draw|drawem}} albo z wysoką kartą, a czasem ma {{t:pair|parę}} z ręki. To tylko przybliżenie, jak często flop go nie trafił." }
-      - { text: "Ty też chybiasz tak samo często, więc c-bet nie ma sensu", why: "Nie: ty też często chybiasz, ale rywal nie wie, kiedy. Twój {{t:range}} jako {{t:aggressor|agresora}} jest silniejszy na wielu flopach, a {{t:bet}} wygrywa {{t:pot|pulę}}, gdy rywal {{t:fold|pasuje}}." }
+      - { text: "Ty też chybiasz tak samo często, więc c-bet nie ma sensu", why: "Nie: ty też często chybiasz, ale rywal nie wie, kiedy. Twój {{t:range}} jako {{t:aggressor|agresora}} (gracza, który ostatni {{t:raise|przebijał}} przed flopem) jest silniejszy na wielu flopach, a {{t:bet}} wygrywa {{t:pot|pulę}}, gdy rywal {{t:fold|pasuje}}." }
   - kind: numeric
     id: m5.l2.n-hit
     family: m5.math.miss

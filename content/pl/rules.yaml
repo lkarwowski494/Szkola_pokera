@@ -469,7 +469,7 @@
   then: "{{t:fold|pasujesz}} częściej, niż wskazuje {{t:mdf}}, także średnimi {{t:pair|parami}}"
   because: "{{t:mdf}} zakłada, że rywal {{t:bluff|blefuje}} wystarczająco często; gdy {{t:bluff|blefów}} brakuje, {{t:call}} słabszą ręką płaci głównie lepszym rękom"
   level: exploit
-  population: "konkretny gracz obserwowany przy stole; brak danych o populacji (próba, stawki, pokój), więc reguła nie zakłada, że cała grupa graczy rzadko blefuje; trenerzy dwóch serwisów szkoleniowych opisują tak pasywnych graczy rekreacyjnych na niskich stawkach, bez liczb z bazy rąk"
+  population: "konkretny gracz obserwowany przy stole; brak danych o populacji (próba, stawki, pokój), więc reguła nie zakłada, że cała grupa graczy rzadko blefuje; trenerzy dwóch serwisów szkoleniowych opisują tak pasywnych graczy rekreacyjnych (grających dla rozrywki, zwykle słabiej od stałych bywalców) na niskich stawkach, bez liczb z bazy rąk"
   source: "serwis szkoleniowy, Bluff Catching: When to Call and When to Let It Go (https://deepfold.co/en/blog/bluff-catching-principles: pasywni gracze rekreacyjni nie blefują dużymi betami na riverze); serwis szkoleniowy, MDF in Poker: Why Most Players Misuse It (https://pokercoaching.com/blog/mdf-poker: „In low-stakes games, most players will bluff way less”)"
   sources: [{ kind: training, url: "https://deepfold.co/en/blog/bluff-catching-principles" }, { kind: training, url: "https://pokercoaching.com/blog/mdf-poker" }]
 - id: R-M6-005

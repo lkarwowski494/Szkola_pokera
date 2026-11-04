@@ -100,3 +100,5 @@ Najpierw porównuje się rangę układu: {{t:three-of-a-kind}} bije {{t:two-pair
 :::
 
 As może być najniższą kartą {{t:straight|strita}}: [[5h 4s 3c 2d Ah]] to najniższy {{t:straight}}, tak zwany {{t:wheel}}.
+
+Gdy twój najlepszy układ to same {{t:community-cards|karty wspólne}}, a {{t:hole-cards}} nic nie dodają, mówi się o {{t:playing-the-board|grze na stole}}: w najlepszym razie {{t:split-pot|pulę dzielicie}}.

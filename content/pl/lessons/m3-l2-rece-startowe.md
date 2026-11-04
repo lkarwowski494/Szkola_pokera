@@ -23,7 +23,7 @@ drills:
     table: { hand: "7c 2d", position: HJ }
     options:
       - { text: "{{t:fold|Pasuję}}", correct: true, why: "7-2 w różnych kolorach to jedna z najsłabszych rąk: karty są za daleko od siebie, żeby razem tworzyć {{t:straight|strita}}, rzadko dają {{t:flush}}, a trafiona {{t:pair}} ma słaby kicker. Często nazywa się ją najgorszą ręką, choć w rachunku wobec losowej ręki niektóre inne, np. 3-2 w różnych kolorach, wypadają jeszcze słabiej." }
-      - { text: "{{t:raise|Przebijam}}, żeby zaskoczyć", why: "{{t:bluff|Blef}} preflop z jedną z najsłabszych rąk, gdy za tobą jest jeszcze czterech graczy, traci w długim terminie." }
+      - { text: "{{t:raise|Przebijam}}, żeby zaskoczyć", why: "{{t:bluff|Blef}} (gra słabą ręką po to, żeby rywale {{t:fold|spasowali}} lepsze) preflop z jedną z najsłabszych rąk, gdy za tobą jest jeszcze czterech graczy, traci w długim terminie." }
       - { text: "{{t:call|Sprawdzam}}, bo jest tanio", why: "Każde „tanie” wejście słabą ręką sumuje się w duże straty." }
   - kind: choice
     id: m3.l2.q3
@@ -50,7 +50,7 @@ Większość pieniędzy początkujący tracą, grając za dużo słabych rąk. D
 
 ## Grupy rąk
 
-- **Najmocniejsze**: [[As Ah]], [[Ks Kh]], [[Qs Qh]] oraz AK w kolorze i w różnych kolorach, np. [[As Ks]] i [[As Kd]]. {{t:raise|Przebijasz}}, a gdy ktoś {{t:raise|przebił}} przed tobą, zwykle {{t:raise|przebijasz}} ponownie.
+- **Najmocniejsze**: [[As Ah]], [[Ks Kh]], [[Qs Qh]] oraz AK w kolorze i w różnych kolorach, np. [[As Ks]] i [[As Kd]]. {{t:raise|Przebijasz}}, a gdy ktoś {{t:raise|przebił}} przed tobą, zwykle {{t:raise|przebijasz}} ponownie (3-bet) {{t:value|dla wartości}}, czyli po to, żeby rywal {{t:call|sprawdził}} słabszą ręką.
 - **Mocne**: JJ, TT, AQ, AJ w kolorze, KQ w kolorze.
 - **Spekulacyjne**: małe {{t:pair|pary}} i karty po kolei w jednym kolorze, np. [[7h 6h]]. Dobre w {{t:late-position|późnej pozycji}}.
 - **Słabe**: rozrzucone, niskie, w różnych kolorach, np. [[9c 3d]]. {{t:fold|Pas}}.

@@ -45,7 +45,7 @@ drills:
     options:
       - { text: "A5 w kolorze", correct: true, why: "Blokuje AA i AK rywala, a po {{t:call|sprawdzeniu}} ma szansę na {{t:flush}} i {{t:straight|strita}}. To typowy {{t:bluff}} z dołu {{t:range|zakresu}} {{t:call|sprawdzenia}}: z {{t:big-blind|dużego blinda}} 3-betujesz najsilniejsze ręce plus takie {{t:bluff|blefy}}." }
       - { text: "K7 w różnych kolorach", why: "Tą ręką bronisz się {{t:call|sprawdzeniem}}. Jako 3-bet nie blokuje niczego ważnego i słabo gra, gdy rywal {{t:call|sprawdzi}}." }
-      - { text: "{{t:pair|Para}} 22", why: "Najmniejsze {{t:pair|pary}} bronią się {{t:call|sprawdzeniem}}: zarabiają, gdy trafią seta ({{t:three-of-a-kind|trójkę}} z {{t:pocket-pair|pocket parą}}), a 3-bet z nimi źle znosi 4-bet." }
+      - { text: "{{t:pair|Para}} 22", why: "Najmniejsze {{t:pair|pary}} bronią się {{t:call|sprawdzeniem}}: zarabiają, gdy trafią seta ({{t:three-of-a-kind|trójkę}} z {{t:pocket-pair|pocket parą}}, czyli {{t:pair|parą}} z dwóch {{t:hole-cards|kart własnych}}), a 3-bet z nimi źle znosi 4-bet." }
   - kind: generated
     id: m4.l1.g-btn
     family: m4.vsopen.btn-vs-co
