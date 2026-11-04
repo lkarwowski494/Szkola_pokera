@@ -1,5 +1,5 @@
 # Stan sztafety
-Ścieżka: greenfield (przebudowa istniejącej aplikacji „prawie od nowa”) · Aktualizacja: 2026-11-04 (rola 05 E4)
+Ścieżka: greenfield (przebudowa istniejącej aplikacji „prawie od nowa”) · Aktualizacja: 2026-11-04 (rola 09 E0)
 
 Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szkoła Pokera przez role 1–5 w trybie build z prompts i zrobić ją prawie od nowa, ale wykorzystując elementy aktualnej aplikacji, które są dobre. Cel: monetyzacja. […] Tam nie ma być hazardu. Pełna nauka w 35 językach jak trening. Całkiem od nowa UX, przepływy, ocena monetyzacji, BRD.” Kolejność (wybór właściciela): bramka opłacalności (02, krok 0) → 01 → 02 → 03 → 04 → 05.
 
@@ -14,6 +14,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 04 Studio Projektowe | build | zakończona 2026-11-04 (E3 zaakceptowane, D-123). E0 zakończone 2026-11-04 (D-114: ekran „Decyzja w sesji”); E1 zakończone 2026-11-04 (D-115: metafory A, B, C); E2 runda 1 odrzucona co do palety (D-116, pasek zostaje), runda 2 (D, E, F) odrzucona 2026-11-04 (D-117: „ma być eleganckie a nie badziewne”, punkt odniesienia: kolory i ikona poprzedniej aplikacji); runda 3: wybrany I (D-118) z warunkiem: stół bez miejsc w zadaniach bez pozycji (D-119); krój Literata 600 (D-120); E3 wykonane 2026-11-04 (D-121, D-122), czeka na akceptację ikony i ekranów | a838dda, 118a5c1 | `docs/design/00-rozpoznanie.md`, `01-swiat.md` | OP-19 w E3 |
 | 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
 | 05 Architekt | build | zakończona 2026-11-04 (E4 zaakceptowane, D-130); E3 przyjęte (D-129), E2 (D-127), ADR 0001–0012 (D-124, D-126) | (commit E4) | `docs/architektura/README.md` (indeks), `00-rozpoznanie.md`, `docs/adr/` 0001–0013, `dane.md`, `moduly.md`, `schemat.sql`, `tlo-i-bledy.md`, `prywatnosc.md`, `wydajnosc.md`, `kontrole-07.md`, `narzedzia/granice.mjs`, `eksperymenty/` | OP-21 |
+| 09 Lokalizacja | build (wejście wczesne E0–E1) | E0 gotowe 2026-11-04, STOP na akceptację właściciela (D-131–D-135 rozstrzygnięte przez agenta, weto możliwe); następne E1 | (commit E0) | `docs/lokalizacja/jezyki.md`, `docs/decyzje.md` (D-131–D-135), `docs/zalozenia.md` (ZAL-L01, ZAL-L02) | koszt przekładu przez API (właściciel, przed E3); zgłoszenia: 06 (formatNumber, numery pomocy), 04 (pisma), 07, 10 |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -317,3 +318,15 @@ Plus jedna linia w „Dokumentacja projektu”: „Architektura w repo: `docs/ar
 
 ## Poprzedni następny krok (rola 03, wykonany)
 **Rola 04 build** według „Przekazanie do następnej roli” wyżej: `node /home/user/prompts/tools/assemble.mjs 04-studio-projektowe --tryb build`; nowa sesja opus/high. Paczka: `docs/scope-contract.md`, `docs/brd/`, `docs/monetyzacja.md`, `docs/decyzje.md`, `CLAUDE.md`.
+
+## Rola 09 E0: wynik (2026-11-04)
+- Prompt: `assemble.mjs 09-lokalizacja --tryb build` (prompts c025063, kod 0, 57 099 znaków), przeczytany w całości.
+- Polityka „szeroka”, 35 języków = lista Treningu (SHA 2e4b0f8); `Intl.PluralRules` dla wszystkich, wektory 0 rozbieżności (Node 22). Dowody i inwentarz: `docs/lokalizacja/jezyki.md`.
+- Mechanizm dziś: i18next 26.4.2 + react-i18next 17.0.15, `lng: 'pl'` na sztywno, słownik jako obiekt TS (`pl.ts`, ok. 287 kluczy, 9 kluczy mnogich bez `_other`); wejście E1: format słownika zgodny ze skryptem (JSON), wykrywanie języka, polyfill, łańcuch zastępczy, format liczb w treści (ADR 0005, `numbers.ts:108` na sztywno po polsku).
+- Decyzje agenta (D-131–D-135) z odwołaniem do Treningu; właściciel może zawetować.
+- Znaleziska: `content/helplines.yaml` tylko Polska, produkt bez PL (06, OP-10); Literata bez cyrylicy, greki i CJK (04); `formatNumber` (06/08); SDK w `package.json` 57 vs ADR 0001 SDK 58 (do sprawdzenia w E1).
+- Czego nie sprawdzono: lista lokalizacji App Store Connect i języki sklepu (E4, rola 10); działanie `Intl.PluralRules` w Hermes w aplikacji (E1); koszt przekładu przez API wg cen z dnia pracy.
+- Czas (agent): E1 ok. 2–3 h; E2 ok. 3–4 h po ekranach 08; E3 fala 1 (7 języków) ok. 1–2 h agenta + oczekiwanie na Batch, kolejne fale podobnie; E4 ok. 1 h. Oczekiwanie: akceptacja E0, zgoda na koszt API, ekrany z roli 08 przed E2. Czas właściciela: akceptacja bramek (minuty), zgoda na koszt, ewentualny recenzent języka.
+
+## Następny krok (po roli 09 E0)
+**09-lokalizacja**, build, **E1 Mechanizm** (nowa sesja sonnet/medium, albo ta): ADR i18n z rolą 05 (opcje (a) react-i18next ze słownikiem JSON — rekomendacja, (b) Lingui, (c) mechanizm tekst-jako-klucz z Treningu), testy czerwone, konfiguracja `expo-localization`/`locales`, `scripts/sprawdz-i18n.mjs`; potem przekazanie wejścia wczesnego do 04, 06, 07, 08 i „09 E2–E4 po audycie 04”; następna rola 06-tresci build (opus/high).
