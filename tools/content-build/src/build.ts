@@ -30,7 +30,8 @@ import { classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCard
 import { expandHelplines, loadHelplines, type Helplines } from './helplines';
 import { compileMarkdown } from './markdown';
 import { compileHandRanking, compileRanges } from './ranges';
-import { findHardcodedNumbers, resolveNumbers, substitute, type ResolvedNumber } from './numbers';
+import { findHardcodedNumbers, PLACEHOLDER, resolveNumbers, substitute, type ResolvedNumber } from './numbers';
+import { applyTransitional, loadRegistry, loadTransitional, registryViolations, type RegistryUse } from './registry';
 import { checkSourceQuotes } from './sources';
 import { loadTerms } from './terms';
 
@@ -106,8 +107,19 @@ function splitFrontmatter(src: string, where: string): { fm: unknown; body: stri
   return { fm: parseYaml(m[1]!), body: m[2]! };
 }
 
-export function compileContent(contentDir: string, locale = 'pl'): CompiledContent {
+export interface CompileOptions {
+  /** Katalog rejestru twierdzeń (rejestr.json, rejestr/bez-twierdzen.json); domyślnie docs/tresci obok katalogu treści. */
+  registryDir?: string;
+  /** Lista przejściowa strażnika rejestru (registry.ts); domyślnie tools/content-build/rejestr-przejsciowe.json, null = bez listy. */
+  transitional?: string | null;
+}
+
+export function compileContent(contentDir: string, locale = 'pl', opts: CompileOptions = {}): CompiledContent {
   const warnings: string[] = [];
+  /** Użycia liczb, reguł i twierdzeń pomocy w tekście aplikacji: do strażnika rejestru (D-141, registry.ts). */
+  const registryUses: RegistryUse[] = [];
+  /** Plik treści, którego dotyczą bieżące użycia (względem content/). */
+  let fileCtx = 'ranges/spots.yaml';
   const used = new Set<string>();
   const { spots: ranges } = compileRanges(contentDir);
   const rangeIds = new Set(ranges.map((r) => r.id));
@@ -120,11 +132,13 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
   const termErrors: string[] = [];
   const helplines = loadHelplines(parseOrThrow(HelplinesFile, readYaml(join(contentDir, 'helplines.yaml')), 'helplines.yaml'));
   const helplinesUsed = { count: 0 };
+  for (const e of helplines.entries) registryUses.push({ plik: 'helplines.yaml', gdzie: e.id, id: e.claim });
   /**
    * Jedna jednostka tekstu: liczby {{n:…}}, potem terminy {{t:…}}. `seen` łączy pola tej samej jednostki (reguła).
    * `checkTerms: false` tylko dla tytułów (nazwy w nawigacji, decyzja T-03).
    */
   const sub = (text: string, where: string, seen: Set<string> = new Set(), checkTerms = true, checkNumbers = true) => {
+    for (const m of text.matchAll(PLACEHOLDER)) registryUses.push({ plik: fileCtx, gdzie: where, id: `n:${m[1]}` });
     // liczby z % lub bb wpisane ręcznie wykrywamy też w zadaniach i regułach, nie tylko w tekście lekcji
     const hard = findHardcodedNumbers(text);
     if (hard.length && checkNumbers) warnings.push(`${where}: liczby wpisane ręcznie (użyj {{n:…}}): ${hard.join(', ')}`);
@@ -148,6 +162,7 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
   }
 
   const localeDir = join(contentDir, locale);
+  fileCtx = `${locale}/modules.yaml`;
   const modules = parseOrThrow(ModulesFile, readYaml(join(localeDir, 'modules.yaml')), 'modules.yaml').map((m) => ({
     ...m,
     title: sub(m.title, m.id, undefined, false),
@@ -156,6 +171,7 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
   const moduleIds = new Set(modules.map((m) => m.id));
   if (moduleIds.size !== modules.length) throw new Error('modules.yaml: powtórzony identyfikator modułu');
 
+  fileCtx = `${locale}/rules.yaml`;
   const rulesRaw = parseOrThrow(RulesFile, readYaml(join(localeDir, 'rules.yaml')), 'rules.yaml');
   const rules = rulesRaw.map((r) => {
     // reguła to jedna jednostka tekstu („Jeśli …, to …, bo …”): nazwa angielska przy pierwszym użyciu
@@ -185,6 +201,7 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
     if (drillIds.has(d.id)) throw new Error(`powtórzone zadanie ${d.id}`);
     drillIds.add(d.id);
     for (const r of d.rules) if (!ruleIds.has(r)) throw new Error(`zadanie ${d.id}: nieznana reguła ${r}`);
+    for (const r of d.rules) registryUses.push({ plik: fileCtx, gdzie: d.id, id: r });
     if (d.kind === 'paint') {
       if (!rangeIds.has(d.spot)) throw new Error(`zadanie ${d.id}: nieznany spot zakresu ${d.spot}`);
       return { ...d, prompt: sub(d.prompt, d.id) };
@@ -193,6 +210,8 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
       const n = numbers.get(d.answer);
       if (!n) throw new Error(`zadanie ${d.id}: nieznana liczba ${d.answer}`);
       used.add(d.answer);
+      // odpowiedź zadania liczbowego pokazywana jest jako poprawna wartość: to tekst, jak {{n:…}}
+      registryUses.push({ plik: fileCtx, gdzie: `${d.id}.answer`, id: `n:${d.answer}` });
       if (d.table) parseCards([d.table.hand, d.table.opp, d.table.board].filter(Boolean).join(' '));
       return {
         ...d,
@@ -210,6 +229,7 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
     if (d.kind === 'cbet') {
       checkCbetCases(d.id, d.cases.map((c) => c.when));
       for (const c of d.cases) if (c.rule && !ruleIds.has(c.rule)) throw new Error(`zadanie ${d.id}: nieznana reguła ${c.rule}`);
+      for (const c of d.cases) if (c.rule) registryUses.push({ plik: fileCtx, gdzie: d.id, id: c.rule });
       return {
         ...d,
         prompt: sub(d.prompt, d.id),
@@ -274,6 +294,7 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
   const lessonIds = new Set<string>();
   for (const file of readdirSync(lessonDir).filter((f) => f.endsWith('.md')).sort()) {
     const where = `lessons/${file}`;
+    fileCtx = `${locale}/lessons/${file}`;
     try {
       const split = splitFrontmatter(readFileSync(join(lessonDir, file), 'utf8'), where);
       const fm = split.fm;
@@ -284,6 +305,7 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
       lessonIds.add(lesson.id);
       if (!moduleIds.has(lesson.module)) throw new Error(`nieznany moduł ${lesson.module}`);
       for (const r of lesson.rules) if (!ruleIds.has(r)) throw new Error(`nieznana reguła ${r}`);
+      for (const r of lesson.rules) registryUses.push({ plik: fileCtx, gdzie: 'rules', id: r });
 
       const drills = lesson.drills.map(compileDrill);
 
@@ -320,6 +342,7 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
   if (existsSync(examDir)) {
     for (const file of readdirSync(examDir).filter((f) => f.endsWith('.yaml')).sort()) {
       const where = `exams/${file}`;
+      fileCtx = `${locale}/exams/${file}`;
       try {
         const exam = parseOrThrow(ExamFile, readYaml(join(examDir, file)), where);
         checkExamFile(exam, file, { moduleIds, familiesByModule, examModules: new Set(exams.map((e) => e.module)) });
@@ -365,6 +388,18 @@ export function compileContent(contentDir: string, locale = 'pl'): CompiledConte
     throw new Error(
       `Terminy bez znacznika {{t:…}} (${termErrors.length} miejsc; decyzja T-02, content/terms.yaml):\n${shown.map((e) => `  - ${e}`).join('\n')}` +
         (termErrors.length > shown.length ? `\n  … i ${termErrors.length - shown.length} więcej` : ''),
+    );
+  }
+
+  // strażnik rejestru (D-141): tekst aplikacji tylko z twierdzeniami „potwierdzone”
+  const registry = loadRegistry(opts.registryDir ?? join(contentDir, '..', 'docs', 'tresci'));
+  const transitional = loadTransitional(opts.transitional === undefined ? join(import.meta.dirname, '..', 'rejestr-przejsciowe.json') : opts.transitional);
+  const guard = applyTransitional(registryViolations(registryUses, registry), transitional);
+  warnings.push(...guard.warnings);
+  if (guard.errors.length) {
+    throw new Error(
+      `Strażnik rejestru (D-141): tekst używa twierdzeń bez statusu „potwierdzone” w docs/tresci/rejestr.json (${guard.errors.length}):\n` +
+        guard.errors.map((e) => `  - ${e}`).join('\n'),
     );
   }
 

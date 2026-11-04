@@ -1,59 +1,616 @@
-# Telefony i miejsca pomocy przy problemach z hazardem: jedno źródło prawdy (B-058, decyzja właściciela z 5.10.2026).
-# Korzystają z niego: ramka „Odpowiedzialna gra” w lekcji M12-L4 (znacznik {{helplines}}, rozwijany przez content-build)
-# i ekran „Pomoc” w ustawieniach (moduł apps/mobile/src/data/content/helplines.generated.ts, też z content-build).
-# Numerów z tego pliku nie wpisuj ręcznie w lekcjach: content-build przerywa budowanie, gdy znajdzie je poza znacznikiem.
+# Telefony i miejsca pomocy przy problemach z hazardem: jedno źródło prawdy (B-058), rynki aplikacji (D-142):
+# US, GB, CA, JP, BR, FR, TW, VN, DE oraz pomoc międzynarodowa online. Źródła i cytaty: docs/tresci/e1-pomoc.md (§6)
+# i rejestr docs/tresci/rejestr/pomoc.json (pole `claim` = id twierdzenia; content-build przerywa budowanie, gdy
+# twierdzenie nie ma w rejestrze statusu „potwierdzone”). Decyzje: D-150 (FR godziny 8.00–23.00; US „bez opłat za
+# usługę”; Irlandia Płn. bez linku do dunlewey.net), D-151 (TW: 1925 i ośrodki; VN: numer alarmowy i pomoc online, bez
+# linii hazardowej), D-152 (GB i CA: numer ogólnokrajowy, pod nim lista regionów z własnymi numerami).
 #
-# Zakres: tylko Polska. Bez nazw pokoi pokerowych (ADR-13). Każdy wpis ma przeczytane źródło (adres i dosłowny cytat).
-# W polu `abroad` {{phone:id}} wstawia numer z wpisu o danym id.
-checked: '2026-10-05'
-abroad: 'Za granicą: lokalny numer pomocy lub {{phone:emergency}}.'
+# Korzystają z niego: ramka „Odpowiedzialna gra” w lekcji M12-L4 (znacznik {{helplines}}; lekcje nie są per kraj, więc
+# ramka pokazuje tylko pomoc międzynarodową online i odsyła do ekranu „Pomoc”) oraz ekran „Pomoc”
+# (apps/mobile/src/data/content/helplines.generated.ts). Numerów z tego pliku nie wpisuj ręcznie w lekcjach.
+#
+# kind: gambling (problem z hazardem), support (poradnictwo psychologiczne), crisis (kryzys psychiczny), emergency
+# (zagrożenie życia); jeden rodzaj na wpis. regions: kody ISO 3166-2 regionów, w których wpis obowiązuje (brak = cały
+# kraj); national: wpis regionalny pokazywany także bez wybranego regionu (numer ogólnokrajowy, D-152). country '*':
+# pomoc międzynarodowa online. Linki tylko do domen ze źródeł tego samego wpisu (content-build to sprawdza).
+# Pominięte (brak potwierdzenia w źródłach szczebla 1–3): linia hazardowa TW, VN i Nowej Szkocji (H-CA-10), terytoria
+# Kanady (H-CA-14), linia kryzysowa VN (H-VN-2); numery bez cytatu w rejestrze: SMS 988 (US), SMS ConnexOntario,
+# 112 z komórki (TW). Bez nazw pokoi pokerowych (ADR-13). Bez wpisów polskich (brak storefrontu PL, decyzja
+# właściciela 2026-11-03; wpisy PL nie mają twierdzeń w rejestrze E1).
+checked: '2026-11-04'
+review_by: '2027-11-04'
+pointer: 'Telefony pomocy dla Twojego kraju znajdziesz w aplikacji, w ekranie „Pomoc”.'
+fallback:
+  text: 'W zagrożeniu życia dzwoń na lokalny numer alarmowy.'
+  online: [int-gambling-therapy]
+regions:
+  GB-ENG: 'Anglia'
+  GB-SCT: 'Szkocja'
+  GB-WLS: 'Walia'
+  GB-NIR: 'Irlandia Północna'
+  CA-AB: 'Alberta'
+  CA-BC: 'Kolumbia Brytyjska'
+  CA-MB: 'Manitoba'
+  CA-NB: 'Nowy Brunszwik'
+  CA-NL: 'Nowa Fundlandia i Labrador'
+  CA-NS: 'Nowa Szkocja'
+  CA-ON: 'Ontario'
+  CA-PE: 'Wyspa Księcia Edwarda'
+  CA-QC: 'Quebec'
+  CA-SK: 'Saskatchewan'
+  CA-NT: 'Terytoria Północno-Zachodnie'
+  CA-NU: 'Nunavut'
+  CA-YT: 'Jukon'
 entries:
-  - id: behavioral
-    name: Telefon Zaufania uzależnienia behawioralne
-    phone: 801 889 880
-    hours: codziennie 17.00–22.00
-    cost: opłata według taryfy operatora
-    info: Prowadzi go Instytut Psychologii Zdrowia PTP; numer podaje Krajowe Centrum Przeciwdziałania Uzależnieniom.
+  # --- US ---
+  - id: us-ncpg
+    claim: H-US-1
+    country: 'US'
+    kind: gambling
+    name: 'National Problem Gambling Helpline'
+    phone: '1-800-697-3738'
+    vanity: '1-800-MY-RESET'
+    sms: '1-800-697-3738'
+    hours: 'całą dobę, 7 dni w tygodniu'
+    cost: 'bez opłat za usługę; SMS według taryfy operatora'
+    language: 'angielski; tłumacz ponad 240 języków'
+    operator: 'National Council on Problem Gambling'
     links:
-      - label: Test „Czy mam problem z hazardem?” i baza placówek pomocy
-        url: https://uzaleznieniabehawioralne.pl/
+      - label: 'Telefon, SMS i czat: informacje'
+        url: https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/
     sources:
-      - url: https://kcpu.gov.pl/
-        quote: 'Telefon Zaufania uzależnienia behawioralne / codziennie w godzinach 17.00-22.00. / Stawka za połączenie zależna od taryfy operatora. / 801 889 880'
-      - url: https://uzaleznieniabehawioralne.pl/
-        quote: 'Baza placówek pomocowych / Znajdź pomoc / TELEFON ZAUFANIA 801 889 880 czynny codziennie 17.00-22.00'
-      - url: https://uzaleznieniabehawioralne.pl/hazard/testy-diagnostyczne-patologiczny-hazard/
-        quote: 'Czy mam problem z hazardem?'
-
-  - id: crisis
-    name: Telefon dla dorosłych w kryzysie emocjonalnym
-    phone: 116 123
-    hours: całą dobę
-    cost: bezpłatnie
+      - url: https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/
+        quote: 'The National Problem Gambling Helpline™ (1-800-MY-RESET) is operated by the National Council on Problem Gambling.'
+      - url: https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/
+        quote: 'The National Problem Gambling Helpline™ offers call, text and chat services 24/7/365.'
+      - url: https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/
+        quote: 'No payment or insurance information is required to receive resources from 1-800-MY-RESET. However, standard data rates from telecommunication mobile carriers may apply to those who text the helpline.'
+      - url: https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/
+        quote: '1-800-MY-RESET uses Language Line Solutions to provide caller translation services in more than 240 languages.'
+      - url: https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/
+        quote: 'By texting the National Problem Gambling Helpline ( 1-800-522-4700 or 1-800-697-3738 )'
+  - id: us-988
+    claim: H-US-2
+    country: 'US'
+    kind: crisis
+    name: '988 Suicide & Crisis Lifeline'
+    phone: '988'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie'
+    sources:
+      - url: https://988lifeline.org/
+        quote: 'The 988 Lifeline is available 24/7/365. Your conversations are free and confidential.'
+  - id: us-911
+    claim: H-US-3
+    country: 'US'
+    kind: emergency
+    name: 'Numer alarmowy'
+    phone: '911'
+    sources:
+      - url: https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/
+        quote: 'If you or a loved one is in crisis, please call 911 or 988.'
+  # --- GB ---
+  - id: gb-ngh
+    claim: H-GB-1
+    country: 'GB'
+    regions: [GB-ENG, GB-SCT, GB-NIR]
+    national: true
+    kind: gambling
+    name: 'National Gambling Helpline'
+    phone: '0808 8020 133'
+    hours: 'całą dobę, 7 dni w tygodniu'
+    cost: 'bezpłatnie'
+    operator: 'GamCare'
+    sources:
+      - url: https://www.gamblingcommission.gov.uk/
+        quote: 'Call 0808 8020 133 in England and Scotland or 0808 2819 265 in Wales 24 hours a day, 7 days a week'
+      - url: https://www.gamblingcommission.gov.uk/
+        quote: 'England and Scotland: 0808 8020 133 Wales: 0808 2819 265 Free of charge, 24 hours a day, 7 days a week.'
+      - url: https://www.nhs.uk/live-well/addiction-support/gambling-addiction/
+        quote: 'The National Gambling Helpline (run by GamCare ) - call 0808 8020 133 for free 24 hours a day, 7 days a week'
+      - url: https://www.nidirect.gov.uk/articles/gambling
+        quote: 'Gambling support: call free on 0808 8020 133'
+  - id: gb-wales
+    claim: H-GB-2
+    country: 'GB'
+    regions: [GB-WLS]
+    kind: gambling
+    name: 'NHS Wales Gambling Helpline'
+    phone: '0808 281 9265'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie (także bez środków na koncie)'
+    operator: 'Betsi Cadwaladr University Health Board'
+    sources:
+      - url: https://www.gamblingcommission.gov.uk/
+        quote: 'contact the National Gambling or NHS Wales Helplines'
+      - url: https://bcuhb.nhs.wales/news/2026/a-new-gambling-treatment-service-and-247-helpline-is-going-live-for-people-across-wales/
+        quote: '24/7 Helpline Telephone: 0808 281 9265. The number is free to call from a landline or mobile, even when the caller has no credit left.'
+      - url: https://bcuhb.nhs.wales/news/2026/a-new-gambling-treatment-service-and-247-helpline-is-going-live-for-people-across-wales/
+        quote: 'Betsi Cadwaladr University Health Board (BCUHB) is providing the new All Wales Gambling Treatment Service and 24/7 Helpline'
+  - id: gb-ni-dunlewey
+    claim: H-GB-3
+    country: 'GB'
+    regions: [GB-NIR]
+    kind: gambling
+    name: 'Dunlewey Helpline'
+    phone: '08000 886 725'
+    cost: 'bezpłatnie'
+    info: 'Informacja o poradnictwie i wsparciu w okolicy.'
+    sources:
+      - url: https://www.nidirect.gov.uk/articles/gambling
+        quote: 'Dunlewey Addiction Services : call free on 08000 886 725'
+      - url: https://www.communities-ni.gov.uk/topics/betting-gaming-lotteries-and-amusements
+        quote: 'You can contact the Dunlewey Helpline on 08000 886 725 to find out about the counselling and support services available in your area.'
+  - id: gb-samaritans
+    claim: H-GB-4
+    country: 'GB'
+    kind: crisis
+    name: 'Samaritans'
+    phone: '116 123'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie'
+    sources:
+      - url: https://www.samaritans.org/how-we-can-help/contact-samaritan/
+        quote: 'Whatever you''re going through, you can call us any time, from any phone for FREE. Call 116 123'
+      - url: https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/
+        quote: 'call 116 123 to talk to Samaritans'
+      - url: https://www.nhsinform.scot/campaigns/suicide
+        quote: 'Samaritans For everyone - open 24 hours. Phone: 116 123'
+  - id: gb-ni-lifeline
+    claim: H-GB-6
+    country: 'GB'
+    regions: [GB-NIR]
+    kind: crisis
+    name: 'Lifeline'
+    phone: '0808 808 8000'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie'
+    sources:
+      - url: https://www.nidirect.gov.uk/articles/mental-health-emergency-if-youre-crisis-or-despair
+        quote: 'Lifeline is a crisis response helpline available to everyone in Northern Ireland. It is confidential, free and open 24 hours every day.'
+      - url: https://www.health-ni.gov.uk/articles/signposts-help
+        quote: 'Lifeline counsellors are available 24 hours a day, 7 days a week to listen and help in confidence. Phone: 0808 808 8000'
+  - id: gb-111
+    claim: H-GB-7
+    country: 'GB'
+    regions: [GB-ENG, GB-SCT, GB-WLS]
+    kind: crisis
+    name: 'NHS 111: opcja zdrowia psychicznego (w Walii: opcja 2)'
+    phone: '111'
+    sources:
+      - url: https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/
+        quote: 'Get help from 111 online or call 111 and select the mental health option.'
+      - url: https://www.nhsinform.scot/campaigns/suicide
+        quote: 'NHS 24 For everyone - open 24 hours. Phone: 111 and choose the mental health option'
+      - url: https://www.gov.wales/nhs-111-press-2
+        quote: 'For urgent mental health support call 111 and press OPTION 2. The service is available for people of all ages, 24 hours a day, 7 days a week in all areas of Wales'
+  - id: gb-999
+    claim: H-GB-5
+    country: 'GB'
+    kind: emergency
+    name: 'Numer alarmowy'
+    phone: '999'
+    sources:
+      - url: https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/
+        quote: 'Call 999 or go to A&E now if: someone''s life is at risk'
+      - url: https://www.nhsinform.scot/campaigns/suicide
+        quote: 'Phone 999 or go to A&E if: you''ve taken an overdose'
+      - url: https://cavuhb.nhs.wales/our-services/mental-health/our-services1/nhs-111-press-2/
+        quote: 'In life-threatening situations, always call 999 or attend the nearest Emergency Unit.'
+      - url: https://www.nidirect.gov.uk/articles/mental-health-emergency-if-youre-crisis-or-despair
+        quote: 'If they''re in immediate danger, telephone the police on 999.'
+  # --- CA ---
+  - id: ca-988
+    claim: H-CA-1
+    country: 'CA'
+    kind: crisis
+    name: '9-8-8: Suicide Crisis Helpline'
+    phone: '9-8-8'
+    sms: '9-8-8'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie'
+    sources:
+      - url: https://988.ca/
+        quote: 'A safe space to talk, 24 hours a day, every day of the year. Call 9-8-8 Text 9-8-8'
+      - url: https://www.agco.ca/en/lottery-and-gaming/safer-gambling
+        quote: 'Thinking of suicide? Help is available. Call or text 9-8-8. Toll-free. 24/7.'
+  - id: ca-911
+    claim: H-CA-2
+    country: 'CA'
+    kind: emergency
+    name: 'Numer alarmowy'
+    phone: '9-1-1'
+    sources:
+      - url: https://988.ca/
+        quote: 'If your safety is at risk, call 9-1-1 right away.'
+  - id: ca-on
+    claim: H-CA-3
+    country: 'CA'
+    regions: [CA-ON]
+    kind: gambling
+    name: 'ConnexOntario'
+    phone: '1-866-531-2600'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie, poufnie'
+    sources:
+      - url: https://www.agco.ca/en/lottery-and-gaming/safer-gambling
+        quote: 'Service is free, confidential, and accessible around the clock. If you or someone you know is struggling with gambling, call ConnexOntario at 1-866-531-2600'
+  - id: ca-bc
+    claim: H-CA-4
+    country: 'CA'
+    regions: [CA-BC]
+    kind: gambling
+    name: 'Gambling Support BC'
+    phone: '1-888-795-6111'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie'
+    sources:
+      - url: https://www2.gov.bc.ca/gov/content/sports-culture/gambling-fundraising/gambling-support-bc
+        quote: 'Call us toll-free 24/7 at 1-888-795-6111'
+      - url: https://www2.gov.bc.ca/gov/content/sports-culture/gambling-fundraising/gambling-support-bc
+        quote: 'A 24-hour, toll-free Gambling Support Line: 1-888-795-6111'
+  - id: ca-qc
+    claim: H-CA-5
+    country: 'CA'
+    regions: [CA-QC]
+    kind: gambling
+    name: 'Jeu : aide et référence'
+    phone: '1 800 461-0140'
+    phone_alt:
+      - phone: '514 527-0140'
+        label: 'Montreal i okolice'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie (numer 1 800)'
+    language: 'francuski, angielski'
+    sources:
+      - url: https://www.quebec.ca/en/health/advice-and-prevention/alcohol-drugs-gambling/recognizing-a-gambling-disorder
+        quote: 'Gambling - Help and Referral : 1-800-461-0140'
+      - url: https://sante.gouv.qc.ca/repertoire-ressources/ressource/?nofiche=33839
+        quote: 'Les services sont offerts en français et en anglais. Téléphone Principal Montréal et les environs : 514 527-0140 Ligne sans frais Partout au Québec : 1 800 461-0140'
+      - url: https://sante.gouv.qc.ca/repertoire-ressources/ressource/?nofiche=33839
+        quote: 'Disponible 24 heures par jour, 7 jours par semaine, pour tout le Québec.'
+  - id: ca-ab
+    claim: H-CA-6
+    country: 'CA'
+    regions: [CA-AB]
+    kind: gambling
+    name: '24-Hour Addiction Helpline (uzależnienia, także hazard)'
+    phone: '1-866-332-2322'
+    hours: 'całą dobę'
+    sources:
+      - url: https://myhealth.alberta.ca/Alberta/Pages/Find-help-for-drug-or-gambling-problem.aspx
+        quote: '24-Hour Addiction Helpline : dial 1-866-332-2322 (Alberta only)'
+  - id: ca-sk
+    claim: H-CA-7
+    country: 'CA'
+    regions: [CA-SK]
+    kind: gambling
+    name: 'Problem Gambling Help Line'
+    phone: '1-800-306-6789'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie'
+    sources:
+      - url: https://www.saskatchewan.ca/residents/health/emergency-medical-services/problem-gambling-help-line
+        quote: 'The Problem Gambling Help Line provides free 24-hour help to people with gambling problems and their families.'
+  - id: ca-mb
+    claim: H-CA-8
+    country: 'CA'
+    regions: [CA-MB]
+    kind: gambling
+    name: 'Problem Gambling Helpline'
+    phone: '1-800-463-1554'
+    hours: 'całą dobę'
+    operator: 'Addictions Foundation of Manitoba'
+    sources:
+      - url: https://www.gov.mb.ca/contact/urgent_toll_free.html
+        quote: 'Problem Gambling Helpline 24 hours, in Manitoba 1-800-463-1554'
+      - url: https://www.gov.mb.ca/contact/urgent_toll_free.html
+        quote: 'Addictions Foundation of Manitoba - Problem Gambling Helpline 204-944-6382 (24 hours) 1-800-463-1554 (24 hours)'
+  - id: ca-nb
+    claim: H-CA-9
+    country: 'CA'
+    regions: [CA-NB]
+    kind: gambling
+    name: 'Linia uzależnień i zdrowia psychicznego (także hazard)'
+    phone: '1-866-355-5550'
+    hours: 'całą dobę'
+    sources:
+      - url: https://www.gnb.ca/en/topic/health-wellness/addictions-substance-abuse/addiction-services.html
+        quote: 'Find addiction services locations for substance use and gambling in your area.'
+      - url: https://www.gnb.ca/en/topic/health-wellness/addictions-substance-abuse/addiction-services.html
+        quote: 'Not finding what you''re looking for? Call our 24/7 helpline: 1-866-355-5550 .'
+  - id: ca-ns-crisis
+    claim: H-CA-11
+    country: 'CA'
+    regions: [CA-NS]
+    kind: crisis
+    name: 'Mental Health and Addictions Crisis Line'
+    phone: '1-888-429-8167'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie'
+    sources:
+      - url: https://novascotia.ca/dhw/addictions/important-numbers.asp
+        quote: 'Provincial Mental Health and Addictions Crisis Line 1-888-429-8167 For crisis support and mobile response at work, home, school, and community agencies, call this toll-free line 24 hours a day, 7 days a week.'
+  - id: ca-pe
+    claim: H-CA-12
+    country: 'CA'
+    regions: [CA-PE]
+    kind: gambling
+    name: 'PEI Gambling Support Line'
+    phone: '1-855-255-4255'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie'
+    language: 'angielski, francuski'
+    sources:
+      - url: https://pe.211.ca/addiction-support-services/pei-gambling-support-line
+        quote: 'Fees: No fees How to Access: Call toll free number'
+      - url: https://pe.211.ca/addiction-support-services/pei-gambling-support-line
+        quote: 'Toll-Free Number Within PEI * 24/7 Line 1-855-255-4255 Language: English * French'
+      - url: https://pei.cmha.ca/wp-content/uploads/2024/10/PEI-HELPING-TREE-2024-3.pdf
+        quote: 'Toll Free: 1-855-255-4255'
+  - id: ca-nl
+    claim: H-CA-13
+    country: 'CA'
+    regions: [CA-NL]
+    kind: gambling
+    name: 'Gambling Help Line'
+    phone: '811'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie, poufnie'
+    sources:
+      - url: https://www.gov.nl.ca/hcs/mentalhealth-committee/mentalhealth/helplines-and-navigator/
+        quote: 'Gambling Help Line 811 The Gambling Help Line is a free, confidential service available province-wide, 24 hours a day.'
+  # --- JP ---
+  - id: jp-center
+    claim: H-JP-1
+    country: 'JP'
+    kind: gambling
+    name: '精神保健福祉センター / 保健所 (ośrodek w prefekturze)'
+    info: 'Ministerstwo zdrowia kieruje najpierw do najbliższego ośrodka zdrowia (保健所) albo ośrodka zdrowia psychicznego (精神保健福祉センター); ośrodek zdrowia psychicznego jest w każdej prefekturze.'
     links:
-      # 116sos.pl zamiast 116123.edu.pl: ta druga strona miała 5.10.2026 wadliwy certyfikat TLS
-      - label: Czat
-        url: https://116sos.pl/
+      - label: 'Gdzie szukać pomocy (ministerstwo zdrowia)'
+        url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000070789.html
     sources:
-      - url: https://116sos.pl/
-        quote: 'telefon 116 123 / dostępny 24/7'
-      - url: https://116sos.pl/
-        quote: 'Bezpłatne'
-
-  - id: gamblers-anonymous
-    name: Anonimowi Hazardziści
-    hours: mityngi w całej Polsce i online
-    cost: bezpłatnie
+      - url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000070789.html
+        quote: 'まずは、お近くの「保健所」や「精神保健福祉センター」に御相談ください'
+      - url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000070789.html
+        quote: '精神保健福祉センターは各都道府県・政令指定都市ごとに1か所ずつあります（東京都は3か所）。'
+  - id: jp-inochi-sos
+    claim: H-JP-2
+    country: 'JP'
+    kind: crisis
+    name: '#いのちSOS'
+    phone: '0120-061-338'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie'
+    sources:
+      - url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/seikatsuhogo/jisatsu/soudan_tel.html
+        quote: '電話番号 0120-061-338 おもい ささえる（フリーダイヤル・無料） 実施日時 24時間 365日'
+  - id: jp-yorisoi
+    claim: H-JP-2
+    country: 'JP'
+    kind: crisis
+    name: 'よりそいホットライン'
+    phone: '0120-279-338'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie'
+    language: 'japoński; wybór porady także w językach obcych'
+    sources:
+      - url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/seikatsuhogo/jisatsu/soudan_tel.html
+        quote: 'ガイダンスで専門的な対応も選べます（外国語含む）。 電話番号 0120-279-338 つなぐ ささえる（フリーダイヤル・無料）'
+      - url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/seikatsuhogo/jisatsu/soudan_tel.html
+        quote: '実施日時 24時間対応'
+  - id: jp-119
+    claim: H-JP-3
+    country: 'JP'
+    kind: emergency
+    name: 'Straż pożarna i pogotowie'
+    phone: '119'
+    sources:
+      - url: https://www.fdma.go.jp/mission/enrichment/kyukyumusen_kinkyutuhou/119.html
+        quote: '119番通報は、消防車・救急車が必要な場合に行うものですが'
+  # --- BR ---
+  - id: br-sus
+    claim: H-BR-1
+    country: 'BR'
+    kind: gambling
+    name: 'SUS: teleporada w Meu SUS Digital, UBS i CAPS'
+    cost: 'bezpłatnie, poufnie'
+    info: 'Teleporada w aplikacji albo na stronie Meu SUS Digital, z logowaniem kontem gov.br.'
     links:
-      - label: Lista mityngów
-        url: https://anonimowihazardzisci.org/
+      - label: 'Informacja Ministerstwa Zdrowia'
+        url: https://agenciagov.ebc.com.br/noticias/202610/campanha-do-ministerio-da-saude-orienta-sobre-riscos-das-apostas-online-e-atendimento-disponivel-no-sus
     sources:
-      - url: https://anonimowihazardzisci.org/
-        quote: 'Nie istnieją żadne opłaty za uczestnictwo w grupach Anonimowych Hazardzistów'
-
-  - id: emergency
-    name: W sytuacji zagrożenia życia
+      - url: https://agenciagov.ebc.com.br/noticias/202610/campanha-do-ministerio-da-saude-orienta-sobre-riscos-das-apostas-online-e-atendimento-disponivel-no-sus
+        quote: 'Pessoas com problemas relacionados a jogos e apostas podem buscar atendimento gratuito nas UBS, nos CAPS e por teleatendimento pelo Meu SUS Digital'
+      - url: https://agenciagov.ebc.com.br/noticias/202610/campanha-do-ministerio-da-saude-orienta-sobre-riscos-das-apostas-online-e-atendimento-disponivel-no-sus
+        quote: 'O serviço é gratuito e sigiloso e pode ser acessado pelo aplicativo ou pela versão web do Meu SUS Digital, com login pela conta gov.br.'
+  - id: br-cvv
+    claim: H-BR-2
+    country: 'BR'
+    kind: crisis
+    name: 'CVV'
+    phone: '188'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie'
+    sources:
+      - url: https://cvv.org.br/
+        quote: 'Converse gratuitamente com um dos nossos voluntários, em todo o Brasil, 24 horas por dia LIGUE 188'
+  - id: br-samu
+    claim: H-BR-3
+    country: 'BR'
+    kind: emergency
+    name: 'SAMU (pogotowie)'
+    phone: '192'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie'
+    sources:
+      - url: https://www.gov.br/saude/pt-br/composicao/saes/samu-192
+        quote: 'O serviço é gratuito , acessado pelo número 192, funciona 24 horas por dia e 07 dias por semana'
+      - url: https://www.gov.br/saude/pt-br/composicao/saes/samu-192
+        quote: 'seja de natureza clínica, cirúrgica, traumática ou psiquiátrica'
+  # --- FR ---
+  - id: fr-jis
+    claim: H-FR-1
+    country: 'FR'
+    kind: gambling
+    name: 'Joueurs Info Service'
+    phone: '09 74 75 13 13'
+    hours: 'codziennie 8.00–23.00'
+    cost: 'bez dopłat, anonimowo'
+    sources:
+      - url: https://www.joueurs-info-service.fr/
+        quote: 'Par téléphone : 09 74 75 13 13 (appel anonyme et gratuit), 7 jours sur 7, de 8h à 23h.'
+      - url: https://lannuaire.service-public.gouv.fr/centres-contact/R2428
+        quote: 'Appel anonyme et non surtaxé (coût d''une communication locale depuis un poste fixe ou inclus dans les forfaits des box et des mobiles). Ouvert 7 jours sur 7 , de 8h à 2h du matin.'
+      - url: https://anj.fr/foire-aux-questions/addiction-au-jeu/je-commence-perdre-le-controle-de-mon-jeu-dargent-que-faire-ou
+        quote: 'Joueurs info Service : 09 74 75 13 13'
+  - id: fr-3114
+    claim: H-FR-2
+    country: 'FR'
+    kind: crisis
+    name: '3114: numer zapobiegania samobójstwom'
+    phone: '3114'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie'
+    sources:
+      - url: https://3114.fr/
+        quote: 'Le 3114 est accessible 24h/24 et 7j/7, gratuitement, en France entière.'
+  - id: fr-15
+    claim: H-FR-3
+    country: 'FR'
+    kind: emergency
+    name: 'Pogotowie (SAMU)'
+    phone: '15'
+    phone_alt:
+      - phone: '112'
+        label: 'europejski numer alarmowy'
+    sources:
+      - url: https://www.service-public.gouv.fr/particuliers/vosdroits/F33954
+        quote: 'Urgence médicale : le 15 (Samu)'
+      - url: https://www.service-public.gouv.fr/particuliers/vosdroits/F33954
+        quote: 'Urgence médicale - Infraction - Péril : le 112 Europe.'
+  # --- TW ---
+  - id: tw-1925
+    claim: H-TW-2
+    country: 'TW'
+    kind: crisis
+    name: '1925 安心專線'
+    phone: '1925'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie'
+    sources:
+      - url: https://www.gov.tw/News_Content_26_826198
+        quote: '安心專線 1925 🔸提供免費心理諮詢服務'
+      - url: https://www.gov.tw/News_Content_26_826198
+        quote: '🔸服務時間：週一至週日，24小時'
+      - url: https://mohw.gov.tw/cp-16-57989-1.html
+        quote: '可撥打本部24小時服務不打烊，且免付費之1925（依舊愛我）安心專線'
+  - id: tw-centers
+    claim: H-TW-4
+    country: 'TW'
+    kind: support
+    name: '社區心理衛生中心 (ośrodki zdrowia psychicznego)'
+    info: 'Poradnictwo psychologiczne w ośrodkach zdrowia psychicznego przy urzędach zdrowia każdego powiatu i miasta.'
+    links:
+      - label: 'Informacja rządowa'
+        url: https://www.gov.tw/News_Content_26_826198
+    sources:
+      - url: https://www.gov.tw/News_Content_26_826198
+        quote: '各縣市衛生局社區心理衛生中心皆有提供心理諮商服務'
+  - id: tw-119
+    claim: H-TW-3
+    country: 'TW'
+    kind: emergency
+    name: 'Numer alarmowy'
+    phone: '119'
+    sources:
+      - url: https://www.nfa.gov.tw/pro/index.php?code=list&flag=detail&ids=113&article_id=31
+        quote: '當民眾遭遇火災搶救、緊急救護或其他有危及個人生命安全的案件時，均可以撥打119電話'
+      - url: https://www.nfa.gov.tw/pro/index.php?code=list&flag=detail&ids=113&article_id=31
+        quote: '報案時應先撥打119專線，因為接通後24小時由專人受理。'
+  # --- VN ---
+  - id: vn-113
+    claim: H-VN-3
+    country: 'VN'
+    kind: emergency
+    name: 'Numer alarmowy'
+    phone: '113'
+    phone_alt:
+      - phone: '115'
+    cost: 'bezpłatnie'
+    review_by: '2027-02-04'
+    sources:
+      - url: https://baochinhphu.vn/mien-phi-cac-cuoc-goi-den-so-113-114-115-102268666.htm
+        quote: 'Người sử dụng dịch vụ điện thoại cố định mặt đất hoặc dịch vụ thông tin di động mặt đất gọi đến các số dịch vụ khẩn cấp (113, 114, 115) được miễn phí.'
+      - url: https://baochinhphu.vn/cap-cuu-ngoai-vien-duoc-dieu-phoi-nhu-the-nao-102261102093055276.htm
+        quote: 'Các thông tin đề nghị hỗ trợ y tế qua đầu số 113 sẽ được chuyển đến nhân viên y tế trực tại Trung tâm Thông tin chỉ huy Công an tỉnh, thành phố'
+  # --- DE ---
+  - id: de-bioeg
+    claim: H-DE-1
+    country: 'DE'
+    kind: gambling
+    name: 'BIÖG-Beratungstelefon zur Glücksspielsucht'
+    phone: '0800 1 37 27 00'
+    hours: 'pon.–czw. 10–22, pt.–niedz. 10–18 (bez 24.12 i 31.12)'
+    cost: 'bezpłatnie, anonimowo'
+    sources:
+      - url: https://www.check-dein-spiel.de/hilfe-fuer-spieler/telefon-beratung/
+        quote: 'Das Beratungsteam des BIÖG ist unter der Rufnummer 0800 1 37 27 00 kostenfrei und anonym erreichbar.'
+      - url: https://www.check-dein-spiel.de/hilfe-fuer-spieler/telefon-beratung/
+        quote: 'Die Sprechzeiten : montags bis donnerstags 10 bis 22 Uhr und freitags bis sonntags 10 bis 18 Uhr an 363 Tagen im Jahr (ausgenommen sind der 24.12. und der 31.12.).'
+  - id: de-pl
+    claim: H-DE-4
+    country: 'DE'
+    kind: gambling
+    name: 'Porada w języku polskim (Caritas)'
+    phone: '0173 29 37 359'
+    cost: 'bezpłatnie, anonimowo'
+    language: 'polski'
+    sources:
+      - url: https://www.check-dein-spiel.de/hilfe-fuer-spieler/fremdsprachige-telefon-beratung/
+        quote: 'Telefonberatung auf Polnisch Telefonnummer: 0173 29 37 359 Kostenlos und anonym'
+  - id: de-ts
+    claim: H-DE-2
+    country: 'DE'
+    kind: crisis
+    name: 'TelefonSeelsorge'
+    phone: '0800 111 0 111'
+    phone_alt:
+      - phone: '0800 111 0 222'
+      - phone: '116 123'
+    hours: 'całą dobę'
+    cost: 'bezpłatnie'
+    sources:
+      - url: https://www.telefonseelsorge.de/
+        quote: '0800/1110111 · 0800/1110222 · 116123. Ihr Anruf ist kostenfrei.'
+      - url: https://gesund.bund.de/en/notfallnummern
+        quote: 'The telephone and online advice service can be contacted seven days a week, 24 hours a day.'
+      - url: https://gesund.bund.de/en/notfallnummern
+        quote: '"Telefonseelsorge" crisis hotline: 116 123'
+  - id: de-112
+    claim: H-DE-3
+    country: 'DE'
+    kind: emergency
+    name: 'Numer alarmowy'
     phone: '112'
     sources:
-      - url: https://www.gov.pl/web/numer-alarmowy-112
-        quote: 'Aplikacja mobilna Alarm112 umożliwia w sytuacji zagrożenia życia, zdrowia, mienia, środowiska, bezpieczeństwa i porządku publicznego przekazanie zgłoszenia alarmowego do Centrum Powiadamiania Ratunkowego'
+      - url: https://gesund.bund.de/en/notfallnummern
+        quote: 'if the situation is life-threatening, call the emergency services on 112 .'
+  # --- pomoc międzynarodowa online ---
+  - id: int-gambling-therapy
+    claim: H-INT-1
+    country: '*'
+    kind: gambling
+    name: 'Gambling Therapy (Gordon Moody, Wielka Brytania)'
+    info: 'Wsparcie tekstowe online dla osób z każdego kraju, w ponad 200 językach; anonimowo.'
+    links:
+      - label: 'Gambling Therapy'
+        url: https://gordonmoody.org.uk/gambling-therapy/
+    sources:
+      - url: https://gordonmoody.org.uk/gambling-therapy/
+        quote: 'Gambling Therapy is a text-based service that provides emotional and practical support to anyone in the world who is struggling as a result of gambling.'
+      - url: https://gordonmoody.org.uk/gambling-therapy/
+        quote: 'Support is provided in more than 200 languages through a combination of native speaking advisers and translation software tools.'
+      - url: https://gordonmoody.org.uk/gambling-therapy/
+        quote: 'There is no need to give your real name or email address - you can remain anonymous if you wish.'
