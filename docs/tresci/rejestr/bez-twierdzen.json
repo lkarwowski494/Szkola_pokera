@@ -1,0 +1,891 @@
+[
+ {
+  "klucz": "ex.pot",
+  "wartosc": 100,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (pula w żetonach)"
+ },
+ {
+  "klucz": "ex.frac.pot",
+  "wartosc": 1,
+  "jednostka": "ratio",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład: zakład = pula"
+ },
+ {
+  "klucz": "ex.frac.half",
+  "wartosc": 0.5,
+  "jednostka": "ratio",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład: zakład = pół puli"
+ },
+ {
+  "klucz": "ex.frac.quarter",
+  "wartosc": 0.25,
+  "jednostka": "ratio",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład: zakład = ćwierć puli"
+ },
+ {
+  "klucz": "ex.third.pot",
+  "wartosc": 90,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (pula w żetonach)"
+ },
+ {
+  "klucz": "ex.third.bet",
+  "wartosc": 30,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (zakład 1/3 puli)"
+ },
+ {
+  "klucz": "pf.3bet.too-small.mult",
+  "wartosc": 2,
+  "jednostka": "multiplier",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład błędnego rozmiaru: 2 × otwarcie (dobrany do ćwiczenia, bez źródła)"
+ },
+ {
+  "klucz": "pf.3bet.too-big.mult",
+  "wartosc": 5,
+  "jednostka": "multiplier",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład błędnego rozmiaru: 5 × otwarcie (dobrany do ćwiczenia, bez źródła)"
+ },
+ {
+  "klucz": "pf.4bet.too-small.mult",
+  "wartosc": 1.5,
+  "jednostka": "multiplier",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład błędnego rozmiaru: 1,5 × 3-bet (dobrany do ćwiczenia, bez źródła)"
+ },
+ {
+  "klucz": "ex.wrong.half",
+  "wartosc": 0.5,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład błędnej odpowiedzi w zadaniach M2 (połowa)"
+ },
+ {
+  "klucz": "ex.hands.two",
+  "wartosc": 2,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: dwie ręce rywali bez pary, cztery różne rangi"
+ },
+ {
+  "klucz": "ex.frac.three-quarters",
+  "wartosc": 0.75,
+  "jednostka": "ratio",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład: zakład = 3/4 puli"
+ },
+ {
+  "klucz": "ex.frac.overbet",
+  "wartosc": 1.5,
+  "jednostka": "ratio",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład: zakład = 1,5 puli (overbet)"
+ },
+ {
+  "klucz": "xr.too-small.mult",
+  "wartosc": 1.5,
+  "jednostka": "multiplier",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład błędnego rozmiaru: 1,5x c-betu (dobrany do ćwiczenia, bez źródła)"
+ },
+ {
+  "klucz": "io.oesd.pot",
+  "wartosc": 80,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (pula w żetonach)"
+ },
+ {
+  "klucz": "spr.low",
+  "wartosc": 1.5,
+  "jednostka": "ratio",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład niskiego SPR dobrany do ćwiczeń (bez źródła liczbowego)"
+ },
+ {
+  "klucz": "spr.high",
+  "wartosc": 5,
+  "jednostka": "ratio",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład SPR na turnie z kilkoma pulami za rywalem, dobrany do ćwiczeń (bez źródła liczbowego); w strefach SPR z M9 (lic"
+ },
+ {
+  "klucz": "value.ex.many",
+  "wartosc": 6,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (liczba sprawdzeń)"
+ },
+ {
+  "klucz": "value.ex.few",
+  "wartosc": 4,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (liczba sprawdzeń)"
+ },
+ {
+  "klucz": "bluff.ex.range",
+  "wartosc": 15,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (kombinacje, którymi betujesz)"
+ },
+ {
+  "klucz": "catch.ex.bluffs-low",
+  "wartosc": 0.15,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład do ćwiczenia (założony udział blefów rywala, bez źródła)"
+ },
+ {
+  "klucz": "catch.ex.bluffs-high",
+  "wartosc": 0.4,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład do ćwiczenia (założony udział blefów rywala, bez źródła)"
+ },
+ {
+  "klucz": "spr.short.stack",
+  "wartosc": 50,
+  "jednostka": "bb",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: rywal z krótszym stackiem"
+ },
+ {
+  "klucz": "spr.commit",
+  "wartosc": 2,
+  "jednostka": "ratio",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład SPR w strefie poniżej 3; serwis komercyjnego solvera, Stack-to-Pot Ratio (SPR ok. 2). Granicą strefy jest spr.z"
+ },
+ {
+  "klucz": "geo.half.spr",
+  "wartosc": 3.5,
+  "jednostka": "ratio",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład: SPR, przy którym trzy zakłady pół puli dają all-in ((1+2·0,5)^3 = 1 + 2·3,5)"
+ },
+ {
+  "klucz": "var.wr.ex",
+  "wartosc": 5,
+  "jednostka": "bb100",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład z serwisu z kalkulatorami pokerowymi („5 bb/100 Winner, 80 bb/100 SD”); dla porównania według trenera z blogiem"
+ },
+ {
+  "klucz": "var.hands.k",
+  "wartosc": 100,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: 100 tys. rąk (ta sama próbka co w przykładzie serwisu z kalkulatorami pokerowymi)"
+ },
+ {
+  "klucz": "var.target",
+  "wartosc": 2,
+  "jednostka": "bb100",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: chcesz znać winrate z dokładnością ±2bb/100 (ten sam cel co w dokumencie 08)"
+ },
+ {
+  "klucz": "dd.bi.big",
+  "wartosc": 20,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: downswing o 20 wpisowych"
+ },
+ {
+  "klucz": "dd.hands.short.k",
+  "wartosc": 20,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: krótsza próbka, 20 tys. rąk"
+ },
+ {
+  "klucz": "dd.wr-low",
+  "wartosc": 2,
+  "jednostka": "bb100",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: winrate typowego wygrywającego na mikrostawkach (w przedziale 1–3bb/100 według trenera z blogiem szko"
+ },
+ {
+  "klucz": "m11.ante",
+  "wartosc": 1,
+  "jednostka": "bb",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład: big blind ante w wysokości jednego blinda (wariant 10bb-ante w pushfold.json)"
+ },
+ {
+  "klucz": "m11.m.stack",
+  "wartosc": 3000,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (żetony)"
+ },
+ {
+  "klucz": "m11.m.sb",
+  "wartosc": 100,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (mały blind w żetonach)"
+ },
+ {
+  "klucz": "m11.m.bb",
+  "wartosc": 200,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (duży blind w żetonach)"
+ },
+ {
+  "klucz": "m11.m.ante",
+  "wartosc": 200,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (big blind ante w żetonach)"
+ },
+ {
+  "klucz": "m11.m.example",
+  "wartosc": 3,
+  "jednostka": "ratio",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu (M w strefie czerwonej)"
+ },
+ {
+  "klucz": "m11.icm.a.s1",
+  "wartosc": 4500,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (żetony)"
+ },
+ {
+  "klucz": "m11.icm.a.s2",
+  "wartosc": 3500,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (żetony)"
+ },
+ {
+  "klucz": "m11.icm.a.s3",
+  "wartosc": 2000,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (żetony)"
+ },
+ {
+  "klucz": "m11.icm.a.p1",
+  "wartosc": 0.6,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: wypłata za 1. miejsce (część puli nagród)"
+ },
+ {
+  "klucz": "m11.icm.a.p2",
+  "wartosc": 0.4,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: wypłata za 2. miejsce"
+ },
+ {
+  "klucz": "m11.bf.s1",
+  "wartosc": 4000,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (żetony)"
+ },
+ {
+  "klucz": "m11.bf.s2",
+  "wartosc": 3000,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (żetony; twój stack)"
+ },
+ {
+  "klucz": "m11.bf.s3",
+  "wartosc": 2000,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (żetony; gracz all-in)"
+ },
+ {
+  "klucz": "m11.bf.s4",
+  "wartosc": 1000,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji (żetony)"
+ },
+ {
+  "klucz": "m11.bf.p1",
+  "wartosc": 0.5,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: wypłata za 1. miejsce"
+ },
+ {
+  "klucz": "m11.bf.p2",
+  "wartosc": 0.3,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: wypłata za 2. miejsce"
+ },
+ {
+  "klucz": "m11.bf.p3",
+  "wartosc": 0.2,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: wypłata za 3. miejsce"
+ },
+ {
+  "klucz": "m11.bf.example-eq",
+  "wartosc": 0.55,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: equity ręki między progiem w żetonach a progiem ICM"
+ },
+ {
+  "klucz": "hud.se.ex.p",
+  "wartosc": 0.25,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: VPIP 25%"
+ },
+ {
+  "klucz": "hud.se.ex.n",
+  "wartosc": 100,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: 100 rąk (każda ręka to okazja do VPIP)"
+ },
+ {
+  "klucz": "hud.se.f3b.p",
+  "wartosc": 0.5,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: fold to 3-bet 50%"
+ },
+ {
+  "klucz": "hud.se.f3b.n",
+  "wartosc": 20,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: 20 sytuacji, w których rywal dostał 3-bet"
+ },
+ {
+  "klucz": "hud.ex.wrong.vpip",
+  "wartosc": 0.2,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: błędny zapis statystyk (PFR większy niż VPIP)"
+ },
+ {
+  "klucz": "hud.ex.wrong.pfr",
+  "wartosc": 0.25,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: błędny zapis statystyk (PFR większy niż VPIP)"
+ },
+ {
+  "klucz": "hud.ex.few.hands",
+  "wartosc": 12,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: próba mniejsza niż hud.hands.random"
+ },
+ {
+  "klucz": "hud.ex.few.vpip",
+  "wartosc": 0.58,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: statystyki z bardzo małej próby"
+ },
+ {
+  "klucz": "hud.ex.few.pfr",
+  "wartosc": 0.08,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: statystyki z bardzo małej próby"
+ },
+ {
+  "klucz": "hud.ex.reg.hands",
+  "wartosc": 400,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: próba, przy której VPIP i PFR są już czytelne (powyżej hud.hands.vpip.high)"
+ },
+ {
+  "klucz": "hud.ex.passive.vpip",
+  "wartosc": 0.28,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: gracz pasywny o średnim VPIP"
+ },
+ {
+  "klucz": "hud.ex.passive.pfr",
+  "wartosc": 0.12,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: gracz pasywny o średnim VPIP"
+ },
+ {
+  "klucz": "hud.ex.nit.vpip",
+  "wartosc": 0.11,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: nit (profil z serwisu szkoleniowego „Nit (15/12/3%)”, serwis szkoleniowy „a 12% VPIP is guaranteed t"
+ },
+ {
+  "klucz": "hud.ex.nit.pfr",
+  "wartosc": 0.09,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: nit"
+ },
+ {
+  "klucz": "hud.ex.maniac.vpip",
+  "wartosc": 0.48,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: maniak (profil z serwisu szkoleniowego „Maniac (38/35/15%+)”)"
+ },
+ {
+  "klucz": "hud.ex.maniac.pfr",
+  "wartosc": 0.46,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: maniak"
+ },
+ {
+  "klucz": "hud.ex.fcb.high",
+  "wartosc": 0.7,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: rywal, który często pasuje na c-bet (serwis szkoleniowy: „>65% → Bluff every flop you raised preflop"
+ },
+ {
+  "klucz": "hud.ex.fcb.low",
+  "wartosc": 0.35,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: rywal, który rzadko pasuje na c-bet"
+ },
+ {
+  "klucz": "hud.ex.mid.hands",
+  "wartosc": 60,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu: próba między hud.hands.random a hud.hands.vpip.low"
+ },
+ {
+  "klucz": "exam.m10.se.p",
+  "wartosc": 0.6,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: fold to c-bet 60%"
+ },
+ {
+  "klucz": "exam.m10.se.n",
+  "wartosc": 30,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: 30 okazji do fold to c-bet"
+ },
+ {
+  "klucz": "exam.m10.mid.hands",
+  "wartosc": 150,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: próba między progiem VPIP/PFR a progiem 3-betu"
+ },
+ {
+  "klucz": "exam.m10.mid.vpip",
+  "wartosc": 0.24,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu"
+ },
+ {
+  "klucz": "exam.m10.mid.pfr",
+  "wartosc": 0.2,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu"
+ },
+ {
+  "klucz": "exam.m10.mid.f3b",
+  "wartosc": 0.8,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: fold to 3-bet z małej liczby okazji"
+ },
+ {
+  "klucz": "exam.m10.nit.vpip",
+  "wartosc": 0.09,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: nit (VPIP poniżej hud.vpip.nit-max)"
+ },
+ {
+  "klucz": "exam.m10.nit.pfr",
+  "wartosc": 0.07,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: nit"
+ },
+ {
+  "klucz": "exam.m10.nit.hands",
+  "wartosc": 300,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: próba powyżej hud.hands.vpip.high"
+ },
+ {
+  "klucz": "exam.m10.maniac.vpip",
+  "wartosc": 0.52,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: maniak (VPIP od hud.vpip.loose)"
+ },
+ {
+  "klucz": "exam.m10.maniac.pfr",
+  "wartosc": 0.5,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: maniak (różnica poniżej hud.gap.aggressive)"
+ },
+ {
+  "klucz": "exam.m10.rec.vpip",
+  "wartosc": 0.45,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: pasywny gracz rekreacyjny"
+ },
+ {
+  "klucz": "exam.m10.rec.pfr",
+  "wartosc": 0.12,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: pasywny gracz rekreacyjny (różnica ponad hud.gap.passive)"
+ },
+ {
+  "klucz": "exam.m10.long.hands",
+  "wartosc": 600,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: próba powyżej hud.hands.3bet.high"
+ },
+ {
+  "klucz": "exam.m10.f3b.low",
+  "wartosc": 0.25,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: rywal, który rzadko pasuje na 3-bet"
+ },
+ {
+  "klucz": "exam.m10.fcb",
+  "wartosc": 0.4,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: fold to c-bet między alpha.cbet.small a alpha.cbet.big"
+ },
+ {
+  "klucz": "exam.m11.mid.stack",
+  "wartosc": 12,
+  "jednostka": "bb",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: stack między m11.thr.pushfold a m11.thr.upper"
+ },
+ {
+  "klucz": "exam.m11.m.stack",
+  "wartosc": 2400,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu (żetony)"
+ },
+ {
+  "klucz": "exam.m11.m.sb",
+  "wartosc": 200,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu (mały blind w żetonach)"
+ },
+ {
+  "klucz": "exam.m11.m.bb",
+  "wartosc": 400,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu (duży blind w żetonach)"
+ },
+ {
+  "klucz": "exam.m11.m.ante",
+  "wartosc": 400,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu (big blind ante w żetonach)"
+ },
+ {
+  "klucz": "exam.m11.fe.depth",
+  "wartosc": 6,
+  "jednostka": "bb",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: stack małego blinda"
+ },
+ {
+  "klucz": "exam.m11.call.depth",
+  "wartosc": 8,
+  "jednostka": "bb",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: stacki po 8bb"
+ },
+ {
+  "klucz": "exam.m11.bf.s1",
+  "wartosc": 4000,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu (żetony)"
+ },
+ {
+  "klucz": "exam.m11.bf.s2",
+  "wartosc": 2500,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu (żetony; twój stack)"
+ },
+ {
+  "klucz": "exam.m11.bf.s3",
+  "wartosc": 1500,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu (żetony; gracz all-in)"
+ },
+ {
+  "klucz": "exam.m11.bf.s4",
+  "wartosc": 2000,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu (żetony)"
+ },
+ {
+  "klucz": "exam.m12.hands.k",
+  "wartosc": 50,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: 50 tys. rąk"
+ },
+ {
+  "klucz": "exam.m12.style.hands.k",
+  "wartosc": 2,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: 2 tys. rąk nowym stylem"
+ },
+ {
+  "klucz": "exam.m12.style.wr",
+  "wartosc": 15,
+  "jednostka": "bb100",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: wynik nowego stylu"
+ },
+ {
+  "klucz": "exam.m12.ror.bi",
+  "wartosc": 40,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: bankroll 40 wpisowych"
+ },
+ {
+  "klucz": "exam.m12.bi.pln",
+  "wartosc": 40,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: wpisowe 40 zł"
+ },
+ {
+  "klucz": "exam.m13.eq",
+  "wartosc": 0.7,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: all-in z equity 70%"
+ },
+ {
+  "klucz": "exam.m13.n",
+  "wartosc": 20,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: dwadzieścia takich rozdań"
+ },
+ {
+  "klucz": "exam.m13.eq.big",
+  "wartosc": 0.9,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: all-in z equity 90%"
+ },
+ {
+  "klucz": "exam.m13.solver.main",
+  "wartosc": 0.9,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: częstsza akcja solvera"
+ },
+ {
+  "klucz": "exam.m13.solver.main2",
+  "wartosc": 0.98,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: akcja prawie czysta"
+ },
+ {
+  "klucz": "exam.m13.opps",
+  "wartosc": 7,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w zadaniu egzaminu: liczba okazji między hud.opps.look a hud.opps.sure"
+ },
+ {
+  "klucz": "m13.eq.example",
+  "wartosc": 0.8,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: all-in z equity 80%"
+ },
+ {
+  "klucz": "m13.ten",
+  "wartosc": 10,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: dziesięć takich rozdań"
+ },
+ {
+  "klucz": "m13.eq.example2",
+  "wartosc": 0.65,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: all-in z equity 65%"
+ },
+ {
+  "klucz": "exam.m2.half.pot",
+  "wartosc": 60,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w egzaminie M2 (pula w żetonach)"
+ },
+ {
+  "klucz": "exam.m2.pot.pot",
+  "wartosc": 40,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w egzaminie M2 (pula w żetonach)"
+ },
+ {
+  "klucz": "exam.m2.third.pot",
+  "wartosc": 120,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w egzaminie M2 (pula w żetonach)"
+ },
+ {
+  "klucz": "exam.m2.third.bet",
+  "wartosc": 40,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w egzaminie M2 (zakład 1/3 puli)"
+ },
+ {
+  "klucz": "exam.m5.hands.three",
+  "wartosc": 3,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład na egzaminie: trzy ręce rywali bez pary, sześć różnych rang"
+ },
+ {
+  "klucz": "exam.m6.pot",
+  "wartosc": 80,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład na egzaminie (pula w żetonach)"
+ },
+ {
+  "klucz": "exam.m7.pot",
+  "wartosc": 120,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład na egzaminie (pula w żetonach)"
+ },
+ {
+  "klucz": "exam.m8.call.worse",
+  "wartosc": 3,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład na egzaminie (sprawdzenia gorszymi rękami)"
+ },
+ {
+  "klucz": "exam.m8.call.better",
+  "wartosc": 4,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład na egzaminie (sprawdzenia lepszymi rękami)"
+ },
+ {
+  "klucz": "exam.m8.range.worse",
+  "wartosc": 10,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład na egzaminie (wszystkie gorsze ręce rywala, także te, które spasują)"
+ },
+ {
+  "klucz": "exam.m8.pot",
+  "wartosc": 90,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład na egzaminie (pula w żetonach)"
+ },
+ {
+  "klucz": "exam.m8.bet",
+  "wartosc": 60,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład na egzaminie (zakład 2/3 puli)"
+ },
+ {
+  "klucz": "exam.m8.range",
+  "wartosc": 21,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład na egzaminie (kombinacje, którymi betujesz)"
+ },
+ {
+  "klucz": "exam.m8.bluffs.est",
+  "wartosc": 0.2,
+  "jednostka": "percent",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład do ćwiczenia (założony udział blefów rywala, bez źródła)"
+ },
+ {
+  "klucz": "exam.m9.pot",
+  "wartosc": 120,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład na egzaminie (pula na flopie w żetonach)"
+ },
+ {
+  "klucz": "exam.m9.stack.you",
+  "wartosc": 600,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład na egzaminie (twój stack za pulą)"
+ },
+ {
+  "klucz": "exam.m9.stack.opp",
+  "wartosc": 480,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład na egzaminie (stack rywala za pulą, mniejszy)"
+ }
+]
