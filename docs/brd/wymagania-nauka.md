@@ -89,7 +89,7 @@ Kryteria w Gherkinie po polsku. Liczby pochodzą z wektorów RD albo z decyzji; 
     - Zakładając, że użytkownik rozwiązuje test modułu M3
     - Gdy go nie zaliczy
     - Wtedy widzi, które lekcje odpowiadają pytaniom z błędem, a moduł nie jest zaliczony
-- Próg zaliczenia testu: [DO WYJAŚNIENIA] (OP-22)
+- Próg zaliczenia testu: 15 zadań, zaliczenie od 85% (D-106; decyzja właściciela z 3.10.2026, `apps/mobile/src/features/drills/thresholds.ts:45-48`; OP-22 rozstrzygnięte)
 
 ### BR-KURS-003: Termin zdefiniowany przed pierwszym użyciem
 - Przepływ: PR-02
