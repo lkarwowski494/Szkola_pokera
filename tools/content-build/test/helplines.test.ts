@@ -89,7 +89,7 @@ describe('telefony pomocy (helplines.yaml): rynki aplikacji (D-142, e1-pomoc.md 
     const jp = selectHelplines(h, 'JP');
     expect(phones(jp, 'gambling')).toEqual([]);
     expect(jp.entries.find((e) => e.kind === 'gambling')!.links![0]!.url).toMatch(/^https:\/\/www\.mhlw\.go\.jp\//);
-    expect(phones(jp, 'crisis')).toEqual(['0120-061-338', '0120-279-338']);
+    expect(phones(jp, 'crisis')).toEqual(['0120-061-338', '0120-279-338', '0120-279-226']); // E3: よりそい z Fukushimy (phone_alt)
     expect(phones(jp, 'emergency')).toEqual(['119']);
     const br = selectHelplines(h, 'BR');
     expect(phones(br, 'gambling')).toEqual([]);
@@ -106,8 +106,10 @@ describe('telefony pomocy (helplines.yaml): rynki aplikacji (D-142, e1-pomoc.md 
     expect(tw.entries.filter((e) => e.kind === 'support').map((e) => e.id)).toEqual(['tw-centers']);
     expect(phones(tw, 'emergency')).toEqual(['119']);
     const vn = selectHelplines(h, 'VN');
-    expect(vn.entries.map((e) => e.kind)).toEqual(['emergency']);
-    expect(phones(vn, 'emergency')).toEqual(['113', '115']);
+    // E3 (S1): ekran pokazuje pole phone; pogotowie 115 jako pierwszy wpis, policja 113 jako drugi
+    expect(vn.entries.map((e) => e.kind)).toEqual(['emergency', 'emergency']);
+    expect(vn.entries.map((e) => e.phone)).toEqual(['115', '113']);
+    expect(phones(vn, 'emergency')).toEqual(['115', '113']);
     const de = selectHelplines(h, 'DE');
     expect(phones(de, 'gambling')).toEqual(['0800 1 37 27 00', '0173 29 37 359']);
     expect(phones(de, 'crisis')).toEqual(['0800 111 0 111', '0800 111 0 222', '116 123']);
@@ -180,7 +182,7 @@ describe('telefony pomocy (helplines.yaml): rynki aplikacji (D-142, e1-pomoc.md 
     const out = expandHelplines('Pomoc:\n\n{{helplines}}\n', h, 'test', used);
     expect(used.count).toBe(1);
     expect(out).toContain('- **Gambling Therapy (Gordon Moody, Wielka Brytania)**.');
-    expect(out).toContain('Gambling Therapy: gordonmoody.org.uk.');
+    expect(out).toContain('Gambling Therapy: gamblingtherapy.org.');
     expect(out).toContain('Telefony pomocy dla Twojego kraju znajdziesz w aplikacji, w ekranie „Pomoc”.');
     expect(out).toContain('W zagrożeniu życia dzwoń na lokalny numer alarmowy.');
     expect(out).toContain('Dane sprawdzone: 4 listopada 2026.');

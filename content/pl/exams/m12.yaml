@@ -79,7 +79,7 @@ drills:
     rules: [R-M12-011]
     prompt: "Jako początkujący założyłeś bankroll {{n:br.bi.beginner}} {{t:buy-in|wpisowych}}. Po {{t:downswing|downswingu}} masz {{n:exam.m12.md.now}}. Co robisz?"
     options:
-      - { text: "Schodzę o jedną {{t:stakes|stawkę}} niżej", correct: true, why: "Próg zejścia to połowa założonej liczby {{t:buy-in|wpisowych}}: przy {{n:br.bi.beginner}} to {{n:exam.m12.md.half}}. Masz {{n:exam.m12.md.now}}, czyli mniej. Na niższej {{t:stakes|stawce}} te same pieniądze znów są pełnym bankrollem." }
+      - { text: "Schodzę o jedną {{t:stakes|stawkę}} niżej", correct: true, why: "Próg zejścia to połowa założonej liczby {{t:buy-in|wpisowych}}: przy {{n:br.bi.beginner}} to {{n:exam.m12.md.half}}. Masz {{n:exam.m12.md.now}}, czyli mniej. Na niższej {{t:stakes|stawce}} te same pieniądze znów są pełnym bankrollem. To ogólna wskazówka; jeśli granie przestaje być pod kontrolą, zajrzyj do ekranu „Pomoc”." }
       - { text: "Zostaję, bo {{n:exam.m12.md.now}} to więcej niż próg {{n:br.bi.move-down}}", why: "Próg {{n:br.bi.move-down}} to połowa bankrollu {{n:br.bi.base}} {{t:buy-in|wpisowych}}. Liczysz go od bankrollu, który sam założyłeś. Jako początkujący założyłeś {{n:br.bi.beginner}}, więc schodzisz poniżej {{n:exam.m12.md.half}}." }
       - { text: "Zostaję i gram więcej, żeby odrobić straty", why: "Odgrywanie strat to sygnał ostrzegawczy, a nie plan. Bankroll spadł poniżej progu {{n:exam.m12.md.half}}, więc schodzisz {{t:stakes|stawkę}} niżej." }
   - kind: choice
@@ -88,6 +88,6 @@ drills:
     rules: [R-M12-010]
     prompt: "Chcesz zacząć grać na {{t:stakes|stawce}}, na której {{t:buy-in}} (stack {{n:format.stack}}) kosztuje {{n:exam.m12.bi.pln}} zł. Nie znasz jeszcze swojego winrate. Ile pieniędzy powinien mieć twój bankroll?"
     options:
-      - { text: "Co najmniej {{n:exam.m12.bi.pln.beginner}} zł", correct: true, why: "Póki nie znasz swojego winrate, masz co najmniej {{n:br.bi.beginner}} {{t:buy-in|wpisowych}}: {{n:br.bi.beginner}} × {{n:exam.m12.bi.pln}} zł = {{n:exam.m12.bi.pln.beginner}} zł." }
+      - { text: "Co najmniej {{n:exam.m12.bi.pln.beginner}} zł", correct: true, why: "Póki nie znasz swojego winrate, masz co najmniej {{n:br.bi.beginner}} {{t:buy-in|wpisowych}}: {{n:br.bi.beginner}} × {{n:exam.m12.bi.pln}} zł = {{n:exam.m12.bi.pln.beginner}} zł. To ogólna wskazówka; jeśli granie przestaje być pod kontrolą, zajrzyj do ekranu „Pomoc”." }
       - { text: "Co najmniej {{n:exam.m12.bi.pln.base}} zł", why: "{{n:br.bi.base}} {{t:buy-in|wpisowych}} to minimum dla gracza, który potwierdził, że wygrywa. Bez znanego winrate zakładasz ostrożnie, że jest niski, i masz {{n:br.bi.beginner}}." }
       - { text: "Wystarczy {{n:exam.m12.bi.pln}} zł, bo przy stole i tak siedzisz z jednym stackiem", why: "Jedno {{t:buy-in}} wystarczy na jeden stack, ale {{t:downswing|downswingi}} o wiele {{t:buy-in|wpisowych}} zdarzają się każdemu. Bankroll liczysz w dziesiątkach {{t:buy-in|wpisowych}}." }

@@ -50,7 +50,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Numer cyfrowy 1-800-697-3738 potwierdzony w stopce (SMS Terms); 1-800-522-4700 to dawny numer tej samej linii. Źródło nie mówi „free” wprost: „No payment or insurance information is required” — w aplikacji pisać „bez opłat za usługę”, nie „bezpłatne połączenie”. 1-800-GAMBLER (S-42) to linia prowadzona od 2025 r. przez CCGNJ (New Jersey) — nie mylić z linią krajową NCPG; nie dodawać do aplikacji. | E2 2026-11-04: wpis content/helplines.yaml: us-ncpg.",
+    "uwagi": "Numer cyfrowy 1-800-697-3738 potwierdzony w stopce (SMS Terms); 1-800-522-4700 to dawny numer tej samej linii. Źródło nie mówi „free” wprost: „No payment or insurance information is required” — w aplikacji pisać „bez opłat za usługę”, nie „bezpłatne połączenie”. 1-800-GAMBLER (S-42) to linia prowadzona od 2025 r. przez CCGNJ (New Jersey) — nie mylić z linią krajową NCPG; nie dodawać do aplikacji. | E2 2026-11-04: wpis content/helplines.yaml: us-ncpg. | E3 2026-11-04 (przegląd zastępczy A7): pole language bez „angielski” (źródło podaje tylko tłumaczenie).",
     "kraj": "US",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -162,7 +162,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Regulator (Gambling Commission) podaje numer dla Anglii i Szkocji; nidirect (rząd Irlandii Płn.) też go wymienia, bez godzin. gamcare.org.uk: 403 (odczyt niemożliwy). | E2 2026-11-04: wpis content/helplines.yaml: gb-ngh (national: true).",
+    "uwagi": "Regulator (Gambling Commission) podaje numer dla Anglii i Szkocji; nidirect (rząd Irlandii Płn.) też go wymienia, bez godzin. gamcare.org.uk: 403 (odczyt niemożliwy). | E2 2026-11-04: wpis content/helplines.yaml: gb-ngh (national: true). | E3 2026-11-04 (przegląd zastępczy A7): nazwa z regionami (Anglia, Szkocja, Irlandia Płn.), bo ekran pokazuje wpis ogólnokrajowy także w Walii.",
     "kraj": "GB",
     "region": [
       "GB-ENG",
@@ -945,7 +945,7 @@
     "id": "H-JP-2",
     "rodzaj": "regula",
     "level": "rules",
-    "twierdzenie": "Kryzys, myśli samobójcze (Japonia) → #いのちSOS 0120-061-338, bezpłatnie, całą dobę; よりそいホットライン 0120-279-338, bezpłatnie, całą dobę (wybór porady także w językach obcych)",
+    "twierdzenie": "Kryzys, myśli samobójcze (Japonia) → #いのちSOS 0120-061-338, bezpłatnie, całą dobę; よりそいホットライン 0120-279-338, bezpłatnie, całą dobę (wybór porady także w językach obcych); z prefektury Fukushima よりそいホットライン 0120-279-226",
     "zrodla": [
       {
         "adres": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/seikatsuhogo/jisatsu/soudan_tel.html",
@@ -967,6 +967,13 @@
         "cytat": "実施日時 24時間対応",
         "odczyt": "2026-11-04",
         "szczebel": 1
+      },
+      {
+        "adres": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/seikatsuhogo/jisatsu/soudan_tel.html",
+        "miejsce": "よりそいホットライン",
+        "cytat": "福島県からは、 0120-279-226 つなぐ つつむ（フリーダイヤル・無料）",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
       }
     ],
     "status": "potwierdzone",
@@ -978,7 +985,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "いのちの電話 0120-783-556 działa tylko 16–21 (i 10. dnia miesiąca całą dobę) — nie jako pierwszy numer. Fukushima: よりそい 0120-279-226. | E2 2026-11-04: wpis content/helplines.yaml: jp-inochi-sos, jp-yorisoi.",
+    "uwagi": "いのちの電話 0120-783-556 działa tylko 16–21 (i 10. dnia miesiąca całą dobę) — nie jako pierwszy numer. Fukushima: よりそい 0120-279-226. | E2 2026-11-04: wpis content/helplines.yaml: jp-inochi-sos, jp-yorisoi. | E3 2026-11-04 (przegląd zastępczy A7): dodany numer dla Fukushimy (phone_alt).",
     "kraj": "JP",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -1393,7 +1400,7 @@
     "id": "H-VN-3",
     "rodzaj": "regula",
     "level": "rules",
-    "twierdzenie": "Bezpośrednie zagrożenie życia (Wietnam) → numer alarmowy 113 albo 115 (bezpłatnie); od 1.11.2026 wezwania pomocy medycznej przyjmuje też 113",
+    "twierdzenie": "Bezpośrednie zagrożenie życia (Wietnam) → pogotowie ratunkowe 115, policja (numer alarmowy) 113; oba bezpłatnie",
     "zrodla": [
       {
         "adres": "https://baochinhphu.vn/mien-phi-cac-cuoc-goi-den-so-113-114-115-102268666.htm",
@@ -1408,6 +1415,13 @@
         "cytat": "Các thông tin đề nghị hỗ trợ y tế qua đầu số 113 sẽ được chuyển đến nhân viên y tế trực tại Trung tâm Thông tin chỉ huy Công an tỉnh, thành phố",
         "odczyt": "2026-11-04",
         "szczebel": 1
+      },
+      {
+        "adres": "https://lsvn.vn/bo-y-te-de-xuat-tich-hop-cac-dau-so-113-114-115-thanh-mot-dau-so-duy-nhat-a162995.html",
+        "miejsce": "Tạp chí Luật sư (LSVN), 11.09.2025, o projekcie Ministerstwa Zdrowia",
+        "cytat": "Một số tỉnh, thành phố đông dân cư thành lập các trung tâm cấp cứu độc lập ngoài bệnh viện (còn gọi là Trung tâm Cấp cứu 115).",
+        "odczyt": "2026-11-04",
+        "szczebel": 3
       }
     ],
     "status": "potwierdzone",
@@ -1418,8 +1432,8 @@
     "wartosc": null,
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
-    "poprawka": "„113 albo 115” zamiast samego 115",
-    "uwagi": "System numerów alarmowych w trakcie zmiany (integracja 113/114/115 w 113, planowana od 2027). Żadne przeczytane źródło nie mówi wprost „115 = pogotowie”. Rekomendacja: pokazać „113 albo 115”; przegląd co 3 mies. (wazne_do skrócić przy wdrożeniu do 2027-02-04). | E2 2026-11-04: wdrożone w content/helplines.yaml (vn-113: 113, drugi numer 115, review_by 2027-02-04) według D-151 i poprawki „113 albo 115”; oba numery to numery alarmowe według cytatu 1 (Chinhphu.vn), 113 przyjmuje wezwania medyczne według cytatu 2; było CZĘŚCIOWO (otwarte). Przegląd co 3 mies. bez zmian.",
+    "poprawka": "„113 albo 115” zamiast samego 115 | E3: 115 pogotowie pierwszy, 113 policja",
+    "uwagi": "System numerów alarmowych w trakcie zmiany (integracja 113/114/115 w 113, planowana od 2027). Żadne przeczytane źródło nie mówi wprost „115 = pogotowie”. Rekomendacja: pokazać „113 albo 115”; przegląd co 3 mies. (wazne_do skrócić przy wdrożeniu do 2027-02-04). | E2 2026-11-04: wdrożone w content/helplines.yaml (vn-113: 113, drugi numer 115, review_by 2027-02-04) według D-151 i poprawki „113 albo 115”; oba numery to numery alarmowe według cytatu 1 (Chinhphu.vn), 113 przyjmuje wezwania medyczne według cytatu 2; było CZĘŚCIOWO (otwarte). Przegląd co 3 mies. bez zmian. | E3 2026-11-04 (A7, S1): 115 pogotowie jako pierwszy wpis (ekran nie pokazywał phone_alt), 113 jako policja; usunięte „od 1.11.2026 113 przyjmuje wezwania medyczne” (źródło: czas przyszły, obsada do 1.07.2027). Źródło 115 = pogotowie: szczebel 3 (jedno źródło).",
     "kraj": "VN",
     "region": null,
     "wazne_do": "2027-02-04",
@@ -1534,12 +1548,19 @@
     "id": "H-DE-4",
     "rodzaj": "regula",
     "level": "rules",
-    "twierdzenie": "Problem z hazardem, porada po polsku (Niemcy) → 0173 29 37 359 (Caritas), bezpłatnie i anonimowo; godzin źródło nie podaje",
+    "twierdzenie": "Problem z hazardem, porada po polsku (Niemcy) → 0173 29 37 359 (Caritas), bezpłatnie i anonimowo; terminy po uzgodnieniu",
     "zrodla": [
       {
         "adres": "https://www.check-dein-spiel.de/hilfe-fuer-spieler/fremdsprachige-telefon-beratung/",
         "miejsce": "Fremdsprachige Telefon-Beratung",
         "cytat": "Telefonberatung auf Polnisch Telefonnummer: 0173 29 37 359 Kostenlos und anonym",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.check-dein-spiel.de/hilfe-fuer-spieler/fremdsprachige-telefon-beratung/",
+        "miejsce": "Polnisch",
+        "cytat": "Bundesweite Telefonberatung bei Problemen mit Glückspielen auf Polnisch Termine nach Vereinbarung.",
         "odczyt": "2026-11-04",
         "szczebel": 1
       }
@@ -1553,7 +1574,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Wpis opcjonalny (język pl aplikacji); lista BIÖG zawiera też rosyjski, turecki, arabski. Numer komórkowy jednej poradni — wyższe ryzyko zmiany; przegląd co 6 mies. | E2 2026-11-04: wpis content/helplines.yaml: de-pl.",
+    "uwagi": "Wpis opcjonalny (język pl aplikacji); lista BIÖG zawiera też rosyjski, turecki, arabski. Numer komórkowy jednej poradni — wyższe ryzyko zmiany; przegląd co 6 mies. | E2 2026-11-04: wpis content/helplines.yaml: de-pl. | E3 2026-11-04 (przegląd zastępczy A7): „godzin źródło nie podaje” było niezgodne ze stroną; dopisane „terminy po uzgodnieniu”.",
     "kraj": "DE",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -1562,33 +1583,19 @@
     "id": "H-INT-1",
     "rodzaj": "regula",
     "level": "rules",
-    "twierdzenie": "Problem z hazardem (kraje bez wpisu) → Gambling Therapy (organizacja charytatywna Gordon Moody, Wielka Brytania): wsparcie tekstowe online dla osób z każdego kraju, w ponad 200 językach (doradcy i tłumaczenie maszynowe), anonimowo; czat 1:1 w dni robocze 9–2, w weekendy 10–22; grupy wsparcia i forum, także dla rodzin",
+    "twierdzenie": "Problem z hazardem (kraje bez wpisu) → Gambling Therapy (Gordon Moody, Wielka Brytania): bezpłatne porady praktyczne i wsparcie emocjonalne online dla każdego, kogo dotyka problem z hazardem; poufnie",
     "zrodla": [
       {
-        "adres": "https://gordonmoody.org.uk/gambling-therapy/",
-        "miejsce": "Gambling Therapy",
-        "cytat": "Gambling Therapy is a text-based service that provides emotional and practical support to anyone in the world who is struggling as a result of gambling.",
+        "adres": "https://www.gamblingtherapy.org/",
+        "miejsce": "strona główna (opis serwisu)",
+        "cytat": "Gambling Therapy is a global service offering free practical advice and emotional support to anyone affected by problem gambling.",
         "odczyt": "2026-11-04",
         "szczebel": 1
       },
       {
-        "adres": "https://gordonmoody.org.uk/gambling-therapy/",
-        "miejsce": "Gambling Therapy",
-        "cytat": "Support is provided in more than 200 languages through a combination of native speaking advisers and translation software tools.",
-        "odczyt": "2026-11-04",
-        "szczebel": 1
-      },
-      {
-        "adres": "https://gordonmoody.org.uk/gambling-therapy/",
-        "miejsce": "Gambling Therapy",
-        "cytat": "The live one-to-one support service is available from 9am to 2am weekdays and 10am to 10pm at the weekend.",
-        "odczyt": "2026-11-04",
-        "szczebel": 1
-      },
-      {
-        "adres": "https://gordonmoody.org.uk/gambling-therapy/",
-        "miejsce": "Gambling Therapy",
-        "cytat": "There is no need to give your real name or email address - you can remain anonymous if you wish.",
+        "adres": "https://www.gamblingtherapy.org/",
+        "miejsce": "strona główna, sekcja wsparcia online",
+        "cytat": "Confidential, safe and delivered online",
         "odczyt": "2026-11-04",
         "szczebel": 1
       }
@@ -1602,7 +1609,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Strefa czasowa godzin nie podana (prawdopodobnie czas brytyjski — nie wpisywać godzin bez strefy). Koszt: źródło nie mówi „free” — nie pisać „bezpłatnie”. gamblingtherapy.org zwrócił 2026-11-04 błąd 500 (baza danych) — sprawdzić przed wydaniem; link do strony Gordon Moody jako zapasowy. Tekst dla krajów bez wpisu: „W zagrożeniu życia dzwoń na lokalny numer alarmowy” + H-INT-1 (bez numeru). | E2 2026-11-04: wpis content/helplines.yaml: int-gambling-therapy (bez godzin i bez „bezpłatnie”).",
+    "uwagi": "Strefa czasowa godzin nie podana (prawdopodobnie czas brytyjski — nie wpisywać godzin bez strefy). Koszt: źródło nie mówi „free” — nie pisać „bezpłatnie”. gamblingtherapy.org zwrócił 2026-11-04 błąd 500 (baza danych) — sprawdzić przed wydaniem; link do strony Gordon Moody jako zapasowy. Tekst dla krajów bez wpisu: „W zagrożeniu życia dzwoń na lokalny numer alarmowy” + H-INT-1 (bez numeru). | E2 2026-11-04: wpis content/helplines.yaml: int-gambling-therapy (bez godzin i bez „bezpłatnie”). | E3 2026-11-04 (przegląd zastępczy A7): gordonmoody.org.uk nie odpowiada (zerwane połączenie, także archive.org); źródło zamienione na gamblingtherapy.org (200); usunięte „ponad 200 języków”, godziny i „anonimowo” (brak na przeczytanej stronie).",
     "kraj": "*",
     "region": null,
     "wazne_do": "2027-11-04"

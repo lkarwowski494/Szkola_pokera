@@ -293,13 +293,13 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Wzór to przybliżenie przy stałym, znanym winrate i SD (strona: „with a constant win rate and standard deviation, the closed-form approximation”); MC potwierdza. Atrybucja „wzór Malmutha” w polu source (rules.yaml:1017–1024 i numbers.yaml ror.*) NIE występuje na stronie — usunąć albo dodać przeczytane źródło. Propozycja do lekcji m12-l4:117: dopisać „przybliżenie przy stałym winrate”."
+  "uwagi": "Wzór to przybliżenie przy stałym, znanym winrate i SD (strona: „with a constant win rate and standard deviation, the closed-form approximation”); MC potwierdza. Atrybucja „wzór Malmutha” w polu source (rules.yaml:1017–1024 i numbers.yaml ror.*) NIE występuje na stronie — usunąć albo dodać przeczytane źródło. Propozycja do lekcji m12-l4:117: dopisać „przybliżenie przy stałym winrate”. | E3 2026-11-04 (przegląd zastępczy A7): dopisane w lekcji: wzór jest przybliżeniem przy stałym winrate i SD."
  },
  {
   "id": "R-M12-010",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "zaczynasz grać na prawdziwe pieniądze na danej stawce → masz co najmniej {{n:br.bi.beginner}} wpisowych, póki nie znasz swojego winrate; z potwierdzonym winrate co najmniej {{n:br.bi.base}}, bo przy winrate {{n:var.wr.typical.low}} nawet {{n:br.bi.base}} wpisowych daje ok. {{n:ror.base.wr-min}} ryzyka utraty bankrollu, a źródła zalecają od {{n:br.bi.src-low}} do ponad {{n:br.bi.src-high}} wpisowych",
+  "twierdzenie": "zaczynasz grać na prawdziwe pieniądze na danej stawce → masz co najmniej {{n:br.bi.beginner}} wpisowych, póki nie znasz swojego winrate; z potwierdzonym, wyraźnie dodatnim winrate co najmniej {{n:br.bi.base}}, a przy niskim winrate więcej, bo przy winrate {{n:var.wr.typical.low}} nawet {{n:br.bi.base}} wpisowych daje ok. {{n:ror.base.wr-min}} ryzyka utraty bankrollu, a źródła zalecają od {{n:br.bi.src-low}} do ponad {{n:br.bi.src-high}} wpisowych",
   "zrodla": [
    {
     "adres": "https://www.blackrain79.com/2015/06/the-complete-guide-to-bankroll.html",
@@ -353,13 +353,13 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Rozpiętość źródeł 20–100+ potwierdzona (20: Primedope FAQ jako zamiennik nieczytelnego SplitSuit 403; 100+: PokerListings, a nie Upswing). 50 dla początkujących — dwa niezależne źródła szczebla 4 + rachunek. Liczby bankrollu to szczebel 4 jako kontekst; podstawą progu jest rachunek RoR (szczebel 1), zgodnie z wymogiem dla reguł krytycznych."
+  "uwagi": "Rozpiętość źródeł 20–100+ potwierdzona (20: Primedope FAQ jako zamiennik nieczytelnego SplitSuit 403; 100+: PokerListings, a nie Upswing). 50 dla początkujących — dwa niezależne źródła szczebla 4 + rachunek. Liczby bankrollu to szczebel 4 jako kontekst; podstawą progu jest rachunek RoR (szczebel 1), zgodnie z wymogiem dla reguł krytycznych. | E3 2026-11-04 (przegląd zastępczy A7): warunek źródła „więcej przy małej przewadze” w regule i lekcji."
  },
  {
   "id": "R-M12-011",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "bankroll spadnie poniżej połowy założonej liczby wpisowych (przy {{n:br.bi.base}} poniżej {{n:br.bi.move-down}}) → schodzisz o jedną stawkę niżej najpóźniej wtedy i wracasz, gdy bankroll się odbuduje, bo downswingi o {{n:dd.bi.small}} wpisowych zdarzają się prawie każdemu wygrywającemu, a przy {{n:br.bi.move-down}} wpisowych ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}}; lekcja: „Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich.”",
+  "twierdzenie": "bankroll spadnie poniżej połowy założonej liczby wpisowych (przy {{n:br.bi.base}} poniżej {{n:br.bi.move-down}}) → schodzisz o jedną stawkę niżej najpóźniej wtedy i wracasz, gdy bankroll się odbuduje, bo downswingi o {{n:dd.bi.small}} wpisowych w ciągu {{n:var.hands.k}} tys. rąk zdarzają się prawie każdemu wygrywającemu, część źródeł radzi zejść już po takiej stracie, a przy {{n:br.bi.move-down}} wpisowych ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}}; lekcja: „Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich.”",
   "zrodla": [
    {
     "adres": "https://www.pokerskill.com/poker-glossary/bankroll-management/",
@@ -399,7 +399,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": "then: „schodzisz o jedną stawkę niżej najpóźniej wtedy i wracasz, gdy bankroll się odbuduje”; w lekcji m12-l4:142 dopisać: „Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich.”",
-  "uwagi": "Sprzeczność na szczeblu 4: próg zejścia = połowa bankrollu (PokerSkill; SplitSuit nieczytelny), 30 wpisowych przy 3bb/100 (PokerListings, czyli pełny bankroll), spadek o 10 wpisowych (Primedope, odrzucony w D-M12-08 rachunkiem: odpala u ~95% wygrywających). Rachunek (szczebel 1) pokazuje tylko kierunek: przy połowie bankrollu RoR 24,5% — wysoko. Proponowana decyzja: część wspólna = „najpóźniej przy połowie”. Uwaga: cytat SplitSuit z pola source nieprzeczytany (HTTP 403). | E2 2026-11-04: poprawione (content/pl/rules.yaml:1036, :1039; content/pl/lessons/m12-l4-bankroll.md:142); było CZĘŚCIOWO; pole source bez nieodczytanego cytatu SplitSuit (403), zastąpione odczytaną tabelą PokerListings; to samo w numbers.yaml br.bi.move-down",
+  "uwagi": "Sprzeczność na szczeblu 4: próg zejścia = połowa bankrollu (PokerSkill; SplitSuit nieczytelny), 30 wpisowych przy 3bb/100 (PokerListings, czyli pełny bankroll), spadek o 10 wpisowych (Primedope, odrzucony w D-M12-08 rachunkiem: odpala u ~95% wygrywających). Rachunek (szczebel 1) pokazuje tylko kierunek: przy połowie bankrollu RoR 24,5% — wysoko. Proponowana decyzja: część wspólna = „najpóźniej przy połowie”. Uwaga: cytat SplitSuit z pola source nieprzeczytany (HTTP 403). | E2 2026-11-04: poprawione (content/pl/rules.yaml:1036, :1039; content/pl/lessons/m12-l4-bankroll.md:142); było CZĘŚCIOWO; pole source bez nieodczytanego cytatu SplitSuit (403), zastąpione odczytaną tabelą PokerListings; to samo w numbers.yaml br.bi.move-down | E3 2026-11-04 (przegląd zastępczy A7): SPRZECZNE z PrimeDope („Losing 10 should trigger a move down”): lekcja i q-stay uczyły, że zejście po 10 wpisowych to błąd. Poprawka: q-stay ma dwie poprawne odpowiedzi (ADR-04), m12-l4:142 mówi, że zejście przed progiem połowy nie jest błędem; strona bezpieczna.",
   "decyzja": "D-146"
  },
  {

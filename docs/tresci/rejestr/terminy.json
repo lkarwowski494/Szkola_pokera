@@ -3616,6 +3616,13 @@
     "cytat": "The money that a player allocated specifically to use for playing poker.",
     "odczyt": "2026-11-04",
     "szczebel": 2
+   },
+   {
+    "adres": "https://www.primedope.com/risk-of-ruin-formula-for-poker-players/",
+    "miejsce": "Practical Bankroll Management",
+    "cytat": "Separate your poker bankroll from your life bankroll. Money you need for rent, food, or other essentials is not part of your poker bankroll.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3627,7 +3634,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": " | E3 2026-11-04 (przegląd zastępczy A7): dodane źródło dla „oddzielone od pieniędzy na życie”."
  },
  {
   "id": "t:tilt",
@@ -3790,7 +3797,7 @@
   "id": "t:risk-of-ruin",
   "rodzaj": "termin",
   "level": "math",
-  "twierdzenie": "ryzyko bankructwa (risk of ruin): Prawdopodobieństwo, że stracisz cały bankroll, zanim osiągniesz cel albo przestaniesz grać.",
+  "twierdzenie": "ryzyko bankructwa (risk of ruin): Prawdopodobieństwo, że stracisz cały bankroll, zanim osiągniesz cel albo przestaniesz grać, jeśli grasz dalej na tej samej stawce.",
   "zrodla": [
    {
     "adres": "https://www.primedope.com/risk-of-ruin-formula-for-poker-players/",
@@ -3809,7 +3816,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": " | E3 2026-11-04 (przegląd zastępczy A7): warunek „ta sama stawka” jak w lekcji m12-l4 (wzór RoR zakłada stałą grę)."
  },
  {
   "id": "t:mental-game",

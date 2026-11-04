@@ -136,3 +136,5 @@ Po {{n:var.hands.k}} tys. rąk błąd wynosi ok. {{n:var.se.wr}}, więc przedzia
 :::note Skąd te liczby
 Wyniki symulacji: tysiące przebiegów gry po {{n:var.hands.k}} tys. rąk z losowym wynikiem każdego bloku. Prawdziwe {{t:downswing|downswingi}} bywają nieco głębsze, bo wynik zmienia się z każdym rozdaniem, a nie co 100 rąk. Wniosek: {{t:downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} nie dowodzi, że grasz źle.
 :::
+
+To ogólne wskazówki, nie gwarancja wyniku. Jeśli granie przestaje być pod kontrolą, zajrzyj do ekranu „Pomoc”.

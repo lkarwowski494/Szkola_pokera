@@ -31,7 +31,7 @@ describe('ekran Pomoc', () => {
     expect(screen.getByText('Zadzwoń: 911')).toBeTruthy();
     expect(screen.queryByText('Zadzwoń: 999')).toBeNull();
     expect(screen.queryByText('Zadzwoń: 112')).toBeNull();
-    expect(screen.getByText('Gambling Therapy: gordonmoody.org.uk/gambling-therapy')).toBeTruthy();
+    expect(screen.getByText('Gambling Therapy: gamblingtherapy.org')).toBeTruthy();
     expect(screen.getByText('całą dobę, 7 dni w tygodniu, bez opłat za usługę; SMS według taryfy operatora')).toBeTruthy();
     expect(screen.getByText('W zagrożeniu życia dzwoń na lokalny numer alarmowy.')).toBeTruthy();
     expect(screen.getByText('Dane sprawdzone: 4 listopada 2026')).toBeTruthy();
@@ -57,7 +57,7 @@ describe('ekran Pomoc', () => {
     await render(<HelpScreen />);
     expect(screen.queryAllByText(/^Zadzwoń:/)).toHaveLength(0);
     expect(screen.getAllByText('W zagrożeniu życia dzwoń na lokalny numer alarmowy.').length).toBeGreaterThan(0);
-    expect(screen.getByText('Gambling Therapy: gordonmoody.org.uk/gambling-therapy')).toBeTruthy();
+    expect(screen.getByText('Gambling Therapy: gamblingtherapy.org')).toBeTruthy();
   });
 
   it('numer otwiera tel: bez spacji i łączników, a link stronę https w przeglądarce', async () => {
@@ -66,8 +66,8 @@ describe('ekran Pomoc', () => {
     expect(openURL).toHaveBeenLastCalledWith('tel:18006973738');
     await fireEvent.press(screen.getByText('Zadzwoń: 911'));
     expect(openURL).toHaveBeenLastCalledWith('tel:911');
-    await fireEvent.press(screen.getByLabelText('Gambling Therapy: otwórz gordonmoody.org.uk/gambling-therapy w przeglądarce'));
-    expect(openURL).toHaveBeenLastCalledWith('https://gordonmoody.org.uk/gambling-therapy/');
+    await fireEvent.press(screen.getByLabelText('Gambling Therapy: otwórz gamblingtherapy.org w przeglądarce'));
+    expect(openURL).toHaveBeenLastCalledWith('https://www.gamblingtherapy.org/');
     expect(screen.getByLabelText('Zadzwoń pod numer 1-800-697-3738: National Problem Gambling Helpline')).toBeTruthy();
   });
 

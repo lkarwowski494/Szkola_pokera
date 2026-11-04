@@ -58,7 +58,7 @@ export const HELPLINES: {
       "sms": "1-800-697-3738",
       "hours": "całą dobę, 7 dni w tygodniu",
       "cost": "bez opłat za usługę; SMS według taryfy operatora",
-      "language": "angielski; tłumacz ponad 240 języków",
+      "language": "tłumacz ponad 240 języków",
       "operator": "National Council on Problem Gambling",
       "links": [
         {
@@ -98,7 +98,7 @@ export const HELPLINES: {
       ],
       "national": true,
       "kind": "gambling",
-      "name": "National Gambling Helpline",
+      "name": "National Gambling Helpline (Anglia, Szkocja, Irlandia Płn.)",
       "phone": "0808 8020 133",
       "hours": "całą dobę, 7 dni w tygodniu",
       "cost": "bezpłatnie",
@@ -381,6 +381,12 @@ export const HELPLINES: {
       "kind": "crisis",
       "name": "よりそいホットライン",
       "phone": "0120-279-338",
+      "phone_alt": [
+        {
+          "phone": "0120-279-226",
+          "label": "z prefektury Fukushima"
+        }
+      ],
       "hours": "całą dobę",
       "cost": "bezpłatnie",
       "language": "japoński; wybór porady także w językach obcych",
@@ -504,17 +510,23 @@ export const HELPLINES: {
       "links": []
     },
     {
+      "id": "vn-115",
+      "claim": "H-VN-3",
+      "country": "VN",
+      "kind": "emergency",
+      "name": "Pogotowie ratunkowe",
+      "phone": "115",
+      "cost": "bezpłatnie",
+      "review_by": "2027-02-04",
+      "links": []
+    },
+    {
       "id": "vn-113",
       "claim": "H-VN-3",
       "country": "VN",
       "kind": "emergency",
-      "name": "Numer alarmowy",
+      "name": "Policja",
       "phone": "113",
-      "phone_alt": [
-        {
-          "phone": "115"
-        }
-      ],
       "cost": "bezpłatnie",
       "review_by": "2027-02-04",
       "links": []
@@ -537,6 +549,7 @@ export const HELPLINES: {
       "kind": "gambling",
       "name": "Porada w języku polskim (Caritas)",
       "phone": "0173 29 37 359",
+      "hours": "terminy po uzgodnieniu",
       "cost": "bezpłatnie, anonimowo",
       "language": "polski",
       "links": []
@@ -575,11 +588,11 @@ export const HELPLINES: {
       "country": "*",
       "kind": "gambling",
       "name": "Gambling Therapy (Gordon Moody, Wielka Brytania)",
-      "info": "Wsparcie tekstowe online dla osób z każdego kraju, w ponad 200 językach; anonimowo.",
+      "info": "Bezpłatne porady praktyczne i wsparcie emocjonalne online dla każdego, kogo dotyka problem z hazardem; poufnie.",
       "links": [
         {
           "label": "Gambling Therapy",
-          "url": "https://gordonmoody.org.uk/gambling-therapy/"
+          "url": "https://www.gamblingtherapy.org/"
         }
       ]
     }

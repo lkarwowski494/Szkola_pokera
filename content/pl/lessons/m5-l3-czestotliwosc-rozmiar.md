@@ -119,7 +119,7 @@ Na flopie takim jak [[Kh Jh 7c]] rywal ma wiele {{t:flush-draw|drawów do koloru
 
 Na {{t:paired|sparowanym}} flopie, np. [[Qd Qs 6h]], masz {{t:range-advantage|przewagę zakresu}}, a trudno o {{t:draw}}, więc rywal bez {{t:pair|pary}} rzadko może {{t:call|sprawdzić}}. Betujesz często i mało: duży {{t:bet}} się nie opłaca, bo {{t:three-of-a-kind|trójkę}} może mieć każdy z was. Na {{t:monotone|jednokolorowym}} flopie, np. [[Kh 8h 3h]], {{t:flush}} może mieć już każdy, więc betujesz rzadziej niż zwykle i mało.
 
-Uwaga: „{{t:wet}}” nie znaczy „duży bet”. {{t:monotone|Jednokolorowy}} flop jest w aplikacji zawsze {{t:wet}}, a mimo to solver betuje na nim rzadko i małym rozmiarem (opublikowane wyniki solverów). Rozmiar rośnie z {{t:wetness|mokrością}} tylko do pewnego poziomu: na najbardziej {{t:wet|mokrych}} flopach, takich jak [[Qd 8d 7d]], znowu spada. Większy rozmiar z poprzedniej sekcji dotyczy {{t:wet|mokrych}} flopów, które nie są {{t:monotone|jednokolorowe}}.
+Uwaga: „{{t:wet}}” nie znaczy „duży bet”. {{t:monotone|Jednokolorowy}} flop jest w aplikacji zawsze {{t:wet}}, a mimo to solver betuje na nim rzadko i małym rozmiarem (opublikowane wyniki solverów). Rozmiar rośnie z {{t:wetness|mokrością}} tylko do pewnego poziomu: na najbardziej {{t:wet|mokrych}} flopach, takich jak [[Qd 8d 7d]], znowu spada. Większy rozmiar z poprzedniej sekcji dotyczy flopów z wieloma {{t:draw|drawami}}, na których {{t:straight}} nie jest jeszcze możliwy (w aplikacji zwykle pośrednich).
 
 ## Niski z kartami blisko siebie: częściej {{t:check|czekasz}}
 
@@ -130,5 +130,5 @@ Na [[7s 6h 5d]] to {{t:big-blind}} częściej ma {{t:two-pair}} albo {{t:straigh
 {{t:bet|Zakład}} bez żadnej ręki wychodzi na zero, gdy rywal {{t:fold|pasuje}} w bet ÷ ({{t:pot}} + bet) przypadków. Przy {{n:cbet.size.small}} {{t:pot|puli}} to {{n:alpha.cbet.small}}, przy {{n:cbet.size.big}} {{t:pot|puli}} już {{n:alpha.cbet.big}}. Ręka bez {{t:pair|pary}} chybia flop w ok. {{n:flop.miss.unpaired}} przypadków, dlatego mały c-bet tak często się opłaca.
 
 :::note Skąd te zasady
-Kierunki ({{t:dry}} flop: mało i często, {{t:wet}}: więcej i rzadziej, {{t:paired}}: mało, {{t:monotone}}: rzadziej i mało) to ogólne zasady z materiałów szkoleniowych i opublikowanych wyników solverów, oznaczone jako heurystyki. Rozmiary {{n:cbet.size.small}} i {{n:cbet.size.big}} {{t:pot|puli}} to przykłady z przedziałów podanych wyżej (materiały szkoleniowe o rozmiarach betów; opublikowane wyniki solverów). Aplikacja nie podaje, jak często betować w procentach, bo takie liczby pochodzą z wyników solverów.
+Kierunki ({{t:dry}} flop: mało i często, wiele {{t:draw|drawów}} bez gotowego {{t:straight|strita}}: więcej i rzadziej; {{t:straight}} już możliwy: mniej, {{t:paired}}: mało, {{t:monotone}}: rzadziej i mało) to ogólne zasady z materiałów szkoleniowych i opublikowanych wyników solverów, oznaczone jako heurystyki. Rozmiary {{n:cbet.size.small}} i {{n:cbet.size.big}} {{t:pot|puli}} to przykłady z przedziałów podanych wyżej (materiały szkoleniowe o rozmiarach betów; opublikowane wyniki solverów). Aplikacja nie podaje, jak często betować w procentach, bo takie liczby pochodzą z wyników solverów.
 :::

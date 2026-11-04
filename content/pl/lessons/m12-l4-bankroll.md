@@ -38,7 +38,7 @@ drills:
     prompt: "Zaczynasz grać na prawdziwe pieniądze i nie znasz jeszcze swojego winrate. Ile {{t:buy-in|wpisowych}} powinieneś mieć na wybranej {{t:stakes|stawce}}?"
     options:
       - { text: "Co najmniej {{n:br.bi.beginner}}", correct: true, why: "Bez potwierdzonego winrate zakładasz ostrożnie, że jest niski. Nawet {{n:br.bi.beginner}} {{t:buy-in|wpisowych}} przy {{n:var.wr.typical.low}} zostawia ok. {{n:ror.beginner.wr-min}} ryzyka, a {{n:br.bi.base}} aż ok. {{n:ror.base.wr-min}}." }
-      - { text: "Ok. {{n:dd.bi.small}}", why: "{{t:downswing|Downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} zdarza się prawie każdemu wygrywającemu, więc taki bankroll szybko by się skończył." }
+      - { text: "Ok. {{n:dd.bi.small}}", why: "{{t:downswing|Downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} zdarza się prawie każdemu wygrywającemu w ciągu {{n:var.hands.k}} tys. rąk, więc taki bankroll szybko by się skończył." }
       - { text: "Co najmniej {{n:br.bi.base}}", why: "To minimum dla gracza z potwierdzonym winrate. Bez tej wiedzy bierzesz zapas: {{n:br.bi.beginner}} {{t:buy-in|wpisowych}}." }
   - kind: choice
     id: m12.l4.q-move-down
@@ -55,8 +55,8 @@ drills:
     rules: [R-M12-011, R-M12-002]
     prompt: "Zacząłeś {{t:stakes|stawkę}} z {{n:br.bi.base}} {{t:buy-in|wpisowymi}} i straciłeś {{n:dd.bi.small}}. Masz teraz {{n:br.ex.after-dd}}. Co robisz?"
     options:
-      - { text: "Zostajesz na {{t:stakes|stawce}} i przeglądasz decyzje w przegranych rozdaniach", correct: true, why: "{{n:br.ex.after-dd}} {{t:buy-in|wpisowych}} to wciąż więcej niż próg {{n:br.bi.move-down}}. {{t:downswing|Downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} jest normalny, a przegląd rozdań sprawdza, czy to nie błędy." }
-      - { text: "Schodzisz {{t:stakes|stawkę}} od razu", why: "Próg zejścia to połowa bankrollu: {{n:br.bi.move-down}} {{t:buy-in|wpisowych}}. Schodzenie po każdym {{t:downswing|downswingu}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} oznaczałoby schodzenie prawie zawsze, bo taki {{t:downswing}} trafia ok. {{n:dd.p.small.100k}} wygrywających w {{n:var.hands.k}} tys. rąk." }
+      - { text: "Zostajesz na {{t:stakes|stawce}} i przeglądasz decyzje w przegranych rozdaniach", correct: true, why: "{{n:br.ex.after-dd}} {{t:buy-in|wpisowych}} to wciąż więcej niż najpóźniejszy próg zejścia, {{n:br.bi.move-down}}. Taki {{t:downswing}} trafia ok. {{n:dd.p.small.100k}} wygrywających w {{n:var.hands.k}} tys. rąk, a przegląd rozdań sprawdza, czy to nie błędy." }
+      - { text: "Schodzisz {{t:stakes|stawkę}} od razu", correct: true, why: "To też dobra decyzja: część źródeł radzi zejść już po stracie {{n:dd.bi.small}} {{t:buy-in|wpisowych}}. Zejście wcześniej niż przy połowie bankrollu nie jest błędem, a później już tak." }
       - { text: "Dokładasz pieniądze, żeby mieć znów {{n:br.bi.base}}", why: "Dokładanie pieniędzy po każdym {{t:downswing|downswingu}} zaciera sens bankrollu jako granicy ryzyka. Ustalasz próg z góry i trzymasz się go." }
   - kind: choice
     id: m12.l4.q-move-up
@@ -114,13 +114,13 @@ Bankroll to pieniądze przeznaczone wyłącznie na pokera, oddzielone od pienię
 
 ## {{t:risk-of-ruin|Ryzyko bankructwa}}
 
-To prawdopodobieństwo, że kiedykolwiek stracisz cały bankroll, jeśli nigdy nie zejdziesz {{t:stakes|stawkę}}:
+To prawdopodobieństwo, że kiedykolwiek stracisz cały bankroll, jeśli grasz dalej na tej samej {{t:stakes|stawce}}:
 
 ```formula
 RoR = e^(−2 × winrate × bankroll ÷ SD²)
 ```
 
-Winrate i SD podajesz w bb/100, bankroll w bb. Przy {{t:standard-deviation|odchyleniu}} {{n:var.sd}}:
+Wzór jest przybliżeniem przy stałym winrate i SD. Winrate i SD podajesz w bb/100, bankroll w bb. Przy {{t:standard-deviation|odchyleniu}} {{n:var.sd}}:
 
 | Winrate | {{n:br.bi.move-down}} {{t:buy-in|wpisowych}} | {{n:br.bi.base}} {{t:buy-in|wpisowych}} | {{n:br.bi.beginner}} {{t:buy-in|wpisowych}} |
 |---|---|---|---|
@@ -135,11 +135,11 @@ Winrate i bankroll stoją we wzorze obok siebie: dwa razy niższy winrate wymaga
 Źródła różnią się bardzo: od {{n:br.bi.src-low}} do ponad {{n:br.bi.src-high}} {{t:buy-in|wpisowych}}. Rachunek pokazuje, skąd ta różnica: wszystko zależy od winrate, a ten na początku jest nieznany i zwykle niski. Dlatego:
 
 - **{{n:br.bi.beginner}} {{t:buy-in|wpisowych}}**, póki nie znasz swojego winrate,
-- **{{n:br.bi.base}} {{t:buy-in|wpisowych}}** jako minimum dla gracza, który potwierdził, że wygrywa.
+- **{{n:br.bi.base}} {{t:buy-in|wpisowych}}** jako minimum dla gracza z potwierdzonym, wyraźnie dodatnim winrate; przy niskim winrate więcej.
 
 ## Kiedy zejść {{t:stakes|stawkę}}
 
-Ustal próg z góry: schodzisz o jedną {{t:stakes|stawkę}} niżej najpóźniej wtedy, gdy bankroll spadnie poniżej **połowy** założonej liczby {{t:buy-in|wpisowych}}, np. z {{n:br.bi.base}} do {{n:br.bi.move-down}}. Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich. Na niższej {{t:stakes|stawce}} te same pieniądze znów są pełnym bankrollem. Wracasz wyżej, gdy masz pełny bankroll w {{t:buy-in|wpisowych}} wyższej {{t:stakes|stawki}}. Sam {{t:downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} nie jest powodem do zejścia: zdarza się prawie każdemu wygrywającemu.
+Ustal próg z góry: schodzisz o jedną {{t:stakes|stawkę}} niżej najpóźniej wtedy, gdy bankroll spadnie poniżej **połowy** założonej liczby {{t:buy-in|wpisowych}}, np. z {{n:br.bi.base}} do {{n:br.bi.move-down}}. Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich. Na niższej {{t:stakes|stawce}} te same pieniądze znów są pełnym bankrollem. Wracasz wyżej, gdy masz pełny bankroll w {{t:buy-in|wpisowych}} wyższej {{t:stakes|stawki}}. Część źródeł radzi zejść wcześniej, już po stracie {{n:dd.bi.small}} {{t:buy-in|wpisowych}}: zejście przed progiem połowy nie jest błędem.
 
 ## Nauka i gra
 

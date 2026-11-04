@@ -767,10 +767,10 @@ exam.m11.bf.villain-after: { formula: sum, refs: [exam.m11.bf.s3, exam.m11.bf.s3
 exam.m11.bf.eq.now: { formula: icm, refs: [exam.m11.bf.s1, exam.m11.bf.s2, exam.m11.bf.s3, exam.m11.bf.s4, m11.bf.p1, m11.bf.p2, m11.bf.p3], args: [4, 1], unit: percent, decimals: 1, source: "obliczenie: ICM przed rozdaniem (wypłaty 50/30/20 jak w lekcji)" }
 exam.m11.bf.eq.win: { formula: icm, refs: [exam.m11.bf.s1, exam.m11.bf.win, exam.m11.bf.s4, m11.bf.p1, m11.bf.p2, m11.bf.p3], args: [3, 1], unit: percent, decimals: 1, source: "obliczenie: ICM po wygranej (rywal odpada)" }
 exam.m11.bf.eq.lose: { formula: icm, refs: [exam.m11.bf.s1, exam.m11.bf.lose, exam.m11.bf.villain-after, exam.m11.bf.s4, m11.bf.p1, m11.bf.p2, m11.bf.p3], args: [4, 1], unit: percent, decimals: 1, source: "obliczenie: ICM po przegranej" }
-exam.m11.bf.loss: { formula: diff, refs: [exam.m11.bf.eq.now, exam.m11.bf.eq.lose], unit: percent, decimals: 1, source: "obliczenie: ile equity tracisz przy przegranej" }
-exam.m11.bf.gain: { formula: diff, refs: [exam.m11.bf.eq.win, exam.m11.bf.eq.now], unit: percent, decimals: 1, source: "obliczenie: ile equity zyskujesz przy wygranej" }
+exam.m11.bf.loss: { formula: diff, refs: [exam.m11.bf.eq.now, exam.m11.bf.eq.lose], unit: percent, decimals: 2, source: "obliczenie: ile equity tracisz przy przegranej" }
+exam.m11.bf.gain: { formula: diff, refs: [exam.m11.bf.eq.win, exam.m11.bf.eq.now], unit: percent, decimals: 2, source: "obliczenie: ile equity zyskujesz przy wygranej" }
 exam.m11.bf.value: { formula: quotient, refs: [exam.m11.bf.loss, exam.m11.bf.gain], unit: ratio, decimals: 2, source: "obliczenie: bubble factor = strata ÷ zysk" }
-exam.m11.bf.range: { formula: diff, refs: [exam.m11.bf.eq.win, exam.m11.bf.eq.lose], unit: percent, decimals: 1, source: "obliczenie: strata + zysk" }
+exam.m11.bf.range: { formula: diff, refs: [exam.m11.bf.eq.win, exam.m11.bf.eq.lose], unit: percent, decimals: 2, source: "obliczenie: strata + zysk" }
 exam.m11.bf.req: { formula: quotient, refs: [exam.m11.bf.loss, exam.m11.bf.range], unit: percent, decimals: 1, source: "obliczenie: potrzebne equity = strata ÷ (strata + zysk) = BF ÷ (BF + 1)" }
 exam.m11.bf.req-chips: { formula: quotient, refs: [exam.m11.bf.s3, exam.m11.bf.villain-after], unit: percent, source: "obliczenie: w żetonach ryzykujesz tyle, ile wygrywasz (blindy pominięte jak w lekcji)" }
 exam.m12.hands.k: { value: 50, unit: count, source: "przykład w zadaniu egzaminu: 50 tys. rąk" }

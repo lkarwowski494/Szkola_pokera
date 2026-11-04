@@ -35,7 +35,7 @@ drills:
       - { text: "{{t:check|Czekam}} (żeby {{t:call|sprawdzić}} {{t:bet}} Buttona)", correct: true, why: "Tak: Button {{t:call|sprawdzał}} z {{t:position|pozycji}}, więc jego {{t:range}} jest silny, a na tym flopie solver {{t:out-of-position}} {{t:check|czeka}} prawie całym {{t:range|zakresem}}, także {{t:top-pair|najwyższą parą}} z najlepszym kickerem. Po {{t:check|czekaniu}} {{t:call|sprawdzasz}} {{t:bet}} Buttona." }
       - { text: "C-bet {{n:cbet.size.small}} {{t:pot|puli}}", why: "Za często: w tym układzie solver betuje w mniej niż {{n:cbet.oop.a94.bet}} przypadków. {{t:top-pair|Najwyższą parę}} z najlepszym kickerem grasz {{t:check|czekaniem}} i {{t:call|sprawdzeniem}}." }
       - { text: "C-bet {{n:cbet.size.big}} {{t:pot|puli}}", why: "Za często: w tym układzie solver betuje w mniej niż {{n:cbet.oop.a94.bet}} przypadków. {{t:top-pair|Najwyższą parę}} z najlepszym kickerem grasz {{t:check|czekaniem}} i {{t:call|sprawdzeniem}}." }
-      - { text: "{{t:fold|Pas}}", why: "Nikt jeszcze nie {{t:bet|postawił}}, więc {{t:fold}} nic nie daje: możesz {{t:check|czekać}} za darmo (zasada z modułu 1). A z tą ręką chcesz betować." }
+      - { text: "{{t:fold|Pas}}", why: "Nikt jeszcze nie {{t:bet|postawił}}, więc {{t:fold}} nic nie daje: możesz {{t:check|czekać}} za darmo (zasada z modułu 1). Tę rękę grasz {{t:check|czekaniem}} i {{t:call|sprawdzeniem}}." }
   - kind: choice
     id: m5.l4.q-multi
     family: m5.cbet.multi

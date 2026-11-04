@@ -13,7 +13,7 @@ drills:
     prompt: "Wiesz, że rywal w tej linii {{t:bluff|blefuje}} trochę częściej niż w równowadze. Którymi rękami najpierw zmieniasz decyzję?"
     options:
       - { text: "Rękami, które w bazie mieszają {{t:call}} i {{t:fold}}: teraz zawsze {{t:call|sprawdzasz}}", correct: true, why: "W równowadze te ręce są obojętne, bo rywal ma dokładnie tyle {{t:bluff|blefów}}, ile trzeba. Już mała nadwyżka {{t:bluff|blefów}} sprawia, że {{t:call}} zarabia więcej niż {{t:fold}}." }
-      - { text: "Najsłabszymi rękami, które w bazie zawsze {{t:fold|pasują}}", why: "Te ręce przegrywają nawet z częścią {{t:bluff|blefów}} albo potrzebują dużo większej nadwyżki. Zmieniają się dopiero przy dużym {{t:standard-deviation|odchyleniu}} rywala." }
+      - { text: "Najsłabszymi rękami, które w bazie zawsze {{t:fold|pasują}}", why: "Te ręce przegrywają nawet z częścią {{t:bluff|blefów}} albo potrzebują dużo większej nadwyżki. Zmieniają się dopiero przy dużym odejściu rywala od równowagi." }
       - { text: "Najsilniejszymi rękami: teraz je {{t:raise|przebijasz}}", why: "Najsilniejsze ręce i tak grasz dalej. Zmiana zaczyna się od rąk na granicy decyzji." }
   - kind: choice
     id: m10.l3.q-small-shift
@@ -96,7 +96,7 @@ W równowadze część rąk gra dwie akcje, np. czasem {{t:call|sprawdza}}, a cz
 - rywal {{t:bluff|blefuje}} za często: {{t:mixed-hand|ręce mieszane}} zawsze {{t:call|sprawdzają}};
 - rywal {{t:bluff|blefuje}} za rzadko: {{t:mixed-hand|ręce mieszane}} zawsze {{t:fold|pasują}}.
 
-Wystarczy niewiele. W opublikowanym przykładzie z solvera (Button betuje na riverze po linii bet, {{t:check}}, bet) zmiana {{t:bluff|blefów}} rywala z ok. {{n:overbluff.base}} do ok. {{n:overbluff.lock}} przestawiła obronę {{t:big-blind|dużego blinda}} na samo {{t:call|sprawdzanie}}. Ręce, które w bazie zawsze {{t:fold|pasują}} albo zawsze grają dalej, zmieniają decyzję dopiero przy dużym {{t:standard-deviation|odchyleniu}}.
+Wystarczy niewiele. W opublikowanym przykładzie z solvera (Button betuje na riverze po linii bet, {{t:check}}, bet) zmiana {{t:bluff|blefów}} rywala z ok. {{n:overbluff.base}} do ok. {{n:overbluff.lock}} przestawiła obronę {{t:big-blind|dużego blinda}} na samo {{t:call|sprawdzanie}}. Ręce, które w bazie zawsze {{t:fold|pasują}} albo zawsze grają dalej, zmieniają decyzję dopiero przy dużym odejściu rywala od równowagi.
 
 ## {{t:bluff|Blef}} liczony progiem
 

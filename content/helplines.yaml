@@ -54,7 +54,7 @@ entries:
     sms: '1-800-697-3738'
     hours: 'całą dobę, 7 dni w tygodniu'
     cost: 'bez opłat za usługę; SMS według taryfy operatora'
-    language: 'angielski; tłumacz ponad 240 języków'
+    language: 'tłumacz ponad 240 języków'
     operator: 'National Council on Problem Gambling'
     links:
       - label: 'Telefon, SMS i czat: informacje'
@@ -97,7 +97,7 @@ entries:
     regions: [GB-ENG, GB-SCT, GB-NIR]
     national: true
     kind: gambling
-    name: 'National Gambling Helpline'
+    name: 'National Gambling Helpline (Anglia, Szkocja, Irlandia Płn.)'
     phone: '0808 8020 133'
     hours: 'całą dobę, 7 dni w tygodniu'
     cost: 'bezpłatnie'
@@ -393,12 +393,17 @@ entries:
     kind: crisis
     name: 'よりそいホットライン'
     phone: '0120-279-338'
+    phone_alt:
+      - phone: '0120-279-226'
+        label: 'z prefektury Fukushima'
     hours: 'całą dobę'
     cost: 'bezpłatnie'
     language: 'japoński; wybór porady także w językach obcych'
     sources:
       - url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/seikatsuhogo/jisatsu/soudan_tel.html
         quote: 'ガイダンスで専門的な対応も選べます（外国語含む）。 電話番号 0120-279-338 つなぐ ささえる（フリーダイヤル・無料）'
+      - url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/seikatsuhogo/jisatsu/soudan_tel.html
+        quote: '福島県からは、 0120-279-226 つなぐ つつむ（フリーダイヤル・無料）'
       - url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/seikatsuhogo/jisatsu/soudan_tel.html
         quote: '実施日時 24時間対応'
   - id: jp-119
@@ -531,14 +536,27 @@ entries:
       - url: https://www.nfa.gov.tw/pro/index.php?code=list&flag=detail&ids=113&article_id=31
         quote: '報案時應先撥打119專線，因為接通後24小時由專人受理。'
   # --- VN ---
+  # E3 2026-11-04 (A7, S1): 115 jako pierwszy numer, bo ekran pokazuje tylko pole phone; 113 przyjmie wezwania medyczne
+  # dopiero po obsadzeniu (do 1.07.2027, Thông tư 42/2026/TT-BYT), więc bez tej informacji.
+  - id: vn-115
+    claim: H-VN-3
+    country: 'VN'
+    kind: emergency
+    name: 'Pogotowie ratunkowe'
+    phone: '115'
+    cost: 'bezpłatnie'
+    review_by: '2027-02-04'
+    sources:
+      - url: https://baochinhphu.vn/mien-phi-cac-cuoc-goi-den-so-113-114-115-102268666.htm
+        quote: 'Người sử dụng dịch vụ điện thoại cố định mặt đất hoặc dịch vụ thông tin di động mặt đất gọi đến các số dịch vụ khẩn cấp (113, 114, 115) được miễn phí.'
+      - url: https://lsvn.vn/bo-y-te-de-xuat-tich-hop-cac-dau-so-113-114-115-thanh-mot-dau-so-duy-nhat-a162995.html
+        quote: 'Một số tỉnh, thành phố đông dân cư thành lập các trung tâm cấp cứu độc lập ngoài bệnh viện (còn gọi là Trung tâm Cấp cứu 115).'
   - id: vn-113
     claim: H-VN-3
     country: 'VN'
     kind: emergency
-    name: 'Numer alarmowy'
+    name: 'Policja'
     phone: '113'
-    phone_alt:
-      - phone: '115'
     cost: 'bezpłatnie'
     review_by: '2027-02-04'
     sources:
@@ -566,11 +584,14 @@ entries:
     kind: gambling
     name: 'Porada w języku polskim (Caritas)'
     phone: '0173 29 37 359'
+    hours: 'terminy po uzgodnieniu'
     cost: 'bezpłatnie, anonimowo'
     language: 'polski'
     sources:
       - url: https://www.check-dein-spiel.de/hilfe-fuer-spieler/fremdsprachige-telefon-beratung/
         quote: 'Telefonberatung auf Polnisch Telefonnummer: 0173 29 37 359 Kostenlos und anonym'
+      - url: https://www.check-dein-spiel.de/hilfe-fuer-spieler/fremdsprachige-telefon-beratung/
+        quote: 'Bundesweite Telefonberatung bei Problemen mit Glückspielen auf Polnisch Termine nach Vereinbarung.'
   - id: de-ts
     claim: H-DE-2
     country: 'DE'
@@ -604,14 +625,14 @@ entries:
     country: '*'
     kind: gambling
     name: 'Gambling Therapy (Gordon Moody, Wielka Brytania)'
-    info: 'Wsparcie tekstowe online dla osób z każdego kraju, w ponad 200 językach; anonimowo.'
+    info: 'Bezpłatne porady praktyczne i wsparcie emocjonalne online dla każdego, kogo dotyka problem z hazardem; poufnie.'
     links:
       - label: 'Gambling Therapy'
-        url: https://gordonmoody.org.uk/gambling-therapy/
+        url: https://www.gamblingtherapy.org/
+    # E3 2026-11-04 (A7): gordonmoody.org.uk nie odpowiada (zerwane połączenie); źródło: strona serwisu, odczyt 2026-11-04.
+    # Bez „ponad 200 językach” i „anonimowo”: tych zdań nie ma na przeczytanej stronie.
     sources:
-      - url: https://gordonmoody.org.uk/gambling-therapy/
-        quote: 'Gambling Therapy is a text-based service that provides emotional and practical support to anyone in the world who is struggling as a result of gambling.'
-      - url: https://gordonmoody.org.uk/gambling-therapy/
-        quote: 'Support is provided in more than 200 languages through a combination of native speaking advisers and translation software tools.'
-      - url: https://gordonmoody.org.uk/gambling-therapy/
-        quote: 'There is no need to give your real name or email address - you can remain anonymous if you wish.'
+      - url: https://www.gamblingtherapy.org/
+        quote: 'Gambling Therapy is a global service offering free practical advice and emotional support to anyone affected by problem gambling.'
+      - url: https://www.gamblingtherapy.org/
+        quote: 'Confidential, safe and delivered online'
