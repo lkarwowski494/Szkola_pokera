@@ -1,0 +1,56 @@
+OK    1a user_version po migracji: wynik=1
+OK    1b integrity_check: wynik="ok"
+OK    1c foreign_key_check: wynik=0
+OK    1d journal_mode (ADR 0003: domyślny, bez WAL): wynik="delete"
+OK    1e tabele: wynik=["aktywnosc","dziennik","karta","log_powtorki","odpowiedz","postep_lekcji","uprawnienie_cache","ustawienie","wynik_testu"]
+OK    1f drugie uruchomienie runnera bez zmian: wynik=1
+OK    2 stany domeny = CHECK aktywnosc.rodzaj: wynik=["ocena_poziomu","lekcja","test_modulu","sesja","powtorki","scenariusz"]
+OK    2 stany domeny = CHECK aktywnosc.stan: wynik=["w_toku","zakonczona","porzucona"]
+OK    2 stany domeny = CHECK odpowiedz.ocena: wynik=["zgodne","dopuszczalne","niedokladnosc","blad"]
+OK    3a ocena spoza listy: wynik=true
+OK    3b stan w_toku z koniec_ms: wynik=true
+OK    3c zakończona bez koniec_ms: wynik=true
+OK    3d plan nie-JSON: wynik=true
+OK    3e dzień w złym formacie: wynik=true
+OK    3f odpowiedź do nieistniejącej aktywności: wynik=true
+OK    3g poprawne > wszystkie w wyniku testu: wynik=true
+OK    4a UPSERT odpowiedzi kroku: ten sam id, jeden wiersz: wynik={"ten_sam_id":true,"wiersze":1}
+OK    4b UPSERT karty: logi zostają: wynik=2
+OK    4c INSERT OR REPLACE na karcie kasowałby logi (kontrola wzoru): wynik=0
+OK    4d usunięcie odpowiedzi: log zostaje z odpowiedz_id NULL: wynik=2
+OK    4e kaskada aktywność → odpowiedzi i wynik testu: wynik={"odpowiedz":0,"wynik_testu":0}
+OK    4f kaskada karta → log: wynik=0
+OK    4g foreign_key_check po operacjach: wynik=0
+INFO  dane: 34005 odpowiedzi, 34005 logów, 2267 aktywności, 530 kart
+OK    5 plan bez SCAN: karty do powtórki (Dziś): wynik="indeks"
+INFO    karty do powtórki (Dziś): SEARCH karta USING INDEX idx_karta_termin (termin_ms<?); p95 z 20 = 0.153 ms (laptop w chmurze, NIE budżet)
+OK    5 plan bez SCAN: zużycie limitu dnia: wynik="indeks"
+INFO    zużycie limitu dnia: SEARCH aktywnosc USING COVERING INDEX idx_aktywnosc_dzien (dzien_lokalny=? AND z_limitu=?); p95 z 20 = 0.022 ms (laptop w chmurze, NIE budżet)
+OK    5 plan bez SCAN: aktywność w toku (powrót): wynik="indeks"
+INFO    aktywność w toku (powrót): SEARCH aktywnosc USING INDEX idx_aktywnosc_w_toku (stan=?); p95 z 20 = 0.025 ms (laptop w chmurze, NIE budżet)
+OK    5 plan bez SCAN: odpowiedzi aktywności: wynik="indeks"
+INFO    odpowiedzi aktywności: SEARCH odpowiedz USING INDEX sqlite_autoindex_odpowiedz_1 (aktywnosc_id=?); p95 z 20 = 0.220 ms (laptop w chmurze, NIE budżet)
+OK    5 plan bez SCAN: historia rodziny: wynik="indeks"
+INFO    historia rodziny: SEARCH odpowiedz USING INDEX idx_odpowiedz_rodzina (rodzina_id=?) | USE TEMP B-TREE FOR ORDER BY; p95 z 20 = 0.102 ms (laptop w chmurze, NIE budżet)
+OK    5 plan bez SCAN: wyniki testu modułu: wynik="indeks"
+INFO    wyniki testu modułu: SEARCH wynik_testu USING INDEX idx_wynik_testu_modul (modul_id=?); p95 z 20 = 0.019 ms (laptop w chmurze, NIE budżet)
+INFO  rozmiar postep.db w skali 3 lat: 6.23 MB
+OK    5z rozmiar < 15 MB (szacunek E0): wynik=true
+INFO  plik eksportu: 12.15 MB
+OK    6a import na czystej instalacji: wynik=true
+OK    6b różnice eksport → import (NFR-DANE-002): wynik=[]
+OK    6c pamięć uprawnień poza eksportem: wynik=0
+OK    6d plik z nowszej wersji odrzucony, dane bez zmian: wynik=["nowsza_wersja",true]
+OK    6e plik obcy odrzucony: wynik=["bledny_plik",true]
+OK    6f plik ucięty odrzucony: wynik=["bledny_plik",true]
+OK    6g awaria w środku importu: ROLLBACK, dane bez zmian: wynik=["blad_zapisu",true]
+OK    6h integrity i klucze po próbach: wynik=["ok",0]
+INFO  aktywności z limitu w dniu 2026-11-04 przed usunięciem: 4
+OK    7a po usunięciu: postęp pusty: wynik={"odpowiedz":0,"karta":0,"log":0,"lekcje":0,"testy":0,"ustawienia":0}
+OK    7b dzisiejsze zużycie limitu zostaje (tyle samo znaczników): wynik=4
+OK    7e poza dniem bieżącym aktywności usunięte: wynik=0
+OK    7c pamięć uprawnień zostaje (zakup do przywrócenia): wynik=1
+OK    7d integrity i klucze po usunięciu: wynik=["ok",0]
+SQLite 3.53.4, Node v22.23.4
+wszystkie wyniki zgodne z oczekiwanymi
+kod wyjścia=0

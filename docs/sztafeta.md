@@ -13,7 +13,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 02 Monetyzacja | fix OP-11 | zakończona 2026-11-04 (D-113; dokument, bez zmian rachunku i kodu) | 37ab4f1 | `docs/monetyzacja.md` | OP-09, OP-10 (05) |
 | 04 Studio Projektowe | build | zakończona 2026-11-04 (E3 zaakceptowane, D-123). E0 zakończone 2026-11-04 (D-114: ekran „Decyzja w sesji”); E1 zakończone 2026-11-04 (D-115: metafory A, B, C); E2 runda 1 odrzucona co do palety (D-116, pasek zostaje), runda 2 (D, E, F) odrzucona 2026-11-04 (D-117: „ma być eleganckie a nie badziewne”, punkt odniesienia: kolory i ikona poprzedniej aplikacji); runda 3: wybrany I (D-118) z warunkiem: stół bez miejsc w zadaniach bez pozycji (D-119); krój Literata 600 (D-120); E3 wykonane 2026-11-04 (D-121, D-122), czeka na akceptację ikony i ekranów | a838dda, 118a5c1 | `docs/design/00-rozpoznanie.md`, `01-swiat.md` | OP-19 w E3 |
 | 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
-| 05 Architekt | build | E1 zakończone 2026-11-04, ADR 0001–0012 przyjęte (D-124, D-126); w toku E2 | 40b2504 | `docs/architektura/00-rozpoznanie.md`, `docs/adr/`, `docs/architektura/eksperymenty/` | akceptacja ADR; OP-21 (E3) |
+| 05 Architekt | build | E2 zakończone 2026-11-04 (ADR 0001–0012 przyjęte D-124, D-126); czeka na akceptację E2, następny E3 | E2 (ten commit) | `docs/architektura/00-rozpoznanie.md`, `docs/adr/`, `docs/architektura/dane.md`, `moduly.md`, `schemat.sql`, `eksperymenty/` | akceptacja ADR; OP-21 (E3) |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -245,8 +245,15 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - Decyzja właściciela na bramce E1: „Akceptuję wszystkie (Recommended)” (D-126); nowa sesja: „Nie”.
 - OP-24 rozstrzygnięte w ADR 0007 (ponowna instalacja zeruje licznik dnia, brzegowy, przyjęte wzorem R-M5-2 Treningu); OP-09: wniosek w ADR 0006 pkt 5 (aplikacja nie anuluje; arkusz systemowy) — zamknięcie przez rolę 02.
 
+## Rola 05 E2: wynik (2026-11-04, trzynasta sesja)
+- `docs/architektura/schemat.sql` (v1, 9 tabel), `dane.md` (ERD, przepływ → tabele, migracje, kopie, format eksportu v1, „Usuń postęp”, ścieżki utraty danych), `moduly.md` (drzewo z nowymi pakietami `domena` i `postep`, kierunek zależności, port bazy, porty domeny, maszyny stanów z tabelami przejść, konfiguracja).
+- Dowód: `eksperymenty/e2-schemat.mjs ../schemat.sql <tmp>` → 43 wyniki zgodne, kod wyjścia 0 (`e2-schemat.wynik.txt`): `integrity_check` = ok, `foreign_key_check` pusty, `journal_mode` = delete, kaskady, UPSERT, 7 odrzuceń CHECK, 6 zapytań z indeksem na danych 3-letnich (6,23 MB), eksport → import 0 różnic, odrzucenie złych plików, awaria importu → ROLLBACK, „Usuń postęp”. Jedna poprawka testu (7b: oczekiwana liczba liczona z danych zamiast stałej; zachowanie poprawne).
+- Pomiar: plik eksportu w skali 3 lat 12,15 MB (szacunek E0 ok. 5 MB był za niski; brzegowy, zmiana formatu tylko nowym `wersja_formatu`).
+- Znalezisko dla ról 01/04/06: stopnie oceny — BRD cztery (z „niedokładność”), `design-spec.md` i kod trzy; schemat przyjmuje cztery z BRD, zmiana przed pierwszym wydaniem bez migracji.
+- Mermaid ERD nie renderowany w tej sesji (bez narzędzia; składnia sprawdzona ręcznie).
+
 ## Następny krok
-**05-architekt**, build, E2 (granice modułów i porty, `docs/architektura/dane.md` z ERD, `schemat.sql` uruchomiony z dowodem, format eksportu, konfiguracja, ścieżki utraty danych); ADR przyjęte (D-126), E2 w tej samej sesji; ten sam prompt (`assemble.mjs 05-architekt --tryb build`). Wejście: `docs/adr/`, `docs/architektura/00-rozpoznanie.md`, paczka roli 05 niżej.
+**05-architekt**, build, E3 (zawieszenie bez blokady pliku i powiadomienie wg `tlo-i-sensory-ios`, polityka błędów, `docs/architektura/prywatnosc.md` z required reason API, budżety wydajności z metodą, lista kontroli automatycznych dla roli 07 z `granice.mjs`) po akceptacji E2; ten sam prompt (`assemble.mjs 05-architekt --tryb build`). Wejście: `docs/adr/`, `docs/architektura/` (00-rozpoznanie, dane, moduly, schemat.sql).
 
 ## Decyzje właściciela na bramce E3 roli 04 (2026-11-04)
 - Krój tytułów: „Ok zgodnie z rekomendacją” (D-120, Literata 600).
