@@ -1,5 +1,5 @@
 # Stan sztafety
-Ścieżka: greenfield (przebudowa istniejącej aplikacji „prawie od nowa”) · Aktualizacja: 2026-11-04 (rola 04 E0)
+Ścieżka: greenfield (przebudowa istniejącej aplikacji „prawie od nowa”) · Aktualizacja: 2026-11-04 (rola 04 E4)
 
 Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szkoła Pokera przez role 1–5 w trybie build z prompts i zrobić ją prawie od nowa, ale wykorzystując elementy aktualnej aplikacji, które są dobre. Cel: monetyzacja. […] Tam nie ma być hazardu. Pełna nauka w 35 językach jak trening. Całkiem od nowa UX, przepływy, ocena monetyzacji, BRD.” Kolejność (wybór właściciela): bramka opłacalności (02, krok 0) → 01 → 02 → 03 → 04 → 05.
 
@@ -11,7 +11,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 03 Zakres | build | zakończona 2026-11-04 (E3 zaakceptowane, D-112) | (commit E3) | `docs/scope-contract.md` (E3), `docs/archiwum/scope-contract-2026-11-03-robocze.md` (E0–E2), `docs/zakres/wzorzec-2026-11-03.json`, `docs/decyzje.md` | — |
 | 01 Odkrywanie | fix OP-20, OP-22, OP-23 | zakończona 2026-11-04 (D-113; kontrola BRD kod 0, wektory bez zmian) | 42dc490, be4e4e4, f795905 | `docs/brd/` (README, wymagania-nauka, wymagania-sklep, wymagania) | OP-24 (05), OP-10 (06) |
 | 02 Monetyzacja | fix OP-11 | zakończona 2026-11-04 (D-113; dokument, bez zmian rachunku i kodu) | 37ab4f1 | `docs/monetyzacja.md` | OP-09, OP-10 (05) |
-| 04 Studio Projektowe | build | E0 zakończone 2026-11-04 (D-114: ekran „Decyzja w sesji”); E1 zakończone 2026-11-04 (D-115: metafory A, B, C); E2 runda 1 odrzucona co do palety (D-116, pasek zostaje), runda 2 (D, E, F) odrzucona 2026-11-04 (D-117: „ma być eleganckie a nie badziewne”, punkt odniesienia: kolory i ikona poprzedniej aplikacji); runda 3: wybrany I (D-118) z warunkiem: stół bez miejsc w zadaniach bez pozycji (D-119); krój Literata 600 (D-120); E3 wykonane 2026-11-04 (D-121, D-122), czeka na akceptację ikony i ekranów | a838dda, 118a5c1 | `docs/design/00-rozpoznanie.md`, `01-swiat.md` | OP-19 w E3 |
+| 04 Studio Projektowe | build | zakończona 2026-11-04 (E3 zaakceptowane, D-123). E0 zakończone 2026-11-04 (D-114: ekran „Decyzja w sesji”); E1 zakończone 2026-11-04 (D-115: metafory A, B, C); E2 runda 1 odrzucona co do palety (D-116, pasek zostaje), runda 2 (D, E, F) odrzucona 2026-11-04 (D-117: „ma być eleganckie a nie badziewne”, punkt odniesienia: kolory i ikona poprzedniej aplikacji); runda 3: wybrany I (D-118) z warunkiem: stół bez miejsc w zadaniach bez pozycji (D-119); krój Literata 600 (D-120); E3 wykonane 2026-11-04 (D-121, D-122), czeka na akceptację ikony i ekranów | a838dda, 118a5c1 | `docs/design/00-rozpoznanie.md`, `01-swiat.md` | OP-19 w E3 |
 | 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
 
 ## E0 bramki: ustalenia (2026-11-03)
@@ -229,7 +229,20 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - `docs/design/design-spec.md`: znaczenie kolorów, typografia i duży tekst, komponenty (stół zależny od danych zadania, D-119), słownik, macierz stanów, głos, podłogi OP-19 (D-121), konfiguracja ikony.
 
 ## Następny krok
-**Rola 04 build, STOP E3:** właściciel ogląda ikonę (`docs/design/ikona/arkusz.png`) i ekrany (`docs/design/ekrany/e3-przeglad.png`, arkusze w `wzorce-zrzuty/arkusze/`); po akceptacji E4: przekazanie do roli 05 (Architekt) i wpis do pamięci portfolio (krok właściciela w repo `prompts`). Prompt: `node /home/user/prompts/tools/assemble.mjs 04-studio-projektowe --tryb build`, sesja opus/high.
+**05-architekt Architekt systemu**, tryb `build`; nowa sesja: opus, wysiłek high. Polecenie: `node /home/user/prompts/tools/assemble.mjs 05-architekt --tryb build`. Paczka niżej („Przekazanie do następnej roli”, rola 04).
+
+## Decyzje właściciela na bramce E3 roli 04 (2026-11-04)
+- Krój tytułów: „Ok zgodnie z rekomendacją” (D-120, Literata 600).
+- Ikona i ekrany: „Dobrze to wygląda. Akceptuję” (D-123).
+
+### Przekazanie do następnej roli
+- Zakończono: 04-studio-projektowe, build, commity 99636db (kroje), 07bd6ae (E3) i E4 na `claude/sleepy-brahmagupta-2065nu`; artefakty: `docs/design/design-spec.md` (wejście główne), `docs/design/tokeny.ts` + `kontrast-e3.md`, `docs/design/ekrany/e3.html`, `docs/design/wzorce-zrzuty/` (linia bazowa audytu SP-13), `docs/design/ikona/` (pliki i wpisy konfiguracji w `design-spec.md`, „Ikona”), historia: `00-rozpoznanie.md`, `01-swiat.md`, `02-kierunki.md`.
+- Następny krok ścieżki greenfield: **05-architekt Architekt systemu**, tryb `build`; nowa sesja: opus, wysiłek high.
+- Polecenie: `node /home/user/prompts/tools/assemble.mjs 05-architekt --tryb build`
+- Paczka wejściowa: `docs/scope-contract.md`, `docs/brd/` (wymagania, NFR), `docs/monetyzacja.md` (kontrakt płatności, szkic ADR biblioteki płatności), `docs/design/design-spec.md` (komponenty `Stol` zależny od danych zadania D-119, `PasekStrategii`, `SkalaStopni`; tokeny; podłogi D-121, D-122), `docs/decyzje.md`, `CLAUDE.md`.
+- Dla roli 05/08 z projektu: moduł motywu z `tokeny.ts` (cztery warianty kolorów: jasny, ciemny, „Zwiększ kontrast”); Literata 600 jako plik kroju w aplikacji (OFL, `docs/design/fonty/`, podzbiory latin, latin-ext, vietnamese) z przełączeniem tytułów na krój systemowy od AX1; `expo-haptics` (mapa `haptyka`); dzielenie wyrazów w RN na iOS `[DO USTALENIA]`.
+- Otwarte decyzje: OP-09 (02), OP-24 = OP-10 monetyzacji (05), BRD OP-10 numery pomocy (06, bloker), OP-21 (05); z roli 04: indeksy ikony do krzywych przed Icon Composer (macOS), przejście poznawcze i test 3–5 osób po implementacji (wynik do roli 03), teksty stanów (pusty, błąd, pierwsza ocena) do roli 06; znalezisko dla roli 06: `range.acceptable` i dopisek w `range.explanation` powtarzają to samo zdanie.
+- Wpis do pamięci portfolio (dopisuje właściciel w repo `prompts`, moduł „pamięć portfolio”): | Szkoła Pokera („Stół w granacie”) | stół z góry zależny od danych zadania (miejsca tylko w zadaniach z pozycją); element firmowy: pasek strategii mieszanej (równe segmenty przed decyzją, rozkład solvera ze złotym znacznikiem po ocenie); ikona: owal stołu z J♠ 9♥ i paskiem | granat `#0A1430`/`#22488A`, sukno `#23694D`→`#174A36`, kość słoniowa `#FFFDF7`, złoto `#E2B850` wyłącznie „ty”; tło jasne `#E9EDF5` | Literata 600 (tytuły), treść systemowa | 04.11.2026: rundy 1–2 odrzucone („ma być eleganckie a nie badziewne”), punkt odniesienia poprzednia aplikacja; wybór I z warunkiem stołu bez miejsc; złoto nigdy jako wygrana; bez żetonów |
 
 ## Poprzedni następny krok (rola 03, wykonany)
 **Rola 04 build** według „Przekazanie do następnej roli” wyżej: `node /home/user/prompts/tools/assemble.mjs 04-studio-projektowe --tryb build`; nowa sesja opus/high. Paczka: `docs/scope-contract.md`, `docs/brd/`, `docs/monetyzacja.md`, `docs/decyzje.md`, `CLAUDE.md`.

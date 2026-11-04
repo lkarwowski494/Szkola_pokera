@@ -90,7 +90,7 @@ Przepływy powstały z prac J-01–J-06 (`odkrywanie.md`) przed wymaganiami; ka�
 
 ### NFR-DOST-002: Czytnik ekranu i duża czcionka
 - Miara: odsetek elementów przepływów PR-01–PR-08 z etykietą czytnika ekranu i poprawnym układem przy największym rozmiarze tekstu systemu.
-- Próg: [DO USTALENIA] (OP-19).
+- Próg: 100% (D-121, `docs/design/design-spec.md`, „Podłogi dostępności”).
 - Metoda: przejście przepływów z VoiceOver i TalkBack oraz z największym rozmiarem tekstu.
 
 ### NFR-WYD-001: Szybki start sesji
