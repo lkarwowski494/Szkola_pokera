@@ -150,7 +150,7 @@ export const t = trAll({
       f >= 0.005 ? `Solver gra tak tylko w ${pct(f)} przypadków, czyli prawie nigdy.` : f > 0 ? `Solver gra tak z tą ręką rzadziej niż w ${pct(0.005, 1)} przypadków.` : 'Solver nigdy tak nie gra z tą ręką.',
     explanation: (hc: string, freqs: { name: string; f: number }[], mixed: boolean) =>
       `${hc}: ${freqs.filter((x) => x.f >= 0.005).map((x) => `${x.name.toLowerCase()} ${pct(x.f)}`).join(', ')}.` +
-      (mixed ? ` To ręka graniczna: solver miesza akcje, więc każda odpowiedź grana w co najmniej ${pct(MIXED_LOW)} przypadków jest dobra.` : '') +
+      (mixed ? ` To ręka graniczna: solver miesza akcje, więc aplikacja uznaje za dobrą każdą odpowiedź graną w co najmniej ${pct(MIXED_LOW)} przypadków.` : '') +
       (freqs.some((x) => x.f >= MIXED_MIN && x.f < MIXED_LOW)
         ? ` Akcja grana rzadziej niż w ${pct(MIXED_LOW)}, ale co najmniej w ${pct(MIXED_MIN, 1)} przypadków, jest dopuszczalna: to nie błąd, ale powtórka wróci szybciej.`
         : ''),
