@@ -37,7 +37,7 @@ drills:
     rules: [R-M11-005]
     prompt: "Twoje M spadło do ok. {{n:m11.m.example}}. Co mówi o tym model stref M?"
     options:
-      - { text: "{{t:red-zone|Strefa czerwona}}: tylko all-in albo {{t:fold}}, najlepiej jako pierwszy", correct: true, why: "Poniżej ok. {{n:m11.m.red}} (źródła różnią się granicą: {{n:m11.m.red}} albo {{n:m11.m.red-alt}}) zostaje ci tylko all-in albo {{t:fold}}. Wejście pierwszy daje szansę, że wszyscy {{t:fold|spasują}}." }
+      - { text: "{{t:red-zone|Strefa czerwona}}: tylko all-in albo {{t:fold}}, najlepiej jako pierwszy", correct: true, why: "Poniżej ok. {{n:m11.m.red}} zostaje ci tylko all-in albo {{t:fold}}. Wejście pierwszy daje szansę, że wszyscy {{t:fold|spasują}}." }
       - { text: "{{t:green-zone|Strefa zielona}}: grasz normalnie", why: "Zielona strefa zaczyna się dopiero od M ok. {{n:m11.m.green}}. Przy M ok. {{n:m11.m.example}} stack starczy na {{n:m11.m.example}} okrążenia." }
       - { text: "Czekasz na asy, bo i tak masz czas", why: "Przy M ok. {{n:m11.m.example}} blindy zjedzą stack, zanim doczekasz się silnej ręki. Trzeba wejść all-in z szerszym {{t:range|zakresem}}." }
   - kind: generated
@@ -85,7 +85,7 @@ drills:
     id: m11.l1.q-ante
     family: m11.ante
     rules: [R-M11-003]
-    prompt: "Ten sam stack {{n:m11.depth.10}} na {{t:small-blind|małym blindzie}}, ale {{t:big-blind}} wpłacił ante {{n:m11.ante}}. Jak zmienia się {{t:range}} all-inu?"
+    prompt: "Ten sam stack {{n:m11.depth.10}} na {{t:small-blind|małym blindzie}}, ale gra toczy się z {{t:bb-ante}}: {{t:big-blind}} wpłacił ante {{n:m11.ante}}. Jak zmienia się {{t:range}} all-inu?"
     options:
       - { text: "Rośnie: ok. {{n:m11.push.10-ante}} zamiast {{n:m11.push.10}}", correct: true, why: "Ante powiększa {{t:pot|pulę}}, którą zgarniasz, gdy rywal {{t:fold|spasuje}}: {{n:m11.push.10.win-ante}} zamiast {{n:m11.push.10.win}}. Ręka bez szans potrzebuje już tylko ponad {{n:m11.push.10.alpha-ante}} {{t:fold|pasów}}, więc opłaca się więcej all-inów." }
       - { text: "Maleje, bo rywal ma więcej w {{t:pot|puli}} i częściej {{t:call|sprawdzi}}", why: "Rywal rzeczywiście {{t:call|sprawdza}} szerzej, ale większa {{t:pot}} do zgarnięcia przeważa. Solver {{t:shove|pushuje}} ok. {{n:m11.push.10-ante}} rąk." }
@@ -131,7 +131,7 @@ Popularny model turniejowy liczy {{t:short-stack}} inaczej: **M** to stack podzi
 M = stack ÷ (mały blind + duży blind + ante)
 ```
 
-Przykład: masz {{n:m11.m.stack}} {{t:chips|żetonów}}, blindy {{n:m11.m.sb}}/{{n:m11.m.bb}}, {{t:bb-ante}} {{n:m11.m.ante}}. M = {{n:m11.m.stack}} ÷ {{n:m11.m.orbit}} = **{{n:m11.m.value}}**. W {{t:big-blind|dużych blindach}} to {{n:m11.m.bbs}}, ale M uwzględnia też ante. Poniżej M ok. {{n:m11.m.red}} ({{t:red-zone}}; źródła podają granicę {{n:m11.m.red}} albo {{n:m11.m.red-alt}}) zostaje ci już tylko all-in albo {{t:fold}}.
+Przykład: masz {{n:m11.m.stack}} {{t:chips|żetonów}}, blindy {{n:m11.m.sb}}/{{n:m11.m.bb}}, {{t:bb-ante}} {{n:m11.m.ante}}. M = {{n:m11.m.stack}} ÷ {{n:m11.m.orbit}} = **{{n:m11.m.value}}**. W {{t:big-blind|dużych blindach}} to {{n:m11.m.bbs}}, ale M uwzględnia też ante. Poniżej M ok. {{n:m11.m.red}} ({{t:red-zone}}) zostaje ci już tylko all-in albo {{t:fold}}.
 
 ## Im krótszy stack, tym szerzej
 
@@ -171,7 +171,7 @@ All-in wygrywa, gdy rywal {{t:fold|spasuje}}, albo gdy {{t:call|sprawdzi}} i prz
 
 ## Ante poszerza {{t:range}}
 
-Ante to dodatkowe {{t:chips}} w {{t:pot|puli}} przed rozdaniem. Gdy {{t:big-blind}} wpłaca ante {{n:m11.ante}}, all-in zgarnia {{n:m11.push.10.win-ante}} zamiast {{n:m11.push.10.win}}, a ryzyko zostaje to samo. {{t:range|Zakres}} rośnie z ok. {{n:m11.push.10}} do ok. {{n:m11.push.10-ante}} rąk.
+Ante to dodatkowe {{t:chips}} w {{t:pot|puli}} przed rozdaniem. Przy {{t:bb-ante}} {{t:big-blind}} wpłaca ante {{n:m11.ante}}, więc all-in zgarnia {{n:m11.push.10.win-ante}} zamiast {{n:m11.push.10.win}}, a ryzyko zostaje to samo. W tej strukturze {{t:range|zakres}} rośnie z ok. {{n:m11.push.10}} do ok. {{n:m11.push.10-ante}} rąk.
 
 ```range
 push.sb-10-ante

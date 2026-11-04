@@ -798,11 +798,11 @@
 - id: R-M9-008
   module: m9
   if: "przed {{t:bet|zakładem}} na flopie planujesz rozdanie"
-  then: "oceniasz, ile {{t:value|ulic wartości}} zniesie ręka: bardzo silna (set, {{t:straight}}, wysokie {{t:two-pair}}) trzy, {{t:top-pair}} z dobrym kickerem albo {{t:overpair}} zwykle dwie, trzecią wtedy, gdy rywal płaci słabszymi rękami; słabsza {{t:pair}} jedną albo żadnej"
+  then: "oceniasz, ile {{t:value|ulic wartości}} zniesie ręka (liczby {{t:street|ulic}} to uproszczenie): bardzo silna (set, {{t:straight}}, wysokie {{t:two-pair}}) trzy, {{t:top-pair}} z dobrym kickerem albo {{t:overpair}} zwykle dwie, trzecią wtedy, gdy rywal płaci słabszymi rękami; słabsza {{t:pair}} jedną albo żadnej"
   because: "z każdą {{t:street|ulicą}} gorsze ręce rywala {{t:fold|pasują}}, a w {{t:pot|puli}} zostają głównie ręce lepsze od twojej"
   level: heuristic
-  source: "synteza: serwis szkoleniowy, Checking Flop With Top Pair (When to Check Top Pair); serwis szkoleniowy, Streets of Value (MTT 30bb); serwis komercyjnego solvera, Stack-to-Pot Ratio"
-  sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
+  source: "synteza: serwis szkoleniowy, When to Check Top Pair (https://upswingpoker.com/when-to-check-top-pair/): „In single raised pots, the stack-to-pot ratio (SPR) is too high to comfortably get 3 streets of value with many top pair hands.”; serwis komercyjnego solvera, Stack-to-Pot Ratio (https://blog.gtowizard.com/stack-to-pot-ratio/): „All top pairs and all nut flush draws are now indifferent between calling and folding” (SPR 16); serwis komercyjnego solvera, Pot Geometry (https://blog.gtowizard.com/pot-geometry/): „Game theory optimal strategies typically use geometric bet sizes when they want to maximize value with a big nut advantage.”; liczby ulic dla ręki, w tym słabsza para: uproszczenie aplikacji (D-149)"
+  sources: [{ kind: training, url: "https://upswingpoker.com/when-to-check-top-pair/" }, { kind: solver-pub, url: "https://blog.gtowizard.com/stack-to-pot-ratio/" }]
 - id: R-M9-009
   module: m9
   if: "masz rękę na trzy {{t:value|ulice wartości}}, strefa {{t:spr}} pozwala grać nią o cały stack (R-M9-010) i chcesz wpłacić cały stack"
@@ -817,8 +817,8 @@
   then: "patrzysz na strefę {{t:spr}} (uproszczenie): poniżej ok. {{n:spr.zone.low}} zwykle wystarcza {{t:top-pair}}, od {{n:spr.zone.low}} do {{n:spr.zone.mid}} {{t:top-pair}} jest ręką na granicy, od {{n:spr.zone.mid}} do {{n:spr.zone.deep}} potrzebujesz zwykle wysokich {{t:two-pair|dwóch par}} albo lepiej, a powyżej {{n:spr.zone.deep}} setu, {{t:straight|strita}} albo lepszej ręki"
   because: "im wyższy {{t:spr}}, tym więcej {{t:bet|zakładów}} trzeba, żeby wpłacić cały stack, a do końca rywal płaci głównie silnymi rękami; przy {{t:spr}} {{n:spr.zone.deep}} cały stack wchodzi dopiero po trzech {{t:bet|zakładach}} wielkości {{t:pot|puli}}"
   level: heuristic
-  source: "trener z serwisem szkoleniowym, SPR Strategy; serwis komercyjnego solvera, Stack-to-Pot Ratio (progi 3 i 6); strefa 6–13: część wspólna trzech serwisów (serwis z analizą bazy rąk i dwa serwisy szkoleniowe); próg 13: obliczenie (1+2·1)^3 = 1+2·13 oraz Flynn, Mehta, Miller, Professional No-Limit Hold'em (przez serwis informacyjny i recenzję cardsharp.org)"
-  sources: [{ kind: solver-pub }, { kind: training }, { kind: training }, { kind: training }, { kind: training }, { kind: math }, { kind: book }]
+  source: "trener z serwisem szkoleniowym, SPR Strategy (https://www.splitsuit.com/spr-poker-strategy): „less than 3 is an auto-stack off with top pair or better, between 3-6 is situational and based upon villain/board texture, and more than 6 SPR isn't a default stack-off”; serwis komercyjnego solvera, Stack-to-Pot Ratio (https://blog.gtowizard.com/stack-to-pot-ratio/): „at this higher SPR, stacking off with top pair starts to get a bit dicey”; strefa 6–13: część wspólna dwóch serwisów szkoleniowych: SPR (https://www.thepokerbank.com/strategy/concepts/spr/): „Medium SPR = 7 - 16”, „Good hands for medium SPRs.”, „Top two pair. Sets.”; Poker SPR (https://pokercoaching.com/blog/poker-spr/): „High SPR (8+): Deep stacks favor hands that make nutted combinations (sets, straights, flushes) over one-pair holdings.”; próg 13: obliczenie (1+2·1)^3 = 1+2·13 oraz Flynn, Mehta, Miller, Professional No-Limit Hold'em przez serwis informacyjny (https://www.pokernews.com/strategy/building-big-pots-with-big-hands-stack-to-pot-ratio-24847.htm): „if you're heads-up and the stack-to-pot ratio is 13 going to the flop, you and your opponent can each make exactly three pot-sized bets”; granice stref: uproszczenie aplikacji (D-149)"
+  sources: [{ kind: training, url: "https://www.splitsuit.com/spr-poker-strategy" }, { kind: solver-pub, url: "https://blog.gtowizard.com/stack-to-pot-ratio/" }, { kind: training, url: "https://www.thepokerbank.com/strategy/concepts/spr/" }, { kind: training, url: "https://pokercoaching.com/blog/poker-spr/" }, { kind: math }, { kind: book, url: "https://www.pokernews.com/strategy/building-big-pots-with-big-hands-stack-to-pot-ratio-24847.htm" }]
 
 # M10: eksploatacja mikrostawek. Każde dostosowanie to odejście od bazy z M3–M9 (ADR-03). Definicje statystyk: rules;
 # błąd próby, próg blefu i wpływ rake'u na cenę: math; progi typów graczy i próby z serwisów szkoleniowych: heuristic;
@@ -843,10 +843,10 @@
 - id: R-M10-003
   module: m10
   if: "oceniasz rywala po statystykach {{t:hud|HUD-a}}"
-  then: "poniżej ok. {{n:hud.hands.random}} rąk traktujesz je jak przypadkowe i grasz z nim jak z nieznanym; {{t:vpip}} i {{t:pfr}} czytasz po ok. {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} rękach, a 3-bet i fold to 3-bet po ok. {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}"
+  then: "poniżej ok. {{n:hud.hands.random}} rąk traktujesz je jak przypadkowe i grasz z nim jak z nieznanym; typ gracza widać zgrubnie po ok. {{n:hud.hands.random}}–{{n:hud.hands.rough.high}} rękach, {{t:vpip}} i {{t:pfr}} stabilizują się po ok. {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}}, a 3-bet i fold to 3-bet po ok. {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}"
   because: "{{t:vpip}} rośnie o jedną okazję w każdej ręce, a fold to 3-bet tylko wtedy, gdy rywal {{t:open|otworzył}} i dostał 3-bet, więc z tej samej liczby rąk ma wielokrotnie mniej okazji i większy błąd"
   level: heuristic
-  source: "serwis szkoleniowy, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „For VPIP and PFR, you need at least 100 to 200 hands before the numbers begin to stabilize.”, „For 3-bet and fold to 3-bet, closer to 500 hands is the threshold.”; serwis szkoleniowy, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „Below 30 hands, treat the HUD numbers as random and use hand-observation reads only.”, „Fold to 3-bet | 200+ hands”; przedziały obejmują oba źródła (D-M10-04)"
+  source: "serwis szkoleniowy, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „For VPIP and PFR, you need at least 100 to 200 hands before the numbers begin to stabilize.”, „For 3-bet and fold to 3-bet, closer to 500 hands is the threshold.”; serwis szkoleniowy, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „Below 30 hands, treat the HUD numbers as random and use hand-observation reads only.”, „VPIP / PFR 30-50 hands”, „3-bet % (overall) 100+ hands”, „Fold to 3-bet | 200+ hands”; dla VPIP i PFR dwa progi: zgrubny typ po 30–50 rękach i stabilizacja po 100–200 (sprzeczność na tym samym szczeblu, docs/tresci/e1-m9-m11.md §3.1); dla 3-betu przedział obejmuje oba źródła (D-M10-04)"
   sources: [{ kind: training, url: "https://pokercoaching.com/blog/poker-stats/" }, { kind: training, url: "https://deepfold.co/en/blog/hud-stats-guide" }]
 - id: R-M10-004
   module: m10
@@ -946,7 +946,7 @@
   then: "dzielisz dopłatę przez {{t:pot|pulę}} po {{t:call|sprawdzeniu}} pomniejszoną o {{t:rake}}: przy becie pół {{t:pot|puli}} i {{t:rake|rake'u}} {{n:rake.ex.pct}} potrzebujesz {{n:eq.bet-half.rake}} zamiast {{n:eq.bet-half}}"
   because: "wygrywasz {{t:pot|pulę}} bez {{t:rake|rake'u}}, a dopłacasz całą kwotę; na mikrostawkach {{t:pot|pule}} rzadko dochodzą do {{t:rake-cap|limitu rake'u}}, więc liczy się procent"
   level: math
-  source: "obliczenie: dopłata ÷ (pula po sprawdzeniu × (1 − rake)) (numbers.yaml eq.bet-half.rake); serwis z kalkulatorami pokerowymi, Online Poker Rake Comparison 2026 (https://www.primedope.com/online-poker-rake-comparison-rake-calculator/): „micro-stakes pots rarely hit caps, so percentage matters most”"
+  source: "obliczenie: dopłata ÷ (pula po sprawdzeniu × (1 − rake)) (numbers.yaml eq.bet-half.rake); serwis z kalkulatorami pokerowymi, Online Poker Rake Comparison 2026 (https://www.primedope.com/online-poker-rake-comparison-rake-calculator/): „At microstakes, percentage drives the cost because pots rarely hit the cap.”"
   sources: [{ kind: training, url: "https://www.primedope.com/online-poker-rake-comparison-rake-calculator/" }, { kind: math }]
 
 # M12: mental game i bankroll. Poziomy według ADR-24: rachunek = math, zalecenie oparte na rachunku lub literaturze = heuristic.
@@ -1055,8 +1055,8 @@
   then: "grasz all-in albo {{t:fold}} (push/fold); między {{n:m11.thr.pushfold}} a {{n:m11.thr.upper}} push/fold jest główną metodą dla słabszych i średnich rąk, a powyżej ok. {{n:m11.thr.raise}} zwykle zwyczajnie podbijasz"
   because: "przy {{t:short-stack|short stacku}} podbicie i {{t:fold}} po {{t:raise|przebiciu}} oddaje za dużo {{t:chips|żetonów}}, a all-in wyciska z nich najwięcej {{t:fold|pasów}} rywala; to uproszczenie: solvery z większym wyborem akcji część rąk limpują albo podbijają minimalnie"
   level: heuristic
-  source: "magazyn pokoju online, Push/Fold Charts (https://www.888poker.com/magazine/strategy/push-fold-charts): „Push/fold is the default framework once your stack drops to around 10bb or less”, „an all-in gets the most fold equity out of the chips you have”; serwis szkoleniowy, Short Stack Strategy (https://pokercoaching.com/blog/short-stack-strategy-2/): „At 10 big blinds or fewer, it is almost entirely push/fold”, „At 15 big blinds, the landscape shifts significantly. Push/fold becomes your dominant framework for weak and medium holdings”; serwis szkoleniowy, Push/Fold Tournament Strategy (https://upswingpoker.com/push-fold-tournament-strategy-charts/): „around 15 big blinds (bb) or fewer”, „larger than 20bb … Raising First In”; serwis komercyjnego solvera, Short-Stacked Play in MTTs (https://blog.gtowizard.com/short-stacked-play-in-mtts/): „The standard advice for a 10bb stack is to play an all-in or fold strategy”; uproszczenie: serwis szkoleniowy (ta sama strona): „the all-in or fold binary was grossly suboptimal”; szkoła publikująca wyniki solvera, heads-up 10bb (https://poker.academy/blog/post/how-to-play-heads-up-poker-in-tournaments): „61.1% limp, 28.8% all-in, 10.1% fold”"
-  sources: [{ kind: training, url: "https://www.888poker.com/magazine/strategy/push-fold-charts" }, { kind: training, url: "https://pokercoaching.com/blog/short-stack-strategy-2/" }, { kind: training, url: "https://upswingpoker.com/push-fold-tournament-strategy-charts/" }, { kind: solver-pub, url: "https://blog.gtowizard.com/short-stacked-play-in-mtts/" }, { kind: solver-pub, url: "https://poker.academy/blog/post/how-to-play-heads-up-poker-in-tournaments" }]
+  source: "serwis szkoleniowy, Short Stack Strategy (https://pokercoaching.com/blog/short-stack-strategy-2/): „At 10 big blinds or fewer, it is almost entirely push/fold”, „This approach simplifies decision-making and maximizes fold equity”, „At 15 big blinds, the landscape shifts significantly. Push/fold becomes your dominant framework for weak and medium holdings”; serwis szkoleniowy, Push/Fold Tournament Strategy (https://upswingpoker.com/push-fold-tournament-strategy-charts/): „around 15 big blinds (bb) or fewer”, „larger than 20bb … Raising First In”; serwis komercyjnego solvera, Short-Stacked Play in MTTs (https://blog.gtowizard.com/short-stacked-play-in-mtts/): „The standard advice for a 10bb stack is to play an all-in or fold strategy”; uproszczenie: serwis szkoleniowy (ta sama strona): „the all-in or fold binary was grossly suboptimal”; szkoła publikująca wyniki solvera, heads-up 10bb (https://poker.academy/blog/post/how-to-play-heads-up-poker-in-tournaments): „61.1% limp, 28.8% all-in, 10.1% fold”"
+  sources: [{ kind: training, url: "https://pokercoaching.com/blog/short-stack-strategy-2/" }, { kind: training, url: "https://upswingpoker.com/push-fold-tournament-strategy-charts/" }, { kind: solver-pub, url: "https://blog.gtowizard.com/short-stacked-play-in-mtts/" }, { kind: solver-pub, url: "https://poker.academy/blog/post/how-to-play-heads-up-poker-in-tournaments" }]
 - id: R-M11-002
   module: m11
   if: "grasz push/fold z {{t:small-blind|małego blinda}} przeciw {{t:big-blind|dużemu blindowi}}"
@@ -1068,26 +1068,26 @@
 - id: R-M11-003
   module: m11
   if: "w {{t:pot|puli}} leży ante"
-  then: "{{t:shove|pushujesz}} all-in więcej rąk niż bez ante: przy {{n:m11.depth.10}} i ante {{n:m11.ante}} ok. {{n:m11.push.10-ante}} zamiast {{n:m11.push.10}}"
+  then: "{{t:shove|pushujesz}} all-in więcej rąk niż bez ante: przy {{n:m11.depth.10}} i {{t:bb-ante}} {{n:m11.ante}} ok. {{n:m11.push.10-ante}} zamiast {{n:m11.push.10}}"
   because: "ante powiększa {{t:pot|pulę}}, którą zgarniasz, gdy rywal {{t:fold|spasuje}}, a ryzyko all-inu zostaje to samo"
   level: gto
-  source: "solver push/fold projektu (pushfold.json, wariant 10bb-ante); kierunek zgodny z literaturą: magazyn pokoju online, Push/Fold Charts: „the bigger the ante relative to the big blind, the wider your shoving range”; serwis szkoleniowy, Push Fold Charts (https://pokercoaching.com/push-fold-charts/): „When antes are in play, your preflop shoving range should be wider”"
-  sources: [{ kind: training, url: "https://pokercoaching.com/push-fold-charts/" }, { kind: training }, { kind: solver-app }]
+  source: "solver push/fold projektu (pushfold.json, wariant 10bb-ante: heads-up, big blind ante 1bb); walidacja: docs/tresci/e1b-solver.md (D-153), rachunek w tym samym modelu; kierunek zgodny z literaturą: serwis szkoleniowy, Push Fold Charts (https://pokercoaching.com/push-fold-charts/): „When antes are in play, your preflop shoving range should be wider”"
+  sources: [{ kind: training, url: "https://pokercoaching.com/push-fold-charts/" }, { kind: solver-app }]
 - id: R-M11-004
   module: m11
   if: "wchodzisz all-in jako pierwszy"
   then: "wygrywasz na dwa sposoby: rywal {{t:fold|pasuje}} i zgarniasz {{t:pot|pulę}} albo {{t:call|sprawdza}} i wygrywasz na showdownie; sama ręka bez szans potrzebowałaby jednak {{t:fold|pasów}} w ponad {{n:m11.push.10.alpha}} przypadków (przy {{n:m11.depth.10}} bez ante)"
   because: "ryzykujesz {{n:m11.push.10.risk}}, żeby wygrać {{n:m11.push.10.win}} blindów; dlatego liczy się i fold equity, i equity ręki, gdy rywal {{t:call|sprawdzi}}"
   level: math
-  source: "obliczenie: alpha = ryzyko ÷ (pula + ryzyko) (M6); fold equity: Wikipedia, Fold equity (https://en.wikipedia.org/wiki/Fold_equity): „Fold Equity = likelihood that opponent folds ∗ gain in equity if opponent(s) fold”"
-  sources: [{ kind: reference, url: "https://en.wikipedia.org/wiki/Fold_equity" }, { kind: math }]
+  source: "obliczenie: alpha = ryzyko ÷ (pula + ryzyko) (M6); fold equity: glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Fold equity The amount of value a player will win by making another player fold.”"
+  sources: [{ kind: training, url: "https://gtowizard.com/en/glossary/" }, { kind: math }]
 - id: R-M11-005
   module: m11
   if: "M (stack ÷ koszt okrążenia: blindy i ante) spada poniżej ok. {{n:m11.m.red}}"
   then: "grasz już tylko all-in albo {{t:fold}} i starasz się wejść do {{t:pot|puli}} pierwszy"
   because: "bez gry stack starczy na kilka okrążeń, a zwykłe podbicie oddaje za dużo {{t:chips|żetonów}}"
   level: heuristic
-  source: "Harrington (przez omówienia): Wikipedia, M-ratio (https://en.wikipedia.org/wiki/M-ratio): „The M-ratio is calculated by the formula” (wzór jako ułamek: stack ÷ (small blind + big blind + total antes)), w tabeli stref „Red zone”, „1 ≤ M < 6”, „Your only move is to move all-in or fold”; serwis szkoleniowy, Dan Harrington M-Factor (https://www.pokerstrategy.com/strategy/mtt/dan-harrington-m-factor/): „Red zone: 1 < = M < = 5”, „your only and best option in this phase is to be the first to push in the pot”; granica 5 albo 6 zależnie od źródła"
+  source: "Harrington (przez omówienia): Wikipedia, M-ratio (https://en.wikipedia.org/wiki/M-ratio): „The M-ratio is calculated by the formula” (wzór jako ułamek: stack ÷ (small blind + big blind + total antes)), w tabeli stref „Your only move is to move all-in or fold”; serwis szkoleniowy, Dan Harrington M-Factor (https://www.pokerstrategy.com/strategy/mtt/dan-harrington-m-factor/): „Red zone: 1 < = M < = 5”, „your only and best option in this phase is to be the first to push in the pot”; jedna granica ok. 5 (D-147)"
   sources: [{ kind: reference, url: "https://en.wikipedia.org/wiki/M-ratio" }, { kind: training, url: "https://www.pokerstrategy.com/strategy/mtt/dan-harrington-m-factor/" }]
 - id: R-M11-006
   module: m11
@@ -1111,8 +1111,8 @@
   then: "szansa na 1. miejsce = twój stack ÷ wszystkie {{t:chips}}; szansa na 2. miejsce liczysz tak samo spośród graczy, którzy zostali, dla każdego możliwego zwycięzcy; equity = suma szans × {{t:payout|wypłaty}}"
   because: "ten model zakłada równe umiejętności graczy, więc o kolejności decydują tylko stacki"
   level: math
-  source: "Wikipedia, Independent Chip Model (https://en.wikipedia.org/wiki/Independent_Chip_Model): „Every player's chance of finishing 1st is proportional to the player's chip count”, „if player k finishes 1st, then player i finishes 2nd with probability” (wzór: x_i ÷ (1 − x_k), x = udział w żetonach), „All players have comparable skill”; serwis komercyjnego solvera, ICM Basics (https://blog.gtowizard.com/icm-basics/): „divide their chips by the total amount of chips in play”"
-  sources: [{ kind: reference, url: "https://en.wikipedia.org/wiki/Independent_Chip_Model" }, { kind: solver-pub, url: "https://blog.gtowizard.com/icm-basics/" }]
+  source: "serwis komercyjnego solvera, ICM Basics (https://blog.gtowizard.com/icm-basics/): „The Independent Chip Model assumes all players are equally skilled, and therefore the probability of winning is purely a function of stack sizes”, „divide their chips by the total amount of chips in play”, „Assume one of the other players wins, remove their chips from play, and divide our chips by the remaining chips in play”; rachunek na przykładzie stacków (raport E1 M9–M11)"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/icm-basics/" }, { kind: math }]
 - id: R-M11-009
   module: m11
   if: "w {{t:tournament|turnieju}} z {{t:icm}} {{t:call|sprawdzasz}} all-in, który może cię wyeliminować"

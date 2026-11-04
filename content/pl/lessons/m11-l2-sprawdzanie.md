@@ -80,7 +80,7 @@ drills:
     id: m11.l2.q-ante
     family: m11.call.price
     rules: [R-M11-006]
-    prompt: "Masz {{n:m11.depth.10}} na {{t:big-blind|dużym blindzie}} i wpłaciłeś ante {{n:m11.ante}}. {{t:small-blind|Mały blind}} wszedł all-in. Ile equity potrzebujesz do {{t:call|sprawdzenia}}?"
+    prompt: "Gra toczy się z {{t:bb-ante}}. Masz {{n:m11.depth.10}} na {{t:big-blind|dużym blindzie}} i wpłaciłeś ante {{n:m11.ante}}. {{t:small-blind|Mały blind}} wszedł all-in. Ile equity potrzebujesz do {{t:call|sprawdzenia}}?"
     table: { position: BB }
     options:
       - { text: "{{n:m11.call.10-ante.eq}}", correct: true, why: "Dopłacasz tyle samo ({{n:m11.call.10.cost}}), ale w {{t:pot|puli}} jest jeszcze ante: po {{t:call|sprawdzeniu}} {{n:m11.call.10-ante.pot}}. {{n:m11.call.10.cost}} ÷ {{n:m11.call.10-ante.pot}} = {{n:m11.call.10-ante.eq}}. Dlatego z ante {{t:call|sprawdzasz}} szerzej: ok. {{n:m11.call.10-ante}} rąk zamiast {{n:m11.call.10}}." }
@@ -165,7 +165,7 @@ call.bb-vs-two-3max
 
 ## Z ante {{t:call|sprawdzasz}} szerzej
 
-Ante zostaje w {{t:pot|puli}}, więc za tę samą dopłatę wygrywasz więcej: przy {{n:m11.depth.10}} i ante {{n:m11.ante}} potrzebujesz {{n:m11.call.10-ante.eq}} zamiast {{n:m11.call.10.eq}}. Rywal z ante także {{t:shove|pushuje}} szerzej, więc solver {{t:call|sprawdza}} ok. {{n:m11.call.10-ante}} rąk.
+Ante zostaje w {{t:pot|puli}}, więc za tę samą dopłatę wygrywasz więcej: przy {{n:m11.depth.10}} i {{t:bb-ante}} {{n:m11.ante}} potrzebujesz {{n:m11.call.10-ante.eq}} zamiast {{n:m11.call.10.eq}}. Rywal z ante także {{t:shove|pushuje}} szerzej, więc solver {{t:call|sprawdza}} ok. {{n:m11.call.10-ante}} rąk.
 
 ```range
 call.bb-10-ante
