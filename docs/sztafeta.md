@@ -1,5 +1,5 @@
 # Stan sztafety
-Ścieżka: greenfield (przebudowa istniejącej aplikacji „prawie od nowa”) · Aktualizacja: 2026-11-04 (rola 06 E3)
+Ścieżka: greenfield (przebudowa istniejącej aplikacji „prawie od nowa”) · Aktualizacja: 2026-11-04 (rola 06 zakończona)
 
 Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szkoła Pokera przez role 1–5 w trybie build z prompts i zrobić ją prawie od nowa, ale wykorzystując elementy aktualnej aplikacji, które są dobre. Cel: monetyzacja. […] Tam nie ma być hazardu. Pełna nauka w 35 językach jak trening. Całkiem od nowa UX, przepływy, ocena monetyzacji, BRD.” Kolejność (wybór właściciela): bramka opłacalności (02, krok 0) → 01 → 02 → 03 → 04 → 05.
 
@@ -15,7 +15,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
 | 05 Architekt | build | zakończona 2026-11-04 (E4 zaakceptowane, D-130); E3 przyjęte (D-129), E2 (D-127), ADR 0001–0012 (D-124, D-126) | (commit E4) | `docs/architektura/README.md` (indeks), `00-rozpoznanie.md`, `docs/adr/` 0001–0013, `dane.md`, `moduly.md`, `schemat.sql`, `tlo-i-bledy.md`, `prywatnosc.md`, `wydajnosc.md`, `kontrole-07.md`, `narzedzia/granice.mjs`, `eksperymenty/` | OP-21 |
 | 09 Lokalizacja | build (wejście wczesne E0–E1) | E0 zaakceptowane (D-136); E1 zaakceptowane 2026-11-04 (D-138, ADR 0014 przyjęta); E2–E4 po ekranach roli 08 i audycie 04 | 7cccfb5 | `docs/lokalizacja/jezyki.md`, `docs/adr/0014-…md`, `packages/jezyki/`, `scripts/sprawdz-i18n.mjs`, `apps/mobile/src/i18n/`, `docs/decyzje.md` (D-131–D-137), `docs/zalozenia.md` (ZAL-L01, ZAL-L02) | koszt przekładu przez API (właściciel, przed E3); zgłoszenia: 06 (formatNumber, numery pomocy), 04 (pisma), 07, 10 |
-| 06 Treści | build | E0 (D-142), E1 (D-151, D-152), E2 zaakceptowane; E3 wykonane 2026-11-04 (A1–A12, przegląd zastępczy 11 krytycznych D-027/D-162, D-156–D-164), STOP E3 — czeka na akceptację | (commit STOP E3) | `docs/tresci/` (rejestr, `rejestr/`, `odczyty/`, `narzedzia/` z `rachunki/`, `e3/`, `e3-wynik.md`, `stany-bledow-fakty.md`, `ocena-poziomu-pytania.md`), `docs/decyzje.md` | akceptacja E3; przekazanie 07/05/08/09/04/10 w `docs/tresci/e3-wynik.md` |
+| 06 Treści | build | E0 (D-142), E1 (D-151, D-152), E2 zaakceptowane; E3 wykonane 2026-11-04 (A1–A12, przegląd zastępczy 11 krytycznych D-027/D-162, D-156–D-164), zakończona 2026-11-04 (E3 zaakceptowane, D-165) | 8e14a66 | `docs/tresci/` (rejestr, `rejestr/`, `odczyty/`, `narzedzia/` z `rachunki/`, `e3/`, `e3-wynik.md`, `stany-bledow-fakty.md`, `ocena-poziomu-pytania.md`), `docs/decyzje.md` | przekazanie 07/05/08/09/04/10 w `docs/tresci/e3-wynik.md` |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -368,3 +368,11 @@ Plus jedna linia w „Dokumentacja projektu”: „Architektura w repo: `docs/ar
 ## Rola 06 E3: stan (2026-11-04, dziewiętnasta sesja, w toku)
 - `docs/tresci/e3-wynik.md`: weryfikacja 1034 twierdzeń (A1–A7), naprawy S1/S2 (D-156), skrót przeglądu (D-157), przegląd D-043, przegląd zastępczy 36/50 zapisany; decyzje właściciela D-158 (bez numerów krajowych, jeden link) i D-159 (bez gry na pieniądze).
 - Następny krok: E3 dalej według `e3-wynik.md` „Następne kroki” 1–6 (nowa sesja opus/high).
+
+## Przekazanie po roli 06 (2026-11-04, D-165)
+### Przekazanie do następnej roli
+- Zakończono: 06-tresci, build, 8e14a66; artefakty: `docs/tresci/` (rejestr.json, rejestr/, odczyty/, narzedzia/ z rachunki/, e3/, e3-wynik.md, stany-bledow-fakty.md, ocena-poziomu-pytania.md), `docs/decyzje.md` D-138–D-165.
+- Następny krok ścieżki greenfield: **07-jakosc Jakość (strategia testów, gotowość wydania)**, tryb `build`; nowa sesja: opus, wysiłek high (CLAUDE.md: testy agenta z kontrolami zastępczymi opus/high).
+- Polecenie: `node /home/user/prompts/tools/assemble.mjs 07-jakosc --tryb build`
+- Paczka wejściowa: `docs/tresci/e3-wynik.md` (sekcja „Przekazanie”, 07), `tests/wektory/brd.json`, `docs/tresci/narzedzia/rachunki/`, `docs/tresci/stany-bledow-fakty.md`, `docs/architektura/kontrole-07.md`, `docs/scope-contract.md`, `docs/brd/`, ten plik.
+- Otwarte decyzje: reguła wyniku oceny poziomu F-01 (03/04/08); etykieta niedokładności D-143 (08); E2E Maestro czerwony na main; OP-21, OP-09.
