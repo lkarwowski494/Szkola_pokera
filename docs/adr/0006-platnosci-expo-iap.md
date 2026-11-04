@@ -1,5 +1,5 @@
 ---
-status: proponowana
+status: przyjęta (D-126, właściciel 2026-11-04)
 data: 2026-11-04
 decyduje: agent (technika, na podstawie OP-12 i szkicu roli 02), weto właściciela
 zastępuje: ADR-18 z rejestru 03 na Dysku („Do decyzji”, RevenueCat) — wpis zastąpienia czeka na właściciela

@@ -1,5 +1,5 @@
 ---
-status: przyjęta (D-124, właściciel 2026-11-04)
+status: przyjęta (D-124, właściciel 2026-11-04; doprecyzowanie wykonania przyjęte w D-126)
 data: 2026-11-04
 decyduje: właściciel (sprawa produktowa: dane testowe właściciela)
 ---

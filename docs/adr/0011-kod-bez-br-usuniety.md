@@ -1,5 +1,5 @@
 ---
-status: proponowana
+status: przyjęta (D-126, właściciel 2026-11-04)
 data: 2026-11-04
 decyduje: agent z rolą 08 (D-104: „o kodzie (ukrycie albo usunięcie) decydują role 05 i 08”), weto właściciela
 ---

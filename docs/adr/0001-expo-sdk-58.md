@@ -1,5 +1,5 @@
 ---
-status: proponowana
+status: przyjęta (D-126, właściciel 2026-11-04)
 data: 2026-11-04
 decyduje: agent (technika; delegacja w `CLAUDE.md`), weto właściciela
 ---

@@ -1,5 +1,5 @@
 ---
-status: proponowana
+status: przyjęta (D-126, właściciel 2026-11-04)
 data: 2026-11-04
 decyduje: agent (technika; F-11 w zakresie z D-102), pora domyślna i tekst: rola 04/06
 ---

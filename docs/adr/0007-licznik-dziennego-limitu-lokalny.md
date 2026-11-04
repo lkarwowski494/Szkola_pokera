@@ -1,5 +1,5 @@
 ---
-status: proponowana
+status: przyjęta (D-126, właściciel 2026-11-04)
 data: 2026-11-04
 decyduje: agent (delegacja w `CLAUDE.md`, analogia Trening), weto właściciela
 zamyka: OP-24 w BRD = OP-10 w `docs/monetyzacja.md` (po akceptacji)

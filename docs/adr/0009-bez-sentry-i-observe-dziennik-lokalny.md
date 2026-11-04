@@ -1,5 +1,5 @@
 ---
-status: proponowana
+status: przyjęta (D-126, właściciel 2026-11-04)
 data: 2026-11-04
 decyduje: agent (na podstawie NFR-PRYW-001 i OP-12, decyzji właściciela W-06), weto właściciela; usługa raportowania awarii w przyszłości: rola 12
 zastępuje: ADR-17 z rejestru 03 na Dysku (Sentry) — wpis zastąpienia czeka na właściciela
