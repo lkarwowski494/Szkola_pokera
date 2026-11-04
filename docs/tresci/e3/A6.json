@@ -1,0 +1,4205 @@
+[
+ {
+  "id": "n:hud.ci.ex",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:42",
+   "content/pl/lessons/m10-l1-statystyki.md:49",
+   "content/pl/lessons/m10-l1-statystyki.md:50"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(var.z95, hud.se.ex) = 0,0848705 → „8,5%” (decimals 1). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.ci.ex.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:49",
+   "content/pl/lessons/m10-l1-statystyki.md:51",
+   "content/pl/lessons/m10-l1-statystyki.md:121",
+   "content/pl/rules.yaml:838"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(hud.se.ex.p, hud.ci.ex) = 0,33487 → „33,5%” (decimals 1). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.ci.ex.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:49",
+   "content/pl/lessons/m10-l1-statystyki.md:51",
+   "content/pl/lessons/m10-l1-statystyki.md:121",
+   "content/pl/rules.yaml:838"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(hud.se.ex.p, hud.ci.ex) = 0,16513 → „16,5%” (decimals 1). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.ci.f3b",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:58"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(var.z95, hud.se.f3b) = 0,219135 → „21,9%” (decimals 1). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.ci.f3b.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:58",
+   "content/pl/lessons/m10-l1-statystyki.md:121"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(hud.se.f3b.p, hud.ci.f3b) = 0,719135 → „71,9%” (decimals 1). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.ci.f3b.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:58",
+   "content/pl/lessons/m10-l1-statystyki.md:121"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(hud.se.f3b.p, hud.ci.f3b) = 0,280865 → „28,1%” (decimals 1). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.ex.passive.gap",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:22"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(hud.ex.passive.gap.frac, math.hundred) = 16 → „16” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.ex.passive.gap.frac",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: różnica(hud.ex.passive.vpip, hud.ex.passive.pfr) = 0,16 → „16%” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.se.ex",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:42",
+   "content/pl/lessons/m10-l1-statystyki.md:49",
+   "content/pl/lessons/m10-l1-statystyki.md:50",
+   "content/pl/lessons/m10-l1-statystyki.md:121",
+   "content/pl/rules.yaml:838"
+  ],
+  "uzasadnienie": "Policzone niezależnie: pierwiastek(hud.se.ex.var) = 0,0433013 → „4,3%” (decimals 1). Tekst (miejsc: 5) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.se.ex.pq",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(hud.se.ex.p, hud.se.ex.q) = 0,1875 → „0,188” (decimals 3). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.se.ex.q",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:42"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(math.one, hud.se.ex.p) = 0,75 → „75%” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.se.ex.var",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloraz(hud.se.ex.pq, hud.se.ex.n) = 0,001875 → „0,002” (decimals 3). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.se.f3b",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:58",
+   "content/pl/lessons/m10-l1-statystyki.md:59",
+   "content/pl/lessons/m10-l1-statystyki.md:60"
+  ],
+  "uzasadnienie": "Policzone niezależnie: pierwiastek(hud.se.f3b.var) = 0,111803 → „11,2%” (decimals 1). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.se.f3b.pq",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(hud.se.f3b.p, hud.se.f3b.q) = 0,25 → „0,250” (decimals 3). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.se.f3b.q",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:58"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(math.one, hud.se.f3b.p) = 0,5 → „50%” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.se.f3b.var",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloraz(hud.se.f3b.pq, hud.se.f3b.n) = 0,0125 → „0,013” (decimals 3). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:inv.outs.flush",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloraz(math.one, outs.flush) = 0,111111 → „0,111” (decimals 3). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:inv.outs.gutshot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloraz(math.one, outs.gutshot) = 0,25 → „0,250” (decimals 3). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:inv.outs.oesd",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloraz(math.one, outs.oesd) = 0,125 → „0,125” (decimals 3). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:io.flush.bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:46",
+   "content/pl/lessons/m7-l3-implied-odds.md:49",
+   "content/pl/lessons/m7-l3-implied-odds.md:63",
+   "content/pl/lessons/m7-l3-implied-odds.md:122",
+   "content/pl/lessons/m7-l3-implied-odds.md:130",
+   "content/pl/rules.yaml:595"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(ex.third.pot, ex.frac.half) = 45 → „45” (decimals 0). Tekst (miejsc: 6) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:io.flush.eq",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:49",
+   "content/pl/lessons/m7-l3-implied-odds.md:66",
+   "content/pl/lessons/m7-l3-implied-odds.md:67",
+   "content/pl/lessons/m7-l3-implied-odds.md:122"
+  ],
+  "uzasadnienie": "Policzone niezależnie: bet/(pula+2·bet)(ex.third.pot, io.flush.bet) = 0,25 → „25%” (decimals 0). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:io.flush.extra",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:49",
+   "content/pl/lessons/m7-l3-implied-odds.md:66",
+   "content/pl/lessons/m7-l3-implied-odds.md:67",
+   "content/pl/lessons/m7-l3-implied-odds.md:130",
+   "content/pl/rules.yaml:595"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(io.flush.need, io.flush.pot-after-bet) = 50 → „50” (decimals 0). Tekst (miejsc: 5) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:io.flush.need",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:49",
+   "content/pl/lessons/m7-l3-implied-odds.md:130"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(io.flush.bet, miss.flush.turn, inv.outs.flush) = 185 → „185” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:io.flush.pot-after-bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:49",
+   "content/pl/lessons/m7-l3-implied-odds.md:130"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(ex.third.pot, io.flush.bet) = 135 → „135” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:io.flush.total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:122"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(ex.third.pot, io.flush.bet, io.flush.bet) = 180 → „180” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:io.gut.extra",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:73",
+   "content/pl/lessons/m7-l3-implied-odds.md:75",
+   "content/pl/lessons/m7-l3-implied-odds.md:76"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(io.gut.need, ex.half.pot-after-bet) = 375 → „375” (decimals 0). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:io.gut.need",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(ex.bet.half, miss.gutshot.turn, inv.outs.gutshot) = 525 → „525” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:io.oesd.bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:54",
+   "content/pl/lessons/m7-l3-implied-odds.md:56"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(io.oesd.pot, ex.frac.half) = 40 → „40” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:io.oesd.extra",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:56",
+   "content/pl/lessons/m7-l3-implied-odds.md:57",
+   "content/pl/lessons/m7-l3-implied-odds.md:58"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(io.oesd.need, io.oesd.pot-after-bet) = 70 → „70” (decimals 0). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:io.oesd.need",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:56",
+   "content/pl/lessons/m7-l3-implied-odds.md:57"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(io.oesd.bet, miss.oesd.turn, inv.outs.oesd) = 190 → „190” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:io.oesd.pot-after-bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:56",
+   "content/pl/lessons/m7-l3-implied-odds.md:57"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(io.oesd.pot, io.oesd.bet) = 120 → „120” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.3max.bb-two.eq",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:107",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:160",
+   "content/pl/rules.yaml:1143"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(m11.3max.bb.cost, m11.3max.bb-two.pot) = 0,288889 → „28,9%” (decimals 1). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.3max.bb-two.pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: suma(m11.depth.3max, m11.depth.3max, m11.depth.3max) = 22,5 → „22,5bb” (decimals 1). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.3max.bb.cost",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:154"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(m11.depth.3max, pf.blind.bb) = 6,5 → „6,5bb” (decimals 1). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.3max.bb.eq",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:154"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(m11.3max.bb.cost, m11.3max.bb.pot) = 0,419355 → „41,9%” (decimals 1). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.3max.bb.pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:154"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(m11.depth.3max, m11.depth.3max, pf.blind.sb) = 15,5 → „15,5bb” (decimals 1). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.3max.sb.cost",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: różnica(m11.depth.3max, pf.blind.sb) = 7 → „7,0bb” (decimals 1). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.3max.sb.eq",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:154"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(m11.3max.sb.cost, m11.3max.sb.pot) = 0,4375 → „43,8%” (decimals 1). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.3max.sb.pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: suma(m11.depth.3max, m11.depth.3max, pf.blind.bb) = 16 → „16bb” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.bf.eq.lose",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:147"
+  ],
+  "uzasadnienie": "Policzone niezależnie: ICM Malmutha-Harville’a (pełne drzewo kolejności)(m11.bf.s1, m11.bf.lose, m11.bf.villain-after, m11.bf.s4, m11.bf.p1, m11.bf.p2, m11.bf.p3) = 0,155556 → „15,6%” (decimals 1). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.bf.eq.now",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:145"
+  ],
+  "uzasadnienie": "Policzone niezależnie: ICM Malmutha-Harville’a (pełne drzewo kolejności)(m11.bf.s1, m11.bf.s2, m11.bf.s3, m11.bf.s4, m11.bf.p1, m11.bf.p2, m11.bf.p3) = 0,294881 → „29,5%” (decimals 1). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.bf.eq.win",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:146"
+  ],
+  "uzasadnienie": "Policzone niezależnie: ICM Malmutha-Harville’a (pełne drzewo kolejności)(m11.bf.s1, m11.bf.win, m11.bf.s4, m11.bf.p1, m11.bf.p2, m11.bf.p3) = 0,388889 → „38,9%” (decimals 1). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.bf.gain",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:45",
+   "content/pl/lessons/m11-l3-icm.md:47",
+   "content/pl/lessons/m11-l3-icm.md:71",
+   "content/pl/lessons/m11-l3-icm.md:146",
+   "content/pl/lessons/m11-l3-icm.md:153"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(m11.bf.eq.win, m11.bf.eq.now) = 0,0940079 → „9,4%” (decimals 1). Tekst (miejsc: 5) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.bf.lose",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:147"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(m11.bf.s2, m11.bf.s3) = 1000 → „1000” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.bf.loss",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:45",
+   "content/pl/lessons/m11-l3-icm.md:47",
+   "content/pl/lessons/m11-l3-icm.md:54",
+   "content/pl/lessons/m11-l3-icm.md:71",
+   "content/pl/lessons/m11-l3-icm.md:147",
+   "content/pl/lessons/m11-l3-icm.md:153"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(m11.bf.eq.now, m11.bf.eq.lose) = 0,139325 → „13,9%” (decimals 1). Tekst (miejsc: 6) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.bf.premium",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:61",
+   "content/pl/lessons/m11-l3-icm.md:159"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(m11.bf.req, m11.bf.req-chips) = 0,0971088 → „9,7%” (decimals 1). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.bf.range",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:54"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(m11.bf.eq.win, m11.bf.eq.lose) = 0,233333 → „23,3%” (decimals 1). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.bf.req",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:54",
+   "content/pl/lessons/m11-l3-icm.md:59",
+   "content/pl/lessons/m11-l3-icm.md:61",
+   "content/pl/lessons/m11-l3-icm.md:70",
+   "content/pl/lessons/m11-l3-icm.md:72",
+   "content/pl/lessons/m11-l3-icm.md:159",
+   "content/pl/rules.yaml:1119"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(m11.bf.loss, m11.bf.range) = 0,597109 → „59,7%” (decimals 1). Tekst (miejsc: 7) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.bf.req-chips",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:54",
+   "content/pl/lessons/m11-l3-icm.md:59",
+   "content/pl/lessons/m11-l3-icm.md:61",
+   "content/pl/lessons/m11-l3-icm.md:68",
+   "content/pl/lessons/m11-l3-icm.md:159",
+   "content/pl/rules.yaml:1119"
+  ],
+  "uzasadnienie": "2000 ÷ 4000 = 50% (cena w żetonach bez blindów, jak w opisie). Tekst „w grze o chips wystarczyłoby 50%” i „ryzykujesz 2000, żeby wygrać 2000” zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.bf.value",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:47",
+   "content/pl/lessons/m11-l3-icm.md:52",
+   "content/pl/lessons/m11-l3-icm.md:62",
+   "content/pl/lessons/m11-l3-icm.md:153"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(m11.bf.loss, m11.bf.gain) = 1,48206 → „1,48” (decimals 2). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.bf.villain-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: suma(m11.bf.s3, m11.bf.s3) = 4000 → „4000” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.bf.win",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:146"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(m11.bf.s2, m11.bf.s3) = 5000 → „5000” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.call.10-ante",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:86",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:168"
+  ],
+  "uzasadnienie": "pushfold.json (10bb-ante|SB:allin, BB call) = 0,5347 → „53%”; mój fictitious play 53,3%, best response na zakres SB z pliku 53,5% (model: pula 21bb, dopłata 9bb). Tekst zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.call.10-ante.eq",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:86",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:87",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:168"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(m11.call.10.cost, m11.call.10-ante.pot) = 0,428571 → „42,9%” (decimals 1). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.call.10-ante.pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:86"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(m11.depth.10, m11.depth.10, m11.ante) = 21 → „21bb” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.call.10.cost",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:16",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:86",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:118",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:127"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(m11.depth.10, pf.blind.bb) = 9 → „9bb” (decimals 0). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.call.10.eq",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:16",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:25",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:87",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:127",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:168",
+   "content/pl/rules.yaml:1095"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(m11.call.10.cost, m11.call.10.pot) = 0,45 → „45%” (decimals 0). Tekst (miejsc: 6) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.call.10.pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:16",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:118",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:127"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(m11.depth.10, m11.depth.10) = 20 → „20bb” (decimals 0). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.call.15.cost",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:34",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:128"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(m11.depth.15, pf.blind.bb) = 14 → „14bb” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.call.15.eq",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:34",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:35",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:67",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:128",
+   "content/pl/rules.yaml:1095"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(m11.call.15.cost, m11.call.15.pot) = 0,466667 → „46,7%” (decimals 1). Tekst (miejsc: 5) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.call.15.pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:34",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:128"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(m11.depth.15, m11.depth.15) = 30 → „30bb” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.call.5",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:50",
+   "content/pl/exams/m11.yaml:51",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:150"
+  ],
+  "uzasadnienie": "Udział BB call w pushfold.json (5bb|SB:allin) ważony kombinacjami = 0,6229 → „62%”. Mój fictitious play (3000 iter., equity169) 61,97%; best response BB na zakres SB z pliku 62,29%. Tekst zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.call.5.cost",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:24",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:26",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:126"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(m11.depth.5, pf.blind.bb) = 4 → „4bb” (decimals 0). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.call.5.eq",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:52",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:24",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:25",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:35",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:126",
+   "content/pl/rules.yaml:1095"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(m11.call.5.cost, m11.call.5.pot) = 0,4 → „40%” (decimals 0). Tekst (miejsc: 6) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.call.5.pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:24",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:126"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(m11.depth.5, m11.depth.5) = 10 → „10bb” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.icm.a.chips1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:36",
+   "content/pl/lessons/m11-l3-icm.md:39",
+   "content/pl/lessons/m11-l3-icm.md:40",
+   "content/pl/lessons/m11-l3-icm.md:130",
+   "content/pl/lessons/m11-l3-icm.md:135"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(m11.icm.a.s1, m11.icm.a.total) = 0,45 → „45%” (decimals 0). Tekst (miejsc: 5) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.icm.a.chips2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:130",
+   "content/pl/lessons/m11-l3-icm.md:136"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(m11.icm.a.s2, m11.icm.a.total) = 0,35 → „35%” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.icm.a.chips3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:15",
+   "content/pl/lessons/m11-l3-icm.md:23",
+   "content/pl/lessons/m11-l3-icm.md:31",
+   "content/pl/lessons/m11-l3-icm.md:129",
+   "content/pl/lessons/m11-l3-icm.md:131",
+   "content/pl/lessons/m11-l3-icm.md:137"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(m11.icm.a.s3, m11.icm.a.total) = 0,2 → „20%” (decimals 0). Tekst (miejsc: 6) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.icm.a.eq1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:38",
+   "content/pl/lessons/m11-l3-icm.md:39",
+   "content/pl/lessons/m11-l3-icm.md:40",
+   "content/pl/lessons/m11-l3-icm.md:135"
+  ],
+  "uzasadnienie": "Policzone niezależnie: ICM Malmutha-Harville’a (pełne drzewo kolejności)(m11.icm.a.s1, m11.icm.a.s2, m11.icm.a.s3, m11.icm.a.p1, m11.icm.a.p2) = 0,411923 → „41,2%” (decimals 1). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.icm.a.eq2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:136"
+  ],
+  "uzasadnienie": "Policzone niezależnie: ICM Malmutha-Harville’a (pełne drzewo kolejności)(m11.icm.a.s1, m11.icm.a.s2, m11.icm.a.s3, m11.icm.a.p1, m11.icm.a.p2) = 0,359545 → „36,0%” (decimals 1). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.icm.a.eq3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:31",
+   "content/pl/lessons/m11-l3-icm.md:38",
+   "content/pl/lessons/m11-l3-icm.md:131",
+   "content/pl/lessons/m11-l3-icm.md:137"
+  ],
+  "uzasadnienie": "ICM short stacku 0,22853 → „22,9%” (zgodne z drzewem Harville’a). Tekst „20% × 60% + 27,1% × 40% = 22,9%” z widocznych liczb daje 22,84% ≈ 22,8%; znak „=” przy zaokrąglonych składnikach.",
+  "poprawka": "„… ≈ 22,9%” (znak ≈) w m11-l3-icm.md:31 i :131",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.icm.a.rest1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:22",
+   "content/pl/lessons/m11-l3-icm.md:23"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(m11.icm.a.total, m11.icm.a.s1) = 5500 → „5500” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.icm.a.rest2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: różnica(m11.icm.a.total, m11.icm.a.s2) = 6500 → „6500” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.icm.a.second3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:24",
+   "content/pl/lessons/m11-l3-icm.md:31",
+   "content/pl/lessons/m11-l3-icm.md:130",
+   "content/pl/lessons/m11-l3-icm.md:131"
+  ],
+  "uzasadnienie": "Harville: 0,45·2000/5500 + 0,35·2000/6500 = 0,27133 → „27,1%”. Ale tekst pokazuje „16,4% + 10,8% = 27,1%”, a zaokrąglone składniki dają 27,2%; laik widzi błąd dodawania.",
+  "poprawka": "„16,4% + 10,8% ≈ 27,1%” albo składniki z dwoma miejscami (16,36% + 10,77%)",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.icm.a.second3.p1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:31",
+   "content/pl/lessons/m11-l3-icm.md:130"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(m11.icm.a.chips1, m11.icm.a.second3.via1) = 0,163636 → „16,4%” (decimals 1). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.icm.a.second3.p2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:31",
+   "content/pl/lessons/m11-l3-icm.md:130"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(m11.icm.a.chips2, m11.icm.a.second3.via2) = 0,107692 → „10,8%” (decimals 1). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.icm.a.second3.via1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:22",
+   "content/pl/lessons/m11-l3-icm.md:130"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(m11.icm.a.s3, m11.icm.a.rest1) = 0,363636 → „36,4%” (decimals 1). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.icm.a.second3.via2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:130"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(m11.icm.a.s3, m11.icm.a.rest2) = 0,307692 → „30,8%” (decimals 1). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.icm.a.total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:15",
+   "content/pl/lessons/m11-l3-icm.md:129"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(m11.icm.a.s1, m11.icm.a.s2, m11.icm.a.s3) = 10000 → „10000” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.m.bbs",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:33",
+   "content/pl/lessons/m11-l1-push-fold.md:134"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(m11.m.stack, m11.m.bb) = 15 → „15bb” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.m.orbit",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:33",
+   "content/pl/lessons/m11-l1-push-fold.md:134"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(m11.m.sb, m11.m.bb, m11.m.ante) = 500 → „500” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.m.value",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:33",
+   "content/pl/lessons/m11-l1-push-fold.md:134"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(m11.m.stack, m11.m.orbit) = 6 → „6” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.push.10-ante",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:90",
+   "content/pl/lessons/m11-l1-push-fold.md:91",
+   "content/pl/lessons/m11-l1-push-fold.md:92",
+   "content/pl/lessons/m11-l1-push-fold.md:174",
+   "content/pl/rules.yaml:1071"
+  ],
+  "uzasadnienie": "pushfold.json: 0,7165 → „72%”. Mój fictitious play 71,1%; best response SB na call BB z pliku 71,0% (73s, 52s pushowane z EV −0,02bb). Równowaga ok. 71%, różnica 0,6 pp mieści się w D-153, ale zaokrąglenie daje 71%.",
+  "poprawka": "„ok. 71%” (albo „ok. 71–72%”) po ponownym rozwiązaniu z większą liczbą iteracji",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.push.10.alpha",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:72",
+   "content/pl/lessons/m11-l1-push-fold.md:74",
+   "content/pl/lessons/m11-l1-push-fold.md:170",
+   "content/pl/rules.yaml:1079"
+  ],
+  "uzasadnienie": "Policzone niezależnie: ryzyko/(wygrana+ryzyko)(m11.push.10.win, m11.push.10.risk) = 0,863636 → „86%” (decimals 0). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.push.10.alpha-ante",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:90"
+  ],
+  "uzasadnienie": "Policzone niezależnie: ryzyko/(wygrana+ryzyko)(m11.push.10.win-ante, m11.push.10.risk) = 0,791667 → „79%” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.push.10.risk",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:72",
+   "content/pl/lessons/m11-l1-push-fold.md:73",
+   "content/pl/lessons/m11-l1-push-fold.md:170",
+   "content/pl/rules.yaml:1080"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(m11.depth.10, pf.blind.sb) = 9,5 → „9,5bb” (decimals 1). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.push.10.win",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:25",
+   "content/pl/exams/m11.yaml:26",
+   "content/pl/exams/m11.yaml:34",
+   "content/pl/lessons/m11-l1-push-fold.md:72",
+   "content/pl/lessons/m11-l1-push-fold.md:73",
+   "content/pl/lessons/m11-l1-push-fold.md:90",
+   "content/pl/lessons/m11-l1-push-fold.md:170",
+   "content/pl/lessons/m11-l1-push-fold.md:174",
+   "content/pl/rules.yaml:1080"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(pf.blind.sb, pf.blind.bb) = 1,5 → „1,5bb” (decimals 1). Tekst (miejsc: 9) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.push.10.win-ante",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:34",
+   "content/pl/lessons/m11-l1-push-fold.md:90",
+   "content/pl/lessons/m11-l1-push-fold.md:174"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(pf.blind.sb, pf.blind.bb, m11.ante) = 2,5 → „2,5bb” (decimals 1). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m13.lose.example",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m13-l1-raport.md:15",
+   "content/pl/lessons/m13-l1-raport.md:22",
+   "content/pl/lessons/m13-l1-raport.md:82",
+   "content/pl/rules.yaml:1155"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(prob.certain, m13.eq.example) = 0,2 → „20%” (decimals 0). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m13.lose.example2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m13-l1-raport.md:29"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(prob.certain, m13.eq.example2) = 0,35 → „35%” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m13.lose.of-ten",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m13-l1-raport.md:22",
+   "content/pl/lessons/m13-l1-raport.md:82",
+   "content/pl/rules.yaml:1155"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(m13.ten, m13.lose.example) = 2 → „2” (decimals 0). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m13.noise.blocks",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(m13.noise.hands.k, var.blocks-per-k) = 25 → „25” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m13.noise.ci",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m13-l1-raport.md:105"
+  ],
+  "uzasadnienie": "√25 = 5; 80 ÷ 5 = 16; 1,96 × 16 = 31,36 → „31bb/100”. Tekst m13-l1:105 „po ok. 2,5 tys. rąk przedział 95% ma ok. ± 31bb/100” zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m13.noise.se",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloraz(var.sd, m13.noise.sqrt) = 16 → „16,0bb/100” (decimals 1). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m13.noise.sqrt",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: pierwiastek(m13.noise.blocks) = 5 → „5,0” (decimals 1). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.rec.gap",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:33",
+   "content/pl/lessons/m10-l1-statystyki.md:98"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(mda.rec.vpip, mda.rec.pfr) = 0,24 → „24%” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.rec.gap.pp",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:126"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(mda.rec.gap, math.hundred) = 24 → „24” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mdf.bet-half",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:29",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:30",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:122",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:108",
+   "content/pl/lessons/m8-l4-bluff-catching.md:33",
+   "content/pl/lessons/m8-l4-bluff-catching.md:87",
+   "content/pl/lessons/m8-l4-bluff-catching.md:90",
+   "content/pl/lessons/m8-l4-bluff-catching.md:118"
+  ],
+  "uzasadnienie": "Policzone niezależnie: pula/(pula+bet)(ex.pot, ex.bet.half) = 0,666667 → „67%” (decimals 0). Tekst (miejsc: 8) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mdf.bet-overbet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:38",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:39"
+  ],
+  "uzasadnienie": "Policzone niezależnie: pula/(pula+bet)(ex.pot, ex.bet.overbet) = 0,4 → „40%” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mdf.bet-pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:22",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:93",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:124",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:34",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:110",
+   "content/pl/rules.yaml:478"
+  ],
+  "uzasadnienie": "Policzone niezależnie: pula/(pula+bet)(ex.pot, ex.bet.pot) = 0,5 → „50%” (decimals 0). Tekst (miejsc: 6) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mdf.bet-quarter",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:120",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:106"
+  ],
+  "uzasadnienie": "Policzone niezależnie: pula/(pula+bet)(ex.pot, ex.bet.quarter) = 0,8 → „80%” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mdf.bet-third",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:15",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:70",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:73",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:74",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:79",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:116",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:121",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:128",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:18",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:34",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:85",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:107",
+   "content/pl/rules.yaml:445",
+   "content/pl/rules.yaml:478"
+  ],
+  "uzasadnienie": "Policzone niezależnie: pula/(pula+bet)(ex.third.pot, ex.third.bet) = 0,75 → „75%” (decimals 0). Tekst (miejsc: 14) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mdf.bet-three-quarters",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:55",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:123",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:109",
+   "content/pl/lessons/m7-l4-probe-obrona.md:106",
+   "content/pl/lessons/m7-l4-probe-obrona.md:116",
+   "content/pl/lessons/m7-l4-probe-obrona.md:142",
+   "content/pl/lessons/m8-l2-ile-blefow.md:31"
+  ],
+  "uzasadnienie": "Policzone niezależnie: pula/(pula+bet)(ex.pot, ex.bet.three-quarters) = 0,571429 → „57%” (decimals 0). Tekst (miejsc: 7) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mdf.vs-3bet-ip-size",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:16",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:17",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:98"
+  ],
+  "uzasadnienie": "MDF = 4 ÷ (4 + 7,5) = 0,3478 → „35%”; alpha 65,2%. Tekst m4-l3 „kontynuować co najmniej ok. 35%”, „ryzykuje 7,5bb, żeby wygrać 4bb” zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:miss.flush.turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:49",
+   "content/pl/lessons/m7-l3-implied-odds.md:124",
+   "content/pl/lessons/m7-l3-implied-odds.md:130"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(cards.unseen.turn, outs.flush) = 37 → „37” (decimals 0). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:miss.gutshot.turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: różnica(cards.unseen.turn, outs.gutshot) = 42 → „42” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:miss.oesd.turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m7.yaml:63",
+   "content/pl/exams/m7.yaml:65",
+   "content/pl/lessons/m7-l3-implied-odds.md:54",
+   "content/pl/lessons/m7-l3-implied-odds.md:56"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(cards.unseen.turn, outs.oesd) = 38 → „38” (decimals 0). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:odds.combo.turn-river",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:40",
+   "content/pl/lessons/m7-l3-implied-odds.md:41",
+   "content/pl/lessons/m7-l3-implied-odds.md:116"
+  ],
+  "uzasadnienie": "Policzone niezależnie: 1−C(n−o,k)/C(n,k)(outs.combo, cards.unseen.turn, streets.turn-river) = 0,326087 → „32,6%” (decimals 1). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:odds.flush-ace.turn-river",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l2-pot-odds.md:25",
+   "content/pl/lessons/m2-l2-pot-odds.md:26"
+  ],
+  "uzasadnienie": "Policzone niezależnie: 1−C(n−o,k)/C(n,k)(outs.flush-ace, cards.unseen.turn, streets.turn-river) = 0,26087 → „26,1%” (decimals 1). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:odds.flush.flop-river",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:40",
+   "content/pl/exams/m2.yaml:81",
+   "content/pl/exams/m2.yaml:98",
+   "content/pl/exams/m2.yaml:99",
+   "content/pl/lessons/m2-l1-outy.md:36",
+   "content/pl/lessons/m2-l1-outy.md:55",
+   "content/pl/lessons/m2-l1-outy.md:123",
+   "content/pl/lessons/m2-l1-outy.md:129",
+   "content/pl/lessons/m7-l1-druga-beczka.md:67",
+   "content/pl/lessons/m7-l3-implied-odds.md:13",
+   "content/pl/lessons/m7-l3-implied-odds.md:16",
+   "content/pl/lessons/m7-l3-implied-odds.md:113",
+   "content/pl/rules.yaml:81",
+   "content/pl/rules.yaml:585"
+  ],
+  "uzasadnienie": "Policzone niezależnie: 1−C(n−o,k)/C(n,k)(outs.flush, cards.unseen.flop, streets.flop-river) = 0,349676 → „35,0%” (decimals 1). Tekst (miejsc: 14) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:odds.flush.flop-turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:80",
+   "content/pl/exams/m2.yaml:81",
+   "content/pl/exams/m2.yaml:99",
+   "content/pl/lessons/m2-l1-outy.md:54",
+   "content/pl/lessons/m2-l1-outy.md:123",
+   "content/pl/lessons/m2-l1-outy.md:129",
+   "content/pl/lessons/m6-l3-check-raise.md:62",
+   "content/pl/lessons/m6-l3-check-raise.md:63",
+   "content/pl/lessons/m6-l3-check-raise.md:64",
+   "content/pl/rules.yaml:81"
+  ],
+  "uzasadnienie": "Policzone niezależnie: 1−C(n−o,k)/C(n,k)(outs.flush, cards.unseen.flop, streets.next-card) = 0,191489 → „19,1%” (decimals 1). Tekst (miejsc: 10) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:odds.flush.rule-turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l1-outy.md:35",
+   "content/pl/lessons/m2-l1-outy.md:90",
+   "content/pl/lessons/m7-l3-implied-odds.md:17"
+  ],
+  "uzasadnienie": "Policzone niezależnie: outy×2 albo ×4(outs.flush, streets.turn-river) = 0,18 → „18%” (decimals 0). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:odds.flush.turn-river",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:45",
+   "content/pl/exams/m12.yaml:46",
+   "content/pl/exams/m7.yaml:53",
+   "content/pl/exams/m7.yaml:56",
+   "content/pl/exams/m7.yaml:57",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:31",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:32",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:40",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:41",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:42",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:97",
+   "content/pl/lessons/m2-l1-outy.md:35",
+   "content/pl/lessons/m2-l1-outy.md:90",
+   "content/pl/lessons/m2-l1-outy.md:123",
+   "content/pl/lessons/m2-l2-pot-odds.md:25",
+   "content/pl/lessons/m2-l2-pot-odds.md:35",
+   "content/pl/lessons/m2-l2-pot-odds.md:36",
+   "content/pl/lessons/m7-l1-druga-beczka.md:65",
+   "content/pl/lessons/m7-l1-druga-beczka.md:67",
+   "content/pl/lessons/m7-l2-polaryzacja.md:44",
+   "content/pl/lessons/m7-l2-polaryzacja.md:56",
+   "content/pl/lessons/m7-l2-polaryzacja.md:73",
+   "content/pl/lessons/m7-l2-polaryzacja.md:78",
+   "content/pl/lessons/m7-l2-polaryzacja.md:80",
+   "content/pl/lessons/m7-l2-polaryzacja.md:82",
+   "content/pl/lessons/m7-l2-polaryzacja.md:104",
+   "content/pl/lessons/m7-l2-polaryzacja.md:129",
+   "content/pl/lessons/m7-l2-polaryzacja.md:130",
+   "content/pl/lessons/m7-l2-polaryzacja.md:131",
+   "content/pl/lessons/m7-l2-polaryzacja.md:132",
+   "content/pl/lessons/m7-l2-polaryzacja.md:133",
+   "content/pl/lessons/m7-l2-polaryzacja.md:135",
+   "content/pl/lessons/m7-l3-implied-odds.md:15",
+   "content/pl/lessons/m7-l3-implied-odds.md:17",
+   "content/pl/lessons/m7-l3-implied-odds.md:49",
+   "content/pl/lessons/m7-l3-implied-odds.md:66",
+   "content/pl/lessons/m7-l3-implied-odds.md:67",
+   "content/pl/lessons/m7-l3-implied-odds.md:68",
+   "content/pl/lessons/m7-l3-implied-odds.md:85",
+   "content/pl/lessons/m7-l3-implied-odds.md:113",
+   "content/pl/lessons/m7-l3-implied-odds.md:122",
+   "content/pl/rules.yaml:577",
+   "content/pl/rules.yaml:585"
+  ],
+  "uzasadnienie": "1 − C(37,1)/C(46,1) = 9/46 = 0,19565 → „19,6%”. Tekst: szansa na flush na riverze; w m12-l2 i exams/m12 nazywana „equity” czystego drawa wobec all-inu, co przy czystych outach jest równoważne. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:odds.flush.vs-set",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l2-polaryzacja.md:44"
+  ],
+  "uzasadnienie": "Policzone niezależnie: 1−C(n−o,k)/C(n,k)(outs.flush.vs-set, cards.unseen.turn, streets.turn-river) = 0,152174 → „15,2%” (decimals 1). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:odds.gutshot.flop-river",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l1-outy.md:44",
+   "content/pl/lessons/m2-l1-outy.md:125",
+   "content/pl/lessons/m7-l3-implied-odds.md:115"
+  ],
+  "uzasadnienie": "Policzone niezależnie: 1−C(n−o,k)/C(n,k)(outs.gutshot, cards.unseen.flop, streets.flop-river) = 0,164662 → „16,5%” (decimals 1). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:odds.gutshot.flop-turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l1-outy.md:44",
+   "content/pl/lessons/m2-l1-outy.md:125",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:74"
+  ],
+  "uzasadnienie": "Policzone niezależnie: 1−C(n−o,k)/C(n,k)(outs.gutshot, cards.unseen.flop, streets.next-card) = 0,0851064 → „8,5%” (decimals 1). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:odds.gutshot.rule-flop",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l1-outy.md:44"
+  ],
+  "uzasadnienie": "Policzone niezależnie: outy×2 albo ×4(outs.gutshot, streets.flop-river) = 0,16 → „16%” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:odds.gutshot.rule-turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:56",
+   "content/pl/lessons/m2-l1-outy.md:45"
+  ],
+  "uzasadnienie": "Policzone niezależnie: outy×2 albo ×4(outs.gutshot, streets.turn-river) = 0,08 → „8%” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:odds.gutshot.turn-river",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:56",
+   "content/pl/lessons/m2-l1-outy.md:125",
+   "content/pl/lessons/m7-l3-implied-odds.md:75",
+   "content/pl/lessons/m7-l3-implied-odds.md:115",
+   "content/pl/lessons/m7-l4-probe-obrona.md:76",
+   "content/pl/lessons/m7-l4-probe-obrona.md:77"
+  ],
+  "uzasadnienie": "Policzone niezależnie: 1−C(n−o,k)/C(n,k)(outs.gutshot, cards.unseen.turn, streets.turn-river) = 0,0869565 → „8,7%” (decimals 1). Tekst (miejsc: 6) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:odds.oesd.flop-river",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:38",
+   "content/pl/exams/m2.yaml:49",
+   "content/pl/lessons/m2-l1-outy.md:46",
+   "content/pl/lessons/m2-l1-outy.md:124",
+   "content/pl/lessons/m7-l3-implied-odds.md:114"
+  ],
+  "uzasadnienie": "Policzone niezależnie: 1−C(n−o,k)/C(n,k)(outs.oesd, cards.unseen.flop, streets.flop-river) = 0,314524 → „31,5%” (decimals 1). Tekst (miejsc: 5) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:odds.oesd.flop-turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:39",
+   "content/pl/exams/m2.yaml:48",
+   "content/pl/lessons/m2-l1-outy.md:124",
+   "content/pl/lessons/m6-l3-check-raise.md:73",
+   "content/pl/lessons/m6-l3-check-raise.md:74"
+  ],
+  "uzasadnienie": "Policzone niezależnie: 1−C(n−o,k)/C(n,k)(outs.oesd, cards.unseen.flop, streets.next-card) = 0,170213 → „17,0%” (decimals 1). Tekst (miejsc: 5) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:odds.oesd.turn-river",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:89",
+   "content/pl/exams/m2.yaml:90",
+   "content/pl/lessons/m2-l1-outy.md:124",
+   "content/pl/lessons/m7-l2-polaryzacja.md:87",
+   "content/pl/lessons/m7-l2-polaryzacja.md:89",
+   "content/pl/lessons/m7-l2-polaryzacja.md:90",
+   "content/pl/lessons/m7-l2-polaryzacja.md:91",
+   "content/pl/lessons/m7-l2-polaryzacja.md:104",
+   "content/pl/lessons/m7-l2-polaryzacja.md:129",
+   "content/pl/lessons/m7-l2-polaryzacja.md:130",
+   "content/pl/lessons/m7-l2-polaryzacja.md:131",
+   "content/pl/lessons/m7-l2-polaryzacja.md:132",
+   "content/pl/lessons/m7-l2-polaryzacja.md:133",
+   "content/pl/lessons/m7-l3-implied-odds.md:58",
+   "content/pl/lessons/m7-l3-implied-odds.md:114",
+   "content/pl/lessons/m7-l4-probe-obrona.md:86",
+   "content/pl/lessons/m7-l4-probe-obrona.md:87"
+  ],
+  "uzasadnienie": "Policzone niezależnie: 1−C(n−o,k)/C(n,k)(outs.oesd, cards.unseen.turn, streets.turn-river) = 0,173913 → „17,4%” (decimals 1). Tekst (miejsc: 17) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:outs.combo",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:32",
+   "content/pl/lessons/m7-l3-implied-odds.md:40",
+   "content/pl/lessons/m7-l3-implied-odds.md:116"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(outs.combo.raw, draw.combo.overlap) = 15 → „15” (decimals 0). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:outs.combo.raw",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:32"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(outs.flush, outs.oesd) = 17 → „17” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:outs.flush",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:11",
+   "content/pl/exams/m2.yaml:12",
+   "content/pl/exams/m2.yaml:40",
+   "content/pl/exams/m2.yaml:98",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:29",
+   "content/pl/lessons/m2-l1-outy.md:16",
+   "content/pl/lessons/m2-l1-outy.md:33",
+   "content/pl/lessons/m2-l1-outy.md:35",
+   "content/pl/lessons/m2-l1-outy.md:37",
+   "content/pl/lessons/m2-l1-outy.md:54",
+   "content/pl/lessons/m2-l1-outy.md:88",
+   "content/pl/lessons/m2-l1-outy.md:90",
+   "content/pl/lessons/m2-l1-outy.md:110",
+   "content/pl/lessons/m2-l1-outy.md:123",
+   "content/pl/lessons/m2-l1-outy.md:129",
+   "content/pl/lessons/m2-l1-outy.md:132",
+   "content/pl/lessons/m2-l2-pot-odds.md:25",
+   "content/pl/lessons/m6-l3-check-raise.md:62",
+   "content/pl/lessons/m6-l3-check-raise.md:64",
+   "content/pl/lessons/m7-l1-druga-beczka.md:65",
+   "content/pl/lessons/m7-l3-implied-odds.md:15",
+   "content/pl/lessons/m7-l3-implied-odds.md:32",
+   "content/pl/lessons/m7-l3-implied-odds.md:46",
+   "content/pl/lessons/m7-l3-implied-odds.md:49",
+   "content/pl/lessons/m7-l3-implied-odds.md:113",
+   "content/pl/lessons/m7-l3-implied-odds.md:124",
+   "content/pl/lessons/m7-l3-implied-odds.md:130",
+   "content/pl/rules.yaml:81"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(cards.per-suit, draw.flush.seen) = 9 → „9” (decimals 0). Tekst (miejsc: 28) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:outs.flush-ace",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l2-pot-odds.md:25"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(outs.flush, pair.outs.per-rank) = 12 → „12” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:outs.flush.vs-set",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l2-polaryzacja.md:44"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(outs.flush, set.boat.flush-cards) = 7 → „7” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:outs.gutshot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:21",
+   "content/pl/exams/m2.yaml:54",
+   "content/pl/exams/m2.yaml:56",
+   "content/pl/exams/m7.yaml:75",
+   "content/pl/lessons/m2-l1-outy.md:27",
+   "content/pl/lessons/m2-l1-outy.md:42",
+   "content/pl/lessons/m2-l1-outy.md:44",
+   "content/pl/lessons/m2-l1-outy.md:45",
+   "content/pl/lessons/m2-l1-outy.md:46",
+   "content/pl/lessons/m2-l1-outy.md:112",
+   "content/pl/lessons/m2-l1-outy.md:125",
+   "content/pl/lessons/m7-l3-implied-odds.md:77",
+   "content/pl/lessons/m7-l3-implied-odds.md:115",
+   "content/pl/lessons/m7-l4-probe-obrona.md:78"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(draw.gutshot.ranks, cards.suits) = 4 → „4” (decimals 0). Tekst (miejsc: 14) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:outs.oesd",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:12",
+   "content/pl/exams/m2.yaml:22",
+   "content/pl/exams/m2.yaml:31",
+   "content/pl/exams/m2.yaml:36",
+   "content/pl/exams/m2.yaml:38",
+   "content/pl/exams/m2.yaml:40",
+   "content/pl/exams/m2.yaml:48",
+   "content/pl/exams/m2.yaml:89",
+   "content/pl/exams/m7.yaml:63",
+   "content/pl/exams/m7.yaml:65",
+   "content/pl/exams/m7.yaml:73",
+   "content/pl/exams/m7.yaml:74",
+   "content/pl/lessons/m2-l1-outy.md:26",
+   "content/pl/lessons/m2-l1-outy.md:46",
+   "content/pl/lessons/m2-l1-outy.md:111",
+   "content/pl/lessons/m2-l1-outy.md:124",
+   "content/pl/lessons/m6-l3-check-raise.md:72",
+   "content/pl/lessons/m6-l3-check-raise.md:74",
+   "content/pl/lessons/m7-l3-implied-odds.md:32",
+   "content/pl/lessons/m7-l3-implied-odds.md:54",
+   "content/pl/lessons/m7-l3-implied-odds.md:56",
+   "content/pl/lessons/m7-l3-implied-odds.md:114",
+   "content/pl/lessons/m7-l4-probe-obrona.md:46"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(draw.oesd.ranks, cards.suits) = 8 → „8” (decimals 0). Tekst (miejsc: 23) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pair.outs.per-rank",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m8.yaml:65",
+   "content/pl/lessons/m2-l2-pot-odds.md:25",
+   "content/pl/lessons/m8-l3-blokery.md:24",
+   "content/pl/lessons/m8-l3-blokery.md:31",
+   "content/pl/lessons/m8-l3-blokery.md:38",
+   "content/pl/rules.yaml:711"
+  ],
+  "uzasadnienie": "Stała 3 → „3” (kombinatoryka: z 4 kart danej rangi jedna jest w twojej ręce). Tekst (miejsc: 6) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pair.outs.two-hands",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l4-bez-pozycji.md:65"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(pair.outs.unpaired, ex.hands.two) = 12 → „12” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pair.outs.unpaired",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m5.yaml:41",
+   "content/pl/lessons/m5-l2-przewagi.md:64",
+   "content/pl/lessons/m5-l2-przewagi.md:96",
+   "content/pl/rules.yaml:377"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(cards.hole, pair.outs.per-rank) = 6 → „6” (decimals 0). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pair.outs.unpaired.rest",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: różnica(pair.outs.unpaired, math.one) = 5 → „5” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.3bet.ip-total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m10.yaml:73",
+   "content/pl/exams/m4.yaml:13",
+   "content/pl/exams/m4.yaml:54",
+   "content/pl/exams/m4.yaml:68",
+   "content/pl/exams/m4.yaml:88",
+   "content/pl/exams/m4.yaml:91",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:75",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:115",
+   "content/pl/lessons/m4-l1-3bet.md:16",
+   "content/pl/lessons/m4-l1-3bet.md:27",
+   "content/pl/lessons/m4-l1-3bet.md:75",
+   "content/pl/lessons/m4-l2-obrona-bb.md:45",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:13",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:16",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:23",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:33",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:63",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:73",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:98",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:112",
+   "content/pl/lessons/m9-l1-spr.md:23",
+   "content/pl/lessons/m9-l1-spr.md:27",
+   "content/pl/lessons/m9-l1-spr.md:37",
+   "content/pl/lessons/m9-l1-spr.md:148",
+   "content/pl/rules.yaml:212",
+   "content/pl/rules.yaml:298",
+   "content/pl/rules.yaml:914",
+   "content/ranges/spots.yaml:62"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(pf.open-size, pf.3bet.size-ip) = 7,5 → „7,5bb” (decimals 1). Tekst (miejsc: 29) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.3bet.oop-total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m4.yaml:12",
+   "content/pl/exams/m4.yaml:13",
+   "content/pl/exams/m4.yaml:78",
+   "content/pl/lessons/m4-l1-3bet.md:26",
+   "content/pl/lessons/m4-l1-3bet.md:75",
+   "content/pl/lessons/m4-l2-obrona-bb.md:44",
+   "content/pl/lessons/m4-l2-obrona-bb.md:45",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:43",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:53",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:57",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:83",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:112",
+   "content/pl/lessons/m9-l1-spr.md:33",
+   "content/pl/lessons/m9-l1-spr.md:37",
+   "content/pl/lessons/m9-l1-spr.md:38",
+   "content/pl/lessons/m9-l1-spr.md:148",
+   "content/pl/rules.yaml:221",
+   "content/pl/rules.yaml:298",
+   "content/ranges/spots.yaml:62"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(pf.open-size, pf.3bet.size-oop) = 10 → „10bb” (decimals 0). Tekst (miejsc: 19) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.3bet.too-big",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l1-3bet.md:18"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(pf.open-size, pf.3bet.too-big.mult) = 12,5 → „12,5bb” (decimals 1). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.3bet.too-small",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l1-3bet.md:17"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(pf.open-size, pf.3bet.too-small.mult) = 5 → „5bb” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.4bet.example.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:86",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:112"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(pf.3bet.oop-total, pf.4bet.size-ip.high) = 25 → „25bb” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.4bet.example.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:86",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:112",
+   "content/pl/lessons/m9-l1-spr.md:45",
+   "content/pl/lessons/m9-l1-spr.md:148"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(pf.3bet.oop-total, pf.4bet.size-ip.low) = 22 → „22bb” (decimals 0). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.4bet.oop-example.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m4.yaml:91",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:112"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(pf.3bet.ip-total, pf.4bet.size-oop.low) = 17,25 → „17,25bb” (decimals 2). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.4bet.too-small",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:87"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(pf.3bet.oop-total, pf.4bet.too-small.mult) = 15 → „15bb” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.aa-vs-kk",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:15",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:16",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:22",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:24",
+   "content/pl/lessons/m3-l2-rece-startowe.md:37"
+  ],
+  "uzasadnienie": "Pełne wyliczenie C(48,5)=1 712 304 boardów dla 3 układów kolorów (wagi 1:4:1): equity AA 0,81946 (wygrana 81,71%, remis 0,46%) = 0,8195 → „82%”. Tekst „wygrywa w ok. 82%” zgodny także dla samych wygranych (81,7%).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.blind.bb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:43",
+   "content/pl/rules.yaml:1095",
+   "content/pl/rules.yaml:1096"
+  ],
+  "uzasadnienie": "Stała 1 → „1bb” (zasady: duży blind). Tekst (miejsc: 3) opisuje tę wielkość poprawnie. Uwaga: to zasada gry; według nagłówka rules.yaml właściwszy poziom to „rules”, nie „math”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.blind.sb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Stała 0,5 → „0,5bb” (zasady: mały blind). Brak użycia w treści (wielkość pośrednia). Uwaga: to zasada gry; według nagłówka rules.yaml właściwszy poziom to „rules”, nie „math”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.iso.one-limper",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m4.yaml:110",
+   "content/pl/lessons/m4-l4-limperzy.md:16",
+   "content/pl/lessons/m4-l4-limperzy.md:27",
+   "content/pl/lessons/m4-l4-limperzy.md:37",
+   "content/pl/lessons/m4-l4-limperzy.md:46",
+   "content/pl/lessons/m4-l4-limperzy.md:47",
+   "content/pl/lessons/m4-l4-limperzy.md:69"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(pf.iso.base, pf.iso.per-limper) = 4 → „4bb” (decimals 0). Tekst (miejsc: 7) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.iso.one-limper-oop",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l4-limperzy.md:36"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(pf.iso.base, pf.iso.per-limper, pf.iso.oop-extra) = 5 → „5bb” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.iso.two-limpers",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l4-limperzy.md:26",
+   "content/pl/lessons/m4-l4-limperzy.md:59",
+   "content/pl/lessons/m4-l4-limperzy.md:69"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(pf.iso.base, pf.iso.per-limper, pf.iso.per-limper) = 5 → „5bb” (decimals 0). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.min-raise",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l4-limperzy.md:17",
+   "content/pl/lessons/m4-l4-limperzy.md:47"
+  ],
+  "uzasadnienie": "Stała 2 → „2bb” (zasady: minimalne przebicie limpowanej puli to podwojenie bl). Tekst (miejsc: 2) opisuje tę wielkość poprawnie. Uwaga: to zasada gry; według nagłówka rules.yaml właściwszy poziom to „rules”, nie „math”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:prob.certain",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l2-przewagi.md:80"
+  ],
+  "uzasadnienie": "Stała 1 → „100%” (definicja: zdarzenie pewne). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:rake.ex.keep",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: różnica(math.one, rake.ex.pct) = 0,95 → „95%” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:rake.ex.pot-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:51"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(ex.half.total, rake.ex.keep) = 190 → „190” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:res.kk-wins",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:15",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:24",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:97",
+   "content/pl/rules.yaml:981"
+  ],
+  "uzasadnienie": "1 − 0,81946 = 0,1805 → „18%”; ściśle przegrana AA 17,82% → też „ok. 18%”. Tekst „przegrywa w ok. 18%” zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.base",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:22",
+   "content/pl/lessons/m12-l4-bankroll.md:23",
+   "content/pl/lessons/m12-l4-bankroll.md:31",
+   "content/pl/lessons/m12-l4-bankroll.md:32",
+   "content/pl/lessons/m12-l4-bankroll.md:128",
+   "content/pl/rules.yaml:1021",
+   "content/pl/rules.yaml:1037"
+  ],
+  "uzasadnienie": "Policzone niezależnie: e^x(ror.base.neg) = 0,0600547 → „6%” (decimals 0). Tekst (miejsc: 7) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.base.neg",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(math.minus-one, ror.exp.base) = -2,8125 → „-2,81” (decimals 2). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.base.wr-ex",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:33",
+   "content/pl/lessons/m12-l4-bankroll.md:129"
+  ],
+  "uzasadnienie": "Policzone niezależnie: e^x(ror.base.wr-ex.neg) = 0,00920968 → „0,9%” (decimals 1). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.base.wr-ex.neg",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(math.minus-one, ror.base.wr-ex.x) = -4,6875 → „-4,69” (decimals 2). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.base.wr-ex.num",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(ror.two, var.wr.ex, br.base.bb) = 30000 → „30000” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.base.wr-ex.x",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloraz(ror.base.wr-ex.num, var.sd.sq) = 4,6875 → „4,69” (decimals 2). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.base.wr-min",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:31",
+   "content/pl/lessons/m12-l4-bankroll.md:32",
+   "content/pl/lessons/m12-l4-bankroll.md:33",
+   "content/pl/lessons/m12-l4-bankroll.md:40",
+   "content/pl/lessons/m12-l4-bankroll.md:127",
+   "content/pl/rules.yaml:1029"
+  ],
+  "uzasadnienie": "Policzone niezależnie: e^x(ror.base.wr-min.neg) = 0,391606 → „39%” (decimals 0). Tekst (miejsc: 6) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.base.wr-min.neg",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(math.minus-one, ror.base.wr-min.x) = -0,9375 → „-0,94” (decimals 2). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.base.wr-min.num",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(ror.two, var.wr.typical.low, br.base.bb) = 6000 → „6000” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.base.wr-min.x",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloraz(ror.base.wr-min.num, var.sd.sq) = 0,9375 → „0,94” (decimals 2). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.beginner.wr-min",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:40",
+   "content/pl/lessons/m12-l4-bankroll.md:127"
+  ],
+  "uzasadnienie": "Policzone niezależnie: e^x(ror.beginner.wr-min.neg) = 0,209611 → „21%” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.beginner.wr-min.bb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(br.bi.beginner, format.stack) = 5000 → „5000bb” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.beginner.wr-min.neg",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(math.minus-one, ror.beginner.wr-min.x) = -1,5625 → „-1,56” (decimals 2). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.beginner.wr-min.num",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(ror.two, var.wr.typical.low, ror.beginner.wr-min.bb) = 10000 → „10000” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.beginner.wr-min.x",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloraz(ror.beginner.wr-min.num, var.sd.sq) = 1,5625 → „1,56” (decimals 2). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.exp.base",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:22"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(ror.exp.num, var.sd.sq) = 2,8125 → „2,81” (decimals 2). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.exp.num",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(ror.two, var.wr.typical.high, br.base.bb) = 18000 → „18000” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.half",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:23",
+   "content/pl/lessons/m12-l4-bankroll.md:128",
+   "content/pl/rules.yaml:1021",
+   "content/pl/rules.yaml:1037"
+  ],
+  "uzasadnienie": "Policzone niezależnie: e^x(ror.half.neg) = 0,245061 → „25%” (decimals 0). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.half.bb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(br.bi.move-down, format.stack) = 1500 → „1500bb” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.half.neg",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(math.minus-one, ror.half.x) = -1,40625 → „-1,41” (decimals 2). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.half.num",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(ror.two, var.wr.typical.high, ror.half.bb) = 9000 → „9000” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ror.half.x",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloraz(ror.half.num, var.sd.sq) = 1,40625 → „1,41” (decimals 2). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:set.boat.flush-cards",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Stała 2 → „2” (kombinatoryka: karty koloru, które parują stół (4h, 2h) i da). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.3bet-ip",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:72",
+   "content/pl/lessons/m9-l1-spr.md:18",
+   "content/pl/lessons/m9-l1-spr.md:26",
+   "content/pl/lessons/m9-l1-spr.md:28",
+   "content/pl/lessons/m9-l1-spr.md:36",
+   "content/pl/lessons/m9-l1-spr.md:37",
+   "content/pl/lessons/m9-l1-spr.md:46",
+   "content/pl/lessons/m9-l1-spr.md:54",
+   "content/pl/lessons/m9-l1-spr.md:74",
+   "content/pl/lessons/m9-l1-spr.md:80",
+   "content/pl/lessons/m9-l1-spr.md:83",
+   "content/pl/lessons/m9-l1-spr.md:84",
+   "content/pl/lessons/m9-l1-spr.md:124",
+   "content/pl/lessons/m9-l1-spr.md:139",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:48",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:54",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:57",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:68",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:86",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:118",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:53",
+   "content/pl/rules.yaml:745"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(spr.3bet-ip.stack, vs3bet.pot-after) = 5,60606 → „5,6” (decimals 1). Tekst (miejsc: 22) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.3bet-ip.stack",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:75",
+   "content/pl/exams/m9.yaml:76",
+   "content/pl/lessons/m9-l1-spr.md:23",
+   "content/pl/lessons/m9-l1-spr.md:26",
+   "content/pl/lessons/m9-l1-spr.md:27",
+   "content/pl/lessons/m9-l1-spr.md:54",
+   "content/pl/lessons/m9-l1-spr.md:55",
+   "content/pl/lessons/m9-l1-spr.md:124",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:58",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:59",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:57",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:127",
+   "content/pl/rules.yaml:810"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(format.stack, pf.3bet.ip-total) = 92,5 → „92,5bb” (decimals 1). Tekst (miejsc: 13) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.3bet-ip.wrong-full",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:27"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(format.stack, vs3bet.pot-after) = 6,06061 → „6,1” (decimals 1). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.3bet-oop",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:36",
+   "content/pl/lessons/m9-l1-spr.md:37",
+   "content/pl/lessons/m9-l1-spr.md:38",
+   "content/pl/lessons/m9-l1-spr.md:46",
+   "content/pl/lessons/m9-l1-spr.md:125",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:64",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:67",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:68",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:69",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:119"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(spr.3bet-oop.stack, spr.3bet-oop.pot) = 4,39024 → „4,4” (decimals 1). Tekst (miejsc: 10) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.3bet-oop.pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:33",
+   "content/pl/lessons/m9-l1-spr.md:36",
+   "content/pl/lessons/m9-l1-spr.md:125"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(pf.3bet.oop-total, pf.3bet.oop-total, pf.blind.sb) = 20,5 → „20,5bb” (decimals 1). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.3bet-oop.stack",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:33",
+   "content/pl/lessons/m9-l1-spr.md:36",
+   "content/pl/lessons/m9-l1-spr.md:125"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(format.stack, pf.3bet.oop-total) = 90 → „90bb” (decimals 0). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.4bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:86",
+   "content/pl/lessons/m9-l1-spr.md:38",
+   "content/pl/lessons/m9-l1-spr.md:45",
+   "content/pl/lessons/m9-l1-spr.md:46",
+   "content/pl/lessons/m9-l1-spr.md:84",
+   "content/pl/lessons/m9-l1-spr.md:99",
+   "content/pl/lessons/m9-l1-spr.md:126",
+   "content/pl/lessons/m9-l1-spr.md:139",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:46",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:49",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:75",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:69",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:74",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:76",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:78",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:120",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:43",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:46",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:47",
+   "content/pl/rules.yaml:298",
+   "content/pl/rules.yaml:745"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(spr.4bet.stack, spr.4bet.pot) = 1,73333 → „1,7” (decimals 1). Tekst (miejsc: 21) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.4bet.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:86",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:112",
+   "content/pl/rules.yaml:298"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(spr.4bet.high.stack, spr.4bet.high.pot) = 1,47059 → „1,5” (decimals 1). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.4bet.high.pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:86"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(pf.4bet.example.high, pf.4bet.example.high, pf.blind.bb) = 51 → „51bb” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.4bet.high.stack",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: różnica(format.stack, pf.4bet.example.high) = 75 → „75bb” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.4bet.oop",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:112",
+   "content/pl/rules.yaml:298"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(spr.4bet.oop.stack, spr.4bet.oop.pot) = 2,29861 → „2,3” (decimals 1). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.4bet.oop.pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: suma(pf.4bet.oop-example.low, pf.4bet.oop-example.low, pf.blind.sb, pf.blind.bb) = 36 → „36,0bb” (decimals 1). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.4bet.oop.stack",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: różnica(format.stack, pf.4bet.oop-example.low) = 82,75 → „82,75bb” (decimals 2). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.4bet.pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:86",
+   "content/pl/lessons/m9-l1-spr.md:45",
+   "content/pl/lessons/m9-l1-spr.md:99",
+   "content/pl/lessons/m9-l1-spr.md:126"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(pf.4bet.example.low, pf.4bet.example.low, pf.blind.bb) = 45 → „45bb” (decimals 0). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.4bet.stack",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:45",
+   "content/pl/lessons/m9-l1-spr.md:99",
+   "content/pl/lessons/m9-l1-spr.md:126",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:78"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(format.stack, pf.4bet.example.low) = 78 → „78bb” (decimals 0). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.short",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:64",
+   "content/pl/lessons/m9-l1-spr.md:65",
+   "content/pl/lessons/m9-l1-spr.md:66"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(spr.short.behind, bb.pot-after.vs-btn) = 8,63636 → „8,6” (decimals 1). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.short.behind",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:64",
+   "content/pl/lessons/m9-l1-spr.md:66"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(spr.short.stack, pf.open-size) = 47,5 → „47,5bb” (decimals 1). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.srp",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:16",
+   "content/pl/lessons/m9-l1-spr.md:17",
+   "content/pl/lessons/m9-l1-spr.md:18",
+   "content/pl/lessons/m9-l1-spr.md:26",
+   "content/pl/lessons/m9-l1-spr.md:28",
+   "content/pl/lessons/m9-l1-spr.md:47",
+   "content/pl/lessons/m9-l1-spr.md:54",
+   "content/pl/lessons/m9-l1-spr.md:65",
+   "content/pl/lessons/m9-l1-spr.md:74",
+   "content/pl/lessons/m9-l1-spr.md:85",
+   "content/pl/lessons/m9-l1-spr.md:101",
+   "content/pl/lessons/m9-l1-spr.md:115",
+   "content/pl/lessons/m9-l1-spr.md:123",
+   "content/pl/lessons/m9-l1-spr.md:139",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:65",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:68",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:69",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:110",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:38",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:45",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:48",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:49",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:117",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:126",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:23",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:26",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:27",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:72",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:76",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:113",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:115",
+   "content/pl/rules.yaml:745",
+   "content/pl/rules.yaml:753",
+   "content/pl/rules.yaml:776"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(spr.srp.stack, bb.pot-after.vs-btn) = 17,7273 → „17,7” (decimals 1). Tekst (miejsc: 34) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.srp.stack",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:62",
+   "content/pl/exams/m9.yaml:65",
+   "content/pl/exams/m9.yaml:66",
+   "content/pl/lessons/m9-l1-spr.md:13",
+   "content/pl/lessons/m9-l1-spr.md:16",
+   "content/pl/lessons/m9-l1-spr.md:17",
+   "content/pl/lessons/m9-l1-spr.md:54",
+   "content/pl/lessons/m9-l1-spr.md:55",
+   "content/pl/lessons/m9-l1-spr.md:101",
+   "content/pl/lessons/m9-l1-spr.md:115",
+   "content/pl/lessons/m9-l1-spr.md:123",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:36",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:39",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:47",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:126",
+   "content/pl/rules.yaml:793"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(format.stack, pf.open-size) = 97,5 → „97,5bb” (decimals 1). Tekst (miejsc: 16) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.srp.wrong-full",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:17"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(format.stack, bb.pot-after.vs-btn) = 18,1818 → „18,2” (decimals 1). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.stack.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:63",
+   "content/pl/lessons/m7-l3-implied-odds.md:67",
+   "content/pl/lessons/m7-l3-implied-odds.md:101",
+   "content/pl/lessons/m7-l3-implied-odds.md:103",
+   "content/pl/lessons/m7-l3-implied-odds.md:104",
+   "content/pl/lessons/m7-l3-implied-odds.md:134"
+  ],
+  "uzasadnienie": "5 × 100 = 500, poprawnie w m7-l3:101-104,134 (SPR 5). W m7-l3:63 i :67 ten sam klucz służy jako stack w innym przykładzie (pula 90, bet 45), gdzie nie jest „SPR × pula”: jedna liczba dla dwóch wielkości.",
+  "poprawka": "osobny klucz (np. io.flush.stack: 500) dla przykładu z pulą 90",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.stack.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:33",
+   "content/pl/lessons/m7-l3-implied-odds.md:73",
+   "content/pl/lessons/m7-l3-implied-odds.md:75",
+   "content/pl/lessons/m7-l3-implied-odds.md:76",
+   "content/pl/lessons/m7-l3-implied-odds.md:104",
+   "content/pl/lessons/m7-l3-implied-odds.md:134"
+  ],
+  "uzasadnienie": "1,5 × 100 = 150, poprawnie w m7-l3:104,134 i exams/m9:33. W m7-l3:73-76 to „za rywalem zostało” po becie 50 w innym przykładzie (gutshot): ta sama liczba dla innej wielkości; wniosek (150 < 375) bez zmian.",
+  "poprawka": "osobny klucz dla stacku rywala w przykładzie z gutshotem",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.zone.deep",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:20",
+   "content/pl/exams/m9.yaml:21",
+   "content/pl/exams/m9.yaml:82",
+   "content/pl/exams/m9.yaml:84",
+   "content/pl/exams/m9.yaml:85",
+   "content/pl/lessons/m9-l1-spr.md:85",
+   "content/pl/lessons/m9-l1-spr.md:136",
+   "content/pl/lessons/m9-l1-spr.md:137",
+   "content/pl/lessons/m9-l1-spr.md:139",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:22",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:30",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:86",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:101",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:115",
+   "content/pl/rules.yaml:817",
+   "content/pl/rules.yaml:818"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(geo.ex.total, ex.pot) = 13 → „13” (decimals 0). Tekst (miejsc: 16) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:srp.half.flop",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:38"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(bb.pot-after.vs-btn, ex.frac.half) = 2,75 → „2,75bb” (decimals 2). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:srp.half.flop-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:39"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(bb.pot-after.vs-btn, srp.half.flop, srp.half.flop) = 11 → „11bb” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:srp.half.river",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:38"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(srp.half.turn-after, ex.frac.half) = 11 → „11bb” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:srp.half.total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:67",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:38",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:39",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:40",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:126",
+   "content/pl/rules.yaml:793"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(srp.half.flop, srp.half.turn, srp.half.river) = 19,25 → „19,25bb” (decimals 2). Tekst (miejsc: 6) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:srp.half.turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:38"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(srp.half.flop-after, ex.frac.half) = 5,5 → „5,5bb” (decimals 1). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:srp.half.turn-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:39"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(srp.half.flop-after, srp.half.turn, srp.half.turn) = 22 → „22bb” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:srp.potbet.flop",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:65",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:40"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(bb.pot-after.vs-btn, ex.frac.pot) = 5,5 → „5,5bb” (decimals 1). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:srp.potbet.flop-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: suma(bb.pot-after.vs-btn, srp.potbet.flop, srp.potbet.flop) = 16,5 → „16,5bb” (decimals 1). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:srp.potbet.river",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:65",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:40"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(srp.potbet.turn-after, ex.frac.pot) = 49,5 → „49,5bb” (decimals 1). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:srp.potbet.total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:65",
+   "content/pl/exams/m9.yaml:66",
+   "content/pl/exams/m9.yaml:67",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:40",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:47",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:126",
+   "content/pl/rules.yaml:793"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(srp.potbet.flop, srp.potbet.turn, srp.potbet.river) = 71,5 → „71,5bb” (decimals 1). Tekst (miejsc: 7) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:srp.potbet.turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:65",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:40"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(srp.potbet.flop-after, ex.frac.pot) = 16,5 → „16,5bb” (decimals 1). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:srp.potbet.turn-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: suma(srp.potbet.flop-after, srp.potbet.turn, srp.potbet.turn) = 49,5 → „49,5bb” (decimals 1). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:streets.flop-river",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Stała 2 → „2” (zasady: z flopu do rivera odkrywasz 2 karty). Brak użycia w treści (wielkość pośrednia). Uwaga: to zasada gry; według nagłówka rules.yaml właściwszy poziom to „rules”, nie „math”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:streets.next-card",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Stała 1 → „1” (zasady: sprawdzenie zakładu kupuje jedną następną kartę). Brak użycia w treści (wielkość pośrednia). Uwaga: to zasada gry; według nagłówka rules.yaml właściwszy poziom to „rules”, nie „math”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:streets.turn-river",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Stała 1 → „1” (zasady: z turnu do rivera odkrywasz 1 kartę). Brak użycia w treści (wielkość pośrednia). Uwaga: to zasada gry; według nagłówka rules.yaml właściwszy poziom to „rules”, nie „math”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.ex.987",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:98"
+  ],
+  "uzasadnienie": "Suma punktów policzona własną klasyfikacją (liczba okien 5 rang zawierających rangi flopu, draw = dwie rangi w jednym oknie, kolory 0/1/3) daje tę samą wartość i tę samą klasę co tabela w m5-l1.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.ex.akt",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:96"
+  ],
+  "uzasadnienie": "Suma punktów policzona własną klasyfikacją (liczba okien 5 rang zawierających rangi flopu, draw = dwie rangi w jednym oknie, kolory 0/1/3) daje tę samą wartość i tę samą klasę co tabela w m5-l1.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.ex.j74",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:95"
+  ],
+  "uzasadnienie": "Suma punktów policzona własną klasyfikacją (liczba okien 5 rang zawierających rangi flopu, draw = dwie rangi w jednym oknie, kolory 0/1/3) daje tę samą wartość i tę samą klasę co tabela w m5-l1.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.ex.jt8",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:99"
+  ],
+  "uzasadnienie": "Suma punktów policzona własną klasyfikacją (liczba okien 5 rang zawierających rangi flopu, draw = dwie rangi w jednym oknie, kolory 0/1/3) daje tę samą wartość i tę samą klasę co tabela w m5-l1.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.ex.k72",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:91"
+  ],
+  "uzasadnienie": "Suma punktów policzona własną klasyfikacją (liczba okien 5 rang zawierających rangi flopu, draw = dwie rangi w jednym oknie, kolory 0/1/3) daje tę samą wartość i tę samą klasę co tabela w m5-l1.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.ex.k72-two-tone",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:93"
+  ],
+  "uzasadnienie": "Suma punktów policzona własną klasyfikacją (liczba okien 5 rang zawierających rangi flopu, draw = dwie rangi w jednym oknie, kolory 0/1/3) daje tę samą wartość i tę samą klasę co tabela w m5-l1.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.ex.k83",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:97"
+  ],
+  "uzasadnienie": "Suma punktów policzona własną klasyfikacją (liczba okien 5 rang zawierających rangi flopu, draw = dwie rangi w jednym oknie, kolory 0/1/3) daje tę samą wartość i tę samą klasę co tabela w m5-l1.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.ex.kq4",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:94"
+  ],
+  "uzasadnienie": "Suma punktów policzona własną klasyfikacją (liczba okien 5 rang zawierających rangi flopu, draw = dwie rangi w jednym oknie, kolory 0/1/3) daje tę samą wartość i tę samą klasę co tabela w m5-l1.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.ex.qq6",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:92"
+  ],
+  "uzasadnienie": "Suma punktów policzona własną klasyfikacją (liczba okien 5 rang zawierających rangi flopu, draw = dwie rangi w jednym oknie, kolory 0/1/3) daje tę samą wartość i tę samą klasę co tabela w m5-l1.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.points.straight.draw",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:84",
+   "content/pl/lessons/m5-l1-tekstury.md:94",
+   "content/pl/lessons/m5-l1-tekstury.md:95",
+   "content/pl/rules.yaml:334"
+  ],
+  "uzasadnienie": "Definicja aplikacji (umowa, nie rachunek); lekcja m5-l1:107-108 nazywa punkty i progi umową aplikacji. Wartość zgodna z opisem i z tabelą przykładów, którą przeliczyłem własną klasyfikacją.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.points.straight.made",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:82",
+   "content/pl/lessons/m5-l1-tekstury.md:98",
+   "content/pl/lessons/m5-l1-tekstury.md:99",
+   "content/pl/rules.yaml:334"
+  ],
+  "uzasadnienie": "Definicja aplikacji (umowa, nie rachunek); lekcja m5-l1:107-108 nazywa punkty i progi umową aplikacji. Wartość zgodna z opisem i z tabelą przykładów, którą przeliczyłem własną klasyfikacją.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.points.straight.made-one",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:83",
+   "content/pl/lessons/m5-l1-tekstury.md:96",
+   "content/pl/rules.yaml:334"
+  ],
+  "uzasadnienie": "Definicja aplikacji (umowa, nie rachunek); lekcja m5-l1:107-108 nazywa punkty i progi umową aplikacji. Wartość zgodna z opisem i z tabelą przykładów, którą przeliczyłem własną klasyfikacją.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.points.straight.none",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:91",
+   "content/pl/lessons/m5-l1-tekstury.md:92",
+   "content/pl/lessons/m5-l1-tekstury.md:93",
+   "content/pl/lessons/m5-l1-tekstury.md:97"
+  ],
+  "uzasadnienie": "Definicja aplikacji (umowa, nie rachunek); lekcja m5-l1:107-108 nazywa punkty i progi umową aplikacji. Wartość zgodna z opisem i z tabelą przykładów, którą przeliczyłem własną klasyfikacją.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.points.suits.monotone",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:85",
+   "content/pl/lessons/m5-l1-tekstury.md:97",
+   "content/pl/rules.yaml:334"
+  ],
+  "uzasadnienie": "Definicja aplikacji (umowa, nie rachunek); lekcja m5-l1:107-108 nazywa punkty i progi umową aplikacji. Wartość zgodna z opisem i z tabelą przykładów, którą przeliczyłem własną klasyfikacją.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.points.suits.rainbow",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:91",
+   "content/pl/lessons/m5-l1-tekstury.md:92",
+   "content/pl/lessons/m5-l1-tekstury.md:94",
+   "content/pl/lessons/m5-l1-tekstury.md:96",
+   "content/pl/lessons/m5-l1-tekstury.md:98"
+  ],
+  "uzasadnienie": "Definicja aplikacji (umowa, nie rachunek); lekcja m5-l1:107-108 nazywa punkty i progi umową aplikacji. Wartość zgodna z opisem i z tabelą przykładów, którą przeliczyłem własną klasyfikacją.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.points.suits.two-tone",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:85",
+   "content/pl/lessons/m5-l1-tekstury.md:93",
+   "content/pl/lessons/m5-l1-tekstury.md:95",
+   "content/pl/lessons/m5-l1-tekstury.md:99",
+   "content/pl/rules.yaml:334"
+  ],
+  "uzasadnienie": "Definicja aplikacji (umowa, nie rachunek); lekcja m5-l1:107-108 nazywa punkty i progi umową aplikacji. Wartość zgodna z opisem i z tabelą przykładów, którą przeliczyłem własną klasyfikacją.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.share.dry",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:108"
+  ],
+  "uzasadnienie": "Wyliczenie 22 100 flopów według punktów z lekcji (kolory 0/1/3; strit 3/2/1/0; progi <2, ≥3): suche 8164 (36,9%), pośrednie 9816 (44,4%), mokre 4120 (18,6%) → 37/44/19%. Lekcja podaje to jako wynik umowy aplikacji. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.share.medium",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:108"
+  ],
+  "uzasadnienie": "Wyliczenie 22 100 flopów według punktów z lekcji (kolory 0/1/3; strit 3/2/1/0; progi <2, ≥3): suche 8164 (36,9%), pośrednie 9816 (44,4%), mokre 4120 (18,6%) → 37/44/19%. Lekcja podaje to jako wynik umowy aplikacji. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.share.wet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:108"
+  ],
+  "uzasadnienie": "Wyliczenie 22 100 flopów według punktów z lekcji (kolory 0/1/3; strit 3/2/1/0; progi <2, ≥3): suche 8164 (36,9%), pośrednie 9816 (44,4%), mokre 4120 (18,6%) → 37/44/19%. Lekcja podaje to jako wynik umowy aplikacji. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.threshold.medium",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:87",
+   "content/pl/rules.yaml:334"
+  ],
+  "uzasadnienie": "Definicja aplikacji (umowa, nie rachunek); lekcja m5-l1:107-108 nazywa punkty i progi umową aplikacji. Wartość zgodna z opisem i z tabelą przykładów, którą przeliczyłem własną klasyfikacją.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tex.threshold.wet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:87",
+   "content/pl/rules.yaml:342"
+  ],
+  "uzasadnienie": "Definicja aplikacji (umowa, nie rachunek); lekcja m5-l1:107-108 nazywa punkty i progi umową aplikacji. Wartość zgodna z opisem i z tabelą przykładów, którą przeliczyłem własną klasyfikacją.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:value.ex.calls",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l1-value.md:22",
+   "content/pl/lessons/m8-l1-value.md:31",
+   "content/pl/lessons/m8-l1-value.md:40",
+   "content/pl/lessons/m8-l1-value.md:115"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(value.ex.many, value.ex.few) = 10 → „10” (decimals 0). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:value.ex.net",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l1-value.md:24",
+   "content/pl/lessons/m8-l1-value.md:33",
+   "content/pl/lessons/m8-l1-value.md:42",
+   "content/pl/lessons/m8-l1-value.md:115"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(value.ex.many, value.ex.few) = 2 → „2” (decimals 0). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.blocks",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:15",
+   "content/pl/lessons/m12-l1-wariancja.md:20",
+   "content/pl/lessons/m12-l1-wariancja.md:22",
+   "content/pl/lessons/m12-l1-wariancja.md:38",
+   "content/pl/lessons/m12-l1-wariancja.md:114"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(var.hands.k, var.blocks-per-k) = 1000 → „1000” (decimals 0). Tekst (miejsc: 5) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.blocks-per-k",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Stała 10 → „10” (definicja: 1000 rąk = 10 bloków po 100 rąk (winrate i odchyl). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.ci.half.bi",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:31"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(var.z95, var.sd.result.bi) = 49,5845 → „50” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.ci.high.bi",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:31",
+   "content/pl/lessons/m12-l1-wariancja.md:32",
+   "content/pl/lessons/m12-l1-wariancja.md:114"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(var.exp.bi, var.ci.half.bi) = 99,5845 → „100” (decimals 0). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.ci.low.bi",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:31",
+   "content/pl/lessons/m12-l1-wariancja.md:32",
+   "content/pl/lessons/m12-l1-wariancja.md:114"
+  ],
+  "uzasadnienie": "50 − 1,96 × 25,298 = 0,415 → „0” (0 miejsc). Tekst „od ok. 0 do ok. 100 wpisowych”, „prawie na zero”: słowo „ok.” pokrywa 0,4. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.ci.wr",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:40",
+   "content/pl/lessons/m12-l1-wariancja.md:47",
+   "content/pl/lessons/m12-l1-wariancja.md:48",
+   "content/pl/lessons/m12-l1-wariancja.md:57",
+   "content/pl/lessons/m12-l1-wariancja.md:125",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:68",
+   "content/pl/rules.yaml:957"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(var.z95, var.se.wr) = 4,95845 → „5,0bb/100” (decimals 1). Tekst (miejsc: 7) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.ci68.high.bi",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:32"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(var.exp.bi, var.sd.result.bi) = 75,2982 → „75” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.ci68.low.bi",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:32"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(var.exp.bi, var.sd.result.bi) = 24,7018 → „25” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.conf95",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m10.yaml:19",
+   "content/pl/exams/m12.yaml:7",
+   "content/pl/exams/m12.yaml:18",
+   "content/pl/exams/m12.yaml:19",
+   "content/pl/exams/m12.yaml:25",
+   "content/pl/exams/m12.yaml:36",
+   "content/pl/exams/m12.yaml:37",
+   "content/pl/lessons/m10-l1-statystyki.md:42",
+   "content/pl/lessons/m10-l1-statystyki.md:49",
+   "content/pl/lessons/m10-l1-statystyki.md:50",
+   "content/pl/lessons/m10-l1-statystyki.md:58",
+   "content/pl/lessons/m10-l1-statystyki.md:118",
+   "content/pl/lessons/m10-l1-statystyki.md:121",
+   "content/pl/lessons/m12-l1-wariancja.md:29",
+   "content/pl/lessons/m12-l1-wariancja.md:32",
+   "content/pl/lessons/m12-l1-wariancja.md:40",
+   "content/pl/lessons/m12-l1-wariancja.md:47",
+   "content/pl/lessons/m12-l1-wariancja.md:54",
+   "content/pl/lessons/m12-l1-wariancja.md:111",
+   "content/pl/lessons/m12-l1-wariancja.md:114",
+   "content/pl/lessons/m12-l1-wariancja.md:125",
+   "content/pl/lessons/m13-l1-raport.md:105",
+   "content/pl/rules.yaml:838",
+   "content/pl/rules.yaml:957",
+   "content/pl/rules.yaml:972"
+  ],
+  "uzasadnienie": "Stała 0,95 → „95%” (definicja: poziom ufności przedziału ±1,96 odchylenia w rozk). Tekst (miejsc: 25) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.exp.bb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:15",
+   "content/pl/lessons/m12-l1-wariancja.md:114"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(var.wr.ex, var.blocks) = 5000 → „5000bb” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.exp.bi",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:15",
+   "content/pl/lessons/m12-l1-wariancja.md:24",
+   "content/pl/lessons/m12-l1-wariancja.md:31",
+   "content/pl/lessons/m12-l1-wariancja.md:33",
+   "content/pl/lessons/m12-l1-wariancja.md:114"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(var.exp.bb, format.stack) = 50 → „50” (decimals 0). Tekst (miejsc: 5) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.need.blocks",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:56",
+   "content/pl/lessons/m12-l1-wariancja.md:58"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(var.need.ratio, var.need.ratio) = 6146,56 → „6147” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.need.hands.k",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:28",
+   "content/pl/lessons/m12-l1-wariancja.md:56",
+   "content/pl/lessons/m12-l1-wariancja.md:57",
+   "content/pl/lessons/m12-l1-wariancja.md:58",
+   "content/pl/lessons/m12-l1-wariancja.md:125",
+   "content/pl/rules.yaml:972"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(var.need.blocks, var.blocks-per-k) = 614,656 → „615” (decimals 0). Tekst (miejsc: 6) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.need.num",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(var.z95, var.sd) = 156,8 → „156,8” (decimals 1). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.need.ratio",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:56"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(var.need.num, var.target) = 78,4 → „78,4” (decimals 1). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.p.lose",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:67",
+   "content/pl/lessons/m12-l1-wariancja.md:114"
+  ],
+  "uzasadnienie": "Policzone niezależnie: Φ(z)(var.z.lose.neg) = 0,0240534 → „2,4%” (decimals 1). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.sd.result.bb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:22",
+   "content/pl/lessons/m12-l1-wariancja.md:23",
+   "content/pl/lessons/m12-l1-wariancja.md:114"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(var.sd, var.sqrt-blocks) = 2529,82 → „2530bb” (decimals 0). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.sd.result.bi",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:22",
+   "content/pl/lessons/m12-l1-wariancja.md:24",
+   "content/pl/lessons/m12-l1-wariancja.md:31",
+   "content/pl/lessons/m12-l1-wariancja.md:94",
+   "content/pl/lessons/m12-l1-wariancja.md:114"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(var.sd.result.bb, format.stack) = 25,2982 → „25,3” (decimals 1). Tekst (miejsc: 5) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.sd.sq",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:73",
+   "content/pl/lessons/m12-l4-bankroll.md:22"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(var.sd, var.sd) = 6400 → „6400” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.sd.wrong.bb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(var.sd, var.blocks) = 80000 → „80000bb” (decimals 0). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.sd.wrong.bi",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:23"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(var.sd.wrong.bb, format.stack) = 800 → „800” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.se.wr",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:40",
+   "content/pl/lessons/m12-l1-wariancja.md:125"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(var.sd, var.sqrt-blocks) = 2,52982 → „2,5bb/100” (decimals 1). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.sqrt-blocks",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:22",
+   "content/pl/lessons/m12-l1-wariancja.md:23",
+   "content/pl/lessons/m12-l1-wariancja.md:38",
+   "content/pl/lessons/m12-l1-wariancja.md:40",
+   "content/pl/lessons/m12-l1-wariancja.md:47",
+   "content/pl/lessons/m12-l1-wariancja.md:114"
+  ],
+  "uzasadnienie": "Policzone niezależnie: pierwiastek(var.blocks) = 31,6228 → „31,6” (decimals 1). Tekst (miejsc: 6) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.wr.ci.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:47",
+   "content/pl/lessons/m12-l1-wariancja.md:125",
+   "content/pl/rules.yaml:957"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(var.wr.ex, var.ci.wr) = 9,95845 → „10bb/100” (decimals 0). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.wr.ci.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:47",
+   "content/pl/lessons/m12-l1-wariancja.md:125",
+   "content/pl/rules.yaml:957"
+  ],
+  "uzasadnienie": "5 − 1,96 × 2,5298 = 0,042 → „0bb/100”. Tekst „między ok. 0bb/100 a 10bb/100” zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.z.lose",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:114"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloraz(var.exp.bi, var.sd.result.bi) = 1,97642 → „1,98” (decimals 2). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.z.lose.neg",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(math.minus-one, var.z.lose) = -1,97642 → „-1,98” (decimals 2). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.z95",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m10.yaml:19",
+   "content/pl/exams/m12.yaml:9",
+   "content/pl/exams/m12.yaml:18",
+   "content/pl/exams/m12.yaml:20",
+   "content/pl/exams/m12.yaml:27",
+   "content/pl/exams/m12.yaml:36",
+   "content/pl/lessons/m10-l1-statystyki.md:42",
+   "content/pl/lessons/m10-l1-statystyki.md:49",
+   "content/pl/lessons/m10-l1-statystyki.md:118",
+   "content/pl/lessons/m12-l1-wariancja.md:31",
+   "content/pl/lessons/m12-l1-wariancja.md:32",
+   "content/pl/lessons/m12-l1-wariancja.md:40",
+   "content/pl/lessons/m12-l1-wariancja.md:47",
+   "content/pl/lessons/m12-l1-wariancja.md:56",
+   "content/pl/lessons/m12-l1-wariancja.md:111",
+   "content/pl/lessons/m12-l1-wariancja.md:122",
+   "content/pl/rules.yaml:956",
+   "content/pl/rules.yaml:973"
+  ],
+  "uzasadnienie": "Φ⁻¹(0,975)=1,95996 → „1,96”; P(|Z|<1,96)=0,95000. Liczba poprawna, ale wpis rejestru ma level null (powinno być math), a pole miejsce wskazuje plik w /tmp innej sesji (nieodtwarzalny). Tekst (18 miejsc) zgodny.",
+  "poprawka": "w rejestrze: level „math”, miejsce na plik w repo albo opis rachunku",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:vs3bet.call",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(pf.3bet.ip-total, pf.open-size) = 5 → „5bb” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:vs3bet.pot-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100",
+   "content/pl/lessons/m9-l1-spr.md:23",
+   "content/pl/lessons/m9-l1-spr.md:26",
+   "content/pl/lessons/m9-l1-spr.md:54",
+   "content/pl/lessons/m9-l1-spr.md:124",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:59"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(pf.3bet.ip-total, pf.3bet.ip-total, pf.blind.sb, pf.blind.bb) = 16,5 → „16,5bb” (decimals 1). Tekst (miejsc: 6) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:vs3bet.pot-before",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: suma(pf.open-size, pf.open-size, pf.blind.sb, pf.blind.bb) = 6,5 → „6,5bb” (decimals 1). Brak użycia w treści (wielkość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:vs3bet.win",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:16",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:98"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(pf.open-size, pf.blind.sb, pf.blind.bb) = 4 → „4bb” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:xr.example",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l3-check-raise.md:26",
+   "content/pl/lessons/m6-l3-check-raise.md:36",
+   "content/pl/lessons/m6-l3-check-raise.md:41",
+   "content/pl/lessons/m6-l3-check-raise.md:44",
+   "content/pl/lessons/m6-l3-check-raise.md:53",
+   "content/pl/lessons/m6-l3-check-raise.md:135"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(ex.third.bet, xr.mult.example) = 135 → „135” (decimals 0). Tekst (miejsc: 6) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:xr.example.extra",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l3-check-raise.md:26",
+   "content/pl/lessons/m6-l3-check-raise.md:44",
+   "content/pl/lessons/m6-l3-check-raise.md:135"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(xr.example, ex.third.bet) = 105 → „105” (decimals 0). Tekst (miejsc: 3) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:xr.example.pot-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l3-check-raise.md:44"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(ex.third.pot, ex.third.bet, xr.example) = 255 → „255” (decimals 0). Tekst (miejsc: 1) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:xr.too-small",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l3-check-raise.md:27",
+   "content/pl/lessons/m6-l3-check-raise.md:49",
+   "content/pl/lessons/m6-l3-check-raise.md:53",
+   "content/pl/lessons/m6-l3-check-raise.md:135"
+  ],
+  "uzasadnienie": "Policzone niezależnie: iloczyn(ex.third.bet, xr.too-small.mult) = 45 → „45” (decimals 0). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:xr.too-small.extra",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l3-check-raise.md:27",
+   "content/pl/lessons/m6-l3-check-raise.md:52",
+   "content/pl/lessons/m6-l3-check-raise.md:53",
+   "content/pl/lessons/m6-l3-check-raise.md:54"
+  ],
+  "uzasadnienie": "Policzone niezależnie: różnica(xr.too-small, ex.third.bet) = 15 → „15” (decimals 0). Tekst (miejsc: 4) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:xr.too-small.pot-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l3-check-raise.md:52",
+   "content/pl/lessons/m6-l3-check-raise.md:54"
+  ],
+  "uzasadnienie": "Policzone niezależnie: suma(ex.third.pot, ex.third.bet, xr.too-small) = 165 → „165” (decimals 0). Tekst (miejsc: 2) opisuje tę wielkość poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ }
+]
