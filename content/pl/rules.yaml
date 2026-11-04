@@ -63,9 +63,9 @@
   if: "ktoś {{t:bet|postawił}}, a nie chcesz grać dalej"
   then: "{{t:fold|pasujesz}}"
   because: "tracisz tylko to, co już wpłaciłeś; każde {{t:call}} bez powodu to dodatkowa strata"
-  level: rules
-  source: "zasady Texas Hold'em: Robert's Rules of Poker (https://briggsoft.com/docs/pmavens/Rules_Roberts.htm), sekcja 3 (dokument 12 M0–M3)"
-  sources: [{ kind: rules, url: "https://briggsoft.com/docs/pmavens/Rules_Roberts.htm" }]
+  level: math
+  source: "obliczenie: pas kończy udział bez dalszych wpłat, więc strata to tylko to, co już wpłacone; sprawdzenie ręką, z którą nie grasz dalej, zwiększa stratę o kwotę sprawdzenia"
+  sources: [{ kind: math }]
 - id: R-M1-004
   module: m1
   if: "rozdanie przechodzi do kolejnej {{t:betting-round|rundy licytacji}}"
@@ -190,7 +190,7 @@
   module: m3
   if: "wszyscy {{t:fold|spasowali}} do ciebie na {{t:small-blind|małym blindzie}}"
   then: "{{t:open|otwierasz}} szeroko, ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, {{t:raise|przebiciem}} do {{n:pf.open-size-sb}} albo {{t:fold|pasem}} (uproszczenie: niektóre rozwiązania solverów część rąk z {{t:small-blind|małego blinda}} dopłacają)"
-  because: "grasz już tylko przeciw {{t:big-blind|dużemu blindowi}}; po flopie mówisz pierwszy, więc nie {{t:open|otwierasz}} szerzej niż z Buttona tylko dlatego, że rywal jest jeden"
+  because: "grasz już tylko przeciw {{t:big-blind|dużemu blindowi}}; po flopie mówisz pierwszy, więc {{t:open|otwierasz}} mniej więcej tak szeroko jak z Buttona, a nie dużo szerzej"
   level: gto
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [rfi.sb, nine.rfi.sb] }
   source: "serwis z tabelami solvera, SB open 6-max 100bb NL500 (https://beyondgto.com/ranges/sb-open-6max-100bb): ok. 44%, raise-or-fold; serwis szkoleniowy, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): 40–50%; serwis z tabelami preflop (https://www.preflopwizard.app/blog/6-max-preflop-charts): 39–47%; przedział 40–45% to część wspólna strategii bez limpów (dokument 12, D3). Uproszczenie raise-or-fold (D-144): serwis szkoleniowy z tabelami solvera (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics): „The small blind raises (3bb) 33.1% : completes (limps) 20.5%”"
@@ -227,11 +227,11 @@
 - id: R-M4-003
   module: m4
   if: "jesteś na {{t:small-blind|małym blindzie}}, a {{t:open|otworzył}} {{t:cutoff|CO}} albo Button"
-  then: "prawie nie {{t:call|sprawdzasz}}: 3-betujesz albo {{t:fold|pasujesz}}; wobec Buttona 3-betujesz górę {{t:range|zakresu}} (ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, m.in. 77+ (55 i 66 często), AJo+, KQo, A5s, A4s, T9s), a resztę {{t:fold|pasujesz}}"
+  then: "prawie nie {{t:call|sprawdzasz}}: 3-betujesz albo {{t:fold|pasujesz}} (wobec {{t:cutoff|CO}} to uproszczenie: opublikowane rozwiązanie liczy spot wobec Buttona); wobec Buttona 3-betujesz górę {{t:range|zakresu}} (ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, m.in. 77+ (55 i 66 często), AJo+, KQo, A5s, A4s, T9s), a resztę {{t:fold|pasujesz}}"
   because: "po {{t:call|sprawdzeniu}} z {{t:small-blind|małego blinda}} grasz {{t:out-of-position}}, a {{t:big-blind}} za tobą może jeszcze {{t:raise|przebić}}; 3-bet daje {{t:initiative|inicjatywę}} i szansę wygrania {{t:pot|puli}} od razu"
   level: gto
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [vs-open.sb-vs-btn, nine.vs-open.sb-vs-btn] }
-  source: "serwis z tabelami solvera, SB vs BTN (https://beyondgto.com/defense/sb-vs-btn), NL500, 100bb: „GTO defends the Small Blind with about 18% of hands - roughly 5% as a flat call and 13% as a 3-bet”, 55 3-bet 57%, 66 62%; serwis komercyjnego solvera, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, SB vs BTN: „the SB barely calls anything. Instead, they almost exclusively 3-bet or fold”; serwis szkoleniowy, 3-Bet Preflop Strategy (https://upswingpoker.com/3-bet-strategy-aggressive-preflop/): „3-bet-or-fold strategies from every position except the Big Blind” (dokument 10, rozstrzygnięcie B-045: treść R-M4-015 włączona do R-M4-003; liczba 14% z grafiki zastąpiona odczytanym tekstem, E1)"
+  source: "serwis z tabelami solvera, SB vs BTN (https://beyondgto.com/defense/sb-vs-btn), NL500, 100bb: „GTO defends the Small Blind with about 18% of hands - roughly 5% as a flat call and 13% as a 3-bet”, 55 3-bet 57%, 66 62%; serwis komercyjnego solvera, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, SB vs BTN: „the SB barely calls anything. Instead, they almost exclusively 3-bet or fold”, uogólnienie na mały blind: „As a simplification, don’t cold-call from the SB: Play a 3-bet or fold strategy.”; serwis szkoleniowy, 3-Bet Preflop Strategy (https://upswingpoker.com/3-bet-strategy-aggressive-preflop/): „3-bet-or-fold strategies from every position except the Big Blind” (dokument 10, rozstrzygnięcie B-045: treść R-M4-015 włączona do R-M4-003; liczba 14% z grafiki zastąpiona odczytanym tekstem, E1)"
   sources: [{ kind: solver-pub, url: "https://beyondgto.com/defense/sb-vs-btn" }, { kind: solver-pub, url: "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/" }, { kind: training, url: "https://upswingpoker.com/3-bet-strategy-aggressive-preflop/" }]
 - id: R-M4-004
   module: m4
@@ -244,7 +244,7 @@
   sources: [{ kind: math }, { kind: solver-pub, url: "https://beyondgto.com/defense/bb-vs-btn" }, { kind: solver-pub, url: "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide" }, { kind: solver-app }]
 - id: R-M4-005
   module: m4
-  if: "z {{t:position|pozycji}} {{t:raise|przebijasz}} {{t:open}} z {{t:hijack|HJ}} albo {{t:cutoff|CO}}"
+  if: "z {{t:position|pozycji}} {{t:raise|przebijasz}} {{t:open}} z {{t:cutoff|CO}}"
   then: "3-betujesz głównie najlepsze ręce od góry i dokładasz kilka {{t:bluff|blefów}} z asami w kolorze (A5s, A4s); średnie ręce (np. 77–99, AJs, ATs, {{t:connectors|konektory}} w kolorze) grasz mieszanie: część 3-betujesz, część {{t:call|sprawdzasz}}. Button wobec {{t:cutoff|CO}} zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a {{t:call|sprawdza}} ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}"
   because: "rywal często {{t:call|sprawdza}}, więc chcesz mieć rękę, która dobrze gra w {{t:pot|puli}} po {{t:call|sprawdzeniu}}"
   level: gto
@@ -265,7 +265,7 @@
   then: "{{t:fold|pasujesz}} ok. {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}} {{t:open|otwarć}}, {{t:call|sprawdzasz}} ok. {{n:pf.vs3bet.call.low}}–{{n:pf.vs3bet.call.high}}, a 4-betujesz ok. {{n:pf.vs3bet.4bet.low}}–{{n:pf.vs3bet.4bet.high}}"
   because: "przy pasowaniu częściej niż {{n:alpha.vs-3bet-ip-size}} rywal zarabia na 3-becie z każdą ręką, więc {{t:fold|pasujesz}} tuż poniżej tego progu"
   level: heuristic
-  source: "przedział obejmujący źródła (ADR-24): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów; serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega); próg z obliczenia (dokument 12 M4–M6, D-04)"
+  source: "przedział bliski źródłom, z górną granicą pasów tuż pod progiem z obliczenia (ADR-24): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów; serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega); próg z obliczenia (dokument 12 M4–M6, D-04)"
   sources: [{ kind: solver-pub, url: "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide" }, { kind: training, url: "https://pailiku.com/charts/co-vs-btn-3bet" }, { kind: training }, { kind: math }]
 - id: R-M4-008
   module: m4
@@ -381,7 +381,7 @@
 - id: R-M5-007
   module: m5
   if: "jako {{t:aggressor}} preflop masz {{t:position|pozycję}}, a flop jest {{t:dry}} i wysoki, np. K-7-2 w trzech kolorach"
-  then: "c-betujesz często i mało, ok. {{n:cbet.size.small}} {{t:pot|puli}}"
+  then: "c-betujesz często i mało, ok. {{n:cbet.size.small}} {{t:pot|puli}} (uproszczenie: solver na takich flopach używa też {{t:overbet|overbetu}})"
   because: "masz {{t:range-advantage|przewagę zakresu}}, a słabe ręce rywala prawie nie mają szans: mały {{t:bet}} wystarczy, żeby je {{t:fold|spasował}}, a gorsze {{t:pair|pary}} wciąż go {{t:call|sprawdzą}}"
   level: heuristic
   check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
@@ -458,10 +458,10 @@
 - id: R-M6-003
   module: m6
   if: "dostajesz bet na flopie {{t:out-of-position}}"
-  then: "możesz bronić trochę mniej, niż wskazuje {{t:mdf}}; {{t:mdf}} traktujesz jako punkt odniesienia, nie obowiązek, ale na małe c-bety nie {{t:fold|pasujesz}} masowo"
+  then: "możesz bronić mniej, niż wskazuje {{t:mdf}} (na flopach złych dla obrońcy wyraźnie mniej); {{t:mdf}} traktujesz jako punkt odniesienia, nie obowiązek, ale na małe c-bety nie {{t:fold|pasujesz}} masowo"
   because: "{{t:bluff|blefy}} rywala mają jeszcze equity i mogą się poprawić, a {{t:out-of-position}} nie zrealizujesz całego equity swoich słabych rąk"
   level: heuristic
-  source: "serwis komercyjnego solvera, MDF & Alpha (https://blog.gtowizard.com/mdf-alpha: „On average, BB is consistently over-folding to all bet sizes on the flop”; z pozycji „calls much closer to MDF on average”); na turnie solver broni średnio blisko MDF: serwis szkoleniowy, What the Best Poker Pros Already Know About Playing vs. Double Barrels (https://upswingpoker.com/vs-double-barrels-turn/); obrona na małe c-bety: R-M6-006"
+  source: "serwis komercyjnego solvera, MDF & Alpha (https://blog.gtowizard.com/mdf-alpha: „On average, BB is consistently over-folding to all bet sizes on the flop”; z pozycji „calls much closer to MDF on average”); w jednym przykładzie z turnu solver bronił średnio blisko MDF: serwis szkoleniowy, What the Best Poker Pros Already Know About Playing vs. Double Barrels (https://upswingpoker.com/vs-double-barrels-turn/); obrona na małe c-bety: R-M6-006"
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/mdf-alpha" }, { kind: training, url: "https://upswingpoker.com/vs-double-barrels-turn/" }]
 - id: R-M6-004
   module: m6
@@ -491,7 +491,7 @@
 - id: R-M6-007
   module: m6
   if: "masz dwie wysokie karty bez {{t:pair|pary}} i bez {{t:draw|drawa}}, a c-bet jest duży (3/4 {{t:pot|puli}} i więcej)"
-  then: "zwykle {{t:fold|pasujesz}}"
+  then: "zwykle {{t:fold|pasujesz}} (na {{t:dry|suchych}} flopach z królem solver {{t:call|sprawdza}} jednak wiele rąk z asem)"
   because: "{{t:out-of-position}} taka ręka rzadko dochodzi do showdownu, a {{t:pair}} z wysokiej karty często i tak przegrywa; {{t:call|sprawdzasz}} raczej wtedy, gdy masz dodatkowy {{t:draw}}, najlepiej do najwyższego {{t:flush|koloru}}"
   level: heuristic
   source: "serwis szkoleniowy, When to Call With Ace-High (J42, 66%: „the solver does not call with any Ace-high hand that doesn't have a significant backdoor draw”); serwis szkoleniowy, Defending the BB on High Card Boards (K84: solver sprawdza część asów także wobec 2/3 puli)"

@@ -82,7 +82,7 @@ Jeśli po licytacji na riverze w grze zostało co najmniej dwóch graczy, odkryw
 
 ## Dostępne ruchy
 
-- **{{t:check|Czekam}}**: nic nie wpłacasz. Tylko gdy w tej rundzie nikt przed tobą jeszcze nic nie wpłacił.
+- **{{t:check|Czekam}}**: nic nie wpłacasz. Tylko gdy w tej rundzie nikt przed tobą nie {{t:bet|postawił}} ani nie {{t:raise|przebił}} (przed flopem {{t:big-blind|duży blind}} może {{t:check|czekać}}, gdy nikt nie {{t:raise|przebił}}).
 - **{{t:bet|Stawiam}}**: pierwszy {{t:bet}} w rundzie. We wzorach w dalszych lekcjach piszemy krótko „bet”.
 - **{{t:call|Sprawdzam}}**: dorównujesz do {{t:bet|zakładu}} przeciwnika.
 - **{{t:raise|Przebijam}}**: podnosisz cudzy {{t:bet}}.

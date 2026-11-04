@@ -16,7 +16,7 @@ drills:
     rules: [R-M1-001]
     prompt: "Rywal przed tobą {{t:bet|postawił}}. Którego ruchu nie możesz teraz wykonać?"
     options:
-      - { text: "{{t:check|Czekać}}", correct: true, why: "{{t:check|Czekać}} można tylko wtedy, gdy w tej rundzie nikt nic nie wpłacił. Teraz musisz {{t:fold|spasować}}, {{t:call|sprawdzić}} albo {{t:raise|przebić}}." }
+      - { text: "{{t:check|Czekać}}", correct: true, why: "{{t:check|Czekać}} można tylko wtedy, gdy w tej rundzie nikt przed tobą nie {{t:bet|postawił}} ani nie {{t:raise|przebił}}. Teraz musisz {{t:fold|spasować}}, {{t:call|sprawdzić}} albo {{t:raise|przebić}}." }
       - { text: "{{t:raise|Przebić}}", why: "{{t:raise|Przebicie}} jest możliwe właśnie dlatego, że jest {{t:bet}} do podniesienia." }
       - { text: "{{t:fold|Spasować}}", why: "{{t:fold|Pas}} jest zawsze dostępny, gdy trzeba dopłacić." }
   - kind: choice

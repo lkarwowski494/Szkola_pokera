@@ -30,7 +30,7 @@ drills:
     family: m5.cbet.oop
     rules: [R-M5-012]
     prompt: "{{t:open|Otworzyłeś}} z {{t:cutoff|CO}}, Button {{t:call|sprawdził}}, blindy {{t:fold|spasowały}}. Masz {{t:top-pair|najwyższą parę}} z najlepszym kickerem na {{t:dry|suchym}} flopie. Mówisz pierwszy. Co robisz?"
-    table: { hand: "Ah Kc", position: CO, board: "As 7d 2c" }
+    table: { hand: "Ah Kc", position: CO, board: "As 9h 4c" }
     options:
       - { text: "{{t:check|Czekam}} (żeby {{t:call|sprawdzić}} {{t:bet}} Buttona)", correct: true, why: "Tak: Button {{t:call|sprawdzał}} z {{t:position|pozycji}}, więc jego {{t:range}} jest silny, a na tym flopie solver {{t:out-of-position}} {{t:check|czeka}} prawie całym {{t:range|zakresem}}, także {{t:top-pair|najwyższą parą}} z najlepszym kickerem. Po {{t:check|czekaniu}} {{t:call|sprawdzasz}} {{t:bet}} Buttona." }
       - { text: "C-bet {{n:cbet.size.small}} {{t:pot|puli}}", why: "Za często: w tym układzie solver betuje w mniej niż {{n:cbet.oop.a94.bet}} przypadków. {{t:top-pair|Najwyższą parę}} z najlepszym kickerem grasz {{t:check|czekaniem}} i {{t:call|sprawdzeniem}}." }
@@ -53,7 +53,7 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z {{t:cutoff|CO}}, {{t:call|sprawdzili}} Button i {{t:big-blind}}. {{t:big-blind|Duży blind}} {{t:check|czeka}}. Masz {{t:top-pair|najwyższą parę}} z dobrym kickerem. Co robisz?"
     table: { hand: "Kd Qd", position: CO, board: "Ks 8c 3h" }
     options:
-      - { text: "{{t:check|Czekam}}", correct: true, why: "Tak: w {{t:pot|puli}} wieloosobowej na {{t:dry|suchym}} flopie solver {{t:check|czeka}} bardzo często, nawet bardzo silnymi rękami. Sprawdzający Button ma dużo króli (KJs, KTs), więc {{t:range-advantage}} znika." }
+      - { text: "{{t:check|Czekam}}", correct: true, why: "Tak: w {{t:pot|puli}} wieloosobowej na {{t:dry|suchym}} flopie solver {{t:check|czeka}} bardzo często, nawet bardzo silnymi rękami, bo dwóch {{t:call|sprawdzających}} razem częściej trafiło flop." }
       - { text: "Betuję {{t:value|dla wartości}}", why: "Przeciw dwóm rywalom na {{t:dry|suchym}} flopie solver {{t:check|czeka}} nawet z bardzo silną ręką; betujesz rzadko i mało, głównie gdy flop dobrze trafia twój {{t:range}}." }
       - { text: "{{t:fold|Pasuję}}", why: "Nikt nie {{t:bet|postawił}}, więc możesz {{t:check|czekać}} za darmo. {{t:fold|Pas}} byłby oddaniem {{t:pot|puli}}, w której prawdopodobnie prowadzisz." }
   - kind: choice

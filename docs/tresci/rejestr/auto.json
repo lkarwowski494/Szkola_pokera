@@ -825,6 +825,31 @@
   "uwagi": ""
  },
  {
+  "id": "n:odds.oesd.rule-flop",
+  "rodzaj": "liczba",
+  "level": "math",
+  "twierdzenie": "odds.oesd.rule-flop = (formuła ruleOf2And4) [percent]; reguła 2 i 4",
+  "zrodla": [
+   {
+    "adres": "rachunek: ruleOf2And4(outs.oesd, streets.flop-river)",
+    "miejsce": "content/numbers.yaml",
+    "cytat": "outy × 4 przy dwóch kartach do odkrycia: 8 × 4 = 32",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": "reguła 2 i 4 to przybliżenie; wynik dokładny: n:odds.oesd.flop-river",
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "odds.oesd.rule-flop",
+  "wartosc": null,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "E3 S3 2026-11-04 (A6, sprawa przekrojowa exams/m2.yaml:38): egzamin m2.exam.q3 rozdziela szacunek z reguły 4 (32%) i wynik dokładny (31,5%) zamiast „8 × 4 ≈ 31,5%”."
+ },
+ {
   "id": "n:streets.next-card",
   "rodzaj": "liczba",
   "level": "math",
@@ -2333,9 +2358,16 @@
  {
   "id": "n:cbet.oop.a94.bet",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "heuristic",
   "twierdzenie": "cbet.oop.a94.bet = (formuła diff) [percent]; obliczenie: 100% minus częstość czekania (serwis szkoleniowy, A94r)",
   "zrodla": [
+   {
+    "adres": "https://pokercoaching.com/blog/c-bet-on-ace-high-boards/",
+    "miejsce": "przykład A94r (CO vs BTN, 100bb)",
+    "cytat": "That being said, we will check over 96% of the time.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
    {
     "adres": "rachunek: diff(prob.certain, cbet.oop.a94.check)",
     "miejsce": "docs/tresci/odczyty/rachunek-2026-11-04.txt",
@@ -2353,7 +2385,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": "E3 S3 2026-11-04 (A5): twierdzenie „solver betuje w mniej niż 4%” stoi na cytacie serwisu szkoleniowego (szczebel 4, A94r); rachunek 1 − 0,96 jest drugim źródłem (szczebel 1, tylko odejmowanie). Poziom math → heuristic jak n:cbet.oop.a94.check. Stół zadania m5.l4.q-oop-strong to teraz A♠9♥4♣."
  },
  {
   "id": "n:tex.points.straight.made",
@@ -12976,7 +13008,7 @@
     "szczebel": 1
    }
   ],
-  "status": "potwierdzone",
+  "status": "wycofane",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
@@ -12985,7 +13017,8 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": "E3 S3 2026-11-04 (A5, sprawa przekrojowa „1/4 puli”): ta sama wielkość (bet/(pula+2·bet) przy becie 1/4 puli) miała dwa zapisy: 17% w lekcjach i 16,7% w egzaminach M6 i M7. Egzaminy używają teraz klucza n:eq.bet-quarter; klucz usunięty z numbers.yaml.",
+  "nastepca": "n:eq.bet-quarter"
  },
  {
   "id": "n:exam.m6.eq.three-quarters",
@@ -13151,7 +13184,7 @@
     "szczebel": 1
    }
   ],
-  "status": "potwierdzone",
+  "status": "wycofane",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
@@ -13160,7 +13193,8 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": "E3 S3 2026-11-04 (A5, sprawa przekrojowa „1/4 puli”): ta sama wielkość (bet/(pula+2·bet) przy becie 1/4 puli) miała dwa zapisy: 17% w lekcjach i 16,7% w egzaminach M6 i M7. Egzaminy używają teraz klucza n:eq.bet-quarter; klucz usunięty z numbers.yaml.",
+  "nastepca": "n:eq.bet-quarter"
  },
  {
   "id": "n:exam.m7.eq.three-quarters",

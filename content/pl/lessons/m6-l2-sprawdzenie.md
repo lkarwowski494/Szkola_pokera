@@ -129,6 +129,6 @@ Pamiętaj z M2: {{t:call}} {{t:bet|zakładu}} na flopie kupuje jedną kartę, wi
 ## Czym {{t:fold|pasujesz}}
 
 - rękami bez {{t:pair|pary}} i bez {{t:draw|drawa}}, które nie mają asa ani kart wyższych od stołu; na flopach z asem {{t:fold|pasujesz}} ich więcej,
-- zwykle dwiema wysokimi kartami bez {{t:draw|drawa}}, gdy c-bet jest duży; {{t:call|sprawdzasz}} raczej wtedy, gdy masz dodatkowy {{t:draw}}, najlepiej do najwyższego {{t:flush|koloru}}.
+- zwykle dwiema wysokimi kartami bez {{t:draw|drawa}}, gdy c-bet jest duży (na {{t:dry|suchych}} flopach z królem solver {{t:call|sprawdza}} jednak wiele rąk z asem); {{t:call|sprawdzasz}} raczej wtedy, gdy masz dodatkowy {{t:draw}}, najlepiej do najwyższego {{t:flush|koloru}}.
 
 Gdy c-bet rośnie, kolejne najsłabsze ręce przechodzą ze {{t:call|sprawdzenia}} do pasa.
