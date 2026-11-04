@@ -276,3 +276,18 @@ Czas właściciela na wydanie TestFlight: ~15–25 min (pozycje „co wydanie”
 | K-14 | sumy SHA-256 `user.db*` przed i po | integracyjny | Node + telefon (aktualizacja z 1008) | bramka |
 | K-15 | UPSERT a wiersze podrzędne, kaskady przez port | integracyjny | Node | bramka |
 Żadna pozycja nie jest pominięta. „Bramka” obowiązuje od commitu, który wprowadza testowany kod (rola 08); wcześniej test leży w `tests/akceptacja/` (D-175).
+
+## 9. Testy akceptacyjne: kryterium → test → stan (E3, w toku)
+Uruchomienie: `pnpm test:akceptacja` (D-175; poza `pnpm run ci`). Stan na `1dc5869`: 55 testów, 55 czerwonych z właściwego powodu; główny zestaw `pnpm run ci` kod 0 (608 testów).
+
+| Kryterium / kontrola | Test | Stan (fragment wyniku) |
+|---|---|---|
+| BR-LIM-001-a–d, BR-LIM-003-a, BR-LIM-005-a, ADR 0007 Pro (K-05) | `tests/akceptacja/domena/limit.test.ts` (9 stref × dni przejść, D-177) | czerwony: `Error: NIEZAIMPLEMENTOWANE: limitDnia …` / `mozeStartowac …`; z najprostszym wynikiem (`{ bezLimitu: true }`) 27/31 czerwone na asercji, np. `America/New_York 2026-01-01: expected { bezLimitu: true } to deeply equal { bezLimitu: false, …(2) }` (próba 2026-11-04, cofnięta) |
+| BR-ZAK-003 / 9 wektorów dostępu (K-05) | `tests/akceptacja/domena/dostep.test.ts` | czerwony: `NIEZAIMPLEMENTOWANE: decyzja (ADR 0006, BR-ZAK-003)` |
+| BR-DANE-002-a, -c, -d; ADR 0008 pkt 3 | `tests/akceptacja/domena/eksport.test.ts` | czerwony: `NIEZAIMPLEMENTOWANE: walidujEksport …`, `… migrujFormat …` |
+| RYZ-03 / ER-11 (RD-05-W6, -W7, RD-08-W4) | `tests/akceptacja/poker-core/brd-wektory.test.ts` | czerwony na asercji: `błąd danych ma być odrzucony: expected [Function] to throw an error` |
+| BR-CWI-001 (RD-11-W6, -W9; ER-01, L-06) | `tests/akceptacja/poker-core/rd11-ocena.test.ts` | czerwony na asercji: `expected 'wrong' to be 'inaccuracy'` |
+| K-03 | `packages/domena/test/k03-stany.test.ts` | zielony; mutacja (`test_powtorny` w liście) → czerwony |
+| R-24–R-28 (JAK-E1-02): RD-01–RD-09 (52), RD-10 (11), RD-11 (7) | `packages/poker-core/test/brd-wektory.test.ts`, `rd10-uklady.test.ts`, `rd11-ocena.test.ts` | zielone; mutacja `requiredEquity` (`pot + bet`) → RD-01-W1–W3 czerwone |
+| JAK-E0-01 | `apps/mobile/e2e/03-slowniczek.yaml` (termin z treści) | nieuruchomione (macOS); przebieg E2E na gałęzi czeka na zgodę |
+Pozostałe kryteria (92 scenariusze + 13 NFR, K-02, K-04, K-06–K-15, flowy 05–09, workflowy) — kolejne części E3.
