@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>F Mieszanie farb: Decyzja w sesji</title>
+<!-- Runda 2 E2 (D-116): element firmowy = pasek strategii mieszanej drukowany dwiema farbami (druk risograficzny):
+     strategia mieszana = dwie farby na jednym pasku. Treść prawdziwa: spot rfi.co, J9o: pas 0.8, przebicie 2.5bb 0.2
+     (content/ranges/preflop-6max-100bb.json, path „UTG:fold,HJ:fold”); progi thresholds.ts; zdania text.pl.ts.
+     [PRZYKŁAD]: kolory kart, numer zadania. Barwy farb: nazwy farb risografu, hex dobrany okiem (przybliżenie, bez źródła normy). -->
+<link rel="stylesheet" href="wspolne.css">
+<style>
+:root {
+  --tlo: #FFE14D;          /* papier w farbie żółtej */
+  --tusz: #17215C;         /* granat „federal” */
+  --drugi: #3A3A5C;
+  --niebieska: #0078BF;    /* farba niebieska: pas */
+  --rozowa: #FF48B0;       /* farba fluorescencyjna różowa: przebicie */
+  --na-niebieskiej: #FFFFFF;
+  --na-rozowej: #17215C;
+  --akcent-tekst: #17215C;
+  --kier: #C8232B;
+  --tytul: 'Big Shoulders Display', sans-serif;
+}
+[data-theme="dark"] {
+  --tlo: #171B45;          /* granatowy papier */
+  --tusz: #FFE98A;
+  --drugi: #D9D3A6;
+  --niebieska: #3AA0FF;
+  --rozowa: #FF5CBB;
+  --na-niebieskiej: #0B0E2A;
+  --na-rozowej: #0B0E2A;
+  --akcent-tekst: #FFE98A;
+  --kier: #FF8A8A;
+}
+main[data-ekran]::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.18; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E"); }
+[data-theme="dark"] main[data-ekran]::after { mix-blend-mode: screen; opacity: 0.08; }
+.plakat { padding: 0 16px; position: relative; }
+.plakat .kontekst { font-size: var(--t-przypis); font-weight: 600; margin-top: 6px; }
+.plakat h1 { font-family: var(--tytul); font-weight: 800; font-size: min(calc(2.25rem * var(--dt-tytul)), calc(var(--w) * 0.12)); line-height: 1; text-transform: none; margin-top: 4px; }
+.reka-duza { position: relative; margin-top: 10px; font-family: var(--tytul); font-weight: 800; font-size: min(calc(10rem * var(--dt-tytul)), calc(var(--w) * 0.42)); line-height: 0.85; color: var(--niebieska); }
+.reka-duza span.cien { position: absolute; left: 6px; top: 5px; color: var(--rozowa); mix-blend-mode: multiply; }
+[data-theme="dark"] .reka-duza span.cien { mix-blend-mode: screen; }
+.reka-duza span.lico { position: relative; }
+.karty { display: flex; gap: 8px; align-items: center; margin-top: 12px; flex-wrap: wrap; font-size: var(--t-przypis); }
+.karta { width: 46px; height: 64px; border: 2px solid var(--tusz); border-radius: 6px; padding: 4px 5px; background: #FFFFFF; color: #17215C; display: flex; flex-direction: column; }
+.karta b { font-family: var(--tytul); font-weight: 800; font-size: 26px; line-height: 1; }
+.karta svg { width: 16px; height: 16px; fill: currentColor; }
+.karta.czerwona { color: var(--kier); }
+[data-theme="dark"] .karta.czerwona { color: #C8232B; }
+
+/* Pasek-druk: przed decyzją dwie równe farby = przyciski */
+.druk { margin: auto 0 0; display: flex; min-height: 150px; }
+.druk { flex-wrap: wrap; }
+.druk a { flex: 1 1 calc(70px * var(--dt-tresc)); display: flex; flex-direction: column; justify-content: flex-end; padding: 14px 16px 44px; text-decoration: none; font-size: var(--t-przypis); font-weight: 600; }
+.druk a b { font-family: var(--tytul); font-weight: 800; font-size: min(calc(3rem * var(--dt-tytul)), calc(var(--w) * 0.15)); line-height: 0.95; }
+.druk .n { background: var(--niebieska); color: var(--na-niebieskiej); }
+.druk .r { background: var(--rozowa); color: var(--na-rozowej); }
+
+.ocena { padding: 0 16px; }
+.ocena h2 { font-family: var(--tytul); font-weight: 800; font-size: min(calc(3.25rem * var(--dt-tytul)), calc(var(--w) * 0.14)); line-height: 0.95; margin-top: 8px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.ocena h2 i { font-style: normal; width: 0.8em; height: 0.8em; border-radius: 50%; background: var(--rozowa); color: var(--na-rozowej); display: inline-flex; align-items: center; justify-content: center; font-size: 0.6em; }
+.ocena p { font-size: var(--t-tresc); line-height: 1.4; margin-top: 8px; }
+.pasmo { margin-top: 26px; position: relative; }
+.pasmo .os { display: flex; height: 120px; }
+.pasmo .n { width: 80%; background: var(--niebieska); color: var(--na-niebieskiej); display: flex; align-items: flex-end; padding: 10px 14px; font-family: var(--tytul); font-weight: 800; font-size: min(calc(2.75rem * var(--dt-tytul)), calc(var(--w) * 0.13)); }
+.pasmo .r { width: 20%; background: var(--rozowa); box-shadow: -8px 0 0 0 color-mix(in srgb, var(--rozowa) 55%, var(--niebieska)); /* nakład farb na styku */ color: var(--na-rozowej); display: flex; align-items: flex-end; justify-content: flex-end; padding: 10px 8px; font-family: var(--tytul); font-weight: 800; font-size: min(calc(2.75rem * var(--dt-tytul)), calc(var(--w) * 0.1)); }
+[data-theme="dark"] .pasmo .r { mix-blend-mode: normal; }
+.pasmo .znacznik { position: absolute; left: 90%; top: -24px; transform: translateX(-50%); border-left: 15px solid transparent; border-right: 15px solid transparent; border-top: 22px solid var(--tusz); }
+.pasmo .podpis { display: flex; justify-content: space-between; padding: 6px 16px 0; font-size: var(--t-przypis); font-weight: 600; flex-wrap: wrap; gap: 6px; }
+.stopnie { display: flex; gap: 6px; margin: 14px 16px 0; flex-wrap: wrap; }
+.stopnie span { flex: 1 1 80px; border: 2px solid var(--tusz); padding: 4px 8px; font-size: min(var(--t-drobny), calc(var(--w) * 0.06)); line-height: 1.25; }
+.stopnie span.tu { background: var(--tusz); color: var(--tlo); }
+.stopnie b { display: block; }
+.dol { margin: auto 16px 40px; padding-top: 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.dol .link { color: var(--tusz); text-decoration: underline; }
+.dalej { background: var(--tusz); color: var(--tlo); padding: 12px 34px; min-height: 56px; display: inline-flex; align-items: center; font-family: var(--tytul); font-weight: 800; font-size: calc(1.5rem * var(--dt-tresc)); text-decoration: none; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pik" viewBox="0 0 24 24"><path d="M12 2C9 6 4 9 4 13.5 4 16 6 18 8.5 18c1.3 0 2.4-.5 3-1.3-.2 1.9-1 3.4-2.5 4.8h6c-1.5-1.4-2.3-2.9-2.5-4.8.6.8 1.7 1.3 3 1.3 2.5 0 4.5-2 4.5-4.5C20 9 15 6 12 2z"/></symbol>
+  <symbol id="kier" viewBox="0 0 24 24"><path d="M12 21C5 15.5 2 12.3 2 8.5 2 5.5 4.3 3.5 7 3.5c2 0 3.5 1 5 3 1.5-2 3-3 5-3 2.7 0 5 2 5 5 0 3.8-3 7-10 12.5z"/></symbol>
+</svg>
+
+<main data-ekran="przed-decyzja" aria-label="Decyzja w sesji, przed decyzją">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Sesja ćwiczeń</b><span class="przyklad">Zadanie 4</span></nav>
+  <section class="plakat">
+    <p class="kontekst">Stół 6-osobowy, stack 100bb, przed flopem</p>
+    <h1>CO, wszyscy przed tobą spasowali</h1>
+    <div class="reka-duza" aria-hidden="true"><span class="cien">J9o</span><span class="lico">J9o</span></div>
+    <div class="karty" role="img" aria-label="Twoje karty: walet pik, dziewiątka kier, J9o różne kolory">
+      <div class="karta"><b>J</b><svg><use href="#pik"/></svg></div>
+      <div class="karta czerwona"><b>9</b><svg><use href="#kier"/></svg></div>
+      <span>różne kolory</span>
+    </div>
+  </section>
+  <div class="druk" role="group" aria-label="Akcje">
+    <a class="n" href="#"><b>Pas</b>bez wejścia do gry</a>
+    <a class="r" href="#"><b>Przebicie</b>do 2,5bb</a>
+  </div>
+</main>
+
+<main data-ekran="po-ocenie" aria-label="Decyzja w sesji, po ocenie">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Sesja ćwiczeń</b><span class="przyklad">Zadanie 4</span></nav>
+  <section class="ocena" aria-live="polite">
+    <p class="kontekst" style="font-size:var(--t-przypis);font-weight:600">CO, J9o, twój wybór: przebicie do 2,5bb</p>
+    <h2><i aria-hidden="true">∼</i>Dopuszczalna</h2>
+    <p>Solver gra tak w 20% przypadków, więc to nie błąd, ale częściej wybiera inną akcję. Najlepiej zapamiętaj tę częstszą.</p>
+  </section>
+  <div class="pasmo" role="img" aria-label="Strategia solvera dla J9o: pas 80 procent, przebicie 20 procent. Twój wybór: przebicie.">
+    <span class="znacznik"></span>
+    <div class="os"><div class="n">80%</div><div class="r">20%</div></div>
+    <div class="podpis"><span>pas</span><span>przebicie, twój wybór</span></div>
+  </div>
+  <div class="stopnie" aria-label="Skala stopni: twoja akcja 20 procent, przedział dopuszczalna">
+    <span><b>Błąd</b>poniżej 3,5%</span><span class="tu"><b>Dopuszczalna</b>3,5–25%</span><span><b>Zgodna</b>od 25%</span>
+  </div>
+  <div class="dol"><a class="link" href="#">Zgłoś błąd</a><a class="dalej" href="#">Dalej</a></div>
+</main>
+
+<aside class="panele">
+  <h2>F. Mieszanie farb</h2>
+  <p>Ekran jak plakat z risografu: żółty papier, dwie farby. Strategia mieszana jest dosłownie mieszaniem farb: pas drukuje niebieska, przebicie różowa, a na styku farby się nakładają. Przed decyzją dwie farby to dwa przyciski; po decyzji pasmo rozkłada się 80/20, a wielkie „J9o” jest odbite dwiema farbami z lekkim przesunięciem jak w druku.</p>
+  <h2>Paleta</h2>
+  <table>
+    <tr><td><div class="probka" style="background:#FFE14D"></div></td><td>papier żółty <code>#FFE14D</code></td><td><div class="probka" style="background:#17215C"></div></td><td>granat <code>#17215C</code></td></tr>
+    <tr><td><div class="probka" style="background:#0078BF"></div></td><td>farba niebieska (pas) <code>#0078BF</code></td><td><div class="probka" style="background:#FF48B0"></div></td><td>farba różowa (przebicie) <code>#FF48B0</code></td></tr>
+  </table>
+  <p class="przyklad">Nocą: granatowy papier <code>#171B45</code>, tekst żółty <code>#FFE98A</code>. Ziarno druku jako delikatny szum (wyłączalny przy „Zwiększ kontrast”).</p>
+  <h2>Kroje</h2>
+  <p><span style="font-family:'Big Shoulders Display';font-weight:800;font-size:28px">Big Shoulders Display 800: J9o 80% 20%</span><br>treść: na iOS SF Pro; w makiecie zastępczo Noto Sans</p>
+  <h2>Ikona</h2>
+  <div class="ikony">
+    <figure><img src="ikony/f-jasna.png" width="120" height="120" alt=""><figcaption>120</figcaption></figure>
+    <figure><img src="ikony/f-jasna.png" width="60" height="60" alt=""><figcaption>60</figcaption></figure>
+    <figure><img src="ikony/f-jasna.png" width="29" height="29" alt=""><figcaption>29</figcaption></figure>
+    <figure><img src="ikony/f-ciemna.png" width="60" height="60" alt=""><figcaption>ciemna</figcaption></figure>
+  </div>
+</aside>
+</body>
+</html>

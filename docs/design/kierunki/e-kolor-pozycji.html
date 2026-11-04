@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>E Kolor pozycji: Decyzja w sesji</title>
+<!-- Runda 2 E2 (D-116): element firmowy = pasek strategii mieszanej (kapsuła); tło całego ekranu = barwa twojej pozycji przy stole.
+     Treść prawdziwa: spot rfi.co (content/ranges/spots.yaml), J9o: pas 0.8, przebicie 2.5bb 0.2
+     (content/ranges/preflop-6max-100bb.json, path „UTG:fold,HJ:fold”); progi thresholds.ts; zdania text.pl.ts.
+     [PRZYKŁAD]: kolory kart, numer zadania. -->
+<link rel="stylesheet" href="wspolne.css">
+<style>
+:root {
+  /* barwy pozycji: sześć miejsc stołu 6-osobowego, każda z nazwą obok (nigdy sam kolor) */
+  --utg: #5A8CF5; --hj: #14B1C9; --co: #FF7146; --btn: #FFC233; --sb: #F2559A; --bb: #7BC043;
+  --tlo: var(--co);
+  --tusz: #1E0B05;
+  --drugi: #4A1D10;
+  --plansza: #FFF3EE;
+  --pas-kreska: #1E0B05;
+  --akcent-tekst: #1E0B05;
+  --kier: #C8232B;
+  --tytul: 'Unbounded', sans-serif;
+}
+[data-theme="dark"] {
+  --tlo: #2B120B;          /* noc zabarwiona barwą pozycji, nie czerń */
+  --tusz: #FFE6DC;
+  --drugi: #FFB8A0;
+  --plansza: #47200F;
+  --pas-kreska: #FF8A63;
+  --akcent-tekst: #FFE6DC;
+  --kier: #FF8A8A;
+}
+.miejsca { display: flex; gap: 4px; padding: 4px 16px 0; flex-wrap: wrap; }
+.miejsca span { flex: 1 1 0; min-width: 40px; text-align: center; font-size: max(11px, min(var(--t-drobny), calc(var(--w) * 0.036))); font-weight: 700; padding: 4px 0; border-radius: 6px; color: #1E0B05; border: 2px solid #1E0B05; }
+.miejsca span.ty { outline: 3px solid var(--tusz); outline-offset: 2px; }
+[data-theme="dark"] .miejsca span { border-color: transparent; }
+.pozycja { padding: 12px 16px 0; }
+.pozycja b { display: block; font-family: var(--tytul); font-weight: 700; font-size: min(calc(6rem * var(--dt-tytul)), calc(var(--w) * 0.3)); line-height: 0.95; letter-spacing: -0.02em; }
+[data-theme="dark"] .pozycja b { color: #FF8A63; }
+.pozycja p { font-size: var(--t-tresc); line-height: 1.35; margin-top: 8px; font-weight: 600; }
+.pozycja p small { display: block; font-weight: 400; font-size: var(--t-przypis); color: var(--drugi); }
+.reka { display: flex; gap: 10px; padding: 18px 16px 0; align-items: center; flex-wrap: wrap; }
+.karta { width: 80px; height: 110px; background: #FFFFFF; border-radius: 10px; padding: 6px 8px; display: flex; flex-direction: column; gap: 2px; color: #1E0B05; box-shadow: 0 0 0 2px #1E0B05; }
+.karta b { font-family: var(--tytul); font-weight: 700; font-size: 38px; line-height: 1; }
+.karta svg { width: 26px; height: 26px; fill: currentColor; }
+.karta.czerwona { color: #C8232B; }
+.reka p { font-family: var(--tytul); font-weight: 700; font-size: var(--t-tytul); margin-left: 6px; }
+
+/* Kapsuła: przed decyzją równe segmenty = przyciski */
+.kapsula { margin: auto 16px 40px; display: flex; flex-wrap: wrap; border: 3px solid var(--tusz); border-radius: 22px; overflow: hidden; background: var(--plansza); }
+.kapsula a { flex: 1 1 calc(70px * var(--dt-tresc)); min-height: 76px; display: flex; flex-direction: column; justify-content: center; padding: 10px 16px; text-decoration: none; color: var(--tusz); font-size: var(--t-przypis); }
+.kapsula a b { font-family: var(--tytul); font-weight: 700; font-size: min(var(--t-tresc), calc(var(--w) * 0.075)); }
+.kapsula a + a { background: var(--tusz); color: var(--plansza); }
+.ocena { padding: 16px 16px 0; }
+/* Unbounded jest szeroki: przy AX5 na 320 pt ograniczony; w E3 od AX1 tytuły krojem systemowym */
+.ocena h2 { font-family: var(--tytul); font-weight: 700; font-size: min(var(--t-tytul), calc(var(--w) * 0.075)); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; line-height: 1.1; }
+.ocena h2 i { font-style: normal; width: 1.1em; height: 1.1em; border-radius: 50%; border: 3px solid var(--tusz); display: inline-flex; align-items: center; justify-content: center; }
+.ocena p { font-size: var(--t-tresc); line-height: 1.4; margin-top: 8px; }
+.rozklad { margin: 22px 16px 0; position: relative; }
+.rozklad .os { display: flex; height: 64px; border: 3px solid var(--tusz); border-radius: 22px; overflow: hidden; background: var(--plansza); }
+.rozklad .p { width: 80%; background: repeating-linear-gradient(135deg, transparent 0 8px, var(--pas-kreska) 8px 10px); display: flex; align-items: center; padding-left: 14px; font-family: var(--tytul); font-weight: 700; font-size: min(var(--t-tresc), calc(var(--w) * 0.05)); }
+.rozklad .r { width: 20%; background: var(--tusz); color: var(--plansza); display: flex; align-items: center; justify-content: center; font-family: var(--tytul); font-weight: 700; font-size: min(var(--t-tresc), calc(var(--w) * 0.045)); }
+.rozklad .p span { background: var(--plansza); padding: 2px 6px; border-radius: 6px; }
+.rozklad .znacznik { position: absolute; left: 90%; top: -20px; transform: translateX(-50%); border-left: 13px solid transparent; border-right: 13px solid transparent; border-top: 18px solid var(--tusz); }
+.podpis { display: flex; justify-content: space-between; margin: 6px 16px 0; font-size: var(--t-przypis); font-weight: 600; gap: 8px; flex-wrap: wrap; }
+.stopnie { display: flex; gap: 6px; margin: 14px 16px 0; flex-wrap: wrap; }
+.stopnie span { flex: 1 1 80px; border: 2px solid var(--tusz); border-radius: 10px; padding: 4px 8px; font-size: min(var(--t-drobny), calc(var(--w) * 0.06)); line-height: 1.25; }
+.stopnie span.tu { background: var(--tusz); color: var(--plansza); }
+.stopnie b { display: block; }
+.dol { margin: auto 16px 40px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding-top: 16px; }
+.dol .link { color: var(--tusz); text-decoration: underline; }
+.dalej { background: var(--tusz); color: var(--plansza); border-radius: 22px; padding: 12px 32px; min-height: 56px; display: inline-flex; align-items: center; font-family: var(--tytul); font-weight: 700; font-size: var(--t-tresc); text-decoration: none; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pik" viewBox="0 0 24 24"><path d="M12 2C9 6 4 9 4 13.5 4 16 6 18 8.5 18c1.3 0 2.4-.5 3-1.3-.2 1.9-1 3.4-2.5 4.8h6c-1.5-1.4-2.3-2.9-2.5-4.8.6.8 1.7 1.3 3 1.3 2.5 0 4.5-2 4.5-4.5C20 9 15 6 12 2z"/></symbol>
+  <symbol id="kier" viewBox="0 0 24 24"><path d="M12 21C5 15.5 2 12.3 2 8.5 2 5.5 4.3 3.5 7 3.5c2 0 3.5 1 5 3 1.5-2 3-3 5-3 2.7 0 5 2 5 5 0 3.8-3 7-10 12.5z"/></symbol>
+</svg>
+
+<main data-ekran="przed-decyzja" aria-label="Decyzja w sesji, przed decyzją">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Sesja ćwiczeń</b><span class="przyklad">Zadanie 4</span></nav>
+  <div class="miejsca" aria-label="Pozycje przy stole; twoja: CO">
+    <span style="background:var(--utg)">UTG</span><span style="background:var(--hj)">HJ</span><span class="ty" style="background:var(--co)">CO</span><span style="background:var(--btn)">BTN</span><span style="background:var(--sb)">SB</span><span style="background:var(--bb)">BB</span>
+  </div>
+  <section class="pozycja">
+    <b>CO</b>
+    <p>Wszyscy przed tobą spasowali<small>Stół 6-osobowy, stack 100bb, przed flopem</small></p>
+  </section>
+  <section class="reka">
+    <div class="karta" role="img" aria-label="Walet pik"><b>J</b><svg><use href="#pik"/></svg></div>
+    <div class="karta czerwona" role="img" aria-label="Dziewiątka kier"><b>9</b><svg><use href="#kier"/></svg></div>
+    <p>J9o</p>
+  </section>
+  <div class="kapsula" role="group" aria-label="Akcje">
+    <a href="#"><b>Pas</b>bez wejścia do gry</a>
+    <a href="#"><b>Przebicie</b>do 2,5bb</a>
+  </div>
+</main>
+
+<main data-ekran="po-ocenie" aria-label="Decyzja w sesji, po ocenie">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Sesja ćwiczeń</b><span class="przyklad">Zadanie 4</span></nav>
+  <div class="miejsca" aria-hidden="true">
+    <span style="background:var(--utg)">UTG</span><span style="background:var(--hj)">HJ</span><span class="ty" style="background:var(--co)">CO</span><span style="background:var(--btn)">BTN</span><span style="background:var(--sb)">SB</span><span style="background:var(--bb)">BB</span>
+  </div>
+  <section class="ocena" aria-live="polite">
+    <h2><i aria-hidden="true">∼</i>Dopuszczalna</h2>
+    <p>CO, J9o: przebicie do 2,5bb. Solver gra tak w 20% przypadków, więc to nie błąd, ale częściej wybiera inną akcję. Najlepiej zapamiętaj tę częstszą.</p>
+  </section>
+  <div class="rozklad" role="img" aria-label="Strategia solvera dla J9o: pas 80 procent, przebicie 20 procent. Twój wybór: przebicie.">
+    <span class="znacznik"></span>
+    <div class="os"><div class="p"><span>Pas 80%</span></div><div class="r">20%</div></div>
+  </div>
+  <div class="podpis"><span>pas</span><span>przebicie, twój wybór</span></div>
+  <div class="stopnie" aria-label="Skala stopni: twoja akcja 20 procent, przedział dopuszczalna">
+    <span><b>Błąd</b>poniżej 3,5%</span><span class="tu"><b>Dopuszczalna</b>3,5–25%</span><span><b>Zgodna</b>od 25%</span>
+  </div>
+  <div class="dol"><a class="link" href="#">Zgłoś błąd</a><a class="dalej" href="#">Dalej</a></div>
+</main>
+
+<aside class="panele">
+  <h2>E. Kolor pozycji</h2>
+  <p>Tło całego ekranu ma barwę twojego miejsca przy stole: CO to koral, Button żółcień, mały blind róż. Każda sytuacja ma więc swój kolor, a nazwa pozycji zawsze stoi obok. Pasek strategii to kapsuła w strefie kciuka: przed decyzją dwa przyciski, po decyzji rozkład 80/20 ze znacznikiem.</p>
+  <h2>Barwy pozycji</h2>
+  <table>
+    <tr><td><div class="probka" style="background:#5A8CF5"></div></td><td>UTG <code>#5A8CF5</code></td><td><div class="probka" style="background:#14B1C9"></div></td><td>HJ <code>#14B1C9</code></td><td><div class="probka" style="background:#FF7146"></div></td><td>CO <code>#FF7146</code></td></tr>
+    <tr><td><div class="probka" style="background:#FFC233"></div></td><td>BTN <code>#FFC233</code></td><td><div class="probka" style="background:#F2559A"></div></td><td>SB <code>#F2559A</code></td><td><div class="probka" style="background:#7BC043"></div></td><td>BB <code>#7BC043</code></td></tr>
+  </table>
+  <p class="przyklad">Tusz <code>#1E0B05</code>, plansza <code>#FFF3EE</code>; nocą tło zabarwione pozycją (CO: <code>#2B120B</code>).</p>
+  <h2>Kroje</h2>
+  <p><span style="font-family:Unbounded;font-weight:700;font-size:24px">Unbounded 700: CO J9o</span><br>treść: na iOS SF Pro; w makiecie zastępczo Noto Sans</p>
+  <h2>Ikona</h2>
+  <div class="ikony">
+    <figure><img src="ikony/e-jasna.png" width="120" height="120" alt=""><figcaption>120</figcaption></figure>
+    <figure><img src="ikony/e-jasna.png" width="60" height="60" alt=""><figcaption>60</figcaption></figure>
+    <figure><img src="ikony/e-jasna.png" width="29" height="29" alt=""><figcaption>29</figcaption></figure>
+    <figure><img src="ikony/e-ciemna.png" width="60" height="60" alt=""><figcaption>ciemna</figcaption></figure>
+  </div>
+</aside>
+</body>
+</html>

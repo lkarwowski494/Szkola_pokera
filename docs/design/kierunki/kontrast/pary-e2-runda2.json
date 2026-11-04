@@ -1,0 +1,139 @@
+{
+ "D jasny: tusz na górze": [
+  "#0C1230",
+  "#E6F5FE"
+ ],
+ "D jasny: drugi plan na górze": [
+  "#3D4466",
+  "#E6F5FE"
+ ],
+ "D: tekst na lazurze (Pas)": [
+  "#0C1230",
+  "#12A4F0"
+ ],
+ "D: tekst na kreskach lazuru": [
+  "#0C1230",
+  "#0A7FC0",
+  3
+ ],
+ "D: tekst na nagietku": [
+  "#0C1230",
+  "#FFB21C"
+ ],
+ "D: granica tuszem między pasami (grafika)": [
+  "#0C1230",
+  "#FFB21C",
+  3
+ ],
+ "D ciemny: tusz na nocy": [
+  "#F4F6FF",
+  "#0F1638"
+ ],
+ "D ciemny: drugi plan na nocy": [
+  "#B4BBDA",
+  "#0F1638"
+ ],
+ "D ciemny: tekst na lazurze": [
+  "#0C1230",
+  "#2AA9EE"
+ ],
+ "D ciemny: lazur do nocy (grafika)": [
+  "#2AA9EE",
+  "#0F1638",
+  3
+ ],
+ "E jasny: tusz na koralu": [
+  "#1E0B05",
+  "#FF7146"
+ ],
+ "E jasny: drugi plan na koralu": [
+  "#4A1D10",
+  "#FF7146"
+ ],
+ "E jasny: tusz na planszy": [
+  "#1E0B05",
+  "#FFF3EE"
+ ],
+ "E jasny: plansza na tuszu (przycisk)": [
+  "#FFF3EE",
+  "#1E0B05"
+ ],
+ "E: etykiety pozycji tuszem: UTG": [
+  "#1E0B05",
+  "#5A8CF5"
+ ],
+ "E: HJ": [
+  "#1E0B05",
+  "#14B1C9"
+ ],
+ "E: BTN": [
+  "#1E0B05",
+  "#FFC233"
+ ],
+ "E: SB": [
+  "#1E0B05",
+  "#F2559A"
+ ],
+ "E: BB": [
+  "#1E0B05",
+  "#7BC043"
+ ],
+ "E ciemny: tekst na nocy": [
+  "#FFE6DC",
+  "#2B120B"
+ ],
+ "E ciemny: drugi plan na nocy": [
+  "#FFB8A0",
+  "#2B120B"
+ ],
+ "E ciemny: tekst na planszy": [
+  "#FFE6DC",
+  "#47200F"
+ ],
+ "E ciemny: duże CO": [
+  "#FF8A63",
+  "#2B120B"
+ ],
+ "F jasny: granat na żółtym": [
+  "#17215C",
+  "#FFE14D"
+ ],
+ "F jasny: biały na niebieskiej farbie": [
+  "#FFFFFF",
+  "#0078BF"
+ ],
+ "F jasny: granat na różowej farbie": [
+  "#17215C",
+  "#FF48B0"
+ ],
+ "F jasny: niebieskie J9o na żółtym (duży tekst)": [
+  "#0078BF",
+  "#FFE14D",
+  3
+ ],
+ "F jasny: żółty na granacie (Dalej)": [
+  "#FFE14D",
+  "#17215C"
+ ],
+ "F ciemny: żółty tekst na granatowym papierze": [
+  "#FFE98A",
+  "#171B45"
+ ],
+ "F ciemny: drugi plan": [
+  "#D9D3A6",
+  "#171B45"
+ ],
+ "F ciemny: tekst na niebieskiej farbie": [
+  "#0B0E2A",
+  "#3AA0FF"
+ ],
+ "F ciemny: tekst na różowej farbie": [
+  "#0B0E2A",
+  "#FF5CBB"
+ ],
+ "F ciemny: niebieskie J9o (duży tekst)": [
+  "#3AA0FF",
+  "#171B45",
+  3
+ ]
+}

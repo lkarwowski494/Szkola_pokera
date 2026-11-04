@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Porównanie kierunków E2, runda 1</title>
+<style>
+@import url(fonty/fonty.css);
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans', sans-serif; background: #ECEDEF; color: #1A1C20; padding: 32px; font-size: 15px; line-height: 1.45; }
+h1 { font-size: 26px; margin-bottom: 6px; }
+.wstep { max-width: 1100px; margin-bottom: 24px; }
+.wstep p { margin-top: 6px; }
+.kierunki { display: flex; gap: 24px; align-items: flex-start; }
+.kierunek { flex: 1; background: #FFFFFF; padding: 20px; min-width: 0; }
+.kierunek h2 { font-size: 22px; line-height: 1.2; }
+.kierunek .idea { margin-top: 8px; }
+.kierunek img.ekrany { width: 100%; display: block; margin-top: 14px; border: 1px solid #D5D7DB; }
+.kierunek .ciemny { margin-top: 8px; }
+.ikony { display: flex; gap: 14px; align-items: flex-end; margin-top: 14px; flex-wrap: wrap; }
+.ikony figure { text-align: center; font-size: 12px; color: #5B5F67; }
+.ikony img { display: block; }
+.argument { margin-top: 14px; padding-left: 12px; border-left: 4px solid #1A1C20; }
+.slabosc { margin-top: 10px; color: #3E424A; }
+h3 { font-size: 15px; margin-top: 14px; }
+.sekcja { background: #FFFFFF; padding: 20px; margin-top: 24px; max-width: 1700px; }
+.sekcja h2 { font-size: 20px; margin-bottom: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 6px 8px; border-bottom: 1px solid #E2E3E6; }
+th { background: #F4F5F6; }
+.podpis { font-size: 13px; color: #5B5F67; margin-top: 8px; }
+</style>
+</head>
+<body>
+<header class="wstep">
+  <h1>Szkoła Pokera: trzy kierunki na ekranie „Decyzja w sesji”</h1>
+  <p>Ten sam ekran (D-114) w dwóch stanach: przed decyzją i po ocenie. Prawdziwa treść z aplikacji: CO otwiera, wszyscy przed tobą spasowali, ręka J9o; solver gra ją pas w 80% i przebicie w 20% przypadków, więc przebicie dostaje stopień „dopuszczalna” (próg 3,5–25%). Kolory kart, numer zadania i stan mapy w C to [PRZYKŁAD].</p>
+  <p>Kroje tytułów są ładowane z plików OFL. Treść: na iOS SF Pro; w makiecie zastępczo Noto Sans (kroju treści nie oceniamy na zrzucie z Linuksa).</p>
+</header>
+
+<div class="kierunki">
+  <section class="kierunek">
+    <h2>A. Zapis z adnotacją</h2>
+    <p class="idea">Każda decyzja to wiersz zapisu rozdania, a ocena to znak przy twoim ruchu, jak w zapisie partii szachowej, zawsze ze słowem obok.</p>
+    <img class="ekrany" src="kierunki/zrzuty/a-zapis-390-jasny.png" alt="Kierunek A, jasny: przed decyzją i po ocenie">
+    <img class="ekrany ciemny" src="kierunki/zrzuty/a-zapis-390-ciemny.png" alt="Kierunek A, ciemny">
+    <div class="ikony">
+      <figure><img src="kierunki/ikony/a-jasna.png" width="120" height="120" style="border-radius:27px" alt=""><figcaption>120</figcaption></figure>
+      <figure><img src="kierunki/ikony/a-jasna.png" width="60" height="60" style="border-radius:13px" alt=""><figcaption>60</figcaption></figure>
+      <figure><img src="kierunki/ikony/a-jasna.png" width="29" height="29" style="border-radius:6px" alt=""><figcaption>29</figcaption></figure>
+      <figure><img src="kierunki/ikony/a-ciemna.png" width="60" height="60" style="border-radius:13px" alt=""><figcaption>ciemna</figcaption></figure>
+    </div>
+    <p class="argument"><b>Najmocniejszy argument:</b> działa przy każdym typie zadania (zakresy, liczby, scenariusz od preflopu do rivera), bo znak i słowo nie potrzebują częstotliwości; zapis ulica po ulicy to gotowy ekran scenariusza (F-12), a stopień nigdy nie jest niesiony samym kolorem.</p>
+    <p class="slabosc"><b>Słabość:</b> nie pokazuje obrazem, skąd wziął się stopień (mówi to tekst); znaki szachowe trzeba raz objaśnić.</p>
+  </section>
+
+  <section class="kierunek">
+    <h2>B. Pasek strategii mieszanej</h2>
+    <p class="idea">Przyciski akcji tworzą jeden pasek; po decyzji pasek rozkłada się na częstotliwości rozwiązania, a znacznik pokazuje twój wybór i przedział stopnia.</p>
+    <img class="ekrany" src="kierunki/zrzuty/b-pasek-390-jasny.png" alt="Kierunek B, jasny: przed decyzją i po ocenie">
+    <img class="ekrany ciemny" src="kierunki/zrzuty/b-pasek-390-ciemny.png" alt="Kierunek B, ciemny">
+    <div class="ikony">
+      <figure><img src="kierunki/ikony/b-jasna.png" width="120" height="120" style="border-radius:27px" alt=""><figcaption>120</figcaption></figure>
+      <figure><img src="kierunki/ikony/b-jasna.png" width="60" height="60" style="border-radius:13px" alt=""><figcaption>60</figcaption></figure>
+      <figure><img src="kierunki/ikony/b-jasna.png" width="29" height="29" style="border-radius:6px" alt=""><figcaption>29</figcaption></figure>
+      <figure><img src="kierunki/ikony/b-ciemna.png" width="60" height="60" style="border-radius:13px" alt=""><figcaption>ciemna</figcaption></figure>
+    </div>
+    <p class="argument"><b>Najmocniejszy argument:</b> jedyny kierunek, który pokazuje obrazem dokładnie te dane, z których liczy się ocena; ręka mieszana przestaje wyglądać na błąd. W skanie 13 aplikacji nikt tego nie robi.</p>
+    <p class="slabosc"><b>Słabość:</b> zadania liczbowe (outy, szanse, pot odds) nie mają częstotliwości, więc tam element znika; ikona przy 29 pt czyta się trochę jak bateria.</p>
+  </section>
+
+  <section class="kierunek">
+    <h2>C. Mapa 169 jako mapa wiedzy</h2>
+    <p class="idea">Siatka 13×13 klas rąk nie pokazuje strategii, tylko twoją wiedzę w tej pozycji; bieżąca ręka jest obwiedziona, a ocena zmienia stan jej pola.</p>
+    <img class="ekrany" src="kierunki/zrzuty/c-mapa-390-jasny.png" alt="Kierunek C, jasny: przed decyzją i po ocenie">
+    <img class="ekrany ciemny" src="kierunki/zrzuty/c-mapa-390-ciemny.png" alt="Kierunek C, ciemny">
+    <div class="ikony">
+      <figure><img src="kierunki/ikony/c-jasna.png" width="120" height="120" style="border-radius:27px" alt=""><figcaption>120</figcaption></figure>
+      <figure><img src="kierunki/ikony/c-jasna.png" width="60" height="60" style="border-radius:13px" alt=""><figcaption>60</figcaption></figure>
+      <figure><img src="kierunki/ikony/c-jasna.png" width="29" height="29" style="border-radius:6px" alt=""><figcaption>29</figcaption></figure>
+      <figure><img src="kierunki/ikony/c-ciemna.png" width="60" height="60" style="border-radius:13px" alt=""><figcaption>ciemna</figcaption></figure>
+    </div>
+    <p class="argument"><b>Najmocniejszy argument:</b> każda decyzja w sesji od razu dokłada się do widocznego obrazu postępu (powtórki, opanowanie), więc sesja w dojeździe ma sens poza jednym zadaniem.</p>
+    <p class="slabosc"><b>Słabość:</b> działa tylko przy decyzjach przed flopem; siatka 13×13 to klisza kategorii (6 z 13 aplikacji) i zajmuje pół ekranu w kontekście jednej ręki.</p>
+  </section>
+</div>
+
+<section class="sekcja">
+  <h2>Rekomendacja studia: A, z paskiem B w wyjaśnieniu zadań z zakresu</h2>
+  <p>Powód funkcjonalny, nie gust: ten sam ekran decyzji obsługuje sesję, powtórki, ćwiczenia w lekcji, egzamin i scenariusz (PR-02–PR-05). Tylko A działa dla wszystkich typów zadań, bo znak i słowo nie wymagają częstotliwości, a zapis ulica po ulicy to naturalny ekran scenariusza F-12. Najsilniejszą częścią B jest obraz „z czego wynika stopień”. Pasuje do wyjaśnienia zadań z zakresu, więc proponuję go jako komponent wewnątrz adnotacji A (łączenie kierunków też jest wyborem). C zostaje w rezerwie jako ekran postępu w E3, a nie jako ekran decyzji.</p>
+  <p class="podpis">Opcjonalny test: pięciosekundowy albo preferencji z 5 osobami z grupy docelowej, ok. 1 h czasu właściciela.</p>
+</section>
+
+<section class="sekcja">
+  <h2>Test generyczności (karty kontrolne w <code>01-swiat.md</code>, pole po polu)</h2>
+  <table>
+    <tr><th>Kierunek</th><th>Pole</th><th>Pokrywa się z</th><th>Zmiana i powód</th></tr>
+    <tr><td>A</td><td>element</td><td>(b) szachy: „!!” / „??” jako plakietka</td><td>znak stoi w zapisie zaraz po ruchu, zawsze ze słowem; bez „!!” i „??” (brak odpowiednika w progach), bez zielonego i czerwonego</td></tr>
+    <tr><td>A</td><td>układ</td><td>kalibracja: układ gazetowy, cienkie linie</td><td>linie są wierszami zapisu (każda to akcja gracza), przyciski i karty zaokrąglone, jedna kolumna; ryzyko nazwane</td></tr>
+    <tr><td>A</td><td>krój</td><td>kalibracja: krem + kontrastowy szeryf + terakota</td><td>Literata to szeryf książkowy, ale tło neutralne <code>#FCFCFA</code>, bez terakoty; jedyny kolor to zakreślacz</td></tr>
+    <tr><td>A</td><td>ruch</td><td>(a), (b): konfetti</td><td>znak „wpisuje się” przy ruchu (ok. 200 ms, haptyka lekka), bez konfetti</td></tr>
+    <tr><td>A, B, C</td><td>przyciski</td><td>(a): Pas czerwony, Sprawdź zielony</td><td>przyciski akcji tuszem, bez kolorów akcji; pozycja na dole zostaje, bo wynika z kontekstu (kciuk, dojazd)</td></tr>
+    <tr><td>B</td><td>paleta, ciemny</td><td>kalibracja: prawie czarne tło + jeden akcent</td><td>tło <code>#1B1E23</code> (grafit z nutą granatu, nie <code>#111</code>); magenta wyłącznie na znaczniku „twój wybór” (w pierwszej wersji też na „Zakończ”: usunięte)</td></tr>
+    <tr><td>B</td><td>układ</td><td>kalibracja: zestaw kart SaaS</td><td>jedna plansza tylko na wynik; ręka bez karty-kontenera (poprawione po krytyce)</td></tr>
+    <tr><td>B</td><td>element</td><td>(a): czerwono-zielone paski solverów u konkurencji</td><td>akcje skalą grafitu i kreskowaniem, bez czerwieni i zieleni; znacznik i skala stopni zamiast samego koloru</td></tr>
+    <tr><td>C</td><td>element</td><td>klisza kategorii: mapa ciepła 13×13 (6 z 13)</td><td>mapa niesie wiedzę użytkownika, nie strategię; bez czerwieni i zieleni, stany kształtem (pełne, kreskowane, kontur)</td></tr>
+    <tr><td>C</td><td>paleta</td><td>pamięć portfolio: terakota Organizera <code>#B4471F</code></td><td>akcent przesunięty z <code>#B9470E</code> na bursztyn <code>#A35800</code> (5,31:1), tło białe, nie piasek</td></tr>
+    <tr><td>A, B, C</td><td>głos</td><td>(a), (b): „Nice hand!”, „Brilliant!”</td><td>słowa stopni i zdania z aplikacji, bez wykrzykników</td></tr>
+    <tr><td>A, B, C</td><td>ikona</td><td>(a): pik, karty, żeton; (b): figura</td><td>A: znak „!?” na zakreślaczu; B: pasek 80/20 ze znacznikiem; C: siatka z obwiedzionym polem</td></tr>
+  </table>
+</section>
+</body>
+</html>
