@@ -15,7 +15,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
 | 05 Architekt | build | zakończona 2026-11-04 (E4 zaakceptowane, D-130); E3 przyjęte (D-129), E2 (D-127), ADR 0001–0012 (D-124, D-126) | (commit E4) | `docs/architektura/README.md` (indeks), `00-rozpoznanie.md`, `docs/adr/` 0001–0013, `dane.md`, `moduly.md`, `schemat.sql`, `tlo-i-bledy.md`, `prywatnosc.md`, `wydajnosc.md`, `kontrole-07.md`, `narzedzia/granice.mjs`, `eksperymenty/` | OP-21 |
 | 09 Lokalizacja | build (wejście wczesne E0–E1) | E0 zaakceptowane (D-136); E1 zaakceptowane 2026-11-04 (D-138, ADR 0014 przyjęta); E2–E4 po ekranach roli 08 i audycie 04 | 7cccfb5 | `docs/lokalizacja/jezyki.md`, `docs/adr/0014-…md`, `packages/jezyki/`, `scripts/sprawdz-i18n.mjs`, `apps/mobile/src/i18n/`, `docs/decyzje.md` (D-131–D-137), `docs/zalozenia.md` (ZAL-L01, ZAL-L02) | koszt przekładu przez API (właściciel, przed E3); zgłoszenia: 06 (formatNumber, numery pomocy), 04 (pisma), 07, 10 |
-| 06 Treści | build | E0 gotowe 2026-11-04, STOP na decyzję właściciela (numery pomocy poza 9 rynkami, OP-10); D-139–D-141 | (commit E0) | `docs/tresci/00-rozpoznanie.md`, `docs/decyzje.md` (D-138–D-141) | OP-10 wariant (a)/(b)/(c) |
+| 06 Treści | build | E0 zaakceptowane 2026-11-04 (D-142: OP-10 wariant a); E1 w toku | 0b0f15b | `docs/tresci/00-rozpoznanie.md`, `docs/decyzje.md` (D-138–D-141) | RD-12-W6 do zmiany (01 fix, D-142) |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
