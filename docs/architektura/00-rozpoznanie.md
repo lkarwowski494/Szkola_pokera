@@ -54,7 +54,7 @@ Rejestr założeń `docs/zalozenia.md`: bez nowych wpisów w E0; podważenie NFR
 
 Wniosek: skala nie wymaga indeksów poza kluczami obcymi i datą; rozmiar treści jest 2 rzędy wielkości poniżej sufitu sklepu (sekcja 5).
 
-## 5. Rejestr ograniczeń platformy (odczyt 2026-11-04; surowy tekst przez `curl` + `grep`, strony Apple przez JSON dokumentacji)
+## 5. Rejestr ograniczeń platformy (odczyt 2026-11-04; surowy tekst przez `curl` + `grep`, strony Apple przez JSON dokumentacji; stan bieżący scalony z odczytami E1–E3 w [`README.md`](README.md) sekcja 2)
 | Ograniczenie | Wartość | Źródło i cytat | Wpływ |
 |---|---|---|---|
 | Wersja Expo | SDK 58 (`expo` 58.0.23, registry.npmjs.org); kod na SDK 57 (`expo ~57.0.26`) | docs.expo.dev/versions/latest/sdk/sqlite: „Recommended version: ~58.0.15” | ADR wersji SDK przed rolą 08 |

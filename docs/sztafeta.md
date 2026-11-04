@@ -1,5 +1,5 @@
 # Stan sztafety
-Ścieżka: greenfield (przebudowa istniejącej aplikacji „prawie od nowa”) · Aktualizacja: 2026-11-04 (rola 05 E3)
+Ścieżka: greenfield (przebudowa istniejącej aplikacji „prawie od nowa”) · Aktualizacja: 2026-11-04 (rola 05 E4)
 
 Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szkoła Pokera przez role 1–5 w trybie build z prompts i zrobić ją prawie od nowa, ale wykorzystując elementy aktualnej aplikacji, które są dobre. Cel: monetyzacja. […] Tam nie ma być hazardu. Pełna nauka w 35 językach jak trening. Całkiem od nowa UX, przepływy, ocena monetyzacji, BRD.” Kolejność (wybór właściciela): bramka opłacalności (02, krok 0) → 01 → 02 → 03 → 04 → 05.
 
@@ -13,7 +13,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 02 Monetyzacja | fix OP-11 | zakończona 2026-11-04 (D-113; dokument, bez zmian rachunku i kodu) | 37ab4f1 | `docs/monetyzacja.md` | OP-09, OP-10 (05) |
 | 04 Studio Projektowe | build | zakończona 2026-11-04 (E3 zaakceptowane, D-123). E0 zakończone 2026-11-04 (D-114: ekran „Decyzja w sesji”); E1 zakończone 2026-11-04 (D-115: metafory A, B, C); E2 runda 1 odrzucona co do palety (D-116, pasek zostaje), runda 2 (D, E, F) odrzucona 2026-11-04 (D-117: „ma być eleganckie a nie badziewne”, punkt odniesienia: kolory i ikona poprzedniej aplikacji); runda 3: wybrany I (D-118) z warunkiem: stół bez miejsc w zadaniach bez pozycji (D-119); krój Literata 600 (D-120); E3 wykonane 2026-11-04 (D-121, D-122), czeka na akceptację ikony i ekranów | a838dda, 118a5c1 | `docs/design/00-rozpoznanie.md`, `01-swiat.md` | OP-19 w E3 |
 | 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
-| 05 Architekt | build | E3 zakończone i przyjęte 2026-11-04 (D-129, czternasta sesja); E2 przyjęte (D-127; ADR 0001–0012: D-124, D-126) | (commit E3) | `docs/architektura/00-rozpoznanie.md`, `docs/adr/` (0013 proponowana), `dane.md`, `moduly.md`, `schemat.sql`, `tlo-i-bledy.md`, `prywatnosc.md`, `wydajnosc.md`, `kontrole-07.md`, `narzedzia/granice.mjs`, `eksperymenty/` | OP-21 (cele po pomiarze) |
+| 05 Architekt | build | E4 wykonane 2026-11-04 (piętnasta sesja), czeka na akceptację; E3 przyjęte (D-129), E2 (D-127), ADR 0001–0012 (D-124, D-126) | (commit E4) | `docs/architektura/README.md` (indeks), `00-rozpoznanie.md`, `docs/adr/` 0001–0013, `dane.md`, `moduly.md`, `schemat.sql`, `tlo-i-bledy.md`, `prywatnosc.md`, `wydajnosc.md`, `kontrole-07.md`, `narzedzia/granice.mjs`, `eksperymenty/` | OP-21; wpis „Ścieżki wrażliwe” w `CLAUDE.md` (zgoda właściciela) |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -264,8 +264,40 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - CI `main` (MCP, 2026-11-04): E2E Maestro czerwony w przebiegach 14–18, bez nowych przebiegów od 20.10 — bez zmian (rola 07).
 - Decyzja właściciela na bramce E3: „Akceptuję (Recommended)” (D-129); E4 w nowej sesji, ta archiwizowana.
 
+## Rola 05 E4: wynik (2026-11-04, piętnasta sesja)
+- Prompt: `assemble.mjs 05-architekt --tryb build` (repo prompts dołączone za zgodą właściciela w tej sesji, klon 2026-11-04), przeczytany w całości.
+- `docs/architektura/README.md` według szkieletu z wzorców: cel i zakres (z listą „świadomie poza zakresem”), rejestr ograniczeń scalony z E0 sekcja 5 i odczytami E1–E3 (31 pozycji z adresem, cytatem i datą 2026-11-04; 3 cytaty odczytane ponownie `curl` w E4: zgodne), kontekst Mermaid C4 1–2 (nierenderowany, składnia ręcznie), moduły i zależności natywne → przepływ, odnośniki do danych, tła, konfiguracji, błędów, prywatności i budżetów, ryzyka, otwarte `[DO USTALENIA]`, indeks ADR 0001–0013, definicja ukończenia punkt po punkcie z dowodem.
+- Dowody uruchomione w E4: `e1-sqlite.mjs` kod 0; `e2-schemat.mjs ../schemat.sql` kod 0; `e3-blokady-czasy.mjs ../schemat.sql` kod 0 (10 zgodnych; pierwsze wywołanie bez argumentu schematu dało kod 1 — mój błąd wywołania, nie wynik); `granice.mjs ../../../packages` kod 1 (oczekiwany: `content-schema/src/index.ts` 20,8 KB, `bots.ts` 31,6 KB, `grading.ts` 23,1 KB, 0 cykli); kontrola ADR skryptem: 13/13 ze statusem, datą, 2–4 opcjami, „Konsekwencje” i „Potwierdzenie”.
+- `CLAUDE.md`: zaktualizowana tylko linia „Stan projektu” (rola 05 E4 do akceptacji, następna 09, potem 06); 65 linii. Sekcja „Ścieżki wrażliwe” niżej czeka na zgodę właściciela.
+
+### Propozycja sekcji do `CLAUDE.md` (wpis tylko za zgodą właściciela)
+```markdown
+## Ścieżki wrażliwe (przegląd zmian w świeżym kontekście przed oddaniem, D-043)
+- Dane użytkownika: `packages/postep/` (port bazy, kolejka zapisów, migracje, eksport, import, „Usuń postęp”), `apps/mobile/src/data/`, `docs/architektura/schemat.sql`; do usunięcia (ADR 0003, 0004): `apps/mobile/src/data/user/`, `apps/mobile/drizzle/`.
+- Format eksportu, logika dostępu i limitu: `packages/domena/`.
+- Zakupy, pliki i ochrona tła: `apps/mobile/src/platform/`, `apps/mobile/modules/ochrona-tla/`.
+- Treść (identyfikatory w powtórkach, baza na język): `tools/content-build/`.
+- CI i wydanie: `.github/workflows/`, `apps/mobile/app.json` (manifest prywatności, wtyczki, uprawnienia), `apps/mobile/eas.json`.
+```
+Plus jedna linia w „Dokumentacja projektu”: „Architektura w repo: `docs/architektura/README.md`, ADR `docs/adr/` (rola 05; ADR 0006 i 0009 zastępują ADR-18 i ADR-17 rejestru 03).” Po wpisie plik ma ok. 73 linie (< 200). *Dlaczego:* rola 08 przed raportem zleca przegląd zmian w tych ścieżkach nowemu subagentowi; lista musi wskazywać prawdziwe katalogi z tej architektury.
+
+### Przekazanie do następnej roli
+- Zakończono: 05-architekt, build, E0–E4 (commity E0–E3 do 6d9d2d5 i commit E4 na `claude/sleepy-brahmagupta-2065nu`); artefakty: `docs/architektura/README.md` (wejście główne), `docs/adr/` 0001–0013 z indeksem, `dane.md`, `schemat.sql`, `moduly.md`, `tlo-i-bledy.md`, `prywatnosc.md`, `wydajnosc.md`, `kontrole-07.md`, `narzedzia/granice.mjs`, `eksperymenty/`.
+- Aplikacja ma 35 języków: krok ścieżki greenfield **09-lokalizacja Lokalizacja**, tryb `build` (wejście wczesne: mechanizm i18n interfejsu i treści przed ekranami); nowa sesja: sonnet, wysiłek medium.
+- Polecenie: `node /home/user/prompts/tools/assemble.mjs 09-lokalizacja --tryb build` (Windows: `.\Get-Prompt.ps1 09-lokalizacja -Tryb build -CopyToClipboard`).
+- Potem: **06-tresci Treści i wiedza domenowa**, tryb `build`; nowa sesja: opus, wysiłek high. Polecenie: `node /home/user/prompts/tools/assemble.mjs 06-tresci --tryb build`.
+- Paczka wejściowa: `docs/architektura/README.md`, `docs/adr/` (szczególnie 0005 treść: `tresc-<wersja>-<język>.db`, identyfikatory niezależne od języka, `meta.jezyk`; 0012 przypomnienie), `docs/scope-contract.md`, `docs/brd/` (NFR-JEZ-001, NFR-JEZ-002), `docs/design/design-spec.md`, `docs/decyzje.md` (D-101–D-129), `CLAUDE.md`.
+- Co czyta każda rola:
+  - 09: ADR 0005 (35 baz treści z jednego YAML, kontrola NFR-JEZ-002 porównuje liczby między plikami), F-16 zmiana języka offline, `moduly.md` (`i18n/` w interfejsie; mechanizm i18n interfejsu nie jest decyzją roli 05 `[DO USTALENIA]`), znak dziesiętny wg języka.
+  - 06: format treści (ADR 0005, `content-schema`, `content/numbers.yaml` jako jedno źródło liczb) i parametry dziedzinowe w `moduly.md` „Konfiguracja” (`OCENA_PROG_*`, `TOLERANCJA_*`, `FSRS_*` z pochodzeniem `[DO USTALENIA]`); stopnie oceny (BRD 4, projekt i kod 3); teksty 9 stanów błędów (`tlo-i-bledy.md` sekcja 4); BRD OP-10 numery pomocy (bloker); `range.acceptable` i `range.explanation` powtarzają zdanie.
+  - 07: `kontrole-07.md` (K-01–K-15, U-1–U-9), `dane.md` „Ścieżki utraty danych”, eksperymenty jako wzorce testów; E2E Maestro czerwony na `main` (przebiegi 13–18).
+  - 08: kolejność wdrożenia — najpierw `packages/domena` i `packages/postep` z testami na `node:sqlite` (port, kolejka, migracja v1, eksport/import, limit, dostęp, maszyny stanów), potem adaptery (`apps/mobile/src/data`, `platform`, moduł `ochrona-tla`), na końcu ekrany; usunięcia z ADR 0009 i 0011; pliki > 20 KB z `granice.mjs`; SDK 58 (ADR 0001).
+  - 10: `prywatnosc.md` (wpisy `privacyManifests`, „Zgłoś błąd” a etykieta, powód DiskSpace), `enableRemoteNotifications: false`.
+- Otwarte decyzje: OP-21 cele budżetów po pomiarze bazowym (właściciel); OP-09 zamknięcie wniosku ADR 0006 pkt 5 (02); BRD OP-10 (06, bloker); rozmiar paczki > 50 MB po 35 językach (właściciel, ADR 0005); wpis „Ścieżki wrażliwe” (właściciel, wyżej).
+- Stan poza gitem (bez zmian, zgłoszenie): rejestr 03 i dokument 13 na Dysku bez wpisów D-101–D-129 i zastąpień ADR-08/17/18; backlog 04 i changelog 05 nieaktualne (konektor Drive bez edycji Google Docs); wpis portfolio czeka na właściciela w repo `prompts`.
+
 ## Następny krok
-**05-architekt**, build, E4 (E3 przyjęte, D-129; README architektury, definicja ukończenia z dowodami, propozycja „Ścieżki wrażliwe” w `CLAUDE.md`, przekazanie). Poprzedni wpis: **05-architekt**, build, E3 (zawieszenie bez blokady pliku i powiadomienie wg `tlo-i-sensory-ios`, polityka błędów, `docs/architektura/prywatnosc.md` z required reason API, budżety wydajności z metodą, lista kontroli automatycznych dla roli 07 z `granice.mjs`) po akceptacji E2; ten sam prompt (`assemble.mjs 05-architekt --tryb build`). Wejście: `docs/adr/`, `docs/architektura/` (00-rozpoznanie, dane, moduly, schemat.sql).
+**09-lokalizacja**, build, po akceptacji E4 roli 05 (przekazanie wyżej); potem **06-tresci** build. Poprzedni wpis: **05-architekt**, build, E4 (wykonany 2026-11-04).
 
 ## Decyzje właściciela na bramce E3 roli 04 (2026-11-04)
 - Krój tytułów: „Ok zgodnie z rekomendacją” (D-120, Literata 600).
