@@ -19,7 +19,7 @@ export const HELPLINES: {
   "checkedText": "Dane sprawdzone: 4 listopada 2026",
   "reviewBy": "2027-11-04",
   "abroadText": "W zagrożeniu życia dzwoń na lokalny numer alarmowy.",
-  "pointer": "Telefony pomocy dla Twojego kraju znajdziesz w aplikacji, w ekranie „Pomoc”.",
+  "pointer": "Telefony pomocy dla części krajów i pomoc online znajdziesz w aplikacji, w ekranie „Pomoc”.",
   "fallback": {
     "text": "W zagrożeniu życia dzwoń na lokalny numer alarmowy.",
     "online": [
@@ -301,7 +301,7 @@ export const HELPLINES: {
         "CA-NB"
       ],
       "kind": "gambling",
-      "name": "Linia uzależnień i zdrowia psychicznego (także hazard)",
+      "name": "Całodobowa linia usług uzależnień (także hazard)",
       "phone": "1-866-355-5550",
       "hours": "całą dobę",
       "links": []

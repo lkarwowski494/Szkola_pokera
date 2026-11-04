@@ -32,7 +32,7 @@ drills:
     options:
       - { text: "Tilt z desperacji", correct: true, why: "Potrzeba odegrania się prowadzi do bardzo długich {{t:session|sesji}}, wymuszania akcji i skoków w górę {{t:stakes|stawek}}. To sygnał, żeby skończyć grę." }
       - { text: "Tilt z nienawiści do przegrywania", why: "Blisko, ale tu dochodzi plan odrobienia strat wyższą {{t:stakes|stawką}} i dłuższą grą. To cechy desperacji." }
-      - { text: "Rozsądny plan, bo wyższa {{t:stakes}} szybciej odrobi straty", why: "Wyższa {{t:stakes}} zwiększa też wahania, a decyzje podejmujesz w złym stanie. Przejście w górę po stracie to dokładnie odwrotność zasad bankrollu." }
+      - { text: "Rozsądny plan, bo wyższa {{t:stakes}} szybciej odrobi straty", why: "Wyższa {{t:stakes}} zwiększa też wahania, a decyzje podejmujesz w złym stanie. Przejście w górę po stracie to dokładnie odwrotność ostrożnego zarządzania pieniędzmi na grę (lekcja o bankrollu)." }
   - kind: choice
     id: m12.l3.q-type-mistake
     family: m12.tilt-type

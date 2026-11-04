@@ -19,7 +19,7 @@
 # właściciela 2026-11-03; wpisy PL nie mają twierdzeń w rejestrze E1).
 checked: '2026-11-04'
 review_by: '2027-11-04'
-pointer: 'Telefony pomocy dla Twojego kraju znajdziesz w aplikacji, w ekranie „Pomoc”.'
+pointer: 'Telefony pomocy dla części krajów i pomoc online znajdziesz w aplikacji, w ekranie „Pomoc”.'
 fallback:
   text: 'W zagrożeniu życia dzwoń na lokalny numer alarmowy.'
   online: [int-gambling-therapy]
@@ -181,8 +181,8 @@ entries:
     sources:
       - url: https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/
         quote: 'Get help from 111 online or call 111 and select the mental health option.'
-      - url: https://www.nhsinform.scot/campaigns/suicide
-        quote: 'NHS 24 For everyone - open 24 hours. Phone: 111 and choose the mental health option'
+      - url: https://www.mygov.scot/mental-health-help/get-support-for-mental-health
+        quote: 'you can phone NHS 24 on 111 and choose the mental health option - the NHS 24 Mental Health Hub is always available'
       - url: https://www.gov.wales/nhs-111-press-2
         quote: 'For urgent mental health support call 111 and press OPTION 2. The service is available for people of all ages, 24 hours a day, 7 days a week in all areas of Wales'
   - id: gb-999
@@ -194,8 +194,8 @@ entries:
     sources:
       - url: https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/
         quote: 'Call 999 or go to A&E now if: someone''s life is at risk'
-      - url: https://www.nhsinform.scot/campaigns/suicide
-        quote: 'Phone 999 or go to A&E if: you''ve taken an overdose'
+      - url: https://www.gov.scot/news/winter-health-preparedness/
+        quote: 'In a life-threatening emergency, always dial 999.'
       - url: https://cavuhb.nhs.wales/our-services/mental-health/our-services1/nhs-111-press-2/
         quote: 'In life-threatening situations, always call 999 or attend the nearest Emergency Unit.'
       - url: https://www.nidirect.gov.uk/articles/mental-health-emergency-if-youre-crisis-or-despair
@@ -312,7 +312,7 @@ entries:
     country: 'CA'
     regions: [CA-NB]
     kind: gambling
-    name: 'Linia uzależnień i zdrowia psychicznego (także hazard)'
+    name: 'Całodobowa linia usług uzależnień (także hazard)'
     phone: '1-866-355-5550'
     hours: 'całą dobę'
     sources:
@@ -636,3 +636,5 @@ entries:
         quote: 'Gambling Therapy is a global service offering free practical advice and emotional support to anyone affected by problem gambling.'
       - url: https://www.gamblingtherapy.org/
         quote: 'Confidential, safe and delivered online'
+      - url: https://www.gamblingtherapy.org/
+        quote: 'a global service offered by Gordon Moody'

@@ -887,7 +887,7 @@ risk-of-ruin:
   pl: ryzyko bankructwa
   en: risk of ruin
   abbr: RoR
-  def: "Prawdopodobieństwo, że stracisz cały bankroll, zanim osiągniesz cel albo przestaniesz grać, jeśli grasz dalej na tej samej stawce."
+  def: "Prawdopodobieństwo, że kiedykolwiek stracisz cały bankroll, jeśli grasz dalej na tej samej stawce."
   area: mental
   forms: [ryzyko bankructwa, ryzyka bankructwa, ryzyku bankructwa, ryzykiem bankructwa]
   source: "serwis z kalkulatorami pokerowymi, Risk of Ruin Formula (https://www.primedope.com/risk-of-ruin-formula-for-poker-players/): „Risk of ruin is the probability that your bankroll hits zero before reaching a target or before you quit.”"

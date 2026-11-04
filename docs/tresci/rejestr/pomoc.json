@@ -308,13 +308,6 @@
         "szczebel": 1
       },
       {
-        "adres": "https://www.nhsinform.scot/campaigns/suicide",
-        "miejsce": "Szkocja",
-        "cytat": "Phone 999 or go to A&E if: you've taken an overdose",
-        "odczyt": "2026-11-04",
-        "szczebel": 1
-      },
-      {
         "adres": "https://cavuhb.nhs.wales/our-services/mental-health/our-services1/nhs-111-press-2/",
         "miejsce": "Walia",
         "cytat": "In life-threatening situations, always call 999 or attend the nearest Emergency Unit.",
@@ -325,6 +318,13 @@
         "adres": "https://www.nidirect.gov.uk/articles/mental-health-emergency-if-youre-crisis-or-despair",
         "miejsce": "Irlandia Płn.",
         "cytat": "If they're in immediate danger, telephone the police on 999.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.gov.scot/news/winter-health-preparedness/",
+        "miejsce": "komunikat rządu Szkocji (Scottish Ambulance Service)",
+        "cytat": "In a life-threatening emergency, always dial 999.",
         "odczyt": "2026-11-04",
         "szczebel": 1
       }
@@ -338,7 +338,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: gb-999.",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: gb-999. | E3 2026-11-04 (przegląd zastępczy A7b): nhsinform.scot zwraca 403 (także archive.org); Szkocja potwierdzona źródłem rządu Szkocji.",
     "kraj": "GB",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -394,16 +394,16 @@
         "szczebel": 1
       },
       {
-        "adres": "https://www.nhsinform.scot/campaigns/suicide",
-        "miejsce": "Phone a helpline",
-        "cytat": "NHS 24 For everyone - open 24 hours. Phone: 111 and choose the mental health option",
+        "adres": "https://www.gov.wales/nhs-111-press-2",
+        "miejsce": "Get mental health support",
+        "cytat": "For urgent mental health support call 111 and press OPTION 2. The service is available for people of all ages, 24 hours a day, 7 days a week in all areas of Wales",
         "odczyt": "2026-11-04",
         "szczebel": 1
       },
       {
-        "adres": "https://www.gov.wales/nhs-111-press-2",
-        "miejsce": "Get mental health support",
-        "cytat": "For urgent mental health support call 111 and press OPTION 2. The service is available for people of all ages, 24 hours a day, 7 days a week in all areas of Wales",
+        "adres": "https://www.mygov.scot/mental-health-help/get-support-for-mental-health",
+        "miejsce": "By phone",
+        "cytat": "you can phone NHS 24 on 111 and choose the mental health option - the NHS 24 Mental Health Hub is always available",
         "odczyt": "2026-11-04",
         "szczebel": 1
       }
@@ -417,7 +417,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Wpis opcjonalny (uzupełnienie między infolinią a 999). Irlandia Płn.: brak źródła dla 111 — nie pokazywać. | E2 2026-11-04: wpis content/helplines.yaml: gb-111.",
+    "uwagi": "Wpis opcjonalny (uzupełnienie między infolinią a 999). Irlandia Płn.: brak źródła dla 111 — nie pokazywać. | E2 2026-11-04: wpis content/helplines.yaml: gb-111. | E3 2026-11-04 (przegląd zastępczy A7b): nhsinform.scot zwraca 403 (także archive.org); Szkocja potwierdzona źródłem rządu Szkocji.",
     "kraj": "GB",
     "region": [
       "GB-ENG",
@@ -708,7 +708,7 @@
     "id": "H-CA-9",
     "rodzaj": "regula",
     "level": "rules",
-    "twierdzenie": "Problem z hazardem (Nowy Brunszwik) → całodobowa linia uzależnień i zdrowia psychicznego 1-866-355-5550 (także hazard); informacja o hazardzie Departamentu Zdrowia 1-800-461-1234",
+    "twierdzenie": "Problem z hazardem (Nowy Brunszwik) → całodobowa linia usług uzależnień 1-866-355-5550 (także hazard); informacja o hazardzie Departamentu Zdrowia 1-800-461-1234",
     "zrodla": [
       {
         "adres": "https://www.gnb.ca/en/topic/health-wellness/addictions-substance-abuse/addiction-services.html",
@@ -741,7 +741,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Dwa numery z dwóch stron rządowych; 1-866-355-5550 ma potwierdzone godziny (24/7) i nowszą stronę gnb.ca — rekomendowany jako główny; 1-800-461-1234 bez godzin (strona www2 korporacji loterii, starsza). | E2 2026-11-04: wpis content/helplines.yaml: ca-nb (numer 1-866-355-5550).",
+    "uwagi": "Dwa numery z dwóch stron rządowych; 1-866-355-5550 ma potwierdzone godziny (24/7) i nowszą stronę gnb.ca — rekomendowany jako główny; 1-800-461-1234 bez godzin (strona www2 korporacji loterii, starsza). | E2 2026-11-04: wpis content/helplines.yaml: ca-nb (numer 1-866-355-5550). | E3 2026-11-04 (przegląd zastępczy A7b): nazwa bez „zdrowia psychicznego” (gnb.ca: „our 24/7 helpline”).",
     "kraj": "CA",
     "region": [
       "CA-NB"
@@ -1598,6 +1598,13 @@
         "cytat": "Confidential, safe and delivered online",
         "odczyt": "2026-11-04",
         "szczebel": 1
+      },
+      {
+        "adres": "https://www.gamblingtherapy.org/",
+        "miejsce": "stopka strony",
+        "cytat": "a global service offered by Gordon Moody",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
       }
     ],
     "status": "potwierdzone",
@@ -1609,7 +1616,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Strefa czasowa godzin nie podana (prawdopodobnie czas brytyjski — nie wpisywać godzin bez strefy). Koszt: źródło nie mówi „free” — nie pisać „bezpłatnie”. gamblingtherapy.org zwrócił 2026-11-04 błąd 500 (baza danych) — sprawdzić przed wydaniem; link do strony Gordon Moody jako zapasowy. Tekst dla krajów bez wpisu: „W zagrożeniu życia dzwoń na lokalny numer alarmowy” + H-INT-1 (bez numeru). | E2 2026-11-04: wpis content/helplines.yaml: int-gambling-therapy (bez godzin i bez „bezpłatnie”). | E3 2026-11-04 (przegląd zastępczy A7): gordonmoody.org.uk nie odpowiada (zerwane połączenie, także archive.org); źródło zamienione na gamblingtherapy.org (200); usunięte „ponad 200 języków”, godziny i „anonimowo” (brak na przeczytanej stronie).",
+    "uwagi": "Strefa czasowa godzin nie podana (prawdopodobnie czas brytyjski — nie wpisywać godzin bez strefy). Koszt: źródło nie mówi „free” — nie pisać „bezpłatnie”. gamblingtherapy.org zwrócił 2026-11-04 błąd 500 (baza danych) — sprawdzić przed wydaniem; link do strony Gordon Moody jako zapasowy. Tekst dla krajów bez wpisu: „W zagrożeniu życia dzwoń na lokalny numer alarmowy” + H-INT-1 (bez numeru). | E2 2026-11-04: wpis content/helplines.yaml: int-gambling-therapy (bez godzin i bez „bezpłatnie”). | E3 2026-11-04 (przegląd zastępczy A7): gordonmoody.org.uk nie odpowiada (zerwane połączenie, także archive.org); źródło zamienione na gamblingtherapy.org (200); usunięte „ponad 200 języków”, godziny i „anonimowo” (brak na przeczytanej stronie). | E3 2026-11-04 (przegląd zastępczy A7b): cytat dla atrybucji Gordon Moody (przegląd D-043).",
     "kraj": "*",
     "region": null,
     "wazne_do": "2027-11-04"

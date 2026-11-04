@@ -3615,7 +3615,7 @@
     "miejsce": "hasło bankroll",
     "cytat": "The money that a player allocated specifically to use for playing poker.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.primedope.com/risk-of-ruin-formula-for-poker-players/",
@@ -3634,7 +3634,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": " | E3 2026-11-04 (przegląd zastępczy A7): dodane źródło dla „oddzielone od pieniędzy na życie”."
+  "uwagi": " | E3 2026-11-04 (przegląd zastępczy A7): dodane źródło dla „oddzielone od pieniędzy na życie”. | E3 2026-11-04 (przegląd zastępczy A7b): szczebel glosariusza 4; m12-l3 bez terminu przed definicją."
  },
  {
   "id": "t:tilt",
@@ -3797,7 +3797,7 @@
   "id": "t:risk-of-ruin",
   "rodzaj": "termin",
   "level": "math",
-  "twierdzenie": "ryzyko bankructwa (risk of ruin): Prawdopodobieństwo, że stracisz cały bankroll, zanim osiągniesz cel albo przestaniesz grać, jeśli grasz dalej na tej samej stawce.",
+  "twierdzenie": "ryzyko bankructwa (risk of ruin): Prawdopodobieństwo, że kiedykolwiek stracisz cały bankroll, jeśli grasz dalej na tej samej stawce.",
   "zrodla": [
    {
     "adres": "https://www.primedope.com/risk-of-ruin-formula-for-poker-players/",
@@ -3808,7 +3808,7 @@
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": null,
+  "uproszczenie": "Źródło: „before reaching a target or before you quit”; aplikacja podaje wersję bez celu (gra bez końca), którą liczy wzór RoR = e^(−2·wr·BR/SD²) w lekcji M12-L4 — granica dla celu dążącego do nieskończoności; kierunek zgodny.",
   "krytyczne": true,
   "przeglad": null,
   "wielkosc": null,
@@ -3816,7 +3816,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": " | E3 2026-11-04 (przegląd zastępczy A7): warunek „ta sama stawka” jak w lekcji m12-l4 (wzór RoR zakłada stałą grę)."
+  "uwagi": " | E3 2026-11-04 (przegląd zastępczy A7): warunek „ta sama stawka” jak w lekcji m12-l4 (wzór RoR zakłada stałą grę). | E3 2026-11-04 (przegląd zastępczy A7b): jedna definicja w haśle i lekcji m12-l4."
  },
  {
   "id": "t:mental-game",

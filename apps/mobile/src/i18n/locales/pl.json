@@ -204,7 +204,7 @@
   "help": {
     "title": "Pomoc",
     "link": "Pomoc: gdy granie wymyka się spod kontroli",
-    "intro": "Poker na pieniądze to gra hazardowa. Jeśli granie przestaje być pod kontrolą, możesz porozmawiać ze specjalistą.",
+    "intro": "Poker na pieniądze to gra hazardowa. Jeśli granie przestaje być pod kontrolą, możesz skorzystać z pomocy poniżej.",
     "call": "Zadzwoń: {{phone}}",
     "callA11y": "Zadzwoń pod numer {{phone}}: {{name}}",
     "openA11y": "{{label}}: otwórz {{host}} w przeglądarce",

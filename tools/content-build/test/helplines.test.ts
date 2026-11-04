@@ -183,7 +183,7 @@ describe('telefony pomocy (helplines.yaml): rynki aplikacji (D-142, e1-pomoc.md 
     expect(used.count).toBe(1);
     expect(out).toContain('- **Gambling Therapy (Gordon Moody, Wielka Brytania)**.');
     expect(out).toContain('Gambling Therapy: gamblingtherapy.org.');
-    expect(out).toContain('Telefony pomocy dla Twojego kraju znajdziesz w aplikacji, w ekranie „Pomoc”.');
+    expect(out).toContain('Telefony pomocy dla części krajów i pomoc online znajdziesz w aplikacji, w ekranie „Pomoc”.');
     expect(out).toContain('W zagrożeniu życia dzwoń na lokalny numer alarmowy.');
     expect(out).toContain('Dane sprawdzone: 4 listopada 2026.');
     for (const e of h.entries) if (e.phone) expect(out).not.toContain(e.phone);

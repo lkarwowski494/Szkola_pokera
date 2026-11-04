@@ -99,7 +99,7 @@ drills:
     family: m12.responsible
     prompt: "Który sygnał świadczy o tym, że granie może przestawać być pod kontrolą?"
     options:
-      - { text: "Po przegranej czujesz, że musisz jak najszybciej wrócić i odegrać straty", correct: true, why: "Odgrywanie strat to jeden z najczęściej wymienianych sygnałów problemu z hazardem. Jeśli rozpoznajesz u siebie takie sygnały, skorzystaj z kontaktów z karty o odpowiedzialnej grze." }
+      - { text: "Po przegranej czujesz, że musisz jak najszybciej wrócić i odegrać straty", correct: true, why: "Odgrywanie strat to jeden z sygnałów problemu z hazardem wymienianych w kryteriach diagnostycznych. Jeśli rozpoznajesz u siebie takie sygnały, skorzystaj z kontaktów z karty o odpowiedzialnej grze." }
       - { text: "Analizujesz przegrane rozdania po {{t:session|sesji}}", why: "To zdrowy nawyk nauki. Sygnałem problemu jest m.in. odgrywanie strat, gra dłuższa niż planowana i granie za pożyczone pieniądze." }
       - { text: "Kończysz {{t:session|sesję}} zgodnie z planem", why: "To dobra kontrola gry. Sygnałem problemu byłaby gra dłuższa niż planowana albo potrzeba odegrania się." }
   # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar mental
