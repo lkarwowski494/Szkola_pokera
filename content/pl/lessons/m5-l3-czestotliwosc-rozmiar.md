@@ -53,12 +53,12 @@ drills:
     id: m5.l3.q-set-wet
     family: m5.cbet.size
     rules: [R-M5-008]
-    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i {{t:check|czeka}}. Masz seta waletów na {{t:wet|mokrym}} flopie. Co robisz?"
-    table: { hand: "Jc Js", position: BTN, board: "Jh Th 8c" }
+    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i {{t:check|czeka}}. Masz seta waletów na flopie z wieloma {{t:draw|drawami}}. Co robisz?"
+    table: { hand: "Jc Js", position: BTN, board: "Kh Jh 7c" }
     options:
-      - { text: "C-bet {{n:cbet.btn.big}} ({{n:cbet.size.big}} {{t:pot|puli}})", correct: true, why: "Tak: na {{t:wet|mokrym}} flopie rywal ma wiele {{t:flush-draw|drawów do koloru}} i {{t:straight|strita}} (np. KQ, A9, dwa kiery). Duży {{t:bet}} każe im drogo płacić za kolejną kartę." }
-      - { text: "C-bet {{n:cbet.btn.small}} ({{n:cbet.size.small}} {{t:pot|puli}})", sizeError: true, why: "Dobra akcja, zły rozmiar: mały {{t:bet}} daje {{t:draw|drawom}} rywala tanią kartę, a twój set może przegrać z kolorem albo {{t:straight|stritem}}. Na {{t:wet|mokrym}} flopie betuj dużo." }
-      - { text: "{{t:check|Czekam}}, żeby nie spłoszyć rywala", why: "Na {{t:wet|mokrym}} flopie darmowa karta to prezent dla {{t:draw|drawów}}. Z bardzo silną ręką budujesz {{t:pot|pulę}} od razu." }
+      - { text: "C-bet {{n:cbet.btn.big}} ({{n:cbet.size.big}} {{t:pot|puli}})", correct: true, why: "Tak: rywal ma wiele {{t:flush-draw|drawów do koloru}} i {{t:straight|strita}} (np. QT, AQ, dwa kiery). Duży {{t:bet}} każe im drogo płacić za kolejną kartę." }
+      - { text: "C-bet {{n:cbet.btn.small}} ({{n:cbet.size.small}} {{t:pot|puli}})", sizeError: true, why: "Dobra akcja, zły rozmiar: mały {{t:bet}} daje {{t:draw|drawom}} rywala tanią kartę, a twój set może przegrać z kolorem albo {{t:straight|stritem}}. Przy wielu {{t:draw|drawach}} betuj dużo." }
+      - { text: "{{t:check|Czekam}}, żeby nie spłoszyć rywala", why: "Przy wielu {{t:draw|drawach}} darmowa karta to prezent dla nich. Z bardzo silną ręką budujesz {{t:pot|pulę}} od razu." }
   - kind: choice
     id: m5.l3.q-paired
     family: m5.cbet.texture
@@ -111,9 +111,9 @@ Na flopie takim jak [[Ks 7d 2c]] masz {{t:range-advantage|przewagę zakresu}}, a
 
 Typowy mały c-bet to ok. {{n:cbet.range.small.low}}–{{n:cbet.range.small.high}} {{t:pot|puli}}, a duży ok. {{n:cbet.range.big.low}}–{{n:cbet.range.big.high}} (materiały szkoleniowe); solvery używają zwykle {{n:cbet.size.small}} oraz {{n:cbet.solver.big.low}}–{{n:cbet.size.big}} (opublikowane wyniki solverów).
 
-## {{t:wet|Mokry}} flop: rzadziej, ale więcej
+## Flop z wieloma {{t:draw|drawami}}: rzadziej, ale więcej
 
-Na flopie takim jak [[Jh Th 8c]] rywal ma wiele {{t:flush-draw|drawów do koloru}} i {{t:straight|strita}}. Silne ręce i mocne {{t:draw|drawy}} betują większym rozmiarem, np. {{n:cbet.size.big}} {{t:pot|puli}}, żeby {{t:draw|drawy}} płaciły drogo za kolejną kartę. Ręce średnie bez {{t:draw|drawa}} częściej {{t:check|czekają}}.
+Na flopie takim jak [[Kh Jh 7c]] rywal ma wiele {{t:flush-draw|drawów do koloru}} i {{t:straight|strita}}, ale {{t:straight}} nie jest jeszcze możliwy. Silne ręce i mocne {{t:draw|drawy}} betują większym rozmiarem, np. {{n:cbet.size.big}} {{t:pot|puli}}, żeby {{t:draw|drawy}} płaciły drogo za kolejną kartę. Ręce średnie bez {{t:draw|drawa}} częściej {{t:check|czekają}}. Gdy {{t:straight}} jest już możliwy, np. na [[Jh Th 8c]], rywal może go mieć, więc solvery betują tam mniejszym rozmiarem.
 
 ## {{t:paired|Sparowany}} i {{t:monotone}}
 

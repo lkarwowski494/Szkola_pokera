@@ -117,9 +117,9 @@ describe('źródła reguły: rodzaj i liczba (decyzja właściciela z 9.10.2026)
         expect(s.length, r.id).toBeGreaterThan(0);
         for (const x of s) expect(Object.keys(x).sort(), r.id).toEqual(['kind', 'n']);
       }
-      // R-M4-005: dwa opublikowane rozwiązania solverów i trzy serwisy szkoleniowe (dokument 10, decyzja A2)
+      // R-M4-005: trzy opublikowane rozwiązania solverów (trzecie dopisane w E2 roli 06, D-144) i trzy serwisy szkoleniowe
       expect(JSON.parse(rows.find((r) => r.id === 'R-M4-005')!.sources)).toEqual([
-        { kind: 'solver-pub', n: 2 },
+        { kind: 'solver-pub', n: 3 },
         { kind: 'training', n: 3 },
       ]);
       expect(JSON.parse(rows.find((r) => r.id === 'R-M2-003')!.sources)).toEqual([{ kind: 'math', n: 1 }]);

@@ -85,9 +85,6 @@ solver.rfi.hj: { formula: rangePlay, spot: rfi.hj, unit: percent, source: "solve
 solver.rfi.co: { formula: rangePlay, spot: rfi.co, unit: percent, source: "solver preflop projektu (ADR-20)" }
 solver.rfi.btn: { formula: rangePlay, spot: rfi.btn, unit: percent, source: "solver preflop projektu (ADR-20)" }
 solver.rfi.sb: { formula: rangePlay, spot: rfi.sb, unit: percent, source: "solver preflop projektu (ADR-20)" }
-solver9.rfi.utg: { formula: rangePlay, spot: nine.rfi.utg, unit: percent, source: "solver preflop projektu, stół 9-osobowy 100bb (ADR-20; dokument 10, „Pomiar N9a końcowy”: walidacja częściowa N1–N4, skład niezweryfikowany)" }
-solver9.rfi.utg1: { formula: rangePlay, spot: nine.rfi.utg1, unit: percent, source: "solver preflop projektu, stół 9-osobowy 100bb (ADR-20; dokument 10, „Pomiar N9a końcowy”: walidacja częściowa N1–N4, skład niezweryfikowany)" }
-solver9.rfi.utg2: { formula: rangePlay, spot: nine.rfi.utg2, unit: percent, source: "solver preflop projektu, stół 9-osobowy 100bb (ADR-20; dokument 10, „Pomiar N9a końcowy”: walidacja częściowa N1–N4, skład niezweryfikowany)" }
 format.stack: { value: 100, unit: bb, source: "format główny aplikacji: cash 6-max (ADR-01)" }
 
 # M4: gra wobec akcji preflop. Rozmiary i częstości z literatury (heurystyki; solver aplikacji nie przeszedł walidacji
@@ -143,8 +140,6 @@ pf.iso.two-limpers: { formula: sum, refs: [pf.iso.base, pf.iso.per-limper, pf.is
 pf.iso.oop-extra: { value: 1, unit: bb, source: "serwis z tabelami preflop, ISO Raise Strategy (https://www.preflopwizard.app/blog/poker-iso-raise-strategy): bez pozycji o 1bb więcej" }
 pf.iso.btn.low: { value: 0.30, unit: percent, source: "serwis z tabelami preflop, ISO Raise Strategy (https://www.preflopwizard.app/blog/poker-iso-raise-strategy): Button wobec jednego limpera" }
 pf.iso.btn.high: { value: 0.40, unit: percent, source: "serwis z tabelami preflop, ISO Raise Strategy (https://www.preflopwizard.app/blog/poker-iso-raise-strategy): Button wobec jednego limpera" }
-solver.def.bb-vs-btn: { formula: rangePlay, spot: vs-open.bb-vs-btn, unit: percent, source: "solver preflop projektu (ADR-20): sprawdzenie + 3-bet" }
-solver.def.bb-vs-sb: { formula: rangePlay, spot: vs-open.bb-vs-sb, unit: percent, source: "solver preflop projektu (ADR-20): sprawdzenie + 3-bet" }
 solver.3bet.sb-vs-btn: { formula: rangePlay, spot: vs-open.sb-vs-btn, unit: percent, decimals: 1, source: "solver preflop projektu (ADR-20): 3-bet (siatka „3-bet / pas”, B-045)" }
 pf.bb-def.vs-sb.pub: { value: 0.56, unit: percent, source: "serwis z tabelami solvera, BB vs SB (https://beyondgto.com/defense/bb-vs-sb), NL500, 100bb: „Facing a 3bb open from the Small Blind, GTO defends the Big Blind with about 56% of hands — roughly 39% as a flat call and 17% as a 3-bet.”" }
 pf.bb-def.vs-btn.pub.low: { value: 0.40, unit: percent, source: "szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), NL200: „In the cash game against a button open it 3-bets 11.5% to 11bb and calls 29.0%.” (razem 40,5%; D-144, było 45–50% z jednego źródła szczebla 4)" }

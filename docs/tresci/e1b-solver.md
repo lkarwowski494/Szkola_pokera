@@ -44,7 +44,7 @@ Solver modeluje big blind ante 1bb: martwe pieniądze wpłacone przez dużego bl
 - `m3-l3-zakresy-otwarc.md:80` i `rules.yaml:202` (R-M3-010): bez `solver9.*`; kierunek („węziej niż przy stole 6-osobowym”) albo przedział szczebla 4 z atrybucją po odczycie źródeł.
 - `m11-l1-push-fold.md:90–92, :174`, `m11-l2-sprawdzanie.md:86, :168`: liczby z ante mogą zostać (D-153 zmienia D-148), z nazwaną strukturą „big blind ante 1bb”.
 - `m11-l2-sprawdzanie.md:150`, `exams/m11.yaml:50–51`: `m11.call.5` może zostać (D-153 zmienia D-148).
-- Klucze `solver.def.*` i `solver9.*` w `numbers.yaml` zostają (siatki i boty), ale strażnik powiązań w `content-build` (E2) powinien blokować ich użycie w tekście, dopóki wpis jest „otwarty”.
+- Klucze `solver.def.*` i `solver9.*` usunięte z `numbers.yaml` w E2 (po poprawkach tekstu nieużywane; siatki i boty czytają spoty z `content/ranges/`, nie te klucze); wynik walidacji zostaje w `walidacja-solvera.json`. Strażnik powiązań w `content-build` blokuje użycie w tekście liczby, której wpis nie jest „potwierdzony”.
 
 ## 7. Otwarte
 - Siatki BB vs BTN i BB vs SB (częstości solvera, łączna obrona poza kryterium; zgodność „gram / pas” z BeyondGTO 89,7% i 91,3%, dokument 10): **zostają** z dopiskiem w lekcji, że solver aplikacji broni szerzej (BB vs BTN) i węziej (BB vs SB) niż opublikowane rozwiązania; liczba łączna w tekście tylko z opublikowanego źródła. Decyzja agenta w D-153 (delegacja z `CLAUDE.md`, do weta); odrzucone: ukrycie siatek do poprawy modelu (traci ćwiczenie, w którym 9 na 10 rąk zgadza się ze źródłem), pokazywanie bez dopisku.

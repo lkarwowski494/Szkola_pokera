@@ -304,7 +304,7 @@
   "id": "R-M5-008",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "jako aggressor preflop masz pozycję, a flop jest wet, ale nie monotone, np. connected i two-tone → c-betujesz rzadziej, ale większym rozmiarem, np. {{n:cbet.size.big}} puli; ręce średnie bez drawa częściej czekają, bo drawy rywala mają dużo equity, więc duży bet każe im drogo płacić za kolejną kartę",
+  "twierdzenie": "jako aggressor preflop masz pozycję, a flop daje rywalowi wiele drawów, ale strit nie jest jeszcze możliwy, np. K-J-7 two-tone → c-betujesz rzadziej, ale większym rozmiarem, np. {{n:cbet.size.big}} puli; ręce średnie bez drawa częściej czekają; gdy strit jest już możliwy, np. J-T-8, solvery betują mniejszym rozmiarem",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
@@ -356,9 +356,10 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "w then dopisać granicę: „…np. {{n:cbet.size.big}} puli; gdy strit jest już możliwy na flopie (np. 9-8-7), rozmiar znowu spada” albo zmienić przykład w if na flop z możliwym otwartym drawem bez gotowego strita (np. K-Q-8 dwukolorowy)",
-  "uwagi": "Szczebel 2 (GTO Wizard) dzieli „mokre” flopy: z możliwym OESD rozmiar rośnie (66%, na KJ7tt 75%), na flopach z możliwym gotowym stritem („connected”) i bardzo mokrych rozmiar spada. Definicja aplikacji liczy flopy z gotowym stritem (987, JT8) jako mokre, więc przykład „połączony i dwukolorowy” oraz zadanie m5.l3.q-set-wet (J♥T♥8♣) leżą tam, gdzie szczebel 2 mówi „size down”. Nie oznaczam jako SPRZECZNE: „size down” u GTO Wizard dotyczy głównie udziału overbetu 133%, a set na JT8 to ręka silna i wrażliwa (R-M7-006). E2 2026-11-04: NIE poprawione. Obie poprawki z raportu kolidują z definicją mokrości aplikacji (D-39, packages/poker-core/src/texture.ts): flop niejednokolorowy jest mokry (≥ 3 pkt) tylko wtedy, gdy strit jest już możliwy (made-one 2 + dwukolorowy 1 albo made 3); dwukolorowy z samym drawem ma 2 pkt i jest pośredni. Granica „gdy strit jest już możliwy, rozmiar spada” objęłaby więc cały zakres reguły, a przykład K-Q-8 dwukolorowy (oraz KJ7tt i AT9hh ze źródeł) to w aplikacji flop pośredni, nie mokry. Wymaga decyzji o mapowaniu klas serwisu komercyjnego solvera (OESD possible / Connected) na klasy mokrości aplikacji; zostaje CZĘŚCIOWO."
+  "uwagi": "Szczebel 2 (GTO Wizard) dzieli „mokre” flopy: z możliwym OESD rozmiar rośnie (66%, na KJ7tt 75%), na flopach z możliwym gotowym stritem („connected”) i bardzo mokrych rozmiar spada. Definicja aplikacji liczy flopy z gotowym stritem (987, JT8) jako mokre, więc przykład „połączony i dwukolorowy” oraz zadanie m5.l3.q-set-wet (J♥T♥8♣) leżą tam, gdzie szczebel 2 mówi „size down”. Nie oznaczam jako SPRZECZNE: „size down” u GTO Wizard dotyczy głównie udziału overbetu 133%, a set na JT8 to ręka silna i wrażliwa (R-M7-006). E2 2026-11-04: NIE poprawione. Obie poprawki z raportu kolidują z definicją mokrości aplikacji (D-39, packages/poker-core/src/texture.ts): flop niejednokolorowy jest mokry (≥ 3 pkt) tylko wtedy, gdy strit jest już możliwy (made-one 2 + dwukolorowy 1 albo made 3); dwukolorowy z samym drawem ma 2 pkt i jest pośredni. Granica „gdy strit jest już możliwy, rozmiar spada” objęłaby więc cały zakres reguły, a przykład K-Q-8 dwukolorowy (oraz KJ7tt i AT9hh ze źródeł) to w aplikacji flop pośredni, nie mokry. Wymaga decyzji o mapowaniu klas serwisu komercyjnego solvera (OESD possible / Connected) na klasy mokrości aplikacji; zostaje CZĘŚCIOWO. | E2 2026-11-04 (koordynator, D-154): reguła, lekcja m5-l3 (sekcja i zadanie m5.l3.q-set-wet) przeszły na klasy szczebla 2 zamiast „mokrego” z definicji aplikacji: flop z drawami bez możliwego strita (przykład K-J-7 dwukolorowy, jak KJ7tt w źródle: 75% i overbet) → większy rozmiar; strit już możliwy (J-T-8) → mniejszy rozmiar („Connected boards … we size down”). Było CZĘŚCIOWO.",
+  "decyzja": "D-154"
  },
  {
   "id": "R-M5-009",
@@ -2153,16 +2154,17 @@
     "szczebel": 4
    }
   ],
-  "status": "otwarte",
-  "uproszczenie": null,
+  "status": "potwierdzone",
+  "uproszczenie": "granica 6 to umowa przyjęta w aplikacji (D-149); źródła mówią tylko, że przy wyższym SPR jedna para coraz rzadziej gra o stack",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": "spr.zone.mid",
   "wartosc": 6,
   "jednostka": "ratio",
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "bez zmiany wartości do czasu odczytu źródła z progiem 6; w uzasadnieniu nazwać 6 umową aplikacji między SPR ok. 5 („dicey”) a 10+ (para „medium strength at best”)",
-  "uwagi": "Źródło z progiem 6 („SPR Strategy”, trener) zwraca 403. Przeczytane źródła nie podają liczby 6: GTO Wizard — przy SPR ok. 5 top para „dicey”, przy 16 obojętna; Upswing — SPR 10 top para „medium strength at best”. W partii m5-m8 liczba używana tylko w check R-M7-008 (sprMin); główne użycie w M9."
+  "uwagi": "Źródło z progiem 6 („SPR Strategy”, trener) zwraca 403. Przeczytane źródła nie podają liczby 6: GTO Wizard — przy SPR ok. 5 top para „dicey”, przy 16 obojętna; Upswing — SPR 10 top para „medium strength at best”. W partii m5-m8 liczba używana tylko w check R-M7-008 (sprMin); główne użycie w M9. | E2 2026-11-04: ujednolicone z partią M9–M11 (m9-l1-spr.md:139 nazywa 6 umową aplikacji).",
+  "decyzja": "D-149"
  },
  {
   "id": "n:value.threshold",

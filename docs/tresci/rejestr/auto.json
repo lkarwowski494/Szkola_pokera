@@ -1430,60 +1430,6 @@
   "decyzja": "D-153"
  },
  {
-  "id": "n:solver9.rfi.utg",
-  "rodzaj": "liczba",
-  "level": "math",
-  "twierdzenie": "solver9.rfi.utg = (formuła rangePlay) [percent]; solver preflop projektu, stół 9-osobowy 100bb (ADR-20; dokument 10, „Pomiar N9a końcowy”: walidacja częściowa N1–N4, skład niezweryfikowany)",
-  "zrodla": [],
-  "status": "otwarte",
-  "uproszczenie": null,
-  "krytyczne": false,
-  "przeglad": null,
-  "wielkosc": "solver9.rfi.utg",
-  "wartosc": 0.109,
-  "jednostka": "percent",
-  "werdykt_tekstu": null,
-  "poprawka": null,
-  "uwagi": "solver projektu, spot nine.rfi.utg, wartość 10.9%: niezwalidowane: brak opublikowanego rozwiązania 9-max cash 100bb szczebla 2 (dokument 10, „Konfiguracja 9-max 100bb”: rozwiązania tylko w płatnych aplikacjach); walidacja częściowa N2 tylko wobec tabel szczebla 4. Nie do treści (D-148, D-153); E2: kierunek („węziej niż w 6-max”) albo przedział szczebla 4 z atrybucją po odczycie źródeł",
-  "decyzja": "D-153"
- },
- {
-  "id": "n:solver9.rfi.utg1",
-  "rodzaj": "liczba",
-  "level": "math",
-  "twierdzenie": "solver9.rfi.utg1 = (formuła rangePlay) [percent]; solver preflop projektu, stół 9-osobowy 100bb (ADR-20; dokument 10, „Pomiar N9a końcowy”: walidacja częściowa N1–N4, skład niezweryfikowany)",
-  "zrodla": [],
-  "status": "otwarte",
-  "uproszczenie": null,
-  "krytyczne": false,
-  "przeglad": null,
-  "wielkosc": "solver9.rfi.utg1",
-  "wartosc": 0.125,
-  "jednostka": "percent",
-  "werdykt_tekstu": null,
-  "poprawka": null,
-  "uwagi": "solver projektu, spot nine.rfi.utg1, wartość 12.5%: niezwalidowane: brak opublikowanego rozwiązania 9-max cash 100bb szczebla 2 (dokument 10, „Konfiguracja 9-max 100bb”: rozwiązania tylko w płatnych aplikacjach); walidacja częściowa N2 tylko wobec tabel szczebla 4. Nie do treści (D-148, D-153); E2: kierunek („węziej niż w 6-max”) albo przedział szczebla 4 z atrybucją po odczycie źródeł",
-  "decyzja": "D-153"
- },
- {
-  "id": "n:solver9.rfi.utg2",
-  "rodzaj": "liczba",
-  "level": "math",
-  "twierdzenie": "solver9.rfi.utg2 = (formuła rangePlay) [percent]; solver preflop projektu, stół 9-osobowy 100bb (ADR-20; dokument 10, „Pomiar N9a końcowy”: walidacja częściowa N1–N4, skład niezweryfikowany)",
-  "zrodla": [],
-  "status": "otwarte",
-  "uproszczenie": null,
-  "krytyczne": false,
-  "przeglad": null,
-  "wielkosc": "solver9.rfi.utg2",
-  "wartosc": 0.1322,
-  "jednostka": "percent",
-  "werdykt_tekstu": null,
-  "poprawka": null,
-  "uwagi": "solver projektu, spot nine.rfi.utg2, wartość 13.22%: niezwalidowane: brak opublikowanego rozwiązania 9-max cash 100bb szczebla 2 (dokument 10, „Konfiguracja 9-max 100bb”: rozwiązania tylko w płatnych aplikacjach); walidacja częściowa N2 tylko wobec tabel szczebla 4. Nie do treści (D-148, D-153); E2: kierunek („węziej niż w 6-max”) albo przedział szczebla 4 z atrybucją po odczycie źródeł",
-  "decyzja": "D-153"
- },
- {
   "id": "n:pf.3bet.ip-total",
   "rodzaj": "liczba",
   "level": "math",
@@ -2007,58 +1953,6 @@
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
   "uwagi": ""
- },
- {
-  "id": "n:solver.def.bb-vs-btn",
-  "rodzaj": "liczba",
-  "level": "math",
-  "twierdzenie": "solver.def.bb-vs-btn = (formuła rangePlay) [percent]; solver preflop projektu (ADR-20): sprawdzenie + 3-bet",
-  "zrodla": [
-   {
-    "adres": "https://beyondgto.com/defense/bb-vs-btn",
-    "miejsce": "BB vs BTN Defense (6-Max 100bb)",
-    "cytat": "Facing a 2.5bb open from the Button, GTO defends the Big Blind with about 45% of hands",
-    "odczyt": "2026-11-04",
-    "szczebel": 2
-   }
-  ],
-  "status": "otwarte",
-  "uproszczenie": null,
-  "krytyczne": false,
-  "przeglad": null,
-  "wielkosc": "solver.def.bb-vs-btn",
-  "wartosc": 0.4961,
-  "jednostka": "percent",
-  "werdykt_tekstu": null,
-  "poprawka": null,
-  "uwagi": "solver projektu, spot vs-open.bb-vs-btn, wartość 49.61%: niezgodne: 4,6 pp powyżej 45% (drugie opublikowane rozwiązanie 40,5%, rejestr pf.bb-def.vs-btn.pub.low). Nie do treści; E2: m4-l2-obrona-bb.md:79 („na górnej granicy tego przedziału” jest fałszywe — solver jest powyżej) i rules.yaml:240 bez liczby solvera",
-  "decyzja": "D-153"
- },
- {
-  "id": "n:solver.def.bb-vs-sb",
-  "rodzaj": "liczba",
-  "level": "math",
-  "twierdzenie": "solver.def.bb-vs-sb = (formuła rangePlay) [percent]; solver preflop projektu (ADR-20): sprawdzenie + 3-bet",
-  "zrodla": [
-   {
-    "adres": "https://beyondgto.com/defense/bb-vs-sb",
-    "miejsce": "BB vs SB Defense (6-Max 100bb)",
-    "cytat": "Facing a 3bb open from the Small Blind, GTO defends the Big Blind with about 56% of hands",
-    "odczyt": "2026-11-04",
-    "szczebel": 2
-   }
-  ],
-  "status": "otwarte",
-  "uproszczenie": null,
-  "krytyczne": false,
-  "przeglad": null,
-  "wielkosc": "solver.def.bb-vs-sb",
-  "wartosc": 0.5304,
-  "jednostka": "percent",
-  "werdykt_tekstu": null,
-  "poprawka": null,
-  "uwagi": "solver projektu, spot vs-open.bb-vs-sb, wartość 53.04%: niezgodne: 3,0 pp poniżej 56% (kryterium 2 pp). Nie do treści; E2: m4-l2-obrona-bb.md:89 i rules.yaml:323 tylko z liczbą opublikowaną pf.bb-def.vs-sb.pub",
-  "decyzja": "D-153"
  },
  {
   "id": "n:solver.3bet.sb-vs-btn",

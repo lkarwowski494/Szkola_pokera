@@ -389,8 +389,8 @@
   sources: [{ kind: training, url: "https://upswingpoker.com/bet-size-strategy-tips-rules/" }, { kind: solver-pub }, { kind: training }, { kind: training }]
 - id: R-M5-008
   module: m5
-  if: "jako {{t:aggressor}} preflop masz {{t:position|pozycję}}, a flop jest {{t:wet}}, ale nie {{t:monotone}}, np. {{t:connected}} i {{t:two-tone}}"
-  then: "c-betujesz rzadziej, ale większym rozmiarem, np. {{n:cbet.size.big}} {{t:pot|puli}}; ręce średnie bez {{t:draw|drawa}} częściej {{t:check|czekają}}"
+  if: "jako {{t:aggressor}} preflop masz {{t:position|pozycję}}, a flop daje rywalowi wiele {{t:draw|drawów}}, ale {{t:straight}} nie jest jeszcze możliwy, np. K-J-7 {{t:two-tone}}"
+  then: "c-betujesz rzadziej, ale większym rozmiarem, np. {{n:cbet.size.big}} {{t:pot|puli}}; ręce średnie bez {{t:draw|drawa}} częściej {{t:check|czekają}}; gdy {{t:straight}} jest już możliwy, np. J-T-8, solvery betują mniejszym rozmiarem"
   because: "{{t:draw|drawy}} rywala mają dużo equity, więc duży {{t:bet}} każe im drogo płacić za kolejną kartę"
   level: heuristic
   source: "serwis komercyjnego solvera, Flop Heuristics: IP C-Betting in Cash Games („increased use of the 66% pot bet size, but decreased overall betting frequency”); serwis szkoleniowy, Bet Sizing Strategy: 8 Rules (55–80%, https://upswingpoker.com/bet-size-strategy-tips-rules/); serwis szkoleniowy, Picking the Proper C-Bet Sizing on Ace-High Boards (2/3 puli)"

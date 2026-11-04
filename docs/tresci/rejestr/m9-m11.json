@@ -2285,7 +2285,7 @@
     "szczebel": 5
    }
   ],
-  "status": "otwarte",
+  "status": "wycofane",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
@@ -2294,8 +2294,9 @@
   "jednostka": "ratio",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Jedyne źródło granicy 6 to Wikipedia (szczebel 5, nigdy jedyne). Strona przypisuje strefy książce Harringtona bez numeru strony dla strefy czerwonej; zamiennika dziś nie znaleziono. [DO USTALENIA] fragment książki Harrington on Hold'em t. II. | E2 2026-11-04: granica 6 usunięta z treści (m11-l1-push-fold.md:40 i :134) i klucz usunięty z numbers.yaml; było CZĘŚCIOWO; status otwarte zostaje tylko dla pytania o fragment książki Harringtona (granica 5 czy 6)",
-  "decyzja": "D-147"
+  "uwagi": "Jedyne źródło granicy 6 to Wikipedia (szczebel 5, nigdy jedyne). Strona przypisuje strefy książce Harringtona bez numeru strony dla strefy czerwonej; zamiennika dziś nie znaleziono. [DO USTALENIA] fragment książki Harrington on Hold'em t. II. | E2 2026-11-04: granica 6 usunięta z treści (m11-l1-push-fold.md:40 i :134) i klucz usunięty z numbers.yaml; było CZĘŚCIOWO; status otwarte zostaje tylko dla pytania o fragment książki Harringtona (granica 5 czy 6) | E2 2026-11-04: klucz usunięty z numbers.yaml (D-147).",
+  "decyzja": "D-147",
+  "nastepca": "n:m11.m.red"
  },
  {
   "id": "n:m11.thr.pushfold",
