@@ -24,14 +24,15 @@ drills:
     options:
       - { text: "Dopuszczalna", correct: true, why: "Solver gra {{t:fold}} w {{n:exam.m13.solver.rare}} przypadków: co najmniej {{n:range.mixed.min}}, ale rzadziej niż {{n:range.mixed.low}}. To rzadsze zagranie {{t:mixed-hand|ręki mieszanej}}, więc nie błąd, tylko decyzja dopuszczalna." }
       - { text: "Zgodna", why: "Zgodna jest akcja grana przez solver w co najmniej {{n:range.mixed.low}} przypadków. {{t:fold}} w {{n:exam.m13.solver.rare}} jest rzadszy." }
-      - { text: "Błąd", why: "Błąd to akcja grana przez solver rzadziej niż w {{n:range.mixed.min}} przypadków. {{n:exam.m13.solver.rare}} to więcej, więc oba zagrania są poprawne." }
+      - { text: "Błąd", why: "Błąd to akcja, której solver nie gra wcale. {{t:fold}} w {{n:exam.m13.solver.rare}} to rzadsze zagranie {{t:mixed-hand|ręki mieszanej}}, więc oba zagrania są poprawne." }
   - kind: choice
     id: m13.exam.q4
     family: m13.verdicts
     rules: [R-M13-002]
     prompt: "Solver {{t:fold|pasuje}} twoją ręką w {{n:exam.m13.solver.main2}} przypadków, a {{t:call|sprawdza}} w {{n:exam.m13.solver.tiny}}. {{t:call|Sprawdziłeś}}. Jaki werdykt?"
     options:
-      - { text: "Błąd", correct: true, why: "{{t:call}} w {{n:exam.m13.solver.tiny}} przypadków to mniej niż {{n:range.mixed.min}}. Taka akcja nie jest już częścią {{t:mixed-hand|ręki mieszanej}}, tylko błędem." }
+      - { text: "Niedokładność", correct: true, why: "{{t:call}} w {{n:exam.m13.solver.tiny}} przypadków to mniej niż {{n:range.mixed.min}}. Raport liczy akcję poniżej progu jako niedokładność, czyli jak błąd: to próg aplikacji, nie teoria." }
+      - { text: "Błąd", why: "Błąd to akcja, której solver nie gra wcale. Tu solver {{t:call|sprawdza}} w {{n:exam.m13.solver.tiny}} przypadków." }
       - { text: "Dopuszczalna, bo solver też czasem {{t:call|sprawdza}}", why: "Dopuszczalna jest akcja grana co najmniej w {{n:range.mixed.min}} przypadków. {{n:exam.m13.solver.tiny}} to za mało." }
       - { text: "Bez oceny", why: "„Bez oceny” dostaje decyzja, do której aplikacja nie ma reguły ani wyniku solvera. Tu wynik solvera jest." }
   - kind: choice

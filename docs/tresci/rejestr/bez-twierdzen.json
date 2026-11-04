@@ -819,6 +819,13 @@
   "source": "przykład w lekcji: dziesięć takich rozdań"
  },
  {
+  "klucz": "m13.noise.hands.k",
+  "wartosc": 2.5,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: ok. 2,5 tys. rąk (kilkadziesiąt sesji po kilkadziesiąt rozdań)"
+ },
+ {
   "klucz": "m13.eq.example2",
   "wartosc": 0.65,
   "jednostka": "percent",

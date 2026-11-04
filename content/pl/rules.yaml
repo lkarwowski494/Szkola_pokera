@@ -1000,7 +1000,7 @@
   sources: [{ kind: book }]
 - id: R-M12-007
   module: m12
-  if: "po serii strat nie potrafisz już spokojnie ocenić decyzji, chcesz się odegrać albo grasz ręce, które zwykle {{t:fold|pasujesz}}"
+  if: "po serii strat nie potrafisz już spokojnie ocenić decyzji (np. myślisz tylko o odegraniu się albo grasz ręce, które zwykle {{t:fold|pasujesz}})"
   then: "kończysz {{t:session|sesję}}"
   because: "dalsza gra w tym stanie to gra na twoim najgorszym poziomie (C-game), a celem jest skończyć wcześniej, zanim stracisz zdolność jasnego myślenia"
   level: heuristic
@@ -1020,7 +1020,7 @@
   then: "używasz wzoru RoR = e^(−2 × winrate × bankroll ÷ SD²), z bankrollem w bb"
   because: "przy {{n:var.wr.typical.high}} i SD {{n:var.sd}} bankroll {{n:br.bi.base}} {{t:buy-in|wpisowych}} daje ok. {{n:ror.base}} ryzyka, a {{n:br.bi.move-down}} {{t:buy-in|wpisowych}} już ok. {{n:ror.half}}"
   level: math
-  source: "serwis z kalkulatorami pokerowymi, Risk of Ruin Formula for Poker Players („RoR = e^(-2 x WR x BR / SD^2)”, wzór Malmutha); wartości: obliczenie (numbers.yaml, klucze ror.*)"
+  source: "serwis z kalkulatorami pokerowymi, Risk of Ruin Formula for Poker Players („RoR = e^(-2 x WR x BR / SD^2)”); wartości: obliczenie (numbers.yaml, klucze ror.*)"
   sources: [{ kind: training }, { kind: math }]
 - id: R-M12-010
   module: m12
@@ -1033,19 +1033,19 @@
 - id: R-M12-011
   module: m12
   if: "bankroll spadnie poniżej połowy założonej liczby {{t:buy-in|wpisowych}} (przy {{n:br.bi.base}} poniżej {{n:br.bi.move-down}})"
-  then: "schodzisz o jedną {{t:stakes|stawkę}} niżej i wracasz, gdy bankroll się odbuduje"
+  then: "schodzisz o jedną {{t:stakes|stawkę}} niżej najpóźniej wtedy i wracasz, gdy bankroll się odbuduje"
   because: "{{t:downswing|downswingi}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} zdarzają się prawie każdemu wygrywającemu, a przy {{n:br.bi.move-down}} {{t:buy-in|wpisowych}} ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}}"
   level: heuristic
-  source: "serwis szkoleniowy, Bankroll Management („half the roll, which is the point to move down a stake”); trener z serwisem szkoleniowym („If your bankroll drops below 15 buyins for your current stake, move down”); rachunek ryzyka bankructwa"
+  source: "serwis szkoleniowy, Bankroll Management („half the roll, which is the point to move down a stake”); serwis szkoleniowy, Poker Bankroll Management Strategy (przy 3bb/100 zejście przy 30 wpisowych, czyli przy pełnym bankrollu); rachunek ryzyka bankructwa"
   sources: [{ kind: training }, { kind: training }, { kind: math }]
 - id: R-M12-012
   module: m12
   if: "planujesz czas na poker"
   then: "na początku ok. {{n:study.beginner}} czasu przeznaczasz na naukę; gdy wygrywasz na swojej {{t:stakes|stawce}}, ok. {{n:study.winner}}, ale nigdy mniej niż {{n:study.min}}"
-  because: "nauka z wyjaśnieniem i analiza rozdań dają więcej postępu niż sama gra"
+  because: "na początku masz najwięcej do nadrobienia, a gdy już wygrywasz na swojej {{t:stakes|stawce}}, możesz grać więcej"
   level: heuristic
-  source: "serwis szkoleniowy, What should your study-to-play ratio be (Barry Carter o zdaniu Dary O'Kearneya); Southwick i in. (2026), Psychological Science (dokument 08)"
-  sources: [{ kind: training }, { kind: study }]
+  source: "serwis szkoleniowy, What should your study-to-play ratio be (artykuł Dary O'Kearneya): „New players have so much catching up to do”; „Once you are beating the games you are in you can start to reduce the study and increase the grinding”"
+  sources: [{ kind: training }]
 
 # M11: turnieje i short stacki (moduł opcjonalny). Zakresy push/fold z własnego solvera (pushfold.json, heads-up mały
 # blind kontra duży blind, zwalidowany z równowagą Nasha, dokument 10); progi i pojęcia z przeczytanych źródeł (raport M11).
