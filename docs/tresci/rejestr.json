@@ -18015,7 +18015,7 @@
   "id": "n:pf.vs3bet.fold.high",
   "rodzaj": "liczba",
   "level": "heuristic",
-  "twierdzenie": "pf.vs3bet.fold.high = 0.65 percent (source: przedział bliski źródłom, z górną granicą tuż pod progiem 65,2% z obliczenia (alpha.vs-3bet-ip-size; ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (serwis szkoleniowy, program do statystyk HUD); serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega))",
+  "twierdzenie": "pf.vs3bet.fold.high = 0.65 percent (source: przedział bliski źródłom, z górną granicą tuż pod progiem 65,2% z obliczenia (alpha.vs-3bet-ip-size; ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; serwis szkoleniowy (https://deepfold.co/en/blog/three-bet-strategy-guide) 50–55/30–40/5–8 (szczebel 4, odbiega; E3 2026-11-04: „HUD ok. 55%” bez adresu usunięte))",
   "zrodla": [
    {
     "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
@@ -18037,6 +18037,13 @@
     "cytat": "10,7% / 23,2% / 66,1%",
     "odczyt": "2026-11-04",
     "szczebel": 1
+   },
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "The 30 / 5–8 / 50–55 Rule",
+    "cytat": "Fold ~50-55% of your opening range Call ~30-40% 4-bet ~5-8%",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -18048,7 +18055,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany. | E3 S3 2026-11-04 (A1): opis i m4-l3:100 „przedział bliski źródłom, górna granica tuż pod progiem 65,2%” zamiast „obejmujący źródła” (tabele uproszczone 66,1% > 65%); m4-l3:17 bez „w praktyce”; egzamin m4.exam.q6 „mniej więcej tyle”.",
+  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany. | E3 S3 2026-11-04 (A1): opis i m4-l3:100 „przedział bliski źródłom, górna granica tuż pod progiem 65,2%” zamiast „obejmujący źródła” (tabele uproszczone 66,1% > 65%); m4-l3:17 bez „w praktyce”; egzamin m4.exam.q6 „mniej więcej tyle”. | E3 2026-11-04 (E2 §4): „HUD ok. 55%” bez adresu usunięte; przeczytane źródło szczebla 4 (Deepfold, cytat jak w R-M4-007) dopisane.",
   "partia": [
    "m0-m4"
   ]
@@ -18057,7 +18064,7 @@
   "id": "n:pf.vs3bet.fold.low",
   "rodzaj": "liczba",
   "level": "heuristic",
-  "twierdzenie": "pf.vs3bet.fold.low = 0.55 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (serwis szkoleniowy, program do statystyk HUD); serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega))",
+  "twierdzenie": "pf.vs3bet.fold.low = 0.55 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; serwis szkoleniowy (https://deepfold.co/en/blog/three-bet-strategy-guide) 50–55/30–40/5–8 (szczebel 4, odbiega; E3 2026-11-04: „HUD ok. 55%” bez adresu usunięte))",
   "zrodla": [
    {
     "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
@@ -18079,6 +18086,13 @@
     "cytat": "10,7% / 23,2% / 66,1%",
     "odczyt": "2026-11-04",
     "szczebel": 1
+   },
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "The 30 / 5–8 / 50–55 Rule",
+    "cytat": "Fold ~50-55% of your opening range Call ~30-40% 4-bet ~5-8%",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -18090,7 +18104,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany.",
+  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany. | E3 2026-11-04 (E2 §4): „HUD ok. 55%” bez adresu usunięte; przeczytane źródło szczebla 4 (Deepfold, cytat jak w R-M4-007) dopisane.",
   "partia": [
    "m0-m4"
   ]
@@ -18099,7 +18113,7 @@
   "id": "n:pf.vs3bet.call.high",
   "rodzaj": "liczba",
   "level": "heuristic",
-  "twierdzenie": "pf.vs3bet.call.high = 0.3 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (serwis szkoleniowy, program do statystyk HUD); serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega))",
+  "twierdzenie": "pf.vs3bet.call.high = 0.3 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; serwis szkoleniowy (https://deepfold.co/en/blog/three-bet-strategy-guide) 50–55/30–40/5–8 (szczebel 4, odbiega; E3 2026-11-04: „HUD ok. 55%” bez adresu usunięte))",
   "zrodla": [
    {
     "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
@@ -18121,6 +18135,13 @@
     "cytat": "10,7% / 23,2% / 66,1%",
     "odczyt": "2026-11-04",
     "szczebel": 1
+   },
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "The 30 / 5–8 / 50–55 Rule",
+    "cytat": "Fold ~50-55% of your opening range Call ~30-40% 4-bet ~5-8%",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -18132,7 +18153,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany.",
+  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany. | E3 2026-11-04 (E2 §4): „HUD ok. 55%” bez adresu usunięte; przeczytane źródło szczebla 4 (Deepfold, cytat jak w R-M4-007) dopisane.",
   "partia": [
    "m0-m4"
   ]
@@ -18141,7 +18162,7 @@
   "id": "n:pf.vs3bet.call.low",
   "rodzaj": "liczba",
   "level": "heuristic",
-  "twierdzenie": "pf.vs3bet.call.low = 0.15 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (serwis szkoleniowy, program do statystyk HUD); serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega))",
+  "twierdzenie": "pf.vs3bet.call.low = 0.15 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; serwis szkoleniowy (https://deepfold.co/en/blog/three-bet-strategy-guide) 50–55/30–40/5–8 (szczebel 4, odbiega; E3 2026-11-04: „HUD ok. 55%” bez adresu usunięte))",
   "zrodla": [
    {
     "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
@@ -18163,6 +18184,13 @@
     "cytat": "10,7% / 23,2% / 66,1%",
     "odczyt": "2026-11-04",
     "szczebel": 1
+   },
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "The 30 / 5–8 / 50–55 Rule",
+    "cytat": "Fold ~50-55% of your opening range Call ~30-40% 4-bet ~5-8%",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -18174,7 +18202,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany.",
+  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany. | E3 2026-11-04 (E2 §4): „HUD ok. 55%” bez adresu usunięte; przeczytane źródło szczebla 4 (Deepfold, cytat jak w R-M4-007) dopisane.",
   "partia": [
    "m0-m4"
   ]
@@ -18183,7 +18211,7 @@
   "id": "n:pf.vs3bet.4bet.high",
   "rodzaj": "liczba",
   "level": "heuristic",
-  "twierdzenie": "pf.vs3bet.4bet.high = 0.2 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (serwis szkoleniowy, program do statystyk HUD); serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega))",
+  "twierdzenie": "pf.vs3bet.4bet.high = 0.2 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; serwis szkoleniowy (https://deepfold.co/en/blog/three-bet-strategy-guide) 50–55/30–40/5–8 (szczebel 4, odbiega; E3 2026-11-04: „HUD ok. 55%” bez adresu usunięte))",
   "zrodla": [
    {
     "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
@@ -18205,6 +18233,13 @@
     "cytat": "10,7% / 23,2% / 66,1%",
     "odczyt": "2026-11-04",
     "szczebel": 1
+   },
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "The 30 / 5–8 / 50–55 Rule",
+    "cytat": "Fold ~50-55% of your opening range Call ~30-40% 4-bet ~5-8%",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -18216,7 +18251,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany.",
+  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany. | E3 2026-11-04 (E2 §4): „HUD ok. 55%” bez adresu usunięte; przeczytane źródło szczebla 4 (Deepfold, cytat jak w R-M4-007) dopisane.",
   "partia": [
    "m0-m4"
   ]
@@ -18225,7 +18260,7 @@
   "id": "n:pf.vs3bet.4bet.low",
   "rodzaj": "liczba",
   "level": "heuristic",
-  "twierdzenie": "pf.vs3bet.4bet.low = 0.1 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (serwis szkoleniowy, program do statystyk HUD); serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega))",
+  "twierdzenie": "pf.vs3bet.4bet.low = 0.1 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; serwis szkoleniowy (https://deepfold.co/en/blog/three-bet-strategy-guide) 50–55/30–40/5–8 (szczebel 4, odbiega; E3 2026-11-04: „HUD ok. 55%” bez adresu usunięte))",
   "zrodla": [
    {
     "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
@@ -18247,6 +18282,13 @@
     "cytat": "10,7% / 23,2% / 66,1%",
     "odczyt": "2026-11-04",
     "szczebel": 1
+   },
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "The 30 / 5–8 / 50–55 Rule",
+    "cytat": "Fold ~50-55% of your opening range Call ~30-40% 4-bet ~5-8%",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -18258,7 +18300,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany.",
+  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany. | E3 2026-11-04 (E2 §4): „HUD ok. 55%” bez adresu usunięte; przeczytane źródło szczebla 4 (Deepfold, cytat jak w R-M4-007) dopisane.",
   "partia": [
    "m0-m4"
   ]

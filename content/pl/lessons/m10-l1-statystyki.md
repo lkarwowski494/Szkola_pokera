@@ -111,7 +111,7 @@ Ostatnia kolumna jest ważna: statystyka zmienia się tylko wtedy, gdy rywal ma 
 
 ## Ile rąk potrzeba
 
-Każda ręka to losowa próba ze strategii rywala, więc statystyka ma błąd jak każda średnia z próby. Liczysz go wzorem na błąd średniej z próby (w module 12 tym samym wzorem policzysz błąd winrate):
+Każda ręka to losowa próba ze strategii rywala, więc statystyka ma błąd jak każda średnia z próby. Liczysz go wzorem na błąd średniej z próby (w module 12 tym samym wzorem policzysz błąd {{t:winrate}}):
 
 ```formula
 błąd = √(p × (1 − p) ÷ n)
