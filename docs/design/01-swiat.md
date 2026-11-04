@@ -71,3 +71,18 @@ Wnioski: (1) sukno, owalny stół, ciemne tło z neonem i mapa ciepła 13×13 to
 | C | M3 Mapa 169 | klisza z funkcją (lekcja Treningu): u konkurencji mapa jest tabelą solvera, tu byłaby twoją wiedzą (powtórki, błędy); łączy sesję z postępem | element: siatka z podświetloną ręką i stanem opanowania; układ: siatka jako tło sytuacji; ryzyko kliszy jawne w teście generyczności |
 
 Rezerwa: M5 (plan stołu jako rysunek) i M4 (indeks karty). Odrzucone z powodem: M6 (brak EV), M7 (infantylne, kolor), M8 (wąskie), M9 (sztuczne), M10 (hazard).
+
+## Karty kontrolne testu generyczności (E2, 2026-11-04, zapisane przed kartami kierunków)
+Zadanie kart: pokazać, co powstaje bez wiedzy o tej aplikacji. Każde pole kierunku, które się z nimi pokrywa, zmieniam w E2 (tabela w `02-kierunki.md`).
+
+| Pole | (a) Trener pokera bez wiedzy o dziedzinie | (b) Inna dziedzina, ten sam przepływ: trener zadań szachowych (pozycja → ruch → ocena i wyjaśnienie) |
+|---|---|---|
+| Idea | „Graj jak zawodowiec”: stół kasynowy w kieszeni | „Rozwiąż zadanie”: plansza i seria zadań |
+| Element firmowy | owalny stół z sukna z góry, miejsca graczy, żetony przed graczami, twoje karty na dole | plansza 8×8, ruch podświetlony na zielono albo czerwono, ikona „!!” / „??” jako plakietka |
+| Paleta | granat prawie czarny `#0E1726`, sukno `#1B6B45`, neonowa zieleń `#22C55E`, czerwień `#EF4444` na błąd, złoto `#F5B700` na wygraną | biel, zieleń pola `#769656`, beż pola `#EEEED2`, zieleń „dobrze” `#81B64C`, czerwień „źle” `#FA412D` |
+| Kroje | Montserrat 800 albo Inter, liczby w Roboto Mono | Inter, tytuły zaokrąglonym krojem (Nunito 800) |
+| Układ ekranu decyzji | stół na środku, trzy przyciski na dole: Pas (czerwony), Sprawdź (zielony), Przebij (żółty) z suwakiem | plansza na górze, pasek „Twój ruch” pod nią, po ruchu baner od dołu „Świetnie!” z przyciskiem „Dalej” |
+| Ocena | zielony ptaszek albo czerwony krzyżyk na całym ekranie, licznik serii | zielony albo czerwony baner, ikona oceny, punkty rankingu zadań |
+| Ruch, haptyka, dźwięk | karty rozdawane z przesunięciem, żetony suną do puli, konfetti przy dobrej decyzji, dźwięk żetonów | podskok figury, konfetti, dźwięk „ding” |
+| Głos | „Nice hand!”, „Ouch, that's a leak!”, „Let's crush it!” | „Brilliant!”, „Oops, try again”, „You're on fire!” |
+| Ikona | pik albo dwie karty z żetonem na zielonym albo czarnym tle | skoczek albo pionek na zielonym polu |
