@@ -1,0 +1,2248 @@
+[
+ {
+  "id": "R-M5-001",
+  "rodzaj": "regula",
+  "level": "rules",
+  "twierdzenie": "flop zbiera mniej niż {{n:tex.threshold.medium}} pkt mokrości: straight możliwy na kilka sposobów (z co najmniej dwoma zestawami dwóch rang) daje {{n:tex.points.straight.made}} pkt, straight możliwy na jeden sposób {{n:tex.points.straight.made-one}}, sam straight-draw {{n:tex.points.straight.draw}}, dwie karty w jednym kolorze {{n:tex.points.suits.two-tone}}, trzy w jednym kolorze {{n:tex.points.suits.monotone}} → to flop dry: drawów jest mało, a gotowego strita ani koloru nikt jeszcze nie ma, bo kolejne karty rzadko zmieniają lidera, więc ręka najlepsza na flopie zwykle zostaje najlepsza",
+  "zrodla": [
+   {
+    "adres": "https://gtogecko.com/blog/what-is-a-continuation-bet",
+    "miejsce": "sekcja „When should you continuation bet?”, pkt 1 „Evaluate board texture”",
+    "cytat": "Dry, static boards (K♦7♠2♥, A♣9♦4♠) favor the preflop raiser and support aggressive, high-frequency c-betting.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/bet-size-strategy-tips-rules/",
+    "miejsce": "reguła 3 (Bet small on dry, static board textures)",
+    "cytat": "this is often the case on dry boards because most of your opponent's hands will have little-to-no equity against your value betting range",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/c-bet-sizing-strategy-continuation-bet/",
+    "miejsce": "przykład A♥A♠6♣",
+    "cytat": "This is a prime example of a dry and static board. Our value bets will be with hands that are unlikely to be outdrawn.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/glossary/dry/",
+    "miejsce": "słownik „Dry”",
+    "cytat": "A dry board is one that does not help make any straight or flush draws.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Definicja punktowa i progi to umowa aplikacji (poker-core texture.ts, D-21, D-39); źródła podają tylko pojęcie i przykłady. Słownik szczebla 4 jest ostrzejszy (suchy = żadnych drawów), więc K♥7♥2♣ (1 pkt, w aplikacji suchy) byłby u niego niesuchy; to świadoma decyzja D-39, nie sprzeczność ze szczeblem 1–2."
+ },
+ {
+  "id": "R-M5-002",
+  "rodzaj": "regula",
+  "level": "rules",
+  "twierdzenie": "flop zbiera co najmniej {{n:tex.threshold.wet}} pkt mokrości (punkty jak w definicji flopu suchego) → to flop wet: rywal często ma drawy, a czasem już strita albo flush, bo kolejne karty często zmieniają lidera, więc ręka dziś najlepsza jest mniej bezpieczna",
+  "zrodla": [
+   {
+    "adres": "https://gtogecko.com/blog/what-is-a-continuation-bet",
+    "miejsce": "sekcja „Evaluate board texture”",
+    "cytat": "Wet, coordinated boards (9♥8♥7♣, Q♠J♠T♦) connect more with the caller's range",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/bet-size-strategy-tips-rules/",
+    "miejsce": "reguła 4 (Bet pretty large on wet, dynamic board textures)",
+    "cytat": "When your value betting range is vulnerable to being outdrawn, you should use a larger bet size.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/glossary/wet/",
+    "miejsce": "słownik „Wet”",
+    "cytat": "The term 'wet' is used to describe the texture of the board when the cards are suited, connected, or otherwise lend themselves to making a strong hand or draws.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Granica pośrednia/mokra (3 pkt) to umowa aplikacji (D-39); źródła podają pojęcie i przykłady (9♥8♥7♣, QJT, T♥9♥5♠4♠)."
+ },
+ {
+  "id": "R-M5-003",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "otworzyłeś przed flopem, big-blind sprawdził, a na flopie jest as albo król → masz przewagę zakresu: średnio twoje ręce są silniejsze niż ręce rywala, bo big-blind większość AA, KK i AK przebija przed flopem, więc po samym sprawdzeniu ma ich mało, a ty masz wszystkie",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/the-turn-probe-bet/",
+    "miejsce": "sekcja o zakresie BTN po czekaniu flopu (BTN vs BB, 100bb)",
+    "cytat": "BB lacks the stronger Ace-highs because they would have 3-bet with them preflop.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://gtowizard.com/en/glossary/range-advantage/",
+    "miejsce": "słownik „Range advantage”",
+    "cytat": "A general term meaning one player's range equity distribution is stronger on a given board.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "„a ty masz wszystkie” to uproszczenie (otwierający też nie zawsze ma całe AA/KK/AK w tej samej proporcji), kierunkowo zgodne ze źródłem."
+ },
+ {
+  "id": "R-M5-004",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "otworzyłeś przed flopem, a flop jest niski i connected albo półpołączony, np. 7-6-5 → c-betujesz rzadziej niż na wysokich flopach, a wiele rąk czeka; po otwarciu z wczesnej pozycji jeszcze częściej, bo big-blind broni wielu konektorów w kolorze i małych par, więc częściej ma two-pair albo strita: to on ma przewagę nutsów",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/bullying-the-blinds-with-continuation-bets/",
+    "miejsce": "654r, BTN vs BB (MTT 20bb, min-raise)",
+    "cytat": "BB's advantage at the top end makes BTN vulnerable to check-raises, compelling them to check behind more than half their range",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/bullying-the-blinds-with-continuation-bets/",
+    "miejsce": "akapit o equity BB",
+    "cytat": "Even on 654 r, which is about the best flop BB could hope for, BB has less than 52% equity.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/check-back-bet-strategies/",
+    "miejsce": "LJ vs BB, 6h5d4c (Lucid, 40bb)",
+    "cytat": "LJ checks 53% of their range and c-bets large 47% of the time.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/check-back-bet-strategies/",
+    "miejsce": "definicja przewagi nutsów, 8d7d6d",
+    "cytat": "the big blind (caller) has far more flushes and straights, while the button (raiser) has relatively few.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/nut-range-positional-advantage/",
+    "miejsce": "sekcja Nut advantage",
+    "cytat": "If the board was low and connected in the example above, the Big Blind will often have the nut advantage.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: kombinatoryka: pary 55–77 w obu zakresach (otwarcie BTN i obrona BB), więc setów obaj mają podobnie",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "wniosek z D-11; sety nie przesuwają przewagi nutsów",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "usunąć z then „; po otwarciu z wczesnej pozycji jeszcze częściej” albo dodać przeczytane źródło (żadna przeczytana strona tego nie mówi)",
+  "uwagi": "Rdzeń (niski połączony flop: c-bet rzadziej, BB ma przewagę nutsów) potwierdzony szczeblem 2, ale tylko na danych turniejowych (20bb i 40bb), nie cash 100bb jak format aplikacji. Zdanie o wczesnej pozycji pochodzi z raportu 12a-06 (wniosek bez cytatu); GTO Gecko mówi o wczesnej pozycji tylko w kontekście gry bez pozycji wobec Buttona."
+ },
+ {
+  "id": "R-M5-005",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "w twoim zakresie jest dużo więcej najsilniejszych rąk niż u rywala (nuts-advantage) → możesz betować większym rozmiarem; gdy masz tylko przewagę zakresu, betujesz mało, bo duży bet wyciąga więcej z rąk średnich rywala, a ty rzadko trafisz na lepszą rękę, która cię przebije",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/the-mechanics-of-c-bet-sizing/",
+    "miejsce": "sekcja Nut advantage",
+    "cytat": "If you have a significant nut advantage over your opponent, you are incentivized to bet large or even overbet to extract more value with little fear of getting reraised.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/the-mechanics-of-c-bet-sizing/",
+    "miejsce": "sekcja Range advantage / Nut advantage",
+    "cytat": "When your opponent has the nut advantage, but you have the range advantage, you are incentivized to bet small with value.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/bet-size-strategy-tips-rules/",
+    "miejsce": "reguła 6",
+    "cytat": "Overbet when you have a nut advantage.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M5-006",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "rywal ma rękę bez pary → flop nie sparuje żadnej z jego kart w ok. {{n:flop.miss.unpaired}} przypadków, bo spośród {{n:cards.unseen.preflop}} nieznanych kart tylko {{n:pair.outs.unpaired}} paruje jego rękę, a flop to tylko {{n:cards.board.flop}} karty",
+  "zrodla": [
+   {
+    "adres": "rachunek: C(44,3)/C(50,3) (żadna z 6 kart parujących w 3 kartach z 50 nieznanych)",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "brak pary 67,57%; trafienie 32,43%; dokładnie jedna para 6·C(44,2)/C(50,3) = 28,96%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://cardplayer.com/poker-tools/odds-and-outs",
+    "miejsce": "tabela „Odds against flopping hand”",
+    "cytat": "a pair (matching one of your holecards) 2.45-1 29.0%",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Tabela szczebla 4 podaje 29,0% dla dokładnie jednej pary; aplikacja liczy brak jakiejkolwiek pary (67,6%), zgodne z rachunkiem. Wpis D-19 o różnicy 29% vs 32% jest w lekcji."
+ },
+ {
+  "id": "R-M5-007",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "jako aggressor preflop masz pozycję, a flop jest dry i wysoki, np. K-7-2 w trzech kolorach → c-betujesz często i mało, ok. {{n:cbet.size.small}} puli, bo masz przewagę zakresu, a słabe ręce rywala prawie nie mają szans: mały bet wystarczy, żeby je spasował, a gorsze pary wciąż go sprawdzą",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
+    "miejsce": "Flop Connectedness, Disconnected (BTN vs BB, cash)",
+    "cytat": "This texture sees the frequent use of the 33% sizing, but the 130% sizing is common as well.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
+    "miejsce": "Conclusion",
+    "cytat": "C-bet more on high card flops that maintain your advantage as the preflop aggressor.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/bet-size-strategy-tips-rules/",
+    "miejsce": "lista reguł",
+    "cytat": "Bet small (25-35% pot) on dry, static board textures.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/bet-size-strategy-tips-rules/",
+    "miejsce": "reguła 3",
+    "cytat": "the likelihood that your opponent folds to a bet will be similar regardless of bet size.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://pokercoaching.com/blog/picking-the-proper-c-bet-sizing-on-ace-high-boards/",
+    "miejsce": "suche flopy z asem, IP",
+    "cytat": "you should be c-betting around 43% of the time and can stick to a one-third pot size bet in these situations.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "„Często” jest względne: na suchych flopach z asem PokerCoaching podaje ok. 43% c-betu; GTO Wizard podaje też overbet 130% na flopach rozłączonych (rozmiar mieszany)."
+ },
+ {
+  "id": "R-M5-008",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "jako aggressor preflop masz pozycję, a flop jest wet, ale nie monotone, np. connected i two-tone → c-betujesz rzadziej, ale większym rozmiarem, np. {{n:cbet.size.big}} puli; ręce średnie bez drawa częściej czekają, bo drawy rywala mają dużo equity, więc duży bet każe im drogo płacić za kolejną kartę",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
+    "miejsce": "Flop Connectedness, OESD possible",
+    "cytat": "This board texture sees the increased use of the 66% pot bet size, but decreased overall betting frequency due to our newfound polarity.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
+    "miejsce": "Flop Connectedness, Connected",
+    "cytat": "Connected boards are a unique case due to flopped straights often being in the BB's range. In order to be respectful of this, we size down",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/the-mechanics-of-c-bet-sizing/",
+    "miejsce": "The wetness parabola",
+    "cytat": "However, when a very wet board like Q♦8♦7♦ is dealt, the bet sizing comes down again.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/the-mechanics-of-c-bet-sizing/",
+    "miejsce": "BTN vs BB na KJ7tt (100bb cash)",
+    "cytat": "The predominant bet sizes are 75 and 125% pot for the overbet",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/bet-size-strategy-tips-rules/",
+    "miejsce": "lista reguł",
+    "cytat": "Bet pretty large (55-80% pot) on wet, dynamic board textures.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://pokercoaching.com/blog/picking-the-proper-c-bet-sizing-on-ace-high-boards/",
+    "miejsce": "A♠T♥9♥ (IP)",
+    "cytat": "c-bet less often (around 37%) but use a bigger sizing-two-thirds pot-to deny equity.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "w then dopisać granicę: „…np. {{n:cbet.size.big}} puli; gdy strit jest już możliwy na flopie (np. 9-8-7), rozmiar znowu spada” albo zmienić przykład w if na flop z możliwym otwartym drawem bez gotowego strita (np. K-Q-8 dwukolorowy)",
+  "uwagi": "Szczebel 2 (GTO Wizard) dzieli „mokre” flopy: z możliwym OESD rozmiar rośnie (66%, na KJ7tt 75%), na flopach z możliwym gotowym stritem („connected”) i bardzo mokrych rozmiar spada. Definicja aplikacji liczy flopy z gotowym stritem (987, JT8) jako mokre, więc przykład „połączony i dwukolorowy” oraz zadanie m5.l3.q-set-wet (J♥T♥8♣) leżą tam, gdzie szczebel 2 mówi „size down”. Nie oznaczam jako SPRZECZNE: „size down” u GTO Wizard dotyczy głównie udziału overbetu 133%, a set na JT8 to ręka silna i wrażliwa (R-M7-006)."
+ },
+ {
+  "id": "R-M5-009",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "jako aggressor preflop masz pozycję, a flop jest paired, np. Q-Q-6 → c-betujesz często i mało, bo masz przewagę zakresu, a na sparowanym flopie trudno o draw, więc rywal bez pary rzadko może sprawdzić nawet mały bet; duży bet się nie opłaca, bo trójkę może mieć każdy z was",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
+    "miejsce": "Flop Pairing",
+    "cytat": "Paired flops are bet significantly more often than unpaired flops. However, they tend to only be bet for small sizing.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
+    "miejsce": "Flop Pairing",
+    "cytat": "This is mostly due to our preflop equity advantage but reduced nut advantage from trips being in both player's ranges.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
+    "miejsce": "Flop Pairing",
+    "cytat": "On paired boards, it's also much harder to have a draw.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło (jedna organizacja), szczebel 2."
+ },
+ {
+  "id": "R-M5-010",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "jako aggressor preflop masz pozycję, a flop jest monotone (trzy karty w jednym kolorze) → c-betujesz rzadziej niż zwykle i mało, bo flush może już mieć każdy z graczy, więc nuts-advantage agresora maleje, a w dużej puli flush rywala kosztuje dużo",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
+    "miejsce": "Flop Suitedness (BTN vs BB)",
+    "cytat": "Monotone boards see a drastic decrease in betting frequency and sizing.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
+    "miejsce": "Monotone Boards: An Overview",
+    "cytat": "Monotone boards significantly disrupt the nut advantage of the IP player.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/the-mechanics-of-c-bet-sizing/",
+    "miejsce": "The wetness parabola",
+    "cytat": "However, when a very wet board like Q♦8♦7♦ is dealt, the bet sizing comes down again.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/monotone-flops-kanu7/",
+    "miejsce": "podsumowanie (Kanu7, wyniki solvera)",
+    "cytat": "On monotone flops, use a default strategy of c-betting half the time for a 25-33% pot sizing.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M5-011",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "c-betujesz bez żadnej ręki, licząc tylko na fold rywala → przy zakładzie {{n:cbet.size.small}} puli rywal musi pasować częściej niż w {{n:alpha.cbet.small}} przypadków, a przy {{n:cbet.size.big}} puli częściej niż w {{n:alpha.cbet.big}}, bo ryzykujesz bet, żeby wygrać pulę: próg to bet ÷ (pot + bet)",
+  "zrodla": [
+   {
+    "adres": "rachunek: alpha = bet/(pula+bet); 1/3: (1/3)/(4/3); 3/4: (3/4)/(7/4)",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "25,00% i 42,86%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M5-012",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "otworzyłeś przed flopem, a rywal sprawdził z pozycji (np. Button wobec twojego otwarcia z CO) → c-betujesz rzadziej niż in-position i częściej czekasz, także z dobrymi rękami, bo range sprawdzającego z pozycji jest condensed: słabe ręce pasował, a część najsilniejszych przebijał, więc zostały mu głównie ręce średnie i dobre; do tego ty po flopie mówisz pierwszy na każdej ulicy",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/c-betting-as-the-oop-preflop-raiser/",
+    "miejsce": "UTG vs BTN, NL50 100bb, średnie",
+    "cytat": "As UTG, we should be checking 72% and thus c-betting just 28% of the time here!",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/c-betting-as-the-oop-preflop-raiser/",
+    "miejsce": "Q96r",
+    "cytat": "The BTN's range is more condensed which means they actually hold a higher percentage of strong hands than us on such a flop. Even a hand like top pair top kicker is preferred to be played as a check-call.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://pokercoaching.com/blog/c-bet-on-ace-high-boards/",
+    "miejsce": "CO vs BTN, A♠9♥4♣",
+    "cytat": "That being said, we will check over 96% of the time.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://gtogecko.com/blog/what-is-a-continuation-bet",
+    "miejsce": "C-Betting Out of Position",
+    "cytat": "When you open from early position and get called by the button, c-bet frequencies drop because you cannot realize equity as effectively.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M5-013",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "na flopie masz dwóch albo więcej rywali → c-betujesz dużo rzadziej, głównie silnymi rękami i mocnymi drawami; blefujesz mało, a gdy betujesz, to mało, bo każdy kolejny rywal zwiększa szansę, że ktoś trafił: dwie ręce bez pary chybiają naraz tylko w ok. {{n:flop.miss.two}} przypadków",
+  "zrodla": [
+   {
+    "adres": "https://pokercoaching.com/blog/c-betting-in-multiway-pots-stop-betting-every-flop/",
+    "miejsce": "sekcja o rozmiarze",
+    "cytat": "What size should multiway c-bets be? Small, around a quarter to a third of pot on the flop.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://pokercoaching.com/blog/c-betting-in-multiway-pots-stop-betting-every-flop/",
+    "miejsce": "przykład Q-3-2",
+    "cytat": "On boards that connect better with the callers' ranges, like queen-three-deuce after a button and big blind call, the solver checks its entire range, overpairs included",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://gtogecko.com/blog/multiway-pots-poker-strategy",
+    "miejsce": "tabela częstości",
+    "cytat": "At least one opponent holds a pair or better 35.8% of the time against one player, 69.6% against two and 82.0% against three",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: C(36,3)/C(48,3) (dwie ręce bez pary, 4 różne rangi, 12 kart parujących, 48 nieznanych)",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "41,28% — obaj chybiają",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Liczba 41,3% dotyczy dwóch rąk bez pary; GTO Gecko liczy całe zakresy (30,4% „obaj bez pary”). Kierunek zgodny."
+ },
+ {
+  "id": "R-M6-001",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "przeciwnik betuje na riverze 1/3 puli → w teorii bronisz (sprawdzasz albo przebijasz) ok. {{n:mdf.bet-third}} zakresu; tyle wynosi mdf, bo bluff bez szans ryzykuje 1 część, żeby wygrać 3; jeśli pasujesz częściej niż {{n:alpha.bet-third}}, rywal zarabia, blefując dowolnymi kartami",
+  "zrodla": [
+   {
+    "adres": "rachunek: MDF = pula/(pula+bet) = 90/120; alpha = 30/120; blef ryzykuje 30, by wygrać 90 (1:3)",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "MDF 75,00%, alpha 25,00%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://www.pokercoaching.com/blog/mdf-poker",
+    "miejsce": "tabela MDF",
+    "cytat": "Bet Size MDF 1.5 Pot 40% Full Pot 50% ¾ Pot 57% 2/3 Pot 60% ½ Pot 67% 1/3 Pot 75%",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.pokercoaching.com/blog/mdf-poker",
+    "miejsce": "akapit o stosowaniu MDF",
+    "cytat": "The framework is a starting point, not a rule.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M6-002",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "blefujesz ręką bez szans na wygraną → bluff wychodzi na plus, gdy rywal pasuje częściej niż alpha = bet/(pot+bet); przy becie pół puli to {{n:alpha.bet-half}}, bo ryzykujesz bet, żeby wygrać pulę; im większy bet, tym częściej rywal musi pasować",
+  "zrodla": [
+   {
+    "adres": "rachunek: alpha = bet/(pula+bet) = 50/150",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "33,33%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://blog.gtowizard.com/mdf-alpha/",
+    "miejsce": "wzory",
+    "cytat": "MDF = pot / (bet+pot) Alpha = bet / (bet + pot)",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M6-003",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "dostajesz bet na flopie out-of-position → możesz bronić trochę mniej, niż wskazuje mdf; mdf traktujesz jako punkt odniesienia, nie obowiązek, ale na małe c-bety nie pasujesz masowo, bo blefy rywala mają jeszcze equity i mogą się poprawić, a out-of-position nie zrealizujesz całego equity swoich słabych rąk",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/mdf-alpha/",
+    "miejsce": "raporty BTN vs BB (1755 flopów)",
+    "cytat": "On average, BB is consistently over-folding to all bet sizes on the flop.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/mdf-alpha/",
+    "miejsce": "raporty SB vs BB",
+    "cytat": "In this case, the defender has position, and therefore calls much closer to MDF on average.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/mdf-alpha/",
+    "miejsce": "lista „defend less than MDF when”",
+    "cytat": "You're out of position on the flop or turn (IP's bluffs have EV when checking back)",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/vs-double-barrels-turn/",
+    "miejsce": "średnie solvera na turnie",
+    "cytat": "That percentage of hands we continue with (57.47%) is pretty damn close to the MDF (57.1%).",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "GTO Wizard podaje „flop or turn”; reguła ogranicza się do flopu zgodnie z danymi Upswing (na turnie obrona blisko MDF, decyzja D1 dokumentu 12 M7–M9)."
+ },
+ {
+  "id": "R-M6-004",
+  "rodzaj": "regula",
+  "level": "exploit",
+  "twierdzenie": "duży bet na riverze stawia gracz, który rzadko blefuje (np. pasywny gracz rekreacyjny) → pasujesz częściej, niż wskazuje mdf, także średnimi parami, bo mdf zakłada, że rywal blefuje wystarczająco często; gdy blefów brakuje, call słabszą ręką płaci głównie lepszym rękom",
+  "zrodla": [
+   {
+    "adres": "https://deepfold.co/en/blog/bluff-catching-principles",
+    "miejsce": "tabela profili graczy",
+    "cytat": "The key calibration: passive recreationals do not bluff big rivers.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.pokercoaching.com/blog/mdf-poker",
+    "miejsce": "akapit o grach na niskich stawkach",
+    "cytat": "In low-stakes games, most players will bluff way less than the GTO strategy recommends.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: MDF zakłada udział blefów = bet/(pula+2·bet); przy mniejszym udziale call bluff-catcherem ma EV < 0",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "por. R-M8-010",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "otwarte",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "bez zmiany brzmienia, jeśli zostaną dane populacji; inaczej w if zamienić typ gracza na obserwację: „…gracz, o którym wiesz (z obserwacji), że rzadko blefuje”",
+  "uwagi": "Logika (mniej blefów niż wymaga cena → pas) to rachunek, szczebel 1. Przesłanka populacyjna („pasywni gracze rekreacyjni rzadko blefują na riverze”) ma tylko dwa źródła szczebla 4 bez danych (próba, stawki, pokój). CLAUDE.md: bez danych o populacji nie ma reguły eksploatacyjnej. Pole population w rules.yaml to przyznaje („bez liczb z bazy rąk”)."
+ },
+ {
+  "id": "R-M6-005",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "rywal stawia większy bet → bronisz węższym zakresem: przy becie 1/3 puli mdf to {{n:mdf.bet-third}}, a przy becie wielkości puli {{n:mdf.bet-pot}}, bo większy bet daje gorszą cenę: potrzebne equity rośnie z {{n:eq.bet-third}} do {{n:eq.bet-pot}}",
+  "zrodla": [
+   {
+    "adres": "rachunek: MDF 1/3: 90/120; MDF pula: 100/200; eq = bet/(pula+2·bet): 30/150 i 100/300",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "MDF 75% i 50%; equity 20% i 33,33%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M6-006",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "na dużym blindzie dostajesz mały c-bet (ok. 1/3 puli) → kontynuujesz prawie każdą parą, drawami, wysokimi kartami z dodatkowym drawem (backdoor) i zwykle także asem jako najwyższą kartą; pasujesz najsłabszymi rękami bez pary i bez drawa, bo potrzebujesz tylko ok. {{n:eq.bet-third}} equity, a te ręce albo już wygrywają z blefami, albo mogą się poprawić",
+  "zrodla": [
+   {
+    "adres": "https://pokercoaching.com/blog/defending-bb-on-high-card-boards/",
+    "miejsce": "K84, BB vs BTN, c-bet ok. 1/3 (PeakGTO)",
+    "cytat": "As for our calling range, we will continue with pretty much all pairs including he underpairs and even A-high hands.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/backdoor-flush-straight-draw-tips/",
+    "miejsce": "akapit o asach z backdoorem",
+    "cytat": "Ace-highs often go from folding hands to calling/raising hands when they have a backdoor flush draw.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło z wynikiem solvera (szczebel 2) i jedno szczebla 4. Cytat zawiera literówkę źródła („he underpairs”)."
+ },
+ {
+  "id": "R-M6-007",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "masz dwie wysokie karty bez pary i bez drawa, a c-bet jest duży (3/4 puli i więcej) → zwykle pasujesz, bo out-of-position taka ręka rzadko dochodzi do showdownu, a pair z wysokiej karty często i tak przegrywa; sprawdzasz raczej wtedy, gdy masz dodatkowy draw, najlepiej do najwyższego koloru",
+  "zrodla": [
+   {
+    "adres": "https://upswingpoker.com/when-to-call-with-ace-high/",
+    "miejsce": "J♦4♦2♠, c-bet 66% (solver)",
+    "cytat": "But the solver does not call with any Ace-high hand that doesn't have a significant backdoor draw.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://pokercoaching.com/blog/defending-bb-on-high-card-boards/",
+    "miejsce": "K84 wobec dużego c-betu",
+    "cytat": "We call with a similar range as when facing a small c-bet putting out chips in the middle any pair and most of our Ax holdings.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Dane źródeł dotyczą c-betu 66%; reguła mówi „3/4 i więcej” (pas przy większym becie wynika tym bardziej z rachunku MDF). Wyjątek z K84 uzasadnia „zwykle”."
+ },
+ {
+  "id": "R-M6-008",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "chcesz zrobić check-raise na flopie → robisz go głównie najsilniejszymi rękami (two-pair, sety) i drawami (flush, oesd); średnie pary zwykle sprawdzasz (uproszczenie: wobec małych c-betów solver przebija też część najwyższych par i słabych par dla ochrony), bo po check-raise'u gorsze ręce zwykle pasują, a lepsze płacą, więc średnia pair rzadko na nim zyskuje; draw ma dwie drogi do wygranej: fold rywala albo trafienie",
+  "zrodla": [
+   {
+    "adres": "https://upswingpoker.com/check-raising-strategies/",
+    "miejsce": "Tip o wartości (PioSolver, J♥8♠4♥)",
+    "cytat": "Fun fact: solvers will check-raise all sorts of top pairs versus small bets",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/check-raise-lucid/",
+    "miejsce": "Tip #1",
+    "cytat": "Sets are powerful hands that thrive on getting the money in before any draw completes.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/check-raise-lucid/",
+    "miejsce": "Tip #3 i #4",
+    "cytat": "Flush draws make for good check-raises",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/check-raise-lucid/",
+    "miejsce": "Tip #4",
+    "cytat": "Open-enders should check-raise often (even more so with a backdoor flush draw)",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/check-raise-lucid/",
+    "miejsce": "A95/K84/Q73",
+    "cytat": "bottom pairs with low kickers are incentivized to check-raise for both protection and thin value.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": "wobec małych c-betów solver przebija też część najwyższych par i słabych par dla ochrony (nazwane w regule)",
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Lucid: na bardzo mokrych stołach górne i dolne dwie pary często tylko sprawdzają („it's often best to avoid check-raising your top and bottom two-pairs altogether”); reguła mówi „głównie”, a lekcja m6-l3 uznaje oba zagrania (D-36)."
+ },
+ {
+  "id": "R-M6-009",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "c-bet jest mały albo flop jest niski i connected (np. 7-6-5) → robisz check-raise częściej; na wysokich flopach dobrych dla przebijającego (np. K-J-T, A-A-K) i wobec dużych c-betów rzadziej, bo na niskich flopach big-blind ma więcej najsilniejszych układów (nuts-advantage), a mały c-bet daje tanią okazję do przebicia",
+  "zrodla": [
+   {
+    "adres": "https://upswingpoker.com/check-raise-poker-strategy-flop-c-bet/",
+    "miejsce": "lista flopów",
+    "cytat": "here are a few examples of flops that should never be check-raised by the big blind because they heavily favor the in position pre-flop aggressor",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/check-raise-poker-strategy-flop-c-bet/",
+    "miejsce": "zasady",
+    "cytat": "If your opponent c-bets often or uses a small c-bet size, check-raise with a wider-than-usual range.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/check-raising-strategies/",
+    "miejsce": "PioSolver, J♥8♠4♥",
+    "cytat": "Versus a 66% pot-sized bet, the solver check-raises 8.66% of the time.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/flop-heuristics-for-defending-the-blinds-in-mtts/",
+    "miejsce": "kluczowe wnioski (MTT)",
+    "cytat": "The larger the BTN bets, the less BB raises.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/nut-range-positional-advantage/",
+    "miejsce": "sekcja Nut advantage",
+    "cytat": "If the board was low and connected in the example above, the Big Blind will often have the nut advantage.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "W rules.yaml liczby 12,65% i 8,66% przypisane są artykułowi „How to Check-Raise Like a High Stakes Juggernaut”, a stoją w „5 Winning Check-Raising Strategies” (https://upswingpoker.com/check-raising-strategies/). Do poprawy w polu source."
+ },
+ {
+  "id": "R-M6-010",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "robisz check-raise na flopie → przebijasz ok. {{n:xr.mult.low}}–{{n:xr.mult.example}} c-betu, tym więcej, im mniejszy c-bet; nie minimalnie, bo przy check-raise'ie do {{n:xr.mult.example}} c-betu Button potrzebuje do sprawdzenia ok. {{n:eq.vs-xr.example}} equity, a przy {{n:xr.too-small.mult}} c-betu tylko {{n:eq.vs-xr.too-small}}; tak tanio zapłaci każdym drawem",
+  "zrodla": [
+   {
+    "adres": "rachunek: dopłata/(pula po przebiciu + dopłata); pula 90, c-bet 30: 4,5x → 105/360; 3x → 60/270; 1,5x → 15/180",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "29,17%; 22,22%; 8,33%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://upswingpoker.com/podcast/ep1-check-raise/",
+    "miejsce": "Check-raise sizing (Blackwood)",
+    "cytat": "use a 3.2x raise vs. larger c-bets",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/podcast/ep1-check-raise/",
+    "miejsce": "Check-raise sizing (Blackwood)",
+    "cytat": "use a 4.5x raise vs. smaller c-bets",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://blog.gtowizard.com/flop-heuristics-for-defending-the-blinds-in-mtts/",
+    "miejsce": "kluczowe wnioski (MTT)",
+    "cytat": "The larger the BTN bets, the smaller BB raises. A small raise of a small bet offers extremely good pot odds.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Krotności 3,2x i 4,5x to uproszczenia trenera (szczebel 4); kierunek „mniejszy c-bet → większa krotność” ma szczebel 2. GTO Wizard ostrzega przed liczeniem przebicia jako krotności betu („Jedi mind trick”, ta sama strona) — lekcja uczy krotności; proponuję w lekcji dopisać, że oba rozmiary dają przebicie ok. 2/3 puli."
+ },
+ {
+  "id": "R-M6-011",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "rozważasz check-raise jako bluff albo semi-bluff → wybierasz do niego głównie mocne drawy; im rzadziej rywal pasuje, tym mniej takich blefów, a gdy prawie nie pasuje, check-raise robisz głównie dla wartości, bo bluff zarabia tylko wtedy, gdy rywal pasuje częściej niż alpha (R-M6-002); mocny draw wygrywa też po trafieniu, więc traci najmniej, gdy pasów brakuje",
+  "zrodla": [
+   {
+    "adres": "rachunek: alpha = bet/(pula+bet) (R-M6-002)",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "blef zarabia tylko przy pasach częstszych niż alpha",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://upswingpoker.com/check-raising-strategies/",
+    "miejsce": "dostosowanie do rywala",
+    "cytat": "If you think your opponent will call too often, then you should tighten your bluffing range to include only strong draws (open-enders and flush draws).",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M7-001",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "c-betowałeś flop z pozycji, rywal sprawdził, a na turnie spada wysoka karta (as albo król) na niższym stole → częściej stawiasz second barrel, także jako bluff, bo ta karta zwykle częściej trafia twój range otwarcia niż range obrońcy, a każda pair rywala spada o jedno miejsce niżej",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/the-worst-turn-card/",
+    "miejsce": "wniosek główny",
+    "cytat": "Generally, high turn cards are going to be better for the PFR, and low cards or board-pairing cards are going to be worse for the PFR",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://www.pokerlistings.com/when-to-fire-a-second-barrel-on-the-turn-a-simple-guide",
+    "miejsce": "karty na turnie",
+    "cytat": "Aces and kings on the turn are ideal candidates for second barrels",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.pokerlistings.com/when-to-fire-a-second-barrel-on-the-turn-a-simple-guide",
+    "miejsce": "overcards",
+    "cytat": "Whatever pair your opponent held on the flop just got demoted to a worse pair.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://pokercoaching.com/blog/when-to-double-barrel-the-turn-as-a-bluff/",
+    "miejsce": "The turn cards that keep the barrel alive",
+    "cytat": "The best turn card for a wide flop bettor is an overcard to the board",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M7-002",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "blefujesz second barrelem na turnie → blefujesz przede wszystkim rękami z outami (flush-draw, strita, gutshot z wysoką kartą); ręce bez outów częściej odpuszczasz, chyba że blokują ręce, którymi rywal zapłaci, bo semi-bluff wygrywa na dwa sposoby: gdy rywal spasuje albo gdy trafisz na riverze; bluff bez outów ma tylko pierwszą drogę (stacki ok. {{n:format.stack}})",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/from-gutshots-to-airballs-choosing-your-bluffs/",
+    "miejsce": "przykład 100bb cash, A♠9♣7♥2♠",
+    "cytat": "A gutshot to the nuts is a pure check, while a gutshot to a lower straight is a pure bet.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/from-gutshots-to-airballs-choosing-your-bluffs/",
+    "miejsce": "wniosek",
+    "cytat": "Bluff with draws when you expect your opponent to respond mostly by folding or calling, and bluff with air when you expect them to respond mostly by folding or raising",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://pokercoaching.com/blog/when-to-double-barrel-the-turn-as-a-bluff/",
+    "miejsce": "akapit o głębokich stackach",
+    "cytat": "Deeper stacked, the logic flips back, because your big draws can bet and call the raise, and the barrel returns to the hands that can improve.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "w then dopisać „(uproszczenie: solver blefuje też częścią rąk bez outów, zwłaszcza gdy rywal może odpowiedzieć przebiciem)” — tak jak w nocie lekcji m7-l1-druga-beczka.md:137",
+  "uwagi": "Szczebel 2 (GTO Wizard, 100bb cash) pokazuje, że wybór draw/powietrze zależy od odpowiedzi rywala, a w przykładzie ręce bez outów (K♠J♦, 6♣4♣) betują częściej niż 5♠4♠; szczebel 4 (PokerCoaching) popiera regułę przy głębokich stackach. Reguła jest kierunkowym uproszczeniem, ale go nie nazywa. „The Double Barrel Checklist” (trener) niedostępny: serwer zwraca 403."
+ },
+ {
+  "id": "R-M7-003",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "na turnie masz średnią rękę (np. drugą parę albo najwyższą parę ze słabym kickerem), a rywal sprawdził już c-bet → częściej czekasz, zamiast betować drugi raz, bo po sprawdzeniu flopu rywal ma range silniejszy niż przed nim: na bet spasuje gorsze ręce, a zapłaci lepszymi; czekając, trzymasz pulę małą i dochodzisz do showdownu",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/principles-of-turn-strategy/",
+    "miejsce": "UTG vs BB, K♠8♥4♦, turn",
+    "cytat": "BB has folded away their equity disadvantage and now has a stronger range on most turns.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/principles-of-turn-strategy/",
+    "miejsce": "UTG vs BB, turn",
+    "cytat": "Their medium-strength hands have less incentive to bet",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://www.pokerstrategy.com/news/content/Poker-Basics-Polarised-Ranges_118162/",
+    "miejsce": "Polar ranges",
+    "cytat": "The absence of middle strength hands, which would prefer to pot control, weights a range towards bluffs and value bets.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://blog.gtowizard.com/poker-the-battle-for-information/",
+    "miejsce": "przegląd",
+    "cytat": "One common pitfall here is betting or raising for information.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M7-004",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "blefujesz na turnie ręką, która sama prawie nie wygra → przy becie 3/4 puli rywal musi pasować częściej niż w {{n:alpha.bet-three-quarters}} przypadków, przy becie pół puli częściej niż w {{n:alpha.bet-half}}, bo ryzykujesz bet, żeby wygrać pulę: próg to bet ÷ (pot + bet); outy, które masz, obniżają ten próg",
+  "zrodla": [
+   {
+    "adres": "rachunek: alpha = bet/(pula+bet): 75/175 i 50/150",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "42,86% i 33,33%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "„Outy obniżają ten próg” — kierunkowo poprawne (część wygranych po sprawdzeniu), bez liczby."
+ },
+ {
+  "id": "R-M7-005",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "betujesz na turnie zakresem spolaryzowanym (bardzo silne ręce i semi-blefy z drawem, bez średnich rąk) → wybierasz duży rozmiar, np. 3/4 puli, a średnie ręce czekają, bo silne ręce chcą zbudować pulę przed riverem, blefy potrzebują pasów, a średnie ręce nie zyskują na dużej puli",
+  "zrodla": [
+   {
+    "adres": "https://gtogecko.com/blog/polarized-vs-merged-ranges",
+    "miejsce": "Large Bet Sizing",
+    "cytat": "When you use large bets (75%+ pot), your range naturally becomes polarized",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.pokerstrategy.com/news/content/Poker-Basics-Polarised-Ranges_118162/",
+    "miejsce": "Polar ranges",
+    "cytat": "Ranges tend to get more polarised on later streets because the bet sizings get bigger and as such most middle strength hands should fold.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://blog.gtowizard.com/the-worst-turn-card/",
+    "miejsce": "BTN vs BB, turn",
+    "cytat": "BTN has a lot of incentive to start polarizing and making bigger bets on the turn.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M7-006",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "masz silną rękę na turnie, a rywal może mieć flush-draw → betujesz dużo: przy becie 3/4 puli draw potrzebuje {{n:eq.bet-three-quarters}} equity, a ma ok. {{n:odds.flush.turn-river}}, bo przy becie 1/4 puli wystarczyłoby mu {{n:eq.bet-quarter}}, więc mały bet daje drawie dobrą cenę",
+  "zrodla": [
+   {
+    "adres": "rachunek: eq = bet/(pula+2·bet): 75/250 i 25/150; kolor turn→river 9/46",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "30,00%; 16,67%; 19,57%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://pokercoaching.com/blog/bet-sizing-on-connected-boards-pot-it-or-slow-down/",
+    "miejsce": "Tip #1",
+    "cytat": "Strong and safe bets small. Strong and vulnerable bets big",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M7-007",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "masz draw na turnie → liczysz szansę na jedną kartę: flush to ok. {{n:odds.flush.turn-river}}, a nie {{n:odds.flush.flop-river}} jak na flopie, bo do rivera zostaje jedna karta, więc szansa jest mniej więcej o połowę mniejsza niż na flopie",
+  "zrodla": [
+   {
+    "adres": "rachunek: 9/46 (turn→river) vs 1 − C(38,2)/C(47,2) (flop→river)",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "19,57% vs 34,97% (stosunek 0,56)",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M7-008",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "na turnie cena za draw jest za wysoka (masz mniej equity, niż potrzebujesz) → sprawdzasz tylko wtedy, gdy po trafieniu wygrasz łącznie co najmniej dopłata × (karty nietrafiające ÷ outy); różnica ponad pulę to implied odds, bo wtedy wygrane na trafieniach pokrywają straty na chybieniach; przy kolorze i becie {{n:io.flush.bet}} do puli {{n:ex.third.pot}} to {{n:io.flush.extra}} ponad pulę",
+  "zrodla": [
+   {
+    "adres": "rachunek: EV call = 0 ⇔ (9/46)·W = (37/46)·45 ⇒ W = 45·37/9 = 185; pula po becie 90+45 = 135; nadwyżka 185 − 135",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "W = 185, nadwyżka 50; EV przy W = 0",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M7-009",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "liczysz na implied odds → wierzysz w nie tylko wtedy, gdy za rywalem zostało dość żetonów (wysoki spr), masz draw do najlepszej ręki, a trafienie nie rzuca się w oczy, bo dodatkowe chips musi ci jeszcze zapłacić rywal; przy niskim spr nie ma ich skąd wziąć, a widoczne trafienie (np. czwarty kier) go płoszy",
+  "zrodla": [
+   {
+    "adres": "https://pokercoaching.com/blog/implied-odds/",
+    "miejsce": "podsumowanie",
+    "cytat": "Good implied odds require deep stacks and opponents likely to pay you off",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://pokercoaching.com/blog/implied-odds/",
+    "miejsce": "czynniki",
+    "cytat": "Is Your Draw Obvious: One of the most important questions with drawing hands is how obvious your draw is.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/implied-odds-poker-strategy/",
+    "miejsce": "przykład z niskim drawem",
+    "cytat": "Unlike the K♥Q♥ example, we won't have the nuts when we hit, we are out of position, and there's not much behind to win.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Implied Odds Calculator (trener) niedostępny: serwer zwraca 403; zastąpiony przez Upswing (szczebel 4)."
+ },
+ {
+  "id": "R-M7-010",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "masz draw do niskiego koloru albo do strita, gdy na stole może wpaść flush → sprawdzasz ostrożniej i liczysz mniej outów, bo trafiając, czasem nadal przegrywasz z lepszą ręką i wtedy płacisz najwięcej (odwrotne implied odds)",
+  "zrodla": [
+   {
+    "adres": "https://thepokerbank.com/strategy/mathematics/reverse-implied-odds",
+    "miejsce": "definicja",
+    "cytat": "Reverse implied odds are how much you could expect to lose after hitting your draw.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://thepokerbank.com/strategy/mathematics/reverse-implied-odds",
+    "miejsce": "lista rąk",
+    "cytat": "In a nutshell, the following hands are going to have reverse implied odds that make calling to complete your draw quite dangerous: Weak flush draws.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://thepokerbank.com/strategy/mathematics/reverse-implied-odds",
+    "miejsce": "strit przy możliwym kolorze",
+    "cytat": "If a 4 or 9 comes, you will have made your straight, but then this also makes a possible flush for another player.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/reverse-implied-odds/",
+    "miejsce": "definicja",
+    "cytat": "Reverse implied odds are (obviously) the exact opposite of implied odds",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Źródła z rules.yaml („Back to Basics (Part 2): Reverse Implied Odds”, Implied Odds Calculator) nieodczytane: pierwszego nie znalazłem pod odgadniętym adresem (404), drugi 403. Zastąpione przez The Poker Bank i Upswing (szczebel 4)."
+ },
+ {
+  "id": "R-M7-011",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "bronisz big-blind, a Button po otwarciu nie zrobił c-betu na flopie (czekał) → na turnie częściej betujesz sam (probe bet), zwłaszcza na niskich stołach; na stołach z asem albo królem rzadziej, bo Button z wieloma silnymi rękami by betował, więc po czekaniu ma ich mniej; na wysokich stołach range-advantage zostaje jednak po jego stronie",
+  "zrodla": [
+   {
+    "adres": "https://upswingpoker.com/turn-probe-kanu7/",
+    "miejsce": "Tip 1 (Kanu7)",
+    "cytat": "Probe Bet Less Often on High Boards, More Often on Low Boards",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://pokercoaching.com/blog/probe-betting-explained/",
+    "miejsce": "definicja",
+    "cytat": "A probe bet is a bet made out of position on the turn or river after the preflop aggressor checks back instead of c-betting.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://blog.gtowizard.com/the-turn-probe-bet/",
+    "miejsce": "Range Deficiencies",
+    "cytat": "We can say that our opponent's range is somewhat capped.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/the-turn-probe-bet/",
+    "miejsce": "Turn Reports",
+    "cytat": "Turn Reports help us see immediately that the Ace is by far the worst for BB in terms of both equity and EV.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M7-012",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "stawiasz probe bet na turnie → betujesz parami, które chcą zapłaty i ochrony, oraz mocnymi drawami; ręce bez pary i bez outów czekają, bo pary zarabiają na gorszych rękach Buttona i nie dają mu darmowej karty, drawy wygrywają na dwa sposoby, a puste ręce nic nie zyskują",
+  "zrodla": [
+   {
+    "adres": "https://pokercoaching.com/blog/probe-betting-explained/",
+    "miejsce": "lista rąk do probe betu",
+    "cytat": "the top pair or the second pair that wants value and protection",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://pokercoaching.com/blog/probe-betting-explained/",
+    "miejsce": "lista rąk do probe betu",
+    "cytat": "strong draws that benefit from fold equity",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://blog.gtowizard.com/the-turn-probe-bet/",
+    "miejsce": "skład betu 250%",
+    "cytat": "Otherwise, our bluffs are mostly sourced from straight draws",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M7-013",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "sprawdziłeś c-bet na flopie, a rywal betuje drugi raz na turnie → bronisz węziej niż na flopie: drawy sprawdzają tylko przy dobrej cenie albo implied odds, a ręce bez outów i najsłabsze pary pasują, bo second barrel rywal stawia węższym zakresem niż c-bet i zwykle większym rozmiarem, a drawy mają już tylko jedną kartę",
+  "zrodla": [
+   {
+    "adres": "https://upswingpoker.com/vs-double-barrels-turn/",
+    "miejsce": "One and Done",
+    "cytat": "Against such a player you will need to fold most of your second pairs and weaker holdings on the turn because his low turn c-bet frequency indicates a strong range.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/vs-double-barrels-turn/",
+    "miejsce": "średnie solvera na turnie",
+    "cytat": "That percentage of hands we continue with (57.47%) is pretty damn close to the MDF (57.1%).",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/the-worst-turn-card/",
+    "miejsce": "BTN vs BB, turn",
+    "cytat": "BTN has a lot of incentive to start polarizing and making bigger bets on the turn.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "rachunek: MDF: flop 1/3 → 75%; turn 3/4 → 100/175 = 57,1%",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "węższa obrona procentowo wynika z większego rozmiaru",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "„Węziej” wynika głównie z rachunku (większy bet, niższy MDF) i z mniejszej liczby kart do trafienia; Upswing podaje, że solver broni na turnie blisko MDF, a dobór par zależy od typu rywala."
+ },
+ {
+  "id": "R-M8-001",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "na riverze in-position chcesz betować dla wartości, a rywal może już tylko sprawdzić albo spasować → betujesz, gdy ponad {{n:value.threshold}} rąk, które sprawdzą, to ręce gorsze od twojej; liczysz tylko ręce, które zapłacą, a nie wszystkie ręce rywala, bo każde call gorszą ręką wygrywa jeden bet, a każde call lepszą przegrywa jeden bet; gdy rywal pasuje gorszą ręką, wygrywasz tę samą pulę, którą wygrałbyś po czekaniu",
+  "zrodla": [
+   {
+    "adres": "rachunek: EV(bet) − EV(check) = w·B − (1−w)·B, gdzie w = udział gorszych rąk wśród sprawdzających; pasy gorszych rąk = ta sama pula co po czekaniu",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "> 0 ⇔ w > 1/2",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://upswingpoker.com/thin-value-bet-poker-strategy/",
+    "miejsce": "definicja thin value",
+    "cytat": "A thin value bet is a bet that, when your opponent calls, you expect to win the pot a little over 50% of the time.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M8-002",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "na riverze masz in-position średnią rękę, a gorsze ręce rywala nie zapłacą betu → czekasz i idziesz do showdownu za darmo, bo po becie gorsze ręce pasują, a płacą (albo przebijają) lepsze, więc bet zamienia rękę z wartością przy showdownie w bluff",
+  "zrodla": [
+   {
+    "adres": "https://thepokerbank.com/strategy/hand-guide/river",
+    "miejsce": "river z pozycją",
+    "cytat": "Don't bet marginal hands on the river. You are only going to get called by better hands the majority of the time.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://gtogecko.com/blog/polarized-vs-merged-ranges",
+    "miejsce": "definicja zakresu spolaryzowanego",
+    "cytat": "Medium-strength hands are deliberately excluded and checked instead.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://blog.gtowizard.com/mastering-thin-value-bets-in-checked-down-pots/",
+    "miejsce": "CO na riverze",
+    "cytat": "Although they can get called by worse, they can also have their value reduced to 0 by a check-raise, so a free showdown is more appealing.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M8-003",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "twoja ręka na riverze wygrywa z niewiele ponad połową rąk, które mogą sprawdzić (thin value) → betujesz mniej niż silną ręką, zwykle ok. 1/4–1/2 puli, bo mały bet sprawdzą też słabsze ręce rywala; duży bet sprawdzą głównie lepsze, a wtedy gorszych sprawdzeń przestaje być więcej niż lepszych",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/river-refinements-when-your-opponent-wont-check-raise/",
+    "miejsce": "river IP, ryzyko check-raise'u",
+    "cytat": "This is why it's rare to see the IP player bet less than half pot on the river (unless that's all that remains in the effective stacks).",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/river-refinements-when-your-opponent-wont-check-raise/",
+    "miejsce": "river IP",
+    "cytat": "Usually, if you're betting small, it's because you're betting for thin value.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/mastering-thin-value-bets-in-checked-down-pots/",
+    "miejsce": "CO w puli przeczekanej",
+    "cytat": "a 77% pot bet targeting the Ten-x portion of BTN's range and a 21% pot bet targeting the weaker pairs.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://deepfold.co/en/blog/bluff-catching-principles",
+    "miejsce": "tabela rozmiarów",
+    "cytat": "Small block bets (25–33%) are usually thin value or weak protection bets.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/thin-value-bet-poker-strategy/",
+    "miejsce": "przykład QT",
+    "cytat": "As far as sizing goes, you should bet about $40 (two-thirds pot).",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "w then: „betujesz mniej niż silną ręką, zwykle ok. 1/4–1/2 puli, gdy rywal rzadko przebija (uproszczenie: przy ryzyku check-raise'u z pozycji rzadko schodzisz poniżej 1/2 puli)”",
+  "uwagi": "Źródła szczebla 2 różnią się warunkiem: bez ryzyka przebicia (pula przeczekana) thin value ok. 21%; przy ryzyku check-raise'u Brokos: rzadko poniżej 1/2 albo czek. Reguła nie podaje warunku; nota w lekcji m8-l1-value.md:131 go podaje. Upswing (szczebel 4) w przykładzie 2/3 puli."
+ },
+ {
+  "id": "R-M8-004",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "na riverze betujesz całą pulę zakresem złożonym z bardzo silnych rąk i blefów → w równowadze ok. {{n:bluff.share.bet-pot}} twoich betów to blefy; ogólnie udział blefów = bet ÷ (pot + 2·bet), bo wtedy ręka rywala, która wygrywa tylko z blefami, ma dokładnie potrzebne equity ({{n:eq.bet-pot}}): nie zarabia ani sprawdzeniem, ani pasem, więc nie da się cię wykorzystać",
+  "zrodla": [
+   {
+    "adres": "rachunek: udział blefów = bet/(pula+2·bet) = 100/300; EV call bluff-catchera = (1/3)·2 − (2/3)·1",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "33,33%; EV = 0",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://blog.gtowizard.com/how-to-solve-toy-games/",
+    "miejsce": "toy game AA/QQ vs KK",
+    "cytat": "This is a pot-sized bet, so villain needs 33% equity to call.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M8-005",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "na riverze zmieniasz rozmiar betu z zakresem spolaryzowanym → przy większym becie masz w nim więcej blefów, przy mniejszym mniej: przy 1/3 puli ok. {{n:bluff.share.bet-third}}, przy całej puli ok. {{n:bluff.share.bet-pot}}, bo większy bet daje rywalowi gorszą cenę, więc jego call potrzebuje więcej blefów w twoim zakresie, żeby się opłacić",
+  "zrodla": [
+   {
+    "adres": "rachunek: bet/(pula+2·bet): 30/150 i 100/300",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "20,00% i 33,33%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M8-006",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "wybierasz, którymi rękami blefować na riverze → blefujesz najsłabszymi rękami, które nie wygrają przy showdownie (np. nietrafionymi drawami); ręce z wartością przy showdownie czekają, bo bluff z ręką, która często wygrywa po czekaniu, oddaje tę wygraną; ręka bez szans nic nie traci, gdy bluff nie wyjdzie",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/were-at-the-river-our-hand-cant-win-now-what/",
+    "miejsce": "LJ na riverze",
+    "cytat": "then there's no reason to take a hand that can sometimes win at showdown and use it as a bluff.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/polarized-vs-linear-ranges/",
+    "miejsce": "przykład blefów",
+    "cytat": "These hands are good bluffs because they have no showdown value and block some of your opponent's likely calling hands",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M8-007",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "wybierasz bluff spośród rąk bez wartości przy showdownie → wybierasz rękę z kartą, która blokuje silne ręce rywala, czyli te, którymi zapłaci (np. asa w kolorze, gdy na stole są trzy karty w kolorze), bo gdy trzymasz kartę z jego najsilniejszych rąk, rywal ma ich mniej kombinacji, więc częściej zostaje mu ręka do spasowania",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/blockers-unblockers-the-secret-to-picking-great-bluffs/",
+    "miejsce": "wstęp",
+    "cytat": "A good bluff should simultaneously block very strong hands and unblock the hands that we want to fold out.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/understanding-blockers-in-poker/",
+    "miejsce": "definicja",
+    "cytat": "if we hold A♠K♦ on T♠6♠3♠, we now make it impossible for our opponents to hold the nut flush",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M8-008",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "flush-draw nie wszedł, a ty wybierasz bluff → gdy masz wybór blefów, wolisz bluff bez kart w tym kolorze, bo nietrafione drawy rywal spasuje; karta w ich kolorze w twojej ręce zmniejsza liczbę jego rąk do spasowania",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/blockers-unblockers-the-secret-to-picking-great-bluffs/",
+    "miejsce": "przykład BB, river",
+    "cytat": "I know that missed flush draws often make bad bluffs because they block other missed flush draws that would make up a big part of the folding range.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/blockers-unblockers-the-secret-to-picking-great-bluffs/",
+    "miejsce": "ten sam przykład, wynik solvera",
+    "cytat": "So, the heuristic of missed flush draws being bad bluffs is not disproven, but here, we don't have many alternatives to choose from.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/unblockers/",
+    "miejsce": "Unblocking and Bluffing",
+    "cytat": "Q♥T♥ unblocks the many missed flush draws the Big Blind could have",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "W przykładzie GTO Wizard solver blefuje właśnie nietrafionymi kolorami, bo brak alternatyw; zastrzeżenie „gdy masz wybór” w regule to oddaje."
+ },
+ {
+  "id": "R-M8-009",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "trzymasz jedną kartę danej rangi → rywal ma mniej kombinacji z tą rangą: AK zamiast {{n:combos.unpaired}} ma {{n:combos.unpaired.one-blocked}}, a parę asów zamiast {{n:combos.pair}} tylko {{n:combos.pair.one-blocked}}, bo karta w twojej ręce nie może być w ręce rywala: z czterech kart tej rangi zostają mu {{n:pair.outs.per-rank}}",
+  "zrodla": [
+   {
+    "adres": "rachunek: wyliczenie kombinacji (itertools) przy A♠ w ręce bohatera",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "AK: 12 zamiast 16; AA: 3 zamiast 6",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M8-010",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "na riverze masz rękę, która wygrywa tylko z blefami rywala (bluff-catcher) → sprawdzasz, gdy blefy to więcej niż potrzebne equity, np. ponad {{n:eq.bet-pot}} betów wielkości puli; gdy blefów jest mniej, pasujesz, bo twoje equity to udział blefów w jego betach (wygrywasz z każdym blefem, przegrywasz z każdą ręką dla wartości); gdy rywal blefuje tyle, ile wynosi bet ÷ (pot + 2·bet), call wychodzi na zero",
+  "zrodla": [
+   {
+    "adres": "rachunek: potrzebne equity = bet/(pula+2·bet) = 100/300",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "33,33%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://deepfold.co/en/blog/bluff-catching-principles",
+    "miejsce": "Breakeven",
+    "cytat": "Breakeven equity = B / (P + 2B)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://deepfold.co/en/blog/bluff-catching-principles",
+    "miejsce": "zasada",
+    "cytat": "Call when villain's bluff combos / (bluff + value combos) > breakeven equity.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M8-011",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "wybierasz, którymi bluff-catcherami sprawdzić bet na riverze → wolisz ręce z kartami, które blokują silne ręce rywala, i bez kart, które blokują jego blefy (np. bez kart w kolorze nietrafionego drawa), bo gdy blokujesz jego wartość, w zakresie betów zostaje więcej blefów; gdy blokujesz jego blefy, zostaje więcej wartości",
+  "zrodla": [
+   {
+    "adres": "https://deepfold.co/en/blog/bluff-catching-principles",
+    "miejsce": "blokery",
+    "cytat": "Does my hand block more value combos? Then the remaining range is more bluff-heavy. Call more.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/unblockers/",
+    "miejsce": "Unblocking and Bluff-Catching",
+    "cytat": "From the blocker standpoint, a good candidate to call would: Block the opponent's value hands Unblock the opponent's bluffing hands",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://blog.gtowizard.com/understanding-blockers-in-poker/",
+    "miejsce": "pytanie o blokery",
+    "cytat": "The most important part of any river bluff-catching decision is whether you have the equity dictated by your pot odds to call. Everything else is secondary.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "GTO Wizard: blokery są drugorzędne wobec ceny; reguła mówi o wyborze między bluff-catcherami, więc zgodna."
+ },
+ {
+  "id": "R-M8-012",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "dostajesz bet na riverze i bronisz zakresem → sprawdzasz najlepszymi bluff-catcherami: wśród rąk podobnej siły wybierasz te z lepszymi blokerami; pasujesz rękami, które przegrywają nawet z blefami, bo ręka, która przegrywa ze wszystkimi betami rywala, nie zarabia sprawdzeniem nawet wtedy, gdy rywal blefuje dużo",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/principles-of-river-play/",
+    "miejsce": "UTG vs BB, river",
+    "cytat": "In other words, they do not choose their bluff catchers based on the rank of the hand, because some of their folds are ranked higher than some of their calls. Rather, these calls are chosen based on their blockers.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://deepfold.co/en/blog/bluff-catching-principles",
+    "miejsce": "zasada",
+    "cytat": "A bluff catcher beats only bluffs.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://deepfold.co/en/blog/bluff-catching-principles",
+    "miejsce": "wstęp",
+    "cytat": "MDF is a defensive constraint for the bettor, not a calling target for the caller.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:cbet.range.small.low",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "cbet.range.small.low = 0.25 [percent]; serwis szkoleniowy, Bet Sizing Strategy: 8 Rules („Bet small (25-35% pot) on dry, static board textures”, https://upswingpoker.com/bet-size-strategy-tips-rules/)",
+  "zrodla": [
+   {
+    "adres": "https://upswingpoker.com/bet-size-strategy-tips-rules/",
+    "miejsce": "lista reguł",
+    "cytat": "Bet small (25-35% pot) on dry, static board textures.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "cbet.range.small.low",
+  "wartosc": 0.25,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło nierachunkowe (szczebel 4); w lekcji m5-l3 opisane jako „materiały szkoleniowe”."
+ },
+ {
+  "id": "n:cbet.range.small.high",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "cbet.range.small.high = 0.35 [percent]; serwis szkoleniowy, Bet Sizing Strategy: 8 Rules (25–35% puli, https://upswingpoker.com/bet-size-strategy-tips-rules/)",
+  "zrodla": [
+   {
+    "adres": "https://upswingpoker.com/bet-size-strategy-tips-rules/",
+    "miejsce": "lista reguł",
+    "cytat": "Bet small (25-35% pot) on dry, static board textures.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "cbet.range.small.high",
+  "wartosc": 0.35,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło nierachunkowe (szczebel 4); w lekcji m5-l3 opisane jako „materiały szkoleniowe”."
+ },
+ {
+  "id": "n:cbet.range.big.low",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "cbet.range.big.low = 0.55 [percent]; serwis szkoleniowy, Bet Sizing Strategy: 8 Rules (55–80% puli, https://upswingpoker.com/bet-size-strategy-tips-rules/)",
+  "zrodla": [
+   {
+    "adres": "https://upswingpoker.com/bet-size-strategy-tips-rules/",
+    "miejsce": "lista reguł",
+    "cytat": "Bet pretty large (55-80% pot) on wet, dynamic board textures.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "cbet.range.big.low",
+  "wartosc": 0.55,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło nierachunkowe (szczebel 4); w lekcji m5-l3 opisane jako „materiały szkoleniowe”."
+ },
+ {
+  "id": "n:cbet.range.big.high",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "cbet.range.big.high = 0.8 [percent]; serwis szkoleniowy, Bet Sizing Strategy: 8 Rules (55–80% puli, https://upswingpoker.com/bet-size-strategy-tips-rules/)",
+  "zrodla": [
+   {
+    "adres": "https://upswingpoker.com/bet-size-strategy-tips-rules/",
+    "miejsce": "lista reguł",
+    "cytat": "Bet pretty large (55-80% pot) on wet, dynamic board textures.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "cbet.range.big.high",
+  "wartosc": 0.8,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło nierachunkowe (szczebel 4); w lekcji m5-l3 opisane jako „materiały szkoleniowe”."
+ },
+ {
+  "id": "n:cbet.size.small",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "cbet.size.small = 0.333333 [percent]; serwis komercyjnego solvera, Flop Heuristics: IP C-Betting in Cash Games (33%); serwis szkoleniowy, Bet Sizing Strategy: 8 Rules (25–35%, https://upswingpoker.com/bet-size-strategy-tips-rules/)",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
+    "miejsce": "Flop Connectedness, Disconnected",
+    "cytat": "This texture sees the frequent use of the 33% sizing",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/bet-size-strategy-tips-rules/",
+    "miejsce": "lista reguł",
+    "cytat": "Bet small (25-35% pot) on dry, static board textures.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "cbet.size.small",
+  "wartosc": 0.333333,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:cbet.size.big",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "cbet.size.big = 0.75 [percent]; serwis komercyjnego solvera, The Mechanics of C-Bet Sizing (75%); serwis szkoleniowy, Bet Sizing Strategy: 8 Rules (55–80%, https://upswingpoker.com/bet-size-strategy-tips-rules/)",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/the-mechanics-of-c-bet-sizing/",
+    "miejsce": "BTN vs BB na KJ7tt",
+    "cytat": "The predominant bet sizes are 75 and 125% pot for the overbet",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/bet-size-strategy-tips-rules/",
+    "miejsce": "lista reguł",
+    "cytat": "Bet pretty large (55-80% pot) on wet, dynamic board textures.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "cbet.size.big",
+  "wartosc": 0.75,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:cbet.solver.big.low",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "cbet.solver.big.low = 0.66 [percent]; serwis komercyjnego solvera, Flop Heuristics: IP C-Betting in Cash Games („increased use of the 66% pot bet size”)",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
+    "miejsce": "Flop Connectedness, OESD possible",
+    "cytat": "This board texture sees the increased use of the 66% pot bet size",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "cbet.solver.big.low",
+  "wartosc": 0.66,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:format.stack",
+  "rodzaj": "liczba",
+  "level": "rules",
+  "twierdzenie": "format.stack = 100 [bb]; format główny aplikacji: cash 6-max (ADR-01)",
+  "zrodla": [
+   {
+    "adres": "repo: content/numbers.yaml",
+    "miejsce": "content/numbers.yaml (ADR-01, format główny aplikacji: cash 6-max)",
+    "cytat": "format główny aplikacji: cash 6-max (ADR-01)",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "format.stack",
+  "wartosc": 100,
+  "jednostka": "bb",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Definicja formatu produktu, nie twierdzenie merytoryczne; poza hierarchią źródeł."
+ },
+ {
+  "id": "n:spr.zone.mid",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "spr.zone.mid = 6 [ratio]; trener z serwisem szkoleniowym, SPR Strategy; serwis komercyjnego solvera, Stack-to-Pot Ratio: powyżej ok. 6 jedna para nie gra domyślnie o stack",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/stack-to-pot-ratio/",
+    "miejsce": "Stacking Off at Medium SPR",
+    "cytat": "At this higher SPR, stacking off with top pair starts to get a bit dicey, as does the nut flush draw.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/stack-to-pot-ratio/",
+    "miejsce": "Stacking Off With Deep Stacks",
+    "cytat": "All top pairs and all nut flush draws are now indifferent between calling and folding",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/stack-to-pot-ratio-poker-hands/",
+    "miejsce": "przykłady",
+    "cytat": "By contrast, if the SPR was 10, [AT] it would be medium strength at best, and would be a disaster to get all-in.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "otwarte",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "spr.zone.mid",
+  "wartosc": 6,
+  "jednostka": "ratio",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "bez zmiany wartości do czasu odczytu źródła z progiem 6; w uzasadnieniu nazwać 6 umową aplikacji między SPR ok. 5 („dicey”) a 10+ (para „medium strength at best”)",
+  "uwagi": "Źródło z progiem 6 („SPR Strategy”, trener) zwraca 403. Przeczytane źródła nie podają liczby 6: GTO Wizard — przy SPR ok. 5 top para „dicey”, przy 16 obojętna; Upswing — SPR 10 top para „medium strength at best”. W partii m5-m8 liczba używana tylko w check R-M7-008 (sprMin); główne użycie w M9."
+ },
+ {
+  "id": "n:value.threshold",
+  "rodzaj": "liczba",
+  "level": "math",
+  "twierdzenie": "value.threshold = 0.5 [percent]; matematyka: bet dla wartości na riverze (rywal tylko sprawdza albo pasuje) zarabia, gdy wygrywasz z więcej niż połową rąk, które sprawdzą",
+  "zrodla": [
+   {
+    "adres": "rachunek: EV(bet) − EV(check) = w·B − (1−w)·B > 0 ⇔ w > 1/2",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m5-m8/rachunek-m5-m8.py",
+    "cytat": "próg 50%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://upswingpoker.com/thin-value-bet-poker-strategy/",
+    "miejsce": "definicja thin value",
+    "cytat": "A thin value bet is a bet that, when your opponent calls, you expect to win the pot a little over 50% of the time.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "value.threshold",
+  "wartosc": 0.5,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Założenia: gra z pozycji, rywal tylko sprawdza albo pasuje, bez rake'u (podane w R-M8-001 i m8-l1)."
+ },
+ {
+  "id": "n:xr.mult.example",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "xr.mult.example = 4.5 [multiplier]; serwis szkoleniowy, Level-Up Podcast ep. 1 (Blackwood): 4,5x wobec małych c-betów, 3,2x wobec dużych (https://upswingpoker.com/podcast/ep1-check-raise/); kierunek zgodny z serwisem komercyjnego solvera: im mniejszy bet, tym większa krotność",
+  "zrodla": [
+   {
+    "adres": "https://upswingpoker.com/podcast/ep1-check-raise/",
+    "miejsce": "Check-raise sizing (Blackwood)",
+    "cytat": "use a 4.5x raise vs. smaller c-bets",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "xr.mult.example",
+  "wartosc": 4.5,
+  "jednostka": "multiplier",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Uproszczenie trenera (szczebel 4), kierunek zgodny z GTO Wizard (szczebel 2, R-M6-010)."
+ },
+ {
+  "id": "n:xr.mult.low",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "xr.mult.low = 3 [multiplier]; dolna granica przedziału „ok. 3–4,5 razy” (D-29): serwis szkoleniowy, Level-Up Podcast ep. 1 (Blackwood), 3,2x wobec dużych c-betów (https://upswingpoker.com/podcast/ep1-check-raise/)",
+  "zrodla": [
+   {
+    "adres": "https://upswingpoker.com/podcast/ep1-check-raise/",
+    "miejsce": "Check-raise sizing (Blackwood)",
+    "cytat": "use a 3.2x raise vs. larger c-bets",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "xr.mult.low",
+  "wartosc": 3,
+  "jednostka": "multiplier",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Źródło podaje 3,2x; 3 to zaokrąglenie w dół przyjęte w D-29 („ok. 3–4,5”). Tekst używa „ok.”, więc zgodne."
+ }
+]

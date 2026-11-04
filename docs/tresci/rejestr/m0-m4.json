@@ -1,0 +1,2994 @@
+[
+ {
+  "id": "R-M0-001",
+  "rodzaj": "regula",
+  "level": "rules",
+  "twierdzenie": "dwóch graczy ma różne układy → wygrywa układ wyżej w rankingu, niezależnie od wysokości kart, bo ranking układów rozstrzyga przed wysokością kart; flush zawsze bije strita, full-house zawsze bije flush",
+  "zrodla": [
+   {
+    "adres": "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf",
+    "miejsce": "Card Values and Hand Rankings (Bureau of Gambling Control, GEGA-003942, s. 1)",
+    "cytat": "The ranking of hands for Texas Hold'em, in order from highest to lowest rank, shall be",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf",
+    "miejsce": "10 ORDER OF HANDS, 10.1 Full deck (RAG/551)",
+    "cytat": "d) Full House: Any 3 and any 2 cards of the same face value. e) Flush: Any 5 cards of the same suit. f) Straight: Any 5 cards of different suits in sequence.",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://en.wikipedia.org/wiki/List_of_poker_hands",
+    "miejsce": "wstęp",
+    "cytat": "A hand in a higher-ranking category always ranks higher than a hand in a lower-ranking category.",
+    "odczyt": "2026-11-04",
+    "szczebel": 5
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Ranking (poker królewski → wysoka karta) w regulaminach CA BGC i Crown Perth; Wikipedia tylko jako trzecie źródło. Zmienić source/sources: zamiast samej Wikipedii regulaminy szczebla 1."
+ },
+ {
+  "id": "R-M0-002",
+  "rodzaj": "regula",
+  "level": "rules",
+  "twierdzenie": "obaj gracze mają ten sam rdzeń układu: tę samą parę, trójkę albo te same two-pair → decydują kickery, porównywane kolejno od najwyższego, ale tylko te, które mieszczą się w najlepszych 5 kartach; jeśli piątki są identyczne, pula jest dzielona, bo najpierw liczy się ranga układu, potem jego wysokość, a kickery dopiero przy identycznym rdzeniu; liczy się tylko najlepsza piątka z 7 kart",
+  "zrodla": [
+   {
+    "adres": "https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf",
+    "miejsce": "10.3–10.4",
+    "cytat": "all cards count, for example, Q:Q:7:7:9 shall lose to Q:Q:7:7:10",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://briggsoft.com/docs/pmavens/Rules_Roberts.htm",
+    "miejsce": "Section 5 – Hold’em",
+    "cytat": "a player may use any five-card combination from among the board and personal cards",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://briggsoft.com/docs/pmavens/Rules_Roberts.htm",
+    "miejsce": "Section 3 – Ties",
+    "cytat": "If two players have identical hands, the pot will be split as evenly as possible.",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://en.wikipedia.org/wiki/List_of_poker_hands",
+    "miejsce": "One pair",
+    "cytat": "Each one pair is ranked first by the rank of its pair, then by the rank of its highest-ranking kicker, then by the rank of its second highest-ranking kicker",
+    "odczyt": "2026-11-04",
+    "szczebel": 5
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Kolejność kickerów „od najwyższego” dosłownie tylko w Wikipedii (szczebel 5); Crown 10.3 („higher ranked cards shall take precedence”) i 10.4 dają ją pośrednio. Wystarcza dla poziomu rules."
+ },
+ {
+  "id": "R-M0-003",
+  "rodzaj": "regula",
+  "level": "rules",
+  "twierdzenie": "najlepsze 5 kart obu graczy leży na stole → pula jest dzielona, bo obaj grają tę samą piątkę („playing-the-board”)",
+  "zrodla": [
+   {
+    "adres": "https://briggsoft.com/docs/pmavens/Rules_Roberts.htm",
+    "miejsce": "Section 5 – Hold’em",
+    "cytat": "A player may even use all of the boardcards and no personal cards to form a hand (play the board).",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf",
+    "miejsce": "Description / How the pot is awarded",
+    "cytat": "in the event that more than one player has the highest ranked hand, the pot shall be split equally among all players with the winning hand",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://en.wikipedia.org/wiki/Texas_hold_%27em",
+    "miejsce": "Rules",
+    "cytat": "the player is said to be playing the board and can only hope to split the pot",
+    "odczyt": "2026-11-04",
+    "szczebel": 5
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M1-001",
+  "rodzaj": "regula",
+  "level": "rules",
+  "twierdzenie": "nikt przed tobą nie postawił w tej rundzie → możesz czekać albo postawić, bo sprawdzić i przebić można tylko istniejący bet",
+  "zrodla": [
+   {
+    "adres": "https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf",
+    "miejsce": "Definitions: Check / Call",
+    "cytat": "a check shall only be an option if no blind is placed or bet is made",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf",
+    "miejsce": "Definitions: Call",
+    "cytat": "call means a wager made in an amount equal to the immediately preceding wager",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://briggsoft.com/docs/pmavens/Rules_Roberts.htm",
+    "miejsce": "Section 3",
+    "cytat": "If in turn you verbally declare a fold, check, bet, call, or raise, you are forced to take that action.",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Preflop blind liczy się jako zakład (Crown: „if no blind is placed”); wyjątek: duży blind po samych sprawdzeniach może czekać. Lekcja m1-l1 powinna to mieć przy pierwszym użyciu reguły (propozycja, nie sprawdzałem całej lekcji pod tym kątem)."
+ },
+ {
+  "id": "R-M1-002",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "możesz czekać za darmo → nigdy nie pasujesz, bo fold oddaje pulę bez żadnej korzyści, a check nic nie kosztuje",
+  "zrodla": [
+   {
+    "adres": "rachunek: EV(czekanie) = equity × pula ≥ 0 = EV(pas), koszt czekania 0",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "dominacja: EV(check) − EV(fold) = equity × pula ≥ 0 dla każdej equity ∈ [0,1] (sprawdzone na ułamkach)",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M1-003",
+  "rodzaj": "regula",
+  "level": "rules",
+  "twierdzenie": "ktoś postawił, a nie chcesz grać dalej → pasujesz, bo tracisz tylko to, co już wpłaciłeś; każde call bez powodu to dodatkowa strata",
+  "zrodla": [
+   {
+    "adres": "https://briggsoft.com/docs/pmavens/Rules_Roberts.htm",
+    "miejsce": "Section 3",
+    "cytat": "If in turn you verbally declare a fold, check, bet, call, or raise, you are forced to take that action.",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "rachunek: strata przy pasie = wpłacone dotąd; sprawdzenie bez equity zwiększa stratę o kwotę sprawdzenia",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "EV(pas) = 0 względem bieżącej decyzji; EV(call) = eq×(P+2B) − B < 0, gdy eq < B/(P+2B)",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M1-004",
+  "rodzaj": "regula",
+  "level": "rules",
+  "twierdzenie": "rozdanie przechodzi do kolejnej rundy licytacji → flop to 3 community-cards, turn i river po jednej; po licytacji na riverze gracze, którzy zostali (co najmniej dwóch), odkrywają karty (showdown), bo takie są zasady Texas Hold'em: cztery rundy licytacji, a river jest ostatnią",
+  "zrodla": [
+   {
+    "adres": "https://briggsoft.com/docs/pmavens/Rules_Roberts.htm",
+    "miejsce": "Section 5 – Hold’em",
+    "cytat": "Three boardcards are turned simultaneously (called the \"flop\") and another round of betting occurs. The next two boardcards are turned one at a time, with a round of betting after each card.",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf",
+    "miejsce": "Action and Distribution of Cards",
+    "cytat": "has the right of last action on all betting rounds (second, third, and fourth) except the first betting round",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf",
+    "miejsce": "How the pot is awarded",
+    "cytat": "All active players shall then enter into a showdown with each other and compare their hands",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M2-001",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "na flopie masz {{n:draw.flush.seen}} karty do koloru → masz {{n:outs.flush}} outów: ok. {{n:odds.flush.flop-turn}} szans na flush na turnie, a ok. {{n:odds.flush.flop-river}} do rivera tylko wtedy, gdy zobaczysz obie karty bez dalszych zakładów (all-in), bo w kolorze jest {{n:cards.per-suit}} kart, {{n:draw.flush.seen}} widzisz; call zakładu na flopie kupuje tylko jedną kartę",
+  "zrodla": [
+   {
+    "adres": "rachunek: outy = 13 − 4 = 9; P(turn) = 9/47; P(do rivera) = 1 − (38/47)(37/46)",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "9/47 = 19,15%; 1 − 38·37/(47·46) = 34,97%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://upswingpoker.com/poker-drawing-odds-outs-explained/",
+    "miejsce": "Common drawing odds: flush draw",
+    "cytat": "anytime you have nine outs, you have a 35.0% chance to hit on the turn or river, and a 19.6% chance to hit on only the river.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M2-002",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "masz policzone outy → szacujesz szansę trafienia: outy × 2 przy jednej karcie, outy × 4 przy dwóch; przy zakładzie na flopie liczysz jedną kartę (× 2), a × 4 tylko wtedy, gdy zobaczysz turn i river bez dalszych zakładów (all-in), bo za rivera rywal może kazać ci zapłacić osobno; reguła 2 i 4 myli się o ok. 2 punkty procentowe przy maks. 10 outach",
+  "zrodla": [
+   {
+    "adres": "rachunek: |2n − 100·n/47|, |2n − 100·n/46|, |4n − 100·(1 − C(47−n,2)/C(47,2))| dla n = 1…10",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "maks. błąd ×2: 1,74 pp (n=10, 1 karta z turnu); maks. błąd ×4: 1,61 pp (n=10)",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://upswingpoker.com/poker-drawing-odds-outs-explained/",
+    "miejsce": "The rule of 4 and 2",
+    "cytat": "For anything 10 outs or less, however, its accurate within 2% for the turn and river calculation.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Cytat w polu source reguły („accurate within 2% … ten or fewer outs”) nie jest dosłowny; na stronie: „For anything 10 outs or less, however, its accurate within 2%”. Poprawić cytat w source."
+ },
+ {
+  "id": "R-M2-003",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "przeciwnik betuje pół puli → do sprawdzenia potrzebujesz {{n:eq.bet-half}} equity, bo płacisz 1 część, a pot po twoim sprawdzeniu ma 4 części (pot 2, bet 1, twoje call 1), więc potrzebujesz 1 z 4 części",
+  "zrodla": [
+   {
+    "adres": "rachunek: bet/(pula + 2·bet), bet = 0,5·pula",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "0,5/(1 + 1) = 1/4 = 25%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M2-004",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "przeciwnik betuje całą pulę → do sprawdzenia potrzebujesz {{n:eq.bet-pot}} equity, bo płacisz 1 część, a pot po twoim sprawdzeniu ma 3 części (pot 1, bet 1, twoje call 1), więc potrzebujesz 1 z 3 części",
+  "zrodla": [
+   {
+    "adres": "rachunek: bet/(pula + 2·bet), bet = pula",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "1/(1 + 2) = 1/3 = 33,3%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M2-005",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "twoje equity jest mniejsze niż potrzebne equity (przy drawie: szansa trafienia na kartach, które zobaczysz za tę cenę) → pasujesz (bez dodatkowych argumentów, np. implied odds), bo każde takie call traci pieniądze w długim terminie",
+  "zrodla": [
+   {
+    "adres": "rachunek: EV(call) = eq·(P + 2B) − B; EV < 0 ⇔ eq < B/(P + 2B)",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "równoważność sprawdzona na 10 000 losowych ułamków: zgodna we wszystkich",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "R-M3-001",
+  "rodzaj": "regula",
+  "level": "gto",
+  "twierdzenie": "jesteś na Buttonie i wszyscy przed tobą spasowali → otwierasz najszerzej ze wszystkich pozycji przed blindami; tylko small-blind otwiera podobnie szeroko, bo od flopu mówisz ostatni i zostały za tobą tylko blindy",
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/ranges/btn-open-6max-100bb",
+    "miejsce": "nagłówek strony (NL500, 100bb, 6-max)",
+    "cytat": "GTO opens about 42% of hands first-in from the Button",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://beyondgto.com/ranges/sb-open-6max-100bb",
+    "miejsce": "nagłówek strony (NL500, 100bb, 6-max)",
+    "cytat": "GTO opens about 44% of hands first-in from the Small Blind",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/small-blind-poker-strategy-tips/",
+    "miejsce": "How wide should your small blind stealing range be",
+    "cytat": "open-raising with a slightly wider range from the small blind than the button - anywhere between 40% and 50% of hands is a good starting point",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.preflopwizard.app/blog/6-max-preflop-charts",
+    "miejsce": "tabela pozycji",
+    "cytat": "BTN (Button) 2 40-45% 2.5bb SB (Small Blind) 1 39-47% 3bb",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "W source reguły brak adresu BeyondGTO (opis „serwis z tabelami solvera … NL500”); dopisać https://beyondgto.com/ranges/btn-open-6max-100bb i …/sb-open-6max-100bb. Cytat Preflop Wizard „The button has the widest range” z dokumentu 12 nie występuje dziś na stronie."
+ },
+ {
+  "id": "R-M3-002",
+  "rodzaj": "regula",
+  "level": "gto",
+  "twierdzenie": "wszyscy spasowali do ciebie na utg → otwierasz ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk, bo za tobą jest jeszcze pięciu graczy, więc ktoś częściej ma lepszą rękę",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/preflop-range-morphology/",
+    "miejsce": "Linear ranges: 100bb UTG NL500",
+    "cytat": "this range is comprised of 17.6% of all possible starting hands",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://beyondgto.com/ranges/lj-open-6max-100bb",
+    "miejsce": "nagłówek strony (LJ = pierwsza pozycja 6-max)",
+    "cytat": "GTO opens about 17% of hands first-in from the LJ",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://www.preflopwizard.app/blog/6-max-preflop-charts",
+    "miejsce": "Quick answer",
+    "cytat": "GTO 6-max preflop charts open 15-17% from UTG",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://gtogecko.com/blog/gto-preflop-strategy",
+    "miejsce": "RFI ranges",
+    "cytat": "solver-approved raise-first-in ranges widen from roughly 18% of hands under the gun to 43% on the button",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "BŁĘDNY ADRES w source/sources: https://blog.gtowizard.com/range-morphology/ (artykuł z 2022) nie zawiera 17,6% ani rozmiarów otwarć; cytaty są na https://blog.gtowizard.com/preflop-range-morphology/. Poprawić URL (także R-M3-006, R-M3-007, liczby pf.rfi.utg.*, pf.open-size.solver-*)."
+ },
+ {
+  "id": "R-M3-003",
+  "rodzaj": "regula",
+  "level": "gto",
+  "twierdzenie": "wszyscy spasowali do ciebie na Buttonie → otwierasz ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk, bo zostały tylko blindy, a po flopie będziesz mieć pozycję",
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/ranges/btn-open-6max-100bb",
+    "miejsce": "nagłówek strony",
+    "cytat": "GTO opens about 42% of hands first-in from the Button",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://www.preflopwizard.app/blog/6-max-preflop-charts",
+    "miejsce": "Quick answer",
+    "cytat": "and reach 40-45% on the button at 100bb",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://gtogecko.com/blog/gto-preflop-strategy",
+    "miejsce": "RFI ranges",
+    "cytat": "solver-approved raise-first-in ranges widen from roughly 18% of hands under the gun to 43% on the button",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Dla 9-max (spot nine.rfi.btn) tabele 9-max szczebla 4 podają 44–48% (Preflop Wizard „44-48% from the button”); rozstrzyga szczebel 2 dla gry po pasach = 6-max (dokument 10, N1)."
+ },
+ {
+  "id": "R-M3-004",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "wchodzisz do rozdania jako pierwszy → przebijasz albo pasujesz, nie dopłacasz samego blinda (limp), bo raise może od razu wygrać blindy i daje inicjatywę; limp oddaje obie te rzeczy",
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/ranges/lj-open-6max-100bb",
+    "miejsce": "nagłówek strony (tak samo HJ, CO, BTN, SB)",
+    "cytat": "raising rather than limping or jamming at this depth",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://beyondgto.com/ranges/sb-open-6max-100bb",
+    "miejsce": "How to play 100bb from the Small Blind",
+    "cytat": "At 100bb the whole range plays as raise-or-fold",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/why-limping-in-poker-is-bad/",
+    "miejsce": "Reason 1",
+    "cytat": "If you make everyone fold preflop, you win 100% of the pot 100% of the time. You can’t ever do that in a pot you’ve limped into.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics",
+    "miejsce": "The small blind has three options, not two (GTO Ranges+, 100bb)",
+    "cytat": "The small blind raises (3bb) 33.1% : completes (limps) 20.5% : and folds 46.4% .",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/small-blind-poker-strategy-tips/",
+    "miejsce": "Should you limp from the small blind",
+    "cytat": "if you play mid-stakes or below, the rake impact will eat away at your win-rate",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "sprzeczne",
+  "uproszczenie": "raise-or-fold także z małego blinda",
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "then: „przebijasz albo pasujesz, nie dopłacasz samego blinda (limp); z małego blinda to uproszczenie: niektóre rozwiązania solverów część rąk dopłacają”",
+  "uwagi": "Z pozycji UTG–BTN zgodne ze szczeblem 2. Dla SB sprzeczność na szczeblu 2: BeyondGTO raise-or-fold, ThinkGTO (GTO Ranges+) 20,5% limpów. Proponowana decyzja w raporcie (D-1xx). „Inicjatywa” w because nie ma dosłownego źródła; kierunek zgodny z Upswing."
+ },
+ {
+  "id": "R-M3-005",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "możesz wybrać między tymi samymi kartami w jednym kolorze i w różnych → ręka w jednym kolorze (suited) jest silniejsza, bo daje dodatkową drogę do wygranej przez flush",
+  "zrodla": [
+   {
+    "adres": "rachunek: equity ręki wobec losowej ręki, Monte Carlo 20 000 rozdań na rękę, wspólne losowania",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/equity_m3_005.py",
+    "cytat": "AKs 67,2 / AKo 65,3%; 76s 45,4 / 76o 42,5%; 72s 38,4 / 72o 34,8%; 32s 36,2 / 32o 32,6% (wynik: equity_m3_005.out)",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Monte Carlo (błąd standardowy ok. 0,35 pp); różnice 1,9–3,6 pp. Zgodne z wartościami dokumentu 12 (AKs 67,0 / AKo 65,3)."
+ },
+ {
+  "id": "R-M3-006",
+  "rodzaj": "regula",
+  "level": "gto",
+  "twierdzenie": "wszyscy spasowali do ciebie na HJ albo CO → otwierasz szerzej niż z utg, a węziej niż z Buttona; z CO szerzej niż z HJ, bo im mniej graczy zostało za tobą, tym rzadziej ktoś ma lepszą rękę i tym częściej po flopie masz pozycję",
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/ranges/hj-open-6max-100bb",
+    "miejsce": "nagłówek strony",
+    "cytat": "GTO opens about 22% of hands first-in from the HJ",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://beyondgto.com/ranges/co-open-6max-100bb",
+    "miejsce": "nagłówek strony",
+    "cytat": "GTO opens about 28% of hands first-in from the CO",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://beyondgto.com/ranges/lj-open-6max-100bb",
+    "miejsce": "nagłówek strony",
+    "cytat": "GTO opens about 17% of hands first-in from the LJ",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://www.preflopwizard.app/blog/6-max-preflop-charts",
+    "miejsce": "tabela pozycji",
+    "cytat": "HJ (Hijack) 4 19-22% 2.5bb CO (Cutoff) 3 25-28% 2.5bb",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Adres GTO Wizard w source do poprawy jak w R-M3-002."
+ },
+ {
+  "id": "R-M3-007",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "wchodzisz do rozdania jako pierwszy przebiciem → przebijasz do {{n:pf.open-size}} z każdej pozycji, a z małego blinda do {{n:pf.open-size-sb}} (uproszczenie), bo jeden rozmiar z każdej pozycji jest prosty i nie zdradza siły ręki; z małego blinda grasz out-of-position, więc przebijasz trochę więcej",
+  "zrodla": [
+   {
+    "adres": "https://www.preflopwizard.app/blog/6-max-preflop-charts",
+    "miejsce": "Quick answer",
+    "cytat": "The standard open size is 2.5bb from all positions (3bb from the small blind).",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://blog.gtowizard.com/preflop-range-morphology/",
+    "miejsce": "Open-raise sizing per position (NL500)",
+    "cytat": "The smallest open is for the minimum of 2bb from UTG, the CO makes it 2.3bb, the BTN makes it 2.5bb, and the SB makes it 3bb.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": "jeden rozmiar 2,5bb z każdej pozycji poza SB",
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Uproszczenie nazwane w then, kierunkowo zgodne z solverem (BTN 2,5bb, SB 3bb dokładnie). Adres GTO Wizard do poprawy (preflop-range-morphology). „Nie zdradza siły ręki” (because) bez źródła zewnętrznego, wynika z jednego rozmiaru dla całego zakresu."
+ },
+ {
+  "id": "R-M3-008",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "masz rękę z grupy najmocniejszych (AA, KK, QQ, AK), a ktoś przed tobą przebił → zwykle przebijasz ponownie (3-bet) dla wartości, zamiast tylko sprawdzać, bo te ręce są faworytem wobec większości rąk, którymi rywal otwiera; 3-bet buduje pulę i zmniejsza liczbę rywali",
+  "zrodla": [
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Cash 100bb: the button 3-bets or folds (NL200 GG)",
+    "cytat": "Always 3-bet: AA, KK, QQ, AKs, AQs, AKo.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/",
+    "miejsce": "When to Call Preflop (NL500)",
+    "cytat": "we have to call hands as strong as AK o and QQ at some frequency",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://pokerpro.tools/preflop/3-bet-ranges",
+    "miejsce": "FAQ",
+    "cytat": "Mostly 3-bet. QQ+ and AK appear in the value portion of our 3-bet range against every opener position",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.preflopwizard.app/blog/poker-utg-strategy",
+    "miejsce": "How to respond when you face a 3-bet from UTG",
+    "cytat": "a polarized range: either strong hands (AA-JJ, AKs) or bluffs",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "„Zwykle” zgodne ze szczeblem 2: BTN vs CO zawsze 3-bet AA–QQ, AK (Poker Academy; BeyondGTO QQ 84%, AKo 94%), wobec UTG QQ i AKo czasem sprawdzane (GTO Wizard). Dwa źródła szczebla 2 pozwalają podnieść poziom do gto (opcjonalnie)."
+ },
+ {
+  "id": "R-M3-009",
+  "rodzaj": "regula",
+  "level": "gto",
+  "twierdzenie": "wszyscy spasowali do ciebie na małym blindzie → otwierasz szeroko, ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, przebiciem do {{n:pf.open-size-sb}} albo pasem, bo grasz już tylko przeciw dużemu blindowi; po flopie mówisz pierwszy, więc nie otwierasz szerzej niż z Buttona tylko dlatego, że rywal jest jeden",
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/ranges/sb-open-6max-100bb",
+    "miejsce": "nagłówek i opis",
+    "cytat": "GTO opens about 44% of hands first-in from the Small Blind",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/small-blind-poker-strategy-tips/",
+    "miejsce": "How wide should your small blind stealing range be",
+    "cytat": "anywhere between 40% and 50% of hands is a good starting point",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.preflopwizard.app/blog/6-max-preflop-charts",
+    "miejsce": "tabela pozycji",
+    "cytat": "SB (Small Blind) 1 39-47% 3bb",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics",
+    "miejsce": "The small blind has three options, not two",
+    "cytat": "The small blind raises (3bb) 33.1% : completes (limps) 20.5% : and folds 46.4% .",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://docs.google.com/document/d/1UEH7qeIhJvaLdJxYfk8ju2-K9-_3p9tAd8SrInuO_ko",
+    "miejsce": "Walidacja, C2",
+    "cytat": "K1 otwarcia UTG / HJ / CO / BTN / SB 16,4 / 20,1 / 27,3 / 41,4 / 42,3%",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "sprzeczne",
+  "uproszczenie": "raise-or-fold z małego blinda",
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "then: „otwierasz szeroko, ok. 40–45% rąk, przebiciem do 3bb albo pasem (uproszczenie: niektóre rozwiązania solverów część rąk z małego blinda dopłacają)”",
+  "uwagi": "Przedział 40–45% to część wspólna strategii bez limpów (BeyondGTO 44, Upswing 40–50, Preflop Wizard 39–47); solver aplikacji 42,3% w przedziale. Sprzeczność „raise-or-fold” jak w R-M3-004."
+ },
+ {
+  "id": "R-M3-010",
+  "rodzaj": "regula",
+  "level": "gto",
+  "twierdzenie": "grasz przy stole 9-osobowym i wszyscy przed tobą spasowali → z utg otwierasz ok. {{n:solver9.rfi.utg}} rąk, z UTG+1 ok. {{n:solver9.rfi.utg1}}, z UTG+2 ok. {{n:solver9.rfi.utg2}}; od LJ dalej grasz jak przy stole 6-osobowym (LJ jak utg), bo za tobą jest więcej graczy niż przy stole 6-osobowym, więc częściej ktoś ma lepszą rękę; gdy wcześni gracze spasują, za LJ zostaje tylu graczy co za utg przy stole 6-osobowym",
+  "zrodla": [
+   {
+    "adres": "https://preflopwizard.app/blog/9-max-preflop-chart",
+    "miejsce": "tabela pozycji 9-max",
+    "cytat": "UTG 8 9-12% QQ+, AKo, AKs, JJ, TT, AQs, AQo, KQs, QJs, JTs, AJs UTG+1 7 11-14%",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://about-poker.com/preflop-gto/preflop-range-chart-cash-game",
+    "miejsce": "Full-ring opening chart (9-handed, 100bb)",
+    "cytat": "UTG ~11% 55+ ATs+, KTs+, QTs+, JTs, T9s, 98s AJo+, KQo UTG+1 / UTG+2 ~13%",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://docs.google.com/document/d/1UEH7qeIhJvaLdJxYfk8ju2-K9-_3p9tAd8SrInuO_ko",
+    "miejsce": "Pomiar N9a końcowy (3940 iteracji)",
+    "cytat": "N2 spełnione: UTG 10,9% (9–13), UTG+1 12,5% (11–14), UTG+2 13,2% (12–17).",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://docs.google.com/document/d/1UEH7qeIhJvaLdJxYfk8ju2-K9-_3p9tAd8SrInuO_ko",
+    "miejsce": "Kryteria walidacji częściowej, N2",
+    "cytat": "N2. Otwarcia wczesnych pozycji, poziom heuristic, przedział wspólny źródeł szczebla 4",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "level: heuristic (zamiast gto); treść bez zmian",
+  "uwagi": "Wartości 10,9 / 12,5 / 13,2% (meta.summary.rfi w preflop-9max-100bb.json) mieszczą się w przedziałach tabel szczebla 4. Dokument 10 sam przyjmuje dla UTG–UTG+2 poziom heuristic (brak opublikowanych wyników solvera 9-max). Poziom gto jest wyższy niż szczebel źródeł."
+ },
+ {
+  "id": "R-M4-001",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "ktoś otworzył, a ty chcesz przebić (3-bet) in-position → przebijasz do ok. {{n:pf.3bet.size-ip}} otwarcia, przy otwarciu {{n:pf.open-size}} to {{n:pf.3bet.ip-total}}, bo taki rozmiar daje dobry stosunek stacka do puli na flopie i nie daje rywalowi taniej ceny",
+  "zrodla": [
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "3-Bet Sizing Math, The IP formula",
+    "cytat": "the canonical 3-bet is 3x the open",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/3-bet-strategy-aggressive-preflop/",
+    "miejsce": "Sizing",
+    "cytat": "raising to around 3 times the open-raise size is good when in position",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "What is a 3-bet (NL200, 100bb)",
+    "cytat": "BTN raises to 7.5bb: bet number three, the 3-bet.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://pokerpro.tools/preflop/3-bet-ranges",
+    "miejsce": "3-bet sizing",
+    "cytat": "size it ~3x the open in position, 3.5-4x out of position",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Poker Academy: 3-bet z pozycji do 7,5bb przy otwarciu 2,5bb = 3x."
+ },
+ {
+  "id": "R-M4-002",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "przebijasz open (3-bet) out-of-position, np. z blindów wobec otwarcia z CO albo Buttona → przebijasz do ok. {{n:pf.3bet.size-oop}} otwarcia, przy otwarciu {{n:pf.open-size}} to {{n:pf.3bet.oop-total}}, bo po flopie będziesz mówić pierwszy, więc większym przebiciem odbierasz rywalowi tanie call in-position",
+  "zrodla": [
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "The OOP formula",
+    "cytat": "4x the open out of position",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/3-bet-strategy-aggressive-preflop/",
+    "miejsce": "Sizing",
+    "cytat": "when out of position, use a size around 4-4.5x the open-raise",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Out of position: the big blind (NL200)",
+    "cytat": "In the cash game against a button open it 3-bets 11.5% to 11bb and calls 29.0%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://pokerpro.tools/preflop/3-bet-ranges",
+    "miejsce": "3-bet sizing",
+    "cytat": "size it ~3x the open in position, 3.5-4x out of position",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Poker Academy BB vs BTN 11bb/2,5bb = 4,4x; przedział źródeł 3,5–4,5x, 4x w środku."
+ },
+ {
+  "id": "R-M4-003",
+  "rodzaj": "regula",
+  "level": "gto",
+  "twierdzenie": "jesteś na małym blindzie, a otworzył CO albo Button → prawie nie sprawdzasz: 3-betujesz albo pasujesz; wobec Buttona 3-betujesz górę zakresu (ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, m.in. 77+ (solver aplikacji także 55 i 66), AJo+, KQo, A5s, A4s, T9s), a resztę pasujesz, bo po sprawdzeniu z małego blinda grasz out-of-position, a big-blind za tobą może jeszcze przebić; 3-bet daje inicjatywę i szansę wygrania puli od razu",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/",
+    "miejsce": "3-bet Pots from the Small Blind (NL500, 100bb)",
+    "cytat": "the SB barely calls anything. Instead, they almost exclusively 3-bet or fold",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://beyondgto.com/defense/sb-vs-btn",
+    "miejsce": "nagłówek strony (NL500, 100bb)",
+    "cytat": "GTO defends the Small Blind with about 18% of hands - roughly 5% as a flat call and 13% as a 3-bet.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/3-bet-strategy-aggressive-preflop/",
+    "miejsce": "3-bet or fold",
+    "cytat": "solvers recommend using 3-bet-or-fold strategies from every position except the Big Blind",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Liczby 14% / 2% przypisane GTO Wizard są tylko na obrazku (nie da się ich odczytać z tekstu); BeyondGTO: 13% 3-bet, 5% sprawdzeń. Skład (data-tip BeyondGTO): 77 66%, AJo 64%, KQo 77%, A5s 88%, A4s 72%, T9s 84% 3-betu; także 55 57% i 66 62% — dopisek „(solver aplikacji także 55 i 66)” sugeruje różnicę, której BeyondGTO nie potwierdza (lekcja m4-l1:93)."
+ },
+ {
+  "id": "R-M4-004",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "jesteś na dużym blindzie, Button otworzył na {{n:pf.open-size}}, a small-blind spasował → bronisz szeroko, bo do sprawdzenia potrzebujesz tylko ok. {{n:eq.bb-vs-btn-open}} equity, bo dopłacasz niewiele do dużej puli; solver aplikacji broni tu {{n:solver.def.bb-vs-btn}} rąk",
+  "zrodla": [
+   {
+    "adres": "rachunek: dopłata/(pula po sprawdzeniu) = 1,5/(2,5 + 0,5 + 1 + 1,5)",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "3/11 = 27,3%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://beyondgto.com/defense/bb-vs-btn",
+    "miejsce": "nagłówek strony (NL500, 100bb)",
+    "cytat": "GTO defends the Big Blind with about 45% of hands - roughly 32% as a flat call and 13% as a 3-bet.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Out of position: the big blind (NL200)",
+    "cytat": "In the cash game against a button open it 3-bets 11.5% to 11bb and calls 29.0%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://docs.google.com/document/d/1UEH7qeIhJvaLdJxYfk8ju2-K9-_3p9tAd8SrInuO_ko",
+    "miejsce": "Walidacja, C2",
+    "cytat": "obrona BB vs BTN 49,6% (54,2), cel 50–60%, 0,4 pp poniżej",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Reguła („bronisz szeroko”, cena 27,3%) poparta. Solver aplikacji 49,6% jest powyżej obu opublikowanych rozwiązań szczebla 2 (40,5% i 45%); cel K1 50–60% w dokumencie 10 nie ma źródła szczebla 2 — patrz liczby pf.bb-def.vs-btn.pub.*."
+ },
+ {
+  "id": "R-M4-005",
+  "rodzaj": "regula",
+  "level": "gto",
+  "twierdzenie": "z pozycji przebijasz open z HJ albo CO → 3-betujesz głównie najlepsze ręce od góry i dokładasz kilka blefów z asami w kolorze (A5s, A4s); część słabszych rąk, np. małe pary i konektory w kolorze, sprawdzasz. Button wobec CO zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a sprawdza ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}, bo rywal często sprawdza, więc chcesz mieć rękę, która dobrze gra w puli po sprawdzeniu",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/",
+    "miejsce": "When to Call Preflop (NL500)",
+    "cytat": "Against a CO open, BTN will 3-bet ~12% of hands, while calling only 5%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://beyondgto.com/defense/btn-vs-co",
+    "miejsce": "nagłówek strony (NL500)",
+    "cytat": "GTO defends the Button with about 19% of hands - roughly 9% as a flat call and 10% as a 3-bet.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Cash, 100bb: the button 3-bets or folds (NL200)",
+    "cytat": "the solver 3-bets 12.5% of hands to 7.5bb and calls only 3.0%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "j.w.",
+    "cytat": "Fold: almost everything below, including 55–22 most of the time.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "BTN vs CO Open",
+    "cytat": "3-bet QQ+, AKs, AKo, AQs (mixed), A5s, A4s, KQs (mixed), 76s (mixed)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "sprzeczne",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "SPRZECZNE",
+  "poprawka": "then: „3-betujesz głównie najlepsze ręce od góry i dokładasz kilka blefów z asami w kolorze (A5s, A4s); średnie ręce (np. 77–99, AJs, ATs, konektory w kolorze) grasz mieszanie: część 3-betujesz, część sprawdzasz. Button wobec CO zwykle 3-betuje ok. 10–13% rąk, a sprawdza ok. 3–9%”",
+  "uwagi": "Trzecie źródło szczebla 2 (Poker Academy NL200: 12,5% / 3,0%) wypada poza przedziały 10–12% i 5–9%. Skład: BeyondGTO sprawdza małe pary w większości (44 76%, 22 58%), Poker Academy je pasuje („55–22 most of the time”), T9s i 65s 3-betuje w 85–87%. Część wspólna: góra 3-bet, środek mieszany; „małe pary sprawdzasz” nie jest częścią wspólną."
+ },
+ {
+  "id": "R-M4-006",
+  "rodzaj": "regula",
+  "level": "gto",
+  "twierdzenie": "z dużego blinda przebijasz open Buttona albo małego blinda → 3-betujesz najsilniejsze ręce (TT+, AQ+, AJs+) plus blefy z dołu zakresu sprawdzenia: A5s, czasem A4s, i konektory w kolorze; średnie i małe pary, KQo oraz asy w różnych kolorach (AJo–A9o) zwykle sprawdzasz, bo z dużego blinda sprawdzasz tanio i zamykasz akcję, więc średnie ręce zarabiają więcej po sprawdzeniu, a 3-bet zostawiasz rękom, które chcą dużej puli, i blefom, które dobrze grają po sprawdzeniu (asy w kolorze blokują AA i AK)",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/",
+    "miejsce": "3-bet Pots from the Big Blind (NL500), BB vs BTN",
+    "cytat": "TT +, AJ s+, and AQ o+ are 3-bet purely",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/",
+    "miejsce": "j.w.",
+    "cytat": "we are selecting (more heavily but not exclusively) 3-bet bluffs near the bottom of our calling range",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Out of position: the big blind (NL200)",
+    "cytat": "Then 3-bets come back at the bottom: K2s, A5s, J7s, T6s.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://beyondgto.com/defense/bb-vs-btn",
+    "miejsce": "siatka (data-tip)",
+    "cytat": "A5s · 3-bet 100% · defend 100%",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics",
+    "miejsce": "The big blind defends far wider than you think (BB vs SB)",
+    "cytat": "A5s calls 96% of the time rather than turning into a three-bet bluff, and suited connectors like 76s mostly call.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://beyondgto.com/defense/bb-vs-sb",
+    "miejsce": "siatka (data-tip), BB vs SB",
+    "cytat": "A5s · 3-bet 4% · call 96% · defend 100%",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/preflop-range-morphology/",
+    "miejsce": "Polarized ranges: BB vs SB (NL500)",
+    "cytat": "The bluffs are coming from the weakest region of the range in both the suited and offsuit sections. Trash like T2 s and K5 o.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "sprzeczne",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "SPRZECZNE",
+  "poprawka": "if: „z dużego blinda przebijasz otwarcie Buttona” (bez małego blinda); osobne zdanie/reguła: „wobec otwarcia małego blinda 3-betujesz głównie dla wartości (TT+, AJs+, część AQo i KQ); A5s i konektory w kolorze zwykle sprawdzasz”",
+  "uwagi": "Dla BB vs BTN reguła poparta (BeyondGTO: TT 94%, AJs 100%, AQo 59%, A5s 100%, A4s 85%, 76s 70%; KQo 41% i AJo 26% 3-betu — „zwykle sprawdzasz” OK). Dla BB vs SB trzy źródła szczebla 2 nie używają A5s/A4s/konektorów jako blefów (ThinkGTO, BeyondGTO: A4s 0%, 76s 8%); GTO Wizard pokazuje blefy z dołu zakresu (T2s, K5o). Sprzeczne z then i z lekcją m4-l1:99."
+ },
+ {
+  "id": "R-M4-007",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "dostajesz 3-bet od gracza, który po flopie będzie mieć pozycję → pasujesz ok. {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}} otwarć, sprawdzasz ok. {{n:pf.vs3bet.call.low}}–{{n:pf.vs3bet.call.high}}, a 4-betujesz ok. {{n:pf.vs3bet.4bet.low}}–{{n:pf.vs3bet.4bet.high}}, bo przy pasowaniu częściej niż {{n:alpha.vs-3bet-ip-size}} rywal zarabia na 3-becie z każdą ręką, więc pasujesz tuż poniżej tego progu",
+  "zrodla": [
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Fold equity (NL200, CO wobec 3-betu BTN do 7,5bb)",
+    "cytat": "4-bet to 17.2bb: 19.1%, call 17.2%, fold 63.7%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://pailiku.com/charts/co-vs-btn-3bet",
+    "miejsce": "nagłówek (uproszczone tabele)",
+    "cytat": "4-bet 2.9% (38/1,326 combos), call 6.2% (82 combos)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://pailiku.com/charts",
+    "miejsce": "RFI, cutoff",
+    "cytat": "Cutoff - 26.7% （ 354 combos）",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: pas CO = 1 − (38 + 82)/354; alpha = 7,5/(7,5 + 4)",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "Pailiku: 4-bet 10,7%, call 23,2%, pas 66,1%; alpha = 65,2%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "The 30 / 5–8 / 50–55 Rule",
+    "cytat": "Fold ~50-55% of your opening range Call ~30-40% 4-bet ~5-8%",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Przedziały 55–65 / 15–30 / 10–20% obejmują Poker Academy (szczebel 2) i Pailiku (66% pasów, o 1 pp ponad górną granicą — „ok.”). Deepfold odbiega (szczebel 4, słusznie odrzucony w D-04). „HUD ok. 55%” z source — nie odczytałem (bez adresu). Próg alpha 65,2% liczy też Poker Academy („fold needed = 65.2%”)."
+ },
+ {
+  "id": "R-M4-008",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "dostajesz 3-bet i po flopie będziesz out-of-position → sprawdzasz tylko wysokimi kartami w kolorze, mocnymi asami w kolorze oraz średnimi i wysokimi parami; słabsze ręce w różnych kolorach (KJo, ATo, QTo) pasujesz, bo ręce w różnych kolorach są często zdominowane i źle realizują equity out-of-position",
+  "zrodla": [
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "Facing a 3-Bet: CO vs BTN 3-bet (CO bez pozycji)",
+    "cytat": "Call QQ, JJ, TT, 99, 88, AQs, AJs, KQs, KJs, QJs, JTs, T9s, 77, 66 Fold Marginal offsuit broadways",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://pailiku.com/charts/co-vs-btn-3bet",
+    "miejsce": "Range notation (CO vs BTN 3-bet)",
+    "cytat": "Call JJ-77, AQs-ATs, AKs, KQs-KJs, QJs, JTs, T9s, 98s, 87s, 76s, 65s",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/",
+    "miejsce": "Facing a 3-Bet Out of Position",
+    "cytat": "This means calling with fewer suited connectors, suited gappers and offsuit broadway hands.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "then: „sprawdzasz głównie wysokimi kartami w kolorze, mocnymi asami w kolorze, średnimi i wysokimi parami oraz częścią konektorów w kolorze; słabsze ręce w różnych kolorach (KJo, ATo, QTo) pasujesz”",
+  "uwagi": "Wszystkie trzy źródła sprawdzają bez pozycji także konektory w kolorze (T9s, JTs; Pailiku do 65s); „tylko” jest za mocne. KJo, ATo, QTo — pas w Pailiku; Deepfold „marginal offsuit broadways”. Tylko szczebel 4."
+ },
+ {
+  "id": "R-M4-009",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "dostajesz 3-bet i po flopie będziesz mieć pozycję → sprawdzasz szerzej: pary od 66 do TT, ręce w kolorze z wysokimi kartami i konektory w kolorze; najniższe pary pasujesz, bo in-position łatwiej zrealizować equity i wygrać dużą pulę, gdy trafisz",
+  "zrodla": [
+   {
+    "adres": "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/",
+    "miejsce": "Facing a 3-Bet In Position",
+    "cytat": "TT-66 : Middling to high pocket pairs play most effectively as flats versus a 3-bet in position.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/",
+    "miejsce": "j.w.",
+    "cytat": "despite 22-55 having over 48% against the big blind’s 3-betting range, it will be hard – even with position – to realize it.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://pailiku.com/charts/btn-vs-bb-3bet",
+    "miejsce": "Range notation (BTN vs BB 3-bet)",
+    "cytat": "call TT-55, AQs-A9s, AKs, KQs-KTs, QJs-QTs, JTs, T9s, 98s, 87s, 76s, 65s, 54s, AQo",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Pailiku sprawdza od 55, pasuje 44–22 — zgodne z „najniższe pary pasujesz”. Tylko szczebel 4."
+ },
+ {
+  "id": "R-M4-010",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "dostajesz 3-bet z AA, KK albo AK → 4-betujesz (dla wartości), bo te ręce chcą wpłacić cały stack i dominują większość rąk, które sprawdzą 4-bet",
+  "zrodla": [
+   {
+    "adres": "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/",
+    "miejsce": "4-Betting When Facing a 3-Bet In Position",
+    "cytat": "AKs, AKo : Ace-Kang is one of the strongest hands in Hold‘em and should be 4-bet with 100% frequency in the above Button vs Big Blind example.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "The 30 / 5–8 / 50–55 Rule",
+    "cytat": "4-bet value KK+, AKs (mixed), AKo (mixed)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://pailiku.com/charts/co-vs-btn-3bet",
+    "miejsce": "Range notation (CO vs BTN 3-bet)",
+    "cytat": "4-bet QQ+, AKo, A5s-A4s Call JJ-77, AQs-ATs, AKs",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "then: „zwykle 4-betujesz (dla wartości); AK bywa też sprawdzane”",
+  "uwagi": "AA i KK 4-bet we wszystkich źródłach; AK: Upswing 100% (jeden spot), Deepfold „mixed”, Pailiku AKs sprawdza (w dwóch tabelach). Brak źródła szczebla 2 w tekście. Dotyczy też m4-l3:112 i m4-l3 q-ako."
+ },
+ {
+  "id": "R-M4-011",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "4-betujesz → przebijasz do ok. {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}} 3-betu in-position i {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} out-of-position, bo po sprawdzeniu takiego 4-betu w stackach zostaje ok. {{n:spr.4bet.high}}–{{n:spr.4bet.oop}} razy tyle, ile jest w puli (in-position, np. 4-bet z Buttona na 3-bet małego blinda do {{n:pf.3bet.oop-total}}: ok. {{n:spr.4bet.high}}–{{n:spr.4bet}}; out-of-position, np. 4-bet z CO na 3-bet Buttona do {{n:pf.3bet.ip-total}}: ok. {{n:spr.4bet.oop}}), więc dobre ręce łatwo wpłacą resztę",
+  "zrodla": [
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "4-Bet Sizing Math",
+    "cytat": "Standard 4-bet: 2.2–2.5x the 3-bet size when IP, 2.5–3x when OOP.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Fold equity (NL200)",
+    "cytat": "4-bet to 17.2bb: 19.1%, call 17.2%, fold 63.7%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "rachunek: SPR = (100 − 4-bet)/(2·4-bet + martwe blindy)",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "IP z 3-betu 10bb: 2,2x → 78/45 = 1,73; 2,5x → 75/51 = 1,47; OOP z 7,5bb: 2,3x → 82,75/36 = 2,30; 3x → 77,5/46,5 = 1,67; PA 17,2/7,5 = 2,29x",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Rozmiar z pozycją (2,2–2,5x) ma tylko jedno źródło (Deepfold, szczebel 4). Przy górnej granicy OOP (3x) SPR wynosi ok. 1,7, więc „bez pozycji ok. 2,3” to wartość dla dolnej granicy — tekst jest poprawny jako przykład."
+ },
+ {
+  "id": "R-M4-012",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "przed tobą jeden albo kilku graczy tylko wyrównało big-blind (limp) → przebijasz do {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} za każdego limpera, out-of-position o {{n:pf.iso.oop-extra}} więcej, bo mniejsze raise daje limperom zbyt dobrą cenę i nie odbiera im rozdania",
+  "zrodla": [
+   {
+    "adres": "https://www.pokernews.com/strategy/10-tips-that-will-help-you-destroy-limpers-32206.htm",
+    "miejsce": "10 Tips for Crushing Limpers, 1 (Upswing Poker)",
+    "cytat": "Raise to 3bb+1bb per limper when playing online, and 4bb+1bb per limper when playing live.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.preflopwizard.app/blog/poker-iso-raise-strategy",
+    "miejsce": "ISO Raise Sizing Formula",
+    "cytat": "Base open size (3bb) + 1 big blind per limper",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.preflopwizard.app/blog/poker-iso-raise-strategy",
+    "miejsce": "j.w.",
+    "cytat": "Add 1bb more from OOP positions.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Source reguły nie ma adresów; artykuł „How to Maximize Your Winnings Versus Multiple Limpers” nie odnaleziony (upswingpoker.com 404 dla trzech wariantów adresu); zastąpiony artykułem Upswing Poker na PokerNews. „+1bb bez pozycji” — jedno źródło (Preflop Wizard). Upswing: live 4bb+1bb — reguła dotyczy gry online."
+ },
+ {
+  "id": "R-M4-013",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "przed tobą limpuje więcej graczy → przebijasz węższym zakresem, głównie dla wartości; ręce spekulacyjne (małe pary, konektory w kolorze) in-position raczej dopłacasz, bo każdy kolejny limper zwiększa szansę, że ktoś sprawdzi, więc bluff preflop traci wartość",
+  "zrodla": [
+   {
+    "adres": "https://www.preflopwizard.app/blog/poker-iso-raise-strategy",
+    "miejsce": "GTO Iso Raise Ranges by Position",
+    "cytat": "Against multiple limpers, tighten each range by roughly one tier.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.pokernews.com/strategy/three-ways-to-respond-versus-a-table-full-of-limpers-26839.htm",
+    "miejsce": "3. Limp Behind With Speculative Hands",
+    "cytat": "join the crowd and limp behind with those suited connectors, small pairs, ace-rag suited hands, and the like.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.pokernews.com/strategy/10-tips-that-will-help-you-destroy-limpers-32206.htm",
+    "miejsce": "wstęp (Upswing Poker)",
+    "cytat": "(not to be confused with over-limping, which can be fine)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.preflopwizard.app/blog/poker-iso-raise-strategy",
+    "miejsce": "Mistakes, 4. Over-Limping Instead of Iso’ing",
+    "cytat": "This is almost always wrong.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "sprzeczne",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "then: „…ręce spekulacyjne (małe pary, konektory w kolorze) z pozycją możesz dopłacić albo przebić; oba zagrania bywają poprawne”",
+  "uwagi": "Węższy zakres przy wielu limperach: zgodne. Dopłacanie rąk spekulacyjnych: sprzeczność na szczeblu 4 (PokerNews/Upswing: dopuszczalne; Preflop Wizard: „almost always wrong”). Brak szczebla 2. „Raczej dopłacasz” rozstrzyga sprzeczność na korzyść jednej strony."
+ },
+ {
+  "id": "R-M4-014",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "jesteś na dużym blindzie, a small-blind otworzył na {{n:pf.open-size-sb}} → bronisz szeroko, ponad połowę rąk, choć do sprawdzenia potrzebujesz ok. {{n:eq.bb-vs-sb-open}} equity; 3-bet ma ok. {{n:pf.3bet.size-ip}} otwarcia, bo po flopie masz pozycję, więc realizujesz więcej equity; solver aplikacji broni tu {{n:solver.def.bb-vs-sb}} rąk, opublikowane rozwiązanie solvera ok. {{n:pf.bb-def.vs-sb.pub}}",
+  "zrodla": [
+   {
+    "adres": "rachunek: dopłata/(pula po sprawdzeniu) = 2/(3 + 1 + 2)",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "1/3 = 33,3%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://beyondgto.com/defense/bb-vs-sb",
+    "miejsce": "nagłówek strony (NL500)",
+    "cytat": "Facing a 3bb open from the Small Blind, GTO defends the Big Blind with about 56% of hands",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics",
+    "miejsce": "BB vs SB raise to 3bb (GTO Ranges+)",
+    "cytat": "The BB defends 55.5% of hands: call 38.7% : 3-bet (9bb) 16.9% : fold 44.5%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://docs.google.com/document/d/1UEH7qeIhJvaLdJxYfk8ju2-K9-_3p9tAd8SrInuO_ko",
+    "miejsce": "Decyzja C2, liczby przed → po",
+    "cytat": "solver.def.bb-vs-sb 76,09% → 53,04%",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "3-bet 9bb przy otwarciu 3bb = 3x (ThinkGTO) — zgodne z „3-bet ok. 3x otwarcia”."
+ },
+ {
+  "id": "n:format.stack",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "format.stack = 100 bb (source: format główny aplikacji: cash 6-max (ADR-01))",
+  "zrodla": [
+   {
+    "adres": "repo: content/ranges/preflop-6max-100bb.json",
+    "miejsce": "meta.tree.stack",
+    "cytat": "\"tree\":{\"stack\":100",
+    "odczyt": "2026-11-04",
+    "szczebel": null
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "format.stack",
+  "wartosc": 100,
+  "jednostka": "bb",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Parametr produktu (ADR-01: cash 6-max, 100bb), nie twierdzenie merytoryczne; źródło zewnętrzne niepotrzebne. Zgodne z tree.stack = 100 w content/ranges/preflop-*-100bb.json."
+ },
+ {
+  "id": "n:pf.3bet-freq.btn-vs-co.high",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.3bet-freq.btn-vs-co.high = 0.12 percent (source: serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb: „Against a CO open, BTN will 3-bet ~12% of hands, while calling only 5%.”)",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/",
+    "miejsce": "When to Call Preflop (NL500)",
+    "cytat": "Against a CO open, BTN will 3-bet ~12% of hands, while calling only 5%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Cash, 100bb (NL200)",
+    "cytat": "the solver 3-bets 12.5% of hands to 7.5bb and calls only 3.0%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "sprzeczne",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.3bet-freq.btn-vs-co.high",
+  "wartosc": 0.12,
+  "jednostka": "percent",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "0.13 (przedział 10–13% obejmuje GTO Wizard, BeyondGTO i Poker Academy)",
+  "uwagi": "Patrz R-M4-005."
+ },
+ {
+  "id": "n:pf.3bet-freq.btn-vs-co.low",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.3bet-freq.btn-vs-co.low = 0.1 percent (source: serwis z tabelami solvera, BTN vs CO (https://beyondgto.com/defense/btn-vs-co), NL500, 100bb: „Facing a 2.5bb open from the Cutoff, GTO defends the Button with about 19% of hands — roughly 9% as a flat call and 10% as a 3-bet.”)",
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/defense/btn-vs-co",
+    "miejsce": "nagłówek strony",
+    "cytat": "GTO defends the Button with about 19% of hands - roughly 9% as a flat call and 10% as a 3-bet.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.3bet-freq.btn-vs-co.low",
+  "wartosc": 0.1,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:pf.3bet-freq.btn-vs-utg",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.3bet-freq.btn-vs-utg = 0.075 percent (source: serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb)",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/",
+    "miejsce": "When to Call Preflop",
+    "cytat": "Against a UTG open, there are more calls than 3-bets (8.2% calls, 7.5% 3-bets).",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.3bet-freq.btn-vs-utg",
+  "wartosc": 0.075,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło nierachunkowe (szczebel 2)."
+ },
+ {
+  "id": "n:pf.3bet-freq.sb-vs-btn",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.3bet-freq.sb-vs-btn = 0.14 percent (source: serwis komercyjnego solvera, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, 100bb, SB vs BTN: 3-bet 14%, sprawdzenie 2% (dokument 10, rozstrzygnięcie B-045))",
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/defense/sb-vs-btn",
+    "miejsce": "nagłówek strony",
+    "cytat": "GTO defends the Small Blind with about 18% of hands - roughly 5% as a flat call and 13% as a 3-bet.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/",
+    "miejsce": "3-bet Pots from the Small Blind",
+    "cytat": "the SB barely calls anything. Instead, they almost exclusively 3-bet or fold",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.3bet-freq.sb-vs-btn",
+  "wartosc": 0.14,
+  "jednostka": "percent",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "0.13 ze źródłem BeyondGTO sb-vs-btn (albo przedział 13–14% z dopiskiem, że 14% GTO Wizard pochodzi z obrazka)",
+  "uwagi": "„3-bet 14%, sprawdzenie 2%” nie występuje w tekście artykułu GTO Wizard (tylko grafika); odczytany tekst: BeyondGTO 13% / 5%."
+ },
+ {
+  "id": "n:pf.3bet.size-ip",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.3bet.size-ip = 3 multiplier (source: serwis szkoleniowy, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide), 100bb; ten sam rozmiar w drzewie solvera aplikacji)",
+  "zrodla": [
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "The IP formula",
+    "cytat": "the canonical 3-bet is 3x the open",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/3-bet-strategy-aggressive-preflop/",
+    "miejsce": "Sizing",
+    "cytat": "raising to around 3 times the open-raise size is good when in position",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "What is a 3-bet",
+    "cytat": "BTN raises to 7.5bb: bet number three, the 3-bet.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.3bet.size-ip",
+  "wartosc": 3,
+  "jednostka": "multiplier",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:pf.3bet.size-oop",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.3bet.size-oop = 4 multiplier (source: serwis szkoleniowy, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide), 100bb; ten sam rozmiar w drzewie solvera aplikacji)",
+  "zrodla": [
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "The OOP formula",
+    "cytat": "4x the open out of position",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/3-bet-strategy-aggressive-preflop/",
+    "miejsce": "Sizing",
+    "cytat": "when out of position, use a size around 4-4.5x the open-raise",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Out of position: the big blind",
+    "cytat": "In the cash game against a button open it 3-bets 11.5% to 11bb and calls 29.0%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.3bet.size-oop",
+  "wartosc": 4,
+  "jednostka": "multiplier",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:pf.4bet.size-ip.high",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.4bet.size-ip.high = 2.5 multiplier (source: serwis szkoleniowy, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide))",
+  "zrodla": [
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "4-Bet Sizing Math",
+    "cytat": "Standard 4-bet: 2.2–2.5x the 3-bet size when IP, 2.5–3x when OOP.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.4bet.size-ip.high",
+  "wartosc": 2.5,
+  "jednostka": "multiplier",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło (szczebel 4)."
+ },
+ {
+  "id": "n:pf.4bet.size-ip.low",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.4bet.size-ip.low = 2.2 multiplier (source: serwis szkoleniowy, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide))",
+  "zrodla": [
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "4-Bet Sizing Math",
+    "cytat": "Standard 4-bet: 2.2–2.5x the 3-bet size when IP, 2.5–3x when OOP.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.4bet.size-ip.low",
+  "wartosc": 2.2,
+  "jednostka": "multiplier",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło (szczebel 4)."
+ },
+ {
+  "id": "n:pf.4bet.size-oop.high",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.4bet.size-oop.high = 3 multiplier (source: serwis szkoleniowy, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide))",
+  "zrodla": [
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "4-Bet Sizing Math",
+    "cytat": "Standard 4-bet: 2.2–2.5x the 3-bet size when IP, 2.5–3x when OOP.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.4bet.size-oop.high",
+  "wartosc": 3,
+  "jednostka": "multiplier",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło (szczebel 4)."
+ },
+ {
+  "id": "n:pf.4bet.size-oop.low",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.4bet.size-oop.low = 2.3 multiplier (source: szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200: CO bez pozycji 4-betuje do 17,2bb, czyli 2,3 razy 3-bet do 7,5bb; serwis szkoleniowy, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide): 2,5–3x, w jego własnym przykładzie 2,4x (dokument 12 M4–M6, D-06); było 2,5)",
+  "zrodla": [
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Fold equity (NL200)",
+    "cytat": "4-bet to 17.2bb: 19.1%, call 17.2%, fold 63.7%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "rachunek: 17,2/7,5",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "2,29 ≈ 2,3x",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
+    "miejsce": "4-Bet Sizing Math",
+    "cytat": "You 4-bet to 18bb (2.4x).",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.4bet.size-oop.low",
+  "wartosc": 2.3,
+  "jednostka": "multiplier",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:pf.bb-def.vs-btn.pub.high",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.bb-def.vs-btn.pub.high = 0.5 percent (source: serwis szkoleniowy, GTO Preflop Strategy (https://gtogecko.com/blog/gto-preflop-strategy))",
+  "zrodla": [
+   {
+    "adres": "https://gtogecko.com/blog/gto-preflop-strategy",
+    "miejsce": "Common leaks",
+    "cytat": "around 45-50% against a button open",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://beyondgto.com/defense/bb-vs-btn",
+    "miejsce": "nagłówek strony",
+    "cytat": "GTO defends the Big Blind with about 45% of hands - roughly 32% as a flat call and 13% as a 3-bet.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Out of position: the big blind",
+    "cytat": "In the cash game against a button open it 3-bets 11.5% to 11bb and calls 29.0%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "sprzeczne",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.bb-def.vs-btn.pub.high",
+  "wartosc": 0.5,
+  "jednostka": "percent",
+  "werdykt_tekstu": "SPRZECZNE",
+  "poprawka": "0.45; lekcja m4-l2:79: „Opublikowane rozwiązania solverów podają ok. 40–45%, więc solver aplikacji broni nieco szerzej”",
+  "uwagi": "Jedyne źródło liczby (GTO Gecko) to serwis szkoleniowy (szczebel 4), a lekcja nazywa je „opublikowanym rozwiązaniem”. Szczebel 2: BeyondGTO 45%, Poker Academy 40,5% (11,5 + 29,0). Wyższy szczebel wygrywa."
+ },
+ {
+  "id": "n:pf.bb-def.vs-btn.pub.low",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.bb-def.vs-btn.pub.low = 0.45 percent (source: serwis szkoleniowy, GTO Preflop Strategy (https://gtogecko.com/blog/gto-preflop-strategy): obrona BB wobec Buttona ok. 45–50%)",
+  "zrodla": [
+   {
+    "adres": "https://gtogecko.com/blog/gto-preflop-strategy",
+    "miejsce": "Common leaks",
+    "cytat": "around 45-50% against a button open",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Out of position: the big blind",
+    "cytat": "In the cash game against a button open it 3-bets 11.5% to 11bb and calls 29.0%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "sprzeczne",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.bb-def.vs-btn.pub.low",
+  "wartosc": 0.45,
+  "jednostka": "percent",
+  "werdykt_tekstu": "SPRZECZNE",
+  "poprawka": "0.40 (Poker Academy 40,5%, BeyondGTO 45%)",
+  "uwagi": "Jak wyżej."
+ },
+ {
+  "id": "n:pf.bb-def.vs-sb.pub",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.bb-def.vs-sb.pub = 0.56 percent (source: serwis z tabelami solvera, BB vs SB (https://beyondgto.com/defense/bb-vs-sb), NL500, 100bb: „Facing a 3bb open from the Small Blind, GTO defends the Big Blind with about 56% of hands — roughly 39% as a flat call and 17% as a 3-bet.”)",
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/defense/bb-vs-sb",
+    "miejsce": "nagłówek strony",
+    "cytat": "Facing a 3bb open from the Small Blind, GTO defends the Big Blind with about 56% of hands",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics",
+    "miejsce": "BB vs SB",
+    "cytat": "The BB defends 55.5% of hands",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.bb-def.vs-sb.pub",
+  "wartosc": 0.56,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:pf.call-freq.btn-vs-co.high",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.call-freq.btn-vs-co.high = 0.09 percent (source: serwis z tabelami solvera, BTN vs CO (https://beyondgto.com/defense/btn-vs-co), NL500, 100bb: „Facing a 2.5bb open from the Cutoff, GTO defends the Button with about 19% of hands — roughly 9% as a flat call and 10% as a 3-bet.”)",
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/defense/btn-vs-co",
+    "miejsce": "nagłówek strony",
+    "cytat": "roughly 9% as a flat call and 10% as a 3-bet",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.call-freq.btn-vs-co.high",
+  "wartosc": 0.09,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:pf.call-freq.btn-vs-co.low",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.call-freq.btn-vs-co.low = 0.05 percent (source: serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb: „Against a CO open, BTN will 3-bet ~12% of hands, while calling only 5%.”)",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/",
+    "miejsce": "When to Call Preflop",
+    "cytat": "Against a CO open, BTN will 3-bet ~12% of hands, while calling only 5%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Cash, 100bb",
+    "cytat": "the solver 3-bets 12.5% of hands to 7.5bb and calls only 3.0%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "sprzeczne",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.call-freq.btn-vs-co.low",
+  "wartosc": 0.05,
+  "jednostka": "percent",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "0.03 (przedział 3–9% obejmuje trzy źródła szczebla 2)",
+  "uwagi": "Patrz R-M4-005."
+ },
+ {
+  "id": "n:pf.call-freq.btn-vs-utg",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.call-freq.btn-vs-utg = 0.082 percent (source: serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb)",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/",
+    "miejsce": "When to Call Preflop",
+    "cytat": "Against a UTG open, there are more calls than 3-bets (8.2% calls, 7.5% 3-bets).",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.call-freq.btn-vs-utg",
+  "wartosc": 0.082,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło nierachunkowe (szczebel 2)."
+ },
+ {
+  "id": "n:pf.iso.base",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.iso.base = 3 bb (source: serwis szkoleniowy, How to Maximize Your Winnings Versus Multiple Limpers (online); serwis z tabelami preflop, ISO Raise Strategy)",
+  "zrodla": [
+   {
+    "adres": "https://www.pokernews.com/strategy/10-tips-that-will-help-you-destroy-limpers-32206.htm",
+    "miejsce": "10 Tips, 1 (Upswing Poker)",
+    "cytat": "Raise to 3bb+1bb per limper when playing online",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.preflopwizard.app/blog/poker-iso-raise-strategy",
+    "miejsce": "ISO Raise Sizing Formula",
+    "cytat": "Base open size (3bb) + 1 big blind per limper",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.iso.base",
+  "wartosc": 3,
+  "jednostka": "bb",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Source bez adresów; uzupełnić adresy."
+ },
+ {
+  "id": "n:pf.iso.btn.high",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.iso.btn.high = 0.4 percent (source: serwis z tabelami preflop, ISO Raise Strategy: Button wobec jednego limpera)",
+  "zrodla": [
+   {
+    "adres": "https://www.preflopwizard.app/blog/poker-iso-raise-strategy",
+    "miejsce": "Button (BTN) Iso vs. 1 Limper",
+    "cytat": "Button (BTN) Iso vs. 1 Limper ~30-40% of hands",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.iso.btn.high",
+  "wartosc": 0.4,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło (szczebel 4); dodać adres."
+ },
+ {
+  "id": "n:pf.iso.btn.low",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.iso.btn.low = 0.3 percent (source: serwis z tabelami preflop, ISO Raise Strategy: Button wobec jednego limpera)",
+  "zrodla": [
+   {
+    "adres": "https://www.preflopwizard.app/blog/poker-iso-raise-strategy",
+    "miejsce": "Button (BTN) Iso vs. 1 Limper",
+    "cytat": "Button (BTN) Iso vs. 1 Limper ~30-40% of hands",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.iso.btn.low",
+  "wartosc": 0.3,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło (szczebel 4); dodać adres."
+ },
+ {
+  "id": "n:pf.iso.oop-extra",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.iso.oop-extra = 1 bb (source: serwis z tabelami preflop, ISO Raise Strategy: bez pozycji o 1bb więcej)",
+  "zrodla": [
+   {
+    "adres": "https://www.preflopwizard.app/blog/poker-iso-raise-strategy",
+    "miejsce": "ISO Raise Sizing Formula",
+    "cytat": "Add 1bb more from OOP positions.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.iso.oop-extra",
+  "wartosc": 1,
+  "jednostka": "bb",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło (szczebel 4); dodać adres."
+ },
+ {
+  "id": "n:pf.iso.per-limper",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.iso.per-limper = 1 bb (source: serwis szkoleniowy; serwis z tabelami preflop, ISO Raise Strategy)",
+  "zrodla": [
+   {
+    "adres": "https://www.pokernews.com/strategy/10-tips-that-will-help-you-destroy-limpers-32206.htm",
+    "miejsce": "10 Tips, 1 (Upswing Poker)",
+    "cytat": "Raise to 3bb+1bb per limper when playing online",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.preflopwizard.app/blog/poker-iso-raise-strategy",
+    "miejsce": "ISO Raise Sizing Formula",
+    "cytat": "Base open size (3bb) + 1 big blind per limper",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.iso.per-limper",
+  "wartosc": 1,
+  "jednostka": "bb",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:pf.open-size",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.open-size = 2.5 bb (source: uproszczenie: serwis z tabelami preflop, 6-max preflop charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): „the standard open size is 2.5bb from all positions … 3bb from the small blind” (dokument 12 M0–M3, D8))",
+  "zrodla": [
+   {
+    "adres": "https://www.preflopwizard.app/blog/6-max-preflop-charts",
+    "miejsce": "Quick answer",
+    "cytat": "The standard open size is 2.5bb from all positions (3bb from the small blind).",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://blog.gtowizard.com/preflop-range-morphology/",
+    "miejsce": "Open-raise sizing per position",
+    "cytat": "the BTN makes it 2.5bb, and the SB makes it 3bb.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": "jeden rozmiar z każdej pozycji",
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.open-size",
+  "wartosc": 2.5,
+  "jednostka": "bb",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:pf.open-size-sb",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.open-size-sb = 3 bb (source: uproszczenie: serwis z tabelami preflop, 6-max preflop charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): „the standard open size is 2.5bb from all positions … 3bb from the small blind” (dokument 12 M0–M3, D8))",
+  "zrodla": [
+   {
+    "adres": "https://www.preflopwizard.app/blog/6-max-preflop-charts",
+    "miejsce": "Quick answer",
+    "cytat": "The standard open size is 2.5bb from all positions (3bb from the small blind).",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://blog.gtowizard.com/preflop-range-morphology/",
+    "miejsce": "Open-raise sizing per position",
+    "cytat": "the BTN makes it 2.5bb, and the SB makes it 3bb.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.open-size-sb",
+  "wartosc": 3,
+  "jednostka": "bb",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:pf.open-size.solver-co",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.open-size.solver-co = 2.3 bb (source: serwis komercyjnego solvera, Range Morphology (https://blog.gtowizard.com/range-morphology/), NL500: „The smallest open is for the minimum of 2bb from UTG, the CO makes it 2.3bb, the BTN makes it 2.5bb, and the SB makes it 3bb” (dokument 12 M0–M3, D8))",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/preflop-range-morphology/",
+    "miejsce": "Open-raise sizing per position (NL500)",
+    "cytat": "The smallest open is for the minimum of 2bb from UTG, the CO makes it 2.3bb, the BTN makes it 2.5bb, and the SB makes it 3bb.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.open-size.solver-co",
+  "wartosc": 2.3,
+  "jednostka": "bb",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Adres w source błędny (range-morphology); poprawny: https://blog.gtowizard.com/preflop-range-morphology/. Jedno źródło nierachunkowe."
+ },
+ {
+  "id": "n:pf.open-size.solver-utg",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.open-size.solver-utg = 2 bb (source: serwis komercyjnego solvera, Range Morphology (https://blog.gtowizard.com/range-morphology/), NL500: „The smallest open is for the minimum of 2bb from UTG, the CO makes it 2.3bb, the BTN makes it 2.5bb, and the SB makes it 3bb” (dokument 12 M0–M3, D8))",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/preflop-range-morphology/",
+    "miejsce": "Open-raise sizing per position (NL500)",
+    "cytat": "The smallest open is for the minimum of 2bb from UTG, the CO makes it 2.3bb, the BTN makes it 2.5bb, and the SB makes it 3bb.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.open-size.solver-utg",
+  "wartosc": 2,
+  "jednostka": "bb",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Adres w source błędny (range-morphology); poprawny: preflop-range-morphology. Jedno źródło nierachunkowe."
+ },
+ {
+  "id": "n:pf.rfi.btn.high",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.rfi.btn.high = 0.45 percent (source: serwis z tabelami solvera, BTN open 6-max 100bb (NL500): „GTO opens about 42% of hands first-in from the Button”; serwis z tabelami preflop, 6-max preflop charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): „BTN: 40-45%”; serwis szkoleniowy: ok. 43% (dokument 12 M0–M3, D6; dokument 12 M4–M6, D-07); było 0,48 bez przeczytanego źródła)",
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/ranges/btn-open-6max-100bb",
+    "miejsce": "nagłówek",
+    "cytat": "GTO opens about 42% of hands first-in from the Button",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://www.preflopwizard.app/blog/6-max-preflop-charts",
+    "miejsce": "Quick answer",
+    "cytat": "and reach 40-45% on the button at 100bb",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://gtogecko.com/blog/gto-preflop-strategy",
+    "miejsce": "RFI ranges",
+    "cytat": "to 43% on the button",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.rfi.btn.high",
+  "wartosc": 0.45,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Source bez adresu BeyondGTO; dopisać https://beyondgto.com/ranges/btn-open-6max-100bb."
+ },
+ {
+  "id": "n:pf.rfi.btn.low",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.rfi.btn.low = 0.4 percent (source: serwis z tabelami solvera, BTN open 6-max 100bb (NL500): „GTO opens about 42% of hands first-in from the Button”; serwis z tabelami preflop, 6-max preflop charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): „BTN: 40-45%”; serwis szkoleniowy: ok. 43% (dokument 12 M0–M3, D6; dokument 12 M4–M6, D-07))",
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/ranges/btn-open-6max-100bb",
+    "miejsce": "nagłówek",
+    "cytat": "GTO opens about 42% of hands first-in from the Button",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://www.preflopwizard.app/blog/6-max-preflop-charts",
+    "miejsce": "Quick answer",
+    "cytat": "and reach 40-45% on the button at 100bb",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://gtogecko.com/blog/gto-preflop-strategy",
+    "miejsce": "RFI ranges",
+    "cytat": "to 43% on the button",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.rfi.btn.low",
+  "wartosc": 0.4,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Source bez adresu BeyondGTO; dopisać https://beyondgto.com/ranges/btn-open-6max-100bb."
+ },
+ {
+  "id": "n:pf.rfi.sb.high",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.rfi.sb.high = 0.45 percent (source: serwis z tabelami solvera, SB open 6-max 100bb (NL500): „about 44% of hands first-in from the Small Blind”, raise-or-fold; serwis szkoleniowy, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): 40–50%; serwis z tabelami preflop, 6-max preflop charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 39–47%; przedział 40–45% to część wspólna (dokument 12 M0–M3, D3))",
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/ranges/sb-open-6max-100bb",
+    "miejsce": "nagłówek",
+    "cytat": "GTO opens about 44% of hands first-in from the Small Blind",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/small-blind-poker-strategy-tips/",
+    "miejsce": "small blind stealing range",
+    "cytat": "anywhere between 40% and 50% of hands is a good starting point",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.preflopwizard.app/blog/6-max-preflop-charts",
+    "miejsce": "tabela pozycji",
+    "cytat": "SB (Small Blind) 1 39-47% 3bb",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.rfi.sb.high",
+  "wartosc": 0.45,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Przedział strategii raise-or-fold; ThinkGTO (GTO Ranges+) przebija 33,1% i dopłaca 20,5% — inna strategia (patrz R-M3-004)."
+ },
+ {
+  "id": "n:pf.rfi.sb.low",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.rfi.sb.low = 0.4 percent (source: serwis z tabelami solvera, SB open 6-max 100bb (NL500): „about 44% of hands first-in from the Small Blind”, raise-or-fold; serwis szkoleniowy, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): 40–50%; serwis z tabelami preflop, 6-max preflop charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 39–47%; przedział 40–45% to część wspólna (dokument 12 M0–M3, D3))",
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/ranges/sb-open-6max-100bb",
+    "miejsce": "nagłówek",
+    "cytat": "GTO opens about 44% of hands first-in from the Small Blind",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/small-blind-poker-strategy-tips/",
+    "miejsce": "small blind stealing range",
+    "cytat": "anywhere between 40% and 50% of hands is a good starting point",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.preflopwizard.app/blog/6-max-preflop-charts",
+    "miejsce": "tabela pozycji",
+    "cytat": "SB (Small Blind) 1 39-47% 3bb",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.rfi.sb.low",
+  "wartosc": 0.4,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Przedział strategii raise-or-fold; ThinkGTO (GTO Ranges+) przebija 33,1% i dopłaca 20,5% — inna strategia (patrz R-M3-004)."
+ },
+ {
+  "id": "n:pf.rfi.utg.high",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.rfi.utg.high = 0.18 percent (source: serwis komercyjnego solvera, Range Morphology (https://blog.gtowizard.com/range-morphology/): UTG 17,6% (NL500); serwis z tabelami solvera, UTG open 6-max 100bb (NL500): ok. 17%; serwis z tabelami preflop, 6-max preflop charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 15–17%; serwis szkoleniowy: ok. 18%; przedział obejmuje wszystkie źródła (dokument 12 M0–M3, D6; dokument 12 M4–M6, D-07))",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/preflop-range-morphology/",
+    "miejsce": "Linear ranges",
+    "cytat": "this range is comprised of 17.6% of all possible starting hands",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://beyondgto.com/ranges/lj-open-6max-100bb",
+    "miejsce": "nagłówek",
+    "cytat": "GTO opens about 17% of hands first-in from the LJ",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://www.preflopwizard.app/blog/6-max-preflop-charts",
+    "miejsce": "Quick answer",
+    "cytat": "GTO 6-max preflop charts open 15-17% from UTG",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://gtogecko.com/blog/gto-preflop-strategy",
+    "miejsce": "RFI ranges",
+    "cytat": "roughly 18% of hands under the gun",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.rfi.utg.high",
+  "wartosc": 0.18,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Adres GTO Wizard w source błędny (range-morphology → preflop-range-morphology); brak adresu BeyondGTO."
+ },
+ {
+  "id": "n:pf.rfi.utg.low",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.rfi.utg.low = 0.15 percent (source: serwis komercyjnego solvera, Range Morphology (https://blog.gtowizard.com/range-morphology/): UTG 17,6% (NL500); serwis z tabelami solvera, UTG open 6-max 100bb (NL500): ok. 17%; serwis z tabelami preflop, 6-max preflop charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 15–17%; serwis szkoleniowy: ok. 18%; przedział obejmuje wszystkie źródła (dokument 12 M0–M3, D6; dokument 12 M4–M6, D-07))",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/preflop-range-morphology/",
+    "miejsce": "Linear ranges",
+    "cytat": "this range is comprised of 17.6% of all possible starting hands",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://beyondgto.com/ranges/lj-open-6max-100bb",
+    "miejsce": "nagłówek",
+    "cytat": "GTO opens about 17% of hands first-in from the LJ",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://www.preflopwizard.app/blog/6-max-preflop-charts",
+    "miejsce": "Quick answer",
+    "cytat": "GTO 6-max preflop charts open 15-17% from UTG",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://gtogecko.com/blog/gto-preflop-strategy",
+    "miejsce": "RFI ranges",
+    "cytat": "roughly 18% of hands under the gun",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.rfi.utg.low",
+  "wartosc": 0.15,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Adres GTO Wizard w source błędny (range-morphology → preflop-range-morphology); brak adresu BeyondGTO."
+ },
+ {
+  "id": "n:pf.vs3bet.fold.high",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.vs3bet.fold.high = 0.65 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (serwis szkoleniowy, program do statystyk HUD); serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega))",
+  "zrodla": [
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Fold equity (NL200)",
+    "cytat": "4-bet to 17.2bb: 19.1%, call 17.2%, fold 63.7%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://pailiku.com/charts/co-vs-btn-3bet",
+    "miejsce": "nagłówek",
+    "cytat": "4-bet 2.9% (38/1,326 combos), call 6.2% (82 combos)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: 38/354, 82/354, 1 − 120/354",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "10,7% / 23,2% / 66,1%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.vs3bet.fold.high",
+  "wartosc": 0.65,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany."
+ },
+ {
+  "id": "n:pf.vs3bet.fold.low",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.vs3bet.fold.low = 0.55 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (serwis szkoleniowy, program do statystyk HUD); serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega))",
+  "zrodla": [
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Fold equity (NL200)",
+    "cytat": "4-bet to 17.2bb: 19.1%, call 17.2%, fold 63.7%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://pailiku.com/charts/co-vs-btn-3bet",
+    "miejsce": "nagłówek",
+    "cytat": "4-bet 2.9% (38/1,326 combos), call 6.2% (82 combos)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: 38/354, 82/354, 1 − 120/354",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "10,7% / 23,2% / 66,1%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.vs3bet.fold.low",
+  "wartosc": 0.55,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany."
+ },
+ {
+  "id": "n:pf.vs3bet.call.high",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.vs3bet.call.high = 0.3 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (serwis szkoleniowy, program do statystyk HUD); serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega))",
+  "zrodla": [
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Fold equity (NL200)",
+    "cytat": "4-bet to 17.2bb: 19.1%, call 17.2%, fold 63.7%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://pailiku.com/charts/co-vs-btn-3bet",
+    "miejsce": "nagłówek",
+    "cytat": "4-bet 2.9% (38/1,326 combos), call 6.2% (82 combos)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: 38/354, 82/354, 1 − 120/354",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "10,7% / 23,2% / 66,1%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.vs3bet.call.high",
+  "wartosc": 0.3,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany."
+ },
+ {
+  "id": "n:pf.vs3bet.call.low",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.vs3bet.call.low = 0.15 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (serwis szkoleniowy, program do statystyk HUD); serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega))",
+  "zrodla": [
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Fold equity (NL200)",
+    "cytat": "4-bet to 17.2bb: 19.1%, call 17.2%, fold 63.7%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://pailiku.com/charts/co-vs-btn-3bet",
+    "miejsce": "nagłówek",
+    "cytat": "4-bet 2.9% (38/1,326 combos), call 6.2% (82 combos)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: 38/354, 82/354, 1 − 120/354",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "10,7% / 23,2% / 66,1%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.vs3bet.call.low",
+  "wartosc": 0.15,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany."
+ },
+ {
+  "id": "n:pf.vs3bet.4bet.high",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.vs3bet.4bet.high = 0.2 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (serwis szkoleniowy, program do statystyk HUD); serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega))",
+  "zrodla": [
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Fold equity (NL200)",
+    "cytat": "4-bet to 17.2bb: 19.1%, call 17.2%, fold 63.7%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://pailiku.com/charts/co-vs-btn-3bet",
+    "miejsce": "nagłówek",
+    "cytat": "4-bet 2.9% (38/1,326 combos), call 6.2% (82 combos)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: 38/354, 82/354, 1 − 120/354",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "10,7% / 23,2% / 66,1%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.vs3bet.4bet.high",
+  "wartosc": 0.2,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany."
+ },
+ {
+  "id": "n:pf.vs3bet.4bet.low",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.vs3bet.4bet.low = 0.1 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (serwis szkoleniowy, program do statystyk HUD); serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega))",
+  "zrodla": [
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Fold equity (NL200)",
+    "cytat": "4-bet to 17.2bb: 19.1%, call 17.2%, fold 63.7%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://pailiku.com/charts/co-vs-btn-3bet",
+    "miejsce": "nagłówek",
+    "cytat": "4-bet 2.9% (38/1,326 combos), call 6.2% (82 combos)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: 38/354, 82/354, 1 − 120/354",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "10,7% / 23,2% / 66,1%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.vs3bet.4bet.low",
+  "wartosc": 0.1,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany."
+ },
+ {
+  "id": "n:pf.vs3bet.pub1.4bet",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.vs3bet.pub1.4bet = 0.191 percent (source: szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb (dokument 12 M4–M6, D-04))",
+  "zrodla": [
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Fold equity (NL200, CO wobec 3-betu BTN do 7,5bb)",
+    "cytat": "4-bet to 17.2bb: 19.1%, call 17.2%, fold 63.7%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.vs3bet.pub1.4bet",
+  "wartosc": 0.191,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło (szczebel 2), w lekcji przypisane jednemu źródłu — poprawnie."
+ },
+ {
+  "id": "n:pf.vs3bet.pub1.call",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.vs3bet.pub1.call = 0.172 percent (source: szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb (dokument 12 M4–M6, D-04))",
+  "zrodla": [
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Fold equity (NL200, CO wobec 3-betu BTN do 7,5bb)",
+    "cytat": "4-bet to 17.2bb: 19.1%, call 17.2%, fold 63.7%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.vs3bet.pub1.call",
+  "wartosc": 0.172,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło (szczebel 2), w lekcji przypisane jednemu źródłu — poprawnie."
+ },
+ {
+  "id": "n:pf.vs3bet.pub1.fold",
+  "rodzaj": "liczba",
+  "level": "gto",
+  "twierdzenie": "pf.vs3bet.pub1.fold = 0.637 percent (source: szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb (dokument 12 M4–M6, D-04))",
+  "zrodla": [
+   {
+    "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
+    "miejsce": "Fold equity (NL200, CO wobec 3-betu BTN do 7,5bb)",
+    "cytat": "4-bet to 17.2bb: 19.1%, call 17.2%, fold 63.7%.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.vs3bet.pub1.fold",
+  "wartosc": 0.637,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło (szczebel 2), w lekcji przypisane jednemu źródłu — poprawnie."
+ },
+ {
+  "id": "n:pf.vs3bet.pub2.4bet",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.vs3bet.pub2.4bet = 0.11 percent (source: serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), CO wobec 3-betu Buttona, udział w zakresie otwarcia CO przeliczony z sum na stronie (dokument 10, B-035; dokument 12 M4–M6, D-04))",
+  "zrodla": [
+   {
+    "adres": "https://pailiku.com/charts/co-vs-btn-3bet",
+    "miejsce": "nagłówek",
+    "cytat": "4-bet 2.9% (38/1,326 combos), call 6.2% (82 combos)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://pailiku.com/charts",
+    "miejsce": "RFI, cutoff",
+    "cytat": "Cutoff - 26.7% （ 354 combos）",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: 38/354, 82/354, 1 − 120/354",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "4-bet 10,7%, call 23,2%, pas 66,1%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.vs3bet.pub2.4bet",
+  "wartosc": 0.11,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Pailiku: „Simplified consensus teaching range” (szczebel 4)."
+ },
+ {
+  "id": "n:pf.vs3bet.pub2.call",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.vs3bet.pub2.call = 0.23 percent (source: serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), CO wobec 3-betu Buttona, udział w zakresie otwarcia CO przeliczony z sum na stronie (dokument 10, B-035; dokument 12 M4–M6, D-04))",
+  "zrodla": [
+   {
+    "adres": "https://pailiku.com/charts/co-vs-btn-3bet",
+    "miejsce": "nagłówek",
+    "cytat": "4-bet 2.9% (38/1,326 combos), call 6.2% (82 combos)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://pailiku.com/charts",
+    "miejsce": "RFI, cutoff",
+    "cytat": "Cutoff - 26.7% （ 354 combos）",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: 38/354, 82/354, 1 − 120/354",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "4-bet 10,7%, call 23,2%, pas 66,1%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.vs3bet.pub2.call",
+  "wartosc": 0.23,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Pailiku: „Simplified consensus teaching range” (szczebel 4)."
+ },
+ {
+  "id": "n:pf.vs3bet.pub2.fold",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "pf.vs3bet.pub2.fold = 0.66 percent (source: serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), CO wobec 3-betu Buttona, udział w zakresie otwarcia CO przeliczony z sum na stronie (dokument 10, B-035; dokument 12 M4–M6, D-04))",
+  "zrodla": [
+   {
+    "adres": "https://pailiku.com/charts/co-vs-btn-3bet",
+    "miejsce": "nagłówek",
+    "cytat": "4-bet 2.9% (38/1,326 combos), call 6.2% (82 combos)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://pailiku.com/charts",
+    "miejsce": "RFI, cutoff",
+    "cytat": "Cutoff - 26.7% （ 354 combos）",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: 38/354, 82/354, 1 − 120/354",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
+    "cytat": "4-bet 10,7%, call 23,2%, pas 66,1%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "pf.vs3bet.pub2.fold",
+  "wartosc": 0.66,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Pailiku: „Simplified consensus teaching range” (szczebel 4)."
+ },
+ {
+  "id": "n:range.mixed.high",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "range.mixed.high = 0.75 percent (source: próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_HIGH)",
+  "zrodla": [
+   {
+    "adres": "repo: apps/mobile/src/features/drills/thresholds.ts",
+    "miejsce": "MIXED_HIGH",
+    "cytat": "export const MIXED_HIGH = 0.75;",
+    "odczyt": "2026-11-04",
+    "szczebel": null
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "range.mixed.high",
+  "wartosc": 0.75,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Parametr oceny w aplikacji („założenie do kalibracji bez źródła”, ADR-22, B-044), nie twierdzenie o pokerze; wartość zgodna z kodem."
+ },
+ {
+  "id": "n:range.mixed.low",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "range.mixed.low = 0.25 percent (source: próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_LOW)",
+  "zrodla": [
+   {
+    "adres": "repo: apps/mobile/src/features/drills/thresholds.ts",
+    "miejsce": "MIXED_LOW",
+    "cytat": "export const MIXED_LOW = 0.25;",
+    "odczyt": "2026-11-04",
+    "szczebel": null
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "range.mixed.low",
+  "wartosc": 0.25,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Parametr oceny w aplikacji (ADR-22, B-044); wartość zgodna z kodem."
+ },
+ {
+  "id": "n:range.mixed.min",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "range.mixed.min = 0.035 percent (source: serwis komercyjnego solvera, Measure Performance (https://help.gtowizard.com/measure-performance/): „Inaccuracy – Moves that are taken less than 3.5% of the time in GTO, but don't lose significant EV”; próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_MIN (ADR-26))",
+  "zrodla": [
+   {
+    "adres": "https://help.gtowizard.com/measure-performance/",
+    "miejsce": "Move classification",
+    "cytat": "Inaccuracy - Moves that are taken less than 3.5% of the time in GTO, but don't lose significant EV.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "repo: apps/mobile/src/features/drills/thresholds.ts",
+    "miejsce": "MIXED_MIN",
+    "cytat": "export const MIXED_MIN = 0.035;",
+    "odczyt": "2026-11-04",
+    "szczebel": null
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "range.mixed.min",
+  "wartosc": 0.035,
+  "jednostka": "percent",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "m3-l3:47: zamiast „Akcja grana rzadziej niż w {{n:range.mixed.min}} przypadków to błąd” — „…to błąd w ocenie ćwiczeń (skala ruchów komercyjnego solvera nazywa takie ruchy niedokładnością, gdy nie tracą wyraźnie EV)”",
+  "uwagi": "3,5% potwierdzone. W skali źródła ruch < 3,5% bez dużej straty EV to „Inaccuracy”, a „Wrong move” to ruch w GTO niegrany. Aplikacja liczy < 3,5% jako błąd — to konwencja aplikacji, nie definicja źródła; nazwać ją tak."
+ }
+]

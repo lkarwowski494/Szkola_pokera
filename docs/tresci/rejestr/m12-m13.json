@@ -1,0 +1,1610 @@
+[
+ {
+  "id": "R-M12-001",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "oceniasz swój wynik albo winrate z próbki rąk → liczysz przedział: winrate ± {{n:var.z95}} × SD ÷ √(liczba rąk ÷ 100), bo przy SD {{n:var.sd}} nawet po {{n:var.hands.k}} tys. rąk przedział {{n:var.conf95}} ma ok. ± {{n:var.ci.wr}}, więc wynik {{n:var.wr.ex}} znaczy tylko „między ok. {{n:var.wr.ci.low}} a {{n:var.wr.ci.high}}”",
+  "zrodla": [
+   {
+    "adres": "rachunek: SE = SD ÷ √(ręce÷100); CI95 = wr ± 1,96·SE",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
+    "cytat": "80/√1000 = 2,530; 1,96·2,530 = 4,96; 5 ± 4,96 → 0,04…9,96 bb/100; z95 = Φ⁻¹(0,975) = 1,95996",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://www.primedope.com/examples-and-impacts-of-variance-in-cash-games/",
+    "miejsce": "sekcja o odchyleniu standardowym",
+    "cytat": "A typical SD for 6-max NLH is 75-95 bb/100.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.primedope.com/poker-variance-calculator/",
+    "miejsce": "akapit o domyślnym SD",
+    "cytat": "In 6-max NLHE, 75 to 100 BB/100 is a reasonable default.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Wzór to przybliżenie normalne (CLT), słuszne dla dużych próbek; SD 80 to wartość przyjęta (n:var.sd). Lekcja m12-l1:102 „kilkadziesiąt razy większe od winrate” zgodne dla 1–3bb/100 (27–80×); dla przykładu 5bb/100 to 16× (Primedope: „15-20x larger than the win rate”) — drobne, bez zmiany."
+ },
+ {
+  "id": "R-M12-002",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "wpadasz w downswing o {{n:dd.bi.small}} wpisowych → nie traktujesz go jako dowodu złej gry, tylko sprawdzasz decyzje w przegranych rozdaniach, bo w {{n:var.hands.k}} tys. rąk taki downswing od szczytu przytrafia się ok. {{n:dd.p.small.100k}} graczy wygrywających {{n:var.wr.ex}} (SD {{n:var.sd}})",
+  "zrodla": [
+   {
+    "adres": "rachunek: Monte Carlo: max. spadek od szczytu ≥ 10 wpisowych w 100 tys. rąk, wr 5, SD 80",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/downswing.py",
+    "cytat": "kroki 100 rąk: 94,9%; kroki 10 rąk: 97,1% (20 tys. przebiegów, ziarno 424242); 20 tys. rąk: 39,7%; wr 2: 99,0%; 20 wpisowych: 27,6% / 58,9%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://www.primedope.com/examples-and-impacts-of-variance-in-cash-games/",
+    "miejsce": "tabela „Downswing Probabilities”, 5 bb/100 Winner, 80 bb/100 SD",
+    "cytat": "10 buy-ins 45% Common; expect at least one",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Sprzeczność szczebel 1 (rachunek, dwie niezależne symulacje: projektu 95,0% i ta 94,9%/97,1%) z szczeblem 4 (Primedope 45%; ta sama tabela podaje 5 wpisowych = 85%, gdy rachunek daje ~100%). Wyższy szczebel wygrywa; decyzja D-M12-02 utrzymana. Poziom heuristic poprawny (zalecenie „sprawdzasz decyzje” wyprowadzone z rachunku)."
+ },
+ {
+  "id": "R-M12-003",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "chcesz wiedzieć, ile naprawdę wygrywasz → zbierasz setki tysięcy rąk: dokładność ± {{n:var.target}} przy {{n:var.conf95}} pewności wymaga ok. {{n:var.need.hands.k}} tys. rąk, bo błąd oszacowania maleje z pierwiastkiem z liczby rąk: potrzebne bloki po 100 rąk = ({{n:var.z95}} × SD ÷ dokładność)²",
+  "zrodla": [
+   {
+    "adres": "rachunek: bloki = (1,96·SD ÷ dokładność)²",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
+    "cytat": "(1,96·80/2)² = 6146,56 bloków = 614 656 rąk ≈ 615 tys.; przy SD 100: 9604 bloki = 960 tys. rąk",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Primedope (pd-ror, szczebel 4) radzi „Track at least 30,000 hands before trusting your win rate estimate” — przy 30 tys. rąk CI95 = ±9,1bb/100; rachunek (szczebel 1) wygrywa, reguła nie wymaga zmiany."
+ },
+ {
+  "id": "R-M12-004",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "oceniasz swoje zagranie po rozdaniu → pytasz o decyzję (cenę, equity, informacje, które miałeś), a nie o to, czy wygrałeś, bo dobra decyzja regularnie przegrywa: all-in z AA wobec KK przegrywa w ok. {{n:res.kk-wins}} przypadków, a ludzie i tak oceniają decyzje po wyniku, nawet gdy wiedzą, że nie powinni",
+  "zrodla": [
+   {
+    "adres": "rachunek: equity AA–KK przed flopem (Monte Carlo, losowe kolory)",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/karty.py",
+    "cytat": "AA: 81,77% ± 0,31 (60 tys. rozdań, remisy 0,47%) — zgodne z pf.aa-vs-kk = 81,95%, więc KK wygrywa ok. 18%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=3367280&rettype=abstract&retmode=text",
+    "miejsce": "abstrakt (PubMed, PMID 3367280)",
+    "cytat": "Subjects rated the thinking as better, rated the decision maker as more competent, or indicated greater willingness to yield the decision when the outcome was favorable than when it was unfavorable.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=3367280&rettype=abstract&retmode=text",
+    "miejsce": "abstrakt (PubMed, PMID 3367280)",
+    "cytat": "Although subjects who were asked felt that they should not consider outcomes in making these evaluations, they did so.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Pełny tekst artykułu niedostępny (upenn 403, ufl przekroczony czas, core 403); odczytano abstrakt w PubMed. Wywiad Annie Duke (Masters in Business) nieodczytany — niepotrzebny. Lekcja m12-l2:93 wiernie oddaje abstrakt."
+ },
+ {
+  "id": "R-M12-005",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "wynik kilku sesji kusi cię do zmiany strategii → zmieniasz ją dopiero po przeglądzie rozdań, a nie na podstawie samego wyniku, bo nawet najlepszy {{n:skill.pct}} graczy wyprzedza najsłabszy {{n:skill.pct}} w ok. {{n:skill.ahead}} przypadków dopiero po ok. {{n:skill.hands}} rękach, a mniejsze różnice umiejętności potrzebują znacznie więcej rąk",
+  "zrodla": [
+   {
+    "adres": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0115479",
+    "miejsce": "abstrakt",
+    "cytat": "simulations point out that skill dominates chance when performance is measured over 1,500 or more hands of play.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0115479",
+    "miejsce": "sekcja symulacji",
+    "cytat": "the critical point where the best percentile of players (according to the performance robustness measure) is ahead 75 percent of the times is reached after 1,471 hands.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Ta sama praca: przy mierze standardowej 2,139 rąk, dla decyli 6,512/7,293 — potwierdza „mniejsze różnice potrzebują znacznie więcej rąk”. Jedno źródło nierachunkowe (badanie recenzowane)."
+ },
+ {
+  "id": "R-M12-006",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "zauważasz pierwsze sygnały tiltu ze swojego profilu (np. złość po bad beacie, chęć ukarania rywala) → reagujesz od razu: oddech i przygotowane zdanie, które przypomina, dlaczego to variance albo błąd do nauki, bo gdy tilt urośnie, przestajesz jasno myśleć, a wtedy nie da się go już kontrolować",
+  "zrodla": [
+   {
+    "adres": "https://www.pokernews.com/news/2014/05/jared-tendler-interview-on-tilt-in-poker-18351.htm",
+    "miejsce": "odpowiedź Tendlera o korygowaniu tiltu",
+    "cytat": "When tilt becomes too intense, it shuts down your ability to think, if you can't think you cannot control tilt. Period.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://www.pokernews.com/news/2014/05/jared-tendler-interview-on-tilt-in-poker-18351.htm",
+    "miejsce": "jw.",
+    "cytat": "Once you've recognized that small sign of tilt, take a few deep breaths to steady the mind and then inject logic.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Wywiad z autorem książki (szczebel 2 jako wypowiedź autora; media). „Przygotowane zdanie” = „inject logic” (myśl korygująca przyczynę). Jedno źródło nierachunkowe."
+ },
+ {
+  "id": "R-M12-007",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "po serii strat nie potrafisz już spokojnie ocenić decyzji, chcesz się odegrać albo grasz ręce, które zwykle pasujesz → kończysz sesję, bo dalsza gra w tym stanie to gra na twoim najgorszym poziomie (C-game), a celem jest skończyć wcześniej, zanim stracisz zdolność jasnego myślenia",
+  "zrodla": [
+   {
+    "adres": "https://www.thehendonmob.com/jared_tendler/mental_game_of_poker_excerpt_5_inchworm/",
+    "miejsce": "fragment książki „Inchworm”, akapit o porównaniu najgorszej gry",
+    "cytat": "manage your tilt better so you play better longer, and quit sooner when it's no longer possible to recover a solid thought process.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "if: „po serii strat nie potrafisz już spokojnie ocenić decyzji (np. myślisz tylko o odegraniu się albo grasz ręce, które zwykle pasujesz)” — warunek ze źródła to utrata jasnego myślenia; chęć odegrania się i luźniejsza gra mają być jej przykładami, a nie osobnymi, samodzielnymi wyzwalaczami (przy pierwszych sygnałach Tendler zaleca najpierw oddech i logikę, R-M12-006).",
+  "uwagi": "Źródło: kończ, gdy nie da się odzyskać jasnego myślenia. Reguła z „albo” kończy sesję już przy samej chęci odegrania się, co wykracza poza źródło i koliduje z R-M12-006. Pojęcie „C-game” w because zgodne z fragmentem. Jedno źródło nierachunkowe."
+ },
+ {
+  "id": "R-M12-008",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "pracujesz nad swoją grą → zaczynasz od poprawy najgorszych zagrań (C-game), a nie od szlifowania najlepszych, bo poprawa najgorszej gry daje stały postęp i zwalnia uwagę na naukę nowych rzeczy",
+  "zrodla": [
+   {
+    "adres": "https://www.thehendonmob.com/jared_tendler/mental_game_of_poker_excerpt_5_inchworm/",
+    "miejsce": "fragment „Inchworm”, wnioski z koncepcji",
+    "cytat": "You create the potential for an even greater A-game when you eliminate your mental and poker C-games because mental space is freed up to learn new things.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://jaredtendler.com/the-inchworm-concept/",
+    "miejsce": "artykuł autora „The Inchworm Concept”",
+    "cytat": "What trips you up is your C game.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Fragment mówi też „Improvement happens from two sides”; reguła „zaczynasz od C-game” to akcent autora, nie wyłączność — lekcja m12-l3:130 opisuje oba końce, więc zgodne. Zdanie lekcji „Najwięcej kosztuje C-game” nie ma dosłownego cytatu (najbliżej: „What trips you up is your C game”)."
+ },
+ {
+  "id": "R-M12-009",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "liczysz ryzyko bankructwa, czyli utraty całego bankrollu → używasz wzoru RoR = e^(−2 × winrate × bankroll ÷ SD²), z bankrollem w bb, bo przy {{n:var.wr.typical.high}} i SD {{n:var.sd}} bankroll {{n:br.bi.base}} wpisowych daje ok. {{n:ror.base}} ryzyka, a {{n:br.bi.move-down}} wpisowych już ok. {{n:ror.half}}",
+  "zrodla": [
+   {
+    "adres": "https://www.primedope.com/risk-of-ruin-formula-for-poker-players/",
+    "miejsce": "sekcja wzoru",
+    "cytat": "the closed-form approximation: RoR = e^(-2 x WR x BR / SD^2)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: RoR = e^(−2·wr·BR/SD²), BR w bb",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
+    "cytat": "wr3/30 wpis.: 6,01%; wr3/15: 24,51%; wr1/30: 39,16%; wr1/50: 20,96%; wr5/30: 0,92%; wr2/40: 8,21%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "rachunek: Monte Carlo ruiny (3 mln rąk, bloki 100 rąk)",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/ror_mc.py",
+    "cytat": "wr3/15: 23,6% (wzór 24,5%); wr3/30: 5,7% (6,0%); wr1/30: 38,0% (39,2%)",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": true,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Wzór to przybliżenie przy stałym, znanym winrate i SD (strona: „with a constant win rate and standard deviation, the closed-form approximation”); MC potwierdza. Atrybucja „wzór Malmutha” w polu source (rules.yaml:1017–1024 i numbers.yaml ror.*) NIE występuje na stronie — usunąć albo dodać przeczytane źródło. Propozycja do lekcji m12-l4:117: dopisać „przybliżenie przy stałym winrate”."
+ },
+ {
+  "id": "R-M12-010",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "zaczynasz grać na prawdziwe pieniądze na danej stawce → masz co najmniej {{n:br.bi.beginner}} wpisowych, póki nie znasz swojego winrate; z potwierdzonym winrate co najmniej {{n:br.bi.base}}, bo przy winrate {{n:var.wr.typical.low}} nawet {{n:br.bi.base}} wpisowych daje ok. {{n:ror.base.wr-min}} ryzyka utraty bankrollu, a źródła zalecają od {{n:br.bi.src-low}} do ponad {{n:br.bi.src-high}} wpisowych",
+  "zrodla": [
+   {
+    "adres": "https://www.blackrain79.com/2015/06/the-complete-guide-to-bankroll.html",
+    "miejsce": "akapit wstępny",
+    "cytat": "The best poker bankroll management strategy for beginners is to have 50 buyins for any limit you are playing. Experienced poker players can get by with a bankroll of 30 buyins.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/poker-bankroll-management-critical-success/",
+    "miejsce": "„rough guidelines”",
+    "cytat": "You should have 50 buyins for any cash game you play",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.pokerskill.com/poker-glossary/bankroll-management/",
+    "miejsce": "FAQ",
+    "cytat": "A working answer is about 30 buy-ins for a clear winner, and more if poker is your only income or your edge is thin.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.primedope.com/risk-of-ruin-formula-for-poker-players/",
+    "miejsce": "FAQ",
+    "cytat": "Cash games at a 5% risk of ruin need 20 buy-ins at NL10 (where edges are larger), 25 to 30 at NL25 to NL50, and 30 to 40 at NL100 and above.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.pokerlistings.com/poker-strategies/bankroll-management",
+    "miejsce": "tabela bankrollu",
+    "cytat": "No-Limit Online Cash Games: 100+ buy-ins",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: RoR przy wr 1bb/100, SD 80",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
+    "cytat": "30 wpisowych: 39,2%; 50 wpisowych: 21,0%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": true,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Rozpiętość źródeł 20–100+ potwierdzona (20: Primedope FAQ jako zamiennik nieczytelnego SplitSuit 403; 100+: PokerListings, a nie Upswing). 50 dla początkujących — dwa niezależne źródła szczebla 4 + rachunek. Liczby bankrollu to szczebel 4 jako kontekst; podstawą progu jest rachunek RoR (szczebel 1), zgodnie z wymogiem dla reguł krytycznych."
+ },
+ {
+  "id": "R-M12-011",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "bankroll spadnie poniżej połowy założonej liczby wpisowych (przy {{n:br.bi.base}} poniżej {{n:br.bi.move-down}}) → schodzisz o jedną stawkę niżej i wracasz, gdy bankroll się odbuduje, bo downswingi o {{n:dd.bi.small}} wpisowych zdarzają się prawie każdemu wygrywającemu, a przy {{n:br.bi.move-down}} wpisowych ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}}",
+  "zrodla": [
+   {
+    "adres": "https://www.pokerskill.com/poker-glossary/bankroll-management/",
+    "miejsce": "przykład z wpisowym $25",
+    "cytat": "A 30-buy-in roll is $750, the floor. A 15-buy-in downswing leaves $375, half the roll, which is the point to move down a stake and rebuild.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.pokerlistings.com/poker-strategies/bankroll-management",
+    "miejsce": "tabela „When to move up / When to lower stakes”",
+    "cytat": "Standard: 3BB/100 40 buy-ins 30 buy-ins",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.primedope.com/risk-of-ruin-formula-for-poker-players/",
+    "miejsce": "„Practical Bankroll Management”",
+    "cytat": "Losing 5 buy-ins should trigger a stake review. Losing 10 should trigger a move down.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: RoR przy 15 i 30 wpisowych, wr 3, SD 80",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
+    "cytat": "15 wpisowych: 24,5%; 30 wpisowych: 6,0%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "sprzeczne",
+  "uproszczenie": null,
+  "krytyczne": true,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "then: „schodzisz o jedną stawkę niżej najpóźniej wtedy i wracasz, gdy bankroll się odbuduje”; w lekcji m12-l4:142 dopisać: „Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich.”",
+  "uwagi": "Sprzeczność na szczeblu 4: próg zejścia = połowa bankrollu (PokerSkill; SplitSuit nieczytelny), 30 wpisowych przy 3bb/100 (PokerListings, czyli pełny bankroll), spadek o 10 wpisowych (Primedope, odrzucony w D-M12-08 rachunkiem: odpala u ~95% wygrywających). Rachunek (szczebel 1) pokazuje tylko kierunek: przy połowie bankrollu RoR 24,5% — wysoko. Proponowana decyzja: część wspólna = „najpóźniej przy połowie”. Uwaga: cytat SplitSuit z pola source nieprzeczytany (HTTP 403)."
+ },
+ {
+  "id": "R-M12-012",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "planujesz czas na poker → na początku ok. {{n:study.beginner}} czasu przeznaczasz na naukę; gdy wygrywasz na swojej stawce, ok. {{n:study.winner}}, ale nigdy mniej niż {{n:study.min}}, bo nauka z wyjaśnieniem i analiza rozdań dają więcej postępu niż sama gra",
+  "zrodla": [
+   {
+    "adres": "https://www.pokerstrategy.com/news/content/What-should-your-study-to-play-ratio-be_130067/",
+    "miejsce": "artykuł Dary O'Kearneya",
+    "cytat": "Early on, it should be 80/20 in favour of study. New players have so much catching up to do they should immerse themselves in poker study.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.pokerstrategy.com/news/content/What-should-your-study-to-play-ratio-be_130067/",
+    "miejsce": "jw.",
+    "cytat": "Once you are beating the games you are in you can start to reduce the study and increase the grinding. I'd say the ideal would still be a 50/50 ratio, but at a minimum never go under 20% study, 80% play.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "because: „na początku masz najwięcej do nadrobienia, a nauka buduje nawyk, który zostaje na lata (zdanie trenera)” albo usunąć porównanie „nauka daje więcej postępu niż sama gra”, dopóki nie ma przeczytanego źródła.",
+  "uwagi": "Liczby 80/50/20 poparte jednym źródłem (szczebel 4). Uzasadnienie „nauka z wyjaśnieniem i analiza rozdań dają więcej postępu niż sama gra” nie ma przeczytanego źródła: Southwick i in. (2026) to badanie szachistów, odczytano tylko spis treści. Autorem artykułu jest Dara O'Kearney (pole source: „Barry Carter o zdaniu Dary”)."
+ },
+ {
+  "id": "R-M13-001",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "przegrałeś all-in, mając większe equity niż rywal → nie zmieniasz strategii z powodu tego rozdania: z equity e przegrywasz średnio w 1 − e takich rozdań, np. przy {{n:m13.eq.example}} w ok. {{n:m13.lose.example}}, czyli {{n:m13.lose.of-ten}} na {{n:m13.ten}}, bo equity to udział wygranych w wielu powtórzeniach tej samej sytuacji; przegrana mieści się w tym rachunku",
+  "zrodla": [
+   {
+    "adres": "rachunek: P(przegrana) = 1 − equity",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
+    "cytat": "1 − 4/5 = 1/5; 10·1/5 = 2; 1 − 13/20 = 7/20",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Equity liczy remis jako połowę, więc dokładnie: P(przegrana) = 1 − equity − ½·P(remis); reguła mówi „średnio” i źródło (pole source) to przyznaje. Bez zmiany."
+ },
+ {
+  "id": "R-M13-002",
+  "rodzaj": "regula",
+  "level": "gto",
+  "twierdzenie": "solver gra twoją rękę w danym spocie na dwa sposoby (ręka mieszana) → każde z tych zagrań jest poprawne; raport oznacza rzadsze jako dopuszczalne, gdy solver gra je w co najmniej {{n:range.mixed.min}}, ale rzadziej niż w {{n:range.mixed.low}} przypadków, bo w równowadze gracz miesza tylko zagrania o tej samej wartości oczekiwanej",
+  "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/principles-of-gto/",
+    "miejsce": "sekcja o obojętności",
+    "cytat": "Unexploitable play mixes between two or more options only when these options have the same EV.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://help.gtowizard.com/measure-performance/",
+    "miejsce": "lista kategorii ruchów",
+    "cytat": "Inaccuracy – Moves that are taken less than 3.5% of the time in GTO, but don’t lose significant EV. Wrong Move – Moves that are not taken in GTO.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Reguła poparta. Problem w sąsiednich tekstach: lekcja m13-l1:93 i egzamin m13.yaml:34 nazywają akcję graną przez solver w <3,5% „błędem” i piszą, że „nie jest już częścią ręki mieszanej” — wg zasady obojętności każda akcja grana z dodatnią częstością ma równe EV, a serwis solvera nazywa ją „Inaccuracy”, nie błędem. Próg 25%/75% (MIXED_LOW/HIGH) to założenie aplikacji bez źródła (thresholds.ts:17), lekcja m13-l1:90 tego nie mówi. Szczegóły w raporcie."
+ },
+ {
+  "id": "R-M13-003",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "zamienisz kolory wszystkich kart jedną zamianą (np. kiery na piki, piki na kiery) → poprawna decyzja się nie zmienia, bo siła rąk i drawów zależy od tego, czy kolory się zgadzają, a nie od tego, które to kolory; dlatego powtórka z gry pokazuje tę samą sytuację w innych kolorach",
+  "zrodla": [
+   {
+    "adres": "rachunek: ranking układów po permutacji kolorów (ewaluator 7 kart)",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/karty.py",
+    "cytat": "3000 losowych układów 2+2+5 kart i losowych permutacji kolorów: 0 zmian rangi i wyniku porównania",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Twierdzenie ogólne wynika z definicji rankingu (kolor liczy się tylko jako „ten sam/inny”); test losowy tylko je ilustruje."
+ },
+ {
+  "id": "R-M13-004",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "po jednej sesji chcesz ocenić swoje częstotliwości (np. jak często wchodzisz do gry albo pasujesz na 3-bet) → nie wyciągasz wniosku: liczysz okazje, a nie rozdania: na statystykę patrzysz od ok. {{n:hud.opps.look}} okazji, a pewności nabierasz przy ok. {{n:hud.opps.sure}}, bo nawet vpip czyta się po ok. {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} rękach (jak w M10), a rzadka sytuacja zdarza się w sesji kilka razy",
+  "zrodla": [
+   {
+    "adres": "https://www.blackrain79.com/2017/11/poker-hud-stat-sample-size.html",
+    "miejsce": "akapit o liczbie okazji",
+    "cytat": "For me personally I usually want at least 5 to even bother looking, and 10 to be sure.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://pokercoaching.com/blog/poker-stats/",
+    "miejsce": "sekcja o próbie",
+    "cytat": "For VPIP and PFR, you need at least 100 to 200 hands before the numbers begin to stabilize.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "Lekcja m13-l2:93 „Trenerzy radzą” i ćwiczenie m13-l2:60 „Trenerzy patrzą” → „Jeden z trenerów radzi/patrzy” (5 i 10 okazji podaje jedno źródło, w pierwszej osobie: „For me personally”).",
+  "uwagi": "Reguła poparta; liczba okazji ma jedno źródło nierachunkowe (szczebel 4), opinię osobistą trenera. Druga część (VPIP 100–200) — PokerCoaching; Deepfold z R-M10-003 obsługuje partia M10."
+ },
+ {
+  "id": "R-M13-005",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "w trakcie gry nie wiesz, co zrobić, albo rozdanie wydało ci się dziwne → tylko je oznaczasz, a analizujesz po sesji, po kilku godzinach albo dniach, z jasną głową, bo analiza tuż po dużej przegranej albo w zmęczeniu jest zabarwiona emocjami",
+  "zrodla": [
+   {
+    "adres": "https://blog.checkreplay.com/poker-hand-review/",
+    "miejsce": "„When to review”",
+    "cytat": "The best time to review is hours or days after the session, with a clear head. ... What doesn’t work is reviewing while you’re still steaming or while you’re tired.",
+    "odczyt": "2026-11-04",
+    "szczebel": 5
+   },
+   {
+    "adres": "https://blog.checkreplay.com/poker-hand-review/",
+    "miejsce": "„During the session”",
+    "cytat": "Mark hands that felt interesting, confusing, or off. Don’t analyze them yet.",
+    "odczyt": "2026-11-04",
+    "szczebel": 5
+   },
+   {
+    "adres": "https://www.pokerskill.com/poker-glossary/session-review/",
+    "miejsce": "„When to do it (and when not to)”",
+    "cytat": "If your hands are still tight and you are still telling yourself the story of the bad beat, the review you do now is not honest. The next day, properly.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.blackrain79.com/2014/02/how-to-effectively-conduct-poker.html",
+    "miejsce": "akapit o PokerTracker",
+    "cytat": "You can also tag hands that are in progress",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Checkreplay to blog aplikacji (szczebel 5, nie może być jedynym źródłem) — dodano zamiennik szczebla 4 (PokerSkill: przegląd następnego dnia, nie w emocjach) i BlackRain79 (oznaczanie rąk w trakcie gry). Zmęczenie ma tylko źródło szczebla 5."
+ },
+ {
+  "id": "R-M13-006",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "przegrałeś dużą pulę albo w rozdaniu nie wiedziałeś, co robić → przeglądasz to rozdanie; nad coolerem (dwie silne ręce, z których żadna nie mogła rozsądnie spasować) i bad beatem nie spędzasz dużo czasu, bo coolery i bad beaty zdarzają się każdemu, a najwięcej uczą rozdania, w których decyzja była trudna",
+  "zrodla": [
+   {
+    "adres": "https://blog.checkreplay.com/poker-hand-review/",
+    "miejsce": "„Categories worth reviewing”",
+    "cytat": "Big pots, especially the ones you lost. ... Hands where you weren’t sure what to do.",
+    "odczyt": "2026-11-04",
+    "szczebel": 5
+   },
+   {
+    "adres": "https://www.blackrain79.com/2014/02/how-to-effectively-conduct-poker.html",
+    "miejsce": "punkt 2 metody przeglądu",
+    "cytat": "Coolers and bad beats happen to everybody. Learn how to differentiate them from the hands that matter and don't spend much time on them unless there is a legitimate theory concern.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Wybór „duże pule, trudne decyzje” opiera się na szczeblu 5 (Checkreplay); BlackRain79 (4) popiera część o coolerach i wspomina „hands … where I felt lost in the hand or I feel that I got outplayed”. Przy kolejnej rewizji dodać źródło szczebla 4 dla „dużych pul”."
+ },
+ {
+  "id": "R-M13-007",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "przeglądasz trudną decyzję → najpierw zapisujesz pierwszą reakcję (np. „to łatwe sprawdzenie”), a dopiero potem liczysz, bo różnica między pierwszą reakcją a rachunkiem pokazuje, gdzie myli cię intuicja, i z czasem ją poprawia",
+  "zrodla": [
+   {
+    "adres": "https://upswingpoker.com/analyze-poker-hand-techniques/",
+    "miejsce": "kroki 4 i 6",
+    "cytat": "Step 4: Take note of your gut reaction",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/analyze-poker-hand-techniques/",
+    "miejsce": "krok 6",
+    "cytat": "be sure to take notes regarding the differences between your initial presumption--which is typically optimistic, in my experience--and the realistic result. This will help you improve your intuitive strategy over time.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło nierachunkowe (szczebel 4)."
+ },
+ {
+  "id": "R-M13-008",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "nie wiesz, jak gra rywal, a przeglądasz decyzję wobec jego zakładu → oceniasz ją przy założeniu optymistycznym, pesymistycznym i realistycznym o jego zakresie; jeśli decyzja jest dobra nawet przy pesymistycznym, nie musisz liczyć dalej, bo skrajne założenia wyznaczają przedział, w którym leży rzeczywistość, więc decyzja dobra przy obu jest odporna na błąd odczytu",
+  "zrodla": [
+   {
+    "adres": "https://upswingpoker.com/analyze-poker-hand-techniques/",
+    "miejsce": "krok 5, trzy perspektywy",
+    "cytat": "I pick the extremes first, because they shape the polar ends of the spectrum.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/analyze-poker-hand-techniques/",
+    "miejsce": "jw.",
+    "cytat": "When the Pessimist gets such a favorable result, I don’t bother analyzing the hand through the Realist’s eyes, because it will also be favorable.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło nierachunkowe (szczebel 4). Wniosek „dobra przy pesymistycznym ⇒ dobra przy realistycznym” wynika też z monotoniczności EV sprawdzenia względem odsetka blefów (rachunek kierunkowy)."
+ },
+ {
+  "id": "n:br.bi.base",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "serwis szkoleniowy, Bankroll Management („about 30 buy-ins for a clear winner”); trener z blogiem szkoleniowym („Experienced poker players can get by with a bankroll of 30 buyins”); serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („25-30 buy-ins at NL25-NL50”)",
+  "zrodla": [
+   {
+    "adres": "https://www.blackrain79.com/2015/06/the-complete-guide-to-bankroll.html",
+    "miejsce": "akapit wstępny",
+    "cytat": "Experienced poker players can get by with a bankroll of 30 buyins.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.pokerskill.com/poker-glossary/bankroll-management/",
+    "miejsce": "FAQ",
+    "cytat": "A working answer is about 30 buy-ins for a clear winner",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.primedope.com/risk-of-ruin-formula-for-poker-players/",
+    "miejsce": "FAQ",
+    "cytat": "25 to 30 at NL25 to NL50",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: RoR wr 3, SD 80, 30 wpisowych",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
+    "cytat": "e^(−2·3·3000/6400) = 6,0%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": true,
+  "przeglad": null,
+  "wielkosc": "br.bi.base",
+  "wartosc": 30,
+  "jednostka": "count",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "numbers.yaml:456, cytat Primedope: „25-30 buy-ins at NL25-NL50” → „25 to 30 at NL25 to NL50” (dosłownie; kontekst: przy 5% ryzyka bankructwa).",
+  "uwagi": "Wartość poparta; cytat w polu source niedosłowny."
+ },
+ {
+  "id": "n:br.bi.beginner",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "trener z blogiem szkoleniowym, The Complete Guide to Bankroll Management („The best poker bankroll management strategy for beginners is to have 50 buyins”)",
+  "zrodla": [
+   {
+    "adres": "https://www.blackrain79.com/2015/06/the-complete-guide-to-bankroll.html",
+    "miejsce": "akapit wstępny",
+    "cytat": "The best poker bankroll management strategy for beginners is to have 50 buyins for any limit you are playing.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/poker-bankroll-management-critical-success/",
+    "miejsce": "„rough guidelines”",
+    "cytat": "You should have 50 buyins for any cash game you play",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: RoR wr 1, SD 80, 50 wpisowych",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
+    "cytat": "e^(−2·1·5000/6400) = 21,0%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": true,
+  "przeglad": null,
+  "wielkosc": "br.bi.beginner",
+  "wartosc": 50,
+  "jednostka": "count",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Dwa niezależne źródła szczebla 4 + rachunek. Można dopisać Upswing do pola source."
+ },
+ {
+  "id": "n:br.bi.src-high",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "serwis szkoleniowy, Poker Bankroll Management („No-Limit Online Cash Games: 100+ buy-ins”)",
+  "zrodla": [
+   {
+    "adres": "https://www.pokerlistings.com/poker-strategies/bankroll-management",
+    "miejsce": "tabela bankrollu",
+    "cytat": "No-Limit Online Cash Games: 100+ buy-ins",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.blackrain79.com/2015/06/the-complete-guide-to-bankroll.html",
+    "miejsce": "akapit wstępny",
+    "cytat": "And for professional poker players I recommend using a bankroll management strategy of 100 buyins for any limit you are playing.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": true,
+  "przeglad": null,
+  "wielkosc": "br.bi.src-high",
+  "wartosc": 100,
+  "jednostka": "count",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "numbers.yaml:460: źródło cytatu to PokerListings, „Poker Bankroll Management Strategy” (pokerlistings.com/poker-strategies/bankroll-management), a nie serwis z dokumentu 12 (Upswing nie ma tego cytatu; Upswing podaje 50).",
+  "uwagi": "Wartość i cytat dosłowne; błędna atrybucja w dokumencie 12 (D-M12-07)."
+ },
+ {
+  "id": "n:br.bi.src-low",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "trener z serwisem szkoleniowym, How Much Poker Money Do You Need („always have at least 20 buy-ins for the stake you are playing”)",
+  "zrodla": [
+   {
+    "adres": "https://www.primedope.com/risk-of-ruin-formula-for-poker-players/",
+    "miejsce": "FAQ",
+    "cytat": "Cash games at a 5% risk of ruin need 20 buy-ins at NL10 (where edges are larger)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": true,
+  "przeglad": null,
+  "wielkosc": "br.bi.src-low",
+  "wartosc": 20,
+  "jednostka": "count",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "numbers.yaml:459: zastąpić nieodczytany cytat SplitSuit (HTTP 403) cytatem Primedope „Cash games at a 5% risk of ruin need 20 buy-ins at NL10 (where edges are larger)” albo ponowić odczyt SplitSuit.",
+  "uwagi": "Strona SplitSuit niedostępna (403) pod trzema adresami; wartość 20 poparta zamiennikiem szczebla 4 (jedno źródło)."
+ },
+ {
+  "id": "n:dd.bi.small",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "program nauczania (dokument 09): downswing o 10 wpisowych",
+  "zrodla": [
+   {
+    "adres": "rachunek: symulacja downswingów, próg 10 wpisowych",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/downswing.py",
+    "cytat": "próg 10 wpisowych: 94,9% (100 tys. rąk, wr 5, SD 80)",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": true,
+  "przeglad": null,
+  "wielkosc": "dd.bi.small",
+  "wartosc": 10,
+  "jednostka": "count",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Wartość przykładowa scenariusza (program nauczania, dok. 09), nie twierdzenie; twierdzenia o niej liczy rachunek. Primedope dla tego scenariusza 45% (sprzeczne z rachunkiem, D-M12-02)."
+ },
+ {
+  "id": "n:format.stack",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "format główny aplikacji: cash 6-max (ADR-01)",
+  "zrodla": [
+   {
+    "adres": "https://github.com/lkarwowski494/Szkola_pokera/blob/claude/sleepy-brahmagupta-2065nu/content/numbers.yaml",
+    "miejsce": "format główny aplikacji (ADR-01 rejestru 03)",
+    "cytat": "100bb, cash 6-max",
+    "odczyt": "2026-11-04",
+    "szczebel": null
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "format.stack",
+  "wartosc": 100,
+  "jednostka": "bb",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Parametr produktu (definicja wpisowego = 100bb), nie twierdzenie merytoryczne; szczebel nie dotyczy."
+ },
+ {
+  "id": "n:game.recall.count",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "mechanika aplikacji: GAME_CARDS.recallMistakes w packages/srs/src/game.ts (dokument 14, 5.7); wartość startowa bez źródła, do kalibracji; test pilnuje zgodności",
+  "zrodla": [
+   {
+    "adres": "https://github.com/lkarwowski494/Szkola_pokera/blob/claude/sleepy-brahmagupta-2065nu/packages/srs/src/game.ts",
+    "miejsce": "GAME_CARDS, linia 18",
+    "cytat": "recallMistakes: 3,",
+    "odczyt": "2026-11-04",
+    "szczebel": null
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "game.recall.count",
+  "wartosc": 3,
+  "jednostka": "count",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Mechanika aplikacji; lekcja m13-l2:85 uczciwie nazywa ją wartością startową bez źródła (D-M13-13)."
+ },
+ {
+  "id": "n:game.recall.days",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "mechanika aplikacji: GAME_CARDS.recallWindowDays w packages/srs/src/game.ts (dokument 14, 5.7); wartość startowa bez źródła, do kalibracji; test pilnuje zgodności",
+  "zrodla": [
+   {
+    "adres": "https://github.com/lkarwowski494/Szkola_pokera/blob/claude/sleepy-brahmagupta-2065nu/packages/srs/src/game.ts",
+    "miejsce": "GAME_CARDS, linia 20",
+    "cytat": "recallWindowDays: 30,",
+    "odczyt": "2026-11-04",
+    "szczebel": null
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "game.recall.days",
+  "wartosc": 30,
+  "jednostka": "count",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Mechanika aplikacji, wartość startowa bez źródła (D-M13-13)."
+ },
+ {
+  "id": "n:hud.hands.vpip.low",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "serwis szkoleniowy, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „For VPIP and PFR, you need at least 100 to 200 hands before the numbers begin to stabilize.”",
+  "zrodla": [
+   {
+    "adres": "https://pokercoaching.com/blog/poker-stats/",
+    "miejsce": "sekcja o próbie",
+    "cytat": "For VPIP and PFR, you need at least 100 to 200 hands before the numbers begin to stabilize.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "hud.hands.vpip.low",
+  "wartosc": 100,
+  "jednostka": "count",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło odczytane w tej partii (szczebel 4); Deepfold z D-M10-04 sprawdza partia M10."
+ },
+ {
+  "id": "n:hud.hands.vpip.high",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "jak hud.hands.vpip.low",
+  "zrodla": [
+   {
+    "adres": "https://pokercoaching.com/blog/poker-stats/",
+    "miejsce": "sekcja o próbie",
+    "cytat": "For VPIP and PFR, you need at least 100 to 200 hands before the numbers begin to stabilize.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "hud.hands.vpip.high",
+  "wartosc": 200,
+  "jednostka": "count",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jak hud.hands.vpip.low."
+ },
+ {
+  "id": "n:hud.opps.look",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "trener z blogiem szkoleniowym, Poker HUD Stats: The Sample Size You Need (https://www.blackrain79.com/2017/11/poker-hud-stat-sample-size.html): „For me personally I usually want at least 5 to even bother looking, and 10 to be sure.” (liczba okazji, nie rąk)",
+  "zrodla": [
+   {
+    "adres": "https://www.blackrain79.com/2017/11/poker-hud-stat-sample-size.html",
+    "miejsce": "akapit o liczbie okazji",
+    "cytat": "For me personally I usually want at least 5 to even bother looking, and 10 to be sure.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "hud.opps.look",
+  "wartosc": 5,
+  "jednostka": "count",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "m13-l2:93 i m13-l2:60: „Trenerzy” → „Jeden z trenerów” (opinia jednej osoby).",
+  "uwagi": "Jedno źródło nierachunkowe; liczba okazji, nie rąk."
+ },
+ {
+  "id": "n:hud.opps.sure",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "jak hud.opps.look",
+  "zrodla": [
+   {
+    "adres": "https://www.blackrain79.com/2017/11/poker-hud-stat-sample-size.html",
+    "miejsce": "akapit o liczbie okazji",
+    "cytat": "For me personally I usually want at least 5 to even bother looking, and 10 to be sure.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "hud.opps.sure",
+  "wartosc": 10,
+  "jednostka": "count",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "Jak hud.opps.look.",
+  "uwagi": "Jedno źródło nierachunkowe."
+ },
+ {
+  "id": "n:range.mixed.high",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_HIGH",
+  "zrodla": [
+   {
+    "adres": "https://github.com/lkarwowski494/Szkola_pokera/blob/claude/sleepy-brahmagupta-2065nu/apps/mobile/src/features/drills/thresholds.ts",
+    "miejsce": "linie 17 i 23",
+    "cytat": "MIXED_LOW i MIXED_HIGH: granica ręki „mieszanej” (25–75%), założenie do kalibracji bez źródła (ADR-22, B-044).",
+    "odczyt": "2026-11-04",
+    "szczebel": null
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "range.mixed.high",
+  "wartosc": 0.75,
+  "jednostka": "percent",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "m13-l1, notka „Skąd te zasady” (linia 108): dopisać „Próg 25% to ustawienie aplikacji, bez źródła.”",
+  "uwagi": "Parametr aplikacji bez źródła; lekcja przedstawia go jak część teorii (m13-l1:90)."
+ },
+ {
+  "id": "n:range.mixed.low",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_LOW",
+  "zrodla": [
+   {
+    "adres": "https://github.com/lkarwowski494/Szkola_pokera/blob/claude/sleepy-brahmagupta-2065nu/apps/mobile/src/features/drills/thresholds.ts",
+    "miejsce": "linie 17 i 22",
+    "cytat": "MIXED_LOW i MIXED_HIGH: granica ręki „mieszanej” (25–75%), założenie do kalibracji bez źródła (ADR-22, B-044).",
+    "odczyt": "2026-11-04",
+    "szczebel": null
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "range.mixed.low",
+  "wartosc": 0.25,
+  "jednostka": "percent",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "Jak range.mixed.high (m13-l1:90 i :108).",
+  "uwagi": "Parametr aplikacji bez źródła."
+ },
+ {
+  "id": "n:range.mixed.min",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "serwis komercyjnego solvera, Measure Performance (https://help.gtowizard.com/measure-performance/): „Inaccuracy – Moves that are taken less than 3.5% of the time in GTO, but don't lose significant EV”; próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_MIN (ADR-26)",
+  "zrodla": [
+   {
+    "adres": "https://help.gtowizard.com/measure-performance/",
+    "miejsce": "lista kategorii ruchów",
+    "cytat": "Inaccuracy – Moves that are taken less than 3.5% of the time in GTO, but don’t lose significant EV.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://github.com/lkarwowski494/Szkola_pokera/blob/claude/sleepy-brahmagupta-2065nu/apps/mobile/src/features/drills/thresholds.ts",
+    "miejsce": "linia 21",
+    "cytat": "export const MIXED_MIN = 0.035;",
+    "odczyt": "2026-11-04",
+    "szczebel": null
+   }
+  ],
+  "status": "sprzeczne",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "range.mixed.min",
+  "wartosc": 0.035,
+  "jednostka": "percent",
+  "werdykt_tekstu": "SPRZECZNE",
+  "poprawka": "m13-l1:93 „Błąd: … albo grana przez solver rzadziej niż w {{n:range.mixed.min}} przypadków” → dopisać „(próg aplikacji; serwis solvera nazywa takie zagranie niedokładnością, a nie błędem)”; m13.yaml:34 „Taka akcja nie jest już częścią ręki mieszanej, tylko błędem” → „Raport liczy akcję poniżej progu {{n:range.mixed.min}} jako błąd: to próg aplikacji, nie teoria”.",
+  "uwagi": "Wartość 3,5% zgodna ze źródłem, ale źródło używa jej do kategorii „Inaccuracy” (ruch grany przez solver, bez istotnej straty EV), a aplikacja do werdyktu „Błąd”. Zdanie egzaminu przeczy zasadzie obojętności (szczebel 2). Werdykt w aplikacji to decyzja produktowa (ADR-26); sprzeczne jest tylko uzasadnienie teoretyczne."
+ },
+ {
+  "id": "n:ror.two",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "wzór ryzyka bankructwa: stała 2 w wykładniku e^(−2·wr·BR/SD²)",
+  "zrodla": [
+   {
+    "adres": "https://www.primedope.com/risk-of-ruin-formula-for-poker-players/",
+    "miejsce": "sekcja wzoru",
+    "cytat": "RoR = e^(-2 x WR x BR / SD^2)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "rachunek: MC ruiny vs wzór",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/ror_mc.py",
+    "cytat": "wr3/30: MC 5,7% vs wzór 6,0%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": true,
+  "przeglad": null,
+  "wielkosc": "ror.two",
+  "wartosc": 2,
+  "jednostka": "count",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Stała wzoru (ruch Browna z dryfem); atrybucja „Malmuth” nieodczytana."
+ },
+ {
+  "id": "n:skill.ahead",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "jak skill.hands: definicja przewagi umiejętności („outperform their less skilled counterparts more than 75 percent of the time”), porównanie najlepszego i najgorszego 1% graczy",
+  "zrodla": [
+   {
+    "adres": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0115479",
+    "miejsce": "sekcja symulacji",
+    "cytat": "In our simulations, skill predominates if the more skilled players outperform their less skilled counterparts more than 75 percent of the time.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "skill.ahead",
+  "wartosc": 0.75,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Źródło: „more than 75 percent”; tekst „w ok. 75%” — dopuszczalne."
+ },
+ {
+  "id": "n:skill.hands",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "van Loon, van den Assem i van Dolder (2015), Beyond Chance? The Persistence of Performance in Online Poker, PLoS ONE („skill dominates chance when performance is measured over 1,500 or more hands of play”)",
+  "zrodla": [
+   {
+    "adres": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0115479",
+    "miejsce": "abstrakt",
+    "cytat": "simulations point out that skill dominates chance when performance is measured over 1,500 or more hands of play.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0115479",
+    "miejsce": "sekcja symulacji",
+    "cytat": "is ahead 75 percent of the times is reached after 1,471 hands.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "skill.hands",
+  "wartosc": 1500,
+  "jednostka": "count",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "1,471 rąk przy mierze PRM; 2,139 przy mierze standardowej."
+ },
+ {
+  "id": "n:skill.pct",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "van Loon, van den Assem i van Dolder (2015): porównanie najlepszego i najgorszego percentyla (1%) graczy",
+  "zrodla": [
+   {
+    "adres": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0115479",
+    "miejsce": "sekcja symulacji",
+    "cytat": "the critical point where the best percentile of players (according to the performance robustness measure) is ahead 75 percent of the times",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "skill.pct",
+  "wartosc": 0.01,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:skill.sample.m",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "van Loon, van den Assem i van Dolder (2015): „76.9 million different hands” (456,1 mln obserwacji gracz–rozdanie)",
+  "zrodla": [
+   {
+    "adres": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0115479",
+    "miejsce": "sekcja danych",
+    "cytat": "the resulting raw data set contains a total of 76.9 million different hands.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "skill.sample.m",
+  "wartosc": 76.9,
+  "jednostka": "count",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:study.beginner",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "serwis szkoleniowy (Barry Carter o zdaniu Dary O'Kearneya), What should your study-to-play ratio be („Early on, it should be 80/20 in favour of study”)",
+  "zrodla": [
+   {
+    "adres": "https://www.pokerstrategy.com/news/content/What-should-your-study-to-play-ratio-be_130067/",
+    "miejsce": "artykuł",
+    "cytat": "Early on, it should be 80/20 in favour of study.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "study.beginner",
+  "wartosc": 0.8,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło; autor strony: Dara O'Kearney (pole source przypisuje tekst Barry'emu Carterowi — drobna poprawka atrybucji numbers.yaml:485)."
+ },
+ {
+  "id": "n:study.winner",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "jak study.beginner („the ideal would still be a 50/50 ratio”)",
+  "zrodla": [
+   {
+    "adres": "https://www.pokerstrategy.com/news/content/What-should-your-study-to-play-ratio-be_130067/",
+    "miejsce": "artykuł",
+    "cytat": "I'd say the ideal would still be a 50/50 ratio",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "study.winner",
+  "wartosc": 0.5,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Warunek ze źródła: „Once you are beating the games you are in” — zgodny z „gdy wygrywasz na swojej stawce”."
+ },
+ {
+  "id": "n:study.min",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "jak study.beginner („at a minimum never go under 20% study, 80% play”)",
+  "zrodla": [
+   {
+    "adres": "https://www.pokerstrategy.com/news/content/What-should-your-study-to-play-ratio-be_130067/",
+    "miejsce": "artykuł",
+    "cytat": "at a minimum never go under 20% study, 80% play.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "study.min",
+  "wartosc": 0.2,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:tilt.severe",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "Palomäki, Laakasuo, Cowley i Lappi (2020), Poker as a Domain of Expertise, Journal of Expertise 3(2), za Palomäki i in. (2014): „88% of poker players reported having tilted severely at least once within their last 6 months”",
+  "zrodla": [
+   {
+    "adres": "https://www.journalofexpertise.org/articles/volume3_issue2/JoE_3_2_Palomaki_etal.pdf",
+    "miejsce": "s. „Emotion regulation”, akapit o tilcie",
+    "cytat": "in an online study, 88% of poker players reported having tilted severely at least once within their last 6 months, 43% more than five times",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "tilt.severe",
+  "wartosc": 0.88,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Cytat wtórny (Palomäki i in., 2014) w recenzowanym przeglądzie; lekcja m12-l3:100 oddaje go wiernie."
+ },
+ {
+  "id": "n:tilt.types",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "Tendler i Carter, The Mental Game of Poker (2011), fragment „Tilt Profile” (fragment opublikowany online): siedem typów tiltu",
+  "zrodla": [
+   {
+    "adres": "https://www.thehendonmob.com/jared_tendler/mental_game_of_poker_excerpt_4_tilt_profile/",
+    "miejsce": "fragment „Tilt Profile”, „Seven Types of Tilt”",
+    "cytat": "Seven Types of Tilt The following list briefly describes the most common types of tilt: Running Bad Tilt ...",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://www.pokerstrategy.com/strategy/poker-psychology/breaking-down-7-tilt-types/1/",
+    "miejsce": "artykuł Tendlera",
+    "cytat": "I’ve found seven unique types of anger and each is resolved using a different approach.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "tilt.types",
+  "wartosc": 7,
+  "jednostka": "count",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Książka zaznacza, że „Running Bad Tilt … is not actually a unique type of tilt” — tabela lekcji m12-l3:108 oddaje to opisem, zgodnie."
+ },
+ {
+  "id": "n:var.sd",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "serwis z kalkulatorami pokerowymi, Examples and Impacts of Variance in Cash Games („A typical SD for 6-max NLH is 75-95 bb/100”, przykład z SD 80); magazyn pokoju online, Standard Deviation in Poker („usually around 80bb/100”)",
+  "zrodla": [
+   {
+    "adres": "https://www.primedope.com/examples-and-impacts-of-variance-in-cash-games/",
+    "miejsce": "sekcja SD",
+    "cytat": "A typical SD for 6-max NLH is 75-95 bb/100.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.primedope.com/examples-and-impacts-of-variance-in-cash-games/",
+    "miejsce": "przykład 1",
+    "cytat": "Parameters: 5 bb/100 win rate, 80 bb/100 SD, 100,000 hands",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.thepokerbank.com/articles/software/standard-deviation/",
+    "miejsce": "„What are low and high standard deviations”",
+    "cytat": "The majority of poker players' standard deviations lie between 35BB/100 and 50BB/100 (70bb/100 and 100bb/100).",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "var.sd",
+  "wartosc": 80,
+  "jednostka": "bb100",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "numbers.yaml:418: cytat „magazyn pokoju online, Standard Deviation in Poker („usually around 80bb/100”)” — nie znaleziono strony; zastąpić thepokerbank („between … (70bb/100 and 100bb/100)”) albo podać adres.",
+  "uwagi": "80 mieści się w przedziałach dwóch niezależnych źródeł szczebla 4; jako wartość odniesienia, nie pomiar."
+ },
+ {
+  "id": "n:var.sd.low",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "serwis z kalkulatorami pokerowymi, Poker Variance Calculator („In 6-max NLHE, 75 to 100 BB/100 is a reasonable default”)",
+  "zrodla": [
+   {
+    "adres": "https://www.primedope.com/poker-variance-calculator/",
+    "miejsce": "akapit o domyślnym SD",
+    "cytat": "In 6-max NLHE, 75 to 100 BB/100 is a reasonable default.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.thepokerbank.com/articles/software/standard-deviation/",
+    "miejsce": "jw.",
+    "cytat": "(70bb/100 and 100bb/100)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "var.sd.low",
+  "wartosc": 75,
+  "jednostka": "bb100",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Ta sama organizacja podaje też 75–95 (pd-var); przedział 75–100 mieści oba."
+ },
+ {
+  "id": "n:var.sd.high",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "serwis z kalkulatorami pokerowymi, Poker Variance Calculator („In 6-max NLHE, 75 to 100 BB/100 is a reasonable default”)",
+  "zrodla": [
+   {
+    "adres": "https://www.primedope.com/poker-variance-calculator/",
+    "miejsce": "akapit o domyślnym SD",
+    "cytat": "In 6-max NLHE, 75 to 100 BB/100 is a reasonable default.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://www.thepokerbank.com/articles/software/standard-deviation/",
+    "miejsce": "jw.",
+    "cytat": "(70bb/100 and 100bb/100)",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "var.sd.high",
+  "wartosc": 100,
+  "jednostka": "bb100",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:var.wr.typical.low",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "trener z blogiem szkoleniowym, Good Poker Win Rate For Small Stakes („the vast majority of winning poker players will be in the 1bb/100 to 3bb/100 range”)",
+  "zrodla": [
+   {
+    "adres": "https://www.blackrain79.com/2014/06/good-win-rates-for-micro-and-small_6.html",
+    "miejsce": "akapit po tabelach „elite”",
+    "cytat": "In fact, the vast majority of winning poker players will be in the 1bb/100 to 3bb/100 range, which is still very good",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "var.wr.typical.low",
+  "wartosc": 1,
+  "jednostka": "bb100",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jedno źródło nierachunkowe; kontekst strony: mikro i małe stawki."
+ },
+ {
+  "id": "n:var.wr.typical.high",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "jak var.wr.typical.low",
+  "zrodla": [
+   {
+    "adres": "https://www.blackrain79.com/2014/06/good-win-rates-for-micro-and-small_6.html",
+    "miejsce": "jw.",
+    "cytat": "the vast majority of winning poker players will be in the 1bb/100 to 3bb/100 range",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "var.wr.typical.high",
+  "wartosc": 3,
+  "jednostka": "bb100",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Jak var.wr.typical.low."
+ },
+ {
+  "id": "n:var.z95",
+  "rodzaj": "liczba",
+  "level": null,
+  "twierdzenie": "rozkład normalny: 95% wyników mieści się w ±1,96 odchylenia",
+  "zrodla": [
+   {
+    "adres": "rachunek: Φ⁻¹(0,975)",
+    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
+    "cytat": "NormalDist().inv_cdf(0.975) = 1,95996",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "var.z95",
+  "wartosc": 1.96,
+  "jednostka": "ratio",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "M12-L4-RAMKA",
+  "rodzaj": "regula",
+  "level": "rules",
+  "twierdzenie": "Poker na pieniądze to w Polsce gra hazardowa, dozwolona tylko dla osób pełnoletnich. Sygnały utraty kontroli: grasz dłużej, niż planowałeś; po przegranej wracasz, żeby odegrać straty; stawiasz pieniądze, których nie możesz stracić, albo pożyczasz na grę; grasz, żeby uciec od zmartwień; ukrywasz granie przed bliskimi. (m12-l4:149, bez numerów infolinii)",
+  "zrodla": [
+   {
+    "adres": "https://api.sejm.gov.pl/eli/acts/DU/2025/595/text.pdf",
+    "miejsce": "art. 1 ust. 2; art. 2 ust. 5a; art. 27 ust. 2",
+    "cytat": "Grami hazardowymi są gry losowe, zakłady wzajemne, gry w karty, gry na automatach. … W grach hazardowych, z wyjątkiem loterii fantowych oraz loterii promocyjnych, mogą uczestniczyć wyłącznie osoby, które ukończyły 18 lat.",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://www.apprenticeships.vic.gov.au/gambling-and-mental-health",
+    "miejsce": "lista sygnałów",
+    "cytat": "Spending more time or money than you meant to or you can afford. … Hiding your gambling from friends and family, or feeling ashamed or guilty about your gambling.",
+    "odczyt": "2026-11-04",
+    "szczebel": 3
+   },
+   {
+    "adres": "https://medlineplus.gov/ency/article/001520.htm",
+    "miejsce": "Symptoms (kryteria APA)",
+    "cytat": "Gambling to escape problems or feelings of sadness or anxiety. Gambling larger amounts of money to try to make back past losses.",
+    "odczyt": "2026-11-04",
+    "szczebel": 3
+   },
+   {
+    "adres": "https://www.nhs.uk/live-well/addiction-support/gambling-addiction/",
+    "miejsce": "pytania samooceny",
+    "cytat": "Do you bet more than you can afford to lose? … Have you borrowed money or sold anything to get money to gamble?",
+    "odczyt": "2026-11-04",
+    "szczebel": 3
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": true,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "„dozwolona tylko dla osób pełnoletnich” → „dozwolona tylko dla osób, które ukończyły 18 lat” (art. 27 ust. 2 u.g.h. mówi o wieku, nie o pełnoletności, którą można uzyskać wcześniej przez małżeństwo); art. 2 ust. 5a: poker jest grą w karty, gdy toczy się o nagrody pieniężne lub rzeczowe.",
+  "uwagi": "Wszystkie pięć sygnałów ma źródło szczebla 3 (instytucje zdrowia publicznego i rząd stanu Wiktoria): dłużej niż planowano (Wiktoria), odgrywanie (MedlinePlus/APA, NHS), pieniądze, których nie można stracić, i pożyczanie (NHS, Wiktoria, MedlinePlus), ucieczka od zmartwień (MedlinePlus), ukrywanie (Wiktoria, MedlinePlus: kłamstwa o czasie i pieniądzach). Zdanie prawne dotyczy tylko Polski; aplikacja nie ma storefrontu PL, a w innych krajach wiek i status prawny gry są inne (propozycja w raporcie). Numery infolinii: poza zakresem (inny weryfikator)."
+ }
+]

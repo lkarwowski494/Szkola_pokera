@@ -1,0 +1,215 @@
+id	url	odczyt	sha256_tekstu	cytat_znaleziony(tak/nie)	uwagi
+R-M0-001	https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf	2026-11-04	cd4e48eb5f85b20f1a1d016cb557a8de0f5cd32f00dca86c0535b53c071ef41d	tak	curl+oczyszczenie (pdftotext)
+R-M0-001	https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf	2026-11-04	3ce7e9c2408c7f8fc4df30b24431c1940ea2f5ac73fba23bafb2590466a594bc	tak	curl+oczyszczenie (pdftotext)
+R-M0-001	https://en.wikipedia.org/wiki/List_of_poker_hands	2026-11-04	b407ab7a03118be4fea3084fe0ac4308d82dc90b5290ec17350f65b8d681e074	tak	curl+oczyszczenie
+R-M0-002	https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf	2026-11-04	3ce7e9c2408c7f8fc4df30b24431c1940ea2f5ac73fba23bafb2590466a594bc	tak	curl+oczyszczenie (pdftotext)
+R-M0-002	https://briggsoft.com/docs/pmavens/Rules_Roberts.htm	2026-11-04	0c05e69d5a5a85e799ba1bd3817ce11ffa1e832983f58dc022fee737bfa5f183	tak	curl+oczyszczenie
+R-M0-002	https://briggsoft.com/docs/pmavens/Rules_Roberts.htm	2026-11-04	0c05e69d5a5a85e799ba1bd3817ce11ffa1e832983f58dc022fee737bfa5f183	tak	curl+oczyszczenie
+R-M0-002	https://en.wikipedia.org/wiki/List_of_poker_hands	2026-11-04	b407ab7a03118be4fea3084fe0ac4308d82dc90b5290ec17350f65b8d681e074	tak	curl+oczyszczenie
+R-M0-003	https://briggsoft.com/docs/pmavens/Rules_Roberts.htm	2026-11-04	0c05e69d5a5a85e799ba1bd3817ce11ffa1e832983f58dc022fee737bfa5f183	tak	curl+oczyszczenie
+R-M0-003	https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf	2026-11-04	cd4e48eb5f85b20f1a1d016cb557a8de0f5cd32f00dca86c0535b53c071ef41d	tak	curl+oczyszczenie (pdftotext)
+R-M0-003	https://en.wikipedia.org/wiki/Texas_hold_%27em	2026-11-04	f4ae2a343ee320d9dabf6f55d6f49a0118027c9328140daaaad4b020eb7c6c8f	tak	curl+oczyszczenie
+R-M1-001	https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf	2026-11-04	3ce7e9c2408c7f8fc4df30b24431c1940ea2f5ac73fba23bafb2590466a594bc	tak	curl+oczyszczenie (pdftotext)
+R-M1-001	https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf	2026-11-04	3ce7e9c2408c7f8fc4df30b24431c1940ea2f5ac73fba23bafb2590466a594bc	tak	curl+oczyszczenie (pdftotext)
+R-M1-001	https://briggsoft.com/docs/pmavens/Rules_Roberts.htm	2026-11-04	0c05e69d5a5a85e799ba1bd3817ce11ffa1e832983f58dc022fee737bfa5f183	tak	curl+oczyszczenie
+R-M1-002	rachunek: EV(czekanie) = equity × pula ≥ 0 = EV(pas), koszt czekania 0	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+R-M1-003	https://briggsoft.com/docs/pmavens/Rules_Roberts.htm	2026-11-04	0c05e69d5a5a85e799ba1bd3817ce11ffa1e832983f58dc022fee737bfa5f183	tak	curl+oczyszczenie
+R-M1-003	rachunek: strata przy pasie = wpłacone dotąd; sprawdzenie bez equity zwiększa stratę o kwotę sprawdzenia	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+R-M1-004	https://briggsoft.com/docs/pmavens/Rules_Roberts.htm	2026-11-04	0c05e69d5a5a85e799ba1bd3817ce11ffa1e832983f58dc022fee737bfa5f183	tak	curl+oczyszczenie
+R-M1-004	https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf	2026-11-04	cd4e48eb5f85b20f1a1d016cb557a8de0f5cd32f00dca86c0535b53c071ef41d	tak	curl+oczyszczenie (pdftotext)
+R-M1-004	https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf	2026-11-04	cd4e48eb5f85b20f1a1d016cb557a8de0f5cd32f00dca86c0535b53c071ef41d	tak	curl+oczyszczenie (pdftotext)
+R-M2-001	rachunek: outy = 13 − 4 = 9; P(turn) = 9/47; P(do rivera) = 1 − (38/47)(37/46)	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+R-M2-001	https://upswingpoker.com/poker-drawing-odds-outs-explained/	2026-11-04	4f83d85a136c1a0d802c9d823f19b4aebd8189d6f609d1aa0d0ca03115597d3b	tak	curl+oczyszczenie
+R-M2-002	rachunek: |2n − 100·n/47|, |2n − 100·n/46|, |4n − 100·(1 − C(47−n,2)/C(47,2))| dla n = 1…10	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+R-M2-002	https://upswingpoker.com/poker-drawing-odds-outs-explained/	2026-11-04	4f83d85a136c1a0d802c9d823f19b4aebd8189d6f609d1aa0d0ca03115597d3b	tak	curl+oczyszczenie
+R-M2-003	rachunek: bet/(pula + 2·bet), bet = 0,5·pula	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+R-M2-004	rachunek: bet/(pula + 2·bet), bet = pula	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+R-M2-005	rachunek: EV(call) = eq·(P + 2B) − B; EV < 0 ⇔ eq < B/(P + 2B)	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+R-M3-001	https://beyondgto.com/ranges/btn-open-6max-100bb	2026-11-04	c8b51773a790709e212dba314995cf3d4bea56d486cada640f035dcf5993f8b9	tak	curl+oczyszczenie
+R-M3-001	https://beyondgto.com/ranges/sb-open-6max-100bb	2026-11-04	ce71fcb1863406e9d632aec9e5a1cfd199b4cfe021dd2bb1f85c8eaf822f9170	tak	curl+oczyszczenie
+R-M3-001	https://upswingpoker.com/small-blind-poker-strategy-tips/	2026-11-04	f9b7c521182f2e648b9b6d650ac69d24f9114d261939b213bb4a5b776d51a86d	tak	curl+oczyszczenie
+R-M3-001	https://www.preflopwizard.app/blog/6-max-preflop-charts	2026-11-04	5807da8f3d3b0cee549398d4d6375515f7ae03f2bce26e3ea10047b9bfb5f26b	tak	curl+oczyszczenie
+R-M3-002	https://blog.gtowizard.com/preflop-range-morphology/	2026-11-04	1e34ce6134805e8f05e46bf3105a515b9c222e8016bcffbb3e00d044478e8622	tak	curl+oczyszczenie
+R-M3-002	https://beyondgto.com/ranges/lj-open-6max-100bb	2026-11-04	5d3bec8c4e488597f50c0141cc3dc953d9ebffafaa889e295c79a3d628986b46	tak	curl+oczyszczenie
+R-M3-002	https://www.preflopwizard.app/blog/6-max-preflop-charts	2026-11-04	5807da8f3d3b0cee549398d4d6375515f7ae03f2bce26e3ea10047b9bfb5f26b	tak	curl+oczyszczenie
+R-M3-002	https://gtogecko.com/blog/gto-preflop-strategy	2026-11-04	d4d0e532e69191d14412a6a2d1c521b6db81c1d536b71a149d7539ce4e7edde1	tak	curl+oczyszczenie
+R-M3-003	https://beyondgto.com/ranges/btn-open-6max-100bb	2026-11-04	c8b51773a790709e212dba314995cf3d4bea56d486cada640f035dcf5993f8b9	tak	curl+oczyszczenie
+R-M3-003	https://www.preflopwizard.app/blog/6-max-preflop-charts	2026-11-04	5807da8f3d3b0cee549398d4d6375515f7ae03f2bce26e3ea10047b9bfb5f26b	tak	curl+oczyszczenie
+R-M3-003	https://gtogecko.com/blog/gto-preflop-strategy	2026-11-04	d4d0e532e69191d14412a6a2d1c521b6db81c1d536b71a149d7539ce4e7edde1	tak	curl+oczyszczenie
+R-M3-004	https://beyondgto.com/ranges/lj-open-6max-100bb	2026-11-04	5d3bec8c4e488597f50c0141cc3dc953d9ebffafaa889e295c79a3d628986b46	tak	curl+oczyszczenie
+R-M3-004	https://beyondgto.com/ranges/sb-open-6max-100bb	2026-11-04	ce71fcb1863406e9d632aec9e5a1cfd199b4cfe021dd2bb1f85c8eaf822f9170	tak	curl+oczyszczenie
+R-M3-004	https://upswingpoker.com/why-limping-in-poker-is-bad/	2026-11-04	f6a7f92a7086503aed02ce05618f253df5ad5a700e3ff8c5d7510befe1df254d	tak	curl+oczyszczenie
+R-M3-004	https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics	2026-11-04	61d3a2e7d99a4dbd5e6a99ff00b37c5fab1d1195f582b7c9a4de8ca78e785ab0	tak	curl+oczyszczenie
+R-M3-004	https://upswingpoker.com/small-blind-poker-strategy-tips/	2026-11-04	f9b7c521182f2e648b9b6d650ac69d24f9114d261939b213bb4a5b776d51a86d	tak	curl+oczyszczenie
+R-M3-005	rachunek: equity ręki wobec losowej ręki, Monte Carlo 20 000 rozdań na rękę, wspólne losowania	2026-11-04	7dadd685e46b60d69c58359488323d3726db143b92229ee134495a6e1896d8fb	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/equity_m3_005.out
+R-M3-006	https://beyondgto.com/ranges/hj-open-6max-100bb	2026-11-04	bcefc64d9eb80f730e85731b3c963fdaabca4464aab924ee9ea9e1521cbbed80	tak	curl+oczyszczenie
+R-M3-006	https://beyondgto.com/ranges/co-open-6max-100bb	2026-11-04	d8c3cf855de588bef548126742357cd6af7c4288317cb13ed8ec751cf143c9ec	tak	curl+oczyszczenie
+R-M3-006	https://beyondgto.com/ranges/lj-open-6max-100bb	2026-11-04	5d3bec8c4e488597f50c0141cc3dc953d9ebffafaa889e295c79a3d628986b46	tak	curl+oczyszczenie
+R-M3-006	https://www.preflopwizard.app/blog/6-max-preflop-charts	2026-11-04	5807da8f3d3b0cee549398d4d6375515f7ae03f2bce26e3ea10047b9bfb5f26b	tak	curl+oczyszczenie
+R-M3-007	https://www.preflopwizard.app/blog/6-max-preflop-charts	2026-11-04	5807da8f3d3b0cee549398d4d6375515f7ae03f2bce26e3ea10047b9bfb5f26b	tak	curl+oczyszczenie
+R-M3-007	https://blog.gtowizard.com/preflop-range-morphology/	2026-11-04	1e34ce6134805e8f05e46bf3105a515b9c222e8016bcffbb3e00d044478e8622	tak	curl+oczyszczenie
+R-M3-008	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+R-M3-008	https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/	2026-11-04	adbc6b71d1590158601881c85f45db9914b35f41bcca37b2e04c3d745abd5b95	tak	curl+oczyszczenie
+R-M3-008	https://pokerpro.tools/preflop/3-bet-ranges	2026-11-04	c925544775070b7293de4c32430c7b5c4f48dfb82c642d372ffce052fdcd18ac	tak	curl+oczyszczenie
+R-M3-008	https://www.preflopwizard.app/blog/poker-utg-strategy	2026-11-04	0eee103227a9cc481b123496bd1dc562b5ff5c112b8746db4765db9699410dd9	tak	curl+oczyszczenie
+R-M3-009	https://beyondgto.com/ranges/sb-open-6max-100bb	2026-11-04	ce71fcb1863406e9d632aec9e5a1cfd199b4cfe021dd2bb1f85c8eaf822f9170	tak	curl+oczyszczenie
+R-M3-009	https://upswingpoker.com/small-blind-poker-strategy-tips/	2026-11-04	f9b7c521182f2e648b9b6d650ac69d24f9114d261939b213bb4a5b776d51a86d	tak	curl+oczyszczenie
+R-M3-009	https://www.preflopwizard.app/blog/6-max-preflop-charts	2026-11-04	5807da8f3d3b0cee549398d4d6375515f7ae03f2bce26e3ea10047b9bfb5f26b	tak	curl+oczyszczenie
+R-M3-009	https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics	2026-11-04	61d3a2e7d99a4dbd5e6a99ff00b37c5fab1d1195f582b7c9a4de8ca78e785ab0	tak	curl+oczyszczenie
+R-M3-009	https://docs.google.com/document/d/1UEH7qeIhJvaLdJxYfk8ju2-K9-_3p9tAd8SrInuO_ko	2026-11-04	6fc112a534eb648783a4fd259a2b45bd7eba56888edf4ec1cc9229f91907fe27	tak	curl+oczyszczenie ; Dysk read_file_content, jq .fileContent
+R-M3-010	https://preflopwizard.app/blog/9-max-preflop-chart	2026-11-04	31d135b961808ca2d690d44648c75175de94aeabb1ed87637b6c18302bdef9e2	tak	curl+oczyszczenie
+R-M3-010	https://about-poker.com/preflop-gto/preflop-range-chart-cash-game	2026-11-04	19d716b5f9ded65a9cc153470ea98f85ce949b9276007eea5f56dbf7e3609221	tak	curl+oczyszczenie
+R-M3-010	https://docs.google.com/document/d/1UEH7qeIhJvaLdJxYfk8ju2-K9-_3p9tAd8SrInuO_ko	2026-11-04	6fc112a534eb648783a4fd259a2b45bd7eba56888edf4ec1cc9229f91907fe27	tak	curl+oczyszczenie ; Dysk read_file_content, jq .fileContent
+R-M3-010	https://docs.google.com/document/d/1UEH7qeIhJvaLdJxYfk8ju2-K9-_3p9tAd8SrInuO_ko	2026-11-04	6fc112a534eb648783a4fd259a2b45bd7eba56888edf4ec1cc9229f91907fe27	tak	curl+oczyszczenie ; Dysk read_file_content, jq .fileContent
+R-M4-001	https://deepfold.co/en/blog/three-bet-strategy-guide	2026-11-04	244d5294bea86b3e235d1c4eadb17d5baf80de5824ece761ddfa6121e24241c4	tak	curl+oczyszczenie
+R-M4-001	https://upswingpoker.com/3-bet-strategy-aggressive-preflop/	2026-11-04	a567ad35eda29bbdb52ff3b0a87e5b45c0f22fe757b525b616c7d940db4a6a65	tak	curl+oczyszczenie
+R-M4-001	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+R-M4-001	https://pokerpro.tools/preflop/3-bet-ranges	2026-11-04	c925544775070b7293de4c32430c7b5c4f48dfb82c642d372ffce052fdcd18ac	tak	curl+oczyszczenie
+R-M4-002	https://deepfold.co/en/blog/three-bet-strategy-guide	2026-11-04	244d5294bea86b3e235d1c4eadb17d5baf80de5824ece761ddfa6121e24241c4	tak	curl+oczyszczenie
+R-M4-002	https://upswingpoker.com/3-bet-strategy-aggressive-preflop/	2026-11-04	a567ad35eda29bbdb52ff3b0a87e5b45c0f22fe757b525b616c7d940db4a6a65	tak	curl+oczyszczenie
+R-M4-002	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+R-M4-002	https://pokerpro.tools/preflop/3-bet-ranges	2026-11-04	c925544775070b7293de4c32430c7b5c4f48dfb82c642d372ffce052fdcd18ac	tak	curl+oczyszczenie
+R-M4-003	https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/	2026-11-04	12a87155415694b97f85c2078f1fcf3133835cfd569501f8b6b5ebd84cecb154	tak	curl+oczyszczenie
+R-M4-003	https://beyondgto.com/defense/sb-vs-btn	2026-11-04	aeadccfa5c42f76e29989c924df1b47455c309303a39b6f170bd821cc2cedf1b	tak	curl+oczyszczenie
+R-M4-003	https://upswingpoker.com/3-bet-strategy-aggressive-preflop/	2026-11-04	a567ad35eda29bbdb52ff3b0a87e5b45c0f22fe757b525b616c7d940db4a6a65	tak	curl+oczyszczenie
+R-M4-004	rachunek: dopłata/(pula po sprawdzeniu) = 1,5/(2,5 + 0,5 + 1 + 1,5)	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+R-M4-004	https://beyondgto.com/defense/bb-vs-btn	2026-11-04	df34a0a1b8257fcb7753df5670489e4721dfc28bbffcc3dc90b1611ecd6a2eda	tak	curl+oczyszczenie
+R-M4-004	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+R-M4-004	https://docs.google.com/document/d/1UEH7qeIhJvaLdJxYfk8ju2-K9-_3p9tAd8SrInuO_ko	2026-11-04	6fc112a534eb648783a4fd259a2b45bd7eba56888edf4ec1cc9229f91907fe27	tak	curl+oczyszczenie ; Dysk read_file_content, jq .fileContent
+R-M4-005	https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/	2026-11-04	adbc6b71d1590158601881c85f45db9914b35f41bcca37b2e04c3d745abd5b95	tak	curl+oczyszczenie
+R-M4-005	https://beyondgto.com/defense/btn-vs-co	2026-11-04	faeb1d7d40658d7ed8dac09d32ce496f6b4fd133f1726d56993836a85c52fd1a	tak	curl+oczyszczenie
+R-M4-005	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+R-M4-005	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+R-M4-005	https://deepfold.co/en/blog/three-bet-strategy-guide	2026-11-04	244d5294bea86b3e235d1c4eadb17d5baf80de5824ece761ddfa6121e24241c4	tak	curl+oczyszczenie
+R-M4-006	https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/	2026-11-04	12a87155415694b97f85c2078f1fcf3133835cfd569501f8b6b5ebd84cecb154	tak	curl+oczyszczenie
+R-M4-006	https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/	2026-11-04	12a87155415694b97f85c2078f1fcf3133835cfd569501f8b6b5ebd84cecb154	tak	curl+oczyszczenie
+R-M4-006	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+R-M4-006	https://beyondgto.com/defense/bb-vs-btn	2026-11-04	df34a0a1b8257fcb7753df5670489e4721dfc28bbffcc3dc90b1611ecd6a2eda	tak	curl+oczyszczenie ; cytat w atrybucie data-tip surowego HTML (siatka), nie w tekście
+R-M4-006	https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics	2026-11-04	61d3a2e7d99a4dbd5e6a99ff00b37c5fab1d1195f582b7c9a4de8ca78e785ab0	tak	curl+oczyszczenie
+R-M4-006	https://beyondgto.com/defense/bb-vs-sb	2026-11-04	f1133ffab0328c4ef67c53766a6f2eaa0d282873bbcb57730282b0a0661e2c94	tak	curl+oczyszczenie ; cytat w atrybucie data-tip surowego HTML (siatka), nie w tekście
+R-M4-006	https://blog.gtowizard.com/preflop-range-morphology/	2026-11-04	1e34ce6134805e8f05e46bf3105a515b9c222e8016bcffbb3e00d044478e8622	tak	curl+oczyszczenie
+R-M4-007	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+R-M4-007	https://pailiku.com/charts/co-vs-btn-3bet	2026-11-04	0688ad79b4a039700ed7f2df5353aa9f34743c1c6b9f50f2abb9ecbcf581571a	tak	curl+oczyszczenie
+R-M4-007	https://pailiku.com/charts	2026-11-04	2296ecdd8d01ab60deb20ac306c8d888d15764762c3ede0e6eb9286710fcc148	tak	curl+oczyszczenie
+R-M4-007	rachunek: pas CO = 1 − (38 + 82)/354; alpha = 7,5/(7,5 + 4)	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+R-M4-007	https://deepfold.co/en/blog/three-bet-strategy-guide	2026-11-04	244d5294bea86b3e235d1c4eadb17d5baf80de5824ece761ddfa6121e24241c4	tak	curl+oczyszczenie
+R-M4-008	https://deepfold.co/en/blog/three-bet-strategy-guide	2026-11-04	244d5294bea86b3e235d1c4eadb17d5baf80de5824ece761ddfa6121e24241c4	tak	curl+oczyszczenie
+R-M4-008	https://pailiku.com/charts/co-vs-btn-3bet	2026-11-04	0688ad79b4a039700ed7f2df5353aa9f34743c1c6b9f50f2abb9ecbcf581571a	tak	curl+oczyszczenie
+R-M4-008	https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/	2026-11-04	ebc210d5983f65048ad05ffd7604efb3de5a4631f069f81ef89581b7f47e8bbb	tak	curl+oczyszczenie
+R-M4-009	https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/	2026-11-04	ebc210d5983f65048ad05ffd7604efb3de5a4631f069f81ef89581b7f47e8bbb	tak	curl+oczyszczenie
+R-M4-009	https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/	2026-11-04	ebc210d5983f65048ad05ffd7604efb3de5a4631f069f81ef89581b7f47e8bbb	tak	curl+oczyszczenie
+R-M4-009	https://pailiku.com/charts/btn-vs-bb-3bet	2026-11-04	2da00a84730197f3de1a01e1d87269b04cf506bca85ce93eb5dc6a4faef1eed5	tak	curl+oczyszczenie
+R-M4-010	https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/	2026-11-04	ebc210d5983f65048ad05ffd7604efb3de5a4631f069f81ef89581b7f47e8bbb	tak	curl+oczyszczenie
+R-M4-010	https://deepfold.co/en/blog/three-bet-strategy-guide	2026-11-04	244d5294bea86b3e235d1c4eadb17d5baf80de5824ece761ddfa6121e24241c4	tak	curl+oczyszczenie
+R-M4-010	https://pailiku.com/charts/co-vs-btn-3bet	2026-11-04	0688ad79b4a039700ed7f2df5353aa9f34743c1c6b9f50f2abb9ecbcf581571a	tak	curl+oczyszczenie
+R-M4-011	https://deepfold.co/en/blog/three-bet-strategy-guide	2026-11-04	244d5294bea86b3e235d1c4eadb17d5baf80de5824ece761ddfa6121e24241c4	tak	curl+oczyszczenie
+R-M4-011	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+R-M4-011	rachunek: SPR = (100 − 4-bet)/(2·4-bet + martwe blindy)	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+R-M4-012	https://www.pokernews.com/strategy/10-tips-that-will-help-you-destroy-limpers-32206.htm	2026-11-04	ad3342776b0afe24cbac621fa29ab08a143abbde3775ffb88457a292ed0d84d2	tak	curl+oczyszczenie
+R-M4-012	https://www.preflopwizard.app/blog/poker-iso-raise-strategy	2026-11-04	96a01f8c970d8ffe6e5ebe2445e5496581df15f0f010839b124cf80bed556b82	tak	curl+oczyszczenie
+R-M4-012	https://www.preflopwizard.app/blog/poker-iso-raise-strategy	2026-11-04	96a01f8c970d8ffe6e5ebe2445e5496581df15f0f010839b124cf80bed556b82	tak	curl+oczyszczenie
+R-M4-013	https://www.preflopwizard.app/blog/poker-iso-raise-strategy	2026-11-04	96a01f8c970d8ffe6e5ebe2445e5496581df15f0f010839b124cf80bed556b82	tak	curl+oczyszczenie
+R-M4-013	https://www.pokernews.com/strategy/three-ways-to-respond-versus-a-table-full-of-limpers-26839.htm	2026-11-04	79c61d6de5253f40ff9190af11a898a97fdef09654c781277e61696c59778f6f	tak	curl+oczyszczenie
+R-M4-013	https://www.pokernews.com/strategy/10-tips-that-will-help-you-destroy-limpers-32206.htm	2026-11-04	ad3342776b0afe24cbac621fa29ab08a143abbde3775ffb88457a292ed0d84d2	tak	curl+oczyszczenie
+R-M4-013	https://www.preflopwizard.app/blog/poker-iso-raise-strategy	2026-11-04	96a01f8c970d8ffe6e5ebe2445e5496581df15f0f010839b124cf80bed556b82	tak	curl+oczyszczenie
+R-M4-014	rachunek: dopłata/(pula po sprawdzeniu) = 2/(3 + 1 + 2)	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+R-M4-014	https://beyondgto.com/defense/bb-vs-sb	2026-11-04	f1133ffab0328c4ef67c53766a6f2eaa0d282873bbcb57730282b0a0661e2c94	tak	curl+oczyszczenie
+R-M4-014	https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics	2026-11-04	61d3a2e7d99a4dbd5e6a99ff00b37c5fab1d1195f582b7c9a4de8ca78e785ab0	tak	curl+oczyszczenie
+R-M4-014	https://docs.google.com/document/d/1UEH7qeIhJvaLdJxYfk8ju2-K9-_3p9tAd8SrInuO_ko	2026-11-04	6fc112a534eb648783a4fd259a2b45bd7eba56888edf4ec1cc9229f91907fe27	tak	curl+oczyszczenie ; Dysk read_file_content, jq .fileContent
+n:format.stack	repo: content/ranges/preflop-6max-100bb.json	2026-11-04	87de777d1ccd7ae5a0e94d12d76becfffff769fd52506b6f90d3a1f22d5f3dff	tak	plik w repozytorium (parametr aplikacji)
+n:pf.3bet-freq.btn-vs-co.high	https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/	2026-11-04	adbc6b71d1590158601881c85f45db9914b35f41bcca37b2e04c3d745abd5b95	tak	curl+oczyszczenie
+n:pf.3bet-freq.btn-vs-co.high	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+n:pf.3bet-freq.btn-vs-co.low	https://beyondgto.com/defense/btn-vs-co	2026-11-04	faeb1d7d40658d7ed8dac09d32ce496f6b4fd133f1726d56993836a85c52fd1a	tak	curl+oczyszczenie
+n:pf.3bet-freq.btn-vs-utg	https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/	2026-11-04	adbc6b71d1590158601881c85f45db9914b35f41bcca37b2e04c3d745abd5b95	tak	curl+oczyszczenie
+n:pf.3bet-freq.sb-vs-btn	https://beyondgto.com/defense/sb-vs-btn	2026-11-04	aeadccfa5c42f76e29989c924df1b47455c309303a39b6f170bd821cc2cedf1b	tak	curl+oczyszczenie
+n:pf.3bet-freq.sb-vs-btn	https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/	2026-11-04	12a87155415694b97f85c2078f1fcf3133835cfd569501f8b6b5ebd84cecb154	tak	curl+oczyszczenie
+n:pf.3bet.size-ip	https://deepfold.co/en/blog/three-bet-strategy-guide	2026-11-04	244d5294bea86b3e235d1c4eadb17d5baf80de5824ece761ddfa6121e24241c4	tak	curl+oczyszczenie
+n:pf.3bet.size-ip	https://upswingpoker.com/3-bet-strategy-aggressive-preflop/	2026-11-04	a567ad35eda29bbdb52ff3b0a87e5b45c0f22fe757b525b616c7d940db4a6a65	tak	curl+oczyszczenie
+n:pf.3bet.size-ip	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+n:pf.3bet.size-oop	https://deepfold.co/en/blog/three-bet-strategy-guide	2026-11-04	244d5294bea86b3e235d1c4eadb17d5baf80de5824ece761ddfa6121e24241c4	tak	curl+oczyszczenie
+n:pf.3bet.size-oop	https://upswingpoker.com/3-bet-strategy-aggressive-preflop/	2026-11-04	a567ad35eda29bbdb52ff3b0a87e5b45c0f22fe757b525b616c7d940db4a6a65	tak	curl+oczyszczenie
+n:pf.3bet.size-oop	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+n:pf.4bet.size-ip.high	https://deepfold.co/en/blog/three-bet-strategy-guide	2026-11-04	244d5294bea86b3e235d1c4eadb17d5baf80de5824ece761ddfa6121e24241c4	tak	curl+oczyszczenie
+n:pf.4bet.size-ip.low	https://deepfold.co/en/blog/three-bet-strategy-guide	2026-11-04	244d5294bea86b3e235d1c4eadb17d5baf80de5824ece761ddfa6121e24241c4	tak	curl+oczyszczenie
+n:pf.4bet.size-oop.high	https://deepfold.co/en/blog/three-bet-strategy-guide	2026-11-04	244d5294bea86b3e235d1c4eadb17d5baf80de5824ece761ddfa6121e24241c4	tak	curl+oczyszczenie
+n:pf.4bet.size-oop.low	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+n:pf.4bet.size-oop.low	rachunek: 17,2/7,5	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+n:pf.4bet.size-oop.low	https://deepfold.co/en/blog/three-bet-strategy-guide	2026-11-04	244d5294bea86b3e235d1c4eadb17d5baf80de5824ece761ddfa6121e24241c4	tak	curl+oczyszczenie
+n:pf.bb-def.vs-btn.pub.high	https://gtogecko.com/blog/gto-preflop-strategy	2026-11-04	d4d0e532e69191d14412a6a2d1c521b6db81c1d536b71a149d7539ce4e7edde1	tak	curl+oczyszczenie
+n:pf.bb-def.vs-btn.pub.high	https://beyondgto.com/defense/bb-vs-btn	2026-11-04	df34a0a1b8257fcb7753df5670489e4721dfc28bbffcc3dc90b1611ecd6a2eda	tak	curl+oczyszczenie
+n:pf.bb-def.vs-btn.pub.high	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+n:pf.bb-def.vs-btn.pub.low	https://gtogecko.com/blog/gto-preflop-strategy	2026-11-04	d4d0e532e69191d14412a6a2d1c521b6db81c1d536b71a149d7539ce4e7edde1	tak	curl+oczyszczenie
+n:pf.bb-def.vs-btn.pub.low	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+n:pf.bb-def.vs-sb.pub	https://beyondgto.com/defense/bb-vs-sb	2026-11-04	f1133ffab0328c4ef67c53766a6f2eaa0d282873bbcb57730282b0a0661e2c94	tak	curl+oczyszczenie
+n:pf.bb-def.vs-sb.pub	https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics	2026-11-04	61d3a2e7d99a4dbd5e6a99ff00b37c5fab1d1195f582b7c9a4de8ca78e785ab0	tak	curl+oczyszczenie
+n:pf.call-freq.btn-vs-co.high	https://beyondgto.com/defense/btn-vs-co	2026-11-04	faeb1d7d40658d7ed8dac09d32ce496f6b4fd133f1726d56993836a85c52fd1a	tak	curl+oczyszczenie
+n:pf.call-freq.btn-vs-co.low	https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/	2026-11-04	adbc6b71d1590158601881c85f45db9914b35f41bcca37b2e04c3d745abd5b95	tak	curl+oczyszczenie
+n:pf.call-freq.btn-vs-co.low	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+n:pf.call-freq.btn-vs-utg	https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/	2026-11-04	adbc6b71d1590158601881c85f45db9914b35f41bcca37b2e04c3d745abd5b95	tak	curl+oczyszczenie
+n:pf.iso.base	https://www.pokernews.com/strategy/10-tips-that-will-help-you-destroy-limpers-32206.htm	2026-11-04	ad3342776b0afe24cbac621fa29ab08a143abbde3775ffb88457a292ed0d84d2	tak	curl+oczyszczenie
+n:pf.iso.base	https://www.preflopwizard.app/blog/poker-iso-raise-strategy	2026-11-04	96a01f8c970d8ffe6e5ebe2445e5496581df15f0f010839b124cf80bed556b82	tak	curl+oczyszczenie
+n:pf.iso.btn.high	https://www.preflopwizard.app/blog/poker-iso-raise-strategy	2026-11-04	96a01f8c970d8ffe6e5ebe2445e5496581df15f0f010839b124cf80bed556b82	tak	curl+oczyszczenie
+n:pf.iso.btn.low	https://www.preflopwizard.app/blog/poker-iso-raise-strategy	2026-11-04	96a01f8c970d8ffe6e5ebe2445e5496581df15f0f010839b124cf80bed556b82	tak	curl+oczyszczenie
+n:pf.iso.oop-extra	https://www.preflopwizard.app/blog/poker-iso-raise-strategy	2026-11-04	96a01f8c970d8ffe6e5ebe2445e5496581df15f0f010839b124cf80bed556b82	tak	curl+oczyszczenie
+n:pf.iso.per-limper	https://www.pokernews.com/strategy/10-tips-that-will-help-you-destroy-limpers-32206.htm	2026-11-04	ad3342776b0afe24cbac621fa29ab08a143abbde3775ffb88457a292ed0d84d2	tak	curl+oczyszczenie
+n:pf.iso.per-limper	https://www.preflopwizard.app/blog/poker-iso-raise-strategy	2026-11-04	96a01f8c970d8ffe6e5ebe2445e5496581df15f0f010839b124cf80bed556b82	tak	curl+oczyszczenie
+n:pf.open-size	https://www.preflopwizard.app/blog/6-max-preflop-charts	2026-11-04	5807da8f3d3b0cee549398d4d6375515f7ae03f2bce26e3ea10047b9bfb5f26b	tak	curl+oczyszczenie
+n:pf.open-size	https://blog.gtowizard.com/preflop-range-morphology/	2026-11-04	1e34ce6134805e8f05e46bf3105a515b9c222e8016bcffbb3e00d044478e8622	tak	curl+oczyszczenie
+n:pf.open-size-sb	https://www.preflopwizard.app/blog/6-max-preflop-charts	2026-11-04	5807da8f3d3b0cee549398d4d6375515f7ae03f2bce26e3ea10047b9bfb5f26b	tak	curl+oczyszczenie
+n:pf.open-size-sb	https://blog.gtowizard.com/preflop-range-morphology/	2026-11-04	1e34ce6134805e8f05e46bf3105a515b9c222e8016bcffbb3e00d044478e8622	tak	curl+oczyszczenie
+n:pf.open-size.solver-co	https://blog.gtowizard.com/preflop-range-morphology/	2026-11-04	1e34ce6134805e8f05e46bf3105a515b9c222e8016bcffbb3e00d044478e8622	tak	curl+oczyszczenie
+n:pf.open-size.solver-utg	https://blog.gtowizard.com/preflop-range-morphology/	2026-11-04	1e34ce6134805e8f05e46bf3105a515b9c222e8016bcffbb3e00d044478e8622	tak	curl+oczyszczenie
+n:pf.rfi.btn.high	https://beyondgto.com/ranges/btn-open-6max-100bb	2026-11-04	c8b51773a790709e212dba314995cf3d4bea56d486cada640f035dcf5993f8b9	tak	curl+oczyszczenie
+n:pf.rfi.btn.high	https://www.preflopwizard.app/blog/6-max-preflop-charts	2026-11-04	5807da8f3d3b0cee549398d4d6375515f7ae03f2bce26e3ea10047b9bfb5f26b	tak	curl+oczyszczenie
+n:pf.rfi.btn.high	https://gtogecko.com/blog/gto-preflop-strategy	2026-11-04	d4d0e532e69191d14412a6a2d1c521b6db81c1d536b71a149d7539ce4e7edde1	tak	curl+oczyszczenie
+n:pf.rfi.btn.low	https://beyondgto.com/ranges/btn-open-6max-100bb	2026-11-04	c8b51773a790709e212dba314995cf3d4bea56d486cada640f035dcf5993f8b9	tak	curl+oczyszczenie
+n:pf.rfi.btn.low	https://www.preflopwizard.app/blog/6-max-preflop-charts	2026-11-04	5807da8f3d3b0cee549398d4d6375515f7ae03f2bce26e3ea10047b9bfb5f26b	tak	curl+oczyszczenie
+n:pf.rfi.btn.low	https://gtogecko.com/blog/gto-preflop-strategy	2026-11-04	d4d0e532e69191d14412a6a2d1c521b6db81c1d536b71a149d7539ce4e7edde1	tak	curl+oczyszczenie
+n:pf.rfi.sb.high	https://beyondgto.com/ranges/sb-open-6max-100bb	2026-11-04	ce71fcb1863406e9d632aec9e5a1cfd199b4cfe021dd2bb1f85c8eaf822f9170	tak	curl+oczyszczenie
+n:pf.rfi.sb.high	https://upswingpoker.com/small-blind-poker-strategy-tips/	2026-11-04	f9b7c521182f2e648b9b6d650ac69d24f9114d261939b213bb4a5b776d51a86d	tak	curl+oczyszczenie
+n:pf.rfi.sb.high	https://www.preflopwizard.app/blog/6-max-preflop-charts	2026-11-04	5807da8f3d3b0cee549398d4d6375515f7ae03f2bce26e3ea10047b9bfb5f26b	tak	curl+oczyszczenie
+n:pf.rfi.sb.low	https://beyondgto.com/ranges/sb-open-6max-100bb	2026-11-04	ce71fcb1863406e9d632aec9e5a1cfd199b4cfe021dd2bb1f85c8eaf822f9170	tak	curl+oczyszczenie
+n:pf.rfi.sb.low	https://upswingpoker.com/small-blind-poker-strategy-tips/	2026-11-04	f9b7c521182f2e648b9b6d650ac69d24f9114d261939b213bb4a5b776d51a86d	tak	curl+oczyszczenie
+n:pf.rfi.sb.low	https://www.preflopwizard.app/blog/6-max-preflop-charts	2026-11-04	5807da8f3d3b0cee549398d4d6375515f7ae03f2bce26e3ea10047b9bfb5f26b	tak	curl+oczyszczenie
+n:pf.rfi.utg.high	https://blog.gtowizard.com/preflop-range-morphology/	2026-11-04	1e34ce6134805e8f05e46bf3105a515b9c222e8016bcffbb3e00d044478e8622	tak	curl+oczyszczenie
+n:pf.rfi.utg.high	https://beyondgto.com/ranges/lj-open-6max-100bb	2026-11-04	5d3bec8c4e488597f50c0141cc3dc953d9ebffafaa889e295c79a3d628986b46	tak	curl+oczyszczenie
+n:pf.rfi.utg.high	https://www.preflopwizard.app/blog/6-max-preflop-charts	2026-11-04	5807da8f3d3b0cee549398d4d6375515f7ae03f2bce26e3ea10047b9bfb5f26b	tak	curl+oczyszczenie
+n:pf.rfi.utg.high	https://gtogecko.com/blog/gto-preflop-strategy	2026-11-04	d4d0e532e69191d14412a6a2d1c521b6db81c1d536b71a149d7539ce4e7edde1	tak	curl+oczyszczenie
+n:pf.rfi.utg.low	https://blog.gtowizard.com/preflop-range-morphology/	2026-11-04	1e34ce6134805e8f05e46bf3105a515b9c222e8016bcffbb3e00d044478e8622	tak	curl+oczyszczenie
+n:pf.rfi.utg.low	https://beyondgto.com/ranges/lj-open-6max-100bb	2026-11-04	5d3bec8c4e488597f50c0141cc3dc953d9ebffafaa889e295c79a3d628986b46	tak	curl+oczyszczenie
+n:pf.rfi.utg.low	https://www.preflopwizard.app/blog/6-max-preflop-charts	2026-11-04	5807da8f3d3b0cee549398d4d6375515f7ae03f2bce26e3ea10047b9bfb5f26b	tak	curl+oczyszczenie
+n:pf.rfi.utg.low	https://gtogecko.com/blog/gto-preflop-strategy	2026-11-04	d4d0e532e69191d14412a6a2d1c521b6db81c1d536b71a149d7539ce4e7edde1	tak	curl+oczyszczenie
+n:pf.vs3bet.fold.high	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+n:pf.vs3bet.fold.high	https://pailiku.com/charts/co-vs-btn-3bet	2026-11-04	0688ad79b4a039700ed7f2df5353aa9f34743c1c6b9f50f2abb9ecbcf581571a	tak	curl+oczyszczenie
+n:pf.vs3bet.fold.high	rachunek: 38/354, 82/354, 1 − 120/354	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+n:pf.vs3bet.fold.low	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+n:pf.vs3bet.fold.low	https://pailiku.com/charts/co-vs-btn-3bet	2026-11-04	0688ad79b4a039700ed7f2df5353aa9f34743c1c6b9f50f2abb9ecbcf581571a	tak	curl+oczyszczenie
+n:pf.vs3bet.fold.low	rachunek: 38/354, 82/354, 1 − 120/354	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+n:pf.vs3bet.call.high	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+n:pf.vs3bet.call.high	https://pailiku.com/charts/co-vs-btn-3bet	2026-11-04	0688ad79b4a039700ed7f2df5353aa9f34743c1c6b9f50f2abb9ecbcf581571a	tak	curl+oczyszczenie
+n:pf.vs3bet.call.high	rachunek: 38/354, 82/354, 1 − 120/354	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+n:pf.vs3bet.call.low	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+n:pf.vs3bet.call.low	https://pailiku.com/charts/co-vs-btn-3bet	2026-11-04	0688ad79b4a039700ed7f2df5353aa9f34743c1c6b9f50f2abb9ecbcf581571a	tak	curl+oczyszczenie
+n:pf.vs3bet.call.low	rachunek: 38/354, 82/354, 1 − 120/354	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+n:pf.vs3bet.4bet.high	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+n:pf.vs3bet.4bet.high	https://pailiku.com/charts/co-vs-btn-3bet	2026-11-04	0688ad79b4a039700ed7f2df5353aa9f34743c1c6b9f50f2abb9ecbcf581571a	tak	curl+oczyszczenie
+n:pf.vs3bet.4bet.high	rachunek: 38/354, 82/354, 1 − 120/354	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+n:pf.vs3bet.4bet.low	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+n:pf.vs3bet.4bet.low	https://pailiku.com/charts/co-vs-btn-3bet	2026-11-04	0688ad79b4a039700ed7f2df5353aa9f34743c1c6b9f50f2abb9ecbcf581571a	tak	curl+oczyszczenie
+n:pf.vs3bet.4bet.low	rachunek: 38/354, 82/354, 1 − 120/354	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+n:pf.vs3bet.pub1.4bet	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+n:pf.vs3bet.pub1.call	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+n:pf.vs3bet.pub1.fold	https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide	2026-11-04	69a6f463da2ca1aa2c249e99708e7ce2097aac0ea41919d42ae03960cbc0f6da	tak	curl+oczyszczenie
+n:pf.vs3bet.pub2.4bet	https://pailiku.com/charts/co-vs-btn-3bet	2026-11-04	0688ad79b4a039700ed7f2df5353aa9f34743c1c6b9f50f2abb9ecbcf581571a	tak	curl+oczyszczenie
+n:pf.vs3bet.pub2.4bet	https://pailiku.com/charts	2026-11-04	2296ecdd8d01ab60deb20ac306c8d888d15764762c3ede0e6eb9286710fcc148	tak	curl+oczyszczenie
+n:pf.vs3bet.pub2.4bet	rachunek: 38/354, 82/354, 1 − 120/354	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+n:pf.vs3bet.pub2.call	https://pailiku.com/charts/co-vs-btn-3bet	2026-11-04	0688ad79b4a039700ed7f2df5353aa9f34743c1c6b9f50f2abb9ecbcf581571a	tak	curl+oczyszczenie
+n:pf.vs3bet.pub2.call	https://pailiku.com/charts	2026-11-04	2296ecdd8d01ab60deb20ac306c8d888d15764762c3ede0e6eb9286710fcc148	tak	curl+oczyszczenie
+n:pf.vs3bet.pub2.call	rachunek: 38/354, 82/354, 1 − 120/354	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+n:pf.vs3bet.pub2.fold	https://pailiku.com/charts/co-vs-btn-3bet	2026-11-04	0688ad79b4a039700ed7f2df5353aa9f34743c1c6b9f50f2abb9ecbcf581571a	tak	curl+oczyszczenie
+n:pf.vs3bet.pub2.fold	https://pailiku.com/charts	2026-11-04	2296ecdd8d01ab60deb20ac306c8d888d15764762c3ede0e6eb9286710fcc148	tak	curl+oczyszczenie
+n:pf.vs3bet.pub2.fold	rachunek: 38/354, 82/354, 1 − 120/354	2026-11-04	e973fa816d95afd798950a5be476863b75fc3595eecb62ba6eb38eba84109a99	tak	rachunek; sha256 = skrypt; wynik w /tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.out
+n:range.mixed.high	repo: apps/mobile/src/features/drills/thresholds.ts	2026-11-04	4d6d0d7385a10f0924ec2391910494692776f875477f625799d116cfae73f04e	tak	plik w repozytorium (parametr aplikacji)
+n:range.mixed.low	repo: apps/mobile/src/features/drills/thresholds.ts	2026-11-04	4d6d0d7385a10f0924ec2391910494692776f875477f625799d116cfae73f04e	tak	plik w repozytorium (parametr aplikacji)
+n:range.mixed.min	https://help.gtowizard.com/measure-performance/	2026-11-04	2ed6cf0a81032aa0b98838032246f9b6b33aea1bccd67ca4ebb5f3812949356f	tak	curl+oczyszczenie
+n:range.mixed.min	repo: apps/mobile/src/features/drills/thresholds.ts	2026-11-04	4d6d0d7385a10f0924ec2391910494692776f875477f625799d116cfae73f04e	tak	plik w repozytorium (parametr aplikacji)
