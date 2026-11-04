@@ -2244,5 +2244,30 @@
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
   "uwagi": "Źródło podaje 3,2x; 3 to zaokrąglenie w dół przyjęte w D-29 („ok. 3–4,5”). Tekst używa „ok.”, więc zgodne."
+ },
+ {
+  "id": "n:cbet.oop.a94.check",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "cbet.oop.a94.check = 0.96 [percent]: na A94r (CO vs BTN, c-bet bez pozycji) czekasz ponad 96% razy",
+  "zrodla": [
+   {
+    "adres": "https://pokercoaching.com/blog/c-bet-on-ace-high-boards/",
+    "miejsce": "przykład A94r",
+    "cytat": "That being said, we will check over 96% of the time.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "cbet.oop.a94.check",
+  "wartosc": 0.96,
+  "jednostka": "percent",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "poprawka": "źródło: „over 96%” — w treści „ponad 96%”, nie „96%”",
+  "uwagi": "odczyt sesji koordynującej (curl, cytat dosłowny)"
  }
 ]

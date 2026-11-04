@@ -796,14 +796,14 @@
   ],
   "status": "potwierdzone",
   "uproszczenie": null,
-  "krytyczne": true,
+  "krytyczne": false,
   "przeglad": null,
   "wielkosc": "br.bi.src-high",
   "wartosc": 100,
   "jednostka": "count",
   "werdykt_tekstu": "CZĘŚCIOWO",
   "poprawka": "numbers.yaml:460: źródło cytatu to PokerListings, „Poker Bankroll Management Strategy” (pokerlistings.com/poker-strategies/bankroll-management), a nie serwis z dokumentu 12 (Upswing nie ma tego cytatu; Upswing podaje 50).",
-  "uwagi": "Wartość i cytat dosłowne; błędna atrybucja w dokumencie 12 (D-M12-07)."
+  "uwagi": "Wartość i cytat dosłowne; błędna atrybucja w dokumencie 12 (D-M12-07). | D-145: liczba atrybucji (co podaje źródło), nie próg zalecenia; zalecenie krytyczne stoi na rachunku RoR"
  },
  {
   "id": "n:br.bi.src-low",
@@ -821,14 +821,14 @@
   ],
   "status": "potwierdzone",
   "uproszczenie": null,
-  "krytyczne": true,
+  "krytyczne": false,
   "przeglad": null,
   "wielkosc": "br.bi.src-low",
   "wartosc": 20,
   "jednostka": "count",
   "werdykt_tekstu": "CZĘŚCIOWO",
   "poprawka": "numbers.yaml:459: zastąpić nieodczytany cytat SplitSuit (HTTP 403) cytatem Primedope „Cash games at a 5% risk of ruin need 20 buy-ins at NL10 (where edges are larger)” albo ponowić odczyt SplitSuit.",
-  "uwagi": "Strona SplitSuit niedostępna (403) pod trzema adresami; wartość 20 poparta zamiennikiem szczebla 4 (jedno źródło)."
+  "uwagi": "Strona SplitSuit niedostępna (403) pod trzema adresami; wartość 20 poparta zamiennikiem szczebla 4 (jedno źródło). | D-145: liczba atrybucji (co podaje źródło), nie próg zalecenia; zalecenie krytyczne stoi na rachunku RoR"
  },
  {
   "id": "n:dd.bi.small",

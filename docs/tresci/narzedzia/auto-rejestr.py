@@ -7,6 +7,12 @@ import json, sys, yaml
 num = yaml.safe_load(open('content/numbers.yaml', encoding='utf-8'))
 DZIS = '2026-11-04'; DOWOD = 'docs/tresci/odczyty/rachunek-2026-11-04.txt'
 tw, bez = [], []
+# Parametry produktowe (D-145): wartości decyzji projektu, nie twierdzenia o świecie; tekst musi je nazywać ustawieniem aplikacji.
+PARAMETRY = {'format.stack': 'parametr produktowy: format główny cash 6-max 100bb (ADR-01 rejestru 03)',
+  'range.mixed.low': 'parametr produktowy L = 0,25 (RD-11, ADR-26 rejestru 03); źródło S-06 go nie zna',
+  'range.mixed.high': 'parametr produktowy (RD-11, ADR-26 rejestru 03)',
+  'game.recall.count': 'parametr produktowy: wartość startowa bez źródła (D-M13-13, dokument 12)',
+  'game.recall.days': 'parametr produktowy: wartość startowa bez źródła (D-M13-13, dokument 12)'}
 def wpis(k, e, zr, status='potwierdzone', upr=None, uwagi=''):
     return {'id': f'n:{k}', 'rodzaj': 'liczba', 'level': 'math', 'twierdzenie': f"{k} = {e.get('value', '(formuła ' + str(e.get('formula')) + ')')} [{e.get('unit')}]; {e.get('source', '')}",
             'zrodla': zr, 'status': status, 'uproszczenie': upr, 'krytyczne': False, 'przeglad': None,
@@ -23,6 +29,10 @@ for k, e in num.items():
     elif src.startswith(('obliczenie', 'kombinatoryka', 'zasady', 'definicja')):
         tw.append(wpis(k, e, [{'adres': f'rachunek: {src}', 'miejsce': 'content/numbers.yaml', 'cytat': src[:250], 'odczyt': DZIS, 'szczebel': 1}],
                        uwagi='zasady gry: regulamin potwierdza partia M0–M4 (Robert\'s Rules, TDA)' if src.startswith('zasady') else ''))
+    elif k in PARAMETRY:
+        bez.append({'klucz': k, 'wartosc': e.get('value'), 'jednostka': e.get('unit'), 'powod': PARAMETRY[k], 'source': src[:120]})
+    elif src.startswith(('stała pomocnicza', 'liczba ulic')):
+        bez.append({'klucz': k, 'wartosc': e.get('value'), 'jednostka': e.get('unit'), 'powod': 'stała pomocnicza rachunku albo definicja zadania, nie twierdzenie', 'source': src[:120]})
     elif src.startswith('przykład'):
         bez.append({'klucz': k, 'wartosc': e.get('value'), 'jednostka': e.get('unit'), 'powod': 'dane zadania (przykład), nie twierdzenie o świecie', 'source': src[:120]})
 json.dump(tw, open('docs/tresci/rejestr/auto.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)

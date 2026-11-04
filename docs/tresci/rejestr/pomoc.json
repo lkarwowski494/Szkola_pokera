@@ -1,0 +1,1716 @@
+[
+  {
+    "id": "H-US-1",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (USA) → National Problem Gambling Helpline 1-800-MY-RESET (1-800-697-3738), telefon, SMS i czat, całą dobę 7 dni; bez opłat za usługę (SMS wg taryfy operatora); tłumaczenie na ponad 240 języków; operator: National Council on Problem Gambling",
+    "zrodla": [
+      {
+        "adres": "https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/",
+        "miejsce": "akapit wstępny",
+        "cytat": "The National Problem Gambling Helpline™ (1-800-MY-RESET) is operated by the National Council on Problem Gambling.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/",
+        "miejsce": "akapit o sieci",
+        "cytat": "The National Problem Gambling Helpline™ offers call, text and chat services 24/7/365.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/",
+        "miejsce": "FAQ „Is it free”",
+        "cytat": "No payment or insurance information is required to receive resources from 1-800-MY-RESET. However, standard data rates from telecommunication mobile carriers may apply to those who text the helpline.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/",
+        "miejsce": "FAQ „What languages”",
+        "cytat": "1-800-MY-RESET uses Language Line Solutions to provide caller translation services in more than 240 languages.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/",
+        "miejsce": "stopka, warunki SMS",
+        "cytat": "By texting the National Problem Gambling Helpline ( 1-800-522-4700 or 1-800-697-3738 )",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Numer cyfrowy 1-800-697-3738 potwierdzony w stopce (SMS Terms); 1-800-522-4700 to dawny numer tej samej linii. Źródło nie mówi „free” wprost: „No payment or insurance information is required” — w aplikacji pisać „bez opłat za usługę”, nie „bezpłatne połączenie”. 1-800-GAMBLER (S-42) to linia prowadzona od 2025 r. przez CCGNJ (New Jersey) — nie mylić z linią krajową NCPG; nie dodawać do aplikacji.",
+    "kraj": "US",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-US-2",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Kryzys psychiczny, myśli samobójcze (USA) → 988 Suicide & Crisis Lifeline: telefon, SMS lub czat 988, całą dobę, bezpłatnie i poufnie; linia hazardowa NCPG nie jest linią kryzysową",
+    "zrodla": [
+      {
+        "adres": "https://988lifeline.org/",
+        "miejsce": "strona główna, „What to Expect”",
+        "cytat": "The 988 Lifeline is available 24/7/365. Your conversations are free and confidential.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/",
+        "miejsce": "FAQ „designed for emergencies”",
+        "cytat": "1-800-MY-RESET is not a crisis hotline designed for emergency services. If you or a loved one is in crisis, please call 911 or 988.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "",
+    "kraj": "US",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-US-3",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Bezpośrednie zagrożenie życia (USA) → 911",
+    "zrodla": [
+      {
+        "adres": "https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/",
+        "miejsce": "FAQ „designed for emergencies”",
+        "cytat": "If you or a loved one is in crisis, please call 911 or 988.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "911.gov zwrócił 403; źródło: operator infolinii (NCPG). Numer 911 jest powszechnie znany, ale cytat urzędowy (911.gov) do uzupełnienia przy następnym przeglądzie.",
+    "kraj": "US",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-GB-1",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Anglia, Szkocja; także Irlandia Płn.) → National Gambling Helpline 0808 8020 133, bezpłatnie, całą dobę 7 dni; operator: GamCare",
+    "zrodla": [
+      {
+        "adres": "https://www.gamblingcommission.gov.uk/",
+        "miejsce": "stopka „Help and support”",
+        "cytat": "Call 0808 8020 133 in England and Scotland or 0808 2819 265 in Wales 24 hours a day, 7 days a week",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.gamblingcommission.gov.uk/",
+        "miejsce": "sekcja „Help and support”",
+        "cytat": "England and Scotland: 0808 8020 133 Wales: 0808 2819 265 Free of charge, 24 hours a day, 7 days a week.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.nhs.uk/live-well/addiction-support/gambling-addiction/",
+        "miejsce": "Charities and support services",
+        "cytat": "The National Gambling Helpline (run by GamCare ) - call 0808 8020 133 for free 24 hours a day, 7 days a week",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.nidirect.gov.uk/articles/gambling",
+        "miejsce": "Support available",
+        "cytat": "Gambling support: call free on 0808 8020 133",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Regulator (Gambling Commission) podaje numer dla Anglii i Szkocji; nidirect (rząd Irlandii Płn.) też go wymienia, bez godzin. gamcare.org.uk: 403 (odczyt niemożliwy).",
+    "kraj": "GB",
+    "region": [
+      "GB-ENG",
+      "GB-SCT",
+      "GB-NIR"
+    ],
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-GB-2",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Walia) → NHS Wales: całodobowa linia 0808 281 9265, bezpłatna z telefonu stacjonarnego i komórkowego (także bez środków na koncie); operator: Betsi Cadwaladr University Health Board (All Wales Gambling Treatment Service, od 1.04.2026)",
+    "zrodla": [
+      {
+        "adres": "https://www.gamblingcommission.gov.uk/",
+        "miejsce": "sekcja „Help and support”",
+        "cytat": "contact the National Gambling or NHS Wales Helplines",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://bcuhb.nhs.wales/news/2026/a-new-gambling-treatment-service-and-247-helpline-is-going-live-for-people-across-wales/",
+        "miejsce": "komunikat 31.03.2026, „Access routes”",
+        "cytat": "24/7 Helpline Telephone: 0808 281 9265. The number is free to call from a landline or mobile, even when the caller has no credit left.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://bcuhb.nhs.wales/news/2026/a-new-gambling-treatment-service-and-247-helpline-is-going-live-for-people-across-wales/",
+        "miejsce": "komunikat 31.03.2026",
+        "cytat": "Betsi Cadwaladr University Health Board (BCUHB) is providing the new All Wales Gambling Treatment Service and 24/7 Helpline",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Zapis 0808 2819 265 (Gambling Commission, BRD S-41) i 0808 281 9265 (BCUHB) to ten sam numer. Nowa usługa (kwiecień 2026) — przegląd za 6 mies. zalecany.",
+    "kraj": "GB",
+    "region": [
+      "GB-WLS"
+    ],
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-GB-3",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Irlandia Płn.) → Dunlewey Helpline 08000 886 725, bezpłatnie: informacja o poradnictwie i wsparciu w okolicy",
+    "zrodla": [
+      {
+        "adres": "https://www.nidirect.gov.uk/articles/gambling",
+        "miejsce": "Support available",
+        "cytat": "Dunlewey Addiction Services : call free on 08000 886 725",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.communities-ni.gov.uk/topics/betting-gaming-lotteries-and-amusements",
+        "miejsce": "Betting, gaming…",
+        "cytat": "You can contact the Dunlewey Helpline on 08000 886 725 to find out about the counselling and support services available in your area.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Godzin pracy nie podaje żadne przeczytane źródło (nie wpisywać „24/7”). UWAGA: domena dunlewey.net przekierowała 2026-11-04 na obcą domenę (superdewa.llc) — w aplikacji NIE linkować do dunlewey.net. Rekomendacja: w GB-NIR pokazać H-GB-1 jako główny numer, H-GB-3 jako drugi.",
+    "kraj": "GB",
+    "region": [
+      "GB-NIR"
+    ],
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-GB-4",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Kryzys emocjonalny (całe Zjednoczone Królestwo) → Samaritans 116 123, bezpłatnie z każdego telefonu, o każdej porze",
+    "zrodla": [
+      {
+        "adres": "https://www.samaritans.org/how-we-can-help/contact-samaritan/",
+        "miejsce": "Call us any time",
+        "cytat": "Whatever you're going through, you can call us any time, from any phone for FREE. Call 116 123",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/",
+        "miejsce": "Free listening services",
+        "cytat": "call 116 123 to talk to Samaritans",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.nhsinform.scot/campaigns/suicide",
+        "miejsce": "Phone a helpline",
+        "cytat": "Samaritans For everyone - open 24 hours. Phone: 116 123",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "",
+    "kraj": "GB",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-GB-5",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Bezpośrednie zagrożenie życia (Zjednoczone Królestwo) → 999",
+    "zrodla": [
+      {
+        "adres": "https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/",
+        "miejsce": "Immediate action required",
+        "cytat": "Call 999 or go to A&E now if: someone's life is at risk",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.nhsinform.scot/campaigns/suicide",
+        "miejsce": "Szkocja",
+        "cytat": "Phone 999 or go to A&E if: you've taken an overdose",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://cavuhb.nhs.wales/our-services/mental-health/our-services1/nhs-111-press-2/",
+        "miejsce": "Walia",
+        "cytat": "In life-threatening situations, always call 999 or attend the nearest Emergency Unit.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.nidirect.gov.uk/articles/mental-health-emergency-if-youre-crisis-or-despair",
+        "miejsce": "Irlandia Płn.",
+        "cytat": "If they're in immediate danger, telephone the police on 999.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "",
+    "kraj": "GB",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-GB-6",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Kryzys psychiczny (Irlandia Płn.) → Lifeline 0808 808 8000, bezpłatnie, całą dobę",
+    "zrodla": [
+      {
+        "adres": "https://www.nidirect.gov.uk/articles/mental-health-emergency-if-youre-crisis-or-despair",
+        "miejsce": "Lifeline freephone helpline",
+        "cytat": "Lifeline is a crisis response helpline available to everyone in Northern Ireland. It is confidential, free and open 24 hours every day.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.health-ni.gov.uk/articles/signposts-help",
+        "miejsce": "Signposts to Help",
+        "cytat": "Lifeline counsellors are available 24 hours a day, 7 days a week to listen and help in confidence. Phone: 0808 808 8000",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "",
+    "kraj": "GB",
+    "region": [
+      "GB-NIR"
+    ],
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-GB-7",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Pilna pomoc psychiatryczna bez bezpośredniego zagrożenia życia (Anglia, Szkocja, Walia) → 111, opcja zdrowia psychicznego (Walia: „111 press 2”, całą dobę)",
+    "zrodla": [
+      {
+        "adres": "https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/",
+        "miejsce": "Urgent advice",
+        "cytat": "Get help from 111 online or call 111 and select the mental health option.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.nhsinform.scot/campaigns/suicide",
+        "miejsce": "Phone a helpline",
+        "cytat": "NHS 24 For everyone - open 24 hours. Phone: 111 and choose the mental health option",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.gov.wales/nhs-111-press-2",
+        "miejsce": "Get mental health support",
+        "cytat": "For urgent mental health support call 111 and press OPTION 2. The service is available for people of all ages, 24 hours a day, 7 days a week in all areas of Wales",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Wpis opcjonalny (uzupełnienie między infolinią a 999). Irlandia Płn.: brak źródła dla 111 — nie pokazywać.",
+    "kraj": "GB",
+    "region": [
+      "GB-ENG",
+      "GB-SCT",
+      "GB-WLS"
+    ],
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-CA-1",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Myśli samobójcze, kryzys (Kanada) → 9-8-8: Suicide Crisis Helpline, telefon lub SMS, całą dobę; prowadzi CAMH, finansuje rząd Kanady; przy zagrożeniu bezpieczeństwa 9-1-1",
+    "zrodla": [
+      {
+        "adres": "https://988.ca/",
+        "miejsce": "strona główna",
+        "cytat": "A safe space to talk, 24 hours a day, every day of the year. Call 9-8-8 Text 9-8-8",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://988.ca/about-us",
+        "miejsce": "About us",
+        "cytat": "9-8-8 is led and coordinated by the Centre for Addiction and Mental Health (CAMH) and funded by the Government of Canada.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.agco.ca/en/lottery-and-gaming/safer-gambling",
+        "miejsce": "Suicide Crisis Helpline",
+        "cytat": "Thinking of suicide? Help is available. Call or text 9-8-8. Toll-free. 24/7.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Koszt: AGCO (regulator, Ontario) „Toll-free”; 988.ca nie podaje kosztu na przeczytanych stronach. canada.ca: błąd połączenia (HTTP/2) — strona rządu federalnego nieprzeczytana.",
+    "kraj": "CA",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-CA-2",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Bezpośrednie zagrożenie (Kanada) → 9-1-1",
+    "zrodla": [
+      {
+        "adres": "https://988.ca/",
+        "miejsce": "strona główna",
+        "cytat": "If your safety is at risk, call 9-1-1 right away.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "",
+    "kraj": "CA",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-CA-3",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Ontario) → ConnexOntario 1-866-531-2600 (SMS 247247, czat), bezpłatnie, poufnie, całą dobę",
+    "zrodla": [
+      {
+        "adres": "https://www.agco.ca/en/lottery-and-gaming/safer-gambling",
+        "miejsce": "ConnexOntario",
+        "cytat": "Service is free, confidential, and accessible around the clock. If you or someone you know is struggling with gambling, call ConnexOntario at 1-866-531-2600",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Jedno źródło (regulator AGCO, szczebel 1). connexontario.ca: błąd połączenia. SMS: „standard messaging rate may apply”.",
+    "kraj": "CA",
+    "region": [
+      "CA-ON"
+    ],
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-CA-4",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Kolumbia Brytyjska) → Gambling Support BC 1-888-795-6111, bezpłatna linia całodobowa",
+    "zrodla": [
+      {
+        "adres": "https://www2.gov.bc.ca/gov/content/sports-culture/gambling-fundraising/gambling-support-bc",
+        "miejsce": "Gambling Support BC",
+        "cytat": "Call us toll-free 24/7 at 1-888-795-6111",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www2.gov.bc.ca/gov/content/sports-culture/gambling-fundraising/gambling-support-bc",
+        "miejsce": "The program offers",
+        "cytat": "A 24-hour, toll-free Gambling Support Line: 1-888-795-6111",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "",
+    "kraj": "CA",
+    "region": [
+      "CA-BC"
+    ],
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-CA-5",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Quebec) → Jeu : aide et référence 1 800 461-0140 (Montreal 514 527-0140), całą dobę, po francusku i angielsku",
+    "zrodla": [
+      {
+        "adres": "https://www.quebec.ca/en/health/advice-and-prevention/alcohol-drugs-gambling/recognizing-a-gambling-disorder",
+        "miejsce": "Help and resources",
+        "cytat": "Gambling - Help and Referral : 1-800-461-0140",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://sante.gouv.qc.ca/repertoire-ressources/ressource/?nofiche=33839",
+        "miejsce": "Coordonnées, Horaire",
+        "cytat": "Les services sont offerts en français et en anglais. Téléphone Principal Montréal et les environs : 514 527-0140 Ligne sans frais Partout au Québec : 1 800 461-0140",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://sante.gouv.qc.ca/repertoire-ressources/ressource/?nofiche=33839",
+        "miejsce": "Mission",
+        "cytat": "Disponible 24 heures par jour, 7 jours par semaine, pour tout le Québec.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "aidejeu.ca: 503. Koszt: „Ligne sans frais” (bezpłatna) dla numeru 1 800.",
+    "kraj": "CA",
+    "region": [
+      "CA-QC"
+    ],
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-CA-6",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Alberta) → 24-Hour Addiction Helpline 1-866-332-2322 (tylko Alberta); alternatywnie Health Link 811",
+    "zrodla": [
+      {
+        "adres": "https://myhealth.alberta.ca/Alberta/Pages/Find-help-for-drug-or-gambling-problem.aspx",
+        "miejsce": "Find help for drug or gambling problem",
+        "cytat": "24-Hour Addiction Helpline : dial 1-866-332-2322 (Alberta only)",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Linia uzależnień (także hazard: tytuł strony „drug or gambling problem”), nie stricte hazardowa. Koszt nie podany w źródle. Strona MyHealth Alberta (rząd), „Current as of: January 27, 2026”.",
+    "kraj": "CA",
+    "region": [
+      "CA-AB"
+    ],
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-CA-7",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Saskatchewan) → Problem Gambling Help Line 1-800-306-6789, bezpłatnie, całą dobę",
+    "zrodla": [
+      {
+        "adres": "https://www.saskatchewan.ca/residents/health/emergency-medical-services/problem-gambling-help-line",
+        "miejsce": "Problem Gambling Help Line",
+        "cytat": "The Problem Gambling Help Line provides free 24-hour help to people with gambling problems and their families.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "",
+    "kraj": "CA",
+    "region": [
+      "CA-SK"
+    ],
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-CA-8",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Manitoba) → Problem Gambling Helpline 1-800-463-1554 (całą dobę, w Manitobie); operator: Addictions Foundation of Manitoba",
+    "zrodla": [
+      {
+        "adres": "https://www.gov.mb.ca/contact/urgent_toll_free.html",
+        "miejsce": "Urgent Service numbers",
+        "cytat": "Problem Gambling Helpline 24 hours, in Manitoba 1-800-463-1554",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.gov.mb.ca/contact/urgent_toll_free.html",
+        "miejsce": "lista kontaktów",
+        "cytat": "Addictions Foundation of Manitoba - Problem Gambling Helpline 204-944-6382 (24 hours) 1-800-463-1554 (24 hours)",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Koszt nie podany wprost (numer 1-800 = bezpłatny w Ameryce Płn., ale źródło tego nie mówi).",
+    "kraj": "CA",
+    "region": [
+      "CA-MB"
+    ],
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-CA-9",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Nowy Brunszwik) → całodobowa linia uzależnień i zdrowia psychicznego 1-866-355-5550 (także hazard); informacja o hazardzie Departamentu Zdrowia 1-800-461-1234",
+    "zrodla": [
+      {
+        "adres": "https://www.gnb.ca/en/topic/health-wellness/addictions-substance-abuse/addiction-services.html",
+        "miejsce": "Addiction services",
+        "cytat": "Find addiction services locations for substance use and gambling in your area.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.gnb.ca/en/topic/health-wellness/addictions-substance-abuse/addiction-services.html",
+        "miejsce": "Addiction services",
+        "cytat": "Not finding what you're looking for? Call our 24/7 helpline: 1-866-355-5550 .",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www2.gnb.ca/content/gnb/en/departments/finance/lotteries_and_gaming_corporation/responsible_gaming.html",
+        "miejsce": "Finding Help (NBLGC)",
+        "cytat": "If you or someone you know is experiencing a gambling problem, help and services are offered by the Department of Health. Call 1-800-461-1234 for free, confidential information.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Dwa numery z dwóch stron rządowych; 1-866-355-5550 ma potwierdzone godziny (24/7) i nowszą stronę gnb.ca — rekomendowany jako główny; 1-800-461-1234 bez godzin (strona www2 korporacji loterii, starsza).",
+    "kraj": "CA",
+    "region": [
+      "CA-NB"
+    ],
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-CA-10",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Nowa Szkocja) → Gambling Support Network 1-888-347-8888, bezpłatne wsparcie telefoniczne i online",
+    "zrodla": [
+      {
+        "adres": "https://novascotia.ca/dhw/addictions/important-numbers.asp",
+        "miejsce": "Important Numbers",
+        "cytat": "Gambling Support Network 1-888-347-8888 The Gambling Support Network provides free, confidential online and phone support for Nova Scotians and their families who may be affected by gambling-related harms.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "CZĘŚCIOWO",
+    "poprawka": null,
+    "uwagi": "Strona rządu NS wymienia numer, ale bez daty i godzin; wyszukiwarka wskazuje doniesienie prasowe (Truro News, 2024, nieprzeczytane) o przesunięciu finansowania GSN. [DO USTALENIA] czy linia działa (test połączenia przez właściciela albo e-mail do NS Health). Do tego czasu w CA-NS pokazać H-CA-11 i H-CA-1.",
+    "kraj": "CA",
+    "region": [
+      "CA-NS"
+    ],
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-CA-11",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Kryzys psychiczny lub uzależnienie (Nowa Szkocja) → Provincial Mental Health and Addictions Crisis Line 1-888-429-8167, bezpłatnie, całą dobę",
+    "zrodla": [
+      {
+        "adres": "https://novascotia.ca/dhw/addictions/important-numbers.asp",
+        "miejsce": "Important Numbers",
+        "cytat": "Provincial Mental Health and Addictions Crisis Line 1-888-429-8167 For crisis support and mobile response at work, home, school, and community agencies, call this toll-free line 24 hours a day, 7 days a week.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Linia kryzysowa, nie hazardowa.",
+    "kraj": "CA",
+    "region": [
+      "CA-NS"
+    ],
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-CA-12",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Wyspa Księcia Edwarda) → PEI Gambling Support Line 1-855-255-4255, całą dobę, bez opłat, po angielsku i francusku; Departament Zdrowia i Dobrostanu",
+    "zrodla": [
+      {
+        "adres": "https://pe.211.ca/addiction-support-services/pei-gambling-support-line",
+        "miejsce": "211 PEI, wpis programu",
+        "cytat": "Fees: No fees How to Access: Call toll free number",
+        "odczyt": "2026-11-04",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://pe.211.ca/addiction-support-services/pei-gambling-support-line",
+        "miejsce": "211 PEI, wpis programu",
+        "cytat": "Toll-Free Number Within PEI * 24/7 Line 1-855-255-4255 Language: English * French",
+        "odczyt": "2026-11-04",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://pei.cmha.ca/wp-content/uploads/2024/10/PEI-HELPING-TREE-2024-3.pdf",
+        "miejsce": "CMHA PEI Helping Tree 2024",
+        "cytat": "Toll Free: 1-855-255-4255",
+        "odczyt": "2026-11-04",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Strony rządu PEI (princeedwardisland.ca, peigamblingsupport) zwróciły 403 — źródła tylko szczebla 3 (211 PEI, CMHA PEI). Zalecany ponowny odczyt strony rządowej przed wydaniem.",
+    "kraj": "CA",
+    "region": [
+      "CA-PE"
+    ],
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-CA-13",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Nowa Fundlandia i Labrador) → Gambling Help Line 811, bezpłatnie, poufnie, całą dobę",
+    "zrodla": [
+      {
+        "adres": "https://www.gov.nl.ca/hcs/mentalhealth-committee/mentalhealth/helplines-and-navigator/",
+        "miejsce": "Help Lines and Navigator",
+        "cytat": "Gambling Help Line 811 The Gambling Help Line is a free, confidential service available province-wide, 24 hours a day.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Starszy numer 1-888-899-4357 występuje w katalogach (szczebel 5) — nie używać.",
+    "kraj": "CA",
+    "region": [
+      "CA-NL"
+    ],
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-CA-14",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Jukon, Terytoria Płn.-Zach., Nunavut) → [brak potwierdzonej linii hazardowej]; pokazać 9-8-8 i 9-1-1",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "NIEPOPARTE",
+    "poprawka": null,
+    "uwagi": "Nie znaleziono strony rządu terytorium z linią hazardową; katalogi (szczebel 5) podają sprzeczne numery. [DO USTALENIA]. Do tego czasu: H-CA-1, H-CA-2.",
+    "kraj": "CA",
+    "region": [
+      "CA-YT",
+      "CA-NT",
+      "CA-NU"
+    ],
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-JP-1",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Japonia) → brak krajowej infolinii hazardowej; MHLW kieruje do najbliższego 保健所 (ośrodka zdrowia) lub 精神保健福祉センター (prefekturalnego ośrodka zdrowia psychicznego; po jednym w każdej prefekturze i mieście wydzielonym)",
+    "zrodla": [
+      {
+        "adres": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000070789.html",
+        "miejsce": "依存症対策, 相談",
+        "cytat": "まずは、お近くの「保健所」や「精神保健福祉センター」に御相談ください",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000070789.html",
+        "miejsce": "精神保健福祉センター",
+        "cytat": "精神保健福祉センターは各都道府県・政令指定都市ごとに1か所ずつあります（東京都は3か所）。",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Wpis bez numeru; link do strony MHLW (wyszukiwarka placówek). Prywatne linie finansowane przez branżę gier (np. pachinko) celowo pominięte.",
+    "kraj": "JP",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-JP-2",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Kryzys, myśli samobójcze (Japonia) → #いのちSOS 0120-061-338, bezpłatnie, całą dobę; よりそいホットライン 0120-279-338, bezpłatnie, całą dobę (wybór porady także w językach obcych)",
+    "zrodla": [
+      {
+        "adres": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/seikatsuhogo/jisatsu/soudan_tel.html",
+        "miejsce": "#いのちSOS",
+        "cytat": "電話番号 0120-061-338 おもい ささえる（フリーダイヤル・無料） 実施日時 24時間 365日",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/seikatsuhogo/jisatsu/soudan_tel.html",
+        "miejsce": "よりそいホットライン",
+        "cytat": "ガイダンスで専門的な対応も選べます（外国語含む）。 電話番号 0120-279-338 つなぐ ささえる（フリーダイヤル・無料）",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/seikatsuhogo/jisatsu/soudan_tel.html",
+        "miejsce": "よりそいホットライン",
+        "cytat": "実施日時 24時間対応",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "いのちの電話 0120-783-556 działa tylko 16–21 (i 10. dnia miesiąca całą dobę) — nie jako pierwszy numer. Fukushima: よりそい 0120-279-226.",
+    "kraj": "JP",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-JP-3",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Bezpośrednie zagrożenie życia (Japonia) → 119 (straż pożarna i pogotowie)",
+    "zrodla": [
+      {
+        "adres": "https://www.fdma.go.jp/mission/enrichment/kyukyumusen_kinkyutuhou/119.html",
+        "miejsce": "119番緊急通報",
+        "cytat": "119番通報は、消防車・救急車が必要な場合に行うものですが",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "",
+    "kraj": "JP",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-BR-1",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Brazylia) → SUS: bezpłatna i poufna teleporada w aplikacji Meu SUS Digital („Problemas com jogos de apostas?”, autotest, potem wideorozmowa) oraz UBS i CAPS; bez numeru telefonu",
+    "zrodla": [
+      {
+        "adres": "https://agenciagov.ebc.com.br/noticias/202610/campanha-do-ministerio-da-saude-orienta-sobre-riscos-das-apostas-online-e-atendimento-disponivel-no-sus",
+        "miejsce": "lead, 01.10.2026",
+        "cytat": "Pessoas com problemas relacionados a jogos e apostas podem buscar atendimento gratuito nas UBS, nos CAPS e por teleatendimento pelo Meu SUS Digital",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://agenciagov.ebc.com.br/noticias/202610/campanha-do-ministerio-da-saude-orienta-sobre-riscos-das-apostas-online-e-atendimento-disponivel-no-sus",
+        "miejsce": "Teleatendimento pelo Meu SUS Digital",
+        "cytat": "O serviço é gratuito e sigiloso e pode ser acessado pelo aplicativo ou pela versão web do Meu SUS Digital, com login pela conta gov.br.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Agência Gov (EBC, „via MS”) — komunikat Ministerstwa Zdrowia. Numer 136 (Disque Saúde) podają media (szczebel 5), nie przeczytane źródło rządowe — nie dodawać. Wymaga konta gov.br.",
+    "kraj": "BR",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-BR-2",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Kryzys emocjonalny (Brazylia) → CVV 188, bezpłatnie, całą dobę",
+    "zrodla": [
+      {
+        "adres": "https://cvv.org.br/",
+        "miejsce": "strona główna",
+        "cytat": "Converse gratuitamente com um dos nossos voluntários, em todo o Brasil, 24 horas por dia LIGUE 188",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "",
+    "kraj": "BR",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-BR-3",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Nagły stan zagrożenia zdrowia, także psychiatryczny (Brazylia) → SAMU 192, bezpłatnie, całą dobę",
+    "zrodla": [
+      {
+        "adres": "https://www.gov.br/saude/pt-br/composicao/saes/samu-192",
+        "miejsce": "SAMU 192",
+        "cytat": "O serviço é gratuito , acessado pelo número 192, funciona 24 horas por dia e 07 dias por semana",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.gov.br/saude/pt-br/composicao/saes/samu-192",
+        "miejsce": "SAMU 192",
+        "cytat": "seja de natureza clínica, cirúrgica, traumática ou psiquiátrica",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "",
+    "kraj": "BR",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-FR-1",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Francja) → Joueurs Info Service 09 74 75 13 13, anonimowo, bez dopłat (cena połączenia lokalnego albo w abonamencie), codziennie co najmniej 8.00–23.00",
+    "zrodla": [
+      {
+        "adres": "https://www.joueurs-info-service.fr/",
+        "miejsce": "strona operatora (tryb serwisowy)",
+        "cytat": "Par téléphone : 09 74 75 13 13 (appel anonyme et gratuit), 7 jours sur 7, de 8h à 23h.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://lannuaire.service-public.gouv.fr/centres-contact/R2428",
+        "miejsce": "Annuaire de l'administration",
+        "cytat": "Appel anonyme et non surtaxé (coût d'une communication locale depuis un poste fixe ou inclus dans les forfaits des box et des mobiles). Ouvert 7 jours sur 7 , de 8h à 2h du matin.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://anj.fr/foire-aux-questions/addiction-au-jeu/je-commence-perdre-le-controle-de-mon-jeu-dargent-que-faire-ou",
+        "miejsce": "ANJ, FAQ",
+        "cytat": "Joueurs info Service : 09 74 75 13 13",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "sprzeczne",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "CZĘŚCIOWO",
+    "poprawka": "godziny: „codziennie 8.00–23.00”; koszt: „bez dopłat”",
+    "uwagi": "Sprzeczność godzin na szczeblu 1: operator dziś (strona serwisowa) 8–23, annuaire service-public 8–2. Rozstrzygnięcie (zasada części wspólnej): „codziennie 8.00–23.00” (obie wersje to obejmują). Koszt: operator „gratuit”, annuaire „non surtaxé” — wspólnie: „bez dopłat”. Przegląd po przywróceniu joueurs-info-service.fr.",
+    "kraj": "FR",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-FR-2",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Myśli samobójcze, kryzys (Francja) → 3114, krajowy numer zapobiegania samobójstwom, bezpłatnie, całą dobę, w całej Francji",
+    "zrodla": [
+      {
+        "adres": "https://3114.fr/",
+        "miejsce": "À propos",
+        "cytat": "Le 3114 est accessible 24h/24 et 7j/7, gratuitement, en France entière.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "",
+    "kraj": "FR",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-FR-3",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Bezpośrednie zagrożenie życia (Francja) → 15 (SAMU) albo 112",
+    "zrodla": [
+      {
+        "adres": "https://www.service-public.gouv.fr/particuliers/vosdroits/F33954",
+        "miejsce": "Numéros d'urgence",
+        "cytat": "Urgence médicale : le 15 (Samu)",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.service-public.gouv.fr/particuliers/vosdroits/F33954",
+        "miejsce": "Numéros d'urgence",
+        "cytat": "Urgence médicale - Infraction - Péril : le 112 Europe.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "",
+    "kraj": "FR",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-TW-1",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Tajwan) → [brak potwierdzonej krajowej linii hazardowej]; ośrodki zdrowia psychicznego w każdym powiecie (社區心理衛生中心) i 1925",
+    "zrodla": [
+      {
+        "adres": "https://www.gov.tw/News_Content_26_826198",
+        "miejsce": "各縣市社區心理諮商服務",
+        "cytat": "各縣市衛生局社區心理衛生中心皆有提供心理諮商服務",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "NIEPOPARTE",
+    "poprawka": null,
+    "uwagi": "Nie znaleziono w źródłach rządowych (MOHW) linii stricte hazardowej. [DO USTALENIA]. Wpis zastępczy: 1925 (H-TW-2) i lista ośrodków (gov.tw).",
+    "kraj": "TW",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-TW-2",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Kryzys emocjonalny, myśli samobójcze (Tajwan) → 1925 安心專線, bezpłatnie, całą dobę",
+    "zrodla": [
+      {
+        "adres": "https://www.gov.tw/News_Content_26_826198",
+        "miejsce": "全國心理諮詢專線",
+        "cytat": "安心專線 1925 🔸提供免費心理諮詢服務",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.gov.tw/News_Content_26_826198",
+        "miejsce": "全國心理諮詢專線",
+        "cytat": "🔸服務時間：週一至週日，24小時",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://mohw.gov.tw/cp-16-57989-1.html",
+        "miejsce": "komunikat MOHW",
+        "cytat": "可撥打本部24小時服務不打烊，且免付費之1925（依舊愛我）安心專線",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "",
+    "kraj": "TW",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-TW-3",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Bezpośrednie zagrożenie życia (Tajwan) → 119 (z komórki także 112)",
+    "zrodla": [
+      {
+        "adres": "https://www.nfa.gov.tw/pro/index.php?code=list&flag=detail&ids=113&article_id=31",
+        "miejsce": "Q&A 119/112",
+        "cytat": "當民眾遭遇火災搶救、緊急救護或其他有危及個人生命安全的案件時，均可以撥打119電話",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.nfa.gov.tw/pro/index.php?code=list&flag=detail&ids=113&article_id=31",
+        "miejsce": "Q&A 119/112",
+        "cytat": "報案時應先撥打119專線，因為接通後24小時由專人受理。",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "",
+    "kraj": "TW",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-VN-1",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Wietnam) → [brak potwierdzonej linii]",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "NIEPOPARTE",
+    "poprawka": null,
+    "uwagi": "Nie znaleziono źródła szczebla 1–3. [DO USTALENIA]. Wpis zastępczy: numer alarmowy (H-VN-3) i pomoc online (H-INT-1).",
+    "kraj": "VN",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-VN-2",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Kryzys psychiczny (Wietnam) → [brak potwierdzonej krajowej linii kryzysowej dla dorosłych]",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "NIEPOPARTE",
+    "poprawka": null,
+    "uwagi": "Linie znalezione w wyszukiwarce to projekty NGO (Ngày Mai, Hy Vọng Sống) z ograniczonymi godzinami i bez źródła 1–3; 111 to linia ochrony dzieci. [DO USTALENIA].",
+    "kraj": "VN",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-VN-3",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Bezpośrednie zagrożenie życia (Wietnam) → numery alarmowe 113, 114, 115 (bezpłatne); od 1.11.2026 wezwania pomocy medycznej przyjmuje też 113",
+    "zrodla": [
+      {
+        "adres": "https://baochinhphu.vn/mien-phi-cac-cuoc-goi-den-so-113-114-115-102268666.htm",
+        "miejsce": "Chinhphu.vn, 25.02.2020",
+        "cytat": "Người sử dụng dịch vụ điện thoại cố định mặt đất hoặc dịch vụ thông tin di động mặt đất gọi đến các số dịch vụ khẩn cấp (113, 114, 115) được miễn phí.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://baochinhphu.vn/cap-cuu-ngoai-vien-duoc-dieu-phoi-nhu-the-nao-102261102093055276.htm",
+        "miejsce": "Chinhphu.vn, Thông tư 42/2026/TT-BYT",
+        "cytat": "Các thông tin đề nghị hỗ trợ y tế qua đầu số 113 sẽ được chuyển đến nhân viên y tế trực tại Trung tâm Thông tin chỉ huy Công an tỉnh, thành phố",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "CZĘŚCIOWO",
+    "poprawka": "„113 albo 115” zamiast samego 115",
+    "uwagi": "System numerów alarmowych w trakcie zmiany (integracja 113/114/115 w 113, planowana od 2027). Żadne przeczytane źródło nie mówi wprost „115 = pogotowie”. Rekomendacja: pokazać „113 albo 115”; przegląd co 3 mies. (wazne_do skrócić przy wdrożeniu do 2027-02-04).",
+    "kraj": "VN",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-DE-1",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (Niemcy) → BIÖG-Beratungstelefon zur Glücksspielsucht 0800 1 37 27 00, bezpłatnie, anonimowo; pon.–czw. 10–22, pt.–niedz. 10–18 (bez 24.12 i 31.12)",
+    "zrodla": [
+      {
+        "adres": "https://www.check-dein-spiel.de/hilfe-fuer-spieler/telefon-beratung/",
+        "miejsce": "Telefon-Beratung",
+        "cytat": "Das Beratungsteam des BIÖG ist unter der Rufnummer 0800 1 37 27 00 kostenfrei und anonym erreichbar.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.check-dein-spiel.de/hilfe-fuer-spieler/telefon-beratung/",
+        "miejsce": "Telefon-Beratung",
+        "cytat": "Die Sprechzeiten : montags bis donnerstags 10 bis 22 Uhr und freitags bis sonntags 10 bis 18 Uhr an 363 Tagen im Jahr (ausgenommen sind der 24.12. und der 31.12.).",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Operator: Bundesinstitut für Öffentliche Gesundheit (BIÖG, dawniej BZgA).",
+    "kraj": "DE",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-DE-2",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Kryzys psychiczny (Niemcy) → TelefonSeelsorge 0800 111 0 111, 0800 111 0 222 albo 116 123, bezpłatnie, anonimowo, całą dobę",
+    "zrodla": [
+      {
+        "adres": "https://www.telefonseelsorge.de/",
+        "miejsce": "nagłówek strony",
+        "cytat": "0800/1110111 · 0800/1110222 · 116123. Ihr Anruf ist kostenfrei.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://gesund.bund.de/en/notfallnummern",
+        "miejsce": "urgent mental health problems",
+        "cytat": "The telephone and online advice service can be contacted seven days a week, 24 hours a day.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://gesund.bund.de/en/notfallnummern",
+        "miejsce": "urgent mental health problems",
+        "cytat": "\"Telefonseelsorge\" crisis hotline: 116 123",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "",
+    "kraj": "DE",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-DE-3",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Bezpośrednie zagrożenie życia (Niemcy) → 112",
+    "zrodla": [
+      {
+        "adres": "https://gesund.bund.de/en/notfallnummern",
+        "miejsce": "Notfallnummern",
+        "cytat": "if the situation is life-threatening, call the emergency services on 112 .",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "",
+    "kraj": "DE",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-DE-4",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem, porada po polsku (Niemcy) → 0173 29 37 359 (Caritas), bezpłatnie i anonimowo; godzin źródło nie podaje",
+    "zrodla": [
+      {
+        "adres": "https://www.check-dein-spiel.de/hilfe-fuer-spieler/fremdsprachige-telefon-beratung/",
+        "miejsce": "Fremdsprachige Telefon-Beratung",
+        "cytat": "Telefonberatung auf Polnisch Telefonnummer: 0173 29 37 359 Kostenlos und anonym",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Wpis opcjonalny (język pl aplikacji); lista BIÖG zawiera też rosyjski, turecki, arabski. Numer komórkowy jednej poradni — wyższe ryzyko zmiany; przegląd co 6 mies.",
+    "kraj": "DE",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-INT-1",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Problem z hazardem (kraje bez wpisu) → Gambling Therapy (organizacja charytatywna Gordon Moody, Wielka Brytania): wsparcie tekstowe online dla osób z każdego kraju, w ponad 200 językach (doradcy i tłumaczenie maszynowe), anonimowo; czat 1:1 w dni robocze 9–2, w weekendy 10–22; grupy wsparcia i forum, także dla rodzin",
+    "zrodla": [
+      {
+        "adres": "https://gordonmoody.org.uk/gambling-therapy/",
+        "miejsce": "Gambling Therapy",
+        "cytat": "Gambling Therapy is a text-based service that provides emotional and practical support to anyone in the world who is struggling as a result of gambling.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://gordonmoody.org.uk/gambling-therapy/",
+        "miejsce": "Gambling Therapy",
+        "cytat": "Support is provided in more than 200 languages through a combination of native speaking advisers and translation software tools.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://gordonmoody.org.uk/gambling-therapy/",
+        "miejsce": "Gambling Therapy",
+        "cytat": "The live one-to-one support service is available from 9am to 2am weekdays and 10am to 10pm at the weekend.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://gordonmoody.org.uk/gambling-therapy/",
+        "miejsce": "Gambling Therapy",
+        "cytat": "There is no need to give your real name or email address - you can remain anonymous if you wish.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Strefa czasowa godzin nie podana (prawdopodobnie czas brytyjski — nie wpisywać godzin bez strefy). Koszt: źródło nie mówi „free” — nie pisać „bezpłatnie”. gamblingtherapy.org zwrócił 2026-11-04 błąd 500 (baza danych) — sprawdzić przed wydaniem; link do strony Gordon Moody jako zapasowy. Tekst dla krajów bez wpisu: „W zagrożeniu życia dzwoń na lokalny numer alarmowy” + H-INT-1 (bez numeru).",
+    "kraj": "*",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "P-FSRS_RETENCJA",
+    "rodzaj": "liczba",
+    "level": "heuristic",
+    "twierdzenie": "Docelowa retencja harmonogramu FSRS = 0,9 (domyślna wartość algorytmu)",
+    "zrodla": [
+      {
+        "adres": "https://docs.ankiweb.net/deck-options.html",
+        "miejsce": "FSRS → Desired Retention",
+        "cytat": "The default value of 90% will schedule cards so you have a 90% chance of remembering them when they come up for review again.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://raw.githubusercontent.com/open-spaced-repetition/ts-fsrs/main/packages/fsrs/README.md",
+        "miejsce": "Configuration",
+        "cytat": "desiredRetention: 0.9,",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "FSRS_RETENCJA",
+    "wartosc": 0.9,
+    "jednostka": "ułamek",
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Anki (główny wdrożeniowiec FSRS) podaje 90% jako domyślne; ts-fsrs README używa 0.9 w przykładzie konfiguracji (nie nazywa jej domyślną). Kod: packages/srs/src/scheduler.ts:5 (ts-fsrs 5.4.2, pole request_retention). Uwaga dla roli 07/08: README ts-fsrs na main opisuje już API v6 (DefaultScheduler, desiredRetention, FSRS-7) — przy aktualizacji biblioteki zmienią się nazwy pól."
+  },
+  {
+    "id": "P-FSRS_CZAS",
+    "rodzaj": "liczba",
+    "level": "heuristic",
+    "twierdzenie": "Progi czasu decyzji dla oceny FSRS: ≤ 3000 ms → Easy, ≥ 8000 ms → Hard",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "FSRS_SZYBKO_MS/FSRS_WOLNO_MS",
+    "wartosc": "3000/8000",
+    "jednostka": "ms",
+    "werdykt_tekstu": "NIEPOPARTE",
+    "poprawka": null,
+    "uwagi": "Brak źródła: dokumentacja FSRS/Anki nie wiąże ocen z czasem odpowiedzi; komentarz w kodzie (srs/src/index.ts:43) mówi „założenia do kalibracji”. Zapisać jako parametr produktowy bez źródła (decyzja produktowa, nie merytoryczna). Nie przedstawiać w aplikacji jako faktu."
+  },
+  {
+    "id": "P-OCENA_PROG_DOPUSZCZALNE",
+    "rodzaj": "liczba",
+    "level": "gto",
+    "twierdzenie": "Zagranie z częstością 0 < f < 3,5% w rozwiązaniu to niedokładność; f ≥ 3,5% już nie (M = 0,035, granica włączna po stronie „dopuszczalne”)",
+    "zrodla": [
+      {
+        "adres": "https://help.gtowizard.com/measure-performance/",
+        "miejsce": "Measure Performance, 5 kategorii ruchów",
+        "cytat": "Inaccuracy - Moves that are taken less than 3.5% of the time in GTO, but don't lose significant EV.",
+        "odczyt": "2026-11-04",
+        "szczebel": 4
+      },
+      {
+        "adres": "https://help.gtowizard.com/measure-performance/",
+        "miejsce": "Measure Performance, 5 kategorii ruchów",
+        "cytat": "Wrong Move - Moves that are not taken in GTO.",
+        "odczyt": "2026-11-04",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "bez danych EV zakładamy, że akcja z f > 0 nie traci istotnie EV (zasada obojętności)",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "OCENA_PROG_DOPUSZCZALNE",
+    "wartosc": 0.035,
+    "jednostka": "częstość",
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "Cytat S-06 (BRD) potwierdzony dosłownie 2026-11-04 (strona używa łącznika „-”, BRD „–”). Jedno źródło, szczebel 4 (kategoria interfejsu serwisu solvera, nie wynik równowagi). Warunek „but don't lose significant EV” jest kierunkowo zgodny z zasadą obojętności w równowadze (akcje grane z f > 0 mają w przybliżeniu równą EV), więc ocena bez danych EV jest dopuszczalnym uproszczeniem — nazwać je w tekście pomocy."
+  },
+  {
+    "id": "P-OCENA_PROG_MIESZANA",
+    "rodzaj": "liczba",
+    "level": "heuristic",
+    "twierdzenie": "Próg L = 0,25 (i 0,75) dzielący „zgodne” od „dopuszczalne” w ocenie zagrania",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "OCENA_PROG_MIESZANA_DOLNY/_GORNY",
+    "wartosc": "0.25/0.75",
+    "jednostka": "częstość",
+    "werdykt_tekstu": "NIEPOPARTE",
+    "poprawka": null,
+    "uwagi": "Parametr produktowy (ADR-22/ADR-26, B-044, „założenie do kalibracji bez źródła”). S-06 nie zna progu L: każde zagranie z f ≥ 3,5% poza najczęstszym to „Correct Move”. Podział na zgodne/dopuszczalne to uproszczenie dydaktyczne kierunkowo zgodne ze źródłem (oba dają punkt) — tak jak w RD-11."
+  },
+  {
+    "id": "P-OCENA_STOPNIE",
+    "rodzaj": "liczba",
+    "level": "gto",
+    "twierdzenie": "Stopnie oceny zagrania: zgodne (f = f_max albo f ≥ L), dopuszczalne (M ≤ f < L), niedokładność (0 < f < M), błąd (f = 0)",
+    "zrodla": [
+      {
+        "adres": "https://help.gtowizard.com/measure-performance/",
+        "miejsce": "Measure Performance, 5 kategorii ruchów",
+        "cytat": "There are 5 categories of moves: Best Move - The highest frequency move (or best action according to your RNG ).",
+        "odczyt": "2026-11-04",
+        "szczebel": 4
+      },
+      {
+        "adres": "https://help.gtowizard.com/measure-performance/",
+        "miejsce": "Measure Performance",
+        "cytat": "Correct Move - Moves that are correct at some frequency, but not considered \"best moves\".",
+        "odczyt": "2026-11-04",
+        "szczebel": 4
+      },
+      {
+        "adres": "https://help.gtowizard.com/measure-performance/",
+        "miejsce": "Measure Performance",
+        "cytat": "Blunder - Blunders that are never taken and lose significant EV.",
+        "odczyt": "2026-11-04",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "zgodne/dopuszczalne to podział jednej kategorii źródła („Correct Move”) progiem produktowym L",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "CZĘŚCIOWO",
+    "poprawka": "docs/design/design-spec.md:17 i :40 — cztery stopnie: Błąd, Niedokładność, Dopuszczalna, Zgodna; SkalaStopni: cztery przedziały (0, (0;M), [M;L), [L;1] lub f_max)",
+    "uwagi": "Źródło ma 5 kategorii: Best, Correct, Inaccuracy, Wrong, Blunder. Rozstrzygnięcie merytoryczne (propozycja D-1xx): CZTERY stopnie jak w BRD (BR-CWI-001, RD-11, ER-01): zgodne = Best + Correct z f ≥ L; dopuszczalne = Correct z M ≤ f < L; niedokładność = Inaccuracy; błąd = Wrong (+ Blunder). Odrzucone: (a) trzy stopnie z „błędem” dla 0 < f < M (projekt D-118–D-123, kod thresholds.ts) — sprzeczne ze źródłem; (b) pięć stopni z „Blunder” — wymaga strat EV, których aplikacja nie ma; (c) dwa stopnie (dobrze/źle) — gubi informację o mieszanych strategiach. Projekt (design-spec.md:17, SkalaStopni z 3 przedziałami) do poprawki przez rolę 04 (słowo i znak dla „niedokładność”)."
+  }
+]

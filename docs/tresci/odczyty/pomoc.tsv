@@ -1,0 +1,69 @@
+id	url	odczyt	sha256_tekstu	cytat_znaleziony(tak/nie)	uwagi
+O-001	https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/	2026-11-04	4d357f2e21a24792e0c3686ba4cdc5460a2838c91049eba07771ff65a0a1c0cc	tak	7 cytat(y); plik roboczy us_ncpg
+O-002	https://988lifeline.org/	2026-11-04	e38b3391938bdf447636aaad51a89521a0f3a4a95c862b98c90df234b0c3146d	tak	1 cytat(y); plik roboczy us_988
+O-003	https://www.gamblingcommission.gov.uk/	2026-11-04	bfb486d80adb3649fa54fb6c54b24f939875e5f973c4892834c86ca4ec936926	tak	3 cytat(y); plik roboczy gb_gc
+O-004	https://www.nhs.uk/live-well/addiction-support/gambling-addiction/	2026-11-04	15f50c541f4961a4695b2c84af20cac805ec8578dbc1c46167a52ff249c3853d	tak	1 cytat(y); plik roboczy gb_nhs_gamb
+O-005	https://www.nidirect.gov.uk/articles/gambling	2026-11-04	25d91268d95ca34a56b49eb6bbabbc22a30f66865d4900b381ea1e854271ed85	tak	2 cytat(y); plik roboczy gb_nigamb
+O-006	https://bcuhb.nhs.wales/news/2026/a-new-gambling-treatment-service-and-247-helpline-is-going-live-for-people-across-wales/	2026-11-04	12fdcb5bbb944d153cc2826b0351baf593779ef1323a771753c17846a3f44983	tak	2 cytat(y); plik roboczy gb_bcuhb
+O-007	https://www.communities-ni.gov.uk/topics/betting-gaming-lotteries-and-amusements	2026-11-04	0120a7ea6c44c7a4b016efbbe4fc785743521f20d22f0698894daafa1af270bd	tak	1 cytat(y); plik roboczy gb_dfc
+O-008	https://www.samaritans.org/how-we-can-help/contact-samaritan/	2026-11-04	2ed49a7406330a7f775caca96a7422d57b51c40dfde9551775f916d60f90c00f	tak	1 cytat(y); plik roboczy gb_samar
+O-009	https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/	2026-11-04	372105f5da1c0eb15b7511d8231314628909c3b455c04482ae4c8a6a05d2a4e6	tak	3 cytat(y); plik roboczy gb_nhs_urgent
+O-010	https://www.nhsinform.scot/campaigns/suicide	2026-11-04	0c3823dbd32e0182c75a2f103daba5c7d071b70ab479aade153c5c67bda82315	tak	3 cytat(y); plik roboczy gb_scotsuic
+O-011	https://cavuhb.nhs.wales/our-services/mental-health/our-services1/nhs-111-press-2/	2026-11-04	5f2de3ba55f6088d2a88448e15e41ba3644a256ce7f31650316995b5cd718720	tak	1 cytat(y); plik roboczy gb_cav
+O-012	https://www.nidirect.gov.uk/articles/mental-health-emergency-if-youre-crisis-or-despair	2026-11-04	6d9e18102073f42245cd23c1689c303d085c6ad7c90a8cbe57981e6d1b4ff9fc	tak	2 cytat(y); plik roboczy gb_niemerg
+O-013	https://www.health-ni.gov.uk/articles/signposts-help	2026-11-04	74c7bea01b45e641a71374ec8704ca7a43c1aab4d746c09b3ce295183c99e458	tak	1 cytat(y); plik roboczy gb_signposts
+O-014	https://www.gov.wales/nhs-111-press-2	2026-11-04	f50fcdf91262f2e1ccea962e7729a48f500e961674b78a5168ca203a8beb775c	tak	1 cytat(y); plik roboczy gb_wales111p2
+O-015	https://988.ca/	2026-11-04	682e2023fde713ac312105a2b59789f13c6363863d86d5b27d11cb9e7256e9e0	tak	2 cytat(y); plik roboczy ca_988
+O-016	https://988.ca/about-us	2026-11-04	0ba144a5e50809c3176f315a6c4738935be2fdffb6d6519ead87aea8c90ed958	tak	1 cytat(y); plik roboczy ca_988about
+O-017	https://www.agco.ca/en/lottery-and-gaming/safer-gambling	2026-11-04	fc860cc3a60f3bab79f22ab305708f386803f98cb73143d520b60eedbffe6259	tak	2 cytat(y); plik roboczy ca_agco
+O-018	https://www2.gov.bc.ca/gov/content/sports-culture/gambling-fundraising/gambling-support-bc	2026-11-04	e4841825243b19011a490b0d6f122174c4add4b9fb90a593095312a79e4a85a9	tak	2 cytat(y); plik roboczy ca_bc
+O-019	https://www.quebec.ca/en/health/advice-and-prevention/alcohol-drugs-gambling/recognizing-a-gambling-disorder	2026-11-04	befa5648688a8ab9a3175a0235032c341c4e4b85fbfe9782735742e19cd87273	tak	1 cytat(y); plik roboczy ca_qcgov
+O-020	https://sante.gouv.qc.ca/repertoire-ressources/ressource/?nofiche=33839	2026-11-04	c6b443acf9c6acf440a19a74ec0a4322d01b74a0d06a4731f721555e2118387a	tak	2 cytat(y); plik roboczy ca_qcsante
+O-021	https://myhealth.alberta.ca/Alberta/Pages/Find-help-for-drug-or-gambling-problem.aspx	2026-11-04	102261c43b13a6d331953883b399460fed89babb22e95f564d726ee95dd89534	tak	1 cytat(y); plik roboczy ca_ab
+O-022	https://www.saskatchewan.ca/residents/health/emergency-medical-services/problem-gambling-help-line	2026-11-04	e177056e21ad67a612307865b03ec5d3007bca987ee97322793cc424130cc741	tak	1 cytat(y); plik roboczy ca_sk
+O-023	https://www.gov.mb.ca/contact/urgent_toll_free.html	2026-11-04	ddf7b8b6d9cda74a763f07ab9dbd4d258579d01b8d1410d80ff56b3324fdfce8	tak	2 cytat(y); plik roboczy ca_mb
+O-024	https://www.gnb.ca/en/topic/health-wellness/addictions-substance-abuse/addiction-services.html	2026-11-04	69ed012545c8ea39b34e96732ec4d652f30b419ed9bd646a280fd12ef4f4fca3	tak	2 cytat(y); plik roboczy ca_nb
+O-025	https://www2.gnb.ca/content/gnb/en/departments/finance/lotteries_and_gaming_corporation/responsible_gaming.html	2026-11-04	18d2ea09cee397638f49514af5255c945768363f53abad0ed9f48e020ee6ea90	tak	1 cytat(y); plik roboczy ca_nbrg
+O-026	https://novascotia.ca/dhw/addictions/important-numbers.asp	2026-11-04	f74ec9fabf64fa93b7154b14c41b04ae4fd4f2640f117ecd69f3bbd4f3883790	tak	2 cytat(y); plik roboczy ca_ns
+O-027	https://pe.211.ca/addiction-support-services/pei-gambling-support-line	2026-11-04	62d022fc0edc410cb8f243b132a1380a1422f36719468e985c6ebc420a283b71	tak	2 cytat(y); plik roboczy ca_pe6
+O-028	https://pei.cmha.ca/wp-content/uploads/2024/10/PEI-HELPING-TREE-2024-3.pdf	2026-11-04	7360163fa06ac52da48e05e0fa2fb8b39a3b7b5833716af9db2768987f033fc8	tak	1 cytat(y); plik roboczy ca_pe5
+O-029	https://www.gov.nl.ca/hcs/mentalhealth-committee/mentalhealth/helplines-and-navigator/	2026-11-04	c2387b1ccf9a2a75ee397f1057350f4c34ed9bba29b6e4d9ed5be49d2a2aac5d	tak	1 cytat(y); plik roboczy ca_nl2
+O-030	https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000070789.html	2026-11-04	3b49fbb22eac74b8ca682a1f71c403bcbe85e95e8d2b5246f1d2daf35a342820	tak	2 cytat(y); plik roboczy jp_izon
+O-031	https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/seikatsuhogo/jisatsu/soudan_tel.html	2026-11-04	5d4f9ae0c763dc2e30d33709b4860059fcf062dcad2ce16814bc745bd5d8a4f9	tak	3 cytat(y); plik roboczy jp_tel2
+O-032	https://www.fdma.go.jp/mission/enrichment/kyukyumusen_kinkyutuhou/119.html	2026-11-04	64962e719aacbac6ed79ce146ebaa88a14c5d877243c055a85462a7a33939cac	tak	1 cytat(y); plik roboczy jp_119b
+O-033	https://agenciagov.ebc.com.br/noticias/202610/campanha-do-ministerio-da-saude-orienta-sobre-riscos-das-apostas-online-e-atendimento-disponivel-no-sus	2026-11-04	211a2d0a2a9c186c28f18ecf3f0c97e43c72e109ec08ea31fc889b32bd928bd8	tak	2 cytat(y); plik roboczy br_ag10
+O-034	https://cvv.org.br/	2026-11-04	003a3d25fef0799c3e27271cd4d5c38d4b2d4fa4a244bd65977500fe8f939ddb	tak	1 cytat(y); plik roboczy br_cvv
+O-035	https://www.gov.br/saude/pt-br/composicao/saes/samu-192	2026-11-04	7558fb1275e9efc0873c099c2e3ddcaf21120e9970c5dff1a5506edf21da74e0	tak	2 cytat(y); plik roboczy br_samu
+O-036	https://www.joueurs-info-service.fr/	2026-11-04	135245a4bdd7211e7de8aa0b0a443157ccec313f22754f7feb18b77d29528cbb	tak	1 cytat(y); plik roboczy fr_jis
+O-037	https://lannuaire.service-public.gouv.fr/centres-contact/R2428	2026-11-04	c9d2d542005317739486869dcd2c18e6f86130b04961ae420f8d1c7cc16237a7	tak	1 cytat(y); plik roboczy fr_annu
+O-038	https://anj.fr/foire-aux-questions/addiction-au-jeu/je-commence-perdre-le-controle-de-mon-jeu-dargent-que-faire-ou	2026-11-04	76cdb67c53168b4a536306b81d959ffd1460479ae4ce9874fbebf0dcd810099b	tak	1 cytat(y); plik roboczy fr_anjfaq
+O-039	https://3114.fr/	2026-11-04	89da4c4656b9fd11317246aae687afbd963752ef814eb62934b1aa846181f447	tak	1 cytat(y); plik roboczy fr_3114
+O-040	https://www.service-public.gouv.fr/particuliers/vosdroits/F33954	2026-11-04	860daea4b8e4bec3a9243908d854747b7c13912ca7637465bbb8e84e300c9cf6	tak	2 cytat(y); plik roboczy fr_sp
+O-041	https://www.gov.tw/News_Content_26_826198	2026-11-04	8f3e36e95511e821f10c0f12d845cb315e92bfb37cc8b937ab246edff953d5a3	tak	3 cytat(y); plik roboczy tw_gov
+O-042	https://mohw.gov.tw/cp-16-57989-1.html	2026-11-04	4820ab9d0440bbd47e165dcafb6a937fd30773553b123d1e457fbc42cb5b625a	tak	1 cytat(y); plik roboczy tw_1925
+O-043	https://www.nfa.gov.tw/pro/index.php?code=list&flag=detail&ids=113&article_id=31	2026-11-04	b59dc6e63cff831388364d00320d8ddd26836427f87f5b696ce96fdd7fdec4f2	tak	2 cytat(y); plik roboczy tw_119c
+O-044	https://baochinhphu.vn/mien-phi-cac-cuoc-goi-den-so-113-114-115-102268666.htm	2026-11-04	0cef037f01a9dbd3347f0c117a7b816b91c894de5666a2affb3f63ac937b701c	tak	1 cytat(y); plik roboczy vn_free
+O-045	https://baochinhphu.vn/cap-cuu-ngoai-vien-duoc-dieu-phoi-nhu-the-nao-102261102093055276.htm	2026-11-04	6b42ef1be2c5fd5a26e3f07d0ddb508d0782a1d8368818f96c3456eab0d7bdd0	tak	1 cytat(y); plik roboczy vn_cc2
+O-046	https://www.check-dein-spiel.de/hilfe-fuer-spieler/telefon-beratung/	2026-11-04	ac32a7b9bd6f0824cad8f197e4742bfb2b76b7a83630ed57464d4e8f93b3debb	tak	2 cytat(y); plik roboczy de_tel
+O-047	https://www.telefonseelsorge.de/	2026-11-04	f23d5cbfa940975b8f464ae2623b78a789baa13bdc6674e9098c63d4b6ac9a62	tak	1 cytat(y); plik roboczy de_ts
+O-048	https://gesund.bund.de/en/notfallnummern	2026-11-04	801794ae4d11af518a2310147f526a8fee5ba614371265ffb6160987f48eab95	tak	3 cytat(y); plik roboczy de_gesund
+O-049	https://www.check-dein-spiel.de/hilfe-fuer-spieler/fremdsprachige-telefon-beratung/	2026-11-04	f49f7b98bdac94a7c281b9512e8fbac23bf32606c04a77dffeaa5a1f356a21de	tak	1 cytat(y); plik roboczy de_fremd
+O-050	https://gordonmoody.org.uk/gambling-therapy/	2026-11-04	31d3768f362f21799ea57854f342dc32824f42a193b3488de22327f14a19981d	tak	4 cytat(y); plik roboczy int_gm_gt
+O-051	https://docs.ankiweb.net/deck-options.html	2026-11-04	f83ec553dd32b1697e43ef0225d972218f111b8ce75d8f3c7f37ae1a74bae692	tak	1 cytat(y); plik roboczy b_anki
+O-052	https://raw.githubusercontent.com/open-spaced-repetition/ts-fsrs/main/packages/fsrs/README.md	2026-11-04	3d833a2609b32433b08daa7b8f29531dbadd519927dc15bd1b77be78fdb072ec	tak	1 cytat(y); plik roboczy b_tsfsrs_pkg
+O-053	https://help.gtowizard.com/measure-performance/	2026-11-04	13098b107ec8b2daaf97e273640cc5645dec4f7806faab7c2492e53c9fb02411	tak	5 cytat(y); plik roboczy gtow
+O-054	https://www.911.gov/	2026-11-04	7aa1612aecd72b7fdeb64c46d83a6e12a988b2461f5f7d30fe11f6cb212d74b9	nie	HTTP 403
+O-055	https://www.gamcare.org.uk/get-support/talk-to-us-now/	2026-11-04	301dc171e5fa8c5fdeb69592a92a5c378f5f758f68d2338200235d60eb04b9ad	nie	HTTP 403
+O-056	https://www.lifelinehelpline.info/	2026-11-04	301dc171e5fa8c5fdeb69592a92a5c378f5f758f68d2338200235d60eb04b9ad	nie	HTTP 403
+O-057	https://www.dunlewey.net/	2026-11-04	5f2ef0690643759391cdde810a701d41a5fc7c8a426f4c125f03f6e4480d729d	nie	przekierowanie na obcą domenę superdewa.llc — nie linkować
+O-058	https://aidejeu.ca/	2026-11-04	7d99eec9cd7efa7221f62e4619423232cdcf6e7036ea9cd9ff2882927fab8081	nie	HTTP 503
+O-059	https://peigamblingsupport.princeedwardisland.ca/get-help-now	2026-11-04	6dbec646a7aa989248bc7448a15240ce2864fb5c86a3882b6ae3c8a25515e261	nie	HTTP 403
+O-060	https://www.princeedwardisland.ca/en/information/health-pei/gambling-addiction-services	2026-11-04	06581c7c18a5a284b6bc96ab3beecefa4e65db791262a20db416973e3deb04dc	nie	HTTP 403
+O-061	https://novascotia.ca/dhw/addictions/gambling.asp	2026-11-04	2d2c8ac52c27be93dab9edc239ca1c7a105d5d84218952b9aa98453b43278863	nie	HTTP 404
+O-062	https://www.gamblingtherapy.org/	2026-11-04	d3cdbeb52e334575a66a52874dbcafaf1a85a6c477389b9950a218442e7d69c2	nie	HTTP 500 (Error establishing a database connection)
+O-063	https://800gambler.org/wp-content/uploads/2025/10/CCGNJ-Helpline-Update3-1.pdf	2026-11-04	c5bf86e332e348516d8084e1afb74162393e8f1ad6a2d7928e7a908c8c220fc8	tak	S-42 ponownie: cytat „The 1-800-GAMBLER® helpline, now under control of the New Jersey Council of Compulsive Gambling (CCGNJ) after a recent court ruling” znaleziony
+O-064	https://www.canada.ca/en/public-health/services/mental-health-services/mental-health-get-help.html	2026-11-04		nie	błąd połączenia (HTTP/2 INTERNAL_ERROR, także HTTP/1.1)
+O-065	https://www.connexontario.ca/en-ca/	2026-11-04		nie	błąd połączenia
+O-066	https://www.nidirect.gov.uk/contacts/lifeline	2026-11-04		nie	HTTP 403 (zastąpione stroną nidirect „mental health emergency”)
+O-067	https://moh.gov.vn/en/tin-tong-hop/-/asset_publisher/k206Q9qkZOqn/content/-e-xuat-hop-nhat-113-114-115-thanh-tong-ai-cap-cuu-quoc-gia	2026-11-04		nie	błąd połączenia
+O-068	https://www.nhsinform.scot/healthy-living/mental-wellbeing/mental-health-emergencies/	2026-11-04		nie	HTTP 404 (zastąpione nhsinform.scot/campaigns/suicide)

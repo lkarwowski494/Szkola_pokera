@@ -16,7 +16,27 @@ for (const f of readdirSync(kat).filter((f) => f.endsWith('.json') && f !== 'bez
   for (const w of t) rejestr.push({ ...w, partia: f.replace('.json', '') });
 }
 const bez = existsSync(`${kat}/bez-twierdzen.json`) ? JSON.parse(readFileSync(`${kat}/bez-twierdzen.json`, 'utf8')) : [];
-const ids = new Set(rejestr.map((w) => w.id)), bezK = new Set(bez.map((b) => `n:${b.klucz}`));
+const bezK = new Set(bez.map((b) => `n:${b.klucz}`));
+// Liczba użyta w kilku modułach ma wpis w kilku partiach: jeden wpis, źródła połączone (bez źródeł bez adresu),
+// status i werdykt najsurowszy, poprawki i uwagi połączone. Parametry produktowe (bez-twierdzen.json) wypadają z rejestru.
+const SUR = { potwierdzone: 0, otwarte: 1, sprzeczne: 2 }, WER = { POPARTE: 0, CZĘŚCIOWO: 1, NIEPOPARTE: 2, SPRZECZNE: 3 };
+const wgId = new Map();
+for (const w of rejestr.splice(0)) {
+  if (bezK.has(w.id)) continue;
+  const zr = (w.zrodla ?? []).filter((z) => z.adres && [1, 2, 3, 4, 5].includes(z.szczebel));
+  const a = wgId.get(w.id);
+  if (!a) { wgId.set(w.id, { ...w, zrodla: zr, partia: [w.partia] }); continue; }
+  const klucz = (z) => `${z.adres}|${z.cytat}`, znane = new Set(a.zrodla.map(klucz));
+  a.zrodla.push(...zr.filter((z) => !znane.has(klucz(z))));
+  if ((SUR[w.status] ?? 0) > (SUR[a.status] ?? 0)) a.status = w.status;
+  if ((WER[w.werdykt_tekstu] ?? -1) > (WER[a.werdykt_tekstu] ?? -1)) a.werdykt_tekstu = w.werdykt_tekstu;
+  a.krytyczne = a.krytyczne || w.krytyczne;
+  a.poprawka = [a.poprawka, w.poprawka].filter(Boolean).join(' | ') || null;
+  a.uwagi = [a.uwagi, w.uwagi].filter(Boolean).join(' | ');
+  a.partia.push(w.partia);
+}
+rejestr.push(...wgId.values());
+const ids = new Set(rejestr.map((w) => w.id));
 const rules = YAML.parse(readFileSync('content/pl/rules.yaml', 'utf8')), nums = YAML.parse(readFileSync('content/numbers.yaml', 'utf8')), terms = YAML.parse(readFileSync('content/terms.yaml', 'utf8'));
 const wymagane = [...rules.map((r) => r.id), ...Object.keys(nums).map((k) => `n:${k}`), ...Object.keys(terms).map((k) => `t:${k}`)];
 const brak = wymagane.filter((id) => !ids.has(id) && !bezK.has(id));
