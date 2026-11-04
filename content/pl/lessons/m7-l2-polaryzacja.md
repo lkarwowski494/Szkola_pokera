@@ -114,7 +114,7 @@ Ogólnie {{t:range}} {{t:polarized}} to bardzo silne ręce i {{t:bluff|blefy}}. 
 
 ## Dlaczego na turnie polaryzujesz
 
-Rywal {{t:call|sprawdził}} flop, więc ma {{t:pair|parę}} albo {{t:draw}}. Średnia ręka na drugi bet nic nie zyskuje: gorsze ręce {{t:fold|pasują}}, a lepsze płacą. Silne ręce chcą zbudować {{t:pot|pulę}} przed riverem, a {{t:semi-bluff|semi-blefy}} potrzebują {{t:fold|pasów}} i mają outy, gdy dostaną {{t:call}}.
+Rywal {{t:call|sprawdził}} flop, więc ma zwykle {{t:pair|parę}} albo {{t:draw}}, czasem wysokie karty z backdoorem (M6). Średnia ręka na drugi bet nic nie zyskuje: gorsze ręce {{t:fold|pasują}}, a lepsze płacą. Silne ręce chcą zbudować {{t:pot|pulę}} przed riverem, a {{t:semi-bluff|semi-blefy}} potrzebują {{t:fold|pasów}} i mają outy, gdy dostaną {{t:call}}.
 
 ## {{t:range|Zakres}} {{t:polarized}}, duży bet
 

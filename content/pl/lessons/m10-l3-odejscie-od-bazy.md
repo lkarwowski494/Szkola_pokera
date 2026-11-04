@@ -84,7 +84,7 @@ drills:
     prompt: "Po {{n:hud.ex.mid.hands}} rękach rywal wygląda na luźnego i pasywnego, ale próba jest mała. Jak daleko odchodzisz od bazy?"
     options:
       - { text: "Trochę, w kierunku odczytu i tylko rękami granicznymi", correct: true, why: "Kierunek widać już w małej próbie, ale liczby mają duży błąd. Ręce na granicy decyzji przesuwasz w stronę odczytu, a resztę grasz jak w bazie, dopóki próba nie urośnie." }
-      - { text: "Na całego: od razu gram przeciw niemu maksymalną {{t:exploit|eksploatacją}}", why: "Przy małej próbie odczyt może być błędny. Duże odejście od bazy samo daje się wykorzystać, więc przy pomyłce oddajesz więcej, niż zarabiasz." }
+      - { text: "Na całego: od razu gram przeciw niemu maksymalną {{t:exploit|eksploatacją}}", why: "Przy małej próbie odczyt może być błędny. Duże odejście od bazy samo daje się wykorzystać: baza to strategia najmniej podatna na wykorzystanie." }
       - { text: "Wcale, dopóki nie będę mieć tysiąca rąk", why: "Za ostrożnie. Kierunek odczytu przy {{n:hud.ex.mid.hands}} rękach już coś znaczy, a ręce graniczne możesz przesuwać tanio." }
 ---
 {{t:exploit|Eksploatacja}} nie zastępuje bazy, tylko ją przesuwa. Najpierw wiesz, jak gra się w równowadze (moduły 3–9), potem z danych widzisz, w którą stronę rywal od niej odchodzi, i przesuwasz własną grę w tę samą stronę. Pytanie brzmi: którymi rękami i jak daleko.

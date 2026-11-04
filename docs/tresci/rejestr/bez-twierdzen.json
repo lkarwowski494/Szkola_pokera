@@ -957,5 +957,19 @@
   "jednostka": "count",
   "powod": "dane zadania (przykład), nie twierdzenie o świecie",
   "source": "przykład na egzaminie (stack rywala za pulą, mniejszy)"
+ },
+ {
+  "klucz": "io.flush.stack",
+  "wartosc": 500,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: stack za każdym z graczy w zadaniu z drawem do koloru (pula 90, bet 45), inna wielkość niż spr.stack."
+ },
+ {
+  "klucz": "io.gut.stack",
+  "wartosc": 150,
+  "jednostka": "count",
+  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
+  "source": "przykład w lekcji: stack za rywalem po jego becie w zadaniu z gutshotem, inna wielkość niż spr.stack.low"
  }
 ]

@@ -113,7 +113,7 @@
   "id": "R-M9-004",
   "rodzaj": "regula",
   "level": "math",
-  "twierdzenie": "po twoim zakładzie zostałoby ci w stacku mniej, niż wyniesie pot po jego sprawdzeniu → nie planujesz zakładu i pasu na all-in: albo grasz o cały stack, albo czekasz, bo przy spr {{n:spr.commit}} po zakładzie wielkości puli potrzebujesz na all-in tylko {{n:eq.commit.after-pot}} equity, więc fold prawie nigdy się nie opłaca",
+  "twierdzenie": "po twoim zakładzie zostałoby ci w stacku mniej, niż wyniesie pot po jego sprawdzeniu → nie planujesz zakładu i pasu na all-in: albo grasz o cały stack, albo czekasz, bo przy spr {{n:spr.commit}} po zakładzie wielkości puli potrzebujesz na all-in tylko {{n:eq.commit.after-pot}} equity, więc fold zwykle się nie opłaca",
   "zrodla": [
    {
     "adres": "rachunek: SPR 2, zakład puli: dopłata 100 do puli 300 → 100/(300+200) = 20,00%; ogólnie reszta r < pula P′ ⇒ r/(P′+2r) < 1/3",
@@ -132,7 +132,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": "S3 E3 2026-11-04: „fold zwykle się nie opłaca” zamiast „prawie nigdy” (rachunek daje cenę, wniosek zależy od zakresu rywala); m9-l2:96 porównuje z ceną zakładu wielkości puli zamiast używać eq.bet-pot jako ogólnej granicy."
  },
  {
   "id": "R-M9-005",
@@ -263,6 +263,13 @@
     "cytat": "Game theory optimal strategies typically use geometric bet sizes when they want to maximize value with a big nut advantage.",
     "odczyt": "2026-11-04",
     "szczebel": 2
+   },
+   {
+    "adres": "https://www.cardplayer.com/poker-news/23476-poker-strategy-with-roy-cooke-two-streets-of-value",
+    "miejsce": "Roy Cooke, Two Streets Of Value",
+    "cytat": "On the flop, you’ll need to best estimate how many streets of value your hand likely has. … Your opponent’s calling range strengthened as he folds his weaker hands.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -274,7 +281,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Odczyt potwierdza: najwyższa para zwykle nie trzy ulice w SRP (Upswing, GTOW SPR 16), silne ręce i rozmiar geometryczny przy przewadze w nutsach (GTOW, poziom zakresu, nie ręki). Źródło z pola source „Streets of Value (MTT 30bb)” (serwis szkoleniowy) nie znalezione dziś (wyszukiwarka bez adresu), więc wyjątek „trzecią, gdy rywal płaci słabszymi rękami” i „słabsza para jedną albo żadnej” bez odczytu. | E2 2026-11-04: poprawione (rules.yaml:801, m9-l4-plan-trzech-ulic.md:107); było CZĘŚCIOWO; source bez nieodnalezionego „Streets of Value (MTT 30bb)”, z adresami i cytatami przeczytanych stron; otwarte pozostaje źródło szczebla 1–4 dla „słabsza para jedną albo żadnej”",
+  "uwagi": "Odczyt potwierdza: najwyższa para zwykle nie trzy ulice w SRP (Upswing, GTOW SPR 16), silne ręce i rozmiar geometryczny przy przewadze w nutsach (GTOW, poziom zakresu, nie ręki). Źródło z pola source „Streets of Value (MTT 30bb)” (serwis szkoleniowy) nie znalezione dziś (wyszukiwarka bez adresu), więc wyjątek „trzecią, gdy rywal płaci słabszymi rękami” i „słabsza para jedną albo żadnej” bez odczytu. | E2 2026-11-04: poprawione (rules.yaml:801, m9-l4-plan-trzech-ulic.md:107); było CZĘŚCIOWO; source bez nieodnalezionego „Streets of Value (MTT 30bb)”, z adresami i cytatami przeczytanych stron; otwarte pozostaje źródło szczebla 1–4 dla „słabsza para jedną albo żadnej” | S3 E3 2026-11-04: dodane przeczytane źródło (Cooke, CardPlayer) dla oceny liczby ulic na flopie i dla wzmacniania się zakresu sprawdzającego z każdą ulicą; liczby ulic dla klas rąk (set trzy, słabsza para jedna albo żadna) nadal bez źródła liczbowego, nazwane uproszczeniem (D-149).",
   "decyzja": "D-149"
  },
  {
@@ -444,7 +451,7 @@
   "id": "R-M10-003",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "oceniasz rywala po statystykach HUD-a → poniżej ok. {{n:hud.hands.random}} rąk traktujesz je jak przypadkowe i grasz z nim jak z nieznanym; typ gracza widać zgrubnie po ok. {{n:hud.hands.random}}–{{n:hud.hands.rough.high}} rękach, vpip i pfr stabilizują się po ok. {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}}, a 3-bet i fold to 3-bet po ok. {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}, bo vpip rośnie o jedną okazję w każdej ręce, a fold to 3-bet tylko wtedy, gdy rywal otworzył i dostał 3-bet, więc z tej samej liczby rąk ma wielokrotnie mniej okazji i większy błąd",
+  "twierdzenie": "oceniasz rywala po statystykach HUD-a → poniżej ok. {{n:hud.hands.random}} rąk traktujesz je jak przypadkowe i grasz z nim jak z nieznanym; typ gracza widać zgrubnie po ok. {{n:hud.hands.random}}–{{n:hud.hands.rough.high}} rękach, vpip i pfr stabilizują się po ok. {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}}, 3-bet po ok. {{n:hud.hands.3bet.overall.low}}–{{n:hud.hands.3bet.high}}, a fold to 3-bet po ok. {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}, bo vpip rośnie o jedną okazję w każdej ręce, a fold to 3-bet tylko wtedy, gdy rywal otworzył i dostał 3-bet, więc z tej samej liczby rąk ma wielokrotnie mniej okazji i większy błąd",
   "zrodla": [
    {
     "adres": "https://pokercoaching.com/blog/poker-stats/",
@@ -491,7 +498,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Sprzeczność na szczeblu 4: Deepfold podaje VPIP/PFR wiarygodne po 30–50 rękach, PokerCoaching stabilizację po 100–200. Lekcja m10-l1:126 już pokazuje oba progi; reguła i wyjaśnienia m10-l1:67 i :77 mówią tylko 100–200. Deepfold: 3-bet % po 100+, fold to 3-bet po 200+. | E2 2026-11-04: poprawione (rules.yaml:846, rules.yaml:849 source, m10-l1-statystyki.md:67); było CZĘŚCIOWO; dwa progi VPIP/PFR według sprzeczności 1 raportu e1-m9-m11 §3 (m10-l1:77 i :126 już zgodne)"
+  "uwagi": "Sprzeczność na szczeblu 4: Deepfold podaje VPIP/PFR wiarygodne po 30–50 rękach, PokerCoaching stabilizację po 100–200. Lekcja m10-l1:126 już pokazuje oba progi; reguła i wyjaśnienia m10-l1:67 i :77 mówią tylko 100–200. Deepfold: 3-bet % po 100+, fold to 3-bet po 200+. | E2 2026-11-04: poprawione (rules.yaml:846, rules.yaml:849 source, m10-l1-statystyki.md:67); było CZĘŚCIOWO; dwa progi VPIP/PFR według sprzeczności 1 raportu e1-m9-m11 §3 (m10-l1:77 i :126 już zgodne) | S3 E3 2026-11-04: osobne dolne granice: 3-bet od ok. 100 rąk (Deepfold „3-bet % (overall) 100+ hands”, nowy klucz hud.hands.3bet.overall.low), fold to 3-bet od ok. 200; górna ok. 500 wspólna (PokerCoaching)."
  },
  {
   "id": "R-M10-004",
@@ -536,7 +543,7 @@
   "id": "R-M10-005",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "przypisujesz rywalowi typ po vpip i pfr (6-max, co najmniej ok. {{n:hud.hands.vpip.low}} rąk) → nit gra do ok. {{n:hud.vpip.nit-max}} rąk; regular ok. {{n:hud.vpip.reg.low}}–{{n:hud.vpip.reg.high}} z małą różnicą vpip − pfr; gracz luźny od ok. {{n:hud.vpip.loose}}: z różnicą ponad {{n:hud.gap.passive}} punktów to pasywny gracz rekreacyjny (calling-station), z różnicą poniżej {{n:hud.gap.aggressive}} punktów to maniak, bo typ mówi, w którą stronę rywal odchodzi od bazy: gra za mało rąk, za dużo rąk, za często sprawdza albo za często przebija",
+  "twierdzenie": "przypisujesz rywalowi typ po vpip i pfr (6-max, co najmniej ok. {{n:hud.hands.vpip.low}} rąk) → nit gra do ok. {{n:hud.vpip.nit-max}} rąk; regular ok. {{n:hud.vpip.reg.low}}–{{n:hud.vpip.reg.high}} z małą różnicą vpip − pfr; gracz luźny od ok. {{n:hud.vpip.loose}}: z różnicą ponad {{n:hud.gap.passive}} punktów to pasywny gracz rekreacyjny (calling-station), z różnicą do ok. {{n:hud.gap.aggressive}} punktów to maniak, bo typ mówi, w którą stronę rywal odchodzi od bazy: gra za mało rąk, za dużo rąk, za często sprawdza albo za często przebija",
   "zrodla": [
    {
     "adres": "https://pokercoaching.com/blog/poker-stats/",
@@ -590,7 +597,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Profil maniaka Deepfold 38/35 ma różnicę 3, czyli nie spełnia „poniżej 3” (znane otwarte pytanie D-M10-03)."
+  "uwagi": "Profil maniaka Deepfold 38/35 ma różnicę 3, czyli nie spełnia „poniżej 3” (znane otwarte pytanie D-M10-03). | S3 E3 2026-11-04: maniak „z różnicą do ok. 3 punktów” (włącznie), żeby objąć profil maniaka Deepfold 38/35; packages/poker-core/src/hud.ts: gap <= aggressiveGap, test hud.test.ts (38/35 → maniak)."
  },
  {
   "id": "R-M10-006",
@@ -851,7 +858,7 @@
   "id": "R-M10-012",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "masz na rywala małą próbę albo tylko ogólną wiedzę o populacji → odchodzisz od bazy tylko w kierunku, który pokazują statystyki, i tylko rękami granicznymi; duże odejście, z całym zakresem, dopiero przy dużej próbie i wyraźnym błędzie rywala, bo przy małej próbie błąd statystyki jest duży, a odejście od bazy samo daje się wykorzystać: przy złym odczycie oddajesz więcej, niż zarabiasz",
+  "twierdzenie": "masz na rywala małą próbę albo tylko ogólną wiedzę o populacji → odchodzisz od bazy tylko w kierunku, który pokazują statystyki, i tylko rękami granicznymi; duże odejście, z całym zakresem, dopiero przy dużej próbie i wyraźnym błędzie rywala, bo przy małej próbie błąd statystyki jest duży, a odejście od bazy (strategii najmniej podatnej na wykorzystanie) samo daje się wykorzystać",
   "zrodla": [
    {
     "adres": "https://pokercoaching.com/blog/poker-stats/",
@@ -866,6 +873,13 @@
     "cytat": "To deviate from a baseline strategy in order to take advantage of a (future or prior) mistake in your opponent's strategy.",
     "odczyt": "2026-11-04",
     "szczebel": 4
+   },
+   {
+    "adres": "https://gtowizard.com/en/glossary/",
+    "miejsce": "hasło Game Theory Optimal (GTO)",
+    "cytat": "Game Theory Optimal (GTO) The least exploitable fixed strategy, resulting in the highest possible expected value against an opponent that can perfectly exploit you.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -877,7 +891,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Jedno źródło dla zasady „małe odejście przy małej próbie” (PokerCoaching); glosariusz tylko definiuje exploit. Część „odejście samo daje się wykorzystać” bez cytatu źródła (wniosek)."
+  "uwagi": "Jedno źródło dla zasady „małe odejście przy małej próbie” (PokerCoaching); glosariusz tylko definiuje exploit. Część „odejście samo daje się wykorzystać” bez cytatu źródła (wniosek). | S3 E3 2026-11-04: z because usunięte „przy złym odczycie oddajesz więcej, niż zarabiasz” (bez źródła); „odejście od bazy samo daje się wykorzystać” oparte na definicji GTO z glosariusza („The least exploitable fixed strategy”)."
  },
  {
   "id": "R-M10-013",
@@ -943,7 +957,7 @@
   "id": "R-M10-014",
   "rodzaj": "regula",
   "level": "gto",
-  "twierdzenie": "dostajesz otwarcie w grze z rake'iem pobieranym tylko od pul, które dochodzą do flopu → sprawdzasz rzadziej niż w grze bez rake'u; część rąk, które bez rake'u by sprawdziły, 3-betuje, a resztę pasujesz, bo rake zabiera część puli po flopie, a pot zakończona przed flopem jest od niego wolna: sprawdzenie traci, 3-bet i fold nie (niektóre pokoje pobierają rake także od pul z 3-betem bez flopu, więc tam 3-bet też płaci)",
+  "twierdzenie": "dostajesz otwarcie w grze z rake'iem pobieranym tylko od pul, które dochodzą do flopu → sprawdzasz rzadziej niż w grze bez rake'u; część rąk, które bez rake'u by sprawdziły, 3-betuje, a resztę pasujesz, bo rake zabiera część puli po flopie, a pot zakończona przed flopem jest od niego wolna: sprawdzenie zwykle prowadzi do flopu i płaci rake, 3-bet często kończy rozdanie przed flopem, bez rake'u, a fold nic nie kosztuje (niektóre pokoje pobierają rake także od pul z 3-betem bez flopu, więc tam 3-bet też płaci)",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/preflop-raise-sizing-examining-2-key-factors/",
@@ -990,7 +1004,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Struktura rake na stronie: „@100NL Rake” w nagłówkach porównań EV i „no flop, no drop”."
+  "uwagi": "Struktura rake na stronie: „@100NL Rake” w nagłówkach porównań EV i „no flop, no drop”. | S3 E3 2026-11-04: because zawężone: sprawdzenie zwykle prowadzi do flopu i płaci rake, 3-bet często kończy rozdanie przed flopem, fold nic nie kosztuje (zamiast „3-bet i fold nie [tracą]”)."
  },
  {
   "id": "R-M10-015",
@@ -1102,7 +1116,7 @@
   "id": "R-M11-002",
   "rodzaj": "regula",
   "level": "gto",
-  "twierdzenie": "grasz push/fold z małego blinda przeciw dużemu blindowi → im krótszy stack, tym więcej rąk pushujesz all-in: przy {{n:m11.depth.15}} ok. {{n:m11.push.15}} rąk, przy {{n:m11.depth.10}} ok. {{n:m11.push.10}}, przy {{n:m11.depth.5}} ok. {{n:m11.push.5}}, bo przy krótszym stacku ryzykujesz mniej względem blindów, które zgarniasz, gdy rywal spasuje, a rywal musi sprawdzać szerzej",
+  "twierdzenie": "grasz push/fold z małego blinda przeciw dużemu blindowi → im krótszy stack, tym więcej rąk pushujesz all-in: przy {{n:m11.depth.15}} ok. {{n:m11.push.15}} rąk, przy {{n:m11.depth.10}} ok. {{n:m11.push.10}}, przy {{n:m11.depth.5}} ok. {{n:m11.nash.push.5}}–{{n:m11.push.5}}, bo przy krótszym stacku ryzykujesz mniej względem blindów, które zgarniasz, gdy rywal spasuje, a rywal musi sprawdzać szerzej",
   "zrodla": [
    {
     "adres": "https://docs.google.com/document/d/1UEH7qeIhJvaLdJxYfk8ju2-K9-_3p9tAd8SrInuO_ko (dokument 10, Dysk)",
@@ -1142,13 +1156,13 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Dokument 10 waliduje tylko 10bb; 5bb i 15bb sprawdzone dziś z tabelą Nasha (szczebel 2): różnica 1,6 pp (5bb) i 0,2 pp (15bb)."
+  "uwagi": "Dokument 10 waliduje tylko 10bb; 5bb i 15bb sprawdzone dziś z tabelą Nasha (szczebel 2): różnica 1,6 pp (5bb) i 0,2 pp (15bb). | S3 E3 2026-11-04: przy 5bb przedział ok. 71,5–72,5% (równowaga niezależna 71,50% i solver 72,55%, klucz m11.nash.push.5); m11-l1:152: różnica wobec tabeli 56,6% „mieści się w tolerancji walidacji” zamiast „inny sposób liczenia”."
  },
  {
   "id": "R-M11-003",
   "rodzaj": "regula",
   "level": "gto",
-  "twierdzenie": "w puli leży ante → pushujesz all-in więcej rąk niż bez ante: przy {{n:m11.depth.10}} i bb-ante {{n:m11.ante}} ok. {{n:m11.push.10-ante}} zamiast {{n:m11.push.10}}, bo ante powiększa pulę, którą zgarniasz, gdy rywal spasuje, a ryzyko all-inu zostaje to samo",
+  "twierdzenie": "w puli leży ante → pushujesz all-in więcej rąk niż bez ante: przy {{n:m11.depth.10}} i bb-ante {{n:m11.ante}} ok. {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} zamiast {{n:m11.push.10}}, bo ante powiększa pulę, którą zgarniasz, gdy rywal spasuje, a ryzyko all-inu zostaje to samo",
   "zrodla": [
    {
     "adres": "repo: content/ranges/pushfold.json (solver push/fold projektu)",
@@ -1170,6 +1184,13 @@
     "cytat": "10 60.8%",
     "odczyt": "2026-11-04",
     "szczebel": 2
+   },
+   {
+    "adres": "rachunek: docs/tresci/narzedzia/e1b/nash_hu.py (fictitious play na tools/equity/equity169.json, bez kodu solvera)",
+    "miejsce": "docs/tresci/odczyty/e1b-solver-2026-11-04.txt",
+    "cytat": "S=10bb ante BB=1 push 71.05% call 53.25%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
    }
   ],
   "status": "potwierdzone",
@@ -1181,7 +1202,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Kierunek poparty (PokerCoaching; tabela Nasha PokerStrategy z ante 10% BB: 60,8% wobec 56,6%). Wartość 71,65% przy ante 1bb nie ma walidacji w dokumencie 10 ani opublikowanego rozwiązania o tej strukturze (otwarte). 888poker (drugie źródło kierunku) niedostępne (301). | E2 2026-11-04: poprawione (rules.yaml:1071, m11-l1-push-fold.md:88 i :174, m11-l2-sprawdzanie.md:83 i :168: nazwana struktura big blind ante 1bb); było CZĘŚCIOWO, status otwarte → potwierdzone (D-153 zmienia D-148); 888poker usunięte z source (301)",
+  "uwagi": "Kierunek poparty (PokerCoaching; tabela Nasha PokerStrategy z ante 10% BB: 60,8% wobec 56,6%). Wartość 71,65% przy ante 1bb nie ma walidacji w dokumencie 10 ani opublikowanego rozwiązania o tej strukturze (otwarte). 888poker (drugie źródło kierunku) niedostępne (301). | E2 2026-11-04: poprawione (rules.yaml:1071, m11-l1-push-fold.md:88 i :174, m11-l2-sprawdzanie.md:83 i :168: nazwana struktura big blind ante 1bb); było CZĘŚCIOWO, status otwarte → potwierdzone (D-153 zmienia D-148); 888poker usunięte z source (301) | S3 E3 2026-11-04: wartość z ante podana jako przedział ok. 71–72% (równowaga niezależna 71,05%, klucz m11.nash.push.10-ante, i solver 71,65%), więc nie opiera się na samym solverze projektu.",
   "decyzja": "D-153"
  },
  {
@@ -1220,7 +1241,7 @@
   "id": "R-M11-005",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "M (stack ÷ koszt okrążenia: blindy i ante) spada poniżej ok. {{n:m11.m.red}} → grasz już tylko all-in albo fold i starasz się wejść do puli pierwszy, bo bez gry stack starczy na kilka okrążeń, a zwykłe podbicie oddaje za dużo żetonów",
+  "twierdzenie": "M (stack ÷ koszt okrążenia: blindy i ante) spada do ok. {{n:m11.m.red}} albo niżej → grasz już tylko all-in albo fold i starasz się wejść do puli pierwszy, bo bez gry stack starczy na kilka okrążeń, a zwykłe podbicie oddaje za dużo żetonów",
   "zrodla": [
    {
     "adres": "https://www.pokerstrategy.com/strategy/mtt/dan-harrington-m-factor/",
@@ -1253,7 +1274,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Jedno źródło nierachunkowe poza Wikipedią (PokerStrategy, szczebel 4); książka Harringtona nieczytana. Granica 6 tylko z Wikipedii (zob. n:m11.m.red-alt). | E2 2026-11-04: source (rules.yaml:1090): bez granicy 6 z Wikipedii i bez „5 albo 6”; jedna granica ok. 5 (D-147)",
+  "uwagi": "Jedno źródło nierachunkowe poza Wikipedią (PokerStrategy, szczebel 4); książka Harringtona nieczytana. Granica 6 tylko z Wikipedii (zob. n:m11.m.red-alt). | E2 2026-11-04: source (rules.yaml:1090): bez granicy 6 z Wikipedii i bez „5 albo 6”; jedna granica ok. 5 (D-147) | S3 E3 2026-11-04 (sprawa przekrojowa: Harrington): granica strefy czerwonej włączna jak w źródle („1 <= M <= 5”): „spada do ok. 5 albo niżej”; m11-l1:40, :134 „przy M ok. 5 i niższym”.",
   "decyzja": "D-147"
  },
  {
@@ -1508,7 +1529,7 @@
   "id": "R-M11-012",
   "rodzaj": "regula",
   "level": "gto",
-  "twierdzenie": "sprawdzasz all-in, a za tobą jest jeszcze gracz albo ktoś już sprawdził → sprawdzasz węziej: przy trzech graczach i {{n:m11.depth.3max}} small-blind sprawdza all-in Buttona ok. {{n:m11.3max.call.sb}} rąk, big-blind (gdy SB spasował) ok. {{n:m11.3max.call.bb}}, a gdy all-in są już dwaj gracze, tylko ok. {{n:m11.3max.call.bb-two}}, choć cena spada do {{n:m11.3max.bb-two.eq}}, bo gracz za tobą może mieć silną rękę i dołączyć, a przeciw dwóm zakresom equity twojej ręki szybko maleje",
+  "twierdzenie": "sprawdzasz all-in, a za tobą jest jeszcze gracz albo ktoś już sprawdził → sprawdzasz węziej: przy trzech graczach i {{n:m11.depth.3max}} small-blind sprawdza all-in Buttona ok. {{n:m11.3max.call.sb}} rąk, big-blind (gdy SB spasował) ok. {{n:m11.3max.call.bb}}, a gdy all-in są już dwaj gracze, tylko ok. {{n:m11.3max.call.bb-two}}, choć cena spada do {{n:m11.3max.bb-two.eq}}, bo gracz za tobą może mieć silną rękę i dołączyć, a przeciw dwóm zakresom equity twojej ręki szybko maleje; ceny SB i BB różnią się niewiele, więc różnica bierze się głównie z gracza za tobą",
   "zrodla": [
    {
     "adres": "https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf",
@@ -1548,7 +1569,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": "S3 E3 2026-11-04: różnica SB/BB „głównie” z gracza za tobą, bo ceny różnią się niewiele (43,75% wobec 41,94%); because i m11-l2:154."
  },
  {
   "id": "n:cbet.size.small",
@@ -1643,7 +1664,7 @@
   "id": "n:hud.gap.aggressive",
   "rodzaj": "liczba",
   "level": "heuristic",
-  "twierdzenie": "hud.gap.aggressive = 3 (count); source: serwis szkoleniowy, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „When the gap is less than 3 points, I flag them as highly aggressive”; serwis szkoleniowy: „Gap < 5 → Aggressive player who rarely limps. Most regs.”; część wspólna: poniżej 3 punktów",
+  "twierdzenie": "hud.gap.aggressive = 3 (count); source: serwis szkoleniowy, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „When the gap is less than 3 points, I flag them as highly aggressive”; serwis szkoleniowy: „Gap < 5 → Aggressive player who rarely limps. Most regs.”, profil „Maniac (38/35/15%+)”; część wspólna: do 3 punktów włącznie (obejmuje profil maniaka 38/35)",
   "zrodla": [
    {
     "adres": "https://pokercoaching.com/blog/poker-stats/",
@@ -1658,6 +1679,13 @@
     "cytat": "Gap < 5 → Aggressive player who rarely limps.",
     "odczyt": "2026-11-04",
     "szczebel": 4
+   },
+   {
+    "adres": "https://deepfold.co/en/blog/hud-stats-guide",
+    "miejsce": "profile",
+    "cytat": "Maniac (38/35/15%+) Everything is a raise.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1669,7 +1697,7 @@
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Część wspólna: poniżej 3."
+  "uwagi": "Część wspólna: poniżej 3. | S3 E3 2026-11-04: próg włączny („do ok. 3 punktów”), żeby objąć profil maniaka Deepfold 38/35 (różnica 3); hud.ts: gap <= aggressiveGap."
  },
  {
   "id": "n:hud.gap.passive",
@@ -1732,7 +1760,7 @@
   "id": "n:hud.hands.3bet.low",
   "rodzaj": "liczba",
   "level": "heuristic",
-  "twierdzenie": "hud.hands.3bet.low = 200 (count); source: serwis szkoleniowy, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide), tabela: „Fold to 3-bet | 200+ hands”; przedział obejmujący oba źródła",
+  "twierdzenie": "hud.hands.3bet.low = 200 (count); source: serwis szkoleniowy, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide), tabela: „Fold to 3-bet | 200+ hands”; dolna granica tylko dla fold to 3-bet (dla samego 3-betu: hud.hands.3bet.overall.low)",
   "zrodla": [
    {
     "adres": "https://deepfold.co/en/blog/hud-stats-guide",
@@ -1751,7 +1779,7 @@
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Ta sama tabela: „3-bet % (overall) 100+ hands”, więc dla samego 3-betu dolna granica źródła to 100."
+  "uwagi": "Ta sama tabela: „3-bet % (overall) 100+ hands”, więc dla samego 3-betu dolna granica źródła to 100. | S3 E3 2026-11-04: wartość 200 tylko jako dolna granica fold to 3-bet; dla samego 3-betu osobny klucz hud.hands.3bet.overall.low = 100 (m10-l1:127, R-M10-003, egzamin m10 q8)."
  },
  {
   "id": "n:hud.hands.random",
@@ -3194,7 +3222,7 @@
   "id": "n:rake.pop.reg.postrake",
   "rodzaj": "liczba",
   "level": "exploit",
-  "twierdzenie": "rake.pop.reg.postrake = 0.53 (percent); source: jak rake.pop.reg.prerake",
+  "twierdzenie": "rake.pop.reg.postrake = 0.53 (percent); source: jak rake.pop.reg.prerake (szacunek po korekcie bayesowskiej: „Winners: 53%”)",
   "zrodla": [
    {
     "adres": "https://www.gipsyteam.com/news/12-12-2025/number-of-winning-cash-game-players",
@@ -3213,13 +3241,13 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Populacja: 6-max NLHE NL10–NL500, „tracked sites” (sale i okres niepodane), dane Tombos21 omówione przez serwis informacyjny; dane kontrolne. Pole population: jak rake.pop.reg.prerake"
+  "uwagi": "Populacja: 6-max NLHE NL10–NL500, „tracked sites” (sale i okres niepodane), dane Tombos21 omówione przez serwis informacyjny; dane kontrolne. Pole population: jak rake.pop.reg.prerake | S3 E3 2026-11-04: tekst (m10-l4:31, :104) nazywa wartość szacunkiem autora po korekcie bayesowskiej i podaje surowe dane (rake.pop.reg.prerake.raw, rake.pop.reg.postrake.raw)."
  },
  {
   "id": "n:rake.pop.reg.prerake",
   "rodzaj": "liczba",
   "level": "exploit",
-  "twierdzenie": "rake.pop.reg.prerake = 0.9 (percent); source: serwis informacyjny (Tombos21), jak rake.pop.nl100.loss: „Pre-rake winners 90% post-rake winners 53%”",
+  "twierdzenie": "rake.pop.reg.prerake = 0.9 (percent); source: serwis informacyjny (Tombos21), jak rake.pop.nl100.loss: „Pre-rake winners 90% post-rake winners 53%” (szacunek autora po korekcie bayesowskiej: „Pre-Rake winners: 89.3%”)",
   "zrodla": [
    {
     "adres": "https://www.gipsyteam.com/news/12-12-2025/number-of-winning-cash-game-players",
@@ -3238,7 +3266,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Populacja: 6-max NLHE NL10–NL500, „tracked sites” (sale i okres niepodane), dane Tombos21 omówione przez serwis informacyjny; dane kontrolne. Dokładnie: „Pre-rake winners: 89.3%”. Pole population: jak rake.pop.nl100.loss; gracze z co najmniej 5 tys. rąk, wynik z korektą bayesowską"
+  "uwagi": "Populacja: 6-max NLHE NL10–NL500, „tracked sites” (sale i okres niepodane), dane Tombos21 omówione przez serwis informacyjny; dane kontrolne. Dokładnie: „Pre-rake winners: 89.3%”. Pole population: jak rake.pop.nl100.loss; gracze z co najmniej 5 tys. rąk, wynik z korektą bayesowską | S3 E3 2026-11-04: tekst (m10-l4:31, :104) nazywa wartość szacunkiem autora po korekcie bayesowskiej i podaje surowe dane (rake.pop.reg.prerake.raw, rake.pop.reg.postrake.raw)."
  },
  {
   "id": "n:rake.solver.bb-minraise",
@@ -3486,5 +3514,130 @@
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
   "uwagi": ""
+ },
+ {
+  "id": "n:hud.hands.3bet.overall.low",
+  "rodzaj": "liczba",
+  "level": "heuristic",
+  "twierdzenie": "hud.hands.3bet.overall.low = 100 (count); source: serwis szkoleniowy, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide), tabela: „3-bet % (overall) | 100+ hands”; dolna granica dla samego 3-betu",
+  "zrodla": [
+   {
+    "adres": "https://deepfold.co/en/blog/hud-stats-guide",
+    "miejsce": "Sample Size Warnings, tabela",
+    "cytat": "3-bet % (overall) 100+ hands",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "hud.hands.3bet.overall.low",
+  "wartosc": 100,
+  "jednostka": "count",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "S3 E3 2026-11-04: osobna dolna granica dla samego 3-betu (R-M10-003)."
+ },
+ {
+  "id": "n:rake.pop.reg.prerake.raw",
+  "rodzaj": "liczba",
+  "level": "exploit",
+  "twierdzenie": "rake.pop.reg.prerake.raw = 0.708 (percent); source: serwis informacyjny (Tombos21), jak rake.pop.nl100.loss, surowe dane bez korekty: „Filtering for players with 5k+ hands”, „Pre-Rake Winners: 31.8%% → 70.8%”",
+  "zrodla": [
+   {
+    "adres": "https://www.gipsyteam.com/news/12-12-2025/number-of-winning-cash-game-players",
+    "miejsce": "Filtering for players with 5k+ hands",
+    "cytat": "Pre-Rake Winners: 31.8%% → 70.8%",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "rake.pop.reg.prerake.raw",
+  "wartosc": 0.708,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Populacja: 6-max NLHE NL10–NL500, „tracked sites” (sale i okres niepodane), dane Tombos21 omówione przez serwis informacyjny; gracze z co najmniej 5 tys. rąk, surowe dane bez korekty bayesowskiej."
+ },
+ {
+  "id": "n:rake.pop.reg.postrake.raw",
+  "rodzaj": "liczba",
+  "level": "exploit",
+  "twierdzenie": "rake.pop.reg.postrake.raw = 0.492 (percent); source: jak rake.pop.reg.prerake.raw: „Winners: 28.8% → 49.2%”",
+  "zrodla": [
+   {
+    "adres": "https://www.gipsyteam.com/news/12-12-2025/number-of-winning-cash-game-players",
+    "miejsce": "Filtering for players with 5k+ hands",
+    "cytat": "Winners: 28.8% → 49.2%",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "rake.pop.reg.postrake.raw",
+  "wartosc": 0.492,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "Populacja: 6-max NLHE NL10–NL500, „tracked sites” (sale i okres niepodane), dane Tombos21 omówione przez serwis informacyjny; gracze z co najmniej 5 tys. rąk, surowe dane bez korekty bayesowskiej."
+ },
+ {
+  "id": "n:m11.nash.push.5",
+  "rodzaj": "liczba",
+  "level": "math",
+  "twierdzenie": "m11.nash.push.5 = 0.715 (percent); source: rachunek niezależny: równowaga fictitious play (docs/tresci/narzedzia/e1b/nash_hu.py na tools/equity/equity169.json), docs/tresci/odczyty/e1b-solver-2026-11-04.txt: „S=5bb ante BB=0 push 71.50%”; razem z m11.push.5 wyznacza przedział równowagi (E3, A6)",
+  "zrodla": [
+   {
+    "adres": "rachunek: docs/tresci/narzedzia/e1b/nash_hu.py (fictitious play na tools/equity/equity169.json, bez kodu solvera)",
+    "miejsce": "docs/tresci/odczyty/e1b-solver-2026-11-04.txt",
+    "cytat": "S=5bb ante BB=0 push 71.50% call 62.04%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "m11.nash.push.5",
+  "wartosc": 0.715,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "S3 E3 2026-11-04: niezależna równowaga; z m11.push.5 (solver 72,55%) daje przedział w tekście (A6: równowaga ok. 71–72%)."
+ },
+ {
+  "id": "n:m11.nash.push.10-ante",
+  "rodzaj": "liczba",
+  "level": "math",
+  "twierdzenie": "m11.nash.push.10-ante = 0.7105 (percent); source: rachunek niezależny: równowaga fictitious play (docs/tresci/narzedzia/e1b/nash_hu.py na tools/equity/equity169.json), docs/tresci/odczyty/e1b-solver-2026-11-04.txt: „S=10bb ante BB=1 push 71.05%”; razem z m11.push.10-ante wyznacza przedział równowagi (E3, A6)",
+  "zrodla": [
+   {
+    "adres": "rachunek: docs/tresci/narzedzia/e1b/nash_hu.py (fictitious play na tools/equity/equity169.json, bez kodu solvera)",
+    "miejsce": "docs/tresci/odczyty/e1b-solver-2026-11-04.txt",
+    "cytat": "S=10bb ante BB=1 push 71.05% call 53.25%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "m11.nash.push.10-ante",
+  "wartosc": 0.7105,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "S3 E3 2026-11-04: niezależna równowaga; z m11.push.10-ante (solver 71,65%) daje przedział „ok. 71–72%” (A6)."
  }
 ]

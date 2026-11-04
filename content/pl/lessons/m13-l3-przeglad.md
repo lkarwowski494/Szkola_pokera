@@ -12,9 +12,9 @@ drills:
     rules: [R-M13-005]
     prompt: "W trakcie gry na żywo trafiasz na rozdanie, w którym nie wiesz, co zrobić. Co robisz z nim później?"
     options:
-      - { text: "Zapisuję je krótko i przeglądam po {{t:session|sesji}}", correct: true, why: "Tak: w trakcie gry tylko oznaczasz rozdanie. Analiza przy stole zabiera uwagę od następnych decyzji, a ocena pod wpływem emocji bywa zła." }
+      - { text: "Zapisuję je krótko i przeglądam po {{t:session|sesji}}", correct: true, why: "Tak: w trakcie gry tylko oznaczasz rozdanie, a analizujesz je później, z jasną głową. Ocena pod wpływem emocji bywa zła." }
       - { text: "Analizuję je od razu, póki pamiętam", why: "Wystarczy krótka notatka, żeby nie zapomnieć. Pełną analizę robisz później, z jasną głową." }
-      - { text: "Nic, liczy się następne rozdanie", why: "Rozdania, w których nie wiedziałeś, co robić, uczą najwięcej. Warto je oznaczyć i wrócić do nich." }
+      - { text: "Nic, liczy się następne rozdanie", why: "Rozdania, w których nie wiedziałeś, co robić, warto przejrzeć. Oznacz je i wróć do nich po {{t:session|sesji}}." }
   - kind: choice
     id: m13.l3.q-when
     family: m13.review-when
@@ -32,7 +32,7 @@ drills:
     options:
       - { text: "Set przegrał z wyższym setem na {{t:dry|suchym}} {{t:board|stole}}; obaj wpłaciliście stack", correct: true, why: "Tak: to cooler. Żaden rozsądny gracz nie {{t:fold|spasowałby}} tu z setem. Coolery zdarzają się każdemu i niewiele uczą." }
       - { text: "Duża przegrana {{t:pot}}, w której na riverze nie wiedziałeś, czy {{t:call|sprawdzić}}", why: "To dobry kandydat do przeglądu: duża {{t:pot}} i trudna decyzja." }
-      - { text: "Średnia {{t:pot}}, w której rywal cię przechytrzył i czułeś się zagubiony", why: "Właśnie takie rozdania uczą najwięcej: czułeś, że coś poszło nie tak, i warto zobaczyć co." }
+      - { text: "Średnia {{t:pot}}, w której rywal cię przechytrzył i czułeś się zagubiony", why: "Takie rozdania warto przejrzeć: czułeś, że coś poszło nie tak, i warto zobaczyć co." }
   - kind: choice
     id: m13.l3.q-big
     family: m13.review-which
@@ -61,11 +61,11 @@ drills:
       - { text: "Muszę jeszcze policzyć przypadek realistyczny", why: "Nie musisz: realistyczne założenie leży między skrajnymi, a skoro oba dają ten sam wniosek, wynik się nie zmieni." }
       - { text: "Zmieniam założenie na optymistyczne, bo pesymistyczne jest przesadzone", why: "Zaczynasz od skrajności, żeby wyznaczyć przedział. Gdy pesymistyczne daje dobry wynik, optymistyczne tym bardziej." }
 ---
-Aplikacja przegląda za ciebie rozdania z gry z botami. Rozdania rozegrane poza aplikacją przeglądasz sam. Ta lekcja zbiera sprawdzone wskazówki trenerów.
+Aplikacja przegląda za ciebie rozdania z gry z botami. Rozdania rozegrane poza aplikacją przeglądasz sam. Ta lekcja zbiera wskazówki trenerów.
 
 ## Oznaczaj w trakcie, analizuj po {{t:session|sesji}}
 
-W trakcie gry tylko oznaczasz rozdania, które wydały ci się ciekawe, trudne albo dziwne: krótka notatka wystarczy. Analiza przy stole zabiera uwagę od następnych decyzji. Najlepiej przeglądać kilka godzin albo dni po {{t:session|sesji}}, z jasną głową. Najgorszy moment to chwila tuż po dużej przegranej albo w zmęczeniu.
+W trakcie gry tylko oznaczasz rozdania, które wydały ci się ciekawe, trudne albo dziwne: krótka notatka wystarczy. Najlepiej przeglądać kilka godzin albo dni po {{t:session|sesji}}, z jasną głową. Najgorszy moment to chwila tuż po dużej przegranej albo w zmęczeniu.
 
 ## Co przeglądać
 

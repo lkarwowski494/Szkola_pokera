@@ -60,20 +60,20 @@ drills:
     id: m7.l3.q-nut-implied
     family: m7.implied.when
     rules: [R-M7-008, R-M7-009]
-    prompt: "Turn. W {{t:pot|puli}} jest {{n:ex.third.pot}}, rywal {{t:bet|stawia}} {{n:io.flush.bet}}. Za każdym z was zostało jeszcze {{n:spr.stack.high}}, a rywal chętnie płaci z {{t:pair|parą}} asów. Co robisz?"
+    prompt: "Turn. W {{t:pot|puli}} jest {{n:ex.third.pot}}, rywal {{t:bet|stawia}} {{n:io.flush.bet}}. Za każdym z was zostało jeszcze {{n:io.flush.stack}}, a rywal chętnie płaci z {{t:pair|parą}} asów. Co robisz?"
     table: { hand: "Kh Jh", position: BB, board: "Ah 8h 3c 2s" }
     options:
-      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Sama cena nie wystarcza ({{n:io.flush.eq}} wobec ok. {{n:odds.flush.turn-river}}), ale po trafieniu wystarczy wygrać jeszcze {{n:io.flush.extra}}. Masz {{t:draw}} do najlepszego {{t:flush|koloru}} (as kier leży na {{t:board|stole}}, więc {{t:flush}} z królem jest najwyższy), za rywalem jest dużo {{t:chips|żetonów}}, a gracz z {{t:pair|parą}} asów często zapłaci taki bet na riverze." }
-      - { text: "{{t:fold|Pasuję}}, bo {{n:odds.flush.turn-river}} to mniej niż {{n:io.flush.eq}}", why: "Pot odds mówią „{{t:fold}}”, ale pomijasz implied odds. Brakuje tylko {{n:io.flush.extra}}, a rywal ma za sobą {{n:spr.stack.high}} i rękę, która zapłaci." }
+      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Sama cena nie wystarcza ({{n:io.flush.eq}} wobec ok. {{n:odds.flush.turn-river}}), ale po trafieniu wystarczy wygrać jeszcze {{n:io.flush.extra}}. Masz {{t:draw}} do najlepszego {{t:flush|koloru}} (as kier leży na {{t:board|stole}}, więc {{t:flush}} z królem jest najwyższy), za rywalem jest dużo {{t:chips|żetonów}}, a gracz z {{t:pair|parą}} asów często zapłaci taki bet na riverze. Trafienie będzie widoczne (trzeci kier), ale rywal z {{t:pair|parą}} asów często i tak zapłaci; dlatego implied odds są tu mniejsze niż przy ukrytym trafieniu." }
+      - { text: "{{t:fold|Pasuję}}, bo {{n:odds.flush.turn-river}} to mniej niż {{n:io.flush.eq}}", why: "Pot odds mówią „{{t:fold}}”, ale pomijasz implied odds. Brakuje tylko {{n:io.flush.extra}}, a rywal ma za sobą {{n:io.flush.stack}} i rękę, która zapłaci." }
       - { text: "{{t:raise|Przebijam}} all-in", why: "Rywal z {{t:pair|parą}} asów raczej {{t:call|sprawdzi}}, a ty masz wtedy tylko ok. {{n:odds.flush.turn-river}}. Lepiej tanio zobaczyć rivera i wygrać więcej, gdy trafisz." }
   - kind: choice
     id: m7.l3.q-gutshot-short
     family: m7.implied.when
     rules: [R-M7-008, R-M7-009]
-    prompt: "Turn. W {{t:pot|puli}} jest {{n:ex.pot}}, rywal {{t:bet|stawia}} {{n:ex.bet.half}}. Masz gutshot. Po trafieniu musiałbyś wygrać jeszcze {{n:io.gut.extra}}, a za rywalem zostało tylko {{n:spr.stack.low}}. Co robisz?"
+    prompt: "Turn. W {{t:pot|puli}} jest {{n:ex.pot}}, rywal {{t:bet|stawia}} {{n:ex.bet.half}}. Masz gutshot. Po trafieniu musiałbyś wygrać jeszcze {{n:io.gut.extra}}, a za rywalem zostało tylko {{n:io.gut.stack}}. Co robisz?"
     options:
-      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Gutshot daje ok. {{n:odds.gutshot.turn-river}}, a potrzebujesz {{n:eq.bet-half}}. Implied odds nie pomogą: nawet gdy rywal wpłaci wszystkie {{n:spr.stack.low}}, nie pokryje brakujących {{n:io.gut.extra}}." }
-      - { text: "{{t:call|Sprawdzam}}, bo implied odds", why: "Implied odds to {{t:chips}}, które rywal może ci jeszcze zapłacić. Ma ich tylko {{n:spr.stack.low}}, a potrzebujesz {{n:io.gut.extra}}." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Gutshot daje ok. {{n:odds.gutshot.turn-river}}, a potrzebujesz {{n:eq.bet-half}}. Implied odds nie pomogą: nawet gdy rywal wpłaci wszystkie {{n:io.gut.stack}}, nie pokryje brakujących {{n:io.gut.extra}}." }
+      - { text: "{{t:call|Sprawdzam}}, bo implied odds", why: "Implied odds to {{t:chips}}, które rywal może ci jeszcze zapłacić. Ma ich tylko {{n:io.gut.stack}}, a potrzebujesz {{n:io.gut.extra}}." }
       - { text: "{{t:raise|Przebijam}} all-in", why: "{{t:bluff|Blef}} w all-in z {{n:outs.gutshot}} outami ryzykuje wszystko. Rywal, który {{t:bet|postawił}} pół {{t:pot|puli}} przy tak małym stacku, często już nie {{t:fold|spasuje}}." }
   - kind: choice
     id: m7.l3.q-reverse

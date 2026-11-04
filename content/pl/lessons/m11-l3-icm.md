@@ -28,7 +28,7 @@ drills:
     rules: [R-M11-008]
     prompt: "{{t:payout|Wypłaty}}: {{n:m11.icm.a.p1}} {{t:prize-pool|puli nagród}} za 1. miejsce i {{n:m11.icm.a.p2}} za 2. Stacki {{n:m11.icm.a.s1}}, {{n:m11.icm.a.s2}}, {{n:m11.icm.a.s3}}. Ile według {{t:icm}} jest wart najkrótszy stack (w procentach {{t:prize-pool|puli nagród}})? Wpisz liczbę."
     answer: m11.icm.a.eq3
-    explanation: "Szansa na 1. miejsce {{n:m11.icm.a.chips3}}, na 2. miejsce {{n:m11.icm.a.second3.p1}} + {{n:m11.icm.a.second3.p2}} = {{n:m11.icm.a.second3}}. Equity = {{n:m11.icm.a.chips3}} × {{n:m11.icm.a.p1}} + {{n:m11.icm.a.second3}} × {{n:m11.icm.a.p2}} = {{n:m11.icm.a.eq3}}, więcej niż jego {{n:m11.icm.a.chips3}} {{t:chips|żetonów}}."
+    explanation: "Szansa na 1. miejsce {{n:m11.icm.a.chips3}}, na 2. miejsce {{n:m11.icm.a.second3.p1}} + {{n:m11.icm.a.second3.p2}} ≈ {{n:m11.icm.a.second3}}. Equity = {{n:m11.icm.a.chips3}} × {{n:m11.icm.a.p1}} + {{n:m11.icm.a.second3}} × {{n:m11.icm.a.p2}} ≈ {{n:m11.icm.a.eq3}}, więcej niż jego {{n:m11.icm.a.chips3}} {{t:chips|żetonów}}."
   - kind: choice
     id: m11.l3.q-big-stack
     family: m11.icm.equity
@@ -127,8 +127,8 @@ Szansę na 2. miejsce liczysz tak samo, ale osobno dla każdego możliwego zwyci
 Płatne są dwa miejsca: {{n:m11.icm.a.p1}} i {{n:m11.icm.a.p2}} {{t:prize-pool|puli nagród}}. Stacki: {{n:m11.icm.a.s1}}, {{n:m11.icm.a.s2}} i {{n:m11.icm.a.s3}} {{t:chips|żetonów}}.
 
 - {{t:short-stack|Short stack}} wygrywa {{t:tournament}} z szansą {{n:m11.icm.a.s3}} ÷ {{n:m11.icm.a.total}} = **{{n:m11.icm.a.chips3}}**.
-- Na 2. miejsce: gdy wygra duży stack ({{n:m11.icm.a.chips1}}), krótki jest drugi z szansą {{n:m11.icm.a.second3.via1}}; gdy wygra średni ({{n:m11.icm.a.chips2}}), z szansą {{n:m11.icm.a.second3.via2}}. Razem {{n:m11.icm.a.second3.p1}} + {{n:m11.icm.a.second3.p2}} = **{{n:m11.icm.a.second3}}**.
-- Equity: {{n:m11.icm.a.chips3}} × {{n:m11.icm.a.p1}} + {{n:m11.icm.a.second3}} × {{n:m11.icm.a.p2}} = **{{n:m11.icm.a.eq3}}** {{t:prize-pool|puli nagród}}.
+- Na 2. miejsce: gdy wygra duży stack ({{n:m11.icm.a.chips1}}), krótki jest drugi z szansą {{n:m11.icm.a.second3.via1}}; gdy wygra średni ({{n:m11.icm.a.chips2}}), z szansą {{n:m11.icm.a.second3.via2}}. Razem {{n:m11.icm.a.second3.p1}} + {{n:m11.icm.a.second3.p2}} ≈ **{{n:m11.icm.a.second3}}** (składniki są zaokrąglone).
+- Equity: {{n:m11.icm.a.chips3}} × {{n:m11.icm.a.p1}} + {{n:m11.icm.a.second3}} × {{n:m11.icm.a.p2}} ≈ **{{n:m11.icm.a.eq3}}** {{t:prize-pool|puli nagród}}.
 
 | Stack | Udział w {{t:chips|żetonach}} | Equity według {{t:icm}} |
 |---|---|---|
@@ -150,7 +150,7 @@ Czterech graczy, płatne trzy miejsca: {{n:m11.bf.p1}}, {{n:m11.bf.p2}} i {{n:m1
 bubble factor = strata przy przegranej ÷ zysk przy wygranej
 ```
 
-Tu {{n:m11.bf.loss}} ÷ {{n:m11.bf.gain}} = **{{n:m11.bf.value}}**. Z niego wynika potrzebne equity:
+Tu {{n:m11.bf.loss}} ÷ {{n:m11.bf.gain}} = **{{n:m11.bf.value}}**. Aplikacja stosuje tę definicję (strata ÷ zysk): w grze o {{t:chips}}, gdzie strata równa się zyskowi, bubble factor wynosi jeden. Niektóre tabele push/fold liczą bubble factor inaczej, w innej skali, więc ich liczb nie porównuj wprost z tymi. Z niego wynika potrzebne equity:
 
 ```formula
 potrzebne equity = BF ÷ (BF + 1)

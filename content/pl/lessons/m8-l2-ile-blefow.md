@@ -98,7 +98,7 @@ drills:
     rules: [R-M8-006]
     prompt: "Na riverze potrzebujesz kilku {{t:bluff|blefów}} do betów całą {{t:pot|pulą}}. Które ręce na nie wybierasz?"
     options:
-      - { text: "Najsłabsze, np. nietrafione {{t:draw|drawy}}", correct: true, why: "Ręka bez szans przy showdownie nic nie traci, gdy {{t:bluff}} się nie uda: po {{t:check|czekaniu}} i tak by przegrała. Dlatego ona {{t:bluff|blefuje}}." }
+      - { text: "Najsłabsze, np. nietrafione {{t:draw|drawy}} do {{t:straight|strita}} albo wysokie karty bez szans", correct: true, why: "Ręka bez szans przy showdownie nic nie traci, gdy {{t:bluff}} się nie uda: po {{t:check|czekaniu}} i tak by przegrała. Dlatego ona {{t:bluff|blefuje}}." }
       - { text: "Średnie {{t:pair|pary}}", why: "Średnia {{t:pair}} często wygrywa po {{t:check|czekaniu}}. Gdy nią {{t:bluff|blefujesz}}, gorsze ręce {{t:fold|pasują}}, a lepsze płacą: oddajesz wygraną przy showdownie." }
       - { text: "Dowolne, byle proporcja się zgadzała", why: "Proporcja to nie wszystko. {{t:bluff|Blef}} z ręką, która wygrałaby showdown, kosztuje więcej niż {{t:bluff}} ręką bez szans." }
 ---
@@ -136,7 +136,7 @@ Alpha z M6 = bet ÷ ({{t:pot}} + bet) mówi, jak często rywal musi {{t:fold|spa
 
 ## Czym {{t:bluff|blefować}}
 
-Na {{t:bluff|blefy}} wybierasz **najsłabsze ręce**, np. nietrafione {{t:draw|drawy}}: po {{t:check|czekaniu}} i tak by przegrały, więc nieudany {{t:bluff}} nic im nie odbiera. Ręce z wartością przy showdownie {{t:check|czekają}}.
+Na {{t:bluff|blefy}} wybierasz **najsłabsze ręce**, np. nietrafione {{t:draw|drawy}} do {{t:straight|strita}} albo wysokie karty bez szans (o nietrafionych {{t:flush|kolorach}} w lekcji o {{t:blocker|blokerach}}): po {{t:check|czekaniu}} i tak by przegrały, więc nieudany {{t:bluff}} nic im nie odbiera. Ręce z wartością przy showdownie {{t:check|czekają}}.
 
 :::note To punkt równowagi, nie przepis na każdego rywala
 Te proporcje chronią cię przed rywalem, który gra dobrze. Wobec konkretnych graczy można od nich odchodzić; o tym w module o {{t:exploit|eksploatacji}} mikrostawek (M10). Wzór na udział {{t:bluff|blefów}} to rachunek w uproszczonym modelu: {{t:range}} {{t:polarized}} przeciw ręce łapiącej {{t:bluff|blefy}} (model zabawkowy z teorii gry). Zalecenie {{t:bluff|blefowania}} najsłabszymi rękami pochodzi z materiałów szkoleniowych i analiz solverów.

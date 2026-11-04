@@ -45,7 +45,7 @@ drills:
     options:
       - { text: "Betuję {{n:ex.bet.three-quarters}}", correct: true, why: "Dobry {{t:second-barrel}}: as pasuje do twojego {{t:range|zakresu}}, a ty masz gutshot do {{t:straight|strita}} (dziesiątka). Gdy rywal {{t:fold|spasuje}} {{t:pair|parę}}, wygrywasz od razu, a gdy {{t:call|sprawdzi}}, nadal możesz trafić." }
       - { text: "Betuję {{n:ex.bet.quarter}}", sizeError: true, why: "Dobra akcja, zły rozmiar: tak tani bet rywal {{t:call|sprawdzi}} każdą {{t:pair|parą}}, a ten {{t:bluff}} zarabia głównie na {{t:fold|pasach}}. Na karcie, która ci pomaga, betuj dużo, tak jak silnymi rękami." }
-      - { text: "{{t:check|Czekam}}", correct: true, why: "Też dobrze: masz outy i za darmo zobaczysz rivera, więc {{t:check}} nie jest błędem. Bet jest jednak zwykle lepszy, bo as to jedna z kart, na których rywal najczęściej {{t:fold|pasuje}} {{t:pair|pary}}, a {{t:check|czekając}} z niej rezygnujesz." }
+      - { text: "{{t:check|Czekam}}", correct: true, why: "Też dobrze: masz outy i za darmo zobaczysz rivera, więc {{t:check}} nie jest błędem. W opublikowanym przykładzie solvera gutshot do najwyższego {{t:straight|strita}} na turnie {{t:check|czekał}}. Oba zagrania są poprawne." }
   - kind: choice
     id: m7.l1.q-air-blank
     family: m7.barrel.bluff
@@ -115,7 +115,7 @@ drills:
 
 ## Rywal {{t:call|sprawdził}}, więc jest silniejszy
 
-Na c-bet rywal {{t:fold|pasuje}} ręce bez {{t:pair|pary}} i bez {{t:draw|drawa}}. Kto {{t:call|sprawdził}}, ma zwykle {{t:pair|parę}} albo {{t:draw}}. Dlatego {{t:second-barrel}} trafia na silniejszy {{t:range}} niż pierwszy i nie betujesz drugi raz wszystkim.
+Na c-bet rywal {{t:fold|pasuje}} ręce bez {{t:pair|pary}} i bez {{t:draw|drawa}}. Kto {{t:call|sprawdził}}, ma zwykle {{t:pair|parę}} albo {{t:draw}}, czasem wysokie karty z backdoorem (jak w obronie z M6). Dlatego {{t:second-barrel}} trafia na silniejszy {{t:range}} niż pierwszy i nie betujesz drugi raz wszystkim.
 
 ## Która karta pomaga
 
@@ -125,7 +125,7 @@ Na c-bet rywal {{t:fold|pasuje}} ręce bez {{t:pair|pary}} i bez {{t:draw|drawa}
 
 ## Czym betować drugi raz
 
-Betujesz silnymi rękami ({{t:value|dla wartości}}) i {{t:draw|drawami}} ({{t:semi-bluff}}). {{t:semi-bluff|Semi-blef}} wygrywa na dwa sposoby: gdy rywal {{t:fold|spasuje}} albo gdy trafisz na riverze. Ręce bez {{t:pair|pary}} i bez outów częściej odpuszczasz, bo wygrywają tylko na pasie, chyba że blokują ręce, którymi rywal zapłaci.
+Betujesz silnymi rękami ({{t:value|dla wartości}}) i {{t:draw|drawami}} ({{t:semi-bluff}}). {{t:semi-bluff|Semi-blef}} wygrywa na dwa sposoby: gdy rywal {{t:fold|spasuje}} albo gdy trafisz na riverze. Ręce bez {{t:pair|pary}} i bez outów częściej odpuszczasz, bo wygrywają tylko na pasie, chyba że blokują ręce, którymi rywal zapłaci. Gdy rywal może odpowiedzieć {{t:raise|przebiciem}}, solver {{t:bluff|blefuje}} też rękami bez outów.
 
 {{t:bluff|Blef}} bez szans wychodzi na zero, gdy rywal {{t:fold|pasuje}} w bet ÷ ({{t:pot}} + bet) przypadków (alpha z M6). Przy becie 3/4 {{t:pot|puli}} to {{n:alpha.bet-three-quarters}}, przy pół {{t:pot|puli}} {{n:alpha.bet-half}}.
 
@@ -134,5 +134,5 @@ Betujesz silnymi rękami ({{t:value|dla wartości}}) i {{t:draw|drawami}} ({{t:s
 {{t:second-pair|Druga para}} albo {{t:top-pair}} ze słabym kickerem wygrywa z {{t:bluff|blefami}}, ale przegrywa z lepszymi {{t:pair|parami}}. Na drugi bet gorsze ręce {{t:fold|spasują}}, a lepsze zapłacą. {{t:check|Czekasz}}, trzymasz {{t:pot|pulę}} małą i dochodzisz do showdownu.
 
 :::note Skąd te zasady
-Kierunki (wysokie karty zwykle sprzyjają {{t:second-barrel|second barrelowi}}, {{t:bluff|blefy}} z outami zamiast bez outów, średnie ręce {{t:check|czekają}}) to heurystyki z materiałów szkoleniowych i analiz solverów. Dotyczy to stacków ok. {{n:format.stack}}. To uproszczenie: solver {{t:bluff|blefuje}} też częścią rąk bez outów, gdy blokują wartość rywala. Aplikacja nie podaje, jak często betować w procentach, bo takie liczby zależą od konkretnego rozdania w wynikach solverów.
+Kierunki (wysokie karty zwykle sprzyjają {{t:second-barrel|second barrelowi}}, {{t:bluff|blefy}} z outami zamiast bez outów, średnie ręce {{t:check|czekają}}) to heurystyki z materiałów szkoleniowych i analiz solverów. Dotyczy to stacków ok. {{n:format.stack}}. To uproszczenie: solver {{t:bluff|blefuje}} też częścią rąk bez outów, gdy blokują wartość rywala albo gdy rywal może odpowiedzieć {{t:raise|przebiciem}}. Aplikacja nie podaje, jak często betować w procentach, bo takie liczby zależą od konkretnego rozdania w wynikach solverów.
 :::

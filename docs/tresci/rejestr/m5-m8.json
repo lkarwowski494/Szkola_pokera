@@ -1043,7 +1043,7 @@
   "id": "R-M7-002",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "blefujesz second barrelem na turnie → blefujesz przede wszystkim rękami z outami (flush-draw, strita, gutshot z wysoką kartą); ręce bez outów częściej odpuszczasz, chyba że blokują ręce, którymi rywal zapłaci (uproszczenie: solver blefuje też częścią rąk bez outów, zwłaszcza gdy rywal może odpowiedzieć przebiciem), bo semi-bluff wygrywa na dwa sposoby: gdy rywal spasuje albo gdy trafisz na riverze; bluff bez outów ma tylko pierwszą drogę (stacki ok. {{n:format.stack}})",
+  "twierdzenie": "blefujesz second barrelem na turnie → blefujesz zwykle rękami z outami (flush-draw, strita, gutshot z wysoką kartą), gdy rywal raczej pasuje albo sprawdza; gdy może przebić, solver blefuje też rękami bez outów (uproszczenie: wybór zależy od tego, jak rywal odpowie), bo semi-bluff wygrywa na dwa sposoby: gdy rywal spasuje albo gdy trafisz na riverze; bluff bez outów ma tylko pierwszą drogę (stacki ok. {{n:format.stack}})",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/from-gutshots-to-airballs-choosing-your-bluffs/",
@@ -1076,7 +1076,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": "w then dopisać „(uproszczenie: solver blefuje też częścią rąk bez outów, zwłaszcza gdy rywal może odpowiedzieć przebiciem)” — tak jak w nocie lekcji m7-l1-druga-beczka.md:137",
-  "uwagi": "Szczebel 2 (GTO Wizard, 100bb cash) pokazuje, że wybór draw/powietrze zależy od odpowiedzi rywala, a w przykładzie ręce bez outów (K♠J♦, 6♣4♣) betują częściej niż 5♠4♠; szczebel 4 (PokerCoaching) popiera regułę przy głębokich stackach. Reguła jest kierunkowym uproszczeniem, ale go nie nazywa. „The Double Barrel Checklist” (trener) niedostępny: serwer zwraca 403. E2 2026-11-04: poprawione (content/pl/rules.yaml:545, uproszczenie nazwane w then); było CZĘŚCIOWO."
+  "uwagi": "Szczebel 2 (GTO Wizard, 100bb cash) pokazuje, że wybór draw/powietrze zależy od odpowiedzi rywala, a w przykładzie ręce bez outów (K♠J♦, 6♣4♣) betują częściej niż 5♠4♠; szczebel 4 (PokerCoaching) popiera regułę przy głębokich stackach. Reguła jest kierunkowym uproszczeniem, ale go nie nazywa. „The Double Barrel Checklist” (trener) niedostępny: serwer zwraca 403. E2 2026-11-04: poprawione (content/pl/rules.yaml:545, uproszczenie nazwane w then); było CZĘŚCIOWO. | S3 E3 2026-11-04: then „blefujesz zwykle rękami z outami, gdy rywal raczej pasuje albo sprawdza; gdy może przebić, solver blefuje też rękami bez outów” (cytat GTOW: „Bluff with draws when … folding or calling, and bluff with air when … folding or raising”); m7-l1 q-gutshot-ace: bez „bet zwykle lepszy”, oba zagrania poprawne (GTOW: gutshot do nutsów „pure check”)."
  },
  {
   "id": "R-M7-003",
@@ -1224,7 +1224,7 @@
   "id": "R-M7-007",
   "rodzaj": "regula",
   "level": "math",
-  "twierdzenie": "masz draw na turnie → liczysz szansę na jedną kartę: flush to ok. {{n:odds.flush.turn-river}}, a nie {{n:odds.flush.flop-river}} jak na flopie, bo do rivera zostaje jedna karta, więc szansa jest mniej więcej o połowę mniejsza niż na flopie",
+  "twierdzenie": "masz draw na turnie → liczysz szansę na jedną kartę: flush to ok. {{n:odds.flush.turn-river}}, a nie {{n:odds.flush.flop-river}} jak z flopu do rivera, bo do rivera zostaje jedna karta, więc szansa jest mniej więcej o połowę mniejsza niż liczona z flopu na dwie karty",
   "zrodla": [
    {
     "adres": "rachunek: 9/46 (turn→river) vs 1 − C(38,2)/C(47,2) (flop→river)",
@@ -1243,7 +1243,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": "S3 E3 2026-11-04: „a nie 35,0% jak z flopu do rivera” zamiast „jak na flopie” (na flopie wobec zakładu M2 liczy jedną kartę, 19,1%)."
  },
  {
   "id": "R-M7-008",
@@ -1274,7 +1274,7 @@
   "id": "R-M7-009",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "liczysz na implied odds → wierzysz w nie tylko wtedy, gdy za rywalem zostało dość żetonów (wysoki spr), masz draw do najlepszej ręki, a trafienie nie rzuca się w oczy, bo dodatkowe chips musi ci jeszcze zapłacić rywal; przy niskim spr nie ma ich skąd wziąć, a widoczne trafienie (np. czwarty kier) go płoszy",
+  "twierdzenie": "liczysz na implied odds → wierzysz w nie tylko wtedy, gdy za rywalem zostało dość żetonów (wysoki spr), masz draw do najlepszej ręki, a trafienie nie rzuca się w oczy, bo dodatkowe chips musi ci jeszcze zapłacić rywal; przy niskim spr nie ma ich skąd wziąć, a widoczne trafienie (np. trzeci kier na stole) go płoszy",
   "zrodla": [
    {
     "adres": "https://pokercoaching.com/blog/implied-odds/",
@@ -1307,7 +1307,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Implied Odds Calculator (trener) niedostępny: serwer zwraca 403; zastąpiony przez Upswing (szczebel 4)."
+  "uwagi": "Implied Odds Calculator (trener) niedostępny: serwer zwraca 403; zastąpiony przez Upswing (szczebel 4). | S3 E3 2026-11-04: because „trzeci kier na stole” zamiast „czwarty kier” (spójnie z lekcją); m7-l3 q-nut-implied: wyjaśnienie nazywa widoczne trafienie i mniejsze implied odds."
  },
  {
   "id": "R-M7-010",
@@ -1484,7 +1484,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "„Węziej” wynika głównie z rachunku (większy bet, niższy MDF) i z mniejszej liczby kart do trafienia; Upswing podaje, że solver broni na turnie blisko MDF, a dobór par zależy od typu rywala."
+  "uwagi": "„Węziej” wynika głównie z rachunku (większy bet, niższy MDF) i z mniejszej liczby kart do trafienia; Upswing podaje, że solver broni na turnie blisko MDF, a dobór par zależy od typu rywala. | S3 E3 2026-11-04: m7-l4 (zadanie n-mdf-turn i akapit o MDF) mówi „w opublikowanym przykładzie z turnu solver bronił średnio blisko MDF; out-of-position bywa, że bronisz mniej” zamiast uogólnienia jednego spotu."
  },
  {
   "id": "R-M8-001",
@@ -1593,7 +1593,7 @@
    },
    {
     "adres": "https://upswingpoker.com/thin-value-bet-poker-strategy/",
-    "miejsce": "przykład QT",
+    "miejsce": "przykład QT — ROZBIEŻNY: 2/3 puli, poza przedziałem 1/4–1/2 (popiera tylko pojęcie thin value)",
     "cytat": "As far as sizing goes, you should bet about $40 (two-thirds pot).",
     "odczyt": "2026-11-04",
     "szczebel": 4
@@ -1608,7 +1608,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": "w then: „betujesz mniej niż silną ręką, zwykle ok. 1/4–1/2 puli, gdy rywal rzadko przebija (uproszczenie: przy ryzyku check-raise'u z pozycji rzadko schodzisz poniżej 1/2 puli)”",
-  "uwagi": "Źródła szczebla 2 różnią się warunkiem: bez ryzyka przebicia (pula przeczekana) thin value ok. 21%; przy ryzyku check-raise'u Brokos: rzadko poniżej 1/2 albo czek. Reguła nie podaje warunku; nota w lekcji m8-l1-value.md:131 go podaje. Upswing (szczebel 4) w przykładzie 2/3 puli. E2 2026-11-04: poprawione (content/pl/rules.yaml:662, warunek i uproszczenie w then); było CZĘŚCIOWO."
+  "uwagi": "Źródła szczebla 2 różnią się warunkiem: bez ryzyka przebicia (pula przeczekana) thin value ok. 21%; przy ryzyku check-raise'u Brokos: rzadko poniżej 1/2 albo czek. Reguła nie podaje warunku; nota w lekcji m8-l1-value.md:131 go podaje. Upswing (szczebel 4) w przykładzie 2/3 puli. E2 2026-11-04: poprawione (content/pl/rules.yaml:662, warunek i uproszczenie w then); było CZĘŚCIOWO. | S3 E3 2026-11-04: przykład Upswing (2/3 puli) oznaczony w zrodla[] jako rozbieżny z przedziałem 1/4–1/2; popiera tylko pojęcie thin value, nie rozmiar. Przedział opiera się na szczeblu 2 (GTOW) i Deepfold."
  },
  {
   "id": "R-M8-004",
@@ -1671,7 +1671,7 @@
   "id": "R-M8-006",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "wybierasz, którymi rękami blefować na riverze → blefujesz najsłabszymi rękami, które nie wygrają przy showdownie (np. nietrafionymi drawami); ręce z wartością przy showdownie czekają, bo bluff z ręką, która często wygrywa po czekaniu, oddaje tę wygraną; ręka bez szans nic nie traci, gdy bluff nie wyjdzie",
+  "twierdzenie": "wybierasz, którymi rękami blefować na riverze → blefujesz najsłabszymi rękami, które nie wygrają przy showdownie (np. nietrafionymi drawami do strita albo wysokimi kartami bez szans); ręce z wartością przy showdownie czekają, bo bluff z ręką, która często wygrywa po czekaniu, oddaje tę wygraną; ręka bez szans nic nie traci, gdy bluff nie wyjdzie",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/were-at-the-river-our-hand-cant-win-now-what/",
@@ -1697,7 +1697,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": "S3 E3 2026-11-04: przykład blefu zawężony do nietrafionych drawów do strita i wysokich kart bez szans (then, m8-l2:101, :139), z odesłaniem do lekcji o blokerach (nietrafione kolory słabymi blefami, R-M8-008)."
  },
  {
   "id": "R-M8-007",

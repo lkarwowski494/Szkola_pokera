@@ -12,7 +12,7 @@ drills:
     rules: [R-M9-004]
     prompt: "Flop, {{t:spr}} {{n:spr.commit}}: w {{t:pot|puli}} {{n:ex.pot}}, stacki po {{n:commit.stack}}. Betujesz całą {{t:pot|pulę}} ({{n:ex.bet.pot}}), rywal idzie all-in. Dopłacasz {{n:commit.after-pot.call}}. Ile equity potrzebujesz do {{t:call|sprawdzenia}}? Wpisz liczbę w procentach."
     answer: eq.commit.after-pot
-    explanation: "Przed nadwyżką rywala w {{t:pot|puli}} jest {{n:ex.pot.after-pot-call}} ({{t:pot}}, twój {{t:bet}} i jego wyrównanie). Dopłacasz {{n:commit.after-pot.call}}, więc potrzebne equity = {{n:commit.after-pot.call}} ÷ ({{n:ex.pot.after-pot-call}} + 2·{{n:commit.after-pot.call}}) = {{n:eq.commit.after-pot}}. Po takim {{t:bet|zakładzie}} jesteś zaangażowany: {{t:fold}} prawie nigdy się nie opłaca."
+    explanation: "Przed nadwyżką rywala w {{t:pot|puli}} jest {{n:ex.pot.after-pot-call}} ({{t:pot}}, twój {{t:bet}} i jego wyrównanie). Dopłacasz {{n:commit.after-pot.call}}, więc potrzebne equity = {{n:commit.after-pot.call}} ÷ ({{n:ex.pot.after-pot-call}} + 2·{{n:commit.after-pot.call}}) = {{n:eq.commit.after-pot}}. Po takim {{t:bet|zakładzie}} jesteś zaangażowany: {{t:fold}} zwykle się nie opłaca."
   - kind: numeric
     id: m9.l2.n-after-half
     family: m9.commit-math
@@ -93,7 +93,7 @@ Przykład: {{t:spr}} {{n:spr.commit}}, w {{t:pot|puli}} {{n:ex.pot}}, stacki po 
 
 ## Nie planuj {{t:bet|zakładu}} i {{t:fold|pasu}}
 
-Jeśli po twoim {{t:bet|zakładzie}} zostałoby ci w stacku mniej, niż wyniesie {{t:pot}} po jego {{t:call|sprawdzeniu}}, {{t:bet}} i {{t:fold}} na all-in prawie nigdy nie ma sensu: do {{t:call|sprawdzenia}} all-inu potrzebujesz wtedy mniej niż {{n:eq.bet-pot}} equity. Masz dwie rozsądne drogi: grasz o cały stack (betujesz albo idziesz all-in) albo {{t:check|czekasz}}.
+Jeśli po twoim {{t:bet|zakładzie}} zostałoby ci w stacku mniej, niż wyniesie {{t:pot}} po jego {{t:call|sprawdzeniu}}, {{t:bet}} i {{t:fold}} na all-in zwykle nie ma sensu: do {{t:call|sprawdzenia}} all-inu potrzebujesz wtedy mniej equity niż do {{t:call|sprawdzenia}} {{t:bet|zakładu}} wielkości {{t:pot|puli}} ({{n:eq.bet-pot}}). Masz dwie rozsądne drogi: grasz o cały stack (betujesz albo idziesz all-in) albo {{t:check|czekasz}}.
 
 ## Niski {{t:spr}}: {{t:top-pair}} gra o stack
 
