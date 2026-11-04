@@ -33,8 +33,8 @@ drills:
     prompt: "{{t:open|Otworzyłeś}} z {{t:cutoff|CO}} na {{n:pf.open-size}}, Button {{t:raise|przebił}} do {{n:pf.3bet.ip-total}}, blindy {{t:fold|spasowały}}. Co robisz?"
     table: { hand: "As Kd", position: CO }
     options:
-      - { text: "4-betuję", correct: true, why: "AK chce wpłacić stack: blokuje AA i KK rywala i dominuje AQ, KQ i słabsze asy." }
-      - { text: "{{t:call|Sprawdzam}}", why: "{{t:call|Sprawdzenie}} nie jest złe, ale {{t:out-of-position}} tracisz {{t:initiative|inicjatywę}} i wartość. Standard to 4-bet." }
+      - { text: "4-betuję", correct: true, why: "AK zwykle 4-betujesz: chce wpłacić stack, blokuje AA i KK rywala i dominuje AQ, KQ i słabsze asy." }
+      - { text: "{{t:call|Sprawdzam}}", why: "Część źródeł czasem {{t:call|sprawdza}} AK, ale zwykle grasz 4-bet: {{t:out-of-position}} po {{t:call|sprawdzeniu}} tracisz {{t:initiative|inicjatywę}} i wartość." }
       - { text: "{{t:fold|Pasuję}}", why: "AK to jedna z najlepszych rąk preflop. {{t:fold|Pas}} tu to duży błąd." }
   - kind: choice
     id: m4.l3.q-87s
@@ -101,7 +101,7 @@ Według opublikowanego rozwiązania solvera ({{t:cutoff|CO}} wobec 3-betu Button
 
 ## {{t:out-of-position|Bez pozycji}} wybieraj ostrożnie
 
-{{t:out-of-position|Bez pozycji}} {{t:call|sprawdzasz}} rękami, które dobrze grają po flopie: wysokimi kartami w kolorze (KQs, QJs), mocnymi asami w kolorze i średnimi oraz wysokimi {{t:pair|parami}}. Słabsze ręce w różnych kolorach, takie jak KJo, ATo czy QTo, często są zdominowane, więc je {{t:fold|pasujesz}}.
+{{t:out-of-position|Bez pozycji}} {{t:call|sprawdzasz}} rękami, które dobrze grają po flopie: głównie wysokimi kartami w kolorze (KQs, QJs), mocnymi asami w kolorze, średnimi oraz wysokimi {{t:pair|parami}} i częścią {{t:connectors|konektorów}} w kolorze. Słabsze ręce w różnych kolorach, takie jak KJo, ATo czy QTo, często są zdominowane, więc je {{t:fold|pasujesz}}.
 
 ## {{t:in-position|Z pozycją}} bronisz szerzej
 
@@ -109,4 +109,4 @@ Według opublikowanego rozwiązania solvera ({{t:cutoff|CO}} wobec 3-betu Button
 
 ## 4-bet
 
-AA, KK i AK 4-betujesz {{t:value|dla wartości}}. QQ i JJ źródła grają różnie: jedno głównie 4-betuje, drugie {{t:call|sprawdza}}. Jako {{t:bluff}} najlepsze są asy w kolorze, na przykład A5s: blokują AA i AK rywala, a po {{t:call|sprawdzeniu}} mają szansę na {{t:flush}} i {{t:straight|strita}}. Rozmiar 4-betu to ok. {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}} 3-betu {{t:in-position}} i {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} {{t:out-of-position}}. Na przykład gdy z Buttona 4-betujesz 3-bet {{t:small-blind|małego blinda}} do {{n:pf.3bet.oop-total}} ({{t:big-blind}} {{t:fold|spasował}}), {{t:raise|przebijasz}} do {{n:pf.4bet.example.low}}–{{n:pf.4bet.example.high}}; gdy z {{t:cutoff|CO}} 4-betujesz 3-bet Buttona do {{n:pf.3bet.ip-total}}, {{t:raise|przebijasz}} do ok. {{n:pf.4bet.oop-example.low}}. Po {{t:call|sprawdzeniu}} w stackach zostaje ok. {{n:spr.4bet.high}}–{{n:spr.4bet.oop}} razy tyle, ile jest w {{t:pot|puli}}, więc dobre ręce łatwo wpłacą resztę.
+AA, KK i AK zwykle 4-betujesz {{t:value|dla wartości}}; AK część źródeł czasem {{t:call|sprawdza}}. QQ i JJ źródła grają różnie: jedno głównie 4-betuje, drugie {{t:call|sprawdza}}. Jako {{t:bluff}} najlepsze są asy w kolorze, na przykład A5s: blokują AA i AK rywala, a po {{t:call|sprawdzeniu}} mają szansę na {{t:flush}} i {{t:straight|strita}}. Rozmiar 4-betu to ok. {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}} 3-betu {{t:in-position}} i {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} {{t:out-of-position}}. Na przykład gdy z Buttona 4-betujesz 3-bet {{t:small-blind|małego blinda}} do {{n:pf.3bet.oop-total}} ({{t:big-blind}} {{t:fold|spasował}}), {{t:raise|przebijasz}} do {{n:pf.4bet.example.low}}–{{n:pf.4bet.example.high}}; gdy z {{t:cutoff|CO}} 4-betujesz 3-bet Buttona do {{n:pf.3bet.ip-total}}, {{t:raise|przebijasz}} do ok. {{n:pf.4bet.oop-example.low}}. Po {{t:call|sprawdzeniu}} w stackach zostaje ok. {{n:spr.4bet.high}}–{{n:spr.4bet.oop}} razy tyle, ile jest w {{t:pot|puli}}, więc dobre ręce łatwo wpłacą resztę.

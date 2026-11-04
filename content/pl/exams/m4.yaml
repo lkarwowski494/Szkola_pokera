@@ -70,7 +70,7 @@ drills:
     options:
       - { text: "{{t:fold|Pasuję}}", correct: true, why: "AT w różnych kolorach {{t:out-of-position}} często jest zdominowany przez AJ, AQ i AK, a po flopie źle {{t:equity-realization|realizuje equity}}. Takie ręce wobec 3-betu {{t:fold|pasujesz}}." }
       - { text: "{{t:call|Sprawdzam}}", why: "As kusi, ale {{t:out-of-position}} {{t:call|sprawdzasz}} rękami w kolorze i {{t:pair|parami}}. ATo zbyt często trafia asa ze słabszym kickerem." }
-      - { text: "4-betuję {{t:value|dla wartości}}", why: "Na 4-bet {{t:value|dla wartości}} grasz AA, KK i AK. ATo przegrywa z większością rąk, które go {{t:call|sprawdzą}}." }
+      - { text: "4-betuję {{t:value|dla wartości}}", why: "Na 4-bet {{t:value|dla wartości}} grasz zwykle AA, KK i AK. ATo przegrywa z większością rąk, które go {{t:call|sprawdzą}}." }
   - kind: choice
     id: m4.exam.q8
     family: m4.vs3bet.ip
@@ -80,7 +80,7 @@ drills:
     options:
       - { text: "{{t:call|Sprawdzam}}", correct: true, why: "{{t:in-position|Z pozycją}} {{t:call|sprawdzasz}} szerzej, m.in. {{t:pair|parami}} od 66 do TT. 99 dobrze gra po flopie i łatwo {{t:equity-realization|realizuje equity}}." }
       - { text: "{{t:fold|Pasuję}}", why: "Za ciasno: {{t:fold|pasujesz}} najniższe {{t:pair|pary}}, a 99 jest w {{t:range|zakresie}} {{t:call|sprawdzenia}} {{t:in-position}}." }
-      - { text: "4-betuję {{t:value|dla wartości}}", why: "Na 4-bet {{t:value|dla wartości}} grasz AA, KK i AK. 99 woli zobaczyć flop." }
+      - { text: "4-betuję {{t:value|dla wartości}}", why: "Na 4-bet {{t:value|dla wartości}} grasz zwykle AA, KK i AK. 99 woli zobaczyć flop." }
   - kind: choice
     id: m4.exam.q9
     family: m4.vs3bet.value

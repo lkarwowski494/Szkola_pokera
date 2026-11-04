@@ -36,7 +36,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Ranking (poker królewski → wysoka karta) w regulaminach CA BGC i Crown Perth; Wikipedia tylko jako trzecie źródło. Zmienić source/sources: zamiast samej Wikipedii regulaminy szczebla 1."
+  "uwagi": "Ranking (poker królewski → wysoka karta) w regulaminach CA BGC i Crown Perth; Wikipedia tylko jako trzecie źródło. Zmienić source/sources: zamiast samej Wikipedii regulaminy szczebla 1. E2 2026-11-04: rules.yaml R-M0-001 source/sources: regulaminy szczebla 1 (CA, Perth) zamiast samej Wikipedii."
  },
  {
   "id": "R-M0-002",
@@ -82,7 +82,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Kolejność kickerów „od najwyższego” dosłownie tylko w Wikipedii (szczebel 5); Crown 10.3 („higher ranked cards shall take precedence”) i 10.4 dają ją pośrednio. Wystarcza dla poziomu rules."
+  "uwagi": "Kolejność kickerów „od najwyższego” dosłownie tylko w Wikipedii (szczebel 5); Crown 10.3 („higher ranked cards shall take precedence”) i 10.4 dają ją pośrednio. Wystarcza dla poziomu rules. E2 2026-11-04: rules.yaml R-M0-002 source/sources: regulamin szczebla 1 (Perth 10.3–10.4) dopisany."
  },
  {
   "id": "R-M0-003",
@@ -121,7 +121,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": "E2 2026-11-04: rules.yaml R-M0-003 source/sources: regulamin szczebla 1 (CA) dopisany."
  },
  {
   "id": "R-M1-001",
@@ -320,7 +320,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Cytat w polu source reguły („accurate within 2% … ten or fewer outs”) nie jest dosłowny; na stronie: „For anything 10 outs or less, however, its accurate within 2%”. Poprawić cytat w source."
+  "uwagi": "Cytat w polu source reguły („accurate within 2% … ten or fewer outs”) nie jest dosłowny; na stronie: „For anything 10 outs or less, however, its accurate within 2%”. Poprawić cytat w source. E2 2026-11-04: rules.yaml R-M2-002 source: cytat dosłowny."
  },
  {
   "id": "R-M2-003",
@@ -441,7 +441,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "W source reguły brak adresu BeyondGTO (opis „serwis z tabelami solvera … NL500”); dopisać https://beyondgto.com/ranges/btn-open-6max-100bb i …/sb-open-6max-100bb. Cytat Preflop Wizard „The button has the widest range” z dokumentu 12 nie występuje dziś na stronie."
+  "uwagi": "W source reguły brak adresu BeyondGTO (opis „serwis z tabelami solvera … NL500”); dopisać https://beyondgto.com/ranges/btn-open-6max-100bb i …/sb-open-6max-100bb. Cytat Preflop Wizard „The button has the widest range” z dokumentu 12 nie występuje dziś na stronie. E2 2026-11-04: rules.yaml R-M3-001 source/sources: adresy tabel solvera."
  },
  {
   "id": "R-M3-002",
@@ -487,7 +487,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "BŁĘDNY ADRES w source/sources: https://blog.gtowizard.com/range-morphology/ (artykuł z 2022) nie zawiera 17,6% ani rozmiarów otwarć; cytaty są na https://blog.gtowizard.com/preflop-range-morphology/. Poprawić URL (także R-M3-006, R-M3-007, liczby pf.rfi.utg.*, pf.open-size.solver-*)."
+  "uwagi": "BŁĘDNY ADRES w source/sources: https://blog.gtowizard.com/range-morphology/ (artykuł z 2022) nie zawiera 17,6% ani rozmiarów otwarć; cytaty są na https://blog.gtowizard.com/preflop-range-morphology/. Poprawić URL (także R-M3-006, R-M3-007, liczby pf.rfi.utg.*, pf.open-size.solver-*). E2 2026-11-04: rules.yaml R-M3-002 source/sources: adres preflop-range-morphology i tabel solvera."
  },
  {
   "id": "R-M3-003",
@@ -526,13 +526,13 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Dla 9-max (spot nine.rfi.btn) tabele 9-max szczebla 4 podają 44–48% (Preflop Wizard „44-48% from the button”); rozstrzyga szczebel 2 dla gry po pasach = 6-max (dokument 10, N1)."
+  "uwagi": "Dla 9-max (spot nine.rfi.btn) tabele 9-max szczebla 4 podają 44–48% (Preflop Wizard „44-48% from the button”); rozstrzyga szczebel 2 dla gry po pasach = 6-max (dokument 10, N1). E2 2026-11-04: rules.yaml R-M3-003 source/sources: adres tabel solvera."
  },
  {
   "id": "R-M3-004",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "wchodzisz do rozdania jako pierwszy → przebijasz albo pasujesz, nie dopłacasz samego blinda (limp), bo raise może od razu wygrać blindy i daje inicjatywę; limp oddaje obie te rzeczy",
+  "twierdzenie": "wchodzisz do rozdania jako pierwszy → przebijasz albo pasujesz, nie dopłacasz samego blinda (limp); z małego blinda to uproszczenie: niektóre rozwiązania solverów część rąk dopłacają, bo raise może od razu wygrać blindy i daje inicjatywę; limp oddaje obie te rzeczy",
   "zrodla": [
    {
     "adres": "https://beyondgto.com/ranges/lj-open-6max-100bb",
@@ -570,16 +570,17 @@
     "szczebel": 4
    }
   ],
-  "status": "sprzeczne",
+  "status": "potwierdzone",
   "uproszczenie": "raise-or-fold także z małego blinda",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "then: „przebijasz albo pasujesz, nie dopłacasz samego blinda (limp); z małego blinda to uproszczenie: niektóre rozwiązania solverów część rąk dopłacają”",
-  "uwagi": "Z pozycji UTG–BTN zgodne ze szczeblem 2. Dla SB sprzeczność na szczeblu 2: BeyondGTO raise-or-fold, ThinkGTO (GTO Ranges+) 20,5% limpów. Proponowana decyzja w raporcie (D-1xx). „Inicjatywa” w because nie ma dosłownego źródła; kierunek zgodny z Upswing."
+  "uwagi": "Z pozycji UTG–BTN zgodne ze szczeblem 2. Dla SB sprzeczność na szczeblu 2: BeyondGTO raise-or-fold, ThinkGTO (GTO Ranges+) 20,5% limpów. Proponowana decyzja w raporcie (D-1xx). „Inicjatywa” w because nie ma dosłownego źródła; kierunek zgodny z Upswing. E2 2026-11-04: poprawione (rules.yaml R-M3-004 then; m3-l1-pozycja.md:27; m3-l3-zakresy-otwarc.md:77; exams/m3.yaml:61); było CZĘŚCIOWO.",
+  "decyzja": "D-144"
  },
  {
   "id": "R-M3-005",
@@ -650,7 +651,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Adres GTO Wizard w source do poprawy jak w R-M3-002."
+  "uwagi": "Adres GTO Wizard w source do poprawy jak w R-M3-002. E2 2026-11-04: rules.yaml R-M3-006 source/sources: adres preflop-range-morphology i tabel solvera."
  },
  {
   "id": "R-M3-007",
@@ -682,7 +683,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Uproszczenie nazwane w then, kierunkowo zgodne z solverem (BTN 2,5bb, SB 3bb dokładnie). Adres GTO Wizard do poprawy (preflop-range-morphology). „Nie zdradza siły ręki” (because) bez źródła zewnętrznego, wynika z jednego rozmiaru dla całego zakresu."
+  "uwagi": "Uproszczenie nazwane w then, kierunkowo zgodne z solverem (BTN 2,5bb, SB 3bb dokładnie). Adres GTO Wizard do poprawy (preflop-range-morphology). „Nie zdradza siły ręki” (because) bez źródła zewnętrznego, wynika z jednego rozmiaru dla całego zakresu. E2 2026-11-04: rules.yaml R-M3-007 source/sources: adres preflop-range-morphology."
  },
  {
   "id": "R-M3-008",
@@ -734,7 +735,7 @@
   "id": "R-M3-009",
   "rodzaj": "regula",
   "level": "gto",
-  "twierdzenie": "wszyscy spasowali do ciebie na małym blindzie → otwierasz szeroko, ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, przebiciem do {{n:pf.open-size-sb}} albo pasem, bo grasz już tylko przeciw dużemu blindowi; po flopie mówisz pierwszy, więc nie otwierasz szerzej niż z Buttona tylko dlatego, że rywal jest jeden",
+  "twierdzenie": "wszyscy spasowali do ciebie na małym blindzie → otwierasz szeroko, ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, przebiciem do {{n:pf.open-size-sb}} albo pasem (uproszczenie: niektóre rozwiązania solverów część rąk z małego blinda dopłacają), bo grasz już tylko przeciw dużemu blindowi; po flopie mówisz pierwszy, więc nie otwierasz szerzej niż z Buttona tylko dlatego, że rywal jest jeden",
   "zrodla": [
    {
     "adres": "https://beyondgto.com/ranges/sb-open-6max-100bb",
@@ -772,22 +773,23 @@
     "szczebel": 2
    }
   ],
-  "status": "sprzeczne",
+  "status": "potwierdzone",
   "uproszczenie": "raise-or-fold z małego blinda",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "then: „otwierasz szeroko, ok. 40–45% rąk, przebiciem do 3bb albo pasem (uproszczenie: niektóre rozwiązania solverów część rąk z małego blinda dopłacają)”",
-  "uwagi": "Przedział 40–45% to część wspólna strategii bez limpów (BeyondGTO 44, Upswing 40–50, Preflop Wizard 39–47); solver aplikacji 42,3% w przedziale. Sprzeczność „raise-or-fold” jak w R-M3-004."
+  "uwagi": "Przedział 40–45% to część wspólna strategii bez limpów (BeyondGTO 44, Upswing 40–50, Preflop Wizard 39–47); solver aplikacji 42,3% w przedziale. Sprzeczność „raise-or-fold” jak w R-M3-004. E2 2026-11-04: poprawione (rules.yaml R-M3-009 then i source; m3-l3-zakresy-otwarc.md:77); było CZĘŚCIOWO.",
+  "decyzja": "D-144"
  },
  {
   "id": "R-M3-010",
   "rodzaj": "regula",
-  "level": "gto",
-  "twierdzenie": "grasz przy stole 9-osobowym i wszyscy przed tobą spasowali → z utg otwierasz ok. {{n:solver9.rfi.utg}} rąk, z UTG+1 ok. {{n:solver9.rfi.utg1}}, z UTG+2 ok. {{n:solver9.rfi.utg2}}; od LJ dalej grasz jak przy stole 6-osobowym (LJ jak utg), bo za tobą jest więcej graczy niż przy stole 6-osobowym, więc częściej ktoś ma lepszą rękę; gdy wcześni gracze spasują, za LJ zostaje tylu graczy co za utg przy stole 6-osobowym",
+  "level": "heuristic",
+  "twierdzenie": "grasz przy stole 9-osobowym i wszyscy przed tobą spasowali → z utg, UTG+1 i UTG+2 otwierasz węziej niż z utg przy stole 6-osobowym; od LJ dalej grasz jak przy stole 6-osobowym (LJ jak utg), bo za tobą siedzi więcej graczy niż przy stole 6-osobowym, więc częściej ktoś ma lepszą rękę; gdy wcześni gracze spasują, za LJ zostaje tylu graczy co za utg przy stole 6-osobowym",
   "zrodla": [
    {
     "adres": "https://preflopwizard.app/blog/9-max-preflop-chart",
@@ -825,9 +827,10 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "level: heuristic (zamiast gto); treść bez zmian",
-  "uwagi": "Wartości 10,9 / 12,5 / 13,2% (meta.summary.rfi w preflop-9max-100bb.json) mieszczą się w przedziałach tabel szczebla 4. Dokument 10 sam przyjmuje dla UTG–UTG+2 poziom heuristic (brak opublikowanych wyników solvera 9-max). Poziom gto jest wyższy niż szczebel źródeł."
+  "uwagi": "Wartości 10,9 / 12,5 / 13,2% (meta.summary.rfi w preflop-9max-100bb.json) mieszczą się w przedziałach tabel szczebla 4. Dokument 10 sam przyjmuje dla UTG–UTG+2 poziom heuristic (brak opublikowanych wyników solvera 9-max). Poziom gto jest wyższy niż szczebel źródeł. E2 2026-11-04: poprawione (rules.yaml R-M3-010 level heuristic, then bez solver9.*; m3-l3-zakresy-otwarc.md:80); było CZĘŚCIOWO.",
+  "decyzja": "D-144, D-153"
  },
  {
   "id": "R-M4-001",
@@ -925,7 +928,7 @@
   "id": "R-M4-003",
   "rodzaj": "regula",
   "level": "gto",
-  "twierdzenie": "jesteś na małym blindzie, a otworzył CO albo Button → prawie nie sprawdzasz: 3-betujesz albo pasujesz; wobec Buttona 3-betujesz górę zakresu (ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, m.in. 77+ (solver aplikacji także 55 i 66), AJo+, KQo, A5s, A4s, T9s), a resztę pasujesz, bo po sprawdzeniu z małego blinda grasz out-of-position, a big-blind za tobą może jeszcze przebić; 3-bet daje inicjatywę i szansę wygrania puli od razu",
+  "twierdzenie": "jesteś na małym blindzie, a otworzył CO albo Button → prawie nie sprawdzasz: 3-betujesz albo pasujesz; wobec Buttona 3-betujesz górę zakresu (ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, m.in. 77+ (55 i 66 często), AJo+, KQo, A5s, A4s, T9s), a resztę pasujesz, bo po sprawdzeniu z małego blinda grasz out-of-position, a big-blind za tobą może jeszcze przebić; 3-bet daje inicjatywę i szansę wygrania puli od razu",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/",
@@ -958,13 +961,13 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Liczby 14% / 2% przypisane GTO Wizard są tylko na obrazku (nie da się ich odczytać z tekstu); BeyondGTO: 13% 3-bet, 5% sprawdzeń. Skład (data-tip BeyondGTO): 77 66%, AJo 64%, KQo 77%, A5s 88%, A4s 72%, T9s 84% 3-betu; także 55 57% i 66 62% — dopisek „(solver aplikacji także 55 i 66)” sugeruje różnicę, której BeyondGTO nie potwierdza (lekcja m4-l1:93)."
+  "uwagi": "Liczby 14% / 2% przypisane GTO Wizard są tylko na obrazku (nie da się ich odczytać z tekstu); BeyondGTO: 13% 3-bet, 5% sprawdzeń. Skład (data-tip BeyondGTO): 77 66%, AJo 64%, KQo 77%, A5s 88%, A4s 72%, T9s 84% 3-betu; także 55 57% i 66 62% — dopisek „(solver aplikacji także 55 i 66)” sugeruje różnicę, której BeyondGTO nie potwierdza (lekcja m4-l1:93). E2 2026-11-04: rules.yaml R-M4-003 then („55 i 66 często” zamiast „solver aplikacji także 55 i 66”) i source (13% z odczytanego tekstu)."
  },
  {
   "id": "R-M4-004",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "jesteś na dużym blindzie, Button otworzył na {{n:pf.open-size}}, a small-blind spasował → bronisz szeroko, bo do sprawdzenia potrzebujesz tylko ok. {{n:eq.bb-vs-btn-open}} equity, bo dopłacasz niewiele do dużej puli; solver aplikacji broni tu {{n:solver.def.bb-vs-btn}} rąk",
+  "twierdzenie": "jesteś na dużym blindzie, Button otworzył na {{n:pf.open-size}}, a small-blind spasował → bronisz szeroko, bo do sprawdzenia potrzebujesz tylko ok. {{n:eq.bb-vs-btn-open}} equity, bo dopłacasz niewiele do dużej puli; opublikowane rozwiązania solverów bronią tu ok. {{n:pf.bb-def.vs-btn.pub.low}}–{{n:pf.bb-def.vs-btn.pub.high}} rąk",
   "zrodla": [
    {
     "adres": "rachunek: dopłata/(pula po sprawdzeniu) = 1,5/(2,5 + 0,5 + 1 + 1,5)",
@@ -1004,13 +1007,13 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Reguła („bronisz szeroko”, cena 27,3%) poparta. Solver aplikacji 49,6% jest powyżej obu opublikowanych rozwiązań szczebla 2 (40,5% i 45%); cel K1 50–60% w dokumencie 10 nie ma źródła szczebla 2 — patrz liczby pf.bb-def.vs-btn.pub.*."
+  "uwagi": "Reguła („bronisz szeroko”, cena 27,3%) poparta. Solver aplikacji 49,6% jest powyżej obu opublikowanych rozwiązań szczebla 2 (40,5% i 45%); cel K1 50–60% w dokumencie 10 nie ma źródła szczebla 2 — patrz liczby pf.bb-def.vs-btn.pub.*. E2 2026-11-04: rules.yaml R-M4-004 because: liczba opublikowana pf.bb-def.vs-btn.pub.* zamiast solver.def.bb-vs-btn (D-153)."
  },
  {
   "id": "R-M4-005",
   "rodzaj": "regula",
   "level": "gto",
-  "twierdzenie": "z pozycji przebijasz open z HJ albo CO → 3-betujesz głównie najlepsze ręce od góry i dokładasz kilka blefów z asami w kolorze (A5s, A4s); część słabszych rąk, np. małe pary i konektory w kolorze, sprawdzasz. Button wobec CO zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a sprawdza ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}, bo rywal często sprawdza, więc chcesz mieć rękę, która dobrze gra w puli po sprawdzeniu",
+  "twierdzenie": "z pozycji przebijasz open z HJ albo CO → 3-betujesz głównie najlepsze ręce od góry i dokładasz kilka blefów z asami w kolorze (A5s, A4s); średnie ręce (np. 77–99, AJs, ATs, konektory w kolorze) grasz mieszanie: część 3-betujesz, część sprawdzasz. Button wobec CO zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a sprawdza ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}, bo rywal często sprawdza, więc chcesz mieć rękę, która dobrze gra w puli po sprawdzeniu",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/",
@@ -1048,22 +1051,23 @@
     "szczebel": 4
    }
   ],
-  "status": "sprzeczne",
+  "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "SPRZECZNE",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "then: „3-betujesz głównie najlepsze ręce od góry i dokładasz kilka blefów z asami w kolorze (A5s, A4s); średnie ręce (np. 77–99, AJs, ATs, konektory w kolorze) grasz mieszanie: część 3-betujesz, część sprawdzasz. Button wobec CO zwykle 3-betuje ok. 10–13% rąk, a sprawdza ok. 3–9%”",
-  "uwagi": "Trzecie źródło szczebla 2 (Poker Academy NL200: 12,5% / 3,0%) wypada poza przedziały 10–12% i 5–9%. Skład: BeyondGTO sprawdza małe pary w większości (44 76%, 22 58%), Poker Academy je pasuje („55–22 most of the time”), T9s i 65s 3-betuje w 85–87%. Część wspólna: góra 3-bet, środek mieszany; „małe pary sprawdzasz” nie jest częścią wspólną."
+  "uwagi": "Trzecie źródło szczebla 2 (Poker Academy NL200: 12,5% / 3,0%) wypada poza przedziały 10–12% i 5–9%. Skład: BeyondGTO sprawdza małe pary w większości (44 76%, 22 58%), Poker Academy je pasuje („55–22 most of the time”), T9s i 65s 3-betuje w 85–87%. Część wspólna: góra 3-bet, środek mieszany; „małe pary sprawdzasz” nie jest częścią wspólną. E2 2026-11-04: poprawione (rules.yaml R-M4-005 then i source; m4-l1-3bet.md:97; liczby przez pf.*.btn-vs-co (m4-l1-3bet.md:79)); było SPRZECZNE.",
+  "decyzja": "D-144"
  },
  {
   "id": "R-M4-006",
   "rodzaj": "regula",
   "level": "gto",
-  "twierdzenie": "z dużego blinda przebijasz open Buttona albo małego blinda → 3-betujesz najsilniejsze ręce (TT+, AQ+, AJs+) plus blefy z dołu zakresu sprawdzenia: A5s, czasem A4s, i konektory w kolorze; średnie i małe pary, KQo oraz asy w różnych kolorach (AJo–A9o) zwykle sprawdzasz, bo z dużego blinda sprawdzasz tanio i zamykasz akcję, więc średnie ręce zarabiają więcej po sprawdzeniu, a 3-bet zostawiasz rękom, które chcą dużej puli, i blefom, które dobrze grają po sprawdzeniu (asy w kolorze blokują AA i AK)",
+  "twierdzenie": "z dużego blinda przebijasz open Buttona → 3-betujesz najsilniejsze ręce (TT+, AQ+, AJs+) plus blefy z dołu zakresu sprawdzenia: A5s, czasem A4s, i konektory w kolorze; średnie i małe pary, KQo oraz asy w różnych kolorach (AJo–A9o) zwykle sprawdzasz, bo z dużego blinda sprawdzasz tanio i zamykasz akcję, więc średnie ręce zarabiają więcej po sprawdzeniu, a 3-bet zostawiasz rękom, które chcą dużej puli, i blefom, które dobrze grają po sprawdzeniu (asy w kolorze blokują AA i AK)",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/",
@@ -1115,16 +1119,17 @@
     "szczebel": 2
    }
   ],
-  "status": "sprzeczne",
+  "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "SPRZECZNE",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "if: „z dużego blinda przebijasz otwarcie Buttona” (bez małego blinda); osobne zdanie/reguła: „wobec otwarcia małego blinda 3-betujesz głównie dla wartości (TT+, AJs+, część AQo i KQ); A5s i konektory w kolorze zwykle sprawdzasz”",
-  "uwagi": "Dla BB vs BTN reguła poparta (BeyondGTO: TT 94%, AJs 100%, AQo 59%, A5s 100%, A4s 85%, 76s 70%; KQo 41% i AJo 26% 3-betu — „zwykle sprawdzasz” OK). Dla BB vs SB trzy źródła szczebla 2 nie używają A5s/A4s/konektorów jako blefów (ThinkGTO, BeyondGTO: A4s 0%, 76s 8%); GTO Wizard pokazuje blefy z dołu zakresu (T2s, K5o). Sprzeczne z then i z lekcją m4-l1:99."
+  "uwagi": "Dla BB vs BTN reguła poparta (BeyondGTO: TT 94%, AJs 100%, AQo 59%, A5s 100%, A4s 85%, 76s 70%; KQo 41% i AJo 26% 3-betu — „zwykle sprawdzasz” OK). Dla BB vs SB trzy źródła szczebla 2 nie używają A5s/A4s/konektorów jako blefów (ThinkGTO, BeyondGTO: A4s 0%, 76s 8%); GTO Wizard pokazuje blefy z dołu zakresu (T2s, K5o). Sprzeczne z then i z lekcją m4-l1:99. E2 2026-11-04: poprawione (rules.yaml R-M4-006 if (tylko Button) i source; m4-l1-3bet.md:99 (zdanie o małym blindzie); m4-l2-obrona-bb.md:92); było SPRZECZNE.",
+  "decyzja": "D-144"
  },
  {
   "id": "R-M4-007",
@@ -1183,7 +1188,7 @@
   "id": "R-M4-008",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "dostajesz 3-bet i po flopie będziesz out-of-position → sprawdzasz tylko wysokimi kartami w kolorze, mocnymi asami w kolorze oraz średnimi i wysokimi parami; słabsze ręce w różnych kolorach (KJo, ATo, QTo) pasujesz, bo ręce w różnych kolorach są często zdominowane i źle realizują equity out-of-position",
+  "twierdzenie": "dostajesz 3-bet i po flopie będziesz out-of-position → sprawdzasz głównie wysokimi kartami w kolorze, mocnymi asami w kolorze, średnimi i wysokimi parami oraz częścią konektorów w kolorze; słabsze ręce w różnych kolorach (KJo, ATo, QTo) pasujesz, bo ręce w różnych kolorach są często zdominowane i źle realizują equity out-of-position",
   "zrodla": [
    {
     "adres": "https://deepfold.co/en/blog/three-bet-strategy-guide",
@@ -1214,9 +1219,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "then: „sprawdzasz głównie wysokimi kartami w kolorze, mocnymi asami w kolorze, średnimi i wysokimi parami oraz częścią konektorów w kolorze; słabsze ręce w różnych kolorach (KJo, ATo, QTo) pasujesz”",
-  "uwagi": "Wszystkie trzy źródła sprawdzają bez pozycji także konektory w kolorze (T9s, JTs; Pailiku do 65s); „tylko” jest za mocne. KJo, ATo, QTo — pas w Pailiku; Deepfold „marginal offsuit broadways”. Tylko szczebel 4."
+  "uwagi": "Wszystkie trzy źródła sprawdzają bez pozycji także konektory w kolorze (T9s, JTs; Pailiku do 65s); „tylko” jest za mocne. KJo, ATo, QTo — pas w Pailiku; Deepfold „marginal offsuit broadways”. Tylko szczebel 4. E2 2026-11-04: poprawione (rules.yaml R-M4-008 then i source; m4-l3-wobec-3betu.md:104); było CZĘŚCIOWO."
  },
  {
   "id": "R-M4-009",
@@ -1261,7 +1266,7 @@
   "id": "R-M4-010",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "dostajesz 3-bet z AA, KK albo AK → 4-betujesz (dla wartości), bo te ręce chcą wpłacić cały stack i dominują większość rąk, które sprawdzą 4-bet",
+  "twierdzenie": "dostajesz 3-bet z AA, KK albo AK → zwykle 4-betujesz (dla wartości); AK bywa też sprawdzane, bo te ręce chcą wpłacić cały stack i dominują większość rąk, które sprawdzą 4-bet",
   "zrodla": [
    {
     "adres": "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/",
@@ -1292,9 +1297,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "then: „zwykle 4-betujesz (dla wartości); AK bywa też sprawdzane”",
-  "uwagi": "AA i KK 4-bet we wszystkich źródłach; AK: Upswing 100% (jeden spot), Deepfold „mixed”, Pailiku AKs sprawdza (w dwóch tabelach). Brak źródła szczebla 2 w tekście. Dotyczy też m4-l3:112 i m4-l3 q-ako."
+  "uwagi": "AA i KK 4-bet we wszystkich źródłach; AK: Upswing 100% (jeden spot), Deepfold „mixed”, Pailiku AKs sprawdza (w dwóch tabelach). Brak źródła szczebla 2 w tekście. Dotyczy też m4-l3:112 i m4-l3 q-ako. E2 2026-11-04: poprawione (rules.yaml R-M4-010 then i source; m4-l3-wobec-3betu.md:36–37, :112; exams/m4.yaml:73, :83); było CZĘŚCIOWO."
  },
  {
   "id": "R-M4-011",
@@ -1372,13 +1377,13 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Source reguły nie ma adresów; artykuł „How to Maximize Your Winnings Versus Multiple Limpers” nie odnaleziony (upswingpoker.com 404 dla trzech wariantów adresu); zastąpiony artykułem Upswing Poker na PokerNews. „+1bb bez pozycji” — jedno źródło (Preflop Wizard). Upswing: live 4bb+1bb — reguła dotyczy gry online."
+  "uwagi": "Source reguły nie ma adresów; artykuł „How to Maximize Your Winnings Versus Multiple Limpers” nie odnaleziony (upswingpoker.com 404 dla trzech wariantów adresu); zastąpiony artykułem Upswing Poker na PokerNews. „+1bb bez pozycji” — jedno źródło (Preflop Wizard). Upswing: live 4bb+1bb — reguła dotyczy gry online. E2 2026-11-04: rules.yaml R-M4-012 source/sources: adresy zamienników (artykuł na PokerNews, Preflop Wizard)."
  },
  {
   "id": "R-M4-013",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "przed tobą limpuje więcej graczy → przebijasz węższym zakresem, głównie dla wartości; ręce spekulacyjne (małe pary, konektory w kolorze) in-position raczej dopłacasz, bo każdy kolejny limper zwiększa szansę, że ktoś sprawdzi, więc bluff preflop traci wartość",
+  "twierdzenie": "przed tobą limpuje więcej graczy → przebijasz węższym zakresem, głównie dla wartości; ręce spekulacyjne (małe pary, konektory w kolorze) in-position możesz dopłacić, bo każdy kolejny limper zwiększa szansę, że ktoś sprawdzi, więc bluff preflop traci wartość",
   "zrodla": [
    {
     "adres": "https://www.preflopwizard.app/blog/poker-iso-raise-strategy",
@@ -1409,22 +1414,23 @@
     "szczebel": 4
    }
   ],
-  "status": "sprzeczne",
+  "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "then: „…ręce spekulacyjne (małe pary, konektory w kolorze) z pozycją możesz dopłacić albo przebić; oba zagrania bywają poprawne”",
-  "uwagi": "Węższy zakres przy wielu limperach: zgodne. Dopłacanie rąk spekulacyjnych: sprzeczność na szczeblu 4 (PokerNews/Upswing: dopuszczalne; Preflop Wizard: „almost always wrong”). Brak szczebla 2. „Raczej dopłacasz” rozstrzyga sprzeczność na korzyść jednej strony."
+  "uwagi": "Węższy zakres przy wielu limperach: zgodne. Dopłacanie rąk spekulacyjnych: sprzeczność na szczeblu 4 (PokerNews/Upswing: dopuszczalne; Preflop Wizard: „almost always wrong”). Brak szczebla 2. „Raczej dopłacasz” rozstrzyga sprzeczność na korzyść jednej strony. E2 2026-11-04: poprawione (rules.yaml R-M4-013 then i source; m4-l4-limperzy.md:57–58 (q-many: Dopłacam i Pasuję poprawne), :75); było CZĘŚCIOWO.",
+  "decyzja": "D-144"
  },
  {
   "id": "R-M4-014",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "jesteś na dużym blindzie, a small-blind otworzył na {{n:pf.open-size-sb}} → bronisz szeroko, ponad połowę rąk, choć do sprawdzenia potrzebujesz ok. {{n:eq.bb-vs-sb-open}} equity; 3-bet ma ok. {{n:pf.3bet.size-ip}} otwarcia, bo po flopie masz pozycję, więc realizujesz więcej equity; solver aplikacji broni tu {{n:solver.def.bb-vs-sb}} rąk, opublikowane rozwiązanie solvera ok. {{n:pf.bb-def.vs-sb.pub}}",
+  "twierdzenie": "jesteś na dużym blindzie, a small-blind otworzył na {{n:pf.open-size-sb}} → bronisz szeroko, ponad połowę rąk, choć do sprawdzenia potrzebujesz ok. {{n:eq.bb-vs-sb-open}} equity; 3-bet ma ok. {{n:pf.3bet.size-ip}} otwarcia, bo po flopie masz pozycję, więc realizujesz więcej equity; opublikowane rozwiązanie solvera broni tu ok. {{n:pf.bb-def.vs-sb.pub}} rąk",
   "zrodla": [
    {
     "adres": "rachunek: dopłata/(pula po sprawdzeniu) = 2/(3 + 1 + 2)",
@@ -1464,7 +1470,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "3-bet 9bb przy otwarciu 3bb = 3x (ThinkGTO) — zgodne z „3-bet ok. 3x otwarcia”."
+  "uwagi": "3-bet 9bb przy otwarciu 3bb = 3x (ThinkGTO) — zgodne z „3-bet ok. 3x otwarcia”. E2 2026-11-04: rules.yaml R-M4-014 because: bez solver.def.bb-vs-sb, tylko pf.bb-def.vs-sb.pub (D-153); m4-l2-obrona-bb.md:89."
  },
  {
   "id": "n:format.stack",
@@ -1495,7 +1501,7 @@
   "id": "n:pf.3bet-freq.btn-vs-co.high",
   "rodzaj": "liczba",
   "level": "gto",
-  "twierdzenie": "pf.3bet-freq.btn-vs-co.high = 0.12 percent (source: serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb: „Against a CO open, BTN will 3-bet ~12% of hands, while calling only 5%.”)",
+  "twierdzenie": "pf.3bet-freq.btn-vs-co.high = 0.13 percent (source: przedział obejmujący trzy źródła szczebla 2 (D-144): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), NL200, 100bb: „the solver 3-bets 12.5% of hands to 7.5bb and calls only 3.0%.”; serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500: ~12%)",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/",
@@ -1512,16 +1518,17 @@
     "szczebel": 2
    }
   ],
-  "status": "sprzeczne",
+  "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": "pf.3bet-freq.btn-vs-co.high",
-  "wartosc": 0.12,
+  "wartosc": 0.13,
   "jednostka": "percent",
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "0.13 (przedział 10–13% obejmuje GTO Wizard, BeyondGTO i Poker Academy)",
-  "uwagi": "Patrz R-M4-005."
+  "uwagi": "Patrz R-M4-005. E2 2026-11-04: poprawione (numbers.yaml pf.3bet-freq.btn-vs-co.high 0.12 → 0.13); było CZĘŚCIOWO.",
+  "decyzja": "D-144"
  },
  {
   "id": "n:pf.3bet-freq.btn-vs-co.low",
@@ -1577,7 +1584,7 @@
   "id": "n:pf.3bet-freq.sb-vs-btn",
   "rodzaj": "liczba",
   "level": "gto",
-  "twierdzenie": "pf.3bet-freq.sb-vs-btn = 0.14 percent (source: serwis komercyjnego solvera, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, 100bb, SB vs BTN: 3-bet 14%, sprawdzenie 2% (dokument 10, rozstrzygnięcie B-045))",
+  "twierdzenie": "pf.3bet-freq.sb-vs-btn = 0.13 percent (source: serwis z tabelami solvera, SB vs BTN (https://beyondgto.com/defense/sb-vs-btn), NL500, 100bb: „GTO defends the Small Blind with about 18% of hands - roughly 5% as a flat call and 13% as a 3-bet.” (E1: 14% innego serwisu tylko na grafice, bez tekstu; dokument 10, rozstrzygnięcie B-045))",
   "zrodla": [
    {
     "adres": "https://beyondgto.com/defense/sb-vs-btn",
@@ -1599,11 +1606,11 @@
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": "pf.3bet-freq.sb-vs-btn",
-  "wartosc": 0.14,
+  "wartosc": 0.13,
   "jednostka": "percent",
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "0.13 ze źródłem BeyondGTO sb-vs-btn (albo przedział 13–14% z dopiskiem, że 14% GTO Wizard pochodzi z obrazka)",
-  "uwagi": "„3-bet 14%, sprawdzenie 2%” nie występuje w tekście artykułu GTO Wizard (tylko grafika); odczytany tekst: BeyondGTO 13% / 5%."
+  "uwagi": "„3-bet 14%, sprawdzenie 2%” nie występuje w tekście artykułu GTO Wizard (tylko grafika); odczytany tekst: BeyondGTO 13% / 5%. E2 2026-11-04: poprawione (numbers.yaml pf.3bet-freq.sb-vs-btn 0.14 → 0.13 ze źródłem z odczytanym tekstem; m4-l1-3bet.md:93 (55 i 66); rules.yaml R-M4-003); było CZĘŚCIOWO."
  },
  {
   "id": "n:pf.3bet.size-ip",
@@ -1801,7 +1808,7 @@
   "id": "n:pf.bb-def.vs-btn.pub.high",
   "rodzaj": "liczba",
   "level": "heuristic",
-  "twierdzenie": "pf.bb-def.vs-btn.pub.high = 0.5 percent (source: serwis szkoleniowy, GTO Preflop Strategy (https://gtogecko.com/blog/gto-preflop-strategy))",
+  "twierdzenie": "pf.bb-def.vs-btn.pub.high = 0.45 percent (source: serwis z tabelami solvera, BB vs BTN (https://beyondgto.com/defense/bb-vs-btn), NL500, 100bb: „GTO defends the Big Blind with about 45% of hands - roughly 32% as a flat call and 13% as a 3-bet.” (D-144))",
   "zrodla": [
    {
     "adres": "https://gtogecko.com/blog/gto-preflop-strategy",
@@ -1825,22 +1832,23 @@
     "szczebel": 2
    }
   ],
-  "status": "sprzeczne",
+  "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": "pf.bb-def.vs-btn.pub.high",
-  "wartosc": 0.5,
+  "wartosc": 0.45,
   "jednostka": "percent",
-  "werdykt_tekstu": "SPRZECZNE",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "0.45; lekcja m4-l2:79: „Opublikowane rozwiązania solverów podają ok. 40–45%, więc solver aplikacji broni nieco szerzej”",
-  "uwagi": "Jedyne źródło liczby (GTO Gecko) to serwis szkoleniowy (szczebel 4), a lekcja nazywa je „opublikowanym rozwiązaniem”. Szczebel 2: BeyondGTO 45%, Poker Academy 40,5% (11,5 + 29,0). Wyższy szczebel wygrywa."
+  "uwagi": "Jedyne źródło liczby (GTO Gecko) to serwis szkoleniowy (szczebel 4), a lekcja nazywa je „opublikowanym rozwiązaniem”. Szczebel 2: BeyondGTO 45%, Poker Academy 40,5% (11,5 + 29,0). Wyższy szczebel wygrywa. E2 2026-11-04: poprawione (numbers.yaml pf.bb-def.vs-btn.pub.high 0.50 → 0.45; m4-l2-obrona-bb.md:79); było SPRZECZNE.",
+  "decyzja": "D-144"
  },
  {
   "id": "n:pf.bb-def.vs-btn.pub.low",
   "rodzaj": "liczba",
   "level": "heuristic",
-  "twierdzenie": "pf.bb-def.vs-btn.pub.low = 0.45 percent (source: serwis szkoleniowy, GTO Preflop Strategy (https://gtogecko.com/blog/gto-preflop-strategy): obrona BB wobec Buttona ok. 45–50%)",
+  "twierdzenie": "pf.bb-def.vs-btn.pub.low = 0.4 percent (source: szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), NL200: „In the cash game against a button open it 3-bets 11.5% to 11bb and calls 29.0%.” (razem 40,5%; D-144, było 45–50% z jednego źródła szczebla 4))",
   "zrodla": [
    {
     "adres": "https://gtogecko.com/blog/gto-preflop-strategy",
@@ -1857,16 +1865,17 @@
     "szczebel": 2
    }
   ],
-  "status": "sprzeczne",
+  "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": "pf.bb-def.vs-btn.pub.low",
-  "wartosc": 0.45,
+  "wartosc": 0.4,
   "jednostka": "percent",
-  "werdykt_tekstu": "SPRZECZNE",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "0.40 (Poker Academy 40,5%, BeyondGTO 45%)",
-  "uwagi": "Jak wyżej."
+  "uwagi": "Jak wyżej. E2 2026-11-04: poprawione (numbers.yaml pf.bb-def.vs-btn.pub.low 0.45 → 0.40; m4-l2-obrona-bb.md:79); było SPRZECZNE.",
+  "decyzja": "D-144"
  },
  {
   "id": "n:pf.bb-def.vs-sb.pub",
@@ -1929,7 +1938,7 @@
   "id": "n:pf.call-freq.btn-vs-co.low",
   "rodzaj": "liczba",
   "level": "gto",
-  "twierdzenie": "pf.call-freq.btn-vs-co.low = 0.05 percent (source: serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb: „Against a CO open, BTN will 3-bet ~12% of hands, while calling only 5%.”)",
+  "twierdzenie": "pf.call-freq.btn-vs-co.low = 0.03 percent (source: przedział obejmujący trzy źródła szczebla 2 (D-144): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), NL200, 100bb: „the solver 3-bets 12.5% of hands to 7.5bb and calls only 3.0%.”; serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500: 5%)",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/",
@@ -1946,16 +1955,17 @@
     "szczebel": 2
    }
   ],
-  "status": "sprzeczne",
+  "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": "pf.call-freq.btn-vs-co.low",
-  "wartosc": 0.05,
+  "wartosc": 0.03,
   "jednostka": "percent",
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "0.03 (przedział 3–9% obejmuje trzy źródła szczebla 2)",
-  "uwagi": "Patrz R-M4-005."
+  "uwagi": "Patrz R-M4-005. E2 2026-11-04: poprawione (numbers.yaml pf.call-freq.btn-vs-co.low 0.05 → 0.03); było CZĘŚCIOWO.",
+  "decyzja": "D-144"
  },
  {
   "id": "n:pf.call-freq.btn-vs-utg",
@@ -2987,8 +2997,9 @@
   "wielkosc": "range.mixed.min",
   "wartosc": 0.035,
   "jednostka": "percent",
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "m3-l3:47: zamiast „Akcja grana rzadziej niż w {{n:range.mixed.min}} przypadków to błąd” — „…to błąd w ocenie ćwiczeń (skala ruchów komercyjnego solvera nazywa takie ruchy niedokładnością, gdy nie tracą wyraźnie EV)”",
-  "uwagi": "3,5% potwierdzone. W skali źródła ruch < 3,5% bez dużej straty EV to „Inaccuracy”, a „Wrong move” to ruch w GTO niegrany. Aplikacja liczy < 3,5% jako błąd — to konwencja aplikacji, nie definicja źródła; nazwać ją tak."
+  "uwagi": "3,5% potwierdzone. W skali źródła ruch < 3,5% bez dużej straty EV to „Inaccuracy”, a „Wrong move” to ruch w GTO niegrany. Aplikacja liczy < 3,5% jako błąd — to konwencja aplikacji, nie definicja źródła; nazwać ją tak. E2 2026-11-04: poprawione (m3-l3-zakresy-otwarc.md:47 (poniżej progu: niedokładność, niegrane: błąd; progi L/H jako ustawienie aplikacji)); było CZĘŚCIOWO.",
+  "decyzja": "D-143, D-145"
  }
 ]
