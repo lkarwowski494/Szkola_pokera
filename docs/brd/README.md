@@ -57,5 +57,5 @@ Numery od 2 do 8 nie są używane w BRD (te numery pytań ma `docs/monetyzacja.m
 | OP-20 | Rozstrzygnięte 2026-11-03 (D-105, rola 03 z delegacji): najwyżej 8 pytań, ok. 2 minuty [OCENA], „Pomiń” na każdym ekranie, bez ekranu zakupu na końcu; odrzucone: 10–15 pytań, bez oceny | 03 | BR-ONB-001 |
 | OP-21 | [DO USTALENIA] Budżet czasu od uruchomienia do pierwszej decyzji i najstarszy wspierany telefon | 05 (pomiar) | NFR-WYD-001 |
 | OP-22 | Rozstrzygnięte 2026-11-03 (D-106): test modułu 15 zadań, próg 85% (potwierdzenie decyzji właściciela z 3.10.2026); odrzucone: nowy próg | 03 | BR-KURS-002 |
-| OP-23 | [DO WYJAŚNIENIA] Jednostka dziennego limitu (zadanie, sesja, scenariusz) i wartość N (OP-11 w `docs/monetyzacja.md`) | 03 z właścicielem (E2) | BR-LIM-001, BR-LIM-005 |
+| OP-23 | Rozstrzygnięte 2026-11-03 (D-107, właściciel: „1 aktywność dziennie (Recommended)”): jednostka to rozpoczęta aktywność (sesja ćwiczeń, kolejka powtórek, scenariusz albo powtórne podejście do egzaminu), N = 1; lekcje i pierwszy egzamin zawsze darmowe; odrzucone: 2 aktywności dziennie, 10 zadań dziennie | 03 z właścicielem | BR-LIM-001, BR-LIM-005 |
 | OP-24 | [DO USTALENIA] Licznik dziennego limitu po ponownej instalacji: lokalny czy odporny (Keychain); realność obejścia brzegowa (jeden dodatkowy limit dnia); to samo pytanie co OP-10 w `docs/monetyzacja.md` | 05 | BR-LIM-005 |

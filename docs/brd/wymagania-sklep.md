@@ -69,21 +69,21 @@ Podział na część darmową i płatną to hipoteza H-01 (role 02 i 03); wymaga
 
 ## Dane użytkownika (DANE)
 
-## Dzienny limit darmowych zadań (LIM)
-Decyzja właściciela 2026-11-03 („Jedna dzienna pula”, `docs/monetyzacja.md`, „Zmiana podziału”): lekcje, pierwsze podejście do egzaminu modułu, postęp i eksport zawsze darmowe; jeden wspólny dzienny limit N darmowych zadań dla sesji ćwiczeń, powtórek, scenariuszy i powtórnych podejść do egzaminu; Pro bez limitu. Nazwa: „dzienny limit”, nie „pula”, bo „pula” to w treści pokerowej pot (RD-01, RD-06; jedna nazwa na jedno pojęcie, `CLAUDE.md`). Jednostka limitu i wartość N: [DO WYJAŚNIENIA] (OP-23).
+## Dzienny limit darmowych aktywności (LIM)
+Decyzja właściciela 2026-11-03 („Jedna dzienna pula”, `docs/monetyzacja.md`, „Zmiana podziału”): lekcje, pierwsze podejście do egzaminu modułu, postęp i eksport zawsze darmowe; jeden wspólny dzienny limit darmowych aktywności dla sesji ćwiczeń, powtórek, scenariuszy i powtórnych podejść do egzaminu; Pro bez limitu. Nazwa: „dzienny limit”, nie „pula”, bo „pula” to w treści pokerowej pot (RD-01, RD-06; jedna nazwa na jedno pojęcie, `CLAUDE.md`). Jednostka limitu i wartość N (D-107, decyzja właściciela 2026-11-03, „1 aktywność dziennie”; OP-23 rozstrzygnięte): jednostką jest rozpoczęta aktywność — sesja ćwiczeń, kolejka powtórek, scenariusz albo powtórne podejście do egzaminu — a N = 1 aktywność dziennie; aktywność zużywa limit przy starcie.
 
 ### BR-LIM-001: Licznik przed startem i wyczerpany limit
 - Przepływ: PR-03
 - Dowód potrzeby: decyzja właściciela 2026-11-03; kontrakt płatności (`docs/monetyzacja.md`, tabela PR-03–PR-05); skargi na nieczytelny i za mały limit u konkurencji (recenzje S-66, S-67); darmowe zadania co dzień jako wzór rynku [FAKT S-68]
 - Kryteria akceptacji:
   - Scenariusz: Licznik przed startem
-    - Zakładając, że użytkownik bez Pro ma dziś jeszcze darmowe zadania
+    - Zakładając, że użytkownik bez Pro nie rozpoczął dziś żadnej aktywności
     - Gdy otworzy start sesji ćwiczeń, powtórek, scenariusza albo powtórnego egzaminu
-    - Wtedy przed startem widzi, ile darmowych zadań zostało mu dziś z N (OP-23), a w trakcie zadania licznika nie ma
+    - Wtedy przed startem widzi, że ma dziś 1 darmową aktywność (D-107), a w trakcie aktywności licznika nie ma
   - Scenariusz: Jeden wspólny limit
-    - Zakładając, że użytkownik bez Pro zużył część limitu w sesji ćwiczeń
-    - Gdy otworzy powtórki
-    - Wtedy licznik pokazuje tę samą liczbę pozostałych zadań co po sesji
+    - Zakładając, że użytkownik bez Pro rozpoczął dziś sesję ćwiczeń
+    - Gdy otworzy start powtórek
+    - Wtedy licznik pokazuje 0 darmowych aktywności na dziś i godzinę odnowienia, a nie osobny limit powtórek
   - Scenariusz: Limit wyczerpany
     - Zakładając, że użytkownik bez Pro zużył dziś cały limit
     - Gdy spróbuje zacząć sesję, powtórki, scenariusz albo powtórny egzamin
@@ -98,8 +98,8 @@ Decyzja właściciela 2026-11-03 („Jedna dzienna pula”, `docs/monetyzacja.md
 - Dowód potrzeby: zakaz ekranu zakupu w środku nauki (`docs/monetyzacja.md`, „Zakazane wzorce”); wzór Treningu (`docs/monetyzacja.md:18` w repo `trening`: „Blokada dotyczy tylko startu treningu w nowym dniu ponad limit”)
 - Kryteria akceptacji:
   - Scenariusz: Limit kończy się w trakcie sesji
-    - Zakładając, że użytkownik bez Pro zaczął sesję albo scenariusz, gdy miał co najmniej jedno darmowe zadanie
-    - Gdy limit spadnie do zera w trakcie
+    - Zakładając, że użytkownik bez Pro zaczął sesję albo scenariusz jako darmową aktywność dnia, więc limit spadł do zera przy starcie
+    - Gdy rozwiązuje kolejne zadania tej aktywności
     - Wtedy kończy sesję albo scenariusz do podsumowania bez ekranu zakupu
   - Scenariusz: Przerwana sesja po wyczerpaniu limitu
     - Zakładając, że użytkownik przerwał taką sesję (BR-CWI-004)
@@ -139,7 +139,7 @@ Decyzja właściciela 2026-11-03 („Jedna dzienna pula”, `docs/monetyzacja.md
   - Scenariusz: Nowy dzień
     - Zakładając, że użytkownik bez Pro zużył cały limit dnia według daty i strefy telefonu
     - Gdy w telefonie zacznie się następny dzień kalendarzowy
-    - Wtedy licznik znów pokazuje N darmowych zadań (OP-23)
+    - Wtedy licznik znów pokazuje 1 darmową aktywność (D-107)
   - Scenariusz: Ponowna instalacja
     - Zakładając, że użytkownik zużył dziś limit i przeinstalował aplikację
     - Gdy zacznie sesję tego samego dnia

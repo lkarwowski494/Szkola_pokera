@@ -18,12 +18,12 @@ Przepływy powstały z prac J-01–J-06 (`odkrywanie.md`) przed wymaganiami; ka�
 ### PR-03: Krótka sesja ćwiczeń z wyjaśnieniem
 - Kto: P-1, P-3 · Praca: J-01 · Częstotliwość: kilka razy w tygodniu (recenzja S-01) · Kontekst: dojazd, przerwa; jedna ręka, uwaga częściowa, często bez sieci; 5–10 min (zależy od: ZAL-010)
 - Kroki: otwiera aplikację; startuje sesję dopasowaną do poziomu; podejmuje decyzję w sytuacji; dostaje ocenę (zgodne, dopuszczalne, niedokładność, błąd) i wyjaśnienie „dlaczego” z liczbami; kończy sesję w dowolnym momencie.
-- Sytuacje brzegowe: przerwanie w trakcie (odpowiedzi zapisane); brak sieci (pełne działanie); pomyłka w dotyku (bez cofania oceny, ale z wyjaśnieniem); dzienny limit darmowych zadań wyczerpany przed startem albo w trakcie (BR-LIM-001, BR-LIM-002).
+- Sytuacje brzegowe: przerwanie w trakcie (odpowiedzi zapisane); brak sieci (pełne działanie); pomyłka w dotyku (bez cofania oceny, ale z wyjaśnieniem); dzienny limit darmowych aktywności wyczerpany przed startem albo w trakcie (BR-LIM-001, BR-LIM-002).
 
 ### PR-04: Powtórki rozłożone w czasie
 - Kto: P-1, P-3 · Praca: J-03 · Częstotliwość: codziennie albo prawie codziennie (recenzja S-02) · Kontekst: jak PR-03
 - Kroki: widzi liczbę powtórek na dziś; przechodzi kolejkę; zadania z błędem wracają wcześniej; po przerwie dostaje zaległe powtórki bez kary za nieobecność.
-- Sytuacje brzegowe: powrót po długiej przerwie; zgoda na przypomnienie odrzucona; zmiana strefy czasowej; dzienny limit darmowych zadań wyczerpany (BR-LIM-004).
+- Sytuacje brzegowe: powrót po długiej przerwie; zgoda na przypomnienie odrzucona; zmiana strefy czasowej; dzienny limit darmowych aktywności wyczerpany (BR-LIM-004).
 
 ### PR-05: Scenariusz całego rozdania
 - Kto: P-1, P-3 · Praca: J-04 · Częstotliwość: kilka razy w tygodniu [OCENA] · Kontekst: dom, pełna uwaga, 10–30 min [OCENA]
