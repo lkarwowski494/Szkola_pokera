@@ -11,7 +11,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 03 Zakres | build | zakończona 2026-11-04 (E3 zaakceptowane, D-112) | (commit E3) | `docs/scope-contract.md` (E3), `docs/archiwum/scope-contract-2026-11-03-robocze.md` (E0–E2), `docs/zakres/wzorzec-2026-11-03.json`, `docs/decyzje.md` | — |
 | 01 Odkrywanie | fix OP-20, OP-22, OP-23 | zakończona 2026-11-04 (D-113; kontrola BRD kod 0, wektory bez zmian) | 42dc490, be4e4e4, f795905 | `docs/brd/` (README, wymagania-nauka, wymagania-sklep, wymagania) | OP-24 (05), OP-10 (06) |
 | 02 Monetyzacja | fix OP-11 | zakończona 2026-11-04 (D-113; dokument, bez zmian rachunku i kodu) | 37ab4f1 | `docs/monetyzacja.md` | OP-09, OP-10 (05) |
-| 04 Studio Projektowe | build | E0 zakończone 2026-11-04 (D-114: ekran „Decyzja w sesji”); w toku E1 | a838dda | `docs/design/00-rozpoznanie.md` | OP-19 do zamknięcia w E3 |
+| 04 Studio Projektowe | build | E0 zakończone 2026-11-04 (D-114: ekran „Decyzja w sesji”); E1 świat: STOP na decyzję 2026-11-04 | a838dda, (commit E1) | `docs/design/00-rozpoznanie.md`, `01-swiat.md` | trzy metafory do E2 (A zapis z adnotacjami, B pasek strategii mieszanej, C mapa 169); OP-19 w E3 |
 | 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
 
 ## E0 bramki: ustalenia (2026-11-03)
