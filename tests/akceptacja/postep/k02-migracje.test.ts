@@ -6,7 +6,7 @@ import { join } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { afterEach, describe, expect, it } from 'vitest';
 import { listaMigracji, migruj, otworzPostep } from '../../../packages/postep/src';
-import { adapterNode, integralnosc, otworzNode } from '../../narzedzia/postep-node';
+import { adapterNode, integralnosc, otworzNode, zawartosc } from '../../narzedzia/postep-node';
 import { schematV1, zbudujWzorzecV1 } from '../../narzedzia/wzorzec-bazy';
 import { katalogTymczasowy, sprzatnij } from './wspolne';
 
@@ -29,10 +29,13 @@ describe('K-02 migracje', () => {
   it('K-02: kopia wzorca v1 → otworzPostep: liczności bez zmian, integrity_check = ok, foreign_key_check pusty, user_version bieżąca; drugie otwarcie bez zmian', async () => {
     const p = join(katalogTymczasowy(), 'postep.db');
     const oczekiwane = zbudujWzorzecV1(p);
+    const WSZYSTKIE = [...Object.keys(oczekiwane)];
+    const d0 = otworzNode(p); const tresc = zawartosc(d0, WSZYSTKIE); d0.close();
     for (const proba of [1, 2]) {
       const db = otworzNode(p);
       const port = await otworzPostep(adapterNode(db));
       expect(licznosci(db), `otwarcie ${proba}`).toEqual(oczekiwane);
+      expect(zawartosc(db, WSZYSTKIE), `otwarcie ${proba}: wartości bez zmian`).toEqual(tresc);
       expect(integralnosc(db)).toEqual({ integrity: 'ok', kluczeObce: 0 });
       expect(wersja(db)).toBe(Math.max(...listaMigracji().map((m) => m.wersja)));
       await port.zamknij();

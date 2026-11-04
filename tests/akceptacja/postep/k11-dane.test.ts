@@ -43,6 +43,19 @@ describe('K-11 import', () => {
     expect(zawartosc(db)).toEqual(zawartosc(zrodlo));
     expect(integralnosc(db)).toEqual({ integrity: 'ok', kluczeObce: 0 });
   });
+  it('ADR 0008 pkt 2: import na telefonie z postępem zastępuje dane (nie scala): zawartość = plik', async () => {
+    const { db: zrodlo, port: pz } = await przygotuj('wzorzec');
+    const w = await eksportuj(pz, META);
+    if (!w.ok) throw new Error(`eksport: ${w.powod}`);
+    const { db, port } = await przygotuj('wzorzec');
+    await port.run("UPDATE ustawienie SET wartosc = '\"de\"' WHERE klucz = 'jezyk'");
+    await port.run("INSERT INTO postep_lekcji VALUES ('m09-l1', 1, '{}', NULL, 1)");
+    await port.run("INSERT INTO karta VALUES ('r77', 1, 1, 1, 1, 0, 0, 0, 0, NULL, 1)");
+    await port.run("UPDATE karta SET stabilnosc = 99 WHERE rodzina_id = 'r1'");
+    expect(await importuj(port, w.wartosc, '2026-11-04')).toEqual({ ok: true, wartosc: undefined });
+    expect(zawartosc(db)).toEqual(zawartosc(zrodlo));
+    expect(integralnosc(db)).toEqual({ integrity: 'ok', kluczeObce: 0 });
+  });
   it('ADR 0006/0007: import nie rusza pamięci uprawnień, a dzisiejsze aktywności z limitu spoza pliku zostają', async () => {
     const plik = await plikZWzorca();
     const { db, port } = await przygotuj('pusta');
@@ -60,15 +73,23 @@ describe('K-11 import', () => {
     ['bledny_plik', (p: string) => { const k = JSON.parse(p); delete k.dane.karta; return JSON.stringify(k); }],
   ])('BR-DANE-002: plik odrzucony (%s) przed dotknięciem bazy, dane bez zmian', async (powod, zepsuj) => {
     const plik = await plikZWzorca();
-    const { db, port } = await przygotuj('wzorzec');
+    const zapisy: string[] = [];
+    let licz = false;
+    const { db, port } = await przygotuj('wzorzec', { zdarzenie: (z) => { if (licz && z.rodzaj !== 'all') zapisy.push(z.sql); } });
     const przed = zawartosc(db, [...TABELE_EKSPORTU, 'uprawnienie_cache', 'dziennik']);
+    licz = true;
     expect(await importuj(port, zepsuj(plik), DZIEN_WZORCA)).toEqual({ ok: false, powod });
+    expect(zapisy, 'walidacja przed dotknięciem bazy: bez zapisu i bez transakcji').toEqual([]);
     expect(zawartosc(db, [...TABELE_EKSPORTU, 'uprawnienie_cache', 'dziennik'])).toEqual(przed);
   });
-  it('ADR 0008 / R-14: błąd zapisu w środku importu (SQLITE_IOERR po 10. INSERT) → ok: false, ROLLBACK, dane bez zmian', async () => {
+  it('ADR 0008 / R-14: błąd zapisu w środku importu (SQLITE_IOERR na pierwszym INSERT po usunięciu) → ok: false, ROLLBACK, dane bez zmian', async () => {
     const plik = await plikZWzorca();
-    let wstawien = 0, wlacz = false;
-    const zdarzenie = (z: Zdarzenie) => { if (wlacz && z.rodzaj === 'run' && /^\s*INSERT/i.test(z.sql) && ++wstawien > 10) throw bladIO(); };
+    let usuniec = 0, wstrzyknieto = false, wlacz = false;
+    const zdarzenie = (z: Zdarzenie) => {
+      if (!wlacz || z.rodzaj === 'all') return;
+      if (/^\s*DELETE/i.test(z.sql)) usuniec++;
+      else if (usuniec > 0 && /\bINSERT\b/i.test(z.sql)) { wstrzyknieto = true; throw bladIO(); }
+    };
     const { db, port } = await przygotuj('pusta', { zdarzenie });
     await port.run("INSERT INTO ustawienie VALUES ('jezyk', '\"de\"', 1)");
     await port.run("INSERT INTO postep_lekcji VALUES ('m09-l1', 1, '{}', NULL, 1)");
@@ -76,7 +97,7 @@ describe('K-11 import', () => {
     wlacz = true;
     const w = await importuj(port, plik, DZIEN_WZORCA);
     expect(w.ok).toBe(false);
-    expect(wstawien).toBeGreaterThan(10); // awaria nastąpiła w środku, nie przed importem
+    expect(wstrzyknieto, 'awaria w środku: po usunięciu, przed końcem wstawiania').toBe(true)
     expect(zawartosc(db)).toEqual(przed);
     expect(integralnosc(db)).toEqual({ integrity: 'ok', kluczeObce: 0 });
   });

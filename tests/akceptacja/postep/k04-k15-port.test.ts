@@ -26,12 +26,15 @@ describe('Kolejka zapisów portu (ADR 0003)', () => {
   it('ADR 0003 / E1b: zapis spoza transakcji w czasie wycofywanej transakcji przeżywa ROLLBACK', async () => {
     const { db, port } = await przygotuj('pusta');
     const czekaj = (ms: number) => new Promise((r) => setTimeout(r, ms));
+    let sygnal!: () => void;
+    const wTransakcji = new Promise<void>((r) => { sygnal = r; });
     const a = port.transakcja(async (tx) => {
       await tx.run("INSERT INTO dziennik (ms, kod, ekran, wersja) VALUES (1, 'a', NULL, 't')");
+      sygnal(); // B startuje na pewno w trakcie otwartej transakcji A (bez zależności od czasu)
       await czekaj(20);
       throw new Error('błąd w A');
     }).catch(() => 'A wycofana');
-    await czekaj(5);
+    await wTransakcji;
     const b = port.run("INSERT INTO dziennik (ms, kod, ekran, wersja) VALUES (2, 'b', NULL, 't')");
     await Promise.all([a, b]);
     expect(db.prepare('SELECT kod FROM dziennik ORDER BY id').all().map((r) => (r as { kod: string }).kod)).toEqual(['b']);

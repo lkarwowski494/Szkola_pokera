@@ -18,6 +18,8 @@ async function zOchrona() {
   const p = await przygotuj('wzorzec', { zdarzenie, ochrona: atrapa.ochrona });
   return { ...p, dziennik, atrapa, ustawAwarie: (f: ((z: Zdarzenie) => void) | null) => { awaria = f; } };
 }
+// Każde rozpoczęte id zakończone dokładnie raz (import może zawierać chronioną kopię: ADR 0008 pkt 2, ADR 0013 pkt 3).
+const jedenRaz = (z: Map<number, number>) => z.size > 0 && [...z.values()].every((n) => n === 1);
 function sprawdzKolejnosc(dziennik: string[], od: number) {
   const fragment = dziennik.slice(od);
   const r = fragment.findIndex((x) => x.startsWith('rozpocznij:'));
@@ -45,7 +47,7 @@ describe('K-10 ochrona długich operacji', () => {
     const od = dziennik.length;
     expect((await op(port, plik)).ok).toBe(true);
     sprawdzKolejnosc(dziennik, od);
-    expect([...atrapa.zakonczenia.values()]).toEqual([1]);
+    expect(jedenRaz(atrapa.zakonczenia)).toBe(true);
     expect(atrapa.otwarte.size).toBe(0);
   });
   it.each(OPERACJE.filter(([n]) => n !== 'kopia VACUUM INTO'))('ADR 0013 pkt 3: %s z błędem zapisu — zakoncz dokładnie raz, wynik ok: false', async (_n, op) => {
@@ -53,7 +55,7 @@ describe('K-10 ochrona długich operacji', () => {
     const { port, atrapa, ustawAwarie } = await zOchrona();
     ustawAwarie(() => { throw bladIO(); });
     expect((await op(port, plik)).ok).toBe(false);
-    expect([...atrapa.zakonczenia.values()]).toEqual([1]);
+    expect(jedenRaz(atrapa.zakonczenia)).toBe(true);
     expect(atrapa.otwarte.size).toBe(0);
   });
   it('ADR 0013 pkt 4: wygaśnięcie czasu w środku importu → przerwano_w_tle, liczności i zawartość bez zmian, integrity ok', async () => {
@@ -62,28 +64,34 @@ describe('K-10 ochrona długich operacji', () => {
     await port.run("UPDATE ustawienie SET wartosc = '\"vi\"' WHERE klucz = 'jezyk'"); // stan odróżnialny od pliku
     const przed = zawartosc(db);
     let wstawien = 0;
-    ustawAwarie((z) => { if (z.rodzaj === 'run' && /^\s*INSERT/i.test(z.sql) && ++wstawien === 5) atrapa.wygasnij(); });
+    ustawAwarie((z) => { if (z.rodzaj !== 'all' && /\bINSERT\b/i.test(z.sql) && ++wstawien === 2) atrapa.wygasnij(); });
     expect(await importuj(port, plik, DZIEN_WZORCA)).toEqual({ ok: false, powod: 'przerwano_w_tle' });
-    expect(wstawien).toBeGreaterThanOrEqual(5);
+    expect(wstawien).toBeGreaterThanOrEqual(2);
     expect(zawartosc(db)).toEqual(przed);
     expect(integralnosc(db)).toEqual({ integrity: 'ok', kluczeObce: 0 });
-    expect([...atrapa.zakonczenia.values()]).toEqual([1]);
+    expect(jedenRaz(atrapa.zakonczenia)).toBe(true);
   });
-  it('ADR 0013 pkt 3, 7: migracja z przebudową — rozpocznij przed foreign_keys=OFF/BEGIN, zakoncz raz', async () => {
+  it('ADR 0013 pkt 3, 7; dane.md E4d: migracja z przebudową tabeli nadrzędnej (karta) — ochrona, log_powtorki bez zmian, foreign_keys wraca do 1', async () => {
     const p = join(katalogTymczasowy(), 'postep.db');
     zbudujWzorzecV1(p);
     const dziennik: string[] = [];
     const atrapa = atrapaOchrony(dziennik);
     const db = otworzNode(p);
-    const przebudowa = { wersja: 2, przebudowa: true, sql: `CREATE TABLE dziennik_n (id INTEGER PRIMARY KEY, ms INTEGER NOT NULL, kod TEXT NOT NULL CHECK (length(kod) > 0), ekran TEXT, wersja TEXT NOT NULL);
-      INSERT INTO dziennik_n SELECT * FROM dziennik; DROP TABLE dziennik; ALTER TABLE dziennik_n RENAME TO dziennik;` };
+    db.exec('PRAGMA foreign_keys = ON'); // jak otworzPostep przed migruj (moduly.md)
+    const logi = (db.prepare('SELECT count(*) AS n FROM log_powtorki').get() as { n: number }).n;
+    const kartaSql = (db.prepare("SELECT sql FROM sqlite_schema WHERE name = 'karta'").get() as { sql: string }).sql;
+    const przebudowa = { wersja: 2, przebudowa: true, sql: `${kartaSql.replace('CREATE TABLE karta', 'CREATE TABLE karta_n')};
+      INSERT INTO karta_n SELECT * FROM karta; DROP TABLE karta; ALTER TABLE karta_n RENAME TO karta;
+      CREATE INDEX idx_karta_termin ON karta(termin_ms);` };
     const w = await migruj(adapterNode(db, (z) => dziennik.push(`sql:${z.sql}`)), [...listaMigracji(), przebudowa], atrapa.ochrona);
     expect(w).toEqual({ ok: true, wartosc: 2 });
     const r = dziennik.findIndex((x) => x.startsWith('rozpocznij:'));
-    const start = dziennik.findIndex((x) => /foreign_keys\s*=\s*OFF|BEGIN|dziennik_n/i.test(x));
+    const start = dziennik.findIndex((x) => /foreign_keys\s*=\s*OFF|BEGIN|karta_n/i.test(x));
     expect(r).toBeGreaterThanOrEqual(0);
     expect(r).toBeLessThan(start);
-    expect([...atrapa.zakonczenia.values()]).toEqual([1]);
+    expect(jedenRaz(atrapa.zakonczenia)).toBe(true);
+    expect((db.prepare('SELECT count(*) AS n FROM log_powtorki').get() as { n: number }).n).toBe(logi);
+    expect((db.prepare('PRAGMA foreign_keys').get() as { foreign_keys: number }).foreign_keys).toBe(1);
     expect(integralnosc(db)).toEqual({ integrity: 'ok', kluczeObce: 0 });
   });
 });
