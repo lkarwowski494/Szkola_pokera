@@ -1,4 +1,5 @@
-import { telUri } from '@szkola/content-schema';
+import { selectHelplines, telUri } from '@szkola/content-schema';
+import { getLocales } from 'expo-localization';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Linking, Text, View } from 'react-native';
@@ -11,11 +12,23 @@ const host = (url: string) => url.replace(/^https:\/\//, '').replace(/^www\./, '
 
 /**
  * Pomoc przy problemach z hazardem (B-058): telefony i strony z content/helplines.yaml, to samo źródło co ramka
- * „Odpowiedzialna gra” w lekcji M12-L4. Numery jako przyciski tel:, strony w przeglądarce. Tylko Polska.
+ * „Odpowiedzialna gra” w lekcji M12-L4. Numery jako przyciski tel:, strony w przeglądarce.
+ * Wpisy kraju z regionu urządzenia (selectHelplines, RD-12); w GB i CA numer ogólnokrajowy, pod nim lista regionów
+ * bez pytania o region (D-152); kraj bez wpisu: tekst bez numeru; pomoc międzynarodowa online zawsze.
+ * Wygląd ekranu do przebudowy przez rolę 08 (projekt 04); tu tylko wybór danych (E2 roli 06, przegląd 2026-11-04).
  */
+const deviceCountry = (): string => {
+  try {
+    return getLocales()[0]?.regionCode ?? '';
+  } catch {
+    return '';
+  }
+};
 export default function HelpScreen() {
   const { t } = useTranslation();
   const [failed, setFailed] = useState<string | null>(null);
+  const [region, setRegion] = useState<string | undefined>(undefined);
+  const sel = selectHelplines(HELPLINES, deviceCountry(), region);
 
   const open = (target: string) => {
     setFailed(null);
@@ -30,7 +43,24 @@ export default function HelpScreen() {
     <Screen padTop={false}>
       <Title>{t('help.title')}</Title>
       <Muted>{t('help.intro')}</Muted>
-      {HELPLINES.entries.map((e) => (
+      {sel.fallbackText ? <Muted>{sel.fallbackText}</Muted> : null}
+      {sel.entries.map((e) => (
+        <Entry key={e.id} entry={e} onOpen={open} />
+      ))}
+      {sel.regions.length ? (
+        <View style={{ gap: space.s }}>
+          <Muted>{HELPLINES.regionsLabel}</Muted>
+          {sel.regions.map((r) => (
+            <Button
+              key={r.code}
+              variant={region === r.code ? 'primary' : 'ghost'}
+              label={region === r.code ? `${r.name} ✓` : r.name}
+              onPress={() => setRegion(region === r.code ? undefined : r.code)}
+            />
+          ))}
+        </View>
+      ) : null}
+      {sel.online.map((e) => (
         <Entry key={e.id} entry={e} onOpen={open} />
       ))}
       {failed ? <Muted>{t('help.openFailed', { target: failed.replace(/^tel:/, '') })}</Muted> : null}

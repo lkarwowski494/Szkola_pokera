@@ -23,6 +23,7 @@ pointer: 'Telefony pomocy dla Twojego kraju znajdziesz w aplikacji, w ekranie �
 fallback:
   text: 'W zagrożeniu życia dzwoń na lokalny numer alarmowy.'
   online: [int-gambling-therapy]
+regions_label: 'Numery w regionach: wybierz swój region'
 regions:
   GB-ENG: 'Anglia'
   GB-SCT: 'Szkocja'

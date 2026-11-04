@@ -6,11 +6,12 @@
   "scripts": {
     "test": "pnpm -r --if-present test",
     "typecheck": "pnpm -r --if-present typecheck",
+    "tresci:rejestr": "node docs/tresci/narzedzia/scal-rejestr.mjs --przed-przegladem --sprawdz",
     "content:build": "pnpm --filter @szkola/content-build build",
     "content:check": "pnpm --filter @szkola/content-build check",
     "test:skrypty": "node --test scripts/sprawdz-i18n.test.mjs",
     "i18n": "node scripts/sprawdz-i18n.mjs apps/mobile/src/i18n/locales --zrodlo pl",
     "i18n:kod": "node scripts/sprawdz-i18n.mjs apps/mobile/src/i18n/locales --zrodlo pl --kod apps/mobile/src",
-    "ci": "pnpm typecheck && pnpm test && pnpm test:skrypty && pnpm i18n && pnpm content:check"
+    "ci": "pnpm typecheck && pnpm test && pnpm test:skrypty && pnpm i18n && pnpm content:check && pnpm tresci:rejestr"
   }
 }

@@ -1,5 +1,6 @@
 // Rola 06: scalenie partii rejestru (docs/tresci/rejestr/*.json) w docs/tresci/rejestr.json, kontrola pokrycia i skrypt biblioteki.
-// Użycie (z katalogu głównego repo): node docs/tresci/narzedzia/scal-rejestr.mjs [--przed-przegladem] [--przeglad zastępczy]
+// Użycie (z katalogu głównego repo): node docs/tresci/narzedzia/scal-rejestr.mjs [--przed-przegladem] [--przeglad zastępczy] [--sprawdz]
+// --sprawdz (CI): nie zapisuje rejestr.json, tylko zgłasza błąd, gdy zapisany plik różni się od scalenia partii (strażnik content-build czyta ten plik).
 // Kod wyjścia: 0 bez błędów, 1 błędy. Pokrycie: każda reguła (rules.yaml), liczba (numbers.yaml), termin (terms.yaml)
 // i wpis pomocy ma wpis w rejestrze albo w bez-twierdzen.json. Dlaczego: D-141 (rejestr nad istniejącym systemem treści).
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs';
@@ -19,9 +20,11 @@ const bez = existsSync(`${kat}/bez-twierdzen.json`) ? JSON.parse(readFileSync(`$
 const bezK = new Set(bez.map((b) => `n:${b.klucz}`));
 // Liczba użyta w kilku modułach ma wpis w kilku partiach: jeden wpis, źródła połączone (bez źródeł bez adresu),
 // status i werdykt najsurowszy, poprawki i uwagi połączone. Parametry produktowe (bez-twierdzen.json) wypadają z rejestru.
-const SUR = { potwierdzone: 0, otwarte: 1, sprzeczne: 2 }, WER = { POPARTE: 0, CZĘŚCIOWO: 1, NIEPOPARTE: 2, SPRZECZNE: 3 };
+// Status najsurowszy wygrywa; „wycofane” surowsze niż „potwierdzone”, żeby scalenie nie przepuściło wycofanego wpisu.
+const SUR = { potwierdzone: 0, robocze: 1, otwarte: 1, wycofane: 2, sprzeczne: 3 }, WER = { POPARTE: 0, CZĘŚCIOWO: 1, NIEPOPARTE: 2, SPRZECZNE: 3 };
 const wgId = new Map();
 for (const w of rejestr.splice(0)) {
+  if (!(w.status in SUR)) bledy.push(`rejestr ${w.id} (${w.partia}): nieznany status „${w.status}”`);
   if (bezK.has(w.id)) continue;
   const zr = (w.zrodla ?? []).filter((z) => z.adres && [1, 2, 3, 4, 5].includes(z.szczebel));
   const a = wgId.get(w.id);
@@ -50,7 +53,10 @@ for (const e of pomoc) if (e.claim && wgIdR.has(e.claim) && wgIdR.get(e.claim).s
 bledy.push(...sprawdzRejestr(rejestr, [], opcje, uwagi));
 const ile = (f) => rejestr.reduce((m, w) => ((m[f(w)] = (m[f(w)] ?? 0) + 1), m), {});
 const jedno = rejestr.filter((w) => w.status === 'potwierdzone' && (w.zrodla ?? []).length === 1 && w.zrodla[0].szczebel >= 3);
-writeFileSync('docs/tresci/rejestr.json', JSON.stringify(rejestr, null, 1) + '\n');
+const scalony = JSON.stringify(rejestr, null, 1) + '\n';
+if (argv.includes('--sprawdz')) {
+  if (!existsSync('docs/tresci/rejestr.json') || readFileSync('docs/tresci/rejestr.json', 'utf8') !== scalony) bledy.push('docs/tresci/rejestr.json nieaktualny względem partii: uruchom node docs/tresci/narzedzia/scal-rejestr.mjs');
+} else writeFileSync('docs/tresci/rejestr.json', scalony);
 console.log(`wpisy: ${rejestr.length}, bez twierdzeń: ${bez.length}, wymagane: ${wymagane.length}, brak pokrycia: ${brak.length}`);
 console.log('status:', JSON.stringify(ile((w) => w.status)));
 console.log('najwyższy szczebel:', JSON.stringify(ile((w) => (w.zrodla?.length ? Math.min(...w.zrodla.map((z) => z.szczebel)) : '-'))));

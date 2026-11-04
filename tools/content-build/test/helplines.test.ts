@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { describe, expect, it } from 'vitest';
-import { formatPolishDate, HelplinesFile, selectHelplines, telUri } from '@szkola/content-schema';
+import { formatPolishDate, type HelplineSelection, HelplinesFile, selectHelplines, telUri } from '@szkola/content-schema';
 import { findBrandNames } from '../src/brands';
 import { compileContent } from '../src/build';
 import { displayHost, expandHelplines, helplinesMarkdown, helplinesModuleSource, loadHelplines } from '../src/helplines';
@@ -12,7 +12,7 @@ const file = HelplinesFile.parse(parseYaml(readFileSync(join(root, 'content/help
 const h = loadHelplines(file);
 
 /** Numery (główny i dodatkowe) wpisów danego rodzaju w wyniku selectHelplines. */
-const phones = (sel: ReturnType<typeof selectHelplines>, kind: string) =>
+const phones = (sel: HelplineSelection, kind: string) =>
   sel.entries.filter((e) => e.kind === kind).flatMap((e) => [e.phone, ...(e.phone_alt ?? []).map((a) => a.phone)].filter(Boolean));
 
 describe('telefony pomocy (helplines.yaml): rynki aplikacji (D-142, e1-pomoc.md §6)', () => {
@@ -217,4 +217,16 @@ describe('telefony pomocy (helplines.yaml): rynki aplikacji (D-142, e1-pomoc.md 
     expect(findBrandNames(src)).toEqual([]);
     // pełna kompilacja treści (z pulą egzaminacyjną) przekracza domyślne 5 s na wolniejszej maszynie
   }, 30_000);
+});
+
+describe('selectHelplines: region spoza kraju i wielkość liter (przegląd E2, 2026-11-04)', () => {
+  it('region innego kraju działa jak brak regionu: linia ogólnokrajowa GB nie znika', () => {
+    const ids = selectHelplines(file, 'GB', 'CA-ON').entries.map((e) => e.id);
+    expect(ids).toContain('gb-ngh');
+    expect(ids).toEqual(selectHelplines(file, 'GB').entries.map((e) => e.id));
+  });
+  it('kod kraju małymi literami daje te same wpisy', () => {
+    expect(selectHelplines(file, 'us').entries.map((e) => e.id)).toEqual(selectHelplines(file, 'US').entries.map((e) => e.id));
+    expect(selectHelplines(file, 'us').fallbackText).toBeUndefined();
+  });
 });

@@ -76,6 +76,8 @@ export const HelplinesFile = z
     fallback: z.object({ text: z.string().min(10), online: z.array(entryId).min(1) }).strict(),
     /** Nazwy regionów do listy wyboru (D-152), w kolejności wyświetlania. */
     regions: z.record(regionCode, z.string().min(2)),
+    /** Nagłówek listy regionów na ekranie „Pomoc” (D-152). */
+    regions_label: z.string().min(5),
     entries: z.array(HelplineEntry).min(1),
   })
   .strict();
@@ -87,13 +89,13 @@ export function telUri(phoneText: string): string {
 }
 
 /** Wynik wyboru numerów dla kraju i regionu (RD-12, D-152). */
-export interface HelplineSelection {
+export interface HelplineSelection<E = HelplineEntry> {
   /** Wpisy kraju w kolejności pliku: całokrajowe i (bez regionu) `national`, a z regionem także regionalne. */
-  entries: HelplineEntry[];
+  entries: E[];
   /** Regiony kraju z własnymi wpisami albo bez nich (lista wyboru pod numerem ogólnokrajowym); pusta, gdy kraj ich nie ma. */
   regions: { code: string; name: string }[];
   /** Pomoc międzynarodowa online (fallback.online), zawsze. */
-  online: HelplineEntry[];
+  online: E[];
   /** Tylko dla kraju bez wpisów: tekst bez numeru (D-142). */
   fallbackText?: string;
 }
@@ -102,11 +104,14 @@ export interface HelplineSelection {
  * Wybór wpisów dla kraju (region urządzenia) i opcjonalnie regionu wybranego przez użytkownika (D-152: bez pytania
  * o region; region tylko z listy pod numerem ogólnokrajowym). Czysta funkcja: ekran „Pomoc” i testy wektorów RD-12.
  */
-export function selectHelplines(
-  file: Pick<HelplinesFile, 'entries' | 'regions' | 'fallback'>,
+export function selectHelplines<E extends Pick<HelplineEntry, 'id' | 'country' | 'regions' | 'national'>>(
+  file: { entries: readonly E[]; regions: Readonly<Record<string, string>>; fallback: { text: string; online: readonly string[] } },
   country: string,
   region?: string,
-): HelplineSelection {
+): HelplineSelection<E> {
+  country = country.toUpperCase();
+  // region z innego kraju (np. zapamiętany wybór) albo błędny kod: jak bez regionu, żeby nie zgubić wpisu ogólnokrajowego
+  if (region && !region.startsWith(`${country}-`)) region = undefined;
   const own = file.entries.filter((e) => e.country === country);
   const online = file.fallback.online.flatMap((id) => file.entries.filter((e) => e.id === id));
   const entries = own.filter((e) => !e.regions || (region ? e.regions.includes(region) : !!e.national));

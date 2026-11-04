@@ -132,6 +132,7 @@ export function helplinesModuleSource(h: Helplines): string {
     pointer: h.pointer,
     fallback: h.fallback,
     regions: h.regions,
+    regionsLabel: h.regions_label,
     entries: h.entries.map((e) => ({
       id: e.id,
       claim: e.claim,
@@ -168,6 +169,7 @@ export function helplinesModuleSource(h: Helplines): string {
     '  pointer: string;',
     '  fallback: { text: string; online: readonly string[] };',
     '  regions: Readonly<Record<string, string>>;',
+    '  regionsLabel: string;',
     '  entries: readonly AppHelpline[];',
     `} = ${JSON.stringify(data, null, 2)};`,
     '',

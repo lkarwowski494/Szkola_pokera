@@ -12,6 +12,7 @@ export const HELPLINES: {
   pointer: string;
   fallback: { text: string; online: readonly string[] };
   regions: Readonly<Record<string, string>>;
+  regionsLabel: string;
   entries: readonly AppHelpline[];
 } = {
   "checked": "2026-11-04",
@@ -44,6 +45,7 @@ export const HELPLINES: {
     "CA-NU": "Nunavut",
     "CA-YT": "Jukon"
   },
+  "regionsLabel": "Numery w regionach: wybierz swój region",
   "entries": [
     {
       "id": "us-ncpg",
