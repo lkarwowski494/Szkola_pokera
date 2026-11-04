@@ -355,3 +355,7 @@ Plus jedna linia w „Dokumentacja projektu”: „Architektura w repo: `docs/ar
 - `docs/tresci/01-rejestr-e1.md`: 1042 twierdzenia (993 potwierdzone, 37 otwarte, 12 sprzeczne), kontrola `scal-rejestr.mjs --przed-przegladem` kod 0, rachunek niezależny 0 rozbieżności; decyzje D-143–D-150.
 - STOP: pytania właściciela (Tajwan/Wietnam, regiony GB/CA). Następny krok: E1b (24 liczby solvera, dokument 10), potem E2 (poprawki treści z werdyktów, strażnik w `content-build`).
 - Odpowiedzi właściciela na bramce E1: D-151 (TW/VN wpis zastępczy), D-152 (GB/CA krajowy + lista regionów). Nowa sesja dla E1b i E2.
+
+## Rola 06 E1b: wynik (2026-11-04, osiemnasta sesja)
+- `docs/tresci/e1b-solver.md`: 24 liczby solvera — 19 potwierdzonych, 5 otwartych (9-max ×3, obrona BB vs BTN i BB vs SB); decyzja D-153 (zmienia D-148 dla `m11.call.5` i wariantu z ante, do weta). Rejestr 1012 / 18 / 12 (potwierdzone / otwarte / sprzeczne), `scal-rejestr.mjs --przed-przegladem` kod 0.
+- Następny krok: E2 (poprawki treści z werdyktów E1 i listy w `e1b-solver.md` §6, terminy przed definicją, `content/helplines.yaml`, strażnik powiązań w `tools/content-build` z przeglądem w świeżym kontekście, kontrola kod 0) → STOP E2.

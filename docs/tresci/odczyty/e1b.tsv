@@ -1,0 +1,12 @@
+id	url	odczyt	sha256_tekstu	cytat_znaleziony(tak/nie)	uwagi
+bg-lj-open	https://beyondgto.com/ranges/lj-open-6max-100bb	2026-11-04	fb6cbcceb69473e298f1d969a69f2bc2143410cee839a5093125c10d572a11b0	tak	HTTP 200; curl+oczyszczenie; szczebel 2; wpisy: n:solver.rfi.utg
+bg-hj-open	https://beyondgto.com/ranges/hj-open-6max-100bb	2026-11-04	1f377b2c313818cbdfd69d019998a85b043d28215f8e30d3c210d17aed7a421d	tak	HTTP 200; curl+oczyszczenie; szczebel 2; wpisy: n:solver.rfi.hj
+bg-co-open	https://beyondgto.com/ranges/co-open-6max-100bb	2026-11-04	fb5438e08128d09d9a78fd1d14d9a7b41496c17130a74416882f7dcd9e9e50ce	tak	HTTP 200; curl+oczyszczenie; szczebel 2; wpisy: n:solver.rfi.co
+bg-btn-open	https://beyondgto.com/ranges/btn-open-6max-100bb	2026-11-04	6a31338182f77947c67b630fe21ea76e73a743325173bf60eaf69d71189f2f3d	tak	HTTP 200; curl+oczyszczenie; szczebel 2; wpisy: n:solver.rfi.btn
+bg-sb-open	https://beyondgto.com/ranges/sb-open-6max-100bb	2026-11-04	161baacc765fed59b3e257a29c55e44f2eb615a5d2a843840c631c16d886a126	tak	HTTP 200; curl+oczyszczenie; szczebel 2; wpisy: n:solver.rfi.sb
+bg-bb-vs-btn	https://beyondgto.com/defense/bb-vs-btn	2026-11-04	a4e3a4d5d0d5a56ace49c24325820d86cf805d8d3523f8b699f7c82000899279	tak	HTTP 200; curl+oczyszczenie; szczebel 2; wpisy: n:solver.def.bb-vs-btn
+bg-bb-vs-sb	https://beyondgto.com/defense/bb-vs-sb	2026-11-04	b232ccaf23e6d77ac983a1363fc87bdeef24194be46eadb2b4506257c37d0822	tak	HTTP 200; curl+oczyszczenie; szczebel 2; wpisy: n:solver.def.bb-vs-sb
+bg-sb-vs-btn	https://beyondgto.com/defense/sb-vs-btn	2026-11-04	91e599d51d63678cf6c1dd58f4c67365245f50232d9100b89066b06f7ea868f8	tak	HTTP 200; curl+oczyszczenie; szczebel 2; wpisy: n:solver.3bet.sb-vs-btn
+ps-nash-e1b	https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/	2026-11-04	ee183c590e5d1deebf394924eed681de95578ef87792b730b3ed1f8510116ac6	tak	HTTP 200; szczebel 2; Table 1 ES 5/10/15, definicja ES; wpisy: n:m11.push.5/10/15, n:m11.call.10/15
+gs-aamas-e1b	https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf	2026-11-04	53d1a3a3c61ed6c7052911e54c2814127781e041926d395224110cf14a1816de	tak	HTTP 200; pdftotext -layout; szczebel 2; Table 2 kolumna Single hand; wpisy: n:m11.3max.*
+calc-e1b	rachunek: docs/tresci/narzedzia/e1b/nash_hu.py	2026-11-04	35a6e2ab14c77bb1f68a63c5a391fb8f93b4d013892b0b30e8dae7929fb6d69e	tak	szczebel 1; wynik w odczyty/e1b-solver-2026-11-04.txt; wpisy: n:m11.push.*, n:m11.call.*

@@ -1,0 +1,404 @@
+{
+ "solver.rfi.utg": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 16.39,
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/ranges/lj-open-6max-100bb",
+    "miejsce": "LJ Opening Range 6-Max (100bb); w 6-max pierwsza pozycja (UTG w aplikacji)",
+    "cytat": "The solver opens about 17% of hands here.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "uwagi": "zgodne: 0,6 pp od 17%",
+  "uproszczenie": "zgodna łączna częstość otwarć; skład zakresu odbiega od opublikowanych tabel w klasach z listy uncertain-rfi (dokument 10, „Pomiary v3c”)",
+  "decyzja": "D-153"
+ },
+ "solver.rfi.hj": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 20.1,
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/ranges/hj-open-6max-100bb",
+    "miejsce": "HJ Opening Range 6-Max (100bb)",
+    "cytat": "The solver opens about 22% of hands here.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "uwagi": "zgodne na granicy kryterium: 1,9 pp poniżej 22%",
+  "uproszczenie": "zgodna łączna częstość otwarć; skład zakresu odbiega od opublikowanych tabel w klasach z listy uncertain-rfi (dokument 10, „Pomiary v3c”)",
+  "decyzja": "D-153"
+ },
+ "solver.rfi.co": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 27.34,
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/ranges/co-open-6max-100bb",
+    "miejsce": "CO Opening Range 6-Max (100bb)",
+    "cytat": "The solver opens about 28% of hands here.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "uwagi": "zgodne: 0,7 pp",
+  "uproszczenie": "zgodna łączna częstość otwarć; skład zakresu odbiega od opublikowanych tabel w klasach z listy uncertain-rfi (dokument 10, „Pomiary v3c”)",
+  "decyzja": "D-153"
+ },
+ "solver.rfi.btn": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 41.37,
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/ranges/btn-open-6max-100bb",
+    "miejsce": "BTN Opening Range 6-Max (100bb)",
+    "cytat": "The solver opens about 42% of hands here.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "uwagi": "zgodne: 0,6 pp",
+  "uproszczenie": "zgodna łączna częstość otwarć; skład zakresu odbiega od opublikowanych tabel w klasach z listy uncertain-rfi (dokument 10, „Pomiary v3c”)",
+  "decyzja": "D-153"
+ },
+ "solver.rfi.sb": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 42.34,
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/ranges/sb-open-6max-100bb",
+    "miejsce": "SB Opening Range 6-Max (100bb)",
+    "cytat": "The solver opens about 44% of hands here.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "uwagi": "zgodne: 1,7 pp poniżej 44%; aplikacja: przebicie albo pas",
+  "uproszczenie": "zgodna łączna częstość otwarć; skład zakresu odbiega od opublikowanych tabel w klasach z listy uncertain-rfi (dokument 10, „Pomiary v3c”)",
+  "decyzja": "D-153"
+ },
+ "solver9.rfi.utg": {
+  "status": "otwarte",
+  "wartosc_solvera_pct": 10.9,
+  "zrodla": [],
+  "uwagi": "niezwalidowane: brak opublikowanego rozwiązania 9-max cash 100bb szczebla 2 (dokument 10, „Konfiguracja 9-max 100bb”: rozwiązania tylko w płatnych aplikacjach); walidacja częściowa N2 tylko wobec tabel szczebla 4. Nie do treści (D-148, D-153); E2: kierunek („węziej niż w 6-max”) albo przedział szczebla 4 z atrybucją po odczycie źródeł",
+  "uproszczenie": null,
+  "decyzja": "D-153"
+ },
+ "solver9.rfi.utg1": {
+  "status": "otwarte",
+  "wartosc_solvera_pct": 12.5,
+  "zrodla": [],
+  "uwagi": "niezwalidowane: brak opublikowanego rozwiązania 9-max cash 100bb szczebla 2 (dokument 10, „Konfiguracja 9-max 100bb”: rozwiązania tylko w płatnych aplikacjach); walidacja częściowa N2 tylko wobec tabel szczebla 4. Nie do treści (D-148, D-153); E2: kierunek („węziej niż w 6-max”) albo przedział szczebla 4 z atrybucją po odczycie źródeł",
+  "uproszczenie": null,
+  "decyzja": "D-153"
+ },
+ "solver9.rfi.utg2": {
+  "status": "otwarte",
+  "wartosc_solvera_pct": 13.22,
+  "zrodla": [],
+  "uwagi": "niezwalidowane: brak opublikowanego rozwiązania 9-max cash 100bb szczebla 2 (dokument 10, „Konfiguracja 9-max 100bb”: rozwiązania tylko w płatnych aplikacjach); walidacja częściowa N2 tylko wobec tabel szczebla 4. Nie do treści (D-148, D-153); E2: kierunek („węziej niż w 6-max”) albo przedział szczebla 4 z atrybucją po odczycie źródeł",
+  "uproszczenie": null,
+  "decyzja": "D-153"
+ },
+ "solver.def.bb-vs-btn": {
+  "status": "otwarte",
+  "wartosc_solvera_pct": 49.61,
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/defense/bb-vs-btn",
+    "miejsce": "BB vs BTN Defense (6-Max 100bb)",
+    "cytat": "Facing a 2.5bb open from the Button, GTO defends the Big Blind with about 45% of hands",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "uwagi": "niezgodne: 4,6 pp powyżej 45% (drugie opublikowane rozwiązanie 40,5%, rejestr pf.bb-def.vs-btn.pub.low). Nie do treści; E2: m4-l2-obrona-bb.md:79 („na górnej granicy tego przedziału” jest fałszywe — solver jest powyżej) i rules.yaml:240 bez liczby solvera",
+  "uproszczenie": null,
+  "decyzja": "D-153"
+ },
+ "solver.def.bb-vs-sb": {
+  "status": "otwarte",
+  "wartosc_solvera_pct": 53.04,
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/defense/bb-vs-sb",
+    "miejsce": "BB vs SB Defense (6-Max 100bb)",
+    "cytat": "Facing a 3bb open from the Small Blind, GTO defends the Big Blind with about 56% of hands",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "uwagi": "niezgodne: 3,0 pp poniżej 56% (kryterium 2 pp). Nie do treści; E2: m4-l2-obrona-bb.md:89 i rules.yaml:323 tylko z liczbą opublikowaną pf.bb-def.vs-sb.pub",
+  "uproszczenie": null,
+  "decyzja": "D-153"
+ },
+ "solver.3bet.sb-vs-btn": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 14.14,
+  "zrodla": [
+   {
+    "adres": "https://beyondgto.com/defense/sb-vs-btn",
+    "miejsce": "SB vs BTN Defense (6-Max 100bb)",
+    "cytat": "Facing a 2.5bb open from the Button, GTO defends the Small Blind with about 18% of hands — roughly 5% as a flat call and 13% as a 3-bet.",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "uwagi": "zgodne: 1,1 pp od 13%; 14% z serwisu komercyjnego solvera (Crush 3-Bet Pots OOP) jest tylko na grafice, niesprawdzone dosłownie",
+  "uproszczenie": "siatka „3-bet / pas” (B-045): solver projektu prawie nie sprawdza (0,5%), źródło sprawdza 5%",
+  "decyzja": "D-153"
+ },
+ "m11.push.5": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 72.55,
+  "zrodla": [
+   {
+    "adres": "https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/",
+    "miejsce": "Table 1 (without ante), ES = 5: NPR 74.1%, NCR 68.6%",
+    "cytat": "5 74.1%: 22+, Jx+, T2s+, T5o+ … 68.6%: 22+, Qx+, J2s+, J3o+",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/",
+    "miejsce": "Basics, „Effective stack”",
+    "cytat": "It refers to the size of the smaller of the two stacks before the blinds (and antes) are posted",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "rachunek: docs/tresci/narzedzia/e1b/nash_hu.py (fictitious play na tools/equity/equity169.json, bez kodu solvera)",
+    "miejsce": "docs/tresci/odczyty/e1b-solver-2026-11-04.txt",
+    "cytat": "S=5: push 71,50% (15000 iteracji)",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "uwagi": "zgodne z tabelą (1,6 pp) i z rachunkiem (1,05 pp)",
+  "uproszczenie": null,
+  "decyzja": "D-153"
+ },
+ "m11.push.10": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 58.37,
+  "zrodla": [
+   {
+    "adres": "https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/",
+    "miejsce": "Table 1 (without ante), ES = 10: NPR 56.6%, NCR 38.5%",
+    "cytat": "10 56.6%: 22+, Kx+, Q2s+, Q7o+ … 38.5%: 22+, Ax+, K2s+, K6o+",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "rachunek: docs/tresci/narzedzia/e1b/nash_hu.py (fictitious play na tools/equity/equity169.json, bez kodu solvera)",
+    "miejsce": "docs/tresci/odczyty/e1b-solver-2026-11-04.txt",
+    "cytat": "S=10: push 58,29%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "uwagi": "zgodne z tabelą (1,8 pp) i z rachunkiem (0,1 pp); dokument 10: 55–61%",
+  "uproszczenie": null,
+  "decyzja": "D-153"
+ },
+ "m11.push.15": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 45.51,
+  "zrodla": [
+   {
+    "adres": "https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/",
+    "miejsce": "Table 1 (without ante), ES = 15: NPR 45.7%, NCR 28.4%",
+    "cytat": "15 45.7%: 22+, Ax+, K2s+, K6o+ … 28.4%: 33+, Ax+, K7s+, K9o+",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "rachunek: docs/tresci/narzedzia/e1b/nash_hu.py (fictitious play na tools/equity/equity169.json, bez kodu solvera)",
+    "miejsce": "docs/tresci/odczyty/e1b-solver-2026-11-04.txt",
+    "cytat": "S=15: push 45,66%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "uwagi": "zgodne: 0,2 pp",
+  "uproszczenie": null,
+  "decyzja": "D-153"
+ },
+ "m11.call.5": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 62.29,
+  "zrodla": [
+   {
+    "adres": "rachunek: docs/tresci/narzedzia/e1b/nash_hu.py (fictitious play na tools/equity/equity169.json, bez kodu solvera)",
+    "miejsce": "docs/tresci/odczyty/e1b-solver-2026-11-04.txt",
+    "cytat": "S=5: call 62,04%; najlepsza odpowiedź BB na zakres pushu z tabeli PokerStrategy (74,1%) = 61,99% sprawdzeń (br_check.py)",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "uwagi": "rachunek (szczebel 1) wygrywa ze szczeblem 2: wiersz ES = 5 tabeli PokerStrategy (NCR 68,6%, lista rąk daje 68,63% kombinacji) nie jest najlepszą odpowiedzią na NPR tego samego wiersza w modelu z definicji strony; przy ES = 10 i 15 tabela zgadza się z rachunkiem. Zmienia D-148 dla tej liczby (do weta)",
+  "uproszczenie": null,
+  "decyzja": "D-153"
+ },
+ "m11.call.10": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 37.56,
+  "zrodla": [
+   {
+    "adres": "https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/",
+    "miejsce": "Table 1 (without ante), ES = 10: NPR 56.6%, NCR 38.5%",
+    "cytat": "10 56.6%: 22+, Kx+, Q2s+, Q7o+ … 38.5%: 22+, Ax+, K2s+, K6o+",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "rachunek: docs/tresci/narzedzia/e1b/nash_hu.py (fictitious play na tools/equity/equity169.json, bez kodu solvera)",
+    "miejsce": "docs/tresci/odczyty/e1b-solver-2026-11-04.txt",
+    "cytat": "S=10: call 37,38%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "uwagi": "zgodne z tabelą (0,9 pp) i z rachunkiem; dokument 10: 34,5–40,5%",
+  "uproszczenie": null,
+  "decyzja": "D-153"
+ },
+ "m11.call.15": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 28.24,
+  "zrodla": [
+   {
+    "adres": "https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/",
+    "miejsce": "Table 1 (without ante), ES = 15: NPR 45.7%, NCR 28.4%",
+    "cytat": "15 45.7%: 22+, Ax+, K2s+, K6o+ … 28.4%: 33+, Ax+, K7s+, K9o+",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "rachunek: docs/tresci/narzedzia/e1b/nash_hu.py (fictitious play na tools/equity/equity169.json, bez kodu solvera)",
+    "miejsce": "docs/tresci/odczyty/e1b-solver-2026-11-04.txt",
+    "cytat": "S=15: call 28,56%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "uwagi": "zgodne: 0,2 pp",
+  "uproszczenie": null,
+  "decyzja": "D-153"
+ },
+ "m11.push.10-ante": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 71.65,
+  "zrodla": [
+   {
+    "adres": "rachunek: docs/tresci/narzedzia/e1b/nash_hu.py (fictitious play na tools/equity/equity169.json, bez kodu solvera)",
+    "miejsce": "docs/tresci/odczyty/e1b-solver-2026-11-04.txt",
+    "cytat": "S=10, big blind ante 1bb (martwe, wpłacone przez BB ponad stack, tools/preflop-solver/src/pushfold.ts:6): push 71,05%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "uwagi": "zgodne z rachunkiem (0,6 pp) w modelu z big blind ante 1bb; tabela PokerStrategy z ante (10% BB od każdego gracza) to inna struktura: 60,8% — kierunek ten sam. Tekst musi nazwać strukturę (BB ante 1bb). Zmienia D-148 dla tej liczby (do weta)",
+  "uproszczenie": null,
+  "decyzja": "D-153"
+ },
+ "m11.call.10-ante": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 53.47,
+  "zrodla": [
+   {
+    "adres": "rachunek: docs/tresci/narzedzia/e1b/nash_hu.py (fictitious play na tools/equity/equity169.json, bez kodu solvera)",
+    "miejsce": "docs/tresci/odczyty/e1b-solver-2026-11-04.txt",
+    "cytat": "S=10, big blind ante 1bb: call 53,25%",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "uwagi": "zgodne z rachunkiem (0,2 pp); struktura jak wyżej",
+  "uproszczenie": null,
+  "decyzja": "D-153"
+ },
+ "m11.3max.push.btn": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 35.76,
+  "zrodla": [
+   {
+    "adres": "https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf",
+    "miejsce": "Ganzfried i Sandholm, AAMAS 2008, Table 2 (equal stacks s1 = s2 = s3 = 4500, SB = 300, BB = 600, czyli 7,5bb), kolumna „Single hand prob.”",
+    "cytat": "Button jam 0.376 0.355",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "uwagi": "zgodne: 0,3 pp od 35,5%",
+  "uproszczenie": "artykuł podaje prawdopodobieństwo akcji przy grze obu strategii (warunkowe na dojście do węzła, z blokerami); solver projektu: udział kombinacji wszystkich rąk; różnica mieści się w kryterium",
+  "decyzja": "D-153"
+ },
+ "m11.3max.push.sb": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 64.46,
+  "zrodla": [
+   {
+    "adres": "https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf",
+    "miejsce": "Ganzfried i Sandholm, AAMAS 2008, Table 2 (equal stacks s1 = s2 = s3 = 4500, SB = 300, BB = 600, czyli 7,5bb), kolumna „Single hand prob.”",
+    "cytat": "SB jam after fold 0.652 0.633",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "uwagi": "zgodne: 1,2 pp od 63,3%",
+  "uproszczenie": "artykuł podaje prawdopodobieństwo akcji przy grze obu strategii (warunkowe na dojście do węzła, z blokerami); solver projektu: udział kombinacji wszystkich rąk; różnica mieści się w kryterium",
+  "decyzja": "D-153"
+ },
+ "m11.3max.call.sb": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 23.86,
+  "zrodla": [
+   {
+    "adres": "https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf",
+    "miejsce": "Ganzfried i Sandholm, AAMAS 2008, Table 2 (equal stacks s1 = s2 = s3 = 4500, SB = 300, BB = 600, czyli 7,5bb), kolumna „Single hand prob.”",
+    "cytat": "SB jam after jam 0.088 0.234",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "uwagi": "zgodne: 0,5 pp od 23,4%",
+  "uproszczenie": "artykuł podaje prawdopodobieństwo akcji przy grze obu strategii (warunkowe na dojście do węzła, z blokerami); solver projektu: udział kombinacji wszystkich rąk; różnica mieści się w kryterium",
+  "decyzja": "D-153"
+ },
+ "m11.3max.call.bb": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 30.67,
+  "zrodla": [
+   {
+    "adres": "https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf",
+    "miejsce": "Ganzfried i Sandholm, AAMAS 2008, Table 2 (equal stacks s1 = s2 = s3 = 4500, SB = 300, BB = 600, czyli 7,5bb), kolumna „Single hand prob.”",
+    "cytat": "BB jam after jam/fold 0.145 0.308",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "uwagi": "zgodne: 0,1 pp od 30,8%",
+  "uproszczenie": "artykuł podaje prawdopodobieństwo akcji przy grze obu strategii (warunkowe na dojście do węzła, z blokerami); solver projektu: udział kombinacji wszystkich rąk; różnica mieści się w kryterium",
+  "decyzja": "D-153"
+ },
+ "m11.3max.call.bb-two": {
+  "status": "potwierdzone",
+  "wartosc_solvera_pct": 20.55,
+  "zrodla": [
+   {
+    "adres": "https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf",
+    "miejsce": "Ganzfried i Sandholm, AAMAS 2008, Table 2 (equal stacks s1 = s2 = s3 = 4500, SB = 300, BB = 600, czyli 7,5bb), kolumna „Single hand prob.”",
+    "cytat": "BB jam after jam/jam 0.021 0.197",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   }
+  ],
+  "uwagi": "zgodne: 0,9 pp od 19,7%",
+  "uproszczenie": "artykuł podaje prawdopodobieństwo akcji przy grze obu strategii (warunkowe na dojście do węzła, z blokerami); solver projektu: udział kombinacji wszystkich rąk; różnica mieści się w kryterium",
+  "decyzja": "D-153"
+ }
+}

@@ -1,0 +1,53 @@
+# Rola 06 E1b, 2026-11-04: dowody walidacji 24 liczb solvera projektu (D-153)
+
+## Wartości solvera (python3 -I docs/tresci/narzedzia/e1b/play.py .), klucz / spot / gracz / akcje / klasy / %
+solver.rfi.utg	rfi.utg	UTG	raise 2.5	169	16.39
+solver.rfi.hj	rfi.hj	HJ	raise 2.5	169	20.10
+solver.rfi.co	rfi.co	CO	raise 2.5	169	27.34
+solver.rfi.btn	rfi.btn	BTN	raise 2.5	169	41.37
+solver.rfi.sb	rfi.sb	SB	raise 3	169	42.34
+solver9.rfi.utg	nine.rfi.utg	UTG	raise 2.5	169	10.90
+solver9.rfi.utg1	nine.rfi.utg1	UTG+1	raise 2.5	169	12.50
+solver9.rfi.utg2	nine.rfi.utg2	UTG+2	raise 2.5	169	13.22
+solver.def.bb-vs-btn	vs-open.bb-vs-btn	BB	call 2.5+raise 10	169	49.61
+solver.def.bb-vs-sb	vs-open.bb-vs-sb	BB	call 3+raise 9	169	53.04
+solver.3bet.sb-vs-btn	vs-open.sb-vs-btn	SB	raise 10	169	14.14
+m11.push.5	push.sb-5	SB	all-in	169	72.55
+m11.push.10	push.sb-10	SB	all-in	169	58.37
+m11.push.15	push.sb-15	SB	all-in	169	45.51
+m11.push.10-ante	push.sb-10-ante	SB	all-in	169	71.65
+m11.call.5	call.bb-5	BB	call	169	62.29
+m11.call.10	call.bb-10	BB	call	169	37.56
+m11.call.15	call.bb-15	BB	call	169	28.24
+m11.call.10-ante	call.bb-10-ante	BB	call	169	53.47
+m11.3max.push.btn	push.btn-3max	BTN	all-in	169	35.76
+m11.3max.push.sb	push.sb-3max	SB	all-in	169	64.46
+m11.3max.call.sb	call.sb-vs-btn-3max	SB	call	169	23.86
+m11.3max.call.bb	call.bb-vs-btn-3max	BB	call	169	30.67
+m11.3max.call.bb-two	call.bb-vs-two-3max	BB	call	169	20.55
+
+## Rachunek niezależny, fictitious play (nash_hu.py), ITER=3000
+S=5bb push 71.54% call 61.94%
+S=10bb push 58.33% call 37.40%
+S=15bb push 45.71% call 28.59%
+S=10bb ante BB=1 push 71.09% call 53.28%
+
+## Rachunek niezależny, ITER=15000 (ITER=15000 python3 -I docs/tresci/narzedzia/e1b/nash_hu.py tools/equity/equity169.json 5 10 15 10:1)
+S=5bb ante BB=0 push 71.50% call 62.04%
+S=10bb ante BB=0 push 58.29% call 37.38%
+S=15bb ante BB=0 push 45.66% call 28.56%
+S=10bb ante BB=1 push 71.05% call 53.25%
+
+## Najlepsza odpowiedź na zakresy z tabeli PokerStrategy (br_check.py; listy rąk z Table 1)
+S=5: BR BB na push z tabeli = 61.99%  BR SB na call z tabeli = 65.61%
+S=10: BR BB na push z tabeli = 36.35%  BR SB na call z tabeli = 55.35%
+
+## Udział kombinacji list rąk z tabeli PokerStrategy (range_pct.py)
+5 74.1  → 74.06%  
+5 68.6  → 68.63%  
+10 56.6  → 56.56%  
+10 38.5  → 38.46%  
+15 45.7  → 45.70%  
+15 28.4  → 28.36%  
+
+## Cytaty: 0 nieznalezionych (sprawdzenie na surowym tekście stron pobranych curl 2026-11-04, HTTP 200; PDF przez pdftotext -layout)
