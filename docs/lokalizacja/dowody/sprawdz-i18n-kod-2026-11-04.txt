@@ -1,0 +1,47 @@
+BŁĄD kod apps/mobile/src/app/_layout.tsx:54: tekst na sztywno „Nie udało się przygotować bazy postępu:”
+BŁĄD kod apps/mobile/src/app/play/review.tsx:84: tekst na sztywno „… · …bb · …”
+BŁĄD kod apps/mobile/src/app/play/table.tsx:224: tekst na sztywno „… · …bb”
+BŁĄD kod apps/mobile/src/app/play/table.tsx:286: tekst na sztywno „…bb”
+BŁĄD kod apps/mobile/src/app/play/table.tsx:301: tekst na sztywno „… · …bb”
+BŁĄD kod apps/mobile/src/app/play/table.tsx:310: tekst na sztywno „…bb”
+BŁĄD kod apps/mobile/src/components/PaintGrid.tsx:153: tekst na sztywno „grasz”
+BŁĄD kod apps/mobile/src/components/PaintGrid.tsx:154: tekst na sztywno „− brakuje”
+BŁĄD kod apps/mobile/src/components/PaintGrid.tsx:155: tekst na sztywno „+ za dużo”
+BŁĄD kod apps/mobile/src/components/PaintGrid.tsx:156: tekst na sztywno „• mieszana”
+BŁĄD kod apps/mobile/src/components/PaintGrid.tsx:159: tekst na sztywno „Dotknij pola albo przeciągnij palcem, żeby malować.”
+BŁĄD kod apps/mobile/src/components/RangeGrid.tsx:15: tekst na sztywno „…. Gra … procent rąk.”
+BŁĄD kod apps/mobile/src/components/RangeGrid.tsx:50: tekst na sztywno „Gra …% rąk”
+BŁĄD kod apps/mobile/src/components/RenderErrorScreen.tsx:14: tekst na sztywno „Coś poszło nie tak”
+BŁĄD kod apps/mobile/src/components/RenderErrorScreen.tsx:16: tekst na sztywno „Tego ekranu nie udało się wyświetlić. Spróbuj jeszcze raz.”
+BŁĄD kod apps/mobile/src/components/RenderErrorScreen.tsx:17: tekst na sztywno „Spróbuj ponownie”
+BŁĄD kod apps/mobile/src/components/TableFelt.tsx:24: tekst na sztywno „Twoje karty”
+BŁĄD kod apps/mobile/src/components/TableFelt.tsx:30: tekst na sztywno „Przeciwnik”
+BŁĄD kod apps/mobile/src/components/TableFelt.tsx:37: tekst na sztywno „Stół”
+UWAGA kod apps/mobile/src/app/glossary.tsx:36 t(`glossary.areas.${s.area}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/play/index.tsx:40 t(`play.styles.${s}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/play/index.tsx:93 t(`play.tables.${p}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/play/index.tsx:93 t(`play.tablesHint.${p}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/play/index.tsx:95 t(`play.tablesHint.${setup.tablePreset}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/play/index.tsx:104 t(`play.styleHints.${id}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/play/report/[id].tsx:59 t(`play.report.verdicts.${v}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/play/report/[id].tsx:119 t(`play.report.verdicts.${v}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/play/report/[id].tsx:120 t(`play.streets.${item.finding.street}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/play/report/[id].tsx:128 t(`play.report.verdictHints.${v}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/play/report/[id].tsx:128 t(`play.report.verdictHints.${v}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/play/report/[id].tsx:137 t(`play.streets.${s.street}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/play/review.tsx:90 t(`play.streets.${s.street}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/play/review.tsx:113 t(`play.report.verdicts.${answer.finding.verdict}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/play/table.tsx:205 t(`play.styles.${seatStyleIds[s.seat - 1]}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/RuleCard.tsx:15 t(`level.${rule.level}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/ruleSources.ts:11 t(`rules.sourceKind.one.${kind}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/ruleSources.ts:13 t(`rules.sourceKind.many.${kind}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/ruleSources.ts:17 t(total === 1 ? 'rules.source' : 'rules.sources'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/play/log.ts:11 t(`play.log.${e.type}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/play/report.ts:44 t(`play.log.${a.type}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/play/report.ts:45 t(`play.log.${a.type}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/play/report.ts:59 t(`play.report.detail.cbetPlans.${d.best}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/play/report.ts:59 t(`play.report.detail.cbetPlans.${d.chosen}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/play/report.ts:69 t(i.nutDraw ? 'play.report.detail.nutsYes' : 'play.report.detail.nutsNo'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/play/report.ts:77 t(d.auto === 'check' ? 'play.report.detail.timeoutCheck' : 'play.report.detail.timeoutFold'): klucz dynamiczny, sprawdź listę wartości
+błędy: 19, uwagi: 26; języki: pl; kluczy w źródle: 309
+kod wyjścia: 1

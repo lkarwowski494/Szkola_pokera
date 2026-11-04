@@ -8,6 +8,7 @@ packages/
   poker-core/      domena pokera (istnieje): karty, szanse, ocena zagrania, ICM, SPR
   srs/             domena powtórek (istnieje): FSRS (ts-fsrs), harmonogram
   content-schema/  typy treści (istnieje)
+  jezyki/          NOWY (ADR 0014, rola 09): lista 35 języków, wybór języka i łańcuch zastępczy, samosprawdzenie Intl.PluralRules, formaty wg języka, opcje i18next; bez React Native, używany też przez content-build
   domena/          NOWY: limit dnia, logika dostępu, maszyny stanów, format eksportu (walidacja i migracja formatu), zegar (port), konfiguracja.ts
   postep/          NOWY: port bazy (interfejs), kolejka zapisów, migracje (v1 = schemat.sql), repozytoria SQL, eksport/import przez port; testy na node:sqlite
 tools/content-build/  YAML → tresc-<wersja>-<język>.db (ADR 0005)

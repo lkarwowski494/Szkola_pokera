@@ -34,8 +34,6 @@ import { loadPlayKit } from '../kit';
 import { buildReport } from '../report';
 
 jest.mock('better-sqlite3', () => function BetterSqlite3() {}, { virtual: true });
-jest.mock('@formatjs/intl-pluralrules/polyfill.js', () => ({}));
-jest.mock('@formatjs/intl-pluralrules/locale-data/pl.js', () => ({}));
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const { DatabaseSync } = require('node:sqlite') as typeof import('node:sqlite');

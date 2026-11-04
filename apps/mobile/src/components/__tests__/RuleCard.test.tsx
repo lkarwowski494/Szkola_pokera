@@ -6,9 +6,6 @@ import { RuleCard } from '@/components/RuleCard';
 import { formatRuleSources } from '@/components/ruleSources';
 import type { RuleRow } from '@/data/content/repo';
 
-// Node ma Intl.PluralRules; polyfill dla Hermesa (moduł ESM) jest tu zbędny.
-jest.mock('@formatjs/intl-pluralrules/polyfill.js', () => ({}));
-jest.mock('@formatjs/intl-pluralrules/locale-data/pl.js', () => ({}));
 
 const t = i18n.t.bind(i18n);
 const rule = (extra: Partial<RuleRow>): RuleRow => ({

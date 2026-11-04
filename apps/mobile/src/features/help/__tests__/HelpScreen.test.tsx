@@ -5,8 +5,6 @@ import { Linking } from 'react-native';
 import HelpScreen from '@/app/help';
 import { HELPLINES } from '@/data/content/helplines.generated';
 
-jest.mock('@formatjs/intl-pluralrules/polyfill.js', () => ({}));
-jest.mock('@formatjs/intl-pluralrules/locale-data/pl.js', () => ({}));
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 
 // zgłoszenia idą przez moduł raportów awarii (bez DSN w testach Sentry jest wyłączone, więc sprawdzamy sam moduł)

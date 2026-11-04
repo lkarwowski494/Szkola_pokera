@@ -1,5 +1,5 @@
 # Stan sztafety
-Ścieżka: greenfield (przebudowa istniejącej aplikacji „prawie od nowa”) · Aktualizacja: 2026-11-04 (rola 09 E0)
+Ścieżka: greenfield (przebudowa istniejącej aplikacji „prawie od nowa”) · Aktualizacja: 2026-11-04 (rola 09 E1)
 
 Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szkoła Pokera przez role 1–5 w trybie build z prompts i zrobić ją prawie od nowa, ale wykorzystując elementy aktualnej aplikacji, które są dobre. Cel: monetyzacja. […] Tam nie ma być hazardu. Pełna nauka w 35 językach jak trening. Całkiem od nowa UX, przepływy, ocena monetyzacji, BRD.” Kolejność (wybór właściciela): bramka opłacalności (02, krok 0) → 01 → 02 → 03 → 04 → 05.
 
@@ -14,7 +14,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 04 Studio Projektowe | build | zakończona 2026-11-04 (E3 zaakceptowane, D-123). E0 zakończone 2026-11-04 (D-114: ekran „Decyzja w sesji”); E1 zakończone 2026-11-04 (D-115: metafory A, B, C); E2 runda 1 odrzucona co do palety (D-116, pasek zostaje), runda 2 (D, E, F) odrzucona 2026-11-04 (D-117: „ma być eleganckie a nie badziewne”, punkt odniesienia: kolory i ikona poprzedniej aplikacji); runda 3: wybrany I (D-118) z warunkiem: stół bez miejsc w zadaniach bez pozycji (D-119); krój Literata 600 (D-120); E3 wykonane 2026-11-04 (D-121, D-122), czeka na akceptację ikony i ekranów | a838dda, 118a5c1 | `docs/design/00-rozpoznanie.md`, `01-swiat.md` | OP-19 w E3 |
 | 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
 | 05 Architekt | build | zakończona 2026-11-04 (E4 zaakceptowane, D-130); E3 przyjęte (D-129), E2 (D-127), ADR 0001–0012 (D-124, D-126) | (commit E4) | `docs/architektura/README.md` (indeks), `00-rozpoznanie.md`, `docs/adr/` 0001–0013, `dane.md`, `moduly.md`, `schemat.sql`, `tlo-i-bledy.md`, `prywatnosc.md`, `wydajnosc.md`, `kontrole-07.md`, `narzedzia/granice.mjs`, `eksperymenty/` | OP-21 |
-| 09 Lokalizacja | build (wejście wczesne E0–E1) | E0 gotowe 2026-11-04, STOP na akceptację właściciela (D-131–D-135 rozstrzygnięte przez agenta, weto możliwe); następne E1 | (commit E0) | `docs/lokalizacja/jezyki.md`, `docs/decyzje.md` (D-131–D-135), `docs/zalozenia.md` (ZAL-L01, ZAL-L02) | koszt przekładu przez API (właściciel, przed E3); zgłoszenia: 06 (formatNumber, numery pomocy), 04 (pisma), 07, 10 |
+| 09 Lokalizacja | build (wejście wczesne E0–E1) | E0 zaakceptowane (D-136); E1 gotowe 2026-11-04, STOP na akceptację właściciela (ADR 0014 proponowana, D-137); E2–E4 po audycie 04 | (commit E1) | `docs/lokalizacja/jezyki.md`, `docs/adr/0014-…md`, `packages/jezyki/`, `scripts/sprawdz-i18n.mjs`, `apps/mobile/src/i18n/`, `docs/decyzje.md` (D-131–D-137), `docs/zalozenia.md` (ZAL-L01, ZAL-L02) | koszt przekładu przez API (właściciel, przed E3); zgłoszenia: 06 (formatNumber, numery pomocy), 04 (pisma), 07, 10 |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -328,5 +328,19 @@ Plus jedna linia w „Dokumentacja projektu”: „Architektura w repo: `docs/ar
 - Czego nie sprawdzono: lista lokalizacji App Store Connect i języki sklepu (E4, rola 10); działanie `Intl.PluralRules` w Hermes w aplikacji (E1); koszt przekładu przez API wg cen z dnia pracy.
 - Czas (agent): E1 ok. 2–3 h; E2 ok. 3–4 h po ekranach 08; E3 fala 1 (7 języków) ok. 1–2 h agenta + oczekiwanie na Batch, kolejne fale podobnie; E4 ok. 1 h. Oczekiwanie: akceptacja E0, zgoda na koszt API, ekrany z roli 08 przed E2. Czas właściciela: akceptacja bramek (minuty), zgoda na koszt, ewentualny recenzent języka.
 
-## Następny krok (po roli 09 E0)
-**09-lokalizacja**, build, **E1 Mechanizm** (nowa sesja sonnet/medium, albo ta): ADR i18n z rolą 05 (opcje (a) react-i18next ze słownikiem JSON — rekomendacja, (b) Lingui, (c) mechanizm tekst-jako-klucz z Treningu), testy czerwone, konfiguracja `expo-localization`/`locales`, `scripts/sprawdz-i18n.mjs`; potem przekazanie wejścia wczesnego do 04, 06, 07, 08 i „09 E2–E4 po audycie 04”; następna rola 06-tresci build (opus/high).
+## Rola 09 E1: wynik (2026-11-04)
+- Mechanizm: ADR 0014 (react-i18next + słownik JSON na język, pakiet `@szkola/jezyki`), polyfill `polyfill-force` + samosprawdzenie `Intl.PluralRules`, `pl.ts` → `locales/pl.json` (333 wartości) + `pl.kontekst.json` (kontekst wstępny z użycia w kodzie, do uzupełnienia przez rolę 08), konfiguracja `expo-localization`/`locales` w `app.json` (`pl`).
+- Dowody: `pnpm run ci` kod 0 (134 testy `@szkola/jezyki`, 142 testy aplikacji, 12 testów skryptu, `pnpm i18n` 0 błędów); polyfill formatjs vs ICU Node: liczby całkowite zgodne w 35 językach, ułamki różne w 10 (ADR 0014 pkt 5); format `locales` zweryfikowany resolverem Expo; baseline `pnpm i18n:kod`: 19 błędów, 26 uwag (`docs/lokalizacja/dowody/sprawdz-i18n-kod-2026-11-04.txt`).
+- Czego nie sprawdzono: `Intl.PluralRules` w silniku Hermes na telefonie (samosprawdzenie jest w kodzie; krok właściciela przy pierwszym buildzie z tą zmianą); `expo prebuild` z nową konfiguracją (macOS/EAS); SDK w repo to 57, ADR 0001 zakłada 58.
+- Ścieżki wrażliwe dotknięte: `apps/mobile/app.json` (wtyczka, `locales`, `CFBundleAllowMixedLocalizations`), `apps/mobile/src/data/` nie ruszane; przegląd w świeżym kontekście: patrz niżej.
+
+### Przekazanie wejścia wczesnego (E1 → 04, 06, 07, 08)
+- Komenda kontroli: `node scripts/sprawdz-i18n.mjs apps/mobile/src/i18n/locales --zrodlo pl --kod apps/mobile/src` (`pnpm i18n:kod`; słowniki bez kodu: `pnpm i18n`, już w `pnpm run ci`).
+- 04: zestaw 35 języków (`packages/jezyki/src/jezyki.ts`); pisma: Cyrl bg ru sr uk, Grek el, Jpan ja, Kore ko, Hant zh-Hant; plik pseudolokalizacji `docs/lokalizacja/pseudo/pl-pseudo.json` do audytu ekranów (`⟦…⟧`, akcenty, wydłużenie wg tabeli W3C); najdłuższy język do pomiaru po pierwszej fali tłumaczeń (hipotezy: de, fi, el, vi); kroje dla nowych pism; nazwa aplikacji pod ikoną na język (decyzja produktowa przed E3).
+- 06: języki treści = 35 baz (ADR 0005); próg przeglądu treści krytycznej D-135; `formatNumber` w `tools/content-build` na sztywno po polsku (przepisać na `Intl`, wektory w ADR 0014 pkt 7); `content/helplines.yaml` tylko Polska; nazwy terminów (`terms.yaml`) potrzebne na język; liczba mnoga w treści: liczniki całkowite.
+- 07: komenda `pnpm i18n` (w `ci`) i `pnpm i18n:kod` (po E2); testy akceptacyjne: wektory CLDR (`packages/jezyki/test/wektory.ts`), test polyfillu 35 języków, `konfiguracja.test.ts`; E2E Maestro czerwony bez zmian.
+- 08: każdy tekst od pierwszego ekranu przez `t()` z kluczem znaczeniowym i wpisem w `<źródło>.kontekst.json` (DEV-12); skrypt `pnpm i18n:kod` przed commitem; tylko liczby całkowite w kluczach mnogich; zapis ustawienia języka (`auto` | język) w `postep`; `ustawJezyk()` z `apps/mobile/src/i18n`.
+- 09 E2–E4: po audycie 04 (ekrany z 08).
+
+## Następny krok (po roli 09 E1)
+**06-tresci** Treści i wiedza domenowa, build, nowa sesja opus/high: `node /home/user/prompts/tools/assemble.mjs 06-tresci --tryb build`. Paczka wejściowa: `docs/lokalizacja/jezyki.md`, `docs/adr/0005`, `0014`, `docs/brd/`, `docs/architektura/moduly.md`, `docs/decyzje.md` (D-101–D-137), `CLAUDE.md`. Potem 08 (kod) i audyt 04; 09 E2–E4 po nim.

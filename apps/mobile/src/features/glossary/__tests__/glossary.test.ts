@@ -1,7 +1,7 @@
 /// <reference types="jest" />
 import { TermArea } from '@szkola/content-schema';
 import { TERMS } from '@/data/content/terms.generated';
-import { pl } from '@/i18n/pl';
+import pl from '@/i18n/locales/pl.json';
 import { AREA_ORDER, englishLabel, fold, GLOSSARY_SIZE, glossarySections } from '../glossary';
 
 const keysOf = (q: string) => glossarySections(q).flatMap((s) => s.entries.map((e) => e.key));

@@ -3,8 +3,6 @@
 import '@/i18n';
 import { act, fireEvent, render, screen } from '@testing-library/react-native';
 
-jest.mock('@formatjs/intl-pluralrules/polyfill.js', () => ({}));
-jest.mock('@formatjs/intl-pluralrules/locale-data/pl.js', () => ({}));
 jest.mock('better-sqlite3', () => function BetterSqlite3() {}, { virtual: true });
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 jest.mock('expo-haptics', () => ({ selectionAsync: jest.fn() }));
