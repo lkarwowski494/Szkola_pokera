@@ -11,7 +11,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 03 Zakres | build | zakończona 2026-11-04 (E3 zaakceptowane, D-112) | (commit E3) | `docs/scope-contract.md` (E3), `docs/archiwum/scope-contract-2026-11-03-robocze.md` (E0–E2), `docs/zakres/wzorzec-2026-11-03.json`, `docs/decyzje.md` | — |
 | 01 Odkrywanie | fix OP-20, OP-22, OP-23 | zakończona 2026-11-04 (D-113; kontrola BRD kod 0, wektory bez zmian) | 42dc490, be4e4e4, f795905 | `docs/brd/` (README, wymagania-nauka, wymagania-sklep, wymagania) | OP-24 (05), OP-10 (06) |
 | 02 Monetyzacja | fix OP-11 | zakończona 2026-11-04 (D-113; dokument, bez zmian rachunku i kodu) | 37ab4f1 | `docs/monetyzacja.md` | OP-09, OP-10 (05) |
-| 04 Studio Projektowe | build | E0 rozpoznanie: STOP na decyzję (ekran kluczowy, plan) 2026-11-04 | (ten commit) | `docs/design/00-rozpoznanie.md` | ekran kluczowy (rekomendacja: „Decyzja w sesji”, dwa stany); OP-19 do zamknięcia w E3 |
+| 04 Studio Projektowe | build | E0 zakończone 2026-11-04 (D-114: ekran „Decyzja w sesji”); w toku E1 | a838dda | `docs/design/00-rozpoznanie.md` | OP-19 do zamknięcia w E3 |
 | 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
 
 ## E0 bramki: ustalenia (2026-11-03)
@@ -213,7 +213,7 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - Stan CI `main`: E2E czerwony w przebiegach 11–18, bez zmian (rola 07).
 
 ## Następny krok
-**Rola 04 build E1** (świat dziedziny) po decyzji właściciela na bramce E0; prompt jak wyżej, zapis `<scratchpad>/04-studio-szkola-pokera-2026-11-04.md`.
+**Rola 04 build E1** (świat dziedziny), ekran kluczowy D-114; prompt jak wyżej, zapis `<scratchpad>/04-studio-szkola-pokera-2026-11-04.md`.
 
 ## Poprzedni następny krok (rola 03, wykonany)
 **Rola 04 build** według „Przekazanie do następnej roli” wyżej: `node /home/user/prompts/tools/assemble.mjs 04-studio-projektowe --tryb build`; nowa sesja opus/high. Paczka: `docs/scope-contract.md`, `docs/brd/`, `docs/monetyzacja.md`, `docs/decyzje.md`, `CLAUDE.md`.
