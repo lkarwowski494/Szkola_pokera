@@ -1,0 +1,4421 @@
+[
+ {
+  "id": "R-M1-002",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m1-l1-przebieg.md:7",
+   "content/pl/lessons/m1-l1-przebieg.md:48",
+   "content/pl/exams/m1.yaml:25",
+   "content/pl/rules.yaml:52"
+  ],
+  "uzasadnienie": "Sprawdzone: EV(czekanie) − EV(pas) = equity × pula ≥ 0 dla każdego equity, czekanie kosztuje 0 i zostawia późniejszy pas; dominacja słaba. Tekst lekcji M1 („pas, gdy możesz czekać za darmo, to czysta strata”) zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M10-002",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:7",
+   "content/pl/lessons/m10-l1-statystyki.md:39",
+   "content/pl/lessons/m10-l1-statystyki.md:46",
+   "content/pl/lessons/m10-l1-statystyki.md:55",
+   "content/pl/exams/m10.yaml:16",
+   "content/pl/rules.yaml:835",
+   "content/pl/rules.yaml:925"
+  ],
+  "uzasadnienie": "Policzone: √(0,25·0,75/100) = 4,33%; ±1,96·SE = ±8,49 pp → 16,5%–33,5%; wyświetlenia 4,3%, 16,5%, 33,5% zgodne. Opis przedziału jako „z ok. 95% pewnością” to standardowe uproszczenie przybliżenia normalnego.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M11-006",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:7",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:12",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:20",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:30",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:82",
+   "content/pl/exams/m11.yaml:40",
+   "content/pl/rules.yaml:1092"
+  ],
+  "uzasadnienie": "Policzone: (S − 1) ÷ 2S: 5bb 40,0%, 10bb 45,0%, 15bb 46,67% → 40%, 45%, 46,7% zgodne; heads-up bez ante, blind BB w puli, pula po sprawdzeniu 2S poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M12-003",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:7",
+   "content/pl/lessons/m12-l1-wariancja.md:37",
+   "content/pl/lessons/m12-l1-wariancja.md:53",
+   "content/pl/exams/m12.yaml:24",
+   "content/pl/rules.yaml:969"
+  ],
+  "uzasadnienie": "Policzone: (1,96·80 ÷ 2)² = 6146,56 bloku = 614,7 tys. rąk → „ok. 615 tys.” zgodne; przy SD 100: 9604 bloki = 960 tys. Wzór i opis (pierwiastek z liczby rąk) poprawne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M13-001",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m13-l1-raport.md:7",
+   "content/pl/lessons/m13-l1-raport.md:12",
+   "content/pl/lessons/m13-l1-raport.md:19",
+   "content/pl/lessons/m13-l1-raport.md:26",
+   "content/pl/exams/m13.yaml:6",
+   "content/pl/exams/m13.yaml:13",
+   "content/pl/rules.yaml:1152"
+  ],
+  "uzasadnienie": "Policzone: 1 − 0,8 = 0,2 → 20%, 10 × 0,2 = 2 na 10; P(przegrana) = 1 − equity przy braku podziału puli. Tekst zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M13-003",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m13-l2-powtorki.md:7",
+   "content/pl/lessons/m13-l2-powtorki.md:12",
+   "content/pl/lessons/m13-l2-powtorki.md:21",
+   "content/pl/exams/m13.yaml:41",
+   "content/pl/rules.yaml:1168"
+  ],
+  "uzasadnienie": "Sprawdzone własnym ewaluatorem 7 kart: 5000 losowych rozdań 2+2+5 i losowych permutacji kolorów, 0 zmian siły i wyniku porównania. Ranking układów nie rozróżnia kolorów, więc decyzja się nie zmienia.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M2-003",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l2-pot-odds.md:7",
+   "content/pl/lessons/m2-l2-pot-odds.md:12",
+   "content/pl/lessons/m2-l2-pot-odds.md:40",
+   "content/pl/lessons/m2-l2-pot-odds.md:49",
+   "content/pl/lessons/m2-l2-pot-odds.md:55",
+   "content/pl/exams/m2.yaml:60",
+   "content/pl/exams/m2.yaml:94",
+   "content/pl/rules.yaml:94"
+  ],
+  "uzasadnienie": "Policzone: 0,5 ÷ (1 + 2·0,5) = 1/4 = 25%; opis części (pula 2, bet 1, call 1 → 1 z 4) zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M2-004",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l2-pot-odds.md:7",
+   "content/pl/lessons/m2-l2-pot-odds.md:21",
+   "content/pl/lessons/m2-l2-pot-odds.md:62",
+   "content/pl/exams/m2.yaml:69",
+   "content/pl/exams/m2.yaml:76",
+   "content/pl/rules.yaml:102"
+  ],
+  "uzasadnienie": "Policzone: 1 ÷ (1 + 2) = 1/3 → 33%; opis części (1 z 3) zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M2-005",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l2-pot-odds.md:7",
+   "content/pl/lessons/m2-l2-pot-odds.md:21",
+   "content/pl/lessons/m2-l2-pot-odds.md:31",
+   "content/pl/lessons/m2-l2-pot-odds.md:69",
+   "content/pl/areas.yaml:7",
+   "content/pl/exams/m2.yaml:76",
+   "content/pl/exams/m2.yaml:85",
+   "content/pl/rules.yaml:110"
+  ],
+  "uzasadnienie": "Sprawdzone: EV(call) = eq·(P + 2B) − B < 0 ⇔ eq < B ÷ (P + 2B); warunek „bez dodatkowych argumentów, np. implied odds” zawęża poprawnie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M3-005",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l2-rece-startowe.md:7",
+   "content/pl/lessons/m3-l2-rece-startowe.md:12",
+   "content/pl/exams/m3.yaml:74",
+   "content/pl/rules.yaml:155"
+  ],
+  "uzasadnienie": "Własne Monte Carlo (30 tys. rozdań na rękę, ewaluator 7 kart) wobec losowej ręki: AKs 67,1/AKo 65,4; 76s 45,2/42,2; 72s 38,3/34,7; 32s 36,0/32,4; też T2, Q3, 98, J4: suited zawsze +1,7–3,6 pp. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M5-011",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:7",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:85",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:92",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:99",
+   "content/pl/exams/m5.yaml:46",
+   "content/pl/rules.yaml:415"
+  ],
+  "uzasadnienie": "Policzone: (1/3) ÷ (4/3) = 25%, 0,75 ÷ 1,75 = 42,86% → 43%; przy wpisanym 0,333333 wychodzi 24,99998% → 25%. Tekst zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M6-005",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l2-sprawdzenie.md:7",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:12",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:22",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:30",
+   "content/pl/exams/m6.yaml:7",
+   "content/pl/exams/m6.yaml:43",
+   "content/pl/rules.yaml:475"
+  ],
+  "uzasadnienie": "Policzone: MDF 90/120 = 75%, 100/200 = 50%; potrzebne equity 30/150 = 20%, 100/300 = 33,3% → 33%. Tekst zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M7-004",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l1-druga-beczka.md:7",
+   "content/pl/lessons/m7-l1-druga-beczka.md:100",
+   "content/pl/exams/m7.yaml:36",
+   "content/pl/rules.yaml:558"
+  ],
+  "uzasadnienie": "Policzone: 75/175 = 42,86% → 43%, 50/150 = 33,3% → 33%; „outy obniżają próg” poprawne kierunkowo. Tekst zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M7-007",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:7",
+   "content/pl/lessons/m7-l3-implied-odds.md:12",
+   "content/pl/lessons/m7-l3-implied-odds.md:21",
+   "content/pl/lessons/m7-l3-implied-odds.md:28",
+   "content/pl/lessons/m7-l3-implied-odds.md:36",
+   "content/pl/lessons/m7-l4-probe-obrona.md:72",
+   "content/pl/lessons/m7-l4-probe-obrona.md:82",
+   "content/pl/lessons/m7-l2-polaryzacja.md:95",
+   "content/pl/areas.yaml:19",
+   "content/pl/rules.yaml:582"
+  ],
+  "uzasadnienie": "Rachunek zgodny: 9/46 = 19,57% i 1 − C(38,2)/C(47,2) = 34,97% (stosunek 0,56). Ale „a nie 35,0% jak na flopie” stoi obok M2 (K5), gdzie na flopie wobec zakładu liczysz 19,1% (jedna karta); 35% to szansa z flopu do rivera.",
+  "poprawka": "„…a nie {{n:odds.flush.flop-river}} jak z flopu do rivera”.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M7-008",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:7",
+   "content/pl/lessons/m7-l3-implied-odds.md:45",
+   "content/pl/lessons/m7-l3-implied-odds.md:53",
+   "content/pl/lessons/m7-l3-implied-odds.md:62",
+   "content/pl/lessons/m7-l3-implied-odds.md:72",
+   "content/pl/areas.yaml:7",
+   "content/pl/areas.yaml:19",
+   "content/pl/exams/m7.yaml:62",
+   "content/pl/rules.yaml:591"
+  ],
+  "uzasadnienie": "Policzone: (9/46)·W = (37/46)·45 ⇒ W = 185; pula po zakładzie 90 + 45 = 135; nadwyżka 50. Wzór „dopłata × nietrafiające ÷ outy” poprawny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M8-005",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l2-ile-blefow.md:7",
+   "content/pl/lessons/m8-l2-ile-blefow.md:19",
+   "content/pl/lessons/m8-l2-ile-blefow.md:35",
+   "content/pl/lessons/m8-l2-ile-blefow.md:44",
+   "content/pl/exams/m8.yaml:26",
+   "content/pl/rules.yaml:675"
+  ],
+  "uzasadnienie": "Policzone: bet ÷ (pula + 2·bet): 30/150 = 20%, 100/300 = 33,3% → 33%; uzasadnienie przez obojętność bluff-catchera poprawne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M8-009",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l3-blokery.md:7",
+   "content/pl/lessons/m8-l3-blokery.md:12",
+   "content/pl/lessons/m8-l3-blokery.md:21",
+   "content/pl/lessons/m8-l3-blokery.md:28",
+   "content/pl/lessons/m8-l3-blokery.md:35",
+   "content/pl/exams/m8.yaml:61",
+   "content/pl/rules.yaml:707"
+  ],
+  "uzasadnienie": "Policzone (wyliczenie): AK przy jednej karcie A lub K: 3×4 = 12 z 16; AA przy jednym asie: C(3,2) = 3 z 6; zostają 3 karty rangi. Tekst zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M9-002",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:7",
+   "content/pl/lessons/m9-l1-spr.md:89",
+   "content/pl/lessons/m9-l1-spr.md:96",
+   "content/pl/exams/m9.yaml:25",
+   "content/pl/rules.yaml:750"
+  ],
+  "uzasadnienie": "Policzone: 200 ÷ (100 + 400) = 40%; 97,5 ÷ (5,5 + 195) = 48,63% → 49%; SPR 97,5/5,5 = 17,7. Tekst zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M9-004",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m9-l2-zaangazowanie.md:7",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:12",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:19",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:26",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:36",
+   "content/pl/exams/m9.yaml:32",
+   "content/pl/rules.yaml:766"
+  ],
+  "uzasadnienie": "Rachunek zgodny: SPR 2, bet puli → 100 ÷ (300 + 200) = 20%; ogólnie r < P′ ⇒ r ÷ (P′ + 2r) < 1/3. Wniosek „fold prawie nigdy się nie opłaca” i zakaz planu bet-fold to ocena strategiczna (zależy od zakresu rywala), nie wynik rachunku przy level math.",
+  "poprawka": "„…potrzebujesz na all-in tylko 20% equity, więc fold zwykle się nie opłaca” albo level: heuristic z rachunkiem jako uzasadnieniem.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M9-007",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:7",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:35",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:44",
+   "content/pl/exams/m9.yaml:61",
+   "content/pl/rules.yaml:790"
+  ],
+  "uzasadnienie": "Policzone: pula 5,5bb: 3 × 1/2 puli = 2,75 + 5,5 + 11 = 19,25bb; 3 × pula = 5,5 + 16,5 + 49,5 = 71,5bb; stack 97,5bb; geometryczny ((1 + 2·17,73)^(1/3) − 1)/2 = 1,158 → 1,16x. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:alpha.bet-half",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:30",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:47",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:106",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:122",
+   "content/pl/lessons/m7-l1-druga-beczka.md:130",
+   "content/pl/lessons/m8-l2-ile-blefow.md:126",
+   "content/pl/rules.yaml:453",
+   "content/pl/rules.yaml:561"
+  ],
+  "uzasadnienie": "Policzone niezależnie: alpha(ex.pot, ex.bet.half) = 0,333333; wyświetlane „33%” zgodne z formatem i bazą treści; 8 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:alpha.bet-overbet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:39",
+   "content/pl/lessons/m8-l2-ile-blefow.md:39",
+   "content/pl/lessons/m8-l2-ile-blefow.md:129"
+  ],
+  "uzasadnienie": "Policzone niezależnie: alpha(ex.pot, ex.bet.overbet) = 0,6; wyświetlane „60%” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:alpha.bet-pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:63",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:64",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:65",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:124",
+   "content/pl/lessons/m7-l1-druga-beczka.md:38",
+   "content/pl/lessons/m8-l2-ile-blefow.md:54",
+   "content/pl/lessons/m8-l2-ile-blefow.md:56",
+   "content/pl/lessons/m8-l2-ile-blefow.md:93",
+   "content/pl/lessons/m8-l2-ile-blefow.md:128",
+   "content/pl/lessons/m8-l2-ile-blefow.md:135"
+  ],
+  "uzasadnienie": "Policzone niezależnie: alpha(ex.pot, ex.bet.pot) = 0,5; wyświetlane „50%” zgodne z formatem i bazą treści; 10 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:alpha.bet-quarter",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:63",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:63",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:64",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:65",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:120"
+  ],
+  "uzasadnienie": "Policzone niezależnie: alpha(ex.pot, ex.bet.quarter) = 0,2; wyświetlane „20%” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:alpha.bet-third",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:15",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:121",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:17",
+   "content/pl/lessons/m8-l2-ile-blefow.md:125",
+   "content/pl/rules.yaml:446"
+  ],
+  "uzasadnienie": "Policzone niezależnie: alpha(ex.third.pot, ex.third.bet) = 0,25; wyświetlane „25%” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:alpha.bet-three-quarters",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:54",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:54",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:55",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:56",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:123",
+   "content/pl/lessons/m7-l1-druga-beczka.md:103",
+   "content/pl/lessons/m7-l1-druga-beczka.md:130",
+   "content/pl/lessons/m8-l2-ile-blefow.md:30",
+   "content/pl/lessons/m8-l2-ile-blefow.md:127",
+   "content/pl/rules.yaml:561"
+  ],
+  "uzasadnienie": "Policzone niezależnie: alpha(ex.pot, ex.bet.three-quarters) = 0,428571; wyświetlane „43%” zgodne z formatem i bazą treści; 10 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:alpha.cbet.big",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m10.yaml:63",
+   "content/pl/exams/m10.yaml:64",
+   "content/pl/exams/m10.yaml:65",
+   "content/pl/exams/m5.yaml:50",
+   "content/pl/exams/m5.yaml:50",
+   "content/pl/exams/m5.yaml:51",
+   "content/pl/exams/m5.yaml:52",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:51",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:58",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:109",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:95",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:102",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:130",
+   "content/pl/rules.yaml:418",
+   "content/pl/rules.yaml:905"
+  ],
+  "uzasadnienie": "Policzone niezależnie: alpha(ex.pot, cbet.ex.big) = 0,428571; wyświetlane „43%” zgodne z formatem i bazą treści; 15 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:alpha.cbet.small",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m10.yaml:63",
+   "content/pl/exams/m10.yaml:66",
+   "content/pl/exams/m5.yaml:51",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:42",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:49",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:49",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:50",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:109",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:88",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:95",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:102",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:130",
+   "content/pl/rules.yaml:418",
+   "content/pl/rules.yaml:905"
+  ],
+  "uzasadnienie": "Policzone niezależnie: alpha(ex.pot, cbet.ex.small) = 0,25; wyświetlane „25%” zgodne z formatem i bazą treści; 14 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:alpha.vs-3bet-ip-size",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m10.yaml:73",
+   "content/pl/exams/m4.yaml:61",
+   "content/pl/exams/m4.yaml:62",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:68",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:75",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:78",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:115",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:16",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:98",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100",
+   "content/pl/rules.yaml:266",
+   "content/pl/rules.yaml:914"
+  ],
+  "uzasadnienie": "Policzone niezależnie: alpha(vs3bet.win, pf.3bet.ip-total) = 0,652174; wyświetlane „65,2%” zgodne z formatem i bazą treści; 12 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:bb.call.vs-btn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m4.yaml:42",
+   "content/pl/lessons/m4-l2-obrona-bb.md:16",
+   "content/pl/lessons/m4-l2-obrona-bb.md:16"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(pf.open-size, pf.blind.bb) = 1,5; wyświetlane „1,5bb” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:bb.call.vs-sb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l2-obrona-bb.md:24"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(pf.open-size-sb, pf.blind.bb) = 2; wyświetlane „2bb” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:bb.pot-after.vs-btn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m4.yaml:42",
+   "content/pl/exams/m5.yaml:47",
+   "content/pl/exams/m9.yaml:62",
+   "content/pl/lessons/m4-l2-obrona-bb.md:16",
+   "content/pl/lessons/m4-l2-obrona-bb.md:16",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:106",
+   "content/pl/lessons/m9-l1-spr.md:13",
+   "content/pl/lessons/m9-l1-spr.md:16",
+   "content/pl/lessons/m9-l1-spr.md:17",
+   "content/pl/lessons/m9-l1-spr.md:54",
+   "content/pl/lessons/m9-l1-spr.md:61",
+   "content/pl/lessons/m9-l1-spr.md:64",
+   "content/pl/lessons/m9-l1-spr.md:101",
+   "content/pl/lessons/m9-l1-spr.md:115",
+   "content/pl/lessons/m9-l1-spr.md:115",
+   "content/pl/lessons/m9-l1-spr.md:123",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:36"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(pf.open-size, pf.open-size, pf.blind.sb) = 5,5; wyświetlane „5,5bb” zgodne z formatem i bazą treści; 17 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:bb.pot-after.vs-sb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l2-obrona-bb.md:24"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(pf.open-size-sb, pf.open-size-sb) = 6; wyświetlane „6bb” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:bb.pot-before.vs-btn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: sum(pf.blind.sb, pf.blind.bb, pf.blind.bb) = 2,5; wyświetlane „2,5bb” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:bb.pot-before.vs-sb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: sum(pf.blind.bb, pf.blind.bb) = 2; wyświetlane „2bb” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:bluff.ex.bluffs",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l2-ile-blefow.md:92",
+   "content/pl/lessons/m8-l2-ile-blefow.md:92",
+   "content/pl/lessons/m8-l2-ile-blefow.md:94"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(bluff.ex.range, bluff.share.bet-pot) = 5; wyświetlane „5” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:bluff.ex.value",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l2-ile-blefow.md:92",
+   "content/pl/lessons/m8-l2-ile-blefow.md:94"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(bluff.ex.range, bluff.ex.bluffs) = 10; wyświetlane „10” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:bluff.ex.wrong-alpha",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l2-ile-blefow.md:93"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(bluff.ex.range, alpha.bet-pot) = 7,5; wyświetlane „7,5” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:bluff.share.bet-half",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l2-ile-blefow.md:22",
+   "content/pl/lessons/m8-l2-ile-blefow.md:126"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(ex.pot, ex.bet.half) = 0,25; wyświetlane „25%” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:bluff.share.bet-overbet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l2-ile-blefow.md:38",
+   "content/pl/lessons/m8-l2-ile-blefow.md:38",
+   "content/pl/lessons/m8-l2-ile-blefow.md:39",
+   "content/pl/lessons/m8-l2-ile-blefow.md:40",
+   "content/pl/lessons/m8-l2-ile-blefow.md:129"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(ex.pot, ex.bet.overbet) = 0,375; wyświetlane „37,5%” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:bluff.share.bet-pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m8.yaml:37",
+   "content/pl/lessons/m8-l2-ile-blefow.md:15",
+   "content/pl/lessons/m8-l2-ile-blefow.md:22",
+   "content/pl/lessons/m8-l2-ile-blefow.md:40",
+   "content/pl/lessons/m8-l2-ile-blefow.md:47",
+   "content/pl/lessons/m8-l2-ile-blefow.md:49",
+   "content/pl/lessons/m8-l2-ile-blefow.md:54",
+   "content/pl/lessons/m8-l2-ile-blefow.md:72",
+   "content/pl/lessons/m8-l2-ile-blefow.md:83",
+   "content/pl/lessons/m8-l2-ile-blefow.md:92",
+   "content/pl/lessons/m8-l2-ile-blefow.md:119",
+   "content/pl/lessons/m8-l2-ile-blefow.md:128",
+   "content/pl/lessons/m8-l2-ile-blefow.md:135",
+   "content/pl/lessons/m8-l4-bluff-catching.md:48",
+   "content/pl/lessons/m8-l4-bluff-catching.md:114",
+   "content/pl/rules.yaml:670",
+   "content/pl/rules.yaml:678"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(ex.pot, ex.bet.pot) = 0,333333; wyświetlane „33%” zgodne z formatem i bazą treści; 17 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:bluff.share.bet-third",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l2-ile-blefow.md:47",
+   "content/pl/lessons/m8-l2-ile-blefow.md:48",
+   "content/pl/lessons/m8-l2-ile-blefow.md:49",
+   "content/pl/lessons/m8-l2-ile-blefow.md:125",
+   "content/pl/rules.yaml:678"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(ex.third.pot, ex.third.bet) = 0,2; wyświetlane „20%” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:bluff.share.bet-three-quarters",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l2-ile-blefow.md:29",
+   "content/pl/lessons/m8-l2-ile-blefow.md:29",
+   "content/pl/lessons/m8-l2-ile-blefow.md:30",
+   "content/pl/lessons/m8-l2-ile-blefow.md:31",
+   "content/pl/lessons/m8-l2-ile-blefow.md:127"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(ex.pot, ex.bet.three-quarters) = 0,3; wyświetlane „30%” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:br.base.bb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:15",
+   "content/pl/lessons/m12-l4-bankroll.md:20",
+   "content/pl/lessons/m12-l4-bankroll.md:22"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(br.bi.base, format.stack) = 3000; wyświetlane „3000bb” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:br.bi.move-down",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:83",
+   "content/pl/exams/m12.yaml:83",
+   "content/pl/lessons/m12-l4-bankroll.md:23",
+   "content/pl/lessons/m12-l4-bankroll.md:49",
+   "content/pl/lessons/m12-l4-bankroll.md:58",
+   "content/pl/lessons/m12-l4-bankroll.md:59",
+   "content/pl/lessons/m12-l4-bankroll.md:67",
+   "content/pl/lessons/m12-l4-bankroll.md:69",
+   "content/pl/lessons/m12-l4-bankroll.md:125",
+   "content/pl/lessons/m12-l4-bankroll.md:142",
+   "content/pl/rules.yaml:1021",
+   "content/pl/rules.yaml:1035",
+   "content/pl/rules.yaml:1037"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(br.bi.base, ex.frac.half) = 15; wyświetlane „15” zgodne z formatem i bazą treści; 13 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:br.ex.after-dd",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:56",
+   "content/pl/lessons/m12-l4-bankroll.md:58"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(br.bi.base, dd.bi.small) = 20; wyświetlane „20” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:br.ex.below",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:47",
+   "content/pl/lessons/m12-l4-bankroll.md:50"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(br.bi.move-down, math.one) = 14; wyświetlane „14” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cards.board.flop",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m5.yaml:40",
+   "content/pl/lessons/m5-l2-przewagi.md:64",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:65",
+   "content/pl/rules.yaml:377"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 3 (zasady: 3 karty na flopie); wyświetlane „3” zgodne z formatem i bazą treści; 4 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cards.board.turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l1-outy.md:132"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 4 (zasady: 4 karty na stole na turnie); wyświetlane „4” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cards.deck",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l1-outy.md:132"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 52 (zasady: talia); wyświetlane „52” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cards.hole",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l1-outy.md:132"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 2 (zasady: 2 karty w ręce); wyświetlane „2” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cards.per-suit",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:11",
+   "content/pl/exams/m2.yaml:13",
+   "content/pl/exams/m2.yaml:13",
+   "content/pl/lessons/m2-l1-outy.md:16",
+   "content/pl/lessons/m2-l1-outy.md:16",
+   "content/pl/lessons/m2-l1-outy.md:17",
+   "content/pl/lessons/m2-l1-outy.md:17",
+   "content/pl/lessons/m2-l1-outy.md:110",
+   "content/pl/rules.yaml:82"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 13 (zasady: 13 rang w kolorze); wyświetlane „13” zgodne z formatem i bazą treści; 9 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cards.suits",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:21",
+   "content/pl/exams/m2.yaml:31",
+   "content/pl/exams/m8.yaml:65",
+   "content/pl/exams/m8.yaml:65",
+   "content/pl/lessons/m2-l1-outy.md:26",
+   "content/pl/lessons/m8-l3-blokery.md:24",
+   "content/pl/lessons/m8-l3-blokery.md:24"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 4 (zasady: 4 kolory); wyświetlane „4” zgodne z formatem i bazą treści; 7 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cards.two-hands",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: product(cards.hole, ex.hands.two) = 4; wyświetlane „4” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cards.unseen.flop",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:48",
+   "content/pl/lessons/m2-l1-outy.md:54",
+   "content/pl/lessons/m2-l1-outy.md:129"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(cards.deck, cards.hole, cards.board.flop) = 47; wyświetlane „47” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cards.unseen.preflop",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l2-przewagi.md:64",
+   "content/pl/lessons/m5-l2-przewagi.md:96",
+   "content/pl/rules.yaml:377"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(cards.deck, cards.hole) = 50; wyświetlane „50” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cards.unseen.preflop.rest",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: diff(cards.unseen.preflop, math.one) = 49; wyświetlane „49” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cards.unseen.turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:56",
+   "content/pl/exams/m2.yaml:89",
+   "content/pl/lessons/m2-l1-outy.md:35",
+   "content/pl/lessons/m2-l1-outy.md:37",
+   "content/pl/lessons/m2-l1-outy.md:90",
+   "content/pl/lessons/m2-l1-outy.md:132",
+   "content/pl/lessons/m2-l1-outy.md:132",
+   "content/pl/lessons/m7-l1-druga-beczka.md:65",
+   "content/pl/lessons/m7-l3-implied-odds.md:15",
+   "content/pl/lessons/m7-l3-implied-odds.md:46",
+   "content/pl/lessons/m7-l3-implied-odds.md:49",
+   "content/pl/lessons/m7-l3-implied-odds.md:124"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(cards.deck, cards.hole, cards.board.turn) = 46; wyświetlane „46” zgodne z formatem i bazą treści; 12 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cards.unseen.two-hands",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l4-bez-pozycji.md:65"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(cards.deck, cards.two-hands) = 48; wyświetlane „48” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cbet.btn.big",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m5.yaml:47",
+   "content/pl/exams/m5.yaml:50",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:18",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:50",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:59",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:77"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(bb.pot-after.vs-btn, cbet.size.big) = 4,125; wyświetlane „4,1bb” zgodne z formatem i bazą treści; 6 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cbet.btn.small",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m5.yaml:51",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:17",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:49",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:60",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:110",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:76"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(bb.pot-after.vs-btn, cbet.size.small) = 1,83333; wyświetlane „1,8bb” zgodne z formatem i bazą treści; 6 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cbet.ex.big",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:93",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:95",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:95",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:95"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(ex.pot, cbet.size.big) = 75; wyświetlane „75” zgodne z formatem i bazą treści; 4 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cbet.ex.small",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:40",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:42",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:42",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:86",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:88",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:88",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:88"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(ex.pot, cbet.size.small) = 33,3333; wyświetlane „33” zgodne z formatem i bazą treści; 7 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cbet.oop.a94.bet",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l4-bez-pozycji.md:36",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:37"
+  ],
+  "uzasadnienie": "Rachunek 1 − 0,96 = 4% zgodny, a „mniej niż 4%” zgodne z „check over 96%”. Ale wejście (96%) to cytat serwisu szkoleniowego (szczebel 4), więc szczebel 1 w rejestrze opisuje tylko odejmowanie, nie samo twierdzenie.",
+  "poprawka": "W rejestrze: szczebel 4 dla twierdzenia (źródło: serwis szkoleniowy, A94r), rachunek jako drugie źródło.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:combos.kinds",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l2-rece-startowe.md:59",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:84"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(combos.kinds.pair, combos.kinds.suited, combos.kinds.offsuit) = 169; wyświetlane „169” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:combos.kinds.offsuit",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l2-rece-startowe.md:59"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 78 (kombinatoryka: C(13,2) par różnych rang); wyświetlane „78” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:combos.kinds.pair",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l2-rece-startowe.md:59"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 13 (kombinatoryka: 13 rang, jedna para na rangę); wyświetlane „13” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:combos.kinds.suited",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l2-rece-startowe.md:59"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 78 (kombinatoryka: C(13,2) par różnych rang); wyświetlane „78” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:combos.offsuit",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l2-rece-startowe.md:59"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 12 (kombinatoryka: 4×3); wyświetlane „12” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:combos.pair",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l2-rece-startowe.md:59",
+   "content/pl/lessons/m8-l3-blokery.md:29",
+   "content/pl/lessons/m8-l3-blokery.md:100",
+   "content/pl/rules.yaml:710"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 6 (kombinatoryka: C(4,2)); wyświetlane „6” zgodne z formatem i bazą treści; 4 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:combos.pair.one-blocked",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l3-blokery.md:31",
+   "content/pl/lessons/m8-l3-blokery.md:100",
+   "content/pl/rules.yaml:710"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 3 (kombinatoryka: C(3,2), trzymasz jedną kartę danej rangi); wyświetlane „3” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:combos.suited",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l2-rece-startowe.md:59"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 4 (kombinatoryka: 4 kolory); wyświetlane „4” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:combos.total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l2-rece-startowe.md:59"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 1326 (kombinatoryka: C(52,2)); wyświetlane „1326” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:combos.unpaired",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m8.yaml:62",
+   "content/pl/lessons/m8-l3-blokery.md:22",
+   "content/pl/lessons/m8-l3-blokery.md:40",
+   "content/pl/lessons/m8-l3-blokery.md:99",
+   "content/pl/rules.yaml:710"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(combos.suited, combos.offsuit) = 16; wyświetlane „16” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:combos.unpaired.both-blocked",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l3-blokery.md:38",
+   "content/pl/lessons/m8-l3-blokery.md:38",
+   "content/pl/lessons/m8-l3-blokery.md:102"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(pair.outs.per-rank, pair.outs.per-rank) = 9; wyświetlane „9” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:combos.unpaired.one-blocked",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m8.yaml:65",
+   "content/pl/lessons/m8-l3-blokery.md:24",
+   "content/pl/lessons/m8-l3-blokery.md:39",
+   "content/pl/lessons/m8-l3-blokery.md:99",
+   "content/pl/rules.yaml:710"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(pair.outs.per-rank, cards.suits) = 12; wyświetlane „12” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:commit.after-half.call",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l2-zaangazowanie.md:20",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:22",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:22",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:22",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:91"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(commit.stack, ex.bet.half) = 150; wyświetlane „150” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:commit.after-pot.call",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l2-zaangazowanie.md:13",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:15",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:15",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:15",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:92"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(commit.stack, ex.bet.pot) = 100; wyświetlane „100” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:commit.stack",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:90",
+   "content/pl/lessons/m9-l1-spr.md:92",
+   "content/pl/lessons/m9-l1-spr.md:92",
+   "content/pl/lessons/m9-l1-spr.md:92",
+   "content/pl/lessons/m9-l1-spr.md:92",
+   "content/pl/lessons/m9-l1-spr.md:92",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:13",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:20",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:86",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:90",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:82"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(ex.pot, spr.commit) = 200; wyświetlane „200” zgodne z formatem i bazą treści; 11 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:dd.p.big.100k",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:74",
+   "content/pl/lessons/m12-l1-wariancja.md:75",
+   "content/pl/lessons/m12-l1-wariancja.md:76",
+   "content/pl/lessons/m12-l1-wariancja.md:134"
+  ],
+  "uzasadnienie": "Własna symulacja (60 tys. przebiegów, bloki 100 rąk N(wr, 80), spadek od szczytu): 27,6% wobec 27%; przy krokach po 10 rąk wyżej (97%/31%), co lekcja ujawnia w notce. 4 miejsc zgodnych.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:dd.p.big.100k.wr-low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:74",
+   "content/pl/lessons/m12-l1-wariancja.md:75",
+   "content/pl/lessons/m12-l1-wariancja.md:134"
+  ],
+  "uzasadnienie": "Własna symulacja (60 tys. przebiegów, bloki 100 rąk N(wr, 80), spadek od szczytu): 58,6% wobec 58%; przy krokach po 10 rąk wyżej (97%/31%), co lekcja ujawnia w notce. 3 miejsc zgodnych.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:dd.p.small.100k",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:65",
+   "content/pl/lessons/m12-l1-wariancja.md:65",
+   "content/pl/lessons/m12-l1-wariancja.md:66",
+   "content/pl/lessons/m12-l1-wariancja.md:84",
+   "content/pl/lessons/m12-l1-wariancja.md:133",
+   "content/pl/lessons/m12-l4-bankroll.md:59",
+   "content/pl/rules.yaml:965"
+  ],
+  "uzasadnienie": "Własna symulacja (60 tys. przebiegów, bloki 100 rąk N(wr, 80), spadek od szczytu): 94,8% wobec 95%; przy krokach po 10 rąk wyżej (97%/31%), co lekcja ujawnia w notce. 7 miejsc zgodnych.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:dd.p.small.100k.wr-low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:133"
+  ],
+  "uzasadnienie": "Własna symulacja (60 tys. przebiegów, bloki 100 rąk N(wr, 80), spadek od szczytu): 99,1% wobec 99%; przy krokach po 10 rąk wyżej (97%/31%), co lekcja ujawnia w notce. 1 miejsc zgodnych.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:dd.p.small.20k",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:66",
+   "content/pl/lessons/m12-l1-wariancja.md:133"
+  ],
+  "uzasadnienie": "Własna symulacja (60 tys. przebiegów, bloki 100 rąk N(wr, 80), spadek od szczytu): 40,0% wobec 40%; przy krokach po 10 rąk wyżej (97%/31%), co lekcja ujawnia w notce. 2 miejsc zgodnych.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:draw.combo.overlap",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:32",
+   "content/pl/lessons/m7-l3-implied-odds.md:32"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 2 (kombinatoryka: dwie karty strita w kolorze drawa są już poli); wyświetlane „2” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:draw.flush.seen",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:11",
+   "content/pl/exams/m2.yaml:11",
+   "content/pl/exams/m2.yaml:13",
+   "content/pl/lessons/m2-l1-outy.md:16",
+   "content/pl/lessons/m2-l1-outy.md:16",
+   "content/pl/lessons/m2-l1-outy.md:17",
+   "content/pl/lessons/m2-l1-outy.md:18",
+   "content/pl/lessons/m2-l1-outy.md:18",
+   "content/pl/lessons/m2-l1-outy.md:110",
+   "content/pl/lessons/m2-l1-outy.md:110",
+   "content/pl/rules.yaml:80",
+   "content/pl/rules.yaml:82"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 4 (definicja: draw do koloru to 4 widoczne karty w kolorze); wyświetlane „4” zgodne z formatem i bazą treści; 12 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:draw.gutshot.ranks",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:21"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 1 (definicja: gutshot domyka jedna ranga); wyświetlane „1” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:draw.oesd.ranks",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:23",
+   "content/pl/exams/m2.yaml:31",
+   "content/pl/lessons/m2-l1-outy.md:26",
+   "content/pl/lessons/m2-l1-outy.md:28"
+  ],
+  "uzasadnienie": "Policzone niezależnie: wartość 2 (definicja: strit otwarty z obu stron domyka każda z dwóch ra); wyświetlane „2” zgodne z formatem i bazą treści; 4 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.bb-vs-btn-open",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m4.yaml:42",
+   "content/pl/lessons/m4-l2-obrona-bb.md:16",
+   "content/pl/lessons/m4-l2-obrona-bb.md:25",
+   "content/pl/lessons/m4-l2-obrona-bb.md:31",
+   "content/pl/lessons/m4-l2-obrona-bb.md:69",
+   "content/pl/rules.yaml:239"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(bb.pot-before.vs-btn, bb.call.vs-btn) = 0,272727; wyświetlane „27%” zgodne z formatem i bazą treści; 6 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.bb-vs-sb-open",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m4.yaml:44",
+   "content/pl/lessons/m4-l2-obrona-bb.md:24",
+   "content/pl/lessons/m4-l2-obrona-bb.md:24",
+   "content/pl/lessons/m4-l2-obrona-bb.md:83",
+   "content/pl/rules.yaml:322"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(bb.pot-before.vs-sb, bb.call.vs-sb) = 0,333333; wyświetlane „33%” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.bet-half",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:45",
+   "content/pl/exams/m12.yaml:46",
+   "content/pl/exams/m12.yaml:47",
+   "content/pl/exams/m2.yaml:98",
+   "content/pl/lessons/m10-l4-rake.md:51",
+   "content/pl/lessons/m10-l4-rake.md:56",
+   "content/pl/lessons/m10-l4-rake.md:114",
+   "content/pl/lessons/m2-l2-pot-odds.md:43",
+   "content/pl/lessons/m2-l2-pot-odds.md:43",
+   "content/pl/lessons/m2-l2-pot-odds.md:44",
+   "content/pl/lessons/m2-l2-pot-odds.md:86",
+   "content/pl/lessons/m2-l2-pot-odds.md:93",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:31",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:122",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:108",
+   "content/pl/lessons/m7-l2-polaryzacja.md:131",
+   "content/pl/lessons/m7-l3-implied-odds.md:58",
+   "content/pl/lessons/m7-l3-implied-odds.md:75",
+   "content/pl/lessons/m8-l4-bluff-catching.md:32",
+   "content/pl/lessons/m8-l4-bluff-catching.md:81",
+   "content/pl/lessons/m8-l4-bluff-catching.md:111",
+   "content/pl/rules.yaml:97",
+   "content/pl/rules.yaml:946"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(ex.pot, ex.bet.half) = 0,25; wyświetlane „25%” zgodne z formatem i bazą treści; 23 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.bet-half.rake",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:51",
+   "content/pl/lessons/m10-l4-rake.md:58",
+   "content/pl/lessons/m10-l4-rake.md:59",
+   "content/pl/lessons/m10-l4-rake.md:60",
+   "content/pl/lessons/m10-l4-rake.md:114",
+   "content/pl/rules.yaml:946"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(ex.bet.half, rake.ex.pot-after) = 0,263158; wyświetlane „26,3%” zgodne z formatem i bazą treści; 6 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.bet-overbet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:40"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(ex.pot, ex.bet.overbet) = 0,375; wyświetlane „37,5%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.bet-pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m10.yaml:82",
+   "content/pl/exams/m2.yaml:80",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:40",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:41",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:42",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:97",
+   "content/pl/lessons/m2-l2-pot-odds.md:16",
+   "content/pl/lessons/m2-l2-pot-odds.md:25",
+   "content/pl/lessons/m2-l2-pot-odds.md:25",
+   "content/pl/lessons/m2-l2-pot-odds.md:26",
+   "content/pl/lessons/m2-l2-pot-odds.md:45",
+   "content/pl/lessons/m2-l2-pot-odds.md:65",
+   "content/pl/lessons/m2-l2-pot-odds.md:92",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:124",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:34",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:35",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:110",
+   "content/pl/lessons/m7-l2-polaryzacja.md:90",
+   "content/pl/lessons/m7-l2-polaryzacja.md:104",
+   "content/pl/lessons/m7-l2-polaryzacja.md:133",
+   "content/pl/lessons/m7-l3-implied-odds.md:85",
+   "content/pl/lessons/m7-l3-implied-odds.md:86",
+   "content/pl/lessons/m8-l2-ile-blefow.md:74",
+   "content/pl/lessons/m8-l4-bluff-catching.md:25",
+   "content/pl/lessons/m8-l4-bluff-catching.md:41",
+   "content/pl/lessons/m8-l4-bluff-catching.md:42",
+   "content/pl/lessons/m8-l4-bluff-catching.md:50",
+   "content/pl/lessons/m8-l4-bluff-catching.md:51",
+   "content/pl/lessons/m8-l4-bluff-catching.md:112",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:96",
+   "content/pl/rules.yaml:105",
+   "content/pl/rules.yaml:479",
+   "content/pl/rules.yaml:671",
+   "content/pl/rules.yaml:718"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(ex.pot, ex.bet.pot) = 0,333333; wyświetlane „33%” zgodne z formatem i bazą treści; 34 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.bet-quarter",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:31",
+   "content/pl/lessons/m2-l2-pot-odds.md:35",
+   "content/pl/lessons/m2-l2-pot-odds.md:36",
+   "content/pl/lessons/m2-l2-pot-odds.md:94",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:120",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:26",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:106",
+   "content/pl/lessons/m7-l2-polaryzacja.md:45",
+   "content/pl/lessons/m7-l2-polaryzacja.md:80",
+   "content/pl/lessons/m7-l2-polaryzacja.md:80",
+   "content/pl/lessons/m7-l2-polaryzacja.md:81",
+   "content/pl/lessons/m7-l2-polaryzacja.md:129",
+   "content/pl/lessons/m7-l4-probe-obrona.md:86",
+   "content/pl/lessons/m7-l4-probe-obrona.md:87",
+   "content/pl/rules.yaml:578"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(ex.pot, ex.bet.quarter) = 0,166667; wyświetlane „17%” zgodne z formatem i bazą treści; 15 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.bet-third",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m6.yaml:57",
+   "content/pl/lessons/m2-l2-pot-odds.md:15",
+   "content/pl/lessons/m2-l2-pot-odds.md:15",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:70",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:73",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:74",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:121",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:128",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:16",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:16",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:34",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:35",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:44",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:64",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:66",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:74",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:107",
+   "content/pl/lessons/m6-l3-check-raise.md:54",
+   "content/pl/lessons/m6-l3-check-raise.md:63",
+   "content/pl/lessons/m6-l3-check-raise.md:64",
+   "content/pl/lessons/m6-l3-check-raise.md:73",
+   "content/pl/lessons/m6-l3-check-raise.md:74",
+   "content/pl/lessons/m6-l3-check-raise.md:112",
+   "content/pl/lessons/m7-l2-polaryzacja.md:89",
+   "content/pl/lessons/m7-l2-polaryzacja.md:89",
+   "content/pl/lessons/m7-l2-polaryzacja.md:90",
+   "content/pl/lessons/m7-l2-polaryzacja.md:130",
+   "content/pl/lessons/m7-l2-polaryzacja.md:135",
+   "content/pl/lessons/m8-l4-bluff-catching.md:110",
+   "content/pl/rules.yaml:479",
+   "content/pl/rules.yaml:487"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(ex.third.pot, ex.third.bet) = 0,2; wyświetlane „20%” zgodne z formatem i bazą treści; 31 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.bet-third.no-call",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l2-pot-odds.md:17"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(ex.third.bet, ex.third.pot-after-bet) = 0,25; wyświetlane „25%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.bet-three-quarters",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:56",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:123",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:26",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:54",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:109",
+   "content/pl/lessons/m7-l2-polaryzacja.md:44",
+   "content/pl/lessons/m7-l2-polaryzacja.md:73",
+   "content/pl/lessons/m7-l2-polaryzacja.md:81",
+   "content/pl/lessons/m7-l2-polaryzacja.md:132",
+   "content/pl/lessons/m7-l3-implied-odds.md:40",
+   "content/pl/lessons/m7-l3-implied-odds.md:41",
+   "content/pl/lessons/m7-l4-probe-obrona.md:76",
+   "content/pl/lessons/m7-l4-probe-obrona.md:77",
+   "content/pl/lessons/m7-l4-probe-obrona.md:96",
+   "content/pl/rules.yaml:577"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(ex.pot, ex.bet.three-quarters) = 0,3; wyświetlane „30%” zgodne z formatem i bazą treści; 15 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.call-3bet-ip-size",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(vs3bet.pot-before, vs3bet.call) = 0,30303; wyświetlane „30%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.commit.after-half",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l2-zaangazowanie.md:22",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:91"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(ex.half.total, commit.after-half.call) = 0,3; wyświetlane „30%” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.commit.after-pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l2-zaangazowanie.md:15",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:27",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:30",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:31",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:39",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:92",
+   "content/pl/rules.yaml:770"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(ex.pot.after-pot-call, commit.after-pot.call) = 0,2; wyświetlane „20%” zgodne z formatem i bazą treści; 7 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.jam.3bet-ip",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:100",
+   "content/pl/lessons/m9-l1-spr.md:100",
+   "content/pl/lessons/m9-l1-spr.md:143"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(vs3bet.pot-after, spr.3bet-ip.stack) = 0,459057; wyświetlane „46%” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.jam.4bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:99",
+   "content/pl/lessons/m9-l1-spr.md:100",
+   "content/pl/lessons/m9-l1-spr.md:143",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:49",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:78",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:79",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:47"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(spr.4bet.pot, spr.4bet.stack) = 0,38806; wyświetlane „39%” zgodne z formatem i bazą treści; 7 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.jam.spr2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:92",
+   "content/pl/lessons/m9-l1-spr.md:143",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:22",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:58",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:60",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:86",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:90",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:102",
+   "content/pl/rules.yaml:753",
+   "content/pl/rules.yaml:762"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(ex.pot, commit.stack) = 0,4; wyświetlane „40%” zgodne z formatem i bazą treści; 10 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.jam.srp",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:101",
+   "content/pl/lessons/m9-l1-spr.md:143",
+   "content/pl/rules.yaml:753"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(bb.pot-after.vs-btn, spr.srp.stack) = 0,486284; wyświetlane „49%” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.vs-xr.example",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l3-check-raise.md:26",
+   "content/pl/lessons/m6-l3-check-raise.md:44",
+   "content/pl/lessons/m6-l3-check-raise.md:53",
+   "content/pl/lessons/m6-l3-check-raise.md:135",
+   "content/pl/rules.yaml:519"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(ex.third.total, xr.example.extra) = 0,291667; wyświetlane „29%” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:eq.vs-xr.too-small",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l3-check-raise.md:27",
+   "content/pl/lessons/m6-l3-check-raise.md:52",
+   "content/pl/lessons/m6-l3-check-raise.md:52",
+   "content/pl/lessons/m6-l3-check-raise.md:135",
+   "content/pl/rules.yaml:519"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(ex.third.total, xr.too-small.extra) = 0,0833333; wyświetlane „8%” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ex.bet.half",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:43",
+   "content/pl/exams/m9.yaml:33",
+   "content/pl/exams/m9.yaml:37",
+   "content/pl/lessons/m10-l4-rake.md:49",
+   "content/pl/lessons/m10-l4-rake.md:51",
+   "content/pl/lessons/m10-l4-rake.md:51",
+   "content/pl/lessons/m10-l4-rake.md:114",
+   "content/pl/lessons/m2-l2-pot-odds.md:43",
+   "content/pl/lessons/m2-l2-pot-odds.md:43",
+   "content/pl/lessons/m2-l2-pot-odds.md:44",
+   "content/pl/lessons/m2-l2-pot-odds.md:44",
+   "content/pl/lessons/m2-l2-pot-odds.md:86",
+   "content/pl/lessons/m2-l2-pot-odds.md:86",
+   "content/pl/lessons/m2-l2-pot-odds.md:86",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:27",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:29",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:45",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:47",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:47",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:106",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:106",
+   "content/pl/lessons/m7-l3-implied-odds.md:73",
+   "content/pl/lessons/m8-l2-ile-blefow.md:20",
+   "content/pl/lessons/m8-l2-ile-blefow.md:22",
+   "content/pl/lessons/m8-l2-ile-blefow.md:22",
+   "content/pl/lessons/m8-l2-ile-blefow.md:22",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:20",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:91",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:29",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:111"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(ex.pot, ex.frac.half) = 50; wyświetlane „50” zgodne z formatem i bazą treści; 30 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ex.bet.overbet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:36",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:38",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:39",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:40",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:40",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:40",
+   "content/pl/lessons/m8-l2-ile-blefow.md:36",
+   "content/pl/lessons/m8-l2-ile-blefow.md:38",
+   "content/pl/lessons/m8-l2-ile-blefow.md:38",
+   "content/pl/lessons/m8-l2-ile-blefow.md:38",
+   "content/pl/lessons/m8-l2-ile-blefow.md:40"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(ex.pot, ex.frac.overbet) = 150; wyświetlane „150” zgodne z formatem i bazą treści; 11 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ex.bet.pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m10.yaml:80",
+   "content/pl/exams/m10.yaml:82",
+   "content/pl/exams/m10.yaml:82",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:38",
+   "content/pl/lessons/m2-l2-pot-odds.md:22",
+   "content/pl/lessons/m2-l2-pot-odds.md:65",
+   "content/pl/lessons/m2-l2-pot-odds.md:65",
+   "content/pl/lessons/m2-l2-pot-odds.md:65",
+   "content/pl/lessons/m2-l2-pot-odds.md:65",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:20",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:22",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:61",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:64",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:65",
+   "content/pl/lessons/m7-l1-druga-beczka.md:38",
+   "content/pl/lessons/m7-l2-polaryzacja.md:66",
+   "content/pl/lessons/m7-l2-polaryzacja.md:102",
+   "content/pl/lessons/m7-l2-polaryzacja.md:104",
+   "content/pl/lessons/m7-l2-polaryzacja.md:104",
+   "content/pl/lessons/m7-l2-polaryzacja.md:104",
+   "content/pl/lessons/m7-l3-implied-odds.md:82",
+   "content/pl/lessons/m8-l1-value.md:81",
+   "content/pl/lessons/m8-l2-ile-blefow.md:13",
+   "content/pl/lessons/m8-l2-ile-blefow.md:15",
+   "content/pl/lessons/m8-l2-ile-blefow.md:15",
+   "content/pl/lessons/m8-l2-ile-blefow.md:15",
+   "content/pl/lessons/m8-l2-ile-blefow.md:119",
+   "content/pl/lessons/m8-l2-ile-blefow.md:119",
+   "content/pl/lessons/m8-l2-ile-blefow.md:119",
+   "content/pl/lessons/m8-l4-bluff-catching.md:23",
+   "content/pl/lessons/m8-l4-bluff-catching.md:25",
+   "content/pl/lessons/m8-l4-bluff-catching.md:25",
+   "content/pl/lessons/m8-l4-bluff-catching.md:25",
+   "content/pl/lessons/m8-l4-bluff-catching.md:25",
+   "content/pl/lessons/m8-l4-bluff-catching.md:52",
+   "content/pl/lessons/m8-l4-bluff-catching.md:52",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:13",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:92",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:13",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:15",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:15",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:20",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:22",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:97"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(ex.pot, ex.frac.pot) = 100; wyświetlane „100” zgodne z formatem i bazą treści; 44 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ex.bet.quarter",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:29",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:29",
+   "content/pl/lessons/m2-l2-pot-odds.md:32",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:61",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:63",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:63",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:63",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:65",
+   "content/pl/lessons/m7-l1-druga-beczka.md:47",
+   "content/pl/lessons/m7-l2-polaryzacja.md:45",
+   "content/pl/lessons/m7-l2-polaryzacja.md:55",
+   "content/pl/lessons/m7-l2-polaryzacja.md:78",
+   "content/pl/lessons/m7-l2-polaryzacja.md:80",
+   "content/pl/lessons/m7-l2-polaryzacja.md:80",
+   "content/pl/lessons/m7-l2-polaryzacja.md:80",
+   "content/pl/lessons/m7-l4-probe-obrona.md:83",
+   "content/pl/lessons/m8-l1-value.md:80"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(ex.pot, ex.frac.quarter) = 25; wyświetlane „25” zgodne z formatem i bazą treści; 17 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ex.bet.three-quarters",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:52",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:54",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:54",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:23",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:26",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:26",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:26",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:26",
+   "content/pl/lessons/m7-l1-druga-beczka.md:37",
+   "content/pl/lessons/m7-l1-druga-beczka.md:46",
+   "content/pl/lessons/m7-l1-druga-beczka.md:57",
+   "content/pl/lessons/m7-l1-druga-beczka.md:76",
+   "content/pl/lessons/m7-l1-druga-beczka.md:101",
+   "content/pl/lessons/m7-l1-druga-beczka.md:103",
+   "content/pl/lessons/m7-l1-druga-beczka.md:103",
+   "content/pl/lessons/m7-l2-polaryzacja.md:44",
+   "content/pl/lessons/m7-l2-polaryzacja.md:54",
+   "content/pl/lessons/m7-l2-polaryzacja.md:65",
+   "content/pl/lessons/m7-l2-polaryzacja.md:71",
+   "content/pl/lessons/m7-l2-polaryzacja.md:73",
+   "content/pl/lessons/m7-l2-polaryzacja.md:73",
+   "content/pl/lessons/m7-l2-polaryzacja.md:73",
+   "content/pl/lessons/m7-l3-implied-odds.md:37",
+   "content/pl/lessons/m7-l4-probe-obrona.md:73",
+   "content/pl/lessons/m7-l4-probe-obrona.md:93",
+   "content/pl/lessons/m7-l4-probe-obrona.md:113",
+   "content/pl/lessons/m7-l4-probe-obrona.md:116",
+   "content/pl/lessons/m8-l2-ile-blefow.md:27",
+   "content/pl/lessons/m8-l2-ile-blefow.md:29",
+   "content/pl/lessons/m8-l2-ile-blefow.md:29",
+   "content/pl/lessons/m8-l2-ile-blefow.md:29"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(ex.pot, ex.frac.three-quarters) = 75; wyświetlane „75” zgodne z formatem i bazą treści; 31 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ex.half.pot-after-bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l2-pot-odds.md:86",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:47",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:106"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(ex.pot, ex.bet.half) = 150; wyświetlane „150” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ex.half.total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:36",
+   "content/pl/lessons/m10-l4-rake.md:51",
+   "content/pl/lessons/m2-l2-pot-odds.md:43",
+   "content/pl/lessons/m2-l2-pot-odds.md:44",
+   "content/pl/lessons/m2-l2-pot-odds.md:86",
+   "content/pl/lessons/m2-l2-pot-odds.md:86",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:22",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:22"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(ex.pot, ex.bet.half, ex.bet.half) = 200; wyświetlane „200” zgodne z formatem i bazą treści; 8 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ex.pot.after-pot-call",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l2-zaangazowanie.md:15",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:15",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:15",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:22",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:97",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:98"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(ex.pot, ex.bet.pot, ex.bet.pot) = 300; wyświetlane „300” zgodne z formatem i bazą treści; 6 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ex.third.pot-after-bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l2-pot-odds.md:15",
+   "content/pl/lessons/m2-l2-pot-odds.md:17",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:15",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:73",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:116"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(ex.third.pot, ex.third.bet) = 120; wyświetlane „120” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:ex.third.total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l2-pot-odds.md:15",
+   "content/pl/lessons/m2-l2-pot-odds.md:15",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:73",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:16",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:16"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(ex.third.pot, ex.third.bet, ex.third.bet) = 150; wyświetlane „150” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m10.ci",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m10.yaml:19"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(var.z95, exam.m10.se) = 0,175308; wyświetlane „17,5%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m10.ci.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m10.yaml:19"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(exam.m10.se.p, exam.m10.ci) = 0,775308; wyświetlane „78%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m10.ci.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m10.yaml:19"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(exam.m10.se.p, exam.m10.ci) = 0,424692; wyświetlane „42%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m10.rake.after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m10.yaml:82",
+   "content/pl/exams/m10.yaml:82"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m10.rake.total, rake.ex.keep) = 285; wyświetlane „285” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m10.rake.eq",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m10.yaml:82"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(ex.bet.pot, exam.m10.rake.after) = 0,350877; wyświetlane „35,1%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m10.rake.total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m10.yaml:82"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(ex.pot, ex.bet.pot, ex.bet.pot) = 300; wyświetlane „300” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m10.se",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m10.yaml:19",
+   "content/pl/exams/m10.yaml:19"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sqrt(exam.m10.se.var) = 0,0894427; wyświetlane „8,9%” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m10.se.pq",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m10.se.p, exam.m10.se.q) = 0,24; wyświetlane „0,240” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m10.se.q",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m10.yaml:19"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(math.one, exam.m10.se.p) = 0,4; wyświetlane „40%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m10.se.var",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: quotient(exam.m10.se.pq, exam.m10.se.n) = 0,008; wyświetlane „0,008” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.bf.eq.lose",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:59"
+  ],
+  "uzasadnienie": "Policzone niezależnie: icm(exam.m11.bf.s1, exam.m11.bf.lose, exam.m11.bf.villain-after, exam.m11.bf.s4, m11.bf.p1, m11.bf.p2, m11.bf.p3) = 0,133214; wyświetlane „13,3%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.bf.eq.now",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:59"
+  ],
+  "uzasadnienie": "Policzone niezależnie: icm(exam.m11.bf.s1, exam.m11.bf.s2, exam.m11.bf.s3, exam.m11.bf.s4, m11.bf.p1, m11.bf.p2, m11.bf.p3) = 0,260706; wyświetlane „26,1%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.bf.eq.win",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:59"
+  ],
+  "uzasadnienie": "Policzone niezależnie: icm(exam.m11.bf.s1, exam.m11.bf.win, exam.m11.bf.s4, m11.bf.p1, m11.bf.p2, m11.bf.p3) = 0,356667; wyświetlane „35,7%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.bf.gain",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:57",
+   "content/pl/exams/m11.yaml:59"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(exam.m11.bf.eq.win, exam.m11.bf.eq.now) = 0,0959609; wyświetlane „9,6%” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.bf.lose",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: diff(exam.m11.bf.s2, exam.m11.bf.s3) = 1000; wyświetlane „1000” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.bf.loss",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:57",
+   "content/pl/exams/m11.yaml:59",
+   "content/pl/exams/m11.yaml:66"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(exam.m11.bf.eq.now, exam.m11.bf.eq.lose) = 0,127491; wyświetlane „12,7%” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.bf.range",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:66"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(exam.m11.bf.eq.win, exam.m11.bf.eq.lose) = 0,223452; wyświetlane „22,3%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.bf.req",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:66",
+   "content/pl/exams/m11.yaml:66",
+   "content/pl/exams/m11.yaml:67",
+   "content/pl/exams/m11.yaml:68"
+  ],
+  "uzasadnienie": "Policzone: 12,749 ÷ 22,345 = 57,06% → 57,1% zgodne. W wyjaśnieniu z wyświetlonych liczb „12,7% ÷ 22,3% ≈ 57,1%” wychodzi 56,95% (≈ 57,0%); drobna niespójność zaokrągleń.",
+  "poprawka": "Pokazać stratę i różnicę z dwoma miejscami po przecinku albo napisać „≈ 57%”.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.bf.req-chips",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:64",
+   "content/pl/exams/m11.yaml:66",
+   "content/pl/exams/m11.yaml:67",
+   "content/pl/exams/m11.yaml:68"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(exam.m11.bf.s3, exam.m11.bf.villain-after) = 0,5; wyświetlane „50%” zgodne z formatem i bazą treści; 4 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.bf.value",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:59",
+   "content/pl/exams/m11.yaml:64"
+  ],
+  "uzasadnienie": "ICM (Malmuth-Harville, gracz 2500 z 4000/2500/1500/2000, 50/30/20): strata 12,749%, zysk 9,596%, BF = 1,3286 → 1,33 zgodne. Ale zadanie liczbowe podaje 12,7% i 9,6%: 12,7 ÷ 9,6 = 1,323 → „1,32”, a tolerancja ratio 0,005 ocenia to jako błąd.",
+  "poprawka": "Wyświetlać exam.m11.bf.loss i exam.m11.bf.gain z dwoma miejscami (decimals: 2: 12,75% ÷ 9,60% = 1,33) albo przyjmować 1,32–1,33.",
+  "skutek": "S2",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.bf.villain-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: sum(exam.m11.bf.s3, exam.m11.bf.s3) = 3000; wyświetlane „3000” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.bf.win",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: sum(exam.m11.bf.s2, exam.m11.bf.s3) = 4000; wyświetlane „4000” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.call.cost",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:43",
+   "content/pl/exams/m11.yaml:43"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(exam.m11.call.depth, pf.blind.bb) = 7; wyświetlane „7bb” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.call.eq",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:43"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(exam.m11.call.cost, exam.m11.call.pot) = 0,4375; wyświetlane „43,8%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.call.pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:43",
+   "content/pl/exams/m11.yaml:43"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(exam.m11.call.depth, exam.m11.call.depth) = 16; wyświetlane „16bb” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.fe.alpha",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:25",
+   "content/pl/exams/m11.yaml:25",
+   "content/pl/exams/m11.yaml:26",
+   "content/pl/exams/m11.yaml:27",
+   "content/pl/exams/m11.yaml:34",
+   "content/pl/exams/m11.yaml:35"
+  ],
+  "uzasadnienie": "Policzone niezależnie: alpha(m11.push.10.win, exam.m11.fe.risk) = 0,785714; wyświetlane „79%” zgodne z formatem i bazą treści; 6 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.fe.alpha-ante",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:34",
+   "content/pl/exams/m11.yaml:34",
+   "content/pl/exams/m11.yaml:35"
+  ],
+  "uzasadnienie": "Policzone niezależnie: alpha(m11.push.10.win-ante, exam.m11.fe.risk) = 0,6875; wyświetlane „69%” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.fe.risk",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:25",
+   "content/pl/exams/m11.yaml:25",
+   "content/pl/exams/m11.yaml:25",
+   "content/pl/exams/m11.yaml:26",
+   "content/pl/exams/m11.yaml:34",
+   "content/pl/exams/m11.yaml:34",
+   "content/pl/exams/m11.yaml:34"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(exam.m11.fe.depth, pf.blind.sb) = 5,5; wyświetlane „5,5bb” zgodne z formatem i bazą treści; 7 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.m.orbit",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:18",
+   "content/pl/exams/m11.yaml:18"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(exam.m11.m.sb, exam.m11.m.bb, exam.m11.m.ante) = 1000; wyświetlane „1000” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m11.m.value",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m11.yaml:18"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(exam.m11.m.stack, exam.m11.m.orbit) = 2,4; wyświetlane „2,4” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.bi.pln.base",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:92"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(br.bi.base, exam.m12.bi.pln) = 1200; wyświetlane „1200” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.bi.pln.beginner",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:91",
+   "content/pl/exams/m12.yaml:91"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(br.bi.beginner, exam.m12.bi.pln) = 2000; wyświetlane „2000” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.blocks",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:7",
+   "content/pl/exams/m12.yaml:9",
+   "content/pl/exams/m12.yaml:9"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m12.hands.k, var.blocks-per-k) = 500; wyświetlane „500” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.ci.half.bi",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:9"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(var.z95, exam.m12.sd.bi) = 35,0615; wyświetlane „35” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.ci.high.bi",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:9",
+   "content/pl/exams/m12.yaml:11"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(exam.m12.exp.bi, exam.m12.ci.half.bi) = 50,0615; wyświetlane „50” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.ci.low.bi",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:9",
+   "content/pl/exams/m12.yaml:11"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(exam.m12.exp.bi, exam.m12.ci.half.bi) = -20,0615; wyświetlane „-20” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.ci.wr",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:18",
+   "content/pl/exams/m12.yaml:20"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(var.z95, exam.m12.se.wr) = 7,01231; wyświetlane „7bb/100” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.exp.bb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:9"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(var.wr.typical.high, exam.m12.blocks) = 1500; wyświetlane „1500bb” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.exp.bi",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:9",
+   "content/pl/exams/m12.yaml:9",
+   "content/pl/exams/m12.yaml:10",
+   "content/pl/exams/m12.yaml:10",
+   "content/pl/exams/m12.yaml:11"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(exam.m12.exp.bb, format.stack) = 15; wyświetlane „15” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.md.half",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:82",
+   "content/pl/exams/m12.yaml:83",
+   "content/pl/exams/m12.yaml:84"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(br.bi.beginner, ex.frac.half) = 25; wyświetlane „25” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.md.now",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:80",
+   "content/pl/exams/m12.yaml:82",
+   "content/pl/exams/m12.yaml:83"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(exam.m12.md.half, math.one) = 24; wyświetlane „24” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.need.blocks",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:27",
+   "content/pl/exams/m12.yaml:29"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m12.need.ratio, exam.m12.need.ratio) = 9604; wyświetlane „9604” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.need.hands.k",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:27",
+   "content/pl/exams/m12.yaml:27",
+   "content/pl/exams/m12.yaml:28"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(exam.m12.need.blocks, var.blocks-per-k) = 960,4; wyświetlane „960” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.need.num",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: product(var.z95, var.sd.high) = 196; wyświetlane „196,0” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.need.ratio",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:27"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(exam.m12.need.num, var.target) = 98; wyświetlane „98,0” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.ror",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:73",
+   "content/pl/exams/m12.yaml:73",
+   "content/pl/exams/m12.yaml:74",
+   "content/pl/exams/m12.yaml:75"
+  ],
+  "uzasadnienie": "Policzone niezależnie: exp(exam.m12.ror.neg) = 0,082085; wyświetlane „8,2%” zgodne z formatem i bazą treści; 4 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.ror.bb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:71",
+   "content/pl/exams/m12.yaml:73"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m12.ror.bi, format.stack) = 4000; wyświetlane „4000bb” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.ror.neg",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: product(math.minus-one, exam.m12.ror.x) = -2,5; wyświetlane „-2,50” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.ror.num",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: product(ror.two, dd.wr-low, exam.m12.ror.bb) = 16000; wyświetlane „16 000” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.ror.x",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:73",
+   "content/pl/exams/m12.yaml:73",
+   "content/pl/exams/m12.yaml:75",
+   "content/pl/exams/m12.yaml:75"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(exam.m12.ror.num, var.sd.sq) = 2,5; wyświetlane „2,50” zgodne z formatem i bazą treści; 4 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.sd.bb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:9"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(var.sd, exam.m12.sqrt-blocks) = 1788,85; wyświetlane „1789bb” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.sd.bi",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:9",
+   "content/pl/exams/m12.yaml:9",
+   "content/pl/exams/m12.yaml:10"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(exam.m12.sd.bb, format.stack) = 17,8885; wyświetlane „17,9” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.se.wr",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:18",
+   "content/pl/exams/m12.yaml:18"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(var.sd, exam.m12.sqrt-blocks) = 3,57771; wyświetlane „3,6bb/100” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.sqrt-blocks",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:18",
+   "content/pl/exams/m12.yaml:20"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sqrt(exam.m12.blocks) = 22,3607; wyświetlane „22,4” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.style.blocks",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:36"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m12.style.hands.k, var.blocks-per-k) = 20; wyświetlane „20” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.style.ci",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:36",
+   "content/pl/exams/m12.yaml:36",
+   "content/pl/exams/m12.yaml:37"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(var.z95, exam.m12.style.se) = 35,0615; wyświetlane „35bb/100” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.style.se",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:36",
+   "content/pl/exams/m12.yaml:36"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(var.sd, exam.m12.style.sqrt) = 17,8885; wyświetlane „17,9bb/100” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.style.sqrt",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:36"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sqrt(exam.m12.style.blocks) = 4,47214; wyświetlane „4,5” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.wr.ci.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:18",
+   "content/pl/exams/m12.yaml:19"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(var.wr.typical.high, exam.m12.ci.wr) = 10,0123; wyświetlane „10bb/100” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m12.wr.ci.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m12.yaml:18",
+   "content/pl/exams/m12.yaml:19"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(var.wr.typical.high, exam.m12.ci.wr) = -4,01231; wyświetlane „-4bb/100” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m13.lose",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m13.yaml:9",
+   "content/pl/exams/m13.yaml:9"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(prob.certain, exam.m13.eq) = 0,3; wyświetlane „30%” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m13.lose.big",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m13.yaml:16",
+   "content/pl/exams/m13.yaml:16",
+   "content/pl/exams/m13.yaml:18"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(prob.certain, exam.m13.eq.big) = 0,1; wyświetlane „10%” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m13.lose.of-n",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m13.yaml:9"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m13.n, exam.m13.lose) = 6; wyświetlane „6” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m13.solver.rare",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m13.yaml:23",
+   "content/pl/exams/m13.yaml:25",
+   "content/pl/exams/m13.yaml:26",
+   "content/pl/exams/m13.yaml:27"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(prob.certain, exam.m13.solver.main) = 0,1; wyświetlane „10%” zgodne z formatem i bazą treści; 4 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m13.solver.tiny",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m13.yaml:32",
+   "content/pl/exams/m13.yaml:34",
+   "content/pl/exams/m13.yaml:35",
+   "content/pl/exams/m13.yaml:36"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(prob.certain, exam.m13.solver.main2) = 0,02; wyświetlane „2%” zgodne z formatem i bazą treści; 4 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m2.half.after-bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:64"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(exam.m2.half.pot, exam.m2.half.bet) = 90; wyświetlane „90” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m2.half.bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:61",
+   "content/pl/exams/m2.yaml:63",
+   "content/pl/exams/m2.yaml:63",
+   "content/pl/exams/m2.yaml:63",
+   "content/pl/exams/m2.yaml:63",
+   "content/pl/exams/m2.yaml:64",
+   "content/pl/exams/m2.yaml:65"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m2.half.pot, ex.frac.half) = 30; wyświetlane „30” zgodne z formatem i bazą treści; 7 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m2.half.eq",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:63",
+   "content/pl/exams/m2.yaml:63"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(exam.m2.half.pot, exam.m2.half.bet) = 0,25; wyświetlane „25%” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m2.half.total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:63",
+   "content/pl/exams/m2.yaml:63",
+   "content/pl/exams/m2.yaml:64"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(exam.m2.half.pot, exam.m2.half.bet, exam.m2.half.bet) = 120; wyświetlane „120” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m2.half.wrong",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:64"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(exam.m2.half.bet, exam.m2.half.after-bet) = 0,333333; wyświetlane „33%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m2.half.wrong-pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:65"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(exam.m2.half.bet, exam.m2.half.pot) = 0,5; wyświetlane „50%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m2.pot.bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:70",
+   "content/pl/exams/m2.yaml:72",
+   "content/pl/exams/m2.yaml:72",
+   "content/pl/exams/m2.yaml:72",
+   "content/pl/exams/m2.yaml:72"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m2.pot.pot, ex.frac.pot) = 40; wyświetlane „40” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m2.pot.eq",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:72"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(exam.m2.pot.pot, exam.m2.pot.bet) = 0,333333; wyświetlane „33%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m2.pot.total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:72",
+   "content/pl/exams/m2.yaml:72"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(exam.m2.pot.pot, exam.m2.pot.bet, exam.m2.pot.bet) = 120; wyświetlane „120” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m2.third.eq",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:89",
+   "content/pl/exams/m2.yaml:90"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(exam.m2.third.pot, exam.m2.third.bet) = 0,2; wyświetlane „20%” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m2.third.total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m2.yaml:89"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(exam.m2.third.pot, exam.m2.third.bet, exam.m2.third.bet) = 200; wyświetlane „200” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m4.4bet.oop.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m4.yaml:91",
+   "content/pl/exams/m4.yaml:91"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(pf.3bet.ip-total, pf.4bet.size-oop.high) = 22,5; wyświetlane „22,5bb” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m4.bb-vs-sb.3bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m4.yaml:52",
+   "content/pl/exams/m4.yaml:52",
+   "content/pl/exams/m4.yaml:54"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(pf.open-size-sb, pf.3bet.size-ip) = 9; wyświetlane „9bb” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m4.bb-vs-sb.3bet-oop-size",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m4.yaml:53"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(pf.open-size-sb, pf.3bet.size-oop) = 12; wyświetlane „12bb” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m4.iso.three",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m4.yaml:109",
+   "content/pl/exams/m4.yaml:110"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(pf.iso.base, pf.iso.per-limper, pf.iso.per-limper, pf.iso.per-limper) = 6; wyświetlane „6bb” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m4.iso.two-oop",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m4.yaml:101"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(pf.iso.base, pf.iso.per-limper, pf.iso.per-limper, pf.iso.oop-extra) = 6; wyświetlane „6bb” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m5.cards.three",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: product(cards.hole, exam.m5.hands.three) = 6; wyświetlane „6” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m5.miss.three",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m5.yaml:40",
+   "content/pl/exams/m5.yaml:40"
+  ],
+  "uzasadnienie": "Policzone niezależnie: missProbability(exam.m5.pair.outs.three, exam.m5.unseen.three, cards.board.flop) = 0,21581; wyświetlane „21,6%” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m5.pair.outs.three",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m5.yaml:40"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(pair.outs.unpaired, exam.m5.hands.three) = 18; wyświetlane „18” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m5.unseen.three",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m5.yaml:40"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(cards.deck, exam.m5.cards.three) = 46; wyświetlane „46” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m6.alpha.quarter",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m6.yaml:17",
+   "content/pl/exams/m6.yaml:17",
+   "content/pl/exams/m6.yaml:18",
+   "content/pl/exams/m6.yaml:19",
+   "content/pl/exams/m6.yaml:48"
+  ],
+  "uzasadnienie": "Policzone niezależnie: alpha(exam.m6.pot, exam.m6.bet.quarter) = 0,2; wyświetlane „20%” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m6.bet.quarter",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m6.yaml:15",
+   "content/pl/exams/m6.yaml:17",
+   "content/pl/exams/m6.yaml:17",
+   "content/pl/exams/m6.yaml:44",
+   "content/pl/exams/m6.yaml:47",
+   "content/pl/exams/m6.yaml:47",
+   "content/pl/exams/m6.yaml:47",
+   "content/pl/exams/m6.yaml:83",
+   "content/pl/exams/m6.yaml:86"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m6.pot, ex.frac.quarter) = 20; wyświetlane „20” zgodne z formatem i bazą treści; 9 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m6.bet.three-quarters",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m6.yaml:8",
+   "content/pl/exams/m6.yaml:10",
+   "content/pl/exams/m6.yaml:44",
+   "content/pl/exams/m6.yaml:47",
+   "content/pl/exams/m6.yaml:47",
+   "content/pl/exams/m6.yaml:47"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m6.pot, ex.frac.three-quarters) = 60; wyświetlane „60” zgodne z formatem i bazą treści; 6 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m6.eq.quarter",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m6.yaml:19",
+   "content/pl/exams/m6.yaml:47",
+   "content/pl/exams/m6.yaml:47",
+   "content/pl/exams/m6.yaml:48",
+   "content/pl/exams/m6.yaml:49"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(exam.m6.pot, exam.m6.bet.quarter) = 0,166667; wyświetlane „16,7%” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m6.eq.three-quarters",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m6.yaml:47",
+   "content/pl/exams/m6.yaml:47",
+   "content/pl/exams/m6.yaml:48",
+   "content/pl/exams/m6.yaml:49"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(exam.m6.pot, exam.m6.bet.three-quarters) = 0,3; wyświetlane „30%” zgodne z formatem i bazą treści; 4 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m6.mdf.quarter",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m6.yaml:18",
+   "content/pl/exams/m6.yaml:27"
+  ],
+  "uzasadnienie": "Policzone niezależnie: mdf(exam.m6.pot, exam.m6.bet.quarter) = 0,8; wyświetlane „80%” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m6.mdf.three-quarters",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m6.yaml:10",
+   "content/pl/exams/m6.yaml:38"
+  ],
+  "uzasadnienie": "Policzone niezależnie: mdf(exam.m6.pot, exam.m6.bet.three-quarters) = 0,571429; wyświetlane „57%” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m6.xr",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m6.yaml:86"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m6.bet.quarter, xr.mult.example) = 90; wyświetlane „90” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m7.alpha.half",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m7.yaml:39"
+  ],
+  "uzasadnienie": "Policzone niezależnie: alpha(exam.m7.pot, exam.m7.bet.half) = 0,333333; wyświetlane „33%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m7.bet.half",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m7.yaml:37",
+   "content/pl/exams/m7.yaml:39",
+   "content/pl/exams/m7.yaml:39",
+   "content/pl/exams/m7.yaml:63",
+   "content/pl/exams/m7.yaml:65"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m7.pot, ex.frac.half) = 60; wyświetlane „60” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m7.bet.quarter",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m7.yaml:57"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m7.pot, ex.frac.quarter) = 30; wyświetlane „30” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m7.bet.three-quarters",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m7.yaml:56"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m7.pot, ex.frac.three-quarters) = 90; wyświetlane „90” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m7.eq.quarter",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m7.yaml:57"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(exam.m7.pot, exam.m7.bet.quarter) = 0,166667; wyświetlane „16,7%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m7.eq.three-quarters",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m7.yaml:56"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(exam.m7.pot, exam.m7.bet.three-quarters) = 0,3; wyświetlane „30%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m7.io.extra",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m7.yaml:65"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(exam.m7.io.need, exam.m7.io.pot-after-bet) = 105; wyświetlane „105” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m7.io.need",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m7.yaml:65"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m7.bet.half, miss.oesd.turn, inv.outs.oesd) = 285; wyświetlane „285” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m7.io.pot-after-bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m7.yaml:65"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(exam.m7.pot, exam.m7.bet.half) = 180; wyświetlane „180” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m7.oesd.clean",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m7.yaml:73",
+   "content/pl/exams/m7.yaml:73"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(outs.oesd, exam.m7.oesd.flush-cards) = 6; wyświetlane „6” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m7.oesd.flush-cards",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: wartość 2 (kombinatoryka: na stole Td 7d 2c 3h dwa z ośmiu outów do str); wyświetlane „2” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m8.bluffs",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m8.yaml:36",
+   "content/pl/exams/m8.yaml:36",
+   "content/pl/exams/m8.yaml:38"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m8.range, exam.m8.share) = 6; wyświetlane „6” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m8.bluffs.wrong-pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m8.yaml:37"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(exam.m8.range, bluff.share.bet-pot) = 7; wyświetlane „7” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m8.net.loss",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m8.yaml:10"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(exam.m8.call.better, exam.m8.call.worse) = 1; wyświetlane „1” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m8.share",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m8.yaml:29",
+   "content/pl/exams/m8.yaml:34",
+   "content/pl/exams/m8.yaml:36",
+   "content/pl/exams/m8.yaml:37",
+   "content/pl/exams/m8.yaml:38",
+   "content/pl/exams/m8.yaml:72",
+   "content/pl/exams/m8.yaml:73"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(exam.m8.pot, exam.m8.bet) = 0,285714; wyświetlane „28,6%” zgodne z formatem i bazą treści; 7 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m8.value-combos",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m8.yaml:36",
+   "content/pl/exams/m8.yaml:38"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(exam.m8.range, exam.m8.bluffs) = 15; wyświetlane „15” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m9.eq.jam",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:28"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(exam.m9.pot, exam.m9.stack.opp) = 0,444444; wyświetlane „44,4%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m9.eq.low-after-half",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:36",
+   "content/pl/exams/m9.yaml:37"
+  ],
+  "uzasadnienie": "Policzone niezależnie: requiredEquity(ex.half.total, exam.m9.low.left) = 0,25; wyświetlane „25%” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m9.geo.three",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:46"
+  ],
+  "uzasadnienie": "Policzone niezależnie: geometric(exam.m9.spr, plan.streets.three) = 0,540042; wyświetlane „54%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m9.geo.two",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:45",
+   "content/pl/exams/m9.yaml:45"
+  ],
+  "uzasadnienie": "Policzone niezależnie: geometric(exam.m9.spr, plan.streets.two) = 1; wyświetlane „100%” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m9.low.left",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:33",
+   "content/pl/exams/m9.yaml:36"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(spr.stack.low, ex.bet.half) = 100; wyświetlane „100” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m9.spr",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:10",
+   "content/pl/exams/m9.yaml:10",
+   "content/pl/exams/m9.yaml:11",
+   "content/pl/exams/m9.yaml:17",
+   "content/pl/exams/m9.yaml:19",
+   "content/pl/exams/m9.yaml:20",
+   "content/pl/exams/m9.yaml:21",
+   "content/pl/exams/m9.yaml:26",
+   "content/pl/exams/m9.yaml:43",
+   "content/pl/exams/m9.yaml:45",
+   "content/pl/exams/m9.yaml:46"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(exam.m9.stack.opp, exam.m9.pot) = 4; wyświetlane „4” zgodne z formatem i bazą treści; 11 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m9.spr.inverted",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:12"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(exam.m9.pot, exam.m9.stack.opp) = 0,25; wyświetlane „0,25” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:exam.m9.spr.wrong",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:11"
+  ],
+  "uzasadnienie": "Policzone niezależnie: quotient(exam.m9.stack.you, exam.m9.pot) = 5; wyświetlane „5” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:flop.cards.rest",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: diff(cards.board.flop, math.one) = 2; wyświetlane „2” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:flop.hit.one-pair",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l2-przewagi.md:96"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(cards.board.flop, flop.one-pair.first, flop.one-pair.rest) = 0,289592; wyświetlane „29%” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:flop.hit.unpaired",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l2-przewagi.md:64",
+   "content/pl/lessons/m5-l2-przewagi.md:80",
+   "content/pl/lessons/m5-l2-przewagi.md:96",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:67"
+  ],
+  "uzasadnienie": "Policzone niezależnie: diff(prob.certain, flop.miss.unpaired) = 0,324286; wyświetlane „32,4%” zgodne z formatem i bazą treści; 4 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:flop.miss.two",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m5.yaml:38",
+   "content/pl/exams/m5.yaml:41",
+   "content/pl/exams/m5.yaml:78",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:65",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:65",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:103",
+   "content/pl/rules.yaml:435"
+  ],
+  "uzasadnienie": "Policzone niezależnie: missProbability(pair.outs.two-hands, cards.unseen.two-hands, cards.board.flop) = 0,412812; wyświetlane „41,3%” zgodne z formatem i bazą treści; 7 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:flop.miss.unpaired",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m5.yaml:38",
+   "content/pl/exams/m5.yaml:42",
+   "content/pl/exams/m5.yaml:52",
+   "content/pl/lessons/m5-l2-przewagi.md:64",
+   "content/pl/lessons/m5-l2-przewagi.md:69",
+   "content/pl/lessons/m5-l2-przewagi.md:72",
+   "content/pl/lessons/m5-l2-przewagi.md:80",
+   "content/pl/lessons/m5-l2-przewagi.md:96",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:130",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:63",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:66",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:103",
+   "content/pl/rules.yaml:376"
+  ],
+  "uzasadnienie": "Policzone niezależnie: missProbability(pair.outs.unpaired, cards.unseen.preflop, cards.board.flop) = 0,675714; wyświetlane „67,6%” zgodne z formatem i bazą treści; 13 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:flop.one-pair.first",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: quotient(pair.outs.unpaired, cards.unseen.preflop) = 0,12; wyświetlane „0,120” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:flop.one-pair.rest",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: missProbability(pair.outs.unpaired.rest, cards.unseen.preflop.rest, flop.cards.rest) = 0,804422; wyświetlane „80,4%” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:g3b.third.flop",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:58"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(vs3bet.pot-after, cbet.size.small) = 5,49999; wyświetlane „5,5bb” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:g3b.third.flop-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: sum(vs3bet.pot-after, g3b.third.flop, g3b.third.flop) = 27,5; wyświetlane „27,5bb” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:g3b.third.river",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: product(g3b.third.turn-after, cbet.size.small) = 15,2778; wyświetlane „15,3bb” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:g3b.third.total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:75",
+   "content/pl/exams/m9.yaml:76",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:58",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:57",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:127",
+   "content/pl/rules.yaml:810"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(g3b.third.flop, g3b.third.turn, g3b.third.river) = 29,9444; wyświetlane „30bb” zgodne z formatem i bazą treści; 6 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:g3b.third.turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: product(g3b.third.flop-after, cbet.size.small) = 9,16665; wyświetlane „9,2bb” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:g3b.third.turn-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: sum(g3b.third.flop-after, g3b.third.turn, g3b.third.turn) = 45,8333; wyświetlane „45,8bb” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.3bet-ip.3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:75",
+   "content/pl/exams/m9.yaml:77",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:48",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:57",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:57",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:58",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:68",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:86",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:87",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:118",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:56",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:57",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:111",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:127",
+   "content/pl/rules.yaml:785",
+   "content/pl/rules.yaml:810"
+  ],
+  "uzasadnienie": "Policzone niezależnie: geometric(spr.3bet-ip, plan.streets.three) = 0,65142; wyświetlane „65%” zgodne z formatem i bazą treści; 16 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.3bet-ip.flop",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:57",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:57",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:87",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:122",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:56"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(vs3bet.pot-after, geo.3bet-ip.3) = 10,7484; wyświetlane „10,7bb” zgodne z formatem i bazą treści; 5 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.3bet-ip.flop-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: sum(vs3bet.pot-after, geo.3bet-ip.flop, geo.3bet-ip.flop) = 37,9969; wyświetlane „38bb” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.3bet-ip.river",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:57",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:87",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:122",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:56"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(geo.3bet-ip.turn-after, geo.3bet-ip.3) = 56,9997; wyświetlane „57bb” zgodne z formatem i bazą treści; 4 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.3bet-ip.total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:57",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:122",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:56"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(geo.3bet-ip.flop, geo.3bet-ip.turn, geo.3bet-ip.river) = 92,5; wyświetlane „92,5bb” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.3bet-ip.turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:57",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:87",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:122",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:56"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(geo.3bet-ip.flop-after, geo.3bet-ip.3) = 24,7519; wyświetlane „24,8bb” zgodne z formatem i bazą treści; 4 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.3bet-ip.turn-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: sum(geo.3bet-ip.flop-after, geo.3bet-ip.turn, geo.3bet-ip.turn) = 87,5007; wyświetlane „87,5bb” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.3bet-oop.3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:67",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:67",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:68",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:119"
+  ],
+  "uzasadnienie": "Policzone niezależnie: geometric(spr.3bet-oop, plan.streets.three) = 0,569277; wyświetlane „57%” zgodne z formatem i bazą treści; 4 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.4bet.2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:76",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:76",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:120",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:46"
+  ],
+  "uzasadnienie": "Policzone niezależnie: geometric(spr.4bet, plan.streets.two) = 0,556724; wyświetlane „56%” zgodne z formatem i bazą treści; 4 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.4bet.3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:69",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:77",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:77",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:120"
+  ],
+  "uzasadnienie": "Policzone niezależnie: geometric(spr.4bet, plan.streets.three) = 0,323439; wyświetlane „32%” zgodne z formatem i bazą treści; 4 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.ex.river",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:20",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:22",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:99"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(geo.ex.turn-after, ex.frac.pot) = 900; wyświetlane „900” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.ex.river-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:22",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:99"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(geo.ex.turn-after, geo.ex.river, geo.ex.river) = 2700; wyświetlane „2700” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.ex.stack",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:30"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(ex.pot, spr.zone.deep) = 1300; wyświetlane „1300” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.ex.total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:22",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:101"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(ex.bet.pot, geo.ex.turn, geo.ex.river) = 1300; wyświetlane „1300” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.ex.turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:20",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:22",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:98"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(ex.pot.after-pot-call, ex.frac.pot) = 300; wyświetlane „300” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.ex.turn-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:22",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:98",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:99"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(ex.pot.after-pot-call, geo.ex.turn, geo.ex.turn) = 900; wyświetlane „900” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.half.river",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:29",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:111"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(geo.half.turn-after, ex.frac.half) = 200; wyświetlane „200” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.half.stack",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:29"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(ex.pot, geo.half.spr) = 350; wyświetlane „350” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.half.total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:29",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:30",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:111"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(ex.bet.half, geo.half.turn, geo.half.river) = 350; wyświetlane „350” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.half.turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:29",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:111"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(ex.half.total, ex.frac.half) = 100; wyświetlane „100” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.half.turn-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [],
+  "uzasadnienie": "Policzone niezależnie: sum(ex.half.total, geo.half.turn, geo.half.turn) = 400; wyświetlane „400” zgodne z formatem i bazą treści; brak użycia w tekście (wartość pośrednia).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.spr2.2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l2-zaangazowanie.md:58",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:103",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:82",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:85",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:86",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:112",
+   "content/pl/rules.yaml:762"
+  ],
+  "uzasadnienie": "Policzone niezależnie: geometric(spr.commit, plan.streets.two) = 0,618034; wyświetlane „62%” zgodne z formatem i bazą treści; 7 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.spr2.flop",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l2-zaangazowanie.md:103",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:84"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(ex.pot, geo.spr2.2) = 61,8034; wyświetlane „62” zgodne z formatem i bazą treści; 2 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.spr2.flop-after",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:85"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(ex.pot, geo.spr2.flop, geo.spr2.flop) = 223,607; wyświetlane „224” zgodne z formatem i bazą treści; 1 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.spr2.total",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l2-zaangazowanie.md:103",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:84",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:86"
+  ],
+  "uzasadnienie": "Policzone niezależnie: sum(geo.spr2.flop, geo.spr2.turn) = 200; wyświetlane „200” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.spr2.turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l2-zaangazowanie.md:103",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:84",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:85"
+  ],
+  "uzasadnienie": "Policzone niezależnie: product(geo.spr2.flop-after, geo.spr2.2) = 138,197; wyświetlane „138” zgodne z formatem i bazą treści; 3 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:geo.srp.3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/exams/m9.yaml:65",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:47",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:47",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:49",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:117",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:27",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:72",
+   "content/pl/rules.yaml:794"
+  ],
+  "uzasadnienie": "Policzone niezależnie: geometric(spr.srp, plan.streets.three) = 1,15788; wyświetlane „1,16x” zgodne z formatem i bazą treści; 8 miejsc, opis wielkości zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ }
+]
