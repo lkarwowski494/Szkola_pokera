@@ -13,7 +13,7 @@ review_by: '2027-11-04'
 pointer: 'Ten sam kontakt znajdziesz w aplikacji, w ekranie „Pomoc”.'
 fallback:
   claim: H-INT-2
-  text: 'Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu, także gdy myślisz o odebraniu sobie życia, od razu dzwoń na lokalny numer alarmowy.'
+  text: 'Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu, także gdy ty albo ktoś bliski myśli o odebraniu sobie życia, od razu dzwoń na lokalny numer alarmowy.'
   online: [int-gambling-therapy]
 regions_label: 'Numery w regionach'
 regions: {}

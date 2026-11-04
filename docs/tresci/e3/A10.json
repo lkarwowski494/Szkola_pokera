@@ -1,0 +1,95 @@
+[
+  {
+    "id": "R-M12-011",
+    "cytat_znaleziony": true,
+    "werdykt_zrodla": "POPARTE",
+    "werdykt_tekstu": "CZĘŚCIOWO",
+    "skutek": "S3",
+    "zaliczone": false,
+    "miejsca": [
+      "content/pl/rules.yaml:1025-1031",
+      "content/pl/lessons/m12-l4-bankroll.md:7",
+      "content/pl/lessons/m12-l4-bankroll.md:46-51",
+      "content/pl/lessons/m12-l4-bankroll.md:55-60",
+      "content/pl/lessons/m12-l4-bankroll.md:64-69",
+      "content/pl/lessons/m12-l4-bankroll.md:137",
+      "content/pl/exams/m12.yaml:77-84"
+    ],
+    "uzasadnienie": "Wszystkie 3 cytaty internetowe (PokerSkill x2, PokerListings, PrimeDope) znalezione dosłownie w widocznym tekście; rachunek odtworzony: RoR(30 wpisowych, 3bb/100, SD 80)=e^-2,8125=6,01% → „6%”, RoR(15)=e^-1,40625=24,51% → „25%”; symulacja downswingu 10 wpisowych w 100 tys. rąk: 95,1% (5bb/100), 98,3% (3bb/100), 99,3% (2bb/100). Próg zejścia „najpóźniej przy połowie” zgodny z PokerSkill („half the roll, which is the point to move down a stake”), a wcześniejsze zejście zgodne z PrimeDope (po 10 wpisowych) i PokerListings (30 przy 3bb/100). Rozbieżność 1 (kwantyfikator): powrót wyżej. Źródło podaje warunek konieczny („Move up only when the roll supports the move at the safer floor for the new stake”), a rules.yaml:1028 i m12-l4:137 („wracasz, gdy masz pełny bankroll…”) czytają się jak wyzwalacz; PokerListings przy 3bb/100 podaje 40 wpisowych „When to move up” (niejednoznaczne, w wpisowych której stawki), więc pełny bankroll to dolna granica, nie sygnał. Rozbieżność 2 (warunek): m12-l4:49 „ryzyko utraty reszty jest kilka razy większe niż przy 30” bez winrate; stosunek RoR(14)/RoR(30)=e^(wr/2): 1,6x przy 1bb/100, 4,5x przy 3bb/100, 12x przy 5bb/100 — „kilka razy” prawdziwe tylko przy warunku reguły (3bb/100).",
+    "poprawka": "rules.yaml:1028: „…najpóźniej wtedy i wracasz najwcześniej wtedy, gdy masz pełny bankroll w {{t:buy-in|wpisowych}} wyższej {{t:stakes|stawki}}”; m12-l4:137: „Wracasz wyżej najwcześniej wtedy, gdy masz pełny bankroll…”; m12-l4:49: „Przy tylu {{t:buy-in|wpisowych}} ryzyko utraty reszty jest kilka razy większe niż przy {{n:br.bi.base}} (przy winrate {{n:var.wr.typical.high}} i SD {{n:var.sd}})”."
+  },
+  {
+    "id": "n:dd.bi.small",
+    "cytat_znaleziony": true,
+    "werdykt_zrodla": "POPARTE",
+    "werdykt_tekstu": "CZĘŚCIOWO",
+    "skutek": "S3",
+    "zaliczone": false,
+    "miejsca": [
+      "content/numbers.yaml:442",
+      "content/numbers.yaml:495",
+      "content/pl/rules.yaml:963",
+      "content/pl/rules.yaml:1029",
+      "content/pl/lessons/m12-l1-wariancja.md:63",
+      "content/pl/lessons/m12-l1-wariancja.md:65",
+      "content/pl/lessons/m12-l1-wariancja.md:81",
+      "content/pl/lessons/m12-l1-wariancja.md:83",
+      "content/pl/lessons/m12-l1-wariancja.md:84",
+      "content/pl/lessons/m12-l1-wariancja.md:133",
+      "content/pl/lessons/m12-l1-wariancja.md:137",
+      "content/pl/lessons/m12-l4-bankroll.md:56",
+      "content/pl/lessons/m12-l4-bankroll.md:59",
+      "content/pl/lessons/m12-l4-bankroll.md:137"
+    ],
+    "uzasadnienie": "Wartość 10 to parametr scenariusza (dok. 09), nie twierdzenie; źródłem jest rachunek. Symulacja odtworzona niezależnie (python3, random.gauss, 20 tys. przebiegów po 1000 bloków 100 rąk, SD 80, downswing od szczytu ≥1000bb): 95,1% przy 5bb/100 (rejestr 94,9–95,0%), 99,3% przy 2bb/100 (99,1%), 39,7% w 20 tys. rąk (39,6%); br.ex.after-dd = 30−10 = 20. Zdania z warunkiem (rules.yaml:963-965, :1029, m12-l1:65, m12-l4:58) zgodne. Rozbieżność (warunek): m12-l1:84 „Downswingi tej wielkości zdarzają się graczom wygrywającym w ok. 95% próbek 100 tys. rąk” — bez winrate i SD; 95% dotyczy 5bb/100 przy SD 80 (przy wyższym winrate mniej). Drobniej: m12-l1:83 „trafia prawie każdego gracza wygrywającego od 2 do 5bb/100” bez horyzontu 100 tys. rąk (w 20 tys. rąk to ok. 40%), a pytanie dotyczy „miesiąca”.",
+    "poprawka": "m12-l1:84: „…zdarzają się graczom wygrywającym {{n:var.wr.ex}} (SD {{n:var.sd}}) w ok. {{n:dd.p.small.100k}} próbek {{n:var.hands.k}} tys. rąk.”; m12-l1:83: „…w ciągu {{n:var.hands.k}} tys. rąk trafia prawie każdego gracza wygrywającego od {{n:dd.wr-low}} do {{n:var.wr.ex}}…”."
+  },
+  {
+    "id": "M12-L4-RAMKA",
+    "cytat_znaleziony": true,
+    "werdykt_zrodla": "POPARTE",
+    "werdykt_tekstu": "POPARTE",
+    "skutek": null,
+    "zaliczone": true,
+    "miejsca": [
+      "content/pl/lessons/m12-l4-bankroll.md:143-149",
+      "content/helplines.yaml:8",
+      "content/helplines.yaml:13-17",
+      "content/pl/lessons/m12-l4-bankroll.md:97-104",
+      "content/pl/exams/m12.yaml:82",
+      "content/pl/lessons/m12-l1-wariancja.md (ostatni akapit, odesłanie do ekranu „Pomoc”)"
+    ],
+    "uzasadnienie": "Cytaty Wiktorii, MedlinePlus i NHS znalezione dosłownie w widocznym tekście. Pięć sygnałów: dłużej niż planowane (Wiktoria „more time or money than you meant to”), odgrywanie strat (MedlinePlus/APA „make back past losses”; NHS w tekście strony: „Have you tried to win back money you have lost (chasing losses)?”), pieniądze, których nie możesz stracić, i pożyczanie (NHS), ucieczka od zmartwień (MedlinePlus „to escape problems”), ukrywanie (Wiktoria „Hiding your gambling from friends and family”). Ramka nie dodaje pewności (sygnały, nie diagnoza), po liście odsyła do pomocy ({{helplines}} → Gambling Therapy, odesłanie do ekranu „Pomoc”, zdanie H-INT-2 z numerem alarmowym), bez numerów krajowych; renderowanie helplinesMarkdown sprawdzone. Drill q-warning-sign (m12-l4:102) zgodny z kryteriami APA w MedlinePlus. Uwaga bez wpływu na wynik: cytat rejestru dla „odgrywania” (MedlinePlus, „larger amounts”) jest węższy niż sygnał; pełne poparcie daje zdanie NHS „chasing losses” z tej samej, już cytowanej strony — warto je dopisać do rejestru.",
+    "poprawka": null
+  },
+  {
+    "id": "H-INT-1",
+    "cytat_znaleziony": true,
+    "werdykt_zrodla": "POPARTE",
+    "werdykt_tekstu": "POPARTE",
+    "skutek": null,
+    "zaliczone": true,
+    "miejsca": [
+      "content/helplines.yaml:21-38",
+      "content/pl/lessons/m12-l4-bankroll.md:148 ({{helplines}})",
+      "ekran „Pomoc” (helplines.generated.ts z tego samego pliku)"
+    ],
+    "uzasadnienie": "Trzy cytaty znalezione dosłownie w widocznym tekście gamblingtherapy.org (stopka: „a global service offered by Gordon Moody, providing free practical advice and emotional support to anyone affected by gambling.”; sekcja Online Support Options: „Confidential, safe and delivered online”). Tekst „Bezpłatne porady praktyczne i wsparcie emocjonalne online dla każdego, kogo dotyka hazard; poufnie.” odpowiada źródłu; bez godzin, języków i numerów. Link tylko do domeny źródła. Uwaga bez wpływu na wynik: „poufne” strona mówi o ofercie wsparcia online (sesje z terapeutą), a „free” o całym serwisie; zestawienie w jednym zdaniu jest zgodne kierunkowo, nie obiecuje bezpłatnych sesji terapii.",
+    "poprawka": null
+  },
+  {
+    "id": "H-INT-2",
+    "cytat_znaleziony": true,
+    "werdykt_zrodla": "POPARTE",
+    "werdykt_tekstu": "CZĘŚCIOWO",
+    "skutek": "S3",
+    "zaliczone": false,
+    "miejsca": [
+      "content/helplines.yaml:14-17 (fallback.text)",
+      "content/pl/lessons/m12-l4-bankroll.md:148 ({{helplines}})",
+      "ekran „Pomoc” (abroadText/fallback.text)"
+    ],
+    "uzasadnienie": "Cztery cytaty (MedlinePlus 001520 x2, 001927, NHS) znalezione dosłownie w widocznym tekście. Zdanie 1 („Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego”) poszerza warunek źródła („if you believe you have symptoms”) ostrożnościowo — dopuszczalne (NHS: „Have you wondered whether you have a problem with gambling?”). Zdanie 2 bez numerów krajowych, z lokalnym numerem alarmowym („the local emergency number”, „DO NOT delay” → „od razu”). Rozbieżność (zawężenie warunku): źródło „If you or someone you know is thinking about suicide […] call 911 or the local emergency number” oraz „If someone you know has attempted suicide, call 911 or the local emergency number right away”; tekst ogranicza przykład do użytkownika („gdy myślisz o odebraniu sobie życia”), pomijając osobę bliską. Ogólne „W nagłym zagrożeniu” częściowo to pokrywa, ale myśli samobójcze kogoś bliskiego nie są wprost objęte.",
+    "poprawka": "helplines.yaml fallback.text, zdanie 2: „W nagłym zagrożeniu, także gdy ty albo ktoś bliski myśli o odebraniu sobie życia, od razu dzwoń na lokalny numer alarmowy.”"
+  }
+]

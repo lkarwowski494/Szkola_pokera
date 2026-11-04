@@ -80,8 +80,8 @@ drills:
     rules: [R-M12-002]
     prompt: "Od miesiąca jesteś {{n:dd.bi.small}} {{t:buy-in|wpisowych}} pod kreską. Co z tego wynika?"
     options:
-      - { text: "Sam {{t:downswing}} niczego nie przesądza; {{t:call|sprawdzasz}} decyzje w przegranych rozdaniach", correct: true, why: "{{t:downswing|Downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} trafia prawie każdego gracza wygrywającego od {{n:dd.wr-low}} do {{n:var.wr.ex}} (symulacja przy SD {{n:var.sd}}). O tym, czy grasz dobrze, mówi przegląd decyzji, a nie sam wynik." }
-      - { text: "Grasz źle i musisz zmienić cały styl gry", why: "{{t:downswing|Downswingi}} tej wielkości zdarzają się graczom wygrywającym w ok. {{n:dd.p.small.100k}} próbek {{n:var.hands.k}} tys. rąk. Zmiana stylu z powodu samego wyniku to reagowanie na szum." }
+      - { text: "Sam {{t:downswing}} niczego nie przesądza; {{t:call|sprawdzasz}} decyzje w przegranych rozdaniach", correct: true, why: "{{t:downswing|Downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} w ciągu {{n:var.hands.k}} tys. rąk trafia prawie każdego gracza wygrywającego od {{n:dd.wr-low}} do {{n:var.wr.ex}} (symulacja przy SD {{n:var.sd}}). O tym, czy grasz dobrze, mówi przegląd decyzji, a nie sam wynik." }
+      - { text: "Grasz źle i musisz zmienić cały styl gry", why: "{{t:downswing|Downswingi}} tej wielkości zdarzają się graczom wygrywającym {{n:var.wr.ex}} (SD {{n:var.sd}}) w ok. {{n:dd.p.small.100k}} próbek {{n:var.hands.k}} tys. rąk. Zmiana stylu z powodu samego wyniku to reagowanie na szum." }
       - { text: "Na pewno masz pecha, nic nie musisz {{t:call|sprawdzać}}", why: "{{t:downswing|Downswing}} może też wynikać z błędów. Wynik nie odróżni pecha od błędu, ale przegląd rozdań może to zrobić." }
   - kind: choice
     id: m12.l1.q-sd-typical

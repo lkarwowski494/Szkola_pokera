@@ -46,7 +46,7 @@ drills:
     rules: [R-M12-011]
     prompt: "Zacząłeś {{t:stakes|stawkę}} z {{n:br.bi.base}} {{t:buy-in|wpisowymi}}. Po {{t:downswing|downswingu}} masz {{n:br.ex.below}}. Co robisz?"
     options:
-      - { text: "Schodzisz o jedną {{t:stakes|stawkę}} niżej", correct: true, why: "Spadłeś poniżej połowy założonego bankrollu ({{n:br.bi.move-down}}). Przy tylu {{t:buy-in|wpisowych}} ryzyko utraty reszty jest kilka razy większe niż przy {{n:br.bi.base}}. Na {{t:stakes|stawce}} dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej {{t:buy-in|wpisowych}}." }
+      - { text: "Schodzisz o jedną {{t:stakes|stawkę}} niżej", correct: true, why: "Spadłeś poniżej połowy założonego bankrollu ({{n:br.bi.move-down}}). Przy tylu {{t:buy-in|wpisowych}} ryzyko utraty reszty jest kilka razy większe niż przy {{n:br.bi.base}} (przy winrate {{n:var.wr.typical.high}} i SD {{n:var.sd}}). Na {{t:stakes|stawce}} dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej {{t:buy-in|wpisowych}}." }
       - { text: "Grasz dalej, bo to tylko {{t:variance}}", why: "To prawda, że to pewnie {{t:variance}}, ale właśnie przed nią chroni zejście {{t:stakes|stawkę}}. Z {{n:br.ex.below}} {{t:buy-in|wpisowymi}} kolejny {{t:downswing}} może zabrać wszystko." }
       - { text: "Przechodzisz na wyższą {{t:stakes|stawkę}}, żeby szybciej odrobić", why: "To tilt z desperacji. Wyższa {{t:stakes}} przy mniejszym bankrollu w {{t:buy-in|wpisowych}} gwałtownie zwiększa {{t:risk-of-ruin|ryzyko bankructwa}}." }
   - kind: choice
@@ -82,7 +82,7 @@ drills:
     rules: [R-M12-012]
     prompt: "Dopiero zaczynasz. Jak dzielisz czas między naukę a grę?"
     options:
-      - { text: "Ok. {{n:study.beginner}} nauki", correct: true, why: "Na początku nauka daje najwięcej: każda nowa reguła poprawia wiele przyszłych decyzji. Gra bez nauki utrwala błędy." }
+      - { text: "Ok. {{n:study.beginner}} nauki", correct: true, why: "Na początku masz najwięcej do nadrobienia, więc nauka przeważa." }
       - { text: "Ok. {{n:study.min}} nauki", why: "To dolna granica dla gracza, który już wygrywa. Na początku nauka powinna przeważać." }
       - { text: "Sama gra, nauka przyjdzie z doświadczeniem", why: "Wynik gry to słaba informacja zwrotna (lekcja o decyzji i wyniku). Nauka z wyjaśnieniem i analiza rozdań uczą szybciej." }
   - kind: choice
@@ -91,15 +91,15 @@ drills:
     rules: [R-M12-012]
     prompt: "Wygrywasz już na swojej {{t:stakes|stawce}}. Jak dzielisz czas?"
     options:
-      - { text: "Mniej więcej pół na pół, ale nigdy mniej niż {{n:study.min}} nauki", correct: true, why: "Gdy wygrywasz, możesz grać więcej, ale ideałem wciąż jest ok. {{n:study.winner}} nauki. Poniżej {{n:study.min}} gra przestaje się rozwijać." }
-      - { text: "Tylko gra, skoro wygrywasz", why: "Gry się zmieniają, a rywale się uczą. Bez nauki przewaga topnieje. Dolna granica to {{n:study.min}} czasu na naukę." }
+      - { text: "Mniej więcej pół na pół, ale nigdy mniej niż {{n:study.min}} nauki", correct: true, why: "Gdy wygrywasz, możesz grać więcej, ale ideałem wciąż jest ok. {{n:study.winner}} nauki, a minimum to {{n:study.min}}." }
+      - { text: "Tylko gra, skoro wygrywasz", why: "Nawet gdy wygrywasz, nie schodzisz poniżej {{n:study.min}} czasu na naukę." }
       - { text: "Ok. {{n:study.beginner}} nauki, jak na początku", why: "Możesz, jeśli przygotowujesz się do wyższych {{t:stakes|stawek}}. Gdy po prostu wygrywasz na swojej, wystarcza ok. {{n:study.winner}}." }
   - kind: choice
     id: m12.l4.q-warning-sign
     family: m12.responsible
     prompt: "Który sygnał świadczy o tym, że granie może przestawać być pod kontrolą?"
     options:
-      - { text: "Po przegranej czujesz, że musisz jak najszybciej wrócić i odegrać straty", correct: true, why: "Odgrywanie strat to jeden z sygnałów problemu z hazardem wymienianych w kryteriach diagnostycznych. Jeśli rozpoznajesz u siebie takie sygnały, skorzystaj z kontaktów z karty o odpowiedzialnej grze." }
+      - { text: "Po przegranej wracasz do gry, żeby odegrać straty", correct: true, why: "Odgrywanie strat to jeden z sygnałów problemu z hazardem wymienianych w kryteriach diagnostycznych. Jeśli rozpoznajesz u siebie takie sygnały, skorzystaj z kontaktów z karty o odpowiedzialnej grze." }
       - { text: "Analizujesz przegrane rozdania po {{t:session|sesji}}", why: "To zdrowy nawyk nauki. Sygnałem problemu jest m.in. odgrywanie strat, gra dłuższa niż planowana i granie za pożyczone pieniądze." }
       - { text: "Kończysz {{t:session|sesję}} zgodnie z planem", why: "To dobra kontrola gry. Sygnałem problemu byłaby gra dłuższa niż planowana albo potrzeba odegrania się." }
   # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar mental
@@ -134,7 +134,7 @@ Winrate i bankroll stoją we wzorze obok siebie: dwa razy niższy winrate wymaga
 
 ## Kiedy zejść {{t:stakes|stawkę}}
 
-Ustal próg z góry: schodzisz o jedną {{t:stakes|stawkę}} niżej najpóźniej wtedy, gdy bankroll spadnie do **połowy** założonej liczby {{t:buy-in|wpisowych}}, np. z {{n:br.bi.base}} do {{n:br.bi.move-down}}. Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich. Na {{t:stakes|stawce}} dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej {{t:buy-in|wpisowych}}. Wracasz wyżej, gdy masz pełny bankroll w {{t:buy-in|wpisowych}} wyższej {{t:stakes|stawki}}. Część źródeł radzi zejść wcześniej, już po stracie {{n:dd.bi.small}} {{t:buy-in|wpisowych}}: zejście przed progiem połowy nie jest błędem.
+Ustal próg z góry: schodzisz o jedną {{t:stakes|stawkę}} niżej najpóźniej wtedy, gdy bankroll spadnie do **połowy** założonej liczby {{t:buy-in|wpisowych}}, np. z {{n:br.bi.base}} do {{n:br.bi.move-down}}. Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich. Na {{t:stakes|stawce}} dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej {{t:buy-in|wpisowych}}. Wracasz wyżej najwcześniej wtedy, gdy masz pełny bankroll w {{t:buy-in|wpisowych}} wyższej {{t:stakes|stawki}}. Część źródeł radzi zejść wcześniej, już po stracie {{n:dd.bi.small}} {{t:buy-in|wpisowych}}: zejście przed progiem połowy nie jest błędem.
 
 ## Nauka i gra
 
