@@ -1,31 +1,28 @@
-# Rola 06 E3: stan (2026-11-04, dwudziesta pierwsza sesja) — w toku
+# Rola 06 E3: wynik (2026-11-04) — STOP E3
 
-## Zrobione (dowód)
-- Niezależna weryfikacja wszystkich 1034 potwierdzonych twierdzeń, 7 weryfikatorów w świeżym kontekście bez notatek autora: `docs/tresci/e3/A1–A7` (instrukcja: treści i rejestr, cytat sprawdzany w surowym tekście, rachunki liczone od nowa). Źródło: 988 POPARTE, 45 CZĘŚCIOWO, 1 DO SPRAWDZENIA; tekst: 951 POPARTE, 80 CZĘŚCIOWO, 2 SPRZECZNE, 1 DO SPRAWDZENIA; skutek: 1×S1, 7×S2, 85×S3.
-- Naprawione S1 i S2 (D-156): VN 115/113, R-M12-011, H-INT-1, M10-L3, egzamin M11, M5-L3, M5-L4; P-OCENA_STOPNIE → rola 08 (`grading.ts`). Commity 35b24e6, 5dd8e3d.
-- Skrót wersji zdań dla przeglądu krytycznych (D-157): `scal-rejestr.mjs --skroty`, test `scal-rejestr.test.mjs` w `pnpm test:skrypty` (czerwony przed, zielony po).
-- Przegląd ścieżek wrażliwych D-043 (`docs/tresci/e3/przeglad-D-043.md`): 0 KRYTYCZNYCH/WYSOKICH; NISKIE #4, #6 naprawione (155dbbf).
-- Przegląd zastępczy D-027: A7 (33/50), A7b (44/50), A7c (11/14); zapis `przeglad` ze skrótem dla 36 wpisów (dbebf3c).
-- `pnpm run ci` kod 0 na dbebf3c; `scal-rejestr --przed-przegladem` kod 0.
+Historia przebiegu E3 (sesje 19–21): `docs/archiwum/tresci-e3-wynik-robocze-2026-11-04.md`. Werdykty: `docs/tresci/e3/A1–A12`, kontrole zawężone `A11-kontrola.md`, `A11-kontrola-2.md`. Lista poprawek z werdyktów: `docs/tresci/e3/do-poprawy.md` (0 pozycji „do zrobienia”). Decyzje: D-156–D-164 w `docs/decyzje.md`.
 
-## Decyzje właściciela na tej bramce (2026-11-04)
-- D-158: bez numerów krajowych; jedno ogólne zdanie i link do Gambling Therapy.
-- D-159: M12-L4, M13-L3, egzamin M12 bez gry na prawdziwe pieniądze.
+## Definicja ukończenia (build), punkt po punkcie
 
-## Dwudziesta sesja (2026-11-04, commity 32ea0a0, 86b36cb, 07a3fdd)
-- Krok 1 D-158 zrobiony (D-160): `helplines.yaml` = `fallback` (twierdzenie H-INT-2, MedlinePlus i NHS, szczebel 3) + `int-gambling-therapy`; 44 wpisy H-* `wycofane`; `fallback.claim` obowiązkowe w schemacie, strażnik content-build i `scal-rejestr` (testy czerwone przed, zielone po); ekran „Pomoc” bez powtórzenia zdania; E2E po etykiecie dostępności (nieuruchomione, macOS). Zgłoszenia 01/08/04/09: `docs/tresci/e3/zgloszenia-D-158-D-159.md`.
-- Krok 2 D-159 zrobiony (D-161): M12-L4 „Bankroll i ryzyko” we wpisowych, R-M12-010 usunięta, egzamin M12 q10 bez złotych, q8 bez „niewielkie”, A7c R-M12-009/010/011 rozwiązane; M13-L3, M12-L3, termin `bankroll`.
-- Krok 3 w toku: A8 (`e3/A8.*`) 5/11 zaliczonych, wszystkie rozbieżności poprawione w 07a3fdd (w tym S1 H-INT-2: zdanie bez zawężenia warunku). Przegląd D-043 (b) (`e3/przeglad-D-043-b.md`): 0 KRYT./WYS., Ś-1 poprawione, N-1/N-2 poprawione, reszta w `do-poprawy.md`. Ponowny przegląd zastępczy A9 na 07a3fdd przerwany błędem API (safeguards) — do powtórzenia w nowej sesji; zapis `przeglad` jeszcze niewpisany dla 11 twierdzeń.
-- `pnpm run ci` kod 0 na 07a3fdd.
+| Punkt | Stan | Dowód |
+|---|---|---|
+| Skrypt kontroli bez `--przed-przegladem` kod 0 na rejestrze, treściach i parametrach (przegląd zapisany dla bieżącej wersji zdań) | spełniony | `pnpm tresci:rejestr` = `scal-rejestr.mjs --przeglad zastępczy --sprawdz`: „0 błędów, 0 uwag”, w `pnpm run ci` (kod 0, ostatni przebieg przed commitem tej bramki); strażnik `tools/content-build/src/registry.ts` w `content:build` |
+| Każde potwierdzone twierdzenie ma przeczytane źródło (adres, cytat albo miejsce, data, szczebel); żadne tylko na szczeblu 5; jedno źródło szczebla 3–4 oznaczone; atrybucja przy najniższym szczeblu | spełniony z wyjątkiem nazwanym | 994 potwierdzone, 0 bez źródeł, 0 tylko ze szczebla 5 (wynik `scal-rejestr`); 119 z jednym źródłem szczebla 3–4 wylicza raport skryptu; atrybucja: karta reguły pokazuje rodzaj i liczbę źródeł („jedno źródło”); definicje terminów ze źródłem szczebla 4 bez atrybucji w tekście (wyjątek D-163, reguła właściciela nr 5); rachunki odtwarzalne w repo: `docs/tresci/narzedzia/rachunki/` (3 skrypty, 167 sprawdzeń, kod 0) |
+| Sprzeczności rozstrzygnięte i zapisane z odrzuconymi opcjami; czego nie potwierdzono, jest w otwartych pytaniach | spełniony | D-138–D-164; 2 wpisy `otwarte` (P-FSRS_CZAS, P-OCENA_PROG_MIESZANA): parametry produktowe bez źródła zewnętrznego, w tekście nazwane ustawieniem aplikacji (D-145) |
+| Każde twierdzenie ma werdykt weryfikatora, który nie był autorem; krytyczne mają zapis przeglądu | spełniony | A1–A7 (1034 wpisy E2), A12 (7 wpisów dodanych w E3); 11 krytycznych z `przeglad` ze skrótem bieżącej wersji: przegląd zastępczy D-027 (A8–A11, kontrole zawężone D-162); przegląd eksperta, gdy aplikacja zyska użytkowników (CLAUDE.md, ZAL) |
+| Parametry i wektory przekazane z ID twierdzeń; publiczne repo bez kopii źródeł i roboczych tekstów spoza zgody | spełniony | parametry: `content/numbers.yaml` (klucz = `n:` w rejestrze), P-* w `docs/tresci/rejestr/pomoc.json`; wektory: `tests/wektory/brd.json`, `tools/content-build/test/helplines.test.ts`, `HelpScreen.test.tsx`, skrypty rachunków; repo zawiera rejestr i odczyty (cytaty ≤ 2 zdania), zgodnie z wyborem E0 (`docs/tresci/00-rozpoznanie.md:60`, rejestr w `docs/tresci/`) i kartą „Stan projektu” (repo treści prywatnych: brak) |
 
-## Dwudziesta pierwsza sesja (2026-11-04)
-- Przegląd zastępczy D-027 zakończony: A9 (6/11, `e3/A9.*`), A10 (2/5), A11 pełny (8/11, 29/29 cytatów dosłownie), kontrola zawężona poprawek po A11 `e3/A11-kontrola.md` (ZALICZONE, wyjątek nazwany D-162). Zapis `przeglad` ze skrótem dla 11 twierdzeń; `scal-rejestr --przeglad zastępczy --sprawdz`: 0 błędów, 0 uwag, kod 0; `pnpm tresci:rejestr` w CI bez `--przed-przegladem`.
-- Poprawki po A9–A11: H-INT-2 (myśli samobójcze → numer alarmowy, „ty albo ktoś, kogo znasz”; MedlinePlus 001520), ramka „Niektóre sygnały”, m12-l3 bez „stale”, H-INT-1 cytat z widocznej stopki, R-M12-011 („najwcześniej wtedy”, „najpóźniej przy” połowie, warunek winrate), n:dd.bi.small (warunek i horyzont).
-- Poprawki S3 z `do-poprawy.md`: 83 pozycje zamknięte (3 partie w osobnych kopiach roboczych: terminy 49dc464, M1–M6 d6528cb, M7–M13 9fbc8f9; scalone, konflikt m4-l1 rozwiązany ręcznie) + M12 (R-M12-002, R-M12-012, n:study.*, q-warning-sign). Otwarte: 5 spraw przekrojowych rejestru i 6 nowych pozycji (koniec tabeli).
-- Błąd po drodze: c0cefdf i 27b95d0 miały czerwony `HelpScreen.test` (zdanie wpisane w teście); `ci` przerwało się wcześniej na przekroczeniu czasu i tego nie pokazało. Naprawione w e7627a1 (test czyta zdanie z `helplines.generated.ts`). `pnpm run ci` kod 0.
-- Uwaga: regulamin MedlinePlus zabrania automatycznego pobierania treści; weryfikatorzy pobierali pojedyncze strony `curl` do odczytu cytatu.
+## Przekazanie
 
-## Następne kroki (E3, nowa sesja)
-1. 5 spraw przekrojowych rejestru (szczeble, `level`, Beyondgto, szczebel wpisów pomocy, `n:var.z95`) i 6 nowych pozycji z końca `e3/do-poprawy.md`; zmiana wpisu albo zdania któregokolwiek z 11 krytycznych → kontrola zawężona w świeżym kontekście (D-162) i nowy skrót, `pnpm tresci:rejestr` kod 0.
-2. Otwarte z E2 §4: `range.acceptable/explanation` (i18n, ścieżka wrażliwa), fakty 9 stanów błędów (04), pytania oceny poziomu F-01, lista B terminów, R-M4-007 `pf.vs3bet.*` (źródło HUD 55% bez adresu).
-3. Definicja ukończenia punkt po punkcie; przekazanie 07/05/08/09/04/10; `docs/sztafeta.md`; STOP E3.
+- **07 Jakość:** wektory: `tests/wektory/brd.json`; rachunki jako wyrocznie liczb: `python3 -I docs/tresci/narzedzia/rachunki/rachunek_*.py` (kod 1 przy rozbieżności); warunki testów dla stanów błędów: kolumna „Warunek” w `docs/tresci/stany-bledow-fakty.md`; skala oceny P-OCENA_STOPNIE (0 < f < 3,5% to niedokładność, nie błąd; D-143) do testu `grading.ts`/`thresholds.ts` po zmianie roli 08. CI main: E2E Maestro czerwony (znalezisko z E0).
+- **05 Architekt / 08 Budowa:** kontrola treści w CI: `pnpm tresci:rejestr` (już w `pnpm run ci`); format treści bez zmian (`content-build`, baza na język, ADR 0005). 08: etykieta werdyktu dla 0 < f < 3,5% (D-143, `thresholds.ts`, `grading.ts`, gałąź `wrong` w `drills/text.pl.ts`); ocena poziomu F-01: pytania `docs/tresci/ocena-poziomu-pytania.md` (reguła wyniku do decyzji 03/04/08); komunikaty błędów zgodne z `stany-bledow-fakty.md`; zgłoszenia D-158/D-159: `docs/tresci/e3/zgloszenia-D-158-D-159.md`.
+- **09 Lokalizacja:** do przekładu: `content/pl/` (lekcje, reguły, egzaminy), `content/terms.yaml`, `content/helplines.yaml` (zdanie H-INT-2 zmienione w E3), trzy teksty w `drills/text.pl.ts` (ocena zakresu); liczby tylko przez `{{n:}}`; tłumaczenia przechodzą `content:build` (strażnik rejestru) w każdym języku. Zdania 11 twierdzeń krytycznych w innych językach wymagają tej samej kontroli (skrót wersji liczony dla PL).
+- **04 Studio Projektowe:** brzmienie komunikatów 9 stanów błędów według `docs/tresci/stany-bledow-fakty.md` (kolumna „Nie wolno”; rekomendacja: bez proponowania reinstalacji); ekran oceny poziomu (8 pytań, „Pomiń”); trzy zmienione teksty oceny zakresu w `drills/text.pl.ts` (fakty: 06, brzmienie: 04).
+- **10 Wydanie:** tekst sklepu i opis wydania tylko z twierdzeń `potwierdzone` w rejestrze; aplikacja bez gry na prawdziwe pieniądze (D-159; App Review 5.3.4, odczyt w E0 roli 02); bez numerów infolinii krajowych (D-158).
+- **Właściciel:** rejestr 03 i dokument 13 na Dysku czekają na D-101–D-164 oraz tabelę par terminów (konektor bez edycji, krok właściciela); przegląd eksperta treści krytycznych, gdy aplikacja zyska użytkowników; regulamin MedlinePlus zabrania automatycznego pobierania treści — weryfikatorzy pobierali pojedyncze strony do odczytu cytatu (do wiadomości).
+
+## Ograniczenia i wyjątki (nazwane)
+- D-162: poprawki po A11 potwierdzone kontrolą zawężoną w świeżym kontekście, nie piątym pełnym przeglądem (akceptacja właściciela 2026-11-04).
+- D-163: definicje terminów ze źródłem szczebla 4 bez atrybucji w tekście.
+- Skrót wersji obejmuje całą lekcję z regułą krytyczną (D-157): każda zmiana m12-l4, m12-l1, egzaminu M12, `helplines.yaml` albo wpisu z 11 krytycznych daje czerwone CI do czasu kontroli zawężonej i nowego zapisu `przeglad`.
+- E2E iOS nieuruchomione (brak macOS w chmurze); testy na telefonie: krok właściciela z listą od roli 07.

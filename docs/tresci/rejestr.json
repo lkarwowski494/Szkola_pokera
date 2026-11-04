@@ -26038,7 +26038,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Populacja: 6-max NLHE NL10–NL500, „tracked sites” (sale i okres niepodane), dane Tombos21 omówione przez serwis informacyjny; dane kontrolne. Pole population: jak rake.pop.reg.prerake | S3 E3 2026-11-04: tekst (m10-l4:31, :104) nazywa wartość szacunkiem autora po korekcie bayesowskiej i podaje surowe dane (rake.pop.reg.prerake.raw, rake.pop.reg.postrake.raw).",
+  "uwagi": "Populacja: 6-max NLHE NL10–NL500, „tracked sites” (sale i okres niepodane), dane Tombos21 omówione przez serwis informacyjny; dane kontrolne. Pole population: jak rake.pop.reg.prerake | S3 E3 2026-11-04: tekst (m10-l4:31, :104) nazywa wartość szacunkiem autora po korekcie bayesowskiej i podaje surowe dane (rake.pop.reg.prerake.raw, rake.pop.reg.postrake.raw). | E3 2026-11-04 (A12, S3): kohorta 5k+ rąk to gracze NL100 („NL100 players who've played at least 5k hands [N=2181]”), nie cały raport NL10–NL500; lekcja m10-l4 i pole population poprawione.",
   "partia": [
    "m9-m11"
   ]
@@ -26066,7 +26066,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Populacja: 6-max NLHE NL10–NL500, „tracked sites” (sale i okres niepodane), dane Tombos21 omówione przez serwis informacyjny; dane kontrolne. Dokładnie: „Pre-rake winners: 89.3%”. Pole population: jak rake.pop.nl100.loss; gracze z co najmniej 5 tys. rąk, wynik z korektą bayesowską | S3 E3 2026-11-04: tekst (m10-l4:31, :104) nazywa wartość szacunkiem autora po korekcie bayesowskiej i podaje surowe dane (rake.pop.reg.prerake.raw, rake.pop.reg.postrake.raw).",
+  "uwagi": "Populacja: 6-max NLHE NL10–NL500, „tracked sites” (sale i okres niepodane), dane Tombos21 omówione przez serwis informacyjny; dane kontrolne. Dokładnie: „Pre-rake winners: 89.3%”. Pole population: jak rake.pop.nl100.loss; gracze z co najmniej 5 tys. rąk, wynik z korektą bayesowską | S3 E3 2026-11-04: tekst (m10-l4:31, :104) nazywa wartość szacunkiem autora po korekcie bayesowskiej i podaje surowe dane (rake.pop.reg.prerake.raw, rake.pop.reg.postrake.raw). | E3 2026-11-04 (A12, S3): kohorta 5k+ rąk to gracze NL100 („NL100 players who've played at least 5k hands [N=2181]”), nie cały raport NL10–NL500; lekcja m10-l4 i pole population poprawione.",
   "partia": [
    "m9-m11"
   ]
@@ -26276,7 +26276,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Populacja: 6-max NLHE NL10–NL500, „tracked sites” (sale i okres niepodane), dane Tombos21 omówione przez serwis informacyjny; gracze z co najmniej 5 tys. rąk, surowe dane bez korekty bayesowskiej.",
+  "uwagi": "Populacja: 6-max NLHE NL10–NL500, „tracked sites” (sale i okres niepodane), dane Tombos21 omówione przez serwis informacyjny; gracze z co najmniej 5 tys. rąk, surowe dane bez korekty bayesowskiej. | E3 2026-11-04 (A12, S3): kohorta 5k+ rąk to gracze NL100 („NL100 players who've played at least 5k hands [N=2181]”), nie cały raport NL10–NL500; lekcja m10-l4 i pole population poprawione.",
   "partia": [
    "m9-m11"
   ]
@@ -26304,7 +26304,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Populacja: 6-max NLHE NL10–NL500, „tracked sites” (sale i okres niepodane), dane Tombos21 omówione przez serwis informacyjny; gracze z co najmniej 5 tys. rąk, surowe dane bez korekty bayesowskiej.",
+  "uwagi": "Populacja: 6-max NLHE NL10–NL500, „tracked sites” (sale i okres niepodane), dane Tombos21 omówione przez serwis informacyjny; gracze z co najmniej 5 tys. rąk, surowe dane bez korekty bayesowskiej. | E3 2026-11-04 (A12, S3): kohorta 5k+ rąk to gracze NL100 („NL100 players who've played at least 5k hands [N=2181]”), nie cały raport NL10–NL500; lekcja m10-l4 i pole population poprawione.",
   "partia": [
    "m9-m11"
   ]

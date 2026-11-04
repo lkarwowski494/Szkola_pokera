@@ -101,7 +101,7 @@ Porównanie harmonogramów sal przelicza je na bb/100 na rozkładzie {{t:pot|pul
 
 Typowy wygrywający gracz na niskich {{t:stakes|stawkach}} ma winrate {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}} (moduł 12): kilka razy mniej, niż płaci sali. Przy wyższych {{t:stakes|stawkach}} ten sam limit w dolarach to ułamek bb, więc {{t:rake}} w bb/100 spada.
 
-Dane z populacji mówią to samo. W raporcie o populacji (cash 6-max, NL10–NL500) każdy gracz traci średnio {{n:rake.pop.nl10.loss}} przy NL10, {{n:rake.pop.nl100.loss}} przy NL100 i {{n:rake.pop.nl500.loss}} przy NL500. Wśród graczy z co najmniej {{n:rake.pop.reg.hands}} rąk według szacunku autora (korekta bayesowska) ok. {{n:rake.pop.reg.prerake}} wygrywa przed odliczeniem rake'u, a po odliczeniu ok. {{n:rake.pop.reg.postrake}} (w surowych danych {{n:rake.pop.reg.prerake.raw}} i {{n:rake.pop.reg.postrake.raw}}).
+Dane z populacji mówią to samo. W raporcie o populacji (cash 6-max, NL10–NL500) każdy gracz traci średnio {{n:rake.pop.nl10.loss}} przy NL10, {{n:rake.pop.nl100.loss}} przy NL100 i {{n:rake.pop.nl500.loss}} przy NL500. Wśród graczy NL100 z co najmniej {{n:rake.pop.reg.hands}} rąk według szacunku autora (korekta bayesowska) ok. {{n:rake.pop.reg.prerake}} wygrywa przed odliczeniem rake'u, a po odliczeniu ok. {{n:rake.pop.reg.postrake}} (w surowych danych {{n:rake.pop.reg.prerake.raw}} i {{n:rake.pop.reg.postrake.raw}}).
 
 ## Próg {{t:call|sprawdzenia}} z rake'iem
 

@@ -1,0 +1,101 @@
+[
+  {
+    "id": "n:odds.oesd.rule-flop",
+    "cytat_znaleziony": true,
+    "werdykt_zrodla": "POPARTE",
+    "werdykt_tekstu": "POPARTE",
+    "skutek": null,
+    "miejsca": [
+      "content/pl/exams/m2.yaml:38 (m2.exam.q3, why)",
+      "content/numbers.yaml:41"
+    ],
+    "uzasadnienie": "Rachunek od nowa: reguła 2 i 4 przy dwóch kartach do odkrycia = outy × 4 = 8 × 4 = 32 → 0,32; packages/poker-core/src/math.ts:65 (ruleOf2And4) liczy to samo, wyświetlenie „32%” (decimals 0). Wynik dokładny w tym samym zdaniu: 1 − (39/47)(38/46) = 0,31452 → „31,5%” (odds.oesd.flop-river, decimals 1). Zdanie rozdziela szacunek reguły („reguła daje 8 × 4 = 32%”) od wyniku dokładnego („a dokładnie 31,5%”); warunek dwóch kart uzasadniony all-inem rywala w poprzednim zdaniu. Przybliżenie nazwane regułą, kierunkowo zgodne z wynikiem dokładnym (różnica 0,5 pkt). Sąsiednie opcje (17,0% = sam turn; kolor do rivera) spójne. Inne języki: brak użyć (tylko content/pl).",
+    "poprawka": null
+  },
+  {
+    "id": "n:odds.oesd.rule-next",
+    "cytat_znaleziony": true,
+    "werdykt_zrodla": "POPARTE",
+    "werdykt_tekstu": "POPARTE",
+    "skutek": null,
+    "miejsca": [
+      "content/pl/exams/m2.yaml:48 (m2.exam.q4, why)",
+      "content/numbers.yaml:42"
+    ],
+    "uzasadnienie": "Rachunek od nowa: jedna karta do odkrycia → outy × 2 = 8 × 2 = 16 → 0,16, wyświetlenie „16%”. Wynik dokładny w tym samym zdaniu: 8/47 = 0,17021 → „17,0%”. Zdanie: „Sprawdzenie kupuje jedną kartę… reguła daje 8 × 2 = 16%, a dokładnie 8 z 47, czyli 17,0%” — warunek (głębokie stacki, rywal może stawiać na turnie) podany w prompcie i w zdaniu, szacunek i wynik dokładny rozdzielone. Sąsiednia opcja (31,5% tylko przy all-inie) spójna. Inne języki: brak użyć.",
+    "poprawka": null
+  },
+  {
+    "id": "n:hud.hands.3bet.overall.low",
+    "cytat_znaleziony": true,
+    "werdykt_zrodla": "POPARTE",
+    "werdykt_tekstu": "POPARTE",
+    "skutek": null,
+    "miejsca": [
+      "content/pl/lessons/m10-l1-statystyki.md:127",
+      "content/pl/rules.yaml:846 (R-M10-003, then)",
+      "content/numbers.yaml:630"
+    ],
+    "uzasadnienie": "https://deepfold.co/en/blog/hud-stats-guide pobrane 2026-11-04 (curl, /tmp/a12src.LB9L), tabela w sekcji „Sample Size Warnings”: komórki „3-bet % (overall)” i „100+ hands” w jednym wierszu (po spłaszczeniu białych znaków grep -F „3-bet % (overall) 100+ hands” = 1 trafienie); ta sama tabela: „Fold to 3-bet | 200+ hands” (hud.hands.3bet.low = 200 zgodne). Wartość 100 = źródło. Tekst „3-bet po ok. 100–500”: dolna granica z Deepfold, górna (500) z pokercoaching („closer to 500 hands”, inny wpis); lekcja m10-l1:131 mówi, że „przedziały obejmują oba źródła” — dla 3-betu i fold to 3-bet to prawda (część wspólna/przedział obejmujący źródła, zgodnie z zasadą rozstrzygania). „ok.” nie dodaje pewności. Uwaga spoza zakresu A12: ta sama tabela Deepfold podaje „VPIP / PFR 30-50 hands”, a sąsiednie zdanie (m10-l1:126, rules.yaml:846) podaje VPIP/PFR 100–200 tylko z pokercoaching, więc zdanie „przedziały obejmują oba źródła” (m10-l1:131) nie dotyczy VPIP/PFR — do oceny przy wpisie hud.hands.vpip.*, nie zmienia werdyktu tego wpisu.",
+    "poprawka": null
+  },
+  {
+    "id": "n:rake.pop.reg.prerake.raw",
+    "cytat_znaleziony": true,
+    "werdykt_zrodla": "POPARTE",
+    "werdykt_tekstu": "CZĘŚCIOWO",
+    "skutek": "S3",
+    "miejsca": [
+      "content/pl/lessons/m10-l4-rake.md:104",
+      "content/numbers.yaml:715"
+    ],
+    "uzasadnienie": "https://www.gipsyteam.com/news/12-12-2025/number-of-winning-cash-game-players pobrane 2026-11-04: grep -F „Filtering for players with 5k+ hands” i „Pre-Rake Winners: 31.8%% → 70.8%” = po 1 trafieniu w widocznym tekście (podwójne %% jest w oryginale). Wartość 0,708 = źródło; wyświetlenie „71%” (decimals 0, zaokrąglenie 70,8 → 71) zgodne z „ok.”/„w surowych danych”. Rozbieżność zakresu: lekcja wprowadza dane jako raport „cash 6-max, NL10–NL500” i bez zmiany zakresu mówi „Wśród graczy z co najmniej 5000 rąk …”, więc czytelnik bierze 71% za całą pulę NL10–NL500. W źródle punkt wyjścia strzałki („31.8% →”, „28.8% →”) to dokładnie wiersz NL100 tabeli 2 („Raw Win Rates”: NL100 28.8% / 31.8%; żaden inny wiersz nie ma tych wartości), a kolejny akapit autora mówi wprost: „win rates of NL100 players who've played at least 5k hands [N=2181], well call this the \"reg\" cohort”. Kohorta 5k+ to więc najpewniej NL100, a nie NL10–NL500; to samo dotyczy szacunku bayesowskiego (90%/53%) w tym samym zdaniu (prior = rake danej stawki). Kierunek nauki (rake zabiera dużą część wygranych) bez zmian, stąd S3. Rejestr (uwagi) i numbers.yaml (population „jak rake.pop.nl100.loss”, czyli NL10–NL500) mają ten sam błąd zakresu.",
+    "poprawka": "content/pl/lessons/m10-l4-rake.md:104: „Wśród graczy z co najmniej {{n:rake.pop.reg.hands}} rąk” → „Wśród graczy NL100 z co najmniej {{n:rake.pop.reg.hands}} rąk”; numbers.yaml:715–716 i rejestr (uwagi): population „NL100 (punkt wyjścia 31.8%/28.8% = wiersz NL100 tabeli 2; „NL100 players who've played at least 5k hands [N=2181]”), gracze z co najmniej 5 tys. rąk, bez korekty bayesowskiej” zamiast „6-max NLHE NL10–NL500”."
+  },
+  {
+    "id": "n:rake.pop.reg.postrake.raw",
+    "cytat_znaleziony": true,
+    "werdykt_zrodla": "POPARTE",
+    "werdykt_tekstu": "CZĘŚCIOWO",
+    "skutek": "S3",
+    "miejsca": [
+      "content/pl/lessons/m10-l4-rake.md:104",
+      "content/numbers.yaml:716"
+    ],
+    "uzasadnienie": "Ta sama strona: grep -F „Winners: 28.8% → 49.2%” = 1 trafienie, bezpośrednio pod „Filtering for players with 5k+ hands” i „Pre-Rake Winners: 31.8%% → 70.8%”. Wartość 0,492 = źródło; wyświetlenie „49%” zgodne. Definicja w źródle: „Winners: Players with a win rate >0 bb/100 after rake” — lekcja „po odliczeniu” zgodna. Para z prerake.raw w nawiasie („w surowych danych 71% i 49%”) w tej samej kolejności co para bayesowska (przed/po rake'u) — spójna. Ta sama rozbieżność zakresu co w n:rake.pop.reg.prerake.raw: punkt wyjścia 28.8% = wiersz NL100 tabeli 2, kohorta 5k+ najpewniej NL100, a lekcja sugeruje NL10–NL500.",
+    "poprawka": "Jak w n:rake.pop.reg.prerake.raw (jedna poprawka zdania m10-l4-rake.md:104 i pola population w numbers.yaml:716)."
+  },
+  {
+    "id": "n:m11.nash.push.5",
+    "cytat_znaleziony": true,
+    "werdykt_zrodla": "POPARTE",
+    "werdykt_tekstu": "POPARTE",
+    "skutek": null,
+    "miejsca": [
+      "content/pl/lessons/m11-l1-push-fold.md:152",
+      "content/pl/rules.yaml:1055",
+      "content/pl/exams/m11.yaml:50",
+      "content/pl/exams/m11.yaml:51",
+      "content/numbers.yaml:517"
+    ],
+    "uzasadnienie": "docs/tresci/odczyty/e1b-solver-2026-11-04.txt, sekcja „Rachunek niezależny, ITER=15000”: „S=5bb ante BB=0 push 71.50% call 62.04%” (wartość 0,715 = plik; wyświetlenie „71,5%”, decimals 1). Etykieta zgodna z plikiem: plik rozdziela „Wartości solvera (play.py)” (m11.push.5 = 72.55) od „Rachunek niezależny, fictitious play (nash_hu.py)”; docs/tresci/narzedzia/e1b/nash_hu.py nie importuje kodu solvera (tylko json, sys; dane tools/equity/equity169.json — macierz equity wspólna z solverem, więc niezależna jest metoda, nie dane wejściowe). Odtworzenie w tym przeglądzie (ITER=3000): „S=5bb ante BB=0 push 71.54% call 61.94%”, identycznie jak sekcja ITER=3000 pliku; różnica do ITER=15000 0,04 pkt, wyświetlenie „71,5%” bez zmian. Model w skrypcie sprawdzony: SB pasuje → −0,5; push spasowany → +1 (+ante); call → E·(2S+A) − S; BB pas → −(1+A). Tekst „ok. 71,5%–72,5%” = przedział niezależna równowaga–solver aplikacji (72,549 → „72,5%”), zgodny z zasadą „przedział obejmujący źródła”; liczba sprawdzenia 62% (solver 62,29) zgodna z równowagą niezależną 62,04. Egzamin m11.yaml:51 przypisuje „Solver … pushuje ok. 71,5%–72,5%” solverowi, choć dolna granica pochodzi z rachunku niezależnego — drobne uproszczenie etykiety, bez zmiany liczby ani kierunku; nie obniża werdyktu.",
+    "poprawka": null
+  },
+  {
+    "id": "n:m11.nash.push.10-ante",
+    "cytat_znaleziony": true,
+    "werdykt_zrodla": "POPARTE",
+    "werdykt_tekstu": "POPARTE",
+    "skutek": null,
+    "miejsca": [
+      "content/pl/lessons/m11-l1-push-fold.md:90",
+      "content/pl/lessons/m11-l1-push-fold.md:91",
+      "content/pl/lessons/m11-l1-push-fold.md:92",
+      "content/pl/lessons/m11-l1-push-fold.md:174",
+      "content/pl/rules.yaml:1063",
+      "content/numbers.yaml:518"
+    ],
+    "uzasadnienie": "docs/tresci/odczyty/e1b-solver-2026-11-04.txt: „S=10bb ante BB=1 push 71.05% call 53.25%” (ITER=15000; przy ITER=3000 „71.09%”, odtworzone w tym przeglądzie identycznie: „S=10bb ante BB=1 push 71.09% call 53.28%”). Wartość 0,7105 = plik; wyświetlenie „71%” (decimals 0), solver aplikacji 71,65 → „72%”; tekst „ok. 71%–72%” obejmuje oba. Etykieta „rachunek niezależny … bez kodu solvera” zgodna z plikiem (osobna sekcja, osobny skrypt). Model ante w skrypcie: BB wpłaca A ponad stack S (martwe pieniądze), pula przy sprawdzeniu 2S + A — zgodny z lekcją m11-l1:174 („big blind wpłaca ante 1bb … ryzyko zostaje to samo”). Zdanie m11-l1:174 „solver aplikacji i niezależny rachunek równowagi różnią się o ułamek punktu”: 71,65 − 71,05 = 0,60 pkt — prawda. Opcje q90–92: wzrost z 58,4% (m11.push.10) do 71%–72% spójny we wszystkich trzech uzasadnieniach.",
+    "poprawka": null
+  }
+]
