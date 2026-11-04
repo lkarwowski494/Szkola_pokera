@@ -27,6 +27,8 @@ describe('RD-10: wszystkie 2 598 960 układów pięciokartowych', () => {
     razem++;
   }
 
+  it('wszystkie 9 wektorów kategorii wczytane (zestaw nie kurczy się po cichu)', () => expect(rd10).toHaveLength(9));
+  // RD-10-W10 („kategoria spoza listy” → błąd danych) w interpretacji roli 07: żaden układ nie ma kategorii spoza 9 nazwanych.
   it('RD-10-W10: dziewięć rozłącznych kategorii wyczerpuje C(52,5) (brak kategorii spoza listy)', () => {
     expect(razem).toBe(2_598_960);
     expect([...licznosc.keys()].sort()).toEqual(Object.values(NAZWY).sort());

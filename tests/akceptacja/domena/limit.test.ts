@@ -39,6 +39,11 @@ describe('AK-BR-LIM-001: licznik przed startem i wyczerpany limit', () => {
     }
   });
 
+  it('AK-ADR0007-5 zużycie ponad limit (import sumuje wpisy dnia) → pozostało 0, nie liczba ujemna', () => {
+    const l = limitDnia({ zuzyteDzis: K.LIMIT_AKTYWNOSCI_DZIENNIE + 1, pro: false, dzien: '2026-11-04', strefa: 'Europe/Warsaw' }, K);
+    expect(l).toMatchObject({ bezLimitu: false, pozostalo: 0 });
+  });
+
   it.each(Z_LIMITU)('AK-BR-LIM-001-c limit wyczerpany: %s (pierwsze podejście: %s) → bez startu', (rodzaj, pierwsze) => {
     expect(mozeStartowac(rodzaj, pierwsze, WYCZERPANY)).toEqual({ start: false, powod: 'limit_wyczerpany' });
   });

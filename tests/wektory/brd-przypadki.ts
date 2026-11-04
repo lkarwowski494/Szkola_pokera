@@ -36,11 +36,15 @@ export const OCZEKUJACE: Record<string, string> = {
   'RD-05-W6': 'ER-11 / RYZ-03: ruleOf2And4 nie odrzuca liczby outów < 0',
   'RD-05-W7': 'ER-11 / RYZ-03: ruleOf2And4 nie odrzuca brakującej liczby outów',
   'RD-08-W4': 'ER-11 / RYZ-03: callEv nie odrzuca equity spoza [0, 1]',
+  'RD-09-W7': 'ER-11 / RYZ-03: icmEquities nie odrzuca brakujących stacków (dziś TypeError, nie walidacja)',
 };
 
 export function sprawdz(p: Przypadek, expect: (v: unknown, m?: string) => any): void {
   if (p.oczekiwane === 'błąd danych') {
-    expect(p.uruchom, `${p.id} (${p.miejsce}): błąd danych ma być odrzucony`).toThrow();
+    // odrzucenie walidacją, nie przypadkowy TypeError (np. odczyt pola z undefined)
+    let blad: unknown = null;
+    try { p.uruchom(); } catch (e) { blad = e; }
+    expect(blad instanceof Error && !(blad instanceof TypeError), `${p.id} (${p.miejsce}): błąd danych ma być odrzucony walidacją, jest: ${String(blad)}`).toBe(true);
     return;
   }
   const w = p.uruchom();

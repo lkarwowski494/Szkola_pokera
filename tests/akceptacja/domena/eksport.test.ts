@@ -8,7 +8,8 @@ const koperta = (zmiany: Record<string, unknown> = {}) => ({
   wersja_formatu: K.EKSPORT_WERSJA_FORMATU,
   utworzono: '2026-11-04T12:00:00.000Z',
   aplikacja: '1.0.0',
-  dane: { ustawienie: [{ klucz: 'jezyk', wartosc: '"pl"' }] },
+  // dane.md „Format eksportu (wersja 1)”: wszystkie 7 tabel postępu (import kasuje i wstawia, więc brak tabeli = utrata danych)
+  dane: { ustawienie: [{ klucz: 'jezyk', wartosc: '"pl"' }], postep_lekcji: [], aktywnosc: [], odpowiedz: [], wynik_testu: [], karta: [], log_powtorki: [] },
   ...zmiany,
 });
 
@@ -22,6 +23,19 @@ describe('AK-BR-DANE-002: walidacja pliku przed importem', () => {
   });
   it.each(['null', '[]', '"tekst"', '42', ''])('AK-BR-DANE-002-c treść, która nie jest kopertą (%j) → bledny_plik', (tekst) => {
     expect(walidujEksport(tekst, K.EKSPORT_WERSJA_FORMATU)).toEqual({ ok: false, powod: 'bledny_plik' });
+  });
+  it.each(['postep_lekcji', 'aktywnosc', 'odpowiedz', 'wynik_testu', 'karta', 'log_powtorki', 'ustawienie'])('AK-BR-DANE-002-c brak tabeli %s w `dane` (zła struktura, dane.md:120) → bledny_plik', (tabela) => {
+    const k = koperta();
+    const dane: Record<string, unknown> = { ...k.dane };
+    delete dane[tabela];
+    expect(walidujEksport(JSON.stringify({ ...k, dane }), K.EKSPORT_WERSJA_FORMATU)).toEqual({ ok: false, powod: 'bledny_plik' });
+  });
+  it('AK-BR-DANE-002-c brak `dane` → bledny_plik', () => {
+    const { dane: _d, ...bez } = koperta();
+    expect(walidujEksport(JSON.stringify(bez), K.EKSPORT_WERSJA_FORMATU)).toEqual({ ok: false, powod: 'bledny_plik' });
+  });
+  it.each([1.5, '1', null])('AK-BR-DANE-002-c `wersja_formatu` nie jest liczbą całkowitą (%j; ADR 0008 pkt 1) → bledny_plik', (v) => {
+    expect(walidujEksport(JSON.stringify(koperta({ wersja_formatu: v })), K.EKSPORT_WERSJA_FORMATU)).toEqual({ ok: false, powod: 'bledny_plik' });
   });
   it('AK-BR-DANE-002-d plik z nowszej wersji formatu → nowsza_wersja', () => {
     expect(walidujEksport(JSON.stringify(koperta({ wersja_formatu: K.EKSPORT_WERSJA_FORMATU + 1 })), K.EKSPORT_WERSJA_FORMATU)).toEqual({ ok: false, powod: 'nowsza_wersja' });
