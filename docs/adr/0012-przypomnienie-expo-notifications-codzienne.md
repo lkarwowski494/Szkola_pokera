@@ -31,7 +31,7 @@ Ustalenia wiążące:
 ### Konsekwencje
 - Dobre: zero pracy w tle; jedna ścieżka uprawnień; brak serwera.
 - Złe: treść ogólna (bez liczby powtórek); po zmianie strefy pora według nowej strefy (zachowanie systemu, przyjęte).
-- Od czego zależy: uprawnienia i wpisy konfiguracji wtyczki `expo-notifications` w buildzie (np. czy dodaje uprawnienie push) `[DO USTALENIA]` (E3, rola 10, porównanie z `app.json` Treningu).
+- Od czego zależy: uprawnienia i wpisy konfiguracji wtyczki `expo-notifications` w buildzie — rozstrzygnięte w E3 (uzupełnienie niżej).
 
 ### Potwierdzenie
 - Test domeny/adaptera z atrapą `expo-notifications`: włączenie → dokładnie jedno zaplanowane powiadomienie z wyzwalaczem `daily`; ponowne włączenie, import, zmiana języka → nadal jedno; odmowa → zero i brak błędu.
@@ -48,3 +48,6 @@ Ustalenia wiążące:
 ### C: bez przypomnienia
 - Zalety: zero uprawnień.
 - Wady: łamie zakres F-11 (D-102).
+
+## Uzupełnienie E3 (2026-11-04, bez zmiany decyzji)
+Wtyczka `expo-notifications` 58.1.8 przy wartości domyślnej dodaje uprawnienie push `aps-environment` (`plugin/build/withNotificationsIOS.js:53-56`); docs.expo.dev: „If set to false, the plugin does not add the APNs entitlement, which is useful for apps that use only local notifications”. Ustalenie wiążące 5: wtyczka z `enableRemoteNotifications: false`, bez `enableBackgroundRemoteNotifications`, bez wywołań `get*PushTokenAsync` (kontrole K-07, K-09 w `docs/architektura/kontrole-07.md`; szczegóły `docs/architektura/tlo-i-bledy.md` sekcja 3).

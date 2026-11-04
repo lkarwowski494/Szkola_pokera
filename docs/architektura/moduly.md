@@ -13,7 +13,8 @@ packages/
 tools/content-build/  YAML → tresc-<wersja>-<język>.db (ADR 0005)
 apps/mobile/src/
   data/            adapter expo-sqlite → PortBazy (postęp), odczyt bazy treści, wybór pliku treści
-  platform/        NOWY: zakupy (expo-iap), powiadomienia, pliki (sharing, document-picker, file-system), język i strefa (localization), linki i poczta, dziennik
+  platform/        NOWY: zakupy (expo-iap), powiadomienia, pliki (sharing, document-picker, file-system), język i strefa (localization), linki i poczta, dziennik, ochrona długich operacji (adapter `OchronaTla`, ADR 0013)
+apps/mobile/modules/ochrona-tla/  NOWY: lokalny moduł Expo (Swift) z beginBackgroundTask/endBackgroundTask (ADR 0013)
   features/, app/, components/, theme/, i18n/   interfejs (role 04, 08); stan widoku w zustand jako kopia (ADR-09)
 ```
 Kierunek (strzałka = „importuje”): `app/features/components` → `platform`, `data`, `domena`, `postep` · `data` → `postep` → `domena` → `srs`, `poker-core`, `content-schema` · `platform` → `domena` (typy). Zakazy: `domena` i `postep` bez `react`, `react-native`, `expo-*` i bez importów z `apps/`; `domena` bez `postep`; brak cykli.

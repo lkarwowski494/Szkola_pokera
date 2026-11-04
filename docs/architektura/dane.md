@@ -134,7 +134,7 @@ W jednej transakcji: odpowiedzi dzisiejszych aktywności z limitu usunięte, te 
 | `INSERT OR REPLACE` kasuje dzieci kaskadą | UPSERT; zakaz w kontroli statycznej | E2a/E2b, 4b/4c |
 | Klucze obce wyłączone na połączeniu (kaskady nie działają, sieroty) | `PRAGMA foreign_keys = ON` przy otwarciu, poza transakcją; zakaz `withExclusiveTransactionAsync` | E1c/E1d, E3b/E3c; kontrola `PRAGMA foreign_keys` w transakcji = 1 |
 | Przerwanie w środku sesji (zabicie procesu) | stan i odpowiedź w jednej transakcji przed pokazaniem następnego kroku; UPSERT kroku | 4a; test przerwania z ADR 0010 |
-| Zawieszenie aplikacji z blokadą pliku (`0xdead10cc`) | krótkie transakcje, nic nie czeka w transakcji (sieć, sklep, dialog) | kontrola przeglądu kodu; ponowny odczyt Apple w E3 |
+| Zawieszenie aplikacji z blokadą pliku (`0xdead10cc`) | krótkie transakcje, nic nie czeka w transakcji (sieć, sklep, dialog); długie operacje pod `beginBackgroundTask` z wycofaniem przy wygaśnięciu (ADR 0013, odczyt Apple 2026-11-04) | `e3-blokady-czasy.mjs` (2a–2f); K-10; scenariusz U-2 na urządzeniu |
 | Błąd zapisu, pełny dysk | komunikat, stan bez zmian, dane w formularzu (polityka błędów) | test wstrzykniętego błędu portu (rola 07) |
 | Import złego pliku | walidacja przed zmianą bazy | 6d–6f |
 | Awaria w środku importu | jedna transakcja + kopia przed importem | 6g |

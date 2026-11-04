@@ -16,4 +16,5 @@ Eksperymenty E1: `docs/architektura/eksperymenty/e1-sqlite.mjs`, wynik `e1-sqlit
 | [0009](0009-bez-sentry-i-observe-dziennik-lokalny.md) | Usunięcie Sentry i `expo-observe`, dziennik lokalny | przyjęta (D-126) | agent |
 | [0010](0010-maszyny-stanow-w-domenie.md) | Maszyny stanów w domenie, stan w toku w bazie | przyjęta (D-126) | agent |
 | [0011](0011-kod-bez-br-usuniety.md) | Kod bez BR usunięty (wytyczna 2.5.19), diagnostyka tylko w buildzie deweloperskim | przyjęta (D-126) | agent z 08 |
-| [0012](0012-przypomnienie-expo-notifications-codzienne.md) | Przypomnienie: jedno powiadomienie z wyzwalaczem codziennym | przyjęta (D-126) | agent |
+| [0012](0012-przypomnienie-expo-notifications-codzienne.md) | Przypomnienie: jedno powiadomienie z wyzwalaczem codziennym (uzupełnienie E3: bez uprawnienia push) | przyjęta (D-126) | agent |
+| [0013](0013-ochrona-dlugich-operacji-przed-zawieszeniem.md) | Długie operacje na bazie pod `beginBackgroundTask` (lokalny moduł Expo) z wycofaniem przy wygaśnięciu | proponowana (E3) | agent |

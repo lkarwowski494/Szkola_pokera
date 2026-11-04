@@ -1,0 +1,19 @@
+ZGODNE 0 journal_mode (ADR 0003): "delete"
+INFO  dane: 34 005 odpowiedzi i logów, 2266 aktywności, 530 kart; plik 6.21 MB
+ZGODNE 2a bez otwartej transakcji i kursora: plik wolny: true
+ZGODNE 2b otwarta transakcja zapisu: plik zablokowany: false
+ZGODNE 2c po COMMIT: plik wolny: true
+ZGODNE 2d otwarta transakcja odczytu: plik zablokowany (blokada współdzielona): false
+ZGODNE 2e niedokończony kursor (odczyt po wierszu) poza transakcją: plik zablokowany: false
+ZGODNE 2f po zamknięciu kursora: plik wolny: true
+INFO  krok aktywności (UPSERT odpowiedzi + UPDATE kroku, jedna transakcja): p50 1.7 ms, p95 3.4 ms, maks 6.7 ms (200 powtórzeń)
+INFO  kopia VACUUM INTO: mediana 87.3 ms, maks 99.2 ms
+INFO  eksport (odczyt 7 tabel w jednej transakcji + JSON): mediana 460.2 ms, maks 1066.9 ms; plik 12.13 MB
+INFO  import (parsowanie + jedna transakcja: usunięcie i wstawienie 70 tys. wierszy): mediana 2663.7 ms, maks 3131.5 ms
+ZGODNE 3a po imporcie te same liczności: [0,0,2267,34055,0,530,34005]
+INFO  „Usuń postęp” (jedna transakcja): mediana 260.0 ms, maks 328.6 ms
+ZGODNE 3b plik wolny po wszystkich operacjach: true
+ZGODNE 3c integrity_check po pomiarach: "ok"
+SQLite 3.53.4, Node v22.23.4
+wszystkie wyniki zgodne z oczekiwanymi
+kod wyjścia: 0

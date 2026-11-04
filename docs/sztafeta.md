@@ -1,5 +1,5 @@
 # Stan sztafety
-Ścieżka: greenfield (przebudowa istniejącej aplikacji „prawie od nowa”) · Aktualizacja: 2026-11-04 (rola 05 E0)
+Ścieżka: greenfield (przebudowa istniejącej aplikacji „prawie od nowa”) · Aktualizacja: 2026-11-04 (rola 05 E3)
 
 Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szkoła Pokera przez role 1–5 w trybie build z prompts i zrobić ją prawie od nowa, ale wykorzystując elementy aktualnej aplikacji, które są dobre. Cel: monetyzacja. […] Tam nie ma być hazardu. Pełna nauka w 35 językach jak trening. Całkiem od nowa UX, przepływy, ocena monetyzacji, BRD.” Kolejność (wybór właściciela): bramka opłacalności (02, krok 0) → 01 → 02 → 03 → 04 → 05.
 
@@ -13,7 +13,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 02 Monetyzacja | fix OP-11 | zakończona 2026-11-04 (D-113; dokument, bez zmian rachunku i kodu) | 37ab4f1 | `docs/monetyzacja.md` | OP-09, OP-10 (05) |
 | 04 Studio Projektowe | build | zakończona 2026-11-04 (E3 zaakceptowane, D-123). E0 zakończone 2026-11-04 (D-114: ekran „Decyzja w sesji”); E1 zakończone 2026-11-04 (D-115: metafory A, B, C); E2 runda 1 odrzucona co do palety (D-116, pasek zostaje), runda 2 (D, E, F) odrzucona 2026-11-04 (D-117: „ma być eleganckie a nie badziewne”, punkt odniesienia: kolory i ikona poprzedniej aplikacji); runda 3: wybrany I (D-118) z warunkiem: stół bez miejsc w zadaniach bez pozycji (D-119); krój Literata 600 (D-120); E3 wykonane 2026-11-04 (D-121, D-122), czeka na akceptację ikony i ekranów | a838dda, 118a5c1 | `docs/design/00-rozpoznanie.md`, `01-swiat.md` | OP-19 w E3 |
 | 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
-| 05 Architekt | build | E2 zakończone i przyjęte 2026-11-04 (D-127; ADR 0001–0012: D-124, D-126); następny E3 | 4fde9d4 | `docs/architektura/00-rozpoznanie.md`, `docs/adr/`, `docs/architektura/dane.md`, `moduly.md`, `schemat.sql`, `eksperymenty/` | akceptacja ADR; OP-21 (E3) |
+| 05 Architekt | build | E3 wykonane 2026-11-04 (czternasta sesja), czeka na akceptację; E2 przyjęte (D-127; ADR 0001–0012: D-124, D-126) | (commit E3) | `docs/architektura/00-rozpoznanie.md`, `docs/adr/` (0013 proponowana), `dane.md`, `moduly.md`, `schemat.sql`, `tlo-i-bledy.md`, `prywatnosc.md`, `wydajnosc.md`, `kontrole-07.md`, `narzedzia/granice.mjs`, `eksperymenty/` | akceptacja E3 i ADR 0013; OP-21 (cele po pomiarze) |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -253,8 +253,18 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - Mermaid ERD nie renderowany w tej sesji (bez narzędzia; składnia sprawdzona ręcznie).
 - Decyzja właściciela na bramce E2: „Akceptuję (Recommended)” (D-127); E3 w nowej sesji, ta archiwizowana.
 
+## Rola 05 E3: wynik (2026-11-04, czternasta sesja)
+- Prompt: `assemble.mjs 05-architekt --tryb build` (repo prompts, klon 2026-11-04), przeczytany w całości.
+- Odczyty z dnia pracy: Apple „SIGKILL” (`0xdead10cc`), „Extending your app’s background execution time” (5 s), `beginBackgroundTask`, `NSPrivacyAccessedAPIType` (5 kategorii i powody), App Privacy Details; Expo: notifications (`enableRemoteNotifications`), apple-privacy; support.apple.com (iOS 16 → iPhone 8).
+- `tlo-i-bledy.md`: przegląd tła (bez lokalizacji, dźwięku, trybów tła), blokady i klasy operacji, zasady dla 08, powiadomienie bez uprawnienia push, polityka błędów z kodami `powod` (9 stanów bez projektu → 04).
+- ADR 0013 (proponowana): długie operacje (import, eksport, kopia, „Usuń postęp”, migracja z przebudową) pod `beginBackgroundTask` z lokalnego modułu Expo + wycofanie przy wygaśnięciu. Dowód: `eksperymenty/e3-blokady-czasy.mjs` — 10 wyników zgodnych, kod 0; import 3-letni 2,7 s na laptopie (ryzyko realne na telefonie).
+- `prywatnosc.md`: inwentarz danych; required reason API z 25 pakietów SDK 58 + OpenIAP 4.0.8 (expo-sqlite, expo-document-picker, expo-sharing, OpenIAP bez własnego manifestu); do `app.json`: FileTimestamp C617.1+3B52.1, UserDefaults CA92.1, SystemBootTime 35F9.1, DiskSpace E174.1 (powód dla `fstatfs` w SQLite [DO USTALENIA] rola 10); otwarte: „Zgłoś błąd” a etykieta (rola 10).
+- `wydajnosc.md`: budżety B-1–B-7 z metodą (nagranie ekranu + analiza klatek przez agenta), plan pomiaru bazowego; D-128 (iOS 16.4, iPhone 8).
+- `kontrole-07.md`: K-01–K-15, U-1–U-9; `narzedzia/granice.mjs` (samosprawdzenie kod 1 na drzewie z błędami; obecny kod: `bots.ts`, `grading.ts`, `content-schema/index.ts`, `session.tsx`, `text.pl.ts` > 20 KB, 0 cykli).
+- CI `main` (MCP, 2026-11-04): E2E Maestro czerwony w przebiegach 14–18, bez nowych przebiegów od 20.10 — bez zmian (rola 07).
+
 ## Następny krok
-**05-architekt**, build, E3 (zawieszenie bez blokady pliku i powiadomienie wg `tlo-i-sensory-ios`, polityka błędów, `docs/architektura/prywatnosc.md` z required reason API, budżety wydajności z metodą, lista kontroli automatycznych dla roli 07 z `granice.mjs`) po akceptacji E2; ten sam prompt (`assemble.mjs 05-architekt --tryb build`). Wejście: `docs/adr/`, `docs/architektura/` (00-rozpoznanie, dane, moduly, schemat.sql).
+**05-architekt**, build, E4 po akceptacji E3 (README architektury, definicja ukończenia z dowodami, propozycja „Ścieżki wrażliwe” w `CLAUDE.md`, przekazanie). Poprzedni wpis: **05-architekt**, build, E3 (zawieszenie bez blokady pliku i powiadomienie wg `tlo-i-sensory-ios`, polityka błędów, `docs/architektura/prywatnosc.md` z required reason API, budżety wydajności z metodą, lista kontroli automatycznych dla roli 07 z `granice.mjs`) po akceptacji E2; ten sam prompt (`assemble.mjs 05-architekt --tryb build`). Wejście: `docs/adr/`, `docs/architektura/` (00-rozpoznanie, dane, moduly, schemat.sql).
 
 ## Decyzje właściciela na bramce E3 roli 04 (2026-11-04)
 - Krój tytułów: „Ok zgodnie z rekomendacją” (D-120, Literata 600).
