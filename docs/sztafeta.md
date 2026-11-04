@@ -13,7 +13,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 02 Monetyzacja | fix OP-11 | zakończona 2026-11-04 (D-113; dokument, bez zmian rachunku i kodu) | 37ab4f1 | `docs/monetyzacja.md` | OP-09, OP-10 (05) |
 | 04 Studio Projektowe | build | zakończona 2026-11-04 (E3 zaakceptowane, D-123). E0 zakończone 2026-11-04 (D-114: ekran „Decyzja w sesji”); E1 zakończone 2026-11-04 (D-115: metafory A, B, C); E2 runda 1 odrzucona co do palety (D-116, pasek zostaje), runda 2 (D, E, F) odrzucona 2026-11-04 (D-117: „ma być eleganckie a nie badziewne”, punkt odniesienia: kolory i ikona poprzedniej aplikacji); runda 3: wybrany I (D-118) z warunkiem: stół bez miejsc w zadaniach bez pozycji (D-119); krój Literata 600 (D-120); E3 wykonane 2026-11-04 (D-121, D-122), czeka na akceptację ikony i ekranów | a838dda, 118a5c1 | `docs/design/00-rozpoznanie.md`, `01-swiat.md` | OP-19 w E3 |
 | 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
-| 05 Architekt | build | E0 zakończone 2026-11-04 (D-124 nowy schemat v1, D-125 kod Treningu jako wzorzec); następny E1 | bdc037e | `docs/architektura/00-rozpoznanie.md` | OP-24, OP-21, OP-09 w ADR |
+| 05 Architekt | build | E1 zakończone 2026-11-04 (ADR 0001–0012, 0004 przyjęta D-124, reszta proponowana); czeka na akceptację właściciela, następny E2 | E1 (ten commit) | `docs/architektura/00-rozpoznanie.md`, `docs/adr/`, `docs/architektura/eksperymenty/` | akceptacja ADR; OP-21 (E3) |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -236,8 +236,16 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - CI `main`: E2E czerwony w przebiegach 13–18 (15–20.10), bez zmian (rola 07).
 - Decyzje właściciela na bramce E0: P-1 „Nowy schemat (Recommended)” (D-124), P-2 „Tak, jako wzorzec (Recommended)” (D-125), nowa sesja: „Tak, nowa + archiwum tej”.
 
+## Rola 05 E1: wynik (2026-11-04, trzynasta sesja)
+- Prompt: ten sam (`assemble.mjs 05-architekt --tryb build`, prompts c025063), przeczytany w całości; model opus.
+- ADR: `docs/adr/0001`–`0012` + indeks `docs/adr/README.md`; 0004 przyjęta (D-124), pozostałe „proponowana”.
+- Eksperyment: `docs/architektura/eksperymenty/e1-sqlite.mjs` (kolejka zapisów, UPSERT kontra REPLACE, kaskada, migracja 12 kroków z przypadkiem negatywnym, baza nowsza niż aplikacja, `VACUUM INTO` przy WAL): 19 wyników zgodnych, kod wyjścia 0 (`e1-sqlite.wynik.txt`). Jedno oczekiwanie poprawione przed drugim przebiegiem (E5a: tabela istnieje, brakuje 0 z 5 ostatnich wierszy — zjawisko to samo, źle zapisany oczekiwany wynik).
+- Ustalenia z odczytów 2026-11-04: wytyczna o ukrytych funkcjach ma numer **2.5.19** (nie 2.3.1); Expo nie włącza WAL domyślnie; `expo-sqlite` 58.0.15 trzyma bazy w `Documents/SQLite` na iOS; Keychain po odinstalowaniu „not guaranteed”; `expo-iap` 6.4.2 zależy od pakietu Swift OpenIAP (manifest prywatności `[DO USTALENIA]`, E3).
+- Doprecyzowanie D-124 do weta (ADR 0004): nowa baza `postep.db`, stare `user.db*` bez zmiany nazwy (ten sam skutek, bez nieatomowej zmiany nazwy trzech plików); „Usuń postęp” usuwa też `user.db*`.
+- OP-24 rozstrzygnięte w ADR 0007 (ponowna instalacja zeruje licznik dnia, brzegowy, przyjęte wzorem R-M5-2 Treningu); OP-09: wniosek w ADR 0006 pkt 5 (aplikacja nie anuluje; arkusz systemowy) — zamknięcie przez rolę 02.
+
 ## Następny krok
-**05-architekt**, build, E1 (ADR 0001–0012; P-1 i P-2 rozstrzygnięte: D-124, D-125) według `docs/architektura/00-rozpoznanie.md`, sekcja 8; ten sam prompt (`assemble.mjs 05-architekt --tryb build`). Paczka roli 05: „Przekazanie do następnej roli” roli 04 niżej.
+**05-architekt**, build, E2 (granice modułów i porty, `docs/architektura/dane.md` z ERD, `schemat.sql` uruchomiony z dowodem, format eksportu, konfiguracja, ścieżki utraty danych) po akceptacji ADR przez właściciela; ten sam prompt (`assemble.mjs 05-architekt --tryb build`). Wejście: `docs/adr/`, `docs/architektura/00-rozpoznanie.md`, paczka roli 05 niżej.
 
 ## Decyzje właściciela na bramce E3 roli 04 (2026-11-04)
 - Krój tytułów: „Ok zgodnie z rekomendacją” (D-120, Literata 600).

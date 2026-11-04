@@ -1,0 +1,22 @@
+OK    E1a bez kolejki: zapis B przeżył wycofanie A: wynik=[] oczekiwane=[]
+OK    E1b z kolejką: zapis B przeżył wycofanie A: wynik=["b"] oczekiwane=["b"]
+OK    E1c foreign_keys w transakcji zapisu: wynik=1 oczekiwane=1
+OK    E1d PRAGMA foreign_keys=OFF w transakcji nic nie robi: wynik=1 oczekiwane=1
+OK    E2a INSERT OR REPLACE: logi karty po zapisie: wynik=0 oczekiwane=0
+OK    E2b UPSERT: logi karty po zapisie: wynik=2 oczekiwane=2
+OK    E2c UPSERT: stan karty: wynik="powtorka" oczekiwane="powtorka"
+OK    E3a kaskada z foreign_keys=ON: osierocone logi: wynik=0 oczekiwane=0
+OK    E3b bez pragmy: osierocone logi: wynik=2 oczekiwane=2
+OK    E3c bez pragmy: naruszenia foreign_key_check: wynik=2 oczekiwane=2
+OK    E4a migracja v1→v2 (OFF przed BEGIN): wynik={"karta":2,"log":3,"wersja":2,"integrity":"ok","fk":0} oczekiwane={"karta":2,"log":3,"wersja":2,"integrity":"ok","fk":0}
+OK    E4b drugie uruchomienie bez zmian: wynik={"karta":2,"log":3,"wersja":2,"integrity":"ok","fk":0} oczekiwane={"karta":2,"log":3,"wersja":2,"integrity":"ok","fk":0}
+OK    E4c foreign_keys po migracji: wynik=1 oczekiwane=1
+OK    E4d pragma OFF w transakcji: logi po migracji (utrata): wynik=0 oczekiwane=0
+OK    E4e CHECK złamany: migracja wycofana, dane i wersja bez zmian: wynik={"blad":true,"karta":2,"log":3,"wersja":1,"integrity":"ok","fk":0} oczekiwane={"blad":true,"karta":2,"log":3,"wersja":1,"integrity":"ok","fk":0}
+OK    E4f baza nowsza niż aplikacja: błąd, dane bez zmian: wynik={"blad":"Baza w wersji 9 jest nowsza niż aplikacja (2).","karta":2,"log":3} oczekiwane={"blad":"Baza w wersji 9 jest nowsza niż aplikacja (2).","karta":2,"log":3}
+OK    E5a kopia samego pliku .db przy WAL: wiersze z 5 ostatnich: wynik=0 oczekiwane=0
+OK    E5b VACUUM INTO: wiersze: wynik=5 oczekiwane=5
+OK    E5c plik -wal istnieje obok bazy: wynik=true oczekiwane=true
+SQLite 3.53.4, Node v22.23.4
+wszystkie wyniki zgodne z oczekiwanymi
+kod wyjścia=0
