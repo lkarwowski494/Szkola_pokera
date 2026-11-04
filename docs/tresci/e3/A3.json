@@ -1,0 +1,1524 @@
+[
+ {
+  "id": "R-M9-001",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:7",
+   "content/pl/lessons/m9-l1-spr.md:12",
+   "content/pl/lessons/m9-l1-spr.md:22",
+   "content/pl/lessons/m9-l1-spr.md:32",
+   "content/pl/lessons/m9-l1-spr.md:42",
+   "content/pl/lessons/m9-l1-spr.md:51",
+   "content/pl/lessons/m9-l1-spr.md:60",
+   "content/pl/lessons/m9-l1-spr.md:70",
+   "content/pl/exams/m9.yaml:7"
+  ],
+  "uzasadnienie": "Policzone niezależnie: 97,5/5,5=17,73; 92,5/16,5=5,61; 78/45=1,73. Definicje SPR (GTOW, Upswing) znalezione dosłownie; efektywny stack bez puli zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M9-003",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:42",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:81",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:7",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:45",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:55",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:74",
+   "content/pl/exams/m9.yaml:32"
+  ],
+  "uzasadnienie": "GTOW (SPR ok. 2): „Any top pair or better is good enough to stack off”; SplitSuit: <3 auto-stack off z TP+. Rachunek: 2/(1+4)=40%, geometria 2 ulic 61,80% sprawdzone.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M9-005",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:7",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:22",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:71",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:7",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:64"
+  ],
+  "uzasadnienie": "Rachunek: geometryczny rozmiar na 3 ulice przy SPR 17,73 = 1,158 puli. GTOW SPR 16: top pairs obojętne call/fold na stack-off; Upswing: SRP za głęboki na 3 ulice z wieloma TP. „Zwykle” trafne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M9-006",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:7",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:12",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:19",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:26",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:53",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:63",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:73",
+   "content/pl/lessons/m9-l3-rozmiar-geometryczny.md:82",
+   "content/pl/exams/m9.yaml:42"
+  ],
+  "uzasadnienie": "Policzone: (1+2f)^3=1+2·5,606 daje f=65,14%, łańcuch wpłaca 92,5. Wzór Upswing 0.5((P+2S)/P)^(1/n)−1) jest algebraicznie tym samym; definicja GTOW znaleziona.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M9-008",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:7",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:12",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:22",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:32",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:42",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:71",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:81",
+   "content/pl/exams/m9.yaml:51"
+  ],
+  "uzasadnienie": "Źródła kierunkowo zgodne (Upswing: SRP za głęboki na 3 ulice TP; GTOW geometria dla rąk z przewagą nut). Brak przeczytanego źródła dla „słabsza para: jedna albo żadna” i „set: trzy”; nazwane uproszczeniem.",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M9-009",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:7",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:52",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:62",
+   "content/pl/exams/m9.yaml:71"
+  ],
+  "uzasadnienie": "Rachunek: 3×1/3 puli w puli 16,5 wpłaca 29,94 z 92,5; 65,14% wpłaca 92,5. GTOW: geometria „maximize value with a big nut advantage”, najlepiej przy zakresie spolaryzowanym (warunek zakresowy pominięty, poboczne).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M9-010",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:7",
+   "content/pl/lessons/m9-l1-spr.md:79",
+   "content/pl/exams/m9.yaml:16",
+   "content/pl/exams/m9.yaml:81",
+   "content/pl/rules.yaml:808"
+  ],
+  "uzasadnienie": "Strefy jako część wspólna: SplitSuit <3 / 3–6 / >6, ThePokerBank medium: top two pair, sets; PokerCoaching 8+: nutted; PokerNews 13 = trzy zakłady puli (rachunek (1+2)^3=27). Nazwane uproszczeniem.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M10-001",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:7",
+   "content/pl/lessons/m10-l1-statystyki.md:12",
+   "content/pl/lessons/m10-l1-statystyki.md:21",
+   "content/pl/lessons/m10-l1-statystyki.md:30",
+   "content/pl/exams/m10.yaml:6"
+  ],
+  "uzasadnienie": "GTOW glossary i PokerCoaching: VPIP = dobrowolne call/raise przed flopem, PFR obejmuje open, 3-bet, 4-bet. PFR ≤ VPIP wynika z definicji.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M10-003",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:12",
+   "content/pl/lessons/m10-l1-statystyki.md:7",
+   "content/pl/lessons/m10-l1-statystyki.md:55",
+   "content/pl/lessons/m10-l1-statystyki.md:64",
+   "content/pl/lessons/m10-l1-statystyki.md:73",
+   "content/pl/lessons/m10-l1-statystyki.md:82",
+   "content/pl/lessons/m13-l2-powtorki.md:7",
+   "content/pl/lessons/m13-l2-powtorki.md:48",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:83",
+   "content/pl/exams/m10.yaml:23",
+   "content/pl/rules.yaml:1182",
+   "apps/mobile/src/features/drills/text.pl.ts:106"
+  ],
+  "uzasadnienie": "30 i 30–50 (Deepfold), 100–200 VPIP/PFR i ~500 dla 3-bet/F3B (PokerCoaching) znalezione. Dolna granica 200 pochodzi z F3B (Deepfold 200+); dla samego 3-bet Deepfold podaje 100+, więc 200–500 nie obejmuje obu źródeł.",
+  "poprawka": "„3-bet po ok. 100–500 rąk, a fold to 3-bet po ok. 200–500”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M10-004",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:7",
+   "content/pl/lessons/m10-l2-typy-graczy.md:12",
+   "content/pl/lessons/m10-l2-typy-graczy.md:19"
+  ],
+  "uzasadnienie": "PokerCoaching: PFR >10 pkt poniżej VPIP = pasywny; Deepfold: Gap > 10 → Passive. Bluffaces regi NL25: 23/18 (różnica 5) potwierdza małą różnicę u regów.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M10-005",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:7",
+   "content/pl/lessons/m10-l2-typy-graczy.md:12",
+   "packages/poker-core/src/hud.ts:4",
+   "packages/poker-core/src/hud.ts:58",
+   "packages/poker-core/test/hud.test.ts:8"
+  ],
+  "uzasadnienie": "Progi znalezione (nit ≤14, TAG 18–22, LAG 25–30, loose 35+, gap >10, <3). Ale profil maniaka Deepfold 38/35 ma różnicę 3, a ostry próg „poniżej 3” go wyklucza; PokerCoaching <3 to „highly aggressive”, nie wprost maniak.",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M10-006",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:7",
+   "content/pl/lessons/m10-l2-typy-graczy.md:28",
+   "content/pl/lessons/m10-l2-typy-graczy.md:37",
+   "content/pl/lessons/m10-l2-typy-graczy.md:47",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:55",
+   "content/pl/exams/m10.yaml:51",
+   "apps/mobile/src/features/drills/text.pl.ts:106"
+  ],
+  "uzasadnienie": "Bluffaces GGPoker NL25 (12 mies.): rec WTSD 32 / W$SD 46 vs regi 28 / 57; PokerCoaching i Deepfold: value bet więcej, mniej blefów na riverze. Populacja podana. Dane populacyjne oznaczone szczeblem 4 zamiast 5.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M10-007",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:7",
+   "content/pl/lessons/m10-l2-typy-graczy.md:57",
+   "content/pl/lessons/m10-l2-typy-graczy.md:67",
+   "content/pl/exams/m10.yaml:33"
+  ],
+  "uzasadnienie": "PokerCoaching: nit „whose raises you can nearly always fold to”; Deepfold: „Steal their blinds relentlessly, fold to their 3-bets”. Zgodne z tekstem lekcji i zadań.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M10-008",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:7",
+   "content/pl/lessons/m10-l2-typy-graczy.md:76",
+   "content/pl/lessons/m10-l2-typy-graczy.md:86",
+   "content/pl/exams/m10.yaml:42"
+  ],
+  "uzasadnienie": "Deepfold (Maniac): trap z premium, „Don't try to out-bluff them”; GTOW nodelock: nadwyżka blefów czyni bluff catchery opłacalnymi. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M10-009",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:7",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:12",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:21",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:30",
+   "content/pl/rules.yaml:892"
+  ],
+  "uzasadnienie": "GTOW (bet-check-bet, BB): ręce mieszane obojętne; „bluffing just a single combo more… always fold when under-bluffing”; nodelock ~31% zamiast ~27% → BB nigdy nie pasuje. Tekst lekcji wiernie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M10-010",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:7",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:39",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:46",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:55",
+   "content/pl/exams/m10.yaml:60"
+  ],
+  "uzasadnienie": "Policzone: 33,3/133,3=25%, 75/175=42,86%; EV=fP−(1−f)b>0 ⇔ f>b/(P+b). Definicja alpha GTOW znaleziona. Zastrzeżenie o łączeniu rozmiarów obecne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M10-011",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:7",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:64",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:74",
+   "content/pl/exams/m10.yaml:70"
+  ],
+  "uzasadnienie": "Bluffaces NL25: rec F3B 31, regi 55; PokerCoaching: niski F3B → zakres liniowy „almost solely value hands”; Deepfold <50% „Drop bluff 3-bets”. Rachunek 7,5/11,5=65,22% poprawny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M10-012",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:7",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:83"
+  ],
+  "uzasadnienie": "PokerCoaching wspiera: kierunek przy małej próbie, eksploatacja w punktach wymaga dużej próby. Uzasadnienie „odejście od bazy samo daje się wykorzystać, przy złym odczycie oddajesz więcej” nie ma przeczytanego źródła (hasło Exploit to tylko definicja).",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M10-013",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:7",
+   "content/pl/lessons/m10-l4-rake.md:12",
+   "content/pl/lessons/m10-l4-rake.md:21",
+   "content/pl/lessons/m10-l4-rake.md:30",
+   "content/pl/lessons/m10-l4-rake.md:39"
+  ],
+  "uzasadnienie": "PrimeDope API: PokerStars NL25 7,75, GGPoker NL10 9,10 bb/100; Blackrain79: winrate 1–3 bb/100; Gipsyteam/Tombos21: NL10 −9,1, NL100 −7,3. „Kilka razy więcej” zgodne (2,6–9×).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M10-014",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:7",
+   "content/pl/lessons/m10-l4-rake.md:64",
+   "content/pl/lessons/m10-l4-rake.md:73",
+   "content/pl/lessons/m10-l4-rake.md:82"
+  ],
+  "uzasadnienie": "GTOW (200bb, rake NL100): „much lower VPIPs and somewhat higher 3-betting” i VPIP −25–35%. Twierdzenie „3-bet i fold nie [tracą]” jest za mocne: sprawdzony 3-bet dochodzi do flopu i płaci rake; lekcja już to zawęża („pot wygrana 3-betem przed flopem”).",
+  "poprawka": "„sprawdzenie zawsze prowadzi do flopu i płaci rake, a 3-bet często kończy rozdanie przed flopem, bez rake'u, a fold nic nie kosztuje”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M10-015",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:7",
+   "content/pl/lessons/m10-l4-rake.md:39",
+   "content/pl/lessons/m10-l4-rake.md:48",
+   "content/pl/lessons/m10-l4-rake.md:55",
+   "content/pl/exams/m10.yaml:79"
+  ],
+  "uzasadnienie": "Policzone: 0,5/2=25%, 0,5/(2·0,95)=26,32%. PrimeDope: „At microstakes, percentage drives the cost because pots rarely hit the cap”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M11-001",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:7",
+   "content/pl/lessons/m11-l1-push-fold.md:12",
+   "content/pl/lessons/m11-l1-push-fold.md:21",
+   "content/pl/exams/m11.yaml:6"
+  ],
+  "uzasadnienie": "PokerCoaching: ≤10bb „almost entirely push/fold”, 15bb „dominant framework for weak and medium holdings”; Upswing: >20bb Raising First In; GTOW 10bb all-in or fold; poker.academy: solver HU 10bb limpuje 61% (uproszczenie nazwane).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M11-002",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:7",
+   "content/pl/lessons/m11-l1-push-fold.md:46",
+   "content/pl/lessons/m11-l1-push-fold.md:53",
+   "content/pl/lessons/m11-l1-push-fold.md:59"
+  ],
+  "uzasadnienie": "Pokerstrategy Nash (bez ante): 74,1 / 56,6 / 45,7% wobec solvera 72,5 / 58,4 / 45,5%; dokument 10 waliduje 10bb (55–61%). Kierunek i wielkości zgodne. W lekcji przyczyna różnicy („inny sposób liczenia”) bez źródła.",
+  "poprawka": "„Dla porównania tabela z serwisu szkoleniowego podaje przy 10bb 56,6%; różnica mieści się w tolerancji walidacji solvera, kierunek jest ten sam.”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M11-003",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:7",
+   "content/pl/lessons/m11-l1-push-fold.md:87",
+   "content/pl/lessons/m11-l1-push-fold.md:96",
+   "content/pl/exams/m11.yaml:31"
+  ],
+  "uzasadnienie": "Kierunek poparty (PokerCoaching: z ante szerzej; Pokerstrategy ante 10% BB: 60,8% vs 56,6%). Wartość 71,7% przy BB-ante 1bb tylko z solvera projektu; dokument 10 waliduje wariant bez ante. Mój przybliżony test (stosunek ryzyka 3,8 ≈ ES 6 w tabeli: 70,1%) zgodny.",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M11-004",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:7",
+   "content/pl/lessons/m11-l1-push-fold.md:69",
+   "content/pl/lessons/m11-l1-push-fold.md:78",
+   "content/pl/exams/m11.yaml:22",
+   "content/pl/exams/m11.yaml:31"
+  ],
+  "uzasadnienie": "Policzone: 9,5/(9,5+1,5)=86,36%; EV(all-in bez equity)>0 ⇔ 11f>9,5. Hasło Fold equity GTOW znalezione.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M11-005",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:7",
+   "content/pl/lessons/m11-l1-push-fold.md:30",
+   "content/pl/lessons/m11-l1-push-fold.md:37",
+   "content/pl/exams/m11.yaml:15"
+  ],
+  "uzasadnienie": "Pokerstrategy (Harrington): „Red zone: 1 <= M <= 5”, jedyna opcja „first to push”; Wikipedia: czerwona M<6. „Poniżej ok. 5” z „ok.” akceptowalne. Wikipedia oznaczona szczeblem 5 (to nie eksploatacja).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M11-007",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:7",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:40",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:47",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:53",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:63",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:73",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:92",
+   "content/pl/exams/m11.yaml:47"
+  ],
+  "uzasadnienie": "Pokerstrategy Nash 10bb: push 56,6%, call 38,5%; solver 58,4/37,6% (dokument 10: 55–61 / 34,5–40,5). PokerCoaching: „Calling ranges are tighter than shoving ranges”; gap concept znaleziony.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M11-008",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:7",
+   "content/pl/lessons/m11-l3-icm.md:12",
+   "content/pl/lessons/m11-l3-icm.md:19",
+   "content/pl/lessons/m11-l3-icm.md:28",
+   "content/pl/lessons/m11-l3-icm.md:35",
+   "content/pl/lessons/m11-l3-icm.md:85",
+   "content/pl/lessons/m11-l3-icm.md:99"
+  ],
+  "uzasadnienie": "Policzone niezależnie (ICM rekurencyjny): 41,19/35,95/22,85%; krótki na 2. miejscu 27,13%. GTOW ICM basics: równe umiejętności, 1. i 2. miejsce znalezione dosłownie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M11-009",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:7",
+   "content/pl/lessons/m11-l3-icm.md:44",
+   "content/pl/lessons/m11-l3-icm.md:51",
+   "content/pl/lessons/m11-l3-icm.md:58",
+   "content/pl/lessons/m11-l3-icm.md:67",
+   "content/pl/lessons/m11-l3-icm.md:92",
+   "content/pl/exams/m11.yaml:56",
+   "content/pl/exams/m11.yaml:63"
+  ],
+  "uzasadnienie": "Policzone: 3000 vs 2000 przy 4000/3000/2000/1000, 50/30/20: teraz 29,49%, wygrana 38,89%, przegrana 15,56%, BF 1,482, wymagane 59,71%; w żetonach 50%. Wzory GTOW (BF, required equity) znalezione.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M11-010",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:7",
+   "content/pl/lessons/m11-l3-icm.md:67",
+   "content/pl/lessons/m11-l3-icm.md:76",
+   "content/pl/lessons/m11-l3-icm.md:92",
+   "content/pl/exams/m11.yaml:72"
+  ],
+  "uzasadnienie": "GTOW: „chips won are worth less than chips lost”, duże stacki „take on less risk”; Upswing: odpowiedzi na shove „tighten up”; Ganzfried–Sandholm: w turnieju BB sprawdza 2,1% zamiast 19,7%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M11-011",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:7",
+   "content/pl/lessons/m11-l1-push-fold.md:103",
+   "content/pl/exams/m11.yaml:81"
+  ],
+  "uzasadnienie": "Ganzfried–Sandholm tab. 2 (4500 przy 300/600 = 7,5bb, pojedyncze rozdanie): Button 0,355, SB po pasie 0,633; solver 35,8/64,5%. Mniej graczy za tobą → szerzej.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M11-012",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:7",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:99",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:106"
+  ],
+  "uzasadnienie": "GS tab. 2: SB po all-inie 0,234, BB po pasie SB 0,308, BB po dwóch all-inach 0,197; solver 23,9/30,7/20,5%; cena 6,5/22,5=28,89% policzona. Lekcja przypisuje całą różnicę SB/BB graczowi za tobą, choć różnią się też ceny (43,75 vs 41,94%).",
+  "poprawka": "„Różnica bierze się głównie z gracza za tobą (ceny różnią się niewiele)”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.f3b.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:60",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:122",
+   "content/pl/rules.yaml:912"
+  ],
+  "uzasadnienie": "PokerCoaching: „good players fold to 3-bets about 50%”; Deepfold: „<50% → They call 3-bets wide”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.gap.aggressive",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:110",
+   "content/pl/rules.yaml:862"
+  ],
+  "uzasadnienie": "PokerCoaching: „gap is less than 3 points… highly aggressive”. Deepfold <5 dotyczy regów; aplikacja bierze ostrzejszy próg 3 (część wspólna).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.gap.passive",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:22",
+   "content/pl/lessons/m10-l2-typy-graczy.md:109",
+   "content/pl/rules.yaml:853",
+   "content/pl/rules.yaml:862",
+   "content/pl/rules.yaml:869"
+  ],
+  "uzasadnienie": "Oba źródła: różnica >10 = gracz pasywny. Wartość 10 zgodna, granica ostra („ponad”) zgodna.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.hands.3bet.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:76",
+   "content/pl/lessons/m10-l1-statystyki.md:127",
+   "content/pl/exams/m10.yaml:26",
+   "content/pl/exams/m10.yaml:27",
+   "content/pl/exams/m10.yaml:75",
+   "content/pl/rules.yaml:846"
+  ],
+  "uzasadnienie": "PokerCoaching: „For 3-bet and fold to 3-bet, closer to 500 hands is the threshold.”",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.hands.3bet.low",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:76",
+   "content/pl/lessons/m10-l1-statystyki.md:127",
+   "content/pl/exams/m10.yaml:26",
+   "content/pl/exams/m10.yaml:27",
+   "content/pl/exams/m10.yaml:75",
+   "content/pl/rules.yaml:846"
+  ],
+  "uzasadnienie": "Deepfold: „Fold to 3-bet 200+ hands”. Wartość użyta jako dolna granica także dla samego 3-betu, dla którego Deepfold podaje „3-bet % (overall) 100+ hands”.",
+  "poprawka": "osobna dolna granica dla 3-betu: ok. 100 rąk (Deepfold); 200 tylko dla fold to 3-bet",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.hands.random",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:67",
+   "content/pl/lessons/m10-l1-statystyki.md:125",
+   "content/pl/lessons/m10-l1-statystyki.md:126",
+   "content/pl/exams/m10.yaml:28",
+   "content/pl/rules.yaml:846"
+  ],
+  "uzasadnienie": "Deepfold FAQ: „Below 30 hands, treat the HUD numbers as random”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.hands.rough.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:67",
+   "content/pl/lessons/m10-l1-statystyki.md:126",
+   "content/pl/rules.yaml:846"
+  ],
+  "uzasadnienie": "Deepfold FAQ: „30-50 hands for a rough VPIP/PFR estimate (player type identification).”",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.vpip.loose",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:109",
+   "content/pl/lessons/m10-l2-typy-graczy.md:110",
+   "content/pl/rules.yaml:862",
+   "content/pl/rules.yaml:869",
+   "content/pl/rules.yaml:887"
+  ],
+  "uzasadnienie": "PokerCoaching tabela 6-max: too loose 35+; Deepfold: 35%+ Loose (likely recreational).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.vpip.nit-max",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:24",
+   "content/pl/lessons/m10-l2-typy-graczy.md:107",
+   "content/pl/rules.yaml:862",
+   "content/pl/rules.yaml:878"
+  ],
+  "uzasadnienie": "PokerCoaching: too tight 14 or below; Deepfold: 10–15% nit. 14 = część wspólna.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.vpip.reg.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:108",
+   "content/pl/rules.yaml:862"
+  ],
+  "uzasadnienie": "Deepfold: LAG 25–30% (górna granica 30).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.vpip.reg.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:108",
+   "content/pl/rules.yaml:862"
+  ],
+  "uzasadnienie": "Deepfold TAG 18–22%; Bluffaces Regulars VPIP 18–32; PokerCoaching 22–28. Dolna granica 18 zgodna.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.depth.10",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:13",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:25",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:49",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:54",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:64",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:74",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:83",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:118",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:127",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:140",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:168",
+   "content/pl/lessons/m11-l1-push-fold.md:13",
+   "content/pl/lessons/m11-l1-push-fold.md:55",
+   "content/pl/lessons/m11-l1-push-fold.md:60",
+   "content/pl/lessons/m11-l1-push-fold.md:70",
+   "content/pl/lessons/m11-l1-push-fold.md:88",
+   "content/pl/lessons/m11-l1-push-fold.md:120",
+   "content/pl/lessons/m11-l1-push-fold.md:123",
+   "content/pl/lessons/m11-l1-push-fold.md:152",
+   "content/pl/lessons/m11-l1-push-fold.md:170",
+   "content/pl/rules.yaml:1063",
+   "content/pl/rules.yaml:1071",
+   "content/pl/rules.yaml:1079",
+   "content/pl/rules.yaml:1095",
+   "content/pl/rules.yaml:1103"
+  ],
+  "uzasadnienie": "PokerCoaching „At 10 big blinds or fewer… push/fold”; dokument 10: walidacja HU 10bb. Wybór głębokości siatki.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.depth.15",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:31",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:35",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:64",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:67",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:128",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:150",
+   "content/pl/lessons/m11-l1-push-fold.md:60",
+   "content/pl/lessons/m11-l1-push-fold.md:63",
+   "content/pl/lessons/m11-l1-push-fold.md:64",
+   "content/pl/lessons/m11-l1-push-fold.md:152",
+   "content/pl/rules.yaml:1063",
+   "content/pl/rules.yaml:1095"
+  ],
+  "uzasadnienie": "PokerCoaching: „Push fold charts apply to stacks of 15 big blinds or less.”",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.depth.5",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:21",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:25",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:35",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:126",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:150",
+   "content/pl/lessons/m11-l1-push-fold.md:152",
+   "content/pl/exams/m11.yaml:48",
+   "content/pl/exams/m11.yaml:51",
+   "content/pl/exams/m11.yaml:52",
+   "content/pl/rules.yaml:1063",
+   "content/pl/rules.yaml:1095"
+  ],
+  "uzasadnienie": "Pokerstrategy tabela 1 ma wiersz ES 5 (74,1%). Wybór głębokości siatki.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.depth.3max",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:107",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:154",
+   "content/pl/lessons/m11-l1-push-fold.md:156",
+   "content/pl/exams/m11.yaml:82",
+   "content/pl/rules.yaml:1135",
+   "content/pl/rules.yaml:1143"
+  ],
+  "uzasadnienie": "Ganzfried–Sandholm: stacki 4500, blindy 300/600; rachunek 4500/600 = 7,5bb.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.ext.call.10",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:140"
+  ],
+  "uzasadnienie": "Pokerstrategy tabela 1, ES 10, NCR: „38.5%: 22+, Ax+, K2s+, K6o+…”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.ext.push.10",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:152"
+  ],
+  "uzasadnienie": "Pokerstrategy tabela 1, ES 10, NPR: „56.6%”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.jamfold3.btn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:166"
+  ],
+  "uzasadnienie": "GS tab. 2 „Button jam”, single hand 0.355.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.jamfold3.overcall.single",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:161"
+  ],
+  "uzasadnienie": "GS tab. 2 „BB jam after jam/jam”, single hand 0.197.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.jamfold3.overcall.tourn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l3-icm.md:161"
+  ],
+  "uzasadnienie": "GS tab. 2: tournament 0.021; tekst: „only calls with the four highest pocket pairs and AKs”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.m.green",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:41"
+  ],
+  "uzasadnienie": "Pokerstrategy (Harrington): „Green zone: M > = 20”; Wikipedia: M ≥ 20.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.m.red",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:40",
+   "content/pl/lessons/m11-l1-push-fold.md:134",
+   "content/pl/exams/m11.yaml:18",
+   "content/pl/rules.yaml:1086"
+  ],
+  "uzasadnienie": "Pokerstrategy (Harrington): „Red zone: 1 < = M < = 5”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.thr.pushfold",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:15",
+   "content/pl/lessons/m11-l1-push-fold.md:26",
+   "content/pl/lessons/m11-l1-push-fold.md:112",
+   "content/pl/lessons/m11-l1-push-fold.md:116",
+   "content/pl/lessons/m11-l1-push-fold.md:117",
+   "content/pl/exams/m11.yaml:9",
+   "content/pl/rules.yaml:1054",
+   "content/pl/rules.yaml:1055"
+  ],
+  "uzasadnienie": "PokerCoaching: „At 10 big blinds or fewer, it is almost entirely push/fold”; GTOW: standard advice for 10bb all-in or fold.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.thr.raise",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:22",
+   "content/pl/lessons/m11-l1-push-fold.md:24",
+   "content/pl/lessons/m11-l1-push-fold.md:118",
+   "content/pl/exams/m11.yaml:10",
+   "content/pl/rules.yaml:1055"
+  ],
+  "uzasadnienie": "Upswing: „larger than 20bb… Raising First In”; PokerCoaching: przy 20bb „primary open is a 2x min-raise”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.thr.upper",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:26",
+   "content/pl/lessons/m11-l1-push-fold.md:117",
+   "content/pl/exams/m11.yaml:9",
+   "content/pl/rules.yaml:1055"
+  ],
+  "uzasadnienie": "Upswing: „around 15 big blinds (bb) or fewer”; PokerCoaching: charts „15 big blinds or less”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.all.fcb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:111"
+  ],
+  "uzasadnienie": "Bluffaces GGPoker NL25 6-max All players: FvCbet Flop 45 (NL50 i NL100: 44, sprawdzone zapytaniem filtra).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.period.months",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:33",
+   "content/pl/lessons/m10-l2-typy-graczy.md:116",
+   "content/pl/lessons/m10-l2-typy-graczy.md:142",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:129"
+  ],
+  "uzasadnienie": "Bluffaces: „We analyzed all the hands played in the last 12 months”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.rec.def",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:116"
+  ],
+  "uzasadnienie": "Bluffaces: Recreationals „For 6max: VPIP > 40, EV bb/100 < -20.” Granica ostra zgodna („ponad 40%”).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.rec.def.wr",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:116"
+  ],
+  "uzasadnienie": "Bluffaces: Recreationals „EV bb/100 < -20” (tekst: „wynik poniżej −20”).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.rec.f3b",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:121",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:66",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:68",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:69",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:75",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:77",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:120",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:122"
+  ],
+  "uzasadnienie": "Bluffaces Rec NL25: Fold to 3bet 31 (NL50 30, NL100 32 sprawdzone).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.rec.pfr",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:39",
+   "content/pl/lessons/m10-l2-typy-graczy.md:120",
+   "content/pl/lessons/m10-l1-statystyki.md:31",
+   "content/pl/lessons/m10-l1-statystyki.md:98"
+  ],
+  "uzasadnienie": "Bluffaces Rec NL25: PFR 18 (NL50 18, NL100 18).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.rec.vpip",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:39",
+   "content/pl/lessons/m10-l2-typy-graczy.md:120",
+   "content/pl/lessons/m10-l1-statystyki.md:31",
+   "content/pl/lessons/m10-l1-statystyki.md:98"
+  ],
+  "uzasadnienie": "Bluffaces Rec NL25: VPIP 42 (NL50 43, NL100 42).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.rec.wr",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:124"
+  ],
+  "uzasadnienie": "Bluffaces Rec NL25: Winrate −47 bb/100 (NL50 −48, NL100 −47).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.rec.wsd",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:29",
+   "content/pl/lessons/m10-l2-typy-graczy.md:123"
+  ],
+  "uzasadnienie": "Bluffaces Rec NL25: W$SD 46 (NL50 46, NL100 47).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.rec.wtsd",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:29",
+   "content/pl/lessons/m10-l2-typy-graczy.md:49",
+   "content/pl/lessons/m10-l2-typy-graczy.md:122"
+  ],
+  "uzasadnienie": "Bluffaces Rec NL25: WTSD 32 (NL50 32, NL100 32).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.reg.def.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:116"
+  ],
+  "uzasadnienie": "Bluffaces: Regulars „For 6max: VPIP = 18-32”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.reg.def.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:116"
+  ],
+  "uzasadnienie": "Bluffaces: Regulars „For 6max: VPIP = 18-32”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.reg.def.wr",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:116"
+  ],
+  "uzasadnienie": "Bluffaces: Regulars „EV bb/100 > -2” (tekst: „wynik powyżej −2”).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.reg.f3b",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:121",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:75",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:119"
+  ],
+  "uzasadnienie": "Bluffaces Reg NL25: Fold to 3bet 55 (NL50 57, NL100 55).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.reg.pfr",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:120"
+  ],
+  "uzasadnienie": "Bluffaces Reg NL25: PFR 18 (NL50 19, NL100 20).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.reg.vpip",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:120"
+  ],
+  "uzasadnienie": "Bluffaces Reg NL25: VPIP 23 (NL50 24, NL100 25).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.reg.wr",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:124"
+  ],
+  "uzasadnienie": "Bluffaces Reg NL25: Winrate 0,7 (NL50 0,8, NL100 0,9).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.reg.wsd",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:29",
+   "content/pl/lessons/m10-l2-typy-graczy.md:123"
+  ],
+  "uzasadnienie": "Bluffaces Reg NL25: W$SD 57 (NL50 57, NL100 56).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:mda.reg.wtsd",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l2-typy-graczy.md:29",
+   "content/pl/lessons/m10-l2-typy-graczy.md:122"
+  ],
+  "uzasadnienie": "Bluffaces Reg NL25: WTSD 28 (NL50 28, NL100 28).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:overbluff.base",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:22",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:99"
+  ],
+  "uzasadnienie": "GTOW: „bluff ~31% instead of ~27% of the time”; kontekst: river bet-check-bet, BB — tak jak w lekcji.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:overbluff.lock",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:22",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:99"
+  ],
+  "uzasadnienie": "GTOW: „bluff ~31% instead of ~27%”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:rake.ex.pct",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:43",
+   "content/pl/lessons/m10-l4-rake.md:49",
+   "content/pl/lessons/m10-l4-rake.md:56",
+   "content/pl/lessons/m10-l4-rake.md:93",
+   "content/pl/lessons/m10-l4-rake.md:114",
+   "content/pl/exams/m10.yaml:80",
+   "content/pl/rules.yaml:946"
+  ],
+  "uzasadnienie": "PrimeDope API NL10 6-max: GGPoker i PokerStars percentage 5,0; strona: przy mikrostawkach decyduje procent.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:rake.micro.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:15",
+   "content/pl/lessons/m10-l4-rake.md:16",
+   "content/pl/lessons/m10-l4-rake.md:17",
+   "content/pl/lessons/m10-l4-rake.md:99",
+   "content/pl/rules.yaml:930"
+  ],
+  "uzasadnienie": "PrimeDope API NL10: GGPoker rake_per_100_hands_in_bb 9,0981 → 9,1.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:rake.micro.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:15",
+   "content/pl/lessons/m10-l4-rake.md:16",
+   "content/pl/lessons/m10-l4-rake.md:17",
+   "content/pl/lessons/m10-l4-rake.md:99",
+   "content/pl/rules.yaml:930"
+  ],
+  "uzasadnienie": "PrimeDope API NL25: PokerStars 7,7535 → 7,8; metoda: rozkład pul z kilku milionów rąk.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:rake.nl500.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:40",
+   "content/pl/lessons/m10-l4-rake.md:100"
+  ],
+  "uzasadnienie": "PrimeDope API NL500: GGPoker 5,5752 → 5,6 (cap 8).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:rake.nl500.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:40",
+   "content/pl/lessons/m10-l4-rake.md:100"
+  ],
+  "uzasadnienie": "PrimeDope API NL500: PokerStars 3,1498 → 3,2 (cap 3).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:rake.pop.nl10.loss",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:104"
+  ],
+  "uzasadnienie": "Gipsyteam/Tombos21, tabela: „NL10 7.5% 53.2% -9.1”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:rake.pop.nl100.loss",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:22",
+   "content/pl/lessons/m10-l4-rake.md:104"
+  ],
+  "uzasadnienie": "Gipsyteam/Tombos21: „NL100 6-max… each players loses 7.3 bb/100”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:rake.pop.nl500.loss",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:104"
+  ],
+  "uzasadnienie": "Gipsyteam/Tombos21, tabela: „NL500 20.1% 51.1% -3.8”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:rake.pop.reg.hands",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:31",
+   "content/pl/lessons/m10-l4-rake.md:104"
+  ],
+  "uzasadnienie": "Gipsyteam/Tombos21: „Filtering for players with 5k+ hands (in my total sample…)”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:rake.pop.reg.postrake",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:33",
+   "content/pl/lessons/m10-l4-rake.md:35",
+   "content/pl/lessons/m10-l4-rake.md:104"
+  ],
+  "uzasadnienie": "Gipsyteam/Tombos21: „Pre-rake winners 90% post-rake winners 53%” to szacunek po korekcie bayesowskiej (89,3% / 53%); surowe dane dla 5k+ rąk: 70,8% → 49,2%. Lekcja podaje szacunek jak obserwację.",
+  "poprawka": "jak n:rake.pop.reg.prerake",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:rake.pop.reg.prerake",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:31",
+   "content/pl/lessons/m10-l4-rake.md:33",
+   "content/pl/lessons/m10-l4-rake.md:34",
+   "content/pl/lessons/m10-l4-rake.md:104"
+  ],
+  "uzasadnienie": "Gipsyteam/Tombos21: „Pre-rake winners 90% post-rake winners 53%” to szacunek po korekcie bayesowskiej (89,3% / 53%); surowe dane dla 5k+ rąk: 70,8% → 49,2%. Lekcja podaje szacunek jak obserwację.",
+  "poprawka": "„według szacunku autora (korekta bayesowska) ok. 90% wygrywa przed odliczeniem rake'u, a po odliczeniu ok. 53% (w surowych danych 71% i 49%)”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:rake.solver.bb-minraise",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:74",
+   "content/pl/lessons/m10-l4-rake.md:121"
+  ],
+  "uzasadnienie": "GTOW: „BB calls a min-raise in the raked game barely 60% as often as in the unraked game”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:rake.solver.depth",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:126"
+  ],
+  "uzasadnienie": "GTOW: „We will look primarily at solves for 200bb 6-max cash games”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:rake.solver.vpip-drop.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:67",
+   "content/pl/lessons/m10-l4-rake.md:120"
+  ],
+  "uzasadnienie": "GTOW: „HJ, CO, and BTN all VPIP 25%-35% fewer hands in the raked game.”",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:rake.solver.vpip-drop.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l4-rake.md:67",
+   "content/pl/lessons/m10-l4-rake.md:120"
+  ],
+  "uzasadnienie": "GTOW: „HJ, CO, and BTN all VPIP 25%-35% fewer hands in the raked game.”",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.zone.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l2-zaangazowanie.md:100",
+   "content/pl/lessons/m9-l2-zaangazowanie.md:113",
+   "content/pl/lessons/m9-l1-spr.md:83",
+   "content/pl/lessons/m9-l1-spr.md:84",
+   "content/pl/lessons/m9-l1-spr.md:134",
+   "content/pl/lessons/m9-l1-spr.md:135",
+   "content/pl/lessons/m9-l1-spr.md:139",
+   "content/pl/exams/m9.yaml:19",
+   "content/pl/exams/m9.yaml:38",
+   "content/pl/rules.yaml:760",
+   "content/pl/rules.yaml:817"
+  ],
+  "uzasadnienie": "SplitSuit: „less than 3 is an auto-stack off with top pair or better”; GTOW SPR ok. 2; PokerCoaching Low SPR 1–3.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ }
+]
