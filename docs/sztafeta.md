@@ -16,7 +16,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 05 Architekt | build | zakończona 2026-11-04 (E4 zaakceptowane, D-130); E3 przyjęte (D-129), E2 (D-127), ADR 0001–0012 (D-124, D-126) | (commit E4) | `docs/architektura/README.md` (indeks), `00-rozpoznanie.md`, `docs/adr/` 0001–0013, `dane.md`, `moduly.md`, `schemat.sql`, `tlo-i-bledy.md`, `prywatnosc.md`, `wydajnosc.md`, `kontrole-07.md`, `narzedzia/granice.mjs`, `eksperymenty/` | OP-21 |
 | 09 Lokalizacja | build (wejście wczesne E0–E1) | E0 zaakceptowane (D-136); E1 zaakceptowane 2026-11-04 (D-138, ADR 0014 przyjęta); E2–E4 po ekranach roli 08 i audycie 04 | 7cccfb5 | `docs/lokalizacja/jezyki.md`, `docs/adr/0014-…md`, `packages/jezyki/`, `scripts/sprawdz-i18n.mjs`, `apps/mobile/src/i18n/`, `docs/decyzje.md` (D-131–D-137), `docs/zalozenia.md` (ZAL-L01, ZAL-L02) | koszt przekładu przez API (właściciel, przed E3); zgłoszenia: 06 (formatNumber, numery pomocy), 04 (pisma), 07, 10 |
 | 06 Treści | build | E0 (D-142), E1 (D-151, D-152), E2 zaakceptowane; E3 wykonane 2026-11-04 (A1–A12, przegląd zastępczy 11 krytycznych D-027/D-162, D-156–D-164), zakończona 2026-11-04 (E3 zaakceptowane, D-165) | 8e14a66 | `docs/tresci/` (rejestr, `rejestr/`, `odczyty/`, `narzedzia/` z `rachunki/`, `e3/`, `e3-wynik.md`, `stany-bledow-fakty.md`, `ocena-poziomu-pytania.md`), `docs/decyzje.md` | przekazanie 07/05/08/09/04/10 w `docs/tresci/e3-wynik.md` |
-| 07 Jakość | build | E0 wykonane 2026-11-04 (dwudziesta druga sesja), STOP na akceptację | (ten commit) | `docs/jakosc/00-rozpoznanie.md` | L-01 (BR-POM vs D-158: ER do 01, bramka 03), JAK-E0-01 (E2E czerwony od 7.10, nieaktualny flow słowniczka) |
+| 07 Jakość | build | E0 zaakceptowane 2026-11-04 (D-166, D-167); E1 w nowej sesji | (ten commit) | `docs/jakosc/00-rozpoznanie.md` | L-01 (BR-POM vs D-158: ER do 01, bramka 03), JAK-E0-01 (E2E czerwony od 7.10, nieaktualny flow słowniczka) |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -381,4 +381,5 @@ Plus jedna linia w „Dokumentacja projektu”: „Architektura w repo: `docs/ar
 ## Rola 07 E0: wynik (2026-11-04, dwudziesta druga sesja)
 - Raport: `docs/jakosc/00-rozpoznanie.md` (macierz możliwości, stan CI, stan wyjściowy 535 testów kod 0, 43 BR / 92 scenariusze / 13 NFR / 80 wektorów / K-01–K-15, luki L-01–L-07, moduły: e2e-mobilne, wlasnosci-i-domena, wydanie; geo-slady nie).
 - Znalezisko JAK-E0-01: E2E na `main` czerwony od przebiegu 5 (7.10), przyczyna: flow `03-slowniczek.yaml` szuka „bańka” po zmianie terminu na `bubble` (acb9f0f) — nieaktualny scenariusz.
-- STOP E0. Następny krok: E1 rejestr ryzyk z wyroczniami (opus/high).
+- E0 zaakceptowane (D-166); testy pomocy według D-158, BRD poprawi rola 01 później (D-167).
+- Następny krok: E1 rejestr ryzyk z wyroczniami (nowa sesja opus/high).
