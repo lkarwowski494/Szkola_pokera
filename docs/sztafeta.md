@@ -8,7 +8,9 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 01 Odkrywanie | build | zakończona 2026-11-03 (E4, przekazanie niżej) | (commit E4) | `docs/brd/` (README, wywiad, odkrywanie, wymagania, wymagania-nauka, wymagania-sklep, reguly, errata, zrodla, dane/), `tests/wektory/brd.json`, `docs/zalozenia.md`, „Stan projektu” w `CLAUDE.md` | OP-10, OP-14, OP-16, OP-18 (źródła), OP-19 (04), OP-20, OP-22 (03 z właścicielem), OP-21 (05) |
 | 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
 | 02 Monetyzacja (sesja 2) | build | zakończona 2026-11-03 (E3 zaakceptowane) | (commit E3) | `docs/monetyzacja.md` („Sesja 2, E0–E3”), `docs/monetyzacja/rachunek.json`, `dowody/rachunek-2026-11-03.txt` | OP-09 (monetyzacja), OP-20, OP-22, H-04 |
-| 03 Zakres | build | zakończona 2026-11-04 (E3 zaakceptowane, D-112) | (commit E3) | `docs/scope-contract.md` (E3), `docs/archiwum/scope-contract-2026-11-03-robocze.md` (E0–E2), `docs/zakres/wzorzec-2026-11-03.json`, `docs/decyzje.md` | OP-23, OP-20, OP-22 w BRD (01); OP-11 w `docs/monetyzacja.md` (02) |
+| 03 Zakres | build | zakończona 2026-11-04 (E3 zaakceptowane, D-112) | (commit E3) | `docs/scope-contract.md` (E3), `docs/archiwum/scope-contract-2026-11-03-robocze.md` (E0–E2), `docs/zakres/wzorzec-2026-11-03.json`, `docs/decyzje.md` | — |
+| 01 Odkrywanie | fix OP-20, OP-22, OP-23 | zakończona 2026-11-04 (D-113; kontrola BRD kod 0, wektory bez zmian) | 42dc490, be4e4e4, f795905 | `docs/brd/` (README, wymagania-nauka, wymagania-sklep, wymagania) | OP-24 (05), OP-10 (06) |
+| 02 Monetyzacja | fix OP-11 | zakończona 2026-11-04 (D-113; dokument, bez zmian rachunku i kodu) | 37ab4f1 | `docs/monetyzacja.md` | OP-09, OP-10 (05) |
 | 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
 
 ## E0 bramki: ustalenia (2026-11-03)
@@ -198,6 +200,11 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - Przed 04 albo równolegle (krótkie poprawki cudzych artefaktów): rola 01 `fix` (OP-23 → D-107, OP-20 → D-105, OP-22 → D-106 w BRD), rola 02 (OP-11 → D-107, „pula” → „dzienny limit” w `docs/monetyzacja.md`).
 - Otwarte decyzje: OP-09 (02), OP-24 = OP-10 monetyzacji (05), BRD OP-10 numery pomocy (06, bloker), OP-19 (04), OP-21 (05).
 
+## Poprawki ról 01 i 02 po E3 (2026-11-04, D-113, siódma sesja)
+- Prompty: `assemble.mjs 01-odkrywanie --tryb fix --zadania OP-23,OP-20,OP-22` i `assemble.mjs 02-monetyzacja --tryb fix --zadania OP-11` (prompts c025063), sekcje trybu fix przeczytane. Klasa D (zapis istniejących decyzji D-105, D-106, D-107, D-111).
+- Czerwień (wiersz macierzy): `grep` w BRD pokazywał `[DO WYJAŚNIENIA]` przy OP-20, OP-22, OP-23 i „N darmowych zadań” w BR-LIM-001, BR-LIM-005, mimo decyzji w `docs/decyzje.md`; `docs/monetyzacja.md`: OP-11 otwarte i 6 wystąpień „pula” poza cytatem decyzji. Po: brak trafień poza cytatami decyzji; `kontrola-brd.mjs docs/brd` kod 0 (43 BR, 17 OP); `tests/wektory/brd.json` bez zmian; `zakres.mjs --brd --apetyt 16.5` kod 0.
+- BR-LIM-001 i BR-LIM-002: scenariusze przepisane na jednostkę „aktywność” (limit zużyty przy starcie, „Jeden wspólny limit” pokazuje 0 i godzinę odnowienia); polecenie dla roli 07: testy tych scenariuszy pisać według nowego brzmienia. Nagłówek modułu: „Dzienny limit darmowych aktywności (LIM)”.
+- Wyjątki nazwane (zasada 7): bez gałęzi `naprawy/…` (jedna gałąź sztafety) i bez STOP E0/E2 trybu fix (plan objęty decyzją właściciela D-113; dowody w commitach); praca ról 01 i 02 w sesji roli 03 (D-113: „na starcie następnej sesji”, właściciel kazał kontynuować tutaj).
+
 ## Następny krok
-1. Na starcie następnej sesji (D-113): rola 01 `fix` (`assemble.mjs 01-odkrywanie --tryb fix`; OP-23 → D-107 z jednostką „aktywność” i N = 1 w BR-LIM-001, BR-LIM-005, `wymagania-sklep.md`; OP-20 → D-105; OP-22 → D-106; `kontrola-brd.mjs` kod 0) i poprawka roli 02 w `docs/monetyzacja.md` (OP-11 → D-107; „pula” → „dzienny limit”, D-111); po zmianie BRD `zakres.mjs --brd docs/brd --apetyt 16.5` kod 0.
-2. Rola 04 build według przekazania wyżej.
+**Rola 04 build** według „Przekazanie do następnej roli” wyżej: `node /home/user/prompts/tools/assemble.mjs 04-studio-projektowe --tryb build`; nowa sesja opus/high. Paczka: `docs/scope-contract.md`, `docs/brd/`, `docs/monetyzacja.md`, `docs/decyzje.md`, `CLAUDE.md`.
