@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>G Granat i złoto: Decyzja w sesji</title>
+<!-- Kierunek G, runda 3 E2 (D-117): świat ikony poprzedniej aplikacji (apps/mobile/assets/images/icon-source.svg):
+     granat #22488A→#0A1430 z poświatą #3A6BC4, złoto #F7CF63→#D49A1E, karty kość słoniowa #FFFDF7, kier #C8102E.
+     Element firmowy: pasek strategii mieszanej z rundy 1 B (D-116). Ekran kluczowy D-114, stany przed-decyzja i po-ocenie.
+     Treść prawdziwa:
+     - sytuacja: content/ranges/spots.yaml, id rfi.co, title „CO, wszyscy przed tobą spasowali”, path „UTG:fold,HJ:fold”;
+     - stół 6-osobowy, 100bb: content/ranges/preflop-6max-100bb.json, meta.players = 6, meta.tree.stack = 100;
+     - J9o: strategy fold 0.8, raise 2.5 0.2 (ten sam plik, path „UTG:fold,HJ:fold”);
+     - stopień i progi 3,5% / 25%: apps/mobile/src/features/drills/thresholds.ts;
+     - teksty oceny: apps/mobile/src/features/drills/text.pl.ts, range.acceptable i range.explanation.
+     [PRZYKŁAD]: kolory kart (J♠ 9♥), numer zadania, godzina. -->
+<link rel="stylesheet" href="r3.css">
+<style>
+:root {
+  --tytul: 'Cormorant Garamond', serif;
+  --granat-1: #22488A; --granat-2: #0A1430; --poswiata: #3A6BC433;
+  --tlo: #0A1430;
+  --tusz: #FFFDF7;            /* na granacie: kość słoniowa */
+  --drugi: #B9C5E0;
+  --akcent-tekst: #FFFDF7;
+  --karta: #FFFDF7; --karta-brzeg: #E4DCC8; --karta-tusz: #0A1430; --kier: #C8102E; --cien: #00000059;
+  --zloto: #E9BC4C; --zloto-tekst: #F2CB66;
+  --wynik-tusz: #FFFDF7; --wynik-drugi: #B9C5E0; --skala-brzeg: #6F84B5;
+  --pas: #1B3364; --pas-kreska: #4767A6; --przebicie: #FFFDF7;
+  /* arkusz dolny */
+  --arkusz: #FFFDF7; --arkusz-tusz: #0A1430; --arkusz-drugi: #4A5878;
+  --pasek-tlo: #FFFDF7; --pasek-tusz: #0A1430; --pasek-drugi: #4A5878; --pasek-brzeg: #0A1430; --os-brzeg: #FFFDF7;
+  --glowny-tlo: #0A1430; --glowny-tusz: #FFFDF7; --link: #0A1430;
+}
+[data-theme="dark"] {
+  --granat-1: #172F5C; --granat-2: #050A19; --poswiata: #3A6BC424;
+  --tlo: #050A19;
+  --arkusz: #0E1A38; --arkusz-tusz: #F2EEE3; --arkusz-drugi: #A9B5D0;
+  --pasek-tlo: #12234A; --pasek-tusz: #F2EEE3; --pasek-drugi: #A9B5D0; --pasek-brzeg: #8EA1CC; --os-brzeg: #8EA1CC;
+  --glowny-tlo: #F2EEE3; --glowny-tusz: #0A1430; --link: #F2EEE3;
+  --karta: #F2EEE3;
+}
+.niebo { background: radial-gradient(70% 40% at 50% 52%, var(--poswiata), transparent 70%), linear-gradient(180deg, var(--granat-1), var(--granat-2)); padding-bottom: 36px; }
+main.caly { background: radial-gradient(80% 36% at 50% 46%, var(--poswiata), transparent 70%), linear-gradient(180deg, var(--granat-1), var(--granat-2) 78%); }
+main.caly .niebo { background: none; flex: 1; display: flex; flex-direction: column; padding-bottom: 40px; }
+.akcje { margin-top: auto; padding: 0 16px; }
+.akcje .etykieta { font-size: var(--t-przypis); color: var(--drugi); margin: 0 4px 10px; }
+.akcje .pasek { box-shadow: 0 14px 30px var(--cien); }
+.sytuacja { padding: 12px 20px 0; }
+.sytuacja p { font-size: var(--t-przypis); color: var(--drugi); }
+.sytuacja h1 { font-family: var(--tytul); font-weight: 700; font-size: var(--t-duzy-r3); line-height: 1.05; margin-top: 6px; }
+.reka { display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 44px 20px 32px; text-align: center; }
+.reka .karty { gap: 0; }
+.reka .karta { width: 118px; height: 166px; border-radius: 12px; }
+.reka .karta b { font-size: 60px; }
+.reka .karta svg { width: 42px; height: 42px; }
+.reka .karta:first-child { transform: rotate(-7deg) translateY(4px); }
+.reka .karta:last-child { transform: rotate(6deg); margin-left: -18px; }
+.reka p { font-family: var(--tytul); font-weight: 700; font-size: var(--t-duzy-r3); line-height: 1; font-variant-numeric: lining-nums; }
+.reka p small { display: block; font-family: var(--tresc); font-weight: 400; font-size: var(--t-przypis); color: var(--drugi); margin-top: 6px; }
+
+.arkusz { background: var(--arkusz); color: var(--arkusz-tusz); border-radius: 28px 28px 0 0; margin-top: -24px; flex: 1; display: flex; flex-direction: column; padding: 24px 16px 40px; }
+.arkusz .etykieta { font-size: var(--t-przypis); color: var(--arkusz-drugi); margin: auto 4px 10px; }
+.arkusz p.wyjasnienie { font-size: var(--t-tresc); line-height: 1.42; }
+.arkusz .przyciski { padding: 16px 0 0; }
+
+.wynik { padding: 14px 20px 0; }
+.wynik .kontekst { font-size: var(--t-przypis); color: var(--drugi); }
+.wynik .stopien { margin-top: 8px; }
+.wynik .rozklad { margin-top: 20px; }
+.uchwyt { width: 36px; height: 5px; border-radius: 3px; background: var(--arkusz-drugi); opacity: .35; margin: -12px auto 16px; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pik" viewBox="0 0 24 24"><path d="M12 2C9 6 4 9 4 13.5 4 16 6 18 8.5 18c1.3 0 2.4-.5 3-1.3-.2 1.9-1 3.4-2.5 4.8h6c-1.5-1.4-2.3-2.9-2.5-4.8.6.8 1.7 1.3 3 1.3 2.5 0 4.5-2 4.5-4.5C20 9 15 6 12 2z"/></symbol>
+  <symbol id="kier" viewBox="0 0 24 24"><path d="M12 21C5 15.5 2 12.3 2 8.5 2 5.5 4.3 3.5 7 3.5c2 0 3.5 1 5 3 1.5-2 3-3 5-3 2.7 0 5 2 5 5 0 3.8-3 7-10 12.5z"/></symbol>
+</svg>
+
+<main class="caly" data-ekran="przed-decyzja" aria-label="Decyzja w sesji, przed decyzją">
+  <div class="niebo">
+    <div class="stan"><span>9:41</span><i></i></div>
+    <nav class="nav"><a href="#">Zakończ</a><b>Sesja ćwiczeń</b><span class="przyklad">Zadanie 4</span></nav>
+    <section class="sytuacja">
+      <p>Stół 6-osobowy, stack 100bb, przed flopem</p>
+      <h1>CO, wszyscy przed tobą spasowali</h1>
+    </section>
+    <section class="reka">
+      <div class="karty" role="img" aria-label="Twoje karty: walet pik, dziewiątka kier">
+        <div class="karta"><b>J</b><svg><use href="#pik"/></svg></div>
+        <div class="karta czerwona"><b>9</b><svg><use href="#kier"/></svg></div>
+      </div>
+      <p>J9o<small>różne kolory</small></p>
+    </section>
+    <section class="akcje">
+      <p class="etykieta">Wybierz akcję</p>
+      <div class="pasek" role="group" aria-label="Akcje">
+        <a href="#">Pas</a>
+        <a href="#">Przebicie<small>do 2,5bb</small></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<main data-ekran="po-ocenie" aria-label="Decyzja w sesji, po ocenie">
+  <div class="niebo">
+    <div class="stan"><span>9:41</span><i></i></div>
+    <nav class="nav"><a href="#">Zakończ</a><b>Sesja ćwiczeń</b><span class="przyklad">Zadanie 4</span></nav>
+    <section class="wynik" aria-live="polite">
+      <p class="kontekst">CO, J9o, twój wybór: przebicie do 2,5bb</p>
+      <h2 class="stopien"><span class="znak" aria-hidden="true">∼</span>Dopuszczalna</h2>
+      <div class="rozklad" role="img" aria-label="Strategia solvera dla J9o: pas 80 procent, przebicie 20 procent. Twój wybór: przebicie.">
+        <div class="znacznik"></div>
+        <div class="os"><div class="s-pas"></div><div class="s-przebicie"></div></div>
+        <div class="podpisy"><span><b>Pas</b> 80%</span><span class="twoj"><b>Przebicie</b> 20%<br>twój wybór</span></div>
+      </div>
+      <div class="stopnie" aria-label="Skala stopni: twoja akcja 20 procent, przedział dopuszczalna">
+        <span><b>Błąd</b>poniżej 3,5%</span>
+        <span class="tu"><b>Dopuszczalna</b>3,5–25%</span>
+        <span><b>Zgodna</b>od 25%</span>
+      </div>
+    </section>
+  </div>
+  <section class="arkusz">
+    <div class="uchwyt" aria-hidden="true"></div>
+    <p class="wyjasnienie">Solver gra tak w 20% przypadków, więc to nie błąd, ale częściej wybiera inną akcję. Najlepiej zapamiętaj tę częstszą.</p>
+    <a class="link" href="#">Zgłoś błąd w tym zadaniu</a>
+    <div class="przyciski" style="margin-top:auto"><a class="przycisk glowny" href="#">Dalej</a></div>
+  </section>
+</main>
+
+<aside class="panele">
+  <h2>G. Granat i złoto</h2>
+  <p>Świat ikony poprzedniej aplikacji: granatowe niebo z poświatą, karty z kości słoniowej rozłożone w wachlarz, dolny arkusz jak karta. Złoto pojawia się tylko tam, gdzie chodzi o ciebie: znacznik twojego wyboru i twój przedział na skali.</p>
+  <h2>Paleta</h2>
+  <table>
+    <tr><td><div class="probka" style="background:linear-gradient(#22488A,#0A1430)"></div></td><td>granat <code>#22488A</code>→<code>#0A1430</code> (ikona)</td><td><div class="probka" style="background:#FFFDF7"></div></td><td>kość słoniowa <code>#FFFDF7</code> (karty z ikony)</td></tr>
+    <tr><td><div class="probka" style="background:#E9BC4C"></div></td><td>złoto „ty” <code>#E9BC4C</code> (środek gradientu ikony)</td><td><div class="probka" style="background:#C8102E"></div></td><td>kier <code>#C8102E</code> (K♥ z ikony)</td></tr>
+    <tr><td><div class="probka" style="background:#B9C5E0"></div></td><td>drugi plan na granacie <code>#B9C5E0</code></td><td><div class="probka" style="background:#0E1A38"></div></td><td>arkusz nocą <code>#0E1A38</code></td></tr>
+  </table>
+  <h2>Kroje</h2>
+  <p><span style="font-family:'Cormorant Garamond';font-weight:700;font-size:26px">Cormorant Garamond 700: Dopuszczalna</span><br>treść: na iOS SF Pro; w makiecie zastępczo Noto Sans</p>
+  <h2>Ikona</h2>
+  <div class="ikony">
+    <figure><img src="ikony/g-jasna.png" width="120" height="120" alt=""><figcaption>120</figcaption></figure>
+    <figure><img src="ikony/g-jasna.png" width="60" height="60" alt=""><figcaption>60</figcaption></figure>
+    <figure><img src="ikony/g-jasna.png" width="29" height="29" alt=""><figcaption>29</figcaption></figure>
+    <figure><img src="ikony/g-ciemna.png" width="60" height="60" alt=""><figcaption>ciemna</figcaption></figure>
+  </div>
+</aside>
+</body>
+</html>

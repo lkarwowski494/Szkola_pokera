@@ -92,5 +92,60 @@ Pomiary rundy 2: `warsztat.mjs` D, E, F kod 0; `kontrast.mjs kierunki/kontrast/p
 ## Rekomendacja rundy 2
 **D, z barwą pozycji z E w górnej części ekranu.** Kontekst główny to jedna ręka w dojeździe; D daje największe cele i robi z polubionego paska cały ekran, a ocena jest widoczna jednym spojrzeniem. Barwa pozycji może zabarwić górę ekranu. F najmocniejszy jako marka, ale ryzykowny dla zaawansowanych.
 
+
 ## Wybór właściciela, runda 2
-Czeka na STOP E2.
+2026-11-04: odrzucona (D-117): „Słuchaj ale to ma być eleganckie a nie badziewne. Popatrz jakie kolory miała poprzednia aplikacja szkoła pokera, jakie ikony. Stop - zobacz na moją poprzednia wiadomosc. To co pokazałeś jest brzydkie”. Zakres rundy 3: „Zrób A ale zrób też warianty z tym jak aplikacja wyglądała w środku - chyba jakaś zieleń plus złoty itd”. Strona rundy 2: `porownanie-runda2.html` / `.png`.
+
+# Runda 3 (D-117): granat, sukno i złoto z poprzedniej aplikacji
+
+Rola 04, tryb build, 2026-11-04 (dziesiąta sesja). Makiety: `kierunki/g-granat-zloto.html`, `kierunki/h-sukno-zloto.html`, `kierunki/i-stol-w-granacie.html` (wspólne elementy `kierunki/r3.css`); strona `porownanie.html` / `porownanie.png`. Treść jak w rundach 1–2. Punkt wyjścia: ikona poprzedniej aplikacji `apps/mobile/assets/images/icon-source.svg` (granat `#22488A`→`#0A1430`, poświata `#3A6BC4`, złoto `#F7CF63`→`#D49A1E`, karty `#FFFDF7`, K♥ `#C8102E`) i dawne tokeny `apps/mobile/src/theme/tokens.ts` (sukno `#1F5E45`, `feltDeep` `#174A36`, indeksy kart Georgia). Wspólna reguła: złoto znaczy wyłącznie „ty” (znacznik twojego wyboru, twój przedział na skali, twoje miejsce przy stole), nigdy wygraną; bez żetonów i puli (umiar wobec „luksusu kasyna”).
+
+| Pole | G Granat i złoto | H Sukno i złoto | I Stół w granacie |
+|---|---|---|---|
+| Idea | świat ikony na całym ekranie: granatowe niebo z poświatą, karty z kości słoniowej w wachlarzu, pasek w strefie kciuka; po ocenie wynik na granacie, wyjaśnienie na jasnym arkuszu | dawne wnętrze na całym ekranie: sukno pod lampą z drobnym włóknem, karty rozdane na stół, jedna mosiężna listwa stołu nad strefą akcji | granatowa rama i zielone sukno stołu z góry; stół pokazuje stan rozdania (UTG i HJ pas, ty na CO, czekają BTN, SB, BB); po decyzji wynik z paskiem leży na suknie |
+| Element i dane | pasek strategii (częstotliwości, znacznik wyboru, skala stopni); VoiceOver: „Strategia solvera dla J9o: pas 80 procent, przebicie 20 procent. Twój wybór: przebicie.” | jw. | jw. + stół: „Stół: UTG pas, HJ pas, ty na CO z J9o, czekają BTN, SB i BB.” (path `UTG:fold,HJ:fold`, `spots.yaml`); ten sam stan tekstem pod stołem |
+| Paleta | granat `#22488A`→`#0A1430`, kość słoniowa `#FFFDF7`, złoto „ty” `#E9BC4C` / tekst `#F2CB66`, drugi plan `#B9C5E0`, kier `#C8102E`; noc: granat `#172F5C`→`#050A19`, arkusz `#0E1A38` | sukno `#1F5E45`, głębokie `#174A36`, lampa `#266B4E`, kość słoniowa, złoto `#E2B850` / tekst `#F8DC8E`, listwa `#C9A24A`; noc: `#1A4A36`→`#071810` | tło `#E9EDF5`, rama `#0A1430`, sukno `#23694D`→`#174A36`, miejsca `#12234A`, złoto `#E2B850`; noc: tło `#0A1430`, rama `#1E3466` |
+| Kroje | Cormorant Garamond 700 (cyfry wersalikowe) | Libre Baskerville 700 | Literata 600 |
+| Kształty | wachlarz kart (−7°/+6°), arkusz z promieniem 28 i uchwytem, pasek promień 14 | karty proste, symetria osi stołu, pasek promień 12 | owal stołu, miejsca w pełni zaokrąglone, spasowane z obwódką przerywaną (nie tylko kolor) |
+| Ruch, haptyka | granice paska przesuwają się do częstotliwości, znacznik opada (ok. 300 ms), haptyka średnia; „Ogranicz ruch”: stan końcowy od razu | jw. | jw.; przy nowym zadaniu miejsca zmieniają stan (pas → obwódka przerywana, ok. 200 ms) |
+| Ikona | ewolucja poprzedniej: karty J♠ 9♥ na granacie z poświatą, zamiast biretu pasek 80/20 ze złotym znacznikiem | to samo na suknie pod lampą | owalny stół w granacie, karty i pasek na suknie |
+| Najmocniejszy argument | najbliżej ikony, którą właściciel wybrał; jeden kolor tła i jeden akcent; działa przy każdym typie zadania (nie potrzebuje stołu) | największa ciągłość z dawnym wnętrzem; najcieplejszy i najbardziej „pokerowy” | pozycja, najważniejsza informacja przed flopem, pokazana obrazem; łączy oba wskazane światy |
+| Słabość | Cormorant przy AX5 optycznie mniejszy niż treść (od AX1 krój systemowy, E3); granat blisko ciemnych motywów kategorii | paleta karty kontrolnej (a), najbliżej kasyna; złoto na jasnym suknie 3,40:1 (grafika, próg 3) | stół z miejscami to element karty (a), broni się danymi; przy zadaniach liczbowych stół nic nie niesie; etykiety miejsc stałej wielkości (stan powtórzony tekstem) |
+
+Test generyczności rundy 3: tabela na stronie porównania. Świadomy wyjątek nazwany: granat, sukno i złoto to klisza kategorii z E1 (karta kontrolna a), ale wskazał je właściciel (D-117; zasada studia 12: gust wygrywa w sprawach wyglądu). Różnice wobec kliszy: barwy dosłownie z poprzedniej aplikacji, złoto tylko „ty”, bez żetonów, puli, neonu, konfetti i zielono-czerwonych ocen; szeryfy książkowe zamiast Montserrat/Inter; element firmowy to pasek częstotliwości.
+
+## Krytyka rundy 3 (najpierw usterki)
+
+| Kierunek | Usterka | Poprawka | Przed/po |
+|---|---|---|---|
+| G | przed decyzją pusty jasny arkusz na pół ekranu: motyw nie był pełny | cały ekran w granacie, pasek z segmentów z kości słoniowej w strefie kciuka | `przed-po/g-przed-390-jasny.png` → `g-po-390-jasny.png` |
+| G | wachlarz kart przy lewej krawędzi, „J9o” pod spodem: kompozycja przechylona | wachlarz i opis na osi ekranu, karty 118×166 | jw. |
+| G | Cormorant ma cyfry nautyczne: „9” na karcie opadało pod linię | `font-variant-numeric: lining-nums` w indeksach, „J9o” i stopniu | jw. |
+| H | indeks „J” (Libre Baskerville) wychodził poza krawędź karty | indeks 44 px z wcięciem | `h-przed-390-jasny.png` → `h-po-390-jasny.png` |
+| H | po ocenie dwie mosiężne linie: ozdoba bez danych dwa razy | zostaje jedna listwa (przed decyzją) | jw. |
+| H | AX5 320 pt: „Dopuszczalna” ucięta | limit słowa stopnia względem szerokości (11,2%) | `h-przed-320-jasny-ax5.png` → `h-po-320-jasny-ax5.png` |
+| H | drugi plan 3,74:1, złoto tekstu 3,51:1, znacznik 2,93:1 pod lampą | lampa `#266B4E`, drugi plan `#D3E4DA`, złoto tekstu `#F8DC8E` (4,82 / 4,74 / 3,40:1) | — |
+| I | w jasnym motywie brak granicy między segmentami „Pas” i „Przebicie” (granat na granacie) | granica `#8EA1CC` (3:1 do granatu) | `i-przed-390-jasny.png` → `i-po-390-jasny.png` |
+| I | stół prawie okrągły, karty i „J9o” ściśnięte na suknie | owal 236 pt wysokości, karty na środku, opis ręki pod stołem | jw. |
+| I | miejsca spasowane różniło tylko słowo | obwódka przerywana (kształt) | jw. |
+| I | AX5 320 pt: „Dopuszczalna” ucięta na suknie i na skali; etykiety miejsc nie rosną | limit słowa (9,8% szerokości), skala z limitem; stan stołu tekstem pod stołem | `i-przed-320-jasny-ax5.png` → `i-po-320-jasny-ax5.png` |
+| I | 390 pt: „Dopuszczalna” na skali łamana w środku słowa | środkowe pole skali szersze | — |
+| I | złoto tekstu 4,21:1 i drugi plan 4,48:1 na suknie | `#F8DC8E`, `#D3E4DA` | — |
+| ikony | pasek w G i H za cienki: przy 29 pt znikał, zostawały same karty (jak w karcie kontrolnej a) | pasek 680×140, większy znacznik, karty mniejsze | `przed-po/ikony-r3-przed.png` → `kierunki/ikony/arkusz-r3.png` |
+| G, H, I | AX5 320 pt: dzielenie wyrazów bez łącznika („przypadkó-w”) | otwarte do E3 (to samo co w rundach 1–2) | — |
+
+Odpowiedzi na listę krytyki: (1) w pierwszej sekundzie: G i H karty, I stół z kartami; po ocenie we wszystkich słowo stopnia i pasek. (2) Pasek czytelny przy 320 pt we wszystkich. (5) Ciemne warianty mają własne barwy (głębszy granat i sukno, segmenty paska ciemne z obwódką, „Dalej” w kości słoniowej). (7) Po zakryciu nazwy: pasek ze złotym znacznikiem; w I dodatkowo stół. (10) Cudzysłowy drukarskie, półpauza w „3,5–25%”, cyfry tabelaryczne w podpisach paska i skali.
+
+## Pomiary rundy 3
+- `narzedzia/warsztat.mjs` przy 390 px: G, H, I bez błędów (kod 0); ostrzeżenia jak w rundach 1–2 (wielkości i kolory tekstu z panelami, odstępy do tokenów E3, interlinia jednowierszowego „J9o”). Obrazy mrużenia `kierunki/{g,h,i}-*-mruzenie-390.png`.
+- `narzedzia/kontrast.mjs kierunki/kontrast/pary-e2-runda3.json`: 54 pary, kod 0 (wynik `wynik-e2-runda3.txt`; najniższe: złoto na jasnym suknie H 3,40:1 i na suknie I 3,50:1, obie dla grafiki z progiem 3). Rama stołu nocą (1,5:1) nie niesie danych; stan niosą miejsca z obwódką `#6F84B5` (3:1 zmierzone).
+- `narzedzia/zrzuty.mjs`: 72 zrzuty (3 × 24), kontrola krojów kod 0; arkusze `kierunki/zrzuty/arkusz-{g,h,i}-*.png` i `*-ax5.png`.
+- `narzedzia/przepelnienie.mjs` (nowy): tekst wystający poza margines ekranu albo swój pojemnik przy 320/390/430 × domyślny/AX5; sprawdzony na wersji H sprzed poprawki (wykrył 2 ucięcia), na G, H, I kod 0.
+- `narzedzia/ikona.mjs`: 6 ikon 1024×1024 bez kanału alfa, kod 0; arkusz `kierunki/ikony/arkusz-r3.png` (180/60/29, obie tapety).
+- Kroje nowe: Cormorant Garamond 700 i Libre Baskerville 700 (@fontsource 5.3.0, OFL: `fonty/OFL-cormorant-garamond.txt`, `fonty/OFL-libre-baskerville.txt`).
+
+## Rekomendacja rundy 3
+**G, a stół z I jako komponent zadań o pozycji (E3).** Ekran decyzji obsługuje sesję, powtórki, lekcję, egzamin i scenariusz; G działa przy każdym typie zadania, a uwagę dostają karty i pasek, czyli to, o czym jest decyzja. Stół z I pokazuje pozycję obrazem tam, gdzie jest treścią zadania. H to największa ciągłość z dawnym wnętrzem, ale paleta najbliższa kasynu i karcie kontrolnej (a).
+
+## Wybór właściciela, runda 3
+Czeka na STOP E2 (D-118).

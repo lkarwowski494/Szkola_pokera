@@ -1,0 +1,44 @@
+/* Runda 3 E2 (D-117): wspólne elementy kierunków G, H, I. Każdy kierunek ustawia zmienne i układ.
+   Złoto znaczy wyłącznie „ty”: znacznik twojego wyboru, twój przedział na skali, twoje miejsce przy stole.
+   Element firmowy: pasek strategii mieszanej z rundy 1 B (D-116). */
+@import url(wspolne.css);
+
+main[data-ekran] { background: var(--tlo); color: var(--tusz); overflow: hidden; }
+.stan, .nav b { color: var(--tusz); }
+
+/* Karty: kość słoniowa z ikony poprzedniej aplikacji, indeksy krojem tytułów */
+.karty { display: flex; gap: 10px; }
+.karta { width: 84px; height: 118px; border-radius: 9px; background: var(--karta); border: 1px solid var(--karta-brzeg); padding: 7px 9px; display: flex; flex-direction: column; gap: 2px; color: var(--karta-tusz); box-shadow: 0 10px 22px var(--cien); }
+.karta b { font-family: var(--tytul); font-weight: 700; font-size: 44px; line-height: 1; font-variant-numeric: lining-nums; }
+.karta svg { width: 30px; height: 30px; fill: currentColor; }
+.karta.czerwona { color: var(--kier); }
+
+/* Pasek przed decyzją: równe segmenty-przyciski, nic nie zdradzają */
+.pasek { display: flex; flex-wrap: wrap; border-radius: 14px; overflow: hidden; border: 1.5px solid var(--pasek-brzeg); }
+.pasek a { flex: 1 1 calc(70px * var(--dt-tresc)); min-height: 64px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 10px 12px; font-size: var(--t-tresc); font-weight: 600; color: var(--pasek-tusz); text-decoration: none; background: var(--pasek-tlo); line-height: 1.25; }
+.pasek a small { font-size: var(--t-drobny); font-weight: 400; color: var(--pasek-drugi); }
+.pasek a + a { border-left: 1.5px solid var(--pasek-brzeg); }
+
+/* Pasek po ocenie: te same granice przesunięte do częstotliwości rozwiązania */
+.rozklad { position: relative; padding-top: 22px; }
+.rozklad .os { display: flex; height: 44px; border: 1.5px solid var(--os-brzeg, var(--pasek-brzeg)); border-radius: 12px; overflow: hidden; }
+.rozklad .s-pas { width: 80%; background: repeating-linear-gradient(135deg, var(--pas) 0 7px, var(--pas-kreska) 7px 9px); }
+.rozklad .s-przebicie { width: 20%; background: var(--przebicie); border-left: 1.5px solid var(--os-brzeg, var(--pasek-brzeg)); }
+.rozklad .znacznik { position: absolute; left: 90%; top: 0; transform: translateX(-50%); width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 15px solid var(--zloto); }
+.podpisy { display: flex; justify-content: space-between; gap: 8px; margin-top: 8px; font-size: var(--t-przypis); font-feature-settings: 'tnum'; flex-wrap: wrap; color: var(--wynik-tusz); }
+.podpisy b { font-weight: 600; }
+.podpisy .twoj { color: var(--zloto-tekst); text-align: right; }
+
+.stopnie { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.stopnie span { flex: 1 1 calc(84px * var(--dt-tresc)); min-width: 0; font-size: min(var(--t-drobny), calc(var(--w) * 0.06)); border: 1px solid var(--skala-brzeg); border-radius: 10px; padding: 6px 8px; line-height: 1.3; color: var(--wynik-drugi); font-feature-settings: 'tnum'; }
+.stopnie span b { display: block; color: var(--wynik-tusz); font-weight: 600; }
+.stopnie span.tu { border: 2.5px solid var(--zloto); }
+
+.stopien { font-variant-numeric: lining-nums; font-family: var(--tytul); font-weight: 700; font-size: var(--t-duzy-r3); line-height: 1.08; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; color: var(--wynik-tusz); }
+.znak { flex: none; width: 1em; height: 1em; border-radius: 50%; border: 2.5px solid currentColor; display: inline-flex; align-items: center; justify-content: center; font-family: var(--tresc); font-size: 0.8em; font-weight: 600; line-height: 1; }
+
+/* 34 pt; przy AX5 najwyżej 12% szerokości, nigdy mniejszy niż treść */
+:root { --t-duzy-r3: max(min(calc(2.125rem * var(--dt-tytul)), calc(var(--w) * 0.12)), var(--t-tresc)); }
+
+.przycisk.glowny { background: var(--glowny-tlo); color: var(--glowny-tusz); }
+.link { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }

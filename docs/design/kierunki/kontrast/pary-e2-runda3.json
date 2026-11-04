@@ -1,0 +1,231 @@
+{
+ "G jasny: tekst na granacie (najjaśniejsze miejsce)": [
+  "#FFFDF7",
+  "#22488A"
+ ],
+ "G jasny: drugi plan na granacie": [
+  "#B9C5E0",
+  "#22488A"
+ ],
+ "G jasny: złoto „twój wybór” na granacie": [
+  "#F2CB66",
+  "#22488A"
+ ],
+ "G jasny: znacznik złoty na granacie (grafika)": [
+  "#E9BC4C",
+  "#22488A",
+  3
+ ],
+ "G jasny: obwódka paska po ocenie na granacie (grafika)": [
+  "#FFFDF7",
+  "#22488A",
+  3
+ ],
+ "G jasny: obwódka skali na granacie (grafika)": [
+  "#6F84B5",
+  "#0A1430",
+  3
+ ],
+ "G jasny: tekst segmentu paska": [
+  "#0A1430",
+  "#FFFDF7"
+ ],
+ "G jasny: „do 2,5bb” na segmencie": [
+  "#4A5878",
+  "#FFFDF7"
+ ],
+ "G jasny: treść na arkuszu": [
+  "#0A1430",
+  "#FFFDF7"
+ ],
+ "G jasny: Dalej": [
+  "#FFFDF7",
+  "#0A1430"
+ ],
+ "G: kier na karcie": [
+  "#C8102E",
+  "#FFFDF7"
+ ],
+ "G ciemny: tekst na granacie": [
+  "#FFFDF7",
+  "#172F5C"
+ ],
+ "G ciemny: drugi plan na granacie": [
+  "#B9C5E0",
+  "#172F5C"
+ ],
+ "G ciemny: złoto na granacie": [
+  "#F2CB66",
+  "#172F5C"
+ ],
+ "G ciemny: segment paska": [
+  "#F2EEE3",
+  "#12234A"
+ ],
+ "G ciemny: „do 2,5bb” na segmencie": [
+  "#A9B5D0",
+  "#12234A"
+ ],
+ "G ciemny: obwódka segmentu na granacie (grafika)": [
+  "#8EA1CC",
+  "#050A19",
+  3
+ ],
+ "G ciemny: treść na arkuszu": [
+  "#F2EEE3",
+  "#0E1A38"
+ ],
+ "G ciemny: Dalej": [
+  "#0A1430",
+  "#F2EEE3"
+ ],
+ "G ciemny: kier na karcie": [
+  "#C8102E",
+  "#F2EEE3"
+ ],
+ "H jasny: tekst na suknie pod lampą": [
+  "#FFFDF7",
+  "#266B4E"
+ ],
+ "H jasny: drugi plan na suknie pod lampą": [
+  "#D3E4DA",
+  "#266B4E"
+ ],
+ "H jasny: złoto „twój wybór” pod lampą": [
+  "#F8DC8E",
+  "#266B4E"
+ ],
+ "H jasny: obwódka paska po ocenie (grafika)": [
+  "#FFFDF7",
+  "#266B4E",
+  3
+ ],
+ "H jasny: tekst segmentu paska": [
+  "#13241C",
+  "#FFFDF7"
+ ],
+ "H jasny: „do 2,5bb” na segmencie": [
+  "#4C5E55",
+  "#FFFDF7"
+ ],
+ "H jasny: segment paska na suknie (grafika)": [
+  "#FFFDF7",
+  "#174A36",
+  3
+ ],
+ "H ciemny: tekst na suknie": [
+  "#FFFDF7",
+  "#1A4A36"
+ ],
+ "H ciemny: drugi plan na suknie": [
+  "#D3E4DA",
+  "#1A4A36"
+ ],
+ "H ciemny: złoto na suknie": [
+  "#F8DC8E",
+  "#1A4A36"
+ ],
+ "H ciemny: segment paska": [
+  "#F2EEE3",
+  "#10382A"
+ ],
+ "H ciemny: „do 2,5bb” na segmencie": [
+  "#B4CBBE",
+  "#10382A"
+ ],
+ "H ciemny: obwódka segmentu (grafika)": [
+  "#6FA287",
+  "#0C281D",
+  3
+ ],
+ "H ciemny: Dalej": [
+  "#0C281D",
+  "#F2EEE3"
+ ],
+ "I jasny: tytuł i treść": [
+  "#0A1430",
+  "#E9EDF5"
+ ],
+ "I jasny: drugi plan": [
+  "#46557A",
+  "#E9EDF5"
+ ],
+ "I jasny: rama stołu na tle (grafika)": [
+  "#0A1430",
+  "#E9EDF5",
+  3
+ ],
+ "I: etykieta miejsca": [
+  "#FFFDF7",
+  "#12234A"
+ ],
+ "I: miejsce spasowane": [
+  "#9AA8C8",
+  "#12234A"
+ ],
+ "I: twoje miejsce, obwódka złota na ramie (grafika)": [
+  "#E2B850",
+  "#0A1430",
+  3
+ ],
+ "I: tekst na suknie": [
+  "#FFFDF7",
+  "#23694D"
+ ],
+ "I: złoto „twój wybór” na suknie": [
+  "#F8DC8E",
+  "#23694D"
+ ],
+ "I: twój przedział na suknie (grafika)": [
+  "#E2B850",
+  "#23694D",
+  3
+ ],
+ "I: drugi plan na suknie": [
+  "#D3E4DA",
+  "#23694D"
+ ],
+ "I jasny: segment paska": [
+  "#FFFDF7",
+  "#0A1430"
+ ],
+ "I jasny: „do 2,5bb” na segmencie": [
+  "#B9C5E0",
+  "#0A1430"
+ ],
+ "I jasny: granica segmentów (grafika)": [
+  "#8EA1CC",
+  "#0A1430",
+  3
+ ],
+ "I ciemny: tytuł i treść": [
+  "#F2EEE3",
+  "#0A1430"
+ ],
+ "I ciemny: drugi plan": [
+  "#B0BCD8",
+  "#0A1430"
+ ],
+ "I ciemny: segment paska": [
+  "#F2EEE3",
+  "#15254C"
+ ],
+ "I ciemny: „do 2,5bb” na segmencie": [
+  "#B0BCD8",
+  "#15254C"
+ ],
+ "I ciemny: obwódka miejsca na tle (grafika; rama i sukno to tło bez danych, stan niosą miejsca)": [
+  "#6F84B5",
+  "#0A1430",
+  3
+ ],
+ "I ciemny: tekst na suknie": [
+  "#FFFDF7",
+  "#1C5A41"
+ ],
+ "H jasny: znacznik i twój przedział pod lampą (grafika)": [
+  "#E2B850",
+  "#266B4E",
+  3
+ ]
+}

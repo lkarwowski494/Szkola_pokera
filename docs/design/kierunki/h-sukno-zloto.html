@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>H Sukno i złoto: Decyzja w sesji</title>
+<!-- Kierunek H, runda 3 E2 (D-117): wnętrze poprzedniej aplikacji (apps/mobile/src/theme/tokens.ts): sukno #1F5E45, feltDeep #174A36,
+     karty cardFace #FFFEFB, indeksy szeryfowe (cardFont Georgia); złoto z ikony #F7CF63→#D49A1E, kier #C8102E.
+     Element firmowy: pasek strategii mieszanej z rundy 1 B (D-116). Ekran kluczowy D-114, stany przed-decyzja i po-ocenie.
+     Treść prawdziwa:
+     - sytuacja: content/ranges/spots.yaml, id rfi.co, title „CO, wszyscy przed tobą spasowali”, path „UTG:fold,HJ:fold”;
+     - stół 6-osobowy, 100bb: content/ranges/preflop-6max-100bb.json, meta.players = 6, meta.tree.stack = 100;
+     - J9o: strategy fold 0.8, raise 2.5 0.2 (ten sam plik, path „UTG:fold,HJ:fold”);
+     - stopień i progi 3,5% / 25%: apps/mobile/src/features/drills/thresholds.ts;
+     - teksty oceny: apps/mobile/src/features/drills/text.pl.ts, range.acceptable i range.explanation.
+     [PRZYKŁAD]: kolory kart (J♠ 9♥), numer zadania, godzina. -->
+<link rel="stylesheet" href="r3.css">
+<style>
+:root {
+  --tytul: 'Libre Baskerville', serif;
+  --lampa: #266B4E; --sukno: #1F5E45; --sukno-gleb: #174A36; --krawedz: #0F3627;
+  --tlo: #174A36;
+  --tusz: #FFFDF7;
+  --drugi: #D3E4DA;
+  --akcent-tekst: #FFFDF7;
+  --karta: #FFFDF7; --karta-brzeg: #E4DCC8; --karta-tusz: #13241C; --kier: #C8102E; --cien: #0000004D;
+  --zloto: #E2B850; --zloto-tekst: #F8DC8E;
+  --wynik-tusz: #FFFDF7; --wynik-drugi: #D3E4DA; --skala-brzeg: #6FA287;
+  --pas: #15452F; --pas-kreska: #3F8564; --przebicie: #FFFDF7;
+  --pasek-tlo: #FFFDF7; --pasek-tusz: #13241C; --pasek-drugi: #4C5E55; --pasek-brzeg: #13241C; --os-brzeg: #FFFDF7;
+  --glowny-tlo: #FFFDF7; --glowny-tusz: #13241C; --link: #FFFDF7;
+  --listwa: #C9A24A;
+}
+[data-theme="dark"] {
+  --lampa: #1A4A36; --sukno: #12392A; --sukno-gleb: #0C281D; --krawedz: #071810;
+  --tlo: #0C281D;
+  --karta: #F2EEE3;
+  --pasek-tlo: #10382A; --pasek-tusz: #F2EEE3; --pasek-drugi: #B4CBBE; --pasek-brzeg: #6FA287; --os-brzeg: #8DBBA2;
+  --pas: #0E3123; --pas-kreska: #2F6E50;
+  --glowny-tlo: #F2EEE3; --glowny-tusz: #0C281D;
+  --listwa: #A8873A;
+}
+/* Sukno: światło lampy nad stołem i drobne włókno (szum SVG, bez danych) */
+main[data-ekran] {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(90% 55% at 50% 38%, var(--lampa), var(--sukno) 55%, var(--krawedz) 100%);
+}
+.sytuacja { padding: 14px 24px 0; text-align: center; }
+.sytuacja p { font-size: var(--t-przypis); color: var(--drugi); }
+.sytuacja h1 { font-family: var(--tytul); font-weight: 700; font-size: var(--t-tytul); line-height: 1.22; margin-top: 8px; }
+.reka { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 40px 20px 24px; }
+.reka .karta { width: 112px; height: 158px; border-radius: 10px; }
+.reka .karta b { font-size: 44px; padding-left: 4px; }
+.reka .karta svg { width: 40px; height: 40px; }
+.reka p { font-family: var(--tytul); font-weight: 700; font-size: var(--t-tytul); text-align: center; line-height: 1.1; }
+.reka p small { display: block; font-family: var(--tresc); font-weight: 400; font-size: var(--t-przypis); color: var(--drugi); margin-top: 6px; }
+
+/* Listwa stołu: jedna mosiężna linia oddziela strefę akcji (ozdoba bez danych, jedyna) */
+.listwa { height: 0; border-top: 1.5px solid var(--listwa); margin: 0 24px; opacity: .8; }
+.akcje { margin-top: auto; padding: 0 16px 40px; }
+.akcje .etykieta { font-size: var(--t-przypis); color: var(--drugi); text-align: center; margin: 18px 0 12px; }
+.akcje .pasek { box-shadow: 0 12px 26px var(--cien); border-radius: 12px; }
+
+.wynik { padding: 18px 24px 0; text-align: center; }
+.wynik .kontekst { font-size: var(--t-przypis); color: var(--drugi); }
+.wynik .stopien { justify-content: center; margin-top: 10px; font-size: max(min(calc(1.75rem * var(--dt-tytul)), calc(var(--w) * 0.112)), 1.25rem); }
+.wynik .rozklad { margin: 22px 0 0; text-align: left; }
+.wynik .stopnie { text-align: left; }
+.wynik .wyjasnienie { font-size: var(--t-tresc); line-height: 1.42; margin-top: 18px; text-align: left; }
+.wynik .link { margin-top: 4px; }
+.wynik + .przyciski { padding-bottom: 40px; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pik" viewBox="0 0 24 24"><path d="M12 2C9 6 4 9 4 13.5 4 16 6 18 8.5 18c1.3 0 2.4-.5 3-1.3-.2 1.9-1 3.4-2.5 4.8h6c-1.5-1.4-2.3-2.9-2.5-4.8.6.8 1.7 1.3 3 1.3 2.5 0 4.5-2 4.5-4.5C20 9 15 6 12 2z"/></symbol>
+  <symbol id="kier" viewBox="0 0 24 24"><path d="M12 21C5 15.5 2 12.3 2 8.5 2 5.5 4.3 3.5 7 3.5c2 0 3.5 1 5 3 1.5-2 3-3 5-3 2.7 0 5 2 5 5 0 3.8-3 7-10 12.5z"/></symbol>
+</svg>
+
+<main data-ekran="przed-decyzja" aria-label="Decyzja w sesji, przed decyzją">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Sesja ćwiczeń</b><span class="przyklad">Zadanie 4</span></nav>
+  <section class="sytuacja">
+    <p>Stół 6-osobowy, stack 100bb, przed flopem</p>
+    <h1>CO, wszyscy przed tobą spasowali</h1>
+  </section>
+  <section class="reka">
+    <div class="karty" role="img" aria-label="Twoje karty: walet pik, dziewiątka kier">
+      <div class="karta"><b>J</b><svg><use href="#pik"/></svg></div>
+      <div class="karta czerwona"><b>9</b><svg><use href="#kier"/></svg></div>
+    </div>
+    <p>J9o<small>różne kolory</small></p>
+  </section>
+  <section class="akcje">
+    <div class="listwa" aria-hidden="true"></div>
+    <p class="etykieta">Wybierz akcję</p>
+    <div class="pasek" role="group" aria-label="Akcje">
+      <a href="#">Pas</a>
+      <a href="#">Przebicie<small>do 2,5bb</small></a>
+    </div>
+  </section>
+</main>
+
+<main data-ekran="po-ocenie" aria-label="Decyzja w sesji, po ocenie">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Sesja ćwiczeń</b><span class="przyklad">Zadanie 4</span></nav>
+  <section class="wynik" aria-live="polite">
+    <p class="kontekst">CO, J9o, twój wybór: przebicie do 2,5bb</p>
+    <h2 class="stopien"><span class="znak" aria-hidden="true">∼</span>Dopuszczalna</h2>
+    <div class="rozklad" role="img" aria-label="Strategia solvera dla J9o: pas 80 procent, przebicie 20 procent. Twój wybór: przebicie.">
+      <div class="znacznik"></div>
+      <div class="os"><div class="s-pas"></div><div class="s-przebicie"></div></div>
+      <div class="podpisy"><span><b>Pas</b> 80%</span><span class="twoj"><b>Przebicie</b> 20%<br>twój wybór</span></div>
+    </div>
+    <div class="stopnie" aria-label="Skala stopni: twoja akcja 20 procent, przedział dopuszczalna">
+      <span><b>Błąd</b>poniżej 3,5%</span>
+      <span class="tu"><b>Dopuszczalna</b>3,5–25%</span>
+      <span><b>Zgodna</b>od 25%</span>
+    </div>
+    <p class="wyjasnienie">Solver gra tak w 20% przypadków, więc to nie błąd, ale częściej wybiera inną akcję. Najlepiej zapamiętaj tę częstszą.</p>
+    <a class="link" href="#">Zgłoś błąd w tym zadaniu</a>
+  </section>
+  <div class="przyciski"><a class="przycisk glowny" href="#">Dalej</a></div>
+</main>
+
+<aside class="panele">
+  <h2>H. Sukno i złoto</h2>
+  <p>Wnętrze poprzedniej aplikacji przeniesione na cały ekran: sukno pod lampą, karty z kości słoniowej rozdane na stół, jedna mosiężna listwa stołu nad strefą akcji. Złoto tylko przy „ty”: znacznik twojego wyboru i twój przedział.</p>
+  <h2>Paleta</h2>
+  <table>
+    <tr><td><div class="probka" style="background:#1F5E45"></div></td><td>sukno <code>#1F5E45</code> (dawny <code>felt</code>)</td><td><div class="probka" style="background:#174A36"></div></td><td>sukno głębokie <code>#174A36</code> (dawny <code>feltDeep</code>)</td></tr>
+    <tr><td><div class="probka" style="background:#266B4E"></div></td><td>światło lampy <code>#266B4E</code></td><td><div class="probka" style="background:#FFFDF7"></div></td><td>kość słoniowa <code>#FFFDF7</code></td></tr>
+    <tr><td><div class="probka" style="background:#E2B850"></div></td><td>złoto „ty” <code>#E2B850</code></td><td><div class="probka" style="background:#C9A24A"></div></td><td>mosiężna listwa <code>#C9A24A</code></td></tr>
+  </table>
+  <h2>Kroje</h2>
+  <p><span style="font-family:'Libre Baskerville';font-weight:700;font-size:22px">Libre Baskerville 700: Dopuszczalna</span><br>treść: na iOS SF Pro; w makiecie zastępczo Noto Sans</p>
+  <h2>Ikona</h2>
+  <div class="ikony">
+    <figure><img src="ikony/h-jasna.png" width="120" height="120" alt=""><figcaption>120</figcaption></figure>
+    <figure><img src="ikony/h-jasna.png" width="60" height="60" alt=""><figcaption>60</figcaption></figure>
+    <figure><img src="ikony/h-jasna.png" width="29" height="29" alt=""><figcaption>29</figcaption></figure>
+    <figure><img src="ikony/h-ciemna.png" width="60" height="60" alt=""><figcaption>ciemna</figcaption></figure>
+  </div>
+</aside>
+</body>
+</html>
