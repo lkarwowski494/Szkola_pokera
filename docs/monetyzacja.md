@@ -36,7 +36,8 @@ Prompt: `assemble.mjs 02-monetyzacja --tryb build` (prompts c025063; moduły aud
 - Pytanie właściciela: „Może jeszcze oprócz lekcji jakieś egzaminy i zapisywanie postępów jest płatne?”; propozycja właściciela: „lekcje i egzaminy i postęp darmowe ale dwa podejścia do egzaminów dziennie za darmo plus x sesji ćwiczeń za darmo plus ileś powtórek za darmo i ileś scenariuszy za darmo”.
 - Decyzja: „Jedna dzienna pula (Recommended)” — lekcje, pierwsze podejście do egzaminu modułu, postęp i eksport zawsze darmowe; darmowa dzienna pula „N zadań dziennie” wspólna dla sesji ćwiczeń, powtórek, scenariuszy i powtórnych podejść do egzaminu; Pro (kwartał 9,99 / rok 14,99 / dożywotni 19,99 USD) zdejmuje limit. Odrzucone: cztery osobne limity, pula z powtórkami bez limitu, bez zmian (wszystko poza lekcjami tylko w Pro).
 - Płatne zapisywanie postępu: odrzucone przez rolę 02 jako niedozwolone (5.6: „trick them into making unwanted purchases … any other manipulative practices”; tabela „Etyka” wzorców roli: dane jako zakładnik); wzór Treningu (`docs/monetyzacja.md:33` w repo `trening`: historia zawsze dostępna) i Oczka (`README.md:140`: historia tylko do odczytu po próbie).
-- Skutki: limit użycia, nie czasu, to nie okres próbny 3.1.1 (wzorce roli, „Kalibracja”), więc bez mechanizmu „XX-day Trial”; licznik jawny przed startem zadania, nie w trakcie; licznik odporny na ponowną instalację [DO USTALENIA] (OP-10: czy wystarczy licznik lokalny, skoro reset daje tylko jeden dodatkowy dzień puli); wartość N to parametr produktowy [DO WYJAŚNIENIA] (OP-11: rola 03 z właścicielem, korekta po danych ze sklepu); zablokowana powtórka przesuwa harmonogram, nie kasuje danych — komunikat mówi to wprost. Ryzyko: skargi na „limit energii” u konkurencji (BRD, rynek) — limit musi być widoczny i hojny.
+- Skutki: limit użycia, nie czasu, to nie okres próbny 3.1.1 (wzorce roli, „Kalibracja”), więc bez mechanizmu „XX-day Trial”; licznik jawny przed startem zadania, nie w trakcie; licznik odporny na ponowną instalację [DO USTALENIA] (OP-10: czy wystarczy licznik lokalny, skoro reset daje tylko jedną dodatkową aktywność dnia); wartość N = 1 aktywność dziennie (D-107; OP-11 rozstrzygnięte, korekta po danych ze sklepu przez bramkę zmian roli 03); zablokowana powtórka przesuwa harmonogram, nie kasuje danych — komunikat mówi to wprost. Ryzyko: skargi na „limit energii” u konkurencji (BRD, rynek) — limit musi być widoczny i hojny.
+- Doprecyzowanie 2026-11-04 (rola 02 fix, D-107, D-111): N = 1 rozpoczęta aktywność dziennie (sesja ćwiczeń, kolejka powtórek, scenariusz albo powtórne podejście do egzaminu), aktywność zużywa limit przy starcie (decyzja właściciela „1 aktywność dziennie (Recommended)”, 2026-11-03; OP-11 rozstrzygnięte). Nazwa w dokumentach i interfejsie: „dzienny limit”, nie „pula” (w treści pokerowej pula = pot; jedna nazwa na jedno pojęcie, `CLAUDE.md`). Słowo „pula” zostaje tylko w cytatach decyzji.
 - Zastępuje propozycję z bramki E2 („Wszystkie lekcje darmowe”: płatne sesje, powtórki, scenariusze bez darmowej części). Zależy od: ZAL-005.
 
 ## Decyzje właściciela na bramce E2 (2026-11-03)
@@ -58,9 +59,9 @@ Dla ról 04, 05, 07, 08. Ceny US; inne kraje według tabel cen sklepów (krok w�
 |---|---|---|---|
 | PR-01 ocena poziomu | cała | — (darmowe) | wynik oceny |
 | PR-02 lekcja | lekcja z ćwiczeniami w środku, pierwsze podejście do egzaminu modułu | — (darmowe) | postęp lekcji |
-| PR-03 sesja ćwiczeń | zadania z oceną i wyjaśnieniem poza lekcją; powtórne podejście do egzaminu | darmowa pula N zadań dziennie (licznik widoczny przed startem); po wyczerpaniu ekran zakupu jako stan przepływu, z informacją, kiedy pula się odnowi; powrót do lekcji jednym ruchem | historia odpowiedzi |
-| PR-04 powtórki | kolejka powtórek | ta sama pula; po wyczerpaniu harmonogram się przesuwa (bez utraty danych), komunikat mówi to wprost | lista błędów, harmonogram |
-| PR-05 scenariusz | scenariusz całego rozdania | ta sama pula; opis scenariusza widoczny | wyniki scenariuszy |
+| PR-03 sesja ćwiczeń | zadania z oceną i wyjaśnieniem poza lekcją; powtórne podejście do egzaminu | dzienny limit: 1 darmowa aktywność dziennie (D-107; licznik widoczny przed startem); po wyczerpaniu ekran zakupu jako stan przepływu, z informacją, kiedy limit się odnowi; powrót do lekcji jednym ruchem | historia odpowiedzi |
+| PR-04 powtórki | kolejka powtórek | ten sam dzienny limit; po wyczerpaniu harmonogram się przesuwa (bez utraty danych), komunikat mówi to wprost | lista błędów, harmonogram |
+| PR-05 scenariusz | scenariusz całego rozdania | ten sam dzienny limit; opis scenariusza widoczny | wyniki scenariuszy |
 | PR-06 zakup | zakup, przywracanie, zarządzanie subskrypcją | zawsze dostępne | — |
 | PR-07 dane | eksport, import, usunięcie | zawsze dostępne, bez zakupu | cały postęp |
 | PR-08 pomoc | numer pomocy | zawsze dostępne, bez zakupu | — |
@@ -375,8 +376,8 @@ Wniosek: rozbieżności cen nie zmieniają median kategorii rzędu wielkości (w
 | OP-04 | [DO WYJAŚNIENIA] Wpis decyzji E0 w rejestrze 03 na Dysku wymaga konektora Google Docs (sesja ma tylko Drive) | właściciel | rejestr |
 | OP-05 | Rozstrzygnięte 2026-11-03: bez storefrontu PL, pl w językach (decyzja właściciela) | — | rynki, rola 09 |
 | OP-06 | [DO USTALENIA] Stawki VAT FR/DE/PL/JP/TW/VN u źródła (wpływ < 5%) | 02, krok cennika | rachunek |
-| OP-10 | [DO USTALENIA] Licznik dziennej puli: lokalny czy odporny na ponowną instalację (Keychain); realność obejścia: brzegowa (jeden dzień puli) | 05 | kontrakt płatności |
-| OP-11 | [DO WYJAŚNIENIA] Wartość N darmowej puli dziennie | 03 z właścicielem | kontrakt płatności, F-07, F-10, F-12, F-04 |
+| OP-10 | [DO USTALENIA] Licznik dziennego limitu: lokalny czy odporny na ponowną instalację (Keychain); realność obejścia: brzegowa (jedna dodatkowa aktywność dnia); to samo co BRD OP-24 | 05 | kontrakt płatności |
+| OP-11 | Rozstrzygnięte 2026-11-03 (D-107, właściciel: „1 aktywność dziennie (Recommended)”): N = 1 rozpoczęta aktywność dziennie; odrzucone: 2 aktywności, 10 zadań dziennie | 03 z właścicielem | kontrakt płatności, F-07, F-10, F-12, F-04 |
 | OP-09 | [DO USTALENIA] Zakup dożywotniego przy aktywnej subskrypcji: czy StoreKit i Google Play Billing pozwalają anulować subskrypcję z aplikacji, czy tylko wskazać ustawienia | 05, 07 | kontrakt płatności |
 | OP-08 | [DO USTALENIA] Google Play: pełne warunki subskrypcji i produktów jednorazowych (ujawnienia, okres próbny, przywracanie) przed cennikiem | 02, E3 | kontrakt płatności |
 | OP-07 | [DO USTALENIA] Benchmark instalacji na ocenę i konwersji według ceny (przeczytane źródło) — najtańsze sprawdzenie werdyktu | 02, przed cennikiem | bramka |
