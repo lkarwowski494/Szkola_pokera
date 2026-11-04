@@ -13,7 +13,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 02 Monetyzacja | fix OP-11 | zakończona 2026-11-04 (D-113; dokument, bez zmian rachunku i kodu) | 37ab4f1 | `docs/monetyzacja.md` | OP-09, OP-10 (05) |
 | 04 Studio Projektowe | build | zakończona 2026-11-04 (E3 zaakceptowane, D-123). E0 zakończone 2026-11-04 (D-114: ekran „Decyzja w sesji”); E1 zakończone 2026-11-04 (D-115: metafory A, B, C); E2 runda 1 odrzucona co do palety (D-116, pasek zostaje), runda 2 (D, E, F) odrzucona 2026-11-04 (D-117: „ma być eleganckie a nie badziewne”, punkt odniesienia: kolory i ikona poprzedniej aplikacji); runda 3: wybrany I (D-118) z warunkiem: stół bez miejsc w zadaniach bez pozycji (D-119); krój Literata 600 (D-120); E3 wykonane 2026-11-04 (D-121, D-122), czeka na akceptację ikony i ekranów | a838dda, 118a5c1 | `docs/design/00-rozpoznanie.md`, `01-swiat.md` | OP-19 w E3 |
 | 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
-| 05 Architekt | build | E4 wykonane 2026-11-04 (piętnasta sesja), czeka na akceptację; E3 przyjęte (D-129), E2 (D-127), ADR 0001–0012 (D-124, D-126) | (commit E4) | `docs/architektura/README.md` (indeks), `00-rozpoznanie.md`, `docs/adr/` 0001–0013, `dane.md`, `moduly.md`, `schemat.sql`, `tlo-i-bledy.md`, `prywatnosc.md`, `wydajnosc.md`, `kontrole-07.md`, `narzedzia/granice.mjs`, `eksperymenty/` | OP-21; wpis „Ścieżki wrażliwe” w `CLAUDE.md` (zgoda właściciela) |
+| 05 Architekt | build | zakończona 2026-11-04 (E4 zaakceptowane, D-130); E3 przyjęte (D-129), E2 (D-127), ADR 0001–0012 (D-124, D-126) | (commit E4) | `docs/architektura/README.md` (indeks), `00-rozpoznanie.md`, `docs/adr/` 0001–0013, `dane.md`, `moduly.md`, `schemat.sql`, `tlo-i-bledy.md`, `prywatnosc.md`, `wydajnosc.md`, `kontrole-07.md`, `narzedzia/granice.mjs`, `eksperymenty/` | OP-21 |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -270,7 +270,7 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - Dowody uruchomione w E4: `e1-sqlite.mjs` kod 0; `e2-schemat.mjs ../schemat.sql` kod 0; `e3-blokady-czasy.mjs ../schemat.sql` kod 0 (10 zgodnych; pierwsze wywołanie bez argumentu schematu dało kod 1 — mój błąd wywołania, nie wynik); `granice.mjs ../../../packages` kod 1 (oczekiwany: `content-schema/src/index.ts` 20,8 KB, `bots.ts` 31,6 KB, `grading.ts` 23,1 KB, 0 cykli); kontrola ADR skryptem: 13/13 ze statusem, datą, 2–4 opcjami, „Konsekwencje” i „Potwierdzenie”.
 - `CLAUDE.md`: zaktualizowana tylko linia „Stan projektu” (rola 05 E4 do akceptacji, następna 09, potem 06); 65 linii. Sekcja „Ścieżki wrażliwe” niżej czeka na zgodę właściciela.
 
-### Propozycja sekcji do `CLAUDE.md` (wpis tylko za zgodą właściciela)
+### Propozycja sekcji do `CLAUDE.md` (wpisana 2026-11-04 za zgodą właściciela, D-130)
 ```markdown
 ## Ścieżki wrażliwe (przegląd zmian w świeżym kontekście przed oddaniem, D-043)
 - Dane użytkownika: `packages/postep/` (port bazy, kolejka zapisów, migracje, eksport, import, „Usuń postęp”), `apps/mobile/src/data/`, `docs/architektura/schemat.sql`; do usunięcia (ADR 0003, 0004): `apps/mobile/src/data/user/`, `apps/mobile/drizzle/`.
@@ -293,11 +293,14 @@ Plus jedna linia w „Dokumentacja projektu”: „Architektura w repo: `docs/ar
   - 07: `kontrole-07.md` (K-01–K-15, U-1–U-9), `dane.md` „Ścieżki utraty danych”, eksperymenty jako wzorce testów; E2E Maestro czerwony na `main` (przebiegi 13–18).
   - 08: kolejność wdrożenia — najpierw `packages/domena` i `packages/postep` z testami na `node:sqlite` (port, kolejka, migracja v1, eksport/import, limit, dostęp, maszyny stanów), potem adaptery (`apps/mobile/src/data`, `platform`, moduł `ochrona-tla`), na końcu ekrany; usunięcia z ADR 0009 i 0011; pliki > 20 KB z `granice.mjs`; SDK 58 (ADR 0001).
   - 10: `prywatnosc.md` (wpisy `privacyManifests`, „Zgłoś błąd” a etykieta, powód DiskSpace), `enableRemoteNotifications: false`.
-- Otwarte decyzje: OP-21 cele budżetów po pomiarze bazowym (właściciel); OP-09 zamknięcie wniosku ADR 0006 pkt 5 (02); BRD OP-10 (06, bloker); rozmiar paczki > 50 MB po 35 językach (właściciel, ADR 0005); wpis „Ścieżki wrażliwe” (właściciel, wyżej).
+- Otwarte decyzje: OP-21 cele budżetów po pomiarze bazowym (właściciel); OP-09 zamknięcie wniosku ADR 0006 pkt 5 (02); BRD OP-10 (06, bloker); rozmiar paczki > 50 MB po 35 językach (właściciel, ADR 0005).
 - Stan poza gitem (bez zmian, zgłoszenie): rejestr 03 i dokument 13 na Dysku bez wpisów D-101–D-129 i zastąpień ADR-08/17/18; backlog 04 i changelog 05 nieaktualne (konektor Drive bez edycji Google Docs); wpis portfolio czeka na właściciela w repo `prompts`.
 
+## Decyzje właściciela na bramce E4 roli 05 (2026-11-04)
+- E4: „Akceptuję (Recommended)” (D-130); „Ścieżki wrażliwe”: „Tak, wpisz jak w propozycji (Recommended)” — wpisane w `CLAUDE.md`; nowa sesja: „Tak, otwórz nową i zarchiwizuj tę (Recommended)”.
+
 ## Następny krok
-**09-lokalizacja**, build, po akceptacji E4 roli 05 (przekazanie wyżej); potem **06-tresci** build. Poprzedni wpis: **05-architekt**, build, E4 (wykonany 2026-11-04).
+**09-lokalizacja**, build (rola 05 zakończona, D-130; przekazanie wyżej); potem **06-tresci** build. Poprzedni wpis: **05-architekt**, build, E4 (wykonany 2026-11-04).
 
 ## Decyzje właściciela na bramce E3 roli 04 (2026-11-04)
 - Krój tytułów: „Ok zgodnie z rekomendacją” (D-120, Literata 600).

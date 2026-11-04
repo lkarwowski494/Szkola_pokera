@@ -2,7 +2,7 @@
 
 Ten plik obowiązuje w każdej sesji pracującej na tym repozytorium. Zasady poniżej mają pierwszeństwo przed domyślnym sposobem pracy, a w sprawach treści pokerowej także przed ogólną preferencją właściciela „zawsze przedstaw opcje i zostaw decyzję człowiekowi”.
 
-## Stan projektu (aktualizacja: 2026-11-04, role 01–04 gotowe (kontrakt D-112, poprawki D-113, projekt D-118–D-123: `docs/design/design-spec.md`); rola 05 E4 do akceptacji (architektura D-124–D-129: `docs/architektura/README.md`, `docs/adr/`); następna rola 09, potem 06)
+## Stan projektu (aktualizacja: 2026-11-04, role 01–04 gotowe (kontrakt D-112, poprawki D-113, projekt D-118–D-123: `docs/design/design-spec.md`); rola 05 gotowa (architektura D-124–D-130: `docs/architektura/README.md`, `docs/adr/`); następna rola 09, potem 06)
 - Etap: w budowie, przebudowa „prawie od nowa” (sztafeta ról 01–05, `docs/sztafeta.md`); TestFlight tylko testy wewnętrzne (buildy 1005–1008), poza właścicielem brak użytkowników i ich danych.
 - Sklep: App Store Connect częściowo (aplikacja do TestFlight, umowa Paid Apps podpisana); Google Play: nic.
 - Rynek główny: US; kolejne: JP, CA, GB, BR, FR, TW, VN, DE; **bez storefrontu PL** (decyzja właściciela 2026-11-03, art. 29 u.g.h.), pozostałe storefronty wszystkie (OP-15, 2026-11-03); opinia prawna art. 29: nie teraz (OP-13) · repo treści prywatnych: brak.
@@ -47,6 +47,15 @@ Właściciel decyduje o sprawach **produktowych**: zakres i kolejność prac, no
 ## Dokumentacja projektu
 
 Folder „Szkoła Pokera” na Google Drive: 00 Roadmapa, 01 Wymagania, 02 Architektura, 03 Rejestr decyzji (ADR), 04 Backlog, 05 Changelog, 06 Runbook, 08 Baza wiedzy, 09 Program nauczania, 10 i 11 Solver, 12 Weryfikacja źródeł, 13 Audyt merytoryczny. Po każdej istotnej zmianie aktualizuj backlog (04) i changelog (05, najnowsze na górze). Gdy kilka sesji pracuje równolegle, backlog i changelog aktualizuje tylko sesja koordynująca.
+
+Architektura w repo: `docs/architektura/README.md`, ADR `docs/adr/` (rola 05; ADR 0006 i 0009 zastępują ADR-18 i ADR-17 rejestru 03).
+
+## Ścieżki wrażliwe (przegląd zmian w świeżym kontekście przed oddaniem, D-043)
+- Dane użytkownika: `packages/postep/` (port bazy, kolejka zapisów, migracje, eksport, import, „Usuń postęp”), `apps/mobile/src/data/`, `docs/architektura/schemat.sql`; do usunięcia (ADR 0003, 0004): `apps/mobile/src/data/user/`, `apps/mobile/drizzle/`.
+- Format eksportu, logika dostępu i limitu: `packages/domena/`.
+- Zakupy, pliki i ochrona tła: `apps/mobile/src/platform/`, `apps/mobile/modules/ochrona-tla/`.
+- Treść (identyfikatory w powtórkach, baza na język): `tools/content-build/`.
+- CI i wydanie: `.github/workflows/`, `apps/mobile/app.json` (manifest prywatności, wtyczki, uprawnienia), `apps/mobile/eas.json`.
 
 ## Zasady techniczne
 
