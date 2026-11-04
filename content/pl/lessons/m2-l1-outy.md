@@ -107,7 +107,7 @@ drills:
 
 ## Typowe {{t:draw|drawy}}
 
-- **Do {{t:flush|koloru}}** ({{n:draw.flush.seen}} karty w kolorze): **{{n:outs.flush}} outów**. W kolorze jest {{n:cards.per-suit}} kart, {{n:draw.flush.seen}} widzisz.
+- **{{t:flush-draw|Draw do koloru}}** ({{n:draw.flush.seen}} karty w kolorze, brakuje jednej do {{t:flush|koloru}}): **{{n:outs.flush}} outów**. W kolorze jest {{n:cards.per-suit}} kart, {{n:draw.flush.seen}} widzisz.
 - **{{t:oesd|OESD}}**, np. [[8c 9d]] na {{t:board|stole}} [[6s 7h Kd]]: **{{n:outs.oesd}} outów**, czyli cztery piątki i cztery dziesiątki.
 - **Dziura w {{t:straight|stricie}} (gutshot)**, np. 5-6-8-9 bez siódemki: **{{n:outs.gutshot}} outy**.
 

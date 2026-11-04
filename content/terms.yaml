@@ -43,10 +43,10 @@ four-of-a-kind:
   pl: kareta
   en: four of a kind
   en_alt: [quads]
-  def: "Cztery karty tej samej wartości, np. cztery siódemki. Remis rozstrzyga piąta karta (kicker)."
+  def: "Cztery karty tej samej wysokości, np. cztery siódemki. Remis rozstrzyga piąta karta (kicker)."
   area: hands
   forms: [kareta, karety, karetę, karetą, karecie, karet]
-  source: "Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands): „Four of a kind, also known as quads or four cards, is a hand that contains four cards of one rank”; glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Quads: A made hand containing all four cards of a specific rank.”"
+  source: "Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands): „Four of a kind, also known as quads, four cards or bomb, is a hand that contains four cards of one rank”; glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Quads: A made hand containing all four cards of a specific rank.”"
 full-house:
   pl: full
   en: full house
@@ -58,7 +58,7 @@ full-house:
 flush:
   pl: kolor
   en: flush
-  def: "Pięć kart w jednym kolorze, które nie idą po kolei. Przy dwóch kolorach wygrywa ten z wyższą najwyższą kartą."
+  def: "Pięć kart tego samego symbolu (♠, ♥, ♦ albo ♣), które nie idą po kolei. Przy dwóch takich układach wygrywa ten z wyższą najwyższą kartą, a przy równej – z wyższą kolejną."
   area: hands
   # „kolorze”, „kolory”, „kolorach” to zwykle kolor karty (suit), więc obowiązkowe są tylko „kolor” i „koloru”
   forms: [kolor, koloru]
@@ -74,7 +74,7 @@ straight:
 three-of-a-kind:
   pl: trójka
   en: three of a kind
-  def: "Trzy karty tej samej wartości i dwie inne. W hold'emie ma dwie odmiany o osobnych nazwach: set, gdy para jest w ręce, a trzecia karta na stole, oraz trips, gdy para leży na stole, a trzecia karta jest w ręce."
+  def: "Trzy karty tej samej wysokości i dwie inne. W hold'emie ma dwie odmiany o osobnych nazwach: set, gdy para jest w ręce, a trzecia karta na stole, oraz trips, gdy para leży na stole, a trzecia karta jest w ręce."
   area: hands
   # „trójki” to też karty rangi 3 („ósemki, trójki”), więc obowiązkowe tylko formy liczby pojedynczej
   forms: [trójka, trójkę, trójką, trójce]
@@ -96,7 +96,7 @@ pair:
   pl: para
   en: pair
   en_alt: [one pair]
-  def: "Dwie karty tej samej wartości i trzy inne, np. dwie dziewiątki. Słabszy jest tylko układ wysokiej karty."
+  def: "Dwie karty tej samej wysokości i trzy inne, np. dwie dziewiątki. Słabszy jest tylko układ wysokiej karty."
   area: hands
   forms: [para, pary, parę, parą, parze, par, parami, parom, parach]
   skip: [w parze z]
@@ -126,7 +126,7 @@ wheel:
 check:
   pl: czekanie
   en: check
-  def: "Granie dalej bez stawiania żetonów, możliwe tylko wtedy, gdy w tej rundzie licytacji nikt jeszcze nie postawił. Nie mylić ze „sprawdzam” – to call, czyli dołożenie do zakładu rywala."
+  def: "Granie dalej bez dokładania żetonów, możliwe tylko wtedy, gdy nie musisz nic dopłacać: w tej rundzie licytacji nikt jeszcze nie postawił (przed flopem tak może zagrać duży blind, gdy nikt nie przebił). Nie mylić ze „sprawdzam” – to call, czyli dołożenie do zakładu rywala."
   area: actions
   forms: [czekanie, czekania, czekaniu, czekaniem, czekam, czekasz, czeka, czekamy, czekają, czekać, czekał, czekała, czekałeś, czekali, czekaliście, czekając, czekaj, poczekasz, poczeka]
   skip: [czeka na, czekają na, czekać na, czekasz na]
@@ -149,7 +149,7 @@ call:
 raise:
   pl: przebicie
   en: raise
-  def: "Podniesienie stawki ponad zakład rywala; pozostali muszą dołożyć różnicę albo spasować. W polskich tekstach także „podbicie”."
+  def: "Podniesienie stawki ponad zakład rywala; pozostali muszą dołożyć różnicę, przebić dalej albo spasować. W polskich tekstach także „podbicie”."
   area: actions
   forms: [przebicie, przebicia, przebiciu, przebiciem, przebić, przebijam, przebijasz, przebija, przebijają, przebijać, przebił, przebiła, przebiłeś, przebili, przebijał, przebijałeś, przebije, przebijesz, przebij, przebiją, przebijając, przebiciami, przebiciach]
   source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „RAISE: To increase the amount of a previous wager.”"
@@ -186,7 +186,7 @@ pot:
 side-pot:
   pl: pula boczna
   en: side pot
-  def: "Osobna pula, która powstaje, gdy ktoś gra all-in: grają o nią tylko gracze, którzy mają jeszcze żetony, więc gracz all-in nie może jej wygrać."
+  def: "Osobna pula, która powstaje, gdy ktoś gra all-in: grają o nią tylko gracze, którzy włożyli więcej niż gracz all-in, więc on sam nie może jej wygrać."
   area: table
   forms: [pula boczna, puli bocznej, pulę boczną, pulą boczną, pule boczne, pul bocznych]
   source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „SIDE POT: A separate pot formed when one or more players are all in.”"
@@ -216,7 +216,7 @@ board:
 community-cards:
   pl: karty wspólne
   en: community cards
-  def: "Karty wykładane odkryte na środek stołu, których każdy gracz może użyć do swojego układu; w hold'emie jest ich pięć."
+  def: "Karty wykładane odkryte na środek, których każdy gracz może użyć do swojego układu; w hold'emie jest ich pięć."
   area: table
   forms: [karty wspólne, kart wspólnych, kartami wspólnymi, kartach wspólnych, kartom wspólnym, karta wspólna, kartę wspólną, karty wspólnej]
   source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „COMMUNITY CARDS: The cards dealt faceup in the center of the table that can be used by all players to form their best hand in the games of hold'em and Omaha.”"
@@ -414,7 +414,7 @@ gutshot:
   pl: gutshot
   en: gutshot
   en_alt: [inside straight draw]
-  def: "Draw do strita, któremu brakuje jednej konkretnej wartości w środku, np. 5-6-8-9 czeka tylko na siódemkę."
+  def: "Draw do strita, któremu brakuje jednej konkretnej wysokości w środku, np. 5-6-8-9 czeka tylko na siódemkę."
   area: math
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Gutter / gutshot: A slang poker term for an inside straight draw, which requires one specific card rank to complete it. A 4-out straight draw.”"
 backdoor:
@@ -426,7 +426,7 @@ backdoor:
 pot-odds:
   pl: pot odds
   en: pot odds
-  def: "Stosunek kwoty, którą musisz dołożyć, do wielkości puli. Mówi, jak często musisz wygrywać, żeby sprawdzenie się opłacało."
+  def: "Stosunek kwoty, którą musisz dołożyć, do puli, którą możesz wygrać (razem z zakładem rywala). Mówi, jak często musisz wygrywać, żeby sprawdzenie się opłacało."
   area: math
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Pot odds: The ratio of [the size of the bet a player is facing] in relation to [the size of the pot].”"
 implied-odds:
@@ -445,7 +445,7 @@ equity-realization:
   pl: realizacja equity
   en: equity realization
   abbr: EQR
-  def: "Jaką część swojego equity ręka faktycznie zamienia na wygraną, gdy licytacja trwa dalej; zależy m.in. od pozycji i od tego, jak łatwo rękę rozegrać."
+  def: "W jakim stopniu ręka zamienia swoje equity na wygraną, gdy licytacja trwa dalej (może zrealizować mniej albo więcej niż swoje equity); zależy m.in. od pozycji i od tego, jak łatwo rękę rozegrać."
   area: preflop
   forms: [realizacja equity, realizacji equity, realizację equity, realizacją equity, realizuje equity, realizują equity, realizujesz equity, zrealizujesz equity]
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Equity Realization (EQR): The ability of a hand to \"realize\" its raw equity.”"
@@ -476,9 +476,9 @@ range:
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Range: A collection of hands that a player could feasibly be holding given the action of the current hand.”"
 mixed-hand:
   pl: ręka mieszana
-  en: mixed strategy
+  en: mixing hand
   def: "Ręka, z którą strategia równowagi wybiera raz jedno, raz drugie zagranie (np. czasem przebicie, czasem sprawdzenie); oba zagrania są poprawne. W polskich tekstach mówi się, że rękę gra się mieszaną strategią."
-  en_alt: [mixing hand]
+  en_alt: [mixed strategy]
   area: preflop
   forms: [ręka mieszana, ręki mieszanej, ręce mieszanej, rękę mieszaną, ręką mieszaną, ręce mieszane, rąk mieszanych, rękom mieszanym, rękami mieszanymi, rękach mieszanych]
   source: "serwis komercyjnego solvera, Heads up! Exploiting SB’s Preflop Mistakes (https://blog.gtowizard.com/heads-up-exploiting-sbs-preflop-mistakes/): „SB prefers to do so by increasing the frequencies of mixing hands because the pure limping hands don’t gain anything from adding opens”; serwis komercyjnego solvera, Aggregate Flop Strategy: SB C-Betting in SRP (https://blog.gtowizard.com/aggregate-flop-strategy-sb-c-betting-in-srp/): „SB has no pure raises and many hands that mix call and raise”; glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Mixed strategy To mix between different actions with the same hand.”"
@@ -514,7 +514,7 @@ connectors:
   pl: konektory
   en: connectors
   en_alt: [connector]
-  def: "Karty własne o sąsiednich albo prawie sąsiednich wartościach, np. 8-7 lub 9-8; łatwiej z nich ułożyć strita."
+  def: "Karty własne o sąsiednich wysokościach, np. 8-7 lub 9-8; łatwiej z nich ułożyć strita."
   area: preflop
   forms: [konektory, konektor, konektora, konektorem, konektorów, konektorami, konektorom, konektorach]
   source: "Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „connectors: Two or more cards of consecutive or close to consecutive rank”"
@@ -559,7 +559,6 @@ texture:
 dry:
   pl: suchy
   en: dry
-  en_alt: [static]
   def: "Stół, na którym możliwych jest mało drawów i silnych układów, np. K♠ 7♦ 2♣."
   area: board
   forms: [suchy, sucha, suche, suchego, suchym, suchych, suchymi, suchej, suchą]
@@ -567,7 +566,6 @@ dry:
 wet:
   pl: mokry
   en: wet
-  en_alt: [dynamic]
   def: "Stół, na którym możliwych jest wiele drawów i silnych układów, np. J♥ T♥ 8♣."
   area: board
   forms: [mokry, mokra, mokre, mokrego, mokrym, mokrych, mokrymi, mokrej, mokrą]
@@ -595,7 +593,7 @@ monotone:
 paired:
   pl: sparowany
   en: paired
-  def: "Stół, na którym leży para (dwie karty tej samej wartości), np. 8-8-3."
+  def: "Stół, na którym leży para (dwie karty tej samej wysokości), np. 8-8-3."
   area: board
   forms: [sparowany, sparowana, sparowane, sparowanego, sparowanym, sparowanych, sparowanej]
   source: "serwis komercyjnego solvera, Board texture (https://gtowizard.com/glossary/board-texture/): „Pairing can be categorized as unpaired, paired, tripled, quadrupled or double-paired.”; serwis komercyjnego solvera, Flop Heuristics: IP C-Betting in Cash Games (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/): „Paired flops are bet significantly more often than unpaired flops.”"
@@ -617,7 +615,7 @@ disconnected:
 semi-connected:
   pl: półpołączony
   en: semi-connected
-  def: "Stół, na którym są drawy do strita, ale strit nie jest jeszcze możliwy, np. T-8-3."
+  def: "Stół, na którym są drawy do strita, ale strit nie jest jeszcze możliwy, np. T-8-3 (podział przyjęty w kursie)."
   area: board
   forms: [półpołączony, półpołączonego, półpołączonym, półpołączonych, półpołączone, półpołączona]
   source: "serwis komercyjnego solvera, The Four-Point Checklist for Calling Turn Barrels (https://blog.gtowizard.com/the-four-point-checklist-for-calling-turn-barrels/), o stole T♣8♣3♥ 4♥ (draw do strita możliwe, strit nie): „The board is semi-connected”"
@@ -666,11 +664,11 @@ aggressor:
 initiative:
   pl: inicjatywa
   en: initiative
-  en_alt: [betting initiative]
-  def: "Rola ostatniego agresora: to on zwykle wykonuje następny zakład, a rywal najczęściej czeka na jego ruch."
+  en_alt: [betting initiative, betting lead]
+  def: "Rola ostatniego agresora: to on zwykle wykonuje następny zakład."
   area: board
   forms: [inicjatywa, inicjatywy, inicjatywę, inicjatywą, inicjatywie]
-  source: "serwis komercyjnego solvera, When Checking the Nuts Beats Betting Them (https://blog.gtowizard.com/when-checking-the-nuts-beats-betting-them/): „we may not want to check any of our top-tier hands and instead take the initiative”; serwis szkoleniowy, Delayed C-Bet Strategy (https://upswingpoker.com/delayed-continuation-bet-c-bet-strategy/): „many players c-bet at almost every opportunity just because they have the betting initiative”"
+  source: "serwis komercyjnego solvera, When Checking the Nuts Beats Betting Them (https://blog.gtowizard.com/when-checking-the-nuts-beats-betting-them/): „we may not want to check any of our top-tier hands and instead take the initiative”; serwis szkoleniowy, Delayed C-Bet Strategy (https://upswingpoker.com/delayed-continuation-bet-c-bet-strategy/): „many players c-bet at almost every opportunity just because they have the betting initiative”; glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/betting-lead/): „The player who makes the last bet/raise on the previous street is said to have the betting lead.”"
 
 # ---------- Strategia po flopie (M5–M9) ----------
 range-advantage:
@@ -797,14 +795,14 @@ overbet:
 effective-stack:
   pl: efektywny stack
   en: effective stack
-  def: "Najmniejszy ze stacków graczy w rozdaniu, czyli najwięcej, ile można w nim realnie wygrać lub przegrać."
+  def: "W rozdaniu dwóch graczy: mniejszy z ich stacków, czyli najwięcej, ile można realnie wygrać lub przegrać. Przy kilku graczach liczy się go osobno dla każdej pary."
   area: strategy
   forms: [efektywny stack, efektywnego stacku, efektywnym stackiem, efektywnym stacku, efektywne stacki, efektywnych stacków, stack efektywny, stacku efektywnego, stackiem efektywnym]
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Effective stack: The maximum amount any player can risk in a hand. In 2-player situations, this will always be the smallest of both players' stacks.”"
 spr:
   pl: SPR
   en: stack-to-pot ratio
-  def: "Efektywny stack podzielony przez wielkość puli na flopie; mówi, ile zakładów zostało jeszcze do rozegrania."
+  def: "Efektywny stack podzielony przez wielkość puli na flopie; mówi, jak głębokie są stacki w stosunku do puli (im niższy SPR, tym szybciej wszystko trafia do puli)."
   area: strategy
   forms: [SPR]
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Stack-to-Pot Ratio (SPR): The effective stack divided by the size of the pot.”"
@@ -904,7 +902,7 @@ mental-game:
 tournament:
   pl: turniej
   en: tournament
-  def: "Forma gry, w której wszyscy za wpisowe dostają taki sam stack żetonów, blindy rosną co pewien czas, a gra trwa, aż jeden gracz zbierze wszystkie żetony; nagrody dostają najwyżej sklasyfikowani."
+  def: "Forma gry, w której wszyscy za wpisowe dostają zwykle taki sam stack żetonów, blindy rosną co pewien czas, a gra trwa, aż jeden gracz zbierze wszystkie żetony; nagrody dostają najwyżej sklasyfikowani."
   area: tournament
   forms: [turniej, turnieju, turnieje, turniejach, turniejem, turniejów, turniejami]
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Tournament: A structure of a poker game where play continues until one player has all of the chips.”"
@@ -961,7 +959,7 @@ risk-premium:
 m-ratio:
   pl: M
   en: M-ratio
-  def: "Stack podzielony przez sumę blindów i ante w jednym rozdaniu: na ile rund wystarczy żetonów bez gry."
+  def: "Stack podzielony przez sumę blindów i ante w jednym rozdaniu: na ile pełnych okrążeń (orbit) wystarczy żetonów bez gry."
   area: tournament
   # pojedyncza litera, więc znacznik ręcznie przy definicji
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „M-ratio: A metric used in tournament poker that measures the health of a player's chip stack.”; Wikipedia, M-ratio (https://en.wikipedia.org/wiki/M-ratio): „Dan Harrington studied the concept in great detail in Harrington on Holdem”"
@@ -1001,7 +999,7 @@ fold-equity:
 gap-concept:
   pl: gap concept
   en: gap concept
-  def: "Zasada, że do sprawdzenia lub przebicia otwarcia potrzeba silniejszej ręki niż do samego otwarcia."
+  def: "Zasada, że do sprawdzenia otwarcia potrzeba silniejszej ręki niż do samego otwarcia."
   area: tournament
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Gap Concept: The Gap Concept argues that a player needs a stronger hand to call an open, than they need to open themselves.”"
 chip-ev:

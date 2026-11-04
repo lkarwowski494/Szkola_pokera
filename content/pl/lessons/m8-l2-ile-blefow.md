@@ -35,7 +35,7 @@ drills:
     rules: [R-M8-004, R-M8-005]
     prompt: "River. W {{t:pot|puli}} jest {{n:ex.pot}}, betujesz więcej niż {{t:pot|pulę}}: {{n:ex.bet.overbet}}. Jaka część twoich betów to w równowadze {{t:bluff|blefy}}?"
     options:
-      - { text: "{{n:bluff.share.bet-overbet}}", correct: true, why: "{{n:ex.bet.overbet}} ÷ ({{n:ex.pot}} + {{n:ex.bet.overbet}} + {{n:ex.bet.overbet}}) = {{n:bluff.share.bet-overbet}}. Overbet daje rywalowi najgorszą cenę, więc możesz mieć w nim najwięcej {{t:bluff|blefów}}, ale nadal mniej niż połowę." }
+      - { text: "{{n:bluff.share.bet-overbet}}", correct: true, why: "{{n:ex.bet.overbet}} ÷ ({{n:ex.pot}} + {{n:ex.bet.overbet}} + {{n:ex.bet.overbet}}) = {{n:bluff.share.bet-overbet}}. {{t:overbet|Overbet}}, czyli {{t:bet|zakład}} większy niż cała {{t:pot|pula}}, daje rywalowi najgorszą cenę, więc możesz mieć w nim najwięcej {{t:bluff|blefów}}, ale nadal mniej niż połowę." }
       - { text: "{{n:alpha.bet-overbet}}", why: "To alpha dla tego rozmiaru: jak często rywal musi {{t:fold|pasować}}, żeby opłacił się pojedynczy {{t:bluff}}. Udział {{t:bluff|blefów}} w {{t:range|zakresie}} to {{n:bluff.share.bet-overbet}}." }
       - { text: "{{n:bluff.share.bet-pot}}", why: "Tyle wynosi udział {{t:bluff|blefów}} przy becie całej {{t:pot|puli}}. Przy becie {{n:ex.bet.overbet}} jest ich więcej: {{n:bluff.share.bet-overbet}}." }
   - kind: choice

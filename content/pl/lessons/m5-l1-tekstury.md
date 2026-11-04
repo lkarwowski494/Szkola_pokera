@@ -77,7 +77,7 @@ Flop **{{t:disconnected}}** ma karty tak odległe, że żadne dwie nie mieszczą
 
 ## {{t:dry|Suchy}} czy {{t:wet}}
 
-Liczymy punkty za to, co flop daje w kolorach i w {{t:straight|stritach}}:
+Liczymy punkty {{t:wetness|mokrości}}, czyli tego, jak bardzo flop sprzyja {{t:draw|drawom}} i silnym układom w kolorach i w {{t:straight|stritach}}:
 
 - {{t:straight}} możliwy już teraz na kilka sposobów, czyli z co najmniej dwoma różnymi zestawami dwóch rang w ręce (na [[9h 8d 7c]] dają go JT, T6 i 65): {{n:tex.points.straight.made}} pkt,
 - {{t:straight}} możliwy tylko na jeden sposób (na [[Ah Kd Tc]] daje go tylko QJ, na [[Ah 4d 2c]] tylko 53): {{n:tex.points.straight.made-one}} pkt,

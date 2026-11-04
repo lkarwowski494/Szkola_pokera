@@ -52,7 +52,7 @@ drills:
     params: { area: positions, dir: both }
     count: 4
 ---
-Przycisk dealera (**{{t:button|BTN}}**, Button) przesuwa się co rozdanie. Od niego zależy kolejność mówienia. Od flopu Button mówi **ostatni**, a to ogromna przewaga: widzisz, co zrobili wszyscy inni, zanim sam zdecydujesz.
+Przycisk dealera (**{{t:button|BTN}}**, Button) przesuwa się co rozdanie. Od niego zależy kolejność mówienia. Od flopu Button mówi **ostatni**, a to ogromna przewaga: widzisz, co zrobili wszyscy inni, zanim sam zdecydujesz. Kto po flopie działa przed rywalem, gra {{t:out-of-position}}: decyduje, nie znając jego zagrania.
 
 ## {{t:position|Pozycje}} przy stole 6-osobowym
 
@@ -66,5 +66,5 @@ Przycisk dealera (**{{t:button|BTN}}**, Button) przesuwa się co rozdanie. Od ni
 **{{t:hijack|HJ}}** (Hijack) siedzi za {{t:utg}}, dwa miejsca przed Buttonem, a **{{t:cutoff|CO}}** (Cutoff) tuż przed Buttonem. To {{t:position|pozycje}} środkowe: za nimi jest mniej graczy niż za {{t:utg}}, więc {{t:open|otwierasz}} z nich szerzej, ale wciąż węziej niż z Buttona.
 
 :::note Rozmiar {{t:open|otwarcia}}
-{{t:open|Otwierasz}} {{t:raise|przebiciem}} do {{n:pf.open-size}} z każdej {{t:position|pozycji}}, a z {{t:small-blind|małego blinda}} do {{n:pf.open-size-sb}}. To uproszczenie: w rozwiązaniach solverów {{t:open|otwarcia}} z {{t:early-position|wczesnych pozycji}} są nieco mniejsze (np. {{n:pf.open-size.solver-utg}} z {{t:utg}} i {{n:pf.open-size.solver-co}} z {{t:cutoff|CO}}), ale jeden rozmiar jest łatwiejszy do nauki. Wchodząc jako pierwszy, nie dopłacasz samego blinda: {{t:raise}} może od razu wygrać {{t:pot|pulę}}.
+{{t:open|Otwierasz}} {{t:raise|przebiciem}} do {{n:pf.open-size}} z każdej {{t:position|pozycji}}, a z {{t:small-blind|małego blinda}} do {{n:pf.open-size-sb}}. To uproszczenie: w rozwiązaniach solverów {{t:open|otwarcia}} z {{t:early-position|wczesnych pozycji}} są nieco mniejsze (np. {{n:pf.open-size.solver-utg}} z {{t:utg}} i {{n:pf.open-size.solver-co}} z {{t:cutoff|CO}}), ale jeden rozmiar jest łatwiejszy do nauki. Wchodząc jako pierwszy, nie dopłacasz samego blinda (to {{t:limp}}, czyli wejście przez samo {{t:call|sprawdzenie}} {{t:big-blind|dużego blinda}}): {{t:raise}} może od razu wygrać {{t:pot|pulę}} i daje {{t:initiative|inicjatywę}}, bo kto ostatni {{t:raise|przebijał}}, ten zwykle wykonuje następny {{t:bet|zakład}}.
 :::

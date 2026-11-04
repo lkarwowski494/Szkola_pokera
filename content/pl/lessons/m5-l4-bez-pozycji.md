@@ -96,7 +96,7 @@ Do tej pory grałeś {{t:in-position}} przeciw jednemu rywalowi. {{t:out-of-posi
 
 ## {{t:out-of-position|Bez pozycji}}
 
-Gdy {{t:open|otwierasz}} z {{t:cutoff|CO}}, a Button {{t:call|sprawdza}}, po flopie mówisz pierwszy na każdej {{t:street|ulicy}}. {{t:range|Zakres}} Buttona jest przy tym silny: słabe ręce {{t:fold|pasował}}, a część najsilniejszych {{t:raise|przebijał}}, więc zostały mu ręce średnie i dobre. Dlatego {{t:out-of-position}} {{t:check|czekasz}} dużo częściej, często całym {{t:range|zakresem}}, także z silnymi rękami: zagrasz je {{t:call|sprawdzeniem}} albo check-raise'em. Betujesz głównie na flopach, które bardzo mocno sprzyjają twojemu {{t:range|zakresowi}}, np. K-Q-6. {{t:check|Czekanie}} {{t:out-of-position}} nie oznacza rezygnacji z ręki: wiele z tych rąk {{t:call|sprawdzi}} {{t:bet}} rywala.
+Gdy {{t:open|otwierasz}} z {{t:cutoff|CO}}, a Button {{t:call|sprawdza}}, po flopie mówisz pierwszy na każdej {{t:street|ulicy}}. {{t:range|Zakres}} Buttona jest przy tym silny: słabe ręce {{t:fold|pasował}}, a część najsilniejszych {{t:raise|przebijał}}, więc zostały mu ręce średnie i dobre. Taki {{t:range|zakres}}, bez najsilniejszych rąk i złożony głównie ze średnich, jest {{t:condensed|skondensowany}}. Dlatego {{t:out-of-position}} {{t:check|czekasz}} dużo częściej, często całym {{t:range|zakresem}}, także z silnymi rękami: zagrasz je {{t:call|sprawdzeniem}} albo check-raise'em. Betujesz głównie na flopach, które bardzo mocno sprzyjają twojemu {{t:range|zakresowi}}, np. K-Q-6. {{t:check|Czekanie}} {{t:out-of-position}} nie oznacza rezygnacji z ręki: wiele z tych rąk {{t:call|sprawdzi}} {{t:bet}} rywala.
 
 ## Przeciw kilku rywalom
 
