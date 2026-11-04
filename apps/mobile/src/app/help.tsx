@@ -64,7 +64,8 @@ export default function HelpScreen() {
         <Entry key={e.id} entry={e} onOpen={open} />
       ))}
       {failed ? <Muted>{t('help.openFailed', { target: failed.replace(/^tel:/, '') })}</Muted> : null}
-      <Muted>{HELPLINES.abroadText}</Muted>
+      {/* D-158: dla każdego kraju fallbackText to to samo zdanie; bez powtórzenia na dole ekranu */}
+      {sel.fallbackText ? null : <Muted>{HELPLINES.abroadText}</Muted>}
       <Muted>{HELPLINES.checkedText}</Muted>
     </Screen>
   );

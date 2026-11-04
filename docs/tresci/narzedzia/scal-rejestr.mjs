@@ -42,14 +42,17 @@ rejestr.push(...wgId.values());
 const ids = new Set(rejestr.map((w) => w.id));
 const rules = YAML.parse(readFileSync('content/pl/rules.yaml', 'utf8')), nums = YAML.parse(readFileSync('content/numbers.yaml', 'utf8')), terms = YAML.parse(readFileSync('content/terms.yaml', 'utf8'));
 // wpisy pomocy (content/helplines.yaml): pole claim każdego wpisu = id twierdzenia H-… w rejestrze, ze statusem „potwierdzone”
-const pomoc = YAML.parse(readFileSync('content/helplines.yaml', 'utf8')).entries ?? [];
-const claims = [...new Set(pomoc.map((e) => e.claim))];
+const pomocPlik = YAML.parse(readFileSync('content/helplines.yaml', 'utf8'));
+const pomoc = pomocPlik.entries ?? [];
+// fallback.claim (D-158): zdanie ogólne bez numeru ma własne twierdzenie; jak wpis pomocy liczy się do pokrycia i statusu
+const pomocFallback = pomocPlik.fallback?.claim ? [{ id: 'fallback', claim: pomocPlik.fallback.claim, ...pomocPlik.fallback }] : [];
+const claims = [...new Set([...pomoc, ...pomocFallback].map((e) => e.claim))];
 for (const e of pomoc) if (!e.claim) bledy.push(`pokrycie: wpis pomocy ${e.id} bez pola claim`);
 const wymagane = [...rules.map((r) => r.id), ...Object.keys(nums).map((k) => `n:${k}`), ...Object.keys(terms).map((k) => `t:${k}`), ...claims.filter(Boolean)];
 const brak = wymagane.filter((id) => !ids.has(id) && !bezK.has(id));
 for (const id of brak) bledy.push(`pokrycie: brak wpisu ${id}`);
 const wgIdR = new Map(rejestr.map((w) => [w.id, w]));
-for (const e of pomoc) if (e.claim && wgIdR.has(e.claim) && wgIdR.get(e.claim).status !== 'potwierdzone') bledy.push(`pomoc: wpis ${e.id} (${e.claim}) ma w rejestrze status „${wgIdR.get(e.claim).status}”`);
+for (const e of [...pomoc, ...pomocFallback]) if (e.claim && wgIdR.has(e.claim) && wgIdR.get(e.claim).status !== 'potwierdzone') bledy.push(`pomoc: wpis ${e.id} (${e.claim}) ma w rejestrze status „${wgIdR.get(e.claim).status}”`);
 bledy.push(...sprawdzRejestr(rejestr, [], opcje, uwagi));
 // Skrót wersji zdań twierdzeń krytycznych (pole przeglad.sha, moduł kontrole-mechaniczne): w formacie A (D-141) jednostką
 // jest wpis źródłowy (reguła w rules.yaml, liczba w numbers.yaml, termin w terms.yaml, wpis pomocy w helplines.yaml)
@@ -67,6 +70,7 @@ const jednostki = (w) => {
   if (w.id.startsWith('t:') && w.id.slice(2) in terms) out.push(`terms.yaml#${w.id}\n${JSON.stringify(terms[w.id.slice(2)])}`);
   // indeks wpisu w pliku: kolejność decyduje, który numer ekran pokazuje pierwszy (przegląd D-043, E3)
   pomoc.forEach((e, i) => { if (e.claim === w.id) out.push(`helplines.yaml#${i}#${e.id}\n${JSON.stringify(e)}`); });
+  for (const e of pomocFallback) if (e.claim === w.id) out.push(`helplines.yaml#fallback\n${JSON.stringify({ pointer: pomocPlik.pointer, fallback: pomocPlik.fallback })}`);
   const wzor = w.id.startsWith('n:') ? new RegExp(`\\{\\{n:${esc(w.id.slice(2))}\\}\\}`) : w.id.startsWith('t:') ? null : new RegExp(`(?<![\\w-])${esc(w.id)}(?![\\w-])`);
   if (wzor) for (const [p, t] of tekst) if (wzor.test(t)) out.push(`${p}\n${t}`);
   for (const p of w.uzyte_w ?? []) {

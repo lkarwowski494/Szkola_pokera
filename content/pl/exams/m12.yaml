@@ -71,23 +71,23 @@ drills:
     prompt: "Wygrywasz {{n:dd.wr-low}} przy {{t:standard-deviation|odchyleniu}} {{n:var.sd}} i masz {{n:exam.m12.ror.bi}} {{t:buy-in|wpisowych}} ({{n:exam.m12.ror.bb}}). Jakie jest ryzyko utraty całego bankrollu, jeśli nigdy nie zejdziesz {{t:stakes|stawkę}}?"
     options:
       - { text: "Ok. {{n:exam.m12.ror}}", correct: true, why: "Wykładnik: 2 × winrate × bankroll ÷ SD² = {{n:ror.two}} × {{n:dd.wr-low}} × {{n:exam.m12.ror.bb}} ÷ {{n:var.sd.sq}} = {{n:exam.m12.ror.x}}, więc RoR = e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}." }
-      - { text: "Zero, bo wygrywasz", why: "Dodatni winrate nie chroni przed {{t:variance|wariancją}}. Przy tym bankrollu i winrate ryzyko to ok. {{n:exam.m12.ror}}: niewielkie, ale nie zerowe." }
+      - { text: "Zero, bo wygrywasz", why: "Dodatni winrate nie chroni przed {{t:variance|wariancją}}. Przy tym bankrollu i winrate ryzyko to ok. {{n:exam.m12.ror}}: wyraźnie większe od zera." }
       - { text: "Ok. połowa, bo winrate jest niski", why: "Ryzyko maleje wykładniczo z bankrollem. Przy {{n:exam.m12.ror.bi}} {{t:buy-in|wpisowych}} wykładnik to {{n:exam.m12.ror.x}}, a e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}." }
   - kind: choice
     id: m12.exam.q9
     family: m12.move-down
     rules: [R-M12-011]
-    prompt: "Jako początkujący założyłeś bankroll {{n:br.bi.beginner}} {{t:buy-in|wpisowych}}. Po {{t:downswing|downswingu}} masz {{n:exam.m12.md.now}}. Co robisz?"
+    prompt: "Założyłeś bankroll {{n:br.bi.beginner}} {{t:buy-in|wpisowych}}. Po {{t:downswing|downswingu}} masz {{n:exam.m12.md.now}}. Co robisz?"
     options:
-      - { text: "Schodzę o jedną {{t:stakes|stawkę}} niżej", correct: true, why: "Próg zejścia to połowa założonej liczby {{t:buy-in|wpisowych}}: przy {{n:br.bi.beginner}} to {{n:exam.m12.md.half}}. Masz {{n:exam.m12.md.now}}, czyli mniej. Na niższej {{t:stakes|stawce}} te same pieniądze znów są pełnym bankrollem. To ogólna wskazówka; jeśli granie przestaje być pod kontrolą, zajrzyj do ekranu „Pomoc”." }
-      - { text: "Zostaję, bo {{n:exam.m12.md.now}} to więcej niż próg {{n:br.bi.move-down}}", why: "Próg {{n:br.bi.move-down}} to połowa bankrollu {{n:br.bi.base}} {{t:buy-in|wpisowych}}. Liczysz go od bankrollu, który sam założyłeś. Jako początkujący założyłeś {{n:br.bi.beginner}}, więc schodzisz poniżej {{n:exam.m12.md.half}}." }
+      - { text: "Schodzę o jedną {{t:stakes|stawkę}} niżej", correct: true, why: "Próg zejścia to połowa założonej liczby {{t:buy-in|wpisowych}}: przy {{n:br.bi.beginner}} to {{n:exam.m12.md.half}}. Masz {{n:exam.m12.md.now}}, czyli mniej. Na {{t:stakes|stawce}} dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej {{t:buy-in|wpisowych}}. To ogólna wskazówka; jeśli granie przestaje być pod kontrolą, zajrzyj do ekranu „Pomoc”." }
+      - { text: "Zostaję, bo {{n:exam.m12.md.now}} to więcej niż próg {{n:br.bi.move-down}}", why: "Próg {{n:br.bi.move-down}} to połowa bankrollu {{n:br.bi.base}} {{t:buy-in|wpisowych}}. Liczysz go od bankrollu, który sam założyłeś. Założyłeś {{n:br.bi.beginner}}, więc schodzisz poniżej {{n:exam.m12.md.half}}." }
       - { text: "Zostaję i gram więcej, żeby odrobić straty", why: "Odgrywanie strat to sygnał ostrzegawczy, a nie plan. Bankroll spadł poniżej progu {{n:exam.m12.md.half}}, więc schodzisz {{t:stakes|stawkę}} niżej." }
   - kind: choice
     id: m12.exam.q10
-    family: m12.bankroll-size
-    rules: [R-M12-010]
-    prompt: "Chcesz zacząć grać na {{t:stakes|stawce}}, na której {{t:buy-in}} (stack {{n:format.stack}}) kosztuje {{n:exam.m12.bi.pln}} zł. Nie znasz jeszcze swojego winrate. Ile pieniędzy powinien mieć twój bankroll?"
+    family: m12.risk-of-ruin
+    rules: [R-M12-009]
+    prompt: "Twój winrate okazuje się dwa razy niższy, niż zakładałeś, a {{t:standard-deviation|odchylenie}} się nie zmienia. Ile {{t:buy-in|wpisowych}} potrzebujesz, żeby {{t:risk-of-ruin|ryzyko bankructwa}} zostało takie samo?"
     options:
-      - { text: "Co najmniej {{n:exam.m12.bi.pln.beginner}} zł", correct: true, why: "Póki nie znasz swojego winrate, masz co najmniej {{n:br.bi.beginner}} {{t:buy-in|wpisowych}}: {{n:br.bi.beginner}} × {{n:exam.m12.bi.pln}} zł = {{n:exam.m12.bi.pln.beginner}} zł. To ogólna wskazówka; jeśli granie przestaje być pod kontrolą, zajrzyj do ekranu „Pomoc”." }
-      - { text: "Co najmniej {{n:exam.m12.bi.pln.base}} zł", why: "{{n:br.bi.base}} {{t:buy-in|wpisowych}} to minimum dla gracza, który potwierdził, że wygrywa. Bez znanego winrate zakładasz ostrożnie, że jest niski, i masz {{n:br.bi.beginner}}." }
-      - { text: "Wystarczy {{n:exam.m12.bi.pln}} zł, bo przy stole i tak siedzisz z jednym stackiem", why: "Jedno {{t:buy-in}} wystarczy na jeden stack, ale {{t:downswing|downswingi}} o wiele {{t:buy-in|wpisowych}} zdarzają się każdemu. Bankroll liczysz w dziesiątkach {{t:buy-in|wpisowych}}." }
+      - { text: "Dwa razy więcej", correct: true, why: "We wzorze RoR = e^(−2 × winrate × bankroll ÷ SD²) winrate i bankroll stoją obok siebie jako iloczyn. Gdy winrate spada o połowę, ten sam wykładnik daje dopiero dwa razy większy bankroll." }
+      - { text: "Tyle samo, bo ryzyko zależy tylko od bankrollu", why: "Winrate stoi w wykładniku obok bankrollu. Przy niższym winrate ten sam bankroll daje większe ryzyko." }
+      - { text: "Cztery razy więcej", why: "W kwadracie stoi {{t:standard-deviation|odchylenie}}, a nie winrate. Winrate i bankroll są w iloczynie, więc wystarczy dwa razy więcej {{t:buy-in|wpisowych}}." }

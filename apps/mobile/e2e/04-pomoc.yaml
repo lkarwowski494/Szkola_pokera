@@ -13,10 +13,10 @@ name: Pomoc
     element: 'Pomoc: gdy granie wymyka się spod kontroli'
     direction: DOWN
 - tapOn: 'Pomoc: gdy granie wymyka się spod kontroli'
-- assertVisible: '${HELP_FIRST_NAME}'
-- assertVisible: 'Zadzwoń pod numer ${HELP_FIRST_PHONE}.*'
+# D-158: bez numerów; zdanie ogólne, pomoc międzynarodowa online (link) i data sprawdzenia
+- assertVisible: '${HELP_ABROAD}'
+- assertVisible: '${HELP_LINK}'
 - scrollUntilVisible:
     element: '${HELP_CHECKED}'
     direction: DOWN
-- assertVisible: 'Zadzwoń pod numer ${HELP_LAST_PHONE}.*'
-- assertVisible: '${HELP_ABROAD}'
+- assertNotVisible: 'Zadzwoń pod numer.*'

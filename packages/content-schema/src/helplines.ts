@@ -72,8 +72,13 @@ export const HelplinesFile = z
     review_by: isoDate,
     /** Zdanie do ramki w lekcji: gdzie w aplikacji są numery dla kraju użytkownika. */
     pointer: z.string().min(10),
-    /** Kraje bez wpisu (D-142): tekst bez numeru i pomoc międzynarodowa online (id wpisów z country „*”). */
-    fallback: z.object({ text: z.string().min(10), online: z.array(entryId).min(1) }).strict(),
+    /**
+     * Kraje bez wpisu: tekst bez numeru i pomoc międzynarodowa online (id wpisów z country „*”). Od D-158 jedyny tekst
+     * pomocy w aplikacji; `claim` = twierdzenie rejestru dla zdania `text` (content-build wymaga statusu „potwierdzone”).
+     */
+    fallback: z
+      .object({ claim: z.string().regex(/^H-[A-Z]+-\d+$/, 'twierdzenie rejestru: H-XX-1').optional(), text: z.string().min(10), online: z.array(entryId).min(1) })
+      .strict(),
     /** Nazwy regionów do listy wyboru (D-152), w kolejności wyświetlania. */
     regions: z.record(regionCode, z.string().min(2)),
     /** Nagłówek listy regionów na ekranie „Pomoc” (D-152). */

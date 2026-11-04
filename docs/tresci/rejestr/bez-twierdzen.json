@@ -756,13 +756,6 @@
   "source": "przykład w zadaniu egzaminu: bankroll 40 wpisowych"
  },
  {
-  "klucz": "exam.m12.bi.pln",
-  "wartosc": 40,
-  "jednostka": "count",
-  "powod": "dane zadania (przykład), nie twierdzenie o świecie",
-  "source": "przykład w zadaniu egzaminu: wpisowe 40 zł"
- },
- {
   "klucz": "exam.m13.eq",
   "wartosc": 0.7,
   "jednostka": "percent",

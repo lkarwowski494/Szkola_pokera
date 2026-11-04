@@ -32,7 +32,7 @@ drills:
     options:
       - { text: "Tilt z desperacji", correct: true, why: "Potrzeba odegrania się prowadzi do bardzo długich {{t:session|sesji}}, wymuszania akcji i skoków w górę {{t:stakes|stawek}}. To sygnał, żeby skończyć grę." }
       - { text: "Tilt z nienawiści do przegrywania", why: "Blisko, ale tu dochodzi plan odrobienia strat wyższą {{t:stakes|stawką}} i dłuższą grą. To cechy desperacji." }
-      - { text: "Rozsądny plan, bo wyższa {{t:stakes}} szybciej odrobi straty", why: "Wyższa {{t:stakes}} zwiększa też wahania, a decyzje podejmujesz w złym stanie. Przejście w górę po stracie to dokładnie odwrotność ostrożnego zarządzania pieniędzmi na grę (lekcja o bankrollu)." }
+      - { text: "Rozsądny plan, bo wyższa {{t:stakes}} szybciej odrobi straty", why: "Wyższa {{t:stakes}} zwiększa też wahania, a decyzje podejmujesz w złym stanie. Przejście w górę po stracie to dokładnie odwrotność ostrożnego zarządzania bankrollem (lekcja o bankrollu i ryzyku)." }
   - kind: choice
     id: m12.l3.q-type-mistake
     family: m12.tilt-type
@@ -94,7 +94,7 @@ drills:
     prompt: "Jak sprawdzasz, czy twoja praca nad {{t:mental-game}}, czyli radzeniem sobie z tiltem, emocjami i koncentracją, daje efekt?"
     options:
       - { text: "Porównujesz najgorsze {{t:session|sesje}} z wcześniejszymi najgorszymi", correct: true, why: "Porównuj podobne z podobnym: najgorszą grę z wcześniejszą najgorszą. Postęp widać też po tym, że szybciej rozpoznajesz tilt i wcześniej kończysz {{t:session|sesję}}." }
-      - { text: "Patrzysz na wynik w złotówkach z ostatniego tygodnia", why: "Tydzień wyników to głównie {{t:variance}} (lekcja o {{t:variance|wariancji}}). Jakość gry w najgorsze dni mówi więcej." }
+      - { text: "Patrzysz na wynik z ostatniego tygodnia", why: "Tydzień wyników to głównie {{t:variance}} (lekcja o {{t:variance|wariancji}}). Jakość gry w najgorsze dni mówi więcej." }
       - { text: "Porównujesz najlepszą {{t:session|sesję}} z najgorszą", why: "Takie porównanie pokazuje tylko rozrzut, a nie postęp. Porównuj najgorszą grę z wcześniejszą najgorszą." }
 ---
 Tilt to utrata kontroli pod wpływem negatywnych emocji, zwykle po bad beatach albo długiej serii strat. Kończy się słabymi decyzjami i stratą dużo większą niż zwykle. To nie rzadkość: w badaniu ankietowym {{n:tilt.severe}} graczy przyznało się do silnego tiltu co najmniej raz w ostatnich sześciu miesiącach.

@@ -838,7 +838,7 @@ buy-in:
 bankroll:
   pl: bankroll
   en: bankroll
-  def: "Pieniądze przeznaczone wyłącznie na grę w pokera, oddzielone od pieniędzy na życie."
+  def: "Cały zapas przeznaczony wyłącznie na grę w pokera; w tej aplikacji liczony we wpisowych (buy-in), nie w pieniądzach."
   area: mental
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Bankroll: The money that a player allocated specifically to use for playing poker.”; serwis z kalkulatorami pokerowymi (https://www.primedope.com/risk-of-ruin-formula-for-poker-players/): „Separate your poker bankroll from your life bankroll.”"
 tilt:

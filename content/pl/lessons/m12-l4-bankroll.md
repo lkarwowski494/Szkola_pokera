@@ -2,14 +2,14 @@
 id: m12.l4
 module: m12
 order: 4
-title: "Bankroll"
-sub: "Ile pieniędzy na grę i kiedy zejść stawkę"
-rules: [R-M12-009, R-M12-010, R-M12-011, R-M12-012]
+title: "Bankroll i ryzyko"
+sub: "Wariancja liczona w wpisowych i kiedy zejść stawkę"
+rules: [R-M12-009, R-M12-011, R-M12-012]
 drills:
   - kind: numeric
     id: m12.l4.n-base-bb
     family: m12.bankroll-size
-    rules: [R-M12-010]
+    rules: [R-M12-009]
     prompt: "{{t:buy-in|Wpisowe}} to {{n:format.stack}}. Ile bb ma bankroll {{n:br.bi.base}} {{t:buy-in|wpisowych}}? Wpisz liczbę."
     answer: br.base.bb
     explanation: "{{n:br.bi.base}} × {{n:format.stack}} = {{n:br.base.bb}}. Bankroll liczysz w {{t:buy-in|wpisowych}} na {{t:stakes|stawkę}}, na której grasz."
@@ -25,28 +25,28 @@ drills:
   - kind: choice
     id: m12.l4.q-ror-winrate
     family: m12.risk-of-ruin
-    rules: [R-M12-009, R-M12-010]
+    rules: [R-M12-009]
     prompt: "Ten sam bankroll {{n:br.bi.base}} {{t:buy-in|wpisowych}}, {{t:standard-deviation|odchylenie}} {{n:var.sd}}, ale winrate tylko {{n:var.wr.typical.low}}. Jakie jest ryzyko utraty bankrollu?"
     options:
       - { text: "Ok. {{n:ror.base.wr-min}}", correct: true, why: "Winrate stoi w wykładniku: przy {{n:var.wr.typical.low}} zamiast {{n:var.wr.typical.high}} wykładnik jest trzy razy mniejszy, a ryzyko rośnie z ok. {{n:ror.base}} do ok. {{n:ror.base.wr-min}}." }
       - { text: "Ok. {{n:ror.base}}, bo bankroll jest ten sam", why: "Ryzyko zależy od iloczynu winrate × bankroll. Niższy winrate działa jak mniejszy bankroll: wychodzi ok. {{n:ror.base.wr-min}}." }
       - { text: "Ok. {{n:ror.base.wr-ex}}", why: "Tyle wychodzi przy winrate {{n:var.wr.ex}}. Przy {{n:var.wr.typical.low}} ryzyko jest kilkadziesiąt razy większe: ok. {{n:ror.base.wr-min}}." }
   - kind: choice
-    id: m12.l4.q-beginner
-    family: m12.bankroll-size
-    rules: [R-M12-010]
-    prompt: "Zaczynasz grać na prawdziwe pieniądze i nie znasz jeszcze swojego winrate. Ile {{t:buy-in|wpisowych}} powinieneś mieć na wybranej {{t:stakes|stawce}}?"
+    id: m12.l4.q-unknown-wr
+    family: m12.risk-of-ruin
+    rules: [R-M12-009]
+    prompt: "Masz {{n:br.bi.base}} {{t:buy-in|wpisowych}}, {{t:standard-deviation|odchylenie}} {{n:var.sd}}, ale nie znasz jeszcze swojego winrate. Co wiesz o ryzyku utraty całego bankrollu?"
     options:
-      - { text: "Co najmniej {{n:br.bi.beginner}}", correct: true, why: "Bez potwierdzonego winrate zakładasz ostrożnie, że jest niski. Nawet {{n:br.bi.beginner}} {{t:buy-in|wpisowych}} przy {{n:var.wr.typical.low}} zostawia ok. {{n:ror.beginner.wr-min}} ryzyka, a {{n:br.bi.base}} aż ok. {{n:ror.base.wr-min}}." }
-      - { text: "Ok. {{n:dd.bi.small}}", why: "{{t:downswing|Downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} zdarza się prawie każdemu wygrywającemu w ciągu {{n:var.hands.k}} tys. rąk, więc taki bankroll szybko by się skończył." }
-      - { text: "Co najmniej {{n:br.bi.base}}", why: "To minimum dla gracza z potwierdzonym winrate. Bez tej wiedzy bierzesz zapas: {{n:br.bi.beginner}} {{t:buy-in|wpisowych}}." }
+      - { text: "Zależy od winrate: przy {{n:var.wr.typical.high}} ok. {{n:ror.base}}, przy {{n:var.wr.typical.low}} ok. {{n:ror.base.wr-min}}", correct: true, why: "Winrate stoi w wykładniku obok bankrollu. Bez znanego winrate nie znasz też ryzyka, a przy niskim winrate ten sam bankroll daje kilka razy większe ryzyko." }
+      - { text: "Ok. {{n:ror.base}}, bo zależy tylko od bankrollu", why: "Tyle wychodzi tylko przy {{n:var.wr.typical.high}}. Przy {{n:var.wr.typical.low}} ten sam bankroll daje ok. {{n:ror.base.wr-min}}." }
+      - { text: "Zero, bo {{n:br.bi.base}} {{t:buy-in|wpisowych}} to dużo", why: "Przy dodatnim winrate ryzyko maleje z bankrollem, ale nigdy nie spada do zera. Przy {{n:var.wr.typical.low}} to wciąż ok. {{n:ror.base.wr-min}}." }
   - kind: choice
     id: m12.l4.q-move-down
     family: m12.move-down
     rules: [R-M12-011]
     prompt: "Zacząłeś {{t:stakes|stawkę}} z {{n:br.bi.base}} {{t:buy-in|wpisowymi}}. Po {{t:downswing|downswingu}} masz {{n:br.ex.below}}. Co robisz?"
     options:
-      - { text: "Schodzisz o jedną {{t:stakes|stawkę}} niżej", correct: true, why: "Spadłeś poniżej połowy założonego bankrollu ({{n:br.bi.move-down}}). Przy tylu {{t:buy-in|wpisowych}} ryzyko utraty reszty jest kilka razy większe niż przy {{n:br.bi.base}}. Na niższej {{t:stakes|stawce}} te same pieniądze to znów pełny bankroll." }
+      - { text: "Schodzisz o jedną {{t:stakes|stawkę}} niżej", correct: true, why: "Spadłeś poniżej połowy założonego bankrollu ({{n:br.bi.move-down}}). Przy tylu {{t:buy-in|wpisowych}} ryzyko utraty reszty jest kilka razy większe niż przy {{n:br.bi.base}}. Na {{t:stakes|stawce}} dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej {{t:buy-in|wpisowych}}." }
       - { text: "Grasz dalej, bo to tylko {{t:variance}}", why: "To prawda, że to pewnie {{t:variance}}, ale właśnie przed nią chroni zejście {{t:stakes|stawkę}}. Z {{n:br.ex.below}} {{t:buy-in|wpisowymi}} kolejny {{t:downswing}} może zabrać wszystko." }
       - { text: "Przechodzisz na wyższą {{t:stakes|stawkę}}, żeby szybciej odrobić", why: "To tilt z desperacji. Wyższa {{t:stakes}} przy mniejszym bankrollu w {{t:buy-in|wpisowych}} gwałtownie zwiększa {{t:risk-of-ruin|ryzyko bankructwa}}." }
   - kind: choice
@@ -57,14 +57,14 @@ drills:
     options:
       - { text: "Zostajesz na {{t:stakes|stawce}} i przeglądasz decyzje w przegranych rozdaniach", correct: true, why: "{{n:br.ex.after-dd}} {{t:buy-in|wpisowych}} to wciąż więcej niż najpóźniejszy próg zejścia, {{n:br.bi.move-down}}. Taki {{t:downswing}} trafia ok. {{n:dd.p.small.100k}} wygrywających w {{n:var.hands.k}} tys. rąk, a przegląd rozdań sprawdza, czy to nie błędy." }
       - { text: "Schodzisz {{t:stakes|stawkę}} od razu", correct: true, why: "To też dobra decyzja: część źródeł radzi zejść już po stracie {{n:dd.bi.small}} {{t:buy-in|wpisowych}}. Zejście wcześniej niż przy połowie bankrollu nie jest błędem, a później już tak." }
-      - { text: "Dokładasz pieniądze, żeby mieć znów {{n:br.bi.base}}", why: "Dokładanie pieniędzy po każdym {{t:downswing|downswingu}} zaciera sens bankrollu jako granicy ryzyka. Ustalasz próg z góry i trzymasz się go." }
+      - { text: "Dokładasz {{t:buy-in|wpisowe}} z zewnątrz, żeby mieć znów {{n:br.bi.base}}", why: "Dokładanie po każdym {{t:downswing|downswingu}} zaciera sens bankrollu jako granicy ryzyka. Ustalasz próg z góry i trzymasz się go." }
   - kind: choice
     id: m12.l4.q-move-up
     family: m12.bankroll-size
-    rules: [R-M12-010]
-    prompt: "Po dobrym miesiącu masz {{n:br.bi.base}} {{t:buy-in|wpisowych}} obecnej {{t:stakes|stawki}}. Wyższa {{t:stakes}} ma dwa razy większe {{t:buy-in}}. Czy przechodzisz wyżej?"
+    rules: [R-M12-011]
+    prompt: "Masz {{n:br.bi.base}} {{t:buy-in|wpisowych}} obecnej {{t:stakes|stawki}}, czyli tyle, ile założyłeś jako bankroll. Wyższa {{t:stakes}} ma dwa razy większe {{t:buy-in}}. Czy przechodzisz wyżej?"
     options:
-      - { text: "Nie, na wyższej {{t:stakes|stawce}} to tylko połowa wymaganego bankrollu", correct: true, why: "Liczysz bankroll w {{t:buy-in|wpisowych}} {{t:stakes|stawki}}, na którą chcesz przejść. Twoje {{n:br.bi.base}} {{t:buy-in|wpisowych}} to tam {{n:br.bi.move-down}}, czyli dokładnie próg zejścia." }
+      - { text: "Nie, na wyższej {{t:stakes|stawce}} to tylko połowa założonego bankrollu", correct: true, why: "Liczysz bankroll w {{t:buy-in|wpisowych}} {{t:stakes|stawki}}, na którą chcesz przejść. Twoje {{n:br.bi.base}} {{t:buy-in|wpisowych}} to tam {{n:br.bi.move-down}}, czyli dokładnie próg zejścia." }
       - { text: "Tak, bo dobrze ci idzie", why: "Dobry miesiąc to głównie {{t:variance}} (lekcja o {{t:variance|wariancji}}). Przejście w górę zależy od bankrollu na nowej {{t:stakes|stawce}}." }
       - { text: "Tak, bo masz już {{n:br.bi.base}} {{t:buy-in|wpisowych}}", why: "{{n:br.bi.base}} {{t:buy-in|wpisowych}} obecnej {{t:stakes|stawki}} to tylko {{n:br.bi.move-down}} na {{t:stakes|stawce}} dwa razy wyższej." }
   - kind: choice
@@ -110,7 +110,7 @@ drills:
     params: { area: mental, dir: both }
     count: 4
 ---
-Bankroll to pieniądze przeznaczone wyłącznie na pokera, oddzielone od pieniędzy na życie. Liczysz go w **{{t:buy-in|wpisowych}}**: jedno {{t:buy-in}} to pełny stack {{n:format.stack}} na {{t:stakes|stawce}}, na której grasz.
+Bankroll to cały zapas przeznaczony wyłącznie na grę w pokera. W tej lekcji liczysz go w **{{t:buy-in|wpisowych}}**, a nie w pieniądzach: jedno {{t:buy-in}} to pełny stack {{n:format.stack}} na {{t:stakes|stawce}}, na której grasz.
 
 ## {{t:risk-of-ruin|Ryzyko bankructwa}}
 
@@ -128,25 +128,20 @@ Wzór jest przybliżeniem przy stałym winrate i SD. Winrate i SD podajesz w bb/
 | {{n:var.wr.typical.high}} | {{n:ror.half}} | {{n:ror.base}} | — |
 | {{n:var.wr.ex}} | — | {{n:ror.base.wr-ex}} | — |
 
-Winrate i bankroll stoją we wzorze obok siebie: dwa razy niższy winrate wymaga dwa razy większego bankrollu dla tego samego ryzyka. Przy ujemnym winrate żaden bankroll nie pomoże, bo chroni przed {{t:variance|wariancją}}, a nie przed słabą grą.
+## Od czego zależy ryzyko
 
-## Ile {{t:buy-in|wpisowych}}
-
-Źródła różnią się bardzo: od {{n:br.bi.src-low}} do ponad {{n:br.bi.src-high}} {{t:buy-in|wpisowych}}. Rachunek pokazuje, skąd ta różnica: wszystko zależy od winrate, a ten na początku jest nieznany i zwykle niski. Dlatego:
-
-- **{{n:br.bi.beginner}} {{t:buy-in|wpisowych}}**, póki nie znasz swojego winrate,
-- **{{n:br.bi.base}} {{t:buy-in|wpisowych}}** jako minimum dla gracza z potwierdzonym, wyraźnie dodatnim winrate; przy niskim winrate więcej.
+Winrate i bankroll stoją we wzorze obok siebie: dwa razy niższy winrate wymaga dwa razy większego bankrollu dla tego samego ryzyka. Dlatego ta sama liczba {{t:buy-in|wpisowych}} daje jednemu graczowi kilka razy mniejsze ryzyko niż drugiemu. Winrate na początku jest nieznany, a do jego oszacowania potrzeba bardzo wielu rąk (lekcja o {{t:variance|wariancji}}). Przy ujemnym winrate żaden bankroll nie pomoże, bo chroni przed {{t:variance|wariancją}}, a nie przed słabą grą.
 
 ## Kiedy zejść {{t:stakes|stawkę}}
 
-Ustal próg z góry: schodzisz o jedną {{t:stakes|stawkę}} niżej najpóźniej wtedy, gdy bankroll spadnie poniżej **połowy** założonej liczby {{t:buy-in|wpisowych}}, np. z {{n:br.bi.base}} do {{n:br.bi.move-down}}. Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich. Na niższej {{t:stakes|stawce}} te same pieniądze znów są pełnym bankrollem. Wracasz wyżej, gdy masz pełny bankroll w {{t:buy-in|wpisowych}} wyższej {{t:stakes|stawki}}. Część źródeł radzi zejść wcześniej, już po stracie {{n:dd.bi.small}} {{t:buy-in|wpisowych}}: zejście przed progiem połowy nie jest błędem.
+Ustal próg z góry: schodzisz o jedną {{t:stakes|stawkę}} niżej najpóźniej wtedy, gdy bankroll spadnie poniżej **połowy** założonej liczby {{t:buy-in|wpisowych}}, np. z {{n:br.bi.base}} do {{n:br.bi.move-down}}. Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich. Na {{t:stakes|stawce}} dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej {{t:buy-in|wpisowych}}. Wracasz wyżej, gdy masz pełny bankroll w {{t:buy-in|wpisowych}} wyższej {{t:stakes|stawki}}. Część źródeł radzi zejść wcześniej, już po stracie {{n:dd.bi.small}} {{t:buy-in|wpisowych}}: zejście przed progiem połowy nie jest błędem.
 
 ## Nauka i gra
 
 Na początku ok. {{n:study.beginner}} czasu przeznaczasz na naukę, a resztę na grę. Gdy wygrywasz na swojej {{t:stakes|stawce}}, ideałem jest ok. {{n:study.winner}}, ale nigdy mniej niż {{n:study.min}} nauki.
 
 :::note Odpowiedzialna gra
-Czy i od jakiego wieku wolno grać w pokera na pieniądze, określa prawo twojego kraju: sprawdź je, zanim zagrasz. Sygnały, że granie przestaje być pod kontrolą: grasz dłużej, niż planowałeś; po przegranej wracasz, żeby odegrać straty; {{t:bet|stawiasz}} pieniądze, których nie możesz stracić, albo pożyczasz na grę; grasz, żeby uciec od zmartwień; ukrywasz granie przed bliskimi.
+Sygnały, że granie przestaje być pod kontrolą: grasz dłużej, niż planowałeś; po przegranej wracasz, żeby odegrać straty; {{t:bet|stawiasz}} pieniądze, których nie możesz stracić, albo pożyczasz na grę; grasz, żeby uciec od zmartwień; ukrywasz granie przed bliskimi.
 
 Gdzie szukać pomocy:
 

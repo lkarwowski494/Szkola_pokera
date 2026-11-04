@@ -3608,7 +3608,7 @@
   "id": "t:bankroll",
   "rodzaj": "termin",
   "level": "heuristic",
-  "twierdzenie": "bankroll (bankroll): Pieniądze przeznaczone wyłącznie na grę w pokera, oddzielone od pieniędzy na życie.",
+  "twierdzenie": "bankroll (bankroll): Cały zapas przeznaczony wyłącznie na grę w pokera; w tej aplikacji liczony we wpisowych (buy-in), nie w pieniądzach.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/bankroll/",
@@ -3626,7 +3626,7 @@
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": null,
+  "uproszczenie": "Źródła definiują bankroll jako pieniądze przeznaczone na grę; aplikacja (D-159, bez gry na prawdziwe pieniądze) liczy go we wpisowych. Rdzeń definicji („wyłącznie na grę w pokera”, oddzielenie od reszty) zgodny ze źródłami.",
   "krytyczne": true,
   "przeglad": null,
   "wielkosc": null,
@@ -3634,7 +3634,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": " | E3 2026-11-04 (przegląd zastępczy A7): dodane źródło dla „oddzielone od pieniędzy na życie”. | E3 2026-11-04 (przegląd zastępczy A7b): szczebel glosariusza 4; m12-l3 bez terminu przed definicją."
+  "uwagi": " | E3 2026-11-04 (przegląd zastępczy A7): dodane źródło dla „oddzielone od pieniędzy na życie”. | E3 2026-11-04 (przegląd zastępczy A7b): szczebel glosariusza 4; m12-l3 bez terminu przed definicją. | E3 2026-11-04 (D-159): definicja bez „pieniądze… na życie”."
  },
  {
   "id": "t:tilt",

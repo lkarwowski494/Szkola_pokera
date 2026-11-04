@@ -11999,7 +11999,7 @@
     "szczebel": 1
    }
   ],
-  "status": "potwierdzone",
+  "status": "wycofane",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
@@ -12008,7 +12008,8 @@
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": "E3 2026-11-04 (D-159): zadanie egzaminu w złotych usunięte (q10 zastąpione rachunkiem ryzyka).",
+  "nastepca": "R-M12-009"
  },
  {
   "id": "n:exam.m12.bi.pln.base",
@@ -12024,7 +12025,7 @@
     "szczebel": 1
    }
   ],
-  "status": "potwierdzone",
+  "status": "wycofane",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
@@ -12033,7 +12034,8 @@
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": "E3 2026-11-04 (D-159): zadanie egzaminu w złotych usunięte (q10 zastąpione rachunkiem ryzyka).",
+  "nastepca": "R-M12-009"
  },
  {
   "id": "n:exam.m13.lose",

@@ -5,11 +5,11 @@ import { readFileSync } from 'node:fs';
 const src = readFileSync(new URL('../src/data/content/helplines.generated.ts', import.meta.url), 'utf8');
 const json = src.slice(src.indexOf('= {') + 2, src.lastIndexOf('};') + 1);
 const h = JSON.parse(json);
-const phones = h.entries.filter((e) => e.phone);
+// D-158: bez numerów krajowych; ekran pokazuje zdanie ogólne i pomoc międzynarodową online (link)
+const online = h.entries.find((e) => e.id === h.fallback.online[0]);
+const link = online.links[0];
 const env = {
-  HELP_FIRST_NAME: h.entries[0].name,
-  HELP_FIRST_PHONE: phones[0].phone,
-  HELP_LAST_PHONE: phones[phones.length - 1].phone,
+  HELP_LINK: `${link.label}: ${link.url.replace(/^https:\/\//, '').replace(/^www\./, '').replace(/\/$/, '')}`,
   HELP_ABROAD: h.abroadText,
   HELP_CHECKED: h.checkedText,
 };

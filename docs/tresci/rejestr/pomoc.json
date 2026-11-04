@@ -41,7 +41,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -54,10 +54,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Numer cyfrowy 1-800-697-3738 potwierdzony w stopce (SMS Terms); 1-800-522-4700 to dawny numer tej samej linii. Źródło nie mówi „free” wprost: „No payment or insurance information is required” — w aplikacji pisać „bez opłat za usługę”, nie „bezpłatne połączenie”. 1-800-GAMBLER (S-42) to linia prowadzona od 2025 r. przez CCGNJ (New Jersey) — nie mylić z linią krajową NCPG; nie dodawać do aplikacji. | E2 2026-11-04: wpis content/helplines.yaml: us-ncpg. | E3 2026-11-04 (przegląd zastępczy A7): pole language bez „angielski” (źródło podaje tylko tłumaczenie).",
+    "uwagi": "Numer cyfrowy 1-800-697-3738 potwierdzony w stopce (SMS Terms); 1-800-522-4700 to dawny numer tej samej linii. Źródło nie mówi „free” wprost: „No payment or insurance information is required” — w aplikacji pisać „bez opłat za usługę”, nie „bezpłatne połączenie”. 1-800-GAMBLER (S-42) to linia prowadzona od 2025 r. przez CCGNJ (New Jersey) — nie mylić z linią krajową NCPG; nie dodawać do aplikacji. | E2 2026-11-04: wpis content/helplines.yaml: us-ncpg. | E3 2026-11-04 (przegląd zastępczy A7): pole language bez „angielski” (źródło podaje tylko tłumaczenie). | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "US",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-US-2",
@@ -80,7 +81,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -93,10 +94,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: us-988 (bez SMS: brak cytatu o SMS).",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: us-988 (bez SMS: brak cytatu o SMS). | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "US",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-US-3",
@@ -112,7 +114,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -125,10 +127,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "911.gov zwrócił 403; źródło: operator infolinii (NCPG). Numer 911 jest powszechnie znany, ale cytat urzędowy (911.gov) do uzupełnienia przy następnym przeglądzie. | E2 2026-11-04: wpis content/helplines.yaml: us-911.",
+    "uwagi": "911.gov zwrócił 403; źródło: operator infolinii (NCPG). Numer 911 jest powszechnie znany, ale cytat urzędowy (911.gov) do uzupełnienia przy następnym przeglądzie. | E2 2026-11-04: wpis content/helplines.yaml: us-911. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "US",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-GB-1",
@@ -165,7 +168,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -178,14 +181,15 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Regulator (Gambling Commission) podaje numer dla Anglii i Szkocji; nidirect (rząd Irlandii Płn.) też go wymienia, bez godzin. gamcare.org.uk: 403 (odczyt niemożliwy). | E2 2026-11-04: wpis content/helplines.yaml: gb-ngh (national: true). | E3 2026-11-04 (przegląd zastępczy A7): nazwa z regionami (Anglia, Szkocja, Irlandia Płn.), bo ekran pokazuje wpis ogólnokrajowy także w Walii.",
+    "uwagi": "Regulator (Gambling Commission) podaje numer dla Anglii i Szkocji; nidirect (rząd Irlandii Płn.) też go wymienia, bez godzin. gamcare.org.uk: 403 (odczyt niemożliwy). | E2 2026-11-04: wpis content/helplines.yaml: gb-ngh (national: true). | E3 2026-11-04 (przegląd zastępczy A7): nazwa z regionami (Anglia, Szkocja, Irlandia Płn.), bo ekran pokazuje wpis ogólnokrajowy także w Walii. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "GB",
     "region": [
       "GB-ENG",
       "GB-SCT",
       "GB-NIR"
     ],
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-GB-2",
@@ -215,7 +219,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -228,12 +232,13 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Zapis 0808 2819 265 (Gambling Commission, BRD S-41) i 0808 281 9265 (BCUHB) to ten sam numer. Nowa usługa (kwiecień 2026) — przegląd za 6 mies. zalecany. | E2 2026-11-04: wpis content/helplines.yaml: gb-wales.",
+    "uwagi": "Zapis 0808 2819 265 (Gambling Commission, BRD S-41) i 0808 281 9265 (BCUHB) to ten sam numer. Nowa usługa (kwiecień 2026) — przegląd za 6 mies. zalecany. | E2 2026-11-04: wpis content/helplines.yaml: gb-wales. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "GB",
     "region": [
       "GB-WLS"
     ],
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-GB-3",
@@ -256,7 +261,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -269,12 +274,13 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Godzin pracy nie podaje żadne przeczytane źródło (nie wpisywać „24/7”). UWAGA: domena dunlewey.net przekierowała 2026-11-04 na obcą domenę (superdewa.llc) — w aplikacji NIE linkować do dunlewey.net. Rekomendacja: w GB-NIR pokazać H-GB-1 jako główny numer, H-GB-3 jako drugi. | E2 2026-11-04: wpis content/helplines.yaml: gb-ni-dunlewey (bez godzin, bez linku do dunlewey.net, D-150).",
+    "uwagi": "Godzin pracy nie podaje żadne przeczytane źródło (nie wpisywać „24/7”). UWAGA: domena dunlewey.net przekierowała 2026-11-04 na obcą domenę (superdewa.llc) — w aplikacji NIE linkować do dunlewey.net. Rekomendacja: w GB-NIR pokazać H-GB-1 jako główny numer, H-GB-3 jako drugi. | E2 2026-11-04: wpis content/helplines.yaml: gb-ni-dunlewey (bez godzin, bez linku do dunlewey.net, D-150). | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "GB",
     "region": [
       "GB-NIR"
     ],
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-GB-4",
@@ -304,7 +310,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -317,10 +323,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: gb-samaritans.",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: gb-samaritans. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "GB",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-GB-5",
@@ -357,7 +364,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": null,
@@ -366,10 +373,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: gb-999. | E3 2026-11-04 (przegląd zastępczy A7b): nhsinform.scot zwraca 403 (także archive.org); Szkocja potwierdzona źródłem rządu Szkocji.",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: gb-999. | E3 2026-11-04 (przegląd zastępczy A7b): nhsinform.scot zwraca 403 (także archive.org); Szkocja potwierdzona źródłem rządu Szkocji. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "GB",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-GB-6",
@@ -392,7 +400,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -405,12 +413,13 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: gb-ni-lifeline.",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: gb-ni-lifeline. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "GB",
     "region": [
       "GB-NIR"
     ],
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-GB-7",
@@ -440,7 +449,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": null,
@@ -449,14 +458,15 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Wpis opcjonalny (uzupełnienie między infolinią a 999). Irlandia Płn.: brak źródła dla 111 — nie pokazywać. | E2 2026-11-04: wpis content/helplines.yaml: gb-111. | E3 2026-11-04 (przegląd zastępczy A7b): nhsinform.scot zwraca 403 (także archive.org); Szkocja potwierdzona źródłem rządu Szkocji.",
+    "uwagi": "Wpis opcjonalny (uzupełnienie między infolinią a 999). Irlandia Płn.: brak źródła dla 111 — nie pokazywać. | E2 2026-11-04: wpis content/helplines.yaml: gb-111. | E3 2026-11-04 (przegląd zastępczy A7b): nhsinform.scot zwraca 403 (także archive.org); Szkocja potwierdzona źródłem rządu Szkocji. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "GB",
     "region": [
       "GB-ENG",
       "GB-SCT",
       "GB-WLS"
     ],
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-CA-1",
@@ -486,7 +496,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -499,10 +509,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Koszt: AGCO (regulator, Ontario) „Toll-free”; 988.ca nie podaje kosztu na przeczytanych stronach. canada.ca: błąd połączenia (HTTP/2) — strona rządu federalnego nieprzeczytana. | E2 2026-11-04: wpis content/helplines.yaml: ca-988.",
+    "uwagi": "Koszt: AGCO (regulator, Ontario) „Toll-free”; 988.ca nie podaje kosztu na przeczytanych stronach. canada.ca: błąd połączenia (HTTP/2) — strona rządu federalnego nieprzeczytana. | E2 2026-11-04: wpis content/helplines.yaml: ca-988. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "CA",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-CA-2",
@@ -518,7 +529,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -531,10 +542,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: ca-911.",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: ca-911. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "CA",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-CA-3",
@@ -550,7 +562,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -563,12 +575,13 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Jedno źródło (regulator AGCO, szczebel 1). connexontario.ca: błąd połączenia. SMS: „standard messaging rate may apply”. | E2 2026-11-04: wpis content/helplines.yaml: ca-on (bez SMS: brak cytatu).",
+    "uwagi": "Jedno źródło (regulator AGCO, szczebel 1). connexontario.ca: błąd połączenia. SMS: „standard messaging rate may apply”. | E2 2026-11-04: wpis content/helplines.yaml: ca-on (bez SMS: brak cytatu). | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "CA",
     "region": [
       "CA-ON"
     ],
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-CA-4",
@@ -591,7 +604,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -604,12 +617,13 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: ca-bc.",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: ca-bc. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "CA",
     "region": [
       "CA-BC"
     ],
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-CA-5",
@@ -639,7 +653,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -652,12 +666,13 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "aidejeu.ca: 503. Koszt: „Ligne sans frais” (bezpłatna) dla numeru 1 800. | E2 2026-11-04: wpis content/helplines.yaml: ca-qc.",
+    "uwagi": "aidejeu.ca: 503. Koszt: „Ligne sans frais” (bezpłatna) dla numeru 1 800. | E2 2026-11-04: wpis content/helplines.yaml: ca-qc. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "CA",
     "region": [
       "CA-QC"
     ],
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-CA-6",
@@ -673,7 +688,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -686,12 +701,13 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Linia uzależnień (także hazard: tytuł strony „drug or gambling problem”), nie stricte hazardowa. Koszt nie podany w źródle. Strona MyHealth Alberta (rząd), „Current as of: January 27, 2026”. | E2 2026-11-04: wpis content/helplines.yaml: ca-ab.",
+    "uwagi": "Linia uzależnień (także hazard: tytuł strony „drug or gambling problem”), nie stricte hazardowa. Koszt nie podany w źródle. Strona MyHealth Alberta (rząd), „Current as of: January 27, 2026”. | E2 2026-11-04: wpis content/helplines.yaml: ca-ab. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "CA",
     "region": [
       "CA-AB"
     ],
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-CA-7",
@@ -707,7 +723,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -720,12 +736,13 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: ca-sk.",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: ca-sk. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "CA",
     "region": [
       "CA-SK"
     ],
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-CA-8",
@@ -748,7 +765,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -761,12 +778,13 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Koszt nie podany wprost (numer 1-800 = bezpłatny w Ameryce Płn., ale źródło tego nie mówi). | E2 2026-11-04: wpis content/helplines.yaml: ca-mb.",
+    "uwagi": "Koszt nie podany wprost (numer 1-800 = bezpłatny w Ameryce Płn., ale źródło tego nie mówi). | E2 2026-11-04: wpis content/helplines.yaml: ca-mb. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "CA",
     "region": [
       "CA-MB"
     ],
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-CA-9",
@@ -796,7 +814,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": null,
@@ -805,12 +823,13 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Dwa numery z dwóch stron rządowych; 1-866-355-5550 ma potwierdzone godziny (24/7) i nowszą stronę gnb.ca — rekomendowany jako główny; 1-800-461-1234 bez godzin (strona www2 korporacji loterii, starsza). | E2 2026-11-04: wpis content/helplines.yaml: ca-nb (numer 1-866-355-5550). | E3 2026-11-04 (przegląd zastępczy A7b): nazwa bez „zdrowia psychicznego” (gnb.ca: „our 24/7 helpline”).",
+    "uwagi": "Dwa numery z dwóch stron rządowych; 1-866-355-5550 ma potwierdzone godziny (24/7) i nowszą stronę gnb.ca — rekomendowany jako główny; 1-800-461-1234 bez godzin (strona www2 korporacji loterii, starsza). | E2 2026-11-04: wpis content/helplines.yaml: ca-nb (numer 1-866-355-5550). | E3 2026-11-04 (przegląd zastępczy A7b): nazwa bez „zdrowia psychicznego” (gnb.ca: „our 24/7 helpline”). | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "CA",
     "region": [
       "CA-NB"
     ],
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-CA-10",
@@ -826,7 +845,7 @@
         "szczebel": 1
       }
     ],
-    "status": "otwarte",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": null,
@@ -835,12 +854,13 @@
     "jednostka": null,
     "werdykt_tekstu": "CZĘŚCIOWO",
     "poprawka": null,
-    "uwagi": "Strona rządu NS wymienia numer, ale bez daty i godzin; wyszukiwarka wskazuje doniesienie prasowe (Truro News, 2024, nieprzeczytane) o przesunięciu finansowania GSN. [DO USTALENIA] czy linia działa (test połączenia przez właściciela albo e-mail do NS Health). Do tego czasu w CA-NS pokazać H-CA-11 i H-CA-1. | E2 2026-11-04: otwarte: nie trafia do content/helplines.yaml.",
+    "uwagi": "Strona rządu NS wymienia numer, ale bez daty i godzin; wyszukiwarka wskazuje doniesienie prasowe (Truro News, 2024, nieprzeczytane) o przesunięciu finansowania GSN. [DO USTALENIA] czy linia działa (test połączenia przez właściciela albo e-mail do NS Health). Do tego czasu w CA-NS pokazać H-CA-11 i H-CA-1. | E2 2026-11-04: otwarte: nie trafia do content/helplines.yaml. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "CA",
     "region": [
       "CA-NS"
     ],
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-CA-11",
@@ -856,7 +876,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -869,12 +889,13 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Linia kryzysowa, nie hazardowa. | E2 2026-11-04: wpis content/helplines.yaml: ca-ns-crisis.",
+    "uwagi": "Linia kryzysowa, nie hazardowa. | E2 2026-11-04: wpis content/helplines.yaml: ca-ns-crisis. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "CA",
     "region": [
       "CA-NS"
     ],
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-CA-12",
@@ -904,7 +925,7 @@
         "szczebel": 3
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -917,12 +938,13 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Strony rządu PEI (princeedwardisland.ca, peigamblingsupport) zwróciły 403 — źródła tylko szczebla 3 (211 PEI, CMHA PEI). Zalecany ponowny odczyt strony rządowej przed wydaniem. | E2 2026-11-04: wpis content/helplines.yaml: ca-pe.",
+    "uwagi": "Strony rządu PEI (princeedwardisland.ca, peigamblingsupport) zwróciły 403 — źródła tylko szczebla 3 (211 PEI, CMHA PEI). Zalecany ponowny odczyt strony rządowej przed wydaniem. | E2 2026-11-04: wpis content/helplines.yaml: ca-pe. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "CA",
     "region": [
       "CA-PE"
     ],
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-CA-13",
@@ -938,7 +960,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -951,12 +973,13 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Starszy numer 1-888-899-4357 występuje w katalogach (szczebel 5) — nie używać. | E2 2026-11-04: wpis content/helplines.yaml: ca-nl.",
+    "uwagi": "Starszy numer 1-888-899-4357 występuje w katalogach (szczebel 5) — nie używać. | E2 2026-11-04: wpis content/helplines.yaml: ca-nl. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "CA",
     "region": [
       "CA-NL"
     ],
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-CA-14",
@@ -964,7 +987,7 @@
     "level": "rules",
     "twierdzenie": "Problem z hazardem (Jukon, Terytoria Płn.-Zach., Nunavut) → [brak potwierdzonej linii hazardowej]; pokazać 9-8-8 i 9-1-1",
     "zrodla": [],
-    "status": "otwarte",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": null,
@@ -973,14 +996,15 @@
     "jednostka": null,
     "werdykt_tekstu": "NIEPOPARTE",
     "poprawka": null,
-    "uwagi": "Nie znaleziono strony rządu terytorium z linią hazardową; katalogi (szczebel 5) podają sprzeczne numery. [DO USTALENIA]. Do tego czasu: H-CA-1, H-CA-2. | E2 2026-11-04: otwarte: nie trafia do content/helplines.yaml.",
+    "uwagi": "Nie znaleziono strony rządu terytorium z linią hazardową; katalogi (szczebel 5) podają sprzeczne numery. [DO USTALENIA]. Do tego czasu: H-CA-1, H-CA-2. | E2 2026-11-04: otwarte: nie trafia do content/helplines.yaml. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "CA",
     "region": [
       "CA-YT",
       "CA-NT",
       "CA-NU"
     ],
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-JP-1",
@@ -1003,7 +1027,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -1016,10 +1040,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Wpis bez numeru; link do strony MHLW (wyszukiwarka placówek). Prywatne linie finansowane przez branżę gier (np. pachinko) celowo pominięte. | E2 2026-11-04: wpis content/helplines.yaml: jp-center.",
+    "uwagi": "Wpis bez numeru; link do strony MHLW (wyszukiwarka placówek). Prywatne linie finansowane przez branżę gier (np. pachinko) celowo pominięte. | E2 2026-11-04: wpis content/helplines.yaml: jp-center. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "JP",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-JP-2",
@@ -1056,7 +1081,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -1069,10 +1094,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "いのちの電話 0120-783-556 działa tylko 16–21 (i 10. dnia miesiąca całą dobę) — nie jako pierwszy numer. Fukushima: よりそい 0120-279-226. | E2 2026-11-04: wpis content/helplines.yaml: jp-inochi-sos, jp-yorisoi. | E3 2026-11-04 (przegląd zastępczy A7): dodany numer dla Fukushimy (phone_alt).",
+    "uwagi": "いのちの電話 0120-783-556 działa tylko 16–21 (i 10. dnia miesiąca całą dobę) — nie jako pierwszy numer. Fukushima: よりそい 0120-279-226. | E2 2026-11-04: wpis content/helplines.yaml: jp-inochi-sos, jp-yorisoi. | E3 2026-11-04 (przegląd zastępczy A7): dodany numer dla Fukushimy (phone_alt). | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "JP",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-JP-3",
@@ -1088,7 +1114,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -1101,10 +1127,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: jp-119.",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: jp-119. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "JP",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-BR-1",
@@ -1127,7 +1154,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -1140,10 +1167,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Agência Gov (EBC, „via MS”) — komunikat Ministerstwa Zdrowia. Numer 136 (Disque Saúde) podają media (szczebel 5), nie przeczytane źródło rządowe — nie dodawać. Wymaga konta gov.br. | E2 2026-11-04: wpis content/helplines.yaml: br-sus.",
+    "uwagi": "Agência Gov (EBC, „via MS”) — komunikat Ministerstwa Zdrowia. Numer 136 (Disque Saúde) podają media (szczebel 5), nie przeczytane źródło rządowe — nie dodawać. Wymaga konta gov.br. | E2 2026-11-04: wpis content/helplines.yaml: br-sus. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "BR",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-BR-2",
@@ -1159,7 +1187,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -1172,10 +1200,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: br-cvv.",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: br-cvv. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "BR",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-BR-3",
@@ -1198,7 +1227,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -1211,10 +1240,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: br-samu.",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: br-samu. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "BR",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-FR-1",
@@ -1244,7 +1274,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -1257,11 +1287,12 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": "godziny: „codziennie 8.00–23.00”; koszt: „bez dopłat”",
-    "uwagi": "Sprzeczność godzin na szczeblu 1: operator dziś (strona serwisowa) 8–23, annuaire service-public 8–2. Rozstrzygnięcie (zasada części wspólnej): „codziennie 8.00–23.00” (obie wersje to obejmują). Koszt: operator „gratuit”, annuaire „non surtaxé” — wspólnie: „bez dopłat”. Przegląd po przywróceniu joueurs-info-service.fr. | E2 2026-11-04: wdrożone w content/helplines.yaml (fr-jis) według D-150: „codziennie 8.00–23.00”, „bez dopłat, anonimowo”; było SPRZECZNE (sprzeczne).",
+    "uwagi": "Sprzeczność godzin na szczeblu 1: operator dziś (strona serwisowa) 8–23, annuaire service-public 8–2. Rozstrzygnięcie (zasada części wspólnej): „codziennie 8.00–23.00” (obie wersje to obejmują). Koszt: operator „gratuit”, annuaire „non surtaxé” — wspólnie: „bez dopłat”. Przegląd po przywróceniu joueurs-info-service.fr. | E2 2026-11-04: wdrożone w content/helplines.yaml (fr-jis) według D-150: „codziennie 8.00–23.00”, „bez dopłat, anonimowo”; było SPRZECZNE (sprzeczne). | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "FR",
     "region": null,
     "wazne_do": "2027-11-04",
-    "decyzja": "D-150"
+    "decyzja": "D-150",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-FR-2",
@@ -1277,7 +1308,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -1290,10 +1321,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: fr-3114.",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: fr-3114. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "FR",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-FR-3",
@@ -1316,7 +1348,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -1329,10 +1361,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: fr-15 (112 jako drugi numer).",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: fr-15 (112 jako drugi numer). | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "FR",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-TW-1",
@@ -1348,7 +1381,7 @@
         "szczebel": 1
       }
     ],
-    "status": "otwarte",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": null,
@@ -1357,10 +1390,11 @@
     "jednostka": null,
     "werdykt_tekstu": "NIEPOPARTE",
     "poprawka": null,
-    "uwagi": "Nie znaleziono w źródłach rządowych (MOHW) linii stricte hazardowej. [DO USTALENIA]. Wpis zastępczy: 1925 (H-TW-2) i lista ośrodków (gov.tw). | E2 2026-11-04: część o ośrodkach wydzielona do H-TW-4 (potwierdzone); to twierdzenie (linia hazardowa) zostaje otwarte i nie trafia do helplines.yaml.",
+    "uwagi": "Nie znaleziono w źródłach rządowych (MOHW) linii stricte hazardowej. [DO USTALENIA]. Wpis zastępczy: 1925 (H-TW-2) i lista ośrodków (gov.tw). | E2 2026-11-04: część o ośrodkach wydzielona do H-TW-4 (potwierdzone); to twierdzenie (linia hazardowa) zostaje otwarte i nie trafia do helplines.yaml. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "TW",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-TW-2",
@@ -1390,7 +1424,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -1403,10 +1437,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: tw-1925.",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: tw-1925. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "TW",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-TW-3",
@@ -1429,7 +1464,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -1442,10 +1477,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: tw-119 (bez 112: brak cytatu).",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: tw-119 (bez 112: brak cytatu). | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "TW",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-TW-4",
@@ -1461,7 +1497,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -1474,11 +1510,12 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wydzielone z H-TW-1 (ta sama strona i cytat z E1), żeby wpis zastępczy D-151 („lista ośrodków”) miał własne twierdzenie potwierdzone; H-TW-1 (krajowa linia hazardowa) zostaje otwarte. Wpis tw-centers w content/helplines.yaml (kind: support), link do strony gov.tw ze źródła.",
+    "uwagi": "E2 2026-11-04: wydzielone z H-TW-1 (ta sama strona i cytat z E1), żeby wpis zastępczy D-151 („lista ośrodków”) miał własne twierdzenie potwierdzone; H-TW-1 (krajowa linia hazardowa) zostaje otwarte. Wpis tw-centers w content/helplines.yaml (kind: support), link do strony gov.tw ze źródła. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "TW",
     "region": null,
     "wazne_do": "2027-11-04",
-    "decyzja": "D-151"
+    "decyzja": "D-151",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-VN-1",
@@ -1486,7 +1523,7 @@
     "level": "rules",
     "twierdzenie": "Problem z hazardem (Wietnam) → [brak potwierdzonej linii]",
     "zrodla": [],
-    "status": "otwarte",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": null,
@@ -1495,10 +1532,11 @@
     "jednostka": null,
     "werdykt_tekstu": "NIEPOPARTE",
     "poprawka": null,
-    "uwagi": "Nie znaleziono źródła szczebla 1–3. [DO USTALENIA]. Wpis zastępczy: numer alarmowy (H-VN-3) i pomoc online (H-INT-1). | E2 2026-11-04: otwarte: nie trafia do content/helplines.yaml.",
+    "uwagi": "Nie znaleziono źródła szczebla 1–3. [DO USTALENIA]. Wpis zastępczy: numer alarmowy (H-VN-3) i pomoc online (H-INT-1). | E2 2026-11-04: otwarte: nie trafia do content/helplines.yaml. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "VN",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-VN-2",
@@ -1506,7 +1544,7 @@
     "level": "rules",
     "twierdzenie": "Kryzys psychiczny (Wietnam) → [brak potwierdzonej krajowej linii kryzysowej dla dorosłych]",
     "zrodla": [],
-    "status": "otwarte",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": null,
@@ -1515,10 +1553,11 @@
     "jednostka": null,
     "werdykt_tekstu": "NIEPOPARTE",
     "poprawka": null,
-    "uwagi": "Linie znalezione w wyszukiwarce to projekty NGO (Ngày Mai, Hy Vọng Sống) z ograniczonymi godzinami i bez źródła 1–3; 111 to linia ochrony dzieci. [DO USTALENIA]. | E2 2026-11-04: otwarte: nie trafia do content/helplines.yaml.",
+    "uwagi": "Linie znalezione w wyszukiwarce to projekty NGO (Ngày Mai, Hy Vọng Sống) z ograniczonymi godzinami i bez źródła 1–3; 111 to linia ochrony dzieci. [DO USTALENIA]. | E2 2026-11-04: otwarte: nie trafia do content/helplines.yaml. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "VN",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-VN-3",
@@ -1548,7 +1587,7 @@
         "szczebel": 3
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -1561,11 +1600,12 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": "„113 albo 115” zamiast samego 115 | E3: 115 pogotowie pierwszy, 113 policja",
-    "uwagi": "System numerów alarmowych w trakcie zmiany (integracja 113/114/115 w 113, planowana od 2027). Żadne przeczytane źródło nie mówi wprost „115 = pogotowie”. Rekomendacja: pokazać „113 albo 115”; przegląd co 3 mies. (wazne_do skrócić przy wdrożeniu do 2027-02-04). | E2 2026-11-04: wdrożone w content/helplines.yaml (vn-113: 113, drugi numer 115, review_by 2027-02-04) według D-151 i poprawki „113 albo 115”; oba numery to numery alarmowe według cytatu 1 (Chinhphu.vn), 113 przyjmuje wezwania medyczne według cytatu 2; było CZĘŚCIOWO (otwarte). Przegląd co 3 mies. bez zmian. | E3 2026-11-04 (A7, S1): 115 pogotowie jako pierwszy wpis (ekran nie pokazywał phone_alt), 113 jako policja; usunięte „od 1.11.2026 113 przyjmuje wezwania medyczne” (źródło: czas przyszły, obsada do 1.07.2027). Źródło 115 = pogotowie: szczebel 3 (jedno źródło).",
+    "uwagi": "System numerów alarmowych w trakcie zmiany (integracja 113/114/115 w 113, planowana od 2027). Żadne przeczytane źródło nie mówi wprost „115 = pogotowie”. Rekomendacja: pokazać „113 albo 115”; przegląd co 3 mies. (wazne_do skrócić przy wdrożeniu do 2027-02-04). | E2 2026-11-04: wdrożone w content/helplines.yaml (vn-113: 113, drugi numer 115, review_by 2027-02-04) według D-151 i poprawki „113 albo 115”; oba numery to numery alarmowe według cytatu 1 (Chinhphu.vn), 113 przyjmuje wezwania medyczne według cytatu 2; było CZĘŚCIOWO (otwarte). Przegląd co 3 mies. bez zmian. | E3 2026-11-04 (A7, S1): 115 pogotowie jako pierwszy wpis (ekran nie pokazywał phone_alt), 113 jako policja; usunięte „od 1.11.2026 113 przyjmuje wezwania medyczne” (źródło: czas przyszły, obsada do 1.07.2027). Źródło 115 = pogotowie: szczebel 3 (jedno źródło). | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "VN",
     "region": null,
     "wazne_do": "2027-02-04",
-    "decyzja": "D-151"
+    "decyzja": "D-151",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-DE-1",
@@ -1588,7 +1628,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -1601,10 +1641,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Operator: Bundesinstitut für Öffentliche Gesundheit (BIÖG, dawniej BZgA). | E2 2026-11-04: wpis content/helplines.yaml: de-bioeg.",
+    "uwagi": "Operator: Bundesinstitut für Öffentliche Gesundheit (BIÖG, dawniej BZgA). | E2 2026-11-04: wpis content/helplines.yaml: de-bioeg. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "DE",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-DE-2",
@@ -1634,7 +1675,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -1647,10 +1688,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: de-ts.",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: de-ts. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "DE",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-DE-3",
@@ -1666,7 +1708,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -1679,10 +1721,11 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: de-112.",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: de-112. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "DE",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-DE-4",
@@ -1705,7 +1748,7 @@
         "szczebel": 1
       }
     ],
-    "status": "potwierdzone",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
@@ -1718,16 +1761,17 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Wpis opcjonalny (język pl aplikacji); lista BIÖG zawiera też rosyjski, turecki, arabski. Numer komórkowy jednej poradni — wyższe ryzyko zmiany; przegląd co 6 mies. | E2 2026-11-04: wpis content/helplines.yaml: de-pl. | E3 2026-11-04 (przegląd zastępczy A7): „godzin źródło nie podaje” było niezgodne ze stroną; dopisane „terminy po uzgodnieniu”.",
+    "uwagi": "Wpis opcjonalny (język pl aplikacji); lista BIÖG zawiera też rosyjski, turecki, arabski. Numer komórkowy jednej poradni — wyższe ryzyko zmiany; przegląd co 6 mies. | E2 2026-11-04: wpis content/helplines.yaml: de-pl. | E3 2026-11-04 (przegląd zastępczy A7): „godzin źródło nie podaje” było niezgodne ze stroną; dopisane „terminy po uzgodnieniu”. | 2026-11-04: wycofane decyzją właściciela D-158 (bez numerów krajowych; zastępuje zdanie ogólne H-INT-2 i link H-INT-1).",
     "kraj": "DE",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "nastepca": "H-INT-2"
   },
   {
     "id": "H-INT-1",
     "rodzaj": "regula",
     "level": "rules",
-    "twierdzenie": "Problem z hazardem (kraje bez wpisu) → Gambling Therapy (Gordon Moody, Wielka Brytania): bezpłatne porady praktyczne i wsparcie emocjonalne online dla każdego, kogo dotyka problem z hazardem; poufnie",
+    "twierdzenie": "Problem z hazardem → Gambling Therapy (Gordon Moody, Wielka Brytania): bezpłatne porady praktyczne i wsparcie emocjonalne online dla każdego, kogo dotyka problem z hazardem; poufnie",
     "zrodla": [
       {
         "adres": "https://www.gamblingtherapy.org/",
@@ -1761,6 +1805,55 @@
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
     "uwagi": "Strefa czasowa godzin nie podana (prawdopodobnie czas brytyjski — nie wpisywać godzin bez strefy). Koszt: źródło nie mówi „free” — nie pisać „bezpłatnie”. gamblingtherapy.org zwrócił 2026-11-04 błąd 500 (baza danych) — sprawdzić przed wydaniem; link do strony Gordon Moody jako zapasowy. Tekst dla krajów bez wpisu: „W zagrożeniu życia dzwoń na lokalny numer alarmowy” + H-INT-1 (bez numeru). | E2 2026-11-04: wpis content/helplines.yaml: int-gambling-therapy (bez godzin i bez „bezpłatnie”). | E3 2026-11-04 (przegląd zastępczy A7): gordonmoody.org.uk nie odpowiada (zerwane połączenie, także archive.org); źródło zamienione na gamblingtherapy.org (200); usunięte „ponad 200 języków”, godziny i „anonimowo” (brak na przeczytanej stronie). | E3 2026-11-04 (przegląd zastępczy A7b): cytat dla atrybucji Gordon Moody (przegląd D-043).",
+    "kraj": "*",
+    "region": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-INT-2",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Przy objawach problemu z hazardem (np. wielu nieudanych próbach ograniczenia albo rzucenia gry) skontaktuj się z lekarzem albo specjalistą zdrowia psychicznego; w nagłym zagrożeniu dzwoń na lokalny numer alarmowy",
+    "zrodla": [
+      {
+        "adres": "https://medlineplus.gov/ency/article/001520.htm",
+        "miejsce": "Gambling disorder (MedlinePlus, U.S. National Library of Medicine), sekcja „When to Contact a Medical Professional”; Review Date 5/15/2026",
+        "cytat": "Contact your health care provider or mental health professional if you believe you have symptoms of compulsive gambling.",
+        "odczyt": "2026-11-04",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://medlineplus.gov/ency/article/001520.htm",
+        "miejsce": "Gambling disorder (MedlinePlus), sekcja „Symptoms”",
+        "cytat": "Making many unsuccessful attempts to cut back or quit gambling.",
+        "odczyt": "2026-11-04",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://medlineplus.gov/ency/article/001927.htm",
+        "miejsce": "Recognizing medical emergencies (MedlinePlus), sekcja „What to do if someone needs help”; Review Date 1/8/2025",
+        "cytat": "Stay calm and call 911 or your local emergency number.",
+        "odczyt": "2026-11-04",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://www.nhs.uk/live-well/addiction-support/gambling-addiction/",
+        "miejsce": "Help for problems with gambling (NHS), sekcja „NHS gambling treatment clinics”",
+        "cytat": "Or you can ask a GP for information on services in your area.",
+        "odczyt": "2026-11-04",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "„911” (USA) uogólnione do „lokalny numer alarmowy”, jak w samym źródle („or your local emergency number”); „health care provider” → „lekarz”.",
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": null,
+    "poprawka": null,
+    "uwagi": "E3 2026-11-04 (D-158): zdanie ogólne zamiast numerów krajowych; tekst w content/helplines.yaml (fallback.text, claim H-INT-2), ramka M12-L4 i ekran „Pomoc”. Dwa niezależne serwisy instytucji (NLM, NHS), szczebel 3. Słowa właściciela „lokalna poradnia” zawężone do „specjalista zdrowia psychicznego” (brzmienie źródła; D-160).",
     "kraj": "*",
     "region": null,
     "wazne_do": "2027-11-04"

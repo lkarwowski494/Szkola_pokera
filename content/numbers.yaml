@@ -451,8 +451,6 @@ dd.wr-low: { value: 2, unit: bb100, source: "przykład w lekcji: winrate typoweg
 br.bi.base: { value: 30, unit: count, source: "serwis szkoleniowy, Bankroll Management („about 30 buy-ins for a clear winner”); trener z blogiem szkoleniowym („Experienced poker players can get by with a bankroll of 30 buyins”); serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („25 to 30 at NL25 to NL50”, przy 5% ryzyka bankructwa)" }
 br.bi.beginner: { value: 50, unit: count, source: "trener z blogiem szkoleniowym, The Complete Guide to Bankroll Management („The best poker bankroll management strategy for beginners is to have 50 buyins”)" }
 br.bi.move-down: { formula: product, refs: [br.bi.base, ex.frac.half], unit: count, source: "obliczenie: połowa bankrollu bazowego; zgodne z serwisem szkoleniowym („half the roll, which is the point to move down a stake”)" }
-br.bi.src-low: { value: 20, unit: count, source: "serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („Cash games at a 5% risk of ruin need 20 buy-ins at NL10 (where edges are larger)”)" }
-br.bi.src-high: { value: 100, unit: count, source: "serwis szkoleniowy, Poker Bankroll Management Strategy (pokerlistings.com/poker-strategies/bankroll-management): „No-Limit Online Cash Games: 100+ buy-ins”" }
 ror.two: { value: 2, unit: count, source: "wzór ryzyka bankructwa: stała 2 w wykładniku e^(−2·wr·BR/SD²)" }
 var.sd.sq: { formula: product, refs: [var.sd, var.sd], unit: count, source: "obliczenie: SD² (wariancja na 100 rąk)" }
 ror.exp.num: { formula: product, refs: [ror.two, var.wr.typical.high, br.base.bb], unit: count, source: "obliczenie: licznik wykładnika 2 × winrate × bankroll w bb" }
@@ -805,9 +803,6 @@ exam.m12.ror.neg: { formula: product, refs: [math.minus-one, exam.m12.ror.x], un
 exam.m12.ror: { formula: exp, refs: [exam.m12.ror.neg], unit: percent, decimals: 1, source: "obliczenie: e^(−2·wr·BR/SD²), 40 wpisowych, winrate 2bb/100, SD 80bb/100" }
 exam.m12.md.half: { formula: product, refs: [br.bi.beginner, ex.frac.half], unit: count, source: "obliczenie: połowa założonego bankrollu 50 wpisowych" }
 exam.m12.md.now: { formula: diff, refs: [exam.m12.md.half, math.one], unit: count, source: "obliczenie: bankroll tuż poniżej progu zejścia" }
-exam.m12.bi.pln: { value: 40, unit: count, source: "przykład w zadaniu egzaminu: wpisowe 40 zł" }
-exam.m12.bi.pln.beginner: { formula: product, refs: [br.bi.beginner, exam.m12.bi.pln], unit: count, source: "obliczenie: bankroll początkującego w złotych" }
-exam.m12.bi.pln.base: { formula: product, refs: [br.bi.base, exam.m12.bi.pln], unit: count, source: "obliczenie: bankroll bazowy w złotych" }
 exam.m13.eq: { value: 0.7, unit: percent, source: "przykład w zadaniu egzaminu: all-in z equity 70%" }
 exam.m13.n: { value: 20, unit: count, source: "przykład w zadaniu egzaminu: dwadzieścia takich rozdań" }
 exam.m13.lose: { formula: diff, refs: [prob.certain, exam.m13.eq], unit: percent, source: "obliczenie: 1 − e" }

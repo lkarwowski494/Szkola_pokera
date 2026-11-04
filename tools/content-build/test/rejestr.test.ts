@@ -89,7 +89,9 @@ describe('strażnik powiązań z rejestrem (D-141)', () => {
   }, 60_000);
 
   it('twierdzenie numeru pomocy („claim”) niepotwierdzone przerywa budowanie', () => {
-    expect(() => compileWith({ 'H-FR-1': 'sprzeczne' })).toThrow(/helplines\.yaml[^\n]*fr-jis[^\n]*H-FR-1[^\n]*sprzeczne/);
+    expect(() => compileWith({ 'H-INT-1': 'sprzeczne' })).toThrow(/helplines\.yaml[^\n]*int-gambling-therapy[^\n]*H-INT-1[^\n]*sprzeczne/);
+    // D-158: zdanie ogólne bez numeru (fallback.claim) też przechodzi przez strażnika
+    expect(() => compileWith({ 'H-INT-2': 'wycofane' })).toThrow(/helplines\.yaml[^\n]*fallback[^\n]*H-INT-2[^\n]*wycofane/);
   }, 60_000);
 
   it('nie blokuje: parametru produktowego (bez-twierdzen) ani liczby używanej tylko poza tekstem (siatki, boty, ocena)', () => {

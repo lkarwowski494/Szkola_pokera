@@ -61,7 +61,7 @@ drills:
       - { text: "Muszę jeszcze policzyć przypadek realistyczny", why: "Nie musisz: realistyczne założenie leży między skrajnymi, a skoro oba dają ten sam wniosek, wynik się nie zmieni." }
       - { text: "Zmieniam założenie na optymistyczne, bo pesymistyczne jest przesadzone", why: "Zaczynasz od skrajności, żeby wyznaczyć przedział. Gdy pesymistyczne daje dobry wynik, optymistyczne tym bardziej." }
 ---
-Aplikacja przegląda za ciebie rozdania z gry z botami. Rozdania z prawdziwej gry, np. w kasynie, przeglądasz sam. Ta lekcja zbiera sprawdzone wskazówki trenerów.
+Aplikacja przegląda za ciebie rozdania z gry z botami. Rozdania rozegrane poza aplikacją przeglądasz sam. Ta lekcja zbiera sprawdzone wskazówki trenerów.
 
 ## Oznaczaj w trakcie, analizuj po {{t:session|sesji}}
 

@@ -31,17 +31,17 @@ function ustawPrzeglad(d, partia, id, sha) {
   writeFileSync(p, JSON.stringify(r, null, 1) + '\n');
 }
 
-test('zmiana wpisu pomocy unieważnia przegląd zastępczy H-US-1', () => {
+test('zmiana wpisu pomocy unieważnia przegląd zastępczy H-INT-1', () => {
   const d = kopia();
   try {
-    const sha = skrotZ(uruchom(d, '--przed-przegladem', '--skroty').stdout, 'H-US-1');
+    const sha = skrotZ(uruchom(d, '--przed-przegladem', '--skroty').stdout, 'H-INT-1');
     assert.match(sha ?? '', /^[0-9a-f]{12}$/);
-    ustawPrzeglad(d, 'pomoc.json', 'H-US-1', sha);
-    assert.doesNotMatch(uruchom(d, '--przeglad', 'zastępczy').stdout, /H-US-1: (krytyczne bez|przegląd dotyczy)/);
+    ustawPrzeglad(d, 'pomoc.json', 'H-INT-1', sha);
+    assert.doesNotMatch(uruchom(d, '--przeglad', 'zastępczy').stdout, /H-INT-1: (krytyczne bez|przegląd dotyczy)/);
     const h = join(d, 'content/helplines.yaml');
-    writeFileSync(h, readFileSync(h, 'utf8').replace("phone: '1-800-697-3738'", "phone: '1-800-697-3739'"));
+    writeFileSync(h, readFileSync(h, 'utf8').replace('wsparcie emocjonalne online', 'wsparcie online'));
     const po = uruchom(d, '--przeglad', 'zastępczy');
-    assert.match(po.stdout, /BŁĄD rejestr H-US-1: przegląd dotyczy innej wersji zdań/);
+    assert.match(po.stdout, /BŁĄD rejestr H-INT-1: przegląd dotyczy innej wersji zdań/);
     assert.equal(po.status, 1);
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
@@ -49,33 +49,35 @@ test('zmiana wpisu pomocy unieważnia przegląd zastępczy H-US-1', () => {
 test('zmiana lekcji z regułą krytyczną unieważnia przegląd; z --przed-przegladem to uwaga', () => {
   const d = kopia();
   try {
-    const sha = skrotZ(uruchom(d, '--przed-przegladem', '--skroty').stdout, 'R-M12-010');
-    ustawPrzeglad(d, 'm12-m13.json', 'R-M12-010', sha);
+    const sha = skrotZ(uruchom(d, '--przed-przegladem', '--skroty').stdout, 'R-M12-011');
+    ustawPrzeglad(d, 'm12-m13.json', 'R-M12-011', sha);
     const l = join(d, 'content/pl/lessons/m12-l4-bankroll.md');
     writeFileSync(l, readFileSync(l, 'utf8') + '\nNowe zdanie.\n');
-    assert.match(uruchom(d, '--przeglad', 'zastępczy').stdout, /BŁĄD rejestr R-M12-010: przegląd dotyczy innej wersji zdań/);
-    assert.match(uruchom(d, '--przed-przegladem').stdout, /UWAGA rejestr R-M12-010: przegląd dotyczy innej wersji zdań/);
+    assert.match(uruchom(d, '--przeglad', 'zastępczy').stdout, /BŁĄD rejestr R-M12-011: przegląd dotyczy innej wersji zdań/);
+    assert.match(uruchom(d, '--przed-przegladem').stdout, /UWAGA rejestr R-M12-011: przegląd dotyczy innej wersji zdań/);
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
 
 test('przegląd zastępczy bez polityki --przeglad zastępczy jest błędem', () => {
   const d = kopia();
   try {
-    const sha = skrotZ(uruchom(d, '--przed-przegladem', '--skroty').stdout, 'H-US-1');
-    ustawPrzeglad(d, 'pomoc.json', 'H-US-1', sha);
-    assert.match(uruchom(d).stdout, /BŁĄD rejestr H-US-1: krytyczne bez przeglądu człowieka \(zastępczy bez polityki D-027\)/);
+    const sha = skrotZ(uruchom(d, '--przed-przegladem', '--skroty').stdout, 'H-INT-1');
+    ustawPrzeglad(d, 'pomoc.json', 'H-INT-1', sha);
+    assert.match(uruchom(d).stdout, /BŁĄD rejestr H-INT-1: krytyczne bez przeglądu człowieka \(zastępczy bez polityki D-027\)/);
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
 
-test('zamiana kolejności wpisów pomocy jednego twierdzenia zmienia skrót (który numer ekran pokazuje pierwszy)', () => {
+test('D-158: zmiana zdania ogólnego (fallback.text) unieważnia przegląd H-INT-2; twierdzenie fallback.claim liczy się do pokrycia', () => {
   const d = kopia();
   try {
-    const przed = skrotZ(uruchom(d, '--przed-przegladem', '--skroty').stdout, 'H-VN-3');
-    const h = join(d, 'content/helplines.yaml'), t = readFileSync(h, 'utf8');
-    const a = t.indexOf('  - id: vn-115\n'), b = t.indexOf('  - id: vn-113\n'), c = t.indexOf('  # --- DE ---');
-    assert.ok(a > 0 && b > a && c > b);
-    writeFileSync(h, t.slice(0, a) + t.slice(b, c) + t.slice(a, b) + t.slice(c));
-    const po = skrotZ(uruchom(d, '--przed-przegladem', '--skroty').stdout, 'H-VN-3');
-    assert.notEqual(po, przed);
+    const sha = skrotZ(uruchom(d, '--przed-przegladem', '--skroty').stdout, 'H-INT-2');
+    assert.match(sha ?? '', /^[0-9a-f]{12}$/);
+    ustawPrzeglad(d, 'pomoc.json', 'H-INT-2', sha);
+    assert.doesNotMatch(uruchom(d, '--przeglad', 'zastępczy').stdout, /H-INT-2: (krytyczne bez|przegląd dotyczy)/);
+    const h = join(d, 'content/helplines.yaml');
+    writeFileSync(h, readFileSync(h, 'utf8').replace('specjalistą zdrowia psychicznego', 'psychologiem'));
+    assert.match(uruchom(d, '--przeglad', 'zastępczy').stdout, /BŁĄD rejestr H-INT-2: przegląd dotyczy innej wersji zdań/);
+    writeFileSync(h, readFileSync(h, 'utf8').replace('claim: H-INT-2', 'claim: H-INT-9'));
+    assert.match(uruchom(d, '--przed-przegladem').stdout, /BŁĄD pokrycie: brak wpisu H-INT-9/);
   } finally { rmSync(d, { recursive: true, force: true }); }
 });

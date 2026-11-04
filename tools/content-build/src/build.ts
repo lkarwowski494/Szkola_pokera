@@ -133,6 +133,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   const helplines = loadHelplines(parseOrThrow(HelplinesFile, readYaml(join(contentDir, 'helplines.yaml')), 'helplines.yaml'));
   const helplinesUsed = { count: 0 };
   for (const e of helplines.entries) registryUses.push({ plik: 'helplines.yaml', gdzie: e.id, id: e.claim });
+  if (helplines.fallback.claim) registryUses.push({ plik: 'helplines.yaml', gdzie: 'fallback', id: helplines.fallback.claim });
   /**
    * Jedna jednostka tekstu: liczby {{n:…}}, potem terminy {{t:…}}. `seen` łączy pola tej samej jednostki (reguła).
    * `checkTerms: false` tylko dla tytułów (nazwy w nawigacji, decyzja T-03).

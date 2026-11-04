@@ -344,7 +344,7 @@
     "szczebel": 1
    }
   ],
-  "status": "potwierdzone",
+  "status": "wycofane",
   "uproszczenie": null,
   "krytyczne": true,
   "przeglad": null,
@@ -353,13 +353,14 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Rozpiętość źródeł 20–100+ potwierdzona (20: Primedope FAQ jako zamiennik nieczytelnego SplitSuit 403; 100+: PokerListings, a nie Upswing). 50 dla początkujących — dwa niezależne źródła szczebla 4 + rachunek. Liczby bankrollu to szczebel 4 jako kontekst; podstawą progu jest rachunek RoR (szczebel 1), zgodnie z wymogiem dla reguł krytycznych. | E3 2026-11-04 (przegląd zastępczy A7): warunek źródła „więcej przy małej przewadze” w regule i lekcji."
+  "uwagi": "Rozpiętość źródeł 20–100+ potwierdzona (20: Primedope FAQ jako zamiennik nieczytelnego SplitSuit 403; 100+: PokerListings, a nie Upswing). 50 dla początkujących — dwa niezależne źródła szczebla 4 + rachunek. Liczby bankrollu to szczebel 4 jako kontekst; podstawą progu jest rachunek RoR (szczebel 1), zgodnie z wymogiem dla reguł krytycznych. | E3 2026-11-04 (przegląd zastępczy A7): warunek źródła „więcej przy małej przewadze” w regule i lekcji. | E3 2026-11-04 (D-159): reguła usunięta z rules.yaml; lekcja nie radzi, ile przeznaczyć na grę; zostaje rachunek ryzyka (R-M12-009).",
+  "nastepca": "R-M12-009"
  },
  {
   "id": "R-M12-011",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "bankroll spadnie poniżej połowy założonej liczby wpisowych (przy {{n:br.bi.base}} poniżej {{n:br.bi.move-down}}) → schodzisz o jedną stawkę niżej najpóźniej wtedy i wracasz, gdy bankroll się odbuduje, bo downswingi o {{n:dd.bi.small}} wpisowych w ciągu {{n:var.hands.k}} tys. rąk zdarzają się prawie każdemu wygrywającemu, część źródeł radzi zejść już po takiej stracie, a przy {{n:br.bi.move-down}} wpisowych ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}}; lekcja: „Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich.”",
+  "twierdzenie": "bankroll spadnie poniżej połowy założonej liczby wpisowych (przy {{n:br.bi.base}} poniżej {{n:br.bi.move-down}}) → schodzisz o jedną stawkę niżej najpóźniej wtedy i wracasz, gdy masz pełny bankroll w wpisowych wyższej stawki, bo downswingi o {{n:dd.bi.small}} wpisowych w ciągu {{n:var.hands.k}} tys. rąk zdarzają się prawie każdemu wygrywającemu, część źródeł radzi zejść już po takiej stracie, a przy {{n:br.bi.move-down}} wpisowych ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}}; lekcja: „Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich.”",
   "zrodla": [
    {
     "adres": "https://www.pokerskill.com/poker-glossary/bankroll-management/",
@@ -399,7 +400,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": "then: „schodzisz o jedną stawkę niżej najpóźniej wtedy i wracasz, gdy bankroll się odbuduje”; w lekcji m12-l4:142 dopisać: „Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich.”",
-  "uwagi": "Sprzeczność na szczeblu 4: próg zejścia = połowa bankrollu (PokerSkill; SplitSuit nieczytelny), 30 wpisowych przy 3bb/100 (PokerListings, czyli pełny bankroll), spadek o 10 wpisowych (Primedope, odrzucony w D-M12-08 rachunkiem: odpala u ~95% wygrywających). Rachunek (szczebel 1) pokazuje tylko kierunek: przy połowie bankrollu RoR 24,5% — wysoko. Proponowana decyzja: część wspólna = „najpóźniej przy połowie”. Uwaga: cytat SplitSuit z pola source nieprzeczytany (HTTP 403). | E2 2026-11-04: poprawione (content/pl/rules.yaml:1036, :1039; content/pl/lessons/m12-l4-bankroll.md:142); było CZĘŚCIOWO; pole source bez nieodczytanego cytatu SplitSuit (403), zastąpione odczytaną tabelą PokerListings; to samo w numbers.yaml br.bi.move-down | E3 2026-11-04 (przegląd zastępczy A7): SPRZECZNE z PrimeDope („Losing 10 should trigger a move down”): lekcja i q-stay uczyły, że zejście po 10 wpisowych to błąd. Poprawka: q-stay ma dwie poprawne odpowiedzi (ADR-04), m12-l4:142 mówi, że zejście przed progiem połowy nie jest błędem; strona bezpieczna.",
+  "uwagi": "Sprzeczność na szczeblu 4: próg zejścia = połowa bankrollu (PokerSkill; SplitSuit nieczytelny), 30 wpisowych przy 3bb/100 (PokerListings, czyli pełny bankroll), spadek o 10 wpisowych (Primedope, odrzucony w D-M12-08 rachunkiem: odpala u ~95% wygrywających). Rachunek (szczebel 1) pokazuje tylko kierunek: przy połowie bankrollu RoR 24,5% — wysoko. Proponowana decyzja: część wspólna = „najpóźniej przy połowie”. Uwaga: cytat SplitSuit z pola source nieprzeczytany (HTTP 403). | E2 2026-11-04: poprawione (content/pl/rules.yaml:1036, :1039; content/pl/lessons/m12-l4-bankroll.md:142); było CZĘŚCIOWO; pole source bez nieodczytanego cytatu SplitSuit (403), zastąpione odczytaną tabelą PokerListings; to samo w numbers.yaml br.bi.move-down | E3 2026-11-04 (przegląd zastępczy A7): SPRZECZNE z PrimeDope („Losing 10 should trigger a move down”): lekcja i q-stay uczyły, że zejście po 10 wpisowych to błąd. Poprawka: q-stay ma dwie poprawne odpowiedzi (ADR-04), m12-l4:142 mówi, że zejście przed progiem połowy nie jest błędem; strona bezpieczna. | E3 2026-11-04 (D-159, A7c): „te same pieniądze to znów pełny bankroll” → „na stawce dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej wpisowych” (m12-l4, egzamin m12 q9); then: powrót wyżej przy pełnym bankrollu w wpisowych wyższej stawki (zdanie lekcji, źródła reguły bez zmian).",
   "decyzja": "D-146"
  },
  {
@@ -735,7 +736,7 @@
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": "numbers.yaml:456, cytat Primedope: „25-30 buy-ins at NL25-NL50” → „25 to 30 at NL25 to NL50” (dosłownie; kontekst: przy 5% ryzyka bankructwa).",
-  "uwagi": "Wartość poparta; cytat w polu source niedosłowny. | E2 2026-11-04: poprawione (content/numbers.yaml:456); było CZĘŚCIOWO; cytat dosłowny"
+  "uwagi": "Wartość poparta; cytat w polu source niedosłowny. | E2 2026-11-04: poprawione (content/numbers.yaml:456); było CZĘŚCIOWO; cytat dosłowny | E3 2026-11-04 (D-159): w treści jako przykład założonej liczby wpisowych, bez zalecenia „minimum”."
  },
  {
   "id": "n:br.bi.beginner",
@@ -774,7 +775,7 @@
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Dwa niezależne źródła szczebla 4 + rachunek. Można dopisać Upswing do pola source."
+  "uwagi": "Dwa niezależne źródła szczebla 4 + rachunek. Można dopisać Upswing do pola source. | E3 2026-11-04 (D-159): w treści tylko jako przykład liczby wpisowych (tabela RoR, egzamin m12 q9), bez zalecenia dla początkujących."
  },
  {
   "id": "n:br.bi.src-high",
@@ -797,7 +798,7 @@
     "szczebel": 4
    }
   ],
-  "status": "potwierdzone",
+  "status": "wycofane",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
@@ -806,8 +807,9 @@
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": "numbers.yaml:460: źródło cytatu to PokerListings, „Poker Bankroll Management Strategy” (pokerlistings.com/poker-strategies/bankroll-management), a nie serwis z dokumentu 12 (Upswing nie ma tego cytatu; Upswing podaje 50).",
-  "uwagi": "Wartość i cytat dosłowne; błędna atrybucja w dokumencie 12 (D-M12-07). | D-145: liczba atrybucji (co podaje źródło), nie próg zalecenia; zalecenie krytyczne stoi na rachunku RoR | E2 2026-11-04: poprawione (content/numbers.yaml:460); było CZĘŚCIOWO; atrybucja do PokerListings; dokument 12 (Drive) nadal przypisuje cytat Upswing — do poprawy przez koordynatora",
-  "decyzja": "D-145"
+  "uwagi": "Wartość i cytat dosłowne; błędna atrybucja w dokumencie 12 (D-M12-07). | D-145: liczba atrybucji (co podaje źródło), nie próg zalecenia; zalecenie krytyczne stoi na rachunku RoR | E2 2026-11-04: poprawione (content/numbers.yaml:460); było CZĘŚCIOWO; atrybucja do PokerListings; dokument 12 (Drive) nadal przypisuje cytat Upswing — do poprawy przez koordynatora | E3 2026-11-04 (D-159): liczba usunięta z numbers.yaml razem z poradą, ile wpisowych mieć (R-M12-010).",
+  "decyzja": "D-145",
+  "nastepca": "R-M12-009"
  },
  {
   "id": "n:br.bi.src-low",
@@ -823,7 +825,7 @@
     "szczebel": 4
    }
   ],
-  "status": "potwierdzone",
+  "status": "wycofane",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
@@ -832,8 +834,9 @@
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": "numbers.yaml:459: zastąpić nieodczytany cytat SplitSuit (HTTP 403) cytatem Primedope „Cash games at a 5% risk of ruin need 20 buy-ins at NL10 (where edges are larger)” albo ponowić odczyt SplitSuit.",
-  "uwagi": "Strona SplitSuit niedostępna (403) pod trzema adresami; wartość 20 poparta zamiennikiem szczebla 4 (jedno źródło). | D-145: liczba atrybucji (co podaje źródło), nie próg zalecenia; zalecenie krytyczne stoi na rachunku RoR | E2 2026-11-04: poprawione (content/numbers.yaml:459); było CZĘŚCIOWO; nieodczytany cytat SplitSuit (403) zastąpiony odczytanym cytatem Primedope",
-  "decyzja": "D-145"
+  "uwagi": "Strona SplitSuit niedostępna (403) pod trzema adresami; wartość 20 poparta zamiennikiem szczebla 4 (jedno źródło). | D-145: liczba atrybucji (co podaje źródło), nie próg zalecenia; zalecenie krytyczne stoi na rachunku RoR | E2 2026-11-04: poprawione (content/numbers.yaml:459); było CZĘŚCIOWO; nieodczytany cytat SplitSuit (403) zastąpiony odczytanym cytatem Primedope | E3 2026-11-04 (D-159): liczba usunięta z numbers.yaml razem z poradą, ile wpisowych mieć (R-M12-010).",
+  "decyzja": "D-145",
+  "nastepca": "R-M12-009"
  },
  {
   "id": "n:dd.bi.small",
@@ -1573,15 +1576,8 @@
   "id": "M12-L4-RAMKA",
   "rodzaj": "regula",
   "level": "rules",
-  "twierdzenie": "Czy i od jakiego wieku wolno grać w pokera na pieniądze, określa prawo twojego kraju: sprawdź je, zanim zagrasz. Sygnały utraty kontroli: grasz dłużej, niż planowałeś; po przegranej wracasz, żeby odegrać straty; stawiasz pieniądze, których nie możesz stracić, albo pożyczasz na grę; grasz, żeby uciec od zmartwień; ukrywasz granie przed bliskimi. (m12-l4:149, bez numerów infolinii)",
+  "twierdzenie": "Sygnały utraty kontroli: grasz dłużej, niż planowałeś; po przegranej wracasz, żeby odegrać straty; stawiasz pieniądze, których nie możesz stracić, albo pożyczasz na grę; grasz, żeby uciec od zmartwień; ukrywasz granie przed bliskimi. (m12-l4, ramka „Odpowiedzialna gra”, bez numerów infolinii)",
   "zrodla": [
-   {
-    "adres": "https://api.sejm.gov.pl/eli/acts/DU/2025/595/text.pdf",
-    "miejsce": "art. 1 ust. 2; art. 2 ust. 5a; art. 27 ust. 2",
-    "cytat": "Grami hazardowymi są gry losowe, zakłady wzajemne, gry w karty, gry na automatach. … W grach hazardowych, z wyjątkiem loterii fantowych oraz loterii promocyjnych, mogą uczestniczyć wyłącznie osoby, które ukończyły 18 lat.",
-    "odczyt": "2026-11-04",
-    "szczebel": 1
-   },
    {
     "adres": "https://www.apprenticeships.vic.gov.au/gambling-and-mental-health",
     "miejsce": "lista sygnałów",
@@ -1613,7 +1609,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": "„dozwolona tylko dla osób pełnoletnich” → „dozwolona tylko dla osób, które ukończyły 18 lat” (art. 27 ust. 2 u.g.h. mówi o wieku, nie o pełnoletności, którą można uzyskać wcześniej przez małżeństwo); art. 2 ust. 5a: poker jest grą w karty, gdy toczy się o nagrody pieniężne lub rzeczowe.",
-  "uwagi": "Wszystkie pięć sygnałów ma źródło szczebla 3 (instytucje zdrowia publicznego i rząd stanu Wiktoria): dłużej niż planowano (Wiktoria), odgrywanie (MedlinePlus/APA, NHS), pieniądze, których nie można stracić, i pożyczanie (NHS, Wiktoria, MedlinePlus), ucieczka od zmartwień (MedlinePlus), ukrywanie (Wiktoria, MedlinePlus: kłamstwa o czasie i pieniądzach). Zdanie prawne dotyczy tylko Polski; aplikacja nie ma storefrontu PL, a w innych krajach wiek i status prawny gry są inne (propozycja w raporcie). Numery infolinii: poza zakresem (inny weryfikator). | E2 2026-11-04: poprawione (content/pl/lessons/m12-l4-bankroll.md:149); było CZĘŚCIOWO; zdanie o polskiej ustawie zastąpione zdaniem bez przepisu jednego kraju (D-150, aplikacja bez storefrontu PL); u.g.h. zostaje jako przykład, że wiek określa prawo kraju; poprawka „ukończyły 18 lat” z E1 bezprzedmiotowa | E3 2026-11-04 (przegląd zastępczy A7b): pointer „dla części krajów i pomoc online” (wpisy ma 9 krajów); m12-l4:102 bez superlatywu.",
+  "uwagi": "Wszystkie pięć sygnałów ma źródło szczebla 3 (instytucje zdrowia publicznego i rząd stanu Wiktoria): dłużej niż planowano (Wiktoria), odgrywanie (MedlinePlus/APA, NHS), pieniądze, których nie można stracić, i pożyczanie (NHS, Wiktoria, MedlinePlus), ucieczka od zmartwień (MedlinePlus), ukrywanie (Wiktoria, MedlinePlus: kłamstwa o czasie i pieniądzach). Zdanie prawne dotyczy tylko Polski; aplikacja nie ma storefrontu PL, a w innych krajach wiek i status prawny gry są inne (propozycja w raporcie). Numery infolinii: poza zakresem (inny weryfikator). | E2 2026-11-04: poprawione (content/pl/lessons/m12-l4-bankroll.md:149); było CZĘŚCIOWO; zdanie o polskiej ustawie zastąpione zdaniem bez przepisu jednego kraju (D-150, aplikacja bez storefrontu PL); u.g.h. zostaje jako przykład, że wiek określa prawo kraju; poprawka „ukończyły 18 lat” z E1 bezprzedmiotowa | E3 2026-11-04 (przegląd zastępczy A7b): pointer „dla części krajów i pomoc online” (wpisy ma 9 krajów); m12-l4:102 bez superlatywu. | E3 2026-11-04 (D-159): usunięte zdanie o prawie kraju i wieku (gra na pieniądze); źródło ustawy usunięte z wpisu.",
   "decyzja": "D-150",
   "uzyte_w": [
    "content/pl/lessons/m12-l4-bankroll.md",

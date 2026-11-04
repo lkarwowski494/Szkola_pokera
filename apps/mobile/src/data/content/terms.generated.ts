@@ -127,7 +127,7 @@ export const TERMS = {
   "alpha": { pl: "alpha", en: "alpha", enAlt: [], def: "Jak często rywal musi spasować, żeby blef ręką bez szans wyszedł na zero; zależy od wielkości zakładu względem puli.", area: "strategy" },
   "variance": { pl: "wariancja", en: "variance", enAlt: [], def: "Rozrzut wyników wokół wartości oczekiwanej: nawet przy dobrej grze krótkie serie bywają mocno na minusie albo na plusie.", area: "mental", forms: ["wariancja","wariancji","wariancję","wariancją"] },
   "buy-in": { pl: "wpisowe", en: "buy-in", enAlt: [], def: "Kwota wejścia do turnieju albo do gry gotówkowej przy stole.", area: "mental", forms: ["wpisowe","wpisowego","wpisowym","wpisowych","wpisowymi"] },
-  "bankroll": { pl: "bankroll", en: "bankroll", enAlt: [], def: "Pieniądze przeznaczone wyłącznie na grę w pokera, oddzielone od pieniędzy na życie.", area: "mental" },
+  "bankroll": { pl: "bankroll", en: "bankroll", enAlt: [], def: "Cały zapas przeznaczony wyłącznie na grę w pokera; w tej aplikacji liczony we wpisowych (buy-in), nie w pieniądzach.", area: "mental" },
   "tilt": { pl: "tilt", en: "tilt", enAlt: [], def: "Stan, w którym emocje (złość, frustracja, euforia) pogarszają Twoje decyzje przy stole.", area: "mental" },
   "winrate": { pl: "winrate", en: "win rate", enAlt: [], def: "Średni wynik gracza na dłuższej próbie; w grach gotówkowych zwykle w bb/100, czyli dużych blindach na sto rozdań.", area: "mental" },
   "downswing": { pl: "downswing", en: "downswing", enAlt: [], def: "Okres wyraźnie gorszych wyników, zwykle większych strat, niż wynikałoby z umiejętności; przeciwieństwo upswingu.", area: "mental" },

@@ -130,7 +130,8 @@ export function helplinesModuleSource(h: Helplines): string {
     /** Tekst dla kraju bez wpisów (D-142); dawne pole „abroadText” ekranu. */
     abroadText: h.fallback.text,
     pointer: h.pointer,
-    fallback: h.fallback,
+    // bez fallback.claim: identyfikator twierdzenia zostaje w repozytorium, jak źródła
+    fallback: { text: h.fallback.text, online: h.fallback.online },
     regions: h.regions,
     regionsLabel: h.regions_label,
     entries: h.entries.map((e) => ({
