@@ -16,7 +16,7 @@ export function plikiNode(o: { blad?: (w: WywolaniePlikow) => Error | null } = {
       if (existsSync(na)) throw new Error(`cel istnieje: ${na}`); // jak moveAsync bez nadpisywania
       renameSync(z, na);
     },
-    usun: async (s) => { zapisz({ op: 'usun', z: s }); rmSync(s); },
+    usun: async (s) => { zapisz({ op: 'usun', z: s }); rmSync(s, { force: true }); }, // jak deleteAsync({ idempotent: true })
   };
   return { pliki, wywolania };
 }

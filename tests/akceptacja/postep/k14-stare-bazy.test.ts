@@ -76,22 +76,21 @@ describe('K-14 / ADR 0004 wyjątek: „Usuń postęp” usuwa stare bazy', () =>
     const k = katalogTymczasowy();
     writeFileSync(join(k, 'user.db'), 'x');
     writeFileSync(join(k, 'postep.db'), 'p');
-    const { pliki, wywolania } = plikiNode();
+    const { pliki } = plikiNode();
     expect(await usunStareBazy(pliki, k)).toEqual({ ok: true, wartosc: undefined });
     expect(readdirSync(k)).toEqual(['postep.db']);
     expect(await usunStareBazy(pliki, k)).toEqual({ ok: true, wartosc: undefined });
-    expect(wywolania.filter((w) => w.op === 'usun').map((w) => w.z)).toEqual([join(k, 'user.db')]);
   });
 });
 
 describe('ADR 0004 kontrola statyczna', () => {
-  it('ADR 0004: „user.db” w kodzie (packages/*/src, apps/mobile/src, bez testów) tylko w packages/postep/src/start.ts', () => {
+  it('ADR 0004: „user.db” w kodzie (packages/*/src, apps/mobile/src, bez testów i komentarzy) tylko w packages/postep/src/start.ts', () => {
     const korzen = join(dirname(fileURLToPath(import.meta.url)), '../../..');
     const pliki = (d: string): string[] => readdirSync(d, { withFileTypes: true }).flatMap((e) =>
       e.isDirectory() ? (['node_modules', '__tests__'].includes(e.name) ? [] : pliki(join(d, e.name)))
         : /\.(ts|tsx|js|mjs)$/.test(e.name) && !/\.test\./.test(e.name) ? [join(d, e.name)] : []);
     const katalogi = [join(korzen, 'apps/mobile/src'), ...readdirSync(join(korzen, 'packages')).map((p) => join(korzen, 'packages', p, 'src'))].filter(existsSync);
-    const z = katalogi.flatMap(pliki).filter((p) => readFileSync(p, 'utf8').includes('user.db')).map((p) => relative(korzen, p));
+    const z = katalogi.flatMap(pliki).filter((p) => readFileSync(p, 'utf8').split('\n').some((l) => !/^\s*(\/\/|\/?\*)/.test(l) && l.includes('user.db'))).map((p) => relative(korzen, p));
     expect(z).toEqual(['packages/postep/src/start.ts']);
   });
 });

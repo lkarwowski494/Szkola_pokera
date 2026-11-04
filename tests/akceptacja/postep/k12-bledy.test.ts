@@ -5,7 +5,7 @@
 // Kody: sqlite.org/rescode.html (13 FULL, 10 IOERR, 778 IOERR_WRITE, 5 BUSY, 11 CORRUPT, 26 NOTADB).
 // Punkt wstrzyknięcia nie zależy od SQL implementacji: przebieg próbny liczy wywołania adaptera, potem błąd na każdym z nich po kolei.
 // `brak pliku treści → tresc_niedostepna` (trzecia część K-12) razem z K-06 (wybór pliku treści).
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -29,13 +29,14 @@ const OPERACJE = {
   { odpowiedz_id: null, ocena_fsrs: 3, stan_przed: 2, termin_przed_ms: T0 - 1, powtorzono_ms: T0 }),
 } satisfies Record<string, (port: PortBazy) => Promise<unknown>>;
 
-// Port na wzorcu; po `uzbroj(cel, blad)` wywołanie adaptera nr `cel` (liczone od uzbrojenia, bez `zamknij`) rzuca `blad`.
+// Port na wzorcu; po `uzbroj(cel, blad)` wywołanie adaptera nr `cel` i każde następne (liczone od uzbrojenia, bez `zamknij`) rzuca `blad`:
+// błąd trwały, więc implementacja z własnym ponowieniem (np. po SQLITE_BUSY) też musi zwrócić `powod` (przegląd D-043, część 3).
 async function zLicznikiem() {
   let uzbrojony = false, n = 0, cel = Infinity, blad: Error | null = null;
   const zdarzenie = (z: Zdarzenie) => {
     if (!uzbrojony || z.rodzaj === 'zamknij') return;
     n++;
-    if (n === cel && blad) throw blad;
+    if (n >= cel && blad) throw blad;
   };
   const p = await przygotuj('wzorzec', { zdarzenie });
   return { ...p, uzbroj: (c: number, b: Error | null) => { uzbrojony = true; n = 0; cel = c; blad = b; }, rozbroj: () => { uzbrojony = false; }, licznik: () => n };
@@ -59,6 +60,7 @@ describe('K-12 błąd zapisu → powod, dane sprzed kroku', () => {
           expect(t.db.isTransaction, `otwarta transakcja po błędzie na wywołaniu ${i}`).toBe(false);
           expect(zawartosc(t.db, TABELE), `zmiana danych po błędzie na wywołaniu ${i}`).toEqual(przed);
           expect(integralnosc(t.db)).toEqual({ integrity: 'ok', kluczeObce: 0 });
+          expect(await op(t.port), `port nie działa po błędzie na wywołaniu ${i}`).toMatchObject({ ok: true });
         }
       });
     }
@@ -113,6 +115,32 @@ describe('K-12 baza uszkodzona przy otwarciu', () => {
       expect(odczyt(sciezka)).toEqual({ wersja: 1, aktywnosci: 0, ustawienia: 0, integrity: 'ok', kluczeObce: 0 });
     });
   }
+  // Zero utraty (zasada wspólna 10): każdy plik sprzed startu zostaje gdzieś w katalogu z tymi samymi bajtami (multizbiór sum).
+  const sumy = (k: string) => readdirSync(k).map((n) => sha256(join(k, n))).sort();
+  const zawiera = (po: string[], przed: string[]) => { const r = [...po]; return przed.every((x) => { const i = r.indexOf(x); if (i < 0) return false; r.splice(i, 1); return true; }); };
+  it('K-12: kolizja nazwy (postep-uszkodzona-<ms>.db już istnieje, ten sam terazMs) → oba pliki zachowane', async () => {
+    const k = katalogTymczasowy();
+    writeFileSync(join(k, `postep-uszkodzona-${T0}.db`), 'wcześniejsza kopia');
+    writeFileSync(join(k, 'postep.db'), Buffer.alloc(8192, 0x41));
+    const przed = sumy(k), sumaUszkodzonej = sha256(join(k, 'postep.db'));
+    const { port, uszkodzona } = await start(k);
+    await port.zamknij();
+    expect(uszkodzona).not.toBeNull();
+    expect(sha256(uszkodzona!), 'zwrócona ścieżka ma bajty uszkodzonej bazy').toBe(sumaUszkodzonej);
+    expect(zawiera(sumy(k), przed), 'plik sprzed startu zniknął albo zmienił bajty').toBe(true);
+  });
+  it('K-12: przemianowanie uszkodzonej bazy się nie udaje → plik postep.db bez zmian, nic nie usunięte, bez nowej bazy na jego miejscu', async () => {
+    const k = katalogTymczasowy();
+    const sciezka = join(k, 'postep.db');
+    writeFileSync(sciezka, Buffer.alloc(8192, 0x41));
+    const suma = sha256(sciezka);
+    const { pliki, wywolania } = plikiNode({ blad: (w) => (w.op === 'przemianuj' ? Object.assign(new Error('EIO'), { code: 'EIO' }) : null) });
+    const otworz = async (s: string) => adapterNode(otworzNode(s));
+    const wynik = await uruchomPostep({ katalog: k, pliki, otworz, terazMs: T0 }).then((w) => w, (e: unknown) => e);
+    expect(String(wynik)).not.toMatch(/NIEZAIMPLEMENTOWANE/);
+    expect(wywolania.filter((w) => w.op === 'usun')).toEqual([]);
+    expect(sha256(sciezka)).toBe(suma);
+  });
   it('K-12: zdrowa baza → uszkodzona = null, bez przemianowania, dane bez zmian', async () => {
     const k = katalogTymczasowy();
     const sciezka = join(k, 'postep.db');
