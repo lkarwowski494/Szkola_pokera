@@ -364,3 +364,7 @@ Plus jedna linia w „Dokumentacja projektu”: „Architektura w repo: `docs/ar
 - `docs/tresci/e2-wynik.md`: poprawki treści M0–M13 i terminów według werdyktów E1, numery pomocy 9 rynków, ekran „Pomoc” z wyborem kraju (D-155), strażnik rejestru w `content-build`; decyzje D-154, D-155. `pnpm run ci` kod 0; `scal-rejestr --przed-przegladem` kod 0 (0 błędów, 50 uwag o przeglądzie krytycznych).
 - Przegląd ścieżki wrażliwej w świeżym kontekście: WYSOKIE i 3 ŚREDNIE naprawione z testami; 5 ŚREDNICH/NISKICH do backlogu (`e2-wynik.md` §3).
 - STOP E2. Następny krok: E3 — niezależna weryfikacja (`06-tresci --tryb audit`), przegląd zastępczy treści krytycznych (D-027), otwarte z `e2-wynik.md` §4, przekazanie 07/05/08/09/04/10.
+
+## Rola 06 E3: stan (2026-11-04, dziewiętnasta sesja, w toku)
+- `docs/tresci/e3-wynik.md`: weryfikacja 1034 twierdzeń (A1–A7), naprawy S1/S2 (D-156), skrót przeglądu (D-157), przegląd D-043, przegląd zastępczy 36/50 zapisany; decyzje właściciela D-158 (bez numerów krajowych, jeden link) i D-159 (bez gry na pieniądze).
+- Następny krok: E3 dalej według `e3-wynik.md` „Następne kroki” 1–6 (nowa sesja opus/high).
