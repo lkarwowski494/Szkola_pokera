@@ -78,7 +78,8 @@ describe('treść projektu', () => {
     expect(c.lessons.length).toBeGreaterThan(0);
     expect(c.warnings.filter((w) => w.includes('wpisane ręcznie'))).toEqual([]);
     expect(c.warnings.filter((w) => w.includes('nie jest nigdzie używana'))).toEqual([]);
-  });
+    // pełna kompilacja treści; w `pnpm run ci` (testy pakietów równolegle) przekroczyła 5 s (E3 roli 06, 2026-11-04)
+  }, 30_000);
   // dwie pełne kompilacje treści; przy rosnącej treści i obciążonym runnerze domyślne 5 s bywało za mało
   it('jest deterministyczna (ten sam hash)', () => {
     expect(compileContent(contentDir).hash).toBe(compileContent(contentDir).hash);

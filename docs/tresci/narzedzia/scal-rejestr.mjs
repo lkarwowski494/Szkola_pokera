@@ -1,11 +1,11 @@
 // Rola 06: scalenie partii rejestru (docs/tresci/rejestr/*.json) w docs/tresci/rejestr.json, kontrola pokrycia i skrypt biblioteki.
-// Użycie (z katalogu głównego repo): node docs/tresci/narzedzia/scal-rejestr.mjs [--przed-przegladem] [--przeglad zastępczy] [--sprawdz]
+// Użycie (z katalogu głównego repo): node docs/tresci/narzedzia/scal-rejestr.mjs [--przed-przegladem] [--przeglad zastępczy] [--sprawdz] [--skroty]
 // --sprawdz (CI): nie zapisuje rejestr.json, tylko zgłasza błąd, gdy zapisany plik różni się od scalenia partii (strażnik content-build czyta ten plik).
 // Kod wyjścia: 0 bez błędów, 1 błędy. Pokrycie: każda reguła (rules.yaml), liczba (numbers.yaml), termin (terms.yaml)
 // i wpis pomocy ma wpis w rejestrze albo w bez-twierdzen.json. Dlaczego: D-141 (rejestr nad istniejącym systemem treści).
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs';
 import { createRequire } from 'node:module';
-import { sprawdzRejestr } from './kontrole-tresci.mjs';
+import { sprawdzRejestr, skrot } from './kontrole-tresci.mjs';
 const require = createRequire(new URL('../../../tools/content-build/package.json', import.meta.url));
 const YAML = require('yaml');
 const argv = process.argv.slice(2);
@@ -51,6 +51,39 @@ for (const id of brak) bledy.push(`pokrycie: brak wpisu ${id}`);
 const wgIdR = new Map(rejestr.map((w) => [w.id, w]));
 for (const e of pomoc) if (e.claim && wgIdR.has(e.claim) && wgIdR.get(e.claim).status !== 'potwierdzone') bledy.push(`pomoc: wpis ${e.id} (${e.claim}) ma w rejestrze status „${wgIdR.get(e.claim).status}”`);
 bledy.push(...sprawdzRejestr(rejestr, [], opcje, uwagi));
+// Skrót wersji zdań twierdzeń krytycznych (pole przeglad.sha, moduł kontrole-mechaniczne): w formacie A (D-141) jednostką
+// jest wpis źródłowy (reguła w rules.yaml, liczba w numbers.yaml, termin w terms.yaml, wpis pomocy w helplines.yaml)
+// i cały plik lekcji albo egzaminu, który go używa (pole rules:, {{n:klucz}}); pole uzyte_w wpisu dopisuje pliki bez
+// odwołania po ID (np. ramka M12-L4). Zmiana któregokolwiek z nich unieważnia przegląd (strona bezpieczna: plik zamiast zdania).
+// Dlaczego: przegląd ma dotyczyć wersji tekstu, którą widział recenzent (D-027, E3 2026-11-04).
+const plikiTresci = ['content/pl/lessons', 'content/pl/exams'].flatMap((d) => readdirSync(d).sort().map((f) => `${d}/${f}`));
+const tekst = new Map(plikiTresci.map((p) => [p, readFileSync(p, 'utf8')]));
+const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const wpisRules = new Map(rules.map((r) => [r.id, r]));
+const jednostki = (w) => {
+  const out = [];
+  if (wpisRules.has(w.id)) out.push(`rules.yaml#${w.id}\n${JSON.stringify(wpisRules.get(w.id))}`);
+  if (w.id.startsWith('n:') && w.id.slice(2) in nums) out.push(`numbers.yaml#${w.id}\n${JSON.stringify(nums[w.id.slice(2)])}`);
+  if (w.id.startsWith('t:') && w.id.slice(2) in terms) out.push(`terms.yaml#${w.id}\n${JSON.stringify(terms[w.id.slice(2)])}`);
+  for (const e of pomoc.filter((e) => e.claim === w.id)) out.push(`helplines.yaml#${e.id}\n${JSON.stringify(e)}`);
+  const wzor = w.id.startsWith('n:') ? new RegExp(`\\{\\{n:${esc(w.id.slice(2))}\\}\\}`) : w.id.startsWith('t:') ? null : new RegExp(`(?<![\\w-])${esc(w.id)}(?![\\w-])`);
+  if (wzor) for (const [p, t] of tekst) if (wzor.test(t)) out.push(`${p}\n${t}`);
+  for (const p of w.uzyte_w ?? []) {
+    if (p === 'helplines.yaml#ramka') { const h = YAML.parse(readFileSync('content/helplines.yaml', 'utf8')); out.push(`${p}\n${JSON.stringify({ pointer: h.pointer, fallback: h.fallback })}`); }
+    else if (existsSync(p)) out.push(`${p}\n${readFileSync(p, 'utf8')}`);
+    else bledy.push(`rejestr ${w.id}: pole uzyte_w wskazuje nieistniejący plik ${p}`);
+  }
+  return out;
+};
+const skroty = [];
+for (const w of rejestr.filter((x) => x.krytyczne && x.status === 'potwierdzone')) {
+  const j = jednostki(w);
+  if (!j.length) bledy.push(`rejestr ${w.id}: twierdzenie krytyczne bez znanego miejsca użycia (dopisz uzyte_w)`);
+  const s = skrot(j);
+  skroty.push(`SKRÓT ${w.id} ${s} (${j.length} jedn.)`);
+  if (w.przeglad?.sha && w.przeglad.sha !== s) (opcje.przedPrzegladem ? uwagi : bledy).push(`rejestr ${w.id}: przegląd dotyczy innej wersji zdań (${w.przeglad.sha}, teraz ${s})`);
+}
+if (argv.includes('--skroty')) for (const s of skroty) console.log(s);
 const ile = (f) => rejestr.reduce((m, w) => ((m[f(w)] = (m[f(w)] ?? 0) + 1), m), {});
 const jedno = rejestr.filter((w) => w.status === 'potwierdzone' && (w.zrodla ?? []).length === 1 && w.zrodla[0].szczebel >= 3);
 const scalony = JSON.stringify(rejestr, null, 1) + '\n';
