@@ -13,3 +13,10 @@ export const STANY_AKTYWNOSCI = ['w_toku', 'zakonczona', 'porzucona'] as const;
 export type StanAktywnosci = (typeof STANY_AKTYWNOSCI)[number];
 export const OCENY_ODPOWIEDZI = ['zgodne', 'dopuszczalne', 'niedokladnosc', 'blad'] as const;
 export type OcenaOdpowiedzi = (typeof OCENY_ODPOWIEDZI)[number];
+
+// Ochrona długich operacji (ADR 0013 pkt 2): interfejs w domenie, adapter w apps/mobile/src/platform/, atrapa w testach.
+export interface OchronaTla {
+  rozpocznij(nazwa: string): number; // −1 = system nie dał czasu
+  zakoncz(id: number): void;
+  naWygasniecie(fn: (id: number) => void): () => void; // zwraca wypisanie
+}
