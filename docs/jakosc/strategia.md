@@ -1,5 +1,5 @@
 # Strategia testów: Szkoła Pokera (rola 07 Jakość, build)
-Stan: **E1 (rejestr ryzyk z wyroczniami), 2026-11-04**, baza `38983d0` na `claude/sleepy-brahmagupta-2065nu`. Sekcje 3–9 powstają w E2–E4. Raport E0: `docs/jakosc/00-rozpoznanie.md`.
+Stan: **E2 (plan testów), 2026-11-04**, baza `7693339` na `claude/sleepy-brahmagupta-2065nu`; E1 (rejestr ryzyk) zaakceptowane (D-169). Sekcja 9 powstaje w E3–E4. Raport E0: `docs/jakosc/00-rozpoznanie.md`.
 
 ## 1. Macierz możliwości środowiska
 Bez zmian względem E0 (`00-rozpoznanie.md` §1, dowody z 2026-11-04). Skrót: Node 22 + Vitest + Jest/RNTL + `node --test` + fast-check + `node:sqlite` dostępne w kontenerze; Stryker, ESLint, Maestro, Detox, `xcodebuild`, emulator — niedostępne tu; E2E iOS tylko na runnerze `macos-26` (repo publiczne: 0 USD) albo u właściciela; telefon tylko właściciel.
@@ -110,3 +110,169 @@ Wyrocznia liczb: wektory RD-01–RD-11 w `tests/wektory/brd.json` (pochodzenie i
 | JAK-E1-01 | ADR 0007 pkt 1 podaje `rodzaj` CHECK: `sesja`, `powtorki`, `scenariusz`, `test_powtorny` i kolumnę `darmowa`; `schemat.sql:29` ma `ocena_poziomu`, `lekcja`, `test_modulu`, `sesja`, `powtorki`, `scenariusz` i `z_limitu`, tak samo `moduly.md` „Maszyny stanów” | realny dla testu K-03 (która lista jest wyrocznią); dla użytkownika brak skutku | 05 | wyrocznią K-03 jest `schemat.sql` + `moduly.md` (późniejsze, E2/E3 roli 05); ADR 0007 pkt 1 do poprawki przy najbliższym `fix` 05 |
 | JAK-E1-02 | 80 wektorów BRD i 3 rachunki niezależne nie są uruchamiane przez żaden test ani CI | realny (wyrocznia, która nie biegnie, niczego nie łapie) | 07 (E3) | test wektorowy w pakiecie domeny/`poker-core`; rachunki w CI — decyzja E2 (Python na ubuntu-latest) |
 | JAK-E1-03 | E2E wyłączony ręcznie od 20.10 (sztafeta, E0 roli 02); flowy 01, 02, 04 nie biegły po zmianach treści roli 06 E3 — ich stan nieznany | realny | 07 (E3) | pierwszy przebieg na gałęzi przed naprawą słowniczka, żeby poznać stan każdego flowu |
+
+## 3. Poziomy testów i decyzje o narzędziach i progach (E2, 2026-11-04)
+Baza `7693339`. Zasada: każde ryzyko dostaje najtańszy poziom, który łapie jego sposób awarii; ryzyko wysokie zależne od platformy dostaje też poziom wyżej (E2E albo telefon). Poziomy przypisane w kolumnie „Poziom testu” rejestru §2 obowiązują; poniżej zbiorczo i decyzje, które je uzupełniają.
+
+### 3.1 Poziomy → ryzyka
+| Poziom | Narzędzie | Ryzyka (ID z §2) | Gdzie |
+|---|---|---|---|
+| Jednostkowy na czystej funkcji (wektory, przykłady) | Vitest 5.0.3 | R-11, R-15, R-18, R-23–R-28, R-36–R-43, R-46, R-48, R-50, R-52, R-53 | Node, każdy przebieg |
+| Własności (fast-check 4.10.2) | Vitest + fast-check | R-14 (generator stanu bazy), R-25, R-27, R-43, R-45 (każda akcja ma ocenę; determinizm), R-41 (dzień lokalny w pętli po strefach §3.3) | Node; nocny z większą liczbą przypadków |
+| Integracyjny z prawdziwą zależnością (port na `node:sqlite`, pliki w katalogu tymczasowym) | Vitest + `node:sqlite` | R-01–R-10, R-12, R-14, R-16, R-17, R-19 (K-02, K-04, K-10–K-12, K-14, K-15) | Node |
+| Ekran (RNTL, bez układu) | Jest 29.7 + jest-expo + RNTL 14 | R-13, R-16 (rezygnacja), R-33, R-35, R-36, R-42, R-47, R-49, R-51, R-54, R-55 (rola i nazwa) | Node |
+| Skan statyczny i test konfiguracji | `node --test` (skrypty) | R-05 i R-20 (K-07), R-22 (K-07 rozszerzone, D-174), R-20 (K-08, K-09), R-50 (jedno wywołanie prośby o ocenę), R-56 (kontrakt runner ↔ Xcode) | Node |
+| Strażniki treści | `content:check`, `tresci:rejestr`, `pnpm i18n` (istniejące) + rachunki Python (D-173) | R-24, R-29–R-32, R-57 (K-06) | Node (ubuntu) |
+| E2E (Maestro 2.11.0, symulator iOS) | D-169 | R-07, R-33, R-36, R-38, R-52, R-57, R-59 + przepływy PR-01–PR-05, PR-08 (plan flowów §5.3) | macOS (`macos-26`) |
+| Telefon | lista §8 | R-01, R-07, R-08, R-13, R-14, R-16, R-17, R-19, R-20, R-22, R-44–R-47, R-49, R-50, R-53, R-55, R-58 | iPhone właściciela, TestFlight |
+| Mutacje | Stryker w nocnym CI + ręczna próba tu (D-172) | R-60 (siła testów domeny: `limitDnia`, `mozeStartowac`, `decyzja`, `walidujEksport`, `migrujFormat`, ocena zagrania, `srs`) | ubuntu nocą; scratchpad |
+| Przegląd (bez testu) | — | R-21 (flowy bez danych osobowych), R-34 (rola 09), R-61 (mapa kryterium → test, §9) | E3/E4 |
+
+### 3.2 Decyzje o narzędziach i progach
+Szczegóły i odrzucone opcje: `docs/decyzje.md` D-171–D-178.
+
+| Sprawa | Wybór | Odrzucone | ID |
+|---|---|---|---|
+| Runner pakietów domeny i danych (`domena`, `postep`) | Vitest 5.0.3 (jak `srs`, `poker-core`; już w lockfile) | `node --test` (drugi styl asercji, brak fast-check w tym stylu w projekcie); Jest (wolniejszy, jest-expo niepotrzebny dla czystego TS) | D-171 |
+| Runner ekranów | Jest + jest-expo + RNTL (istniejący) | Vitest dla RN (brak wsparcia jest-expo) | D-171 |
+| Testy własności | fast-check 4.10.2; przy każdym przebiegu domyślne 100 przypadków i losowe ziarno (raport podaje `seed`, `path`); nocą `numRuns` 1000 przez `fc.configureGlobal` w pliku przygotowania pod zmienną `PROP_RUNS` | stałe ziarno przy pushu (Trening tak robi, TST2-07 — mniej szans na rzadki kontrprzykład; przy nas zestaw mały, zysk powtarzalności niewielki, bo ziarno jest w raporcie) | D-171 |
+| E2E | Maestro (D-169) | Detox, sam telefon (D-169) | D-169 |
+| Mutacje | Stryker 9.6.1 w nocnym CI na czystym TS (`packages/domena`, `poker-core` bez `bots.ts`, `srs`), runner `command` z Vitest, `break: null` (informacja) do pierwszego pomiaru; potem próg = wynik bazowy; przeżyły mutant w funkcji ryzyka wysokiego = brakujący test. Tu (kontener) ręczna próba mutacji w scratchpadzie przy każdym nowym teście domeny w E3 (dowód zasady roli 3) | sama ręczna próba (nie skaluje się na przyszłe zmiany 08); brak mutacji (R-60 bez kontroli) | D-172 |
+| Pokrycie kodu | bez raportu i bez progu; miarą jest mapa ryzyko/kryterium → test (§9) i mutacje | raport v8 informacyjny (`@vitest/coverage-v8` nie jest zainstalowany: `ls node_modules/.pnpm | grep -c coverage-v8` → 0; doinstalowanie = kod z npm; procent nie mówi, czy test może paść) | D-171 |
+| Testy oczekujące | (a) `tests/akceptacja/<pakiet>/AK-<ID>.test.ts` z własnym skryptem `pnpm test:akceptacja` poza `pnpm run ci`; uruchamiany informacyjnie w CI (zadanie, które nie blokuje) z listą „czerwone z właściwego powodu”; rola 08 przenosi test do pakietu w commicie, który go zazielenia | (b) `it.skip` w głównym zestawie (czerwień niewidoczna, łatwo zapomnieć zdjąć) | D-175 |
+| Rachunki niezależne (JAK-E1-02) | osobne zadanie `rachunki` w `ci.yml`: `actions/setup-python` + `pip install --require-hashes -r docs/tresci/narzedzia/rachunki/requirements.txt` (PyYAML 6.0.3, numpy 2.5.3 — wersje zmierzone tu) + 3 skrypty (`python3 -I`, 167 sprawdzeń, tu 35 s); wektory `tests/wektory/brd.json` (80) jako test Vitest w `poker-core`/`domena` | tylko nocą (błąd liczby wykryty dzień później, po scaleniu); tylko przy zmianie `content/` (filtr ścieżek pomija zmianę skryptu albo `numbers.yaml` przez inną ścieżkę) | D-173 |
+| Zakaz sieci poza adapterami (R-22) | K-07 + wzorce `fetch(`, `XMLHttpRequest`, `new WebSocket`, `axios`, `EventSource` w `apps/`, `packages/` poza listą: adapter płatności (`apps/mobile/src/platform/`, katalog planowany — `CLAUDE.md`); dziś 0 trafień w `apps/mobile/src`, `apps/mobile/app`, `packages` poza testami (`grep -rnE`, 2026-11-04), więc kontrola może być bramką od razu po pierwszym przebiegu informacyjnym | brak skanu (tylko telefon U-4 raz na wydanie) | D-174 |
+| Niezależność wyroczni rankingu (R-28) | wyrocznią są wektory RD-10 (liczności 9 kategorii z wyliczenia wszystkich 2 598 960 układów, `docs/brd/reguly.md:169–184`, skrypt roli 01 bez importu `poker-core`); test AK wylicza wszystkie układy `evaluateHand` i porównuje liczności. Próba tu (scratchpad, nie w repo): 2 598 960 układów, liczności 40 / 624 / 3744 / 5108 / 10200 / 54912 / 123552 / 1098240 / 1302540 = RD-10, 3,8 s. `test/reference-evaluator.ts` zostaje jako test różnicowy, nie wyrocznia (ten sam autor, importuje `rankOf`/`suitOf` z `src`) | `reference-evaluator.ts` jako wyrocznia (niezależność pozorna); nowy ewaluator w Pythonie w CI (dubluje RD-10) | D-176 |
+| Lista stref testowych | §3.3 | — | D-177 |
+| Niestabilne testy i ponowienia E2E | §7 | — | D-178 |
+| Hook przed pushem agenta (D-050) | `.claude/settings.json` PreToolUse `Bash`: przy `git push` uruchamia `pnpm typecheck && pnpm i18n && pnpm content:check && pnpm tresci:rejestr` (czas do zmierzenia w E3; cel ≤ 30 s), kod 2 blokuje; pełny zestaw zostaje w CI | brak hooka (kontrola tylko w linii `CLAUDE.md` — zasada wspólna 21); pełne `pnpm run ci` w hooku (2,5 min na każdy push) | D-171 |
+
+### 3.3 Strefy czasowe (D-177)
+Jedna lista w `tests/narzedzia/strefy.ts` (E3), funkcja `przejsciaCzasu` w `tests/narzedzia/czas.mjs` (kod z wzorców roli). `limitDnia` i `dzien_lokalny` przyjmują strefę jako argument (`moduly.md:50`), więc testy iterują po liście w jednym procesie; bez macierzy zadań CI.
+
+| Strefa | Dlaczego | Przejścia 2026 (wyliczone, nie wpisane; `node` ICU 78.3, tz 2026e) |
+|---|---|---|
+| `America/New_York` | rynek główny US, zmiana czasu | 2026-03-08 07:00Z, 2026-11-01 06:00Z |
+| `Europe/Warsaw` | właściciel, język `pl`, zmiana czasu UE | 2026-03-29 01:00Z, 2026-10-25 01:00Z |
+| `America/St_Johns` | CA, przesunięcie niecałkowite (−3:30) ze zmianą czasu | 2 przejścia |
+| `Asia/Tokyo` | JP, bez zmiany czasu | 0 |
+| `America/Sao_Paulo` | BR, bez zmiany czasu od 2019 (strefa z historią zmian) | 0 |
+| `Asia/Kathmandu` | przesunięcie +5:45 | 0 |
+| `Australia/Lord_Howe` | zmiana czasu o 30 min (godzina „przed” i „po” nie różni się o 60 min) | 2 przejścia (660 ↔ 630 min) |
+| `Pacific/Kiritimati`, `Pacific/Pago_Pago` | skrajne przesunięcia +14 i −11: ta sama chwila UTC to dwie różne daty | 0 |
+Dla każdej strefy, roku bieżącego i następnego: minuta przed i po każdym przejściu oraz północ lokalna; zmiana strefy w trakcie dnia (BR-POW-002) jako para stref z listy. Dowód działania listy: `node czas-probe.mjs` w scratchpadzie tej sesji, wynik w tabeli. Przejść nie sprawdza się w Hermes (telefon); samosprawdzenie Intl przy starcie (ADR 0014) i krok telefonu §8 T-04.
+
+## 4. Dane testowe (E2)
+| Dane | Ryzyka | Pochodzenie | Kto i kiedy | Dane osobowe |
+|---|---|---|---|---|
+| `tests/dane/bazy/v1.db` (wzorzec bazy postępu z danymi brzegowymi: aktywność w toku, karty z zaległością, odpowiedzi, ustawienia, zakup w pamięci, zużycie limitu dziś) | R-01–R-03, R-17 (K-02) | generator `tests/narzedzia/wzorzec-bazy.mjs` na `schemat.sql` (E3, wzór `e2-schemat.mjs`); przy każdym wydaniu zmieniającym schemat zamrożony jako `vN.db` (D-124: od pierwszego wydania) | agent (E3), potem rola 08 przy wydaniu | brak (syntetyczne) |
+| Plik eksportu z TestFlight (P-3) | R-11, R-14, R-15, R-18 | właściciel eksportuje z telefonu przy każdym wydaniu (D-169) → `tests/dane/eksport/eksport-<build>.json` | właściciel ~2 min / wydanie; agent sprawdza przed commitem: tylko pola koperty ADR 0008, brak nazw urządzenia, adresów e-mail, tekstów wpisanych ręcznie (zgłoszenia), znaczników innych niż `schemat.sql` — skrypt `tests/narzedzia/sprawdz-eksport.mjs` (E3) | do sprawdzenia skryptem przed commitem; plik z polem spoza listy nie trafia do repo |
+| Wzorzec eksportu generowany (obcy, ucięty, nowszy, starszy format, 3-letni 12,1 MB) | R-11, R-12, R-14, B-5 | generator z `e2-schemat.mjs` (rola 05) przeniesiony do `tests/narzedzia/` | agent (E3); 3-letni tworzony w teście, nie w repo (rozmiar) | brak |
+| Stare bazy `user.db*` z buildów 1005–1008 | R-19 (K-14) | test na kopiach syntetycznych o tej samej nazwie i trybie WAL (`-wal`, `-shm`); prawdziwa baza testera nie trafia do repo | agent (E3); prawdziwa aktualizacja z 1008 z danymi = telefon §8 | brak w repo |
+| Pakiet treści `content-v6.db` / `tresc-<wersja>-<język>.db` | R-18, R-29, R-52, R-57 (K-06) | wyjście `pnpm content:build` z prawdziwej treści (nie wycinek pisany pod kod); test zmiany identyfikatora na parze: bieżąca treść + kopia z usuniętym zadaniem `q-beginner` (prawdziwa zmiana D-161) | agent | brak |
+| Wektory | R-23–R-28, R-40, R-46 | `tests/wektory/brd.json` (80; RD-12-W1–W6 wyłączone, D-168), 9 wektorów dostępu `docs/monetyzacja.md:89–99`, wektory ADR 0007 „Potwierdzenie”, CLDR `packages/jezyki/test/wektory.ts` | istniejące | brak |
+| Zrzuty i raporty E2E | R-21 | tylko dane syntetyczne (`clearState: true`); artefakty 1 dzień (jak Trening) | CI | brak; przegląd flowów w E3 |
+Ślady GPS: nie dotyczy (moduł `geo-slady` nie stosuje się, E0 §7).
+
+## 5. CI (E2)
+Cennik: docs.github.com/en/billing/concepts/product-billing/github-actions, odczyt surowego tekstu 2026-11-04: „The following usage remains free independently and does not reduce the included compute usage: … Standard GitHub-hosted runners in public repositories.” oraz „Larger runners are billed for public repositories.” Repo publiczne (E0 §1) → standardowe `ubuntu-latest` i `macos-26`: **0 USD**. Obraz `ubuntu-latest` (Ubuntu 24.04, `actions/runner-images` README, odczyt 2026-11-04) ma Python 3.12.3 i pip 24.0, bez PyYAML i numpy → instalacja w zadaniu (D-173).
+
+### 5.1 Zadania
+| Workflow | Zadanie | Wyzwalacz | Runner | Czas zmierzony / szacunek | `timeout-minutes` | Bramka czy informacja |
+|---|---|---|---|---|---|---|
+| `ci.yml` | `ci` (`pnpm run ci`) | push na `main`, `claude/**`, `integration/**`; `pull_request`; ręcznie | ubuntu | 1:26–2:08 (przebiegi 38–42, 7–9.10.2026); lokalnie 2,5 min | 15 (zostaje: ≥ 5× pomiar) | **bramka** (istniejąca) |
+| `ci.yml` | `rachunki` (D-173) | jak wyżej | ubuntu | ~35 s skrypty (pomiar tu: 9,5 + 2,4 + 23,4 s) + setup ~30 s (szacunek) | 10 | informacja przy pierwszym przebiegu, potem bramka |
+| `ci.yml` | `akceptacja` (D-175) | jak wyżej | ubuntu | do zmierzenia w E3 | 15 | **informacja na stałe** (testy oczekujące są czerwone z założenia); wynik: lista ID + powód czerwieni |
+| `ci.yml` | `kontrakt` (K-07, K-09, R-56 runner ↔ Xcode) | w `pnpm run ci` (`test:skrypty`) | ubuntu | sekundy | — | informacja przy pierwszym przebiegu, potem bramka |
+| `e2e.yml` | `e2e` (D-170) | push na `main` i `integration/**` z `paths-ignore: docs/**, **/*.md`; ręcznie (wejścia: urządzenie, wygląd); `workflow_call` z nocnego | `macos-26` | build 13:41 + 4 flowy 8:30 (przebieg 18, 20.10.2026) ≈ 25 min | wzór: 20 + 3 × liczba flowów + 10 (4 flowy → 42; 10 flowów → 60); przelicza się przy dodaniu flowu | informacja do pierwszego zielonego przebiegu na gałęzi po naprawie słowniczka (JAK-E1-03), potem sygnał na `main` |
+| `nocny.yml` (nowy) | fast-check `PROP_RUNS=1000`; Stryker (D-172); E2E na innym urządzeniu (mały ekran) w ciemnym wyglądzie; zgłoszenie z wynikiem (etykieta `nocne-testy`: czerwona noc otwiera/aktualizuje, zielona zamyka) | `cron` raz na dobę poza pełną godziną; ręcznie | ubuntu + `macos-26` | ubuntu: do zmierzenia (Trening: Stryker dzielony na moduły po limicie 5 h); macOS ≈ 30 min | ubuntu 60 (po pierwszym pomiarze: pomiar × 2); macOS jak `e2e` | informacja + zgłoszenie (D-170); `issues: write` tylko w zadaniu zgłoszenia |
+| `testflight.yml` | bramka E2E | ręcznie | `macos-26` | — | bez zmian | **bramka**: wymaga zielonego `e2e` na tym samym SHA; pominięcie tylko przy awarii maszyny z polem `powod` (D-170) |
+Krótkie warianty (strefy, języki) to pętle w jednym zadaniu, nie macierz zadań. Zmiana `.github/workflows/` to ścieżka wrażliwa (D-043): przegląd w świeżym kontekście; scala właściciel. Nowe zadanie najpierw przechodzi raz w CI jako informacja (zasada roli 8).
+
+### 5.2 Minuty miesięcznie (szacunek; założenia nazwane)
+| Pozycja | Założenie | Minuty / mies. |
+|---|---|---|
+| `ci` + `rachunki` + `akceptacja` (ubuntu) | ~60 pushy i PR (założenie; przebiegi 38–42 to 5 w 3 dni) × ~4 min | ~240 |
+| `e2e` (macOS) | ~20 pushy kodu na `main`/`integration/**` (założenie) × 25 min | ~500 |
+| nocny | 30 nocy × (macOS 30 + ubuntu ≤ 60) | ~900 macOS + ≤ 1 800 ubuntu |
+| TestFlight | ~4 wydania × ~30 min | ~120 macOS |
+| **Koszt** | repo publiczne, standardowe runnery | **0 USD** |
+Gdyby repo stało się prywatne (GitHub Free, stawki z wzorców roli z 18.10.2026, do ponownego odczytu): ~1 520 min macOS × 0,062 USD ≈ 94 USD/mies. ponad pulę — wtedy nocny E2E i E2E po każdym pushu do ponownej decyzji właściciela. Licznik przebiegów do weryfikacji szacunku: `actions_list` po miesiącu (E4 / rola 10).
+
+### 5.3 Flowy E2E (plan dla E3; tekst asercji pobierany z treści przez `-e`, jak `helplines-env.mjs`, nie wpisany w YAML)
+| Flow | Przepływ / ryzyka | Stan |
+|---|---|---|
+| `01-lekcja-zadanie` | PR-02, R-38 | istnieje; stan po zmianach roli 06 nieznany (JAK-E1-03) |
+| `02-powtorki` | PR-04 | istnieje; jw. |
+| `03-slowniczek` | PR-02 (terminy) | czerwony: `bańka` → `bubble` (JAK-E0-01), naprawa w E3 |
+| `04-pomoc` | PR-08, R-33 | istnieje (D-160) |
+| `05-ocena-poziomu` | PR-01, R-36 (ocena pominięta i przerwana; brak ekranu zakupu na końcu) | nowy, E3 |
+| `06-przerwanie-sesji` | PR-03, R-07 (`stopApp` po 3. odpowiedzi, `launchApp` bez `clearState` → 4. zadanie) | nowy |
+| `07-scenariusz` | PR-05, R-45 (tylko akcje z oceną; bez stosu i wygranej na ekranie) | nowy |
+| `08-drugi-jezyk` | R-52, R-57 (start w `en`, lekcja i zadanie z treścią `en`) | nowy |
+| `09-limit-dnia` | PR-03, R-40, R-42 (druga aktywność → ekran zakupu przed startem; lekcja bez licznika) | nowy; zakup tylko do ekranu (bez StoreKit) |
+Flowy powstają wobec ekranów roli 08 (E3 pisze je, ale pierwsze przejście nastąpi po implementacji; do tego czasu nowe flowy nie wchodzą do bramki).
+
+## 6. Definicja ukończenia funkcji (jedyne źródło w projekcie; wykonuje rola 08)
+Każda zmiana: `pnpm run ci` kod 0 lokalnie i w CI na tym samym SHA; test przed kodem — czerwony z właściwego powodu, zapisany fragment wyniku w opisie commita; żaden test nie usunięty, pominięty ani osłabiony (zasada wspólna 11). Dodatkowo według rodzaju:
+
+| Rodzaj zmiany | Wymagane |
+|---|---|
+| Logika domeny (limit, dostęp, ocena, harmonogram, maszyny stanów, liczby) | test akceptacyjny z `tests/akceptacja/` przeniesiony do pakietu i zielony; wektory ze źródła (nie z kodu); własność, gdy funkcja ma wejście ciągłe lub stan; ręczna próba mutacji jednego operatora granicy w scratchpadzie (test pada) albo mutant zabity w nocnym Strykerze; parametry z `konfiguracja.ts`, nie liczby w teście |
+| Zapis danych, schemat, migracja, eksport/import, „Usuń postęp” (ścieżki wrażliwe `CLAUDE.md`) | test integracyjny przez port na `node:sqlite` (K-02, K-04, K-10–K-12, K-14, K-15 według dotyczących); zmiana schematu: nowy `bazy/vN.db` i test migracji z każdej wydanej wersji; przegląd w świeżym kontekście (D-043); pozycja listy §8 (aktualizacja z poprzedniego buildu z danymi) przed wydaniem |
+| Ekran | test RNTL: elementy po roli i nazwie, ocena słowem i znakiem (NFR-DOST-001), skutek w danych przez atrapę portu; teksty przez i18n (`pnpm i18n` 0 błędów); wygląd tylko w systemie roli 04 (zasada wspólna 15); układ, kontrast i duży tekst → lista §8 (Jest nie liczy układu) |
+| Przepływ (nawigacja między ekranami, przerwanie, uprawnienie) | flow Maestro w `apps/mobile/e2e/` z tekstem z treści przez `-e`; zielony `e2e` na gałęzi przed scaleniem; zrzut w punkcie kontrolnym (`takeScreenshot`) |
+| Treść (`content/`) | `pnpm content:build` i `content:check`; `pnpm tresci:rejestr` 0 błędów; liczby tylko `{{n:klucz}}`; zadanie `rachunki` zielone; zmiana wpisu krytycznego → kontrola zawężona D-162 i nowy zapis `przeglad` |
+| Zależność natywna, `app.json`, wtyczka | K-08 (manifesty) i K-09 ponownie; build `e2e` zielony; zrzut ruchu U-8 przy zmianie zależności z siecią |
+| CI, workflow, wydanie | przegląd D-043; nowa kontrola raz informacyjnie; kontrakt runner ↔ Xcode (R-56) zielony |
+
+## 7. Polityka niestabilnych testów i kwarantanna (D-178)
+1. **Wykrycie:** test, który na tym samym SHA raz przechodzi, a raz nie. Zapis: komenda, ziarno (fast-check podaje `seed` i `path`), kolejność, maszyna.
+2. **Obciążenie najpierw:** powtórzenie osobno, jednym procesem (zasada roli 6). Stałe przejście = obciążenie maszyny, nie test.
+3. **Przyczyna przed obejściem:** zegar (czas zawsze argumentem; w testach jednostkowych bez asercji na czas zegarowy), kolejność, współdzielony stan (każdy test integracyjny na własnej bazie w katalogu tymczasowym), sieć (zakazana w testach), `setTimeout`.
+4. **Ponowienia:** testy Node — **zero ponowień** (bramka `ci`). E2E — wyjątek nazwany według praktyki właściciela w Treningu (`e2e-ios.yml:8–11`, odczyt 2026-11-04): nieudany flow ponawiany **raz**, osobnym uruchomieniem tylko jego; wynik przebiegu wypisuje flowy „zielone w ponowieniu” (niestabilność widoczna, nie ukryta), a nocne zgłoszenie liczy je osobno; drugi czerwony = porażka. Awaria przed pierwszym flowem albo brak maszyny = maszyna: jedno ponowienie przebiegu, potem przyczyna.
+5. **Klasyfikacja porażki E2E:** błąd aplikacji / nieaktualny scenariusz / maszyna; diagnoza od zrzutu kroku, który padł (JAK-E0-01 to wzór: nieaktualny scenariusz).
+6. **Kwarantanna tylko jawna:** wpis w tej sekcji (ID testu, właściciel, termin najpóźniej do następnego wydania, kontrola zastępcza); test biegnie dalej informacyjnie; ryzyko wysokie nie zostaje bez kontroli. Obecnie: brak testów w kwarantannie.
+
+## 8. Lista „tylko telefon” (krok właściciela; build TestFlight, jedno zadanie naraz)
+Każda pozycja w raporcie wydania ma build, datę i wynik; bez nich = „nie sprawdzono”. Szczegółowe kroki z oczekiwanym wynikiem: `docs/architektura/kontrole-07.md` (U-1–U-9) i `docs/scope-contract.md:123–132` (T-01–T-10); poniżej przypisanie i to, czego symulator nie umie (D-169).
+
+| Poz. | Ryzyka | Dlaczego telefon | Kiedy |
+|---|---|---|---|
+| U-1 / T-03 przerwanie sesji w przełączniku aplikacji | R-07 | zabicie procesu przez system i adapter `expo-sqlite` (założenie E0 §6) | co wydanie |
+| U-2 import 3-letni + Home | R-08 | czas tła i `0xdead10cc` tylko na urządzeniu | co wydanie zmieniające import/eksport |
+| U-3 / T-08 przypomnienie | R-44 | powiadomienie następnego dnia, odebranie zgody w Ustawieniach | co wydanie zmieniające powiadomienia; raz przed App Store |
+| U-4 tryb samolotowy | R-22, R-46 | brak sieci w całym systemie | co wydanie |
+| U-5 / T-05 zakupy w piaskownicy, przywracanie, anulowanie, zwrot | R-46, R-47, R-49 | StoreKit i konto piaskownicy | co wydanie zmieniające dostęp/zakup; pełne przed App Store |
+| U-6 / T-06 kopia iCloud, eksport → import na drugim telefonie, „Usuń postęp” | R-13, R-14, R-17 | kopia systemowa i drugie urządzenie | przed App Store; T-06 co wydanie zmieniające dane |
+| U-7 pomiar B-1–B-5 | R-58 | budżety z pomiaru (`wydajnosc.md`) | po implementacji 08, potem przed App Store |
+| U-8 zrzut ruchu przez proxy | R-20 | ruch sieciowy prawdziwego builda | przed App Store i przy zmianie zależności z siecią |
+| U-9 „Usuń postęp” | R-16 | potwierdzenie systemowe, stan po ponownym starcie | co wydanie zmieniające dane |
+| Aktualizacja z poprzedniego buildu z danymi (w tym z 1008: `user.db*` nietknięte) | R-01, R-19 | prawdziwa aktualizacja przez TestFlight | co wydanie; obowiązkowo przy zmianie schematu |
+| Eksport pliku postępu (P-3) | dane testowe §4 | plik z prawdziwego użycia | co wydanie (~2 min) |
+| T-01 pierwsze uruchomienie, T-02 dwa języki, T-04 limit ze zmianą daty w telefonie | R-35, R-36, R-41, R-53 (Intl w Hermes) | data systemowa, Intl w silniku telefonu | co wydanie zmieniające onboarding/limit/języki |
+| T-07 Pomoc | R-33 | link otwiera przeglądarkę systemową; **według D-158/D-167** (zdanie + jeden link, bez numerów), nie według brzmienia T-07 (luka L-01) | co wydanie zmieniające „Pomoc” |
+| T-09 trzy scenariusze | R-45 | ocena i podsumowanie w działającej aplikacji (uzupełnia flow 07) | przed App Store |
+| T-10 opinie, poczta, zgłoszenie | R-50, R-51 | aplikacja Poczta; prośby o ocenę TestFlight nie pokazuje (S-57) → sprawdzany tylko skan statyczny i funkcja „czy prosić”; „nie sprawdzono na urządzeniu” zapisane w raporcie | przed App Store |
+| VoiceOver i największy rozmiar tekstu na 3 głównych ekranach | R-54, R-55 | układ i czytnik (Jest bez układu) | przed App Store; raz na ~3 wydania (pełny audyt, `CLAUDE.md`) |
+Czas właściciela na wydanie TestFlight: ~15–25 min (pozycje „co wydanie”); przed App Store ~60–90 min (wszystkie). Szacunek do weryfikacji przy pierwszym wydaniu.
+
+### 8.1 Kontrole roli 05 → miejsca (K-01–K-15)
+| ID | Test / skrypt | Poziom | Gdzie | Bramka czy informacja |
+|---|---|---|---|---|
+| K-01 | `granice.mjs` dla `domena`, `postep`, `poker-core`, `srs`, `content-schema` + `apps/mobile/src` (rozmiar, cykle) przez `test:skrypty` | skan statyczny | Node (`ci`) | informacja do usunięcia `bots.ts` i podziału `grading.ts`, `session.tsx`, `text.pl.ts`, `content-schema/index.ts` (dziś kod 1, kontrole-07.md); dla nowych pakietów `domena`, `postep` bramka od pierwszego pliku |
+| K-02 | `postep/test/migracja.test.ts` na `tests/dane/bazy/v*.db` | integracyjny | Node | bramka od pierwszego wydania (D-124); wzorzec v1 w E3 |
+| K-03 | test zgodności list stanów z CHECK (`schemat.sql` + `moduly.md`, D-168) | jednostkowy | Node | bramka |
+| K-04 | test portu: `PRAGMA foreign_keys` w transakcji = 1 | integracyjny | Node; przy starcie buildu deweloperskiego (dziennik) | bramka (Node); informacja (build) |
+| K-05 | wektory `limitDnia`, `mozeStartowac`, `decyzja` (9), `walidujEksport`, scenariusz | jednostkowy | Node | bramka (po przeniesieniu z akceptacji) |
+| K-06 | test wyjścia `content-build` (35 plików z `meta`) + wybór pliku treści | jednostkowy | Node | bramka |
+| K-07 | skan `grep -rnE` (+ D-174) jako test `node --test` | skan statyczny | Node | informacja do usunięcia Sentry/`observability` (ADR 0009, rola 08 — dziś trafienia), potem bramka |
+| K-08 | skrypt manifestów `PrivacyInfo.xcprivacy` po `pnpm install` | skan | Node | informacja (wynik do przeglądu roli 10); ponownie przy zmianie zależności natywnej |
+| K-09 | test `app.json` | test konfiguracji | Node | informacja do usunięcia wtyczki Sentry, potem bramka |
+| K-10 | test portu z atrapą `OchronaTla` | integracyjny | Node + telefon U-2 | bramka |
+| K-11 | eksport → import bez różnic, `ROLLBACK`, „Usuń postęp” | integracyjny + własności | Node | bramka |
+| K-12 | atrapa adaptera z błędami, pliki w katalogu tymczasowym | integracyjny | Node | bramka |
+| K-13 | atrapa `expo-notifications` | jednostkowy (Jest) | Node + telefon U-3 | bramka |
+| K-14 | sumy SHA-256 `user.db*` przed i po | integracyjny | Node + telefon (aktualizacja z 1008) | bramka |
+| K-15 | UPSERT a wiersze podrzędne, kaskady przez port | integracyjny | Node | bramka |
+Żadna pozycja nie jest pominięta. „Bramka” obowiązuje od commitu, który wprowadza testowany kod (rola 08); wcześniej test leży w `tests/akceptacja/` (D-175).

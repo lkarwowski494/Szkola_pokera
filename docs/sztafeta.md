@@ -390,3 +390,9 @@ Plus jedna linia w „Dokumentacja projektu”: „Architektura w repo: `docs/ar
 - Pytania produktowe na bramce: P-1 podział E2E / telefon, P-2 wyzwalacz E2E, P-3 wzorce danych z telefonu.
 - Decyzje na bramce: D-169 (E1 zaakceptowane; P-1 Maestro + telefon; P-3 eksport z telefonu co wydanie), D-170 (P-2 wyzwalacz E2E jak w Treningu: push na main i gałęzie integracyjne bez zmian samej dokumentacji, ręcznie, nocny ze zgłoszeniem, bramka w TestFlight).
 - Następny krok: E2 plan testów (poziomy, narzędzia i progi jako decyzje, dane testowe, CI z kosztem, definicja ukończenia, lista „tylko telefon”, K-01–K-15 → miejsca) w nowej sesji opus/high.
+
+## Rola 07 E2: wynik (2026-11-04, dwudziesta czwarta sesja)
+- `docs/jakosc/strategia.md` §3–§8: poziomy → ryzyka, decyzje o narzędziach i progach, strefy testowe (9, przejścia wyliczone), dane testowe z pochodzeniem, CI (zadania, wyzwalacze, `timeout-minutes` z danych, minuty: 0 USD w repo publicznym, odczyt cennika 2026-11-04), plan 9 flowów E2E, definicja ukończenia według rodzaju zmiany, polityka niestabilnych testów, lista „tylko telefon”, K-01–K-15 → miejsca (bez pominięć).
+- Decyzje agenta do weta: D-171–D-178 (wyjątek nazwany: jedno ponowienie flowu E2E jak w Treningu, D-178).
+- Dowody tej sesji: rachunki Python kod 0 (74 + 47 + 46 sprawdzeń); `evaluateHand` na 2 598 960 układach = RD-10 (próba w scratchpadzie, 3,8 s); `przejsciaCzasu` dla 9 stref.
+- Następny krok: E3 (testy akceptacyjne czerwone z właściwego powodu w `tests/akceptacja/`, narzędzia `czas.mjs`/`strefy.ts`, wzorzec bazy v1, naprawa flowu słowniczka, szkic `ci.yml`/`e2e.yml`/`nocny.yml` na gałęzi — przegląd D-043), kilka sesji; nowa sesja opus/high.
