@@ -1,5 +1,5 @@
 import i18next, { type InitOptions, type i18n } from 'i18next';
-import { lancuchZastepczy, type Jezyk } from './jezyki';
+import { jestJezykiem, jezykZTagu, lancuchZastepczy, type Jezyk } from './jezyki';
 
 /** Słowniki zagnieżdżone w formacie i18next v4 (`klucz_one`, `klucz_few`, …), język → drzewo tekstów. */
 export type Slowniki = Partial<Record<Jezyk, Record<string, unknown>>>;
@@ -18,7 +18,8 @@ export interface OpcjeI18n {
 export function opcjeI18next(slowniki: Slowniki, jezyk: Jezyk, opcje: OpcjeI18n = {}): InitOptions {
   return {
     lng: jezyk,
-    fallbackLng: { default: lancuchZastepczy(jezyk).slice(1) },
+    // funkcja, nie stała: łańcuch liczony dla języka aktualnego, także po changeLanguage (przegląd w świeżym kontekście, 2026-11-04)
+    fallbackLng: (kod?: string) => lancuchZastepczy((kod && (jestJezykiem(kod) ? kod : jezykZTagu(kod))) || jezyk).slice(1),
     resources: Object.fromEntries(Object.entries(slowniki).map(([j, drzewo]) => [j, { translation: drzewo }])),
     interpolation: { escapeValue: false },
     returnNull: false,

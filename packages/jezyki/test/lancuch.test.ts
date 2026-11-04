@@ -22,6 +22,17 @@ describe('łańcuch zastępczy w i18next', () => {
     const i = await utworzI18n(slowniki, 'de');
     expect([1, 2].map((count) => i.t('lekcja.ex', { count }))).toEqual(['1 Aufgabe', '2 Aufgaben']);
   });
+  it('zmiana języka w trakcie działania przelicza łańcuch: start pl → de, brak klucza w de daje tekst źródłowy', async () => {
+    const i = await utworzI18n(slowniki, 'pl', { scisle: true });
+    await i.changeLanguage('de');
+    expect(i.t('tylkoPl')).toBe('Tylko po polsku');
+  });
+  it('zmiana języka: start pt-BR → de nie zostawia pt w łańcuchu', async () => {
+    const i = await utworzI18n({ ...slowniki, de: { a: 'Quelltext' } }, 'pt-BR');
+    await i.changeLanguage('de');
+    expect(i.t('tylkoPl')).toBe('Tylko po polsku');
+    expect(i.t('a')).toBe('Quelltext');
+  });
   it('klucz bez wpisu w źródle: tryb ścisły rzuca błąd', async () => {
     const i = await utworzI18n(slowniki, 'de', { scisle: true });
     expect(() => i.t('nie.ma')).toThrow(/nie\.ma/);

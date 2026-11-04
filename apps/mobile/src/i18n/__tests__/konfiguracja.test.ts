@@ -6,7 +6,7 @@ import { SLOWNIKI, WYDANE } from '../slowniki';
 const korzen = join(__dirname, '../../..');
 const app = JSON.parse(readFileSync(join(korzen, 'app.json'), 'utf8')).expo;
 const wtyczka = (app.plugins as unknown[]).find((p) => Array.isArray(p) && p[0] === 'expo-localization') as [string, { supportedLocales: { ios: string[]; android: string[] }; supportsRTL: boolean }] | undefined;
-const pliki = readdirSync(join(__dirname, '../locales')).filter((f) => /^[A-Za-z-]+\.json$/.test(f) && !f.includes('kontekst')).map((f) => f.replace('.json', ''));
+const pliki = readdirSync(join(__dirname, '../locales')).filter((f) => /^[A-Za-z0-9-]+\.json$/.test(f) && !f.includes('kontekst')).map((f) => f.replace('.json', ''));
 const razem = (a: readonly string[]) => [...a].sort();
 
 describe('supportedLocales = słowniki = rejestr (definicja ukończenia roli 09)', () => {
