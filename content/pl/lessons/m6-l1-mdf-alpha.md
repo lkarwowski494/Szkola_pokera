@@ -86,10 +86,10 @@ drills:
     id: m6.l1.q-exploit-river
     family: m6.exploit
     rules: [R-M6-004]
-    prompt: "Mikrostawki. Pasywny gracz, który przez całe rozdanie tylko {{t:call|sprawdzał}}, na riverze nagle {{t:bet|stawia}} całą {{t:pot|pulę}}. Masz {{t:pair|parę}} króli ze słabym kickerem. Co robisz?"
+    prompt: "Gracz, o którym z wielu wcześniejszych rozdań wiesz, że rzadko {{t:bluff|blefuje}}, na riverze {{t:bet|stawia}} całą {{t:pot|pulę}}. Masz {{t:pair|parę}} króli ze słabym kickerem. Co robisz?"
     table: { hand: "Kd 9d", board: "Kc 8s 4h 2c Qs", position: BB }
     options:
-      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Ten gracz przez całe rozdanie tylko {{t:call|sprawdzał}}, więc z tego, co widzisz, rzadko {{t:bluff|blefuje}} dużym betem na riverze. Gdy {{t:bluff|blefów}} brakuje, twoja {{t:pair}} płaci głównie lepszym rękom (KQ, sety). Wobec takiego gracza {{t:fold|pasujesz}} częściej, niż wskazuje {{t:mdf}}." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Z wielu wcześniejszych rozdań wiesz, że ten gracz rzadko {{t:bluff|blefuje}}. Gdy {{t:bluff|blefów}} brakuje, twoja {{t:pair}} płaci głównie lepszym rękom (KQ, sety). Wobec takiego gracza {{t:fold|pasujesz}} częściej, niż wskazuje {{t:mdf}}." }
       - { text: "{{t:call|Sprawdzam}}, bo {{t:mdf}} każe bronić {{n:mdf.bet-pot}}", why: "{{t:mdf}} chroni przed graczem, który {{t:bluff|blefuje}} wystarczająco często. Ten gracz tego nie robi, więc trzymanie się {{t:mdf}} oddaje mu pieniądze." }
       - { text: "{{t:raise|Przebijam}} all-in", why: "Lepsze ręce zapłacą, gorsze {{t:fold|spasują}}. {{t:pair|Para}} ze słabym kickerem nie jest ręką do {{t:raise|przebicia}}." }
 ---
@@ -127,9 +127,9 @@ Przykład z rivera: w {{t:pot|puli}} jest {{n:ex.third.pot}}, rywal {{t:bet|staw
 
 Potrzebne equity z M2 dotyczy **jednej ręki**: czy {{t:call}} nią się opłaca. {{t:mdf}} dotyczy **całego {{t:range|zakresu}}**: jaką jego część bronisz. Przy becie 1/3 {{t:pot|puli}} na riverze {{t:mdf}} podpowiada, żeby bronić ok. {{n:mdf.bet-third}} rąk, a pojedyncze {{t:call}} opłaca się, gdy ręka wygrywa w co najmniej {{n:eq.bet-third}} przypadków.
 
-## Na flopie {{t:out-of-position}} bronisz trochę mniej
+## Na flopie {{t:out-of-position}} bronisz mniej
 
-{{t:mdf}} zakłada, że {{t:bluff}} rywala nie ma żadnych szans. Najbliżej prawdy jest to na riverze, gdzie {{t:draw|drawy}} już się nie poprawią. Na flopie {{t:bluff|blefy}} mają jeszcze equity: {{t:draw|drawy}} i wysokie karty mogą się poprawić. Do tego {{t:out-of-position}} nie zrealizujesz całego equity swoich słabych rąk. Dlatego na flopie {{t:out-of-position}} możesz bronić trochę mniej niż {{t:mdf}} i traktujesz go jako punkt odniesienia, a nie obowiązek; na małe c-bety nie {{t:fold|pasujesz}} jednak masowo. Na turnie solver broni średnio blisko {{t:mdf}}, inaczej niż na flopie {{t:out-of-position}}, gdzie broni mniej.
+{{t:mdf}} zakłada, że {{t:bluff}} rywala nie ma żadnych szans. Najbliżej prawdy jest to na riverze, gdzie {{t:draw|drawy}} już się nie poprawią. Na flopie {{t:bluff|blefy}} mają jeszcze equity: {{t:draw|drawy}} i wysokie karty mogą się poprawić. Do tego {{t:out-of-position}} nie zrealizujesz całego equity swoich słabych rąk. Dlatego na flopie {{t:out-of-position}} możesz bronić mniej niż {{t:mdf}} (na flopach złych dla obrońcy wyraźnie mniej) i traktujesz go jako punkt odniesienia, a nie obowiązek; na małe c-bety nie {{t:fold|pasujesz}} jednak masowo. W jednym przykładzie z turnu solver bronił średnio blisko {{t:mdf}}.
 
 :::note Gdy rywal rzadko {{t:bluff|blefuje}}
 {{t:mdf}} chroni cię przed graczem, który {{t:bluff|blefuje}} wystarczająco często. Jeśli z obserwacji wiesz, że konkretny gracz {{t:bluff|blefuje}} dużymi betami na riverze za rzadko, wobec niego {{t:fold|pasujesz}} częściej, niż wskazuje {{t:mdf}}: {{t:call|sprawdzanie}} słabszą {{t:pair|parą}} płaci głównie lepszym rękom. To {{t:exploit|eksploatacja}}, nie strategia wobec każdego (więcej w module 10).

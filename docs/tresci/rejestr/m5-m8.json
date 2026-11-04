@@ -251,7 +251,7 @@
   "id": "R-M5-007",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "jako aggressor preflop masz pozycję, a flop jest dry i wysoki, np. K-7-2 w trzech kolorach → c-betujesz często i mało, ok. {{n:cbet.size.small}} puli, bo masz przewagę zakresu, a słabe ręce rywala prawie nie mają szans: mały bet wystarczy, żeby je spasował, a gorsze pary wciąż go sprawdzą",
+  "twierdzenie": "jako aggressor preflop masz pozycję, a flop jest dry i wysoki, np. K-7-2 w trzech kolorach → c-betujesz często i mało, ok. {{n:cbet.size.small}} puli (uproszczenie: solver na takich flopach używa też overbetu), bo masz przewagę zakresu, a słabe ręce rywala prawie nie mają szans: mały bet wystarczy, żeby je spasował, a gorsze pary wciąż go sprawdzą",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
@@ -290,7 +290,7 @@
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": null,
+  "uproszczenie": "pominięty overbet: serwis komercyjnego solvera na flopach disconnected podaje także częsty rozmiar 130% („the 130% sizing is common as well”)",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
@@ -298,7 +298,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "„Często” jest względne: na suchych flopach z asem PokerCoaching podaje ok. 43% c-betu; GTO Wizard podaje też overbet 130% na flopach rozłączonych (rozmiar mieszany)."
+  "uwagi": "„Często” jest względne: na suchych flopach z asem PokerCoaching podaje ok. 43% c-betu; GTO Wizard podaje też overbet 130% na flopach rozłączonych (rozmiar mieszany). | E3 S3 2026-11-04 (A2): then nazywa uproszczenie (overbet); m5-l3 (case c-btn big, q-kj big, l. 110): „Większy bet spasuje mniej więcej te same ręce, a ryzykuje więcej” zamiast „nie spasuje więcej rąk”."
  },
  {
   "id": "R-M5-008",
@@ -561,7 +561,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Liczba 41,3% dotyczy dwóch rąk bez pary; GTO Gecko liczy całe zakresy (30,4% „obaj bez pary”). Kierunek zgodny."
+  "uwagi": "Liczba 41,3% dotyczy dwóch rąk bez pary; GTO Gecko liczy całe zakresy (30,4% „obaj bez pary”). Kierunek zgodny. | E3 S3 2026-11-04 (A2): m5-l4:56 (q-multi-value) bez uogólnienia „Button ma dużo króli… przewaga zakresu znika”; zostaje „w puli wieloosobowej solver często czeka nawet silnymi rękami, bo dwóch sprawdzających razem częściej trafiło flop”."
  },
  {
   "id": "R-M6-001",
@@ -638,7 +638,7 @@
   "id": "R-M6-003",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "dostajesz bet na flopie out-of-position → możesz bronić trochę mniej, niż wskazuje mdf; mdf traktujesz jako punkt odniesienia, nie obowiązek, ale na małe c-bety nie pasujesz masowo, bo blefy rywala mają jeszcze equity i mogą się poprawić, a out-of-position nie zrealizujesz całego equity swoich słabych rąk",
+  "twierdzenie": "dostajesz bet na flopie out-of-position → możesz bronić mniej, niż wskazuje mdf (na flopach złych dla obrońcy wyraźnie mniej); mdf traktujesz jako punkt odniesienia, nie obowiązek, ale na małe c-bety nie pasujesz masowo, bo blefy rywala mają jeszcze equity i mogą się poprawić, a out-of-position nie zrealizujesz całego equity swoich słabych rąk",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/mdf-alpha/",
@@ -678,7 +678,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "GTO Wizard podaje „flop or turn”; reguła ogranicza się do flopu zgodnie z danymi Upswing (na turnie obrona blisko MDF, decyzja D1 dokumentu 12 M7–M9)."
+  "uwagi": "GTO Wizard podaje „flop or turn”; reguła ogranicza się do flopu zgodnie z danymi Upswing (na turnie obrona blisko MDF, decyzja D1 dokumentu 12 M7–M9). | E3 S3 2026-11-04 (A2): then „mniej (na flopach złych dla obrońcy wyraźnie mniej)” zamiast „trochę mniej” (QQ3r wobec 33%: solver pasuje prawie połowę); m6-l1:132 i nagłówek bez „trochę”, zdanie o turnie zawężone do jednego przykładu."
  },
  {
   "id": "R-M6-004",
@@ -717,7 +717,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": "bez zmiany brzmienia, jeśli zostaną dane populacji; inaczej w if zamienić typ gracza na obserwację: „…gracz, o którym wiesz (z obserwacji), że rzadko blefuje”",
-  "uwagi": "Logika (mniej blefów niż wymaga cena → pas) to rachunek, szczebel 1. Przesłanka populacyjna („pasywni gracze rekreacyjni rzadko blefują na riverze”) ma tylko dwa źródła szczebla 4 bez danych (próba, stawki, pokój). CLAUDE.md: bez danych o populacji nie ma reguły eksploatacyjnej. Pole population w rules.yaml to przyznaje („bez liczb z bazy rąk”). E2 2026-11-04: poprawione według D-149 (content/pl/rules.yaml:468 if, :472 population; content/pl/lessons/m6-l1-mdf-alpha.md:92 i :135; content/pl/exams/m6.yaml:37): warunek na obserwację konkretnego gracza, bez twierdzenia o populacji; było CZĘŚCIOWO, status otwarte. Pytanie o dane populacji zostaje otwarte (bez wpływu na tekst).",
+  "uwagi": "Logika (mniej blefów niż wymaga cena → pas) to rachunek, szczebel 1. Przesłanka populacyjna („pasywni gracze rekreacyjni rzadko blefują na riverze”) ma tylko dwa źródła szczebla 4 bez danych (próba, stawki, pokój). CLAUDE.md: bez danych o populacji nie ma reguły eksploatacyjnej. Pole population w rules.yaml to przyznaje („bez liczb z bazy rąk”). E2 2026-11-04: poprawione według D-149 (content/pl/rules.yaml:468 if, :472 population; content/pl/lessons/m6-l1-mdf-alpha.md:92 i :135; content/pl/exams/m6.yaml:37): warunek na obserwację konkretnego gracza, bez twierdzenia o populacji; było CZĘŚCIOWO, status otwarte. Pytanie o dane populacji zostaje otwarte (bez wpływu na tekst). | E3 S3 2026-11-04 (A2): zadanie m6.l1.q-exploit-river: „Gracz, o którym z wielu wcześniejszych rozdań wiesz, że rzadko blefuje…” zamiast wniosku z jednego rozdania i etykiety „Mikrostawki”.",
   "decyzja": "D-149"
  },
  {
@@ -781,7 +781,7 @@
   "id": "R-M6-007",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "masz dwie wysokie karty bez pary i bez drawa, a c-bet jest duży (3/4 puli i więcej) → zwykle pasujesz, bo out-of-position taka ręka rzadko dochodzi do showdownu, a pair z wysokiej karty często i tak przegrywa; sprawdzasz raczej wtedy, gdy masz dodatkowy draw, najlepiej do najwyższego koloru",
+  "twierdzenie": "masz dwie wysokie karty bez pary i bez drawa, a c-bet jest duży (3/4 puli i więcej) → zwykle pasujesz (na suchych flopach z królem solver sprawdza jednak wiele rąk z asem), bo out-of-position taka ręka rzadko dochodzi do showdownu, a pair z wysokiej karty często i tak przegrywa; sprawdzasz raczej wtedy, gdy masz dodatkowy draw, najlepiej do najwyższego koloru",
   "zrodla": [
    {
     "adres": "https://upswingpoker.com/when-to-call-with-ace-high/",
@@ -807,7 +807,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Dane źródeł dotyczą c-betu 66%; reguła mówi „3/4 i więcej” (pas przy większym becie wynika tym bardziej z rachunku MDF). Wyjątek z K84 uzasadnia „zwykle”."
+  "uwagi": "Dane źródeł dotyczą c-betu 66%; reguła mówi „3/4 i więcej” (pas przy większym becie wynika tym bardziej z rachunku MDF). Wyjątek z K84 uzasadnia „zwykle”. | E3 S3 2026-11-04 (A2): reguła i m6-l2:132 nazywają sprzeczność na tym samym szczeblu (K84: „any pair and most of our Ax holdings”)."
  },
  {
   "id": "R-M6-008",
@@ -2099,7 +2099,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": "E3 S3 2026-11-04 (A2): m5-l3:112 dopisane „a na części flopów także overbetu” (te same źródła podają overbety 125–130% jako częste)."
  },
  {
   "id": "n:format.stack",
@@ -2227,7 +2227,7 @@
   "id": "n:xr.mult.low",
   "rodzaj": "liczba",
   "level": "heuristic",
-  "twierdzenie": "xr.mult.low = 3 [multiplier]; dolna granica przedziału „ok. 3–4,5 razy” (D-29): serwis szkoleniowy, Level-Up Podcast ep. 1 (Blackwood), 3,2x wobec dużych c-betów (https://upswingpoker.com/podcast/ep1-check-raise/)",
+  "twierdzenie": "xr.mult.low = 3 [multiplier]; dolna granica przedziału „ok. 3–4,5 razy” (D-29): serwis szkoleniowy, Level-Up Podcast ep. 1 (Blackwood), 3,2x wobec dużych c-betów (https://upswingpoker.com/podcast/ep1-check-raise/); 3 to zaokrąglenie 3,2x w dół (uproszczenie aplikacji)",
   "zrodla": [
    {
     "adres": "https://upswingpoker.com/podcast/ep1-check-raise/",
@@ -2238,7 +2238,7 @@
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": null,
+  "uproszczenie": "zaokrąglenie 3,2x ze źródła w dół do 3 (D-29), tekst używa „ok.”",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": "xr.mult.low",
@@ -2246,7 +2246,7 @@
   "jednostka": "multiplier",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Źródło podaje 3,2x; 3 to zaokrąglenie w dół przyjęte w D-29 („ok. 3–4,5”). Tekst używa „ok.”, więc zgodne."
+  "uwagi": "Źródło podaje 3,2x; 3 to zaokrąglenie w dół przyjęte w D-29 („ok. 3–4,5”). Tekst używa „ok.”, więc zgodne. | E3 S3 2026-11-04 (A2): opis w numbers.yaml nazywa zaokrąglenie 3,2x w dół uproszczeniem aplikacji."
  },
  {
   "id": "n:cbet.oop.a94.check",
@@ -2271,6 +2271,6 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": "źródło: „over 96%” — w treści „ponad 96%”, nie „96%”",
-  "uwagi": "odczyt sesji koordynującej (curl, cytat dosłowny) E2 2026-11-04: bez zmiany tekstu — treść używa tej liczby tylko przez cbet.oop.a94.bet w brzmieniu „mniej niż” (content/pl/lessons/m5-l4-bez-pozycji.md:36–37), co odpowiada „over 96%”; było CZĘŚCIOWO."
+  "uwagi": "odczyt sesji koordynującej (curl, cytat dosłowny) E2 2026-11-04: bez zmiany tekstu — treść używa tej liczby tylko przez cbet.oop.a94.bet w brzmieniu „mniej niż” (content/pl/lessons/m5-l4-bez-pozycji.md:36–37), co odpowiada „over 96%”; było CZĘŚCIOWO. | E3 S3 2026-11-04 (A2): stół zadania m5.l4.q-oop-strong zmieniony z A♠7♦2♣ na A♠9♥4♣ (flop ze źródła, A94r), więc „w tym układzie” dotyczy liczonego flopu."
  }
 ]

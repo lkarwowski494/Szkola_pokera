@@ -58,7 +58,7 @@ drills:
     rules: [R-M4-007]
     prompt: "Dostajesz 3-bet od gracza, który po flopie będzie mieć {{t:position|pozycję}}. Jaką część swoich {{t:open|otwarć}} zwykle {{t:fold|pasujesz}}?"
     options:
-      - { text: "Ok. {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}}", correct: true, why: "Tyle {{t:fold|pasują}} rozwiązania solverów i tabele. To tuż poniżej progu {{n:alpha.vs-3bet-ip-size}}: przy częstszym pasowaniu 3-bet rywala zarabiałby z każdą ręką." }
+      - { text: "Ok. {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}}", correct: true, why: "Mniej więcej tyle {{t:fold|pasują}} rozwiązania solverów i tabele; górna granica leży tuż poniżej progu {{n:alpha.vs-3bet-ip-size}}: przy częstszym pasowaniu 3-bet rywala zarabiałby z każdą ręką." }
       - { text: "Prawie wszystkie poza AA i KK", why: "Wtedy rywal zarabia, 3-betując dowolne dwie karty, bo {{t:fold|pasujesz}} znacznie częściej niż {{n:alpha.vs-3bet-ip-size}}." }
       - { text: "Mniej niż ćwierć", why: "Za mało {{t:fold|pasów}}: płaciłbyś 3-bety rękami, które przegrywają z {{t:range|zakresem}} rywala i źle grają po flopie." }
   - kind: choice

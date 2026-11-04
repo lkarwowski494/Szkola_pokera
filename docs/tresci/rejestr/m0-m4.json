@@ -160,7 +160,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Preflop blind liczy się jako zakład (Crown: „if no blind is placed”); wyjątek: duży blind po samych sprawdzeniach może czekać. Lekcja m1-l1 powinna to mieć przy pierwszym użyciu reguły (propozycja, nie sprawdzałem całej lekcji pod tym kątem)."
+  "uwagi": "Preflop blind liczy się jako zakład (Crown: „if no blind is placed”); wyjątek: duży blind po samych sprawdzeniach może czekać. Lekcja m1-l1 powinna to mieć przy pierwszym użyciu reguły (propozycja, nie sprawdzałem całej lekcji pod tym kątem). | E3 S3 2026-11-04 (A1): m1-l1 (ruch „Czekam”) i egzamin m1.exam.q2 mówią teraz „nikt przed tobą nie postawił ani nie przebił”, z wyjątkiem dużego blinda przed flopem."
  },
  {
   "id": "R-M1-002",
@@ -190,16 +190,9 @@
  {
   "id": "R-M1-003",
   "rodzaj": "regula",
-  "level": "rules",
+  "level": "math",
   "twierdzenie": "ktoś postawił, a nie chcesz grać dalej → pasujesz, bo tracisz tylko to, co już wpłaciłeś; każde call bez powodu to dodatkowa strata",
   "zrodla": [
-   {
-    "adres": "https://briggsoft.com/docs/pmavens/Rules_Roberts.htm",
-    "miejsce": "Section 3",
-    "cytat": "If in turn you verbally declare a fold, check, bet, call, or raise, you are forced to take that action.",
-    "odczyt": "2026-11-04",
-    "szczebel": 1
-   },
    {
     "adres": "rachunek: strata przy pasie = wpłacone dotąd; sprawdzenie bez equity zwiększa stratę o kwotę sprawdzenia",
     "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
@@ -217,7 +210,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": "E3 S3 2026-11-04 (A1): poziom rules → math (teza to rachunek: pas = strata wpłaconego, sprawdzenie bez dalszej gry zwiększa stratę o kwotę call); cytat Robert's Rules (deklaracja ruchu) usunięty jako niepopierający."
  },
  {
   "id": "R-M1-004",
@@ -735,7 +728,7 @@
   "id": "R-M3-009",
   "rodzaj": "regula",
   "level": "gto",
-  "twierdzenie": "wszyscy spasowali do ciebie na małym blindzie → otwierasz szeroko, ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, przebiciem do {{n:pf.open-size-sb}} albo pasem (uproszczenie: niektóre rozwiązania solverów część rąk z małego blinda dopłacają), bo grasz już tylko przeciw dużemu blindowi; po flopie mówisz pierwszy, więc nie otwierasz szerzej niż z Buttona tylko dlatego, że rywal jest jeden",
+  "twierdzenie": "wszyscy spasowali do ciebie na małym blindzie → otwierasz szeroko, ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, przebiciem do {{n:pf.open-size-sb}} albo pasem (uproszczenie: niektóre rozwiązania solverów część rąk z małego blinda dopłacają), bo grasz już tylko przeciw dużemu blindowi; po flopie mówisz pierwszy, więc otwierasz mniej więcej tak szeroko jak z Buttona, a nie dużo szerzej",
   "zrodla": [
    {
     "adres": "https://beyondgto.com/ranges/sb-open-6max-100bb",
@@ -782,7 +775,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": "then: „otwierasz szeroko, ok. 40–45% rąk, przebiciem do 3bb albo pasem (uproszczenie: niektóre rozwiązania solverów część rąk z małego blinda dopłacają)”",
-  "uwagi": "Przedział 40–45% to część wspólna strategii bez limpów (BeyondGTO 44, Upswing 40–50, Preflop Wizard 39–47); solver aplikacji 42,3% w przedziale. Sprzeczność „raise-or-fold” jak w R-M3-004. E2 2026-11-04: poprawione (rules.yaml R-M3-009 then i source; m3-l3-zakresy-otwarc.md:77); było CZĘŚCIOWO.",
+  "uwagi": "Przedział 40–45% to część wspólna strategii bez limpów (BeyondGTO 44, Upswing 40–50, Preflop Wizard 39–47); solver aplikacji 42,3% w przedziale. Sprzeczność „raise-or-fold” jak w R-M3-004. E2 2026-11-04: poprawione (rules.yaml R-M3-009 then i source; m3-l3-zakresy-otwarc.md:77); było CZĘŚCIOWO. | E3 S3 2026-11-04 (A1): uzasadnienie „nie szerzej niż z Buttona” zastąpione „mniej więcej tak szeroko jak z Buttona, a nie dużo szerzej” (źródła: SB 44% przy BTN 42%, solver aplikacji SB 42,3% przy BTN 41,4%).",
   "decyzja": "D-144"
  },
  {
@@ -928,12 +921,19 @@
   "id": "R-M4-003",
   "rodzaj": "regula",
   "level": "gto",
-  "twierdzenie": "jesteś na małym blindzie, a otworzył CO albo Button → prawie nie sprawdzasz: 3-betujesz albo pasujesz; wobec Buttona 3-betujesz górę zakresu (ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, m.in. 77+ (55 i 66 często), AJo+, KQo, A5s, A4s, T9s), a resztę pasujesz, bo po sprawdzeniu z małego blinda grasz out-of-position, a big-blind za tobą może jeszcze przebić; 3-bet daje inicjatywę i szansę wygrania puli od razu",
+  "twierdzenie": "jesteś na małym blindzie, a otworzył CO albo Button → prawie nie sprawdzasz: 3-betujesz albo pasujesz (wobec CO to uproszczenie: opublikowane rozwiązanie liczy spot wobec Buttona); wobec Buttona 3-betujesz górę zakresu (ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, m.in. 77+ (55 i 66 często), AJo+, KQo, A5s, A4s, T9s), a resztę pasujesz, bo po sprawdzeniu z małego blinda grasz out-of-position, a big-blind za tobą może jeszcze przebić; 3-bet daje inicjatywę i szansę wygrania puli od razu",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/",
     "miejsce": "3-bet Pots from the Small Blind (NL500, 100bb)",
     "cytat": "the SB barely calls anything. Instead, they almost exclusively 3-bet or fold",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/",
+    "miejsce": "podsumowanie (zasady na koniec artykułu)",
+    "cytat": "As a simplification, don’t cold-call from the SB: Play a 3-bet or fold strategy.",
     "odczyt": "2026-11-04",
     "szczebel": 2
    },
@@ -953,7 +953,7 @@
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": null,
+  "uproszczenie": "3-bet albo pas z małego blinda wobec CO: uogólnienie spotu SB vs BTN nazwane uproszczeniem przez serwis komercyjnego solvera",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
@@ -961,7 +961,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Liczby 14% / 2% przypisane GTO Wizard są tylko na obrazku (nie da się ich odczytać z tekstu); BeyondGTO: 13% 3-bet, 5% sprawdzeń. Skład (data-tip BeyondGTO): 77 66%, AJo 64%, KQo 77%, A5s 88%, A4s 72%, T9s 84% 3-betu; także 55 57% i 66 62% — dopisek „(solver aplikacji także 55 i 66)” sugeruje różnicę, której BeyondGTO nie potwierdza (lekcja m4-l1:93). E2 2026-11-04: rules.yaml R-M4-003 then („55 i 66 często” zamiast „solver aplikacji także 55 i 66”) i source (13% z odczytanego tekstu)."
+  "uwagi": "Liczby 14% / 2% przypisane GTO Wizard są tylko na obrazku (nie da się ich odczytać z tekstu); BeyondGTO: 13% 3-bet, 5% sprawdzeń. Skład (data-tip BeyondGTO): 77 66%, AJo 64%, KQo 77%, A5s 88%, A4s 72%, T9s 84% 3-betu; także 55 57% i 66 62% — dopisek „(solver aplikacji także 55 i 66)” sugeruje różnicę, której BeyondGTO nie potwierdza (lekcja m4-l1:93). E2 2026-11-04: rules.yaml R-M4-003 then („55 i 66 często” zamiast „solver aplikacji także 55 i 66”) i source (13% z odczytanego tekstu). | E3 S3 2026-11-04 (A1): część „wobec CO” nazwana w then uproszczeniem; dodany przeczytany cytat szczebla 2 (blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/, odczyt 2026-11-04) „As a simplification, don’t cold-call from the SB”."
  },
  {
   "id": "R-M4-004",
@@ -1013,7 +1013,7 @@
   "id": "R-M4-005",
   "rodzaj": "regula",
   "level": "gto",
-  "twierdzenie": "z pozycji przebijasz open z HJ albo CO → 3-betujesz głównie najlepsze ręce od góry i dokładasz kilka blefów z asami w kolorze (A5s, A4s); średnie ręce (np. 77–99, AJs, ATs, konektory w kolorze) grasz mieszanie: część 3-betujesz, część sprawdzasz. Button wobec CO zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a sprawdza ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}, bo rywal często sprawdza, więc chcesz mieć rękę, która dobrze gra w puli po sprawdzeniu",
+  "twierdzenie": "z pozycji przebijasz open z CO → 3-betujesz głównie najlepsze ręce od góry i dokładasz kilka blefów z asami w kolorze (A5s, A4s); średnie ręce (np. 77–99, AJs, ATs, konektory w kolorze) grasz mieszanie: część 3-betujesz, część sprawdzasz. Button wobec CO zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a sprawdza ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}, bo rywal często sprawdza, więc chcesz mieć rękę, która dobrze gra w puli po sprawdzeniu",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/",
@@ -1060,7 +1060,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": "then: „3-betujesz głównie najlepsze ręce od góry i dokładasz kilka blefów z asami w kolorze (A5s, A4s); średnie ręce (np. 77–99, AJs, ATs, konektory w kolorze) grasz mieszanie: część 3-betujesz, część sprawdzasz. Button wobec CO zwykle 3-betuje ok. 10–13% rąk, a sprawdza ok. 3–9%”",
-  "uwagi": "Trzecie źródło szczebla 2 (Poker Academy NL200: 12,5% / 3,0%) wypada poza przedziały 10–12% i 5–9%. Skład: BeyondGTO sprawdza małe pary w większości (44 76%, 22 58%), Poker Academy je pasuje („55–22 most of the time”), T9s i 65s 3-betuje w 85–87%. Część wspólna: góra 3-bet, środek mieszany; „małe pary sprawdzasz” nie jest częścią wspólną. E2 2026-11-04: poprawione (rules.yaml R-M4-005 then i source; m4-l1-3bet.md:97; liczby przez pf.*.btn-vs-co (m4-l1-3bet.md:79)); było SPRZECZNE.",
+  "uwagi": "Trzecie źródło szczebla 2 (Poker Academy NL200: 12,5% / 3,0%) wypada poza przedziały 10–12% i 5–9%. Skład: BeyondGTO sprawdza małe pary w większości (44 76%, 22 58%), Poker Academy je pasuje („55–22 most of the time”), T9s i 65s 3-betuje w 85–87%. Część wspólna: góra 3-bet, środek mieszany; „małe pary sprawdzasz” nie jest częścią wspólną. E2 2026-11-04: poprawione (rules.yaml R-M4-005 then i source; m4-l1-3bet.md:97; liczby przez pf.*.btn-vs-co (m4-l1-3bet.md:79)); było SPRZECZNE. | E3 S3 2026-11-04 (A1): warunek zawężony do otwarcia z CO (reguła i m4-l1:97); dla otwarcia z HJ brak przeczytanego źródła.",
   "decyzja": "D-144"
  },
  {
@@ -1182,7 +1182,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Przedziały 55–65 / 15–30 / 10–20% obejmują Poker Academy (szczebel 2) i Pailiku (66% pasów, o 1 pp ponad górną granicą — „ok.”). Deepfold odbiega (szczebel 4, słusznie odrzucony w D-04). „HUD ok. 55%” z source — nie odczytałem (bez adresu). Próg alpha 65,2% liczy też Poker Academy („fold needed = 65.2%”)."
+  "uwagi": "Przedziały 55–65 / 15–30 / 10–20% obejmują Poker Academy (szczebel 2) i Pailiku (66% pasów, o 1 pp ponad górną granicą — „ok.”). Deepfold odbiega (szczebel 4, słusznie odrzucony w D-04). „HUD ok. 55%” z source — nie odczytałem (bez adresu). Próg alpha 65,2% liczy też Poker Academy („fold needed = 65.2%”). | E3 S3 2026-11-04 (A1): m4-l3:100 „Przyjmujemy przedziały bliskie obu źródłom” (zamiast „obejmujące”); source: „przedział bliski źródłom, z górną granicą pasów tuż pod progiem z obliczenia”. „HUD ok. 55%” nadal bez adresu (dolna granica opiera się też na serwisie szczebla 4: 50–55)."
  },
  {
   "id": "R-M4-008",
@@ -1559,7 +1559,7 @@
   "id": "n:pf.3bet-freq.btn-vs-utg",
   "rodzaj": "liczba",
   "level": "gto",
-  "twierdzenie": "pf.3bet-freq.btn-vs-utg = 0.075 percent (source: serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb)",
+  "twierdzenie": "pf.3bet-freq.btn-vs-utg = 0.075 percent (source: serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb, wobec minimalnego otwarcia UTG do 2bb (pf.open-size.solver-utg))",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/",
@@ -1578,7 +1578,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Jedno źródło nierachunkowe (szczebel 2)."
+  "uwagi": "Jedno źródło nierachunkowe (szczebel 2). | E3 S3 2026-11-04 (A1): m4-l1:79 i opis podają warunek źródła: otwarcie UTG minimalne, do 2bb (pf.open-size.solver-utg)."
  },
  {
   "id": "n:pf.3bet-freq.sb-vs-btn",
@@ -1971,7 +1971,7 @@
   "id": "n:pf.call-freq.btn-vs-utg",
   "rodzaj": "liczba",
   "level": "gto",
-  "twierdzenie": "pf.call-freq.btn-vs-utg = 0.082 percent (source: serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb)",
+  "twierdzenie": "pf.call-freq.btn-vs-utg = 0.082 percent (source: serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb, wobec minimalnego otwarcia UTG do 2bb (pf.open-size.solver-utg))",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/",
@@ -1990,7 +1990,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Jedno źródło nierachunkowe (szczebel 2)."
+  "uwagi": "Jedno źródło nierachunkowe (szczebel 2). | E3 S3 2026-11-04 (A1): m4-l1:79 i opis podają warunek źródła: otwarcie UTG minimalne, do 2bb (pf.open-size.solver-utg)."
  },
  {
   "id": "n:pf.iso.base",
@@ -2497,7 +2497,7 @@
   "id": "n:pf.vs3bet.fold.high",
   "rodzaj": "liczba",
   "level": "heuristic",
-  "twierdzenie": "pf.vs3bet.fold.high = 0.65 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (serwis szkoleniowy, program do statystyk HUD); serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega))",
+  "twierdzenie": "pf.vs3bet.fold.high = 0.65 percent (source: przedział bliski źródłom, z górną granicą tuż pod progiem 65,2% z obliczenia (alpha.vs-3bet-ip-size; ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (serwis szkoleniowy, program do statystyk HUD); serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega))",
   "zrodla": [
    {
     "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
@@ -2530,7 +2530,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany."
+  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany. | E3 S3 2026-11-04 (A1): opis i m4-l3:100 „przedział bliski źródłom, górna granica tuż pod progiem 65,2%” zamiast „obejmujący źródła” (tabele uproszczone 66,1% > 65%); m4-l3:17 bez „w praktyce”; egzamin m4.exam.q6 „mniej więcej tyle”."
  },
  {
   "id": "n:pf.vs3bet.fold.low",

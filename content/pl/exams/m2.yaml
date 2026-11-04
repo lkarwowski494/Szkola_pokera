@@ -35,7 +35,7 @@ drills:
     rules: [R-M2-002]
     prompt: "Flop. Rywal jest all-in, a ty masz {{t:oesd|OESD}} ({{n:outs.oesd}} outów). Jeśli {{t:call|sprawdzisz}}, jaka jest szansa trafienia do rivera?"
     options:
-      - { text: "Ok. {{n:odds.oesd.flop-river}}", correct: true, why: "Rywal jest all-in, więc zobaczysz turn i rivera bez dalszych {{t:bet|zakładów}}. Liczysz dwie karty: {{n:outs.oesd}} × 4 ≈ {{n:odds.oesd.flop-river}}." }
+      - { text: "Ok. {{n:odds.oesd.flop-river}}", correct: true, why: "Rywal jest all-in, więc zobaczysz turn i rivera bez dalszych {{t:bet|zakładów}}. Liczysz dwie karty: reguła daje {{n:outs.oesd}} × 4 = {{n:odds.oesd.rule-flop}}, a dokładnie {{n:odds.oesd.flop-river}}." }
       - { text: "Ok. {{n:odds.oesd.flop-turn}}", why: "Tyle wynosi szansa na samym turnie. Przy all-inie zobaczysz też rivera." }
       - { text: "Ok. {{n:odds.flush.flop-river}}", why: "To szansa dla {{t:flush-draw|drawa do koloru}} z {{n:outs.flush}} outami. Ty masz {{n:outs.oesd}}." }
   - kind: choice

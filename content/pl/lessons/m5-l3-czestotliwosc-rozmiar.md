@@ -23,7 +23,7 @@ drills:
         why:
           check: "Za ostrożnie: na {{t:dry|suchym}}, wysokim flopie masz {{t:range-advantage|przewagę zakresu}}, a rywal zwykle chybił. {{t:check|Czekając}}, dajesz mu darmową kartę."
           small: "Tak: {{t:dry}}, wysoki flop sprzyja tobie. Mały {{t:bet}} wystarcza, żeby rywal {{t:fold|spasował}} słabe ręce, a gorsze {{t:pair|pary}} wciąż go {{t:call|sprawdzą}}."
-          big: "Dobra akcja, zły rozmiar: na {{t:dry|suchym}} flopie rywal ma mało {{t:draw|drawów}}, a ręce, które chybiły, {{t:fold|spasują}} także na mały {{t:bet}}. Większy {{t:bet}} nie {{t:fold|spasuje}} więcej rąk, a ryzykuje więcej. Betuj ok. {{n:cbet.size.small}} {{t:pot|puli}}."
+          big: "Dobra akcja, zły rozmiar: na {{t:dry|suchym}} flopie rywal ma mało {{t:draw|drawów}}, a ręce, które chybiły, {{t:fold|spasują}} także na mały {{t:bet}}. Większy {{t:bet}} {{t:fold|spasuje}} mniej więcej te same ręce, a ryzykuje więcej. Betuj ok. {{n:cbet.size.small}} {{t:pot|puli}}."
       - when: { height: [high, middle], suits: [rainbow, two-tone], ranks: [paired], trips: false }
         best: small
         rule: R-M5-009
@@ -47,7 +47,7 @@ drills:
     table: { hand: "Kh Jc", position: BTN, board: "Ks 7d 2c" }
     options:
       - { text: "C-bet {{n:cbet.btn.small}} ({{n:cbet.size.small}} {{t:pot|puli}})", correct: true, why: "Tak: {{t:top-pair}} ({{t:pair|para}} z najwyższą kartą na {{t:board|stole}}) na {{t:dry|suchym}} flopie. Mały {{t:bet}} dostanie {{t:call}} od siódemek, dwójek i słabszych króli, a rywal prawie nie ma {{t:draw|drawów}}." }
-      - { text: "C-bet {{n:cbet.btn.big}} ({{n:cbet.size.big}} {{t:pot|puli}})", sizeError: true, why: "Dobra akcja, zły rozmiar: na {{t:dry|suchym}} flopie rywal nie ma {{t:draw|drawów}}, a ręce, które chybiły, {{t:fold|spasują}} także na mały {{t:bet}}. Większy {{t:bet}} nie {{t:fold|spasuje}} więcej rąk, a ryzykuje więcej. Betuj ok. {{n:cbet.size.small}} {{t:pot|puli}}." }
+      - { text: "C-bet {{n:cbet.btn.big}} ({{n:cbet.size.big}} {{t:pot|puli}})", sizeError: true, why: "Dobra akcja, zły rozmiar: na {{t:dry|suchym}} flopie rywal nie ma {{t:draw|drawów}}, a ręce, które chybiły, {{t:fold|spasują}} także na mały {{t:bet}}. Większy {{t:bet}} {{t:fold|spasuje}} mniej więcej te same ręce, a ryzykuje więcej. Betuj ok. {{n:cbet.size.small}} {{t:pot|puli}}." }
       - { text: "{{t:check|Czekam}}", why: "Tracisz wartość: rywal ma wiele słabszych {{t:pair|par}} i rąk z asem, które zapłaciłyby mały {{t:bet}}. Na {{t:dry|suchym}} flopie z {{t:top-pair|najwyższą parą}} betujesz." }
   - kind: choice
     id: m5.l3.q-set-wet
@@ -107,9 +107,9 @@ C-bet ({{t:bet}} kontynuacyjny) to {{t:bet}} na flopie gracza, który ostatni {{
 
 ## {{t:dry|Suchy}} i wysoki flop: często i mało
 
-Na flopie takim jak [[Ks 7d 2c]] masz {{t:range-advantage|przewagę zakresu}}, a rywal prawie nie ma {{t:draw|drawów}}. Betujesz często i mało, ok. {{n:cbet.size.small}} {{t:pot|puli}}, czyli ok. {{n:cbet.btn.small}}. Mały {{t:bet}} wystarczy, żeby rywal {{t:fold|spasował}} ręce, które chybiły, a gorsze {{t:pair|pary}} wciąż go {{t:call|sprawdzą}}. Większy {{t:bet}} nie {{t:fold|spasuje}} więcej rąk, a ryzykuje więcej.
+Na flopie takim jak [[Ks 7d 2c]] masz {{t:range-advantage|przewagę zakresu}}, a rywal prawie nie ma {{t:draw|drawów}}. Betujesz często i mało, ok. {{n:cbet.size.small}} {{t:pot|puli}}, czyli ok. {{n:cbet.btn.small}}. Mały {{t:bet}} wystarczy, żeby rywal {{t:fold|spasował}} ręce, które chybiły, a gorsze {{t:pair|pary}} wciąż go {{t:call|sprawdzą}}. Większy {{t:bet}} {{t:fold|spasuje}} mniej więcej te same ręce, a ryzykuje więcej.
 
-Typowy mały c-bet to ok. {{n:cbet.range.small.low}}–{{n:cbet.range.small.high}} {{t:pot|puli}}, a duży ok. {{n:cbet.range.big.low}}–{{n:cbet.range.big.high}} (materiały szkoleniowe); solvery używają zwykle {{n:cbet.size.small}} oraz {{n:cbet.solver.big.low}}–{{n:cbet.size.big}} (opublikowane wyniki solverów).
+Typowy mały c-bet to ok. {{n:cbet.range.small.low}}–{{n:cbet.range.small.high}} {{t:pot|puli}}, a duży ok. {{n:cbet.range.big.low}}–{{n:cbet.range.big.high}} (materiały szkoleniowe); solvery używają zwykle {{n:cbet.size.small}} oraz {{n:cbet.solver.big.low}}–{{n:cbet.size.big}}, a na części flopów także {{t:overbet|overbetu}}, czyli {{t:bet|zakładu}} większego niż cała {{t:pot|pula}} (opublikowane wyniki solverów).
 
 ## Flop z wieloma {{t:draw|drawami}}: rzadziej, ale więcej
 

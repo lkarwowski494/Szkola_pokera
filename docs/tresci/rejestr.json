@@ -924,6 +924,34 @@
   ]
  },
  {
+  "id": "n:odds.oesd.rule-flop",
+  "rodzaj": "liczba",
+  "level": "math",
+  "twierdzenie": "odds.oesd.rule-flop = (formuła ruleOf2And4) [percent]; reguła 2 i 4",
+  "zrodla": [
+   {
+    "adres": "rachunek: ruleOf2And4(outs.oesd, streets.flop-river)",
+    "miejsce": "content/numbers.yaml",
+    "cytat": "outy × 4 przy dwóch kartach do odkrycia: 8 × 4 = 32",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": "reguła 2 i 4 to przybliżenie; wynik dokładny: n:odds.oesd.flop-river",
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "odds.oesd.rule-flop",
+  "wartosc": null,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "E3 S3 2026-11-04 (A6, sprawa przekrojowa exams/m2.yaml:38): egzamin m2.exam.q3 rozdziela szacunek z reguły 4 (32%) i wynik dokładny (31,5%) zamiast „8 × 4 ≈ 31,5%”.",
+  "partia": [
+   "auto"
+  ]
+ },
+ {
   "id": "n:streets.next-card",
   "rodzaj": "liczba",
   "level": "math",
@@ -2612,9 +2640,16 @@
  {
   "id": "n:cbet.oop.a94.bet",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "heuristic",
   "twierdzenie": "cbet.oop.a94.bet = (formuła diff) [percent]; obliczenie: 100% minus częstość czekania (serwis szkoleniowy, A94r)",
   "zrodla": [
+   {
+    "adres": "https://pokercoaching.com/blog/c-bet-on-ace-high-boards/",
+    "miejsce": "przykład A94r (CO vs BTN, 100bb)",
+    "cytat": "That being said, we will check over 96% of the time.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
+   },
    {
     "adres": "rachunek: diff(prob.certain, cbet.oop.a94.check)",
     "miejsce": "docs/tresci/odczyty/rachunek-2026-11-04.txt",
@@ -2632,7 +2667,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": "E3 S3 2026-11-04 (A5): twierdzenie „solver betuje w mniej niż 4%” stoi na cytacie serwisu szkoleniowego (szczebel 4, A94r); rachunek 1 − 0,96 jest drugim źródłem (szczebel 1, tylko odejmowanie). Poziom math → heuristic jak n:cbet.oop.a94.check. Stół zadania m5.l4.q-oop-strong to teraz A♠9♥4♣.",
   "partia": [
    "auto"
   ]
@@ -14524,7 +14559,7 @@
     "szczebel": 1
    }
   ],
-  "status": "potwierdzone",
+  "status": "wycofane",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
@@ -14533,7 +14568,8 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": "E3 S3 2026-11-04 (A5, sprawa przekrojowa „1/4 puli”): ta sama wielkość (bet/(pula+2·bet) przy becie 1/4 puli) miała dwa zapisy: 17% w lekcjach i 16,7% w egzaminach M6 i M7. Egzaminy używają teraz klucza n:eq.bet-quarter; klucz usunięty z numbers.yaml.",
+  "nastepca": "n:eq.bet-quarter",
   "partia": [
    "auto"
   ]
@@ -14720,7 +14756,7 @@
     "szczebel": 1
    }
   ],
-  "status": "potwierdzone",
+  "status": "wycofane",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
@@ -14729,7 +14765,8 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": "E3 S3 2026-11-04 (A5, sprawa przekrojowa „1/4 puli”): ta sama wielkość (bet/(pula+2·bet) przy becie 1/4 puli) miała dwa zapisy: 17% w lekcjach i 16,7% w egzaminach M6 i M7. Egzaminy używają teraz klucza n:eq.bet-quarter; klucz usunięty z numbers.yaml.",
+  "nastepca": "n:eq.bet-quarter",
   "partia": [
    "auto"
   ]
@@ -15436,7 +15473,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Preflop blind liczy się jako zakład (Crown: „if no blind is placed”); wyjątek: duży blind po samych sprawdzeniach może czekać. Lekcja m1-l1 powinna to mieć przy pierwszym użyciu reguły (propozycja, nie sprawdzałem całej lekcji pod tym kątem).",
+  "uwagi": "Preflop blind liczy się jako zakład (Crown: „if no blind is placed”); wyjątek: duży blind po samych sprawdzeniach może czekać. Lekcja m1-l1 powinna to mieć przy pierwszym użyciu reguły (propozycja, nie sprawdzałem całej lekcji pod tym kątem). | E3 S3 2026-11-04 (A1): m1-l1 (ruch „Czekam”) i egzamin m1.exam.q2 mówią teraz „nikt przed tobą nie postawił ani nie przebił”, z wyjątkiem dużego blinda przed flopem.",
   "partia": [
    "m0-m4"
   ]
@@ -15472,16 +15509,9 @@
  {
   "id": "R-M1-003",
   "rodzaj": "regula",
-  "level": "rules",
+  "level": "math",
   "twierdzenie": "ktoś postawił, a nie chcesz grać dalej → pasujesz, bo tracisz tylko to, co już wpłaciłeś; każde call bez powodu to dodatkowa strata",
   "zrodla": [
-   {
-    "adres": "https://briggsoft.com/docs/pmavens/Rules_Roberts.htm",
-    "miejsce": "Section 3",
-    "cytat": "If in turn you verbally declare a fold, check, bet, call, or raise, you are forced to take that action.",
-    "odczyt": "2026-11-04",
-    "szczebel": 1
-   },
    {
     "adres": "rachunek: strata przy pasie = wpłacone dotąd; sprawdzenie bez equity zwiększa stratę o kwotę sprawdzenia",
     "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m0-m4/rachunek_m0_m4.py",
@@ -15499,7 +15529,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": "E3 S3 2026-11-04 (A1): poziom rules → math (teza to rachunek: pas = strata wpłaconego, sprawdzenie bez dalszej gry zwiększa stratę o kwotę call); cytat Robert's Rules (deklaracja ruchu) usunięty jako niepopierający.",
   "partia": [
    "m0-m4"
   ]
@@ -16062,7 +16092,7 @@
   "id": "R-M3-009",
   "rodzaj": "regula",
   "level": "gto",
-  "twierdzenie": "wszyscy spasowali do ciebie na małym blindzie → otwierasz szeroko, ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, przebiciem do {{n:pf.open-size-sb}} albo pasem (uproszczenie: niektóre rozwiązania solverów część rąk z małego blinda dopłacają), bo grasz już tylko przeciw dużemu blindowi; po flopie mówisz pierwszy, więc nie otwierasz szerzej niż z Buttona tylko dlatego, że rywal jest jeden",
+  "twierdzenie": "wszyscy spasowali do ciebie na małym blindzie → otwierasz szeroko, ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, przebiciem do {{n:pf.open-size-sb}} albo pasem (uproszczenie: niektóre rozwiązania solverów część rąk z małego blinda dopłacają), bo grasz już tylko przeciw dużemu blindowi; po flopie mówisz pierwszy, więc otwierasz mniej więcej tak szeroko jak z Buttona, a nie dużo szerzej",
   "zrodla": [
    {
     "adres": "https://beyondgto.com/ranges/sb-open-6max-100bb",
@@ -16109,7 +16139,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": "then: „otwierasz szeroko, ok. 40–45% rąk, przebiciem do 3bb albo pasem (uproszczenie: niektóre rozwiązania solverów część rąk z małego blinda dopłacają)”",
-  "uwagi": "Przedział 40–45% to część wspólna strategii bez limpów (BeyondGTO 44, Upswing 40–50, Preflop Wizard 39–47); solver aplikacji 42,3% w przedziale. Sprzeczność „raise-or-fold” jak w R-M3-004. E2 2026-11-04: poprawione (rules.yaml R-M3-009 then i source; m3-l3-zakresy-otwarc.md:77); było CZĘŚCIOWO.",
+  "uwagi": "Przedział 40–45% to część wspólna strategii bez limpów (BeyondGTO 44, Upswing 40–50, Preflop Wizard 39–47); solver aplikacji 42,3% w przedziale. Sprzeczność „raise-or-fold” jak w R-M3-004. E2 2026-11-04: poprawione (rules.yaml R-M3-009 then i source; m3-l3-zakresy-otwarc.md:77); było CZĘŚCIOWO. | E3 S3 2026-11-04 (A1): uzasadnienie „nie szerzej niż z Buttona” zastąpione „mniej więcej tak szeroko jak z Buttona, a nie dużo szerzej” (źródła: SB 44% przy BTN 42%, solver aplikacji SB 42,3% przy BTN 41,4%).",
   "decyzja": "D-144",
   "partia": [
    "m0-m4"
@@ -16267,12 +16297,19 @@
   "id": "R-M4-003",
   "rodzaj": "regula",
   "level": "gto",
-  "twierdzenie": "jesteś na małym blindzie, a otworzył CO albo Button → prawie nie sprawdzasz: 3-betujesz albo pasujesz; wobec Buttona 3-betujesz górę zakresu (ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, m.in. 77+ (55 i 66 często), AJo+, KQo, A5s, A4s, T9s), a resztę pasujesz, bo po sprawdzeniu z małego blinda grasz out-of-position, a big-blind za tobą może jeszcze przebić; 3-bet daje inicjatywę i szansę wygrania puli od razu",
+  "twierdzenie": "jesteś na małym blindzie, a otworzył CO albo Button → prawie nie sprawdzasz: 3-betujesz albo pasujesz (wobec CO to uproszczenie: opublikowane rozwiązanie liczy spot wobec Buttona); wobec Buttona 3-betujesz górę zakresu (ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, m.in. 77+ (55 i 66 często), AJo+, KQo, A5s, A4s, T9s), a resztę pasujesz, bo po sprawdzeniu z małego blinda grasz out-of-position, a big-blind za tobą może jeszcze przebić; 3-bet daje inicjatywę i szansę wygrania puli od razu",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/",
     "miejsce": "3-bet Pots from the Small Blind (NL500, 100bb)",
     "cytat": "the SB barely calls anything. Instead, they almost exclusively 3-bet or fold",
+    "odczyt": "2026-11-04",
+    "szczebel": 2
+   },
+   {
+    "adres": "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/",
+    "miejsce": "podsumowanie (zasady na koniec artykułu)",
+    "cytat": "As a simplification, don’t cold-call from the SB: Play a 3-bet or fold strategy.",
     "odczyt": "2026-11-04",
     "szczebel": 2
    },
@@ -16292,7 +16329,7 @@
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": null,
+  "uproszczenie": "3-bet albo pas z małego blinda wobec CO: uogólnienie spotu SB vs BTN nazwane uproszczeniem przez serwis komercyjnego solvera",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
@@ -16300,7 +16337,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Liczby 14% / 2% przypisane GTO Wizard są tylko na obrazku (nie da się ich odczytać z tekstu); BeyondGTO: 13% 3-bet, 5% sprawdzeń. Skład (data-tip BeyondGTO): 77 66%, AJo 64%, KQo 77%, A5s 88%, A4s 72%, T9s 84% 3-betu; także 55 57% i 66 62% — dopisek „(solver aplikacji także 55 i 66)” sugeruje różnicę, której BeyondGTO nie potwierdza (lekcja m4-l1:93). E2 2026-11-04: rules.yaml R-M4-003 then („55 i 66 często” zamiast „solver aplikacji także 55 i 66”) i source (13% z odczytanego tekstu).",
+  "uwagi": "Liczby 14% / 2% przypisane GTO Wizard są tylko na obrazku (nie da się ich odczytać z tekstu); BeyondGTO: 13% 3-bet, 5% sprawdzeń. Skład (data-tip BeyondGTO): 77 66%, AJo 64%, KQo 77%, A5s 88%, A4s 72%, T9s 84% 3-betu; także 55 57% i 66 62% — dopisek „(solver aplikacji także 55 i 66)” sugeruje różnicę, której BeyondGTO nie potwierdza (lekcja m4-l1:93). E2 2026-11-04: rules.yaml R-M4-003 then („55 i 66 często” zamiast „solver aplikacji także 55 i 66”) i source (13% z odczytanego tekstu). | E3 S3 2026-11-04 (A1): część „wobec CO” nazwana w then uproszczeniem; dodany przeczytany cytat szczebla 2 (blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/, odczyt 2026-11-04) „As a simplification, don’t cold-call from the SB”.",
   "partia": [
    "m0-m4"
   ]
@@ -16358,7 +16395,7 @@
   "id": "R-M4-005",
   "rodzaj": "regula",
   "level": "gto",
-  "twierdzenie": "z pozycji przebijasz open z HJ albo CO → 3-betujesz głównie najlepsze ręce od góry i dokładasz kilka blefów z asami w kolorze (A5s, A4s); średnie ręce (np. 77–99, AJs, ATs, konektory w kolorze) grasz mieszanie: część 3-betujesz, część sprawdzasz. Button wobec CO zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a sprawdza ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}, bo rywal często sprawdza, więc chcesz mieć rękę, która dobrze gra w puli po sprawdzeniu",
+  "twierdzenie": "z pozycji przebijasz open z CO → 3-betujesz głównie najlepsze ręce od góry i dokładasz kilka blefów z asami w kolorze (A5s, A4s); średnie ręce (np. 77–99, AJs, ATs, konektory w kolorze) grasz mieszanie: część 3-betujesz, część sprawdzasz. Button wobec CO zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a sprawdza ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}, bo rywal często sprawdza, więc chcesz mieć rękę, która dobrze gra w puli po sprawdzeniu",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/",
@@ -16405,7 +16442,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": "then: „3-betujesz głównie najlepsze ręce od góry i dokładasz kilka blefów z asami w kolorze (A5s, A4s); średnie ręce (np. 77–99, AJs, ATs, konektory w kolorze) grasz mieszanie: część 3-betujesz, część sprawdzasz. Button wobec CO zwykle 3-betuje ok. 10–13% rąk, a sprawdza ok. 3–9%”",
-  "uwagi": "Trzecie źródło szczebla 2 (Poker Academy NL200: 12,5% / 3,0%) wypada poza przedziały 10–12% i 5–9%. Skład: BeyondGTO sprawdza małe pary w większości (44 76%, 22 58%), Poker Academy je pasuje („55–22 most of the time”), T9s i 65s 3-betuje w 85–87%. Część wspólna: góra 3-bet, środek mieszany; „małe pary sprawdzasz” nie jest częścią wspólną. E2 2026-11-04: poprawione (rules.yaml R-M4-005 then i source; m4-l1-3bet.md:97; liczby przez pf.*.btn-vs-co (m4-l1-3bet.md:79)); było SPRZECZNE.",
+  "uwagi": "Trzecie źródło szczebla 2 (Poker Academy NL200: 12,5% / 3,0%) wypada poza przedziały 10–12% i 5–9%. Skład: BeyondGTO sprawdza małe pary w większości (44 76%, 22 58%), Poker Academy je pasuje („55–22 most of the time”), T9s i 65s 3-betuje w 85–87%. Część wspólna: góra 3-bet, środek mieszany; „małe pary sprawdzasz” nie jest częścią wspólną. E2 2026-11-04: poprawione (rules.yaml R-M4-005 then i source; m4-l1-3bet.md:97; liczby przez pf.*.btn-vs-co (m4-l1-3bet.md:79)); było SPRZECZNE. | E3 S3 2026-11-04 (A1): warunek zawężony do otwarcia z CO (reguła i m4-l1:97); dla otwarcia z HJ brak przeczytanego źródła.",
   "decyzja": "D-144",
   "partia": [
    "m0-m4"
@@ -16533,7 +16570,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Przedziały 55–65 / 15–30 / 10–20% obejmują Poker Academy (szczebel 2) i Pailiku (66% pasów, o 1 pp ponad górną granicą — „ok.”). Deepfold odbiega (szczebel 4, słusznie odrzucony w D-04). „HUD ok. 55%” z source — nie odczytałem (bez adresu). Próg alpha 65,2% liczy też Poker Academy („fold needed = 65.2%”).",
+  "uwagi": "Przedziały 55–65 / 15–30 / 10–20% obejmują Poker Academy (szczebel 2) i Pailiku (66% pasów, o 1 pp ponad górną granicą — „ok.”). Deepfold odbiega (szczebel 4, słusznie odrzucony w D-04). „HUD ok. 55%” z source — nie odczytałem (bez adresu). Próg alpha 65,2% liczy też Poker Academy („fold needed = 65.2%”). | E3 S3 2026-11-04 (A1): m4-l3:100 „Przyjmujemy przedziały bliskie obu źródłom” (zamiast „obejmujące”); source: „przedział bliski źródłom, z górną granicą pasów tuż pod progiem z obliczenia”. „HUD ok. 55%” nadal bez adresu (dolna granica opiera się też na serwisie szczebla 4: 50–55).",
   "partia": [
    "m0-m4"
   ]
@@ -16915,7 +16952,7 @@
   "id": "n:pf.3bet-freq.btn-vs-utg",
   "rodzaj": "liczba",
   "level": "gto",
-  "twierdzenie": "pf.3bet-freq.btn-vs-utg = 0.075 percent (source: serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb)",
+  "twierdzenie": "pf.3bet-freq.btn-vs-utg = 0.075 percent (source: serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb, wobec minimalnego otwarcia UTG do 2bb (pf.open-size.solver-utg))",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/",
@@ -16934,7 +16971,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Jedno źródło nierachunkowe (szczebel 2).",
+  "uwagi": "Jedno źródło nierachunkowe (szczebel 2). | E3 S3 2026-11-04 (A1): m4-l1:79 i opis podają warunek źródła: otwarcie UTG minimalne, do 2bb (pf.open-size.solver-utg).",
   "partia": [
    "m0-m4"
   ]
@@ -17366,7 +17403,7 @@
   "id": "n:pf.call-freq.btn-vs-utg",
   "rodzaj": "liczba",
   "level": "gto",
-  "twierdzenie": "pf.call-freq.btn-vs-utg = 0.082 percent (source: serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb)",
+  "twierdzenie": "pf.call-freq.btn-vs-utg = 0.082 percent (source: serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb, wobec minimalnego otwarcia UTG do 2bb (pf.open-size.solver-utg))",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/",
@@ -17385,7 +17422,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Jedno źródło nierachunkowe (szczebel 2).",
+  "uwagi": "Jedno źródło nierachunkowe (szczebel 2). | E3 S3 2026-11-04 (A1): m4-l1:79 i opis podają warunek źródła: otwarcie UTG minimalne, do 2bb (pf.open-size.solver-utg).",
   "partia": [
    "m0-m4"
   ]
@@ -17948,7 +17985,7 @@
   "id": "n:pf.vs3bet.fold.high",
   "rodzaj": "liczba",
   "level": "heuristic",
-  "twierdzenie": "pf.vs3bet.fold.high = 0.65 percent (source: przedział obejmujący źródła (ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (serwis szkoleniowy, program do statystyk HUD); serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega))",
+  "twierdzenie": "pf.vs3bet.fold.high = 0.65 percent (source: przedział bliski źródłom, z górną granicą tuż pod progiem 65,2% z obliczenia (alpha.vs-3bet-ip-size; ADR-24; dokument 12 M4–M6, D-04): szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), solver NL200, CO wobec 3-betu Buttona do 7,5bb: pas 63,7%, sprawdzenie 17,2%, 4-bet 19,1%; serwis z uproszczonymi tabelami szkoleniowymi, uproszczone tabele szkoleniowe (https://pailiku.com/charts/co-vs-btn-3bet), przeliczone na zakres otwarcia CO: ok. 66/23/11; HUD ok. 55% pasów (serwis szkoleniowy, program do statystyk HUD); serwis szkoleniowy 50–55/30–40/5–8 (szczebel 4, odbiega))",
   "zrodla": [
    {
     "adres": "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide",
@@ -17981,7 +18018,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany.",
+  "uwagi": "Przedział obejmuje Poker Academy (szczebel 2) i Pailiku przeliczone (szczebel 4); Pailiku pas 66,1% jest o 1 pp nad 0,65. „HUD ok. 55%” nie odczytany. | E3 S3 2026-11-04 (A1): opis i m4-l3:100 „przedział bliski źródłom, górna granica tuż pod progiem 65,2%” zamiast „obejmujący źródła” (tabele uproszczone 66,1% > 65%); m4-l3:17 bez „w praktyce”; egzamin m4.exam.q6 „mniej więcej tyle”.",
   "partia": [
    "m0-m4"
   ]
@@ -20334,7 +20371,7 @@
   "id": "R-M5-007",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "jako aggressor preflop masz pozycję, a flop jest dry i wysoki, np. K-7-2 w trzech kolorach → c-betujesz często i mało, ok. {{n:cbet.size.small}} puli, bo masz przewagę zakresu, a słabe ręce rywala prawie nie mają szans: mały bet wystarczy, żeby je spasował, a gorsze pary wciąż go sprawdzą",
+  "twierdzenie": "jako aggressor preflop masz pozycję, a flop jest dry i wysoki, np. K-7-2 w trzech kolorach → c-betujesz często i mało, ok. {{n:cbet.size.small}} puli (uproszczenie: solver na takich flopach używa też overbetu), bo masz przewagę zakresu, a słabe ręce rywala prawie nie mają szans: mały bet wystarczy, żeby je spasował, a gorsze pary wciąż go sprawdzą",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
@@ -20373,7 +20410,7 @@
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": null,
+  "uproszczenie": "pominięty overbet: serwis komercyjnego solvera na flopach disconnected podaje także częsty rozmiar 130% („the 130% sizing is common as well”)",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
@@ -20381,7 +20418,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "„Często” jest względne: na suchych flopach z asem PokerCoaching podaje ok. 43% c-betu; GTO Wizard podaje też overbet 130% na flopach rozłączonych (rozmiar mieszany).",
+  "uwagi": "„Często” jest względne: na suchych flopach z asem PokerCoaching podaje ok. 43% c-betu; GTO Wizard podaje też overbet 130% na flopach rozłączonych (rozmiar mieszany). | E3 S3 2026-11-04 (A2): then nazywa uproszczenie (overbet); m5-l3 (case c-btn big, q-kj big, l. 110): „Większy bet spasuje mniej więcej te same ręce, a ryzykuje więcej” zamiast „nie spasuje więcej rąk”.",
   "partia": [
    "m5-m8"
   ]
@@ -20662,7 +20699,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Liczba 41,3% dotyczy dwóch rąk bez pary; GTO Gecko liczy całe zakresy (30,4% „obaj bez pary”). Kierunek zgodny.",
+  "uwagi": "Liczba 41,3% dotyczy dwóch rąk bez pary; GTO Gecko liczy całe zakresy (30,4% „obaj bez pary”). Kierunek zgodny. | E3 S3 2026-11-04 (A2): m5-l4:56 (q-multi-value) bez uogólnienia „Button ma dużo króli… przewaga zakresu znika”; zostaje „w puli wieloosobowej solver często czeka nawet silnymi rękami, bo dwóch sprawdzających razem częściej trafiło flop”.",
   "partia": [
    "m5-m8"
   ]
@@ -20748,7 +20785,7 @@
   "id": "R-M6-003",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "dostajesz bet na flopie out-of-position → możesz bronić trochę mniej, niż wskazuje mdf; mdf traktujesz jako punkt odniesienia, nie obowiązek, ale na małe c-bety nie pasujesz masowo, bo blefy rywala mają jeszcze equity i mogą się poprawić, a out-of-position nie zrealizujesz całego equity swoich słabych rąk",
+  "twierdzenie": "dostajesz bet na flopie out-of-position → możesz bronić mniej, niż wskazuje mdf (na flopach złych dla obrońcy wyraźnie mniej); mdf traktujesz jako punkt odniesienia, nie obowiązek, ale na małe c-bety nie pasujesz masowo, bo blefy rywala mają jeszcze equity i mogą się poprawić, a out-of-position nie zrealizujesz całego equity swoich słabych rąk",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/mdf-alpha/",
@@ -20788,7 +20825,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "GTO Wizard podaje „flop or turn”; reguła ogranicza się do flopu zgodnie z danymi Upswing (na turnie obrona blisko MDF, decyzja D1 dokumentu 12 M7–M9).",
+  "uwagi": "GTO Wizard podaje „flop or turn”; reguła ogranicza się do flopu zgodnie z danymi Upswing (na turnie obrona blisko MDF, decyzja D1 dokumentu 12 M7–M9). | E3 S3 2026-11-04 (A2): then „mniej (na flopach złych dla obrońcy wyraźnie mniej)” zamiast „trochę mniej” (QQ3r wobec 33%: solver pasuje prawie połowę); m6-l1:132 i nagłówek bez „trochę”, zdanie o turnie zawężone do jednego przykładu.",
   "partia": [
    "m5-m8"
   ]
@@ -20830,7 +20867,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": "bez zmiany brzmienia, jeśli zostaną dane populacji; inaczej w if zamienić typ gracza na obserwację: „…gracz, o którym wiesz (z obserwacji), że rzadko blefuje”",
-  "uwagi": "Logika (mniej blefów niż wymaga cena → pas) to rachunek, szczebel 1. Przesłanka populacyjna („pasywni gracze rekreacyjni rzadko blefują na riverze”) ma tylko dwa źródła szczebla 4 bez danych (próba, stawki, pokój). CLAUDE.md: bez danych o populacji nie ma reguły eksploatacyjnej. Pole population w rules.yaml to przyznaje („bez liczb z bazy rąk”). E2 2026-11-04: poprawione według D-149 (content/pl/rules.yaml:468 if, :472 population; content/pl/lessons/m6-l1-mdf-alpha.md:92 i :135; content/pl/exams/m6.yaml:37): warunek na obserwację konkretnego gracza, bez twierdzenia o populacji; było CZĘŚCIOWO, status otwarte. Pytanie o dane populacji zostaje otwarte (bez wpływu na tekst).",
+  "uwagi": "Logika (mniej blefów niż wymaga cena → pas) to rachunek, szczebel 1. Przesłanka populacyjna („pasywni gracze rekreacyjni rzadko blefują na riverze”) ma tylko dwa źródła szczebla 4 bez danych (próba, stawki, pokój). CLAUDE.md: bez danych o populacji nie ma reguły eksploatacyjnej. Pole population w rules.yaml to przyznaje („bez liczb z bazy rąk”). E2 2026-11-04: poprawione według D-149 (content/pl/rules.yaml:468 if, :472 population; content/pl/lessons/m6-l1-mdf-alpha.md:92 i :135; content/pl/exams/m6.yaml:37): warunek na obserwację konkretnego gracza, bez twierdzenia o populacji; było CZĘŚCIOWO, status otwarte. Pytanie o dane populacji zostaje otwarte (bez wpływu na tekst). | E3 S3 2026-11-04 (A2): zadanie m6.l1.q-exploit-river: „Gracz, o którym z wielu wcześniejszych rozdań wiesz, że rzadko blefuje…” zamiast wniosku z jednego rozdania i etykiety „Mikrostawki”.",
   "decyzja": "D-149",
   "partia": [
    "m5-m8"
@@ -20903,7 +20940,7 @@
   "id": "R-M6-007",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "masz dwie wysokie karty bez pary i bez drawa, a c-bet jest duży (3/4 puli i więcej) → zwykle pasujesz, bo out-of-position taka ręka rzadko dochodzi do showdownu, a pair z wysokiej karty często i tak przegrywa; sprawdzasz raczej wtedy, gdy masz dodatkowy draw, najlepiej do najwyższego koloru",
+  "twierdzenie": "masz dwie wysokie karty bez pary i bez drawa, a c-bet jest duży (3/4 puli i więcej) → zwykle pasujesz (na suchych flopach z królem solver sprawdza jednak wiele rąk z asem), bo out-of-position taka ręka rzadko dochodzi do showdownu, a pair z wysokiej karty często i tak przegrywa; sprawdzasz raczej wtedy, gdy masz dodatkowy draw, najlepiej do najwyższego koloru",
   "zrodla": [
    {
     "adres": "https://upswingpoker.com/when-to-call-with-ace-high/",
@@ -20929,7 +20966,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Dane źródeł dotyczą c-betu 66%; reguła mówi „3/4 i więcej” (pas przy większym becie wynika tym bardziej z rachunku MDF). Wyjątek z K84 uzasadnia „zwykle”.",
+  "uwagi": "Dane źródeł dotyczą c-betu 66%; reguła mówi „3/4 i więcej” (pas przy większym becie wynika tym bardziej z rachunku MDF). Wyjątek z K84 uzasadnia „zwykle”. | E3 S3 2026-11-04 (A2): reguła i m6-l2:132 nazywają sprzeczność na tym samym szczeblu (K84: „any pair and most of our Ax holdings”).",
   "partia": [
    "m5-m8"
   ]
@@ -22337,7 +22374,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": "E3 S3 2026-11-04 (A2): m5-l3:112 dopisane „a na części flopów także overbetu” (te same źródła podają overbety 125–130% jako częste).",
   "partia": [
    "m5-m8"
   ]
@@ -22467,7 +22504,7 @@
   "id": "n:xr.mult.low",
   "rodzaj": "liczba",
   "level": "heuristic",
-  "twierdzenie": "xr.mult.low = 3 [multiplier]; dolna granica przedziału „ok. 3–4,5 razy” (D-29): serwis szkoleniowy, Level-Up Podcast ep. 1 (Blackwood), 3,2x wobec dużych c-betów (https://upswingpoker.com/podcast/ep1-check-raise/)",
+  "twierdzenie": "xr.mult.low = 3 [multiplier]; dolna granica przedziału „ok. 3–4,5 razy” (D-29): serwis szkoleniowy, Level-Up Podcast ep. 1 (Blackwood), 3,2x wobec dużych c-betów (https://upswingpoker.com/podcast/ep1-check-raise/); 3 to zaokrąglenie 3,2x w dół (uproszczenie aplikacji)",
   "zrodla": [
    {
     "adres": "https://upswingpoker.com/podcast/ep1-check-raise/",
@@ -22478,7 +22515,7 @@
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": null,
+  "uproszczenie": "zaokrąglenie 3,2x ze źródła w dół do 3 (D-29), tekst używa „ok.”",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": "xr.mult.low",
@@ -22486,7 +22523,7 @@
   "jednostka": "multiplier",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Źródło podaje 3,2x; 3 to zaokrąglenie w dół przyjęte w D-29 („ok. 3–4,5”). Tekst używa „ok.”, więc zgodne.",
+  "uwagi": "Źródło podaje 3,2x; 3 to zaokrąglenie w dół przyjęte w D-29 („ok. 3–4,5”). Tekst używa „ok.”, więc zgodne. | E3 S3 2026-11-04 (A2): opis w numbers.yaml nazywa zaokrąglenie 3,2x w dół uproszczeniem aplikacji.",
   "partia": [
    "m5-m8"
   ]
@@ -22514,7 +22551,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": "źródło: „over 96%” — w treści „ponad 96%”, nie „96%”",
-  "uwagi": "odczyt sesji koordynującej (curl, cytat dosłowny) E2 2026-11-04: bez zmiany tekstu — treść używa tej liczby tylko przez cbet.oop.a94.bet w brzmieniu „mniej niż” (content/pl/lessons/m5-l4-bez-pozycji.md:36–37), co odpowiada „over 96%”; było CZĘŚCIOWO.",
+  "uwagi": "odczyt sesji koordynującej (curl, cytat dosłowny) E2 2026-11-04: bez zmiany tekstu — treść używa tej liczby tylko przez cbet.oop.a94.bet w brzmieniu „mniej niż” (content/pl/lessons/m5-l4-bez-pozycji.md:36–37), co odpowiada „over 96%”; było CZĘŚCIOWO. | E3 S3 2026-11-04 (A2): stół zadania m5.l4.q-oop-strong zmieniony z A♠7♦2♣ na A♠9♥4♣ (flop ze źródła, A94r), więc „w tym układzie” dotyczy liczonego flopu.",
   "partia": [
    "m5-m8"
   ]
