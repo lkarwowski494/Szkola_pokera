@@ -7515,7 +7515,7 @@
   "id": "n:br.bi.move-down",
   "rodzaj": "liczba",
   "level": "math",
-  "twierdzenie": "br.bi.move-down = (formuła product) [count]; obliczenie: połowa bankrollu bazowego; zgodne z serwisem szkoleniowym („half the roll, which is the point to move down a stake”) i trenerem z serwisem szkoleniowym („If your bankroll drops below 15 buyins for your current stake, move down”)",
+  "twierdzenie": "br.bi.move-down = (formuła product) [count]; obliczenie: połowa bankrollu bazowego; zgodne z serwisem szkoleniowym („half the roll, which is the point to move down a stake”)",
   "zrodla": [
    {
     "adres": "rachunek: product(br.bi.base, ex.frac.half)",
@@ -7640,7 +7640,7 @@
   "id": "n:ror.base",
   "rodzaj": "liczba",
   "level": "math",
-  "twierdzenie": "ror.base = (formuła exp) [percent]; obliczenie: e^(−2·wr·BR/SD²), 30 wpisowych, winrate 3bb/100, SD 80bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”, wzór Malmutha)",
+  "twierdzenie": "ror.base = (formuła exp) [percent]; obliczenie: e^(−2·wr·BR/SD²), 30 wpisowych, winrate 3bb/100, SD 80bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”)",
   "zrodla": [
    {
     "adres": "rachunek: exp(ror.base.neg)",
@@ -7765,7 +7765,7 @@
   "id": "n:ror.half",
   "rodzaj": "liczba",
   "level": "math",
-  "twierdzenie": "ror.half = (formuła exp) [percent]; obliczenie: e^(−2·wr·BR/SD²), 15 wpisowych, winrate 3bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”, wzór Malmutha)",
+  "twierdzenie": "ror.half = (formuła exp) [percent]; obliczenie: e^(−2·wr·BR/SD²), 15 wpisowych, winrate 3bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”)",
   "zrodla": [
    {
     "adres": "rachunek: exp(ror.half.neg)",
@@ -7865,7 +7865,7 @@
   "id": "n:ror.base.wr-ex",
   "rodzaj": "liczba",
   "level": "math",
-  "twierdzenie": "ror.base.wr-ex = (formuła exp) [percent]; obliczenie: e^(−2·wr·BR/SD²), 30 wpisowych, winrate 5bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”, wzór Malmutha)",
+  "twierdzenie": "ror.base.wr-ex = (formuła exp) [percent]; obliczenie: e^(−2·wr·BR/SD²), 30 wpisowych, winrate 5bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”)",
   "zrodla": [
    {
     "adres": "rachunek: exp(ror.base.wr-ex.neg)",
@@ -7965,7 +7965,7 @@
   "id": "n:ror.base.wr-min",
   "rodzaj": "liczba",
   "level": "math",
-  "twierdzenie": "ror.base.wr-min = (formuła exp) [percent]; obliczenie: e^(−2·wr·BR/SD²), 30 wpisowych, winrate 1bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”, wzór Malmutha)",
+  "twierdzenie": "ror.base.wr-min = (formuła exp) [percent]; obliczenie: e^(−2·wr·BR/SD²), 30 wpisowych, winrate 1bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”)",
   "zrodla": [
    {
     "adres": "rachunek: exp(ror.base.wr-min.neg)",
@@ -8090,7 +8090,7 @@
   "id": "n:ror.beginner.wr-min",
   "rodzaj": "liczba",
   "level": "math",
-  "twierdzenie": "ror.beginner.wr-min = (formuła exp) [percent]; obliczenie: e^(−2·wr·BR/SD²), 50 wpisowych, winrate 1bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”, wzór Malmutha)",
+  "twierdzenie": "ror.beginner.wr-min = (formuła exp) [percent]; obliczenie: e^(−2·wr·BR/SD²), 50 wpisowych, winrate 1bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”)",
   "zrodla": [
    {
     "adres": "rachunek: exp(ror.beginner.wr-min.neg)",
@@ -12312,6 +12312,106 @@
   "wielkosc": "m13.lose.of-ten",
   "wartosc": null,
   "jednostka": "count",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:m13.noise.blocks",
+  "rodzaj": "liczba",
+  "level": "math",
+  "twierdzenie": "m13.noise.blocks = (formuła product) [count]; obliczenie: liczba bloków po 100 rąk",
+  "zrodla": [
+   {
+    "adres": "rachunek: product(m13.noise.hands.k, var.blocks-per-k)",
+    "miejsce": "docs/tresci/odczyty/rachunek-2026-11-04.txt",
+    "cytat": "przeliczone niezależnie w Pythonie z definicji wzoru; 0 rozbieżności z content-build",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "m13.noise.blocks",
+  "wartosc": null,
+  "jednostka": "count",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:m13.noise.sqrt",
+  "rodzaj": "liczba",
+  "level": "math",
+  "twierdzenie": "m13.noise.sqrt = (formuła sqrt) [ratio]; obliczenie: √(liczba bloków)",
+  "zrodla": [
+   {
+    "adres": "rachunek: sqrt(m13.noise.blocks)",
+    "miejsce": "docs/tresci/odczyty/rachunek-2026-11-04.txt",
+    "cytat": "przeliczone niezależnie w Pythonie z definicji wzoru; 0 rozbieżności z content-build",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "m13.noise.sqrt",
+  "wartosc": null,
+  "jednostka": "ratio",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:m13.noise.se",
+  "rodzaj": "liczba",
+  "level": "math",
+  "twierdzenie": "m13.noise.se = (formuła quotient) [bb100]; obliczenie: błąd standardowy winrate = SD ÷ √(liczba bloków)",
+  "zrodla": [
+   {
+    "adres": "rachunek: quotient(var.sd, m13.noise.sqrt)",
+    "miejsce": "docs/tresci/odczyty/rachunek-2026-11-04.txt",
+    "cytat": "przeliczone niezależnie w Pythonie z definicji wzoru; 0 rozbieżności z content-build",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "m13.noise.se",
+  "wartosc": null,
+  "jednostka": "bb100",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": ""
+ },
+ {
+  "id": "n:m13.noise.ci",
+  "rodzaj": "liczba",
+  "level": "math",
+  "twierdzenie": "m13.noise.ci = (formuła product) [bb100]; obliczenie: połowa przedziału 95% dla winrate po ok. 2,5 tys. rąk (ok. ±31bb/100 przy SD 80)",
+  "zrodla": [
+   {
+    "adres": "rachunek: product(var.z95, m13.noise.se)",
+    "miejsce": "docs/tresci/odczyty/rachunek-2026-11-04.txt",
+    "cytat": "przeliczone niezależnie w Pythonie z definicji wzoru; 0 rozbieżności z content-build",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "m13.noise.ci",
+  "wartosc": null,
+  "jednostka": "bb100",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
   "uwagi": ""

@@ -86,7 +86,7 @@ drills:
     options:
       - { text: "W poprawie najgorszej gry (C-game)", correct: true, why: "Postęp przypomina ruch gąsienicy: krok naprzód z przodu (lepsza A-game) i krok z tyłu (mniej fatalna C-game). Usunięcie najgorszych błędów zwalnia też uwagę na naukę nowych rzeczy." }
       - { text: "Tylko w szlifowaniu najlepszej gry (A-game)", why: "A-game jest ważna, ale to C-game kosztuje najwięcej. Bez poprawy najgorszych dni postęp z przodu łatwo traci się z tyłu." }
-      - { text: "Nigdzie, forma to kwestia szczęścia", why: "Rozrzut formy da się zawężać: gracze dobrze kontrolujący tilt mają węższy rozkład poziomu gry (badanie z 2020 roku)." }
+      - { text: "Nigdzie, forma to kwestia szczęścia", why: "Rozrzut formy da się zawężać: gracze dobrze kontrolujący tilt mają węższy rozkład poziomu gry (przegląd z 2020 roku)." }
   - kind: choice
     id: m12.l3.q-compare
     family: m12.abc-game
@@ -130,5 +130,5 @@ Gdy tilt urośnie, wyłącza zdolność myślenia. Dlatego reagujesz na pierwsze
 Twoja gra ma rozrzut: od najlepszej (A-game) do najgorszej (C-game). Postęp przypomina ruch gąsienicy: krok naprzód z przodu, gdy najlepsza gra staje się lepsza, i krok z tyłu, gdy najgorsza staje się mniej fatalna. Najwięcej kosztuje C-game, więc od niej zaczynasz.
 
 :::note Gdy to coś więcej niż tilt
-Ten sam podręcznik odróżnia problem z grą od problemu z hazardem. Jeśli stale grasz dłużej niż planujesz, odgrywasz się albo grasz za pieniądze, których nie możesz stracić, przeczytaj kartę o odpowiedzialnej grze w lekcji o bankrollu.
+Jeśli stale grasz dłużej niż planujesz, odgrywasz się albo grasz za pieniądze, których nie możesz stracić, przeczytaj kartę o odpowiedzialnej grze w lekcji o bankrollu.
 :::

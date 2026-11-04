@@ -44,7 +44,7 @@ drills:
     options:
       - { text: "Zgodna", correct: true, why: "Tak: {{t:call}} grane w ok. {{n:range.mixed.low}} przypadków nie schodzi poniżej progu zgodnej ({{n:range.mixed.low}}). To {{t:mixed-hand|ręka mieszana}}." }
       - { text: "Dopuszczalna", why: "Dopuszczalna jest akcja grana w co najmniej {{n:range.mixed.min}}, ale rzadziej niż w {{n:range.mixed.low}} przypadków. Tu {{t:call}} sięga progu zgodnej." }
-      - { text: "Błąd", why: "Błąd to akcja grana przez solver rzadziej niż w {{n:range.mixed.min}} przypadków albo wcale." }
+      - { text: "Błąd", why: "Błąd to akcja, której solver nie gra wcale. Akcja grana rzadziej niż w {{n:range.mixed.min}} przypadków to niedokładność." }
   - kind: choice
     id: m13.l1.q-size
     family: m13.verdicts
@@ -87,10 +87,10 @@ szansa przegranej = 1 − equity
 
 ## Stopnie oceny
 
-- **Zgodna**: akcja, którą zaleca reguła, albo grana przez solver w co najmniej {{n:range.mixed.low}} przypadków.
+- **Zgodna**: akcja, którą zaleca reguła, albo grana przez solver w co najmniej {{n:range.mixed.low}} przypadków (ten próg to ustawienie aplikacji).
 - **Dopuszczalna**: solver gra ją rzadko (co najmniej {{n:range.mixed.min}}, ale rzadziej niż {{n:range.mixed.low}}) albo reguła mówi o częstotliwości („często”, „rzadziej”), a ty wybrałeś rzadszą opcję. To nie błąd.
-- **Niedokładność**: dobra akcja, zły rozmiar. Liczy się jak błąd.
-- **Błąd**: akcja sprzeczna z regułą sformułowaną kategorycznie albo grana przez solver rzadziej niż w {{n:range.mixed.min}} przypadków.
+- **Niedokładność**: dobra akcja, zły rozmiar, albo akcja, którą solver gra, ale rzadziej niż w {{n:range.mixed.min}} przypadków. Liczy się jak błąd: to ustawienie aplikacji, nie teoria.
+- **Błąd**: akcja sprzeczna z regułą sformułowaną kategorycznie albo taka, której solver nie gra wcale.
 - **Bez oceny**: aplikacja nie ma do tej decyzji sprawdzalnej reguły. To nie znaczy „dobrze”.
 - **Przekroczony czas**: przy włączonym limicie aplikacja zagrała za ciebie. Taka decyzja nie liczy się do oceny, ale wraca w powtórkach.
 
@@ -102,8 +102,8 @@ Gdy solver gra twoją rękę na dwa sposoby, oba są poprawne. Teoria równowagi
 
 ## Wynik w {{t:chips|żetonach}}
 
-Wynik jest na dole raportu, małą czcionką. Według analizy {{t:variance|wariancji}} wyników nawet po ok. dwóch i pół tysiąca rąk wynik to prawie sam szum: gracz wygrywający może być na minusie, a przegrywający na dużym plusie. {{t:session|Sesja}} ma kilkadziesiąt rozdań, więc wynik prawie nic nie mówi o twojej grze.
+Wynik jest na dole raportu, małą czcionką. Według rachunku z lekcji o {{t:variance|wariancji}} po ok. {{n:m13.noise.hands.k}} tys. rąk przedział {{n:var.conf95}} dla winrate ma ok. ± {{n:m13.noise.ci}}, więc wynik to prawie sam szum: gracz wygrywający może być na minusie, a przegrywający na dużym plusie. {{t:session|Sesja}} ma kilkadziesiąt rozdań, więc wynik prawie nic nie mówi o twojej grze.
 
 :::note Skąd te zasady
-Zasada obojętności: materiały o podstawach teorii równowagi. Próg rzadkiego ruchu: materiał o ocenie własnej gry względem solvera. {{t:variance|Wariancja}} wyniku: analiza tego, po ilu godzinach gry można ufać swojemu winrate. Szansa przegranej to rachunek.
+Zasada obojętności: materiały o podstawach teorii równowagi. Próg rzadkiego ruchu i nazwa „niedokładność”: materiał o ocenie własnej gry względem solvera. Próg {{n:range.mixed.low}} to ustawienie aplikacji, bez źródła. {{t:variance|Wariancja}} wyniku i szansa przegranej to rachunek.
 :::

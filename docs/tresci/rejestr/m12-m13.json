@@ -202,7 +202,7 @@
   "id": "R-M12-007",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "po serii strat nie potrafisz już spokojnie ocenić decyzji, chcesz się odegrać albo grasz ręce, które zwykle pasujesz → kończysz sesję, bo dalsza gra w tym stanie to gra na twoim najgorszym poziomie (C-game), a celem jest skończyć wcześniej, zanim stracisz zdolność jasnego myślenia",
+  "twierdzenie": "po serii strat nie potrafisz już spokojnie ocenić decyzji (np. myślisz tylko o odegraniu się albo grasz ręce, które zwykle pasujesz) → kończysz sesję, bo dalsza gra w tym stanie to gra na twoim najgorszym poziomie (C-game), a celem jest skończyć wcześniej, zanim stracisz zdolność jasnego myślenia",
   "zrodla": [
    {
     "adres": "https://www.thehendonmob.com/jared_tendler/mental_game_of_poker_excerpt_5_inchworm/",
@@ -219,9 +219,10 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "if: „po serii strat nie potrafisz już spokojnie ocenić decyzji (np. myślisz tylko o odegraniu się albo grasz ręce, które zwykle pasujesz)” — warunek ze źródła to utrata jasnego myślenia; chęć odegrania się i luźniejsza gra mają być jej przykładami, a nie osobnymi, samodzielnymi wyzwalaczami (przy pierwszych sygnałach Tendler zaleca najpierw oddech i logikę, R-M12-006).",
-  "uwagi": "Źródło: kończ, gdy nie da się odzyskać jasnego myślenia. Reguła z „albo” kończy sesję już przy samej chęci odegrania się, co wykracza poza źródło i koliduje z R-M12-006. Pojęcie „C-game” w because zgodne z fragmentem. Jedno źródło nierachunkowe."
+  "uwagi": "Źródło: kończ, gdy nie da się odzyskać jasnego myślenia. Reguła z „albo” kończy sesję już przy samej chęci odegrania się, co wykracza poza źródło i koliduje z R-M12-006. Pojęcie „C-game” w because zgodne z fragmentem. Jedno źródło nierachunkowe. | E2 2026-11-04: poprawione (content/pl/rules.yaml:1003); było CZĘŚCIOWO; odegranie się jako przykład, nie osobny warunek (D-149)",
+  "decyzja": "D-149"
  },
  {
   "id": "R-M12-008",
@@ -358,7 +359,7 @@
   "id": "R-M12-011",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "bankroll spadnie poniżej połowy założonej liczby wpisowych (przy {{n:br.bi.base}} poniżej {{n:br.bi.move-down}}) → schodzisz o jedną stawkę niżej i wracasz, gdy bankroll się odbuduje, bo downswingi o {{n:dd.bi.small}} wpisowych zdarzają się prawie każdemu wygrywającemu, a przy {{n:br.bi.move-down}} wpisowych ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}}",
+  "twierdzenie": "bankroll spadnie poniżej połowy założonej liczby wpisowych (przy {{n:br.bi.base}} poniżej {{n:br.bi.move-down}}) → schodzisz o jedną stawkę niżej najpóźniej wtedy i wracasz, gdy bankroll się odbuduje, bo downswingi o {{n:dd.bi.small}} wpisowych zdarzają się prawie każdemu wygrywającemu, a przy {{n:br.bi.move-down}} wpisowych ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}}; lekcja: „Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich.”",
   "zrodla": [
    {
     "adres": "https://www.pokerskill.com/poker-glossary/bankroll-management/",
@@ -389,22 +390,23 @@
     "szczebel": 1
    }
   ],
-  "status": "sprzeczne",
+  "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
   "przeglad": null,
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "then: „schodzisz o jedną stawkę niżej najpóźniej wtedy i wracasz, gdy bankroll się odbuduje”; w lekcji m12-l4:142 dopisać: „Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich.”",
-  "uwagi": "Sprzeczność na szczeblu 4: próg zejścia = połowa bankrollu (PokerSkill; SplitSuit nieczytelny), 30 wpisowych przy 3bb/100 (PokerListings, czyli pełny bankroll), spadek o 10 wpisowych (Primedope, odrzucony w D-M12-08 rachunkiem: odpala u ~95% wygrywających). Rachunek (szczebel 1) pokazuje tylko kierunek: przy połowie bankrollu RoR 24,5% — wysoko. Proponowana decyzja: część wspólna = „najpóźniej przy połowie”. Uwaga: cytat SplitSuit z pola source nieprzeczytany (HTTP 403)."
+  "uwagi": "Sprzeczność na szczeblu 4: próg zejścia = połowa bankrollu (PokerSkill; SplitSuit nieczytelny), 30 wpisowych przy 3bb/100 (PokerListings, czyli pełny bankroll), spadek o 10 wpisowych (Primedope, odrzucony w D-M12-08 rachunkiem: odpala u ~95% wygrywających). Rachunek (szczebel 1) pokazuje tylko kierunek: przy połowie bankrollu RoR 24,5% — wysoko. Proponowana decyzja: część wspólna = „najpóźniej przy połowie”. Uwaga: cytat SplitSuit z pola source nieprzeczytany (HTTP 403). | E2 2026-11-04: poprawione (content/pl/rules.yaml:1036, :1039; content/pl/lessons/m12-l4-bankroll.md:142); było CZĘŚCIOWO; pole source bez nieodczytanego cytatu SplitSuit (403), zastąpione odczytaną tabelą PokerListings; to samo w numbers.yaml br.bi.move-down",
+  "decyzja": "D-146"
  },
  {
   "id": "R-M12-012",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "planujesz czas na poker → na początku ok. {{n:study.beginner}} czasu przeznaczasz na naukę; gdy wygrywasz na swojej stawce, ok. {{n:study.winner}}, ale nigdy mniej niż {{n:study.min}}, bo nauka z wyjaśnieniem i analiza rozdań dają więcej postępu niż sama gra",
+  "twierdzenie": "planujesz czas na poker → na początku ok. {{n:study.beginner}} czasu przeznaczasz na naukę; gdy wygrywasz na swojej stawce, ok. {{n:study.winner}}, ale nigdy mniej niż {{n:study.min}}, bo na początku masz najwięcej do nadrobienia, a gdy już wygrywasz na swojej stawce, możesz grać więcej",
   "zrodla": [
    {
     "adres": "https://www.pokerstrategy.com/news/content/What-should-your-study-to-play-ratio-be_130067/",
@@ -428,9 +430,10 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "because: „na początku masz najwięcej do nadrobienia, a nauka buduje nawyk, który zostaje na lata (zdanie trenera)” albo usunąć porównanie „nauka daje więcej postępu niż sama gra”, dopóki nie ma przeczytanego źródła.",
-  "uwagi": "Liczby 80/50/20 poparte jednym źródłem (szczebel 4). Uzasadnienie „nauka z wyjaśnieniem i analiza rozdań dają więcej postępu niż sama gra” nie ma przeczytanego źródła: Southwick i in. (2026) to badanie szachistów, odczytano tylko spis treści. Autorem artykułu jest Dara O'Kearney (pole source: „Barry Carter o zdaniu Dary”)."
+  "uwagi": "Liczby 80/50/20 poparte jednym źródłem (szczebel 4). Uzasadnienie „nauka z wyjaśnieniem i analiza rozdań dają więcej postępu niż sama gra” nie ma przeczytanego źródła: Southwick i in. (2026) to badanie szachistów, odczytano tylko spis treści. Autorem artykułu jest Dara O'Kearney (pole source: „Barry Carter o zdaniu Dary”). | E2 2026-11-04: poprawione (content/pl/rules.yaml:1045, :1047); było CZĘŚCIOWO; uzasadnienie ze źródła („so much catching up to do”, „reduce the study and increase the grinding”); usunięte Southwick i in. (2026) i porównanie „więcej postępu niż sama gra”; autor: Dara O'Kearney (rules.yaml i numbers.yaml study.*)",
+  "decyzja": "D-149"
  },
  {
   "id": "R-M13-001",
@@ -542,9 +545,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "Lekcja m13-l2:93 „Trenerzy radzą” i ćwiczenie m13-l2:60 „Trenerzy patrzą” → „Jeden z trenerów radzi/patrzy” (5 i 10 okazji podaje jedno źródło, w pierwszej osobie: „For me personally”).",
-  "uwagi": "Reguła poparta; liczba okazji ma jedno źródło nierachunkowe (szczebel 4), opinię osobistą trenera. Druga część (VPIP 100–200) — PokerCoaching; Deepfold z R-M10-003 obsługuje partia M10."
+  "uwagi": "Reguła poparta; liczba okazji ma jedno źródło nierachunkowe (szczebel 4), opinię osobistą trenera. Druga część (VPIP 100–200) — PokerCoaching; Deepfold z R-M10-003 obsługuje partia M10. | E2 2026-11-04: poprawione (content/pl/lessons/m13-l2-powtorki.md:60, :93); było CZĘŚCIOWO; „Trenerzy” → „Jeden z trenerów” (opinia jednej osoby)"
  },
  {
   "id": "R-M13-005",
@@ -692,7 +695,7 @@
   "id": "n:br.bi.base",
   "rodzaj": "liczba",
   "level": null,
-  "twierdzenie": "serwis szkoleniowy, Bankroll Management („about 30 buy-ins for a clear winner”); trener z blogiem szkoleniowym („Experienced poker players can get by with a bankroll of 30 buyins”); serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („25-30 buy-ins at NL25-NL50”)",
+  "twierdzenie": "serwis szkoleniowy, Bankroll Management („about 30 buy-ins for a clear winner”); trener z blogiem szkoleniowym („Experienced poker players can get by with a bankroll of 30 buyins”); serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („25 to 30 at NL25 to NL50”, przy 5% ryzyka bankructwa)",
   "zrodla": [
    {
     "adres": "https://www.blackrain79.com/2015/06/the-complete-guide-to-bankroll.html",
@@ -730,9 +733,9 @@
   "wielkosc": "br.bi.base",
   "wartosc": 30,
   "jednostka": "count",
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "numbers.yaml:456, cytat Primedope: „25-30 buy-ins at NL25-NL50” → „25 to 30 at NL25 to NL50” (dosłownie; kontekst: przy 5% ryzyka bankructwa).",
-  "uwagi": "Wartość poparta; cytat w polu source niedosłowny."
+  "uwagi": "Wartość poparta; cytat w polu source niedosłowny. | E2 2026-11-04: poprawione (content/numbers.yaml:456); było CZĘŚCIOWO; cytat dosłowny"
  },
  {
   "id": "n:br.bi.beginner",
@@ -777,7 +780,7 @@
   "id": "n:br.bi.src-high",
   "rodzaj": "liczba",
   "level": null,
-  "twierdzenie": "serwis szkoleniowy, Poker Bankroll Management („No-Limit Online Cash Games: 100+ buy-ins”)",
+  "twierdzenie": "serwis szkoleniowy, Poker Bankroll Management Strategy (pokerlistings.com/poker-strategies/bankroll-management): „No-Limit Online Cash Games: 100+ buy-ins”",
   "zrodla": [
    {
     "adres": "https://www.pokerlistings.com/poker-strategies/bankroll-management",
@@ -801,15 +804,16 @@
   "wielkosc": "br.bi.src-high",
   "wartosc": 100,
   "jednostka": "count",
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "numbers.yaml:460: źródło cytatu to PokerListings, „Poker Bankroll Management Strategy” (pokerlistings.com/poker-strategies/bankroll-management), a nie serwis z dokumentu 12 (Upswing nie ma tego cytatu; Upswing podaje 50).",
-  "uwagi": "Wartość i cytat dosłowne; błędna atrybucja w dokumencie 12 (D-M12-07). | D-145: liczba atrybucji (co podaje źródło), nie próg zalecenia; zalecenie krytyczne stoi na rachunku RoR"
+  "uwagi": "Wartość i cytat dosłowne; błędna atrybucja w dokumencie 12 (D-M12-07). | D-145: liczba atrybucji (co podaje źródło), nie próg zalecenia; zalecenie krytyczne stoi na rachunku RoR | E2 2026-11-04: poprawione (content/numbers.yaml:460); było CZĘŚCIOWO; atrybucja do PokerListings; dokument 12 (Drive) nadal przypisuje cytat Upswing — do poprawy przez koordynatora",
+  "decyzja": "D-145"
  },
  {
   "id": "n:br.bi.src-low",
   "rodzaj": "liczba",
   "level": null,
-  "twierdzenie": "trener z serwisem szkoleniowym, How Much Poker Money Do You Need („always have at least 20 buy-ins for the stake you are playing”)",
+  "twierdzenie": "serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („Cash games at a 5% risk of ruin need 20 buy-ins at NL10 (where edges are larger)”)",
   "zrodla": [
    {
     "adres": "https://www.primedope.com/risk-of-ruin-formula-for-poker-players/",
@@ -826,9 +830,10 @@
   "wielkosc": "br.bi.src-low",
   "wartosc": 20,
   "jednostka": "count",
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "numbers.yaml:459: zastąpić nieodczytany cytat SplitSuit (HTTP 403) cytatem Primedope „Cash games at a 5% risk of ruin need 20 buy-ins at NL10 (where edges are larger)” albo ponowić odczyt SplitSuit.",
-  "uwagi": "Strona SplitSuit niedostępna (403) pod trzema adresami; wartość 20 poparta zamiennikiem szczebla 4 (jedno źródło). | D-145: liczba atrybucji (co podaje źródło), nie próg zalecenia; zalecenie krytyczne stoi na rachunku RoR"
+  "uwagi": "Strona SplitSuit niedostępna (403) pod trzema adresami; wartość 20 poparta zamiennikiem szczebla 4 (jedno źródło). | D-145: liczba atrybucji (co podaje źródło), nie próg zalecenia; zalecenie krytyczne stoi na rachunku RoR | E2 2026-11-04: poprawione (content/numbers.yaml:459); było CZĘŚCIOWO; nieodczytany cytat SplitSuit (403) zastąpiony odczytanym cytatem Primedope",
+  "decyzja": "D-145"
  },
  {
   "id": "n:dd.bi.small",
@@ -1001,9 +1006,9 @@
   "wielkosc": "hud.opps.look",
   "wartosc": 5,
   "jednostka": "count",
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "m13-l2:93 i m13-l2:60: „Trenerzy” → „Jeden z trenerów” (opinia jednej osoby).",
-  "uwagi": "Jedno źródło nierachunkowe; liczba okazji, nie rąk."
+  "uwagi": "Jedno źródło nierachunkowe; liczba okazji, nie rąk. | E2 2026-11-04: poprawione (content/pl/lessons/m13-l2-powtorki.md:60, :93); było CZĘŚCIOWO"
  },
  {
   "id": "n:hud.opps.sure",
@@ -1026,9 +1031,9 @@
   "wielkosc": "hud.opps.sure",
   "wartosc": 10,
   "jednostka": "count",
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "Jak hud.opps.look.",
-  "uwagi": "Jedno źródło nierachunkowe."
+  "uwagi": "Jedno źródło nierachunkowe. | E2 2026-11-04: poprawione (content/pl/lessons/m13-l2-powtorki.md:60, :93); było CZĘŚCIOWO"
  },
  {
   "id": "n:range.mixed.high",
@@ -1051,9 +1056,10 @@
   "wielkosc": "range.mixed.high",
   "wartosc": 0.75,
   "jednostka": "percent",
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "m13-l1, notka „Skąd te zasady” (linia 108): dopisać „Próg 25% to ustawienie aplikacji, bez źródła.”",
-  "uwagi": "Parametr aplikacji bez źródła; lekcja przedstawia go jak część teorii (m13-l1:90)."
+  "uwagi": "Parametr aplikacji bez źródła; lekcja przedstawia go jak część teorii (m13-l1:90). | E2 2026-11-04: poprawione (content/pl/lessons/m13-l1-raport.md:90, :108); było CZĘŚCIOWO; jak range.mixed.low",
+  "decyzja": "D-145"
  },
  {
   "id": "n:range.mixed.low",
@@ -1076,15 +1082,16 @@
   "wielkosc": "range.mixed.low",
   "wartosc": 0.25,
   "jednostka": "percent",
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "Jak range.mixed.high (m13-l1:90 i :108).",
-  "uwagi": "Parametr aplikacji bez źródła."
+  "uwagi": "Parametr aplikacji bez źródła. | E2 2026-11-04: poprawione (content/pl/lessons/m13-l1-raport.md:90, :108); było CZĘŚCIOWO; tekst nazywa próg ustawieniem aplikacji (D-143, D-145)",
+  "decyzja": "D-145"
  },
  {
   "id": "n:range.mixed.min",
   "rodzaj": "liczba",
   "level": null,
-  "twierdzenie": "serwis komercyjnego solvera, Measure Performance (https://help.gtowizard.com/measure-performance/): „Inaccuracy – Moves that are taken less than 3.5% of the time in GTO, but don't lose significant EV”; próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_MIN (ADR-26)",
+  "twierdzenie": "serwis komercyjnego solvera, Measure Performance (https://help.gtowizard.com/measure-performance/): „Inaccuracy – Moves that are taken less than 3.5% of the time in GTO, but don't lose significant EV”; w aplikacji: akcja grana przez solver w 0 < f < {{n:range.mixed.min}} to niedokładność (liczona jak błąd: ustawienie aplikacji, nie teoria); błąd to akcja, której solver nie gra",
   "zrodla": [
    {
     "adres": "https://help.gtowizard.com/measure-performance/",
@@ -1101,16 +1108,17 @@
     "szczebel": null
    }
   ],
-  "status": "sprzeczne",
+  "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": "range.mixed.min",
   "wartosc": 0.035,
   "jednostka": "percent",
-  "werdykt_tekstu": "SPRZECZNE",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "m13-l1:93 „Błąd: … albo grana przez solver rzadziej niż w {{n:range.mixed.min}} przypadków” → dopisać „(próg aplikacji; serwis solvera nazywa takie zagranie niedokładnością, a nie błędem)”; m13.yaml:34 „Taka akcja nie jest już częścią ręki mieszanej, tylko błędem” → „Raport liczy akcję poniżej progu {{n:range.mixed.min}} jako błąd: to próg aplikacji, nie teoria”.",
-  "uwagi": "Wartość 3,5% zgodna ze źródłem, ale źródło używa jej do kategorii „Inaccuracy” (ruch grany przez solver, bez istotnej straty EV), a aplikacja do werdyktu „Błąd”. Zdanie egzaminu przeczy zasadzie obojętności (szczebel 2). Werdykt w aplikacji to decyzja produktowa (ADR-26); sprzeczne jest tylko uzasadnienie teoretyczne."
+  "uwagi": "Wartość 3,5% zgodna ze źródłem, ale źródło używa jej do kategorii „Inaccuracy” (ruch grany przez solver, bez istotnej straty EV), a aplikacja do werdyktu „Błąd”. Zdanie egzaminu przeczy zasadzie obojętności (szczebel 2). Werdykt w aplikacji to decyzja produktowa (ADR-26); sprzeczne jest tylko uzasadnienie teoretyczne. | E2 2026-11-04: poprawione (content/pl/lessons/m13-l1-raport.md:47, :92, :93, :108; content/pl/exams/m13.yaml:27, :34–35); było SPRZECZNE; cztery stopnie oceny (D-143); w egzaminie q4 poprawna odpowiedź zmieniona z „Błąd” na „Niedokładność”",
+  "decyzja": "D-143"
  },
  {
   "id": "n:ror.two",
@@ -1387,7 +1395,7 @@
   "id": "n:var.sd",
   "rodzaj": "liczba",
   "level": null,
-  "twierdzenie": "serwis z kalkulatorami pokerowymi, Examples and Impacts of Variance in Cash Games („A typical SD for 6-max NLH is 75-95 bb/100”, przykład z SD 80); magazyn pokoju online, Standard Deviation in Poker („usually around 80bb/100”)",
+  "twierdzenie": "serwis z kalkulatorami pokerowymi, Examples and Impacts of Variance in Cash Games („A typical SD for 6-max NLH is 75-95 bb/100”, przykład z SD 80); serwis o strategii pokera, Standard Deviation („between 35BB/100 and 50BB/100 (70bb/100 and 100bb/100)”)",
   "zrodla": [
    {
     "adres": "https://www.primedope.com/examples-and-impacts-of-variance-in-cash-games/",
@@ -1418,9 +1426,9 @@
   "wielkosc": "var.sd",
   "wartosc": 80,
   "jednostka": "bb100",
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "numbers.yaml:418: cytat „magazyn pokoju online, Standard Deviation in Poker („usually around 80bb/100”)” — nie znaleziono strony; zastąpić thepokerbank („between … (70bb/100 and 100bb/100)”) albo podać adres.",
-  "uwagi": "80 mieści się w przedziałach dwóch niezależnych źródeł szczebla 4; jako wartość odniesienia, nie pomiar."
+  "uwagi": "80 mieści się w przedziałach dwóch niezależnych źródeł szczebla 4; jako wartość odniesienia, nie pomiar. | E2 2026-11-04: poprawione (content/numbers.yaml:418); było CZĘŚCIOWO; nieznaleziona strona zastąpiona odczytanym thepokerbank"
  },
  {
   "id": "n:var.sd.low",
@@ -1565,7 +1573,7 @@
   "id": "M12-L4-RAMKA",
   "rodzaj": "regula",
   "level": "rules",
-  "twierdzenie": "Poker na pieniądze to w Polsce gra hazardowa, dozwolona tylko dla osób pełnoletnich. Sygnały utraty kontroli: grasz dłużej, niż planowałeś; po przegranej wracasz, żeby odegrać straty; stawiasz pieniądze, których nie możesz stracić, albo pożyczasz na grę; grasz, żeby uciec od zmartwień; ukrywasz granie przed bliskimi. (m12-l4:149, bez numerów infolinii)",
+  "twierdzenie": "Czy i od jakiego wieku wolno grać w pokera na pieniądze, określa prawo twojego kraju: sprawdź je, zanim zagrasz. Sygnały utraty kontroli: grasz dłużej, niż planowałeś; po przegranej wracasz, żeby odegrać straty; stawiasz pieniądze, których nie możesz stracić, albo pożyczasz na grę; grasz, żeby uciec od zmartwień; ukrywasz granie przed bliskimi. (m12-l4:149, bez numerów infolinii)",
   "zrodla": [
    {
     "adres": "https://api.sejm.gov.pl/eli/acts/DU/2025/595/text.pdf",
@@ -1603,8 +1611,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "„dozwolona tylko dla osób pełnoletnich” → „dozwolona tylko dla osób, które ukończyły 18 lat” (art. 27 ust. 2 u.g.h. mówi o wieku, nie o pełnoletności, którą można uzyskać wcześniej przez małżeństwo); art. 2 ust. 5a: poker jest grą w karty, gdy toczy się o nagrody pieniężne lub rzeczowe.",
-  "uwagi": "Wszystkie pięć sygnałów ma źródło szczebla 3 (instytucje zdrowia publicznego i rząd stanu Wiktoria): dłużej niż planowano (Wiktoria), odgrywanie (MedlinePlus/APA, NHS), pieniądze, których nie można stracić, i pożyczanie (NHS, Wiktoria, MedlinePlus), ucieczka od zmartwień (MedlinePlus), ukrywanie (Wiktoria, MedlinePlus: kłamstwa o czasie i pieniądzach). Zdanie prawne dotyczy tylko Polski; aplikacja nie ma storefrontu PL, a w innych krajach wiek i status prawny gry są inne (propozycja w raporcie). Numery infolinii: poza zakresem (inny weryfikator)."
+  "uwagi": "Wszystkie pięć sygnałów ma źródło szczebla 3 (instytucje zdrowia publicznego i rząd stanu Wiktoria): dłużej niż planowano (Wiktoria), odgrywanie (MedlinePlus/APA, NHS), pieniądze, których nie można stracić, i pożyczanie (NHS, Wiktoria, MedlinePlus), ucieczka od zmartwień (MedlinePlus), ukrywanie (Wiktoria, MedlinePlus: kłamstwa o czasie i pieniądzach). Zdanie prawne dotyczy tylko Polski; aplikacja nie ma storefrontu PL, a w innych krajach wiek i status prawny gry są inne (propozycja w raporcie). Numery infolinii: poza zakresem (inny weryfikator). | E2 2026-11-04: poprawione (content/pl/lessons/m12-l4-bankroll.md:149); było CZĘŚCIOWO; zdanie o polskiej ustawie zastąpione zdaniem bez przepisu jednego kraju (D-150, aplikacja bez storefrontu PL); u.g.h. zostaje jako przykład, że wiek określa prawo kraju; poprawka „ukończyły 18 lat” z E1 bezprzedmiotowa",
+  "decyzja": "D-150"
  }
 ]

@@ -139,14 +139,14 @@ Winrate i bankroll stoją we wzorze obok siebie: dwa razy niższy winrate wymaga
 
 ## Kiedy zejść {{t:stakes|stawkę}}
 
-Ustal próg z góry: schodzisz o jedną {{t:stakes|stawkę}} niżej, gdy bankroll spadnie poniżej **połowy** założonej liczby {{t:buy-in|wpisowych}}, np. z {{n:br.bi.base}} do {{n:br.bi.move-down}}. Na niższej {{t:stakes|stawce}} te same pieniądze znów są pełnym bankrollem. Wracasz wyżej, gdy masz pełny bankroll w {{t:buy-in|wpisowych}} wyższej {{t:stakes|stawki}}. Sam {{t:downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} nie jest powodem do zejścia: zdarza się prawie każdemu wygrywającemu.
+Ustal próg z góry: schodzisz o jedną {{t:stakes|stawkę}} niżej najpóźniej wtedy, gdy bankroll spadnie poniżej **połowy** założonej liczby {{t:buy-in|wpisowych}}, np. z {{n:br.bi.base}} do {{n:br.bi.move-down}}. Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich. Na niższej {{t:stakes|stawce}} te same pieniądze znów są pełnym bankrollem. Wracasz wyżej, gdy masz pełny bankroll w {{t:buy-in|wpisowych}} wyższej {{t:stakes|stawki}}. Sam {{t:downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} nie jest powodem do zejścia: zdarza się prawie każdemu wygrywającemu.
 
 ## Nauka i gra
 
 Na początku ok. {{n:study.beginner}} czasu przeznaczasz na naukę, a resztę na grę. Gdy wygrywasz na swojej {{t:stakes|stawce}}, ideałem jest ok. {{n:study.winner}}, ale nigdy mniej niż {{n:study.min}} nauki.
 
 :::note Odpowiedzialna gra
-Poker na pieniądze to w Polsce gra hazardowa, dozwolona tylko dla osób pełnoletnich. Sygnały, że granie przestaje być pod kontrolą: grasz dłużej, niż planowałeś; po przegranej wracasz, żeby odegrać straty; {{t:bet|stawiasz}} pieniądze, których nie możesz stracić, albo pożyczasz na grę; grasz, żeby uciec od zmartwień; ukrywasz granie przed bliskimi.
+Czy i od jakiego wieku wolno grać w pokera na pieniądze, określa prawo twojego kraju: sprawdź je, zanim zagrasz. Sygnały, że granie przestaje być pod kontrolą: grasz dłużej, niż planowałeś; po przegranej wracasz, żeby odegrać straty; {{t:bet|stawiasz}} pieniądze, których nie możesz stracić, albo pożyczasz na grę; grasz, żeby uciec od zmartwień; ukrywasz granie przed bliskimi.
 
 Gdzie szukać pomocy:
 

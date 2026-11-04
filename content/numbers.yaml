@@ -415,7 +415,7 @@ spr.zone.deep: { formula: quotient, refs: [geo.ex.total, ex.pot], unit: ratio, s
 # M12: wariancja i bankroll. Odchylenie i winrate ze źródeł (adresy i cytaty w raporcie M12), reszta liczona.
 # Pierwiastek, e^x i rozkład normalny liczą formuły sqrt, exp i normCdf. Wpisane zostają tylko wyniki symulacji
 # downswingów (dd.p.*), z opisem metody i ziarna w polu source.
-var.sd: { value: 80, unit: bb100, source: "serwis z kalkulatorami pokerowymi, Examples and Impacts of Variance in Cash Games („A typical SD for 6-max NLH is 75-95 bb/100”, przykład z SD 80); magazyn pokoju online, Standard Deviation in Poker („usually around 80bb/100”)" }
+var.sd: { value: 80, unit: bb100, source: "serwis z kalkulatorami pokerowymi, Examples and Impacts of Variance in Cash Games („A typical SD for 6-max NLH is 75-95 bb/100”, przykład z SD 80); serwis o strategii pokera, Standard Deviation („between 35BB/100 and 50BB/100 (70bb/100 and 100bb/100)”)" }
 var.sd.low: { value: 75, unit: bb100, source: "serwis z kalkulatorami pokerowymi, Poker Variance Calculator („In 6-max NLHE, 75 to 100 BB/100 is a reasonable default”)" }
 var.sd.high: { value: 100, unit: bb100, source: "serwis z kalkulatorami pokerowymi, Poker Variance Calculator („In 6-max NLHE, 75 to 100 BB/100 is a reasonable default”)" }
 var.wr.ex: { value: 5, unit: bb100, source: "przykład z serwisu z kalkulatorami pokerowymi („5 bb/100 Winner, 80 bb/100 SD”); dla porównania według trenera z blogiem szkoleniowym: 5bb/100 to wynik elity na NL50 przy 1–8 stołach" }
@@ -453,36 +453,36 @@ dd.p.small.20k: { value: 0.40, unit: percent, source: "obliczenie: ta sama symul
 dd.p.small.100k.wr-low: { value: 0.99, unit: percent, source: "obliczenie: ta sama symulacja przy winrate 2bb/100: 99,1%" }
 dd.p.big.100k.wr-low: { value: 0.58, unit: percent, source: "obliczenie: ta sama symulacja przy winrate 2bb/100, downswing o 20 wpisowych: 58,5%" }
 dd.wr-low: { value: 2, unit: bb100, source: "przykład w lekcji: winrate typowego wygrywającego na mikrostawkach (w przedziale 1–3bb/100 według trenera z blogiem szkoleniowym)" }
-br.bi.base: { value: 30, unit: count, source: "serwis szkoleniowy, Bankroll Management („about 30 buy-ins for a clear winner”); trener z blogiem szkoleniowym („Experienced poker players can get by with a bankroll of 30 buyins”); serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („25-30 buy-ins at NL25-NL50”)" }
+br.bi.base: { value: 30, unit: count, source: "serwis szkoleniowy, Bankroll Management („about 30 buy-ins for a clear winner”); trener z blogiem szkoleniowym („Experienced poker players can get by with a bankroll of 30 buyins”); serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („25 to 30 at NL25 to NL50”, przy 5% ryzyka bankructwa)" }
 br.bi.beginner: { value: 50, unit: count, source: "trener z blogiem szkoleniowym, The Complete Guide to Bankroll Management („The best poker bankroll management strategy for beginners is to have 50 buyins”)" }
-br.bi.move-down: { formula: product, refs: [br.bi.base, ex.frac.half], unit: count, source: "obliczenie: połowa bankrollu bazowego; zgodne z serwisem szkoleniowym („half the roll, which is the point to move down a stake”) i trenerem z serwisem szkoleniowym („If your bankroll drops below 15 buyins for your current stake, move down”)" }
-br.bi.src-low: { value: 20, unit: count, source: "trener z serwisem szkoleniowym, How Much Poker Money Do You Need („always have at least 20 buy-ins for the stake you are playing”)" }
-br.bi.src-high: { value: 100, unit: count, source: "serwis szkoleniowy, Poker Bankroll Management („No-Limit Online Cash Games: 100+ buy-ins”)" }
+br.bi.move-down: { formula: product, refs: [br.bi.base, ex.frac.half], unit: count, source: "obliczenie: połowa bankrollu bazowego; zgodne z serwisem szkoleniowym („half the roll, which is the point to move down a stake”)" }
+br.bi.src-low: { value: 20, unit: count, source: "serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („Cash games at a 5% risk of ruin need 20 buy-ins at NL10 (where edges are larger)”)" }
+br.bi.src-high: { value: 100, unit: count, source: "serwis szkoleniowy, Poker Bankroll Management Strategy (pokerlistings.com/poker-strategies/bankroll-management): „No-Limit Online Cash Games: 100+ buy-ins”" }
 ror.two: { value: 2, unit: count, source: "wzór ryzyka bankructwa: stała 2 w wykładniku e^(−2·wr·BR/SD²)" }
 var.sd.sq: { formula: product, refs: [var.sd, var.sd], unit: count, source: "obliczenie: SD² (wariancja na 100 rąk)" }
 ror.exp.num: { formula: product, refs: [ror.two, var.wr.typical.high, br.base.bb], unit: count, source: "obliczenie: licznik wykładnika 2 × winrate × bankroll w bb" }
 ror.exp.base: { formula: quotient, refs: [ror.exp.num, var.sd.sq], unit: ratio, decimals: 2, source: "obliczenie: wykładnik 2 × 3bb/100 × 3000bb ÷ 80² wzoru ryzyka bankructwa" }
 ror.base.neg: { formula: product, refs: [math.minus-one, ror.exp.base], unit: ratio, decimals: 2, source: "obliczenie: wykładnik ze znakiem minus" }
-ror.base: { formula: exp, refs: [ror.base.neg], unit: percent, source: "obliczenie: e^(−2·wr·BR/SD²), 30 wpisowych, winrate 3bb/100, SD 80bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”, wzór Malmutha)" }
+ror.base: { formula: exp, refs: [ror.base.neg], unit: percent, source: "obliczenie: e^(−2·wr·BR/SD²), 30 wpisowych, winrate 3bb/100, SD 80bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”)" }
 ror.half.bb: { formula: product, refs: [br.bi.move-down, format.stack], unit: bb, source: "obliczenie: bankroll w bb" }
 ror.half.num: { formula: product, refs: [ror.two, var.wr.typical.high, ror.half.bb], unit: count, source: "obliczenie: 2 × winrate × bankroll w bb" }
 ror.half.x: { formula: quotient, refs: [ror.half.num, var.sd.sq], unit: ratio, decimals: 2, source: "obliczenie: wykładnik 2·wr·BR/SD²" }
 ror.half.neg: { formula: product, refs: [math.minus-one, ror.half.x], unit: ratio, decimals: 2, source: "obliczenie: wykładnik ze znakiem minus" }
-ror.half: { formula: exp, refs: [ror.half.neg], unit: percent, source: "obliczenie: e^(−2·wr·BR/SD²), 15 wpisowych, winrate 3bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”, wzór Malmutha)" }
+ror.half: { formula: exp, refs: [ror.half.neg], unit: percent, source: "obliczenie: e^(−2·wr·BR/SD²), 15 wpisowych, winrate 3bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”)" }
 ror.base.wr-ex.num: { formula: product, refs: [ror.two, var.wr.ex, br.base.bb], unit: count, source: "obliczenie: 2 × winrate × bankroll w bb" }
 ror.base.wr-ex.x: { formula: quotient, refs: [ror.base.wr-ex.num, var.sd.sq], unit: ratio, decimals: 2, source: "obliczenie: wykładnik 2·wr·BR/SD²" }
 ror.base.wr-ex.neg: { formula: product, refs: [math.minus-one, ror.base.wr-ex.x], unit: ratio, decimals: 2, source: "obliczenie: wykładnik ze znakiem minus" }
-ror.base.wr-ex: { formula: exp, refs: [ror.base.wr-ex.neg], unit: percent, decimals: 1, source: "obliczenie: e^(−2·wr·BR/SD²), 30 wpisowych, winrate 5bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”, wzór Malmutha)" }
+ror.base.wr-ex: { formula: exp, refs: [ror.base.wr-ex.neg], unit: percent, decimals: 1, source: "obliczenie: e^(−2·wr·BR/SD²), 30 wpisowych, winrate 5bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”)" }
 ror.base.wr-min.num: { formula: product, refs: [ror.two, var.wr.typical.low, br.base.bb], unit: count, source: "obliczenie: 2 × winrate × bankroll w bb" }
 ror.base.wr-min.x: { formula: quotient, refs: [ror.base.wr-min.num, var.sd.sq], unit: ratio, decimals: 2, source: "obliczenie: wykładnik 2·wr·BR/SD²" }
 ror.base.wr-min.neg: { formula: product, refs: [math.minus-one, ror.base.wr-min.x], unit: ratio, decimals: 2, source: "obliczenie: wykładnik ze znakiem minus" }
-ror.base.wr-min: { formula: exp, refs: [ror.base.wr-min.neg], unit: percent, source: "obliczenie: e^(−2·wr·BR/SD²), 30 wpisowych, winrate 1bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”, wzór Malmutha)" }
+ror.base.wr-min: { formula: exp, refs: [ror.base.wr-min.neg], unit: percent, source: "obliczenie: e^(−2·wr·BR/SD²), 30 wpisowych, winrate 1bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”)" }
 ror.beginner.wr-min.bb: { formula: product, refs: [br.bi.beginner, format.stack], unit: bb, source: "obliczenie: bankroll w bb" }
 ror.beginner.wr-min.num: { formula: product, refs: [ror.two, var.wr.typical.low, ror.beginner.wr-min.bb], unit: count, source: "obliczenie: 2 × winrate × bankroll w bb" }
 ror.beginner.wr-min.x: { formula: quotient, refs: [ror.beginner.wr-min.num, var.sd.sq], unit: ratio, decimals: 2, source: "obliczenie: wykładnik 2·wr·BR/SD²" }
 ror.beginner.wr-min.neg: { formula: product, refs: [math.minus-one, ror.beginner.wr-min.x], unit: ratio, decimals: 2, source: "obliczenie: wykładnik ze znakiem minus" }
-ror.beginner.wr-min: { formula: exp, refs: [ror.beginner.wr-min.neg], unit: percent, source: "obliczenie: e^(−2·wr·BR/SD²), 50 wpisowych, winrate 1bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”, wzór Malmutha)" }
-study.beginner: { value: 0.8, unit: percent, source: "serwis szkoleniowy (Barry Carter o zdaniu Dary O'Kearneya), What should your study-to-play ratio be („Early on, it should be 80/20 in favour of study”)" }
+ror.beginner.wr-min: { formula: exp, refs: [ror.beginner.wr-min.neg], unit: percent, source: "obliczenie: e^(−2·wr·BR/SD²), 50 wpisowych, winrate 1bb/100; wzór: serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („RoR = e^(-2 x WR x BR / SD^2)”)" }
+study.beginner: { value: 0.8, unit: percent, source: "serwis szkoleniowy (artykuł Dary O'Kearneya), What should your study-to-play ratio be („Early on, it should be 80/20 in favour of study”)" }
 study.winner: { value: 0.5, unit: percent, source: "jak study.beginner („the ideal would still be a 50/50 ratio”)" }
 study.min: { value: 0.2, unit: percent, source: "jak study.beginner („at a minimum never go under 20% study, 80% play”)" }
 var.sd.wrong.bb: { formula: product, refs: [var.sd, var.blocks], unit: bb, source: "obliczenie błędne celowo (dystraktor): SD × liczba bloków zamiast SD × √(liczba bloków)" }
@@ -830,6 +830,11 @@ m13.eq.example: { value: 0.8, unit: percent, source: "przykład w lekcji: all-in
 m13.lose.example: { formula: diff, refs: [prob.certain, m13.eq.example], unit: percent, source: "obliczenie: z equity e przegrywasz w 1 − e takich rozdań" }
 m13.ten: { value: 10, unit: count, source: "przykład w lekcji: dziesięć takich rozdań" }
 m13.lose.of-ten: { formula: product, refs: [m13.ten, m13.lose.example], unit: count, source: "obliczenie: 10 × (1 − e)" }
+m13.noise.hands.k: { value: 2.5, unit: count, decimals: 1, source: "przykład w lekcji: ok. 2,5 tys. rąk (kilkadziesiąt sesji po kilkadziesiąt rozdań)" }
+m13.noise.blocks: { formula: product, refs: [m13.noise.hands.k, var.blocks-per-k], unit: count, source: "obliczenie: liczba bloków po 100 rąk" }
+m13.noise.sqrt: { formula: sqrt, refs: [m13.noise.blocks], unit: ratio, decimals: 1, source: "obliczenie: √(liczba bloków)" }
+m13.noise.se: { formula: quotient, refs: [var.sd, m13.noise.sqrt], unit: bb100, decimals: 1, source: "obliczenie: błąd standardowy winrate = SD ÷ √(liczba bloków)" }
+m13.noise.ci: { formula: product, refs: [var.z95, m13.noise.se], unit: bb100, source: "obliczenie: połowa przedziału 95% dla winrate po ok. 2,5 tys. rąk (ok. ±31bb/100 przy SD 80)" }
 m13.eq.example2: { value: 0.65, unit: percent, source: "przykład w lekcji: all-in z equity 65%" }
 m13.lose.example2: { formula: diff, refs: [prob.certain, m13.eq.example2], unit: percent, source: "obliczenie: 1 − e" }
 hud.opps.look: { value: 5, unit: count, source: "trener z blogiem szkoleniowym, Poker HUD Stats: The Sample Size You Need (https://www.blackrain79.com/2017/11/poker-hud-stat-sample-size.html): „For me personally I usually want at least 5 to even bother looking, and 10 to be sure.” (liczba okazji, nie rąk)" }
