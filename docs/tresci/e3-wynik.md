@@ -1,4 +1,4 @@
-# Rola 06 E3: stan (2026-11-04, dwudziesta sesja) — w toku
+# Rola 06 E3: stan (2026-11-04, dwudziesta pierwsza sesja) — w toku
 
 ## Zrobione (dowód)
 - Niezależna weryfikacja wszystkich 1034 potwierdzonych twierdzeń, 7 weryfikatorów w świeżym kontekście bez notatek autora: `docs/tresci/e3/A1–A7` (instrukcja: treści i rejestr, cytat sprawdzany w surowym tekście, rachunki liczone od nowa). Źródło: 988 POPARTE, 45 CZĘŚCIOWO, 1 DO SPRAWDZENIA; tekst: 951 POPARTE, 80 CZĘŚCIOWO, 2 SPRZECZNE, 1 DO SPRAWDZENIA; skutek: 1×S1, 7×S2, 85×S3.
@@ -18,10 +18,14 @@
 - Krok 3 w toku: A8 (`e3/A8.*`) 5/11 zaliczonych, wszystkie rozbieżności poprawione w 07a3fdd (w tym S1 H-INT-2: zdanie bez zawężenia warunku). Przegląd D-043 (b) (`e3/przeglad-D-043-b.md`): 0 KRYT./WYS., Ś-1 poprawione, N-1/N-2 poprawione, reszta w `do-poprawy.md`. Ponowny przegląd zastępczy A9 na 07a3fdd przerwany błędem API (safeguards) — do powtórzenia w nowej sesji; zapis `przeglad` jeszcze niewpisany dla 11 twierdzeń.
 - `pnpm run ci` kod 0 na 07a3fdd.
 
+## Dwudziesta pierwsza sesja (2026-11-04)
+- Przegląd zastępczy D-027 zakończony: A9 (6/11, `e3/A9.*`), A10 (2/5), A11 pełny (8/11, 29/29 cytatów dosłownie), kontrola zawężona poprawek po A11 `e3/A11-kontrola.md` (ZALICZONE, wyjątek nazwany D-162). Zapis `przeglad` ze skrótem dla 11 twierdzeń; `scal-rejestr --przeglad zastępczy --sprawdz`: 0 błędów, 0 uwag, kod 0; `pnpm tresci:rejestr` w CI bez `--przed-przegladem`.
+- Poprawki po A9–A11: H-INT-2 (myśli samobójcze → numer alarmowy, „ty albo ktoś, kogo znasz”; MedlinePlus 001520), ramka „Niektóre sygnały”, m12-l3 bez „stale”, H-INT-1 cytat z widocznej stopki, R-M12-011 („najwcześniej wtedy”, „najpóźniej przy” połowie, warunek winrate), n:dd.bi.small (warunek i horyzont).
+- Poprawki S3 z `do-poprawy.md`: 83 pozycje zamknięte (3 partie w osobnych kopiach roboczych: terminy 49dc464, M1–M6 d6528cb, M7–M13 9fbc8f9; scalone, konflikt m4-l1 rozwiązany ręcznie) + M12 (R-M12-002, R-M12-012, n:study.*, q-warning-sign). Otwarte: 5 spraw przekrojowych rejestru i 6 nowych pozycji (koniec tabeli).
+- Błąd po drodze: c0cefdf i 27b95d0 miały czerwony `HelpScreen.test` (zdanie wpisane w teście); `ci` przerwało się wcześniej na przekroczeniu czasu i tego nie pokazało. Naprawione w e7627a1 (test czyta zdanie z `helplines.generated.ts`). `pnpm run ci` kod 0.
+- Uwaga: regulamin MedlinePlus zabrania automatycznego pobierania treści; weryfikatorzy pobierali pojedyncze strony `curl` do odczytu cytatu.
+
 ## Następne kroki (E3, nowa sesja)
-1. (zrobione) D-158: `content/helplines.yaml` — tylko `fallback` (zdanie: lekarz albo lokalna poradnia; w zagrożeniu życia lokalny numer alarmowy) i `int-gambling-therapy`; wpisy H-* krajów → status `wycofane` z `nastepca` w `rejestr/pomoc.json`; nowe twierdzenie dla zdania (źródło szczebla 1–3, np. NHS/MedlinePlus „seek help”); ramka M12-L4 i `pointer`; testy `helplines.test.ts`, `HelpScreen.test.tsx`; zgłoszenie do 08 (ekran „Pomoc” bez wyboru regionu, `help.tsx`, E2E `04-pomoc.yaml`, `helplines-env.mjs`) i `fix` 01 (RD-12, BR-POM-001/002, wektory `tests/wektory/brd.json`). Ścieżki wrażliwe → przegląd D-043.
-2. (zrobione) D-159: przepisać M12-L4 (bez porad ile pieniędzy, bez „prawdziwe pieniądze”), M13-L3:64 (kasyno), egzamin M12 (q9, q10 kwoty w zł; A7c: m12.yaml:74 „niewielkie” przy 8,2%); rozbieżności A7c (R-M12-009/010/011) rozwiązać przy przepisaniu; rejestr R-M12-*, n:br.*, n:ror.*; terminy bankroll i RoR.
-3. Ponowny przegląd zastępczy A9 (świeży kontekst, instrukcja jak A8: treści, rejestr i źródła, bez decyzje.md i e3/*) 11 twierdzeń: R-M12-009, R-M12-011, n:br.bi.base, n:br.bi.beginner, n:dd.bi.small, n:ror.two, M12-L4-RAMKA, H-INT-1, H-INT-2, t:bankroll, t:risk-of-ruin; zapis `przeglad` ze skrótem; `pnpm tresci:rejestr` z `--przeglad zastępczy` bez `--przed-przegladem` → kod 0.
-4. 75 poprawek S3 i 17 spraw przekrojowych: `docs/tresci/e3/do-poprawy.md` (szczeble, `level`, spójność modułów, push 10bb ante, 1/4 puli 17% vs 16,7%, `spr.stack.*`).
-5. Otwarte z E2 §4: `range.acceptable/explanation`, fakty 9 stanów błędów (04), pytania oceny poziomu F-01, lista B terminów, R-M4-007 `pf.vs3bet.*`.
-6. Definicja ukończenia punkt po punkcie; przekazanie 07/05/08/09/04/10; aktualizacja `docs/sztafeta.md`; STOP E3.
+1. 5 spraw przekrojowych rejestru (szczeble, `level`, Beyondgto, szczebel wpisów pomocy, `n:var.z95`) i 6 nowych pozycji z końca `e3/do-poprawy.md`; zmiana wpisu albo zdania któregokolwiek z 11 krytycznych → kontrola zawężona w świeżym kontekście (D-162) i nowy skrót, `pnpm tresci:rejestr` kod 0.
+2. Otwarte z E2 §4: `range.acceptable/explanation` (i18n, ścieżka wrażliwa), fakty 9 stanów błędów (04), pytania oceny poziomu F-01, lista B terminów, R-M4-007 `pf.vs3bet.*` (źródło HUD 55% bez adresu).
+3. Definicja ukończenia punkt po punkcie; przekazanie 07/05/08/09/04/10; `docs/sztafeta.md`; STOP E3.

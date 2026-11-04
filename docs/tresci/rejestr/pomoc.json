@@ -1798,7 +1798,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "weryfikacja zastępcza (subagent)",
+      "data": "2026-11-04",
+      "sha": "94c9d892c612"
+    },
     "wielkosc": null,
     "wartosc": null,
     "jednostka": null,
@@ -1847,7 +1851,11 @@
     "status": "potwierdzone",
     "uproszczenie": "„911” (USA) uogólnione do „lokalny numer alarmowy”, jak w samym źródle („or your local emergency number”); „health care provider” → „lekarz”. Numery USA (988, 911) pominięte zgodnie z D-158; zostaje „local emergency number” ze źródła.",
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "weryfikacja zastępcza (subagent)",
+      "data": "2026-11-04",
+      "sha": "96866b00e471"
+    },
     "wielkosc": null,
     "wartosc": null,
     "jednostka": null,

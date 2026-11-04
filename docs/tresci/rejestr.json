@@ -18788,7 +18788,7 @@
   "przeglad": {
    "kto": "weryfikacja zastępcza (subagent)",
    "data": "2026-11-04",
-   "sha": "4ff1d4347a0a"
+   "sha": "6795c4214764"
   },
   "wielkosc": null,
   "wartosc": null,
@@ -18909,7 +18909,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "b143e4e46d30"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -19278,7 +19282,7 @@
   "przeglad": {
    "kto": "weryfikacja zastępcza (subagent)",
    "data": "2026-11-04",
-   "sha": "52ed7cb3d008"
+   "sha": "a3f2b79bb024"
   },
   "wielkosc": "br.bi.base",
   "wartosc": 30,
@@ -19324,7 +19328,7 @@
   "przeglad": {
    "kto": "weryfikacja zastępcza (subagent)",
    "data": "2026-11-04",
-   "sha": "9eda2b1c2213"
+   "sha": "5231911bcdbd"
   },
   "wielkosc": "br.bi.beginner",
   "wartosc": 50,
@@ -19420,7 +19424,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "7e1d35774f4d"
+  },
   "wielkosc": "dd.bi.small",
   "wartosc": 10,
   "jednostka": "count",
@@ -19572,7 +19580,7 @@
   "przeglad": {
    "kto": "weryfikacja zastępcza (subagent)",
    "data": "2026-11-04",
-   "sha": "acf1a6bf9839"
+   "sha": "11f6cec9eb5c"
   },
   "wielkosc": "ror.two",
   "wartosc": 2,
@@ -20094,7 +20102,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "f12d7359f3c9"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -28212,7 +28224,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "94c9d892c612"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -28264,7 +28280,11 @@
   "status": "potwierdzone",
   "uproszczenie": "„911” (USA) uogólnione do „lokalny numer alarmowy”, jak w samym źródle („or your local emergency number”); „health care provider” → „lekarz”. Numery USA (988, 911) pominięte zgodnie z D-158; zostaje „local emergency number” ze źródła.",
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "96866b00e471"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,

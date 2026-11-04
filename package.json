@@ -6,7 +6,7 @@
   "scripts": {
     "test": "pnpm -r --if-present test",
     "typecheck": "pnpm -r --if-present typecheck",
-    "tresci:rejestr": "node docs/tresci/narzedzia/scal-rejestr.mjs --przed-przegladem --sprawdz",
+    "tresci:rejestr": "node docs/tresci/narzedzia/scal-rejestr.mjs --przeglad zastępczy --sprawdz",
     "content:build": "pnpm --filter @szkola/content-build build",
     "content:check": "pnpm --filter @szkola/content-build check",
     "test:skrypty": "node --test scripts/sprawdz-i18n.test.mjs docs/tresci/narzedzia/scal-rejestr.test.mjs",
