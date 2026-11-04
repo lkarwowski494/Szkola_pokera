@@ -130,5 +130,5 @@ Gdy tilt urośnie, wyłącza zdolność myślenia. Dlatego reagujesz na pierwsze
 Twoja gra ma rozrzut: od najlepszej (A-game) do najgorszej (C-game). Postęp przypomina ruch gąsienicy: krok naprzód z przodu, gdy najlepsza gra staje się lepsza, i krok z tyłu, gdy najgorsza staje się mniej fatalna. Najwięcej kosztuje C-game, więc od niej zaczynasz.
 
 :::note Gdy to coś więcej niż tilt
-Jeśli stale grasz dłużej niż planujesz, odgrywasz się albo grasz za pieniądze, których nie możesz stracić, przeczytaj kartę o odpowiedzialnej grze w lekcji o bankrollu.
+Jeśli grasz dłużej, niż planujesz, odgrywasz się albo grasz za pieniądze, których nie możesz stracić, przeczytaj kartę o odpowiedzialnej grze w lekcji o bankrollu.
 :::

@@ -13,7 +13,7 @@ review_by: '2027-11-04'
 pointer: 'Ten sam kontakt znajdziesz w aplikacji, w ekranie „Pomoc”.'
 fallback:
   claim: H-INT-2
-  text: 'Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu dzwoń na lokalny numer alarmowy.'
+  text: 'Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu, także gdy myślisz o odebraniu sobie życia, od razu dzwoń na lokalny numer alarmowy.'
   online: [int-gambling-therapy]
 regions_label: 'Numery w regionach'
 regions: {}
@@ -24,7 +24,7 @@ entries:
     country: '*'
     kind: gambling
     name: 'Gambling Therapy (Gordon Moody)'
-    info: 'Bezpłatne porady praktyczne i wsparcie emocjonalne online dla każdego, kogo dotyka problem z hazardem; poufnie.'
+    info: 'Bezpłatne porady praktyczne i wsparcie emocjonalne online dla każdego, kogo dotyka hazard; poufnie.'
     links:
       - label: 'Gambling Therapy'
         url: https://www.gamblingtherapy.org/
@@ -32,7 +32,7 @@ entries:
     # Bez „ponad 200 językach” i „anonimowo”: tych zdań nie ma na przeczytanej stronie.
     sources:
       - url: https://www.gamblingtherapy.org/
-        quote: 'Gambling Therapy is a global service offering free practical advice and emotional support to anyone affected by problem gambling.'
+        quote: 'a global service offered by Gordon Moody, providing free practical advice and emotional support to anyone affected by gambling.'
       - url: https://www.gamblingtherapy.org/
         quote: 'Confidential, safe and delivered online'
       - url: https://www.gamblingtherapy.org/

@@ -287,7 +287,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "4ff1d4347a0a"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -360,7 +364,7 @@
   "id": "R-M12-011",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "bankroll spadnie do połowy założonej liczby wpisowych (przy {{n:br.bi.base}} do {{n:br.bi.move-down}}) → schodzisz o jedną stawkę niżej najpóźniej wtedy i wracasz, gdy masz pełny bankroll w wpisowych wyższej stawki, bo downswingi o {{n:dd.bi.small}} wpisowych w ciągu {{n:var.hands.k}} tys. rąk zdarzają się prawie każdemu wygrywającemu, część źródeł radzi zejść już po takiej stracie, a przy {{n:br.bi.move-down}} wpisowych ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}} (przy winrate {{n:var.wr.typical.high}} i SD {{n:var.sd}}); lekcja: „Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich.”",
+  "twierdzenie": "bankroll spadnie do połowy założonej liczby wpisowych (przy {{n:br.bi.base}} do {{n:br.bi.move-down}}) → schodzisz o jedną stawkę niżej najpóźniej wtedy i wracasz, gdy masz pełny bankroll w wpisowych wyższej stawki, bo downswingi o {{n:dd.bi.small}} wpisowych w ciągu {{n:var.hands.k}} tys. rąk zdarzają się prawie każdemu graczowi wygrywającemu od {{n:dd.wr-low}} do {{n:var.wr.ex}} (symulacja przy SD {{n:var.sd}}), część źródeł radzi zejść już po takiej stracie, a przy {{n:br.bi.move-down}} wpisowych ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}} (przy winrate {{n:var.wr.typical.high}} i SD {{n:var.sd}}); lekcja: „Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich.”",
   "zrodla": [
    {
     "adres": "https://www.pokerskill.com/poker-glossary/bankroll-management/",
@@ -407,7 +411,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": "then: „schodzisz o jedną stawkę niżej najpóźniej wtedy i wracasz, gdy bankroll się odbuduje”; w lekcji m12-l4:142 dopisać: „Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich.”",
-  "uwagi": "Sprzeczność na szczeblu 4: próg zejścia = połowa bankrollu (PokerSkill; SplitSuit nieczytelny), 30 wpisowych przy 3bb/100 (PokerListings, czyli pełny bankroll), spadek o 10 wpisowych (Primedope, odrzucony w D-M12-08 rachunkiem: odpala u ~95% wygrywających). Rachunek (szczebel 1) pokazuje tylko kierunek: przy połowie bankrollu RoR 24,5% — wysoko. Proponowana decyzja: część wspólna = „najpóźniej przy połowie”. Uwaga: cytat SplitSuit z pola source nieprzeczytany (HTTP 403). | E2 2026-11-04: poprawione (content/pl/rules.yaml:1036, :1039; content/pl/lessons/m12-l4-bankroll.md:142); było CZĘŚCIOWO; pole source bez nieodczytanego cytatu SplitSuit (403), zastąpione odczytaną tabelą PokerListings; to samo w numbers.yaml br.bi.move-down | E3 2026-11-04 (przegląd zastępczy A7): SPRZECZNE z PrimeDope („Losing 10 should trigger a move down”): lekcja i q-stay uczyły, że zejście po 10 wpisowych to błąd. Poprawka: q-stay ma dwie poprawne odpowiedzi (ADR-04), m12-l4:142 mówi, że zejście przed progiem połowy nie jest błędem; strona bezpieczna. | E3 2026-11-04 (D-159, A7c): „te same pieniądze to znów pełny bankroll” → „na stawce dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej wpisowych” (m12-l4, egzamin m12 q9); then: powrót wyżej przy pełnym bankrollu w wpisowych wyższej stawki (zdanie lekcji, źródła reguły bez zmian). | E3 2026-11-04 (A8, S3): „poniżej połowy” → „do połowy” (źródło: „half the roll, which is the point to move down”); warunek wr i SD przy 6% → 25%; cytat dla powrotu wyżej (PokerSkill).",
+  "uwagi": "Sprzeczność na szczeblu 4: próg zejścia = połowa bankrollu (PokerSkill; SplitSuit nieczytelny), 30 wpisowych przy 3bb/100 (PokerListings, czyli pełny bankroll), spadek o 10 wpisowych (Primedope, odrzucony w D-M12-08 rachunkiem: odpala u ~95% wygrywających). Rachunek (szczebel 1) pokazuje tylko kierunek: przy połowie bankrollu RoR 24,5% — wysoko. Proponowana decyzja: część wspólna = „najpóźniej przy połowie”. Uwaga: cytat SplitSuit z pola source nieprzeczytany (HTTP 403). | E2 2026-11-04: poprawione (content/pl/rules.yaml:1036, :1039; content/pl/lessons/m12-l4-bankroll.md:142); było CZĘŚCIOWO; pole source bez nieodczytanego cytatu SplitSuit (403), zastąpione odczytaną tabelą PokerListings; to samo w numbers.yaml br.bi.move-down | E3 2026-11-04 (przegląd zastępczy A7): SPRZECZNE z PrimeDope („Losing 10 should trigger a move down”): lekcja i q-stay uczyły, że zejście po 10 wpisowych to błąd. Poprawka: q-stay ma dwie poprawne odpowiedzi (ADR-04), m12-l4:142 mówi, że zejście przed progiem połowy nie jest błędem; strona bezpieczna. | E3 2026-11-04 (D-159, A7c): „te same pieniądze to znów pełny bankroll” → „na stawce dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej wpisowych” (m12-l4, egzamin m12 q9); then: powrót wyżej przy pełnym bankrollu w wpisowych wyższej stawki (zdanie lekcji, źródła reguły bez zmian). | E3 2026-11-04 (A8, S3): „poniżej połowy” → „do połowy” (źródło: „half the roll, which is the point to move down”); warunek wr i SD przy 6% → 25%; cytat dla powrotu wyżej (PokerSkill). | E3 2026-11-04 (A9, S3): kwantyfikator zawężony do winrate 2–5bb/100 z symulacji; PrimeDope dopisane do pola source w rules.yaml.",
   "decyzja": "D-146"
  },
  {
@@ -737,7 +741,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "52ed7cb3d008"
+  },
   "wielkosc": "br.bi.base",
   "wartosc": 30,
   "jednostka": "count",
@@ -776,7 +784,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "9eda2b1c2213"
+  },
   "wielkosc": "br.bi.beginner",
   "wartosc": 50,
   "jednostka": "count",
@@ -868,7 +880,7 @@
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Wartość przykładowa scenariusza (program nauczania, dok. 09), nie twierdzenie; twierdzenia o niej liczy rachunek. Primedope dla tego scenariusza 45% (sprzeczne z rachunkiem, D-M12-02). | E3 2026-11-04 (A8, S3): m12-l4 q-stay: „w symulacji ok. 95% graczy wygrywających 5bb/100” zamiast „ok. 95% wygrywających”."
+  "uwagi": "Wartość przykładowa scenariusza (program nauczania, dok. 09), nie twierdzenie; twierdzenia o niej liczy rachunek. Primedope dla tego scenariusza 45% (sprzeczne z rachunkiem, D-M12-02). | E3 2026-11-04 (A8, S3): m12-l4 q-stay: „w symulacji ok. 95% graczy wygrywających 5bb/100” zamiast „ok. 95% wygrywających”. | E3 2026-11-04 (A9, S3): m12-l1 i R-M12-011 — „prawie każdego wygrywającego” zawężone do winrate od dd.wr-low do var.wr.ex (symulacja)."
  },
  {
   "id": "n:format.stack",
@@ -1154,7 +1166,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "acf1a6bf9839"
+  },
   "wielkosc": "ror.two",
   "wartosc": 2,
   "jednostka": "count",

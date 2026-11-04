@@ -3628,7 +3628,11 @@
   "status": "potwierdzone",
   "uproszczenie": "Źródła definiują bankroll jako pieniądze przeznaczone na grę; aplikacja (D-159, bez gry na prawdziwe pieniądze) liczy go we wpisowych. Rdzeń definicji („wyłącznie na grę w pokera”, oddzielenie od reszty) zgodny ze źródłami.",
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "059e6284617a"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -3810,7 +3814,11 @@
   "status": "potwierdzone",
   "uproszczenie": "Źródło: „before reaching a target or before you quit”; aplikacja podaje wersję bez celu (gra bez końca), którą liczy wzór RoR = e^(−2·wr·BR/SD²) w lekcji M12-L4 — granica dla celu dążącego do nieskończoności; kierunek zgodny.",
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "a97913b4e7bf"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,

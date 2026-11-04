@@ -1026,10 +1026,10 @@
   module: m12
   if: "bankroll spadnie do połowy założonej liczby {{t:buy-in|wpisowych}} (przy {{n:br.bi.base}} do {{n:br.bi.move-down}})"
   then: "schodzisz o jedną {{t:stakes|stawkę}} niżej najpóźniej wtedy i wracasz, gdy masz pełny bankroll w {{t:buy-in|wpisowych}} wyższej {{t:stakes|stawki}}"
-  because: "{{t:downswing|downswingi}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} w ciągu {{n:var.hands.k}} tys. rąk zdarzają się prawie każdemu wygrywającemu, część źródeł radzi zejść już po takiej stracie, a przy {{n:br.bi.move-down}} {{t:buy-in|wpisowych}} ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}} (przy winrate {{n:var.wr.typical.high}} i SD {{n:var.sd}})"
+  because: "{{t:downswing|downswingi}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}} w ciągu {{n:var.hands.k}} tys. rąk zdarzają się prawie każdemu graczowi wygrywającemu od {{n:dd.wr-low}} do {{n:var.wr.ex}} (symulacja przy SD {{n:var.sd}}), część źródeł radzi zejść już po takiej stracie, a przy {{n:br.bi.move-down}} {{t:buy-in|wpisowych}} ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}} (przy winrate {{n:var.wr.typical.high}} i SD {{n:var.sd}})"
   level: heuristic
-  source: "serwis szkoleniowy, Bankroll Management („half the roll, which is the point to move down a stake”); serwis szkoleniowy, Poker Bankroll Management Strategy (przy 3bb/100 zejście przy 30 wpisowych, czyli przy pełnym bankrollu); rachunek ryzyka bankructwa"
-  sources: [{ kind: training }, { kind: training }, { kind: math }]
+  source: "serwis szkoleniowy, Bankroll Management („half the roll, which is the point to move down a stake”); serwis szkoleniowy, Poker Bankroll Management Strategy (przy 3bb/100 zejście przy 30 wpisowych, czyli przy pełnym bankrollu); serwis z kalkulatorami pokerowymi, Risk of Ruin Formula for Poker Players („Losing 10 should trigger a move down”); rachunek ryzyka bankructwa i symulacja downswingów"
+  sources: [{ kind: training }, { kind: training }, { kind: training }, { kind: math }]
 - id: R-M12-012
   module: m12
   if: "planujesz czas na poker"
