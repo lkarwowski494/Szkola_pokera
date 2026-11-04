@@ -13,5 +13,6 @@ name: Słowniczek
     direction: DOWN
 - tapOn: 'Słowniczek PL–EN'
 - tapOn: 'Szukaj po polsku albo po angielsku'
-- inputText: 'bubble'
-- assertVisible: 'bańka.*'
+- inputText: '${GLOSS_QUERY}'
+# nazwa polska z content/terms.yaml (helplines-env.mjs), nie wpisana tutaj (JAK-E0-01)
+- assertVisible: '${GLOSS_PL}'
