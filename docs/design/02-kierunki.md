@@ -153,3 +153,18 @@ Odpowiedzi na listę krytyki: (1) w pierwszej sekundzie: G i H karty, I stół z
 Warunek (D-119): stół zależy od danych zadania. Miejsca graczy tylko w zadaniach z pozycją i stanem graczy; w zadaniach bez pozycji stół bez miejsc, karty wspólne na suknie, twoje karty przy krawędzi stołu, opis tekstem pod stołem. Makieta: trzeci ekran `bez-pozycji` w `kierunki/i-stol-w-granacie.html` (prawdziwa treść `m2.exam.q2`: „Ile masz outów do strita?”, J♣ 9♦ na 10♠ 7♥ 2♣, odpowiedzi 4, 8, 2 z `numbers.yaml`). Odrzucone: miejsca wyszarzone (nadal sugerują pozycję), brak stołu (zrywa motyw).
 
 Krytyka stanu `bez-pozycji`: twoje karty zachodziły na karty wspólne, nie było widać, co czyje (konflikt reguł CSS) → karty wspólne na suknie, twoje przy krawędzi stołu (`przed-po/i-bez-pozycji-przed-390-jasny.png` → `i-bez-pozycji-po-390-jasny.png`). Pomiary po zmianie: `warsztat.mjs` kod 0, `przepelnienie.mjs` kod 0, `zrzuty.mjs` 36 zrzutów (3 ekrany × 12) kod 0.
+
+## Kroje tytułów kierunku I (2026-11-04, jedenasta sesja)
+Zrzut zbiorczy: `kroje-tytulow.png` (strona `kroje-tytulow.html`, wycinki `kroje/`, pomiary `kroje/pomiary.json`), generowany przez `narzedzia/kroje.mjs` z `kroje.json`; ekrany `przed-decyzja`, `po-ocenie`, `bez-pozycji` przy 390 pt, jasny, tekst domyślny. Zmienia się tylko krój tytułów (tytuł zadania, słowo stopnia, indeksy kart, opis ręki); `font-synthesis: none`, cyfry wersalikowe. Kod wyjścia 0 (wszystkie kroje załadowane). Nowe pliki OFL: Gelasio 700 (latin, latin-ext, vietnamese), Instrument Serif 400 (latin, latin-ext), @fontsource 5.3.0.
+
+| Krój | Pochodzenie (przeczytane: README projektu) | Wysokość x | „Dopuszczalna” 28 pt | Odmiany | Wietnamski |
+|---|---|---|---|---|---|
+| 1. Literata 600 | „Originally created as the brand typeface for Google Play Books”; poker uczy się z książek | 51% | 192 pt | 200–900 | tak |
+| 2. Gelasio 700 | „metrics compatible with Georgia in its Regular, Bold…”; dawna aplikacja: indeksy kart Georgia 700 (`apps/mobile/src/theme/tokens.ts:74`, `PlayingCard.tsx:62`) | 49% | 199 pt | 400–700 | tak |
+| 3. Libre Baskerville 700 | „based on the American Type Founder's Baskerville from 1941”; brak śladu w świecie pokera | 53% | 207 pt | 400–700 | nie |
+| 4. Cormorant Garamond 700 | krój wystawowy w duchu Garamonda; brak śladu w świecie pokera | 39% | 152 pt | 300–700 | tak (paczka; plik nie dodany) |
+| 5. Instrument Serif 400 | „A condensed, display serif”; wąskie znaki jak indeksy rang (inwentarz E1) | 51% | 131 pt | tylko 400 | nie |
+
+Krytyka (usterki najpierw): pierwszy zrzut miał cyfry nautyczne („9” w „J9o” pod linią w Cormorant i Gelasio) i ucięte twoje karty w wycinku `bez-pozycji` → cyfry wersalikowe w tytułach, dłuższy wycinek (drugi zrzut). Gelasio i Libre Baskerville łamią „Ile masz outów do strita?” na dwa wiersze już przy 390 pt (szersze kroje; przy 320 pt więcej łamań). Cormorant przy tym samym stopniu wygląda o ok. 20% mniejszy (wysokość x 39% wobec 49–53%), więc wymagałby większego stopnia. Instrument Serif 400 jest lżejszy od reszty interfejsu i nie ma odmiany na „Pogrubiony tekst” (podłoga VoiceOver/Typografia); to też krój modny w 2024–2025, blisko „kolejnej fali domyślnych wyborów”.
+
+Rekomendacja studia (funkcja): **Literata 600** — najwęższa z krojów o pełnej wysokości x (mniej łamań przy 320 pt), pełna oś odmian (reaguje na „Pogrubiony tekst”), wietnamski. Drugi wybór: **Gelasio 700** — najbliższa ciągłość z dawną aplikacją (Georgia w indeksach, punkt odniesienia D-117), kosztem szerszych tytułów i braku odmiany cięższej niż 700. Odradzane: Cormorant (mały optycznie), Instrument Serif (podłoga „Pogrubiony tekst”), Libre Baskerville (najszerszy, bez wietnamskiego, bez związku z dziedziną).

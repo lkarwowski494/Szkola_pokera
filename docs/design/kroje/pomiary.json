@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1-literata",
+    "rodzina": "Literata",
+    "waga": 600,
+    "x": 0.51,
+    "H": 0.71,
+    "dopuszczalna28": 192
+  },
+  {
+    "id": "2-gelasio",
+    "rodzina": "Gelasio",
+    "waga": 700,
+    "x": 0.49,
+    "H": 0.7,
+    "dopuszczalna28": 199
+  },
+  {
+    "id": "3-libre-baskerville",
+    "rodzina": "Libre Baskerville",
+    "waga": 700,
+    "x": 0.53,
+    "H": 0.77,
+    "dopuszczalna28": 207
+  },
+  {
+    "id": "4-cormorant-garamond",
+    "rodzina": "Cormorant Garamond",
+    "waga": 700,
+    "x": 0.39,
+    "H": 0.63,
+    "dopuszczalna28": 152
+  },
+  {
+    "id": "5-instrument-serif",
+    "rodzina": "Instrument Serif",
+    "waga": 400,
+    "x": 0.51,
+    "H": 0.72,
+    "dopuszczalna28": 131
+  }
+]

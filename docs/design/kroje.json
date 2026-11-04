@@ -1,0 +1,7 @@
+[
+ {"id":"1-literata","rodzina":"Literata","waga":600,"zdanie":"Krój książkowy, zaprojektowany dla Google Play Books (README projektu); poker uczy się z książek (szczebel 3 hierarchii źródeł). Obecny, tymczasowy."},
+ {"id":"2-gelasio","rodzina":"Gelasio","waga":700,"zdanie":"Odpowiednik Georgii, zgodny z nią metrycznie w odmianie Bold (README autora); Georgią 700 dawna aplikacja pisała indeksy kart — ciągłość z punktem odniesienia D-117."},
+ {"id":"3-libre-baskerville","rodzina":"Libre Baskerville","waga":700,"zdanie":"Baskerville z odlewni ATF (1941), przerobiony do czytania na ekranie (README). Klasyczny druk książkowy; bez bezpośredniego śladu w świecie pokera."},
+ {"id":"4-cormorant-garamond","rodzina":"Cormorant Garamond","waga":700,"zdanie":"Krój wystawowy w duchu Garamonda: najbardziej odświętny z pięciu. Bez śladu w świecie pokera; mała wysokość x, więc optycznie mniejszy."},
+ {"id":"5-instrument-serif","rodzina":"Instrument Serif","waga":400,"zdanie":"Wąski, wysoki szeryf wystawowy (README), jak wąskie znaki rang w indeksach kart (inwentarz E1). Tylko jedna odmiana: nie zareaguje na „Pogrubiony tekst”."}
+]
