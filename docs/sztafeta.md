@@ -172,5 +172,10 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - Nowe w BRD: J-07, PR-09, OG-15, OG-16, BR-OPIN-001–003, BR-LIM-001–005, S-55–S-68, OP-23, OP-24, ER-12, ER-13. Nazwa „dzienny limit” zamiast „pula” (D-111).
 - Rola 03 E2: warianty 1–3, D-103–D-106, D-108–D-111 decyzjami agenta (delegacja), D-102 i D-107 do właściciela; `zakres.mjs --brd --apetyt 16.5` kod 0. Rejestr w repo: `docs/decyzje.md` (do przeniesienia na Dysk).
 
+## Decyzje właściciela na bramce E2 roli 03 (2026-11-03)
+- Wariant: „1 »Pełna nauka« (Recommended)” (D-102); odrzucone: 2, 3. Apetyt wersji 1 = 16,5 h [OCENA].
+- Limit: „1 aktywność dziennie (Recommended)” (D-107); odrzucone: 2 aktywności, 10 zadań. Do E3: OP-23 w BRD zamknąć (rola 01, ER albo wpis), OP-11 w `docs/monetyzacja.md` — uwaga dla roli 02.
+- Nowa sesja: „Tak, otwórz nową i zarchiwizuj tę (Recommended)”.
+
 ## Następny krok
-**Bramka E2 roli 03** (D-102 wariant, D-107 jednostka i N limitu), potem E3 (kontrakt, przekazanie do 04–08). Prompt: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build` (prompts c025063). Stan: `docs/scope-contract.md`, sekcja E2; decyzje: `docs/decyzje.md`.
+**Rola 03 E3** (kontrakt według szablonu, `zakres.mjs --brd docs/brd --apetyt 16.5` z kodem 0, definicja ukończenia, przekazanie do 04–08 i uwagi dla 01, 02). Prompt: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build` (prompts c025063). Stan: `docs/scope-contract.md`, sekcja E2; decyzje: `docs/decyzje.md`.

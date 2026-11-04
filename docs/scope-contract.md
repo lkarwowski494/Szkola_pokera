@@ -1,5 +1,5 @@
 # Kontrakt zakresu: Szkoła Pokera
-Stan: E2 (2026-11-03): cięcie i warianty, STOP na bramce E2 (wybór wariantu i limitu); E1 zakończone (D-101) · Rola 03 build · Wejście: BRD `docs/brd/` (rola 01, E4), `docs/monetyzacja.md` (rola 02, sesja 2, E3), `docs/zalozenia.md` (ZAL-001–ZAL-012, ZAL-MON-01)
+Stan: E2 zakończone (2026-11-03): wariant 1 (D-102), limit 1 aktywność dziennie (D-107); następny krok E3 · Rola 03 build · Wejście: BRD `docs/brd/` (rola 01, E4), `docs/monetyzacja.md` (rola 02, sesja 2, E3), `docs/zalozenia.md` (ZAL-001–ZAL-012, ZAL-MON-01)
 
 ## E0: rama (2026-11-03)
 Prompt: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build` (prompts c025063; moduły ciecie, inwentarz-funkcji, zmiany-zakresu), przeczytany od kontraktu roli; `zakres.mjs` wycięty z modułu `ciecie` bez zmian (scratchpad sesji).
@@ -164,7 +164,7 @@ OP-20 → D-105 (ocena ≤ 8 pytań, ok. 2 min, bez ekranu zakupu na końcu); OP
 ### Pętla opinii (E2 pkt 6)
 F-17 w wersji 1 (domyślnie): systemowa prośba po 3. skończonej pracy, „Oceń w sklepie”, „Napisz do nas”, „Zgłoś błąd” przy ocenie zadania; bez SDK (NFR-PRYW-001).
 
-## Zakres (propozycja: wariant 1)
+## Zakres (wariant 1, decyzja właściciela D-102)
 - Pętla główna: F-02 → F-01 → F-03 → F-05 → F-07 → F-10 → F-04; krok „sprawdź się” F-12.
 
 | ID | Funkcja | Wymagania | Decyzja | Dowód wartości | WTP | Intuicyjność | Podłoga | Zależy od | Uzasadnienie |

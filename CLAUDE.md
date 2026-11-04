@@ -2,7 +2,7 @@
 
 Ten plik obowiązuje w każdej sesji pracującej na tym repozytorium. Zasady poniżej mają pierwszeństwo przed domyślnym sposobem pracy, a w sprawach treści pokerowej także przed ogólną preferencją właściciela „zawsze przedstaw opcje i zostaw decyzję człowiekowi”.
 
-## Stan projektu (aktualizacja: 2026-11-03, role 01 i 02 gotowe; rola 03 w toku: E2 zakończone, bramka E2)
+## Stan projektu (aktualizacja: 2026-11-03, role 01 i 02 gotowe; rola 03 w toku: E2 zakończone (D-102, D-107), następny E3)
 - Etap: w budowie, przebudowa „prawie od nowa” (sztafeta ról 01–05, `docs/sztafeta.md`); TestFlight tylko testy wewnętrzne (buildy 1005–1008), poza właścicielem brak użytkowników i ich danych.
 - Sklep: App Store Connect częściowo (aplikacja do TestFlight, umowa Paid Apps podpisana); Google Play: nic.
 - Rynek główny: US; kolejne: JP, CA, GB, BR, FR, TW, VN, DE; **bez storefrontu PL** (decyzja właściciela 2026-11-03, art. 29 u.g.h.), pozostałe storefronty wszystkie (OP-15, 2026-11-03); opinia prawna art. 29: nie teraz (OP-13) · repo treści prywatnych: brak.
