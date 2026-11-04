@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>C Mapa wiedzy 169: Decyzja w sesji</title>
+<!-- Kierunek C (metafora M3, D-115): mapa 169 klas rąk jako mapa twojej wiedzy. Ekran kluczowy D-114: „Decyzja w sesji”.
+     Treść prawdziwa:
+     - sytuacja: content/ranges/spots.yaml, id rfi.co, title „CO, wszyscy przed tobą spasowali”;
+     - 169 klas rąk: content/ranges/preflop-6max-100bb.json, meta.handClasses = 169;
+     - J9o w tym spocie: strategy fold 0.8, raise 2.5 0.2 (path „UTG:fold,HJ:fold”);
+     - stopień: apps/mobile/src/features/drills/thresholds.ts; teksty: apps/mobile/src/features/drills/text.pl.ts (range.acceptable).
+     [PRZYKŁAD]: stan wiedzy w każdej klasie (opanowane / w nauce / nie ćwiczone), kolory kart, numer zadania.
+     Mapa przed decyzją pokazuje wyłącznie stan wiedzy użytkownika, nigdy strategię (nie zdradza odpowiedzi). -->
+<link rel="stylesheet" href="wspolne.css">
+<style>
+:root {
+  --tlo: #FFFFFF;
+  --tusz: #20232A;
+  --drugi: #5A5F69;
+  --kratka: #F2D3A8;       /* milimetrówka: linie papieru (ozdoba siatki, bez danych) */
+  --opanowane: #767C86;    /* pole wypełnione szarością tuszu: mapa nie przytłacza decyzji (3:1 do papieru) */
+  --nauka: #767C86;        /* pole kreskowane */
+  --puste-brzeg: #8B909A;  /* pole nie ćwiczone: kontur 3:1 */
+  --akcent: #A35800;       /* bursztyn milimetrówki ściemniony do tekstu (przesunięty z #B9470E: za blisko terakoty Organizera #B4471F): bieżąca ręka, linki */
+  --akcent-tekst: #20232A;  /* nawigacja i linki tuszem: bursztyn znaczy tylko „ta ręka” */
+  --kier: #B8232A;
+  --tytul: 'Archivo', sans-serif;
+}
+[data-theme="dark"] {
+  --tlo: #1F2226;
+  --tusz: #ECEDEF;
+  --drugi: #A9AEB7;
+  --kratka: #4A3524;
+  --opanowane: #A3A9B3;
+  --nauka: #A3A9B3;
+  --puste-brzeg: #767C87;
+  --akcent: #FFAA4D;
+  --akcent-tekst: #ECEDEF;
+  --kier: #FF8A8A;
+}
+
+.sytuacja { padding: 8px 16px 0; }
+.sytuacja h1 { font-family: var(--tytul); font-weight: 700; font-size: var(--t-tytul); line-height: 1.12; }
+.sytuacja p { font-size: var(--t-przypis); color: var(--drugi); margin-top: 6px; }
+
+.mapa { margin: 16px 16px 0; }
+.mapa h2 { font-family: var(--tytul); font-weight: 700; font-size: calc(1.0625rem * var(--dt-tytul)); margin-bottom: 8px; }
+.siatka { display: grid; grid-template-columns: 14px repeat(13, 1fr); gap: 2px; background: var(--tlo); }
+.siatka .r { font-size: 11px; font-weight: 600; color: var(--drugi); display: flex; align-items: center; justify-content: center; font-family: var(--tytul); }
+.pole { aspect-ratio: 1; border: 1.5px solid var(--puste-brzeg); border-radius: 3px; background: var(--tlo); position: relative; }
+.pole.op { background: var(--opanowane); border-color: var(--opanowane); }
+.pole.na { background: repeating-linear-gradient(135deg, var(--nauka) 0 2px, transparent 2px 5px); border-color: var(--nauka); }
+.pole.ty { outline: 4px solid var(--akcent); outline-offset: 1px; z-index: 1; }
+.siatka .r.ty { color: var(--akcent); font-size: 13px; font-weight: 800; }
+.siatka-tlo { padding: 6px; background-image: linear-gradient(var(--kratka) 1px, transparent 1px), linear-gradient(90deg, var(--kratka) 1px, transparent 1px); background-size: 8px 8px; border: 1px solid var(--kratka); }
+.legenda { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 8px; font-size: var(--t-drobny); color: var(--drugi); }
+.legenda span { display: inline-flex; align-items: center; gap: 6px; }
+.legenda i { display: inline-block; width: 14px; height: 14px; border-radius: 3px; border: 1.5px solid var(--puste-brzeg); }
+.legenda i.op { background: var(--opanowane); border-color: var(--opanowane); }
+.legenda i.na { background: repeating-linear-gradient(135deg, var(--nauka) 0 2px, transparent 2px 5px); border-color: var(--nauka); }
+.legenda i.ty { outline: 3px solid var(--akcent); outline-offset: 1px; border-color: var(--puste-brzeg); }
+
+.reka { padding: 16px 16px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+.karty { display: flex; gap: 8px; }
+.karta { width: 60px; height: 82px; border: 1.5px solid var(--puste-brzeg); border-radius: 8px; padding: 5px 7px; display: flex; flex-direction: column; gap: 2px; color: var(--tusz); }
+.karta b { font-family: var(--tytul); font-weight: 700; font-size: 30px; line-height: 1; }
+.karta svg { width: 22px; height: 22px; fill: currentColor; }
+.karta.czerwona { color: var(--kier); }
+.reka p { font-family: var(--tytul); font-weight: 700; font-size: var(--t-tytul); line-height: 1.1; flex: 1 1 5em; }
+.reka p small { display: block; font-family: var(--tresc); font-weight: 400; font-size: var(--t-przypis); color: var(--drugi); margin-top: 4px; }
+
+.przyciski.obok { flex-direction: row; flex-wrap: wrap; }
+.przyciski.obok .przycisk { flex: 1 1 130px; min-height: 60px; border-radius: 999px; }
+.przycisk.glowny { background: var(--tusz); color: var(--tlo); border-radius: 999px; }
+.przycisk.drugi { border: 2px solid var(--tusz); color: var(--tusz); }
+
+.ocena { margin: 16px 16px 0; }
+.ocena h2 { font-family: var(--tytul); font-weight: 700; font-size: var(--t-tytul); line-height: 1.12; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.ocena h2 i { width: 0.9em; height: 0.9em; border: 2px solid var(--tusz); border-radius: 4px; background: repeating-linear-gradient(135deg, var(--tusz) 0 2px, transparent 2px 5px); }
+.ocena p { font-size: var(--t-tresc); line-height: 1.4; margin-top: 8px; }
+.ocena p.liczby { font-feature-settings: 'tnum'; }
+.link { color: var(--akcent-tekst); text-decoration: underline; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pik" viewBox="0 0 24 24"><path d="M12 2C9 6 4 9 4 13.5 4 16 6 18 8.5 18c1.3 0 2.4-.5 3-1.3-.2 1.9-1 3.4-2.5 4.8h6c-1.5-1.4-2.3-2.9-2.5-4.8.6.8 1.7 1.3 3 1.3 2.5 0 4.5-2 4.5-4.5C20 9 15 6 12 2z"/></symbol>
+  <symbol id="kier" viewBox="0 0 24 24"><path d="M12 21C5 15.5 2 12.3 2 8.5 2 5.5 4.3 3.5 7 3.5c2 0 3.5 1 5 3 1.5-2 3-3 5-3 2.7 0 5 2 5 5 0 3.8-3 7-10 12.5z"/></symbol>
+</svg>
+
+<main data-ekran="przed-decyzja" aria-label="Decyzja w sesji, przed decyzją">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Sesja ćwiczeń</b><span class="przyklad">Zadanie 4</span></nav>
+  <section class="sytuacja">
+    <h1>CO, wszyscy przed tobą spasowali</h1>
+    <p>Stół 6-osobowy, stack 100bb, przed flopem</p>
+  </section>
+  <section class="mapa">
+    <h2>Twoja mapa: otwarcie z CO</h2>
+    <div class="siatka-tlo"><div class="siatka" data-ty="J9o" role="img"></div></div>
+    <div class="legenda"><span><i class="op"></i>opanowane</span><span><i class="na"></i>w nauce</span><span><i></i>nie ćwiczone</span></div>
+  </section>
+  <section class="reka">
+    <div class="karty" role="img" aria-label="Twoje karty: walet pik, dziewiątka kier">
+      <div class="karta"><b>J</b><svg><use href="#pik"/></svg></div>
+      <div class="karta czerwona"><b>9</b><svg><use href="#kier"/></svg></div>
+    </div>
+    <p>J9o<small>różne kolory, w nauce</small></p>
+  </section>
+  <div class="przyciski obok">
+    <a class="przycisk drugi" href="#">Pas</a>
+    <a class="przycisk glowny" href="#">Przebicie do 2,5bb</a>
+  </div>
+</main>
+
+<main data-ekran="po-ocenie" aria-label="Decyzja w sesji, po ocenie">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Sesja ćwiczeń</b><span class="przyklad">Zadanie 4</span></nav>
+  <section class="sytuacja">
+    <h1>CO, wszyscy przed tobą spasowali</h1>
+    <p>J9o, twój wybór: przebicie do 2,5bb</p>
+  </section>
+  <section class="mapa">
+    <h2>Twoja mapa: otwarcie z CO</h2>
+    <div class="siatka-tlo"><div class="siatka" data-ty="J9o" role="img"></div></div>
+  </section>
+  <section class="ocena" aria-live="polite">
+    <h2><i aria-hidden="true"></i>Dopuszczalna</h2>
+    <p>Solver gra tak w 20% przypadków, więc to nie błąd, ale częściej wybiera inną akcję. Najlepiej zapamiętaj tę częstszą.</p>
+    <p class="liczby">J9o: pas 80%, przebicie 20%. Pole J9o zostaje w nauce, powtórka wróci szybciej.</p>
+    <a class="link" href="#">Zgłoś błąd w tym zadaniu</a>
+  </section>
+  <div class="przyciski">
+    <a class="przycisk glowny" href="#">Dalej</a>
+  </div>
+</main>
+
+<aside class="panele">
+  <h2>C. Mapa 169 jako mapa wiedzy</h2>
+  <p>Siatka 13×13 klas rąk nie pokazuje strategii, tylko twoją wiedzę w tej pozycji: pola wypełniają się w miarę opanowania. Bieżąca ręka jest obwiedziona; ocena zmienia stan jej pola.</p>
+  <h2>Znaki stopni (kształt pola, słowo zawsze obok)</h2>
+  <table>
+    <tr><td>pole pełne</td><td>Zgodna</td><td>pole kreskowane</td><td>Dopuszczalna</td></tr>
+    <tr><td>pole kreskowane z kreską rozmiaru</td><td>Niedokładność</td><td>pole puste z krzyżykiem</td><td>Błąd</td></tr>
+  </table>
+  <h2>Paleta</h2>
+  <table>
+    <tr><td><div class="probka" style="background:#FFFFFF"></div></td><td>papier <code>#FFFFFF</code></td><td><div class="probka" style="background:#1F2226"></div></td><td>papier nocą <code>#1F2226</code></td></tr>
+    <tr><td><div class="probka" style="background:#20232A"></div></td><td>tusz <code>#20232A</code></td><td><div class="probka" style="background:#F2D3A8"></div></td><td>milimetrówka <code>#F2D3A8</code></td></tr>
+    <tr><td><div class="probka" style="background:#A35800"></div></td><td>bursztyn kratki <code>#A35800</code></td><td><div class="probka" style="background:#B8232A"></div></td><td>czerwień kart <code>#B8232A</code></td></tr>
+  </table>
+  <h2>Kroje</h2>
+  <p><span style="font-family:Archivo;font-weight:700;font-size:22px">Archivo 700: Twoja mapa J9o</span><br>treść: na iOS SF Pro; w makiecie zastępczo Noto Sans</p>
+  <h2>Ikona</h2>
+  <div class="ikony">
+    <figure><img src="ikony/c-jasna.png" width="120" height="120" alt=""><figcaption>120</figcaption></figure>
+    <figure><img src="ikony/c-jasna.png" width="60" height="60" alt=""><figcaption>60</figcaption></figure>
+    <figure><img src="ikony/c-jasna.png" width="29" height="29" alt=""><figcaption>29</figcaption></figure>
+    <figure><img src="ikony/c-ciemna.png" width="60" height="60" alt=""><figcaption>ciemna</figcaption></figure>
+  </div>
+</aside>
+<script>
+// Siatka 169: wiersz/kolumna = ranga; nad przekątną w kolorze (s), pod przekątną różne kolory (o), na przekątnej pary.
+// Stan wiedzy to [PRZYKŁAD]: opanowane blisko lewego górnego rogu i najsłabsze ręce, w nauce pas graniczny.
+const R = 'AKQJT98765432'.split('');
+const nazwa = (r, c) => r === c ? R[r] + R[c] : r < c ? R[r] + R[c] + 's' : R[c] + R[r] + 'o';
+const stan = (r, c) => { const s = r + c; if (s <= 6 || (r === c && r <= 7) || s >= 20) return 'op'; if (s >= 7 && s <= 10) return 'na'; return ''; };
+for (const siatka of document.querySelectorAll('.siatka')) {
+  const ty = siatka.dataset.ty; const licz = { op: 0, na: 0, '': 0 };
+  let tr = -1, tc = -1;
+  R.forEach((_, r) => R.forEach((__, c) => { if (nazwa(r, c) === ty) { tr = r; tc = c; } }));
+  const naglowek = (t, wyr) => Object.assign(document.createElement('span'), { className: 'r' + (wyr ? ' ty' : ''), textContent: t });
+  siatka.append(naglowek('', false));
+  R.forEach((x, c) => siatka.append(naglowek(x, c === tc)));
+  R.forEach((y, r) => {
+    siatka.append(naglowek(y, r === tr));
+    R.forEach((_, c) => { const st = stan(r, c); licz[st]++; const d = document.createElement('span'); d.className = 'pole ' + st + (r === tr && c === tc ? ' ty' : ''); siatka.append(d); });
+  });
+  siatka.setAttribute('aria-label', `Mapa wiedzy, otwarcie z CO: ${licz.op} klas opanowanych, ${licz.na} w nauce, ${licz['']} nie ćwiczonych. Ta ręka: ${ty}, w nauce.`);
+}
+</script>
+</body>
+</html>

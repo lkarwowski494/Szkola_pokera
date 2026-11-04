@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>B Pasek strategii: Decyzja w sesji</title>
+<!-- Kierunek B (metafora M2, D-115): pasek strategii mieszanej. Ekran kluczowy D-114: „Decyzja w sesji”, stany przed-decyzja i po-ocenie.
+     Treść prawdziwa:
+     - sytuacja: content/ranges/spots.yaml, id rfi.co, title „CO, wszyscy przed tobą spasowali”, path „UTG:fold,HJ:fold”;
+     - stół 6-osobowy, 100bb: content/ranges/preflop-6max-100bb.json, meta.players = 6, meta.tree.stack = 100;
+     - J9o w tym spocie: strategy fold 0.8, raise 2.5 0.2 (ten sam plik, path „UTG:fold,HJ:fold”);
+     - stopień i progi 3,5% / 25%: apps/mobile/src/features/drills/thresholds.ts (MIXED_MIN, MIXED_LOW);
+     - teksty oceny: apps/mobile/src/features/drills/text.pl.ts, range.acceptable i range.explanation.
+     [PRZYKŁAD]: kolory kart (J♠ 9♥), numer zadania, godzina. -->
+<link rel="stylesheet" href="wspolne.css">
+<style>
+:root {
+  --tlo: #F2F3F5;          /* tło grupowane iOS, chłodna szarość */
+  --plansza: #FFFFFF;      /* plansza rozwiązania */
+  --tusz: #17191E;
+  --drugi: #565B65;
+  --przebicie: #2F333B;    /* grafit: akcja grana (ciemniej = agresywniej) */
+  --pas: #C5CAD2;          /* pas: jasny z kreskowaniem */
+  --pas-kreska: #7B828E;
+  --wybor: #B0125B;        /* znacznik „twój wybór”: jedyny akcent */
+  --wybor-tekst: #B0125B;
+  --akcent-tekst: #17191E;   /* nawigacja i linki tuszem: magenta znaczy tylko „twój wybór” */
+  --kier: #B8232A;
+  --tytul: 'Encode Sans Semi Condensed', sans-serif;
+}
+[data-theme="dark"] {
+  --tlo: #1B1E23;
+  --plansza: #262A31;
+  --tusz: #ECEEF1;
+  --drugi: #A7ADB7;
+  --przebicie: #E1E4E8;
+  --pas: #4A505A;
+  --pas-kreska: #6E7581;
+  --wybor: #FF6FAE;
+  --wybor-tekst: #FF8DBF;
+  --akcent-tekst: #ECEEF1;
+  --kier: #FF8A8A;
+}
+
+.sytuacja { padding: 8px 16px 0; }
+.sytuacja h1 { font-family: var(--tytul); font-weight: 700; font-size: var(--t-tytul); line-height: 1.12; }
+.sytuacja p { font-size: var(--t-przypis); color: var(--drugi); margin-top: 6px; }
+
+.reka { margin: 28px 16px 0; display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; }
+.karty { display: flex; gap: 8px; }
+.karta { width: 88px; height: 122px; border: 1.5px solid var(--pas-kreska); border-radius: 8px; padding: 6px 8px; display: flex; flex-direction: column; gap: 2px; color: var(--tusz); background: var(--plansza); }
+.karta b { font-family: var(--tytul); font-weight: 700; font-size: 46px; line-height: 1; }
+.karta svg { width: 32px; height: 32px; fill: currentColor; }
+.karta.czerwona { color: var(--kier); }
+.reka p { font-family: var(--tytul); font-weight: 700; font-size: var(--t-tytul); flex: 1 1 6em; line-height: 1.1; }
+.reka p small { display: block; font-family: var(--tresc); font-weight: 400; font-size: var(--t-przypis); color: var(--drugi); margin-top: 4px; }
+
+.etykieta { padding: 24px 16px 8px; font-size: var(--t-przypis); color: var(--drugi); }
+
+/* Pasek jako przyciski: przed decyzją segmenty są równe i nic nie zdradzają */
+.pasek { margin: 0 16px; display: flex; flex-wrap: wrap; border-radius: 12px; overflow: hidden; border: 2px solid var(--tusz); }
+.pasek a { flex: 1 1 120px; min-height: 64px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 8px 12px; font-size: var(--t-tresc); font-weight: 600; color: var(--tusz); text-decoration: none; background: var(--plansza); }
+.pasek a + a { border-left: 2px solid var(--tusz); }
+
+/* Po ocenie: ten sam pasek rozkłada się na częstotliwości rozwiązania */
+.wynik { margin: 20px 16px 0; padding: 16px; background: var(--plansza); border-radius: 12px; }
+.wynik h2 { font-family: var(--tytul); font-weight: 700; font-size: var(--t-tytul); line-height: 1.12; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; }
+.znak-b { width: 1.1em; height: 1.1em; border-radius: 50%; border: 3px solid var(--tusz); display: inline-flex; align-items: center; justify-content: center; font-size: 0.8em; }
+.rozklad { margin-top: 28px; position: relative; }
+.rozklad .os { display: flex; height: 40px; border: 2px solid var(--tusz); border-radius: 8px; overflow: hidden; }
+.rozklad .s-pas { width: 80%; background: repeating-linear-gradient(135deg, var(--pas) 0 6px, var(--pas-kreska) 6px 8px); }
+.rozklad .s-przebicie { width: 20%; background: var(--przebicie); border-left: 2px solid var(--tusz); }
+.rozklad .znacznik { position: absolute; left: 90%; top: -22px; transform: translateX(-50%); width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 14px solid var(--wybor); }
+.podpisy { display: flex; justify-content: space-between; gap: 8px; margin-top: 8px; font-size: var(--t-przypis); font-feature-settings: 'tnum'; flex-wrap: wrap; }
+.podpisy b { font-weight: 600; }
+.podpisy .twoj { color: var(--wybor-tekst); text-align: right; }
+.wynik p { font-size: var(--t-tresc); line-height: 1.4; margin-top: 12px; }
+
+.stopnie { display: flex; flex-wrap: wrap; margin-top: 16px; gap: 6px; }
+.stopnie span { flex: 1 1 90px; font-size: min(var(--t-drobny), calc(var(--w) * 0.06)) !important; border: 1.5px solid var(--pas-kreska); border-radius: 8px; padding: 6px 8px; font-size: var(--t-drobny); line-height: 1.3; color: var(--drugi); }
+.stopnie span b { display: block; color: var(--tusz); font-weight: 600; }
+.stopnie span.tu { border: 3px solid var(--wybor); color: var(--tusz); }
+
+.link { color: var(--akcent-tekst); text-decoration: underline; }
+.przycisk.glowny { background: var(--tusz); color: var(--tlo); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pik" viewBox="0 0 24 24"><path d="M12 2C9 6 4 9 4 13.5 4 16 6 18 8.5 18c1.3 0 2.4-.5 3-1.3-.2 1.9-1 3.4-2.5 4.8h6c-1.5-1.4-2.3-2.9-2.5-4.8.6.8 1.7 1.3 3 1.3 2.5 0 4.5-2 4.5-4.5C20 9 15 6 12 2z"/></symbol>
+  <symbol id="kier" viewBox="0 0 24 24"><path d="M12 21C5 15.5 2 12.3 2 8.5 2 5.5 4.3 3.5 7 3.5c2 0 3.5 1 5 3 1.5-2 3-3 5-3 2.7 0 5 2 5 5 0 3.8-3 7-10 12.5z"/></symbol>
+</svg>
+
+<main data-ekran="przed-decyzja" aria-label="Decyzja w sesji, przed decyzją">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Sesja ćwiczeń</b><span class="przyklad">Zadanie 4</span></nav>
+  <section class="sytuacja">
+    <h1>CO, wszyscy przed tobą spasowali</h1>
+    <p>Stół 6-osobowy, stack 100bb, przed flopem</p>
+  </section>
+  <section class="reka">
+    <div class="karty" role="img" aria-label="Twoje karty: walet pik, dziewiątka kier">
+      <div class="karta"><b>J</b><svg><use href="#pik"/></svg></div>
+      <div class="karta czerwona"><b>9</b><svg><use href="#kier"/></svg></div>
+    </div>
+    <p>J9o<small>różne kolory</small></p>
+  </section>
+  <p class="etykieta" style="margin-top:auto">Wybierz akcję</p>
+  <div class="pasek" role="group" aria-label="Akcje">
+    <a href="#">Pas</a>
+    <a href="#">Przebicie do 2,5bb</a>
+  </div>
+  <div style="height:40px"></div>
+</main>
+
+<main data-ekran="po-ocenie" aria-label="Decyzja w sesji, po ocenie">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Sesja ćwiczeń</b><span class="przyklad">Zadanie 4</span></nav>
+  <section class="sytuacja">
+    <h1>CO, wszyscy przed tobą spasowali</h1>
+    <p>J9o, stół 6-osobowy, stack 100bb</p>
+  </section>
+  <section class="wynik" aria-live="polite">
+    <h2><span class="znak-b" aria-hidden="true">∼</span>Dopuszczalna</h2>
+    <div class="rozklad" role="img" aria-label="Strategia solvera dla J9o: pas 80 procent, przebicie 20 procent. Twój wybór: przebicie.">
+      <div class="znacznik"></div>
+      <div class="os"><div class="s-pas"></div><div class="s-przebicie"></div></div>
+      <div class="podpisy"><span><b>Pas</b> 80%</span><span class="twoj"><b>Przebicie</b> 20%<br>twój wybór</span></div>
+    </div>
+    <div class="stopnie" aria-label="Skala stopni: twoja akcja 20 procent, przedział dopuszczalna">
+      <span><b>Błąd</b>poniżej 3,5%</span>
+      <span class="tu"><b>Dopuszczalna</b>3,5–25%</span>
+      <span><b>Zgodna</b>od 25% albo najczęstsza</span>
+    </div>
+    <p>Solver gra tak w 20% przypadków, więc to nie błąd, ale częściej wybiera inną akcję. Najlepiej zapamiętaj tę częstszą.</p>
+    <a class="link" href="#">Zgłoś błąd w tym zadaniu</a>
+  </section>
+  <div class="przyciski">
+    <a class="przycisk glowny" href="#">Dalej</a>
+  </div>
+</main>
+
+<aside class="panele">
+  <h2>B. Pasek strategii mieszanej</h2>
+  <p>Przyciski akcji tworzą jeden pasek; po decyzji pasek rozkłada się na częstotliwości rozwiązania, a znacznik pokazuje twój wybór. Ocena wynika z obrazu: twoja akcja ma 20%, więc mieści się w przedziale „dopuszczalna”.</p>
+  <h2>Znaki stopni (słowo zawsze obok)</h2>
+  <table>
+    <tr><td><b>✓</b></td><td>Zgodna</td><td><b>∼</b></td><td>Dopuszczalna</td></tr>
+    <tr><td><b>↔</b></td><td>Niedokładność: dobra akcja, zły rozmiar</td><td><b>✕</b></td><td>Błąd</td></tr>
+  </table>
+  <h2>Paleta</h2>
+  <table>
+    <tr><td><div class="probka" style="background:#F2F3F5"></div></td><td>tło <code>#F2F3F5</code></td><td><div class="probka" style="background:#1B1E23"></div></td><td>tło nocą <code>#1B1E23</code></td></tr>
+    <tr><td><div class="probka" style="background:#2F333B"></div></td><td>grafit akcji <code>#2F333B</code></td><td><div class="probka" style="background:repeating-linear-gradient(135deg,#C5CAD2 0 6px,#7B828E 6px 8px)"></div></td><td>pas, kreskowany <code>#C5CAD2</code> i <code>#7B828E</code></td></tr>
+    <tr><td><div class="probka" style="background:#B0125B"></div></td><td>twój wybór <code>#B0125B</code></td><td><div class="probka" style="background:#B8232A"></div></td><td>czerwień kart <code>#B8232A</code></td></tr>
+  </table>
+  <h2>Kroje</h2>
+  <p><span style="font-family:'Encode Sans Semi Condensed';font-weight:700;font-size:22px">Encode Sans Semi Condensed 700: Pas 80%</span><br>treść: na iOS SF Pro; w makiecie zastępczo Noto Sans</p>
+  <h2>Ikona</h2>
+  <div class="ikony">
+    <figure><img src="ikony/b-jasna.png" width="120" height="120" alt=""><figcaption>120</figcaption></figure>
+    <figure><img src="ikony/b-jasna.png" width="60" height="60" alt=""><figcaption>60</figcaption></figure>
+    <figure><img src="ikony/b-jasna.png" width="29" height="29" alt=""><figcaption>29</figcaption></figure>
+    <figure><img src="ikony/b-ciemna.png" width="60" height="60" alt=""><figcaption>ciemna</figcaption></figure>
+  </div>
+</aside>
+</body>
+</html>

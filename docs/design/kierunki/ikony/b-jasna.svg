@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><rect width="1024" height="1024" fill="#F2F3F5"/><defs><clipPath id="k"><rect x="132" y="440" width="600" height="280"/></clipPath></defs>
+<rect x="132" y="440" width="600" height="280" fill="#C5CAD2"/>
+<g clip-path="url(#k)"><line x1="0" y1="720" x2="160" y2="440" stroke="#8F96A1" stroke-width="30"/><line x1="80" y1="720" x2="240" y2="440" stroke="#8F96A1" stroke-width="30"/><line x1="160" y1="720" x2="320" y2="440" stroke="#8F96A1" stroke-width="30"/><line x1="240" y1="720" x2="400" y2="440" stroke="#8F96A1" stroke-width="30"/><line x1="320" y1="720" x2="480" y2="440" stroke="#8F96A1" stroke-width="30"/><line x1="400" y1="720" x2="560" y2="440" stroke="#8F96A1" stroke-width="30"/><line x1="480" y1="720" x2="640" y2="440" stroke="#8F96A1" stroke-width="30"/><line x1="560" y1="720" x2="720" y2="440" stroke="#8F96A1" stroke-width="30"/><line x1="640" y1="720" x2="800" y2="440" stroke="#8F96A1" stroke-width="30"/><line x1="720" y1="720" x2="880" y2="440" stroke="#8F96A1" stroke-width="30"/><line x1="800" y1="720" x2="960" y2="440" stroke="#8F96A1" stroke-width="30"/><line x1="880" y1="720" x2="1040" y2="440" stroke="#8F96A1" stroke-width="30"/></g>
+<rect x="732" y="440" width="160" height="280" fill="#2F333B"/>
+<rect x="132" y="440" width="760" height="280" rx="12" fill="none" stroke="#17191E" stroke-width="32"/>
+<line x1="732" y1="440" x2="732" y2="720" stroke="#17191E" stroke-width="24"/>
+<path d="M692 210 h240 l-120 170 z" fill="#B0125B"/></svg>

@@ -11,7 +11,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 03 Zakres | build | zakończona 2026-11-04 (E3 zaakceptowane, D-112) | (commit E3) | `docs/scope-contract.md` (E3), `docs/archiwum/scope-contract-2026-11-03-robocze.md` (E0–E2), `docs/zakres/wzorzec-2026-11-03.json`, `docs/decyzje.md` | — |
 | 01 Odkrywanie | fix OP-20, OP-22, OP-23 | zakończona 2026-11-04 (D-113; kontrola BRD kod 0, wektory bez zmian) | 42dc490, be4e4e4, f795905 | `docs/brd/` (README, wymagania-nauka, wymagania-sklep, wymagania) | OP-24 (05), OP-10 (06) |
 | 02 Monetyzacja | fix OP-11 | zakończona 2026-11-04 (D-113; dokument, bez zmian rachunku i kodu) | 37ab4f1 | `docs/monetyzacja.md` | OP-09, OP-10 (05) |
-| 04 Studio Projektowe | build | E0 zakończone 2026-11-04 (D-114: ekran „Decyzja w sesji”); E1 zakończone 2026-11-04 (D-115: metafory A, B, C); następne E2 | a838dda, 118a5c1 | `docs/design/00-rozpoznanie.md`, `01-swiat.md` | OP-19 w E3 |
+| 04 Studio Projektowe | build | E0 zakończone 2026-11-04 (D-114: ekran „Decyzja w sesji”); E1 zakończone 2026-11-04 (D-115: metafory A, B, C); E2 zbudowane 2026-11-04, STOP: wybór kierunku okiem | a838dda, 118a5c1 | `docs/design/00-rozpoznanie.md`, `01-swiat.md` | OP-19 w E3 |
 | 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
 
 ## E0 bramki: ustalenia (2026-11-03)
@@ -212,8 +212,14 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - Raport: `docs/design/00-rozpoznanie.md` (środowisko, inwentarz obecnego motywu, PR-01–PR-09, konteksty, ograniczenia, pamięć portfolio, ekran kluczowy, plan). Moduł `kontekst-oczy-zajete` pominięty (oczy wolne we wszystkich przepływach).
 - Stan CI `main`: E2E czerwony w przebiegach 11–18, bez zmian (rola 07).
 
+## Rola 04 E2: wynik (2026-11-04, dziewiąta sesja)
+- Trzy kierunki na ekranie „Decyzja w sesji” (prawdziwa treść: spot `rfi.co`, J9o, pas 80% / przebicie 20%, stopień „dopuszczalna”): `docs/design/kierunki/a-zapis.html`, `b-pasek.html`, `c-mapa.html`; karty stylu, test generyczności, krytyka i pomiary w `docs/design/02-kierunki.md`; karty kontrolne w `01-swiat.md`; strona `docs/design/porownanie.html` + `porownanie.png`; kroje OFL w `docs/design/fonty/`; skrypty w `docs/design/narzedzia/`.
+- Pomiary: `warsztat.mjs` kod 0 (A, B, C), `kontrast.mjs` 35 par kod 0, `zrzuty.mjs` 72 zrzuty kod 0, `ikona.mjs` 6 ikon kod 0.
+- Rekomendacja: A z paskiem B w wyjaśnieniu zadań z zakresu; C w rezerwie jako ekran postępu.
+- Znalezisko dla roli 06: `range.acceptable` i dopisek w `range.explanation` (`apps/mobile/src/features/drills/text.pl.ts`) powtarzają to samo zdanie o „dopuszczalnej”.
+
 ## Następny krok
-**Rola 04 build E2** (trzy kierunki na ekranie „Decyzja w sesji”, D-114, metafory A, B, C z D-115; karty kontrolne i test generyczności w `01-swiat.md`; `docs/design/kierunki/*.html`, `porownanie.html/png`; potem ok. 5 krojów tytułów); nowa sesja opus/high; prompt jak wyżej, zapis `<scratchpad>/04-studio-szkola-pokera-2026-11-04.md`.
+**Rola 04 build E2, dokończenie po wyborze właściciela:** zapis wyboru dosłownie w `docs/decyzje.md` (D-116) i w `02-kierunki.md`, potem ok. 5 krojów tytułów na ekranie wybranego kierunku (jeden zrzut zbiorczy, pochodzenie każdego kroju w świecie dziedziny), wybór kroju przez właściciela, potem E3. Prompt: `node /home/user/prompts/tools/assemble.mjs 04-studio-projektowe --tryb build`, sesja opus/high.
 
 ## Poprzedni następny krok (rola 03, wykonany)
 **Rola 04 build** według „Przekazanie do następnej roli” wyżej: `node /home/user/prompts/tools/assemble.mjs 04-studio-projektowe --tryb build`; nowa sesja opus/high. Paczka: `docs/scope-contract.md`, `docs/brd/`, `docs/monetyzacja.md`, `docs/decyzje.md`, `CLAUDE.md`.

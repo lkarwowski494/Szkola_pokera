@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>A Zapis z adnotacją: Decyzja w sesji</title>
+<!-- Kierunek A (metafora M1, D-115): zapis rozdania z adnotacjami. Ekran kluczowy D-114: „Decyzja w sesji”, stany przed-decyzja i po-ocenie.
+     Treść prawdziwa:
+     - sytuacja: content/ranges/spots.yaml, id rfi.co, title „CO, wszyscy przed tobą spasowali”, path „UTG:fold,HJ:fold”;
+     - stół 6-osobowy, 100bb: content/ranges/preflop-6max-100bb.json, meta.players = 6, meta.tree.stack = 100;
+     - J9o w tym spocie: strategy fold 0.8, raise 2.5 0.2 (ten sam plik, path „UTG:fold,HJ:fold”);
+     - stopień: apps/mobile/src/features/drills/thresholds.ts (MIXED_MIN 0.035, MIXED_LOW 0.25): 20% → dopuszczalna;
+     - teksty oceny: apps/mobile/src/features/drills/text.pl.ts, range.acceptable i range.explanation.
+     [PRZYKŁAD]: kolory kart (J♠ 9♥), numer zadania w sesji, godzina. -->
+<link rel="stylesheet" href="wspolne.css">
+<style>
+:root {
+  --tlo: #FCFCFA;          /* kartka zapisu: biel offsetowa, neutralna (nie krem) */
+  --tusz: #1A1C20;         /* tusz drukarski */
+  --olowek: #5B5F67;       /* ołówek: drugi plan, czekający gracze */
+  --linia: #8E9198;        /* linie zapisu (grafika: 3:1 do tła) */
+  --zakreslacz: #FFE45C;   /* zakreślacz ucznia: twój ruch */
+  --zakreslacz-tekst: #1A1C20;
+  --kier: #B8232A;         /* czerwień kart: wyłącznie ♥ ♦ */
+  --akcent-tekst: #1A1C20;
+  --przycisk-tlo: #1A1C20;
+  --przycisk-tekst: #FCFCFA;
+  --karta: #FFFFFF;
+  --karta-brzeg: #8E9198;
+  --tytul: 'Literata', serif;
+}
+[data-theme="dark"] {
+  --tlo: #1D2025;          /* kartka nocą: grafit z nutą granatu, nie czerń */
+  --tusz: #ECECE8;
+  --olowek: #A6AAB2;
+  --linia: #6C7079;
+  --zakreslacz: #FFE45C;   /* zakreślacz nocą ten sam: mała plama, ciemny tekst (wersja z ciemnym tłem dawała oliwkową plamę) */
+  --zakreslacz-tekst: #1A1C20;
+  --kier: #FF8A8A;
+  --akcent-tekst: #ECECE8;
+  --przycisk-tlo: #ECECE8;
+  --przycisk-tekst: #1D2025;
+  --karta: #2A2E35;
+  --karta-brzeg: #6C7079;
+}
+
+.zapis { padding: 8px 16px 0; }
+.ulica { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; border-bottom: 2px solid var(--tusz); padding-bottom: 8px; }
+.ulica h1 { font-family: var(--tytul); font-weight: 600; font-size: var(--t-tytul); line-height: 1.15; }
+.ulica span { font-size: var(--t-przypis); color: var(--olowek); }
+.zapis ol { list-style: none; }
+.zapis li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; min-height: 44px; padding: 10px 0; border-bottom: 1px solid var(--linia); font-size: var(--t-tresc); line-height: 1.3; }
+.zapis .poz { font-family: var(--tytul); font-weight: 600; min-width: 3.2em; }
+.zapis .poz small { font-family: var(--tresc); font-weight: 400; font-size: var(--t-drobny); color: var(--olowek); margin-left: 4px; }
+.zapis .czeka { color: var(--olowek); }
+.zapis .ty { border-bottom: 2px solid var(--tusz); }
+.puste { flex: 1; border-bottom: 2px dotted var(--tusz); min-width: 6em; color: var(--olowek); font-style: italic; }
+.ruch-ty { background: var(--zakreslacz); color: var(--zakreslacz-tekst); padding: 0 6px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.znak { font-family: var(--tytul); font-weight: 600; font-size: calc(1.5rem * var(--dt-tytul)); line-height: 1; margin-left: 2px; }
+
+.reka { padding: 20px 16px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+.karty { display: flex; gap: 8px; }
+.karta { width: 76px; height: 104px; background: var(--karta); border: 1.5px solid var(--karta-brzeg); border-radius: 8px; padding: 6px 8px; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; color: var(--tusz); }
+.karta b { font-family: var(--tytul); font-weight: 600; font-size: 38px; line-height: 1; }
+.karta svg { width: 28px; height: 28px; fill: currentColor; }
+.karta.czerwona { color: var(--kier); }
+.reka p { font-family: var(--tytul); font-weight: 600; font-size: var(--t-tytul); line-height: 1.15; line-height: 1.35; flex: 1 1 10em; }
+.reka p small { display: block; font-family: var(--tresc); font-weight: 400; margin-top: 4px; color: var(--olowek); font-size: var(--t-przypis); }
+
+.pytanie { padding: 20px 16px 0; font-size: var(--t-tresc); line-height: 1.35; }
+
+.przyciski.obok { flex-direction: row; flex-wrap: wrap; }
+.przyciski.obok .przycisk { flex: 1 1 140px; min-height: 64px; }
+.przycisk.glowny { background: var(--przycisk-tlo); color: var(--przycisk-tekst); }
+.przycisk.drugi { border: 2px solid var(--tusz); color: var(--tusz); background: transparent; }
+
+.adnotacja { margin: 20px 16px 0; padding-left: 16px; border-left: 4px solid var(--tusz); }
+.adnotacja h2 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; font-family: var(--tytul); font-weight: 600; font-size: var(--t-tytul); line-height: 1.15; }
+.adnotacja h2 .znak { font-size: calc(2.25rem * var(--dt-tytul)); }
+.adnotacja p { font-size: var(--t-tresc); line-height: 1.4; margin-top: 8px; }
+.adnotacja p.liczby { font-feature-settings: 'tnum'; }
+.adnotacja .link { margin-top: 4px; text-decoration: underline; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pik" viewBox="0 0 24 24"><path d="M12 2C9 6 4 9 4 13.5 4 16 6 18 8.5 18c1.3 0 2.4-.5 3-1.3-.2 1.9-1 3.4-2.5 4.8h6c-1.5-1.4-2.3-2.9-2.5-4.8.6.8 1.7 1.3 3 1.3 2.5 0 4.5-2 4.5-4.5C20 9 15 6 12 2z"/></symbol>
+  <symbol id="kier" viewBox="0 0 24 24"><path d="M12 21C5 15.5 2 12.3 2 8.5 2 5.5 4.3 3.5 7 3.5c2 0 3.5 1 5 3 1.5-2 3-3 5-3 2.7 0 5 2 5 5 0 3.8-3 7-10 12.5z"/></symbol>
+</svg>
+
+<main data-ekran="przed-decyzja" aria-label="Decyzja w sesji, przed decyzją">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Sesja ćwiczeń</b><span class="przyklad">Zadanie 4</span></nav>
+  <section class="zapis" aria-label="Zapis rozdania: przed flopem, UTG pas, HJ pas, twój ruch na pozycji CO, czekają BTN, SB i BB">
+    <header class="ulica"><h1>Przed flopem</h1><span>Stół 6-osobowy, stack 100bb</span></header>
+    <ol>
+      <li><span class="poz">UTG</span><span>pas</span></li>
+      <li><span class="poz">HJ</span><span>pas</span></li>
+      <li class="ty"><span class="poz">CO<small>ty</small></span><span class="puste">twój ruch</span></li>
+      <li class="czeka"><span>Czekają BTN, SB i BB</span></li>
+    </ol>
+  </section>
+  <section class="reka">
+    <div class="karty" role="img" aria-label="Twoje karty: walet pik, dziewiątka kier">
+      <div class="karta"><b>J</b><svg><use href="#pik"/></svg></div>
+      <div class="karta czerwona"><b>9</b><svg><use href="#kier"/></svg></div>
+    </div>
+    <p>J9o<small>walet i dziewiątka w różnych kolorach</small></p>
+  </section>
+  <p class="pytanie">CO, wszyscy przed tobą spasowali. Co robisz?</p>
+  <div class="przyciski obok">
+    <a class="przycisk drugi" href="#">Pas</a>
+    <a class="przycisk glowny" href="#">Przebicie do 2,5bb</a>
+  </div>
+</main>
+
+<main data-ekran="po-ocenie" aria-label="Decyzja w sesji, po ocenie">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Sesja ćwiczeń</b><span class="przyklad">Zadanie 4</span></nav>
+  <section class="zapis" aria-label="Zapis rozdania: UTG pas, HJ pas, ty na CO: przebicie do 2,5 big blinda, ocena dopuszczalna">
+    <header class="ulica"><h1>Przed flopem</h1><span>Stół 6-osobowy, stack 100bb</span></header>
+    <ol>
+      <li><span class="poz">UTG</span><span>pas</span></li>
+      <li><span class="poz">HJ</span><span>pas</span></li>
+      <li class="ty"><span class="poz">CO<small>ty</small></span><span><span class="ruch-ty">przebicie do 2,5bb</span><span class="znak" aria-hidden="true">!?</span></span></li>
+    </ol>
+  </section>
+  <section class="adnotacja" aria-live="polite">
+    <h2><span class="znak" aria-hidden="true">!?</span>Dopuszczalna</h2>
+    <p>Solver gra tak w 20% przypadków, więc to nie błąd, ale częściej wybiera inną akcję. Najlepiej zapamiętaj tę częstszą.</p>
+    <p class="liczby">J9o: pas 80%, przebicie 20%.</p>
+    <a class="link" href="#">Zgłoś błąd w tym zadaniu</a>
+  </section>
+  <div class="przyciski">
+    <a class="przycisk glowny" href="#">Dalej</a>
+  </div>
+</main>
+
+<aside class="panele">
+  <h2>A. Zapis z adnotacją</h2>
+  <p>Każda decyzja to wiersz zapisu rozdania, a ocena to znak przy twoim ruchu, jak w zapisie partii szachowej, zawsze ze słowem obok.</p>
+  <h2>Znaki oceny (słowo zawsze obok znaku)</h2>
+  <table>
+    <tr><td><b>!</b></td><td>Zgodna: akcja najczęstsza albo grana w co najmniej 25% przypadków</td></tr>
+    <tr><td><b>!?</b></td><td>Dopuszczalna: 3,5–25%</td></tr>
+    <tr><td><b>?!</b></td><td>Niedokładność: dobra akcja, zły rozmiar</td></tr>
+    <tr><td><b>?</b></td><td>Błąd: poniżej 3,5%</td></tr>
+  </table>
+  <p class="przyklad">Znaki z PGN 8.2.3.8 („!”, „?”, „!?”, „?!”); przypisanie do stopni to decyzja projektu, „!!” i „??” nieużywane.</p>
+  <h2>Paleta</h2>
+  <table>
+    <tr><td><div class="probka" style="background:#FCFCFA"></div></td><td>kartka <code>#FCFCFA</code></td><td><div class="probka" style="background:#1D2025"></div></td><td>kartka nocą <code>#1D2025</code></td></tr>
+    <tr><td><div class="probka" style="background:#1A1C20"></div></td><td>tusz <code>#1A1C20</code></td><td><div class="probka" style="background:#5B5F67"></div></td><td>ołówek <code>#5B5F67</code></td></tr>
+    <tr><td><div class="probka" style="background:#FFE45C"></div></td><td>zakreślacz <code>#FFE45C</code></td><td><div class="probka" style="background:#B8232A"></div></td><td>czerwień kart <code>#B8232A</code></td></tr>
+  </table>
+  <h2>Kroje</h2>
+  <p><span style="font-family:Literata;font-weight:600;font-size:22px">Literata 600: Przed flopem !?</span><br>treść: na iOS SF Pro; w makiecie zastępczo Noto Sans</p>
+  <h2>Ikona</h2>
+  <div class="ikony">
+    <figure><img src="ikony/a-jasna.png" width="120" height="120" alt=""><figcaption>120</figcaption></figure>
+    <figure><img src="ikony/a-jasna.png" width="60" height="60" alt=""><figcaption>60</figcaption></figure>
+    <figure><img src="ikony/a-jasna.png" width="29" height="29" alt=""><figcaption>29</figcaption></figure>
+    <figure><img src="ikony/a-ciemna.png" width="60" height="60" alt=""><figcaption>ciemna</figcaption></figure>
+  </div>
+</aside>
+</body>
+</html>

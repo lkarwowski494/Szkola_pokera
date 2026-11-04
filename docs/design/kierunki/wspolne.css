@@ -1,0 +1,59 @@
+/* Rama makiet E2 (wspólna dla kierunków A, B, C): ekran iOS, pasek stanu, pasek nawigacji, panele.
+   Rozmiary tekstu w rem od --dt-tytul i --dt-tresc (AX5: 1.8 i 3.1, uproszczenie tabeli HIG).
+   Treść: na iOS SF Pro; w makiecie zastępczo Noto Sans (kroju treści nie oceniamy na zrzucie z Linuksa). */
+@import url(../fonty/fonty.css);
+
+:root {
+  --w: 390px;
+  --dt-tytul: 1;
+  --dt-tresc: 1;
+  --tresc: 'Noto Sans', sans-serif;
+  --t-tresc: calc(1.0625rem * var(--dt-tresc));      /* 17 pt */
+  --t-przypis: calc(0.9375rem * var(--dt-tresc));    /* 15 pt */
+  --t-drobny: calc(0.8125rem * var(--dt-tresc));     /* 13 pt */
+  /* 28 pt; przy AX5 na wąskim ekranie najwyżej 11% szerokości, żeby słowo stopnia („Dopuszczalna”) mieściło się w wierszu przy 390 i 430 pt; przy 320 pt dzielenie słów w E3 */
+  --t-tytul: max(min(calc(1.75rem * var(--dt-tytul)), calc(var(--w) * 0.11)), var(--t-tresc)); /* nigdy mniejszy niż treść */
+  --t-duzy: calc(2.125rem * var(--dt-tytul));        /* 34 pt */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; background: #E6E7E9; }
+body { font-family: var(--tresc); padding: 24px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+
+main[data-ekran] {
+  width: var(--w);
+  min-height: 844px;
+  background: var(--tlo);
+  color: var(--tusz);
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  position: relative;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.stan { height: 48px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; font-size: 15px; font-weight: 600; color: var(--tusz); font-feature-settings: 'tnum'; }
+.stan i { display: inline-block; width: 24px; height: 12px; border: 1.5px solid currentColor; border-radius: 3px; }
+
+.nav { min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 16px; flex-wrap: wrap; }
+.nav a { color: var(--akcent-tekst); text-decoration: none; font-size: var(--t-tresc); min-height: 44px; display: inline-flex; align-items: center; }
+.nav b { font-size: var(--t-tresc); font-weight: 600; }
+
+.przyciski { margin-top: auto; padding: 16px 16px 40px; display: flex; flex-direction: column; gap: 12px; }
+.przycisk { text-decoration: none; min-height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 12px 16px; font-size: var(--t-tresc); font-weight: 600; }
+
+.link { color: var(--akcent-tekst); font-size: var(--t-przypis); min-height: 44px; display: inline-flex; align-items: center; text-decoration: none; }
+
+/* Panele poza ekranami */
+aside.panele { width: 560px; background: #FFFFFF; color: #1A1C20; padding: 24px; font-size: 14px; line-height: 1.45; }
+aside.panele h2 { font-size: 18px; margin: 16px 0 8px; }
+aside.panele h2:first-child { margin-top: 0; }
+aside.panele table { border-collapse: collapse; width: 100%; }
+aside.panele td { padding: 4px 6px; border-bottom: 1px solid #E2E3E6; vertical-align: top; }
+aside.panele .probka { width: 28px; height: 28px; border-radius: 6px; border: 1px solid #00000022; }
+aside.panele .ikony { display: flex; gap: 20px; align-items: flex-end; flex-wrap: wrap; }
+aside.panele .ikony figure { text-align: center; font-size: 12px; }
+aside.panele .ikony img { display: block; border-radius: 22.37%; }
+.przyklad { font-size: 12px; color: #5C6068; }
+.nav .przyklad { font-size: var(--t-drobny); color: inherit; opacity: 1; }
