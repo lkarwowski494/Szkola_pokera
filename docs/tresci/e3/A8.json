@@ -1,0 +1,229 @@
+[
+ {
+  "id": "R-M12-009",
+  "cytat_znaleziony": true,
+  "werdykt_zrodla": "POPARTE",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "skutek": "S3",
+  "miejsca": [
+   "content/pl/rules.yaml:1017",
+   "content/pl/rules.yaml:1019",
+   "content/pl/rules.yaml:1020",
+   "content/pl/rules.yaml:1021",
+   "content/pl/lessons/m12-l4-bankroll.md:7",
+   "content/pl/lessons/m12-l4-bankroll.md:12",
+   "content/pl/lessons/m12-l4-bankroll.md:19-24",
+   "content/pl/lessons/m12-l4-bankroll.md:28-33",
+   "content/pl/lessons/m12-l4-bankroll.md:37-42",
+   "content/pl/lessons/m12-l4-bankroll.md:73-77",
+   "content/pl/lessons/m12-l4-bankroll.md:115-129",
+   "content/pl/lessons/m12-l4-bankroll.md:133",
+   "content/pl/exams/m12.yaml:70-75",
+   "content/pl/exams/m12.yaml:88-93"
+  ],
+  "uzasadnienie": "Cytat PrimeDope znaleziony dosłownie („For cash games with a constant win rate and standard deviation, the closed-form approximation: RoR = e^(-2 x WR x BR / SD^2)”). Rachunek od nowa: 30 wpisowych/wr 3: x=2,8125, 6,0% (wyświetlane 6%); 15/wr 3: 24,5% (25%); 30/wr 1: 39,2% (39%); 50/wr 1: 21,0% (21%); 30/wr 5: 0,92% (0,9%); egzamin 40/wr 2: x=2,5, 8,2%. Własne MC (bloki 100 rąk): 5,9%, 24,1%, 40,9% — zgodne. Tabela M12-L4 (5 komórek) i odpowiedzi drilli/egzaminu zgodne. Lekcja (m12-l4:123) nazywa wzór przybliżeniem przy stałym winrate i SD, ale karta reguły (rules.yaml:1020) podaje wzór bez tego warunku („używasz wzoru”), czyli dodaje pewność względem źródła („approximation”, „constant win rate”).",
+  "poprawka": "rules.yaml:1020 then: „używasz przybliżenia RoR = e^(−2 × winrate × bankroll ÷ SD²) przy stałym winrate i SD, z bankrollem w bb”",
+  "zaliczony": false
+ },
+ {
+  "id": "R-M12-011",
+  "cytat_znaleziony": true,
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "skutek": "S3",
+  "miejsca": [
+   "content/pl/rules.yaml:1025",
+   "content/pl/rules.yaml:1027",
+   "content/pl/rules.yaml:1028",
+   "content/pl/rules.yaml:1029",
+   "content/pl/lessons/m12-l4-bankroll.md:46-51",
+   "content/pl/lessons/m12-l4-bankroll.md:55-60",
+   "content/pl/lessons/m12-l4-bankroll.md:64-69",
+   "content/pl/lessons/m12-l4-bankroll.md:137",
+   "content/pl/exams/m12.yaml:79-84"
+  ],
+  "uzasadnienie": "Cytaty PokerSkill, PokerListings i PrimeDope znalezione dosłownie; rachunek 24,5% i 6,0% zgodny; moje MC: downswing 10 wpisowych w 100 tys. rąk 95–99,5% przy wr 1–5 („prawie każdemu wygrywającemu” poparte). Rozbieżności: (1) because (rules.yaml:1029) podaje „z ok. 6% do ok. 25%” bez warunku wr 3bb/100 i SD 80 — przy wr 1 to 39% → 62%; (2) granica: PokerSkill każe schodzić przy połowie („leaves $375, half the roll, which is the point to move down”), a reguła i lekcja mówią „poniżej połowy” (rules.yaml:1027, m12-l4:137), a zarazem przykład „z 30 do 15” (m12-l4:137) jest dokładnie połową — próg późniejszy o jedno wpisowe niż w źródle i niespójny z przykładem; (3) warunek powrotu („wracasz, gdy masz pełny bankroll w wpisowych wyższej stawki”, rules.yaml:1028, m12-l4:137) nie ma cytatu w rejestrze; na tej samej stronie PokerSkill jest: „Move up only when the roll supports the move at the safer floor for the new stake, not the bare minimum for the old one.” — treść poparta, brak atrybucji.",
+  "poprawka": "rules.yaml:1027 i m12-l4:137: „spadnie do połowy założonej liczby wpisowych (przy 30 do 15)”; rules.yaml:1029: „…ryzyko utraty reszty rośnie (przy {{n:var.wr.typical.high}} i SD {{n:var.sd}}) z ok. {{n:ror.base}} do ok. {{n:ror.half}}”; rejestr R-M12-011: dodać źródło PokerSkill z cytatem „Move up only when the roll supports the move at the safer floor for the new stake, not the bare minimum for the old one.”",
+  "zaliczony": false
+ },
+ {
+  "id": "n:br.bi.base",
+  "cytat_znaleziony": true,
+  "werdykt_zrodla": "POPARTE",
+  "werdykt_tekstu": "POPARTE",
+  "skutek": null,
+  "miejsca": [
+   "content/numbers.yaml:451",
+   "content/numbers.yaml:494",
+   "content/pl/lessons/m12-l4-bankroll.md:13",
+   "content/pl/lessons/m12-l4-bankroll.md:15",
+   "content/pl/lessons/m12-l4-bankroll.md:20",
+   "content/pl/lessons/m12-l4-bankroll.md:23",
+   "content/pl/lessons/m12-l4-bankroll.md:29",
+   "content/pl/lessons/m12-l4-bankroll.md:38",
+   "content/pl/lessons/m12-l4-bankroll.md:42",
+   "content/pl/lessons/m12-l4-bankroll.md:47",
+   "content/pl/lessons/m12-l4-bankroll.md:49",
+   "content/pl/lessons/m12-l4-bankroll.md:56",
+   "content/pl/lessons/m12-l4-bankroll.md:60",
+   "content/pl/lessons/m12-l4-bankroll.md:65",
+   "content/pl/lessons/m12-l4-bankroll.md:69",
+   "content/pl/lessons/m12-l4-bankroll.md:125",
+   "content/pl/lessons/m12-l4-bankroll.md:137",
+   "content/pl/rules.yaml:1021",
+   "content/pl/rules.yaml:1027",
+   "content/pl/exams/m12.yaml:83"
+  ],
+  "uzasadnienie": "Wszystkie trzy cytaty znalezione dosłownie (BlackRain79, PokerSkill FAQ, PrimeDope FAQ: „Cash games at a 5% risk of ruin need … 25 to 30 at NL25 to NL50”). Rachunek: 30 wpisowych przy wr 3 i SD 80 daje 6,0%, blisko 5% ze źródła. W treści 30 występuje tylko jako przykład założonej liczby wpisowych, bez zalecenia „minimum” i bez kwot w walucie.",
+  "poprawka": null,
+  "zaliczony": true
+ },
+ {
+  "id": "n:br.bi.beginner",
+  "cytat_znaleziony": true,
+  "werdykt_zrodla": "POPARTE",
+  "werdykt_tekstu": "POPARTE",
+  "skutek": null,
+  "miejsca": [
+   "content/numbers.yaml:452",
+   "content/numbers.yaml:473",
+   "content/numbers.yaml:804",
+   "content/pl/lessons/m12-l4-bankroll.md:125",
+   "content/pl/lessons/m12-l4-bankroll.md:127",
+   "content/pl/exams/m12.yaml:80",
+   "content/pl/exams/m12.yaml:82",
+   "content/pl/exams/m12.yaml:83"
+  ],
+  "uzasadnienie": "Cytaty BlackRain79 i Upswing znalezione dosłownie. Rachunek: 50 wpisowych przy wr 1 → x=1,5625, 21,0% (tabela: 21%). Egzamin q9: połowa 50 = 25, „masz 24” poniżej; na stawce dwa razy niższej 48 z 50 („prawie pełna liczba”) — zgodne. W treści tylko jako przykład, bez zalecenia dla początkujących.",
+  "poprawka": null,
+  "zaliczony": true
+ },
+ {
+  "id": "n:dd.bi.small",
+  "cytat_znaleziony": true,
+  "werdykt_zrodla": "POPARTE",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "skutek": "S3",
+  "miejsca": [
+   "content/numbers.yaml:442",
+   "content/numbers.yaml:495",
+   "content/pl/lessons/m12-l1-wariancja.md:63",
+   "content/pl/lessons/m12-l1-wariancja.md:65",
+   "content/pl/lessons/m12-l1-wariancja.md:81",
+   "content/pl/lessons/m12-l1-wariancja.md:83",
+   "content/pl/lessons/m12-l1-wariancja.md:133",
+   "content/pl/lessons/m12-l1-wariancja.md:137",
+   "content/pl/lessons/m12-l4-bankroll.md:56",
+   "content/pl/lessons/m12-l4-bankroll.md:58",
+   "content/pl/lessons/m12-l4-bankroll.md:59",
+   "content/pl/lessons/m12-l4-bankroll.md:137",
+   "content/pl/rules.yaml:963",
+   "content/pl/rules.yaml:1029"
+  ],
+  "uzasadnienie": "Źródłem jest rachunek; odtworzyłem go niezależną symulacją (20 tys. przebiegów, bloki 100 rąk, SD 80): downswing ≥10 wpisowych w 100 tys. rąk: wr 5 94,9% (rejestr 94,9%), 20 tys. rąk 40,7% (39,6%), wr 2 99,2% (99,1%); wr 1 99,5%, wr 3 98,4%. Treść m12-l1 podaje warunek (wr 5, SD 80) — zgodna. m12-l4:58 („Taki downswing trafia ok. 95% wygrywających w 100 tys. rąk”) uogólnia wynik dla wr 5bb/100 na wszystkich wygrywających bez warunku (kierunek bezpieczny: przy niższym winrate częściej).",
+  "poprawka": "m12-l4:58: „Taki downswing trafia w 100 tys. rąk ok. {{n:dd.p.small.100k}} graczy wygrywających {{n:var.wr.ex}}, a przy niższym winrate jeszcze częściej, …”",
+  "zaliczony": false
+ },
+ {
+  "id": "n:ror.two",
+  "cytat_znaleziony": true,
+  "werdykt_zrodla": "POPARTE",
+  "werdykt_tekstu": "POPARTE",
+  "skutek": null,
+  "miejsca": [
+   "content/numbers.yaml:454",
+   "content/numbers.yaml:456",
+   "content/numbers.yaml:461",
+   "content/numbers.yaml:465",
+   "content/numbers.yaml:469",
+   "content/numbers.yaml:474",
+   "content/numbers.yaml:800",
+   "content/pl/lessons/m12-l4-bankroll.md:22",
+   "content/pl/exams/m12.yaml:73"
+  ],
+  "uzasadnienie": "Cytat „RoR = e^(-2 x WR x BR / SD^2)” znaleziony dosłownie; stała 2 to wynik dla ruchu Browna z dryfem (P(ruiny)=e^(−2μB/σ²)); MC zgodne z wzorem (5,9% vs 6,0%). Wyjaśnienia drilli liczą 2 × 3 × 3000 ÷ 6400 = 2,81 i 2 × 2 × 4000 ÷ 6400 = 2,5 — poprawnie.",
+  "poprawka": null,
+  "zaliczony": true
+ },
+ {
+  "id": "M12-L4-RAMKA",
+  "cytat_znaleziony": true,
+  "werdykt_zrodla": "POPARTE",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "skutek": "S3",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:143-149",
+   "content/pl/lessons/m12-l4-bankroll.md:144",
+   "content/pl/lessons/m12-l4-bankroll.md:148",
+   "content/pl/lessons/m12-l4-bankroll.md:98-104",
+   "content/pl/lessons/m12-l3-tilt.md:133",
+   "content/helplines.yaml:13-17"
+  ],
+  "uzasadnienie": "Wszystkie cytaty (Wiktoria, MedlinePlus, NHS) znalezione dosłownie; pięć sygnałów ma pokrycie (dłużej niż planowano — Vic „more time … than you meant to”; odgrywanie — MedlinePlus „make back past losses”, NHS „chasing losses”; nie możesz stracić/pożyczasz — NHS; ucieczka — MedlinePlus; ukrywanie — Vic). q-warning-sign: „kryteria diagnostyczne” poparte (MedlinePlus: „The American Psychiatric Association defines a gambling disorder as having 4 or more of the following symptoms”). Rozbieżność: m12-l4:144 „{{t:bet|stawiasz}} pieniądze” podpina pod zdanie ostrzegawcze termin pokerowy „zakład: Pierwsze postawienie żetonów w rundzie licytacji…” (terms.yaml:134–137) — dymek daje inne znaczenie niż sygnał hazardowy (zawęża do pierwszego zakładu w rundzie). Ramka rozwija też fallback H-INT-2 z zawężonym warunkiem (osobne znalezisko S1, H-INT-2).",
+  "poprawka": "m12-l4:144: „{{t:bet|stawiasz}} pieniądze” → „stawiasz pieniądze” (bez znacznika terminu)",
+  "zaliczony": false
+ },
+ {
+  "id": "H-INT-1",
+  "cytat_znaleziony": true,
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "skutek": "S3",
+  "miejsca": [
+   "content/helplines.yaml:22-39",
+   "content/helplines.yaml:26",
+   "content/helplines.yaml:27",
+   "content/pl/lessons/m12-l4-bankroll.md:148"
+  ],
+  "uzasadnienie": "Strona gamblingtherapy.org odpowiada (HTTP 200); trzy cytaty znalezione dosłownie: „free practical advice and emotional support to anyone affected by problem gambling” (→ „Bezpłatne porady praktyczne i wsparcie emocjonalne … dla każdego, kogo dotyka problem z hazardem”), „Confidential, safe and delivered online” (→ „online”, „poufnie”), „a global service offered by Gordon Moody”. Nazwa wpisu mówi „Wielka Brytania”, a tego żaden cytat w rejestrze nie pokrywa; na tej samej stronie jest „Registered charity in England and Wales (No. 1124751)” — treść prawdziwa, brak atrybucji. Uwaga do rejestru: źródła oznaczone szczeblem 1, który w hierarchii CLAUDE.md oznacza rachunek; to strona samej organizacji (źródło pierwotne faktu), nie rachunek.",
+  "poprawka": "rejestr H-INT-1 i helplines.yaml sources: dodać cytat „Registered charity in England and Wales (No. 1124751)” (gamblingtherapy.org, stopka); ewentualnie w name „Wielka Brytania” → „Anglia i Walia”, jeśli ma być dosłownie",
+  "zaliczony": false
+ },
+ {
+  "id": "H-INT-2",
+  "cytat_znaleziony": true,
+  "werdykt_zrodla": "POPARTE",
+  "werdykt_tekstu": "NIEPOPARTE",
+  "skutek": "S1",
+  "miejsca": [
+   "content/helplines.yaml:14-17",
+   "content/helplines.yaml:16",
+   "content/pl/lessons/m12-l4-bankroll.md:148"
+  ],
+  "uzasadnienie": "Cztery cytaty znalezione dosłownie (MedlinePlus 001520 i 001927, NHS). Źródło każe kontaktować się ze specjalistą „if you believe you have symptoms of compulsive gambling” (dowolne objawy), a twierdzenie rejestru mówi „przy objawach (np. wielu nieudanych próbach…)”. Tekst (helplines.yaml:16) zawęża warunek do jednego objawu: „Jeśli mimo prób nie udaje ci się ograniczyć gry, porozmawiaj z lekarzem…”. Osoba z innymi sygnałami z ramki (odgrywanie, pożyczanie, ukrywanie), która jeszcze nie próbowała ograniczyć gry, nie dostaje odesłania do specjalisty. Tekst nie jest ostrożnościowy („w razie wątpliwości”) — przesunięcie w stronę niebezpieczną w tekście bezpieczeństwa (ramka M12-L4 i ekran „Pomoc”). Zdanie o numerze alarmowym poparte („Stay calm and call 911 or your local emergency number”).",
+  "poprawka": "helplines.yaml:16 text: „Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu dzwoń na lokalny numer alarmowy.”",
+  "zaliczony": false
+ },
+ {
+  "id": "t:bankroll",
+  "cytat_znaleziony": true,
+  "werdykt_zrodla": "POPARTE",
+  "werdykt_tekstu": "POPARTE",
+  "skutek": null,
+  "miejsca": [
+   "content/terms.yaml:838-843",
+   "content/pl/lessons/m12-l4-bankroll.md:113"
+  ],
+  "uzasadnienie": "Cytaty GTO Wizard („The money that a player allocated specifically to use for playing poker.”) i PrimeDope („Separate your poker bankroll from your life bankroll…”) znalezione dosłownie. Definicja „przeznaczony wyłącznie na grę w pokera” zgodna; liczenie we wpisowych zamiast w pieniądzach opisane jako uproszczenie (D-159). Definicja w lekcji (m12-l4:113) identyczna z hasłem. Uwaga: znacznik {{t:bankroll}} nie jest nigdzie użyty (termin tylko w słowniczku), a m12-l3:133 wspomina „lekcji o bankrollu” przed definicją — tylko jako nazwa lekcji, nie rozbieżność merytoryczna.",
+  "poprawka": null,
+  "zaliczony": true
+ },
+ {
+  "id": "t:risk-of-ruin",
+  "cytat_znaleziony": true,
+  "werdykt_zrodla": "POPARTE",
+  "werdykt_tekstu": "POPARTE",
+  "skutek": null,
+  "miejsca": [
+   "content/terms.yaml:886-893",
+   "content/pl/lessons/m12-l4-bankroll.md:51",
+   "content/pl/lessons/m12-l4-bankroll.md:115",
+   "content/pl/lessons/m12-l4-bankroll.md:117",
+   "content/pl/rules.yaml:1019",
+   "content/pl/exams/m12.yaml:89"
+  ],
+  "uzasadnienie": "Cytat PrimeDope znaleziony dosłownie. Definicja aplikacji („kiedykolwiek … jeśli grasz dalej na tej samej stawce”) to granica bez celu i bez końca gry; właśnie tę wielkość liczy wzór e^(−2·wr·BR/SD²) (prawdopodobieństwo ruiny w nieskończonym horyzoncie, rachunek). Uproszczenie opisane w rejestrze, kierunek ostrożny (górne oszacowanie ryzyka dla skończonej gry). Hasło i lekcja m12-l4:117 mają tę samą definicję.",
+  "poprawka": null,
+  "zaliczony": true
+ }
+]

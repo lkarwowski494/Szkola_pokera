@@ -102,6 +102,12 @@ describe('mechanika pomocy na danych testowych (schemat, kontrole, wybór kraju 
     expect(displayHost('https://www.gov.pl/web/x')).toBe('gov.pl');
   });
 
+  it('schemat wymaga twierdzenia dla zdania ogólnego (fallback.claim, D-158)', () => {
+    const noClaim = structuredClone(fixture) as unknown as { fallback: { claim?: string } };
+    delete noClaim.fallback.claim;
+    expect(HelplinesFile.safeParse(noClaim).success).toBe(false);
+  });
+
   it('schemat odrzuca wpis bez źródła, adres inny niż https, nieznany rodzaj i region spoza kraju', () => {
     const bad = structuredClone(fixture);
     bad.entries[0]!.sources = [];
@@ -139,7 +145,7 @@ describe('mechanika pomocy na danych testowych (schemat, kontrole, wybór kraju 
     const used = { count: 0 };
     const out = expandHelplines('Pomoc:\n\n{{helplines}}\n', h, 'test', used);
     expect(used.count).toBe(1);
-    expect(out).toContain('- **Gambling Therapy (Gordon Moody, Wielka Brytania)**.');
+    expect(out).toContain('- **Gambling Therapy (Gordon Moody)**.');
     expect(out).toContain('Gambling Therapy: gamblingtherapy.org.');
     expect(out).toContain(h.pointer);
     expect(out).toContain(h.fallback.text);
@@ -172,6 +178,10 @@ describe('mechanika pomocy na danych testowych (schemat, kontrole, wybór kraju 
       expect(md).toContain(e.name);
     }
     expect(lesson).toContain(h.pointer);
+    expect(lesson).toContain(h.fallback.text);
+    // twierdzenie zdania ogólnego zostaje w repozytorium (jak źródła), nie trafia do aplikacji
+    expect(src).not.toContain('H-INT-2');
+    expect(src).not.toContain('"sources"');
     // w module aplikacji nie ma ani jednej nazwy spoza helplines.yaml (bez nazw pokoi, ADR-13; lista marek: src/brands.ts)
     expect(findBrandNames(src)).toEqual([]);
     // pełna kompilacja treści (z pulą egzaminacyjną) przekracza domyślne 5 s na wolniejszej maszynie

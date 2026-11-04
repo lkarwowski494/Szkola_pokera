@@ -9,7 +9,8 @@ const h = JSON.parse(json);
 const online = h.entries.find((e) => e.id === h.fallback.online[0]);
 const link = online.links[0];
 const env = {
-  HELP_LINK: `${link.label}: ${link.url.replace(/^https:\/\//, '').replace(/^www\./, '').replace(/\/$/, '')}`,
+  // etykieta dostępności przycisku (i18n help.openA11y), bo Maestro na iOS widzi przycisk po etykiecie, nie po napisie
+  HELP_LINK: `${link.label}: otwórz ${link.url.replace(/^https:\/\//, '').replace(/^www\./, '').replace(/\/$/, '')} w przeglądarce`,
   HELP_ABROAD: h.abroadText,
   HELP_CHECKED: h.checkedText,
 };

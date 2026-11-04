@@ -55,7 +55,7 @@ drills:
     rules: [R-M12-011, R-M12-002]
     prompt: "Zacząłeś {{t:stakes|stawkę}} z {{n:br.bi.base}} {{t:buy-in|wpisowymi}} i straciłeś {{n:dd.bi.small}}. Masz teraz {{n:br.ex.after-dd}}. Co robisz?"
     options:
-      - { text: "Zostajesz na {{t:stakes|stawce}} i przeglądasz decyzje w przegranych rozdaniach", correct: true, why: "{{n:br.ex.after-dd}} {{t:buy-in|wpisowych}} to wciąż więcej niż najpóźniejszy próg zejścia, {{n:br.bi.move-down}}. Taki {{t:downswing}} trafia ok. {{n:dd.p.small.100k}} wygrywających w {{n:var.hands.k}} tys. rąk, a przegląd rozdań sprawdza, czy to nie błędy." }
+      - { text: "Zostajesz na {{t:stakes|stawce}} i przeglądasz decyzje w przegranych rozdaniach", correct: true, why: "{{n:br.ex.after-dd}} {{t:buy-in|wpisowych}} to wciąż więcej niż najpóźniejszy próg zejścia, {{n:br.bi.move-down}}. Taki {{t:downswing}} trafia w symulacji ok. {{n:dd.p.small.100k}} graczy wygrywających {{n:var.wr.ex}} w {{n:var.hands.k}} tys. rąk, a przegląd rozdań sprawdza, czy to nie błędy." }
       - { text: "Schodzisz {{t:stakes|stawkę}} od razu", correct: true, why: "To też dobra decyzja: część źródeł radzi zejść już po stracie {{n:dd.bi.small}} {{t:buy-in|wpisowych}}. Zejście wcześniej niż przy połowie bankrollu nie jest błędem, a później już tak." }
       - { text: "Dokładasz {{t:buy-in|wpisowe}} z zewnątrz, żeby mieć znów {{n:br.bi.base}}", why: "Dokładanie po każdym {{t:downswing|downswingu}} zaciera sens bankrollu jako granicy ryzyka. Ustalasz próg z góry i trzymasz się go." }
   - kind: choice
@@ -134,14 +134,14 @@ Winrate i bankroll stoją we wzorze obok siebie: dwa razy niższy winrate wymaga
 
 ## Kiedy zejść {{t:stakes|stawkę}}
 
-Ustal próg z góry: schodzisz o jedną {{t:stakes|stawkę}} niżej najpóźniej wtedy, gdy bankroll spadnie poniżej **połowy** założonej liczby {{t:buy-in|wpisowych}}, np. z {{n:br.bi.base}} do {{n:br.bi.move-down}}. Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich. Na {{t:stakes|stawce}} dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej {{t:buy-in|wpisowych}}. Wracasz wyżej, gdy masz pełny bankroll w {{t:buy-in|wpisowych}} wyższej {{t:stakes|stawki}}. Część źródeł radzi zejść wcześniej, już po stracie {{n:dd.bi.small}} {{t:buy-in|wpisowych}}: zejście przed progiem połowy nie jest błędem.
+Ustal próg z góry: schodzisz o jedną {{t:stakes|stawkę}} niżej najpóźniej wtedy, gdy bankroll spadnie do **połowy** założonej liczby {{t:buy-in|wpisowych}}, np. z {{n:br.bi.base}} do {{n:br.bi.move-down}}. Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich. Na {{t:stakes|stawce}} dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej {{t:buy-in|wpisowych}}. Wracasz wyżej, gdy masz pełny bankroll w {{t:buy-in|wpisowych}} wyższej {{t:stakes|stawki}}. Część źródeł radzi zejść wcześniej, już po stracie {{n:dd.bi.small}} {{t:buy-in|wpisowych}}: zejście przed progiem połowy nie jest błędem.
 
 ## Nauka i gra
 
 Na początku ok. {{n:study.beginner}} czasu przeznaczasz na naukę, a resztę na grę. Gdy wygrywasz na swojej {{t:stakes|stawce}}, ideałem jest ok. {{n:study.winner}}, ale nigdy mniej niż {{n:study.min}} nauki.
 
 :::note Odpowiedzialna gra
-Sygnały, że granie przestaje być pod kontrolą: grasz dłużej, niż planowałeś; po przegranej wracasz, żeby odegrać straty; {{t:bet|stawiasz}} pieniądze, których nie możesz stracić, albo pożyczasz na grę; grasz, żeby uciec od zmartwień; ukrywasz granie przed bliskimi.
+Sygnały, że granie przestaje być pod kontrolą: grasz dłużej, niż planowałeś; po przegranej wracasz, żeby odegrać straty; grasz za pieniądze, których nie możesz stracić, albo pożyczasz na grę; grasz, żeby uciec od zmartwień; ukrywasz granie przed bliskimi.
 
 Gdzie szukać pomocy:
 

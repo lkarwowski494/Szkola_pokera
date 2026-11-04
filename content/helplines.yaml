@@ -13,7 +13,7 @@ review_by: '2027-11-04'
 pointer: 'Ten sam kontakt znajdziesz w aplikacji, w ekranie „Pomoc”.'
 fallback:
   claim: H-INT-2
-  text: 'Jeśli mimo prób nie udaje ci się ograniczyć gry, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu dzwoń na lokalny numer alarmowy.'
+  text: 'Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu dzwoń na lokalny numer alarmowy.'
   online: [int-gambling-therapy]
 regions_label: 'Numery w regionach'
 regions: {}
@@ -23,7 +23,7 @@ entries:
     claim: H-INT-1
     country: '*'
     kind: gambling
-    name: 'Gambling Therapy (Gordon Moody, Wielka Brytania)'
+    name: 'Gambling Therapy (Gordon Moody)'
     info: 'Bezpłatne porady praktyczne i wsparcie emocjonalne online dla każdego, kogo dotyka problem z hazardem; poufnie.'
     links:
       - label: 'Gambling Therapy'

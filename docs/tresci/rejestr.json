@@ -18728,7 +18728,7 @@
   "id": "R-M12-009",
   "rodzaj": "regula",
   "level": "math",
-  "twierdzenie": "liczysz ryzyko bankructwa, czyli utraty całego bankrollu → używasz wzoru RoR = e^(−2 × winrate × bankroll ÷ SD²), z bankrollem w bb, bo przy {{n:var.wr.typical.high}} i SD {{n:var.sd}} bankroll {{n:br.bi.base}} wpisowych daje ok. {{n:ror.base}} ryzyka, a {{n:br.bi.move-down}} wpisowych już ok. {{n:ror.half}}",
+  "twierdzenie": "liczysz ryzyko bankructwa, czyli utraty całego bankrollu → używasz wzoru RoR = e^(−2 × winrate × bankroll ÷ SD²), z bankrollem w bb; to przybliżenie przy stałym winrate i SD, bo przy {{n:var.wr.typical.high}} i SD {{n:var.sd}} bankroll {{n:br.bi.base}} wpisowych daje ok. {{n:ror.base}} ryzyka, a {{n:br.bi.move-down}} wpisowych już ok. {{n:ror.half}}",
   "zrodla": [
    {
     "adres": "https://www.primedope.com/risk-of-ruin-formula-for-poker-players/",
@@ -18761,7 +18761,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Wzór to przybliżenie przy stałym, znanym winrate i SD (strona: „with a constant win rate and standard deviation, the closed-form approximation”); MC potwierdza. Atrybucja „wzór Malmutha” w polu source (rules.yaml:1017–1024 i numbers.yaml ror.*) NIE występuje na stronie — usunąć albo dodać przeczytane źródło. Propozycja do lekcji m12-l4:117: dopisać „przybliżenie przy stałym winrate”. | E3 2026-11-04 (przegląd zastępczy A7): dopisane w lekcji: wzór jest przybliżeniem przy stałym winrate i SD.",
+  "uwagi": "Wzór to przybliżenie przy stałym, znanym winrate i SD (strona: „with a constant win rate and standard deviation, the closed-form approximation”); MC potwierdza. Atrybucja „wzór Malmutha” w polu source (rules.yaml:1017–1024 i numbers.yaml ror.*) NIE występuje na stronie — usunąć albo dodać przeczytane źródło. Propozycja do lekcji m12-l4:117: dopisać „przybliżenie przy stałym winrate”. | E3 2026-11-04 (przegląd zastępczy A7): dopisane w lekcji: wzór jest przybliżeniem przy stałym winrate i SD. | E3 2026-11-04 (A8, S3): zastrzeżenie „przybliżenie przy stałym winrate i SD” także w karcie reguły.",
   "partia": [
    "m12-m13"
   ]
@@ -18834,7 +18834,7 @@
   "id": "R-M12-011",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "bankroll spadnie poniżej połowy założonej liczby wpisowych (przy {{n:br.bi.base}} poniżej {{n:br.bi.move-down}}) → schodzisz o jedną stawkę niżej najpóźniej wtedy i wracasz, gdy masz pełny bankroll w wpisowych wyższej stawki, bo downswingi o {{n:dd.bi.small}} wpisowych w ciągu {{n:var.hands.k}} tys. rąk zdarzają się prawie każdemu wygrywającemu, część źródeł radzi zejść już po takiej stracie, a przy {{n:br.bi.move-down}} wpisowych ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}}; lekcja: „Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich.”",
+  "twierdzenie": "bankroll spadnie do połowy założonej liczby wpisowych (przy {{n:br.bi.base}} do {{n:br.bi.move-down}}) → schodzisz o jedną stawkę niżej najpóźniej wtedy i wracasz, gdy masz pełny bankroll w wpisowych wyższej stawki, bo downswingi o {{n:dd.bi.small}} wpisowych w ciągu {{n:var.hands.k}} tys. rąk zdarzają się prawie każdemu wygrywającemu, część źródeł radzi zejść już po takiej stracie, a przy {{n:br.bi.move-down}} wpisowych ryzyko utraty reszty rośnie z ok. {{n:ror.base}} do ok. {{n:ror.half}} (przy winrate {{n:var.wr.typical.high}} i SD {{n:var.sd}}); lekcja: „Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich.”",
   "zrodla": [
    {
     "adres": "https://www.pokerskill.com/poker-glossary/bankroll-management/",
@@ -18863,6 +18863,13 @@
     "cytat": "15 wpisowych: 24,5%; 30 wpisowych: 6,0%",
     "odczyt": "2026-11-04",
     "szczebel": 1
+   },
+   {
+    "adres": "https://www.pokerskill.com/poker-glossary/bankroll-management/",
+    "miejsce": "Bankroll management (PokerSkill), akapit o przejściu wyżej",
+    "cytat": "Move up only when the roll supports the move at the safer floor for the new stake, not the bare minimum for the old one.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -18874,7 +18881,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": "then: „schodzisz o jedną stawkę niżej najpóźniej wtedy i wracasz, gdy bankroll się odbuduje”; w lekcji m12-l4:142 dopisać: „Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich.”",
-  "uwagi": "Sprzeczność na szczeblu 4: próg zejścia = połowa bankrollu (PokerSkill; SplitSuit nieczytelny), 30 wpisowych przy 3bb/100 (PokerListings, czyli pełny bankroll), spadek o 10 wpisowych (Primedope, odrzucony w D-M12-08 rachunkiem: odpala u ~95% wygrywających). Rachunek (szczebel 1) pokazuje tylko kierunek: przy połowie bankrollu RoR 24,5% — wysoko. Proponowana decyzja: część wspólna = „najpóźniej przy połowie”. Uwaga: cytat SplitSuit z pola source nieprzeczytany (HTTP 403). | E2 2026-11-04: poprawione (content/pl/rules.yaml:1036, :1039; content/pl/lessons/m12-l4-bankroll.md:142); było CZĘŚCIOWO; pole source bez nieodczytanego cytatu SplitSuit (403), zastąpione odczytaną tabelą PokerListings; to samo w numbers.yaml br.bi.move-down | E3 2026-11-04 (przegląd zastępczy A7): SPRZECZNE z PrimeDope („Losing 10 should trigger a move down”): lekcja i q-stay uczyły, że zejście po 10 wpisowych to błąd. Poprawka: q-stay ma dwie poprawne odpowiedzi (ADR-04), m12-l4:142 mówi, że zejście przed progiem połowy nie jest błędem; strona bezpieczna. | E3 2026-11-04 (D-159, A7c): „te same pieniądze to znów pełny bankroll” → „na stawce dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej wpisowych” (m12-l4, egzamin m12 q9); then: powrót wyżej przy pełnym bankrollu w wpisowych wyższej stawki (zdanie lekcji, źródła reguły bez zmian).",
+  "uwagi": "Sprzeczność na szczeblu 4: próg zejścia = połowa bankrollu (PokerSkill; SplitSuit nieczytelny), 30 wpisowych przy 3bb/100 (PokerListings, czyli pełny bankroll), spadek o 10 wpisowych (Primedope, odrzucony w D-M12-08 rachunkiem: odpala u ~95% wygrywających). Rachunek (szczebel 1) pokazuje tylko kierunek: przy połowie bankrollu RoR 24,5% — wysoko. Proponowana decyzja: część wspólna = „najpóźniej przy połowie”. Uwaga: cytat SplitSuit z pola source nieprzeczytany (HTTP 403). | E2 2026-11-04: poprawione (content/pl/rules.yaml:1036, :1039; content/pl/lessons/m12-l4-bankroll.md:142); było CZĘŚCIOWO; pole source bez nieodczytanego cytatu SplitSuit (403), zastąpione odczytaną tabelą PokerListings; to samo w numbers.yaml br.bi.move-down | E3 2026-11-04 (przegląd zastępczy A7): SPRZECZNE z PrimeDope („Losing 10 should trigger a move down”): lekcja i q-stay uczyły, że zejście po 10 wpisowych to błąd. Poprawka: q-stay ma dwie poprawne odpowiedzi (ADR-04), m12-l4:142 mówi, że zejście przed progiem połowy nie jest błędem; strona bezpieczna. | E3 2026-11-04 (D-159, A7c): „te same pieniądze to znów pełny bankroll” → „na stawce dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej wpisowych” (m12-l4, egzamin m12 q9); then: powrót wyżej przy pełnym bankrollu w wpisowych wyższej stawki (zdanie lekcji, źródła reguły bez zmian). | E3 2026-11-04 (A8, S3): „poniżej połowy” → „do połowy” (źródło: „half the roll, which is the point to move down”); warunek wr i SD przy 6% → 25%; cytat dla powrotu wyżej (PokerSkill).",
   "decyzja": "D-146",
   "partia": [
    "m12-m13"
@@ -19377,7 +19384,7 @@
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Wartość przykładowa scenariusza (program nauczania, dok. 09), nie twierdzenie; twierdzenia o niej liczy rachunek. Primedope dla tego scenariusza 45% (sprzeczne z rachunkiem, D-M12-02).",
+  "uwagi": "Wartość przykładowa scenariusza (program nauczania, dok. 09), nie twierdzenie; twierdzenia o niej liczy rachunek. Primedope dla tego scenariusza 45% (sprzeczne z rachunkiem, D-M12-02). | E3 2026-11-04 (A8, S3): m12-l4 q-stay: „w symulacji ok. 95% graczy wygrywających 5bb/100” zamiast „ok. 95% wygrywających”.",
   "partia": [
    "m12-m13"
   ]
@@ -20014,7 +20021,7 @@
   "id": "M12-L4-RAMKA",
   "rodzaj": "regula",
   "level": "rules",
-  "twierdzenie": "Sygnały utraty kontroli: grasz dłużej, niż planowałeś; po przegranej wracasz, żeby odegrać straty; stawiasz pieniądze, których nie możesz stracić, albo pożyczasz na grę; grasz, żeby uciec od zmartwień; ukrywasz granie przed bliskimi. (m12-l4, ramka „Odpowiedzialna gra”, bez numerów infolinii)",
+  "twierdzenie": "Sygnały utraty kontroli: grasz dłużej, niż planowałeś; po przegranej wracasz, żeby odegrać straty; grasz za pieniądze, których nie możesz stracić, albo pożyczasz na grę; grasz, żeby uciec od zmartwień; ukrywasz granie przed bliskimi. (m12-l4, ramka „Odpowiedzialna gra”, bez numerów infolinii)",
   "zrodla": [
    {
     "adres": "https://www.apprenticeships.vic.gov.au/gambling-and-mental-health",
@@ -20047,7 +20054,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": "„dozwolona tylko dla osób pełnoletnich” → „dozwolona tylko dla osób, które ukończyły 18 lat” (art. 27 ust. 2 u.g.h. mówi o wieku, nie o pełnoletności, którą można uzyskać wcześniej przez małżeństwo); art. 2 ust. 5a: poker jest grą w karty, gdy toczy się o nagrody pieniężne lub rzeczowe.",
-  "uwagi": "Wszystkie pięć sygnałów ma źródło szczebla 3 (instytucje zdrowia publicznego i rząd stanu Wiktoria): dłużej niż planowano (Wiktoria), odgrywanie (MedlinePlus/APA, NHS), pieniądze, których nie można stracić, i pożyczanie (NHS, Wiktoria, MedlinePlus), ucieczka od zmartwień (MedlinePlus), ukrywanie (Wiktoria, MedlinePlus: kłamstwa o czasie i pieniądzach). Zdanie prawne dotyczy tylko Polski; aplikacja nie ma storefrontu PL, a w innych krajach wiek i status prawny gry są inne (propozycja w raporcie). Numery infolinii: poza zakresem (inny weryfikator). | E2 2026-11-04: poprawione (content/pl/lessons/m12-l4-bankroll.md:149); było CZĘŚCIOWO; zdanie o polskiej ustawie zastąpione zdaniem bez przepisu jednego kraju (D-150, aplikacja bez storefrontu PL); u.g.h. zostaje jako przykład, że wiek określa prawo kraju; poprawka „ukończyły 18 lat” z E1 bezprzedmiotowa | E3 2026-11-04 (przegląd zastępczy A7b): pointer „dla części krajów i pomoc online” (wpisy ma 9 krajów); m12-l4:102 bez superlatywu. | E3 2026-11-04 (D-159): usunięte zdanie o prawie kraju i wieku (gra na pieniądze); źródło ustawy usunięte z wpisu.",
+  "uwagi": "Wszystkie pięć sygnałów ma źródło szczebla 3 (instytucje zdrowia publicznego i rząd stanu Wiktoria): dłużej niż planowano (Wiktoria), odgrywanie (MedlinePlus/APA, NHS), pieniądze, których nie można stracić, i pożyczanie (NHS, Wiktoria, MedlinePlus), ucieczka od zmartwień (MedlinePlus), ukrywanie (Wiktoria, MedlinePlus: kłamstwa o czasie i pieniądzach). Zdanie prawne dotyczy tylko Polski; aplikacja nie ma storefrontu PL, a w innych krajach wiek i status prawny gry są inne (propozycja w raporcie). Numery infolinii: poza zakresem (inny weryfikator). | E2 2026-11-04: poprawione (content/pl/lessons/m12-l4-bankroll.md:149); było CZĘŚCIOWO; zdanie o polskiej ustawie zastąpione zdaniem bez przepisu jednego kraju (D-150, aplikacja bez storefrontu PL); u.g.h. zostaje jako przykład, że wiek określa prawo kraju; poprawka „ukończyły 18 lat” z E1 bezprzedmiotowa | E3 2026-11-04 (przegląd zastępczy A7b): pointer „dla części krajów i pomoc online” (wpisy ma 9 krajów); m12-l4:102 bez superlatywu. | E3 2026-11-04 (D-159): usunięte zdanie o prawie kraju i wieku (gra na pieniądze); źródło ustawy usunięte z wpisu. | E3 2026-11-04 (A8, S3): „stawiasz” → „grasz za pieniądze” (bez terminu {{t:bet}}) (dymek z definicją zakładu w zdaniu o sygnale hazardowym).",
   "decyzja": "D-150",
   "uzyte_w": [
    "content/pl/lessons/m12-l4-bankroll.md",
@@ -27964,7 +27971,7 @@
   "id": "H-INT-1",
   "rodzaj": "regula",
   "level": "rules",
-  "twierdzenie": "Problem z hazardem → Gambling Therapy (Gordon Moody, Wielka Brytania): bezpłatne porady praktyczne i wsparcie emocjonalne online dla każdego, kogo dotyka problem z hazardem; poufnie",
+  "twierdzenie": "Problem z hazardem → Gambling Therapy (Gordon Moody): bezpłatne porady praktyczne i wsparcie emocjonalne online dla każdego, kogo dotyka problem z hazardem; poufnie",
   "zrodla": [
    {
     "adres": "https://www.gamblingtherapy.org/",
@@ -27997,7 +28004,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Strefa czasowa godzin nie podana (prawdopodobnie czas brytyjski — nie wpisywać godzin bez strefy). Koszt: źródło nie mówi „free” — nie pisać „bezpłatnie”. gamblingtherapy.org zwrócił 2026-11-04 błąd 500 (baza danych) — sprawdzić przed wydaniem; link do strony Gordon Moody jako zapasowy. Tekst dla krajów bez wpisu: „W zagrożeniu życia dzwoń na lokalny numer alarmowy” + H-INT-1 (bez numeru). | E2 2026-11-04: wpis content/helplines.yaml: int-gambling-therapy (bez godzin i bez „bezpłatnie”). | E3 2026-11-04 (przegląd zastępczy A7): gordonmoody.org.uk nie odpowiada (zerwane połączenie, także archive.org); źródło zamienione na gamblingtherapy.org (200); usunięte „ponad 200 języków”, godziny i „anonimowo” (brak na przeczytanej stronie). | E3 2026-11-04 (przegląd zastępczy A7b): cytat dla atrybucji Gordon Moody (przegląd D-043).",
+  "uwagi": "Strefa czasowa godzin nie podana (prawdopodobnie czas brytyjski — nie wpisywać godzin bez strefy). Koszt: źródło nie mówi „free” — nie pisać „bezpłatnie”. gamblingtherapy.org zwrócił 2026-11-04 błąd 500 (baza danych) — sprawdzić przed wydaniem; link do strony Gordon Moody jako zapasowy. Tekst dla krajów bez wpisu: „W zagrożeniu życia dzwoń na lokalny numer alarmowy” + H-INT-1 (bez numeru). | E2 2026-11-04: wpis content/helplines.yaml: int-gambling-therapy (bez godzin i bez „bezpłatnie”). | E3 2026-11-04 (przegląd zastępczy A7): gordonmoody.org.uk nie odpowiada (zerwane połączenie, także archive.org); źródło zamienione na gamblingtherapy.org (200); usunięte „ponad 200 języków”, godziny i „anonimowo” (brak na przeczytanej stronie). | E3 2026-11-04 (przegląd zastępczy A7b): cytat dla atrybucji Gordon Moody (przegląd D-043). | E3 2026-11-04 (A8, S3): z nazwy usunięte „Wielka Brytania” (brak cytatu; strona: „Registered charity in England and Wales (No. 1124751)”). Szczebel 1 wpisów pomocy niezgodny z numeracją hierarchii CLAUDE.md (1 = rachunek): sprawa przekrojowa w do-poprawy.md.",
   "kraj": "*",
   "region": null,
   "wazne_do": "2027-11-04",
@@ -28009,19 +28016,12 @@
   "id": "H-INT-2",
   "rodzaj": "regula",
   "level": "rules",
-  "twierdzenie": "Przy objawach problemu z hazardem (np. wielu nieudanych próbach ograniczenia albo rzucenia gry) skontaktuj się z lekarzem albo specjalistą zdrowia psychicznego; w nagłym zagrożeniu dzwoń na lokalny numer alarmowy",
+  "twierdzenie": "Przy objawach problemu z hazardem albo wątpliwościach skontaktuj się z lekarzem albo specjalistą zdrowia psychicznego; w nagłym zagrożeniu dzwoń na lokalny numer alarmowy",
   "zrodla": [
    {
     "adres": "https://medlineplus.gov/ency/article/001520.htm",
     "miejsce": "Gambling disorder (MedlinePlus, U.S. National Library of Medicine), sekcja „When to Contact a Medical Professional”; Review Date 5/15/2026",
     "cytat": "Contact your health care provider or mental health professional if you believe you have symptoms of compulsive gambling.",
-    "odczyt": "2026-11-04",
-    "szczebel": 3
-   },
-   {
-    "adres": "https://medlineplus.gov/ency/article/001520.htm",
-    "miejsce": "Gambling disorder (MedlinePlus), sekcja „Symptoms”",
-    "cytat": "Making many unsuccessful attempts to cut back or quit gambling.",
     "odczyt": "2026-11-04",
     "szczebel": 3
    },
@@ -28049,7 +28049,7 @@
   "jednostka": null,
   "werdykt_tekstu": null,
   "poprawka": null,
-  "uwagi": "E3 2026-11-04 (D-158): zdanie ogólne zamiast numerów krajowych; tekst w content/helplines.yaml (fallback.text, claim H-INT-2), ramka M12-L4 i ekran „Pomoc”. Dwa niezależne serwisy instytucji (NLM, NHS), szczebel 3. Słowa właściciela „lokalna poradnia” zawężone do „specjalista zdrowia psychicznego” (brzmienie źródła; D-160).",
+  "uwagi": "E3 2026-11-04 (D-158): zdanie ogólne zamiast numerów krajowych; tekst w content/helplines.yaml (fallback.text, claim H-INT-2), ramka M12-L4 i ekran „Pomoc”. Dwa niezależne serwisy instytucji (NLM, NHS), szczebel 3. Słowa właściciela „lokalna poradnia” zawężone do „specjalista zdrowia psychicznego” (brzmienie źródła; D-160). | E3 2026-11-04 (A8, S1): zdanie zawężało warunek do „mimo prób nie udaje ci się ograniczyć gry”; źródło: „if you believe you have symptoms”. Teraz: „Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości…” (ostrożnościowo).",
   "kraj": "*",
   "region": null,
   "wazne_do": "2027-11-04",

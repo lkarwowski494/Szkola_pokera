@@ -77,7 +77,7 @@ export const HelplinesFile = z
      * pomocy w aplikacji; `claim` = twierdzenie rejestru dla zdania `text` (content-build wymaga statusu „potwierdzone”).
      */
     fallback: z
-      .object({ claim: z.string().regex(/^H-[A-Z]+-\d+$/, 'twierdzenie rejestru: H-XX-1').optional(), text: z.string().min(10), online: z.array(entryId).min(1) })
+      .object({ claim: z.string().regex(/^H-[A-Z]+-\d+$/, 'twierdzenie rejestru: H-XX-1'), text: z.string().min(10), online: z.array(entryId).min(1) })
       .strict(),
     /** Nazwy regionów do listy wyboru (D-152), w kolejności wyświetlania. */
     regions: z.record(regionCode, z.string().min(2)),

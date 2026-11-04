@@ -18,10 +18,10 @@ export const HELPLINES: {
   "checked": "2026-11-04",
   "checkedText": "Dane sprawdzone: 4 listopada 2026",
   "reviewBy": "2027-11-04",
-  "abroadText": "Jeśli mimo prób nie udaje ci się ograniczyć gry, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu dzwoń na lokalny numer alarmowy.",
+  "abroadText": "Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu dzwoń na lokalny numer alarmowy.",
   "pointer": "Ten sam kontakt znajdziesz w aplikacji, w ekranie „Pomoc”.",
   "fallback": {
-    "text": "Jeśli mimo prób nie udaje ci się ograniczyć gry, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu dzwoń na lokalny numer alarmowy.",
+    "text": "Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu dzwoń na lokalny numer alarmowy.",
     "online": [
       "int-gambling-therapy"
     ]
@@ -34,7 +34,7 @@ export const HELPLINES: {
       "claim": "H-INT-1",
       "country": "*",
       "kind": "gambling",
-      "name": "Gambling Therapy (Gordon Moody, Wielka Brytania)",
+      "name": "Gambling Therapy (Gordon Moody)",
       "info": "Bezpłatne porady praktyczne i wsparcie emocjonalne online dla każdego, kogo dotyka problem z hazardem; poufnie.",
       "links": [
         {

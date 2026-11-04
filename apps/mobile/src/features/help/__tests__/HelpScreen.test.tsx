@@ -25,7 +25,7 @@ describe('ekran Pomoc', () => {
   });
   afterEach(() => openURL.mockRestore());
 
-  const GENERAL = 'Jeśli mimo prób nie udaje ci się ograniczyć gry, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu dzwoń na lokalny numer alarmowy.';
+  const GENERAL = 'Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu dzwoń na lokalny numer alarmowy.';
 
   it.each(['US', 'GB', 'CA', 'DE', 'NO', null])('D-158: kraj %s: zdanie ogólne (raz) i Gambling Therapy, bez żadnego numeru i bez listy regionów', async (region) => {
     mockRegion = region;
