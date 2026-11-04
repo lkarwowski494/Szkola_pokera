@@ -9,7 +9,7 @@ Kryteria w Gherkinie po polsku. Liczby pochodzą z wektorów RD albo z decyzji; 
 - Przepływ: PR-01
 - Dowód potrzeby: J-05; W-02, W-03 pkt 3; brak pomijania to skarga u konkurenta (recenzja S-49); River ma test poziomujący [FAKT S-44]
 - Zależy od: ZAL-002
-- Liczba pytań i najdłuższy czas oceny: [DO WYJAŚNIENIA] (OP-20)
+- Liczba pytań i najdłuższy czas oceny: najwyżej 8 pytań, ok. 2 minuty [OCENA], „Pomiń” na każdym ekranie, bez ekranu zakupu na końcu (D-105; OP-20 rozstrzygnięte)
 - Kryteria akceptacji:
   - Scenariusz: Użytkownik przechodzi ocenę
     - Zakładając, że aplikacja jest uruchomiona pierwszy raz

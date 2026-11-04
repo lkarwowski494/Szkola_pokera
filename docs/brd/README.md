@@ -54,7 +54,7 @@ Numery od 2 do 8 nie są używane w BRD (te numery pytań ma `docs/monetyzacja.m
 | OP-17 | Rozstrzygnięte 2026-11-03: status przedsiębiorcy DSA już jest na koncie (właściciel; repo `trening`, `docs/45-formalnosci-asc.md:21`) | właściciel | OG-13 |
 | OP-18 | [DO USTALENIA] Czy scenariusz bez stosu do wygrania to „brak” symulowanego hazardu w ankiecie Apple i IARC | recenzja Apple, ankieta IARC; rola 01 przygotowuje odpowiedzi i notatkę dla recenzenta | OG-02, ZAL-012 |
 | OP-19 | [DO USTALENIA] Podłogi dostępności: czytnik ekranu i największy rozmiar tekstu (odsetek, kryteria) | 04 (źródła: WCAG, wytyczne Apple i Google) | NFR-DOST-002 |
-| OP-20 | [DO WYJAŚNIENIA] Liczba pytań i najdłuższy czas oceny poziomu | 03 i 04 z właścicielem | BR-ONB-001 |
+| OP-20 | Rozstrzygnięte 2026-11-03 (D-105, rola 03 z delegacji): najwyżej 8 pytań, ok. 2 minuty [OCENA], „Pomiń” na każdym ekranie, bez ekranu zakupu na końcu; odrzucone: 10–15 pytań, bez oceny | 03 | BR-ONB-001 |
 | OP-21 | [DO USTALENIA] Budżet czasu od uruchomienia do pierwszej decyzji i najstarszy wspierany telefon | 05 (pomiar) | NFR-WYD-001 |
 | OP-22 | [DO WYJAŚNIENIA] Próg zaliczenia testu modułu | 03 z właścicielem | BR-KURS-002 |
 | OP-23 | [DO WYJAŚNIENIA] Jednostka dziennego limitu (zadanie, sesja, scenariusz) i wartość N (OP-11 w `docs/monetyzacja.md`) | 03 z właścicielem (E2) | BR-LIM-001, BR-LIM-005 |
