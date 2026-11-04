@@ -8496,7 +8496,7 @@
   "id": "n:m11.push.10-ante",
   "rodzaj": "liczba",
   "level": "math",
-  "twierdzenie": "m11.push.10-ante = (formuła rangePlay) [percent]; solver push/fold projektu (pushfold.json), heads-up, big blind ante 1bb",
+  "twierdzenie": "m11.push.10-ante = (formuła rangePlay) [percent]; solver push/fold projektu (pushfold.json), heads-up, big blind ante 1bb; walidacja: docs/tresci/e1b-solver.md (D-153)",
   "zrodla": [
    {
     "adres": "rachunek: docs/tresci/narzedzia/e1b/nash_hu.py (fictitious play na tools/equity/equity169.json, bez kodu solvera)",
@@ -8522,7 +8522,7 @@
   "id": "n:m11.call.5",
   "rodzaj": "liczba",
   "level": "math",
-  "twierdzenie": "m11.call.5 = (formuła rangePlay) [percent]; solver push/fold projektu (pushfold.json), część wszystkich rąk BB",
+  "twierdzenie": "m11.call.5 = (formuła rangePlay) [percent]; solver push/fold projektu (pushfold.json), część wszystkich rąk BB; walidacja: docs/tresci/e1b-solver.md (D-153)",
   "zrodla": [
    {
     "adres": "rachunek: docs/tresci/narzedzia/e1b/nash_hu.py (fictitious play na tools/equity/equity169.json, bez kodu solvera)",
@@ -8614,7 +8614,7 @@
   "id": "n:m11.call.10-ante",
   "rodzaj": "liczba",
   "level": "math",
-  "twierdzenie": "m11.call.10-ante = (formuła rangePlay) [percent]; solver push/fold projektu (pushfold.json), część wszystkich rąk BB, big blind ante 1bb",
+  "twierdzenie": "m11.call.10-ante = (formuła rangePlay) [percent]; solver push/fold projektu (pushfold.json), część wszystkich rąk BB, big blind ante 1bb; walidacja: docs/tresci/e1b-solver.md (D-153)",
   "zrodla": [
    {
     "adres": "rachunek: docs/tresci/narzedzia/e1b/nash_hu.py (fictitious play na tools/equity/equity169.json, bez kodu solvera)",

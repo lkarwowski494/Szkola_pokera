@@ -104,7 +104,7 @@ Z każdą {{t:street|ulicą}} gorsze ręce rywala {{t:fold|pasują}}, a w {{t:po
 | {{t:top-pair|Najwyższa para}} z dobrym kickerem, {{t:overpair}} | Dwie; trzecia, gdy rywal płaci słabszymi rękami |
 | Słabsza {{t:pair}} (środkowa, niska) | Jedna albo żadnej |
 
-To heurystyka: dużo zależy od {{t:texture|tekstury}} {{t:board|stołu}}, kart na turnie i riverze oraz od rywala.
+Liczby {{t:street|ulic}} w tabeli to uproszczenie: dużo zależy od {{t:texture|tekstury}} {{t:board|stołu}}, kart na turnie i riverze oraz od rywala.
 
 ## Połącz rękę z {{t:spr}}
 

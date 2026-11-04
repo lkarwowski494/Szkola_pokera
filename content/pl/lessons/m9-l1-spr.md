@@ -136,7 +136,7 @@ Strefy {{t:spr}} liczysz z {{t:spr}} na flopie. Im wyższy {{t:spr}}, tym silnie
 | od {{n:spr.zone.mid}} do {{n:spr.zone.deep}} | wysokie {{t:two-pair}} i lepsze |
 | powyżej {{n:spr.zone.deep}} | set, {{t:straight}} i lepsze |
 
-Po {{t:open|otwarciu}} i {{t:call|sprawdzeniu}} ({{t:spr}} ok. {{n:spr.srp}}) jesteś w najwyższej strefie, po 3-becie (ok. {{n:spr.3bet-ip}}) w strefie, w której {{t:top-pair}} jest na granicy, a po 4-becie (ok. {{n:spr.4bet}}) w najniższej. Progi to uproszczenie. Źródła dzielą strefy różnie, ale zgadzają się, że poniżej ok. {{n:spr.zone.low}} {{t:top-pair}} gra o stack, a powyżej ok. {{n:spr.zone.mid}} jedna {{t:pair}} już nie. Próg {{n:spr.zone.deep}} wynika z rachunku: przy {{t:spr}} {{n:spr.zone.deep}} trzy {{t:bet|zakłady}} wielkości {{t:pot|puli}} dają all-in.
+Po {{t:open|otwarciu}} i {{t:call|sprawdzeniu}} ({{t:spr}} ok. {{n:spr.srp}}) jesteś w najwyższej strefie, po 3-becie (ok. {{n:spr.3bet-ip}}) w strefie, w której {{t:top-pair}} jest na granicy, a po 4-becie (ok. {{n:spr.4bet}}) w najniższej. Progi to uproszczenie. Źródła dzielą strefy różnie, ale zgadzają się, że poniżej ok. {{n:spr.zone.low}} {{t:top-pair}} gra o stack, a przy wyższym {{t:spr}} jedna {{t:pair}} coraz rzadziej. Granica {{n:spr.zone.mid}} to umowa przyjęta w aplikacji. Próg {{n:spr.zone.deep}} wynika z rachunku: przy {{t:spr}} {{n:spr.zone.deep}} trzy {{t:bet|zakłady}} wielkości {{t:pot|puli}} dają all-in.
 
 ## Niski {{t:spr}}: lepsza cena na all-in
 

@@ -64,7 +64,7 @@ drills:
     rules: [R-M10-003]
     prompt: "Nowy rywal, {{n:hud.ex.few.hands}} rąk w {{t:hud|HUD-zie}}: {{t:vpip}} {{n:hud.ex.few.vpip}}, {{t:pfr}} {{n:hud.ex.few.pfr}}. Jak z nim grasz?"
     options:
-      - { text: "Jak z nieznanym graczem, według bazy; zbieram kolejne ręce", correct: true, why: "Poniżej ok. {{n:hud.hands.random}} rąk statystyki są przypadkowe: kilka dobrych kart z rzędu daje taki {{t:vpip}}. {{t:vpip}} i {{t:pfr}} czytasz po ok. {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} rękach." }
+      - { text: "Jak z nieznanym graczem, według bazy; zbieram kolejne ręce", correct: true, why: "Poniżej ok. {{n:hud.hands.random}} rąk statystyki są przypadkowe: kilka dobrych kart z rzędu daje taki {{t:vpip}}. Typ gracza zgrubnie widać po ok. {{n:hud.hands.random}}–{{n:hud.hands.rough.high}} rękach, a {{t:vpip}} i {{t:pfr}} stabilizują się po ok. {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}}." }
       - { text: "Jak z {{t:maniac|maniakiem}}: {{t:call|sprawdzam}} szeroko", why: "Po {{n:hud.ex.few.hands}} rękach to może być każdy typ. Szerokie {{t:call|sprawdzanie}} na podstawie przypadku kosztuje, gdy rywal okaże się zwykłym {{t:regular|regiem}}." }
       - { text: "Jak z {{t:nit|nitem}}, bo większość graczy to nity", why: "Tego też nie wiesz. Bez próby nie ma odczytu, więc wracasz do bazy." }
   - kind: choice
