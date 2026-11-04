@@ -13,7 +13,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 02 Monetyzacja | fix OP-11 | zakończona 2026-11-04 (D-113; dokument, bez zmian rachunku i kodu) | 37ab4f1 | `docs/monetyzacja.md` | OP-09, OP-10 (05) |
 | 04 Studio Projektowe | build | zakończona 2026-11-04 (E3 zaakceptowane, D-123). E0 zakończone 2026-11-04 (D-114: ekran „Decyzja w sesji”); E1 zakończone 2026-11-04 (D-115: metafory A, B, C); E2 runda 1 odrzucona co do palety (D-116, pasek zostaje), runda 2 (D, E, F) odrzucona 2026-11-04 (D-117: „ma być eleganckie a nie badziewne”, punkt odniesienia: kolory i ikona poprzedniej aplikacji); runda 3: wybrany I (D-118) z warunkiem: stół bez miejsc w zadaniach bez pozycji (D-119); krój Literata 600 (D-120); E3 wykonane 2026-11-04 (D-121, D-122), czeka na akceptację ikony i ekranów | a838dda, 118a5c1 | `docs/design/00-rozpoznanie.md`, `01-swiat.md` | OP-19 w E3 |
 | 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
-| 05 Architekt | build | E0 zakończone 2026-11-04, STOP na P-1 (dane z buildów 1005–1008) i P-2 (kod z Treningu) | (commit E0) | `docs/architektura/00-rozpoznanie.md` | P-1, P-2; OP-24, OP-21, OP-09 w ADR |
+| 05 Architekt | build | E0 zakończone 2026-11-04 (D-124 nowy schemat v1, D-125 kod Treningu jako wzorzec); następny E1 | bdc037e | `docs/architektura/00-rozpoznanie.md` | OP-24, OP-21, OP-09 w ADR |
 
 ## E0 bramki: ustalenia (2026-11-03)
 - Środowisko: chmura Linux, Node v22.23.4, pnpm 10.28.0, Playwright 1.63.0, push na gałąź roboczą przez git. Bez Maca/Xcode.
@@ -234,9 +234,10 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - Raport: `docs/architektura/00-rozpoznanie.md` (środowisko, przepływ → technika, skala danych, rejestr ograniczeń z 2026-11-04, stan kodu, 12 ADR do E1, pytania P-1, P-2, plan).
 - Znalezisko: `@sentry/react-native` i `expo-observe` w kodzie przeczą NFR-PRYW-001 (OP-12); usunięcie w ADR 0009. Expo SDK 58 aktualny, kod na 57 (ADR 0001).
 - CI `main`: E2E czerwony w przebiegach 13–18 (15–20.10), bez zmian (rola 07).
+- Decyzje właściciela na bramce E0: P-1 „Nowy schemat (Recommended)” (D-124), P-2 „Tak, jako wzorzec (Recommended)” (D-125), nowa sesja: „Tak, nowa + archiwum tej”.
 
 ## Następny krok
-**05-architekt**, build, E1 (ADR 0001–0012) po odpowiedziach właściciela na P-1 i P-2 z `docs/architektura/00-rozpoznanie.md`; ten sam prompt (`assemble.mjs 05-architekt --tryb build`). Paczka roli 05: „Przekazanie do następnej roli” roli 04 niżej.
+**05-architekt**, build, E1 (ADR 0001–0012; P-1 i P-2 rozstrzygnięte: D-124, D-125) według `docs/architektura/00-rozpoznanie.md`, sekcja 8; ten sam prompt (`assemble.mjs 05-architekt --tryb build`). Paczka roli 05: „Przekazanie do następnej roli” roli 04 niżej.
 
 ## Decyzje właściciela na bramce E3 roli 04 (2026-11-04)
 - Krój tytułów: „Ok zgodnie z rekomendacją” (D-120, Literata 600).
