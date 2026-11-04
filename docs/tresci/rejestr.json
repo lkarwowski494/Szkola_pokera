@@ -26107,7 +26107,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "a8ff2cbb3b74"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26145,7 +26149,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "0adafc96f940"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26176,7 +26184,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "36e66fc5e236"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26228,7 +26240,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "895ef9d5e92c"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26277,7 +26293,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "993284ff6a21"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26317,7 +26337,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "92cdc53fe15b"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26364,7 +26388,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "52b69a1fe0c5"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26454,7 +26482,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "0f49fde7506b"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26550,7 +26582,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "37d1f1e65595"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26581,7 +26617,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "36aad031837d"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26612,7 +26652,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "536aee476b92"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26652,7 +26696,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "aff38e0498f9"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26699,7 +26747,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "9ab8613bc7ac"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26732,7 +26784,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "375ab4177666"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26765,7 +26821,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "beebf38669d5"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26805,7 +26865,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "589a54ddf337"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26918,7 +26982,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "e9e682e76dbd"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26965,7 +27033,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "5ed48aca8e9d"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -26998,7 +27070,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "3acaf9ea2650"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -27065,7 +27141,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "2786e23932ec"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -27117,7 +27197,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "7513570faac7"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -27148,7 +27232,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "087cad6bf26d"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -27186,7 +27274,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "c44fe9b2588e"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -27217,7 +27309,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "ebd7d339deae"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -27255,7 +27351,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "f40047a2573c"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -27300,7 +27400,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "7e03f64afb57"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -27332,7 +27436,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "3597fd0895f6"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -27370,7 +27478,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "cd93ac775798"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -27446,7 +27558,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "c6b0712d316c"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -27484,7 +27600,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "72b4e0c24880"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -27515,7 +27635,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "68be070e4767"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -27607,7 +27731,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "f62040d9de6b"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -27646,7 +27774,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "55be4e44ed61"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -27691,7 +27823,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "0724f3ba0a70"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -27722,7 +27858,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "0411f8dd37e1"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
@@ -27760,7 +27900,11 @@
   "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": true,
-  "przeglad": null,
+  "przeglad": {
+   "kto": "weryfikacja zastępcza (subagent)",
+   "data": "2026-11-04",
+   "sha": "80880e2d4ffa"
+  },
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
