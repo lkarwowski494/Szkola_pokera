@@ -356,7 +356,7 @@
 - id: R-M5-004
   module: m5
   if: "{{t:open|otworzyłeś}} przed flopem, a flop jest niski i {{t:connected}} albo {{t:semi-connected|półpołączony}}, np. 7-6-5"
-  then: "c-betujesz rzadziej niż na wysokich flopach, a wiele rąk {{t:check|czeka}}; po {{t:open|otwarciu}} z {{t:early-position|wczesnej pozycji}} jeszcze częściej"
+  then: "c-betujesz rzadziej niż na wysokich flopach, a wiele rąk {{t:check|czeka}}"
   because: "{{t:big-blind}} broni wielu {{t:connectors|konektorów}} w kolorze i małych {{t:pair|par}}, więc częściej ma {{t:two-pair}} albo {{t:straight|strita}}: to on ma {{t:nuts-advantage|przewagę nutsów}}"
   level: heuristic
   check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
@@ -465,11 +465,11 @@
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/mdf-alpha" }, { kind: training, url: "https://upswingpoker.com/vs-double-barrels-turn/" }]
 - id: R-M6-004
   module: m6
-  if: "duży bet na riverze {{t:bet|stawia}} gracz, który rzadko {{t:bluff|blefuje}} (np. pasywny {{t:recreational|gracz rekreacyjny}})"
+  if: "duży bet na riverze {{t:bet|stawia}} gracz, o którym wiesz z obserwacji, że rzadko {{t:bluff|blefuje}}"
   then: "{{t:fold|pasujesz}} częściej, niż wskazuje {{t:mdf}}, także średnimi {{t:pair|parami}}"
   because: "{{t:mdf}} zakłada, że rywal {{t:bluff|blefuje}} wystarczająco często; gdy {{t:bluff|blefów}} brakuje, {{t:call}} słabszą ręką płaci głównie lepszym rękom"
   level: exploit
-  population: "gracze na niskich stawkach online, zwłaszcza pasywni gracze rekreacyjni, według trenerów dwóch serwisów szkoleniowych; bez liczb z bazy rąk"
+  population: "konkretny gracz obserwowany przy stole; brak danych o populacji (próba, stawki, pokój), więc reguła nie zakłada, że cała grupa graczy rzadko blefuje; trenerzy dwóch serwisów szkoleniowych opisują tak pasywnych graczy rekreacyjnych na niskich stawkach, bez liczb z bazy rąk"
   source: "serwis szkoleniowy, Bluff Catching: When to Call and When to Let It Go (https://deepfold.co/en/blog/bluff-catching-principles: pasywni gracze rekreacyjni nie blefują dużymi betami na riverze); serwis szkoleniowy, MDF in Poker: Why Most Players Misuse It (https://pokercoaching.com/blog/mdf-poker: „In low-stakes games, most players will bluff way less”)"
   sources: [{ kind: training, url: "https://deepfold.co/en/blog/bluff-catching-principles" }, { kind: training, url: "https://pokercoaching.com/blog/mdf-poker" }]
 - id: R-M6-005
@@ -542,7 +542,7 @@
 - id: R-M7-002
   module: m7
   if: "{{t:bluff|blefujesz}} {{t:second-barrel|second barrelem}} na turnie"
-  then: "{{t:bluff|blefujesz}} przede wszystkim rękami z outami ({{t:flush-draw}}, {{t:straight|strita}}, gutshot z wysoką kartą); ręce bez outów częściej odpuszczasz, chyba że blokują ręce, którymi rywal zapłaci"
+  then: "{{t:bluff|blefujesz}} przede wszystkim rękami z outami ({{t:flush-draw}}, {{t:straight|strita}}, gutshot z wysoką kartą); ręce bez outów częściej odpuszczasz, chyba że blokują ręce, którymi rywal zapłaci (uproszczenie: solver {{t:bluff|blefuje}} też częścią rąk bez outów, zwłaszcza gdy rywal może odpowiedzieć {{t:raise|przebiciem}})"
   because: "{{t:semi-bluff}} wygrywa na dwa sposoby: gdy rywal {{t:fold|spasuje}} albo gdy trafisz na riverze; {{t:bluff}} bez outów ma tylko pierwszą drogę (stacki ok. {{n:format.stack}})"
   level: heuristic
   source: "serwis komercyjnego solvera, From Gutshots to Airballs: Choosing Your Bluffs; trener z serwisem szkoleniowym, The Double Barrel Checklist; serwis szkoleniowy, When to Double Barrel the Turn as a Bluff (przy ok. 100bb)"
@@ -639,7 +639,7 @@
   sources: [{ kind: training }]
 
 # M8: river. Matematyka z formuł (numbers.yaml); zalecenia z literatury jako heurystyki, bez częstotliwości.
-# Źródła przeczytane i potwierdzone w dokumencie 12 (decyzje D10–D17). Reguł eksploatacyjnych brak (populacja mikrostawek tylko w R-M6-004).
+# Źródła przeczytane i potwierdzone w dokumencie 12 (decyzje D10–D17). Reguł eksploatacyjnych brak (R-M6-004: obserwacja konkretnego gracza, bez danych o populacji, D-149).
 - id: R-M8-001
   module: m8
   if: "na riverze {{t:in-position}} chcesz betować {{t:value|dla wartości}}, a rywal może już tylko {{t:call|sprawdzić}} albo {{t:fold|spasować}}"
@@ -659,7 +659,7 @@
 - id: R-M8-003
   module: m8
   if: "twoja ręka na riverze wygrywa z niewiele ponad połową rąk, które mogą {{t:call|sprawdzić}} (thin value)"
-  then: "betujesz mniej niż silną ręką, zwykle ok. 1/4–1/2 {{t:pot|puli}}"
+  then: "betujesz mniej niż silną ręką, zwykle ok. 1/4–1/2 {{t:pot|puli}}, gdy rywal rzadko {{t:raise|przebija}} (uproszczenie: przy ryzyku check-raise'u z {{t:position|pozycji}} rzadko schodzisz poniżej 1/2 {{t:pot|puli}})"
   because: "mały bet {{t:call|sprawdzą}} też słabsze ręce rywala; duży bet {{t:call|sprawdzą}} głównie lepsze, a wtedy gorszych {{t:call|sprawdzeń}} przestaje być więcej niż lepszych"
   level: heuristic
   source: "serwis komercyjnego solvera, River Refinements; serwis komercyjnego solvera, Mastering Thin Value Bets in Checked-Down Pots; serwis szkoleniowy, Bluff Catching Principles"

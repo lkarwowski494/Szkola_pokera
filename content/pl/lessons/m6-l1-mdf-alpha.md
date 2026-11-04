@@ -89,7 +89,7 @@ drills:
     prompt: "Mikrostawki. Pasywny gracz, który przez całe rozdanie tylko {{t:call|sprawdzał}}, na riverze nagle {{t:bet|stawia}} całą {{t:pot|pulę}}. Masz {{t:pair|parę}} króli ze słabym kickerem. Co robisz?"
     table: { hand: "Kd 9d", board: "Kc 8s 4h 2c Qs", position: BB }
     options:
-      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Gracze pasywni na mikrostawkach rzadko {{t:bluff|blefują}} dużym betem na riverze. Gdy {{t:bluff|blefów}} brakuje, twoja {{t:pair}} płaci głównie lepszym rękom (KQ, sety). Wobec takiego gracza {{t:fold|pasujesz}} częściej, niż wskazuje {{t:mdf}}." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Ten gracz przez całe rozdanie tylko {{t:call|sprawdzał}}, więc z tego, co widzisz, rzadko {{t:bluff|blefuje}} dużym betem na riverze. Gdy {{t:bluff|blefów}} brakuje, twoja {{t:pair}} płaci głównie lepszym rękom (KQ, sety). Wobec takiego gracza {{t:fold|pasujesz}} częściej, niż wskazuje {{t:mdf}}." }
       - { text: "{{t:call|Sprawdzam}}, bo {{t:mdf}} każe bronić {{n:mdf.bet-pot}}", why: "{{t:mdf}} chroni przed graczem, który {{t:bluff|blefuje}} wystarczająco często. Ten gracz tego nie robi, więc trzymanie się {{t:mdf}} oddaje mu pieniądze." }
       - { text: "{{t:raise|Przebijam}} all-in", why: "Lepsze ręce zapłacą, gorsze {{t:fold|spasują}}. {{t:pair|Para}} ze słabym kickerem nie jest ręką do {{t:raise|przebicia}}." }
 ---
@@ -132,5 +132,5 @@ Potrzebne equity z M2 dotyczy **jednej ręki**: czy {{t:call}} nią się opłaca
 {{t:mdf}} zakłada, że {{t:bluff}} rywala nie ma żadnych szans. Najbliżej prawdy jest to na riverze, gdzie {{t:draw|drawy}} już się nie poprawią. Na flopie {{t:bluff|blefy}} mają jeszcze equity: {{t:draw|drawy}} i wysokie karty mogą się poprawić. Do tego {{t:out-of-position}} nie zrealizujesz całego equity swoich słabych rąk. Dlatego na flopie {{t:out-of-position}} możesz bronić trochę mniej niż {{t:mdf}} i traktujesz go jako punkt odniesienia, a nie obowiązek; na małe c-bety nie {{t:fold|pasujesz}} jednak masowo. Na turnie solver broni średnio blisko {{t:mdf}}, inaczej niż na flopie {{t:out-of-position}}, gdzie broni mniej.
 
 :::note Gdy rywal rzadko {{t:bluff|blefuje}}
-{{t:mdf}} chroni cię przed graczem, który {{t:bluff|blefuje}} wystarczająco często. Na mikrostawkach wielu graczy, zwłaszcza pasywnych, {{t:bluff|blefuje}} dużymi betami na riverze za rzadko. Wobec nich {{t:fold|pasujesz}} częściej, niż wskazuje {{t:mdf}}: {{t:call|sprawdzanie}} słabszą {{t:pair|parą}} płaci głównie lepszym rękom. To {{t:exploit|eksploatacja}}, nie strategia wobec każdego (więcej w module 10).
+{{t:mdf}} chroni cię przed graczem, który {{t:bluff|blefuje}} wystarczająco często. Jeśli z obserwacji wiesz, że konkretny gracz {{t:bluff|blefuje}} dużymi betami na riverze za rzadko, wobec niego {{t:fold|pasujesz}} częściej, niż wskazuje {{t:mdf}}: {{t:call|sprawdzanie}} słabszą {{t:pair|parą}} płaci głównie lepszym rękom. To {{t:exploit|eksploatacja}}, nie strategia wobec każdego (więcej w module 10).
 :::

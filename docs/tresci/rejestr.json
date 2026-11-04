@@ -20177,7 +20177,7 @@
   "id": "R-M5-004",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "otworzyłeś przed flopem, a flop jest niski i connected albo półpołączony, np. 7-6-5 → c-betujesz rzadziej niż na wysokich flopach, a wiele rąk czeka; po otwarciu z wczesnej pozycji jeszcze częściej, bo big-blind broni wielu konektorów w kolorze i małych par, więc częściej ma two-pair albo strita: to on ma przewagę nutsów",
+  "twierdzenie": "otworzyłeś przed flopem, a flop jest niski i connected albo półpołączony, np. 7-6-5 → c-betujesz rzadziej niż na wysokich flopach, a wiele rąk czeka, bo big-blind broni wielu konektorów w kolorze i małych par, więc częściej ma two-pair albo strita: to on ma przewagę nutsów",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/bullying-the-blinds-with-continuation-bets/",
@@ -20229,9 +20229,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "usunąć z then „; po otwarciu z wczesnej pozycji jeszcze częściej” albo dodać przeczytane źródło (żadna przeczytana strona tego nie mówi)",
-  "uwagi": "Rdzeń (niski połączony flop: c-bet rzadziej, BB ma przewagę nutsów) potwierdzony szczeblem 2, ale tylko na danych turniejowych (20bb i 40bb), nie cash 100bb jak format aplikacji. Zdanie o wczesnej pozycji pochodzi z raportu 12a-06 (wniosek bez cytatu); GTO Gecko mówi o wczesnej pozycji tylko w kontekście gry bez pozycji wobec Buttona.",
+  "uwagi": "Rdzeń (niski połączony flop: c-bet rzadziej, BB ma przewagę nutsów) potwierdzony szczeblem 2, ale tylko na danych turniejowych (20bb i 40bb), nie cash 100bb jak format aplikacji. Zdanie o wczesnej pozycji pochodzi z raportu 12a-06 (wniosek bez cytatu); GTO Gecko mówi o wczesnej pozycji tylko w kontekście gry bez pozycji wobec Buttona. E2 2026-11-04: poprawione (content/pl/rules.yaml:359, usunięte zdanie o wczesnej pozycji bez źródła); było CZĘŚCIOWO.",
   "partia": [
    "m5-m8"
   ]
@@ -20427,7 +20427,7 @@
   "jednostka": null,
   "werdykt_tekstu": "CZĘŚCIOWO",
   "poprawka": "w then dopisać granicę: „…np. {{n:cbet.size.big}} puli; gdy strit jest już możliwy na flopie (np. 9-8-7), rozmiar znowu spada” albo zmienić przykład w if na flop z możliwym otwartym drawem bez gotowego strita (np. K-Q-8 dwukolorowy)",
-  "uwagi": "Szczebel 2 (GTO Wizard) dzieli „mokre” flopy: z możliwym OESD rozmiar rośnie (66%, na KJ7tt 75%), na flopach z możliwym gotowym stritem („connected”) i bardzo mokrych rozmiar spada. Definicja aplikacji liczy flopy z gotowym stritem (987, JT8) jako mokre, więc przykład „połączony i dwukolorowy” oraz zadanie m5.l3.q-set-wet (J♥T♥8♣) leżą tam, gdzie szczebel 2 mówi „size down”. Nie oznaczam jako SPRZECZNE: „size down” u GTO Wizard dotyczy głównie udziału overbetu 133%, a set na JT8 to ręka silna i wrażliwa (R-M7-006).",
+  "uwagi": "Szczebel 2 (GTO Wizard) dzieli „mokre” flopy: z możliwym OESD rozmiar rośnie (66%, na KJ7tt 75%), na flopach z możliwym gotowym stritem („connected”) i bardzo mokrych rozmiar spada. Definicja aplikacji liczy flopy z gotowym stritem (987, JT8) jako mokre, więc przykład „połączony i dwukolorowy” oraz zadanie m5.l3.q-set-wet (J♥T♥8♣) leżą tam, gdzie szczebel 2 mówi „size down”. Nie oznaczam jako SPRZECZNE: „size down” u GTO Wizard dotyczy głównie udziału overbetu 133%, a set na JT8 to ręka silna i wrażliwa (R-M7-006). E2 2026-11-04: NIE poprawione. Obie poprawki z raportu kolidują z definicją mokrości aplikacji (D-39, packages/poker-core/src/texture.ts): flop niejednokolorowy jest mokry (≥ 3 pkt) tylko wtedy, gdy strit jest już możliwy (made-one 2 + dwukolorowy 1 albo made 3); dwukolorowy z samym drawem ma 2 pkt i jest pośredni. Granica „gdy strit jest już możliwy, rozmiar spada” objęłaby więc cały zakres reguły, a przykład K-Q-8 dwukolorowy (oraz KJ7tt i AT9hh ze źródeł) to w aplikacji flop pośredni, nie mokry. Wymaga decyzji o mapowaniu klas serwisu komercyjnego solvera (OESD possible / Connected) na klasy mokrości aplikacji; zostaje CZĘŚCIOWO.",
   "partia": [
    "m5-m8"
   ]
@@ -20779,7 +20779,7 @@
   "id": "R-M6-004",
   "rodzaj": "regula",
   "level": "exploit",
-  "twierdzenie": "duży bet na riverze stawia gracz, który rzadko blefuje (np. pasywny gracz rekreacyjny) → pasujesz częściej, niż wskazuje mdf, także średnimi parami, bo mdf zakłada, że rywal blefuje wystarczająco często; gdy blefów brakuje, call słabszą ręką płaci głównie lepszym rękom",
+  "twierdzenie": "duży bet na riverze stawia gracz, o którym wiesz z obserwacji, że rzadko blefuje → pasujesz częściej, niż wskazuje mdf, także średnimi parami, bo mdf zakłada, że rywal blefuje wystarczająco często; gdy blefów brakuje, call słabszą ręką płaci głównie lepszym rękom",
   "zrodla": [
    {
     "adres": "https://deepfold.co/en/blog/bluff-catching-principles",
@@ -20803,16 +20803,17 @@
     "szczebel": 1
    }
   ],
-  "status": "otwarte",
+  "status": "potwierdzone",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "bez zmiany brzmienia, jeśli zostaną dane populacji; inaczej w if zamienić typ gracza na obserwację: „…gracz, o którym wiesz (z obserwacji), że rzadko blefuje”",
-  "uwagi": "Logika (mniej blefów niż wymaga cena → pas) to rachunek, szczebel 1. Przesłanka populacyjna („pasywni gracze rekreacyjni rzadko blefują na riverze”) ma tylko dwa źródła szczebla 4 bez danych (próba, stawki, pokój). CLAUDE.md: bez danych o populacji nie ma reguły eksploatacyjnej. Pole population w rules.yaml to przyznaje („bez liczb z bazy rąk”).",
+  "uwagi": "Logika (mniej blefów niż wymaga cena → pas) to rachunek, szczebel 1. Przesłanka populacyjna („pasywni gracze rekreacyjni rzadko blefują na riverze”) ma tylko dwa źródła szczebla 4 bez danych (próba, stawki, pokój). CLAUDE.md: bez danych o populacji nie ma reguły eksploatacyjnej. Pole population w rules.yaml to przyznaje („bez liczb z bazy rąk”). E2 2026-11-04: poprawione według D-149 (content/pl/rules.yaml:468 if, :472 population; content/pl/lessons/m6-l1-mdf-alpha.md:92 i :135; content/pl/exams/m6.yaml:37): warunek na obserwację konkretnego gracza, bez twierdzenia o populacji; było CZĘŚCIOWO, status otwarte. Pytanie o dane populacji zostaje otwarte (bez wpływu na tekst).",
+  "decyzja": "D-149",
   "partia": [
    "m5-m8"
   ]
@@ -21164,7 +21165,7 @@
   "id": "R-M7-002",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "blefujesz second barrelem na turnie → blefujesz przede wszystkim rękami z outami (flush-draw, strita, gutshot z wysoką kartą); ręce bez outów częściej odpuszczasz, chyba że blokują ręce, którymi rywal zapłaci, bo semi-bluff wygrywa na dwa sposoby: gdy rywal spasuje albo gdy trafisz na riverze; bluff bez outów ma tylko pierwszą drogę (stacki ok. {{n:format.stack}})",
+  "twierdzenie": "blefujesz second barrelem na turnie → blefujesz przede wszystkim rękami z outami (flush-draw, strita, gutshot z wysoką kartą); ręce bez outów częściej odpuszczasz, chyba że blokują ręce, którymi rywal zapłaci (uproszczenie: solver blefuje też częścią rąk bez outów, zwłaszcza gdy rywal może odpowiedzieć przebiciem), bo semi-bluff wygrywa na dwa sposoby: gdy rywal spasuje albo gdy trafisz na riverze; bluff bez outów ma tylko pierwszą drogę (stacki ok. {{n:format.stack}})",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/from-gutshots-to-airballs-choosing-your-bluffs/",
@@ -21195,9 +21196,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "w then dopisać „(uproszczenie: solver blefuje też częścią rąk bez outów, zwłaszcza gdy rywal może odpowiedzieć przebiciem)” — tak jak w nocie lekcji m7-l1-druga-beczka.md:137",
-  "uwagi": "Szczebel 2 (GTO Wizard, 100bb cash) pokazuje, że wybór draw/powietrze zależy od odpowiedzi rywala, a w przykładzie ręce bez outów (K♠J♦, 6♣4♣) betują częściej niż 5♠4♠; szczebel 4 (PokerCoaching) popiera regułę przy głębokich stackach. Reguła jest kierunkowym uproszczeniem, ale go nie nazywa. „The Double Barrel Checklist” (trener) niedostępny: serwer zwraca 403.",
+  "uwagi": "Szczebel 2 (GTO Wizard, 100bb cash) pokazuje, że wybór draw/powietrze zależy od odpowiedzi rywala, a w przykładzie ręce bez outów (K♠J♦, 6♣4♣) betują częściej niż 5♠4♠; szczebel 4 (PokerCoaching) popiera regułę przy głębokich stackach. Reguła jest kierunkowym uproszczeniem, ale go nie nazywa. „The Double Barrel Checklist” (trener) niedostępny: serwer zwraca 403. E2 2026-11-04: poprawione (content/pl/rules.yaml:545, uproszczenie nazwane w then); było CZĘŚCIOWO.",
   "partia": [
    "m5-m8"
   ]
@@ -21724,7 +21725,7 @@
   "id": "R-M8-003",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "twoja ręka na riverze wygrywa z niewiele ponad połową rąk, które mogą sprawdzić (thin value) → betujesz mniej niż silną ręką, zwykle ok. 1/4–1/2 puli, bo mały bet sprawdzą też słabsze ręce rywala; duży bet sprawdzą głównie lepsze, a wtedy gorszych sprawdzeń przestaje być więcej niż lepszych",
+  "twierdzenie": "twoja ręka na riverze wygrywa z niewiele ponad połową rąk, które mogą sprawdzić (thin value) → betujesz mniej niż silną ręką, zwykle ok. 1/4–1/2 puli, gdy rywal rzadko przebija (uproszczenie: przy ryzyku check-raise'u z pozycji rzadko schodzisz poniżej 1/2 puli), bo mały bet sprawdzą też słabsze ręce rywala; duży bet sprawdzą głównie lepsze, a wtedy gorszych sprawdzeń przestaje być więcej niż lepszych",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/river-refinements-when-your-opponent-wont-check-raise/",
@@ -21769,9 +21770,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "w then: „betujesz mniej niż silną ręką, zwykle ok. 1/4–1/2 puli, gdy rywal rzadko przebija (uproszczenie: przy ryzyku check-raise'u z pozycji rzadko schodzisz poniżej 1/2 puli)”",
-  "uwagi": "Źródła szczebla 2 różnią się warunkiem: bez ryzyka przebicia (pula przeczekana) thin value ok. 21%; przy ryzyku check-raise'u Brokos: rzadko poniżej 1/2 albo czek. Reguła nie podaje warunku; nota w lekcji m8-l1-value.md:131 go podaje. Upswing (szczebel 4) w przykładzie 2/3 puli.",
+  "uwagi": "Źródła szczebla 2 różnią się warunkiem: bez ryzyka przebicia (pula przeczekana) thin value ok. 21%; przy ryzyku check-raise'u Brokos: rzadko poniżej 1/2 albo czek. Reguła nie podaje warunku; nota w lekcji m8-l1-value.md:131 go podaje. Upswing (szczebel 4) w przykładzie 2/3 puli. E2 2026-11-04: poprawione (content/pl/rules.yaml:662, warunek i uproszczenie w then); było CZĘŚCIOWO.",
   "partia": [
    "m5-m8"
   ]
@@ -22492,9 +22493,9 @@
   "wielkosc": "cbet.oop.a94.check",
   "wartosc": 0.96,
   "jednostka": "percent",
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "źródło: „over 96%” — w treści „ponad 96%”, nie „96%”",
-  "uwagi": "odczyt sesji koordynującej (curl, cytat dosłowny)",
+  "uwagi": "odczyt sesji koordynującej (curl, cytat dosłowny) E2 2026-11-04: bez zmiany tekstu — treść używa tej liczby tylko przez cbet.oop.a94.bet w brzmieniu „mniej niż” (content/pl/lessons/m5-l4-bez-pozycji.md:36–37), co odpowiada „over 96%”; było CZĘŚCIOWO.",
   "partia": [
    "m5-m8"
   ]
