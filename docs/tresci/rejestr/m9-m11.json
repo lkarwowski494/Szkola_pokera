@@ -3498,8 +3498,8 @@
   "zrodla": [
    {
     "adres": "rachunek: P(|Z| < 1,96) = erf(1,96/√2) = 0,95000",
-    "miejsce": "calc/rachunek.py (katalog roboczy e1-m9-m11)",
-    "cytat": "P(|Z| < 1,96) = erf(1,96/√2) = 0,95000",
+    "miejsce": "python3 -c 'from statistics import NormalDist as N; print(N().inv_cdf(0.975), N().cdf(1.96)-N().cdf(-1.96))' (biblioteka standardowa Pythona; odtwarzalne)",
+    "cytat": "1.9599639845400536 0.9500042097035593",
     "odczyt": "2026-11-04",
     "szczebel": 1
    }
@@ -3513,7 +3513,7 @@
   "jednostka": "ratio",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": " | E3 2026-11-04 (A6, D-163): rachunek przepięty z pliku w /tmp innej sesji na jedno polecenie odtwarzalne; level math."
  },
  {
   "id": "n:hud.hands.3bet.overall.low",

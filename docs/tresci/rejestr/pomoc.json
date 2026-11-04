@@ -1918,7 +1918,7 @@
   {
     "id": "P-OCENA_PROG_DOPUSZCZALNE",
     "rodzaj": "liczba",
-    "level": "gto",
+    "level": "rules",
     "twierdzenie": "Zagranie z częstością 0 < f < 3,5% w rozwiązaniu to niedokładność; f ≥ 3,5% już nie (M = 0,035, granica włączna po stronie „dopuszczalne”)",
     "zrodla": [
       {
@@ -1926,14 +1926,14 @@
         "miejsce": "Measure Performance, 5 kategorii ruchów",
         "cytat": "Inaccuracy - Moves that are taken less than 3.5% of the time in GTO, but don't lose significant EV.",
         "odczyt": "2026-11-04",
-        "szczebel": 4
+        "szczebel": 2
       },
       {
         "adres": "https://help.gtowizard.com/measure-performance/",
         "miejsce": "Measure Performance, 5 kategorii ruchów",
         "cytat": "Wrong Move - Moves that are not taken in GTO.",
         "odczyt": "2026-11-04",
-        "szczebel": 4
+        "szczebel": 2
       }
     ],
     "status": "potwierdzone",
@@ -1967,7 +1967,7 @@
   {
     "id": "P-OCENA_STOPNIE",
     "rodzaj": "liczba",
-    "level": "gto",
+    "level": "rules",
     "twierdzenie": "Stopnie oceny zagrania: zgodne (f = f_max albo f ≥ L), dopuszczalne (M ≤ f < L), niedokładność (0 < f < M), błąd (f = 0)",
     "zrodla": [
       {
@@ -1975,21 +1975,21 @@
         "miejsce": "Measure Performance, 5 kategorii ruchów",
         "cytat": "There are 5 categories of moves: Best Move - The highest frequency move (or best action according to your RNG ).",
         "odczyt": "2026-11-04",
-        "szczebel": 4
+        "szczebel": 2
       },
       {
         "adres": "https://help.gtowizard.com/measure-performance/",
         "miejsce": "Measure Performance",
         "cytat": "Correct Move - Moves that are correct at some frequency, but not considered \"best moves\".",
         "odczyt": "2026-11-04",
-        "szczebel": 4
+        "szczebel": 2
       },
       {
         "adres": "https://help.gtowizard.com/measure-performance/",
         "miejsce": "Measure Performance",
         "cytat": "Blunder - Blunders that are never taken and lose significant EV.",
         "odczyt": "2026-11-04",
-        "szczebel": 4
+        "szczebel": 2
       }
     ],
     "status": "potwierdzone",

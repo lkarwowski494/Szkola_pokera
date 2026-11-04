@@ -703,7 +703,7 @@
  {
   "id": "n:br.bi.base",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "serwis szkoleniowy, Bankroll Management („about 30 buy-ins for a clear winner”); trener z blogiem szkoleniowym („Experienced poker players can get by with a bankroll of 30 buyins”); serwis z kalkulatorami pokerowymi, Risk of Ruin Formula („25 to 30 at NL25 to NL50”, przy 5% ryzyka bankructwa)",
   "zrodla": [
    {
@@ -753,7 +753,7 @@
  {
   "id": "n:br.bi.beginner",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "trener z blogiem szkoleniowym, The Complete Guide to Bankroll Management („The best poker bankroll management strategy for beginners is to have 50 buyins”)",
   "zrodla": [
    {
@@ -857,7 +857,7 @@
  {
   "id": "n:dd.bi.small",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "math",
   "twierdzenie": "program nauczania (dokument 09): downswing o 10 wpisowych",
   "zrodla": [
    {
@@ -886,7 +886,7 @@
  {
   "id": "n:format.stack",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "rules",
   "twierdzenie": "format główny aplikacji: cash 6-max (ADR-01)",
   "zrodla": [
    {
@@ -911,7 +911,7 @@
  {
   "id": "n:game.recall.count",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "rules",
   "twierdzenie": "mechanika aplikacji: GAME_CARDS.recallMistakes w packages/srs/src/game.ts (dokument 14, 5.7); wartość startowa bez źródła, do kalibracji; test pilnuje zgodności",
   "zrodla": [
    {
@@ -936,7 +936,7 @@
  {
   "id": "n:game.recall.days",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "rules",
   "twierdzenie": "mechanika aplikacji: GAME_CARDS.recallWindowDays w packages/srs/src/game.ts (dokument 14, 5.7); wartość startowa bez źródła, do kalibracji; test pilnuje zgodności",
   "zrodla": [
    {
@@ -961,7 +961,7 @@
  {
   "id": "n:hud.hands.vpip.low",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "serwis szkoleniowy, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): „For VPIP and PFR, you need at least 100 to 200 hands before the numbers begin to stabilize.”",
   "zrodla": [
    {
@@ -986,7 +986,7 @@
  {
   "id": "n:hud.hands.vpip.high",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "jak hud.hands.vpip.low",
   "zrodla": [
    {
@@ -1011,7 +1011,7 @@
  {
   "id": "n:hud.opps.look",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "trener z blogiem szkoleniowym, Poker HUD Stats: The Sample Size You Need (https://www.blackrain79.com/2017/11/poker-hud-stat-sample-size.html): „For me personally I usually want at least 5 to even bother looking, and 10 to be sure.” (liczba okazji, nie rąk)",
   "zrodla": [
    {
@@ -1036,7 +1036,7 @@
  {
   "id": "n:hud.opps.sure",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "jak hud.opps.look",
   "zrodla": [
    {
@@ -1061,7 +1061,7 @@
  {
   "id": "n:range.mixed.high",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "rules",
   "twierdzenie": "próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_HIGH",
   "zrodla": [
    {
@@ -1087,7 +1087,7 @@
  {
   "id": "n:range.mixed.low",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "rules",
   "twierdzenie": "próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_LOW",
   "zrodla": [
    {
@@ -1113,7 +1113,7 @@
  {
   "id": "n:range.mixed.min",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "rules",
   "twierdzenie": "serwis komercyjnego solvera, Measure Performance (https://help.gtowizard.com/measure-performance/): „Inaccuracy – Moves that are taken less than 3.5% of the time in GTO, but don't lose significant EV”; w aplikacji: akcja grana przez solver w 0 < f < {{n:range.mixed.min}} to niedokładność (liczona jak błąd: ustawienie aplikacji, nie teoria); błąd to akcja, której solver nie gra",
   "zrodla": [
    {
@@ -1146,7 +1146,7 @@
  {
   "id": "n:ror.two",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "math",
   "twierdzenie": "wzór ryzyka bankructwa: stała 2 w wykładniku e^(−2·wr·BR/SD²)",
   "zrodla": [
    {
@@ -1182,7 +1182,7 @@
  {
   "id": "n:skill.ahead",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "jak skill.hands: definicja przewagi umiejętności („outperform their less skilled counterparts more than 75 percent of the time”), porównanie najlepszego i najgorszego 1% graczy",
   "zrodla": [
    {
@@ -1207,7 +1207,7 @@
  {
   "id": "n:skill.hands",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "van Loon, van den Assem i van Dolder (2015), Beyond Chance? The Persistence of Performance in Online Poker, PLoS ONE („skill dominates chance when performance is measured over 1,500 or more hands of play”)",
   "zrodla": [
    {
@@ -1239,7 +1239,7 @@
  {
   "id": "n:skill.pct",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "van Loon, van den Assem i van Dolder (2015): porównanie najlepszego i najgorszego percentyla (1%) graczy",
   "zrodla": [
    {
@@ -1264,7 +1264,7 @@
  {
   "id": "n:skill.sample.m",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "van Loon, van den Assem i van Dolder (2015): „76.9 million different hands” (456,1 mln obserwacji gracz–rozdanie)",
   "zrodla": [
    {
@@ -1289,7 +1289,7 @@
  {
   "id": "n:study.beginner",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "serwis szkoleniowy (Barry Carter o zdaniu Dary O'Kearneya), What should your study-to-play ratio be („Early on, it should be 80/20 in favour of study”)",
   "zrodla": [
    {
@@ -1314,7 +1314,7 @@
  {
   "id": "n:study.winner",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "jak study.beginner („the ideal would still be a 50/50 ratio”)",
   "zrodla": [
    {
@@ -1339,7 +1339,7 @@
  {
   "id": "n:study.min",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "jak study.beginner („at a minimum never go under 20% study, 80% play”)",
   "zrodla": [
    {
@@ -1364,7 +1364,7 @@
  {
   "id": "n:tilt.severe",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "Palomäki, Laakasuo, Cowley i Lappi (2020), Poker as a Domain of Expertise, Journal of Expertise 3(2), za Palomäki i in. (2014): „88% of poker players reported having tilted severely at least once within their last 6 months”",
   "zrodla": [
    {
@@ -1389,7 +1389,7 @@
  {
   "id": "n:tilt.types",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "Tendler i Carter, The Mental Game of Poker (2011), fragment „Tilt Profile” (fragment opublikowany online): siedem typów tiltu",
   "zrodla": [
    {
@@ -1421,7 +1421,7 @@
  {
   "id": "n:var.sd",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "serwis z kalkulatorami pokerowymi, Examples and Impacts of Variance in Cash Games („A typical SD for 6-max NLH is 75-95 bb/100”, przykład z SD 80); serwis o strategii pokera, Standard Deviation („between 35BB/100 and 50BB/100 (70bb/100 and 100bb/100)”)",
   "zrodla": [
    {
@@ -1460,7 +1460,7 @@
  {
   "id": "n:var.sd.low",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "serwis z kalkulatorami pokerowymi, Poker Variance Calculator („In 6-max NLHE, 75 to 100 BB/100 is a reasonable default”)",
   "zrodla": [
    {
@@ -1492,7 +1492,7 @@
  {
   "id": "n:var.sd.high",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "serwis z kalkulatorami pokerowymi, Poker Variance Calculator („In 6-max NLHE, 75 to 100 BB/100 is a reasonable default”)",
   "zrodla": [
    {
@@ -1524,7 +1524,7 @@
  {
   "id": "n:var.wr.typical.low",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "trener z blogiem szkoleniowym, Good Poker Win Rate For Small Stakes („the vast majority of winning poker players will be in the 1bb/100 to 3bb/100 range”)",
   "zrodla": [
    {
@@ -1549,7 +1549,7 @@
  {
   "id": "n:var.wr.typical.high",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "heuristic",
   "twierdzenie": "jak var.wr.typical.low",
   "zrodla": [
    {
@@ -1574,13 +1574,13 @@
  {
   "id": "n:var.z95",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "math",
   "twierdzenie": "rozkład normalny: 95% wyników mieści się w ±1,96 odchylenia",
   "zrodla": [
    {
     "adres": "rachunek: Φ⁻¹(0,975)",
-    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
-    "cytat": "NormalDist().inv_cdf(0.975) = 1,95996",
+    "miejsce": "python3 -c 'from statistics import NormalDist as N; print(N().inv_cdf(0.975), N().cdf(1.96)-N().cdf(-1.96))' (biblioteka standardowa Pythona; odtwarzalne)",
+    "cytat": "1.9599639845400536 0.9500042097035593",
     "odczyt": "2026-11-04",
     "szczebel": 1
    }
@@ -1594,7 +1594,7 @@
   "jednostka": "ratio",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": " | E3 2026-11-04 (A6, D-163): rachunek przepięty z pliku w /tmp innej sesji na jedno polecenie odtwarzalne; level math."
  },
  {
   "id": "M12-L4-RAMKA",

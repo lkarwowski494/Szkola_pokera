@@ -1475,7 +1475,7 @@
  {
   "id": "n:format.stack",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "rules",
   "twierdzenie": "format.stack = 100 bb (source: format główny aplikacji: cash 6-max (ADR-01))",
   "zrodla": [
    {
@@ -2922,7 +2922,7 @@
  {
   "id": "n:range.mixed.high",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "rules",
   "twierdzenie": "range.mixed.high = 0.75 percent (source: próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_HIGH)",
   "zrodla": [
    {
@@ -2947,7 +2947,7 @@
  {
   "id": "n:range.mixed.low",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "rules",
   "twierdzenie": "range.mixed.low = 0.25 percent (source: próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_LOW)",
   "zrodla": [
    {
@@ -2972,7 +2972,7 @@
  {
   "id": "n:range.mixed.min",
   "rodzaj": "liczba",
-  "level": null,
+  "level": "rules",
   "twierdzenie": "range.mixed.min = 0.035 percent (source: serwis komercyjnego solvera, Measure Performance (https://help.gtowizard.com/measure-performance/): „Inaccuracy – Moves that are taken less than 3.5% of the time in GTO, but don't lose significant EV”; próg aplikacji: apps/mobile/src/features/drills/thresholds.ts, MIXED_MIN (ADR-26))",
   "zrodla": [
    {

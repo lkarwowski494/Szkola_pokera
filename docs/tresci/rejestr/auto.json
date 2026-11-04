@@ -552,7 +552,7 @@
  {
   "id": "n:streets.flop-river",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "streets.flop-river = 2 [count]; zasady: z flopu do rivera odkrywasz 2 karty",
   "zrodla": [
    {
@@ -577,7 +577,7 @@
  {
   "id": "n:streets.turn-river",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "streets.turn-river = 1 [count]; zasady: z turnu do rivera odkrywasz 1 kartę",
   "zrodla": [
    {
@@ -852,7 +852,7 @@
  {
   "id": "n:streets.next-card",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "streets.next-card = 1 [count]; zasady: sprawdzenie zakładu kupuje jedną następną kartę",
   "zrodla": [
    {
@@ -1327,7 +1327,7 @@
  {
   "id": "n:solver.rfi.utg",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "gto",
   "twierdzenie": "solver.rfi.utg = (formuła rangePlay) [percent]; solver preflop projektu (ADR-20), walidacja: pole meta.summary w content/ranges/preflop-6max-100bb.json i dokument 10 na Drive",
   "zrodla": [
    {
@@ -1353,7 +1353,7 @@
  {
   "id": "n:solver.rfi.hj",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "gto",
   "twierdzenie": "solver.rfi.hj = (formuła rangePlay) [percent]; solver preflop projektu (ADR-20)",
   "zrodla": [
    {
@@ -1379,7 +1379,7 @@
  {
   "id": "n:solver.rfi.co",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "gto",
   "twierdzenie": "solver.rfi.co = (formuła rangePlay) [percent]; solver preflop projektu (ADR-20)",
   "zrodla": [
    {
@@ -1405,7 +1405,7 @@
  {
   "id": "n:solver.rfi.btn",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "gto",
   "twierdzenie": "solver.rfi.btn = (formuła rangePlay) [percent]; solver preflop projektu (ADR-20)",
   "zrodla": [
    {
@@ -1431,7 +1431,7 @@
  {
   "id": "n:solver.rfi.sb",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "gto",
   "twierdzenie": "solver.rfi.sb = (formuła rangePlay) [percent]; solver preflop projektu (ADR-20)",
   "zrodla": [
    {
@@ -1507,7 +1507,7 @@
  {
   "id": "n:pf.blind.sb",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "pf.blind.sb = 0.5 [bb]; zasady: mały blind",
   "zrodla": [
    {
@@ -1532,7 +1532,7 @@
  {
   "id": "n:pf.blind.bb",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "pf.blind.bb = 1 [bb]; zasady: duży blind",
   "zrodla": [
    {
@@ -1982,7 +1982,7 @@
  {
   "id": "n:solver.3bet.sb-vs-btn",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "gto",
   "twierdzenie": "solver.3bet.sb-vs-btn = (formuła rangePlay) [percent]; solver preflop projektu (ADR-20): 3-bet (siatka „3-bet / pas”, B-045)",
   "zrodla": [
    {
@@ -2083,7 +2083,7 @@
  {
   "id": "n:pf.min-raise",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "pf.min-raise = 2 [bb]; zasady: minimalne przebicie limpowanej puli to podwojenie blinda",
   "zrodla": [
    {
@@ -9715,7 +9715,7 @@
  {
   "id": "n:m11.3max.push.btn",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "gto",
   "twierdzenie": "m11.3max.push.btn = (formuła rangePlay) [percent]; solver push/fold projektu (pushfold.json, trzech graczy, 7,5bb); walidacja: Ganzfried i Sandholm, AAMAS 2008, tabela 11 (scripts/pushfold3-validate.ts)",
   "zrodla": [
    {
@@ -9741,7 +9741,7 @@
  {
   "id": "n:m11.3max.push.sb",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "gto",
   "twierdzenie": "m11.3max.push.sb = (formuła rangePlay) [percent]; solver push/fold projektu (pushfold.json, trzech graczy, 7,5bb, Button spasował); walidacja: tabela 13 artykułu",
   "zrodla": [
    {
@@ -9767,7 +9767,7 @@
  {
   "id": "n:m11.3max.call.sb",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "gto",
   "twierdzenie": "m11.3max.call.sb = (formuła rangePlay) [percent]; solver push/fold projektu (pushfold.json): mały blind wobec all-inu Buttona; walidacja: tabela 12 artykułu",
   "zrodla": [
    {
@@ -9793,7 +9793,7 @@
  {
   "id": "n:m11.3max.call.bb",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "gto",
   "twierdzenie": "m11.3max.call.bb = (formuła rangePlay) [percent]; solver push/fold projektu (pushfold.json): duży blind wobec all-inu Buttona, SB spasował; walidacja: tabela 14 artykułu",
   "zrodla": [
    {
@@ -9819,7 +9819,7 @@
  {
   "id": "n:m11.3max.call.bb-two",
   "rodzaj": "liczba",
-  "level": "math",
+  "level": "gto",
   "twierdzenie": "m11.3max.call.bb-two = (formuła rangePlay) [percent]; solver push/fold projektu (pushfold.json): duży blind po all-inie Buttona i sprawdzeniu SB; walidacja: tabela 16 artykułu",
   "zrodla": [
    {

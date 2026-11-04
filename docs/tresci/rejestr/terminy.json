@@ -17,7 +17,7 @@
     "miejsce": "hasło royal-flush",
     "cytat": "The strongest possible hand in many variants of poker.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.pokernews.com/poker-hands.htm",
@@ -63,7 +63,7 @@
     "miejsce": "hasło straight-flush",
     "cytat": "A made hand consisting of five consecutive (ranked) cards of the 'same suit'.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -95,7 +95,7 @@
     "miejsce": "hasło quads",
     "cytat": "A made hand containing all four cards of a specific rank.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://en.wikipedia.org/wiki/List_of_poker_hands",
@@ -155,7 +155,7 @@
     "miejsce": "hasło boat",
     "cytat": "A slang poker term for a full house.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.pokernews.com/poker-hands.htm",
@@ -226,7 +226,7 @@
     "miejsce": "hasło straight",
     "cytat": "A made hand consisting of five consecutive (ranked) cards of which not all have the same suit.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://en.wikipedia.org/wiki/List_of_poker_hands",
@@ -272,21 +272,21 @@
     "miejsce": "hasło three-of-a-kind",
     "cytat": "A made hand consisting of three cards of the same rank. Synonymous with \"trips\".",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/three-of-a-kind/",
     "miejsce": "hasło three-of-a-kind",
     "cytat": "Trips make three of a kind with 2 community cards and 1 hole card, whereas a set makes three of a kind with 1 community card and 2 hole cards.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/trips/",
     "miejsce": "hasło trips",
     "cytat": "A specific three of a kind hand, consisting of one 1 hole card and 2 community cards on the board, all of the same rank.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -311,7 +311,7 @@
     "miejsce": "hasło set",
     "cytat": "A three of a kind hand where the player has a pocket pair and the third card is on the board.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://en.wikipedia.org/wiki/List_of_poker_hands",
@@ -389,7 +389,7 @@
     "miejsce": "hasło pair",
     "cytat": "Any two cards of the same rank.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.pokernews.com/poker-hands.htm",
@@ -428,7 +428,7 @@
     "miejsce": "hasło high-card",
     "cytat": "A hand that at showdown has not made a pair or better.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -460,7 +460,7 @@
     "miejsce": "hasło kicker",
     "cytat": "The second card in a player’s hand, which can be used to break ties.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -492,14 +492,14 @@
     "miejsce": "hasło wheel",
     "cytat": "A low straight made with the cards A 2 3 4 5",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/wheel/",
     "miejsce": "hasło wheel",
     "cytat": "A low straight made with the cards A 2 3 4 5 .",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -531,7 +531,7 @@
     "miejsce": "hasło check",
     "cytat": "This can only be done postflop, and only when no players have previously bet on the same street.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -570,7 +570,7 @@
     "miejsce": "hasło bet",
     "cytat": "Any chips voluntarily put in the pot (VPIP) by a player where the amount required to call to see the next street increases.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -602,7 +602,7 @@
     "miejsce": "hasło call",
     "cytat": "When a player matches the amount that has previously been bet, they have “called” the bet.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.pokertda.com/view-poker-tda-rules/",
@@ -641,7 +641,7 @@
     "miejsce": "hasło raise",
     "cytat": "Any action that increases the size of the bet when already facing a bet.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -680,7 +680,7 @@
     "miejsce": "hasło fold",
     "cytat": "When a player folds, they lose any chance of winning the pot and forfeit any chips they have put in thus far.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -712,7 +712,7 @@
     "miejsce": "hasło check-raise-xr",
     "cytat": "An action whereby an out of position player checks and then raises after another player bets, on the same street.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -744,7 +744,7 @@
     "miejsce": "hasło main-pot",
     "cytat": "a side pot can be necessary to ensure that the shorter stack player is only eligible to win the amount matching their stack at the start of the hand.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -769,7 +769,7 @@
     "miejsce": "hasło pot",
     "cytat": "The total value of chips that have been bet in the present hand.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -808,7 +808,7 @@
     "miejsce": "hasło side-pot",
     "cytat": "A separate pot created in hands with three or more players, when one player goes all-in, but another player has less chips than them, and is thus ineligible to win their entire stack.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -840,7 +840,7 @@
     "miejsce": "hasło split",
     "cytat": "A pot shared between two or more players at showdown due to them having hands of equal strength.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -872,7 +872,7 @@
     "miejsce": "hasło playing-the-board",
     "cytat": "When, on the river, a player’s best five card hand is the five cards on the board.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -904,7 +904,7 @@
     "miejsce": "hasło board",
     "cytat": "The face up community cards that are shared by all players in the poker game.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -936,7 +936,7 @@
     "miejsce": "hasło community-cards",
     "cytat": "The face up cards shared by all players in a hand postflop.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -975,7 +975,7 @@
     "miejsce": "hasło hole-cards",
     "cytat": "The two preflop cards that a player has been dealt, and only they can see, unless their hand goes to showdown.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1007,7 +1007,7 @@
     "miejsce": "hasło small-blind",
     "cytat": "The required blind put in the pot by the player to the immediate left of the (dealer) button.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -1053,7 +1053,7 @@
     "miejsce": "hasło big-blind-bb",
     "cytat": "The big blind (bb) is the largest mandatory bet before cards are dealt.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -1067,7 +1067,7 @@
     "miejsce": "hasło bb100",
     "cytat": "A unit of measurement in poker equal to the average amount of big blinds won/lost per 100 hands.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.pokertda.com/view-poker-tda-rules/",
@@ -1106,7 +1106,7 @@
     "miejsce": "hasło cash-game",
     "cytat": "A format of poker where each chip is equal to a set amount of money",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.pokertda.com/view-poker-tda-rules/",
@@ -1145,7 +1145,7 @@
     "miejsce": "hasło stack",
     "cytat": "The total amount of chips, big blinds or currency a player currently has in front of them at the table.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1170,7 +1170,7 @@
     "miejsce": "hasło street",
     "cytat": "A slang poker term for a round of betting. Preflop, flop, turn and river are all different \"streets\"",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://en.wikipedia.org/wiki/Glossary_of_poker_terms",
@@ -1184,7 +1184,7 @@
     "miejsce": "hasło street",
     "cytat": "Preflop, flop, turn and river are all different \"streets\" in most poker games.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1223,7 +1223,7 @@
     "miejsce": "hasło street",
     "cytat": "A slang poker term for a round of betting.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1248,7 +1248,7 @@
     "miejsce": "hasło preflop",
     "cytat": "The first betting street in no limit hold ‘em, which occurs before the flop has been dealt.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1280,7 +1280,7 @@
     "miejsce": "hasło flop",
     "cytat": "The first street of community cards dealt.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1312,14 +1312,14 @@
     "miejsce": "hasło turn",
     "cytat": "The fourth community card dealt in a poker hand",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/turn/",
     "miejsce": "hasło turn",
     "cytat": "The fourth community card dealt in a poker hand, dealt as a single card after the flop if at least two players remain in the hand.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -1351,14 +1351,14 @@
     "miejsce": "hasło river",
     "cytat": "The fifth and last community card dealt in a poker hand",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/river/",
     "miejsce": "hasło river",
     "cytat": "The fifth and last community card dealt in a poker hand, dealt as a single card after the turn if at least two players remain in the hand.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1390,7 +1390,7 @@
     "miejsce": "hasło showdown",
     "cytat": "When two or more players remain after the final street of betting, the players will showdown their hands to determine who has a stronger hand, and therefore wins the pot.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1422,7 +1422,7 @@
     "miejsce": "hasło position",
     "cytat": "The later a player acts, the better their position.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1447,14 +1447,14 @@
     "miejsce": "hasło in-position-ip",
     "cytat": "The player who acts last postflop is said to be in position.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/positional-advantage/",
     "miejsce": "hasło positional-advantage",
     "cytat": "The in position (IP) player can observe what the out of position (OOP) player does.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1479,7 +1479,7 @@
     "miejsce": "hasło out-of-position-oop",
     "cytat": "Describes a player’s relative position at the table, always at least the person who is not last to act postflop.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1504,14 +1504,14 @@
     "miejsce": "hasło early-position",
     "cytat": "In a 6-handed game, refers to the first person to act postflop. In a 9-person game, several players after the first to act postflop can be referred to as Early Position (EP) +1, +2",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/middle-position/",
     "miejsce": "hasło middle-position",
     "cytat": "On a 6-person table, middle position is considered to be the player to the left of Under The Gun, also known as the Hijack (HJ).",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://upswingpoker.com/glossary/early-position/",
@@ -1543,7 +1543,7 @@
     "miejsce": "hasło late-position",
     "cytat": "A term that generally refers to the Button and positions close to it",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1568,7 +1568,7 @@
     "miejsce": "hasło under-the-gun-utg",
     "cytat": "The position to the immediate left of the Big Blind.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://en.wikipedia.org/wiki/Glossary_of_poker_terms",
@@ -1589,7 +1589,7 @@
     "miejsce": "hasło under-the-gun-utg",
     "cytat": "The Under The Gun player always acts first preflop but not always postflop",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1614,7 +1614,7 @@
     "miejsce": "hasło hijack",
     "cytat": "The position immediately to the right of and acting before the cutoff.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://en.wikipedia.org/wiki/Glossary_of_poker_terms",
@@ -1646,14 +1646,14 @@
     "miejsce": "hasło cutoff-co",
     "cytat": "The player to the immediate right of the Button and left of the Hijack.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/cutoff-co/",
     "miejsce": "hasło cutoff-co",
     "cytat": "The Cutoff is the second last position to act postflop.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1678,7 +1678,7 @@
     "miejsce": "hasło button-btn-or-bu",
     "cytat": "A widely used short form for dealer button",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -1706,7 +1706,7 @@
     "miejsce": "hasło button-btn-or-bu",
     "cytat": "therefore last to act on each street postflop.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1723,7 +1723,7 @@
  {
   "id": "t:outs",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "out (out / outs): Karta, która jeszcze jest w talii i poprawi Twoją rękę, zwykle uzupełniając draw. Przykład: przy drawie do koloru outami są pozostałe karty w Twoim kolorze.",
   "zrodla": [
    {
@@ -1731,7 +1731,7 @@
     "miejsce": "hasło outs",
     "cytat": "The number of cards in the deck that will improve a player's hand or complete their draw.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1748,7 +1748,7 @@
  {
   "id": "t:draw",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "draw (draw): Ręka, która jeszcze nie jest silnym układem, ale może nim zostać po kolejnych kartach wspólnych, np. gdy brakuje jednej karty do koloru albo strita.",
   "zrodla": [
    {
@@ -1756,7 +1756,7 @@
     "miejsce": "hasło draw",
     "cytat": "A hand that has the chance to improve to a strong made hand on certain future community cards.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1773,7 +1773,7 @@
  {
   "id": "t:flush-draw",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "draw do koloru (flush draw): Cztery karty w jednym kolorze (w ręce i na stole razem); brakuje jednej, żeby mieć kolor.",
   "zrodla": [
    {
@@ -1788,7 +1788,7 @@
     "miejsce": "hasło four-flush-4flush",
     "cytat": "A term that describes four cards of the same suit.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1805,7 +1805,7 @@
  {
   "id": "t:straight-draw",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "draw do strita (straight draw): Cztery karty, którym brakuje jednej do strita. Odmiany: OESD (brakuje karty z jednego z dwóch końców) i gutshot (brakuje karty w środku).",
   "zrodla": [
    {
@@ -1820,14 +1820,14 @@
     "miejsce": "hasło openended-straight-draw",
     "cytat": "A straight draw where the player already has four consecutive cards",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/inside-straight/",
     "miejsce": "hasło inside-straight",
     "cytat": "A straight draw which requires one specific inside card rank to complete.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1844,7 +1844,7 @@
  {
   "id": "t:oesd",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "OESD (open-ended straight draw / outside straight draw, double-ended straight draw): Skrót od open-ended straight draw: draw do strita z czterech kolejnych kart, który uzupełnia karta z obu końców, np. 5-6-7-8 czeka na czwórkę albo dziewiątkę.",
   "zrodla": [
    {
@@ -1852,7 +1852,7 @@
     "miejsce": "hasło openended-straight-draw",
     "cytat": "A straight draw where the player already has four consecutive cards, using the board and their hand, and will make a straight if a card at either end of their four completes",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://en.wikipedia.org/wiki/Glossary_of_poker_terms",
@@ -1883,7 +1883,7 @@
  {
   "id": "t:gutshot",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "gutshot (gutshot / inside straight draw): Draw do strita, któremu brakuje jednej konkretnej wysokości w środku, np. 5-6-8-9 czeka tylko na siódemkę.",
   "zrodla": [
    {
@@ -1891,7 +1891,7 @@
     "miejsce": "hasło gutter-gutshot",
     "cytat": "A slang poker term for an inside straight draw, which requires one specific card rank to complete it. A 4-out straight draw.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1908,7 +1908,7 @@
  {
   "id": "t:backdoor",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "backdoor (backdoor): Draw na flopie, który potrzebuje dwóch pasujących kart z rzędu, na turnie i na riverze, np. trzy karty w kolorze po flopie.",
   "zrodla": [
    {
@@ -1916,7 +1916,7 @@
     "miejsce": "hasło backdoor",
     "cytat": "A draw, on the flop, which requires specific cards to come, on both the turn and river to complete.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1933,7 +1933,7 @@
  {
   "id": "t:pot-odds",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "pot odds (pot odds): Stosunek kwoty, którą musisz dołożyć, do puli, którą możesz wygrać (razem z zakładem rywala). Mówi, jak często musisz wygrywać, żeby sprawdzenie się opłacało.",
   "zrodla": [
    {
@@ -1941,7 +1941,7 @@
     "miejsce": "hasło pot-odds",
     "cytat": "The ratio of [the size of the bet a player is facing] in relation to [the size of the pot].",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1958,7 +1958,7 @@
  {
   "id": "t:implied-odds",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "implied odds (implied odds): Pot odds powiększone o żetony, które spodziewasz się wygrać na kolejnych ulicach, jeśli trafisz swój układ.",
   "zrodla": [
    {
@@ -1966,7 +1966,7 @@
     "miejsce": "hasło implied-odds",
     "cytat": "A calculation of odds that takes into consideration future betting",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -1983,7 +1983,7 @@
  {
   "id": "t:equity",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "equity (equity): Twoja szansa na wygranie puli, gdyby wszystkie pozostałe karty wyłożono bez dalszej licytacji; zwykle w procentach.",
   "zrodla": [
    {
@@ -1991,7 +1991,7 @@
     "miejsce": "hasło equity",
     "cytat": "The percentage chance that a player will win a hand, assuming all players go to showdown.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2008,7 +2008,7 @@
  {
   "id": "t:equity-realization",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "realizacja equity (equity realization): W jakim stopniu ręka zamienia swoje equity na wygraną, gdy licytacja trwa dalej (może zrealizować mniej albo więcej niż swoje equity); zależy m.in. od pozycji i od tego, jak łatwo rękę rozegrać.",
   "zrodla": [
    {
@@ -2016,14 +2016,14 @@
     "miejsce": "hasło equity-realization-eqr",
     "cytat": "The ability of a hand to \"realize\" its raw equity.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/equity-realization-eqr/",
     "miejsce": "hasło equity-realization-eqr",
     "cytat": "A hand that wins more than its equity would suggest is said to \"over-realize\" its equity.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2040,7 +2040,7 @@
  {
   "id": "t:expected-value",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "wartość oczekiwana (expected value): Średni wynik zagrania, gdyby powtarzać je wiele razy. Zagranie, które średnio daje plus, zarabia w długim okresie, nawet jeśli tym razem przegra.",
   "zrodla": [
    {
@@ -2048,14 +2048,14 @@
     "miejsce": "hasło expected-value-ev",
     "cytat": "The anticipated value one expects from any hand, position, or play.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/expected-value-ev/",
     "miejsce": "hasło expected-value-ev",
     "cytat": "EV is calculated as a weighted average of all possible outcomes weighed by the probability of each of those outcomes.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2072,7 +2072,7 @@
  {
   "id": "t:combo",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "kombinacja (combo / combination): Jedno konkretne ułożenie dwóch kart z kolorami, np. A♠ K♥. Liczenie takich ułożeń pokazuje, ile danych rąk naprawdę jest w zakresie.",
   "zrodla": [
    {
@@ -2080,7 +2080,7 @@
     "miejsce": "hasło combo",
     "cytat": "Short for \"combination\", which refers to a specific hand's combination of two cards of certain ranks and suits.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2097,7 +2097,7 @@
  {
   "id": "t:range",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "zakres (range): Zbiór wszystkich rąk, które gracz może mieć w danej sytuacji, albo rąk, z którymi zagrałby dane zagranie.",
   "zrodla": [
    {
@@ -2105,7 +2105,7 @@
     "miejsce": "hasło range",
     "cytat": "A collection of hands that a player could feasibly be holding given the action of the current hand.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2122,7 +2122,7 @@
  {
   "id": "t:mixed-hand",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "ręka mieszana (mixing hand / mixed strategy): Ręka, z którą strategia równowagi wybiera raz jedno, raz drugie zagranie (np. czasem przebicie, czasem sprawdzenie); oba zagrania są poprawne. W polskich tekstach mówi się, że rękę gra się mieszaną strategią.",
   "zrodla": [
    {
@@ -2144,7 +2144,7 @@
     "miejsce": "hasło mixed-strategy",
     "cytat": "To mix between different actions with the same hand.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://blog.gtowizard.com/heads-up-exploiting-sbs-preflop-mistakes/",
@@ -2168,7 +2168,7 @@
  {
   "id": "t:open",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "otwarcie (open / open-raise): Pierwsze wejście do puli przed flopem przez przebicie, gdy wszyscy przed Tobą spasowali.",
   "zrodla": [
    {
@@ -2183,7 +2183,7 @@
     "miejsce": "hasło first-in",
     "cytat": "There are two ways to do that: via open-raising or open-limping.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2200,7 +2200,7 @@
  {
   "id": "t:suited",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "w kolorze (suited): Dwie karty własne w tym samym kolorze, np. A♥ K♥ (zapis AKs).",
   "zrodla": [
    {
@@ -2208,7 +2208,7 @@
     "miejsce": "hasło suited",
     "cytat": "A term which describes hole cards containing cards of the same suit.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2225,7 +2225,7 @@
  {
   "id": "t:offsuit",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "w różnych kolorach (offsuit): Dwie karty własne, każda innego koloru, np. A♥ K♣ (zapis AKo).",
   "zrodla": [
    {
@@ -2233,7 +2233,7 @@
     "miejsce": "hasło offsuit",
     "cytat": "A term which describes hole cards containing cards of different suits.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2250,7 +2250,7 @@
  {
   "id": "t:pocket-pair",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "pocket para (pocket pair): Para z dwóch kart własnych, np. 8♣ 8♦ przed flopem.",
   "zrodla": [
    {
@@ -2258,7 +2258,7 @@
     "miejsce": "hasło pocket-pair",
     "cytat": "Any two hole cards that are of the same rank.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2275,7 +2275,7 @@
  {
   "id": "t:connectors",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "konektory (connectors / connector): Karty własne o sąsiednich wysokościach, np. 8-7 lub 9-8; łatwiej z nich ułożyć strita.",
   "zrodla": [
    {
@@ -2290,14 +2290,14 @@
     "miejsce": "hasło suited-connectors",
     "cytat": "A preflop hand consisting of two cards of the same suit that are consecutive in rank.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/gapper/",
     "miejsce": "hasło gapper",
     "cytat": "A preflop hand with at least one rank separating the two cards.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2314,7 +2314,7 @@
  {
   "id": "t:3-bet",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "3-bet (3-bet / three-bet): Pierwsze przebicie otwarcia przed flopem; nazwa liczy duży blind jako pierwszy zakład, a otwarcie jako drugi.",
   "zrodla": [
    {
@@ -2322,14 +2322,14 @@
     "miejsce": "hasło threebet-3bet",
     "cytat": "Literally describes the act of putting in the third bet on one street. However, the term is widely used preflop to describe the act of raising the open-raiser",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/threebet-3bet/",
     "miejsce": "hasło threebet-3bet",
     "cytat": "the term is widely used preflop to describe the act of raising the open-raiser (as the Big Blind is considered the first raiser preflop).",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2346,7 +2346,7 @@
  {
   "id": "t:4-bet",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "4-bet (4-bet / four-bet): Przebicie 3-betu, czyli czwarty zakład w rundzie licytacji.",
   "zrodla": [
    {
@@ -2354,14 +2354,14 @@
     "miejsce": "hasło fourbet-4bet",
     "cytat": "The 4th bet/raise on a single street.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/fourbet-4bet/",
     "miejsce": "hasło fourbet-4bet",
     "cytat": "Preflop, the big blind is considered the first bet, the open-raiser is considered the second bet, and so on.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2378,7 +2378,7 @@
  {
   "id": "t:limp",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "limp (limp): Wejście do puli przed flopem przez samo sprawdzenie dużego blinda, gdy nikt jeszcze nie przebił.",
   "zrodla": [
    {
@@ -2386,7 +2386,7 @@
     "miejsce": "hasło limp",
     "cytat": "To call the big blind preflop, before anyone has made a raise.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2403,7 +2403,7 @@
  {
   "id": "t:isolation",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "izolacja (isolation raise / iso): Przebicie po jednym lub kilku limpach, żeby zagrać z limperem (często słabszym graczem) jeden na jeden.",
   "zrodla": [
    {
@@ -2411,7 +2411,7 @@
     "miejsce": "hasło isolation-raise-iso",
     "cytat": "To raise over one or several limpers, often with the express purpose of isolating a weaker player postflop.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2428,7 +2428,7 @@
  {
   "id": "t:texture",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "tekstura (texture / board texture): Charakter kart wspólnych: ile jest kolorów, czy karty są blisko siebie, czy leży para. Od tego zależy, jakie układy i drawy są możliwe.",
   "zrodla": [
    {
@@ -2436,14 +2436,14 @@
     "miejsce": "cytat z pola source",
     "cytat": "Describes the nature of hands that can be made from the community cards.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/texture/",
     "miejsce": "hasło texture",
     "cytat": "A term used in a variety of ways to describe the board and community cards.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2460,7 +2460,7 @@
  {
   "id": "t:dry",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "suchy (dry): Stół, na którym możliwych jest mało drawów i silnych układów, np. K♠ 7♦ 2♣.",
   "zrodla": [
    {
@@ -2468,7 +2468,7 @@
     "miejsce": "cytat z pola source",
     "cytat": "Common categorizations include wet (many strong draws or strong made hands are possible), dry (few draws or strong made hands are possible).",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://en.wikipedia.org/wiki/Glossary_of_poker_terms",
@@ -2492,7 +2492,7 @@
  {
   "id": "t:wet",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "mokry (wet): Stół, na którym możliwych jest wiele drawów i silnych układów, np. J♥ T♥ 8♣.",
   "zrodla": [
    {
@@ -2500,7 +2500,7 @@
     "miejsce": "hasło wet",
     "cytat": "A term used to describe board textures with many possible draws or strong hands.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://en.wikipedia.org/wiki/Glossary_of_poker_terms",
@@ -2531,7 +2531,7 @@
  {
   "id": "t:rainbow",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "rainbow (rainbow): Flop z trzema kartami w trzech różnych kolorach, więc na flopie nikt nie ma drawa do koloru.",
   "zrodla": [
    {
@@ -2539,7 +2539,7 @@
     "miejsce": "hasło rainbow",
     "cytat": "When none of the community cards are the same suit; no flush draws possible.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2556,7 +2556,7 @@
  {
   "id": "t:two-tone",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "dwukolorowy (two-tone): Flop, na którym dwie karty są w jednym kolorze, więc możliwe są drawy do koloru.",
   "zrodla": [
    {
@@ -2564,7 +2564,7 @@
     "miejsce": "hasło two-tone",
     "cytat": "All of the community cards are of two of the four suits.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2581,7 +2581,7 @@
  {
   "id": "t:monotone",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "jednokolorowy (monotone): Flop z trzema kartami w jednym kolorze, więc kolor może już być ułożony.",
   "zrodla": [
    {
@@ -2589,7 +2589,7 @@
     "miejsce": "hasło monotone",
     "cytat": "All of the community cards are of the same suit.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2606,7 +2606,7 @@
  {
   "id": "t:paired",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "sparowany (paired): Stół, na którym leży para (dwie karty tej samej wysokości), np. 8-8-3.",
   "zrodla": [
    {
@@ -2614,7 +2614,7 @@
     "miejsce": "cytat z pola source",
     "cytat": "Pairing can be categorized as unpaired, paired, tripled, quadrupled or double-paired.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
@@ -2638,7 +2638,7 @@
  {
   "id": "t:connected",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "połączony (connected): Stół, na którym ktoś mógł już ułożyć strita, np. 9-8-7.",
   "zrodla": [
    {
@@ -2663,7 +2663,7 @@
  {
   "id": "t:disconnected",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "niepołączony (disconnected): Stół z kartami odległymi od siebie, z którym trudno zbudować strita lub draw do strita, np. K-7-2.",
   "zrodla": [
    {
@@ -2688,7 +2688,7 @@
  {
   "id": "t:semi-connected",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "półpołączony (semi-connected): Stół, na którym są drawy do strita, ale strit nie jest jeszcze możliwy, np. T-8-3 (podział przyjęty w kursie).",
   "zrodla": [
    {
@@ -2703,7 +2703,7 @@
     "miejsce": "hasło board texture",
     "cytat": "Connectivity can be described as a spectrum from boards where no straight draws are possible to the most connected where many made straights are possible.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2720,7 +2720,7 @@
  {
   "id": "t:wetness",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "mokrość (wetness): Stopień, w jakim stół sprzyja drawom i silnym układom: od suchego do mokrego. W polskich tekstach mówi się też, jak bardzo stół jest skoordynowany.",
   "zrodla": [
    {
@@ -2752,7 +2752,7 @@
  {
   "id": "t:top-pair",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "najwyższa para (top pair): Para z najwyższą kartą na stole, np. K♠ Q♦ na flopie K-7-2.",
   "zrodla": [
    {
@@ -2760,7 +2760,7 @@
     "miejsce": "hasło top-pair",
     "cytat": "The highest one-pair hand available using community cards.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://en.wikipedia.org/wiki/Glossary_of_poker_terms",
@@ -2784,7 +2784,7 @@
  {
   "id": "t:second-pair",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "druga para (second pair): Para z drugą co do wysokości kartą na stole, np. 7♠ 6♠ na flopie K-7-2.",
   "zrodla": [
    {
@@ -2792,7 +2792,7 @@
     "miejsce": "hasło second-pair",
     "cytat": "A pair made with the second highest community card on the board.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2809,7 +2809,7 @@
  {
   "id": "t:overpair",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "overpara (overpair): Pocket para wyższa od każdej karty na stole, np. Q-Q na flopie J-7-2.",
   "zrodla": [
    {
@@ -2817,7 +2817,7 @@
     "miejsce": "hasło overpair",
     "cytat": "A pocket pair that is higher than the highest community card currently on the board.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2834,7 +2834,7 @@
  {
   "id": "t:c-bet",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "c-bet (c-bet / continuation bet): Zakład kontynuacyjny: zakład gracza, który był agresorem w poprzedniej rundzie, np. zakład na flopie po otwarciu preflop.",
   "zrodla": [
    {
@@ -2842,7 +2842,7 @@
     "miejsce": "hasło continuation-bet-cbet",
     "cytat": "A bet made by the previous-street aggressor.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2859,7 +2859,7 @@
  {
   "id": "t:aggressor",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "agresor (aggressor): Gracz, który jako ostatni stawiał lub przebijał w poprzedniej rundzie licytacji.",
   "zrodla": [
    {
@@ -2867,21 +2867,21 @@
     "miejsce": "hasło continuation-bet-cbet",
     "cytat": "A bet made by the previous-street aggressor.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/betting-lead/",
     "miejsce": "hasło betting-lead",
     "cytat": "The player who makes the last bet/raise on the previous street is said to have the betting lead.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/aggression/",
     "miejsce": "hasło aggression",
     "cytat": "Any bet or raise is considered an aggressive action.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2898,7 +2898,7 @@
  {
   "id": "t:initiative",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "inicjatywa (initiative / betting initiative / betting lead): Rola ostatniego agresora: to on zwykle wykonuje następny zakład.",
   "zrodla": [
    {
@@ -2920,7 +2920,7 @@
     "miejsce": "hasło betting-lead",
     "cytat": "The player who makes the last bet/raise on the previous street is said to have the betting lead.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2937,7 +2937,7 @@
  {
   "id": "t:range-advantage",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "przewaga zakresu (range advantage): Sytuacja, w której zakres jednego gracza ma na danym stole łącznie większe equity niż zakres rywala.",
   "zrodla": [
    {
@@ -2945,7 +2945,7 @@
     "miejsce": "hasło range-advantage",
     "cytat": "A general term meaning one player's range equity distribution is stronger on a given board.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2962,7 +2962,7 @@
  {
   "id": "t:nuts-advantage",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "przewaga nutsów (nuts advantage): Sytuacja, w której jeden gracz ma w zakresie proporcjonalnie więcej najsilniejszych rąk niż rywal.",
   "zrodla": [
    {
@@ -2970,7 +2970,7 @@
     "miejsce": "hasło nuts-advantage",
     "cytat": "An advantage coming from having proportionally more \"nuts\" (very strong hands) than another player.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -2987,7 +2987,7 @@
  {
   "id": "t:nuts",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "nuts (nuts): Najsilniejsza możliwa ręka na danym stole w danej chwili. Przykład: na stole K♥ 9♥ 4♥ 2♣ jest nią kolor z asem kier.",
   "zrodla": [
    {
@@ -2995,7 +2995,7 @@
     "miejsce": "hasło nuts",
     "cytat": "Describes the strongest possible hand on a certain board.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://en.wikipedia.org/wiki/Glossary_of_poker_terms",
@@ -3019,7 +3019,7 @@
  {
   "id": "t:polarized",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "spolaryzowany (polarized): O zakresie: złożony głównie z bardzo silnych rąk i z blefów, prawie bez rąk średnich.",
   "zrodla": [
    {
@@ -3027,7 +3027,7 @@
     "miejsce": "hasło polarized",
     "cytat": "Describes a range that is mainly very strong made hands or bluffs, with very few middle-strength hands.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3044,7 +3044,7 @@
  {
   "id": "t:polarization",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "polaryzacja (polarization): Budowanie zakresu ze skrajności: silnych rąk dla wartości i blefów, bez rąk średnich.",
   "zrodla": [
    {
@@ -3066,7 +3066,7 @@
     "miejsce": "hasło polarized",
     "cytat": "Describes a range that is mainly very strong made hands or bluffs, with very few middle-strength hands.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3083,7 +3083,7 @@
  {
   "id": "t:linear",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "liniowy (linear): O zakresie: zbudowany od góry, z najsilniejszych rąk w dół, bez osobnej grupy blefów. W polskich tekstach spotyka się pokrewne „merged range” (zakres niespolaryzowany); według opublikowanych analiz solvera merged to kształt pośredni między tym zakresem a spolaryzowanym.",
   "zrodla": [
    {
@@ -3091,14 +3091,14 @@
     "miejsce": "hasło linear",
     "cytat": "A range construction that consists of the top-down strongest hands.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/merged/",
     "miejsce": "hasło merged",
     "cytat": "A merged range is often described as a range morphology between linear and polarized.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3115,7 +3115,7 @@
  {
   "id": "t:condensed",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "skondensowany (condensed / depolarized): O zakresie: bez najsilniejszych rąk (ograniczony od góry) i złożony głównie ze średnich rąk; przeciwieństwo spolaryzowanego.",
   "zrodla": [
    {
@@ -3123,14 +3123,14 @@
     "miejsce": "hasło condensed",
     "cytat": "A capped range that is also tight.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/depolarized/",
     "miejsce": "hasło depolarized",
     "cytat": "A depolarized range contains mostly medium-strength hands.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3147,7 +3147,7 @@
  {
   "id": "t:value",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "wartość (value): Zakładanie z silną ręką po to, żeby rywal sprawdził zakład słabszą ręką.",
   "zrodla": [
    {
@@ -3155,7 +3155,7 @@
     "miejsce": "hasło value-bet",
     "cytat": "A bet made with a made hand for the purpose of getting called by worse hands.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://en.wikipedia.org/wiki/Glossary_of_poker_terms",
@@ -3179,7 +3179,7 @@
  {
   "id": "t:value-bet",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "value bet (value bet): Pojedynczy zakład dla wartości: stawiany silną ręką po to, żeby sprawdziły go słabsze ręce.",
   "zrodla": [
    {
@@ -3187,7 +3187,7 @@
     "miejsce": "hasło value-bet",
     "cytat": "A bet made with a made hand for the purpose of getting called by worse hands.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3204,7 +3204,7 @@
  {
   "id": "t:bluff",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "blef (bluff): Zakład ze słabą ręką, która raczej nie wygra na showdownie, żeby rywal spasował lepszą rękę.",
   "zrodla": [
    {
@@ -3212,7 +3212,7 @@
     "miejsce": "hasło bluff",
     "cytat": "A bet made with a weak hand that is unlikely to win at showdown, with the intention of getting the opponent to fold better hands.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3229,7 +3229,7 @@
  {
   "id": "t:semi-bluff",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "semi-blef (semi-bluff): Zakład z ręką jeszcze słabą, ale z szansą na poprawę (np. z drawem): wygrywasz, gdy rywal spasuje albo gdy trafisz.",
   "zrodla": [
    {
@@ -3244,7 +3244,7 @@
     "miejsce": "hasło semibluffs",
     "cytat": "A bet made with a currently mediocre hand (such as a draw) but that has the chance to improve on future cards.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3261,7 +3261,7 @@
  {
   "id": "t:blocker",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "bloker (blocker): Karta w Twojej ręce, która zmniejsza szansę, że rywal ma określone ręce. Przykład: z asem kier rywal nie może mieć koloru z asem kier.",
   "zrodla": [
    {
@@ -3269,7 +3269,7 @@
     "miejsce": "hasło blocker",
     "cytat": "The card removal effect of holding a hole card that blocks a relevant portion of your opponent's range.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3286,7 +3286,7 @@
  {
   "id": "t:bluff-catcher",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "bluff-catcher (bluff catcher): Ręka, która pokonuje tylko blefy rywala, a przegrywa z jego zakładami dla wartości.",
   "zrodla": [
    {
@@ -3294,7 +3294,7 @@
     "miejsce": "hasło bluff-catcher",
     "cytat": "A hand that is likely only able to beat the opponent’s bluffs",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3311,7 +3311,7 @@
  {
   "id": "t:barrel",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "barrel (barrel): Kolejny zakład w następnej rundzie licytacji po własnym zakładzie z poprzedniej rundy.",
   "zrodla": [
    {
@@ -3319,7 +3319,7 @@
     "miejsce": "hasło barreling",
     "cytat": "Barreling is the act of betting consecutively across multiple streets.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://en.wikipedia.org/wiki/Glossary_of_poker_terms",
@@ -3343,7 +3343,7 @@
  {
   "id": "t:second-barrel",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "second barrel (second barrel / double barrel): Drugi zakład z rzędu: po c-becie na flopie gracz stawia znowu na turnie.",
   "zrodla": [
    {
@@ -3358,7 +3358,7 @@
     "miejsce": "hasło barreling",
     "cytat": "An example of barreling would be betting the flop, getting called, and then betting once again on the turn.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
@@ -3382,7 +3382,7 @@
  {
   "id": "t:probe-bet",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "probe (probe bet): Zakład na turnie gracza bez pozycji po tym, jak agresor preflop zaczekał na flopie zamiast zrobić c-bet.",
   "zrodla": [
    {
@@ -3390,7 +3390,7 @@
     "miejsce": "hasło probe-bet",
     "cytat": "A bet made on the turn by the player who is out of position after the in position player, who is also the preflop aggressor in the hand, chose not to make a continuation bet",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3407,7 +3407,7 @@
  {
   "id": "t:donk-bet",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "donk bet (donk bet): Zakład gracza, który stawia, zanim agresor z poprzedniej rundy zdążył zagrać.",
   "zrodla": [
    {
@@ -3415,7 +3415,7 @@
     "miejsce": "hasło donk-bet",
     "cytat": "Any bet made by a player before the previous street aggressor has had an opportunity to act.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3432,7 +3432,7 @@
  {
   "id": "t:overbet",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "overbet (overbet): Zakład po flopie większy niż cała pula.",
   "zrodla": [
    {
@@ -3440,7 +3440,7 @@
     "miejsce": "hasło overbet",
     "cytat": "Any bet made postflop that is larger than the size of the pot.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3465,14 +3465,14 @@
     "miejsce": "hasło effective-stack",
     "cytat": "The maximum amount any player can risk in a hand. In 2-player situations, this will always be the smallest of both players' stacks.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/effective-stack/",
     "miejsce": "hasło effective-stack",
     "cytat": "In multiway situations, there are more than one combination of effective stacks.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3489,7 +3489,7 @@
  {
   "id": "t:spr",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "SPR (stack-to-pot ratio): Efektywny stack podzielony przez pulę na początku ulicy (do planu rozdania liczy się go na flopie); mówi, jak głębokie są stacki w stosunku do puli (im niższy SPR, tym szybciej wszystko trafia do puli).",
   "zrodla": [
    {
@@ -3497,14 +3497,14 @@
     "miejsce": "hasło stacktopot-ratio-spr",
     "cytat": "The effective stack divided by the size of the pot.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/stacktopot-ratio-spr/",
     "miejsce": "hasło stacktopot-ratio-spr",
     "cytat": "SPR is commonly used to gauge the value of implied odds and the relative value of made hands.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3521,7 +3521,7 @@
  {
   "id": "t:mdf",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "MDF (minimum defense frequency): Najmniejsza część zakresu, którą trzeba bronić przed zakładem, żeby blef rywala ręką bez szans nie był automatycznie opłacalny.",
   "zrodla": [
    {
@@ -3529,7 +3529,7 @@
     "miejsce": "hasło minimum-defense-frequency-mdf",
     "cytat": "The minimum percentage of your range that must be defended against a bet to prevent the opponent from profitably bluffing a 0% equity hand.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3546,7 +3546,7 @@
  {
   "id": "t:alpha",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "alpha (alpha): Jak często rywal musi spasować, żeby blef ręką bez szans wyszedł na zero; zależy od wielkości zakładu względem puli.",
   "zrodla": [
    {
@@ -3554,14 +3554,14 @@
     "miejsce": "hasło alpha-a",
     "cytat": "The minimum frequency your opponent needs to fold to a bet, in order to break even with a pure (0% equity) bluff.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/alpha-a/",
     "miejsce": "hasło alpha-a",
     "cytat": "Alpha can be defined as risk/(risk + reward)",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3578,7 +3578,7 @@
  {
   "id": "t:variance",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "wariancja (variance): Rozrzut wyników wokół wartości oczekiwanej: nawet przy dobrej grze krótkie serie bywają mocno na minusie albo na plusie.",
   "zrodla": [
    {
@@ -3586,7 +3586,7 @@
     "miejsce": "hasło variance",
     "cytat": "Variance measures how far a set of numbers differs from the mean. In poker, variance often refers to how \"swingy\" a game or strategy is relative to your win rate.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://en.wikipedia.org/wiki/Glossary_of_poker_terms",
@@ -3610,7 +3610,7 @@
  {
   "id": "t:buy-in",
   "rodzaj": "termin",
-  "level": "heuristic",
+  "level": "rules",
   "twierdzenie": "wpisowe (buy-in): Kwota wejścia do turnieju albo do gry gotówkowej przy stole.",
   "zrodla": [
    {
@@ -3618,7 +3618,7 @@
     "miejsce": "hasło buyin",
     "cytat": "The amount of money an individual must pay to enter a tournament, or the minimum amount of money to sit at a table in a cash game.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -3642,7 +3642,7 @@
  {
   "id": "t:bankroll",
   "rodzaj": "termin",
-  "level": "heuristic",
+  "level": "rules",
   "twierdzenie": "bankroll (bankroll): Cały zapas przeznaczony wyłącznie na grę w pokera; w tej aplikacji liczony we wpisowych (buy-in), nie w pieniądzach.",
   "zrodla": [
    {
@@ -3678,7 +3678,7 @@
  {
   "id": "t:tilt",
   "rodzaj": "termin",
-  "level": "heuristic",
+  "level": "rules",
   "twierdzenie": "tilt (tilt): Stan, w którym emocje (złość, frustracja, euforia) pogarszają Twoje decyzje przy stole.",
   "zrodla": [
    {
@@ -3686,7 +3686,7 @@
     "miejsce": "hasło tilt",
     "cytat": "A mental state whereby a player’s decisions are heavily influenced by their emotions.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3703,7 +3703,7 @@
  {
   "id": "t:winrate",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "winrate (win rate): Średni wynik gracza na dłuższej próbie; w grach gotówkowych zwykle w bb/100, czyli dużych blindach na sto rozdań.",
   "zrodla": [
    {
@@ -3711,7 +3711,7 @@
     "miejsce": "hasło bb100",
     "cytat": "A unit of measurement in poker equal to the average amount of big blinds won/lost per 100 hands.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3728,7 +3728,7 @@
  {
   "id": "t:downswing",
   "rodzaj": "termin",
-  "level": "heuristic",
+  "level": "rules",
   "twierdzenie": "downswing (downswing): Okres wyraźnie gorszych wyników, zwykle większych strat, niż wynikałoby z umiejętności; przeciwieństwo upswingu.",
   "zrodla": [
    {
@@ -3736,7 +3736,7 @@
     "miejsce": "hasło downswing",
     "cytat": "A period during which a player has significant negative results, typically more than they would reasonably be expected to lose. The opposite of an upswing.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3753,7 +3753,7 @@
  {
   "id": "t:session",
   "rodzaj": "termin",
-  "level": "heuristic",
+  "level": "rules",
   "twierdzenie": "sesja (session): Jedno posiedzenie przy pokerze, od rozpoczęcia do zakończenia gry.",
   "zrodla": [
    {
@@ -3761,7 +3761,7 @@
     "miejsce": "hasło session",
     "cytat": "A term used to describe one period or sitting in which a player plays poker.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3778,7 +3778,7 @@
  {
   "id": "t:stakes",
   "rodzaj": "termin",
-  "level": "heuristic",
+  "level": "rules",
   "twierdzenie": "stawka (stakes): Wysokość blindów w grze gotówkowej albo wpisowego w turnieju; „mikrostawki” to najniższe poziomy.",
   "zrodla": [
    {
@@ -3786,14 +3786,14 @@
     "miejsce": "hasło stakes",
     "cytat": "The size of the blinds/entry in a cash game or size of the entry fee in a tournament.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/microstakes/",
     "miejsce": "hasło microstakes",
     "cytat": "The lowest stakes offered on internet poker rooms",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3810,7 +3810,7 @@
  {
   "id": "t:standard-deviation",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "odchylenie standardowe (standard deviation): Miara rozrzutu wyników (pierwiastek z wariancji); w pokerze zwykle podawana w bb/100.",
   "zrodla": [
    {
@@ -3818,7 +3818,7 @@
     "miejsce": "cytat z pola source",
     "cytat": "Variance can also be defined as the square of standard deviation, usually measured in bb/100.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3835,7 +3835,7 @@
  {
   "id": "t:risk-of-ruin",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "ryzyko bankructwa (risk of ruin): Prawdopodobieństwo, że kiedykolwiek stracisz cały bankroll, jeśli grasz dalej na tej samej stawce.",
   "zrodla": [
    {
@@ -3864,7 +3864,7 @@
  {
   "id": "t:mental-game",
   "rodzaj": "termin",
-  "level": "heuristic",
+  "level": "rules",
   "twierdzenie": "mental game (mental game): Psychologiczna strona pokera: radzenie sobie z tiltem, emocjami i koncentracją przy stole.",
   "zrodla": [
    {
@@ -3872,7 +3872,7 @@
     "miejsce": "hasło mental-game",
     "cytat": "The psychological impact of playing poker. Mental game can refer to tilt, performance, and emotional control at the table.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3897,7 +3897,7 @@
     "miejsce": "hasło tournament",
     "cytat": "A structure of a poker game where play continues until one player has all of the chips.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.pokertda.com/view-poker-tda-rules/",
@@ -3911,7 +3911,7 @@
     "miejsce": "hasło tournament",
     "cytat": "there is a payout structure that outlines how the prize pool will be distributed according to placements/finishing positions.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3928,7 +3928,7 @@
  {
   "id": "t:push-fold",
   "rodzaj": "termin",
-  "level": "heuristic",
+  "level": "rules",
   "twierdzenie": "push/fold (push/fold): Uproszczona strategia dla short stacków: przed flopem gra się albo all-in, albo pas.",
   "zrodla": [
    {
@@ -3936,7 +3936,7 @@
     "miejsce": "hasło push",
     "cytat": "Used as a verb to describe the act of going all-in. Synonymous with \"shove\" or \"jam\".",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.deucescracked.com/learn/poker-glossary/push-fold",
@@ -3975,7 +3975,7 @@
     "miejsce": "hasło shove",
     "cytat": "Used as a verb to describe the act of going all-in. Synonymous with \"push\" or \"jam\".",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -3992,7 +3992,7 @@
  {
   "id": "t:icm",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "ICM (Independent Chip Model): Model, który przelicza turniejowe żetony na wartość pieniężną z uwzględnieniem struktury wypłat i stacków wszystkich graczy.",
   "zrodla": [
    {
@@ -4000,7 +4000,7 @@
     "miejsce": "hasło icm",
     "cytat": "A commonly used acronym for the term Independent Chip Model. ICM is a model that translates the value of a tournament chip to actual cash value",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://en.wikipedia.org/wiki/Independent_Chip_Model",
@@ -4032,7 +4032,7 @@
     "miejsce": "hasło bubble",
     "cytat": "The phase of a tournament when only a few players need to bust before the remainder of the players are in the money.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4049,7 +4049,7 @@
  {
   "id": "t:bubble-factor",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "bubble factor (bubble factor): Wskaźnik z ICM: ile bardziej w turnieju boli przegrana niż cieszy wygrana tej samej liczby żetonów.",
   "zrodla": [
    {
@@ -4057,7 +4057,7 @@
     "miejsce": "hasło bubble-factor",
     "cytat": "Bubble Factor (BF) measures how much more losing hurts than winning helps you in MTTs.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4106,7 +4106,7 @@
  {
   "id": "t:risk-premium",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "risk premium (risk premium): Dodatkowe equity ponad to, czego wymagają pot odds, potrzebne w turnieju do ryzyka all-in, bo przegrana kosztuje więcej, niż daje wygrana.",
   "zrodla": [
    {
@@ -4114,14 +4114,14 @@
     "miejsce": "hasło risk-premium",
     "cytat": "Risk Premium measures the extra risk you take stacking off in an MTT.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/risk-premium/",
     "miejsce": "hasło risk-premium",
     "cytat": "Risk premium is defined as the extra equity you'd need to call someone's shove, compared to a (chip EV) pot odds calculation.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4138,7 +4138,7 @@
  {
   "id": "t:m-ratio",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "M (M-ratio): Stack podzielony przez sumę blindów i ante w jednym rozdaniu: na ile pełnych okrążeń (orbit) wystarczy żetonów bez gry.",
   "zrodla": [
    {
@@ -4146,7 +4146,7 @@
     "miejsce": "hasło mratio",
     "cytat": "A metric used in tournament poker that measures the health of a player's chip stack.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://en.wikipedia.org/wiki/M-ratio",
@@ -4160,7 +4160,7 @@
     "miejsce": "hasło mratio",
     "cytat": "A player’s \"M\" is the number of orbits they could fold every hand and only post the blinds and ante before they would blind out.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4177,7 +4177,7 @@
  {
   "id": "t:red-zone",
   "rodzaj": "termin",
-  "level": "heuristic",
+  "level": "rules",
   "twierdzenie": "strefa czerwona (red zone): Strefa bardzo niskiego M: zostaje głównie gra all-in albo pas.",
   "zrodla": [
    {
@@ -4216,7 +4216,7 @@
  {
   "id": "t:green-zone",
   "rodzaj": "termin",
-  "level": "heuristic",
+  "level": "rules",
   "twierdzenie": "strefa zielona (green zone): Strefa wysokiego M: stack pozwala grać swobodnie, zachowawczo albo agresywnie.",
   "zrodla": [
    {
@@ -4270,7 +4270,7 @@
     "miejsce": "hasło ante",
     "cytat": "A predetermined amount of chips that all players are required to put in the pot preflop, commonly used in tournament play, but occasionally also in cash games.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4295,7 +4295,7 @@
     "miejsce": "hasło big-blind-ante",
     "cytat": "The big blind ante is a poker format where, instead of each player posting a separate ante, the player in the Big Blind will post antes for the entire table",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.pokertda.com/view-poker-tda-rules/",
@@ -4319,7 +4319,7 @@
  {
   "id": "t:fold-equity",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "fold equity (fold equity): Część wartości zagrania, która pochodzi z tego, że rywal może spasować.",
   "zrodla": [
    {
@@ -4327,7 +4327,7 @@
     "miejsce": "hasło fold-equity",
     "cytat": "The amount of value a player will win by making another player fold.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4344,7 +4344,7 @@
  {
   "id": "t:gap-concept",
   "rodzaj": "termin",
-  "level": "heuristic",
+  "level": "rules",
   "twierdzenie": "gap concept (gap concept): Zasada, że do sprawdzenia otwarcia potrzeba silniejszej ręki niż do samego otwarcia.",
   "zrodla": [
    {
@@ -4352,14 +4352,14 @@
     "miejsce": "hasło gap-concept",
     "cytat": "The Gap Concept argues that a player needs a stronger hand to call an open, than they need to open themselves.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/gap-concept/",
     "miejsce": "hasło gap-concept",
     "cytat": "This is largely due to fold equity and range advantage associated with open raising, which you don't have when flat-calling.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4376,7 +4376,7 @@
  {
   "id": "t:chip-ev",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "chip EV (chip EV / cEV): Wartość oczekiwana zagrania liczona w żetonach, bez przeliczania ich na pieniądze (bez ICM).",
   "zrodla": [
    {
@@ -4384,7 +4384,7 @@
     "miejsce": "hasło chip-ev",
     "cytat": "The average amount of chips an action is expected to yield.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4401,7 +4401,7 @@
  {
   "id": "t:tournament-equity",
   "rodzaj": "termin",
-  "level": "math",
+  "level": "rules",
   "twierdzenie": "equity turniejowe (tournament equity): Twoja oczekiwana część puli nagród przy danej strukturze wypłat i stackach. W polskich tekstach to samo nazywa się „$EV”.",
   "zrodla": [
    {
@@ -4416,7 +4416,7 @@
     "miejsce": "hasło bubble-factor",
     "cytat": "tournament equity ($EV)",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4448,7 +4448,7 @@
     "miejsce": "hasło purse",
     "cytat": "The total value of the prize pool in a poker tournament.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4473,7 +4473,7 @@
     "miejsce": "hasło payout_structure",
     "cytat": "The payout structure refers to how prize money is distributed among players in a tournament.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://blog.gtowizard.com/icm-basics/",
@@ -4487,7 +4487,7 @@
     "miejsce": "hasło payout_structure",
     "cytat": "It shows what percentage of the prize pool goes to each finishing position.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4537,7 +4537,7 @@
     "miejsce": "hasło final-table",
     "cytat": "The last table remaining in a poker tournament. Often, people use the abbreviation FT to refer to it.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4562,14 +4562,14 @@
     "miejsce": "hasło short-stack",
     "cytat": "In tournaments, a short stack is a small stack with few remaining big blinds, typically under 20bb is considered a short stack.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://gtowizard.com/en/glossary/short-stack/",
     "miejsce": "hasło short-stack",
     "cytat": "In cash games, a short stack is any stack below 100 big blinds.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4586,7 +4586,7 @@
  {
   "id": "t:nash-equilibrium",
   "rodzaj": "termin",
-  "level": "gto",
+  "level": "rules",
   "twierdzenie": "równowaga Nasha (Nash equilibrium): Zestaw strategii, w którym żaden gracz nie zyska, zmieniając sam tylko swoją strategię.",
   "zrodla": [
    {
@@ -4594,7 +4594,7 @@
     "miejsce": "hasło nash-equilibrium",
     "cytat": "A stable set of adversarial strategies where no player can gain by unilaterally changing their own strategy.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4619,7 +4619,7 @@
     "miejsce": "hasło overcall",
     "cytat": "To call a bet when at least one other player has already called.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4644,7 +4644,7 @@
     "miejsce": "hasło heads-up",
     "cytat": "When there are only two players at a table playing against each other.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -4676,7 +4676,7 @@
     "miejsce": "hasło dead-money",
     "cytat": "Money in the pot put in by players that cannot win the pot.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -4708,7 +4708,7 @@
     "miejsce": "hasło all-in",
     "cytat": "Some people will say that they \"stacked off\", which means the same as \"went all-in\".",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4725,7 +4725,7 @@
  {
   "id": "t:exploit",
   "rodzaj": "termin",
-  "level": "exploit",
+  "level": "rules",
   "twierdzenie": "eksploatacja (exploit / exploitative play): Świadome odejście od strategii bazowej, żeby wykorzystać konkretny błąd rywala albo całej populacji graczy.",
   "zrodla": [
    {
@@ -4733,7 +4733,7 @@
     "miejsce": "hasło exploit",
     "cytat": "To deviate from a baseline strategy in order to take advantage of a (future or prior) mistake in your opponent's strategy.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4750,7 +4750,7 @@
  {
   "id": "t:hud",
   "rodzaj": "termin",
-  "level": "heuristic",
+  "level": "rules",
   "twierdzenie": "HUD (heads-up display): Nakładka na stół w grze online, która pokazuje statystyki rywali z wcześniej rozegranych rozdań.",
   "zrodla": [
    {
@@ -4782,7 +4782,7 @@
  {
   "id": "t:vpip",
   "rodzaj": "termin",
-  "level": "heuristic",
+  "level": "rules",
   "twierdzenie": "VPIP (voluntarily put in pot): Statystyka HUD: w jakim odsetku rozdań gracz dobrowolnie wkłada pieniądze do puli przed flopem (sprawdza albo przebija).",
   "zrodla": [
    {
@@ -4790,7 +4790,7 @@
     "miejsce": "hasło vpip",
     "cytat": "An online poker acronym which stands for ‘Voluntarily Put In Pot’, a statistic that measures the frequency with which a player voluntarily puts money into the pot preflop.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4807,7 +4807,7 @@
  {
   "id": "t:pfr",
   "rodzaj": "termin",
-  "level": "heuristic",
+  "level": "rules",
   "twierdzenie": "PFR (preflop raise): Statystyka HUD: w jakim odsetku rozdań gracz przebija przed flopem.",
   "zrodla": [
    {
@@ -4839,7 +4839,7 @@
  {
   "id": "t:wtsd",
   "rodzaj": "termin",
-  "level": "heuristic",
+  "level": "rules",
   "twierdzenie": "WTSD (went to showdown): Statystyka HUD: jak często gracz, który zobaczył flop, dochodzi do showdownu.",
   "zrodla": [
    {
@@ -4864,7 +4864,7 @@
  {
   "id": "t:nit",
   "rodzaj": "termin",
-  "level": "exploit",
+  "level": "rules",
   "twierdzenie": "nit (nit): Bardzo ciasny gracz, który wchodzi do puli niemal wyłącznie z mocnymi rękami.",
   "zrodla": [
    {
@@ -4872,7 +4872,7 @@
     "miejsce": "hasło nit",
     "cytat": "A term that describes players that are considered to be very tight. For example, entering the pot with very few hands preflop.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4889,7 +4889,7 @@
  {
   "id": "t:regular",
   "rodzaj": "termin",
-  "level": "exploit",
+  "level": "rules",
   "twierdzenie": "reg (regular): Stały bywalec danej stawki, który rozgrywa dużo rąk; w kursie przeciwstawiany graczowi rekreacyjnemu.",
   "zrodla": [
    {
@@ -4904,7 +4904,7 @@
     "miejsce": "hasło grinder",
     "cytat": "A colloquial online poker term used to describe someone who plays a significant volume of hands.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4921,7 +4921,7 @@
  {
   "id": "t:tag",
   "rodzaj": "termin",
-  "level": "heuristic",
+  "level": "rules",
   "twierdzenie": "TAG (tight aggressive): Styl ciasno-agresywny: mało rąk, ale grane agresywnie (zakłady i przebicia).",
   "zrodla": [
    {
@@ -4929,7 +4929,7 @@
     "miejsce": "hasło tag",
     "cytat": "An acronym meaning \"Tight Aggressive\" which refers to the playstyle of a player that is characterized by playing a small number of hands in an aggressive manner.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4946,7 +4946,7 @@
  {
   "id": "t:lag",
   "rodzaj": "termin",
-  "level": "heuristic",
+  "level": "rules",
   "twierdzenie": "LAG (loose aggressive): Styl luźno-agresywny: dużo rąk, grane agresywnie.",
   "zrodla": [
    {
@@ -4954,7 +4954,7 @@
     "miejsce": "hasło lag",
     "cytat": "An acronym meaning \"Loose Aggressive\" which refers to the playstyle of a player that is characterized by playing a large number of hands in an aggressive manner.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -4971,7 +4971,7 @@
  {
   "id": "t:recreational",
   "rodzaj": "termin",
-  "level": "exploit",
+  "level": "rules",
   "twierdzenie": "gracz rekreacyjny (recreational player / fish): Gracz, który gra dla rozrywki i zwykle słabiej od stałych bywalców; w żargonie pogardliwie „fish”.",
   "zrodla": [
    {
@@ -4986,7 +4986,7 @@
     "miejsce": "hasło fish",
     "cytat": "A pejorative term used to describe a weak player.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    },
    {
     "adres": "https://bluffaces.com/calculators/mda/",
@@ -5010,7 +5010,7 @@
  {
   "id": "t:calling-station",
   "rodzaj": "termin",
-  "level": "exploit",
+  "level": "rules",
   "twierdzenie": "calling station (calling station): Pogardliwie o graczu, który bardzo często sprawdza, nawet słabymi rękami albo drawami.",
   "zrodla": [
    {
@@ -5018,7 +5018,7 @@
     "miejsce": "hasło calling-station",
     "cytat": "A pejorative term used to describe players who frequently call, often with weak hands or draws.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -5035,7 +5035,7 @@
  {
   "id": "t:maniac",
   "rodzaj": "termin",
-  "level": "exploit",
+  "level": "rules",
   "twierdzenie": "maniak (maniac): Pogardliwie o graczu bardzo luźnym i agresywnym, który stawia i przebija z byle czym.",
   "zrodla": [
    {
@@ -5043,7 +5043,7 @@
     "miejsce": "hasło maniac",
     "cytat": "A pejorative term that describes a very loose and aggressive player who is considered to be a weak player.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -5068,7 +5068,7 @@
     "miejsce": "hasło rake",
     "cytat": "The money taken from the pot by the casino, cardroom, website or game runner as a fee for operating the game.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -5093,7 +5093,7 @@
     "miejsce": "hasło rake-cap",
     "cytat": "The maximum amount the house is permitted to charge for rake per hand.",
     "odczyt": "2026-11-04",
-    "szczebel": 2
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
