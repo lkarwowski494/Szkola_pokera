@@ -1,0 +1,1497 @@
+[
+ {
+  "id": "R-M12-001",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:7",
+   "content/pl/lessons/m12-l1-wariancja.md:12",
+   "content/pl/lessons/m12-l1-wariancja.md:28",
+   "content/pl/lessons/m12-l1-wariancja.md:44",
+   "content/pl/lessons/m12-l1-wariancja.md:89",
+   "content/pl/lessons/m12-l1-wariancja.md:125",
+   "content/pl/exams/m12.yaml:6",
+   "content/pl/exams/m12.yaml:15",
+   "content/pl/rules.yaml:953"
+  ],
+  "uzasadnienie": "Własny rachunek: z95 = 1,95996; 80/√1000 = 2,530; ±4,96; przedział 0,04–9,96 bb/100, zgodny z formułami numbers.yaml. SD 80 mieści się w 75–95 i 75–100 (PrimeDope, cytaty znalezione). Tekst lekcji i egzaminu mówi tyle samo.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M12-002",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:7",
+   "content/pl/lessons/m12-l1-wariancja.md:62",
+   "content/pl/lessons/m12-l1-wariancja.md:80",
+   "content/pl/lessons/m12-l1-wariancja.md:129",
+   "content/pl/lessons/m12-l4-bankroll.md:55",
+   "content/pl/rules.yaml:961"
+  ],
+  "uzasadnienie": "Własna symulacja (10 tys. przebiegów, bloki 100 rąk, wr 5, SD 80): spadek ≥ 1000 bb w 100 tys. rąk w 95,0% — zgodne z 95%. Drugie źródło (PrimeDope, tabela: „10 buy-ins 45%”) przeczy tej liczbie, a rejestr podaje je jako poparcie.",
+  "poprawka": "W zrodla[] oznaczyć PrimeDope (45%) jako sprzeczne z rachunkiem (szczebel 1 wygrywa) zamiast poparcia; tekst bez zmian.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M12-004",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:7",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:15",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:93",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:97",
+   "content/pl/lessons/m13-l1-raport.md:7",
+   "content/pl/lessons/m13-l1-raport.md:72",
+   "content/pl/exams/m12.yaml:42",
+   "content/pl/rules.yaml:977"
+  ],
+  "uzasadnienie": "Oba cytaty z abstraktu Baron i Hershey (1988, PMID 3367280) znalezione dosłownie; KK ok. 18% = 1 − 0,8195. Tekst (badanie 1988, ocena po wyniku mimo przekonania) zgodny. Uwaga: badanie psychologiczne oznaczone szczeblem 2 (solver); właściwy szczebel 3.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M12-005",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:7",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:67",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:76",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:112",
+   "content/pl/exams/m12.yaml:33",
+   "content/pl/rules.yaml:985"
+  ],
+  "uzasadnienie": "PLoS ONE: najlepszy percentyl wyprzedza najgorszy w 75% po 1471 rękach; decyle 6512–7293 rąk, więc „mniejsze różnice: znacznie więcej rąk” poparte. Tekst zastrzega porównanie skrajnych grup. Szczebel 2 nieadekwatny (badanie empiryczne, nie solver).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M12-006",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l3-tilt.md:7",
+   "content/pl/lessons/m12-l3-tilt.md:12",
+   "content/pl/lessons/m12-l3-tilt.md:48",
+   "content/pl/lessons/m12-l3-tilt.md:122",
+   "content/pl/exams/m12.yaml:51",
+   "content/pl/rules.yaml:993"
+  ],
+  "uzasadnienie": "Wywiad z Tendlerem (PokerNews 2014): oba cytaty znalezione; „take tilt head on… correct it in the moment that it starts”, oddech i „inject logic”. Tekst zgodny. Szczebel: autor książki = 3, nie 2.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M12-007",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l3-tilt.md:7",
+   "content/pl/lessons/m12-l3-tilt.md:30",
+   "content/pl/lessons/m12-l3-tilt.md:66",
+   "content/pl/lessons/m12-l3-tilt.md:126",
+   "content/pl/exams/m12.yaml:61",
+   "content/pl/rules.yaml:1001"
+  ],
+  "uzasadnienie": "Fragment „Inchworm” (Hendon Mob): „quit sooner when it is no longer possible to recover a solid thought process” znaleziony; odegranie się jako przykład (D-149). Tekst zgodny. Szczebel 3, nie 2.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M12-008",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l3-tilt.md:7",
+   "content/pl/lessons/m12-l3-tilt.md:39",
+   "content/pl/lessons/m12-l3-tilt.md:84",
+   "content/pl/lessons/m12-l3-tilt.md:130",
+   "content/pl/rules.yaml:1009"
+  ],
+  "uzasadnienie": "Inchworm: „the most efficient way to move forward again is to turn your focus to the back end”, „mental space is freed up to learn new things”; artykuł autora: „What trips you up is your C game”. Tekst zgodny. Szczebel 3, nie 2.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M12-012",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:7",
+   "content/pl/lessons/m12-l4-bankroll.md:85",
+   "content/pl/lessons/m12-l4-bankroll.md:94",
+   "content/pl/lessons/m12-l4-bankroll.md:95",
+   "content/pl/lessons/m12-l4-bankroll.md:146",
+   "content/pl/rules.yaml:1041"
+  ],
+  "uzasadnienie": "Artykuł (PokerStrategy, O'Kearney): 80/20, 50/50, min. 20% — cytaty znalezione. Wyjaśnienia zadań dodają przyczyny bez źródła: „każda nowa reguła poprawia wiele decyzji, gra bez nauki utrwala błędy” (85), „poniżej 20% gra przestaje się rozwijać” (94).",
+  "poprawka": "Linia 85: „Na początku masz najwięcej do nadrobienia, więc nauka przeważa.”; linia 94: „…ale nie schodzisz poniżej 20% nauki.” (bez dodanego skutku).",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M13-002",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m13-l1-raport.md:7",
+   "content/pl/lessons/m13-l1-raport.md:36",
+   "content/pl/lessons/m13-l1-raport.md:47",
+   "content/pl/lessons/m13-l1-raport.md:101",
+   "content/pl/exams/m13.yaml:22",
+   "content/pl/rules.yaml:1160"
+  ],
+  "uzasadnienie": "GTO Wizard: obojętność („mixes … only when these options have the same EV”) i próg 3,5% znalezione. Lekcja l. 101: „oba są poprawne… rzadsze najwyżej jako dopuszczalne” kłóci się z l. 92 (poniżej 3,5% niedokładność liczona jak błąd).",
+  "poprawka": "L. 101: „…a rzadsze zagranie oznacza jako dopuszczalne, gdy solver gra je w co najmniej 3,5% przypadków; rzadziej to niedokładność (ustawienie aplikacji).”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M13-004",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m13-l2-powtorki.md:7",
+   "content/pl/lessons/m13-l2-powtorki.md:51",
+   "content/pl/lessons/m13-l2-powtorki.md:60",
+   "content/pl/lessons/m13-l2-powtorki.md:93",
+   "content/pl/exams/m13.yaml:50",
+   "content/pl/rules.yaml:1176"
+  ],
+  "uzasadnienie": "BlackRain79: „at least 5 to even bother looking, and 10 to be sure” (o okazjach); PokerCoaching: VPIP/PFR „at least 100 to 200 hands”. Tekst przypisuje liczby „jednemu z trenerów”. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M13-005",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m13-l3-przeglad.md:7",
+   "content/pl/lessons/m13-l3-przeglad.md:15",
+   "content/pl/lessons/m13-l3-przeglad.md:64",
+   "content/pl/lessons/m13-l3-przeglad.md:68",
+   "content/pl/exams/m13.yaml:59",
+   "content/pl/rules.yaml:1184"
+  ],
+  "uzasadnienie": "CheckReplay i PokerSkill: oznaczaj w trakcie, przeglądaj po godzinach/dniach, nie w emocjach i zmęczeniu — znalezione. Lekcja dodaje przyczynę bez źródła („analiza przy stole zabiera uwagę”) i „sprawdzone wskazówki”. CheckReplay oznaczony szczeblem 5 (to blog, szczebel 4).",
+  "poprawka": "Usunąć „Analiza przy stole zabiera uwagę od następnych decyzji” (l. 15, 68) albo dodać źródło; l. 64: „zbiera wskazówki trenerów”.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M13-006",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m13-l3-przeglad.md:7",
+   "content/pl/lessons/m13-l3-przeglad.md:35",
+   "content/pl/lessons/m13-l3-przeglad.md:76",
+   "content/pl/exams/m13.yaml:71",
+   "content/pl/rules.yaml:1192"
+  ],
+  "uzasadnienie": "Źródła: kategorie (duże pule, niepewne decyzje) i „coolers and bad beats happen to everybody… don't spend much time”. Żadne nie mówi, że trudne decyzje „uczą najwięcej”; ten superlatyw jest w regule, zadaniu (l. 35) i egzaminie (m13.yaml:71).",
+  "poprawka": "Reguła i egzamin: „bo coolery i bad beaty zdarzają się każdemu, a rozdania z trudną decyzją są wśród tych, które warto przeglądać”; l. 35: „Takie rozdania warto przejrzeć”.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M13-007",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m13-l3-przeglad.md:7",
+   "content/pl/lessons/m13-l3-przeglad.md:48",
+   "content/pl/lessons/m13-l3-przeglad.md:84",
+   "content/pl/exams/m13.yaml:86",
+   "content/pl/rules.yaml:1200"
+  ],
+  "uzasadnienie": "Upswing: „Step 4: Take note of your gut reaction” i notatka o różnicy między pierwszym założeniem a wynikiem, która „will help you improve your intuitive strategy over time”. Tekst zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M13-008",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m13-l3-przeglad.md:7",
+   "content/pl/lessons/m13-l3-przeglad.md:57",
+   "content/pl/lessons/m13-l3-przeglad.md:83",
+   "content/pl/exams/m13.yaml:77",
+   "content/pl/rules.yaml:1208"
+  ],
+  "uzasadnienie": "Upswing krok 5: skrajności („I pick the extremes first”), a przy dobrym wyniku pesymisty realista zbędny. Lekcja i egzamin (gdy skrajności się różnią, rozstrzyga realistyczne) zgodne z kontekstem.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:br.bi.src-high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:135"
+  ],
+  "uzasadnienie": "PokerListings: „No-Limit Online Cash Games: 100+ buy-ins”; BlackRain79: 100 wpisowych dla zawodowców. Lekcja: „do ponad 100” — zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:br.bi.src-low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:135"
+  ],
+  "uzasadnienie": "PrimeDope FAQ: „Cash games at a 5% risk of ruin need 20 buy-ins at NL10” z zastrzeżeniem „assume reasonable win rates”. Lekcja od razu wiąże rozpiętość z winrate — zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.hands.vpip.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:126",
+   "content/pl/lessons/m13-l2-powtorki.md:51",
+   "content/pl/lessons/m13-l2-powtorki.md:93",
+   "content/pl/exams/m10.yaml:26",
+   "content/pl/rules.yaml:1180"
+  ],
+  "uzasadnienie": "PokerCoaching: „For VPIP and PFR, you need at least 100 to 200 hands before the numbers begin to stabilize.” Tekst „stabilizują się po ok. 100–200 / czyta się po ok. 100–200” zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.hands.vpip.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m10-l1-statystyki.md:126",
+   "content/pl/lessons/m13-l2-powtorki.md:51",
+   "content/pl/lessons/m13-l2-powtorki.md:93",
+   "content/pl/exams/m10.yaml:26"
+  ],
+  "uzasadnienie": "Jak hud.hands.vpip.low: 200 z „100 to 200 hands”. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.opps.look",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m13-l2-powtorki.md:60",
+   "content/pl/lessons/m13-l2-powtorki.md:93",
+   "content/pl/exams/m13.yaml:53"
+  ],
+  "uzasadnienie": "BlackRain79: „at least 5 to even bother looking” — liczba okazji (kontekst: najedź na statystykę, liczba okazji w nawiasie). Tekst przypisuje to jednemu trenerowi. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:hud.opps.sure",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m13-l2-powtorki.md:60",
+   "content/pl/lessons/m13-l2-powtorki.md:93",
+   "content/pl/exams/m13.yaml:53"
+  ],
+  "uzasadnienie": "BlackRain79: „and 10 to be sure”. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:skill.ahead",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:67",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:76",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:112",
+   "content/pl/rules.yaml:989"
+  ],
+  "uzasadnienie": "PLoS ONE: próg „more than 75 percent of the time”; punkt krytyczny „ahead 75 percent of the times… after 1,471 hands”. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:skill.hands",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:67",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:76",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:112",
+   "content/pl/rules.yaml:989"
+  ],
+  "uzasadnienie": "Abstrakt: „1,500 or more hands”; symulacja: 1471 rąk. „Ok. 1500” zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:skill.pct",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:67",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:76",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:112",
+   "content/pl/rules.yaml:989"
+  ],
+  "uzasadnienie": "PLoS ONE: „the very best or the very worst performance percentile” (wybór po wynikach z pierwszych 6 miesięcy). 1% zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:skill.sample.m",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:112"
+  ],
+  "uzasadnienie": "PLoS ONE: „raw data set contains a total of 76.9 million different hands”, 456,1 mln obserwacji. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:study.beginner",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:85",
+   "content/pl/lessons/m12-l4-bankroll.md:96",
+   "content/pl/lessons/m12-l4-bankroll.md:146",
+   "content/pl/rules.yaml:1044"
+  ],
+  "uzasadnienie": "Źródło: „Early on, it should be 80/20 in favour of study”. Wyjaśnienie l. 85 dodaje przyczyny bez źródła („każda nowa reguła poprawia wiele decyzji; gra bez nauki utrwala błędy”).",
+  "poprawka": "L. 85: „Na początku masz najwięcej do nadrobienia, więc nauka przeważa.”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:study.winner",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:94",
+   "content/pl/lessons/m12-l4-bankroll.md:96",
+   "content/pl/lessons/m12-l4-bankroll.md:146",
+   "content/pl/rules.yaml:1044"
+  ],
+  "uzasadnienie": "Źródło: „the ideal would still be a 50/50 ratio”; „to move up stakes… closer to 80% study” popiera l. 96. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:study.min",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:86",
+   "content/pl/lessons/m12-l4-bankroll.md:94",
+   "content/pl/lessons/m12-l4-bankroll.md:95",
+   "content/pl/lessons/m12-l4-bankroll.md:146",
+   "content/pl/rules.yaml:1044"
+  ],
+  "uzasadnienie": "Źródło: „at a minimum never go under 20% study”. L. 94 dodaje skutek bez źródła („poniżej 20% gra przestaje się rozwijać”), l. 95 przyczynę („gry się zmieniają, rywale się uczą”).",
+  "poprawka": "L. 94: „…ale ideałem wciąż jest ok. 50% nauki, a minimum to 20%.”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tilt.severe",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l3-tilt.md:100"
+  ],
+  "uzasadnienie": "Journal of Expertise 3(2), PDF: „in an online study, 88% of poker players reported having tilted severely at least once within their last 6 months”. „Badanie ankietowe” zgodne. Szczebel 2 nieadekwatny (przegląd naukowy).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:tilt.types",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l3-tilt.md:104"
+  ],
+  "uzasadnienie": "Fragment „Tilt Profile”: „Seven Types of Tilt… the most common types of tilt” — opisy typów w tabeli lekcji zgadzają się z fragmentem; PokerStrategy (Tendler): „seven unique types of anger”. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.sd",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:102",
+   "content/pl/lessons/m12-l1-wariancja.md:129",
+   "content/pl/lessons/m12-l4-bankroll.md:123",
+   "content/pl/exams/m12.yaml:7"
+  ],
+  "uzasadnienie": "PrimeDope: „typical SD for 6-max NLH is 75-95 bb/100”, przykład SD 80; PokerBank: 70–100 bb/100. 80 mieści się we wszystkich. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.sd.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:92",
+   "content/pl/lessons/m12-l1-wariancja.md:102"
+  ],
+  "uzasadnienie": "PrimeDope (kalkulator): „In 6-max NLHE, 75 to 100 BB/100 is a reasonable default.” Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.sd.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:92",
+   "content/pl/lessons/m12-l1-wariancja.md:102",
+   "content/pl/exams/m12.yaml:25"
+  ],
+  "uzasadnienie": "Jak var.sd.low; ta sama strona: agresywny gracz 90–120 bb/100, więc egzamin (agresywnie, SD 100) zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.wr.typical.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:100",
+   "content/pl/lessons/m12-l4-bankroll.md:29",
+   "content/pl/lessons/m10-l4-rake.md:102",
+   "content/pl/rules.yaml:930"
+  ],
+  "uzasadnienie": "BlackRain79 (winrate na mikro i małych stawkach): „the vast majority of winning poker players will be in the 1bb/100 to 3bb/100 range”. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:var.wr.typical.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l1-wariancja.md:100",
+   "content/pl/lessons/m12-l4-bankroll.md:20",
+   "content/pl/lessons/m10-l4-rake.md:102",
+   "content/pl/exams/m12.yaml:7"
+  ],
+  "uzasadnienie": "Jak var.wr.typical.low. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M5-001",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:7",
+   "content/pl/lessons/m5-l1-tekstury.md:43",
+   "content/pl/lessons/m5-l1-tekstury.md:87",
+   "content/pl/lessons/m5-l1-tekstury.md:105",
+   "content/pl/rules.yaml:332"
+  ],
+  "uzasadnienie": "Gecko, Upswing: suche flopy (K72, A94) i „unlikely to be outdrawn” znalezione. Punkty mokrości to definicja aplikacji (level rules), nazwana w notce lekcji; słownik Upswing definiuje suchy flop ostrzej (bez drawów), ale lekcja zaznacza umowę.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M5-002",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l1-tekstury.md:7",
+   "content/pl/lessons/m5-l1-tekstury.md:24",
+   "content/pl/lessons/m5-l1-tekstury.md:105",
+   "content/pl/rules.yaml:340"
+  ],
+  "uzasadnienie": "Gecko („connect more with the caller's range”), Upswing (słownik „Wet”, reguła 4) znalezione. Definicja punktowa aplikacji nazwana. Tekst M5-L1 zgodny (o rozmiarze na mokrych flopach zob. R-M5-008).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M5-003",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l2-przewagi.md:7",
+   "content/pl/lessons/m5-l2-przewagi.md:12",
+   "content/pl/lessons/m5-l2-przewagi.md:32",
+   "content/pl/lessons/m5-l2-przewagi.md:86",
+   "content/pl/exams/m5.yaml:8",
+   "content/pl/rules.yaml:348"
+  ],
+  "uzasadnienie": "GTO Wizard: „BB lacks the stronger Ace-highs because they would have 3-bet” i definicja przewagi zakresu; Bullying: na AK7r BB ma ok. 28% equity. Tekst zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M5-004",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l2-przewagi.md:22",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:12",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:126",
+   "content/pl/exams/m5.yaml:18",
+   "content/pl/rules.yaml:356"
+  ],
+  "uzasadnienie": "Cytaty (654r MTT, Lucid 40bb, Upswing) znalezione; dla cash 100bb wniosek GTO Wizard Flop Heuristics: „size down and bet less on flops that complete straights… in your opponent's range”. Kierunek zgodny; sety obie strony podobnie (rachunek).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M5-005",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l2-przewagi.md:42",
+   "content/pl/lessons/m5-l2-przewagi.md:51",
+   "content/pl/lessons/m5-l2-przewagi.md:92",
+   "content/pl/exams/m5.yaml:28",
+   "content/pl/rules.yaml:365"
+  ],
+  "uzasadnienie": "GTO Wizard Mechanics of C-Bet Sizing: przewaga nutsów → duży bet/overbet; przewaga zakresu przy nutsach rywala → mało (QQ6: mały bet). Upswing reguła 6. Tekst zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M5-006",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l2-przewagi.md:60",
+   "content/pl/lessons/m5-l2-przewagi.md:68",
+   "content/pl/lessons/m5-l2-przewagi.md:96",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:62",
+   "content/pl/exams/m5.yaml:37",
+   "content/pl/rules.yaml:373"
+  ],
+  "uzasadnienie": "Własny rachunek: C(44,3)/C(50,3) = 67,57%; dokładnie jedna para 28,96% — CardPlayer „a pair … 29.0%” znalezione. Tekst rozróżnia 29% i 32,4%. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M5-007",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:12",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:26",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:50",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:110",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:81",
+   "content/pl/rules.yaml:381"
+  ],
+  "uzasadnienie": "GTO Wizard (disconnected): „frequent use of the 33% sizing, but the 130% sizing is common as well” — overbet pominięty bez nazwanego uproszczenia; PokerCoaching (suchy A-high IP) „around 43%” nie popiera „często”. Tekst: „większy bet nie spasuje więcej rąk” mocniej niż „similar”.",
+  "poprawka": "Reguła: dopisać „(uproszczenie: solver na takich flopach używa też overbetu)”; l. 26/50/110: „Większy bet spasuje mniej więcej te same ręce, a ryzykuje więcej.”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M5-008",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "SPRZECZNE",
+  "miejsca": [
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:55",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:116",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:122",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:133",
+   "content/pl/exams/m5.yaml:84",
+   "content/pl/rules.yaml:390"
+  ],
+  "uzasadnienie": "Reguła poparta (OESD possible: 66% i niższa częstość; connected: size down; KJ7tt: 75%/125%). Tekst sprzeczny: w aplikacji każdy mokry flop niejednokolorowy ma możliwego strita (3 pkt), a l. 122 i 133 mówią, że na mokrych flopach betujesz więcej.",
+  "poprawka": "L. 122: „Większy rozmiar z poprzedniej sekcji dotyczy flopów z wieloma drawami, na których strit nie jest jeszcze możliwy (w aplikacji zwykle pośrednich).”; l. 133: „wiele drawów bez gotowego strita: więcej i rzadziej; strit już możliwy albo monotone: mniej”.",
+  "skutek": "S2",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M5-009",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:29",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:65",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:120",
+   "content/pl/rules.yaml:398"
+  ],
+  "uzasadnienie": "GTO Wizard Flop Heuristics: paired „bet significantly more often… only for small sizing”, trójki w obu zakresach, „much harder to have a draw”. Tekst zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M5-010",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:75",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:120",
+   "content/pl/exams/m5.yaml:94",
+   "content/pl/rules.yaml:407"
+  ],
+  "uzasadnienie": "GTO Wizard: „Monotone boards see a drastic decrease in betting frequency and sizing”, „disrupt the nut advantage”; Upswing (Kanu7): c-bet ok. połowy, 25–33%. Tekst zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M5-012",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m5-l4-bez-pozycji.md:12",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:31",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:38",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:99",
+   "content/pl/exams/m5.yaml:56",
+   "content/pl/rules.yaml:423"
+  ],
+  "uzasadnienie": "GTO Wizard (UTG vs BTN: czekanie 72%, Q96r condensed), PokerCoaching (CO vs BTN A94r: czekanie ponad 96%) znalezione. Tekst l. 38 (opcja „Pas”): „A z tą ręką chcesz betować” przeczy poprawnej odpowiedzi (czekasz i sprawdzasz).",
+  "poprawka": "L. 38: „…możesz czekać za darmo (zasada z modułu 1). Tę rękę grasz czekaniem i sprawdzeniem.”",
+  "skutek": "S2",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M5-013",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m5-l4-bez-pozycji.md:42",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:52",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:56",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:103",
+   "content/pl/exams/m5.yaml:74",
+   "content/pl/rules.yaml:431"
+  ],
+  "uzasadnienie": "PokerCoaching multiway: „Small, around a quarter to a third”, Q-3-2 solver czeka całym zakresem; rachunek C(36,3)/C(48,3) = 41,28%. Tekst l. 56 uogólnia Q-3-2 na K-8-3 („Button ma dużo króli KJs, KTs, więc przewaga zakresu znika”) bez źródła.",
+  "poprawka": "L. 56: „Tak: w puli wieloosobowej solver często czeka nawet silnymi rękami, bo dwóch sprawdzających razem częściej trafiło flop.”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M6-001",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:12",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:116",
+   "content/pl/lessons/m8-l4-bluff-catching.md:86",
+   "content/pl/exams/m6.yaml:7",
+   "content/pl/rules.yaml:442"
+  ],
+  "uzasadnienie": "Własny rachunek: 90/120 = 75%, 30/120 = 25%; PokerCoaching: tabela MDF (1/3 → 75%) i „starting point, not a rule” znalezione. Tekst zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M6-002",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:44",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:106",
+   "content/pl/exams/m6.yaml:14",
+   "content/pl/rules.yaml:450"
+  ],
+  "uzasadnienie": "Własny rachunek: 50/150 = 33,3%; GTO Wizard: „Alpha = bet / (bet + pot)” znalezione. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M6-003",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:78",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:132",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:112",
+   "content/pl/exams/m6.yaml:23",
+   "content/pl/rules.yaml:458"
+  ],
+  "uzasadnienie": "GTO Wizard: BB „consistently over-folding”, ale „defend less than MDF when out of position on the flop or turn”, a na QQ3r wobec 33% solver pasuje prawie połowę (MDF ≤ 25%) — nie „trochę”. Lekcja l. 132 uogólnia jeden spot Upswing: „na turnie solver broni blisko MDF”.",
+  "poprawka": "Reguła: „możesz bronić mniej, niż wskazuje mdf (na flopach złych dla obrońcy wyraźnie mniej)”; l. 132: usunąć zdanie o turnie albo „W jednym przykładzie z turnu solver bronił średnio blisko mdf.”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M6-004",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m6-l1-mdf-alpha.md:89",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:135",
+   "content/pl/exams/m6.yaml:33",
+   "content/pl/rules.yaml:466"
+  ],
+  "uzasadnienie": "Rachunek: przy blefach poniżej bet/(pula+2·bet) call traci — warunek reguły (obserwacja gracza, D-149) poprawny; cytaty Deepfold i PokerCoaching znalezione (bez danych o populacji). Zadanie l. 89 wnioskuje „rzadko blefuje” z jednego rozdania i etykiety „Mikrostawki”.",
+  "poprawka": "L. 89: „Gracz, o którym z wielu wcześniejszych rozdań wiesz, że rzadko blefuje, na riverze stawia całą pulę…”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M6-006",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l2-sprawdzenie.md:40",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:60",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:70",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:120",
+   "content/pl/exams/m6.yaml:53",
+   "content/pl/rules.yaml:483"
+  ],
+  "uzasadnienie": "PokerCoaching (K84, 100bb, PeakGTO): wobec małego c-betu „pretty much all pairs… and even A-high”; Upswing: asy z backdoorem kontynuują. Tekst zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M6-007",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m6-l2-sprawdzenie.md:50",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:132",
+   "content/pl/exams/m6.yaml:63",
+   "content/pl/rules.yaml:491"
+  ],
+  "uzasadnienie": "Upswing (J42, 66%): solver nie sprawdza asów bez istotnego backdooru — popiera. Ale PokerCoaching (K84, cytowany jako poparcie): wobec dużego c-betu BB sprawdza „any pair and most of our Ax holdings” — sprzeczność na tym samym szczeblu, reguła jej nie nazywa.",
+  "poprawka": "Reguła i l. 132: „…zwykle pasujesz (na suchych flopach z królem solver sprawdza jednak wiele rąk z asem); sprawdzasz raczej z dodatkowym drawem…”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M6-008",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l3-check-raise.md:12",
+   "content/pl/lessons/m6-l3-check-raise.md:58",
+   "content/pl/lessons/m6-l3-check-raise.md:78",
+   "content/pl/lessons/m6-l3-check-raise.md:125",
+   "content/pl/exams/m6.yaml:72",
+   "content/pl/rules.yaml:499"
+  ],
+  "uzasadnienie": "Upswing/Lucid: sety, flush drawy, OESD do check-raise; „solvers will check-raise all sorts of top pairs versus small bets”, słabe pary dla ochrony — nazwane uproszczeniem w regule i lekcji. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M6-009",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l3-check-raise.md:68",
+   "content/pl/lessons/m6-l3-check-raise.md:98",
+   "content/pl/lessons/m6-l3-check-raise.md:130",
+   "content/pl/lessons/m6-l3-check-raise.md:131",
+   "content/pl/exams/m6.yaml:90",
+   "content/pl/rules.yaml:507"
+  ],
+  "uzasadnienie": "Upswing: K-J-T, Q-J-T, A-A-K „should never be check-raised”, 9-7-5 itp. za check-raise; mały c-bet → szerszy check-raise; GTO Wizard MTT i PokerCoaching K84 (17% vs 5%) zgodne kierunkiem. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M6-010",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l3-check-raise.md:22",
+   "content/pl/lessons/m6-l3-check-raise.md:40",
+   "content/pl/lessons/m6-l3-check-raise.md:135",
+   "content/pl/exams/m6.yaml:82",
+   "content/pl/rules.yaml:515"
+  ],
+  "uzasadnienie": "Własny rachunek: 105/360 = 29,17%, 15/180 = 8,33% (3x: 22,2%). Blackwood: 4,5x wobec małych, 3,2x wobec dużych; GTO Wizard: im większy bet, tym mniejsze przebicie. Zgodne (o dolnej granicy 3 zob. n:xr.mult.low).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M6-011",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l3-check-raise.md:108",
+   "content/pl/lessons/m6-l3-check-raise.md:138",
+   "content/pl/rules.yaml:523"
+  ],
+  "uzasadnienie": "Upswing: „If you think your opponent will call too often… tighten your bluffing range to include only strong draws”; alpha z rachunku. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M7-001",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l1-druga-beczka.md:12",
+   "content/pl/lessons/m7-l1-druga-beczka.md:22",
+   "content/pl/lessons/m7-l1-druga-beczka.md:122",
+   "content/pl/exams/m7.yaml:7",
+   "content/pl/rules.yaml:534"
+  ],
+  "uzasadnienie": "GTO Wizard: „high turn cards are going to be better for the PFR”; PokerListings: asy i króle na turnie, para rywala „demoted”; PokerCoaching: overcard najlepsza. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M7-002",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m7-l1-druga-beczka.md:32",
+   "content/pl/lessons/m7-l1-druga-beczka.md:48",
+   "content/pl/lessons/m7-l1-druga-beczka.md:128",
+   "content/pl/exams/m7.yaml:17",
+   "content/pl/rules.yaml:542"
+  ],
+  "uzasadnienie": "GTO Wizard (100bb, A972, turn): powietrze KJo i 64cc betuje często, 54ss głównie czeka, gutshot do nutsów „pure check” — kierunek „przede wszystkim z outami” tylko warunkowy. Zadanie l. 48 (KQ = gutshot do strita z asem, nuts) nazywa bet „zwykle lepszym”.",
+  "poprawka": "Reguła: „blefujesz zwykle rękami z outami, gdy rywal raczej pasuje albo sprawdza; gdy może przebić, solver blefuje też rękami bez outów”; l. 48: usunąć „zwykle lepszy” (oba zagrania poprawne).",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M7-003",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l1-druga-beczka.md:71",
+   "content/pl/lessons/m7-l1-druga-beczka.md:81",
+   "content/pl/lessons/m7-l1-druga-beczka.md:134",
+   "content/pl/lessons/m7-l2-polaryzacja.md:31",
+   "content/pl/exams/m7.yaml:26",
+   "content/pl/rules.yaml:550"
+  ],
+  "uzasadnienie": "GTO Wizard: BB po sprawdzeniu flopu ma „stronger range on most turns”, średnie ręce „less incentive to bet”; bet „for information” to błąd. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M7-005",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l2-polaryzacja.md:12",
+   "content/pl/lessons/m7-l2-polaryzacja.md:40",
+   "content/pl/lessons/m7-l2-polaryzacja.md:121",
+   "content/pl/exams/m7.yaml:43",
+   "content/pl/rules.yaml:566"
+  ],
+  "uzasadnienie": "Gecko (duże bety → zakres spolaryzowany), PokerStrategy, GTO Wizard („incentive to start polarizing and making bigger bets on the turn”). Lekcja zaznacza, że 3/4 to przykład i solver używa też małych rozmiarów. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M7-006",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l2-polaryzacja.md:40",
+   "content/pl/lessons/m7-l2-polaryzacja.md:70",
+   "content/pl/lessons/m7-l2-polaryzacja.md:77",
+   "content/pl/exams/m7.yaml:52",
+   "content/pl/rules.yaml:574"
+  ],
+  "uzasadnienie": "Własny rachunek: 75/250 = 30%, 25/150 = 16,7%, 9/46 = 19,6%. PokerCoaching: „Strong and vulnerable bets big” znalezione. Tekst zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M7-009",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:62",
+   "content/pl/lessons/m7-l3-implied-odds.md:72",
+   "content/pl/lessons/m7-l3-implied-odds.md:141",
+   "content/pl/rules.yaml:600"
+  ],
+  "uzasadnienie": "PokerCoaching: „deep stacks and opponents likely to pay”, „How obvious your draw is”; Upswing (niski draw) znalezione. Zadanie l. 62 każe sprawdzić draw do koloru, którego trafienie (trzeci kier) jest widoczne — pomija warunek z reguły bez komentarza.",
+  "poprawka": "L. 62 (wyjaśnienie): dopisać „Trafienie będzie widoczne (trzeci kier), ale rywal z parą asów często i tak zapłaci; dlatego implied odds są tu mniejsze niż przy ukrytym trafieniu.”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M7-010",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l3-implied-odds.md:81",
+   "content/pl/lessons/m7-l3-implied-odds.md:143",
+   "content/pl/exams/m7.yaml:69",
+   "content/pl/rules.yaml:608"
+  ],
+  "uzasadnienie": "PokerBank: definicja, „Weak flush draws”, strit przy możliwym kolorze; Upswing: definicja. Egzamin (outy bez kart trzeciego koloru) zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M7-011",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l4-probe-obrona.md:12",
+   "content/pl/lessons/m7-l4-probe-obrona.md:32",
+   "content/pl/lessons/m7-l4-probe-obrona.md:125",
+   "content/pl/exams/m7.yaml:79",
+   "content/pl/rules.yaml:616"
+  ],
+  "uzasadnienie": "Upswing (Kanu7): „Probe Bet Less Often on High Boards, More Often on Low Boards”; PokerCoaching: definicja; GTO Wizard: zakres po czekaniu „somewhat capped”, as najgorszy dla BB. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M7-012",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m7-l4-probe-obrona.md:42",
+   "content/pl/lessons/m7-l4-probe-obrona.md:52",
+   "content/pl/lessons/m7-l4-probe-obrona.md:129",
+   "content/pl/exams/m7.yaml:79",
+   "content/pl/rules.yaml:624"
+  ],
+  "uzasadnienie": "PokerCoaching: pary „that wants value and protection”, „strong draws that benefit from fold equity”; GTO Wizard: blefy głównie z drawów do strita. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M7-013",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m7-l4-probe-obrona.md:72",
+   "content/pl/lessons/m7-l4-probe-obrona.md:102",
+   "content/pl/lessons/m7-l4-probe-obrona.md:116",
+   "content/pl/lessons/m7-l4-probe-obrona.md:142",
+   "content/pl/exams/m7.yaml:89",
+   "content/pl/rules.yaml:632"
+  ],
+  "uzasadnienie": "Upswing (one and done; średnia z 49 turnów J96 = 57,5% ≈ MDF) i GTO Wizard (większe bety na turnie) popierają regułę. Tekst l. 116, 142: „na turnie solver broni średnio blisko mdf; mniej bronisz tylko wtedy, gdy…” uogólnia jeden spot; GTO Wizard: OOP bronisz mniej na flopie i turnie.",
+  "poprawka": "L. 142: „W opublikowanym przykładzie z turnu solver bronił średnio blisko tej wartości; out-of-position bywa, że bronisz mniej.”; l. 116 analogicznie.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M8-001",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l1-value.md:12",
+   "content/pl/lessons/m8-l1-value.md:24",
+   "content/pl/lessons/m8-l1-value.md:113",
+   "content/pl/exams/m8.yaml:7",
+   "content/pl/rules.yaml:643"
+  ],
+  "uzasadnienie": "Rachunek: EV(bet) − EV(check) = (2w − 1)·B > 0 ⇔ w > 1/2 przy braku przebicia, pasy gorszych rąk = ta sama pula. Upswing: thin value „a little over 50%”. Tekst zastrzega pozycję i brak przebicia. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M8-002",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l1-value.md:56",
+   "content/pl/lessons/m8-l1-value.md:86",
+   "content/pl/lessons/m8-l1-value.md:135",
+   "content/pl/exams/m8.yaml:87",
+   "content/pl/rules.yaml:651"
+  ],
+  "uzasadnienie": "PokerBank: „Don't bet marginal hands on the river”; Gecko; GTO Wizard (darmowy showdown wobec ryzyka check-raise). Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M8-003",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l1-value.md:66",
+   "content/pl/lessons/m8-l1-value.md:76",
+   "content/pl/lessons/m8-l1-value.md:129",
+   "content/pl/lessons/m8-l1-value.md:131",
+   "content/pl/exams/m8.yaml:16",
+   "content/pl/rules.yaml:659"
+  ],
+  "uzasadnienie": "GTO Wizard (IP rzadko poniżej 1/2 przy ryzyku check-raise; 21% w puli przeczekanej), Deepfold (25–33% thin value) popierają; Upswing (cytowany jako poparcie) w przykładzie thin value zaleca 2/3 puli — poza przedziałem 1/4–1/2. Tekst odpowiada regule.",
+  "poprawka": "W zrodla[] oznaczyć przykład Upswing (2/3 puli) jako rozbieżny albo napisać „zwykle ok. 1/4–2/3 puli”.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M8-004",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l2-ile-blefow.md:12",
+   "content/pl/lessons/m8-l2-ile-blefow.md:26",
+   "content/pl/lessons/m8-l2-ile-blefow.md:119",
+   "content/pl/exams/m8.yaml:26",
+   "content/pl/rules.yaml:667"
+  ],
+  "uzasadnienie": "Własny rachunek: 100/300 = 33,3%, EV call = (1/3)·200 − (2/3)·100 = 0; GTO Wizard toy game: „villain needs 33% equity to call”. Tekst nazywa model zabawkowy. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M8-006",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m8-l2-ile-blefow.md:98",
+   "content/pl/lessons/m8-l2-ile-blefow.md:101",
+   "content/pl/lessons/m8-l2-ile-blefow.md:139",
+   "content/pl/lessons/m8-l3-blokery.md:64",
+   "content/pl/exams/m8.yaml:42",
+   "content/pl/rules.yaml:683"
+  ],
+  "uzasadnienie": "GTO Wizard: „no reason to take a hand that can sometimes win at showdown and use it as a bluff”; Upswing znalezione. Tekst M8-L2 (l. 101, 139) podaje „nietrafione drawy” jako wzór blefu, a M8-L3 (R-M8-008) uczy, że nietrafione kolory to słabe blefy.",
+  "poprawka": "L. 101, 139: „np. nietrafione drawy do strita albo wysokie karty bez szans (o nietrafionych kolorach w lekcji o blokerach)”.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M8-007",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l3-blokery.md:44",
+   "content/pl/lessons/m8-l3-blokery.md:74",
+   "content/pl/lessons/m8-l3-blokery.md:106",
+   "content/pl/exams/m8.yaml:52",
+   "content/pl/rules.yaml:691"
+  ],
+  "uzasadnienie": "GTO Wizard: „A good bluff should simultaneously block very strong hands and unblock the hands that we want to fold out”; przykład A♠ na T♠6♠3♠. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M8-008",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l3-blokery.md:54",
+   "content/pl/lessons/m8-l3-blokery.md:74",
+   "content/pl/lessons/m8-l3-blokery.md:110",
+   "content/pl/rules.yaml:699"
+  ],
+  "uzasadnienie": "GTO Wizard: „missed flush draws often make bad bluffs because they block other missed flush draws”, z zastrzeżeniem braku alternatyw (oddane w notce lekcji); Upswing (Q♥T♥ unblocks). Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M8-010",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l4-bluff-catching.md:12",
+   "content/pl/lessons/m8-l4-bluff-catching.md:22",
+   "content/pl/lessons/m8-l4-bluff-catching.md:106",
+   "content/pl/exams/m8.yaml:69",
+   "content/pl/rules.yaml:715"
+  ],
+  "uzasadnienie": "Własny rachunek: 100/300 = 33,3%; Deepfold: „Breakeven equity = B / (P + 2B)” i zasada sprawdzania znalezione. Tekst zgodny (zastrzega brak rake).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M8-011",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l4-bluff-catching.md:56",
+   "content/pl/lessons/m8-l4-bluff-catching.md:66",
+   "content/pl/lessons/m8-l4-bluff-catching.md:128",
+   "content/pl/exams/m8.yaml:78",
+   "content/pl/rules.yaml:723"
+  ],
+  "uzasadnienie": "Deepfold („block more value combos… Call more”), Upswing („Block the opponent's value hands; Unblock the opponent's bluffing hands”), GTO Wizard (najpierw cena). Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M8-012",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l4-bluff-catching.md:76",
+   "content/pl/lessons/m8-l4-bluff-catching.md:86",
+   "content/pl/lessons/m8-l4-bluff-catching.md:118",
+   "content/pl/rules.yaml:731"
+  ],
+  "uzasadnienie": "GTO Wizard Principles of River Play: sprawdzenia wybierane według blokerów, nie samej rangi; Deepfold: „A bluff catcher beats only bluffs”. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cbet.range.small.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:112"
+  ],
+  "uzasadnienie": "Upswing: „Bet small (25-35% pot) on dry, static board textures.” Tekst przypisuje to materiałom szkoleniowym. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cbet.range.small.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:112"
+  ],
+  "uzasadnienie": "Jak cbet.range.small.low (35%). Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cbet.range.big.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:112"
+  ],
+  "uzasadnienie": "Upswing: „Bet pretty large (55-80% pot) on wet, dynamic board textures.” Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cbet.range.big.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:112"
+  ],
+  "uzasadnienie": "Jak cbet.range.big.low (80%). Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cbet.size.small",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:17",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:110",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:36",
+   "content/pl/lessons/m7-l2-polaryzacja.md:110",
+   "content/pl/exams/m5.yaml:51",
+   "content/pl/rules.yaml:384"
+  ],
+  "uzasadnienie": "GTO Wizard: „frequent use of the 33% sizing” (disconnected); Upswing 25–35%. Wartość 1/3 zgodna. O pominiętym overbecie zob. R-M5-007.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cbet.size.big",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:18",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:116",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:37",
+   "content/pl/exams/m5.yaml:50",
+   "content/pl/rules.yaml:393"
+  ],
+  "uzasadnienie": "GTO Wizard (KJ7tt, 100bb cash): „predominant bet sizes are 75 and 125% pot”; Upswing 55–80%. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cbet.solver.big.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:112"
+  ],
+  "uzasadnienie": "GTO Wizard: „increased use of the 66% pot bet size” znalezione. Zdanie „solvery używają zwykle 33% oraz 66–75%” pomija, że te same źródła podają overbety 125–130% jako częste.",
+  "poprawka": "L. 112: „…solvery używają zwykle 33% oraz 66–75%, a na części flopów także overbetu (opublikowane wyniki solverów).”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:spr.zone.mid",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m9-l1-spr.md:83",
+   "content/pl/lessons/m9-l1-spr.md:135",
+   "content/pl/lessons/m9-l1-spr.md:139",
+   "content/pl/exams/m9.yaml:19",
+   "content/pl/rules.yaml:817"
+  ],
+  "uzasadnienie": "SplitSuit: „more than 6 SPR isn't a default stack-off”; PokerBank: „Low SPR = 0 - 6”; GTO Wizard o średnim SPR. Granica 6 nazwana w lekcji „umową przyjętą w aplikacji” (D-149). Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:value.threshold",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m8-l1-value.md:24",
+   "content/pl/lessons/m8-l1-value.md:26",
+   "content/pl/lessons/m8-l1-value.md:121",
+   "content/pl/rules.yaml:646"
+  ],
+  "uzasadnienie": "Własny rachunek: (2w − 1)·B > 0 ⇔ w > 0,5 (bez przebicia, bez rake). Upswing: „a little over 50%”. Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:xr.mult.example",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m6-l3-check-raise.md:26",
+   "content/pl/lessons/m6-l3-check-raise.md:135",
+   "content/pl/exams/m6.yaml:83",
+   "content/pl/rules.yaml:518"
+  ],
+  "uzasadnienie": "Upswing (Blackwood): „use a 4.5x raise vs. smaller c-bets” (także artykuł check-raise). Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:xr.mult.low",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m6-l3-check-raise.md:135",
+   "content/pl/exams/m6.yaml:86",
+   "content/pl/rules.yaml:518"
+  ],
+  "uzasadnienie": "Źródło podaje 3,2x wobec dużych c-betów; wartość 3 to zaokrąglenie w dół (D-29), którego źródło nie zawiera. „Ok. 3–4,5” mieści się w przybliżeniu, ale dolna granica nie jest liczbą ze źródła.",
+  "poprawka": "Wartość 3,2 albo w source dopisać „zaokrąglenie 3,2x w dół (uproszczenie aplikacji)”.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:cbet.oop.a94.check",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m5-l4-bez-pozycji.md:36",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:37"
+  ],
+  "uzasadnienie": "PokerCoaching (CO vs BTN, 100bb, A♠9♥4♣): „we will check over 96% of the time”. Zadanie używa tej liczby („w tym układzie”) na stole A♠7♦2♣, którego źródło nie liczy.",
+  "poprawka": "Zmienić stół zadania na [[As 9h 4c]] albo napisać „na podobnym flopie A-9-4 solver betuje w mniej niż 4%”.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "P-FSRS_RETENCJA",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "packages/srs/src/scheduler.ts:5",
+   "docs/architektura/moduly.md:112"
+  ],
+  "uzasadnienie": "Anki: „The default value of 90%…”; README ts-fsrs: desiredRetention 0.9. Kod: request_retention 0.9. Zgodne; moduly.md ma jeszcze pochodzenie „[DO USTALENIA]”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "P-OCENA_PROG_DOPUSZCZALNE",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "apps/mobile/src/features/drills/thresholds.ts:21",
+   "packages/poker-core/src/grading.ts:134",
+   "docs/architektura/moduly.md:108"
+  ],
+  "uzasadnienie": "GTO Wizard: „Inaccuracy – … less than 3.5%”, więc 3,5% już nie; kod: f ≥ MIXED_MIN → dopuszczalna (włącznie). Uwaga: źródło to skala oceny produktu (szczebel 4), a level „gto”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "P-OCENA_STOPNIE",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m13-l1-raport.md:47",
+   "content/pl/lessons/m13-l1-raport.md:92",
+   "content/pl/lessons/m13-l1-raport.md:93",
+   "content/pl/exams/m13.yaml:34",
+   "packages/poker-core/src/grading.ts:134",
+   "apps/mobile/src/features/drills/thresholds.ts:13"
+  ],
+  "uzasadnienie": "Pięć kategorii GTO Wizard znalezionych; podział na 4 stopnie nazwany. Lekcja i egzamin uczą 4 stopni, ale kod oceny (rangeVerdict) daje „błąd” dla 0 < f < 3,5% — raport pokaże inny stopień niż lekcja.",
+  "poprawka": "Ujednolicić: w rangeVerdict 0 < f < MIXED_MIN → niedokładność (inaccuracy), f = 0 → błąd; albo zmienić lekcję i egzamin na 3 stopnie.",
+  "skutek": "S2",
+  "odczyt": "2026-11-04"
+ }
+]
