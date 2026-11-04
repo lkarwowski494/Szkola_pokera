@@ -45,7 +45,7 @@ drills:
     prompt: "Flop. Masz {{t:oesd|OESD}}, a rywal {{t:bet|stawia}} pół {{t:pot|puli}}. Stacki są głębokie. Jaką szansę trafienia porównujesz z ceną?"
     table: { hand: "Qh Jc", board: "Td 9s 3c" }
     options:
-      - { text: "Ok. {{n:odds.oesd.flop-turn}}, tylko na turnie", correct: true, why: "{{t:call|Sprawdzenie}} kupuje jedną kartę. Na turnie rywal może {{t:bet|postawić}} znowu, więc liczysz {{n:outs.oesd}} × 2: {{n:outs.oesd}} z {{n:cards.unseen.flop}}, czyli ok. {{n:odds.oesd.flop-turn}}." }
+      - { text: "Ok. {{n:odds.oesd.flop-turn}}, tylko na turnie", correct: true, why: "{{t:call|Sprawdzenie}} kupuje jedną kartę. Na turnie rywal może {{t:bet|postawić}} znowu, więc liczysz jedną kartę: reguła daje {{n:outs.oesd}} × 2 = {{n:odds.oesd.rule-next}}, a dokładnie {{n:outs.oesd}} z {{n:cards.unseen.flop}}, czyli {{n:odds.oesd.flop-turn}}." }
       - { text: "Ok. {{n:odds.oesd.flop-river}}, do rivera", why: "Szansę do rivera bierzesz tylko wtedy, gdy na pewno zobaczysz obie karty bez dalszych {{t:bet|zakładów}}, czyli przy all-inie." }
   - kind: numeric
     id: m2.exam.n2

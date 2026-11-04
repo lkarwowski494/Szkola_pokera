@@ -91,7 +91,7 @@ drills:
     rules: [R-M12-012]
     prompt: "Wygrywasz już na swojej {{t:stakes|stawce}}. Jak dzielisz czas?"
     options:
-      - { text: "Mniej więcej pół na pół, ale nigdy mniej niż {{n:study.min}} nauki", correct: true, why: "Gdy wygrywasz, możesz grać więcej, ale ideałem wciąż jest ok. {{n:study.winner}} nauki, a minimum to {{n:study.min}}." }
+      - { text: "Mniej więcej pół na pół, ale nigdy mniej niż {{n:study.min}} nauki", correct: true, why: "Także gdy wygrywasz, ideałem jest ok. {{n:study.winner}} nauki, a minimum to {{n:study.min}}." }
       - { text: "Tylko gra, skoro wygrywasz", why: "Nawet gdy wygrywasz, nie schodzisz poniżej {{n:study.min}} czasu na naukę." }
       - { text: "Ok. {{n:study.beginner}} nauki, jak na początku", why: "Możesz, jeśli przygotowujesz się do wyższych {{t:stakes|stawek}}. Gdy po prostu wygrywasz na swojej, wystarcza ok. {{n:study.winner}}." }
   - kind: choice

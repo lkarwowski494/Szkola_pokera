@@ -39,6 +39,7 @@ odds.flush.rule-turn: { formula: ruleOf2And4, refs: [outs.flush, streets.turn-ri
 odds.gutshot.rule-flop: { formula: ruleOf2And4, refs: [outs.gutshot, streets.flop-river], unit: percent, source: "reguła 2 i 4" }
 odds.gutshot.rule-turn: { formula: ruleOf2And4, refs: [outs.gutshot, streets.turn-river], unit: percent, source: "reguła 2 i 4" }
 odds.oesd.rule-flop: { formula: ruleOf2And4, refs: [outs.oesd, streets.flop-river], unit: percent, source: "reguła 2 i 4" }
+odds.oesd.rule-next: { formula: ruleOf2And4, refs: [outs.oesd, streets.next-card], unit: percent, source: "reguła 2 i 4: jedna karta, outy × 2" }
 # K5 (audyt 4.10): zakład na flopie kupuje jedną kartę, więc cenę porównujesz z szansą na turnie, nie do rivera.
 streets.next-card: { value: 1, unit: count, source: "zasady: sprawdzenie zakładu kupuje jedną następną kartę" }
 odds.flush.flop-turn: { formula: hitProbability, refs: [outs.flush, cards.unseen.flop, streets.next-card], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): 9 z 47" }
@@ -874,14 +875,12 @@ exam.m6.bet.three-quarters: { formula: product, refs: [exam.m6.pot, ex.frac.thre
 exam.m6.mdf.three-quarters: { formula: mdf, refs: [exam.m6.pot, exam.m6.bet.three-quarters], unit: percent, source: "obliczenie: pula/(pula+bet)" }
 exam.m6.mdf.quarter: { formula: mdf, refs: [exam.m6.pot, exam.m6.bet.quarter], unit: percent, source: "obliczenie: pula/(pula+bet)" }
 exam.m6.alpha.quarter: { formula: alpha, refs: [exam.m6.pot, exam.m6.bet.quarter], unit: percent, source: "obliczenie: bet/(pula+bet)" }
-exam.m6.eq.three-quarters: { formula: requiredEquity, refs: [exam.m6.pot, exam.m6.bet.three-quarters], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
 exam.m6.xr: { formula: product, refs: [exam.m6.bet.quarter, xr.mult.example], unit: count, source: "obliczenie: check-raise 4,5x c-betu 1/4 puli (R-M6-010: wobec małych c-betów górna granica przedziału)" }
 exam.m7.pot: { value: 120, unit: count, source: "przykład na egzaminie (pula w żetonach)" }
 exam.m7.bet.half: { formula: product, refs: [exam.m7.pot, ex.frac.half], unit: count, source: "obliczenie: zakład pół puli" }
 exam.m7.bet.quarter: { formula: product, refs: [exam.m7.pot, ex.frac.quarter], unit: count, source: "obliczenie: zakład 1/4 puli" }
 exam.m7.bet.three-quarters: { formula: product, refs: [exam.m7.pot, ex.frac.three-quarters], unit: count, source: "obliczenie: zakład 3/4 puli" }
 exam.m7.alpha.half: { formula: alpha, refs: [exam.m7.pot, exam.m7.bet.half], unit: percent, source: "obliczenie: bet/(pula+bet)" }
-exam.m7.eq.three-quarters: { formula: requiredEquity, refs: [exam.m7.pot, exam.m7.bet.three-quarters], unit: percent, source: "obliczenie: bet/(pula+2·bet)" }
 exam.m7.io.pot-after-bet: { formula: sum, refs: [exam.m7.pot, exam.m7.bet.half], unit: count, source: "obliczenie: pula po zakładzie" }
 exam.m7.io.need: { formula: product, refs: [exam.m7.bet.half, miss.oesd.turn, inv.outs.oesd], unit: count, source: "obliczenie: dopłata × nietrafiające ÷ outy (strit otwarty na turnie)" }
 exam.m7.io.extra: { formula: diff, refs: [exam.m7.io.need, exam.m7.io.pot-after-bet], unit: count, source: "obliczenie: ile ponad pulę po zakładzie musisz wygrać po trafieniu (implied odds)" }

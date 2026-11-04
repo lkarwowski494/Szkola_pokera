@@ -53,7 +53,7 @@ drills:
     prompt: "Turn. Masz {{t:two-pair}}, a rywal może mieć {{t:flush-draw}} (ok. {{n:odds.flush.turn-river}} na riverze). W {{t:pot|puli}} jest {{n:exam.m7.pot}}, rywal {{t:check|czeka}}. Co robisz?"
     table: { hand: "Jc 8c", position: BTN, board: "Jh 8h 4s 2d" }
     options:
-      - { text: "Betuję {{n:exam.m7.bet.three-quarters}}", correct: true, why: "Tak: przy becie 3/4 {{t:pot|puli}} {{t:draw}} potrzebuje {{n:exam.m7.eq.three-quarters}} equity, a ma ok. {{n:odds.flush.turn-river}}. Płaci za drogo, a ty budujesz {{t:pot|pulę}} silną ręką." }
+      - { text: "Betuję {{n:exam.m7.bet.three-quarters}}", correct: true, why: "Tak: przy becie 3/4 {{t:pot|puli}} {{t:draw}} potrzebuje {{n:eq.bet-three-quarters}} equity, a ma ok. {{n:odds.flush.turn-river}}. Płaci za drogo, a ty budujesz {{t:pot|pulę}} silną ręką." }
       - { text: "Betuję {{n:exam.m7.bet.quarter}}", sizeError: true, why: "Dobra akcja, zły rozmiar: przy becie 1/4 {{t:pot|puli}} {{t:draw}} potrzebuje tylko {{n:eq.bet-quarter}}, mniej niż jego ok. {{n:odds.flush.turn-river}}. Mały bet daje mu dobrą cenę. Betuj dużo." }
       - { text: "{{t:check|Czekam}}", why: "Darmowa karta to prezent dla {{t:flush-draw|drawa do koloru}}, a ty tracisz wartość silnej ręki. Z {{t:two-pair|dwiema parami}} betujesz." }
   - kind: numeric

@@ -44,9 +44,9 @@ drills:
     prompt: "Flop. W {{t:pot|puli}} jest {{n:exam.m6.pot}}. Button {{t:bet|stawia}} raz {{n:exam.m6.bet.quarter}}, a w innym rozdaniu {{n:exam.m6.bet.three-quarters}}. Ile equity potrzebujesz do {{t:call|sprawdzenia}} w każdym z tych przypadków?"
     table: { position: BB }
     options:
-      - { text: "Ok. {{n:eq.bet-quarter}} i {{n:exam.m6.eq.three-quarters}}", correct: true, why: "Tak: bet ÷ ({{t:pot}} + 2·bet). {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}} + {{n:exam.m6.bet.quarter}}) = {{n:eq.bet-quarter}}, a {{n:exam.m6.bet.three-quarters}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}} + {{n:exam.m6.bet.three-quarters}}) = {{n:exam.m6.eq.three-quarters}}. Przy większym becie bronisz węższym {{t:range|zakresem}}." }
-      - { text: "Ok. {{n:exam.m6.alpha.quarter}} i {{n:exam.m6.eq.three-quarters}}", why: "Pierwsza liczba to alpha (bet ÷ ({{t:pot}} + bet)), czyli próg dla {{t:bluff|blefu}} Buttona. Do ceny {{t:call|sprawdzenia}} dolicz swoje {{t:call}}: {{n:eq.bet-quarter}}." }
-      - { text: "Tyle samo w obu, bo to ta sama {{t:pot}}", why: "Nie: cena zależy od rozmiaru betu. Większy bet to gorsza cena: {{n:exam.m6.eq.three-quarters}} zamiast {{n:eq.bet-quarter}}." }
+      - { text: "Ok. {{n:eq.bet-quarter}} i {{n:eq.bet-three-quarters}}", correct: true, why: "Tak: bet ÷ ({{t:pot}} + 2·bet). {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}} + {{n:exam.m6.bet.quarter}}) = {{n:eq.bet-quarter}}, a {{n:exam.m6.bet.three-quarters}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}} + {{n:exam.m6.bet.three-quarters}}) = {{n:eq.bet-three-quarters}}. Przy większym becie bronisz węższym {{t:range|zakresem}}." }
+      - { text: "Ok. {{n:exam.m6.alpha.quarter}} i {{n:eq.bet-three-quarters}}", why: "Pierwsza liczba to alpha (bet ÷ ({{t:pot}} + bet)), czyli próg dla {{t:bluff|blefu}} Buttona. Do ceny {{t:call|sprawdzenia}} dolicz swoje {{t:call}}: {{n:eq.bet-quarter}}." }
+      - { text: "Tyle samo w obu, bo to ta sama {{t:pot}}", why: "Nie: cena zależy od rozmiaru betu. Większy bet to gorsza cena: {{n:eq.bet-three-quarters}} zamiast {{n:eq.bet-quarter}}." }
   - kind: choice
     id: m6.exam.q6
     family: m6.flop.call

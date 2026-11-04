@@ -4,6 +4,10 @@ Liczby z formułą: rachunek, szczebel 1, potwierdzone niezależnym przeliczenie
 rangePlay: dane solvera projektu, status z walidacji spotu (walidacja-solvera.json, E1b, D-153; brak wpisu = otwarte). flopWetnessShare: rachunek na definicji
 tekstury aplikacji (uproszczenie nazwane). Wartości ze źródłem „przykład…”: dane zadania, nie twierdzenie (jak bezTwierdzenia w Treningu)."""
 import json, sys, yaml
+# E3 2026-11-04 (21. sesja): od E3 auto.json jest utrzymywany ręcznie (poprawki z werdyktów, wpisy „wycofane” z następcą,
+# nowe klucze). Ponowne uruchomienie nadpisałoby te zmiany, więc skrypt zatrzymuje się bez flagi --nadpisz.
+if '--nadpisz' not in sys.argv:
+    sys.exit('auto-rejestr.py: auto.json jest od E3 utrzymywany ręcznie; uruchomienie nadpisze poprawki E3. Świadomie: --nadpisz, potem porównaj git diff.')
 num = yaml.safe_load(open('content/numbers.yaml', encoding='utf-8'))
 DZIS = '2026-11-04'; DOWOD = 'docs/tresci/odczyty/rachunek-2026-11-04.txt'
 tw, bez = [], []

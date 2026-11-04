@@ -850,6 +850,31 @@
   "uwagi": "E3 S3 2026-11-04 (A6, sprawa przekrojowa exams/m2.yaml:38): egzamin m2.exam.q3 rozdziela szacunek z reguły 4 (32%) i wynik dokładny (31,5%) zamiast „8 × 4 ≈ 31,5%”."
  },
  {
+  "id": "n:odds.oesd.rule-next",
+  "rodzaj": "liczba",
+  "level": "math",
+  "twierdzenie": "odds.oesd.rule-next = (formuła ruleOf2And4) [percent]; reguła 2 i 4: jedna karta, outy × 2",
+  "zrodla": [
+   {
+    "adres": "rachunek: ruleOf2And4(outs.oesd, streets.next-card)",
+    "miejsce": "content/numbers.yaml",
+    "cytat": "outy × 2 przy jednej karcie do odkrycia: 8 × 2 = 16",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": "reguła 2 i 4 to przybliżenie; wynik dokładny: n:odds.oesd.flop-turn",
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "odds.oesd.rule-next",
+  "wartosc": null,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "E3 2026-11-04 (21. sesja, A1 uwaga 10): egzamin M2 q4 rozdziela szacunek regułą (× 2, jedna karta) od wyniku dokładnego."
+ },
+ {
   "id": "n:streets.next-card",
   "rodzaj": "liczba",
   "level": "rules",
@@ -13034,7 +13059,7 @@
     "szczebel": 1
    }
   ],
-  "status": "potwierdzone",
+  "status": "wycofane",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
@@ -13043,7 +13068,8 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": " | E3 2026-11-04 (21. sesja, sprawa przekrojowa): ta sama wielkość co n:eq.bet-three-quarters (bet/(pula+2·bet) przy becie 3/4 puli nie zależy od wielkości puli); egzaminy M6 i M7 używają n:eq.bet-three-quarters; klucz usunięty z numbers.yaml.",
+  "nastepca": "n:eq.bet-three-quarters"
  },
  {
   "id": "n:exam.m6.xr",
@@ -13210,7 +13236,7 @@
     "szczebel": 1
    }
   ],
-  "status": "potwierdzone",
+  "status": "wycofane",
   "uproszczenie": null,
   "krytyczne": false,
   "przeglad": null,
@@ -13219,7 +13245,8 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": " | E3 2026-11-04 (21. sesja, sprawa przekrojowa): ta sama wielkość co n:eq.bet-three-quarters (bet/(pula+2·bet) przy becie 3/4 puli nie zależy od wielkości puli); egzaminy M6 i M7 używają n:eq.bet-three-quarters; klucz usunięty z numbers.yaml.",
+  "nastepca": "n:eq.bet-three-quarters"
  },
  {
   "id": "n:exam.m7.io.pot-after-bet",
