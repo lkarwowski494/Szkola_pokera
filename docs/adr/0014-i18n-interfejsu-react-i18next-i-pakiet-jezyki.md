@@ -1,5 +1,5 @@
 ---
-status: proponowana (rola 09 E1, 2026-11-04; czeka na akceptację właściciela na bramce E1)
+status: przyjęta (D-138, 2026-11-04; zaproponowana w roli 09 E1)
 data: 2026-11-04
 decyduje: agent (technika); lista języków i polityka: D-131 (właściciel 2026-11-03)
 ---
