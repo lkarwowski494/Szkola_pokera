@@ -1,5 +1,5 @@
 ---
-status: proponowana
+status: przyjęta (D-129, właściciel 2026-11-04)
 data: 2026-11-04
 decyduje: agent (fakt o platformie: dokumentacja Apple; technika), weto właściciela
 ---
