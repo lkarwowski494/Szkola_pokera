@@ -1,5 +1,5 @@
 # Stan sztafety
-Ścieżka: greenfield (przebudowa istniejącej aplikacji „prawie od nowa”) · Aktualizacja: 2026-11-03 (rola 01 E4)
+Ścieżka: greenfield (przebudowa istniejącej aplikacji „prawie od nowa”) · Aktualizacja: 2026-11-04 (rola 03 E3)
 
 Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szkoła Pokera przez role 1–5 w trybie build z prompts i zrobić ją prawie od nowa, ale wykorzystując elementy aktualnej aplikacji, które są dobre. Cel: monetyzacja. […] Tam nie ma być hazardu. Pełna nauka w 35 językach jak trening. Całkiem od nowa UX, przepływy, ocena monetyzacji, BRD.” Kolejność (wybór właściciela): bramka opłacalności (02, krok 0) → 01 → 02 → 03 → 04 → 05.
 
@@ -8,7 +8,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 01 Odkrywanie | build | zakończona 2026-11-03 (E4, przekazanie niżej) | (commit E4) | `docs/brd/` (README, wywiad, odkrywanie, wymagania, wymagania-nauka, wymagania-sklep, reguly, errata, zrodla, dane/), `tests/wektory/brd.json`, `docs/zalozenia.md`, „Stan projektu” w `CLAUDE.md` | OP-10, OP-14, OP-16, OP-18 (źródła), OP-19 (04), OP-20, OP-22 (03 z właścicielem), OP-21 (05) |
 | 02 Monetyzacja (bramka, krok 0) | build `--moduly oplacalnosc` | E1b zakończone: werdykt „budować” (słaby dowód), STOP na decyzję właściciela (2026-11-03) | (ten commit) | `docs/monetyzacja.md` (sekcja „Opłacalność”), `docs/monetyzacja/dowody/` | wpis decyzji E0 w rejestrze 03 (brak konektora Google Docs) |
 | 02 Monetyzacja (sesja 2) | build | zakończona 2026-11-03 (E3 zaakceptowane) | (commit E3) | `docs/monetyzacja.md` („Sesja 2, E0–E3”), `docs/monetyzacja/rachunek.json`, `dowody/rachunek-2026-11-03.txt` | OP-09 (monetyzacja), OP-20, OP-22, H-04 |
-| 03 Zakres | build | E2 zakończone, STOP na bramce E2 (2026-11-03, szósta sesja) | (commit E2) | `docs/scope-contract.md` (E0–E2), `docs/zakres/wzorzec-2026-11-03.json`, `docs/decyzje.md` | D-102 wariant, D-107 limit |
+| 03 Zakres | build | E3 zakończone, STOP na bramce E3 (2026-11-04, siódma sesja); do akceptacji właściciela | (commit E3) | `docs/scope-contract.md` (E3), `docs/archiwum/scope-contract-2026-11-03-robocze.md` (E0–E2), `docs/zakres/wzorzec-2026-11-03.json`, `docs/decyzje.md` | akceptacja kontraktu; OP-23, OP-20, OP-22 w BRD (01); OP-11 w `docs/monetyzacja.md` (02) |
 | 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
 
 ## E0 bramki: ustalenia (2026-11-03)
@@ -177,5 +177,21 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - Limit: „1 aktywność dziennie (Recommended)” (D-107); odrzucone: 2 aktywności, 10 zadań. Do E3: OP-23 w BRD zamknąć (rola 01, ER albo wpis), OP-11 w `docs/monetyzacja.md` — uwaga dla roli 02.
 - Nowa sesja: „Tak, otwórz nową i zarchiwizuj tę (Recommended)”.
 
+## Rola 03 E3: wynik (2026-11-04, siódma sesja)
+- Prompt: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build` (prompts c025063), przeczytany w całości; `zakres.mjs` z modułu `ciecie` bez zmian (scratchpad).
+- `docs/scope-contract.md` według szablonu z wzorców (wzór: Piekarz `docs/scope-contract.md`); historia E0–E2 w `docs/archiwum/scope-contract-2026-11-03-robocze.md`. Treść tabel Zakres, NIE robimy i Ranking bez zmian względem E2 poza F-18 (nazwa i kryterium po D-107).
+- `zakres.mjs docs/scope-contract.md --brd docs/brd --apetyt 16.5`: 21 funkcji (MVP 18, NIE 3), 43 BR, 0 błędów, 0 uwag, kod 0 (wynik wklejony w kontrakcie).
+- Nowe sekcje: „Kolejność i przekazanie” (04, 05, 06, 07, 08, 02, 01), „Lista kontrolna na telefonie” (T-01–T-10, właściciel), „Definicja ukończenia” z dowodem.
+- CI na `main` (odczyt 2026-11-04 przez MCP GitHub): E2E (Maestro) czerwony w przebiegach 14–18 (16–20.10), potem wyłączony; znane znalezisko dla roli 07, bez zmian.
+- Bez zmian w BRD i `docs/monetyzacja.md` (zasada roli 7: nie pisze cudzych artefaktów); zamknięcia OP-23, OP-20, OP-22 i OP-11 przekazane rolom 01 i 02.
+
+### Przekazanie do następnej roli (po akceptacji właściciela)
+- Zakończono: 03-zakres, build, commit E3 na `claude/sleepy-brahmagupta-2065nu`; `docs/scope-contract.md`, `docs/decyzje.md`, `docs/zakres/`.
+- Następny krok ścieżki greenfield: **04-studio-projektowe Studio Projektowe (UX, marka, przepływy)**, tryb `build`; nowa sesja: opus, wysiłek high.
+- Polecenie: `node /home/user/prompts/tools/assemble.mjs 04-studio-projektowe --tryb build`
+- Paczka wejściowa: `docs/scope-contract.md` (sekcje „Zakres”, „NIE robimy”, „Funkcje w kodzie bez BR”, „Kolejność i przekazanie” pkt 04, „Lista kontrolna na telefonie”), `docs/brd/wymagania.md` (PR-01–PR-09), `docs/brd/README.md` (blokery, OP-19), `docs/monetyzacja.md` (kontrakt płatności), `docs/decyzje.md`, `CLAUDE.md`.
+- Przed 04 albo równolegle (krótkie poprawki cudzych artefaktów): rola 01 `fix` (OP-23 → D-107, OP-20 → D-105, OP-22 → D-106 w BRD), rola 02 (OP-11 → D-107, „pula” → „dzienny limit” w `docs/monetyzacja.md`).
+- Otwarte decyzje: OP-09 (02), OP-24 = OP-10 monetyzacji (05), BRD OP-10 numery pomocy (06, bloker), OP-19 (04), OP-21 (05).
+
 ## Następny krok
-**Rola 03 E3** (kontrakt według szablonu, `zakres.mjs --brd docs/brd --apetyt 16.5` z kodem 0, definicja ukończenia, przekazanie do 04–08 i uwagi dla 01, 02). Prompt: `node /home/user/prompts/tools/assemble.mjs 03-zakres --tryb build` (prompts c025063). Stan: `docs/scope-contract.md`, sekcja E2; decyzje: `docs/decyzje.md`.
+**Akceptacja kontraktu E3 przez właściciela**, potem rola 04 build (przekazanie wyżej). Poprawki BRD (rola 01 fix) i `docs/monetyzacja.md` (rola 02) według decyzji właściciela na bramce E3. Stan: `docs/scope-contract.md`; decyzje: `docs/decyzje.md`.
