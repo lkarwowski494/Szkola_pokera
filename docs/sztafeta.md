@@ -359,3 +359,8 @@ Plus jedna linia w „Dokumentacja projektu”: „Architektura w repo: `docs/ar
 ## Rola 06 E1b: wynik (2026-11-04, osiemnasta sesja)
 - `docs/tresci/e1b-solver.md`: 24 liczby solvera — 19 potwierdzonych, 5 otwartych (9-max ×3, obrona BB vs BTN i BB vs SB); decyzja D-153 (zmienia D-148 dla `m11.call.5` i wariantu z ante, do weta). Rejestr 1012 / 18 / 12 (potwierdzone / otwarte / sprzeczne), `scal-rejestr.mjs --przed-przegladem` kod 0.
 - Następny krok: E2 (poprawki treści z werdyktów E1 i listy w `e1b-solver.md` §6, terminy przed definicją, `content/helplines.yaml`, strażnik powiązań w `tools/content-build` z przeglądem w świeżym kontekście, kontrola kod 0) → STOP E2.
+
+## Rola 06 E2: wynik (2026-11-04, osiemnasta sesja)
+- `docs/tresci/e2-wynik.md`: poprawki treści M0–M13 i terminów według werdyktów E1, numery pomocy 9 rynków, ekran „Pomoc” z wyborem kraju (D-155), strażnik rejestru w `content-build`; decyzje D-154, D-155. `pnpm run ci` kod 0; `scal-rejestr --przed-przegladem` kod 0 (0 błędów, 50 uwag o przeglądzie krytycznych).
+- Przegląd ścieżki wrażliwej w świeżym kontekście: WYSOKIE i 3 ŚREDNIE naprawione z testami; 5 ŚREDNICH/NISKICH do backlogu (`e2-wynik.md` §3).
+- STOP E2. Następny krok: E3 — niezależna weryfikacja (`06-tresci --tryb audit`), przegląd zastępczy treści krytycznych (D-027), otwarte z `e2-wynik.md` §4, przekazanie 07/05/08/09/04/10.
