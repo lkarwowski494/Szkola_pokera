@@ -1,0 +1,2663 @@
+[
+ {
+  "id": "t:royal-flush",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:30",
+   "content/pl/lessons/m0-l1-uklady.md:87"
+  ],
+  "uzasadnienie": "Cytaty GTO Wizard i PokerNews znalezione; definicja zgodna (A-K-Q-J-T w kolorze). Wikipedia (szczebel 5) tylko pomocniczo.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:straight-flush",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:37",
+   "content/pl/lessons/m0-l1-uklady.md:88"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:four-of-a-kind",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:46",
+   "content/pl/lessons/m0-l1-uklady.md:24",
+   "content/pl/lessons/m0-l1-uklady.md:89",
+   "content/pl/exams/m0.yaml:18",
+   "content/pl/exams/m0.yaml:21"
+  ],
+  "uzasadnienie": "Definicja karety poparta (GTO Wizard). Zdanie o remisie rozstrzyganym kickerem ma tylko źródło szczebla 5 (Wikipedia); Robert's Rules definiuje kicker ogólnie. Brak źródła szczebla 1–4 dla tej części.",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:full-house",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:54",
+   "content/pl/lessons/m0-l1-uklady.md:22",
+   "content/pl/lessons/m0-l1-uklady.md:24",
+   "content/pl/lessons/m0-l1-uklady.md:25",
+   "content/pl/lessons/m0-l1-uklady.md:90",
+   "content/pl/exams/m0.yaml:18",
+   "content/pl/exams/m0.yaml:21"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:flush",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:61",
+   "content/pl/lessons/m0-l1-uklady.md:13",
+   "content/pl/lessons/m0-l1-uklady.md:15",
+   "content/pl/lessons/m0-l1-uklady.md:16",
+   "content/pl/lessons/m0-l1-uklady.md:22",
+   "content/pl/exams/m6.yaml:67",
+   "content/pl/exams/m0.yaml:67"
+  ],
+  "uzasadnienie": "Robert's Rules (pięć kart w kolorze) i PokerNews (porównanie od najwyższej karty) znalezione; zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:straight",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:70",
+   "content/pl/lessons/m0-l1-uklady.md:13",
+   "content/pl/lessons/m0-l1-uklady.md:16",
+   "content/pl/lessons/m0-l1-uklady.md:24",
+   "content/pl/lessons/m0-l1-uklady.md:49",
+   "content/pl/exams/m6.yaml:68",
+   "content/pl/exams/m6.yaml:94"
+  ],
+  "uzasadnienie": "Robert's Rules i GTO Wizard znalezione; as wysoki i niski potwierdza Robert's Rules („highest card and also the lowest”).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:three-of-a-kind",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:77",
+   "content/pl/lessons/m0-l1-uklady.md:24",
+   "content/pl/lessons/m0-l1-uklady.md:31",
+   "content/pl/lessons/m0-l1-uklady.md:33",
+   "content/pl/lessons/m0-l1-uklady.md:34",
+   "content/pl/exams/m0.yaml:8",
+   "content/pl/exams/m0.yaml:11"
+  ],
+  "uzasadnienie": "GTO Wizard potwierdza trójkę oraz podział set/trips w hold'emie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:set",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:85",
+   "content/pl/exams/m10.yaml:43",
+   "content/pl/exams/m10.yaml:47"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:two-pair",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:91",
+   "content/pl/lessons/m0-l1-uklady.md:31",
+   "content/pl/lessons/m0-l1-uklady.md:33",
+   "content/pl/lessons/m0-l1-uklady.md:34",
+   "content/pl/lessons/m0-l1-uklady.md:94",
+   "content/pl/exams/m6.yaml:94",
+   "content/pl/exams/m0.yaml:28"
+  ],
+  "uzasadnienie": "PokerNews: wyższa para, potem niższa, potem kicker; zgodne z definicją.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:pair",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:99",
+   "content/pl/lessons/m0-l1-uklady.md:24",
+   "content/pl/lessons/m0-l1-uklady.md:39",
+   "content/pl/lessons/m0-l1-uklady.md:42",
+   "content/pl/lessons/m0-l1-uklady.md:52",
+   "content/pl/exams/m6.yaml:34",
+   "content/pl/exams/m6.yaml:37"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:high-card",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:108",
+   "content/pl/lessons/m0-l1-uklady.md:96"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:kicker",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:115"
+  ],
+  "uzasadnienie": "Robert's Rules: „highest unpaired card that helps determine the value”; zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:wheel",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:121",
+   "content/pl/lessons/m0-l1-uklady.md:102",
+   "content/pl/exams/m0.yaml:60"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:check",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:129",
+   "content/pl/lessons/m1-l1-przebieg.md:15",
+   "content/pl/lessons/m1-l1-przebieg.md:34",
+   "content/pl/lessons/m1-l1-przebieg.md:52",
+   "content/pl/lessons/m1-l1-przebieg.md:53",
+   "content/pl/exams/m6.yaml:54",
+   "content/pl/exams/m6.yaml:64"
+  ],
+  "uzasadnienie": "Robert's Rules (CHECK, LIVE BLIND) potwierdza też czekanie BB preflop; GTO Wizard pisze „only postflop”, ale szczebel regulaminu rozstrzyga.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:bet",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:137",
+   "content/pl/lessons/m1-l1-przebieg.md:13",
+   "content/pl/lessons/m1-l1-przebieg.md:15",
+   "content/pl/lessons/m1-l1-przebieg.md:16",
+   "content/pl/lessons/m1-l1-przebieg.md:17",
+   "content/pl/exams/m6.yaml:8",
+   "content/pl/exams/m6.yaml:24"
+  ],
+  "uzasadnienie": "Źródła definiują bet szerzej: Robert's Rules każde wstawienie żetonów, GTO Wizard także podbicie. Zawężenie do pierwszego zakładu w rundzie jest konwencją kursu, nienazwaną.",
+  "poprawka": "Pierwsze postawienie żetonów w rundzie licytacji, w której nikt jeszcze nie stawiał (w szerszym sensie zakładem nazywa się każde wstawienie żetonów do puli).",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:call",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:144",
+   "content/pl/lessons/m1-l1-przebieg.md:16",
+   "content/pl/lessons/m1-l1-przebieg.md:34",
+   "content/pl/lessons/m1-l1-przebieg.md:35",
+   "content/pl/lessons/m1-l1-przebieg.md:72",
+   "content/pl/exams/m6.yaml:19",
+   "content/pl/exams/m6.yaml:38"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:raise",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:152",
+   "content/pl/lessons/m1-l1-przebieg.md:17",
+   "content/pl/lessons/m1-l1-przebieg.md:52",
+   "content/pl/lessons/m1-l1-przebieg.md:54",
+   "content/pl/lessons/m1-l1-przebieg.md:72",
+   "content/pl/exams/m6.yaml:39",
+   "content/pl/exams/m6.yaml:83"
+  ],
+  "uzasadnienie": "Robert's Rules i GTO Wizard zgodne. Dopisek o polskim „podbicie” bez źródła (uwaga językowa, nie pokerowa).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:fold",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:159",
+   "content/pl/lessons/m1-l1-przebieg.md:33",
+   "content/pl/lessons/m1-l1-przebieg.md:49",
+   "content/pl/lessons/m1-l1-przebieg.md:53",
+   "content/pl/lessons/m1-l1-przebieg.md:81",
+   "content/pl/exams/m6.yaml:10",
+   "content/pl/exams/m6.yaml:15"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:check-raise",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:168"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:all-in",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:174",
+   "content/pl/lessons/m10-l1-statystyki.md:35"
+  ],
+  "uzasadnienie": "Robert's Rules (ALL-IN) i GTO Wizard (main pot) potwierdzają obie części.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:pot",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:182",
+   "content/pl/lessons/m0-l1-uklady.md:81",
+   "content/pl/lessons/m1-l1-przebieg.md:70",
+   "content/pl/lessons/m1-l1-przebieg.md:81",
+   "content/pl/lessons/m2-l2-pot-odds.md:13",
+   "content/pl/exams/m6.yaml:8",
+   "content/pl/exams/m6.yaml:10"
+  ],
+  "uzasadnienie": "Pierwsze zdanie = GTO Wizard. Drugie (kto zabiera pulę) nie ma cytatu w źródle wpisu; przy pulach bocznych najlepszy układ nie zawsze zabiera wszystkie żetony rozdania.",
+  "poprawka": "Wszystkie żetony postawione w bieżącym rozdaniu. Zabiera je gracz z najlepszym układem na showdownie (przy pulach bocznych osobno o każdą pulę) albo gracz, przy którym wszyscy spasowali.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:side-pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:189",
+   "content/pl/lessons/m1-l1-przebieg.md:95",
+   "content/pl/lessons/m1-l1-przebieg.md:96"
+  ],
+  "uzasadnienie": "Robert's Rules i GTO Wizard zgodne; gracz all-in nie może wygrać puli bocznej.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:split-pot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:196",
+   "content/pl/lessons/m0-l1-uklady.md:44",
+   "content/pl/lessons/m0-l1-uklady.md:52",
+   "content/pl/lessons/m0-l1-uklady.md:99",
+   "content/pl/lessons/m0-l1-uklady.md:104",
+   "content/pl/exams/m0.yaml:13",
+   "content/pl/exams/m0.yaml:23"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:playing-the-board",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:204",
+   "content/pl/lessons/m0-l1-uklady.md:52",
+   "content/pl/lessons/m0-l1-uklady.md:104",
+   "content/pl/rules.yaml:39"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:board",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:211",
+   "content/pl/lessons/m0-l1-uklady.md:49",
+   "content/pl/lessons/m0-l1-uklady.md:52",
+   "content/pl/lessons/m0-l1-uklady.md:53",
+   "content/pl/lessons/m0-l1-uklady.md:81",
+   "content/pl/exams/m6.yaml:34",
+   "content/pl/exams/m6.yaml:37"
+  ],
+  "uzasadnienie": "Definicja zgodna z Robert's Rules i GTO Wizard. Polska nazwa „stół” znaczy w kursie też stół do gry (stół finałowy, „przy stole”), a pojęcie pokrywa się z t:community-cards: jedna nazwa w dwóch znaczeniach.",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:community-cards",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:219",
+   "content/pl/lessons/m0-l1-uklady.md:81",
+   "content/pl/lessons/m0-l1-uklady.md:104",
+   "content/pl/lessons/m1-l1-przebieg.md:22",
+   "content/pl/lessons/m1-l1-przebieg.md:26",
+   "content/pl/exams/m0.yaml:23",
+   "content/pl/exams/m1.yaml:44"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:hole-cards",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:227",
+   "content/pl/lessons/m0-l1-uklady.md:81",
+   "content/pl/lessons/m0-l1-uklady.md:104",
+   "content/pl/lessons/m4-l1-3bet.md:48"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:small-blind",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:235",
+   "content/pl/lessons/m1-l1-przebieg.md:49",
+   "content/pl/lessons/m1-l1-przebieg.md:52",
+   "content/pl/lessons/m1-l1-przebieg.md:70",
+   "content/pl/lessons/m3-l1-pozycja.md:64",
+   "content/pl/exams/m11.yaml:23",
+   "content/pl/exams/m11.yaml:32"
+  ],
+  "uzasadnienie": "Źródła potwierdzają definicję, ale wpis sam cytuje TDA: „Heads-up, the small blind is the button”. Definicja „na lewo od Buttona” pomija ten wyjątek; laik czyta ją jako zawsze prawdziwą.",
+  "poprawka": "Mniejsza obowiązkowa stawka wpłacana przed rozdaniem przez gracza na lewo od Buttona (przy dwóch graczach przez samego Buttona); tak nazywa się też to miejsce przy stole.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:big-blind",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:243",
+   "content/pl/lessons/m1-l1-przebieg.md:49",
+   "content/pl/lessons/m1-l1-przebieg.md:52",
+   "content/pl/lessons/m1-l1-przebieg.md:70",
+   "content/pl/lessons/m1-l1-przebieg.md:72",
+   "content/pl/exams/m6.yaml:24",
+   "content/pl/exams/m6.yaml:54"
+  ],
+  "uzasadnienie": "Definicja i jednostka bb poparte. „Drugi gracz na lewo od Buttona” nie działa heads-up (tam BB to pierwszy gracz na lewo od Buttona); wyjątek pominięty.",
+  "poprawka": "Większa obowiązkowa stawka wpłacana przed rozdaniem przez drugiego gracza na lewo od Buttona (przy dwóch graczach przez gracza naprzeciw Buttona); tak nazywa się też to miejsce. Służy też za jednostkę wielkości stacków i wyników.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:chips",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:250",
+   "content/pl/lessons/m1-l1-przebieg.md:31",
+   "content/pl/lessons/m1-l1-przebieg.md:35",
+   "content/pl/lessons/m1-l1-przebieg.md:96",
+   "content/pl/lessons/m2-l2-pot-odds.md:27",
+   "content/pl/exams/m6.yaml:83",
+   "content/pl/exams/m11.yaml:16"
+  ],
+  "uzasadnienie": "Robert's Rules, TDA i GTO Wizard (cash game) zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:stack",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:257"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:street",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:263",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:25",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:99",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:84",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:116",
+   "content/pl/exams/m5.yaml:59",
+   "content/pl/exams/m10.yaml:45"
+  ],
+  "uzasadnienie": "Definicja zgodna z GTO Wizard. Ulica = runda licytacji: to samo pojęcie co t:betting-round pod drugą polską nazwą (dwa klucze). Pierwsze oznaczone użycie w m5-l4, lekcje M1 mówią „runda licytacji”.",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:betting-round",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:270",
+   "content/pl/lessons/m1-l1-przebieg.md:40",
+   "content/pl/lessons/m1-l1-przebieg.md:74",
+   "content/pl/exams/m1.yaml:10",
+   "content/pl/exams/m1.yaml:55"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:preflop",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:277"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:flop",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:283"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:turn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:289"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:river",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:295"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:showdown",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:301"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:position",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:309",
+   "content/pl/lessons/m3-l1-pozycja.md:13",
+   "content/pl/lessons/m3-l1-pozycja.md:35",
+   "content/pl/lessons/m3-l1-pozycja.md:36",
+   "content/pl/lessons/m3-l1-pozycja.md:45",
+   "content/pl/exams/m11.yaml:85",
+   "content/pl/exams/m5.yaml:59"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:in-position",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:318",
+   "content/pl/lessons/m4-l1-3bet.md:16",
+   "content/pl/lessons/m4-l1-3bet.md:18",
+   "content/pl/lessons/m4-l1-3bet.md:26",
+   "content/pl/lessons/m4-l1-3bet.md:27",
+   "content/pl/exams/m4.yaml:12",
+   "content/pl/exams/m4.yaml:13"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:out-of-position",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:326",
+   "content/pl/lessons/m3-l1-pozycja.md:55",
+   "content/pl/lessons/m4-l1-3bet.md:26",
+   "content/pl/lessons/m4-l1-3bet.md:27",
+   "content/pl/lessons/m4-l1-3bet.md:36",
+   "content/pl/exams/m6.yaml:27",
+   "content/pl/exams/m6.yaml:29"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:early-position",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:334",
+   "content/pl/lessons/m3-l1-pozycja.md:69",
+   "content/pl/exams/m3.yaml:70"
+  ],
+  "uzasadnienie": "Cytowane hasło GTO Wizard opisuje wczesną pozycję przez kolejność po flopie („first person to act postflop”), a definicja mówi o kolejności przed flopem. Preflopowa definicja jest standardowa, ale bez przeczytanego cytatu.",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:late-position",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:341",
+   "content/pl/lessons/m3-l2-rece-startowe.md:55"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:utg",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:348",
+   "content/pl/lessons/m3-l1-pozycja.md:17",
+   "content/pl/lessons/m3-l1-pozycja.md:25",
+   "content/pl/lessons/m3-l1-pozycja.md:26",
+   "content/pl/lessons/m3-l1-pozycja.md:27",
+   "content/pl/exams/m10.yaml:34",
+   "content/pl/exams/m3.yaml:21"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:hijack",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:356",
+   "content/pl/lessons/m3-l1-pozycja.md:62",
+   "content/pl/lessons/m3-l1-pozycja.md:66",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:65",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:80",
+   "content/pl/exams/m5.yaml:59",
+   "content/pl/exams/m5.yaml:75"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:cutoff",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:364",
+   "content/pl/lessons/m3-l1-pozycja.md:62",
+   "content/pl/lessons/m3-l1-pozycja.md:66",
+   "content/pl/lessons/m3-l1-pozycja.md:69",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:65",
+   "content/pl/exams/m5.yaml:9",
+   "content/pl/exams/m5.yaml:61"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:button",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:372",
+   "content/pl/lessons/m3-l1-pozycja.md:15",
+   "content/pl/lessons/m3-l1-pozycja.md:55",
+   "content/pl/lessons/m3-l1-pozycja.md:63"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:outs",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:382"
+  ],
+  "uzasadnienie": "Źródło: karta, która poprawi rękę albo uzupełni draw. Warunek „do układu, który najpewniej wygra” nie ma cytatu (dodany przez autora).",
+  "poprawka": "Karta, która jeszcze jest w talii i poprawi Twoją rękę, zwykle uzupełniając draw. Przykład: przy drawie do koloru outami są pozostałe karty w Twoim kolorze.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:draw",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:388",
+   "content/pl/lessons/m2-l1-outy.md:108",
+   "content/pl/lessons/m2-l1-outy.md:121",
+   "content/pl/lessons/m2-l2-pot-odds.md:26",
+   "content/pl/lessons/m2-l2-pot-odds.md:73",
+   "content/pl/exams/m6.yaml:54",
+   "content/pl/exams/m6.yaml:57"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:flush-draw",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:394",
+   "content/pl/lessons/m2-l1-outy.md:51",
+   "content/pl/lessons/m2-l1-outy.md:110",
+   "content/pl/lessons/m2-l2-pot-odds.md:22",
+   "content/pl/lessons/m5-l1-tekstury.md:37",
+   "content/pl/exams/m6.yaml:67",
+   "content/pl/exams/m6.yaml:76"
+  ],
+  "uzasadnienie": "Cytat z Wikipedii dotyczy combo drawa (nie na temat); definicję potwierdza GTO Wizard (four flush).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:straight-draw",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:401",
+   "content/pl/lessons/m5-l1-tekstury.md:70",
+   "content/pl/lessons/m5-l1-tekstury.md:74",
+   "content/pl/lessons/m5-l1-tekstury.md:76",
+   "content/pl/lessons/m5-l1-tekstury.md:84",
+   "content/pl/exams/m7.yaml:75",
+   "content/pl/rules.yaml:334"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:oesd",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:409",
+   "content/pl/lessons/m2-l1-outy.md:111",
+   "content/pl/lessons/m2-l1-outy.md:124",
+   "content/pl/lessons/m5-l1-tekstury.md:101",
+   "content/pl/lessons/m5-l1-tekstury.md:103",
+   "content/pl/exams/m8.yaml:46",
+   "content/pl/exams/m2.yaml:12"
+  ],
+  "uzasadnienie": "GTO Wizard zgodny. A-2-3-4 i A-K-Q-J są jednostronne (cytat z Wikipedii), definicja tego nie wspomina; drobne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:gutshot",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:417"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:backdoor",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:423"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:pot-odds",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:429"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:implied-odds",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:435",
+   "content/pl/lessons/m2-l2-pot-odds.md:97"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:equity",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:441",
+   "content/pl/lessons/m13-l1-raport.md:13",
+   "content/pl/lessons/m13-l1-raport.md:20",
+   "content/pl/lessons/m13-l1-raport.md:27",
+   "content/pl/lessons/m13-l1-raport.md:82",
+   "content/pl/exams/m13.yaml:7",
+   "content/pl/exams/m13.yaml:9"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:equity-realization",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:448",
+   "content/pl/lessons/m4-l1-3bet.md:37",
+   "content/pl/lessons/m4-l1-3bet.md:87",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:27",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:46",
+   "content/pl/exams/m4.yaml:71",
+   "content/pl/exams/m4.yaml:81"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:expected-value",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:456",
+   "content/pl/lessons/m2-l2-pot-odds.md:97",
+   "content/pl/lessons/m4-l2-obrona-bb.md:36",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:96",
+   "content/pl/lessons/m7-l3-implied-odds.md:146",
+   "content/pl/rules.yaml:1164"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:combo",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:464",
+   "content/pl/lessons/m3-l2-rece-startowe.md:58",
+   "content/pl/lessons/m3-l2-rece-startowe.md:59",
+   "content/pl/lessons/m5-l2-przewagi.md:38",
+   "content/pl/lessons/m8-l2-ile-blefow.md:90",
+   "content/pl/exams/m8.yaml:34",
+   "content/pl/exams/m8.yaml:36"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:range",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:473",
+   "content/pl/lessons/m3-l1-pozycja.md:25",
+   "content/pl/lessons/m3-l1-pozycja.md:64",
+   "content/pl/lessons/m3-l2-rece-startowe.md:62",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:43",
+   "content/pl/exams/m6.yaml:8",
+   "content/pl/exams/m6.yaml:18"
+  ],
+  "uzasadnienie": "Definicja zgodna z GTO Wizard. W tekście „zakres” pojawia się w m3-l1 (ćwiczenia, tabela z odsyłaczem „lekcja o zakresach”) przed definicją w m3-l3:43.",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:mixed-hand",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:480",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:47",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:92",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:96",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:97",
+   "content/pl/exams/m13.yaml:25",
+   "content/pl/exams/m13.yaml:27"
+  ],
+  "uzasadnienie": "GTO Wizard (mixed strategy, blog) zgodny; „oba zagrania poprawne” zgodne z ADR-04.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:open",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:489",
+   "content/pl/lessons/m3-l1-pozycja.md:25",
+   "content/pl/lessons/m3-l1-pozycja.md:26",
+   "content/pl/lessons/m3-l1-pozycja.md:35",
+   "content/pl/lessons/m3-l1-pozycja.md:59",
+   "content/pl/exams/m6.yaml:24",
+   "content/pl/exams/m6.yaml:54"
+  ],
+  "uzasadnienie": "GTO Wizard (first in: open-raising albo open-limping) potwierdza open-raise; Wikipedia tylko pomocniczo.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:suited",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:496"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:offsuit",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:503"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:pocket-pair",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:509",
+   "content/pl/lessons/m4-l1-3bet.md:48",
+   "content/pl/lessons/m5-l2-przewagi.md:27"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:connectors",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:517",
+   "content/pl/lessons/m4-l1-3bet.md:97",
+   "content/pl/lessons/m4-l1-3bet.md:99",
+   "content/pl/lessons/m4-l2-obrona-bb.md:73",
+   "content/pl/lessons/m4-l2-obrona-bb.md:92",
+   "content/pl/exams/m5.yaml:22",
+   "content/pl/rules.yaml:248"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:3-bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:525"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:4-bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:532"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:limp",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:538",
+   "content/pl/lessons/m3-l1-pozycja.md:69"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:isolation",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:545",
+   "content/pl/lessons/m4-l4-limperzy.md:46",
+   "content/pl/lessons/m4-l4-limperzy.md:49",
+   "content/pl/lessons/m4-l4-limperzy.md:61",
+   "content/pl/lessons/m4-l4-limperzy.md:67",
+   "content/pl/exams/m4.yaml:98"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:texture",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:555",
+   "content/pl/lessons/m5-l1-tekstury.md:58",
+   "content/pl/lessons/m5-l1-tekstury.md:89",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:98",
+   "content/pl/lessons/m7-l4-probe-obrona.md:38"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:dry",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:562",
+   "content/pl/lessons/m5-l1-tekstury.md:48",
+   "content/pl/lessons/m5-l1-tekstury.md:49",
+   "content/pl/lessons/m5-l1-tekstury.md:78",
+   "content/pl/lessons/m5-l1-tekstury.md:87",
+   "content/pl/exams/m9.yaml:52",
+   "content/pl/exams/m9.yaml:57"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:wet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:569",
+   "content/pl/lessons/m5-l1-tekstury.md:44",
+   "content/pl/lessons/m5-l1-tekstury.md:78",
+   "content/pl/lessons/m5-l1-tekstury.md:87",
+   "content/pl/lessons/m5-l1-tekstury.md:97",
+   "content/pl/exams/m5.yaml:85",
+   "content/pl/exams/m5.yaml:88"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:rainbow",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:576",
+   "content/pl/lessons/m5-l1-tekstury.md:47",
+   "content/pl/lessons/m5-l1-tekstury.md:66"
+  ],
+  "uzasadnienie": "GTO Wizard zgodny; na flopie rainbow nie ma drawa do koloru (tylko backdoor).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:two-tone",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:582",
+   "content/pl/lessons/m5-l1-tekstury.md:39",
+   "content/pl/lessons/m5-l1-tekstury.md:66",
+   "content/pl/lessons/m5-l1-tekstury.md:103",
+   "content/pl/rules.yaml:392"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:monotone",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:589",
+   "content/pl/lessons/m5-l1-tekstury.md:34",
+   "content/pl/lessons/m5-l1-tekstury.md:39",
+   "content/pl/lessons/m5-l1-tekstury.md:66",
+   "content/pl/lessons/m5-l1-tekstury.md:103",
+   "content/pl/exams/m5.yaml:95",
+   "content/pl/exams/m5.yaml:98"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:paired",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:596",
+   "content/pl/lessons/m5-l1-tekstury.md:29",
+   "content/pl/lessons/m5-l1-tekstury.md:70",
+   "content/pl/lessons/m5-l1-tekstury.md:84",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:31",
+   "content/pl/rules.yaml:400",
+   "content/pl/rules.yaml:402"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:connected",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:603",
+   "content/pl/lessons/m4-l2-obrona-bb.md:92",
+   "content/pl/lessons/m5-l1-tekstury.md:25",
+   "content/pl/lessons/m5-l1-tekstury.md:72",
+   "content/pl/lessons/m5-l1-tekstury.md:101",
+   "content/pl/exams/m6.yaml:94",
+   "content/pl/exams/m5.yaml:22"
+  ],
+  "uzasadnienie": "Definicja zgodna z GTO Wizard (flopped straight possible). m4-l2:92 używa t:connected w znaczeniu „powiązane” (3-bet i call są połączone): render „połączone (connected)”; jeden klucz w dwóch znaczeniach, przed definicją w m5.",
+  "poprawka": "W m4-l2:92 usunąć znacznik: „3-bet i call są ze sobą powiązane”.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:disconnected",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:611",
+   "content/pl/lessons/m5-l1-tekstury.md:76"
+  ],
+  "uzasadnienie": "GTO Wizard (blog) zgodny; na K-7-2 żadne dwie karty nie mieszczą się w pięciu rangach.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:semi-connected",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:618",
+   "content/pl/lessons/m5-l1-tekstury.md:74",
+   "content/pl/lessons/m5-l1-tekstury.md:84",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:126",
+   "content/pl/rules.yaml:358"
+  ],
+  "uzasadnienie": "GTO Wizard używa „semi-connected”; definicja oznaczona jako podział przyjęty w kursie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:wetness",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:625",
+   "content/pl/lessons/m5-l1-tekstury.md:80",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:122",
+   "content/pl/rules.yaml:334",
+   "content/pl/rules.yaml:342"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:top-pair",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:632",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:49",
+   "content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md:51",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:32",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:35",
+   "content/pl/exams/m6.yaml:77",
+   "content/pl/exams/m8.yaml:17"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:second-pair",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:639",
+   "content/pl/lessons/m7-l1-druga-beczka.md:134",
+   "content/pl/lessons/m8-l1-value.md:60",
+   "content/pl/lessons/m8-l1-value.md:135",
+   "content/pl/exams/m8.yaml:47",
+   "content/pl/exams/m7.yaml:27"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:overpair",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:646",
+   "content/pl/lessons/m5-l2-przewagi.md:27",
+   "content/pl/lessons/m9-l4-plan-trzech-ulic.md:104",
+   "content/pl/exams/m9.yaml:33",
+   "content/pl/exams/m9.yaml:36"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:c-bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:654"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:aggressor",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:660",
+   "content/pl/lessons/m5-l2-przewagi.md:73",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:98",
+   "content/pl/lessons/m7-l4-probe-obrona.md:16",
+   "content/pl/lessons/m7-l4-probe-obrona.md:122",
+   "content/pl/rules.yaml:383",
+   "content/pl/rules.yaml:392"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:initiative",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:668",
+   "content/pl/lessons/m3-l1-pozycja.md:37",
+   "content/pl/lessons/m3-l1-pozycja.md:69",
+   "content/pl/lessons/m3-l2-rece-startowe.md:47",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:37",
+   "content/pl/exams/m4.yaml:23",
+   "content/pl/exams/m4.yaml:92"
+  ],
+  "uzasadnienie": "GTO Wizard (betting lead) i Upswing zgodne; definicja w tekście w m3-l1:69.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:range-advantage",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:677",
+   "content/pl/lessons/m5-l2-przewagi.md:13",
+   "content/pl/lessons/m5-l2-przewagi.md:43",
+   "content/pl/lessons/m5-l2-przewagi.md:45",
+   "content/pl/lessons/m5-l2-przewagi.md:47",
+   "content/pl/exams/m5.yaml:9",
+   "content/pl/exams/m5.yaml:29"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:nuts-advantage",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:684",
+   "content/pl/lessons/m5-l2-przewagi.md:26",
+   "content/pl/lessons/m5-l2-przewagi.md:45",
+   "content/pl/lessons/m5-l2-przewagi.md:46",
+   "content/pl/lessons/m5-l2-przewagi.md:54",
+   "content/pl/exams/m5.yaml:22",
+   "content/pl/exams/m5.yaml:29"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:nuts",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:691",
+   "content/pl/lessons/m5-l2-przewagi.md:92"
+  ],
+  "uzasadnienie": "GTO Wizard zgodny. Przykład sprawdzony: na K♥ 9♥ 4♥ 2♣ nie ma pokera, karety ani fulla, więc nuts to kolor z A♥.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:polarized",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:697",
+   "content/pl/lessons/m4-l1-3bet.md:95",
+   "content/pl/lessons/m4-l1-3bet.md:97",
+   "content/pl/lessons/m6-l2-sprawdzenie.md:36",
+   "content/pl/lessons/m7-l2-polaryzacja.md:13",
+   "content/pl/exams/m7.yaml:44",
+   "content/pl/exams/m7.yaml:46"
+  ],
+  "uzasadnienie": "Definicja zgodna z GTO Wizard. Termin użyty w m4-l1:95–97 (nagłówek i zdanie) bez wyjaśnienia; definicja w tekście dopiero w m7-l2:106.",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:polarization",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:704"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:linear",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:711",
+   "content/pl/lessons/m4-l1-3bet.md:95",
+   "content/pl/lessons/m4-l1-3bet.md:97",
+   "content/pl/lessons/m7-l2-polaryzacja.md:16",
+   "content/pl/lessons/m7-l2-polaryzacja.md:25",
+   "content/pl/exams/m10.yaml:73",
+   "content/pl/rules.yaml:913"
+  ],
+  "uzasadnienie": "Słowniczek (zgodnie z GTO Wizard) mówi, że merged to kształt pośredni między liniowym a spolaryzowanym, a m7-l2:25 i :110 nazywają liniowy „(zmieszany)”. Termin użyty w m4-l1:95–97 przed definicją w m7-l2.",
+  "poprawka": "W m7-l2:25 i :110 usunąć „(zmieszany)” albo napisać „liniowy (bliski zmieszanemu)”.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:condensed",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:719",
+   "content/pl/lessons/m5-l4-bez-pozycji.md:99",
+   "content/pl/rules.yaml:427"
+  ],
+  "uzasadnienie": "GTO Wizard (condensed, depolarized) zgodny; dwa hasła źródła połączone w jeden termin.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:value",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:726",
+   "content/pl/lessons/m3-l2-rece-startowe.md:53",
+   "content/pl/lessons/m4-l1-3bet.md:99",
+   "content/pl/lessons/m4-l2-obrona-bb.md:44",
+   "content/pl/lessons/m4-l2-obrona-bb.md:92",
+   "content/pl/exams/m4.yaml:29",
+   "content/pl/exams/m4.yaml:73"
+  ],
+  "uzasadnienie": "GTO Wizard (value bet) zgodny. Uwaga: prawie identyczny z t:value-bet (zob. tamten wpis).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:value-bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:734"
+  ],
+  "uzasadnienie": "Definicja zgodna z GTO Wizard, ale prawie identyczna z t:value (to samo źródło, to samo pojęcie); t:value-bet nie jest używany w lekcjach. Dwa klucze na jedno pojęcie.",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:bluff",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:740",
+   "content/pl/lessons/m3-l2-rece-startowe.md:26",
+   "content/pl/lessons/m4-l1-3bet.md:38",
+   "content/pl/lessons/m4-l1-3bet.md:43",
+   "content/pl/lessons/m4-l1-3bet.md:46",
+   "content/pl/exams/m6.yaml:10",
+   "content/pl/exams/m6.yaml:15"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:semi-bluff",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:747",
+   "content/pl/lessons/m6-l3-check-raise.md:62",
+   "content/pl/lessons/m6-l3-check-raise.md:123",
+   "content/pl/lessons/m7-l1-druga-beczka.md:65",
+   "content/pl/lessons/m7-l1-druga-beczka.md:96",
+   "content/pl/exams/m7.yaml:21",
+   "content/pl/exams/m7.yaml:46"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:blocker",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:754",
+   "content/pl/lessons/m8-l3-blokery.md:13",
+   "content/pl/lessons/m8-l3-blokery.md:16",
+   "content/pl/lessons/m8-l3-blokery.md:17",
+   "content/pl/lessons/m8-l3-blokery.md:87",
+   "content/pl/rules.yaml:734"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:bluff-catcher",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:761"
+  ],
+  "uzasadnienie": "Pierwsza część zgodna z GTO Wizard (bije tylko blefy, przegrywa z value). Dopisek „nadaje się do sprawdzania, nie do zakładu” nie ma cytatu w źródle.",
+  "poprawka": "Ręka, która pokonuje tylko blefy rywala, a przegrywa z jego zakładami dla wartości.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:barrel",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:767"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:second-barrel",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:774",
+   "content/pl/lessons/m7-l1-druga-beczka.md:13",
+   "content/pl/lessons/m7-l1-druga-beczka.md:18",
+   "content/pl/lessons/m7-l1-druga-beczka.md:23",
+   "content/pl/lessons/m7-l1-druga-beczka.md:37",
+   "content/pl/exams/m7.yaml:8",
+   "content/pl/exams/m7.yaml:18"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:probe-bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:780"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:donk-bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:786"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:overbet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:792",
+   "content/pl/lessons/m8-l2-ile-blefow.md:38"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:effective-stack",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:798",
+   "content/pl/lessons/m7-l3-implied-odds.md:134",
+   "content/pl/lessons/m9-l1-spr.md:64",
+   "content/pl/lessons/m9-l1-spr.md:113",
+   "content/pl/exams/m9.yaml:10",
+   "content/pl/rules.yaml:745"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:spr",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:805",
+   "content/pl/lessons/m7-l3-implied-odds.md:95",
+   "content/pl/lessons/m7-l3-implied-odds.md:101",
+   "content/pl/lessons/m7-l3-implied-odds.md:103",
+   "content/pl/lessons/m7-l3-implied-odds.md:105",
+   "content/pl/exams/m9.yaml:8",
+   "content/pl/exams/m9.yaml:12"
+  ],
+  "uzasadnienie": "GTO Wizard: „effective stack divided by the size of the pot”, bez ograniczenia do flopu. Słowniczek mówi „pula na flopie”, a m7-l3:134 uczy liczyć SPR na każdej ulicy (na turnie): dwie definicje jednego pojęcia.",
+  "poprawka": "Efektywny stack podzielony przez pulę na początku ulicy (do planu rozdania liczy się go na flopie); mówi, jak głębokie są stacki w stosunku do puli (im niższy SPR, tym szybciej wszystko trafia do puli).",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:mdf",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:812",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:15",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:20",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:22",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:27",
+   "content/pl/exams/m6.yaml:8",
+   "content/pl/exams/m6.yaml:10"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:alpha",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:819",
+   "content/pl/lessons/m10-l2-typy-graczy.md:51",
+   "content/pl/lessons/m10-l2-typy-graczy.md:130",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:103",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:129",
+   "content/pl/rules.yaml:871",
+   "content/pl/rules.yaml:904"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:variance",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:827",
+   "content/pl/lessons/m10-l4-rake.md:26",
+   "content/pl/lessons/m12-l1-wariancja.md:92",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:77",
+   "content/pl/lessons/m12-l2-decyzja-wynik.md:87",
+   "content/pl/exams/m12.yaml:37",
+   "content/pl/exams/m12.yaml:52"
+  ],
+  "uzasadnienie": "GTO Wizard zgodny; w m10-l4:26 zdefiniowana w miejscu użycia.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:buy-in",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:834",
+   "content/pl/lessons/m12-l1-wariancja.md:13",
+   "content/pl/lessons/m12-l1-wariancja.md:15",
+   "content/pl/lessons/m12-l1-wariancja.md:22",
+   "content/pl/lessons/m12-l1-wariancja.md:23",
+   "content/pl/exams/m12.yaml:9",
+   "content/pl/exams/m12.yaml:10"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:tilt",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:847"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:winrate",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:853"
+  ],
+  "uzasadnienie": "Definicja zgodna z GTO Wizard (bb/100). m10-l1:114 odsyła „tak samo jak błąd winrate w module 12”, czyli do modułu późniejszego: pojęcie użyte przed definicją.",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:downswing",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:860",
+   "content/pl/lessons/m12-l1-wariancja.md:63",
+   "content/pl/lessons/m12-l1-wariancja.md:65",
+   "content/pl/lessons/m12-l1-wariancja.md:66",
+   "content/pl/lessons/m12-l1-wariancja.md:67",
+   "content/pl/exams/m12.yaml:80",
+   "content/pl/exams/m12.yaml:93"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:session",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:866",
+   "content/pl/lessons/m10-l1-statystyki.md:85",
+   "content/pl/lessons/m10-l1-statystyki.md:87",
+   "content/pl/lessons/m10-l1-statystyki.md:130",
+   "content/pl/lessons/m12-l1-wariancja.md:102",
+   "content/pl/exams/m12.yaml:38",
+   "content/pl/exams/m12.yaml:64"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:stakes",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:873",
+   "content/pl/lessons/m7-l4-probe-obrona.md:145",
+   "content/pl/lessons/m10-l1-statystyki.md:87",
+   "content/pl/lessons/m10-l1-statystyki.md:130",
+   "content/pl/lessons/m10-l2-typy-graczy.md:33",
+   "content/pl/exams/m12.yaml:62",
+   "content/pl/exams/m12.yaml:65"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:standard-deviation",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:882",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:16",
+   "content/pl/lessons/m10-l3-odejscie-od-bazy.md:99",
+   "content/pl/lessons/m12-l1-wariancja.md:20",
+   "content/pl/lessons/m12-l1-wariancja.md:22",
+   "content/pl/exams/m12.yaml:7",
+   "content/pl/exams/m12.yaml:9"
+  ],
+  "uzasadnienie": "Definicja poparta (GTO Wizard, variance). Ale m10-l3:16 i :99 oznaczają t:standard-deviation „odchylenie” rywala od strategii bazowej: render „odchyleniu (standard deviation)” uczy złego pojęcia; jeden klucz w dwóch znaczeniach.",
+  "poprawka": "W m10-l3:16 i m10-l3:99 usunąć znacznik: „…dopiero przy dużym odchyleniu rywala od bazy”.",
+  "skutek": "S2",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:mental-game",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:897",
+   "content/pl/lessons/m12-l3-tilt.md:94"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:tournament",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:905",
+   "content/pl/lessons/m8-l1-value.md:138",
+   "content/pl/lessons/m11-l1-push-fold.md:13",
+   "content/pl/lessons/m11-l1-push-fold.md:108",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:175",
+   "content/pl/exams/m11.yaml:7",
+   "content/pl/exams/m11.yaml:67"
+  ],
+  "uzasadnienie": "Poparte: gra do zebrania wszystkich żetonów, poziomy (TDA), struktura wypłat. „Wszyscy za wpisowe dostają zwykle taki sam stack” nie ma cytatu w żadnym źródle wpisu.",
+  "poprawka": "Forma gry, w której blindy rosną co pewien czas, a gra trwa, aż jeden gracz zbierze wszystkie żetony; nagrody dostają najwyżej sklasyfikowani.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:push-fold",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:912"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:shove",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:919",
+   "content/pl/lessons/m11-l1-push-fold.md:65",
+   "content/pl/lessons/m11-l1-push-fold.md:91",
+   "content/pl/lessons/m11-l1-push-fold.md:108",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:68",
+   "content/pl/exams/m11.yaml:34",
+   "content/pl/exams/m11.yaml:48"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:icm",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:928",
+   "content/pl/lessons/m11-l3-icm.md:13",
+   "content/pl/lessons/m11-l3-icm.md:29",
+   "content/pl/lessons/m11-l3-icm.md:36",
+   "content/pl/lessons/m11-l3-icm.md:59",
+   "content/pl/exams/m11.yaml:57",
+   "content/pl/exams/m11.yaml:64"
+  ],
+  "uzasadnienie": "GTO Wizard zgodny; Wikipedia tylko pomocniczo.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:bubble",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:935",
+   "content/pl/lessons/m11-l3-icm.md:45",
+   "content/pl/lessons/m11-l3-icm.md:68",
+   "content/pl/lessons/m11-l3-icm.md:77",
+   "content/pl/lessons/m11-l3-icm.md:125",
+   "content/pl/exams/m11.yaml:57",
+   "content/pl/exams/m11.yaml:68"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:bubble-factor",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:941"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:cover",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:947",
+   "content/pl/lessons/m11-l3-icm.md:77",
+   "content/pl/lessons/m11-l3-icm.md:143",
+   "content/pl/lessons/m11-l3-icm.md:164",
+   "content/pl/exams/m11.yaml:73",
+   "content/pl/rules.yaml:1127"
+  ],
+  "uzasadnienie": "Źródła tylko używają zwrotu („stacks that cover you”), nie definiują go. Definicja wywnioskowana; „więcej” zamiast „co najmniej tyle” (przy równych stackach przegrana all-in też kończy turniej).",
+  "poprawka": "Mieć co najmniej tyle żetonów co rywal. Gdy rywal Cię pokrywa, przegrany z nim all-in kończy Twój turniej.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:risk-premium",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:956",
+   "content/pl/lessons/m11-l3-icm.md:61",
+   "content/pl/lessons/m11-l3-icm.md:62",
+   "content/pl/lessons/m11-l3-icm.md:159",
+   "content/pl/exams/m11.yaml:66",
+   "content/pl/exams/m11.yaml:76"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:m-ratio",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:962"
+  ],
+  "uzasadnienie": "GTO Wizard (orbity, blindy i ante) zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:red-zone",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:969",
+   "content/pl/lessons/m11-l1-push-fold.md:40",
+   "content/pl/lessons/m11-l1-push-fold.md:134"
+  ],
+  "uzasadnienie": "PokerListings i PokerStrategy (Harrington, szczebel 4) zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:green-zone",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:976",
+   "content/pl/lessons/m11-l1-push-fold.md:41"
+  ],
+  "uzasadnienie": "PokerListings i PokerStrategy (Harrington, szczebel 4) zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:ante",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:983"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:bb-ante",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:990",
+   "content/pl/lessons/m11-l1-push-fold.md:88",
+   "content/pl/lessons/m11-l1-push-fold.md:134",
+   "content/pl/lessons/m11-l1-push-fold.md:174",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:83",
+   "content/pl/rules.yaml:1071"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:fold-equity",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:996"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:gap-concept",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1002"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:chip-ev",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1009"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:tournament-equity",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1015",
+   "content/pl/lessons/m11-l3-icm.md:123"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:prize-pool",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1022",
+   "content/pl/lessons/m11-l3-icm.md:29",
+   "content/pl/lessons/m11-l3-icm.md:38",
+   "content/pl/lessons/m11-l3-icm.md:39",
+   "content/pl/lessons/m11-l3-icm.md:45",
+   "content/pl/exams/m11.yaml:57"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:payout",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1029",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:175",
+   "content/pl/lessons/m11-l3-icm.md:29",
+   "content/pl/lessons/m11-l3-icm.md:39",
+   "content/pl/lessons/m11-l3-icm.md:71",
+   "content/pl/exams/m11.yaml:67",
+   "content/pl/rules.yaml:1111"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:pay-jump",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1036"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:final-table",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1043",
+   "content/pl/lessons/m11-l3-icm.md:164",
+   "content/pl/exams/m11.yaml:77",
+   "content/pl/rules.yaml:1126"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:short-stack",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1050",
+   "content/pl/lessons/m11-l1-push-fold.md:26",
+   "content/pl/lessons/m11-l1-push-fold.md:65",
+   "content/pl/lessons/m11-l1-push-fold.md:79",
+   "content/pl/lessons/m11-l1-push-fold.md:128",
+   "content/pl/exams/m11.yaml:11",
+   "content/pl/exams/m11.yaml:50"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:nash-equilibrium",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1056"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:overcall",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1063"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:heads-up",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1069"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:dead-money",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1075"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:stack-off",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1081"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:exploit",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1090",
+   "content/pl/lessons/m6-l1-mdf-alpha.md:135",
+   "content/pl/lessons/m8-l2-ile-blefow.md:142",
+   "content/pl/lessons/m10-l1-statystyki.md:87",
+   "content/pl/lessons/m10-l1-statystyki.md:89"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:hud",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1097",
+   "content/pl/lessons/m10-l1-statystyki.md:65",
+   "content/pl/lessons/m10-l1-statystyki.md:83",
+   "content/pl/lessons/m10-l1-statystyki.md:85",
+   "content/pl/lessons/m10-l1-statystyki.md:86",
+   "content/pl/exams/m10.yaml:65",
+   "content/pl/rules.yaml:845"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:vpip",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1104",
+   "content/pl/lessons/m10-l1-statystyki.md:13",
+   "content/pl/lessons/m10-l1-statystyki.md:15",
+   "content/pl/lessons/m10-l1-statystyki.md:16",
+   "content/pl/lessons/m10-l1-statystyki.md:22",
+   "content/pl/exams/m10.yaml:9",
+   "content/pl/exams/m10.yaml:10"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:pfr",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1111",
+   "content/pl/lessons/m10-l1-statystyki.md:17",
+   "content/pl/lessons/m10-l1-statystyki.md:22",
+   "content/pl/lessons/m10-l1-statystyki.md:24",
+   "content/pl/lessons/m10-l1-statystyki.md:25",
+   "content/pl/exams/m10.yaml:9",
+   "content/pl/exams/m10.yaml:11"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:wtsd",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1118",
+   "content/pl/lessons/m10-l1-statystyki.md:108",
+   "content/pl/lessons/m10-l2-typy-graczy.md:49",
+   "content/pl/lessons/m10-l2-typy-graczy.md:122"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:nit",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1125",
+   "content/pl/lessons/m10-l1-statystyki.md:69",
+   "content/pl/lessons/m10-l2-typy-graczy.md:24",
+   "content/pl/lessons/m10-l2-typy-graczy.md:59",
+   "content/pl/lessons/m10-l2-typy-graczy.md:63",
+   "content/pl/exams/m10.yaml:34",
+   "content/pl/exams/m10.yaml:38"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:regular",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:1131",
+   "content/pl/lessons/m10-l1-statystyki.md:68",
+   "content/pl/lessons/m10-l2-typy-graczy.md:29",
+   "content/pl/lessons/m10-l2-typy-graczy.md:108",
+   "content/pl/lessons/m10-l2-typy-graczy.md:116",
+   "content/pl/rules.yaml:855",
+   "content/pl/rules.yaml:862"
+  ],
+  "uzasadnienie": "GTO Wizard (grinder) potwierdza tylko dużą liczbę rozdań; deepfold używa „TAG Reg”. „Gra w miarę solidnie” i „przeciwieństwo gracza rekreacyjnego” bez cytatu.",
+  "poprawka": "Stały bywalec danej stawki, który rozgrywa dużo rąk; w kursie przeciwstawiany graczowi rekreacyjnemu.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:tag",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1138",
+   "content/pl/lessons/m10-l2-typy-graczy.md:108"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:lag",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1145",
+   "content/pl/lessons/m10-l2-typy-graczy.md:108"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:recreational",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1153",
+   "content/pl/lessons/m10-l2-typy-graczy.md:29",
+   "content/pl/lessons/m10-l2-typy-graczy.md:31",
+   "content/pl/lessons/m10-l2-typy-graczy.md:32",
+   "content/pl/lessons/m10-l2-typy-graczy.md:39",
+   "content/pl/exams/m6.yaml:34",
+   "content/pl/exams/m10.yaml:52"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:calling-station",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:1160",
+   "content/pl/lessons/m10-l2-typy-graczy.md:112",
+   "content/pl/rules.yaml:862"
+  ],
+  "uzasadnienie": "GTO Wizard: gracz, który często sprawdza, często słabymi rękami lub drawami. Dopisek „rzadko pasuje lub przebija” nie ma cytatu (część o przebijaniu dodana).",
+  "poprawka": "Pogardliwie o graczu, który bardzo często sprawdza, nawet słabymi rękami albo drawami.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:maniac",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1166",
+   "content/pl/lessons/m10-l1-statystyki.md:68",
+   "content/pl/lessons/m10-l2-typy-graczy.md:78",
+   "content/pl/lessons/m10-l2-typy-graczy.md:87",
+   "content/pl/lessons/m10-l2-typy-graczy.md:89",
+   "content/pl/exams/m10.yaml:43",
+   "content/pl/exams/m10.yaml:45"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:rake",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:1173",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:77",
+   "content/pl/lessons/m4-l1-3bet.md:99",
+   "content/pl/lessons/m10-l4-rake.md:13",
+   "content/pl/lessons/m10-l4-rake.md:15",
+   "content/pl/exams/m10.yaml:82",
+   "content/pl/rules.yaml:930"
+  ],
+  "uzasadnienie": "GTO Wizard: pieniądze pobierane z puli. „Lub z wpisowego” (opłata turniejowa) nie ma cytatu w źródle wpisu.",
+  "poprawka": "Prowizja, którą kasyno albo pokój online pobiera z puli za prowadzenie gry.",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "t:rake-cap",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/terms.yaml:1179",
+   "content/pl/lessons/m10-l4-rake.md:42",
+   "content/pl/lessons/m10-l4-rake.md:43",
+   "content/pl/lessons/m10-l4-rake.md:44",
+   "content/pl/lessons/m10-l4-rake.md:49",
+   "content/pl/exams/m10.yaml:80",
+   "content/pl/rules.yaml:947"
+  ],
+  "uzasadnienie": "Cytat znaleziony w źródle; definicja zgodna z jego treścią (ta sama granica i warunki).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ }
+]
