@@ -305,3 +305,7 @@ t:calling-station	https://gtowizard.com/en/glossary/calling-station/	2026-11-04	
 t:maniac	https://gtowizard.com/en/glossary/maniac/	2026-11-04	616d0c1c45fe9b26f333aa1692087f0754b728bc57bc8cb235ca3260fc27b25d	tak	hasło maniac
 t:rake	https://gtowizard.com/en/glossary/rake/	2026-11-04	91fa476b6cdbfae4fb244120095f413f1b35af36f6a9d97423dba6c610dc379c	tak	hasło rake
 t:rake-cap	https://gtowizard.com/en/glossary/rake-cap/	2026-11-04	9bfb4711f8b8c3ade0421a6ac522aedfea3120317c61f343e1dcacd69db71ffe	tak	hasło rake-cap
+t:four-of-a-kind	https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm	2026-11-04	fcced942799e7b0262547c27c0a85aadc9a58da95f0218e3c28c3a40485ea957	tak	glosariusz KICKER i HAND (E3 S3; sha256 tekstu bez znaczników HTML)
+t:pot	https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm	2026-11-04	fcced942799e7b0262547c27c0a85aadc9a58da95f0218e3c28c3a40485ea957	tak	glosariusz SIDE POT (E3 S3; sha256 tekstu bez znaczników HTML)
+t:big-blind	https://www.pokertda.com/view-poker-tda-rules/	2026-11-04	4421a77c9c0b65c417e8b2ffc8bb07e1672af2752200829da3b9039a644c6931	tak	reguła 36-C (odczyt jak t:small-blind, E3 S3)
+t:early-position	https://upswingpoker.com/glossary/early-position/	2026-11-04	908832d3ca52e9dbb74fd4ff8d60719662daa1028f2136968f670adab0686fee	tak	hasło Early Position (E3 S3; sha256 tekstu bez znaczników HTML)
