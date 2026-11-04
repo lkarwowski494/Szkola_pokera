@@ -58,7 +58,7 @@ drills:
     options:
       - { text: "{{t:raise|Przebijam}} do {{n:pf.open-size-sb}}", correct: true, why: "Grasz już tylko przeciw {{t:big-blind|dużemu blindowi}}, więc {{t:open|otwierasz}} szeroko, ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk. Po flopie mówisz pierwszy, dlatego z {{t:small-blind|małego blinda}} {{t:raise|przebijasz}} trochę więcej niż z innych {{t:position|pozycji}}." }
       - { text: "{{t:raise|Przebijam}} do {{n:pf.open-size}}", sizeError: true, why: "Dobra akcja, zły rozmiar: {{n:pf.open-size}} to {{t:open}} z pozostałych {{t:position|pozycji}}. Z {{t:small-blind|małego blinda}} grasz {{t:out-of-position}}, więc {{t:raise|przebijasz}} do {{n:pf.open-size-sb}}." }
-      - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Wchodząc pierwszy, {{t:raise|przebijasz}} albo {{t:fold|pasujesz}}. Dopłata oddaje {{t:initiative|inicjatywę}} i szansę na zgarnięcie blindów od razu." }
+      - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Wchodząc pierwszy, {{t:raise|przebijasz}} albo {{t:fold|pasujesz}} (z {{t:small-blind|małego blinda}} to uproszczenie: niektóre rozwiązania solverów część rąk tu dopłacają). Dopłata oddaje {{t:initiative|inicjatywę}} i szansę na zgarnięcie blindów od razu." }
       - { text: "{{t:fold|Pasuję}}", why: "Za ciasno: wobec jednego rywala solver aplikacji gra T8o z {{t:small-blind|małego blinda}} zawsze." }
   - kind: numeric
     id: m3.exam.n1

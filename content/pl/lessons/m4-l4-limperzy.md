@@ -54,8 +54,8 @@ drills:
     prompt: "Trzech graczy przed tobą tylko wyrównało {{t:big-blind}}. Jesteś na Buttonie. Co robisz?"
     table: { hand: "7s 6s", position: BTN }
     options:
-      - { text: "Dopłacam", correct: true, why: "Wobec wielu limperów {{t:connectors}} w kolorze to ręce spekulacyjne: tanio zobaczysz flop {{t:in-position}} i możesz trafić dużą rękę. Jedno ze źródeł zaleca tu dopłatę." }
-      - { text: "{{t:fold|Pasuję}}", why: "Inne źródło radzi grać tylko {{t:raise|przebiciem}} albo {{t:fold|pasem}}, ale {{t:in-position}} wobec słabych limperów dopłata z 76s jest bardziej opłacalna: cena jest niska, a trafiona ręka wygrywa dużą {{t:pot|pulę}}." }
+      - { text: "Dopłacam", correct: true, why: "Wobec wielu limperów {{t:connectors}} w kolorze to ręce spekulacyjne: tanio zobaczysz flop {{t:in-position}} i możesz trafić dużą rękę. Jedno ze źródeł zaleca tu dopłatę; inne radzi jej unikać, więc zaliczamy też {{t:fold}}." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Też poprawne: jedno ze źródeł radzi nie dopłacać, tylko {{t:raise|przebić}} albo {{t:fold|spasować}}, a 76s nie nadaje się do {{t:raise|przebicia}} {{t:value|dla wartości}}. Inne źródło zaleca dopłatę, więc zaliczamy oba zagrania." }
       - { text: "{{t:raise|Przebijam}} do {{n:pf.iso.two-limpers}}", why: "Przy trzech limperach {{t:bluff}} {{t:raise|przebiciem}} rzadko odbiera {{t:pot|pulę}}, a rozmiar powinien być jeszcze większy. 76s nie nadaje się do {{t:raise|przebicia}} {{t:value|dla wartości}}." }
 ---
 Limp to wejście do rozdania przez samo wyrównanie {{t:big-blind|dużego blinda}}. Profesjonaliści rzadko limpują jako pierwsi (reguła z modułu 3), więc limperzy na mikrostawkach to zwykle słabsi gracze. {{t:raise|Przebicie}} limpera nazywa się {{t:isolation|izolacją}}: chcesz grać z nim sam na sam, najlepiej {{t:in-position}}.
@@ -72,4 +72,4 @@ Online {{t:raise|przebijasz}} do {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} 
 
 Na Buttonie wobec jednego limpera {{t:isolation|izolujesz}} szeroko, ok. {{n:pf.iso.btn.low}}–{{n:pf.iso.btn.high}} rąk: średnie i wysokie {{t:pair|pary}}, asy w kolorze, mocne asy w różnych kolorach, wysokie karty i część {{t:connectors|konektorów}} w kolorze. Im wcześniejsza {{t:position}} i im więcej limperów, tym węższy {{t:range}}: wobec trzech limperów {{t:raise|przebijasz}} głównie {{t:value|dla wartości}}.
 
-Ręce spekulacyjne, takie jak małe {{t:pair|pary}} i {{t:connectors|konektory}} w kolorze, wobec wielu limperów {{t:in-position}} najlepiej dopłacić. Tu źródła się różnią: jedno zaleca dopłatę, drugie radzi jej unikać; w ćwiczeniach przyjmujemy dopłatę.
+Ręce spekulacyjne, takie jak małe {{t:pair|pary}} i {{t:connectors|konektory}} w kolorze, wobec wielu limperów {{t:in-position}} możesz dopłacić. Tu źródła się różnią: jedno zaleca dopłatę, drugie radzi jej unikać; w ćwiczeniach zaliczamy oba zagrania, dopłatę i {{t:fold}}.

@@ -22,24 +22,24 @@
   then: "wygrywa układ wyżej w rankingu, niezależnie od wysokości kart"
   because: "ranking układów rozstrzyga przed wysokością kart; {{t:flush}} zawsze bije {{t:straight|strita}}, {{t:full-house}} zawsze bije {{t:flush}}"
   level: rules
-  source: "zasady Texas Hold'em: Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands), ranking od pokera królewskiego do wysokiej karty (dokument 12 M0–M3)"
-  sources: [{ kind: rules, url: "https://en.wikipedia.org/wiki/List_of_poker_hands" }]
+  source: "zasady Texas Hold'em: regulamin kasyna zatwierdzony przez kalifornijskiego regulatora hazardu (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), Card Values and Hand Rankings: „The ranking of hands for Texas Hold'em, in order from highest to lowest rank, shall be”; regulamin pokera kasyna w Perth zatwierdzony przez regulatora (RAG/551) (https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf), 10.1; pomocniczo: List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands) (dokument 12 M0–M3)"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }, { kind: rules, url: "https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf" }, { kind: reference, url: "https://en.wikipedia.org/wiki/List_of_poker_hands" }]
 - id: R-M0-002
   module: m0
   if: "obaj gracze mają ten sam rdzeń układu: tę samą {{t:pair|parę}}, {{t:three-of-a-kind|trójkę}} albo te same {{t:two-pair}}"
   then: "decydują kickery, porównywane kolejno od najwyższego, ale tylko te, które mieszczą się w najlepszych 5 kartach; jeśli piątki są identyczne, {{t:split-pot|pula jest dzielona}}"
   because: "najpierw liczy się ranga układu, potem jego wysokość, a kickery dopiero przy identycznym rdzeniu; liczy się tylko najlepsza piątka z 7 kart"
   level: rules
-  source: "zasady Texas Hold'em: Wikipedia, Texas hold 'em („the best five-card poker hand from any combination of the seven cards”); Robert's Rules of Poker (https://briggsoft.com/docs/pmavens/Rules_Roberts.htm), sekcja 5; kolejność porównania: Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands) (dokument 12 M0–M3)"
-  sources: [{ kind: rules, url: "https://briggsoft.com/docs/pmavens/Rules_Roberts.htm" }, { kind: rules, url: "https://en.wikipedia.org/wiki/List_of_poker_hands" }]
+  source: "zasady Texas Hold'em: regulamin pokera kasyna w Perth zatwierdzony przez regulatora (RAG/551) (https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf), 10.3–10.4: „all cards count, for example, Q:Q:7:7:9 shall lose to Q:Q:7:7:10”; Robert's Rules of Poker (https://briggsoft.com/docs/pmavens/Rules_Roberts.htm), sekcje 3 i 5; pomocniczo kolejność porównania: List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands) (dokument 12 M0–M3)"
+  sources: [{ kind: rules, url: "https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf" }, { kind: rules, url: "https://briggsoft.com/docs/pmavens/Rules_Roberts.htm" }, { kind: reference, url: "https://en.wikipedia.org/wiki/List_of_poker_hands" }]
 - id: R-M0-003
   module: m0
   if: "najlepsze 5 kart obu graczy leży na {{t:board|stole}}"
   then: "{{t:split-pot|pula jest dzielona}}"
   because: "obaj grają tę samą piątkę („{{t:playing-the-board}}”)"
   level: rules
-  source: "zasady Texas Hold'em: Wikipedia, Texas hold 'em („playing the board”); Robert's Rules of Poker (https://briggsoft.com/docs/pmavens/Rules_Roberts.htm), sekcja 5 („play the board”) (dokument 12 M0–M3)"
-  sources: [{ kind: rules, url: "https://briggsoft.com/docs/pmavens/Rules_Roberts.htm" }, { kind: rules }]
+  source: "zasady Texas Hold'em: Robert's Rules of Poker (https://briggsoft.com/docs/pmavens/Rules_Roberts.htm), sekcja 5 („play the board”); regulamin kasyna zatwierdzony przez kalifornijskiego regulatora hazardu (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf): „the pot shall be split equally among all players with the winning hand”; pomocniczo: Texas hold 'em (https://en.wikipedia.org/wiki/Texas_hold_%27em) (dokument 12 M0–M3)"
+  sources: [{ kind: rules, url: "https://briggsoft.com/docs/pmavens/Rules_Roberts.htm" }, { kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }, { kind: reference, url: "https://en.wikipedia.org/wiki/Texas_hold_%27em" }]
 
 - id: R-M1-001
   module: m1
@@ -89,7 +89,7 @@
   then: "szacujesz szansę trafienia: outy × 2 przy jednej karcie, outy × 4 przy dwóch; przy {{t:bet|zakładzie}} na flopie liczysz jedną kartę (× 2), a × 4 tylko wtedy, gdy zobaczysz turn i river bez dalszych {{t:bet|zakładów}} (all-in)"
   because: "za rivera rywal może kazać ci zapłacić osobno; reguła 2 i 4 myli się o ok. 2 punkty procentowe przy maks. 10 outach"
   level: math
-  source: "serwis szkoleniowy, Poker drawing odds & outs explained (https://upswingpoker.com/poker-drawing-odds-outs-explained/): „accurate within 2% … ten or fewer outs”; rachunek: największy błąd 1,7 pp przy 10 outach (dokument 12 M0–M3)"
+  source: "serwis szkoleniowy, Poker drawing odds & outs explained (https://upswingpoker.com/poker-drawing-odds-outs-explained/): „For anything 10 outs or less, however, its accurate within 2% for the turn and river calculation”; rachunek: największy błąd 1,7 pp przy 10 outach (dokument 12 M0–M3)"
   sources: [{ kind: training, url: "https://upswingpoker.com/poker-drawing-odds-outs-explained/" }, { kind: math }]
 - id: R-M2-003
   module: m2
@@ -123,8 +123,8 @@
   then: "{{t:open|otwierasz}} najszerzej ze wszystkich {{t:position|pozycji}} przed blindami; tylko {{t:small-blind}} {{t:open|otwiera}} podobnie szeroko"
   because: "od flopu mówisz ostatni i zostały za tobą tylko blindy"
   level: gto
-  source: "serwis z tabelami solvera, 6-max 100bb NL500: BTN 42%, SB 44%; serwis szkoleniowy, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): SB nieco szerzej niż Button, 40–50%; serwis z tabelami preflop, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): BTN 40–45%, SB 39–47% (dokument 12, D2)"
-  sources: [{ kind: training, url: "https://upswingpoker.com/small-blind-poker-strategy-tips/" }, { kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub }]
+  source: "serwis z tabelami solvera, 6-max 100bb NL500 (https://beyondgto.com/ranges/btn-open-6max-100bb, https://beyondgto.com/ranges/sb-open-6max-100bb): BTN 42%, SB 44%; serwis szkoleniowy, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): SB nieco szerzej niż Button, 40–50%; serwis z tabelami preflop, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): BTN 40–45%, SB 39–47% (dokument 12, D2)"
+  sources: [{ kind: training, url: "https://upswingpoker.com/small-blind-poker-strategy-tips/" }, { kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub, url: "https://beyondgto.com/ranges/btn-open-6max-100bb" }]
 - id: R-M3-002
   module: m3
   if: "wszyscy {{t:fold|spasowali}} do ciebie na {{t:utg}}"
@@ -132,8 +132,8 @@
   because: "za tobą jest jeszcze pięciu graczy, więc ktoś częściej ma lepszą rękę"
   level: gto
   check: { kind: solver-spot, players: [6], stackBb: [100], spots: [rfi.utg] }
-  source: "serwis komercyjnego solvera, Range Morphology (https://blog.gtowizard.com/range-morphology/): UTG 17,6%; serwis z tabelami solvera (NL500): UTG 17%, HJ 22%, CO 28%, BTN 42%; serwis z tabelami preflop, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 15–17 / 19–22 / 25–28 / 40–45% (dokument 12 M0–M3, D6)"
-  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/range-morphology/" }, { kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub }]
+  source: "serwis komercyjnego solvera, Range Morphology (https://blog.gtowizard.com/preflop-range-morphology/): UTG 17,6%; serwis z tabelami solvera (NL500, https://beyondgto.com/ranges/lj-open-6max-100bb, …/hj-…, …/co-…, …/btn-open-6max-100bb): UTG 17%, HJ 22%, CO 28%, BTN 42%; serwis z tabelami preflop, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 15–17 / 19–22 / 25–28 / 40–45% (dokument 12 M0–M3, D6)"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/preflop-range-morphology/" }, { kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub, url: "https://beyondgto.com/ranges/lj-open-6max-100bb" }]
 - id: R-M3-003
   module: m3
   if: "wszyscy {{t:fold|spasowali}} do ciebie na Buttonie"
@@ -141,17 +141,17 @@
   because: "zostały tylko blindy, a po flopie będziesz mieć {{t:position|pozycję}}"
   level: gto
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [rfi.btn, nine.rfi.btn] }
-  source: "serwis z tabelami solvera, BTN open 6-max 100bb (NL500): ok. 42%; serwis z tabelami preflop, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 40–45% (dokument 12 M0–M3, D6)"
-  sources: [{ kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub }]
+  source: "serwis z tabelami solvera, BTN open 6-max 100bb (https://beyondgto.com/ranges/btn-open-6max-100bb, NL500): ok. 42%; serwis z tabelami preflop, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 40–45% (dokument 12 M0–M3, D6)"
+  sources: [{ kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub, url: "https://beyondgto.com/ranges/btn-open-6max-100bb" }]
 - id: R-M3-004
   module: m3
   if: "wchodzisz do rozdania jako pierwszy"
-  then: "{{t:raise|przebijasz}} albo {{t:fold|pasujesz}}, nie dopłacasz samego blinda (limp)"
+  then: "{{t:raise|przebijasz}} albo {{t:fold|pasujesz}}, nie dopłacasz samego blinda (limp); z {{t:small-blind|małego blinda}} to uproszczenie: niektóre rozwiązania solverów część rąk dopłacają"
   because: "{{t:raise}} może od razu wygrać blindy i daje {{t:initiative|inicjatywę}}; limp oddaje obie te rzeczy"
   level: heuristic
   check: { kind: no-limp, players: [6, 9], stackBb: [100] }
-  source: "serwis szkoleniowy, Why limping is bad (https://upswingpoker.com/why-limping-in-poker-is-bad/): „If you make everyone fold preflop, you win 100% of the pot … You can't ever do that in a pot you've limped into”; serwis z tabelami solvera, SB open 6-max 100bb: „raise-or-fold” (dokument 12 M0–M3)"
-  sources: [{ kind: training, url: "https://upswingpoker.com/why-limping-in-poker-is-bad/" }, { kind: solver-pub }]
+  source: "serwis szkoleniowy, Why limping is bad (https://upswingpoker.com/why-limping-in-poker-is-bad/): „If you make everyone fold preflop, you win 100% of the pot … You can't ever do that in a pot you've limped into”; serwis z tabelami solvera, open 6-max 100bb (https://beyondgto.com/ranges/lj-open-6max-100bb, tak samo HJ, CO, BTN): „raising rather than limping or jamming at this depth”, SB (https://beyondgto.com/ranges/sb-open-6max-100bb): „At 100bb the whole range plays as raise-or-fold”. Mały blind: sprzeczność na szczeblu 2, serwis szkoleniowy z tabelami solvera (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics): „completes (limps) 20.5%”; raise-or-fold z SB to nazwane uproszczenie, bo drzewo solvera aplikacji nie ma limpów (D-144; dokument 12 M0–M3)"
+  sources: [{ kind: training, url: "https://upswingpoker.com/why-limping-in-poker-is-bad/" }, { kind: solver-pub, url: "https://beyondgto.com/ranges/sb-open-6max-100bb" }, { kind: training, url: "https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics" }]
 - id: R-M3-005
   module: m3
   if: "możesz wybrać między tymi samymi kartami w jednym kolorze i w różnych"
@@ -167,8 +167,8 @@
   because: "im mniej graczy zostało za tobą, tym rzadziej ktoś ma lepszą rękę i tym częściej po flopie masz {{t:position|pozycję}}"
   level: gto
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [rfi.hj, rfi.co, nine.rfi.hj, nine.rfi.co] }
-  source: "serwis komercyjnego solvera, Range Morphology (https://blog.gtowizard.com/range-morphology/): UTG 17,6%; serwis z tabelami solvera (NL500): UTG 17%, HJ 22%, CO 28%, BTN 42%; serwis z tabelami preflop, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 15–17 / 19–22 / 25–28 / 40–45% (dokument 12 M0–M3, D6): zakres otwarcia rośnie od UTG do Buttona"
-  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/range-morphology/" }, { kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub }]
+  source: "serwis komercyjnego solvera, Range Morphology (https://blog.gtowizard.com/preflop-range-morphology/): UTG 17,6%; serwis z tabelami solvera (NL500, https://beyondgto.com/ranges/hj-open-6max-100bb, https://beyondgto.com/ranges/co-open-6max-100bb): UTG 17%, HJ 22%, CO 28%, BTN 42%; serwis z tabelami preflop, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 15–17 / 19–22 / 25–28 / 40–45% (dokument 12 M0–M3, D6): zakres otwarcia rośnie od UTG do Buttona"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/preflop-range-morphology/" }, { kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub, url: "https://beyondgto.com/ranges/hj-open-6max-100bb" }]
 - id: R-M3-007
   module: m3
   if: "wchodzisz do rozdania jako pierwszy {{t:raise|przebiciem}}"
@@ -176,8 +176,8 @@
   because: "jeden rozmiar z każdej {{t:position|pozycji}} jest prosty i nie zdradza siły ręki; z {{t:small-blind|małego blinda}} grasz {{t:out-of-position}}, więc {{t:raise|przebijasz}} trochę więcej"
   level: heuristic
   check: { kind: open-size, players: [6, 9], stackBb: [100], params: { open: "n:pf.open-size", openSb: "n:pf.open-size-sb" } }
-  source: "serwis z tabelami preflop, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): „the standard open size is 2.5bb from all positions … 3bb from the small blind”; serwis komercyjnego solvera, Range Morphology (https://blog.gtowizard.com/range-morphology/): UTG 2bb, CO 2,3bb, BTN 2,5bb, SB 3bb (uproszczenie, dokument 12, D8)"
-  sources: [{ kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub, url: "https://blog.gtowizard.com/range-morphology/" }]
+  source: "serwis z tabelami preflop, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): „the standard open size is 2.5bb from all positions … 3bb from the small blind”; serwis komercyjnego solvera, Range Morphology (https://blog.gtowizard.com/preflop-range-morphology/): UTG 2bb, CO 2,3bb, BTN 2,5bb, SB 3bb (uproszczenie, dokument 12, D8)"
+  sources: [{ kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub, url: "https://blog.gtowizard.com/preflop-range-morphology/" }]
 - id: R-M3-008
   module: m3
   if: "masz rękę z grupy najmocniejszych (AA, KK, QQ, AK), a ktoś przed tobą {{t:raise|przebił}}"
@@ -189,21 +189,21 @@
 - id: R-M3-009
   module: m3
   if: "wszyscy {{t:fold|spasowali}} do ciebie na {{t:small-blind|małym blindzie}}"
-  then: "{{t:open|otwierasz}} szeroko, ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, {{t:raise|przebiciem}} do {{n:pf.open-size-sb}} albo {{t:fold|pasem}}"
+  then: "{{t:open|otwierasz}} szeroko, ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, {{t:raise|przebiciem}} do {{n:pf.open-size-sb}} albo {{t:fold|pasem}} (uproszczenie: niektóre rozwiązania solverów część rąk z {{t:small-blind|małego blinda}} dopłacają)"
   because: "grasz już tylko przeciw {{t:big-blind|dużemu blindowi}}; po flopie mówisz pierwszy, więc nie {{t:open|otwierasz}} szerzej niż z Buttona tylko dlatego, że rywal jest jeden"
   level: gto
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [rfi.sb, nine.rfi.sb] }
-  source: "serwis z tabelami solvera, SB open 6-max 100bb NL500: ok. 44%, raise-or-fold; serwis szkoleniowy, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): 40–50%; serwis z tabelami preflop (https://www.preflopwizard.app/blog/6-max-preflop-charts): 39–47%; przedział 40–45% to część wspólna (dokument 12, D3)"
-  sources: [{ kind: training, url: "https://upswingpoker.com/small-blind-poker-strategy-tips/" }, { kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub }]
+  source: "serwis z tabelami solvera, SB open 6-max 100bb NL500 (https://beyondgto.com/ranges/sb-open-6max-100bb): ok. 44%, raise-or-fold; serwis szkoleniowy, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): 40–50%; serwis z tabelami preflop (https://www.preflopwizard.app/blog/6-max-preflop-charts): 39–47%; przedział 40–45% to część wspólna strategii bez limpów (dokument 12, D3). Uproszczenie raise-or-fold (D-144): serwis szkoleniowy z tabelami solvera (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics): „The small blind raises (3bb) 33.1% : completes (limps) 20.5%”"
+  sources: [{ kind: training, url: "https://upswingpoker.com/small-blind-poker-strategy-tips/" }, { kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub, url: "https://beyondgto.com/ranges/sb-open-6max-100bb" }, { kind: training, url: "https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics" }]
 
 - id: R-M3-010
   module: m3
   if: "grasz przy stole 9-osobowym i wszyscy przed tobą {{t:fold|spasowali}}"
-  then: "z {{t:utg}} {{t:open|otwierasz}} ok. {{n:solver9.rfi.utg}} rąk, z {{t:utg|UTG}}+1 ok. {{n:solver9.rfi.utg1}}, z {{t:utg|UTG}}+2 ok. {{n:solver9.rfi.utg2}}; od LJ dalej grasz jak przy stole 6-osobowym (LJ jak {{t:utg}})"
-  because: "za tobą jest więcej graczy niż przy stole 6-osobowym, więc częściej ktoś ma lepszą rękę; gdy wcześni gracze {{t:fold|spasują}}, za LJ zostaje tylu graczy co za {{t:utg}} przy stole 6-osobowym"
-  level: gto
+  then: "z {{t:utg}}, {{t:utg|UTG}}+1 i {{t:utg|UTG}}+2 {{t:open|otwierasz}} węziej niż z {{t:utg}} przy stole 6-osobowym; od LJ dalej grasz jak przy stole 6-osobowym (LJ jak {{t:utg}})"
+  because: "za tobą siedzi więcej graczy niż przy stole 6-osobowym, więc częściej ktoś ma lepszą rękę; gdy wcześni gracze {{t:fold|spasują}}, za LJ zostaje tylu graczy co za {{t:utg}} przy stole 6-osobowym"
+  level: heuristic
   check: { kind: solver-spot, players: [9], stackBb: [100], spots: [nine.rfi.utg, nine.rfi.utg1, nine.rfi.utg2, nine.rfi.lj] }
-  source: "solver preflop projektu, stół 9-osobowy 100bb (ADR-20; dokument 10, „Pomiar N9a końcowy”: walidacja częściowa N1–N4, NashConv 0,0094bb; skład UTG–UTG+2 niezweryfikowany, więc reguła mówi tylko o częstościach). Zgodne z przedziałem wspólnym tabel 9-max szczebla 4: UTG ok. 9–13%, UTG+1 ok. 11–14% (serwis z tabelami preflop, 9-Max Preflop Chart, https://preflopwizard.app/blog/9-max-preflop-chart; drugi serwis z tabelami preflop, https://about-poker.com/preflop-gto/preflop-range-chart-cash-game; dokument 10, „Konfiguracja 9-max 100bb”). Gra po pasach UTG–UTG+2 to dokładnie gra 6-max (test drzewa)"
+  source: "solver preflop projektu, stół 9-osobowy 100bb (ADR-20; dokument 10, „Pomiar N9a końcowy”: walidacja częściowa N1–N4, NashConv 0,0094bb; skład UTG–UTG+2 niezweryfikowany, a częstości bez walidacji szczebla 2 (D-153), więc reguła podaje tylko kierunek, bez liczb solvera; poziom heuristic, D-144). Zgodne z przedziałem wspólnym tabel 9-max szczebla 4: UTG ok. 9–13%, UTG+1 ok. 11–14% (serwis z tabelami preflop, 9-Max Preflop Chart, https://preflopwizard.app/blog/9-max-preflop-chart; drugi serwis z tabelami preflop, https://about-poker.com/preflop-gto/preflop-range-chart-cash-game; dokument 10, „Konfiguracja 9-max 100bb”). Gra po pasach UTG–UTG+2 to dokładnie gra 6-max (test drzewa)"
   sources: [{ kind: training, url: "https://preflopwizard.app/blog/9-max-preflop-chart" }, { kind: training, url: "https://about-poker.com/preflop-gto/preflop-range-chart-cash-game" }, { kind: solver-app }]
 # M4: gra wobec akcji preflop. Reguły „heuristic” pochodzą z literatury, nie z solvera aplikacji (dokument 11).
 - id: R-M4-001
@@ -227,38 +227,38 @@
 - id: R-M4-003
   module: m4
   if: "jesteś na {{t:small-blind|małym blindzie}}, a {{t:open|otworzył}} {{t:cutoff|CO}} albo Button"
-  then: "prawie nie {{t:call|sprawdzasz}}: 3-betujesz albo {{t:fold|pasujesz}}; wobec Buttona 3-betujesz górę {{t:range|zakresu}} (ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, m.in. 77+ (solver aplikacji także 55 i 66), AJo+, KQo, A5s, A4s, T9s), a resztę {{t:fold|pasujesz}}"
+  then: "prawie nie {{t:call|sprawdzasz}}: 3-betujesz albo {{t:fold|pasujesz}}; wobec Buttona 3-betujesz górę {{t:range|zakresu}} (ok. {{n:pf.3bet-freq.sb-vs-btn}} rąk, m.in. 77+ (55 i 66 często), AJo+, KQo, A5s, A4s, T9s), a resztę {{t:fold|pasujesz}}"
   because: "po {{t:call|sprawdzeniu}} z {{t:small-blind|małego blinda}} grasz {{t:out-of-position}}, a {{t:big-blind}} za tobą może jeszcze {{t:raise|przebić}}; 3-bet daje {{t:initiative|inicjatywę}} i szansę wygrania {{t:pot|puli}} od razu"
   level: gto
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [vs-open.sb-vs-btn, nine.vs-open.sb-vs-btn] }
-  source: "serwis komercyjnego solvera, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, SB vs BTN: 3-bet 14%, sprawdzenie 2%; „the SB barely calls anything. Instead, they almost exclusively 3-bet or fold”; serwis szkoleniowy, 3-Bet Preflop Strategy (https://upswingpoker.com/3-bet-strategy-aggressive-preflop/): „3-bet-or-fold strategies from every position except the Big Blind” (dokument 10, rozstrzygnięcie B-045: treść R-M4-015 włączona do R-M4-003)"
-  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/" }, { kind: training, url: "https://upswingpoker.com/3-bet-strategy-aggressive-preflop/" }]
+  source: "serwis z tabelami solvera, SB vs BTN (https://beyondgto.com/defense/sb-vs-btn), NL500, 100bb: „GTO defends the Small Blind with about 18% of hands - roughly 5% as a flat call and 13% as a 3-bet”, 55 3-bet 57%, 66 62%; serwis komercyjnego solvera, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, SB vs BTN: „the SB barely calls anything. Instead, they almost exclusively 3-bet or fold”; serwis szkoleniowy, 3-Bet Preflop Strategy (https://upswingpoker.com/3-bet-strategy-aggressive-preflop/): „3-bet-or-fold strategies from every position except the Big Blind” (dokument 10, rozstrzygnięcie B-045: treść R-M4-015 włączona do R-M4-003; liczba 14% z grafiki zastąpiona odczytanym tekstem, E1)"
+  sources: [{ kind: solver-pub, url: "https://beyondgto.com/defense/sb-vs-btn" }, { kind: solver-pub, url: "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/" }, { kind: training, url: "https://upswingpoker.com/3-bet-strategy-aggressive-preflop/" }]
 - id: R-M4-004
   module: m4
   if: "jesteś na {{t:big-blind|dużym blindzie}}, Button {{t:open|otworzył}} na {{n:pf.open-size}}, a {{t:small-blind}} {{t:fold|spasował}}"
   then: "bronisz szeroko, bo do {{t:call|sprawdzenia}} potrzebujesz tylko ok. {{n:eq.bb-vs-btn-open}} equity"
-  because: "dopłacasz niewiele do dużej {{t:pot|puli}}; solver aplikacji broni tu {{n:solver.def.bb-vs-btn}} rąk"
+  because: "dopłacasz niewiele do dużej {{t:pot|puli}}; opublikowane rozwiązania solverów bronią tu ok. {{n:pf.bb-def.vs-btn.pub.low}}–{{n:pf.bb-def.vs-btn.pub.high}} rąk"
   level: heuristic
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [vs-open.bb-vs-btn, nine.vs-open.bb-vs-btn] }
-  source: "obliczenie ceny; solver preflop projektu (ADR-20)"
-  sources: [{ kind: math }, { kind: solver-app }]
+  source: "obliczenie ceny; serwis z tabelami solvera, BB vs BTN (https://beyondgto.com/defense/bb-vs-btn), NL500: „GTO defends the Big Blind with about 45% of hands”; szkoła publikująca wyniki solvera (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), NL200: „3-bets 11.5% to 11bb and calls 29.0%”; solver preflop projektu (ADR-20) tylko w siatce i ocenie gram/pas, jego łączna obrona bez walidacji (D-153)"
+  sources: [{ kind: math }, { kind: solver-pub, url: "https://beyondgto.com/defense/bb-vs-btn" }, { kind: solver-pub, url: "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide" }, { kind: solver-app }]
 - id: R-M4-005
   module: m4
   if: "z {{t:position|pozycji}} {{t:raise|przebijasz}} {{t:open}} z {{t:hijack|HJ}} albo {{t:cutoff|CO}}"
-  then: "3-betujesz głównie najlepsze ręce od góry i dokładasz kilka {{t:bluff|blefów}} z asami w kolorze (A5s, A4s); część słabszych rąk, np. małe {{t:pair|pary}} i {{t:connectors|konektory}} w kolorze, {{t:call|sprawdzasz}}. Button wobec {{t:cutoff|CO}} zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a {{t:call|sprawdza}} ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}"
+  then: "3-betujesz głównie najlepsze ręce od góry i dokładasz kilka {{t:bluff|blefów}} z asami w kolorze (A5s, A4s); średnie ręce (np. 77–99, AJs, ATs, {{t:connectors|konektory}} w kolorze) grasz mieszanie: część 3-betujesz, część {{t:call|sprawdzasz}}. Button wobec {{t:cutoff|CO}} zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a {{t:call|sprawdza}} ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}"
   because: "rywal często {{t:call|sprawdza}}, więc chcesz mieć rękę, która dobrze gra w {{t:pot|puli}} po {{t:call|sprawdzeniu}}"
   level: gto
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [vs-open.btn-vs-co, nine.vs-open.btn-vs-co] }
-  source: "serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb: „Against a CO open, BTN will 3-bet ~12% of hands, while calling only 5%.”; serwis z tabelami solvera, BTN vs CO (https://beyondgto.com/defense/btn-vs-co), NL500, 100bb: „roughly 9% as a flat call and 10% as a 3-bet”; liczby to część wspólna obu źródeł (decyzja A2, dokument 10). Solver aplikacji tego podziału nie odtwarza (prawie nie sprawdza), więc siatka i ocena w trybie gry sprawdzają tylko „gram / pas”; serwis szkoleniowy, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide), tabela BTN vs CO: „QQ+, AKs, AKo, AQs (mixed), A5s, A4s…”; serwis szkoleniowy (https://gtogecko.com/blog/gto-preflop-strategy) nazywa zakres liniowym, a serwis z tabelami preflop spolaryzowanym (dokument 12 M4–M6, D-02)"
-  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/" }, { kind: solver-pub, url: "https://beyondgto.com/defense/btn-vs-co" }, { kind: training, url: "https://deepfold.co/en/blog/three-bet-strategy-guide" }, { kind: training, url: "https://gtogecko.com/blog/gto-preflop-strategy" }, { kind: training }]
+  source: "serwis komercyjnego solvera, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb: „Against a CO open, BTN will 3-bet ~12% of hands, while calling only 5%.”; serwis z tabelami solvera, BTN vs CO (https://beyondgto.com/defense/btn-vs-co), NL500, 100bb: „roughly 9% as a flat call and 10% as a 3-bet”; szkoła publikująca wyniki solvera (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), NL200: „the solver 3-bets 12.5% of hands to 7.5bb and calls only 3.0%”, „55–22 most of the time” pas; przedziały obejmują trzy źródła szczebla 2, skład to ich część wspólna: góra 3-bet, środek mieszany (D-144; wcześniej decyzja A2, dokument 10). Solver aplikacji tego podziału nie odtwarza (prawie nie sprawdza), więc siatka i ocena w trybie gry sprawdzają tylko „gram / pas”; serwis szkoleniowy, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide), tabela BTN vs CO: „QQ+, AKs, AKo, AQs (mixed), A5s, A4s…”; serwis szkoleniowy (https://gtogecko.com/blog/gto-preflop-strategy) nazywa zakres liniowym, a serwis z tabelami preflop spolaryzowanym (dokument 12 M4–M6, D-02)"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/" }, { kind: solver-pub, url: "https://beyondgto.com/defense/btn-vs-co" }, { kind: solver-pub, url: "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide" }, { kind: training, url: "https://deepfold.co/en/blog/three-bet-strategy-guide" }, { kind: training, url: "https://gtogecko.com/blog/gto-preflop-strategy" }, { kind: training }]
 - id: R-M4-006
   module: m4
-  if: "z {{t:big-blind|dużego blinda}} {{t:raise|przebijasz}} {{t:open}} Buttona albo {{t:small-blind|małego blinda}}"
+  if: "z {{t:big-blind|dużego blinda}} {{t:raise|przebijasz}} {{t:open}} Buttona"
   then: "3-betujesz najsilniejsze ręce (TT+, AQ+, AJs+) plus {{t:bluff|blefy}} z dołu {{t:range|zakresu}} {{t:call|sprawdzenia}}: A5s, czasem A4s, i {{t:connectors|konektory}} w kolorze; średnie i małe {{t:pair|pary}}, KQo oraz asy w różnych kolorach (AJo–A9o) zwykle {{t:call|sprawdzasz}}"
   because: "z {{t:big-blind|dużego blinda}} {{t:call|sprawdzasz}} tanio i zamykasz akcję, więc średnie ręce zarabiają więcej po {{t:call|sprawdzeniu}}, a 3-bet zostawiasz rękom, które chcą dużej {{t:pot|puli}}, i {{t:bluff|blefom}}, które dobrze grają po {{t:call|sprawdzeniu}} (asy w kolorze blokują AA i AK)"
   level: gto
-  source: "serwis komercyjnego solvera, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, BB vs BTN: „TT+, AJs+, and AQo+ are 3-bet purely”, blefy „near the bottom of our calling range”; serwis komercyjnego solvera, Range Morphology (https://blog.gtowizard.com/range-morphology/), BB vs SB; szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide) i Big blind defence (https://poker.academy/blog/post/big-blind-basics-explained-useful-tips-for-poker-players), NL200 i NL50 GG; serwis szkoleniowy, Blind vs Blind Without a Solver (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics), tabele tego serwisu; serwis szkoleniowy, 3-Bet Preflop Strategy (https://upswingpoker.com/3-bet-strategy-aggressive-preflop/), tabele solvera tego serwisu. Uproszczenie: skład zależy od rake'u i rozmiaru 3-betu; 99, KQo i AJo bywają mieszane (dokument 10, rozstrzygnięcie B-045)"
-  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/" }, { kind: solver-pub, url: "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide" }, { kind: training, url: "https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics" }, { kind: training, url: "https://upswingpoker.com/3-bet-strategy-aggressive-preflop/" }]
+  source: "serwis komercyjnego solvera, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, BB vs BTN: „TT+, AJs+, and AQo+ are 3-bet purely”, blefy „near the bottom of our calling range”; serwis z tabelami solvera, BB vs BTN (https://beyondgto.com/defense/bb-vs-btn): „A5s · 3-bet 100%”. Reguła dotyczy tylko otwarcia Buttona (D-144): wobec małego blinda źródła szczebla 2 nie są zgodne co do blefów (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics: „A5s calls 96% of the time rather than turning into a three-bet bluff”; https://beyondgto.com/defense/bb-vs-sb: „A5s · 3-bet 4% · call 96%”; serwis komercyjnego solvera, Range Morphology, https://blog.gtowizard.com/preflop-range-morphology/: blefy z samego dołu zakresu), więc lekcja mówi tylko, że wobec małego blinda 3-betujesz głównie dla wartości, a A5s i konektory w kolorze zwykle sprawdzasz; szkoła publikująca wyniki solvera, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide) i Big blind defence (https://poker.academy/blog/post/big-blind-basics-explained-useful-tips-for-poker-players), NL200 i NL50 GG; serwis szkoleniowy, Blind vs Blind Without a Solver (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics), tabele tego serwisu; serwis szkoleniowy, 3-Bet Preflop Strategy (https://upswingpoker.com/3-bet-strategy-aggressive-preflop/), tabele solvera tego serwisu. Uproszczenie: skład zależy od rake'u i rozmiaru 3-betu; 99, KQo i AJo bywają mieszane (dokument 10, rozstrzygnięcie B-045)"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/" }, { kind: solver-pub, url: "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide" }, { kind: solver-pub, url: "https://beyondgto.com/defense/bb-vs-btn" }, { kind: training, url: "https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics" }, { kind: training, url: "https://upswingpoker.com/3-bet-strategy-aggressive-preflop/" }]
 - id: R-M4-007
   module: m4
   if: "dostajesz 3-bet od gracza, który po flopie będzie mieć {{t:position|pozycję}}"
@@ -270,11 +270,11 @@
 - id: R-M4-008
   module: m4
   if: "dostajesz 3-bet i po flopie będziesz {{t:out-of-position}}"
-  then: "{{t:call|sprawdzasz}} tylko wysokimi kartami w kolorze, mocnymi asami w kolorze oraz średnimi i wysokimi {{t:pair|parami}}; słabsze ręce w różnych kolorach (KJo, ATo, QTo) {{t:fold|pasujesz}}"
+  then: "{{t:call|sprawdzasz}} głównie wysokimi kartami w kolorze, mocnymi asami w kolorze, średnimi i wysokimi {{t:pair|parami}} oraz częścią {{t:connectors|konektorów}} w kolorze; słabsze ręce w różnych kolorach (KJo, ATo, QTo) {{t:fold|pasujesz}}"
   because: "ręce w różnych kolorach są często zdominowane i źle {{t:equity-realization|realizują equity}} {{t:out-of-position}}"
   level: heuristic
-  source: "serwis szkoleniowy, 3-bet calling ranges; serwis szkoleniowy, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide)"
-  sources: [{ kind: training, url: "https://deepfold.co/en/blog/three-bet-strategy-guide" }, { kind: training }]
+  source: "serwis szkoleniowy, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide), CO vs BTN 3-bet: „Call QQ, JJ, TT, 99, 88, AQs, AJs, KQs, KJs, QJs, JTs, T9s, 77, 66 Fold Marginal offsuit broadways”; serwis z uproszczonymi tabelami szkoleniowymi (https://pailiku.com/charts/co-vs-btn-3bet): „Call JJ-77, AQs-ATs, AKs, KQs-KJs, QJs, JTs, T9s, 98s, 87s, 76s, 65s”; serwis szkoleniowy, How to Play vs 3-Bets (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/): „calling with fewer suited connectors, suited gappers and offsuit broadway hands”"
+  sources: [{ kind: training, url: "https://deepfold.co/en/blog/three-bet-strategy-guide" }, { kind: training, url: "https://pailiku.com/charts/co-vs-btn-3bet" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]
 - id: R-M4-009
   module: m4
   if: "dostajesz 3-bet i po flopie będziesz mieć {{t:position|pozycję}}"
@@ -286,11 +286,11 @@
 - id: R-M4-010
   module: m4
   if: "dostajesz 3-bet z AA, KK albo AK"
-  then: "4-betujesz ({{t:value|dla wartości}})"
+  then: "zwykle 4-betujesz ({{t:value|dla wartości}}); AK bywa też {{t:call|sprawdzane}}"
   because: "te ręce chcą wpłacić cały stack i dominują większość rąk, które {{t:call|sprawdzą}} 4-bet"
   level: heuristic
-  source: "serwis szkoleniowy, How to Play vs 3-Bets (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/); serwis szkoleniowy, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide)"
-  sources: [{ kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }, { kind: training, url: "https://deepfold.co/en/blog/three-bet-strategy-guide" }]
+  source: "serwis szkoleniowy, How to Play vs 3-Bets (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/): AK „should be 4-bet with 100% frequency” (Button vs BB); serwis szkoleniowy, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide): „4-bet value KK+, AKs (mixed), AKo (mixed)”; serwis z uproszczonymi tabelami szkoleniowymi (https://pailiku.com/charts/co-vs-btn-3bet): „4-bet QQ+, AKo, A5s-A4s Call JJ-77, AQs-ATs, AKs”"
+  sources: [{ kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }, { kind: training, url: "https://deepfold.co/en/blog/three-bet-strategy-guide" }, { kind: training, url: "https://pailiku.com/charts/co-vs-btn-3bet" }]
 - id: R-M4-011
   module: m4
   if: "4-betujesz"
@@ -306,21 +306,21 @@
   because: "mniejsze {{t:raise}} daje limperom zbyt dobrą cenę i nie odbiera im rozdania"
   level: heuristic
   check: { kind: iso-size, players: [6, 9], stackBb: [100], params: { base: "n:pf.iso.base", perLimper: "n:pf.iso.per-limper", oopExtra: "n:pf.iso.oop-extra" } }
-  source: "serwis szkoleniowy, How to Maximize Your Winnings Versus Multiple Limpers; serwis z tabelami preflop, ISO Raise Strategy"
-  sources: [{ kind: training }, { kind: training }]
+  source: "serwis szkoleniowy, 10 Tips for Crushing Limpers (https://www.pokernews.com/strategy/10-tips-that-will-help-you-destroy-limpers-32206.htm): „Raise to 3bb+1bb per limper when playing online, and 4bb+1bb per limper when playing live”; serwis z tabelami preflop, ISO Raise Strategy (https://www.preflopwizard.app/blog/poker-iso-raise-strategy): „Base open size (3bb) + 1 big blind per limper”, „Add 1bb more from OOP positions”. Rozmiar dotyczy gry online"
+  sources: [{ kind: training, url: "https://www.pokernews.com/strategy/10-tips-that-will-help-you-destroy-limpers-32206.htm" }, { kind: training, url: "https://www.preflopwizard.app/blog/poker-iso-raise-strategy" }]
 - id: R-M4-013
   module: m4
   if: "przed tobą limpuje więcej graczy"
-  then: "{{t:raise|przebijasz}} węższym {{t:range|zakresem}}, głównie {{t:value|dla wartości}}; ręce spekulacyjne (małe {{t:pair|pary}}, {{t:connectors|konektory}} w kolorze) {{t:in-position}} raczej dopłacasz"
+  then: "{{t:raise|przebijasz}} węższym {{t:range|zakresem}}, głównie {{t:value|dla wartości}}; ręce spekulacyjne (małe {{t:pair|pary}}, {{t:connectors|konektory}} w kolorze) {{t:in-position}} możesz dopłacić"
   because: "każdy kolejny limper zwiększa szansę, że ktoś {{t:call|sprawdzi}}, więc {{t:bluff}} preflop traci wartość"
   level: heuristic
-  source: "serwis szkoleniowy, Versus Multiple Limpers; serwis z tabelami preflop, ISO Raise Strategy (drugi z nich radzi nie dopłacać; przyjmujemy wersję serwisu szkoleniowego)"
-  sources: [{ kind: training }, { kind: training }]
+  source: "serwis z tabelami preflop, ISO Raise Strategy (https://www.preflopwizard.app/blog/poker-iso-raise-strategy): „Against multiple limpers, tighten each range by roughly one tier”, o dopłacaniu: „This is almost always wrong”; serwis szkoleniowy (https://www.pokernews.com/strategy/three-ways-to-respond-versus-a-table-full-of-limpers-26839.htm): „limp behind with those suited connectors, small pairs”; serwis szkoleniowy (https://www.pokernews.com/strategy/10-tips-that-will-help-you-destroy-limpers-32206.htm): „over-limping, which can be fine”. Sprzeczność na szczeblu 4: oba zagrania poprawne (ADR-04, D-144)"
+  sources: [{ kind: training, url: "https://www.preflopwizard.app/blog/poker-iso-raise-strategy" }, { kind: training, url: "https://www.pokernews.com/strategy/three-ways-to-respond-versus-a-table-full-of-limpers-26839.htm" }]
 - id: R-M4-014
   module: m4
   if: "jesteś na {{t:big-blind|dużym blindzie}}, a {{t:small-blind}} {{t:open|otworzył}} na {{n:pf.open-size-sb}}"
   then: "bronisz szeroko, ponad połowę rąk, choć do {{t:call|sprawdzenia}} potrzebujesz ok. {{n:eq.bb-vs-sb-open}} equity; 3-bet ma ok. {{n:pf.3bet.size-ip}} {{t:open|otwarcia}}"
-  because: "po flopie masz {{t:position|pozycję}}, więc realizujesz więcej equity; solver aplikacji broni tu {{n:solver.def.bb-vs-sb}} rąk, opublikowane rozwiązanie solvera ok. {{n:pf.bb-def.vs-sb.pub}}"
+  because: "po flopie masz {{t:position|pozycję}}, więc realizujesz więcej equity; opublikowane rozwiązanie solvera broni tu ok. {{n:pf.bb-def.vs-sb.pub}} rąk"
   level: heuristic
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [vs-open.bb-vs-sb, nine.vs-open.bb-vs-sb] }
   source: "obliczenie ceny; solver preflop projektu (ADR-20); drzewo solvera (3-bet do 9bb); serwis z tabelami solvera, BB vs SB (https://beyondgto.com/defense/bb-vs-sb), NL500, 100bb: „GTO defends the Big Blind with about 56% of hands”"

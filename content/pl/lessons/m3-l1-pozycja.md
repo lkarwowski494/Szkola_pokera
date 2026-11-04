@@ -24,7 +24,7 @@ drills:
     options:
       - { text: "{{t:fold|Pasuję}}", correct: true, why: "K9 w różnych kolorach jest poza {{t:range|zakresem}} {{t:open|otwarcia}} z {{t:utg}}. Za tobą jest pięciu graczy i często ktoś ma króla z lepszym kickerem." }
       - { text: "{{t:raise|Przebijam}}", why: "Z {{t:utg}} {{t:open|otwierasz}} tylko ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk. K9o łatwo trafia króla i przegrywa z KQ albo AK." }
-      - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Samo dopłacenie (limp) to słaby nawyk. Albo ręka jest warta {{t:raise|przebicia}}, albo {{t:fold|pasujesz}}." }
+      - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Samo dopłacenie (limp) z {{t:utg}} to słaby nawyk. Albo ręka jest warta {{t:raise|przebicia}}, albo {{t:fold|pasujesz}}." }
   - kind: choice
     id: m3.l1.q3
     family: m3.open-late
