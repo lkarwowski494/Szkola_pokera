@@ -28297,7 +28297,7 @@
   "id": "t:four-of-a-kind",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "kareta (four of a kind / quads): Cztery karty tej samej wysokości, np. cztery siódemki. Remis rozstrzyga piąta karta (kicker).",
+  "twierdzenie": "kareta (four of a kind / quads): Cztery karty tej samej wysokości, np. cztery siódemki. Przy dwóch karetach tej samej wysokości wygrywa wyższa piąta karta (kicker).",
   "zrodla": [
    {
     "adres": "https://en.wikipedia.org/wiki/List_of_poker_hands",
@@ -28319,6 +28319,20 @@
     "cytat": "Each four of a kind is ranked first by the rank of its quadruplet, and then by the rank of its kicker.",
     "odczyt": "2026-11-04",
     "szczebel": 5
+   },
+   {
+    "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
+    "miejsce": "glosariusz, KICKER",
+    "cytat": "KICKER: The highest unpaired card that helps determine the value of a five-card poker hand.",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
+    "miejsce": "glosariusz, HAND",
+    "cytat": "HAND: (1) All a player's personal cards. (2) The five cards determining the poker ranking.",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
    }
   ],
   "status": "potwierdzone",
@@ -28330,7 +28344,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Cytat Wikipedii w polu source nieaktualny (dziś: „also known as quads, four cards or bomb”). E2 2026-11-04: brzmienie ujednolicone (content/terms.yaml:46): „wysokość” zamiast „wartość” dla rangi karty (wartość = value, raport E1, jedna nazwa – jedno pojęcie).",
+  "uwagi": "Cytat Wikipedii w polu source nieaktualny (dziś: „also known as quads, four cards or bomb”). E2 2026-11-04: brzmienie ujednolicone (content/terms.yaml:46): „wysokość” zamiast „wartość” dla rangi karty (wartość = value, raport E1, jedna nazwa – jedno pojęcie). | E3 2026-11-04 (S3): przy dwóch karetach tej samej wysokości decyduje piąta karta: wynika z definicji kickera i definicji ręki jako pięciu kart w Robert's Rules (szczebel 1); remis rozstrzygany tylko przy kickerze, stąd brzmienie zawężone.",
   "partia": [
    "terminy"
   ]
@@ -28794,7 +28808,7 @@
   "id": "t:bet",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "zakład (bet): Pierwsze postawienie żetonów w rundzie licytacji, w której nikt jeszcze nie stawiał.",
+  "twierdzenie": "zakład (bet): Pierwsze postawienie żetonów w rundzie licytacji, w której nikt jeszcze nie stawiał (w szerszym sensie zakładem nazywa się każde wstawienie żetonów do puli).",
   "zrodla": [
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -28820,7 +28834,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Definicja węższa niż oba źródła (u nich także przebicie); konwencja kursu, zgodna z lekcją m1.l1. Uproszczenie terminologiczne, nie błąd.",
+  "uwagi": "Definicja węższa niż oba źródła (u nich także przebicie); konwencja kursu, zgodna z lekcją m1.l1. Uproszczenie terminologiczne, nie błąd. | E3 2026-11-04 (S3): uproszczenie nazwane w definicji (szerszy sens: każde wstawienie żetonów, jak Robert's).",
   "partia": [
    "terminy"
   ]
@@ -29018,7 +29032,7 @@
   "id": "t:pot",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "pula (pot): Wszystkie żetony postawione w bieżącym rozdaniu. Zabiera je najlepszy układ na showdownie albo gracz, przy którym wszyscy spasowali.",
+  "twierdzenie": "pula (pot): Wszystkie żetony postawione w bieżącym rozdaniu. Zabiera je gracz z najlepszym układem na showdownie (przy pulach bocznych osobno o każdą pulę) albo gracz, przy którym wszyscy spasowali.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/pot/",
@@ -29026,6 +29040,13 @@
     "cytat": "The total value of chips that have been bet in the present hand.",
     "odczyt": "2026-11-04",
     "szczebel": 2
+   },
+   {
+    "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
+    "miejsce": "glosariusz, SIDE POT",
+    "cytat": "SIDE POT: A separate pot formed when one or more players are all in.",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
    }
   ],
   "status": "potwierdzone",
@@ -29037,7 +29058,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": " | E3 2026-11-04 (S3): kto zabiera pulę: dopisane pule boczne (Robert's, SIDE POT).",
   "partia": [
    "terminy"
   ]
@@ -29151,7 +29172,7 @@
   "id": "t:board",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "stół (board): Odkryte karty wspólne na środku (flop, turn, river), z których korzystają wszyscy gracze.",
+  "twierdzenie": "stół (board): Odkryte karty wspólne na środku (flop, turn, river), z których korzystają wszyscy gracze. W tym znaczeniu „stół” to karty, nie miejsce gry (przy stole, stół finałowy).",
   "zrodla": [
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -29177,7 +29198,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Nazwa „stół” = board i zarazem stół do gry (np. „miejsce przy stole” w definicjach pozycji): jedna nazwa dla dwóch pojęć.",
+  "uwagi": "Nazwa „stół” = board i zarazem stół do gry (np. „miejsce przy stole” w definicjach pozycji): jedna nazwa dla dwóch pojęć. | E3 2026-11-04 (S3): rozróżnienie w definicji: „stół” = karty, nie miejsce gry; pokrewieństwo z kartami wspólnymi obsługuje para DEF_CONFUSABLE (vocab.ts).",
   "partia": [
    "terminy"
   ]
@@ -29263,7 +29284,7 @@
   "id": "t:small-blind",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "mały blind (small blind): Mniejsza obowiązkowa stawka wpłacana przed rozdaniem przez gracza na lewo od Buttona; tak nazywa się też to miejsce przy stole.",
+  "twierdzenie": "mały blind (small blind): Mniejsza obowiązkowa stawka wpłacana przed rozdaniem przez gracza na lewo od Buttona (przy dwóch graczach przez samego Buttona); tak nazywa się też to miejsce przy stole.",
   "zrodla": [
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -29303,7 +29324,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Granica stosowania: w grze jeden na jeden mały blind siedzi na Buttonie (TDA 36-C, Robert's). Propozycja: dopisać wyjątek heads-up.",
+  "uwagi": "Granica stosowania: w grze jeden na jeden mały blind siedzi na Buttonie (TDA 36-C, Robert's). Propozycja: dopisać wyjątek heads-up. | E3 2026-11-04 (S3): dopisany wyjątek heads-up (TDA: „the small blind is the button”).",
   "partia": [
    "terminy"
   ]
@@ -29312,7 +29333,7 @@
   "id": "t:big-blind",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "duży blind (big blind): Większa obowiązkowa stawka wpłacana przed rozdaniem przez drugiego gracza na lewo od Buttona; tak nazywa się też to miejsce. Służy też za jednostkę wielkości stacków i wyników.",
+  "twierdzenie": "duży blind (big blind): Większa obowiązkowa stawka wpłacana przed rozdaniem przez drugiego gracza na lewo od Buttona (przy dwóch graczach przez gracza naprzeciw Buttona); tak nazywa się też to miejsce. Służy też za jednostkę wielkości stacków i wyników.",
   "zrodla": [
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -29341,6 +29362,13 @@
     "cytat": "A unit of measurement in poker equal to the average amount of big blinds won/lost per 100 hands.",
     "odczyt": "2026-11-04",
     "szczebel": 2
+   },
+   {
+    "adres": "https://www.pokertda.com/view-poker-tda-rules/",
+    "miejsce": "reguła 36-C",
+    "cytat": "Heads-up, the small blind is the button",
+    "odczyt": "2026-11-04",
+    "szczebel": 1
    }
   ],
   "status": "potwierdzone",
@@ -29352,7 +29380,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "W heads-up duży blind jest pierwszym graczem na lewo od Buttona (TDA 36-C).",
+  "uwagi": "W heads-up duży blind jest pierwszym graczem na lewo od Buttona (TDA 36-C). | E3 2026-11-04 (S3): dopisany wyjątek heads-up: Button jest małym blindem (TDA), więc duży blind płaci drugi gracz.",
   "partia": [
    "terminy"
   ]
@@ -29438,7 +29466,7 @@
   "id": "t:street",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "ulica (street): Każda z rund licytacji w rozdaniu: preflop, flop, turn i river. Przykład: „value na trzech ulicach” to zakłady dla wartości na flopie, turnie i riverze.",
+  "twierdzenie": "ulica (street): Żargonowa nazwa rundy licytacji: preflop, flop, turn i river to cztery ulice. Przykład: „value na trzech ulicach” to zakłady dla wartości na flopie, turnie i riverze.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/street/",
@@ -29471,7 +29499,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "„Ulica” i „runda licytacji” to dwa terminy na to samo pojęcie (synonim żargonowy; definicja ulicy to jawnie mówi). Robert's używa STREET w znaczeniu kart w studzie.",
+  "uwagi": "„Ulica” i „runda licytacji” to dwa terminy na to samo pojęcie (synonim żargonowy; definicja ulicy to jawnie mówi). Robert's używa STREET w znaczeniu kart w studzie. | E3 2026-11-04 (S3): definicja wprost: żargonowa nazwa rundy licytacji (źródło: „A slang poker term for a round of betting”); jedno pojęcie, synonim, para DEF_CONFUSABLE.",
   "partia": [
    "terminy"
   ]
@@ -29817,6 +29845,13 @@
     "cytat": "On a 6-person table, middle position is considered to be the player to the left of Under The Gun, also known as the Hijack (HJ).",
     "odczyt": "2026-11-04",
     "szczebel": 2
+   },
+   {
+    "adres": "https://upswingpoker.com/glossary/early-position/",
+    "miejsce": "hasło Early Position",
+    "cytat": "Early Position refers to the first two or three seats directly clockwise of the blinds. These players act first and are said to be in early position.",
+    "odczyt": "2026-11-04",
+    "szczebel": 4
    }
   ],
   "status": "potwierdzone",
@@ -29828,7 +29863,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Hasło early-position u źródła mówi „first person to act postflop”, co nie pasuje do UTG (pierwszy przed flopem); definicja kursu idzie za kolejnością przed flopem, zgodną z hasłem middle-position i regulaminem. Rozbieżność wewnątrz źródła szczebla 2, kierunkowo bez wpływu.",
+  "uwagi": "Hasło early-position u źródła mówi „first person to act postflop”, co nie pasuje do UTG (pierwszy przed flopem); definicja kursu idzie za kolejnością przed flopem, zgodną z hasłem middle-position i regulaminem. Rozbieżność wewnątrz źródła szczebla 2, kierunkowo bez wpływu. | E3 2026-11-04 (S3): dodane źródło preflopowej definicji (szczebel 4); hasło szczebla 2 mówi o kolejności po flopie.",
   "partia": [
    "terminy"
   ]
@@ -30040,7 +30075,7 @@
   "id": "t:outs",
   "rodzaj": "termin",
   "level": "math",
-  "twierdzenie": "out (out / outs): Karta, która jeszcze jest w talii i poprawi Twoją rękę do układu, który najpewniej wygra. Przykład: przy drawie do koloru outami są pozostałe karty w Twoim kolorze.",
+  "twierdzenie": "out (out / outs): Karta, która jeszcze jest w talii i poprawi Twoją rękę, zwykle uzupełniając draw. Przykład: przy drawie do koloru outami są pozostałe karty w Twoim kolorze.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/outs/",
@@ -30059,7 +30094,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "„Do układu, który najpewniej wygra” zawęża źródło („improve a player's hand or complete their draw”); zgodne z pojęciem czystych outów, nazwać to w lekcji. Termin bez znacznika w lekcjach (forma „out” wyłączona z kontroli).",
+  "uwagi": "„Do układu, który najpewniej wygra” zawęża źródło („improve a player's hand or complete their draw”); zgodne z pojęciem czystych outów, nazwać to w lekcji. Termin bez znacznika w lekcjach (forma „out” wyłączona z kontroli). | E3 2026-11-04 (S3): usunięte zawężenie „do układu, który najpewniej wygra” (bez cytatu); brzmienie jak źródło.",
   "partia": [
    "terminy"
   ]
@@ -30472,7 +30507,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": " | E3 2026-11-04 (S3): m3-l1 (ćwiczenie q z UTG): pojęcie objaśnione przy pierwszym użyciu przed definicją w m3-l3.",
   "partia": [
    "terminy"
   ]
@@ -31067,7 +31102,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": " | E3 2026-11-04 (S3): m4-l2: usunięty znacznik w znaczeniu „powiązane” (jeden klucz, jedno znaczenie).",
   "partia": [
    "terminy"
   ]
@@ -31487,7 +31522,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": " | E3 2026-11-04 (S3): m4-l1 (3-bet liniowy czy spolaryzowany): krótkie objaśnienie przy pierwszym użyciu, zgodne z hasłem.",
   "partia": [
    "terminy"
   ]
@@ -31564,7 +31599,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": " | E3 2026-11-04 (S3): m7-l2: usunięte „(zmieszany)” (merged to kształt pośredni); m4-l1: objaśnienie przy pierwszym użyciu.",
   "partia": [
    "terminy"
   ]
@@ -31643,7 +31678,7 @@
   "id": "t:value-bet",
   "rodzaj": "termin",
   "level": "gto",
-  "twierdzenie": "value bet (value bet): Zakład z silną ręką, który ma zostać sprawdzony przez słabsze ręce.",
+  "twierdzenie": "value bet (value bet): Pojedynczy zakład dla wartości: stawiany silną ręką po to, żeby sprawdziły go słabsze ręce.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/value-bet/",
@@ -31662,7 +31697,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Termin nieużyty w lekcjach (patrz lista kolejności).",
+  "uwagi": "Termin nieużyty w lekcjach (patrz lista kolejności). | E3 2026-11-04 (S3): definicja wskazuje relację: pojedynczy zakład dla wartości (value = cel zagrania); para DEF_CONFUSABLE; klucz używany w aplikacji (drills/text.pl.ts).",
   "partia": [
    "terminy"
   ]
@@ -31762,7 +31797,7 @@
   "id": "t:bluff-catcher",
   "rodzaj": "termin",
   "level": "gto",
-  "twierdzenie": "bluff-catcher (bluff catcher): Ręka, która pokonuje tylko blefy rywala, a przegrywa z jego zakładami dla wartości; nadaje się do sprawdzania, nie do zakładu.",
+  "twierdzenie": "bluff-catcher (bluff catcher): Ręka, która pokonuje tylko blefy rywala, a przegrywa z jego zakładami dla wartości.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/bluff-catcher/",
@@ -31781,7 +31816,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": " | E3 2026-11-04 (S3): usunięty dopisek bez cytatu („nadaje się do sprawdzania, nie do zakładu”).",
   "partia": [
    "terminy"
   ]
@@ -31986,7 +32021,7 @@
   "id": "t:spr",
   "rodzaj": "termin",
   "level": "math",
-  "twierdzenie": "SPR (stack-to-pot ratio): Efektywny stack podzielony przez wielkość puli na flopie; mówi, jak głębokie są stacki w stosunku do puli (im niższy SPR, tym szybciej wszystko trafia do puli).",
+  "twierdzenie": "SPR (stack-to-pot ratio): Efektywny stack podzielony przez pulę na początku ulicy (do planu rozdania liczy się go na flopie); mówi, jak głębokie są stacki w stosunku do puli (im niższy SPR, tym szybciej wszystko trafia do puli).",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/stacktopot-ratio-spr/",
@@ -32012,7 +32047,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": "content/terms.yaml:807: „… ; mówi, jak głębokie są stacki w stosunku do puli (im niższy SPR, tym szybciej wszystko trafia do puli).”",
-  "uwagi": "„Ile zakładów zostało” jest dosłownie błędne: pula rośnie po każdym zakładzie (SPR 4 to ok. dwa zakłady wielkości puli). Źródło liczy SPR z puli na dowolnej ulicy; „na flopie” to konwencja. E2 2026-11-04: poprawione (content/terms.yaml:805); było CZĘŚCIOWO.",
+  "uwagi": "„Ile zakładów zostało” jest dosłownie błędne: pula rośnie po każdym zakładzie (SPR 4 to ok. dwa zakłady wielkości puli). Źródło liczy SPR z puli na dowolnej ulicy; „na flopie” to konwencja. E2 2026-11-04: poprawione (content/terms.yaml:805); było CZĘŚCIOWO. | E3 2026-11-04 (S3): pula na początku ulicy (źródło bez ograniczenia do flopu), flop jako konwencja planu; zgodne z m7-l3 (SPR na turnie).",
   "partia": [
    "terminy"
   ]
@@ -32236,7 +32271,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": " | E3 2026-11-04 (S3): m10-l1: odesłanie do modułu 12 zastąpione wzorem na błąd średniej (bez zależności od późniejszego modułu).",
   "partia": [
    "terminy"
   ]
@@ -32420,7 +32455,7 @@
   "id": "t:tournament",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "turniej (tournament): Forma gry, w której wszyscy za wpisowe dostają zwykle taki sam stack żetonów, blindy rosną co pewien czas, a gra trwa, aż jeden gracz zbierze wszystkie żetony; nagrody dostają najwyżej sklasyfikowani.",
+  "twierdzenie": "turniej (tournament): Forma gry, w której blindy rosną co pewien czas, a gra trwa, aż jeden gracz zbierze wszystkie żetony; nagrody dostają najwyżej sklasyfikowani.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/tournament/",
@@ -32453,7 +32488,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": "content/terms.yaml:907: „… wszyscy za wpisowe dostają zwykle taki sam stack …”",
-  "uwagi": "Równy stack startowy bez przeczytanego źródła (rebuy, add-on, późna rejestracja); rosnące blindy: TDA (poziomy). E2 2026-11-04: poprawione (content/terms.yaml:905); było CZĘŚCIOWO.",
+  "uwagi": "Równy stack startowy bez przeczytanego źródła (rebuy, add-on, późna rejestracja); rosnące blindy: TDA (poziomy). E2 2026-11-04: poprawione (content/terms.yaml:905); było CZĘŚCIOWO. | E3 2026-11-04 (S3): usunięty „równy stack za wpisowe” (bez cytatu).",
   "partia": [
    "terminy"
   ]
@@ -32623,7 +32658,7 @@
   "id": "t:cover",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "pokrywać (cover): Mieć więcej żetonów niż rywal. Gdy rywal ma więcej od Ciebie, przegrany z nim all-in kończy Twój turniej.",
+  "twierdzenie": "pokrywać (cover): Mieć co najmniej tyle żetonów co rywal. Gdy rywal Cię pokrywa, przegrany z nim all-in kończy Twój turniej.",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/icm-basics/",
@@ -32649,7 +32684,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Druga część definicji wynika z zasad gry (rachunek: przegrany all-in z większym stackiem zeruje stack).",
+  "uwagi": "Druga część definicji wynika z zasad gry (rachunek: przegrany all-in z większym stackiem zeruje stack). | E3 2026-11-04 (S3): „co najmniej tyle” zamiast „więcej” (przy równych stackach przegrany all-in też kończy turniej).",
   "partia": [
    "terminy"
   ]
@@ -33519,7 +33554,7 @@
   "id": "t:regular",
   "rodzaj": "termin",
   "level": "exploit",
-  "twierdzenie": "reg (regular): Stały bywalec danej stawki, który gra dużo i w miarę solidnie; przeciwieństwo gracza rekreacyjnego.",
+  "twierdzenie": "reg (regular): Stały bywalec danej stawki, który rozgrywa dużo rąk; w kursie przeciwstawiany graczowi rekreacyjnemu.",
   "zrodla": [
    {
     "adres": "https://deepfold.co/en/blog/hud-stats-guide",
@@ -33545,7 +33580,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": " | E3 2026-11-04 (S3): tylko to, co w źródłach (duża liczba rąk); przeciwstawienie nazwane konwencją kursu.",
   "partia": [
    "terminy"
   ]
@@ -33652,7 +33687,7 @@
   "id": "t:calling-station",
   "rodzaj": "termin",
   "level": "exploit",
-  "twierdzenie": "calling station (calling station): Pogardliwie o graczu, który bardzo często sprawdza, nawet słabymi rękami, a rzadko pasuje lub przebija.",
+  "twierdzenie": "calling station (calling station): Pogardliwie o graczu, który bardzo często sprawdza, nawet słabymi rękami albo drawami.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/calling-station/",
@@ -33671,7 +33706,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": " | E3 2026-11-04 (S3): brzmienie jak źródło (słabe ręce albo drawy), bez „rzadko pasuje lub przebija”.",
   "partia": [
    "terminy"
   ]
@@ -33708,7 +33743,7 @@
   "id": "t:rake",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "rake (rake): Prowizja, którą kasyno albo pokój online pobiera z puli lub z wpisowego za prowadzenie gry.",
+  "twierdzenie": "rake (rake): Prowizja, którą kasyno albo pokój online pobiera z puli za prowadzenie gry.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/rake/",
@@ -33727,7 +33762,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "„Lub z wpisowego” poza hasłem (opłata turniejowa); bez wpływu na treść gotówkową.",
+  "uwagi": "„Lub z wpisowego” poza hasłem (opłata turniejowa); bez wpływu na treść gotówkową. | E3 2026-11-04 (S3): usunięte „lub z wpisowego” (poza hasłem źródła).",
   "partia": [
    "terminy"
   ]

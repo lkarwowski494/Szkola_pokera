@@ -43,10 +43,10 @@ four-of-a-kind:
   pl: kareta
   en: four of a kind
   en_alt: [quads]
-  def: "Cztery karty tej samej wysokości, np. cztery siódemki. Remis rozstrzyga piąta karta (kicker)."
+  def: "Cztery karty tej samej wysokości, np. cztery siódemki. Przy dwóch karetach tej samej wysokości wygrywa wyższa piąta karta (kicker)."
   area: hands
   forms: [kareta, karety, karetę, karetą, karecie, karet]
-  source: "Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands): „Four of a kind, also known as quads, four cards or bomb, is a hand that contains four cards of one rank”; glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Quads: A made hand containing all four cards of a specific rank.”"
+  source: "Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands): „Four of a kind, also known as quads, four cards or bomb, is a hand that contains four cards of one rank”; glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Quads: A made hand containing all four cards of a specific rank.”; Robert's Rules of Poker (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „KICKER: The highest unpaired card that helps determine the value of a five-card poker hand.”"
 full-house:
   pl: full
   en: full house
@@ -134,7 +134,7 @@ check:
 bet:
   pl: zakład
   en: bet
-  def: "Pierwsze postawienie żetonów w rundzie licytacji, w której nikt jeszcze nie stawiał."
+  def: "Pierwsze postawienie żetonów w rundzie licytacji, w której nikt jeszcze nie stawiał (w szerszym sensie zakładem nazywa się każde wstawienie żetonów do puli)."
   area: actions
   forms: [zakład, zakładu, zakładzie, zakładem, zakłady, zakładów, zakładami, zakładach, zakładom, stawiasz, stawia, stawiam, stawiają, stawiać, postawił, postawiłeś, postawić, postawisz, postawi]
   source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „BET: The act of placing a wager in turn into the pot on any betting round, or the chips put into the pot.”"
@@ -179,10 +179,10 @@ all-in:
 pot:
   pl: pula
   en: pot
-  def: "Wszystkie żetony postawione w bieżącym rozdaniu. Zabiera je najlepszy układ na showdownie albo gracz, przy którym wszyscy spasowali."
+  def: "Wszystkie żetony postawione w bieżącym rozdaniu. Zabiera je gracz z najlepszym układem na showdownie (przy pulach bocznych osobno o każdą pulę) albo gracz, przy którym wszyscy spasowali."
   area: table
   forms: [pula, puli, pulę, pulą, pul, pule, pulach, pulami, pulom]
-  source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Pot: The total value of chips that have been bet in the present hand.”"
+  source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Pot: The total value of chips that have been bet in the present hand.”; Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „SIDE POT: A separate pot formed when one or more players are all in.”"
 side-pot:
   pl: pula boczna
   en: side pot
@@ -208,7 +208,7 @@ playing-the-board:
 board:
   pl: stół
   en: board
-  def: "Odkryte karty wspólne na środku (flop, turn, river), z których korzystają wszyscy gracze."
+  def: "Odkryte karty wspólne na środku (flop, turn, river), z których korzystają wszyscy gracze. W tym znaczeniu „stół” to karty, nie miejsce gry (przy stole, stół finałowy)."
   area: table
   forms: [stół, stołu, stole, stołem]
   skip: [przy stole, przy stół, przy stołach, do stołu, od stołu, przy stoliku]
@@ -232,15 +232,15 @@ small-blind:
   pl: mały blind
   en: small blind
   abbr: SB
-  def: "Mniejsza obowiązkowa stawka wpłacana przed rozdaniem przez gracza na lewo od Buttona; tak nazywa się też to miejsce przy stole."
+  def: "Mniejsza obowiązkowa stawka wpłacana przed rozdaniem przez gracza na lewo od Buttona (przy dwóch graczach przez samego Buttona); tak nazywa się też to miejsce przy stole."
   area: table
   forms: [mały blind, małego blinda, małemu blindowi, małym blindem, małym blindzie, SB]
-  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „SMALL BLIND: In a game with multiple blind bets, the smallest blind.”; glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „who acts after the small blind (SB)”"
+  source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „SMALL BLIND: In a game with multiple blind bets, the smallest blind.”; glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „who acts after the small blind (SB)”; regulamin TDA (https://www.pokertda.com/view-poker-tda-rules/): „Heads-up, the small blind is the button”"
 big-blind:
   pl: duży blind
   en: big blind
   abbr: BB
-  def: "Większa obowiązkowa stawka wpłacana przed rozdaniem przez drugiego gracza na lewo od Buttona; tak nazywa się też to miejsce. Służy też za jednostkę wielkości stacków i wyników."
+  def: "Większa obowiązkowa stawka wpłacana przed rozdaniem przez drugiego gracza na lewo od Buttona (przy dwóch graczach przez gracza naprzeciw Buttona); tak nazywa się też to miejsce. Służy też za jednostkę wielkości stacków i wyników."
   area: table
   forms: [duży blind, dużego blinda, dużemu blindowi, dużym blindem, dużym blindzie, dużych blindach, BB]
   source: "Robert's Rules of Poker, glosariusz (https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm): „BIG BLIND: The largest regular blind in a game.”; glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „It's also the name of the seat that places this bet (BB)”"
@@ -260,7 +260,7 @@ stack:
 street:
   pl: ulica
   en: street
-  def: "Każda z rund licytacji w rozdaniu: preflop, flop, turn i river. Przykład: „value na trzech ulicach” to zakłady dla wartości na flopie, turnie i riverze."
+  def: "Żargonowa nazwa rundy licytacji: preflop, flop, turn i river to cztery ulice. Przykład: „value na trzech ulicach” to zakłady dla wartości na flopie, turnie i riverze."
   area: table
   forms: [ulica, ulicy, ulicę, ulicą, ulice, ulic, ulicach, ulicami, ulicom]
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Street: A slang poker term for a round of betting. Preflop, flop, turn and river are all different \"streets\"”; Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „street: A street is another term for a dealt card or betting round.”"
@@ -334,7 +334,7 @@ early-position:
   def: "Pierwsze miejsca do działania przed flopem (np. UTG); za Tobą jest jeszcze wielu graczy."
   area: positions
   forms: [wczesna pozycja, wczesnej pozycji, wczesną pozycję, wczesne pozycje, wczesnych pozycji, wczesnych pozycjach]
-  source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Early Position: In a 6-handed game, refers to the first person to act postflop. In a 9-person game, several players after the first to act postflop can be referred to as Early Position (EP) +1, +2”"
+  source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Early Position: In a 6-handed game, refers to the first person to act postflop. In a 9-person game, several players after the first to act postflop can be referred to as Early Position (EP) +1, +2”; serwis szkoleniowy, glosariusz (https://upswingpoker.com/glossary/early-position/): „Early Position refers to the first two or three seats directly clockwise of the blinds. These players act first and are said to be in early position.”"
 late-position:
   pl: późna pozycja
   en: late position
@@ -379,7 +379,7 @@ outs:
   pl: out
   en: out
   en_alt: [outs]
-  def: "Karta, która jeszcze jest w talii i poprawi Twoją rękę do układu, który najpewniej wygra. Przykład: przy drawie do koloru outami są pozostałe karty w Twoim kolorze."
+  def: "Karta, która jeszcze jest w talii i poprawi Twoją rękę, zwykle uzupełniając draw. Przykład: przy drawie do koloru outami są pozostałe karty w Twoim kolorze."
   area: math
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Outs: The number of cards in the deck that will improve a player's hand or complete their draw.”"
 draw:
@@ -731,7 +731,7 @@ value:
 value-bet:
   pl: value bet
   en: value bet
-  def: "Zakład z silną ręką, który ma zostać sprawdzony przez słabsze ręce."
+  def: "Pojedynczy zakład dla wartości: stawiany silną ręką po to, żeby sprawdziły go słabsze ręce."
   area: strategy
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Value bet: A bet made with a made hand for the purpose of getting called by worse hands.”"
 bluff:
@@ -758,7 +758,7 @@ blocker:
 bluff-catcher:
   pl: bluff-catcher
   en: bluff catcher
-  def: "Ręka, która pokonuje tylko blefy rywala, a przegrywa z jego zakładami dla wartości; nadaje się do sprawdzania, nie do zakładu."
+  def: "Ręka, która pokonuje tylko blefy rywala, a przegrywa z jego zakładami dla wartości."
   area: strategy
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Bluff catcher: A hand that is likely only able to beat the opponent’s bluffs”"
 barrel:
@@ -802,7 +802,7 @@ effective-stack:
 spr:
   pl: SPR
   en: stack-to-pot ratio
-  def: "Efektywny stack podzielony przez wielkość puli na flopie; mówi, jak głębokie są stacki w stosunku do puli (im niższy SPR, tym szybciej wszystko trafia do puli)."
+  def: "Efektywny stack podzielony przez pulę na początku ulicy (do planu rozdania liczy się go na flopie); mówi, jak głębokie są stacki w stosunku do puli (im niższy SPR, tym szybciej wszystko trafia do puli)."
   area: strategy
   forms: [SPR]
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Stack-to-Pot Ratio (SPR): The effective stack divided by the size of the pot.”"
@@ -902,7 +902,7 @@ mental-game:
 tournament:
   pl: turniej
   en: tournament
-  def: "Forma gry, w której wszyscy za wpisowe dostają zwykle taki sam stack żetonów, blindy rosną co pewien czas, a gra trwa, aż jeden gracz zbierze wszystkie żetony; nagrody dostają najwyżej sklasyfikowani."
+  def: "Forma gry, w której blindy rosną co pewien czas, a gra trwa, aż jeden gracz zbierze wszystkie żetony; nagrody dostają najwyżej sklasyfikowani."
   area: tournament
   forms: [turniej, turnieju, turnieje, turniejach, turniejem, turniejów, turniejami]
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Tournament: A structure of a poker game where play continues until one player has all of the chips.”"
@@ -944,7 +944,7 @@ bubble-factor:
 cover:
   pl: pokrywać
   en: cover
-  def: "Mieć więcej żetonów niż rywal. Gdy rywal ma więcej od Ciebie, przegrany z nim all-in kończy Twój turniej."
+  def: "Mieć co najmniej tyle żetonów co rywal. Gdy rywal Cię pokrywa, przegrany z nim all-in kończy Twój turniej."
   area: tournament
   # w tekście czasownik: „pokrywasz wszystkich” = masz więcej żetonów niż każdy z nich
   forms: [pokrywać, pokrywasz, pokrywa, pokrywają, pokrywam, pokrywający, pokrywającego]
@@ -1128,7 +1128,7 @@ nit:
 regular:
   pl: reg
   en: regular
-  def: "Stały bywalec danej stawki, który gra dużo i w miarę solidnie; przeciwieństwo gracza rekreacyjnego."
+  def: "Stały bywalec danej stawki, który rozgrywa dużo rąk; w kursie przeciwstawiany graczowi rekreacyjnemu."
   area: strategy
   forms: [reg, rega, regi, regów, regiem, regom, regami, regach, regowi]
   source: "serwis z analizą bazy rąk populacji (https://bluffaces.com/calculators/mda/): grupa „Regulars”, „For 6max: VPIP = 18-32, EV bb/100 > -2.”; serwis szkoleniowy, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): „TAG Reg (22/19/7%)”"
@@ -1157,7 +1157,7 @@ recreational:
 calling-station:
   pl: calling station
   en: calling station
-  def: "Pogardliwie o graczu, który bardzo często sprawdza, nawet słabymi rękami, a rzadko pasuje lub przebija."
+  def: "Pogardliwie o graczu, który bardzo często sprawdza, nawet słabymi rękami albo drawami."
   area: strategy
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Calling station: A pejorative term used to describe players who frequently call, often with weak hands or draws.”"
 maniac:
@@ -1170,7 +1170,7 @@ maniac:
 rake:
   pl: rake
   en: rake
-  def: "Prowizja, którą kasyno albo pokój online pobiera z puli lub z wpisowego za prowadzenie gry."
+  def: "Prowizja, którą kasyno albo pokój online pobiera z puli za prowadzenie gry."
   area: strategy
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Rake: The money taken from the pot by the casino, cardroom, website or game runner as a fee for operating the game.”"
 rake-cap:

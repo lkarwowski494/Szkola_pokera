@@ -22,7 +22,7 @@ drills:
     prompt: "Na {{t:dry|suchym}} flopie [[Ks 7d 2c]] betowałeś mało prawie wszystkimi rękami: od seta po słabe {{t:pair|pary}}. Jak nazywa się taki {{t:range}} betu?"
     table: { position: BTN, board: "Ks 7d 2c" }
     options:
-      - { text: "{{t:linear|Liniowy}} (zmieszany)", correct: true, why: "Tak: silne i średnie ręce betują razem, małym rozmiarem. To plan z M5 na {{t:dry|suchym}}, wysokim flopie, gdzie masz {{t:range-advantage|przewagę zakresu}}." }
+      - { text: "{{t:linear|Liniowy}}", correct: true, why: "Tak: silne i średnie ręce betują razem, małym rozmiarem. To plan z M5 na {{t:dry|suchym}}, wysokim flopie, gdzie masz {{t:range-advantage|przewagę zakresu}}." }
       - { text: "{{t:polarized|Spolaryzowany}}", why: "{{t:polarized|Spolaryzowany}} {{t:range}} nie ma średnich rąk: betują tylko bardzo silne ręce i {{t:bluff|blefy}}. Tu betowały też słabe {{t:pair|pary}}." }
       - { text: "Ograniczony", why: "Ograniczony {{t:range}} to taki, w którym brakuje najsilniejszych rąk. Ty betowałeś także setami." }
   - kind: choice
@@ -107,7 +107,7 @@ Na flopie często betowałeś mało prawie całym {{t:range|zakresem}}. Na turni
 
 ## Dwa rodzaje {{t:range|zakresu}}
 
-- **{{t:linear|Liniowy}} (zmieszany):** betujesz od najsilniejszych rąk w dół, razem ze średnimi. Zwykle małym rozmiarem, np. c-bet {{n:cbet.size.small}} {{t:pot|puli}} na [[Ks 7d 2c]].
+- **{{t:linear|Liniowy}}:** betujesz od najsilniejszych rąk w dół, razem ze średnimi. Zwykle małym rozmiarem, np. c-bet {{n:cbet.size.small}} {{t:pot|puli}} na [[Ks 7d 2c]].
 - **{{t:polarized|Spolaryzowany}}:** betują dwa bieguny, bardzo silne ręce (sety, {{t:two-pair}}, {{t:straight|strity}}, kolory) i {{t:semi-bluff|semi-blefy}} ({{t:draw|drawy}}). Średnich rąk w nim nie ma.
 
 Ogólnie {{t:range}} {{t:polarized}} to bardzo silne ręce i {{t:bluff|blefy}}. Na turnie {{t:bluff|blefami}} są zwykle {{t:semi-bluff|semi-blefy}}, a na riverze (M8) ręce bez szans przy showdownie.

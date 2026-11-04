@@ -22,7 +22,7 @@ drills:
     prompt: "Wszyscy przed tobą {{t:fold|spasowali}}. Co robisz?"
     table: { hand: "Kc 9d", position: UTG }
     options:
-      - { text: "{{t:fold|Pasuję}}", correct: true, why: "K9 w różnych kolorach jest poza {{t:range|zakresem}} {{t:open|otwarcia}} z {{t:utg}}. Za tobą jest pięciu graczy i często ktoś ma króla z lepszym kickerem." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "K9 w różnych kolorach jest poza {{t:range|zakresem}} {{t:open|otwarcia}} z {{t:utg}}, czyli poza listą rąk, z którymi {{t:open|otwierasz}} z tej {{t:position|pozycji}}. Za tobą jest pięciu graczy i często ktoś ma króla z lepszym kickerem." }
       - { text: "{{t:raise|Przebijam}}", why: "Z {{t:utg}} {{t:open|otwierasz}} tylko ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk. K9o łatwo trafia króla i przegrywa z KQ albo AK." }
       - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Samo dopłacenie (limp) z {{t:utg}} to słaby nawyk. Albo ręka jest warta {{t:raise|przebicia}}, albo {{t:fold|pasujesz}}." }
   - kind: choice
