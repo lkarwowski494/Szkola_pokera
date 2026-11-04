@@ -59,7 +59,7 @@ describe('K-10 ochrona długich operacji', () => {
   it('ADR 0013 pkt 4: wygaśnięcie czasu w środku importu → przerwano_w_tle, liczności i zawartość bez zmian, integrity ok', async () => {
     const plik = await plikEksportu();
     const { db, port, atrapa, ustawAwarie } = await zOchrona();
-    await port.run("INSERT INTO ustawienie VALUES ('jezyk', '\"vi\"', 1)"); // stan odróżnialny od pliku
+    await port.run("UPDATE ustawienie SET wartosc = '\"vi\"' WHERE klucz = 'jezyk'"); // stan odróżnialny od pliku
     const przed = zawartosc(db);
     let wstawien = 0;
     ustawAwarie((z) => { if (z.rodzaj === 'run' && /^\s*INSERT/i.test(z.sql) && ++wstawien === 5) atrapa.wygasnij(); });
