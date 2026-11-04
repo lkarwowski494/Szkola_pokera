@@ -21,7 +21,7 @@ export interface HudThresholds {
   loose: number;
   /** pasywny: różnica VPIP − PFR większa niż ten próg */
   passiveGap: number;
-  /** maniak: gracz luźny z różnicą mniejszą niż ten próg */
+  /** maniak: gracz luźny z różnicą nie większą niż ten próg (włącznie: profil maniaka 38/35 ze źródła ma różnicę 3; E3, R-M10-005) */
   aggressiveGap: number;
   /** poniżej tylu rąk statystyki są przypadkowe */
   minHands: number;
@@ -65,7 +65,7 @@ export function classifyHud(s: HudStats, t: HudThresholds): PlayerType | null {
   if (s.vpip <= t.nitMax) return 'nit';
   if (s.vpip >= t.regLow && s.vpip <= t.regHigh && gap <= t.passiveGap) return 'regular';
   if (s.vpip >= t.loose && gap > t.passiveGap) return 'passive';
-  if (s.vpip >= t.loose && gap < t.aggressiveGap) return 'maniac';
+  if (s.vpip >= t.loose && gap <= t.aggressiveGap) return 'maniac';
   return null;
 }
 

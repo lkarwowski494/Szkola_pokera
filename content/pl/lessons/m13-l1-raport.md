@@ -98,7 +98,7 @@ Na górze raportu jest liczba „Oceniono X z Y decyzji”. Po flopie wiele decy
 
 ## {{t:mixed-hand|Ręka mieszana}}
 
-Gdy solver gra twoją rękę na dwa sposoby, oba są poprawne. Teoria równowagi tłumaczy to zasadą obojętności: gracz miesza tylko zagrania, które mają tę samą {{t:expected-value|wartość oczekiwaną}}. Dlatego raport nie karze za wybór jednej z nich, a rzadsze zagranie oznacza najwyżej jako dopuszczalne.
+Gdy solver gra twoją rękę na dwa sposoby, oba są poprawne. Teoria równowagi tłumaczy to zasadą obojętności: gracz miesza tylko zagrania, które mają tę samą {{t:expected-value|wartość oczekiwaną}}. Dlatego raport nie karze za wybór jednej z nich, a rzadsze zagranie oznacza jako dopuszczalne, gdy solver gra je w co najmniej {{n:range.mixed.min}} przypadków; rzadziej to niedokładność (ustawienie aplikacji).
 
 ## Wynik w {{t:chips|żetonach}}
 

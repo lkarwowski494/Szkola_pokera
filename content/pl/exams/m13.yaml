@@ -68,7 +68,7 @@ drills:
     rules: [R-M13-006]
     prompt: "Które z tych rozdań z ostatniej {{t:session|sesji}} najbardziej warto przejrzeć?"
     options:
-      - { text: "Duża {{t:pot|pula}}, w której długo się wahałeś, zanim {{t:call|sprawdziłeś}} na riverze", correct: true, why: "Najwięcej uczą rozdania z trudną decyzją, a duża {{t:pot|pula}} waży najwięcej. Wahanie pokazuje, że nie wiedziałeś, co robić." }
+      - { text: "Duża {{t:pot|pula}}, w której długo się wahałeś, zanim {{t:call|sprawdziłeś}} na riverze", correct: true, why: "Rozdania z trudną decyzją są wśród tych, które warto przeglądać, a duża {{t:pot|pula}} waży najwięcej. Wahanie pokazuje, że nie wiedziałeś, co robić." }
       - { text: "All-in przed flopem z {{t:pair|parą}} asów przeciw {{t:pair|parze}} króli, przegrany na riverze", why: "To bad beat: decyzja była oczywista, a przegrana to {{t:variance}}. Nad takimi rozdaniami nie spędzasz dużo czasu." }
       - { text: "Mała {{t:pot|pula}} wygrana bez showdownu po c-becie", why: "Mała {{t:pot|pula}} bez trudnej decyzji uczy niewiele. Czas na przegląd lepiej przeznaczyć na duże {{t:pot|pule}} i decyzje, przy których się wahałeś." }
   - kind: choice

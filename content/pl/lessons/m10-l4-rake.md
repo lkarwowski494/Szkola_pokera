@@ -28,7 +28,7 @@ drills:
     id: m10.l4.q-reg-prerake
     family: m10.rake.cost
     rules: [R-M10-013]
-    prompt: "Według tych samych danych wśród graczy z co najmniej {{n:rake.pop.reg.hands}} rąk ok. {{n:rake.pop.reg.prerake}} wygrywa przed odliczeniem {{t:rake|rake'u}}. Ilu wygrywa po jego odliczeniu?"
+    prompt: "Według szacunku autora tych samych danych (z korektą bayesowską) wśród graczy z co najmniej {{n:rake.pop.reg.hands}} rąk ok. {{n:rake.pop.reg.prerake}} wygrywa przed odliczeniem {{t:rake|rake'u}}. Ilu wygrywa po jego odliczeniu?"
     options:
       - { text: "Ok. {{n:rake.pop.reg.postrake}}", correct: true, why: "{{t:rake}} zabiera prawie połowę wygrywających: ok. {{n:rake.pop.reg.prerake}} przed rake'iem, ok. {{n:rake.pop.reg.postrake}} po nim. Dlatego winrate liczysz zawsze po rake'u." }
       - { text: "Prawie tyle samo, ok. {{n:rake.pop.reg.prerake}}", why: "Gdyby {{t:rake}} był mały, tak by było. Przy kilku bb/100 rake'u wielu graczy wygrywających przed nim schodzi poniżej zera." }
@@ -101,7 +101,7 @@ Porównanie harmonogramów sal przelicza je na bb/100 na rozkładzie {{t:pot|pul
 
 Typowy wygrywający gracz na niskich {{t:stakes|stawkach}} ma winrate {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}} (moduł 12): kilka razy mniej, niż płaci sali. Przy wyższych {{t:stakes|stawkach}} ten sam limit w dolarach to ułamek bb, więc {{t:rake}} w bb/100 spada.
 
-Dane z populacji mówią to samo. W raporcie o populacji (cash 6-max, NL10–NL500) każdy gracz traci średnio {{n:rake.pop.nl10.loss}} przy NL10, {{n:rake.pop.nl100.loss}} przy NL100 i {{n:rake.pop.nl500.loss}} przy NL500. Wśród graczy z co najmniej {{n:rake.pop.reg.hands}} rąk ok. {{n:rake.pop.reg.prerake}} wygrywa przed odliczeniem rake'u, a po odliczeniu ok. {{n:rake.pop.reg.postrake}}.
+Dane z populacji mówią to samo. W raporcie o populacji (cash 6-max, NL10–NL500) każdy gracz traci średnio {{n:rake.pop.nl10.loss}} przy NL10, {{n:rake.pop.nl100.loss}} przy NL100 i {{n:rake.pop.nl500.loss}} przy NL500. Wśród graczy z co najmniej {{n:rake.pop.reg.hands}} rąk według szacunku autora (korekta bayesowska) ok. {{n:rake.pop.reg.prerake}} wygrywa przed odliczeniem rake'u, a po odliczeniu ok. {{n:rake.pop.reg.postrake}} (w surowych danych {{n:rake.pop.reg.prerake.raw}} i {{n:rake.pop.reg.postrake.raw}}).
 
 ## Próg {{t:call|sprawdzenia}} z rake'iem
 

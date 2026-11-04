@@ -124,7 +124,7 @@ Trenerzy podają podobne progi:
 
 - poniżej ok. {{n:hud.hands.random}} rąk statystyki są przypadkowe; grasz jak z nieznanym graczem;
 - typ gracza zgrubnie widać po {{n:hud.hands.random}}–{{n:hud.hands.rough.high}} rękach, a {{t:vpip}} i {{t:pfr}} stabilizują się po ok. {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}};
-- 3-bet i fold to 3-bet potrzebują ok. {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}} rąk, statystyki z turnu i rivera jeszcze więcej.
+- 3-bet potrzebuje ok. {{n:hud.hands.3bet.overall.low}}–{{n:hud.hands.3bet.high}} rąk, fold to 3-bet ok. {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}, statystyki z turnu i rivera jeszcze więcej.
 
 :::note Gdy sala zakazuje {{t:hud|HUD-a}}
 Część sal (według materiałów szkoleniowych także duże sale na niskich {{t:stakes|stawkach}}) zabrania programów z {{t:hud|HUD-em}} przy stole. Wtedy przeglądasz własną historię rąk po {{t:session|sesji}}, zapisujesz notatki o stałych rywalach i korzystasz z danych o populacji swojej {{t:stakes|stawki}} (lekcja 2). Progi prób pochodzą z dwóch materiałów szkoleniowych; przedziały obejmują oba źródła. Wzór na błąd to rachunek.

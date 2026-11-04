@@ -151,7 +151,7 @@ Głębszy stack oznacza droższe {{t:call}} i węższy {{t:range}} all-inu rywal
 
 ## Gdy za tobą ktoś jeszcze jest
 
-Przy trzech graczach i stackach po {{n:m11.depth.3max}} {{t:small-blind}} {{t:call|sprawdza}} all-in Buttona tylko ok. {{n:m11.3max.call.sb}} rąk, choć potrzebuje {{n:m11.3max.sb.eq}} equity. {{t:big-blind|Duży blind}} w tej samej sytuacji, gdy {{t:small-blind}} {{t:fold|spasował}}, dopłaca {{n:m11.3max.bb.cost}} do {{t:pot|puli}} {{n:m11.3max.bb.pot}}, potrzebuje {{n:m11.3max.bb.eq}} equity i {{t:call|sprawdza}} ok. {{n:m11.3max.call.bb}}. Różnica bierze się z gracza za tobą: {{t:small-blind}} może {{t:call|sprawdzić}} i trafić na jeszcze silniejszą rękę {{t:big-blind|dużego blinda}}.
+Przy trzech graczach i stackach po {{n:m11.depth.3max}} {{t:small-blind}} {{t:call|sprawdza}} all-in Buttona tylko ok. {{n:m11.3max.call.sb}} rąk, choć potrzebuje {{n:m11.3max.sb.eq}} equity. {{t:big-blind|Duży blind}} w tej samej sytuacji, gdy {{t:small-blind}} {{t:fold|spasował}}, dopłaca {{n:m11.3max.bb.cost}} do {{t:pot|puli}} {{n:m11.3max.bb.pot}}, potrzebuje {{n:m11.3max.bb.eq}} equity i {{t:call|sprawdza}} ok. {{n:m11.3max.call.bb}}. Różnica bierze się głównie z gracza za tobą (ceny różnią się niewiele): {{t:small-blind}} może {{t:call|sprawdzić}} i trafić na jeszcze silniejszą rękę {{t:big-blind|dużego blinda}}.
 
 ```range
 call.sb-vs-btn-3max

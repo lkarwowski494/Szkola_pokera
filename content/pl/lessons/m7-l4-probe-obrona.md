@@ -113,7 +113,7 @@ drills:
     prompt: "Turn. Rywal {{t:bet|stawia}} {{n:ex.bet.three-quarters}} do {{t:pot|puli}} {{n:ex.pot}}. Ile wynosi {{t:mdf}}? Wpisz liczbę w procentach."
     table: { position: BB }
     answer: mdf.bet-three-quarters
-    explanation: "{{t:mdf}} = {{t:pot}} ÷ ({{t:pot}} + bet) = {{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:mdf.bet-three-quarters}}. Na turnie solver broni średnio blisko {{t:mdf}}, inaczej niż na flopie {{t:out-of-position}}, gdzie broni mniej. Gdy wiesz, że rywal {{t:bluff|blefuje}} rzadziej, {{t:fold|pasujesz}} częściej (rachunek w M8, lekcja o łapaniu {{t:bluff|blefów}})."
+    explanation: "{{t:mdf}} = {{t:pot}} ÷ ({{t:pot}} + bet) = {{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:mdf.bet-three-quarters}}. W opublikowanym przykładzie z turnu solver bronił średnio blisko {{t:mdf}}; {{t:out-of-position}} bywa, że bronisz mniej (na flopie i na turnie). Gdy wiesz, że rywal {{t:bluff|blefuje}} rzadziej, {{t:fold|pasujesz}} częściej (rachunek w M8, lekcja o łapaniu {{t:bluff|blefów}})."
 ---
 Na turnie spotkasz dwie nowe sytuacje: Button nie zrobił c-betu i {{t:check|czekał}}, albo zrobił c-bet i betuje drugi raz. W pierwszej możesz zaatakować sam, w drugiej bronisz się węziej niż na flopie.
 
@@ -139,8 +139,8 @@ Gdy {{t:call|sprawdziłeś}} c-bet, a Button betuje drugi raz, jego {{t:range}} 
 - ręce bez outów i najsłabsze {{t:pair|pary}} częściej {{t:fold|pasują}},
 - {{t:top-pair}} zwykle nadal {{t:call|sprawdza}}.
 
-{{t:mdf}} pozostaje punktem odniesienia: przy becie 3/4 {{t:pot|puli}} wynosi {{n:mdf.bet-three-quarters}}. Na turnie solver broni średnio blisko tej wartości; mniej bronisz tylko wtedy, gdy rywal {{t:bluff|blefuje}} rzadziej, niż zakłada {{t:mdf}}.
+{{t:mdf}} pozostaje punktem odniesienia: przy becie 3/4 {{t:pot|puli}} wynosi {{n:mdf.bet-three-quarters}}. W opublikowanym przykładzie z turnu solver bronił średnio blisko tej wartości; {{t:out-of-position}} bywa, że bronisz mniej. Mniej bronisz też wtedy, gdy rywal {{t:bluff|blefuje}} rzadziej, niż zakłada {{t:mdf}}.
 
 :::note Skąd te zasady
-Zasady probe betu i obrony przed {{t:second-barrel|second barrelem}} to heurystyki z materiałów szkoleniowych i analiz solverów. Obronę na turnie blisko {{t:mdf}} pokazują opublikowane rozwiązania solvera. Aplikacja nie podaje częstotliwości w procentach, bo źródła różnią się zależnie od stołu. Liczby o tym, czym gracze mikrostawek {{t:bet|stawiają}} probe bety, wymagają źródła z opisaną populacją (próba, {{t:stakes|stawki}}, sale), więc ich tu nie ma.
+Zasady probe betu i obrony przed {{t:second-barrel|second barrelem}} to heurystyki z materiałów szkoleniowych i analiz solverów. Obronę na turnie blisko {{t:mdf}} pokazuje opublikowany przykład solvera. Aplikacja nie podaje częstotliwości w procentach, bo źródła różnią się zależnie od stołu. Liczby o tym, czym gracze mikrostawek {{t:bet|stawiają}} probe bety, wymagają źródła z opisaną populacją (próba, {{t:stakes|stawki}}, sale), więc ich tu nie ma.
 :::

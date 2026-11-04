@@ -111,7 +111,7 @@ Gdy {{t:flush-draw}} **nie wszedł**, rywal {{t:fold|spasuje}} swoje nietrafione
 
 ## Najpierw siła przy showdownie
 
-Kolejność jest stała: najpierw odkładasz ręce, które mogą wygrać po {{t:check|czekaniu}}, a dopiero z reszty wybierasz {{t:bluff|blefy}} z najlepszymi {{t:blocker|blokerami}}. Dobry {{t:blocker}} nie zrobi {{t:bluff|blefu}} z {{t:pair|pary}}, która wygrałaby showdown. {{t:blocker|Blokery}} przechylają wybór między podobnymi rękami; sam efekt jest niewielki.
+Kolejność jest stała: najpierw odkładasz ręce, które mogą wygrać po {{t:check|czekaniu}}, a dopiero z reszty wybierasz {{t:bluff|blefy}} z najlepszymi {{t:blocker|blokerami}}. Dobry {{t:blocker}} nie zrobi {{t:bluff|blefu}} z {{t:pair|pary}}, która wygrałaby showdown. {{t:blocker|Blokery}} przechylają wybór między podobnymi rękami; sam efekt jest niewielki, więc rozstrzyga dopiero wtedy, gdy ręce są podobnej siły (tak samo przy wyborze {{t:call|sprawdzeń}} w następnej lekcji).
 
 :::note Skąd te zasady
 Liczby {{t:combo|kombinacji}} to kombinatoryka. Zasady wyboru {{t:bluff|blefów}} według {{t:blocker|blokerów}} pochodzą z programu nauczania oraz z materiałów szkoleniowych i analiz solverów. Gdy brakuje innych {{t:bluff|blefów}}, solver {{t:bluff|blefuje}} też nietrafionymi kolorami.

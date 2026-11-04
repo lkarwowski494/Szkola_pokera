@@ -495,7 +495,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Reguła poparta. Problem w sąsiednich tekstach: lekcja m13-l1:93 i egzamin m13.yaml:34 nazywają akcję graną przez solver w <3,5% „błędem” i piszą, że „nie jest już częścią ręki mieszanej” — wg zasady obojętności każda akcja grana z dodatnią częstością ma równe EV, a serwis solvera nazywa ją „Inaccuracy”, nie błędem. Próg 25%/75% (MIXED_LOW/HIGH) to założenie aplikacji bez źródła (thresholds.ts:17), lekcja m13-l1:90 tego nie mówi. Szczegóły w raporcie."
+  "uwagi": "Reguła poparta. Problem w sąsiednich tekstach: lekcja m13-l1:93 i egzamin m13.yaml:34 nazywają akcję graną przez solver w <3,5% „błędem” i piszą, że „nie jest już częścią ręki mieszanej” — wg zasady obojętności każda akcja grana z dodatnią częstością ma równe EV, a serwis solvera nazywa ją „Inaccuracy”, nie błędem. Próg 25%/75% (MIXED_LOW/HIGH) to założenie aplikacji bez źródła (thresholds.ts:17), lekcja m13-l1:90 tego nie mówi. Szczegóły w raporcie. | S3 E3 2026-11-04: m13-l1:101: rzadsze zagranie dopuszczalne od 3,5%, rzadziej niedokładność (ustawienie aplikacji), spójnie z l. 92."
  },
  {
   "id": "R-M13-003",
@@ -565,14 +565,14 @@
     "miejsce": "„When to review”",
     "cytat": "The best time to review is hours or days after the session, with a clear head. ... What doesn’t work is reviewing while you’re still steaming or while you’re tired.",
     "odczyt": "2026-11-04",
-    "szczebel": 5
+    "szczebel": 4
    },
    {
     "adres": "https://blog.checkreplay.com/poker-hand-review/",
     "miejsce": "„During the session”",
     "cytat": "Mark hands that felt interesting, confusing, or off. Don’t analyze them yet.",
     "odczyt": "2026-11-04",
-    "szczebel": 5
+    "szczebel": 4
    },
    {
     "adres": "https://www.pokerskill.com/poker-glossary/session-review/",
@@ -598,20 +598,20 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Checkreplay to blog aplikacji (szczebel 5, nie może być jedynym źródłem) — dodano zamiennik szczebla 4 (PokerSkill: przegląd następnego dnia, nie w emocjach) i BlackRain79 (oznaczanie rąk w trakcie gry). Zmęczenie ma tylko źródło szczebla 5."
+  "uwagi": "Checkreplay to blog aplikacji (szczebel 5, nie może być jedynym źródłem) — dodano zamiennik szczebla 4 (PokerSkill: przegląd następnego dnia, nie w emocjach) i BlackRain79 (oznaczanie rąk w trakcie gry). Zmęczenie ma tylko źródło szczebla 5. | S3 E3 2026-11-04: z m13-l3 (l. 15, 68) usunięte „analiza przy stole zabiera uwagę od następnych decyzji” (bez źródła), l. 64 „wskazówki trenerów” bez „sprawdzone”; CheckReplay to blog narzędzia: szczebel 4 zamiast 5."
  },
  {
   "id": "R-M13-006",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "przegrałeś dużą pulę albo w rozdaniu nie wiedziałeś, co robić → przeglądasz to rozdanie; nad coolerem (dwie silne ręce, z których żadna nie mogła rozsądnie spasować) i bad beatem nie spędzasz dużo czasu, bo coolery i bad beaty zdarzają się każdemu, a najwięcej uczą rozdania, w których decyzja była trudna",
+  "twierdzenie": "przegrałeś dużą pulę albo w rozdaniu nie wiedziałeś, co robić → przeglądasz to rozdanie; nad coolerem (dwie silne ręce, z których żadna nie mogła rozsądnie spasować) i bad beatem nie spędzasz dużo czasu, bo coolery i bad beaty zdarzają się każdemu, a rozdania z trudną decyzją są wśród tych, które warto przeglądać",
   "zrodla": [
    {
     "adres": "https://blog.checkreplay.com/poker-hand-review/",
     "miejsce": "„Categories worth reviewing”",
     "cytat": "Big pots, especially the ones you lost. ... Hands where you weren’t sure what to do.",
     "odczyt": "2026-11-04",
-    "szczebel": 5
+    "szczebel": 4
    },
    {
     "adres": "https://www.blackrain79.com/2014/02/how-to-effectively-conduct-poker.html",
@@ -630,7 +630,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Wybór „duże pule, trudne decyzje” opiera się na szczeblu 5 (Checkreplay); BlackRain79 (4) popiera część o coolerach i wspomina „hands … where I felt lost in the hand or I feel that I got outplayed”. Przy kolejnej rewizji dodać źródło szczebla 4 dla „dużych pul”."
+  "uwagi": "Wybór „duże pule, trudne decyzje” opiera się na szczeblu 5 (Checkreplay); BlackRain79 (4) popiera część o coolerach i wspomina „hands … where I felt lost in the hand or I feel that I got outplayed”. Przy kolejnej rewizji dodać źródło szczebla 4 dla „dużych pul”. | S3 E3 2026-11-04: bez superlatywu „uczą najwięcej” (reguła, m13-l3 zadania, egzamin m13 q): „rozdania z trudną decyzją są wśród tych, które warto przeglądać”; CheckReplay: szczebel 4 zamiast 5."
  },
  {
   "id": "R-M13-007",

@@ -107,7 +107,7 @@ Typ odczytujesz z {{t:vpip}} i różnicy {{t:vpip}} − {{t:pfr}} (6-max, co naj
 | {{t:nit|Nit}} | do ok. {{n:hud.vpip.nit-max}} | mała | gra za mało rąk |
 | {{t:regular}} ({{t:tag}}, {{t:lag}}) | ok. {{n:hud.vpip.reg.low}}–{{n:hud.vpip.reg.high}} | mała | blisko bazy |
 | pasywny {{t:recreational|gracz rekreacyjny}} | od ok. {{n:hud.vpip.loose}} | ponad {{n:hud.gap.passive}} punktów | za dużo rąk, za często {{t:call|sprawdza}} |
-| {{t:maniac|maniak}} | od ok. {{n:hud.vpip.loose}} | poniżej {{n:hud.gap.aggressive}} punktów | za dużo rąk, za często {{t:raise|przebija}} |
+| {{t:maniac|maniak}} | od ok. {{n:hud.vpip.loose}} | do ok. {{n:hud.gap.aggressive}} punktów | za dużo rąk, za często {{t:raise|przebija}} |
 
 Pasywnego gracza z dużą różnicą nazywa się też {{t:calling-station}}. Między typami są strefy przejściowe (np. {{t:vpip}} kilkanaście procent albo gracz luźny z różnicą kilku punktów): tam nie przypisujesz typu, tylko patrzysz na kolejne statystyki.
 

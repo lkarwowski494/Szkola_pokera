@@ -4535,7 +4535,7 @@
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": "S3 E3 2026-11-04: w m7-l3 klucz służy już tylko jako stack = SPR × pula; stacki z innych przykładów mają własne klucze (io.flush.stack, io.gut.stack)."
  },
  {
   "id": "n:spr.stack.high",
@@ -4560,7 +4560,7 @@
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": ""
+  "uwagi": "S3 E3 2026-11-04: w m7-l3 klucz służy już tylko jako stack = SPR × pula; stacki z innych przykładów mają własne klucze (io.flush.stack, io.gut.stack)."
  },
  {
   "id": "n:draw.combo.overlap",
@@ -8349,7 +8349,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "solver projektu, spot push.sb-5, wartość 72.55%: zgodne z tabelą (1,6 pp) i z rachunkiem (1,05 pp)",
+  "uwagi": "solver projektu, spot push.sb-5, wartość 72.55%: zgodne z tabelą (1,6 pp) i z rachunkiem (1,05 pp) | S3 E3 2026-11-04: tekst podaje przedział od niezależnej równowagi (klucz m11.nash.push.5) do wartości solvera, bo zaokrąglenie samej wartości solvera odbiegało od równowagi (A6).",
   "decyzja": "D-153"
  },
  {
@@ -8441,7 +8441,7 @@
   "jednostka": "percent",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "solver projektu, spot push.sb-10-ante, wartość 71.65%: zgodne z rachunkiem (0,6 pp) w modelu z big blind ante 1bb; tabela PokerStrategy z ante (10% BB od każdego gracza) to inna struktura: 60,8% — kierunek ten sam. Tekst musi nazwać strukturę (BB ante 1bb). Zmienia D-148 dla tej liczby (do weta)",
+  "uwagi": "solver projektu, spot push.sb-10-ante, wartość 71.65%: zgodne z rachunkiem (0,6 pp) w modelu z big blind ante 1bb; tabela PokerStrategy z ante (10% BB od każdego gracza) to inna struktura: 60,8% — kierunek ten sam. Tekst musi nazwać strukturę (BB ante 1bb). Zmienia D-148 dla tej liczby (do weta) | S3 E3 2026-11-04: tekst podaje przedział od niezależnej równowagi (klucz m11.nash.push.10-ante) do wartości solvera, bo zaokrąglenie samej wartości solvera odbiegało od równowagi (A6).",
   "decyzja": "D-153"
  },
  {

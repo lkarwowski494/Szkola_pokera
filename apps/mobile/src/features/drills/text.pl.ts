@@ -125,7 +125,7 @@ function hudFact(s: HudSpot, x: PlayerType, th: HudThresholds): string {
     case 'passive':
       return `Pasywny gracz luźny gra od ${th.loose}% rąk z różnicą {{t:vpip}} − {{t:pfr}} ponad ${points(th.passiveGap)}; tu ${s.vpip}% i różnica ${gap}.`;
     case 'maniac':
-      return `{{t:maniac|Maniak}} gra od ${th.loose}% rąk z różnicą {{t:vpip}} − {{t:pfr}} mniejszą niż ${points(th.aggressiveGap)}; tu ${s.vpip}% i różnica ${gap}.`;
+      return `{{t:maniac|Maniak}} gra od ${th.loose}% rąk z różnicą {{t:vpip}} − {{t:pfr}} do ${points(th.aggressiveGap)}; tu ${s.vpip}% i różnica ${gap}.`;
   }
 }
 
