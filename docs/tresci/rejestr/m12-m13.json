@@ -7,7 +7,7 @@
   "zrodla": [
    {
     "adres": "rachunek: SE = SD ÷ √(ręce÷100); CI95 = wr ± 1,96·SE",
-    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
+    "miejsce": "docs/tresci/narzedzia/rachunki/rachunek_m12.py, funkcja sekcja_przedzial (python3 -I docs/tresci/narzedzia/rachunki/rachunek_m12.py)",
     "cytat": "80/√1000 = 2,530; 1,96·2,530 = 4,96; 5 ± 4,96 → 0,04…9,96 bb/100; z95 = Φ⁻¹(0,975) = 1,95996",
     "odczyt": "2026-11-04",
     "szczebel": 1
@@ -46,7 +46,7 @@
   "zrodla": [
    {
     "adres": "rachunek: Monte Carlo: max. spadek od szczytu ≥ 10 wpisowych w 100 tys. rąk, wr 5, SD 80",
-    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/downswing.py",
+    "miejsce": "docs/tresci/narzedzia/rachunki/rachunek_m12.py, funkcja sekcja_downswing (python3 -I docs/tresci/narzedzia/rachunki/rachunek_m12.py)",
     "cytat": "kroki 100 rąk: 94,9%; kroki 10 rąk: 97,1% (20 tys. przebiegów, ziarno 424242); 20 tys. rąk: 39,7%; wr 2: 99,0%; 20 wpisowych: 27,6% / 58,9%",
     "odczyt": "2026-11-04",
     "szczebel": 1
@@ -71,7 +71,7 @@
   "zrodla": [
    {
     "adres": "rachunek: bloki = (1,96·SD ÷ dokładność)²",
-    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
+    "miejsce": "docs/tresci/narzedzia/rachunki/rachunek_m12.py, funkcja sekcja_proba (python3 -I docs/tresci/narzedzia/rachunki/rachunek_m12.py)",
     "cytat": "(1,96·80/2)² = 6146,56 bloków = 614 656 rąk ≈ 615 tys.; przy SD 100: 9604 bloki = 960 tys. rąk",
     "odczyt": "2026-11-04",
     "szczebel": 1
@@ -96,7 +96,7 @@
   "zrodla": [
    {
     "adres": "rachunek: equity AA–KK przed flopem (Monte Carlo, losowe kolory)",
-    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/karty.py",
+    "miejsce": "docs/tresci/narzedzia/rachunki/rachunek_m12.py, funkcja sekcja_aa_kk i karty.py (python3 -I docs/tresci/narzedzia/rachunki/rachunek_m12.py)",
     "cytat": "AA: 81,77% ± 0,31 (60 tys. rozdań, remisy 0,47%) — zgodne z pf.aa-vs-kk = 81,95%, więc KK wygrywa ok. 18%",
     "odczyt": "2026-11-04",
     "szczebel": 1
@@ -264,14 +264,14 @@
    },
    {
     "adres": "rachunek: RoR = e^(−2·wr·BR/SD²), BR w bb",
-    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
+    "miejsce": "docs/tresci/narzedzia/rachunki/rachunek_m12.py, funkcja sekcja_ror_wzor (python3 -I docs/tresci/narzedzia/rachunki/rachunek_m12.py)",
     "cytat": "wr3/30 wpis.: 6,01%; wr3/15: 24,51%; wr1/30: 39,16%; wr1/50: 20,96%; wr5/30: 0,92%; wr2/40: 8,21%",
     "odczyt": "2026-11-04",
     "szczebel": 1
    },
    {
     "adres": "rachunek: Monte Carlo ruiny (3 mln rąk, bloki 100 rąk)",
-    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/ror_mc.py",
+    "miejsce": "docs/tresci/narzedzia/rachunki/rachunek_m12.py, funkcja sekcja_ror_mc (python3 -I docs/tresci/narzedzia/rachunki/rachunek_m12.py)",
     "cytat": "wr3/15: 23,6% (wzór 24,5%); wr3/30: 5,7% (6,0%); wr1/30: 38,0% (39,2%)",
     "odczyt": "2026-11-04",
     "szczebel": 1
@@ -335,7 +335,7 @@
    },
    {
     "adres": "rachunek: RoR przy wr 1bb/100, SD 80",
-    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
+    "miejsce": "docs/tresci/narzedzia/rachunki/rachunek_m12.py, funkcja sekcja_ror_wzor (python3 -I docs/tresci/narzedzia/rachunki/rachunek_m12.py)",
     "cytat": "30 wpisowych: 39,2%; 50 wpisowych: 21,0%",
     "odczyt": "2026-11-04",
     "szczebel": 1
@@ -382,7 +382,7 @@
    },
    {
     "adres": "rachunek: RoR przy 15 i 30 wpisowych, wr 3, SD 80",
-    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
+    "miejsce": "docs/tresci/narzedzia/rachunki/rachunek_m12.py, funkcja sekcja_ror_wzor (python3 -I docs/tresci/narzedzia/rachunki/rachunek_m12.py)",
     "cytat": "15 wpisowych: 24,5%; 30 wpisowych: 6,0%",
     "odczyt": "2026-11-04",
     "szczebel": 1
@@ -452,7 +452,7 @@
   "zrodla": [
    {
     "adres": "rachunek: P(przegrana) = 1 − equity",
-    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
+    "miejsce": "docs/tresci/narzedzia/rachunki/rachunek_m12.py, funkcja sekcja_przegrana (python3 -I docs/tresci/narzedzia/rachunki/rachunek_m12.py)",
     "cytat": "1 − 4/5 = 1/5; 10·1/5 = 2; 1 − 13/20 = 7/20",
     "odczyt": "2026-11-04",
     "szczebel": 1
@@ -509,7 +509,7 @@
   "zrodla": [
    {
     "adres": "rachunek: ranking układów po permutacji kolorów (ewaluator 7 kart)",
-    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/karty.py",
+    "miejsce": "docs/tresci/narzedzia/rachunki/rachunek_m12.py, funkcja sekcja_kolory i karty.py (python3 -I docs/tresci/narzedzia/rachunki/rachunek_m12.py)",
     "cytat": "3000 losowych układów 2+2+5 kart i losowych permutacji kolorów: 0 zmian rangi i wyniku porównania",
     "odczyt": "2026-11-04",
     "szczebel": 1
@@ -729,7 +729,7 @@
    },
    {
     "adres": "rachunek: RoR wr 3, SD 80, 30 wpisowych",
-    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
+    "miejsce": "docs/tresci/narzedzia/rachunki/rachunek_m12.py, funkcja sekcja_ror_wzor (python3 -I docs/tresci/narzedzia/rachunki/rachunek_m12.py)",
     "cytat": "e^(−2·3·3000/6400) = 6,0%",
     "odczyt": "2026-11-04",
     "szczebel": 1
@@ -772,7 +772,7 @@
    },
    {
     "adres": "rachunek: RoR wr 1, SD 80, 50 wpisowych",
-    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/rachunek.py",
+    "miejsce": "docs/tresci/narzedzia/rachunki/rachunek_m12.py, funkcja sekcja_ror_wzor (python3 -I docs/tresci/narzedzia/rachunki/rachunek_m12.py)",
     "cytat": "e^(−2·1·5000/6400) = 21,0%",
     "odczyt": "2026-11-04",
     "szczebel": 1
@@ -862,7 +862,7 @@
   "zrodla": [
    {
     "adres": "rachunek: symulacja downswingów, próg 10 wpisowych",
-    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/downswing.py",
+    "miejsce": "docs/tresci/narzedzia/rachunki/rachunek_m12.py, funkcja sekcja_downswing (python3 -I docs/tresci/narzedzia/rachunki/rachunek_m12.py)",
     "cytat": "próg 10 wpisowych: 94,9% (100 tys. rąk, wr 5, SD 80)",
     "odczyt": "2026-11-04",
     "szczebel": 1
@@ -1158,7 +1158,7 @@
    },
    {
     "adres": "rachunek: MC ruiny vs wzór",
-    "miejsce": "/tmp/claude-0/-home-user-Szkola-pokera/04b55aad-a844-5431-98bd-ea20a11ab98e/scratchpad/e1-m12-m13/bin/ror_mc.py",
+    "miejsce": "docs/tresci/narzedzia/rachunki/rachunek_m12.py, funkcja sekcja_ror_mc (python3 -I docs/tresci/narzedzia/rachunki/rachunek_m12.py)",
     "cytat": "wr3/30: MC 5,7% vs wzór 6,0%",
     "odczyt": "2026-11-04",
     "szczebel": 1
