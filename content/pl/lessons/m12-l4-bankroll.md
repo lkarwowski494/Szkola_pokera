@@ -141,7 +141,7 @@ Ustal próg z góry: schodzisz o jedną {{t:stakes|stawkę}} niżej najpóźniej
 Na początku ok. {{n:study.beginner}} czasu przeznaczasz na naukę, a resztę na grę. Gdy wygrywasz na swojej {{t:stakes|stawce}}, ideałem jest ok. {{n:study.winner}}, ale nigdy mniej niż {{n:study.min}} nauki.
 
 :::note Odpowiedzialna gra
-Sygnały, że granie przestaje być pod kontrolą: grasz dłużej, niż planowałeś; po przegranej wracasz, żeby odegrać straty; grasz za pieniądze, których nie możesz stracić, albo pożyczasz na grę; grasz, żeby uciec od zmartwień; ukrywasz granie przed bliskimi.
+Niektóre sygnały, że granie przestaje być pod kontrolą: grasz dłużej, niż planowałeś; po przegranej wracasz, żeby odegrać straty; grasz za pieniądze, których nie możesz stracić, albo pożyczasz na grę; grasz, żeby uciec od zmartwień; ukrywasz granie przed bliskimi.
 
 Gdzie szukać pomocy:
 

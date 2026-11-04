@@ -80,7 +80,7 @@ drills:
     prompt: "Założyłeś bankroll {{n:br.bi.beginner}} {{t:buy-in|wpisowych}}. Po {{t:downswing|downswingu}} masz {{n:exam.m12.md.now}}. Co robisz?"
     options:
       - { text: "Schodzę o jedną {{t:stakes|stawkę}} niżej", correct: true, why: "Próg zejścia to połowa założonej liczby {{t:buy-in|wpisowych}}: przy {{n:br.bi.beginner}} to {{n:exam.m12.md.half}}. Masz {{n:exam.m12.md.now}}, czyli mniej. Na {{t:stakes|stawce}} dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej {{t:buy-in|wpisowych}}. To ogólna wskazówka; jeśli granie przestaje być pod kontrolą, zajrzyj do ekranu „Pomoc”." }
-      - { text: "Zostaję, bo {{n:exam.m12.md.now}} to więcej niż próg {{n:br.bi.move-down}}", why: "Próg {{n:br.bi.move-down}} to połowa bankrollu {{n:br.bi.base}} {{t:buy-in|wpisowych}}. Liczysz go od bankrollu, który sam założyłeś. Założyłeś {{n:br.bi.beginner}}, więc schodzisz poniżej {{n:exam.m12.md.half}}." }
+      - { text: "Zostaję, bo {{n:exam.m12.md.now}} to więcej niż próg {{n:br.bi.move-down}}", why: "Próg {{n:br.bi.move-down}} to połowa bankrollu {{n:br.bi.base}} {{t:buy-in|wpisowych}}. Liczysz go od bankrollu, który sam założyłeś. Założyłeś {{n:br.bi.beginner}}, więc schodzisz najpóźniej przy {{n:exam.m12.md.half}}." }
       - { text: "Zostaję i gram więcej, żeby odrobić straty", why: "Odgrywanie strat to sygnał ostrzegawczy, a nie plan. Bankroll spadł poniżej progu {{n:exam.m12.md.half}}, więc schodzisz {{t:stakes|stawkę}} niżej." }
   - kind: choice
     id: m12.exam.q10

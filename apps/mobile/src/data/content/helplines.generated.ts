@@ -18,10 +18,10 @@ export const HELPLINES: {
   "checked": "2026-11-04",
   "checkedText": "Dane sprawdzone: 4 listopada 2026",
   "reviewBy": "2027-11-04",
-  "abroadText": "Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu, także gdy ty albo ktoś bliski myśli o odebraniu sobie życia, od razu dzwoń na lokalny numer alarmowy.",
+  "abroadText": "Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu, także gdy ty albo ktoś, kogo znasz, myśli o odebraniu sobie życia, od razu dzwoń na lokalny numer alarmowy.",
   "pointer": "Ten sam kontakt znajdziesz w aplikacji, w ekranie „Pomoc”.",
   "fallback": {
-    "text": "Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu, także gdy ty albo ktoś bliski myśli o odebraniu sobie życia, od razu dzwoń na lokalny numer alarmowy.",
+    "text": "Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu, także gdy ty albo ktoś, kogo znasz, myśli o odebraniu sobie życia, od razu dzwoń na lokalny numer alarmowy.",
     "online": [
       "int-gambling-therapy"
     ]

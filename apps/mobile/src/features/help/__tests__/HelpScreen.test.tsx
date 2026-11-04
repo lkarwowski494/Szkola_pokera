@@ -3,6 +3,7 @@ import '@/i18n';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { Linking } from 'react-native';
 import HelpScreen from '@/app/help';
+import { HELPLINES } from '@/data/content/helplines.generated';
 
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 
@@ -25,7 +26,8 @@ describe('ekran Pomoc', () => {
   });
   afterEach(() => openURL.mockRestore());
 
-  const GENERAL = 'Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości, porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu dzwoń na lokalny numer alarmowy.';
+  // zdanie ogólne z jednego źródła prawdy (content/helplines.yaml → helplines.generated.ts), nie kopia w teście
+  const GENERAL = HELPLINES.fallback.text;
 
   it.each(['US', 'GB', 'CA', 'DE', 'NO', null])('D-158: kraj %s: zdanie ogólne (raz) i Gambling Therapy, bez żadnego numeru i bez listy regionów', async (region) => {
     mockRegion = region;

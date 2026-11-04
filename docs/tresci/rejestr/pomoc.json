@@ -1813,7 +1813,7 @@
     "id": "H-INT-2",
     "rodzaj": "regula",
     "level": "rules",
-    "twierdzenie": "Przy objawach problemu z hazardem albo wątpliwościach skontaktuj się z lekarzem albo specjalistą zdrowia psychicznego; w nagłym zagrożeniu, także gdy ty albo ktoś bliski ma myśli samobójcze, od razu dzwoń na lokalny numer alarmowy",
+    "twierdzenie": "Przy objawach problemu z hazardem albo wątpliwościach skontaktuj się z lekarzem albo specjalistą zdrowia psychicznego; w nagłym zagrożeniu, także gdy ty albo ktoś, kogo znasz, ma myśli samobójcze, od razu dzwoń na lokalny numer alarmowy",
     "zrodla": [
       {
         "adres": "https://medlineplus.gov/ency/article/001520.htm",
@@ -1853,7 +1853,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "E3 2026-11-04 (D-158): zdanie ogólne zamiast numerów krajowych; tekst w content/helplines.yaml (fallback.text, claim H-INT-2), ramka M12-L4 i ekran „Pomoc”. Dwa niezależne serwisy instytucji (NLM, NHS), szczebel 3. Słowa właściciela „lokalna poradnia” zawężone do „specjalista zdrowia psychicznego” (brzmienie źródła; D-160). | E3 2026-11-04 (A8, S1): zdanie zawężało warunek do „mimo prób nie udaje ci się ograniczyć gry”; źródło: „if you believe you have symptoms”. Teraz: „Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości…” (ostrożnościowo). | E3 2026-11-04 (A9, S2): drugie zdanie nie wiązało myśli samobójczych z numerem alarmowym; dopisane według MedlinePlus 001520. | E3 2026-11-04 (A10, S3): „ty albo ktoś bliski” jak w źródle („you or someone you know”).",
+    "uwagi": "E3 2026-11-04 (D-158): zdanie ogólne zamiast numerów krajowych; tekst w content/helplines.yaml (fallback.text, claim H-INT-2), ramka M12-L4 i ekran „Pomoc”. Dwa niezależne serwisy instytucji (NLM, NHS), szczebel 3. Słowa właściciela „lokalna poradnia” zawężone do „specjalista zdrowia psychicznego” (brzmienie źródła; D-160). | E3 2026-11-04 (A8, S1): zdanie zawężało warunek do „mimo prób nie udaje ci się ograniczyć gry”; źródło: „if you believe you have symptoms”. Teraz: „Jeśli rozpoznajesz u siebie sygnały problemu z hazardem albo masz wątpliwości…” (ostrożnościowo). | E3 2026-11-04 (A9, S2): drugie zdanie nie wiązało myśli samobójczych z numerem alarmowym; dopisane według MedlinePlus 001520. | E3 2026-11-04 (A10, S3): „ty albo ktoś bliski” jak w źródle („you or someone you know”). | E3 2026-11-04 (A11, S3): „ktoś, kogo znasz” zamiast „ktoś bliski” (dosłownie „someone you know”).",
     "kraj": "*",
     "region": null,
     "wazne_do": "2027-11-04"
