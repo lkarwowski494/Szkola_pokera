@@ -1,0 +1,1476 @@
+[
+ {
+  "id": "n:solver.rfi.utg",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:55"
+  ],
+  "uzasadnienie": "Wartość odtworzona własnym skryptem z content/ranges/preflop-6max-100bb.json (udział kombinacji). Strona serwisu z tabelami (NL500, 100bb) przeczytana; 16,4% vs „about 17%” (LJ = UTG 6-max, potwierdza też tabela „UTG (LJ)”). Tekst m3-l3:55 podaje 16% i przedział źródeł 15–18%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:solver.rfi.hj",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:65"
+  ],
+  "uzasadnienie": "Wartość odtworzona własnym skryptem z content/ranges/preflop-6max-100bb.json (udział kombinacji). Strona serwisu z tabelami (NL500, 100bb) przeczytana; 20,1% vs „about 22%”; drugi serwis 19–22%. Różnica 1,9 pp, kierunek i rząd wielkości zgodne; tekst m3-l3:65 podaje tylko wartość solvera aplikacji.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:solver.rfi.co",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:65"
+  ],
+  "uzasadnienie": "Wartość odtworzona własnym skryptem z content/ranges/preflop-6max-100bb.json (udział kombinacji). Strona serwisu z tabelami (NL500, 100bb) przeczytana; 27,3% vs „about 28%”. Tekst m3-l3:65 zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:solver.rfi.btn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:71"
+  ],
+  "uzasadnienie": "Wartość odtworzona własnym skryptem z content/ranges/preflop-6max-100bb.json (udział kombinacji). Strona serwisu z tabelami (NL500, 100bb) przeczytana; 41,4% vs „about 42%”. Tekst m3-l3:71 zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:solver.rfi.sb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:77"
+  ],
+  "uzasadnienie": "Wartość odtworzona własnym skryptem z content/ranges/preflop-6max-100bb.json (udział kombinacji). Strona serwisu z tabelami (NL500, 100bb) przeczytana; 42,3% vs „about 44%” (raise-or-fold). Tekst m3-l3:77 „w przedziale ze źródeł” (40–45%) prawdziwy.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:solver.3bet.sb-vs-btn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l1-3bet.md:93"
+  ],
+  "uzasadnienie": "Odtworzone z JSON: raise 10 = 14,14%. Źródło: „roughly 5% as a flat call and 13% as a 3-bet”; siatka źródła: 55 3-bet 57%, 66 62% (zgodne ze zdaniem m4-l1:93).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.push.5",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:152",
+   "content/pl/exams/m11.yaml:50",
+   "content/pl/exams/m11.yaml:51",
+   "content/pl/rules.yaml:1063"
+  ],
+  "uzasadnienie": "Tabela 1 (bez ante) przeczytana; HU push/fold, ES = mniejszy stack przed blindami. Własny fictitious play (python, equity169.json, 600 iteracji): push 71,9%; solver 72,6%; tabela 74,1%. Różnica ≤2,2 pp, tekst „ok. 73%”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.push.10",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:74",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:140",
+   "content/pl/lessons/m11-l1-push-fold.md:63",
+   "content/pl/lessons/m11-l1-push-fold.md:90",
+   "content/pl/lessons/m11-l1-push-fold.md:92",
+   "content/pl/lessons/m11-l1-push-fold.md:152",
+   "content/pl/lessons/m11-l1-push-fold.md:174",
+   "content/pl/rules.yaml:1063",
+   "content/pl/rules.yaml:1071",
+   "content/pl/rules.yaml:1103"
+  ],
+  "uzasadnienie": "Tabela 1 (bez ante) przeczytana; HU push/fold, ES = mniejszy stack przed blindami. Własny fictitious play (python, equity169.json, 600 iteracji): 58,3%; solver 58,4%; tabela 56,6%. Lekcja m11-l1:152 sama zestawia 56,6% i nazywa różnicę.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.push.15",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:67",
+   "content/pl/lessons/m11-l1-push-fold.md:63",
+   "content/pl/lessons/m11-l1-push-fold.md:152",
+   "content/pl/rules.yaml:1063"
+  ],
+  "uzasadnienie": "Tabela 1 (bez ante) przeczytana; HU push/fold, ES = mniejszy stack przed blindami. Własny fictitious play (python, equity169.json, 600 iteracji): 45,7%; solver 45,5%; tabela 45,7%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.call.10",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:67",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:74",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:86",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:140",
+   "content/pl/rules.yaml:1103"
+  ],
+  "uzasadnienie": "Tabela 1 (bez ante) przeczytana; HU push/fold, ES = mniejszy stack przed blindami. Własny fictitious play (python, equity169.json, 600 iteracji): call 37,3%; solver 37,6%; tabela NCR 38,5% (m11-l2:140 podaje to porównanie).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.call.15",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:67",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:150"
+  ],
+  "uzasadnienie": "Tabela 1 (bez ante) przeczytana; HU push/fold, ES = mniejszy stack przed blindami. Własny fictitious play (python, equity169.json, 600 iteracji): call 28,5%; solver 28,2%; tabela 28,4%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.3max.push.btn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:156",
+   "content/pl/exams/m11.yaml:84",
+   "content/pl/exams/m11.yaml:86",
+   "content/pl/rules.yaml:1135"
+  ],
+  "uzasadnienie": "Artykuł Ganzfried i Sandholm (AAMAS 2008), Table 2, kolumna „Single hand prob.”, stacki 4500 przy 300/600 = 7,5bb; wartość solvera odtworzona z pushfold.json: 35,8% vs 0,355. Lekcja m11-l1:166 cytuje 35,5%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.3max.push.sb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l1-push-fold.md:156",
+   "content/pl/exams/m11.yaml:84",
+   "content/pl/exams/m11.yaml:86",
+   "content/pl/rules.yaml:1135"
+  ],
+  "uzasadnienie": "Artykuł Ganzfried i Sandholm (AAMAS 2008), Table 2, kolumna „Single hand prob.”, stacki 4500 przy 300/600 = 7,5bb; wartość solvera odtworzona z pushfold.json: 64,5% vs 0,633 (1,2 pp).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.3max.call.sb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:154",
+   "content/pl/rules.yaml:1143"
+  ],
+  "uzasadnienie": "Artykuł Ganzfried i Sandholm (AAMAS 2008), Table 2, kolumna „Single hand prob.”, stacki 4500 przy 300/600 = 7,5bb; wartość solvera odtworzona z pushfold.json: 23,9% vs 0,234.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.3max.call.bb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:110",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:154",
+   "content/pl/rules.yaml:1143"
+  ],
+  "uzasadnienie": "Artykuł Ganzfried i Sandholm (AAMAS 2008), Table 2, kolumna „Single hand prob.”, stacki 4500 przy 300/600 = 7,5bb; wartość solvera odtworzona z pushfold.json: 30,7% vs 0,308.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:m11.3max.call.bb-two",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m11-l2-sprawdzanie.md:110",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:111",
+   "content/pl/lessons/m11-l2-sprawdzanie.md:160",
+   "content/pl/rules.yaml:1143"
+  ],
+  "uzasadnienie": "Artykuł Ganzfried i Sandholm (AAMAS 2008), Table 2, kolumna „Single hand prob.”, stacki 4500 przy 300/600 = 7,5bb; wartość solvera odtworzona z pushfold.json: 20,6% vs 0,197.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M0-001",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m0-l1-uklady.md:7",
+   "content/pl/lessons/m0-l1-uklady.md:12",
+   "content/pl/lessons/m0-l1-uklady.md:21",
+   "content/pl/lessons/m0-l1-uklady.md:30",
+   "content/pl/lessons/m0-l1-uklady.md:58",
+   "content/pl/lessons/m0-l1-uklady.md:70",
+   "content/pl/exams/m0.yaml:7",
+   "content/pl/exams/m0.yaml:17",
+   "content/pl/exams/m0.yaml:27",
+   "content/pl/rules.yaml:19"
+  ],
+  "uzasadnienie": "Regulamin OAG (kolejność rąk), Crown Perth 10.1 (full przed kolorem przed stritem), Wikipedia: wyższa kategoria zawsze wyżej. Lekcja i egzamin zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M0-002",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m0-l1-uklady.md:7",
+   "content/pl/lessons/m0-l1-uklady.md:38",
+   "content/pl/lessons/m0-l1-uklady.md:64",
+   "content/pl/exams/m0.yaml:36",
+   "content/pl/exams/m0.yaml:46",
+   "content/pl/exams/m0.yaml:56",
+   "content/pl/exams/m0.yaml:66",
+   "content/pl/rules.yaml:27"
+  ],
+  "uzasadnienie": "Crown 10.3–10.4 („all cards count… Q:Q:7:7:9 shall lose to Q:Q:7:7:10”), Roberts sekcja 5 (najlepsza piątka) i 3 (podział przy identycznych rękach). m0-l1:99 i egzamin zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M0-003",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m0-l1-uklady.md:7",
+   "content/pl/lessons/m0-l1-uklady.md:48",
+   "content/pl/exams/m0.yaml:76",
+   "content/pl/exams/m0.yaml:86",
+   "content/pl/rules.yaml:35"
+  ],
+  "uzasadnienie": "Roberts sekcja 5 („play the board”), OAG (podział między równymi rękami). m0-l1:104 „w najlepszym razie dzielicie” zgodne z Wikipedią.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M1-001",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m1-l1-przebieg.md:85",
+   "content/pl/exams/m1.yaml:19",
+   "content/pl/lessons/m1-l1-przebieg.md:7",
+   "content/pl/lessons/m1-l1-przebieg.md:12",
+   "content/pl/exams/m1.yaml:7",
+   "content/pl/exams/m1.yaml:16",
+   "content/pl/rules.yaml:44"
+  ],
+  "uzasadnienie": "Crown: „a check shall only be an option if no blind is placed or bet is made” popiera regułę (lekcja m1-l1:72 mówi, że duży blind liczy się jak zakład). Ale m1-l1:85 i egzamin m1:19 „czekać tylko, gdy nikt nic nie wpłacił” są fałszywe dla dużego blinda po limpie (m1-l1:52 sam to pokazuje).",
+  "poprawka": "m1-l1:85: „Tylko gdy w tej rundzie nikt przed tobą nie postawił ani nie przebił (przed flopem duży blind może czekać, gdy nikt nie przebił).”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M1-003",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m1-l1-przebieg.md:7",
+   "content/pl/lessons/m1-l1-przebieg.md:30",
+   "content/pl/exams/m1.yaml:34",
+   "content/pl/rules.yaml:61"
+  ],
+  "uzasadnienie": "Cytat z Robert's Rules (sekcja 3) dotyczy wiążącej deklaracji ruchu, nie tego, że pas kosztuje tylko wpłacone. Teza jest definicyjna i prawdziwa, druga część to rachunek (call z equity 0 traci kwotę call), czyli poziom math, nie rules.",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M1-004",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m1-l1-przebieg.md:7",
+   "content/pl/lessons/m1-l1-przebieg.md:21",
+   "content/pl/lessons/m1-l1-przebieg.md:39",
+   "content/pl/exams/m1.yaml:43",
+   "content/pl/exams/m1.yaml:52",
+   "content/pl/exams/m1.yaml:61",
+   "content/pl/exams/m1.yaml:70",
+   "content/pl/rules.yaml:69"
+  ],
+  "uzasadnienie": "Roberts sekcja 5 (flop 3 karty, potem po jednej z licytacją), OAG (showdown aktywnych graczy). Uwaga: rules.yaml podaje jako drugie źródło „Wikipedia” bez adresu, rejestr OAG; niespójność opisu źródeł.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M2-001",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l1-outy.md:7",
+   "content/pl/lessons/m2-l1-outy.md:12",
+   "content/pl/lessons/m2-l1-outy.md:50",
+   "content/pl/lessons/m2-l1-outy.md:59",
+   "content/pl/lessons/m2-l1-outy.md:80",
+   "content/pl/exams/m2.yaml:7",
+   "content/pl/rules.yaml:78"
+  ],
+  "uzasadnienie": "Rachunek własny: 9/47 = 19,15%, 1 − 38·37/(47·46) = 34,97%. Serwis: 35,0% (zgodne). Tekst lekcji m2-l1 i egzamin zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M2-002",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m2-l1-outy.md:7",
+   "content/pl/lessons/m2-l1-outy.md:22",
+   "content/pl/lessons/m2-l1-outy.md:32",
+   "content/pl/lessons/m2-l1-outy.md:41",
+   "content/pl/lessons/m2-l1-outy.md:50",
+   "content/pl/lessons/m2-l1-outy.md:66",
+   "content/pl/lessons/m2-l1-outy.md:73",
+   "content/pl/lessons/m2-l1-outy.md:87",
+   "content/pl/lessons/m2-l1-outy.md:94",
+   "content/pl/exams/m2.yaml:17"
+  ],
+  "uzasadnienie": "Rachunek własny dla 1–10 outów: maks. błąd ×2 = 1,74 pp (n=10, turn→river), ×4 = 1,61 pp. Serwis: „accurate within 2%… 10 outs or less”. m2-l1:132 zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M3-001",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l1-pozycja.md:7",
+   "content/pl/lessons/m3-l1-pozycja.md:12",
+   "content/pl/lessons/m3-l1-pozycja.md:41",
+   "content/pl/exams/m3.yaml:8",
+   "content/pl/rules.yaml:120"
+  ],
+  "uzasadnienie": "Tabele solvera: BTN 42%, SB 44% (raise-or-fold); serwis szkoleniowy: SB „slightly wider” niż BTN; tabela 40–45 / 39–47%. „Tylko SB podobnie szeroko” zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M3-002",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l1-pozycja.md:7",
+   "content/pl/lessons/m3-l1-pozycja.md:21",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:7",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:12",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:39",
+   "content/pl/exams/m3.yaml:17",
+   "content/pl/rules.yaml:128"
+  ],
+  "uzasadnienie": "17,6% (NL500), ok. 17% (LJ = pierwsza pozycja 6-max), 15–17%, ok. 18%: przedział 15–18% obejmuje źródła. Tabela: UTG ma 5 graczy za sobą (uzasadnienie zgodne).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M3-003",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l2-rece-startowe.md:41",
+   "content/pl/lessons/m3-l1-pozycja.md:7",
+   "content/pl/lessons/m3-l1-pozycja.md:31",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:7",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:19",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:33",
+   "content/pl/exams/m3.yaml:45",
+   "content/pl/rules.yaml:137"
+  ],
+  "uzasadnienie": "42% (szczebel 2), 40–45%, 43%. Lekcje m3-l1:35, m3:49 zgodne. Dla 9-max (check spotu nine.rfi.btn) tabele 9-max podają BTN ok. 45% / 44–48%, tekst 9-max nie podaje liczb.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M3-004",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l2-rece-startowe.md:7",
+   "content/pl/lessons/m3-l2-rece-startowe.md:21",
+   "content/pl/lessons/m3-l1-pozycja.md:7",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:7",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:26",
+   "content/pl/exams/m3.yaml:55",
+   "content/pl/rules.yaml:146"
+  ],
+  "uzasadnienie": "„raising rather than limping”, „At 100bb the whole range plays as raise-or-fold”; sprzeczność SB (limp 20,5%) nazwana uproszczeniem. m3-l3:77 o rake: serwis „mid-stakes or below, the rake impact will eat away at your win-rate”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M3-006",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l2-rece-startowe.md:21",
+   "content/pl/lessons/m3-l1-pozycja.md:7",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:7",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:12",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:19",
+   "content/pl/exams/m3.yaml:27",
+   "content/pl/exams/m3.yaml:36",
+   "content/pl/exams/m3.yaml:93",
+   "content/pl/rules.yaml:163"
+  ],
+  "uzasadnienie": "Kolejność 17 < 22 < 28 < 42% (tabele solvera) i 15–17 / 19–22 / 25–28 / 40–45%; „Seats behind” 5/4/3/2 popiera uzasadnienie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M3-007",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l1-pozycja.md:7",
+   "content/pl/exams/m3.yaml:55",
+   "content/pl/exams/m3.yaml:66",
+   "content/pl/rules.yaml:172"
+  ],
+  "uzasadnienie": "„standard open size is 2.5bb from all positions (3bb from the small blind)”; solver: UTG 2bb, CO 2,3bb, BTN 2,5bb, SB 3bb; m3-l1:69 nazywa uproszczenie. Uzasadnienie „nie zdradza siły ręki” bez cytatu (heurystyka).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M3-008",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l2-rece-startowe.md:7",
+   "content/pl/lessons/m3-l2-rece-startowe.md:31",
+   "content/pl/exams/m3.yaml:83",
+   "content/pl/rules.yaml:181"
+  ],
+  "uzasadnienie": "Solver NL200: „Always 3-bet: AA, KK, QQ, AKs, AQs, AKo” (BTN vs CO); vs UTG QQ i AKo sprawdzane „at some frequency” – „zwykle” to oddaje. Tabele 3-betu: QQ+ i AK w wartości wobec każdej pozycji.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M3-009",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/rules.yaml:193",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:7",
+   "content/pl/exams/m3.yaml:55",
+   "content/pl/rules.yaml:189"
+  ],
+  "uzasadnienie": "Liczby 40–45% i 3bb poparte (44%, 40–50%, 39–47%). Ale uzasadnienie „nie otwierasz szerzej niż z Buttona” przeczy źródłom: SB 44% > BTN 42%, serwis „slightly wider range from the small blind than the button”, solver aplikacji 42,3% > 41,4%.",
+  "poprawka": "because: „grasz już tylko przeciw dużemu blindowi; po flopie mówisz pierwszy, więc otwierasz mniej więcej tak szeroko jak z Buttona, a nie dużo szerzej”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M3-010",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:7",
+   "content/pl/rules.yaml:199"
+  ],
+  "uzasadnienie": "Tabele 9-max (szczebel 4): UTG 9–12% / ~11%, UTG+1 11–14% / ~13%, LJ ~16% (≈ UTG 6-max 15–18%); dokument 10 (Drive, przeczytany): „N2 spełnione: UTG 10,9%… UTG+2 13,2%”. Jedna tabela łączy UTG+2 z LJ (14–17%), kierunek zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M4-001",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l1-3bet.md:7",
+   "content/pl/lessons/m4-l1-3bet.md:12",
+   "content/pl/rules.yaml:209"
+  ],
+  "uzasadnienie": "„the canonical 3-bet is 3x the open” (SPR 5–6), „around 3 times… in position”, solver NL200: 3-bet do 7,5bb przy 2,5bb (3x). m4-l1:16 i :75 zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M4-002",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l1-3bet.md:7",
+   "content/pl/lessons/m4-l1-3bet.md:22",
+   "content/pl/lessons/m4-l2-obrona-bb.md:7",
+   "content/pl/lessons/m4-l2-obrona-bb.md:40",
+   "content/pl/exams/m4.yaml:8",
+   "content/pl/rules.yaml:218"
+  ],
+  "uzasadnienie": "4x (serwis), 4–4,5x (drugi), 3,5–4x (trzeci), solver NL200: BB 11bb (4,4x), SB 9,4bb (3,8x); „ok. 4x” to część wspólna. Lekcje i egzamin m4:12 zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M4-003",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l1-3bet.md:7",
+   "content/pl/lessons/m4-l1-3bet.md:32",
+   "content/pl/lessons/m4-l1-3bet.md:59",
+   "content/pl/exams/m4.yaml:8",
+   "content/pl/exams/m4.yaml:18",
+   "content/pl/rules.yaml:227"
+  ],
+  "uzasadnienie": "SB vs BTN poparte szczeblem 2: „barely calls anything… almost exclusively 3-bet or fold”, 13% 3-bet; skład z siatki (77 66%, AJo 64%, KQo 77%, A5s 88%, A4s 72%, T9s 84%, 55 57%, 66 62%). Dla SB wobec CO tylko ogólne zdanie serwisu szczebla 4; poziom gto obejmuje więcej niż źródła 2.",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M4-004",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l2-obrona-bb.md:7",
+   "content/pl/lessons/m4-l2-obrona-bb.md:12",
+   "content/pl/lessons/m4-l2-obrona-bb.md:30",
+   "content/pl/lessons/m4-l2-obrona-bb.md:51",
+   "content/pl/lessons/m4-l2-obrona-bb.md:65",
+   "content/pl/exams/m4.yaml:38",
+   "content/pl/rules.yaml:236"
+  ],
+  "uzasadnienie": "Rachunek: 1,5/5,5 = 27,3%. Solver: 45% (32 call + 13 3-bet) i 3-bet 11,5% + call 29,0% = 40,5%: przedział 40–45% poparty. Dokument 10 przeczytany (solver aplikacji 49,6%, m4-l2:79 „szerzej” prawdziwe).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M4-005",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m4-l1-3bet.md:97",
+   "content/pl/lessons/m4-l1-3bet.md:7",
+   "content/pl/lessons/m4-l1-3bet.md:52",
+   "content/pl/rules.yaml:245"
+  ],
+  "uzasadnienie": "BTN vs CO: 12%/5% (otwarcie 2,3x), 10%/9%, 12,5%/3,0%; solver NL200: A8s–A3s 3-bet 77–99%, ATs/AJs i część 99–77 mieszane – poparte. Dla 3-betu wobec otwarcia z HJ (warunek reguły) brak źródła.",
+  "poprawka": "if i m4-l1:97: „z pozycją przebijasz otwarcie z CO” (albo dodać przeczytane źródło dla HJ)",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M4-006",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l1-3bet.md:7",
+   "content/pl/lessons/m4-l1-3bet.md:42",
+   "content/pl/lessons/m4-l2-obrona-bb.md:7",
+   "content/pl/exams/m4.yaml:28",
+   "content/pl/rules.yaml:254"
+  ],
+  "uzasadnienie": "„TT+, AJs+, and AQo+ are 3-bet purely”, blefy „near the bottom of our calling range”; siatka BB vs BTN: A5s 100%, A4s 85%, konektory w kolorze 54–100% 3-bet, AJo/ATo/A9o głównie call, 77 call 67%, 88/99 ok. 50% (lekcja: „bywają grane różnie”).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M4-007",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100",
+   "content/pl/exams/m4.yaml:61",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:7",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:12",
+   "content/pl/exams/m4.yaml:58",
+   "content/pl/rules.yaml:262"
+  ],
+  "uzasadnienie": "Solver NL200: pas 63,7 / call 17,2 / 4-bet 19,1%, próg 7,5/(7,5+4) = 65,2% (rachunek własny zgodny). Tabele uproszczone: pas 66,1% (38/354, 82/354) – poza 55–65%; „HUD ok. 55%” bez adresu. m4-l3:100 „przedziały obejmujące oba źródła” nieprawdziwe dla pasów.",
+  "poprawka": "m4-l3:100: „Przyjmujemy przedziały bliskie obu źródłom (pas tuż pod progiem): pas ok. 55%–65%…”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M4-008",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:7",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:22",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:72",
+   "content/pl/exams/m4.yaml:67",
+   "content/pl/rules.yaml:270"
+  ],
+  "uzasadnienie": "CO vs BTN 3-bet: „Call QQ, JJ… KQs, KJs, QJs, JTs, T9s, 77, 66 Fold Marginal offsuit broadways”; tabele: call JJ-77, AQs-ATs, KQs-KJs, konektory; „fewer suited connectors… offsuit broadway hands” OOP. KJo/ATo/QTo są w zakresie otwarcia CO i są pasowane.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M4-009",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:7",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:42",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:52",
+   "content/pl/exams/m4.yaml:77",
+   "content/pl/rules.yaml:278"
+  ],
+  "uzasadnienie": "„TT-66… play most effectively as flats versus a 3-bet in position”, 55-22 „should usually look to fold… unless the sizing is small”; tabele: call TT-55, konektory. Zdanie „inne źródło dopuszcza” (m4-l3:56, :108) bez wskazanego źródła w rejestrze.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M4-010",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:7",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:32",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:62",
+   "content/pl/exams/m4.yaml:87",
+   "content/pl/rules.yaml:286"
+  ],
+  "uzasadnienie": "AK „should be 4-bet with 100% frequency” (BTN vs BB), „4-bet value KK+, AKs (mixed), AKo (mixed)”, tabele: 4-bet AKo, call AKs – „AK bywa też sprawdzane” poparte. QQ: jedno źródło 4-bet (AA-JJ „vast majority”), drugie call – lekcja to podaje.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M4-011",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:7",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:82",
+   "content/pl/exams/m4.yaml:87",
+   "content/pl/rules.yaml:294"
+  ],
+  "uzasadnienie": "„2.2–2.5x… IP, 2.5–3x when OOP”; solver NL200 17,2/7,5 = 2,29x. SPR własny: IP 78/45 = 1,73, 75/51 = 1,47; OOP 82,75/36 = 2,30, przy 3x 77,5/46,5 = 1,67. „ok. 1,5–2,3” poprawne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M4-012",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l4-limperzy.md:7",
+   "content/pl/lessons/m4-l4-limperzy.md:12",
+   "content/pl/lessons/m4-l4-limperzy.md:22",
+   "content/pl/lessons/m4-l4-limperzy.md:32",
+   "content/pl/lessons/m4-l4-limperzy.md:42",
+   "content/pl/exams/m4.yaml:97",
+   "content/pl/exams/m4.yaml:105",
+   "content/pl/rules.yaml:302"
+  ],
+  "uzasadnienie": "„Raise to 3bb+1bb per limper when playing online”, „Base open size (3bb) + 1 big blind per limper”, „Add 1bb more from OOP positions”, „Never min-raise a limped pot” (popiera m4-l4:69).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M4-013",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l4-limperzy.md:7",
+   "content/pl/lessons/m4-l4-limperzy.md:53",
+   "content/pl/exams/m4.yaml:105",
+   "content/pl/rules.yaml:311"
+  ],
+  "uzasadnienie": "„tighten each range by roughly one tier” vs wiele limperów; dopłata: jedno źródło „limp behind with those suited connectors, small pairs”, drugie „almost always wrong” – oba zagrania zaliczone (ADR-04). Zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "R-M4-014",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l2-obrona-bb.md:7",
+   "content/pl/lessons/m4-l2-obrona-bb.md:20",
+   "content/pl/lessons/m4-l2-obrona-bb.md:58",
+   "content/pl/exams/m4.yaml:48",
+   "content/pl/rules.yaml:319"
+  ],
+  "uzasadnienie": "Rachunek 2/6 = 33,3%. „defends the Big Blind with about 56%” (39 call + 17 3-bet), drugi: 55,5%, 3-bet 9bb = 3x. Dokument 10: solver aplikacji 53,0% (m4-l2:89 „węziej” prawdziwe).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.3bet-freq.btn-vs-co.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l1-3bet.md:79",
+   "content/pl/rules.yaml:248"
+  ],
+  "uzasadnienie": "Źródła szczebla 2: ~12% (otwarcie CO 2,3x, NL500), 12,5% (NL200, 2,5bb), 10%: górna granica 13% obejmuje. m4-l1:79 zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.3bet-freq.btn-vs-co.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l1-3bet.md:79",
+   "content/pl/rules.yaml:248"
+  ],
+  "uzasadnienie": "„roughly 9% as a flat call and 10% as a 3-bet”; siatka źródła sumuje się do 10,4%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.3bet-freq.btn-vs-utg",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m4-l1-3bet.md:79"
+  ],
+  "uzasadnienie": "„8.2% calls, 7.5% 3-bets” – ale wobec otwarcia UTG minimalnego (2bb, NL500), a lekcja zakłada otwarcia 2,5bb; warunek nie podany w m4-l1:79.",
+  "poprawka": "m4-l1:79: „Wobec otwarcia z UTG (w tym rozwiązaniu minimalnym, do 2bb) sprawdzeń…”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.3bet-freq.sb-vs-btn",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l1-3bet.md:93",
+   "content/pl/exams/m4.yaml:22",
+   "content/pl/rules.yaml:230"
+  ],
+  "uzasadnienie": "„roughly 5% as a flat call and 13% as a 3-bet” (siatka 13,2%).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.3bet.size-ip",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l1-3bet.md:16",
+   "content/pl/lessons/m4-l1-3bet.md:75",
+   "content/pl/lessons/m4-l2-obrona-bb.md:45",
+   "content/pl/lessons/m4-l2-obrona-bb.md:92",
+   "content/pl/exams/m4.yaml:13",
+   "content/pl/exams/m4.yaml:52",
+   "content/pl/exams/m4.yaml:54",
+   "content/pl/rules.yaml:212",
+   "content/pl/rules.yaml:322"
+  ],
+  "uzasadnienie": "3x (serwis), „around 3 times” (drugi), solver NL200 7,5/2,5 = 3x.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.3bet.size-oop",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l1-3bet.md:26",
+   "content/pl/lessons/m4-l1-3bet.md:75",
+   "content/pl/lessons/m4-l2-obrona-bb.md:44",
+   "content/pl/lessons/m4-l2-obrona-bb.md:92",
+   "content/pl/exams/m4.yaml:12",
+   "content/pl/exams/m4.yaml:53",
+   "content/pl/rules.yaml:221"
+  ],
+  "uzasadnienie": "4x, 4–4,5x, solver NL200 BB 11bb = 4,4x, SB 9,4bb = 3,8x: 4x w części wspólnej.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.4bet.size-ip.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:86",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:112",
+   "content/pl/rules.yaml:297"
+  ],
+  "uzasadnienie": "„2.2–2.5x the 3-bet size when IP”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.4bet.size-ip.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:86",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:112",
+   "content/pl/rules.yaml:297"
+  ],
+  "uzasadnienie": "„2.2–2.5x the 3-bet size when IP”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.4bet.size-oop.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:112",
+   "content/pl/exams/m4.yaml:91",
+   "content/pl/exams/m4.yaml:93",
+   "content/pl/rules.yaml:297"
+  ],
+  "uzasadnienie": "„2.5–3x when OOP”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.4bet.size-oop.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:112",
+   "content/pl/exams/m4.yaml:91",
+   "content/pl/exams/m4.yaml:93",
+   "content/pl/rules.yaml:297"
+  ],
+  "uzasadnienie": "Solver NL200: CO OOP 4-bet 17,2bb na 7,5bb = 2,29x (rachunek własny); serwis podaje 2,5–3x, a w swoim przykładzie 2,4x. 2,3 zgodne ze szczeblem 2.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.bb-def.vs-btn.pub.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l2-obrona-bb.md:79",
+   "content/pl/rules.yaml:240"
+  ],
+  "uzasadnienie": "„GTO defends the Big Blind with about 45%” (siatka 45,1%); serwis szczebla 4: 45–50%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.bb-def.vs-btn.pub.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l2-obrona-bb.md:79",
+   "content/pl/rules.yaml:240"
+  ],
+  "uzasadnienie": "„3-bets 11.5% to 11bb and calls 29.0%” = 40,5%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.bb-def.vs-sb.pub",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l2-obrona-bb.md:89",
+   "content/pl/rules.yaml:323"
+  ],
+  "uzasadnienie": "„about 56% of hands” (siatka 55,5%), drugi serwis 55,5%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.call-freq.btn-vs-co.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l1-3bet.md:79",
+   "content/pl/rules.yaml:248"
+  ],
+  "uzasadnienie": "„roughly 9% as a flat call” (siatka 8,8%).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.call-freq.btn-vs-co.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l1-3bet.md:79",
+   "content/pl/rules.yaml:248"
+  ],
+  "uzasadnienie": "„calls only 3.0%” (NL200), drugi 5%: dolna granica 3%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.call-freq.btn-vs-utg",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m4-l1-3bet.md:79"
+  ],
+  "uzasadnienie": "„8.2% calls” – wobec minimalnego otwarcia UTG (2bb), lekcja nie podaje warunku (jak pf.3bet-freq.btn-vs-utg).",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.iso.base",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l4-limperzy.md:16",
+   "content/pl/lessons/m4-l4-limperzy.md:26",
+   "content/pl/lessons/m4-l4-limperzy.md:36",
+   "content/pl/lessons/m4-l4-limperzy.md:46",
+   "content/pl/lessons/m4-l4-limperzy.md:69",
+   "content/pl/exams/m4.yaml:101",
+   "content/pl/exams/m4.yaml:109",
+   "content/pl/rules.yaml:305"
+  ],
+  "uzasadnienie": "„3bb+1bb per limper when playing online”, „Base open size (3bb)”. Uwaga: druga strona dotyczy gry na żywo, wzór jednak ogólny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.iso.btn.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l4-limperzy.md:49",
+   "content/pl/lessons/m4-l4-limperzy.md:73"
+  ],
+  "uzasadnienie": "„Button (BTN) Iso vs. 1 Limper ~30-40% of hands” (6-max, 100bb, jeden limper).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.iso.btn.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l4-limperzy.md:49",
+   "content/pl/lessons/m4-l4-limperzy.md:73"
+  ],
+  "uzasadnienie": "Jak wyżej: ~30–40%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.iso.oop-extra",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l4-limperzy.md:36",
+   "content/pl/lessons/m4-l4-limperzy.md:69",
+   "content/pl/exams/m4.yaml:101",
+   "content/pl/rules.yaml:305"
+  ],
+  "uzasadnienie": "„Add 1bb more from OOP positions.”",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.iso.per-limper",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l4-limperzy.md:16",
+   "content/pl/lessons/m4-l4-limperzy.md:26",
+   "content/pl/lessons/m4-l4-limperzy.md:27",
+   "content/pl/lessons/m4-l4-limperzy.md:36",
+   "content/pl/lessons/m4-l4-limperzy.md:46",
+   "content/pl/lessons/m4-l4-limperzy.md:69",
+   "content/pl/exams/m4.yaml:101",
+   "content/pl/exams/m4.yaml:109",
+   "content/pl/exams/m4.yaml:110",
+   "content/pl/rules.yaml:305"
+  ],
+  "uzasadnienie": "„+1bb per limper” w obu źródłach.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.open-size",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l4-limperzy.md:18",
+   "content/pl/lessons/m3-l1-pozycja.md:69",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:13",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:23",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:33",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:43",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:53",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:63",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:73",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:83"
+  ],
+  "uzasadnienie": "„2.5bb from all positions (3bb from the small blind)”; solver: BTN 2,5bb. Uproszczenie nazwane w m3-l1:69.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.open-size-sb",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l1-pozycja.md:69",
+   "content/pl/lessons/m4-l2-obrona-bb.md:21",
+   "content/pl/lessons/m4-l2-obrona-bb.md:83",
+   "content/pl/exams/m4.yaml:44",
+   "content/pl/exams/m4.yaml:49",
+   "content/pl/exams/m4.yaml:52",
+   "content/pl/exams/m4.yaml:54",
+   "content/pl/exams/m3.yaml:59",
+   "content/pl/exams/m3.yaml:60",
+   "content/pl/exams/m3.yaml:70"
+  ],
+  "uzasadnienie": "„3bb from the small blind”; solver: „the SB makes it 3bb”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.open-size.solver-co",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l1-pozycja.md:69"
+  ],
+  "uzasadnienie": "„the CO makes it 2.3bb” (artykuł Preflop Range Morphology, NL500). Opis twierdzenia w rejestrze podaje inny adres (/range-morphology/, artykuł bez tego cytatu); numbers.yaml i zrodla mają adres poprawny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.open-size.solver-utg",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l1-pozycja.md:69"
+  ],
+  "uzasadnienie": "„minimum of 2bb from UTG” – jak wyżej, ten sam błędny adres w opisie twierdzenia rejestru.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.rfi.btn.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l1-pozycja.md:35",
+   "content/pl/lessons/m3-l1-pozycja.md:63",
+   "content/pl/exams/m3.yaml:49",
+   "content/pl/rules.yaml:140"
+  ],
+  "uzasadnienie": "42%, 40–45%, 43%: górna granica 45% obejmuje.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.rfi.btn.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l1-pozycja.md:35",
+   "content/pl/lessons/m3-l1-pozycja.md:63",
+   "content/pl/exams/m3.yaml:49",
+   "content/pl/rules.yaml:140"
+  ],
+  "uzasadnienie": "42%, 40–45%, 43%: dolna granica 40% obejmuje.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.rfi.sb.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:77",
+   "content/pl/exams/m3.yaml:59",
+   "content/pl/rules.yaml:192"
+  ],
+  "uzasadnienie": "44% (szczebel 2), 40–50%, 39–47%: 45% to część wspólna.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.rfi.sb.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:77",
+   "content/pl/exams/m3.yaml:59",
+   "content/pl/rules.yaml:192"
+  ],
+  "uzasadnienie": "44%, 40–50%, 39–47%: 40% to część wspólna.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.rfi.utg.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l1-pozycja.md:26",
+   "content/pl/lessons/m3-l1-pozycja.md:61",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:55",
+   "content/pl/exams/m3.yaml:21",
+   "content/pl/rules.yaml:131"
+  ],
+  "uzasadnienie": "17,6%, ok. 17%, 15–17%, ok. 18%: 18% obejmuje.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.rfi.utg.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m3-l1-pozycja.md:26",
+   "content/pl/lessons/m3-l1-pozycja.md:61",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:55",
+   "content/pl/exams/m3.yaml:21",
+   "content/pl/rules.yaml:131"
+  ],
+  "uzasadnienie": "15–17% (dolna granica 15%); szczebel 2: 17–17,6%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.vs3bet.fold.high",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:17",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100",
+   "content/pl/exams/m4.yaml:61",
+   "content/pl/rules.yaml:265"
+  ],
+  "uzasadnienie": "Twierdzenie: przedział obejmujący źródła; 63,7% (solver) mieści się, ale 66,1% (tabele uproszczone, rachunek własny 1 − 120/354) wykracza ponad 65%. Granicę wyznacza próg 65,2%, nie źródła. m4-l3:17 „w praktyce” sugeruje dane o populacji.",
+  "poprawka": "opis i m4-l3:100: „przedział bliski źródłom, z górną granicą tuż pod progiem 65,2%”; m4-l3:17 bez „w praktyce”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.vs3bet.fold.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:17",
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100",
+   "content/pl/exams/m4.yaml:61",
+   "content/pl/rules.yaml:265"
+  ],
+  "uzasadnienie": "Dolna granica 55% styka się z „Fold ~50-55%” (szczebel 4); źródła 2 i tabele są wyżej (63,7; 66,1). „HUD ok. 55%” bez przeczytanego adresu.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.vs3bet.call.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100",
+   "content/pl/rules.yaml:265"
+  ],
+  "uzasadnienie": "17,2% i 23,2% w przedziale; „Call ~30-40%” styka się z 30%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.vs3bet.call.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100",
+   "content/pl/rules.yaml:265"
+  ],
+  "uzasadnienie": "17,2% (solver) i 23,2% powyżej 15%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.vs3bet.4bet.high",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100",
+   "content/pl/rules.yaml:265"
+  ],
+  "uzasadnienie": "19,1% (solver) poniżej 20%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.vs3bet.4bet.low",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100",
+   "content/pl/rules.yaml:265"
+  ],
+  "uzasadnienie": "10,7% (38/354, rachunek własny) powyżej 10%; serwis 5–8% odbiega (opisane w rejestrze).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.vs3bet.pub1.4bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100"
+  ],
+  "uzasadnienie": "„4-bet to 17.2bb: 19.1%” (udział zakresu otwarcia CO); tekst 19%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.vs3bet.pub1.call",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100"
+  ],
+  "uzasadnienie": "„call 17.2%”; tekst 17%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.vs3bet.pub1.fold",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100"
+  ],
+  "uzasadnienie": "„fold 63.7%”; tekst 64%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.vs3bet.pub2.4bet",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100"
+  ],
+  "uzasadnienie": "Rachunek własny: 38/354 = 10,7% (354 = RFI CO 26,7% tej samej strony; zakresy kontynuacji są podzbiorem RFI). Szczebel 4: tabele „not strictly GTO”; tekst „uproszczone tabele”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.vs3bet.pub2.call",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100"
+  ],
+  "uzasadnienie": "Rachunek własny: 82/354 = 23,2%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:pf.vs3bet.pub2.fold",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m4-l3-wobec-3betu.md:100"
+  ],
+  "uzasadnienie": "Rachunek własny: 1 − 120/354 = 66,1%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ },
+ {
+  "id": "n:range.mixed.min",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m13-l1-raport.md:46",
+   "content/pl/lessons/m13-l1-raport.md:47",
+   "content/pl/lessons/m13-l1-raport.md:91",
+   "content/pl/lessons/m13-l1-raport.md:92",
+   "content/pl/lessons/m3-l3-zakresy-otwarc.md:47",
+   "content/pl/exams/m13.yaml:25",
+   "content/pl/exams/m13.yaml:34",
+   "content/pl/exams/m13.yaml:36",
+   "content/pl/rules.yaml:1163"
+  ],
+  "uzasadnienie": "„Inaccuracy – Moves that are taken less than 3.5% of the time in GTO, but don’t lose significant EV”; MIXED_MIN = 0.035 w thresholds.ts. Lekcja m13-l1:92 nazywa liczenie jak błąd ustawieniem aplikacji.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04"
+ }
+]
