@@ -28041,7 +28041,7 @@
   "id": "t:four-of-a-kind",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "kareta (four of a kind / quads): Cztery karty tej samej wartości, np. cztery siódemki. Remis rozstrzyga piąta karta (kicker).",
+  "twierdzenie": "kareta (four of a kind / quads): Cztery karty tej samej wysokości, np. cztery siódemki. Remis rozstrzyga piąta karta (kicker).",
   "zrodla": [
    {
     "adres": "https://en.wikipedia.org/wiki/List_of_poker_hands",
@@ -28074,7 +28074,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Cytat Wikipedii w polu source nieaktualny (dziś: „also known as quads, four cards or bomb”).",
+  "uwagi": "Cytat Wikipedii w polu source nieaktualny (dziś: „also known as quads, four cards or bomb”). E2 2026-11-04: brzmienie ujednolicone (content/terms.yaml:46): „wysokość” zamiast „wartość” dla rangi karty (wartość = value, raport E1, jedna nazwa – jedno pojęcie).",
   "partia": [
    "terminy"
   ]
@@ -28132,7 +28132,7 @@
   "id": "t:flush",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "kolor (flush): Pięć kart w jednym kolorze, które nie idą po kolei. Przy dwóch kolorach wygrywa ten z wyższą najwyższą kartą.",
+  "twierdzenie": "kolor (flush): Pięć kart tego samego symbolu (♠, ♥, ♦ albo ♣), które nie idą po kolei. Przy dwóch takich układach wygrywa ten z wyższą najwyższą kartą, a przy równej – z wyższą kolejną.",
   "zrodla": [
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -28156,9 +28156,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "content/terms.yaml:61: „… wygrywa ten z wyższą najwyższą kartą, a przy równej – z wyższą kolejną.” Rozważyć dopowiedzenie „kolor = pięć kart tego samego symbolu (♠♥♦♣)”, bo „kolor” to też kolor karty.",
-  "uwagi": "Definicja zatrzymuje się na najwyższej karcie; źródło: kolejne karty rozstrzygają dalej. Nazwa „kolor” = układ i kolor karty (suit): ryzyko dla laika.",
+  "uwagi": "Definicja zatrzymuje się na najwyższej karcie; źródło: kolejne karty rozstrzygają dalej. Nazwa „kolor” = układ i kolor karty (suit): ryzyko dla laika. E2 2026-11-04: poprawione (content/terms.yaml:61); było CZĘŚCIOWO.",
   "partia": [
    "terminy"
   ]
@@ -28216,7 +28216,7 @@
   "id": "t:three-of-a-kind",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "trójka (three of a kind): Trzy karty tej samej wartości i dwie inne. W hold'emie ma dwie odmiany o osobnych nazwach: set, gdy para jest w ręce, a trzecia karta na stole, oraz trips, gdy para leży na stole, a trzecia karta jest w ręce.",
+  "twierdzenie": "trójka (three of a kind): Trzy karty tej samej wysokości i dwie inne. W hold'emie ma dwie odmiany o osobnych nazwach: set, gdy para jest w ręce, a trzecia karta na stole, oraz trips, gdy para leży na stole, a trzecia karta jest w ręce.",
   "zrodla": [
    {
     "adres": "https://en.wikipedia.org/wiki/List_of_poker_hands",
@@ -28256,7 +28256,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Trójka może też leżeć w całości na stole (bez osobnej nazwy); definicja tego nie wyklucza.",
+  "uwagi": "Trójka może też leżeć w całości na stole (bez osobnej nazwy); definicja tego nie wyklucza. E2 2026-11-04: brzmienie ujednolicone (content/terms.yaml:77): „wysokość” zamiast „wartość” dla rangi karty (wartość = value, raport E1, jedna nazwa – jedno pojęcie).",
   "partia": [
    "terminy"
   ]
@@ -28342,7 +28342,7 @@
   "id": "t:pair",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "para (pair / one pair): Dwie karty tej samej wartości i trzy inne, np. dwie dziewiątki. Słabszy jest tylko układ wysokiej karty.",
+  "twierdzenie": "para (pair / one pair): Dwie karty tej samej wysokości i trzy inne, np. dwie dziewiątki. Słabszy jest tylko układ wysokiej karty.",
   "zrodla": [
    {
     "adres": "https://en.wikipedia.org/wiki/List_of_poker_hands",
@@ -28375,7 +28375,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": "E2 2026-11-04: brzmienie ujednolicone (content/terms.yaml:99): „wysokość” zamiast „wartość” dla rangi karty (wartość = value, raport E1, jedna nazwa – jedno pojęcie).",
   "partia": [
    "terminy"
   ]
@@ -28496,7 +28496,7 @@
   "id": "t:check",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "czekanie (check): Granie dalej bez stawiania żetonów, możliwe tylko wtedy, gdy w tej rundzie licytacji nikt jeszcze nie postawił. Nie mylić ze „sprawdzam” – to call, czyli dołożenie do zakładu rywala.",
+  "twierdzenie": "czekanie (check): Granie dalej bez dokładania żetonów, możliwe tylko wtedy, gdy nie musisz nic dopłacać: w tej rundzie licytacji nikt jeszcze nie postawił (przed flopem tak może zagrać duży blind, gdy nikt nie przebił). Nie mylić ze „sprawdzam” – to call, czyli dołożenie do zakładu rywala.",
   "zrodla": [
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -28527,9 +28527,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "content/terms.yaml:129: „Granie dalej bez dokładania żetonów, możliwe tylko wtedy, gdy nie musisz nic dopłacać: w tej rundzie nikt jeszcze nie postawił (przed flopem tak może zagrać duży blind, gdy nikt nie przebił).”",
-  "uwagi": "Lekcja m1.l1 traktuje duży blind jak zakład, a jednocześnie pozwala mu czekać; dosłowna definicja („nikt nie postawił”) tego nie obejmuje.",
+  "uwagi": "Lekcja m1.l1 traktuje duży blind jak zakład, a jednocześnie pozwala mu czekać; dosłowna definicja („nikt nie postawił”) tego nie obejmuje. E2 2026-11-04: poprawione (content/terms.yaml:129); było CZĘŚCIOWO.",
   "partia": [
    "terminy"
   ]
@@ -28615,7 +28615,7 @@
   "id": "t:raise",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "przebicie (raise): Podniesienie stawki ponad zakład rywala; pozostali muszą dołożyć różnicę albo spasować. W polskich tekstach także „podbicie”.",
+  "twierdzenie": "przebicie (raise): Podniesienie stawki ponad zakład rywala; pozostali muszą dołożyć różnicę, przebić dalej albo spasować. W polskich tekstach także „podbicie”.",
   "zrodla": [
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -28646,9 +28646,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "content/terms.yaml:152: „… pozostali muszą dołożyć co najmniej różnicę (albo przebić dalej) albo spasować.”",
-  "uwagi": "Dosłownie definicja wyklucza ponowne przebicie (re-raise), które regulamin dopuszcza.",
+  "uwagi": "Dosłownie definicja wyklucza ponowne przebicie (re-raise), które regulamin dopuszcza. E2 2026-11-04: poprawione (content/terms.yaml:152); było CZĘŚCIOWO.",
   "partia": [
    "terminy"
   ]
@@ -28790,7 +28790,7 @@
   "id": "t:side-pot",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "pula boczna (side pot): Osobna pula, która powstaje, gdy ktoś gra all-in: grają o nią tylko gracze, którzy mają jeszcze żetony, więc gracz all-in nie może jej wygrać.",
+  "twierdzenie": "pula boczna (side pot): Osobna pula, która powstaje, gdy ktoś gra all-in: grają o nią tylko gracze, którzy włożyli więcej niż gracz all-in, więc on sam nie może jej wygrać.",
   "zrodla": [
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -28814,9 +28814,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "content/terms.yaml:189: „… grają o nią tylko gracze, którzy włożyli więcej niż gracz all-in, więc on sam nie może jej wygrać.”",
-  "uwagi": "„Gracze, którzy mają jeszcze żetony” jest błędne przy kilku all-inach: gracz z większym all-inem nie ma już żetonów, a gra o pulę boczną.",
+  "uwagi": "„Gracze, którzy mają jeszcze żetony” jest błędne przy kilku all-inach: gracz z większym all-inem nie ma już żetonów, a gra o pulę boczną. E2 2026-11-04: poprawione (content/terms.yaml:189); było CZĘŚCIOWO.",
   "partia": [
    "terminy"
   ]
@@ -28930,7 +28930,7 @@
   "id": "t:community-cards",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "karty wspólne (community cards): Karty wykładane odkryte na środek stołu, których każdy gracz może użyć do swojego układu; w hold'emie jest ich pięć.",
+  "twierdzenie": "karty wspólne (community cards): Karty wykładane odkryte na środek, których każdy gracz może użyć do swojego układu; w hold'emie jest ich pięć.",
   "zrodla": [
    {
     "adres": "https://www.briggsoft.com/docs/pmavens/Rules_Roberts.htm",
@@ -28956,7 +28956,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": "E2 2026-11-04: brzmienie ujednolicone (content/terms.yaml:219): „na środek” zamiast „na środek stołu” (stół = board, raport E1, jedna nazwa – jedno pojęcie).",
   "partia": [
    "terminy"
   ]
@@ -29959,7 +29959,7 @@
   "id": "t:gutshot",
   "rodzaj": "termin",
   "level": "math",
-  "twierdzenie": "gutshot (gutshot / inside straight draw): Draw do strita, któremu brakuje jednej konkretnej wartości w środku, np. 5-6-8-9 czeka tylko na siódemkę.",
+  "twierdzenie": "gutshot (gutshot / inside straight draw): Draw do strita, któremu brakuje jednej konkretnej wysokości w środku, np. 5-6-8-9 czeka tylko na siódemkę.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/gutter-gutshot/",
@@ -29978,7 +29978,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": "E2 2026-11-04: brzmienie ujednolicone (content/terms.yaml:417): „wysokość” zamiast „wartość” dla rangi karty (wartość = value, raport E1, jedna nazwa – jedno pojęcie).",
   "partia": [
    "terminy"
   ]
@@ -30015,7 +30015,7 @@
   "id": "t:pot-odds",
   "rodzaj": "termin",
   "level": "math",
-  "twierdzenie": "pot odds (pot odds): Stosunek kwoty, którą musisz dołożyć, do wielkości puli. Mówi, jak często musisz wygrywać, żeby sprawdzenie się opłacało.",
+  "twierdzenie": "pot odds (pot odds): Stosunek kwoty, którą musisz dołożyć, do puli, którą możesz wygrać (razem z zakładem rywala). Mówi, jak często musisz wygrywać, żeby sprawdzenie się opłacało.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/pot-odds/",
@@ -30032,9 +30032,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "content/terms.yaml:429: „Stosunek kwoty, którą musisz dołożyć, do puli, którą możesz wygrać (razem z zakładem rywala).”",
-  "uwagi": "Źródło: przy zakładzie pół puli 0,5 do 1,5 (pula z zakładem), wymagane 25%. Dosłowne „do wielkości puli” bez zakładu rywala prowadzi laika do błędnego rachunku.",
+  "uwagi": "Źródło: przy zakładzie pół puli 0,5 do 1,5 (pula z zakładem), wymagane 25%. Dosłowne „do wielkości puli” bez zakładu rywala prowadzi laika do błędnego rachunku. E2 2026-11-04: poprawione (content/terms.yaml:429); było CZĘŚCIOWO.",
   "partia": [
    "terminy"
   ]
@@ -30099,7 +30099,7 @@
   "id": "t:equity-realization",
   "rodzaj": "termin",
   "level": "gto",
-  "twierdzenie": "realizacja equity (equity realization): Jaką część swojego equity ręka faktycznie zamienia na wygraną, gdy licytacja trwa dalej; zależy m.in. od pozycji i od tego, jak łatwo rękę rozegrać.",
+  "twierdzenie": "realizacja equity (equity realization): W jakim stopniu ręka zamienia swoje equity na wygraną, gdy licytacja trwa dalej (może zrealizować mniej albo więcej niż swoje equity); zależy m.in. od pozycji i od tego, jak łatwo rękę rozegrać.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/equity-realization-eqr/",
@@ -30123,9 +30123,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "content/terms.yaml:448: „W jakim stopniu ręka zamienia swoje equity na wygraną, gdy licytacja trwa dalej (może zrealizować mniej albo więcej niż swoje equity); …”",
-  "uwagi": "„Jaką część” sugeruje wartość do 100%; źródło opisuje też nadrealizację.",
+  "uwagi": "„Jaką część” sugeruje wartość do 100%; źródło opisuje też nadrealizację. E2 2026-11-04: poprawione (content/terms.yaml:448); było CZĘŚCIOWO.",
   "partia": [
    "terminy"
   ]
@@ -30225,7 +30225,7 @@
   "id": "t:mixed-hand",
   "rodzaj": "termin",
   "level": "gto",
-  "twierdzenie": "ręka mieszana (mixed strategy / mixing hand): Ręka, z którą strategia równowagi wybiera raz jedno, raz drugie zagranie (np. czasem przebicie, czasem sprawdzenie); oba zagrania są poprawne. W polskich tekstach mówi się, że rękę gra się mieszaną strategią.",
+  "twierdzenie": "ręka mieszana (mixing hand / mixed strategy): Ręka, z którą strategia równowagi wybiera raz jedno, raz drugie zagranie (np. czasem przebicie, czasem sprawdzenie); oba zagrania są poprawne. W polskich tekstach mówi się, że rękę gra się mieszaną strategią.",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/heads-up-exploiting-sbs-preflop-mistakes/",
@@ -30265,7 +30265,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Polska nazwa to ręka („ręka mieszana”), a angielska główna to strategia („mixed strategy”); przy tej samej nazwie w ćwiczeniu słownictwa lepsza para to „mixing hand” jako en, „mixed strategy” jako en_alt. Do decyzji terminologicznej (dok. 13).",
+  "uwagi": "Polska nazwa to ręka („ręka mieszana”), a angielska główna to strategia („mixed strategy”); przy tej samej nazwie w ćwiczeniu słownictwa lepsza para to „mixing hand” jako en, „mixed strategy” jako en_alt. Do decyzji terminologicznej (dok. 13). E2 2026-11-04: brzmienie ujednolicone (content/terms.yaml:480): en „mixing hand”, en_alt „mixed strategy” (polska nazwa to ręka; raport E1, jedna nazwa – jedno pojęcie).",
   "partia": [
    "terminy"
   ]
@@ -30393,7 +30393,7 @@
   "id": "t:connectors",
   "rodzaj": "termin",
   "level": "gto",
-  "twierdzenie": "konektory (connectors / connector): Karty własne o sąsiednich albo prawie sąsiednich wartościach, np. 8-7 lub 9-8; łatwiej z nich ułożyć strita.",
+  "twierdzenie": "konektory (connectors / connector): Karty własne o sąsiednich wysokościach, np. 8-7 lub 9-8; łatwiej z nich ułożyć strita.",
   "zrodla": [
    {
     "adres": "https://en.wikipedia.org/wiki/Glossary_of_poker_terms",
@@ -30424,9 +30424,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "content/terms.yaml:517: „Karty własne o sąsiednich wartościach, np. 8-7 lub 9-8; łatwiej z nich ułożyć strita.” (karty z przerwą to gappery)",
-  "uwagi": "„Albo prawie sąsiednich” ma oparcie tylko w Wikipedii (szczebel 5); serwis szczebla 2 nazywa takie ręce osobno („gapper”).",
+  "uwagi": "„Albo prawie sąsiednich” ma oparcie tylko w Wikipedii (szczebel 5); serwis szczebla 2 nazywa takie ręce osobno („gapper”). E2 2026-11-04: poprawione (content/terms.yaml:517); było CZĘŚCIOWO.",
   "partia": [
    "terminy"
   ]
@@ -30596,7 +30596,7 @@
   "id": "t:dry",
   "rodzaj": "termin",
   "level": "gto",
-  "twierdzenie": "suchy (dry / static): Stół, na którym możliwych jest mało drawów i silnych układów, np. K♠ 7♦ 2♣.",
+  "twierdzenie": "suchy (dry): Stół, na którym możliwych jest mało drawów i silnych układów, np. K♠ 7♦ 2♣.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/glossary/board-texture/",
@@ -30620,9 +30620,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "content/terms.yaml:563: Usunąć en_alt „static” albo podać źródło szczebla ≤ 4.",
-  "uwagi": "Nazwa „static” tylko w Wikipedii („dry board: See static board”).",
+  "uwagi": "Nazwa „static” tylko w Wikipedii („dry board: See static board”). E2 2026-11-04: poprawione (content/terms.yaml:561 (usunięte en_alt)); było CZĘŚCIOWO.",
   "partia": [
    "terminy"
   ]
@@ -30631,7 +30631,7 @@
   "id": "t:wet",
   "rodzaj": "termin",
   "level": "gto",
-  "twierdzenie": "mokry (wet / dynamic): Stół, na którym możliwych jest wiele drawów i silnych układów, np. J♥ T♥ 8♣.",
+  "twierdzenie": "mokry (wet): Stół, na którym możliwych jest wiele drawów i silnych układów, np. J♥ T♥ 8♣.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/wet/",
@@ -30662,9 +30662,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "content/terms.yaml:571: Usunąć en_alt „dynamic” albo podać źródło szczebla ≤ 4 (serwis solvera używa „dynamic boards”, ale bez zrównania z „wet”).",
-  "uwagi": "Zrównanie wet = dynamic tylko w Wikipedii.",
+  "uwagi": "Zrównanie wet = dynamic tylko w Wikipedii. E2 2026-11-04: poprawione (content/terms.yaml:568 (usunięte en_alt)); było CZĘŚCIOWO.",
   "partia": [
    "terminy"
   ]
@@ -30757,7 +30757,7 @@
   "id": "t:paired",
   "rodzaj": "termin",
   "level": "gto",
-  "twierdzenie": "sparowany (paired): Stół, na którym leży para (dwie karty tej samej wartości), np. 8-8-3.",
+  "twierdzenie": "sparowany (paired): Stół, na którym leży para (dwie karty tej samej wysokości), np. 8-8-3.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/glossary/board-texture/",
@@ -30783,7 +30783,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": "E2 2026-11-04: brzmienie ujednolicone (content/terms.yaml:596): „wysokość” zamiast „wartość” dla rangi karty (wartość = value, raport E1, jedna nazwa – jedno pojęcie).",
   "partia": [
    "terminy"
   ]
@@ -30848,7 +30848,7 @@
   "id": "t:semi-connected",
   "rodzaj": "termin",
   "level": "gto",
-  "twierdzenie": "półpołączony (semi-connected): Stół, na którym są drawy do strita, ale strit nie jest jeszcze możliwy, np. T-8-3.",
+  "twierdzenie": "półpołączony (semi-connected): Stół, na którym są drawy do strita, ale strit nie jest jeszcze możliwy, np. T-8-3 (podział przyjęty w kursie).",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/the-four-point-checklist-for-calling-turn-barrels/",
@@ -30866,15 +30866,15 @@
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": null,
+  "uproszczenie": "podział przyjęty w kursie (wniosek z przykładu T-8-3 i ze skali łączności z hasła board texture); oznaczony w definicji",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "content/terms.yaml:620: Oznaczyć definicję jako przyjętą w kursie (wniosek z przykładu T-8-3) albo podać źródło definicji.",
-  "uwagi": "Źródło używa nazwy przy jednym stole, nie definiuje jej; definicja to wniosek projektu zgodny ze skalą łączności z hasła board texture.",
+  "uwagi": "Źródło używa nazwy przy jednym stole, nie definiuje jej; definicja to wniosek projektu zgodny ze skalą łączności z hasła board texture. E2 2026-11-04: poprawione (content/terms.yaml:618); było CZĘŚCIOWO.",
   "partia": [
    "terminy"
   ]
@@ -31079,7 +31079,7 @@
   "id": "t:initiative",
   "rodzaj": "termin",
   "level": "gto",
-  "twierdzenie": "inicjatywa (initiative / betting initiative): Rola ostatniego agresora: to on zwykle wykonuje następny zakład, a rywal najczęściej czeka na jego ruch.",
+  "twierdzenie": "inicjatywa (initiative / betting initiative / betting lead): Rola ostatniego agresora: to on zwykle wykonuje następny zakład.",
   "zrodla": [
    {
     "adres": "https://blog.gtowizard.com/when-checking-the-nuts-beats-betting-them/",
@@ -31110,9 +31110,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "content/terms.yaml:670: Usunąć „a rywal najczęściej czeka na jego ruch” albo poprzeć to opublikowaną strategią solvera; dodać en_alt „betting lead”.",
-  "uwagi": "Źródła z pola source tylko używają słowa; definicję daje hasło „betting lead”. Agresor (gracz) i inicjatywa (rola) to bliskie pojęcia: dwa terminy na prawie to samo.",
+  "uwagi": "Źródła z pola source tylko używają słowa; definicję daje hasło „betting lead”. Agresor (gracz) i inicjatywa (rola) to bliskie pojęcia: dwa terminy na prawie to samo. E2 2026-11-04: poprawione (content/terms.yaml:668); było CZĘŚCIOWO.",
   "partia": [
    "terminy"
   ]
@@ -31695,7 +31695,7 @@
   "id": "t:effective-stack",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "efektywny stack (effective stack): Najmniejszy ze stacków graczy w rozdaniu, czyli najwięcej, ile można w nim realnie wygrać lub przegrać.",
+  "twierdzenie": "efektywny stack (effective stack): W rozdaniu dwóch graczy: mniejszy z ich stacków, czyli najwięcej, ile można realnie wygrać lub przegrać. Przy kilku graczach liczy się go osobno dla każdej pary.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/effective-stack/",
@@ -31719,9 +31719,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "content/terms.yaml:800: „W rozdaniu dwóch graczy: mniejszy z ich stacków, czyli najwięcej, ile można realnie wygrać lub przegrać. Przy kilku graczach liczy się osobno dla każdej pary.”",
-  "uwagi": "Przy kilku graczach największy stack może stracić więcej niż najmniejszy stack stołu.",
+  "uwagi": "Przy kilku graczach największy stack może stracić więcej niż najmniejszy stack stołu. E2 2026-11-04: poprawione (content/terms.yaml:798); było CZĘŚCIOWO.",
   "partia": [
    "terminy"
   ]
@@ -31730,7 +31730,7 @@
   "id": "t:spr",
   "rodzaj": "termin",
   "level": "math",
-  "twierdzenie": "SPR (stack-to-pot ratio): Efektywny stack podzielony przez wielkość puli na flopie; mówi, ile zakładów zostało jeszcze do rozegrania.",
+  "twierdzenie": "SPR (stack-to-pot ratio): Efektywny stack podzielony przez wielkość puli na flopie; mówi, jak głębokie są stacki w stosunku do puli (im niższy SPR, tym szybciej wszystko trafia do puli).",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/stacktopot-ratio-spr/",
@@ -31754,9 +31754,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "content/terms.yaml:807: „… ; mówi, jak głębokie są stacki w stosunku do puli (im niższy SPR, tym szybciej wszystko trafia do puli).”",
-  "uwagi": "„Ile zakładów zostało” jest dosłownie błędne: pula rośnie po każdym zakładzie (SPR 4 to ok. dwa zakłady wielkości puli). Źródło liczy SPR z puli na dowolnej ulicy; „na flopie” to konwencja.",
+  "uwagi": "„Ile zakładów zostało” jest dosłownie błędne: pula rośnie po każdym zakładzie (SPR 4 to ok. dwa zakłady wielkości puli). Źródło liczy SPR z puli na dowolnej ulicy; „na flopie” to konwencja. E2 2026-11-04: poprawione (content/terms.yaml:805); było CZĘŚCIOWO.",
   "partia": [
    "terminy"
   ]
@@ -32157,7 +32157,7 @@
   "id": "t:tournament",
   "rodzaj": "termin",
   "level": "rules",
-  "twierdzenie": "turniej (tournament): Forma gry, w której wszyscy za wpisowe dostają taki sam stack żetonów, blindy rosną co pewien czas, a gra trwa, aż jeden gracz zbierze wszystkie żetony; nagrody dostają najwyżej sklasyfikowani.",
+  "twierdzenie": "turniej (tournament): Forma gry, w której wszyscy za wpisowe dostają zwykle taki sam stack żetonów, blindy rosną co pewien czas, a gra trwa, aż jeden gracz zbierze wszystkie żetony; nagrody dostają najwyżej sklasyfikowani.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/tournament/",
@@ -32188,9 +32188,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "content/terms.yaml:907: „… wszyscy za wpisowe dostają zwykle taki sam stack …”",
-  "uwagi": "Równy stack startowy bez przeczytanego źródła (rebuy, add-on, późna rejestracja); rosnące blindy: TDA (poziomy).",
+  "uwagi": "Równy stack startowy bez przeczytanego źródła (rebuy, add-on, późna rejestracja); rosnące blindy: TDA (poziomy). E2 2026-11-04: poprawione (content/terms.yaml:905); było CZĘŚCIOWO.",
   "partia": [
    "terminy"
   ]
@@ -32430,7 +32430,7 @@
   "id": "t:m-ratio",
   "rodzaj": "termin",
   "level": "math",
-  "twierdzenie": "M (M-ratio): Stack podzielony przez sumę blindów i ante w jednym rozdaniu: na ile rund wystarczy żetonów bez gry.",
+  "twierdzenie": "M (M-ratio): Stack podzielony przez sumę blindów i ante w jednym rozdaniu: na ile pełnych okrążeń (orbit) wystarczy żetonów bez gry.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/mratio/",
@@ -32461,9 +32461,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
-  "poprawka": "content/terms.yaml:964: „… : na ile pełnych okrążeń stołu (orbit) wystarczy żetonów bez gry.”",
-  "uwagi": "„Rund” dosłownie myli się z rundami licytacji; źródło mówi o orbitach.",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": "content/terms.yaml:964: „… : na ile pełnych okrążeń (orbit) wystarczy żetonów bez gry.”",
+  "uwagi": "„Rund” dosłownie myli się z rundami licytacji; źródło mówi o orbitach. E2 2026-11-04: poprawione (content/terms.yaml:962); było CZĘŚCIOWO.",
   "partia": [
    "terminy"
   ]
@@ -32654,7 +32654,7 @@
   "id": "t:gap-concept",
   "rodzaj": "termin",
   "level": "heuristic",
-  "twierdzenie": "gap concept (gap concept): Zasada, że do sprawdzenia lub przebicia otwarcia potrzeba silniejszej ręki niż do samego otwarcia.",
+  "twierdzenie": "gap concept (gap concept): Zasada, że do sprawdzenia otwarcia potrzeba silniejszej ręki niż do samego otwarcia.",
   "zrodla": [
    {
     "adres": "https://gtowizard.com/en/glossary/gap-concept/",
@@ -32678,9 +32678,9 @@
   "wielkosc": null,
   "wartosc": null,
   "jednostka": null,
-  "werdykt_tekstu": "CZĘŚCIOWO",
+  "werdykt_tekstu": "POPARTE",
   "poprawka": "content/terms.yaml:1004: „Zasada, że do sprawdzenia otwarcia potrzeba silniejszej ręki niż do samego otwarcia.”",
-  "uwagi": "Źródło mówi tylko o sprawdzeniu (call); „lub przebicia” wykracza poza źródło, a zakres 3-betu bywa spolaryzowany (blefy słabsze niż ręce otwierające).",
+  "uwagi": "Źródło mówi tylko o sprawdzeniu (call); „lub przebicia” wykracza poza źródło, a zakres 3-betu bywa spolaryzowany (blefy słabsze niż ręce otwierające). E2 2026-11-04: poprawione (content/terms.yaml:1002); było CZĘŚCIOWO.",
   "partia": [
    "terminy"
   ]
