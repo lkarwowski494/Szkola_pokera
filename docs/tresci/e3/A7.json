@@ -1,0 +1,875 @@
+[
+ {
+  "id": "R-M12-009",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/rules.yaml:1017",
+   "content/pl/lessons/m12-l4-bankroll.md:117",
+   "content/pl/lessons/m12-l4-bankroll.md:120",
+   "content/pl/lessons/m12-l4-bankroll.md:20",
+   "content/pl/lessons/m12-l4-bankroll.md:73",
+   "content/pl/exams/m12.yaml:70"
+  ],
+  "uzasadnienie": "Wzór i liczby zgodne: mój rachunek 6,01% (30 wpis., wr 3) i 24,51% (15), MC 5,9%. Źródło nazywa wzór „closed-form approximation” przy stałym winrate i SD; lekcja (m12-l4:117–121) podaje go bez tego zastrzeżenia.",
+  "poprawka": "m12-l4:123: „Wzór jest przybliżeniem przy stałym winrate i SD. Winrate i SD podajesz w bb/100, bankroll w bb.”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "m12-l4:117–121 podaje wzór bez oznaczenia, że to przybliżenie przy stałym winrate i SD (źródło: „closed-form approximation”, „constant win rate”)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "R-M12-010",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/rules.yaml:1025",
+   "content/pl/lessons/m12-l4-bankroll.md:137",
+   "content/pl/lessons/m12-l4-bankroll.md:138",
+   "content/pl/lessons/m12-l4-bankroll.md:40",
+   "content/pl/lessons/m12-l4-bankroll.md:65",
+   "content/pl/exams/m12.yaml:88"
+  ],
+  "uzasadnienie": "Cytaty znalezione (50 dla początkujących, 30 dla doświadczonego/clear winner, zakres 20–100+). Źródło dodaje „and more if … your edge is thin”; reguła i lekcja mówią „z potwierdzonym winrate co najmniej 30” bez tego warunku (przy wr 1: 39% RoR).",
+  "poprawka": "then: „… z potwierdzonym, wyraźnie dodatnim winrate co najmniej {{n:br.bi.base}}, a przy niskim winrate więcej”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "pominięty warunek źródła: więcej niż 30 wpisowych przy małej przewadze („more if … your edge is thin”; pokerlistings: 1bb/100 → 60–80)",
+   "exams/m12.yaml: rada bankrollowa (q9, q10) bez uwagi „ogólna wskazówka” i bez odesłania do pomocy (kryterium c)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "R-M12-011",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "SPRZECZNE",
+  "miejsca": [
+   "content/pl/rules.yaml:1033",
+   "content/pl/lessons/m12-l4-bankroll.md:142",
+   "content/pl/lessons/m12-l4-bankroll.md:47",
+   "content/pl/lessons/m12-l4-bankroll.md:56",
+   "content/pl/lessons/m12-l4-bankroll.md:59",
+   "content/pl/exams/m12.yaml:80"
+  ],
+  "uzasadnienie": "Reguła „najpóźniej przy połowie” zgodna ze źródłami (pokerskill: połowa). Ale cytowany PrimeDope: „Losing 10 should trigger a move down”, a lekcja (142) i zadanie q-stay (59) uczą, że zejście po −10 wpisowych jest błędem. To sprzeczne ze źródłem i z „najpóźniej”.",
+  "poprawka": "q-stay: uznać „Schodzisz stawkę od razu” też za poprawne (ręka mieszana, ADR-04); l4:142: „Downswing o 10 wpisowych nie zmusza do zejścia, ale część źródeł zaleca zejście już wtedy; wcześniejsze zejście jest bezpieczniejsze.”",
+  "skutek": "S2",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "m12-l4:142 i m12-l4:59 (q-stay) oceniają zejście po stracie 10 wpisowych jako błąd, wbrew cytowanemu źródłu („Losing 10 should trigger a move down”) i słowu „najpóźniej” w regule; kierunek ryzykowniejszy",
+   "„prawie każdemu wygrywającemu” bez horyzontu (symulacja: 100 tys. rąk; przy 20 tys. ok. 40%)",
+   "exams/m12.yaml: rada bankrollowa (q9, q10) bez uwagi „ogólna wskazówka” i bez odesłania do pomocy (kryterium c)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "n:br.bi.base",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/numbers.yaml:451",
+   "content/pl/lessons/m12-l4-bankroll.md:138",
+   "content/pl/lessons/m12-l4-bankroll.md:42",
+   "content/pl/lessons/m12-l4-bankroll.md:67",
+   "content/pl/exams/m12.yaml:92"
+  ],
+  "uzasadnienie": "30 wpisowych: trzy cytaty znalezione dosłownie; rachunek 6,0% przy wr 3, SD 80. Tekst „minimum dla gracza, który potwierdził, że wygrywa” pomija warunek źródła „more if … your edge is thin” (pokerskill).",
+  "poprawka": "m12-l4:138: „… jako minimum dla gracza z potwierdzonym, wyraźnie dodatnim winrate; przy niskim winrate więcej.”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "pominięty warunek „more if … your edge is thin” w m12-l4:138 i 42",
+   "exams/m12.yaml: rada bankrollowa (q9, q10) bez uwagi „ogólna wskazówka” i bez odesłania do pomocy (kryterium c)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "n:br.bi.beginner",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/numbers.yaml:452",
+   "content/pl/lessons/m12-l4-bankroll.md:137",
+   "content/pl/lessons/m12-l4-bankroll.md:40",
+   "content/pl/exams/m12.yaml:80",
+   "content/pl/exams/m12.yaml:91"
+  ],
+  "uzasadnienie": "50 wpisowych dla początkujących: cytaty Blackrain79 i Upswing znalezione dosłownie; rachunek 20,96% przy wr 1. Lekcja uczciwie podaje, że 50 przy wr 1 zostawia ok. 21% ryzyka.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "exams/m12.yaml: rada bankrollowa (q9, q10) bez uwagi „ogólna wskazówka” i bez odesłania do pomocy (kryterium c)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "n:dd.bi.small",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/numbers.yaml:442",
+   "content/pl/lessons/m12-l1-wariancja.md:63",
+   "content/pl/lessons/m12-l1-wariancja.md:83",
+   "content/pl/lessons/m12-l1-wariancja.md:133",
+   "content/pl/lessons/m12-l1-wariancja.md:137",
+   "content/pl/lessons/m12-l4-bankroll.md:41",
+   "content/pl/lessons/m12-l4-bankroll.md:142",
+   "content/pl/rules.yaml:963",
+   "content/pl/rules.yaml:1037"
+  ],
+  "uzasadnienie": "Wartość 10 to wybór dydaktyczny; moja symulacja (4000 przebiegów, wr 5, SD 80, 100 tys. rąk): 94,9% (20 tys. rąk: 38%; wr 2: 99%). „Prawie każdemu wygrywającemu” w l4:142, l1:83, rules:1037 bez horyzontu 100 tys. rąk.",
+  "poprawka": "„… zdarza się prawie każdemu wygrywającemu w ciągu {{n:var.hands.k}} tys. rąk”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "„prawie każdemu wygrywającemu” bez horyzontu próby (l4:41, l4:142, l1:83, rules:1037)",
+   "m12-l1: rada o stratach (q-dd-meaning, l1:81–83, „Sam downswing niczego nie przesądza”) bez uwagi „ogólna wskazówka” i bez odesłania do pomocy (kryterium c)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "n:ror.two",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/numbers.yaml:456",
+   "content/pl/lessons/m12-l4-bankroll.md:22",
+   "content/pl/exams/m12.yaml:73"
+  ],
+  "uzasadnienie": "Stała 2 we wzorze e^(−2·wr·BR/SD²): cytat PrimeDope znaleziony; to wynik ruiny ruchu Browna z dryfem; moja MC (wr 3, 30 wpis.) 5,9% wobec wzoru 6,0%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "M12-L4-RAMKA",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:148",
+   "content/pl/lessons/m12-l4-bankroll.md:149",
+   "content/pl/lessons/m12-l4-bankroll.md:153"
+  ],
+  "uzasadnienie": "Wszystkie cytaty znalezione (u.g.h. art. 1 ust. 2, art. 27; NHS, MedlinePlus, Vic). Każdy sygnał ma pokrycie; zdanie o prawie kraju ogólne, nie przesądza. Odesłanie do pomocy obecne ({{helplines}}); treść ramki pomocy zależy od H-INT-1 (źródło niedostępne).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-US-1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/helplines.yaml:48",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "Numer cyfra po cyfrze 1-800-697-3738 = MY-RESET; SMS, 24/7, bez opłat, 240+ języków, operator NCPG: cytaty znalezione. Pole language „angielski” bez pokrycia (strona podaje tylko tłumaczenie); pole nie jest wyświetlane na ekranie.",
+  "poprawka": "language: 'tłumacz ponad 240 języków'",
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "pole language: „angielski” bez pokrycia w źródle (strona: „caller translation services in more than 240 languages”, bez języka bazowego)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "H-US-2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:74",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "988: 24/7, bezpłatnie, poufnie, cytat znaleziony; Call/Text/Chat na stronie; NCPG: „not a crisis hotline”. Ekran pokazuje numer, godziny, koszt zgodnie z wpisem.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-US-3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:85",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "911: cytat NCPG znaleziony („call 911 or 988”). Uwaga: źródło to organizacja prowadząca linię hazardową, nie urząd numeru 911; treść oczywista i zgodna.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-GB-1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/helplines.yaml:95",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "0808 8020 133 cyfra po cyfrze w 3 źródłach; 24/7, bezpłatnie, GamCare: pokryte. Wpis ma regions bez Walii, ale national: true, a ekran nie pokazuje regionu wpisu, więc użytkownik w Walii bez wyboru regionu widzi go jako linię dla siebie (GC: Walia 0808 2819 265).",
+  "poprawka": "name: 'National Gambling Helpline (Anglia, Szkocja, Irlandia Płn.)'",
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "ekran „Pomoc” pokazuje wpis bez wybranego regionu jako ogólnokrajowy, bez informacji, że dotyczy Anglii, Szkocji i Irlandii Płn.; źródło: Walia ma własny numer"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "H-GB-2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:115",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "0808 281 9265 = 0808 2819 265 (GC) cyfra po cyfrze; 24/7, bezpłatnie także bez środków, BCUHB, start 1.04.2026: cytaty znalezione.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-GB-3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:132",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "08000 886 725: cytaty nidirect i communities-ni znalezione; bezpłatnie, informacja o wsparciu w okolicy: pokryte.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-GB-4",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:146",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "116 123, bezpłatnie z każdego telefonu, o każdej porze, UK i Irlandia: strona Samaritans i NHS przeczytane. nhsinform.scot niedostępne (403, archive.org: zerwane połączenie), ale elementy pokryte innymi źródłami.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-GB-5",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/helplines.yaml:189",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "999: NHS (Anglia), cavuhb (Walia), nidirect (Irlandia Płn.) przeczytane. Szkocję pokrywa tylko nhsinform.scot: 403, archive.org zerwane połączenie.",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "Szkocja bez przeczytanego źródła (nhsinform.scot niedostępne)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "H-GB-6",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:161",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "0808 808 8000 (health-ni, nidirect), 24/7, bezpłatnie, Irlandia Płn.: cytaty znalezione.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-GB-7",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/helplines.yaml:175",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "111 opcja zdrowia psychicznego (NHS, Anglia) i 111 press 2, 24/7 (gov.wales) przeczytane. Szkocję (regions GB-SCT) pokrywa tylko niedostępne nhsinform.scot.",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "region GB-SCT bez przeczytanego źródła (nhsinform.scot niedostępne)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "H-CA-1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:205",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "9-8-8 telefon i SMS, 24/7, toll-free; CAMH i rząd Kanady: cytaty 988.ca i AGCO znalezione.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:219",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "9-1-1 przy zagrożeniu bezpieczeństwa: cytat 988.ca znaleziony.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:228",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "1-866-531-2600, bezpłatnie, poufnie, całą dobę, Ontario (AGCO): cytat znaleziony; SMS 247247 na stronie, we wpisie pominięty.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-4",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:240",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "1-888-795-6111, toll-free 24/7, BC: dwa cytaty gov.bc.ca znalezione.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-5",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:254",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "1 800 461-0140 i 514 527-0140, FR/EN, 24/7, cały Quebec, linia sans frais: cytaty quebec.ca i sante.gouv.qc.ca znalezione.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-6",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:274",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "1-866-332-2322 (Alberta only), 24-Hour: cytat znaleziony; strona o problemie z narkotykami lub hazardem; wpis bez kosztu, zgodnie ze źródłem.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-7",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:285",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "Bezpłatnie, 24 h: cytat znaleziony. Numer 1-800-306-6789 nie ma go w cytacie, ale jest w nagłówku tej samej strony saskatchewan.ca (sprawdzony cyfra po cyfrze).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-8",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:297",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "1-800-463-1554, 24 h, w Manitobie, AFM: oba cytaty gov.mb.ca znalezione.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-9",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:311",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "1-866-355-5550, 24/7; strona usług uzależnień (substancje i hazard) gnb.ca: cytaty znalezione; 1-800-461-1234 (NBLGC) w rejestrze, we wpisie pominięty.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-11",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:324",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "1-888-429-8167, toll-free, 24/7, linia kryzysowa NS (kind crisis): cytat novascotia.ca znaleziony.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-12",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/helplines.yaml:336",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "1-855-255-4255, 24/7, bez opłat, EN/FR: cytaty 211 PEI i ulotki CMHA znalezione. Brak źródła szczebla 1 (strona urzędu/operatora); rejestr sam podaje szczebel 3, a 211 linkuje do strony rządu PEI.",
+  "poprawka": "dodać źródło princeedwardisland.ca (strona Gambling support information) z cytatem numeru",
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "brak źródła szczebla 1 (strona operatora/urzędu), tylko katalog 211 i ulotka CMHA (szczebel 3)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "H-CA-13",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:353",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "811, bezpłatnie, poufnie, cała prowincja, 24 h: cytat gov.nl.ca znaleziony.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-JP-1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:366",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "MHLW: najpierw 保健所 lub 精神保健福祉センター; centrum w każdej prefekturze i mieście wydzielonym (Tokio 3): cytaty znalezione; info we wpisie mówi mniej niż źródło.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-JP-2",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/helplines.yaml:380",
+   "apps/mobile/src/app/help.tsx:73",
+   "content/helplines.yaml:391"
+  ],
+  "uzasadnienie": "0120-061-338 (24 h/365) i 0120-279-338 (24 h, bezpłatnie, także języki obce): cytaty znalezione. Strona podaje dla prefektury Fukushima inny numer よりそい (0120-279-226); wpis go pomija.",
+  "poprawka": "phone_alt: [{ phone: '0120-279-226', label: 'z prefektury Fukushima' }]",
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "よりそいホットライン: pominięty numer dla prefektury Fukushima 0120-279-226 (źródło: „福島県からは、0120-279-226”)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "H-JP-3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:405",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "119 dla straży i karetki: cytat FDMA znaleziony.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-BR-1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:415",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "SUS: bezpłatna, poufna teleporada w Meu SUS Digital (aplikacja/strona, gov.br), UBS, CAPS: cytaty znalezione; miniapp „Problemas com jogos…”, autotest i wideorozmowa na stronie.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-BR-2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:430",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "188, bezpłatnie, cała Brazylia, 24 h: cytat cvv.org.br znaleziony.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-BR-3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:441",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "192, bezpłatnie, 24/7, także stany psychiatryczne: cytaty gov.br znalezione.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-FR-1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:455",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "09 74 75 13 13, anonimowo; godziny 8–23 (strona operatora w trybie serwisowym, cytat znaleziony) i 8–2 (annuaire): wpis bierze część wspólną (D-150); „bez dopłat” = „non surtaxé”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-FR-2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:470",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "3114, 24h/24 7j/7, bezpłatnie, cała Francja: cytat 3114.fr znaleziony.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-FR-3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:481",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "15 (SAMU) i 112: cytaty service-public.fr znalezione. Ekran pokazuje tylko 15 (phone_alt nie jest renderowany), co nie zmienia znaczenia.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-TW-2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:496",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "1925, bezpłatnie, 24 h, 7 dni: cytaty gov.tw i mohw.gov.tw znalezione.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-TW-3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:523",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "119 dla ratownictwa i zagrożenia życia, 24 h: cytaty NFA znalezione; 112 tylko z komórki potwierdzone na stronie, we wpisie pominięte.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-TW-4",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:511",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "Ośrodki 社區心理衛生中心 przy urzędach zdrowia każdego powiatu/miasta oferują poradnictwo: cytat znaleziony; wpis nie obiecuje bezpłatności (źródło: liczba bezpłatnych sesji różna).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-VN-3",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/helplines.yaml:535",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "113/114/115 bezpłatne: cytat znaleziony. Okólnik 42/2026 obowiązuje od 1.11.2026, ale „sẽ được” (będą), a obsadę medyczną 113 lokalne władze mają zapewnić do 1.07.2027. Ekran pokazuje tylko 113 (policja); 115 (pogotowie) z phone_alt nie jest wyświetlane.",
+  "poprawka": "phone: '115' z name 'Pogotowie', phone_alt: [{ phone: '113', label: 'numer alarmowy (policja)' }]; ekran renderuje phone_alt",
+  "skutek": "S1",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "„od 1.11.2026 wezwania medyczne przyjmuje też 113” mówi więcej niż źródło: okres przejściowy, obsada 113 do 1.07.2027",
+   "ekran „Pomoc” nie pokazuje 115 (phone_alt), więc przy zagrożeniu życia widać tylko numer policji 113",
+   "phone_alt 115 bez etykiety (pogotowie)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "H-DE-1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:551",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "0800 1 37 27 00, bezpłatnie, anonimowo; godziny pon.–czw. 10–22, pt.–niedz. 10–18, bez 24.12 i 31.12: cytaty check-dein-spiel.de znalezione.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-DE-2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:575",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "0800/1110111, 0800/1110222, 116123, bezpłatnie; 24/7 i anonimowo (gesund.bund.de): cytaty znalezione; ekran pokazuje tylko pierwszy numer, bez zmiany znaczenia.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-DE-3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:593",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "112 przy zagrożeniu życia: cytat gesund.bund.de znaleziony.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-DE-4",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/helplines.yaml:564",
+   "apps/mobile/src/app/help.tsx:73"
+  ],
+  "uzasadnienie": "0173 29 37 359, bezpłatnie, anonimowo, po polsku, Caritas Osnabrück: cytat znaleziony. Rejestr pisze „godzin źródło nie podaje”, a strona mówi „Termine nach Vereinbarung” / „Terminy po uzgodnieniu”; wpis tego nie podaje.",
+  "poprawka": "hours: 'terminy po uzgodnieniu'",
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "pominięte „Terminy po uzgodnieniu” (porada po umówieniu, nie linia na bieżąco); twierdzenie rejestru „godzin źródło nie podaje” niezgodne ze stroną"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "H-INT-1",
+  "werdykt_zrodla": "DO SPRAWDZENIA",
+  "cytat_znaleziony": "niedostepne",
+  "werdykt_tekstu": "DO SPRAWDZENIA",
+  "miejsca": [
+   "content/helplines.yaml:603",
+   "apps/mobile/src/app/help.tsx:73",
+   "content/pl/lessons/m12-l4-bankroll.md:153"
+  ],
+  "uzasadnienie": "gordonmoody.org.uk: połączenie zerwane (2 próby), archive.org też zerwane. Nie przeczytałem źródła, więc nie oceniam. Wpis to jedyna pomoc w ramce lekcji i fallback dla wszystkich krajów.",
+  "poprawka": null,
+  "skutek": "S2",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "źródło niedostępne: żaden element wpisu (tekst, 200+ języków, anonimowość, link) nie sprawdzony w tej sesji"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "t:bankroll",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:838",
+   "content/pl/lessons/m12-l4-bankroll.md:113"
+  ],
+  "uzasadnienie": "GTO Wizard: „allocated specifically to use for playing poker” (cytat znaleziony). Część „oddzielone od pieniędzy na życie” bez pokrycia w cytowanym źródle (pokrywa ją niecytowany fragment PrimeDope). Szczebel 2 błędny: glosariusz to nie wynik solvera (szczebel 4).",
+  "poprawka": "dodać źródło PrimeDope („Separate your poker bankroll from your life bankroll”); szczebel 4",
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "„oddzielone od pieniędzy na życie” bez pokrycia w cytowanym źródle",
+   "szczebel 2 zamiast 4 (glosariusz serwisu)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "t:risk-of-ruin",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:886",
+   "content/pl/lessons/m12-l4-bankroll.md:115",
+   "content/pl/lessons/m12-l4-bankroll.md:117",
+   "content/pl/rules.yaml:1019"
+  ],
+  "uzasadnienie": "Definicja w terms.yaml zgodna z PrimeDope („before reaching a target or before you quit”). Lekcja (l4:117) definiuje inaczej: „kiedykolwiek…, jeśli nigdy nie zejdziesz stawkę”. Dwie definicje jednego pojęcia, a wzór liczy wariant bez celu.",
+  "poprawka": "def: „Prawdopodobieństwo, że kiedykolwiek stracisz cały bankroll, jeśli grasz dalej na tej samej stawce.”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "dwie różne definicje pojęcia (terms.yaml:890 i m12-l4:117)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ }
+]
