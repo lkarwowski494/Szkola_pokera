@@ -148,4 +148,8 @@ Odpowiedzi na listę krytyki: (1) w pierwszej sekundzie: G i H karty, I stół z
 **G, a stół z I jako komponent zadań o pozycji (E3).** Ekran decyzji obsługuje sesję, powtórki, lekcję, egzamin i scenariusz; G działa przy każdym typie zadania, a uwagę dostają karty i pasek, czyli to, o czym jest decyzja. Stół z I pokazuje pozycję obrazem tam, gdzie jest treścią zadania. H to największa ciągłość z dawnym wnętrzem, ale paleta najbliższa kasynu i karcie kontrolnej (a).
 
 ## Wybór właściciela, runda 3
-Czeka na STOP E2 (D-118).
+2026-11-04 (D-118): „Wybieram I ale musisz zrobić tak żeby stół nie był mylący tam gdzie pozycja nie ma znaczenia”. Rekomendacja studia (G + stół z I) nie przyjęta; zostaje I.
+
+Warunek (D-119): stół zależy od danych zadania. Miejsca graczy tylko w zadaniach z pozycją i stanem graczy; w zadaniach bez pozycji stół bez miejsc, karty wspólne na suknie, twoje karty przy krawędzi stołu, opis tekstem pod stołem. Makieta: trzeci ekran `bez-pozycji` w `kierunki/i-stol-w-granacie.html` (prawdziwa treść `m2.exam.q2`: „Ile masz outów do strita?”, J♣ 9♦ na 10♠ 7♥ 2♣, odpowiedzi 4, 8, 2 z `numbers.yaml`). Odrzucone: miejsca wyszarzone (nadal sugerują pozycję), brak stołu (zrywa motyw).
+
+Krytyka stanu `bez-pozycji`: twoje karty zachodziły na karty wspólne, nie było widać, co czyje (konflikt reguł CSS) → karty wspólne na suknie, twoje przy krawędzi stołu (`przed-po/i-bez-pozycji-przed-390-jasny.png` → `i-bez-pozycji-po-390-jasny.png`). Pomiary po zmianie: `warsztat.mjs` kod 0, `przepelnienie.mjs` kod 0, `zrzuty.mjs` 36 zrzutów (3 ekrany × 12) kod 0.
