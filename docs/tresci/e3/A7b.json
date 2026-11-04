@@ -1,0 +1,858 @@
+[
+ {
+  "id": "R-M12-009",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/rules.yaml:1017",
+   "content/pl/lessons/m12-l4-bankroll.md:7",
+   "content/pl/lessons/m12-l4-bankroll.md:20",
+   "content/pl/lessons/m12-l4-bankroll.md:22",
+   "content/pl/lessons/m12-l4-bankroll.md:117",
+   "content/pl/lessons/m12-l4-bankroll.md:123",
+   "content/pl/lessons/m12-l4-bankroll.md:131",
+   "content/pl/lessons/m12-l4-bankroll.md:77",
+   "content/pl/exams/m12.yaml:70"
+  ],
+  "uzasadnienie": "primedope: „closed-form approximation: RoR = e^(-2 x WR x BR / SD^2)”, przy stałym WR i SD. Własny rachunek: 30 wpis. wr3 6,0%, 15 wpis. 24,5%; MC ruiny 5,1%. Lekcja nazywa wzór przybliżeniem i podaje warunki. Uwaga „ogólna wskazówka”/ramka pomocy w M12-L4 i egzaminie są.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "R-M12-010",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/rules.yaml:1025",
+   "content/pl/lessons/m12-l4-bankroll.md:12",
+   "content/pl/lessons/m12-l4-bankroll.md:37",
+   "content/pl/lessons/m12-l4-bankroll.md:64",
+   "content/pl/lessons/m12-l4-bankroll.md:135",
+   "content/pl/lessons/m12-l4-bankroll.md:137",
+   "content/pl/lessons/m12-l4-bankroll.md:138",
+   "content/pl/exams/m12.yaml:88",
+   "content/pl/exams/m12.yaml:91"
+  ],
+  "uzasadnienie": "blackrain79: „beginners is to have 50 buyins… Experienced… 30”; upswing: „50 buyins for any cash game”; pokerskill: „about 30… more if… edge is thin”; primedope: 20 przy NL10; pokerlistings: „100+ buy-ins”. Rachunek: wr1, 30 wpis. 39,2%, 50 wpis. 21,0%. Tekst w granicach źródeł.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "R-M12-011",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/rules.yaml:1033",
+   "content/pl/lessons/m12-l4-bankroll.md:46",
+   "content/pl/lessons/m12-l4-bankroll.md:55",
+   "content/pl/lessons/m12-l4-bankroll.md:142",
+   "content/pl/exams/m12.yaml:79",
+   "content/pl/exams/m12.yaml:82"
+  ],
+  "uzasadnienie": "pokerskill: „half the roll, which is the point to move down”; pokerlistings 3BB/100: „40 buy-ins 30 buy-ins”; primedope: „Losing 10 should trigger a move down”. Połowa to najpóźniejszy próg (D-146). MC downswing 10 wpis./100 tys. rąk: 95–99,7% przy wr 5–1. RoR 6,0%→24,5%.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "n:br.bi.base",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:13",
+   "content/pl/lessons/m12-l4-bankroll.md:125",
+   "content/pl/lessons/m12-l4-bankroll.md:138",
+   "content/pl/lessons/m12-l4-bankroll.md:142",
+   "content/pl/exams/m12.yaml:83",
+   "content/pl/exams/m12.yaml:92"
+  ],
+  "uzasadnienie": "Wartość 30 = cytaty: pokerskill „about 30 buy-ins for a clear winner”, blackrain79 „Experienced… 30 buyins”, primedope „25 to 30 at NL25 to NL50” (przy 5% RoR). Rachunek e^(−2·3·3000/6400)=6,0%. Lekcja: minimum dla potwierdzonego, wyraźnie dodatniego winrate.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "n:br.bi.beginner",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:40",
+   "content/pl/lessons/m12-l4-bankroll.md:125",
+   "content/pl/lessons/m12-l4-bankroll.md:137",
+   "content/pl/exams/m12.yaml:80",
+   "content/pl/exams/m12.yaml:91"
+  ],
+  "uzasadnienie": "blackrain79: „The best poker bankroll management strategy for beginners is to have 50 buyins”; upswing: „You should have 50 buyins for any cash game”. Rachunek wr1: 21,0%. Egzamin z uwagą „To ogólna wskazówka… ekranu Pomoc”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "n:dd.bi.small",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "rachunek",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/rules.yaml:963",
+   "content/pl/lessons/m12-l1-wariancja.md:63",
+   "content/pl/lessons/m12-l1-wariancja.md:81",
+   "content/pl/lessons/m12-l1-wariancja.md:83",
+   "content/pl/lessons/m12-l1-wariancja.md:133",
+   "content/pl/lessons/m12-l1-wariancja.md:137",
+   "content/pl/lessons/m12-l4-bankroll.md:41",
+   "content/pl/lessons/m12-l4-bankroll.md:56",
+   "content/pl/lessons/m12-l4-bankroll.md:142"
+  ],
+  "uzasadnienie": "Wartość 10 to dobrany przykład (dokument 09 na Dysku nieczytany). Własna symulacja (6000 przebiegów, bloki 100 rąk, SD 80): P(downswing ≥10 wpis. w 100 tys. rąk) 94,8% przy wr5, 98,6% wr3, 99,7% wr1; zgodne z 94,9% w rejestrze. primedope: „Losing 10 should trigger a move down”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "n:ror.two",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:22",
+   "content/pl/lessons/m12-l4-bankroll.md:120",
+   "content/pl/exams/m12.yaml:73"
+  ],
+  "uzasadnienie": "primedope: „RoR = e^(-2 x WR x BR / SD^2)”. Stała 2 wynika z ruiny ruchu Browna z dryfem (P=e^(−2μx/σ²)); własne MC dyskretne 5,1% vs wzór 6,0% (wzór ostrożniejszy).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "M12-L4-RAMKA",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/pl/lessons/m12-l4-bankroll.md:148",
+   "content/pl/lessons/m12-l4-bankroll.md:149",
+   "content/pl/lessons/m12-l4-bankroll.md:153",
+   "content/pl/lessons/m12-l4-bankroll.md:102",
+   "content/helplines.yaml:22",
+   "content/helplines.yaml:24"
+  ],
+  "uzasadnienie": "Cytaty znalezione: u.g.h. (gry w karty, 18 lat), vic.gov.au, MedlinePlus, NHS; sygnały zgodne. Ale wskaźnik ramki obiecuje „Telefony pomocy dla Twojego kraju” (tylko 9 krajów ma wpisy), a zadanie m12-l4:102 dodaje superlatyw bez źródła.",
+  "poprawka": "helplines.yaml pointer: „Telefony pomocy dla części krajów znajdziesz w aplikacji, w ekranie „Pomoc”.”; m12-l4:102: „Odgrywanie strat to jeden z sygnałów problemu z hazardem wymienianych w kryteriach diagnostycznych.”",
+  "skutek": "S2",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "pointer (helplines.yaml:22) obiecuje numery „dla Twojego kraju”; aplikacja jest na wszystkich storefrontach poza PL, a wpisy ma 9 krajów; w pozostałych ekran pokazuje tylko tekst bez numeru i pomoc online",
+   "m12-l4:102 „jeden z najczęściej wymienianych sygnałów” – superlatyw bez przeczytanego źródła (MedlinePlus wymienia odgrywanie strat wśród objawów, bez rankingu)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "H-US-1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:48",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "ncpgambling.org: „1-800-MY-RESET… operated by the National Council on Problem Gambling”, „call, text and chat 24/7/365”, FAQ „Is it free…? No payment… required”, SMS: „standard data rates… may apply”, „more than 240 languages”, SMS „1-800-697-3738”. MY-RESET=697-3738 (klawiatura, cyfra po cyfrze).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-US-2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:74",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "988lifeline.org: „available 24/7/365. Your conversations are free and confidential”; strona pokazuje „Call Text Chat”. NCPG: „not a crisis hotline… call 911 or 988”. Numer 988 zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-US-3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:85",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "ncpgambling.org: „If you or a loved one is in crisis, please call 911 or 988”; „if someone's life is in imminent danger… emergency services”. 911 jako numer alarmowy zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-GB-1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:95",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "gamblingcommission.gov.uk: „England and Scotland: 0808 8020 133… Free of charge, 24 hours a day, 7 days a week”; nhs.uk: „(run by GamCare) - call 0808 8020 133 for free 24 hours”; nidirect (NI): „Gambling support: call free on 0808 8020 133”. Cyfry zgodne; regiony ENG/SCT/NIR pokryte.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-GB-2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:115",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "bcuhb.nhs.wales: „24/7 Helpline Telephone: 0808 281 9265… free… even when the caller has no credit left”, operator BCUHB; Gambling Commission „NHS Wales Helplines”, „Wales: 0808 2819 265” (te same cyfry 08082819265).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-GB-3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:132",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "nidirect: „Dunlewey Addiction Services : call free on 08000 886 725”; communities-ni.gov.uk: „Dunlewey Helpline on 08000 886 725 to find out about the counselling and support services… in your area”. Nazwa, numer, koszt, info pokryte.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-GB-4",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:146",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "samaritans.org: „call us any time, from any phone for FREE. Call 116 123”, „day or night”, oddziały „across the UK and Ireland”; nhs.uk: „call 116 123 to talk to Samaritans”. nhsinform.scot niedostępne (403 „busy”, archive.org zerwane), ale wszystkie pola pokryte innymi źródłami.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-GB-5",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:189",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "nhs.uk (Anglia): „Call 999 or go to A&E now if: someone's life is at risk”; cavuhb (Walia) i nidirect (NI) cytaty znalezione. Szkocję pokrywa tylko nhsinform.scot: 403, archive.org zerwane połączenie; brak innego źródła dla Szkocji.",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "pole regions (brak = całe GB): Szkocja bez przeczytanego źródła (nhsinform.scot niedostępne)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "H-GB-6",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:161",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "nidirect: „Lifeline… available to everyone in Northern Ireland… confidential, free and open 24 hours every day… telephone: 0808 808 8000”; health-ni.gov.uk: „available 24 hours a day, 7 days a week… Phone: 0808 808 8000”. Cyfry zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-GB-7",
+  "werdykt_zrodla": "CZĘŚCIOWO",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:175",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "nhs.uk: „call 111 and select the mental health option” (Anglia); gov.wales: „call 111 and press OPTION 2… 24 hours a day” (Walia). Region GB-SCT opiera się tylko na nhsinform.scot (403, archive.org zerwane); innego źródła dla Szkocji brak.",
+  "poprawka": null,
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "regions zawiera GB-SCT bez przeczytanego źródła (nhsinform.scot niedostępne, archive.org zerwane)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "H-CA-1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:205",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "988.ca: „24 hours a day, every day of the year. Call 9-8-8 Text 9-8-8”; agco.ca: „Suicide Crisis Helpline… Call or text 9-8-8. Toll-free. 24/7.”; 988.ca/about-us: CAMH, rząd Kanady. Nazwa, numer, SMS, godziny, koszt pokryte.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:219",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "988.ca: „If your safety is at risk, call 9-1-1 right away.” Numer zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:228",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "agco.ca: „Service is free, confidential, and accessible around the clock… call ConnexOntario at 1-866-531-2600”. Wszystkie pola wpisu pokryte (SMS 247247 świadomie pominięty).",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-4",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:240",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "gov.bc.ca: „Call us toll-free 24/7 at 1-888-795-6111”, „A 24-hour, toll-free Gambling Support Line”, nazwa Gambling Support BC. Cyfry zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-5",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:254",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "quebec.ca: „Gambling – Help and Referral: 1‑800‑461‑0140” (łączniki U+2011, po normalizacji zgodne); sante.gouv.qc.ca: „JEU: AIDE ET RÉFÉRENCE”, „français et en anglais… Montréal… 514 527-0140… Ligne sans frais… 1 800 461-0140”, „24 heures par jour, 7 jours”.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-6",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:274",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "myhealth.alberta.ca (strona „Find help for drug or gambling problem”): „24-Hour Addiction Helpline : dial 1-866-332-2322 (Alberta only)”. Nazwa, numer, godziny pokryte; koszt nie podany i nie wpisany.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-7",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:285",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "saskatchewan.ca: „Problem Gambling Help Line 1-800-306-6789 The Problem Gambling Help Line provides free 24-hour help”. Cyfry zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-8",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:297",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "gov.mb.ca: „Problem Gambling Helpline 24 hours, in Manitoba 1-800-463-1554”; „Addictions Foundation of Manitoba - Problem Gambling Helpline… 1-800-463-1554 (24 hours)”. Pola pokryte.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-9",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/helplines.yaml:311",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "gnb.ca (Addiction services, „substance use and gambling”): „Call our 24/7 helpline: 1-866-355-5550”. Numer i godziny pokryte; nazwa „Linia uzależnień i zdrowia psychicznego” – źródło mówi tylko „our 24/7 helpline”, bez „zdrowia psychicznego”.",
+  "poprawka": "name: 'Całodobowa linia usług uzależnień (także hazard)'",
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "name: „i zdrowia psychicznego” bez pokrycia; źródło nazywa ją tylko „24/7 helpline” na stronie usług uzależnień"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "H-CA-11",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:324",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "novascotia.ca: „Provincial Mental Health and Addictions Crisis Line 1-888-429-8167… toll-free line 24 hours a day, 7 days a week.” Pola pokryte.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-12",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:336",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "pe.211.ca: „PEI Gambling Support Line”, „Fees: No fees”, „24/7 Line 1-855-255-4255 Language: English * French”; CMHA PEI PDF: „Gambling Helpline Toll Free: 1-855-255-4255”. Źródła szczebla 3 (katalog 211, CMHA), dopuszczalne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-CA-13",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:353",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "gov.nl.ca: „Gambling Help Line 811 The Gambling Help Line is a free, confidential service available province-wide, 24 hours a day.” Pola pokryte.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-JP-1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:366",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "mhlw.go.jp (依存症, w tym ギャンブル): „まずは、お近くの「保健所」や「精神保健福祉センター」に御相談ください”, „各都道府県・政令指定都市ごとに1か所ずつ”. Info i link zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-JP-2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:380",
+   "content/helplines.yaml:391",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "mhlw.go.jp: #いのちSOS „0120-061-338… フリーダイヤル・無料… 24時間 365日”; よりそい „外国語含む… 0120-279-338… 無料”, „福島県からは、0120-279-226”, „24時間対応”. Cyfry zgodne. Ekran nie pokazuje numeru dla Fukushimy.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-JP-3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:410",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "fdma.go.jp: „119番通報は、消防車・救急車が必要な場合に行うもの”. Nazwa „Straż pożarna i pogotowie” zgodna.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-BR-1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:420",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "agenciagov.ebc.com.br (via MS, 01/10/2026): „atendimento gratuito nas UBS, nos CAPS e por teleatendimento pelo Meu SUS Digital”, „gratuito e sigiloso… aplicativo ou… web… login pela conta gov.br”. Pola pokryte.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-BR-2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:435",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "cvv.org.br: „Converse gratuitamente… em todo o Brasil, 24 horas por dia LIGUE 188”. Pola pokryte.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-BR-3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:446",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "gov.br/saude: „O serviço é gratuito, acessado pelo número 192, funciona 24 horas por dia e 07 dias por semana”, „clínica, cirúrgica, traumática ou psiquiátrica”. Pola pokryte.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-FR-1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:460",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "joueurs-info-service.fr (strona w trybie konserwacji po „faille de sécurité”, ale tekst jest): „09 74 75 13 13 (appel anonyme et gratuit), 7 jours sur 7, de 8h à 23h”; annuaire: „non surtaxé… de 8h à 2h” – wpis bierze węższe godziny (D-150), bezpieczne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-FR-2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:475",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "3114.fr: „Le 3114 est accessible 24h/24 et 7j/7, gratuitement, en France entière”, „numéro national de prévention du suicide”. Pola pokryte.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-FR-3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:486",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "service-public.gouv.fr: „Urgence médicale : le 15 (Samu)”, „Urgence médicale - Infraction - Péril : le 112”. Pola pokryte.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-TW-2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:501",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "gov.tw: „安心專線 1925 🔸提供免費心理諮詢服務”, „週一至週日，24小時”; mohw.gov.tw: „24小時服務不打烊，且免付費之1925”. Pola pokryte.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-TW-3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:528",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "nfa.gov.tw: „緊急救護或其他有危及個人生命安全的案件時，均可以撥打119電話”, „接通後24小時由專人受理”. 112 świadomie pominięty w danych.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-TW-4",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:516",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "gov.tw: „各縣市衛生局社區心理衛生中心皆有提供心理諮商服務”. Info i link zgodne.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-VN-3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:542",
+   "content/helplines.yaml:555",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "baochinhphu (2020): połączenia na 113, 114, 115 „được miễn phí”; lsvn: „Tổng đài cấp cứu 115”, centra 115; baochinhphu 02/11/2026 (TT 42/2026, od 1.11.2026): wezwania medyczne przez 113 trafiają do Công an. 115 pierwszy – bezpieczne; review_by 2027-02-04.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-DE-1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:569",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "check-dein-spiel.de: „BIÖG-Beratungstelefon zur Glücksspielsucht”, „0800 1 37 27 00 kostenfrei und anonym”, „montags bis donnerstags 10 bis 22 Uhr und freitags bis sonntags 10 bis 18 Uhr… ausgenommen… 24.12. und… 31.12.”. Pola pokryte.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-DE-2",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:596",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "telefonseelsorge.de: „0800/1110111 · 0800/1110222 · 116123. Ihr Anruf ist kostenfrei”, „Tag und Nacht… kostenlos, anonym”; gesund.bund.de: „seven days a week, 24 hours a day”, „crisis hotline: 116 123”. Pola pokryte.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-DE-3",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:614",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "gesund.bund.de: „if the situation is life-threatening, call the emergency services on 112”. Numer zgodny.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-DE-4",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:582",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "check-dein-spiel.de: „Telefonberatung auf Polnisch Telefonnummer: 0173 29 37 359 Kostenlos und anonym”, „Termine nach Vereinbarung”, Caritasverband Osnabrück. Pola pokryte.",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "H-INT-1",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "POPARTE",
+  "miejsca": [
+   "content/helplines.yaml:624",
+   "apps/mobile/src/app/help.tsx:47"
+  ],
+  "uzasadnienie": "gamblingtherapy.org: cytat 1 jest w surowym HTML (JSON-LD), w tekście widocznym: „a global service offered by Gordon Moody, providing free practical advice and emotional support to anyone affected by gambling”; „Confidential, safe and delivered online”; „Registered charity in England and Wales”",
+  "poprawka": null,
+  "skutek": null,
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [],
+  "przeglad_zastepczy": "zaliczony"
+ },
+ {
+  "id": "t:bankroll",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:838",
+   "content/pl/lessons/m12-l4-bankroll.md:113",
+   "content/pl/lessons/m12-l3-tilt.md:35"
+  ],
+  "uzasadnienie": "gtowizard: „The money that a player allocated specifically to use for playing poker”; primedope: „Separate your poker bankroll from your life bankroll”. Definicja zgodna. Rejestr: glosariusz GTO Wizard jako szczebel 2 (to nie wynik solvera); m12-l3:35 używa „zasad bankrollu” przed definicją.",
+  "poprawka": "szczebel źródła gtowizard glossary: 4; m12-l3:35 bez odwołania do zasad bankrollu albo z odesłaniem do lekcji o bankrollu",
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "szczebel 2 dla hasła glosariusza (materiał serwisu, szczebel 4)",
+   "termin użyty w m12-l3-tilt.md:35 przed definicją w m12-l4"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ },
+ {
+  "id": "t:risk-of-ruin",
+  "werdykt_zrodla": "POPARTE",
+  "cytat_znaleziony": "tak",
+  "werdykt_tekstu": "CZĘŚCIOWO",
+  "miejsca": [
+   "content/terms.yaml:886",
+   "content/pl/lessons/m12-l4-bankroll.md:115",
+   "content/pl/lessons/m12-l4-bankroll.md:117",
+   "content/pl/rules.yaml:1019"
+  ],
+  "uzasadnienie": "primedope: „probability that your bankroll hits zero before reaching a target or before you quit” – zgodne z hasłem. Lekcja (m12-l4:117) definiuje to samo inaczej: „kiedykolwiek stracisz… jeśli grasz dalej”; to wersja, którą liczy wzór. Dwie definicje jednego pojęcia.",
+  "poprawka": "terms.yaml def: „Prawdopodobieństwo, że kiedykolwiek stracisz cały bankroll, jeśli grasz dalej na tej samej stawce.”",
+  "skutek": "S3",
+  "odczyt": "2026-11-04",
+  "rozbieznosci": [
+   "dwie różne definicje jednego pojęcia (hasło: przed celem albo końcem gry; lekcja: kiedykolwiek przy grze bez końca)"
+  ],
+  "przeglad_zastepczy": "niezaliczony"
+ }
+]
