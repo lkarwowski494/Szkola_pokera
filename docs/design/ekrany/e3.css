@@ -1,0 +1,149 @@
+/* Makiety E3: kierunek I „Stół w granacie” (D-118, D-119), krój tytułów Literata 600 (D-120).
+   Kolory wyłącznie z tokeny.css (generowane z ../tokeny.ts). Rozmiary tekstu w rem od --dt-tytul i --dt-tresc
+   (AX5: 1.8 i 3.1, uproszczenie tabeli HIG). Treść: na iOS SF Pro; w makiecie zastępczo Noto Sans. */
+@import url(../fonty/fonty.css);
+@import url(tokeny.css);
+
+:root {
+  --w: 390px;
+  --dt-tytul: 1;
+  --dt-tresc: 1;
+  --tresc: 'Noto Sans', sans-serif;
+  --t-tresc: calc(1.0625rem * var(--dt-tresc));   /* 17 */
+  --t-przypis: calc(0.9375rem * var(--dt-tresc)); /* 15 */
+  --t-drobny: calc(0.8125rem * var(--dt-tresc));  /* 13 */
+  /* tytuł 28, sufit 11% szerokości; tytuł duży 34, sufit 12%; nigdy mniejsze niż treść (typografia.skala.*.maxW) */
+  --t-tytul: max(min(calc(1.75rem * var(--dt-tytul)), calc(var(--w) * 0.10)), var(--t-tresc));
+  --t-duzy: max(min(calc(2.125rem * var(--dt-tytul)), calc(var(--w) * 0.10)), var(--t-tresc));
+  --kroj-tytulu: var(--tytul);
+  --waga-tytulu: 600;
+}
+/* Od AX1 tytuły krojem systemowym (D-120); w makiecie krój zastępczy treści, waga 600 */
+@container style(--dt-tytul: 1.8) { * { --kroj-tytulu: var(--tresc); } }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; background: #D5D8DE; }
+body { font-family: var(--tresc); padding: 24px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+
+main[data-ekran] {
+  width: var(--w); min-height: 844px; background: var(--bg); color: var(--ink);
+  display: flex; flex-direction: column; position: relative; overflow-wrap: anywhere; hyphens: auto;
+}
+.tytul { font-family: var(--kroj-tytulu); font-weight: var(--waga-tytulu); font-variant-numeric: lining-nums; }
+
+/* Rama iOS: pasek stanu, nawigacja, pasek zakładek */
+.stan { height: 48px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; font-size: 15px; font-weight: 600; font-feature-settings: 'tnum'; }
+.stan i { display: inline-block; width: 24px; height: 12px; border: 1.5px solid currentColor; border-radius: 3px; }
+.nav { min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 16px; flex-wrap: wrap; }
+.nav a { color: var(--link); text-decoration: none; font-size: var(--t-tresc); min-height: 44px; display: inline-flex; align-items: center; }
+.nav b { font-size: var(--t-tresc); font-weight: 600; }
+.nav .licznik { font-size: var(--t-drobny); color: var(--muted); font-feature-settings: 'tnum'; }
+.nav .ikona-ust { width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+.nav .ikona-ust svg { width: 24px; height: 24px; fill: none; stroke: var(--link); stroke-width: 1.8; }
+.zakladki { margin-top: auto; display: flex; border-top: 1px solid var(--separator); background: var(--bg); padding: 8px 8px 32px; }
+.zakladki a { flex: 1; min-height: 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 11px; /* pasek zakładek iOS: etykiety stałe, przy dużym tekście systemowy podgląd dużej treści */ color: var(--muted); text-decoration: none; }
+.zakladki a[aria-current] { color: var(--ink); font-weight: 600; }
+.zakladki svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+
+.duzy-tytul { font-size: var(--t-duzy); line-height: 1.2; padding: 4px 20px 0; }
+.etykieta { font-size: var(--t-przypis); color: var(--muted); margin: 24px 20px 8px; }
+.przycisk { text-decoration: none; min-height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 12px 16px; font-size: var(--t-tresc); font-weight: 600; }
+.przycisk.glowny { background: var(--primary-bg); color: var(--primary-ink); }
+.przyciski { margin-top: auto; padding: 16px 16px 40px; display: flex; flex-direction: column; gap: 12px; }
+.link { color: var(--link); font-size: var(--t-przypis); min-height: 44px; display: inline-flex; align-items: center; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Listy grupowane iOS */
+.grupa { margin: 0 16px; background: var(--surface); border-radius: 14px; overflow: hidden; }
+.grupa > a, .grupa > div { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 12px 16px; color: var(--ink); text-decoration: none; font-size: var(--t-tresc); line-height: 1.3; flex-wrap: wrap; }
+.grupa > * + * { border-top: 1px solid var(--separator); }
+.grupa .opis { flex: 1 1 60%; min-width: 0; }
+.grupa small { display: block; font-size: var(--t-przypis); color: var(--muted); }
+.grupa .wartosc { color: var(--muted); font-feature-settings: 'tnum'; margin-left: auto; }
+.grupa .szewron { width: 10px; height: 16px; flex: none; stroke: var(--muted); fill: none; stroke-width: 2; }
+.przypis { font-size: var(--t-drobny); color: var(--muted); line-height: 1.4; margin: 8px 20px 0; }
+.przypis b { color: var(--ink); font-weight: 600; }
+
+/* Stół z góry: rama granatowa, sukno, karty z kości słoniowej */
+.stol { position: relative; margin: 40px 24px 0; height: 236px; }
+.stol .owal { position: absolute; inset: 0; border-radius: 118px; background: var(--frame); box-shadow: 0 18px 36px var(--shadow); }
+.stol .owal::before { content: ''; position: absolute; inset: 12px; border-radius: 106px; background: radial-gradient(70% 60% at 50% 40%, var(--felt1), var(--felt2)); }
+.miejsce { position: absolute; transform: translate(-50%, -50%); min-width: 48px; min-height: 48px; padding: 4px 8px; border-radius: 24px; background: var(--seat); border: 1.5px solid var(--seat-edge); color: var(--seat-ink); display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; line-height: 1.15; }
+.miejsce small { font-size: 11px; font-weight: 400; color: var(--seat-muted); }
+.miejsce.pas { border-style: dashed; }
+.miejsce.ty { border: 2.5px solid var(--gold); }
+.miejsce.ty small { color: var(--gold-text); }
+
+.karty { display: flex; gap: 8px; }
+.karta { width: 70px; height: 98px; border-radius: 8px; background: var(--card); border: 1px solid var(--card-edge); padding: 4px 8px; display: flex; flex-direction: column; gap: 4px; color: var(--card-ink); box-shadow: 0 10px 22px var(--shadow); }
+.karta b { font-family: var(--tytul); font-weight: 600; font-size: 36px; line-height: 1; font-variant-numeric: lining-nums; }
+.karta svg { width: 24px; height: 24px; fill: currentColor; }
+.karta.czerwona { color: var(--card-red); }
+.stol > .karty:not(.wspolne):not(.twoje) { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.stol .wspolne { position: absolute; left: 50%; top: 38%; transform: translate(-50%, -50%); }
+.stol .wspolne .karta { width: 54px; height: 76px; padding: 4px 8px; border-radius: 8px; }
+.stol .wspolne .karta b { font-size: 26px; }
+.stol .wspolne .karta svg { width: 18px; height: 18px; }
+.stol .twoje { position: absolute; left: 50%; bottom: -50px; transform: translateX(-50%); }
+.stol .twoje .karta { width: 62px; height: 86px; }
+.stol .twoje .karta b { font-size: 30px; }
+.stol .twoje .karta svg { width: 20px; height: 20px; }
+
+.sytuacja { padding: 8px 20px 0; }
+.sytuacja p { font-size: var(--t-przypis); color: var(--muted); }
+.sytuacja h1 { font-size: var(--t-tytul); line-height: 1.2; margin-top: 4px; }
+.reka-opis { text-align: center; margin: 40px 20px 0; font-size: var(--t-tytul); line-height: 1.2; }
+.reka-opis small { display: block; font-family: var(--tresc); font-weight: 400; font-size: var(--t-przypis); color: var(--muted); margin-top: 4px; line-height: 1.35; }
+.opis-stolu { text-align: center; margin: 68px 20px 0; font-size: var(--t-przypis); color: var(--muted); line-height: 1.4; }
+
+/* Element firmowy: pasek strategii mieszanej (D-116). Przed decyzją równe segmenty-przyciski. */
+.akcje { margin-top: auto; padding: 16px 16px 40px; }
+.akcje .etykieta { margin: 0 4px 8px; }
+.pasek { display: flex; flex-wrap: wrap; border-radius: 14px; overflow: hidden; border: 1.5px solid var(--action-outline); }
+.pasek a { flex: 1 1 calc(70px * var(--dt-tresc)); min-height: 64px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8px 12px; font-size: var(--t-tresc); font-weight: 600; color: var(--action-ink); text-decoration: none; background: var(--action-bg); line-height: 1.25; font-feature-settings: 'tnum'; }
+.pasek a small { font-size: var(--t-drobny); font-weight: 400; color: var(--action-muted); }
+.pasek a + a { border-left: 1.5px solid var(--action-edge); }
+
+/* Po ocenie: te same granice przesunięte do częstotliwości solvera; wynik leży na suknie */
+.stol-wynik { margin: 20px 16px 0; border-radius: 40px; background: var(--frame); padding: 8px; box-shadow: 0 18px 36px var(--shadow); }
+.stol-wynik .sukno { border-radius: 32px; background: radial-gradient(80% 70% at 50% 30%, var(--felt1), var(--felt2)); padding: 20px 16px 24px; color: var(--on-felt); }
+.stopien { font-size: max(min(calc(2.125rem * var(--dt-tytul)), calc(var(--w) * 0.085)), 1.25rem); line-height: 1.12; }
+/* znak w wierszu: przy braku miejsca słowo stopnia przechodzi do następnego wiersza w całości, zanim zostanie złamane */
+.znak { vertical-align: -0.12em; margin-right: 0.3em; width: 1em; height: 1em; border-radius: 50%; border: 2.5px solid currentColor; display: inline-flex; align-items: center; justify-content: center; font-family: var(--tresc); font-size: 0.8em; font-weight: 600; line-height: 1; }
+.rozklad { position: relative; padding-top: 24px; margin-top: 16px; }
+.rozklad .os { display: flex; height: 44px; border: 1.5px solid var(--on-felt); border-radius: 12px; overflow: hidden; }
+.rozklad .s-pas { width: 80%; background: repeating-linear-gradient(135deg, var(--fold-fill) 0 7px, var(--fold-stripe) 7px 9px); }
+.rozklad .s-przebicie { width: 20%; background: var(--raise-fill); border-left: 1.5px solid var(--on-felt); }
+.rozklad .znacznik { position: absolute; left: 90%; top: 0; transform: translateX(-50%); border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 15px solid var(--gold); }
+.podpisy { display: flex; justify-content: space-between; gap: 8px; margin-top: 8px; font-size: var(--t-przypis); font-feature-settings: 'tnum'; flex-wrap: wrap; }
+.podpisy b { font-weight: 600; }
+.podpisy .twoj { color: var(--gold-text); text-align: right; }
+.stopnie { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.stopnie span { flex: 1 1 calc(76px * var(--dt-tresc)); min-width: 0; font-size: min(var(--t-drobny), calc(var(--w) * 0.06)); border: 1px solid var(--scale-edge); border-radius: 10px; padding: 4px 8px; line-height: 1.3; color: var(--on-felt-muted); font-feature-settings: 'tnum'; }
+.stopnie span.tu { flex-basis: calc(112px * var(--dt-tresc)); border: 2.5px solid var(--gold); }
+.stopnie span b { display: block; color: var(--on-felt); font-weight: 600; }
+.wyjasnienie { font-size: var(--t-tresc); line-height: 1.42; margin: 20px 20px 0; }
+.po .link { margin: 4px 20px 0; }
+
+/* Dziś: następna lekcja na suknie (motyw stołu bez miejsc, bez kart: nic nie udaje rozdania) */
+.lekcja { margin: 16px 16px 0; border-radius: 28px; background: var(--frame); padding: 8px; box-shadow: 0 14px 28px var(--shadow); }
+.lekcja .sukno { border-radius: 22px; background: radial-gradient(80% 90% at 50% 20%, var(--felt1), var(--felt2)); padding: 16px; color: var(--on-felt); }
+.lekcja p { font-size: var(--t-przypis); color: var(--on-felt-muted); }
+.lekcja h2 { font-size: var(--t-tytul); line-height: 1.15; margin: 4px 0 4px; }
+.lekcja .przycisk { margin-top: 16px; background: var(--card); color: var(--card-ink); }
+
+/* Zakup: cena odnowienia jako największy element ceny (docs/monetyzacja.md, „Ujawnienia”) */
+.zakup-tytul { font-size: var(--t-tytul); line-height: 1.2; padding: 8px 20px 0; }
+.zakup-wstep { font-size: var(--t-tresc); line-height: 1.42; margin: 8px 20px 0; }
+.plany > a { min-height: 72px; }
+.plany .cena { font-size: var(--t-tresc); font-weight: 600; font-feature-settings: 'tnum'; margin-left: auto; text-align: right; }
+.plany .cena small { font-weight: 400; }
+.linki { display: flex; flex-wrap: wrap; gap: 0 20px; padding: 4px 20px 0; }
+.wroc { margin: 16px 16px 0; background: var(--primary-bg); color: var(--primary-ink); }
+
+/* Panele poza ekranami (nie wchodzą do zrzutów ekranów) */
+aside.panele { width: 520px; background: #FFFFFF; color: #1A1C20; padding: 24px; font-size: 14px; line-height: 1.45; }
+aside.panele h2 { font-size: 18px; margin: 16px 0 8px; }
+aside.panele h2:first-child { margin-top: 0; }
+.przyklad { font-size: inherit; }
+.przypis.limit { font-size: var(--t-przypis); margin-top: 12px; }
+.limit-link { margin: 0 20px; }

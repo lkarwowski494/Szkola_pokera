@@ -14,12 +14,13 @@ for (const w of [320, 390, 430]) for (const big of [false, true]) {
         const t = tw.currentNode; if (!t.textContent.trim()) continue;
         const rg = document.createRange(); rg.selectNodeContents(t);
         for (const q of rg.getClientRects()) if (q.width && (q.right > mr.right - 4 || q.left < mr.left + 4)) { out.push(`${m.dataset.ekran} „${t.textContent.trim().slice(0, 24)}” wystaje poza margines ekranu`); break; }
-        const box = t.parentElement.closest('.sukno, .os, .stopnie span, .pasek a, .karta, .miejsce, .przycisk');
+        for (const mm of t.textContent.matchAll(/[^\s]+/g)) { const wr = document.createRange(); wr.setStart(t, mm.index); wr.setEnd(t, mm.index + mm[0].length); const lin = new Set([...wr.getClientRects()].filter((q) => q.width).map((q) => Math.round(q.top))); if (lin.size > 1) out.push(`INFO ${m.dataset.ekran} „${mm[0]}” złamany w środku wyrazu`); }
+        const box = t.parentElement.closest('.sukno, .os, .stopnie span, .pasek a, .karta, .miejsce, .przycisk, .grupa > a, .plany .cena');
         if (box) { const br = box.getBoundingClientRect(); for (const q of rg.getClientRects()) if (q.width && (q.right > br.right + 1 || q.left < br.left - 1)) { out.push(`${m.dataset.ekran} „${t.textContent.trim().slice(0, 24)}” poza ${box.className}`); break; } }
       }
     }
     return out;
   }, [w, big]);
-  for (const x of wynik) { console.log(`${w}${big ? ' AX5' : ''}: ${x}`); n++; }
+  for (const x of wynik) { console.log(`${w}${big ? ' AX5' : ''}: ${x}`); if (!x.startsWith('INFO')) n++; }
 }
 await b.close(); console.log(n ? `${n} przepełnień` : 'OK'); process.exit(n ? 1 : 0);

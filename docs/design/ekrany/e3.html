@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>E3: kluczowe ekrany kierunku I</title>
+<!-- Rola 04 build E3 (2026-11-04). Kierunek I (D-118), stół zależny od danych zadania (D-119), Literata 600 (D-120).
+     Kolory: tokeny.css z ../tokeny.ts. Ekrany: dzis (PR-02, PR-03, PR-04 wejście), przed-decyzja, po-ocenie, bez-pozycji (PR-03, D-114),
+     limit-zakup (PR-03 stan „limit wyczerpany” → PR-06).
+     Treść prawdziwa:
+     - sytuacja rfi.co, J9o 80/20, progi 3,5% / 25%, teksty oceny: jak w ../kierunki/i-stol-w-granacie.html (źródła w komentarzu tamtego pliku);
+     - m2.exam.q2: content/pl/exams/m2.yaml, odpowiedzi z content/numbers.yaml;
+     - lekcja: content/pl/lessons/m2-l2-pot-odds.md (title „Pot odds”, sub „Kiedy opłaca się sprawdzić”), moduł m2 „Matematyka podstawowa” (content/pl/modules.yaml);
+     - dzienny limit 1 aktywność (D-107), nazwa „dzienny limit” (D-111), odnowienie w dniu kalendarzowym telefonu (BR-LIM-005), licznik przed startem (BR-LIM-001);
+     - plany i ceny: kwartał 9,99 / rok 14,99 / dożywotni 19,99 USD (CLAUDE.md „Stan projektu”, decyzja właściciela 2026-11-03); w aplikacji ceny ze sklepu;
+     - ujawnienia i zakazane wzorce ekranu zakupu: docs/monetyzacja.md, „Kontrakt płatności”.
+     [PRZYKŁAD]: kolory kart J♠ 9♥, numer zadania, liczba powtórek (7), godzina. -->
+<link rel="stylesheet" href="e3.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pik" viewBox="0 0 24 24"><path d="M12 2C9 6 4 9 4 13.5 4 16 6 18 8.5 18c1.3 0 2.4-.5 3-1.3-.2 1.9-1 3.4-2.5 4.8h6c-1.5-1.4-2.3-2.9-2.5-4.8.6.8 1.7 1.3 3 1.3 2.5 0 4.5-2 4.5-4.5C20 9 15 6 12 2z"/></symbol>
+  <symbol id="trefl" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4.6"/><circle cx="6.6" cy="13.4" r="4.6"/><circle cx="17.4" cy="13.4" r="4.6"/><path d="M11 13h2c0 3.5.8 6 2.8 8.5H8.2C10.2 19 11 16.5 11 13z"/></symbol>
+  <symbol id="karo" viewBox="0 0 24 24"><path d="M12 2l8 10-8 10-8-10z"/></symbol>
+  <symbol id="kier" viewBox="0 0 24 24"><path d="M12 21C5 15.5 2 12.3 2 8.5 2 5.5 4.3 3.5 7 3.5c2 0 3.5 1 5 3 1.5-2 3-3 5-3 2.7 0 5 2 5 5 0 3.8-3 7-10 12.5z"/></symbol>
+  <symbol id="szewron" viewBox="0 0 10 16"><path d="M2 2l6 6-6 6"/></symbol>
+</svg>
+
+<main data-ekran="dzis" aria-label="Dziś">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><span></span><a class="ikona-ust" href="#" aria-label="Ustawienia"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v2.6M12 18.6v2.6M2.8 12h2.6M18.6 12h2.6M5.5 5.5l1.8 1.8M16.7 16.7l1.8 1.8M5.5 18.5l1.8-1.8M16.7 7.3l1.8-1.8"/></svg></a></nav>
+  <h1 class="duzy-tytul tytul">Dziś</h1>
+  <section class="lekcja" aria-label="Następna lekcja">
+    <div class="sukno">
+      <p>Matematyka podstawowa, lekcja 2</p>
+      <h2 class="tytul">Pot odds</h2>
+      <p>Kiedy opłaca się sprawdzić</p>
+      <a class="przycisk" href="#">Kontynuuj lekcję</a>
+    </div>
+  </section>
+  <p class="etykieta">Ćwiczenia</p>
+  <div class="grupa">
+    <a href="#"><span class="opis">Sesja ćwiczeń<small>Decyzje z oceną i wyjaśnieniem</small></span><svg class="szewron"><use href="#szewron"/></svg></a>
+    <a href="#"><span class="opis">Powtórki</span><span class="wartosc"><span class="przyklad">7</span> na dziś</span><svg class="szewron"><use href="#szewron"/></svg></a>
+    <a href="#"><span class="opis">Scenariusz rozdania<small>Od preflopu do rivera</small></span><svg class="szewron"><use href="#szewron"/></svg></a>
+  </div>
+  <p class="przypis limit"><b>Dzienny limit: 1 darmowa aktywność na dziś.</b> Lekcje i pierwsze podejście do egzaminu są zawsze darmowe.</p>
+  <a class="link limit-link" href="#">Pełny dostęp</a>
+  <nav class="zakladki" aria-label="Zakładki">
+    <a href="#" aria-current="page"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="6"/></svg>Dziś</a>
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.5-5.8M4 4v4h4"/></svg>Powtórki</a>
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M5 20V12M12 20V6M19 20V9"/></svg>Postęp</a>
+  </nav>
+</main>
+
+<main data-ekran="przed-decyzja" aria-label="Decyzja w sesji, przed decyzją">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Sesja ćwiczeń</b><span class="licznik przyklad">Zadanie 4</span></nav>
+  <section class="sytuacja">
+    <p>Stół 6-osobowy, stack 100bb, przed flopem</p>
+    <h1 class="tytul">CO, wszyscy przed tobą spasowali</h1>
+  </section>
+  <section class="stol" role="img" aria-label="Stół: UTG pas, HJ pas, ty na CO z J9o, czekają BTN, SB i BB.">
+    <div class="owal"></div>
+    <div class="karty">
+      <div class="karta"><b>J</b><svg><use href="#pik"/></svg></div>
+      <div class="karta czerwona"><b>9</b><svg><use href="#kier"/></svg></div>
+    </div>
+    <div class="miejsce ty" style="left:50%;top:100%">CO<small>ty</small></div>
+    <div class="miejsce" style="left:9%;top:78%">BTN<small>czeka</small></div>
+    <div class="miejsce" style="left:9%;top:22%">SB<small>czeka</small></div>
+    <div class="miejsce" style="left:50%;top:0%">BB<small>czeka</small></div>
+    <div class="miejsce pas" style="left:91%;top:22%">UTG<small>pas</small></div>
+    <div class="miejsce pas" style="left:91%;top:78%">HJ<small>pas</small></div>
+  </section>
+  <p class="reka-opis tytul">J9o<small>różne kolory; UTG i HJ spasowali, po tobie BTN, SB i BB</small></p>
+  <section class="akcje">
+    <p class="etykieta">Wybierz akcję</p>
+    <div class="pasek" role="group" aria-label="Akcje">
+      <a href="#">Pas</a>
+      <a href="#">Przebicie<small>do 2,5bb</small></a>
+    </div>
+  </section>
+</main>
+
+<main class="po" data-ekran="po-ocenie" aria-label="Decyzja w sesji, po ocenie">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Sesja ćwiczeń</b><span class="licznik przyklad">Zadanie 4</span></nav>
+  <section class="sytuacja"><p>CO, J9o, twój wybór: przebicie do 2,5bb</p></section>
+  <section class="stol-wynik" aria-live="polite">
+    <div class="sukno">
+      <h2 class="stopien tytul"><span class="znak" aria-hidden="true">∼</span>Dopuszczalna</h2>
+      <div class="rozklad" role="img" aria-label="Strategia solvera dla J9o: pas 80 procent, przebicie 20 procent. Twój wybór: przebicie.">
+        <div class="znacznik"></div>
+        <div class="os"><div class="s-pas"></div><div class="s-przebicie"></div></div>
+        <div class="podpisy"><span><b>Pas</b> 80%</span><span class="twoj"><b>Przebicie</b> 20%<br>twój wybór</span></div>
+      </div>
+      <div class="stopnie" aria-label="Skala stopni: twoja akcja 20 procent, przedział dopuszczalna">
+        <span><b>Błąd</b>poniżej 3,5%</span>
+        <span class="tu"><b>Dopuszczalna</b>3,5–25%</span>
+        <span><b>Zgodna</b>od 25%</span>
+      </div>
+    </div>
+  </section>
+  <p class="wyjasnienie">Solver gra tak w 20% przypadków, więc to nie błąd, ale częściej wybiera inną akcję. Najlepiej zapamiętaj tę częstszą.</p>
+  <a class="link" href="#">Zgłoś błąd w tym zadaniu</a>
+  <div class="przyciski"><a class="przycisk glowny" href="#">Dalej</a></div>
+</main>
+
+<main data-ekran="bez-pozycji" aria-label="Zadanie bez pozycji, przed decyzją">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zakończ</a><b>Egzamin M2</b><span class="licznik przyklad">Pytanie 2</span></nav>
+  <section class="sytuacja">
+    <p>Flop</p>
+    <h1 class="tytul">Ile masz outów do strita?</h1>
+  </section>
+  <section class="stol bez" role="img" aria-label="Na stole: dziesiątka pik, siódemka kier, dwójka trefl. Twoje karty: walet trefl, dziewiątka karo.">
+    <div class="owal"></div>
+    <div class="karty wspolne">
+      <div class="karta"><b>10</b><svg><use href="#pik"/></svg></div>
+      <div class="karta czerwona"><b>7</b><svg><use href="#kier"/></svg></div>
+      <div class="karta"><b>2</b><svg><use href="#trefl"/></svg></div>
+    </div>
+    <div class="karty twoje">
+      <div class="karta"><b>J</b><svg><use href="#trefl"/></svg></div>
+      <div class="karta czerwona"><b>9</b><svg><use href="#karo"/></svg></div>
+    </div>
+  </section>
+  <p class="opis-stolu">Twoje karty: J♣ 9♦. Na stole: 10♠ 7♥ 2♣.</p>
+  <section class="akcje">
+    <p class="etykieta">Wybierz odpowiedź</p>
+    <div class="pasek" role="group" aria-label="Odpowiedzi"><a href="#">4</a><a href="#">8</a><a href="#">2</a></div>
+  </section>
+</main>
+
+<main data-ekran="limit-zakup" aria-label="Dzienny limit zużyty, pełny dostęp">
+  <div class="stan"><span>9:41</span><i></i></div>
+  <nav class="nav"><a href="#">Zamknij</a><b></b><a href="#">Przywróć zakupy</a></nav>
+  <h1 class="zakup-tytul tytul">Dzienny limit zużyty</h1>
+  <p class="zakup-wstep">Dzienny limit odnowi się o północy. Lekcje i pierwsze podejście do egzaminu są zawsze darmowe.</p>
+  <a class="przycisk wroc" href="#">Wróć do lekcji</a>
+  <p class="etykieta">Pełny dostęp: ćwiczenia, powtórki i scenariusze bez limitu</p>
+  <div class="grupa plany">
+    <a href="#"><span class="opis">Kwartał<small>Subskrypcja</small></span><span class="cena">9,99 USD<small>co 3 miesiące</small></span></a>
+    <a href="#"><span class="opis">Rok<small>Subskrypcja</small></span><span class="cena">14,99 USD<small>co rok</small></span></a>
+    <a href="#"><span class="opis">Dożywotni<small>Bez subskrypcji</small></span><span class="cena">19,99 USD<small>jednorazowo</small></span></a>
+  </div>
+  <p class="przypis">Subskrypcja odnawia się automatycznie, dopóki jej nie anulujesz w ustawieniach konta Apple. Postęp i eksport danych zostają darmowe także bez zakupu.</p>
+  <div class="linki"><a class="link" href="#">Warunki użytkowania</a><a class="link" href="#">Polityka prywatności</a></div>
+</main>
+
+<aside class="panele">
+  <h2>E3: kluczowe ekrany</h2>
+  <p>Kolory z <code>tokeny.ts</code> (tabela <code>kontrast-e3.md</code>), tytuły Literata 600 (D-120), od AX1 krojem systemowym. Treść: na iOS SF Pro; w makiecie zastępczo Noto Sans.</p>
+  <p>Stół zależy od danych zadania (D-119): miejsca tylko w zadaniach z pozycją; „Dziś” używa sukna bez kart i miejsc, bo nic tam nie jest rozdaniem.</p>
+</aside>
+</body>
+</html>

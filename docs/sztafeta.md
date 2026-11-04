@@ -11,7 +11,7 @@ Decyzja właściciela (2026-11-03, jego słowa): „Przejść dla aplikacji Szko
 | 03 Zakres | build | zakończona 2026-11-04 (E3 zaakceptowane, D-112) | (commit E3) | `docs/scope-contract.md` (E3), `docs/archiwum/scope-contract-2026-11-03-robocze.md` (E0–E2), `docs/zakres/wzorzec-2026-11-03.json`, `docs/decyzje.md` | — |
 | 01 Odkrywanie | fix OP-20, OP-22, OP-23 | zakończona 2026-11-04 (D-113; kontrola BRD kod 0, wektory bez zmian) | 42dc490, be4e4e4, f795905 | `docs/brd/` (README, wymagania-nauka, wymagania-sklep, wymagania) | OP-24 (05), OP-10 (06) |
 | 02 Monetyzacja | fix OP-11 | zakończona 2026-11-04 (D-113; dokument, bez zmian rachunku i kodu) | 37ab4f1 | `docs/monetyzacja.md` | OP-09, OP-10 (05) |
-| 04 Studio Projektowe | build | E0 zakończone 2026-11-04 (D-114: ekran „Decyzja w sesji”); E1 zakończone 2026-11-04 (D-115: metafory A, B, C); E2 runda 1 odrzucona co do palety (D-116, pasek zostaje), runda 2 (D, E, F) odrzucona 2026-11-04 (D-117: „ma być eleganckie a nie badziewne”, punkt odniesienia: kolory i ikona poprzedniej aplikacji); runda 3: wybrany I (D-118) z warunkiem: stół bez miejsc w zadaniach bez pozycji (D-119); kroje tytułów: 5 krojów na zrzucie `docs/design/kroje-tytulow.png` (2026-11-04), czeka na wybór właściciela | a838dda, 118a5c1 | `docs/design/00-rozpoznanie.md`, `01-swiat.md` | OP-19 w E3 |
+| 04 Studio Projektowe | build | E0 zakończone 2026-11-04 (D-114: ekran „Decyzja w sesji”); E1 zakończone 2026-11-04 (D-115: metafory A, B, C); E2 runda 1 odrzucona co do palety (D-116, pasek zostaje), runda 2 (D, E, F) odrzucona 2026-11-04 (D-117: „ma być eleganckie a nie badziewne”, punkt odniesienia: kolory i ikona poprzedniej aplikacji); runda 3: wybrany I (D-118) z warunkiem: stół bez miejsc w zadaniach bez pozycji (D-119); krój Literata 600 (D-120); E3 wykonane 2026-11-04 (D-121, D-122), czeka na akceptację ikony i ekranów | a838dda, 118a5c1 | `docs/design/00-rozpoznanie.md`, `01-swiat.md` | OP-19 w E3 |
 | 01 Odkrywanie | fix ER-12, ER-13 | zakończona 2026-11-03 (BR-OPIN, BR-LIM; 43 BR, kontrola kod 0) | 7f3bc5b, 46be5b8 | `docs/brd/` | OP-23 (03), OP-24 (05) |
 
 ## E0 bramki: ustalenia (2026-11-03)
@@ -220,8 +220,16 @@ Poprawka w E4: OG-03 miało nieaktualny znacznik „[DO WYJAŚNIENIA] (OP-15)”
 - Runda 3 (dziesiąta sesja): `kierunki/g-granat-zloto.html`, `h-sukno-zloto.html`, `i-stol-w-granacie.html` (+ `r3.css`), `porownanie.html/png` (runda 2: `porownanie-runda2.*`); pomiary kod 0 (warsztat 3×, kontrast 54 pary, zrzuty 72, przepełnienia 3×, ikony 6); rekomendacja G ze stołem z I jako komponentem zadań o pozycji. Nowy skrypt `narzedzia/przepelnienie.mjs`; pomocnicze `podglad.mjs`, `zrzut-strony.mjs`.
 - Znalezisko dla roli 06: `range.acceptable` i dopisek w `range.explanation` (`apps/mobile/src/features/drills/text.pl.ts`) powtarzają to samo zdanie o „dopuszczalnej”.
 
+## Rola 04 E3: wynik (2026-11-04, jedenasta sesja)
+- Krój tytułów: Literata 600 (D-120, „Ok zgodnie z rekomendacją”).
+- Tokeny `docs/design/tokeny.ts` → `ekrany/tokeny.css` i `kontrast-e3.md` (`narzedzia/tokeny.mjs`: 132 pomiary, 0 poniżej progu, kod 0; jasny, ciemny, oba ze „Zwiększ kontrast”).
+- Makieta `docs/design/ekrany/e3.html`: Dziś, decyzja przed/po ocenie, zadanie bez pozycji, limit i zakup; przegląd `ekrany/e3-przeglad.png`. Pomiary: `przepelnienie.mjs` kod 0 (12 łamań w wyrazie tylko przy 320 pt AX5, D-122), `warsztat.mjs` kod 0, skala szarości bez informacji tylko kolorem.
+- Zrzuty wzorcowe `docs/design/wzorce-zrzuty/` (60, `zrzuty.mjs` kod 0, kwantyzacja 256 kolorów: 20 → 7,4 MB), arkusze `wzorce-zrzuty/arkusze/`.
+- Ikona `docs/design/ikona/` (warstwy SVG, `icon.png`, `ios-dark.png`, Android, `splash-icon.png`; `ikona.mjs` kod 0 ×5; arkusz `arkusz.png`).
+- `docs/design/design-spec.md`: znaczenie kolorów, typografia i duży tekst, komponenty (stół zależny od danych zadania, D-119), słownik, macierz stanów, głos, podłogi OP-19 (D-121), konfiguracja ikony.
+
 ## Następny krok
-**Rola 04 build E2, wybór kroju tytułów przez właściciela** (zrzut `docs/design/kroje-tytulow.png`, tabela i rekomendacja w `docs/design/02-kierunki.md`, sekcja „Kroje tytułów kierunku I”; rekomendacja Literata 600, drugi Gelasio 700). Po wyborze: wpis D-120 w `docs/decyzje.md` słowami właściciela, potem E3 (tokeny z kontrastem, ikona I do plików, stół z miejscami jako komponent zależny od danych zadania D-119, dzielenie wyrazów przy AX5 na 320 pt, od AX1 tytuły krojem systemowym, OP-19). Prompt: `node /home/user/prompts/tools/assemble.mjs 04-studio-projektowe --tryb build`, sesja opus/high.
+**Rola 04 build, STOP E3:** właściciel ogląda ikonę (`docs/design/ikona/arkusz.png`) i ekrany (`docs/design/ekrany/e3-przeglad.png`, arkusze w `wzorce-zrzuty/arkusze/`); po akceptacji E4: przekazanie do roli 05 (Architekt) i wpis do pamięci portfolio (krok właściciela w repo `prompts`). Prompt: `node /home/user/prompts/tools/assemble.mjs 04-studio-projektowe --tryb build`, sesja opus/high.
 
 ## Poprzedni następny krok (rola 03, wykonany)
 **Rola 04 build** według „Przekazanie do następnej roli” wyżej: `node /home/user/prompts/tools/assemble.mjs 04-studio-projektowe --tryb build`; nowa sesja opus/high. Paczka: `docs/scope-contract.md`, `docs/brd/`, `docs/monetyzacja.md`, `docs/decyzje.md`, `CLAUDE.md`.
