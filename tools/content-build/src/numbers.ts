@@ -155,7 +155,8 @@ export function resolveNumbers(file: Record<string, NumberEntry>, spots?: SpotLo
   return out;
 }
 
-const PLACEHOLDER = /\{\{n:([a-z0-9.\-]+)\}\}/gi;
+/** Znacznik liczby {{n:klucz}} w tekście (też dla strażnika rejestru w build.ts). */
+export const PLACEHOLDER = /\{\{n:([a-z0-9.\-]+)\}\}/gi;
 
 /** Podstawia {{n:klucz}}. Nieznany klucz przerywa budowanie. Zwraca też użyte klucze. */
 export function substitute(text: string, numbers: Map<string, ResolvedNumber>, where: string, used: Set<string>): string {

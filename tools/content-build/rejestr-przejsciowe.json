@@ -1,0 +1,225 @@
+{
+  "opis": "TYMCZASOWE (rola 06 E2, 2026-11-04): naruszenia strażnika rejestru (tools/content-build/src/registry.ts) znane w chwili wprowadzenia strażnika, poprawiane równolegle przez partie treści E2. Wpis z tej listy daje ostrzeżenie zamiast błędu; nowe naruszenie przerywa budowanie, a wyjątek nieobecny w treści daje ostrzeżenie „zbędny wyjątek”. Koordynator usuwa ten plik po scaleniu poprawek (wtedy każde naruszenie jest błędem).",
+  "wyjatki": [
+    {
+      "plik": "pl/rules.yaml",
+      "id": "n:solver9.rfi.utg",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/rules.yaml",
+      "id": "n:solver9.rfi.utg1",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/rules.yaml",
+      "id": "n:solver9.rfi.utg2",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/rules.yaml",
+      "id": "n:solver.def.bb-vs-btn",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/rules.yaml",
+      "id": "n:pf.3bet-freq.btn-vs-co.high",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/rules.yaml",
+      "id": "n:pf.call-freq.btn-vs-co.low",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/rules.yaml",
+      "id": "n:solver.def.bb-vs-sb",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/rules.yaml",
+      "id": "n:spr.zone.mid",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/rules.yaml",
+      "id": "n:range.mixed.min",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/lessons/m11-l1-push-fold.md",
+      "id": "R-M11-003",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/lessons/m11-l1-push-fold.md",
+      "id": "n:m11.m.red-alt",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/lessons/m12-l4-bankroll.md",
+      "id": "R-M12-011",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/lessons/m13-l1-raport.md",
+      "id": "n:range.mixed.min",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/lessons/m3-l1-pozycja.md",
+      "id": "R-M3-004",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/lessons/m3-l2-rece-startowe.md",
+      "id": "R-M3-004",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/lessons/m3-l3-zakresy-otwarc.md",
+      "id": "R-M3-009",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/lessons/m3-l3-zakresy-otwarc.md",
+      "id": "R-M3-004",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/lessons/m3-l3-zakresy-otwarc.md",
+      "id": "n:range.mixed.min",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/lessons/m3-l3-zakresy-otwarc.md",
+      "id": "n:solver9.rfi.utg",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/lessons/m3-l3-zakresy-otwarc.md",
+      "id": "n:solver9.rfi.utg1",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/lessons/m3-l3-zakresy-otwarc.md",
+      "id": "n:solver9.rfi.utg2",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/lessons/m4-l1-3bet.md",
+      "id": "R-M4-005",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/lessons/m4-l1-3bet.md",
+      "id": "R-M4-006",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/lessons/m4-l1-3bet.md",
+      "id": "n:pf.3bet-freq.btn-vs-co.high",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/lessons/m4-l1-3bet.md",
+      "id": "n:pf.call-freq.btn-vs-co.low",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/lessons/m4-l2-obrona-bb.md",
+      "id": "R-M4-006",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/lessons/m4-l2-obrona-bb.md",
+      "id": "n:solver.def.bb-vs-btn",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/lessons/m4-l2-obrona-bb.md",
+      "id": "n:pf.bb-def.vs-btn.pub.low",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/lessons/m4-l2-obrona-bb.md",
+      "id": "n:pf.bb-def.vs-btn.pub.high",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/lessons/m4-l2-obrona-bb.md",
+      "id": "n:solver.def.bb-vs-sb",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/lessons/m4-l4-limperzy.md",
+      "id": "R-M4-013",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/lessons/m6-l1-mdf-alpha.md",
+      "id": "R-M6-004",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/lessons/m9-l1-spr.md",
+      "id": "n:spr.zone.mid",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/lessons/m9-l4-plan-trzech-ulic.md",
+      "id": "R-M9-008",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/exams/m11.yaml",
+      "id": "R-M11-003",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/exams/m12.yaml",
+      "id": "R-M12-011",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/exams/m13.yaml",
+      "id": "n:range.mixed.min",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/exams/m3.yaml",
+      "id": "R-M3-004",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/exams/m3.yaml",
+      "id": "R-M3-009",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/exams/m4.yaml",
+      "id": "R-M4-006",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/exams/m4.yaml",
+      "id": "R-M4-013",
+      "status": "sprzeczne"
+    },
+    {
+      "plik": "pl/exams/m6.yaml",
+      "id": "R-M6-004",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/exams/m9.yaml",
+      "id": "n:spr.zone.mid",
+      "status": "otwarte"
+    },
+    {
+      "plik": "pl/exams/m9.yaml",
+      "id": "R-M9-008",
+      "status": "otwarte"
+    }
+  ]
+}

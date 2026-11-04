@@ -38,9 +38,15 @@ for (const w of rejestr.splice(0)) {
 rejestr.push(...wgId.values());
 const ids = new Set(rejestr.map((w) => w.id));
 const rules = YAML.parse(readFileSync('content/pl/rules.yaml', 'utf8')), nums = YAML.parse(readFileSync('content/numbers.yaml', 'utf8')), terms = YAML.parse(readFileSync('content/terms.yaml', 'utf8'));
-const wymagane = [...rules.map((r) => r.id), ...Object.keys(nums).map((k) => `n:${k}`), ...Object.keys(terms).map((k) => `t:${k}`)];
+// wpisy pomocy (content/helplines.yaml): pole claim każdego wpisu = id twierdzenia H-… w rejestrze, ze statusem „potwierdzone”
+const pomoc = YAML.parse(readFileSync('content/helplines.yaml', 'utf8')).entries ?? [];
+const claims = [...new Set(pomoc.map((e) => e.claim))];
+for (const e of pomoc) if (!e.claim) bledy.push(`pokrycie: wpis pomocy ${e.id} bez pola claim`);
+const wymagane = [...rules.map((r) => r.id), ...Object.keys(nums).map((k) => `n:${k}`), ...Object.keys(terms).map((k) => `t:${k}`), ...claims.filter(Boolean)];
 const brak = wymagane.filter((id) => !ids.has(id) && !bezK.has(id));
 for (const id of brak) bledy.push(`pokrycie: brak wpisu ${id}`);
+const wgIdR = new Map(rejestr.map((w) => [w.id, w]));
+for (const e of pomoc) if (e.claim && wgIdR.has(e.claim) && wgIdR.get(e.claim).status !== 'potwierdzone') bledy.push(`pomoc: wpis ${e.id} (${e.claim}) ma w rejestrze status „${wgIdR.get(e.claim).status}”`);
 bledy.push(...sprawdzRejestr(rejestr, [], opcje, uwagi));
 const ile = (f) => rejestr.reduce((m, w) => ((m[f(w)] = (m[f(w)] ?? 0) + 1), m), {});
 const jedno = rejestr.filter((w) => w.status === 'potwierdzone' && (w.zrodla ?? []).length === 1 && w.zrodla[0].szczebel >= 3);

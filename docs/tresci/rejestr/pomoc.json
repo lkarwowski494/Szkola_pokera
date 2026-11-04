@@ -50,7 +50,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Numer cyfrowy 1-800-697-3738 potwierdzony w stopce (SMS Terms); 1-800-522-4700 to dawny numer tej samej linii. Źródło nie mówi „free” wprost: „No payment or insurance information is required” — w aplikacji pisać „bez opłat za usługę”, nie „bezpłatne połączenie”. 1-800-GAMBLER (S-42) to linia prowadzona od 2025 r. przez CCGNJ (New Jersey) — nie mylić z linią krajową NCPG; nie dodawać do aplikacji.",
+    "uwagi": "Numer cyfrowy 1-800-697-3738 potwierdzony w stopce (SMS Terms); 1-800-522-4700 to dawny numer tej samej linii. Źródło nie mówi „free” wprost: „No payment or insurance information is required” — w aplikacji pisać „bez opłat za usługę”, nie „bezpłatne połączenie”. 1-800-GAMBLER (S-42) to linia prowadzona od 2025 r. przez CCGNJ (New Jersey) — nie mylić z linią krajową NCPG; nie dodawać do aplikacji. | E2 2026-11-04: wpis content/helplines.yaml: us-ncpg.",
     "kraj": "US",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -85,7 +85,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: us-988 (bez SMS: brak cytatu o SMS).",
     "kraj": "US",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -113,7 +113,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "911.gov zwrócił 403; źródło: operator infolinii (NCPG). Numer 911 jest powszechnie znany, ale cytat urzędowy (911.gov) do uzupełnienia przy następnym przeglądzie.",
+    "uwagi": "911.gov zwrócił 403; źródło: operator infolinii (NCPG). Numer 911 jest powszechnie znany, ale cytat urzędowy (911.gov) do uzupełnienia przy następnym przeglądzie. | E2 2026-11-04: wpis content/helplines.yaml: us-911.",
     "kraj": "US",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -162,7 +162,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Regulator (Gambling Commission) podaje numer dla Anglii i Szkocji; nidirect (rząd Irlandii Płn.) też go wymienia, bez godzin. gamcare.org.uk: 403 (odczyt niemożliwy).",
+    "uwagi": "Regulator (Gambling Commission) podaje numer dla Anglii i Szkocji; nidirect (rząd Irlandii Płn.) też go wymienia, bez godzin. gamcare.org.uk: 403 (odczyt niemożliwy). | E2 2026-11-04: wpis content/helplines.yaml: gb-ngh (national: true).",
     "kraj": "GB",
     "region": [
       "GB-ENG",
@@ -208,7 +208,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Zapis 0808 2819 265 (Gambling Commission, BRD S-41) i 0808 281 9265 (BCUHB) to ten sam numer. Nowa usługa (kwiecień 2026) — przegląd za 6 mies. zalecany.",
+    "uwagi": "Zapis 0808 2819 265 (Gambling Commission, BRD S-41) i 0808 281 9265 (BCUHB) to ten sam numer. Nowa usługa (kwiecień 2026) — przegląd za 6 mies. zalecany. | E2 2026-11-04: wpis content/helplines.yaml: gb-wales.",
     "kraj": "GB",
     "region": [
       "GB-WLS"
@@ -245,7 +245,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Godzin pracy nie podaje żadne przeczytane źródło (nie wpisywać „24/7”). UWAGA: domena dunlewey.net przekierowała 2026-11-04 na obcą domenę (superdewa.llc) — w aplikacji NIE linkować do dunlewey.net. Rekomendacja: w GB-NIR pokazać H-GB-1 jako główny numer, H-GB-3 jako drugi.",
+    "uwagi": "Godzin pracy nie podaje żadne przeczytane źródło (nie wpisywać „24/7”). UWAGA: domena dunlewey.net przekierowała 2026-11-04 na obcą domenę (superdewa.llc) — w aplikacji NIE linkować do dunlewey.net. Rekomendacja: w GB-NIR pokazać H-GB-1 jako główny numer, H-GB-3 jako drugi. | E2 2026-11-04: wpis content/helplines.yaml: gb-ni-dunlewey (bez godzin, bez linku do dunlewey.net, D-150).",
     "kraj": "GB",
     "region": [
       "GB-NIR"
@@ -289,7 +289,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: gb-samaritans.",
     "kraj": "GB",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -338,7 +338,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: gb-999.",
     "kraj": "GB",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -373,7 +373,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: gb-ni-lifeline.",
     "kraj": "GB",
     "region": [
       "GB-NIR"
@@ -417,7 +417,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Wpis opcjonalny (uzupełnienie między infolinią a 999). Irlandia Płn.: brak źródła dla 111 — nie pokazywać.",
+    "uwagi": "Wpis opcjonalny (uzupełnienie między infolinią a 999). Irlandia Płn.: brak źródła dla 111 — nie pokazywać. | E2 2026-11-04: wpis content/helplines.yaml: gb-111.",
     "kraj": "GB",
     "region": [
       "GB-ENG",
@@ -463,7 +463,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Koszt: AGCO (regulator, Ontario) „Toll-free”; 988.ca nie podaje kosztu na przeczytanych stronach. canada.ca: błąd połączenia (HTTP/2) — strona rządu federalnego nieprzeczytana.",
+    "uwagi": "Koszt: AGCO (regulator, Ontario) „Toll-free”; 988.ca nie podaje kosztu na przeczytanych stronach. canada.ca: błąd połączenia (HTTP/2) — strona rządu federalnego nieprzeczytana. | E2 2026-11-04: wpis content/helplines.yaml: ca-988.",
     "kraj": "CA",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -491,7 +491,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: ca-911.",
     "kraj": "CA",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -519,7 +519,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Jedno źródło (regulator AGCO, szczebel 1). connexontario.ca: błąd połączenia. SMS: „standard messaging rate may apply”.",
+    "uwagi": "Jedno źródło (regulator AGCO, szczebel 1). connexontario.ca: błąd połączenia. SMS: „standard messaging rate may apply”. | E2 2026-11-04: wpis content/helplines.yaml: ca-on (bez SMS: brak cytatu).",
     "kraj": "CA",
     "region": [
       "CA-ON"
@@ -556,7 +556,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: ca-bc.",
     "kraj": "CA",
     "region": [
       "CA-BC"
@@ -600,7 +600,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "aidejeu.ca: 503. Koszt: „Ligne sans frais” (bezpłatna) dla numeru 1 800.",
+    "uwagi": "aidejeu.ca: 503. Koszt: „Ligne sans frais” (bezpłatna) dla numeru 1 800. | E2 2026-11-04: wpis content/helplines.yaml: ca-qc.",
     "kraj": "CA",
     "region": [
       "CA-QC"
@@ -630,7 +630,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Linia uzależnień (także hazard: tytuł strony „drug or gambling problem”), nie stricte hazardowa. Koszt nie podany w źródle. Strona MyHealth Alberta (rząd), „Current as of: January 27, 2026”.",
+    "uwagi": "Linia uzależnień (także hazard: tytuł strony „drug or gambling problem”), nie stricte hazardowa. Koszt nie podany w źródle. Strona MyHealth Alberta (rząd), „Current as of: January 27, 2026”. | E2 2026-11-04: wpis content/helplines.yaml: ca-ab.",
     "kraj": "CA",
     "region": [
       "CA-AB"
@@ -660,7 +660,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: ca-sk.",
     "kraj": "CA",
     "region": [
       "CA-SK"
@@ -697,7 +697,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Koszt nie podany wprost (numer 1-800 = bezpłatny w Ameryce Płn., ale źródło tego nie mówi).",
+    "uwagi": "Koszt nie podany wprost (numer 1-800 = bezpłatny w Ameryce Płn., ale źródło tego nie mówi). | E2 2026-11-04: wpis content/helplines.yaml: ca-mb.",
     "kraj": "CA",
     "region": [
       "CA-MB"
@@ -741,7 +741,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Dwa numery z dwóch stron rządowych; 1-866-355-5550 ma potwierdzone godziny (24/7) i nowszą stronę gnb.ca — rekomendowany jako główny; 1-800-461-1234 bez godzin (strona www2 korporacji loterii, starsza).",
+    "uwagi": "Dwa numery z dwóch stron rządowych; 1-866-355-5550 ma potwierdzone godziny (24/7) i nowszą stronę gnb.ca — rekomendowany jako główny; 1-800-461-1234 bez godzin (strona www2 korporacji loterii, starsza). | E2 2026-11-04: wpis content/helplines.yaml: ca-nb (numer 1-866-355-5550).",
     "kraj": "CA",
     "region": [
       "CA-NB"
@@ -771,7 +771,7 @@
     "jednostka": null,
     "werdykt_tekstu": "CZĘŚCIOWO",
     "poprawka": null,
-    "uwagi": "Strona rządu NS wymienia numer, ale bez daty i godzin; wyszukiwarka wskazuje doniesienie prasowe (Truro News, 2024, nieprzeczytane) o przesunięciu finansowania GSN. [DO USTALENIA] czy linia działa (test połączenia przez właściciela albo e-mail do NS Health). Do tego czasu w CA-NS pokazać H-CA-11 i H-CA-1.",
+    "uwagi": "Strona rządu NS wymienia numer, ale bez daty i godzin; wyszukiwarka wskazuje doniesienie prasowe (Truro News, 2024, nieprzeczytane) o przesunięciu finansowania GSN. [DO USTALENIA] czy linia działa (test połączenia przez właściciela albo e-mail do NS Health). Do tego czasu w CA-NS pokazać H-CA-11 i H-CA-1. | E2 2026-11-04: otwarte: nie trafia do content/helplines.yaml.",
     "kraj": "CA",
     "region": [
       "CA-NS"
@@ -801,7 +801,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Linia kryzysowa, nie hazardowa.",
+    "uwagi": "Linia kryzysowa, nie hazardowa. | E2 2026-11-04: wpis content/helplines.yaml: ca-ns-crisis.",
     "kraj": "CA",
     "region": [
       "CA-NS"
@@ -845,7 +845,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Strony rządu PEI (princeedwardisland.ca, peigamblingsupport) zwróciły 403 — źródła tylko szczebla 3 (211 PEI, CMHA PEI). Zalecany ponowny odczyt strony rządowej przed wydaniem.",
+    "uwagi": "Strony rządu PEI (princeedwardisland.ca, peigamblingsupport) zwróciły 403 — źródła tylko szczebla 3 (211 PEI, CMHA PEI). Zalecany ponowny odczyt strony rządowej przed wydaniem. | E2 2026-11-04: wpis content/helplines.yaml: ca-pe.",
     "kraj": "CA",
     "region": [
       "CA-PE"
@@ -875,7 +875,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Starszy numer 1-888-899-4357 występuje w katalogach (szczebel 5) — nie używać.",
+    "uwagi": "Starszy numer 1-888-899-4357 występuje w katalogach (szczebel 5) — nie używać. | E2 2026-11-04: wpis content/helplines.yaml: ca-nl.",
     "kraj": "CA",
     "region": [
       "CA-NL"
@@ -897,7 +897,7 @@
     "jednostka": null,
     "werdykt_tekstu": "NIEPOPARTE",
     "poprawka": null,
-    "uwagi": "Nie znaleziono strony rządu terytorium z linią hazardową; katalogi (szczebel 5) podają sprzeczne numery. [DO USTALENIA]. Do tego czasu: H-CA-1, H-CA-2.",
+    "uwagi": "Nie znaleziono strony rządu terytorium z linią hazardową; katalogi (szczebel 5) podają sprzeczne numery. [DO USTALENIA]. Do tego czasu: H-CA-1, H-CA-2. | E2 2026-11-04: otwarte: nie trafia do content/helplines.yaml.",
     "kraj": "CA",
     "region": [
       "CA-YT",
@@ -936,7 +936,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Wpis bez numeru; link do strony MHLW (wyszukiwarka placówek). Prywatne linie finansowane przez branżę gier (np. pachinko) celowo pominięte.",
+    "uwagi": "Wpis bez numeru; link do strony MHLW (wyszukiwarka placówek). Prywatne linie finansowane przez branżę gier (np. pachinko) celowo pominięte. | E2 2026-11-04: wpis content/helplines.yaml: jp-center.",
     "kraj": "JP",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -978,7 +978,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "いのちの電話 0120-783-556 działa tylko 16–21 (i 10. dnia miesiąca całą dobę) — nie jako pierwszy numer. Fukushima: よりそい 0120-279-226.",
+    "uwagi": "いのちの電話 0120-783-556 działa tylko 16–21 (i 10. dnia miesiąca całą dobę) — nie jako pierwszy numer. Fukushima: よりそい 0120-279-226. | E2 2026-11-04: wpis content/helplines.yaml: jp-inochi-sos, jp-yorisoi.",
     "kraj": "JP",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -1006,7 +1006,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: jp-119.",
     "kraj": "JP",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -1041,7 +1041,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Agência Gov (EBC, „via MS”) — komunikat Ministerstwa Zdrowia. Numer 136 (Disque Saúde) podają media (szczebel 5), nie przeczytane źródło rządowe — nie dodawać. Wymaga konta gov.br.",
+    "uwagi": "Agência Gov (EBC, „via MS”) — komunikat Ministerstwa Zdrowia. Numer 136 (Disque Saúde) podają media (szczebel 5), nie przeczytane źródło rządowe — nie dodawać. Wymaga konta gov.br. | E2 2026-11-04: wpis content/helplines.yaml: br-sus.",
     "kraj": "BR",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -1069,7 +1069,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: br-cvv.",
     "kraj": "BR",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -1104,7 +1104,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: br-samu.",
     "kraj": "BR",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -1113,7 +1113,7 @@
     "id": "H-FR-1",
     "rodzaj": "regula",
     "level": "rules",
-    "twierdzenie": "Problem z hazardem (Francja) → Joueurs Info Service 09 74 75 13 13, anonimowo, bez dopłat (cena połączenia lokalnego albo w abonamencie), codziennie co najmniej 8.00–23.00",
+    "twierdzenie": "Problem z hazardem (Francja) → Joueurs Info Service 09 74 75 13 13, anonimowo, bez dopłat, codziennie 8.00–23.00",
     "zrodla": [
       {
         "adres": "https://www.joueurs-info-service.fr/",
@@ -1137,19 +1137,20 @@
         "szczebel": 1
       }
     ],
-    "status": "sprzeczne",
+    "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": null,
     "wielkosc": null,
     "wartosc": null,
     "jednostka": null,
-    "werdykt_tekstu": "CZĘŚCIOWO",
+    "werdykt_tekstu": "POPARTE",
     "poprawka": "godziny: „codziennie 8.00–23.00”; koszt: „bez dopłat”",
-    "uwagi": "Sprzeczność godzin na szczeblu 1: operator dziś (strona serwisowa) 8–23, annuaire service-public 8–2. Rozstrzygnięcie (zasada części wspólnej): „codziennie 8.00–23.00” (obie wersje to obejmują). Koszt: operator „gratuit”, annuaire „non surtaxé” — wspólnie: „bez dopłat”. Przegląd po przywróceniu joueurs-info-service.fr.",
+    "uwagi": "Sprzeczność godzin na szczeblu 1: operator dziś (strona serwisowa) 8–23, annuaire service-public 8–2. Rozstrzygnięcie (zasada części wspólnej): „codziennie 8.00–23.00” (obie wersje to obejmują). Koszt: operator „gratuit”, annuaire „non surtaxé” — wspólnie: „bez dopłat”. Przegląd po przywróceniu joueurs-info-service.fr. | E2 2026-11-04: wdrożone w content/helplines.yaml (fr-jis) według D-150: „codziennie 8.00–23.00”, „bez dopłat, anonimowo”; było SPRZECZNE (sprzeczne).",
     "kraj": "FR",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-11-04",
+    "decyzja": "D-150"
   },
   {
     "id": "H-FR-2",
@@ -1174,7 +1175,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: fr-3114.",
     "kraj": "FR",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -1209,7 +1210,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: fr-15 (112 jako drugi numer).",
     "kraj": "FR",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -1237,7 +1238,7 @@
     "jednostka": null,
     "werdykt_tekstu": "NIEPOPARTE",
     "poprawka": null,
-    "uwagi": "Nie znaleziono w źródłach rządowych (MOHW) linii stricte hazardowej. [DO USTALENIA]. Wpis zastępczy: 1925 (H-TW-2) i lista ośrodków (gov.tw).",
+    "uwagi": "Nie znaleziono w źródłach rządowych (MOHW) linii stricte hazardowej. [DO USTALENIA]. Wpis zastępczy: 1925 (H-TW-2) i lista ośrodków (gov.tw). | E2 2026-11-04: część o ośrodkach wydzielona do H-TW-4 (potwierdzone); to twierdzenie (linia hazardowa) zostaje otwarte i nie trafia do helplines.yaml.",
     "kraj": "TW",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -1279,7 +1280,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: tw-1925.",
     "kraj": "TW",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -1314,10 +1315,39 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: tw-119 (bez 112: brak cytatu).",
     "kraj": "TW",
     "region": null,
     "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "H-TW-4",
+    "rodzaj": "regula",
+    "level": "rules",
+    "twierdzenie": "Poradnictwo psychologiczne (Tajwan) → ośrodki zdrowia psychicznego (社區心理衛生中心) przy urzędach zdrowia każdego powiatu i miasta",
+    "zrodla": [
+      {
+        "adres": "https://www.gov.tw/News_Content_26_826198",
+        "miejsce": "各縣市社區心理諮商服務",
+        "cytat": "各縣市衛生局社區心理衛生中心皆有提供心理諮商服務",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "wielkosc": null,
+    "wartosc": null,
+    "jednostka": null,
+    "werdykt_tekstu": "POPARTE",
+    "poprawka": null,
+    "uwagi": "E2 2026-11-04: wydzielone z H-TW-1 (ta sama strona i cytat z E1), żeby wpis zastępczy D-151 („lista ośrodków”) miał własne twierdzenie potwierdzone; H-TW-1 (krajowa linia hazardowa) zostaje otwarte. Wpis tw-centers w content/helplines.yaml (kind: support), link do strony gov.tw ze źródła.",
+    "kraj": "TW",
+    "region": null,
+    "wazne_do": "2027-11-04",
+    "decyzja": "D-151"
   },
   {
     "id": "H-VN-1",
@@ -1334,7 +1364,7 @@
     "jednostka": null,
     "werdykt_tekstu": "NIEPOPARTE",
     "poprawka": null,
-    "uwagi": "Nie znaleziono źródła szczebla 1–3. [DO USTALENIA]. Wpis zastępczy: numer alarmowy (H-VN-3) i pomoc online (H-INT-1).",
+    "uwagi": "Nie znaleziono źródła szczebla 1–3. [DO USTALENIA]. Wpis zastępczy: numer alarmowy (H-VN-3) i pomoc online (H-INT-1). | E2 2026-11-04: otwarte: nie trafia do content/helplines.yaml.",
     "kraj": "VN",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -1354,7 +1384,7 @@
     "jednostka": null,
     "werdykt_tekstu": "NIEPOPARTE",
     "poprawka": null,
-    "uwagi": "Linie znalezione w wyszukiwarce to projekty NGO (Ngày Mai, Hy Vọng Sống) z ograniczonymi godzinami i bez źródła 1–3; 111 to linia ochrony dzieci. [DO USTALENIA].",
+    "uwagi": "Linie znalezione w wyszukiwarce to projekty NGO (Ngày Mai, Hy Vọng Sống) z ograniczonymi godzinami i bez źródła 1–3; 111 to linia ochrony dzieci. [DO USTALENIA]. | E2 2026-11-04: otwarte: nie trafia do content/helplines.yaml.",
     "kraj": "VN",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -1363,7 +1393,7 @@
     "id": "H-VN-3",
     "rodzaj": "regula",
     "level": "rules",
-    "twierdzenie": "Bezpośrednie zagrożenie życia (Wietnam) → numery alarmowe 113, 114, 115 (bezpłatne); od 1.11.2026 wezwania pomocy medycznej przyjmuje też 113",
+    "twierdzenie": "Bezpośrednie zagrożenie życia (Wietnam) → numer alarmowy 113 albo 115 (bezpłatnie); od 1.11.2026 wezwania pomocy medycznej przyjmuje też 113",
     "zrodla": [
       {
         "adres": "https://baochinhphu.vn/mien-phi-cac-cuoc-goi-den-so-113-114-115-102268666.htm",
@@ -1380,19 +1410,20 @@
         "szczebel": 1
       }
     ],
-    "status": "otwarte",
+    "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": null,
     "wielkosc": null,
     "wartosc": null,
     "jednostka": null,
-    "werdykt_tekstu": "CZĘŚCIOWO",
+    "werdykt_tekstu": "POPARTE",
     "poprawka": "„113 albo 115” zamiast samego 115",
-    "uwagi": "System numerów alarmowych w trakcie zmiany (integracja 113/114/115 w 113, planowana od 2027). Żadne przeczytane źródło nie mówi wprost „115 = pogotowie”. Rekomendacja: pokazać „113 albo 115”; przegląd co 3 mies. (wazne_do skrócić przy wdrożeniu do 2027-02-04).",
+    "uwagi": "System numerów alarmowych w trakcie zmiany (integracja 113/114/115 w 113, planowana od 2027). Żadne przeczytane źródło nie mówi wprost „115 = pogotowie”. Rekomendacja: pokazać „113 albo 115”; przegląd co 3 mies. (wazne_do skrócić przy wdrożeniu do 2027-02-04). | E2 2026-11-04: wdrożone w content/helplines.yaml (vn-113: 113, drugi numer 115, review_by 2027-02-04) według D-151 i poprawki „113 albo 115”; oba numery to numery alarmowe według cytatu 1 (Chinhphu.vn), 113 przyjmuje wezwania medyczne według cytatu 2; było CZĘŚCIOWO (otwarte). Przegląd co 3 mies. bez zmian.",
     "kraj": "VN",
     "region": null,
-    "wazne_do": "2027-11-04"
+    "wazne_do": "2027-02-04",
+    "decyzja": "D-151"
   },
   {
     "id": "H-DE-1",
@@ -1424,7 +1455,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Operator: Bundesinstitut für Öffentliche Gesundheit (BIÖG, dawniej BZgA).",
+    "uwagi": "Operator: Bundesinstitut für Öffentliche Gesundheit (BIÖG, dawniej BZgA). | E2 2026-11-04: wpis content/helplines.yaml: de-bioeg.",
     "kraj": "DE",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -1466,7 +1497,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: de-ts.",
     "kraj": "DE",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -1494,7 +1525,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "",
+    "uwagi": "E2 2026-11-04: wpis content/helplines.yaml: de-112.",
     "kraj": "DE",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -1522,7 +1553,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Wpis opcjonalny (język pl aplikacji); lista BIÖG zawiera też rosyjski, turecki, arabski. Numer komórkowy jednej poradni — wyższe ryzyko zmiany; przegląd co 6 mies.",
+    "uwagi": "Wpis opcjonalny (język pl aplikacji); lista BIÖG zawiera też rosyjski, turecki, arabski. Numer komórkowy jednej poradni — wyższe ryzyko zmiany; przegląd co 6 mies. | E2 2026-11-04: wpis content/helplines.yaml: de-pl.",
     "kraj": "DE",
     "region": null,
     "wazne_do": "2027-11-04"
@@ -1571,7 +1602,7 @@
     "jednostka": null,
     "werdykt_tekstu": "POPARTE",
     "poprawka": null,
-    "uwagi": "Strefa czasowa godzin nie podana (prawdopodobnie czas brytyjski — nie wpisywać godzin bez strefy). Koszt: źródło nie mówi „free” — nie pisać „bezpłatnie”. gamblingtherapy.org zwrócił 2026-11-04 błąd 500 (baza danych) — sprawdzić przed wydaniem; link do strony Gordon Moody jako zapasowy. Tekst dla krajów bez wpisu: „W zagrożeniu życia dzwoń na lokalny numer alarmowy” + H-INT-1 (bez numeru).",
+    "uwagi": "Strefa czasowa godzin nie podana (prawdopodobnie czas brytyjski — nie wpisywać godzin bez strefy). Koszt: źródło nie mówi „free” — nie pisać „bezpłatnie”. gamblingtherapy.org zwrócił 2026-11-04 błąd 500 (baza danych) — sprawdzić przed wydaniem; link do strony Gordon Moody jako zapasowy. Tekst dla krajów bez wpisu: „W zagrożeniu życia dzwoń na lokalny numer alarmowy” + H-INT-1 (bez numeru). | E2 2026-11-04: wpis content/helplines.yaml: int-gambling-therapy (bez godzin i bez „bezpłatnie”).",
     "kraj": "*",
     "region": null,
     "wazne_do": "2027-11-04"
