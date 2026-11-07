@@ -24,6 +24,7 @@ Wybrano „A”, ponieważ Expo wprost odradza poleganie na trwałości Keychain
 
 Ustalenia wiążące:
 1. Tabela `aktywnosc` w bazie użytkownika: `id`, `rodzaj` (CHECK: `sesja`, `powtorki`, `scenariusz`, `test_powtorny`), `dzien_lokalny` (`RRRR-MM-DD` w strefie telefonu w chwili startu), `strefa`, `start_ms`, `koniec_ms` (NULL = w toku), `darmowa` (0/1).
+   Erratum (JAK-E1-01, fix 05 2026-11-07; bez zmiany decyzji): obowiązujące kolumny i lista rodzajów są w `docs/architektura/schemat.sql:29–39` (ADR 0004, późniejszy): `rodzaj` CHECK `ocena_poziomu`, `lekcja`, `test_modulu`, `sesja`, `powtorki`, `scenariusz` (powtórny test = `test_modulu` nie przy pierwszym podejściu), `z_limitu` (0/1) zamiast `darmowa`, `stan` i `krok` (ADR 0010). Limit liczy wiersze dnia z `z_limitu = 1`. Wyrocznią K-03 jest `schemat.sql` + `moduly.md` (D-168).
 2. Funkcja domeny `limitDnia(aktywnosciDnia, dostepPro, dzienLokalny, konfiguracja) → { pozostalo, odnowienie }`; `LIMIT_AKTYWNOSCI_DZIENNIE = 1` w module konfiguracji (źródło: D-107).
 3. Decyzja o starcie zapada raz, przy starcie; wznowienie aktywności w toku (`koniec_ms IS NULL`) nie sprawdza limitu (BR-LIM-002), także po północy.
 4. Dzień liczony z `dzien_lokalny` zapisanego przy starcie, nie z odejmowania czasu; zmiana strefy daje dzień według nowej strefy (brzegowy, przyjęty).
