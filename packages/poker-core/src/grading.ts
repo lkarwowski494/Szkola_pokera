@@ -128,15 +128,19 @@ export interface Finding {
   stack: number;
 }
 
-/** Werdykt akcji z częstości solvera (ADR-26): zgodna, dopuszczalna, błąd. Wspólna dla zadań i gry. */
-export function rangeVerdict(freqs: readonly number[], t: { mixedMin: number; mixedLow: number }): ('correct' | 'acceptable' | 'wrong')[] {
+/** Werdykt akcji z częstości solvera (ADR-26, RD-11): zgodna, dopuszczalna, niedokładność, błąd. Wspólna dla zadań i gry. */
+// RD-11 (docs/brd/reguly.md:186–205, D-143): f = f_max albo f ≥ L → zgodne; M ≤ f < L → dopuszczalne; 0 < f < M →
+// niedokładność; f = 0 → błąd. Częstość ujemna albo nieskończona → błąd danych (RD-11-W9, RYZ-03).
+export type RangeVerdict = 'correct' | 'acceptable' | 'inaccuracy' | 'wrong';
+export function rangeVerdict(freqs: readonly number[], t: { mixedMin: number; mixedLow: number }): RangeVerdict[] {
+  if (freqs.some((f) => !(Number.isFinite(f) && f >= 0))) throw new Error('Częstość solvera spoza [0, ∞)');
   const best = Math.max(...freqs);
-  return freqs.map((f) => (f === best || f >= t.mixedLow ? 'correct' : f >= t.mixedMin ? 'acceptable' : 'wrong'));
+  return freqs.map((f) => (f === best || f >= t.mixedLow ? 'correct' : f >= t.mixedMin ? 'acceptable' : f > 0 ? 'inaccuracy' : 'wrong'));
 }
 
 const LEVEL_RANK: Record<RuleLevelName, number> = { math: 4, gto: 3, heuristic: 2, rules: 1, exploit: 0 };
 const SEVERITY: Record<Verdict, number> = { mistake: 5, inaccuracy: 4, timeout: 3, acceptable: 2, 'compliant-exploit': 1, compliant: 1, unrated: 0 };
-const fromRange = { correct: 'compliant', acceptable: 'acceptable', wrong: 'mistake' } as const;
+const fromRange = { correct: 'compliant', acceptable: 'acceptable', inaccuracy: 'inaccuracy', wrong: 'mistake' } as const;
 
 interface Candidate {
   rule: EvalRule;

@@ -417,8 +417,10 @@ function drawCall(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: numbe
  * Werdykt każdej akcji według częstości solvera (ADR-26): correct (najczęstsza albo ≥ MIXED_LOW),
  * acceptable (MIXED_MIN ≤ f < MIXED_LOW), wrong (f < MIXED_MIN). Wspólna dla zadań i przyszłej oceny gry (M13).
  */
+// Stopień `inaccuracy` (RD-11, D-143) pokazywany tu jak `wrong`, dopóki ekran zadań nie dostanie tekstu i stanu od ról 04/06
+// (zgłoszenie roli 08, część 2); punkty bez zmian (verdictPoints: niedokładność i błąd = 0).
 export function rangeVerdict(freqs: readonly number[]): ('correct' | 'acceptable' | 'wrong')[] {
-  return coreRangeVerdict(freqs, { mixedMin: MIXED_MIN, mixedLow: MIXED_LOW });
+  return coreRangeVerdict(freqs, { mixedMin: MIXED_MIN, mixedLow: MIXED_LOW }).map((v) => (v === 'inaccuracy' ? 'wrong' : v));
 }
 
 function rangeDecision(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number, ctx: DrillContext): DrillInstance {

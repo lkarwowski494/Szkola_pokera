@@ -82,7 +82,14 @@ describe('ocena M13: zakresy solvera przed flopem (5.2, ADR-26)', () => {
     const hi = number('range.mixed.low');
     const { hc, action } = classWithFreq('rfi.btn', lo, hi);
     expect(gradeLast([F, F, F, action === 'raise' ? R(2.5) : F], at(3, cardsOf(hc))).verdict).toBe('acceptable');
-    expect(rangeVerdict([0.9, 0.1, 0.02], kit.thresholds)).toEqual(['correct', 'acceptable', 'wrong']);
+    // 0 < f < 3,5% to niedokładność, f = 0 to błąd (RD-11, D-143; zmiana roli 08: wcześniejsze 'wrong' dla 0,02 utrwalało usterkę ER-01)
+    expect(rangeVerdict([0.88, 0.1, 0.02, 0], kit.thresholds)).toEqual(['correct', 'acceptable', 'inaccuracy', 'wrong']);
+  });
+
+  // Rola 08 (RD-11, D-143, próba mutacji D-172): zagranie solvera z częstością 0 < f < 3,5% to w ocenie „niedokładność”, nie „błąd”.
+  it('akcja grana przez solver w mniej niż 3,5% przypadków jest niedokładnością', () => {
+    const { hc, action } = classWithFreq('rfi.btn', Number.MIN_VALUE, number('range.mixed.min'));
+    expect(gradeLast([F, F, F, action === 'raise' ? R(2.5) : F], at(3, cardsOf(hc))).verdict).toBe('inaccuracy');
   });
 
   it('klasy niepewne nie dostają oceny solverem', () => {
