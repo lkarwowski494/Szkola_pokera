@@ -11,7 +11,7 @@ import { uruchomPostep, usunStareBazy } from '../../../packages/postep/src';
 import { adapterNode, otworzNode } from '../../narzedzia/postep-node';
 import { plikiNode, sumyKatalogu } from '../../narzedzia/pliki-node';
 import { T0 } from '../../narzedzia/wzorzec-bazy';
-import { katalogTymczasowy, sprzatnij } from './wspolne';
+import { katalogTymczasowy, sprzatnij } from '../../../packages/postep/test/wspolne';
 
 afterEach(sprzatnij);
 const STARE = ['user.db', 'user.db-shm', 'user.db-wal'];

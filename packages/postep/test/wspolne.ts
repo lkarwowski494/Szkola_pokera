@@ -2,10 +2,10 @@
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import type { OchronaTla } from '../../../packages/domena/src';
-import { otworzPostep } from '../../../packages/postep/src';
-import { adapterNode, otworzNode, type Zdarzenie } from '../../narzedzia/postep-node';
-import { zbudujWzorzecV1 } from '../../narzedzia/wzorzec-bazy';
+import type { OchronaTla } from '../../domena/src';
+import { otworzPostep } from '../src';
+import { adapterNode, otworzNode, type Zdarzenie } from '../../../tests/narzedzia/postep-node';
+import { zbudujWzorzecV1 } from '../../../tests/narzedzia/wzorzec-bazy';
 
 const katalogi: string[] = [];
 export function katalogTymczasowy(): string {

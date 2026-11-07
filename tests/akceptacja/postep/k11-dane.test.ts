@@ -5,7 +5,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { eksportuj, importuj, usunPostep } from '../../../packages/postep/src';
 import { ile, integralnosc, TABELE_EKSPORTU, zawartosc, type Zdarzenie } from '../../narzedzia/postep-node';
 import { DZIEN_WZORCA, T0 } from '../../narzedzia/wzorzec-bazy';
-import { bladIO, przygotuj, sprzatnij } from './wspolne';
+import { bladIO, przygotuj, sprzatnij } from '../../../packages/postep/test/wspolne';
 
 afterEach(sprzatnij);
 const META = { terazMs: T0, aplikacja: '1.0.0' };

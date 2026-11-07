@@ -4,7 +4,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { zapiszKrok, zapiszPowtorke, type WierszKarty } from '../../../packages/postep/src';
 import { ile, integralnosc } from '../../narzedzia/postep-node';
 import { T0 } from '../../narzedzia/wzorzec-bazy';
-import { przygotuj, sprzatnij } from './wspolne';
+import { przygotuj, sprzatnij } from '../../../packages/postep/test/wspolne';
 
 afterEach(sprzatnij);
 

@@ -6,7 +6,7 @@ import { eksportuj, importuj, kopiaBazy, listaMigracji, migruj, usunPostep, type
 import { atrapaOchrony } from '../../narzedzia/ochrona-atrapa';
 import { adapterNode, integralnosc, otworzNode, zawartosc, type Zdarzenie } from '../../narzedzia/postep-node';
 import { DZIEN_WZORCA, T0, zbudujWzorzecV1 } from '../../narzedzia/wzorzec-bazy';
-import { bladIO, katalogTymczasowy, przygotuj, sprzatnij } from './wspolne';
+import { bladIO, katalogTymczasowy, przygotuj, sprzatnij } from '../../../packages/postep/test/wspolne';
 
 afterEach(sprzatnij);
 

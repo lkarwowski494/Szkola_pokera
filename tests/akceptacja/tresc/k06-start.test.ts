@@ -8,7 +8,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { KONFIGURACJA as K, przygotujTresc } from '../../../packages/domena/src';
 import { sha256, sumyKatalogu } from '../../narzedzia/pliki-node';
 import { plikiTresciNode, zbudujTresc, type WywolanieTresci } from '../../narzedzia/tresc-node';
-import { katalogTymczasowy, sprzatnij } from '../postep/wspolne';
+import { katalogTymczasowy, sprzatnij } from '../../../packages/postep/test/wspolne';
 
 const zamkniecia: (() => void)[] = [];
 afterEach(() => { for (const z of zamkniecia.splice(0)) z(); sprzatnij(); });

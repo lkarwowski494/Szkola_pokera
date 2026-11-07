@@ -13,7 +13,7 @@ import { type PortBazy, uruchomPostep, zapiszKrok, zapiszPowtorke } from '../../
 import { adapterNode, ile, integralnosc, otworzNode, TABELE_EKSPORTU, zawartosc, type Zdarzenie } from '../../narzedzia/postep-node';
 import { plikiNode, sha256 } from '../../narzedzia/pliki-node';
 import { T0, zbudujWzorzecV1 } from '../../narzedzia/wzorzec-bazy';
-import { bladIO, katalogTymczasowy, przygotuj, sprzatnij } from './wspolne';
+import { bladIO, katalogTymczasowy, przygotuj, sprzatnij } from '../../../packages/postep/test/wspolne';
 
 afterEach(sprzatnij);
 

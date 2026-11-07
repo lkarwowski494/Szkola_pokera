@@ -5,9 +5,9 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { afterEach, describe, expect, it } from 'vitest';
-import { listaMigracji, migruj, otworzPostep } from '../../../packages/postep/src';
-import { adapterNode, integralnosc, otworzNode, zawartosc } from '../../narzedzia/postep-node';
-import { schematV1, zbudujWzorzecV1 } from '../../narzedzia/wzorzec-bazy';
+import { listaMigracji, migruj, otworzPostep } from '../src';
+import { adapterNode, integralnosc, otworzNode, zawartosc } from '../../../tests/narzedzia/postep-node';
+import { schematV1, zbudujWzorzecV1 } from '../../../tests/narzedzia/wzorzec-bazy';
 import { katalogTymczasowy, sprzatnij } from './wspolne';
 
 afterEach(sprzatnij);
