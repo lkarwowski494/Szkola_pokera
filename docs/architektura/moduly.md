@@ -64,6 +64,12 @@ export function decyzja(odczyt: OdczytSklepu, pamiec: Pamiec | null, teraz: numb
   bezKonca: readonly string[]): { dostep: boolean; zrodlo: 'sklep' | 'pamiec' | 'brak'; nowaPamiec: Pamiec | null };
 // L8-04 (D-217): wygasaMs = null tylko dla produktów z `bezKonca` (PRODUKTY_BEZ_KONCA); inny produkt bez daty końca → nieaktywny
 
+// Przypomnienie (ADR 0012; port PortPowiadomien z kształtem expo-notifications, adapter w apps/mobile/src/platform/)
+export function wlaczPrzypomnienie(port: PortPowiadomien, pora: { godzina: number; minuta: number }, tekst: TekstPrzypomnienia):
+  Promise<Wynik<UstawieniaPrzypomnienia, 'brak_zgody' | 'planowanie_nieudane'>>; // L8-05: błąd API → planowanie_nieudane, nie wyjątek
+export function odtworzPrzypomnienie(port: PortPowiadomien, ust: UstawieniaPrzypomnienia, tekst: TekstPrzypomnienia):
+  Promise<'zaplanowane' | 'wylaczone' | 'brak_zgody'>;                                  // nigdy nie odrzuca, nigdy nie prosi o zgodę
+
 // Eksport (ADR 0008)
 export function walidujEksport(tekst: string, obslugiwana: number): Wynik<KopertaV1, 'bledny_plik' | 'nowsza_wersja'>;
 export function migrujFormat(k: KopertaDowolna): KopertaV1;

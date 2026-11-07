@@ -51,3 +51,6 @@ Ustalenia wiążące:
 
 ## Uzupełnienie E3 (2026-11-04, bez zmiany decyzji)
 Wtyczka `expo-notifications` 58.1.8 przy wartości domyślnej dodaje uprawnienie push `aps-environment` (`plugin/build/withNotificationsIOS.js:53-56`); docs.expo.dev: „If set to false, the plugin does not add the APNs entitlement, which is useful for apps that use only local notifications”. Ustalenie wiążące 5: wtyczka z `enableRemoteNotifications: false`, bez `enableBackgroundRemoteNotifications`, bez wywołań `get*PushTokenAsync` (kontrole K-07, K-09 w `docs/architektura/kontrole-07.md`; szczegóły `docs/architektura/tlo-i-bledy.md` sekcja 3).
+
+### Uzupełnienie (L8-05, fix 05 2026-11-07, D-218)
+Błąd API powiadomień przy włączaniu przełącznikiem daje wartość `{ ok: false, powod: 'planowanie_nieudane' }` (przełącznik zostaje wyłączony, komunikat), nie wyjątek; przy odtwarzaniu (start, import, zmiana języka) błąd kończy się anulowaniem i wynikiem `wylaczone` bez komunikatu. Nazwane odstępstwo od Treningu (`lib/planReminder.ts:44` tylko połyka błąd): tam nie ma przełącznika pokazującego stan włączenia.

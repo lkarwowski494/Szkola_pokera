@@ -57,7 +57,8 @@ Błędy domeny i portów są wartościami `{ ok: false, powod }` (moduly.md, `Wy
 | Oczekiwany, z udziałem użytkownika | `bledny_plik`, `nowsza_wersja` | walidacja eksportu (ADR 0008) | import nie zaczyna się; dane bez zmian | **brak w macierzy** — do zaprojektowania (ekran Dane) |
 | jw. | `limit_wyczerpany` | `mozeStartowac` (ADR 0007) | ekran limitu i zakupu | jest (macierz: Limit) |
 | jw. | `akcja_niedostepna` | maszyna scenariusza (D-109) | przycisk niedostępny, nic się nie zapisuje | interfejs nie pozwala wybrać (D-109) |
-| jw. | `powiadomienia_odmowa` | `getPermissionsAsync` | przełącznik wyłączony, reszta bez zmian (T-08) | **brak** — stan przełącznika (sekcja 3) |
+| jw. | `brak_zgody` (dawniej tu `powiadomienia_odmowa`; nazwa z kodu i testu K-13, L8-05) | `getPermissionsAsync` / `requestPermissionsAsync` | przełącznik wyłączony, reszta bez zmian (T-08) | **brak** — stan przełącznika (sekcja 3) |
+| Oczekiwany, systemowy | `planowanie_nieudane` (L8-05, D-218) | `scheduleNotificationAsync` / `cancelAllScheduledNotificationsAsync` rzuca przy włączaniu | przełącznik wyłączony, komunikat „Nie udało się …” (wzór tekstu jest); przy odtwarzaniu bez komunikatu (wynik `wylaczone`) | **brak** |
 | Oczekiwany, systemowy | `sklep_niedostepny` | `expo-iap`: błąd pobrania produktów | ceny niedostępne + „Spróbuj ponownie”; dostęp z pamięci (ADR 0006) | jest (macierz: Limit i zakup) |
 | jw. | `zakup_anulowany`, `zakup_oczekuje`, `zakup_blad` | maszyna `zakup` (moduly.md) | anulowanie bez komunikatu; oczekiwanie: informacja; błąd: komunikat i powrót do `bezczynny` | częściowo (przywracanie bez zakupu jest; oczekuje i błąd zakupu: **brak**) |
 | jw. | `przerwano_w_tle` | ADR 0013 | dane bez zmian; po powrocie komunikat „Import nie został dokończony” i ponowienie | **brak** |

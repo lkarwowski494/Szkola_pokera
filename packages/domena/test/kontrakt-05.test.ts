@@ -14,6 +14,8 @@ const WIERSZE: [id: string, plik: string, fraza: string][] = [
   ['L8-03', 'architektura/moduly.md', 'dlugaOperacja'],
   ['L8-04', 'architektura/moduly.md', 'bezKonca: readonly string[]'],
   ['L8-04', 'adr/0006-platnosci-expo-iap.md', 'PRODUKTY_BEZ_KONCA'],
+  ['L8-05', 'architektura/moduly.md', "'brak_zgody' | 'planowanie_nieudane'"],
+  ['L8-05', 'architektura/tlo-i-bledy.md', '`planowanie_nieudane`'],
   ['L8-03', 'adr/0013-ochrona-dlugich-operacji-przed-zawieszeniem.md', 'dlugaOperacja'],
 ];
 
