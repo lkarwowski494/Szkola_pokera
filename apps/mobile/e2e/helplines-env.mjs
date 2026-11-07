@@ -1,7 +1,7 @@
 // Zmienne dla flowów z treści (jedno źródło: content/), żeby flow nie powielał tekstów wpisanych w YAML (JAK-E0-01: flow
 // słowniczka szukał „bańka” po zmianie terminu na `bubble`). 04-pomoc.yaml: content/helplines.yaml przez moduł wygenerowany;
 // 03-slowniczek.yaml: content/terms.yaml. Wypisuje argumenty `-e KLUCZ=wartość` dla `maestro test`, po jednym w linii.
-import { readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { parse } from 'yaml';
 
 const src = readFileSync(new URL('../src/data/content/helplines.generated.ts', import.meta.url), 'utf8');
@@ -16,6 +16,9 @@ const env = {
   HELP_ABROAD: h.abroadText,
   HELP_CHECKED: h.checkedText,
   ...slowniczek(),
+  // flowy oczekujące (oczekujace/, D-189): pierwsza lekcja M0 = punkt startu po „Pomiń” (BR-ONB-001-b)
+  LEKCJA_START_TYTUL: tytulPierwszejLekcji('pl'),
+  LEKCJA_START_TYTUL_EN: tytulPierwszejLekcji('en'),
 };
 
 // Słowniczek: pierwszy termin, którego nazwa polska różni się od angielskiej — wyszukiwanie po angielsku ma pokazać nazwę polską.
@@ -25,5 +28,18 @@ function slowniczek() {
   if (!t) throw new Error('content/terms.yaml: brak terminu z różną nazwą polską i angielską');
   const regex = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   return { GLOSS_QUERY: t.en, GLOSS_PL: `${regex(t.pl)}.*` };
+}
+// Tytuł lekcji m0 z order: 1 z front matter content/<język>/lessons/*.md jako wzorzec Maestro (pełne dopasowanie, więc `.*`).
+// Brak katalogu języka (przekład roli 09 jeszcze nie istnieje) → wartownik, którego żaden ekran nie pokaże: flow pada
+// na asercji, zamiast dopasować pusty tekst.
+function tytulPierwszejLekcji(jezyk) {
+  const kat = new URL(`../../../content/${jezyk}/lessons/`, import.meta.url);
+  if (!existsSync(kat)) return `BRAK content/${jezyk} (rola 09)`;
+  for (const plik of readdirSync(kat).filter((f) => f.endsWith('.md'))) {
+    const tekst = readFileSync(new URL(plik, kat), 'utf8');
+    const fm = tekst.startsWith('---') ? parse(tekst.slice(3, tekst.indexOf('\n---', 3))) : null;
+    if (fm?.module === 'm0' && fm.order === 1) return `.*${fm.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}.*`;
+  }
+  throw new Error(`content/${jezyk}/lessons: brak lekcji m0 z order: 1`);
 }
 for (const [k, v] of Object.entries(env)) console.log(`-e\n${k}=${v}`);

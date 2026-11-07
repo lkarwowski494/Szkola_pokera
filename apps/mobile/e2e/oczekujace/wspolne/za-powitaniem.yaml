@@ -1,0 +1,13 @@
+# Podprzepływ: pierwsze uruchomienie → powitanie → „Pomiń” w ocenie poziomu → „Dziś” (BR-ONB-001-b).
+# Warunkowy: bez powitania na ekranie nic nie robi, więc działa też w flowach bez clearState.
+appId: pl.lkarwowski.szkolapokera
+---
+- runFlow:
+    when:
+      visible: '.*bez gry na pieniądze.*'
+    commands:
+      - tapOn: 'Dalej'
+      - tapOn: 'Pomiń'
+- extendedWaitUntil:
+    visible: '${LEKCJA_START_TYTUL}'
+    timeout: 30000

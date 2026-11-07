@@ -1,0 +1,28 @@
+# PR-03, R-07: odpowiedzi zapisane przy przerwaniu; po ponownym uruchomieniu sesja wraca do 4. zadania (BR-CWI-004).
+appId: pl.lkarwowski.szkolapokera
+name: Przerwanie sesji
+---
+- launchApp:
+    clearState: true
+- runFlow: wspolne/za-powitaniem.yaml
+- tapOn:
+    id: 'dzis-cwiczenia'
+- tapOn: 'Zacznij.*'
+- repeat:
+    times: 3
+    commands:
+      - tapOn:
+          id: 'option-0'
+      - tapOn: 'Dalej'
+- assertVisible: '4 z \d+'
+- stopApp
+- launchApp:
+    clearState: false
+- tapOn:
+    id: 'dzis-cwiczenia'
+# wznowienie bez nowego startu i bez ekranu zakupu, mimo że limit dnia zużyła ta sesja (BR-LIM-002-b)
+- extendedWaitUntil:
+    visible: '4 z \d+'
+    timeout: 30000
+- assertNotVisible: 'Wróć do lekcji'
+- takeScreenshot: 06-wznowienie

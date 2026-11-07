@@ -206,12 +206,12 @@ Gdyby repo stało się prywatne (GitHub Free, stawki z wzorców roli z 18.10.202
 | `02-powtorki` | PR-04 | istnieje; jw. |
 | `03-slowniczek` | PR-02 (terminy) | czerwony: `bańka` → `bubble` (JAK-E0-01), naprawa w E3 |
 | `04-pomoc` | PR-08, R-33 | istnieje (D-160) |
-| `05-ocena-poziomu` | PR-01, R-36 (ocena pominięta i przerwana; brak ekranu zakupu na końcu) | nowy, E3 |
-| `06-przerwanie-sesji` | PR-03, R-07 (`stopApp` po 3. odpowiedzi, `launchApp` bez `clearState` → 4. zadanie) | nowy |
-| `07-scenariusz` | PR-05, R-45 (tylko akcje z oceną; bez stosu i wygranej na ekranie) | nowy |
-| `08-drugi-jezyk` | R-52, R-57 (start w `en`, lekcja i zadanie z treścią `en`) | nowy |
-| `09-limit-dnia` | PR-03, R-40, R-42 (druga aktywność → ekran zakupu przed startem; lekcja bez licznika) | nowy; zakup tylko do ekranu (bez StoreKit) |
-Flowy powstają wobec ekranów roli 08 (E3 pisze je, ale pierwsze przejście nastąpi po implementacji; do tego czasu nowe flowy nie wchodzą do bramki).
+| `05-ocena-poziomu` | PR-01, R-36 (ocena pominięta i przerwana; brak ekranu zakupu na końcu) | napisany: `oczekujace/05-ocena-poziomu.yaml` (D-189) |
+| `06-przerwanie-sesji` | PR-03, R-07 (`stopApp` po 3. odpowiedzi, `launchApp` bez `clearState` → 4. zadanie) | napisany: `oczekujace/` |
+| `07-scenariusz` | PR-05, R-45 (tylko akcje z oceną; bez stosu i wygranej na ekranie) | napisany: `oczekujace/`; treść scenariuszy — rola 06 |
+| `08-drugi-jezyk` | R-52, R-57 (zmiana języka w aplikacji na `en`, lekcja z treścią `en`) | napisany: `oczekujace/`; bez `content/en` wartownik zamiast tytułu (rola 09) |
+| `09-limit-dnia` | PR-03, R-40, R-42 (druga aktywność → ekran zakupu przed startem; lekcja bez licznika) | napisany: `oczekujace/`; zakup tylko do ekranu (bez StoreKit) |
+Flowy powstają wobec ekranów roli 08 (E3 pisze je, ale pierwsze przejście nastąpi po implementacji; do tego czasu nowe flowy nie wchodzą do bramki): leżą w `apps/mobile/e2e/oczekujace/` poza `flows: '*.yaml'`, podprzepływ `wspolne/za-powitaniem.yaml` (warunkowy) dla flowów po wdrożeniu BR-ONB; kontrola bez Maestro `tests/narzedzia/e2e-flowy.test.mjs` w `pnpm test:skrypty` (YAML, krok = jeden klucz, zmienne z `helplines-env.mjs` niepuste, `runFlow` istnieje, `config.yaml` bez `oczekujace/`; 6/6 mutacji). Nie uruchomiono: Maestro (brak macOS w kontenerze) — pierwszy przebieg po implementacji na runnerze `macos-26` (D-181).
 
 ## 6. Definicja ukończenia funkcji (jedyne źródło w projekcie; wykonuje rola 08)
 Każda zmiana: `pnpm run ci` kod 0 lokalnie i w CI na tym samym SHA; test przed kodem — czerwony z właściwego powodu, zapisany fragment wyniku w opisie commita; żaden test nie usunięty, pominięty ani osłabiony (zasada wspólna 11). Dodatkowo według rodzaju:
@@ -343,4 +343,5 @@ Część 8 (2026-11-07, D-188): ekrany RNTL, część 2 (35 testów; zaślepki `
 
 Siła części 8: wzorcowa 35/35; 19 mutacji, 18 wykrytych, 1 równoważna (treść Alertu importu bez słowa „zastąpiony” przy tytule „Zastąpić postęp?”); mutacje wykryły słabość testu (język „pl” zawarty w `example.org`) — poprawione na `pt-BR`. Poza tą częścią: brak licznika w trakcie aktywności i dokończenie po północy (BR-LIM-002) → maszyny i E2E 05; BR-LIM-003-a (lekcja, pierwszy test, ocena poziomu przy wyczerpanym limicie) → `mozeStartowac` w `limit.test.ts` i E2E; BR-OPIN-003-b (powrót w to samo miejsce) → E2E (ekran nie ma akcji zmieniających ocenę); BR-JEZ (zmiana języka w ustawieniach) → testy `src/i18n` i E2E.
 Luki dla roli 05, 04 i 10 z części 8 (D-188): kształt portu ekranu danych (`wybierzIZwaliduj` łączy dwa stany maszyny `import`; ostrzeżenie po walidacji, nie przed wyborem pliku); po `blad_zapisu` i `gotowe` brak komunikatu w kontrakcie (04: teksty, 06: brzmienie); App Store ID i adres kontaktowy [DO USTALENIA] (10); ekran startu przy wyczerpanym limicie: „Zacznij” ukryte czy prowadzące do stanu zakupu (test przyjmuje oba, 04).
-Pozostałe kryteria (flowy E2E 05–09, workflowy `ci.yml`/`e2e.yml`/`nocny.yml`, hook pre-push) — kolejne części E3.
+Część 9 (2026-11-07, D-189): flowy E2E 05–09 napisane jako oczekujące (§5.3); BR-ONB-001-c, BR-LIM-002-b, BR-LIM-003-a, BR-JEZ-001 i R-45 mają w nich swoje kroki; nieuruchomione (Maestro tylko na macOS).
+Pozostałe (workflowy `ci.yml`/`e2e.yml`/`nocny.yml`, hook pre-push) — kolejne części E3.

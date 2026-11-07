@@ -1,0 +1,27 @@
+# PR-03, R-40, R-42: pierwsza aktywność dnia zużywa limit (D-107); druga (inny rodzaj, wspólny limit) → przed startem
+# stan zakupu z godziną odnowienia i „Wróć do lekcji”; lekcja działa bez licznika (BR-LIM-001-b, -c, BR-LIM-003-a).
+# Zakup tylko do ekranu: bez StoreKit (sandbox — lista „tylko telefon” T-05).
+appId: pl.lkarwowski.szkolapokera
+name: Limit dnia
+---
+- launchApp:
+    clearState: true
+- runFlow: wspolne/za-powitaniem.yaml
+- tapOn:
+    id: 'dzis-cwiczenia'
+- assertVisible: '.*1.*darmow.*'
+- tapOn: 'Zacznij.*'
+- tapOn:
+    id: 'option-0'
+- tapOn: 'Zakończ'
+- tapOn:
+    id: 'dzis-powtorki'
+- assertVisible: '.*0.*darmow.*'
+- assertVisible: '.*odnowi.*'
+- takeScreenshot: 09-limit-wyczerpany
+- tapOn: 'Wróć do lekcji'
+- tapOn:
+    id: 'lesson-m0.l1'
+- assertVisible: '${LEKCJA_START_TYTUL}'
+- assertNotVisible: '.*darmow.*'
+- takeScreenshot: 09-lekcja-bez-licznika

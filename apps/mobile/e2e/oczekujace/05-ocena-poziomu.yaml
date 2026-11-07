@@ -1,0 +1,31 @@
+# PR-01, R-36, R-35: powitanie, ocena pominięta (start z pierwszej lekcji M0, bez ekranu zakupu) i ocena przerwana
+# (po ponownym uruchomieniu ocena od początku albo „Pomiń”, postęp pusty). BR-ONB-001-a–c, BR-ONB-004.
+appId: pl.lkarwowski.szkolapokera
+name: Ocena poziomu
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: '.*bez gry na pieniądze.*'
+    timeout: 30000
+- takeScreenshot: 05-powitanie
+- assertNotVisible: '.*(wygr|online|kasyn).*'
+- tapOn: 'Dalej'
+- assertVisible: 'Pomiń'
+- tapOn:
+    id: 'option-0'
+- assertVisible: 'Pomiń'
+# przerwanie po pierwszej odpowiedzi
+- stopApp
+- launchApp:
+    clearState: false
+- extendedWaitUntil:
+    visible: 'Pomiń'
+    timeout: 30000
+- takeScreenshot: 05-po-przerwaniu
+- tapOn: 'Pomiń'
+- extendedWaitUntil:
+    visible: '${LEKCJA_START_TYTUL}'
+    timeout: 30000
+- assertNotVisible: '.*(\$|€|zł|Przywróć zakupy).*'
+- takeScreenshot: 05-dzis-po-pominieciu

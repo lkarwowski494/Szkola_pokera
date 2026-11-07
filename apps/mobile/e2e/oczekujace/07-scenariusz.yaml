@@ -1,0 +1,22 @@
+# PR-05, R-45: scenariusz pokazuje tylko akcje z oceną w treści (D-109); bez żetonów, puli i wygranej na ekranie
+# (design-spec.md „Znaczenie kolorów”: bez hazardu). Treść scenariuszy: rola 06 (dopóki jej nie ma, flow nie przejdzie).
+appId: pl.lkarwowski.szkolapokera
+name: Scenariusz
+---
+- launchApp:
+    clearState: true
+- runFlow: wspolne/za-powitaniem.yaml
+- tapOn:
+    id: 'dzis-scenariusz'
+- tapOn: 'Zacznij.*'
+- extendedWaitUntil:
+    visible:
+      id: 'akcja-0'
+    timeout: 30000
+- assertNotVisible: '.*(wygran|żeton|\$|€).*'
+- takeScreenshot: 07-przed-decyzja
+- tapOn:
+    id: 'akcja-0'
+- assertVisible: 'Dalej'
+- assertVisible: 'Zgłoś błąd.*'
+- takeScreenshot: 07-ocena
