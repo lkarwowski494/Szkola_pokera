@@ -97,7 +97,7 @@ Identyfikatory treści (`zadanie_id`, `rodzina_id`, `lekcja_id`, `modul_id`, sce
 | PR-05 scenariusz (F-12) | decyzje i podsumowanie | `aktywnosc` (`scenariusz`), `odpowiedz` (krok = decyzja) |
 | PR-06 zakup (F-13) | ostatni udany odczyt uprawnień | `uprawnienie_cache` |
 | F-18 limit | starty aktywności dnia | `aktywnosc` (`z_limitu`, `dzien_lokalny`, `strefa`) |
-| F-11, F-16, F-17, F-14 | przypomnienie, język, licznik próśb o ocenę, data ostatniego eksportu | `ustawienie` (klucze: `przypomnienie`, `jezyk`, `opinie`, `ostatni_eksport`) |
+| F-11, F-16, F-17, F-14 | przypomnienie, język, czas ostatniej prośby o ocenę (L7-13a), data ostatniego eksportu | `ustawienie` (klucze: `przypomnienie`, `jezyk`, `opinie`, `ostatni_eksport`) |
 | polityka błędów (ADR 0009) | dziennik lokalny | `dziennik` |
 
 ## Polityka migracji

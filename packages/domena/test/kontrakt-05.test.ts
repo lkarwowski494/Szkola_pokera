@@ -20,6 +20,8 @@ const WIERSZE: [id: string, plik: string, fraza: string][] = [
   ['D-214', 'architektura/moduly.md', '| `brak_zakupow` | komunikat zamknięty | `bezczynny`'],
   ['D-210', 'architektura/moduly.md', 'Rezygnacja (`anuluj`, D-210)'],
   ['D-210', 'architektura/moduly.md', 'wejscieDoAktywnosci(rodzaj, trescId'],
+  ['L7-13a', 'architektura/moduly.md', 'export function stanKursu('],
+  ['L7-13a', 'architektura/moduly.md', '"ostatniaProsbaMs"'],
   ['L8-03', 'adr/0013-ochrona-dlugich-operacji-przed-zawieszeniem.md', 'dlugaOperacja'],
 ];
 

@@ -74,6 +74,23 @@ export function odtworzPrzypomnienie(port: PortPowiadomien, ust: UstawieniaPrzyp
 export function walidujEksport(tekst: string, obslugiwana: number): Wynik<KopertaV1, 'bledny_plik' | 'nowsza_wersja'>;
 export function migrujFormat(k: KopertaDowolna): KopertaV1;
 ```
+### Kurs (L7-13a, fix 05 2026-11-07; propozycja 07 w `packages/domena/src/kurs.ts` przyjęta z uzupełnieniami)
+```ts
+// Stan zapisany → widok: zaliczenia są pochodną faktów, bez nowych kolumn (schemat v1 bez zmian)
+export interface FaktyKursu {
+  ukonczoneLekcje: readonly string[];                                   // postep_lekcji.ukonczono_ms IS NOT NULL
+  punktStartu: { modulId: string; ustawionoMs: number } | null;         // ustawienie `punkt_startu` (+ zmieniono_ms); null = „Pomiń” → pierwszy moduł
+  testy: readonly { modulId: string; zaliczony: boolean; koniecMs: number }[]; // wynik_testu + aktywnosc.koniec_ms
+}
+export function stanKursu(moduly: readonly ModulKursu[], f: FaktyKursu): PostepKursu;
+// zaliczoneTestem = moduły z co najmniej jednym zaliczonym testem;
+// zaliczoneOcena = moduły przed punktem startu BEZ niezaliczonego testu z koniecMs > punktStartu.ustawionoMs (D-216, BR-ONB-003 A);
+// ponowna ocena (nowe ustawionoMs) przywraca zaliczenie oceną modułów przed nowym punktem.
+```
+- `nastepnaLekcja`, `planLekcji`, `wynikTestuModulu`, `czyProsicOOcene` — sygnatury z `kurs.ts` bez zmian; `wynikTestuModulu` przy liczbie odpowiedzi ≠ `TEST_MODULU_LICZBA_ZADAN` rzuca (stan niemożliwy: maszyna kończy test po tylu krokach).
+- `poTescieModulu`, `poPonownejOcenie`, `poKrokuLekcji` — rzuty na `PostepKursu` (podgląd w interfejsie) zgodne ze `stanKursu`: niezaliczony test zdejmuje moduł z `zaliczoneOcena` (D-216). Źródłem prawdy jest zapis: lekcja ukończona wtedy, gdy aktywność `lekcja` przechodzi do `zakonczona` (repozytorium `aktywnosci` ustawia `postep_lekcji.ukonczono_ms` w tej samej transakcji); `poKrokuLekcji` nie jest drugą ścieżką zapisu.
+- Prośba o ocenę: `ustawienie.opinie` = `{ "ostatniaProsbaMs": number | null }` (czas, nie licznik); `skonczonePrace` = liczba aktywności `lekcja` i `sesja` w stanie `zakonczona`. Adapter `expo-store-review`: gdy `requestReview` rzuci, czasu nie zapisuje (wzór Treningu `lib/review-run.ts:41`, odczyt 2026-11-07).
+
 Typy treści i oceny zagrania pochodzą z `poker-core` i `content-schema`; harmonogram z `srs` (`review`, `dueCards`).
 
 ## Maszyny stanów (ADR 0010)

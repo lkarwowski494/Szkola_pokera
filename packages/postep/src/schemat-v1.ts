@@ -9,7 +9,7 @@ export const SCHEMAT_V1: string = [
   "-- identyfikatory treści (lekcja, zadanie, rodzina, moduł, scenariusz) jako TEXT bez klucza obcego (inny plik, ADR 0005);",
   "-- listy stanów w CHECK pochodzą z tej samej definicji co typy w domenie (test „stany ⊆ CHECK”, ADR 0010).",
   "",
-  "-- Ustawienia i drobne stany (język, przypomnienie, punkt startu z oceny poziomu, data ostatniego eksportu, licznik próśb o ocenę).",
+  "-- Ustawienia i drobne stany (język, przypomnienie, punkt startu z oceny poziomu, data ostatniego eksportu, czas ostatniej prośby o ocenę).",
   "-- Lista kluczy i kształt wartości waliduje domena; brak CHECK na kluczach, żeby nowy klucz nie wymagał przebudowy tabeli.",
   "CREATE TABLE ustawienie (",
   "  klucz TEXT PRIMARY KEY NOT NULL CHECK (length(klucz) > 0),",
