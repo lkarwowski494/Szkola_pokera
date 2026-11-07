@@ -1,4 +1,6 @@
 // Testy akceptacyjne maszyn stanów (ADR 0010 „Potwierdzenie”: każde przejście z tabeli dozwolone, każde spoza tabeli → błąd;
+// Poza zakresem tego pliku: trwałość kroku po zabiciu aplikacji (ADR 0010 „Test przerwania”, BR-CWI-004, R-07) — test portu
+// `zapiszKrok` w części z repozytoriami; „niedokończone zadanie wraca” w następnej sesji — plan sesji (rola 08 z 05).
 // ADR 0007 pkt 3 i „Potwierdzenie”: wznowienie po północy bez sprawdzania limitu; D-109: tylko akcje z oceną).
 // Wyrocznia: tabele przejść w docs/architektura/moduly.md „Maszyny stanów” przepisane niżej jako dane, parametry z konfiguracji
 // (OCENA_POZIOMU_MAKS_PYTAN, LIMIT_AKTYWNOSCI_DZIENNIE), nie kod aplikacji. Pary (stan, zdarzenie), o których tabela milczy,
@@ -42,16 +44,18 @@ function zamroz<T>(o: T): T {
 function wToku(nadpisz: Partial<AktywnoscWToku> = {}): AktywnoscWToku {
   return zamroz({
     stan: 'w_toku', rodzaj: 'sesja', zLimitu: true, dzienLokalny: '2026-11-07', strefa: 'Europe/Warsaw',
-    startMs: T0, plan: { liczbaKrokow: 5 }, krok: 2, ...nadpisz,
+    startMs: T0, plan: { liczbaKrokow: 5, trescId: null }, krok: 2, ...nadpisz,
   });
 }
+const PLAN_ZWYKLY: PlanAktywnosci = { liczbaKrokow: 3, trescId: null };
+const planDla = (rodzaj: RodzajAktywnosci): PlanAktywnosci => (rodzaj === 'scenariusz' ? scenariusz().plan : rodzaj === 'test_modulu' ? { liczbaKrokow: 3, trescId: 'M3' } : PLAN_ZWYKLY);
 function scenariusz(krok = 0): AktywnoscWToku {
-  return wToku({ rodzaj: 'scenariusz', krok, plan: { liczbaKrokow: 3, akcjeZOcena: [['fold', 'call'], ['check', 'bet_33'], ['fold', 'call', 'raise_3x']] } });
+  return wToku({ rodzaj: 'scenariusz', krok, plan: { liczbaKrokow: 3, trescId: 'scn-a', akcjeZOcena: [['fold', 'call'], ['check', 'bet_33'], ['fold', 'call', 'raise_3x']] } });
 }
 
 describe('AK-ADR0010-akt: aktywnosc — start i przejścia z tabeli', () => {
   it('AK-ADR0010-akt-a start dozwolony: w_toku, krok 0, zLimitu z mozeStartowac, dzień i strefa ze startu', () => {
-    const plan: PlanAktywnosci = { liczbaKrokow: 5 };
+    const plan: PlanAktywnosci = { liczbaKrokow: 5, trescId: null };
     const wej = { pierwszePodejscieTestu: false, limit: JEDNA, plan, teraz: T0, dzienLokalny: '2026-11-07', strefa: 'Europe/Warsaw' };
     expect(startAktywnosci({ ...wej, rodzaj: 'sesja' })).toEqual({
       ok: true,
@@ -61,15 +65,21 @@ describe('AK-ADR0010-akt: aktywnosc — start i przejścia z tabeli', () => {
   });
 
   it.each(Z_LIMITU)('AK-BR-LIM-001-start limit wyczerpany: %s → bez startu (stan przepływu „ekran zakupu”)', (rodzaj) => {
-    const r = startAktywnosci({ rodzaj, pierwszePodejscieTestu: false, limit: WYCZERPANY, plan: scenariusz().plan, teraz: T0, dzienLokalny: '2026-11-07', strefa: 'Europe/Warsaw' });
-    expect(r).toEqual({ ok: false, powod: 'limit_wyczerpany' }); // plan poprawny dla każdego rodzaju (z akcjami dla scenariusza)
+    const r = startAktywnosci({ rodzaj, pierwszePodejscieTestu: false, limit: WYCZERPANY, plan: planDla(rodzaj), teraz: T0, dzienLokalny: '2026-11-07', strefa: 'Europe/Warsaw' });
+    expect(r).toEqual({ ok: false, powod: 'limit_wyczerpany' });
+  });
+
+  it('AK-BR-LIM-003-start pierwsze podejście do testu modułu i Pro: start przy wyczerpanym limicie, zLimitu = false (ADR 0007, schemat.sql)', () => {
+    const wej = { plan: planDla('test_modulu'), teraz: T0, dzienLokalny: '2026-11-07', strefa: 'Europe/Warsaw' };
+    expect(startAktywnosci({ ...wej, rodzaj: 'test_modulu', pierwszePodejscieTestu: true, limit: WYCZERPANY })).toMatchObject({ ok: true, wartosc: { zLimitu: false } });
+    expect(startAktywnosci({ ...wej, rodzaj: 'sesja', plan: PLAN_ZWYKLY, pierwszePodejscieTestu: false, limit: { bezLimitu: true } })).toMatchObject({ ok: true, wartosc: { zLimitu: false } });
   });
 
   it('AK-ADR0010-akt-plan plan bez kroków albo scenariusz bez akcji z oceną dla każdego kroku → plan_niepoprawny', () => {
     const wej = { pierwszePodejscieTestu: false, limit: JEDNA, teraz: T0, dzienLokalny: '2026-11-07', strefa: 'Europe/Warsaw' };
-    expect(startAktywnosci({ ...wej, rodzaj: 'sesja', plan: { liczbaKrokow: 0 } })).toEqual({ ok: false, powod: 'plan_niepoprawny' });
-    expect(startAktywnosci({ ...wej, rodzaj: 'scenariusz', plan: { liczbaKrokow: 2 } })).toEqual({ ok: false, powod: 'plan_niepoprawny' });
-    expect(startAktywnosci({ ...wej, rodzaj: 'scenariusz', plan: { liczbaKrokow: 2, akcjeZOcena: [['fold']] } })).toEqual({ ok: false, powod: 'plan_niepoprawny' });
+    expect(startAktywnosci({ ...wej, rodzaj: 'sesja', plan: { liczbaKrokow: 0, trescId: null } })).toEqual({ ok: false, powod: 'plan_niepoprawny' });
+    expect(startAktywnosci({ ...wej, rodzaj: 'scenariusz', plan: { liczbaKrokow: 2, trescId: 'scn-a' } })).toEqual({ ok: false, powod: 'plan_niepoprawny' });
+    expect(startAktywnosci({ ...wej, rodzaj: 'scenariusz', plan: { liczbaKrokow: 2, trescId: 'scn-a', akcjeZOcena: [['fold']] } })).toEqual({ ok: false, powod: 'plan_niepoprawny' });
   });
 
   it('AK-ADR0010-akt-b odpowiedz(krok = bieżący), nie ostatni → w_toku, krok + 1, reszta bez zmian; argument niezmieniony', () => {
@@ -112,7 +122,7 @@ describe('AK-ADR0010-akt: aktywnosc — start i przejścia z tabeli', () => {
       fc.record({ typ: fc.constant('porzuc' as const), teraz: fc.integer({ min: T0, max: T0 + 1e6 }) }),
     );
     fc.assert(fc.property(fc.integer({ min: 1, max: 6 }), fc.array(zdarzenie, { maxLength: 15 }), (n, ciag) => {
-      let a: Aktywnosc = wToku({ krok: 0, plan: { liczbaKrokow: n } });
+      let a: Aktywnosc = wToku({ krok: 0, plan: { liczbaKrokow: n, trescId: null } });
       for (const z of ciag) {
         const r = przejscieAktywnosci(zamroz(a), z);
         if (a.stan !== 'w_toku') { expect(r).toEqual({ ok: false, powod: 'przejscie_niedozwolone' }); continue; }
@@ -121,34 +131,45 @@ describe('AK-ADR0010-akt: aktywnosc — start i przejścia z tabeli', () => {
         if (r.wartosc.stan === 'w_toku') expect(r.wartosc.krok).toBeLessThan(n);
         a = r.wartosc;
       }
-    }));
+    }), { includeErrorInReport: true });
   });
 });
 
 describe('AK-BR-LIM-002 i ADR 0007 pkt 3: rozpoczęta aktywność kończy się bez ekranu zakupu', () => {
   it.each(['sesja', 'scenariusz'] as const)('AK-BR-LIM-002-a %s z limitu: wszystkie kroki do zakonczona (przejścia nie zależą od limitu)', (rodzaj) => {
-    const start = startAktywnosci({ rodzaj, pierwszePodejscieTestu: false, limit: JEDNA, plan: scenariusz().plan, teraz: T0, dzienLokalny: '2026-11-07', strefa: 'Europe/Warsaw' });
+    const start = startAktywnosci({ rodzaj, pierwszePodejscieTestu: false, limit: JEDNA, plan: planDla(rodzaj), teraz: T0, dzienLokalny: '2026-11-07', strefa: 'Europe/Warsaw' });
     expect(start).toMatchObject({ ok: true, wartosc: { zLimitu: true } });
     if (!start.ok) return;
     let a: Aktywnosc = start.wartosc;
     for (let krok = 0; krok < 3; krok++) {
-      const r = przejscieAktywnosci(zamroz(a), { typ: 'odpowiedz', krok, akcja: scenariusz().plan.akcjeZOcena![krok]![0], teraz: PO_POLNOCY + krok });
+      const akcja = rodzaj === 'scenariusz' ? { akcja: scenariusz().plan.akcjeZOcena![krok]![0] } : {}; // akcja tylko w scenariuszu
+      const r = przejscieAktywnosci(zamroz(a), { typ: 'odpowiedz', krok, ...akcja, teraz: PO_POLNOCY + krok });
       expect(r.ok, `krok ${krok}`).toBe(true);
       if (r.ok) a = r.wartosc;
     }
     expect(a.stan).toBe('zakonczona');
   });
 
-  it.each(Z_LIMITU)('AK-BR-LIM-002-b wznowienie po północy: %s w toku z wczoraj, limit dziś wyczerpany → wznow, nie ekran zakupu', (rodzaj) => {
-    const a = wToku({ rodzaj, dzienLokalny: '2026-11-07' });
-    expect(wejscieDoAktywnosci(rodzaj, a, false, WYCZERPANY)).toEqual({ akcja: 'wznow', aktywnosc: a });
+  // Niezależność od daty wynika z sygnatury (bez „dziś”); test sprawdza, że wznowienie nie zależy od limitu ani od dnia startu.
+  const LIMITY: [string, Limit][] = [['wyczerpany', WYCZERPANY], ['jedna', JEDNA], ['Pro', { bezLimitu: true }]];
+  for (const rodzaj of Z_LIMITU) {
+    it.each(LIMITY)(`AK-BR-LIM-002-b ${rodzaj} w toku z poprzedniego dnia, ta sama treść, limit %s → wznow (nie nowa aktywność, nie ekran zakupu)`, (_n, limit) => {
+      const a = wToku({ rodzaj, dzienLokalny: '2026-11-06', plan: planDla(rodzaj) });
+      expect(wejscieDoAktywnosci(rodzaj, a.plan.trescId, a, false, limit)).toEqual({ akcja: 'wznow', aktywnosc: a });
+    });
+  }
+
+  it('AK-BR-LIM-002-c w toku scenariusz A, użytkownik wybiera B: jest limit → porzuć A i zacznij B; limit wyczerpany → ekran zakupu, A nietknięty', () => {
+    const a = scenariusz(1);
+    expect(wejscieDoAktywnosci('scenariusz', 'scn-b', a, false, JEDNA)).toEqual({ akcja: 'porzuc_i_start', porzuc: a, zLimitu: true });
+    expect(wejscieDoAktywnosci('scenariusz', 'scn-b', a, false, WYCZERPANY)).toEqual({ akcja: 'ekran_zakupu' });
   });
 
   it('AK-ADR0007-3 bez aktywności w toku decyzja zapada przy starcie: wyczerpany → ekran zakupu; jest limit → start z limitu; lekcja → start poza limitem', () => {
-    expect(wejscieDoAktywnosci('sesja', null, false, WYCZERPANY)).toEqual({ akcja: 'ekran_zakupu' });
-    expect(wejscieDoAktywnosci('sesja', null, false, JEDNA)).toEqual({ akcja: 'start', zLimitu: true });
-    expect(wejscieDoAktywnosci('lekcja', null, false, WYCZERPANY)).toEqual({ akcja: 'start', zLimitu: false });
-    expect(wejscieDoAktywnosci('test_modulu', null, true, WYCZERPANY)).toEqual({ akcja: 'start', zLimitu: false });
+    expect(wejscieDoAktywnosci('sesja', null, null, false, WYCZERPANY)).toEqual({ akcja: 'ekran_zakupu' });
+    expect(wejscieDoAktywnosci('sesja', null, null, false, JEDNA)).toEqual({ akcja: 'start', zLimitu: true });
+    expect(wejscieDoAktywnosci('lekcja', 'm1-l1', null, false, WYCZERPANY)).toEqual({ akcja: 'start', zLimitu: false });
+    expect(wejscieDoAktywnosci('test_modulu', 'M3', null, true, WYCZERPANY)).toEqual({ akcja: 'start', zLimitu: false });
   });
 });
 
@@ -168,13 +189,13 @@ describe('AK-D109: scenariusz przyjmuje tylko akcje z oceną', () => {
 describe('AK-BR-ONB-001: ocena poziomu (maszyna)', () => {
   it('AK-BR-ONB-001-b „Pomiń” na każdym kroku → porzucona', () => {
     for (let krok = 0; krok < K.OCENA_POZIOMU_MAKS_PYTAN; krok++) {
-      const a = wToku({ rodzaj: 'ocena_poziomu', zLimitu: false, krok, plan: { liczbaKrokow: K.OCENA_POZIOMU_MAKS_PYTAN } });
+      const a = wToku({ rodzaj: 'ocena_poziomu', zLimitu: false, krok, plan: { liczbaKrokow: K.OCENA_POZIOMU_MAKS_PYTAN, trescId: null } });
       expect(przejscieAktywnosci(a, { typ: 'porzuc', teraz: T0 }), `krok ${krok}`).toMatchObject({ ok: true, wartosc: { stan: 'porzucona' } });
     }
   });
   it('AK-BR-ONB-001-d najwyżej OCENA_POZIOMU_MAKS_PYTAN pytań (D-105): plan dłuższy odrzucony albo skrócony; nie dłuższy — dokładnie tyle odpowiedzi', () => {
     for (let n = 1; n <= K.OCENA_POZIOMU_MAKS_PYTAN + 4; n++) {
-      const r = startAktywnosci({ rodzaj: 'ocena_poziomu', pierwszePodejscieTestu: false, limit: WYCZERPANY, plan: { liczbaKrokow: n }, teraz: T0, dzienLokalny: '2026-11-07', strefa: 'Europe/Warsaw' });
+      const r = startAktywnosci({ rodzaj: 'ocena_poziomu', pierwszePodejscieTestu: false, limit: WYCZERPANY, plan: { liczbaKrokow: n, trescId: null }, teraz: T0, dzienLokalny: '2026-11-07', strefa: 'Europe/Warsaw' });
       if (n <= K.OCENA_POZIOMU_MAKS_PYTAN) expect(r.ok, `n=${n}`).toBe(true);
       if (!r.ok) { expect(r.powod).toBe('plan_niepoprawny'); continue; }
       let a: Aktywnosc = r.wartosc, odpowiedzi = 0;
@@ -213,10 +234,16 @@ const TABELA_ZAKUPU: [KluczZakupu, ZdarzenieZakupu['typ'], KluczZakupu][] = [
   ['bezczynny', 'przywroc', 'w_toku:przywroc'],
   ['w_toku:przywroc', 'transakcja_zakonczona', 'zakonczony'],
   ['w_toku:przywroc', 'brak_zakupow', 'brak_zakupow'],
+  ['w_toku:przywroc', 'anulowano', 'bezczynny'], // wiersz „w_toku | anulowanie” obejmuje też przywracanie (logowanie do konta)
 ];
-// Tabela milczy (luka dla 05): powrót z brak_zakupow; zakup innego planu po zakonczony; transakcja z nasłuchu w bezczynny
-// (np. zgoda rodzica po ponownym uruchomieniu — dostęp i tak daje `decyzja` z odczytu sklepu); anulowanie przywracania.
-const NIEROZSTRZYGNIETE_ZAKUP = new Set(['brak_zakupow/komunikat_zamkniety', 'zakonczony/kup', 'bezczynny/transakcja_z_nasluchu', 'w_toku:przywroc/anulowano']);
+// Tabela ma jeden stan `w_toku`; podział według operacji to uzupełnienie roli 07. Pary, o których tabela milczy albo które
+// zależą od tego podziału (luka dla 05): wyjście z brak_zakupow i z oczekuje (odmowa rodzica w Ask to Buy zwykle nie daje
+// zdarzenia); zakup innego planu i przywracanie po zakonczony; transakcja z nasłuchu w bezczynny (np. zgoda rodzica po
+// ponownym uruchomieniu — dostęp i tak daje `decyzja` z odczytu sklepu); brak_zakupow przy kupnie; oczekuje przy przywracaniu.
+const NIEROZSTRZYGNIETE_ZAKUP = new Set([
+  'brak_zakupow/komunikat_zamkniety', 'brak_zakupow/kup', 'brak_zakupow/przywroc', 'oczekuje/komunikat_zamkniety', 'oczekuje/przywroc',
+  'zakonczony/kup', 'zakonczony/przywroc', 'bezczynny/transakcja_z_nasluchu', 'w_toku:kup/brak_zakupow', 'w_toku:przywroc/oczekuje',
+]);
 
 describe('AK-ADR0010-zak: zakup — tabela przejść (BR-ZAK-002, R-48)', () => {
   it.each(TABELA_ZAKUPU)('AK-ADR0010-zak-a %s + %s → %s', (z, typ, na) => {
@@ -231,9 +258,8 @@ describe('AK-ADR0010-zak: zakup — tabela przejść (BR-ZAK-002, R-48)', () => 
       expect(przejscieZakupu(STAN_Z[z], ZDARZENIA_Z[typ]), para).toEqual({ ok: false, powod: 'przejscie_niedozwolone' });
     }
   });
-  it.each(['w_toku:kup', 'w_toku:przywroc', 'oczekuje'] as const)('AK-BR-ZAK-002-c drugi zakup albo przywracanie w stanie %s → przejscie_niedozwolone (R-48)', (z) => {
+  it.each(['w_toku:kup', 'w_toku:przywroc', 'oczekuje'] as const)('AK-BR-ZAK-002-c drugi zakup w stanie %s → przejscie_niedozwolone (R-48)', (z) => {
     expect(przejscieZakupu(STAN_Z[z], ZDARZENIA_Z.kup)).toEqual({ ok: false, powod: 'przejscie_niedozwolone' });
-    expect(przejscieZakupu(STAN_Z[z], ZDARZENIA_Z.przywroc)).toEqual({ ok: false, powod: 'przejscie_niedozwolone' });
   });
 });
 
@@ -241,8 +267,10 @@ describe('AK-ADR0010-zak: zakup — tabela przejść (BR-ZAK-002, R-48)', () => 
 const ZDARZENIA_I: ZdarzenieImportu[] = [
   { typ: 'plik_wybrany' },
   ...(['ok', 'bledny_plik', 'nowsza_wersja'] as const).flatMap((wynik) => [true, false].map((istniejacyPostep) => ({ typ: 'zwalidowano' as const, wynik, istniejacyPostep }))),
-  { typ: 'potwierdz' }, { typ: 'zapisano' }, { typ: 'blad_zapisu' },
+  { typ: 'potwierdz' }, { typ: 'zapisano' }, { typ: 'blad_zapisu' }, { typ: 'anuluj' },
 ];
+// Rezygnacja: tabela nie ma wiersza (R-13 „mimo rezygnacji”); dokąd prowadzi — luka dla 05. Wymagane tylko: nie do zapisu.
+const NIEROZSTRZYGNIETE_IMPORT = new Set(['wybor_pliku/anuluj', 'walidacja/anuluj', 'potwierdzenie/anuluj']);
 function oczekiwanyImport(s: StanImportu, z: ZdarzenieImportu): StanImportu | null {
   if (s === 'wybor_pliku' && z.typ === 'plik_wybrany') return 'walidacja';
   if (s === 'walidacja' && z.typ === 'zwalidowano') return z.wynik !== 'ok' ? z.wynik : z.istniejacyPostep ? 'potwierdzenie' : 'zapis';
@@ -255,11 +283,16 @@ function oczekiwanyImport(s: StanImportu, z: ZdarzenieImportu): StanImportu | nu
 describe('AK-ADR0010-imp: import — tabela przejść (BR-DANE-002)', () => {
   it('AK-ADR0010-imp-a każda para (stan, zdarzenie): z tabeli → następny stan, spoza → przejscie_niedozwolone', () => {
     for (const s of STANY_IMPORTU) for (const z of ZDARZENIA_I) {
+      if (NIEROZSTRZYGNIETE_IMPORT.has(`${s}/${z.typ}`)) {
+        const r = przejscieImportu(s, z);
+        if (r.ok) expect(r.wartosc, `${s} + anuluj`).not.toBe('zapis');
+        continue;
+      }
       const na = oczekiwanyImport(s, z);
       expect(przejscieImportu(s, z), `${s} + ${JSON.stringify(z)}`).toEqual(na ? { ok: true, wartosc: na } : { ok: false, powod: 'przejscie_niedozwolone' });
     }
   });
-  it('AK-BR-DANE-002-b przy istniejącym postępie każda droga do zapisu przechodzi przez potwierdzenie (przeszukanie wszystkich ciągów)', () => {
+  it('AK-BR-DANE-002-b przy istniejącym postępie każda droga do zapisu przechodzi przez potwierdzenie (przeszukanie wszystkich ciągów, także z rezygnacją)', () => {
     const zIstniejacym = ZDARZENIA_I.filter((z) => z.typ !== 'zwalidowano' || z.istniejacyPostep);
     const kolejka: [StanImportu, boolean][] = [['wybor_pliku', false]];
     const odwiedzone = new Set<string>();

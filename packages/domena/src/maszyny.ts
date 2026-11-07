@@ -9,6 +9,9 @@ import type { RodzajAktywnosci, Wynik } from './typy';
 // --- aktywnosc (sesja, powtórki, scenariusz, test modułu, lekcja, ocena poziomu; stan trwały: aktywnosc.stan + krok) ---
 export interface PlanAktywnosci {
   liczbaKrokow: number; // > 0; zapisany w `aktywnosc.plan`
+  // identyfikator treści (scenariusz, moduł testu, lekcja; schemat.sql: plan zawiera „moduł testu, scenariusz albo lekcja”);
+  // null dla sesji i powtórek (jedna aktywność danego rodzaju). Rozróżnia „wznów” od „porzuć i zacznij inną” (moduly.md, `porzuc`).
+  trescId: string | null;
   // tylko `scenariusz`: dla kroku i akcje z oceną w treści scenariusza (D-109); akcja spoza listy → `akcja_niedostepna`
   akcjeZOcena?: readonly (readonly string[])[];
 }
@@ -48,14 +51,19 @@ export function przejscieAktywnosci(_a: Aktywnosc, _z: ZdarzenieAktywnosci): Wyn
   return niezaimplementowane('przejscieAktywnosci (ADR 0010, BR-CWI-004, BR-LIM-002, D-109)');
 }
 
-// Wejście do przepływu (PR-03, PR-05): aktywność w toku tego rodzaju → wznowienie bez sprawdzania limitu, także po północy
-// (ADR 0007 pkt 3, BR-LIM-002); brak → start albo ekran zakupu według `mozeStartowac`.
+// Wejście do przepływu (PR-03, PR-05): aktywność w toku tego rodzaju i tej treści → wznowienie bez sprawdzania limitu
+// (ADR 0007 pkt 3, BR-LIM-002; funkcja nie dostaje dzisiejszej daty, więc północ nic nie zmienia); w toku inna treść tego
+// rodzaju → `porzuc_i_start` tylko, gdy `mozeStartowac` pozwala, inaczej ekran zakupu, a stara zostaje nietknięta;
+// brak → start albo ekran zakupu. Ocena poziomu: sprzeczność BR-ONB-001 „Przerwana ocena” (od początku albo „Pomiń”)
+// z tabelą (`wznow` zawsze) — luka dla 05/01, bez testu do rozstrzygnięcia.
 export type WejscieDoAktywnosci =
   | { akcja: 'wznow'; aktywnosc: AktywnoscWToku }
   | { akcja: 'start'; zLimitu: boolean }
+  | { akcja: 'porzuc_i_start'; porzuc: AktywnoscWToku; zLimitu: boolean }
   | { akcja: 'ekran_zakupu' };
 export function wejscieDoAktywnosci(
   _rodzaj: RodzajAktywnosci,
+  _trescId: string | null,
   _wToku: AktywnoscWToku | null,
   _pierwszePodejscieTestu: boolean,
   _limit: Limit,
@@ -71,6 +79,8 @@ export type StanZakupu =
 export type ZdarzenieZakupu =
   | { typ: 'kup'; produkt: string }
   | { typ: 'przywroc' } // tylko z przycisku (ADR 0006)
+  // Adapter mapuje zdarzenia sklepu według stanu maszyny, nie według źródła (w StoreKit 2 / expo-iap zwykły zakup też
+  // kończy się zdarzeniem z nasłuchu): w `w_toku` → transakcja_zakonczona, w `oczekuje` → transakcja_z_nasluchu.
   | { typ: 'transakcja_zakonczona' }
   | { typ: 'anulowano' }
   | { typ: 'oczekuje' } // np. zgoda rodzica
@@ -89,6 +99,7 @@ export type ZdarzenieImportu =
   | { typ: 'plik_wybrany' }
   | { typ: 'zwalidowano'; wynik: 'ok' | 'bledny_plik' | 'nowsza_wersja'; istniejacyPostep: boolean }
   | { typ: 'potwierdz' }
+  | { typ: 'anuluj' } // rezygnacja (R-13); tabela moduly.md nie ma tego wiersza — pary z `anuluj` nierozstrzygnięte (luka dla 05)
   | { typ: 'zapisano' }
   | { typ: 'blad_zapisu' };
 export function przejscieImportu(_s: StanImportu, _z: ZdarzenieImportu): Wynik<StanImportu, 'przejscie_niedozwolone'> {
