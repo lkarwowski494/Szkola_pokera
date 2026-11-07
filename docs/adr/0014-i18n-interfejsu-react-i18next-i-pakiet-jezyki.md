@@ -57,3 +57,6 @@ Ustalenia wiążące:
 ### C: tekst jako klucz (Trening)
 - Zalety: kod czytelny po polsku; brak kluczy do wymyślania.
 - Wady: zmiana polskiego brzmienia unieważnia przekłady we wszystkich językach; dwa znaczenia tego samego tekstu zlewają się w jeden klucz; skrypt kontroli oparty na kluczach znaczeniowych.
+
+### Uzupełnienie (L7-13d, fix 05 2026-11-07, D-220)
+Liczby w treści i w interfejsie formatuje tylko `@szkola/jezyki` (`formatujLiczbe`, `formatujProcent`) językiem aplikacji (w content-build: językiem budowanej bazy); `miejsca` oznacza stałą liczbę cyfr po przecinku. Domena zwraca liczby, nie napisy. Wzór Treningu: `lib/units.ts:88` (`toLocaleString(locale())`, odczyt 2026-11-07).

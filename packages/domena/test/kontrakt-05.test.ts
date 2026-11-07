@@ -24,6 +24,8 @@ const WIERSZE: [id: string, plik: string, fraza: string][] = [
   ['L7-13a', 'architektura/moduly.md', '"ostatniaProsbaMs"'],
   ['L7-13b', 'architektura/moduly.md', 'Gałęzie (L7-13b'],
   ['L7-13c', 'architektura/moduly.md', '≤ `TOLERANCJA_PROCENT_BLISKO` → `niedokladnosc`'],
+  ['L7-13d', 'architektura/moduly.md', 'Format liczb według języka (L7-13d'],
+  ['L7-13d', 'adr/0014-i18n-interfejsu-react-i18next-i-pakiet-jezyki.md', 'L7-13d'],
   ['L8-03', 'adr/0013-ochrona-dlugich-operacji-przed-zawieszeniem.md', 'dlugaOperacja'],
 ];
 

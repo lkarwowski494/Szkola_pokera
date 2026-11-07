@@ -94,7 +94,7 @@ export function stanKursu(moduly: readonly ModulKursu[], f: FaktyKursu): PostepK
 ### Wyjaśnienie zadań (L7-13c, fix 05 2026-11-07; sygnatury z `packages/domena/src/wyjasnienie.ts` przyjęte)
 - `wyjasnienieZadania(z: ZadanieZWyjasnieniem): WyjasnienieZadania` — liczby liczy `poker-core` (jedno źródło z budową treści); domena dostaje zależność `@szkola/poker-core` (L7-13f).
 - `ocenOdpowiedzLiczbowa(dokladnaProcent, odpowiedzProcent)`: |różnica| ≤ `TOLERANCJA_PROCENT_OK` → `zgodne`; ≤ `TOLERANCJA_PROCENT_BLISKO` → `niedokladnosc`; dalej → `blad` (granice włączne, ε = 1e-9). Przedział „blisko” = `niedokladnosc` według istniejącej decyzji właściciela B-017 (3.10.2026: „blisko” nie zalicza, FSRS „trudne”; `apps/mobile/src/features/drills/thresholds.ts:28–35`, `grade.ts:81–83`, `isPass`) — bez nowej decyzji.
-- `formatProcent(ulamek, jezyk, miejsca)` — L7-13d.
+- Format liczb według języka (L7-13d, D-220): jedna implementacja — `@szkola/jezyki` (`formatujLiczbe`, `formatujProcent`, ADR 0014). `formatProcent` z `wyjasnienie.ts` znika z domeny (domena zwraca liczby, interfejs formatuje przez `jezyki`); `miejsca` = stała liczba cyfr po przecinku (`minimumFractionDigits` = `maximumFractionDigits`), żeby „34,97%” / „34.97%” miały tyle cyfr co wartość w treści. `tools/content-build` formatuje `{{n:klucz}}` językiem budowanej bazy przez te same funkcje (dziś `formatNumber` w `numbers.ts:108` tylko po polsku), jednostki `bb`, `x`, `s` bez zmian poza liczbą.
 
 Typy treści i oceny zagrania pochodzą z `poker-core` i `content-schema`; harmonogram z `srs` (`review`, `dueCards`).
 
