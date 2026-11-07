@@ -414,6 +414,7 @@ Plus jedna linia w „Dokumentacja projektu”: „Architektura w repo: `docs/ar
 - D-194 (2026-11-07): `e2e.yml` → `e2e-ios.yml` (nowy plik aktywny bez kroku właściciela, jak w Treningu), push także na `claude/**`.
 - D-195 (2026-11-07): pierwszy przebieg `e2e-ios.yml` 42386642585 zielony (4/4; Słowniczek zielony w ponowieniu → czekanie 20 s w flowie).
 - Przebieg 42389797459 (bea51db): 4/4 zielone bez ponowień; JAK-E0-01 i JAK-E1-03 zamknięte.
+- Część 13 (2026-11-07, D-197; po akceptacji E3, D-196): kontrola definicji ukończenia w E4 wykazała 17 kryteriów bez testu z ID — dopisane (40 testów: kurs, test modułu, ponowna ocena, prośba o ocenę, powtórki, wznowienie, liczby w wyjaśnieniach, terminy, scenariusz; zaślepki `kurs.ts`, `scenariusz.ts`); `pnpm test:akceptacja` 367: 338 czerwonych, 29 strażników; 3 czerwone na asercji to znaleziska treści dla 06.
 - E3 zakończone (STOP 2026-11-07). Poza E3: scalenie zmian workflowów z `main` — właściciel (osobna zgoda); po scaleniu decyzja o zawężeniu push E2E do `main` i `integration/**` (D-194).
 
 ## Punkt czyszczenia (2026-11-07, STOP E3; rola 07, następny etap E4)

@@ -65,7 +65,7 @@ describe('AK-K-06: wyjście content-build (baza na język)', () => {
     }
   });
 
-  it('AK-K-06-t te same identyfikatory, liczby i struktura (zakresy, szkielet zadań) we wszystkich językach (NFR-JEZ-002)', () => {
+  it('AK-K-06-t, AK-BR-JEZ-002-a te same identyfikatory, liczby i struktura (zakresy, szkielet zadań) we wszystkich językach (NFR-JEZ-002)', () => {
     const pliki = plikiTresci().filter((n) => WZOR.test(n));
     expect(pliki.length).toBeGreaterThan(1);
     const [wzor, ...reszta] = pliki.map((n) => ({ n, ...czytaj(n) }));

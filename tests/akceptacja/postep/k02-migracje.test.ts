@@ -26,7 +26,7 @@ describe('K-02 migracje', () => {
     expect(schemat(db)).toEqual(schemat(wzor));
     expect(wersja(db)).toBe(1);
   });
-  it('K-02: kopia wzorca v1 → otworzPostep: liczności bez zmian, integrity_check = ok, foreign_key_check pusty, user_version bieżąca; drugie otwarcie bez zmian', async () => {
+  it('K-02, AK-NFR-DANE-001-a: kopia wzorca v1 → otworzPostep: liczności bez zmian, integrity_check = ok, foreign_key_check pusty, user_version bieżąca; drugie otwarcie bez zmian', async () => {
     const p = join(katalogTymczasowy(), 'postep.db');
     const oczekiwane = zbudujWzorzecV1(p);
     const WSZYSTKIE = [...Object.keys(oczekiwane)];
@@ -41,7 +41,7 @@ describe('K-02 migracje', () => {
       await port.zamknij();
     }
   });
-  it('E4e: migracja z danymi łamiącymi nowe CHECK → migracja_nieudana, wersja i dane bez zmian, brak częściowych zmian', async () => {
+  it('E4e, AK-NFR-DANE-001-b: migracja z danymi łamiącymi nowe CHECK → migracja_nieudana, wersja i dane bez zmian, brak częściowych zmian', async () => {
     const p = join(katalogTymczasowy(), 'postep.db');
     const oczekiwane = zbudujWzorzecV1(p);
     const db = otworzNode(p);
@@ -51,7 +51,7 @@ describe('K-02 migracje', () => {
     expect(wersja(db)).toBe(1);
     expect(licznosci(db)).toEqual(oczekiwane); // także brak tabeli `nowa`
   });
-  it('E4f: baza nowsza niż aplikacja → baza_nowsza, plik bajt w bajt bez zmian', async () => {
+  it('E4f, AK-NFR-DANE-001-c: baza nowsza niż aplikacja → baza_nowsza, plik bajt w bajt bez zmian', async () => {
     const p = join(katalogTymczasowy(), 'postep.db');
     zbudujWzorzecV1(p);
     const d = new DatabaseSync(p); d.exec('PRAGMA user_version = 99'); d.close();

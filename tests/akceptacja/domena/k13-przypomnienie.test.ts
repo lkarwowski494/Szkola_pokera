@@ -12,7 +12,7 @@ const PORA = { godzina: 19, minuta: 30 };
 const WLACZONE: UstawieniaPrzypomnienia = { wlaczone: true, ...PORA };
 
 describe('K-13 / ADR 0012: przypomnienie codzienne', () => {
-  it('AK-K-13-a włączenie po zgodzie → ustawienia włączone i dokładnie jedno powiadomienie `daily` o wybranej porze z tekstem w języku aplikacji', async () => {
+  it('AK-K-13-a, AK-BR-POW-003-a włączenie po zgodzie → ustawienia włączone i dokładnie jedno powiadomienie `daily` o wybranej porze z tekstem w języku aplikacji', async () => {
     const p = atrapaPowiadomien('nieustalona', 'udzielona');
     expect(await wlaczPrzypomnienie(p, PORA, PL)).toEqual({ ok: true, wartosc: WLACZONE });
     expect(p.zaplanowaneTeraz).toEqual([{ id: expect.any(String), ...PL, wyzwalacz: { type: 'daily', hour: 19, minute: 30 } }]);
@@ -50,7 +50,7 @@ describe('K-13 / ADR 0012: przypomnienie codzienne', () => {
     expect(p.zaplanowaneTeraz).toEqual([]);
   });
 
-  it('AK-K-13-f odtworzenie nigdy nie otwiera okna zgody (pkt 2: prośba tylko po akcji użytkownika); bez zgody → zero', async () => {
+  it('AK-K-13-f, AK-BR-POW-003-b odtworzenie nigdy nie otwiera okna zgody (pkt 2: prośba tylko po akcji użytkownika); bez zgody → zero', async () => {
     const p = atrapaPowiadomien('nieustalona');
     expect(await odtworzPrzypomnienie(p, WLACZONE, PL)).toBe('brak_zgody');
     expect(p.wywolania).not.toContain('popros');
