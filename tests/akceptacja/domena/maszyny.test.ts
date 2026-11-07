@@ -5,6 +5,8 @@
 // Wyrocznia: tabele przejść w docs/architektura/moduly.md „Maszyny stanów” przepisane niżej jako dane, parametry z konfiguracji
 // (OCENA_POZIOMU_MAKS_PYTAN, LIMIT_AKTYWNOSCI_DZIENNIE), nie kod aplikacji. Test wyczerpujący obejmuje każdą parę (stan, zdarzenie):
 // pary dawniej nierozstrzygnięte rozstrzygnęła rola 05 (fix 05 2026-11-07, D-210, D-214: wiersze tabel zakupu i importu).
+// Scenariusz z gałęziami (L7-13b, D-219): krok = indeks decyzji w treści; plan niesie szkielet grafu `decyzje[i] = [{ akcja, dalej }]`
+// (zastępuje `akcjeZOcena`), typ z moduly.md przez rzutowanie `as PlanAktywnosci`, dopóki `src` ma stary kształt.
 // Wersja oczekująca (07 fix, D-224): zastępuje packages/domena/test/maszyny.test.ts w commicie 08, który ją zazielenia.
 import fc from 'fast-check';
 import { describe, expect, it } from 'vitest';
@@ -50,8 +52,17 @@ function wToku(nadpisz: Partial<AktywnoscWToku> = {}): AktywnoscWToku {
 }
 const PLAN_ZWYKLY: PlanAktywnosci = { liczbaKrokow: 3, trescId: null };
 const planDla = (rodzaj: RodzajAktywnosci): PlanAktywnosci => (rodzaj === 'scenariusz' ? scenariusz().plan : rodzaj === 'test_modulu' ? { liczbaKrokow: 3, trescId: 'M3' } : PLAN_ZWYKLY);
+type Dalej = number | 'pokazanie' | 'koniec';
+type Decyzje = readonly (readonly { akcja: string; dalej: Dalej }[])[];
+const planScenariusza = (decyzje: Decyzje, liczbaKrokow = decyzje.length, trescId = 'scn-a') => ({ liczbaKrokow, trescId, decyzje }) as PlanAktywnosci;
+// Graf: 0 —call→ 1 —(check|bet_33)→ 2; 0 —raise→ 2 (skok przez decyzję 1); fold kończy (koniec), call/raise_3x w 2 → pokazanie.
+const GRAF: Decyzje = [
+  [{ akcja: 'fold', dalej: 'koniec' }, { akcja: 'call', dalej: 1 }, { akcja: 'raise', dalej: 2 }],
+  [{ akcja: 'check', dalej: 2 }, { akcja: 'bet_33', dalej: 2 }],
+  [{ akcja: 'fold', dalej: 'koniec' }, { akcja: 'call', dalej: 'pokazanie' }, { akcja: 'raise_3x', dalej: 'pokazanie' }],
+];
 function scenariusz(krok = 0): AktywnoscWToku {
-  return wToku({ rodzaj: 'scenariusz', krok, plan: { liczbaKrokow: 3, trescId: 'scn-a', akcjeZOcena: [['fold', 'call'], ['check', 'bet_33'], ['fold', 'call', 'raise_3x']] } });
+  return wToku({ rodzaj: 'scenariusz', krok, plan: planScenariusza(GRAF) });
 }
 
 describe('AK-ADR0010-akt: aktywnosc — start i przejścia z tabeli', () => {
@@ -76,11 +87,29 @@ describe('AK-ADR0010-akt: aktywnosc — start i przejścia z tabeli', () => {
     expect(startAktywnosci({ ...wej, rodzaj: 'sesja', plan: PLAN_ZWYKLY, pierwszePodejscieTestu: false, limit: { bezLimitu: true } })).toMatchObject({ ok: true, wartosc: { zLimitu: false } });
   });
 
-  it('AK-ADR0010-akt-plan plan bez kroków albo scenariusz bez akcji z oceną dla każdego kroku → plan_niepoprawny', () => {
+  it('AK-ADR0010-akt-plan plan bez kroków albo scenariusz bez szkieletu decyzji → plan_niepoprawny', () => {
     const wej = { pierwszePodejscieTestu: false, limit: JEDNA, teraz: T0, dzienLokalny: '2026-11-07', strefa: 'Europe/Warsaw' };
     expect(startAktywnosci({ ...wej, rodzaj: 'sesja', plan: { liczbaKrokow: 0, trescId: null } })).toEqual({ ok: false, powod: 'plan_niepoprawny' });
     expect(startAktywnosci({ ...wej, rodzaj: 'scenariusz', plan: { liczbaKrokow: 2, trescId: 'scn-a' } })).toEqual({ ok: false, powod: 'plan_niepoprawny' });
-    expect(startAktywnosci({ ...wej, rodzaj: 'scenariusz', plan: { liczbaKrokow: 2, trescId: 'scn-a', akcjeZOcena: [['fold']] } })).toEqual({ ok: false, powod: 'plan_niepoprawny' });
+  });
+
+  // D-219 „Start”: każde `dalej` liczbowe > własny indeks i < liczby decyzji, każda decyzja ma ≥ 1 akcję, liczbaKrokow = liczba decyzji.
+  it('AK-D219-plan-a poprawny graf ze skokiem → start dozwolony, plan zapisany bez zmian', () => {
+    const wej = { pierwszePodejscieTestu: false, limit: JEDNA, teraz: T0, dzienLokalny: '2026-11-07', strefa: 'Europe/Warsaw' };
+    const plan = planScenariusza(GRAF);
+    expect(startAktywnosci({ ...wej, rodzaj: 'scenariusz', plan })).toMatchObject({ ok: true, wartosc: { stan: 'w_toku', krok: 0, plan } });
+  });
+  it.each<[string, Decyzje, number?]>([
+    ['decyzja bez akcji', [[{ akcja: 'call', dalej: 1 }], []]],
+    ['dalej = własny indeks (cykl)', [[{ akcja: 'call', dalej: 1 }], [{ akcja: 'check', dalej: 1 }]]],
+    ['dalej wstecz', [[{ akcja: 'call', dalej: 1 }], [{ akcja: 'check', dalej: 0 }]]],
+    ['dalej = liczba decyzji (poza grafem)', [[{ akcja: 'call', dalej: 2 }], [{ akcja: 'check', dalej: 'koniec' }]]],
+    ['dalej ujemne', [[{ akcja: 'call', dalej: -1 }]]],
+    ['dalej niecałkowite', [[{ akcja: 'call', dalej: 0.5 }], [{ akcja: 'check', dalej: 'koniec' }]]],
+    ['liczbaKrokow ≠ liczba decyzji', GRAF, 4],
+  ])('AK-D219-plan-b %s → plan_niepoprawny', (_opis, decyzje, liczbaKrokow) => {
+    const wej = { pierwszePodejscieTestu: false, limit: JEDNA, teraz: T0, dzienLokalny: '2026-11-07', strefa: 'Europe/Warsaw' };
+    expect(startAktywnosci({ ...wej, rodzaj: 'scenariusz', plan: planScenariusza(decyzje, liczbaKrokow) })).toEqual({ ok: false, powod: 'plan_niepoprawny' });
   });
 
   it('AK-ADR0010-akt-b odpowiedz(krok = bieżący), nie ostatni → w_toku, krok + 1, reszta bez zmian; argument niezmieniony', () => {
@@ -142,10 +171,11 @@ describe('AK-BR-LIM-002 i ADR 0007 pkt 3: rozpoczęta aktywność kończy się b
     expect(start).toMatchObject({ ok: true, wartosc: { zLimitu: true } });
     if (!start.ok) return;
     let a: Aktywnosc = start.wartosc;
-    for (let krok = 0; krok < 3; krok++) {
-      const akcja = rodzaj === 'scenariusz' ? { akcja: scenariusz().plan.akcjeZOcena![krok]![0] } : {}; // akcja tylko w scenariuszu
-      const r = przejscieAktywnosci(zamroz(a), { typ: 'odpowiedz', krok, ...akcja, teraz: PO_POLNOCY + krok });
-      expect(r.ok, `krok ${krok}`).toBe(true);
+    const SCIEZKA = ['call', 'check', 'call']; // scenariusz: 0 → 1 → 2 → pokazanie (akcja tylko w scenariuszu)
+    for (let i = 0; i < 3 && a.stan === 'w_toku'; i++) {
+      const akcja = rodzaj === 'scenariusz' ? { akcja: SCIEZKA[i] } : {};
+      const r = przejscieAktywnosci(zamroz(a), { typ: 'odpowiedz', krok: a.krok, ...akcja, teraz: PO_POLNOCY + i });
+      expect(r.ok, `odpowiedź ${i}`).toBe(true);
       if (r.ok) a = r.wartosc;
     }
     expect(a.stan).toBe('zakonczona');
@@ -182,7 +212,7 @@ describe('AK-BR-LIM-002 i ADR 0007 pkt 3: rozpoczęta aktywność kończy się b
 });
 
 describe('AK-D109: scenariusz przyjmuje tylko akcje z oceną', () => {
-  it('AK-D109-a akcja z oceną w tym kroku → w_toku, krok + 1', () => {
+  it('AK-D109-a akcja z oceną w tym kroku → w_toku, krok = dalej tej akcji', () => {
     expect(przejscieAktywnosci(scenariusz(1), { typ: 'odpowiedz', krok: 1, akcja: 'bet_33', teraz: T0 })).toMatchObject({ ok: true, wartosc: { stan: 'w_toku', krok: 2 } });
   });
   it.each([
@@ -191,6 +221,47 @@ describe('AK-D109: scenariusz przyjmuje tylko akcje z oceną', () => {
     ['brak akcji', undefined],
   ])('AK-D109-b akcja %s → akcja_niedostepna, bez zmiany stanu', (_opis, akcja) => {
     expect(przejscieAktywnosci(scenariusz(1), { typ: 'odpowiedz', krok: 1, akcja, teraz: T0 })).toEqual({ ok: false, powod: 'akcja_niedostepna' });
+  });
+});
+
+describe('AK-D219: scenariusz z gałęziami (krok = indeks decyzji w treści)', () => {
+  it('AK-D219-a skok: raise w decyzji 0 → w_toku z krok 2 (decyzja 1 pominięta), reszta stanu bez zmian', () => {
+    const a = scenariusz(0);
+    expect(przejscieAktywnosci(a, { typ: 'odpowiedz', krok: 0, akcja: 'raise', teraz: T0 + 1 })).toEqual({ ok: true, wartosc: { ...a, krok: 2 } });
+  });
+  it('AK-D219-b po skoku odpowiedź dla pominiętej decyzji 1 → krok_niezgodny (podwójne naciśnięcie, stary ekran)', () => {
+    expect(przejscieAktywnosci(scenariusz(2), { typ: 'odpowiedz', krok: 1, akcja: 'check', teraz: T0 })).toEqual({ ok: false, powod: 'krok_niezgodny' });
+  });
+  it.each([
+    [0, 'fold', 'koniec'], [2, 'call', 'pokazanie'], [2, 'fold', 'koniec'],
+  ] as const)('AK-D219-c decyzja %i, akcja %s (dalej: %s) → zakonczona z koniecMs, krok bez zmian', (krok, akcja, _dalej) => {
+    const a = scenariusz(krok);
+    expect(przejscieAktywnosci(a, { typ: 'odpowiedz', krok, akcja, teraz: T0 + 7 })).toEqual({ ok: true, wartosc: { ...a, stan: 'zakonczona', koniecMs: T0 + 7 } });
+  });
+  it('AK-D219-d własność: losowy poprawny graf i losowe wybory — każde przejście ustawia krok = dalej (rośnie, < liczby decyzji), koniec najwyżej po liczbie decyzji odpowiedzi', () => {
+    const graf = fc.integer({ min: 1, max: 6 }).chain((n) =>
+      fc.tuple(...Array.from({ length: n }, (_, i) =>
+        fc.array(fc.oneof(
+          ...(i + 1 < n ? [fc.integer({ min: i + 1, max: n - 1 })] : []),
+          fc.constantFrom<'pokazanie' | 'koniec'>('pokazanie', 'koniec'),
+        ), { minLength: 1, maxLength: 3 }).map((dalej) => dalej.map((d, j) => ({ akcja: `a${j}`, dalej: d as Dalej }))),
+      )));
+    fc.assert(fc.property(graf, fc.array(fc.nat(), { minLength: 6, maxLength: 6 }), (decyzje, wybory) => {
+      const start = startAktywnosci({ rodzaj: 'scenariusz', pierwszePodejscieTestu: false, limit: JEDNA, plan: planScenariusza(decyzje), teraz: T0, dzienLokalny: '2026-11-07', strefa: 'Europe/Warsaw' });
+      expect(start.ok).toBe(true);
+      if (!start.ok) return;
+      let a: Aktywnosc = start.wartosc, odpowiedzi = 0;
+      while (a.stan === 'w_toku') {
+        const opcje = decyzje[a.krok]!, wybrana = opcje[wybory[odpowiedzi]! % opcje.length]!;
+        const r = przejscieAktywnosci(zamroz(a), { typ: 'odpowiedz', krok: a.krok, akcja: wybrana.akcja, teraz: T0 });
+        expect(r.ok).toBe(true);
+        if (!r.ok) return;
+        if (typeof wybrana.dalej === 'number') expect(r.wartosc).toMatchObject({ stan: 'w_toku', krok: wybrana.dalej });
+        else expect(r.wartosc).toMatchObject({ stan: 'zakonczona', krok: a.krok });
+        a = r.wartosc; odpowiedzi++;
+        expect(odpowiedzi).toBeLessThanOrEqual(decyzje.length);
+      }
+    }), { includeErrorInReport: true });
   });
 });
 

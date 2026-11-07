@@ -2,9 +2,14 @@
 // wektory RD-10-W3/W4 i RD-11-W6/W7 z tests/wektory/brd.json (nie wpisane liczby) i scenariusz syntetyczny poniżej —
 // dane treści o kształcie TrescScenariusza (treść scenariuszy pisze rola 06), z ręką ustaloną tak, że gracz ma fulla
 // (K♠ K♦ + K♥ 7♥ 7♣), a rywal kolor (A♥ 3♥ + K♥ 7♥ 2♥ 9♥).
+// Sygnatura `przebiegScenariusza` i kształt treści przyjęte przez 05 (fix 05 2026-11-07, D-219); 07 fix (L7-13b): zgodność
+// szkieletu planu aktywności (`decyzje[i] = [{ akcja, dalej }]`, typ z moduly.md przez rzutowanie) z przebiegiem z tej samej treści.
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { przebiegScenariusza, type OcenaOdpowiedzi, type TrescScenariusza } from '../../../packages/domena/src';
+import {
+  KONFIGURACJA as K, przebiegScenariusza, przejscieAktywnosci, startAktywnosci,
+  type Aktywnosc, type OcenaOdpowiedzi, type PlanAktywnosci, type TrescScenariusza,
+} from '../../../packages/domena/src';
 
 const WEKTORY = JSON.parse(readFileSync(new URL('../../wektory/brd.json', import.meta.url), 'utf8')) as { id: string; wejscie: Record<string, number>; oczekiwane: Record<string, unknown> }[];
 const wektor = (id: string) => WEKTORY.find((v) => v.id === id)!;
@@ -109,5 +114,35 @@ describe('AK-BR-SCN-004: pokazanie kart', () => {
     expect(p.pokazanie?.zwyciezca).toBe('gracz');
     expect(p.pokazanie?.wyjasnienie).toMatch(liczba(Number(wektor('RD-10-W3').oczekiwane['liczba [układy]'])));
     expect(p.pokazanie?.wyjasnienie).toMatch(liczba(Number(wektor('RD-10-W4').oczekiwane['liczba [układy]'])));
+  });
+});
+
+describe('AK-D219-scn: szkielet planu z treści i przebieg wskazują te same decyzje', () => {
+  // Szkielet liczony z treści tak, jak opisuje moduly.md (akcja i dalej każdej akcji, w kolejności decyzji).
+  const plan = { liczbaKrokow: SCN.decyzje.length, trescId: SCN.id, decyzje: SCN.decyzje.map((d) => d.akcje.map((a) => ({ akcja: a.akcja, dalej: a.dalej }))) } as PlanAktywnosci;
+  const kroki = (wybory: readonly string[]) => {
+    const start = startAktywnosci({ rodzaj: 'scenariusz', pierwszePodejscieTestu: false, limit: { bezLimitu: false, pozostalo: K.LIMIT_AKTYWNOSCI_DZIENNIE, odnowienieMs: 0 }, plan, teraz: 0, dzienLokalny: '2026-11-07', strefa: 'Europe/Warsaw' });
+    expect(start, 'start aktywności ze szkieletem z treści').toMatchObject({ ok: true });
+    const odwiedzone: number[] = [];
+    if (!start.ok) return { odwiedzone, stan: null };
+    let a: Aktywnosc = start.wartosc;
+    for (const akcja of wybory) {
+      odwiedzone.push(a.krok);
+      const r = przejscieAktywnosci(a, { typ: 'odpowiedz', krok: a.krok, akcja, teraz: 1 });
+      expect(r, `odpowiedź ${akcja} w decyzji ${a.krok}`).toMatchObject({ ok: true });
+      if (!r.ok) break;
+      a = r.wartosc;
+    }
+    return { odwiedzone, stan: a.stan };
+  };
+  it.each([[ZGODNA_LINIA], [['call', 'bet', 'raise']], [['raise', 'bet', 'bet', 'fold']]])('AK-D219-scn-a wybory %j: indeksy decyzji z maszyny → ulice przebiegu; oba kończą się razem', (wybory) => {
+    const m = kroki(wybory);
+    const p = ok(przebiegScenariusza(SCN, wybory));
+    expect(p.kroki.map((k) => k.ulica)).toEqual(m.odwiedzone.map((i) => SCN.decyzje[i]!.ulica));
+    expect(m.stan).toBe('zakonczona');
+    expect(p.koniec).not.toBe('w_toku');
+  });
+  it('AK-D219-scn-b gałąź call w preflopie: maszyna przeskakuje flop (indeksy 0, 2, 3)', () => {
+    expect(kroki(['call', 'bet', 'raise']).odwiedzone).toEqual([0, 2, 3]);
   });
 });
