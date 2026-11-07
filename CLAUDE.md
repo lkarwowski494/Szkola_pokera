@@ -16,7 +16,7 @@ Ten plik obowiązuje w każdej sesji pracującej na tym repozytorium. Zasady pon
 
 ## Delegacja decyzji (decyzja właściciela 2026-11-03, obowiązuje do odwołania)
 - Testy: agent testuje sam z kontrolami zastępczymi (opus/high); właściciel robi tylko testy na telefonie z listą kontrolną od agenta.
-- Przed pytaniem produktowym: sprawdź analogiczną funkcję, problem albo decyzję w Treningu (publiczne repo `lkarwowski494/trening`); jest — decyzja analogiczna, zapisana z odwołaniem; wzory procesu decyzji także w Oczku i Piekarzu.
+- Przed każdą decyzją (produktową, architektoniczną, logiki, techniczną, CI) i przed pytaniem do właściciela: najpierw sprawdź, jak to rozwiązano w Treningu (publiczne repo `lkarwowski494/trening`); jest — decyzja analogiczna, zapisana z odwołaniem (plik:linia, data odczytu); odstępstwo tylko nazwane i z powodem (decyzja właściciela 2026-11-07, D-191); wzory procesu decyzji także w Oczku i Piekarzu.
 - Tymczasowo agent podejmuje decyzje produktowe na podstawie własnego researchu i swojej rekomendacji; właścicielowi zostaje kilka kluczowych decyzji produktowych. Każdą decyzję zapisz od razu z datą i odrzuconymi opcjami; właściciel może zawetować.
 - Literatura: gdy potrzebna, agent podaje tytuły, właściciel próbuje je kupić.
 
