@@ -1,6 +1,6 @@
 // Ścieżka kursu, test modułu, ponowna ocena poziomu i prośba o ocenę w sklepie (BR-KURS-001, BR-KURS-002, BR-ONB-003,
-// BR-OPIN-001). Zaślepki roli 07 (E3 część 13, D-197): moduly.md nie podaje sygnatur tych funkcji (luka dla 05,
-// strategia.md §9 część 13); kształt niżej to propozycja roli 07 — czyste funkcje, bez zegara (czas w argumencie),
+// BR-OPIN-001). Zaślepki roli 07 (E3 część 13, D-197); sygnatury przyjęte przez 05 (fix 05 2026-11-07, L7-13a, moduly.md
+// „Kurs”) z uzupełnieniem `FaktyKursu` / `stanKursu` (07 fix, D-224) — czyste funkcje, bez zegara (czas w argumencie),
 // bez zapisu (zapis robi port bazy). Parametry z KONFIGURACJA (TEST_MODULU_*, PROSBA_O_OCENE_*).
 import { niezaimplementowane } from './niezaimplementowane';
 
@@ -18,8 +18,21 @@ export interface PostepKursu {
   punktStartu: string; // moduł, od którego zaczyna ścieżka (wynik oceny poziomu; „Pomiń” → pierwszy moduł)
 }
 
-/** Następna lekcja na ścieżce: pierwsza nieukończona lekcja pierwszego modułu, który nie jest zaliczony testem ani oceną,
- *  licząc od punktu startu; null, gdy kurs przerobiony (BR-KURS-001 „Następna lekcja”, BR-KURS-002 „Zaliczony test”). */
+/** Stan zapisany → widok (moduly.md „Kurs”): zaliczenia są pochodną faktów, bez nowych kolumn. */
+export interface FaktyKursu {
+  ukonczoneLekcje: readonly string[]; // postep_lekcji.ukonczono_ms IS NOT NULL
+  punktStartu: { modulId: string; ustawionoMs: number } | null; // ustawienie `punkt_startu`; null = „Pomiń” → pierwszy moduł
+  testy: readonly { modulId: string; zaliczony: boolean; koniecMs: number }[]; // wynik_testu + aktywnosc.koniec_ms
+}
+/** zaliczoneTestem = moduły z co najmniej jednym zaliczonym testem; zaliczoneOcena = moduły przed punktem startu bez
+ *  niezaliczonego testu z koniecMs > punktStartu.ustawionoMs (D-216, BR-ONB-003 A); ponowna ocena przywraca zaliczenie. */
+export function stanKursu(_moduly: readonly ModulKursu[], _f: FaktyKursu): PostepKursu {
+  return niezaimplementowane('stanKursu (BR-ONB-003, D-216)');
+}
+
+/** Następna lekcja na ścieżce: pierwsza nieukończona lekcja pierwszego modułu w kolejności kursu, który nie jest zaliczony
+ *  testem ani oceną (punkt startu działa przez `zaliczoneOcena` ze `stanKursu`, D-224 pkt 4 — moduł zdjęty z zaliczenia
+ *  oceną wraca na ścieżkę, D-216); null, gdy kurs przerobiony (BR-KURS-001 „Następna lekcja”, BR-KURS-002 „Zaliczony test”). */
 export function nastepnaLekcja(_moduly: readonly ModulKursu[], _postep: PostepKursu): string | null {
   return niezaimplementowane('nastepnaLekcja (BR-KURS-001, BR-KURS-002)');
 }
@@ -53,9 +66,8 @@ export function wynikTestuModulu(_odpowiedzi: readonly OdpowiedzTestu[]): WynikT
   return niezaimplementowane('wynikTestuModulu (BR-KURS-002, D-106)');
 }
 
-/** Skutek testu w postępie: zaliczony → moduł w `zaliczoneTestem`; niezaliczony → moduł nie trafia do `zaliczoneTestem`;
- *  ukończone lekcje bez zmian. Czy niezaliczony test zdejmuje zaliczenie oceną (BR-ONB-003 mówi tylko o lekcjach do
- *  powtórki) — luka dla 01/05, bez asercji do rozstrzygnięcia. */
+/** Skutek testu w postępie (rzut zgodny ze `stanKursu`): zaliczony → moduł w `zaliczoneTestem`; niezaliczony → moduł nie
+ *  trafia do `zaliczoneTestem` i schodzi z `zaliczoneOcena` (D-216); ukończone lekcje bez zmian. */
 export function poTescieModulu(_postep: PostepKursu, _modulId: string, _wynik: WynikTestuModulu): PostepKursu {
   return niezaimplementowane('poTescieModulu (BR-KURS-002, BR-ONB-003)');
 }

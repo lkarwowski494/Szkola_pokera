@@ -1,6 +1,8 @@
 // Testy akceptacyjne ścieżki kursu, testu modułu, ponownej oceny i prośby o ocenę (rola 07 E3 część 13, D-197).
 // Wyrocznia: kryteria BRD (docs/brd/wymagania-nauka.md, wymagania-sklep.md) i parametry z KONFIGURACJA (D-106, D-110);
 // moduły i lekcje to dane syntetyczne o kształcie content/pl/modules.yaml (kolejność M0–M13 jest daną, nie wynikiem kodu).
+// 07 fix (L7-13a): `stanKursu` / `FaktyKursu` z moduly.md „Kurs” i D-216 (BR-ONB-003 A: niezaliczony test zdejmuje zaliczenie
+// oceną; ponowna ocena je przywraca); ścieżka `nastepnaLekcja` wynika z zaliczeń, nie z pominięcia modułów przed punktem (D-224 pkt 4).
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -14,7 +16,9 @@ import {
   poKrokuLekcji,
   poPonownejOcenie,
   poTescieModulu,
+  stanKursu,
   wynikTestuModulu,
+  type FaktyKursu,
   type MiejsceProsby,
   type ModulKursu,
   type OdpowiedzTestu,
@@ -54,8 +58,10 @@ describe('AK-BR-KURS-001: ukończenie lekcji i następna lekcja', () => {
     expect(nastepnaLekcja(MODULY, { ...PUSTY, ukonczoneLekcje: ['m0-l1', 'm0-l2', 'm0-l3'] })).toBe('m1-l1');
     const wszystkie = MODULY.flatMap((m) => m.lekcje);
     expect(nastepnaLekcja(MODULY, { ...PUSTY, ukonczoneLekcje: wszystkie })).toBeNull();
-    // ścieżka zaczyna od punktu startu (BR-ONB-002), także gdy moduły przed nim nie mają wpisu zaliczenia
-    expect(nastepnaLekcja(MODULY, { ...PUSTY, punktStartu: 'M4' })).toBe('m4-l1');
+    // ścieżka zaczyna od punktu startu (BR-ONB-002): moduły przed nim są zaliczone oceną w stanie ze `stanKursu` (D-224 pkt 4)
+    expect(nastepnaLekcja(MODULY, { ...PUSTY, punktStartu: 'M4', zaliczoneOcena: ['M0', 'M1', 'M2', 'M3'] })).toBe('m4-l1');
+    // moduł przed punktem startu bez zaliczenia (zdjęte niezaliczonym testem, D-216) wraca na ścieżkę
+    expect(nastepnaLekcja(MODULY, { ...PUSTY, punktStartu: 'M4', zaliczoneOcena: ['M0', 'M1', 'M3'] })).toBe('m2-l1');
   });
 
   it('AK-BR-KURS-001-c własność: wskazana lekcja nie jest ukończona, a każda wcześniejsza w kolejności kursu jest ukończona', () => {
@@ -133,14 +139,82 @@ describe('AK-BR-ONB-003: ponowna ocena poziomu', () => {
     expect(wstecz.ukonczoneLekcje).toEqual(zPostepem.ukonczoneLekcje);
   });
 
-  it('AK-BR-ONB-003-b niezaliczony test modułu zaliczonego oceną → lekcje M2 do powtórki z listą błędnych zadań', () => {
+  it('AK-BR-ONB-003-b niezaliczony test modułu zaliczonego oceną → lekcje M2 do powtórki, M2 zdjęty z zaliczenia oceną i wraca na ścieżkę (D-216)', () => {
     const po = poPonownejOcenie(PUSTY, MODULY, 'M3');
     expect(po.zaliczoneOcena).toEqual(['M0', 'M1', 'M2']);
     const w = wynikTestuModulu(test15(K.TEST_MODULU_LICZBA_ZADAN, 'M2'));
     expect(w.zaliczony).toBe(false);
     expect(w.lekcjeDoPowtorki).toEqual(['m2-l1', 'm2-l2', 'm2-l3']);
     expect(w.bledneZadania).toHaveLength(K.TEST_MODULU_LICZBA_ZADAN);
-    expect(poTescieModulu(po, 'M2', w).ukonczoneLekcje).toEqual(po.ukonczoneLekcje);
+    const poTescie = poTescieModulu(po, 'M2', w);
+    expect(poTescie.ukonczoneLekcje).toEqual(po.ukonczoneLekcje);
+    expect(poTescie.zaliczoneOcena).toEqual(['M0', 'M1']);
+    expect(poTescie.zaliczoneTestem).not.toContain('M2');
+    // „Następna lekcja” prowadzi do lekcji z błędnych pytań; tu wszystkie lekcje M2 mają błędy, więc pierwsza z nich jest też
+    // pierwszą nieukończoną (ogólny przypadek: zgłoszenie JAK-F07-01 dla 05/01)
+    expect(nastepnaLekcja(MODULY, poTescie)).toBe(w.lekcjeDoPowtorki[0]);
+  });
+
+  it('AK-BR-ONB-003-c ponowna ocena po niezaliczonym teście przywraca zaliczenie oceną modułów przed nowym punktem (D-216)', () => {
+    const zdjety: PostepKursu = { ...PUSTY, punktStartu: 'M3', zaliczoneOcena: ['M0', 'M1'] };
+    expect(poPonownejOcenie(zdjety, MODULY, 'M3').zaliczoneOcena).toEqual(['M0', 'M1', 'M2']);
+  });
+});
+
+describe('AK-L7-13a: stanKursu — zaliczenia jako pochodna faktów (moduly.md „Kurs”, D-216)', () => {
+  const T = 1_000_000;
+  const fakty = (f: Partial<FaktyKursu>): FaktyKursu => ({ ukonczoneLekcje: [], punktStartu: null, testy: [], ...f });
+  const posortowane = (x: readonly string[]) => [...x].sort();
+
+  it('AK-L7-13a-a „Pomiń” (punkt startu null), bez testów → start w pierwszym module, nic nie zaliczone, lekcje bez zmian', () => {
+    expect(stanKursu(MODULY, fakty({ ukonczoneLekcje: ['m0-l1'] }))).toEqual({ ukonczoneLekcje: ['m0-l1'], zaliczoneTestem: [], zaliczoneOcena: [], punktStartu: 'M0' });
+  });
+  it('AK-L7-13a-b punkt startu M3 → M0–M2 zaliczone oceną, ścieżka od m3-l1', () => {
+    const p = stanKursu(MODULY, fakty({ punktStartu: { modulId: 'M3', ustawionoMs: T } }));
+    expect([p.punktStartu, posortowane(p.zaliczoneOcena)]).toEqual(['M3', ['M0', 'M1', 'M2']]);
+    expect(nastepnaLekcja(MODULY, p)).toBe('m3-l1');
+  });
+  it('AK-L7-13a-c niezaliczony test M2 po ustawieniu punktu → M2 bez zaliczenia oceną, ścieżka wraca do m2-l1', () => {
+    const p = stanKursu(MODULY, fakty({ punktStartu: { modulId: 'M3', ustawionoMs: T }, testy: [{ modulId: 'M2', zaliczony: false, koniecMs: T + 1 }] }));
+    expect(posortowane(p.zaliczoneOcena)).toEqual(['M0', 'M1']);
+    expect(p.zaliczoneTestem).toEqual([]);
+    expect(nastepnaLekcja(MODULY, p)).toBe('m2-l1');
+  });
+  it('AK-L7-13a-d niezaliczony test M2 przed ustawieniem punktu (koniecMs ≤ ustawionoMs) → M2 nadal zaliczony oceną', () => {
+    for (const koniecMs of [T - 1, T]) {
+      const p = stanKursu(MODULY, fakty({ punktStartu: { modulId: 'M3', ustawionoMs: T }, testy: [{ modulId: 'M2', zaliczony: false, koniecMs }] }));
+      expect(posortowane(p.zaliczoneOcena), `koniecMs ${koniecMs - T}`).toEqual(['M0', 'M1', 'M2']);
+    }
+  });
+  it('AK-L7-13a-e zaliczony co najmniej jeden test → zaliczone testem, także gdy później był niezaliczony', () => {
+    const p = stanKursu(MODULY, fakty({ testy: [{ modulId: 'M5', zaliczony: true, koniecMs: T }, { modulId: 'M5', zaliczony: false, koniecMs: T + 5 }, { modulId: 'M6', zaliczony: false, koniecMs: T }] }));
+    expect(p.zaliczoneTestem).toEqual(['M5']);
+  });
+  it('AK-L7-13a-f własność: zaliczone oceną tylko przed punktem i bez niezaliczonego testu po ustawieniu; następna lekcja nigdy z zaliczonego modułu', () => {
+    const modul = fc.integer({ min: 0, max: MODULY.length - 1 }).map((i) => `M${i}`);
+    const test = fc.record({ modulId: modul, zaliczony: fc.boolean(), koniecMs: fc.integer({ min: T - 10, max: T + 10 }) });
+    const punkt = fc.option(fc.record({ modulId: modul, ustawionoMs: fc.constant(T) }), { nil: null });
+    fc.assert(fc.property(punkt, fc.array(test, { maxLength: 8 }), fc.subarray(MODULY.flatMap((m) => m.lekcje)), (punktStartu, testy, ukonczoneLekcje) => {
+      const p = stanKursu(MODULY, { ukonczoneLekcje, punktStartu, testy });
+      const ip = punktStartu ? MODULY.findIndex((m) => m.id === punktStartu.modulId) : 0;
+      expect(p.punktStartu).toBe(punktStartu?.modulId ?? 'M0');
+      for (const m of p.zaliczoneOcena) {
+        expect(MODULY.findIndex((x) => x.id === m)).toBeLessThan(ip);
+        expect(testy.some((t) => t.modulId === m && !t.zaliczony && t.koniecMs > T)).toBe(false);
+      }
+      for (let i = 0; i < ip; i++) {
+        const m = MODULY[i]!.id;
+        if (!testy.some((t) => t.modulId === m && !t.zaliczony && t.koniecMs > T)) expect(p.zaliczoneOcena).toContain(m);
+      }
+      expect(posortowane(p.zaliczoneTestem)).toEqual(posortowane([...new Set(testy.filter((t) => t.zaliczony).map((t) => t.modulId))]));
+      const l = nastepnaLekcja(MODULY, p);
+      if (l !== null) {
+        const m = MODULY.find((x) => x.lekcje.includes(l))!.id;
+        expect(p.zaliczoneOcena).not.toContain(m);
+        expect(p.zaliczoneTestem).not.toContain(m);
+        expect(ukonczoneLekcje).not.toContain(l);
+      }
+    }));
   });
 });
 
