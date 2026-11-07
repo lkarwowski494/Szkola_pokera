@@ -22,7 +22,8 @@ export interface SurowyPort {
   zamknij(): Promise<void>;
 }
 
-export type PowodStartu = 'baza_nowsza' | 'migracja_nieudana' | 'przerwano_w_tle';
+// baza_uszkodzona: plik uszkodzony, którego nie udało się odłożyć (start.ts); bez nowej bazy na jego miejscu.
+export type PowodStartu = 'baza_nowsza' | 'migracja_nieudana' | 'przerwano_w_tle' | 'baza_uszkodzona';
 // Błąd startu bazy (D-200, luka L8-01 dla 05): sygnatura zwraca port, więc powód z tlo-i-bledy.md §4 niesie wyjątek typowany
 // (wzór Treningu: wyjątek migracji przerywa start bez zapisu, lib/state/boot.ts:96–101). Nic nie zostało zapisane.
 export class BladStartuPostepu extends Error {

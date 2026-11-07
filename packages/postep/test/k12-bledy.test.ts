@@ -9,11 +9,11 @@ import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { afterEach, describe, expect, it } from 'vitest';
-import { type PortBazy, uruchomPostep, zapiszKrok, zapiszPowtorke } from '../../../packages/postep/src';
-import { adapterNode, ile, integralnosc, otworzNode, TABELE_EKSPORTU, zawartosc, type Zdarzenie } from '../../narzedzia/postep-node';
-import { plikiNode, sha256 } from '../../narzedzia/pliki-node';
-import { T0, zbudujWzorzecV1 } from '../../narzedzia/wzorzec-bazy';
-import { bladIO, katalogTymczasowy, przygotuj, sprzatnij } from '../../../packages/postep/test/wspolne';
+import { type PortBazy, uruchomPostep, zapiszKrok, zapiszPowtorke } from '../src';
+import { adapterNode, ile, integralnosc, otworzNode, TABELE_EKSPORTU, zawartosc, type Zdarzenie } from '../../../tests/narzedzia/postep-node';
+import { plikiNode, sha256 } from '../../../tests/narzedzia/pliki-node';
+import { T0, zbudujWzorzecV1 } from '../../../tests/narzedzia/wzorzec-bazy';
+import { bladIO, katalogTymczasowy, przygotuj, sprzatnij } from './wspolne';
 
 afterEach(sprzatnij);
 
