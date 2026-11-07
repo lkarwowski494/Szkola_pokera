@@ -2,10 +2,12 @@
 // (rola 07 E3 część 13, D-197). Wyrocznia: kryteria BRD (relacje: „błąd wcześniej niż zgodne”, „od najdawniej zaległej”,
 // „żadna nie znika po zmianie strefy”, „wraca do tej samej części / decyzji”), nie wartości z kodu. BR-POW-001 sprawdza
 // istniejący `@szkola/srs` (FSRS, D-145) — strażnik zielony; kolejka i wznowienie — zaślepki domeny.
+// Wersja 07 fix (D-224; L7-13b, D-219): plan scenariusza ze szkieletem `decyzje` zamiast `akcjeZOcena` i wznowienie
+// po skoku w grafie; przeniesiona przez 08 fix (L7-13b).
 import fc from 'fast-check';
 import { afterEach, describe, expect, it } from 'vitest';
 import { dueCards, newCard, review, type StoredCard } from '../../srs/src';
-import { KONFIGURACJA as K, kolejkaPowtorek, wejscieDoAktywnosci, type AktywnoscWToku, type Limit } from '../src';
+import { KONFIGURACJA as K, kolejkaPowtorek, wejscieDoAktywnosci, type AktywnoscWToku, type Limit, type PlanAktywnosci } from '../src';
 import { STREFY_TESTOWE } from '../../../tests/narzedzia/strefy';
 
 const DZIEN = 86_400_000;
@@ -85,7 +87,13 @@ function wToku(rodzaj: 'lekcja' | 'scenariusz', trescId: string, krok: number, l
     dzienLokalny: '2026-11-07',
     strefa: 'Europe/Warsaw',
     startMs: T0,
-    plan: { liczbaKrokow, trescId, ...(rodzaj === 'scenariusz' ? { akcjeZOcena: Array.from({ length: liczbaKrokow }, () => ['call', 'fold']) } : {}) },
+    // scenariusz: decyzja i → call do i + 1 albo skok raise do i + 2 (gdy jest), fold kończy; typ z moduly.md (D-219) przez rzutowanie
+    plan: (rodzaj === 'scenariusz'
+      ? { liczbaKrokow, trescId, decyzje: Array.from({ length: liczbaKrokow }, (_, i) => [
+        { akcja: 'call', dalej: i + 1 < liczbaKrokow ? i + 1 : 'pokazanie' }, { akcja: 'fold', dalej: 'koniec' },
+        ...(i + 2 < liczbaKrokow ? [{ akcja: 'raise', dalej: i + 2 }] : []),
+      ]) }
+      : { liczbaKrokow, trescId }) as PlanAktywnosci,
     krok,
   };
 }
@@ -105,6 +113,13 @@ describe('AK-BR-KURS-004 i AK-BR-SCN-001-b: po ponownym uruchomieniu powrót do 
     for (const limit of [JEST, WYCZERPANY, PRO]) {
       const w = wejscieDoAktywnosci('scenariusz', 'scn-01', a, false, limit);
       expect(w).toEqual({ akcja: 'wznow', aktywnosc: a });
+    }
+  });
+
+  it('AK-BR-SCN-001-b-skok po skoku (preflop raise → turn, decyzja 1 pominięta) wejście wznawia decyzję 2, nie 1 (D-219: krok = indeks decyzji)', () => {
+    const a = wToku('scenariusz', 'scn-01', 2, 4);
+    for (const limit of [JEST, WYCZERPANY, PRO]) {
+      expect(wejscieDoAktywnosci('scenariusz', 'scn-01', a, false, limit)).toEqual({ akcja: 'wznow', aktywnosc: a });
     }
   });
 });

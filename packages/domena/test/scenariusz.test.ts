@@ -9,9 +9,9 @@ import { describe, expect, it } from 'vitest';
 import {
   KONFIGURACJA as K, przebiegScenariusza, przejscieAktywnosci, startAktywnosci,
   type Aktywnosc, type OcenaOdpowiedzi, type PlanAktywnosci, type TrescScenariusza,
-} from '../../../packages/domena/src';
+} from '../src';
 
-const WEKTORY = JSON.parse(readFileSync(new URL('../../wektory/brd.json', import.meta.url), 'utf8')) as { id: string; wejscie: Record<string, number>; oczekiwane: Record<string, unknown> }[];
+const WEKTORY = JSON.parse(readFileSync(new URL('../../../tests/wektory/brd.json', import.meta.url), 'utf8')) as { id: string; wejscie: Record<string, number>; oczekiwane: Record<string, unknown> }[];
 const wektor = (id: string) => WEKTORY.find((v) => v.id === id)!;
 const NA_OCENE: Record<string, OcenaOdpowiedzi> = { zgodne: 'zgodne', dopuszczalne: 'dopuszczalne', niedokładność: 'niedokladnosc', błąd: 'blad' };
 const W6 = wektor('RD-11-W6');
@@ -59,7 +59,7 @@ describe('AK-BR-SCN-001: powtarzalność scenariusza', () => {
     expect(a.kroki.map((k) => k.rywal)).toEqual(['call', 'call', 'call', 'call']);
   });
   it('AK-BR-SCN-001-c przebieg bez źródeł losowości i zegara (kontrola statyczna packages/domena/src/scenariusz.ts)', () => {
-    const zrodlo = readFileSync(new URL('../../../packages/domena/src/scenariusz.ts', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/.*$/gm, '');
+    const zrodlo = readFileSync(new URL('../src/scenariusz.ts', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/.*$/gm, '');
     expect(zrodlo).not.toMatch(/Math\.random|Date\.now|new Date\(|crypto\./);
   });
   it('AK-BR-SCN-001-d gałąź treści (skok do decyzji 2) i prefiks wyborów: ulice z treści, przebieg w toku bez podsumowania końca', () => {

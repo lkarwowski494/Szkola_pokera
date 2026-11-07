@@ -101,3 +101,26 @@ export function compareHands(a: readonly Card[], b: readonly Card[]): Comparison
   const sb = strength(b);
   return sa < sb ? 1 : sa > sb ? -1 : 0;
 }
+
+const dwumian = (n: number, k: number): number => {
+  let w = 1;
+  for (let i = 0; i < k; i++) w = (w * (n - i)) / (i + 1);
+  return w;
+};
+/**
+ * Liczba różnych 5-kartowych układów kategorii w talii 52 kart (RD-10; rachunek kombinatoryczny, suma = C(52, 5)).
+ * Strit i kolor bez pokera (10 wysokości strita × 4 kolory = 40 pokerów, w tym królewski).
+ */
+export function fiveCardHandCount(c: HandCategory): number {
+  switch (c) {
+    case HandCategory.StraightFlush: return 10 * 4;
+    case HandCategory.FourOfAKind: return 13 * 48;
+    case HandCategory.FullHouse: return 13 * dwumian(4, 3) * 12 * dwumian(4, 2);
+    case HandCategory.Flush: return 4 * dwumian(13, 5) - 40;
+    case HandCategory.Straight: return 10 * 4 ** 5 - 40;
+    case HandCategory.ThreeOfAKind: return 13 * dwumian(4, 3) * dwumian(12, 2) * 4 ** 2;
+    case HandCategory.TwoPair: return dwumian(13, 2) * dwumian(4, 2) ** 2 * 11 * 4;
+    case HandCategory.OnePair: return 13 * dwumian(4, 2) * dwumian(12, 3) * 4 ** 3;
+    case HandCategory.HighCard: return (dwumian(13, 5) - 10) * (4 ** 5 - 4);
+  }
+}

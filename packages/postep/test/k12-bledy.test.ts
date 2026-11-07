@@ -5,15 +5,18 @@
 // Kody: sqlite.org/rescode.html (13 FULL, 10 IOERR, 778 IOERR_WRITE, 5 BUSY, 11 CORRUPT, 26 NOTADB).
 // Punkt wstrzyknięcia nie zależy od SQL implementacji: przebieg próbny liczy wywołania adaptera, potem błąd na każdym z nich po kolei.
 // `brak pliku treści → tresc_niedostepna` (trzecia część K-12) razem z K-06 (wybór pliku treści).
+// Wersja 07 fix (D-224, przeniesiona przez 08 fix; L7-13b): jedyna zmiana — `zapiszKrok` z czwartym argumentem `nastepnyKrok` (D-224 pkt 3),
+// typ z moduly.md.
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { afterEach, describe, expect, it } from 'vitest';
-import { type PortBazy, uruchomPostep, zapiszKrok, zapiszPowtorke } from '../src';
+import { type OdpowiedzKroku, type PortBazy, uruchomPostep, zapiszKrok, zapiszPowtorke } from '../src';
 import { adapterNode, ile, integralnosc, otworzNode, TABELE_EKSPORTU, zawartosc, type Zdarzenie } from '../../../tests/narzedzia/postep-node';
 import { plikiNode, sha256 } from '../../../tests/narzedzia/pliki-node';
 import { T0, zbudujWzorzecV1 } from '../../../tests/narzedzia/wzorzec-bazy';
 import { bladIO, katalogTymczasowy, przygotuj, sprzatnij } from './wspolne';
+
 
 afterEach(sprzatnij);
 
@@ -22,7 +25,7 @@ const TABELE = [...TABELE_EKSPORTU, 'uprawnienie_cache'];
 const OPERACJE = {
   // nowy krok aktywności w toku (wzorzec: a-scen, krok 1)
   zapiszKrok: (port) => zapiszKrok(port, 'a-scen', { krok: 1, zadanie_id: 'z2', rodzina_id: 'r1', wybor: '{"akcja":"fold"}',
-    ocena: 'zgodne', zaliczona: 1, czas_ms: 1200, odpowiedziano_ms: T0 + 10 }),
+    ocena: 'zgodne', zaliczona: 1, czas_ms: 1200, odpowiedziano_ms: T0 + 10 }, 2),
   // karta r1 (UPSERT) + wpis logu
   zapiszPowtorke: (port) => zapiszPowtorke(port, { rodzina_id: 'r1', termin_ms: T0 + 86_400_000, stabilnosc: 4.2, trudnosc: 5.1,
     dni_zaplanowane: 1, kroki_nauki: 0, powtorzenia: 5, zapomnienia: 1, stan: 2, ostatnia_powtorka_ms: T0, zmieniono_ms: T0 + 1 },

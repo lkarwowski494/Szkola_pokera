@@ -10,8 +10,10 @@ export interface OdpowiedzKroku {
 }
 // Zapis odpowiedzi kroku (UPSERT po (aktywnosc_id, krok)) i przesunięcie `aktywnosc.krok` w jednej transakcji;
 // wartość = id wiersza odpowiedzi (ten sam przy ponownym zapisie kroku).
-// Krok rośnie najwyżej do krok + 1: ponowny zapis wcześniejszego kroku nie cofa przebiegu.
-export function zapiszKrok(port: PortBazy, aktywnoscId: string, odp: OdpowiedzKroku): Promise<Wynik<number, PowodZapisu>> {
+// Następny krok podaje maszyna domeny (`przejscieAktywnosci`; w scenariuszu `dalej` z grafu, D-219), repozytorium zapisuje
+// max(krok, nastepnyKrok): po zabiciu aplikacji po skoku wznowienie wraca do decyzji `dalej`, a ponowny zapis wcześniejszego
+// kroku nie cofa przebiegu (moduly.md „Repozytoria”, przegląd D-043 05 fix).
+export function zapiszKrok(port: PortBazy, aktywnoscId: string, odp: OdpowiedzKroku, nastepnyKrok: number): Promise<Wynik<number, PowodZapisu>> {
   return jakoWynik(() => port.transakcja(async (tx) => {
     const wiersze = await tx.all<unknown>(
       `INSERT INTO odpowiedz (aktywnosc_id, krok, zadanie_id, rodzina_id, wybor, ocena, zaliczona, czas_ms, odpowiedziano_ms)
@@ -24,7 +26,7 @@ export function zapiszKrok(port: PortBazy, aktywnoscId: string, odp: OdpowiedzKr
     );
     const [w] = wiersze;
     if (!(typeof w === 'object' && w !== null && 'id' in w && typeof w.id === 'number')) throw new Error('UPSERT odpowiedzi bez id');
-    const r = await tx.run('UPDATE aktywnosc SET krok = max(krok, ?) WHERE id = ?', [odp.krok + 1, aktywnoscId]);
+    const r = await tx.run('UPDATE aktywnosc SET krok = max(krok, ?) WHERE id = ?', [nastepnyKrok, aktywnoscId]);
     if (r.zmiany !== 1) throw new Error(`Brak aktywności ${aktywnoscId}`); // stan niemożliwy: klucz obcy odpowiedzi już to sprawdził
     return w.id;
   }));

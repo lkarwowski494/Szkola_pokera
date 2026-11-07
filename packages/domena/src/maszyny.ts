@@ -13,8 +13,13 @@ export interface PlanAktywnosci {
   // identyfikator treści (scenariusz, moduł testu, lekcja; schemat.sql: plan zawiera „moduł testu, scenariusz albo lekcja”);
   // null dla sesji i powtórek (jedna aktywność danego rodzaju). Rozróżnia „wznów” od „porzuć i zacznij inną” (moduly.md, `porzuc`).
   trescId: string | null;
-  // tylko `scenariusz`: dla kroku i akcje z oceną w treści scenariusza (D-109); akcja spoza listy → `akcja_niedostepna`
-  akcjeZOcena?: readonly (readonly string[])[];
+  // tylko `scenariusz` (D-219): szkielet grafu z treści — dla decyzji i akcje z oceną (D-109) i następna decyzja (`dalej`:
+  // indeks > i albo koniec); `liczbaKrokow` = liczba decyzji, krok = indeks decyzji. Akcja spoza listy → `akcja_niedostepna`.
+  decyzje?: readonly (readonly AkcjaPlanu[])[];
+}
+export interface AkcjaPlanu {
+  akcja: string;
+  dalej: number | 'pokazanie' | 'koniec';
 }
 interface AktywnoscWspolne {
   rodzaj: RodzajAktywnosci;
@@ -58,13 +63,17 @@ export function startAktywnosci(wej: {
 }
 
 // Plan: dodatnia całkowita liczba kroków; ocena poziomu najwyżej OCENA_POZIOMU_MAKS_PYTAN (D-105; dłuższy odrzucony, nie
-// skracany — skracanie zmieniałoby plan zapisany w bazie po cichu); scenariusz: niepusta lista akcji z oceną dla każdego kroku (D-109).
+// skracany — skracanie zmieniałoby plan zapisany w bazie po cichu); scenariusz: graf bez cykli (D-219) — każda decyzja ma
+// ≥ 1 akcję, każde `dalej` liczbowe jest całkowite, > własny indeks i < liczby decyzji, więc każda ścieżka się kończy.
 function planPoprawny(rodzaj: RodzajAktywnosci, plan: PlanAktywnosci, k: Konfiguracja): boolean {
   if (!Number.isInteger(plan.liczbaKrokow) || plan.liczbaKrokow <= 0) return false;
   if (rodzaj === 'ocena_poziomu' && plan.liczbaKrokow > k.OCENA_POZIOMU_MAKS_PYTAN) return false;
   if (rodzaj === 'scenariusz') {
-    const akcje = plan.akcjeZOcena;
-    if (!akcje || akcje.length !== plan.liczbaKrokow || akcje.some((a) => a.length === 0)) return false;
+    const d = plan.decyzje;
+    if (!d || d.length !== plan.liczbaKrokow) return false;
+    const dalejPoprawne = (x: AkcjaPlanu, i: number) =>
+      typeof x.dalej !== 'number' || (Number.isInteger(x.dalej) && x.dalej > i && x.dalej < d.length);
+    if (d.some((akcje, i) => akcje.length === 0 || !akcje.every((x) => dalejPoprawne(x, i)))) return false;
   }
   return true;
 }
@@ -80,8 +89,12 @@ export function przejscieAktywnosci(a: Aktywnosc, z: ZdarzenieAktywnosci): Wynik
       return { ok: true, wartosc: { ...a, stan: 'porzucona', koniecMs: z.teraz } };
     case 'odpowiedz': {
       if (z.krok !== a.krok) return { ok: false, powod: 'krok_niezgodny' };
-      if (a.rodzaj === 'scenariusz' && (z.akcja === undefined || !(a.plan.akcjeZOcena?.[a.krok] ?? []).includes(z.akcja))) {
-        return { ok: false, powod: 'akcja_niedostepna' };
+      if (a.rodzaj === 'scenariusz') {
+        // D-219: następna decyzja z grafu (`dalej`), nie `krok + 1`; pokazanie albo koniec kończy aktywność
+        const wybrana = z.akcja === undefined ? undefined : a.plan.decyzje?.[a.krok]?.find((x) => x.akcja === z.akcja);
+        if (wybrana === undefined) return { ok: false, powod: 'akcja_niedostepna' };
+        if (typeof wybrana.dalej === 'number') return { ok: true, wartosc: { ...a, krok: wybrana.dalej } };
+        return { ok: true, wartosc: { ...a, stan: 'zakonczona', koniecMs: z.teraz } };
       }
       if (a.krok >= a.plan.liczbaKrokow - 1) return { ok: true, wartosc: { ...a, stan: 'zakonczona', koniecMs: z.teraz } };
       return { ok: true, wartosc: { ...a, krok: a.krok + 1 } };

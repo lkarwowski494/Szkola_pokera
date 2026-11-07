@@ -10,7 +10,7 @@ describe('maszyny: przypadki roli 08', () => {
   it('scenariusz z pustą listą akcji w którymkolwiek kroku → plan_niepoprawny (krok bez akcji z oceną nie da się przejść)', () => {
     const r = startAktywnosci({
       rodzaj: 'scenariusz', pierwszePodejscieTestu: false, limit: JEDNA, teraz: T0, dzienLokalny: '2026-11-07', strefa: 'Europe/Warsaw',
-      plan: { liczbaKrokow: 2, trescId: 'scn-a', akcjeZOcena: [['fold'], []] },
+      plan: { liczbaKrokow: 2, trescId: 'scn-a', decyzje: [[{ akcja: 'fold', dalej: 1 }], []] },
     });
     expect(r).toEqual({ ok: false, powod: 'plan_niepoprawny' });
   });
