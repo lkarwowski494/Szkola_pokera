@@ -6,3 +6,4 @@ export * from './eksport';
 export * from './tresc';
 export * from './maszyny';
 export * from './przypomnienie';
+export * from './kurs';
