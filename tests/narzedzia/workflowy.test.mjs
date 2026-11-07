@@ -91,10 +91,21 @@ test('testflight.yml: bramka E2E (D-170) przed buildem — zielony e2e.yml na ty
   assert.deepEqual(b.permissions, { contents: 'read', actions: 'read' });
   const kroki = b.steps.map((s) => s.run ?? '').join('\n');
   assert.match(kroki, /node scripts\/ci\/bramka-e2e\.mjs/);
-  assert.match(kroki, /POMIN.*true[\s\S]*-n "\$POWOD"[\s\S]*exit 1/, 'pominięcie bez powodu ma paść');
+  assert.match(kroki, /POMIN.*true[\s\S]*-n "\$\{POWOD[^"]*"[\s\S]*exit 1/, 'pominięcie bez powodu ma paść');
   assert.match(kroki, /GITHUB_STEP_SUMMARY/, 'powód pominięcia trafia do podsumowania');
   const nb = [t.jobs.build.needs].flat();
   assert.ok(nb.includes('bramka'), 'build musi czekać na bramkę');
+  // obejścia (przegląd D-043 pkt 2): build mimo czerwonej bramki, wartość wejścia wklejona w powłokę
+  assert.equal(t.jobs.build.if, undefined, 'build z if: (always()/!cancelled()) ruszyłby mimo czerwonej bramki');
+  assert.equal(b['continue-on-error'], undefined);
+  for (const k of b.steps) assert.equal(k['continue-on-error'], undefined, k.name);
+  assert.doesNotMatch(kroki, /\$\{\{\s*inputs\./, 'wejścia tylko przez env');
+  const env = Object.assign({}, ...b.steps.map((k) => k.env ?? {}));
+  assert.equal(env.POWOD, '${{ inputs.powod }}');
+  assert.equal(env.GH_TOKEN, '${{ github.token }}');
+  assert.match(kroki, /\$\{POWOD\/\/\[\[:space:\]\]\/\}/, 'powód z samych spacji ma paść');
+  const krokBramki = b.steps.find((k) => /bramka-e2e\.mjs/.test(k.run ?? ''));
+  assert.equal(b.outputs?.numer_e2e, `\${{ steps.${krokBramki.id}.outputs.run }}`, 'numer zielonego przebiegu E2E jako wynik zadania');
 });
 
 test('testflight.yml: czekanie bramki ≥ limit E2E + 15 min kolejki, a limit zadania bramki ≥ czekanie + 5 min (rośnie z liczbą flowów)', () => {

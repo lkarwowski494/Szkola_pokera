@@ -410,7 +410,8 @@ Plus jedna linia w „Dokumentacja projektu”: „Architektura w repo: `docs/ar
 - Część 9 (2026-11-07, D-189): flowy E2E 05–09 w `apps/mobile/e2e/oczekujace/` (poza bramką `config.yaml`) i kontrola flowów bez Maestro `tests/narzedzia/e2e-flowy.test.mjs` w `pnpm test:skrypty` (6/6 mutacji); Maestro nieuruchomione (brak macOS).
 - Część 10 (2026-11-07, D-171): hook pre-push agenta (`.claude/settings.json`, `scripts/pre-push-check.mjs`, 11 s, kod 2 przy porażce; 5 testów, mutacje 3/3).
 - Część 11 (2026-11-07, D-190): workflowy `ci.yml`, `e2e.yml`, `nocny.yml` + kontrole w `pnpm test:skrypty` (67/67); przegląd D-043: 0 KRYTYCZNYCH/WYSOKICH, 5 ŚREDNICH poprawionych; zasada właściciela D-191 (najpierw Trening) w `CLAUDE.md`.
-- Zostaje w E3 (po części 11): bramka E2E w `testflight.yml` (D-170, przegląd D-043); pierwszy przebieg `e2e.yml` na gałęzi po włączeniu workflowu przez właściciela (D-181); scalenie zmian workflowów — właściciel; potem STOP E3.
+- Część 12 (2026-11-07, D-193): bramka E2E w `testflight.yml` (zadanie `bramka` na Linuksie, `scripts/ci/bramka-e2e.mjs`, pominięcie awaryjne z powodem); `pnpm test:skrypty` 77/77, `pnpm run ci` kod 0; przegląd D-043: 0 KRYTYCZNYCH/WYSOKICH, 2 ŚREDNIE i 5 NISKICH poprawionych.
+- Zostaje w E3 (po części 12): pierwszy przebieg `e2e.yml` na gałęzi (D-192) — workflow ma stan `disabled_manually` (sprawdzone 2026-11-07, `list_workflows`), włącza właściciel; scalenie zmian workflowów — właściciel; potem STOP E3.
 
 ## Punkt czyszczenia (2026-11-07, po części 11, duży kontekst; rola 07 E3 prawie zakończona)
 Przekazanie do wklejenia w nową sesję (opus/high):

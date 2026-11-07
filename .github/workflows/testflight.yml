@@ -41,9 +41,12 @@ jobs:
     permissions:
       contents: read
       actions: read
+    outputs:
+      numer_e2e: ${{ steps.e2e.outputs.run }}  # numer zielonego przebiegu E2E (pusty przy pominięciu awaryjnym)
     steps:
       - uses: actions/checkout@v5
       - name: Zielony przebieg E2E na tym commicie (albo awaryjne pominięcie z powodem)
+        id: e2e
         env:
           GH_TOKEN: ${{ github.token }}
           POMIN: ${{ inputs.pomin_bramke_e2e }}
@@ -53,12 +56,13 @@ jobs:
           BRAMKA_MAX_POLLS: '75'
         run: |
           if [ "$POMIN" = "true" ]; then
-            [ -n "$POWOD" ] || { echo "::error::pomin_bramke_e2e wymaga uzasadnienia w polu powod"; exit 1; }
+            [ -n "${POWOD//[[:space:]]/}" ] || { echo "::error::pomin_bramke_e2e wymaga uzasadnienia w polu powod"; exit 1; }
             echo "::warning::Bramka E2E POMINIĘTA awaryjnie"
             { echo "## Bramka E2E pominięta awaryjnie"; echo "Commit: $GITHUB_SHA"; echo "Powód: $POWOD"; } >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           node scripts/ci/bramka-e2e.mjs "$GITHUB_REPOSITORY" "$GITHUB_SHA"
+          echo "Bramka E2E: zielony przebieg e2e.yml #$(sed -n 's/^run=//p' "$GITHUB_OUTPUT" | tail -1) na commicie $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
   build:
     needs: bramka
     # Expo SDK 57 wymaga Xcode 26.4+; obraz macos-26 ma domyślnie Xcode 26.4.1 (jak iphone-local.yml)

@@ -2,7 +2,7 @@
 // w kształcie odpowiedzi GitHub API `actions/workflows/e2e.yml/runs?head_sha=…` (pola id, status, conclusion).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { czekaj, ocen } from './bramka-e2e.mjs';
+import { czekaj, liczbaZmiennej, ocen } from './bramka-e2e.mjs';
 
 const p = (id, status, conclusion = null) => ({ id, status, conclusion });
 
@@ -11,7 +11,7 @@ test('ocen: zielony wygrywa z czerwonym i trwającym; trwający przed czerwonym;
   assert.deepEqual(ocen([p(1, 'completed', 'failure'), p(3, 'queued')]), { stan: 'trwa', id: 3 });
   assert.deepEqual(ocen([p(1, 'completed', 'failure')]), { stan: 'czerwony', id: 1 });
   assert.deepEqual(ocen([p(1, 'completed', 'timed_out')]), { stan: 'czerwony', id: 1 });
-  assert.deepEqual(ocen([p(1, 'completed', 'cancelled'), p(2, 'completed', 'skipped')]), { stan: 'brak' });
+  assert.deepEqual(ocen([p(1, 'completed', 'cancelled'), p(2, 'completed', 'skipped')]), { stan: 'brak', anulowany: 1 });
   assert.deepEqual(ocen([]), { stan: 'brak' });
   for (const status of ['queued', 'in_progress', 'waiting', 'requested', 'pending']) assert.deepEqual(ocen([p(4, status)]), { stan: 'trwa', id: 4 }, status);
 });
@@ -68,4 +68,26 @@ test('czekaj: trwający ponad limit → 1 (nie cicha zgoda); błąd API liczy si
   assert.equal(e.kod, 0);
   const tylkoBledy = proba([new Error('HTTP 502')]);
   assert.equal(tylkoBledy.kod, 1);
+});
+
+test('czekaj: przejściowy błąd API w trakcie czekania nie kończy bramki (przegląd D-043 pkt 1); 3 błędy z rzędu → 1 z komunikatem o API', () => {
+  const t = new Error('HTTP 502');
+  const r = proba([[p(5, 'queued')], [p(5, 'queued')], [p(5, 'in_progress')], t, [p(5, 'completed', 'success')]], { grace: 2, max: 10 });
+  assert.equal(r.kod, 0);
+  const bledy = proba([[p(5, 'queued')], t, t, t, [p(5, 'completed', 'success')]], { grace: 2, max: 10 });
+  assert.equal(bledy.kod, 1);
+  assert.match(bledy.log, /::error::.*zapyta/);
+  assert.doesNotMatch(bledy.log, /Run workflow/);
+});
+
+test('czekaj: brak po anulowanym przebiegu podaje jego numer (przegląd pkt 7)', () => {
+  const r = proba([[p(11, 'completed', 'cancelled')]]);
+  assert.equal(r.kod, 1);
+  assert.match(r.log, /anulowany.*#11/);
+});
+
+test('liczbaZmiennej: brak → domyślna; nie liczba całkowita dodatnia → wyjątek (przegląd pkt 4)', () => {
+  assert.equal(liczbaZmiennej({}, 'X', 60), 60);
+  assert.equal(liczbaZmiennej({ X: '75' }, 'X', 60), 75);
+  for (const z of ['abc', '0', '-1', '1.5', ' ']) assert.throws(() => liczbaZmiennej({ X: z }, 'X', 60), /X/, z);
 });
