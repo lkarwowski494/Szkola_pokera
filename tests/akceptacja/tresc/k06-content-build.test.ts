@@ -1,7 +1,7 @@
 // K-06, część na wyjściu `content-build` (ADR 0005 pkt 1, 3, 5, „Potwierdzenie”; NFR-JEZ-001, NFR-JEZ-002): pliki w paczce
 // aplikacji (`apps/mobile/assets/content`, aktualność pilnuje `pnpm content:check`). Wyrocznie: lista języków z
 // `@szkola/jezyki` (jedno źródło, D-131), format z konfiguracji, nazwa pliku z ADR 0005 pkt 2.
-// Część „te same identyfikatory i liczby” wymaga co najmniej dwóch języków, więc zostaje czerwona do przekładu treści.
+// Część „te same identyfikatory, liczby i struktura” sprawdza się przy co najmniej dwóch plikach (35 z tych samych YAML, ADR 0005 pkt 1).
 import { existsSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
@@ -11,7 +11,10 @@ import { KONFIGURACJA as K } from '../../../packages/domena/src';
 import { JEZYKI } from '../../../packages/jezyki/src';
 
 const KATALOG = join(dirname(fileURLToPath(import.meta.url)), '../../../apps/mobile/assets/content');
-const WZOR = /^tresc-([0-9a-z]+)-(.+)\.db$/; // wersja bez „-” (kontrakt nazw w packages/domena/src/tresc.ts)
+const WZOR = /^tresc-([^-/]+)-(.+)\.db$/; // wersja bez „-” i „/” (kontrakt nazw w packages/domena/src/tresc.ts)
+// Szkielet JSON: napisy (tekst w języku) zastąpione znacznikiem; liczby, wartości logiczne i długości tablic zostają.
+const szkielet = (x: unknown): unknown =>
+  typeof x === 'string' ? 's' : Array.isArray(x) ? x.map(szkielet) : x && typeof x === 'object' ? Object.fromEntries(Object.entries(x).map(([k, v]) => [k, szkielet(v)])) : x;
 const plikiTresci = () => (existsSync(KATALOG) ? readdirSync(KATALOG).filter((n) => n.endsWith('.db')).sort() : []);
 
 function czytaj(n: string) {
@@ -28,6 +31,16 @@ function czytaj(n: string) {
         rules: kolumna('rules', 'id'), ranges: kolumna('ranges', 'id'), terms: kolumna('terms', 'key'),
       },
       liczby: db.prepare('SELECT key, value FROM numbers ORDER BY key').all().map((r) => ({ ...r })),
+      // kolumny niezależne od języka (ADR 0005 pkt 1: liczby i zakresy z jednego źródła) i szkielet danych zadań
+      struktura: {
+        modules: db.prepare('SELECT id, ord, phase, recommended FROM modules ORDER BY id').all().map((r) => ({ ...r })),
+        lessons: db.prepare('SELECT id, module_id, ord FROM lessons ORDER BY id').all().map((r) => ({ ...r })),
+        rules: db.prepare('SELECT id, module_id, level FROM rules ORDER BY id').all().map((r) => ({ ...r })),
+        drills: (db.prepare('SELECT id, lesson_id, ord, family, kind, data FROM drills ORDER BY id').all() as { data: string }[]).map((r) => ({ ...r, data: szkielet(JSON.parse(r.data)) })),
+        exam_drills: (db.prepare('SELECT id, module_id, ord, family, kind, data FROM exam_drills ORDER BY id').all() as { data: string }[]).map((r) => ({ ...r, data: szkielet(JSON.parse(r.data)) })),
+        ranges: (db.prepare('SELECT id, hero, path, play_percent, uncertain, solver, groups, actions FROM ranges ORDER BY id').all() as { groups: string; actions: string }[])
+          .map((r) => ({ ...r, groups: (JSON.parse(r.groups) as { freqs: unknown }[]).map((g) => g.freqs), actions: (JSON.parse(r.actions) as { freqs: unknown }[]).map((a) => a.freqs) })),
+      },
     };
   } finally { db.close(); }
 }
@@ -52,7 +65,7 @@ describe('AK-K-06: wyjście content-build (baza na język)', () => {
     }
   });
 
-  it('AK-K-06-t te same identyfikatory i te same wartości liczb we wszystkich językach (NFR-JEZ-002)', () => {
+  it('AK-K-06-t te same identyfikatory, liczby i struktura (zakresy, szkielet zadań) we wszystkich językach (NFR-JEZ-002)', () => {
     const pliki = plikiTresci().filter((n) => WZOR.test(n));
     expect(pliki.length).toBeGreaterThan(1);
     const [wzor, ...reszta] = pliki.map((n) => ({ n, ...czytaj(n) }));
@@ -61,6 +74,7 @@ describe('AK-K-06: wyjście content-build (baza na język)', () => {
     for (const p of reszta) {
       expect({ plik: p.n, ids: p.ids }).toEqual({ plik: p.n, ids: wzor.ids });
       expect({ plik: p.n, liczby: p.liczby }).toEqual({ plik: p.n, liczby: wzor.liczby });
+      expect({ plik: p.n, struktura: p.struktura }).toEqual({ plik: p.n, struktura: wzor.struktura });
     }
   });
 });

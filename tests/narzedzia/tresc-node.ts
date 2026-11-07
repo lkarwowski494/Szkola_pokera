@@ -6,7 +6,7 @@ import type { PlikiTresci } from '../../packages/domena/src';
 
 export type WywolanieTresci = { op: 'lista' | 'kopiuj' | 'przemianuj' | 'usun' | 'otworz'; z: string; na?: string };
 
-// `przerwij(w)`: dla wywołania `kopiuj` zwraca błąd; przed rzuceniem zapisuje pod `na` pierwszą połowę bajtów (jak przerwana
+// `kopiuj` nie nadpisuje istniejącego celu (rzuca, jak `przemianuj`). `przerwij(w)`: dla wywołania `kopiuj` zwraca błąd; przed rzuceniem zapisuje pod `na` pierwszą połowę bajtów (jak przerwana
 // kopia albo brak miejsca w połowie). `blad(w)`: błąd bez skutków ubocznych dla innych operacji.
 export function plikiTresciNode(o: { przerwij?: (w: WywolanieTresci) => Error | null; blad?: (w: WywolanieTresci) => Error | null } = {}) {
   const wywolania: WywolanieTresci[] = [];
@@ -17,6 +17,7 @@ export function plikiTresciNode(o: { przerwij?: (w: WywolanieTresci) => Error | 
       const w = { op: 'kopiuj' as const, z, na };
       zapisz(w);
       const e = o.przerwij?.(w);
+      if (existsSync(na)) throw new Error(`cel istnieje: ${na}`); // kontrakt portu: bez nadpisywania (luka: copyAsync, rola 05/08)
       if (e) { const b = readFileSync(z); writeFileSync(na, b.subarray(0, Math.floor(b.length / 2))); throw e; }
       copyFileSync(z, na);
     },
@@ -32,13 +33,17 @@ export function plikiTresciNode(o: { przerwij?: (w: WywolanieTresci) => Error | 
   const otworz = async (sciezka: string) => {
     wywolania.push({ op: 'otworz', z: sciezka });
     const baza = new DatabaseSync(sciezka, { readOnly: true });
-    otwarte.push(baza);
-    const jest = baza.prepare("SELECT 1 FROM sqlite_schema WHERE type = 'table' AND name = 'meta'").get();
-    const meta = jest ? Object.fromEntries((baza.prepare('SELECT key, value FROM meta').all() as { key: string; value: string }[]).map((r) => [r.key, r.value])) : null;
-    return { baza, meta };
+    try {
+      const jest = baza.prepare("SELECT 1 FROM sqlite_schema WHERE type = 'table' AND name = 'meta'").get();
+      const meta = jest ? Object.fromEntries((baza.prepare('SELECT key, value FROM meta').all() as { key: string; value: string }[]).map((r) => [r.key, r.value])) : null;
+      otwarte.push(baza);
+      return { baza, meta };
+    } catch (e) { baza.close(); throw e; } // plik nieczytelny: adapter zamyka sam (kod nie dostaje bazy)
   };
+  const zamknijBaze = async (b: DatabaseSync) => { if (b.isOpen) b.close(); };
+  const ileOtwartych = () => otwarte.filter((b) => b.isOpen).length;
   const zamknij = () => { for (const b of otwarte.splice(0)) if (b.isOpen) b.close(); };
-  return { pliki, otworz, wywolania, zamknij };
+  return { pliki, otworz, zamknijBaze, ileOtwartych, wywolania, zamknij };
 }
 
 // Mała baza treści: `meta` (klucz, wartość) i kilka lekcji z zadaniami, żeby plik miał więcej niż jedną stronę.

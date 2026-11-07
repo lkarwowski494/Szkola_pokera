@@ -17,6 +17,7 @@ export const REGULY = [
   { id: 'iapkit', wzor: /\b(verifyPurchaseWithProvider|kitApi|iapkit)\b/i, zrodlo: 'ADR 0006 (bez serwera weryfikacji)' },
   { id: 'token-push', wzor: /\b(getExpoPushTokenAsync|getDevicePushTokenAsync)\b/, zrodlo: 'ADR 0012 (tylko powiadomienia lokalne)' },
   { id: 'zadania-w-tle', wzor: /\b(expo-background-task|expo-task-manager)\b/, zrodlo: 'ADR 0013; tlo-i-bledy.md §1' },
+  { id: 'forceOverwrite', wzor: /\bforceOverwrite\s*:\s*true\b/, zrodlo: 'ADR 0005 pkt 2 (jedna kopia treści na wersję)' },
   { id: 'setInterval-domena', wzor: /\bsetInterval\s*\(/, tylko: ['packages/domena/'], zrodlo: 'ADR 0010 (czas jako argument)' },
   { id: 'getEachAsync', wzor: /\bgetEachAsync\b/, poza: ['packages/postep/', 'apps/mobile/src/data/postepExpo.ts'], zrodlo: 'ADR 0003' },
   { id: 'siec', wzor: /(\bfetch\s*\(|\bXMLHttpRequest\b|\bnew\s+WebSocket\b|\baxios\b|\bEventSource\b)/, poza: ['apps/mobile/src/platform/'], zrodlo: 'D-174; NFR-OFF-001' },

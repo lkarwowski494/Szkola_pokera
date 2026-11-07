@@ -10,7 +10,7 @@ import { KONFIGURACJA as K, kolejkaPowtorek, nazwaPlikuTresci, planTresci, spraw
 const plik = (w: string, j: string) => `tresc-${w}-${j}.db`; // brzmienie z ADR 0005 pkt 2 (wyrocznia niezależna od kodu)
 const NIEDOSTEPNA = { ok: false, powod: 'tresc_niedostepna' };
 // Pliki, których start treści nie może usunąć (dane użytkownika: ADR 0004, K-12, K-14).
-const DANE = ['postep.db', 'postep.db-journal', 'user.db', 'user.db-wal', 'user.db-shm', 'postep-uszkodzona-1730000000000.db'];
+const DANE = ['postep.db', 'postep.db-journal', 'postep.db-wal', 'postep.db-shm', 'postep-przed-v1.db', 'user.db', 'user.db-wal', 'user.db-shm', 'postep-uszkodzona-1730000000000.db', 'notatka.txt', 'content-v6.db.bak'];
 
 describe('AK-K-06: nazwa pliku treści', () => {
   it('AK-K-06-a nazwa zawiera wersję i język, także język z „-”', () => {
@@ -58,13 +58,15 @@ describe('AK-K-06: plan treści (wybór pliku, kopia, usunięcie starych)', () =
   });
   it('AK-K-06-h własność: plik z paczki i dokładnie tego języka; usuwane tylko inne `tresc-*.db` z urządzenia', () => {
     const wersja = fc.stringMatching(/^[0-9a-z]{1,8}$/);
+    // obce nazwy spoza wzorca `tresc-*.db` (usuwanie „wszystkiego poza znanymi plikami” ma paść)
+    const obca = fc.stringMatching(/^[a-z][a-z0-9.-]{0,11}$/).filter((n) => !/^tresc-.*\.db$/.test(n));
     const jezyk = fc.constantFrom(...JEZYKI);
     const nazwaTresci = fc.tuple(wersja, jezyk).map(([w, j]) => plik(w, j));
     fc.assert(fc.property(
-      wersja, jezyk, fc.uniqueArray(nazwaTresci, { maxLength: 6 }), fc.subarray(DANE),
-      (w, j, staraTresc, dane) => {
+      wersja, jezyk, fc.uniqueArray(nazwaTresci, { maxLength: 6 }), fc.subarray(DANE), fc.uniqueArray(obca, { maxLength: 4 }),
+      (w, j, staraTresc, dane, obce) => {
         const wPaczce = JEZYKI.map((x) => plik(w, x));
-        const naUrzadzeniu = [...staraTresc, ...dane];
+        const naUrzadzeniu = [...staraTresc, ...dane, ...obce];
         const r = planTresci({ wPaczce, naUrzadzeniu, jezyk: j });
         expect(r.ok).toBe(true);
         if (!r.ok) return;

@@ -2,7 +2,7 @@
 // tlo-i-bledy.md §4 `tresc_niedostepna`). Uzupełnienie roli 07 (luka dla 05, E3): moduly.md wymienia „wybór pliku treści”
 // w apps/mobile/src/data bez sygnatury; decyzja i kolejność kroków są czystym TypeScriptem, więc tu, z portem plików
 // (kształt według expo-file-system: readDirectoryAsync, copyAsync, moveAsync, deleteAsync), a adapter w apps/mobile.
-// Kontrakt nazw: `tresc-<wersja>-<jezyk>.db`; wersja bez „-” (cyfry albo skrót), język z listy `@szkola/jezyki` (może mieć „-”: es-419, pt-BR).
+// Kontrakt nazw: `tresc-<wersja>-<jezyk>.db`; wersja: jeden lub więcej znaków bez „-” i „/” (cyfry albo skrót), język z listy `@szkola/jezyki` (może mieć „-”: es-419, pt-BR).
 import { niezaimplementowane } from './niezaimplementowane';
 import type { Wynik } from './typy';
 
@@ -35,7 +35,7 @@ export function sprawdzMetaTresci(
 
 export interface PlikiTresci {
   lista(katalog: string): Promise<string[]>; // nazwy plików w katalogu (bez ścieżki)
-  kopiuj(z: string, na: string): Promise<void>; // może zostawić niepełny plik `na` przy przerwaniu
+  kopiuj(z: string, na: string): Promise<void>; // bez nadpisywania istniejącego celu; przerwanie może zostawić niepełny plik `na`
   przemianuj(z: string, na: string): Promise<void>; // bez nadpisywania istniejącego celu
   usun(sciezka: string): Promise<void>; // idempotentne
 }
@@ -45,11 +45,13 @@ export interface OpcjeTresci<B> {
   jezyk: string;
   pliki: PlikiTresci;
   otworz: (sciezka: string) => Promise<{ baza: B; meta: Record<string, string> | null }>; // wyjątek = plik nieczytelny
+  zamknij: (baza: B) => Promise<void>; // każda baza otwarta, a nie zwrócona w wyniku (np. odrzucony manifest), jest zamykana
   obslugiwanyFormat: number; // KONFIGURACJA.TRESC_FORMAT
 }
-// Start treści: plan → (kopia) → otwarcie i sprawdzenie manifestu → usunięcie starych plików. Nie rzuca: każdy błąd
-// pliku albo kopii to `tresc_niedostepna`; pliki postępu nietknięte. Przerwana kopia nie może zablokować kolejnego startu
-// (ADR 0005 pkt 2 „instalacja atomowa”; „Potwierdzenie”: przerwanie przed przełączeniem zostawia stary plik).
+// Start treści: plan → (kopia) → otwarcie i sprawdzenie manifestu → usunięcie starych plików. Nie rzuca: błąd planu, kopii,
+// otwarcia albo manifestu to `tresc_niedostepna`; pliki inne niż `tresc-*.db` nietknięte. Przerwana kopia — także przez
+// zabicie procesu, bez `catch` — nie może zablokować kolejnego startu (ADR 0005 pkt 2 „instalacja atomowa”; „Potwierdzenie”:
+// przerwanie przed przełączeniem zostawia stary plik). Błąd usunięcia starego pliku po udanym otwarciu: luka dla 05.
 export function przygotujTresc<B>(_o: OpcjeTresci<B>): Promise<Wynik<{ baza: B; meta: MetaTresci; plik: string }, PowodTresci>> {
   return niezaimplementowane('przygotujTresc (ADR 0005, K-06, tresc_niedostepna)');
 }

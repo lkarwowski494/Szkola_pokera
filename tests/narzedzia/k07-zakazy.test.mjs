@@ -19,6 +19,7 @@ test('każdy zakaz z K-07 i D-174 ma regułę i łapie przykład użycia', () =>
     iapkit: ['await verifyPurchaseWithProvider(p);', 'const k = kitApi();', "import { x } from 'iapkit';"],
     'token-push': ['await Notifications.getExpoPushTokenAsync();', 'await Notifications.getDevicePushTokenAsync();'],
     'zadania-w-tle': ["import * as BackgroundTask from 'expo-background-task';", "import * as TaskManager from 'expo-task-manager';"],
+    forceOverwrite: ["await SQLite.importDatabaseFromAssetAsync('t.db', { assetId, forceOverwrite: true });"],
     'siec': ['await fetch(url);', 'const r = await fetch (url)', 'new XMLHttpRequest()', 'new WebSocket(u)', "import axios from 'axios';", 'new EventSource(u)'],
   };
   assert.deepEqual(Object.keys(przyklady).sort(), REGULY.map((r) => r.id).filter((id) => !['setInterval-domena', 'getEachAsync'].includes(id)).sort());
@@ -34,6 +35,7 @@ test('dozwolone użycia nie są trafieniem', () => {
     'try { x(); } catch (e) { log(e); }',
     'const replaceInto = 1; s.replace(/a/g, "b");',
     'const prefetch = 1; refetch(); myfetcher();',
+    '{ assetSource: { assetId, forceOverwrite: false } }',
   ]) assert.deepEqual(reguly([plik(K, t)]), [], t);
 });
 
