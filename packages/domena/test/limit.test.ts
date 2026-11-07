@@ -1,9 +1,9 @@
 // Testy akceptacyjne limitu dnia (BR-LIM-001, -003, -005; ADR 0007 „Potwierdzenie”; K-05). Oczekiwane wartości:
 // parametr LIMIT_AKTYWNOSCI_DZIENNIE z konfiguracji (D-107) i data w strefie z Intl (tests/narzedzia/czas.ts), nie z kodu aplikacji.
 import { describe, expect, it } from 'vitest';
-import { KONFIGURACJA as K, limitDnia, mozeStartowac, type Limit, type RodzajAktywnosci } from '../../../packages/domena/src';
-import { dzienW, nastepnyDzien, poczatekDnia, przejsciaCzasu } from '../../narzedzia/czas';
-import { lataTestowe, STREFY_TESTOWE } from '../../narzedzia/strefy';
+import { KONFIGURACJA as K, limitDnia, mozeStartowac, type Limit, type RodzajAktywnosci } from '../src';
+import { dzienW, nastepnyDzien, poczatekDnia, przejsciaCzasu } from '../../../tests/narzedzia/czas';
+import { lataTestowe, STREFY_TESTOWE } from '../../../tests/narzedzia/strefy';
 
 const WYCZERPANY: Limit = { bezLimitu: false, pozostalo: 0, odnowienieMs: 0 };
 const JEDNA: Limit = { bezLimitu: false, pozostalo: K.LIMIT_AKTYWNOSCI_DZIENNIE, odnowienieMs: 0 };
