@@ -26,7 +26,7 @@ import {
   type ZdarzenieAktywnosci,
   type ZdarzenieImportu,
   type ZdarzenieZakupu,
-} from '../../../packages/domena/src';
+} from '../src';
 
 const WYCZERPANY: Limit = { bezLimitu: false, pozostalo: 0, odnowienieMs: 0 };
 const JEDNA: Limit = { bezLimitu: false, pozostalo: K.LIMIT_AKTYWNOSCI_DZIENNIE, odnowienieMs: 0 };

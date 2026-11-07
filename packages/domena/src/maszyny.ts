@@ -2,8 +2,9 @@
 // Zaślepki roli 07 (E3). ADR 0010 podaje kształt `przejscie(stan, zdarzenie) → stan | blad`, moduly.md tabele bez sygnatur
 // TypeScript; typy stanu i zdarzeń niżej uzupełniła rola 07 (luka dla 05, strategia.md §9 część 5). Funkcje są czyste:
 // nie zmieniają argumentów, czas przychodzi w zdarzeniu (`teraz`), zapis robi port bazy w tej samej transakcji (ADR 0010 pkt 2).
-import type { Limit } from './limit';
-import { niezaimplementowane } from './niezaimplementowane';
+import type { Konfiguracja } from './konfiguracja';
+import { KONFIGURACJA } from './konfiguracja';
+import { mozeStartowac, type Limit } from './limit';
 import type { RodzajAktywnosci, Wynik } from './typy';
 
 // --- aktywnosc (sesja, powtórki, scenariusz, test modułu, lekcja, ocena poziomu; stan trwały: aktywnosc.stan + krok) ---
@@ -35,7 +36,7 @@ export type ZdarzenieAktywnosci =
 export type PowodAktywnosci = 'przejscie_niedozwolone' | 'akcja_niedostepna' | 'krok_niezgodny';
 
 // Wiersz „— start” tabeli: start tylko, gdy `mozeStartowac` pozwala (ADR 0007 pkt 3: limit sprawdzany raz, przy starcie).
-export function startAktywnosci(_wej: {
+export function startAktywnosci(wej: {
   rodzaj: RodzajAktywnosci;
   pierwszePodejscieTestu: boolean;
   limit: Limit;
@@ -44,11 +45,48 @@ export function startAktywnosci(_wej: {
   dzienLokalny: string;
   strefa: string;
 }): Wynik<AktywnoscWToku, 'limit_wyczerpany' | 'plan_niepoprawny'> {
-  return niezaimplementowane('startAktywnosci (ADR 0010, 0007, BR-LIM-001)');
+  if (!planPoprawny(wej.rodzaj, wej.plan, KONFIGURACJA)) return { ok: false, powod: 'plan_niepoprawny' };
+  const m = mozeStartowac(wej.rodzaj, wej.pierwszePodejscieTestu, wej.limit);
+  if (!m.start) return { ok: false, powod: m.powod };
+  return {
+    ok: true,
+    wartosc: {
+      stan: 'w_toku', rodzaj: wej.rodzaj, zLimitu: m.zLimitu, dzienLokalny: wej.dzienLokalny, strefa: wej.strefa,
+      startMs: wej.teraz, plan: wej.plan, krok: 0,
+    },
+  };
 }
 
-export function przejscieAktywnosci(_a: Aktywnosc, _z: ZdarzenieAktywnosci): Wynik<Aktywnosc, PowodAktywnosci> {
-  return niezaimplementowane('przejscieAktywnosci (ADR 0010, BR-CWI-004, BR-LIM-002, D-109)');
+// Plan: dodatnia całkowita liczba kroków; ocena poziomu najwyżej OCENA_POZIOMU_MAKS_PYTAN (D-105; dłuższy odrzucony, nie
+// skracany — skracanie zmieniałoby plan zapisany w bazie po cichu); scenariusz: niepusta lista akcji z oceną dla każdego kroku (D-109).
+function planPoprawny(rodzaj: RodzajAktywnosci, plan: PlanAktywnosci, k: Konfiguracja): boolean {
+  if (!Number.isInteger(plan.liczbaKrokow) || plan.liczbaKrokow <= 0) return false;
+  if (rodzaj === 'ocena_poziomu' && plan.liczbaKrokow > k.OCENA_POZIOMU_MAKS_PYTAN) return false;
+  if (rodzaj === 'scenariusz') {
+    const akcje = plan.akcjeZOcena;
+    if (!akcje || akcje.length !== plan.liczbaKrokow || akcje.some((a) => a.length === 0)) return false;
+  }
+  return true;
+}
+
+// Tabela `aktywnosc` z moduly.md. Przejścia nie zależą od limitu ani od daty (BR-LIM-002): rozpoczęta aktywność kończy się
+// bez ekranu zakupu. Kolejność sprawdzeń przy `odpowiedz`: stan, krok, akcja (podwójne naciśnięcie po zapisie → krok_niezgodny).
+export function przejscieAktywnosci(a: Aktywnosc, z: ZdarzenieAktywnosci): Wynik<Aktywnosc, PowodAktywnosci> {
+  if (a.stan !== 'w_toku') return { ok: false, powod: 'przejscie_niedozwolone' };
+  switch (z.typ) {
+    case 'wznow':
+      return { ok: true, wartosc: a };
+    case 'porzuc':
+      return { ok: true, wartosc: { ...a, stan: 'porzucona', koniecMs: z.teraz } };
+    case 'odpowiedz': {
+      if (z.krok !== a.krok) return { ok: false, powod: 'krok_niezgodny' };
+      if (a.rodzaj === 'scenariusz' && (z.akcja === undefined || !(a.plan.akcjeZOcena?.[a.krok] ?? []).includes(z.akcja))) {
+        return { ok: false, powod: 'akcja_niedostepna' };
+      }
+      if (a.krok >= a.plan.liczbaKrokow - 1) return { ok: true, wartosc: { ...a, stan: 'zakonczona', koniecMs: z.teraz } };
+      return { ok: true, wartosc: { ...a, krok: a.krok + 1 } };
+    }
+  }
 }
 
 // Wejście do przepływu (PR-03, PR-05): aktywność w toku tego rodzaju i tej treści → wznowienie bez sprawdzania limitu
@@ -61,14 +99,19 @@ export type WejscieDoAktywnosci =
   | { akcja: 'start'; zLimitu: boolean }
   | { akcja: 'porzuc_i_start'; porzuc: AktywnoscWToku; zLimitu: boolean }
   | { akcja: 'ekran_zakupu' };
+// `wToku` innego rodzaju nie koliduje (porzucenie dotyczy „innej aktywności tego rodzaju”, moduly.md).
 export function wejscieDoAktywnosci(
-  _rodzaj: RodzajAktywnosci,
-  _trescId: string | null,
-  _wToku: AktywnoscWToku | null,
-  _pierwszePodejscieTestu: boolean,
-  _limit: Limit,
+  rodzaj: RodzajAktywnosci,
+  trescId: string | null,
+  wToku: AktywnoscWToku | null,
+  pierwszePodejscieTestu: boolean,
+  limit: Limit,
 ): WejscieDoAktywnosci {
-  return niezaimplementowane('wejscieDoAktywnosci (ADR 0007 pkt 3, BR-LIM-002)');
+  const tegoRodzaju = wToku !== null && wToku.rodzaj === rodzaj ? wToku : null;
+  if (tegoRodzaju && tegoRodzaju.plan.trescId === trescId) return { akcja: 'wznow', aktywnosc: tegoRodzaju };
+  const m = mozeStartowac(rodzaj, pierwszePodejscieTestu, limit);
+  if (!m.start) return { akcja: 'ekran_zakupu' };
+  return tegoRodzaju ? { akcja: 'porzuc_i_start', porzuc: tegoRodzaju, zLimitu: m.zLimitu } : { akcja: 'start', zLimitu: m.zLimitu };
 }
 
 // --- zakup (w pamięci, bez tabeli; stan trwały to transakcje sklepu) ---
@@ -88,8 +131,30 @@ export type ZdarzenieZakupu =
   | { typ: 'blad_sklepu' }
   | { typ: 'brak_zakupow' }
   | { typ: 'komunikat_zamkniety' };
-export function przejscieZakupu(_s: StanZakupu, _z: ZdarzenieZakupu): Wynik<StanZakupu, 'przejscie_niedozwolone'> {
-  return niezaimplementowane('przejscieZakupu (ADR 0010, BR-ZAK-002)');
+// Tabela `zakup` z moduly.md; `w_toku` rozróżnia operację (uzupełnienie 07). Pary, o których tabela milczy → przejscie_niedozwolone
+// (stan bez zmian; do potwierdzenia przez 05, plan-08 część 2). Drugi `kup` w toku albo w oczekiwaniu → błąd (R-48).
+export function przejscieZakupu(s: StanZakupu, z: ZdarzenieZakupu): Wynik<StanZakupu, 'przejscie_niedozwolone'> {
+  const na = (stan: StanZakupu): Wynik<StanZakupu, 'przejscie_niedozwolone'> => ({ ok: true, wartosc: stan });
+  switch (s.stan) {
+    case 'bezczynny':
+      if (z.typ === 'kup') return na({ stan: 'w_toku', operacja: 'kup' });
+      if (z.typ === 'przywroc') return na({ stan: 'w_toku', operacja: 'przywroc' });
+      break;
+    case 'w_toku':
+      if (z.typ === 'transakcja_zakonczona') return na({ stan: 'zakonczony' });
+      if (z.typ === 'anulowano') return na({ stan: 'bezczynny' });
+      if (z.typ === 'blad_sklepu') return na({ stan: 'blad' });
+      if (s.operacja === 'kup' && z.typ === 'oczekuje') return na({ stan: 'oczekuje' });
+      if (s.operacja === 'przywroc' && z.typ === 'brak_zakupow') return na({ stan: 'brak_zakupow' });
+      break;
+    case 'oczekuje':
+      if (z.typ === 'transakcja_z_nasluchu') return na({ stan: 'zakonczony' });
+      break;
+    case 'blad':
+      if (z.typ === 'komunikat_zamkniety') return na({ stan: 'bezczynny' });
+      break;
+  }
+  return { ok: false, powod: 'przejscie_niedozwolone' };
 }
 
 // --- import (PR-07) ---
@@ -102,6 +167,17 @@ export type ZdarzenieImportu =
   | { typ: 'anuluj' } // rezygnacja (R-13); tabela moduly.md nie ma tego wiersza — pary z `anuluj` nierozstrzygnięte (luka dla 05)
   | { typ: 'zapisano' }
   | { typ: 'blad_zapisu' };
-export function przejscieImportu(_s: StanImportu, _z: ZdarzenieImportu): Wynik<StanImportu, 'przejscie_niedozwolone'> {
-  return niezaimplementowane('przejscieImportu (ADR 0010, 0008, BR-DANE-002)');
+// Tabela `import` z moduly.md. Zapis bez potwierdzenia tylko, gdy postępu nie ma (BR-DANE-002). `anuluj` nie ma wiersza
+// w tabeli → przejscie_niedozwolone (przepływ zamyka się bez zmiany stanu maszyny; do potwierdzenia przez 05).
+export function przejscieImportu(s: StanImportu, z: ZdarzenieImportu): Wynik<StanImportu, 'przejscie_niedozwolone'> {
+  const na = (stan: StanImportu): Wynik<StanImportu, 'przejscie_niedozwolone'> => ({ ok: true, wartosc: stan });
+  if (s === 'wybor_pliku' && z.typ === 'plik_wybrany') return na('walidacja');
+  if (s === 'walidacja' && z.typ === 'zwalidowano') {
+    if (z.wynik !== 'ok') return na(z.wynik);
+    return na(z.istniejacyPostep ? 'potwierdzenie' : 'zapis');
+  }
+  if (s === 'potwierdzenie' && z.typ === 'potwierdz') return na('zapis');
+  if (s === 'zapis' && z.typ === 'zapisano') return na('gotowe');
+  if (s === 'zapis' && z.typ === 'blad_zapisu') return na('blad_zapisu');
+  return { ok: false, powod: 'przejscie_niedozwolone' };
 }
