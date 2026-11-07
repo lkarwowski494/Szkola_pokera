@@ -79,7 +79,7 @@ test('nocny.yml: grupy mutacji poker-core obejmują każdy plik src/ (bez bots.t
   assert.deepEqual([...pliki].sort(), [...src].sort());
 });
 
-test('testflight.yml: bramka E2E (D-170) przed buildem — zielony e2e.yml na tym commicie albo awaryjne pominięcie z powodem', () => {
+test('testflight.yml: bramka E2E (D-170) przed buildem — zielony e2e-ios.yml na tym commicie albo awaryjne pominięcie z powodem', () => {
   const t = json('testflight.yml');
   const wej = t.on.workflow_dispatch?.inputs ?? {};
   assert.equal(wej.pomin_bramke_e2e?.type, 'boolean');
@@ -112,7 +112,7 @@ test('testflight.yml: czekanie bramki ≥ limit E2E + 15 min kolejki, a limit za
   const b = json('testflight.yml').jobs.bramka;
   const env = Object.assign({}, ...b.steps.map((s) => s.env ?? {}));
   const czekanieMin = (Number(env.BRAMKA_MAX_POLLS) * Number(env.BRAMKA_POLL_SEC)) / 60;
-  const e2e = json('e2e.yml').jobs.e2e['timeout-minutes'];
+  const e2e = json('e2e-ios.yml').jobs.e2e['timeout-minutes'];
   assert.ok(czekanieMin >= e2e + 15, `czekanie ${czekanieMin} min < ${e2e} + 15`);
   assert.ok(b['timeout-minutes'] >= Math.ceil(czekanieMin) + 5, `timeout ${b['timeout-minutes']} < ${Math.ceil(czekanieMin)} + 5`);
 });

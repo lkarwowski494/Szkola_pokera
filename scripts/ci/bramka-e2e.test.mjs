@@ -1,5 +1,5 @@
 // Testy bramki E2E przed TestFlight (D-170; analogia Trening scripts/ci/bramka-e2e.sh, odczyt 2026-11-07) na przebiegach syntetycznych
-// w kształcie odpowiedzi GitHub API `actions/workflows/e2e.yml/runs?head_sha=…` (pola id, status, conclusion).
+// w kształcie odpowiedzi GitHub API `actions/workflows/e2e-ios.yml/runs?head_sha=…` (pola id, status, conclusion).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { czekaj, liczbaZmiennej, ocen } from './bramka-e2e.mjs';

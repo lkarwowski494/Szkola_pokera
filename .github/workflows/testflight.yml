@@ -13,7 +13,7 @@
 # klucz co w Treningu (klucz należy do zespołu, nie do aplikacji).
 # Numer buildu: 1000 + numer przebiegu tego workflow — tylko rośnie.
 # Bramka E2E (D-170, analogia Trening testflight.yml i scripts/ci/bramka-e2e.sh, odczyt 2026-11-07): zadanie „bramka” na Linuksie
-# czeka na ZIELONY przebieg e2e.yml dla TEGO SAMEGO commitu (scripts/ci/bramka-e2e.mjs); build na macOS startuje dopiero po niej.
+# czeka na ZIELONY przebieg e2e-ios.yml dla TEGO SAMEGO commitu (scripts/ci/bramka-e2e.mjs); build na macOS startuje dopiero po niej.
 # Ścieżka awaryjna (awaria maszyny E2E, nie kodu): wejścia pomin_bramke_e2e + powod — powód trafia do podsumowania przebiegu.
 name: TestFlight (testy wewnętrzne)
 on:
@@ -34,9 +34,9 @@ concurrency:
   cancel-in-progress: false
 jobs:
   bramka:
-    name: bramka E2E (zielony e2e.yml dla tego commitu)
+    name: bramka E2E (zielony e2e-ios.yml dla tego commitu)
     runs-on: ubuntu-latest
-    # czekanie 75 × 60 s = 75 min ≥ limit e2e.yml (42) + kolejka; limit zadania = czekanie + 5 (test w workflowy.test.mjs)
+    # czekanie 75 × 60 s = 75 min ≥ limit e2e-ios.yml (42) + kolejka; limit zadania = czekanie + 5 (test w workflowy.test.mjs)
     timeout-minutes: 80
     permissions:
       contents: read
@@ -62,7 +62,7 @@ jobs:
             exit 0
           fi
           node scripts/ci/bramka-e2e.mjs "$GITHUB_REPOSITORY" "$GITHUB_SHA"
-          echo "Bramka E2E: zielony przebieg e2e.yml #$(sed -n 's/^run=//p' "$GITHUB_OUTPUT" | tail -1) na commicie $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
+          echo "Bramka E2E: zielony przebieg e2e-ios.yml #$(sed -n 's/^run=//p' "$GITHUB_OUTPUT" | tail -1) na commicie $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
   build:
     needs: bramka
     # Expo SDK 57 wymaga Xcode 26.4+; obraz macos-26 ma domyślnie Xcode 26.4.1 (jak iphone-local.yml)

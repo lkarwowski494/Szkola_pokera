@@ -411,7 +411,8 @@ Plus jedna linia w „Dokumentacja projektu”: „Architektura w repo: `docs/ar
 - Część 10 (2026-11-07, D-171): hook pre-push agenta (`.claude/settings.json`, `scripts/pre-push-check.mjs`, 11 s, kod 2 przy porażce; 5 testów, mutacje 3/3).
 - Część 11 (2026-11-07, D-190): workflowy `ci.yml`, `e2e.yml`, `nocny.yml` + kontrole w `pnpm test:skrypty` (67/67); przegląd D-043: 0 KRYTYCZNYCH/WYSOKICH, 5 ŚREDNICH poprawionych; zasada właściciela D-191 (najpierw Trening) w `CLAUDE.md`.
 - Część 12 (2026-11-07, D-193): bramka E2E w `testflight.yml` (zadanie `bramka` na Linuksie, `scripts/ci/bramka-e2e.mjs`, pominięcie awaryjne z powodem); `pnpm test:skrypty` 77/77, `pnpm run ci` kod 0; przegląd D-043: 0 KRYTYCZNYCH/WYSOKICH, 2 ŚREDNIE i 5 NISKICH poprawionych.
-- Zostaje w E3 (po części 12): pierwszy przebieg `e2e.yml` na gałęzi (D-192) — workflow ma stan `disabled_manually` (sprawdzone 2026-11-07, `list_workflows`), włącza właściciel; scalenie zmian workflowów — właściciel; potem STOP E3.
+- D-194 (2026-11-07): `e2e.yml` → `e2e-ios.yml` (nowy plik aktywny bez kroku właściciela, jak w Treningu), push także na `claude/**`.
+- Zostaje w E3 (po części 12): ocena pierwszego przebiegu `e2e-ios.yml` na gałęzi (D-192, D-194); scalenie zmian workflowów — właściciel; potem STOP E3.
 
 ## Punkt czyszczenia (2026-11-07, po części 11, duży kontekst; rola 07 E3 prawie zakończona)
 Przekazanie do wklejenia w nową sesję (opus/high):

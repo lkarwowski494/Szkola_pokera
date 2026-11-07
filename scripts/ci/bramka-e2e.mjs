@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-// Bramka E2E przed wysyłką do TestFlight (D-170). Na TYM SAMYM commicie musi istnieć zielony przebieg e2e.yml (każdy przebieg
-// e2e.yml uruchamia cały zestaw flowów z bramki; urządzenie i wygląd nie zawężają zestawu). Trwający przebieg: czeka. Czerwony
+// Bramka E2E przed wysyłką do TestFlight (D-170). Na TYM SAMYM commicie musi istnieć zielony przebieg e2e-ios.yml (każdy przebieg
+// e2e-ios.yml uruchamia cały zestaw flowów z bramki; urządzenie i wygląd nie zawężają zestawu). Trwający przebieg: czeka. Czerwony
 // albo brak: błąd z instrukcją. Analogia: Trening scripts/ci/bramka-e2e.sh (odczyt 2026-11-07, D-191). Odstępstwa nazwane:
 // (1) Node zamiast basha — skrypty scripts/ci/ w tym repo są w Node z testami `node --test`; (2) bez filtra tytułu przebiegu —
-// e2e.yml nie ma pakietów ani wyboru flowów; (3) przebieg anulowany albo pominięty nie jest czerwony — nie mówi nic o kodzie
+// e2e-ios.yml nie ma pakietów ani wyboru flowów; (3) przebieg anulowany albo pominięty nie jest czerwony — nie mówi nic o kodzie
 // (push anuluje poprzedni przebieg tej samej gałęzi, D-190), więc bez innego przebiegu kończy się jak „brak”; (4) błąd zapytania
 // nie zmienia stanu — w Treningu pusta odpowiedź przy błędzie kończyła czekanie jako „brak” (przegląd D-043, 2026-11-07); po
 // BLEDY_Z_RZEDU kolejnych błędach bramka pada z komunikatem o API. Jak w Treningu i D-178: zielony przebieg wygrywa także z
@@ -25,7 +25,7 @@ export function liczbaZmiennej(env, k, d) {
   return n;
 }
 
-/** Stan bramki z listy przebiegów e2e.yml na jednym commicie: ok > trwa > czerwony > brak. */
+/** Stan bramki z listy przebiegów e2e-ios.yml na jednym commicie: ok > trwa > czerwony > brak. */
 export function ocen(przebiegi) {
   const ok = przebiegi.find((r) => r.status === 'completed' && r.conclusion === 'success');
   if (ok) return { stan: 'ok', id: ok.id };
@@ -57,23 +57,23 @@ export function czekaj({ pobierz, spij, pisz, sha, grace, max, pollSec = 60, wyn
       continue;
     }
     if (s.stan === 'ok') {
-      pisz(`Bramka E2E: OK — zielony przebieg e2e.yml #${s.id} na commicie ${krotki}`);
+      pisz(`Bramka E2E: OK — zielony przebieg e2e-ios.yml #${s.id} na commicie ${krotki}`);
       wynik('run', s.id);
       return 0;
     }
     if (s.stan === 'trwa') {
       if (n >= max) {
-        pisz(`::error::Bramka E2E: limit czekania (${max} × ${pollSec} s) — przebieg e2e.yml #${s.id} nadal trwa. Poczekaj na wynik i uruchom TestFlight ponownie.`);
+        pisz(`::error::Bramka E2E: limit czekania (${max} × ${pollSec} s) — przebieg e2e-ios.yml #${s.id} nadal trwa. Poczekaj na wynik i uruchom TestFlight ponownie.`);
         return 1;
       }
-      pisz(`Bramka E2E: czekam na przebieg e2e.yml #${s.id} (sprawdzenie ${n})`);
+      pisz(`Bramka E2E: czekam na przebieg e2e-ios.yml #${s.id} (sprawdzenie ${n})`);
     } else if (s.stan === 'czerwony') {
-      pisz(`::error::Bramka E2E: przebieg e2e.yml #${s.id} na commicie ${krotki} jest czerwony — popraw, poczekaj na zielony przebieg i ponów.`);
+      pisz(`::error::Bramka E2E: przebieg e2e-ios.yml #${s.id} na commicie ${krotki} jest czerwony — popraw, poczekaj na zielony przebieg i ponów.`);
       return 1;
     } else {
       if (n >= grace) {
         const an = s.anulowany ? ` (jest tylko anulowany albo pominięty #${s.anulowany})` : '';
-        pisz(`::error::Bramka E2E: brak przebiegu e2e.yml na commicie ${krotki}${an}. Uruchom Actions → „E2E (Maestro, symulator iOS)” → Run workflow na tej gałęzi, poczekaj na zielony wynik i ponów TestFlight. Awaria E2E nie z winy kodu (maszyna): wejścia pomin_bramke_e2e + powod.`);
+        pisz(`::error::Bramka E2E: brak przebiegu e2e-ios.yml na commicie ${krotki}${an}. Uruchom Actions → „E2E iOS (symulator)” → Run workflow na tej gałęzi, poczekaj na zielony wynik i ponów TestFlight. Awaria E2E nie z winy kodu (maszyna): wejścia pomin_bramke_e2e + powod.`);
         return 1;
       }
       pisz(`Bramka E2E: jeszcze brak przebiegu E2E dla ${krotki} (sprawdzenie ${n} z ${grace})`);
@@ -97,7 +97,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
   }
   const kod = czekaj({
     pobierz: () =>
-      JSON.parse(execFileSync('gh', ['api', `repos/${repo}/actions/workflows/e2e.yml/runs?head_sha=${sha}&per_page=100`], { encoding: 'utf8' }))
+      JSON.parse(execFileSync('gh', ['api', `repos/${repo}/actions/workflows/e2e-ios.yml/runs?head_sha=${sha}&per_page=100`], { encoding: 'utf8' }))
         .workflow_runs.map(({ id, status, conclusion }) => ({ id, status, conclusion })),
     spij: (s) => execFileSync('sleep', [String(s)]),
     pisz: (t) => console.log(t),

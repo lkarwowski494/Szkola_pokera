@@ -8,10 +8,14 @@
 # Node i ustawień agenta; ręcznie (wejścia: urządzenie, wygląd); workflow_call z nocny.yml (mały ekran, ciemny wygląd).
 # Bez pull_request (25 min czekania na PR, D-170). Nieudany flow ponawiany RAZ osobno; zielony w ponowieniu wypisany
 # w podsumowaniu, drugi czerwony = porażka (D-178). D-181: pierwszy przebieg na gałęzi po przeglądzie tego pliku.
-name: E2E (Maestro, symulator iOS)
+# D-194 (2026-11-07): plik przeniesiony z e2e.yml (wyłączony ręcznie 20.10 — stan wyłączenia jest przypięty do pliku i zdjąć go
+# może tylko administrator) pod nazwę z Treningu; nowy plik jest aktywny bez kroku właściciela. Push także na claude/**
+# (odstępstwo od Treningu: gałąź agenta jest tu gałęzią integracyjną przebudowy, a workflow_dispatch nie widzi workflowu
+# nieobecnego na main, zanim raz się uruchomi); informacyjnie, poprzedni przebieg tej gałęzi anulowany.
+name: E2E iOS (symulator)
 on:
   push:
-    branches: [main, 'integration/**']
+    branches: [main, 'integration/**', 'claude/**']
     paths-ignore: ['docs/**', '**/*.md', 'tests/**', '.claude/**']
   workflow_dispatch:
     inputs:
