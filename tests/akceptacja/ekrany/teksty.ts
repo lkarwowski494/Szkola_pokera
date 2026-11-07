@@ -14,6 +14,12 @@ export const NAZWY = {
   sprobujPonownie: /^Spróbuj ponownie$/, // design-spec.md, macierz stanów „Limit i zakup”
   warunki: /warunki/i, // monetyzacja.md:75 „odnośniki do warunków (Terms of Use)”
   prywatnosc: /prywatno/i, // monetyzacja.md:75 „i polityki prywatności”
+  zacznij: /^Zacznij/, // start aktywności (BR-LIM-001 „otworzy start sesji”)
+  eksportuj: /^Eksportuj postęp$/, // BR-DANE-001 „Eksportuj postęp”
+  importuj: /^Importuj postęp$/, // BR-DANE-002 „wybierze import”
+  ocenWSklepie: /^Oceń w sklepie$/, // BR-OPIN-002
+  napiszDoNas: /^Napisz do nas$/, // BR-OPIN-002
+  zglosBlad: /^Zgłoś błąd/, // BR-OPIN-003 „Zgłoś błąd”; słownik interakcji „Zgłoś błąd w tym zadaniu”
 } as const;
 
 /** Znaczenia z kryteriów (BR-ONB-004, BR-ZAK-001–003, design-spec.md macierz stanów). */
@@ -33,4 +39,15 @@ export const ZNACZENIA = {
   brakZakupow: /Nie znaleźliśmy zakupów/, // design-spec.md macierz „przywracanie bez zakupu”; BR-ZAK-003
   start: /zacznij|rozpocznij/i, // BR-ONB-001 „przycisk rozpoczęcia nauki”
   potwierdzUsun: /usuń/i, // przycisk potwierdzenia w Alert (BR-DANE-003)
+  // BR-LIM-001 „ma dziś 1 darmową aktywność”; „0 darmowych aktywności na dziś i godzinę odnowienia”; design-spec.md „Dziś”
+  licznik: (n: number) => new RegExp(`\\b${n}\\b[^.]*darmow`, 'i'),
+  licznikDowolny: /darmow|dzienn\w* limit/i,
+  odnowienie: /odnowi[^.]*(o północy|00:00)/i, // ADR 0007: odnowienie o północy czasu telefonu; design-spec.md „odnowi się o północy”
+  powtorkiPoczekaja: /poczekaj/i, // BR-LIM-004 „powtórki poczekają do odnowienia limitu”
+  nicNieUtracone: /utrac|stracisz/i, // BR-LIM-004 „nic nie zostanie utracone”
+  zastapienie: /zastąp/i, // BR-DANE-002 „ostrzeżenie, że obecny postęp zostanie zastąpiony”
+  potwierdzImport: /importuj|zastąp/i, // przycisk potwierdzenia w Alert importu
+  blednyPlik: /błędn|nie pochodzi|uszkodzon/i, // BR-DANE-002 „komunikat o błędnym pliku”
+  nowszaWersja: /zaktualizuj|aktualizacj/i, // BR-DANE-002 „prośbę o aktualizację aplikacji”
+  ostatniEksport: /ostatni\w* eksport/i, // BR-DANE-001 „datę ostatniego eksportu”
 } as const;
