@@ -1,7 +1,7 @@
 # Flowy oczekujące (rola 07 E3, D-189)
 
 Flowy PR-01, PR-03–PR-05 i drugiego języka pisane przed ekranami roli 08 (strategia.md §5.3). Leżą poza
-`flows: '*.yaml'` w `../config.yaml`, więc `e2e.yml` ich nie uruchamia i nie blokują scalenia, dopóki nie przejdą.
+`flows: '*.yaml'` w `../config.yaml`, więc `e2e-ios.yml` ich nie uruchamia i nie blokują scalenia, dopóki nie przejdą.
 Rola 08 przenosi flow do `apps/mobile/e2e/` w commicie, w którym przechodzi na symulatorze (jak testy z `tests/akceptacja/`, D-175).
 
 Uruchomienie lokalne (macOS z Xcode, aplikacja zbudowana na symulator):
