@@ -1,0 +1,66 @@
+// K-06, część na wyjściu `content-build` (ADR 0005 pkt 1, 3, 5, „Potwierdzenie”; NFR-JEZ-001, NFR-JEZ-002): pliki w paczce
+// aplikacji (`apps/mobile/assets/content`, aktualność pilnuje `pnpm content:check`). Wyrocznie: lista języków z
+// `@szkola/jezyki` (jedno źródło, D-131), format z konfiguracji, nazwa pliku z ADR 0005 pkt 2.
+// Część „te same identyfikatory i liczby” wymaga co najmniej dwóch języków, więc zostaje czerwona do przekładu treści.
+import { existsSync, readdirSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { DatabaseSync } from 'node:sqlite';
+import { fileURLToPath } from 'node:url';
+import { describe, expect, it } from 'vitest';
+import { KONFIGURACJA as K } from '../../../packages/domena/src';
+import { JEZYKI } from '../../../packages/jezyki/src';
+
+const KATALOG = join(dirname(fileURLToPath(import.meta.url)), '../../../apps/mobile/assets/content');
+const WZOR = /^tresc-([0-9a-z]+)-(.+)\.db$/; // wersja bez „-” (kontrakt nazw w packages/domena/src/tresc.ts)
+const plikiTresci = () => (existsSync(KATALOG) ? readdirSync(KATALOG).filter((n) => n.endsWith('.db')).sort() : []);
+
+function czytaj(n: string) {
+  const db = new DatabaseSync(join(KATALOG, n), { readOnly: true });
+  try {
+    const meta = Object.fromEntries((db.prepare('SELECT key, value FROM meta').all() as { key: string; value: string }[]).map((r) => [r.key, r.value]));
+    const kolumna = (t: string, k: string) => (db.prepare(`SELECT ${k} AS k FROM ${t} ORDER BY ${k}`).all() as { k: string }[]).map((r) => r.k);
+    return {
+      meta,
+      // identyfikatory niezależne od języka (ADR 0005 pkt 3): lekcja, zadanie, rodzina, moduł, zadanie testu, reguła, zakres, termin
+      ids: {
+        modules: kolumna('modules', 'id'), lessons: kolumna('lessons', 'id'), drills: kolumna('drills', 'id'),
+        rodziny: [...new Set(kolumna('drills', 'family'))], exam_drills: kolumna('exam_drills', 'id'),
+        rules: kolumna('rules', 'id'), ranges: kolumna('ranges', 'id'), terms: kolumna('terms', 'key'),
+      },
+      liczby: db.prepare('SELECT key, value FROM numbers ORDER BY key').all().map((r) => ({ ...r })),
+    };
+  } finally { db.close(); }
+}
+
+describe('AK-K-06: wyjście content-build (baza na język)', () => {
+  it('AK-K-06-r w paczce są tylko pliki `tresc-<wersja>-<język>.db`, po jednym na każdy z 35 języków, jedna wersja', () => {
+    const pliki = plikiTresci();
+    expect(pliki.filter((n) => !WZOR.test(n))).toEqual([]); // np. stara nazwa content-v6.db
+    const pary = pliki.map((n) => n.match(WZOR)!).map((m) => ({ wersja: m[1], jezyk: m[2] }));
+    expect(pary.map((p) => p.jezyk).sort()).toEqual([...JEZYKI].sort());
+    expect(new Set(pary.map((p) => p.wersja)).size).toBe(1);
+  });
+
+  it('AK-K-06-s każdy plik ma manifest zgodny z nazwą: format, wersja, język, min_wersja_aplikacji', () => {
+    const pliki = plikiTresci().filter((n) => WZOR.test(n));
+    expect(pliki.length).toBeGreaterThan(0);
+    for (const n of pliki) {
+      const [, wersja, jezyk] = n.match(WZOR)!;
+      const { meta } = czytaj(n);
+      expect({ plik: n, format: meta.format, wersja: meta.wersja, jezyk: meta.jezyk }).toEqual({ plik: n, format: String(K.TRESC_FORMAT), wersja, jezyk });
+      expect(meta.min_wersja_aplikacji, n).toMatch(/^\d+\.\d+\.\d+$/);
+    }
+  });
+
+  it('AK-K-06-t te same identyfikatory i te same wartości liczb we wszystkich językach (NFR-JEZ-002)', () => {
+    const pliki = plikiTresci().filter((n) => WZOR.test(n));
+    expect(pliki.length).toBeGreaterThan(1);
+    const [wzor, ...reszta] = pliki.map((n) => ({ n, ...czytaj(n) }));
+    if (!wzor) return;
+    expect(wzor.ids.lessons.length).toBeGreaterThan(0);
+    for (const p of reszta) {
+      expect({ plik: p.n, ids: p.ids }).toEqual({ plik: p.n, ids: wzor.ids });
+      expect({ plik: p.n, liczby: p.liczby }).toEqual({ plik: p.n, liczby: wzor.liczby });
+    }
+  });
+});
