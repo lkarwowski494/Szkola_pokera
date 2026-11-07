@@ -7,6 +7,7 @@ Stan: E4 roli 07 (build), 2026-11-07, commit bazowy 5886657. Źródło prawdy o 
 Testy istnieją; nie piszesz ich od nowa. Dla każdego: zamień znacznik `NIEZAIMPLEMENTOWANE` w zaślepce na najprostszy wynik zgodny z typem, uruchom test i zapisz czerwień na asercji, potem implementuj. Test z katalogu oczekujących przenieś do głównego zestawu w commicie, który go zazielenia (D-175: `tests/akceptacja/…` → testy pakietu albo `apps/mobile`, plik bez zmian poza ścieżkami importu). Błędny test zgłaszasz roli 07.
 
 Dodatkowo (decyzje roli 07, do weta):
+- 07 fix (2026-11-07, D-224): plik oczekujący o tej samej nazwie co plik w `packages/*/test/` **zastępuje** go w commicie, który go zazielenia (tabela: `docs/jakosc/fix-07-2026-11-07.md` „Zlecenie dla 08”).
 - Uruchomienie: `pnpm test:akceptacja` (Vitest domena + Jest ekrany; poza `pnpm run ci`); po przeniesieniu test biegnie w `pnpm run ci` i jest bramką.
 - Zaślepka z sygnaturą zaproponowaną przez rolę 07 (`kurs.ts`, `scenariusz.ts`, `wyjasnienie.ts`, typy maszyn, porty treści i powiadomień, kontrakty propsów ekranów w `apps/mobile/src/features/`) najpierw do potwierdzenia przez 05 (luki w §9); zmiana sygnatury po decyzji 05 to zmiana testu przez 07, nie przez 08.
 - Testy-strażniki (29 zielonych dziś) muszą zostać zielone; czerwień strażnika po zmianie to regresja.

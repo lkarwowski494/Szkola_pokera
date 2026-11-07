@@ -278,6 +278,7 @@ Czas właściciela na wydanie TestFlight: ~15–25 min (pozycje „co wydanie”
 Żadna pozycja nie jest pominięta. „Bramka” obowiązuje od commitu, który wprowadza testowany kod (rola 08); wcześniej test leży w `tests/akceptacja/` (D-175).
 
 ## 9. Testy akceptacyjne: kryterium → test → stan (E3 zakończone 2026-11-07, z częścią 13; przekazanie do 08: `docs/jakosc/przekazanie-08.md`)
+Aktualizacja 07 fix (2026-11-07, D-224): testy, których kontrakt zmieniła rola 05 (D-216–D-221), mają pełne nowe wersje w `tests/akceptacja/` pod nazwą pliku pakietu, który zastępują (dostep, k13-przypomnienie, maszyny, powtorki-wznowienie, k04-k15-port, k12-bledy) albo zmienione w miejscu (kurs, scenariusz, wyjasnienie); wyniki, mutanty i tabela podmiany: `docs/jakosc/fix-07-2026-11-07.md`. Stan `test:akceptacja:domena`: 239 testów, 83 czerwone (asercja albo znacznik), 156 zielonych.
 Uruchomienie: `pnpm test:akceptacja` (D-175; poza `pnpm run ci`) = `test:akceptacja:domena` (Vitest) + `test:akceptacja:ekrany` (Jest + jest-expo + RNTL, `apps/mobile/jest.akceptacja.config.js`, D-187); kod wyjścia 1, gdy którakolwiek część ma czerwień. Stan 2026-11-07 (część 8): 327 testów, 313 czerwonych z właściwego powodu (295 na znaczniku `NIEZAIMPLEMENTOWANE`, 18 na asercji) i 14 zielonych strażników (AK-K-09-a, AK-D050-b, -c: warunek spełniony dla obecnego SDK 57; 11 testów ekranu „Pomoc”: obecny `src/app/help.tsx` spełnia D-158); główny zestaw `pnpm run ci` kod 0.
 
 | Kryterium / kontrola | Test | Stan (fragment wyniku) |
