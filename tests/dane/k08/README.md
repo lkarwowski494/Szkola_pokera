@@ -6,3 +6,4 @@ Katalog `moduly/` udaje `node_modules` (nazwa inna, bo `node_modules/` jest w `.
 - `pkg-przyklad/example/`: manifest z `NSPrivacyTracking` = true w katalogu `example/` (ma być pominięty).
 - `pkg-js`, `pkg-komentarz`: syntetyczne (pakiet bez `ios/`, API tylko w komentarzach).
 Bez danych osobowych.
+Uwaga: `.gitignore` wyklucza `ios/` (prebuild Expo); pliki w `moduly/*/ios/` są dodane jawnie (`git add -f`). Nowy plik w takim katalogu też dodaj z `-f`, inaczej test przejdzie lokalnie, a padnie w CI (sprawdzone na czystej kopii 2026-11-07).
