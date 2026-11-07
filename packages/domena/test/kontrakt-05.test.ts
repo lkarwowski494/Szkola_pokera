@@ -11,6 +11,8 @@ const WIERSZE: [id: string, plik: string, fraza: string][] = [
   ['L8-02', 'adr/0008-kopia-eksport-json-i-kopia-systemu.md', 'kopiaBazy'],
   ['L8-02', 'adr/0003-port-bazy-kolejka-migracje.md', 'postep-przed-v'],
   ['L8-02', 'architektura/moduly.md', 'kopiaBazy'],
+  ['L8-03', 'architektura/moduly.md', 'dlugaOperacja'],
+  ['L8-03', 'adr/0013-ochrona-dlugich-operacji-przed-zawieszeniem.md', 'dlugaOperacja'],
 ];
 
 describe('kontrakt-05: decyzje kodu zapisane w dokumentach', () => {
