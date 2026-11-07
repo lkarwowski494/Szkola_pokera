@@ -4,3 +4,4 @@ export * from './limit';
 export * from './dostep';
 export * from './eksport';
 export * from './tresc';
+export * from './maszyny';
