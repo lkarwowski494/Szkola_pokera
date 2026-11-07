@@ -132,7 +132,7 @@ export type ZdarzenieZakupu =
   | { typ: 'brak_zakupow' }
   | { typ: 'komunikat_zamkniety' };
 // Tabela `zakup` z moduly.md; `w_toku` rozróżnia operację (uzupełnienie 07). Uzupełnienie roli 08 (D-214): wyjście z `brak_zakupow`
-// i przywracanie z `oczekuje`. Pozostałe pary, o których tabela milczy → przejscie_niedozwolone (do potwierdzenia przez 05). Drugi `kup` w toku albo w oczekiwaniu → błąd (R-48).
+// i przywracanie z `oczekuje`. Każda para spoza tabeli → przejscie_niedozwolone (potwierdzone przez 05: moduly.md „Uzupełnienie”, D-210, D-214). Drugi `kup` w toku albo w oczekiwaniu → błąd (R-48).
 export function przejscieZakupu(s: StanZakupu, z: ZdarzenieZakupu): Wynik<StanZakupu, 'przejscie_niedozwolone'> {
   const na = (stan: StanZakupu): Wynik<StanZakupu, 'przejscie_niedozwolone'> => ({ ok: true, wartosc: stan });
   switch (s.stan) {
@@ -167,11 +167,11 @@ export type ZdarzenieImportu =
   | { typ: 'plik_wybrany' }
   | { typ: 'zwalidowano'; wynik: 'ok' | 'bledny_plik' | 'nowsza_wersja'; istniejacyPostep: boolean }
   | { typ: 'potwierdz' }
-  | { typ: 'anuluj' } // rezygnacja (R-13); tabela moduly.md nie ma tego wiersza — pary z `anuluj` nierozstrzygnięte (luka dla 05)
+  | { typ: 'anuluj' } // rezygnacja (R-13); w każdym stanie → przejscie_niedozwolone (moduly.md „import”, D-210)
   | { typ: 'zapisano' }
   | { typ: 'blad_zapisu' };
 // Tabela `import` z moduly.md. Zapis bez potwierdzenia tylko, gdy postępu nie ma (BR-DANE-002). `anuluj` nie ma wiersza
-// w tabeli → przejscie_niedozwolone (przepływ zamyka się bez zmiany stanu maszyny; do potwierdzenia przez 05).
+// w tabeli → przejscie_niedozwolone (przepływ zamyka się bez zmiany stanu maszyny; moduly.md, D-210).
 export function przejscieImportu(s: StanImportu, z: ZdarzenieImportu): Wynik<StanImportu, 'przejscie_niedozwolone'> {
   const na = (stan: StanImportu): Wynik<StanImportu, 'przejscie_niedozwolone'> => ({ ok: true, wartosc: stan });
   if (s === 'wybor_pliku' && z.typ === 'plik_wybrany') return na('walidacja');
