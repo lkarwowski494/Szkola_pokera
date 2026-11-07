@@ -24,6 +24,7 @@ Wybrano „A”, ponieważ plik JSON z kopertą i wersją formatu daje się spra
 Ustalenia wiążące (format szczegółowo w `docs/architektura/dane.md`, E2):
 1. Koperta: `format: "szkola-pokera-postep"`, `wersja_formatu` (liczba całkowita), `utworzono` (ISO 8601 UTC), `aplikacja` (wersja), `dane` (tabele postępu). Bez pamięci podręcznej uprawnień (ADR 0006).
 2. Import: (1) odczyt i walidacja całości w pamięci; obcy `format` albo błąd struktury → „błędny plik”; `wersja_formatu` wyższa niż obsługiwana → „zaktualizuj aplikację”; oba bez dotknięcia bazy; (2) przy istniejącym postępie potwierdzenie (rola 04); (3) kopia `VACUUM INTO` do pliku tymczasowego; (4) zastąpienie w jednej transakcji portu; błąd → `ROLLBACK`, postęp bez zmian; (5) usunięcie kopii po udanym imporcie. Licznik dnia łączony, nie zastępowany (ADR 0007).
+   Wykonanie (L8-02, fix 05 2026-11-07, D-202): kroki (3) i (5) robi wywołujący w `apps/mobile/src/data` — `kopiaBazy(port, ścieżka)` (`VACUUM INTO ?`, poza transakcją, przez kolejkę i ochronę tła) przed `importuj`, usunięcie kopii po `{ ok: true }`; nieudana kopia → import się nie zaczyna (`zapis_nieudany` / `brak_miejsca`). `importuj` sam kopii nie robi (sygnatura bez ścieżki pliku).
 3. Starsza `wersja_formatu`: migracja formatu w domenie (czysta funkcja), przed walidacją.
 4. Suma kontrolna nie jest wymagana; jeśli zostanie dodana, liczona z bajtów pliku (moduł `dane-lokalne-sqlite`).
 5. Plik eksportu powstaje w katalogu tymczasowym i jest przekazywany do arkusza udostępniania; aplikacja nie trzyma kopii.

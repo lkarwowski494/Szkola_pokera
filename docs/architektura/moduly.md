@@ -41,6 +41,8 @@ export class BladStartuPostepu extends Error { powod: 'baza_nowsza' | 'migracja_
 Błąd startu (L8-01, fix 05 2026-11-07, D-200): `otworzPostep` i `uruchomPostep` zwracają port, więc `baza_nowsza` i `migracja_nieudana` wychodzą jako wyjątek typowany `BladStartuPostepu { powod }` — nazwany wyjątek od zasady „błędy jako wartości” (`tlo-i-bledy.md` §4). Łapie go tylko warstwa startu aplikacji (`apps/mobile/src/data`) i zamienia na ekran z tabeli §4; nic nie jest zapisywane. Wzór: Trening `lib/state/boot.ts:96–101` (wyjątek migracji przerywa start bez zapisu, odczyt 2026-11-07).
 Adaptery: `apps/mobile/src/data/postepExpo.ts` (`openDatabaseAsync('postep.db')`, `runAsync`, `getAllAsync`, `withTransactionAsync` wewnątrz kolejki) i testowy na `node:sqlite` (`enableForeignKeyConstraints: false`, potem pragma — jak w aplikacji). Wzór kolejki: `eksperymenty/e1-sqlite.mjs`, `portZKolejka`.
 
+Kopia przed importem (L8-02, ADR 0008 pkt 2): `kopiaBazy(port, sciezka)` woła warstwa `apps/mobile/src/data` przed `importuj`; przed migracją z przebudową — `migruj` (ADR 0003 pkt 5, od pierwszej takiej migracji).
+
 Repozytoria (pakiet `postep`, każde przyjmuje `PortBazy`): `ustawienia`, `postepLekcji`, `aktywnosci` (start, krok + odpowiedź w jednej transakcji, zakończenie, w toku, zużycie dnia), `powtorki` (karty do terminu, zapis karty UPSERT + log), `testy`, `uprawnienia` (pamięć), `dziennik`, `daneUzytkownika` (eksport, import, usuń postęp — algorytmy z `e2-schemat.mjs`).
 
 ## Porty domeny (pakiet `domena`)

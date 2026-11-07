@@ -28,7 +28,7 @@ Ustalenia wiążące:
 2. Tryb dziennika: domyślny (rollback, `DELETE`), bez WAL. Powód: jeden zapisujący, małe zapisy, a plik `.db` jest spójny po każdym `COMMIT` także dla kopii systemu (ADR 0008). Zmiana na WAL tylko nowym ADR z pomiarem (OP-21).
 3. Każdy zapis aplikacji idzie przez kolejkę portu; zapisy wielowierszowe przez `transakcja(fn)`, gdzie `fn` dostaje to samo połączenie bez ponownego kolejkowania. Zakaz `runSync`/`execSync`/`withExclusiveTransactionAsync` na bazie użytkownika.
 4. Rekordy nadrzędne zapisywane UPSERT-em; `INSERT OR REPLACE` zakazany na tabelach z dziećmi.
-5. Migracje: lista `{ wersja, sql, przebudowa }` w jednym module, runner z modułu `dane-lokalne-sqlite` (wersja przetestowana: `docs/architektura/eksperymenty/e1-sqlite.mjs`, funkcja `migruj`). Baza nowsza niż aplikacja: błąd bez zmian (E4f). Przed migracją z przebudową kopia `VACUUM INTO`.
+5. Migracje: lista `{ wersja, sql, przebudowa }` w jednym module, runner z modułu `dane-lokalne-sqlite` (wersja przetestowana: `docs/architektura/eksperymenty/e1-sqlite.mjs`, funkcja `migruj`). Baza nowsza niż aplikacja: błąd bez zmian (E4f). Przed migracją z przebudową kopia `VACUUM INTO` do `postep-przed-v<N>.db` (`tlo-i-bledy.md` §4). Wykonanie (L8-02, fix 05 2026-11-07): schemat v1 nie ma migracji z przebudową, więc runner kopii jeszcze nie robi; pierwsza migracja z `przebudowa: true` wymaga w tym samym commicie kroku kopii w `migruj` i testu na kopii bazy (strażnik: `packages/postep/test/kontrakt-05-postep.test.ts`).
 6. Transakcja nie czeka na sieć, dialog, timer ani sklep (zawieszenie z blokadą pliku, moduł `tlo-i-sensory-ios`).
 
 ### Konsekwencje

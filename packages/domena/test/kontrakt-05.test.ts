@@ -8,6 +8,9 @@ const dok = (plik: string) => readFileSync(new URL(`../../../docs/${plik}`, impo
 const WIERSZE: [id: string, plik: string, fraza: string][] = [
   ['L8-01', 'architektura/moduly.md', 'BladStartuPostepu'],
   ['L8-01', 'architektura/tlo-i-bledy.md', 'BladStartuPostepu'],
+  ['L8-02', 'adr/0008-kopia-eksport-json-i-kopia-systemu.md', 'kopiaBazy'],
+  ['L8-02', 'adr/0003-port-bazy-kolejka-migracje.md', 'postep-przed-v'],
+  ['L8-02', 'architektura/moduly.md', 'kopiaBazy'],
 ];
 
 describe('kontrakt-05: decyzje kodu zapisane w dokumentach', () => {
