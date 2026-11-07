@@ -11,6 +11,7 @@ export interface AtrapaPowiadomien extends PortPowiadomien {
   wywolania: string[];
   stan: StanZgody;
   odpowiedzNaProsbe: 'udzielona' | 'odmowa'; // co użytkownik wybierze w oknie systemowym
+  bladPlanowania: boolean; // L8-05: natywne planowanie odrzuca (błąd API, nie pora spoza zakresu)
 }
 
 export function atrapaPowiadomien(stan: StanZgody = 'nieustalona', odpowiedzNaProsbe: 'udzielona' | 'odmowa' = 'udzielona'): AtrapaPowiadomien {
@@ -20,6 +21,7 @@ export function atrapaPowiadomien(stan: StanZgody = 'nieustalona', odpowiedzNaPr
     wywolania: [],
     stan,
     odpowiedzNaProsbe,
+    bladPlanowania: false,
     async zgoda(): Promise<ZgodaPowiadomien> {
       a.wywolania.push('zgoda');
       return { granted: a.stan === 'udzielona', canAskAgain: a.stan !== 'odmowa' };
@@ -35,6 +37,7 @@ export function atrapaPowiadomien(stan: StanZgody = 'nieustalona', odpowiedzNaPr
     },
     async zaplanuj(p) {
       a.wywolania.push('zaplanuj');
+      if (a.bladPlanowania) throw new Error('Failed to schedule the notification'); // kształt błędu natywnego [DO USTALENIA]
       const { hour, minute } = p.wyzwalacz;
       if (!(Number.isInteger(hour) && hour >= 0 && hour <= 23)) throw new RangeError('The hour parameter needs to be between 0 and 23');
       if (!(Number.isInteger(minute) && minute >= 0 && minute <= 59)) throw new RangeError('The minute parameter needs to be between 0 and 59');
