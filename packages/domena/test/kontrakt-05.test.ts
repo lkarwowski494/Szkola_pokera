@@ -23,6 +23,7 @@ const WIERSZE: [id: string, plik: string, fraza: string][] = [
   ['L7-13a', 'architektura/moduly.md', 'export function stanKursu('],
   ['L7-13a', 'architektura/moduly.md', '"ostatniaProsbaMs"'],
   ['L7-13b', 'architektura/moduly.md', 'Gałęzie (L7-13b'],
+  ['L7-13c', 'architektura/moduly.md', '≤ `TOLERANCJA_PROCENT_BLISKO` → `niedokladnosc`'],
   ['L8-03', 'adr/0013-ochrona-dlugich-operacji-przed-zawieszeniem.md', 'dlugaOperacja'],
 ];
 

@@ -91,6 +91,11 @@ export function stanKursu(moduly: readonly ModulKursu[], f: FaktyKursu): PostepK
 - `poTescieModulu`, `poPonownejOcenie`, `poKrokuLekcji` — rzuty na `PostepKursu` (podgląd w interfejsie) zgodne ze `stanKursu`: niezaliczony test zdejmuje moduł z `zaliczoneOcena` (D-216). Źródłem prawdy jest zapis: lekcja ukończona wtedy, gdy aktywność `lekcja` przechodzi do `zakonczona` (repozytorium `aktywnosci` ustawia `postep_lekcji.ukonczono_ms` w tej samej transakcji); `poKrokuLekcji` nie jest drugą ścieżką zapisu.
 - Prośba o ocenę: `ustawienie.opinie` = `{ "ostatniaProsbaMs": number | null }` (czas, nie licznik); `skonczonePrace` = liczba aktywności `lekcja` i `sesja` w stanie `zakonczona`. Adapter `expo-store-review`: gdy `requestReview` rzuci, czasu nie zapisuje (wzór Treningu `lib/review-run.ts:41`, odczyt 2026-11-07).
 
+### Wyjaśnienie zadań (L7-13c, fix 05 2026-11-07; sygnatury z `packages/domena/src/wyjasnienie.ts` przyjęte)
+- `wyjasnienieZadania(z: ZadanieZWyjasnieniem): WyjasnienieZadania` — liczby liczy `poker-core` (jedno źródło z budową treści); domena dostaje zależność `@szkola/poker-core` (L7-13f).
+- `ocenOdpowiedzLiczbowa(dokladnaProcent, odpowiedzProcent)`: |różnica| ≤ `TOLERANCJA_PROCENT_OK` → `zgodne`; ≤ `TOLERANCJA_PROCENT_BLISKO` → `niedokladnosc`; dalej → `blad` (granice włączne, ε = 1e-9). Przedział „blisko” = `niedokladnosc` według istniejącej decyzji właściciela B-017 (3.10.2026: „blisko” nie zalicza, FSRS „trudne”; `apps/mobile/src/features/drills/thresholds.ts:28–35`, `grade.ts:81–83`, `isPass`) — bez nowej decyzji.
+- `formatProcent(ulamek, jezyk, miejsca)` — L7-13d.
+
 Typy treści i oceny zagrania pochodzą z `poker-core` i `content-schema`; harmonogram z `srs` (`review`, `dueCards`).
 
 ## Maszyny stanów (ADR 0010)
