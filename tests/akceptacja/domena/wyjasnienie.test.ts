@@ -1,8 +1,9 @@
 // Testy akceptacyjne wyjaśnienia zadania i oceny odpowiedzi liczbowej (BR-CWI-002, BR-CWI-003, BR-CWI-007, BR-JEZ-002;
 // rola 07 E3 część 13, przegląd D-043 W1, Ś1, Ś2). Wyrocznia: wektory tests/wektory/brd.json i tolerancje z KONFIGURACJA (B-017).
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { KONFIGURACJA as K, formatProcent, ocenOdpowiedzLiczbowa, wyjasnienieZadania } from '../../../packages/domena/src';
+import { KONFIGURACJA as K, ocenOdpowiedzLiczbowa, wyjasnienieZadania } from '../../../packages/domena/src';
+import { formatujLiczbe, formatujProcent, type Jezyk } from '../../../packages/jezyki/src';
 
 const WEKTORY = JSON.parse(readFileSync(new URL('../../wektory/brd.json', import.meta.url), 'utf8')) as { id: string; oczekiwane: Record<string, unknown> }[];
 const w = (id: string, pole: string) => Number(WEKTORY.find((v) => v.id === id)!.oczekiwane[pole]);
@@ -58,10 +59,26 @@ describe('AK-BR-CWI-007: kto wygrywa — kolor wobec strita', () => {
   });
 });
 
+// L7-13d (D-220, ADR 0014): jedna implementacja formatu w `@szkola/jezyki`; `miejsca` = stała liczba cyfr po przecinku
+// (minimum = maksimum), żeby liczba w interfejsie miała tyle cyfr co wartość w treści.
 describe('AK-BR-JEZ-002: ta sama liczba w dwóch językach', () => {
+  const pl = 'pl' as Jezyk, en = 'en' as Jezyk;
   it('AK-BR-JEZ-002-b 34,97% (RD-04-W1) po polsku i 34.97% po angielsku', () => {
     const p = w('RD-04-W1', 'p [-]');
-    expect(formatProcent(p, 'pl', 2).replace(/\s/g, '')).toBe('34,97%');
-    expect(formatProcent(p, 'en', 2)).toBe('34.97%');
+    expect(formatujProcent(p, pl, { miejsca: 2 }).replace(/\s/g, '')).toBe('34,97%');
+    expect(formatujProcent(p, en, { miejsca: 2 })).toBe('34.97%');
+  });
+  it('AK-BR-JEZ-002-c miejsca stałe: zera końcowe zostają (0,35 → 35,00% / 35.00%; 2,5 przy 2 miejscach → 2,50 / 2.50)', () => {
+    expect(formatujProcent(0.35, pl, { miejsca: 2 }).replace(/\s/g, '')).toBe('35,00%');
+    expect(formatujProcent(0.35, en, { miejsca: 2 })).toBe('35.00%');
+    expect(formatujLiczbe(2.5, pl, { miejsca: 2 })).toBe('2,50');
+    expect(formatujLiczbe(2.5, en, { miejsca: 2 })).toBe('2.50');
+  });
+  it('AK-BR-JEZ-002-d domena nie formatuje liczb (D-220): brak `formatProcent` i `Intl.NumberFormat` w packages/domena/src', () => {
+    const katalog = new URL('../../../packages/domena/src/', import.meta.url);
+    for (const plik of readdirSync(katalog).filter((n) => n.endsWith('.ts'))) {
+      const zrodlo = readFileSync(new URL(plik, katalog), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/.*$/gm, '');
+      expect(zrodlo, plik).not.toMatch(/formatProcent|Intl\.NumberFormat|toLocaleString/);
+    }
   });
 });

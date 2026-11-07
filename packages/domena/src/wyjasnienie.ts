@@ -27,7 +27,5 @@ export function ocenOdpowiedzLiczbowa(_dokladnaProcent: number, _odpowiedzProcen
   return niezaimplementowane('ocenOdpowiedzLiczbowa (BR-CWI-003, B-017)');
 }
 
-/** Procent zapisany według języka interfejsu (BR-JEZ-002: „34,97%” po polsku, „34.97%” po angielsku). */
-export function formatProcent(_ulamek: number, _jezyk: string, _miejsca: number): string {
-  return niezaimplementowane('formatProcent (BR-JEZ-002)');
-}
+// Format liczby według języka nie należy do domeny (L7-13d, D-220): domena zwraca liczby, interfejs formatuje przez
+// `@szkola/jezyki` (`formatujProcent`, `formatujLiczbe`); zaślepka `formatProcent` roli 07 usunięta w 07 fix.
