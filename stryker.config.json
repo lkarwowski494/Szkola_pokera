@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "testRunner": "command",
+  "commandRunner": {
+    "command": "pnpm -r --filter @szkola/domena --filter @szkola/poker-core --filter @szkola/srs test"
+  },
+  "mutate": [
+    "packages/domena/src/**/*.ts",
+    "packages/poker-core/src/**/*.ts",
+    "!packages/poker-core/src/bots.ts",
+    "packages/srs/src/**/*.ts"
+  ],
+  "coverageAnalysis": "off",
+  "inPlace": true,
+  "thresholds": {
+    "high": 80,
+    "low": 60,
+    "break": null
+  },
+  "reporters": [
+    "clear-text",
+    "progress",
+    "json"
+  ],
+  "jsonReporter": {
+    "fileName": "reports/mutation/mutation.json"
+  }
+}

@@ -3,15 +3,31 @@
 # publicznych repozytoriów: tu tylko standardowy.
 #
 # Build pod symulator bez podpisu i bez sekretów (expo prebuild + xcodebuild -sdk iphonesimulator, konfiguracja Release,
-# więc JavaScript jest w paczce i Metro nie jest potrzebne). Flowy: apps/mobile/e2e/*.yaml.
-# Uruchamiany raz dziennie i ręcznie (Actions → „E2E (Maestro, symulator iOS)” → Run workflow). Nie ma wyzwalacza
-# pull_request, a warunek repozytorium wyłącza harmonogram w forkach.
+# więc JavaScript jest w paczce i Metro nie jest potrzebne). Flowy: apps/mobile/e2e/*.yaml (oczekujace/ poza bramką, D-189).
+# Wyzwalacze (D-170, analogia Trening e2e-ios.yml): push na main i integration/** bez zmian samej dokumentacji, testów
+# Node i ustawień agenta; ręcznie (wejścia: urządzenie, wygląd); workflow_call z nocny.yml (mały ekran, ciemny wygląd).
+# Bez pull_request (25 min czekania na PR, D-170). Nieudany flow ponawiany RAZ osobno; zielony w ponowieniu wypisany
+# w podsumowaniu, drugi czerwony = porażka (D-178). D-181: pierwszy przebieg na gałęzi po przeglądzie tego pliku.
 name: E2E (Maestro, symulator iOS)
 on:
-  schedule:
-    # 03:17 UTC codziennie (poza pełną godziną, kiedy kolejka harmonogramów GitHuba jest najdłuższa)
-    - cron: '17 3 * * *'
+  push:
+    branches: [main, 'integration/**']
+    paths-ignore: ['docs/**', '**/*.md', 'tests/**', '.claude/**']
   workflow_dispatch:
+    inputs:
+      urzadzenie:
+        description: 'Wzorzec nazwy symulatora (grep -E), np. "iPhone SE|iPhone 16e" — mały ekran; pusty = najnowszy iPhone z obrazu'
+        required: false
+        default: ''
+      wyglad:
+        description: 'Wygląd systemu symulatora: light albo dark'
+        type: choice
+        options: [light, dark]
+        default: light
+  workflow_call:
+    inputs:
+      urzadzenie: { type: string, required: false, default: '' }
+      wyglad: { type: string, required: false, default: 'light' }
 permissions:
   contents: read
 env:
@@ -21,14 +37,16 @@ env:
   # build bez sekretów: bez wysyłania map źródeł i dSYM do Sentry (skrypty Xcode z pluginu @sentry/react-native)
   SENTRY_DISABLE_AUTO_UPLOAD: 'true'
 concurrency:
-  group: e2e-${{ github.ref }}
-  cancel-in-progress: true
+  group: e2e-${{ github.ref }}-${{ github.event_name }}
+  cancel-in-progress: ${{ github.event_name == 'push' }}
 jobs:
   e2e:
     if: github.repository == 'lkarwowski494/szkola_pokera'
     # Expo SDK 57 wymaga Xcode 26.4+; obraz macos-26 ma domyślnie Xcode 26.4.1 (jak w iphone-local.yml)
     runs-on: macos-26
-    timeout-minutes: 90
+    # wzór (strategia.md §5.1): 20 + 3 × liczba flowów w apps/mobile/e2e/*.yaml + 10 (zapas na ponowienia); 4 flowy → 42.
+    # Przelicz przy przeniesieniu flowu z oczekujace/ (pilnuje tests/narzedzia/e2e-flowy.test.mjs). Pomiar 20.10.2026: build 13:41 + 4 flowy 8:30.
+    timeout-minutes: 42
     steps:
       - uses: actions/checkout@v5
       - name: Start pomiaru
@@ -78,27 +96,52 @@ jobs:
           echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
           "$HOME/.maestro/bin/maestro" --version
       - name: Symulator
+        env:
+          WZORZEC: ${{ inputs.urzadzenie }}
+          WYGLAD: ${{ inputs.wyglad || 'light' }}
         run: |
-          # najnowszy dostępny iPhone z obrazu runnera
-          UDID=$(xcrun simctl list devices available --json | node -e '
+          # najnowszy dostępny iPhone z obrazu runnera albo pierwszy pasujący do wejścia `urzadzenie` (grep -E, nocny: mały ekran)
+          UDID=$(xcrun simctl list devices available --json | WZORZEC="$WZORZEC" node -e '
             const d = JSON.parse(require("fs").readFileSync(0, "utf8")).devices;
+            const w = process.env.WZORZEC ? new RegExp(process.env.WZORZEC) : null;
             const rt = Object.keys(d).filter((k) => k.includes("iOS")).sort((a, b) => a.localeCompare(b, "en", { numeric: true })).reverse();
-            for (const k of rt) { const p = d[k].find((x) => /^iPhone \d+$/.test(x.name)) ?? d[k].find((x) => x.name.startsWith("iPhone")); if (p) { console.error(k, p.name); console.log(p.udid); break; } }')
-          test -n "$UDID"
+            for (const k of rt) { const p = w ? d[k].find((x) => w.test(x.name)) : (d[k].find((x) => /^iPhone \d+$/.test(x.name)) ?? d[k].find((x) => x.name.startsWith("iPhone"))); if (p) { console.error(k, p.name); console.log(p.udid); break; } }')
+          test -n "$UDID" || { echo "::error::brak symulatora dla wzorca „$WZORZEC”"; exit 1; }
           xcrun simctl boot "$UDID"
           xcrun simctl bootstatus "$UDID" -b
+          xcrun simctl ui "$UDID" appearance "$WYGLAD"
           xcrun simctl install "$UDID" "$APP_PATH"
           echo "SIM_UDID=$UDID" >> "$GITHUB_ENV"
-      - name: Flowy Maestro
+      - name: Flowy Maestro (pierwszy przebieg)
+        id: flowy
+        continue-on-error: true
         run: |
           set -o pipefail
-          # numery do flowu „Pomoc” z content/helplines.yaml (przez moduł wygenerowany przez content-build)
-          # bash 3.2 na macOS nie ma mapfile
-          HELP_ENV=(); while IFS= read -r l; do HELP_ENV+=("$l"); done < <(node apps/mobile/e2e/helplines-env.mjs)
-          test "${#HELP_ENV[@]}" -gt 0
+          # teksty z treści (content/) dla flowów przez helplines-env.mjs; bash 3.2 na macOS nie ma mapfile
+          ENV_ARGS=(); while IFS= read -r l; do ENV_ARGS+=("$l"); done < <(node apps/mobile/e2e/helplines-env.mjs)
+          test "${#ENV_ARGS[@]}" -gt 0
+          printf '%s\n' "${ENV_ARGS[@]}" > e2e-env.txt
           mkdir -p e2e-out
-          maestro --device "$SIM_UDID" test "${HELP_ENV[@]}" --format junit --output e2e-out/report.xml \
+          maestro --device "$SIM_UDID" test "${ENV_ARGS[@]}" --format junit --output e2e-out/report.xml \
             --test-output-dir e2e-out apps/mobile/e2e
+      - name: Ponowienie nieudanych flowów (raz, D-178)
+        if: steps.flowy.outcome == 'failure'
+        run: |
+          ENV_ARGS=(); while IFS= read -r l; do ENV_ARGS+=("$l"); done < e2e-env.txt
+          i=0
+          node scripts/ci/e2e-ponowienia.mjs nieudane e2e-out/report.xml apps/mobile/e2e > e2e-out/nieudane.txt || true
+          while IFS= read -r flow; do
+            i=$((i + 1))
+            echo "::warning title=Ponowienie E2E::$flow"
+            maestro --device "$SIM_UDID" test "${ENV_ARGS[@]}" --format junit --output "e2e-out/ponowienie-$i.xml" \
+              --test-output-dir "e2e-out/ponowienie-$i" "$flow" || true
+          done < e2e-out/nieudane.txt
+      - name: Wynik E2E
+        if: always()
+        run: |
+          set -o pipefail
+          mkdir -p e2e-out
+          node scripts/ci/e2e-ponowienia.mjs podsumuj e2e-out/report.xml e2e-out/ponowienie-*.xml | tee e2e-out/podsumowanie.md >> "$GITHUB_STEP_SUMMARY"
       - name: Czas przebiegu
         if: always()
         run: |
@@ -113,5 +156,6 @@ jobs:
           path: |
             e2e-out
             apps/mobile/ios/xcodebuild.log
+          # zrzuty i logi w repo publicznym są publiczne: flowy bez danych osobowych (moduł e2e-mobilne)
           retention-days: 7
           if-no-files-found: ignore

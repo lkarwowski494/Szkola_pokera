@@ -1,0 +1,123 @@
+# Nocne testy (D-170, D-171, D-172; wzór Trening nightly.yml, odczyt 2026-11-07). Repo publiczne: standardowe runnery
+# (także macOS) bez opłat (strategia.md §5.2). Raz na dobę na gałęzi domyślnej i ręcznie (Run workflow) na wybranej gałęzi:
+#   1. wlasnosci: pełne testy pakietów z PROP_RUNS=1000 (fast-check, tests/narzedzia/fast-check-nocny.ts); nowe ziarno co noc,
+#      raport porażki podaje { seed, path } do odtworzenia (moduł wlasnosci-i-domena),
+#   2. mutacje: Stryker 9.6.1 (stryker.config.json), jedno zadanie na pakiet (Trening: całość w jednym zadaniu przekroczyła 5 h);
+#      break: null do pierwszego pomiaru, potem próg = wynik bazowy (decyzja po pomiarze, D-172); raport JSON w artefakcie,
+#   3. e2e: e2e.yml na małym ekranie w ciemnym wyglądzie (workflow_call),
+#   4. zgloszenie: po wszystkich (if: always()) zgłoszenie z etykietą nocne-testy — czerwona noc otwiera albo komentuje,
+#      zielona zamyka (scripts/ci/nocny-raport.mjs). Zgłoszenia są PUBLICZNE: wyniki zadań i nazwy flowów, bez logów.
+#      issues: write WYŁĄCZNIE w tym zadaniu; tylko token przebiegu, bez sekretów.
+name: Nocne testy
+on:
+  schedule:
+    # 02:41 UTC (poza pełną godziną, kiedy kolejka harmonogramów jest najdłuższa)
+    - cron: '41 2 * * *'
+  workflow_dispatch:
+    inputs:
+      zgloszenie:
+        description: 'Utwórz / zaktualizuj / zamknij zgłoszenie z wynikiem (domyślnie tylko przebieg z harmonogramu)'
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: nocny-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  wlasnosci:
+    if: github.repository == 'lkarwowski494/szkola_pokera'
+    runs-on: ubuntu-latest
+    # do pierwszego pomiaru; potem pomiar × 2 (strategia.md §5.1)
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Testy pakietów, 1000 przypadków na własność bez jawnego numRuns
+        env:
+          PROP_RUNS: '1000'
+        run: pnpm test
+
+  mutacje:
+    if: github.repository == 'lkarwowski494/szkola_pokera'
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        pakiet: [domena, poker-core, srs]
+    name: mutacje (${{ matrix.pakiet }})
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Konfiguracja Strykera dla jednego pakietu
+        env:
+          PAKIET: ${{ matrix.pakiet }}
+        run: |
+          node -e '
+            const fs = require("fs"); const p = process.env.PAKIET;
+            const c = JSON.parse(fs.readFileSync("stryker.config.json", "utf8"));
+            c.mutate = c.mutate.filter((m) => m.replace(/^!/, "").startsWith(`packages/${p}/`));
+            if (!c.mutate.some((m) => !m.startsWith("!"))) throw new Error(`stryker.config.json: brak mutate dla ${p}`);
+            c.commandRunner = { command: `pnpm --filter @szkola/${p} test` };
+            c.jsonReporter = { fileName: `reports/mutation/${p}.json` };
+            fs.writeFileSync("stryker.pakiet.json", JSON.stringify(c, null, 2));'
+      - name: Testy mutacyjne (Stryker)
+        run: pnpm exec stryker run stryker.pakiet.json
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: mutacje-${{ matrix.pakiet }}
+          path: reports/mutation/
+          retention-days: 7
+          if-no-files-found: ignore
+
+  e2e:
+    if: github.repository == 'lkarwowski494/szkola_pokera'
+    uses: ./.github/workflows/e2e.yml
+    with:
+      urzadzenie: 'iPhone SE|iPhone 16e|iPhone 17e'
+      wyglad: dark
+
+  zgloszenie:
+    needs: [wlasnosci, mutacje, e2e]
+    if: ${{ always() && github.repository == 'lkarwowski494/szkola_pokera' && (github.event_name == 'schedule' || inputs.zgloszenie) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+          sparse-checkout: scripts/ci
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v5
+        continue-on-error: true # E2E bez wyników (pominięte, anulowane, awaria maszyny) — raport mówi wtedy tylko o zadaniach
+        with:
+          name: e2e-wyniki
+          path: e2e-wyniki
+      - name: Zgłoszenie z wynikiem nocy
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          NEEDS_JSON: ${{ toJSON(needs) }}
+          E2E_PODSUMOWANIE: e2e-wyniki/e2e-out/podsumowanie.md
+        run: node scripts/ci/nocny-raport.mjs >> "$GITHUB_STEP_SUMMARY"

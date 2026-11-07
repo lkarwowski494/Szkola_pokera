@@ -2,19 +2,24 @@
   "name": "szkola-pokera",
   "private": true,
   "packageManager": "pnpm@10.28.0",
-  "engines": { "node": ">=22.13" },
+  "engines": {
+    "node": ">=22.13"
+  },
   "scripts": {
     "test": "pnpm -r --if-present test",
     "typecheck": "pnpm -r --if-present typecheck",
     "tresci:rejestr": "node docs/tresci/narzedzia/scal-rejestr.mjs --przeglad zastępczy --sprawdz",
     "content:build": "pnpm --filter @szkola/content-build build",
     "content:check": "pnpm --filter @szkola/content-build check",
-    "test:skrypty": "node --test scripts/sprawdz-i18n.test.mjs scripts/pre-push-check.test.mjs docs/tresci/narzedzia/scal-rejestr.test.mjs tests/narzedzia/sprawdz-eksport.test.mjs tests/narzedzia/k07-zakazy.test.mjs tests/narzedzia/k08-manifesty.test.mjs tests/narzedzia/e2e-flowy.test.mjs",
+    "test:skrypty": "node --test scripts/sprawdz-i18n.test.mjs scripts/pre-push-check.test.mjs docs/tresci/narzedzia/scal-rejestr.test.mjs tests/narzedzia/sprawdz-eksport.test.mjs tests/narzedzia/k07-zakazy.test.mjs tests/narzedzia/k08-manifesty.test.mjs tests/narzedzia/e2e-flowy.test.mjs tests/narzedzia/workflowy.test.mjs scripts/ci/e2e-ponowienia.test.mjs scripts/ci/nocny-raport.test.mjs",
     "i18n": "node scripts/sprawdz-i18n.mjs apps/mobile/src/i18n/locales --zrodlo pl",
     "i18n:kod": "node scripts/sprawdz-i18n.mjs apps/mobile/src/i18n/locales --zrodlo pl --kod apps/mobile/src",
     "ci": "pnpm typecheck && pnpm test && pnpm test:skrypty && pnpm i18n && pnpm content:check && pnpm tresci:rejestr",
     "test:akceptacja": "a=0; pnpm test:akceptacja:domena || a=1; pnpm test:akceptacja:ekrany || a=1; exit $a",
     "test:akceptacja:domena": "tsc -p tests/akceptacja && vitest run --root tests/akceptacja",
     "test:akceptacja:ekrany": "tsc -p tests/akceptacja/ekrany && pnpm --filter @szkola/mobile exec jest -c jest.akceptacja.config.js"
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "9.6.1"
   }
 }

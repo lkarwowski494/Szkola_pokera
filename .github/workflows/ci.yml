@@ -1,8 +1,10 @@
 name: CI
 
+# Rola 07 E3 (strategia.md §5.1): push także na gałęzie robocze agenta (claude/**) i integracyjne, żeby wynik był na tym
+# samym SHA co lokalne `pnpm run ci` (zasada roli 07 nr 8). Repo publiczne: standardowe runnery bez opłat.
 on:
   push:
-    branches: [main]
+    branches: [main, 'claude/**', 'integration/**']
   pull_request:
   # ręczne uruchomienie (Actions → CI → Run workflow); dostępne tylko dla osób z prawem zapisu
   workflow_dispatch:
@@ -11,6 +13,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name != 'push' || github.ref != 'refs/heads/main' }}
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -18,12 +24,74 @@ jobs:
     steps:
       # najniższe wersje główne działające na Node 24 (pnpm/action-setup v5: pnpm 10 z pola packageManager)
       - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
       - uses: pnpm/action-setup@v5
       - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      # typy, testy (silnik, powtórki, treść, aplikacja) i aktualność bazy treści;
+      # typy, testy (silnik, powtórki, treść, aplikacja), skrypty (K-07, K-08, flowy E2E, hook), i18n, treść, rejestr;
       # `pnpm run ci`, bo samo `pnpm ci` to zarezerwowane, niezaimplementowane polecenie pnpm
       - run: pnpm run ci
+
+  rachunki:
+    # D-173 (JAK-E1-02): 3 rachunki niezależne liczb z treści (167 sprawdzeń). Pierwszy przebieg informacyjny
+    # (continue-on-error); po pierwszym zielonym przebiegu usuń continue-on-error — wtedy bramka (zasada roli 07 nr 8).
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Zależności z hashami (PyYAML, numpy)
+        run: 'python -m pip install --require-hashes --only-binary=:all: -r docs/tresci/narzedzia/rachunki/requirements.txt'
+      - name: Rachunki M0–M4, M5–M8, M12
+        run: |
+          python -I docs/tresci/narzedzia/rachunki/rachunek_m0_m4.py
+          python -I docs/tresci/narzedzia/rachunki/rachunek_m5_m8.py
+          python -I docs/tresci/narzedzia/rachunki/rachunek_m12.py
+
+  akceptacja:
+    # D-175: testy oczekujące (tests/akceptacja/) są czerwone z założenia, dopóki rola 08 ich nie zazieleni — informacja
+    # na stałe (continue-on-error). Wynik: liczby w podsumowaniu przebiegu i log w artefakcie (bez danych osobowych).
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Testy oczekujące (domena + ekrany)
+        run: |
+          set -o pipefail
+          pnpm test:akceptacja 2>&1 | tee akceptacja.log
+      - name: Podsumowanie
+        if: always()
+        run: |
+          {
+            echo "## Testy oczekujące (D-175, informacja)"
+            echo
+            grep -E "Tests +[0-9]|^Tests:" akceptacja.log | sed 's/^/- /' || echo "- brak wyniku (log w artefakcie)"
+            echo
+            echo "Powody czerwieni (znacznik albo asercja):"
+            grep -oE "NIEZAIMPLEMENTOWANE: [^\`'\"]+" akceptacja.log | sort | uniq -c | sort -rn | head -40 | sed 's/^/    /' || true
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: akceptacja-log
+          path: akceptacja.log
+          retention-days: 7
+          if-no-files-found: ignore
