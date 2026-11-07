@@ -2,10 +2,10 @@
 // złe pliki odrzucone przed dotknięciem bazy, „Usuń postęp” (BR-DANE-003) zostawia dzisiejsze zużycie limitu i pamięć uprawnień.
 // Algorytmy-wzory: docs/architektura/eksperymenty/e2-schemat.mjs sekcje 6–7; format: dane.md „Format eksportu (wersja 1)”.
 import { afterEach, describe, expect, it } from 'vitest';
-import { eksportuj, importuj, usunPostep } from '../../../packages/postep/src';
-import { ile, integralnosc, TABELE_EKSPORTU, zawartosc, type Zdarzenie } from '../../narzedzia/postep-node';
-import { DZIEN_WZORCA, T0 } from '../../narzedzia/wzorzec-bazy';
-import { bladIO, przygotuj, sprzatnij } from '../../../packages/postep/test/wspolne';
+import { eksportuj, importuj, usunPostep } from '../src';
+import { ile, integralnosc, TABELE_EKSPORTU, zawartosc, type Zdarzenie } from '../../../tests/narzedzia/postep-node';
+import { DZIEN_WZORCA, T0 } from '../../../tests/narzedzia/wzorzec-bazy';
+import { bladIO, przygotuj, sprzatnij } from './wspolne';
 
 afterEach(sprzatnij);
 const META = { terazMs: T0, aplikacja: '1.0.0' };

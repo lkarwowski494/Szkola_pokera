@@ -1,7 +1,7 @@
 // Testy akceptacyjne walidacji pliku eksportu (BR-DANE-002 „Plik uszkodzony albo obcy”, „Plik z nowszej wersji”; ADR 0008 pkt 1–3, „Testy odrzucenia”).
 // Część „postęp bez zmian” sprawdza test integracyjny przez port (K-11, pakiet postep); tu tylko decyzja przed dotknięciem bazy.
 import { describe, expect, it } from 'vitest';
-import { FORMAT_EKSPORTU, KONFIGURACJA as K, migrujFormat, walidujEksport } from '../../../packages/domena/src';
+import { FORMAT_EKSPORTU, KONFIGURACJA as K, migrujFormat, walidujEksport } from '../src';
 
 const koperta = (zmiany: Record<string, unknown> = {}) => ({
   format: FORMAT_EKSPORTU,
