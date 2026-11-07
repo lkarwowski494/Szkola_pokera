@@ -37,11 +37,10 @@ jobs:
       - run: pnpm run ci
 
   rachunki:
-    # D-173 (JAK-E1-02): 3 rachunki niezależne liczb z treści (167 sprawdzeń). Pierwszy przebieg informacyjny
-    # (continue-on-error); po pierwszym zielonym przebiegu usuń continue-on-error — wtedy bramka (zasada roli 07 nr 8).
+    # D-173 (JAK-E1-02): 3 rachunki niezależne liczb z treści (167 sprawdzeń). Bramka od 2026-11-07: pierwszy przebieg
+    # informacyjny zielony (run 42367067205, 32 s; zasada roli 07 nr 8).
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v5
         with:
