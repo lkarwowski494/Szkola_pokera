@@ -1,7 +1,7 @@
 // Testy akceptacyjne logiki dostępu: 9 wektorów z docs/monetyzacja.md „Logika dostępu: wektory” (ADR 0006 pkt 2; K-05; BR-ZAK-003).
 // Sprawdzane są tylko pola, które wektor podaje (kolumna „Oczekiwane”).
 import { describe, expect, it } from 'vitest';
-import { decyzja, KONFIGURACJA as K, type OdczytSklepu, type Pamiec } from '../../../packages/domena/src';
+import { decyzja, KONFIGURACJA as K, type OdczytSklepu, type Pamiec } from '../src';
 
 const [KWARTAL, ROK, DOZYWOTNI] = K.PRODUKTY_ODBLOKOWUJACE;
 const T = Date.UTC(2026, 10, 4, 12);
