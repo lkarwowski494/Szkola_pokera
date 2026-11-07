@@ -144,6 +144,10 @@ importers:
         version: 6.0.3
 
   packages/domena:
+    dependencies:
+      '@szkola/poker-core':
+        specifier: workspace:*
+        version: link:../poker-core
     devDependencies:
       '@types/node':
         specifier: ^22.10.0
