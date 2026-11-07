@@ -4,9 +4,9 @@
 // istniejący `@szkola/srs` (FSRS, D-145) — strażnik zielony; kolejka i wznowienie — zaślepki domeny.
 import fc from 'fast-check';
 import { afterEach, describe, expect, it } from 'vitest';
-import { dueCards, newCard, review, type StoredCard } from '../../../packages/srs/src';
-import { KONFIGURACJA as K, kolejkaPowtorek, wejscieDoAktywnosci, type AktywnoscWToku, type Limit } from '../../../packages/domena/src';
-import { STREFY_TESTOWE } from '../../narzedzia/strefy';
+import { dueCards, newCard, review, type StoredCard } from '../../srs/src';
+import { KONFIGURACJA as K, kolejkaPowtorek, wejscieDoAktywnosci, type AktywnoscWToku, type Limit } from '../src';
+import { STREFY_TESTOWE } from '../../../tests/narzedzia/strefy';
 
 const DZIEN = 86_400_000;
 const T0 = Date.UTC(2026, 10, 7, 18);

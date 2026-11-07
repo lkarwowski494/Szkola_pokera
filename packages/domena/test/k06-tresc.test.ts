@@ -4,8 +4,8 @@
 // dla kolejki: usunięcie rodziny z treści = usunięcie jej karty z wejścia (reszta bez zmian).
 import fc from 'fast-check';
 import { describe, expect, it } from 'vitest';
-import { JEZYKI } from '../../../packages/jezyki/src';
-import { KONFIGURACJA as K, kolejkaPowtorek, nazwaPlikuTresci, planTresci, sprawdzMetaTresci } from '../../../packages/domena/src';
+import { JEZYKI } from '../../jezyki/src';
+import { KONFIGURACJA as K, kolejkaPowtorek, nazwaPlikuTresci, planTresci, sprawdzMetaTresci } from '../src';
 
 const plik = (w: string, j: string) => `tresc-${w}-${j}.db`; // brzmienie z ADR 0005 pkt 2 (wyrocznia niezależna od kodu)
 const NIEDOSTEPNA = { ok: false, powod: 'tresc_niedostepna' };

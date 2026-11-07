@@ -6,6 +6,14 @@
 import { niezaimplementowane } from './niezaimplementowane';
 import type { Wynik } from './typy';
 
+const NIEDOSTEPNA = { ok: false, powod: 'tresc_niedostepna' } as const;
+// Wersja: znaki bez „-” i „/”; język: reszta nazwy (może mieć „-”). Inne nazwy to nie pliki treści.
+const WZOR_PLIKU = /^tresc-([^-/]+)-([^/]+)\.db$/;
+function czescNazwy(plik: string): { wersja: string; jezyk: string } | null {
+  const m = WZOR_PLIKU.exec(plik);
+  return m && m[1] !== undefined && m[2] !== undefined ? { wersja: m[1], jezyk: m[2] } : null;
+}
+
 export type PowodTresci = 'tresc_niedostepna';
 // Tabela `meta` (ADR 0005 pkt 5): klucze `format`, `wersja`, `jezyk`, `min_wersja_aplikacji`; wartości jako TEXT.
 export interface MetaTresci { format: number; wersja: string; jezyk: string; minWersjaAplikacji: string }
@@ -15,22 +23,39 @@ export interface PlanTresci {
   usunPoOtwarciu: string[]; // inne pliki `tresc-*.db` na urządzeniu; usuwane dopiero po udanym otwarciu nowego
 }
 
-export function nazwaPlikuTresci(_wersja: string, _jezyk: string): string {
-  return niezaimplementowane('nazwaPlikuTresci (ADR 0005 pkt 2, K-06)');
+export function nazwaPlikuTresci(wersja: string, jezyk: string): string {
+  return `tresc-${wersja}-${jezyk}.db`;
 }
 // Decyzja bez I/O: który plik z paczki, czy kopiować, co usunąć. Brak pliku języka w paczce → `tresc_niedostepna`.
 // Pliki inne niż `tresc-*.db` (postep.db, user.db*, postep-uszkodzona-*.db) nigdy nie trafiają do `usunPoOtwarciu`.
-export function planTresci(_wej: { wPaczce: readonly string[]; naUrzadzeniu: readonly string[]; jezyk: string }): Wynik<PlanTresci, PowodTresci> {
-  return niezaimplementowane('planTresci (ADR 0005 pkt 2, K-06)');
+// Paczka ma dokładnie jeden plik na język (content-build, ADR 0005); zero albo kilka → `tresc_niedostepna` (nie zgadujemy wersji).
+export function planTresci(wej: { wPaczce: readonly string[]; naUrzadzeniu: readonly string[]; jezyk: string }): Wynik<PlanTresci, PowodTresci> {
+  const pasujace = wej.wPaczce.filter((p) => czescNazwy(p)?.jezyk === wej.jezyk);
+  const [plik] = pasujace;
+  if (plik === undefined || pasujace.length > 1) return NIEDOSTEPNA;
+  return {
+    ok: true,
+    wartosc: {
+      plik,
+      kopiuj: !wej.naUrzadzeniu.includes(plik),
+      usunPoOtwarciu: wej.naUrzadzeniu.filter((p) => p !== plik && czescNazwy(p) !== null),
+    },
+  };
 }
 // Manifest z otwartego pliku wobec nazwy pliku i obsługiwanego formatu. Brak tabeli albo klucza, format niecałkowity
 // albo nowszy niż obsługiwany, język albo wersja inne niż w nazwie → `tresc_niedostepna` (ADR 0005 pkt 5).
 export function sprawdzMetaTresci(
-  _meta: Readonly<Record<string, string>> | null,
-  _plik: string,
-  _obslugiwanyFormat: number,
+  meta: Readonly<Record<string, string>> | null,
+  plik: string,
+  obslugiwanyFormat: number,
 ): Wynik<MetaTresci, PowodTresci> {
-  return niezaimplementowane('sprawdzMetaTresci (ADR 0005 pkt 5, K-06)');
+  const nazwa = czescNazwy(plik);
+  if (meta === null || nazwa === null) return NIEDOSTEPNA;
+  const { format, wersja, jezyk, min_wersja_aplikacji: minWersjaAplikacji } = meta;
+  if (format === undefined || wersja === undefined || jezyk === undefined || minWersjaAplikacji === undefined) return NIEDOSTEPNA;
+  if (!/^[1-9][0-9]*$/.test(format) || Number(format) > obslugiwanyFormat) return NIEDOSTEPNA;
+  if (wersja !== nazwa.wersja || jezyk !== nazwa.jezyk) return NIEDOSTEPNA;
+  return { ok: true, wartosc: { format: Number(format), wersja, jezyk, minWersjaAplikacji } };
 }
 
 export interface PlikiTresci {
@@ -59,11 +84,16 @@ export function przygotujTresc<B>(_o: OpcjeTresci<B>): Promise<Wynik<{ baza: B; 
 // Kolejka powtórek wobec bieżącej treści (BR-DANE-004 „Zmiana treści lekcji”; ADR 0005 pkt 3): karty, których rodziny
 // nie ma w treści, są pomijane bez błędu i nie zajmują miejsca w limicie; pozostałe jak `dueCards` z @szkola/srs
 // (termin ≤ teraz, od najbardziej zaległej). Wejście nie jest zmieniane; usuwanie kart z bazy nie należy do tej funkcji.
+// Ta sama reguła co `dueCards` (packages/srs/src/index.ts:117–122), bez zależności domeny od srs; sortowanie stabilne
+// na kopii. Termin to chwila UTC, więc strefa nie zmienia wyniku (BR-POW-002).
 export function kolejkaPowtorek<K extends { familyId: string; due: number }>(
-  _karty: readonly K[],
-  _wTresci: ReadonlySet<string>,
-  _teraz: number,
-  _limit?: number,
+  karty: readonly K[],
+  wTresci: ReadonlySet<string>,
+  teraz: number,
+  limit = Infinity,
 ): K[] {
-  return niezaimplementowane('kolejkaPowtorek (BR-DANE-004, ADR 0005 pkt 3)');
+  return karty
+    .filter((k) => wTresci.has(k.familyId) && k.due <= teraz)
+    .sort((a, b) => a.due - b.due)
+    .slice(0, limit);
 }
