@@ -79,7 +79,7 @@ describe('AK-BR-CWI-002: wyjaśnienie sprawdzenia (RD-01, RD-02, RD-08)', () => 
     expect(Math.abs(ev!(0.3, 100 + 50, 50) - w.oczek)).toBeLessThanOrEqual(w.tol); // callEv(equity, pula po zakładzie, dopłata)
   });
   it('AK-BR-CWI-002-c zakład 0 (RD-01-W4) w treści → budowa treści odrzuca liczbę (ER-11)', () => {
-    expect(() => resolveNumbers({ p: { value: 100, unit: 'count' }, b: { value: 0, unit: 'count' }, e: { formula: 'requiredEquity', refs: ['p', 'b'], unit: 'percent' } } as never)).toThrow();
+    expect(() => resolveNumbers({ p: { value: 100, unit: 'count' }, b: { value: 0, unit: 'count' }, e: { formula: 'requiredEquity', refs: ['p', 'b'], unit: 'percent' } } as never)).toThrow(/dodatnia/);
   });
 });
 
@@ -132,7 +132,8 @@ describe('AK-BR-CWI-005: equity ICM trzech graczy (RD-09-W1)', () => {
   it('AK-BR-CWI-005-b każdy plik z equity ICM nazywa ograniczenie modelu (umiejętności i pozycja)', () => {
     const pliki = [...new Set(uzyteZFormula('icm').flatMap((k) => [...UZYCIA.get(k)!]))];
     expect(pliki).not.toEqual([]);
-    const braki = pliki.filter((p) => !(/umiejętn/i.test(tekst(p)) && /pozycj/i.test(tekst(p))));
+    // jedno zdanie, które nazywa ograniczenie (samo „pozycja” jest w prawie każdym pliku pokerowym)
+    const braki = pliki.filter((p) => !/[^.]*(nie uwzględnia|pomija|nie bierze pod uwagę)[^.]*umiejętn[^.]*\./i.test(tekst(p)) || !/[^.]*(nie uwzględnia|pomija|nie bierze pod uwagę)[^.]*pozycj[^.]*\./i.test(tekst(p)));
     expect(braki, 'pliki z ICM bez ograniczenia modelu (zgłoszenie dla 06)').toEqual([]);
   });
 });

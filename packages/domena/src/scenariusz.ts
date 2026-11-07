@@ -44,7 +44,7 @@ export interface PodsumowanieScenariusza {
 }
 export interface PrzebiegScenariusza {
   kroki: readonly KrokPrzebiegu[];
-  koniec: 'pokazanie' | 'koniec';
+  koniec: 'pokazanie' | 'koniec' | 'w_toku'; // w_toku: wybory kończą się przed końcem treści (wznowienie, ocena krok po kroku)
   pokazanie: PokazanieKart | null;
   podsumowanie: PodsumowanieScenariusza;
 }

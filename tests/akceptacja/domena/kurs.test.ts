@@ -126,6 +126,11 @@ describe('AK-BR-ONB-003: ponowna ocena poziomu', () => {
     expect(po.ukonczoneLekcje).toEqual(zPostepem.ukonczoneLekcje);
     expect(po.zaliczoneTestem).toEqual(zPostepem.zaliczoneTestem);
     expect(nastepnaLekcja(MODULY, po)).toBe('m4-l1');
+    // ponowna ocena na wcześniejszy moduł zawęża zaliczenie oceną; zaliczone testem zostaje
+    const wstecz = poPonownejOcenie({ ...po, zaliczoneOcena: ['M0', 'M1', 'M2', 'M3'] }, MODULY, 'M1');
+    expect(wstecz.zaliczoneOcena).toEqual(['M0']);
+    expect(wstecz.zaliczoneTestem).toEqual(['M2']);
+    expect(wstecz.ukonczoneLekcje).toEqual(zPostepem.ukonczoneLekcje);
   });
 
   it('AK-BR-ONB-003-b niezaliczony test modułu zaliczonego oceną → lekcje M2 do powtórki z listą błędnych zadań', () => {

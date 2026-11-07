@@ -44,13 +44,13 @@ describe('K-13 / ADR 0012: przypomnienie codzienne', () => {
     expect(p.zaplanowaneTeraz).toEqual([{ id: expect.any(String), ...EN, wyzwalacz: { type: 'daily', hour: 19, minute: 30 } }]);
   });
 
-  it.each(['nieustalona', 'odmowa'] as const)('AK-K-13-e odmowa (stan przed: %s) → brak_zgody bez wyjątku, zero powiadomień', async (stan) => {
+  it.each(['nieustalona', 'odmowa'] as const)('AK-K-13-e, AK-BR-POW-003-b odmowa (stan przed: %s) → brak_zgody bez wyjątku, zero powiadomień', async (stan) => {
     const p = atrapaPowiadomien(stan, 'odmowa');
     await expect(wlaczPrzypomnienie(p, PORA, PL)).resolves.toEqual({ ok: false, powod: 'brak_zgody' });
     expect(p.zaplanowaneTeraz).toEqual([]);
   });
 
-  it('AK-K-13-f, AK-BR-POW-003-b odtworzenie nigdy nie otwiera okna zgody (pkt 2: prośba tylko po akcji użytkownika); bez zgody → zero', async () => {
+  it('AK-K-13-f odtworzenie nigdy nie otwiera okna zgody (pkt 2: prośba tylko po akcji użytkownika); bez zgody → zero', async () => {
     const p = atrapaPowiadomien('nieustalona');
     expect(await odtworzPrzypomnienie(p, WLACZONE, PL)).toBe('brak_zgody');
     expect(p.wywolania).not.toContain('popros');

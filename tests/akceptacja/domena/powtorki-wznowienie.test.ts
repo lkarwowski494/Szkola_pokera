@@ -27,12 +27,12 @@ describe('AK-BR-POW-001: zadanie z błędem wraca wcześniej niż zgodne', () =>
     expect(dueCards([zgodne, blad], T0 + dB * DZIEN)[0]?.familyId).toBe('r-blad');
   });
 
-  it('AK-BR-POW-001-b własność: dla każdego czasu odpowiedzi błąd ma termin nie późniejszy niż zgodne (ta sama chwila)', () => {
+  it('AK-BR-POW-001-b własność: dla każdego czasu odpowiedzi błąd ma termin wcześniejszy niż zgodne (ta sama chwila)', () => {
     fc.assert(
       fc.property(fc.integer({ min: 200, max: 60_000 }), fc.integer({ min: 200, max: 60_000 }), (msBlad, msZgodne) => {
         const blad = review(newCard('a', T0), { correct: false, elapsedMs: msBlad }, T0).card;
         const zgodne = review(newCard('b', T0), { correct: true, elapsedMs: msZgodne }, T0).card;
-        expect(blad.due).toBeLessThanOrEqual(zgodne.due);
+        expect(blad.due).toBeLessThan(zgodne.due);
       }),
     );
   });
@@ -43,7 +43,8 @@ const karta = (familyId: string, due: number) => ({ familyId, due });
 describe('AK-BR-POW-002: powrót po przerwie i zmiana strefy', () => {
   const pierwotnaTZ = process.env.TZ;
   afterEach(() => {
-    process.env.TZ = pierwotnaTZ;
+    if (pierwotnaTZ === undefined) delete process.env.TZ; // przypisanie undefined zapisałoby napis „undefined”
+    else process.env.TZ = pierwotnaTZ;
   });
 
   it('AK-BR-POW-002-a po kilku tygodniach wszystkie zaległe są w kolejce od najdawniej zaległej; wejście bez zmian', () => {
@@ -75,6 +76,7 @@ describe('AK-BR-POW-002: powrót po przerwie i zmiana strefy', () => {
 
 const JEST: Limit = { bezLimitu: false, pozostalo: K.LIMIT_AKTYWNOSCI_DZIENNIE, odnowienieMs: 0 };
 const WYCZERPANY: Limit = { bezLimitu: false, pozostalo: 0, odnowienieMs: 0 };
+const PRO: Limit = { bezLimitu: true };
 function wToku(rodzaj: 'lekcja' | 'scenariusz', trescId: string, krok: number, liczbaKrokow: number): AktywnoscWToku {
   return {
     rodzaj,
@@ -91,7 +93,7 @@ function wToku(rodzaj: 'lekcja' | 'scenariusz', trescId: string, krok: number, l
 describe('AK-BR-KURS-004 i AK-BR-SCN-001-b: po ponownym uruchomieniu powrót do tego samego miejsca', () => {
   it('AK-BR-KURS-004-a lekcja w trzeciej części → wejście do tej lekcji wznawia ją w trzeciej części (krok 2), także bez limitu', () => {
     const a = wToku('lekcja', 'm2-l1', 2, 6);
-    for (const limit of [JEST, WYCZERPANY]) {
+    for (const limit of [JEST, WYCZERPANY, PRO]) {
       const w = wejscieDoAktywnosci('lekcja', 'm2-l1', a, false, limit);
       expect(w).toEqual({ akcja: 'wznow', aktywnosc: a });
     }
@@ -100,7 +102,7 @@ describe('AK-BR-KURS-004 i AK-BR-SCN-001-b: po ponownym uruchomieniu powrót do 
   it('AK-BR-SCN-001-b scenariusz przy decyzji na turnie → wejście do tego scenariusza wznawia tę decyzję, także przy wyczerpanym limicie', () => {
     const TURN = 2; // kroki: preflop, flop, turn, river — krok to indeks decyzji w treści scenariusza
     const a = wToku('scenariusz', 'scn-01', TURN, 4);
-    for (const limit of [JEST, WYCZERPANY]) {
+    for (const limit of [JEST, WYCZERPANY, PRO]) {
       const w = wejscieDoAktywnosci('scenariusz', 'scn-01', a, false, limit);
       expect(w).toEqual({ akcja: 'wznow', aktywnosc: a });
     }

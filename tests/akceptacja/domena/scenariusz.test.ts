@@ -20,7 +20,7 @@ const SCN: TrescScenariusza = {
   decyzje: [
     { ulica: 'preflop', akcje: [
       { akcja: 'raise', czestosc: 0.95, rywal: 'call', dalej: 1, wyjasnienie: 'Para króli otwiera zawsze.' },
-      { akcja: 'call', czestosc: 0.05, rywal: 'check', dalej: 1, wyjasnienie: 'Sprawdzenie rzadkie.' },
+      { akcja: 'call', czestosc: 0.05, rywal: 'check', dalej: 2, wyjasnienie: 'Sprawdzenie rzadkie; rywal czekuje do turnu.' }, // gałąź: skok przez flop
     ] },
     { ulica: 'flop', akcje: [
       { akcja: 'bet', czestosc: 0.8, rywal: 'call', dalej: 2, wyjasnienie: 'Trójka na stole z kolorem w drodze: zakład.' },
@@ -54,8 +54,15 @@ describe('AK-BR-SCN-001: powtarzalność scenariusza', () => {
     expect(a.kroki.map((k) => k.rywal)).toEqual(['call', 'call', 'call', 'call']);
   });
   it('AK-BR-SCN-001-c przebieg bez źródeł losowości i zegara (kontrola statyczna packages/domena/src/scenariusz.ts)', () => {
-    const zrodlo = readFileSync(new URL('../../../packages/domena/src/scenariusz.ts', import.meta.url), 'utf8').replace(/\/\/.*$/gm, '');
+    const zrodlo = readFileSync(new URL('../../../packages/domena/src/scenariusz.ts', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/.*$/gm, '');
     expect(zrodlo).not.toMatch(/Math\.random|Date\.now|new Date\(|crypto\./);
+  });
+  it('AK-BR-SCN-001-d gałąź treści (skok do decyzji 2) i prefiks wyborów: ulice z treści, przebieg w toku bez podsumowania końca', () => {
+    const p = ok(przebiegScenariusza(SCN, ['call', 'bet']));
+    expect(p.kroki.map((k) => k.ulica)).toEqual(['preflop', 'turn']);
+    expect(p.kroki[1]!.stolWidoczny).toEqual(SCN.stol.slice(0, 4));
+    expect(p.koniec).toBe('w_toku');
+    expect(p.pokazanie).toBeNull();
   });
   it('AK-D109-scn wybór spoza akcji z oceną → akcja_niedostepna', () => {
     expect(przebiegScenariusza(SCN, ['raise', 'overbet'])).toEqual({ ok: false, powod: 'akcja_niedostepna' });
@@ -92,6 +99,9 @@ describe('AK-BR-SCN-003: ocena decyzji w scenariuszu (RD-11)', () => {
 });
 
 describe('AK-BR-SCN-004: pokazanie kart', () => {
+  it('AK-BR-SCN-004-b karty i rozstrzygnięcie te same przy każdym rozegraniu (BR-SCN-001)', () => {
+    expect(ok(przebiegScenariusza(SCN, ZGODNA_LINIA)).pokazanie).toEqual(ok(przebiegScenariusza(SCN, ZGODNA_LINIA)).pokazanie);
+  });
   const liczba = (n: number) => new RegExp(String(n).replace(/\B(?=(\d{3})+$)/g, '[\\s\\u00a0\\u202f]?'));
   it('AK-BR-SCN-004-a full gracza wobec koloru rywala → wygrywa gracz, wyjaśnienie podaje 3744 układów fulla i 5108 koloru (RD-10-W3, -W4)', () => {
     const p = ok(przebiegScenariusza(SCN, ZGODNA_LINIA));
