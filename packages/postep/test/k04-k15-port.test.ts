@@ -1,10 +1,10 @@
 // K-04 (ADR 0003: foreign_keys w transakcji portu = 1), kolejka zapisów (dane.md „Zapis spoza transakcji … ginie przy ROLLBACK”, wzór e1-sqlite.mjs E1b),
 // K-15 (UPSERT zamiast REPLACE zachowuje wiersze podrzędne; kaskady przez port; wzór e2-schemat.mjs sekcja 4).
 import { afterEach, describe, expect, it } from 'vitest';
-import { zapiszKrok, zapiszPowtorke, type WierszKarty } from '../../../packages/postep/src';
-import { ile, integralnosc } from '../../narzedzia/postep-node';
-import { T0 } from '../../narzedzia/wzorzec-bazy';
-import { przygotuj, sprzatnij } from '../../../packages/postep/test/wspolne';
+import { zapiszKrok, zapiszPowtorke, type WierszKarty } from '../src';
+import { ile, integralnosc } from '../../../tests/narzedzia/postep-node';
+import { T0 } from '../../../tests/narzedzia/wzorzec-bazy';
+import { przygotuj, sprzatnij } from './wspolne';
 
 afterEach(sprzatnij);
 
