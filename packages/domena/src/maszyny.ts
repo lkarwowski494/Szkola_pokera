@@ -131,8 +131,8 @@ export type ZdarzenieZakupu =
   | { typ: 'blad_sklepu' }
   | { typ: 'brak_zakupow' }
   | { typ: 'komunikat_zamkniety' };
-// Tabela `zakup` z moduly.md; `w_toku` rozróżnia operację (uzupełnienie 07). Pary, o których tabela milczy → przejscie_niedozwolone
-// (stan bez zmian; do potwierdzenia przez 05, plan-08 część 2). Drugi `kup` w toku albo w oczekiwaniu → błąd (R-48).
+// Tabela `zakup` z moduly.md; `w_toku` rozróżnia operację (uzupełnienie 07). Uzupełnienie roli 08 (D-214): wyjście z `brak_zakupow`
+// i przywracanie z `oczekuje`. Pozostałe pary, o których tabela milczy → przejscie_niedozwolone (do potwierdzenia przez 05). Drugi `kup` w toku albo w oczekiwaniu → błąd (R-48).
 export function przejscieZakupu(s: StanZakupu, z: ZdarzenieZakupu): Wynik<StanZakupu, 'przejscie_niedozwolone'> {
   const na = (stan: StanZakupu): Wynik<StanZakupu, 'przejscie_niedozwolone'> => ({ ok: true, wartosc: stan });
   switch (s.stan) {
@@ -149,8 +149,11 @@ export function przejscieZakupu(s: StanZakupu, z: ZdarzenieZakupu): Wynik<StanZa
       break;
     case 'oczekuje':
       if (z.typ === 'transakcja_z_nasluchu') return na({ stan: 'zakonczony' });
+      // odmowa rodzica zwykle nie daje zdarzenia: „Przywróć” musi zostać dostępne (BR-ZAK-003; przegląd D-043, D-214)
+      if (z.typ === 'przywroc') return na({ stan: 'w_toku', operacja: 'przywroc' });
       break;
     case 'blad':
+    case 'brak_zakupow': // komunikat „brak zakupów” zamknięty → jak po błędzie (D-214)
       if (z.typ === 'komunikat_zamkniety') return na({ stan: 'bezczynny' });
       break;
   }
