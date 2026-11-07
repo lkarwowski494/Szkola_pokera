@@ -2,7 +2,7 @@
 Stan: **E2 (plan testów), 2026-11-04**, baza `7693339` na `claude/sleepy-brahmagupta-2065nu`; E1 (rejestr ryzyk) zaakceptowane (D-169). Sekcja 9 powstaje w E3–E4. Raport E0: `docs/jakosc/00-rozpoznanie.md`.
 
 ## 1. Macierz możliwości środowiska
-Bez zmian względem E0 (`00-rozpoznanie.md` §1, dowody z 2026-11-04). Skrót: Node 22 + Vitest + Jest/RNTL + `node --test` + fast-check + `node:sqlite` dostępne w kontenerze; Stryker, ESLint, Maestro, Detox, `xcodebuild`, emulator — niedostępne tu; E2E iOS tylko na runnerze `macos-26` (repo publiczne: 0 USD) albo u właściciela; telefon tylko właściciel.
+Bez zmian względem E0 (`00-rozpoznanie.md` §1, dowody z 2026-11-04). Skrót: Node 22 + Vitest + Jest/RNTL + `node --test` + fast-check + `node:sqlite` dostępne w kontenerze; Stryker, ESLint, Maestro, Detox, `xcodebuild`, emulator — niedostępne tu; E2E iOS tylko na runnerze `macos-26` (repo publiczne: 0 USD) albo u właściciela; telefon tylko właściciel. Aktualizacja 2026-11-07 (E3): Maestro 2.11.0 uruchomione na runnerze `macos-26` (przebiegi 42386642585 i 42389797459, `e2e-ios.yml`, D-194, D-195), nie w kontenerze; artefakty Actions (Azure Blob) niedostępne z kontenera (proxy) — wynik E2E czytany z logu zadania; Stryker 9.6.1 jest devDependency, uruchamiany tylko w `nocny.yml` (nocny działa na `main`, więc do scalenia nieuruchomiony).
 
 ## 2. Rejestr ryzyk
 Skala skutków S1–S3 i priorytety według wzorców roli (S1 = dane, prywatność, główny przepływ, odrzucenie w sklepie; S2 = błędna liczba lub twierdzenie, funkcja poboczna, bariera dostępności; S3 = szlif). Prawdopodobieństwo: realny / brzegowy / teoretyczny. Priorytet: **wysokie** = S1 realne lub brzegowe (dane, prywatność, bezpieczeństwo także teoretyczne) oraz S2 realne; **średnie** = S2 brzegowe i S3 realne; **niskie** = reszta.
@@ -96,7 +96,7 @@ Wyrocznia liczb: wektory RD-01–RD-11 w `tests/wektory/brd.json` (pochodzenie i
 | R-58 | PR-03 | start sesji wolny na starym telefonie | S3 | realny | średnie | NFR-WYD-001; próg `[DO USTALENIA]` (OP-21, właściciel po pomiarze U-7) | pomiar na telefonie, bez testu progu | telefon | U-7 |
 | R-59 | proces (soczewka programisty) | E2E czerwony bez reakcji; flow zależy od tekstu wpisanego w YAML (JAK-E0-01); E2E wyłączony od 20.10, flowy 01, 02, 04 nieuruchomione po zmianach treści roli 06 (JAK-E1-03) | S1 pośrednio (regresja głównego przepływu niewidoczna) | realny (2 tygodnie czerwieni) | wysokie | zasada wspólna 21; wzór `helplines-env.mjs` (tekst z treści, nie z YAML) | E2E + wyzwalacz i bramka (pytanie P-2) | macOS | naprawa w E3 |
 | R-60 | proces (soczewka sceptyka) | test domeny nie potrafi paść (brak testu granicy) | S2 | brzegowy | średnie | moduł `wlasnosci-i-domena`: mutacje; Stryker niedostępny w tym środowisku → ręczna próba mutacji w scratchpadzie (decyzja E2) | mutacje / próba ręczna | Node (scratchpad) | E2 decyzja |
-| R-61 | proces | testy kodu do usunięcia (`data/user`, `features/play`, `observability`) dają fałszywą zieleń i ukrywają brak testów nowego kodu | S3 | realny | średnie | ADR 0004, 0009, 0011; mapa BR → test (sekcja 9) | przegląd + tabela pokrycia kryteriów | — | E3/E4 |
+| R-61 | proces | testy kodu do usunięcia (`data/user`, `features/play`, `observability`) dają fałszywą zieleń i ukrywają brak testów nowego kodu | S3 | realny | średnie | ADR 0004, 0009, 0011; mapa BR → test (sekcja 9) | przegląd + tabela pokrycia kryteriów | przegląd roli 07 (E4: tabela pokrycia 48 ID, §9 część 13) i 08 (usunięcie testów starego kodu w commicie usuwającym kod) | E3/E4: tabela pokrycia zrobiona; usunięcie — 08 |
 
 ### 2.7 Podsumowanie
 - 61 ryzyk: **47 wysokich**, 12 średnich, 2 niskie (policzone skryptem z kolumny „Priorytet”; R-34 to odsyłacz do roli 09, liczony jako wysokie).
@@ -277,7 +277,7 @@ Czas właściciela na wydanie TestFlight: ~15–25 min (pozycje „co wydanie”
 | K-15 | UPSERT a wiersze podrzędne, kaskady przez port | integracyjny | Node | bramka |
 Żadna pozycja nie jest pominięta. „Bramka” obowiązuje od commitu, który wprowadza testowany kod (rola 08); wcześniej test leży w `tests/akceptacja/` (D-175).
 
-## 9. Testy akceptacyjne: kryterium → test → stan (E3, w toku)
+## 9. Testy akceptacyjne: kryterium → test → stan (E3 zakończone 2026-11-07, z częścią 13; przekazanie do 08: `docs/jakosc/przekazanie-08.md`)
 Uruchomienie: `pnpm test:akceptacja` (D-175; poza `pnpm run ci`) = `test:akceptacja:domena` (Vitest) + `test:akceptacja:ekrany` (Jest + jest-expo + RNTL, `apps/mobile/jest.akceptacja.config.js`, D-187); kod wyjścia 1, gdy którakolwiek część ma czerwień. Stan 2026-11-07 (część 8): 327 testów, 313 czerwonych z właściwego powodu (295 na znaczniku `NIEZAIMPLEMENTOWANE`, 18 na asercji) i 14 zielonych strażników (AK-K-09-a, AK-D050-b, -c: warunek spełniony dla obecnego SDK 57; 11 testów ekranu „Pomoc”: obecny `src/app/help.tsx` spełnia D-158); główny zestaw `pnpm run ci` kod 0.
 
 | Kryterium / kontrola | Test | Stan (fragment wyniku) |
