@@ -33,10 +33,6 @@ export const PRZYPADKI: Przypadek[] = (wektory as unknown as Wektor[])
 
 /** Wektory, które obecny kod łamie, z powodem; rola 08 usuwa wpis w commicie, który naprawia funkcję. */
 export const OCZEKUJACE: Record<string, string> = {
-  'RD-05-W6': 'ER-11 / RYZ-03: ruleOf2And4 nie odrzuca liczby outów < 0',
-  'RD-05-W7': 'ER-11 / RYZ-03: ruleOf2And4 nie odrzuca brakującej liczby outów',
-  'RD-08-W4': 'ER-11 / RYZ-03: callEv nie odrzuca equity spoza [0, 1]',
-  'RD-09-W7': 'ER-11 / RYZ-03: icmEquities nie odrzuca brakujących stacków (dziś TypeError, nie walidacja)',
 };
 
 export function sprawdz(p: Przypadek, expect: (v: unknown, m?: string) => any): void {

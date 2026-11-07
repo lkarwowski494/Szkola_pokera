@@ -63,6 +63,8 @@ export function geometricFraction(spr: number, streets: number): number {
 
 /** Reguła 2 i 4 (przybliżenie w procentach jako ułamek). */
 export function ruleOf2And4(outs: number, cardsToCome: 1 | 2): number {
+  // RD-05 (reguly.md:95–96): o ≥ 0, całkowite; brak wartości to błąd danych (RYZ-03), nie NaN.
+  if (!Number.isInteger(outs) || outs < 0 || (cardsToCome !== 1 && cardsToCome !== 2)) throw new Error('Nieprawidłowa liczba outów albo kart do odkrycia');
   return (outs * (cardsToCome === 2 ? 4 : 2)) / 100;
 }
 
@@ -81,6 +83,9 @@ export function geometricBetFraction(pot: number, stack: number, streets: number
 
 /** Wartość oczekiwana sprawdzenia: equity·(pula po sprawdzeniu) − koszt sprawdzenia. */
 export function callEv(equity: number, potAfterBet: number, toCall: number): number {
+  // RD-08 (reguly.md:134): 0 ≤ e ≤ 1 włącznie (RYZ-03); kwoty skończone i nieujemne.
+  if (!(equity >= 0 && equity <= 1)) throw new Error(`Equity spoza [0, 1]: ${equity}`);
+  if (!(Number.isFinite(potAfterBet) && potAfterBet >= 0 && Number.isFinite(toCall) && toCall >= 0)) throw new Error('Nieprawidłowe kwoty');
   return equity * (potAfterBet + toCall) - toCall;
 }
 

@@ -7,6 +7,8 @@ import { pick, type Rng } from './rng';
  * (content-build) i dla generatora zadań w aplikacji.
  */
 export function icmEquities(stacks: readonly number[], payouts: readonly number[]): number[] {
+  // RD-09-W7: brak listy to błąd danych (walidacja), nie TypeError z odczytu pola.
+  if (!Array.isArray(stacks) || !Array.isArray(payouts)) throw new Error('ICM: brak stacków albo wypłat');
   if (stacks.some((s) => !(s >= 0))) throw new Error('ICM: stacki muszą być nieujemne');
   if (payouts.length > stacks.length) throw new Error('ICM: więcej wypłat niż graczy');
   const out = stacks.map(() => 0);
