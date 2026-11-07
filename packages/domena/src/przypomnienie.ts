@@ -52,23 +52,31 @@ export async function odtworzPrzypomnienie(
 
 // Włączenie przełącznikiem (akcja użytkownika, po zdaniu wyjaśnienia): zgoda → w razie potrzeby prośba → jedno powiadomienie.
 // Odmowa → `brak_zgody` bez wyjątku; wywołujący zapisuje przełącznik jako wyłączony (pkt 2).
-// Prośba tylko, gdy system może jeszcze zapytać (`canAskAgain`; wzór Treningu lib/planReminder.ts:65–67, 71–76). Pora
-// z wybieraka w interfejsie; spoza zakresu albo błąd API to błąd programisty albo platformy → wyjątek (Wynik ma tylko
-// `brak_zgody`; luka L8-05 dla 05).
+// Prośba tylko, gdy system może jeszcze zapytać (`canAskAgain`; wzór Treningu lib/planReminder.ts:65–67, 71–76).
+// Błąd API powiadomień (zgoda, prośba, planowanie) → `planowanie_nieudane` jako wartość (L8-05, D-218, tlo-i-bledy.md §4):
+// zaplanowane anulowane (przełącznik wyłączony, bez starego powiadomienia), wywołujący pokazuje komunikat. Nazwane
+// odstępstwo od Treningu (planReminder.ts:44 połyka błąd): przełącznik nie może pokazywać „włączone” bez powiadomienia.
+// Pora spoza zakresu to błąd programisty (wartość z wybieraka w interfejsie) → wyjątek.
 export async function wlaczPrzypomnienie(
   port: PortPowiadomien,
   pora: { godzina: number; minuta: number },
   tekst: TekstPrzypomnienia,
-): Promise<Wynik<UstawieniaPrzypomnienia, 'brak_zgody'>> {
+): Promise<Wynik<UstawieniaPrzypomnienia, 'brak_zgody' | 'planowanie_nieudane'>> {
   if (!poraPoprawna(pora)) throw new RangeError(`Pora przypomnienia spoza zakresu: ${pora.godzina}:${pora.minuta}`);
-  let zgoda = await port.zgoda();
-  if (!zgoda.granted && zgoda.canAskAgain) zgoda = await port.popros();
-  if (!zgoda.granted) {
-    await port.anulujWszystkie();
-    return { ok: false, powod: 'brak_zgody' };
+  try {
+    let zgoda = await port.zgoda();
+    if (!zgoda.granted && zgoda.canAskAgain) zgoda = await port.popros();
+    if (!zgoda.granted) {
+      await port.anulujWszystkie();
+      return { ok: false, powod: 'brak_zgody' };
+    }
+    await zaplanujJedno(port, pora, tekst);
+    return { ok: true, wartosc: { wlaczone: true, godzina: pora.godzina, minuta: pora.minuta } };
+  } catch {
+    // błąd platformy zamieniony na wartość; nieudane anulowanie nie zmienia wyniku (przełącznik i tak wyłączony)
+    await port.anulujWszystkie().catch(() => undefined);
+    return { ok: false, powod: 'planowanie_nieudane' };
   }
-  await zaplanujJedno(port, pora, tekst);
-  return { ok: true, wartosc: { wlaczone: true, godzina: pora.godzina, minuta: pora.minuta } };
 }
 
 const poraPoprawna = (p: { godzina: number; minuta: number }) =>

@@ -1,6 +1,8 @@
 // K-13 (docs/architektura/kontrole-07.md; ADR 0012 „Potwierdzenie”): włączenie → dokładnie jedno zaplanowane powiadomienie
 // z wyzwalaczem `daily`; ponowne włączenie, import, zmiana języka → nadal jedno; odmowa → zero, bez błędu; „Usuń postęp” → zero.
 // Wyrocznia: ADR 0012 pkt 1–3 i K-13; stan systemu w atrapie tests/narzedzia/powiadomienia-atrapa.ts, nie w kodzie aplikacji.
+// Wersja 07 fix (D-224; L8-05, D-218): K-13-l — błąd API planowania jako wartość `planowanie_nieudane`
+// (tlo-i-bledy.md §4), nie wyjątek. Przeniesiona przez 08 fix (L8-05).
 import fc from 'fast-check';
 import { describe, expect, it } from 'vitest';
 import { odtworzPrzypomnienie, wlaczPrzypomnienie, type UstawieniaPrzypomnienia } from '../src';
@@ -94,5 +96,26 @@ describe('K-13 / ADR 0012: przypomnienie codzienne', () => {
     const w = await odtworzPrzypomnienie(p, { wlaczone: true, godzina, minuta }, PL);
     expect(w).not.toBe('zaplanowane');
     expect(p.zaplanowaneTeraz).toEqual([]);
+  });
+
+  // Wynik albo opis wyjątku: porażka obecnego kodu (wyjątek) ma być porażką asercji, nie odrzuconą obietnicą.
+  const wynikAlboWyjatek = (o: Promise<unknown>) => o.catch((e: unknown) => ({ wyjatek: String(e) }));
+  it('AK-K-13-l, AK-L8-05 błąd API planowania przy włączaniu → planowanie_nieudane bez wyjątku, zero zaplanowanych (przełącznik wyłączony)', async () => {
+    const p = atrapaPowiadomien('udzielona');
+    p.bladPlanowania = true;
+    expect(await wynikAlboWyjatek(wlaczPrzypomnienie(p, PORA, PL))).toEqual({ ok: false, powod: 'planowanie_nieudane' });
+    expect(p.zaplanowaneTeraz).toEqual([]);
+  });
+  it('AK-K-13-m błąd API przy ponownym włączeniu (było zaplanowane) → planowanie_nieudane, nie zostaje stare powiadomienie', async () => {
+    const p = atrapaPowiadomien('udzielona');
+    await wlaczPrzypomnienie(p, PORA, PL);
+    p.bladPlanowania = true;
+    expect(await wynikAlboWyjatek(wlaczPrzypomnienie(p, { godzina: 8, minuta: 0 }, PL))).toEqual({ ok: false, powod: 'planowanie_nieudane' });
+    expect(p.zaplanowaneTeraz).toEqual([]);
+  });
+  it('AK-K-13-n odmowa nadal daje brak_zgody, nie planowanie_nieudane (dwa powody rozróżnione, D-218)', async () => {
+    const p = atrapaPowiadomien('nieustalona', 'odmowa');
+    p.bladPlanowania = true;
+    expect(await wynikAlboWyjatek(wlaczPrzypomnienie(p, PORA, PL))).toEqual({ ok: false, powod: 'brak_zgody' });
   });
 });

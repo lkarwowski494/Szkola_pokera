@@ -25,4 +25,13 @@ describe('przypomnienie: przypadki roli 08', () => {
     expect(await wlaczPrzypomnienie(p, { godzina: 7, minuta: 0 }, PL)).toEqual({ ok: false, powod: 'brak_zgody' });
     expect(p.zaplanowaneTeraz).toEqual([]);
   });
+
+  it('L8-05: błąd API przy odczycie zgody (było zaplanowane) → planowanie_nieudane i zero zaplanowanych (przełącznik wyłączony, D-218)', async () => {
+    const p = atrapaPowiadomien('udzielona');
+    await wlaczPrzypomnienie(p, { godzina: 19, minuta: 30 }, PL);
+    p.zgoda = async () => { throw new Error('Notifications API unavailable'); };
+    expect(await wlaczPrzypomnienie(p, { godzina: 7, minuta: 0 }, PL)).toEqual({ ok: false, powod: 'planowanie_nieudane' });
+    expect(p.zaplanowaneTeraz).toEqual([]);
+  });
 });
+
