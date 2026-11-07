@@ -6,17 +6,25 @@ import { dlugaOperacja, type PortBazy, type Tx, type Wartosc } from './port';
 
 export type PowodZapisu = 'zapis_nieudany' | 'brak_miejsca' | 'przerwano_w_tle';
 
-// Kolumny tabel postępu = docs/architektura/schemat.sql (strażnik: test kolumny-eksportu). Zamknięta lista, bo nazwy kolumn
-// z pliku importu trafiają do SQL (D-202); parametr `?` zastępuje tylko wartość.
+// Kolumny tabel postępu i ich typy = docs/architektura/schemat.sql (strażnik: test kolumny-eksportu w dane-08). Zamknięta lista, bo
+// nazwy kolumn z pliku importu trafiają do SQL (D-202), a SQLite przy afinicji INTEGER/REAL przyjmuje tekst bez błędu (przegląd
+// D-043, P1). i = liczba całkowita, r = liczba, t = tekst; „?” = dopuszcza NULL.
+type TypKolumny = 'i' | 'i?' | 'r' | 't';
+export const TYPY_KOLUMN: Record<TabelaEksportu, Readonly<Record<string, TypKolumny>>> = {
+  ustawienie: { klucz: 't', wartosc: 't', zmieniono_ms: 'i' },
+  postep_lekcji: { lekcja_id: 't', teoria_przeczytana: 'i', miejsce: 't', ukonczono_ms: 'i?', zmieniono_ms: 'i' },
+  aktywnosc: { id: 't', rodzaj: 't', stan: 't', z_limitu: 'i', dzien_lokalny: 't', strefa: 't', plan: 't', krok: 'i', start_ms: 'i', koniec_ms: 'i?' },
+  odpowiedz: { id: 'i', aktywnosc_id: 't', krok: 'i', zadanie_id: 't', rodzina_id: 't', wybor: 't', ocena: 't', zaliczona: 'i', czas_ms: 'i',
+    odpowiedziano_ms: 'i' },
+  wynik_testu: { aktywnosc_id: 't', modul_id: 't', poprawne: 'i', wszystkie: 'i', zaliczony: 'i' },
+  karta: { rodzina_id: 't', termin_ms: 'i', stabilnosc: 'r', trudnosc: 'r', dni_zaplanowane: 'r', kroki_nauki: 'i', powtorzenia: 'i',
+    zapomnienia: 'i', stan: 'i', ostatnia_powtorka_ms: 'i?', zmieniono_ms: 'i' },
+  log_powtorki: { id: 'i', rodzina_id: 't', odpowiedz_id: 'i?', ocena_fsrs: 'i', stan_przed: 'i', termin_przed_ms: 'i', powtorzono_ms: 'i' },
+};
 export const KOLUMNY_EKSPORTU: Record<TabelaEksportu, readonly string[]> = {
-  ustawienie: ['klucz', 'wartosc', 'zmieniono_ms'],
-  postep_lekcji: ['lekcja_id', 'teoria_przeczytana', 'miejsce', 'ukonczono_ms', 'zmieniono_ms'],
-  aktywnosc: ['id', 'rodzaj', 'stan', 'z_limitu', 'dzien_lokalny', 'strefa', 'plan', 'krok', 'start_ms', 'koniec_ms'],
-  odpowiedz: ['id', 'aktywnosc_id', 'krok', 'zadanie_id', 'rodzina_id', 'wybor', 'ocena', 'zaliczona', 'czas_ms', 'odpowiedziano_ms'],
-  wynik_testu: ['aktywnosc_id', 'modul_id', 'poprawne', 'wszystkie', 'zaliczony'],
-  karta: ['rodzina_id', 'termin_ms', 'stabilnosc', 'trudnosc', 'dni_zaplanowane', 'kroki_nauki', 'powtorzenia', 'zapomnienia', 'stan',
-    'ostatnia_powtorka_ms', 'zmieniono_ms'],
-  log_powtorki: ['id', 'rodzina_id', 'odpowiedz_id', 'ocena_fsrs', 'stan_przed', 'termin_przed_ms', 'powtorzono_ms'],
+  ustawienie: Object.keys(TYPY_KOLUMN.ustawienie), postep_lekcji: Object.keys(TYPY_KOLUMN.postep_lekcji),
+  aktywnosc: Object.keys(TYPY_KOLUMN.aktywnosc), odpowiedz: Object.keys(TYPY_KOLUMN.odpowiedz),
+  wynik_testu: Object.keys(TYPY_KOLUMN.wynik_testu), karta: Object.keys(TYPY_KOLUMN.karta), log_powtorki: Object.keys(TYPY_KOLUMN.log_powtorki),
 };
 const KLUCZ: Record<TabelaEksportu, string> = {
   ustawienie: 'klucz', postep_lekcji: 'lekcja_id', aktywnosc: 'id', odpowiedz: 'id', wynik_testu: 'aktywnosc_id', karta: 'rodzina_id', log_powtorki: 'id',
@@ -24,7 +32,15 @@ const KLUCZ: Record<TabelaEksportu, string> = {
 // Dzieci przed rodzicami (klucze obce): kolejność usuwania; wstawianie w kolejności odwrotnej (TABELE_EKSPORTU).
 const DZIECI_PRZED_RODZICAMI: readonly TabelaEksportu[] = ['log_powtorki', 'karta', 'wynik_testu', 'odpowiedz', 'aktywnosc', 'postep_lekcji', 'ustawienie'];
 
-const czyWartosc = (v: unknown): v is Wartosc => v === null || typeof v === 'string' || (typeof v === 'number' && Number.isFinite(v));
+function zgodnaZTypem(typ: TypKolumny | undefined, v: unknown): v is Wartosc {
+  switch (typ) {
+    case 'i': return typeof v === 'number' && Number.isInteger(v);
+    case 'i?': return v === null || (typeof v === 'number' && Number.isInteger(v));
+    case 'r': return typeof v === 'number' && Number.isFinite(v);
+    case 't': return typeof v === 'string';
+    default: return false;
+  }
+}
 const czyObiekt = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
 
 // Wiersz z bazy albo pliku jako lista wartości w kolejności kolumn; null, gdy kolumny lub typy wartości się nie zgadzają.
@@ -35,7 +51,7 @@ function wartosciWiersza(t: TabelaEksportu, w: unknown): Wartosc[] | null {
   const wartosci: Wartosc[] = [];
   for (const k of kolumny) {
     const v = w[k];
-    if (!(k in w) || !czyWartosc(v)) return null;
+    if (!(k in w) || !zgodnaZTypem(TYPY_KOLUMN[t][k], v)) return null;
     wartosci.push(v);
   }
   return wartosci;
@@ -97,8 +113,13 @@ export async function importuj(
     for (const w of zPliku) {
       const wartosci = wartosciWiersza(t, w);
       if (!wartosci) return { ok: false, powod: 'bledny_plik' };
-      const id = wartosci[KOLUMNY_EKSPORTU.aktywnosc.indexOf('id')];
-      if (t === 'aktywnosc' && typeof id === 'string') idAktywnosci.add(id);
+      // Lokalny znacznik dnia zastępuje tylko dzisiejsza aktywność z limitu z pliku (to samo zużycie); inna z tym samym id daje
+      // konflikt klucza → bledny_plik, więc import nie odnawia limitu (ADR 0007 pkt 5; przegląd D-043).
+      const kol = KOLUMNY_EKSPORTU.aktywnosc;
+      const id = wartosci[kol.indexOf('id')];
+      if (t === 'aktywnosc' && typeof id === 'string' && wartosci[kol.indexOf('dzien_lokalny')] === dzienLokalny && wartosci[kol.indexOf('z_limitu')] === 1) {
+        idAktywnosci.add(id);
+      }
       wiersze.push({ t, wartosci });
     }
   }
