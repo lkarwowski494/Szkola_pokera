@@ -1,0 +1,5 @@
+{
+  "extends": "../../../apps/mobile/tsconfig.json",
+  "compilerOptions": { "noEmit": true, "types": ["jest", "node"] },
+  "include": ["**/*.ts", "**/*.tsx", "../../../apps/mobile/expo-env.d.ts", "../../../apps/mobile/.expo/types/**/*.ts"]
+}
