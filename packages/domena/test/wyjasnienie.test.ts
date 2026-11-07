@@ -2,10 +2,10 @@
 // rola 07 E3 część 13, przegląd D-043 W1, Ś1, Ś2). Wyrocznia: wektory tests/wektory/brd.json i tolerancje z KONFIGURACJA (B-017).
 import { readdirSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { KONFIGURACJA as K, ocenOdpowiedzLiczbowa, wyjasnienieZadania } from '../../../packages/domena/src';
-import { formatujLiczbe, formatujProcent, type Jezyk } from '../../../packages/jezyki/src';
+import { KONFIGURACJA as K, ocenOdpowiedzLiczbowa, wyjasnienieZadania } from '../src';
+import { formatujLiczbe, formatujProcent, type Jezyk } from '../../jezyki/src';
 
-const WEKTORY = JSON.parse(readFileSync(new URL('../../wektory/brd.json', import.meta.url), 'utf8')) as { id: string; oczekiwane: Record<string, unknown> }[];
+const WEKTORY = JSON.parse(readFileSync(new URL('../../../tests/wektory/brd.json', import.meta.url), 'utf8')) as { id: string; oczekiwane: Record<string, unknown> }[];
 const w = (id: string, pole: string) => Number(WEKTORY.find((v) => v.id === id)!.oczekiwane[pole]);
 
 describe('AK-BR-CWI-002: wyjaśnienie zadania o sprawdzeniu', () => {
@@ -75,7 +75,7 @@ describe('AK-BR-JEZ-002: ta sama liczba w dwóch językach', () => {
     expect(formatujLiczbe(2.5, en, { miejsca: 2 })).toBe('2.50');
   });
   it('AK-BR-JEZ-002-d domena nie formatuje liczb (D-220): brak `formatProcent` i `Intl.NumberFormat` w packages/domena/src', () => {
-    const katalog = new URL('../../../packages/domena/src/', import.meta.url);
+    const katalog = new URL('../src/', import.meta.url);
     for (const plik of readdirSync(katalog).filter((n) => n.endsWith('.ts'))) {
       const zrodlo = readFileSync(new URL(plik, katalog), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/.*$/gm, '');
       expect(zrodlo, plik).not.toMatch(/formatProcent|Intl\.NumberFormat|toLocaleString/);

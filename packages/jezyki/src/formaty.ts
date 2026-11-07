@@ -3,14 +3,15 @@ import type { Jezyk } from './jezyki';
 /** Tag przekazywany do `Intl`: kod języka aplikacji (serbski domyślnie cyrylicą, chiński tradycyjny z pismem). Region telefonu nie zmienia formatu (D-134: język aplikacji decyduje). */
 export const znacznikIntl = (j: Jezyk): string => j;
 
-/** Liczba wg języka: znak dziesiętny i grupowanie z `Intl.NumberFormat`. `miejsca` ustala maksymalną liczbę cyfr po przecinku. */
+/** Liczba wg języka: znak dziesiętny i grupowanie z `Intl.NumberFormat`. `miejsca` = stała liczba cyfr po przecinku
+ *  (minimum = maksimum; D-220, ADR 0014: „34,97%” ma tyle cyfr co wartość w treści, „35,00%” nie traci zer). */
 export function formatujLiczbe(n: number, j: Jezyk, opcje: { miejsca?: number } = {}): string {
-  return new Intl.NumberFormat(znacznikIntl(j), opcje.miejsca === undefined ? {} : { maximumFractionDigits: opcje.miejsca }).format(n);
+  return new Intl.NumberFormat(znacznikIntl(j), opcje.miejsca === undefined ? {} : { minimumFractionDigits: opcje.miejsca, maximumFractionDigits: opcje.miejsca }).format(n);
 }
 
-/** Ułamek jako procent wg języka (pl „50%”, de i fr „50 %”, tr „%50”). */
+/** Ułamek jako procent wg języka (pl „50%”, de i fr „50 %”, tr „%50”); `miejsca` stałe jak w `formatujLiczbe` (domyślnie 0). */
 export function formatujProcent(ulamek: number, j: Jezyk, opcje: { miejsca?: number } = {}): string {
-  return new Intl.NumberFormat(znacznikIntl(j), { style: 'percent', maximumFractionDigits: opcje.miejsca ?? 0 }).format(ulamek);
+  return new Intl.NumberFormat(znacznikIntl(j), { style: 'percent', minimumFractionDigits: opcje.miejsca ?? 0, maximumFractionDigits: opcje.miejsca ?? 0 }).format(ulamek);
 }
 
 /** Data wg języka (długi zapis miesiąca). `timeZone` wymusza strefę (testy, eksport). */
