@@ -33,6 +33,16 @@ describe('AK-BR-CWI-003: odpowiedź oceniana względem dokładnej szansy', () =>
     expect(ocenOdpowiedzLiczbowa(d, d - K.TOLERANCJA_PROCENT_BLISKO - 0.01)).toBe('blad');
     expect(wyjasnienieZadania({ rodzaj: 'szansa', outy: 0, nieznane: 47, doOdkrycia: 2 }).poprawna).toBe(w('RD-04-W4', 'p [-]'));
   });
+  // L7-13c (moduly.md „Wyjaśnienie zadań”): (OK, BLISKO] pp → niedokladnosc — decyzja właściciela B-017 („blisko” nie zalicza,
+  // FSRS „trudne”); granice włączne z ε = 1e-9, więc próbki ±0,01 pp przy granicy i sama granica w obie strony.
+  it.each([1, -1])('AK-BR-CWI-003-e znak %i: tuż za OK → niedokladnosc, sama granica BLISKO → niedokladnosc, tuż za nią → blad', (znak) => {
+    const d = w('RD-04-W1', 'p [-]') * 100;
+    expect(ocenOdpowiedzLiczbowa(d, d + znak * K.TOLERANCJA_PROCENT_OK)).toBe('zgodne');
+    expect(ocenOdpowiedzLiczbowa(d, d + znak * (K.TOLERANCJA_PROCENT_OK + 0.01))).toBe('niedokladnosc');
+    expect(ocenOdpowiedzLiczbowa(d, d + znak * (K.TOLERANCJA_PROCENT_OK + K.TOLERANCJA_PROCENT_BLISKO) / 2)).toBe('niedokladnosc');
+    expect(ocenOdpowiedzLiczbowa(d, d + znak * K.TOLERANCJA_PROCENT_BLISKO)).toBe('niedokladnosc');
+    expect(ocenOdpowiedzLiczbowa(d, d + znak * (K.TOLERANCJA_PROCENT_BLISKO + 0.01))).toBe('blad');
+  });
 });
 
 describe('AK-BR-CWI-007: kto wygrywa — kolor wobec strita', () => {

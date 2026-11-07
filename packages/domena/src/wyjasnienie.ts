@@ -21,8 +21,8 @@ export function wyjasnienieZadania(_z: ZadanieZWyjasnieniem): WyjasnienieZadania
   return niezaimplementowane('wyjasnienieZadania (BR-CWI-002, BR-CWI-003, BR-CWI-007)');
 }
 
-/** Ocena odpowiedzi liczbowej (procenty) względem wartości dokładnej: w TOLERANCJA_PROCENT_OK pp → zgodne,
- *  dalej niż TOLERANCJA_PROCENT_BLISKO pp → błąd (B-017); przedział pomiędzy — decyzja 05/06. */
+/** Ocena odpowiedzi liczbowej (procenty) względem wartości dokładnej: w TOLERANCJA_PROCENT_OK pp → zgodne, w
+ *  TOLERANCJA_PROCENT_BLISKO pp → niedokladnosc, dalej → błąd (granice włączne, ε = 1e-9; B-017, moduly.md L7-13c). */
 export function ocenOdpowiedzLiczbowa(_dokladnaProcent: number, _odpowiedzProcent: number): OcenaOdpowiedzi {
   return niezaimplementowane('ocenOdpowiedzLiczbowa (BR-CWI-003, B-017)');
 }
