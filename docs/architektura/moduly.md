@@ -112,6 +112,7 @@ Funkcje (sygnatury w `packages/domena/src/maszyny.ts`, przyjęte): `startAktywno
 **`ocenaPoziomu`** = `aktywnosc` rodzaju `ocena_poziomu` (najwyżej `OCENA_POZIOMU_MAKS_PYTAN` — dłuższy plan → `plan_niepoprawny`, D-210; „Pomiń” → `porzucona` i punkt startu M0; zakończenie → `ustawienie.punkt_startu`).
 
 **`scenariusz`** = `aktywnosc` rodzaju `scenariusz`; zdarzenie `odpowiedz` przyjmuje tylko akcje z oceną w treści scenariusza (D-109): akcja spoza listy → błąd `akcja_niedostepna` (nie zapis).
+Gałęzie (L7-13b, fix 05 2026-11-07, D-219): `krok` scenariusza = **indeks decyzji w treści**, nie liczba wykonanych decyzji. Plan aktywności zapisuje szkielet grafu: `PlanAktywnosci.decyzje: readonly (readonly { akcja: string; dalej: number | 'pokazanie' | 'koniec' })[]` (zastępuje `akcjeZOcena`; `liczbaKrokow` = liczba decyzji). `odpowiedz(krok, akcja)` → `dalej` liczbowe: `w_toku` z `krok = dalej`; `pokazanie` / `koniec`: `zakonczona`. Start: każde `dalej` liczbowe > własny indeks i < liczby decyzji, każda decyzja ma ≥ 1 akcję, inaczej `plan_niepoprawny` (graf bez cykli, każda ścieżka się kończy; `krok` nie maleje; `odpowiedz (aktywnosc_id, krok)` unikalne na ścieżce). Ta sama reguła w walidacji treści (`content-schema`, rola 06/08). `przebiegScenariusza(tresc, wybory)` (sygnatura z `scenariusz.ts` przyjęta) liczy przebieg do wyświetlenia z tej samej treści.
 
 **`zakup`** (w pamięci, bez tabeli; stan trwały to transakcje sklepu)
 | Stan | Zdarzenie | Następny |
