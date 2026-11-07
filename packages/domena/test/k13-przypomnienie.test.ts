@@ -3,8 +3,8 @@
 // Wyrocznia: ADR 0012 pkt 1–3 i K-13; stan systemu w atrapie tests/narzedzia/powiadomienia-atrapa.ts, nie w kodzie aplikacji.
 import fc from 'fast-check';
 import { describe, expect, it } from 'vitest';
-import { odtworzPrzypomnienie, wlaczPrzypomnienie, type UstawieniaPrzypomnienia } from '../../../packages/domena/src';
-import { atrapaPowiadomien } from '../../narzedzia/powiadomienia-atrapa';
+import { odtworzPrzypomnienie, wlaczPrzypomnienie, type UstawieniaPrzypomnienia } from '../src';
+import { atrapaPowiadomien } from '../../../tests/narzedzia/powiadomienia-atrapa';
 
 const PL = { tytul: 'Szkoła Pokera', tresc: 'Czas na krótką sesję.' };
 const EN = { tytul: 'Poker School', tresc: 'Time for a short session.' };

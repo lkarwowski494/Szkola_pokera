@@ -3,7 +3,6 @@
 // Kształt portu według expo-notifications 57.0.25 (build/*.d.ts, odczyt 2026-11-07): getPermissionsAsync,
 // requestPermissionsAsync, cancelAllScheduledNotificationsAsync, scheduleNotificationAsync z wyzwalaczem
 // `{ type: 'daily', hour, minute }` (DailyTriggerInput), getAllScheduledNotificationsAsync.
-import { niezaimplementowane } from './niezaimplementowane';
 import type { Wynik } from './typy';
 
 // iOS: `provisional`/`ephemeral` expo-notifications mapuje na „undetermined” (granted: false); gdyby kiedyś użyć prośby
@@ -27,20 +26,60 @@ export interface TekstPrzypomnienia { tytul: string; tresc: string }
 // Start aplikacji, powrót na pierwszy plan (stan zgody mógł się zmienić w Ustawieniach, U-3), import, „Usuń postęp”,
 // zmiana języka, zmiana pory: anuluj wszystkie własne → zaplanuj jedno, gdy włączone i jest zgoda.
 // Nigdy nie prosi o zgodę (okno systemowe tylko z przełącznika). Nigdy nie odrzuca obietnicy (np. pora spoza zakresu z importu).
-export function odtworzPrzypomnienie(
-  _port: PortPowiadomien,
-  _ust: UstawieniaPrzypomnienia,
-  _tekst: TekstPrzypomnienia,
+// Pora spoza zakresu (np. z importu) i błąd API → bez powiadomienia i bez wyjątku, wynik `wylaczone` (wzór Treningu:
+// lib/planReminder.ts:38–44, błędy planowania łapane; odczyt 2026-11-07).
+export async function odtworzPrzypomnienie(
+  port: PortPowiadomien,
+  ust: UstawieniaPrzypomnienia,
+  tekst: TekstPrzypomnienia,
 ): Promise<'zaplanowane' | 'wylaczone' | 'brak_zgody'> {
-  return niezaimplementowane('odtworzPrzypomnienie (ADR 0012 pkt 1, K-13)');
+  try {
+    if (!ust.wlaczone || !poraPoprawna(ust)) {
+      await port.anulujWszystkie();
+      return 'wylaczone';
+    }
+    if (!(await port.zgoda()).granted) {
+      await port.anulujWszystkie();
+      return 'brak_zgody';
+    }
+    await zaplanujJedno(port, ust, tekst);
+    return 'zaplanowane';
+  } catch {
+    await port.anulujWszystkie().catch(() => undefined);
+    return 'wylaczone';
+  }
 }
 
 // Włączenie przełącznikiem (akcja użytkownika, po zdaniu wyjaśnienia): zgoda → w razie potrzeby prośba → jedno powiadomienie.
 // Odmowa → `brak_zgody` bez wyjątku; wywołujący zapisuje przełącznik jako wyłączony (pkt 2).
-export function wlaczPrzypomnienie(
-  _port: PortPowiadomien,
-  _pora: { godzina: number; minuta: number },
-  _tekst: TekstPrzypomnienia,
+// Prośba tylko, gdy system może jeszcze zapytać (`canAskAgain`; wzór Treningu lib/planReminder.ts:65–67, 71–76). Pora
+// z wybieraka w interfejsie; spoza zakresu albo błąd API to błąd programisty albo platformy → wyjątek (Wynik ma tylko
+// `brak_zgody`; luka L8-05 dla 05).
+export async function wlaczPrzypomnienie(
+  port: PortPowiadomien,
+  pora: { godzina: number; minuta: number },
+  tekst: TekstPrzypomnienia,
 ): Promise<Wynik<UstawieniaPrzypomnienia, 'brak_zgody'>> {
-  return niezaimplementowane('wlaczPrzypomnienie (ADR 0012 pkt 2, K-13)');
+  if (!poraPoprawna(pora)) throw new RangeError(`Pora przypomnienia spoza zakresu: ${pora.godzina}:${pora.minuta}`);
+  let zgoda = await port.zgoda();
+  if (!zgoda.granted && zgoda.canAskAgain) zgoda = await port.popros();
+  if (!zgoda.granted) {
+    await port.anulujWszystkie();
+    return { ok: false, powod: 'brak_zgody' };
+  }
+  await zaplanujJedno(port, pora, tekst);
+  return { ok: true, wartosc: { wlaczone: true, godzina: pora.godzina, minuta: pora.minuta } };
+}
+
+const poraPoprawna = (p: { godzina: number; minuta: number }) =>
+  Number.isInteger(p.godzina) && p.godzina >= 0 && p.godzina <= 23 && Number.isInteger(p.minuta) && p.minuta >= 0 && p.minuta <= 59;
+
+// Anuluj wszystkie własne, potem jedno żądanie ze stałym identyfikatorem: współbieżne wywołania zastępują to samo żądanie (pkt 1).
+// Pora bez przeliczania strefy: wyzwalacz `daily` działa w czasie lokalnym telefonu.
+async function zaplanujJedno(port: PortPowiadomien, pora: { godzina: number; minuta: number }, tekst: TekstPrzypomnienia): Promise<void> {
+  await port.anulujWszystkie();
+  await port.zaplanuj({
+    identyfikator: ID_PRZYPOMNIENIA, tytul: tekst.tytul, tresc: tekst.tresc,
+    wyzwalacz: { type: 'daily', hour: pora.godzina, minute: pora.minuta },
+  });
 }
