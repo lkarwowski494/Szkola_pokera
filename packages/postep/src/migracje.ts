@@ -1,6 +1,7 @@
 // Runner migracji (ADR 0003; dane.md „Polityka migracji”; wzór: e1-sqlite.mjs E4, e2-schemat.mjs `migruj`).
 import type { OchronaTla, Wynik } from '@szkola/domena';
 import type { Polaczenie } from './port';
+import { PrzerwanoWTle } from './bledy';
 import { SCHEMAT_V1 } from './schemat-v1';
 
 export interface Migracja { wersja: number; sql: string; przebudowa?: boolean }
@@ -34,27 +35,45 @@ async function wersjaBazy(pol: Polaczenie): Promise<number> {
 export async function migruj(
   pol: Polaczenie,
   migracje: readonly Migracja[],
-  _ochrona?: OchronaTla,
+  ochrona?: OchronaTla,
 ): Promise<Wynik<number, 'baza_nowsza' | 'migracja_nieudana' | 'przerwano_w_tle'>> {
   for (const m of migracje) if (!Number.isInteger(m.wersja) || m.wersja < 1) throw new Error(`Migracja z błędną wersją: ${m.wersja}`);
   const start = await wersjaBazy(pol);
   const cel = Math.max(0, ...migracje.map((m) => m.wersja));
   if (start > cel) return { ok: false, powod: 'baza_nowsza' }; // E4f: bez żadnej zmiany w pliku
   for (const m of [...migracje].filter((x) => x.wersja > start).sort((a, b) => a.wersja - b.wersja)) {
-    if (m.przebudowa) await pol.exec('PRAGMA foreign_keys = OFF'); // przed BEGIN: w transakcji pragma nic nie robi (sqlite.org/foreignkeys.html)
+    // Migracja z przebudową pod ochroną tła (ADR 0013 pkt 3, 7): rozpocznij przed pierwszą instrukcją, przerwanie na granicy instrukcji.
+    const chron = m.przebudowa && ochrona ? ochrona : null;
+    const flaga = { przerwij: false };
+    const id = chron ? chron.rozpocznij(`migracja_v${m.wersja}`) : -1;
+    const wypisz = chron ? chron.naWygasniecie((w) => { if (w === id) flaga.przerwij = true; }) : () => undefined;
+    const sprawdz = () => { if (flaga.przerwij) throw new PrzerwanoWTle(); };
     try {
-      await pol.exec('BEGIN IMMEDIATE');
+      if (m.przebudowa) await pol.exec('PRAGMA foreign_keys = OFF'); // przed BEGIN: w transakcji pragma nic nie robi (sqlite.org/foreignkeys.html)
       try {
-        await pol.exec(m.sql);
-        if ((await pol.all('PRAGMA foreign_key_check')).length > 0) throw new Error(`Migracja ${m.wersja}: naruszenia kluczy obcych`);
-        await pol.exec(`PRAGMA user_version = ${m.wersja}`); // liczba całkowita sprawdzona wyżej; pragma nie przyjmuje parametru
-        await pol.exec('COMMIT');
-      } catch {
-        await wycofaj(pol);
-        return { ok: false, powod: 'migracja_nieudana' }; // E4e: wersja i dane sprzed migracji
+        sprawdz();
+        await pol.exec('BEGIN IMMEDIATE');
+        try {
+          sprawdz();
+          await pol.exec(m.sql);
+          sprawdz();
+          if ((await pol.all('PRAGMA foreign_key_check')).length > 0) throw new Error(`Migracja ${m.wersja}: naruszenia kluczy obcych`);
+          await pol.exec(`PRAGMA user_version = ${m.wersja}`); // liczba całkowita sprawdzona wyżej; pragma nie przyjmuje parametru
+          sprawdz();
+          await pol.exec('COMMIT');
+        } catch (e) {
+          await wycofaj(pol);
+          throw e;
+        }
+      } catch (e) {
+        // E4e: wersja i dane sprzed migracji; przerwanie w tle: to samo, inny powód (ekran po powrocie, tlo-i-bledy.md §4)
+        return { ok: false, powod: e instanceof PrzerwanoWTle ? 'przerwano_w_tle' : 'migracja_nieudana' };
+      } finally {
+        if (m.przebudowa) await pol.exec('PRAGMA foreign_keys = ON');
       }
     } finally {
-      if (m.przebudowa) await pol.exec('PRAGMA foreign_keys = ON');
+      wypisz();
+      if (chron && id !== -1) chron.zakoncz(id);
     }
   }
   return { ok: true, wartosc: Math.max(start, cel) };

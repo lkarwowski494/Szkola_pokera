@@ -1,5 +1,6 @@
 // Port bazy postępu (ADR 0003; docs/architektura/moduly.md „Port bazy”). Pakiet bez React Native i expo-* (granice.mjs).
 import type { OchronaTla } from '@szkola/domena';
+import { PrzerwanoWTle } from './bledy';
 import { listaMigracji, migruj } from './migracje';
 
 export type Wartosc = string | number | null;
@@ -43,7 +44,40 @@ export async function otworzPostep(adapter: Polaczenie & SurowyPort, ochrona?: O
   }
   const w = await migruj(adapter, listaMigracji(), ochrona);
   if (!w.ok) throw new BladStartuPostepu(w.powod);
-  return portZKolejka(adapter);
+  const port = portZKolejka(adapter);
+  if (ochrona) OCHRONA.set(port, ochrona);
+  return port;
+}
+
+// Ochrona długich operacji (ADR 0013 pkt 2–4; D-205). PortBazy (moduly.md) nie ma miejsca na ochronę, więc port otwarty przez
+// otworzPostep jest z nią powiązany tutaj; port bez ochrony (np. atrapa) wykonuje operację bez niej (luka L8-03 dla 05).
+const OCHRONA = new WeakMap<PortBazy, OchronaTla>();
+
+// `rozpocznij` przed pierwszą instrukcją, `zakoncz` dokładnie raz w finally; po wygaśnięciu czasu (`naWygasniecie` z tym id)
+// każda następna instrukcja i zatwierdzenie transakcji kończą się PrzerwanoWTle (wycofanie). Id −1 (system nie dał czasu):
+// operacja bez ochrony, przerwanie przy przejściu do tła należy do warstwy aplikacji (ADR 0013 pkt 4, AppState).
+export async function dlugaOperacja<T>(port: PortBazy, nazwa: string, praca: (chroniony: PortBazy) => Promise<T>): Promise<T> {
+  const ochrona = OCHRONA.get(port);
+  if (!ochrona) return praca(port);
+  const flaga = { przerwij: false };
+  const id = ochrona.rozpocznij(nazwa);
+  const wypisz = ochrona.naWygasniecie((wygaslo) => { if (wygaslo === id) flaga.przerwij = true; });
+  const sprawdz = () => { if (flaga.przerwij) throw new PrzerwanoWTle(); };
+  const zTx = (tx: Tx): Tx => ({
+    run: async (sql, p) => { sprawdz(); return tx.run(sql, p); },
+    all: async (sql, p) => { sprawdz(); return tx.all(sql, p); },
+  });
+  const chroniony: PortBazy = {
+    ...zTx(port),
+    transakcja: (fn) => port.transakcja(async (tx) => { const w = await fn(zTx(tx)); sprawdz(); return w; }),
+    zamknij: () => port.zamknij(),
+  };
+  try {
+    return await praca(chroniony);
+  } finally {
+    wypisz();
+    if (id !== -1) ochrona.zakoncz(id);
+  }
 }
 
 // Jedna kolejka zapisów (ADR 0003 pkt 3): kolejne zadanie startuje po zakończeniu poprzedniego, także nieudanego.

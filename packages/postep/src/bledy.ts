@@ -13,8 +13,13 @@ export function kodSQLite(e: unknown): number | null {
   if (typeof e !== 'object' || e === null || !('errcode' in e) || typeof e.errcode !== 'number' || !Number.isInteger(e.errcode)) return null;
   return e.errcode & 0xff;
 }
+// Długa operacja przerwana na granicy instrukcji po wygaśnięciu czasu w tle (ADR 0013 pkt 4); transakcja wycofana.
+export class PrzerwanoWTle extends Error {
+  constructor() { super('przerwano_w_tle'); this.name = 'PrzerwanoWTle'; }
+}
 // 13 FULL → brak_miejsca; każdy inny błąd zapisu (10 IOERR, 5 BUSY i pozostałe) → zapis_nieudany: nigdy cicho.
 export function powodZapisu(e: unknown): PowodZapisu {
+  if (e instanceof PrzerwanoWTle) return 'przerwano_w_tle';
   return kodSQLite(e) === SQLITE_FULL ? 'brak_miejsca' : 'zapis_nieudany';
 }
 // Zapis przez port jako wartość: wyjątek → { ok: false, powod }; transakcja wycofana przez adapter (wTransakcji).

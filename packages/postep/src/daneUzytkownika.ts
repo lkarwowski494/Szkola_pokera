@@ -2,7 +2,7 @@
 // Sygnatury uzupełnione przez rolę 07 (moduly.md podaje tylko nazwy operacji) — luka dla 05, zapis w strategia.md §9.
 import { FORMAT_EKSPORTU, KONFIGURACJA, TABELE_EKSPORTU, walidujEksport, type TabelaEksportu, type Wynik } from '@szkola/domena';
 import { kodSQLite, powodZapisu, SQLITE_CONSTRAINT } from './bledy';
-import type { PortBazy, Tx, Wartosc } from './port';
+import { dlugaOperacja, type PortBazy, type Tx, type Wartosc } from './port';
 
 export type PowodZapisu = 'zapis_nieudany' | 'brak_miejsca' | 'przerwano_w_tle';
 
@@ -46,7 +46,7 @@ class NieprawidloweDane extends Error {}
 // Koperta ADR 0008 jako tekst JSON; odczyt w jednej transakcji (spójny stan wszystkich tabel).
 export async function eksportuj(port: PortBazy, meta: { terazMs: number; aplikacja: string }): Promise<Wynik<string, PowodZapisu>> {
   try {
-    const dane = await port.transakcja(async (tx) => {
+    const dane = await dlugaOperacja(port, 'eksport', (p) => p.transakcja(async (tx) => {
       const wynik: Record<string, Record<string, Wartosc>[]> = {};
       for (const t of TABELE_EKSPORTU) {
         const kolumny = KOLUMNY_EKSPORTU[t];
@@ -58,7 +58,7 @@ export async function eksportuj(port: PortBazy, meta: { terazMs: number; aplikac
         });
       }
       return wynik;
-    });
+    }));
     return { ok: true, wartosc: JSON.stringify({
       format: FORMAT_EKSPORTU, wersja_formatu: KONFIGURACJA.EKSPORT_WERSJA_FORMATU, utworzono: new Date(meta.terazMs).toISOString(),
       aplikacja: meta.aplikacja, dane,
@@ -103,7 +103,7 @@ export async function importuj(
     }
   }
   try {
-    await port.transakcja(async (tx) => {
+    await dlugaOperacja(port, 'import', (p) => p.transakcja(async (tx) => {
       for (const t of DZIECI_PRZED_RODZICAMI) if (t !== 'aktywnosc') await tx.run(`DELETE FROM ${t}`);
       await zostawZnacznikiDnia(tx, dzienLokalny, idAktywnosci);
       for (const { t, wartosci } of wiersze) {
@@ -111,7 +111,7 @@ export async function importuj(
         await tx.run(`INSERT INTO ${t} (${kolumny.join(', ')}) VALUES (${kolumny.map(() => '?').join(', ')})`, wartosci);
       }
       if ((await tx.all('PRAGMA foreign_key_check')).length > 0) throw new NieprawidloweDane('import: naruszenia kluczy obcych');
-    });
+    }));
     return { ok: true, wartosc: undefined };
   } catch (e) {
     // Dane z pliku łamiące CHECK, UNIQUE albo klucz obcy: błędny plik (D-202); transakcja wycofana, postęp bez zmian.
@@ -123,7 +123,7 @@ export async function importuj(
 // Kopia działającej bazy przed importem i migracją: VACUUM INTO ? (dane.md „Polityka kopii”); poza transakcją, przez kolejkę.
 export async function kopiaBazy(port: PortBazy, sciezka: string): Promise<Wynik<void, PowodZapisu>> {
   try {
-    await port.run('VACUUM INTO ?', [sciezka]);
+    await dlugaOperacja(port, 'kopia', (p) => p.run('VACUUM INTO ?', [sciezka]));
     return { ok: true, wartosc: undefined };
   } catch (e) {
     return { ok: false, powod: powodZapisu(e) };
@@ -134,11 +134,11 @@ export async function kopiaBazy(port: PortBazy, sciezka: string): Promise<Wynik<
 // znacznik dnia może być powtórnym testem z wynikiem (wzór e2-schemat.mjs zostawiałby go przy znaczniku).
 export async function usunPostep(port: PortBazy, dzienLokalny: string): Promise<Wynik<void, PowodZapisu>> {
   try {
-    await port.transakcja(async (tx) => {
+    await dlugaOperacja(port, 'usun_postep', (p) => p.transakcja(async (tx) => {
       for (const t of DZIECI_PRZED_RODZICAMI) if (t !== 'aktywnosc') await tx.run(`DELETE FROM ${t}`);
       await zostawZnacznikiDnia(tx, dzienLokalny, new Set());
       await tx.run('DELETE FROM dziennik');
-    });
+    }));
     return { ok: true, wartosc: undefined };
   } catch (e) {
     return { ok: false, powod: powodZapisu(e) };

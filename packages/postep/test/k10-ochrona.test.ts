@@ -2,11 +2,11 @@
 // i zakoncz dokładnie raz (także przy wyjątku); wygaśnięcie w środku importu → przerwano_w_tle, dane bez zmian, integrity ok.
 import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
-import { eksportuj, importuj, kopiaBazy, listaMigracji, migruj, usunPostep, type PortBazy } from '../../../packages/postep/src';
-import { atrapaOchrony } from '../../narzedzia/ochrona-atrapa';
-import { adapterNode, integralnosc, otworzNode, zawartosc, type Zdarzenie } from '../../narzedzia/postep-node';
-import { DZIEN_WZORCA, T0, zbudujWzorzecV1 } from '../../narzedzia/wzorzec-bazy';
-import { bladIO, katalogTymczasowy, przygotuj, sprzatnij } from '../../../packages/postep/test/wspolne';
+import { eksportuj, importuj, kopiaBazy, listaMigracji, migruj, usunPostep, type PortBazy } from '../src';
+import { atrapaOchrony } from '../../../tests/narzedzia/ochrona-atrapa';
+import { adapterNode, integralnosc, otworzNode, zawartosc, type Zdarzenie } from '../../../tests/narzedzia/postep-node';
+import { DZIEN_WZORCA, T0, zbudujWzorzecV1 } from '../../../tests/narzedzia/wzorzec-bazy';
+import { bladIO, katalogTymczasowy, przygotuj, sprzatnij } from './wspolne';
 
 afterEach(sprzatnij);
 
