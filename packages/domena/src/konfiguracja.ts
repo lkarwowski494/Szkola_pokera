@@ -28,5 +28,6 @@ export const KONFIGURACJA = {
     'pl.lkarwowski.szkolapokera.rok',
     'pl.lkarwowski.szkolapokera.dozywotni',
   ] as const, // ADR 0006
+  PRODUKTY_BEZ_KONCA: ['pl.lkarwowski.szkolapokera.dozywotni'] as const, // ADR 0006 pkt 2 (L8-04, D-217): `wygasaMs: null` tylko dla tych
 } as const;
 export type Konfiguracja = typeof KONFIGURACJA;
