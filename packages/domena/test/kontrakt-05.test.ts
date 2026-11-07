@@ -17,6 +17,9 @@ const WIERSZE: [id: string, plik: string, fraza: string][] = [
   ['L8-05', 'architektura/moduly.md', "'brak_zgody' | 'planowanie_nieudane'"],
   ['L8-05', 'architektura/tlo-i-bledy.md', '`planowanie_nieudane`'],
   ['JAK-E1-01', 'adr/0007-licznik-dziennego-limitu-lokalny.md', 'Erratum (JAK-E1-01'],
+  ['D-214', 'architektura/moduly.md', '| `brak_zakupow` | komunikat zamknięty | `bezczynny`'],
+  ['D-210', 'architektura/moduly.md', 'Rezygnacja (`anuluj`, D-210)'],
+  ['D-210', 'architektura/moduly.md', 'wejscieDoAktywnosci(rodzaj, trescId'],
   ['L8-03', 'adr/0013-ochrona-dlugich-operacji-przed-zawieszeniem.md', 'dlugaOperacja'],
 ];
 

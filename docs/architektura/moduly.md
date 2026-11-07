@@ -90,7 +90,9 @@ Lista stanów każdej maszyny jest eksportowana z `domena` i porównywana z CHEC
 | `w_toku` | `porzuc` | użytkownik zaczyna inną aktywność tego rodzaju albo „Zakończ” | `porzucona` | `koniec_ms` |
 | `zakonczona`, `porzucona` | dowolne | — | błąd `przejscie_niedozwolone` | brak |
 
-**`ocenaPoziomu`** = `aktywnosc` rodzaju `ocena_poziomu` (najwyżej `OCENA_POZIOMU_MAKS_PYTAN`, „Pomiń” → `porzucona` i punkt startu M0; zakończenie → `ustawienie.punkt_startu`).
+Funkcje (sygnatury w `packages/domena/src/maszyny.ts`, przyjęte): `startAktywnosci(wej) → Wynik<AktywnoscWToku, 'limit_wyczerpany' | 'plan_niepoprawny'>`, `przejscieAktywnosci(a, z) → Wynik<Aktywnosc, 'przejscie_niedozwolone' | 'akcja_niedostepna' | 'krok_niezgodny'>`, `wejscieDoAktywnosci(rodzaj, trescId, wToku, pierwszePodejscieTestu, limit) → wznow | start | porzuc_i_start | ekran_zakupu`. Aktywność w toku innego rodzaju nie koliduje przy wejściu (D-210).
+
+**`ocenaPoziomu`** = `aktywnosc` rodzaju `ocena_poziomu` (najwyżej `OCENA_POZIOMU_MAKS_PYTAN` — dłuższy plan → `plan_niepoprawny`, D-210; „Pomiń” → `porzucona` i punkt startu M0; zakończenie → `ustawienie.punkt_startu`).
 
 **`scenariusz`** = `aktywnosc` rodzaju `scenariusz`; zdarzenie `odpowiedz` przyjmuje tylko akcje z oceną w treści scenariusza (D-109): akcja spoza listy → błąd `akcja_niedostepna` (nie zapis).
 
@@ -104,8 +106,12 @@ Lista stanów każdej maszyny jest eksportowana z `domena` i porównywana z CHEC
 | `oczekuje` | transakcja z nasłuchu | `zakonczony` |
 | `w_toku` | błąd sklepu | `blad` → `bezczynny` po komunikacie |
 | `bezczynny` | `przywroc` (tylko z przycisku) | `w_toku` → `zakonczony` albo `brak_zakupow` |
+| `brak_zakupow` | komunikat zamknięty | `bezczynny` (D-214) |
+| `oczekuje` | `przywroc` | `w_toku` (przywracanie; D-214: odmowa rodzica zwykle nie daje zdarzenia) |
 
-**`import`**: `wybor_pliku` → `walidacja` → (`bledny_plik` | `nowsza_wersja` | `potwierdzenie` przy istniejącym postępie | `zapis`) → `zapis` (kopia, transakcja) → `gotowe` | `blad_zapisu` (dane bez zmian).
+Uzupełnienie (D-210, D-214, fix 05 2026-11-07): `w_toku` niesie operację (`kup` | `przywroc`); `oczekuje` tylko z `w_toku(kup)`, `brak_zakupow` tylko z `w_toku(przywroc)`; anulowanie i błąd sklepu z obu. Każda para spoza tabeli → `przejscie_niedozwolone`, stan bez zmian — w tym drugi `kup` w `w_toku` i `oczekuje` (R-48), zdarzenia po `zakonczony` i transakcja z nasłuchu w `bezczynny` (dostęp i tak liczy `decyzja` z odczytu sklepu). Maszyna żyje w ekranie zakupu: każde wejście na ekran zaczyna od `bezczynny`, więc `zakonczony` nie wymaga wyjścia. Typy stanu i zdarzeń: `packages/domena/src/maszyny.ts` (propozycja 07 przyjęta).
+
+**`import`**: `wybor_pliku` → `walidacja` → (`bledny_plik` | `nowsza_wersja` | `potwierdzenie` przy istniejącym postępie | `zapis`) → `zapis` (kopia, transakcja) → `gotowe` | `blad_zapisu` (dane bez zmian). Rezygnacja (`anuluj`, D-210): w `wybor_pliku`, `walidacja`, `potwierdzenie` → `przejscie_niedozwolone` (maszyna bez stanu rezygnacji; ekran zamyka przepływ, nowe wejście zaczyna od `wybor_pliku`); nigdy do `zapis`.
 
 ## Konfiguracja (jeden plik: `packages/domena/src/konfiguracja.ts`)
 Liczby, których aplikacja uczy (progi solvera, tolerancje), są merytoryczne: źródło to rejestr roli 06 i `content/numbers.yaml`; tu tylko nazwy i obecne wartości z kodu do przeniesienia.
