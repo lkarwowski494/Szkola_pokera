@@ -23,7 +23,7 @@ import {
   type ModulKursu,
   type OdpowiedzTestu,
   type PostepKursu,
-} from '../../../packages/domena/src';
+} from '../src';
 
 const MODULY: ModulKursu[] = Array.from({ length: 14 }, (_, i) => ({ id: `M${i}`, lekcje: [`m${i}-l1`, `m${i}-l2`, `m${i}-l3`] }));
 const PUSTY: PostepKursu = { ukonczoneLekcje: [], zaliczoneTestem: [], zaliczoneOcena: [], punktStartu: 'M0' };
@@ -252,7 +252,7 @@ describe('AK-BR-OPIN-001-d: dostęp niezależny od oceny (kontrola statyczna)', 
       .replace(/\/\*[\s\S]*?\*\//g, '')
       .replace(/\/\/.*$/gm, '');
   it('AK-BR-OPIN-001-d decyzja o dostępie i limit nie czytają oceny ani prośby (dostep.ts, limit.ts bez ocena/prośba/review)', () => {
-    for (const p of ['../../../packages/domena/src/dostep.ts', '../../../packages/domena/src/limit.ts'])
+    for (const p of ['../src/dostep.ts', '../src/limit.ts'])
       expect(zrodlo(p), p).not.toMatch(/prosb|review|ocenaSklep|rating/i);
   });
   it('AK-BR-OPIN-001-e systemowa prośba (requestReview) wywoływana najwyżej w jednym pliku aplikacji', () => {
