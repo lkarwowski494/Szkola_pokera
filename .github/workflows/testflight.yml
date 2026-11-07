@@ -12,16 +12,55 @@
 # Klucz ma rolę Admin (podpis w chmurze przy eksporcie wymaga uprawnień do certyfikatów dystrybucyjnych); może to być ten sam
 # klucz co w Treningu (klucz należy do zespołu, nie do aplikacji).
 # Numer buildu: 1000 + numer przebiegu tego workflow — tylko rośnie.
+# Bramka E2E (D-170, analogia Trening testflight.yml i scripts/ci/bramka-e2e.sh, odczyt 2026-11-07): zadanie „bramka” na Linuksie
+# czeka na ZIELONY przebieg e2e.yml dla TEGO SAMEGO commitu (scripts/ci/bramka-e2e.mjs); build na macOS startuje dopiero po niej.
+# Ścieżka awaryjna (awaria maszyny E2E, nie kodu): wejścia pomin_bramke_e2e + powod — powód trafia do podsumowania przebiegu.
 name: TestFlight (testy wewnętrzne)
 on:
   workflow_dispatch:
+    inputs:
+      pomin_bramke_e2e:
+        description: 'AWARYJNIE: pomiń bramkę E2E (tylko gdy E2E zawiodło z winy maszyny, nie kodu); wymaga pola powod'
+        type: boolean
+        default: false
+      powod:
+        description: 'Powód pominięcia bramki E2E (obowiązkowy przy pomin_bramke_e2e; trafia do podsumowania przebiegu)'
+        required: false
+        default: ''
 permissions:
   contents: read
 concurrency:
   group: testflight
   cancel-in-progress: false
 jobs:
+  bramka:
+    name: bramka E2E (zielony e2e.yml dla tego commitu)
+    runs-on: ubuntu-latest
+    # czekanie 75 × 60 s = 75 min ≥ limit e2e.yml (42) + kolejka; limit zadania = czekanie + 5 (test w workflowy.test.mjs)
+    timeout-minutes: 80
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@v5
+      - name: Zielony przebieg E2E na tym commicie (albo awaryjne pominięcie z powodem)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          POMIN: ${{ inputs.pomin_bramke_e2e }}
+          POWOD: ${{ inputs.powod }}
+          BRAMKA_POLL_SEC: '60'
+          BRAMKA_GRACE_POLLS: '5'
+          BRAMKA_MAX_POLLS: '75'
+        run: |
+          if [ "$POMIN" = "true" ]; then
+            [ -n "$POWOD" ] || { echo "::error::pomin_bramke_e2e wymaga uzasadnienia w polu powod"; exit 1; }
+            echo "::warning::Bramka E2E POMINIĘTA awaryjnie"
+            { echo "## Bramka E2E pominięta awaryjnie"; echo "Commit: $GITHUB_SHA"; echo "Powód: $POWOD"; } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          node scripts/ci/bramka-e2e.mjs "$GITHUB_REPOSITORY" "$GITHUB_SHA"
   build:
+    needs: bramka
     # Expo SDK 57 wymaga Xcode 26.4+; obraz macos-26 ma domyślnie Xcode 26.4.1 (jak iphone-local.yml)
     runs-on: macos-26
     timeout-minutes: 90

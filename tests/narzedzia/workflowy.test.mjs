@@ -78,3 +78,30 @@ test('nocny.yml: grupy mutacji poker-core obejmują każdy plik src/ (bez bots.t
   const src = readdirSync(new URL('../../packages/poker-core/src/', import.meta.url)).filter((f) => f.endsWith('.ts') && f !== 'bots.ts');
   assert.deepEqual([...pliki].sort(), [...src].sort());
 });
+
+test('testflight.yml: bramka E2E (D-170) przed buildem — zielony e2e.yml na tym commicie albo awaryjne pominięcie z powodem', () => {
+  const t = json('testflight.yml');
+  const wej = t.on.workflow_dispatch?.inputs ?? {};
+  assert.equal(wej.pomin_bramke_e2e?.type, 'boolean');
+  assert.equal(wej.pomin_bramke_e2e?.default, false);
+  assert.ok('powod' in wej);
+  const b = t.jobs.bramka;
+  assert.ok(b, 'brak zadania bramka');
+  assert.equal(b['runs-on'], 'ubuntu-latest', 'czekanie na E2E nie może zużywać minut macOS');
+  assert.deepEqual(b.permissions, { contents: 'read', actions: 'read' });
+  const kroki = b.steps.map((s) => s.run ?? '').join('\n');
+  assert.match(kroki, /node scripts\/ci\/bramka-e2e\.mjs/);
+  assert.match(kroki, /POMIN.*true[\s\S]*-n "\$POWOD"[\s\S]*exit 1/, 'pominięcie bez powodu ma paść');
+  assert.match(kroki, /GITHUB_STEP_SUMMARY/, 'powód pominięcia trafia do podsumowania');
+  const nb = [t.jobs.build.needs].flat();
+  assert.ok(nb.includes('bramka'), 'build musi czekać na bramkę');
+});
+
+test('testflight.yml: czekanie bramki ≥ limit E2E + 15 min kolejki, a limit zadania bramki ≥ czekanie + 5 min (rośnie z liczbą flowów)', () => {
+  const b = json('testflight.yml').jobs.bramka;
+  const env = Object.assign({}, ...b.steps.map((s) => s.env ?? {}));
+  const czekanieMin = (Number(env.BRAMKA_MAX_POLLS) * Number(env.BRAMKA_POLL_SEC)) / 60;
+  const e2e = json('e2e.yml').jobs.e2e['timeout-minutes'];
+  assert.ok(czekanieMin >= e2e + 15, `czekanie ${czekanieMin} min < ${e2e} + 15`);
+  assert.ok(b['timeout-minutes'] >= Math.ceil(czekanieMin) + 5, `timeout ${b['timeout-minutes']} < ${Math.ceil(czekanieMin)} + 5`);
+});
