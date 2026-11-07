@@ -62,8 +62,8 @@ Błędy domeny i portów są wartościami `{ ok: false, powod }` (moduly.md, `Wy
 | jw. | `zakup_anulowany`, `zakup_oczekuje`, `zakup_blad` | maszyna `zakup` (moduly.md) | anulowanie bez komunikatu; oczekiwanie: informacja; błąd: komunikat i powrót do `bezczynny` | częściowo (przywracanie bez zakupu jest; oczekuje i błąd zakupu: **brak**) |
 | jw. | `przerwano_w_tle` | ADR 0013 | dane bez zmian; po powrocie komunikat „Import nie został dokończony” i ponowienie | **brak** |
 | Nieudany zapis danych użytkownika | `zapis_nieudany` (SQLite: `SQLITE_IOERR`, `SQLITE_BUSY`), `brak_miejsca` (`SQLITE_FULL`) | adapter portu | nigdy cicho: komunikat; stan aktywności sprzed kroku (transakcja wycofana); odpowiedź zostaje na ekranie do ponowienia | **brak** (wzór tekstu błędu jest: „Nie udało się …”) |
-| Awaria danych przy starcie | `baza_nowsza` | runner migracji (E4f) | aplikacja nie zapisuje nic; ekran „Zaktualizuj aplikację”; dane bez zmian | **brak** |
-| jw. | `migracja_nieudana` | runner (ROLLBACK, E4e) | dane w wersji sprzed migracji + kopia `postep-przed-v<N>.db`; ekran błędu z „Zgłoś błąd” (F-17) | **brak** |
+| Awaria danych przy starcie | `baza_nowsza` | runner migracji (E4f); wyjątek `BladStartuPostepu` z `otworzPostep` (L8-01, D-200) | aplikacja nie zapisuje nic; ekran „Zaktualizuj aplikację”; dane bez zmian | **brak** |
+| jw. | `migracja_nieudana` | runner (ROLLBACK, E4e); wyjątek `BladStartuPostepu` jak wyżej | dane w wersji sprzed migracji + kopia `postep-przed-v<N>.db`; ekran błędu z „Zgłoś błąd” (F-17) | **brak** |
 | jw. | `baza_uszkodzona` (`SQLITE_CORRUPT`, `SQLITE_NOTADB`) | adapter portu przy otwarciu | bez nadpisywania pliku: plik przemianowany na `postep-uszkodzona-<ms>.db`, nowa pusta baza, komunikat z „Zgłoś błąd” i informacją o imporcie z ostatniego eksportu | **brak** |
 | jw. | `tresc_niedostepna` | brak albo błąd pliku `tresc-*.db` (ADR 0005) | ekran błędu bez pustych list; dane użytkownika nietknięte | **brak** |
 | Nieoczekiwany | `wyjatek_ekranu` | granica błędu ekranu | ekran zastępczy z „Spróbuj ponownie” i „Zgłoś błąd”; wpis w dzienniku; raportowanie awarii: rola 12 (ADR 0009) | **brak** |
