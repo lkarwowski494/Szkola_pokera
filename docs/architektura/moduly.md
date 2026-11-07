@@ -60,8 +60,9 @@ export function mozeStartowac(rodzaj: RodzajAktywnosci, pierwszePodejscieTestu: 
 
 // Dostęp (ADR 0006; wektory w docs/monetyzacja.md)
 export type OdczytSklepu = { ok: true; transakcje: { produkt: string; wygasaMs: number | null; odebrana: boolean }[] } | { ok: false };
-export function decyzja(odczyt: OdczytSklepu, pamiec: Pamiec | null, teraz: number, odblokowuja: readonly string[]):
-  { dostep: boolean; zrodlo: 'sklep' | 'pamiec' | 'brak'; nowaPamiec: Pamiec | null };
+export function decyzja(odczyt: OdczytSklepu, pamiec: Pamiec | null, teraz: number, odblokowuja: readonly string[],
+  bezKonca: readonly string[]): { dostep: boolean; zrodlo: 'sklep' | 'pamiec' | 'brak'; nowaPamiec: Pamiec | null };
+// L8-04 (D-217): wygasaMs = null tylko dla produktów z `bezKonca` (PRODUKTY_BEZ_KONCA); inny produkt bez daty końca → nieaktywny
 
 // Eksport (ADR 0008)
 export function walidujEksport(tekst: string, obslugiwana: number): Wynik<KopertaV1, 'bledny_plik' | 'nowsza_wersja'>;
@@ -126,6 +127,7 @@ Liczby, których aplikacja uczy (progi solvera, tolerancje), są merytoryczne: �
 | `TRESC_FORMAT` (liczba) | 1 | ADR 0005 |
 | `ROZMIAR_POBRANIA_PROG_MB` (MB) | 50 [OCENA] | ADR 0005 (powyżej: decyzja właściciela) |
 | `PRODUKTY_ODBLOKOWUJACE` | `pl.lkarwowski.szkolapokera.kwartal`, `.rok`, `.dozywotni` | ADR 0006 |
+| `PRODUKTY_BEZ_KONCA` | `pl.lkarwowski.szkolapokera.dozywotni` | ADR 0006 pkt 2 (L8-04, D-217) |
 
 Reguła: kod i testy importują wartości z `konfiguracja.ts`; testy nie kopiują liczb.
 
