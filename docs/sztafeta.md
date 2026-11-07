@@ -412,7 +412,8 @@ Plus jedna linia w „Dokumentacja projektu”: „Architektura w repo: `docs/ar
 - Część 11 (2026-11-07, D-190): workflowy `ci.yml`, `e2e.yml`, `nocny.yml` + kontrole w `pnpm test:skrypty` (67/67); przegląd D-043: 0 KRYTYCZNYCH/WYSOKICH, 5 ŚREDNICH poprawionych; zasada właściciela D-191 (najpierw Trening) w `CLAUDE.md`.
 - Część 12 (2026-11-07, D-193): bramka E2E w `testflight.yml` (zadanie `bramka` na Linuksie, `scripts/ci/bramka-e2e.mjs`, pominięcie awaryjne z powodem); `pnpm test:skrypty` 77/77, `pnpm run ci` kod 0; przegląd D-043: 0 KRYTYCZNYCH/WYSOKICH, 2 ŚREDNIE i 5 NISKICH poprawionych.
 - D-194 (2026-11-07): `e2e.yml` → `e2e-ios.yml` (nowy plik aktywny bez kroku właściciela, jak w Treningu), push także na `claude/**`.
-- Zostaje w E3 (po części 12): ocena pierwszego przebiegu `e2e-ios.yml` na gałęzi (D-192, D-194); scalenie zmian workflowów — właściciel; potem STOP E3.
+- D-195 (2026-11-07): pierwszy przebieg `e2e-ios.yml` 42386642585 zielony (4/4; Słowniczek zielony w ponowieniu → czekanie 20 s w flowie).
+- Zostaje w E3 (po części 12): wynik kolejnego przebiegu E2E po poprawce Słowniczka; scalenie zmian workflowów — właściciel; potem STOP E3.
 
 ## Punkt czyszczenia (2026-11-07, po części 11, duży kontekst; rola 07 E3 prawie zakończona)
 Przekazanie do wklejenia w nową sesję (opus/high):

@@ -14,5 +14,9 @@ name: Słowniczek
 - tapOn: 'Słowniczek PL–EN'
 - tapOn: 'Szukaj po polsku albo po angielsku'
 - inputText: '${GLOSS_QUERY}'
-# nazwa polska z content/terms.yaml (helplines-env.mjs), nie wpisana tutaj (JAK-E0-01)
-- assertVisible: '${GLOSS_PL}'
+# nazwa polska z content/terms.yaml (helplines-env.mjs), nie wpisana tutaj (JAK-E0-01).
+# Czekanie zamiast assertVisible (D-195): przebieg 42386642585 — pierwszy flow po instalacji padł na tej asercji
+# po 3 min 28 s, w ponowieniu przeszedł (1 min 18 s); wynik wyszukiwania na zimnej aplikacji pojawia się później.
+- extendedWaitUntil:
+    visible: '${GLOSS_PL}'
+    timeout: 20000

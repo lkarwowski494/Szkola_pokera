@@ -73,7 +73,7 @@ export function czekaj({ pobierz, spij, pisz, sha, grace, max, pollSec = 60, wyn
     } else {
       if (n >= grace) {
         const an = s.anulowany ? ` (jest tylko anulowany albo pominięty #${s.anulowany})` : '';
-        pisz(`::error::Bramka E2E: brak przebiegu e2e-ios.yml na commicie ${krotki}${an}. Uruchom Actions → „E2E iOS (symulator)” → Run workflow na tej gałęzi, poczekaj na zielony wynik i ponów TestFlight. Awaria E2E nie z winy kodu (maszyna): wejścia pomin_bramke_e2e + powod.`);
+        pisz(`::error::Bramka E2E: brak przebiegu e2e-ios.yml na commicie ${krotki}${an}. Uruchom Actions → „E2E iOS (symulator)” → Run workflow na tej gałęzi, poczekaj na zielony wynik i ponów TestFlight. Przed scaleniem e2e-ios.yml z main ręczne uruchomienie może być niedostępne — wtedy commit zmieniający plik spoza docs/, *.md, tests/, .claude/ uruchamia E2E przy pushu. Awaria E2E nie z winy kodu (maszyna): wejścia pomin_bramke_e2e + powod.`);
         return 1;
       }
       pisz(`Bramka E2E: jeszcze brak przebiegu E2E dla ${krotki} (sprawdzenie ${n} z ${grace})`);

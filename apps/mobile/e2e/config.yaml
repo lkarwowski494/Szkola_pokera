@@ -1,4 +1,4 @@
-# Maestro: flowy głównej ścieżki (B-028, ADR-10 po zmianie z 5.10.2026). Uruchamia je .github/workflows/e2e.yml na
+# Maestro: flowy głównej ścieżki (B-028, ADR-10 po zmianie z 5.10.2026). Uruchamia je .github/workflows/e2e-ios.yml na
 # symulatorze iOS. Lokalnie (macOS z Xcode): zbuduj aplikację na symulator, zainstaluj ją i uruchom `maestro test apps/mobile/e2e`.
 flows:
   - '*.yaml'
