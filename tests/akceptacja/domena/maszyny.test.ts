@@ -160,9 +160,16 @@ describe('AK-BR-LIM-002 i ADR 0007 pkt 3: rozpoczęta aktywność kończy się b
   }
 
   it('AK-BR-LIM-002-c w toku scenariusz A, użytkownik wybiera B: jest limit → porzuć A i zacznij B; limit wyczerpany → ekran zakupu, A nietknięty', () => {
-    const a = scenariusz(1);
+    const a = { ...scenariusz(1), dzienLokalny: '2026-11-06' }; // A z poprzedniego dnia: dziś limit jeszcze jest
     expect(wejscieDoAktywnosci('scenariusz', 'scn-b', a, false, JEDNA)).toEqual({ akcja: 'porzuc_i_start', porzuc: a, zLimitu: true });
     expect(wejscieDoAktywnosci('scenariusz', 'scn-b', a, false, WYCZERPANY)).toEqual({ akcja: 'ekran_zakupu' });
+  });
+
+  it('AK-BR-LIM-002-d inna treść poza limitem (lekcja; pierwsze podejście do testu modułu) przy wyczerpanym limicie → porzuć i zacznij, zLimitu = false', () => {
+    const l = wToku({ rodzaj: 'lekcja', zLimitu: false, plan: { liczbaKrokow: 4, trescId: 'm1-l1' } });
+    expect(wejscieDoAktywnosci('lekcja', 'm1-l2', l, false, WYCZERPANY)).toEqual({ akcja: 'porzuc_i_start', porzuc: l, zLimitu: false });
+    const t = wToku({ rodzaj: 'test_modulu', plan: { liczbaKrokow: 3, trescId: 'M2' } });
+    expect(wejscieDoAktywnosci('test_modulu', 'M3', t, true, WYCZERPANY)).toEqual({ akcja: 'porzuc_i_start', porzuc: t, zLimitu: false });
   });
 
   it('AK-ADR0007-3 bez aktywności w toku decyzja zapada przy starcie: wyczerpany → ekran zakupu; jest limit → start z limitu; lekcja → start poza limitem', () => {
@@ -285,7 +292,7 @@ describe('AK-ADR0010-imp: import — tabela przejść (BR-DANE-002)', () => {
     for (const s of STANY_IMPORTU) for (const z of ZDARZENIA_I) {
       if (NIEROZSTRZYGNIETE_IMPORT.has(`${s}/${z.typ}`)) {
         const r = przejscieImportu(s, z);
-        if (r.ok) expect(r.wartosc, `${s} + anuluj`).not.toBe('zapis');
+        if (r.ok) expect(['zapis', 'gotowe', 'blad_zapisu'], `${s} + anuluj`).not.toContain(r.wartosc);
         continue;
       }
       const na = oczekiwanyImport(s, z);
