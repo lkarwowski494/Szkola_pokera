@@ -1,7 +1,7 @@
 // Testy decyzji raportu nocnego (D-170): czysta logika bez `gh`.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { akcja, ocen, tresc } from './nocny-raport.mjs';
+import { akcja, niestabilne, ocen, tresc } from './nocny-raport.mjs';
 
 test('ocen: success i skipped zielone; failure i cancelled czerwone, z nazwą zadania', () => {
   assert.deepEqual(ocen({ a: { result: 'success' }, b: { result: 'skipped' } }), { czerwona: false, porazki: [] });
@@ -23,4 +23,13 @@ test('tresc: link, porażki i z E2E tylko listy nazw flowów (bez logów)', () =
   assert.match(t, /ponowieniu[^\n]*Powtórki/);
   assert.match(t, /padły dwa razy: Słowniczek/);
   assert.doesNotMatch(t, /token|Szczegóły logu|zielone: Pomoc/);
+});
+
+test('zielona noc z flowem zielonym dopiero w ponowieniu: otwiera albo komentuje, nie zamyka (D-178)', () => {
+  const e2e = '## E2E\n\n- zielone: Pomoc\n- zielone dopiero w ponowieniu (niestabilne, D-178): Powtórki\n';
+  assert.equal(niestabilne(e2e), true);
+  assert.equal(niestabilne('## E2E\n\n- zielone: Pomoc\n'), false);
+  assert.equal(akcja({ czerwona: false, niestabilne: true, otwarte: null }), 'otworz');
+  assert.equal(akcja({ czerwona: false, niestabilne: true, otwarte: 3 }), 'komentuj');
+  assert.equal(akcja({ czerwona: false, niestabilne: false, otwarte: 3 }), 'zamknij');
 });

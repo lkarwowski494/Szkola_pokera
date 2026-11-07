@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
-import { mapaFlowow, nieudane, podsumuj, przypadki } from './e2e-ponowienia.mjs';
+import { mapaFlowow, nieudane, oczekiwane, podsumuj, przypadki } from './e2e-ponowienia.mjs';
 
 const E2E = fileURLToPath(new URL('../../apps/mobile/e2e/', import.meta.url));
 const junit = (...p) => `<?xml version="1.0"?><testsuites><testsuite name="Test Suite" tests="${p.length}">${p
@@ -42,4 +42,26 @@ test('podsumuj: zielony w ponowieniu wypisany i kod 0; padł dwa razy → kod 1;
 test('podsumuj: pusty albo brakujący raport = maszyna, kod 1 bez ponowień', () => {
   assert.equal(podsumuj('', []).kod, 1);
   assert.match(podsumuj('', []).tekst, /maszyna/);
+});
+
+test('przypadki: porażka zapisana atrybutem status (bez elementu failure) też jest porażką', () => {
+  assert.deepEqual(przypadki('<testcase name="Pomoc" status="ERROR"/><testcase name="X" status="SUCCESS"/>'), [
+    { nazwa: 'Pomoc', ok: false },
+    { nazwa: 'X', ok: true },
+  ]);
+});
+
+test('podsumuj: przerwany przebieg — flow z katalogu nieobecny w raporcie → kod 1 z nazwą (przegląd D-043 nr 1)', () => {
+  const wymagane = oczekiwane(mapaFlowow(E2E));
+  assert.equal(wymagane.length, 4);
+  const r = podsumuj(junit(['Pomoc', true], ['Słowniczek', true]), [], { kodPierwszego: 1, wymagane });
+  assert.equal(r.kod, 1);
+  assert.match(r.tekst, /brak w raporcie/);
+});
+
+test('podsumuj: Maestro z kodem ≠ 0, w raporcie same zielone → kod 1 (maszyna; Trening e2e-ios.yml:231–241)', () => {
+  const r = podsumuj(junit(['Pomoc', true]), [], { kodPierwszego: 1 });
+  assert.equal(r.kod, 1);
+  assert.match(r.tekst, /bez nieudanego flowu/);
+  assert.equal(podsumuj(junit(['Pomoc', true]), [], { kodPierwszego: 0 }).kod, 0);
 });

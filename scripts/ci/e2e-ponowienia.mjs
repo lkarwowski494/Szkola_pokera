@@ -1,7 +1,9 @@
 // E2E: jedno ponowienie nieudanego flowu (D-178; wzór Trening e2e-ios.yml: „nieudany scenariusz ponawiany RAZ, drugi
 // czerwony = porażka”). Podpolecenia:
 //   nieudane <raport-junit> <katalog-flowów>  → ścieżki plików flowów z <failure>/<error> w raporcie, po jednej w linii
-//   podsumuj <raport-junit> <raport-ponowienia>... → Markdown do GITHUB_STEP_SUMMARY; kod 1, gdy którykolwiek flow padł dwa razy
+//   podsumuj <raport-junit> <katalog-flowów> <kod-pierwszego-przebiegu> [<raport-ponowienia>...] → Markdown do
+//     GITHUB_STEP_SUMMARY; kod 1, gdy flow padł dwa razy, flowu z katalogu brakuje w raporcie albo Maestro zakończył się
+//     błędem bez nieudanego flowu w raporcie (jak Trening e2e-ios.yml:231–241: rc ≠ 0 i pusta lista nieudanych = porażka)
 // Raport JUnit Maestro (`--format junit`): <testcase name="<name z nagłówka flowu>"> z <failure> przy porażce.
 // Kształt sprawdzony tylko na danych syntetycznych [DO USTALENIA: pierwszy przebieg na macos-26 — raport w artefakcie e2e-wyniki].
 // Brak raportu (awaria przed pierwszym flowem) to maszyna, nie flow: bez ponowień, kod 1 (wzorce roli 07, polityka niestabilnych testów pkt 5).
@@ -18,7 +20,8 @@ export function przypadki(xml) {
   for (const m of xml.matchAll(/<testcase\b([^>]*?)(\/>|>([\s\S]*?)<\/testcase>)/g)) {
     const nazwa = m[1].match(/\bname="([^"]*)"/)?.[1];
     if (nazwa === undefined) continue;
-    wynik.push({ nazwa: odkoduj(nazwa), ok: !/<(failure|error)\b/.test(m[3] ?? '') });
+    const status = m[1].match(/\bstatus="([^"]*)"/)?.[1] ?? '';
+    wynik.push({ nazwa: odkoduj(nazwa), ok: !/<(failure|error)\b/.test(m[3] ?? '') && !/^(error|failed?|failure)$/i.test(status) });
   }
   return wynik;
 }
@@ -47,17 +50,29 @@ export function nieudane(xml, mapa) {
   return pliki;
 }
 
-/** Wynik: pierwszy przebieg + ponowienia → { tekst, kod }. Flow zielony w ponowieniu jest wypisany (niestabilność widoczna). */
-export function podsumuj(xml, ponowienia) {
+/** Nazwy flowów oczekiwanych w raporcie: jedna na plik (name z nagłówka, inaczej nazwa pliku). */
+export function oczekiwane(mapa) {
+  const naPlik = new Map();
+  for (const [nazwa, plik] of mapa) if (!naPlik.has(plik) || !/^\d/.test(nazwa)) naPlik.set(plik, nazwa);
+  return [...naPlik.values()];
+}
+
+/**
+ * Wynik: pierwszy przebieg + ponowienia → { tekst, kod }. Flow zielony w ponowieniu jest wypisany (niestabilność widoczna).
+ * `kodPierwszego` ≠ 0 bez nieudanego przypadku w raporcie i brak flowu z `wymagane` w raporcie to porażka (raport niepełny).
+ */
+export function podsumuj(xml, ponowienia, { kodPierwszego = 0, wymagane = [] } = {}) {
   const pierwsze = przypadki(xml);
   if (!pierwsze.length) return { tekst: '## E2E\n\nBrak przypadków w raporcie: awaria przed pierwszym flowem (maszyna), bez ponowień.\n', kod: 1 };
   const drugie = new Map(ponowienia.flatMap(przypadki).map((p) => [p.nazwa, p.ok]));
   const zielone = pierwsze.filter((p) => p.ok).map((p) => p.nazwa);
   const wPonowieniu = pierwsze.filter((p) => !p.ok && drugie.get(p.nazwa) === true).map((p) => p.nazwa);
   const dwaRazy = pierwsze.filter((p) => !p.ok && drugie.get(p.nazwa) !== true).map((p) => p.nazwa);
+  const brak = wymagane.filter((n) => !pierwsze.some((p) => p.nazwa === n));
+  const bezNieudanych = kodPierwszego !== 0 && pierwsze.every((p) => p.ok);
   const lista = (t, xs) => (xs.length ? `- ${t}: ${xs.join(', ')}\n` : '');
-  const tekst = `## E2E\n\n${lista('zielone', zielone)}${lista('zielone dopiero w ponowieniu (niestabilne, D-178)', wPonowieniu)}${lista('padły dwa razy', dwaRazy)}`;
-  return { tekst, kod: dwaRazy.length ? 1 : 0 };
+  const tekst = `## E2E\n\n${lista('zielone', zielone)}${lista('zielone dopiero w ponowieniu (niestabilne, D-178)', wPonowieniu)}${lista('padły dwa razy', dwaRazy)}${lista('brak w raporcie (przebieg przerwany)', brak)}${bezNieudanych ? '- Maestro zakończył się błędem bez nieudanego flowu w raporcie (maszyna)\n' : ''}`;
+  return { tekst, kod: dwaRazy.length || brak.length || bezNieudanych ? 1 : 0 };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
@@ -66,11 +81,15 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   if (polecenie === 'nieudane') {
     for (const f of nieudane(xml, mapaFlowow(reszta[0]))) console.log(f);
   } else if (polecenie === 'podsumuj') {
-    const { tekst, kod } = podsumuj(xml, reszta.filter(existsSync).map((f) => readFileSync(f, 'utf8')));
+    const [katalog, kodPierwszego, ...ponowienia] = reszta;
+    const { tekst, kod } = podsumuj(xml, ponowienia.filter(existsSync).map((f) => readFileSync(f, 'utf8')), {
+      kodPierwszego: Number(kodPierwszego),
+      wymagane: oczekiwane(mapaFlowow(katalog)),
+    });
     process.stdout.write(tekst);
     process.exit(kod);
   } else {
-    console.error('użycie: e2e-ponowienia.mjs nieudane <junit> <katalog> | podsumuj <junit> [<junit-ponowienia>...]');
+    console.error('użycie: e2e-ponowienia.mjs nieudane <junit> <katalog> | podsumuj <junit> <katalog> <kod> [<junit-ponowienia>...]');
     process.exit(2);
   }
 }

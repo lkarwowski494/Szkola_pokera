@@ -80,13 +80,17 @@ jobs:
       - name: Podsumowanie
         if: always()
         run: |
+          touch akceptacja.log
           {
             echo "## Testy oczekujące (D-175, informacja)"
             echo
-            grep -E "Tests +[0-9]|^Tests:" akceptacja.log | sed 's/^/- /' || echo "- brak wyniku (log w artefakcie)"
+            if grep -qE "Tests +[0-9]|^Tests:" akceptacja.log; then grep -E "Tests +[0-9]|^Tests:" akceptacja.log | sed 's/^/- /'; else echo "- brak wyniku (log w artefakcie)"; fi
             echo
-            echo "Powody czerwieni (znacznik albo asercja):"
-            grep -oE "NIEZAIMPLEMENTOWANE: [^\`'\"]+" akceptacja.log | sort | uniq -c | sort -rn | head -40 | sed 's/^/    /' || true
+            echo "ID testów w logu (czerwone i strażniki):"
+            grep -oE "AK-[A-Z0-9]+(-[A-Za-z0-9]+)*" akceptacja.log | sort -u | tr '\n' ' ' || true
+            echo; echo
+            echo "Powody czerwieni (znacznik):"
+            grep -oE "NIEZAIMPLEMENTOWANE: [^\\\`'\"]+" akceptacja.log | sort | uniq -c | sort -rn | head -40 | sed 's/^/    /' || true
           } >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v5
         if: always()

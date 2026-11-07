@@ -33,3 +33,48 @@ test('akcje przypięte do wersji głównej albo SHA, workflowy lokalne przez ./'
 test('harmonogramy poza pełną godziną (kolejka GitHuba)', () => {
   for (const { n, d } of wf) for (const s of d.toJSON().on?.schedule ?? []) assert.notEqual(s.cron.split(' ')[0], '0', `${n}: ${s.cron}`);
 });
+
+// Kontrole krzyżowe semantyki Actions, których sam YAML nie złapie (przegląd D-043 nr 5): literówka w id kroku,
+// `needs` do nieistniejącego zadania, `with` niezgodne z wejściami wywoływanego workflowu, niezamknięte `${{`.
+const json = (n) => wf.find((w) => w.n === n).d.toJSON();
+
+test('steps.<id> w wyrażeniach wskazuje krok z tym id w tym samym zadaniu', () => {
+  for (const { n, d } of wf) for (const [id, j] of Object.entries(d.toJSON().jobs)) {
+    const ids = new Set((j.steps ?? []).map((k) => k.id).filter(Boolean));
+    for (const [, ref] of JSON.stringify(j).matchAll(/steps\.([\w-]+)\./g)) assert.ok(ids.has(ref), `${n}: ${id}: steps.${ref}`);
+  }
+});
+
+test('needs wskazuje istniejące zadania', () => {
+  for (const { n, d } of wf) {
+    const jobs = d.toJSON().jobs;
+    for (const [id, j] of Object.entries(jobs)) for (const x of [j.needs ?? []].flat()) assert.ok(x in jobs, `${n}: ${id} needs ${x}`);
+  }
+});
+
+test('wywołanie lokalnego workflowu: klucze with ⊆ workflow_call.inputs', () => {
+  for (const { n, d } of wf) for (const [id, j] of Object.entries(d.toJSON().jobs)) {
+    if (!j.uses?.startsWith('./.github/workflows/')) continue;
+    const wejscia = Object.keys(json(j.uses.split('/').pop()).on.workflow_call?.inputs ?? {});
+    for (const k of Object.keys(j.with ?? {})) assert.ok(wejscia.includes(k), `${n}: ${id}: with.${k} nie ma w ${j.uses}`);
+  }
+});
+
+test('każde ${{ ma zamykające }}', () => {
+  for (const { n } of wf) {
+    const t = readFileSync(new URL(n, KAT), 'utf8');
+    assert.equal((t.match(/\$\{\{/g) ?? []).length, (t.match(/\}\}/g) ?? []).length, n);
+  }
+});
+
+test('uprawnienia write na poziomie zadania: tylko issues w nocny.yml:zgloszenie', () => {
+  for (const { n, d } of wf) for (const [id, j] of Object.entries(d.toJSON().jobs))
+    for (const [k, v] of Object.entries(j.permissions ?? {})) if (v === 'write') assert.equal(`${n}:${id}:${k}`, 'nocny.yml:zgloszenie:issues');
+});
+
+test('nocny.yml: grupy mutacji poker-core obejmują każdy plik src/ (bez bots.ts) dokładnie raz', () => {
+  const grupy = json('nocny.yml').jobs.mutacje.strategy.matrix.include.filter((g) => g.pakiet === 'poker-core');
+  const pliki = grupy.flatMap((g) => g.pliki.split(' '));
+  const src = readdirSync(new URL('../../packages/poker-core/src/', import.meta.url)).filter((f) => f.endsWith('.ts') && f !== 'bots.ts');
+  assert.deepEqual([...pliki].sort(), [...src].sort());
+});

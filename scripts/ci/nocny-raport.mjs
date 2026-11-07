@@ -16,9 +16,15 @@ export function ocen(needs) {
   return { czerwona: porazki.length > 0, porazki };
 }
 
-/** Decyzja: { czerwona, otwarte: numer | null } → 'otworz' | 'komentuj' | 'zamknij' | 'nic'. */
-export function akcja({ czerwona, otwarte }) {
-  if (czerwona) return otwarte ? 'komentuj' : 'otworz';
+/** Flowy zielone dopiero w ponowieniu (D-178) z podsumowania E2E. */
+export const niestabilne = (e2e) => /^- zielone dopiero w ponowieniu/m.test(e2e ?? '');
+
+/**
+ * Decyzja: { czerwona, niestabilne, otwarte } → 'otworz' | 'komentuj' | 'zamknij' | 'nic'. Noc zielona z flowem zielonym
+ * dopiero w ponowieniu nie jest czysta: D-178 wymaga, żeby niestabilność trafiła do zgłoszenia (przegląd D-043 nr 3).
+ */
+export function akcja({ czerwona, niestabilne = false, otwarte }) {
+  if (czerwona || niestabilne) return otwarte ? 'komentuj' : 'otworz';
   return otwarte ? 'zamknij' : 'nic';
 }
 
@@ -42,8 +48,9 @@ function main() {
   const otwarte = JSON.parse(gh('issue', 'list', '--label', ETYKIETA, '--state', 'open', '--json', 'number', '--limit', '1'))[0]?.number ?? null;
   const plik = 'nocny-tresc.md';
   writeFileSync(plik, tresc(wynik, link, e2e));
-  const a = akcja({ czerwona: wynik.czerwona, otwarte });
-  if (a === 'otworz') gh('issue', 'create', '--label', ETYKIETA, '--title', 'Nocne testy: czerwona noc', '--body-file', plik);
+  const a = akcja({ czerwona: wynik.czerwona, niestabilne: niestabilne(e2e), otwarte });
+  const tytul = wynik.czerwona ? 'Nocne testy: czerwona noc' : 'Nocne testy: niestabilne flowy E2E';
+  if (a === 'otworz') gh('issue', 'create', '--label', ETYKIETA, '--title', tytul, '--body-file', plik);
   if (a === 'komentuj') gh('issue', 'comment', String(otwarte), '--body-file', plik);
   if (a === 'zamknij') gh('issue', 'close', String(otwarte), '--comment', `Zielona noc: ${link}`);
   console.log(`## Nocne testy\n\nakcja: ${a}\n\n${readFileSync(plik, 'utf8')}`);

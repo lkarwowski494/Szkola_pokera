@@ -409,7 +409,9 @@ Plus jedna linia w „Dokumentacja projektu”: „Architektura w repo: `docs/ar
 - Część 8 (2026-11-07, D-188): ekrany RNTL, część 2 — start z licznikiem i limitem, dane (eksport, import), opinie i zgłoszenie błędu (35 testów); `pnpm test:akceptacja` 327: 313 czerwonych z właściwego powodu, 14 strażników; wzorcowa 35/35, mutacje 18/19 (1 równoważna).
 - Część 9 (2026-11-07, D-189): flowy E2E 05–09 w `apps/mobile/e2e/oczekujace/` (poza bramką `config.yaml`) i kontrola flowów bez Maestro `tests/narzedzia/e2e-flowy.test.mjs` w `pnpm test:skrypty` (6/6 mutacji); Maestro nieuruchomione (brak macOS).
 - Część 10 (2026-11-07, D-171): hook pre-push agenta (`.claude/settings.json`, `scripts/pre-push-check.mjs`, 11 s, kod 2 przy porażce; 5 testów, mutacje 3/3).
-- Zostaje w E3 (po części 10): workflowy (`ci.yml`: rachunki D-173, akceptacja informacyjnie, push `claude/**`, kontrakt K-07/K-09/R-56; `e2e.yml` D-170/D-178; `nocny.yml` fast-check 1000 i Stryker D-172) z przeglądem D-043 w świeżym kontekście, scala właściciel; pierwszy przebieg E2E na gałęzi (JAK-E1-03) z nowym `e2e.yml` po jego przeglądzie (D-181: włączenie workflowu po E3); potem STOP E3.
+- Część 11 (2026-11-07, D-190): workflowy `ci.yml`, `e2e.yml`, `nocny.yml` + kontrole w `pnpm test:skrypty` (67/67); przegląd D-043: 0 KRYTYCZNYCH/WYSOKICH, 5 ŚREDNICH poprawionych; zasada właściciela D-191 (najpierw Trening) w `CLAUDE.md`.
+- Zostaje w E3 (po części 11): bramka E2E w `testflight.yml` (D-170, przegląd D-043); pierwszy przebieg `e2e.yml` na gałęzi po włączeniu workflowu przez właściciela (D-181); scalenie zmian workflowów — właściciel; potem STOP E3.
+- (stare) Zostaje w E3 (po części 10): workflowy (`ci.yml`: rachunki D-173, akceptacja informacyjnie, push `claude/**`, kontrakt K-07/K-09/R-56; `e2e.yml` D-170/D-178; `nocny.yml` fast-check 1000 i Stryker D-172) z przeglądem D-043 w świeżym kontekście, scala właściciel; pierwszy przebieg E2E na gałęzi (JAK-E1-03) z nowym `e2e.yml` po jego przeglądzie (D-181: włączenie workflowu po E3); potem STOP E3.
 
 ## Punkt czyszczenia (2026-11-07, po części 8, duży kontekst; rola 07 E3 w toku)
 Przekazanie do wklejenia w nową sesję (opus/high):

@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
     inputs:
       urzadzenie:
-        description: 'Wzorzec nazwy symulatora (grep -E), np. "iPhone SE|iPhone 16e" — mały ekran; pusty = najnowszy iPhone z obrazu'
+        description: 'Wzorzec nazwy symulatora (wyrażenie regularne JS), np. "iPhone SE|iPhone 16e" — mały ekran; pusty = najnowszy iPhone z obrazu'
         required: false
         default: ''
       wyglad:
@@ -49,6 +49,9 @@ jobs:
     timeout-minutes: 42
     steps:
       - uses: actions/checkout@v5
+        with:
+          # pod install i expo prebuild uruchamiają kod zewnętrzny: token nie zostaje w .git/config (przegląd D-043 nr 9)
+          persist-credentials: false
       - name: Start pomiaru
         run: echo "E2E_START=$(date +%s)" >> "$GITHUB_ENV"
       - name: Xcode
@@ -100,7 +103,7 @@ jobs:
           WZORZEC: ${{ inputs.urzadzenie }}
           WYGLAD: ${{ inputs.wyglad || 'light' }}
         run: |
-          # najnowszy dostępny iPhone z obrazu runnera albo pierwszy pasujący do wejścia `urzadzenie` (grep -E, nocny: mały ekran)
+          # najnowszy dostępny iPhone z obrazu runnera albo pierwszy pasujący do wejścia `urzadzenie` (RegExp w Node, nocny: mały ekran)
           UDID=$(xcrun simctl list devices available --json | WZORZEC="$WZORZEC" node -e '
             const d = JSON.parse(require("fs").readFileSync(0, "utf8")).devices;
             const w = process.env.WZORZEC ? new RegExp(process.env.WZORZEC) : null;
@@ -123,25 +126,31 @@ jobs:
           printf '%s\n' "${ENV_ARGS[@]}" > e2e-env.txt
           mkdir -p e2e-out
           maestro --device "$SIM_UDID" test "${ENV_ARGS[@]}" --format junit --output e2e-out/report.xml \
-            --test-output-dir e2e-out apps/mobile/e2e
+            --test-output-dir e2e-out apps/mobile/e2e < /dev/null
       - name: Ponowienie nieudanych flowów (raz, D-178)
         if: steps.flowy.outcome == 'failure'
         run: |
           ENV_ARGS=(); while IFS= read -r l; do ENV_ARGS+=("$l"); done < e2e-env.txt
+          # lista jak w Treningu (e2e-ios.yml:232–238): `for` po wyniku, nie `while read` z pliku — Maestro nie zje stdin;
+          # nazwy plików flowów bez spacji (NN-nazwa.yaml)
+          NIEUDANE=$(node scripts/ci/e2e-ponowienia.mjs nieudane e2e-out/report.xml apps/mobile/e2e || true)
           i=0
-          node scripts/ci/e2e-ponowienia.mjs nieudane e2e-out/report.xml apps/mobile/e2e > e2e-out/nieudane.txt || true
-          while IFS= read -r flow; do
+          for flow in $NIEUDANE; do
             i=$((i + 1))
-            echo "::warning title=Ponowienie E2E::$flow"
+            echo "::warning title=Ponowienie E2E::$flow (jedno, osobno)"
             maestro --device "$SIM_UDID" test "${ENV_ARGS[@]}" --format junit --output "e2e-out/ponowienie-$i.xml" \
-              --test-output-dir "e2e-out/ponowienie-$i" "$flow" || true
-          done < e2e-out/nieudane.txt
+              --test-output-dir "e2e-out/ponowienie-$i" "$flow" < /dev/null || true
+          done
       - name: Wynik E2E
         if: always()
+        env:
+          PIERWSZY: ${{ steps.flowy.outcome }}
         run: |
           set -o pipefail
           mkdir -p e2e-out
-          node scripts/ci/e2e-ponowienia.mjs podsumuj e2e-out/report.xml e2e-out/ponowienie-*.xml | tee e2e-out/podsumowanie.md >> "$GITHUB_STEP_SUMMARY"
+          # kod pierwszego przebiegu: porażka Maestro bez nieudanego flowu albo brak flowu w raporcie = porażka zadania
+          [ "$PIERWSZY" = "success" ] && KOD=0 || KOD=1
+          node scripts/ci/e2e-ponowienia.mjs podsumuj e2e-out/report.xml apps/mobile/e2e "$KOD" e2e-out/ponowienie-*.xml | tee e2e-out/podsumowanie.md >> "$GITHUB_STEP_SUMMARY"
       - name: Czas przebiegu
         if: always()
         run: |

@@ -23,7 +23,8 @@ permissions:
   contents: read
 concurrency:
   group: nocny-${{ github.ref }}
-  cancel-in-progress: true
+  # bez anulowania: ręczne uruchomienie w trakcie nocy nie przerywa jej i nie otwiera „czerwonej nocy” z cancelled (przegląd D-043 nr 6)
+  cancel-in-progress: false
 jobs:
   wlasnosci:
     if: github.repository == 'lkarwowski494/szkola_pokera'
@@ -52,8 +53,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        pakiet: [domena, poker-core, srs]
-    name: mutacje (${{ matrix.pakiet }})
+        # jedno zadanie na grupę plików (Trening nightly.yml: całość w jednym zadaniu przekroczyła limit 5 h; podział na moduły
+        # i zakresy). Raport JSON powstaje dopiero na końcu, więc zadanie musi się zmieścić w timeout-minutes. Podział
+        # poker-core: pliki z src/ bez bots.ts (D-172), pilnuje tests/narzedzia/workflowy.test.mjs (każdy plik w jednej grupie).
+        include:
+          - { grupa: domena, pakiet: domena, pliki: '**/*.ts' }
+          - { grupa: srs, pakiet: srs, pliki: '**/*.ts' }
+          - { grupa: poker-core-ocena, pakiet: poker-core, pliki: 'grading.ts evaluate.ts cards.ts math.ts' }
+          - { grupa: poker-core-stol, pakiet: poker-core, pliki: 'table.ts play.ts' }
+          - { grupa: poker-core-reszta, pakiet: poker-core, pliki: 'texture.ts drills.ts hud.ts ranges.ts icm.ts equity.ts holding.ts situation.ts draws.ts rng.ts bench.ts index.ts' }
+    name: mutacje (${{ matrix.grupa }})
     steps:
       - uses: actions/checkout@v5
         with:
@@ -64,24 +73,27 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - name: Konfiguracja Strykera dla jednego pakietu
+      - name: Konfiguracja Strykera dla grupy plików
         env:
           PAKIET: ${{ matrix.pakiet }}
+          PLIKI: ${{ matrix.pliki }}
+          GRUPA: ${{ matrix.grupa }}
         run: |
           node -e '
-            const fs = require("fs"); const p = process.env.PAKIET;
+            const fs = require("fs"); const { PAKIET: p, PLIKI, GRUPA } = process.env;
             const c = JSON.parse(fs.readFileSync("stryker.config.json", "utf8"));
-            c.mutate = c.mutate.filter((m) => m.replace(/^!/, "").startsWith(`packages/${p}/`));
-            if (!c.mutate.some((m) => !m.startsWith("!"))) throw new Error(`stryker.config.json: brak mutate dla ${p}`);
+            const wykluczenia = c.mutate.filter((m) => m.startsWith(`!packages/${p}/`));
+            c.mutate = [...PLIKI.split(" ").map((f) => `packages/${p}/src/${f}`), ...wykluczenia];
             c.commandRunner = { command: `pnpm --filter @szkola/${p} test` };
-            c.jsonReporter = { fileName: `reports/mutation/${p}.json` };
+            c.jsonReporter = { fileName: `reports/mutation/${GRUPA}.json` };
+            c.concurrency = 4;
             fs.writeFileSync("stryker.pakiet.json", JSON.stringify(c, null, 2));'
       - name: Testy mutacyjne (Stryker)
         run: pnpm exec stryker run stryker.pakiet.json
       - uses: actions/upload-artifact@v5
         if: always()
         with:
-          name: mutacje-${{ matrix.pakiet }}
+          name: mutacje-${{ matrix.grupa }}
           path: reports/mutation/
           retention-days: 7
           if-no-files-found: ignore
@@ -95,7 +107,8 @@ jobs:
 
   zgloszenie:
     needs: [wlasnosci, mutacje, e2e]
-    if: ${{ always() && github.repository == 'lkarwowski494/szkola_pokera' && (github.event_name == 'schedule' || inputs.zgloszenie) }}
+    # tylko gałąź domyślna: ręczny przebieg na innej gałęzi nie zamyka ani nie komentuje zgłoszenia nocy na main (przegląd D-043 nr 7)
+    if: ${{ always() && github.repository == 'lkarwowski494/szkola_pokera' && github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || inputs.zgloszenie) }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
