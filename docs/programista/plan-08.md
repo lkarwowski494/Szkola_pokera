@@ -495,3 +495,14 @@ Stan wyjściowy (4b17657): `pnpm run ci` kod 0 (mobile 341, domena 314, postep 1
 
 ### Przegląd D-043 części 5b (świeży kontekst, 2026-11-08, zakres b64a345..98d11a2, ścieżki wrażliwe)
 „Brak uwag”. Rozważone i odrzucone przez recenzenta jako poniżej P1: utrata zwalidowanego pliku importu przy odświeżeniu ekranu między wyborem a potwierdzeniem (wynik `blad_zapisu`, baza nietknięta — teoretyczne); kolejność odświeżeń dostępu w `startDostepu` (ten sam sklep — teoretyczne); zawieszone `initConnection` do restartu (decyduje pamięć — brzegowe). Drugiego przeglądu nie ma (D-043).
+
+### E2E części 5b: przebieg 42508961244 (7c6a3bd) — czerwony, 4/7 (2026-11-08)
+Build 23 min 52 s, flowy 21 min 54 s. Zielone: 03 Słowniczek, 04 Pomoc, 05 Ocena poziomu. Czerwone w pierwszym przebiegu i w ponowieniu (powtarzalne → §7: flow/aplikacja, nie maszyna). Przebiegi 6632986 i 1dd4354 anulowane, więc przebudowa „Dziś” z kroku 1b (f65dcec) przeszła przez E2E pierwszy raz dopiero tutaj.
+| Flow | Błąd Maestro | Przyczyna | Stan |
+|---|---|---|---|
+| 01 Lekcja i pierwsze zadanie | `Id matching regex: lesson-m0.l1` nie znaleziony | lista lekcji na „Dziś” (`(tabs)/index.tsx:138`, `testID` `lesson-<id>`) leży pod `BlokLekcji`, grupą ćwiczeń i kartą wskaźnika — poza ekranem; `tapOn` nie przewija | potwierdzone czytaniem kodu |
+| 09 Limit dnia | jw. (`lesson-m0.l1` po „Wróć do lekcji”) | jw. | potwierdzone czytaniem kodu |
+| 02 Powtórki | `"Nic nie czeka na powtórkę.*" is visible` fałsz | `tapOn: 'Powtórki'` trafia w wiersz „Powtórki” na „Dziś” (`today.reviews` = `tabs.review` = „Powtórki”, `dzis-powtorki`) zamiast w zakładkę → sesja powtórek zamiast ekranu zakładki | potwierdzone tekstami w `pl.json`; które dopasowanie wybiera Maestro — `[DO USTALENIA]` |
+| 06 Przerwanie sesji | `Text matching regex: Dalej` nie znaleziony (po `option-0` w sesji ćwiczeń) | hipoteza: przycisk „Dalej” pod wyjaśnieniem ze stołem poza ekranem; do sprawdzenia w artefakcie `e2e-wyniki` (zrzuty, niedostępne z kontenera — właściciel albo podgląd w Actions) | hipoteza |
+
+Propozycja naprawy (następna sesja, jeden push → E2E): 01 i 09 — `scrollUntilVisible: { element: { id: 'lesson-m0.l1' }, direction: DOWN }` przed `tapOn` (zmiana struktury flowu po przebudowie „Dziś”, jak „Zamknij” → „Zakończ”); 06 i 01 — `scrollUntilVisible` dla „Dalej” przed `tapOn`; 02 — rozróżnienie zakładki od wiersza: opcje (A, rekomendacja) zakładka po `tapOn` z `index` (sprawdzić w hierarchii Maestro, które dopasowanie jest zakładką) albo (B) zgłoszenie do 04 (08-F24): ten sam tekst „Powtórki” dla wiersza na „Dziś” i zakładki — dwa różne cele pod jedną nazwą; zmiana tekstu to decyzja 04. Bez zmiany asercji o zachowaniu.
