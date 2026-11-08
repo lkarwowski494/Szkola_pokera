@@ -191,6 +191,8 @@
     "yourAnswerSize": "Twoja odpowiedź: dobra akcja, zły rozmiar",
     "numberLabel": "Twoja odpowiedź liczbowa",
     "saveFailed": "Nie udało się zapisać odpowiedzi. Spróbuj ponownie.",
+    "chooseAction": "Wybierz akcję",
+    "chooseAnswer": "Wybierz odpowiedź",
     "saveNoSpace": "Nie udało się zapisać odpowiedzi: brak miejsca w telefonie. Zwolnij trochę miejsca i spróbuj ponownie."
   },
   "exam": {

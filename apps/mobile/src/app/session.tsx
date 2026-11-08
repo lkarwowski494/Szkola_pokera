@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { Linking, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { PaintGrid } from '@/components/PaintGrid';
 import { RichText } from '@/components/RichText';
-import { TableFelt } from '@/components/TableFelt';
+import { Stol } from '@/components/Stol';
 import { Button, Muted, ProgressBar, Screen, Title } from '@/components/ui';
 import {
   getAllRangeSpots,
@@ -29,10 +29,13 @@ import { usePortPostepu, zapiszBladPostepu } from '@/data/postep';
 import { gradeAnswer, isPass, parseNumberInput, scorePaint } from '@/features/drills/grade';
 import { pct, t as dt } from '@/features/drills/text.pl';
 import { EXAM_PASS, PAINT_PASS } from '@/features/drills/thresholds';
-import type { ChoiceInstance, DrillAnswer, DrillInstance, DrillOption, GradeResult, NumericInstance, PaintInstance, TextureInstance } from '@/features/drills/types';
+import type { ChoiceInstance, DrillAnswer, DrillInstance, GradeResult, NumericInstance, PaintInstance, TextureInstance } from '@/features/drills/types';
 import { odpowiedzWSesji, otworzSesje, type PowodSesji, type RodzajSesji, type Sesja } from '@/features/session/aktywnoscSesji';
 import { buildExamSession, buildFamilySession, buildLessonSession, buildPracticeSession, type SessionMode } from '@/features/session/build';
 import { lekcjeDoCwiczen } from '@/features/dzis/widok';
+import { ZNAK } from '@/features/ocena/StopienOceny';
+import { PanelDecyzji } from '@/features/stol/PanelDecyzji';
+import { maStrategie } from '@/features/stol/pasek';
 import { czytajFaktyKursu } from '@/features/kurs/faktyKursu';
 import EkranStartu from '@/features/start/EkranStartu';
 import { przygotujStart } from '@/features/start/wejscieStartu';
@@ -310,7 +313,7 @@ export default function SessionScreen() {
     return (
       <Screen>
         <Title>{exam ? t('exam.resultTitle') : t('session.resultTitle')}</Title>
-        <Text style={[styles.score, { color: exam && !passed ? tk.przejsciowe.bad : tk.ink }]}>{`${correct}/${items.length}`}</Text>
+        <Text style={[styles.score, { color: tk.ink }]}>{`${correct}/${items.length}`}</Text>
         {exam ? (
           <Text style={[styl.tresc, { color: tk.ink }]}>
             {passed ? t('exam.passed', { need: pct(EXAM_PASS) }) : t('exam.failed', { need: pct(EXAM_PASS) })}
@@ -329,9 +332,9 @@ export default function SessionScreen() {
           <View style={{ gap: odstep.l }}>
             <Text style={[styl.naglowek, { color: tk.ink }]}>{t('exam.review')}</Text>
             {records.map((r, i) => (
-              <View key={r.item.key} style={[styles.reviewItem, { borderColor: gradeColor(tk, r.grade), backgroundColor: tk.surface }]}>
+              <View key={r.item.key} style={[styles.reviewItem, { borderColor: tk.separator, backgroundColor: tk.surface }]}>
                 <Muted>{`${i + 1}. ${gradeLabel(t, r.grade)}`}</Muted>
-                {r.item.table ? <TableFelt table={r.item.table} /> : null}
+                {r.item.table ? <Stol table={r.item.table} /> : null}
                 <RichText text={r.item.prompt} style={[styl.tresc, { fontWeight: '600' }]} />
                 <Feedback rec={r} painted={r.answer.kind === 'paint' ? [...r.answer.painted] : undefined} />
               </View>
@@ -352,14 +355,19 @@ export default function SessionScreen() {
       </View>
       <ProgressBar value={(idx + (current ? 1 : 0)) / items.length} />
 
-      {item.table ? <TableFelt table={item.table} /> : null}
+      {item.table ? <Stol table={item.table} /> : null}
       <RichText text={item.prompt} style={[styl.naglowek, { fontWeight: '600' }]} />
       {bladZapisu && bladZapisu !== 'krok_niezgodny' ? (
         <Text accessibilityRole="alert" style={[styl.tresc, { color: tk.alert }]}>{t(bladZapisu === 'brak_miejsca' ? 'session.saveNoSpace' : 'session.saveFailed')}</Text>
       ) : null}
 
-      {item.kind === 'choice' ? (
-        <ChoiceOptions item={item} picked={current?.answer.kind === 'choice' ? current.answer.index : current ? -1 : null} onPick={(i) => commit({ kind: 'choice', index: i })} />
+      {item.kind === 'choice' && maStrategie(item.options) ? (
+        <PanelDecyzji item={item} rekord={current} onWybierz={(i) => commit({ kind: 'choice', index: i })} />
+      ) : item.kind === 'choice' ? (
+        <View style={{ gap: odstep.s }}>
+          {current ? null : <Text style={[styl.drobny, { color: tk.muted, fontWeight: '600' }]}>{t('session.chooseAnswer')}</Text>}
+          <ChoiceOptions item={item} picked={current?.answer.kind === 'choice' ? current.answer.index : current ? -1 : null} onPick={(i) => commit({ kind: 'choice', index: i })} />
+        </View>
       ) : null}
 
       {item.kind === 'numeric' && !current ? (
@@ -387,9 +395,10 @@ export default function SessionScreen() {
 
       {current ? (
         <View style={{ gap: odstep.m }}>
-          <Text style={[styl.naglowek, { color: gradeColor(tk, current.grade) }]}>
-            {current.answer.kind === 'timeout' ? t('session.timeout') : gradeLabel(t, current.grade)}
-          </Text>
+          {/* zadanie ze strategią: stopień na suknie w `PanelDecyzji`; pozostałe: nagłówek słowem, bez koloru (design-spec „Znaczenie kolorów”) */}
+          {current.item.kind === 'choice' && maStrategie(current.item.options) ? null : (
+            <Text style={[styl.naglowek, { color: tk.ink }]}>{current.answer.kind === 'timeout' ? t('session.timeout') : gradeLabel(t, current.grade)}</Text>
+          )}
           <Feedback rec={current} painted={current.answer.kind === 'paint' ? [...current.answer.painted] : undefined} hideChoices />
           <Button label={idx + 1 < items.length ? t('session.next') : t('session.finish')} onPress={next} />
           {/* „Zgłoś błąd w tym zadaniu” pod oceną (PR-09, BR-OPIN-003); ukryte, dopóki nie ma adresu poczty (D-270) */}
@@ -408,18 +417,17 @@ export default function SessionScreen() {
   );
 }
 
-type Tk = ReturnType<typeof useTokens>;
 type TFn = ReturnType<typeof useTranslation>['t'];
-
-function gradeColor(tk: Tk, g: GradeResult): string {
-  return g === 'correct' ? tk.przejsciowe.good : g === 'wrong' ? tk.przejsciowe.bad : tk.przejsciowe.warn;
-}
 
 function gradeLabel(t: TFn, g: GradeResult): string {
   return g === 'correct' ? t('session.correct') : g === 'acceptable' ? t('session.acceptable') : g === 'close' ? t('session.near') : g === 'size' ? t('session.sizeError') : t('session.wrong');
 }
 
-/** Opcje zadania z wyborem. `picked`: null = jeszcze bez odpowiedzi, -1 = brak wyboru (czas minął). */
+/**
+ * Opcje zadania z wyborem bez strategii solvera (pytania z teorii; makieta e3 `bez-pozycji`). `picked`: null = jeszcze bez
+ * odpowiedzi, -1 = brak wyboru (czas minął). Po odpowiedzi stopień niesie znak i słowo, obwódka `ink` — bez koloru
+ * (design-spec „Znaczenie kolorów”; znaki jak `StopienOceny`, D-213).
+ */
 function ChoiceOptions({ item, picked, onPick, readOnly }: { item: ChoiceInstance; picked: number | null; onPick?: (i: number) => void; readOnly?: boolean }) {
   const tk = useTokens();
   const { t } = useTranslation();
@@ -432,6 +440,7 @@ function ChoiceOptions({ item, picked, onPick, readOnly }: { item: ChoiceInstanc
         const showOk = answered && isPicked && !o.correct && !!o.acceptable;
         const showSize = answered && isPicked && !o.correct && !o.acceptable && !!o.sizeError;
         const showWrong = answered && isPicked && !o.correct && !o.acceptable && !o.sizeError;
+        const oznaczona = showRight || showWrong || showSize || showOk;
         return (
           <Pressable
             key={`${item.key}-${i}`}
@@ -443,23 +452,22 @@ function ChoiceOptions({ item, picked, onPick, readOnly }: { item: ChoiceInstanc
             style={({ pressed }) => [
               styles.option,
               {
-                backgroundColor: showRight ? tk.przejsciowe.goodSoft : showWrong ? tk.przejsciowe.badSoft : showSize || showOk ? tk.przejsciowe.warnSoft : tk.surface,
-                borderColor: showRight ? tk.przejsciowe.good : showWrong ? tk.przejsciowe.bad : showSize || showOk ? tk.przejsciowe.warn : tk.separator,
-                opacity: answered && !showRight && !showWrong && !showSize && !showOk ? 0.75 : pressed ? 0.85 : 1,
+                backgroundColor: tk.surface,
+                borderColor: oznaczona ? tk.ink : tk.separator,
+                borderWidth: oznaczona ? 2.5 : 1.5,
+                opacity: answered && !oznaczona ? 0.75 : pressed ? 0.85 : 1,
               },
             ]}
           >
-            {showRight || showWrong || showSize || showOk ? (
-              <Text style={[styl.drobny, { color: showRight ? tk.przejsciowe.good : showSize || showOk ? tk.przejsciowe.warn : tk.przejsciowe.bad, fontWeight: '700' }]}>
+            {oznaczona ? (
+              <Text style={[styl.drobny, { color: tk.ink, fontWeight: '700' }]}>
                 {showRight
-                  ? isPicked
-                    ? t('session.yourAnswer')
-                    : t('session.rightAnswer')
+                  ? `${ZNAK.zgodne} ${isPicked ? t('session.yourAnswer') : t('session.rightAnswer')}`
                   : showOk
-                    ? t('session.yourAnswerAcceptable')
+                    ? `${ZNAK.dopuszczalne} ${t('session.yourAnswerAcceptable')}`
                     : showSize
-                      ? t('session.yourAnswerSize')
-                      : t('session.yourAnswer')}
+                      ? `${ZNAK.niedokladnosc} ${t('session.yourAnswerSize')}`
+                      : `${ZNAK.blad} ${t('session.yourAnswer')}`}
               </Text>
             ) : null}
             <RichText text={o.text} style={[styl.tresc, { fontWeight: '600' }]} />
@@ -552,7 +560,6 @@ function TextureEntry({
 function TextureFeedback({ item, picks }: { item: TextureInstance; picks: readonly number[] }) {
   const tk = useTokens();
   const { t } = useTranslation();
-  const tone = (o: DrillOption, picked: boolean) => (o.correct ? 'good' : picked ? 'bad' : 'none');
   return (
     <View style={{ gap: odstep.l }}>
       {item.axes.map((a, ai) => (
@@ -560,21 +567,13 @@ function TextureFeedback({ item, picks }: { item: TextureInstance; picks: readon
           <Text style={[styl.drobny, { color: tk.muted, fontWeight: '700' }]}>{a.label}</Text>
           {a.options.map((o, oi) => {
             const picked = picks[ai] === oi;
-            const k = tone(o, picked);
+            const oznaczona = o.correct || picked;
             return (
-              <View
-                key={o.text}
-                style={[
-                  styles.texOption,
-                  {
-                    backgroundColor: k === 'good' ? tk.przejsciowe.goodSoft : k === 'bad' ? tk.przejsciowe.badSoft : tk.surface,
-                    borderColor: k === 'good' ? tk.przejsciowe.good : k === 'bad' ? tk.przejsciowe.bad : tk.separator,
-                  },
-                ]}
-              >
+              <View key={o.text} style={[styles.texOption, { backgroundColor: tk.surface, borderColor: oznaczona ? tk.ink : tk.separator, borderWidth: oznaczona ? 2.5 : 1.5 }]}>
                 <Text style={[styl.tresc, { color: tk.ink, fontWeight: '600' }]}>
+                  {oznaczona ? `${o.correct ? ZNAK.zgodne : ZNAK.blad} ` : ''}
                   {o.text}
-                  {picked ? <Text style={[styl.drobny, { color: o.correct ? tk.przejsciowe.good : tk.przejsciowe.bad }]}>{`  ${t('session.yourAnswer')}`}</Text> : null}
+                  {picked ? <Text style={[styl.drobny, { color: tk.ink, fontWeight: '700' }]}>{`  ${t('session.yourAnswer')}`}</Text> : null}
                 </Text>
                 <RichText text={o.why} style={[styl.przypis, { color: tk.muted }]} />
               </View>
@@ -598,13 +597,13 @@ function Feedback({ rec, painted, hideChoices }: { rec: Record_; painted?: boole
   return (
     <View style={{ gap: odstep.m }}>
       {item.kind === 'choice' && !hideChoices ? (
-        <ChoiceOptions item={item} picked={answer.kind === 'choice' ? answer.index : -1} readOnly />
+        maStrategie(item.options) ? <PanelDecyzji item={item} rekord={rec} /> : <ChoiceOptions item={item} picked={answer.kind === 'choice' ? answer.index : -1} readOnly />
       ) : null}
       {item.kind === 'numeric' ? <NumericFeedback item={item} answer={answer} /> : null}
       {item.kind === 'paint' ? <PaintFeedback item={item} painted={painted ?? emptyGrid()} /> : null}
       {item.kind === 'texture' ? <TextureFeedback item={item} picks={answer.kind === 'texture' ? answer.picks : []} /> : null}
       {item.explanation ? (
-        <View style={[styles.explain, { backgroundColor: tk.przejsciowe.feltSoft }]}>
+        <View style={[styles.explain, { backgroundColor: tk.surface }]}>
           <RichText text={item.explanation} style={styl.przypis} />
         </View>
       ) : null}

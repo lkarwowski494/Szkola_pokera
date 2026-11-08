@@ -19,7 +19,8 @@ export interface Segment {
   readonly twoj: boolean;
 }
 
-const maStrategie = (o: readonly OpcjaPaska[]) => o.length > 0 && o.every((x) => typeof x.czestosc === 'number' && Number.isFinite(x.czestosc) && x.czestosc >= 0);
+/** Zadanie ze strategią solvera: każda opcja ma częstość (zadania z zakresu); inaczej lista odpowiedzi. */
+export const maStrategie = (o: readonly OpcjaPaska[]) => o.length > 0 && o.every((x) => typeof x.czestosc === 'number' && Number.isFinite(x.czestosc) && x.czestosc >= 0);
 
 /** „80”; akcja grana, ale rzadziej niż 0,5% → „<1” (nie „0”, które znaczy „wcale”). */
 function procent(f: number): string {
