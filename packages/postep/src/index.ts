@@ -8,3 +8,5 @@ export * from './ustawienia';
 export * from './postepLekcji';
 export * from './testy';
 export * from './statystyki';
+export * from './uprawnienia';
+export * from './dziennik';
