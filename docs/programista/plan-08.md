@@ -319,7 +319,7 @@ Dwa P1, oba potwierdzone u źródła i poprawione w d950488: P1-1 `kup` zwracał
 | `git diff --cached` | przejrzany przed każdym commitem; bez sekretów (usunięte puste pola Sentry) |
 | dane: kopia bazy poprzedniej wersji | schemat `postep.db` bez zmian (migracje pakietu `postep` z testami części 1); `user.db` nieotwierana przez nowy start (ADR 0004), drizzle bez zmian (D-239) |
 | zrzuty | nie wykonane: zmiany wyglądu tylko usunięcia (wejście do gry na Nauce, zakładka Reguły, karty gry i trybu na czas w Powtórkach, wiersz „gra” na karcie wskaźnika i w rozbiciu, link diagnostyki w wydaniu); ekrany przebudowuje część 5 — lista do audytu roli 04 niżej |
-| E2E na SDK 58 | push d950488 (jeden push kodu); wynik: sekcja niżej |
+| E2E na SDK 58 | 42477250584 (d950488) zielone: kompilacja na symulator z modułem `ochrona-tla` 21 min 42 s, flowy 01–04 zielone w pierwszym przebiegu (ponowienie pominięte), cały przebieg 39 min; CI 42477299461 (51f8d2d, ten sam kod) zielone |
 
 Ekrany zmienione (do audytu 04): Nauka (`(tabs)/index`), Powtórki (`(tabs)/review`), Postęp (`(tabs)/progress`), pasek zakładek (bez „Reguły”), Wskaźnik zaawansowania (`advancement`), sesja (bez licznika czasu).
 
