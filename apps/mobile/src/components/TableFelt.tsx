@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import type { DrillInstance } from '@/features/drills/types';
-import { radius, space, type as tp, useTokens } from '@/theme/tokens';
+import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 import { CardRow } from './PlayingCard';
 
 const POSITION_NAMES: Record<string, string> = {
@@ -16,7 +16,7 @@ const POSITION_NAMES: Record<string, string> = {
 export function TableFelt({ table }: { table: NonNullable<DrillInstance['table']> }) {
   const tk = useTokens();
   return (
-    <View style={[styles.felt, { backgroundColor: tk.feltDeep }]}>
+    <View style={[styles.felt, { backgroundColor: tk.felt2 }]}>
       {table.position ? <Text style={[styles.position, { color: tk.onFelt }]}>{POSITION_NAMES[table.position]}</Text> : null}
       <View style={styles.row}>
         {table.hand ? (
@@ -43,9 +43,9 @@ export function TableFelt({ table }: { table: NonNullable<DrillInstance['table']
 }
 
 const styles = StyleSheet.create({
-  felt: { borderRadius: radius.l, padding: space.l, gap: space.m },
-  row: { flexDirection: 'row', flexWrap: 'wrap', gap: space.xl },
-  group: { gap: space.xs },
-  label: { ...tp.caption, opacity: 0.8 },
-  position: { ...tp.small, fontWeight: '600' },
+  felt: { borderRadius: promien.sukno, padding: odstep.l, gap: odstep.m },
+  row: { flexDirection: 'row', flexWrap: 'wrap', gap: odstep.xxl },
+  group: { gap: odstep.xs },
+  label: { ...styl.drobny, opacity: 0.8 },
+  position: { ...styl.przypis, fontWeight: '600' },
 });

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { Muted, Screen, Surface, Title } from '@/components/ui';
 import { englishLabel, GLOSSARY_SIZE, glossarySections, type GlossaryEntry } from '@/features/glossary/glossary';
-import { radius, space, type as tp, useTokens } from '@/theme/tokens';
+import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 
 /** Słowniczek PL ↔ EN: wszystkie terminy z content/terms.yaml w obszarach, z wyszukiwaniem w obu językach. */
 export default function GlossaryScreen() {
@@ -26,16 +26,16 @@ export default function GlossaryScreen() {
         autoCorrect={false}
         autoCapitalize="none"
         accessibilityLabel={t('glossary.search')}
-        style={[styles.search, tp.body, { color: tk.ink, backgroundColor: tk.surface, borderColor: tk.line }]}
+        style={[styles.search, styl.tresc, { color: tk.ink, backgroundColor: tk.surface, borderColor: tk.separator }]}
       />
       <Muted>{t('glossary.count', { count: q.trim() ? shown : GLOSSARY_SIZE })}</Muted>
       {sections.length === 0 ? <Muted>{t('glossary.empty', { q })}</Muted> : null}
       {sections.map((s) => (
-        <View key={s.area} style={{ gap: space.s }}>
-          <Text accessibilityRole="header" style={[tp.small, { color: tk.muted, fontWeight: '700', marginTop: space.s }]}>
+        <View key={s.area} style={{ gap: odstep.s }}>
+          <Text accessibilityRole="header" style={[styl.przypis, { color: tk.muted, fontWeight: '700', marginTop: odstep.s }]}>
             {t(`glossary.areas.${s.area}`)}
           </Text>
-          <Surface style={{ gap: space.m }}>
+          <Surface style={{ gap: odstep.m }}>
             {s.entries.map((e) => (
               <Entry key={e.key} entry={e} />
             ))}
@@ -51,20 +51,20 @@ function Entry({ entry }: { entry: GlossaryEntry }) {
   const { t } = useTranslation();
   const en = englishLabel(entry);
   return (
-    <View style={{ gap: space.xs }} accessible accessibilityLabel={`${entry.pl}: ${en}${entry.def ? `. ${entry.def}` : ''}`}>
+    <View style={{ gap: odstep.xs }} accessible accessibilityLabel={`${entry.pl}: ${en}${entry.def ? `. ${entry.def}` : ''}`}>
       <View style={styles.row}>
-        <Text style={[tp.body, { color: tk.ink, fontWeight: '600', flex: 1 }]}>{entry.pl}</Text>
+        <Text style={[styl.tresc, { color: tk.ink, fontWeight: '600', flex: 1 }]}>{entry.pl}</Text>
         <View style={{ flex: 1, gap: 2 }}>
-          <Text style={[tp.body, { color: tk.felt }]}>{en}</Text>
+          <Text style={[styl.tresc, { color: tk.muted }]}>{en}</Text>
           {entry.enAlt.length > 0 ? <Muted>{t('glossary.alsoEn', { list: entry.enAlt.join(', ') })}</Muted> : null}
         </View>
       </View>
-      {entry.def ? <Text style={[tp.small, { color: tk.ink }]}>{entry.def}</Text> : null}
+      {entry.def ? <Text style={[styl.przypis, { color: tk.ink }]}>{entry.def}</Text> : null}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  search: { borderWidth: StyleSheet.hairlineWidth * 2, borderRadius: radius.m, paddingHorizontal: space.l, paddingVertical: space.m },
-  row: { flexDirection: 'row', alignItems: 'flex-start', gap: space.m },
+  search: { borderWidth: StyleSheet.hairlineWidth * 2, borderRadius: promien.przycisk, paddingHorizontal: odstep.l, paddingVertical: odstep.m },
+  row: { flexDirection: 'row', alignItems: 'flex-start', gap: odstep.m },
 });

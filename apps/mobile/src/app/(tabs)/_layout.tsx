@@ -6,7 +6,7 @@ export default function TabsLayout() {
   const { t } = useTranslation();
   const tk = useTokens();
   return (
-    <NativeTabs backgroundColor={tk.surface} tintColor={tk.felt}>
+    <NativeTabs backgroundColor={tk.surface} tintColor={tk.ink}>
       <NativeTabs.Trigger name="index">
         <NativeTabs.Trigger.Label>{t('tabs.learn')}</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon sf={{ default: 'book', selected: 'book.fill' }} md="menu_book" />

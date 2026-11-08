@@ -32,7 +32,7 @@ import { buildExamSession, buildFamilySession, buildLessonSession, type SessionM
 import { zapiszBlad } from '@/platform/dziennik';
 import { zegarTelefonu } from '@/platform/zegar';
 import { useSettings } from '@/state/settings';
-import { radius, space, type as tp, useTokens } from '@/theme/tokens';
+import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 
 interface Record_ {
   item: DrillInstance;
@@ -204,29 +204,29 @@ export default function SessionScreen() {
     return (
       <Screen>
         <Title>{exam ? t('exam.resultTitle') : t('session.resultTitle')}</Title>
-        <Text style={[styles.score, { color: exam && !passed ? tk.bad : tk.felt }]}>{`${correct}/${items.length}`}</Text>
+        <Text style={[styles.score, { color: exam && !passed ? tk.przejsciowe.bad : tk.ink }]}>{`${correct}/${items.length}`}</Text>
         {exam ? (
-          <Text style={[tp.body, { color: tk.ink }]}>
+          <Text style={[styl.tresc, { color: tk.ink }]}>
             {passed ? t('exam.passed', { need: pct(EXAM_PASS) }) : t('exam.failed', { need: pct(EXAM_PASS) })}
           </Text>
         ) : (
           <>
             <Muted>{t('session.avgTime', { s: avg.toFixed(1).replace('.', ',') })}</Muted>
-            <Text style={[tp.body, { color: tk.ink }]}>{correct === items.length ? t('session.resultPerfect') : t('session.resultRetry')}</Text>
+            <Text style={[styl.tresc, { color: tk.ink }]}>{correct === items.length ? t('session.resultPerfect') : t('session.resultRetry')}</Text>
           </>
         )}
-        <View style={{ gap: space.m }}>
+        <View style={{ gap: odstep.m }}>
           <Button label={exam ? t('exam.again') : t('session.again')} variant="ghost" onPress={restart} />
           <Button label={t('session.close')} onPress={() => router.back()} />
         </View>
         {exam ? (
-          <View style={{ gap: space.l }}>
-            <Text style={[tp.h3, { color: tk.ink }]}>{t('exam.review')}</Text>
+          <View style={{ gap: odstep.l }}>
+            <Text style={[styl.naglowek, { color: tk.ink }]}>{t('exam.review')}</Text>
             {records.map((r, i) => (
               <View key={r.item.key} style={[styles.reviewItem, { borderColor: gradeColor(tk, r.grade), backgroundColor: tk.surface }]}>
                 <Muted>{`${i + 1}. ${gradeLabel(t, r.grade)}`}</Muted>
                 {r.item.table ? <TableFelt table={r.item.table} /> : null}
-                <RichText text={r.item.prompt} style={[tp.body, { fontWeight: '600' }]} />
+                <RichText text={r.item.prompt} style={[styl.tresc, { fontWeight: '600' }]} />
                 <Feedback rec={r} painted={r.answer.kind === 'paint' ? [...r.answer.painted] : undefined} />
               </View>
             ))}
@@ -240,16 +240,16 @@ export default function SessionScreen() {
     <Screen scrollEnabled={!painting}>
       <View style={styles.top}>
         <Pressable accessibilityRole="button" onPress={() => router.back()} hitSlop={12}>
-          <Text style={[tp.body, { color: tk.felt, fontWeight: '600' }]}>{t('session.close')}</Text>
+          <Text style={[styl.tresc, { color: tk.link, fontWeight: '600' }]}>{t('session.close')}</Text>
         </Pressable>
         <Muted>{exam ? t('exam.of', { n: idx + 1, total: items.length }) : t('session.of', { n: idx + 1, total: items.length })}</Muted>
       </View>
       <ProgressBar value={(idx + (current ? 1 : 0)) / items.length} />
 
       {item.table ? <TableFelt table={item.table} /> : null}
-      <RichText text={item.prompt} style={[tp.h3, { fontWeight: '600' }]} />
+      <RichText text={item.prompt} style={[styl.naglowek, { fontWeight: '600' }]} />
       {bladZapisu && bladZapisu !== 'krok_niezgodny' ? (
-        <Text accessibilityRole="alert" style={[tp.body, { color: tk.bad }]}>{t(bladZapisu === 'brak_miejsca' ? 'session.saveNoSpace' : 'session.saveFailed')}</Text>
+        <Text accessibilityRole="alert" style={[styl.tresc, { color: tk.alert }]}>{t(bladZapisu === 'brak_miejsca' ? 'session.saveNoSpace' : 'session.saveFailed')}</Text>
       ) : null}
 
       {item.kind === 'choice' ? (
@@ -270,7 +270,7 @@ export default function SessionScreen() {
       ) : null}
 
       {item.kind === 'paint' && !current ? (
-        <View style={{ gap: space.m }}>
+        <View style={{ gap: odstep.m }}>
           <PaintGrid painted={painted} onChange={setPainted} onActive={setPainting} />
           <View style={styles.row}>
             <Button label={t('session.clear')} variant="ghost" onPress={() => setPainted(emptyGrid())} style={{ flex: 1 }} />
@@ -280,8 +280,8 @@ export default function SessionScreen() {
       ) : null}
 
       {current ? (
-        <View style={{ gap: space.m }}>
-          <Text style={[tp.h3, { color: gradeColor(tk, current.grade) }]}>
+        <View style={{ gap: odstep.m }}>
+          <Text style={[styl.naglowek, { color: gradeColor(tk, current.grade) }]}>
             {current.answer.kind === 'timeout' ? t('session.timeout') : gradeLabel(t, current.grade)}
           </Text>
           <Feedback rec={current} painted={current.answer.kind === 'paint' ? [...current.answer.painted] : undefined} hideChoices />
@@ -296,7 +296,7 @@ type Tk = ReturnType<typeof useTokens>;
 type TFn = ReturnType<typeof useTranslation>['t'];
 
 function gradeColor(tk: Tk, g: GradeResult): string {
-  return g === 'correct' ? tk.good : g === 'wrong' ? tk.bad : tk.warn;
+  return g === 'correct' ? tk.przejsciowe.good : g === 'wrong' ? tk.przejsciowe.bad : tk.przejsciowe.warn;
 }
 
 function gradeLabel(t: TFn, g: GradeResult): string {
@@ -309,7 +309,7 @@ function ChoiceOptions({ item, picked, onPick, readOnly }: { item: ChoiceInstanc
   const { t } = useTranslation();
   const answered = picked !== null;
   return (
-    <View style={{ gap: space.s }}>
+    <View style={{ gap: odstep.s }}>
       {item.options.map((o, i) => {
         const isPicked = picked === i;
         const showRight = answered && o.correct;
@@ -327,14 +327,14 @@ function ChoiceOptions({ item, picked, onPick, readOnly }: { item: ChoiceInstanc
             style={({ pressed }) => [
               styles.option,
               {
-                backgroundColor: showRight ? tk.goodSoft : showWrong ? tk.badSoft : showSize || showOk ? tk.warnSoft : tk.surface,
-                borderColor: showRight ? tk.good : showWrong ? tk.bad : showSize || showOk ? tk.warn : tk.line,
+                backgroundColor: showRight ? tk.przejsciowe.goodSoft : showWrong ? tk.przejsciowe.badSoft : showSize || showOk ? tk.przejsciowe.warnSoft : tk.surface,
+                borderColor: showRight ? tk.przejsciowe.good : showWrong ? tk.przejsciowe.bad : showSize || showOk ? tk.przejsciowe.warn : tk.separator,
                 opacity: answered && !showRight && !showWrong && !showSize && !showOk ? 0.75 : pressed ? 0.85 : 1,
               },
             ]}
           >
             {showRight || showWrong || showSize || showOk ? (
-              <Text style={[tp.caption, { color: showRight ? tk.good : showSize || showOk ? tk.warn : tk.bad, fontWeight: '700' }]}>
+              <Text style={[styl.drobny, { color: showRight ? tk.przejsciowe.good : showSize || showOk ? tk.przejsciowe.warn : tk.przejsciowe.bad, fontWeight: '700' }]}>
                 {showRight
                   ? isPicked
                     ? t('session.yourAnswer')
@@ -346,8 +346,8 @@ function ChoiceOptions({ item, picked, onPick, readOnly }: { item: ChoiceInstanc
                       : t('session.yourAnswer')}
               </Text>
             ) : null}
-            <RichText text={o.text} style={[tp.body, { fontWeight: '600' }]} />
-            {answered ? <RichText text={o.why} style={[tp.small, { color: tk.muted }]} /> : null}
+            <RichText text={o.text} style={[styl.tresc, { fontWeight: '600' }]} />
+            {answered ? <RichText text={o.why} style={[styl.przypis, { color: tk.muted }]} /> : null}
           </Pressable>
         );
       })}
@@ -361,8 +361,8 @@ function NumericEntry({ item, text, onText, onSubmit }: { item: NumericInstance;
   const value = parseNumberInput(text);
   const suffix = item.unit === 'percent' ? '%' : item.unit === 'bb' ? 'bb' : item.unit === 'bb100' ? 'bb/100' : item.unit === 'multiplier' ? 'x' : '';
   return (
-    <View style={{ gap: space.m }}>
-      <View style={[styles.inputRow, { borderColor: tk.line, backgroundColor: tk.surface }]}>
+    <View style={{ gap: odstep.m }}>
+      <View style={[styles.inputRow, { borderColor: tk.separator, backgroundColor: tk.surface }]}>
         <TextInput
           value={text}
           onChangeText={onText}
@@ -375,7 +375,7 @@ function NumericEntry({ item, text, onText, onSubmit }: { item: NumericInstance;
           onSubmitEditing={() => value !== null && onSubmit(value)}
           style={[styles.input, { color: tk.ink }]}
         />
-        {suffix ? <Text style={[tp.h3, { color: tk.muted }]}>{suffix}</Text> : null}
+        {suffix ? <Text style={[styl.naglowek, { color: tk.muted }]}>{suffix}</Text> : null}
       </View>
       <Button label={t('session.check')} disabled={value === null} onPress={() => value !== null && onSubmit(value)} />
     </View>
@@ -401,9 +401,9 @@ function TextureEntry({
   const { t } = useTranslation();
   const complete = item.axes.every((_, i) => picks[i] !== null && picks[i] !== undefined);
   return (
-    <View style={{ gap: space.l }}>
+    <View style={{ gap: odstep.l }}>
       {item.axes.map((a, ai) => (
-        <View key={a.axis} style={{ gap: space.xs }}>
+        <View key={a.axis} style={{ gap: odstep.xs }}>
           <Muted>{a.label}</Muted>
           <View style={styles.segments} accessibilityRole="radiogroup" accessibilityLabel={a.label}>
             {a.options.map((o, oi) => {
@@ -417,10 +417,10 @@ function TextureEntry({
                   onPress={() => onPick(ai, oi)}
                   style={({ pressed }) => [
                     styles.segment,
-                    { backgroundColor: on ? tk.feltSoft : tk.surface, borderColor: on ? tk.felt : tk.line, opacity: pressed ? 0.85 : 1 },
+                    { backgroundColor: tk.surface, borderColor: on ? tk.ink : tk.separator, borderWidth: on ? 2.5 : 1.5, opacity: pressed ? 0.85 : 1 },
                   ]}
                 >
-                  <Text style={[tp.small, { color: tk.ink, fontWeight: on ? '700' : '500', textAlign: 'center' }]}>{o.text}</Text>
+                  <Text style={[styl.przypis, { color: tk.ink, fontWeight: on ? '700' : '500', textAlign: 'center' }]}>{o.text}</Text>
                 </Pressable>
               );
             })}
@@ -438,10 +438,10 @@ function TextureFeedback({ item, picks }: { item: TextureInstance; picks: readon
   const { t } = useTranslation();
   const tone = (o: DrillOption, picked: boolean) => (o.correct ? 'good' : picked ? 'bad' : 'none');
   return (
-    <View style={{ gap: space.l }}>
+    <View style={{ gap: odstep.l }}>
       {item.axes.map((a, ai) => (
-        <View key={a.axis} style={{ gap: space.xs }}>
-          <Text style={[tp.caption, { color: tk.muted, fontWeight: '700' }]}>{a.label}</Text>
+        <View key={a.axis} style={{ gap: odstep.xs }}>
+          <Text style={[styl.drobny, { color: tk.muted, fontWeight: '700' }]}>{a.label}</Text>
           {a.options.map((o, oi) => {
             const picked = picks[ai] === oi;
             const k = tone(o, picked);
@@ -451,16 +451,16 @@ function TextureFeedback({ item, picks }: { item: TextureInstance; picks: readon
                 style={[
                   styles.texOption,
                   {
-                    backgroundColor: k === 'good' ? tk.goodSoft : k === 'bad' ? tk.badSoft : tk.surface,
-                    borderColor: k === 'good' ? tk.good : k === 'bad' ? tk.bad : tk.line,
+                    backgroundColor: k === 'good' ? tk.przejsciowe.goodSoft : k === 'bad' ? tk.przejsciowe.badSoft : tk.surface,
+                    borderColor: k === 'good' ? tk.przejsciowe.good : k === 'bad' ? tk.przejsciowe.bad : tk.separator,
                   },
                 ]}
               >
-                <Text style={[tp.body, { color: tk.ink, fontWeight: '600' }]}>
+                <Text style={[styl.tresc, { color: tk.ink, fontWeight: '600' }]}>
                   {o.text}
-                  {picked ? <Text style={[tp.caption, { color: o.correct ? tk.good : tk.bad }]}>{`  ${t('session.yourAnswer')}`}</Text> : null}
+                  {picked ? <Text style={[styl.drobny, { color: o.correct ? tk.przejsciowe.good : tk.przejsciowe.bad }]}>{`  ${t('session.yourAnswer')}`}</Text> : null}
                 </Text>
-                <RichText text={o.why} style={[tp.small, { color: tk.muted }]} />
+                <RichText text={o.why} style={[styl.przypis, { color: tk.muted }]} />
               </View>
             );
           })}
@@ -480,7 +480,7 @@ function Feedback({ rec, painted, hideChoices }: { rec: Record_; painted?: boole
   const tk = useTokens();
   const { item, answer } = rec;
   return (
-    <View style={{ gap: space.m }}>
+    <View style={{ gap: odstep.m }}>
       {item.kind === 'choice' && !hideChoices ? (
         <ChoiceOptions item={item} picked={answer.kind === 'choice' ? answer.index : -1} readOnly />
       ) : null}
@@ -488,8 +488,8 @@ function Feedback({ rec, painted, hideChoices }: { rec: Record_; painted?: boole
       {item.kind === 'paint' ? <PaintFeedback item={item} painted={painted ?? emptyGrid()} /> : null}
       {item.kind === 'texture' ? <TextureFeedback item={item} picks={answer.kind === 'texture' ? answer.picks : []} /> : null}
       {item.explanation ? (
-        <View style={[styles.explain, { backgroundColor: tk.feltSoft }]}>
-          <RichText text={item.explanation} style={tp.small} />
+        <View style={[styles.explain, { backgroundColor: tk.przejsciowe.feltSoft }]}>
+          <RichText text={item.explanation} style={styl.przypis} />
         </View>
       ) : null}
     </View>
@@ -500,9 +500,9 @@ function NumericFeedback({ item, answer }: { item: NumericInstance; answer: Dril
   const tk = useTokens();
   const given = answer.kind === 'numeric' ? answer.value : null;
   return (
-    <View style={{ gap: space.xs }}>
-      {given !== null ? <Text style={[tp.body, { color: tk.ink }]}>{dt.numeric.yours(fmtNum(given, item.unit))}</Text> : null}
-      <Text style={[tp.body, { color: tk.ink, fontWeight: '700' }]}>{dt.numeric.exact(item.display)}</Text>
+    <View style={{ gap: odstep.xs }}>
+      {given !== null ? <Text style={[styl.tresc, { color: tk.ink }]}>{dt.numeric.yours(fmtNum(given, item.unit))}</Text> : null}
+      <Text style={[styl.tresc, { color: tk.ink, fontWeight: '700' }]}>{dt.numeric.exact(item.display)}</Text>
       {given !== null && Math.abs(given - item.answer) >= 0.05 ? (
         <Muted>{item.unit === 'percent' ? dt.numeric.diffPp(given - item.answer) : dt.numeric.diff(given - item.answer)}</Muted>
       ) : null}
@@ -514,8 +514,8 @@ function PaintFeedback({ item, painted }: { item: PaintInstance; painted: boolea
   const tk = useTokens();
   const s = scorePaint(item.spot, painted);
   return (
-    <View style={{ gap: space.s }}>
-      <Text style={[tp.body, { color: tk.ink, fontWeight: '700' }]}>{dt.paint.score(s.score, PAINT_PASS)}</Text>
+    <View style={{ gap: odstep.s }}>
+      <Text style={[styl.tresc, { color: tk.ink, fontWeight: '700' }]}>{dt.paint.score(s.score, PAINT_PASS)}</Text>
       <PaintGrid painted={painted} result={s.cells} />
     </View>
   );
@@ -523,14 +523,14 @@ function PaintFeedback({ item, painted }: { item: PaintInstance; painted: boolea
 
 const styles = StyleSheet.create({
   top: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  row: { flexDirection: 'row', gap: space.m },
-  option: { borderWidth: 1.5, borderRadius: radius.m, padding: space.l, gap: space.xs },
-  explain: { borderRadius: radius.m, padding: space.l },
-  reviewItem: { borderWidth: 1.5, borderRadius: radius.m, padding: space.l, gap: space.s },
-  segments: { flexDirection: 'row', gap: space.s },
-  segment: { flex: 1, minHeight: 44, justifyContent: 'center', borderWidth: 1.5, borderRadius: radius.m, paddingHorizontal: space.s, paddingVertical: space.m },
-  texOption: { borderWidth: 1.5, borderRadius: radius.m, padding: space.m, gap: space.xs },
-  inputRow: { flexDirection: 'row', alignItems: 'center', borderWidth: 1.5, borderRadius: radius.m, paddingHorizontal: space.l, gap: space.s },
-  input: { flex: 1, fontSize: 28, fontWeight: '700', paddingVertical: space.m, fontVariant: ['tabular-nums'] },
+  row: { flexDirection: 'row', gap: odstep.m },
+  option: { borderWidth: 1.5, borderRadius: promien.przycisk, padding: odstep.l, gap: odstep.xs },
+  explain: { borderRadius: promien.przycisk, padding: odstep.l },
+  reviewItem: { borderWidth: 1.5, borderRadius: promien.przycisk, padding: odstep.l, gap: odstep.s },
+  segments: { flexDirection: 'row', gap: odstep.s },
+  segment: { flex: 1, minHeight: 44, justifyContent: 'center', borderWidth: 1.5, borderRadius: promien.przycisk, paddingHorizontal: odstep.s, paddingVertical: odstep.m },
+  texOption: { borderWidth: 1.5, borderRadius: promien.przycisk, padding: odstep.m, gap: odstep.xs },
+  inputRow: { flexDirection: 'row', alignItems: 'center', borderWidth: 1.5, borderRadius: promien.przycisk, paddingHorizontal: odstep.l, gap: odstep.s },
+  input: { flex: 1, fontSize: 28, fontWeight: '700', paddingVertical: odstep.m, fontVariant: ['tabular-nums'] },
   score: { fontSize: 56, lineHeight: 64, fontWeight: '800', fontVariant: ['tabular-nums'] },
 });

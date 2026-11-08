@@ -1,5 +1,5 @@
 import type { Inline } from '@szkola/content-schema';
-import { space } from '@/theme/tokens';
+import { odstep } from '@/theme/tokens';
 
 const CARD_W = 24; // szerokość karty „sm” z odstępem (PlayingCard SIZES.sm + gap)
 const MIN_TEXT_COL = 48;
@@ -15,9 +15,9 @@ export function columnWidths(head: Inline[][], rows: Inline[][][], avail?: numbe
   const cols = head.map((_, c) => {
     const cells = [head[c]!, ...rows.map((r) => r[c] ?? [])];
     const maxCards = Math.max(...cells.map(cards));
-    const fixed = maxCards > 0 ? maxCards * CARD_W + 4 + 2 * space.s : 0;
+    const fixed = maxCards > 0 ? maxCards * CARD_W + 4 + 2 * odstep.s : 0;
     const text = Math.max(...cells.map(textLen));
-    const preferred = Math.max(MIN_TEXT_COL, fixed, Math.min(200, Math.ceil(text + 2 * space.s)));
+    const preferred = Math.max(MIN_TEXT_COL, fixed, Math.min(200, Math.ceil(text + 2 * odstep.s)));
     return { fixed, preferred };
   });
   const widths = cols.map((c) => c.preferred);

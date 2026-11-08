@@ -12,7 +12,7 @@ import { usunCalyPostep } from '@/data/postepExpo';
 import { zegarTelefonu } from '@/platform/zegar';
 import { AdvancementCard } from '@/features/advancement/AdvancementCard';
 import { useSettings } from '@/state/settings';
-import { space, type as tp, useTokens } from '@/theme/tokens';
+import { odstep, styl, useTokens } from '@/theme/tokens';
 
 // Statystyki z odpowiedzi w postep.db (część 5); seria dni z dni lokalnych aktywności (D-251).
 async function czytajPostep(port: PortBazy) {
@@ -54,8 +54,8 @@ export default function ProgressScreen() {
       {odczyt.stan !== 'ok' ? null : total === 0 ? (
         <Muted>{t('progress.noData')}</Muted>
       ) : (
-        <Surface style={{ gap: space.s }}>
-          <Text style={[tp.h2, { color: tk.ink }]}>{`${t('progress.accuracy')}: ${Math.round((correct / total) * 100)}%`}</Text>
+        <Surface style={{ gap: odstep.s }}>
+          <Text style={[styl.naglowek, { color: tk.ink }]}>{`${t('progress.accuracy')}: ${Math.round((correct / total) * 100)}%`}</Text>
           <ProgressBar value={correct / total} />
           <Muted>{t('progress.answers', { count: total })}</Muted>
           <Muted>{t('progress.streak', { count: data.streak })}</Muted>
@@ -63,12 +63,12 @@ export default function ProgressScreen() {
       )}
 
       {weakest.length > 0 ? (
-        <View style={{ gap: space.m }}>
+        <View style={{ gap: odstep.m }}>
           <H2>{t('progress.weakest')}</H2>
           {weakest.map((w) => (
-            <View key={w.family} style={{ gap: space.xs }}>
+            <View key={w.family} style={{ gap: odstep.xs }}>
               <View style={styles.row}>
-                <Text style={[tp.body, { color: tk.ink, flex: 1 }]}>{labels.get(w.family) ?? w.family}</Text>
+                <Text style={[styl.tresc, { color: tk.ink, flex: 1 }]}>{labels.get(w.family) ?? w.family}</Text>
                 <Muted>{`${w.correct}/${w.total}`}</Muted>
               </View>
               <Muted>{w.family}</Muted>
@@ -78,22 +78,22 @@ export default function ProgressScreen() {
         </View>
       ) : null}
 
-      <View style={{ gap: space.m }}>
+      <View style={{ gap: odstep.m }}>
         <H2>{t('progress.settings')}</H2>
         <View style={styles.row}>
           <View style={{ flex: 1, gap: 2 }}>
-            <Text style={[tp.body, { color: tk.ink }]}>{t('progress.fourColor')}</Text>
+            <Text style={[styl.tresc, { color: tk.ink }]}>{t('progress.fourColor')}</Text>
             <Muted>{t('progress.fourColorHint')}</Muted>
           </View>
-          <Switch value={settings.fourColor} onValueChange={(v) => void settings.setFourColor(port, v)} trackColor={{ true: tk.felt }} accessibilityLabel={t('progress.fourColor')} />
+          <Switch value={settings.fourColor} onValueChange={(v) => void settings.setFourColor(port, v)} trackColor={{ true: tk.primaryBg }} accessibilityLabel={t('progress.fourColor')} />
         </View>
         <View style={styles.row}>
-          <Text style={[tp.body, { color: tk.ink, flex: 1 }]}>{t('progress.haptics')}</Text>
-          <Switch value={settings.haptics} onValueChange={(v) => void settings.setHaptics(port, v)} trackColor={{ true: tk.felt }} accessibilityLabel={t('progress.haptics')} />
+          <Text style={[styl.tresc, { color: tk.ink, flex: 1 }]}>{t('progress.haptics')}</Text>
+          <Switch value={settings.haptics} onValueChange={(v) => void settings.setHaptics(port, v)} trackColor={{ true: tk.primaryBg }} accessibilityLabel={t('progress.haptics')} />
         </View>
         {confirmReset ? (
-          <Surface style={{ gap: space.m }}>
-            <Text style={[tp.body, { color: tk.ink }]}>{t('progress.resetConfirm')}</Text>
+          <Surface style={{ gap: odstep.m }}>
+            <Text style={[styl.tresc, { color: tk.ink }]}>{t('progress.resetConfirm')}</Text>
             <View style={styles.row}>
               <Button label={t('progress.cancel')} variant="ghost" onPress={() => setConfirmReset(false)} style={{ flex: 1 }} />
               <Button
@@ -108,26 +108,26 @@ export default function ProgressScreen() {
                     refresh();
                   });
                 }}
-                style={{ flex: 1, marginLeft: space.m }}
+                style={{ flex: 1, marginLeft: odstep.m }}
               />
             </View>
           </Surface>
         ) : (
           <Pressable accessibilityRole="button" onPress={() => setConfirmReset(true)}>
-            <Text style={[tp.body, { color: tk.bad }]}>{t('progress.reset')}</Text>
+            <Text style={[styl.tresc, { color: tk.alert }]}>{t('progress.reset')}</Text>
           </Pressable>
         )}
-        {bladUsuwania ? <Text accessibilityRole="alert" style={[tp.body, { color: tk.bad }]}>{t('progress.resetFailed')}</Text> : null}
+        {bladUsuwania ? <Text accessibilityRole="alert" style={[styl.tresc, { color: tk.alert }]}>{t('progress.resetFailed')}</Text> : null}
         <Pressable accessibilityRole="link" onPress={() => router.push('/glossary')}>
-          <Text style={[tp.body, { color: tk.felt }]}>{t('glossary.link')}</Text>
+          <Text style={[styl.tresc, { color: tk.link }]}>{t('glossary.link')}</Text>
         </Pressable>
         <Pressable accessibilityRole="link" onPress={() => router.push('/help')}>
-          <Text style={[tp.body, { color: tk.felt }]}>{t('help.link')}</Text>
+          <Text style={[styl.tresc, { color: tk.link }]}>{t('help.link')}</Text>
         </Pressable>
         {/* diagnostyka tylko w buildzie deweloperskim (ADR 0011) */}
         {__DEV__ ? (
           <Pressable accessibilityRole="link" onPress={() => __DEV__ && router.push('/diagnostics')}>
-            <Text style={[tp.body, { color: tk.felt }]}>{t('diagnostics.link')}</Text>
+            <Text style={[styl.tresc, { color: tk.link }]}>{t('diagnostics.link')}</Text>
           </Pressable>
         ) : null}
         <Muted>{t('progress.contentVersion', { hash })}</Muted>
@@ -137,5 +137,5 @@ export default function ProgressScreen() {
 }
 
 const styles = StyleSheet.create({
-  row: { flexDirection: 'row', alignItems: 'center', gap: space.m },
+  row: { flexDirection: 'row', alignItems: 'center', gap: odstep.m },
 });

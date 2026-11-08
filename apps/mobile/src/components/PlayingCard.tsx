@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useSettings } from '@/state/settings';
-import { cardFont, useTokens } from '@/theme/tokens';
+import { krojKarty, useTokens } from '@/theme/tokens';
 
 const SUIT: Record<string, string> = { s: '♠', h: '♥', d: '♦', c: '♣' };
 const SUIT_NAME: Record<string, string> = { s: 'pik', h: 'kier', d: 'karo', c: 'trefl' };
@@ -21,7 +21,7 @@ export const PlayingCard = memo(function PlayingCard({ code, size = 'md' }: { co
   const rank = code[0]!;
   const suit = code[1]!;
   const color =
-    suit === 'h' ? tk.cardRed : suit === 'd' ? (fourColor ? tk.cardBlue : tk.cardRed) : suit === 'c' && fourColor ? tk.cardGreen : tk.cardInk;
+    suit === 'h' ? tk.cardRed : suit === 'd' ? (fourColor ? tk.przejsciowe.cardBlue : tk.cardRed) : suit === 'c' && fourColor ? tk.przejsciowe.cardGreen : tk.cardInk;
   const d = SIZES[size];
   const label = `${RANK_NAME[rank] ?? rank} ${SUIT_NAME[suit]}`;
   return (
@@ -30,10 +30,10 @@ export const PlayingCard = memo(function PlayingCard({ code, size = 'md' }: { co
       accessibilityLabel={label}
       style={[
         styles.card,
-        { width: d.w, height: d.h, backgroundColor: tk.cardFace, borderColor: tk.cardEdge, borderRadius: size === 'sm' ? 4 : 6 },
+        { width: d.w, height: d.h, backgroundColor: tk.card, borderColor: tk.cardEdge, borderRadius: size === 'sm' ? 4 : 6 },
       ]}
     >
-      <Text style={[styles.rank, { color, fontSize: d.rank, lineHeight: d.rank * 1.05, fontFamily: cardFont }]}>{rank === 'T' ? '10' : rank}</Text>
+      <Text style={[styles.rank, { color, fontSize: d.rank, lineHeight: d.rank * 1.05, fontFamily: krojKarty }]}>{rank === 'T' ? '10' : rank}</Text>
       <Text style={[styles.suit, { color, fontSize: d.suit, lineHeight: d.suit * 1.1 }]}>{SUIT[suit]}</Text>
     </View>
   );

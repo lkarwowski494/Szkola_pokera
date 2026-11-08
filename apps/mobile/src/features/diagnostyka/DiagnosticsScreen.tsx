@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Platform, Text, View } from 'react-native';
 import { Button, Muted, Screen, Surface, Title } from '@/components/ui';
-import { space, type as tp, useTokens } from '@/theme/tokens';
+import { odstep, styl, useTokens } from '@/theme/tokens';
 
 declare const HermesInternal: unknown;
 
@@ -38,17 +38,17 @@ export default function DiagnosticsScreen() {
       <Muted>{t('diagnostics.intro', { n: NFR03.iterations.toLocaleString('pl-PL'), ms: NFR03.maxMs })}</Muted>
       <Button label={running ? t('diagnostics.running') : t('diagnostics.run')} onPress={run} disabled={running} />
       {result ? (
-        <Surface style={{ gap: space.s }}>
-          <Text style={[tp.h3, { color: result.passesNfr03 ? tk.good : tk.bad }]}>
+        <Surface style={{ gap: odstep.s }}>
+          <Text style={[styl.naglowek, { color: result.passesNfr03 ? tk.przejsciowe.good : tk.przejsciowe.bad }]}>
             {result.passesNfr03 ? t('diagnostics.pass') : t('diagnostics.fail')}
           </Text>
-          <Text style={[tp.body, { color: tk.ink }]} selectable>
+          <Text style={[styl.tresc, { color: tk.ink }]} selectable>
             {t('diagnostics.equity', { ms: fmt(result.equityMedianMs), runs: result.equityRunsMs.map((x) => fmt(x)).join(', ') })}
           </Text>
-          <Text style={[tp.body, { color: tk.ink }]} selectable>
+          <Text style={[styl.tresc, { color: tk.ink }]} selectable>
             {t('diagnostics.check', { pct: fmt(result.equityCheck * 100) })}
           </Text>
-          <Text style={[tp.body, { color: tk.ink }]} selectable>
+          <Text style={[styl.tresc, { color: tk.ink }]} selectable>
             {t('diagnostics.evals', { n: Math.round(result.evalsPerSecond).toLocaleString('pl-PL') })}
           </Text>
           <View>

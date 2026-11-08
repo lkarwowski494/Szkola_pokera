@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { radius, space, type as tp, useTokens } from '@/theme/tokens';
+import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 
 /** Wybór jednej opcji z kilku (przyciski w rzędzie, zawijane). */
 export function Choice<T extends string | number | null>({
@@ -28,10 +28,10 @@ export function Choice<T extends string | number | null>({
             onPress={() => onChange(o.value)}
             style={({ pressed }) => [
               styles.chip,
-              { borderColor: on ? tk.felt : tk.line, backgroundColor: on ? tk.feltSoft : tk.surface, opacity: o.disabled ? 0.45 : pressed ? 0.85 : 1 },
+              { borderColor: on ? tk.ink : tk.separator, borderWidth: on ? 2.5 : 1.5, backgroundColor: tk.surface, opacity: o.disabled ? 0.45 : pressed ? 0.85 : 1 },
             ]}
           >
-            <Text style={[tp.body, { color: on ? tk.felt : tk.ink, fontWeight: on ? '700' : '500' }]}>{o.label}</Text>
+            <Text style={[styl.tresc, { color: tk.ink, fontWeight: on ? '700' : '500' }]}>{o.label}</Text>
           </Pressable>
         );
       })}
@@ -40,6 +40,6 @@ export function Choice<T extends string | number | null>({
 }
 
 const styles = StyleSheet.create({
-  row: { flexDirection: 'row', flexWrap: 'wrap', gap: space.s },
-  chip: { minHeight: 44, paddingHorizontal: space.l, borderRadius: radius.m, borderWidth: 1.5, justifyContent: 'center' },
+  row: { flexDirection: 'row', flexWrap: 'wrap', gap: odstep.s },
+  chip: { minHeight: 44, paddingHorizontal: odstep.l, borderRadius: promien.przycisk, borderWidth: 1.5, justifyContent: 'center' },
 });

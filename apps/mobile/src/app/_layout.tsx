@@ -103,7 +103,7 @@ export default function RootLayout() {
   if (postep.stan === 'blad') return <RenderErrorScreen onRetry={postep.ponow} />;
 
   const base = scheme === 'dark' ? DarkTheme : DefaultTheme;
-  const theme = { ...base, colors: { ...base.colors, primary: tk.felt, background: tk.bg, card: tk.surface, text: tk.ink, border: tk.line } };
+  const theme = { ...base, colors: { ...base.colors, primary: tk.ink, background: tk.bg, card: tk.surface, text: tk.ink, border: tk.separator } };
 
   return (
     <ThemeProvider value={theme}>
@@ -112,7 +112,7 @@ export default function RootLayout() {
         <PostepKontekst.Provider value={postep.port}>
           {/* Plik treści przygotowany przez useTresc (bez kopiowania przy każdym starcie, ADR 0005 pkt 2). */}
           <SQLiteProvider databaseName={tresc.plik} options={{ useNewConnection: false }}>
-            <Stack screenOptions={{ headerBackTitle: 'Wróć', headerTintColor: tk.felt }}>
+            <Stack screenOptions={{ headerBackTitle: 'Wróć', headerTintColor: tk.link }}>
               <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
               <Stack.Screen name="lesson/[id]" options={{ title: '' }} />
               <Stack.Screen name="diagnostics" options={{ title: '' }} />

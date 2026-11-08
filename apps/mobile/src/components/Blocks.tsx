@@ -1,7 +1,7 @@
 import type { Block, Inline } from '@szkola/content-schema';
 import { Fragment, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { radius, space, type as tp, useTokens } from '@/theme/tokens';
+import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 import { useSQLiteContext } from 'expo-sqlite';
 import { getRangeSpot } from '@/data/content/repo';
 import { CardRow } from './PlayingCard';
@@ -15,7 +15,7 @@ function InlineRun({ items, style }: { items: Inline[]; style?: object }) {
   const hasCards = items.some((i) => i.t === 'cards');
   if (!hasCards) {
     return (
-      <Text style={[tp.body, { color: tk.ink }, style]}>
+      <Text style={[styl.tresc, { color: tk.ink }, style]}>
         {items.map((it, i) =>
           it.t === 'text' ? (
             <Text key={i} style={{ fontWeight: it.b ? '700' : undefined, fontStyle: it.i ? 'italic' : undefined }}>
@@ -39,7 +39,7 @@ function InlineRun({ items, style }: { items: Inline[]; style?: object }) {
               .split(/\s+/)
               .filter(Boolean)
               .map((w, j) => (
-                <Text key={j} style={[tp.body, { color: tk.ink, fontWeight: it.b ? '700' : undefined, fontStyle: it.i ? 'italic' : undefined }, style]}>
+                <Text key={j} style={[styl.tresc, { color: tk.ink, fontWeight: it.b ? '700' : undefined, fontStyle: it.i ? 'italic' : undefined }, style]}>
                   {w}{' '}
                 </Text>
               ))}
@@ -57,19 +57,19 @@ function TableBlock({ block }: { block: Extract<Block, { t: 'table' }> }) {
   return (
     <View onLayout={(e) => setAvail(Math.floor(e.nativeEvent.layout.width) - 2)}>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        <View style={[styles.table, { borderColor: tk.line }]}>
-          <View style={[styles.tr, { backgroundColor: tk.feltSoft }]}>
+        <View style={[styles.table, { borderColor: tk.separator }]}>
+          <View style={[styles.tr, { backgroundColor: tk.surface }]}>
             {block.head.map((cell, i) => (
               <View key={i} style={[styles.td, { width: widths[i] }]}>
-                <InlineRun items={cell} style={[tp.small, { fontWeight: '700' }]} />
+                <InlineRun items={cell} style={[styl.przypis, { fontWeight: '700' }]} />
               </View>
             ))}
           </View>
           {block.rows.map((row, r) => (
-            <View key={r} style={[styles.tr, { borderTopColor: tk.line, borderTopWidth: StyleSheet.hairlineWidth }]}>
+            <View key={r} style={[styles.tr, { borderTopColor: tk.separator, borderTopWidth: StyleSheet.hairlineWidth }]}>
               {row.map((cell, i) => (
                 <View key={i} style={[styles.td, { width: widths[i] }]}>
-                  <InlineRun items={cell} style={tp.small} />
+                  <InlineRun items={cell} style={styl.przypis} />
                 </View>
               ))}
             </View>
@@ -84,15 +84,15 @@ function BlockView({ block }: { block: Block }) {
   const tk = useTokens();
   switch (block.t) {
     case 'h':
-      return <InlineRun items={block.c} style={block.level === 2 ? [tp.h2, styles.h] : [tp.h3, styles.h]} />;
+      return <InlineRun items={block.c} style={block.level === 2 ? [styl.naglowek, styles.h] : [styl.naglowek, styles.h]} />;
     case 'p':
       return <InlineRun items={block.c} />;
     case 'list':
       return (
-        <View style={{ gap: space.s }}>
+        <View style={{ gap: odstep.s }}>
           {block.items.map((item, i) => (
             <View key={i} style={styles.listItem}>
-              <Text style={[tp.body, { color: tk.felt, width: 22, fontWeight: '700' }]}>{block.ordered ? `${i + 1}.` : '•'}</Text>
+              <Text style={[styl.tresc, { color: tk.muted, width: 22, fontWeight: '700' }]}>{block.ordered ? `${i + 1}.` : '•'}</Text>
               <View style={{ flex: 1 }}>
                 <InlineRun items={item} />
               </View>
@@ -104,8 +104,8 @@ function BlockView({ block }: { block: Block }) {
       return <TableBlock block={block} />;
     case 'note':
       return (
-        <View style={[styles.note, { backgroundColor: tk.feltSoft }]}>
-          {block.title ? <Text style={[tp.h3, { color: tk.felt }]}>{block.title}</Text> : null}
+        <View style={[styles.note, { backgroundColor: tk.surface }]}>
+          {block.title ? <Text style={[styl.naglowek, { color: tk.ink }]}>{block.title}</Text> : null}
           {block.c.map((b, i) => (
             <BlockView key={i} block={b} />
           ))}
@@ -115,8 +115,8 @@ function BlockView({ block }: { block: Block }) {
       return <RangeBlock id={block.spot} />;
     case 'formula':
       return (
-        <View style={[styles.formula, { borderColor: tk.felt, backgroundColor: tk.surface }]}>
-          <Text style={[tp.small, { color: tk.ink, fontFamily: 'Menlo' }]}>{block.v}</Text>
+        <View style={[styles.formula, { borderColor: tk.ink, backgroundColor: tk.surface }]}>
+          <Text style={[styl.przypis, { color: tk.ink, fontFamily: 'Menlo' }]}>{block.v}</Text>
         </View>
       );
   }
@@ -130,7 +130,7 @@ function RangeBlock({ id }: { id: string }) {
 
 export function Blocks({ blocks }: { blocks: Block[] }) {
   return (
-    <View style={{ gap: space.l }}>
+    <View style={{ gap: odstep.l }}>
       {blocks.map((b, i) => (
         <BlockView key={i} block={b} />
       ))}
@@ -141,11 +141,11 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
 const styles = StyleSheet.create({
   flow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center' },
   inlineCards: { marginRight: 4, marginVertical: 2 },
-  h: { marginTop: space.s },
+  h: { marginTop: odstep.s },
   listItem: { flexDirection: 'row', alignItems: 'flex-start' },
-  table: { borderWidth: StyleSheet.hairlineWidth * 2, borderRadius: radius.s, overflow: 'hidden', },
+  table: { borderWidth: StyleSheet.hairlineWidth * 2, borderRadius: promien.karta, overflow: 'hidden', },
   tr: { flexDirection: 'row' },
-  td: { padding: space.s, justifyContent: 'center' },
-  note: { borderRadius: radius.m, padding: space.l, gap: space.s },
-  formula: { borderWidth: 1, borderStyle: 'dashed', borderRadius: radius.s, padding: space.m },
+  td: { padding: odstep.s, justifyContent: 'center' },
+  note: { borderRadius: promien.przycisk, padding: odstep.l, gap: odstep.s },
+  formula: { borderWidth: 1, borderStyle: 'dashed', borderRadius: promien.karta, padding: odstep.m },
 });

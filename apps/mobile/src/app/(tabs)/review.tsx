@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { BladOdczytu } from '@/components/BladOdczytu';
 import { Button, Muted, Screen, Surface, Title } from '@/components/ui';
 import { useOdczytPostepu } from '@/data/postep';
-import { space } from '@/theme/tokens';
+import { odstep } from '@/theme/tokens';
 
 function formatWhen(ts: number): string {
   const d = new Date(ts);
@@ -30,7 +30,7 @@ export default function ReviewScreen() {
     <Screen>
       <Title>{t('review.title')}</Title>
       {odczyt.stan === 'blad' ? <BladOdczytu onPonow={odczyt.odswiez} /> : null}
-      <Surface style={{ gap: space.m }}>
+      <Surface style={{ gap: odstep.m }}>
         <Muted>{state.due > 0 ? t('review.due', { count: state.due }) : t('review.none')}</Muted>
         {state.due === 0 && state.next ? <Muted>{t('review.next', { when: formatWhen(state.next) })}</Muted> : null}
         <Button label={t('review.start')} disabled={state.due === 0} onPress={() => router.push({ pathname: '/session', params: { mode: 'review' } })} />

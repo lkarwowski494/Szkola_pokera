@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native';
 import { Button } from '@/components/ui';
-import { space, type as tp, useTokens } from '@/theme/tokens';
+import { odstep, styl, useTokens } from '@/theme/tokens';
 
 /**
  * Ekran zastępczy po błędzie renderowania (granica błędów `GranicaBledu` w _layout). Bez treści błędu: użytkownik nic
@@ -9,11 +9,11 @@ import { space, type as tp, useTokens } from '@/theme/tokens';
 export function RenderErrorScreen({ onRetry }: { onRetry: () => void }) {
   const tk = useTokens();
   return (
-    <View style={{ flex: 1, justifyContent: 'center', gap: space.l, padding: space.xl, backgroundColor: tk.bg }}>
-      <Text accessibilityRole="header" style={[tp.h2, { color: tk.ink }]}>
+    <View style={{ flex: 1, justifyContent: 'center', gap: odstep.l, padding: odstep.xxl, backgroundColor: tk.bg }}>
+      <Text accessibilityRole="header" style={[styl.naglowek, { color: tk.ink }]}>
         Coś poszło nie tak
       </Text>
-      <Text style={[tp.body, { color: tk.muted }]}>Tego ekranu nie udało się wyświetlić. Spróbuj jeszcze raz.</Text>
+      <Text style={[styl.tresc, { color: tk.muted }]}>Tego ekranu nie udało się wyświetlić. Spróbuj jeszcze raz.</Text>
       <Button label="Spróbuj ponownie" onPress={onRetry} />
     </View>
   );

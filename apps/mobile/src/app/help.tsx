@@ -6,7 +6,7 @@ import { Linking, Text, View } from 'react-native';
 import { Button, Muted, Screen, Surface, Title } from '@/components/ui';
 import { HELPLINES, type AppHelpline } from '@/data/content/helplines.generated';
 import { zapiszBlad } from '@/platform/dziennik';
-import { space, type as tp, useTokens } from '@/theme/tokens';
+import { odstep, styl, useTokens } from '@/theme/tokens';
 
 const host = (url: string) => url.replace(/^https:\/\//, '').replace(/^www\./, '').replace(/\/$/, '');
 
@@ -48,7 +48,7 @@ export default function HelpScreen() {
         <Entry key={e.id} entry={e} onOpen={open} />
       ))}
       {sel.regions.length ? (
-        <View style={{ gap: space.s }}>
+        <View style={{ gap: odstep.s }}>
           <Muted>{HELPLINES.regionsLabel}</Muted>
           {sel.regions.map((r) => (
             <Button
@@ -76,13 +76,13 @@ function Entry({ entry, onOpen }: { entry: AppHelpline; onOpen: (target: string)
   const { t } = useTranslation();
   const details = [entry.hours, entry.cost].filter(Boolean).join(', ');
   return (
-    <Surface style={{ gap: space.s }}>
-      <Text accessibilityRole="header" style={[tp.h3, { color: tk.ink }]}>
+    <Surface style={{ gap: odstep.s }}>
+      <Text accessibilityRole="header" style={[styl.naglowek, { color: tk.ink }]}>
         {entry.name}
       </Text>
-      {details ? <Text style={[tp.body, { color: tk.ink }]}>{details}</Text> : null}
+      {details ? <Text style={[styl.tresc, { color: tk.ink }]}>{details}</Text> : null}
       {entry.info ? <Muted>{entry.info}</Muted> : null}
-      <View style={{ gap: space.s, marginTop: space.xs }}>
+      <View style={{ gap: odstep.s, marginTop: odstep.xs }}>
         {entry.phone ? (
           <Button
             label={t('help.call', { phone: entry.phone })}

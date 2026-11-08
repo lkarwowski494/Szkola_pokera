@@ -9,7 +9,7 @@ import { Button, H2, Muted, Screen, Title } from '@/components/ui';
 import { getLesson, getLessonDrills, getRulesByIds } from '@/data/content/repo';
 import { oznaczTeoriePrzeczytana } from '@szkola/postep';
 import { usePortPostepu, zapiszBladPostepu } from '@/data/postep';
-import { space } from '@/theme/tokens';
+import { odstep } from '@/theme/tokens';
 
 export default function LessonScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -45,20 +45,20 @@ export default function LessonScreen() {
   return (
     <Screen padTop={false}>
       <Stack.Screen options={{ title: lesson.title }} />
-      <View style={{ gap: space.xs }}>
+      <View style={{ gap: odstep.xs }}>
         <Title>{lesson.title}</Title>
         <Muted>{lesson.sub}</Muted>
       </View>
       <Blocks blocks={lesson.body} />
       {rules.length > 0 ? (
-        <View style={{ gap: space.m }}>
+        <View style={{ gap: odstep.m }}>
           <H2>{t('lesson.rulesTitle')}</H2>
           {rules.map((r) => (
             <RuleCard key={r.id} rule={r} />
           ))}
         </View>
       ) : null}
-      <View style={{ gap: space.s }}>
+      <View style={{ gap: odstep.s }}>
         <Button label={t('lesson.start')} onPress={start} />
         <Muted>{t('lesson.exercises', { count: exerciseCount })}</Muted>
       </View>

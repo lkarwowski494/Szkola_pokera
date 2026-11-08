@@ -11,7 +11,7 @@ import { useOdczytPostepu } from '@/data/postep';
 import { podsumowanieLekcji, podsumowanieTestow } from '@/features/kurs/podsumowania';
 import { AdvancementCard } from '@/features/advancement/AdvancementCard';
 import { EXAM_SIZE } from '@/features/drills/thresholds';
-import { radius, space, type as tp, useTokens } from '@/theme/tokens';
+import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 
 const PUSTE_LEKCJE: ReturnType<typeof podsumowanieLekcji> = new Map();
 const PUSTE_TESTY: ReturnType<typeof podsumowanieTestow> = new Map();
@@ -43,7 +43,7 @@ export default function LearnScreen() {
       <Muted>{t('learn.intro')}</Muted>
       <AdvancementCard />
       {odczyt.stan === 'blad' ? <BladOdczytu onPonow={odczyt.odswiez} /> : null}
-      <View style={{ gap: space.s }}>
+      <View style={{ gap: odstep.s }}>
         <ProgressBar value={lessons.length ? done / lessons.length : 0} />
         <Muted>{t('learn.lessonsDone', { done, total: lessons.length })}</Muted>
       </View>
@@ -52,9 +52,9 @@ export default function LearnScreen() {
         const items = lessons.filter((l) => l.moduleId === m.id);
         const available = items.length > 0;
         return (
-          <View key={m.id} style={{ gap: space.s }}>
+          <View key={m.id} style={{ gap: odstep.s }}>
             <View style={styles.moduleHead}>
-              <Text style={[tp.h3, { color: available ? tk.ink : tk.muted }]}>{m.title}</Text>
+              <Text style={[styl.naglowek, { color: available ? tk.ink : tk.muted }]}>{m.title}</Text>
               {!m.recommended ? <Muted>{t('learn.optional')}</Muted> : null}
             </View>
             <Muted>{available ? m.sub : `${m.sub}. ${t('learn.soon')}.`}</Muted>
@@ -70,14 +70,14 @@ export default function LearnScreen() {
                   onPress={() => router.push({ pathname: '/lesson/[id]', params: { id: l.id } })}
                   style={({ pressed }) => [
                     styles.lesson,
-                    { backgroundColor: tk.surface, borderColor: state === 'done' ? tk.felt : tk.line, opacity: pressed ? 0.85 : 1 },
+                    { backgroundColor: tk.surface, borderColor: state === 'done' ? tk.ink : tk.separator, opacity: pressed ? 0.85 : 1 },
                   ]}
                 >
-                  <View style={[styles.dot, { borderColor: tk.felt, backgroundColor: state === 'done' ? tk.felt : state === 'started' ? tk.feltSoft : 'transparent' }]}>
-                    {state === 'done' ? <Text style={{ color: tk.onFelt, fontWeight: '800' }}>✓</Text> : null}
+                  <View style={[styles.dot, { borderColor: tk.ink, backgroundColor: state === 'done' ? tk.primaryBg : 'transparent', borderStyle: state === 'started' ? 'dashed' : 'solid' }]}>
+                    {state === 'done' ? <Text style={{ color: tk.primaryInk, fontWeight: '800' }}>✓</Text> : null}
                   </View>
                   <View style={{ flex: 1, gap: 2 }}>
-                    <Text style={[tp.body, { color: tk.ink, fontWeight: '600' }]}>{l.title}</Text>
+                    <Text style={[styl.tresc, { color: tk.ink, fontWeight: '600' }]}>{l.title}</Text>
                     <Muted>{l.sub}</Muted>
                   </View>
                   {p && p.total !== null && p.bestCorrect !== null ? <Muted>{`${p.bestCorrect}/${p.total}`}</Muted> : null}
@@ -89,13 +89,13 @@ export default function LearnScreen() {
                 accessibilityRole="button"
                 accessibilityLabel={`${t('exam.start')}. ${t('exam.hint', { count: EXAM_SIZE })}`}
                 onPress={() => router.push({ pathname: '/session', params: { mode: 'exam', moduleId: m.id } })}
-                style={({ pressed }) => [styles.lesson, { borderColor: exams.get(m.id)?.passed ? tk.felt : tk.line, borderStyle: 'dashed', opacity: pressed ? 0.85 : 1 }]}
+                style={({ pressed }) => [styles.lesson, { borderColor: exams.get(m.id)?.passed ? tk.ink : tk.separator, borderStyle: 'dashed', opacity: pressed ? 0.85 : 1 }]}
               >
-                <View style={[styles.dot, { borderColor: tk.felt, backgroundColor: exams.get(m.id)?.passed ? tk.felt : 'transparent' }]}>
-                  {exams.get(m.id)?.passed ? <Text style={{ color: tk.onFelt, fontWeight: '800' }}>✓</Text> : null}
+                <View style={[styles.dot, { borderColor: tk.ink, backgroundColor: exams.get(m.id)?.passed ? tk.primaryBg : 'transparent' }]}>
+                  {exams.get(m.id)?.passed ? <Text style={{ color: tk.primaryInk, fontWeight: '800' }}>✓</Text> : null}
                 </View>
                 <View style={{ flex: 1, gap: 2 }}>
-                  <Text style={[tp.body, { color: tk.ink, fontWeight: '600' }]}>{t('exam.start')}</Text>
+                  <Text style={[styl.tresc, { color: tk.ink, fontWeight: '600' }]}>{t('exam.start')}</Text>
                   <Muted>{t('exam.hint', { count: EXAM_SIZE })}</Muted>
                 </View>
                 {exams.get(m.id) ? <Muted>{`${exams.get(m.id)!.best}/${exams.get(m.id)!.total}`}</Muted> : null}
@@ -109,7 +109,7 @@ export default function LearnScreen() {
 }
 
 const styles = StyleSheet.create({
-  moduleHead: { flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', marginTop: space.m },
-  lesson: { flexDirection: 'row', alignItems: 'center', gap: space.m, padding: space.l, borderRadius: radius.m, borderWidth: 1.5 },
+  moduleHead: { flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', marginTop: odstep.m },
+  lesson: { flexDirection: 'row', alignItems: 'center', gap: odstep.m, padding: odstep.l, borderRadius: promien.przycisk, borderWidth: 1.5 },
   dot: { width: 26, height: 26, borderRadius: 13, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
 });

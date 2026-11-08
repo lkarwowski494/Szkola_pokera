@@ -9,7 +9,7 @@ import { useAdvancement } from '@/features/advancement/useAdvancement';
 import { BladOdczytu } from '@/components/BladOdczytu';
 import { useOdczytPostepu } from '@/data/postep';
 import { czytajHistorie } from '@/features/advancement/historia';
-import { space, type as tp, useTokens } from '@/theme/tokens';
+import { odstep, styl, useTokens } from '@/theme/tokens';
 
 /** Rozbicie wskaźnika zaawansowania na obszary (moduły kursu); tylko wiedza — część „gra” usunięta z trybem gry (ADR 0011). */
 export default function AdvancementScreen() {
@@ -26,16 +26,16 @@ export default function AdvancementScreen() {
     <Screen padTop={false}>
       <Title>{t('advancement.title')}</Title>
       <View style={styles.row}>
-        <Text style={[styles.big, { color: tk.felt }]} accessibilityLabel={`${r.overall ?? '–'} ${t('advancement.outOf')}`}>
+        <Text style={[styles.big, { color: tk.ink }]} accessibilityLabel={`${r.overall ?? '–'} ${t('advancement.outOf')}`}>
           {r.overall ?? '–'}
         </Text>
         <Muted style={{ flex: 1 }}>{t('advancement.outOfLong')}</Muted>
       </View>
       <ProgressBar value={(r.overall ?? 0) / ADVANCEMENT.scale} height={8} />
 
-      <Surface style={{ gap: space.xs }}>
+      <Surface style={{ gap: odstep.xs }}>
         <Muted>{t('advancement.knowledge')}</Muted>
-        <Text style={[tp.h2, { color: tk.ink }]}>{k.score ?? '–'}</Text>
+        <Text style={[styl.naglowek, { color: tk.ink }]}>{k.score ?? '–'}</Text>
         <Muted>{t('advancement.practiced', { done: k.practiced, total: k.skills })}</Muted>
       </Surface>
       <Muted>{t('advancement.explain', { days: ADVANCEMENT.horizonDays })}</Muted>
@@ -47,10 +47,10 @@ export default function AdvancementScreen() {
       {k.areas.map((a, i) => {
         const c = r.combined[i]!;
         return (
-          <View key={a.id} style={{ gap: space.xs }} accessible accessibilityLabel={`${titles.get(a.id) ?? a.id}: ${c.score ?? t('advancement.noLessons')}`}>
+          <View key={a.id} style={{ gap: odstep.xs }} accessible accessibilityLabel={`${titles.get(a.id) ?? a.id}: ${c.score ?? t('advancement.noLessons')}`}>
             <View style={styles.row}>
-              <Text style={[tp.body, { color: c.score === null ? tk.muted : tk.ink, flex: 1, fontWeight: '600' }]}>{titles.get(a.id) ?? a.id}</Text>
-              <Text style={[tp.body, { color: c.score === null ? tk.muted : tk.ink, fontWeight: '700', fontVariant: ['tabular-nums'] }]}>
+              <Text style={[styl.tresc, { color: c.score === null ? tk.muted : tk.ink, flex: 1, fontWeight: '600' }]}>{titles.get(a.id) ?? a.id}</Text>
+              <Text style={[styl.tresc, { color: c.score === null ? tk.muted : tk.ink, fontWeight: '700', fontVariant: ['tabular-nums'] }]}>
                 {c.score ?? t('advancement.noLessons')}
               </Text>
             </View>
@@ -80,10 +80,10 @@ function HistoryBars({ rows }: { rows: { day: string; combined: number | null }[
   if (pts.length < 2) return <Muted>{t('advancement.historyEmpty')}</Muted>;
   const last = pts[pts.length - 1]!;
   return (
-    <View style={{ gap: space.xs }} accessible accessibilityLabel={pts.map((p) => `${p.day}: ${p.combined}`).join(', ')}>
-      <View style={[styles.bars, { borderBottomColor: tk.line }]}>
+    <View style={{ gap: odstep.xs }} accessible accessibilityLabel={pts.map((p) => `${p.day}: ${p.combined}`).join(', ')}>
+      <View style={[styles.bars, { borderBottomColor: tk.separator }]}>
         {pts.map((p) => (
-          <View key={p.day} style={{ flex: 1, height: Math.max(2, (BAR_HEIGHT * p.combined!) / ADVANCEMENT.scale), backgroundColor: tk.felt, borderTopLeftRadius: 4, borderTopRightRadius: 4 }} />
+          <View key={p.day} style={{ flex: 1, height: Math.max(2, (BAR_HEIGHT * p.combined!) / ADVANCEMENT.scale), backgroundColor: tk.primaryBg, borderTopLeftRadius: 4, borderTopRightRadius: 4 }} />
         ))}
       </View>
       <Muted>{t('advancement.historyHint', { last: `${last.day}: ${last.combined}` })}</Muted>
@@ -93,6 +93,6 @@ function HistoryBars({ rows }: { rows: { day: string; combined: number | null }[
 
 const styles = StyleSheet.create({
   bars: { height: BAR_HEIGHT, flexDirection: 'row', alignItems: 'flex-end', gap: 2, borderBottomWidth: 1 },
-  row: { flexDirection: 'row', alignItems: 'center', gap: space.m },
+  row: { flexDirection: 'row', alignItems: 'center', gap: odstep.m },
   big: { fontSize: 56, lineHeight: 64, fontWeight: '800', fontVariant: ['tabular-nums'] },
 });
