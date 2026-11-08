@@ -16,6 +16,13 @@ export interface PlanAktywnosci {
   // tylko `scenariusz` (D-219): szkielet grafu z treści — dla decyzji i akcje z oceną (D-109) i następna decyzja (`dalej`:
   // indeks > i albo koniec); `liczbaKrokow` = liczba decyzji, krok = indeks decyzji. Akcja spoza listy → `akcja_niedostepna`.
   decyzje?: readonly (readonly AkcjaPlanu[])[];
+  // D-248 (08-F10): zadania kroków w kolejności (sesja, powtórki, test, lekcja, ocena poziomu) — wznowienie buduje ten sam
+  // zestaw; `ziarno` (liczba całkowita) odtwarza zadanie generowane. Plan zapisany w JSON kolumny `plan` (schemat v1 bez zmian).
+  zadania?: readonly ZadaniePlanu[];
+}
+export interface ZadaniePlanu {
+  id: string;
+  ziarno: number;
 }
 export interface AkcjaPlanu {
   akcja: string;
@@ -68,6 +75,8 @@ export function startAktywnosci(wej: {
 function planPoprawny(rodzaj: RodzajAktywnosci, plan: PlanAktywnosci, k: Konfiguracja): boolean {
   if (!Number.isInteger(plan.liczbaKrokow) || plan.liczbaKrokow <= 0) return false;
   if (rodzaj === 'ocena_poziomu' && plan.liczbaKrokow > k.OCENA_POZIOMU_MAKS_PYTAN) return false;
+  const z = plan.zadania; // D-248: krok i = zadanie i
+  if (z && (z.length !== plan.liczbaKrokow || z.some((x) => x.id.length === 0 || !Number.isInteger(x.ziarno)))) return false;
   if (rodzaj === 'scenariusz') {
     const d = plan.decyzje;
     if (!d || d.length !== plan.liczbaKrokow) return false;
