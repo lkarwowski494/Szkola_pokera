@@ -4,7 +4,7 @@
 // tu ekran: elementy po roli i nazwie oraz wywołania akcji. Przerwana ocena po ponownym uruchomieniu (BR-ONB-001-c) — E2E 01.
 import '@/i18n';
 import { fireEvent, render, screen } from '@testing-library/react-native';
-import { KONFIGURACJA } from '../../../packages/domena/src/konfiguracja';
+import { KONFIGURACJA } from '@szkola/domena';
 const { OCENA_POZIOMU_MAKS_PYTAN } = KONFIGURACJA;
 import EkranPowitania from '@/features/powitanie/EkranPowitania';
 import { EkranPytaniaOceny, EkranWynikuOceny } from '@/features/ocena-poziomu/EkranyOceny';

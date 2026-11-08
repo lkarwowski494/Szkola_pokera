@@ -19,7 +19,7 @@
     "ci": "pnpm typecheck && pnpm test && pnpm test:skrypty && pnpm test:kontrole && pnpm k08 && pnpm i18n && pnpm content:check && pnpm tresci:rejestr",
     "test:akceptacja": "a=0; pnpm test:akceptacja:domena || a=1; pnpm test:akceptacja:ekrany || a=1; exit $a",
     "test:akceptacja:domena": "tsc -p tests/akceptacja && vitest run --root tests/akceptacja",
-    "test:akceptacja:ekrany": "tsc -p tests/akceptacja/ekrany && pnpm --filter @szkola/mobile exec jest -c jest.akceptacja.config.js"
+    "test:akceptacja:ekrany": "ls tests/akceptacja/ekrany/*.test.tsx >/dev/null 2>&1 || { echo 'Brak testów oczekujących ekranów (wszystkie w apps/mobile, D-175).'; exit 0; }; tsc -p tests/akceptacja/ekrany && pnpm --filter @szkola/mobile exec jest -c jest.akceptacja.config.js"
   },
   "devDependencies": {
     "@stryker-mutator/core": "9.6.1"

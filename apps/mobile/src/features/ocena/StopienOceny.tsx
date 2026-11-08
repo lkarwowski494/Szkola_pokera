@@ -1,12 +1,25 @@
-import { niezaimplementowane } from '../zaslepka';
+import { useTranslation } from 'react-i18next';
+import { Text, View } from 'react-native';
+import { odstep, styl, useTokens } from '@/theme/tokens';
 
 /**
  * Stopień oceny zagrania po decyzji (PR-03, BR-CWI-001, NFR-DOST-001): słowo i znak, nie sam kolor
  * (design-spec.md, „Znaczenie kolorów”: stopnie bez koloru). Lista stopni: OCENY_ODPOWIEDZI w packages/domena
- * (cztery z BRD; trzy czy cztery rozstrzyga rola 06 z 04 — moduly.md, „Znaleziska”).
+ * (cztery z BRD; trzy czy cztery rozstrzyga rola 06 z 04 — moduly.md, „Znaleziska”). Słowa: design-spec („Zgodna”,
+ * „Dopuszczalna”, „Błąd”) i BRD („niedokładność”); znaki ✓ ≈ ~ ✗ — do akceptacji 04 (D-213).
  */
 export type PropsStopniaOceny = { ocena: 'zgodne' | 'dopuszczalne' | 'niedokladnosc' | 'blad' };
 
-export default function StopienOceny(_: PropsStopniaOceny): React.JSX.Element {
-  return niezaimplementowane('StopienOceny (NFR-DOST-001)');
+const ZNAK: Record<PropsStopniaOceny['ocena'], string> = { zgodne: '✓', dopuszczalne: '≈', niedokladnosc: '~', blad: '✗' };
+
+export default function StopienOceny({ ocena }: PropsStopniaOceny): React.JSX.Element {
+  const tk = useTokens();
+  const { t } = useTranslation();
+  const slowo = t(`grade.${ocena}`);
+  return (
+    <View accessible accessibilityLabel={t('grade.label', { slowo })} style={{ flexDirection: 'row', alignItems: 'baseline', gap: odstep.s }}>
+      <Text style={[styl.tytul, { color: tk.ink }]}>{ZNAK[ocena]}</Text>
+      <Text style={[styl.tytul, { color: tk.ink }]}>{slowo}</Text>
+    </View>
+  );
 }

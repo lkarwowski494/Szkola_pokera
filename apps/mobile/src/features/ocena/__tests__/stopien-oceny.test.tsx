@@ -5,7 +5,7 @@
 // Skala szarości i kontrast — lista „tylko telefon” i kontrast-e3.md (Jest nie renderuje kolorów).
 import '@/i18n';
 import { render, screen } from '@testing-library/react-native';
-import { OCENY_ODPOWIEDZI } from '../../../packages/domena/src/typy';
+import { OCENY_ODPOWIEDZI } from '@szkola/domena';
 import StopienOceny from '@/features/ocena/StopienOceny';
 import { tekstCzytany, tekstWidoczny } from '@/test-utils/ekrany/wspolne';
 

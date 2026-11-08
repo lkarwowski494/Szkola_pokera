@@ -21,6 +21,84 @@
     "reviewsDue_other": "{{count}} na dziś",
     "allLessons": "Wszystkie lekcje"
   },
+  "welcome": {
+    "title": "Szkoła Pokera",
+    "what": "Uczysz się podejmować decyzje w pokerze: od zasad gry po strategię, z oceną każdej decyzji i wyjaśnieniem, dlaczego.",
+    "noMoney": "To nauka bez gry na pieniądze.",
+    "next": "Na początek kilka pytań o to, co już umiesz. Możesz je pominąć.",
+    "continue": "Dalej"
+  },
+  "placement": {
+    "of": "Pytanie {{n}} z {{total}}",
+    "skip": "Pomiń",
+    "resultTitle": "Twój punkt startu",
+    "startAt": "Zaczynasz od modułu {{modul}}: „{{lekcja}}”.",
+    "passed": "Moduły zaliczone oceną: {{moduly}}. Możesz do nich wrócić w każdej chwili.",
+    "begin": "Zacznij naukę"
+  },
+  "purchase": {
+    "title": "Pełny dostęp",
+    "unlocks": "Bez dziennego limitu: sesje ćwiczeń, powtórki, scenariusze i egzaminy każdego dnia. Lekcje zostają darmowe.",
+    "loading": "Pobieranie cen…",
+    "pricesUnavailable": "Nie udało się pobrać cen. Sprawdź połączenie i spróbuj ponownie.",
+    "retry": "Spróbuj ponownie",
+    "plan": {
+      "quarter": "Kwartał",
+      "year": "Rok",
+      "lifetime": "Dostęp dożywotni"
+    },
+    "renewsQuarter": "Płatność co 3 miesiące. Odnawia się automatycznie do czasu anulowania.",
+    "renewsYear": "Płatność raz na rok. Odnawia się automatycznie do czasu anulowania.",
+    "oneTime": "Zakup jednorazowy, bez kolejnych płatności.",
+    "restore": "Przywróć zakupy",
+    "close": "Zamknij",
+    "terms": "Warunki korzystania (Terms of Use)",
+    "privacy": "Polityka prywatności",
+    "noPurchases": "Nie znaleźliśmy zakupów na tym koncie Apple.",
+    "pending": "Zakup czeka na zatwierdzenie. Dostęp włączy się sam, gdy zostanie zatwierdzony.",
+    "failed": "Nie udało się dokończyć zakupu. Spróbuj ponownie.",
+    "restoreFailed": "Nie udało się przywrócić zakupów. Sprawdź połączenie i spróbuj ponownie."
+  },
+  "settings": {
+    "title": "Ustawienia",
+    "purchases": "Zakupy",
+    "manage": "Zarządzaj subskrypcją",
+    "other": "Inne",
+    "help": "Pomoc",
+    "reset": "Usuń postęp",
+    "resetTitle": "Usunąć cały postęp?",
+    "resetBody": "Lekcje, odpowiedzi i powtórki zostaną usunięte z tego telefonu. Zakupy zostają. Jeśli chcesz zachować postęp, najpierw go wyeksportuj.",
+    "resetConfirm": "Usuń",
+    "cancel": "Anuluj"
+  },
+  "data": {
+    "title": "Dane",
+    "intro": "Postęp jest tylko w tym telefonie. Plik eksportu przeniesie go na inny telefon albo przechowa jako kopię.",
+    "export": "Eksportuj postęp",
+    "neverExported": "Nie eksportowano jeszcze postępu.",
+    "lastExport": "Ostatni eksport: {{data}}.",
+    "import": "Importuj postęp",
+    "importHint": "Wybierz plik eksportu z tej aplikacji.",
+    "replaceTitle": "Zastąpić obecny postęp?",
+    "replaceBody": "Postęp z pliku zastąpi postęp zapisany w tym telefonie. Tej zmiany nie da się cofnąć.",
+    "replaceConfirm": "Zastąp",
+    "exported": "Plik eksportu jest gotowy.",
+    "exportFailed": "Nie udało się wyeksportować postępu. Spróbuj ponownie.",
+    "badFile": "Ten plik jest błędny albo nie pochodzi z tej aplikacji. Postęp nie zmienił się.",
+    "newerVersion": "Plik pochodzi z nowszej wersji aplikacji. Zaktualizuj aplikację i spróbuj ponownie.",
+    "imported": "Postęp z pliku jest wczytany.",
+    "importFailed": "Nie udało się zapisać postępu z pliku. Obecny postęp nie zmienił się."
+  },
+  "feedback": {
+    "section": "Opinie",
+    "rate": "Oceń w sklepie",
+    "write": "Napisz do nas",
+    "noMail": "Nie udało się otworzyć poczty. Napisz na adres: {{adres}}",
+    "report": "Zgłoś błąd w tym zadaniu",
+    "reportSubject": "Błąd w zadaniu {{id}}",
+    "reportBody": "Zadanie: {{id}}\nWersja aplikacji: {{wersja}}\nJęzyk: {{jezyk}}\n\nCo jest nie tak?\n",
+    "noMailReport": "Nie udało się otworzyć poczty. Napisz na adres {{adres}} i podaj identyfikator zadania: {{id}}"
+  },
   "start": {
     "title": {
       "practice": "Sesja ćwiczeń",
@@ -41,6 +119,13 @@
     "begin": "Zacznij",
     "fullAccess": "Pełny dostęp",
     "backToLesson": "Wróć do lekcji"
+  },
+  "grade": {
+    "zgodne": "Zgodna",
+    "dopuszczalne": "Dopuszczalna",
+    "niedokladnosc": "Niedokładność",
+    "blad": "Błąd",
+    "label": "Ocena: {{slowo}}"
   },
   "learn": {
     "intro": "No-Limit Hold’em od zera. Wybierz dowolną lekcję albo idź po kolei.",
