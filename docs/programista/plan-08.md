@@ -291,4 +291,4 @@ Stare ekrany (lekcja, sesja, powtórki, postęp, start, ustawienia) zapisują pr
 Agent: B ok. 7–9 h (kroki 1–9; SDK 58 i adapter `expo-iap` najbardziej niepewne), A dodatkowo ok. 6–8 h. Czekanie: E2E ok. 37 min po jednym pushu kodu (0 USD, repo publiczne), przegląd D-043 ok. 10 min. Ryzyko: build iOS na SDK 58 sprawdza dopiero E2E — przy porażce kompilacji poprawka i drugi push (zasada 5: po dwóch nieudanych — STOP). Właściciel: decyzja P-1; potem raport E2 i lista na telefon (U-2 ochrona tła, U-5 zakupy w piaskownicy po części 5).
 
 ## Punkt czyszczenia (STOP E0 części 4)
-Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „Część 4”. Następny krok: decyzja P-1 (A/B) i weto D-235–D-238, potem E1 kroki 1–9.
+Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „Część 4”. Decyzja: D-239 (P-1 = B, D-235–D-238 przyjęte). Następny krok: E1 kroki 1–9 (bez przenoszenia ekranów i usuwania drizzle — część 5).
