@@ -572,5 +572,11 @@
     "yourChoice": "Twój wybór: {{action}}.",
     "yourChoiceShort": "twój wybór",
     "pct": "{{pct}}%"
+  },
+  "scale": {
+    "below": "poniżej {{x}}%",
+    "between": "{{a}}–{{b}}%",
+    "from": "od {{x}}%",
+    "label": "Skala stopni: twoja akcja {{pct}} procent, przedział {{stopien}}."
   }
 }
