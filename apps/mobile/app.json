@@ -41,7 +41,8 @@
         "expo-splash-screen",
         { "backgroundColor": "#0A1430", "image": "./assets/images/splash-icon.png", "imageWidth": 180 }
       ],
-      ["expo-notifications", { "enableRemoteNotifications": false }]
+      ["expo-notifications", { "enableRemoteNotifications": false }],
+      "expo-iap"
     ],
     "locales": { "pl": "./locales/systemowe/pl.json" },
     "experiments": { "typedRoutes": true, "reactCompiler": true }
