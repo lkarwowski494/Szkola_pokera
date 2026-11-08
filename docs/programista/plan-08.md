@@ -639,6 +639,16 @@ Zestawienie 08-F15–F29 (rola, miejsce, stan, waga): [`zgloszenia-08.md`](zglos
 ### Ryzyka do sprawdzenia na urządzeniu
 Ruch paska (240 ms) i znacznika (160 ms po 200 ms) oraz przenikanie przy „Ogranicz ruch” (L-5); start aplikacji z krojem (bez pustego ekranu dłużej niż 3 s, także bez sieci — krój jest w pakiecie); przełączenie kroju tytułów przy AX1 (Ustawienia → Dostępność → Większy tekst); VoiceOver: etykiety stołu, paska i skali, kolejność fokusu na suknie; cele dotyku segmentów ≥ 64 pt przy 4 opcjach.
 
+## 08-F29: stół oceny poziomu przez `Stol` (2026-11-08, sesja D, D-280)
+| Punkt | Dowód |
+|---|---|
+| test czerwony przed kodem | `PierwszeUruchomienie-08`: „08-F29: pytanie ze stołem rysuje `Stol`…” — „Unable to find an element with role: image”; „`TableFelt` bez użyć w kodzie apps/mobile/src” — lista plików niepusta |
+| kod | 8362e14: `PierwszeUruchomienie` → `<Stol table={item.table} />`; `components/TableFelt.tsx` usunięty (bez własnych testów) |
+| pełny zestaw | `pnpm run ci` kod 0 na 8362e14 (mobile 61 zestawów / 427 testów) |
+| E2E | flow 05 stuka `option-0` (`EkranyOceny`, bez zmian); pierwsze pytanie `m0.exam.q1` ma stół (karty bez pozycji) — wynik przebiegu po pushu: [w toku] |
+| ścieżki wrażliwe | niedotknięte — przegląd D-043 nie dotyczy |
+| zrzut | `ocena-poziomu:pytanie` (zgloszenia-08, lista zrzutów) pokaże teraz `Stol` |
+
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
 
