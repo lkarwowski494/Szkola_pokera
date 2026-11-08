@@ -653,3 +653,6 @@ Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę r
 | 21:53 | koordynator | E2E 42523567101 (bbada0b, kod kroków 7–8) **zielone** (status sprawdzony; 7/7 wg sesji B) | — |
 | 21:54 | B | PRZEKAZANIE: 13606f6 (testy z mutacji, 37/42 zabitych; M29–M32 → 08-F21, M40 → zrzut), 22b0509, 5528e82 (E2 części 6, D-279); `pnpm run ci` 0, mobile 425 (deklaracja); nowy E2E 42527158545 (5528e82) w toku od 21:50 | B zarchiwizowana 21:54 |
 | 21:54 | C `session_01T66VBxCAqcnX91pPjSgHEM` (tylko docs) | start: `docs/programista/zgloszenia-08.md` (08-F15–F29, lista zrzutów) | odbiór PRZEKAZANIA; kolejka kodu pusta do decyzji rannej (pkt 8 koordynator.md) |
+| 22:35 | koordynator | E2E 42527158545 (5528e82 = szczyt kodu, testy z mutacji) **zielone** | — |
+| 22:35 | C | PRZEKAZANIE: 274ce6d — `docs/programista/zgloszenia-08.md` (15 zgłoszeń, 14 otwartych; WYSOKIE tylko 08-F20; zrzuty scalone: 32 stany / 64 pliki); uwaga spoza zakresu: legenda `PaintGrid.tsx:153–156` poza tłumaczeniami | C zarchiwizowana 22:36 |
+| 22:36 | D `session_01T66VBvnpc5MYpiv8AJqTGT` | start: 08-F29 (`TableFelt` → `Stol` w ocenie poziomu) teraz zamiast w części 7 — decyzja koordynatora wg D-272 (mała poprawka spójności z D-274/D-275), zapis D-280 przez sesję; koniec najpóźniej 03:30 | odbiór PRZEKAZANIA, E2E po pushu |
