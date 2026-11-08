@@ -413,3 +413,47 @@ Agent: 5a ok. 10–13 h (sesja i wznowienie najbardziej niepewne), 5b ok. 12–1
 ## Punkt czyszczenia (STOP E0 części 5)
 Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „Część 5”. Decyzje: P-2, P-3, D-246–D-255 (do weta). Następny krok: E1 5a kroki 0–8.
 Decyzja: D-256 (P-2 = B, P-3 = dwie bramki, D-246–D-255 przyjęte; E1 5a w tej sesji).
+
+## E1 część 5a: wynik (2026-11-08; plan przyjęty D-256)
+| Krok | Commit | Zachowanie | Testy (czerwone przed kodem → zielone) |
+|---|---|---|---|
+| 0 | cfed44b | `pomoc.test.tsx` do `apps/mobile` (D-254), narzędzia testów ekranów do `src/test-utils/ekrany/` | `test:akceptacja:ekrany` kompiluje się (było: TS2345) |
+| 1 | 908559c | repozytorium `ustawienia` | `ustawienia-08` 4/5 → 5/5 |
+| 2 | 1af774f | repozytorium `postepLekcji` | `postepLekcji-08` 3/4 → 4/4 |
+| 3 | 67eaba7 | `aktywnosci`: start (z porzuceniem), w toku, odpowiedzi, zakończenie w jednej transakcji, zużycie dnia; powtórka w transakcji odpowiedzi; `PlanAktywnosci.zadania` (D-248) | `aktywnosci-08` 12/12 → 12/12, `plan-zadania-08` 2/3 → 3/3 |
+| 4 | e2da481 | odczyty: karty, testy, statystyki rodzin, wyniki lekcji, seria dni | `odczyty-08` 8/8 → 8/8 |
+| 5 | 509c66e | `uprawnienia` (pamięć), `dziennik` | `uprawnienia-dziennik-08` 7/8 → 8/8 |
+| 6 | c1e0f6c | ekrany na `postep.db`: sesja jako aktywność ze wznowieniem (te same zadania z planu), Nauka, Powtórki, Postęp, wskaźnik (D-250), lekcja, ustawienia interfejsu (D-251), „Usuń postęp” z `user.db*`; zegar (D-257); D-249 | `aktywnoscSesji-08`, `odtworzenie-08`, `ocena-schematu-08`, `zegar-08`, `settings-08`, `podsumowania-08`, `usunPostep-08`, `historia`; strażnik `odtworzenie-tresc-08` |
+| 7 | e750655 | usunięte drizzle, `drizzle/`, `src/data/user`, `userTestDb`, `babel-plugin-inline-import` | ADR 0004 statyczny czerwony (4 pliki) → zielony; `k14-stare-bazy` do `packages/postep/test` |
+| P1 | 5d8589e | wznowienie z zadaniem wymagającym zakresów (przegląd D-043) | 2 testy czerwone → zielone |
+| D-172 | b64a345 | 30 ręcznych mutantów: 25 zabitych, 4 dopisane przypadki → 30/30 | — |
+
+Stan przejściowy (nazwany w planie): start aktywności bez limitu (`bezLimitu`) i bez ekranu zakupu do 5b; `z_limitu` = 0.
+
+### Przegląd D-043 części 5a (świeży kontekst, 2026-11-08, zakres 50952c4..e750655)
+Jedno P1, potwierdzone czytaniem kodu: `wznow` wołał `odtworzZestaw` bez kontekstu zakresów (malowanie, `rangeDecision` → wyjątek „Brak zakresu”), `zaladuj` bez `catch` → pusty ekran i aktywność na zawsze w toku. Poprawione w 5d8589e (kontekst w `WejscieSesji`, wyjątek przy odtwarzaniu → nowa aktywność, `catch` → komunikat z ponowieniem), test odtwarzający przed poprawką czerwony. Poza tym „brak uwag”. Drugiego przeglądu nie ma (D-043).
+
+## E2 część 5a: definicja ukończenia (2026-11-08, STOP)
+| Punkt | Dowód |
+|---|---|
+| nowe zachowania z testem czerwonym przed kodem | 15 nowych plików testów; czerwień na asercjach po zaślepkach zgodnych z typem (fragmenty w commitach); `dzien-lokalny-08` i `historia` — czerwień sprawdzona zaślepką po kodzie (nazwane w commitach) |
+| testy nieosłabione | `pomoc.test.tsx`: `mockResolvedValue(undefined)` (D-254); `historia.test.ts` zastąpiony (ta sama reguła dnia na nowym zapisie, D-250); `k14-stare-bazy` przeniesiony bez zmian poza importami; w moich testach: zbiór zamiast kolejności usuwanych plików (kolejność ustala pakiet) i stany po id |
+| mutacje (D-172) | 30/30 zabitych po dopisaniu 4 przypadków |
+| pełny zestaw | `pnpm run ci` kod 0 (b64a345): srs 21, jezyki 136, poker-core 155, domena 314, postep 105, mobile 199, content-build 124, preflop-solver 43, kontrole 8; `i18n` 0 błędów (314 kluczy) |
+| akceptacja | domena: czerwone tylko 3 testy treści 06 (KURS-003-b, KURS-005-a, CWI-005-b); ekrany: 69 czerwonych (8 komponentów — 5b) |
+| typecheck, lint | `pnpm typecheck` w `pnpm run ci` kod 0; `expo lint` nieuruchamiany (kod z npm, jak w częściach 1–4) |
+| `git diff --cached` | przejrzany przed każdym commitem; bez sekretów |
+| dane: kopia bazy poprzedniej wersji | schemat `postep.db` bez zmian (v1); `user.db*` nieotwierane, usuwane tylko przez „Usuń postęp” (K-14 zielony); dane z buildów 1005–1008 nieprzenoszone (ADR 0004, D-124) |
+| zrzuty | brak (Linux bez symulatora); zmiany widoczne: komunikaty błędu odczytu i zapisu, brak ekranu błędu migracji drizzle — do audytu 04 po 5b |
+| E2E | push b64a345 → E2E flowy 01–04 (wynik niżej) |
+
+Nowe teksty (do akceptacji 04/06, „Głos”): `postep.odczytNieudany`, `postep.ponow`, `session.saveFailed`, `session.saveNoSpace`, `progress.resetFailed`.
+
+### Zgłoszenia części 5a
+- **08-F10 → 05:** `PlanAktywnosci.zadania` (D-248) — dopisać do `moduly.md` „Maszyny stanów”.
+- **08-F11 → 05:** historia wskaźnika w `ustawienie` (`historia_wskaznika`, D-250) — dopisać do listy kluczy ustawień.
+- **08-F12 → 07:** wzorzec bazy `tests/narzedzia/wzorzec-bazy.ts` ma plany aktywności w kształcie innym niż `PlanAktywnosci` (`{"scenariusz":"s01"}`, `{"zadania":["z1"]}`); odczyt takiego wiersza daje `odczyt_nieudany` (test `aktywnosci-08`) — wyrównać wzorzec z kontraktem.
+- **08-F13 → 07:** `tests/akceptacja/ekrany/pomoc.test.tsx` nie kompilował się po SDK 58 (RN 0.88 `openURL`) — poprawione D-254; `test:akceptacja` poza `pnpm run ci` nie wyłapał tego w części 4.
+
+## Punkt czyszczenia (STOP E2 części 5a)
+Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „Część 5”. Decyzje: D-257 (do weta). Następny krok: E1 5b (tokeny i „Dziś”, 8 ekranów 07, limit i zakup z D-246/D-247, ustawienia, dziennik w bazie, flowy 05, 06, 09) — po zielonym E2E 5a.
