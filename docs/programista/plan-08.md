@@ -520,6 +520,33 @@ Strażnik: `e2e-flowy` „każde id we flowach bramki ma testID w kodzie aplikac
 
 **Zgłoszenia nowe:** 08-F24 → 04: ten sam tekst „Powtórki” dla wiersza na „Dziś” (`today.reviews`) i zakładki (`tabs.review`) — dwa cele pod jedną nazwą (także dla VoiceOver); 08-F25 → 04: ekran sesji po „Dalej” nie wraca na górę — przy dłuższym zadaniu (stół) treść następnego zadania zaczyna się nad krawędzią; propozycje: przewinięcie na górę przy zmianie zadania (A) albo bez zmian (B); decyzja 04 (zachowanie interfejsu).
 
+## E2 część 5b: definicja ukończenia (2026-11-08, przyjęta wg D-272 — D-276)
+| Punkt | Dowód |
+|---|---|
+| nowe zachowania z testem czerwonym przed kodem | kroki 0–7 i D-271 (tabele wyżej): czerwień na asercjach po zaślepkach zgodnych z typem; czerwień zaślepką po kodzie nazwana w commitach (`PierwszeUruchomienie-08`, `trasaUstawien-08`, „bez pętli” w `dziennik-08`) |
+| testy nieosłabione | testy 07 przeniesione do `apps/mobile` bez zmian asercji (D-175); `e2e-ponowienia` oczekiwana liczba flowów 4 → 7 (powód w f8d1c32: przeniesione flowy); flowy 01, 02, 06, 09: zmiana struktury (przewijanie, zakładka po id), asercje bez zmian (D-271) |
+| mutacje (D-172) | kroki 5–6: 21/22 zabitych, 1 równoważny (98d11a2); kroki 1–4 w poprzedniej sesji (commity kroków) |
+| pełny zestaw | `pnpm run ci` kod 0 na 2fab680 (srs 21, jezyki 136, poker-core 155, domena 314, postep 105, mobile 385, content-build 124, preflop-solver 43, skrypty 79, kontrole 8) i na 66d947f (mobile 402, skrypty 82); `i18n` 0 błędów |
+| akceptacja | `pnpm test:akceptacja` (2026-11-08, 66d947f): domena 11/14 — czerwone tylko 3 testy treści 06 (KURS-003-b, KURS-005-a, CWI-005-b, jak w 5a); ekrany: brak oczekujących (wszystkie w `apps/mobile`, D-175) |
+| typecheck, lint | `pnpm typecheck` w `pnpm run ci` kod 0; `expo lint` nieuruchamiany (kod z npm, jak w częściach 1–5a) |
+| `git diff --cached` | przejrzany przed każdym commitem; bez sekretów |
+| dane: kopia bazy poprzedniej wersji | schemat `postep.db` bez zmian w 5b (v1; brak commitów w migracjach i `schemat.sql` w b64a345..2fab680); import robi kopię `postep-przed-importem.db` przez `VACUUM INTO` (D-270, test `przeniesienie-08`) |
+| ścieżki wrażliwe (D-043) | przegląd części 5b (b64a345..98d11a2): „brak uwag”; zmiana `e2e-ios.yml` z D-271 tylko flowy i `testID` (bez workflow) |
+| E2E | **42515532537 (2fab680): 7/7 flowów w pierwszym przebiegu** („7/7 Flows Passed in 8m 45s”, ponowienie pominięte), build 23 min 20 s, flowy 14 min 2 s; poprzedni 42508961244 czerwony 4/7 (flow, nie maszyna; naprawa D-271) |
+| zrzuty | Linux bez symulatora i bez `react-native-web` — lista dla właściciela niżej; artefakt `e2e-wyniki` przebiegu 42515532537 (7 dni) ma zrzuty Maestro z flowów |
+
+### Zrzuty do zrobienia (właściciel, symulator albo telefon; ekran:stan:motyw, jasny i ciemny = 2 pliki)
+`dzis:typowy`, `dzis:limit-zuzyty`, `dzis:pelny-dostep`, `powitanie:start`, `ocena-poziomu:pytanie`, `ocena-poziomu:wynik`, `start:przed-sesja`, `zakup:ceny`, `zakup:ceny-niedostepne`, `zakup:przywracanie-bez-zakupu`, `ustawienia:typowy`, `ustawienia:subskrypcja` („Zarządzaj subskrypcją”), `dane:eksport`, `dane:import-potwierdzenie`, `dane:import-blad`, `jezyk:lista`, `sesja:po-ocenie`, `postep:typowy`, `usun-postep:potwierdzenie` — w obu motywach (38 plików, nazwy `5b-<ekran>-<stan>-<light|dark>.png`); do audytu zgodności 04.
+
+### Zgłoszenia części 5b (zbiorczo)
+08-F15 (04, talia czterokolorowa), 08-F16 (04, promienie `BlokLekcji`, mapa kursu), 08-F17 (06, skip „sesja ćwiczeń”), 08-F18 (05/07, `EkranUstawien.sekcje`), 08-F19 (01/03/06, pytania o cel i samoocenę w ocenie poziomu), **08-F20 (10/właściciel, adres polityki prywatności — bloker App Store)**, 08-F21 (07, brak testu ekranu sesji), 08-F22 (04, ikona ustawień ⚙︎), **08-F23 (10/właściciel, App Store ID i adres poczty)**, 08-F24 (04, „Powtórki” dwa cele), 08-F25 (04, powrót ekranu sesji na górę po „Dalej”).
+
+### Teksty do akceptacji 04/06 (część 5b)
+`session.end`, `today.*`, `start.*`, `grade.*`, `welcome.*`, `placement.*`, `purchase.*`, `settings.*` (w tym `settings.display`, `settings.reminder*`, `settings.general`, `settings.language`, `settings.restored`), `data.*`, `feedback.*`, `reminder.title`, `reminder.body`, `language.*`, `progress.more`.
+
+### Ryzyka do sprawdzenia na urządzeniu
+U-2 ochrona tła, U-5 zakupy w piaskownicy (karencja, przywracanie), eksport i import pliku (arkusz udostępniania, wybór pliku), przypomnienie (zgoda na powiadomienia, pora 08:00), prośba o ocenę po podsumowaniu.
+
 ## Punkt czyszczenia (praca nocna D-272, 2026-11-08 ok. 19:50 UTC)
 Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik od „E1 część 5b: kroki 5–8”. Szczyt: 2fab680 (naprawa flowów, D-271) + ten zapis. E2E 42515532537 (2fab680) w toku; przypomnienie `trig_017KdxmtiwCqU5ftPcgt8Ykm` o 20:20 UTC. Kolejka nocy: (1) wynik E2E → naprawa flowów (najwyżej 2 podejścia) → (2) E2 5b → (3) szybsze E2E jak Trening (`aplikacja_z_przebiegu`) z przeglądem D-043 → (4) część 6 (E0 → E1, P-2 = B: `Stol`, `PasekStrategii`, `SkalaStopni`) → stan do 04:00 UTC.
 
