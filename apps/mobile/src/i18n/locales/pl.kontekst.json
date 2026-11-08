@@ -428,5 +428,9 @@
   "table.raised": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). Liczba mnoga: count = liczba przebijających przed tobą; list = pozycje (08-F26).",
   "table.after": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). Gracze, którzy mówią po tobie; list = pozycje. Także stan miejsc graczy, którzy mówią po tobie (zamiast „czeka” — w słowniku terminów „czekanie” = check, D-275).",
   "table.yourCards": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). Zadanie bez pozycji: twoje karty tekstem pod stołem; cards = np. „J♣ 9♦”.",
-  "table.board": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). Zadanie bez pozycji: karty wspólne tekstem; cards = np. „10♠ 7♥ 2♣”."
+  "table.board": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). Zadanie bez pozycji: karty wspólne tekstem; cards = np. „10♠ 7♥ 2♣”.",
+  "table.stateHero": "Użyty w: components/Stol.tsx — stan miejsca przy stole, mały napis w pigułce 72 pt (rozmiar stały, rysunek; najwyżej ok. 10 znaków). Twoje miejsce.",
+  "table.stateFold": "Użyty w: components/Stol.tsx — stan miejsca przy stole, mały napis w pigułce 72 pt (rozmiar stały, rysunek; najwyżej ok. 10 znaków). Gracz spasował.",
+  "table.stateAfter": "Użyty w: components/Stol.tsx — stan miejsca przy stole, mały napis w pigułce 72 pt (rozmiar stały, rysunek; najwyżej ok. 10 znaków). Gracz mówi po tobie (nie „czeka” — „czekanie” = check, D-275).",
+  "table.stateRaise": "Użyty w: components/Stol.tsx — stan miejsca przy stole, mały napis w pigułce 72 pt (rozmiar stały, rysunek; najwyżej ok. 10 znaków). Gracz przebił przed tobą (08-F26)."
 }
