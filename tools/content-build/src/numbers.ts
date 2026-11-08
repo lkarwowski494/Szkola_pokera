@@ -1,5 +1,6 @@
 import { alpha, icmEquities, FLOP_WETNESS, flopWetnessShares, geometricFraction, hitProbability, mdf, missProbability, requiredEquity, ruleOf2And4 } from '@szkola/poker-core';
 import type { NumberEntry } from '@szkola/content-schema';
+import { formatujLiczbe, formatujProcent, type Jezyk } from '@szkola/jezyki';
 
 
 export interface ResolvedNumber {
@@ -102,19 +103,15 @@ function compute(key: string, e: NumberEntry, spots: SpotLookup | undefined, ref
 }
 
 /**
- * Format polski: przecinek dziesiętny, bez spacji przed „bb”, spacja przed „s”. Liczby od 10 000 wzwyż mają
- * twardą spację co trzy cyfry (polska norma: separator tysięcy przy co najmniej pięciu cyfrach).
+ * Zapis liczby w języku bazy treści (D-220, D-230, ADR 0014 pkt 7): znak dziesiętny, grupowanie i znak procentu z
+ * `@szkola/jezyki` (Intl), `decimals` = stała liczba cyfr po przecinku. Jednostki domenowe (`bb`, `bb/100`, `x`, ` s`)
+ * bez zmian poza liczbą. Po polsku wynik jest taki sam jak dawny zapis na sztywno (strażnik: test `liczby-jezyk-08`).
  */
-export function formatNumber(value: number, unit: NumberEntry['unit'], decimals: number): string {
-  const fmt = (v: number) => {
-    const [int, frac] = v.toFixed(decimals).split('.') as [string, string | undefined];
-    const digits = int.replace('-', '');
-    const grouped = digits.length >= 5 ? digits.replace(/\B(?=(\d{3})+$)/g, '\u00a0') : digits;
-    return (int.startsWith('-') ? '-' : '') + grouped + (frac !== undefined ? `,${frac}` : '');
-  };
+export function formatNumber(value: number, unit: NumberEntry['unit'], decimals: number, jezyk: Jezyk = 'pl'): string {
+  const fmt = (v: number) => formatujLiczbe(v, jezyk, { miejsca: decimals });
   switch (unit) {
     case 'percent':
-      return `${fmt(value * 100)}%`;
+      return formatujProcent(value, jezyk, { miejsca: decimals });
     case 'bb':
       return `${fmt(value)}bb`;
     case 'bb100':
@@ -129,7 +126,7 @@ export function formatNumber(value: number, unit: NumberEntry['unit'], decimals:
   }
 }
 
-export function resolveNumbers(file: Record<string, NumberEntry>, spots?: SpotLookup): Map<string, ResolvedNumber> {
+export function resolveNumbers(file: Record<string, NumberEntry>, spots?: SpotLookup, jezyk: Jezyk = 'pl'): Map<string, ResolvedNumber> {
   const out = new Map<string, ResolvedNumber>();
   const values = new Map<string, number>();
   const visiting = new Set<string>();
@@ -150,7 +147,7 @@ export function resolveNumbers(file: Record<string, NumberEntry>, spots?: SpotLo
     void entry;
     if (!Number.isFinite(value)) throw new Error(`Liczba "${key}" nie jest skończona`);
     if (entry.unit === 'percent' && (value < 0 || value > 1)) throw new Error(`Liczba "${key}": procent spoza 0–1 (${value})`);
-    out.set(key, { key, value, display: formatNumber(value, entry.unit, entry.decimals), entry });
+    out.set(key, { key, value, display: formatNumber(value, entry.unit, entry.decimals, jezyk), entry });
   }
   return out;
 }

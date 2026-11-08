@@ -231,6 +231,9 @@ importers:
       '@szkola/content-schema':
         specifier: workspace:*
         version: link:../../packages/content-schema
+      '@szkola/jezyki':
+        specifier: workspace:*
+        version: link:../../packages/jezyki
       '@szkola/poker-core':
         specifier: workspace:*
         version: link:../../packages/poker-core
@@ -7338,9 +7341,7 @@ snapshots:
       metro-runtime: 0.84.6
     transitivePeerDependencies:
       - '@babel/core'
-      - bufferutil
       - supports-color
-      - utf-8-validate
 
   '@react-native/normalize-colors@0.74.89':
     optional: true

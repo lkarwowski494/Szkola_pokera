@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@szkola/content-schema": "workspace:*",
+    "@szkola/jezyki": "workspace:*",
     "@szkola/poker-core": "workspace:*",
     "marked": "18.0.14",
     "yaml": "2.9.1"
