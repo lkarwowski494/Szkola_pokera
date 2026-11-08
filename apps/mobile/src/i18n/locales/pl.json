@@ -565,5 +565,12 @@
     "stateFold": "{{t:fold|pas}}",
     "stateAfter": "po tobie",
     "stateRaise": "{{t:raise|przebija}}"
+  },
+  "strategy": {
+    "label": "Strategia solvera dla {{hand}}: {{list}}.",
+    "item": "{{action}} {{pct}} procent",
+    "yourChoice": "Twój wybór: {{action}}.",
+    "yourChoiceShort": "twój wybór",
+    "pct": "{{pct}}%"
   }
 }

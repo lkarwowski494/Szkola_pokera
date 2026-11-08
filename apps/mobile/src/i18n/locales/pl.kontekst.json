@@ -432,5 +432,10 @@
   "table.stateHero": "Użyty w: components/Stol.tsx — stan miejsca przy stole, mały napis w pigułce 72 pt (rozmiar stały, rysunek; najwyżej ok. 10 znaków). Twoje miejsce.",
   "table.stateFold": "Użyty w: components/Stol.tsx — stan miejsca przy stole, mały napis w pigułce 72 pt (rozmiar stały, rysunek; najwyżej ok. 10 znaków). Gracz spasował.",
   "table.stateAfter": "Użyty w: components/Stol.tsx — stan miejsca przy stole, mały napis w pigułce 72 pt (rozmiar stały, rysunek; najwyżej ok. 10 znaków). Gracz mówi po tobie (nie „czeka” — „czekanie” = check, D-275).",
-  "table.stateRaise": "Użyty w: components/Stol.tsx — stan miejsca przy stole, mały napis w pigułce 72 pt (rozmiar stały, rysunek; najwyżej ok. 10 znaków). Gracz przebił przed tobą (08-F26)."
+  "table.stateRaise": "Użyty w: components/Stol.tsx — stan miejsca przy stole, mały napis w pigułce 72 pt (rozmiar stały, rysunek; najwyżej ok. 10 znaków). Gracz przebił przed tobą (08-F26).",
+  "strategy.label": "Użyty w: features/stol/pasek.ts, components/PasekStrategii.tsx (pasek strategii po ocenie, 08 cz. 6, D-274). VoiceOver; hand = klasa ręki (J9o, nie tłumaczyć), list = elementy strategy.item po przecinku.",
+  "strategy.item": "Użyty w: features/stol/pasek.ts, components/PasekStrategii.tsx (pasek strategii po ocenie, 08 cz. 6, D-274). VoiceOver; action = nazwa akcji z treści, pct = liczba procent („80”, „<1”).",
+  "strategy.yourChoice": "Użyty w: features/stol/pasek.ts, components/PasekStrategii.tsx (pasek strategii po ocenie, 08 cz. 6, D-274). VoiceOver; action = wybrana akcja.",
+  "strategy.yourChoiceShort": "Użyty w: features/stol/pasek.ts, components/PasekStrategii.tsx (pasek strategii po ocenie, 08 cz. 6, D-274). Podpis pod segmentem twojego wyboru, mały tekst (ok. 10 znaków).",
+  "strategy.pct": "Użyty w: features/stol/pasek.ts, components/PasekStrategii.tsx (pasek strategii po ocenie, 08 cz. 6, D-274). Podpis procentu pod segmentem; pct = liczba („80”, „<1”)."
 }
