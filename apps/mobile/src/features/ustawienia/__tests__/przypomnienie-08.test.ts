@@ -4,7 +4,7 @@
 // „wyłączone” i wynik do komunikatu; wyłączenie anuluje. Odtworzenie (start, import, „Usuń postęp”) czyta zapis z bazy.
 jest.mock('expo-constants', () => ({ __esModule: true, default: { expoConfig: { version: '1.0.0' } } }));
 import { KONFIGURACJA, type PortPowiadomien } from '@szkola/domena';
-import { czytajPrzypomnienie } from '@/features/ustawienia/ustawieniaAplikacji';
+import { czytajPrzypomnienie, zapiszPrzypomnienie } from '@/features/ustawienia/ustawieniaAplikacji';
 import { odtworzZBazy, przelaczPrzypomnienie } from '@/features/ustawienia/przypomnienie';
 import { portTestowy } from '@/test-utils/postepTestowy';
 
@@ -44,6 +44,12 @@ describe('przelaczPrzypomnienie', () => {
     const pow = atrapa({ zgoda: false, prosba: false });
     expect(await przelaczPrzypomnienie(port, pow, true, TEKST, 1)).toBe('brak_zgody');
     expect(pow.zaplanowane).toEqual([]);
+    expect(await czytajPrzypomnienie(port)).toMatchObject({ ok: true, wartosc: { wlaczone: false } });
+  });
+  it('odmowa po wcześniejszym włączeniu (np. zgoda cofnięta w Ustawieniach) → zapis wyłączone (D-172: mutant M16)', async () => {
+    const { port } = await portTestowy();
+    await zapiszPrzypomnienie(port, { wlaczone: true, godzina: 8, minuta: 0 }, 1);
+    expect(await przelaczPrzypomnienie(port, atrapa({ zgoda: false, canAskAgain: false }), true, TEKST, 2)).toBe('brak_zgody');
     expect(await czytajPrzypomnienie(port)).toMatchObject({ ok: true, wartosc: { wlaczone: false } });
   });
   it('błąd API przy planowaniu → blad, zapis wyłączone', async () => {

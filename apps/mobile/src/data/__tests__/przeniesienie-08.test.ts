@@ -80,6 +80,8 @@ describe('import (BR-DANE-002)', () => {
     // kopia powstała przed importem (istniała przy usuwaniu) i nie została w katalogu
     expect(b.zdarzenia).toContain('usun:jest');
     expect(existsSync(b.pliki.sciezkaKopii())).toBe(false);
+    // ten sam plik nie zapisuje się drugi raz bez nowego wyboru i walidacji (D-172: mutant M10)
+    expect(await dane.zapiszImport()).toBe('blad_zapisu');
   });
   it('anulowany wybór → anulowano; zły plik i nowsza wersja → powód, baza nietknięta', async () => {
     const { port, db } = await zPostepem();
