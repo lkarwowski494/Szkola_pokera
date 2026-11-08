@@ -25,8 +25,13 @@ export function liczbaZmiennej(env, k, d) {
   return n;
 }
 
+// D-273: przebieg z aplikacją z innego przebiegu (wejście aplikacja_z_przebiegu, dopisek w run-name e2e-ios.yml) testuje starszą
+// aplikację — nie liczy się dla tego commitu (Trening bramka-e2e.sh:3, odczyt 2026-11-08).
+export const DOPISEK_OBCEJ_APLIKACJI = 'aplikacja z innego przebiegu';
+
 /** Stan bramki z listy przebiegów e2e-ios.yml na jednym commicie: ok > trwa > czerwony > brak. */
-export function ocen(przebiegi) {
+export function ocen(wszystkie) {
+  const przebiegi = wszystkie.filter((r) => !(r.display_title ?? '').includes(DOPISEK_OBCEJ_APLIKACJI));
   const ok = przebiegi.find((r) => r.status === 'completed' && r.conclusion === 'success');
   if (ok) return { stan: 'ok', id: ok.id };
   const trwa = przebiegi.find((r) => r.status !== 'completed');
@@ -98,7 +103,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
   const kod = czekaj({
     pobierz: () =>
       JSON.parse(execFileSync('gh', ['api', `repos/${repo}/actions/workflows/e2e-ios.yml/runs?head_sha=${sha}&per_page=100`], { encoding: 'utf8' }))
-        .workflow_runs.map(({ id, status, conclusion }) => ({ id, status, conclusion })),
+        .workflow_runs.map(({ id, status, conclusion, display_title }) => ({ id, status, conclusion, display_title })),
     spij: (s) => execFileSync('sleep', [String(s)]),
     pisz: (t) => console.log(t),
     sha,

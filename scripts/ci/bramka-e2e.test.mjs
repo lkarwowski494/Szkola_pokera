@@ -91,3 +91,12 @@ test('liczbaZmiennej: brak → domyślna; nie liczba całkowita dodatnia → wyj
   assert.equal(liczbaZmiennej({ X: '75' }, 'X', 60), 75);
   for (const z of ['abc', '0', '-1', '1.5', ' ']) assert.throws(() => liczbaZmiennej({ X: z }, 'X', 60), /X/, z);
 });
+
+// D-273 (szybsze E2E, wzór Trening e2e-ios.yml:21–25 i bramka-e2e.sh:3, odczyt 2026-11-08): przebieg z aplikacją zbudowaną w innym
+// przebiegu (wejście aplikacja_z_przebiegu) testuje flowy na starszej aplikacji — nie dowodzi niczego o kodzie tego commitu.
+test('ocen: zielony przebieg z aplikacją z innego przebiegu (tytuł z dopiskiem) nie otwiera bramki', () => {
+  const obcy = { ...p(9, 'completed', 'success'), display_title: 'E2E iOS · aplikacja z innego przebiegu' };
+  assert.deepEqual(ocen([obcy]), { stan: 'brak' });
+  assert.deepEqual(ocen([obcy, { ...p(8, 'in_progress'), display_title: 'E2E iOS · aplikacja z innego przebiegu' }]), { stan: 'brak' });
+  assert.deepEqual(ocen([obcy, { ...p(10, 'completed', 'success'), display_title: 'E2E iOS (symulator)' }]), { stan: 'ok', id: 10 });
+});

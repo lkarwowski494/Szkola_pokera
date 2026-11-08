@@ -125,3 +125,45 @@ test('e2e-ios.yml: MAESTRO_DRIVER_STARTUP_TIMEOUT ≥ 480 000 ms dla obu przebie
   assert.ok(ms >= 480000, `MAESTRO_DRIVER_STARTUP_TIMEOUT = ${w.env?.MAESTRO_DRIVER_STARTUP_TIMEOUT}`);
   assert.ok(w.jobs.e2e['timeout-minutes'] * 60000 > ms, 'limit zadania krótszy niż czekanie na sterownik');
 });
+
+// D-273 (szybsze E2E jak w Treningu, e2e-ios.yml:21–25, 111–120, 154–163, odczyt 2026-11-08): przy zmianie samych flowów aplikacja
+// z poprzedniego przebiegu zamiast budowania od nowa (~24 min mniej); artefakt aplikacji żyje 1 dzień.
+test('e2e-ios.yml: wejście aplikacja_z_przebiegu pomija budowanie i pobiera aplikację z podanego przebiegu; każdy build zapisuje aplikację na 1 dzień', () => {
+  const w = json('e2e-ios.yml');
+  for (const wyz of ['workflow_dispatch', 'workflow_call']) assert.ok(w.on[wyz]?.inputs?.aplikacja_z_przebiegu, `${wyz}: brak wejścia`);
+  assert.match(w['run-name'] ?? '', /inputs\.aplikacja_z_przebiegu != ''[^}]*aplikacja z innego przebiegu/, 'tytuł przebiegu z dopiskiem (czyta go bramka TestFlight)');
+  assert.equal(w.permissions?.actions, 'read', 'pobranie artefaktu z innego przebiegu wymaga actions: read');
+  const kroki = w.jobs.e2e.steps;
+  const budowa = kroki.filter((k) => /prebuild|pod install|xcodebuild -workspace/.test(k.run ?? ''));
+  assert.equal(budowa.length, 3, 'prebuild, pod install, xcodebuild');
+  for (const k of budowa) assert.equal(k.if, "inputs.aplikacja_z_przebiegu == ''", k.name);
+  const up = kroki.find((k) => k.uses?.startsWith('actions/upload-artifact') && k.with?.name === 'szkola-sim-app');
+  assert.ok(up, 'brak zapisu aplikacji');
+  assert.equal(up.with['retention-days'], 1);
+  assert.equal(up.if, "inputs.aplikacja_z_przebiegu == ''");
+  const down = kroki.find((k) => k.uses?.startsWith('actions/download-artifact'));
+  assert.ok(down, 'brak pobrania aplikacji');
+  assert.equal(down.if, "inputs.aplikacja_z_przebiegu != ''");
+  assert.equal(down.with.name, 'szkola-sim-app');
+  assert.equal(down.with['run-id'], '${{ inputs.aplikacja_z_przebiegu }}');
+  assert.equal(down.with['github-token'], '${{ github.token }}');
+  const iPobr = kroki.indexOf(down);
+  const iSym = kroki.findIndex((k) => k.name === 'Symulator');
+  assert.ok(iPobr < iSym, 'aplikacja pobrana przed instalacją w symulatorze');
+  assert.ok(kroki.slice(iPobr + 1, iSym).some((k) => /unzip/.test(k.run ?? '') && /APP_PATH=/.test(k.run ?? '')), 'rozpakowanie i APP_PATH po pobraniu');
+});
+
+// Przegląd D-043 D-273 (P0): wywoływany workflow nie dostanie więcej uprawnień niż zadanie wywołujące — inaczej GitHub odrzuca
+// cały przebieg wywołującego (nocny.yml bez żadnego zadania i bez zgłoszenia). Wzór Trening nightly.yml:39–41 (odczyt 2026-11-08).
+test('wywołanie lokalnego workflowu: uprawnienia wywoływanego ⊆ uprawnienia zadania wywołującego', () => {
+  const poziom = { none: 0, read: 1, write: 2 };
+  for (const { n, d } of wf) {
+    const w = d.toJSON();
+    for (const [id, j] of Object.entries(w.jobs)) {
+      if (!j.uses?.startsWith('./.github/workflows/')) continue;
+      const ma = j.permissions ?? w.permissions ?? {};
+      const chce = json(j.uses.split('/').pop()).permissions ?? {};
+      for (const [k, v] of Object.entries(chce)) assert.ok((poziom[ma[k] ?? 'none'] ?? 0) >= poziom[v], `${n}: ${id}: ${j.uses} chce ${k}: ${v}, zadanie ma ${ma[k] ?? 'none'}`);
+    }
+  }
+});

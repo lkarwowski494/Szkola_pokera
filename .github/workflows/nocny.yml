@@ -101,6 +101,10 @@ jobs:
   e2e:
     if: github.repository == 'lkarwowski494/szkola_pokera'
     uses: ./.github/workflows/e2e-ios.yml
+    # wywoływany workflow nie dostanie więcej niż to zadanie; e2e-ios.yml potrzebuje actions: read (D-273, przegląd D-043)
+    permissions:
+      contents: read
+      actions: read
     with:
       urzadzenie: 'iPhone SE|iPhone 16e|iPhone 17e'
       wyglad: dark

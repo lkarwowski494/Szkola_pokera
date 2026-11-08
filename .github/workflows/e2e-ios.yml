@@ -13,12 +13,19 @@
 # (odstępstwo od Treningu: gałąź agenta jest tu gałęzią integracyjną przebudowy, a workflow_dispatch nie widzi workflowu
 # nieobecnego na main, zanim raz się uruchomi); informacyjnie, poprzedni przebieg tej gałęzi anulowany.
 name: E2E iOS (symulator)
+# D-273: przebieg z aplikacją z innego przebiegu ma dopisek w tytule — bramka TestFlight (scripts/ci/bramka-e2e.mjs) go nie liczy.
+# Bez wejścia tytuł jest stały (wzór Trening e2e-ios.yml:15, odczyt 2026-11-08); commit widać w kolumnie przebiegu.
+run-name: ${{ inputs.aplikacja_z_przebiegu != '' && 'E2E iOS · aplikacja z innego przebiegu' || 'E2E iOS (symulator)' }}
 on:
   push:
     branches: [main, 'integration/**', 'claude/**']
     paths-ignore: ['docs/**', '**/*.md', 'tests/**', '.claude/**']
   workflow_dispatch:
     inputs:
+      aplikacja_z_przebiegu:
+        description: 'Numer przebiegu z gotową aplikacją (artefakt szkola-sim-app żyje 1 dzień); pusty = zbuduj od nowa. Tylko przy zmianie samych flowów (~24 min mniej); nie otwiera bramki TestFlight'
+        required: false
+        default: ''
       urzadzenie:
         description: 'Wzorzec nazwy symulatora (wyrażenie regularne JS), np. "iPhone SE|iPhone 16e" — mały ekran; pusty = najnowszy iPhone z obrazu'
         required: false
@@ -30,10 +37,12 @@ on:
         default: light
   workflow_call:
     inputs:
+      aplikacja_z_przebiegu: { type: string, required: false, default: '' }
       urzadzenie: { type: string, required: false, default: '' }
       wyglad: { type: string, required: false, default: 'light' }
 permissions:
   contents: read
+  actions: read  # D-273: pobranie artefaktu aplikacji z innego przebiegu (download-artifact z run-id)
 env:
   # wersja zmierzona 5.10.2026 (4/4 flowy, przebieg 37304275812); instalator czyta MAESTRO_VERSION
   MAESTRO_VERSION: 2.11.0
@@ -78,12 +87,15 @@ jobs:
         run: pnpm content:check
 
       - name: Projekt iOS (expo prebuild)
+        if: inputs.aplikacja_z_przebiegu == ''
         working-directory: apps/mobile
         run: npx expo prebuild --platform ios --no-install --clean
       - name: CocoaPods
+        if: inputs.aplikacja_z_przebiegu == ''
         working-directory: apps/mobile/ios
         run: pod install
       - name: Kompilacja na symulator (bez podpisu)
+        if: inputs.aplikacja_z_przebiegu == ''
         working-directory: apps/mobile/ios
         run: |
           set -o pipefail
@@ -96,6 +108,32 @@ jobs:
           APP=$(ls -d build/Build/Products/Release-iphonesimulator/*.app | head -1)
           test -n "$APP" && test -f "$APP/main.jsbundle"
           echo "APP_PATH=$PWD/$APP" >> "$GITHUB_ENV"
+          echo "E2E_BUILT=$(date +%s)" >> "$GITHUB_ENV"
+      - name: Zapis aplikacji (do ponownego użycia, D-273)
+        if: inputs.aplikacja_z_przebiegu == ''
+        run: cd "$(dirname "$APP_PATH")" && zip -qry "$GITHUB_WORKSPACE/szkola-sim.zip" "$(basename "$APP_PATH")"
+      - uses: actions/upload-artifact@v5
+        if: inputs.aplikacja_z_przebiegu == ''
+        with:
+          name: szkola-sim-app
+          path: szkola-sim.zip
+          retention-days: 1
+      - uses: actions/download-artifact@v5
+        if: inputs.aplikacja_z_przebiegu != ''
+        with:
+          name: szkola-sim-app
+          run-id: ${{ inputs.aplikacja_z_przebiegu }}
+          github-token: ${{ github.token }}
+      - name: Rozpakowanie aplikacji z innego przebiegu
+        if: inputs.aplikacja_z_przebiegu != ''
+        env:
+          Z_PRZEBIEGU: ${{ inputs.aplikacja_z_przebiegu }}
+        run: |
+          echo "::notice title=Aplikacja z innego przebiegu::#$Z_PRZEBIEGU — flowy na aplikacji z tamtego commitu; ten przebieg nie otwiera bramki TestFlight"
+          mkdir -p "$RUNNER_TEMP/aplikacja" && unzip -q szkola-sim.zip -d "$RUNNER_TEMP/aplikacja"
+          APP=$(ls -d "$RUNNER_TEMP"/aplikacja/*.app | head -1)
+          test -n "$APP" && test -f "$APP/main.jsbundle"
+          echo "APP_PATH=$APP" >> "$GITHUB_ENV"
           echo "E2E_BUILT=$(date +%s)" >> "$GITHUB_ENV"
 
       - uses: actions/setup-java@v5
