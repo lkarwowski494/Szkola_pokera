@@ -522,3 +522,37 @@ Strażnik: `e2e-flowy` „każde id we flowach bramki ma testID w kodzie aplikac
 
 ## Punkt czyszczenia (praca nocna D-272, 2026-11-08 ok. 19:50 UTC)
 Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik od „E1 część 5b: kroki 5–8”. Szczyt: 2fab680 (naprawa flowów, D-271) + ten zapis. E2E 42515532537 (2fab680) w toku; przypomnienie `trig_017KdxmtiwCqU5ftPcgt8Ykm` o 20:20 UTC. Kolejka nocy: (1) wynik E2E → naprawa flowów (najwyżej 2 podejścia) → (2) E2 5b → (3) szybsze E2E jak Trening (`aplikacja_z_przebiegu`) z przeglądem D-043 → (4) część 6 (E0 → E1, P-2 = B: `Stol`, `PasekStrategii`, `SkalaStopni`) → stan do 04:00 UTC.
+
+# Część 6: ekran decyzji w sesji — `Stol`, `PasekStrategii`, `SkalaStopni` (build, E0, 2026-11-08, przyjęty wg D-272)
+Zakres (P-2 = B, D-256; wyjątki D-259 do części 6): ekran decyzji w sesji według `docs/design/design-spec.md` („Komponenty”, „`Stol`”, „`PasekStrategii`”, „Znaczenie kolorów”, „Typografia”) i makiety `ekrany/e3.html` (ekrany `przed-decyzja`, `po-ocenie`, `bez-pozycji`); kroje tytułów Literata 600; zdjęcie `tk.przejsciowe` z ekranu sesji. Nie mylić z „częścią 6” roli 07 (K-08, D-186).
+
+## Stan wyjściowy (401bcb5)
+`pnpm run ci` kod 0 (mobile 52 pliki / 385 testów, skrypty 82). Ekran sesji `src/app/session.tsx` (652 linie): `TableFelt` (pas sukna z kartami i nazwą pozycji), `ChoiceOptions` (lista opcji z kolorami `tk.przejsciowe.good/bad/warn`), nagłówek oceny kolorem (`gradeColor`), wyjaśnienie na `przejsciowe.feltSoft`. Gotowe i nieużyte w sesji: `features/ocena/StopienOceny` (znak + słowo, D-213). Dane: `ChoiceInstance.table` ma `hand/opp/board/position`, bez przebiegu akcji; zadania z zakresu (`engine.ts` `rangeDecision`) znają `spot.path` (np. `UTG:fold,HJ:fold`) i częstości akcji (`freqs`), ale ich nie przekazują. Expo web: brak `react-native-web` w `apps/mobile/package.json` → zrzuty jako lista dla właściciela (Linux bez symulatora). Literata: w repo tylko woff2 (makiety); TTF 600 dostępny u źródła `raw.githubusercontent.com/googlefonts/literata/main/fonts/ttf/Literata-SemiBold.ttf` (HTTP 200, 2026-11-08), licencja `docs/design/fonty/OFL-literata.txt`.
+
+## Założenia wejściowe (hipotezy)
+- Zadanie z przebiegiem akcji = zadanie z zakresu (`rangeDecision`); inne zadania z wyborem (teoria) nie mają częstości solvera → pasek strategii po ocenie tylko dla zadań z zakresu, reszta: lista odpowiedzi w stylu systemu (makieta `bez-pozycji`: „Wybierz odpowiedź”, równe segmenty).
+- Liczba miejsc = 6 (wszystkie `spots.yaml` są 6-osobowe; `meta.players` z design-spec nie ma w danych zadania) — sprawdzane testem na treści.
+- Stan miejsca z `path`: `fold` → „pas”, akcja inna niż pas (np. `raise2.5`) → **luka**: design-spec zna tylko „pas”, „czeka”, „ty”.
+
+## Plan (cięcie pionowe; każdy krok: czerwień z właściwego powodu → kod → `pnpm run ci` → commit; jeden push kodu na końcu)
+| Krok | Zachowanie | Test (czerwony przed) | Pliki |
+|---|---|---|---|
+| 1 | czysta funkcja `ukladStolu(position, path)`: 6 miejsc w kolejności wskazówek zegara, ty na dole, stany pas/czeka/ty/akcja; etykieta VoiceOver („Stół: UTG pas, HJ pas, ty na CO z J9o, czekają BTN, SB i BB.”); opis ręki; bez pozycji: opis kart („Twoje karty: J♣ 9♦. Na stole: 10♠ 7♥ 2♣.”) | `features/stol/__tests__/uklad-08` | `features/stol/uklad.ts`, teksty `pl.json` |
+| 2 | `rangeDecision` przekazuje `table.path` i `strategia` (nazwa + częstość każdej akcji, w kolejności opcji) | `engine` test: zadanie z zakresu ma `path` i `strategia` sumujące się do 1 | `features/drills/types.ts`, `engine.ts` |
+| 3 | `Stol`: z pozycją owal z miejscami (pas kreskowane, ty złota obwódka 2,5), bez pozycji owal bez miejsc, karty wspólne na suknie i twoje przy krawędzi; `accessibilityRole="image"` + etykieta z kroku 1; opis tekstem pod stołem | `components/__tests__/Stol-08` | `components/Stol.tsx`, `components/Karta.tsx` (z `PlayingCard`) |
+| 4 | czysta funkcja `segmentyPaska(strategia, wybor)`: przed decyzją równe; po ocenie szerokości = częstości, znacznik nad wyborem, opis VoiceOver („Strategia solvera dla J9o: pas 80 procent, przebicie 20 procent. Twój wybór: przebicie.”) | `features/stol/__tests__/pasek-08` | `features/stol/pasek.ts` |
+| 5 | `PasekStrategii`: przed decyzją segmenty-przyciski ≥ 64 pt z `testID` `option-<i>` (flowy E2E bez zmian), po ocenie granice z kroku 4, „pas” kreskowany, złoty znacznik, podpisy z procentami i „twój wybór”; „Ogranicz ruch” → przenikanie | `components/__tests__/PasekStrategii-08` | `components/PasekStrategii.tsx` |
+| 6 | `SkalaStopni`: trzy przedziały z progów `thresholds.ts` (`MIXED_MIN`, `MIXED_LOW`), twój przedział złotą obwódką, etykieta („Skala stopni: twoja akcja 20 procent, przedział dopuszczalna”) | `components/__tests__/SkalaStopni-08` (progi czytane z `thresholds.ts`, nie wpisane) | `features/stol/skala.ts`, `components/SkalaStopni.tsx` |
+| 7 | sesja: zadanie z wyborem → `Stol` + (zakres: `PasekStrategii`; inne: lista odpowiedzi) ; po ocenie `StopienOceny` na suknie + pasek + skala; nagłówki ocen bez koloru (ink + znak + słowo); wyjaśnienie na `surface`; `tk.przejsciowe` znika z `session.tsx` | testy ekranu sesji (istniejące + nowy: brak `przejsciowe` w `session.tsx`, `StopienOceny` po ocenie) | `app/session.tsx` |
+| 8 | Literata 600: `assets/fonts/Literata-SemiBold.ttf` + OFL, ładowanie `Font.loadAsync` z limitem 3 s przy starcie (wzór Treningu `app/_layout.tsx:23,31`, `app.json:96` `expo-font`), `styl.tytul*` i indeks karty z Literatą do AX1 (D-122) | test motywu: `styl.tytul.fontFamily` = Literata przy domyślnym tekście, systemowy od AX1 | `src/theme/tokens.ts`, `_layout`, `assets/fonts/` |
+| 9 | E2: mutacje ręczne (D-172), pełny `pnpm run ci`, push → E2E (flowy 01, 06 przechodzą przez ekran decyzji) | — | — |
+
+## Luki z opcjami (przyjęte wg D-272; zgłoszenia do 04)
+- **L-1 stan miejsca po akcji innej niż pas** (np. `CO:raise2.5` w spotach obrony): (A, przyjęta) stan „przebija” zwykłym stanem miejsca (bez nowego koloru), tekst do akceptacji 04/06 — 08-F26; (B) pominąć przebieg i pokazać tylko pas/czeka — gubi informację, kto przebił, a zadanie obrony bez niej jest niezrozumiałe.
+- **L-2 kolory siatki malowania i zakresów, talia czterokolorowa** (`PaintGrid`, `RangeGrid`, `PlayingCard`): system 04 nie ma tych barw. (A, przyjęta) zostają w `tk.przejsciowe` (wyjątek D-259 przedłużony, nazwany), zgłoszenie 08-F15 (talia) i nowe 08-F27 (siatki) do 04; (B) zastąpić najbliższymi tokenami (`gold`, `alert`) — sprzeczne ze znaczeniem kolorów („złoto = ty”, „alert = błąd działania”).
+- **L-3 znak stopnia** — makieta ma „∼” dla Dopuszczalna, `StopienOceny` „≈” (D-213, do akceptacji 04): bez zmiany (D-213 obowiązuje), uwaga w 08-F26.
+- **L-4 ocena „blisko” i „zły rozmiar” w zadaniach liczbowych i teksturze** — poza skalą stopni z design-spec: nagłówek bez koloru (znak + słowo), bez skali.
+- **L-5 ruch paska (240 ms) i znacznika (160 ms po 200 ms)** — `Animated` z RN, przy „Ogranicz ruch” przenikanie; jeśli test ruchu okaże się nierealny w Jest, ruch sprawdza zrzut/urządzenie (lista dla właściciela).
+
+## Szacunek (zasada 9)
+Agent: ok. 6–8 h (kroki 1–8), w tym noc do 03:45 UTC: kroki 1–7 realnie, 8 jeśli starczy. Czekanie: E2E ~46 min po pushu (0 USD). Właściciel: zrzuty na telefonie/symulatorze (lista w E2), weto L-1–L-5.
