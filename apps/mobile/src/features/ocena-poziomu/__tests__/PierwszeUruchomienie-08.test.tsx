@@ -3,7 +3,11 @@
 // ponownym uruchomieniu od pierwszego pytania z „Pomiń”, bez powitania (BR-ONB-001-c); zapis w postep.db (node:sqlite).
 import '@/i18n';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { join } from 'node:path';
 import { Text } from 'react-native';
+import i18n from '@/i18n';
+import { opisKart } from '@/features/stol/uklad';
 import type { Drill } from '@szkola/content-schema';
 import type { DrillRow } from '@/data/content/repo';
 import PierwszeUruchomienie from '@/features/ocena-poziomu/PierwszeUruchomienie';
@@ -29,6 +33,31 @@ function Bramka({ port }: { port: Awaited<ReturnType<typeof portTestowy>>['port'
 }
 
 describe('pierwsze uruchomienie', () => {
+  it('08-F29: pytanie ze stołem rysuje `Stol` (obraz z etykietą dla VoiceOver), nie `TableFelt`', async () => {
+    const { port } = await portTestowy();
+    const pierwsze = PYTANIA_OCENY[0]!.zadanieId;
+    const zStolem = new Map(WIERSZE);
+    zStolem.set(pierwsze, { ...WIERSZE.get(pierwsze)!, drill: { ...choice(pierwsze), table: { hand: 'Jc 9d', board: 'Ts 7h 2c' } } as unknown as Drill });
+    await render(
+      <PierwszeUruchomienie port={port} moduly={MODULY} wiersz={(id) => zStolem.get(id)} zegar={zegar}>
+        <Text>DZIŚ</Text>
+      </PierwszeUruchomienie>,
+    );
+    await screen.findByText(/bez gry na pieniądze/);
+    await fireEvent.press(screen.getByRole('button', { name: 'Dalej' }));
+    await screen.findByText(`Pytanie ${pierwsze}`);
+    const etykieta = opisKart({ hand: ['Jc', '9d'], board: ['Ts', '7h', '2c'] }, i18n.t.bind(i18n));
+    expect(screen.getByRole('image').props.accessibilityLabel).toBe(etykieta);
+    expect(screen.queryByText('Twoje karty')).toBeNull(); // podpis starego `TableFelt`
+  });
+
+  it('08-F29: `TableFelt` bez użyć w kodzie apps/mobile/src (komponent usunięty)', () => {
+    const src = join(__dirname, '..', '..', '..');
+    const pliki = (d: string): string[] => readdirSync(d).flatMap((n) => (statSync(join(d, n)).isDirectory() ? pliki(join(d, n)) : /\.tsx?$/.test(n) ? [join(d, n)] : []));
+    // testy pomijane: strażnik sesji (`sesja-ekran-08`) wymienia nazwę w asercji „nie zawiera”
+    expect(pliki(src).filter((f) => !f.includes('__tests__') && /\bTableFelt\b/.test(readFileSync(f, 'utf8')))).toEqual([]);
+  });
+
   it('BR-ONB-001-b: powitanie → Dalej → pytanie 1 → Pomiń → „Dziś”, punkt startu M0', async () => {
     const { port, db } = await portTestowy();
     await render(<Bramka port={port} />);

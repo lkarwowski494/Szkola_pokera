@@ -4,8 +4,8 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Text } from 'react-native';
 import { BladOdczytu } from '@/components/BladOdczytu';
+import { Stol } from '@/components/Stol';
 import { Screen } from '@/components/ui';
-import { TableFelt } from '@/components/TableFelt';
 import type { DrillRow } from '@/data/content/repo';
 import { zapiszBladPostepu } from '@/data/postep';
 import EkranPowitania from '@/features/powitanie/EkranPowitania';
@@ -128,7 +128,7 @@ export default function PierwszeUruchomienie({
           odpowiedzi={item.options.map((x) => x.text)}
           stol={
             <>
-              {item.table ? <TableFelt table={item.table} /> : null}
+              {item.table ? <Stol table={item.table} /> : null}
               {etap.bladZapisu ? (
                 <Text accessibilityRole="alert" style={[styl.tresc, { color: tk.alert }]}>
                   {t('session.saveFailed')}
