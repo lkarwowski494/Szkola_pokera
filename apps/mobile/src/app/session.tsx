@@ -1,6 +1,7 @@
 import { createRng } from '@szkola/poker-core';
 import { dzienLokalny, type Limit } from '@szkola/domena';
 import { odczytajKarty, porzucAktywnosc, wynikiTestow, zadaniaZTestow } from '@szkola/postep';
+import Constants from 'expo-constants';
 import * as Haptics from 'expo-haptics';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
@@ -37,7 +38,8 @@ import EkranStartu from '@/features/start/EkranStartu';
 import { przygotujStart } from '@/features/start/wejscieStartu';
 import EkranZakupu from '@/features/zakup/EkranZakupu';
 import { poprosOOceneGdyPora } from '@/features/opinie/prosbaOOcene';
-import { ADRES_PRYWATNOSCI, ADRES_WARUNKOW } from '@/platform/adresy';
+import { ADRES_KONTAKTOWY, ADRES_PRYWATNOSCI, ADRES_WARUNKOW } from '@/platform/adresy';
+import { ZglosBlad } from '@/features/opinie/Opinie';
 import { ocenaExpo } from '@/platform/opinie';
 import { sklepAplikacji } from '@/platform/zakupy';
 import { odswiezDostep, useDostep } from '@/state/dostep';
@@ -76,7 +78,7 @@ export default function SessionScreen() {
   const db = useSQLiteContext();
   const port = usePortPostepu();
   const tk = useTokens();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const haptics = useSettings((s) => s.haptics);
   const pro = useDostep((s) => s.pro);
   const exam = mode === 'exam';
@@ -390,6 +392,16 @@ export default function SessionScreen() {
           </Text>
           <Feedback rec={current} painted={current.answer.kind === 'paint' ? [...current.answer.painted] : undefined} hideChoices />
           <Button label={idx + 1 < items.length ? t('session.next') : t('session.finish')} onPress={next} />
+          {/* „Zgłoś błąd w tym zadaniu” pod oceną (PR-09, BR-OPIN-003); ukryte, dopóki nie ma adresu poczty (D-270) */}
+          {ADRES_KONTAKTOWY ? (
+            <ZglosBlad
+              zadanieId={current.item.drillId}
+              wersjaAplikacji={Constants.expoConfig?.version ?? '?'}
+              jezyk={i18n.language}
+              adresKontaktowy={ADRES_KONTAKTOWY}
+              otworzAdres={(url) => Linking.openURL(url).then(() => true)}
+            />
+          ) : null}
         </View>
       ) : null}
     </Screen>

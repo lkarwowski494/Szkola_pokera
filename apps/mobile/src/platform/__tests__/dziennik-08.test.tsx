@@ -69,4 +69,71 @@ describe('dziennik lokalny (ADR 0009 pkt 2)', () => {
     expect(c.parseSeen(null)).toBeNull();
     expect(d.wpisyDziennika().map((w) => w.kod)).toEqual(['odczyt_nieudany']);
   });
+
+  // 08 cz. 5b krok 6 (ADR 0009 pkt 2, D-240): wpisy trafiają do tabeli `dziennik` w postep.db; przed otwarciem bazy czekają
+  // w pamięci i zapisują się po podłączeniu, w kolejności; tabela przycięta do DZIENNIK_MAKS_WPISOW.
+  describe('dziennik w postep.db', () => {
+    const { portTestowy } = require('@/test-utils/postepTestowy') as typeof import('@/test-utils/postepTestowy');
+    const wiersze = (db: { prepare(s: string): { all(): unknown[] } }) => db.prepare('SELECT ms, kod, ekran, wersja FROM dziennik ORDER BY id').all();
+    const czekaj = () => new Promise((r) => setTimeout(r, 0));
+
+    it('wpisy sprzed otwarcia bazy zapisane po podłączeniu, kolejne od razu', async () => {
+      const d = load();
+      const { port, db } = await portTestowy();
+      d.zapiszBlad('tresc_niedostepna', null, 1);
+      d.zapiszBlad('link_niedostepny', 'help', 2);
+      const odlacz = d.podlaczDziennik(port);
+      await d.dziennikZapisany();
+      d.zapiszBlad('zapis_nieudany', 'sesja', 3);
+      await d.dziennikZapisany();
+      expect(wiersze(db)).toEqual([
+        { ms: 1, kod: 'tresc_niedostepna', ekran: null, wersja: '9.9.9' },
+        { ms: 2, kod: 'link_niedostepny', ekran: 'help', wersja: '9.9.9' },
+        { ms: 3, kod: 'zapis_nieudany', ekran: 'sesja', wersja: '9.9.9' },
+      ]);
+      odlacz();
+      d.zapiszBlad('odczyt_nieudany', null, 4);
+      await d.dziennikZapisany();
+      expect(wiersze(db)).toHaveLength(3); // po odłączeniu (zamknięcie portu) tylko pamięć
+      expect(d.wpisyDziennika()).toHaveLength(4);
+    });
+
+    it('ponowne podłączenie (ponowny start bazy) nie dubluje już zapisanych wpisów', async () => {
+      const d = load();
+      const { port, db } = await portTestowy();
+      d.zapiszBlad('tresc_niedostepna', null, 1);
+      d.podlaczDziennik(port)();
+      await d.dziennikZapisany();
+      d.zapiszBlad('baza_nowsza', null, 2);
+      d.podlaczDziennik(port);
+      await d.dziennikZapisany();
+      expect(wiersze(db)).toEqual([
+        { ms: 1, kod: 'tresc_niedostepna', ekran: null, wersja: '9.9.9' },
+        { ms: 2, kod: 'baza_nowsza', ekran: null, wersja: '9.9.9' },
+      ]);
+    });
+
+    it(`tabela przycięta do DZIENNIK_MAKS_WPISOW (${KONFIGURACJA.DZIENNIK_MAKS_WPISOW})`, async () => {
+      const d = load();
+      const { port, db } = await portTestowy();
+      d.podlaczDziennik(port);
+      for (let i = 0; i < KONFIGURACJA.DZIENNIK_MAKS_WPISOW + 2; i++) d.zapiszBlad('wyjatek_ekranu', null, i);
+      await d.dziennikZapisany();
+      const w = wiersze(db) as { ms: number }[];
+      expect(w).toHaveLength(KONFIGURACJA.DZIENNIK_MAKS_WPISOW);
+      expect(w[0]?.ms).toBe(2);
+    });
+
+    it('błąd zapisu do bazy: bez wyjątku i bez nowego wpisu o tym błędzie (bez pętli)', async () => {
+      const d = load();
+      const { port } = await portTestowy();
+      const zepsuty = { ...port, transakcja: async () => { throw Object.assign(new Error('io'), { errcode: 10 }); } };
+      d.podlaczDziennik(zepsuty);
+      expect(() => d.zapiszBlad('zapis_nieudany', null, 1)).not.toThrow();
+      await d.dziennikZapisany();
+      await czekaj();
+      expect(d.wpisyDziennika().map((w) => w.kod)).toEqual(['zapis_nieudany']);
+    });
+  });
 });
+

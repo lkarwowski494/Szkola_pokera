@@ -7,7 +7,7 @@ import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react
 import { useColorScheme } from 'react-native';
 import { RenderErrorScreen } from '@/components/RenderErrorScreen';
 import { GranicaBledu } from '@/components/GranicaBledu';
-import { zapiszBlad } from '@/platform/dziennik';
+import { podlaczDziennik, zapiszBlad } from '@/platform/dziennik';
 import { useSettings } from '@/state/settings';
 import { useTokens } from '@/theme/tokens';
 import { przygotujTrescExpo } from '@/data/tresc/startTresci';
@@ -77,6 +77,7 @@ function usePostep(): StanPostepu & { ponow: () => void } {
     let aktualny = true;
     let otwarty: PortBazy | null = null;
     let odepnijDostep: (() => void) | null = null;
+    let odlaczDziennik: (() => void) | null = null;
     void startPostepuExpo().then(async (w) => {
       if (!w.ok) {
         if (aktualny) ustaw({ stan: 'blad' });
@@ -88,6 +89,8 @@ function usePostep(): StanPostepu & { ponow: () => void } {
         return;
       }
       if (__DEV__) await kontrolaK04(otwarty);
+      // dziennik do tabeli `dziennik` od otwarcia bazy, z wpisami sprzed otwarcia (ADR 0009 pkt 2; 08 cz. 5b krok 6)
+      odlaczDziennik = podlaczDziennik(otwarty);
       // dostęp od startu (D-247): pamięć → nasłuch transakcji → odczyt sklepu
       odepnijDostep = startDostepu(otwarty, sklepAplikacji(), Date.now);
       ustaw({ stan: 'ok', port: otwarty });
@@ -95,6 +98,7 @@ function usePostep(): StanPostepu & { ponow: () => void } {
     return () => {
       aktualny = false;
       odepnijDostep?.();
+      odlaczDziennik?.();
       if (otwarty) void otwarty.zamknij();
     };
   }, [proba]);
