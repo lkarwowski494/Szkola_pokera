@@ -30,6 +30,7 @@ export const KONFIGURACJA = {
     'pl.lkarwowski.szkolapokera.rok',
     'pl.lkarwowski.szkolapokera.dozywotni',
   ] as const, // ADR 0006
+  SKLEP_LIMIT_CZASU_MS: 15000, // D-246: wywołania sklepu poza samym zakupem, jak Trening lib/products.ts:46 (CALL_TIMEOUT_MS)
   PRODUKTY_BEZ_KONCA: ['pl.lkarwowski.szkolapokera.dozywotni'] as const, // ADR 0006 pkt 2 (L8-04, D-217): `wygasaMs: null` tylko dla tych
 } as const;
 export type Konfiguracja = typeof KONFIGURACJA;

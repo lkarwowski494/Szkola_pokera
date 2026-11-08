@@ -14,8 +14,11 @@ import { zapiszBlad } from '@/platform/dziennik';
  *   za nią dostępu (W10).
  * - Bez serwera weryfikacji i bez IAPKit (K-07 `iapkit`); żadne wywołanie w transakcji bazy (ADR 0006 pkt 6) — adapter nie
  *   zna bazy, pamięć zapisuje wywołujący po `decyzja`.
- * - Odstępstwo od Treningu: bez odczytu karencji płatności (`subscriptionStatusIOS`) — ADR 0006 jej nie przewiduje; zgłoszenie
- *   08-F05 do roli 05. Bez limitu czasu na wywołania (Trening `withTimeout`) — jw.
+ * - Karencja płatności i limit czasu (D-246, 08-F05) jak Trening `store-native.ts:38–39, 64–78`: subskrypcja bez aktywnej
+ *   transakcji → `subscriptionStatusIOS(sku)`, `renewalInfo.gracePeriodExpirationDate` (stan inny niż `revoked`) jako koniec
+ *   dostępu; błąd tego zapytania przy braku jakiejkolwiek transakcji → `{ ok: false }` (nie wiadomo, czy trwa karencja),
+ *   inaczej odczyt bez karencji. Wywołania poza samym zakupem (okno płatności czeka na użytkownika) z limitem
+ *   `SKLEP_LIMIT_CZASU_MS`; przekroczony → jak błąd sklepu (pamięć bez zmian, D-209).
  */
 export interface Sklep extends SklepEkranu {
   odczyt(): Promise<OdczytSklepu>;
@@ -33,6 +36,24 @@ const OKRES: Record<string, ProduktSklepu['okres']> = {
   'pl.lkarwowski.szkolapokera.rok': 'rok',
   'pl.lkarwowski.szkolapokera.dozywotni': null,
 };
+
+const SUBSKRYPCJE = ODBLOKOWUJA.filter((p) => !BEZ_KONCA.includes(p));
+const zLimitem = <T,>(p: Promise<T>): Promise<T> =>
+  new Promise<T>((res, rej) => {
+    const czas = setTimeout(() => rej(new Error('Sklep nie odpowiedział w czasie')), KONFIGURACJA.SKLEP_LIMIT_CZASU_MS);
+    p.then(
+      (v) => { clearTimeout(czas); res(v); },
+      (e: unknown) => { clearTimeout(czas); rej(e); },
+    );
+  });
+
+/** Koniec karencji płatności z wpisu `subscriptionStatusIOS` (unknown); brak, odwołanie albo zła wartość → null. */
+function koniecKarencji(st: unknown): number | null {
+  if (typeof st !== 'object' || st === null || !('state' in st) || st.state === 'revoked') return null;
+  if (!('renewalInfo' in st) || typeof st.renewalInfo !== 'object' || st.renewalInfo === null) return null;
+  const g = 'gracePeriodExpirationDate' in st.renewalInfo ? st.renewalInfo.gracePeriodExpirationDate : null;
+  return typeof g === 'number' && Number.isFinite(g) ? g : null;
+}
 
 const kodBledu = (e: unknown): string => (typeof e === 'object' && e !== null && 'code' in e && typeof e.code === 'string' ? e.code : '');
 const liczbaLubBrak = (v: unknown): number | null | 'zle' => (v === undefined || v === null ? null : typeof v === 'number' && Number.isFinite(v) ? v : 'zle');
@@ -55,7 +76,7 @@ function produkt(w: unknown): ProduktSklepu | null {
 
 export function utworzSklep(): Sklep {
   let polaczenie: Promise<boolean> | null = null;
-  const polacz = () => (polaczenie ??= Iap.initConnection().catch((e: unknown) => {
+  const polacz = () => zLimitem(polaczenie ??= Iap.initConnection().catch((e: unknown) => {
     polaczenie = null;
     throw e;
   }));
@@ -63,13 +84,28 @@ export function utworzSklep(): Sklep {
   const odczyt = async (): Promise<OdczytSklepu> => {
     try {
       await polacz();
-      const wiersze: unknown[] = await Iap.getAvailablePurchases({ onlyIncludeActiveItemsIOS: true });
+      const wiersze: unknown[] = await zLimitem(Iap.getAvailablePurchases({ onlyIncludeActiveItemsIOS: true }));
       const transakcje: Transakcja[] = [];
       for (const w of wiersze) {
         const t = transakcja(w);
         if (t === 'zle') throw new Error('Niepoprawna transakcja ze sklepu');
         if (t) transakcje.push(t);
       }
+      // karencja (D-246): lista aktywnych pomija subskrypcję z datą końca w przeszłości, więc pytamy o status odnowienia
+      let bladStatusu: unknown = null;
+      for (const sku of SUBSKRYPCJE) {
+        if (transakcje.some((t) => t.produkt === sku && !t.odebrana)) continue;
+        try {
+          const statusy: readonly unknown[] = await zLimitem(Iap.subscriptionStatusIOS(sku));
+          for (const st of statusy) {
+            const g = koniecKarencji(st);
+            if (g !== null) transakcje.push({ produkt: sku, wygasaMs: g, odebrana: false });
+          }
+        } catch (e) {
+          bladStatusu ??= e;
+        }
+      }
+      if (bladStatusu !== null && transakcje.length === 0) throw bladStatusu;
       return { ok: true, transakcje };
     } catch {
       zapiszBlad('sklep_niedostepny', 'zakup');
@@ -82,7 +118,7 @@ export function utworzSklep(): Sklep {
     async produkty(): Promise<OdczytProduktow> {
       try {
         await polacz();
-        const wiersze: readonly unknown[] = (await Iap.fetchProducts({ skus: [...ODBLOKOWUJA], type: 'all' })) ?? [];
+        const wiersze: readonly unknown[] = (await zLimitem(Iap.fetchProducts({ skus: [...ODBLOKOWUJA], type: 'all' }))) ?? [];
         return { ok: true, produkty: wiersze.map(produkt).filter((p): p is ProduktSklepu => p !== null) };
       } catch (e) {
         zapiszBlad('sklep_niedostepny', 'zakup');
@@ -117,7 +153,7 @@ export function utworzSklep(): Sklep {
     async przywroc(teraz = Date.now()) {
       try {
         await polacz();
-        await Iap.restorePurchases();
+        await zLimitem(Iap.restorePurchases());
       } catch {
         zapiszBlad('sklep_niedostepny', 'zakup');
         return 'blad';
@@ -157,4 +193,10 @@ export function utworzSklep(): Sklep {
       }
     },
   };
+}
+
+let sklep: Sklep | null = null;
+/** Jeden adapter sklepu na aplikację (jedno połączenie, jeden nasłuch od startu — D-247). */
+export function sklepAplikacji(): Sklep {
+  return (sklep ??= utworzSklep());
 }

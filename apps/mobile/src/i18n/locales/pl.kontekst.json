@@ -33,6 +33,7 @@
   "session.again": "Użyty w: app/session.tsx. Ok. 11 znaków. [kontekst wstępny z użycia w kodzie, 2026-11-04; rola 08 dopisze opis przy przebudowie ekranu]",
   "session.speed": "Nie znaleziono wywołania w kodzie (nieużywany albo składany inaczej). Ok. 7 znaków. [kontekst wstępny z użycia w kodzie, 2026-11-04; rola 08 dopisze opis przy przebudowie ekranu]",
   "session.close": "Użyty w: app/session.tsx. Ok. 7 znaków. [kontekst wstępny z użycia w kodzie, 2026-11-04; rola 08 dopisze opis przy przebudowie ekranu]",
+  "session.end": "Użyty w: app/session.tsx (lewy górny róg sesji zadań). Ok. 7 znaków. Wyjście z sesji ćwiczeń i egzaminu, sesja zapisana, bez pytania (słownik interakcji design-spec.md:53).",
   "session.secondsLeft": "Użyty w: app/session.tsx. Parametry: s. Ok. 7 znaków. [kontekst wstępny z użycia w kodzie, 2026-11-04; rola 08 dopisze opis przy przebudowie ekranu]",
   "session.avgTime": "Użyty w: app/session.tsx. Parametry: s. Ok. 28 znaków. [kontekst wstępny z użycia w kodzie, 2026-11-04; rola 08 dopisze opis przy przebudowie ekranu]",
   "session.check": "Użyty w: app/session.tsx. Ok. 7 znaków. [kontekst wstępny z użycia w kodzie, 2026-11-04; rola 08 dopisze opis przy przebudowie ekranu]",

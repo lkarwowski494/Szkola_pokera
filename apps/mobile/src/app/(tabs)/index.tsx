@@ -65,7 +65,7 @@ function WierszGrupy({ testID, tytul, podpis, wartosc, onPress, pierwszy }: { te
 /**
  * „Dziś” (design-spec „Macierz stanów”, makieta e3 „dzis”; P-2 = B): następna lekcja na suknie (BlokLekcji), wejścia
  * do ćwiczeń (`dzis-cwiczenia`, `dzis-powtorki`; scenariusz tylko z treścią scenariuszy, D-255), pod nimi wszystkie
- * lekcje (każdą można otworzyć, FR-01). Licznik dziennego limitu: krok 4 części 5b.
+ * lekcje (każdą można otworzyć, FR-01). Licznik dziennego limitu: na ekranie startu aktywności (EkranStartu, session.tsx).
  */
 export default function TodayScreen() {
   const db = useSQLiteContext();

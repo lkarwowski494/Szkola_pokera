@@ -1,12 +1,12 @@
 import { createRng } from '@szkola/poker-core';
-import { dzienLokalny } from '@szkola/domena';
-import { odczytajKarty, wynikiTestow, zadaniaZTestow } from '@szkola/postep';
+import { dzienLokalny, type Limit } from '@szkola/domena';
+import { odczytajKarty, porzucAktywnosc, wynikiTestow, zadaniaZTestow } from '@szkola/postep';
 import * as Haptics from 'expo-haptics';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Linking, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { PaintGrid } from '@/components/PaintGrid';
 import { RichText } from '@/components/RichText';
 import { TableFelt } from '@/components/TableFelt';
@@ -33,6 +33,12 @@ import { odpowiedzWSesji, otworzSesje, type PowodSesji, type RodzajSesji, type S
 import { buildExamSession, buildFamilySession, buildLessonSession, buildPracticeSession, type SessionMode } from '@/features/session/build';
 import { lekcjeDoCwiczen } from '@/features/dzis/widok';
 import { czytajFaktyKursu } from '@/features/kurs/faktyKursu';
+import EkranStartu from '@/features/start/EkranStartu';
+import { przygotujStart } from '@/features/start/wejscieStartu';
+import EkranZakupu from '@/features/zakup/EkranZakupu';
+import { ADRES_PRYWATNOSCI, ADRES_WARUNKOW } from '@/platform/adresy';
+import { sklepAplikacji } from '@/platform/zakupy';
+import { odswiezDostep, useDostep } from '@/state/dostep';
 import { zapiszBlad } from '@/platform/dziennik';
 import { zegarTelefonu } from '@/platform/zegar';
 import { useSettings } from '@/state/settings';
@@ -48,12 +54,20 @@ interface Record_ {
 const emptyGrid = () => Array.from({ length: 169 }, () => false);
 const RODZAJ: Record<SessionMode, RodzajSesji> = { lesson: 'lekcja', review: 'powtorki', exam: 'test_modulu', practice: 'sesja' };
 const noweId = () => `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
-type Stan = { stan: 'ladowanie' } | { stan: 'pusta' } | { stan: 'blad' } | { stan: 'gotowa'; sesja: Sesja };
+type Stan =
+  | { stan: 'ladowanie' }
+  | { stan: 'pusta' }
+  | { stan: 'blad' }
+  | { stan: 'start'; limit: Limit; zalegle: number } // ekran startu z licznikiem dnia (BR-LIM-001)
+  | { stan: 'zakup' } // stan przepływu przy wyczerpanym limicie (BR-LIM-001, moduly.md „— start / limit wyczerpany”)
+  | { stan: 'gotowa'; sesja: Sesja };
 
 /**
  * Sesja zadań jako aktywność (ADR 0010, część 5): wejście wznawia aktywność w toku (te same zadania, D-248) albo zaczyna nową;
  * każda odpowiedź zapisana przed pokazaniem oceny; błąd zapisu → komunikat, odpowiedź do ponowienia (tlo-i-bledy.md §4).
- * Limit dnia i ekran zakupu: część 5b — do tego czasu start bez limitu (`bezLimitu`, stan przejściowy nazwany w plan-08).
+ * Limit dnia (cz. 5b krok 4, ADR 0007): wznowienie od razu; lekcja i pierwszy test bez ekranu startu; sesja ćwiczeń,
+ * powtórki i test powtórny przez `EkranStartu` z licznikiem; wyczerpany limit → `EkranZakupu` jako stan przepływu.
+ * „Zakończ” porzuca aktywność w toku (moduly.md `porzuc`); odpowiedzi zostają zapisane.
  */
 export default function SessionScreen() {
   const { mode = 'lesson', lessonId, moduleId } = useLocalSearchParams<{ mode?: SessionMode; lessonId?: string; moduleId?: string }>();
@@ -62,10 +76,11 @@ export default function SessionScreen() {
   const tk = useTokens();
   const { t } = useTranslation();
   const haptics = useSettings((s) => s.haptics);
+  const pro = useDostep((s) => s.pro);
   const exam = mode === 'exam';
   const trescId = mode === 'lesson' ? (lessonId ?? null) : mode === 'exam' ? (moduleId ?? null) : null;
 
-  const otworz = useCallback(async (): Promise<Stan> => {
+  const otworz = useCallback(async (limit: Limit): Promise<Stan> => {
     const [seenW, kartyW, testyW, faktyW] = await Promise.all([zadaniaZTestow(port), odczytajKarty(port), wynikiTestow(port), czytajFaktyKursu(port)]);
     if (!seenW.ok || !kartyW.ok || !testyW.ok || !faktyW.ok) return { stan: 'blad' };
     const seen = new Set(seenW.wartosc);
@@ -96,13 +111,27 @@ export default function SessionScreen() {
       return buildFamilySession(familyRows(families), families, rng, 2, ctx);
     };
     const r = await otworzSesje(port, {
-      rodzaj: RODZAJ[mode], trescId, limit: { bezLimitu: true },
+      rodzaj: RODZAJ[mode], trescId, limit,
       pierwszePodejscieTestu: !testyW.wartosc.some((w) => w.modulId === moduleId),
       buduj, wiersz: (id) => getDrillById(db, id), ctx, zegar: { ...zegarTelefonu, teraz: () => teraz, dzienLokalny }, noweId,
     });
-    if (!r.ok) return { stan: 'blad' };
+    if (!r.ok) return r.powod === 'limit_wyczerpany' ? { stan: 'zakup' } : { stan: 'blad' };
     return r.wartosc ? { stan: 'gotowa', sesja: r.wartosc } : { stan: 'pusta' };
   }, [db, port, mode, lessonId, moduleId, trescId]);
+
+  // Wejście: wznowienie i aktywności poza limitem od razu, pozostałe przez ekran startu (wejscieStartu.ts).
+  const wejdz = useCallback(async (): Promise<Stan> => {
+    const [testyW, kartyW] = await Promise.all([wynikiTestow(port), odczytajKarty(port)]);
+    if (!testyW.ok || !kartyW.ok) return { stan: 'blad' };
+    const p = await przygotujStart(port, {
+      rodzaj: RODZAJ[mode], trescId, pierwszePodejscieTestu: !testyW.wartosc.some((w) => w.modulId === moduleId), pro,
+      zegar: { ...zegarTelefonu, dzienLokalny },
+    });
+    if (!p.ok) return { stan: 'blad' };
+    if (p.wartosc.akcja !== 'ekran_startu') return otworz(p.wartosc.limit);
+    const teraz = Date.now();
+    return { stan: 'start', limit: p.wartosc.limit, zalegle: kartyW.wartosc.filter((k) => k.termin_ms <= teraz).length };
+  }, [port, mode, trescId, moduleId, pro, otworz]);
 
   const [stan, ustawStan] = useState<Stan>({ stan: 'ladowanie' });
   const [idx, setIdx] = useState(0);
@@ -129,19 +158,40 @@ export default function SessionScreen() {
     setStartedAt(Date.now());
   };
 
-  const zaladuj = useCallback(() => {
+  const zaladuj = useCallback((wejscie: () => Promise<Stan> = wejdz) => {
     ustawStan({ stan: 'ladowanie' });
-    void otworz()
+    void wejscie()
       .catch((): Stan => ({ stan: 'blad' })) // wyjątek przy budowie zestawu: komunikat z ponowieniem, nie pusty ekran
       .then((s) => {
         if (s.stan === 'blad') zapiszBlad('odczyt_nieudany', 'sesja');
         ustawStan(s);
         setIdx(s.stan === 'gotowa' ? s.sesja.odpowiedzi.length : 0); // wznowienie: pierwszy krok bez odpowiedzi
       });
-  }, [otworz]);
+  }, [wejdz]);
   useEffect(() => {
     zaladuj();
-  }, [zaladuj]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- wejście raz na otwarcie ekranu; zmiana dostępu odświeża przez onDostep
+  }, [db, port, mode, lessonId, moduleId]);
+
+  // dostęp z nasłuchu od startu (D-247; np. zakup „oczekuje” zakończony zgodą rodzica) zamyka stan zakupu bez ponownego uruchomienia
+  useEffect(() => {
+    if (pro && stan.stan === 'zakup') zaladuj();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- reakcja tylko na zmianę dostępu
+  }, [pro]);
+
+  // „Zakończ” (słownik 04, F-07): aktywność w toku porzucona, odpowiedzi zapisane; błąd zapisu → wpis w dzienniku i wyjście
+  // (aktywność zostaje w toku i wznowi się przy następnym wejściu).
+  const zakoncz = useCallback(() => {
+    const s = stan.stan === 'gotowa' ? stan.sesja : null;
+    if (!s || s.odpowiedzi.length >= s.items.length) {
+      router.back();
+      return;
+    }
+    void porzucAktywnosc(port, s.id, Date.now()).then((w) => {
+      if (!w.ok) zapiszBladPostepu(w.powod, 'sesja');
+      router.back();
+    });
+  }, [stan, port]);
 
   const next = useCallback(() => {
     resetInputs();
@@ -185,12 +235,47 @@ export default function SessionScreen() {
     zaladuj();
   };
 
+  if (stan.stan === 'start' && RODZAJ[mode] !== 'lekcja') {
+    const limit = stan.limit;
+    return (
+      <EkranStartu
+        rodzaj={RODZAJ[mode] === 'powtorki' ? 'powtorki' : RODZAJ[mode] === 'test_modulu' ? 'test_modulu' : 'sesja'}
+        limit={limit}
+        strefa={zegarTelefonu.strefa()}
+        zaleglePowtorki={stan.zalegle}
+        onStart={() => zaladuj(() => otworz(limit))}
+        onLimitWyczerpany={() => ustawStan({ stan: 'zakup' })}
+        onWrocDoLekcji={() => router.back()}
+      />
+    );
+  }
+  if (stan.stan === 'zakup') {
+    return (
+      <EkranZakupu
+        sklep={sklepAplikacji()}
+        onDostep={() => {
+          // dostęp z odczytu sklepu (ten sam co nasłuch od startu, D-247), potem ponowne wejście bez licznika
+          void odswiezDostep(port, sklepAplikacji(), Date.now()).then((d) => {
+            useDostep.setState({ pro: d });
+            zaladuj();
+          });
+        }}
+        onZamknij={() => router.back()}
+        onWrocDoLekcji={() => router.back()}
+        otworzWarunki={() => void Linking.openURL(ADRES_WARUNKOW)}
+        otworzPrywatnosc={() => {
+          if (ADRES_PRYWATNOSCI) void Linking.openURL(ADRES_PRYWATNOSCI);
+        }}
+      />
+    );
+  }
+
   if (stan.stan === 'ladowanie') return <Screen>{null}</Screen>;
   if (stan.stan === 'blad') {
     return (
       <Screen>
         <Muted>{t('postep.odczytNieudany')}</Muted>
-        <Button label={t('postep.ponow')} onPress={zaladuj} />
+        <Button label={t('postep.ponow')} onPress={() => zaladuj()} />
         <Button label={t('session.close')} variant="ghost" onPress={() => router.back()} />
       </Screen>
     );
@@ -248,8 +333,8 @@ export default function SessionScreen() {
   return (
     <Screen scrollEnabled={!painting}>
       <View style={styles.top}>
-        <Pressable accessibilityRole="button" onPress={() => router.back()} hitSlop={12}>
-          <Text style={[styl.tresc, { color: tk.link, fontWeight: '600' }]}>{t('session.close')}</Text>
+        <Pressable accessibilityRole="button" onPress={zakoncz} hitSlop={12}>
+          <Text style={[styl.tresc, { color: tk.link, fontWeight: '600' }]}>{t('session.end')}</Text>
         </Pressable>
         <Muted>{exam ? t('exam.of', { n: idx + 1, total: items.length }) : t('session.of', { n: idx + 1, total: items.length })}</Muted>
       </View>

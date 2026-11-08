@@ -10,6 +10,7 @@ jest.mock('expo-iap', () => ({
   ErrorCode: { UserCancelled: 'user-cancelled', Pending: 'pending', DeferredPayment: 'deferred-payment', NetworkError: 'network-error' },
   initConnection: jest.fn(() => Promise.resolve(true)),
   getAvailablePurchases: jest.fn(() => Promise.resolve([])),
+  subscriptionStatusIOS: jest.fn(() => Promise.resolve([])),
   fetchProducts: jest.fn(() => Promise.resolve([])),
   requestPurchase: jest.fn(() => Promise.resolve(null)),
   restorePurchases: jest.fn(() => Promise.resolve()),
@@ -184,5 +185,73 @@ describe('wynik zakupu przez nasłuch (expo-iap 6.4.2 index.d.ts: „The result 
     odepnij();
     expect(I.purchaseUpdatedListener!.mock.results[0]!.value.remove).toHaveBeenCalled();
     expect(I.purchaseErrorListener!.mock.results[0]!.value.remove).toHaveBeenCalled();
+  });
+});
+
+// D-246 (08-F05): karencja płatności i limit czasu jak Trening lib/store-native.ts:38–39, :64–78 (odczyt 2026-11-08);
+// expo-iap 6.4.2: subscriptionStatusIOS(sku: string) → SubscriptionStatusIOS[] (renewalInfo.gracePeriodExpirationDate).
+describe('karencja płatności i limit czasu (D-246)', () => {
+  it('subskrypcja bez aktywnej transakcji w karencji → transakcja z końcem karencji; dostęp do końca karencji', async () => {
+    I.getAvailablePurchases!.mockResolvedValueOnce([]);
+    I.subscriptionStatusIOS!.mockImplementation((sku: string) =>
+      Promise.resolve(sku === ROK ? [{ state: 'inGracePeriod', renewalInfo: { gracePeriodExpirationDate: TERAZ + 500 } }] : []));
+    const o = await utworzSklep().odczyt();
+    expect(o).toEqual({ ok: true, transakcje: [{ produkt: ROK, wygasaMs: TERAZ + 500, odebrana: false }] });
+    expect(decyduj(o).dostep).toBe(true);
+    expect(I.subscriptionStatusIOS).not.toHaveBeenCalledWith(DOZYWOTNI);
+    I.subscriptionStatusIOS!.mockImplementation(() => Promise.resolve([]));
+  });
+  it('status odwołany albo bez daty karencji → bez wpisu; subskrypcja z aktywną transakcją → bez zapytania o status', async () => {
+    I.getAvailablePurchases!.mockResolvedValueOnce([zakup(KWARTAL!, { expirationDateIOS: TERAZ + 9 })]);
+    I.subscriptionStatusIOS!.mockImplementation(() => Promise.resolve([{ state: 'revoked', renewalInfo: { gracePeriodExpirationDate: TERAZ + 500 } }, { state: 'expired', renewalInfo: null }]));
+    const o = await utworzSklep().odczyt();
+    expect(o).toEqual({ ok: true, transakcje: [{ produkt: KWARTAL, wygasaMs: TERAZ + 9, odebrana: false }] });
+    expect(I.subscriptionStatusIOS).not.toHaveBeenCalledWith(KWARTAL);
+    I.subscriptionStatusIOS!.mockImplementation(() => Promise.resolve([]));
+  });
+  it('błąd zapytania o status: bez żadnej transakcji → { ok: false } (nie wiadomo, czy karencja); z transakcją → odczyt bez karencji', async () => {
+    I.subscriptionStatusIOS!.mockImplementation(() => Promise.reject(new Error('status')));
+    I.getAvailablePurchases!.mockResolvedValueOnce([]);
+    expect(await utworzSklep().odczyt()).toEqual({ ok: false });
+    I.getAvailablePurchases!.mockResolvedValueOnce([zakup(DOZYWOTNI!)]);
+    expect(await utworzSklep().odczyt()).toEqual({ ok: true, transakcje: [{ produkt: DOZYWOTNI, wygasaMs: null, odebrana: false }] });
+    I.subscriptionStatusIOS!.mockImplementation(() => Promise.resolve([]));
+  });
+  it('sklep nie odpowiada w SKLEP_LIMIT_CZASU_MS: odczyt → { ok: false }, produkty → blad, przywróć → blad (pamięć bez zmian, D-209)', async () => {
+    jest.useFakeTimers();
+    try {
+      const nigdy = () => new Promise<never>(() => undefined);
+      I.getAvailablePurchases!.mockImplementationOnce(nigdy);
+      const o = utworzSklep().odczyt();
+      await jest.advanceTimersByTimeAsync(KONFIGURACJA.SKLEP_LIMIT_CZASU_MS + 1);
+      expect(await o).toEqual({ ok: false });
+      I.fetchProducts!.mockImplementationOnce(nigdy);
+      const p = utworzSklep().produkty();
+      await jest.advanceTimersByTimeAsync(KONFIGURACJA.SKLEP_LIMIT_CZASU_MS + 1);
+      expect(await p).toEqual({ ok: false, powod: 'blad' });
+      I.restorePurchases!.mockImplementationOnce(nigdy);
+      const r = utworzSklep().przywroc(TERAZ);
+      await jest.advanceTimersByTimeAsync(KONFIGURACJA.SKLEP_LIMIT_CZASU_MS + 1);
+      expect(await r).toBe('blad');
+      I.initConnection!.mockImplementationOnce(nigdy);
+      const k = utworzSklep().kup(ROK!);
+      await jest.advanceTimersByTimeAsync(KONFIGURACJA.SKLEP_LIMIT_CZASU_MS + 1);
+      expect(await k).toBe('blad');
+    } finally {
+      jest.useRealTimers();
+    }
+  });
+  it('limit czasu nie obejmuje samego zakupu (okno płatności czeka na użytkownika, jak Trening :111)', async () => {
+    jest.useFakeTimers();
+    try {
+      let oddaj: (v: unknown) => void = () => undefined;
+      I.requestPurchase!.mockImplementationOnce(() => new Promise((res) => { oddaj = res; }));
+      const k = utworzSklep().kup(ROK!);
+      await jest.advanceTimersByTimeAsync(KONFIGURACJA.SKLEP_LIMIT_CZASU_MS * 3);
+      oddaj(zakup(ROK!));
+      expect(await k).toBe('zakonczony');
+    } finally {
+      jest.useRealTimers();
+    }
   });
 });

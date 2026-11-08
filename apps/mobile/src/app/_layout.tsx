@@ -18,6 +18,8 @@ import { SQLiteProvider, useSQLiteContext } from 'expo-sqlite';
 import { getDrillById, getLessonSummaries, getModules } from '@/data/content/repo';
 import PierwszeUruchomienie from '@/features/ocena-poziomu/PierwszeUruchomienie';
 import { zegarTelefonu } from '@/platform/zegar';
+import { sklepAplikacji } from '@/platform/zakupy';
+import { startDostepu } from '@/state/dostep';
 
 void SplashScreen.preventAutoHideAsync();
 
@@ -61,6 +63,7 @@ function usePostep(): StanPostepu & { ponow: () => void } {
   useEffect(() => {
     let aktualny = true;
     let otwarty: PortBazy | null = null;
+    let odepnijDostep: (() => void) | null = null;
     void startPostepuExpo().then(async (w) => {
       if (!w.ok) {
         if (aktualny) ustaw({ stan: 'blad' });
@@ -72,10 +75,13 @@ function usePostep(): StanPostepu & { ponow: () => void } {
         return;
       }
       if (__DEV__) await kontrolaK04(otwarty);
+      // dostęp od startu (D-247): pamięć → nasłuch transakcji → odczyt sklepu
+      odepnijDostep = startDostepu(otwarty, sklepAplikacji(), Date.now);
       ustaw({ stan: 'ok', port: otwarty });
     });
     return () => {
       aktualny = false;
+      odepnijDostep?.();
       if (otwarty) void otwarty.zamknij();
     };
   }, [proba]);
