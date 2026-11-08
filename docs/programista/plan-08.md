@@ -313,7 +313,7 @@ Dwa P1, oba potwierdzone u źródła i poprawione w d950488: P1-1 `kup` zwracał
 |---|---|
 | nowe zachowania z testem czerwonym przed kodem | 7 nowych plików testów (39 testów), czerwień na asercjach po zaślepkach zgodnych z typem (fragmenty w commitach); kontrole K-07, K-09, R-56 przeniesione do `tests/kontrole` w commitach, które je zazieleniły |
 | testy nieosłabione | zmiany istniejących testów z powodem: `HelpScreen.test` (atrapa dziennika zamiast Sentry; RN 0.88 `openURL` → `Promise<void>`), `engine.test` (usunięty przypadek trybu na czas, ADR 0011), usunięte testy usuniętego kodu (ADR 0011, ADR 0009) |
-| mutacje (D-172) | 22 ręczne mutanty kroków 1–7 + 4 testy P1-1; 21/21 zabitych po dopisaniu asercji „dożywotni z datą końca” (5be9c14) |
+| mutacje (D-172) | 21 ręcznych mutantów kroków 1–7 (przed poprawkami P1); 21/21 zabitych po dopisaniu asercji „dożywotni z datą końca” (5be9c14) |
 | pełny zestaw | `pnpm run ci` kod 0 (d950488): srs 21, jezyki 136, poker-core 155, domena 310, postep 61, mobile 150, content-build 124, preflop-solver 43, kontrole 8; `pnpm k08` bez braków |
 | typecheck, lint | `pnpm typecheck` w `pnpm run ci` kod 0; lint: `expo lint` nieuruchamiany (kod z npm; jak w częściach 1–3) |
 | `git diff --cached` | przejrzany przed każdym commitem; bez sekretów (usunięte puste pola Sentry) |
