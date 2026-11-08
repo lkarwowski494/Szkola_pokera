@@ -14,11 +14,9 @@
       "supportsTablet": false,
       "infoPlist": { "ITSAppUsesNonExemptEncryption": false, "CFBundleAllowMixedLocalizations": true },
       "privacyManifests": {
-        "NSPrivacyCollectedDataTypes": [
-          { "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeCrashData", "NSPrivacyCollectedDataTypeLinked": false, "NSPrivacyCollectedDataTypeTracking": false, "NSPrivacyCollectedDataTypePurposes": ["NSPrivacyCollectedDataTypePurposeAppFunctionality"] },
-          { "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypePerformanceData", "NSPrivacyCollectedDataTypeLinked": false, "NSPrivacyCollectedDataTypeTracking": false, "NSPrivacyCollectedDataTypePurposes": ["NSPrivacyCollectedDataTypePurposeAppFunctionality"] },
-          { "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeOtherDiagnosticData", "NSPrivacyCollectedDataTypeLinked": false, "NSPrivacyCollectedDataTypeTracking": false, "NSPrivacyCollectedDataTypePurposes": ["NSPrivacyCollectedDataTypePurposeAppFunctionality"] }
-        ],
+        "NSPrivacyCollectedDataTypes": [],
+        "NSPrivacyTracking": false,
+        "NSPrivacyTrackingDomains": [],
         "NSPrivacyAccessedAPITypes": [
           { "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults", "NSPrivacyAccessedAPITypeReasons": ["CA92.1"] },
           { "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategorySystemBootTime", "NSPrivacyAccessedAPITypeReasons": ["35F9.1"] },
@@ -42,11 +40,9 @@
       [
         "expo-splash-screen",
         { "backgroundColor": "#0A1430", "image": "./assets/images/splash-icon.png", "imageWidth": 180 }
-      ],
-      ["@sentry/react-native/expo", { "url": "https://de.sentry.io/", "organization": "", "project": "" }]
+      ]
     ],
     "locales": { "pl": "./locales/systemowe/pl.json" },
-    "extra": { "sentry": { "dsn": "" } },
     "experiments": { "typedRoutes": true, "reactCompiler": true }
   }
 }

@@ -3,7 +3,6 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "dependencies": {
-    "@sentry/react-native": "~7.11.0",
     "expo": "~57.0.26",
     "expo-asset": "~57.0.18",
     "expo-constants": "~57.0.20",
@@ -13,7 +12,6 @@
     "expo-haptics": "~57.0.3",
     "expo-linking": "~57.0.11",
     "expo-localization": "~57.0.2",
-    "expo-observe": "~57.0.24",
     "expo-router": "~57.0.24",
     "expo-splash-screen": "~57.0.9",
     "expo-sqlite": "~57.0.3",

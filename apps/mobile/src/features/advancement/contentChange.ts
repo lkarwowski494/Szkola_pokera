@@ -1,5 +1,5 @@
 import type { AreaInput } from '@szkola/srs';
-import { reportError } from '@/observability/crashReports';
+import { zapiszBlad } from '@/platform/dziennik';
 
 /** Klucz w tabeli settings (user.db): treść, którą użytkownik ostatnio widział we wskaźniku. */
 export const SEEN_CONTENT_KEY = 'advancement.seenContent';
@@ -24,9 +24,9 @@ export function parseSeen(value: string | null): SeenContent | null {
     const v = JSON.parse(value) as Partial<SeenContent>;
     if (typeof v.hash !== 'string' || !Array.isArray(v.skills)) return null;
     return { hash: v.hash, skills: v.skills.filter((s): s is string => typeof s === 'string') };
-  } catch (e) {
-    // uszkodzony zapis w user.db: zaczynamy od nowa, ale zgłaszamy (w komunikacie tylko hash treści i nazwy umiejętności)
-    reportError(e);
+  } catch {
+    // uszkodzony zapis w user.db: zaczynamy od nowa, z wpisem w dzienniku lokalnym (sam kod, bez treści; ADR 0009)
+    zapiszBlad('odczyt_nieudany', 'advancement');
     return null;
   }
 }

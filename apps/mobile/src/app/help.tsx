@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Linking, Text, View } from 'react-native';
 import { Button, Muted, Screen, Surface, Title } from '@/components/ui';
 import { HELPLINES, type AppHelpline } from '@/data/content/helplines.generated';
-import { reportError } from '@/observability/crashReports';
+import { zapiszBlad } from '@/platform/dziennik';
 import { space, type as tp, useTokens } from '@/theme/tokens';
 
 const host = (url: string) => url.replace(/^https:\/\//, '').replace(/^www\./, '').replace(/\/$/, '');
@@ -32,9 +32,9 @@ export default function HelpScreen() {
 
   const open = (target: string) => {
     setFailed(null);
-    Linking.openURL(target).catch((e: unknown) => {
-      // np. symulator bez aplikacji Telefon; błąd bez danych osobowych (sam adres tel:/https z pliku treści)
-      reportError(e);
+    Linking.openURL(target).catch(() => {
+      // np. symulator bez aplikacji Telefon; w dzienniku sam kod, bez adresu (ADR 0009)
+      zapiszBlad('link_niedostepny', 'help');
       setFailed(target);
     });
   };

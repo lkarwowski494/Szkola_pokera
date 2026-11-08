@@ -10,15 +10,13 @@ import { Text, useColorScheme, View } from 'react-native';
 import migrations from '../../drizzle/migrations';
 import { RenderErrorScreen } from '@/components/RenderErrorScreen';
 import { userDb } from '@/data/user/db';
-import { CrashBoundary, initCrashReports, reportError } from '@/observability/crashReports';
-import { ObserveRoot } from '@/observability/observe';
+import { GranicaBledu } from '@/components/GranicaBledu';
+import { zapiszBlad } from '@/platform/dziennik';
 import { useSettings } from '@/state/settings';
 import { space, type as tp, useTokens } from '@/theme/tokens';
 import { przygotujTrescExpo } from '@/data/tresc/startTresci';
 
 void SplashScreen.preventAutoHideAsync();
-// przed zamontowaniem pierwszego ekranu; bez DSN w app.json Sentry zostaje wyłączone
-initCrashReports();
 
 type StanTresci = { stan: 'ladowanie' } | { stan: 'ok'; plik: string } | { stan: 'blad' };
 
@@ -33,7 +31,7 @@ function useTresc(): StanTresci & { ponow: () => void } {
     let aktualny = true;
     void przygotujTrescExpo(i18n.language).then((w) => {
       if (!aktualny) return;
-      if (!w.ok) reportError(new Error(`Treść niedostępna (${w.powod}, ${i18n.language})`));
+      if (!w.ok) zapiszBlad('tresc_niedostepna');
       ustaw(w.ok ? { stan: 'ok', plik: w.wartosc.plik } : { stan: 'blad' });
     });
     return () => {
@@ -47,16 +45,7 @@ function useTresc(): StanTresci & { ponow: () => void } {
   return { ...stan, ponow };
 }
 
-/** Korzeń: EAS Observe mierzy pierwsze wyrenderowanie (metryki startu, ADR-17). */
-export default function Root() {
-  return (
-    <ObserveRoot>
-      <RootLayout />
-    </ObserveRoot>
-  );
-}
-
-function RootLayout() {
+export default function RootLayout() {
   const scheme = useColorScheme();
   const tk = useTokens();
   const { success, error } = useMigrations(userDb, migrations);
@@ -70,7 +59,7 @@ function RootLayout() {
       void SplashScreen.hideAsync();
     }
     if (error) {
-      reportError(error);
+      zapiszBlad('migracja_nieudana');
       void SplashScreen.hideAsync();
     }
   }, [success, error, loadSettings, trescGotowa]);
@@ -90,8 +79,8 @@ function RootLayout() {
 
   return (
     <ThemeProvider value={theme}>
-      {/* błąd renderowania: zgłoszenie z drzewem komponentów (Sentry) i ekran z ponowieniem zamiast zamknięcia aplikacji */}
-      <CrashBoundary fallback={({ resetError }) => <RenderErrorScreen onRetry={resetError} />}>
+      {/* błąd renderowania: wpis w dzienniku lokalnym (ADR 0009) i ekran z ponowieniem zamiast zamknięcia aplikacji */}
+      <GranicaBledu fallback={({ resetError }) => <RenderErrorScreen onRetry={resetError} />}>
         {/* Plik treści przygotowany przez useTresc (bez kopiowania przy każdym starcie, ADR 0005 pkt 2). */}
         <SQLiteProvider databaseName={tresc.plik} options={{ useNewConnection: false }}>
           <Stack screenOptions={{ headerBackTitle: 'Wróć', headerTintColor: tk.felt }}>
@@ -108,7 +97,7 @@ function RootLayout() {
             <Stack.Screen name="play/review" options={{ presentation: 'fullScreenModal', headerShown: false, gestureEnabled: false }} />
           </Stack>
         </SQLiteProvider>
-      </CrashBoundary>
+      </GranicaBledu>
     </ThemeProvider>
   );
 }

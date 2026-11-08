@@ -3,8 +3,8 @@ import { Button } from '@/components/ui';
 import { space, type as tp, useTokens } from '@/theme/tokens';
 
 /**
- * Ekran zastępczy po błędzie renderowania (granica błędów EAS Observe w _layout). Bez treści błędu: użytkownik nic
- * z nią nie zrobi, a błąd trafia do raportu awarii.
+ * Ekran zastępczy po błędzie renderowania (granica błędów `GranicaBledu` w _layout). Bez treści błędu: użytkownik nic
+ * z nią nie zrobi, a kod błędu trafia do dziennika lokalnego (ADR 0009).
  */
 export function RenderErrorScreen({ onRetry }: { onRetry: () => void }) {
   const tk = useTokens();

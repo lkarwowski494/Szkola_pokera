@@ -5,8 +5,7 @@
   },
   "build": {
     "base": {
-      "pnpm": "10.28.0",
-      "env": { "SENTRY_ALLOW_FAILURE": "true" }
+      "pnpm": "10.28.0"
     },
     "development": {
       "extends": "base",

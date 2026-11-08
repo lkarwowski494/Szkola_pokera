@@ -13,16 +13,16 @@ jest.mock('expo-localization', () => ({
   getLocales: () => [{ languageTag: 'pl-PL', languageCode: 'pl', regionCode: mockRegion }],
 }));
 
-// zgłoszenia idą przez moduł raportów awarii (bez DSN w testach Sentry jest wyłączone, więc sprawdzamy sam moduł)
-jest.mock('@/observability/crashReports', () => ({ reportError: jest.fn() }));
-const crash = jest.requireMock<{ reportError: jest.Mock }>('@/observability/crashReports');
+// zgłoszenia idą do dziennika lokalnego (ADR 0009; dawniej Sentry przez observability/crashReports)
+jest.mock('@/platform/dziennik', () => ({ zapiszBlad: jest.fn() }));
+const crash = jest.requireMock<{ zapiszBlad: jest.Mock }>('@/platform/dziennik');
 
 describe('ekran Pomoc', () => {
   let openURL: jest.SpyInstance;
   beforeEach(() => {
     mockRegion = 'US';
     openURL = jest.spyOn(Linking, 'openURL').mockResolvedValue(true);
-    crash.reportError.mockClear();
+    crash.zapiszBlad.mockClear();
   });
   afterEach(() => openURL.mockRestore());
 
@@ -51,6 +51,6 @@ describe('ekran Pomoc', () => {
     await render(<HelpScreen />);
     await fireEvent.press(screen.getByLabelText('Gambling Therapy: otwórz gamblingtherapy.org w przeglądarce'));
     expect(await screen.findByText('Nie udało się otworzyć: https://www.gamblingtherapy.org/. Wybierz numer albo adres ręcznie.')).toBeTruthy();
-    expect(crash.reportError).toHaveBeenCalledWith(err);
+    expect(crash.zapiszBlad).toHaveBeenCalledWith('link_niedostepny', 'help');
   });
 });
