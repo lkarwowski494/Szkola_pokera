@@ -1,3 +1,4 @@
+import { KONFIGURACJA } from '@szkola/domena';
 import type { ZadaniePlanu } from '@szkola/domena';
 import { interleave } from '@szkola/srs';
 import { createRng, pick, shuffle, type Rng } from '@szkola/poker-core';
@@ -6,7 +7,7 @@ import { instantiate, isGenerative, type DrillContext } from '@/features/drills/
 import { EXAM_MAX_PAINT, EXAM_MAX_PER_GENERATOR, EXAM_MODULE_SHARE, EXAM_SIZE } from '@/features/drills/thresholds';
 import type { DrillInstance } from '@/features/drills/types';
 
-export type SessionMode = 'lesson' | 'review' | 'exam';
+export type SessionMode = 'lesson' | 'review' | 'exam' | 'practice';
 
 // D-248: każde losowanie zadania ma własne ziarno z generatora sesji, zapisane w zadaniu — plan aktywności odtwarza zestaw.
 function losuj(row: DrillRow, rng: Rng, count: number | undefined, ctx?: DrillContext): DrillInstance[] {
@@ -174,4 +175,23 @@ export function odtworzZestaw(zadania: readonly ZadaniePlanu[], wiersz: (id: str
     i += n;
   }
   return out;
+}
+
+const ZADANIA_Z_RODZINY = 2; // jak powtórki (buildFamilySession, perFamily = 2)
+/**
+ * Sesja ćwiczeń z „Dziś” (PR-03, D-260): rodziny zadań z podanych lekcji (ukończone + następna — wybiera wywołujący),
+ * losowo SESJA_LICZBA_ZADAN / 2 rodzin (więcej, gdy rodziny dają mniej zadań), po 2 zadania, przeplatane;
+ * zestaw ucięty do SESJA_LICZBA_ZADAN.
+ */
+export function buildPracticeSession(rows: readonly DrillRow[], rng: Rng, ctx?: DrillContext): DrillInstance[] {
+  const n = KONFIGURACJA.SESJA_LICZBA_ZADAN;
+  const wszystkie = shuffle(rng, [...new Set(rows.map((r) => r.family))]);
+  const ziarno = Math.floor(rng() * 0x7fffffff);
+  // rodzina z jednym zadaniem stałym daje 1 zadanie (bez powtórki w sesji) — wtedy dochodzi następna rodzina
+  let wynik: DrillInstance[] = [];
+  for (let k = Math.ceil(n / ZADANIA_Z_RODZINY); ; k++) {
+    wynik = buildFamilySession(rows, wszystkie.slice(0, k), createRng(ziarno), ZADANIA_Z_RODZINY, ctx);
+    if (wynik.length >= n || k >= wszystkie.length) break;
+  }
+  return wynik.slice(0, n);
 }

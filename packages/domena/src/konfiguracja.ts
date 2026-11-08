@@ -7,6 +7,7 @@ export const KONFIGURACJA = {
   TEST_MODULU_PROG: 0.85, // D-106
   TEST_MODULU_UDZIAL_MODULU: 2 / 3, // decyzja właściciela 3.10.2026 (thresholds.ts:46)
   OCENA_POZIOMU_MAKS_PYTAN: 8, // D-105
+  SESJA_LICZBA_ZADAN: 16, // D-260: 8 rodzin × 2 zadania, jak powtórki w features/session (obecna wartość, moduly.md „Konfiguracja”)
   OCENA_POZIOMU_CZAS_S: 120, // D-105, cel projektowy [OCENA]
   OCENA_PROG_DOPUSZCZALNE: 0.035, // RD-11, D-143
   OCENA_PROG_MIESZANA_DOLNY: 0.25, // ADR-22, B-044

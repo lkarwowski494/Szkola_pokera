@@ -1,12 +1,48 @@
 {
   "tabs": {
-    "learn": "Nauka",
     "review": "Powtórki",
     "rules": "Reguły",
-    "progress": "Postęp"
+    "progress": "Postęp",
+    "today": "Dziś"
+  },
+  "today": {
+    "title": "Dziś",
+    "lessonOf": "{{modul}}, lekcja {{nr}}",
+    "startLesson": "Zacznij lekcję",
+    "continueLesson": "Kontynuuj lekcję",
+    "courseDone": "Wszystkie lekcje są ukończone. Ćwiczenia i powtórki działają dalej.",
+    "exercises": "Ćwiczenia",
+    "practice": "Sesja ćwiczeń",
+    "practiceHint": "Decyzje z oceną i wyjaśnieniem",
+    "reviews": "Powtórki",
+    "reviewsDue_one": "{{count}} na dziś",
+    "reviewsDue_few": "{{count}} na dziś",
+    "reviewsDue_many": "{{count}} na dziś",
+    "reviewsDue_other": "{{count}} na dziś",
+    "allLessons": "Wszystkie lekcje"
+  },
+  "start": {
+    "title": {
+      "practice": "Sesja ćwiczeń",
+      "reviews": "Powtórki",
+      "scenario": "Scenariusz rozdania",
+      "exam": "Egzamin modułu"
+    },
+    "counter_one": "Dzienny limit: {{count}} darmowa aktywność na dziś.",
+    "counter_few": "Dzienny limit: {{count}} darmowe aktywności na dziś.",
+    "counter_many": "Dzienny limit: {{count}} darmowych aktywności na dziś.",
+    "counter_other": "Dzienny limit: {{count}} darmowej aktywności na dziś.",
+    "renews": "Limit odnowi się o północy ({{godzina}}).",
+    "reviewsWait_one": "Masz {{count}} powtórkę na dziś. Wróci po odnowieniu limitu i niczego nie stracisz.",
+    "reviewsWait_few": "Masz {{count}} powtórki na dziś. Poczekają do odnowienia limitu i niczego nie stracisz.",
+    "reviewsWait_many": "Masz {{count}} powtórek na dziś. Poczekają do odnowienia limitu i niczego nie stracisz.",
+    "reviewsWait_other": "Masz {{count}} powtórki na dziś. Poczekają do odnowienia limitu i niczego nie stracisz.",
+    "alwaysFree": "Lekcje i pierwsze podejście do egzaminu są zawsze darmowe.",
+    "begin": "Zacznij",
+    "fullAccess": "Pełny dostęp",
+    "backToLesson": "Wróć do lekcji"
   },
   "learn": {
-    "title": "Szkoła Pokera",
     "intro": "No-Limit Hold’em od zera. Wybierz dowolną lekcję albo idź po kolei.",
     "recommended": "Polecana kolejność",
     "soon": "W przygotowaniu",

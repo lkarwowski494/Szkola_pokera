@@ -19,7 +19,9 @@ import {
   getExamDrills,
   getExamDrillsBeforeModule,
   getLessonDrills,
+  getLessonSummaries,
   getModuleDrills,
+  getModules,
   getSeenExamDrillsForFamilies,
 } from '@/data/content/repo';
 import { usePortPostepu, zapiszBladPostepu } from '@/data/postep';
@@ -28,7 +30,9 @@ import { pct, t as dt } from '@/features/drills/text.pl';
 import { EXAM_PASS, PAINT_PASS } from '@/features/drills/thresholds';
 import type { ChoiceInstance, DrillAnswer, DrillInstance, DrillOption, GradeResult, NumericInstance, PaintInstance, TextureInstance } from '@/features/drills/types';
 import { odpowiedzWSesji, otworzSesje, type PowodSesji, type RodzajSesji, type Sesja } from '@/features/session/aktywnoscSesji';
-import { buildExamSession, buildFamilySession, buildLessonSession, type SessionMode } from '@/features/session/build';
+import { buildExamSession, buildFamilySession, buildLessonSession, buildPracticeSession, type SessionMode } from '@/features/session/build';
+import { lekcjeDoCwiczen } from '@/features/dzis/widok';
+import { czytajFaktyKursu } from '@/features/kurs/faktyKursu';
 import { zapiszBlad } from '@/platform/dziennik';
 import { zegarTelefonu } from '@/platform/zegar';
 import { useSettings } from '@/state/settings';
@@ -42,7 +46,7 @@ interface Record_ {
 }
 
 const emptyGrid = () => Array.from({ length: 169 }, () => false);
-const RODZAJ: Record<SessionMode, RodzajSesji> = { lesson: 'lekcja', review: 'powtorki', exam: 'test_modulu' };
+const RODZAJ: Record<SessionMode, RodzajSesji> = { lesson: 'lekcja', review: 'powtorki', exam: 'test_modulu', practice: 'sesja' };
 const noweId = () => `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
 type Stan = { stan: 'ladowanie' } | { stan: 'pusta' } | { stan: 'blad' } | { stan: 'gotowa'; sesja: Sesja };
 
@@ -62,8 +66,8 @@ export default function SessionScreen() {
   const trescId = mode === 'lesson' ? (lessonId ?? null) : mode === 'exam' ? (moduleId ?? null) : null;
 
   const otworz = useCallback(async (): Promise<Stan> => {
-    const [seenW, kartyW, testyW] = await Promise.all([zadaniaZTestow(port), odczytajKarty(port), wynikiTestow(port)]);
-    if (!seenW.ok || !kartyW.ok || !testyW.ok) return { stan: 'blad' };
+    const [seenW, kartyW, testyW, faktyW] = await Promise.all([zadaniaZTestow(port), odczytajKarty(port), wynikiTestow(port), czytajFaktyKursu(port)]);
+    if (!seenW.ok || !kartyW.ok || !testyW.ok || !faktyW.ok) return { stan: 'blad' };
     const seen = new Set(seenW.wartosc);
     const teraz = Date.now();
     const ranges = getAllRangeSpots(db);
@@ -71,6 +75,11 @@ export default function SessionScreen() {
     const buduj = (): DrillInstance[] => {
       const rng = createRng(teraz & 0x7fffffff);
       if (mode === 'lesson' && lessonId) return buildLessonSession(getLessonDrills(db, lessonId), rng, ctx);
+      if (mode === 'practice') {
+        // sesja ćwiczeń (PR-03, D-260): lekcje ukończone i następna na ścieżce
+        const lekcje = lekcjeDoCwiczen(getModules(db), getLessonSummaries(db), faktyW.wartosc);
+        return buildPracticeSession(lekcje.flatMap((id) => getLessonDrills(db, id)), rng, ctx);
+      }
       if (mode === 'exam' && moduleId) {
         const src = {
           modulePool: getExamDrills(db, moduleId),

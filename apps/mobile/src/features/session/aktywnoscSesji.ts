@@ -18,7 +18,7 @@ import { odtworzZestaw, zadaniaZestawu } from './build';
  * zapisana przed „Dalej” (odpowiedź + karta FSRS + log w jednej transakcji), ostatnia kończy aktywność; wznowienie po
  * przerwaniu odtwarza ten sam zestaw z planu (D-248) i odpowiedzi z bazy.
  */
-export type RodzajSesji = 'lekcja' | 'powtorki' | 'test_modulu';
+export type RodzajSesji = 'lekcja' | 'powtorki' | 'test_modulu' | 'sesja';
 export interface OdpowiedzSesji { item: DrillInstance; answer: DrillAnswer; grade: GradeResult; elapsedMs: number }
 export interface Sesja {
   id: string;

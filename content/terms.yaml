@@ -865,7 +865,9 @@ session:
   en: session
   def: "Jedno posiedzenie przy pokerze, od rozpoczęcia do zakończenia gry."
   area: mental
+  # „sesja ćwiczeń” to nazwa przepływu PR-03 w interfejsie (makieta roli 04), nie posiedzenie przy pokerze (08 cz. 5b, D-261)
   forms: [sesja, sesji, sesję, sesją, sesje, sesjach, sesjami]
+  skip: [sesja ćwiczeń, sesji ćwiczeń, sesję ćwiczeń, sesją ćwiczeń, sesje ćwiczeń, sesjach ćwiczeń, sesjami ćwiczeń]
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Session: A term used to describe one period or sitting in which a player plays poker.”"
 stakes:
   pl: stawka
