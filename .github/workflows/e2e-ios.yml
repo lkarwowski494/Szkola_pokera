@@ -38,6 +38,9 @@ env:
   # wersja zmierzona 5.10.2026 (4/4 flowy, przebieg 37304275812); instalator czyta MAESTRO_VERSION
   MAESTRO_VERSION: 2.11.0
   MAESTRO_CLI_NO_ANALYTICS: '1'
+  # 08-F03 (D-233): sterownik XCTest po świeżym rozruchu symulatora startuje dłużej niż domyślny czas Maestro (2× „iOS driver
+  # not ready in time” przed pierwszym flowem: 42415740308, 42422522419); wartość jak w Treningu (e2e-ios.yml:207)
+  MAESTRO_DRIVER_STARTUP_TIMEOUT: '480000'
   # build bez sekretów: bez wysyłania map źródeł i dSYM do Sentry (skrypty Xcode z pluginu @sentry/react-native)
   SENTRY_DISABLE_AUTO_UPLOAD: 'true'
 concurrency:

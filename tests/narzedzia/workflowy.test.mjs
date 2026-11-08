@@ -116,3 +116,12 @@ test('testflight.yml: czekanie bramki ≥ limit E2E + 15 min kolejki, a limit za
   assert.ok(czekanieMin >= e2e + 15, `czekanie ${czekanieMin} min < ${e2e} + 15`);
   assert.ok(b['timeout-minutes'] >= Math.ceil(czekanieMin) + 5, `timeout ${b['timeout-minutes']} < ${Math.ceil(czekanieMin)} + 5`);
 });
+
+// 08-F03 (D-233): sterownik XCTest po świeżym rozruchu symulatora startuje dłużej niż domyślny czas Maestro (2× „iOS driver not
+// ready in time” przed pierwszym flowem: przebiegi 42415740308, 42422522419). Wzór Treningu: e2e-ios.yml:207 (480 s, odczyt 2026-11-08).
+test('e2e-ios.yml: MAESTRO_DRIVER_STARTUP_TIMEOUT ≥ 480 000 ms dla obu przebiegów flowów, a limit zadania mieści czekanie na sterownik', () => {
+  const w = json('e2e-ios.yml');
+  const ms = Number(w.env?.MAESTRO_DRIVER_STARTUP_TIMEOUT);
+  assert.ok(ms >= 480000, `MAESTRO_DRIVER_STARTUP_TIMEOUT = ${w.env?.MAESTRO_DRIVER_STARTUP_TIMEOUT}`);
+  assert.ok(w.jobs.e2e['timeout-minutes'] * 60000 > ms, 'limit zadania krótszy niż czekanie na sterownik');
+});
