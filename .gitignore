@@ -6,6 +6,7 @@ web-build/
 .DS_Store
 coverage/
 ios/
+!apps/mobile/modules/*/ios/
 android/
 .env*.local
 npm-debug.*

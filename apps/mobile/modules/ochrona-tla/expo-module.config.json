@@ -1,0 +1,4 @@
+{
+  "platforms": ["apple"],
+  "apple": { "modules": ["OchronaTlaModule"], "podspecPath": "OchronaTla.podspec" }
+}
