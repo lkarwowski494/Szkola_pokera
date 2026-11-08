@@ -540,5 +540,26 @@
     "name": "Polski",
     "selected": "Wybrany",
     "saveFailed": "Nie udało się zapisać wyboru języka. Spróbuj ponownie."
+  },
+  "table": {
+    "label": "Przy stole: {{list}}.",
+    "listAnd": "{{a}} i {{b}}",
+    "seatFold": "{{pos}} {{t:fold|pas}}",
+    "seatRaise": "{{pos}} {{t:raise|przebija}}",
+    "seatHero": "ty na {{pos}} z {{hand}}",
+    "after": "po tobie {{list}}",
+    "pair": "{{t:pair|para}}",
+    "suited": "jeden kolor",
+    "offsuit": "różne kolory",
+    "folded_one": "{{list}} {{t:fold|spasował}}",
+    "folded_few": "{{list}} {{t:fold|spasowali}}",
+    "folded_many": "{{list}} {{t:fold|spasowali}}",
+    "folded_other": "{{list}} {{t:fold|spasowali}}",
+    "raised_one": "{{list}} {{t:raise|przebija}}",
+    "raised_few": "{{list}} {{t:raise|przebijają}}",
+    "raised_many": "{{list}} {{t:raise|przebijają}}",
+    "raised_other": "{{list}} {{t:raise|przebijają}}",
+    "yourCards": "Twoje karty: {{cards}}.",
+    "board": "Na {{t:board|stole}}: {{cards}}."
   }
 }

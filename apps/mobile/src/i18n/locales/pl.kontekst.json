@@ -415,5 +415,18 @@
   "language.name": "Nazwa tego języka w nim samym (lista języków, wiersz w ustawieniach). [08 cz. 5b krok 5, 2026-11-08; tekst do akceptacji 04/06]",
   "language.selected": "Znacznik wybranej opcji na liście języków (czytany po nazwie). [08 cz. 5b krok 5, 2026-11-08; tekst do akceptacji 04/06]",
   "language.saveFailed": "Komunikat po nieudanym zapisie wyboru języka. [08 cz. 5b krok 5, 2026-11-08; tekst do akceptacji 04/06]",
-  "progress.more": "Nagłówek sekcji ze słowniczkiem i Pomocą na ekranie Postęp (ustawienia przeniesione do ekranu Ustawienia). [08 cz. 5b krok 5, 2026-11-08; tekst do akceptacji 04/06]"
+  "progress.more": "Nagłówek sekcji ze słowniczkiem i Pomocą na ekranie Postęp (ustawienia przeniesione do ekranu Ustawienia). [08 cz. 5b krok 5, 2026-11-08; tekst do akceptacji 04/06]",
+  "table.label": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). Etykieta VoiceOver całego stołu; list = części z table.seat*/table.after po przecinku. Ok. 60 znaków. „Przy stole”, nie „Stół” (w słowniku terminów „stół” = karty wspólne, D-275).",
+  "table.listAnd": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). Spójnik ostatniego elementu listy pozycji („BTN, SB i BB”); a = elementy po przecinku, b = ostatni.",
+  "table.seatFold": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). pos = nazwa pozycji (UTG, HJ, CO, BTN, SB, BB — nie tłumaczyć). Gracz spasował.",
+  "table.seatRaise": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). pos = pozycja. Gracz przebił przed tobą (tekst do akceptacji 04/06, 08-F26).",
+  "table.seatHero": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). pos = twoja pozycja, hand = klasa ręki (np. J9o — nie tłumaczyć).",
+  "table.pair": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). Rodzaj ręki pod stołem: para.",
+  "table.suited": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). Rodzaj ręki pod stołem: obie karty w jednym kolorze.",
+  "table.offsuit": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). Rodzaj ręki pod stołem: karty w różnych kolorach.",
+  "table.folded": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). Liczba mnoga: count = liczba graczy, którzy spasowali przed tobą; list = pozycje.",
+  "table.raised": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). Liczba mnoga: count = liczba przebijających przed tobą; list = pozycje (08-F26).",
+  "table.after": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). Gracze, którzy mówią po tobie; list = pozycje. Także stan miejsc graczy, którzy mówią po tobie (zamiast „czeka” — w słowniku terminów „czekanie” = check, D-275).",
+  "table.yourCards": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). Zadanie bez pozycji: twoje karty tekstem pod stołem; cards = np. „J♣ 9♦”.",
+  "table.board": "Użyty w: features/stol/uklad.ts (stół w sesji, 08 cz. 6, D-274). Zadanie bez pozycji: karty wspólne tekstem; cards = np. „10♠ 7♥ 2♣”."
 }
