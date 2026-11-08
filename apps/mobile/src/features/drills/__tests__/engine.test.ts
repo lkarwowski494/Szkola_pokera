@@ -150,6 +150,7 @@ describe('zadania z zakresów solvera', () => {
         ['Pas (fold)', 1 - raise], // t.range.fold z terminem
         ['Przebicie za duże', 0],
       ]);
+      expect(inst.options.map((o) => o.pas === true)).toEqual([false, true, false]); // pas oznaczony (kreskowany w pasku)
     }
   });
 

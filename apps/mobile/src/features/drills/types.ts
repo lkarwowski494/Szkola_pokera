@@ -17,6 +17,8 @@ export interface DrillOption {
   why: string;
   /** Częstość tej akcji w strategii solvera (0–1; zadania z zakresu, 08 cz. 6, D-274): pasek strategii po ocenie. Brak = zadanie bez strategii. */
   czestosc?: number;
+  /** Opcja „pas” w zadaniu z zakresu (kreskowana część paska strategii, 08 cz. 6). */
+  pas?: boolean;
 }
 
 interface InstanceBase {

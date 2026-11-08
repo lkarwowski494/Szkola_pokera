@@ -445,10 +445,15 @@ function rangeDecision(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: 
   const verdict = rangeVerdict(freqs.map((f) => f.f));
   const options: DrillOption[] = freqs.map((f, fi) => {
     const v = verdict[fi]!;
+    // ostatnia pozycja freqs to pas (część „pas” paska strategii jest kreskowana, design-spec „PasekStrategii”)
+    if (fi === freqs.length - 1) return { ...opcjaZakresu(v, f), pas: true };
+    return opcjaZakresu(v, f);
+  });
+  function opcjaZakresu(v: (typeof verdict)[number], f: { name: string; f: number }): DrillOption {
     if (v === 'correct') return { text: f.name, correct: true, why: t.range.right(f.f), czestosc: f.f };
     if (v === 'acceptable') return { text: f.name, correct: false, acceptable: true, why: t.range.acceptable(f.f), czestosc: f.f };
     return { text: f.name, correct: false, why: t.range.wrong(f.f), czestosc: f.f };
-  });
+  }
   // błędne rozmiary dokładamy na końcu listy (kolejność opcji generatora jest stała: grupy, pas, złe rozmiary)
   spot.groups.forEach((g, gi) => {
     const f = freqs[gi]!.f;
