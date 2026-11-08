@@ -56,6 +56,9 @@ describe('odczyt transakcji → OdczytSklepu', () => {
     const o1 = await utworzSklep().odczyt();
     expect(o1).toEqual({ ok: true, transakcje: [{ produkt: DOZYWOTNI, wygasaMs: null, odebrana: false }] });
     expect(decyduj(o1).dostep).toBe(true);
+    // dożywotni z datą końca od sklepu (brzegowe): i tak bez końca — o „bez końca” decyduje lista produktów, nie sklep
+    I.getAvailablePurchases!.mockResolvedValueOnce([zakup(DOZYWOTNI!, { expirationDateIOS: TERAZ - 1 })]);
+    expect(await utworzSklep().odczyt()).toEqual({ ok: true, transakcje: [{ produkt: DOZYWOTNI, wygasaMs: null, odebrana: false }] });
     I.getAvailablePurchases!.mockResolvedValueOnce([zakup(ROK!)]);
     const o2 = await utworzSklep().odczyt();
     expect(o2).toEqual({ ok: true, transakcje: [{ produkt: ROK, wygasaMs: null, odebrana: false }] });
