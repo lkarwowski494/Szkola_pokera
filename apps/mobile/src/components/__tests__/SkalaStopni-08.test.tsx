@@ -4,7 +4,9 @@ import '@/i18n';
 import i18n from 'i18next';
 import { render, screen } from '@testing-library/react-native';
 import { SkalaStopni } from '@/components/SkalaStopni';
+import { StyleSheet } from 'react-native';
 import { etykietaSkali, przedzialySkali } from '@/features/stol/skala';
+import { kolory } from '@/theme/tokeny';
 
 const t = i18n.t.bind(i18n);
 
@@ -14,5 +16,7 @@ it('trzy przedziały ze słowem i zakresem, twój oznaczony (selected), opis dla
   for (const p of przedzialySkali('dopuszczalne', t)) {
     expect(screen.getByText(p.zakres)).toBeTruthy();
     expect(screen.getByTestId(`przedzial-${p.stopien}`).props.accessibilityState).toEqual({ selected: p.twoj });
+    // E2 cz. 6, mutacja M41: twój przedział złotą obwódką, pozostałe nie („złoto znaczy wyłącznie ty”; Jest: motyw jasny)
+    expect(StyleSheet.flatten(screen.getByTestId(`przedzial-${p.stopien}`).props.style).borderColor === kolory.light.gold).toBe(p.twoj);
   }
 });

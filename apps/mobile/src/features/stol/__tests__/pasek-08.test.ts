@@ -2,7 +2,7 @@
 // 08 część 6 krok 4 (D-274): pasek strategii (design-spec „`PasekStrategii`”, D-116; makieta e3 przed-decyzja i po-ocenie).
 import '@/i18n';
 import i18n from 'i18next';
-import { opisPaska, segmentyPaska } from '@/features/stol/pasek';
+import { maStrategie, opisPaska, segmentyPaska } from '@/features/stol/pasek';
 
 const t = i18n.t.bind(i18n);
 const J9O = [
@@ -43,11 +43,20 @@ describe('segmentyPaska', () => {
     ]);
     expect(segmentyPaska(J9O, -1).some((x) => x.twoj)).toBe(false);
   });
+
+  // E2 cz. 6, mutacje M11, M13: pusta lista nie jest strategią; częstości z zaokrągleń (suma ≠ 1) — szerokości nadal sumują się do 1
+  it('pusta lista opcji nie jest strategią; częstości o sumie innej niż 1 normalizowane do szerokości paska', () => {
+    expect(maStrategie([])).toBe(false);
+    expect(segmentyPaska([{ text: 'Pas', czestosc: 0.6 }, { text: 'Przebicie', czestosc: 0.6 }], 0).map((x) => x.szerokosc)).toEqual([0.5, 0.5]);
+  });
 });
 
 describe('opisPaska (VoiceOver)', () => {
   it('jak w makiecie: „Strategia solvera dla J9o: pas 80 procent, przebicie 20 procent. Twój wybór: przebicie.”', () => {
     expect(opisPaska(J9O, 1, 'J9o', t)).toBe('Strategia solvera dla J9o: Pas 80 procent, Przebicie 20 procent. Twój wybór: Przebicie.');
+  });
+  it('przed decyzją: null — opis nie zdradza strategii (E2 cz. 6, mutacja M15)', () => {
+    expect(opisPaska(J9O, null, 'J9o', t)).toBeNull();
   });
   it('bez strategii: null (pasek to wtedy zwykłe odpowiedzi)', () => {
     expect(opisPaska([{ text: '4' }, { text: '8' }], 0, '', t)).toBeNull();

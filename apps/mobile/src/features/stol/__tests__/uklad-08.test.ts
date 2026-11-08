@@ -29,6 +29,8 @@ describe('ukladStolu', () => {
     expect(ukladStolu('CO', 'XYZ:fold')).toBeNull();
     expect(ukladStolu('CO', 'UTG')).toBeNull();
     expect(ukladStolu('CO', 'CO:fold')).toBeNull();
+    // ta sama pozycja dwa razy w przebiegu (E2 cz. 6, mutacja M03: bez sprawdzenia powtórzeń wygrywał ostatni wpis)
+    expect(ukladStolu('CO', 'UTG:fold,UTG:raise2.5')).toBeNull();
   });
 });
 

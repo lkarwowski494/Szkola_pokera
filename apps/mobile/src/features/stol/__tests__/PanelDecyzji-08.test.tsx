@@ -5,6 +5,8 @@
 import '@/i18n';
 import i18n from 'i18next';
 import { fireEvent, render, screen } from '@testing-library/react-native';
+import { StyleSheet } from 'react-native';
+import { kolory } from '@/theme/tokeny';
 import type { ChoiceInstance } from '@/features/drills/types';
 import { PanelDecyzji, ocenaDecyzji } from '@/features/stol/PanelDecyzji';
 
@@ -45,6 +47,15 @@ describe('PanelDecyzji', () => {
     expect(screen.getByTestId('przedzial-zgodne').props.accessibilityState).toEqual({ selected: false });
     expect(screen.getByText('Solver gra tak w 20% przypadków.')).toBeTruthy();
     expect(screen.queryByText('Solver pasuje w 80%.')).toBeNull();
+    // E2 cz. 6, mutacja M42: stopień na suknie tekstem `onFelt` (kontrast na suknie), nie `ink` (Jest: motyw jasny)
+    expect(StyleSheet.flatten(screen.getByText('≈').props.style).color).toBe(kolory.light.onFelt);
+  });
+
+  it('zły rozmiar (niedokładność): stopień słowem, bez skali stopni (L-4, D-274; E2 cz. 6, mutacja M26)', async () => {
+    const zRozmiarem: ChoiceInstance = { ...J9O, options: [...J9O.options, { text: 'Przebicie za duże', correct: false, sizeError: true, why: 'Za duży rozmiar.', czestosc: 0 }] };
+    await render(<PanelDecyzji item={zRozmiarem} rekord={{ answer: { kind: 'choice', index: 2 }, grade: 'size' }} />);
+    expect(screen.getByText(t('grade.niedokladnosc'))).toBeTruthy();
+    expect(screen.queryAllByTestId(/^przedzial-/)).toHaveLength(0);
   });
 
   it('czas minął: „Czas minął” zamiast stopnia, pasek ze strategią bez znacznika, bez skali i bez wyjaśnienia opcji', async () => {
