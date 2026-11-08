@@ -189,5 +189,21 @@ Przyczyna: domyślny czas startu sterownika XCTest za krótki po świeżym rozru
 ## Szacunek (zasada 9)
 Agent: ok. 4–5 h (5 kroków, `pnpm run ci` ok. 2,5 min po każdym; budowa 35 baz dodaje ok. 35 s do `content:check` [OCENA z 1,8 s na język]). Czekanie: E2E ok. 37 min po jednym pushu kodu (0 USD), przegląd D-043 ok. 10 min. Właściciel: ta decyzja; potem raport E2.
 
+## E1 część 3: wynik (2026-11-08; plan przyjęty D-233, 08-F03 jako krok 0)
+Każdy commit: `pnpm run ci` kod 0. Przeniesienia testów 07 według D-175 (tylko importy).
+
+| Krok | Commit | Test | Przed (fragment) | Po | Mutanty (D-172) |
+|---|---|---|---|---|---|
+| 1 `przygotujTresc` | ad7b4ba | `domena/test/k06-start` (13, przeniesiony), nowy `k06-start-08` (2) | 7/13 na asercji: `expected { ok: false, …(1) } to match object { ok: true, wartosc: { …(2) } }` | domena 310 | 4/6 przez 07 (kopia wprost pod cel, bez sprzątania resztki, bez zamknięcia odrzuconej, usunięcie przed otwarciem); resztki `.kopia` i błąd usunięcia starego → `k06-start-08` (M5–M7) |
+| 2 liczby wg języka | a23ed73 | nowy `content-build/test/liczby-jezyk-08` (4; JAK-F07-02) | 3/4 na asercji: `expected '50%' to be '50 %'`; strażnik `pl` zielony przed i po | content-build 114; skrót treści `pl` bez zmian (5e6dc15141abe5ed) | 4/4 (procent sklejany, bez stałych miejsc, `resolveNumbers` bez języka, zawsze `pl`) |
+| 3 35 baz | 12d3241 | `content-build/test/k06-content-build` (3, przeniesiony), nowy `tresc-35-08` (7) | 07: `expected [ 'content-v6.db' ] to deeply equal []`; 08: `ENOENT … content/es-419/modules.yaml` (brak łańcucha), `expected [ 'content-v3.db' ] to deeply equal [ 'content-v3.db', 'tresc-a-pl.db' ]` | content-build 124, mobile 148 | 7/7 (M6 „kontrola bez skrótu” najpierw przeżył — test poprawiony przed commitem) |
+| 4 aplikacja | a5d38b9 | nowy `apps/mobile/src/data/tresc/__tests__/plikiExpo` (5) | test po kodzie adaptera (odstępstwo nazwane) — dowód mutantami | mobile 153 | 6/6 po zaostrzeniu atrapy (kopia/przeniesienie nadpisujące, `list()` brakującego katalogu rzuca) |
+| 0 08-F03 | 95e3cad | `tests/narzedzia/workflowy.test.mjs` (+1) | `MAESTRO_DRIVER_STARTUP_TIMEOUT = undefined` | 14/14 | — |
+
+Zmienione istniejące testy (zasada 11, z powodem): `apps/mobile/src/features/session/__tests__/contentDbName.test.ts` (kontrakt jednej `content-v<N>.db` zastąpiony: moduł wygenerowany = pliki w paczce, `_layout` bez nazw i `forceOverwrite`); `tools/content-build/test/build.test.ts:374–380` (`staleContentDbs` z listą oczekiwanych zamiast `contentDbFileName()`); 4 testy aplikacji czytają bazę `pl` przez `src/test-utils/trescPl.ts` zamiast `content-v${CONTENT_SCHEMA_VERSION}.db` (bez zmiany asercji). Workflowy wydania `testflight.yml:145–148`, `iphone-local.yml:82–85`: kontrola 35 plików `tresc-*.db` zamiast `content-v*.db` (inaczej następny build TestFlight padłby).
+Pomiar (ADR 0005, D-231): 35 baz = 36 MB surowo, ok. 8,9 MB po zip (35 × 254 KB), w git 333 KiB na wersję treści; `content:build` 30 s, `content:check` 23 s.
+`test:akceptacja:domena`: 27 testów, 10 czerwonych (było 43/26; 16 testów treści w pakietach): `kontrole/*` i `postep/k14` (część 4), `kryteria-*` (treść, rola 06). K-07 bez trafienia `forceOverwrite`.
+
+
 ## Punkt czyszczenia (STOP E0 części 3)
 Rola 08, tryb build, część 3. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, sekcja „Część 3”. Następny krok: po akceptacji planu E1 krok 1 (`przygotujTresc`); decyzja właściciela o 08-F03 (poprawka czasu sterownika Maestro w części 3 albo przez rolę 07).
