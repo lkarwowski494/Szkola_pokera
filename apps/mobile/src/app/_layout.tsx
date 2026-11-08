@@ -2,9 +2,8 @@ import '@/i18n';
 
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { SQLiteProvider } from 'expo-sqlite';
 import i18n from 'i18next';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { useColorScheme } from 'react-native';
 import { RenderErrorScreen } from '@/components/RenderErrorScreen';
 import { GranicaBledu } from '@/components/GranicaBledu';
@@ -15,6 +14,10 @@ import { przygotujTrescExpo } from '@/data/tresc/startTresci';
 import { kontrolaK04, startPostepuExpo } from '@/data/postepExpo';
 import { PostepKontekst } from '@/data/postepKontekst';
 import type { PortBazy } from '@szkola/postep';
+import { SQLiteProvider, useSQLiteContext } from 'expo-sqlite';
+import { getDrillById, getLessonSummaries, getModules } from '@/data/content/repo';
+import PierwszeUruchomienie from '@/features/ocena-poziomu/PierwszeUruchomienie';
+import { zegarTelefonu } from '@/platform/zegar';
 
 void SplashScreen.preventAutoHideAsync();
 
@@ -83,6 +86,21 @@ function usePostep(): StanPostepu & { ponow: () => void } {
   return { ...stan, ponow };
 }
 
+/** Pierwsze uruchomienie (PR-01) nad nawigacją: moduły i pierwsze lekcje z bazy treści, pytania oceny z puli egzaminów. */
+function BramkaStartu({ port, children }: { port: PortBazy; children: ReactNode }) {
+  const db = useSQLiteContext();
+  const moduly = useMemo(() => {
+    const lekcje = getLessonSummaries(db);
+    return getModules(db).map((m) => ({ id: m.id, title: m.title, pierwszaLekcja: lekcje.find((l) => l.moduleId === m.id)?.title ?? null }));
+  }, [db]);
+  const wiersz = useCallback((id: string) => getDrillById(db, id), [db]);
+  return (
+    <PierwszeUruchomienie port={port} moduly={moduly} wiersz={wiersz} zegar={zegarTelefonu}>
+      {children}
+    </PierwszeUruchomienie>
+  );
+}
+
 export default function RootLayout() {
   const scheme = useColorScheme();
   const tk = useTokens();
@@ -112,15 +130,17 @@ export default function RootLayout() {
         <PostepKontekst.Provider value={postep.port}>
           {/* Plik treści przygotowany przez useTresc (bez kopiowania przy każdym starcie, ADR 0005 pkt 2). */}
           <SQLiteProvider databaseName={tresc.plik} options={{ useNewConnection: false }}>
-            <Stack screenOptions={{ headerBackTitle: 'Wróć', headerTintColor: tk.link }}>
-              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-              <Stack.Screen name="lesson/[id]" options={{ title: '' }} />
-              <Stack.Screen name="diagnostics" options={{ title: '' }} />
-              <Stack.Screen name="advancement" options={{ title: '' }} />
-              <Stack.Screen name="glossary" options={{ title: '' }} />
-              <Stack.Screen name="help" options={{ title: '' }} />
-              <Stack.Screen name="session" options={{ presentation: 'fullScreenModal', headerShown: false, gestureEnabled: false }} />
-            </Stack>
+            <BramkaStartu port={postep.port}>
+              <Stack screenOptions={{ headerBackTitle: 'Wróć', headerTintColor: tk.link }}>
+                <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+                <Stack.Screen name="lesson/[id]" options={{ title: '' }} />
+                <Stack.Screen name="diagnostics" options={{ title: '' }} />
+                <Stack.Screen name="advancement" options={{ title: '' }} />
+                <Stack.Screen name="glossary" options={{ title: '' }} />
+                <Stack.Screen name="help" options={{ title: '' }} />
+                <Stack.Screen name="session" options={{ presentation: 'fullScreenModal', headerShown: false, gestureEnabled: false }} />
+              </Stack>
+            </BramkaStartu>
           </SQLiteProvider>
         </PostepKontekst.Provider>
       </GranicaBledu>

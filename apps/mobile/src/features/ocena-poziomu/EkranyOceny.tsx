@@ -15,6 +15,7 @@ export type PropsPytaniaOceny = {
   odpowiedzi: readonly string[];
   onOdpowiedz(indeks: number): void;
   onPomin(): void;
+  stol?: React.ReactNode; // karty albo stół pytania z egzaminu (docs/tresci/ocena-poziomu-pytania.md „Uwaga dla 08”; D-265)
 };
 export type PropsWynikuOceny = {
   punktStartu: { modul: string; tytulLekcji: string };
@@ -22,12 +23,13 @@ export type PropsWynikuOceny = {
   onZacznij(): void;
 };
 
-export function EkranPytaniaOceny({ numer, liczba, tresc, odpowiedzi, onOdpowiedz, onPomin }: PropsPytaniaOceny): React.JSX.Element {
+export function EkranPytaniaOceny({ numer, liczba, tresc, odpowiedzi, onOdpowiedz, onPomin, stol }: PropsPytaniaOceny): React.JSX.Element {
   const tk = useTokens();
   const { t } = useTranslation();
   return (
     <Screen>
       <Text style={[styl.przypis, { color: tk.muted }]}>{t('placement.of', { n: numer, total: liczba })}</Text>
+      {stol}
       <Text accessibilityRole="header" style={[styl.tytul, { color: tk.ink }]}>
         {tresc}
       </Text>
