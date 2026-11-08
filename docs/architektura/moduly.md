@@ -160,7 +160,7 @@ Liczby, których aplikacja uczy (progi solvera, tolerancje), są merytoryczne: �
 | `PROSBA_O_OCENE_OD_PRACY` (szt.) | 3 | D-110 |
 | `PROSBA_O_OCENE_ODSTEP_DNI` (dni) | 14 | D-110 |
 | `PRZYPOMNIENIE_DOMYSLNA_PORA` (gg:mm) | `[DO USTALENIA]` (rola 04) | — |
-| `DZIENNIK_MAKS_WPISOW` (szt.) | `[DO USTALENIA]` [OCENA: 200] | ADR 0009 |
+| `DZIENNIK_MAKS_WPISOW` (szt.) | 200 [OCENA] | ADR 0009; D-240 (08 cz. 4) |
 | `SCHEMAT_WERSJA` (liczba) | 1 | ADR 0004 |
 | `EKSPORT_WERSJA_FORMATU` (liczba) | 1 | ADR 0008 |
 | `TRESC_FORMAT` (liczba) | 1 | ADR 0005 |
