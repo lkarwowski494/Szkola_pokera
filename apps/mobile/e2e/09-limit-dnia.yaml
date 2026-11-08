@@ -6,7 +6,7 @@ name: Limit dnia
 ---
 - launchApp:
     clearState: true
-- runFlow: ../wspolne/za-powitaniem.yaml
+- runFlow: wspolne/za-powitaniem.yaml
 - tapOn:
     id: 'dzis-cwiczenia'
 - assertVisible: '.*1.*darmow.*'

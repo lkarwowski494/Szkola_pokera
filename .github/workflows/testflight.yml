@@ -36,8 +36,8 @@ jobs:
   bramka:
     name: bramka E2E (zielony e2e-ios.yml dla tego commitu)
     runs-on: ubuntu-latest
-    # czekanie 75 × 60 s = 75 min ≥ limit e2e-ios.yml (42) + kolejka; limit zadania = czekanie + 5 (test w workflowy.test.mjs)
-    timeout-minutes: 80
+    # czekanie 76 × 60 s = 76 min ≥ limit e2e-ios.yml (61) + 15 min kolejki; limit zadania = czekanie + 5 (test w workflowy.test.mjs)
+    timeout-minutes: 81
     permissions:
       contents: read
       actions: read
@@ -53,7 +53,7 @@ jobs:
           POWOD: ${{ inputs.powod }}
           BRAMKA_POLL_SEC: '60'
           BRAMKA_GRACE_POLLS: '5'
-          BRAMKA_MAX_POLLS: '75'
+          BRAMKA_MAX_POLLS: '76'
         run: |
           if [ "$POMIN" = "true" ]; then
             [ -n "${POWOD//[[:space:]]/}" ] || { echo "::error::pomin_bramke_e2e wymaga uzasadnienia w polu powod"; exit 1; }

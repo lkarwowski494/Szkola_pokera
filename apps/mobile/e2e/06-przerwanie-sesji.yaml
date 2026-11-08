@@ -4,7 +4,7 @@ name: Przerwanie sesji
 ---
 - launchApp:
     clearState: true
-- runFlow: ../wspolne/za-powitaniem.yaml
+- runFlow: wspolne/za-powitaniem.yaml
 - tapOn:
     id: 'dzis-cwiczenia'
 - tapOn: 'Zacznij.*'
