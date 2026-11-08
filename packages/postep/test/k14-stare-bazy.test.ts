@@ -7,11 +7,11 @@ import { dirname, join, relative } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { fileURLToPath } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
-import { uruchomPostep, usunStareBazy } from '../../../packages/postep/src';
-import { adapterNode, otworzNode } from '../../narzedzia/postep-node';
-import { plikiNode, sumyKatalogu } from '../../narzedzia/pliki-node';
-import { T0 } from '../../narzedzia/wzorzec-bazy';
-import { katalogTymczasowy, sprzatnij } from '../../../packages/postep/test/wspolne';
+import { uruchomPostep, usunStareBazy } from '../src';
+import { adapterNode, otworzNode } from '../../../tests/narzedzia/postep-node';
+import { plikiNode, sumyKatalogu } from '../../../tests/narzedzia/pliki-node';
+import { T0 } from '../../../tests/narzedzia/wzorzec-bazy';
+import { katalogTymczasowy, sprzatnij } from './wspolne';
 
 afterEach(sprzatnij);
 const STARE = ['user.db', 'user.db-shm', 'user.db-wal'];

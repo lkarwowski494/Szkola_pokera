@@ -51,7 +51,7 @@ Folder „Szkoła Pokera” na Google Drive: 00 Roadmapa, 01 Wymagania, 02 Archi
 Architektura w repo: `docs/architektura/README.md`, ADR `docs/adr/` (rola 05; ADR 0006 i 0009 zastępują ADR-18 i ADR-17 rejestru 03).
 
 ## Ścieżki wrażliwe (przegląd zmian w świeżym kontekście przed oddaniem, D-043)
-- Dane użytkownika: `packages/postep/` (port bazy, kolejka zapisów, migracje, eksport, import, „Usuń postęp”), `apps/mobile/src/data/`, `docs/architektura/schemat.sql`; do usunięcia (ADR 0003, 0004): `apps/mobile/src/data/user/`, `apps/mobile/drizzle/`.
+- Dane użytkownika: `packages/postep/` (port bazy, kolejka zapisów, migracje, eksport, import, „Usuń postęp”), `apps/mobile/src/data/`, `docs/architektura/schemat.sql` (drizzle i `src/data/user` usunięte w 08 cz. 5, ADR 0003, 0004).
 - Format eksportu, logika dostępu i limitu: `packages/domena/`.
 - Zakupy, pliki i ochrona tła: `apps/mobile/src/platform/`, `apps/mobile/modules/ochrona-tla/`.
 - Treść (identyfikatory w powtórkach, baza na język): `tools/content-build/`.

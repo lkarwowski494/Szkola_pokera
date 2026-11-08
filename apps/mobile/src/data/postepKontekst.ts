@@ -1,5 +1,5 @@
 import type { PortBazy } from '@szkola/postep';
 import { createContext } from 'react';
 
-/** Port `postep.db` otwarty przy starcie (`_layout`); ekrany przechodzą na niego w części 5 (D-239: P-1 = B). */
+/** Port `postep.db` otwarty przy starcie (`_layout`); ekrany biorą go przez `usePortPostepu` (data/postep.ts). */
 export const PostepKontekst = createContext<PortBazy | null>(null);

@@ -1,19 +1,16 @@
 import '@/i18n';
 
-import { useMigrations } from 'drizzle-orm/expo-sqlite/migrator';
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { SQLiteProvider } from 'expo-sqlite';
 import i18n from 'i18next';
 import { useCallback, useEffect, useState } from 'react';
-import { Text, useColorScheme, View } from 'react-native';
-import migrations from '../../drizzle/migrations';
+import { useColorScheme } from 'react-native';
 import { RenderErrorScreen } from '@/components/RenderErrorScreen';
-import { userDb } from '@/data/user/db';
 import { GranicaBledu } from '@/components/GranicaBledu';
 import { zapiszBlad } from '@/platform/dziennik';
 import { useSettings } from '@/state/settings';
-import { space, type as tp, useTokens } from '@/theme/tokens';
+import { useTokens } from '@/theme/tokens';
 import { przygotujTrescExpo } from '@/data/tresc/startTresci';
 import { kontrolaK04, startPostepuExpo } from '@/data/postepExpo';
 import { PostepKontekst } from '@/data/postepKontekst';
@@ -52,8 +49,8 @@ type StanPostepu = { stan: 'ladowanie' } | { stan: 'ok'; port: PortBazy } | { st
 
 /**
  * Baza postępu `postep.db` (ADR 0003, 0004; moduly.md „Adaptery”): start z ochroną tła (ADR 0013), błąd startu → ekran
- * z ponowieniem, bez zapisu (tlo-i-bledy.md §4, D-200). W buildzie deweloperskim kontrola K-04. Stare ekrany piszą do
- * `user.db` do części 5 (D-239: P-1 = B); `user.db*` nietknięte przez start postępu.
+ * z ponowieniem, bez zapisu (tlo-i-bledy.md §4, D-200). W buildzie deweloperskim kontrola K-04. Jedyna baza postępu
+ * od części 5 (drizzle usunięty, ADR 0004); stare `user.db*` nietknięte (usuwa je tylko „Usuń postęp”).
  */
 function usePostep(): StanPostepu & { ponow: () => void } {
   const [stan, ustaw] = useState<StanPostepu>({ stan: 'ladowanie' });
@@ -89,32 +86,19 @@ function usePostep(): StanPostepu & { ponow: () => void } {
 export default function RootLayout() {
   const scheme = useColorScheme();
   const tk = useTokens();
-  const { success, error } = useMigrations(userDb, migrations);
   const loadSettings = useSettings((s) => s.load);
   const tresc = useTresc();
   const postep = usePostep();
   const trescGotowa = tresc.stan !== 'ladowanie' && postep.stan !== 'ladowanie';
 
   useEffect(() => {
-    if (success && trescGotowa) {
-      // ustawienia interfejsu z postep.db (D-251) przed zdjęciem ekranu startowego; przy błędzie startu postępu — od razu
-      if (postep.stan === 'ok') void loadSettings(postep.port).finally(() => void SplashScreen.hideAsync());
-      else void SplashScreen.hideAsync();
-    }
-    if (error) {
-      zapiszBlad('migracja_nieudana');
-      void SplashScreen.hideAsync();
-    }
-  }, [success, error, loadSettings, trescGotowa, postep]);
+    if (!trescGotowa) return;
+    // ustawienia interfejsu z postep.db (D-251) przed zdjęciem ekranu startowego; przy błędzie startu postępu — od razu
+    if (postep.stan === 'ok') void loadSettings(postep.port).finally(() => void SplashScreen.hideAsync());
+    else void SplashScreen.hideAsync();
+  }, [loadSettings, trescGotowa, postep]);
 
-  if (error) {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', padding: space.xl, backgroundColor: tk.bg }}>
-        <Text style={[tp.body, { color: tk.bad }]}>Nie udało się przygotować bazy postępu: {error.message}</Text>
-      </View>
-    );
-  }
-  if (!success || tresc.stan === 'ladowanie' || postep.stan === 'ladowanie') return null;
+  if (tresc.stan === 'ladowanie' || postep.stan === 'ladowanie') return null;
   if (tresc.stan === 'blad') return <RenderErrorScreen onRetry={tresc.ponow} />;
   if (postep.stan === 'blad') return <RenderErrorScreen onRetry={postep.ponow} />;
 

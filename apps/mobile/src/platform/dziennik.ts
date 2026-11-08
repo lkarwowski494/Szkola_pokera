@@ -9,7 +9,7 @@ import { KONFIGURACJA } from '@szkola/domena';
 export type KodDziennika =
   | 'wyjatek_ekranu' // granica błędu ekranu (tlo-i-bledy.md §4)
   | 'tresc_niedostepna' // brak albo błąd pliku treści (ADR 0005)
-  | 'migracja_nieudana' // start bazy (tu: stara user.db do części 5)
+  | 'migracja_nieudana' // start postep.db (tlo-i-bledy.md §4)
   | 'link_niedostepny' // system nie otworzył adresu tel:/https (ekran Pomoc); kod spoza tabeli §4 — zgłoszenie 08-F04
   | 'odczyt_nieudany' // uszkodzona wartość zapisana przez aplikację; kod spoza tabeli §4 — zgłoszenie 08-F04
   | 'sklep_niedostepny' // expo-iap: błąd odczytu transakcji albo produktów (tlo-i-bledy.md §4)
