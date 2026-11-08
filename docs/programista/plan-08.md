@@ -600,3 +600,8 @@ Agent: ok. 6–8 h (kroki 1–8), w tym noc do 03:45 UTC: kroki 1–7 realnie, 8
 
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
+
+| UTC | Sesja | Zdarzenie / wynik (dowód) | Następny krok |
+|---|---|---|---|
+| 20:25 | koordynator `session_01T66VBzPr7MhGZ3A6RPdfBG` | E2E 42519763480 (36a8600) w toku od 20:22; 42518976066 (66d947f) anulowany pushem 36a8600 | wynik ok. 21:00 (pobudka `trig_01GBCqcFtBUcX3KLhabMfre1`, 21:01) |
+| 20:25 | A `session_01T66VBzUhonnhbrrrh9E2P8` | start: część 6 krok 7 (PanelDecyzji, session.tsx), opcjonalnie krok 8; push kodu po 21:05 | odbiór PRZEKAZANIA |
