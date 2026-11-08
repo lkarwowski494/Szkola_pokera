@@ -476,6 +476,8 @@ Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-prog
 
 **Zgłoszenia nowe (do raportu E2):** 08-F15 → 04: kolory talii czterokolorowej poza tokenami (D-259); 08-F16 → 04: promienie `BlokLekcji` z makiety (28/22) bez tokenu, użyte `promien.sukno` i wcięcie; lista modułów na „Dziś” pod „Wszystkie lekcje” (makieta bez miejsca na mapę kursu); 08-F17 → 06: `terms.yaml` skip „sesja ćwiczeń” (D-261); 08-F18 → 05/07: `EkranUstawien.sekcje` (D-262). 08-F19 → 01/03/06: BR-ONB-001 „pytania o poziom i cel” i BR-ONB-002-a „zaznaczył, że nie zna zasad” — pula 06 ma tylko pytania z egzaminów; bez pytania o cel i samooceny (D-264: brak poprawnych → M0, „Pomiń” → M0); 08-F20 → 10/właściciel: adres polityki prywatności (D-266; bloker publikacji w App Store); 08-F21 → 07: brak testu ekranu sesji (`session.tsx`: start, zakup, „Zakończ”) — logika w `wejscieStartu`, `dostep`, zachowanie ekranu tylko w E2E (06, 09). Nowe teksty do akceptacji 04/06: `session.end` („Zakończ”, ze słownika), `today.*`, `start.*`, `grade.*`, `welcome.*`, `placement.*`, `purchase.*`, `settings.*`, `data.*`, `feedback.*`.
 
+Zestawienie 08-F15–F29 (rola, miejsce, stan, waga): [`zgloszenia-08.md`](zgloszenia-08.md).
+
 ## Punkt czyszczenia (w trakcie E1 5b, po krokach 3–4)
 Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „E1 część 5b: stan w toku”. Decyzje D-264–D-267 (A, do weta). Następny krok: E1 5b kroki 5–8 w nowej sesji; najpierw wynik E2E pushu z krokami 3–4 (flowy 01–04 z powitaniem). Powód przerwy: duży kontekst sesji (zasada 19).
 
@@ -492,6 +494,8 @@ Stan wyjściowy (4b17657): `pnpm run ci` kod 0 (mobile 341, domena 314, postep 1
 **Odstępstwa i decyzje:** D-269 (język: ekran w aplikacji zamiast `Linking.openSettings()`), D-270 (ID sklepu i adres poczty `[DO USTALENIA]`; sekcja „Opinie” i „Zgłoś błąd” ukryte; „skończone prace”; „Zarządzaj subskrypcją”; kopia przed importem; bez wtyczek w `app.json`). Przełączenie bazy treści po zmianie języka w trakcie działania: z drugim językiem treści (rola 09).
 
 **Zgłoszenia nowe:** 08-F22 → 04: ikona ustawień na „Dziś” jako znak ⚙︎ (system bez komponentu ikony; makieta e3 ma SVG); 08-F23 → 10/właściciel: App Store ID i adres poczty do opinii i zgłoszeń (D-270) — bez nich „Oceń w sklepie”, „Napisz do nas” i „Zgłoś błąd w tym zadaniu” są ukryte. Nowe teksty do akceptacji 04/06: `settings.display`, `settings.reminder*`, `settings.general`, `settings.language`, `settings.restored`, `reminder.title`, `reminder.body`, `language.*`, `progress.more`; usunięte nieużywane `progress.settings`, `progress.reset*`, `progress.cancel`.
+
+Zestawienie 08-F15–F29 (rola, miejsce, stan, waga): [`zgloszenia-08.md`](zgloszenia-08.md).
 
 ### Przegląd D-043 części 5b (świeży kontekst, 2026-11-08, zakres b64a345..98d11a2, ścieżki wrażliwe)
 „Brak uwag”. Rozważone i odrzucone przez recenzenta jako poniżej P1: utrata zwalidowanego pliku importu przy odświeżeniu ekranu między wyborem a potwierdzeniem (wynik `blad_zapisu`, baza nietknięta — teoretyczne); kolejność odświeżeń dostępu w `startDostepu` (ten sam sklep — teoretyczne); zawieszone `initConnection` do restartu (decyduje pamięć — brzegowe). Drugiego przeglądu nie ma (D-043).
@@ -520,6 +524,8 @@ Strażnik: `e2e-flowy` „każde id we flowach bramki ma testID w kodzie aplikac
 
 **Zgłoszenia nowe:** 08-F24 → 04: ten sam tekst „Powtórki” dla wiersza na „Dziś” (`today.reviews`) i zakładki (`tabs.review`) — dwa cele pod jedną nazwą (także dla VoiceOver); 08-F25 → 04: ekran sesji po „Dalej” nie wraca na górę — przy dłuższym zadaniu (stół) treść następnego zadania zaczyna się nad krawędzią; propozycje: przewinięcie na górę przy zmianie zadania (A) albo bez zmian (B); decyzja 04 (zachowanie interfejsu).
 
+Zestawienie 08-F15–F29 (rola, miejsce, stan, waga): [`zgloszenia-08.md`](zgloszenia-08.md).
+
 ## E2 część 5b: definicja ukończenia (2026-11-08, przyjęta wg D-272 — D-276)
 | Punkt | Dowód |
 |---|---|
@@ -539,6 +545,7 @@ Strażnik: `e2e-flowy` „każde id we flowach bramki ma testID w kodzie aplikac
 `dzis:typowy`, `dzis:limit-zuzyty`, `dzis:pelny-dostep`, `powitanie:start`, `ocena-poziomu:pytanie`, `ocena-poziomu:wynik`, `start:przed-sesja`, `zakup:ceny`, `zakup:ceny-niedostepne`, `zakup:przywracanie-bez-zakupu`, `ustawienia:typowy`, `ustawienia:subskrypcja` („Zarządzaj subskrypcją”), `dane:eksport`, `dane:import-potwierdzenie`, `dane:import-blad`, `jezyk:lista`, `sesja:po-ocenie`, `postep:typowy`, `usun-postep:potwierdzenie` — w obu motywach (38 plików, nazwy `5b-<ekran>-<stan>-<light|dark>.png`); do audytu zgodności 04.
 
 ### Zgłoszenia części 5b (zbiorczo)
+Zestawienie 08-F15–F29 (rola, miejsce, stan, waga): [`zgloszenia-08.md`](zgloszenia-08.md).
 08-F15 (04, talia czterokolorowa), 08-F16 (04, promienie `BlokLekcji`, mapa kursu), 08-F17 (06, skip „sesja ćwiczeń”), 08-F18 (05/07, `EkranUstawien.sekcje`), 08-F19 (01/03/06, pytania o cel i samoocenę w ocenie poziomu), **08-F20 (10/właściciel, adres polityki prywatności — bloker App Store)**, 08-F21 (07, brak testu ekranu sesji), 08-F22 (04, ikona ustawień ⚙︎), **08-F23 (10/właściciel, App Store ID i adres poczty)**, 08-F24 (04, „Powtórki” dwa cele), 08-F25 (04, powrót ekranu sesji na górę po „Dalej”).
 
 ### Teksty do akceptacji 04/06 (część 5b)
@@ -619,6 +626,7 @@ Agent: ok. 6–8 h (kroki 1–8), w tym noc do 03:45 UTC: kroki 1–7 realnie, 8
 `sesja-decyzja:przed` (zadanie z zakresu: stół z miejscami, pas kreskowany, ty złotą obwódką, pasek-przyciski), `sesja-decyzja:przebija` (spot obrony, miejsce „przebija”, 08-F26), `sesja-decyzja:po-ocenie-zgodne`, `sesja-decyzja:po-ocenie-dopuszczalne` (pasek po ocenie, znacznik, skala z twoim przedziałem), `sesja-decyzja:po-ocenie-blad`, `sesja-decyzja:niedokladnosc` (zły rozmiar: segment 0%, bez skali), `sesja-decyzja:czas-minal`, `sesja-bez-pozycji:przed` („Wybierz odpowiedź”, owal bez miejsc, opis kart), `sesja-bez-pozycji:po-ocenie` (obwódka `ink`, znak + słowo), `sesja-tekstura:po-ocenie`, `egzamin:przeglad` (stół `Stol`, obwódka `separator`), `egzamin:wynik`, `tytuly:domyslny` (Literata w tytułach i indeksie karty), `tytuly:AX1` (krój systemowy) — 14 stanów, 28 plików; do audytu zgodności 04.
 
 ### Zgłoszenia części 6
+Zestawienie 08-F15–F29 (rola, miejsce, stan, waga): [`zgloszenia-08.md`](zgloszenia-08.md).
 - **08-F26 → 04/06:** stan miejsca „przebija (raise)” po akcji innej niż pas (L-1, D-274) — tekst i wygląd (zwykły stan miejsca, bez nowego koloru) do akceptacji; znak Dopuszczalnej „≈” (D-213) wobec „∼” w makiecie e3 (L-3).
 - **08-F27 → 04:** „pas” w pasku strategii jako obwódka kreskowana (`borderStyle: 'dashed'`) zamiast kreskowanego wypełnienia z makiety (RN nie ma wzoru wypełnienia bez dodatkowej biblioteki); kolory `PaintGrid`/`RangeGrid` nadal w `tk.przejsciowe` (L-2, wyjątek D-259 przedłużony).
 - **08-F28 → 04/06:** terminologia stołu (D-275): „Przy stole: …”, „po tobie BTN, SB i BB” zamiast „Stół: …”, „czeka/czekają” z makiety i design-spec — do przeniesienia do design-spec i tabeli terminologii (dok. 13).
