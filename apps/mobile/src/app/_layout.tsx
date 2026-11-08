@@ -91,10 +91,6 @@ export default function RootLayout() {
             <Stack.Screen name="glossary" options={{ title: '' }} />
             <Stack.Screen name="help" options={{ title: '' }} />
             <Stack.Screen name="session" options={{ presentation: 'fullScreenModal', headerShown: false, gestureEnabled: false }} />
-            <Stack.Screen name="play/index" options={{ title: '' }} />
-            <Stack.Screen name="play/table" options={{ presentation: 'fullScreenModal', headerShown: false, gestureEnabled: false }} />
-            <Stack.Screen name="play/report/[id]" options={{ title: '' }} />
-            <Stack.Screen name="play/review" options={{ presentation: 'fullScreenModal', headerShown: false, gestureEnabled: false }} />
           </Stack>
         </SQLiteProvider>
       </GranicaBledu>

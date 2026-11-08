@@ -48,11 +48,11 @@ Jedyny kontrakt zakresu; czytają go role 01, 02, 04–08. Historia pracy (E0 ra
 ## Funkcje w kodzie bez BR (D-104)
 | Kod | Decyzja | Powrót |
 |---|---|---|
-| „Trening na czas” (`session.tsx`, `mode: 'speed'`) | poza interfejsem wersji 1 | J-03 wspomina presję czasu: ER do roli 01 z dowodem (≥ 3 prośby testerów albo recenzji o ćwiczenia na czas) |
-| Księga reguł (`(tabs)/rules.tsx`, FR-06 starego PRD) | poza interfejsem; reguły widoczne w lekcjach i wyjaśnieniach | ≥ 3 prośby o „ściągę” reguł |
-| Diagnostyka (`diagnostics.tsx`) | poza interfejsem użytkownika (narzędzie dewelopera) | — (rola 05 decyduje o buildzie testowym) |
-| Wskaźnik zaawansowania (`advancement.tsx`) | część „gra” wypada z H-07; postęp wiedzy w formie roli 04 w F-03 | razem z H-07 |
-| Gra z botami (`play/*`) | NIE (W-07, H-07) | warunek H-07 |
+| „Trening na czas” (`session.tsx`, `mode: 'speed'`) | poza interfejsem wersji 1 | J-03 wspomina presję czasu: ER do roli 01 z dowodem (≥ 3 prośby testerów albo recenzji o ćwiczenia na czas); kod usunięty (ADR 0011), ostatni commit z kodem: `3764d30` |
+| Księga reguł (`(tabs)/rules.tsx`, FR-06 starego PRD) | poza interfejsem; reguły widoczne w lekcjach i wyjaśnieniach | ≥ 3 prośby o „ściągę” reguł; kod usunięty (ADR 0011), ostatni commit z kodem: `3764d30` |
+| Diagnostyka (`diagnostics.tsx`) | poza interfejsem użytkownika (narzędzie dewelopera) | — (rola 05 decyduje o buildzie testowym); tylko pod `__DEV__` (ADR 0011, `features/diagnostyka/`) |
+| Wskaźnik zaawansowania (`advancement.tsx`) | część „gra” wypada z H-07; postęp wiedzy w formie roli 04 w F-03 | razem z H-07; część „gra” usunięta (ADR 0011), ostatni commit z kodem: `3764d30` |
+| Gra z botami (`play/*`) | NIE (W-07, H-07) | warunek H-07; kod usunięty (ADR 0011), ostatni commit z kodem: `3764d30` |
 | Słownik (`glossary.tsx`) | część F-03 (BR-KURS-003) | — |
 
 

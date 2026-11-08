@@ -15,10 +15,6 @@ export default function TabsLayout() {
         <NativeTabs.Trigger.Label>{t('tabs.review')}</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon sf="arrow.triangle.2.circlepath" md="autorenew" />
       </NativeTabs.Trigger>
-      <NativeTabs.Trigger name="rules">
-        <NativeTabs.Trigger.Label>{t('tabs.rules')}</NativeTabs.Trigger.Label>
-        <NativeTabs.Trigger.Icon sf="list.bullet.rectangle" md="list" />
-      </NativeTabs.Trigger>
       <NativeTabs.Trigger name="progress">
         <NativeTabs.Trigger.Label>{t('tabs.progress')}</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon sf={{ default: 'chart.bar', selected: 'chart.bar.fill' }} md="bar_chart" />

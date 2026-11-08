@@ -103,9 +103,12 @@ export default function ProgressScreen() {
         <Pressable accessibilityRole="link" onPress={() => router.push('/help')}>
           <Text style={[tp.body, { color: tk.felt }]}>{t('help.link')}</Text>
         </Pressable>
-        <Pressable accessibilityRole="link" onPress={() => router.push('/diagnostics')}>
-          <Text style={[tp.body, { color: tk.felt }]}>{t('diagnostics.link')}</Text>
-        </Pressable>
+        {/* diagnostyka tylko w buildzie deweloperskim (ADR 0011) */}
+        {__DEV__ ? (
+          <Pressable accessibilityRole="link" onPress={() => __DEV__ && router.push('/diagnostics')}>
+            <Text style={[tp.body, { color: tk.felt }]}>{t('diagnostics.link')}</Text>
+          </Pressable>
+        ) : null}
         <Muted>{t('progress.contentVersion', { hash })}</Muted>
       </View>
     </Screen>

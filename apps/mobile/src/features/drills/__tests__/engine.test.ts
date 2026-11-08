@@ -2,7 +2,7 @@
 import type { Drill } from '@szkola/content-schema';
 import { classifyHud, classOf, combosCount, createRng, HAND_CLASSES, hudThresholdsFromParams, parseCard, PLAYER_TYPES } from '@szkola/poker-core';
 import type { DrillRow, RangeSpot } from '@/data/content/repo';
-import { buildExamSession, buildFamilySession, buildSpeedSession, interleaveRows } from '@/features/session/build';
+import { buildExamSession, buildFamilySession, interleaveRows } from '@/features/session/build';
 import { instantiate, rangeVerdict } from '../engine';
 import { gradeAnswer, gradeNumeric, isPass, parseNumberInput, scorePaint } from '../grade';
 import { splitCardTokens } from '../cardTokens';
@@ -416,13 +416,6 @@ describe('egzamin i trening na czas', () => {
     const rows: DrillRow[] = [paintRow('p', 'p'), { id: 'n1', lessonId: 'l', family: 'n', drill: numeric }];
     const s = buildFamilySession(rows, ['p', 'n'], createRng(1), 2, ctx);
     expect(s.map((x) => x.drillId).sort()).toEqual(['n1', 'p']);
-  });
-
-  it('trening na czas pomija malowanie zakresu', () => {
-    const rows = [row('g', 'a'), paintRow('p', 'p')];
-    const s = buildSpeedSession(rows, ['a', 'p'], createRng(1), 10, ctx);
-    expect(s.length).toBeGreaterThan(0);
-    expect(s.every((x) => x.kind !== 'paint')).toBe(true);
   });
 });
 

@@ -5,7 +5,7 @@ import { instantiate, isGenerative, type DrillContext } from '@/features/drills/
 import { EXAM_MAX_PAINT, EXAM_MAX_PER_GENERATOR, EXAM_MODULE_SHARE, EXAM_SIZE } from '@/features/drills/thresholds';
 import type { DrillInstance } from '@/features/drills/types';
 
-export type SessionMode = 'lesson' | 'review' | 'speed' | 'exam';
+export type SessionMode = 'lesson' | 'review' | 'exam';
 
 /** Lekcja: wszystkie zadania w kolejności z treści (zadania z generatorów w zadanej liczbie). */
 export function buildLessonSession(rows: readonly DrillRow[], rng: Rng, ctx?: DrillContext): DrillInstance[] {
@@ -34,15 +34,6 @@ export function buildFamilySession(rows: readonly DrillRow[], families: readonly
     out.push(...instantiate(row.drill, row.lessonId, rng, 1, ctx).map((d, i) => ({ ...d, key: `${d.key}@${out.length}-${i}` })));
   }
   return out;
-}
-
-/** Trening na czas: losowe rodziny z już poznanych, krótka seria. Bez malowania zakresu (to nie jest decyzja na czas). */
-export function buildSpeedSession(rows: readonly DrillRow[], knownFamilies: readonly string[], rng: Rng, size = 10, ctx?: DrillContext): DrillInstance[] {
-  // malowanie zakresu i klasyfikacja tekstury (trzy wybory) poza treningiem na czas; tekstura do ponownej oceny po teście na telefonie (decyzja M5)
-  const timed = rows.filter((r) => r.drill.kind !== 'paint' && r.drill.kind !== 'texture');
-  const usable = knownFamilies.filter((f) => timed.some((r) => r.family === f));
-  const families = shuffle(rng, usable).slice(0, Math.max(1, Math.ceil(size / 2)));
-  return buildFamilySession(timed, families, rng, 2, ctx).slice(0, size);
 }
 
 /**

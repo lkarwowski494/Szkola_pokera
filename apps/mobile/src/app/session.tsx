@@ -1,9 +1,8 @@
 import { createRng } from '@szkola/poker-core';
-import { DEFAULT_THRESHOLDS } from '@szkola/srs';
 import * as Haptics from 'expo-haptics';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { PaintGrid } from '@/components/PaintGrid';
@@ -21,17 +20,14 @@ import {
   getSeenExamDrillsForFamilies,
 } from '@/data/content/repo';
 import { userDb } from '@/data/user/db';
-import { allFamilies, dueFamilies, examDrillIdsSeen, recordAnswer, saveExamResult, saveLessonResult } from '@/data/user/repo';
+import { dueFamilies, examDrillIdsSeen, recordAnswer, saveExamResult, saveLessonResult } from '@/data/user/repo';
 import { gradeAnswer, isPass, parseNumberInput, scorePaint } from '@/features/drills/grade';
 import { pct, t as dt } from '@/features/drills/text.pl';
 import { EXAM_PASS, PAINT_PASS } from '@/features/drills/thresholds';
 import type { ChoiceInstance, DrillAnswer, DrillInstance, DrillOption, GradeResult, NumericInstance, PaintInstance, TextureInstance } from '@/features/drills/types';
-import { buildExamSession, buildFamilySession, buildLessonSession, buildSpeedSession, type SessionMode } from '@/features/session/build';
+import { buildExamSession, buildFamilySession, buildLessonSession, type SessionMode } from '@/features/session/build';
 import { useSettings } from '@/state/settings';
 import { radius, space, type as tp, useTokens } from '@/theme/tokens';
-
-/** Limit czasu w trybie na czas = próg „wolnej” odpowiedzi FSRS (założenie do kalibracji, dokument 09). */
-const SPEED_LIMIT_MS = DEFAULT_THRESHOLDS.slowMs;
 
 interface Record_ {
   item: DrillInstance;
@@ -67,12 +63,9 @@ export default function SessionScreen() {
     }
     // zadania z puli egzaminacyjnej trafiają do powtórek dopiero po tym, jak użytkownik zobaczył je na egzaminie
     const familyRows = (families: readonly string[]) => [...getDrillsForFamilies(db, families), ...getSeenExamDrillsForFamilies(db, families, seen)];
-    if (mode === 'review') {
-      const families = dueFamilies(userDb).slice(0, 8).map((c) => c.familyId);
-      return buildFamilySession(familyRows(families), families, rng, 2, ctx);
-    }
-    const known = allFamilies(userDb);
-    return buildSpeedSession(familyRows(known), known, rng, 10, ctx);
+    // powtórki (tryb „Trening na czas” usunięty, ADR 0011)
+    const families = dueFamilies(userDb).slice(0, 8).map((c) => c.familyId);
+    return buildFamilySession(familyRows(families), families, rng, 2, ctx);
   }, [db, mode, lessonId, moduleId]);
 
   const [items, setItems] = useState<DrillInstance[]>(build);
@@ -83,7 +76,6 @@ export default function SessionScreen() {
   const [numText, setNumText] = useState('');
   const [texPicks, setTexPicks] = useState<(number | null)[]>([]);
   const [painting, setPainting] = useState(false);
-  const [now, setNow] = useState(() => Date.now());
   const [startedAt, setStartedAt] = useState(() => Date.now());
   const savedRef = useRef(false);
   const finished = idx >= items.length;
@@ -94,9 +86,7 @@ export default function SessionScreen() {
     setPainted(emptyGrid());
     setNumText('');
     setTexPicks([]);
-    const n = Date.now();
-    setStartedAt(n);
-    setNow(n);
+    setStartedAt(Date.now());
   };
 
   const next = useCallback(
@@ -117,7 +107,7 @@ export default function SessionScreen() {
   const commit = useCallback(
     (answer: DrillAnswer) => {
       if (!item || current) return;
-      const elapsedMs = answer.kind === 'timeout' ? SPEED_LIMIT_MS : Date.now() - startedAt;
+      const elapsedMs = Date.now() - startedAt;
       const grade = gradeAnswer(item, answer);
       const rec = { item, answer, grade, elapsedMs };
       recordAnswer(userDb, {
@@ -145,17 +135,6 @@ export default function SessionScreen() {
     },
     [item, current, mode, haptics, records, exam, next, startedAt],
   );
-
-  // licznik czasu tylko w trybie na czas
-  useEffect(() => {
-    if (mode !== 'speed' || finished || current !== null) return;
-    const id = setInterval(() => {
-      const n = Date.now();
-      setNow(n);
-      if (n - startedAt >= SPEED_LIMIT_MS) commit({ kind: 'timeout' });
-    }, 100);
-    return () => clearInterval(id);
-  }, [mode, finished, current, commit, startedAt]);
 
   const restart = () => {
     setItems(build());
@@ -214,8 +193,6 @@ export default function SessionScreen() {
     );
   }
 
-  const left = Math.max(0, SPEED_LIMIT_MS - (now - startedAt));
-
   return (
     <Screen scrollEnabled={!painting}>
       <View style={styles.top}>
@@ -225,12 +202,6 @@ export default function SessionScreen() {
         <Muted>{exam ? t('exam.of', { n: idx + 1, total: items.length }) : t('session.of', { n: idx + 1, total: items.length })}</Muted>
       </View>
       <ProgressBar value={(idx + (current ? 1 : 0)) / items.length} />
-      {mode === 'speed' && !current ? (
-        <View style={{ gap: space.xs }}>
-          <ProgressBar value={left / SPEED_LIMIT_MS} height={4} />
-          <Muted>{t('session.secondsLeft', { s: Math.ceil(left / 1000) })}</Muted>
-        </View>
-      ) : null}
 
       {item.table ? <TableFelt table={item.table} /> : null}
       <RichText text={item.prompt} style={[tp.h3, { fontWeight: '600' }]} />

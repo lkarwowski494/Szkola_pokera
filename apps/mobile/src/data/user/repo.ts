@@ -3,7 +3,7 @@ import { and, desc, eq, gte, lte, notLike, sql } from 'drizzle-orm';
 import type { UserDb } from './db';
 import { advancementHistory, answers, examResults, gameCards, gameFindings, gameHands, gameSessions, lessonProgress, reviewCards, reviewLogs, settings } from './schema';
 
-export type AnswerMode = 'lesson' | 'review' | 'speed' | 'exam';
+export type AnswerMode = 'lesson' | 'review' | 'exam'; // zapis; stare wiersze z trybem na czas zostają w user.db (ADR 0011)
 export type AnswerGrade = 'correct' | 'acceptable' | 'close' | 'size' | 'wrong';
 
 export interface AnswerInput {
