@@ -334,3 +334,81 @@ Ekrany zmienione (do audytu 04): Nauka (`(tabs)/index`), Powtórki (`(tabs)/revi
 
 ## Punkt czyszczenia (STOP E2 części 4)
 Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „Część 4”. Decyzja: D-245 (część 4 przyjęta). Następny krok: 08 część 5, E0 → STOP, w nowej sesji: ekrany na `packages/postep` (repozytoria odczytu, maszyna `aktywnosc`, testy ekranów 07 z `tests/akceptacja/ekrany`), usunięcie drizzle i `src/data/user` (K-14 statyczny zielony), podpięcie zakupów z nasłuchem od startu (08-F06), przypomnienia, ochrony tła i dziennika do `postep.db`.
+
+# Część 5: ekrany na `packages/postep`, nowe ekrany, platforma (build, E0, 2026-11-08, STOP)
+
+Zlecenie: D-245. Prompt: `assemble.mjs 08-programista --tryb build` (nowa sesja, opus/high). Wejście: ten plik („Część 4”), `docs/jakosc/przekazanie-08.md` (kolejność 5–6), strategia §6, §7, §9, ADR 0003, 0004, 0006, 0007, 0008, 0010, 0012, 0013, `moduly.md`, `tlo-i-bledy.md` §4, `docs/design/design-spec.md`.
+
+## Środowisko i stan wyjściowy (50952c4)
+| Sprawdź | Wynik |
+|---|---|
+| System | Linux, Node 22, bez Xcode; nowy kontener: `pnpm install --frozen-lockfile` kod 0 |
+| GitHub | MCP (push na gałąź roboczą); `prompts` dołączone do odczytu; Trening: klon `/home/user/lkarwowski494/trening` (2e4b0f8) |
+| `pnpm run ci` | kod 0: srs 21, jezyki 136, poker-core 155, domena 310, postep 61, mobile 150, content-build 124, preflop-solver 43, kontrole 8; `k08`, `i18n`, `content:check`, `tresci:rejestr` bez błędów |
+| Testy ekranów 07 (`jest -c jest.akceptacja.config.js`) | 80 testów: 69 czerwonych (znacznik `NIEZAIMPLEMENTOWANE` w 7 zaślepkach), 11 zielonych (`pomoc.test.tsx` w całości) |
+| `pnpm test:akceptacja:ekrany` | pada przed Jest: `tsc` — `pomoc.test.tsx:25` `mockResolvedValue(true)` wobec `openURL(): Promise<void>` (RN 0.88, skutek SDK 58 z części 4; ten sam powód co zmiana `HelpScreen.test` w części 4) → krok 0 |
+| Flowy oczekujące | 05 (ocena poziomu), 06 (przerwanie sesji), 09 (limit) — do zazielenienia; 07 (scenariusz) wymaga treści scenariuszy (06), 08 (drugi język) — `content/en` (09): w części 5 zostają oczekujące |
+| Zależności do dodania (5b) | `expo-sharing`, `expo-document-picker`, `expo-store-review` — brak w `apps/mobile/package.json`; Trening ma wszystkie trzy (`package.json:42,52,56`) |
+
+## Założenia wejściowe (hipotezy)
+- **Podważone czytaniem (→ 05, 08-F10):** `PlanAktywnosci` (`maszyny.ts:11–19`) nie niesie listy zadań, a sesja losuje zadania w pamięci (`features/session/build.ts:44–75`, generatory z ziarnem) — wznowienie „4 z N” (flow 06, BR-CWI-004) nie odtworzy tego samego zestawu. Rozwiązanie: D-248.
+- **Podważone czytaniem (→ 05, 08-F11):** historia wskaźnika zaawansowania (`data/user/historia.ts`, `app/advancement.tsx:21`) nie ma tabeli w schemacie v1. Rozwiązanie: D-250.
+- `moduly.md` „Repozytoria” wymienia `ustawienia`, `postepLekcji`, `testy`, `uprawnienia`, `dziennik` bez sygnatur — sygnatury ustala 08 w kroku, w którym repozytorium powstaje (styl `aktywnosci.ts`, `powtorki.ts`: `PortBazy` → `Wynik<…, PowodZapisu>`; odczyt z `unknown`, brak zostaje brakiem).
+- design-spec „Otwarte”: ekrany poza kluczowymi (ocena poziomu, lekcja, powtórki, scenariusz, dane, pomoc, ustawienia) 08 buduje z komponentów systemu, audyt 04 po implementacji — teksty spoza design-spec piszę według „Głosu” i wypisuję do akceptacji.
+- Dane z `user.db` nie są przenoszone (ADR 0004, D-124): po części 5 właściciel zaczyna od pustego postępu w `postep.db`.
+
+## Wywołania do zmiany (zasada 4)
+`userDb` / `data/user/*`: `_layout.tsx` (`useMigrations`), `(tabs)/index.tsx`, `(tabs)/progress.tsx`, `(tabs)/review.tsx`, `lesson/[id].tsx`, `session.tsx`, `advancement.tsx`, `state/settings.ts`, `features/advancement/{historia,useAdvancement,useContentChangeNotice}.ts`, testy `historia.test.ts`, `adr0011-08.test.ts`, `test-utils/userTestDb.ts`; konfiguracja: `drizzle.config.ts`, `package.json` (`drizzle-orm`, `drizzle-kit`, `db:generate`), `tsconfig.json`. 22 funkcje → repozytoria: `recordAnswer` → `zapiszKrok` (+ `zapiszPowtorke`); `saveLessonResult`, `saveExamResult` → `zakonczAktywnosc`; `markTheorySeen` → `postepLekcji.teoriaPrzeczytana`; `dueFamilies`, `nextDue`, `allCards`, `allFamilies` → `powtorki` (odczyt); `examSummaryMap`, `examDrillIdsSeen` → `testy`; `lessonProgressMap` → `postepLekcji` + `stanKursu`; `familyStats`, `streakDays`, `answerCountSince` → statystyki z `odpowiedz`/`aktywnosc`; `getSetting`, `setSetting` → `ustawienia`; `resetProgress` → `usunPostep` + `usunStareBazy`; historia → D-250.
+
+## Plan 5a: dane i przeniesienie istniejących ekranów (cięcie pionowe; każdy krok: czerwień z właściwego powodu → kod → `pnpm run ci` → commit)
+| Krok | Zachowanie | Test (czerwony przed) | Pliki |
+|---|---|---|---|
+| 0 | `pomoc.test.tsx` kompiluje się na RN 0.88 (D-254) i jako zielony idzie do `apps/mobile` (D-175) — zmiana struktury | `pnpm test:akceptacja:ekrany` (`tsc` kod 0) | `tests/akceptacja/ekrany/pomoc.test.tsx` → `apps/mobile/src/features/help/__tests__/` |
+| 1 | `ustawienia`: odczyt klucza z JSON (`unknown` → wartość albo `null`; zły JSON → błąd typowany), zapis UPSERT z `zmieniono_ms`, inne klucze nietknięte | nowy `packages/postep/test/ustawienia.test.ts` (node:sqlite, `enableForeignKeyConstraints: false`) | `packages/postep/src/ustawienia.ts` |
+| 2 | `postepLekcji`: „teoria przeczytana” UPSERT bez nadpisania `ukonczono_ms` i `miejsce`; odczyt faktów kursu (`ukonczoneLekcje`) | `test/postepLekcji.test.ts` (pola spoza zapisu przed = po) | `src/postepLekcji.ts` |
+| 3 | `aktywnosci`: `zacznijAktywnosc` (INSERT z planem, `z_limitu`, dniem i strefą), `aktywnoscWToku(rodzaj)`, `odpowiedziAktywnosci`, `zakonczAktywnosc` (stan, `koniec_ms`, `wynik_testu`, `postep_lekcji.ukonczono_ms` w jednej transakcji), `porzucAktywnosc`, `zuzyteDzis(dzien)`; plan z listą zadań (D-248) | `test/aktywnosci-08.test.ts`: błąd w środku zakończenia nic nie zapisuje; wznowienie na nowym porcie tego samego pliku wraca do `krok`; zużycie liczy tylko `z_limitu = 1` danego dnia (także zakończone i porzucone) | `src/aktywnosci.ts`, `packages/domena/src/maszyny.ts` (typ planu) |
+| 4 | odczyty: `powtorki` (karty do terminu, następny termin, wszystkie), `testy` (wyniki per moduł, zadania widziane w testach), statystyki postępu (rodziny, seria dni z `aktywnosc.dzien_lokalny`, D-251) | `test/odczyty-08.test.ts` (pusta baza, granica terminu = teraz, złe wiersze → błąd) | `src/powtorki.ts`, `src/testy.ts`, `src/statystyki.ts` |
+| 5 | `uprawnienia` (pamięć dostępu: zastąpienie w transakcji, odczyt jako `Pamiec`) i `dziennik` (wpis + przycięcie do `DZIENNIK_MAKS_WPISOW` w tej samej transakcji, ostatnie wpisy) | `test/uprawnienia-dziennik-08.test.ts` | `src/uprawnienia.ts`, `src/dziennik.ts` |
+| 6 | ekrany na nowych repozytoriach, po jednym: ustawienia interfejsu (`state/settings.ts`, D-251), Nauka i lekcja (`stanKursu`), sesja (lekcja, ćwiczenia, powtórki, test jako `aktywnosc`: `wejscieDoAktywnosci` → `startAktywnosci` → `zapiszKrok` na każdą odpowiedź → zakończenie; wznowienie z `aktywnoscWToku` + `odpowiedziAktywnosci`), Powtórki, Postęp, wskaźnik (D-250); oceny starego silnika → cztery stopnie (D-249) | testy RNTL ekranów z atrapą portu na `node:sqlite` tam, gdzie zapis (sesja: odpowiedź zapisana przed „Dalej”, wznowienie od kroku); istniejące testy `drills`, `session`, `advancement` zielone | `apps/mobile/src/app/**`, `state/settings.ts`, `features/advancement/*` |
+| 7 | usunięte `drizzle-orm`, `drizzle-kit`, `drizzle/`, `drizzle.config.ts`, `src/data/user/`, `test-utils/userTestDb.ts`; `_layout` bez `useMigrations` | ADR 0004 statyczny (`tests/akceptacja/postep/k14…`) czerwony → zielony, przeniesiony (D-224); K-14 zachowanie zielone | `apps/mobile/**`, lockfile |
+| 8 | E2 5a: mutacje (D-172), przegląd D-043 (`packages/postep/`, `apps/mobile/src/data/`), jeden push kodu → E2E 01–04 (dowód przeniesienia na symulatorze) | — | — |
+
+Stan przejściowy 5a (nazwany): limit liczony i zapisywany (`z_limitu`), ale bez blokady startu i bez ekranu zakupu do 5b; bez wydania między częściami (próg z `CLAUDE.md`).
+
+## Plan 5b: nowe ekrany i platforma
+| Krok | Zachowanie | Test (czerwony przed) | Pliki |
+|---|---|---|---|
+| 1 | (zależnie od P-2) moduł motywu z `docs/design/tokeny.ts` (201 użyć `useTokens`), zakładka „Dziś” z `BlokLekcji` i identyfikatorami `dzis-*` | istniejące testy ekranów; `i18n` | `src/theme/`, `(tabs)/*` |
+| 2 | 8 komponentów z kontraktem 07, po jednym (zaślepka → render minimalny → czerwień na asercji → kod → test do `apps/mobile`, D-175): `StopienOceny`, `EkranPowitania`, `EkranyOceny`, `EkranStartu`, `EkranZakupu`, `EkranUstawien`, `EkranDanych`, `Opinie` | `tests/akceptacja/ekrany/*` (69 czerwonych) | `src/features/{ocena,powitanie,ocena-poziomu,start,zakup,ustawienia,dane,opinie}/` |
+| 3 | pierwsze uruchomienie: powitanie → ocena poziomu (`aktywnosc` `ocena_poziomu`, „Pomiń” → M0) → `punkt_startu` → „Dziś” | flow 05 | `_layout`, trasy |
+| 4 | start z limitem: `EkranStartu` przed sesją, powtórkami i testem; wyczerpany limit → `EkranZakupu` jako stan przepływu; sklep z karencją i limitem czasu (D-246), nasłuch transakcji od startu aplikacji, `decyzja` + pamięć `uprawnienia` (D-247) | `platform/__tests__/zakupy-08` (karencja, przekroczony czas → `{ ok: false }`); flowy 06, 09 | `platform/zakupy.ts`, `_layout`, trasy |
+| 5 | Ustawienia: zarządzanie, przywróć, pomoc, „Usuń postęp” (`usunPostep` + `usunStareBazy`), dane (eksport i import: `expo-sharing`, `expo-document-picker`, kopia przed importem), opinie (`expo-store-review`, `czyProsicOOcene`), przypomnienie (D-252), język (`ustawienia-jezyk`, ADR 0014) | testy ekranów 07 + adapter plików (atrapa modułów); K-08, K-09 po nowych zależnościach (D-253) | `platform/pliki.ts`, `platform/opinie.ts`, trasa ustawień, `app.json` |
+| 6 | dziennik do tabeli `dziennik` (pierścień w pamięci do otwarcia bazy), „Zgłoś błąd w tym zadaniu” | `platform/__tests__/dziennik-08` rozszerzony | `platform/dziennik.ts` |
+| 7 | flowy 05, 06, 09 → `apps/mobile/e2e/`; 01–04 z `za-powitaniem`; limit czasu `e2e-ios.yml` z liczby flowów (`tests/narzedzia/e2e-flowy.test.mjs`) | E2E | `apps/mobile/e2e/`, `.github/workflows/e2e-ios.yml` |
+| 8 | E2 5b: mutacje, przegląd D-043 (`src/platform/`, `src/data/`, `app.json`, workflow), push → E2E 01–06, 09 | — | — |
+
+## Decyzje dla właściciela (zakres i kolejność prac)
+**P-2: gdzie wdrożyć system wyglądu roli 04** (tokeny `docs/design/tokeny.ts`, `Stol`, `PasekStrategii`, `SkalaStopni`, `BlokLekcji`, zakładka „Dziś”; dziś kod używa starego `theme/tokens.ts` i `TableFelt`).
+- A: cały system w części 5 (5b). Każdy ekran budowany raz w docelowym wyglądzie; +ok. 10–14 h, największy diff i audyt 04 naraz.
+- **B (rekomendacja): tokeny i „Dziś” w 5b, `Stol`, `PasekStrategii`, `SkalaStopni` (ekran decyzji w sesji) w części 6.** Nowe ekrany powstają od razu na tokenach systemu (zasada 15), a ekran decyzji — najbardziej złożony — dostaje osobny krok ze zrzutami i porównaniem z `wzorce-zrzuty/`. Kompromis: +ok. 4–6 h w 5b, ekran sesji zmieniany dwa razy (dane w 5a, wygląd w 6).
+- C: cały system w części 6. Najmniejsza część 5, ale 8 nowych ekranów zbudowanych na starych tokenach (poza systemem 04) i przerabianych w 6.
+
+**P-3: jedna część czy dwie bramki.** A (rekomendacja): 5a i 5b z osobnym E2, przeglądem D-043 i E2E — po 5a dowód, że przeniesione ekrany działają na symulatorze, zanim dojdą nowe; punkt czyszczenia między nimi. B: jedna część 5 z jednym E2 — mniej przerw, ale ok. 25–30 h w jednym przebiegu i jeden przegląd dla dwóch ścieżek wrażliwych naraz.
+
+## Decyzje techniczne (A, do weta; zapis D-246–D-255)
+- **D-246 (08-F05)** karencja płatności i limit czasu wywołań sklepu jak w Treningu: `store-native.ts:38–39` (limit czasu, `products.ts:46` 15000 ms) i `:64–78` (`subscriptionStatusIOS` → `gracePeriodExpirationDate` jako koniec dostępu); `expo-iap` 6.4.2 ma oba pola (`src/modules/ios.ts`, odczyt 2026-11-08). Przekroczony czas → `{ ok: false }` (pamięć bez zmian, D-209); `SKLEP_LIMIT_CZASU_MS` w `konfiguracja.ts`. Bez zmiany `OdczytSklepu` i ADR 0006 (zgłoszenie informacyjne do 05).
+- **D-247 (08-F06)** nasłuch transakcji od startu aplikacji jak Trening `entitlement.ts:74–79`: po otwarciu `postep.db` pamięć dostępu → nasłuch → odświeżenie; ekran zakupu bierze wynik z tego samego nasłuchu.
+- **D-248 (08-F10 → 05)** `PlanAktywnosci` dostaje opcjonalne `zadania: { id, ziarno }[]` (kolumna `plan` to JSON — schemat v1 bez zmian); wznowienie buduje te same zadania. Wzór: Trening `lib/state/core.ts:83` (aktywny trening zapisywany w całości jako JSON). Odrzucone: samo ziarno losowania (zestaw zmienia się z treścią), nowa tabela (migracja v2).
+- **D-249** oceny starego silnika → stopnie schematu: `correct` → `zgodne`, `acceptable` → `dopuszczalne`, `close` → `niedokladnosc`, `size` i `wrong` → `blad`; `zaliczona` z obecnego `isPass` (B-017). Jedna funkcja w `features/drills`; słowa stopni dalej otwarte (D-213, 04/06).
+- **D-250 (08-F11 → 05)** historia wskaźnika w `ustawienie` pod kluczem `historia_wskaznika` (JSON, najwyżej `HISTORY_DAYS` dni), bez zmiany schematu; odrzucone: nowa tabela (migracja v2 dla funkcji pomocniczej), usunięcie historii (zmiana produktu). Wzór: Trening trzyma stan pomocniczy jako JSON w tabeli klucz–wartość `kv` (`entitlement.ts:84`).
+- **D-251** ustawienia interfejsu jako klucze `cztery_kolory`, `haptyka` (JSON boolean; domyślne z modułu konfiguracji — preferencja interfejsu); seria dni = kolejne dni lokalne z `aktywnosc.dzien_lokalny` z co najmniej jedną odpowiedzią (dotąd z czasu odpowiedzi w `user.db`).
+- **D-252** przypomnienie: przełącznik z porą z `PRZYPOMNIENIE_DOMYSLNA_PORA` = 08:00 jak Trening `planReminder.ts:13` (stała godzina, bez wyboru), jedno zdanie przed prośbą systemu (F-11); bez nowej zależności natywnej do wyboru godziny. Pora i tekst do potwierdzenia przez 04 (zgłoszenie).
+- **D-253** nowe zależności 5b: `expo-sharing`, `expo-document-picker`, `expo-store-review` w wersjach z `bundledNativeModules.json` SDK 58 (D-237), jak w Treningu; K-08 i K-09 po dodaniu.
+- **D-254** `pomoc.test.tsx`: `mockResolvedValue(undefined)` zamiast `true` (RN 0.88 `openURL(): Promise<void>`), jak `HelpScreen.test` w części 4; asercje bez zmian; zgłoszenie do 07.
+- **D-255** wejście „Scenariusz” na „Dziś” tylko, gdy treść ma scenariusze (dziś 0) — bez pustego stanu bez projektu; flow 07 czeka na treść 06, flow 08 na `content/en` (09).
+
+## Szacunek (zasada 9)
+Agent: 5a ok. 10–13 h (sesja i wznowienie najbardziej niepewne), 5b ok. 12–16 h przy P-2 = B (A: +6–8 h; C: −4 h), część 6 (przy B) ok. 6–8 h. Czekanie: E2E ok. 40 min po każdym pushu kodu (0 USD, repo publiczne), przegląd D-043 ok. 10 min na część. Właściciel: P-2, P-3; po 5b telefon: U-2 (ochrona tła), U-5 (zakupy w piaskownicy), przejście PR-01–PR-09.
+
+## Punkt czyszczenia (STOP E0 części 5)
+Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „Część 5”. Decyzje: P-2, P-3, D-246–D-255 (do weta). Następny krok: E1 5a kroki 0–8.
