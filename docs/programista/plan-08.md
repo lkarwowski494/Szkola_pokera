@@ -583,3 +583,20 @@ Zakres (P-2 = B, D-256; wyjątki D-259 do części 6): ekran decyzji w sesji wed
 
 ## Szacunek (zasada 9)
 Agent: ok. 6–8 h (kroki 1–8), w tym noc do 03:45 UTC: kroki 1–7 realnie, 8 jeśli starczy. Czekanie: E2E ~46 min po pushu (0 USD). Właściciel: zrzuty na telefonie/symulatorze (lista w E2), weto L-1–L-5.
+
+## E1 część 6: stan w toku (2026-11-08, ok. 20:20 UTC)
+| Krok | Commit | Zachowanie | Testy (czerwone przed → zielone) |
+|---|---|---|---|
+| 1 | 1d33c68 | `features/stol/uklad.ts`: układ 6 miejsc, etykieta VoiceOver, opis ręki, opis kart; terminologia D-275 | `uklad-08` 7 |
+| 2 | 6ee5734 | `rangeDecision`: `table.path`, `DrillOption.czestosc` | `engine` „przebieg akcji…” |
+| 3 | 4cfd17b | `components/Stol.tsx` | `Stol-08` 3 |
+| 4 | 66d947f | `features/stol/pasek.ts` (segmenty, opis) | `pasek-08` 6 |
+| 5 | 7fcfbb6 | `components/PasekStrategii.tsx`; `DrillOption.pas` | `PasekStrategii-08` 2; asercja `pas` — czerwień mutacją |
+| 6 | 3e22c02 | `features/stol/skala.ts`, `components/SkalaStopni.tsx` | `skala-08` 3, `SkalaStopni-08` 1 |
+
+`pnpm run ci` kod 0 na 3e22c02 (mobile 408). Komponenty jeszcze nieużyte w `session.tsx`.
+
+**Zostaje:** krok 7 — nowy komponent `features/stol/PanelDecyzji.tsx` (test RNTL `PanelDecyzji-08`: przed decyzją „Wybierz akcję” + `PasekStrategii` z `option-<i>`; po ocenie sukno z `StopienOceny` (opcjonalny prop `naSuknie` → kolor `onFelt`), pasek po ocenie, `SkalaStopni` (mapowanie `GradeResult`: correct→zgodne, acceptable→dopuszczalne, size→niedokladnosc, wrong→blad; timeout: bez skali i znacznika), pod suknem `why` wybranej opcji); w `session.tsx`: `TableFelt` → `Stol` (także przegląd egzaminu), zadania z wyborem ze strategią → `PanelDecyzji`, bez strategii → `ChoiceOptions` bez `tk.przejsciowe` (obwódka `ink` + słowa), nagłówki ocen bez koloru (`StopienOceny` albo `ink`), wyjaśnienie na `surface`, wynik egzaminu w `ink`; strażnik: `session.tsx` bez `przejsciowe`. Krok 8 — Literata 600 TTF (`raw.githubusercontent.com/googlefonts/literata/main/fonts/ttf/Literata-SemiBold.ttf` → `apps/mobile/assets/fonts/` + OFL; `Font.loadAsync` z limitem 3 s w `_layout`, bez zmiany `app.json`; `styl.tytul*` i indeks karty Literatą do AX1, D-122). Krok 9 — E2 części 6: mutacje (D-172), `pnpm run ci`, push → E2E (flowy 01, 06 przechodzą przez ekran decyzji), lista zrzutów, zgłoszenia 08-F26 (stan „przebija”), 08-F27 (kreskowanie paska jako obwódka, kolory siatek), 08-F28 (terminologia „Stół”/„czeka”, D-275).
+
+## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
+Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
