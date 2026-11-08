@@ -4,6 +4,8 @@ name: Lekcja i pierwsze zadanie
 ---
 - launchApp:
     clearState: true
+# pierwsze uruchomienie (cz. 5b krok 3): powitanie → „Pomiń” w ocenie poziomu → „Dziś” (BR-ONB-001-b)
+- runFlow: wspolne/za-powitaniem.yaml
 - extendedWaitUntil:
     visible: 'No-Limit Hold’em od zera.*'
     timeout: 30000
@@ -22,5 +24,6 @@ name: Lekcja i pierwsze zadanie
 - assertVisible: '(Dobrze|Tym razem nie)'
 - tapOn: 'Dalej'
 - assertVisible: '2 z \d+'
-- tapOn: 'Zamknij'
+# „Zakończ” zamiast „Zamknij” w sesji (słownik interakcji design-spec.md:53; cz. 5b krok 4, D-267)
+- tapOn: 'Zakończ'
 - assertVisible: 'Układy kart'

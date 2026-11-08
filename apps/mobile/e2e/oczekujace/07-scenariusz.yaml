@@ -5,7 +5,7 @@ name: Scenariusz
 ---
 - launchApp:
     clearState: true
-- runFlow: wspolne/za-powitaniem.yaml
+- runFlow: ../wspolne/za-powitaniem.yaml
 - tapOn:
     id: 'dzis-scenariusz'
 - tapOn: 'Zacznij.*'

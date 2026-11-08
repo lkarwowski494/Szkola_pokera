@@ -6,7 +6,7 @@ name: Drugi język
 ---
 - launchApp:
     clearState: true
-- runFlow: wspolne/za-powitaniem.yaml
+- runFlow: ../wspolne/za-powitaniem.yaml
 - tapOn:
     id: 'ustawienia'
 - tapOn:

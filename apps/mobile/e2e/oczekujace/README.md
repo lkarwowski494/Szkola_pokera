@@ -14,4 +14,4 @@ interakcji roli 04 („Pomiń”, „Dalej”, „Zacznij”, „Zakończ”, �
 `jezyk-<kod>`. Teksty treści przychodzą z `content/` przez `helplines-env.mjs` (`-e`), nie są wpisane w YAML.
 
 Po wdrożeniu ekranu powitania i oceny poziomu (BR-ONB) flowy 01–04 zaczynają się od powitania: dodaj w nich po
-`launchApp` krok `runFlow: oczekujace/wspolne/za-powitaniem.yaml` (warunkowy, nie psuje przebiegu bez powitania).
+`launchApp` krok `runFlow: wspolne/za-powitaniem.yaml` (podprzepływ w `apps/mobile/e2e/wspolne/`, poza `*.yaml`; flowy oczekujące wołają `../wspolne/`) (warunkowy, nie psuje przebiegu bez powitania).
