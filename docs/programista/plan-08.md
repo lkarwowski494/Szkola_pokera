@@ -458,3 +458,20 @@ Nowe teksty (do akceptacji 04/06, „Głos”): `postep.odczytNieudany`, `postep
 
 ## Punkt czyszczenia (STOP E2 części 5a)
 Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „Część 5”. Decyzja: D-258 (5a przyjęta). Następny krok: E1 5b w nowej sesji — krok 0: limit `e2e-ios.yml` (08-F14, D-258), potem tokeny i „Dziś”, 8 ekranów 07, limit i zakup (D-246, D-247), ustawienia, dziennik w bazie, flowy 05, 06, 09.
+
+## E1 część 5b: stan w toku (2026-11-08; plan przyjęty D-256, krok 0 z D-258)
+| Krok | Commit | Zachowanie | Testy (czerwone przed kodem → zielone) |
+|---|---|---|---|
+| 0 | 8677182 | `e2e-ios.yml`: limit joba 30 + 3n + 10 (4 flowy → 52) | `e2e-flowy` 52 ≠ 42 → zielony |
+| 1a | 51806f9 | moduł motywu z `docs/design/tokeny.ts` (kopia 1:1), 22 ekrany na tokenach 04, wyjątki do części 6 w `tk.przejsciowe` (D-259) | `motyw-08` 5/8 czerwonych → 8/8; mutacja jednej barwy zabita |
+| 1b, 2 | f65dcec | „Dziś”: `BlokLekcji` (`dzis-lekcja`), `dzis-cwiczenia`, `dzis-powtorki`, wszystkie lekcje; `czytajFaktyKursu`; sesja ćwiczeń (`practice` → rodzaj `sesja`, D-260); `EkranStartu`; `terms.yaml` skip (D-261) | `widok-08` 5/6, `BlokLekcji-08` 2/2, `faktyKursu-08` 7, `praktyka-08` 2/4, `start.test` 17/20 → zielone |
+| 2 | 767fb4a | `StopienOceny`, `EkranPowitania`, `EkranyOceny`, `EkranZakupu`, `EkranUstawien` (+ `sekcje`, D-262), `EkranDanych`, `Opinie` | 07: 1/1, 13/13, 12/12, 16/17, 5/6 czerwonych → zielone, przeniesione do `apps/mobile` (D-175); `tests/akceptacja/ekrany` pusty |
+
+`pnpm run ci` kod 0 (767fb4a): mobile 297 (było 199), domena 314, postep 105, content-build 124; `i18n` 0 błędów (404 klucze). Ostrzeżenia `act(...)` w `dane.test.tsx` (asynchroniczny `setState` po akcji; testy 07 nie czekają na końcowy stan) — do 07 przy E2.
+
+**Zostaje (kroki 3–8):** 3 pierwsze uruchomienie: trasa powitania → ocena poziomu (pytania z treści? — sprawdzić, skąd pytania oceny; `aktywnosc` `ocena_poziomu`, „Pomiń” → `porzucona` i M0, zakończenie → `punkt_startu` `{ modulId, ustawionoMs }`) → „Dziś”; 4 `EkranStartu` przed sesją ćwiczeń, powtórkami i testem powtórnym (dziś `bezLimitu` w `app/session.tsx:~95`), `EkranZakupu` jako stan przepływu, adapter sklepu z karencją i limitem czasu (D-246), nasłuch od startu + `decyzja` + pamięć `uprawnienia` (D-247); w sesji „Zamknij” → „Zakończ” (słownik 04; flow 01 do zmiany z powodem); 5 trasa ustawień (ikona na „Dziś”, `testID` `ustawienia`) z `EkranUstawien` + sekcje: `EkranDanych` (expo-sharing, expo-document-picker — D-253, `pnpm install --lockfile-only`), `SekcjaOpinii` (id sklepu i adres kontaktowy [DO USTALENIA] rola 10 — wartość tymczasowa z konfiguracji), przypomnienie (D-252), język (`ustawienia-jezyk`); przenieść z „Postępu” przełączniki i „Usuń postęp”; 6 dziennik do tabeli + `ZglosBlad` pod oceną; 7 flowy 05, 06, 09 → `apps/mobile/e2e/` z przeliczeniem limitu (30 + 3n + 10), 01–04 z `za-powitaniem`; 8 E2.
+
+**Zgłoszenia nowe (do raportu E2):** 08-F15 → 04: kolory talii czterokolorowej poza tokenami (D-259); 08-F16 → 04: promienie `BlokLekcji` z makiety (28/22) bez tokenu, użyte `promien.sukno` i wcięcie; lista modułów na „Dziś” pod „Wszystkie lekcje” (makieta bez miejsca na mapę kursu); 08-F17 → 06: `terms.yaml` skip „sesja ćwiczeń” (D-261); 08-F18 → 05/07: `EkranUstawien.sekcje` (D-262). Nowe teksty do akceptacji 04/06: `today.*`, `start.*`, `grade.*`, `welcome.*`, `placement.*`, `purchase.*`, `settings.*`, `data.*`, `feedback.*`.
+
+## Punkt czyszczenia (w trakcie E1 5b, po kroku 2)
+Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „E1 część 5b: stan w toku”. Decyzje D-259–D-262 (A, do weta). Następny krok: E1 5b kroki 3–8 w nowej sesji. Powód przerwy: duży kontekst sesji i restart procesu roboczego (zasada 19).
