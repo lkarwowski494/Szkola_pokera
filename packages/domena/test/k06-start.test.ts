@@ -5,10 +5,10 @@
 import { readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
-import { KONFIGURACJA as K, przygotujTresc } from '../../../packages/domena/src';
-import { sha256, sumyKatalogu } from '../../narzedzia/pliki-node';
-import { plikiTresciNode, zbudujTresc, type WywolanieTresci } from '../../narzedzia/tresc-node';
-import { katalogTymczasowy, sprzatnij } from '../../../packages/postep/test/wspolne';
+import { KONFIGURACJA as K, przygotujTresc } from '../src';
+import { sha256, sumyKatalogu } from '../../../tests/narzedzia/pliki-node';
+import { plikiTresciNode, zbudujTresc, type WywolanieTresci } from '../../../tests/narzedzia/tresc-node';
+import { katalogTymczasowy, sprzatnij } from '../../postep/test/wspolne';
 
 const zamkniecia: (() => void)[] = [];
 afterEach(() => { for (const z of zamkniecia.splice(0)) z(); sprzatnij(); });
