@@ -19,8 +19,7 @@ jest.mock('expo-sqlite', () => {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const path = require('node:path') as typeof import('node:path');
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const schema = require('@szkola/content-schema') as typeof import('@szkola/content-schema');
-  const db = new DatabaseSync(path.join(__dirname, `../../../../assets/content/content-v${schema.CONTENT_SCHEMA_VERSION}.db`), { readOnly: true });
+  const db = new DatabaseSync((require('@/test-utils/trescPl') as typeof import('@/test-utils/trescPl')).sciezkaTresciPl(), { readOnly: true });
   const ctx = {
     getAllSync: (sql: string, ...p: (string | number)[]) => db.prepare(sql).all(...p),
     getFirstSync: (sql: string, ...p: (string | number)[]) => db.prepare(sql).get(...p) ?? null,
@@ -34,8 +33,7 @@ jest.mock('@/features/play/usePlayKit', () => {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const path = require('node:path') as typeof import('node:path');
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const schema = require('@szkola/content-schema') as typeof import('@szkola/content-schema');
-  const db = new DatabaseSync(path.join(__dirname, `../../../../assets/content/content-v${schema.CONTENT_SCHEMA_VERSION}.db`), { readOnly: true });
+  const db = new DatabaseSync((require('@/test-utils/trescPl') as typeof import('@/test-utils/trescPl')).sciezkaTresciPl(), { readOnly: true });
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const kit = (require('../kit') as typeof import('../kit')).loadPlayKit({ all: (sql: string, ...p: (string | number)[]) => db.prepare(sql).all(...p) as never });
   return { usePlayKit: () => kit };

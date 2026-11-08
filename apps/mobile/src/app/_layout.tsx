@@ -13,14 +13,15 @@ import { CrashBoundary, initCrashReports, reportError } from '@/observability/cr
 import { ObserveRoot } from '@/observability/observe';
 import { useSettings } from '@/state/settings';
 import { space, type as tp, useTokens } from '@/theme/tokens';
+import { PLIKI_TRESCI } from '@/data/content/tresc.generated';
 
 void SplashScreen.preventAutoHideAsync();
 // przed zamontowaniem pierwszego ekranu; bez DSN w app.json Sentry zostaje wyłączone
 initCrashReports();
 
-// Nazwa pliku musi odpowiadać CONTENT_SCHEMA_VERSION (content-build zapisuje content-v6.db).
-const CONTENT_DB = 'content-v6.db';
-const contentAsset = require('../../assets/content/content-v6.db') as number;
+// Baza treści polskiej z modułu content-build (nazwa zależy od wersji treści, D-229). Przejściowo jak dotąd: kopia przy
+// każdym starcie; wybór języka i instalacja jednej kopii na wersję przez przygotujTresc (ADR 0005 pkt 2) — 08 cz. 3 krok 4.
+const { plik: CONTENT_DB, zasob: contentAsset } = PLIKI_TRESCI.pl!;
 
 /** Korzeń: EAS Observe mierzy pierwsze wyrenderowanie (metryki startu, ADR-17). */
 export default function Root() {

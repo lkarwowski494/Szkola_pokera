@@ -4,7 +4,8 @@
  * Test na prawdziwej treści: każde zadanie z content-vN.db daje się utworzyć i ocenić, a egzamin każdego modułu
  * ma pełną długość. Łapie rozjazd między potokiem treści a silnikiem zadań.
  */
-import { CONTENT_SCHEMA_VERSION, type Drill } from '@szkola/content-schema';
+import { type Drill } from '@szkola/content-schema';
+import { sciezkaTresciPl } from '@/test-utils/trescPl';
 import { GAME_CARDS } from '@szkola/srs';
 import { classOf, createRng, parseCard } from '@szkola/poker-core';
 import { join } from 'node:path';
@@ -17,7 +18,7 @@ import { buildExamSession } from '@/features/session/build';
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const { DatabaseSync } = require('node:sqlite') as typeof import('node:sqlite');
 
-const db = new DatabaseSync(join(__dirname, `../../../../assets/content/content-v${CONTENT_SCHEMA_VERSION}.db`), { readOnly: true });
+const db = new DatabaseSync(sciezkaTresciPl(), { readOnly: true });
 const rows = db.prepare('SELECT d.id, d.lesson_id AS lessonId, d.family, d.data, l.module_id AS moduleId, m.ord FROM drills d JOIN lessons l ON l.id = d.lesson_id JOIN modules m ON m.id = l.module_id').all() as {
   id: string;
   lessonId: string;

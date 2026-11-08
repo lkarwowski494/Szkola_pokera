@@ -1,6 +1,6 @@
 /// <reference types="jest" />
 /// <reference types="node" />
-import { CONTENT_SCHEMA_VERSION } from '@szkola/content-schema';
+import { sciezkaTresciPl } from '@/test-utils/trescPl';
 import {
   actionMenu,
   botDecide,
@@ -37,7 +37,7 @@ jest.mock('better-sqlite3', () => function BetterSqlite3() {}, { virtual: true }
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const { DatabaseSync } = require('node:sqlite') as typeof import('node:sqlite');
-const content = new DatabaseSync(join(__dirname, `../../../../assets/content/content-v${CONTENT_SCHEMA_VERSION}.db`), { readOnly: true });
+const content = new DatabaseSync(sciezkaTresciPl(), { readOnly: true });
 const kit = loadPlayKit({ all: (sql, ...p) => content.prepare(sql).all(...p) as never });
 const t = i18n.t.bind(i18n);
 

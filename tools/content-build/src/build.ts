@@ -27,6 +27,8 @@ import {
   type ModuleDef,
   type RuleDef,
 } from '@szkola/content-schema';
+import { KONFIGURACJA, nazwaPlikuTresci } from '@szkola/domena';
+import { JEZYKI, jestJezykiem, lancuchZastepczy } from '@szkola/jezyki';
 import { classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, textureMatches, type TextureFilter } from '@szkola/poker-core';
 import { expandHelplines, loadHelplines, type Helplines } from './helplines';
 import { compileMarkdown } from './markdown';
@@ -64,6 +66,8 @@ export interface CompiledExam {
 export interface CompiledContent {
   schemaVersion: number;
   locale: string;
+  /** Język, z którego pochodzi tekst (łańcuch zastępczy, D-228); `locale` = język bazy i format liczb. */
+  tekst: string;
   modules: ModuleDef[];
   lessons: CompiledLesson[];
   exams: CompiledExam[];
@@ -122,11 +126,16 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   /** Plik treści, którego dotyczą bieżące użycia (względem content/). */
   let fileCtx = 'ranges/spots.yaml';
   const used = new Set<string>();
+  if (!jestJezykiem(locale)) throw new Error(`Nieznany język treści "${locale}" (lista: @szkola/jezyki)`);
+  // tekst z pierwszego języka łańcucha, który ma katalog content/<język> (D-228); liczby zawsze w języku bazy (D-230)
+  const tekst = lancuchZastepczy(locale).find((j) => existsSync(join(contentDir, j)));
+  if (tekst === undefined) throw new Error(`Brak katalogu treści dla "${locale}" ani dla języków zastępczych`);
   const { spots: ranges } = compileRanges(contentDir);
   const rangeIds = new Set(ranges.map((r) => r.id));
   const numbers = resolveNumbers(
     parseOrThrow(NumbersFile, readYaml(join(contentDir, 'numbers.yaml')), 'numbers.yaml'),
     (id) => ranges.find((r) => r.id === id),
+    locale,
   );
   const termsFile = parseOrThrow(TermsFile, readYaml(join(contentDir, 'terms.yaml')), 'terms.yaml');
   const terms = loadTerms(termsFile);
@@ -163,8 +172,8 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
     }
   }
 
-  const localeDir = join(contentDir, locale);
-  fileCtx = `${locale}/modules.yaml`;
+  const localeDir = join(contentDir, tekst);
+  fileCtx = `${tekst}/modules.yaml`;
   const modules = parseOrThrow(ModulesFile, readYaml(join(localeDir, 'modules.yaml')), 'modules.yaml').map((m) => ({
     ...m,
     title: sub(m.title, m.id, undefined, false),
@@ -173,7 +182,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   const moduleIds = new Set(modules.map((m) => m.id));
   if (moduleIds.size !== modules.length) throw new Error('modules.yaml: powtórzony identyfikator modułu');
 
-  fileCtx = `${locale}/rules.yaml`;
+  fileCtx = `${tekst}/rules.yaml`;
   const rulesRaw = parseOrThrow(RulesFile, readYaml(join(localeDir, 'rules.yaml')), 'rules.yaml');
   const rules = rulesRaw.map((r) => {
     // reguła to jedna jednostka tekstu („Jeśli …, to …, bo …”): nazwa angielska przy pierwszym użyciu
@@ -296,7 +305,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   const lessonIds = new Set<string>();
   for (const file of readdirSync(lessonDir).filter((f) => f.endsWith('.md')).sort()) {
     const where = `lessons/${file}`;
-    fileCtx = `${locale}/lessons/${file}`;
+    fileCtx = `${tekst}/lessons/${file}`;
     try {
       const split = splitFrontmatter(readFileSync(join(lessonDir, file), 'utf8'), where);
       const fm = split.fm;
@@ -346,7 +355,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   if (existsSync(examDir)) {
     for (const file of readdirSync(examDir).filter((f) => f.endsWith('.yaml')).sort()) {
       const where = `exams/${file}`;
-      fileCtx = `${locale}/exams/${file}`;
+      fileCtx = `${tekst}/exams/${file}`;
       try {
         const exam = parseOrThrow(ExamFile, readYaml(join(examDir, file)), where);
         checkExamFile(exam, file, { moduleIds, familiesByModule, examModules: new Set(exams.map((e) => e.module)) });
@@ -417,7 +426,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
 
   const { ranking: handRanking } = compileHandRanking(join(contentDir, '..', 'tools', 'equity', 'equity169.json'));
   exams.sort((a, b) => modules.find((m) => m.id === a.module)!.order - modules.find((m) => m.id === b.module)!.order);
-  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, modules, lessons, exams, rules, numbers: numbersOut, ranges, evalRules, handRanking, areas, terms: terms.compiled };
+  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, tekst, modules, lessons, exams, rules, numbers: numbersOut, ranges, evalRules, handRanking, areas, terms: terms.compiled };
   const hash = createHash('sha256').update(JSON.stringify(payload)).digest('hex').slice(0, 16);
   return { ...payload, helplines, hash, warnings };
 }
@@ -473,22 +482,77 @@ export function checkCbetCases(drillId: string, filters: readonly TextureFilter[
 }
 
 /** Pliki content-v*.db innej wersji schematu niż aktualna (pozostałości po zmianie CONTENT_SCHEMA_VERSION). */
-export function staleContentDbs(outDir: string): string[] {
-  if (!existsSync(outDir)) return [];
-  return readdirSync(outDir).filter((f) => /^content-v\d+\.db$/.test(f) && f !== contentDbFileName());
+/** Wersja treści w nazwie pliku (D-229): 10 znaków hex skrótu ze skrótów wszystkich baz; zmiana dowolnej bazy = nowa nazwa. */
+export function wersjaTresci(c: readonly { locale: string; hash: string }[]): string {
+  const wejscie = [...c].map((x) => `${x.locale}:${x.hash}`).sort().join('\n');
+  return createHash('sha256').update(wejscie).digest('hex').slice(0, 10);
 }
 
-export function contentDbFileName(): string {
-  return `content-v${CONTENT_SCHEMA_VERSION}.db`;
+/** Najniższa wersja aplikacji, która czyta format treści `KONFIGURACJA.TRESC_FORMAT` (D-229; `app.json` 0.1.0). */
+export const MIN_WERSJA_APLIKACJI = '0.1.0';
+
+/** Wszystkie języki z `@szkola/jezyki` (35 baz, ADR 0005 pkt 1). */
+export function compileAll(contentDir: string, opts: CompileOptions = {}): CompiledContent[] {
+  return JEZYKI.map((j) => compileContent(contentDir, j, opts));
+}
+
+const nazwyPlikow = (c: readonly CompiledContent[]) => {
+  const w = wersjaTresci(c);
+  return c.map((x) => ({ content: x, plik: nazwaPlikuTresci(w, x.locale), wersja: w }));
+};
+
+/** Stare bazy treści w katalogu paczki: `content-v*.db` (dawny format) i `tresc-*.db` spoza listy oczekiwanych. Inne pliki nie. */
+export function staleContentDbs(outDir: string, oczekiwane: readonly string[]): string[] {
+  if (!existsSync(outDir)) return [];
+  return readdirSync(outDir).filter((f) => (/^content-v\d+\.db$/.test(f) || /^tresc-[^-/]+-[^/]+\.db$/.test(f)) && !oczekiwane.includes(f));
+}
+
+/** Zapis wszystkich baz pod nazwami z jedną wersją, potem usunięcie starych baz treści (obce pliki zostają). */
+export function writeContentDbs(c: readonly CompiledContent[], outDir: string): string[] {
+  const pliki = nazwyPlikow(c);
+  const sciezki = pliki.map((p) => writeContentDb(p.content, outDir, p.wersja));
+  for (const f of staleContentDbs(outDir, pliki.map((p) => p.plik))) rmSync(join(outDir, f));
+  return sciezki;
+}
+
+/**
+ * Moduł TS dla aplikacji (D-232): wersja treści i mapa język → plik w paczce z `require` (Metro dołącza 35 baz; nazwy
+ * tylko stąd, bez wpisywania w kodzie). Kolejność języków z `@szkola/jezyki`.
+ */
+export function trescModuleSource(c: readonly CompiledContent[]): string {
+  const pliki = nazwyPlikow(c);
+  const linie = pliki.map((p) => `  '${p.content.locale}': { plik: '${p.plik}', zasob: require('../../../assets/content/${p.plik}') as number },`);
+  return [
+    '// Wygenerowane przez content-build (pnpm content:build). Nie edytuj ręcznie.',
+    '/* eslint-disable @typescript-eslint/no-require-imports */',
+    `export const WERSJA_TRESCI = '${pliki[0]?.wersja ?? ''}';`,
+    '/** Plik treści na język (ADR 0005, D-229): nazwa w paczce i zasób Metro. */',
+    'export const PLIKI_TRESCI: Readonly<Record<string, { plik: string; zasob: number }>> = {',
+    ...linie,
+    '};',
+    '',
+  ].join('\n');
+}
+
+/** Kontrola `content:check`: każdy plik jest, ma skrót bieżącej treści, w katalogu nie ma innych plików `.db`. Zwraca listę błędów. */
+export function sprawdzTresci(c: readonly CompiledContent[], outDir: string): string[] {
+  const pliki = nazwyPlikow(c);
+  const bledy: string[] = [];
+  for (const p of pliki) {
+    const hash = readDbHash(join(outDir, p.plik));
+    if (hash !== p.content.hash) bledy.push(`${p.plik}: ${hash === null ? 'brak pliku' : `nieaktualny (${hash} ≠ ${p.content.hash})`}`);
+  }
+  const oczekiwane = new Set(pliki.map((p) => p.plik));
+  const obce = existsSync(outDir) ? readdirSync(outDir).filter((f) => f.endsWith('.db') && !oczekiwane.has(f)) : [];
+  for (const f of obce) bledy.push(`${f}: plik spoza bieżącej treści (stara wersja albo obcy plik)`);
+  return bledy;
 }
 
 /** Zapisuje treść do pliku SQLite tylko do odczytu w aplikacji (ADR-08). */
-export function writeContentDb(content: CompiledContent, outDir: string): string {
+export function writeContentDb(content: CompiledContent, outDir: string, wersja = content.hash.slice(0, 10)): string {
   mkdirSync(outDir, { recursive: true });
-  const path = join(outDir, contentDbFileName());
+  const path = join(outDir, nazwaPlikuTresci(wersja, content.locale));
   if (existsSync(path)) rmSync(path);
-  // baza poprzedniej wersji schematu (np. content-v3.db) nie może zostać w paczce obok aktualnej
-  for (const f of staleContentDbs(outDir)) rmSync(join(outDir, f));
   const db = new DatabaseSync(path);
   db.exec(`
     PRAGMA journal_mode = DELETE;
@@ -513,8 +577,13 @@ export function writeContentDb(content: CompiledContent, outDir: string): string
   };
   tx(() => {
     const meta = db.prepare('INSERT INTO meta VALUES (?, ?)');
+    // manifest (ADR 0005 pkt 5): format, wersja, jezyk, min_wersja_aplikacji; jezyk_tekstu: źródło tekstu (D-228)
+    meta.run('format', String(KONFIGURACJA.TRESC_FORMAT));
+    meta.run('wersja', wersja);
+    meta.run('jezyk', content.locale);
+    meta.run('min_wersja_aplikacji', MIN_WERSJA_APLIKACJI);
+    meta.run('jezyk_tekstu', content.tekst);
     meta.run('schemaVersion', String(content.schemaVersion));
-    meta.run('locale', content.locale);
     meta.run('hash', content.hash);
     const mod = db.prepare('INSERT INTO modules VALUES (?, ?, ?, ?, ?, ?)');
     for (const m of content.modules) mod.run(m.id, m.order, m.title, m.sub, m.phase, m.recommended ? 1 : 0);

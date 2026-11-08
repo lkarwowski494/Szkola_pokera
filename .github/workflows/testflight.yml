@@ -142,8 +142,10 @@ jobs:
             -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" \
             CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM="$TEAM" CURRENT_PROJECT_VERSION=$BUILD_NUMBER \
             2>&1 | tee xcodebuild.log | { if command -v xcbeautify >/dev/null; then xcbeautify; else cat; fi; }
-          # treść lekcji musi być w paczce (baza content-vN.db)
-          find "$RUNNER_TEMP/App.xcarchive" -name 'content-v*.db' | grep -q . || { echo "::error::W archiwum brak bazy treści content-v*.db"; exit 1; }
+          # treść lekcji musi być w paczce: wszystkie bazy tresc-<wersja>-<język>.db z modułu content-build (ADR 0005, D-232)
+          OCZEKIWANE=$(grep -c "plik: 'tresc-" "$GITHUB_WORKSPACE/apps/mobile/src/data/content/tresc.generated.ts")
+          JEST=$(find "$RUNNER_TEMP/App.xcarchive" -name 'tresc-*.db' | wc -l | tr -d ' ')
+          [ "$OCZEKIWANE" -gt 0 ] && [ "$JEST" -eq "$OCZEKIWANE" ] || { echo "::error::W archiwum $JEST baz treści tresc-*.db, oczekiwano $OCZEKIWANE"; exit 1; }
       - name: Eksport i wysyłka do App Store Connect
         working-directory: apps/mobile/ios
         env:

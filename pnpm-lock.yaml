@@ -231,6 +231,9 @@ importers:
       '@szkola/content-schema':
         specifier: workspace:*
         version: link:../../packages/content-schema
+      '@szkola/domena':
+        specifier: workspace:*
+        version: link:../../packages/domena
       '@szkola/jezyki':
         specifier: workspace:*
         version: link:../../packages/jezyki

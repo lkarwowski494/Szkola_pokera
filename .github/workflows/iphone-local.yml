@@ -79,8 +79,10 @@ jobs:
             2>&1 | tee xcodebuild.log | { if command -v xcbeautify >/dev/null; then xcbeautify; else cat; fi; }
           APP=$(ls -d build/Build/Products/Release-iphoneos/*.app | head -1)
           test -n "$APP" && test -f "$APP/main.jsbundle"
-          # treść lekcji musi być w paczce (baza content-vN.db)
-          find "$APP" -name 'content-v*.db' | grep -q . || { echo "::error::W paczce brak bazy treści content-v*.db"; exit 1; }
+          # treść lekcji musi być w paczce: wszystkie bazy tresc-<wersja>-<język>.db z modułu content-build (ADR 0005, D-232)
+          OCZEKIWANE=$(grep -c "plik: 'tresc-" "$GITHUB_WORKSPACE/apps/mobile/src/data/content/tresc.generated.ts")
+          JEST=$(find "$APP" -name 'tresc-*.db' | wc -l | tr -d ' ')
+          [ "$OCZEKIWANE" -gt 0 ] && [ "$JEST" -eq "$OCZEKIWANE" ] || { echo "::error::W paczce $JEST baz treści tresc-*.db, oczekiwano $OCZEKIWANE"; exit 1; }
           du -sh "$APP"
       - uses: actions/upload-artifact@v5
         if: failure() && inputs.tryb == 'tylko-kompilacja'

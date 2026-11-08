@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@szkola/content-schema": "workspace:*",
+    "@szkola/domena": "workspace:*",
     "@szkola/jezyki": "workspace:*",
     "@szkola/poker-core": "workspace:*",
     "marked": "18.0.14",

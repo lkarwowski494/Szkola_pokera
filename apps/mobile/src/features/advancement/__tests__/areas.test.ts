@@ -4,7 +4,7 @@
  * Obszary wskaźnika zaawansowania na prawdziwej treści: każda rodzina zadań należy do dokładnie jednego obszaru,
  * obszary to moduły kursu w ich kolejności.
  */
-import { CONTENT_SCHEMA_VERSION } from '@szkola/content-schema';
+import { sciezkaTresciPl } from '@/test-utils/trescPl';
 import { computeAdvancement } from '@szkola/srs';
 import { join } from 'node:path';
 import { buildAreas, type FamilyModuleRow } from '../areas';
@@ -12,7 +12,7 @@ import { buildAreas, type FamilyModuleRow } from '../areas';
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const { DatabaseSync } = require('node:sqlite') as typeof import('node:sqlite');
 
-const db = new DatabaseSync(join(__dirname, `../../../../assets/content/content-v${CONTENT_SCHEMA_VERSION}.db`), { readOnly: true });
+const db = new DatabaseSync(sciezkaTresciPl(), { readOnly: true });
 const modules = (db.prepare('SELECT id, ord, recommended FROM modules').all() as { id: string; ord: number; recommended: number }[]).map((m) => ({
   id: m.id,
   ord: m.ord,

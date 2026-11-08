@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
-import { compileContent, contentDbFileName, readDbHash, staleContentDbs, writeContentDb } from './build';
+import { compileAll, sprawdzTresci, trescModuleSource, writeContentDbs } from './build';
 import { helplinesModuleSource } from './helplines';
 import { termsModuleSource } from './terms';
 
@@ -11,24 +11,23 @@ const outDir = join(root, 'apps/mobile/assets/content');
 const termsModule = join(root, 'apps/mobile/src/data/content/terms.generated.ts');
 /** Telefony pomocy dla ekranu „Pomoc”: moduł TS z content/helplines.yaml (to samo źródło co ramka w lekcji M12-L4). */
 const helplinesModule = join(root, 'apps/mobile/src/data/content/helplines.generated.ts');
+/** Pliki treści na język dla aplikacji (D-232): wersja i mapa `require` z content-build. */
+const trescModule = join(root, 'apps/mobile/src/data/content/tresc.generated.ts');
 
 const mode = process.argv[2] ?? 'build';
 
 try {
-  const content = compileContent(contentDir, 'pl');
-  for (const w of content.warnings) console.warn(`uwaga: ${w}`);
-  const dbPath = join(outDir, contentDbFileName());
+  // 35 baz z tych samych YAML (ADR 0005 pkt 1); pierwsza to źródło `pl` (moduły TS terminów i pomocy, ostrzeżenia)
+  const tresci = compileAll(contentDir);
+  const content = tresci.find((c) => c.locale === 'pl')!;
+  for (const w of new Set(tresci.flatMap((c) => c.warnings))) console.warn(`uwaga: ${w}`);
   const termsSrc = termsModuleSource(content.terms);
   const helplinesSrc = helplinesModuleSource(content.helplines);
+  const trescSrc = trescModuleSource(tresci);
   if (mode === 'check') {
-    const current = readDbHash(dbPath);
-    if (current !== content.hash) {
-      console.error(`Baza treści jest nieaktualna (${current ?? 'brak'} ≠ ${content.hash}). Uruchom: pnpm content:build`);
-      process.exit(1);
-    }
-    const stale = staleContentDbs(outDir);
-    if (stale.length > 0) {
-      console.error(`Stare bazy treści obok ${contentDbFileName()}: ${stale.join(', ')}. Uruchom: pnpm content:build`);
+    const bledy = sprawdzTresci(tresci, outDir);
+    if (bledy.length > 0) {
+      console.error(`Bazy treści są nieaktualne (${bledy.length}):\n${bledy.map((b) => `  - ${b}`).join('\n')}\nUruchom: pnpm content:build`);
       process.exit(1);
     }
     if (!existsSync(termsModule) || readFileSync(termsModule, 'utf8') !== termsSrc) {
@@ -39,13 +38,18 @@ try {
       console.error('Moduł telefonów pomocy apps/mobile/src/data/content/helplines.generated.ts jest nieaktualny. Uruchom: pnpm content:build');
       process.exit(1);
     }
-    console.log(`Treść aktualna (${content.hash}): ${content.lessons.length} lekcji, ${content.rules.length} reguł, ${content.terms.length} terminów.`);
+    if (!existsSync(trescModule) || readFileSync(trescModule, 'utf8') !== trescSrc) {
+      console.error('Moduł plików treści apps/mobile/src/data/content/tresc.generated.ts jest nieaktualny. Uruchom: pnpm content:build');
+      process.exit(1);
+    }
+    console.log(`Treść aktualna (${tresci.length} baz): ${content.lessons.length} lekcji, ${content.rules.length} reguł, ${content.terms.length} terminów.`);
   } else {
-    writeContentDb(content, outDir);
+    const sciezki = writeContentDbs(tresci, outDir);
     mkdirSync(dirname(termsModule), { recursive: true });
     writeFileSync(termsModule, termsSrc);
     writeFileSync(helplinesModule, helplinesSrc);
-    console.log(`Zapisano ${dbPath} (${content.hash}): ${content.lessons.length} lekcji, ${content.rules.length} reguł, ${content.numbers.length} liczb, ${content.terms.length} terminów.`);
+    writeFileSync(trescModule, trescSrc);
+    console.log(`Zapisano ${sciezki.length} baz treści w ${outDir}: ${content.lessons.length} lekcji, ${content.rules.length} reguł, ${content.numbers.length} liczb, ${content.terms.length} terminów.`);
   }
 } catch (e) {
   console.error(e instanceof Error ? e.message : e);
