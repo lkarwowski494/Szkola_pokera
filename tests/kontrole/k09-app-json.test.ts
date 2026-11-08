@@ -1,4 +1,4 @@
-// K-09 (kontrole-07.md): konfiguracja `apps/mobile/app.json`. Wyrocznie: ADR 0009 (bez Sentry, manifest bez zbieranych danych),
+// K-09 (kontrole-07.md): konfiguracja `apps/mobile/app.json`; bramka w `pnpm run ci` (`test:kontrole`, D-236) od części 4 kroku 4. Wyrocznie: ADR 0009 (bez Sentry, manifest bez zbieranych danych),
 // ADR 0012 pkt 5 i tlo-i-bledy.md §3 (`expo-notifications` z `enableRemoteNotifications: false`, bez
 // `enableBackgroundRemoteNotifications`), tlo-i-bledy.md §1 (bez `UIBackgroundModes`), prywatnosc.md (`NSPrivacyTracking` false).
 // Odczyt pliku zamiast `expo config --type introspect`: wtyczki mogą dopisać klucze (np. `remote-notification`), dlatego
@@ -7,7 +7,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
 type Wtyczka = string | [string, Record<string, unknown>?];
-const app = JSON.parse(readFileSync(new URL('../../../apps/mobile/app.json', import.meta.url), 'utf8')).expo as {
+const app = JSON.parse(readFileSync(new URL('../../apps/mobile/app.json', import.meta.url), 'utf8')).expo as {
   ios?: { infoPlist?: Record<string, unknown>; privacyManifests?: Record<string, unknown> };
   plugins?: Wtyczka[];
   extra?: Record<string, unknown>;
