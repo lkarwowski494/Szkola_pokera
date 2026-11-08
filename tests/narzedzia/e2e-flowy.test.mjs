@@ -62,9 +62,10 @@ test('config.yaml uruchamia tylko flowy z katalogu głównego (oczekujace/ poza 
   assert.ok(wszystkie.some((f) => f.includes('/oczekujace/')));
 });
 
-test('e2e-ios.yml: timeout-minutes = 20 + 3 × liczba flowów w bramce + 10 (strategia.md §5.1)', () => {
+// D-258 (08-F14): stały składnik 20 → 30 min (build SDK 58 na runnerze 28 min 46 s, przebieg 42485850361).
+test('e2e-ios.yml: timeout-minutes = 30 + 3 × liczba flowów w bramce + 10 (strategia.md §5.1, D-258)', () => {
   const wf = readFileSync(join(E2E, '../../../.github/workflows/e2e-ios.yml'), 'utf8');
   const w = wf.match(/^\s+timeout-minutes:\s*(\d+)/m);
   const n = readdirSync(E2E).filter((f) => f.endsWith('.yaml') && f !== 'config.yaml').length;
-  assert.equal(Number(w?.[1]), 20 + 3 * n + 10, `flowów w bramce: ${n}`);
+  assert.equal(Number(w?.[1]), 30 + 3 * n + 10, `flowów w bramce: ${n}`);
 });
