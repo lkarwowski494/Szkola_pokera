@@ -457,4 +457,4 @@ Nowe teksty (do akceptacji 04/06, „Głos”): `postep.odczytNieudany`, `postep
 - **08-F13 → 07:** `tests/akceptacja/ekrany/pomoc.test.tsx` nie kompilował się po SDK 58 (RN 0.88 `openURL`) — poprawione D-254; `test:akceptacja` poza `pnpm run ci` nie wyłapał tego w części 4.
 
 ## Punkt czyszczenia (STOP E2 części 5a)
-Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „Część 5”. Decyzje: D-257 (do weta). Następny krok: E1 5b (tokeny i „Dziś”, 8 ekranów 07, limit i zakup z D-246/D-247, ustawienia, dziennik w bazie, flowy 05, 06, 09) — po zielonym E2E 5a.
+Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „Część 5”. Decyzja: D-258 (5a przyjęta). Następny krok: E1 5b w nowej sesji — krok 0: limit `e2e-ios.yml` (08-F14, D-258), potem tokeny i „Dziś”, 8 ekranów 07, limit i zakup (D-246, D-247), ustawienia, dziennik w bazie, flowy 05, 06, 09.
