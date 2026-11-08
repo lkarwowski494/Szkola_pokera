@@ -24,9 +24,10 @@ describe('bazy treści w paczce aplikacji', () => {
     expect(readdirSync(assets).filter((f) => f.endsWith('.db')).sort()).toEqual(wpisy.map((w) => w.plik).sort());
   });
 
-  it('_layout.tsx nie wpisuje nazwy bazy treści na sztywno', () => {
+  it('_layout.tsx nie wpisuje nazwy bazy treści na sztywno i nie kopiuje treści przy każdym starcie (ADR 0005 pkt 2)', () => {
     const layout = readFileSync(join(__dirname, '../../../app/_layout.tsx'), 'utf8');
     expect(layout).not.toMatch(/(content-v\d+|tresc-[^'"]+)\.db/);
-    expect(layout).toMatch(/tresc\.generated/);
+    expect(layout).not.toMatch(/forceOverwrite|assetSource/);
+    expect(readFileSync(join(__dirname, '../../../data/tresc/startTresci.ts'), 'utf8')).toMatch(/from '\.\.\/content\/tresc\.generated'/);
   });
 });
