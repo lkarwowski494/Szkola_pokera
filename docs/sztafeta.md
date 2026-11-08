@@ -451,3 +451,6 @@ To przekazanie to stan pracy, nie zgoda: na push na main, publikację i inne dzi
 
 ## Punkt czyszczenia (2026-11-08, STOP E0 części 3 roli 08)
 Plan i decyzje D-228–D-232: `docs/programista/plan-08.md`, „Część 3”. E2E 70a7247: porażka maszyny drugi raz (sterownik Maestro) → zgłoszenie 08-F03. Następny krok: E1 części 3 po akceptacji.
+
+## Punkt czyszczenia (2026-11-08, STOP E2 części 3 roli 08)
+Część 3 (treść) wdrożona: ad7b4ba…95e3cad; E2E 95e3cad zielone (42458624316); przegląd D-043 bez uwag. Raport: `docs/programista/plan-08.md`, „E2 część 3”. Następny krok: 08 część 4 (usunięcie starego kodu, adaptery, `app.json`, SDK 58).

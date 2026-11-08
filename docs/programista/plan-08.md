@@ -210,5 +210,28 @@ Pomiar (ADR 0005, D-231): 35 baz = 36 MB surowo, ok. 8,9 MB po zip (35 × 254 KB
 - Sprawdzone (próby recenzenta w osobnym worktree): usuwanie tylko według wzorca `tresc-*.db(.kopia)` (postęp, `user.db*`, `-wal/-shm/-journal` nietknięte); `File.copy/move` 57.0.7 bez `overwrite` nie usuwają celu (`FileSystemPath.swift:69–92`), `Paths.document/SQLite` = `defaultDatabaseDirectory` (`SQLiteModule.swift:27`); przerwanie: `move` atomowy, resztka sprzątana, `przygotujTresc` nie rzuca (mutanty zabite przez AK-K-06-q); 35 baz wobec `content-v6.db`: `pl` identyczna poza `meta`, `numbers.value` i struktura identyczne w 35 bazach (824 klucze), jedna wersja `52c2dc3d56`; `content:check` wykrywa brak, rozjazd skrótu, obcy `.db`, nieaktualny moduł; workflowy wydania nie przepuszczą paczki bez treści; zmienione testy nie osłabione; `_layout` bez zawieszenia (obietnica nie odrzuca, błąd → ekran z ponowieniem); brak sekretów. Drugiego przeglądu nie ma.
 - Poniżej progu (backlog): (1) stara `content-v6.db` (ok. 1 MB) zostaje na urządzeniach z wcześniejszymi buildami (tylko TestFlight właściciela) — usuwanie poza wzorcem treści celowo wyłączone (D-211); (2) nazwa pliku zależy od skrótu treści, nie od układu tabel w `writeContentDb` — zmiana układu bez zmiany treści i `CONTENT_SCHEMA_VERSION` zostawiłaby stary plik na urządzeniu (dziś nie występuje; reguła: zmiana układu = podniesienie `CONTENT_SCHEMA_VERSION`, które wchodzi do skrótu).
 
-## Punkt czyszczenia (STOP E0 części 3)
-Rola 08, tryb build, część 3. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, sekcja „Część 3”. Następny krok: po akceptacji planu E1 krok 1 (`przygotujTresc`); decyzja właściciela o 08-F03 (poprawka czasu sterownika Maestro w części 3 albo przez rolę 07).
+## E2 część 3: definicja ukończenia (2026-11-08, STOP)
+| Punkt | Dowód | Stan |
+|---|---|---|
+| Nowe zachowanie: test czerwony przed kodem z właściwego powodu, zielony po | tabela „E1 część 3: wynik”; wyjątek nazwany: test adaptera expo po kodzie (dowód: 6/6 mutantów) | spełniony z wyjątkiem nazwanym |
+| Żaden test nie usunięty, wyłączony ani osłabiony | przeniesienia D-175 tylko z importami; 3 zmienione testy z powodem (przegląd D-043: nie osłabione) | spełniony |
+| Pełny zestaw zielony | `pnpm run ci` kod 0 (domena 310, content-build 124, mobile 153, postep 61, poker-core 155, jezyki 136, srs 21, preflop-solver 43); **E2E iOS 95e3cad zielone bez ponowień** (przebieg 42458624316, zadanie 128662878505: 34 min 35 s, kompilacja 20 min 41 s, symulator 6 min 18 s, flowy 4 min 37 s; pierwszy zielony E2E od 3 przebiegów — 08-F03 działa) | spełniony |
+| CI na GitHubie | 95e3cad i 14856e6: zadanie `check` czerwone — `T35-08-a` przekroczył domyślne 5 s (7,3 s na runnerze; kompilacja w ciele testu); przyczyna usunięta jawnym limitem 60 s dla pliku (§7: bez ponowienia, przyczyna); `akceptacja` czerwone z założenia (informacyjne, D-175) | naprawione w commicie raportu |
+| Typecheck, lint | `pnpm typecheck` w `ci` kod 0; lintu brak (kontrole w testach) | spełniony |
+| `git diff --cached` bez sekretów | przed każdym commitem; przegląd D-043 (h) | spełniony |
+| Zapis danych/schematu | schemat postępu bez zmian; pliki użytkownika w katalogu baz nietknięte (testy K-06 `sumaDanych`, atrapa adaptera, przegląd D-043 a) | spełniony |
+| Zmiana widoczna: zrzuty | ekran błędu treści = istniejący `RenderErrorScreen` (bez nowego wyglądu); reszta bez zmian wyglądu — zrzuty nie dotyczą | nie dotyczy |
+| Decyzje zapisane | D-228–D-233 | spełniony |
+| Przegląd ścieżki wrażliwej (D-043) | wykonany, brak uwag P0/P1 | spełniony |
+
+Czego celowo nie zrobiono: przekład treści (09); tekst ekranu `tresc_niedostepna` (04); ponowne przygotowanie treści przy zmianie języka w działającej aplikacji (`ustawJezyk` — część 5, ekran ustawień); usuwanie starej `content-v6.db` z urządzeń z wcześniejszymi buildami (backlog, poza wzorcem D-211); `kryteria-*` (06); kontrole i `k14` (część 4).
+Ryzyka na urządzeniu (lista kontrolna TestFlight): pierwszy start po aktualizacji z buildu 1005–1008 — treść widoczna, postęp ten sam; drugi start bez ponownej kopii (czas startu); brak miejsca na urządzeniu → ekran z ponowieniem.
+
+### Zgłoszenia części 3
+- **Do 04:** tekst i stan ekranu `tresc_niedostepna` (tlo-i-bledy.md §4); dziś ogólny „Coś poszło nie tak” z ponowieniem.
+- **Do 07:** limit E2E 42 min wobec `MAESTRO_DRIVER_STARTUP_TIMEOUT` 8 min (przebieg 95e3cad 34 min 35 s — zapas 7 min); testy kompilujące treść potrzebują jawnego limitu czasu na runnerze.
+- **Do 05:** reguła „zmiana układu tabel `writeContentDb` = podniesienie `CONTENT_SCHEMA_VERSION`” (nazwa pliku ze skrótu treści, przegląd D-043 obs. 2); `content-build` zależy teraz od `@szkola/domena` (`nazwaPlikuTresci`, `TRESC_FORMAT`) i `@szkola/jezyki` — krawędź do dopisania w `moduly.md`.
+- **Do 09:** 34 bazy z polskim tekstem (`meta.jezyk_tekstu = pl`) czekają na przekład; liczby już w formacie języka.
+
+## Punkt czyszczenia (STOP E2 części 3)
+Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „Część 3”, „E2 część 3”. Następny krok według przekazania 07 (kolejność 4): część 4 — usunięcie starego kodu (drizzle `src/data/user`, Sentry, Observe; ADR 0003, 0004, 0009, 0011), adapter `postepExpo`, `expo-iap` (L8-04), manifest prywatności w `app.json`, SDK 58 z tabelą Xcode [DO USTALENIA] (K-07, K-08, K-09, R-56, `k14`).

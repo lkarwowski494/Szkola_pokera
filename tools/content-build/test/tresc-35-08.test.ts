@@ -16,7 +16,9 @@ const tymczasowy = (p: string) => { const k = mkdtempSync(join(tmpdir(), p)); ka
 const pamiec = new Map<string, ReturnType<typeof compileContent>>();
 const skompiluj = (j: string) => pamiec.get(j) ?? (pamiec.set(j, compileContent(contentDir, j)), pamiec.get(j)!);
 
-describe('Treść na 35 języków (rola 08)', () => {
+// Kompilacja treści jednego języka trwa ok. 1 s lokalnie i do ok. 4 s na runnerze GitHuba (CI 42459236698: T35-08-a 7,3 s przy
+// domyślnych 5 s); limit dotyczy czasu kompilacji, nie asercji.
+describe('Treść na 35 języków (rola 08)', { timeout: 60_000 }, () => {
   it('T35-08-a język bez content/<język>: tekst ze źródła pl, liczby w formacie języka bazy, osobny skrót', () => {
     const pl = skompiluj('pl'), de = skompiluj('de');
     expect([pl.tekst, de.tekst, de.locale]).toEqual(['pl', 'pl', 'de']);
