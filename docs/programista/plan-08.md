@@ -412,3 +412,4 @@ Agent: 5a ok. 10–13 h (sesja i wznowienie najbardziej niepewne), 5b ok. 12–1
 
 ## Punkt czyszczenia (STOP E0 części 5)
 Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „Część 5”. Decyzje: P-2, P-3, D-246–D-255 (do weta). Następny krok: E1 5a kroki 0–8.
+Decyzja: D-256 (P-2 = B, P-3 = dwie bramki, D-246–D-255 przyjęte; E1 5a w tej sesji).

@@ -8,8 +8,8 @@ import { KONFIGURACJA } from '../../../packages/domena/src/konfiguracja';
 const { OCENA_POZIOMU_MAKS_PYTAN } = KONFIGURACJA;
 import EkranPowitania from '@/features/powitanie/EkranPowitania';
 import { EkranPytaniaOceny, EkranWynikuOceny } from '@/features/ocena-poziomu/EkranyOceny';
-import { NAZWY, ZNACZENIA } from './teksty';
-import { elementyBezRoliLubNazwy, tekstEkranu } from './wspolne';
+import { NAZWY, ZNACZENIA } from '@/test-utils/ekrany/teksty';
+import { elementyBezRoliLubNazwy, tekstEkranu } from '@/test-utils/ekrany/wspolne';
 
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 

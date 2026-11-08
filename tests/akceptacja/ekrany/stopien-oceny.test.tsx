@@ -7,7 +7,7 @@ import '@/i18n';
 import { render, screen } from '@testing-library/react-native';
 import { OCENY_ODPOWIEDZI } from '../../../packages/domena/src/typy';
 import StopienOceny from '@/features/ocena/StopienOceny';
-import { tekstCzytany, tekstWidoczny } from './wspolne';
+import { tekstCzytany, tekstWidoczny } from '@/test-utils/ekrany/wspolne';
 
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 

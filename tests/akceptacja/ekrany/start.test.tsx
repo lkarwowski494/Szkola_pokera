@@ -6,8 +6,8 @@ import '@/i18n';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { KONFIGURACJA } from '../../../packages/domena/src/konfiguracja';
 import EkranStartu, { type LimitEkranu, type PropsEkranuStartu } from '@/features/start/EkranStartu';
-import { NAZWY, ZNACZENIA } from './teksty';
-import { elementyBezRoliLubNazwy, tekstEkranu } from './wspolne';
+import { NAZWY, ZNACZENIA } from '@/test-utils/ekrany/teksty';
+import { elementyBezRoliLubNazwy, tekstEkranu } from '@/test-utils/ekrany/wspolne';
 
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 

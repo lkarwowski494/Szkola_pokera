@@ -4,8 +4,8 @@
 import '@/i18n';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 import { SekcjaOpinii, ZglosBlad } from '@/features/opinie/Opinie';
-import { NAZWY } from './teksty';
-import { elementyBezRoliLubNazwy, tekstEkranu } from './wspolne';
+import { NAZWY } from '@/test-utils/ekrany/teksty';
+import { elementyBezRoliLubNazwy, tekstEkranu } from '@/test-utils/ekrany/wspolne';
 
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 

@@ -5,8 +5,8 @@
 import '@/i18n';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 import EkranZakupu, { type PropsEkranuZakupu } from '@/features/zakup/EkranZakupu';
-import { NAZWY, ZNACZENIA } from './teksty';
-import { atrapaSklepu, elementyBezRoliLubNazwy, nazwaDostepna, PRODUKTY_US, tekstEkranu } from './wspolne';
+import { NAZWY, ZNACZENIA } from '@/test-utils/ekrany/teksty';
+import { atrapaSklepu, elementyBezRoliLubNazwy, nazwaDostepna, PRODUKTY_US, tekstEkranu } from '@/test-utils/ekrany/wspolne';
 
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 

@@ -7,8 +7,8 @@ import '@/i18n';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 import { Alert, type AlertButton } from 'react-native';
 import EkranDanych, { type DaneEkranu } from '@/features/dane/EkranDanych';
-import { NAZWY, ZNACZENIA } from './teksty';
-import { elementyBezRoliLubNazwy, tekstEkranu } from './wspolne';
+import { NAZWY, ZNACZENIA } from '@/test-utils/ekrany/teksty';
+import { elementyBezRoliLubNazwy, tekstEkranu } from '@/test-utils/ekrany/wspolne';
 
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 

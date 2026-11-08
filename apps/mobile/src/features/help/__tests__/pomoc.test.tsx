@@ -8,7 +8,7 @@ import { fireEvent, render, screen } from '@testing-library/react-native';
 import { Linking } from 'react-native';
 import HelpScreen from '@/app/help';
 import { HELPLINES } from '@/data/content/helplines.generated';
-import { elementyBezRoliLubNazwy, tekstEkranu } from './wspolne';
+import { elementyBezRoliLubNazwy, tekstEkranu } from '@/test-utils/ekrany/wspolne';
 
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 let mockRegion: string | null = 'US';
@@ -22,7 +22,7 @@ const NUMER = /\+?\d[\d ()-]{5,}\d/; // ciąg wyglądający jak numer telefonu (
 let openURL: jest.SpyInstance;
 let fetchSpy: jest.SpyInstance | null;
 beforeEach(() => {
-  openURL = jest.spyOn(Linking, 'openURL').mockResolvedValue(true);
+  openURL = jest.spyOn(Linking, 'openURL').mockResolvedValue(undefined);
   fetchSpy = typeof global.fetch === 'function' ? jest.spyOn(global, 'fetch') : null;
 });
 afterEach(() => {
