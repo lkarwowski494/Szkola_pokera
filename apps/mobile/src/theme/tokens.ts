@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { AccessibilityInfo, Platform, useColorScheme, type ColorSchemeName } from 'react-native';
+import * as Font from 'expo-font';
+import { AccessibilityInfo, PixelRatio, Platform, useColorScheme, type ColorSchemeName } from 'react-native';
+import { LITERATA, krojIndeksu, krojTytulu } from './kroje';
 import { kolory, odstep, promien, ruch, haptyka, typografia } from './tokeny';
 
 /**
@@ -75,19 +77,24 @@ export function useTokens(): Tokens {
 }
 
 const s = typografia.skala;
+const krojTytulowy = () => krojTytulu(Font.isLoaded(LITERATA), PixelRatio.getFontScale());
 /**
- * Style tekstu ze skali (pt). Tytuły: krój systemowy semibold zamiast Literaty do części 6 (D-259: Literata
- * w repo tylko jako woff2 dla makiet; plik TTF i ładowanie kroju razem z `Karta`/`Stol`). `naglowek` = treść
- * semibold (nagłówki sekcji; skala roli 04 nie ma pośredniego rozmiaru — iOS `headline` to 17 pt semibold).
+ * Style tekstu ze skali (pt). Tytuły: Literata 600 przy tekście do XXXL, od AX1 krój systemowy semibold (D-120, D-122;
+ * `./kroje`); krój czytany przy każdym renderze (getter), bo ładuje się przy starcie i zależy od rozmiaru tekstu.
+ * `naglowek` = treść semibold (nagłówki sekcji; skala roli 04 nie ma pośredniego rozmiaru — iOS `headline` to 17 pt semibold).
  */
 export const styl = {
-  tytulDuzy: { fontSize: s.tytulDuzy.size, lineHeight: s.tytulDuzy.line, fontWeight: '600' as const },
-  tytul: { fontSize: s.tytul.size, lineHeight: s.tytul.line, fontWeight: '600' as const },
+  get tytulDuzy() {
+    return { fontSize: s.tytulDuzy.size, lineHeight: s.tytulDuzy.line, fontWeight: '600' as const, fontFamily: krojTytulowy() };
+  },
+  get tytul() {
+    return { fontSize: s.tytul.size, lineHeight: s.tytul.line, fontWeight: '600' as const, fontFamily: krojTytulowy() };
+  },
   naglowek: { fontSize: s.tresc.size, lineHeight: s.tresc.line, fontWeight: '600' as const },
   tresc: { fontSize: s.tresc.size, lineHeight: s.tresc.line, fontWeight: '400' as const },
   przypis: { fontSize: s.przypis.size, lineHeight: s.przypis.line, fontWeight: '400' as const },
   drobny: { fontSize: s.drobny.size, lineHeight: s.drobny.line, fontWeight: '400' as const },
 };
 
-/** Indeks karty: do części 6 krój szeryfowy systemu (Literata — D-259). */
-export const krojKarty = 'Georgia';
+/** Indeks karty: Literata do XXXL, inaczej szeryfowy systemu (`./kroje`). */
+export const krojKarty = (): string => krojIndeksu(Font.isLoaded(LITERATA), PixelRatio.getFontScale());

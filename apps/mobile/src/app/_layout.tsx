@@ -1,6 +1,7 @@
 import '@/i18n';
 
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
+import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import i18n from 'i18next';
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
@@ -10,6 +11,7 @@ import { GranicaBledu } from '@/components/GranicaBledu';
 import { podlaczDziennik, zapiszBlad } from '@/platform/dziennik';
 import { useSettings } from '@/state/settings';
 import { useTokens } from '@/theme/tokens';
+import { LIMIT_KROJU_MS, LITERATA, zaladujKroje } from '@/theme/kroje';
 import { przygotujTrescExpo } from '@/data/tresc/startTresci';
 import { kontrolaK04, startPostepuExpo } from '@/data/postepExpo';
 import { PostepKontekst } from '@/data/postepKontekst';
@@ -26,6 +28,21 @@ import { ustawJezyk } from '@/i18n';
 import { powiadomieniaExpo } from '@/platform/powiadomienia';
 
 void SplashScreen.preventAutoHideAsync();
+
+/** Krój tytułów (D-120) przed zdjęciem ekranu startowego, najwyżej LIMIT_KROJU_MS; bez kroju — systemowy (`theme/kroje`). */
+function useKroje(): boolean {
+  const [gotowe, ustaw] = useState(false);
+  useEffect(() => {
+    let aktualny = true;
+    void zaladujKroje(() => Font.loadAsync({ [LITERATA]: require('../../assets/fonts/Literata-SemiBold.ttf') }), LIMIT_KROJU_MS).then(() => {
+      if (aktualny) ustaw(true);
+    });
+    return () => {
+      aktualny = false;
+    };
+  }, []);
+  return gotowe;
+}
 
 type StanTresci = { stan: 'ladowanie' } | { stan: 'ok'; plik: string } | { stan: 'blad' };
 
@@ -130,7 +147,8 @@ export default function RootLayout() {
   const loadSettings = useSettings((s) => s.load);
   const tresc = useTresc();
   const postep = usePostep();
-  const trescGotowa = tresc.stan !== 'ladowanie' && postep.stan !== 'ladowanie';
+  const kroje = useKroje();
+  const trescGotowa = tresc.stan !== 'ladowanie' && postep.stan !== 'ladowanie' && kroje;
 
   useEffect(() => {
     if (!trescGotowa) return;
@@ -144,7 +162,7 @@ export default function RootLayout() {
     } else void SplashScreen.hideAsync();
   }, [loadSettings, trescGotowa, postep]);
 
-  if (tresc.stan === 'ladowanie' || postep.stan === 'ladowanie') return null;
+  if (tresc.stan === 'ladowanie' || postep.stan === 'ladowanie' || !kroje) return null;
   if (tresc.stan === 'blad') return <RenderErrorScreen onRetry={tresc.ponow} />;
   if (postep.stan === 'blad') return <RenderErrorScreen onRetry={postep.ponow} />;
 
