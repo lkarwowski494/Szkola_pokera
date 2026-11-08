@@ -333,4 +333,4 @@ Ekrany zmienione (do audytu 04): Nauka (`(tabs)/index`), Powtórki (`(tabs)/revi
 - Stan testów akceptacyjnych: czerwone zostają ADR 0004 statyczny (D-239) i trzy testy treści 06 (KURS-003-b, KURS-005-a, CWI-005-b — czerwone także przed częścią 4).
 
 ## Punkt czyszczenia (STOP E2 części 4)
-Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „Część 4”. Następny krok: decyzja właściciela po raporcie E2 (akceptacja części 4; potem część 5: ekrany na `packages/postep`, usunięcie drizzle, podpięcie zakupów, przypomnienia i ochrony).
+Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „Część 4”. Decyzja: D-245 (część 4 przyjęta). Następny krok: 08 część 5, E0 → STOP, w nowej sesji: ekrany na `packages/postep` (repozytoria odczytu, maszyna `aktywnosc`, testy ekranów 07 z `tests/akceptacja/ekrany`), usunięcie drizzle i `src/data/user` (K-14 statyczny zielony), podpięcie zakupów z nasłuchem od startu (08-F06), przypomnienia, ochrony tła i dziennika do `postep.db`.
