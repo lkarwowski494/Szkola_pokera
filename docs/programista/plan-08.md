@@ -235,3 +235,60 @@ Ryzyka na urządzeniu (lista kontrolna TestFlight): pierwszy start po aktualizac
 
 ## Punkt czyszczenia (STOP E2 części 3)
 Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „Część 3”, „E2 część 3”. Następny krok według przekazania 07 (kolejność 4): część 4 — usunięcie starego kodu (drizzle `src/data/user`, Sentry, Observe; ADR 0003, 0004, 0009, 0011), adapter `postepExpo`, `expo-iap` (L8-04), manifest prywatności w `app.json`, SDK 58 z tabelą Xcode [DO USTALENIA] (K-07, K-08, K-09, R-56, `k14`).
+
+# Część 4: kontrole, platforma, adaptery (build, E0, 2026-11-08, STOP)
+
+Zlecenie: D-234 (właściciel: „08 część 4”). Prompt: `assemble.mjs 08-programista --tryb build` (nowa sesja, opus/high). Wejście: ten plik, `docs/jakosc/przekazanie-08.md` (kolejność 4), ADR 0001, 0003, 0004, 0006, 0009, 0011, 0012, 0013, `moduly.md`, `kontrole-07.md`.
+
+## Środowisko i stan wyjściowy (25a6183)
+| Sprawdź | Wynik |
+|---|---|
+| System | Linux, Node 22.23.4, bez Xcode; `pnpm install --frozen-lockfile` kod 0 |
+| GitHub | MCP (push na gałąź roboczą); `prompts` dołączone do odczytu (`assemble.mjs` za zgodą właściciela w tej sesji); Trening: klon `/home/user/lkarwowski494/trening` (2e4b0f8) |
+| Sieć | docs.expo.dev i expo.dev: proxy 403; raw.githubusercontent.com (źródła dokumentacji Expo), registry.npmjs.org, developer.apple.com: 200 |
+| `pnpm run ci` | kod 0: srs 21, jezyki 136, poker-core 155, domena 310, postep 61, mobile 153, content-build 124, preflop-solver 43 |
+| Testy części 4 (`vitest --root tests/akceptacja`, `kontrole/*` + `postep/k14`) | 14 testów, 7 czerwonych na asercji: K-07 (9 trafień: `sentry` 5, `expo-observe` 3, pusty `catch` 1 w `observability/crashReports.ts:48`), K-08 (brak `NSPrivacyAccessedAPICategoryDiskSpace` z `expo-file-system`; 3 zbierane typy danych), K-09-b/c/d, AK-D050-a (SDK 57), ADR 0004 statyczny (`user.db` w `apps/mobile/src/data/user/db.ts`); K-14 zachowanie (4 testy) już zielone |
+| CI na GitHubie | 5174487 `CI` zielone (42461519583, poprawka limitu `tresc-35-08` działa); 25a6183 `CI` zielone (42461941995); E2E 5174487 (42461519607) w toku w chwili odczytu |
+
+## Xcode dla SDK 58 (zamknięcie [DO USTALENIA])
+docs.expo.dev niedostępne z kontenera, więc odczyt u źródła tabeli: strona `docs/pages/versions/unversioned/index.mdx` renderuje `<AndroidIOSCompatibilityTable />` (`docs/ui/components/SDKTables/AndroidIosCompatibilityTable.tsx:40` — kolumna `version.xcode`), dane z `@expo/sdk-compatibility/data` = `packages/@expo/sdk-compatibility/src/sdk-compatibility.json` (raw.githubusercontent.com/expo/expo/main, odczyt 2026-11-08): `"sdk": "58.0.0"` … `"ios": { "minimumVersion": "16.4", "xcodeVersionRange": ">=26.4.0" }`, `"runtime": { "reactNative": "0.88", "react": "19.3.0" }`. Wniosek: SDK 58 → Xcode 26.4 (ten sam próg co 57, workflowy bez zmiany liczby). Odstępstwo nazwane: źródło to plik danych tej tabeli w repozytorium Expo (szczebel 1, producent), nie wyrenderowana strona.
+
+## Założenia wejściowe (hipotezy)
+- ADR 0001: `expo-iap` zgodny z SDK 58 — `peerDependencies expo: "*"` (6.4.2); pełna zgodność dopiero po instalacji i buildzie (E2E). `npx expo install --check` uruchamia kod z npm — w kontenerze zastępczo porównanie wersji z `bundledNativeModules.json` paczki `expo` 58.0.23 (dane, bez uruchamiania).
+- „Podłączenie `packages/postep`” w części 4 zakłada, że stare ekrany da się przenieść bez nowych zachowań. **Podważone czytaniem:** 15 plików ekranów i stanu woła 22 funkcje `src/data/user/repo.ts`/`game.ts` (odpowiedzi, karty, wyniki lekcji i testów, seria dni, ustawienia), a `packages/postep` ma dziś zapis kroku, powtórki, eksport/import i start — bez repozytoriów odczytu (`ustawienia`, `postepLekcji`, `testy`, karty do terminu; moduly.md „Repozytoria”). Przeniesienie ekranów to wpięcie maszyny `aktywnosc` (limit, wznowienie) — zachowania z testami części 5–6 → decyzja P-1.
+- K-08: kategoria DiskSpace pochodzi z manifestu `expo-file-system` (powody `E174.1`, `85F4.1`); Trening ma w `app.json:66–76` ten sam wpis (odczyt 2026-11-08, 2e4b0f8). Lista kategorii zmieni się po SDK 58 i nowych paczkach → K-08 uruchamiany po ostatniej zmianie zależności.
+
+## Plan (cięcie pionowe; każdy krok: czerwień z właściwego powodu → kod → `pnpm run ci` → commit; jeden push kodu na końcu = jedno E2E)
+| Krok | Zachowanie | Test (czerwony przed) | Pliki |
+|---|---|---|---|
+| 1 | Bez Sentry i Expo Observe (ADR 0009 pkt 1): zależności, `src/observability/`, `jest.setup.js`, `metro.config.js`, wtyczka i `extra.sentry` w `app.json`, 3 typy `NSPrivacyCollectedDataTypes`; `NSPrivacyTracking: false`, `NSPrivacyTrackingDomains: []` | `kontrole/k07-zakazy`, `k09-app-json` (c, d) → do bramki `pnpm run ci` (D-175; miejsce: D-236) | `apps/mobile/package.json`, `app.json`, `jest.setup.js`, `metro.config.js`, lockfile |
+| 2 | Kod bez BR usunięty (ADR 0011): `features/play`, `app/play/*`, `(tabs)/rules.tsx`, tryb `speed`, część „gra” w `advancement`, `data/user/game.ts`; `diagnostics.tsx` tylko pod `__DEV__`; hash ostatniego commitu z kodem w kolumnie „Powrót” kontraktu zakresu. Schemat drizzle starej bazy bez zmian (tabele gry zostają w `user.db`, nieczytane) | nowy strażnik `apps/mobile/src/__tests__/adr0011-08.test.ts` (brak plików i trybu `speed`, `diagnostics` tylko w gałęzi `__DEV__`) | `apps/mobile/src/app`, `features`, `docs/scope-contract.md` |
+| 3 | SDK 58: `expo ~58.0.23` i moduły w wersjach z `bundledNativeModules.json` (RN 0.88, React 19.3), `jest-expo` 58; tabela `MIN_XCODE` z wpisem `58: '26.4'` i cytatem wyżej | `kontrole/r56-runner-xcode` (a, b) → bramka | `apps/mobile/package.json`, lockfile (`--lockfile-only`, potem `--frozen-lockfile`), `r56` (tylko tabela, zgodnie z jej komentarzem) |
+| 4 | Przypomnienie — konfiguracja i adapter (ADR 0012 pkt 5): `expo-notifications` 58.1.8, wtyczka `enableRemoteNotifications: false`; adapter `PortPowiadomien` (kształt z `przypomnienie.ts`) bez `get*PushTokenAsync` | `k09-app-json` (b); nowy `platform/__tests__/powiadomienia-08` (atrapa modułu: wyzwalacz `daily`, anulowanie własnych) | `apps/mobile/src/platform/powiadomienia.ts`, `app.json` |
+| 5 | Adapter zakupów `expo-iap` 6.4.2 (ADR 0006, L8-04): transakcje → `OdczytSklepu` (`wygasaMs: null` tylko z `PRODUKTY_BEZ_KONCA`, błąd sklepu → `{ ok: false }`, nie „brak zakupu”), `kup`, `przywroc`, arkusz zarządzania; bez wywołań w transakcji bazy. API 6.x z typów paczki (odczyt w dniu pracy, zasada 12); wzorzec Trening `lib/store-native.ts` (5.8.1) | nowy `platform/__tests__/zakupy-08` (atrapa `expo-iap`: odczyt, zwrot, brak sieci, produkt bez daty końca) | `apps/mobile/src/platform/zakupy.ts` |
+| 6 | Ochrona tła (ADR 0013 pkt 1–2): moduł `apps/mobile/modules/ochrona-tla/` (Swift, `beginBackgroundTask`/`endBackgroundTask`, zdarzenie `wygasa`, −1 dla `.invalid`; Android bez działania) i adapter `OchronaTla` | nowy `platform/__tests__/ochronaTla-08` (atrapa modułu: `zakoncz` po `wygasa` bez drugiego końca, odpięcie słuchacza); Swift bez testu w Node — krok właściciela U-2 | `modules/ochrona-tla/*`, `src/platform/ochronaTla.ts` |
+| 7 | Adapter `postepExpo` (moduly.md: `openDatabaseAsync('postep.db')`, `runAsync`, `getAllAsync`, `withTransactionAsync` w kolejce) + `PlikiPostepu` na `expo-file-system` + `uruchomPostep` przy starcie w `_layout` z ochroną tła; `BladStartuPostepu` → ekran błędu z ponowieniem (istniejący, bez nowego wyglądu); kontrola K-04 w buildzie deweloperskim (`journal_mode = delete`, `foreign_keys = 1`, wpis przy ≠) | nowy `data/__tests__/postepExpo-08` (atrapa expo-sqlite: pragma przed migracją, poza transakcją; błędy → `PowodZapisu`); K-14 zachowanie zostaje zielone | `apps/mobile/src/data/postepExpo.ts`, `data/plikiPostepu.ts`, `_layout.tsx` |
+| 8 | K-08 po ostatniej zmianie zależności: każda kategoria z manifestów drzewa w `expo.ios.privacyManifests` z powodem z listy Apple (odczyt developer.apple.com w dniu pracy) | `kontrole/k08-manifesty` → informacyjna w CI (strategia §8.1) | `app.json` |
+| 9 | E2: mutacje (D-172), przegląd D-043 (`apps/mobile/src/data/`, `src/platform/`, `modules/ochrona-tla/`, `app.json`), jeden push kodu → E2E 01–04 na SDK 58 | — | — |
+
+Wywołania do sprawdzenia (zasada 4): `observability` — `_layout.tsx`, `crashReports.test.tsx`; `userDb` — 15 plików (zostają przy P-1 = B); `RenderErrorScreen` — `_layout.tsx` (ekran błędu postępu).
+
+Poza częścią 4 (nazwane): rola 10 — przegląd całego manifestu prywatności przed wydaniem; podpięcie zakupów, przypomnienia i ochrony do ekranów (część 5); `kryteria-*` (06).
+
+## Decyzja dla właściciela (P-1, zakres i kolejność prac)
+Stare ekrany (lekcja, sesja, powtórki, postęp, start, ustawienia) zapisują przez drizzle do `user.db`. Usunięcie drizzle (K-14 statyczny, ADR 0003/0004) wymaga przeniesienia ich danych na `packages/postep`.
+- **A: przeniesienie w części 4.** Repozytoria odczytu (`ustawienia`, `postepLekcji`, `testy`, karty do terminu) z testami na `node:sqlite`, 15 plików ekranów na nowe repozytoria i maszynę `aktywnosc`, usunięcie `src/data/user`, `drizzle/`, `drizzle-orm`, `drizzle-kit`. Kompromis: jedna ścieżka danych i K-14 zielony od razu; ok. +6–8 h, a część ekranów (start, ustawienia, postęp) i tak przebudowuje część 5 — praca podwójna; limit i wznowienie wchodziłyby bez testów ekranów 07.
+- **B (rekomendacja): przeniesienie razem z ekranami w części 5.** Część 4 = kroki 1–9; `postep.db` otwierana przy starcie, ale stare ekrany do części 5 piszą jeszcze do `user.db`; drizzle i `src/data/user` znikają w części 5, w commicie, który zazielenia K-14 statyczny (do tego czasu jeden czerwony test oczekujący). Kompromis: dwie bazy w buildach deweloperskich do części 5 (bez wydania między częściami — próg z `CLAUDE.md`); każdy ekran przenoszony raz, z testami 07.
+- C: tymczasowa warstwa ze starym API (`recordAnswer`, `lessonProgressMap` …) na nowym schemacie — odrzucona: kod do wyrzucenia w części 5, bez testów zachowań.
+
+## Decyzje techniczne (A, do weta; zapis D-235–D-238)
+- **D-235** Xcode dla SDK 58 = 26.4 ze źródła tabeli docs.expo.dev (wyżej); odrzucone: zostawić [DO USTALENIA] do odblokowania proxy (R-56 czerwony bez powodu merytorycznego).
+- **D-236** kontrole K-07, K-09, R-56 po zazielenieniu idą do `pnpm run ci` jako testy Vitest w `tests/kontrole/` (wspólny katalog repo, bo sprawdzają całe drzewo, nie pakiet); K-08 informacyjne w CI (strategia §8.1). Odrzucone: `apps/mobile` (Jest; skaner repo nie jest testem aplikacji); zostawić w `tests/akceptacja` (D-175: bez bramki).
+- **D-237** wersje SDK 58 z `bundledNativeModules.json` paczki `expo` 58.0.23 zamiast `npx expo install` (klasyfikator blokuje uruchamianie kodu z npm); `expo-iap` 6.4.2 (wersja przeczytana w ADR 0006; 6.4.3 z 2026-11-04 bez przeglądu zmian). Trening: SDK 57, `expo-iap` 5.8.1 — odstępstwo nazwane w ADR 0001 i 0006.
+- **D-238** DiskSpace w manifeście z powodami jak w Treningu (`E174.1`, `85F4.1`, `app.json:74`, odczyt 2026-11-08) po sprawdzeniu opisu powodów u Apple w kroku 8; `enableRemoteNotifications: false` — odstępstwo od Treningu (tam bez opcji, `app.json:90–93`) z powodu ADR 0012 pkt 5 (bez uprawnienia APNs).
+
+## Szacunek (zasada 9)
+Agent: B ok. 7–9 h (kroki 1–9; SDK 58 i adapter `expo-iap` najbardziej niepewne), A dodatkowo ok. 6–8 h. Czekanie: E2E ok. 37 min po jednym pushu kodu (0 USD, repo publiczne), przegląd D-043 ok. 10 min. Ryzyko: build iOS na SDK 58 sprawdza dopiero E2E — przy porażce kompilacji poprawka i drugi push (zasada 5: po dwóch nieudanych — STOP). Właściciel: decyzja P-1; potem raport E2 i lista na telefon (U-2 ochrona tła, U-5 zakupy w piaskownicy po części 5).
+
+## Punkt czyszczenia (STOP E0 części 4)
+Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „Część 4”. Następny krok: decyzja P-1 (A/B) i weto D-235–D-238, potem E1 kroki 1–9.
