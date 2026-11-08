@@ -595,10 +595,41 @@ Agent: ok. 6–8 h (kroki 1–8), w tym noc do 03:45 UTC: kroki 1–7 realnie, 8
 | 6 | 3e22c02 | `features/stol/skala.ts`, `components/SkalaStopni.tsx` | `skala-08` 3, `SkalaStopni-08` 1 |
 | 7 | 66317c9 | `features/stol/PanelDecyzji.tsx`; `session.tsx`: `Stol` (także przegląd egzaminu), zadania ze strategią → `PanelDecyzji`, bez strategii → lista „Wybierz odpowiedź” ze znakiem + słowem, nagłówki i wynik w `ink`, wyjaśnienie na `surface`; `StopienOceny` `naSuknie` (D-277) | `PanelDecyzji-08` 4 (czerwone na zaślepce), `sesja-ekran-08` 2 |
 | 8 | 75895ea | Literata 600 TTF + OFL w `assets/fonts/`, `theme/kroje.ts`, ładowanie w `_layout` z limitem 3 s, `styl.tytul*` i indeks karty Literatą do XXXL, od AX1 systemowy (D-278) | `kroje-08` 8 (5 czerwonych na zaślepce) |
+| 9 | db8db0f | E2: mutacje 42 (37 zabitych, 5 przeżywa — klasyfikacja w „E2 część 6”), asercje dopisane do istniejących testów; zgłoszenia 08-F26–F29 | `uklad-08`, `pasek-08`, `PanelDecyzji-08`, `SkalaStopni-08` (+3 testy, +4 asercje; każda czerwona na swoim mutancie) |
 
 `pnpm run ci` kod 0 na 66317c9 (mobile 414) i na 75895ea (mobile 61 zestawów / 422 testy). Kroków 7–8 nie wypchnięto osobno: push kodu jeden, na końcu sesji (E2E 42519763480 na 36a8600 w toku).
 
-**Zostaje:** krok 9 — E2 części 6: mutacje (D-172; m.in. `maStrategie` w `session.tsx`, mapowanie `ocenaDecyzji`, próg `SKALA_XXXL`), `pnpm run ci`, E2E po pushu (flowy 01 i 06 przechodzą przez ekran decyzji: 01 — lista odpowiedzi w m0.l1, 06 — `PanelDecyzji` w sesji ćwiczeń, jeśli trafi zadanie z zakresu), lista zrzutów (ekran decyzji przed/po ocenie, bez pozycji, czas minął, przegląd egzaminu, tytuły Literatą przy tekście domyślnym i AX1; jasny i ciemny), zgłoszenia 08-F26 (stan „przebija”), 08-F27 (kreskowanie paska jako obwódka, kolory siatek), 08-F28 (terminologia „Stół”/„czeka”, D-275), 08-F29 (ocena poziomu `PierwszeUruchomienie` rysuje stół starym `TableFelt` — bez `tk.przejsciowe`, ale niezgodnie z `Stol`; poza krokiem 7, decyzja: zamienić w kroku 9 albo w części 7). Otwarte z D-122: sufit tytułów jako ułamek szerokości od AX1 (`typografia.skala.*.maxW`) — nie wdrożony; dzielenie wyrazów `[DO USTALENIA]` z design-spec.
+**Zostaje:** krok 9 zrobiony — „E2 część 6” niżej.
+
+## E2 część 6: definicja ukończenia (2026-11-08, przyjęta wg D-272 — D-279)
+| Punkt | Dowód |
+|---|---|
+| nowe zachowania z testem czerwonym przed kodem | kroki 1–8 (tabela „E1 część 6”): czerwień na asercjach po zaślepkach zgodnych z typem (`uklad-08`, `pasek-08`, `PanelDecyzji-08`, `kroje-08`), asercja `pas` w `engine` — czerwień mutacją (7fcfbb6) |
+| testy nieosłabione | brak usuniętych i wyłączonych testów; w kroku 9 tylko dopisane asercje (db8db0f), istniejące bez zmian |
+| mutacje (D-172) | ręcznie, 42 mutanty na zmianach kroków 1–8 (skrypt w scratchpadzie: podmiana → `jest` testów obszaru → przywrócenie): 30 zabitych w pierwszym przebiegu; 7 z 12 przeżywających zabitych dopisanymi asercjami (db8db0f: M03 powtórzona pozycja w przebiegu, M11 `maStrategie([])`, M13 normalizacja szerokości, M15 `opisPaska` przed decyzją, M26 zły rozmiar bez skali, M41 złota obwódka przedziału, M42 stopień na suknie `onFelt`) — każda nowa asercja zielona na kodzie, czerwona na swoim mutancie; **przeżywa 5**: M29–M32 (`session.tsx`: wybór `PanelDecyzji`/lista, nagłówek oceny, `Feedback` w przeglądzie, obwódka `ink` w liście odpowiedzi — ekran sesji nie ma testu renderu, tylko strażnik statyczny `sesja-ekran-08`; zgłoszenie 08-F21 do 07 potwierdzone) i M40 (kreskowanie segmentu „pas” — sam wygląd, zrzut `6-sesja-decyzja-po-ocenie`); razem 37/42 |
+| pełny zestaw | `pnpm run ci` kod 0 na db8db0f (srs 21, jezyki 136, poker-core 155, domena 314, postep 105, mobile 61 zestawów / 425 testów, content-build 124, preflop-solver 43, skrypty 82, kontrole 8; `i18n` 0 błędów); wcześniej 66317c9 (mobile 414) i 75895ea (mobile 422) |
+| typecheck, lint | `pnpm typecheck` w `pnpm run ci` kod 0; `expo lint` nieuruchamiany (jak w częściach 1–5b) |
+| `git diff --cached` | przejrzany przed każdym commitem; bez sekretów (Literata: OFL 1.1 w repo obok pliku) |
+| dane: kopia bazy poprzedniej wersji | nie dotyczy: część 6 nie zmienia schematu ani zapisu (`git diff 401bcb5..db8db0f` bez `packages/postep`, `src/data/`, `schemat.sql`) |
+| ścieżki wrażliwe (D-043) | nie dotyczy: zmiany 401bcb5..db8db0f poza listą `CLAUDE.md` (bez `packages/postep`, `packages/domena`, `src/data/`, `src/platform/`, `tools/content-build/`, `.github/workflows/`, `app.json`, `eas.json`); krój ładowany w czasie działania bez zmiany `app.json` (D-278) |
+| E2E | **42523567101 (bbada0b, kod kroków 7–8): 7/7 flowów w pierwszym przebiegu** („7/7 Flows Passed in 11m 39s”, ponowienie pominięte; w tym „Lekcja i pierwsze zadanie” 1 min 57 s i „Przerwanie sesji” 2 min 25 s — przechodzą przez ekran decyzji), build 23 min 17 s, flowy 16 min 11 s, artefakt `e2e-wyniki` 13635531988 (7 dni); db8db0f zmienia tylko testy Jest — push uruchamia nowy E2E na tym samym kodzie aplikacji (dowód dodatkowy, nie wymagany) |
+| zrzuty | Linux bez symulatora i bez `react-native-web` — lista dla właściciela niżej; artefakt `e2e-wyniki` przebiegu E2E ma zrzuty Maestro z flowów 01 i 06 |
+
+### Zrzuty do zrobienia (właściciel, symulator albo telefon; jasny i ciemny = 2 pliki, nazwy `6-<ekran>-<stan>-<light|dark>.png`)
+`sesja-decyzja:przed` (zadanie z zakresu: stół z miejscami, pas kreskowany, ty złotą obwódką, pasek-przyciski), `sesja-decyzja:przebija` (spot obrony, miejsce „przebija”, 08-F26), `sesja-decyzja:po-ocenie-zgodne`, `sesja-decyzja:po-ocenie-dopuszczalne` (pasek po ocenie, znacznik, skala z twoim przedziałem), `sesja-decyzja:po-ocenie-blad`, `sesja-decyzja:niedokladnosc` (zły rozmiar: segment 0%, bez skali), `sesja-decyzja:czas-minal`, `sesja-bez-pozycji:przed` („Wybierz odpowiedź”, owal bez miejsc, opis kart), `sesja-bez-pozycji:po-ocenie` (obwódka `ink`, znak + słowo), `sesja-tekstura:po-ocenie`, `egzamin:przeglad` (stół `Stol`, obwódka `separator`), `egzamin:wynik`, `tytuly:domyslny` (Literata w tytułach i indeksie karty), `tytuly:AX1` (krój systemowy) — 14 stanów, 28 plików; do audytu zgodności 04.
+
+### Zgłoszenia części 6
+- **08-F26 → 04/06:** stan miejsca „przebija (raise)” po akcji innej niż pas (L-1, D-274) — tekst i wygląd (zwykły stan miejsca, bez nowego koloru) do akceptacji; znak Dopuszczalnej „≈” (D-213) wobec „∼” w makiecie e3 (L-3).
+- **08-F27 → 04:** „pas” w pasku strategii jako obwódka kreskowana (`borderStyle: 'dashed'`) zamiast kreskowanego wypełnienia z makiety (RN nie ma wzoru wypełnienia bez dodatkowej biblioteki); kolory `PaintGrid`/`RangeGrid` nadal w `tk.przejsciowe` (L-2, wyjątek D-259 przedłużony).
+- **08-F28 → 04/06:** terminologia stołu (D-275): „Przy stole: …”, „po tobie BTN, SB i BB” zamiast „Stół: …”, „czeka/czekają” z makiety i design-spec — do przeniesienia do design-spec i tabeli terminologii (dok. 13).
+- **08-F29 → 04, 08 część 7:** ocena poziomu (`PierwszeUruchomienie`) rysuje stół starym `TableFelt` (bez `tk.przejsciowe`, ale niezgodnie z `Stol`); zamiana w części 7 (D-279), nie w kroku 9.
+- **08-F21 → 07 (potwierdzone mutacjami):** M29–M32 przeżywają, bo ekran sesji nie ma testu renderu — gałęzie `maStrategie` w `session.tsx` sprawdza tylko E2E (flow 06, gdy trafi zadanie z zakresu).
+
+### Teksty do akceptacji 04/06 (część 6)
+`table.*` (w tym `table.stateRaise`, `table.seatRaise`, `table.raised`, `table.after`, `table.label`), `strategy.*`, `scale.*`, `session.chooseAction`, `session.chooseAnswer`.
+
+### Ryzyka do sprawdzenia na urządzeniu
+Ruch paska (240 ms) i znacznika (160 ms po 200 ms) oraz przenikanie przy „Ogranicz ruch” (L-5); start aplikacji z krojem (bez pustego ekranu dłużej niż 3 s, także bez sieci — krój jest w pakiecie); przełączenie kroju tytułów przy AX1 (Ustawienia → Dostępność → Większy tekst); VoiceOver: etykiety stołu, paska i skali, kolejność fokusu na suknie; cele dotyku segmentów ≥ 64 pt przy 4 opcjach.
 
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
