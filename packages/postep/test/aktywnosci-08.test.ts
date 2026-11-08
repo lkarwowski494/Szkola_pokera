@@ -54,6 +54,13 @@ describe('start i wznowienie', () => {
     expect(stan(db, 'a1')).toEqual({ stan: 'porzucona', krok: 0, koniec_ms: T0 + 5 });
     expect((await aktywnoscWToku(port, 'sesja')).ok && (await aktywnoscWToku(port, 'sesja'))).toMatchObject({ wartosc: { id: 'a2' } });
   });
+  it('dwie aktywności w toku tego rodzaju (schemat nie zabrania) → wznawiana najnowsza (start_ms)', async () => {
+    const { port } = await przygotuj('pusta');
+    await zacznijAktywnosc(port, 'stara', { ...SESJA, startMs: T0 });
+    await zacznijAktywnosc(port, 'nowa', { ...SESJA, startMs: T0 + 10 });
+    const w = await aktywnoscWToku(port, 'sesja');
+    expect(w.ok && w.wartosc?.id).toBe('nowa');
+  });
   it('wiersz w toku z planem spoza kształtu PlanAktywnosci → odczyt_nieudany (nie cichy brak aktywności)', async () => {
     const { port } = await przygotuj('wzorzec'); // a-scen: plan {"scenariusz":"s01"} (08-F12)
     expect(await aktywnoscWToku(port, 'scenariusz')).toEqual({ ok: false, powod: 'odczyt_nieudany' });

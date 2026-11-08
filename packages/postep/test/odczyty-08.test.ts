@@ -65,6 +65,20 @@ describe('wyniki lekcji', () => {
   });
 });
 
+describe('wyniki lekcji: ułamek, nie liczba', () => {
+  it('3/6 potem 2/3 → najlepszy 2/3 (więcej poprawnych w dłuższej próbie nie jest lepszym wynikiem)', async () => {
+    const { port } = await przygotuj('pusta');
+    const szesc = { ...LEKCJA('m01-l1'), plan: { liczbaKrokow: 6, trescId: 'm01-l1', zadania: [0, 1, 2, 3, 4, 5].map((i) => ({ id: `z${i}`, ziarno: 0 })) } };
+    await zacznijAktywnosc(port, 'l1', szesc);
+    for (let k = 0; k < 5; k++) await zapiszKrok(port, 'l1', odp(k, k < 3 ? 1 : 0), k + 1);
+    await zakonczAktywnosc(port, 'l1', T0 + 1, { ostatnia: odp(5, 0), lekcjaId: 'm01-l1' }); // 3/6
+    await zacznijAktywnosc(port, 'l2', LEKCJA('m01-l1'));
+    await zapiszKrok(port, 'l2', odp(0, 1), 1); await zapiszKrok(port, 'l2', odp(1, 1), 2);
+    await zakonczAktywnosc(port, 'l2', T0 + 2, { ostatnia: odp(2, 0), lekcjaId: 'm01-l1' }); // 2/3
+    expect(await wynikiLekcji(port)).toEqual({ ok: true, wartosc: [{ lekcjaId: 'm01-l1', poprawne: 2, wszystkie: 3 }] });
+  });
+});
+
 describe('seria dni (czysta funkcja)', () => {
   it('brak dni → 0; dziś i wczoraj → 2; tylko wczoraj → 1 (dziś jeszcze bez odpowiedzi); luka przerywa', () => {
     expect(seriaDni([], '2026-11-08')).toBe(0);

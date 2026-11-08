@@ -35,6 +35,13 @@ describe('D-248 odtworzenie zestawu z planu', () => {
     const egz = buildExamSession({ modulePool: [], moduleLessons: rows, earlierPool: [], earlierLessons: [] }, createRng(4), undefined, 6);
     expect(bezKlucza(odtworzZestaw(zadaniaZestawu(egz), (id) => m.get(id)) ?? [])).toEqual(bezKlucza(egz));
   });
+  it('to samo zadanie dwa razy z rzędu z różnymi ziarnami → dwa osobne losowania (nie jedna grupa)', () => {
+    const g = row(gen('g1', 'fb', 'potOdds', 3));
+    const plan = [{ id: 'g1', ziarno: 1 }, { id: 'g1', ziarno: 2 }];
+    const znow = odtworzZestaw(plan, () => g) ?? [];
+    const osobno = [1, 2].map((z) => odtworzZestaw([{ id: 'g1', ziarno: z }], () => g)![0]!);
+    expect(bezKlucza(znow)).toEqual(bezKlucza(osobno));
+  });
   it('klucze odtworzonych zadań są unikalne', () => {
     const znow = odtworzZestaw(zadaniaZestawu(buildLessonSession(LEKCJA, createRng(7))), (id) => mapa.get(id)) ?? [];
     expect(new Set(znow.map((i) => i.key)).size).toBe(znow.length);
