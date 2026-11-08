@@ -15,6 +15,9 @@ import { zapiszBlad } from '@/platform/dziennik';
 import { useSettings } from '@/state/settings';
 import { space, type as tp, useTokens } from '@/theme/tokens';
 import { przygotujTrescExpo } from '@/data/tresc/startTresci';
+import { kontrolaK04, startPostepuExpo } from '@/data/postepExpo';
+import { PostepKontekst } from '@/data/postepKontekst';
+import type { PortBazy } from '@szkola/postep';
 
 void SplashScreen.preventAutoHideAsync();
 
@@ -45,13 +48,52 @@ function useTresc(): StanTresci & { ponow: () => void } {
   return { ...stan, ponow };
 }
 
+type StanPostepu = { stan: 'ladowanie' } | { stan: 'ok'; port: PortBazy } | { stan: 'blad' };
+
+/**
+ * Baza postępu `postep.db` (ADR 0003, 0004; moduly.md „Adaptery”): start z ochroną tła (ADR 0013), błąd startu → ekran
+ * z ponowieniem, bez zapisu (tlo-i-bledy.md §4, D-200). W buildzie deweloperskim kontrola K-04. Stare ekrany piszą do
+ * `user.db` do części 5 (D-239: P-1 = B); `user.db*` nietknięte przez start postępu.
+ */
+function usePostep(): StanPostepu & { ponow: () => void } {
+  const [stan, ustaw] = useState<StanPostepu>({ stan: 'ladowanie' });
+  const [proba, ustawProbe] = useState(0);
+  useEffect(() => {
+    let aktualny = true;
+    let otwarty: PortBazy | null = null;
+    void startPostepuExpo().then(async (w) => {
+      if (!w.ok) {
+        if (aktualny) ustaw({ stan: 'blad' });
+        return;
+      }
+      otwarty = w.wartosc.port;
+      if (!aktualny) {
+        await otwarty.zamknij();
+        return;
+      }
+      if (__DEV__) await kontrolaK04(otwarty);
+      ustaw({ stan: 'ok', port: otwarty });
+    });
+    return () => {
+      aktualny = false;
+      if (otwarty) void otwarty.zamknij();
+    };
+  }, [proba]);
+  const ponow = useCallback(() => {
+    ustaw({ stan: 'ladowanie' });
+    ustawProbe((p) => p + 1);
+  }, []);
+  return { ...stan, ponow };
+}
+
 export default function RootLayout() {
   const scheme = useColorScheme();
   const tk = useTokens();
   const { success, error } = useMigrations(userDb, migrations);
   const loadSettings = useSettings((s) => s.load);
   const tresc = useTresc();
-  const trescGotowa = tresc.stan !== 'ladowanie';
+  const postep = usePostep();
+  const trescGotowa = tresc.stan !== 'ladowanie' && postep.stan !== 'ladowanie';
 
   useEffect(() => {
     if (success && trescGotowa) {
@@ -71,8 +113,9 @@ export default function RootLayout() {
       </View>
     );
   }
-  if (!success || tresc.stan === 'ladowanie') return null;
+  if (!success || tresc.stan === 'ladowanie' || postep.stan === 'ladowanie') return null;
   if (tresc.stan === 'blad') return <RenderErrorScreen onRetry={tresc.ponow} />;
+  if (postep.stan === 'blad') return <RenderErrorScreen onRetry={postep.ponow} />;
 
   const base = scheme === 'dark' ? DarkTheme : DefaultTheme;
   const theme = { ...base, colors: { ...base.colors, primary: tk.felt, background: tk.bg, card: tk.surface, text: tk.ink, border: tk.line } };
@@ -81,18 +124,20 @@ export default function RootLayout() {
     <ThemeProvider value={theme}>
       {/* błąd renderowania: wpis w dzienniku lokalnym (ADR 0009) i ekran z ponowieniem zamiast zamknięcia aplikacji */}
       <GranicaBledu fallback={({ resetError }) => <RenderErrorScreen onRetry={resetError} />}>
-        {/* Plik treści przygotowany przez useTresc (bez kopiowania przy każdym starcie, ADR 0005 pkt 2). */}
-        <SQLiteProvider databaseName={tresc.plik} options={{ useNewConnection: false }}>
-          <Stack screenOptions={{ headerBackTitle: 'Wróć', headerTintColor: tk.felt }}>
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen name="lesson/[id]" options={{ title: '' }} />
-            <Stack.Screen name="diagnostics" options={{ title: '' }} />
-            <Stack.Screen name="advancement" options={{ title: '' }} />
-            <Stack.Screen name="glossary" options={{ title: '' }} />
-            <Stack.Screen name="help" options={{ title: '' }} />
-            <Stack.Screen name="session" options={{ presentation: 'fullScreenModal', headerShown: false, gestureEnabled: false }} />
-          </Stack>
-        </SQLiteProvider>
+        <PostepKontekst.Provider value={postep.port}>
+          {/* Plik treści przygotowany przez useTresc (bez kopiowania przy każdym starcie, ADR 0005 pkt 2). */}
+          <SQLiteProvider databaseName={tresc.plik} options={{ useNewConnection: false }}>
+            <Stack screenOptions={{ headerBackTitle: 'Wróć', headerTintColor: tk.felt }}>
+              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+              <Stack.Screen name="lesson/[id]" options={{ title: '' }} />
+              <Stack.Screen name="diagnostics" options={{ title: '' }} />
+              <Stack.Screen name="advancement" options={{ title: '' }} />
+              <Stack.Screen name="glossary" options={{ title: '' }} />
+              <Stack.Screen name="help" options={{ title: '' }} />
+              <Stack.Screen name="session" options={{ presentation: 'fullScreenModal', headerShown: false, gestureEnabled: false }} />
+            </Stack>
+          </SQLiteProvider>
+        </PostepKontekst.Provider>
       </GranicaBledu>
     </ThemeProvider>
   );

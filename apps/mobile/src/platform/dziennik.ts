@@ -13,7 +13,12 @@ export type KodDziennika =
   | 'link_niedostepny' // system nie otworzył adresu tel:/https (ekran Pomoc); kod spoza tabeli §4 — zgłoszenie 08-F04
   | 'odczyt_nieudany' // uszkodzona wartość zapisana przez aplikację; kod spoza tabeli §4 — zgłoszenie 08-F04
   | 'sklep_niedostepny' // expo-iap: błąd odczytu transakcji albo produktów (tlo-i-bledy.md §4)
-  | 'zakup_blad'; // expo-iap: błąd zakupu (nie anulowanie, nie oczekiwanie)
+  | 'zakup_blad' // expo-iap: błąd zakupu (nie anulowanie, nie oczekiwanie)
+  | 'baza_nowsza' // start postep.db (tlo-i-bledy.md §4)
+  | 'przerwano_w_tle' // jw., migracja przerwana w tle (ADR 0013)
+  | 'baza_uszkodzona' // jw., plik odłożony pod postep-uszkodzona-<ms>.db
+  | 'zapis_nieudany' // jw., inny błąd otwarcia (np. SQLITE_IOERR)
+  | 'kontrola_k04'; // build deweloperski: journal_mode ≠ delete albo foreign_keys ≠ 1 na porcie (K-04, ADR 0003)
 
 export interface WpisDziennika {
   readonly ms: number;

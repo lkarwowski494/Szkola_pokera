@@ -30,6 +30,7 @@
     "@szkola/domena": "workspace:*",
     "@szkola/poker-core": "workspace:*",
     "@szkola/jezyki": "workspace:*",
+    "@szkola/postep": "workspace:*",
     "@szkola/srs": "workspace:*",
     "drizzle-orm": "0.45.3",
     "zustand": "5.0.15",

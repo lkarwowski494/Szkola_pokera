@@ -29,6 +29,9 @@ importers:
       '@szkola/poker-core':
         specifier: workspace:*
         version: link:../../packages/poker-core
+      '@szkola/postep':
+        specifier: workspace:*
+        version: link:../../packages/postep
       '@szkola/srs':
         specifier: workspace:*
         version: link:../../packages/srs
