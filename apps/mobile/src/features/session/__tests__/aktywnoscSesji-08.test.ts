@@ -8,6 +8,8 @@ import type { DrillRow } from '@/data/content/repo';
 import { gradeAnswer } from '@/features/drills/grade';
 import type { DrillAnswer } from '@/features/drills/types';
 import { buildLessonSession } from '@/features/session/build';
+import { HAND_CLASSES } from '@szkola/poker-core';
+import type { RangeSpot } from '@/data/content/repo';
 import { odpowiedzWSesji, otworzSesje, type Sesja, type WejscieSesji } from '@/features/session/aktywnoscSesji';
 import { utworzZegar } from '@/platform/zegar';
 import { portTestowy } from '@/test-utils/postepTestowy';
@@ -105,11 +107,22 @@ describe('sesja jako aktywność', () => {
     expect(w.items).toHaveLength(2);
     expect(db.prepare('SELECT id, stan FROM aktywnosc ORDER BY start_ms, id').all()).toEqual([{ id: s.id, stan: 'porzucona' }, { id: w.id, stan: 'w_toku' }]);
   });
+  it('krok aktywności większy niż liczba zapisanych odpowiedzi (niespójny zapis) → stara porzucona, nowa (bez wznowienia z luką)', async () => {
+    const { port, db } = await portTestowy();
+    let s = await otworz(port);
+    s = (await odpowiedz(port, s, dobra(s, 0))).sesja;
+    await odpowiedz(port, s, dobra(s, 1));
+    db.prepare('DELETE FROM odpowiedz WHERE krok = 0').run();
+    const w = await otworz(port);
+    expect(w.id).not.toBe(s.id);
+    expect(db.prepare('SELECT stan FROM aktywnosc ORDER BY start_ms, id').all()).toEqual([{ stan: 'porzucona' }, { stan: 'w_toku' }]);
+  });
   it('inna lekcja w toku → porzucona przy starcie tej (moduly.md `porzuc`)', async () => {
     const { port, db } = await portTestowy();
     const s = await otworz(port);
     const w = await otworz(port, wejscie({ trescId: 'l2' }));
-    expect(db.prepare('SELECT id, stan FROM aktywnosc ORDER BY id').all()).toEqual([{ id: s.id, stan: 'porzucona' }, { id: w.id, stan: 'w_toku' }]);
+    const stany = Object.fromEntries((db.prepare('SELECT id, stan FROM aktywnosc').all() as { id: string; stan: string }[]).map((r) => [r.id, r.stan]));
+    expect(stany).toEqual({ [s.id]: 'porzucona', [w.id]: 'w_toku' });
   });
   it('podwójne dotknięcie (odpowiedź na krok już zapisany) → krok_niezgodny, bez drugiego zapisu', async () => {
     const { port, db } = await portTestowy();
@@ -125,5 +138,28 @@ describe('sesja jako aktywność', () => {
     const zepsuty = { ...port, transakcja: async () => { throw Object.assign(new Error('full'), { errcode: 13 }); } };
     expect(await odpowiedzWSesji(zepsuty, s, { answer: dobra(s, 0), grade: 'correct', elapsedMs: 1 }, T0)).toEqual({ ok: false, powod: 'brak_miejsca' });
     expect(db.prepare('SELECT count(*) AS n FROM odpowiedz').get()).toEqual({ n: 0 });
+  });
+  it('przegląd D-043 P1: wznowienie lekcji z malowaniem zakresu (zadanie wymaga kontekstu zakresów) → te same zadania, bez wyjątku', async () => {
+    const spot: RangeSpot = { id: 's', title: 'T', hero: 'BTN', path: '', playPercent: 0.1, groups: [{ name: 'Przebicie', freqs: HAND_CLASSES.map((h) => (h === 'AA' ? 1 : 0)) }] };
+    const ctx = { range: () => spot };
+    const paint: DrillRow = { id: 'p1', lessonId: 'l1', family: 'fp', drill: { kind: 'paint', id: 'p1', family: 'fp', rules: [], spot: 's', prompt: 'Pomaluj' } as unknown as Drill };
+    const rows = [ROWS[0]!, paint];
+    const mapa = new Map(rows.map((r) => [r.id, r]));
+    const w = wejscie({ buduj: () => buildLessonSession(rows, createRng(5), ctx), wiersz: (id) => mapa.get(id), ctx });
+    const { port, sciezka } = await portTestowy();
+    const s = await otworz(port, w);
+    await odpowiedz(port, s, dobra(s, 0));
+    await port.zamknij();
+    const { port: port2 } = await portTestowy(sciezka);
+    const r = await otworzSesje(port2, w);
+    expect(r.ok && r.wartosc && { id: r.wartosc.id, n: r.wartosc.odpowiedzi.length, kinds: r.wartosc.items.map((i) => i.kind) }).toEqual({ id: s.id, n: 1, kinds: s.items.map((i) => i.kind) });
+  });
+  it('przegląd D-043 P1: wyjątek przy odtwarzaniu zestawu (np. brak zakresu w treści) → stara porzucona, nowa aktywność (nie zawieszony ekran)', async () => {
+    const { port, db } = await portTestowy();
+    const s = await otworz(port);
+    const rzuca = (id: string): DrillRow | undefined => { if (id === 'c2') throw new Error('Brak zakresu'); return MAPA.get(id); };
+    const r = await otworzSesje(port, wejscie({ wiersz: rzuca }));
+    expect(r.ok && r.wartosc !== null && r.wartosc.id !== s.id).toBe(true);
+    expect(db.prepare('SELECT stan FROM aktywnosc ORDER BY start_ms, id').all()).toEqual([{ stan: 'porzucona' }, { stan: 'w_toku' }]);
   });
 });

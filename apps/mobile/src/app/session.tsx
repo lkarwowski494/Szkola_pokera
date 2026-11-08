@@ -89,7 +89,7 @@ export default function SessionScreen() {
     const r = await otworzSesje(port, {
       rodzaj: RODZAJ[mode], trescId, limit: { bezLimitu: true },
       pierwszePodejscieTestu: !testyW.wartosc.some((w) => w.modulId === moduleId),
-      buduj, wiersz: (id) => getDrillById(db, id), zegar: { ...zegarTelefonu, teraz: () => teraz, dzienLokalny }, noweId,
+      buduj, wiersz: (id) => getDrillById(db, id), ctx, zegar: { ...zegarTelefonu, teraz: () => teraz, dzienLokalny }, noweId,
     });
     if (!r.ok) return { stan: 'blad' };
     return r.wartosc ? { stan: 'gotowa', sesja: r.wartosc } : { stan: 'pusta' };
@@ -122,11 +122,13 @@ export default function SessionScreen() {
 
   const zaladuj = useCallback(() => {
     ustawStan({ stan: 'ladowanie' });
-    void otworz().then((s) => {
-      if (s.stan === 'blad') zapiszBlad('odczyt_nieudany', 'sesja');
-      ustawStan(s);
-      setIdx(s.stan === 'gotowa' ? s.sesja.odpowiedzi.length : 0); // wznowienie: pierwszy krok bez odpowiedzi
-    });
+    void otworz()
+      .catch((): Stan => ({ stan: 'blad' })) // wyjątek przy budowie zestawu: komunikat z ponowieniem, nie pusty ekran
+      .then((s) => {
+        if (s.stan === 'blad') zapiszBlad('odczyt_nieudany', 'sesja');
+        ustawStan(s);
+        setIdx(s.stan === 'gotowa' ? s.sesja.odpowiedzi.length : 0); // wznowienie: pierwszy krok bez odpowiedzi
+      });
   }, [otworz]);
   useEffect(() => {
     zaladuj();

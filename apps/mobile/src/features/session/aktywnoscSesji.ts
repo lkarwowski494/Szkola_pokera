@@ -10,6 +10,7 @@ import type { DrillRow } from '@/data/content/repo';
 import { kartaZWiersza, logZPowtorki, wierszZKarty } from '@/data/postep';
 import { gradeAnswer, isPass, ocenaSchematu } from '@/features/drills/grade';
 import type { DrillAnswer, DrillInstance, GradeResult } from '@/features/drills/types';
+import type { DrillContext } from '@/features/drills/engine';
 import { odtworzZestaw, zadaniaZestawu } from './build';
 
 /**
@@ -36,6 +37,7 @@ export interface WejscieSesji {
   wiersz(id: string): DrillRow | undefined;
   zegar: Zegar;
   noweId(): string;
+  ctx?: DrillContext; // zakresy dla malowania i rangeDecision (przegląd D-043 P1)
 }
 
 /** Wejście: wznowienie aktywności w toku tego rodzaju i treści albo nowa; pusty zestaw → null (nic nie zapisane). */
@@ -74,7 +76,14 @@ async function nowa(port: PortBazy, w: WejscieSesji, karty: Map<string, StoredCa
 
 // null = zestaw albo odpowiedzi nie do odtworzenia z obecnej treści (wywołujący zaczyna nową aktywność).
 async function wznow(port: PortBazy, id: string, a: AktywnoscWToku, w: WejscieSesji, karty: Map<string, StoredCard>): Promise<Wynik<Sesja | null, PowodSesji>> {
-  const items = a.plan.zadania ? odtworzZestaw(a.plan.zadania, w.wiersz) : null;
+  let items: DrillInstance[] | null = null;
+  try {
+    // ctx: zakresy dla malowania i rangeDecision; wyjątek silnika zadań (np. brak zakresu po zmianie treści) = zestaw
+    // nie do odtworzenia → nowa aktywność, nie zawieszony ekran (przegląd D-043 P1)
+    items = a.plan.zadania ? odtworzZestaw(a.plan.zadania, w.wiersz, w.ctx) : null;
+  } catch {
+    items = null;
+  }
   if (!items || items.length !== a.plan.liczbaKrokow) return { ok: true, wartosc: null };
   const zapisane = await odpowiedziAktywnosci(port, id);
   if (!zapisane.ok) return zapisane;
