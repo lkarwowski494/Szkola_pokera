@@ -506,3 +506,16 @@ Build 23 min 52 s, flowy 21 min 54 s. Zielone: 03 Słowniczek, 04 Pomoc, 05 Ocen
 | 06 Przerwanie sesji | `Text matching regex: Dalej` nie znaleziony (po `option-0` w sesji ćwiczeń) | hipoteza: przycisk „Dalej” pod wyjaśnieniem ze stołem poza ekranem; do sprawdzenia w artefakcie `e2e-wyniki` (zrzuty, niedostępne z kontenera — właściciel albo podgląd w Actions) | hipoteza |
 
 Propozycja naprawy (następna sesja, jeden push → E2E): 01 i 09 — `scrollUntilVisible: { element: { id: 'lesson-m0.l1' }, direction: DOWN }` przed `tapOn` (zmiana struktury flowu po przebudowie „Dziś”, jak „Zamknij” → „Zakończ”); 06 i 01 — `scrollUntilVisible` dla „Dalej” przed `tapOn`; 02 — rozróżnienie zakładki od wiersza: opcje (A, rekomendacja) zakładka po `tapOn` z `index` (sprawdzić w hierarchii Maestro, które dopasowanie jest zakładką) albo (B) zgłoszenie do 04 (08-F24): ten sam tekst „Powtórki” dla wiersza na „Dziś” i zakładki — dwa różne cele pod jedną nazwą; zmiana tekstu to decyzja 04. Bez zmiany asercji o zachowaniu.
+
+### Naprawa flowów po 42508961244 (2026-11-08, D-271)
+Wzór Treningu (D-191, odczyt 2026-11-08, `2e4b0f8`): `scrollUntilVisible … centerElement: true` przed `tapOn` (`.maestro/07-zamiana.yaml:75`); zakładka odróżniana własną etykietą dostępności (`app/(tabs)/_layout.tsx:18`) — u nas identyfikator (`testID` zakładki), bez zmiany tekstu VoiceOver. Maestro 2.11.0 (`e2e-ios.yml:39`): `scrollUntilVisible` ma `optional` i `centerElement` (`YamlScrollUntilVisible.kt`, tag `cli-2.11.0`) i najpierw sprawdza widoczność (`Orchestra.kt:803–837`).
+| Flow | Zmiana | Asercje |
+|---|---|---|
+| 01 | `scrollUntilVisible` do `lesson-m0.l1` i do „Dalej” | bez zmian |
+| 02 | `tapOn: { id: 'zakladka-powtorki' }` zamiast tekstu; `NativeTabs.Trigger testID` (`zakladka-dzis`, `-powtorki`, `-postep`) | bez zmian |
+| 06 | w pętli: opcja szukana w górę, potem w dół (`optional`), „Dalej” z `scrollUntilVisible` | bez zmian |
+| 09 | `scrollUntilVisible` do `lesson-m0.l1` | bez zmian |
+
+Strażnik: `e2e-flowy` „każde id we flowach bramki ma testID w kodzie aplikacji” — czerwony po zmianie flowu 02 (`id 'zakladka-powtorki' bez testID`), zielony po `testID`. `pnpm run ci` kod 0: srs 21, jezyki 136, poker-core 155, domena 314, postep 105, mobile 385, content-build 124, preflop-solver 43, skrypty 79, kontrole 8.
+
+**Zgłoszenia nowe:** 08-F24 → 04: ten sam tekst „Powtórki” dla wiersza na „Dziś” (`today.reviews`) i zakładki (`tabs.review`) — dwa cele pod jedną nazwą (także dla VoiceOver); 08-F25 → 04: ekran sesji po „Dalej” nie wraca na górę — przy dłuższym zadaniu (stół) treść następnego zadania zaczyna się nad krawędzią; propozycje: przewinięcie na górę przy zmianie zadania (A) albo bez zmian (B); decyzja 04 (zachowanie interfejsu).

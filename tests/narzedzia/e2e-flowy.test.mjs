@@ -69,3 +69,19 @@ test('e2e-ios.yml: timeout-minutes = 30 + 3 × liczba flowów w bramce + 10 (str
   const n = readdirSync(E2E).filter((f) => f.endsWith('.yaml') && f !== 'config.yaml').length;
   assert.equal(Number(w?.[1]), 30 + 3 * n + 10, `flowów w bramce: ${n}`);
 });
+
+// Flow 02 w przebiegu 42508961244: dwa cele pod tym samym tekstem („Powtórki” na „Dziś” i zakładka) — flow stuka po id.
+// Literówka w id daje na runnerze „not found” po ~45 min; tu wychodzi w Node. Id ze wzorca (`lesson-${l.id}`) liczy się po przedrostku.
+test('każde id we flowach bramki ma testID w kodzie aplikacji (apps/mobile/src)', () => {
+  const zrodla = (kat) => readdirSync(kat).flatMap((f) => (statSync(join(kat, f)).isDirectory() ? zrodla(join(kat, f)) : /\.tsx?$/.test(f) && !/\.test\.tsx?$/.test(f) ? [join(kat, f)] : []));
+  const kod = zrodla(join(E2E, '../src')).map((f) => readFileSync(f, 'utf8')).join('\n');
+  const stale = new Set([...kod.matchAll(/testID=(?:"([^"]+)"|\{?'([^']+)'\}?)/g)].map((m) => m[1] ?? m[2]));
+  const przedrostki = [...kod.matchAll(/testID=\{`([^`$]*)\$\{/g)].map((m) => m[1]).filter(Boolean);
+  const bramka = wszystkie.filter((f) => !f.includes('/oczekujace/'));
+  let ile = 0;
+  for (const f of bramka) for (const [, , id] of readFileSync(f, 'utf8').matchAll(/\bid:\s*(['"])([^'"]+)\1/g)) {
+    ile++;
+    assert.ok(stale.has(id) || przedrostki.some((p) => id.startsWith(p)), `${relative(E2E, f)}: id '${id}' bez testID w apps/mobile/src`);
+  }
+  assert.ok(ile >= 10, `sprawdzonych id: ${ile}`);
+});

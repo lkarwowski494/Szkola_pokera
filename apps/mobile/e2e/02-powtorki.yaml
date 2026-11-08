@@ -9,5 +9,8 @@ name: Powtórki
 - extendedWaitUntil:
     visible: 'No-Limit Hold’em od zera.*'
     timeout: 30000
-- tapOn: 'Powtórki'
+# zakładka po id: tekst „Powtórki” ma też wiersz na „Dziś” (`dzis-powtorki`), a stuknięcie po tekście trafiło
+# w wiersz i otworzyło sesję powtórek (przebieg 42508961244; 08-F24 → 04). Asercja bez zmian.
+- tapOn:
+    id: 'zakladka-powtorki'
 - assertVisible: 'Nic nie czeka na powtórkę.*'

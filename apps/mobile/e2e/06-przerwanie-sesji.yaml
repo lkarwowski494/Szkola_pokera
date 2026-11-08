@@ -11,8 +11,28 @@ name: Przerwanie sesji
 - repeat:
     times: 3
     commands:
+      # po „Dalej” przewinięcie zostaje (ekran sesji nie wraca na górę, 08-F25), więc opcje następnego zadania
+      # mogą być nad albo pod krawędzią; scrollUntilVisible najpierw sprawdza widoczność (Maestro 2.11.0, Orchestra.kt:803)
+      - scrollUntilVisible:
+          element:
+            id: 'option-0'
+          direction: UP
+          timeout: 10000
+          optional: true
+      - scrollUntilVisible:
+          element:
+            id: 'option-0'
+          direction: DOWN
+          timeout: 10000
+          optional: true
       - tapOn:
           id: 'option-0'
+      # „Dalej” pod wyjaśnieniem ze stołem — poza ekranem (przebieg 42508961244)
+      - scrollUntilVisible:
+          element: 'Dalej'
+          direction: DOWN
+          timeout: 30000
+          centerElement: true
       - tapOn: 'Dalej'
 - assertVisible: '4 z \d+'
 - stopApp

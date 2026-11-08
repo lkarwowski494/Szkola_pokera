@@ -20,6 +20,13 @@ name: Limit dnia
 - assertVisible: '.*odnowi.*'
 - takeScreenshot: 09-limit-wyczerpany
 - tapOn: 'Wróć do lekcji'
+# lista lekcji pod blokiem lekcji, ćwiczeniami i wskaźnikiem — poza ekranem (przebieg 42508961244)
+- scrollUntilVisible:
+    element:
+      id: 'lesson-m0.l1'
+    direction: DOWN
+    timeout: 30000
+    centerElement: true
 - tapOn:
     id: 'lesson-m0.l1'
 - assertVisible: '${LEKCJA_START_TYTUL}'
