@@ -4,3 +4,4 @@ export * from './daneUzytkownika';
 export * from './powtorki';
 export * from './aktywnosci';
 export * from './start';
+export * from './ustawienia';
