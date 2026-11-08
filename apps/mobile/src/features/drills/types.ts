@@ -15,6 +15,8 @@ export interface DrillOption {
   acceptable?: boolean;
   /** Wyjaśnienie tej konkretnej opcji (pokazywane po odpowiedzi). */
   why: string;
+  /** Częstość tej akcji w strategii solvera (0–1; zadania z zakresu, 08 cz. 6, D-274): pasek strategii po ocenie. Brak = zadanie bez strategii. */
+  czestosc?: number;
 }
 
 interface InstanceBase {
@@ -26,7 +28,8 @@ interface InstanceBase {
   lessonId: string | null;
   rules: string[];
   prompt: string;
-  table?: { hand?: string[]; opp?: string[]; board?: string[]; position?: Position };
+  /** `path`: przebieg akcji przed tobą (`UTG:fold,HJ:raise2.5`, jak `spots.yaml`) — miejsca przy stole (08 cz. 6, D-274). */
+  table?: { hand?: string[]; opp?: string[]; board?: string[]; position?: Position; path?: string };
   /** Wspólne wyjaśnienie, pokazywane pod odpowiedzią. */
   explanation?: string;
 }

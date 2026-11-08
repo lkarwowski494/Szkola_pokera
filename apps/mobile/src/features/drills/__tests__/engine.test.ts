@@ -135,6 +135,24 @@ describe('zadania z zakresów solvera', () => {
     }
   });
 
+  // 08 cz. 6 krok 2 (D-274): stół z miejscami i pasek strategii potrzebują przebiegu akcji i częstości solvera każdej akcji.
+  it('zadanie z zakresu niesie przebieg akcji spotu i częstość solvera każdej opcji (zły rozmiar = 0); częstości akcji sumują się do 1', () => {
+    const spot = testSpot({ path: 'UTG:fold,HJ:fold', groups: [{ ...testSpot().groups[0]!, wrongSizes: [{ text: 'Przebicie za duże', why: 'Za duży.' }] }] });
+    const drill: Drill = { kind: 'generated', id: 'r', family: 'r', rules: [], generator: 'rangeDecision', params: { spots: 's' }, count: 30 };
+    for (const raw of instantiate(drill, 'l', createRng(21), undefined, { range: () => spot })) {
+      const inst = asChoice(raw);
+      expect(inst.table?.path).toBe('UTG:fold,HJ:fold');
+      const [a, b] = inst.table!.hand!;
+      const h = HAND_CLASSES.indexOf(classOf(parseCard(a!), parseCard(b!)));
+      const raise = spot.groups[0]!.freqs[h]!;
+      expect(inst.options.map((o) => [o.text, o.czestosc])).toEqual([
+        ['Przebicie', raise],
+        ['Pas (fold)', 1 - raise], // t.range.fold z terminem
+        ['Przebicie za duże', 0],
+      ]);
+    }
+  });
+
   it('klasy niepewne spotu nie pojawiają się w zadaniach z decyzją', () => {
     // AA i AKs to jedyne ręce grane; AKs niepewna, więc wśród rąk granych zostaje tylko AA
     const spot = testSpot({ uncertain: ['AKs', 'AKo'] });

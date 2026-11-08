@@ -445,23 +445,26 @@ function rangeDecision(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: 
   const verdict = rangeVerdict(freqs.map((f) => f.f));
   const options: DrillOption[] = freqs.map((f, fi) => {
     const v = verdict[fi]!;
-    if (v === 'correct') return { text: f.name, correct: true, why: t.range.right(f.f) };
-    if (v === 'acceptable') return { text: f.name, correct: false, acceptable: true, why: t.range.acceptable(f.f) };
-    return { text: f.name, correct: false, why: t.range.wrong(f.f) };
+    if (v === 'correct') return { text: f.name, correct: true, why: t.range.right(f.f), czestosc: f.f };
+    if (v === 'acceptable') return { text: f.name, correct: false, acceptable: true, why: t.range.acceptable(f.f), czestosc: f.f };
+    return { text: f.name, correct: false, why: t.range.wrong(f.f), czestosc: f.f };
   });
   // błędne rozmiary dokładamy na końcu listy (kolejność opcji generatora jest stała: grupy, pas, złe rozmiary)
   spot.groups.forEach((g, gi) => {
     const f = freqs[gi]!.f;
     for (const w of g.wrongSizes ?? []) {
       options.push(
-        verdict[gi] !== 'wrong' ? { text: w.text, correct: false, sizeError: true, why: w.why } : { text: w.text, correct: false, why: `${t.range.wrong(f)} ${w.why}` },
+        // rozmiar spoza strategii solvera: częstość 0 (pasek strategii pokazuje go jako twój wybór z 0%)
+        verdict[gi] !== 'wrong'
+          ? { text: w.text, correct: false, sizeError: true, why: w.why, czestosc: 0 }
+          : { text: w.text, correct: false, why: `${t.range.wrong(f)} ${w.why}`, czestosc: 0 },
       );
     }
   });
   return {
     ...base(d, lessonId, i),
     prompt: spot.title,
-    table: { hand: toStrings([c1, c2]), position: spot.hero as Position },
+    table: { hand: toStrings([c1, c2]), position: spot.hero as Position, path: spot.path },
     options,
     explanation: t.range.explanation(hc, freqs, mixed),
   };
