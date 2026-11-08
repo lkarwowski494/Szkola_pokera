@@ -1,15 +1,28 @@
-import { router, useFocusEffect } from 'expo-router';
+import { router } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
-import { useCallback, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { BladOdczytu } from '@/components/BladOdczytu';
 import { Muted, ProgressBar, Screen, Title } from '@/components/ui';
 import { getLessonSummaries, getModules } from '@/data/content/repo';
-import { userDb } from '@/data/user/db';
-import { examSummaryMap, lessonProgressMap } from '@/data/user/repo';
+import { odczytajPostepLekcji, wynikiLekcji, wynikiTestow, type PortBazy } from '@szkola/postep';
+import { useOdczytPostepu } from '@/data/postep';
+import { podsumowanieLekcji, podsumowanieTestow } from '@/features/kurs/podsumowania';
 import { AdvancementCard } from '@/features/advancement/AdvancementCard';
 import { EXAM_SIZE } from '@/features/drills/thresholds';
 import { radius, space, type as tp, useTokens } from '@/theme/tokens';
+
+const PUSTE_LEKCJE: ReturnType<typeof podsumowanieLekcji> = new Map();
+const PUSTE_TESTY: ReturnType<typeof podsumowanieTestow> = new Map();
+// Postęp lekcji i testów z postep.db (część 5); błąd odczytu → mapa bez postępu i wpis w dzienniku (useOdczytPostepu).
+async function czytajNauke(port: PortBazy) {
+  const [p, l, t] = await Promise.all([odczytajPostepLekcji(port), wynikiLekcji(port), wynikiTestow(port)]);
+  if (!p.ok) return p;
+  if (!l.ok) return l;
+  if (!t.ok) return t;
+  return { ok: true as const, wartosc: { progress: podsumowanieLekcji(p.wartosc, l.wartosc), exams: podsumowanieTestow(t.wartosc) } };
+}
 
 /** Mapa nauki: moduły i lekcje. Każdą lekcję można otworzyć (FR-01). */
 export default function LearnScreen() {
@@ -18,14 +31,9 @@ export default function LearnScreen() {
   const { t } = useTranslation();
   const modules = useMemo(() => getModules(db), [db]);
   const lessons = useMemo(() => getLessonSummaries(db), [db]);
-  const [progress, setProgress] = useState(() => lessonProgressMap(userDb));
-  const [exams, setExams] = useState(() => examSummaryMap(userDb));
-  useFocusEffect(
-    useCallback(() => {
-      setProgress(lessonProgressMap(userDb));
-      setExams(examSummaryMap(userDb));
-    }, []),
-  );
+  const odczyt = useOdczytPostepu(czytajNauke, 'nauka');
+  const progress = odczyt.stan === 'ok' ? odczyt.wartosc.progress : PUSTE_LEKCJE;
+  const exams = odczyt.stan === 'ok' ? odczyt.wartosc.exams : PUSTE_TESTY;
 
   const done = lessons.filter((l) => progress.get(l.id)?.done).length;
 
@@ -34,6 +42,7 @@ export default function LearnScreen() {
       <Title>{t('learn.title')}</Title>
       <Muted>{t('learn.intro')}</Muted>
       <AdvancementCard />
+      {odczyt.stan === 'blad' ? <BladOdczytu onPonow={odczyt.odswiez} /> : null}
       <View style={{ gap: space.s }}>
         <ProgressBar value={lessons.length ? done / lessons.length : 0} />
         <Muted>{t('learn.lessonsDone', { done, total: lessons.length })}</Muted>
@@ -71,7 +80,7 @@ export default function LearnScreen() {
                     <Text style={[tp.body, { color: tk.ink, fontWeight: '600' }]}>{l.title}</Text>
                     <Muted>{l.sub}</Muted>
                   </View>
-                  {p && p.total > 0 ? <Muted>{`${p.bestCorrect}/${p.total}`}</Muted> : null}
+                  {p && p.total !== null && p.bestCorrect !== null ? <Muted>{`${p.bestCorrect}/${p.total}`}</Muted> : null}
                 </Pressable>
               );
             })}

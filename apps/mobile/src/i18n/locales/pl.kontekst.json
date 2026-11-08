@@ -307,5 +307,10 @@
   "play.review.next": "Użyty w: app/play/review.tsx. Ok. 5 znaków. [kontekst wstępny z użycia w kodzie, 2026-11-04; rola 08 dopisze opis przy przebudowie ekranu]",
   "play.review.finish": "Użyty w: app/play/review.tsx. Ok. 7 znaków. [kontekst wstępny z użycia w kodzie, 2026-11-04; rola 08 dopisze opis przy przebudowie ekranu]",
   "play.review.empty": "Użyty w: app/play/review.tsx. Ok. 26 znaków. [kontekst wstępny z użycia w kodzie, 2026-11-04; rola 08 dopisze opis przy przebudowie ekranu]",
-  "errors.db": "Nie znaleziono wywołania w kodzie (nieużywany albo składany inaczej). Parametry: message. Ok. 47 znaków. [kontekst wstępny z użycia w kodzie, 2026-11-04; rola 08 dopisze opis przy przebudowie ekranu]"
+  "errors.db": "Nie znaleziono wywołania w kodzie (nieużywany albo składany inaczej). Parametry: message. Ok. 47 znaków. [kontekst wstępny z użycia w kodzie, 2026-11-04; rola 08 dopisze opis przy przebudowie ekranu]",
+  "session.saveFailed": "Użyty w: app/session.tsx. Nieudany zapis odpowiedzi (zapis_nieudany, tlo-i-bledy.md §4): odpowiedź zostaje do ponowienia; tekst roli 08 według wzoru błędu z „Głosu”, do akceptacji 04/06.",
+  "session.saveNoSpace": "Użyty w: app/session.tsx. Zapis odpowiedzi przy pełnej pamięci (brak_miejsca, SQLITE_FULL); tekst roli 08 według wzoru błędu z „Głosu”, do akceptacji 04/06.",
+  "postep.odczytNieudany": "Użyty w: app/session.tsx, (tabs)/index, review, progress, advancement. Błąd odczytu postepu z bazy (odczyt_nieudany, tlo-i-bledy.md §4) — zamiast pustej listy; tekst roli 08 według „Głosu” design-spec, do akceptacji 04/06 (część 5).",
+  "postep.ponow": "Użyty jw. Przycisk ponowienia odczytu; nazwa z macierzy stanów design-spec („Spróbuj ponownie”).",
+  "progress.resetFailed": "Użyty w: app/(tabs)/progress.tsx. Nieudane „Usuń postęp” (zapis_nieudany, BR-DANE-003): dane bez zmian; tekst roli 08 według wzoru błędu z „Głosu”, do akceptacji 04/06 (część 5; ekran ustawień przebudowuje 5b)."
 }

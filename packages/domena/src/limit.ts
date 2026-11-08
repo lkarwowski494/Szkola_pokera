@@ -41,6 +41,10 @@ function dzienW(strefa: string, ms: number): string {
   for (const p of f.formatToParts(new Date(ms))) c[p.type] = p.value;
   return `${c.year}-${c.month}-${c.day}`;
 }
+// Dzień lokalny dla zapisu aktywności i zegara aplikacji (Zegar.dzienLokalny, ADR 0007 pkt 1): ta sama funkcja co limit.
+export function dzienLokalny(ms: number, strefa: string): string {
+  return dzienW(strefa, ms);
+}
 function dzienPo(dzien: string): string {
   const [r, m, d] = dzien.split('-').map(Number);
   return new Date(Date.UTC(r ?? NaN, (m ?? NaN) - 1, (d ?? NaN) + 1)).toISOString().slice(0, 10);

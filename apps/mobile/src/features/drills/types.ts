@@ -20,6 +20,8 @@ export interface DrillOption {
 interface InstanceBase {
   key: string;
   drillId: string;
+  /** D-248: ziarno losowania (build.ts); odtworzenie zestawu z planu aktywności. */
+  ziarno?: number;
   family: string;
   lessonId: string | null;
   rules: string[];

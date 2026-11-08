@@ -6,8 +6,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import { H2, Muted, ProgressBar, Screen, Surface, Title } from '@/components/ui';
 import { getModules } from '@/data/content/repo';
 import { useAdvancement } from '@/features/advancement/useAdvancement';
-import { userDb } from '@/data/user/db';
-import { advancementHistoryFor } from '@/data/user/historia';
+import { BladOdczytu } from '@/components/BladOdczytu';
+import { useOdczytPostepu } from '@/data/postep';
+import { czytajHistorie } from '@/features/advancement/historia';
 import { space, type as tp, useTokens } from '@/theme/tokens';
 
 /** Rozbicie wskaźnika zaawansowania na obszary (moduły kursu); tylko wiedza — część „gra” usunięta z trybem gry (ADR 0011). */
@@ -18,7 +19,8 @@ export default function AdvancementScreen() {
   const r = useAdvancement();
   const titles = useMemo(() => new Map(getModules(db).map((m) => [m.id, m.title])), [db]);
   const k = r.knowledge;
-  const history = useMemo(() => advancementHistoryFor(userDb, 'all').slice(-HISTORY_DAYS), []);
+  const odczyt = useOdczytPostepu(czytajHistorie, 'wskaznik');
+  const history = odczyt.stan === 'ok' ? odczyt.wartosc.slice(-HISTORY_DAYS).map((p) => ({ day: p.dzien, combined: p.wynik })) : [];
 
   return (
     <Screen padTop={false}>
@@ -39,7 +41,7 @@ export default function AdvancementScreen() {
       <Muted>{t('advancement.explain', { days: ADVANCEMENT.horizonDays })}</Muted>
 
       <H2>{t('advancement.history')}</H2>
-      <HistoryBars rows={history} />
+      {odczyt.stan === 'blad' ? <BladOdczytu onPonow={odczyt.odswiez} /> : <HistoryBars rows={history} />}
 
       <H2>{t('advancement.areas')}</H2>
       {k.areas.map((a, i) => {

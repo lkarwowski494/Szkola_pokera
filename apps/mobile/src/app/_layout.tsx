@@ -97,14 +97,15 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (success && trescGotowa) {
-      loadSettings();
-      void SplashScreen.hideAsync();
+      // ustawienia interfejsu z postep.db (D-251) przed zdjęciem ekranu startowego; przy błędzie startu postępu — od razu
+      if (postep.stan === 'ok') void loadSettings(postep.port).finally(() => void SplashScreen.hideAsync());
+      else void SplashScreen.hideAsync();
     }
     if (error) {
       zapiszBlad('migracja_nieudana');
       void SplashScreen.hideAsync();
     }
-  }, [success, error, loadSettings, trescGotowa]);
+  }, [success, error, loadSettings, trescGotowa, postep]);
 
   if (error) {
     return (

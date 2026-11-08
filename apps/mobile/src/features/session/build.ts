@@ -1,5 +1,6 @@
+import type { ZadaniePlanu } from '@szkola/domena';
 import { interleave } from '@szkola/srs';
-import { pick, shuffle, type Rng } from '@szkola/poker-core';
+import { createRng, pick, shuffle, type Rng } from '@szkola/poker-core';
 import type { DrillRow } from '@/data/content/repo';
 import { instantiate, isGenerative, type DrillContext } from '@/features/drills/engine';
 import { EXAM_MAX_PAINT, EXAM_MAX_PER_GENERATOR, EXAM_MODULE_SHARE, EXAM_SIZE } from '@/features/drills/thresholds';
@@ -7,9 +8,15 @@ import type { DrillInstance } from '@/features/drills/types';
 
 export type SessionMode = 'lesson' | 'review' | 'exam';
 
+// D-248: każde losowanie zadania ma własne ziarno z generatora sesji, zapisane w zadaniu — plan aktywności odtwarza zestaw.
+function losuj(row: DrillRow, rng: Rng, count: number | undefined, ctx?: DrillContext): DrillInstance[] {
+  const ziarno = Math.floor(rng() * 0x7fffffff);
+  return instantiate(row.drill, row.lessonId, createRng(ziarno), count, ctx).map((d) => ({ ...d, ziarno }));
+}
+
 /** Lekcja: wszystkie zadania w kolejności z treści (zadania z generatorów w zadanej liczbie). */
 export function buildLessonSession(rows: readonly DrillRow[], rng: Rng, ctx?: DrillContext): DrillInstance[] {
-  return rows.flatMap((r) => instantiate(r.drill, r.lessonId, rng, undefined, ctx));
+  return rows.flatMap((r) => losuj(r, rng, undefined, ctx));
 }
 
 /**
@@ -31,7 +38,7 @@ export function buildFamilySession(rows: readonly DrillRow[], families: readonly
     if (fresh.length === 0) continue;
     const row = pick(rng, fresh);
     if (!isGenerative(row.drill)) usedChoice.add(row.id);
-    out.push(...instantiate(row.drill, row.lessonId, rng, 1, ctx).map((d, i) => ({ ...d, key: `${d.key}@${out.length}-${i}` })));
+    out.push(...losuj(row, rng, 1, ctx).map((d, i) => ({ ...d, key: `${d.key}@${out.length}-${i}` })));
   }
   return out;
 }
@@ -136,7 +143,35 @@ export function buildExamSession(src: ExamSources, rng: Rng, ctx?: DrillContext,
   const fromModule = pickExamPart(src.modulePool, src.moduleLessons, nModule, rng, used, budget, seen);
   const fromEarlier = pickExamPart(src.earlierPool, src.earlierLessons, size - fromModule.length, rng, used, budget, seen);
   return interleaveRows([...fromModule, ...fromEarlier], rng).map((row, i) => {
-    const inst = instantiate(row.drill, row.lessonId, rng, 1, ctx)[0]!;
+    const inst = losuj(row, rng, 1, ctx)[0]!;
     return { ...inst, key: `${inst.key}@exam-${i}` };
   });
+}
+
+/** D-248: zadania planu aktywności z zestawu (każde zadanie niesie ziarno swojego losowania). */
+export function zadaniaZestawu(items: readonly DrillInstance[]): ZadaniePlanu[] {
+  return items.map((i) => {
+    if (i.ziarno === undefined) throw new Error(`Zadanie ${i.drillId} bez ziarna (zestaw spoza build.ts)`);
+    return { id: i.drillId, ziarno: i.ziarno };
+  });
+}
+/**
+ * D-248: ten sam zestaw z planu — kolejne pozycje z tym samym zadaniem i ziarnem to jedno losowanie (np. seria słownictwa
+ * w lekcji bez powtórzeń terminu). Zadanie, którego nie ma w treści (zmiana treści) → null (wywołujący porzuca aktywność).
+ */
+export function odtworzZestaw(zadania: readonly ZadaniePlanu[], wiersz: (id: string) => DrillRow | undefined, ctx?: DrillContext): DrillInstance[] | null {
+  const out: DrillInstance[] = [];
+  let i = 0;
+  while (i < zadania.length) {
+    const z = zadania[i]!;
+    let n = 1;
+    while (i + n < zadania.length && zadania[i + n]!.id === z.id && zadania[i + n]!.ziarno === z.ziarno) n++;
+    const row = wiersz(z.id);
+    if (!row) return null;
+    const grupa = instantiate(row.drill, row.lessonId, createRng(z.ziarno), isGenerative(row.drill) ? n : undefined, ctx);
+    if (grupa.length !== n) return null; // zadanie stałe dwa razy z tym samym ziarnem albo zmiana rodzaju zadania w treści
+    for (const d of grupa) out.push({ ...d, ziarno: z.ziarno, key: `${d.drillId}#${out.length}` });
+    i += n;
+  }
+  return out;
 }

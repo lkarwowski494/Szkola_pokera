@@ -7,14 +7,15 @@ import { Blocks } from '@/components/Blocks';
 import { RuleCard } from '@/components/RuleCard';
 import { Button, H2, Muted, Screen, Title } from '@/components/ui';
 import { getLesson, getLessonDrills, getRulesByIds } from '@/data/content/repo';
-import { userDb } from '@/data/user/db';
-import { markTheorySeen } from '@/data/user/repo';
+import { oznaczTeoriePrzeczytana } from '@szkola/postep';
+import { usePortPostepu, zapiszBladPostepu } from '@/data/postep';
 import { space } from '@/theme/tokens';
 
 export default function LessonScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const db = useSQLiteContext();
   const { t } = useTranslation();
+  const port = usePortPostepu();
   const lesson = useMemo(() => getLesson(db, id), [db, id]);
   const rules = useMemo(() => (lesson ? getRulesByIds(db, lesson.rules) : []), [db, lesson]);
   // liczba zadań w sesji: zadanie z generatora (także tekstura i c-bet) daje `count` rozdań
@@ -23,9 +24,13 @@ export default function LessonScreen() {
     [db, id],
   );
 
+  // znacznik „teoria przeczytana” (postep_lekcji); ekran go nie pokazuje, więc błąd zapisu tylko w dzienniku (nazwane w raporcie)
   useEffect(() => {
-    if (lesson) markTheorySeen(userDb, lesson.id);
-  }, [lesson]);
+    if (!lesson) return;
+    void oznaczTeoriePrzeczytana(port, lesson.id, Date.now()).then((w) => {
+      if (!w.ok) zapiszBladPostepu(w.powod, 'lekcja');
+    });
+  }, [lesson, port]);
 
   if (!lesson) {
     return (

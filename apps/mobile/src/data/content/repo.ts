@@ -98,6 +98,16 @@ export function getDrillsForFamilies(db: SQLiteDatabase, families: readonly stri
     .map(toDrill);
 }
 
+/** Zadanie po id z lekcji albo z puli egzaminacyjnej (odtworzenie zestawu z planu aktywności, D-248). */
+export function getDrillById(db: SQLiteDatabase, id: string): DrillRow | undefined {
+  const r = db.getFirstSync<{ id: string; lessonId: string | null; family: string; data: string }>(
+    `SELECT id, lesson_id AS lessonId, family, data FROM drills WHERE id = ?
+     UNION ALL SELECT id, NULL AS lessonId, family, data FROM exam_drills WHERE id = ? LIMIT 1`,
+    id, id,
+  );
+  return r ? toDrill(r) : undefined;
+}
+
 /** Wszystkie zadania modułu (do egzaminu). */
 export function getModuleDrills(db: SQLiteDatabase, moduleId: string): DrillRow[] {
   return db

@@ -2,11 +2,14 @@ import type { Wynik } from '@szkola/domena';
 import {
   BladStartuPostepu,
   uruchomPostep,
+  usunPostep,
+  usunStareBazy,
   type OpcjeStartu,
   type PlikiPostepu,
   type Polaczenie,
   type PortBazy,
   type PowodStartu,
+  type PowodZapisu,
   type SurowyPort,
   type Wartosc,
 } from '@szkola/postep';
@@ -138,4 +141,17 @@ export function startPostepuExpo(terazMs: number = Date.now()) {
     return Promise.resolve({ ok: false, powod: 'zapis_nieudany' } as const);
   }
   return startPostepu({ katalog, pliki: plikiPostepuExpo(), otworz: otworzPolaczenieExpo, terazMs, ochrona: utworzOchroneTla() });
+}
+
+/** „Usuń postęp” (BR-DANE-003): postęp przez port, potem stare `user.db*` (ADR 0004 wyjątek); stare pliki tylko po udanym pierwszym kroku. */
+export async function usunCalyPostep(port: PortBazy, dzien: string, pliki: PlikiPostepu = plikiPostepuExpo(), katalog?: string): Promise<Wynik<void, PowodZapisu>> {
+  const w = await usunPostep(port, dzien);
+  if (!w.ok) return w;
+  let k: string;
+  try {
+    k = katalog ?? katalogBazExpo();
+  } catch {
+    return { ok: false, powod: 'zapis_nieudany' };
+  }
+  return usunStareBazy(pliki, k);
 }

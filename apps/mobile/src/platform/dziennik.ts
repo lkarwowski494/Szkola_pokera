@@ -17,7 +17,8 @@ export type KodDziennika =
   | 'baza_nowsza' // start postep.db (tlo-i-bledy.md §4)
   | 'przerwano_w_tle' // jw., migracja przerwana w tle (ADR 0013)
   | 'baza_uszkodzona' // jw., plik odłożony pod postep-uszkodzona-<ms>.db
-  | 'zapis_nieudany' // jw., inny błąd otwarcia (np. SQLITE_IOERR)
+  | 'zapis_nieudany' // jw., inny błąd otwarcia (np. SQLITE_IOERR); też nieudany zapis odpowiedzi (część 5)
+  | 'brak_miejsca' // SQLITE_FULL przy zapisie (tlo-i-bledy.md §4)
   | 'kontrola_k04'; // build deweloperski: journal_mode ≠ delete albo foreign_keys ≠ 1 na porcie (K-04, ADR 0003)
 
 export interface WpisDziennika {

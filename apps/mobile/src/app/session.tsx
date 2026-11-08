@@ -1,8 +1,10 @@
 import { createRng } from '@szkola/poker-core';
+import { dzienLokalny } from '@szkola/domena';
+import { odczytajKarty, wynikiTestow, zadaniaZTestow } from '@szkola/postep';
 import * as Haptics from 'expo-haptics';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { PaintGrid } from '@/components/PaintGrid';
@@ -11,6 +13,7 @@ import { TableFelt } from '@/components/TableFelt';
 import { Button, Muted, ProgressBar, Screen, Title } from '@/components/ui';
 import {
   getAllRangeSpots,
+  getDrillById,
   getDrillsBeforeModule,
   getDrillsForFamilies,
   getExamDrills,
@@ -19,13 +22,15 @@ import {
   getModuleDrills,
   getSeenExamDrillsForFamilies,
 } from '@/data/content/repo';
-import { userDb } from '@/data/user/db';
-import { dueFamilies, examDrillIdsSeen, recordAnswer, saveExamResult, saveLessonResult } from '@/data/user/repo';
+import { usePortPostepu, zapiszBladPostepu } from '@/data/postep';
 import { gradeAnswer, isPass, parseNumberInput, scorePaint } from '@/features/drills/grade';
 import { pct, t as dt } from '@/features/drills/text.pl';
 import { EXAM_PASS, PAINT_PASS } from '@/features/drills/thresholds';
 import type { ChoiceInstance, DrillAnswer, DrillInstance, DrillOption, GradeResult, NumericInstance, PaintInstance, TextureInstance } from '@/features/drills/types';
+import { odpowiedzWSesji, otworzSesje, type PowodSesji, type RodzajSesji, type Sesja } from '@/features/session/aktywnoscSesji';
 import { buildExamSession, buildFamilySession, buildLessonSession, type SessionMode } from '@/features/session/build';
+import { zapiszBlad } from '@/platform/dziennik';
+import { zegarTelefonu } from '@/platform/zegar';
 import { useSettings } from '@/state/settings';
 import { radius, space, type as tp, useTokens } from '@/theme/tokens';
 
@@ -37,114 +42,150 @@ interface Record_ {
 }
 
 const emptyGrid = () => Array.from({ length: 169 }, () => false);
+const RODZAJ: Record<SessionMode, RodzajSesji> = { lesson: 'lekcja', review: 'powtorki', exam: 'test_modulu' };
+const noweId = () => `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+type Stan = { stan: 'ladowanie' } | { stan: 'pusta' } | { stan: 'blad' } | { stan: 'gotowa'; sesja: Sesja };
 
+/**
+ * Sesja zadań jako aktywność (ADR 0010, część 5): wejście wznawia aktywność w toku (te same zadania, D-248) albo zaczyna nową;
+ * każda odpowiedź zapisana przed pokazaniem oceny; błąd zapisu → komunikat, odpowiedź do ponowienia (tlo-i-bledy.md §4).
+ * Limit dnia i ekran zakupu: część 5b — do tego czasu start bez limitu (`bezLimitu`, stan przejściowy nazwany w plan-08).
+ */
 export default function SessionScreen() {
   const { mode = 'lesson', lessonId, moduleId } = useLocalSearchParams<{ mode?: SessionMode; lessonId?: string; moduleId?: string }>();
   const db = useSQLiteContext();
+  const port = usePortPostepu();
   const tk = useTokens();
   const { t } = useTranslation();
   const haptics = useSettings((s) => s.haptics);
   const exam = mode === 'exam';
+  const trescId = mode === 'lesson' ? (lessonId ?? null) : mode === 'exam' ? (moduleId ?? null) : null;
 
-  const build = useCallback((): DrillInstance[] => {
-    const rng = createRng(Date.now() & 0x7fffffff);
+  const otworz = useCallback(async (): Promise<Stan> => {
+    const [seenW, kartyW, testyW] = await Promise.all([zadaniaZTestow(port), odczytajKarty(port), wynikiTestow(port)]);
+    if (!seenW.ok || !kartyW.ok || !testyW.ok) return { stan: 'blad' };
+    const seen = new Set(seenW.wartosc);
+    const teraz = Date.now();
     const ranges = getAllRangeSpots(db);
     const ctx = { range: (id: string) => ranges.get(id) };
-    if (mode === 'lesson' && lessonId) return buildLessonSession(getLessonDrills(db, lessonId), rng, ctx);
-    const seen = examDrillIdsSeen(userDb);
-    if (mode === 'exam' && moduleId) {
-      const src = {
-        modulePool: getExamDrills(db, moduleId),
-        moduleLessons: getModuleDrills(db, moduleId),
-        earlierPool: getExamDrillsBeforeModule(db, moduleId),
-        earlierLessons: getDrillsBeforeModule(db, moduleId),
-      };
-      return buildExamSession(src, rng, ctx, undefined, seen);
-    }
-    // zadania z puli egzaminacyjnej trafiają do powtórek dopiero po tym, jak użytkownik zobaczył je na egzaminie
-    const familyRows = (families: readonly string[]) => [...getDrillsForFamilies(db, families), ...getSeenExamDrillsForFamilies(db, families, seen)];
-    // powtórki (tryb „Trening na czas” usunięty, ADR 0011)
-    const families = dueFamilies(userDb).slice(0, 8).map((c) => c.familyId);
-    return buildFamilySession(familyRows(families), families, rng, 2, ctx);
-  }, [db, mode, lessonId, moduleId]);
+    const buduj = (): DrillInstance[] => {
+      const rng = createRng(teraz & 0x7fffffff);
+      if (mode === 'lesson' && lessonId) return buildLessonSession(getLessonDrills(db, lessonId), rng, ctx);
+      if (mode === 'exam' && moduleId) {
+        const src = {
+          modulePool: getExamDrills(db, moduleId),
+          moduleLessons: getModuleDrills(db, moduleId),
+          earlierPool: getExamDrillsBeforeModule(db, moduleId),
+          earlierLessons: getDrillsBeforeModule(db, moduleId),
+        };
+        return buildExamSession(src, rng, ctx, undefined, seen);
+      }
+      // zadania z puli egzaminacyjnej trafiają do powtórek dopiero po tym, jak użytkownik zobaczył je na egzaminie
+      const familyRows = (families: readonly string[]) => [...getDrillsForFamilies(db, families), ...getSeenExamDrillsForFamilies(db, families, seen)];
+      // powtórki: rodziny z terminem ≤ teraz, najwcześniejsze najpierw (karty w kolejności terminu), najwyżej 8
+      const families = kartyW.wartosc.filter((k) => k.termin_ms <= teraz).slice(0, 8).map((k) => k.rodzina_id);
+      return buildFamilySession(familyRows(families), families, rng, 2, ctx);
+    };
+    const r = await otworzSesje(port, {
+      rodzaj: RODZAJ[mode], trescId, limit: { bezLimitu: true },
+      pierwszePodejscieTestu: !testyW.wartosc.some((w) => w.modulId === moduleId),
+      buduj, wiersz: (id) => getDrillById(db, id), zegar: { ...zegarTelefonu, teraz: () => teraz, dzienLokalny }, noweId,
+    });
+    if (!r.ok) return { stan: 'blad' };
+    return r.wartosc ? { stan: 'gotowa', sesja: r.wartosc } : { stan: 'pusta' };
+  }, [db, port, mode, lessonId, moduleId, trescId]);
 
-  const [items, setItems] = useState<DrillInstance[]>(build);
+  const [stan, ustawStan] = useState<Stan>({ stan: 'ladowanie' });
   const [idx, setIdx] = useState(0);
   const [current, setCurrent] = useState<Record_ | null>(null);
-  const [records, setRecords] = useState<Record_[]>([]);
+  const [bladZapisu, ustawBladZapisu] = useState<PowodSesji | 'krok_niezgodny' | null>(null);
   const [painted, setPainted] = useState<boolean[]>(emptyGrid);
   const [numText, setNumText] = useState('');
   const [texPicks, setTexPicks] = useState<(number | null)[]>([]);
   const [painting, setPainting] = useState(false);
   const [startedAt, setStartedAt] = useState(() => Date.now());
-  const savedRef = useRef(false);
-  const finished = idx >= items.length;
+  const zapisWToku = useRef(false);
+  const sesja = stan.stan === 'gotowa' ? stan.sesja : null;
+  const items = sesja?.items ?? [];
+  const records: readonly Record_[] = sesja?.odpowiedzi ?? [];
+  const finished = sesja !== null && idx >= items.length;
   const item = items[idx];
 
   const resetInputs = () => {
     setCurrent(null);
+    ustawBladZapisu(null);
     setPainted(emptyGrid());
     setNumText('');
     setTexPicks([]);
     setStartedAt(Date.now());
   };
 
-  const next = useCallback(
-    (all: Record_[]) => {
-      const nextIdx = idx + 1;
-      if (nextIdx >= items.length && !savedRef.current) {
-        savedRef.current = true;
-        const correct = all.filter((r) => isPass(r.grade)).length;
-        if (mode === 'lesson' && lessonId) saveLessonResult(userDb, lessonId, correct, items.length);
-        if (exam && moduleId) saveExamResult(userDb, moduleId, correct, items.length, correct / items.length >= EXAM_PASS);
-      }
-      resetInputs();
-      setIdx(nextIdx);
-    },
-    [idx, items.length, mode, lessonId, moduleId, exam],
-  );
+  const zaladuj = useCallback(() => {
+    ustawStan({ stan: 'ladowanie' });
+    void otworz().then((s) => {
+      if (s.stan === 'blad') zapiszBlad('odczyt_nieudany', 'sesja');
+      ustawStan(s);
+      setIdx(s.stan === 'gotowa' ? s.sesja.odpowiedzi.length : 0); // wznowienie: pierwszy krok bez odpowiedzi
+    });
+  }, [otworz]);
+  useEffect(() => {
+    zaladuj();
+  }, [zaladuj]);
+
+  const next = useCallback(() => {
+    resetInputs();
+    setIdx((i) => i + 1);
+  }, []);
 
   const commit = useCallback(
     (answer: DrillAnswer) => {
-      if (!item || current) return;
+      if (!item || !sesja || current || zapisWToku.current || idx !== sesja.odpowiedzi.length) return;
       const elapsedMs = Date.now() - startedAt;
       const grade = gradeAnswer(item, answer);
-      const rec = { item, answer, grade, elapsedMs };
-      recordAnswer(userDb, {
-        drillId: item.drillId,
-        family: item.family,
-        lessonId: item.lessonId,
-        mode,
-        grade,
-        elapsedMs,
-        ...(item.kind === 'paint' ? { untimed: true } : {}),
+      zapisWToku.current = true;
+      void odpowiedzWSesji(port, sesja, { answer, grade, elapsedMs }, Date.now()).then((w) => {
+        zapisWToku.current = false;
+        if (!w.ok) {
+          // nigdy cicho: komunikat, odpowiedź zostaje na ekranie do ponowienia (tlo-i-bledy.md §4)
+          if (w.powod === 'zapis_nieudany' || w.powod === 'brak_miejsca' || w.powod === 'przerwano_w_tle') zapiszBladPostepu(w.powod, 'sesja');
+          ustawBladZapisu(w.powod);
+          return;
+        }
+        ustawBladZapisu(null);
+        ustawStan({ stan: 'gotowa', sesja: w.wartosc.sesja });
+        if (exam) {
+          // egzamin: bez informacji zwrotnej po każdym zadaniu, wyjaśnienia na końcu (decyzja właściciela, B-023)
+          next();
+          return;
+        }
+        setCurrent({ item, answer, grade, elapsedMs });
+        if (haptics) {
+          void Haptics.notificationAsync(
+            grade === 'correct' ? Haptics.NotificationFeedbackType.Success : grade === 'wrong' ? Haptics.NotificationFeedbackType.Error : Haptics.NotificationFeedbackType.Warning,
+          );
+        }
       });
-      const all = [...records, rec];
-      setRecords(all);
-      if (exam) {
-        // egzamin: bez informacji zwrotnej po każdym zadaniu, wyjaśnienia na końcu (decyzja właściciela, B-023)
-        next(all);
-        return;
-      }
-      setCurrent(rec);
-      if (haptics) {
-        void Haptics.notificationAsync(
-          grade === 'correct' ? Haptics.NotificationFeedbackType.Success : grade === 'wrong' ? Haptics.NotificationFeedbackType.Error : Haptics.NotificationFeedbackType.Warning,
-        );
-      }
     },
-    [item, current, mode, haptics, records, exam, next, startedAt],
+    [item, sesja, current, idx, port, haptics, exam, next, startedAt],
   );
 
   const restart = () => {
-    setItems(build());
-    setIdx(0);
-    setRecords([]);
-    savedRef.current = false;
     resetInputs();
+    zaladuj();
   };
 
-  if (items.length === 0) {
+  if (stan.stan === 'ladowanie') return <Screen>{null}</Screen>;
+  if (stan.stan === 'blad') {
+    return (
+      <Screen>
+        <Muted>{t('postep.odczytNieudany')}</Muted>
+        <Button label={t('postep.ponow')} onPress={zaladuj} />
+        <Button label={t('session.close')} variant="ghost" onPress={() => router.back()} />
+      </Screen>
+    );
+  }
+
+  if (stan.stan === 'pusta' || items.length === 0) {
     return (
       <Screen>
         <Title>{exam ? t('exam.title') : t('review.title')}</Title>
@@ -205,6 +246,9 @@ export default function SessionScreen() {
 
       {item.table ? <TableFelt table={item.table} /> : null}
       <RichText text={item.prompt} style={[tp.h3, { fontWeight: '600' }]} />
+      {bladZapisu && bladZapisu !== 'krok_niezgodny' ? (
+        <Text accessibilityRole="alert" style={[tp.body, { color: tk.bad }]}>{t(bladZapisu === 'brak_miejsca' ? 'session.saveNoSpace' : 'session.saveFailed')}</Text>
+      ) : null}
 
       {item.kind === 'choice' ? (
         <ChoiceOptions item={item} picked={current?.answer.kind === 'choice' ? current.answer.index : current ? -1 : null} onPick={(i) => commit({ kind: 'choice', index: i })} />
@@ -239,7 +283,7 @@ export default function SessionScreen() {
             {current.answer.kind === 'timeout' ? t('session.timeout') : gradeLabel(t, current.grade)}
           </Text>
           <Feedback rec={current} painted={current.answer.kind === 'paint' ? [...current.answer.painted] : undefined} hideChoices />
-          <Button label={idx + 1 < items.length ? t('session.next') : t('session.finish')} onPress={() => next(records)} />
+          <Button label={idx + 1 < items.length ? t('session.next') : t('session.finish')} onPress={next} />
         </View>
       ) : null}
     </Screen>

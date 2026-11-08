@@ -1,3 +1,4 @@
+import type { OcenaOdpowiedzi } from '@szkola/domena';
 import { combosCount, HAND_CLASSES } from '@szkola/poker-core';
 import type { RangeSpot } from '@/data/content/repo';
 import { MIXED_HIGH, MIXED_LOW, NUMERIC_TOLERANCE, PAINT_PASS } from './thresholds';
@@ -109,4 +110,12 @@ export function gradeAnswer(inst: DrillInstance, answer: DrillAnswer): GradeResu
       if (answer.kind !== 'texture' || answer.picks.length !== inst.axes.length) return 'wrong';
       return inst.axes.every((a, i) => a.options[answer.picks[i]!]?.correct === true) ? 'correct' : 'wrong';
   }
+}
+
+/** D-249: stopień schematu v1 (`odpowiedz.ocena`, cztery z BRD) i zaliczenie z isPass (B-017); `size` i `wrong` → `blad`. */
+const OCENA_SCHEMATU: Record<GradeResult, OcenaOdpowiedzi> = {
+  correct: 'zgodne', acceptable: 'dopuszczalne', close: 'niedokladnosc', size: 'blad', wrong: 'blad',
+};
+export function ocenaSchematu(g: GradeResult): { ocena: OcenaOdpowiedzi; zaliczona: 0 | 1 } {
+  return { ocena: OCENA_SCHEMATU[g], zaliczona: isPass(g) ? 1 : 0 };
 }

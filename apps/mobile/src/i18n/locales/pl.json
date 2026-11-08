@@ -58,7 +58,9 @@
     "yourAnswerAcceptable": "Twoja odpowiedź: dopuszczalna, ale rzadka",
     "sizeError": "Niedokładność: dobra akcja, zły rozmiar",
     "yourAnswerSize": "Twoja odpowiedź: dobra akcja, zły rozmiar",
-    "numberLabel": "Twoja odpowiedź liczbowa"
+    "numberLabel": "Twoja odpowiedź liczbowa",
+    "saveFailed": "Nie udało się zapisać odpowiedzi. Spróbuj ponownie.",
+    "saveNoSpace": "Nie udało się zapisać odpowiedzi: brak miejsca w telefonie. Zwolnij trochę miejsca i spróbuj ponownie."
   },
   "exam": {
     "title": "Egzamin modułu",
@@ -148,7 +150,8 @@
     "resetConfirm": "Usunąć cały postęp i powtórki?",
     "resetYes": "Usuń",
     "cancel": "Anuluj",
-    "contentVersion": "Wersja treści: {{hash}}"
+    "contentVersion": "Wersja treści: {{hash}}",
+    "resetFailed": "Nie udało się usunąć postępu. Twoje dane są bez zmian. Spróbuj ponownie."
   },
   "advancement": {
     "title": "Wskaźnik zaawansowania",
@@ -395,5 +398,9 @@
   },
   "errors": {
     "db": "Nie udało się otworzyć bazy danych: {{message}}"
+  },
+  "postep": {
+    "odczytNieudany": "Nie udało się wczytać postępu. Spróbuj ponownie.",
+    "ponow": "Spróbuj ponownie"
   }
 }
