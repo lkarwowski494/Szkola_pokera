@@ -21,7 +21,7 @@ describe('ekran Pomoc', () => {
   let openURL: jest.SpyInstance;
   beforeEach(() => {
     mockRegion = 'US';
-    openURL = jest.spyOn(Linking, 'openURL').mockResolvedValue(true);
+    openURL = jest.spyOn(Linking, 'openURL').mockResolvedValue(undefined) // RN 0.88: openURL zwraca Promise<void>;
     crash.zapiszBlad.mockClear();
   });
   afterEach(() => openURL.mockRestore());
