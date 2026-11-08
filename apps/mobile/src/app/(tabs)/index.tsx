@@ -84,9 +84,18 @@ export default function TodayScreen() {
 
   return (
     <Screen>
-      <Text accessibilityRole="header" style={[styl.tytulDuzy, { color: tk.ink }]}>
-        {t('today.title')}
-      </Text>
+      <View style={styles.naglowek}>
+        <Text accessibilityRole="header" style={[styl.tytulDuzy, { color: tk.ink, flex: 1 }]}>
+          {t('today.title')}
+        </Text>
+        {/* makieta e3 „dzis”: ikona ustawień w prawym górnym rogu, etykieta czytnika „Ustawienia” (design-spec.md:70). Znak ⚙︎
+            zamiast rysunku SVG z makiety: system nie ma komponentu ikony (zgłoszenie 08-F22 → 04). */}
+        <Pressable testID="ustawienia" accessibilityRole="button" accessibilityLabel={t('settings.title')} hitSlop={12} onPress={() => router.push('/settings')}>
+          <Text style={[styl.naglowek, { color: tk.ink }]} accessibilityElementsHidden importantForAccessibility="no">
+            ⚙︎
+          </Text>
+        </Pressable>
+      </View>
       {odczyt.stan === 'blad' ? <BladOdczytu onPonow={odczyt.odswiez} /> : null}
       {blok ? <BlokLekcji blok={blok} onOtworz={otworzLekcje} /> : odczyt.stan === 'ok' ? <Muted>{t('today.courseDone')}</Muted> : null}
       <Text style={[styl.przypis, { color: tk.muted }]}>{t('today.exercises')}</Text>
@@ -171,6 +180,7 @@ export default function TodayScreen() {
 }
 
 const styles = StyleSheet.create({
+  naglowek: { flexDirection: 'row', alignItems: 'center', gap: odstep.m },
   moduleHead: { flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', marginTop: odstep.m },
   lesson: { flexDirection: 'row', alignItems: 'center', gap: odstep.m, padding: odstep.l, borderRadius: promien.przycisk, borderWidth: 1.5 },
   grupa: { borderRadius: promien.przycisk, overflow: 'hidden' },

@@ -7,3 +7,12 @@
  */
 export const ADRES_WARUNKOW = 'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/';
 export const ADRES_PRYWATNOSCI: string | null = null;
+
+/**
+ * Opinie (BR-OPIN-002, BR-OPIN-003): App Store ID aplikacji (strona „write-review”) i adres poczty do zgłoszeń. [DO USTALENIA]
+ * właściciel / rola 10 (zgłoszenie 08-F23): aplikacja jest poza portfelem Apps4brew, więc adres wsparcia Treningu
+ * (support@apps4brew.com, trening tests/public-repo.test.ts:241) nie pasuje. Do tego czasu sekcja „Opinie” w ustawieniach
+ * i „Zgłoś błąd w tym zadaniu” są ukryte (D-270); systemowa prośba o ocenę (expo-store-review) działa bez ID.
+ */
+export const ID_APLIKACJI_SKLEPU: string | null = null;
+export const ADRES_KONTAKTOWY: string | null = null;

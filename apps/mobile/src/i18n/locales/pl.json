@@ -69,7 +69,16 @@
     "resetTitle": "Usunąć cały postęp?",
     "resetBody": "Lekcje, odpowiedzi i powtórki zostaną usunięte z tego telefonu. Zakupy zostają. Jeśli chcesz zachować postęp, najpierw go wyeksportuj.",
     "resetConfirm": "Usuń",
-    "cancel": "Anuluj"
+    "cancel": "Anuluj",
+    "display": "Wyświetlanie",
+    "reminderSection": "Przypomnienie",
+    "reminder": "Codzienne przypomnienie",
+    "reminderHint": "Jedno powiadomienie dziennie o {{pora}}. Przy włączeniu telefon zapyta o zgodę na powiadomienia.",
+    "reminderDenied": "Powiadomienia tej aplikacji są wyłączone w ustawieniach telefonu. Włącz je tam, aby dostawać przypomnienie.",
+    "reminderFailed": "Nie udało się ustawić przypomnienia. Spróbuj ponownie.",
+    "general": "Ogólne",
+    "language": "Język",
+    "restored": "Zakupy przywrócone. Pełny dostęp jest włączony."
   },
   "data": {
     "title": "Dane",
@@ -264,16 +273,12 @@
     "streak_few": "Seria: {{count}} dni",
     "streak_many": "Seria: {{count}} dni",
     "streak_other": "Seria: {{count}} dnia",
-    "settings": "Ustawienia",
     "fourColor": "Talia czterokolorowa",
     "fourColorHint": "♦ niebieskie, ♣ zielone. Mniej pomyłek przy kolorach.",
     "haptics": "Wibracje przy odpowiedzi",
-    "reset": "Wyczyść postęp",
-    "resetConfirm": "Usunąć cały postęp i powtórki?",
-    "resetYes": "Usuń",
-    "cancel": "Anuluj",
     "contentVersion": "Wersja treści: {{hash}}",
-    "resetFailed": "Nie udało się usunąć postępu. Twoje dane są bez zmian. Spróbuj ponownie."
+    "resetFailed": "Nie udało się usunąć postępu. Twoje dane są bez zmian. Spróbuj ponownie.",
+    "more": "Więcej"
   },
   "advancement": {
     "title": "Wskaźnik zaawansowania",
@@ -524,5 +529,16 @@
   "postep": {
     "odczytNieudany": "Nie udało się wczytać postępu. Spróbuj ponownie.",
     "ponow": "Spróbuj ponownie"
+  },
+  "reminder": {
+    "title": "Krótka lekcja na dziś",
+    "body": "Kilka minut wystarczy, żeby utrwalić to, czego się uczysz."
+  },
+  "language": {
+    "title": "Język",
+    "auto": "Jak w telefonie",
+    "name": "Polski",
+    "selected": "Wybrany",
+    "saveFailed": "Nie udało się zapisać wyboru języka. Spróbuj ponownie."
   }
 }

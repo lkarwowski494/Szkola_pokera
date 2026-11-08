@@ -20,6 +20,10 @@ import PierwszeUruchomienie from '@/features/ocena-poziomu/PierwszeUruchomienie'
 import { zegarTelefonu } from '@/platform/zegar';
 import { sklepAplikacji } from '@/platform/zakupy';
 import { startDostepu } from '@/state/dostep';
+import { odtworzZBazy } from '@/features/ustawienia/przypomnienie';
+import { czytajJezyk } from '@/features/ustawienia/ustawieniaAplikacji';
+import { ustawJezyk } from '@/i18n';
+import { powiadomieniaExpo } from '@/platform/powiadomienia';
 
 void SplashScreen.preventAutoHideAsync();
 
@@ -48,6 +52,15 @@ function useTresc(): StanTresci & { ponow: () => void } {
     ustawProbe((p) => p + 1);
   }, []);
   return { ...stan, ponow };
+}
+
+/** Zapisany język interfejsu (ADR 0014 pkt 3); „auto” zostaje przy języku z preferencji systemu wybranym przy imporcie i18n.
+ *  Baza treści języka powstaje równolegle z językiem systemu (useTresc) — przy jednym wydanym języku (pl) to ten sam plik;
+ *  przełączenie bazy treści po zapisanym wyborze przychodzi z drugim językiem treści (D-269, rola 09). */
+async function zastosujJezyk(port: PortBazy): Promise<void> {
+  const j = await czytajJezyk(port);
+  if (!j.ok) zapiszBlad(j.powod, 'jezyk');
+  else if (j.wartosc !== 'auto') await ustawJezyk(j.wartosc);
 }
 
 type StanPostepu = { stan: 'ladowanie' } | { stan: 'ok'; port: PortBazy } | { stan: 'blad' };
@@ -117,9 +130,14 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (!trescGotowa) return;
-    // ustawienia interfejsu z postep.db (D-251) przed zdjęciem ekranu startowego; przy błędzie startu postępu — od razu
-    if (postep.stan === 'ok') void loadSettings(postep.port).finally(() => void SplashScreen.hideAsync());
-    else void SplashScreen.hideAsync();
+    // ustawienia interfejsu z postep.db (D-251) i język (ADR 0014 pkt 3) przed zdjęciem ekranu startowego; potem odtworzenie
+    // przypomnienia z zapisu (ADR 0012: start). Przy błędzie startu postępu — od razu.
+    if (postep.stan === 'ok') {
+      const port = postep.port;
+      void Promise.all([loadSettings(port), zastosujJezyk(port)])
+        .finally(() => void SplashScreen.hideAsync())
+        .then(() => odtworzZBazy(port, powiadomieniaExpo, { tytul: i18n.t('reminder.title'), tresc: i18n.t('reminder.body') }));
+    } else void SplashScreen.hideAsync();
   }, [loadSettings, trescGotowa, postep]);
 
   if (tresc.stan === 'ladowanie' || postep.stan === 'ladowanie') return null;
@@ -144,6 +162,9 @@ export default function RootLayout() {
                 <Stack.Screen name="advancement" options={{ title: '' }} />
                 <Stack.Screen name="glossary" options={{ title: '' }} />
                 <Stack.Screen name="help" options={{ title: '' }} />
+                <Stack.Screen name="settings" options={{ title: '' }} />
+                <Stack.Screen name="data" options={{ title: '' }} />
+                <Stack.Screen name="language" options={{ title: '' }} />
                 <Stack.Screen name="session" options={{ presentation: 'fullScreenModal', headerShown: false, gestureEnabled: false }} />
               </Stack>
             </BramkaStartu>

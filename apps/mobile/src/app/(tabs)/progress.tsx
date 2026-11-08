@@ -1,17 +1,15 @@
 import { dniZOdpowiedzia, seriaDni, statystykiRodzin, type PortBazy } from '@szkola/postep';
 import { router } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { BladOdczytu } from '@/components/BladOdczytu';
-import { Button, H2, Muted, ProgressBar, Screen, Surface, Title } from '@/components/ui';
+import { H2, Muted, ProgressBar, Screen, Surface, Title } from '@/components/ui';
 import { getContentHash, getFamilyLabels } from '@/data/content/repo';
-import { useOdczytPostepu, usePortPostepu, zapiszBladPostepu } from '@/data/postep';
-import { usunCalyPostep } from '@/data/postepExpo';
+import { useOdczytPostepu } from '@/data/postep';
 import { zegarTelefonu } from '@/platform/zegar';
 import { AdvancementCard } from '@/features/advancement/AdvancementCard';
-import { useSettings } from '@/state/settings';
 import { odstep, styl, useTokens } from '@/theme/tokens';
 
 // Statystyki z odpowiedzi w postep.db (część 5); seria dni z dni lokalnych aktywności (D-251).
@@ -23,20 +21,16 @@ async function czytajPostep(port: PortBazy) {
   return { ok: true as const, wartosc: { stats: st.wartosc.map((x) => ({ family: x.rodzinaId, total: x.wszystkie, correct: x.zaliczone })), streak: seriaDni(dni.wartosc, dzis) } };
 }
 
-/** Postęp (FR-09) i ustawienia (FR-17). */
+/** Postęp (FR-09); ustawienia przeniesione do ekranu „Ustawienia” (ikona na „Dziś”, 08 cz. 5b krok 5); zostają słowniczek i Pomoc (flow 04). */
 export default function ProgressScreen() {
   const db = useSQLiteContext();
   const tk = useTokens();
   const { t } = useTranslation();
   const labels = useMemo(() => getFamilyLabels(db), [db]);
   const hash = useMemo(() => getContentHash(db), [db]);
-  const settings = useSettings();
-  const port = usePortPostepu();
   const odczyt = useOdczytPostepu(czytajPostep, 'postep');
   const data = odczyt.stan === 'ok' ? odczyt.wartosc : { stats: [], streak: 0 };
   const refresh = odczyt.odswiez;
-  const [confirmReset, setConfirmReset] = useState(false);
-  const [bladUsuwania, ustawBladUsuwania] = useState(false);
 
   const total = data.stats.reduce((s, x) => s + x.total, 0);
   const correct = data.stats.reduce((s, x) => s + x.correct, 0);
@@ -79,45 +73,7 @@ export default function ProgressScreen() {
       ) : null}
 
       <View style={{ gap: odstep.m }}>
-        <H2>{t('progress.settings')}</H2>
-        <View style={styles.row}>
-          <View style={{ flex: 1, gap: 2 }}>
-            <Text style={[styl.tresc, { color: tk.ink }]}>{t('progress.fourColor')}</Text>
-            <Muted>{t('progress.fourColorHint')}</Muted>
-          </View>
-          <Switch value={settings.fourColor} onValueChange={(v) => void settings.setFourColor(port, v)} trackColor={{ true: tk.primaryBg }} accessibilityLabel={t('progress.fourColor')} />
-        </View>
-        <View style={styles.row}>
-          <Text style={[styl.tresc, { color: tk.ink, flex: 1 }]}>{t('progress.haptics')}</Text>
-          <Switch value={settings.haptics} onValueChange={(v) => void settings.setHaptics(port, v)} trackColor={{ true: tk.primaryBg }} accessibilityLabel={t('progress.haptics')} />
-        </View>
-        {confirmReset ? (
-          <Surface style={{ gap: odstep.m }}>
-            <Text style={[styl.tresc, { color: tk.ink }]}>{t('progress.resetConfirm')}</Text>
-            <View style={styles.row}>
-              <Button label={t('progress.cancel')} variant="ghost" onPress={() => setConfirmReset(false)} style={{ flex: 1 }} />
-              <Button
-                label={t('progress.resetYes')}
-                onPress={() => {
-                  // BR-DANE-003: postęp i stare user.db*; błąd → komunikat, dane bez zmian (transakcja wycofana)
-                  void usunCalyPostep(port, zegarTelefonu.dzienLokalny(Date.now(), zegarTelefonu.strefa())).then(async (w) => {
-                    if (!w.ok) zapiszBladPostepu(w.powod, 'postep');
-                    ustawBladUsuwania(!w.ok);
-                    setConfirmReset(false);
-                    await settings.load(port);
-                    refresh();
-                  });
-                }}
-                style={{ flex: 1, marginLeft: odstep.m }}
-              />
-            </View>
-          </Surface>
-        ) : (
-          <Pressable accessibilityRole="button" onPress={() => setConfirmReset(true)}>
-            <Text style={[styl.tresc, { color: tk.alert }]}>{t('progress.reset')}</Text>
-          </Pressable>
-        )}
-        {bladUsuwania ? <Text accessibilityRole="alert" style={[styl.tresc, { color: tk.alert }]}>{t('progress.resetFailed')}</Text> : null}
+        <H2>{t('progress.more')}</H2>
         <Pressable accessibilityRole="link" onPress={() => router.push('/glossary')}>
           <Text style={[styl.tresc, { color: tk.link }]}>{t('glossary.link')}</Text>
         </Pressable>

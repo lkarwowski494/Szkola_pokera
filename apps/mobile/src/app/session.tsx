@@ -36,7 +36,9 @@ import { czytajFaktyKursu } from '@/features/kurs/faktyKursu';
 import EkranStartu from '@/features/start/EkranStartu';
 import { przygotujStart } from '@/features/start/wejscieStartu';
 import EkranZakupu from '@/features/zakup/EkranZakupu';
+import { poprosOOceneGdyPora } from '@/features/opinie/prosbaOOcene';
 import { ADRES_PRYWATNOSCI, ADRES_WARUNKOW } from '@/platform/adresy';
+import { ocenaExpo } from '@/platform/opinie';
 import { sklepAplikacji } from '@/platform/zakupy';
 import { odswiezDostep, useDostep } from '@/state/dostep';
 import { zapiszBlad } from '@/platform/dziennik';
@@ -148,6 +150,14 @@ export default function SessionScreen() {
   const records: readonly Record_[] = sesja?.odpowiedzi ?? [];
   const finished = sesja !== null && idx >= items.length;
   const item = items[idx];
+
+  // Prośba o ocenę na podsumowaniu lekcji albo sesji (BR-OPIN-001, D-110), raz na wejście na podsumowanie; test bez prośby.
+  const prosbaSprawdzona = useRef(false);
+  useEffect(() => {
+    if (!finished || exam || prosbaSprawdzona.current) return;
+    prosbaSprawdzona.current = true;
+    void poprosOOceneGdyPora(port, ocenaExpo, mode === 'lesson' ? 'podsumowanie_lekcji' : 'podsumowanie_sesji', Date.now());
+  }, [finished, exam, port, mode]);
 
   const resetInputs = () => {
     setCurrent(null);

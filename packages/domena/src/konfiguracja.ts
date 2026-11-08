@@ -1,6 +1,6 @@
 // Jeden plik parametrów (docs/architektura/moduly.md „Konfiguracja”). Wartości to decyzje z kolumny „Źródło / decyzja”;
-// testy importują je stąd i nie kopiują liczb. Parametry [DO USTALENIA] (SESJA_LICZBA_ZADAN, PRZYPOMNIENIE_DOMYSLNA_PORA)
-// dopisze rola 08 po decyzji (luka L-05 roli 07).
+// testy importują je stąd i nie kopiują liczb. SESJA_LICZBA_ZADAN (D-260) i PRZYPOMNIENIE_DOMYSLNA_PORA (D-252) dopisała
+// rola 08 (luka L-05 roli 07).
 export const KONFIGURACJA = {
   LIMIT_AKTYWNOSCI_DZIENNIE: 1, // D-107 (właściciel)
   TEST_MODULU_LICZBA_ZADAN: 15, // D-106
@@ -20,6 +20,7 @@ export const KONFIGURACJA = {
   FSRS_WOLNO_MS: 8000,
   PROSBA_O_OCENE_OD_PRACY: 3, // D-110
   PROSBA_O_OCENE_ODSTEP_DNI: 14, // D-110
+  PRZYPOMNIENIE_DOMYSLNA_PORA: { godzina: 8, minuta: 0 }, // D-252: stała pora jak Trening lib/planReminder.ts:13 (bez wyboru godziny)
   DZIENNIK_MAKS_WPISOW: 200, // ADR 0009 pkt 2 [OCENA: 200], D-240
   SCHEMAT_WERSJA: 1, // ADR 0004
   EKSPORT_WERSJA_FORMATU: 1, // ADR 0008
