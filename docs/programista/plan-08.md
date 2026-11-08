@@ -666,3 +666,18 @@ Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę r
 | 22:35 | koordynator | E2E 42527158545 (5528e82 = szczyt kodu, testy z mutacji) **zielone** | — |
 | 22:35 | C | PRZEKAZANIE: 274ce6d — `docs/programista/zgloszenia-08.md` (15 zgłoszeń, 14 otwartych; WYSOKIE tylko 08-F20; zrzuty scalone: 32 stany / 64 pliki); uwaga spoza zakresu: legenda `PaintGrid.tsx:153–156` poza tłumaczeniami | C zarchiwizowana 22:36 |
 | 22:36 | D `session_01T66VBvnpc5MYpiv8AJqTGT` | start: 08-F29 (`TableFelt` → `Stol` w ocenie poziomu) teraz zamiast w części 7 — decyzja koordynatora wg D-272 (mała poprawka spójności z D-274/D-275), zapis D-280 przez sesję; koniec najpóźniej 03:30 | odbiór PRZEKAZANIA, E2E po pushu |
+| 23:28 | D | PRZEKAZANIE: 8362e14 (08-F29, `Stol` w ocenie poziomu, D-280), 6ea86fa, b8f05fc; E2E 42531461257 (6ea86fa) **zielone** — status sprawdzony | D zarchiwizowana 23:28; kolejka kodu pusta do decyzji rannej |
+
+### Raport nocy D-272 (2026-11-08 20:20 → 23:30 UTC; koordynator)
+**Zrobione (commity na `claude/sleepy-brahmagupta-2065nu`, sprawdzone `git log`):**
+- Część 6 krok 7 — 66317c9 (`PanelDecyzji`, `session.tsx` bez kolorów przejściowych); krok 8 — 75895ea (Literata 600, ładowanie z limitem 3 s); krok 9 / E2 — 13606f6 (testy z mutacji), 22b0509, 5528e82. Część 6 przyjęta (D-279).
+- 08-F29 — 8362e14 (ocena poziomu rysuje `Stol`), D-280.
+- `docs/programista/zgloszenia-08.md` — 274ce6d (08-F15–F29, wagi, lista zrzutów).
+
+**Dowody E2E (status sprawdzony przez koordynatora w Actions):** 42519763480 (36a8600) zielone; 42523567101 (bbada0b, kroki 7–8) zielone; 42527158545 (5528e82) zielone; **42531461257 (6ea86fa, szczyt kodu) zielone**. D-273: 42523112301 — build pominięty, flowy zielone, 20,5 min. `pnpm run ci` kod 0, mobile 425 — deklaracje sesji (CI lokalne, nie powtarzane przez koordynatora).
+
+**Decyzje do weta:** D-273 (szybsze E2E z aplikacją z innego przebiegu), D-274 (plan części 6), D-275 (terminologia stołu), D-276 (E2 części 5b), D-277 (panel decyzji; teoria bez paska; nagłówek „Dobrze”/„Tym razem nie”), D-278 (krój w czasie działania, bez wtyczki w `app.json` — odstępstwo od Treningu), D-279 (E2 części 6), D-280 (08-F29 teraz zamiast w części 7).
+
+**Czerwone:** brak. **Otwarte:** 08-F20 polityka prywatności (WYSOKIE: blokuje App Store, nie TestFlight) i 08-F23 adres poczty — fakty właściciela `[DO USTALENIA]`; 5 mutantów przeżywa (M29–M32 → test renderu ekranu sesji, 08-F21 do roli 07; M40 → zrzut); D-122: limit szerokości tytułów od AX1 i dzielenie wyrazów; legenda `PaintGrid.tsx:153–156` poza tłumaczeniami (04/09); 08-F15–F28 do ról 04/05/06/07 (`zgloszenia-08.md`).
+
+**Kroki właściciela:** (1) odpowiedź na pytanie poranne (dane do 08-F20/F23, weta, następny krok); (2) telefon: U-2 ochrona tła, U-5 zakupy w piaskownicy; (3) zrzuty: 32 stany × jasny/ciemny = 64 pliki (lista w `zgloszenia-08.md`).
