@@ -16,6 +16,8 @@ jest.mock('expo-iap', () => ({
   finishTransaction: jest.fn(() => Promise.resolve()),
   showManageSubscriptionsIOS: jest.fn(() => Promise.resolve([])),
   deepLinkToSubscriptions: jest.fn(() => Promise.resolve()),
+  purchaseUpdatedListener: jest.fn(() => ({ remove: jest.fn() })),
+  purchaseErrorListener: jest.fn(() => ({ remove: jest.fn() })),
 }));
 jest.mock('@/platform/dziennik', () => ({ zapiszBlad: jest.fn() }));
 const I = jest.requireMock<Record<string, jest.Mock>>('expo-iap');
@@ -141,5 +143,46 @@ describe('port ekranu zakupu', () => {
     I.showManageSubscriptionsIOS!.mockRejectedValueOnce(blad('service-error'));
     await s.zarzadzaj();
     expect(I.deepLinkToSubscriptions).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('wynik zakupu przez nasłuch (expo-iap 6.4.2 index.d.ts: „The result arrives through purchaseUpdatedListener / purchaseErrorListener … not the return value”; przegląd D-043 P1-1)', () => {
+  it('requestPurchase bez transakcji (null) → oczekuje, nie zakonczony; bez finishTransaction', async () => {
+    I.requestPurchase!.mockResolvedValueOnce(null);
+    expect(await utworzSklep().kup(ROK!)).toBe('oczekuje');
+    expect(I.finishTransaction).not.toHaveBeenCalled();
+  });
+
+  it('zwrócona transakcja w stanie pending (np. zgoda rodzica) → oczekuje, bez finishTransaction', async () => {
+    I.requestPurchase!.mockResolvedValueOnce(zakup(ROK!, { purchaseState: 'pending' }));
+    expect(await utworzSklep().kup(ROK!)).toBe('oczekuje');
+    expect(I.finishTransaction).not.toHaveBeenCalled();
+  });
+
+  it('zwrócona transakcja innego produktu → oczekuje (wynik dla kupowanego przyjdzie z nasłuchu)', async () => {
+    I.requestPurchase!.mockResolvedValueOnce(zakup(KWARTAL!, { expirationDateIOS: TERAZ + 1 }));
+    expect(await utworzSklep().kup(ROK!)).toBe('oczekuje');
+  });
+
+  it('nasłuch: zakup → finishTransaction i „zakonczona”; pending → „oczekuje”; anulowanie i błąd z purchaseErrorListener; odpięcie', async () => {
+    const zdarzenia: string[] = [];
+    const odepnij = utworzSklep().nasluchuj((z) => void zdarzenia.push(z));
+    const naZakup = I.purchaseUpdatedListener!.mock.calls[0]![0] as (p: unknown) => void;
+    const naBlad = I.purchaseErrorListener!.mock.calls[0]![0] as (e: unknown) => void;
+    const p = zakup(ROK!, { expirationDateIOS: TERAZ + 1 });
+    naZakup(p);
+    await Promise.resolve();
+    await Promise.resolve();
+    expect(I.finishTransaction).toHaveBeenCalledWith({ purchase: p, isConsumable: false });
+    naZakup(zakup(ROK!, { purchaseState: 'pending' }));
+    naZakup({ bez: 'pola' });
+    naBlad(blad('user-cancelled'));
+    naBlad(blad('service-error'));
+    await new Promise((r) => setTimeout(r, 0));
+    // „zakonczona” po finishTransaction (dwie mikrozadania wyżej), reszta od razu; wiersz bez productId pominięty
+    expect(zdarzenia).toEqual(['zakonczona', 'oczekuje', 'anulowano', 'blad']);
+    odepnij();
+    expect(I.purchaseUpdatedListener!.mock.results[0]!.value.remove).toHaveBeenCalled();
+    expect(I.purchaseErrorListener!.mock.results[0]!.value.remove).toHaveBeenCalled();
   });
 });

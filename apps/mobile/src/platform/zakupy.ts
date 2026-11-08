@@ -21,7 +21,9 @@ export interface Sklep extends SklepEkranu {
   odczyt(): Promise<OdczytSklepu>;
   przywroc(teraz?: number): Promise<'zakonczony' | 'brak_zakupow' | 'blad'>;
   zarzadzaj(): Promise<void>; // arkusz systemowy subskrypcji (ADR 0006 pkt 5)
+  nasluchuj(fn: (z: ZdarzenieSklepu) => void): () => void;
 }
+export type ZdarzenieSklepu = 'zakonczona' | 'oczekuje' | 'anulowano' | 'blad';
 
 type Transakcja = { produkt: string; wygasaMs: number | null; odebrana: boolean };
 const ODBLOKOWUJA: readonly string[] = KONFIGURACJA.PRODUKTY_ODBLOKOWUJACE;
@@ -88,16 +90,22 @@ export function utworzSklep(): Sklep {
       }
     },
     async kup(id) {
+      // expo-iap 6.4.2 (index.d.ts przy requestPurchase): „The result arrives through purchaseUpdatedListener /
+      // purchaseErrorListener …, not the return value”; natywnie wynik może być nil. „zakonczony” tylko przy zwróconej
+      // zakończonej transakcji kupowanego produktu; inaczej „oczekuje”, a wynik przychodzi z `nasluchuj` (przegląd D-043 P1-1).
       try {
         await polacz();
         const wynik = BEZ_KONCA.includes(id)
           ? await Iap.requestPurchase({ request: { apple: { sku: id } }, type: 'in-app' })
           : await Iap.requestPurchase({ request: { apple: { sku: id } }, type: 'subs' });
+        let kupiony = false;
         for (const p of Array.isArray(wynik) ? wynik : wynik ? [wynik] : []) {
+          if (p.purchaseState !== 'purchased') continue; // pending: transakcja jeszcze niezakończona w sklepie
           // niezakończona transakcja wraca przy następnym starcie; dostęp i tak liczy `decyzja` z odczytu sklepu
           await Iap.finishTransaction({ purchase: p, isConsumable: false }).catch(() => zapiszBlad('zakup_blad', 'zakup'));
+          if (p.productId === id) kupiony = true;
         }
-        return 'zakonczony';
+        return kupiony ? 'zakonczony' : 'oczekuje';
       } catch (e) {
         const kod = kodBledu(e);
         if (kod === Iap.ErrorCode.UserCancelled) return 'anulowany';
@@ -117,6 +125,29 @@ export function utworzSklep(): Sklep {
       const o = await odczyt();
       if (!o.ok) return 'blad';
       return decyzja(o, null, teraz, ODBLOKOWUJA, BEZ_KONCA).dostep ? 'zakonczony' : 'brak_zakupow';
+    },
+    // Nasłuch transakcji (wynik `kup`, zgoda rodzica, odnowienia): zakończona → finishTransaction, potem „zakonczona”;
+    // ekran mapuje zdarzenie według stanu maszyny `zakup` (maszyny.ts: w_toku → transakcja_zakonczona, oczekuje →
+    // transakcja_z_nasluchu). Podpięcie od startu aplikacji (Apple: listener „as soon as your app launches”): część 5.
+    nasluchuj(fn) {
+      const zakupy = Iap.purchaseUpdatedListener((p) => {
+        if (p.purchaseState === 'pending') return fn('oczekuje');
+        if (p.purchaseState !== 'purchased') return;
+        void Iap.finishTransaction({ purchase: p, isConsumable: false })
+          .catch(() => zapiszBlad('zakup_blad', 'zakup'))
+          .then(() => fn('zakonczona'));
+      });
+      const bledy = Iap.purchaseErrorListener((e) => {
+        const kod = kodBledu(e);
+        if (kod === Iap.ErrorCode.UserCancelled) return fn('anulowano');
+        if (kod === Iap.ErrorCode.Pending || kod === Iap.ErrorCode.DeferredPayment) return fn('oczekuje');
+        zapiszBlad('zakup_blad', 'zakup');
+        fn('blad');
+      });
+      return () => {
+        zakupy.remove();
+        bledy.remove();
+      };
     },
     async zarzadzaj() {
       try {
