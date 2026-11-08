@@ -292,3 +292,45 @@ Agent: B ok. 7–9 h (kroki 1–9; SDK 58 i adapter `expo-iap` najbardziej niepe
 
 ## Punkt czyszczenia (STOP E0 części 4)
 Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „Część 4”. Decyzja: D-239 (P-1 = B, D-235–D-238 przyjęte). Następny krok: E1 kroki 1–9 (bez przenoszenia ekranów i usuwania drizzle — część 5).
+
+## E1 część 4: wynik (2026-11-08; plan przyjęty D-239)
+| Krok | Commit | Zachowanie | Testy (czerwone przed kodem → zielone) |
+|---|---|---|---|
+| 1 | 3764d30 | bez Sentry i Expo Observe (zależności, `observability/`, `jest.setup.js`, `metro.config.js`, wtyczka i `extra.sentry`, `SENTRY_ALLOW_FAILURE` w `eas.json`); manifest: `NSPrivacyCollectedDataTypes` [], `NSPrivacyTracking` false; dziennik lokalny `platform/dziennik.ts` (D-240) i `components/GranicaBledu.tsx` | `platform/__tests__/dziennik-08` (4); K-07 → `tests/kontrole` (bramka); K-09 a/c/d zielone |
+| 2 | 979626e | ADR 0011: usunięte gra z botami, księga reguł, tryb „speed”, część „gra” wskaźnika, `data/user/game.ts`; historia wskaźnika tylko z wiedzy; diagnostyka pod `__DEV__` (D-242); „Powrót” w kontrakcie zakresu = `3764d30` | `src/__tests__/adr0011-08` (6), `advancement/__tests__/historia` (1); usunięte testy usuniętego kodu (nazwane w commicie) |
+| 3 | d707b35 | SDK 58: expo 58.0.23, RN 0.88.1, React 19.3.0, moduły z `bundledNativeModules.json` (D-237), lockfile (D-241); R-56 `MIN_XCODE[58] = '26.4'` (D-235, cytat sprawdzony ponownie 2026-11-08) | R-56 → `tests/kontrole` (AK-D050-a był czerwony: 57 ≠ 58) |
+| 4 | 45bdf2b | `expo-notifications` 58.1.8, wtyczka `enableRemoteNotifications: false`; adapter `platform/powiadomienia.ts` | `platform/__tests__/powiadomienia-08` (4); K-09 → `tests/kontrole` |
+| 5 | c571525, d950488 | `expo-iap` 6.4.2 + wtyczka; `platform/zakupy.ts`: odczyt → `OdczytSklepu`, produkty, `kup` (wynik z nasłuchu, P1-1), przywróć, arkusz zarządzania, `nasluchuj` | `platform/__tests__/zakupy-08` (12) |
+| 6 | b37e373, d950488 | moduł `modules/ochrona-tla` (Swift; koniec dokładnie raz, wyścig P1-2 poprawiony) i adapter `platform/ochronaTla.ts`; `.gitignore` (D-244) | `platform/__tests__/ochronaTla-08` (5); Swift: E2E (kompilacja), U-2 (telefon) |
+| 7 | 41505ef | `data/postepExpo.ts` (adapter expo-sqlite, `errcode` z komunikatu), `plikiPostepuExpo`, `startPostepu` z ochroną tła, K-04 w `__DEV__`, `usePostep` w `_layout` (ekran błędu z ponowieniem, port w `PostepKontekst`) | `data/__tests__/postepExpo-08` (7); K-14 zachowanie zielone |
+| 8 | 2acc246 | DiskSpace (E174.1, 85F4.1) w manifeście (D-238; opisy u Apple 2026-11-08); `pnpm k08` informacyjnie w `pnpm run ci` (D-243) | AK-K-08 zielony |
+
+### Przegląd D-043 części 4 (świeży kontekst, 2026-11-08, zakres f800d22..5be9c14)
+Dwa P1, oba potwierdzone u źródła i poprawione w d950488: P1-1 `kup` zwracał „zakonczony” bez transakcji (expo-iap 6.4.2 `build/index.d.ts`: „The result arrives through `purchaseUpdatedListener` / `purchaseErrorListener` …, not the return value”) → wynik z nasłuchu, 4 testy; P1-2 wyścig odczytu identyfikatora w handlerze wygaśnięcia (Swift) → identyfikator pod blokadą. Poza tym „brak uwag” (`postepExpo`, `_layout`, `dziennik`, `powiadomienia`, `app.json`, `eas.json`, `.gitignore`, `konfiguracja.ts`). Zgodnie z D-043 drugiego przeglądu nie ma.
+
+## E2 część 4: definicja ukończenia (2026-11-08, STOP)
+| Punkt | Dowód |
+|---|---|
+| nowe zachowania z testem czerwonym przed kodem | 7 nowych plików testów (39 testów), czerwień na asercjach po zaślepkach zgodnych z typem (fragmenty w commitach); kontrole K-07, K-09, R-56 przeniesione do `tests/kontrole` w commitach, które je zazieleniły |
+| testy nieosłabione | zmiany istniejących testów z powodem: `HelpScreen.test` (atrapa dziennika zamiast Sentry; RN 0.88 `openURL` → `Promise<void>`), `engine.test` (usunięty przypadek trybu na czas, ADR 0011), usunięte testy usuniętego kodu (ADR 0011, ADR 0009) |
+| mutacje (D-172) | 22 ręczne mutanty kroków 1–7 + 4 testy P1-1; 21/21 zabitych po dopisaniu asercji „dożywotni z datą końca” (5be9c14) |
+| pełny zestaw | `pnpm run ci` kod 0 (d950488): srs 21, jezyki 136, poker-core 155, domena 310, postep 61, mobile 150, content-build 124, preflop-solver 43, kontrole 8; `pnpm k08` bez braków |
+| typecheck, lint | `pnpm typecheck` w `pnpm run ci` kod 0; lint: `expo lint` nieuruchamiany (kod z npm; jak w częściach 1–3) |
+| `git diff --cached` | przejrzany przed każdym commitem; bez sekretów (usunięte puste pola Sentry) |
+| dane: kopia bazy poprzedniej wersji | schemat `postep.db` bez zmian (migracje pakietu `postep` z testami części 1); `user.db` nieotwierana przez nowy start (ADR 0004), drizzle bez zmian (D-239) |
+| zrzuty | nie wykonane: zmiany wyglądu tylko usunięcia (wejście do gry na Nauce, zakładka Reguły, karty gry i trybu na czas w Powtórkach, wiersz „gra” na karcie wskaźnika i w rozbiciu, link diagnostyki w wydaniu); ekrany przebudowuje część 5 — lista do audytu roli 04 niżej |
+| E2E na SDK 58 | push d950488 (jeden push kodu); wynik: sekcja niżej |
+
+Ekrany zmienione (do audytu 04): Nauka (`(tabs)/index`), Powtórki (`(tabs)/review`), Postęp (`(tabs)/progress`), pasek zakładek (bez „Reguły”), Wskaźnik zaawansowania (`advancement`), sesja (bez licznika czasu).
+
+### Zgłoszenia części 4
+- **08-F04 → 05:** kody dziennika spoza tabeli tlo-i-bledy.md §4: `link_niedostepny`, `odczyt_nieudany`, `kontrola_k04` (D-240) — dopisać albo zastąpić.
+- **08-F05 → 05:** ADR 0006 nie przewiduje karencji płatności (Trening `lib/store-native.ts`: `subscriptionStatusIOS` + `gracePeriodExpirationDate`) ani limitu czasu wywołań sklepu — decyzja, czy dodać w części 5.
+- **08-F06 → 05/07:** nasłuch transakcji od startu aplikacji (Apple: „Set up a transaction listener as soon as your app launches”, cytat w Treningu `store-native.ts`) — miejsce w części 5 razem z ekranem zakupu.
+- **08-F07 → 10:** `FileTimestamp` w `app.json` ma tylko `C617.1`, a manifest `expo-file-system` także `0A2A.1`, `3B52.1`; DiskSpace z powodami SDK (aplikacja sama nie czyta wolnego miejsca) — przegląd całego manifestu przed wydaniem.
+- **08-F08 → 07:** pozostałości Sentry w workflowach (`iphone-local.yml` krok „Sentry”, `SENTRY_DISABLE_AUTO_UPLOAD` w `e2e-ios.yml`, `testflight.yml`) — nieszkodliwe (wtyczki brak), do usunięcia w następnej zmianie workflowów.
+- **08-F09 → 04:** nieużywane klucze i18n (`play.*`, `rules.*` księgi, `review.speed*`, `advancement.game*`, `session.secondsLeft`) zostają do przebudowy ekranów (część 5).
+- Stan testów akceptacyjnych: czerwone zostają ADR 0004 statyczny (D-239) i trzy testy treści 06 (KURS-003-b, KURS-005-a, CWI-005-b — czerwone także przed częścią 4).
+
+## Punkt czyszczenia (STOP E2 części 4)
+Rola 08, tryb build. Prompt: `node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build`. Plik stanu: ten plik, „Część 4”. Następny krok: decyzja właściciela po raporcie E2 (akceptacja części 4; potem część 5: ekrany na `packages/postep`, usunięcie drizzle, podpięcie zakupów, przypomnienia i ochrony).
