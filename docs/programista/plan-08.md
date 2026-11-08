@@ -445,7 +445,7 @@ Jedno P1, potwierdzone czytaniem kodu: `wznow` wołał `odtworzZestaw` bez konte
 | `git diff --cached` | przejrzany przed każdym commitem; bez sekretów |
 | dane: kopia bazy poprzedniej wersji | schemat `postep.db` bez zmian (v1); `user.db*` nieotwierane, usuwane tylko przez „Usuń postęp” (K-14 zielony); dane z buildów 1005–1008 nieprzenoszone (ADR 0004, D-124) |
 | zrzuty | brak (Linux bez symulatora); zmiany widoczne: komunikaty błędu odczytu i zapisu, brak ekranu błędu migracji drizzle — do audytu 04 po 5b |
-| E2E | push b64a345 → E2E flowy 01–04 (wynik niżej) |
+| E2E | 42485850361 (b64a345): kompilacja na symulator 28 min 46 s (część 4: 21 min 42 s), flowy 01–04 zielone w pierwszym przebiegu (ponowienie pominięte, krok „Wynik E2E” zielony, flowy 12 min 50 s); przebieg oznaczony „cancelled”: limit joba 42 min (20 + 3 × 4 + 10) minął w kroku sprzątania (zapis pamięci podręcznej pnpm po wyniku) — klasyfikacja §7 pkt 5: maszyna/limit, nie aplikacja (08-F14). CI 42485850347: `check` i `rachunki` zielone; `akceptacja` czerwone zgodnie z D-175 (testy oczekujące: 3 treści 06 + 69 ekranów 5b) |
 
 Nowe teksty (do akceptacji 04/06, „Głos”): `postep.odczytNieudany`, `postep.ponow`, `session.saveFailed`, `session.saveNoSpace`, `progress.resetFailed`.
 
@@ -453,6 +453,7 @@ Nowe teksty (do akceptacji 04/06, „Głos”): `postep.odczytNieudany`, `postep
 - **08-F10 → 05:** `PlanAktywnosci.zadania` (D-248) — dopisać do `moduly.md` „Maszyny stanów”.
 - **08-F11 → 05:** historia wskaźnika w `ustawienie` (`historia_wskaznika`, D-250) — dopisać do listy kluczy ustawień.
 - **08-F12 → 07:** wzorzec bazy `tests/narzedzia/wzorzec-bazy.ts` ma plany aktywności w kształcie innym niż `PlanAktywnosci` (`{"scenariusz":"s01"}`, `{"zadania":["z1"]}`); odczyt takiego wiersza daje `odczyt_nieudany` (test `aktywnosci-08`) — wyrównać wzorzec z kontraktem.
+- **08-F14 → 07 (CI):** limit czasu `e2e-ios.yml` bez zapasu — build 28 min 46 s (+7 min wobec części 4) i 4 flowy zjadły 42 min, anulowanie w sprzątaniu po wyniku; przy 5b (+3 flowy, +9 min limitu) ryzyko anulowania przed wynikiem. Propozycje: stały składnik 20 → 30 min albo pamięć podręczna `ios/build`/Pods; decyzja 07 (zmiana workflow = przegląd D-043).
 - **08-F13 → 07:** `tests/akceptacja/ekrany/pomoc.test.tsx` nie kompilował się po SDK 58 (RN 0.88 `openURL`) — poprawione D-254; `test:akceptacja` poza `pnpm run ci` nie wyłapał tego w części 4.
 
 ## Punkt czyszczenia (STOP E2 części 5a)
