@@ -60,11 +60,11 @@ jobs:
     if: github.repository == 'lkarwowski494/szkola_pokera'
     # Expo SDK 57 wymaga Xcode 26.4+; obraz macos-26 ma domyślnie Xcode 26.4.1 (jak w iphone-local.yml)
     runs-on: macos-26
-    # wzór (strategia.md §5.1): 30 + 3 × liczba flowów w apps/mobile/e2e/*.yaml + 10 (zapas na ponowienia); 7 flowów → 61
+    # wzór (strategia.md §5.1): 30 + 3 × liczba flowów w apps/mobile/e2e/*.yaml + 10 (zapas na ponowienia); 8 flowów → 64 (10-zakup-z-ustawien, D-336)
     # (08 cz. 5b krok 7: 05, 06, 09 przeniesione z oczekujace/).
     # Przelicz przy przeniesieniu flowu z oczekujace/ (pilnuje tests/narzedzia/e2e-flowy.test.mjs). Pomiar 20.10.2026: build 13:41 + 4 flowy 8:30.
     # D-258 (08-F14): stały składnik 20 → 30 — build SDK 58 28 min 46 s, 4 flowy 12 min 50 s; limit 42 minął w sprzątaniu (42485850361).
-    timeout-minutes: 61
+    timeout-minutes: 64
     steps:
       - uses: actions/checkout@v5
         with:

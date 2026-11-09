@@ -1,0 +1,25 @@
+# 10-D01-02 (D-325): ekran zakupu z ustawień — wiersz „Pełny dostęp” w sekcji Zakupy (bez pełnego dostępu, bez wyczerpanego
+# limitu) otwiera ten sam ekran zakupu co stan po limicie (flow 09), ale bez „Wróć do lekcji”; „Zamknij” wraca do ustawień.
+# Bez StoreKit w symulatorze (lista telefonu T-05): ceny się nie pobiorą („Pobieranie cen…” albo błąd pobrania), więc flow
+# sprawdza stałe elementy ekranu: tytuł, opis odblokowania, „Przywróć zakupy”. Wejście przez testID 'ustawienia' (ekran „Dziś”).
+appId: pl.lkarwowski.szkolapokera
+name: Zakup z ustawień
+---
+- launchApp:
+    clearState: true
+- runFlow: wspolne/za-powitaniem.yaml
+- tapOn:
+    id: 'ustawienia'
+- assertVisible: 'Zakupy'
+# wiersz pojawia się po odczycie dostępu (D-247); bez zakupu zawsze
+- extendedWaitUntil:
+    visible: 'Pełny dostęp'
+    timeout: 15000
+- tapOn: 'Pełny dostęp'
+- assertVisible: 'Bez dziennego limitu.*'
+- assertVisible: 'Przywróć zakupy'
+- assertNotVisible: 'Wróć do lekcji'
+- takeScreenshot: 10-zakup-z-ustawien
+- tapOn: 'Zamknij'
+- assertVisible: 'Zakupy'
+- assertNotVisible: 'Bez dziennego limitu.*'
