@@ -140,3 +140,23 @@ test('max_tokens przeglądu z szacunku jednostki (2 × szacunek + 4000, najwyże
   assert.equal(await main(['--szacuj', '--limit-usd', lim, '--wyjscie', wy], {}, { fetchFn: fetchZakazany, log: (x) => l.push(x), root }), 1);
   assert.match(l.at(-1), /STOP.*najgorszy przypadek/);
 });
+
+// Otwarte nr 3 sesji V (przegląd D-043 sesji V, ŚREDNIE): ostrzeżenia kontroli lokalnej (różnica {{t:…}}, D-344; liczby cyframi)
+// trafiają do promptu przeglądu (model ocenia każde) i do podsumowanie.md (człowiek widzi je bez otwierania <język>.json).
+test('ostrzeżenia terminów i liczb: w treści żądania przeglądu i w podsumowanie.md', async () => {
+  const root = atrapa(); const wy = mkdtempSync(join(tmpdir(), 'k3a-pg-'));
+  const plik = join(wy, 'propozycje.json');
+  const tekst = LEKCJA_EN.replace('{ text: "{{t:call}}"', '{ text: "Call"').replace('You need {{n:eq.bet-pot}}.', 'You need {{n:eq.bet-pot}}, about 25 percent.');
+  writeFileSync(plik, JSON.stringify({ jednostki: [
+    { custom_id: 'pr__en__lessons_m0-l1-uklady', jezyk: 'en', zrodlo: 'content/pl/lessons/m0-l1-uklady.md', cel: 'content/en/lessons/m0-l1-uklady.md', status: 'przyjeta', tekst },
+  ] }));
+  const api = atrapaApi(() => '| klucz | problem | propozycja | pewność |\n|---|---|---|---|');
+  const kod = await main(['--propozycje', plik, '--wyjscie', wy], { ANTHROPIC_API_KEY: 'sk-ant-test-0000000000000' }, { fetchFn: api.fetchFn, log: cicho, root, spij: async () => {} });
+  assert.equal(kod, 0);
+  const u = api.zadania()[0].params.messages[0].content;
+  assert.match(u, /Ostrzeżenia kontroli lokalnej[^\n]*\n(- [^\n]*\n)*- terminy: /);
+  assert.match(u, /- [^\n]*25/);
+  const pods = readFileSync(join(wy, 'podsumowanie.md'), 'utf8');
+  assert.match(pods, /## Ostrzeżenia kontroli lokalnej \(terminy, liczby\) \(2\)/);
+  assert.match(pods, /- \*\*en\*\* content\/en\/lessons\/m0-l1-uklady\.md: terminy: /);
+});

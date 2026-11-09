@@ -114,12 +114,15 @@ export function budujZadanie(root, kod, j, gl, tlZastepczy = null) {
   const enTekst = kod !== 'en' ? czytajJesli(root, j.en) : null;
   const en = enTekst ? new Map(segmenty(j, j.tekst, enTekst).map((s) => [s.klucz, s.tlumaczenie])) : null;
   const lista = seg.map((s) => ({ klucz: s.klucz, pl: s.pl, ...(en?.get(s.klucz) ? { en: en.get(s.klucz) } : {}), tlumaczenie: s.tlumaczenie, ...(s.kontekst ? { kontekst: s.kontekst } : {}) }));
+  // ostrzeżenia kontroli lokalnej (różnica {{t:…}}, D-344; liczby cyframi) — model ocenia każde (otwarte nr 3 sesji V)
+  const ostrz = typeof tl === 'string' ? ostrzezeniaJednostki(j, tl, kod) : [];
   const user = [
     `Język docelowy: ${nazwaJezyka(kod)} (${kod}).`,
     `Przewodnik głosu (rejestr i konwencje tego języka): ${REJESTR[kod] ?? 'jak w iOS danego języka'}.`,
     `Jednostka: ${j.zrodlo} → ${j.cel}. ${j.rodzaj === 'ui' ? 'Kontekst klucza w polu „kontekst” (miejsce i przybliżona długość).' : 'Kontekst: treść kursu (lekcja, egzamin, reguły); długość bez sztywnego limitu poza krótkimi odpowiedziami w ćwiczeniach (przyciski).'}`,
     kod === 'en' ? 'Terminy {{t:…}} w angielskim renderują samą nazwę angielską z glosariusza (D-287).' : 'Pole „en” to angielski przekład (odniesienie), „tlumaczenie” to tekst do oceny.',
     blokGlosariusza(gl, j.rodzaj === 'ui' ? null : j.rodzaj === 'definicje' ? j.klucze : kluczeTerminow(j.tekst)),
+    ...(ostrz.length ? ['Ostrzeżenia kontroli lokalnej (oceń każde: błąd przekładu albo naturalna zmiana; liczby tylko przez {{n:…}}):', ...ostrz.map((x) => `- ${x}`)] : []),
     `Segmentów: ${lista.length}.`, '', JSON.stringify(lista),
   ].join('\n');
   return { system: systemPrzegladu(kod), messages: [{ role: 'user', content: user }], segmentow: lista.length };
@@ -167,6 +170,11 @@ export function parsujTabele(tekst) {
   return out;
 }
 
+/** Ostrzeżenia kontroli lokalnej przekładu jednostki: terminy (D-344) i liczby cyframi; te same w prompcie i w raporcie. */
+function ostrzezeniaJednostki(j, tl, kod) {
+  return [...kontrolaPropozycji(j, tl, kod).ostrzezenia, ...ostrzezeniaLiczb(j.tekst, tl)];
+}
+
 export function raportJednostki(j, kod, odczyt) {
   const k = typeof j.tlumaczenie === 'string' ? kontrolaPropozycji(j, j.tlumaczenie, kod) : { powody: kontrolaZnacznikow(j, j.tlumaczenie, kod), ostrzezenia: [] };
   return { custom_id: j.custom_id, zrodlo: j.zrodlo, cel: j.cel, blad: odczyt.blad, uwagi: odczyt.blad ? [] : parsujTabele(odczyt.tekst), kontrola_lokalna: k.powody, ostrzezenia: typeof j.tlumaczenie === 'string' ? [...k.ostrzezenia, ...ostrzezeniaLiczb(j.tekst, j.tlumaczenie)] : [] };
@@ -185,6 +193,8 @@ export function podsumowanieMd(raporty, meta) {
   for (const r of raporty) for (const x of r.jednostki) for (const u of x.uwagi) L.push(`| ${r.jezyk} | ${x.cel} | ${ob(u.klucz)} | ${ob(u.problem)} | ${ob(u.propozycja)} | ${u.pewnosc} |`);
   const lok = raporty.flatMap((r) => r.jednostki.flatMap((x) => x.kontrola_lokalna.map((k) => `- **${r.jezyk}** ${x.cel}: ${ob(k)}`)));
   if (lok.length) L.push('', `## Kontrola lokalna znaczników (bez API) (${lok.length})`, '', ...lok);
+  const ost = raporty.flatMap((r) => r.jednostki.flatMap((x) => (x.ostrzezenia ?? []).map((k) => `- **${r.jezyk}** ${x.cel}: ${ob(k)}`)));
+  if (ost.length) L.push('', `## Ostrzeżenia kontroli lokalnej (terminy, liczby) (${ost.length})`, '', 'Do oceny przy przeglądzie: różnica znaczników {{t:…}} bywa naturalna (D-344); liczby tylko przez {{n:…}}.', '', ...ost);
   return L.join('\n') + '\n';
 }
 

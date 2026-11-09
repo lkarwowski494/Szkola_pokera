@@ -110,3 +110,25 @@ test('content/en bez kontroli (a) = błąd; zapis ze skrótem en = zgodne; zmian
     rmSync(d, { recursive: true, force: true });
   }
 });
+
+// Rola 09, K2d (otwarte nr 2 sesji V): termin krytyczny w języku ≠ pl ma w skrócie definicję z content/<j>/terms-def.yaml —
+// w en ekran słowniczka pokazuje tę definicję, więc jej zmiana unieważnia kontrolę (a). Bez tego skrót brał tylko terms.yaml.
+test('zmiana definicji en (terms-def.yaml) zmienia skrót en terminu krytycznego, a skrót pl zostaje', () => {
+  const d = kopia();
+  try {
+    mkdirSync(join(d, 'content/en'), { recursive: true });
+    cpSync(join(repo, 'content/en/terms-def.yaml'), join(d, 'content/en/terms-def.yaml'));
+    const skroty = () => uruchom(d, '--przed-przegladem', '--skroty').stdout;
+    const s1 = skroty();
+    const en1 = s1.match(/^SKRÓT en t:bankroll ([0-9a-f]{12})/m)?.[1], pl1 = skrotZ(s1, 't:bankroll');
+    assert.match(en1 ?? '', /^[0-9a-f]{12}$/);
+    const p = join(d, 'content/en/terms-def.yaml');
+    writeFileSync(p, readFileSync(p, 'utf8').replace(/^bankroll: .*$/m, 'bankroll: Money set aside only for playing.'));
+    const s2 = skroty();
+    assert.notEqual(s2.match(/^SKRÓT en t:bankroll ([0-9a-f]{12})/m)?.[1], en1);
+    assert.equal(skrotZ(s2, 't:bankroll'), pl1);
+    assert.equal(s2.match(/^SKRÓT en t:risk-of-ruin ([0-9a-f]{12})/m)?.[1], s1.match(/^SKRÓT en t:risk-of-ruin ([0-9a-f]{12})/m)?.[1]);
+  } finally {
+    rmSync(d, { recursive: true, force: true });
+  }
+});

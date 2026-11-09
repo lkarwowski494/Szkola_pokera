@@ -61,7 +61,8 @@ bledy.push(...sprawdzRejestr(rejestr, [], opcje, uwagi));
 // Dlaczego: przegląd ma dotyczyć wersji tekstu, którą widział recenzent (D-027, E3 2026-11-04).
 /**
  * Źródła tekstu języka `j` (rola 09, K2d): lekcje, egzaminy i reguły z content/<j>/ (brak pliku → ten z content/pl, jak
- * łańcuch treści), pomoc z nakładki content/<j>/helplines.yaml (brak → plik wspólny). Liczby i terminy wspólne.
+ * łańcuch treści), pomoc z nakładki content/<j>/helplines.yaml (brak → plik wspólny), definicje terminów z
+ * content/<j>/terms-def.yaml (otwarte nr 2 sesji V). Liczby i wpisy terms.yaml wspólne.
  */
 const zrodlaJezyka = (j) => {
   const kat = (d) => (existsSync(`content/${j}/${d}`) ? `content/${j}/${d}` : `content/pl/${d}`);
@@ -73,6 +74,8 @@ const zrodlaJezyka = (j) => {
     tekst: new Map(plikiTresci.map((p) => [p, readFileSync(p, 'utf8')])),
     wpisRules: new Map((j === 'pl' ? rules : YAML.parse(readFileSync(plikRules, 'utf8'))).map((r) => [r.id, r])),
     pomocJ: h.entries ?? [],
+    // definicje terminów w języku ≠ pl (D-335): ekran słowniczka w tym języku pokazuje je zamiast `def` z terms.yaml
+    defJ: j !== 'pl' && existsSync(`content/${j}/terms-def.yaml`) ? YAML.parse(readFileSync(`content/${j}/terms-def.yaml`, 'utf8')) ?? {} : {},
     ramka: { pointer: h.pointer, fallback: h.fallback },
     // uzyte_w wskazuje ścieżki content/pl/…; w innym języku ten sam plik z content/<j>/, gdy jest
     sciezka: (p) => (j !== 'pl' && p.startsWith('content/pl/') && existsSync(`content/${j}/${p.slice('content/pl/'.length)}`) ? `content/${j}/${p.slice('content/pl/'.length)}` : p),
@@ -84,6 +87,7 @@ const jednostki = (w, z) => {
   if (z.wpisRules.has(w.id)) out.push(`rules.yaml#${w.id}\n${JSON.stringify(z.wpisRules.get(w.id))}`);
   if (w.id.startsWith('n:') && w.id.slice(2) in nums) out.push(`numbers.yaml#${w.id}\n${JSON.stringify(nums[w.id.slice(2)])}`);
   if (w.id.startsWith('t:') && w.id.slice(2) in terms) out.push(`terms.yaml#${w.id}\n${JSON.stringify(terms[w.id.slice(2)])}`);
+  if (w.id.startsWith('t:') && Object.hasOwn(z.defJ, w.id.slice(2))) out.push(`terms-def.yaml#${w.id}\n${JSON.stringify(z.defJ[w.id.slice(2)])}`);
   // indeks wpisu w pliku: kolejność decyduje, który numer ekran pokazuje pierwszy (przegląd D-043, E3)
   z.pomocJ.forEach((e, i) => { if (e.claim === w.id) out.push(`helplines.yaml#${i}#${e.id}\n${JSON.stringify(e)}`); });
   if (z.ramka.fallback?.claim === w.id) out.push(`helplines.yaml#fallback\n${JSON.stringify(z.ramka)}`);
