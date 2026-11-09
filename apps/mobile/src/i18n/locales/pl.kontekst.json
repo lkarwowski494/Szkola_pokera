@@ -447,5 +447,6 @@
   "table.oppCards": "Użyty w: features/stol/uklad.ts (opis kart pod stołem i etykieta VoiceOver, A04-01, D-282). Karty rywala przed twoimi kartami; cards = karty symbolami. „rywal” jak w treści (content/pl/exams/m0.yaml:8), terminologia do potwierdzenia przez 06.",
   "table.rowOpp": "Użyty w: components/Stol.tsx (podpis rzędu kart rywala na suknie, A04-01, D-282). Jedno słowo, mieści się nad rzędem kart.",
   "table.rowBoard": "Użyty w: components/Stol.tsx (podpis rzędu kart wspólnych na suknie, tylko gdy są karty rywala, A04-01, D-282). Krótko.",
-  "grade.announce": "Użyty w: features/stol/PanelDecyzji.tsx (ogłoszenie VoiceOver po ocenie decyzji, A04-03, D-283). ocena = „Ocena: Zgodna” albo „Czas minął”; opis = opis paska strategii (strategy.*). Dwa zdania, kolejność stała."
+  "grade.announce": "Użyty w: features/stol/PanelDecyzji.tsx (ogłoszenie VoiceOver po ocenie decyzji, A04-03, D-283). ocena = „Ocena: Zgodna” albo „Czas minął”; opis = opis paska strategii (strategy.*). Dwa zdania, kolejność stała.",
+  "table.yourPosition": "Użyty w: features/stol/uklad.ts (zadanie z pozycją bez przebiegu akcji: wiersz zamiast stołu albo pierwsze zdanie opisu kart i etykiety VoiceOver, A04-04, D-282 pkt 2–3). pos = skrót pozycji (BB, BTN)."
 }

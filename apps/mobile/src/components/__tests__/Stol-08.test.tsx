@@ -52,4 +52,20 @@ describe('Stol', () => {
     await render(<Stol table={{ hand: ['Jc', '9d'], board: ['Ts', '7h', '2c'] }} />);
     expect(screen.queryByText('Rywal')).toBeNull();
   });
+
+  it('A04-04 (D-282 pkt 2): sama pozycja bez kart i przebiegu — bez owalu i pustej grafiki, wiersz „Twoja pozycja: BB”', async () => {
+    await render(<Stol table={{ position: 'BB' }} />);
+    expect(screen.queryByRole('image')).toBeNull();
+    expect(screen.getByText('Twoja pozycja (position): BB.')).toBeTruthy();
+  });
+
+  it('A04-04 (D-282 pkt 3): pozycja z kartami bez przebiegu — stół bez miejsc, pozycja w etykiecie i opisie', async () => {
+    const table = { hand: ['Ah', 'Kd'], board: ['Ts', '7h', '2c'], position: 'BTN' as const };
+    await render(<Stol table={table} />);
+    expect(screen.queryAllByTestId(/^miejsce-/)).toHaveLength(0);
+    const etykieta: string = screen.getByRole('image').props.accessibilityLabel;
+    expect(etykieta).toBe('Twoja pozycja (position): BTN. Twoje karty: A♥ K♦. Na stole (board): 10♠ 7♥ 2♣.');
+    expect(screen.getByText(etykieta)).toBeTruthy();
+  });
 });
+

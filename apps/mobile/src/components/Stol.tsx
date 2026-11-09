@@ -33,6 +33,10 @@ export function Stol({ table }: { table: Table }): React.JSX.Element {
   const reka = table.hand ?? [];
   const etykieta = miejsca ? etykietaStolu(miejsca, reka, t) : opisKart(table, t);
   const opis = miejsca ? opisReki(miejsca, reka, t) : null;
+  // A04-04 (D-282 pkt 2): bez kart i bez miejsc nie ma czego rysować — sam tekst (pozycja), żadnej pustej grafiki
+  if (!miejsca && !table.opp?.length && !table.board?.length && !reka.length) {
+    return etykieta ? <Text style={[styl.tresc, { color: tk.ink }]}>{etykieta}</Text> : <></>;
+  }
   return (
     <View style={{ gap: odstep.m }}>
       <View accessible accessibilityRole="image" accessibilityLabel={etykieta} style={[styles.pole, { paddingVertical: miejsca ? MIEJSCE.h / 2 : 0 }]}>

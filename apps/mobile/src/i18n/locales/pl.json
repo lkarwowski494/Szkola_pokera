@@ -562,6 +562,7 @@
     "raised_few": "{{list}} {{t:raise|przebijają}}",
     "raised_many": "{{list}} {{t:raise|przebijają}}",
     "raised_other": "{{list}} {{t:raise|przebijają}}",
+    "yourPosition": "Twoja {{t:position|pozycja}}: {{pos}}.",
     "yourCards": "Twoje karty: {{cards}}.",
     "oppCards": "Karty rywala: {{cards}}.",
     "rowOpp": "Rywal",
