@@ -967,6 +967,25 @@ Rola: `assemble.mjs 08-programista --tryb build` (prompts, 2026-11-09). Analogia
 - Drobne poza strażnikiem: `docs/sklep/asc-reczne-wartosci.md:21` i komunikat `scripts/asc/metadane.mjs:145` („App Store Connect → Szkoła Pokera”, test `asc.test.mjs:58`) — nazwa rekordu w ASC zmieni się dopiero po zapisie metadanych; poprawić po zapisie AF.
 - Telefon: nazwa pod ikoną „PokerGym” w 6 językach (listy `lista-telefonu-4.md` T-cjk-1, T-pf-1; `lista-telefonu-en.md` T-en-1).
 
+## Sesja AH — resztki AE: formy, terms-nazwy, fala 2 w LOCALE_MAP (2026-11-09, rola 09 build, D-391)
+Rola: `add_repo prompts` odrzucone przez klasyfikator — **wyjątek nazwany** jak D-381 (rola z planów AB/AD/AE i D-365–D-384). D-191: Trening poza zakresem repozytoriów sesji — odstępstwo nazwane w D-391.
+
+| Krok | Test / dowód (czerwony przed → zielony po) | Decyzja |
+|---|---|---|
+| 1. Ujednolicenie form fr, pt-BR, zh-Hant (+ ja 勝率) skryptem `docs/lokalizacja/narzedzia/ujednolic-formy.mjs`; kontrola (a) m12 ponownie (subagent) zaliczona 0 KRYT/WYS/ŚR; jej uwagi naprawione (cytaty `source:` fr przywrócone, gramatyka pt-BR ×7, klasyfikator 場場次 ×22); NISKIE R-M12-002 fr/zh-Hant; 7 skrótów `przeglad_jezyki.zh-Hant` odnowionych | `scal-rejestr --sprawdz`: 7 błędów → 0; tokeny {{n:}}/{{t:}} 63 pliki bez różnic (poza zamierzonym); `pnpm i18n` 0 błędów, uwagi 153 = 153; `dowody/ujednolicenie-form-2026-11-09.md`; commit 88d557c | D-391 |
+| 4. `LOCALE_MAP` + de-DE, es-ES, es-MX, ko, it, vi; walidacja `metadane-fala2.json` 0 błędów; k11 bez martwego wyłączenia „poker school” | `asc.test.mjs` „fala 2”: 1 ✕ → 22/22 ✓; `test:kontrole` 27/27; commit b148428 | D-391 |
+| `pnpm run ci` | exit 0 (log w scratchpadzie sesji) | — |
+| 2. `[DO USTALENIA]` w terms-nazwy: 43 wiersze z wpływem na wyświetlanie — 17 potwierdzonych, 4 zmienione (ja ×3, fr wet), 22 otwarte | `pnpm content:build` 0, `pnpm i18n` 0 błędów, `scal-rejestr --sprawdz` 0, `pnpm run ci` exit 0 | D-392 |
+| 3. NISKIE D-043 AE #2–#4 | nie tanie / teoretyczne — backlog (D-391 pkt 5) | D-391 |
+
+### Zostaje
+- Flow E2E CJK (wzór `08-drugi-jezyk`) i zrzuty 320 pt / AX5 w ja i fr — nie w tej sesji (polecenie koordynatora).
+- zh-Hant NISKIE: „結束這個場次” poprawne, naturalniej „結束這次打牌” (poza zakresem mechanicznym); free text 波動 (moduł m12 „波動與上頭”) zostaje obok nazwy 變異數 w znacznikach.
+- 勝率 bez zmiany w 15 wierszach (zh-Hant 8, ja 7): en bez „equity” albo win rate (m10-l2) — lista w dowodzie; do przejrzenia przy następnym przeglądzie ja/zh-Hant.
+- terms-nazwy: 22 wiersze nadal `[DO USTALENIA]` (lista w D-392; pt-BR 12, fr 8, zh-Hant 2) — źródła niedostępne (wyszukiwarka zwraca EN, clubpoker.net i część serwisów TW: 403); zh-Hant limp 溜入 → 平跟進池 tylko z ujednoliceniem 48 wystąpień w tekście.
+- fr „les blinds” ×14 (ogólne „ciemne”, nie nazwa terminu) — bez zmiany.
+- NISKIE D-043 AE: #2 nazwy przy tekście z łańcucha en, #3 krój tytułu po zmianie języka (wymaga języka w motywie + telefon T-cjk-3), #4 utwardzenie wzorca URL.
+
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
 
