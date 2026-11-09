@@ -42,19 +42,16 @@ Nie twórz nowych sesji i nie archiwizuj — to robi koordynator. Nie edytuj sek
 ```
 
 ## 5. Stan i plan (2026-11-09 ok. 07:00 UTC; ostatnie wiersze „Koordynacja” w plan-08 = prawda)
-**W toku:**
-- Sesja I `session_01T66VBzRvcm2jJpwtAj5SFw` (kod, 08 fix, start 06:49): A04-10 (teksty poza `t()` → klucze, warunek przekładu), A04-11 (nazwy kart dla VoiceOver), 10-US-01/02 + 10-JP-01 (EkranZakupu: zdanie o anulowaniu subskrypcji i skutku, D-301), F-SOLVER-CZAS (limit 180 s), ponowienie pobrania Maestro w `e2e-ios.yml` (D-043); jeden push kodu → E2E pełny.
-- Sesja K zakończona 07:07 (523a041, `docs/wydanie/plan-1.0.md`): wysłanie 1.0 do Apple 24.11–05.12, najpewniej ok. 27.11 [OCENA]; języki 1.0 pl, en, ja, pt-BR, fr, zh-Hant (D-303); do pytania 14:00: P-1 (F-12 w 1.1), P-2 (adres polityki: GitHub Pages), W-03 (API 30–40 USD); kolejka kodu po I: K-02 treść (3 czerwone testy, rola 06) → rola 09 K1–K8 → K-04 języki.
-- Sesja L zakończona 07:23 (7a8052f): polityka prywatności pl/en (projekt), App Privacy; do weta D-307, D-308 (GitHub Pages z `site/`); 10-PRYW-01 dla 08; Support URL wymagany (`support.html` blokuje wysyłkę).
-- E2E dispatch 42575336076 zielone (dowód A04-01..09). Sesja I wypchnęła kod 07:15 (b8eb0a2) → E2E 42578171401 w toku.
-- E2E: `workflow_dispatch` z `aplikacja_z_przebiegu=42566410755` (06:49) — szybki dowód flowów dla A04-01..09 (pełny przebieg 42566410755 padł 2× na curl 504 przy pobieraniu Maestro; flowy nieuruchomione). Szczyt kodu z dowodem E2E zielonym: 8362e14 (42531461257).
+**W toku (07:59 UTC):**
+- Sesja N `session_01T66VByH8W6anihYjqyR6Ed` (kod/treść, rola 06, start 07:59): K-02 — 3 czerwone testy akceptacyjne; jeden push → E2E.
+- Sesja M `session_01T66VBwYvyUhawCAhDJ5XKQ` (tylko docs, rola 10, start 07:58): plan-1.0 D-01 (tekst sklepu pl/en, notatki dla recenzenta, nazwa en) i D-02 (kategoria wiekowa, OP-18).
+- Zakończone dziś: I (A04-10/11, zakup US/JP, solver 180 s, Maestro; E2E 42578171401 zielone na b8eb0a2 = szczyt kodu z dowodem), K (plan-1.0), L (polityka prywatności, D-307/D-308). Do raportu 14:00: weta D-282–D-308 (m.in. D-306 zdanie o anulowaniu), P-1, P-2/D-308, W-03, klucz API, W-04/W-05 dane właściciela, zrzuty z sesji I.
 
 **Kolejka:**
 | # | Kiedy (UTC) | Kto | Zadanie | Gotowe, gdy |
 |---|---|---|---|---|
-| 1 | 07:15 | koordynator | wynik E2E dispatch; czerwień → `get_job_logs` (tail), 504 Maestro → przekazać sesji I | wpis |
-| 2 | po I | koordynator | odbiór I; E2E pełny zielony na szczycie (dowód dla A04-01..11 bez ponownego audytu, CLAUDE.md pkt 2); archiwizacja | wpis |
-| 3 | po K | koordynator | odbiór K: data 1.0, języki 1.0 (A wg D-296), kroki właściciela → do raportu 14:00 | wpis |
+| 1–3 | — | — | zrobione 07:59 (E2E zielone, I/K/L odebrane) | — |
+| 3a | po N | koordynator | odbiór N, E2E na jej pushu; archiwizacja | wpis |
 | 4 | po 2 | sesja kodu (rola 09 build E1) | plan-09 §11: K1 sprawdzenie po A04-10/11 → K2 mechanizm (text.pl.ts→słownik, baza treści wg języka; content-build = D-043) i K3a narzędzie API (`scripts/i18n/`, workflow ręczny, D-043) → K4 glosariusz en; języki wg planu K | commity + E2E |
 | 5 | równolegle (docs) | sesja docs | wg planu K: np. materiały sklepu en, legalność VN/TR (sporne, D-300), terminologia dok. 13 | PRZEKAZANIE |
 | 6 | 14:00 | koordynator → właściciel | „Raport dnia D-296” + jedno pytanie zbiorcze (weta, klucz `ANTHROPIC_API_KEY` po `--szacuj` ≤ 15 USD, plan 1.0, dalsze kroki) | W w decyzje.md |
