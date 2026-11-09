@@ -1,5 +1,5 @@
-import type { ReactNode } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View, type ViewStyle } from 'react-native';
+import type { ReactNode, Ref } from 'react';
+import { Pressable, ScrollView, StyleSheet, Text, View, type ScrollViewInstance, type ViewStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 
@@ -8,19 +8,22 @@ export function Screen({
   scroll = true,
   padTop = true,
   scrollEnabled = true,
+  scrollRef,
 }: {
   children: ReactNode;
   scroll?: boolean;
   padTop?: boolean;
   /** Np. wyłączone na czas malowania siatki palcem. */
   scrollEnabled?: boolean;
+  /** Np. przewinięcie na górę po zmianie zadania w sesji (08-F25). */
+  scrollRef?: Ref<ScrollViewInstance>;
 }) {
   const tk = useTokens();
   const insets = useSafeAreaInsets();
   const style = { paddingTop: padTop ? insets.top + odstep.l : odstep.l, paddingBottom: insets.bottom + odstep.x3, paddingHorizontal: odstep.l, gap: odstep.l };
   if (!scroll) return <View style={[{ flex: 1, backgroundColor: tk.bg }, style]}>{children}</View>;
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: tk.bg }} contentContainerStyle={style} contentInsetAdjustmentBehavior="automatic" scrollEnabled={scrollEnabled} keyboardShouldPersistTaps="handled">
+    <ScrollView ref={scrollRef} style={{ flex: 1, backgroundColor: tk.bg }} contentContainerStyle={style} contentInsetAdjustmentBehavior="automatic" scrollEnabled={scrollEnabled} keyboardShouldPersistTaps="handled">
       {children}
     </ScrollView>
   );

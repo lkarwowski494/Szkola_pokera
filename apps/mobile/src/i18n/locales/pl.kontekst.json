@@ -446,5 +446,6 @@
   "scale.label": "Użyty w: features/stol/skala.ts, components/SkalaStopni.tsx (skala stopni po ocenie, 08 cz. 6, D-274). VoiceOver; pct = częstość twojej akcji, stopien = słowo stopnia małą literą.",
   "table.oppCards": "Użyty w: features/stol/uklad.ts (opis kart pod stołem i etykieta VoiceOver, A04-01, D-282). Karty rywala przed twoimi kartami; cards = karty symbolami. „rywal” jak w treści (content/pl/exams/m0.yaml:8), terminologia do potwierdzenia przez 06.",
   "table.rowOpp": "Użyty w: components/Stol.tsx (podpis rzędu kart rywala na suknie, A04-01, D-282). Jedno słowo, mieści się nad rzędem kart.",
-  "table.rowBoard": "Użyty w: components/Stol.tsx (podpis rzędu kart wspólnych na suknie, tylko gdy są karty rywala, A04-01, D-282). Krótko."
+  "table.rowBoard": "Użyty w: components/Stol.tsx (podpis rzędu kart wspólnych na suknie, tylko gdy są karty rywala, A04-01, D-282). Krótko.",
+  "grade.announce": "Użyty w: features/stol/PanelDecyzji.tsx (ogłoszenie VoiceOver po ocenie decyzji, A04-03, D-283). ocena = „Ocena: Zgodna” albo „Czas minął”; opis = opis paska strategii (strategy.*). Dwa zdania, kolejność stała."
 }

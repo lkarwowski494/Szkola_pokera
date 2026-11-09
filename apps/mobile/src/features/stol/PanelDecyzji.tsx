@@ -7,6 +7,8 @@ import type { ChoiceInstance, DrillAnswer, GradeResult } from '@/features/drills
 import StopienOceny from '@/features/ocena/StopienOceny';
 import type { OcenaDecyzji } from '@/features/stol/skala';
 import { klasaReki } from '@/features/stol/uklad';
+import { opisPaska } from '@/features/stol/pasek';
+import { useAnnounce } from '@/features/dostepnosc/announce';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 
 /**
@@ -26,6 +28,12 @@ export function PanelDecyzji({ item, rekord, onWybierz }: { item: ChoiceInstance
   const tk = useTokens();
   const { t } = useTranslation();
   const klasa = klasaReki(item.table?.hand ?? []);
+  // A04-03 (D-283 pkt 1): po ocenie przycisk z fokusem znika, więc ocenę i opis paska ogłasza VoiceOver
+  const wyborOgl = rekord ? (rekord.answer.kind === 'choice' ? rekord.answer.index : -1) : null;
+  const opisOgl = wyborOgl === null ? null : opisPaska(item.options, wyborOgl, klasa, t);
+  const ocenaOgl =
+    rekord === null ? null : wyborOgl !== null && wyborOgl >= 0 && item.options[wyborOgl] ? t('grade.label', { slowo: t(`grade.${ocenaDecyzji(rekord.grade)}`) }) : t('session.timeout');
+  useAnnounce(ocenaOgl === null ? null : opisOgl ? t('grade.announce', { ocena: ocenaOgl, opis: opisOgl }) : ocenaOgl);
   if (!rekord) {
     return (
       <View style={{ gap: odstep.s }}>
@@ -41,7 +49,7 @@ export function PanelDecyzji({ item, rekord, onWybierz }: { item: ChoiceInstance
   return (
     <View style={{ gap: odstep.l }}>
       <View style={[styles.rama, { backgroundColor: tk.frame }]}>
-        <View accessibilityLiveRegion="polite" style={[styles.sukno, { backgroundColor: tk.felt1 }]}>
+        <View style={[styles.sukno, { backgroundColor: tk.felt1 }]}>
           {opcja ? <StopienOceny ocena={ocena} naSuknie /> : <Text style={[styl.tytul, { color: tk.onFelt }]}>{t('session.timeout')}</Text>}
           <PasekStrategii opcje={item.options} wybor={wybor} klasa={klasa} />
           {skala ? <SkalaStopni czestosc={opcja.czestosc ?? 0} ocena={ocena} /> : null}

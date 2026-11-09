@@ -7,9 +7,10 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Linking, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Linking, Pressable, StyleSheet, Text, TextInput, View, type HostInstance, type ScrollViewInstance } from 'react-native';
 import { PaintGrid } from '@/components/PaintGrid';
 import { RichText } from '@/components/RichText';
+import { useAnnounce, useNoweZadanie } from '@/features/dostepnosc/announce';
 import { Stol } from '@/components/Stol';
 import { Button, Muted, ProgressBar, Screen, Title } from '@/components/ui';
 import {
@@ -163,6 +164,16 @@ export default function SessionScreen() {
     prosbaSprawdzona.current = true;
     void poprosOOceneGdyPora(port, ocenaExpo, mode === 'lesson' ? 'podsumowanie_lekcji' : 'podsumowanie_sesji', Date.now());
   }, [finished, exam, port, mode]);
+
+  // A04-03 (D-283 pkt 1): VoiceOver ogłasza nagłówek oceny zadań bez strategii (ze strategią ogłasza `PanelDecyzji`)
+  // i błąd zapisu; 08-F25 (D-283 pkt 2): po „Dalej” przewinięcie na górę i fokus na początek zadania.
+  useAnnounce(
+    current && !(current.item.kind === 'choice' && maStrategie(current.item.options)) ? (current.answer.kind === 'timeout' ? t('session.timeout') : gradeLabel(t, current.grade)) : null,
+  );
+  useAnnounce(bladZapisu && bladZapisu !== 'krok_niezgodny' ? t(bladZapisu === 'brak_miejsca' ? 'session.saveNoSpace' : 'session.saveFailed') : null);
+  const przewijanie = useRef<ScrollViewInstance>(null);
+  const poczatekZadania = useRef<HostInstance>(null);
+  useNoweZadanie(idx, przewijanie, poczatekZadania);
 
   const resetInputs = () => {
     setCurrent(null);
@@ -346,12 +357,14 @@ export default function SessionScreen() {
   }
 
   return (
-    <Screen scrollEnabled={!painting}>
+    <Screen scrollEnabled={!painting} scrollRef={przewijanie}>
       <View style={styles.top}>
         <Pressable accessibilityRole="button" onPress={zakoncz} hitSlop={12}>
           <Text style={[styl.tresc, { color: tk.link, fontWeight: '600' }]}>{t('session.end')}</Text>
         </Pressable>
-        <Muted>{exam ? t('exam.of', { n: idx + 1, total: items.length }) : t('session.of', { n: idx + 1, total: items.length })}</Muted>
+        <View ref={poczatekZadania} accessible>
+          <Muted>{exam ? t('exam.of', { n: idx + 1, total: items.length }) : t('session.of', { n: idx + 1, total: items.length })}</Muted>
+        </View>
       </View>
       <ProgressBar value={(idx + (current ? 1 : 0)) / items.length} />
 

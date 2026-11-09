@@ -134,7 +134,8 @@
     "dopuszczalne": "Dopuszczalna",
     "niedokladnosc": "Niedokładność",
     "blad": "Błąd",
-    "label": "Ocena: {{slowo}}"
+    "label": "Ocena: {{slowo}}",
+    "announce": "{{ocena}}. {{opis}}"
   },
   "learn": {
     "intro": "No-Limit Hold’em od zera. Wybierz dowolną lekcję albo idź po kolei.",
