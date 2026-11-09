@@ -8,7 +8,7 @@ Stan: 2026-11-09, sesja M (tylko dokumenty), commit wejściowy ab0bb2f. Zadania 
 - Pliki: `store/app-store-metadata.json` (pl, en-US; en-GB/CA/AU = en-US), `store/review-notes.md` (notatki en do wklejenia, pl dla właściciela). Miejsce `store/` jak w Treningu (D-309).
 - Nazwa en: **„Poker School: Learn Strategy”** (28 znaków). W App Store nie znaleziono aplikacji o nazwie „Poker School” (§5).
 - Kontrola tekstu: `docs/wydanie/dowody/metadane-2026-11-09.txt`, **kod 0** (limity, bajty, brak nazw konkurencji i marek, brak cen i obietnicy wygranej).
-- Kategoria wiekowa (D-02): §6; OP-18 częściowo zamknięte.
+- Kategoria wiekowa (D-02, D-310): odpowiedzi z kodu dają 13+; rekomendacja A: override do 18+ (grupa docelowa dorośli); Simulated Gambling = None; OP-18 zamknięte dla ankiety Apple 1.0 (§6).
 - Zgłoszenia do innych ról: 10-D01-01 (WYSOKIE, tekst ekranu zakupu obiecuje scenariusze), 10-D01-02 (ŚREDNIE), §4.
 
 ## 1. Reguły Apple z dnia pracy (odczyt 2026-11-09)
@@ -92,9 +92,51 @@ Ograniczenie: wyszukiwarka zwraca do 50 wyników na kraj; ostatecznie unikalnoś
 
 Nazwa pod ikoną (`locales/systemowe/en.json`, K-03) to „Poker School” (D-293); nazwa w sklepie może mieć człon po dwukropku jak w Treningu.
 
-## 6. Kategoria wiekowa (D-02)
+## 6. Kategoria wiekowa (D-02, D-310)
 
-Uzupełnienie w następnym commicie.
+Źródła (odczyt 2026-11-09, pobrany HTML, cytaty dosłowne): „Age ratings values and definitions” (developer.apple.com/help/app-store-connect/reference/app-information/age-ratings-values-and-definitions), „Set an app age rating” (…/manage-app-information/set-an-app-age-rating), wytyczna 2.3.6 (guidelines, Last Updated 16.10.2026), Apple Developer News „Age rating questionnaire now includes social media questions” (developer.apple.com/news/?id=tlur8uvi, 9.07.2026).
+
+Kluczowe cytaty:
+- Simulated Gambling: „Betting or wagering without using real money or in-game currency that can be exchanged for real money.” To samo brzmienie co S-19 z 2026-11-03 (`docs/brd/zrodla.md:24`): definicja się nie zmieniła.
+- Gambling: „Betting or wagering using real money or in-game currency that may be exchanged for real money. May include: casino or card games, sports and non-sports betting, or lotteries and raffles.”
+- Contests: „Events that allow users to compete with one another for rankings, rewards, or the achievement of personal goals. May include: skill-based competitions, trivia quizzes, or sport or fitness contests”
+- Medical or Treatment Information: „Content that provides diagnoses or guidance around the management of medical conditions or health and wellness. May include: medication guidance, emergency medical care, or treatment information.”
+- Health or Wellness Topics: „Content that provides self-care or lifestyle recommendations.”
+- Mature or Suggestive Themes: „… topics for older audiences due to the complex, intense, or sensitive nature, which may deal with real-world issues or content unsuitable for children. May include: … moral or ethical dilemmas …”
+- Progi: 13+ m.in. „Infrequent medical or treatment information”, „Infrequent simulated gambling”; 9+ „Health and wellness topics”, „Infrequent mature or suggestive themes”; 18+ „Gambling”, „Frequent simulated gambling”. Australia: „R 18+ … Infrequent simulated gambling”.
+- Override: „To increase the rating of your app to a rating that exceeds the rating assigned by Apple, choose Override to Higher Age Rating […]. App Store will display this specified age rating, and the content descriptions will still reflect your questionnaire answers.” Powód z instrukcji: „if you believe your app should be rated higher”.
+- 2.3.6: „Answer the age rating questions in App Store Connect honestly so that your app aligns properly with parental controls. If your app is mis-rated, customers might be surprised by what they get, or it could trigger an inquiry from government regulators.”
+- Pytania o media społecznościowe: „beginning in September 2026, responses will be required when submitting new apps or updates” (news tlur8uvi).
+
+Odpowiedzi (prawda z kodu i treści ab0bb2f; przy wątpliwości wyżej, zasada roli 3):
+
+| Pytanie | Odpowiedź | Podstawa |
+|---|---|---|
+| Parental Controls, Age Assurance | nie | brak takich funkcji |
+| Unrestricted Web Access | nie | linki otwierają przeglądarkę systemową (`Linking.openURL`), bez WebView w `apps/mobile` (grep 2026-11-09) |
+| User-Generated Content, Social Media, Social Media Disabled for Users Under 13, Messaging and Chat | nie | bez konta, serwera i wymiany treści (`docs/architektura/prywatnosc.md:21`) |
+| Advertising | nie | bez reklam (CLAUDE.md, standard marki) |
+| Profanity, Horror, Alcohol/Tobacco/Drugs | None | treść pl: 0 trafień „alkohol”, „papieros”, „narkot” (grep `content/pl`) |
+| Medical or Treatment Information | **Infrequent** [wątpliwość → wyżej] | ekran „Pomoc” i lekcja M12-L4: „porozmawiaj z lekarzem albo specjalistą zdrowia psychicznego. W nagłym zagrożeniu […] dzwoń na lokalny numer alarmowy” (`content/helplines.yaml`, H-INT-2): to wskazanie pomocy, nie diagnoza, ale definicja obejmuje „emergency medical care” |
+| Health or Wellness Topics | **tak** | moduł M12 „Mental game i bankroll: wariancja i tilt” (zalecenia dotyczące samokontroli) |
+| Mature or Suggestive Themes | **Infrequent** [wątpliwość → wyżej] | treść mówi o grze na pieniądze poza aplikacją (bankroll, problem z hazardem) jako temacie dla dorosłych |
+| Sexual Content, Graphic Sexual, wszystkie Violence | None | brak |
+| Gambling | None | w aplikacji nie ma stawki ani waluty wymienialnej na pieniądze (NFR-ZGOD-001, OG-01) |
+| **Simulated Gambling** | **None** | ćwiczenie pokazuje sytuację i pyta o decyzję; użytkownik niczego nie stawia, wynik to ocena i wyjaśnienie, nie wygrana ani przegrana, bez rozstrzygnięcia losem (OG-02). Brak gry z botami (F-19 NIE) i scenariuszy w 1.0 (D-305). Definicja z dnia = S-19 |
+| Contests | None | brak rywalizacji między użytkownikami i rankingów; egzamin i seria są indywidualne. Gdyby recenzent uznał inaczej: „Infrequent contests” = 4+, więc kategoria się nie zmienia |
+| Loot Boxes | None | brak |
+
+Wynik z tabeli Apple: **13+** (najwyższy próg: „Infrequent medical or treatment information”). Australia: bez osobnej kategorii (żadna odpowiedź z listy AU).
+
+| Opcja | Co wpisać | Kompromis |
+|---|---|---|
+| **A (rekomendacja, przyjęta wg D-296)** | odpowiedzi jak wyżej + **Override to Higher Age Rating: 18+** | grupa docelowa to dorośli (OG-04: „Grupa docelowa: dorośli (P-1–P-3), niezależnie od kategorii”); kurs dotyczy gry, która poza aplikacją jest hazardem, więc mniejsze ryzyko zarzutu promocji hazardu wśród nieletnich (2.3.6 „inquiry from government regulators”, art. 29 u.g.h. OG-07); zgodne z 64 ze 102 aplikacji nauki z 17+ (stara skala). Opisy treści dalej mówią prawdę (override ich nie zmienia). Koszt: aplikacja niewidoczna dla kont z ograniczeniem wieku < 18 (to nie grupa docelowa); możliwe dodatkowe kroki potwierdzania wieku dla 18+ w części krajów [DO SPRAWDZENIA, niżej] |
+| B | odpowiedzi jak wyżej, bez override → 13+ | zasięg także 13–17 lat; w kategorii są aplikacje 4+ i 12+ (29 i 9 ze 102), więc 13+ nie odstaje; ryzyko regulacyjne i wizerunkowe przy nauce gry hazardowej przez nastolatków |
+| C | Simulated Gambling „Frequent” → 18+ | odrzucone: niezgodne z definicją (brak zakładu), czyli nieprawdziwa deklaracja wbrew 2.3.6; w Brazylii A18, w Australii R 18+ także przy „Infrequent”; wyższą kategorię daje uczciwie override (A) |
+
+**OP-18:** zamknięte dla ankiety Apple w wersji 1.0 (decyzja D-310: Simulated Gambling = None; definicja z 2026-11-09 identyczna z S-19). Czego brakuje: (1) przyjęcia przez recenzenta Apple (wynik po F2; przy pytaniu odpowiedź z faktami z `store/review-notes.md`); (2) ankiety IARC dla Google Play (poza zakresem 1.0, Google Play: nic); (3) ponownej oceny przy F-12 (scenariusze bez stosu w 1.1, D-305: ta sama odpowiedź, jeśli scenariusz nie ma stawki ani rozstrzygnięcia losem).
+
+Otwarte do D-06 (przed wpisem w ASC, ponowny odczyt w dniu wysyłki): czy kategoria 18+ uruchamia dodatkowe potwierdzanie wieku przez Apple w części krajów (np. przepisy stanowe w US o sklepach z aplikacjami, Brazylia) i czy dotyczy to aplikacji bez treści z listy 18+ [DO SPRAWDZENIA: nie przeczytano]; jeśli tak i utrudnia zakup dorosłym, wraca wybór A/B do właściciela.
 
 ## 7. Otwarte
 - Słowa kluczowe bez badania fraz (brak danych o wolumenie wyszukiwań, 0 USD): zestaw z częstości słów w nazwach 102 aplikacji konkurencji (`poker` 83, `trainer` 44, `gto` 34, `learn` 12, `preflop` 8, `odds` 8; `docs/brd/dane/konkurencja-2026-11-03.json`) [OCENA]. Poprawa po premierze: rola 11 / moduł `widocznosc-w-sklepie`.
