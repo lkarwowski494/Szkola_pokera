@@ -141,8 +141,18 @@ jobs:
           distribution: temurin
           java-version: '17'
       - name: Maestro
+        # 42566410755 (2026-11-09): 2× `curl: (56) … 504` przy maestro.zip → flowy nieuruchomione. Do 3 prób z przerwą 20/40 s;
+        # pipefail: bez niego kod potoku to kod `bash`, a nieudane pobranie instalatora wyglądałoby na sukces (sesja I, strażnik
+        # w tests/narzedzia/workflowy.test.mjs). Trening (e2e-ios.yml:194–203) bez ponowienia — odstępstwo nazwane.
         run: |
-          curl -fsSL https://get.maestro.mobile.dev | bash
+          set -o pipefail
+          for proba in 1 2 3; do
+            if curl -fsSL https://get.maestro.mobile.dev | bash; then break; fi
+            if [ "$proba" -eq 3 ]; then echo "::error::Instalacja Maestro nieudana 3 razy"; exit 1; fi
+            echo "::warning::Instalacja Maestro: próba $proba nieudana, ponowienie za $((proba * 20)) s"
+            rm -rf "$HOME/.maestro"
+            sleep $((proba * 20))
+          done
           echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
           "$HOME/.maestro/bin/maestro" --version
       - name: Symulator

@@ -126,6 +126,24 @@ test('e2e-ios.yml: MAESTRO_DRIVER_STARTUP_TIMEOUT ≥ 480 000 ms dla obu przebie
   assert.ok(w.jobs.e2e['timeout-minutes'] * 60000 > ms, 'limit zadania krótszy niż czekanie na sterownik');
 });
 
+// Przebieg 42566410755 (sesja F, 2026-11-09): obie próby padły na kroku „Maestro” — `curl: (56) … 504` przy maestro.zip, flowy
+// nieuruchomione. Instalacja ponawiana (sesja I); `pipefail`, bo domyślna powłoka kroku (`bash -e`) bez niego bierze kod `bash`
+// z końca potoku, więc nieudane pobranie samego instalatora dałoby fałszywy sukces. Trening (e2e-ios.yml:194–203, odczyt
+// 2026-11-09) instaluje bez ponowienia — odstępstwo nazwane.
+test('e2e-ios.yml: krok „Maestro” ponawia instalację (pipefail, ≥ 3 próby, przerwa, błąd po ostatniej, sprzątanie przed ponowieniem)', () => {
+  const krok = json('e2e-ios.yml').jobs.e2e.steps.find((k) => k.name === 'Maestro');
+  assert.ok(krok, 'brak kroku „Maestro”');
+  const run = krok.run;
+  assert.match(run, /set -o pipefail/, 'bez pipefail');
+  const m = /for proba in ((?:\d+ ?)+); do/.exec(run);
+  assert.ok(m && m[1].trim().split(' ').length >= 3, 'brak pętli ≥ 3 prób');
+  assert.match(run, /curl -fsSL https:\/\/get\.maestro\.mobile\.dev \| bash/, 'instalator nie w pętli');
+  assert.match(run, /sleep /, 'bez przerwy między próbami');
+  assert.match(run, /exit 1/, 'po ostatniej próbie brak błędu kroku');
+  assert.match(run, /rm -rf "\$HOME\/\.maestro"/, 'bez sprzątania niepełnej instalacji');
+  assert.match(run, /"\$HOME\/\.maestro\/bin\/maestro" --version/, 'bez sprawdzenia wersji po instalacji');
+});
+
 // D-273 (szybsze E2E jak w Treningu, e2e-ios.yml:21–25, 111–120, 154–163, odczyt 2026-11-08): przy zmianie samych flowów aplikacja
 // z poprzedniego przebiegu zamiast budowania od nowa (~24 min mniej); artefakt aplikacji żyje 1 dzień.
 test('e2e-ios.yml: wejście aplikacja_z_przebiegu pomija budowanie i pobiera aplikację z podanego przebiegu; każdy build zapisuje aplikację na 1 dzień', () => {
