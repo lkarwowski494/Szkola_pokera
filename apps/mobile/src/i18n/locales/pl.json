@@ -43,7 +43,7 @@
   },
   "purchase": {
     "title": "Pełny dostęp",
-    "unlocks": "Bez dziennego limitu: sesje ćwiczeń, powtórki, scenariusze i egzaminy każdego dnia. Lekcje zostają darmowe.",
+    "unlocks": "Bez dziennego limitu: sesje ćwiczeń, powtórki i powtórne egzaminy każdego dnia. Lekcje zostają darmowe.",
     "loading": "Pobieranie cen…",
     "pricesUnavailable": "Nie udało się pobrać cen. Sprawdź połączenie i spróbuj ponownie.",
     "retry": "Spróbuj ponownie",
