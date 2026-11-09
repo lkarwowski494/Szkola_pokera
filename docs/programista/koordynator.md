@@ -27,7 +27,7 @@ Najpierw: `git fetch` gałęzi i fast-forward lokalnej kopii, przeczytaj w cało
 
 ## 3. Pobudki (nie kończ tury bez pobudki, gdy coś trwa)
 - Sesja robocza pracuje: `send_later` co 40 min („Koordynacja: sprawdź sesję <ID> i gałąź”). Trwa E2E (~40 min z buildem, ~21 min z `aplikacja_z_przebiegu`): pobudka 45 min (albo 25).
-- Ustawione pobudki (2026-11-09): `trig_01AyyJj81brqXtDiaf6dXWXV` 14:32 UTC — wynik szacunku przekładu en (`przeklad-tlumaczen.yml`, tryb szacuj, dispatch 14:26) i Pages 42632952082 (próba 2, start 14:25); `trig_01WkjbLWUPBBvKy4LrUGkkio` 14:50 — nieaktualna (sesja U odebrana), tylko sprawdź stan; `trig_01MjHf4SDK1i4yvsbCYHznvX` 19:55 — pytanie o tryb nocny. Traktuj jako swoje.
+- Ustawione pobudki (2026-11-09): przekład en `wyslij` 42635177199 + 42635183106 (dispatch 14:29) — pobudka w „Koordynacja”; `trig_01AyyJj81brqXtDiaf6dXWXV` 14:32 — nieaktualna (szacunek i Pages odebrane 14:30); `trig_01WkjbLWUPBBvKy4LrUGkkio` 14:50 — nieaktualna (sesja U odebrana), tylko sprawdź stan; `trig_01MjHf4SDK1i4yvsbCYHznvX` 19:55 — pytanie o tryb nocny. Traktuj jako swoje.
 
 ## 4. Szablon promptu sesji roboczej
 ```
@@ -42,7 +42,7 @@ Nie twórz nowych sesji i nie archiwizuj — to robi koordynator. Nie edytuj sek
 ```
 
 ## 5. Stan i plan (2026-11-09 ok. 07:00 UTC; ostatnie wiersze „Koordynacja” w plan-08 = prawda)
-**W toku (07:59 UTC):**
+**W toku (14:30 UTC):** przekład en `wyslij` 42635177199 (lessons) + 42635183106 (reszta), ≤ 15 USD każdy; Pages zielone, strona https://lkarwowski494.github.io/Szkola_pokera/privacy.html (z `[DO USTALENIA]`). Następnie sesja kodu rola 09: przegląd i `--zastosuj` en (K3/K5). Wcześniej:
 - 14:05 D-341 (W): bez weta D-282–D-340; VN nie, TR po T1; przekład en, 4 języki po przeglądzie en; Pages tak; F-12 w 1.1. 14:10 D-342 (W): na main tylko workflowy przekładu, pages.yml, site/ (klucz dla api.anthropic.com nie da się zapisać w środowisku).
 - Sesja U `session_01T66VBydwQecN32ytZUWQfB` (kod, rola 08, start 14:09): pages.yml + strażnik, workflowy przekładu pod dispatch z ref, push wybranych plików na main, lista kroków właściciela (sekret ANTHROPIC_API_KEY, Pages Source). U zakończona 14:19 (main 7e15c6a: tylko 5 dozwolonych plików, sprawdzone). Właściciel 14:27: „Zrobione” — sekret, Pages Source, ponowienie Pages. Koordynator 14:26: koordynator dispatch `przeklad-tlumaczen.yml` ref = gałąź robocza, inputs {jezyki: en, model: opus, limit_usd: "15", tryb: szacuj} uruchomiony; dalej `wyslij` (podział przez `tylko`, ≤ 15 USD/przebieg); dalej sesja 09 przegląd en (K3/K5).
 - Tryb dzienny od 14:00: pytania produktowe do właściciela; ok. 20:00 pytanie o tryb nocny.
