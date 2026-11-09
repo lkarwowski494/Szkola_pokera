@@ -185,3 +185,10 @@ test('wywołanie lokalnego workflowu: uprawnienia wywoływanego ⊆ uprawnienia 
     }
   }
 });
+
+// Push samego tekstu sklepu (store/: metadane i notatki dla recenzenta, nie wchodzą do aplikacji) nie uruchamia E2E (~40 min
+// runnera macOS bez sygnału). Odstępstwo od Treningu (e2e-ios.yml:20 bez store/**, odczyt 2026-11-09) nazwane w D-327.
+test('e2e-ios.yml: push ignoruje store/** (obok docs/**, *.md, tests/**, .claude/**)', () => {
+  const ignor = json('e2e-ios.yml').on.push['paths-ignore'];
+  for (const w of ['docs/**', '**/*.md', 'tests/**', '.claude/**', 'store/**']) assert.ok(ignor.includes(w), w);
+});

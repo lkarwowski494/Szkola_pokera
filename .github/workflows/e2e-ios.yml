@@ -19,7 +19,7 @@ run-name: ${{ inputs.aplikacja_z_przebiegu != '' && 'E2E iOS · aplikacja z inne
 on:
   push:
     branches: [main, 'integration/**', 'claude/**']
-    paths-ignore: ['docs/**', '**/*.md', 'tests/**', '.claude/**']
+    paths-ignore: ['docs/**', '**/*.md', 'tests/**', '.claude/**', 'store/**'] # store/: tekst sklepu, nie wchodzi do aplikacji (D-327)
   workflow_dispatch:
     inputs:
       aplikacja_z_przebiegu:
