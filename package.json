@@ -11,7 +11,7 @@
     "tresci:rejestr": "node docs/tresci/narzedzia/scal-rejestr.mjs --przeglad zastępczy --sprawdz",
     "content:build": "pnpm --filter @szkola/content-build build",
     "content:check": "pnpm --filter @szkola/content-build check",
-    "test:skrypty": "node --test scripts/sprawdz-i18n.test.mjs scripts/pre-push-check.test.mjs docs/tresci/narzedzia/scal-rejestr.test.mjs tests/narzedzia/sprawdz-eksport.test.mjs tests/narzedzia/k07-zakazy.test.mjs tests/narzedzia/k08-manifesty.test.mjs tests/narzedzia/e2e-flowy.test.mjs tests/narzedzia/workflowy.test.mjs scripts/ci/e2e-ponowienia.test.mjs scripts/ci/nocny-raport.test.mjs scripts/ci/bramka-e2e.test.mjs",
+    "test:skrypty": "node --test scripts/sprawdz-i18n.test.mjs scripts/pre-push-check.test.mjs docs/tresci/narzedzia/scal-rejestr.test.mjs tests/narzedzia/sprawdz-eksport.test.mjs tests/narzedzia/k07-zakazy.test.mjs tests/narzedzia/k08-manifesty.test.mjs tests/narzedzia/e2e-flowy.test.mjs tests/narzedzia/workflowy.test.mjs scripts/ci/e2e-ponowienia.test.mjs scripts/ci/nocny-raport.test.mjs scripts/ci/bramka-e2e.test.mjs scripts/i18n/przeklad-api.test.mjs scripts/i18n/przeglad-api.test.mjs",
     "test:kontrole": "tsc -p tests/kontrole && vitest run --root tests/kontrole",
     "k08": "node tests/narzedzia/k08-manifesty.mjs || echo 'K-08 (informacyjnie, strategia.md §8.1): braki w manifeście prywatności — przegląd roli 10'",
     "i18n": "node scripts/sprawdz-i18n.mjs apps/mobile/src/i18n/locales --zrodlo pl",

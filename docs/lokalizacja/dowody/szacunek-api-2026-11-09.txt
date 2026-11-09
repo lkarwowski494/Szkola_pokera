@@ -1,0 +1,61 @@
+# Szacunek kosztu przekładu i drugiego przeglądu przez API (K3a, plan-09 §6 i §8; D-294, D-295), 2026-11-09, źródło: commit 3c8bcfd (gałąź claude/sleepy-brahmagupta-2065nu)
+# Tryb --szacuj: bez sieci i bez klucza (żadne żądanie do API Anthropic nie zostało wysłane). Katalog --wyjscie w scratchpadzie sesji.
+# Cennik: tabela „Current Models” umiejętności claude-api (stan 2026-10-06, odczyt 2026-11-09): Opus 5.5 `claude-opus-5-5` 4 / 20 USD,
+#   Sonnet 5.5 `claude-sonnet-5-5` 2 / 10 USD za 1 mln tokenów wejścia / wyjścia; Message Batches −50% (Opus 2 / 10, Sonnet 1 / 5).
+# Model domyślny: Opus 5.5, effort medium; limit przebiegu 15 USD (D-295) — powyżej STOP, kod wyjścia 1.
+# Jednostki: słownik interfejsu (1) + pliki content/pl (61) = 62 na język; content/terms.yaml poza przekładem.
+# Założenia [OCENA], zawyżone celowo: wejście = przybliżenie znakowe (łacina 0,36 tokenu/znak, CJK 1); przekład = tokeny polskiego × współczynnik języka
+#   (en, pt-BR, fr 1,25; ja, zh-Hant 1,0); myślenie przekładu 3000 + 0,25 × przekład na żądanie; przegląd: 20% segmentów z uwagą × 120 tokenów
+#   + myślenie 2000 + 0,3 × (polski + przekład) na żądanie. Dla ja/pt-BR/fr/zh-Hant doliczone angielskie odniesienie (brak content/en)
+#   i — w przeglądzie — przekład o długości z założeń (brak przekładu w repo). Przed płatnym przebiegiem skrypt liczy wejście count_tokens.
+
+$ node scripts/i18n/przeklad-api.mjs --szacuj --jezyki en
+języki: en; jednostek na język: 62; żądań: 62; model claude-opus-5-5, effort medium; limit 15 USD
+szacunek (przybliżenie bez sieci (wejście i wyjście z założeń), Batch −50%, ceny claude-api 2026-10-06):
+| język | jednostek | tokeny wejścia | tokeny wyjścia | claude-opus-5-5 USD | uwagi |
+|---|---|---|---|---|---|
+| en | 62 | 381246 | 629522 | 7.06 |  |
+| **suma** | 62 | 381246 | 629522 | 7.06 | claude-opus-5-5 ≈ 7.06; claude-sonnet-5-5 ≈ 3.53 |
+kod wyjścia: 0
+
+$ node scripts/i18n/przeklad-api.mjs --szacuj --jezyki ja,pt-BR,fr,zh-Hant
+języki: ja, pt-BR, fr, zh-Hant; jednostek na język: 62; żądań: 248; model claude-opus-5-5, effort medium; limit 15 USD
+szacunek (przybliżenie bez sieci (wejście i wyjście z założeń), Batch −50%, ceny claude-api 2026-10-06):
+| język | jednostek | tokeny wejścia | tokeny wyjścia | claude-opus-5-5 USD | uwagi |
+|---|---|---|---|---|---|
+| ja | 62 | 658220 | 542397 | 6.74 | odniesienie en szacowane (brak content/en) |
+| pt-BR | 62 | 659200 | 629522 | 7.61 | odniesienie en szacowane (brak content/en) |
+| fr | 62 | 658979 | 629522 | 7.61 | odniesienie en szacowane (brak content/en) |
+| zh-Hant | 62 | 658983 | 542397 | 6.74 | odniesienie en szacowane (brak content/en) |
+| **suma** | 248 | 2635382 | 2343838 | 28.71 | claude-opus-5-5 ≈ 28.71; claude-sonnet-5-5 ≈ 14.35 |
+STOP: szacowany koszt 28.71 USD przekracza limit 15 USD (D-295); większy przebieg tylko za osobną zgodą (--limit-usd) albo w częściach (--tylko, --jezyki)
+kod wyjścia: 1
+
+$ node scripts/i18n/przeglad-api.mjs --szacuj --jezyki en
+języki: en; żądań: 62; model claude-opus-5-5, effort medium; limit 15 USD
+szacunek (przybliżenie bez sieci (wejście i wyjście z założeń), Batch −50%, ceny claude-api 2026-10-06):
+| język | jednostek | tokeny wejścia | tokeny wyjścia | claude-opus-5-5 USD | uwagi |
+|---|---|---|---|---|---|
+| en | 62 | 670866 | 427049 | 5.61 | przekład szacowany (brak w repo) |
+| **suma** | 62 | 670866 | 427049 | 5.61 | claude-opus-5-5 ≈ 5.61; claude-sonnet-5-5 ≈ 2.81 |
+kod wyjścia: 0
+
+$ node scripts/i18n/przeglad-api.mjs --szacuj --jezyki ja,pt-BR,fr,zh-Hant
+języki: ja, pt-BR, fr, zh-Hant; żądań: 248; model claude-opus-5-5, effort medium; limit 15 USD
+szacunek (przybliżenie bez sieci (wejście i wyjście z założeń), Batch −50%, ceny claude-api 2026-10-06):
+| język | jednostek | tokeny wejścia | tokeny wyjścia | claude-opus-5-5 USD | uwagi |
+|---|---|---|---|---|---|
+| ja | 62 | 879124 | 406142 | 5.82 | przekład szacowany (brak w repo) |
+| pt-BR | 62 | 950121 | 427049 | 6.17 | przekład szacowany (brak w repo) |
+| fr | 62 | 949595 | 427049 | 6.17 | przekład szacowany (brak w repo) |
+| zh-Hant | 62 | 880107 | 406142 | 5.82 | przekład szacowany (brak w repo) |
+| **suma** | 248 | 3658947 | 1666382 | 23.98 | claude-opus-5-5 ≈ 23.98; claude-sonnet-5-5 ≈ 11.99 |
+STOP: szacowany koszt 23.98 USD przekracza limit 15 USD (D-295); większy przebieg tylko za osobną zgodą (--limit-usd) albo w częściach (--tylko, --jezyki)
+kod wyjścia: 1
+
+# Wniosek (szacunek zawyżony celowo, nie pomiar; zużycie rzeczywiste w propozycje.json → uzycie_tokenow po przebiegu):
+# - en: przekład ≈ 7,06 USD + przegląd ≈ 5,61 USD = ≈ 12,67 USD (Opus 5.5, Batch), każdy przebieg < 15 USD (D-295); Sonnet 5.5 ≈ 6,34 USD.
+#   Zgodne z plan-09 §8 [OCENA] (przekład 5–7, przegląd 2–4 USD), przegląd wyżej, bo obejmuje cały przekład, nie tylko treść krytyczną.
+# - ja, pt-BR, fr, zh-Hant razem: przekład ≈ 28,71 + przegląd ≈ 23,98 = ≈ 52,69 USD (Opus) — powyżej D-303 [OCENA] 30–40 USD.
+#   Jeden przebieg z czterema językami przekracza 15 USD (STOP, kod 1); pojedynczy język mieści się w limicie
+#   (przekład 6,74–7,61, przegląd 5,82–6,17 USD), więc fale po jednym języku. Kwota łączna do zgody właściciela (W-03, D-303).

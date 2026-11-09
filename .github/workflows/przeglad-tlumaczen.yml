@@ -1,0 +1,102 @@
+# Drugi przegląd przekładu przez API Anthropic w świeżym kontekście (K3a, plan-09; D-294, D-295). Tylko ręcznie, odczyt repozytorium.
+# Wzór: Trening .github/workflows/przeglad-tlumaczen.yml (SHA 2e4b0f8, odczyt 2026-11-09). Płatny z kredytów API właściciela
+# (Message Batches, -50%). Klucz: sekret ANTHROPIC_API_KEY, użyty w JEDNYM kroku, jako zmienna środowiskowa; skrypt nigdy go
+# nie wypisuje. Przegląda przekład z gałęzi, z której uruchomiono workflow (content/<język>/, locales/<język>.json).
+# Słowniki i treść NIE są zmieniane, bez commitu i pushu: wynik to artefakt `raport-przegladu` (7 dni); każdą uwagę rozstrzyga
+# człowiek albo agent. Limit kosztu przebiegu w skrypcie: 15 USD (D-295); powyżej stop.
+# Przegląd propozycji przed nałożeniem (plik propozycje.json z artefaktu przekładu) uruchamia się lokalnie:
+# node scripts/i18n/przeglad-api.mjs --jezyki en --propozycje raport-przekladu/propozycje.json
+# Odstępstwa od Treningu (odczyt 2026-11-09): wejścia jezyki, tylko, limit_usd, tryb zamiast limit, tylko_szacuj, zgoda_koszt
+# (Trening :7–30); bez fetch-depth 0 (Trening :42, tryb różnicy --od; u nas przegląd całego przekładu); pnpm install (pakiet yaml);
+# upload-artifact@v5 jak w ci.yml tego repo (Trening @v4, :82).
+name: Przegląd tłumaczeń (API, ręcznie)
+on:
+  workflow_dispatch:
+    inputs:
+      jezyki:
+        description: 'Kody języków po przecinku (np. en albo ja,fr)'
+        type: string
+        default: 'en'
+      model:
+        description: 'Model przeglądu (domyślnie Opus 5.5, effort medium; sonnet = Sonnet 5.5, tańszy)'
+        type: choice
+        default: opus
+        options: [opus, sonnet]
+      limit_usd:
+        description: 'Limit kosztu przebiegu w USD (D-295: 15; wyższy tylko za zgodą właściciela)'
+        type: string
+        default: '15'
+      tryb:
+        description: 'szacuj = tylko koszt, nic płatnego; wyslij = batch płatny'
+        type: choice
+        default: szacuj
+        options: [szacuj, wyslij]
+      tylko:
+        description: 'Tylko pliki, których ścieżka zawiera podane fragmenty (po przecinku); puste = wszystkie z przekładem'
+        type: string
+        default: ''
+      wznow:
+        description: 'Odbiór wyników wysłanego wcześniej batcha (msgbatch_… z logu); puste = nowy przegląd'
+        type: string
+        default: ''
+permissions:
+  contents: read
+concurrency:
+  group: przeglad-tlumaczen
+  cancel-in-progress: false
+jobs:
+  przeglad:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Szacunek kosztu bez klucza i bez sieci — stop powyżej limitu
+        env:
+          WEJ_JEZYKI: ${{ inputs.jezyki }}
+          WEJ_MODEL: ${{ inputs.model }}
+          WEJ_LIMIT: ${{ inputs.limit_usd }}
+          WEJ_TYLKO: ${{ inputs.tylko }}
+        run: |
+          set -eu
+          ARGS=(--szacuj --jezyki "$WEJ_JEZYKI" --model "$WEJ_MODEL" --limit-usd "$WEJ_LIMIT" --wyjscie raport-przegladu)
+          if [ -n "$WEJ_TYLKO" ]; then ARGS+=(--tylko "$WEJ_TYLKO"); fi
+          node scripts/i18n/przeglad-api.mjs "${ARGS[@]}"
+      - name: Przegląd (batch płatny albo odbiór wyników)
+        if: inputs.tryb == 'wyslij'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          WEJ_JEZYKI: ${{ inputs.jezyki }}
+          WEJ_MODEL: ${{ inputs.model }}
+          WEJ_LIMIT: ${{ inputs.limit_usd }}
+          WEJ_TYLKO: ${{ inputs.tylko }}
+          WEJ_WZNOW: ${{ inputs.wznow }}
+        run: |
+          set -eu
+          ARGS=(--jezyki "$WEJ_JEZYKI" --model "$WEJ_MODEL" --limit-usd "$WEJ_LIMIT" --wyjscie raport-przegladu)
+          if [ -n "$WEJ_TYLKO" ]; then ARGS+=(--tylko "$WEJ_TYLKO"); fi
+          if [ -n "$WEJ_WZNOW" ]; then
+            [[ "$WEJ_WZNOW" =~ ^msgbatch_[A-Za-z0-9]+$ ]] || { echo "::error::wznow: oczekiwany identyfikator msgbatch_…"; exit 1; }
+            ARGS+=(--wznow "$WEJ_WZNOW")
+          fi
+          node scripts/i18n/przeglad-api.mjs "${ARGS[@]}"
+      - name: Podsumowanie w logu przebiegu
+        if: always()
+        run: |
+          if [ -f raport-przegladu/podsumowanie.md ]; then cat raport-przegladu/podsumowanie.md >> "$GITHUB_STEP_SUMMARY"; fi
+          if [ -f raport-przegladu/szacunek.json ]; then node -e "const s=require('./raport-przegladu/szacunek.json');console.log('Szacunek USD: '+JSON.stringify(s.koszt_wg_modelu))" >> "$GITHUB_STEP_SUMMARY"; fi
+      - name: Artefakt (tylko raporty, 7 dni)
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: raport-przegladu
+          path: raport-przegladu/
+          if-no-files-found: ignore
+          retention-days: 7
