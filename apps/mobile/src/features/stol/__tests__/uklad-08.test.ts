@@ -3,7 +3,9 @@
 // docs/design/ekrany/e3.html, ekrany przed-decyzja i bez-pozycji).
 import '@/i18n';
 import i18n from 'i18next';
-import { etykietaStolu, nazwaKarty, opisKart, opisReki, ukladStolu } from '@/features/stol/uklad';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { etykietaStolu, KOLEJNOSC, nazwaKarty, opisKart, opisReki, ukladStolu } from '@/features/stol/uklad';
 
 const t = i18n.t.bind(i18n);
 
@@ -19,7 +21,8 @@ describe('ukladStolu', () => {
     ]);
   });
 
-  it('akcja inna niż pas = „przebija” (L-1, D-274); pusty przebieg: wszyscy poza tobą czekają', () => {
+  // Tytuł zmieniony w sesji T (D-338): „przebija” tylko dla raise; asercje bez zmian.
+  it('raise = „przebija” (L-1, D-274); pusty przebieg: wszyscy poza tobą czekają', () => {
     const bb = ukladStolu('BB', 'UTG:fold,HJ:fold,CO:fold,BTN:raise2.5,SB:fold');
     expect(bb?.map((m) => `${m.pozycja}:${m.stan}`)).toEqual(['BB:ty', 'UTG:pas', 'HJ:pas', 'CO:pas', 'BTN:przebija', 'SB:pas']);
     expect(ukladStolu('UTG', '')?.filter((m) => m.stan === 'czeka')).toHaveLength(5);
@@ -31,6 +34,31 @@ describe('ukladStolu', () => {
     expect(ukladStolu('CO', 'CO:fold')).toBeNull();
     // ta sama pozycja dwa razy w przebiegu (E2 cz. 6, mutacja M03: bez sprawdzenia powtórzeń wygrywał ostatni wpis)
     expect(ukladStolu('CO', 'UTG:fold,UTG:raise2.5')).toBeNull();
+  });
+
+  it('akcja bez stanu stołu (call, limp, allin, check) → null, nie „przebija” (D-314 ryzyko, D-338)', () => {
+    // stół zna tylko pas i przebicie; sprawdzenie (call) nazwane „przebija” byłoby błędnym twierdzeniem
+    expect(ukladStolu('BTN', 'UTG:raise2.5,HJ:call')).toBeNull();
+    expect(ukladStolu('BB', 'UTG:fold,HJ:fold,CO:fold,BTN:fold,SB:call')).toBeNull();
+    expect(ukladStolu('BB', 'SB:limp')).toBeNull();
+    expect(ukladStolu('BB', 'SB:allin')).toBeNull();
+    expect(ukladStolu('BB', 'SB:check')).toBeNull();
+  });
+
+  it('każda ścieżka stołu z content/ranges/spots.yaml daje układ (strażnik danych, D-338)', () => {
+    const tekst = readFileSync(join(__dirname, '../../../../../../content/ranges/spots.yaml'), 'utf8');
+    // wpisy listy „- id: …”: hero i path w obrębie jednego wpisu (kolejność pól dowolna); bez spotów 9-max (`solver:`
+    // preflop-9max, tylko kontrola reguł i tryb gry, nie zadania ze stołem) i push/fold („…bb|”, stół się nie buduje)
+    const pary = tekst
+      .split(/^- id: /m)
+      .slice(1)
+      .map((w) => [w, /^\s+hero: (\w+)$/m.exec(w)?.[1], /^\s+path: "([^"]*)"$/m.exec(w)?.[1]] as const)
+      .filter(([w, h, pr]) => h !== undefined && pr !== undefined && !pr.includes('|') && !/^\s+solver: preflop-9max/m.test(w));
+    expect(pary.length).toBeGreaterThanOrEqual(9); // 9 spotów 6-max ze ścieżką stołu (bez „…bb|”) w spots.yaml, 2026-11-09
+    for (const [, hero, przebieg] of pary) {
+      const ty = KOLEJNOSC.find((p) => p === hero);
+      expect([przebieg, ty && ukladStolu(ty, przebieg!) ? 'ok' : 'null']).toEqual([przebieg, 'ok']);
+    }
   });
 });
 

@@ -18,13 +18,19 @@ type TFn = (k: string, o?: Record<string, unknown>) => string;
 export const KOLEJNOSC: readonly Position[] = ['UTG', 'HJ', 'CO', 'BTN', 'SB', 'BB'];
 const jestPozycja = (p: string): p is Position => (KOLEJNOSC as readonly string[]).includes(p);
 
-/** Przebieg `UTG:fold,HJ:raise2.5` → miejsca; złe dane → null (stół bez miejsc, nie zgadnięty układ). */
+/**
+ * Przebieg `UTG:fold,HJ:raise2.5` → miejsca; złe dane → null (stół bez miejsc, nie zgadnięty układ).
+ * Stół zna tylko pas (`fold`) i przebicie (`raise…`); inna akcja (call, limp, allin, check) też daje null, bo nazwanie jej
+ * „przebija” byłoby błędnym twierdzeniem (D-314, D-338). Nowy stan miejsca wymaga tekstu od roli 04.
+ */
 export function ukladStolu(ty: Position, przebieg: string): Miejsce[] | null {
   const akcje = new Map<Position, 'pas' | 'przebija'>();
   for (const wpis of przebieg.split(',').map((s) => s.trim()).filter(Boolean)) {
     const [p, a] = wpis.split(':');
     if (!p || !a || !jestPozycja(p) || p === ty || akcje.has(p)) return null;
-    akcje.set(p, a === 'fold' ? 'pas' : 'przebija');
+    const stan = a === 'fold' ? 'pas' : /^raise\d*(\.\d+)?$/.test(a) ? 'przebija' : null;
+    if (!stan) return null;
+    akcje.set(p, stan);
   }
   const start = KOLEJNOSC.indexOf(ty);
   return KOLEJNOSC.map((_, i) => {
