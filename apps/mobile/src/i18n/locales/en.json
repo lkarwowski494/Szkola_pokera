@@ -301,9 +301,9 @@
   },
   "glossary": {
     "title": "Glossary",
-    "link": "Glossary PL–EN",
-    "intro": "Polish terms from the course and their English names, as used in solvers, software and English-language materials.",
-    "search": "Search in Polish or English",
+    "link": "Glossary",
+    "intro": "Poker terms from the course with short definitions, named as in solvers, software and English-language materials.",
+    "search": "Search terms",
     "empty": "No term matches “{{q}}”.",
     "count_one": "{{count}} term",
     "count_other": "{{count}} terms",

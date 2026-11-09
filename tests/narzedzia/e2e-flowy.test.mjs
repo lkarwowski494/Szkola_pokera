@@ -85,3 +85,37 @@ test('każde id we flowach bramki ma testID w kodzie aplikacji (apps/mobile/src)
   }
   assert.ok(ile >= 10, `sprawdzonych id: ${ile}`);
 });
+
+// D-353 (rola 09, E2E 42651521831): od wydania en (D-349) aplikacja w trybie „Jak w telefonie” wybiera język z telefonu, a
+// symulator CI ma język en — flowy z polskimi asercjami padały. Każde uruchomienie aplikacji we flowie ustala język telefonu
+// argumentem `-AppleLanguages (<język>)` (Maestro 2.11.0: `launchApp.arguments` → `xcrun simctl launch … -klucz wartość`,
+// maestro-ios-driver IOSLaunchArguments.kt:5–20), także ponowne uruchomienie bez clearState (tryb „auto” czyta telefon od nowa).
+test('każdy launchApp we flowach ustala język telefonu (arguments.AppleLanguages = (pl) albo (en), D-353)', () => {
+  const uruchomienia = (kroki, gdzie, w = []) => {
+    for (const k of kroki) {
+      if (k === 'launchApp') w.push({ gdzie, arg: null });
+      if (!k || typeof k !== 'object') continue;
+      if ('launchApp' in k) w.push({ gdzie, arg: k.launchApp });
+      const arg = Object.values(k)[0];
+      if (arg && Array.isArray(arg.commands)) uruchomienia(arg.commands, gdzie, w);
+    }
+    return w;
+  };
+  let ile = 0;
+  for (const f of wszystkie) {
+    const kroki = parseAllDocuments(readFileSync(f, 'utf8')).at(-1).toJSON();
+    for (const { gdzie, arg } of uruchomienia(kroki, relative(E2E, f))) {
+      ile++;
+      assert.match(String(arg?.arguments?.AppleLanguages), /^\((pl|en)\)$/, `${gdzie}: launchApp bez arguments.AppleLanguages`);
+    }
+  }
+  assert.ok(ile >= 12, `uruchomień: ${ile}`);
+});
+
+test('K7 (plan-09): flow drugiego języka 08-drugi-jezyk.yaml w bramce, startuje z telefonem en', () => {
+  const f = join(E2E, '08-drugi-jezyk.yaml');
+  assert.ok(existsSync(f), 'brak apps/mobile/e2e/08-drugi-jezyk.yaml');
+  assert.ok(!existsSync(join(E2E, 'oczekujace/08-drugi-jezyk.yaml')), 'flow 08 nadal w oczekujace/');
+  const kroki = parseAllDocuments(readFileSync(f, 'utf8')).at(-1).toJSON();
+  assert.equal(kroki[0]?.launchApp?.arguments?.AppleLanguages, '(en)');
+});

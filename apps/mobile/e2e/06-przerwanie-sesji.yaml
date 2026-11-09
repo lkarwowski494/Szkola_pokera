@@ -4,6 +4,8 @@ name: Przerwanie sesji
 ---
 - launchApp:
     clearState: true
+    arguments:
+      AppleLanguages: '(pl)'
 - runFlow: wspolne/za-powitaniem.yaml
 - tapOn:
     id: 'dzis-cwiczenia'
@@ -38,6 +40,8 @@ name: Przerwanie sesji
 - stopApp
 - launchApp:
     clearState: false
+    arguments:
+      AppleLanguages: '(pl)'
 - tapOn:
     id: 'dzis-cwiczenia'
 # wznowienie bez nowego startu i bez ekranu zakupu, mimo że limit dnia zużyła ta sesja (BR-LIM-002-b)

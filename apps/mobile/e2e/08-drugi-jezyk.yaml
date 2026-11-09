@@ -1,0 +1,62 @@
+# K7 (plan-09), R-52, R-57, BR-JEZ-001; D-353. Wydanie en (D-349): (1) telefon po angielsku → powitanie, „Dziś” i lekcja po
+# angielsku (wybór „Jak w telefonie”, treść z bazy en, ADR 0005); (2) ręczny wybór polskiego w ustawieniach zmienia teksty bez
+# restartu; (3) po ponownym uruchomieniu z telefonem nadal po angielsku ustawienie ręczne wygrywa (polska lekcja na „Dziś”).
+# Teksty z słowników aplikacji i content/ przez helplines-env.mjs (*_EN, LEKCJA_START_TYTUL*), nie wpisane w YAML.
+appId: pl.lkarwowski.szkolapokera
+name: Drugi język
+---
+- launchApp:
+    clearState: true
+    arguments:
+      AppleLanguages: '(en)'
+- extendedWaitUntil:
+    visible: '${POWITANIE_EN}'
+    timeout: 30000
+- tapOn: '${DALEJ_EN}'
+- tapOn: '${POMIN_EN}'
+- extendedWaitUntil:
+    visible: '${LEKCJA_START_TYTUL_EN}'
+    timeout: 30000
+- takeScreenshot: 08-dzis-en
+- scrollUntilVisible:
+    element:
+      id: 'lesson-m0.l1'
+    direction: DOWN
+    timeout: 30000
+    centerElement: true
+- tapOn:
+    id: 'lesson-m0.l1'
+- assertVisible: '${LEKCJA_START_TYTUL_EN}'
+- assertNotVisible: '${LEKCJA_START_TYTUL}'
+- takeScreenshot: 08-lekcja-en
+# powrót z lekcji na „Dziś” przez ponowne uruchomienie (bez zapisanego wyboru: dalej telefon en)
+- stopApp
+- launchApp:
+    clearState: false
+    arguments:
+      AppleLanguages: '(en)'
+- extendedWaitUntil:
+    visible: '${LEKCJA_START_TYTUL_EN}'
+    timeout: 30000
+- tapOn:
+    id: 'ustawienia'
+- tapOn:
+    id: 'ustawienia-jezyk'
+- assertVisible: '${JEZYK_TYTUL_EN}'
+# (2) zmiana w aplikacji bez restartu: interfejs („Język”) po polsku zaraz po wyborze; polski tytuł pojawia się dopiero po
+# zapisie ustawienia (language.tsx: zapiszJezyk → ustawJezyk), więc stopApp niżej nie gubi wyboru
+- tapOn:
+    id: 'jezyk-pl'
+- extendedWaitUntil:
+    visible: '${JEZYK_TYTUL_PL}'
+    timeout: 15000
+# (3) ustawienie ręczne zapisane: telefon dalej po angielsku, aplikacja po polsku
+- stopApp
+- launchApp:
+    clearState: false
+    arguments:
+      AppleLanguages: '(en)'
+- extendedWaitUntil:
+    visible: '${LEKCJA_START_TYTUL}'
+    timeout: 30000
+- assertNotVisible: '${LEKCJA_START_TYTUL_EN}'

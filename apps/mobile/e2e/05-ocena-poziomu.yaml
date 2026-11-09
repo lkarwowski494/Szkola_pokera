@@ -5,6 +5,8 @@ name: Ocena poziomu
 ---
 - launchApp:
     clearState: true
+    arguments:
+      AppleLanguages: '(pl)'
 - extendedWaitUntil:
     visible: '.*bez gry na pieniądze.*'
     timeout: 30000
@@ -19,6 +21,8 @@ name: Ocena poziomu
 - stopApp
 - launchApp:
     clearState: false
+    arguments:
+      AppleLanguages: '(pl)'
 - extendedWaitUntil:
     visible: 'Pomiń'
     timeout: 30000

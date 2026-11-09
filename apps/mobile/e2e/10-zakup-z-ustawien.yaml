@@ -7,6 +7,8 @@ name: Zakup z ustawień
 ---
 - launchApp:
     clearState: true
+    arguments:
+      AppleLanguages: '(pl)'
 - runFlow: wspolne/za-powitaniem.yaml
 - tapOn:
     id: 'ustawienia'

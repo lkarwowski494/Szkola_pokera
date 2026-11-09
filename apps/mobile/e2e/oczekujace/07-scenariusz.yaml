@@ -5,6 +5,8 @@ name: Scenariusz
 ---
 - launchApp:
     clearState: true
+    arguments:
+      AppleLanguages: '(pl)'
 - runFlow: ../wspolne/za-powitaniem.yaml
 - tapOn:
     id: 'dzis-scenariusz'

@@ -209,7 +209,7 @@ Gdyby repo stało się prywatne (GitHub Free, stawki z wzorców roli z 18.10.202
 | `05-ocena-poziomu` | PR-01, R-36 (ocena pominięta i przerwana; brak ekranu zakupu na końcu) | napisany: `oczekujace/05-ocena-poziomu.yaml` (D-189) |
 | `06-przerwanie-sesji` | PR-03, R-07 (`stopApp` po 3. odpowiedzi, `launchApp` bez `clearState` → 4. zadanie) | napisany: `oczekujace/` |
 | `07-scenariusz` | PR-05, R-45 (tylko akcje z oceną; bez stosu i wygranej na ekranie) | napisany: `oczekujace/`; treść scenariuszy — rola 06 |
-| `08-drugi-jezyk` | R-52, R-57 (zmiana języka w aplikacji na `en`, lekcja z treścią `en`) | napisany: `oczekujace/`; bez `content/en` wartownik zamiast tytułu (rola 09) |
+| `08-drugi-jezyk` | R-52, R-57 (telefon en → aplikacja i lekcja en; zmiana języka w aplikacji bez restartu; ustawienie ręczne wygrywa z telefonem) | w bramce od D-353 (rola 09 K7); język telefonu w każdym flowie przez `launchApp.arguments.AppleLanguages` |
 | `09-limit-dnia` | PR-03, R-40, R-42 (druga aktywność → ekran zakupu przed startem; lekcja bez licznika) | napisany: `oczekujace/`; zakup tylko do ekranu (bez StoreKit) |
 Flowy powstają wobec ekranów roli 08 (E3 pisze je, ale pierwsze przejście nastąpi po implementacji; do tego czasu nowe flowy nie wchodzą do bramki): leżą w `apps/mobile/e2e/oczekujace/` poza `flows: '*.yaml'`, podprzepływ `wspolne/za-powitaniem.yaml` (warunkowy) dla flowów po wdrożeniu BR-ONB; kontrola bez Maestro `tests/narzedzia/e2e-flowy.test.mjs` w `pnpm test:skrypty` (YAML, krok = jeden klucz, zmienne z `helplines-env.mjs` niepuste, `runFlow` istnieje, `config.yaml` bez `oczekujace/`; 6/6 mutacji). Nie uruchomiono: Maestro (brak macOS w kontenerze) — pierwszy przebieg po implementacji na runnerze `macos-26` (D-181).
 

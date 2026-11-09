@@ -3,16 +3,21 @@ import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { Muted, Screen, Surface, Title } from '@/components/ui';
 import { definicjaTerminu } from '@/features/glossary/definicje';
-import { englishLabel, GLOSSARY_SIZE, glossarySections, type GlossaryEntry } from '@/features/glossary/glossary';
+import { englishLabel, GLOSSARY_SIZE, glossarySections, zPolskimi, type GlossaryEntry } from '@/features/glossary/glossary';
 import { jezykZadan } from '@/features/drills/text';
+import type { Jezyk } from '@szkola/jezyki';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 
-/** Słowniczek PL ↔ EN: wszystkie terminy z content/terms.yaml w obszarach, z wyszukiwaniem w obu językach. */
+/**
+ * Słowniczek PL ↔ EN: wszystkie terminy z content/terms.yaml w obszarach, z wyszukiwaniem w obu językach. Poza pl tylko
+ * termin angielski i definicja w języku aplikacji, bez polskich słów (D-347).
+ */
 export default function GlossaryScreen() {
   const tk = useTokens();
-  const { t } = useTranslation();
+  const { t } = useTranslation(); // ponowne renderowanie po zmianie języka, więc jezykZadan() jest aktualny
   const [q, setQ] = useState('');
-  const sections = useMemo(() => glossarySections(q), [q]);
+  const jezyk = jezykZadan();
+  const sections = useMemo(() => glossarySections(q, undefined, jezyk), [q, jezyk]);
   const shown = sections.reduce((n, s) => n + s.entries.length, 0);
 
   return (
@@ -39,7 +44,7 @@ export default function GlossaryScreen() {
           </Text>
           <Surface style={{ gap: odstep.m }}>
             {s.entries.map((e) => (
-              <Entry key={e.key} entry={e} />
+              <Entry key={e.key} entry={e} jezyk={jezyk} />
             ))}
           </Surface>
         </View>
@@ -48,20 +53,30 @@ export default function GlossaryScreen() {
   );
 }
 
-function Entry({ entry }: { entry: GlossaryEntry }) {
+function Entry({ entry, jezyk }: { entry: GlossaryEntry; jezyk: Jezyk }) {
   const tk = useTokens();
   const { t } = useTranslation();
   const en = englishLabel(entry);
-  const def = definicjaTerminu(entry.key, jezykZadan()); // D-335: definicja w języku aplikacji, bez polskiej poza pl
+  const def = definicjaTerminu(entry.key, jezyk); // D-335: definicja w języku aplikacji, bez polskiej poza pl
+  const pl = zPolskimi(jezyk);
+  const inne = entry.enAlt.length > 0 ? <Muted>{t('glossary.alsoEn', { list: entry.enAlt.join(', ') })}</Muted> : null;
+  const etykieta = pl ? `${entry.pl}: ${en}${def ? `. ${def}` : ''}` : `${en}${def ? `. ${def}` : ''}`;
   return (
-    <View style={{ gap: odstep.xs }} accessible accessibilityLabel={`${entry.pl}: ${en}${def ? `. ${def}` : ''}`}>
-      <View style={styles.row}>
-        <Text style={[styl.tresc, { color: tk.ink, fontWeight: '600', flex: 1 }]}>{entry.pl}</Text>
-        <View style={{ flex: 1, gap: 2 }}>
-          <Text style={[styl.tresc, { color: tk.muted }]}>{en}</Text>
-          {entry.enAlt.length > 0 ? <Muted>{t('glossary.alsoEn', { list: entry.enAlt.join(', ') })}</Muted> : null}
+    <View style={{ gap: odstep.xs }} accessible accessibilityLabel={etykieta}>
+      {pl ? (
+        <View style={styles.row}>
+          <Text style={[styl.tresc, { color: tk.ink, fontWeight: '600', flex: 1 }]}>{entry.pl}</Text>
+          <View style={{ flex: 1, gap: 2 }}>
+            <Text style={[styl.tresc, { color: tk.muted }]}>{en}</Text>
+            {inne}
+          </View>
         </View>
-      </View>
+      ) : (
+        <View style={{ gap: 2 }}>
+          <Text style={[styl.tresc, { color: tk.ink, fontWeight: '600' }]}>{en}</Text>
+          {inne}
+        </View>
+      )}
       {def ? <Text style={[styl.przypis, { color: tk.ink }]}>{def}</Text> : null}
     </View>
   );

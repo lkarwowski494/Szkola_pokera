@@ -19,7 +19,29 @@ const env = {
   // flowy oczekujące (oczekujace/, D-189): pierwsza lekcja M0 = punkt startu po „Pomiń” (BR-ONB-001-b)
   LEKCJA_START_TYTUL: tytulPierwszejLekcji('pl'),
   LEKCJA_START_TYTUL_EN: tytulPierwszejLekcji('en'),
+  // 08-drugi-jezyk.yaml (K7, D-353): teksty ekranów en ze słownika aplikacji; wzorzec Maestro = pełne dopasowanie
+  ...tekstyEn(),
 };
+
+// Słowniki interfejsu (apps/mobile/src/i18n/locales): powitanie, przyciski i tytuł ekranu „Język” w en, tytuł „Język” w pl.
+function tekstyEn() {
+  const slownik = (j) => JSON.parse(readFileSync(new URL(`../src/i18n/locales/${j}.json`, import.meta.url), 'utf8'));
+  const klucz = (s, k) => {
+    const w = k.split('.').reduce((o, x) => o?.[x], s);
+    if (typeof w !== 'string' || !w.trim()) throw new Error(`locales: brak klucza ${k}`);
+    return w;
+  };
+  const re = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const en = slownik('en');
+  const pl = slownik('pl');
+  return {
+    POWITANIE_EN: `.*${re(klucz(en, 'welcome.noMoney'))}.*`,
+    DALEJ_EN: re(klucz(en, 'welcome.continue')),
+    POMIN_EN: re(klucz(en, 'placement.skip')),
+    JEZYK_TYTUL_EN: re(klucz(en, 'language.title')),
+    JEZYK_TYTUL_PL: re(klucz(pl, 'language.title')),
+  };
+}
 
 // Słowniczek: pierwszy termin, którego nazwa polska różni się od angielskiej — wyszukiwanie po angielsku ma pokazać nazwę polską.
 function slowniczek() {
