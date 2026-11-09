@@ -1,0 +1,111 @@
+# Pula egzaminacyjna M4 (gra wobec akcji preflop): reguły lekcji m4.l1–m4.l4, inne pozycje, ręce i rozmiary.
+# Bez pytań o podział 3-bet/sprawdzenie w spotach BB vs SB i BTN vs CO (tam uczymy tylko gram/pas, ADR-26).
+module: m4
+drills:
+  - kind: choice
+    id: m4.exam.q1
+    family: m4.3bet.size
+    rules: [R-M4-002, R-M4-003]
+    prompt: "{{t:cutoff|CO}}が{{n:pf.open-size}}に{{t:open|オープン}}し、ボタンは{{t:fold|フォールド}}しました。あなたは{{t:small-blind|スモールブラインド}}で、3ベットしたいと考えています。どのサイズにしますか？"
+    table: { hand: "Ad Kd", position: SB }
+    options:
+      - { text: "{{n:pf.3bet.oop-total}}まで", correct: true, why: "フロップ後は先にアクションするため、{{t:open|オープン}}の約{{n:pf.3bet.size-oop}}に{{t:raise|レイズ}}します。大きめのサイズにすることで、{{t:cutoff|CO}}が{{t:in-position}}で安く{{t:call}}するのを防ぎます。" }
+      - { text: "{{n:pf.3bet.ip-total}}まで", sizeError: true, why: "アクションは正しいですが、それは{{t:in-position}}のプレイヤーのサイズです（{{t:open|オープン}}の{{n:pf.3bet.size-ip}}）。{{t:small-blind|スモールブラインド}}からは{{n:pf.3bet.oop-total}}まで{{t:raise|レイズ}}します。" }
+      - { text: "{{t:call|コール}}のみ", why: "{{t:small-blind|スモールブラインド}}から{{t:cutoff|CO}}に対しては、ほとんど{{t:call|コール}}しません。{{t:out-of-position}}でプレイすることになり、後ろの{{t:big-blind}}がさらに{{t:raise|レイズ}}する可能性もあります。" }
+  - kind: choice
+    id: m4.exam.q2
+    family: m4.sb.vs-open
+    rules: [R-M4-003]
+    prompt: "ボタンが{{n:pf.open-size}}に{{t:open|オープン}}しました。あなたは{{t:small-blind|スモールブラインド}}です。どうしますか？"
+    table: { hand: "8c 8d", position: SB }
+    options:
+      - { text: "3ベット", correct: true, why: "{{t:small-blind|スモールブラインド}}からボタンに対しては、{{t:range|レンジ}}の上位、約{{n:pf.3bet-freq.sb-vs-btn}}のハンドを3ベットします。77以上の{{t:pair|ペア}}はそこに含まれます。" }
+      - { text: "{{t:call|コール}}", why: "{{t:small-blind|スモールブラインド}}からボタンに対しては、ほとんど{{t:call|コール}}しません。後ろに{{t:big-blind|ビッグブラインド}}を残したまま{{t:out-of-position}}でプレイすることになります。3ベットなら{{t:initiative|イニシアチブ}}を握れ、その場で勝つチャンスもあります。" }
+      - { text: "{{t:fold|フォールド}}", why: "タイトすぎます。88は、ボタンの広い{{t:open|オープン}}に対して3ベットする{{t:range|レンジ}}の上位に入ります。" }
+  - kind: choice
+    id: m4.exam.q3
+    family: m4.3bet.shape
+    rules: [R-M4-006]
+    prompt: "あなたは{{t:big-blind|ビッグブラインド}}で、ボタンが{{t:open|オープン}}し、{{t:small-blind}}は{{t:fold|フォールド}}しました。次のうち、典型的な{{t:value|バリュー}}の3ベットになるハンドはどれですか？"
+    table: { position: BB }
+    options:
+      - { text: "JJ", correct: true, why: "{{t:big-blind|ビッグブラインド}}からは最も強いハンド（TT+、AQ+、AJs+）を3ベットします。JJは大きな{{t:pot|ポット}}を作りたいハンドです。" }
+      - { text: "A9オフスート", why: "オフスートのエース（AJo–A9o）は、{{t:big-blind|ビッグブラインド}}では通常{{t:call|コール}}するだけです。安く参加でき、アクションを締めくくれます。" }
+      - { text: "66", why: "中位・下位の{{t:pair|ペア}}は、{{t:big-blind|ビッグブラインド}}では通常{{t:call|コール}}します。フロップ後に利益を出すハンドで、3ベットすると4ベットへの対応が苦しくなります。" }
+  - kind: choice
+    id: m4.exam.q4
+    family: m4.bb.price
+    rules: [R-M4-004]
+    prompt: "{{t:cutoff|CO}}が{{n:pf.open-size}}に{{t:open|オープン}}し、ボタンと{{t:small-blind}}は{{t:fold|フォールド}}しました。{{t:big-blind|ビッグブラインド}}で{{t:call|コール}}するには、どれだけのエクイティが必要ですか（フロップ後のプレイは考慮しません）？"
+    table: { position: BB }
+    options:
+      - { text: "約{{n:eq.bb-vs-btn-open}}", correct: true, why: "価格は金額で決まり、誰が{{t:open|オープン}}したかには左右されません。{{t:call|コール}}後に{{n:bb.pot-after.vs-btn}}になる{{t:pot|ポット}}に{{n:bb.call.vs-btn}}を追加で払うので、ボタンに対する場合と同じです。" }
+      - { text: "約半分", why: "{{t:pot|ポット}}に相手の{{t:bet}}しかなければ、半分が必要です。{{t:pot|ポット}}内のブラインドが価格を改善します。" }
+      - { text: "約{{n:eq.bb-vs-sb-open}}", why: "それは{{t:small-blind|スモールブラインド}}が{{n:pf.open-size-sb}}に{{t:open|オープン}}した場合の価格です。ここでの{{t:open}}はそれより小さいです。" }
+  - kind: choice
+    id: m4.exam.q5
+    family: m4.bb.3bet-size
+    rules: [R-M4-014]
+    prompt: "{{t:small-blind|スモールブラインド}}が{{n:pf.open-size-sb}}に{{t:open|オープン}}しました。あなたは{{t:big-blind|ビッグブラインド}}でAAを持ち、3ベットします。どのサイズにしますか？"
+    table: { hand: "Ah Ad", position: BB }
+    options:
+      - { text: "{{n:exam.m4.bb-vs-sb.3bet}}まで", correct: true, why: "{{t:small-blind|スモールブラインド}}に対してはフロップ後に{{t:position|ポジション}}があるので、3ベットは{{t:open|オープン}}の約{{n:pf.3bet.size-ip}}です。{{n:pf.open-size-sb}}への{{t:open|オープン}}なら{{n:exam.m4.bb-vs-sb.3bet}}になります。" }
+      - { text: "{{n:exam.m4.bb-vs-sb.3bet-oop-size}}まで", sizeError: true, why: "アクションは正しいですが、{{t:open|オープン}}の{{n:pf.3bet.size-oop}}は{{t:out-of-position}}のサイズです。{{t:small-blind|スモールブラインド}}に対しては{{t:big-blind}}が{{t:position|ポジション}}を持つので、{{t:raise|レイズ}}額は小さくなります。" }
+      - { text: "{{n:pf.3bet.ip-total}}まで", sizeError: true, why: "アクションは正しいですが、{{n:pf.3bet.ip-total}}は{{n:pf.open-size}}への{{t:open}}に対する3ベットです。{{t:small-blind|スモールブラインド}}は{{n:pf.open-size-sb}}に{{t:open|オープン}}したので、{{t:open|オープン}}の{{n:pf.3bet.size-ip}}は{{n:exam.m4.bb-vs-sb.3bet}}です。" }
+  - kind: choice
+    id: m4.exam.q6
+    family: m4.vs3bet.math
+    rules: [R-M4-007]
+    prompt: "フロップ後に{{t:position|ポジション}}を持つプレイヤーから3ベットを受けました。自分の{{t:open|オープン}}のうち、通常どれくらいの割合を{{t:fold|フォールド}}しますか？"
+    options:
+      - { text: "約{{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}}", correct: true, why: "ソルバーの解やチャートは、おおよそこの割合で{{t:fold|フォールド}}します。上限は{{n:alpha.vs-3bet-ip-size}}のしきい値のすぐ下にあります。これより多くフォールドすると、相手の3ベットはどのハンドでも利益が出てしまいます。" }
+      - { text: "AAとKK以外ほぼすべて", why: "それでは相手はどんな2枚でも3ベットして利益を出せます。{{n:alpha.vs-3bet-ip-size}}よりはるかに高い頻度で{{t:fold|フォールド}}しているからです。" }
+      - { text: "4分の1未満", why: "{{t:fold|フォールド}}が少なすぎます。相手の{{t:range|レンジ}}に負けていて、フロップ後のプレイも難しいハンドで3ベットに払うことになります。" }
+  - kind: choice
+    id: m4.exam.q7
+    family: m4.vs3bet.oop
+    rules: [R-M4-008]
+    prompt: "{{t:hijack|HJ}}から{{n:pf.open-size}}に{{t:open|オープン}}したところ、ボタンが{{n:pf.3bet.ip-total}}に{{t:raise|レイズ}}し、残りは{{t:fold|フォールド}}しました。どうしますか？"
+    table: { hand: "Ah Tc", position: HJ }
+    options:
+      - { text: "{{t:fold|フォールド}}", correct: true, why: "オフスートのATは、{{t:out-of-position}}ではAJ、AQ、AKにドミネートされていることが多く、フロップ後に{{t:equity-realization|エクイティを実現}}しにくいハンドです。こうしたハンドは3ベットに対して{{t:fold|フォールド}}します。" }
+      - { text: "{{t:call|コール}}", why: "エースは魅力的ですが、{{t:out-of-position}}ではスーテッドのハンドと{{t:pair|ペア}}で{{t:call|コール}}します。AToは弱いキッカーでエースを当てることが多すぎます。" }
+      - { text: "{{t:value|バリュー}}で4ベット", why: "{{t:value|バリュー}}の4ベットには、通常AA、KK、AKを使います。AToは、{{t:call|コール}}してくるハンドの大半に負けています。" }
+  - kind: choice
+    id: m4.exam.q8
+    family: m4.vs3bet.ip
+    rules: [R-M4-009]
+    prompt: "ボタンから{{n:pf.open-size}}に{{t:open|オープン}}したところ、{{t:small-blind}}が{{n:pf.3bet.oop-total}}に{{t:raise|レイズ}}し、{{t:big-blind}}は{{t:fold|フォールド}}しました。どうしますか？"
+    table: { hand: "9s 9h", position: BTN }
+    options:
+      - { text: "{{t:call|コール}}", correct: true, why: "{{t:in-position|インポジション}}では、66からTTまでの{{t:pair|ペア}}などを含め、より広く{{t:call|コール}}します。99はフロップ後にプレイしやすく、{{t:equity-realization|エクイティを実現}}しやすいハンドです。" }
+      - { text: "{{t:fold|フォールド}}", why: "タイトすぎます。{{t:fold|フォールド}}するのは最も低い{{t:pair|ペア}}で、99は{{t:in-position}}での{{t:call|コール}}{{t:range|レンジ}}に入ります。" }
+      - { text: "{{t:value|バリュー}}で4ベット", why: "{{t:value|バリュー}}の4ベットには、通常AA、KK、AKを使います。99はフロップを見たいハンドです。" }
+  - kind: choice
+    id: m4.exam.q9
+    family: m4.vs3bet.value
+    rules: [R-M4-010, R-M4-011]
+    prompt: "{{t:hijack|HJ}}から{{n:pf.open-size}}に{{t:open|オープン}}したところ、{{t:cutoff|CO}}が{{n:pf.3bet.ip-total}}に{{t:raise|レイズ}}し、残りは{{t:fold|フォールド}}しました。どうしますか？"
+    table: { hand: "As Ac", position: HJ }
+    options:
+      - { text: "約{{n:pf.4bet.oop-example.low}}–{{n:exam.m4.4bet.oop.high}}に4ベット", correct: true, why: "AAは{{t:value|バリュー}}で4ベットします。{{t:out-of-position|アウトオブポジション}}では、4ベットは3ベットの約{{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}}です。{{n:pf.3bet.ip-total}} × {{n:pf.4bet.size-oop.low}} ≈ {{n:pf.4bet.oop-example.low}}、× {{n:pf.4bet.size-oop.high}} ≈ {{n:exam.m4.4bet.oop.high}}。" }
+      - { text: "{{t:call|コール}}", why: "AAはスタック全部を入れたいハンドです。{{t:out-of-position}}での{{t:call|コール}}は、{{t:value|バリュー}}と{{t:initiative|イニシアチブ}}を手放します。" }
+      - { text: "{{n:format.stack}}でオールイン", why: "オールインすると、相手が通常の4ベットならコールしてくる弱いハンドを降ろしてしまいます。3ベットの約{{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}}の4ベットの後でも、残りのスタックは簡単に入れられます。" }
+  - kind: numeric
+    id: m4.exam.n1
+    family: m4.iso.size
+    rules: [R-M4-012]
+    prompt: "2人のプレイヤーがリンプし、ボタンは{{t:fold|フォールド}}しました。あなたは{{t:small-blind|スモールブラインド}}で、{{t:isolation|アイソレート}}したいと考えています。何bbに{{t:raise|レイズ}}しますか？数字を入力してください。"
+    table: { hand: "Qs Qc", position: SB }
+    answer: exam.m4.iso.two-oop
+    explanation: "基本の{{n:pf.iso.base}}に、2人のリンパーそれぞれにつき{{n:pf.iso.per-limper}}を足し、フロップ後は先にアクションするので{{n:pf.iso.oop-extra}}を加えます。合計{{n:exam.m4.iso.two-oop}}です。"
+  - kind: choice
+    id: m4.exam.q10
+    family: m4.iso.many
+    rules: [R-M4-013, R-M4-012]
+    prompt: "あなたより前の3人が、{{t:big-blind}}の額に合わせただけです。あなたは{{t:cutoff|CO}}です。どうしますか？"
+    table: { hand: "Ad Kh", position: CO }
+    options:
+      - { text: "{{n:exam.m4.iso.three}}に{{t:raise|レイズ}}", correct: true, why: "リンパーが多いときは主に{{t:value|バリュー}}で{{t:raise|レイズ}}し、AKはまさにそういうハンドです。サイズは{{n:pf.iso.base}}に、3人のリンパーそれぞれにつき{{n:pf.iso.per-limper}}を足します。" }
+      - { text: "{{n:pf.iso.one-limper}}に{{t:raise|レイズ}}", sizeError: true, why: "アクションは正しいですが、それはリンパー1人に対するサイズです。1人増えるごとに{{n:pf.iso.per-limper}}を足すので、ここでは{{n:exam.m4.iso.three}}です。" }
+      - { text: "後ろからリンプ", why: "後ろからのリンプは投機的なハンド向きです。AKは{{t:pot|ポット}}を大きくし、相手の人数を減らしたいハンドです。" }

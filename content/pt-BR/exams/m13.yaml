@@ -1,0 +1,91 @@
+module: m13
+drills:
+  - kind: numeric
+    id: m13.exam.q1
+    family: m13.equity-loss
+    rules: [R-M13-001]
+    prompt: "Você vai all-in {{n:exam.m13.n}} vezes com {{t:equity|equity}} de {{n:exam.m13.eq}}. Em média, quantas dessas mãos você vai perder? Digite um número."
+    answer: exam.m13.lose.of-n
+    explanation: "Com {{t:equity|equity}} de {{n:exam.m13.eq}}, você perde 1 − {{n:exam.m13.eq}} = {{n:exam.m13.lose}} dessas mãos: {{n:exam.m13.n}} × {{n:exam.m13.lose}} = {{n:exam.m13.lose.of-n}}. Cada uma dessas derrotas faz parte da conta e não é motivo para mudar de estratégia."
+  - kind: choice
+    id: m13.exam.q2
+    family: m13.equity-loss
+    rules: [R-M13-001]
+    prompt: "Duas vezes na mesma {{t:session|sessão}} você perdeu um all-in tendo {{t:equity|equity}} de {{n:exam.m13.eq.big}}. O que isso significa para a sua estratégia?"
+    options:
+      - { text: "Nada: com essa {{t:equity|equity}} você perde cerca de {{n:exam.m13.lose.big}} das mãos, e essas duas estavam entre elas", correct: true, why: "A {{t:equity|equity}} é a fração de vitórias em muitas repetições da mesma situação. As derrotas em cerca de {{n:exam.m13.lose.big}} dos casos fazem parte dela, mesmo quando acontecem próximas umas das outras." }
+      - { text: "Que você precisa jogar com mais cuidado nesses spots", why: "A decisão com {{t:equity|equity}} de {{n:exam.m13.eq.big}} foi boa. Mudar de estratégia por causa do resultado significaria abrir mão de jogadas que ganham em cerca de {{n:exam.m13.eq.big}} dos casos." }
+      - { text: "Que os adversários leem melhor o seu jogo", why: "No all-in só a {{t:equity|equity}} importa: a leitura do adversário não muda as cartas que vão sair. Duas derrotas com chance de {{n:exam.m13.lose.big}} em cada uma são {{t:variance|variância}}." }
+  - kind: choice
+    id: m13.exam.q3
+    family: m13.verdicts
+    rules: [R-M13-002]
+    prompt: "O solver joga a sua mão com {{t:raise|aumento}} em {{n:exam.m13.solver.main}} dos casos e com {{t:fold|fold}} em {{n:exam.m13.solver.rare}}. Você {{t:fold|desistiu}}. Como o relatório vai avaliar isso?"
+    options:
+      - { text: "Aceitável", correct: true, why: "O solver joga {{t:fold|fold}} em {{n:exam.m13.solver.rare}} dos casos: pelo menos {{n:range.mixed.min}}, mas com menos frequência que {{n:range.mixed.low}}. É a jogada menos frequente de uma {{t:mixed-hand|mão mista}}, então não é erro, e sim uma decisão aceitável." }
+      - { text: "Alinhada", why: "Alinhada é a ação que o solver joga em pelo menos {{n:range.mixed.low}} dos casos. O {{t:fold|fold}} em {{n:exam.m13.solver.rare}} é menos frequente." }
+      - { text: "Erro", why: "Erro é uma ação que o solver nunca joga. O {{t:fold|fold}} em {{n:exam.m13.solver.rare}} é a jogada menos frequente de uma {{t:mixed-hand|mão mista}}, então as duas jogadas estão corretas." }
+  - kind: choice
+    id: m13.exam.q4
+    family: m13.verdicts
+    rules: [R-M13-002]
+    prompt: "O solver {{t:fold|desiste}} com a sua mão em {{n:exam.m13.solver.main2}} dos casos e {{t:call|paga}} em {{n:exam.m13.solver.tiny}}. Você {{t:call|pagou}}. Qual é o veredito?"
+    options:
+      - { text: "Imprecisão", correct: true, why: "O {{t:call|call}} em {{n:exam.m13.solver.tiny}} dos casos é menos que {{n:range.mixed.min}}. O relatório conta uma ação abaixo do limite como imprecisão, ou seja, como um erro: esse é um limite do aplicativo, não da teoria." }
+      - { text: "Erro", why: "Erro é uma ação que o solver nunca joga. Aqui o solver {{t:call|paga}} em {{n:exam.m13.solver.tiny}} dos casos." }
+      - { text: "Aceitável, porque o solver também {{t:call|paga}} às vezes", why: "Aceitável é a ação jogada em pelo menos {{n:range.mixed.min}} dos casos. {{n:exam.m13.solver.tiny}} é pouco demais." }
+      - { text: "Sem avaliação", why: "“Sem avaliação” é o que recebe a decisão para a qual o aplicativo não tem regra nem resultado do solver. Aqui existe resultado do solver." }
+  - kind: choice
+    id: m13.exam.q5
+    family: m13.suit-swap
+    rules: [R-M13-003]
+    prompt: "No jogo você tinha J♣ T♣ no {{t:board|board}} 9♣ 8♦ 2♣. Qual destas configurações é a mesma situação, ou seja, tem a mesma decisão correta?"
+    options:
+      - { text: "J♦ T♦ no {{t:board|board}} 9♦ 8♣ 2♦", correct: true, why: "Paus foram trocados por ouros e ouros por paus, em tudo ao mesmo tempo. Você continua com um {{t:flush-draw|flush draw}} e um {{t:oesd|OESD}}, então a decisão não muda." }
+      - { text: "J♣ T♣ no {{t:board|board}} 9♦ 8♣ 2♦", why: "Os naipes foram trocados só no {{t:board|board}}: seus paus deixaram de combinar com o {{t:board|board}} e o {{t:flush-draw|flush draw}} sumiu. É outra situação." }
+      - { text: "J♥ T♥ no {{t:board|board}} 9♣ 8♦ 2♣", why: "Os naipes foram trocados só na sua mão: copas não combinam com os paus no {{t:board|board}}, então já não há {{t:flush-draw|flush draw}}." }
+  - kind: choice
+    id: m13.exam.q6
+    family: m13.sample
+    rules: [R-M13-004]
+    prompt: "Em uma semana você teve {{n:exam.m13.opps}} oportunidades de defender o {{t:big-blind|big blind}} contra uma {{t:open|abertura}} do Button. O que você pode dizer sobre a sua frequência de defesa?"
+    options:
+      - { text: "Já posso olhar para ela, mas sem certeza", correct: true, why: "Você conta oportunidades, não mãos. Você passa a olhar para a estatística a partir de cerca de {{n:hud.opps.look}} oportunidades e ganha confiança com cerca de {{n:hud.opps.sure}}. {{n:exam.m13.opps}} é um sinal inicial, não uma conclusão." }
+      - { text: "Já sei com que frequência eu defendo", why: "{{n:exam.m13.opps}} oportunidades ainda são menos que as cerca de {{n:hud.opps.sure}} com as quais você ganha confiança." }
+      - { text: "Nada, porque estatísticas precisam de milhares de mãos", why: "O que conta são as oportunidades para essa decisão específica. A partir de cerca de {{n:hud.opps.look}} oportunidades você já pode olhar para a estatística." }
+  - kind: choice
+    id: m13.exam.q7
+    family: m13.review-when
+    rules: [R-M13-005]
+    prompt: "Você está terminando uma {{t:session|sessão}} longa, está cansado e tem algumas mãos marcadas. Quando você as analisa?"
+    options:
+      - { text: "Daqui a algumas horas ou amanhã, com a cabeça fresca", correct: true, why: "A análise feita no cansaço ou logo depois de uma grande derrota fica tingida pelas emoções. As mãos marcadas não vão fugir." }
+      - { text: "Na hora, enquanto me lembro de tudo", why: "Para a revisão basta um registro curto da mão. O cansaço atrapalha o julgamento, então é melhor revisá-las depois, com a cabeça fresca." }
+      - { text: "Entre as mãos da próxima {{t:session|sessão}}", why: "Durante o jogo você só marca as mãos. Analisar na mesa tira a atenção das próximas decisões." }
+  - kind: choice
+    id: m13.exam.q8
+    family: m13.review-which
+    rules: [R-M13-006]
+    prompt: "Qual destas mãos da sua última {{t:session|sessão}} mais vale a pena revisar?"
+    options:
+      - { text: "Um {{t:pot|pote}} grande em que você hesitou muito antes de {{t:call|pagar}} no river", correct: true, why: "Mãos com uma decisão difícil estão entre as que vale a pena revisar, e um {{t:pot|pote}} grande pesa mais. A hesitação mostra que você não sabia o que fazer." }
+      - { text: "All-in no pré-flop com um {{t:pair|par}} de ases contra um {{t:pair|par}} de reis, perdido no river", why: "Isso é um bad beat: a decisão era óbvia, e a derrota é {{t:variance|variância}}. Você não gasta muito tempo com mãos assim." }
+      - { text: "Um {{t:pot|pote}} pequeno ganho sem showdown depois de um c-bet", why: "Um {{t:pot|pote}} pequeno sem decisão difícil ensina pouco. É melhor dedicar o tempo de revisão a {{t:pot|potes}} grandes e a decisões em que você hesitou." }
+  - kind: choice
+    id: m13.exam.q9
+    family: m13.review-how
+    rules: [R-M13-008]
+    prompt: "Você está revisando um {{t:call|call}} no river. Com uma suposição otimista sobre o {{t:range|range}} do adversário (muitos {{t:bluff|blefes}}), o {{t:call|call}} dá lucro; com uma pessimista, dá prejuízo. E agora?"
+    options:
+      - { text: "Estimo um {{t:range|range}} realista: a avaliação depende dele", correct: true, why: "As suposições extremas delimitam o intervalo em que está a realidade. Quando a decisão é boa com uma e ruim com a outra, quem decide é a suposição realista." }
+      - { text: "Considero o {{t:call|call}} bom, porque ele é bom com a suposição otimista", why: "A suposição otimista é só uma ponta do intervalo. Como o {{t:call|call}} perde com a pessimista, a avaliação depende de como o adversário realmente joga." }
+      - { text: "Considero o {{t:call|call}} um erro, porque ele perde com a suposição pessimista", why: "Uma decisão boa com a suposição pessimista resiste a um erro de leitura, mas uma decisão ruim com ela não é necessariamente um erro. Quem decide é a suposição realista." }
+  - kind: choice
+    id: m13.exam.q10
+    family: m13.review-how
+    rules: [R-M13-007]
+    prompt: "Um amigo revisa as mãos calculando logo a equity e o preço, sem anotar a primeira reação. O que ele perde?"
+    options:
+      - { text: "Ele não vê em quais decisões a intuição o engana", correct: true, why: "A diferença entre a primeira reação e o cálculo mostra onde a intuição erra e, com o tempo, a melhora. Sem anotar a reação, essa diferença não aparece." }
+      - { text: "Nada: só o resultado do cálculo importa", why: "O cálculo avalia uma decisão. Comparar a primeira reação com o cálculo mostra onde a sua intuição engana você e, com o tempo, a melhora." }
+      - { text: "A precisão do cálculo, porque a primeira reação a melhora", why: "A primeira reação não muda o cálculo. O valor dela está na comparação com o cálculo, que mostra onde a sua intuição engana você." }

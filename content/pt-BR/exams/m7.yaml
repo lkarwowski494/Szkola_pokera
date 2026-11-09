@@ -1,0 +1,95 @@
+# Pula pytań egzaminacyjnych modułu M7 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m7.*).
+module: m7
+drills:
+  - kind: choice
+    id: m7.exam.q1
+    family: m7.barrel.card
+    rules: [R-M7-001]
+    prompt: "Você {{t:open|abriu}} do Button e o {{t:big-blind}} {{t:call|pagou}}. No flop [[9s 6d 2c]], você {{t:bet|apostou}} um c-bet e ele {{t:call|pagou}}. Depois de qual carta no turn você {{t:bet|aposta}} um {{t:second-barrel|second barrel}} com mais frequência?"
+    table: { position: BTN, board: "9s 6d 2c" }
+    options:
+      - { text: "[[Kh]]", correct: true, why: "Sim: um rei em uma {{t:board|mesa}} mais baixa acerta seu {{t:range}} de {{t:open|abertura}} (KQ, KJ, KT, AK) com mais frequência do que o {{t:range}} de quem defende, e todo {{t:pair|par}} com que o {{t:big-blind}} {{t:call|pagou}} o flop cai uma posição." }
+      - { text: "[[8c]]", why: "Com o nove e o seis, um oito dá {{t:straight|sequência}} para T7 e 75 e {{t:two-pair|dois pares}} para 98 e 86, ou seja, mãos que o {{t:big-blind}} defende. Esta carta tende a ajudar mais a ele." }
+      - { text: "[[5s]]", why: "Com o nove, o seis e o dois, um cinco dá {{t:straight|sequência}} para 87 e 43, e o {{t:big-blind}} defende muitas cartas baixas. Esta não é uma carta que favoreça seu {{t:range}}." }
+  - kind: choice
+    id: m7.exam.q2
+    family: m7.barrel.bluff
+    rules: [R-M7-002]
+    prompt: "Você {{t:open|abriu}} do Button e o {{t:big-blind}} {{t:call|pagou}} o c-bet no flop. O turn é um dois e o adversário {{t:check|dá check}}. Você tem uma de duas mãos sem {{t:pair|par}}. Com qual é melhor {{t:bluff|blefar}} dando um {{t:second-barrel|second barrel}}?"
+    table: { position: BTN, board: "Kc 9h 4h 2s" }
+    options:
+      - { text: "[[Qh Jh]]", correct: true, why: "Sim: você tem um {{t:flush-draw|draw de flush}} e um gutshot (o dez). Isso é um {{t:semi-bluff|semiblefe}}: você ganha quando o adversário {{t:fold|desiste}} ou quando acerta no river." }
+      - { text: "[[8c 7c]]", why: "Esta mão não tem outs: nenhuma carta no river lhe dá {{t:straight|sequência}} nem {{t:flush}}. Um {{t:bluff|blefe}} sem outs tem só um caminho para ganhar, então você abre mão dele com mais frequência." }
+  - kind: choice
+    id: m7.exam.q3
+    family: m7.barrel.value
+    rules: [R-M7-003]
+    prompt: "Você {{t:open|abriu}} do Button e o {{t:big-blind}} {{t:call|pagou}} o c-bet no flop. O turn é um cinco e o adversário {{t:check|dá check}}. Você tem {{t:second-pair|segundo par}} com ás. O que você faz?"
+    table: { hand: "Ad 7d", position: BTN, board: "Ts 7c 3d 5h" }
+    options:
+      - { text: "{{t:check|Dou check}}", correct: true, why: "Sim: {{t:second-pair|segundo par}} é uma mão média. Depois de {{t:call|pagar}} o flop, o {{t:range}} do adversário é mais forte: diante de uma segunda aposta, ele {{t:fold|desiste}} com as mãos piores e paga com dez ou melhores. {{t:check|Dando check}}, você mantém o {{t:pot|pote}} pequeno e chega ao showdown." }
+      - { text: "Aposto por {{t:value|valor}}", why: "Uma aposta com mão média lucra quando mãos piores pagam, e depois de {{t:call|pagar}} o flop o adversário tem menos delas. Vão pagar principalmente mãos que batem você." }
+      - { text: "Aposto alto para proteger a mão", why: "Uma aposta grande com um {{t:pair|par}} médio expulsa as mãos piores e deixa as melhores. A proteção não ajuda quando pagam principalmente mãos que já estão ganhando." }
+  - kind: numeric
+    id: m7.exam.q4
+    family: m7.barrel.math
+    rules: [R-M7-004]
+    prompt: "Turn. Há {{n:exam.m7.pot}} no {{t:pot|pote}}. Você {{t:bluff|blefa}} com uma mão que quase não ganha e {{t:bet|aposta}} {{n:exam.m7.bet.half}}. Com que frequência o adversário precisa {{t:fold|desistir}} para esse {{t:bluff|blefe}} ficar no zero a zero? Digite o número em porcentagem."
+    answer: exam.m7.alpha.half
+    explanation: "O limiar é aposta ÷ ({{t:pot|pote}} + aposta) = {{n:exam.m7.bet.half}} ÷ ({{n:exam.m7.pot}} + {{n:exam.m7.bet.half}}) = {{n:exam.m7.alpha.half}}. Quando você tem outs, esse limiar cai, porque às vezes você ganha também quando ele {{t:call|paga}}."
+  - kind: choice
+    id: m7.exam.q5
+    family: m7.polar.concept
+    rules: [R-M7-005]
+    prompt: "No turn, você aposta 3/4 do {{t:pot|pote}} com um {{t:range}} {{t:polarized|polarizado}}. Quais mãos do seu {{t:range}} {{t:check|dão check}} nesse caso?"
+    options:
+      - { text: "Médias, p. ex. {{t:second-pair|segundo par}}", correct: true, why: "Sim: um {{t:range}} {{t:polarized|polarizado}} é formado por mãos muito fortes e {{t:semi-bluff|semiblefes}}. Mãos médias não ganham com um {{t:pot|pote}} grande, então {{t:check|dão check}} e tentam chegar ao showdown." }
+      - { text: "Sets e {{t:two-pair|dois pares}}", why: "Este é o polo superior do {{t:range}}: essas mãos querem construir o {{t:pot|pote}} antes do river, então apostam um tamanho grande." }
+      - { text: "{{t:flush-draw|Draws de flush}}", why: "Este é o polo inferior: os {{t:semi-bluff|semiblefes}} precisam que o adversário {{t:fold|desista}}, então apostam o mesmo tamanho grande das mãos fortes." }
+  - kind: choice
+    id: m7.exam.q6
+    family: m7.polar.price
+    rules: [R-M7-006]
+    prompt: "Turn. Você tem {{t:two-pair|dois pares}} e o adversário pode ter um {{t:flush-draw|draw de flush}} (cerca de {{n:odds.flush.turn-river}} no river). Há {{n:exam.m7.pot}} no {{t:pot|pote}} e o adversário {{t:check|dá check}}. O que você faz?"
+    table: { hand: "Jc 8c", position: BTN, board: "Jh 8h 4s 2d" }
+    options:
+      - { text: "Aposto {{n:exam.m7.bet.three-quarters}}", correct: true, why: "Sim: contra uma aposta de 3/4 do {{t:pot|pote}}, o {{t:draw}} precisa de {{n:eq.bet-three-quarters}} de equity e tem cerca de {{n:odds.flush.turn-river}}. Ele paga caro demais, e você constrói o {{t:pot|pote}} com uma mão forte." }
+      - { text: "Aposto {{n:exam.m7.bet.quarter}}", sizeError: true, why: "Ação certa, tamanho errado: contra uma aposta de 1/4 do {{t:pot|pote}}, o {{t:draw}} precisa de apenas {{n:eq.bet-quarter}}, menos que os cerca de {{n:odds.flush.turn-river}} que ele tem. A aposta pequena dá a ele um bom preço. Aposte alto." }
+      - { text: "{{t:check|Dou check}}", why: "Uma carta grátis é um presente para o {{t:flush-draw|draw de flush}}, e você perde o valor de uma mão forte. Com {{t:two-pair|dois pares}}, você aposta." }
+  - kind: numeric
+    id: m7.exam.q7
+    family: m7.implied.math
+    rules: [R-M7-008]
+    prompt: "Turn. Há {{n:exam.m7.pot}} no {{t:pot|pote}} e o adversário {{t:bet|aposta}} {{n:exam.m7.bet.half}}. Você tem um {{t:oesd}}: {{n:outs.oesd}} outs, {{n:miss.oesd.turn}} cartas que não acertam. Quantas {{t:chips|fichas}} a mais você precisa ganhar no river depois de acertar (além do {{t:pot|pote}} após a {{t:bet|aposta}}) para que {{t:call|pagar}} fique no zero a zero? Digite o número."
+    answer: exam.m7.io.extra
+    explanation: "Nos acertos, você precisa ganhar no total {{n:exam.m7.bet.half}} × {{n:miss.oesd.turn}} ÷ {{n:outs.oesd}} = {{n:exam.m7.io.need}}. No {{t:pot|pote}} após a {{t:bet|aposta}} há {{n:exam.m7.io.pot-after-bet}}, então faltam {{n:exam.m7.io.extra}}. Essas são suas implied odds: é quanto o adversário ainda precisa pagar a você."
+  - kind: choice
+    id: m7.exam.q8
+    family: m7.implied.when
+    rules: [R-M7-010]
+    prompt: "Turn. Você tem um {{t:oesd}} (valete ou seis) e há duas cartas de ouros na {{t:board|mesa}}. Quantos outs você conta, sendo conservador?"
+    table: { hand: "9s 8s", board: "Td 7d 2c 3h" }
+    options:
+      - { text: "{{n:exam.m7.oesd.clean}}", correct: true, why: "Sim: dos {{n:outs.oesd}} outs, dois ([[Jd]] e [[6d]]) colocam uma terceira carta de ouros na {{t:board|mesa}}. Aí um adversário com duas cartas de ouros tem {{t:flush}}, e você, ao acertar, perde e paga o máximo. Sobram {{n:exam.m7.oesd.clean}} outs limpos." }
+      - { text: "{{n:outs.oesd}}", why: "Esses são todos os outs para a {{t:straight|sequência}}, mas dois deles tornam possível um {{t:flush}}. Quando a {{t:board|mesa}} pode dar {{t:flush}}, você conta menos outs." }
+      - { text: "{{n:outs.gutshot}}", why: "Esse é o número de outs de um gutshot. Você tem um {{t:straight-draw|draw de sequência}} aberto dos dois lados e desconta só as duas cartas de ouros." }
+  - kind: choice
+    id: m7.exam.q9
+    family: m7.probe.play
+    rules: [R-M7-011, R-M7-012]
+    prompt: "Você defende o {{t:big-blind}} contra a {{t:open|abertura}} do Button. No flop, vocês dois {{t:check|deram check}}. O turn é um dois. Você age primeiro. Você tem {{t:second-pair|segundo par}} e um gutshot (o quatro). O que você faz?"
+    table: { hand: "6c 5d", position: BB, board: "9h 6s 3d 2c" }
+    options:
+      - { text: "Aposto (probe bet)", correct: true, why: "Sim: depois de {{t:check|dar check}} no flop, o Button tem menos mãos fortes, e a {{t:board|mesa}} baixa combina com seu {{t:range}}. O {{t:pair|par}} quer ser pago por mãos piores e se proteger de uma carta grátis, e o gutshot dá outs extras." }
+      - { text: "{{t:check|Dou check}} para ver o que o Button faz", why: "Você dá uma carta grátis ao Button, e ele, depois de {{t:check|dar check}} no flop, muitas vezes tem só cartas altas. Em uma {{t:board|mesa}} baixa, com {{t:pair|par}} você mesmo aposta." }
+      - { text: "{{t:check|Dou check}} planejando um check-raise", why: "Depois de {{t:check|dar check}} no flop, o Button muitas vezes vai {{t:check|dar check}} de novo, e aí você não ganha nada. O probe bet extrai valor das mãos mais fracas dele imediatamente." }
+  - kind: choice
+    id: m7.exam.q10
+    family: m7.defend.turn
+    rules: [R-M7-013]
+    prompt: "Você defende o {{t:big-blind}}. Você {{t:call|pagou}} o c-bet do Button no flop. O turn é um seis, você {{t:check|dá check}} e o Button {{t:bet|aposta}} 3/4 do {{t:pot|pote}}. Você tem um {{t:pair|par}} de quatros. O que você faz?"
+    table: { hand: "4h 4d", position: BB, board: "Ks Jd 8c 6h" }
+    options:
+      - { text: "{{t:fold|Desisto}}", correct: true, why: "Sim: o Button {{t:bet|aposta}} o {{t:second-barrel|second barrel}} com um {{t:range}} mais estreito e um tamanho maior que o do c-bet. O {{t:pair|par}} mais fraco, abaixo de todas as cartas da {{t:board|mesa}}, sem outs além dos dois quatros, perde para a maioria das apostas dele." }
+      - { text: "{{t:call|Pago}}, porque já {{t:call|paguei}} o flop", why: "O que você colocou no flop não volta. No turn, você avalia a mão de novo: contra um {{t:second-barrel|second barrel}}, os {{t:pair|pares}} mais fracos {{t:fold|desistem}}." }
+      - { text: "{{t:raise|Aumento}}", why: "Depois de um {{t:raise|aumento}}, as mãos piores {{t:fold|desistem}} e as melhores pagam. Um {{t:pair|par}} de quatros não é nem uma mão de {{t:value|valor}} nem um bom {{t:bluff|blefe}}." }

@@ -51,8 +51,9 @@ describe('treść w języku innym niż polski (rola 09, K2b)', { timeout: 120_00
     }
   });
 
-  it('D-289: ja bez content/ja bierze tekst en; pl zostaje pl', () => {
-    expect(compileContent(dir, 'ja').tekst).toBe('en');
+  // sv: język bez content/sv (ja ma katalog od sesji AE, D-377; sv nie ma przekładu ani planu D-374)
+  it('D-289: język bez content/<j> bierze tekst en; pl zostaje pl', () => {
+    expect(compileContent(dir, 'sv').tekst).toBe('en');
     expect(pl.tekst).toBe('pl');
   });
 

@@ -1,0 +1,91 @@
+module: m13
+drills:
+  - kind: numeric
+    id: m13.exam.q1
+    family: m13.equity-loss
+    rules: [R-M13-001]
+    prompt: "{{t:equity}}{{n:exam.m13.eq}}で{{n:exam.m13.n}}回オールインします。そのうち平均で何回負けますか？数字を入力してください。"
+    answer: exam.m13.lose.of-n
+    explanation: "{{t:equity}}が{{n:exam.m13.eq}}なら、こうしたハンドの1 − {{n:exam.m13.eq}} = {{n:exam.m13.lose}}で負けます：{{n:exam.m13.n}} × {{n:exam.m13.lose}} = {{n:exam.m13.lose.of-n}}。これらの負けはどれも計算の範囲内で、戦略を変える理由にはなりません。"
+  - kind: choice
+    id: m13.exam.q2
+    family: m13.equity-loss
+    rules: [R-M13-001]
+    prompt: "1回の{{t:session}}で、{{t:equity}}{{n:exam.m13.eq.big}}のオールインに2回負けました。これはあなたの戦略にとって何を意味しますか？"
+    options:
+      - { text: "何も意味しない：この{{t:equity}}なら約{{n:exam.m13.lose.big}}のハンドで負け、この2回はその中に含まれていた", correct: true, why: "{{t:equity}}とは、同じ状況を何度も繰り返したときの勝ちの割合です。約{{n:exam.m13.lose.big}}のケースでの負けはその一部で、続けて起きた場合でも同じです。" }
+      - { text: "こうしたスポットではもっと慎重にプレイすべきだということ", why: "{{t:equity}}{{n:exam.m13.eq.big}}での判断は正しいものでした。結果を理由に戦略を変えると、約{{n:exam.m13.eq.big}}のケースで勝つプレイを手放すことになります。" }
+      - { text: "相手があなたのプレイをよく読んでいるということ", why: "オールインで重要なのは{{t:equity}}だけです。相手の読みは、これから落ちるカードを変えません。それぞれ{{n:exam.m13.lose.big}}の確率での2回の負けは{{t:variance}}です。" }
+  - kind: choice
+    id: m13.exam.q3
+    family: m13.verdicts
+    rules: [R-M13-002]
+    prompt: "ソルバーはあなたのハンドを{{n:exam.m13.solver.main}}のケースで{{t:raise}}、{{n:exam.m13.solver.rare}}のケースで{{t:fold}}します。あなたは{{t:fold}}しました。レポートはこれをどう評価しますか？"
+    options:
+      - { text: "許容", correct: true, why: "ソルバーは{{n:exam.m13.solver.rare}}のケースで{{t:fold}}します。これは{{n:range.mixed.min}}以上ですが、{{n:range.mixed.low}}未満です。{{t:mixed-hand}}の頻度の低いほうのプレイなので、ミスではなく許容される判断です。" }
+      - { text: "一致", why: "一致とされるのは、ソルバーが{{n:range.mixed.low}}以上のケースでプレイするアクションです。{{n:exam.m13.solver.rare}}の{{t:fold}}はそれより頻度が低いです。" }
+      - { text: "ミス", why: "ミスとは、ソルバーがまったくプレイしないアクションです。{{n:exam.m13.solver.rare}}の{{t:fold}}は{{t:mixed-hand}}の頻度の低いほうのプレイなので、どちらのプレイも正解です。" }
+  - kind: choice
+    id: m13.exam.q4
+    family: m13.verdicts
+    rules: [R-M13-002]
+    prompt: "ソルバーはあなたのハンドを{{n:exam.m13.solver.main2}}のケースで{{t:fold}}し、{{n:exam.m13.solver.tiny}}のケースで{{t:call}}します。あなたは{{t:call}}しました。判定はどうなりますか？"
+    options:
+      - { text: "不正確", correct: true, why: "{{n:exam.m13.solver.tiny}}のケースでの{{t:call}}は{{n:range.mixed.min}}未満です。レポートはしきい値を下回るアクションを不正確とし、ミスと同じように扱います。これはアプリのしきい値であり、理論ではありません。" }
+      - { text: "ミス", why: "ミスとは、ソルバーがまったくプレイしないアクションです。ここではソルバーは{{n:exam.m13.solver.tiny}}のケースで{{t:call}}します。" }
+      - { text: "許容。ソルバーもときどき{{t:call}}するから", why: "許容されるのは、{{n:range.mixed.min}}以上のケースでプレイされるアクションです。{{n:exam.m13.solver.tiny}}では少なすぎます。" }
+      - { text: "評価なし", why: "「評価なし」になるのは、アプリにルールもソルバーの結果もない判断です。ここにはソルバーの結果があります。" }
+  - kind: choice
+    id: m13.exam.q5
+    family: m13.suit-swap
+    rules: [R-M13-003]
+    prompt: "ゲームであなたは9♣ 8♦ 2♣の{{t:board}}でJ♣ T♣を持っていました。次のうち同じ状況、つまり正しい判断が同じになるのはどれですか？"
+    options:
+      - { text: "9♦ 8♣ 2♦の{{t:board}}でJ♦ T♦", correct: true, why: "クラブをダイヤに、ダイヤをクラブに、すべて同時に入れ替えています。{{t:flush-draw}}と{{t:oesd}}はそのままなので、判断は変わりません。" }
+      - { text: "9♦ 8♣ 2♦の{{t:board}}でJ♣ T♣", why: "{{t:board}}のスートだけを入れ替えています。あなたのクラブは{{t:board}}と合わなくなり、{{t:flush-draw}}は消えました。別の状況です。" }
+      - { text: "9♣ 8♦ 2♣の{{t:board}}でJ♥ T♥", why: "あなたのハンドのスートだけを入れ替えています。ハートは{{t:board}}のクラブと合わないので、{{t:flush-draw}}はもうありません。" }
+  - kind: choice
+    id: m13.exam.q6
+    family: m13.sample
+    rules: [R-M13-004]
+    prompt: "1週間で、ボタンからの{{t:open}}に対して{{t:big-blind}}をディフェンスする機会が{{n:exam.m13.opps}}回ありました。自分のディフェンス頻度について何が言えますか？"
+    options:
+      - { text: "もう見てもよいが、確実ではない", correct: true, why: "数えるのはハンド数ではなく機会の数です。統計は約{{n:hud.opps.look}}回の機会から見始め、約{{n:hud.opps.sure}}回で確信が持てるようになります。{{n:exam.m13.opps}}回は初期のシグナルであり、結論ではありません。" }
+      - { text: "どのくらいディフェンスしているか、もうわかる", why: "{{n:exam.m13.opps}}回の機会は、確信が持てる約{{n:hud.opps.sure}}回にまだ届いていません。" }
+      - { text: "何も言えない。統計には何千ハンドも必要だから", why: "重要なのは、この特定の判断の機会の数です。約{{n:hud.opps.look}}回の機会から、統計を見始めてかまいません。" }
+  - kind: choice
+    id: m13.exam.q7
+    family: m13.review-when
+    rules: [R-M13-005]
+    prompt: "長い{{t:session}}を終えるところで、疲れていて、マークしたハンドがいくつかあります。いつ分析しますか？"
+    options:
+      - { text: "数時間後か明日、頭がすっきりしてから", correct: true, why: "疲れているときや大きな負けの直後の分析は、感情に左右されます。マークしたハンドは逃げません。" }
+      - { text: "すぐに。全部覚えているうちに", why: "見直しにはハンドの短い記録があれば十分です。疲労は判断を鈍らせるので、あとで頭がすっきりしてから見直すほうがよいです。" }
+      - { text: "次の{{t:session}}のハンドの合間に", why: "プレイ中はハンドにマークをつけるだけにします。テーブルでの分析は、次の判断から注意を奪います。" }
+  - kind: choice
+    id: m13.exam.q8
+    family: m13.review-which
+    rules: [R-M13-006]
+    prompt: "前回の{{t:session}}のハンドのうち、最も見直す価値があるのはどれですか？"
+    options:
+      - { text: "リバーで{{t:call}}する前に長く迷った大きな{{t:pot}}", correct: true, why: "難しい判断があったハンドは見直す価値があるものの一つで、大きな{{t:pot}}は最も重みがあります。迷ったということは、どうすべきかわからなかったということです。" }
+      - { text: "プリフロップで、エースの{{t:pair}}対キングの{{t:pair}}のオールイン。リバーで負けた", why: "これはバッドビートです。判断は明らかで、負けは{{t:variance}}です。こうしたハンドに多くの時間はかけません。" }
+      - { text: "Cベットのあと、ショーダウンなしで勝った小さな{{t:pot}}", why: "難しい判断のない小さな{{t:pot}}から学べることは多くありません。見直しの時間は、大きな{{t:pot}}や迷った判断に使うほうがよいです。" }
+  - kind: choice
+    id: m13.exam.q9
+    family: m13.review-how
+    rules: [R-M13-008]
+    prompt: "リバーの{{t:call}}を見直しています。相手の{{t:range}}を楽観的に想定すると（{{t:bluff}}が多い）{{t:call}}は利益になり、悲観的に想定すると損失になります。次はどうしますか？"
+    options:
+      - { text: "現実的な{{t:range}}を推定する。評価はそれで決まる", correct: true, why: "極端な想定は、現実が収まる範囲を示します。一方の想定では良く、もう一方では悪い判断なら、決め手になるのは現実的な想定です。" }
+      - { text: "楽観的な想定で良いので、{{t:call}}を良い判断とする", why: "楽観的な想定は範囲の一方の端にすぎません。悲観的な想定では{{t:call}}が損をするので、評価は相手が実際にどうプレイするかで決まります。" }
+      - { text: "悲観的な想定で損をするので、{{t:call}}をミスとする", why: "悲観的な想定でも良い判断は読み違いに強いですが、悲観的な想定で悪い判断が必ずしもミスとは限りません。決め手になるのは現実的な想定です。" }
+  - kind: choice
+    id: m13.exam.q10
+    family: m13.review-how
+    rules: [R-M13-007]
+    prompt: "友人は、最初の反応を書き留めずに、すぐにエクイティと価格を計算してハンドを見直しています。何を失っていますか？"
+    options:
+      - { text: "どの判断で直感が自分を誤らせているのかが見えない", correct: true, why: "最初の反応と計算の差が、直感の間違っている場所を示し、時間とともに直感を磨きます。反応を記録しなければ、その差は見えません。" }
+      - { text: "何も失っていない。重要なのは計算結果だけ", why: "計算が評価するのは一つの判断です。最初の反応と計算を比べると、直感がどこで間違うかがわかり、時間とともに直感が磨かれます。" }
+      - { text: "計算の正確さ。最初の反応が計算を改善するから", why: "最初の反応は計算を変えません。その価値は計算との比較にあり、それによって直感がどこで間違うかがわかります。" }

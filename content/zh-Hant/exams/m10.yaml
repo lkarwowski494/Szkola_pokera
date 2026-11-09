@@ -1,0 +1,82 @@
+module: m10
+drills:
+  - kind: choice
+    id: m10.exam.q1
+    family: m10.hud.stats
+    rules: [R-M10-001]
+    prompt: "所有人都{{t:fold|棄牌}}到{{t:small-blind|小盲}}的對手。對手補齊到{{t:big-blind|大盲}}，而{{t:big-blind}}{{t:raise|加注}}後，他{{t:fold|棄牌}}。這手牌會如何改變他的數據？"
+    options:
+      - { text: "提高{{t:vpip}}，但不提高{{t:pfr}}", correct: true, why: "補齊到{{t:big-blind|大盲}}是在強制盲注之外自願投入{{t:chips|籌碼}}，所以計入{{t:vpip}}。對手沒有{{t:raise|加注}}，所以{{t:pfr}}不會上升。" }
+      - { text: "都不會改變，因為{{t:small-blind|小盲}}是強制投入", why: "強制的只有盲注本身。補齊到完整的{{t:big-blind|大盲}}已經是對手的決定，也就是自願投入，會提高{{t:vpip}}。" }
+      - { text: "提高{{t:vpip}}和{{t:pfr}}", why: "只有對手自己在翻牌前{{t:raise|加注}}時，{{t:pfr}}才會上升。這裡{{t:raise|加注}}的是{{t:big-blind}}，對手只是補齊後{{t:fold|棄牌}}。" }
+      - { text: "不提高{{t:vpip}}，因為對手反正在翻牌前就{{t:fold|棄牌}}了", why: "{{t:vpip}}計算的是自願投入，而不是這手牌有沒有打到翻牌。對手是自願補齊的，所以這手牌計入{{t:vpip}}。" }
+  - kind: numeric
+    id: m10.exam.q2
+    family: m10.hud.sample
+    rules: [R-M10-002]
+    prompt: "對手面對 c-bet {{n:exam.m10.se.n}} 次，其中 {{n:exam.m10.se.p}} 選擇{{t:fold|棄牌}}。他的面對 c-bet 棄牌率，標準誤是多少個百分點？請輸入數字。"
+    answer: exam.m10.se
+    explanation: "√(p × (1 − p) ÷ n) = √({{n:exam.m10.se.p}} × {{n:exam.m10.se.q}} ÷ {{n:exam.m10.se.n}}) ≈ {{n:exam.m10.se}}。你計算的是機會次數（他面對的 c-bet），而不是手數。在約 {{n:var.conf95}} 的信心水準下，真實的面對 c-bet 棄牌率落在 ± {{n:var.z95}} × {{n:exam.m10.se}} ≈ ± {{n:exam.m10.ci}} 的範圍內，也就是約 {{n:exam.m10.ci.low}} 到 {{n:exam.m10.ci.high}} 之間。"
+  - kind: choice
+    id: m10.exam.q3
+    family: m10.hud.sample
+    rules: [R-M10-003]
+    prompt: "{{n:exam.m10.mid.hands}} 手牌後，對手的{{t:vpip}}為 {{n:exam.m10.mid.vpip}}、{{t:pfr}}為 {{n:exam.m10.mid.pfr}}、面對 3-bet 棄牌率為 {{n:exam.m10.mid.f3b}}。這些數字中，哪些你已經可以拿來做決策？"
+    options:
+      - { text: "{{t:vpip}}和{{t:pfr}}；面對 3-bet 棄牌率還只是巧合", correct: true, why: "{{t:vpip}}和{{t:pfr}}約在 {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} 手後就能解讀，面對 3-bet 棄牌率則要約 {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}} 手後，因為只有在{{t:open|開池}}並遭到 3-bet 後才會出現這個機會。{{n:exam.m10.mid.hands}} 手牌只有寥寥幾次機會。" }
+      - { text: "三個都可以，因為樣本已超過 {{n:hud.hands.vpip.low}} 手", why: "約 {{n:hud.hands.vpip.low}} 手的門檻適用於每手牌都有機會出現的數據。面對 3-bet 棄牌率的機會少了好幾倍，需要約 {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}} 手。" }
+      - { text: "都不行：一千手之前的數據都是隨機的", why: "低於約 {{n:hud.hands.random}} 手時才是隨機的。{{n:exam.m10.mid.hands}} 手後，{{t:vpip}}和{{t:pfr}}已經能說明一些事。" }
+      - { text: "只有面對 3-bet 棄牌率，因為它最極端", why: "小樣本中的極端數字，更常是巧合而非可靠的判讀。可信度取決於機會次數，而這裡面對 3-bet 棄牌率的機會最少。" }
+  - kind: choice
+    id: m10.exam.q4
+    family: m10.types.adjust
+    rules: [R-M10-007]
+    prompt: "一名{{t:nit|極緊玩家}}（{{t:vpip}} {{n:exam.m10.nit.vpip}}、{{t:pfr}} {{n:exam.m10.nit.pfr}}、{{n:exam.m10.nit.hands}} 手）從{{t:utg|槍口位}}{{t:open|開池}}。你在按鈕位，拿著一手位於{{t:range|範圍}}底部的牌，在模組 4 的基準策略中，你會用這個範圍{{t:call|跟注}}這種{{t:open|開池}}。你怎麼做？"
+    options:
+      - { text: "{{t:fold|棄牌}}", correct: true, why: "玩這麼少手牌的玩家，主要用最強的牌{{t:raise|加注}}。你{{t:call|跟注}}{{t:range|範圍}}底部的牌面對他時更常被壓制，所以你要比基準策略更常{{t:fold|棄掉}}這些牌。" }
+      - { text: "像基準策略一樣{{t:call|跟注}}，因為我有{{t:position|位置}}", why: "{{t:position|位置}}救不了被壓制的牌。基準策略假設的是典型的{{t:open|開池}}{{t:range|範圍}}，而這名玩家的{{t:range|範圍}}強得多。" }
+      - { text: "用 3-bet {{t:bluff}}，因為{{t:nit}}只玩強牌，會{{t:fold|棄牌}}", why: "他的{{t:open|開池}}{{t:range|範圍}}主要是最強的牌，而這些牌面對 3-bet 很少{{t:fold|棄牌}}。在這裡{{t:bluff|詐唬}}，正好撞上他最強的部分。" }
+  - kind: choice
+    id: m10.exam.q5
+    family: m10.types.adjust
+    rules: [R-M10-008]
+    prompt: "對手是{{t:maniac|瘋狂玩家}}：{{t:vpip}} {{n:exam.m10.maniac.vpip}}、{{t:pfr}} {{n:exam.m10.maniac.pfr}}、{{n:exam.m10.long.hands}} 手。你在翻牌中了{{t:set|三條}}，對手{{t:bet|下注}}。你怎麼做？"
+    options:
+      - { text: "{{t:call|跟注}}，讓他繼續下注", correct: true, why: "拿著非常強的牌時，就讓{{t:maniac|瘋狂玩家}}下注：他的下注中有大量{{t:bluff|詐唬}}和弱牌，而{{t:call}}能讓這些牌留在牌局中，進入接下來的{{t:street|街}}。" }
+      - { text: "立刻{{t:raise|加注}}，加越大越好", why: "{{t:raise|加注}}會讓他的{{t:bluff|詐唬}}和弱牌在投入更多之前就{{t:fold|棄牌}}。面對會主動下注的玩家，讓他自己下注，你賺得更多。" }
+      - { text: "{{t:fold|棄牌}}，因為{{t:pfr}}高代表強牌", why: "{{t:vpip}}這麼高時，{{t:pfr}}高代表他幾乎什麼牌都{{t:raise|加注}}，而不是他拿著強牌。{{t:set}}在這裡是最好的牌之一。" }
+  - kind: choice
+    id: m10.exam.q6
+    family: m10.types.adjust
+    rules: [R-M10-006]
+    prompt: "河牌。對手是被動的{{t:recreational|休閒玩家}}：{{t:vpip}} {{n:exam.m10.rec.vpip}}、{{t:pfr}} {{n:exam.m10.rec.pfr}}、{{n:exam.m10.long.hands}} 手。他{{t:check|過牌}}。你手上的牌，在模組 8 的基準策略中有時會在這裡{{t:value|價值}}下注，有時會{{t:check|過牌}}。你怎麼做？"
+    options:
+      - { text: "{{t:value|價值}}下注", correct: true, why: "這種玩家會用比基準策略中的對手更多的弱牌一路{{t:call|跟注}}到底，所以他的{{t:call|跟注}}中有更多牌比你差。面對他，更薄的牌也要{{t:value|價值}}下注。" }
+      - { text: "{{t:check|過牌}}，因為被動玩家只用好牌{{t:call|跟注}}", why: "正好相反：{{t:vpip}} − {{t:pfr}}差距大的玩家玩很多手牌，並會用它們一路{{t:call|跟注}}到底。這正是要多下注而不是少下注的理由。" }
+      - { text: "和基準策略一樣：有時下注，有時{{t:check}}", why: "基準策略假設對手防守正確。這名對手{{t:call|跟注}}太頻繁，所以處於邊緣的牌會傾向{{t:value|價值}}下注。" }
+  - kind: choice
+    id: m10.exam.q7
+    family: m10.base.alpha
+    rules: [R-M10-010]
+    prompt: "{{n:exam.m10.long.hands}} 手後，對手的面對 c-bet 棄牌率為 {{n:exam.m10.fcb}}。你沒打中翻牌，也沒有{{t:draw|聽牌}}。哪種沒牌的 c-bet 能立即獲利？"
+    options:
+      - { text: "只有小的，1/3 {{t:pot|底池}}", correct: true, why: "1/3 {{t:pot|底池}}的 c-bet 在 {{n:alpha.cbet.small}} 的{{t:fold|棄牌}}率時損益兩平，3/4 {{t:pot|底池}}則要到 {{n:alpha.cbet.big}}。{{n:exam.m10.fcb}} 只夠小的 c-bet。面對 c-bet 棄牌率混合了所有尺寸與牌桌，所以這只是近似值。" }
+      - { text: "兩種都可以，因為對手常{{t:fold|棄牌}}", why: "大的 c-bet 風險更高，需要超過 {{n:alpha.cbet.big}} 的{{t:fold|棄牌}}率。對手的{{t:fold|棄牌}}率是 {{n:exam.m10.fcb}}，太低了。" }
+      - { text: "只有大的，因為更能逼對手{{t:fold|棄牌}}", why: "{{t:hud}}上的面對 c-bet 棄牌率，並不代表對手面對大注時更常{{t:fold|棄牌}}。在 {{n:exam.m10.fcb}} 的{{t:fold|棄牌}}率下，沒牌的大 c-bet 會虧損，因為它需要 {{n:alpha.cbet.big}}。" }
+      - { text: "都不行，因為對手{{t:fold|棄牌}}不到一半", why: "門檻不是一半，而是 下注 ÷ （{{t:pot}} + 下注）。1/3 {{t:pot|底池}}的 c-bet 是 {{n:alpha.cbet.small}}，所以 {{n:exam.m10.fcb}} 就夠了。" }
+  - kind: choice
+    id: m10.exam.q8
+    family: m10.base.3bet
+    rules: [R-M10-011]
+    prompt: "{{n:exam.m10.long.hands}} 手後，對手的面對 3-bet 棄牌率為 {{n:exam.m10.f3b.low}}。他從{{t:cutoff|CO}}{{t:open|開池}}，你在按鈕位，手上的牌在基準策略中會拿來 3-bet {{t:bluff}}。你要改變什麼？"
+    options:
+      - { text: "放棄用這手牌 3-bet；對他主要用強牌 3-bet", correct: true, why: "3-bet 到 {{n:pf.3bet.ip-total}}，沒牌時要對手{{t:fold|棄牌}}率超過 {{n:alpha.vs-3bet-ip-size}} 才能獲利，而這名對手的{{t:fold|棄牌}}率是 {{n:exam.m10.f3b.low}}。{{t:bluff|詐唬}}會讓你用弱牌打大{{t:pot|底池}}，而強牌則能從他那裡得到更多{{t:call|跟注}}：{{t:linear|線性}}{{t:range}}。" }
+      - { text: "更常用這手牌 3-bet，因為對手很弱", why: "這名對手的弱點在於他很少{{t:fold|棄牌}}。{{t:bluff|詐唬}}靠的是對手{{t:fold|棄牌}}，所以面對他會虧損。" }
+      - { text: "什麼都不改：面對 3-bet 棄牌率還不可靠", why: "{{n:exam.m10.long.hands}} 手後已經可靠了：面對 3-bet 棄牌率約在 {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}} 手後就能解讀。" }
+  - kind: numeric
+    id: m10.exam.q9
+    family: m10.rake.math
+    rules: [R-M10-015]
+    prompt: "{{t:pot|底池}}中有 {{n:ex.pot}}，對手{{t:bet|下注}}滿{{t:pot|底池}}：{{n:ex.bet.pot}}。牌室抽取{{t:pot|底池}}的 {{n:rake.ex.pct}}，且遠未達到{{t:rake-cap|抽水上限}}。你需要多少勝率（equity）才能{{t:call|跟注}}？請輸入百分比。"
+    answer: exam.m10.rake.eq
+    explanation: "{{t:call|跟注}}後的{{t:pot|底池}}是 {{n:exam.m10.rake.total}}，扣除{{t:rake|抽水}}後是 {{n:exam.m10.rake.after}}。你投入 {{n:ex.bet.pot}}：{{n:ex.bet.pot}} ÷ {{n:exam.m10.rake.after}} ≈ {{n:exam.m10.rake.eq}}，而不是沒有{{t:rake|抽水}}時的 {{n:eq.bet-pot}}。"

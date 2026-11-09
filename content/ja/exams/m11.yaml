@@ -1,0 +1,86 @@
+module: m11
+drills:
+  - kind: choice
+    id: m11.exam.q1
+    family: m11.threshold
+    rules: [R-M11-001]
+    prompt: "{{t:tournament|トーナメント}}です。スタックは{{n:exam.m11.mid.stack}}で、前の全員が{{t:fold|フォールド}}しました。あなたの手は中程度で、手放すには強すぎ、フロップ後にプレイするには弱すぎます。情報源はどのプランを推奨していますか？"
+    options:
+      - { text: "オールインか{{t:fold}}", correct: true, why: "{{n:m11.thr.pushfold}}から{{n:m11.thr.upper}}の間では、弱めの手と中程度の手にはプッシュ/フォールドが主な方法です。このスタックでは、オールインが相手から最も多くの{{t:fold|フォールド}}を引き出します。これは単純化で、ソルバーは一部の手を別の方法でもプレイします。" }
+      - { text: "ミニマムレイズし、相手のオールインには{{t:fold}}", why: "{{n:exam.m11.mid.stack}}では、レイズしてから相手の{{t:raise|レイズ}}に{{t:fold}}すると、スタックのかなりの部分を戦わずに失います。情報源が通常のレイズを推奨するのは約{{n:m11.thr.raise}}からです。" }
+      - { text: "リンプして安くフロップを見る", why: "リンプでは、その場で{{t:pot|ポット}}を獲得するチャンスがありません。{{t:short-stack|ショートスタック}}では、まさに相手の{{t:fold|フォールド}}が主な利益源です。" }
+  - kind: numeric
+    id: m11.exam.q2
+    family: m11.m
+    rules: [R-M11-005]
+    prompt: "{{n:exam.m11.m.stack}}の{{t:chips|チップ}}を持っています。ブラインドは{{n:exam.m11.m.sb}}/{{n:exam.m11.m.bb}}で、{{t:big-blind}}はさらにアンティ{{n:exam.m11.m.ante}}を支払います。あなたのMはいくつですか？小数点以下1桁の数値を入力してください。"
+    answer: exam.m11.m.value
+    explanation: "1周のコストは{{n:exam.m11.m.sb}} + {{n:exam.m11.m.bb}} + {{n:exam.m11.m.ante}} = {{n:exam.m11.m.orbit}}なので、M = {{n:exam.m11.m.stack}} ÷ {{n:exam.m11.m.orbit}} = {{n:exam.m11.m.value}}です。約{{n:m11.m.red}}を大きく下回っています。もうオールインか{{t:fold}}だけをプレイし、最初に{{t:pot|ポット}}に参加するようにします。"
+  - kind: choice
+    id: m11.exam.q3
+    family: m11.fold-equity
+    rules: [R-M11-004]
+    prompt: "{{t:small-blind|スモールブラインド}}、{{n:exam.m11.fe.depth}}、アンティなしで、全員が{{t:fold|フォールド}}しました。勝つ見込みがまったくない手でのオールインが損益ゼロになるには、{{t:big-blind}}はどのくらいの頻度で{{t:fold|フォールド}}する必要がありますか？"
+    options:
+      - { text: "{{n:exam.m11.fe.alpha}}を超える頻度", correct: true, why: "{{n:m11.push.10.win}}ブラインドを獲得するために{{n:exam.m11.fe.risk}}を追加で賭けます：{{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha}}。相手はそこまで頻繁には{{t:fold|フォールド}}しないため、オールインには相手が{{t:call|コール}}したときのエクイティも必要です。" }
+      - { text: "半分を超える頻度", why: "獲得できる額よりはるかに多くをリスクにさらしています：{{n:exam.m11.fe.risk}}対{{n:m11.push.10.win}}。しきい値はリスク ÷ (獲得額 + リスク)で、約{{n:exam.m11.fe.alpha}}です。" }
+      - { text: "必要ない：{{n:exam.m11.fe.depth}}ならオールインは常に利益になる", why: "ショーダウンで勝つ見込みのない手は{{t:fold|フォールド}}でしか利益を得られず、それが約{{n:exam.m11.fe.alpha}}必要です。だからオールインの{{t:range}}は、広いとはいえ、すべての手を含むわけではありません。" }
+  - kind: choice
+    id: m11.exam.q4
+    family: m11.ante
+    rules: [R-M11-003, R-M11-004]
+    prompt: "同じ{{n:exam.m11.fe.depth}}のスタックで{{t:small-blind|スモールブラインド}}にいますが、{{t:big-blind}}はアンティ{{n:m11.ante}}を支払っています。見込みのない手でのオールインが損益ゼロになるには、今度はどのくらいの頻度で{{t:fold|フォールド}}する必要がありますか？"
+    options:
+      - { text: "{{n:exam.m11.fe.alpha-ante}}を超える頻度。だから、より多くの手で{{t:shove|プッシュ}}する", correct: true, why: "アンティによって、{{t:fold|フォールド}}後に獲得する{{t:pot|ポット}}が大きくなります。{{n:m11.push.10.win}}ではなく{{n:m11.push.10.win-ante}}で、リスクは同じ（{{n:exam.m11.fe.risk}}）です。{{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win-ante}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha-ante}}（{{n:exam.m11.fe.alpha}}ではなく）。" }
+      - { text: "アンティなしと同じ：{{n:exam.m11.fe.alpha}}を超える頻度", why: "アンティは{{t:pot|ポット}}にあり、相手が{{t:fold|フォールド}}すればあなたが獲得します。同じリスクで報酬が大きくなるため、しきい値は約{{n:exam.m11.fe.alpha-ante}}に下がります。" }
+      - { text: "より高い頻度。{{t:pot|ポット}}で失うものが多いから", why: "アンティはすでに{{t:pot|ポット}}にあり、あなたのリスクではありません。追加で賭ける額は同じで獲得額が増えるので、しきい値は下がります。" }
+  - kind: numeric
+    id: m11.exam.q5
+    family: m11.call.price
+    rules: [R-M11-006]
+    prompt: "スタックは各{{n:exam.m11.call.depth}}、アンティなしです。あなたは{{t:big-blind|ビッグブラインド}}にいて、{{t:small-blind}}がオールインしました。{{t:call}}が利益になるには何パーセントのエクイティが必要ですか？数値を入力してください。"
+    answer: exam.m11.call.eq
+    explanation: "ブラインドはすでに{{t:pot|ポット}}にあるので、追加で払うのは{{n:exam.m11.call.depth}} − {{n:pf.blind.bb}} = {{n:exam.m11.call.cost}}です。{{t:call|コール}}後の{{t:pot|ポット}}は{{n:exam.m11.call.pot}}：{{n:exam.m11.call.cost}} ÷ {{n:exam.m11.call.pot}} ≈ {{n:exam.m11.call.eq}}。"
+  - kind: choice
+    id: m11.exam.q6
+    family: m11.call.gap
+    rules: [R-M11-007]
+    prompt: "スタックは各{{n:m11.depth.5}}、{{t:small-blind}}がオールインし、あなたは{{t:big-blind|ビッグブラインド}}にいます。友人のアドバイス：「自分が{{t:small-blind|スモールブラインド}}からオールインで{{t:shove|プッシュ}}する手なら、どれでも{{t:call|コール}}しよう」。ソルバーの答えは？"
+    options:
+      - { text: "より狭く{{t:call|コール}}する：オールインの約{{n:m11.nash.push.5}}–{{n:m11.push.5}}に対し、約{{n:m11.call.5}}の手", correct: true, why: "{{t:call|コールする側}}はショーダウンでしか勝てず、しかも相手はすでに選別された{{t:range|レンジ}}です。{{t:shove|プッシュする側}}は、相手が{{t:fold|フォールド}}したときにも勝ちます。これほどの{{t:short-stack|ショートスタック}}で価格が良くても、{{t:call|コール}}の{{t:range}}のほうが狭くなります。" }
+      - { text: "友人が正しい：{{n:m11.depth.5}}では両方の{{t:range|レンジ}}は同じ", why: "{{t:short-stack|ショートスタック}}は両方の{{t:range|レンジ}}を広げますが、同じにはしません。オールインにはフォールドエクイティがあり、{{t:call}}にはありません。ソルバーは約{{n:m11.call.5}}の手で{{t:call|コール}}し、約{{n:m11.nash.push.5}}–{{n:m11.push.5}}で{{t:shove|プッシュ}}します（下限は独立した均衡計算、上限はアプリのソルバーによるものです）。" }
+      - { text: "より広く{{t:call|コール}}する。価格が良いから", why: "{{n:m11.depth.5}}での価格は良い（{{n:m11.call.5.eq}}）ですが、相手はランダムな手ではなく、オールインの{{t:range|レンジ}}です。ソルバーは{{t:shove|プッシュ}}よりも狭く{{t:call|コール}}します。" }
+  - kind: numeric
+    id: m11.exam.q7
+    family: m11.bf
+    rules: [R-M11-009, R-M11-008]
+    prompt: "{{t:bubble|バブル}}：プレイヤー4人、入賞は3位まで（{{t:prize-pool|プライズプール}}の{{n:m11.bf.p1}}、{{n:m11.bf.p2}}、{{n:m11.bf.p3}}）。スタック：{{n:exam.m11.bf.s1}}、あなたが{{n:exam.m11.bf.s2}}、オールインした相手が{{n:exam.m11.bf.s3}}、そして{{n:exam.m11.bf.s4}}。{{t:icm}}によると、{{t:call|コール}}して負けると{{t:prize-pool|プライズプール}}の{{n:exam.m11.bf.loss}}を失い、勝つと{{n:exam.m11.bf.gain}}を得ます。バブルファクターはいくつですか？小数点以下2桁の数値を入力してください。"
+    answer: exam.m11.bf.value
+    explanation: "バブルファクター = 損失 ÷ 利得 = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.gain}} ≈ {{n:exam.m11.bf.value}}。あなたのエクイティは現在{{n:exam.m11.bf.eq.now}}、勝てば{{n:exam.m11.bf.eq.win}}、負ければ{{n:exam.m11.bf.eq.lose}}です。負けで失う分は、勝ちで増える分より大きくなります。{{t:icm}}は{{t:position|ポジション}}やプレイヤーの技量を考慮しないため、この評価は近似値です。"
+  - kind: choice
+    id: m11.exam.q8
+    family: m11.bf
+    rules: [R-M11-009]
+    prompt: "同じスポットで、バブルファクターは{{n:exam.m11.bf.value}}です。{{t:chips|チップ}}を賭けたゲームなら、{{t:call|コール}}には{{n:exam.m11.bf.req-chips}}のエクイティで足ります。{{t:icm}}ではどれだけ必要ですか？"
+    options:
+      - { text: "約{{n:exam.m11.bf.req}}", correct: true, why: "必要エクイティ = BF ÷ (BF + 1) = 損失 ÷ (損失 + 利得) = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.range}} ≈ {{n:exam.m11.bf.req}}。{{n:exam.m11.bf.req-chips}}との差が{{t:risk-premium|リスクプレミアム}}です。" }
+      - { text: "{{n:exam.m11.bf.req-chips}}。{{t:chips|チップ}}の場合と同じ", why: "{{t:payout|賞金}}のある{{t:tournament|トーナメント}}では、負けで失うお金は勝ちで増えるお金より多いため、{{t:call}}はより高い頻度で勝つ必要があります：約{{n:exam.m11.bf.req}}。" }
+      - { text: "{{n:exam.m11.bf.req-chips}}未満。{{t:bubble|バブル}}が相手に{{t:bluff|ブラフ}}を強いるから", why: "1を超えるバブルファクターは、必要エクイティを常に{{t:chips|チップ}}上の価格より引き上げます。ここでは約{{n:exam.m11.bf.req}}までです。" }
+  - kind: choice
+    id: m11.exam.q9
+    family: m11.icm.call
+    rules: [R-M11-010]
+    prompt: "{{t:tournament|トーナメント}}の{{t:bubble|バブル}}です。あなたは平均的なスタックです。あなたを{{t:cover|カバー}}しているテーブル最大のスタックがオールインしました。{{t:chips|チップ}}を賭けたゲームと比べて、どう{{t:call|コール}}しますか？"
+    options:
+      - { text: "明らかにタイトに", correct: true, why: "負ければ入賞直前で敗退し、勝って増える分は負けて失う分より少なくなります。勝ち取る{{t:chips|チップ}}は、失う{{t:chips|チップ}}より価値が低いのです。だから、{{t:chips|チップ}}を賭けたゲームより明らかに多くのエクイティが必要です。" }
+      - { text: "より広く。大きなスタックは多くの手で{{t:shove|プッシュ}}するから", why: "大きなスタックは確かにより広く{{t:shove|プッシュ}}できますが、それはまさに、あなたがタイトに{{t:call|コール}}しなければならないからです。{{t:risk-premium|リスクプレミアム}}があなたの要求水準を引き上げます。" }
+      - { text: "同じ。{{t:icm}}が重要になるのは{{t:final-table|ファイナルテーブル}}から", why: "慎重な{{t:call|コール}}は、{{t:final-table|ファイナルテーブル}}でも{{t:bubble|バブル}}でも当てはまります。ここでは、何かを獲得できるかどうか自体が、あなたの生き残りにかかっています。" }
+  - kind: choice
+    id: m11.exam.q10
+    family: m11.push.3max
+    rules: [R-M11-011]
+    prompt: "プレイヤー3人、スタックは各{{n:m11.depth.3max}}です。オールインでより広く{{t:shove|プッシュ}}するのはどちらからですか：両ブラインドが後ろにいるボタンからか、ボタンが{{t:fold|フォールド}}した後の{{t:small-blind|スモールブラインド}}からか？"
+    options:
+      - { text: "{{t:small-blind|スモールブラインド}}から：ボタンからの約{{n:m11.3max.push.btn}}に対し、約{{n:m11.3max.push.sb}}の手", correct: true, why: "後ろにいるプレイヤーが一人増えるごとに、誰かが強い手を持っている可能性が増えます。ボタンからは2人が{{t:fold|フォールド}}する必要があり、{{t:small-blind|スモールブラインド}}からは1人だけです。" }
+      - { text: "ボタンから。最高の{{t:position|ポジション}}だから", why: "オールイン後は誰もフロップ後の判断をしないので、ここでは{{t:position|ポジション}}は何の役にも立ちません。重要なのは何人が{{t:call|コール}}できるかで、ボタンの後ろには2人います。" }
+      - { text: "どちらからも同じ", why: "ソルバーはボタンから約{{n:m11.3max.push.btn}}、{{t:small-blind|スモールブラインド}}から約{{n:m11.3max.push.sb}}の手で{{t:shove|プッシュ}}します。違いを生むのは、後ろにいるプレイヤーの数です。" }

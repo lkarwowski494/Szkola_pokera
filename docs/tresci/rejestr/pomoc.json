@@ -1818,6 +1818,30 @@
         "data": "2026-11-09",
         "sha": "4d52f017fa37",
         "kontrola": "a"
+      },
+      "fr": {
+        "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AD; skrót po nałożeniu w sesji AE, m12-l1 ponownie)",
+        "data": "2026-11-09",
+        "sha": "36ba3a05b754",
+        "kontrola": "a"
+      },
+      "ja": {
+        "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AB; skrót po nałożeniu w sesji AE, m12-l1 ponownie)",
+        "data": "2026-11-09",
+        "sha": "f64b3dd55716",
+        "kontrola": "a"
+      },
+      "pt-BR": {
+        "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AD; skrót po nałożeniu w sesji AE, m12-l1 ponownie)",
+        "data": "2026-11-09",
+        "sha": "b6e06171ff6e",
+        "kontrola": "a"
+      },
+      "zh-Hant": {
+        "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AB; skrót po nałożeniu w sesji AE, m12-l1 ponownie)",
+        "data": "2026-11-09",
+        "sha": "016febee0e21",
+        "kontrola": "a"
       }
     }
   },
@@ -1878,6 +1902,30 @@
         "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
         "data": "2026-11-09",
         "sha": "211f1a1da15d",
+        "kontrola": "a"
+      },
+      "fr": {
+        "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AD; skrót po nałożeniu w sesji AE, m12-l1 ponownie)",
+        "data": "2026-11-09",
+        "sha": "00e5bde8ff52",
+        "kontrola": "a"
+      },
+      "ja": {
+        "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AB; skrót po nałożeniu w sesji AE, m12-l1 ponownie)",
+        "data": "2026-11-09",
+        "sha": "7cd30157366d",
+        "kontrola": "a"
+      },
+      "pt-BR": {
+        "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AD; skrót po nałożeniu w sesji AE, m12-l1 ponownie)",
+        "data": "2026-11-09",
+        "sha": "fc23e2cfde27",
+        "kontrola": "a"
+      },
+      "zh-Hant": {
+        "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AB; skrót po nałożeniu w sesji AE, m12-l1 ponownie)",
+        "data": "2026-11-09",
+        "sha": "d3895fc3c353",
         "kontrola": "a"
       }
     }

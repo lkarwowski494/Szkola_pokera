@@ -1,0 +1,75 @@
+# Pula egzaminacyjna M1 (przebieg rozdania): te same reguły co lekcja m1.l1, inne sytuacje i sformułowania.
+module: m1
+drills:
+  - kind: choice
+    id: m1.exam.q1
+    family: m1.actions
+    rules: [R-M1-001]
+    prompt: "フロップで相手が{{t:bet|ベット}}し、あなたは{{t:call|コール}}しました。ターンではあなたが先に行動します。何ができますか？"
+    options:
+      - { text: "{{t:check|チェック}}または{{t:bet|ベット}}", correct: true, why: "ターンは新しい{{t:betting-round}}です。このラウンドではまだ誰も何も入れていないので、どのラウンドの最初とも同じ2つの選択肢があります。" }
+      - { text: "{{t:call|コール}}か{{t:fold|フォールド}}だけ", why: "フロップの{{t:bet|ベット}}にはすでに全員が額を揃えています。ターンでは{{t:call|コール}}するものがありません。" }
+      - { text: "フロップの{{t:bet|ベット}}に{{t:raise|レイズ}}する", why: "{{t:raise|レイズ}}できるのは現在のラウンドの{{t:bet}}だけです。フロップの分はもう締め切られています。" }
+  - kind: choice
+    id: m1.exam.q2
+    family: m1.actions
+    rules: [R-M1-001]
+    prompt: "あなたより前の相手が{{t:bet|ベット}}しました。今できない行動はどれですか？"
+    options:
+      - { text: "{{t:check|チェック}}", correct: true, why: "{{t:check|チェック}}できるのは、このラウンドであなたより前に誰も{{t:bet|ベット}}も{{t:raise|レイズ}}もしていないときだけです。今は{{t:fold|フォールド}}、{{t:call|コール}}、{{t:raise|レイズ}}のいずれかをしなければなりません。" }
+      - { text: "{{t:raise|レイズ}}", why: "{{t:raise|レイズ}}できるのは、まさに引き上げる対象の{{t:bet}}があるからです。" }
+      - { text: "{{t:fold|フォールド}}", why: "追加で払う必要があるときは、{{t:fold|フォールド}}はいつでも選べます。" }
+  - kind: choice
+    id: m1.exam.q3
+    family: m1.actions
+    rules: [R-M1-002]
+    prompt: "リバーです。相手は{{t:check|チェック}}し、あなたのハンドはほぼ確実に負けています。どうしますか？"
+    options:
+      - { text: "{{t:check|チェック}}する", correct: true, why: "{{t:check|チェック}}は無料で、相手も外している可能性があります。{{t:fold|フォールド}}すると戦わずに{{t:pot|ポット}}を手放すことになります。" }
+      - { text: "{{t:fold|フォールド}}する", why: "無料で{{t:check|チェック}}できるときに{{t:fold}}しても、{{t:pot|ポット}}を取るチャンスを手放すだけです。得るものは何もありません。" }
+      - { text: "{{t:call|コール}}する", why: "相手は何も{{t:bet|ベット}}していないので、{{t:call|コール}}するものがありません。" }
+  - kind: choice
+    id: m1.exam.q4
+    family: m1.actions
+    rules: [R-M1-003]
+    prompt: "フロップであなたが{{t:bet|ベット}}し、相手が{{t:raise|レイズ}}しました。これ以上プレイを続けたくありません。どうしますか？"
+    options:
+      - { text: "{{t:fold|フォールド}}する", correct: true, why: "合わせるべき{{t:raise}}があり、あなたは払いたくありません。失うのはすでに入れた分だけです。" }
+      - { text: "{{t:check|チェック}}する", why: "相手の{{t:raise|レイズ}}の後は{{t:check|チェック}}できません。追加で払うか、{{t:fold|フォールド}}する必要があります。" }
+      - { text: "ターンを見るために{{t:call|コール}}する", why: "これ以上プレイしたくないなら、追加で払う分はすべて余計な損失です。" }
+  - kind: choice
+    id: m1.exam.q5
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "ターンで賭けが行われている間、{{t:board|ボード}}に{{t:community-cards|コミュニティカード}}は何枚ありますか？"
+    options:
+      - { text: "4", correct: true, why: "フロップで3枚が出て、ターンで4枚目が加わります。5枚目はリバーで初めて出ます。" }
+      - { text: "3", why: "3枚なのはフロップです。ターンで1枚加わります。" }
+      - { text: "5", why: "5枚になるのはリバーになってからです。" }
+  - kind: choice
+    id: m1.exam.q6
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "リバーの賭けが終わり、あなたと相手1人が残りました。次はどうなりますか？"
+    options:
+      - { text: "お互いにカードを公開する（ショーダウン）", correct: true, why: "リバーは最後の{{t:betting-round|ベッティングラウンド}}です。2人以上のプレイヤーが残っていれば、カードを見せ合い、最も強い役が{{t:pot|ポット}}を獲得します。" }
+      - { text: "もう1枚カードが出る", why: "{{t:board|ボード}}のカードは最大5枚です。リバーの後にはもう出ません。" }
+      - { text: "{{t:pot|ポット}}は常に均等に分ける", why: "分けるのは役が同じ強さのときだけです。通常は強いハンドが勝ちます。" }
+  - kind: choice
+    id: m1.exam.q7
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "フロップであなたが{{t:bet|ベット}}し、ほかの全員が{{t:fold|フォールド}}しました。どうなりますか？"
+    options:
+      - { text: "カードを見せずに{{t:pot|ポット}}を獲得する", correct: true, why: "ショーダウンになるのは、リバーの後に2人以上のプレイヤーが残っているときだけです。あなた1人が残れば、そのハンドは終了です。" }
+      - { text: "ターンとリバーが出て、その後カードを見せる", why: "もう対戦する相手がいないので、次のカードは出ません。" }
+      - { text: "{{t:pot|ポット}}を取るにはカードを見せる必要がある", why: "カードを見せるのはショーダウンのときで、今回はそこまで進んでいません。" }
+  - kind: choice
+    id: m1.exam.q8
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "このハンドはショーダウンまで進みました。プリフロップを含めると、{{t:betting-round|ベッティングラウンド}}は何回ありましたか？"
+    options:
+      - { text: "4", correct: true, why: "プリフロップ、フロップ、ターン、リバーです。ショーダウンは最後のラウンドであるリバーの後です。" }
+      - { text: "3", why: "フロップ、ターン、リバーで3ラウンドですが、その前にプリフロップがあります。" }
+      - { text: "5", why: "{{t:community-cards|コミュニティカード}}は5枚ですが、{{t:betting-round|ベッティングラウンド}}は4回です。フロップでは3枚が一度に出るからです。" }

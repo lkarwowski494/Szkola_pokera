@@ -1,0 +1,75 @@
+# Pula egzaminacyjna M1 (przebieg rozdania): te same reguły co lekcja m1.l1, inne sytuacje i sformułowania.
+module: m1
+drills:
+  - kind: choice
+    id: m1.exam.q1
+    family: m1.actions
+    rules: [R-M1-001]
+    prompt: "翻牌圈對手{{t:bet|下注}}，你{{t:call|跟注}}。轉牌圈你先行動。你可以怎麼做？"
+    options:
+      - { text: "{{t:check|過牌}}或{{t:bet|下注}}", correct: true, why: "轉牌圈是新的{{t:betting-round}}。這一輪還沒有人投入任何籌碼，所以你和每一輪開始時一樣，有這兩個選項。" }
+      - { text: "只能{{t:call|跟注}}或{{t:fold|棄牌}}", why: "翻牌圈的{{t:bet|下注}}已經被跟上了。轉牌圈沒有可以{{t:call|跟注}}的對象。" }
+      - { text: "對翻牌圈的{{t:bet|下注}}{{t:raise|加注}}", why: "只能對本輪的{{t:bet}}{{t:raise|加注}}。翻牌圈那一注已經結束了。" }
+  - kind: choice
+    id: m1.exam.q2
+    family: m1.actions
+    rules: [R-M1-001]
+    prompt: "在你之前行動的對手已經{{t:bet|下注}}。你現在不能做哪個動作？"
+    options:
+      - { text: "{{t:check|過牌}}", correct: true, why: "只有在這一輪你之前沒有人{{t:bet|下注}}或{{t:raise|加注}}時，才能{{t:check|過牌}}。現在你必須{{t:fold|棄牌}}、{{t:call|跟注}}或{{t:raise|加注}}。" }
+      - { text: "{{t:raise|加注}}", why: "正是因為有{{t:bet}}可以加，才能{{t:raise|加注}}。" }
+      - { text: "{{t:fold|棄牌}}", why: "需要再投入籌碼時，隨時都可以{{t:fold|棄牌}}。" }
+  - kind: choice
+    id: m1.exam.q3
+    family: m1.actions
+    rules: [R-M1-002]
+    prompt: "河牌圈。對手{{t:check|過牌}}，而你的手牌幾乎肯定落後。你怎麼做？"
+    options:
+      - { text: "{{t:check|過牌}}", correct: true, why: "{{t:check|過牌}}不用付出任何代價，而且對手可能也沒中牌。{{t:fold|棄牌}}等於不戰而放棄{{t:pot|底池}}。" }
+      - { text: "{{t:fold|棄牌}}", why: "能免費{{t:check|過牌}}時，{{t:fold}}只會放棄贏得{{t:pot|底池}}的機會。你什麼也得不到。" }
+      - { text: "{{t:call|跟注}}", why: "對手什麼都沒有{{t:bet|下注}}，所以沒有可以{{t:call|跟注}}的對象。" }
+  - kind: choice
+    id: m1.exam.q4
+    family: m1.actions
+    rules: [R-M1-003]
+    prompt: "你在翻牌圈{{t:bet|下注}}，對手{{t:raise|加注}}。你不想繼續玩下去。你怎麼做？"
+    options:
+      - { text: "{{t:fold|棄牌}}", correct: true, why: "有一個{{t:raise}}要跟上，而你不想付錢。你只會損失已經投入的部分。" }
+      - { text: "{{t:check|過牌}}", why: "對手{{t:raise|加注}}後，你不能{{t:check|過牌}}：必須補足或{{t:fold|棄牌}}。" }
+      - { text: "{{t:call|跟注}}看轉牌", why: "既然你不想繼續玩下去，每多投入一次都是額外的損失。" }
+  - kind: choice
+    id: m1.exam.q5
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "轉牌圈下注時，{{t:board|牌面}}上有幾張{{t:community-cards|公共牌}}？"
+    options:
+      - { text: "4", correct: true, why: "翻牌發了三張，轉牌再加上第四張。第五張要到河牌才會發出。" }
+      - { text: "3", why: "翻牌時有三張牌。轉牌再加一張。" }
+      - { text: "5", why: "要到河牌才有五張牌。" }
+  - kind: choice
+    id: m1.exam.q6
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "河牌圈下注結束後，牌局中只剩你和一名對手。接下來會怎樣？"
+    options:
+      - { text: "雙方亮牌（攤牌）", correct: true, why: "河牌圈是最後一個{{t:betting-round|下注輪}}。至少還有兩名玩家時，他們會亮出手牌，牌型最大者贏得{{t:pot|底池}}。" }
+      - { text: "再發一張牌", why: "{{t:board|牌面}}上最多只有五張牌。河牌之後就沒有了。" }
+      - { text: "{{t:pot|底池}}總是平分", why: "只有牌型相同時才會平分。通常是較好的牌獲勝。" }
+  - kind: choice
+    id: m1.exam.q7
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "你在翻牌圈{{t:bet|下注}}，其他人全部{{t:fold|棄牌}}。會發生什麼事？"
+    options:
+      - { text: "你不用亮牌就贏得{{t:pot|底池}}", correct: true, why: "只有在河牌之後至少還剩兩名玩家時，才會攤牌。只剩你一人時，這手牌就結束了。" }
+      - { text: "發出轉牌和河牌，然後你亮牌", why: "已經沒有人可以和你繼續玩，所以不會再發牌。" }
+      - { text: "你必須亮牌才能拿走{{t:pot|底池}}", why: "亮牌是在攤牌時，而這手牌沒有走到攤牌。" }
+  - kind: choice
+    id: m1.exam.q8
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "這手牌打到了攤牌。算上翻牌前，總共進行了幾個{{t:betting-round|下注輪}}？"
+    options:
+      - { text: "4", correct: true, why: "翻牌前、翻牌、轉牌和河牌。攤牌是在最後一輪，也就是河牌圈之後。" }
+      - { text: "3", why: "翻牌、轉牌和河牌是三輪，但在它們之前還有翻牌前。" }
+      - { text: "5", why: "{{t:community-cards|公共牌}}有五張，但{{t:betting-round|下注輪}}只有四個：翻牌一次發出三張牌。" }

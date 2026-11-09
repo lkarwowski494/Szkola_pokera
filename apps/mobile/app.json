@@ -37,7 +37,7 @@
     "plugins": [
       "expo-router",
       "expo-sqlite",
-      ["expo-localization", { "supportedLocales": { "ios": ["pl", "en"], "android": ["pl", "en"] }, "supportsRTL": false }],
+      ["expo-localization", { "supportedLocales": { "ios": ["pl", "en", "ja", "zh-Hant", "pt-BR", "fr"], "android": ["pl", "en", "ja", "zh-Hant", "pt-BR", "fr"] }, "supportsRTL": false }],
       [
         "expo-splash-screen",
         { "backgroundColor": "#0A1430", "image": "./assets/images/splash-icon.png", "imageWidth": 180 }
@@ -45,7 +45,14 @@
       ["expo-notifications", { "enableRemoteNotifications": false }],
       "expo-iap"
     ],
-    "locales": { "pl": "./locales/systemowe/pl.json", "en": "./locales/systemowe/en.json" },
+    "locales": {
+      "pl": "./locales/systemowe/pl.json",
+      "en": "./locales/systemowe/en.json",
+      "ja": "./locales/systemowe/ja.json",
+      "zh-Hant": "./locales/systemowe/zh-Hant.json",
+      "pt-BR": "./locales/systemowe/pt-BR.json",
+      "fr": "./locales/systemowe/fr.json"
+    },
     "experiments": { "typedRoutes": true, "reactCompiler": true }
   }
 }

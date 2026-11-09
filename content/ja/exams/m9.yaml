@@ -1,0 +1,86 @@
+# Pula pytań egzaminacyjnych modułu M9 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m9.*).
+module: m9
+drills:
+  - kind: choice
+    id: m9.exam.q1
+    family: m9.spr
+    rules: [R-M9-001]
+    prompt: "フロップで{{t:pot|ポット}}は{{n:exam.m9.pot}}です。あなたの残りスタックは{{n:exam.m9.stack.you}}、相手の残りスタックは{{n:exam.m9.stack.opp}}です。{{t:spr}}はいくつですか？"
+    options:
+      - { text: "{{n:exam.m9.spr}}", correct: true, why: "正解です。{{t:effective-stack|エフェクティブスタック}}、つまり2つのうち小さい方で計算します：{{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}。このハンドでは、相手が持っている以上の額を勝つことも負けることもできません。" }
+      - { text: "{{n:exam.m9.spr.wrong}}", why: "それはあなたのスタック ÷ {{t:pot}}です。相手の方が少ないので、このハンドで入るのは最大{{n:exam.m9.stack.opp}}です：{{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}。" }
+      - { text: "{{n:exam.m9.spr.inverted}}", why: "逆です。{{t:spr}}はスタックを{{t:pot|ポット}}で割ったもので、{{t:pot}}をスタックで割ったものではありません。" }
+  - kind: choice
+    id: m9.exam.q2
+    family: m9.spr-zone
+    rules: [R-M9-010]
+    prompt: "フロップの{{t:spr}}は{{n:exam.m9.spr}}です。{{t:spr}}のゾーンで考えると、次のうちボーダーラインのハンドはどれですか？{{t:value|バリュー}}のためにプレイしますが、相手のオールインに必ず{{t:call|コール}}するわけではないハンドです。"
+    options:
+      - { text: "キッカーの良い{{t:top-pair|トップペア}}", correct: true, why: "正解です。{{n:exam.m9.spr}}は{{n:spr.zone.low}}から{{n:spr.zone.mid}}のゾーンで、ここでは{{t:top-pair}}はボーダーラインのハンドです（これは単純化です）。{{n:spr.zone.low}}未満なら、通常はスタック全体を懸けてプレイします。" }
+      - { text: "セット", why: "セットは{{t:spr}}が{{n:spr.zone.deep}}を超えていてもスタック全体を懸けてプレイします。{{t:spr}}が{{n:exam.m9.spr}}なら、明らかにスタック全体を懸けるハンドです。" }
+      - { text: "{{t:board|ボード}}の上位2枚での{{t:two-pair|ツーペア}}", why: "高い{{t:two-pair}}は、{{n:spr.zone.mid}}から{{n:spr.zone.deep}}のゾーンでもスタックを懸けてプレイするのに十分です。{{t:spr}}が{{n:exam.m9.spr}}なら、ボーダーラインではなくスタック全体を懸けるハンドです。" }
+  - kind: numeric
+    id: m9.exam.q3
+    family: m9.spr-price
+    rules: [R-M9-002]
+    prompt: "フロップです。{{t:pot|ポット}}は{{n:exam.m9.pot}}で、相手が{{n:exam.m9.stack.opp}}でオールインします（{{t:spr}} {{n:exam.m9.spr}}）。{{t:call|コール}}に必要なエクイティはいくつですか？パーセントで数値を入力してください。"
+    answer: exam.m9.eq.jam
+    explanation: "{{n:exam.m9.stack.opp}}を支払って、{{t:pot|ポット}}と相手のスタックを獲得します：{{n:exam.m9.stack.opp}} ÷ ({{n:exam.m9.pot}} + 2·{{n:exam.m9.stack.opp}}) = {{n:exam.m9.eq.jam}}。{{t:spr}}が低いほど、価格は良くなります。"
+  - kind: choice
+    id: m9.exam.q4
+    family: m9.commit-plan
+    rules: [R-M9-004, R-M9-003]
+    prompt: "フロップ、{{t:spr}} {{n:spr.low}}：{{t:pot|ポット}}は{{n:ex.pot}}、スタックはどちらも{{n:spr.stack.low}}です。あなたは{{t:overpair}}を持っています。{{t:pot|ポット}}の半分のベット（{{n:ex.bet.half}}）を検討中で、ベット後の残りは{{n:exam.m9.low.left}}になります。どんなプランにしますか？"
+    table: { hand: "Qh Qc", board: "Jd 7s 3c" }
+    options:
+      - { text: "スタック全体を懸けるプランでベット", correct: true, why: "正解です。ベットと{{t:call|コール}}の後、{{t:pot|ポット}}は{{n:ex.half.total}}になり、スタックに残る{{n:exam.m9.low.left}}より大きくなります。相手のオールインに必要なエクイティは{{n:exam.m9.eq.low-after-half}}だけで、これほど低い{{t:spr}}では{{t:overpair}}はスタック全体を懸けてプレイします。" }
+      - { text: "{{n:ex.bet.half}}をベットし、相手がオールインしたら{{t:fold}}", why: "ここでベットして{{t:fold}}するのは意味がありません。あなたのベット後、オールインへの{{t:call|コール}}には{{n:exam.m9.eq.low-after-half}}のエクイティで足ります。スタック全体を懸けてプレイするか、{{t:check|チェック}}するかのどちらかです。" }
+      - { text: "{{t:check|チェック}}して、どのベットにも{{t:fold|フォールド}}", why: "{{t:spr}}が{{n:spr.zone.low}}未満なら、{{t:overpair}}はスタック全体を懸けるハンドです。ベットに{{t:fold}}すると、非常に強いハンドで{{t:pot|ポット}}を明け渡すことになります。" }
+  - kind: choice
+    id: m9.exam.q5
+    family: m9.geo-size
+    rules: [R-M9-006]
+    prompt: "フロップの{{t:spr}}は{{n:exam.m9.spr}}です。フロップとターンの2回の同額の{{t:bet|ベット}}で、スタック全体を入れたいと考えています。{{t:pot|ポット}}のどれだけの割合をベットしますか？"
+    options:
+      - { text: "{{t:pot|ポット}}の約{{n:exam.m9.geo.two}}", correct: true, why: "正解です。(1 + 2f)の2乗 = 1 + 2·{{n:exam.m9.spr}}なので、1 + 2f = 3、f = {{n:exam.m9.geo.two}}です。{{t:pot|ポット}}サイズのベットと{{t:call}}で{{t:pot|ポット}}は3倍になり、ターンでもう一度同じベットをするとオールインです。" }
+      - { text: "{{t:pot|ポット}}の約{{n:exam.m9.geo.three}}", why: "それは3{{t:street|ストリート}}用のサイズです：(1 + 2f)の3乗 = 1 + 2·{{n:exam.m9.spr}}。2{{t:street|ストリート}}なら、それぞれの{{t:bet}}をもっと大きくする必要があります。" }
+      - { text: "{{t:pot|ポット}}の約{{n:cbet.size.small}}", why: "{{t:pot|ポット}}の1/3の{{t:bet|ベット}}を2回しても、スタックの小さな一部しか入りません。ジオメトリックサイズは、(1 + 2f)の{{t:street|ストリート}}数乗 = 1 + 2·{{t:spr}}という式で計算します。" }
+  - kind: choice
+    id: m9.exam.q6
+    family: m9.plan-streets
+    rules: [R-M9-008]
+    prompt: "ボタンから{{t:open|オープン}}し、{{t:big-blind}}が{{t:call|コール}}しました。{{t:dry|ドライ}}で低いフロップで、ジャックの{{t:overpair}}を持っています。このハンドは通常、何ストリートの{{t:value|バリュー}}に耐えられますか？"
+    table: { hand: "Jc Jd", board: "9h 5c 2d", position: BTN }
+    options:
+      - { text: "通常は2ストリート。相手が弱いハンドで払ってくるなら3ストリート目も", correct: true, why: "正解です。9、5、それより弱い{{t:pair|ペア}}は{{t:overpair}}に払ってくれますが、{{t:street|ストリート}}が進むごとに弱いハンドは{{t:fold|フォールド}}し、{{t:pot|ポット}}に残るのは主に強いハンドです。" }
+      - { text: "常に3ストリート", why: "3ストリートの{{t:value|バリュー}}に耐えるのは、通常は非常に強いハンドです：セット、{{t:straight|ストレート}}、高い{{t:two-pair}}。3回目の{{t:bet|ベット}}の後、ジャックの{{t:overpair}}はより強いハンドに払ってしまうことがよくあります。" }
+      - { text: "なし：ショーダウンまで{{t:check|チェック}}", why: "慎重すぎます。{{t:dry|ドライ}}なフロップでは、{{t:overpair}}は1〜2回の{{t:bet|ベット}}に払ってくれる多くのハンドに勝っています。" }
+  - kind: choice
+    id: m9.exam.q7
+    family: m9.geo-srp
+    rules: [R-M9-007]
+    prompt: "シングルレイズド{{t:pot|ポット}}、スタックは{{n:format.stack}}：フロップで{{t:pot}}は{{n:bb.pot-after.vs-btn}}、お互いの残りスタックは{{n:spr.srp.stack}}です。フロップ、ターン、リバーで{{t:pot|ポット}}サイズのベットをし、相手は毎回{{t:call|コール}}します。合計でいくら入れますか？"
+    table: { position: BTN }
+    options:
+      - { text: "{{n:srp.potbet.total}}：スタック全体より少ない", correct: true, why: "正解です。{{n:srp.potbet.flop}} + {{n:srp.potbet.turn}} + {{n:srp.potbet.river}} = {{n:srp.potbet.total}}（スタック{{n:spr.srp.stack}}のうち）。フロップの{{t:pot|ポット}}はスタックに比べて小さいので、スタック全体が入るのは各{{t:street|ストリート}}で{{t:pot|ポット}}の約{{n:geo.srp.3}}の{{t:bet|ベット}}をしたときです。" }
+      - { text: "スタック全体：{{n:spr.srp.stack}}", why: "{{t:pot|ポット}}サイズのベット3回で入るのは{{n:srp.potbet.total}}です。スタック全体を入れるには、各{{t:street|ストリート}}で{{t:pot|ポット}}より多くベットする必要があります。" }
+      - { text: "{{n:srp.half.total}}", why: "それは{{t:pot|ポット}}の半分のベット3回で入る額です。{{t:pot|ポット}}サイズのベットではもっと多く入ります：{{n:srp.potbet.total}}。" }
+  - kind: choice
+    id: m9.exam.q8
+    family: m9.geo-size
+    rules: [R-M9-009]
+    prompt: "3ベット{{t:pot|ポット}}で、あなたが{{t:position|ポジション}}を持っており、{{t:spr}}は約{{n:spr.3bet-ip}}です。3ストリートの{{t:value|バリュー}}に値するハンドで、スタック全体を入れたいと考えています。友人は各{{t:street|ストリート}}で{{t:pot|ポット}}の1/3の小さなベットを勧めています。相手が3回{{t:call|コール}}するとどうなりますか？"
+    table: { position: BTN }
+    options:
+      - { text: "スタック{{n:spr.3bet-ip.stack}}のうち、約{{n:g3b.third.total}}しか入らない", correct: true, why: "正解です。小さなベットでは、後の{{t:street|ストリート}}に残る{{t:pot|ポット}}も小さくなります。スタック全体が入るのは各{{t:street|ストリート}}で{{t:pot|ポット}}の約{{n:geo.3bet-ip.3}}のときなので、ジオメトリックサイズはフロップの時点で選びます。" }
+      - { text: "リバーではスタック全体が{{t:pot|ポット}}に入っている", why: "いいえ。{{t:pot|ポット}}の1/3のベット3回で入るのは約{{n:g3b.third.total}}だけです。スタック（{{n:spr.3bet-ip.stack}}）の大部分は入らずに残ります。" }
+      - { text: "ターンの時点でスタック全体が入る", why: "逆です。{{t:pot}}は掛け算で増えるため、小さなベットではゆっくりとしか増えません。{{t:pot|ポット}}の約{{n:geo.3bet-ip.3}}のサイズでようやくスタック全体が入り、それもリバーでです。" }
+  - kind: choice
+    id: m9.exam.q9
+    family: m9.spr-zone
+    rules: [R-M9-010]
+    prompt: "非常に深いスタックです。フロップの{{t:spr}}は{{n:spr.zone.deep}}より高くなっています。あなたは高い{{t:two-pair}}を持っています。スタック全体を懸けるプランにしますか？"
+    options:
+      - { text: "通常はしない：この{{t:spr}}でスタック全体を懸けるには、セット、{{t:straight|ストレート}}、またはそれ以上のハンドが必要", correct: true, why: "正解です。{{n:spr.zone.deep}}を超えると、スタック全体が入るのは{{t:pot|ポット}}サイズの{{t:bet|ベット}}を3回より多くした後で、最後まで払ってくる相手は主に非常に強いハンドを持っています（これは{{t:spr}}ゾーンの単純化です）。" }
+      - { text: "する：高い{{t:two-pair}}は常にスタックを懸けてプレイする", why: "高い{{t:two-pair}}で通常足りるのは、{{n:spr.zone.mid}}から{{n:spr.zone.deep}}のゾーンです。それより上では、スタック全体を入れてくる相手はセット以上を持っていることがよくあります。" }
+      - { text: "する。高い{{t:spr}}はオールインに良い価格を与えるから", why: "逆です。{{t:spr}}が高いほどオールインの価格は悪くなり、スタック全体を懸けるにはより強いハンドが必要になります。" }

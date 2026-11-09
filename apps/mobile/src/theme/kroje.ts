@@ -10,14 +10,24 @@ const SKALA_XXXL = 1.353;
 /** Limit czekania na krój przy starcie (ms; wzór Treningu `app/_layout.tsx:31`). */
 export const LIMIT_KROJU_MS = 3000;
 
-/** Krój tytułu: Literata do XXXL, od AX1 albo bez kroju — systemowy (`undefined`). */
-export function krojTytulu(zaladowany: boolean, skala: number): string | undefined {
-  return zaladowany && skala <= SKALA_XXXL + 0.001 ? LITERATA : undefined;
+/** Języki z pismem, którego Literata 600 nie ma (D-368: ja, zh-Hant; ko po przekładzie) — tytuły krojem systemowym. */
+const BEZ_LITERATY = new Set(['ja', 'zh', 'ko']);
+
+/** Literata do XXXL (bez języka: indeks karty, cyfry i litery łacińskie). */
+const literataDoXxxl = (zaladowany: boolean, skala: number): string | undefined => (zaladowany && skala <= SKALA_XXXL + 0.001 ? LITERATA : undefined);
+
+/**
+ * Krój tytułu: Literata do XXXL, od AX1 albo bez kroju — systemowy (`undefined`); w języku z pismem CJK zawsze systemowy
+ * semibold, żeby tytuł nie mieszał Literaty (łacinka, cyfry) z krojem zastępczym znaków CJK (D-368).
+ */
+export function krojTytulu(zaladowany: boolean, skala: number, jezyk?: string): string | undefined {
+  if (jezyk && BEZ_LITERATY.has(jezyk.split('-')[0]!)) return undefined;
+  return literataDoXxxl(zaladowany, skala);
 }
 
-/** Krój indeksu karty: Literata do XXXL, inaczej szeryfowy systemu. */
+/** Krój indeksu karty: Literata do XXXL, inaczej szeryfowy systemu (niezależnie od języka). */
 export function krojIndeksu(zaladowany: boolean, skala: number): string {
-  return krojTytulu(zaladowany, skala) ?? 'Georgia';
+  return literataDoXxxl(zaladowany, skala) ?? 'Georgia';
 }
 
 /** Ładowanie kroju z limitem czasu; nigdy nie odrzuca (brak kroju = krój systemowy, preferencja wyglądu, nie dane). */

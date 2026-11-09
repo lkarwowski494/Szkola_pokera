@@ -1,0 +1,93 @@
+module: m12
+drills:
+  - kind: choice
+    id: m12.exam.q1
+    family: m12.result-range
+    rules: [R-M12-001]
+    prompt: "Vous gagnez en moyenne {{n:var.wr.typical.high}} avec un {{t:standard-deviation|écart type}} de {{n:var.sd}} et vous allez jouer {{n:exam.m12.hands.k}} mille mains ({{n:exam.m12.blocks}} blocs de 100). Dans quel intervalle votre résultat se situera-t-il avec environ {{n:var.conf95}} de confiance ?"
+    options:
+      - { text: "D'environ {{n:exam.m12.ci.low.bi}} à environ {{n:exam.m12.ci.high.bi}} {{t:buy-in|buy-ins}}", correct: true, why: "Vous attendez {{n:var.wr.typical.high}} × {{n:exam.m12.blocks}} = {{n:exam.m12.exp.bb}}, soit {{n:exam.m12.exp.bi}} {{t:buy-in|buy-ins}}. L'{{t:standard-deviation|écart type}} du résultat est de {{n:var.sd}} × √{{n:exam.m12.blocks}} ≈ {{n:exam.m12.sd.bb}}, soit environ {{n:exam.m12.sd.bi}} {{t:buy-in|buy-ins}}. Intervalle : {{n:exam.m12.exp.bi}} ± {{n:var.z95}} × {{n:exam.m12.sd.bi}} ≈ ± {{n:exam.m12.ci.half.bi}}." }
+      - { text: "Exactement {{n:exam.m12.exp.bi}} {{t:buy-in|buy-ins}}", why: "{{n:exam.m12.exp.bi}} {{t:buy-in|buy-ins}}, c'est le résultat attendu, c'est-à-dire la moyenne. L'{{t:standard-deviation|écart type}} du résultat après {{n:exam.m12.hands.k}} mille mains est d'environ {{n:exam.m12.sd.bi}} {{t:buy-in|buy-ins}} : le résultat réel peut donc être loin de la moyenne." }
+      - { text: "D'environ {{n:exam.m12.exp.bi}} à environ {{n:exam.m12.ci.high.bi}} {{t:buy-in|buy-ins}} : un joueur gagnant ne finit pas dans le rouge", why: "Un joueur gagnant peut finir dans le rouge : avec ces paramètres, la borne inférieure de l'intervalle est d'environ {{n:exam.m12.ci.low.bi}} {{t:buy-in|buy-ins}}." }
+  - kind: choice
+    id: m12.exam.q2
+    family: m12.winrate-sample
+    rules: [R-M12-001]
+    prompt: "Après {{n:exam.m12.hands.k}} mille mains, votre winrate est de {{n:var.wr.typical.high}} et votre {{t:standard-deviation|écart type}} de {{n:var.sd}}. Que savez-vous de votre vrai winrate ?"
+    options:
+      - { text: "Avec environ {{n:var.conf95}} de confiance, il se situe entre environ {{n:exam.m12.wr.ci.low}} et environ {{n:exam.m12.wr.ci.high}}", correct: true, why: "L'erreur sur le winrate est SD ÷ √(blocs) = {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ {{n:exam.m12.se.wr}}. Intervalle : {{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:exam.m12.se.wr}} ≈ ± {{n:exam.m12.ci.wr}}. Après {{n:exam.m12.hands.k}} mille mains, vous ne savez même pas si vous êtes gagnant." }
+      - { text: "Que vous êtes gagnant, car le résultat est positif sur un grand échantillon", why: "{{n:exam.m12.hands.k}} mille mains, c'est un petit échantillon pour le winrate : l'intervalle à {{n:var.conf95}} va d'environ {{n:exam.m12.wr.ci.low}} à environ {{n:exam.m12.wr.ci.high}}, il inclut donc aussi un jeu perdant." }
+      - { text: "Qu'il est très proche de {{n:var.wr.typical.high}}, car l'échantillon est grand", why: "Impossible d'obtenir un intervalle aussi étroit avec {{n:exam.m12.hands.k}} mille mains. Vous calculez {{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ ± {{n:exam.m12.ci.wr}}." }
+  - kind: choice
+    id: m12.exam.q3
+    family: m12.winrate-sample
+    rules: [R-M12-003]
+    prompt: "Vous jouez de manière agressive et votre {{t:standard-deviation|écart type}} est de {{n:var.sd.high}}. Vous voulez connaître votre winrate à ± {{n:var.target}} près avec {{n:var.conf95}} de confiance. De combien de mains avez-vous besoin ?"
+    options:
+      - { text: "Environ {{n:exam.m12.need.hands.k}} mille", correct: true, why: "Blocs = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:exam.m12.need.ratio}}² ≈ {{n:exam.m12.need.blocks}}, soit environ {{n:exam.m12.need.hands.k}} mille mains. Un {{t:standard-deviation|écart type}} plus élevé exige un échantillon beaucoup plus grand." }
+      - { text: "Environ {{n:var.need.hands.k}} mille, autant qu'avec un {{t:standard-deviation|écart type}} de {{n:var.sd}}", why: "L'{{t:standard-deviation|écart type}} est au carré dans la formule : avec {{n:var.sd.high}} au lieu de {{n:var.sd}}, il vous faut nettement plus de mains, environ {{n:exam.m12.need.hands.k}} mille." }
+      - { text: "Quelques dizaines de milliers de mains suffisent", why: "L'erreur ne diminue qu'avec la racine carrée du nombre de mains. Avec {{n:var.sd.high}} et une précision de ± {{n:var.target}}, il vous faut environ {{n:exam.m12.need.blocks}} blocs de 100 mains." }
+  - kind: choice
+    id: m12.exam.q4
+    family: m12.sample-size
+    rules: [R-M12-005, R-M12-001]
+    prompt: "Vous avez changé de style de jeu et, après {{n:exam.m12.style.hands.k}} mille mains, vous êtes à {{n:exam.m12.style.wr}}. Votre {{t:standard-deviation|écart type}} est de {{n:var.sd}}. Est-ce la preuve que le nouveau style est meilleur ?"
+    options:
+      - { text: "Non : l'intervalle à {{n:var.conf95}} est d'environ ± {{n:exam.m12.style.ci}} ; les nouvelles actions s'évaluent en revue de mains", correct: true, why: "L'erreur sur le winrate après {{n:exam.m12.style.blocks}} blocs est de {{n:var.sd}} ÷ {{n:exam.m12.style.sqrt}} ≈ {{n:exam.m12.style.se}}, donc l'intervalle est de ± {{n:var.z95}} × {{n:exam.m12.style.se}} ≈ ± {{n:exam.m12.style.ci}}. Un tel résultat est compatible aussi bien avec un meilleur style qu'avec un moins bon. C'est la revue des décisions qui tranche sur la stratégie." }
+      - { text: "Oui : {{n:exam.m12.style.wr}}, c'est bien plus qu'un winrate typique", why: "Sur {{n:exam.m12.style.hands.k}} mille mains, l'intervalle à {{n:var.conf95}} est d'environ ± {{n:exam.m12.style.ci}}. Un résultat élevé sur un petit échantillon, c'est surtout de la {{t:variance|variance}}." }
+      - { text: "Oui, si vous avez gagné la plupart de vos {{t:session|sessions}}", why: "Le nombre de {{t:session|sessions}} gagnantes, c'est le même résultat, simplement découpé en morceaux. Il repose toujours sur {{n:exam.m12.style.hands.k}} mille mains et ne dit pas si vos décisions sont meilleures." }
+  - kind: choice
+    id: m12.exam.q5
+    family: m12.resulting
+    rules: [R-M12-004]
+    prompt: "Turn. Vous avez un {{t:flush-draw|tirage couleur}} propre et le {{t:pot|pot}} est de {{n:ex.pot}}. Votre adversaire fait tapis pour {{n:ex.bet.half}}, et il n'y a plus rien d'autre à gagner. Vous {{t:call|suivez}}, la {{t:flush|couleur}} rentre à la river et vous gagnez. Comment évaluez-vous ce {{t:call|call}} ?"
+    options:
+      - { text: "Il était mauvais, malgré le gain", correct: true, why: "Il vous fallait {{n:eq.bet-half}} d'equity, et un {{t:flush-draw|tirage couleur}} rentre à la river dans environ {{n:odds.flush.turn-river}} des cas. Votre adversaire est à tapis, il ne vous paiera donc plus rien ensuite. Sur de nombreuses répétitions, un tel {{t:call|call}} perd." }
+      - { text: "Il était bon, car vous avez gagné le {{t:pot|pot}}", why: "Le résultat d'une seule main ne change pas le prix. L'évaluation porte sur la décision avec les informations dont vous disposiez : {{n:odds.flush.turn-river}} d'equity face aux {{n:eq.bet-half}} nécessaires." }
+      - { text: "Impossible de l'évaluer sans connaître les cartes de l'adversaire", why: "Ce que vous saviez suffit pour l'évaluer : votre adversaire est à tapis, votre main ne gagne que si vous touchez la {{t:flush|couleur}}, et le prix exige {{n:eq.bet-half}}." }
+  - kind: choice
+    id: m12.exam.q6
+    family: m12.tilt-type
+    rules: [R-M12-006]
+    prompt: "Vous avez perdu un gros {{t:pot|pot}}. Vous savez que vous avez bien joué et que c'est de la {{t:variance|variance}}, et votre adversaire a lui aussi joué correctement. Pourtant, la défaite elle-même vous met tellement en colère que vous n'arrivez plus à vous concentrer. De quel type de tilt s'agit-il, selon la classification de la leçon sur le tilt ?"
+    options:
+      - { text: "Le tilt de la haine de la défaite", correct: true, why: "Le déclencheur est la défaite elle-même, même quand vous savez que c'est de la {{t:variance|variance}}. Vous n'accusez ni le sort, ni vous-même, ni votre adversaire." }
+      - { text: "Le tilt d'injustice", why: "Ce type est déclenché par le sentiment que le poker est injuste : bad beats, coolers, adversaires qui touchent à la river. Ici, vous savez que tout s'est passé normalement, et c'est la défaite elle-même qui vous met en colère." }
+      - { text: "Le tilt d'erreur", why: "Le tilt d'erreur, c'est la colère contre vos propres erreurs. Ici, vous savez que vous avez bien joué." }
+      - { text: "Le tilt de vengeance", why: "La vengeance vise un adversaire, par exemple après un manque de respect. Ici, votre adversaire a joué correctement et ce n'est pas lui qui cause votre colère." }
+  - kind: choice
+    id: m12.exam.q7
+    family: m12.tilt-response
+    rules: [R-M12-007]
+    prompt: "Après trois gros {{t:pot|pots}} perdus, vous n'arrivez plus à juger si votre dernier {{t:call|call}} était bon, et vous pensez passer à une {{t:stakes|limite}} supérieure pour récupérer vos pertes plus vite. Que faites-vous ?"
+    options:
+      - { text: "J'arrête la {{t:session|session}}", correct: true, why: "Ne plus pouvoir évaluer calmement vos décisions et vouloir vous refaire sont des signes que vous jouez déjà à votre pire niveau (C-game). Le but est d'arrêter tôt, avant de perdre encore plus." }
+      - { text: "Je prends quelques respirations et je continue à une {{t:stakes|limite}} supérieure", why: "La respiration aide aux premiers signes de tilt, tant que vous pensez encore clairement. Ici, le tilt a déjà grandi, et une {{t:stakes|limite}} supérieure ne fait qu'augmenter les pertes." }
+      - { text: "Je continue à la même {{t:stakes|limite}}, mais seulement avec des mains fortes", why: "Quand vous ne pouvez plus évaluer calmement vos décisions, continuer revient à jouer à votre pire niveau (C-game), quelles que soient les mains que vous choisissez. Vous arrêtez la {{t:session|session}}." }
+  - kind: choice
+    id: m12.exam.q8
+    family: m12.risk-of-ruin
+    rules: [R-M12-009]
+    prompt: "Vous gagnez {{n:dd.wr-low}} avec un {{t:standard-deviation|écart type}} de {{n:var.sd}} et vous avez {{n:exam.m12.ror.bi}} {{t:buy-in|buy-ins}} ({{n:exam.m12.ror.bb}}). Quel est le risque de perdre toute votre bankroll si vous ne descendez jamais de {{t:stakes|limite}} ?"
+    options:
+      - { text: "Environ {{n:exam.m12.ror}}", correct: true, why: "Exposant : 2 × winrate × bankroll ÷ SD² = {{n:ror.two}} × {{n:dd.wr-low}} × {{n:exam.m12.ror.bb}} ÷ {{n:var.sd.sq}} = {{n:exam.m12.ror.x}}, donc RoR = e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}." }
+      - { text: "Zéro, car vous êtes gagnant", why: "Un winrate positif ne protège pas de la {{t:variance|variance}}. Avec cette bankroll et ce winrate, le risque est d'environ {{n:exam.m12.ror}} : nettement supérieur à zéro." }
+      - { text: "Environ la moitié, car le winrate est faible", why: "Le risque diminue de façon exponentielle avec la bankroll. Avec {{n:exam.m12.ror.bi}} {{t:buy-in|buy-ins}}, l'exposant est de {{n:exam.m12.ror.x}}, et e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}." }
+  - kind: choice
+    id: m12.exam.q9
+    family: m12.move-down
+    rules: [R-M12-011]
+    prompt: "Vous avez fixé votre bankroll à {{n:br.bi.beginner}} {{t:buy-in|buy-ins}}. Après un {{t:downswing|downswing}}, vous en avez {{n:exam.m12.md.now}}. Que faites-vous ?"
+    options:
+      - { text: "Je descends d'une {{t:stakes|limite}}", correct: true, why: "Le seuil de descente est la moitié du nombre de {{t:buy-in|buy-ins}} que vous avez fixé : avec {{n:br.bi.beginner}}, c'est {{n:exam.m12.md.half}}. Vous en avez {{n:exam.m12.md.now}}, donc moins. À une {{t:stakes|limite}} deux fois plus basse, la même bankroll représente de nouveau presque le nombre complet de {{t:buy-in|buy-ins}} de cette limite. C'est une indication générale ; si votre jeu échappe à votre contrôle, consultez l'écran « Aide »." }
+      - { text: "Je reste, car {{n:exam.m12.md.now}}, c'est plus que le seuil de {{n:br.bi.move-down}}", why: "Le seuil de {{n:br.bi.move-down}} correspond à la moitié d'une bankroll de {{n:br.bi.base}} {{t:buy-in|buy-ins}}. Vous le calculez à partir de la bankroll que vous avez vous-même fixée. Vous avez fixé {{n:br.bi.beginner}}, donc vous descendez au plus tard à {{n:exam.m12.md.half}}." }
+      - { text: "Je reste et je joue davantage pour récupérer mes pertes", why: "Chercher à se refaire est un signal d'alerte, pas un plan. Votre bankroll est passée sous le seuil de {{n:exam.m12.md.half}}, donc vous descendez d'une {{t:stakes|limite}}." }
+  - kind: choice
+    id: m12.exam.q10
+    family: m12.risk-of-ruin
+    rules: [R-M12-009]
+    prompt: "Votre winrate s'avère deux fois plus faible que prévu, et votre {{t:standard-deviation|écart type}} ne change pas. De combien de {{t:buy-in|buy-ins}} avez-vous besoin pour que votre {{t:risk-of-ruin|risque de ruine}} reste le même ?"
+    options:
+      - { text: "Deux fois plus", correct: true, why: "Dans la formule RoR = e^(−2 × winrate × bankroll ÷ SD²), le winrate et la bankroll figurent côte à côte sous forme de produit. Quand le winrate diminue de moitié, seule une bankroll deux fois plus grande redonne le même exposant." }
+      - { text: "Autant, car le risque ne dépend que de la bankroll", why: "Le winrate figure dans l'exposant à côté de la bankroll. Avec un winrate plus faible, la même bankroll donne un risque plus élevé." }
+      - { text: "Quatre fois plus", why: "C'est l'{{t:standard-deviation|écart type}} qui est au carré, pas le winrate. Le winrate et la bankroll forment un produit, donc deux fois plus de {{t:buy-in|buy-ins}} suffisent." }

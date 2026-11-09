@@ -1,0 +1,92 @@
+# Pula egzaminacyjna M0 (układy kart): te same reguły co lekcja m0.l1, inne rozdania i sformułowania.
+module: m0
+drills:
+  - kind: choice
+    id: m0.exam.q1
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "Votre adversaire a un {{t:three-of-a-kind|brelan}} d'as, vous une {{t:straight|quinte}} au valet. Qui gagne ?"
+    table: { hand: "Th 9h", opp: "Ac Ad", board: "As 8c 7d Jh 2s" }
+    options:
+      - { text: "Vous", correct: true, why: "Vos cinq cartes sont J-10-9-8-7, soit une {{t:straight|quinte}}. La {{t:straight|quinte}} est classée au-dessus du {{t:three-of-a-kind|brelan}}, donc la hauteur des cartes de votre adversaire n'a pas d'importance." }
+      - { text: "Votre adversaire, car il a des as", why: "Les as ne comptent qu'avec la même combinaison. Ici, les combinaisons sont différentes : la {{t:straight|quinte}} bat le {{t:three-of-a-kind|brelan}}." }
+      - { text: "{{t:split-pot|Partage du pot}}", why: "Des combinaisons différentes ne font pas égalité. La combinaison la plus haute dans le classement gagne." }
+  - kind: choice
+    id: m0.exam.q2
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "Vous avez un {{t:four-of-a-kind|carré}} de neuf, votre adversaire un {{t:full-house|full}} aux rois. Qui gagne ?"
+    table: { hand: "9c 9d", opp: "Kh 2c", board: "9h 9s Kd Kc 3h" }
+    options:
+      - { text: "Vous", correct: true, why: "Le {{t:four-of-a-kind|carré}} est à la 3e place du classement, le {{t:full-house|full}} à la 4e. Les rois de votre adversaire ne l'aident pas, car les combinaisons sont différentes." }
+      - { text: "Votre adversaire, car les rois sont plus hauts que les neuf", why: "La hauteur des cartes ne se compare qu'avec la même combinaison. Le {{t:four-of-a-kind|carré}} bat toujours le {{t:full-house|full}}." }
+      - { text: "{{t:split-pot|Partage du pot}}, car vous utilisez tous les deux le {{t:board|board}}", why: "Vous utilisez tous les deux les {{t:community-cards|cartes communes}}, mais chacun forme une main de cinq cartes différente : vous un {{t:four-of-a-kind|carré}}, votre adversaire un {{t:full-house|full}}." }
+  - kind: choice
+    id: m0.exam.q3
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "Votre adversaire a une {{t:pair|paire}} d'as, et vous une {{t:two-pair|double paire}} : sept et deux. Qui gagne ?"
+    options:
+      - { text: "Vous", correct: true, why: "La {{t:two-pair|double paire}} est classée au-dessus de la {{t:pair|paire}}, même quand elle est basse. On compare d'abord le rang de la combinaison." }
+      - { text: "Votre adversaire, car les as sont les plus hauts", why: "Une {{t:pair|paire}} d'as reste une simple {{t:pair|paire}}. La hauteur ne décide qu'avec la même combinaison." }
+      - { text: "Cela dépend du kicker", why: "Le kicker ne compte que si le cœur de la combinaison est identique. Ici, les combinaisons sont différentes." }
+  - kind: choice
+    id: m0.exam.q4
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Vous avez tous les deux une {{t:two-pair|double paire}} : dames et huit du {{t:board|board}}. Qui gagne ?"
+    table: { hand: "Ah 3c", opp: "Kd 4s", board: "Qs Qd 8h 8c 2s" }
+    options:
+      - { text: "Vous", correct: true, why: "Le cœur de la combinaison est le même (dames et huit), donc la cinquième carte décide. Votre as bat le roi de votre adversaire." }
+      - { text: "Votre adversaire", why: "Votre adversaire a un roi comme cinquième carte, et vous un as. L'as est plus haut." }
+      - { text: "{{t:split-pot|Partage du pot}}", why: "Il y aurait partage avec une main de cinq cartes identique. Ici, les cinquièmes cartes sont différentes : as contre roi." }
+  - kind: choice
+    id: m0.exam.q5
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Vous avez tous les deux une {{t:pair|paire}} de rois et un as. Votre deuxième carte (4) est plus haute que la deuxième carte de votre adversaire (3). Qui gagne ?"
+    table: { hand: "Ac 4d", opp: "As 3h", board: "Kh Kd Qc Js 9h" }
+    options:
+      - { text: "{{t:split-pot|Partage du pot}}", correct: true, why: "La meilleure main de cinq cartes des deux joueurs est K-K-A-Q-J. Le 4 et le 3 n'entrent pas dans ces cinq cartes, donc ils ne changent rien." }
+      - { text: "Vous, car 4 est plus haut que 3", why: "Le kicker ne compte que s'il fait partie des 5 meilleures cartes. Ici, la dame et le valet viennent du {{t:board|board}}, donc votre quatre est la sixième carte." }
+      - { text: "Votre adversaire", why: "Votre adversaire a la même main de cinq cartes que vous : K-K-A-Q-J." }
+  - kind: choice
+    id: m0.exam.q6
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Vous avez tous les deux une {{t:straight|quinte}}. Qui gagne ?"
+    table: { hand: "Ah 2c", opp: "6d 7s", board: "3s 4d 5h Kc 9d" }
+    options:
+      - { text: "Votre adversaire", correct: true, why: "Votre {{t:straight|quinte}} est A-2-3-4-5, soit la {{t:wheel|quinte blanche}}, la {{t:straight|quinte}} la plus basse : l'as compte ici comme un 1. Votre adversaire a 3-4-5-6-7, donc sa {{t:straight|quinte}} est plus haute." }
+      - { text: "Vous, car vous avez un as", why: "Dans une {{t:straight|quinte}} de l'as au cinq, l'as est la carte la plus basse. Avec la même combinaison, la {{t:straight|quinte}} la plus haute gagne : 7 bat 5." }
+      - { text: "{{t:split-pot|Partage du pot}}", why: "Vous avez tous les deux une {{t:straight|quinte}}, mais de hauteur différente. Il y aurait partage avec une main de cinq cartes identique." }
+  - kind: choice
+    id: m0.exam.q7
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Vous avez tous les deux une {{t:flush|couleur}} à cœur avec un as au {{t:board|board}}. Qui gagne ?"
+    table: { hand: "Kh 4h", opp: "Qh Jh", board: "Ah 9h 3h 7c 2d" }
+    options:
+      - { text: "Vous", correct: true, why: "Les {{t:flush|couleurs}} se comparent à partir de la carte la plus haute. L'as est commun, et la deuxième carte est votre roi contre la dame de votre adversaire." }
+      - { text: "Votre adversaire, car il a deux cartes hautes", why: "Ce qui compte, c'est la plus haute carte qui diffère, dans l'ordre. Votre roi bat la dame, donc les cartes suivantes n'ont pas d'importance." }
+      - { text: "{{t:split-pot|Partage du pot}}", why: "Les mains de cinq cartes sont différentes : A-K-9-4-3 et A-Q-J-9-3." }
+  - kind: choice
+    id: m0.exam.q8
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "Il y a un {{t:full-house|full}} au {{t:board|board}} : trois as et deux rois. Vous avez une {{t:pair|paire}} de dames. Qui gagne ?"
+    table: { hand: "Qc Qd", opp: "7s 2c", board: "Ah Ad Ac Ks Kh" }
+    options:
+      - { text: "{{t:split-pot|Partage du pot}}", correct: true, why: "La meilleure main de cinq cartes des deux joueurs est A-A-A-K-K, celle du {{t:board|board}}. Vos dames donneraient un {{t:full-house|full}} plus faible (as par les dames), donc elles n'entrent pas dans la main." }
+      - { text: "Vous, car vous avez une {{t:pair|paire}} de dames", why: "As par les dames est plus faible qu'as par les rois, qui est au {{t:board|board}}. Vous jouez donc le {{t:board|board}}, comme votre adversaire." }
+      - { text: "Votre adversaire", why: "Votre adversaire joue lui aussi les cinq cartes du {{t:board|board}}. Ses cartes n'ajoutent rien, comme les vôtres." }
+  - kind: choice
+    id: m0.exam.q9
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "Il y a une {{t:straight|quinte}} du neuf au roi au {{t:board|board}}. Qui gagne ?"
+    table: { hand: "Ac 2d", opp: "3c 3d", board: "Ts Jd Qc Kh 9s" }
+    options:
+      - { text: "Vous", correct: true, why: "Votre as prolonge la {{t:straight|quinte}} jusqu'à A-K-Q-J-10. Votre adversaire joue les cinq cartes du {{t:board|board}} (K-Q-J-10-9), et votre main est plus haute." }
+      - { text: "{{t:split-pot|Partage du pot}}", why: "Il n'y a partage que si la meilleure main de cinq cartes des deux joueurs est au {{t:board|board}}. Vous avez une meilleure main grâce à votre as." }
+      - { text: "Votre adversaire, car il a une {{t:pair|paire}}", why: "Une {{t:pair|paire}} de trois est plus faible que la {{t:straight|quinte}} du {{t:board|board}}, donc votre adversaire joue le {{t:board|board}}." }

@@ -1,0 +1,100 @@
+# Pula pytań egzaminacyjnych modułu M5 (te same reguły co lekcje, inne sytuacje). Klasyfikacja tekstury i decyzja
+# c-betu BTN vs BB trafiają na egzamin z generatorów lekcji (texture, cbet), więc tu ich nie powtarzamy.
+module: m5
+drills:
+  - kind: choice
+    id: m5.exam.q1
+    family: m5.advantage.who
+    rules: [R-M5-003]
+    prompt: "{{t:cutoff|CO}}から{{t:open|オープン}}し、ボタンと{{t:small-blind|スモールブラインド}}が{{t:fold|フォールド}}、{{t:big-blind}}が{{t:call|コール}}しました。フロップ：[[Ac Jd 5h]]。{{t:range-advantage|レンジアドバンテージ}}を持っているのは誰ですか？"
+    table: { position: CO, board: "Ac Jd 5h" }
+    options:
+      - { text: "あなた（{{t:open|オープン}}した側）", correct: true, why: "そのとおりです。エースが出たフロップでは、あなたの{{t:range|レンジ}}にAA、AK、AJがすべて含まれます。{{t:big-blind|ビッグブラインド}}は最も強いエースをたいていフロップ前に{{t:raise|レイズ}}する（3ベット）ので、{{t:call|コール}}しただけの場合、強いエースはわずかです。" }
+      - { text: "{{t:big-blind|ビッグブラインド}}（多くのエースをディフェンスするから）", why: "多くのエースをディフェンスしますが、弱いエースです（例：A5、A8）。最も強いエースは3ベットでプレイするので、ここでの手は平均してあなたより弱くなります。" }
+      - { text: "誰でもない：エースは両方の{{t:range|レンジ}}に同じように当たる", why: "{{t:board|ボード}}のエースは両方の{{t:range|レンジ}}に影響しますが、同じではありません。{{t:big-blind}}が最も強いエースをフロップ前に{{t:raise|レイズ}}したので、あなたのレンジのほうが強いエースを多く含みます。" }
+  - kind: choice
+    id: m5.exam.q2
+    family: m5.advantage.who
+    rules: [R-M5-004]
+    prompt: "ボタンから{{t:open|オープン}}し、{{t:big-blind}}が{{t:call|コール}}しました。次のうち、{{t:big-blind}}のほうがあなたより{{t:two-pair}}や{{t:straight|ストレート}}を持っていることが多いフロップはどれですか？"
+    table: { position: BTN }
+    options:
+      - { text: "[[8h 6d 5c]]", correct: true, why: "そのとおりです。低く{{t:connected}}のフロップは、{{t:big-blind}}が多くディフェンスする{{t:connectors|コネクター}}や小さいカードの手に当たります。ボタンからのあなたは高いカードが多く、それらはここで外れています。これは{{t:big-blind|ビッグブラインド}}の{{t:nuts-advantage}}です。" }
+      - { text: "[[Kd Td 3s]]", why: "いいえ。高いフロップは{{t:open|オープンした側}}に有利です。あなたには良いキッカーのキング、KT、高い{{t:pair|ペア}}が多くあります。" }
+      - { text: "[[Ah Ad 7c]]", why: "いいえ。エースの{{t:pair|ペア}}があるフロップでは、{{t:big-blind}}が最も強いエースをフロップ前に{{t:raise|レイズ}}するので、エースを多く持つのはあなたです。ここで{{t:straight|ストレート}}を持つ人はいません。" }
+  - kind: choice
+    id: m5.exam.q3
+    family: m5.advantage.why
+    rules: [R-M5-005]
+    prompt: "フロップでは2つのアドバンテージを評価します：{{t:range-advantage|レンジアドバンテージ}}と{{t:nuts-advantage|ナッツアドバンテージ}}。どれだけ大きくベットするかの目安になるのはどちらですか？"
+    options:
+      - { text: "{{t:nuts-advantage|ナッツアドバンテージ}}", correct: true, why: "そのとおりです。相手より最も強い手をずっと多く持っていれば、より強い手にぶつかることはまれなので、大きいサイズでベットできます。{{t:range-advantage|レンジアドバンテージ}}は、どれだけ頻繁にベットするかの目安です。" }
+      - { text: "{{t:range-advantage|レンジアドバンテージ}}", why: "いいえ。{{t:range-advantage}}は、頻繁にベットできることを示します。{{t:nuts-advantage|ナッツアドバンテージ}}がなければ小さくベットします。大きい{{t:bet}}は相手の最も強い手に対して大きなリスクを負うからです。" }
+      - { text: "どちらでもない：サイズは自分の手だけで決まる", why: "相手にはあなたの手は見えず、見えるのは{{t:range}}だけです。サイズは多くの手に同時に合うように選び、それを決めるのがアドバンテージです。" }
+  - kind: choice
+    id: m5.exam.q4
+    family: m5.math.miss
+    rules: [R-M5-006, R-M5-013]
+    prompt: "{{t:pair|ペア}}のない手1つがフロップに外れるのは約{{n:flop.miss.unpaired}}、2つ同時なら約{{n:flop.miss.two}}です。そのような手が3つ（6つの異なるランク）同時に外れるのはどのくらいの頻度ですか？"
+    options:
+      - { text: "約{{n:exam.m5.miss.three}}", correct: true, why: "そのとおりです。ペアになるカードは、未知のカード{{n:exam.m5.unseen.three}}枚（自分のカードを除く）のうち{{n:exam.m5.pair.outs.three}}枚です。フロップの{{n:cards.board.flop}}枚のどれもその中にない確率は約{{n:exam.m5.miss.three}}です。相手が3人だと、{{t:bluff}}が全員に通ることはまれです。" }
+      - { text: "約{{n:flop.miss.two}}（2つのときと同じ）", why: "いいえ。3人目の相手がいれば、その相手をペアにするカードがさらに{{n:pair.outs.unpaired}}枚増えます。全員が外れる確率は、プレイヤーが増えるごとに下がります。" }
+      - { text: "約{{n:flop.miss.unpaired}}（相手1人だけが重要）", why: "いいえ。{{t:bluff}}で{{t:pot|ポット}}を獲得するには、全員が外れる必要があります。相手が1人増えるごとに、その確率は下がります。" }
+  - kind: choice
+    id: m5.exam.q5
+    family: m5.math.alpha
+    rules: [R-M5-011]
+    prompt: "ボタンから{{t:open|オープン}}し、{{t:big-blind}}が{{t:call|コール}}しました。フロップの{{t:pot|ポット}}は{{n:bb.pot-after.vs-btn}}です。勝ち目のない手で{{n:cbet.btn.big}}のCベットをします。この{{t:bet}}が損益ゼロになるには、{{t:big-blind}}はどのくらいの頻度で{{t:fold|フォールド}}する必要がありますか？"
+    table: { position: BTN }
+    options:
+      - { text: "{{n:alpha.cbet.big}}より多く", correct: true, why: "そのとおりです。{{n:cbet.btn.big}}は{{t:pot|ポット}}の{{n:cbet.size.big}}で、損益分岐点はベットと{{t:pot|ポット}}の比率だけで決まります：ベット ÷ ({{t:pot}} + ベット) = {{n:alpha.cbet.big}}。{{t:pot|ポット}}を{{t:chips|チップ}}で数えた場合と同じです。" }
+      - { text: "{{n:alpha.cbet.small}}より多く", why: "それは小さいCベット（{{t:pot|ポット}}の{{n:cbet.size.small}}、つまり{{n:cbet.btn.small}}）の損益分岐点です。大きいベットはリスクが大きいので、より頻繁に成功する必要があります：{{n:alpha.cbet.big}}。" }
+      - { text: "{{n:flop.miss.unpaired}}より多く", why: "それは{{t:pair|ペア}}のない手がフロップに当たらない確率で、ベットの損益分岐点ではありません。損益分岐点はベット ÷ ({{t:pot}} + ベット) = {{n:alpha.cbet.big}}です。" }
+  - kind: choice
+    id: m5.exam.q6
+    family: m5.cbet.oop
+    rules: [R-M5-012]
+    prompt: "{{t:open|オープンした側}}として、Cベットの頻度が最も低くなるのは次のどの状況ですか？"
+    options:
+      - { text: "{{t:hijack|HJ}}から{{t:open|オープン}}し、ボタンが{{t:call|コール}}、ブラインドは{{t:fold|フォールド}}", correct: true, why: "そのとおりです。ボタンは{{t:position|ポジション}}がある状態で{{t:call|コール}}したので、その{{t:range}}は強く（弱い手は{{t:fold|フォールド}}し、最も強い手の一部は{{t:raise|レイズ}}していた）、しかもあなたはフロップ以降のすべての{{t:street|ストリート}}で先にアクションします。" }
+      - { text: "ボタンから{{t:open|オープン}}し、{{t:big-blind}}が{{t:call|コール}}", why: "ここではあなたに{{t:position|ポジション}}があり、{{t:big-blind}}は弱い手を多く含めて広くディフェンスします。Cベットの頻度が最も高くなる状況です。" }
+      - { text: "{{t:cutoff|CO}}から{{t:open|オープン}}し、{{t:big-blind}}が{{t:call|コール}}", why: "ここでもフロップ以降は{{t:big-blind|ビッグブラインド}}の後にアクションするので{{t:position|ポジション}}があり、相手の広いディフェンスには弱い手が多く含まれます。" }
+  - kind: choice
+    id: m5.exam.q7
+    family: m5.cbet.oop
+    rules: [R-M5-012]
+    prompt: "{{t:position|ポジション}}がある状態で{{t:call|コール}}したプレイヤーに対し、{{t:out-of-position|アウトオブポジション}}では強い手でもよく{{t:check|チェック}}します。これはどういう意味ですか？"
+    options:
+      - { text: "手を諦めるわけではない：{{t:check|チェック}}の後、相手の{{t:bet}}に{{t:call|コール}}するかチェックレイズする", correct: true, why: "そのとおりです。{{t:out-of-position}}での{{t:check|チェック}}は{{t:pot|ポット}}を明け渡すことではありません。強い手は{{t:call|コール}}やチェックレイズでプレイを続け、{{t:position|ポジション}}がある状態で{{t:call|コール}}した相手の{{t:range}}は、自分から{{t:bet|ベット}}してくることが多くあります。" }
+      - { text: "{{t:check|チェック}}の後は、どの{{t:bet}}にも{{t:fold|フォールド}}する", why: "いいえ。それでは相手はどんな{{t:bet|ベット}}でも{{t:pot|ポット}}を獲得できてしまいます。{{t:check|チェック}}する手の多くは、相手の{{t:bet}}に{{t:call|コール}}します。" }
+      - { text: "{{t:pair|ペア}}のない手でだけ{{t:check|チェック}}する", why: "いいえ。{{t:out-of-position}}では、強い手も含めて{{t:range|レンジ}}全体でよく{{t:check|チェック}}します。弱い手だけが{{t:check|チェック}}するなら、相手は簡単にそれを利用できます。" }
+  - kind: choice
+    id: m5.exam.q8
+    family: m5.cbet.multi
+    rules: [R-M5-013]
+    prompt: "{{t:hijack|HJ}}から{{t:open|オープン}}し、ボタンと{{t:big-blind}}が{{t:call|コール}}しました。相手が2人のとき、最初にCベットをやめるのはどの手ですか？"
+    table: { position: HJ }
+    options:
+      - { text: "{{t:pair|ペア}}も{{t:draw|ドロー}}もない{{t:bluff|ブラフ}}", correct: true, why: "そのとおりです。{{t:bluff}}は相手2人の両方に通る必要があり、{{t:pair|ペア}}のない手2つが同時に外れるのは約{{n:flop.miss.two}}しかありません。ベットはまれにし、主に強い手と強い{{t:draw|ドロー}}で行います。" }
+      - { text: "強い{{t:draw|ドロー}}", why: "いいえ。強い{{t:draw|ドロー}}は、複数の相手に対しても時々ベットする手に含まれます。当たったときにも勝てるからです。" }
+      - { text: "どの手もやめない：相手1人のときと同じようにCベットする", why: "いいえ。相手が1人増えるごとに、誰かがフロップに当たっている確率が上がります。相手が2人なら、Cベットの頻度はずっと低くなります。" }
+  - kind: choice
+    id: m5.exam.q9
+    family: m5.cbet.size
+    rules: [R-M5-008]
+    prompt: "ボタンから{{t:open|オープン}}し、{{t:big-blind}}が{{t:call|コール}}して{{t:check|チェック}}しました。フロップは{{t:wet}}です。あなたはエース付きの7の{{t:pair|ペア}}で、{{t:draw|ドロー}}はありません。どうしますか？"
+    table: { hand: "As 7c", position: BTN, board: "Td 9d 7s" }
+    options:
+      - { text: "{{t:check|チェック}}", correct: true, why: "そのとおりです。{{t:wet|ウェット}}なフロップではベットの頻度を下げ、主に強い手と強い{{t:draw|ドロー}}でベットします。{{t:draw|ドロー}}のない最も低い{{t:pair}}は、せいぜい中程度の手です。{{t:bet}}に{{t:call|コール}}してくるのは主に、より強い手と、この手に対してエクイティが大きい{{t:draw|ドロー}}です。" }
+      - { text: "{{t:pot|ポット}}の{{n:cbet.size.big}}でCベット", why: "{{t:wet|ウェット}}なフロップでの大きいサイズは、強い手と強い{{t:draw|ドロー}}のためのものです。最も低い{{t:pair|ペア}}では、あなたによく勝つ手やエクイティの大きい手に対して大きな{{t:pot|ポット}}を作ることになります。" }
+      - { text: "{{t:pot|ポット}}の{{n:cbet.size.small}}でCベット", why: "{{t:wet|ウェット}}なフロップでは、{{t:draw|ドロー}}のない中程度の手は{{t:check|チェック}}することが多くなります。小さい{{t:bet}}は{{t:draw|ドロー}}に安くカードを見せることになり、弱い手はどのみちめったに払ってくれません。" }
+  - kind: choice
+    id: m5.exam.q10
+    family: m5.cbet.texture
+    rules: [R-M5-010]
+    prompt: "ボタンから{{t:open|オープン}}し、{{t:big-blind}}が{{t:call|コール}}して{{t:check|チェック}}しました。フロップは{{t:monotone}}なので、アプリの採点では{{t:wet}}です。Cベットする場合、どのサイズにしますか？"
+    table: { position: BTN, board: "Jd 7d 2d" }
+    options:
+      - { text: "小さく", correct: true, why: "そのとおりです。どのプレイヤーもすでに{{t:flush}}を持っている可能性があるので、あなたの{{t:nuts-advantage}}は小さくなります。{{t:monotone|モノトーン}}のフロップでは、普段よりベットの頻度を下げ、小さいサイズでベットします。フラッシュに対して大きな{{t:pot|ポット}}を作らないためです。" }
+      - { text: "大きく（フロップが{{t:wet}}だから）", why: "「{{t:wet|ウェット}}」は「大きいベット」という意味ではありません。大きいサイズが当てはまるのは、{{t:monotone|モノトーン}}ではない{{t:wet|ウェット}}なフロップです。{{t:monotone|モノトーン}}のフロップでは大きな{{t:pot}}は危険です。相手がすでに{{t:flush}}を完成させているかもしれないからです。" }
+      - { text: "{{t:pot|ポット}}全額（{{t:draw|ドロー}}に高く払わせるため）", why: "{{t:monotone|モノトーン}}のフロップで最も危険なのは{{t:draw|ドロー}}ではなく、相手の完成したフラッシュです。{{t:pot|ポット}}サイズのベットは、まさにそれに対して最も大きなリスクを負います。" }

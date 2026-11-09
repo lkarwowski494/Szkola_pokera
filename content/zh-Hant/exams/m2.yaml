@@ -1,0 +1,99 @@
+# Pula egzaminacyjna M2 (outy, szanse, pot odds): te same reguły co lekcje m2.l1 i m2.l2, inne rozdania i liczby.
+module: m2
+drills:
+  - kind: choice
+    id: m2.exam.q1
+    family: m2.outs.flush
+    rules: [R-M2-001]
+    prompt: "你手上只有一張方塊，但翻牌上有三張。你有幾張補牌可以成{{t:flush|同花}}？"
+    table: { hand: "Ad Tc", board: "Kd 8d 3d" }
+    options:
+      - { text: "{{n:outs.flush}}", correct: true, why: "要算的是你總共看到幾張這個花色的牌：手上 1 張、{{t:board|公共牌}}上 3 張，共 {{n:draw.flush.seen}} 張。剩下 {{n:cards.per-suit}} − {{n:draw.flush.seen}} = {{n:outs.flush}} 張方塊。" }
+      - { text: "{{n:outs.oesd}}", why: "這是{{t:oesd|兩頭順子聽牌}}的補牌數。要成{{t:flush|同花}}，你需要剩下 {{n:outs.flush}} 張方塊中的一張。" }
+      - { text: "{{n:cards.per-suit}}", why: "{{n:cards.per-suit}} 是整副牌中所有的方塊，但其中 {{n:draw.flush.seen}} 張你已經看到了。" }
+  - kind: choice
+    id: m2.exam.q2
+    family: m2.outs.gutshot
+    rules: [R-M2-002]
+    prompt: "你有幾張補牌可以成{{t:straight|順子}}？"
+    table: { hand: "Jc 9d", board: "Ts 7h 2c" }
+    options:
+      - { text: "{{n:outs.gutshot}}", correct: true, why: "你有 J-10-9 和 7，中間缺一張 8（卡順）。只有 8 能讓你成{{t:straight|順子}}：{{n:draw.gutshot.ranks}} 種點數 × {{n:cards.suits}} 種花色 = {{n:outs.gutshot}} 張。" }
+      - { text: "{{n:outs.oesd}}", why: "連續四張、兩頭都開放時才會有這麼多張。這裡只有 8 能完成{{t:straight}}。" }
+      - { text: "{{n:draw.oesd.ranks}}", why: "能完成你的牌的只有一種點數（8），但有四種花色。" }
+  - kind: numeric
+    id: m2.exam.n1
+    family: m2.outs.oesd
+    rules: [R-M2-002]
+    prompt: "轉牌。你有幾張補牌可以成{{t:straight|順子}}？請輸入數字。"
+    table: { hand: "Td 9d", board: "8c 7s 2h Ac" }
+    answer: outs.oesd
+    explanation: "你有 10-9-8-7，連續四張。任何一張 J 和任何一張 6 都能讓你成{{t:straight|順子}}：{{n:draw.oesd.ranks}} 種點數 × {{n:cards.suits}} 種花色 = {{n:outs.oesd}}。"
+  - kind: choice
+    id: m2.exam.q3
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "翻牌。對手全下，你有{{t:oesd|兩頭順子聽牌}}（{{n:outs.oesd}} 張補牌）。如果你{{t:call|跟注}}，到河牌為止擊中的機率是多少？"
+    options:
+      - { text: "約 {{n:odds.oesd.flop-river}}", correct: true, why: "對手已全下，所以你會在沒有後續{{t:bet|下注}}的情況下看到轉牌和河牌。你算兩張牌：用法則估算是 {{n:outs.oesd}} × 4 = {{n:odds.oesd.rule-flop}}，精確值是 {{n:odds.oesd.flop-river}}。" }
+      - { text: "約 {{n:odds.oesd.flop-turn}}", why: "這是只看轉牌的機率。對手全下時，你也會看到河牌。" }
+      - { text: "約 {{n:odds.flush.flop-river}}", why: "這是有 {{n:outs.flush}} 張補牌的{{t:flush-draw|同花聽牌}}的機率。你有 {{n:outs.oesd}} 張。" }
+  - kind: choice
+    id: m2.exam.q4
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "翻牌。你有{{t:oesd|兩頭順子聽牌}}，對手{{t:bet|下注}}半個{{t:pot|底池}}。籌碼都很深。你要拿哪個擊中機率和價格比較？"
+    table: { hand: "Qh Jc", board: "Td 9s 3c" }
+    options:
+      - { text: "約 {{n:odds.oesd.flop-turn}}，只算轉牌", correct: true, why: "{{t:call|跟注}}只買到一張牌。到了轉牌對手可能再{{t:bet|下注}}，所以你算一張牌：用法則估算是 {{n:outs.oesd}} × 2 = {{n:odds.oesd.rule-next}}，精確值是 {{n:cards.unseen.flop}} 張中有 {{n:outs.oesd}} 張，也就是 {{n:odds.oesd.flop-turn}}。" }
+      - { text: "約 {{n:odds.oesd.flop-river}}，算到河牌", why: "只有確定能在沒有後續{{t:bet|下注}}的情況下看到兩張牌時，也就是全下時，才用到河牌為止的機率。" }
+  - kind: numeric
+    id: m2.exam.n2
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "轉牌。你有卡順聽牌（{{n:outs.gutshot}} 張補牌）。依 2 與 4 法則，河牌擊中的機率是百分之多少？請輸入數字。"
+    answer: odds.gutshot.rule-turn
+    explanation: "只剩一張牌，所以乘以 2：{{n:outs.gutshot}} × 2 = {{n:odds.gutshot.rule-turn}}（估算）。精確值：{{n:cards.unseen.turn}} 張中有 {{n:outs.gutshot}} 張，也就是 {{n:odds.gutshot.turn-river}}。"
+  - kind: choice
+    id: m2.exam.q5
+    family: m2.pot-odds
+    rules: [R-M2-003]
+    prompt: "{{t:pot|底池}}裡有 {{n:exam.m2.half.pot}}。對手{{t:bet|下注}} {{n:exam.m2.half.bet}}。你需要多少權益才能{{t:call|跟注}}？"
+    options:
+      - { text: "{{n:exam.m2.half.eq}}", correct: true, why: "你要補 {{n:exam.m2.half.bet}}，你{{t:call|跟注}}後{{t:pot}}裡有 {{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}。{{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}。這是半個{{t:pot|底池}}的{{t:bet}}，所以不論{{t:pot|底池}}多大，結果都一樣。" }
+      - { text: "{{n:exam.m2.half.wrong}}", why: "這是 {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}，沒算進你的{{t:call|跟注}}。要拿你補的金額除以{{t:call|跟注}}後的整個{{t:pot|底池}}：{{n:exam.m2.half.total}}。" }
+      - { text: "{{n:exam.m2.half.wrong-pot}}", why: "這是 {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.pot}}：{{t:bet}}除以{{t:bet|下注}}前的{{t:pot|底池}}。分母必須是你{{t:call|跟注}}後的整個{{t:pot}}。" }
+  - kind: numeric
+    id: m2.exam.n3
+    family: m2.pot-odds
+    rules: [R-M2-004]
+    prompt: "{{t:pot|底池}}裡有 {{n:exam.m2.pot.pot}}。對手{{t:bet|下注}} {{n:exam.m2.pot.bet}}。你需要百分之多少的權益才能{{t:call|跟注}}？請輸入數字。"
+    answer: exam.m2.pot.eq
+    explanation: "這是滿{{t:pot|底池}}的{{t:bet|下注}}。你補 {{n:exam.m2.pot.bet}} 進{{t:pot|底池}}，你{{t:call|跟注}}後它共有 {{n:exam.m2.pot.pot}} + {{n:exam.m2.pot.bet}} + {{n:exam.m2.pot.bet}} = {{n:exam.m2.pot.total}}。{{n:exam.m2.pot.bet}} ÷ {{n:exam.m2.pot.total}} = {{n:exam.m2.pot.eq}}，也就是三分之一。"
+  - kind: choice
+    id: m2.exam.q6
+    family: m2.draw-call
+    rules: [R-M2-004, R-M2-005]
+    prompt: "翻牌。你有{{t:flush-draw|同花聽牌}}，籌碼很深，對手{{t:bet|下注}}整個{{t:pot|底池}}。只算價格和擊中機率（不算隱含賠率）。你怎麼做？"
+    table: { hand: "Js 6s", board: "Qs 4s 9d" }
+    options:
+      - { text: "{{t:fold|棄牌}}", correct: true, why: "你需要 {{n:eq.bet-pot}}。{{t:call|跟注}}只買到轉牌，而在轉牌擊中的機率約 {{n:odds.flush.flop-turn}}。這明顯不夠。" }
+      - { text: "{{t:call|跟注}}，因為到河牌我約有 {{n:odds.flush.flop-river}}", why: "只有在沒有後續{{t:bet|下注}}的情況下看到兩張牌，才有到河牌為止的機率。籌碼很深時，對手在轉牌可能再{{t:bet|下注}}，所以用這個價格你只買到一張牌：約 {{n:odds.flush.flop-turn}}。" }
+  - kind: choice
+    id: m2.exam.q7
+    family: m2.draw-call
+    rules: [R-M2-005]
+    prompt: "轉牌。你有{{t:oesd|兩頭順子聽牌}}。{{t:pot|底池}}裡有 {{n:exam.m2.third.pot}}，對手{{t:bet|下注}} {{n:exam.m2.third.bet}}。只算價格和擊中機率。你怎麼做？"
+    table: { hand: "9h 8h", board: "Tc 7d 2s Kd" }
+    options:
+      - { text: "{{t:fold|棄牌}}", correct: true, why: "你需要 {{n:exam.m2.third.bet}} ÷ {{n:exam.m2.third.total}} = {{n:exam.m2.third.eq}}。{{t:straight|順子}}有 {{n:outs.oesd}} 張補牌，也就是 {{n:cards.unseen.turn}} 張中有 {{n:outs.oesd}} 張：約 {{n:odds.oesd.turn-river}}。這裡即使是小額{{t:bet}}也太貴了。" }
+      - { text: "{{t:call|跟注}}，因為{{t:bet}}很小", why: "小額{{t:bet}}不等於好價格。你需要 {{n:exam.m2.third.eq}}，而你約有 {{n:odds.oesd.turn-river}}。" }
+  - kind: choice
+    id: m2.exam.q8
+    family: m2.draw-call
+    rules: [R-M2-003, R-M2-002]
+    prompt: "翻牌。對手以半個{{t:pot|底池}}全下，你有{{t:flush-draw|同花聽牌}}。假設你只有在成{{t:flush|同花}}時才會贏。你怎麼做？"
+    table: { hand: "Kc Tc", board: "8c 3c Jd" }
+    options:
+      - { text: "{{t:call|跟注}}", correct: true, why: "你需要 {{n:eq.bet-half}}。對手已全下，所以你會在沒有後續{{t:bet|下注}}的情況下看到轉牌和河牌：{{n:outs.flush}} 張補牌約有 {{n:odds.flush.flop-river}}。這比你需要的多。" }
+      - { text: "{{t:fold|棄牌}}，因為在轉牌我只有約 {{n:odds.flush.flop-turn}}", why: "對手還能{{t:bet|下注}}時，你才算一張牌的機率。對手全下時你會看到兩張牌，所以算到河牌：約 {{n:odds.flush.flop-river}}。" }

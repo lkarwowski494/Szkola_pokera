@@ -1,0 +1,82 @@
+module: m10
+drills:
+  - kind: choice
+    id: m10.exam.q1
+    family: m10.hud.stats
+    rules: [R-M10-001]
+    prompt: "全員が{{t:small-blind|スモールブラインド}}の相手まで{{t:fold|フォールド}}しました。相手は{{t:big-blind|ビッグブラインド}}まで差額を払い、{{t:big-blind}}が{{t:raise|レイズ}}すると{{t:fold|フォールド}}しました。このハンドで相手のスタッツはどう変わりますか？"
+    options:
+      - { text: "{{t:vpip}}は上がるが、{{t:pfr}}は上がらない", correct: true, why: "{{t:big-blind|ビッグブラインド}}までの差額の支払いは、強制のブラインドを超えて自分の意思で{{t:chips|チップ}}を入れることなので、{{t:vpip}}に数えられます。相手は{{t:raise|レイズ}}していないので、{{t:pfr}}は上がりません。" }
+      - { text: "どれも変わらない。{{t:small-blind|スモールブラインド}}は強制の支払いだから", why: "強制なのはブラインドそのものだけです。{{t:big-blind|ビッグブラインド}}の全額まで払うのは相手の判断、つまり自発的な支払いで、{{t:vpip}}を上げます。" }
+      - { text: "{{t:vpip}}も{{t:pfr}}も上がる", why: "{{t:pfr}}が上がるのは、相手自身がプリフロップで{{t:raise|レイズ}}したときだけです。ここで{{t:raise|レイズ}}したのは{{t:big-blind}}で、相手は差額を払って{{t:fold|フォールド}}しただけです。" }
+      - { text: "{{t:vpip}}は上がらない。相手は結局フロップ前に{{t:fold|フォールド}}したから", why: "{{t:vpip}}が数えるのは自発的な支払いで、ハンドがフロップまで進んだかどうかではありません。相手は自分の意思で差額を払ったので、このハンドは{{t:vpip}}に数えられます。" }
+  - kind: numeric
+    id: m10.exam.q2
+    family: m10.hud.sample
+    rules: [R-M10-002]
+    prompt: "相手はCベットを{{n:exam.m10.se.n}}回受け、そのうち{{n:exam.m10.se.p}}で{{t:fold|フォールド}}しました。相手のFold to Cベットの標準誤差は何パーセントポイントですか？数値を入力してください。"
+    answer: exam.m10.se
+    explanation: "√(p × (1 − p) ÷ n) = √({{n:exam.m10.se.p}} × {{n:exam.m10.se.q}} ÷ {{n:exam.m10.se.n}}) ≈ {{n:exam.m10.se}}。数えるのはハンドではなく機会（相手が受けたCベット）です。約{{n:var.conf95}}の信頼度で、本当のFold to Cベットは ± {{n:var.z95}} × {{n:exam.m10.se}} ≈ ± {{n:exam.m10.ci}} の範囲、つまり約{{n:exam.m10.ci.low}}から{{n:exam.m10.ci.high}}の間にあります。"
+  - kind: choice
+    id: m10.exam.q3
+    family: m10.hud.sample
+    rules: [R-M10-003]
+    prompt: "{{n:exam.m10.mid.hands}}ハンドの時点で、相手は{{t:vpip}} {{n:exam.m10.mid.vpip}}、{{t:pfr}} {{n:exam.m10.mid.pfr}}、Fold to 3ベット {{n:exam.m10.mid.f3b}}です。このうち、もう判断の根拠にできる数値はどれですか？"
+    options:
+      - { text: "{{t:vpip}}と{{t:pfr}}。Fold to 3ベットはまだ偶然", correct: true, why: "{{t:vpip}}と{{t:pfr}}は約{{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}}ハンドで読めますが、Fold to 3ベットは約{{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}ハンドかかります。その機会は{{t:open|オープン}}と3ベットの後にしか生じないからです。{{n:exam.m10.mid.hands}}ハンドでは、機会はほんの数回です。" }
+      - { text: "3つすべて。サンプルが{{n:hud.hands.vpip.low}}ハンドを超えているから", why: "約{{n:hud.hands.vpip.low}}ハンドという目安は、毎ハンド機会があるスタッツに当てはまります。Fold to 3ベットは機会が何分の一も少なく、約{{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}ハンド必要です。" }
+      - { text: "どれも使えない。千ハンド未満のスタッツは偶然", why: "偶然と言えるのは約{{n:hud.hands.random}}ハンド未満です。{{n:exam.m10.mid.hands}}ハンドなら、{{t:vpip}}と{{t:pfr}}はすでに何かを示しています。" }
+      - { text: "Fold to 3ベットだけ。最も極端だから", why: "小さなサンプルの極端な数値は、読みより偶然であることが多いです。信頼性を決めるのは機会の数で、ここではFold to 3ベットの機会が最も少ないです。" }
+  - kind: choice
+    id: m10.exam.q4
+    family: m10.types.adjust
+    rules: [R-M10-007]
+    prompt: "{{t:nit|ニット}}（{{t:vpip}} {{n:exam.m10.nit.vpip}}、{{t:pfr}} {{n:exam.m10.nit.pfr}}、{{n:exam.m10.nit.hands}}ハンド）が{{t:utg|UTG}}から{{t:open|オープン}}しました。あなたはボタンで、モジュール4のベースではこのような{{t:open|オープン}}に{{t:call|コール}}する{{t:range|レンジ}}の下の方のハンドを持っています。どうしますか？"
+    options:
+      - { text: "{{t:fold|フォールド}}する", correct: true, why: "これほど少ないハンドしかプレイしないプレイヤーは、主に最も強いハンドで{{t:raise|レイズ}}します。あなたの{{t:call|コール}}{{t:range|レンジ}}の下の方のハンドは、この相手にドミネートされていることが多くなるので、ベースより頻繁に{{t:fold|フォールド}}します。" }
+      - { text: "{{t:position|ポジション}}があるので、ベースどおり{{t:call|コール}}する", why: "{{t:position|ポジション}}があっても、ドミネートされたハンドは良くなりません。ベースは典型的な{{t:open|オープン}}{{t:range|レンジ}}を前提にしていますが、このプレイヤーの{{t:range|レンジ}}はずっと強いです。" }
+      - { text: "{{t:bluff}}として3ベットする。{{t:nit}}は強いハンドしかプレイしないので{{t:fold|フォールド}}するから", why: "相手の{{t:open|オープン}}{{t:range|レンジ}}はほとんどが最も強いハンドで、それらは3ベットにめったに{{t:fold|フォールド}}しません。ここでの{{t:bluff|ブラフ}}は、相手のプレイの最も強い部分にぶつかります。" }
+  - kind: choice
+    id: m10.exam.q5
+    family: m10.types.adjust
+    rules: [R-M10-008]
+    prompt: "相手は{{t:maniac|マニアック}}です：{{t:vpip}} {{n:exam.m10.maniac.vpip}}、{{t:pfr}} {{n:exam.m10.maniac.pfr}}、{{n:exam.m10.long.hands}}ハンド。あなたはフロップで{{t:set|セット}}を作り、相手が{{t:bet|ベット}}しました。どうしますか？"
+    options:
+      - { text: "{{t:call|コール}}して、相手にベットを続けさせる", correct: true, why: "非常に強いハンドなら、{{t:maniac|マニアック}}にベットさせます。相手のベットには{{t:bluff|ブラフ}}や弱いハンドが多く含まれ、{{t:call}}すればそれらを次の{{t:street|ストリート}}まで残せます。" }
+      - { text: "すぐにできるだけ大きく{{t:raise|レイズ}}する", why: "{{t:raise|レイズ}}すると、相手の{{t:bluff|ブラフ}}や弱いハンドは、さらに払う前に{{t:fold|フォールド}}してしまいます。自分からベットするプレイヤーには、そうさせたほうが多く稼げます。" }
+      - { text: "{{t:fold|フォールド}}する。{{t:pfr}}が高いのは強いハンドを意味するから", why: "これほど高い{{t:vpip}}での高い{{t:pfr}}は、強いハンドを持っているのではなく、ほぼどんなハンドでも{{t:raise|レイズ}}するという意味です。ここでは{{t:set}}は最も強いハンドの一つです。" }
+  - kind: choice
+    id: m10.exam.q6
+    family: m10.types.adjust
+    rules: [R-M10-006]
+    prompt: "リバー。相手はパッシブな{{t:recreational|レクリエーショナルプレイヤー}}です：{{t:vpip}} {{n:exam.m10.rec.vpip}}、{{t:pfr}} {{n:exam.m10.rec.pfr}}、{{n:exam.m10.long.hands}}ハンド。相手は{{t:check|チェック}}しました。あなたのハンドは、モジュール8のベースではここで{{t:value|バリュー}}でベットすることもあれば、{{t:check|チェック}}することもあるハンドです。どうしますか？"
+    options:
+      - { text: "{{t:value|バリュー}}でベットする", correct: true, why: "このタイプのプレイヤーは、ベースの相手より多くの弱いハンドで最後まで{{t:call|コール}}するので、その{{t:call|コール}}のより多くがあなたより弱いハンドです。この相手には、より薄いハンドでも{{t:value|バリュー}}でベットします。" }
+      - { text: "{{t:check|チェック}}する。パッシブなプレイヤーは良いハンドでしか{{t:call|コール}}しないから", why: "逆です。{{t:vpip}} − {{t:pfr}}の差が大きいプレイヤーは多くのハンドをプレイし、それらで最後まで{{t:call|コール}}します。だからこそ、ベットを減らすのではなく増やすべきです。" }
+      - { text: "ベースと同じにする：ベットすることもあれば{{t:check}}することもある", why: "ベースは正しくディフェンスする相手を前提にしています。この相手は{{t:call|コール}}しすぎるので、ボーダーラインのハンドは{{t:value|バリュー}}ベット寄りになります。" }
+  - kind: choice
+    id: m10.exam.q7
+    family: m10.base.alpha
+    rules: [R-M10-010]
+    prompt: "相手は{{n:exam.m10.long.hands}}ハンドの時点でFold to Cベットが{{n:exam.m10.fcb}}です。あなたはフロップに当たらず、{{t:draw|ドロー}}もありません。ハンドなしのCベットで、すぐに利益になるのはどれですか？"
+    options:
+      - { text: "小さい1/3{{t:pot|ポット}}だけ", correct: true, why: "1/3{{t:pot|ポット}}のCベットは{{n:alpha.cbet.small}}の{{t:fold|フォールド}}で損益ゼロになり、3/4{{t:pot|ポット}}では{{n:alpha.cbet.big}}が必要です。{{n:exam.m10.fcb}}で足りるのは小さいほうだけです。Fold to Cベットはすべてのサイズとテーブルをまとめた数値なので、これは近似です。" }
+      - { text: "両方。相手はよく{{t:fold|フォールド}}するから", why: "大きいCベットはリスクが大きく、{{n:alpha.cbet.big}}を超える{{t:fold|フォールド}}が必要です。相手が{{t:fold|フォールド}}するのは{{n:exam.m10.fcb}}で、少なすぎます。" }
+      - { text: "大きいほうだけ。より{{t:fold|フォールド}}を強いるから", why: "{{t:hud|HUD}}のFold to Cベットは、大きいベットに対して相手がより多く{{t:fold|フォールド}}することを示していません。{{n:exam.m10.fcb}}の{{t:fold|フォールド}}では、ハンドなしの大きいCベットは{{n:alpha.cbet.big}}が必要なので損をします。" }
+      - { text: "どちらでもない。相手が{{t:fold|フォールド}}するのは半分未満だから", why: "境界値は半分ではなく、ベット ÷ ({{t:pot}} + ベット)です。1/3{{t:pot|ポット}}のCベットなら{{n:alpha.cbet.small}}なので、{{n:exam.m10.fcb}}で足ります。" }
+  - kind: choice
+    id: m10.exam.q8
+    family: m10.base.3bet
+    rules: [R-M10-011]
+    prompt: "相手は{{n:exam.m10.long.hands}}ハンドの時点でFold to 3ベットが{{n:exam.m10.f3b.low}}です。相手が{{t:cutoff|CO}}から{{t:open|オープン}}し、あなたはボタンで、ベースでは{{t:bluff}}として3ベットするハンドを持っています。何を変えますか？"
+    options:
+      - { text: "このハンドでの3ベットをやめ、この相手には主に強いハンドで3ベットする", correct: true, why: "{{n:pf.3bet.ip-total}}への3ベットがハンドなしで利益になるのは、{{n:alpha.vs-3bet-ip-size}}を超える{{t:fold|フォールド}}があるときだけですが、この相手が{{t:fold|フォールド}}するのは{{n:exam.m10.f3b.low}}です。{{t:bluff|ブラフ}}は弱いハンドで大きな{{t:pot|ポット}}を戦うことになり、強いハンドは相手からより多くの{{t:call|コール}}を受けます。つまり{{t:linear|リニア}}な{{t:range}}です。" }
+      - { text: "相手が弱いので、このハンドでもっと頻繁に3ベットする", why: "ここでの相手の弱点は、めったに{{t:fold|フォールド}}しないことです。{{t:bluff|ブラフ}}は{{t:fold|フォールド}}で稼ぐものなので、この相手には損をします。" }
+      - { text: "何も変えない：Fold to 3ベットはまだ信頼できない", why: "{{n:exam.m10.long.hands}}ハンドなら信頼できます。Fold to 3ベットは約{{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}ハンドで読めます。" }
+  - kind: numeric
+    id: m10.exam.q9
+    family: m10.rake.math
+    rules: [R-M10-015]
+    prompt: "{{t:pot|ポット}}は{{n:ex.pot}}で、相手は{{t:pot|ポット}}全額の{{n:ex.bet.pot}}を{{t:bet|ベット}}しました。ルームは{{t:pot|ポット}}の{{n:rake.ex.pct}}を徴収し、{{t:rake-cap|レーキキャップ}}には届きません。{{t:call|コール}}に必要なエクイティは何%ですか？パーセントを入力してください。"
+    answer: exam.m10.rake.eq
+    explanation: "{{t:call|コール}}後の{{t:pot|ポット}}は{{n:exam.m10.rake.total}}で、{{t:rake|レーキ}}を引くと{{n:exam.m10.rake.after}}です。あなたが払うのは{{n:ex.bet.pot}}：{{n:ex.bet.pot}} ÷ {{n:exam.m10.rake.after}} ≈ {{n:exam.m10.rake.eq}}（{{t:rake|レーキ}}なしなら{{n:eq.bet-pot}}）です。"

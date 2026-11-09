@@ -1,0 +1,887 @@
+{
+  "tabs": {
+    "review": "復習",
+    "rules": "ルール",
+    "progress": "進捗",
+    "today": "今日"
+  },
+  "today": {
+    "title": "今日",
+    "lessonOf": "{{modul}}・レッスン{{nr}}",
+    "startLesson": "レッスンを始める",
+    "continueLesson": "レッスンを続ける",
+    "courseDone": "すべてのレッスンが完了しました。練習と復習は引き続き利用できます。",
+    "exercises": "練習",
+    "practice": "練習セッション",
+    "practiceHint": "評価と解説付きの判断練習",
+    "reviews": "今日の復習",
+    "reviewsDue_other": "{{count}}",
+    "allLessons": "すべてのレッスン",
+    "rowLabel": "{{tytul}}。{{opis}}。",
+    "rowDone": "完了。",
+    "rowStarted": "開始済み。",
+    "rowPassed": "合格。",
+    "rowScore": "スコア：{{razem}}問中{{dobre}}問。"
+  },
+  "welcome": {
+    "title": "ポーカースクール",
+    "what": "ポーカーでの判断の仕方を学びます。ゲームのルールから戦略まで、すべての判断に評価と、その理由の解説が付きます。",
+    "noMoney": "これはお金を賭けない学習です。",
+    "next": "最初に、今の知識についていくつか質問します。スキップすることもできます。",
+    "continue": "次へ"
+  },
+  "placement": {
+    "of": "質問 {{n}}/{{total}}",
+    "skip": "スキップ",
+    "resultTitle": "あなたのスタート地点",
+    "startAt": "モジュール{{modul}}「{{lekcja}}」から始めます。",
+    "passed": "診断で合格したモジュール：{{moduly}}。いつでも戻れます。",
+    "begin": "学習を始める"
+  },
+  "purchase": {
+    "title": "フルアクセス",
+    "unlocks": "1日の上限なし：練習セッション、復習、試験の再受験を毎日利用できます。レッスンは引き続き無料です。",
+    "loading": "価格を読み込み中…",
+    "pricesUnavailable": "価格を読み込めませんでした。接続を確認して、もう一度お試しください。",
+    "retry": "再試行",
+    "plan": {
+      "quarter": "3か月",
+      "year": "1年",
+      "lifetime": "永久アクセス"
+    },
+    "renewsQuarter": "3か月ごとのお支払いです。解約するまで自動更新されます。",
+    "renewsYear": "年に1回のお支払いです。解約するまで自動更新されます。",
+    "oneTime": "1回限りの購入で、追加のお支払いはありません。",
+    "cancelInfo": "サブスクリプションはAppleアカウントの設定（サブスクリプション）で解約できます。解約後は更新されず、フルアクセスは支払い済み期間の終了まで続きます。",
+    "restore": "購入を復元",
+    "close": "閉じる",
+    "terms": "利用規約（Terms of Use）",
+    "privacy": "プライバシーポリシー",
+    "noPurchases": "このAppleアカウントで購入が見つかりませんでした。",
+    "pending": "購入は承認待ちです。承認されるとアクセスが自動的に有効になります。",
+    "failed": "購入を完了できませんでした。もう一度お試しください。",
+    "restoreFailed": "購入を復元できませんでした。接続を確認して、もう一度お試しください。"
+  },
+  "settings": {
+    "title": "設定",
+    "purchases": "購入",
+    "manage": "サブスクリプションを管理",
+    "other": "その他",
+    "help": "ヘルプ",
+    "reset": "進捗を削除",
+    "resetTitle": "すべての進捗を削除しますか？",
+    "resetBody": "レッスン、回答、復習がこのスマートフォンから削除されます。購入は残ります。進捗を残したい場合は、先にエクスポートしてください。",
+    "resetConfirm": "削除",
+    "cancel": "キャンセル",
+    "display": "表示",
+    "reminderSection": "リマインダー",
+    "reminder": "毎日のリマインダー",
+    "reminderHint": "1日1回、{{pora}}に通知します。オンにすると、スマートフォンが通知の許可を求めます。",
+    "reminderDenied": "このアプリの通知はスマートフォンの設定でオフになっています。リマインダーを受け取るには、設定でオンにしてください。",
+    "reminderFailed": "リマインダーを設定できませんでした。もう一度お試しください。",
+    "general": "一般",
+    "language": "言語",
+    "restored": "購入を復元しました。フルアクセスが有効です。",
+    "fullAccess": "フルアクセス"
+  },
+  "data": {
+    "title": "データ",
+    "intro": "進捗はこのスマートフォンにのみ保存されています。エクスポートファイルを使えば、別のスマートフォンに移したり、バックアップとして保管したりできます。",
+    "export": "進捗をエクスポート",
+    "neverExported": "まだ進捗をエクスポートしていません。",
+    "lastExport": "最終エクスポート：{{data}}。",
+    "import": "進捗をインポート",
+    "importHint": "このアプリのエクスポートファイルを選んでください。",
+    "replaceTitle": "現在の進捗を置き換えますか？",
+    "replaceBody": "ファイルの進捗が、このスマートフォンに保存されている進捗に置き換わります。この変更は元に戻せません。",
+    "replaceConfirm": "置き換える",
+    "exported": "エクスポートファイルの準備ができました。",
+    "exportFailed": "進捗をエクスポートできませんでした。もう一度お試しください。",
+    "badFile": "このファイルは無効か、このアプリのものではありません。進捗は変更されていません。",
+    "newerVersion": "このファイルは新しいバージョンのアプリで作成されています。アプリをアップデートして、もう一度お試しください。",
+    "imported": "ファイルの進捗を読み込みました。",
+    "importFailed": "ファイルの進捗を保存できませんでした。現在の進捗は変更されていません。"
+  },
+  "feedback": {
+    "section": "フィードバック",
+    "rate": "ストアで評価",
+    "write": "お問い合わせ",
+    "noMail": "メールを開けませんでした。こちらのアドレスにご連絡ください：{{adres}}",
+    "report": "この問題の誤りを報告",
+    "reportSubject": "問題{{id}}の誤り",
+    "reportBody": "問題：{{id}}\nアプリのバージョン：{{wersja}}\n言語：{{jezyk}}\n\nどこが間違っていますか？\n",
+    "noMailReport": "メールを開けませんでした。{{adres}}宛に、問題のID（{{id}}）を添えてご連絡ください。"
+  },
+  "start": {
+    "title": {
+      "practice": "練習セッション",
+      "reviews": "復習",
+      "scenario": "ハンドのシナリオ",
+      "exam": "モジュール試験"
+    },
+    "counter_other": "1日の上限：今日の無料アクティビティ {{count}}回",
+    "renews": "上限は深夜0時（{{godzina}}）にリセットされます。",
+    "reviewsWait_other": "今日の復習が{{count}}件あります。上限がリセットされるまで待機するので、何も失われません。",
+    "alwaysFree": "レッスンと試験の初回受験はいつでも無料です。",
+    "begin": "開始",
+    "fullAccess": "フルアクセス",
+    "backToLesson": "レッスンに戻る"
+  },
+  "grade": {
+    "zgodne": "一致",
+    "dopuszczalne": "許容",
+    "niedokladnosc": "不正確",
+    "blad": "ミス",
+    "label": "評価：{{slowo}}",
+    "announce": "{{ocena}}。{{opis}}"
+  },
+  "learn": {
+    "intro": "ノーリミット・ホールデムをゼロから。好きなレッスンを選ぶか、順番に進めてください。",
+    "recommended": "おすすめの順番",
+    "soon": "準備中",
+    "lessonsDone": "レッスン {{done}}/{{total}}",
+    "optional": "任意"
+  },
+  "lesson": {
+    "start": "練習",
+    "exercises_other": "{{count}}問",
+    "rulesTitle": "このレッスンのルール",
+    "notFound": "このレッスンは存在しません。"
+  },
+  "rule": {
+    "if": "もし",
+    "then": "ならば",
+    "because": "なぜなら"
+  },
+  "level": {
+    "rules": "ゲームのルール",
+    "math": "数学",
+    "gto": "理論（GTO）",
+    "heuristic": "ヒューリスティック",
+    "exploit": "{{t:exploit|エクスプロイト}}"
+  },
+  "session": {
+    "of": "{{n}}/{{total}}",
+    "next": "次へ",
+    "finish": "終了",
+    "correct": "正解",
+    "wrong": "今回は不正解",
+    "timeout": "時間切れ",
+    "yourAnswer": "あなたの回答",
+    "rightAnswer": "正しい回答",
+    "resultTitle": "結果",
+    "resultPerfect": "全問正解。次に進めます。",
+    "resultRetry": "間違えた問題に戻りましょう。復習が適切なタイミングで出題します。",
+    "again": "もう一度",
+    "speed": "時間制限あり",
+    "close": "閉じる",
+    "end": "終了",
+    "secondsLeft": "{{s}}秒",
+    "avgTime": "平均判断時間：{{s}}秒",
+    "check": "回答する",
+    "clear": "クリア",
+    "near": "惜しい",
+    "acceptable": "許容：ソルバーはまれにこうプレイします",
+    "yourAnswerAcceptable": "あなたの回答：許容範囲ですが、まれです",
+    "sizeError": "不正確：アクションは正しく、サイズが違います",
+    "yourAnswerSize": "あなたの回答：アクションは正しく、サイズが違います",
+    "numberLabel": "数値での回答",
+    "saveFailed": "回答を保存できませんでした。もう一度お試しください。",
+    "chooseAction": "アクションを選択",
+    "chooseAnswer": "回答を選択",
+    "saveNoSpace": "回答を保存できませんでした：スマートフォンの空き容量がありません。容量を空けて、もう一度お試しください。"
+  },
+  "exam": {
+    "title": "モジュール試験",
+    "start": "モジュール試験",
+    "hint_other": "このモジュールとこれまでのレッスンから{{count}}問、ヒントなし。解説は最後に表示されます。",
+    "of": "試験：{{n}}/{{total}}",
+    "empty": "このモジュールにはまだ問題がありません。",
+    "resultTitle": "試験結果",
+    "passed": "合格（合格ライン{{need}}）。間違えた問題タイプは復習に追加されました。",
+    "failed": "まだ不合格です（合格ライン{{need}}）。下の解説を確認してください。間違えた問題タイプは復習に追加されました。",
+    "again": "新しい試験",
+    "review": "回答を見直す",
+    "best": "最高スコア：{{best}}/{{total}}",
+    "passedBadge": "合格"
+  },
+  "review": {
+    "title": "復習",
+    "due_other": "問題タイプ{{count}}件が復習待ちです",
+    "none": "復習待ちの問題はありません。新しいレッスンに取り組むか、後でまた来てください。",
+    "start": "復習を始める",
+    "speed": "時間制限トレーニング",
+    "speedHint": "同じ問題を制限時間付きで。反射的な判断が身につきます。",
+    "next": "次の復習：{{when}}"
+  },
+  "rules": {
+    "title": "ルールブック",
+    "search": "ルールを検索",
+    "empty": "「{{q}}」に一致するルールはありません。",
+    "source": "出典",
+    "sources": "出典",
+    "sourceKind": {
+      "one": {
+        "math": "計算",
+        "rules": "ゲームのルール",
+        "solver-pub": "公開されたソルバー解",
+        "solver-app": "アプリのソルバー",
+        "book": "ポーカー理論の書籍",
+        "study": "学術研究",
+        "reference": "百科事典",
+        "training": "トレーニングサイト",
+        "population": "プレイヤー層のデータ"
+      },
+      "many": {
+        "math": "計算",
+        "rules": "ゲームのルール",
+        "solver-pub": "公開されたソルバー解",
+        "solver-app": "アプリのソルバー",
+        "book": "ポーカー理論の書籍",
+        "study": "学術研究",
+        "reference": "百科事典",
+        "training": "トレーニングサイト",
+        "population": "プレイヤー層のデータ"
+      }
+    },
+    "sourceCount": "{{count}}",
+    "sourceIndependent_other": "独立{{count}}件",
+    "singleSource": "単一の出典",
+    "population": "対象プレイヤー層：{{population}}"
+  },
+  "progress": {
+    "title": "進捗",
+    "accuracy": "正答率",
+    "answers_other": "回答{{count}}件",
+    "weakest": "苦手な問題タイプ",
+    "noData": "最初の練習をすると、ここに統計が表示されます。",
+    "streak_other": "連続{{count}}日",
+    "fourColor": "4色デッキ",
+    "fourColorHint": "♦は青、♣は緑。スートの見間違いが減ります。",
+    "haptics": "回答時のバイブレーション",
+    "contentVersion": "コンテンツのバージョン：{{hash}}",
+    "resetFailed": "進捗を削除できませんでした。データは変更されていません。もう一度お試しください。",
+    "more": "その他"
+  },
+  "advancement": {
+    "title": "上達スコア",
+    "outOf": "/100",
+    "outOfLong": "100点満点",
+    "openHint": "コースの分野ごとのスコアを表示します",
+    "knowledge": "知識",
+    "game": "プレイ",
+    "gamePending": "プレイモード追加後に利用可能",
+    "gamePendingLong": "「プレイ」の部分はプレイモードとともに追加され、テーブルでのあなたの判断で評価されます。それまでは、スコアは知識のみを示します。",
+    "explain": "知識とは、{{days}}日後に復習なしで、コースのすべてのスキルの問題を解ける予測確率です。まだ練習していないスキルは0として数えます。スコアは新しいレッスンと復習で上がり、長く復習しないと下がります。",
+    "practiced": "スキル{{total}}個中{{done}}個を練習済み",
+    "areas": "分野",
+    "noLessons": "レッスンなし",
+    "optional": "任意モジュール：総合スコアには含まれません。",
+    "recalcTitle": "新しいレッスン – スコアを再計算しました",
+    "recalcBody": "コースに新しいスキルが追加されました。練習するまでは0として数えるため、スコアが下がっています。",
+    "recalcDismiss": "閉じる",
+    "gameAreas": "{{total}}分野中{{n}}分野にプレイのスコアあり",
+    "gameNone": "プレイなし",
+    "gameTooLittle": "プレイ不足：判断{{min}}回中{{n}}回",
+    "gameProvisional": "{{score}}（暫定）",
+    "areaLine": "知識 {{k}} · プレイ：{{g}}",
+    "gameExplain": "プレイとは、6人テーブル・スタック100bbで、その分野で直近に評価された{{window}}回の判断のうち、「一致」または「許容」と評価された判断の割合です。スコアは{{min}}回の判断から表示されます（{{window}}回までは暫定）。各分野では知識とプレイを同じ比重で数えます。{{t:chips|チップ}}でのハンドの結果はスコアに含まれません。",
+    "history": "履歴",
+    "historyHint": "アプリを使った日ごとに1本のバーです。最終：{{last}}。",
+    "historyEmpty": "学習日が増えると履歴が表示されます。"
+  },
+  "glossary": {
+    "title": "用語集",
+    "link": "用語集（英語名付き）",
+    "intro": "コースのポーカー用語を、ソルバーやソフト、英語の資料で使われる英語名と短い解説で紹介します。",
+    "search": "英語名または略語で検索",
+    "empty": "「{{q}}」に一致する用語はありません。",
+    "count_other": "{{count}}語",
+    "alsoEn": "別名：{{list}}",
+    "areas": {
+      "hands": "役の強さ",
+      "actions": "プレイヤーのアクション",
+      "table": "テーブルで",
+      "positions": "テーブルの席",
+      "math": "計算と確率",
+      "preflop": "フロップ前",
+      "board": "フロップの特徴",
+      "strategy": "戦略",
+      "mental": "バンクロールとメンタル",
+      "tournament": "トーナメント"
+    }
+  },
+  "help": {
+    "title": "ヘルプ",
+    "link": "ヘルプ：ギャンブルがコントロールできなくなったら",
+    "intro": "お金を賭けるポーカーはギャンブルです。プレイをコントロールできなくなってきたら、以下のサポートを利用できます。",
+    "call": "電話する：{{phone}}",
+    "callA11y": "{{phone}}に電話する：{{name}}",
+    "openA11y": "{{label}}：ブラウザで{{host}}を開く",
+    "openFailed": "開けませんでした：{{target}}。番号やアドレスを手動で入力してください。"
+  },
+  "diagnostics": {
+    "title": "パフォーマンス測定",
+    "link": "パフォーマンス測定",
+    "intro": "モンテカルロ法（{{n}}回の試行）でAA対KKのエクイティを計算し、時間を測定します。要件：{{ms}} ms未満。",
+    "run": "測定",
+    "running": "測定中…",
+    "pass": "要件を満たしています",
+    "fail": "要件を満たしていません",
+    "equity": "エクイティ：中央値 {{ms}} ms（測定値：{{runs}} ms）",
+    "check": "確認：AAのエクイティ {{pct}}%（想定 約82%）",
+    "evals": "7枚の評価：毎秒{{n}}回",
+    "env": "エンジン：{{engine}}、システム：{{os}}、開発者モード：{{dev}}",
+    "devYes": "はい（結果は低めに出ます）",
+    "devNo": "いいえ",
+    "note": "development buildでは、リリース版よりもコードの動作が遅くなります。信頼できるのはpreview buildでの測定です。結果のスクリーンショットを撮ってください。"
+  },
+  "play": {
+    "title": "プレイ",
+    "entry": "プレイ",
+    "entryHint": "コンピューターの相手とのハンド、ヒントなし。{{t:session|セッション}}後にすべての判断を評価します。",
+    "mode": "モード",
+    "free": "フリープレイ",
+    "freeHint": "実際のゲームと同じく、すべての状況が出ます。",
+    "areas": "集中トレーニング",
+    "areasHint": "分野では、1つのモジュールの状況だけが配られます。モジュールのレッスンをすべて完了するとロックが解除されます。",
+    "locked": "ロック中：モジュールのレッスンを完了してください（{{done}}/{{total}}）",
+    "hands": "ハンド数",
+    "opponents": "相手",
+    "advanced": "詳細設定：相手ごとに設定",
+    "seat": "相手{{n}}",
+    "timer": "判断の制限時間",
+    "timerOff": "制限なし",
+    "timerS": "{{s}}秒",
+    "timerHint": "時間切れになると、コストがかからない場合アプリは{{t:check|チェック}}し、それ以外は{{t:fold|フォールド}}します。この判断は評価に含まれませんが、復習に出てきます。",
+    "format": "各プレイヤーは毎ハンド100bbで始めます。{{t:chips|チップ}}に価値はありません。",
+    "tableSize": "プレイヤー数",
+    "tableSizeOpt": "{{n}}人",
+    "tableSizeHint9": "9人テーブルでは、LJの前にさらに3つのアーリー{{t:position|ポジション}}があります：{{t:utg}}、{{t:utg|UTG}}+1、{{t:utg|UTG}}+2。",
+    "tableSizeAreas": "トレーニング分野は6人テーブルでプレイします。",
+    "start": "開始",
+    "recent": "最近のレポート",
+    "recentItem": "{{date}} · {{hands}}ハンド · {{all}}件中{{rated}}件を評価",
+    "styles": {
+      "balanced": "バランス型",
+      "tight-passive": "タイトパッシブ",
+      "tight-aggressive": "タイトアグレッシブ",
+      "loose-passive": "ルースパッシブ",
+      "loose-aggressive": "ルースアグレッシブ"
+    },
+    "styleHints": {
+      "balanced": "ソルバーの基本戦略に近いプレイをします。",
+      "tight-passive": "参加するハンドが少なく、めったにレイズしません。",
+      "tight-aggressive": "参加するハンドは少ないですが、よくレイズします。",
+      "loose-passive": "多くのハンドに参加し、コールだけで済ませることが多いです。",
+      "loose-aggressive": "多くのハンドに参加し、よくレイズします。"
+    },
+    "tables": {
+      "balanced": "バランス型",
+      "loose-passive": "ルースパッシブ",
+      "tight-aggressive": "タイトアグレッシブ",
+      "loose-aggressive": "ルースアグレッシブ",
+      "mixed": "ミックス",
+      "custom": "カスタム設定"
+    },
+    "tablesHint": {
+      "balanced": "相手全員が基本戦略に近いプレイをします。",
+      "loose-passive": "全員が多くのハンドに参加し、めったにレイズしません。",
+      "tight-aggressive": "全員が参加するハンドは少なく、よくレイズします。",
+      "loose-aggressive": "全員が多くのハンドに参加し、よくレイズします。",
+      "mixed": "各スタイルの相手が1人ずつ。",
+      "custom": "相手ごとにスタイルを個別に設定。"
+    },
+    "handOf": "ハンド {{n}}/{{total}}",
+    "end": "終了",
+    "endConfirm": "{{t:session|セッション}}を終了しますか？レポートにはプレイ済みのハンドが含まれます。",
+    "endYes": "終了",
+    "cancel": "プレイを続ける",
+    "you": "あなた",
+    "potLabel": "{{t:pot|ポット}}：{{bb}}bb",
+    "yourTurn": "あなたの判断",
+    "waiting": "相手が判断中…",
+    "fold": "{{t:fold|フォールド}}",
+    "check": "{{t:check|チェック}}",
+    "call": "{{t:call|コール}} {{bb}}bb",
+    "bet": "{{t:bet|ベット}} {{bb}}bb",
+    "betFrac": "{{t:bet|ベット}} {{t:pot|ポット}}の{{pct}}（{{bb}}bb）",
+    "raise": "{{bb}}bbに{{t:raise|レイズ}}",
+    "allin": "オールイン {{bb}}bb",
+    "secondsLeft": "{{s}}秒",
+    "handWon": "{{bb}}bbを獲得",
+    "handLost": "{{bb}}bbを失いました",
+    "handEven": "変化なし",
+    "nextHand": "次のハンド",
+    "toReport": "レポート",
+    "shown": "{{t:showdown|ショーダウン}}：カードを公開",
+    "folded": "{{t:fold|フォールド}}",
+    "allInTag": "オールイン",
+    "autoNote": "分野のハンド：あなたの判断までのアクションはジェネレーターが設定しました。",
+    "log": {
+      "fold": "{{pos}}：{{t:fold|フォールド}}",
+      "check": "{{pos}}：{{t:check|チェック}}",
+      "call": "{{pos}}：{{t:call|コール}} {{bb}}bb",
+      "bet": "{{pos}}：{{t:bet|ベット}} {{bb}}bb",
+      "raise": "{{pos}}：{{bb}}bbに{{t:raise|レイズ}}",
+      "allin": "{{pos}}：オールイン {{bb}}bb",
+      "blinds": "ブラインド {{sb}}/{{bb}}bb"
+    },
+    "streets": {
+      "preflop": "{{t:preflop|プリフロップ}}",
+      "flop": "{{t:flop|フロップ}}",
+      "turn": "{{t:turn|ターン}}",
+      "river": "{{t:river|リバー}}"
+    },
+    "report": {
+      "title": "{{t:session|セッション}}レポート",
+      "rated": "判断{{all}}件中{{rated}}件を評価",
+      "ratedHint": "アプリが評価するのは、検証可能なルールまたはソルバーの結果がある判断だけです。評価なしの判断は「正解」という意味ではありません。",
+      "verdicts": {
+        "compliant": "一致",
+        "compliant-exploit": "一致（{{t:exploit|エクスプロイト}}）",
+        "acceptable": "許容",
+        "inaccuracy": "不正確",
+        "mistake": "ミス",
+        "unrated": "評価なし",
+        "timeout": "時間切れ"
+      },
+      "verdictHints": {
+        "acceptable": "ソルバーがまれにこうプレイするか、ルールが頻度に関するものです。ミスではありません。",
+        "inaccuracy": "アクションは正しく、サイズが違います。ミスとして数えます。",
+        "timeout": "時間内に判断できませんでした。この状況は復習に出てきます。"
+      },
+      "toFix": "改善点",
+      "none": "評価された判断にミスはありません。",
+      "good": "一致・許容の判断",
+      "show": "表示（{{n}}）",
+      "hide": "非表示",
+      "byModule": "モジュール別",
+      "moduleLine": "{{rated}}件中{{ok}}件がミスなし",
+      "yourAction": "あなたの判断：{{action}}",
+      "ruleSays": "ルール",
+      "level": "確実性：{{level}}",
+      "source": "出典：{{source}}",
+      "lesson": "レッスンへ",
+      "replay": "ハンドの経過",
+      "cards": "復習カード：ミスから新しい状況{{n}}件。",
+      "result": "{{t:chips|チップ}}での結果：{{bb}}bb",
+      "variance": "数十ハンドでは少なすぎて、結果からあなたのプレイについては何もわかりません。大事なのは判断の評価です。",
+      "again": "「{{area}}」分野をプレイ",
+      "done": "完了",
+      "detail": {
+        "solver": "このハンド（{{hand}}）でのソルバー：{{options}}。",
+        "solverFold": "{{t:fold|フォールド}}",
+        "size": "ルールによるサイズ：{{expected}}bb、あなた：{{actual}}bb。",
+        "cbet": "レッスンによるこのフロップのプラン：{{best}}。あなたの選択：{{chosen}}。",
+        "cbetPlans": {
+          "check": "{{t:check|チェック}}",
+          "small": "小さい{{t:c-bet|Cベット}}",
+          "big": "大きい{{t:c-bet|Cベット}}"
+        },
+        "draw": "{{t:outs|アウツ}}：見えていない{{unseen}}枚中{{outs}}枚、ヒットする確率：{{hit}}。必要な{{t:equity|エクイティ}}：{{required}}。",
+        "implied": "{{t:implied-odds|インプライドオッズ}}：ヒット後にさらに約{{need}}bbを勝ち取る必要があり、{{t:pot|ポット}}の後ろには{{have}}bbあります。{{t:spr|SPR}} {{spr}}（基準{{sprMin}}）。{{nuts}}。",
+        "nutsYes": "最強ハンドへの{{t:draw|ドロー}}があります",
+        "nutsNo": "最強ハンドへの{{t:draw|ドロー}}はありません",
+        "freeCheck": "無料で{{t:check|チェック}}できました。",
+        "limp": "ブラインドを払うだけで最初にハンドに参加しました（{{t:limp|リンプ}}）。",
+        "timeoutCheck": "時間切れ：アプリがあなたの代わりに{{t:check|チェック}}しました。",
+        "timeoutFold": "時間切れ：アプリがあなたの代わりに{{t:fold|フォールド}}しました。"
+      }
+    },
+    "review": {
+      "entry_other": "プレイの状況{{count}}件が復習待ちです",
+      "start": "プレイの状況を復習",
+      "title": "プレイの状況",
+      "hint": "あなたがミスをしたのと同じ状況です。カードのスートを入れ替えていますが、正しい判断は変わりません。",
+      "of": "{{n}}/{{total}}",
+      "next": "次へ",
+      "finish": "終了",
+      "empty": "復習待ちのものはありません。"
+    }
+  },
+  "errors": {
+    "db": "データベースを開けませんでした：{{message}}",
+    "render": {
+      "title": "問題が発生しました",
+      "body": "この画面を表示できませんでした。もう一度お試しください。",
+      "retry": "再試行"
+    }
+  },
+  "postep": {
+    "odczytNieudany": "進捗を読み込めませんでした。もう一度お試しください。",
+    "ponow": "再試行"
+  },
+  "reminder": {
+    "title": "今日の短いレッスン",
+    "body": "数分あれば、学んでいることをしっかり身につけられます。"
+  },
+  "language": {
+    "title": "言語",
+    "auto": "端末と同じ",
+    "name": "日本語",
+    "selected": "選択中",
+    "saveFailed": "言語の選択を保存できませんでした。もう一度お試しください。"
+  },
+  "table": {
+    "label": "テーブルの状況：{{list}}。",
+    "listAnd": "{{a}}と{{b}}",
+    "seatFold": "{{pos}} {{t:fold|フォールド}}",
+    "seatRaise": "{{pos}} {{t:raise|レイズ}}",
+    "seatHero": "あなたは{{pos}}、ハンドは{{hand}}",
+    "after": "あなたの後に行動：{{list}}",
+    "pair": "{{t:pair|ペア}}",
+    "suited": "同じスート",
+    "offsuit": "異なるスート",
+    "folded_other": "{{list}} {{t:fold|フォールド}}",
+    "raised_other": "{{list}} {{t:raise|レイズ}}",
+    "yourPosition": "あなたの{{t:position|ポジション}}：{{pos}}。",
+    "yourCards": "あなたのカード：{{cards}}。",
+    "oppCards": "相手のカード：{{cards}}。",
+    "rowOpp": "相手",
+    "rowBoard": "{{t:board|ボード}}",
+    "board": "{{t:board|ボード}}：{{cards}}。",
+    "stateHero": "あなた",
+    "stateFold": "{{t:fold|フォールド}}",
+    "stateAfter": "あなたの後",
+    "stateRaise": "{{t:raise|レイズ}}"
+  },
+  "strategy": {
+    "label": "{{hand}}のソルバー戦略：{{list}}。",
+    "item": "{{action}} {{pct}}パーセント",
+    "yourChoice": "あなたの選択：{{action}}。",
+    "yourChoiceShort": "あなたの選択",
+    "pct": "{{pct}}%"
+  },
+  "scale": {
+    "below": "{{x}}%未満",
+    "between": "{{a}}–{{b}}%",
+    "from": "{{x}}%以上",
+    "label": "評価スケール：あなたのアクションは{{pct}}パーセント、区分は{{stopien}}。"
+  },
+  "paint": {
+    "legendPlay": "プレイ",
+    "legendMiss": "− 不足",
+    "legendExtra": "+ 多すぎ",
+    "legendMixed": "• ミックス",
+    "hint": "マスをタップするか、指でドラッグして塗ります。",
+    "cell": "{{hand}}、{{state}}",
+    "state": {
+      "painted": "選択済み",
+      "fold": "{{t:fold|フォールド}}",
+      "hit": "正解、プレイ",
+      "miss": "不足、ソルバーはプレイ",
+      "extra": "余分、ソルバーは{{t:fold|フォールド}}",
+      "mixed": "ミックス、正解扱い",
+      "none": "正解、{{t:fold|フォールド}}"
+    }
+  },
+  "range": {
+    "label": "{{title}}。ハンドの{{pct}}パーセントをプレイします。",
+    "playPercent": "ハンドの{{pct}}%をプレイ"
+  },
+  "card": {
+    "name": "{{suit}}の{{rank}}",
+    "rank": {
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "T": "10",
+      "J": "ジャック",
+      "Q": "クイーン",
+      "K": "キング",
+      "A": "エース"
+    },
+    "suit": {
+      "s": "スペード",
+      "h": "ハート",
+      "d": "ダイヤ",
+      "c": "クラブ"
+    }
+  },
+  "nav": {
+    "back": "戻る"
+  },
+  "drill": {
+    "format": {
+      "percent": "{{n}}%"
+    },
+    "join": {
+      "sentence": "{{a}}{{b}}",
+      "list": "、"
+    },
+    "category": {
+      "straightFlush": "{{t:straight-flush|ストレートフラッシュ}}",
+      "fourOfAKind": "{{t:four-of-a-kind|フォーカード}}",
+      "fullHouse": "{{t:full-house|フルハウス}}",
+      "flush": "{{t:flush|フラッシュ}}",
+      "straight": "{{t:straight|ストレート}}",
+      "threeOfAKind": "{{t:three-of-a-kind|スリーカード}}",
+      "twoPair": "{{t:two-pair|ツーペア}}",
+      "pair": "{{t:pair|ワンペア}}",
+      "highCard": "{{t:high-card|ハイカード}}",
+      "royalFlush": "{{t:royal-flush|ロイヤルフラッシュ}}"
+    },
+    "categoryAcc": {
+      "straightFlush": "{{t:straight-flush|ストレートフラッシュ}}",
+      "fourOfAKind": "{{t:four-of-a-kind|フォーカード}}",
+      "fullHouse": "{{t:full-house|フルハウス}}",
+      "flush": "{{t:flush|フラッシュ}}",
+      "straight": "{{t:straight|ストレート}}",
+      "threeOfAKind": "{{t:three-of-a-kind|スリーカード}}",
+      "twoPair": "{{t:two-pair|ツーペア}}",
+      "pair": "{{t:pair|ワンペア}}",
+      "highCard": "{{t:high-card|ハイカード}}",
+      "royalFlush": "{{t:royal-flush|ロイヤルフラッシュ}}"
+    },
+    "paint": {
+      "explanation": "{{title}}。緑のマス：プレイするハンドで、選択済み。「−」記号：{{t:range|レンジ}}に含まれるのに不足しているハンド。「+」記号：選択したが、ソルバーは{{t:fold|フォールド}}するハンド。ドット：{{t:mixed-hand|ミックスハンド}}（ソルバーがときどきしかプレイしない）または意見が分かれるハンド（ソルバーが公開されている表と異なる）で、どちらでも正解扱いです。スコアは、{{t:range|レンジ}}に含まれるか選択したハンドの中だけで{{t:combo|コンボ}}を数えます（{{t:pair|ペア}} {{pairCombos}}、同じスート {{suitedCombos}}、異なるスート {{offsuitCombos}}）。",
+      "score": "ソルバーとの一致率：{{score}}（合格ライン{{pass}}）。"
+    },
+    "numeric": {
+      "yours": "あなたの回答：{{value}}",
+      "exact": "正確な値：{{value}}",
+      "diffPp": "差：{{diff}}ポイント",
+      "diff": "差：{{diff}}"
+    },
+    "range": {
+      "fold": "{{t:fold|フォールド}}",
+      "right": "はい。ソルバーは{{pct}}の頻度でこうプレイします。",
+      "acceptable": "許容範囲です。ソルバーは{{pct}}の頻度でこうプレイするのでミスではありませんが、別のアクションを選ぶことのほうが多いです。より頻度の高いほうを覚えておくのがおすすめです。",
+      "wrongRare": "ソルバーがこうプレイするのは{{pct}}だけ、つまりほとんどありません。",
+      "wrongVeryRare": "このハンドでソルバーがこうプレイする頻度は{{pct}}未満です。",
+      "wrongNever": "このハンドでソルバーがこうプレイすることはありません。",
+      "freqs": "{{hand}}：{{freqs}}。",
+      "freq": "{{action}} {{pct}}",
+      "mixedNote": "これはボーダーラインのハンドです。ソルバーがアクションを混ぜているため、アプリは{{low}}以上の頻度でプレイされる回答をすべて正解とします。",
+      "acceptableNote": "頻度が{{low}}未満でも{{min}}以上のアクションは許容範囲です。ミスではありませんが、復習が早めに出てきます。"
+    },
+    "whoWins": {
+      "prompt": "このハンドに勝つのは誰ですか？",
+      "hero": "あなた",
+      "villain": "相手",
+      "split": "{{t:split-pot|スプリットポット}}",
+      "facts": "あなたの最強の5枚：{{heroCards}}（{{heroHand}}）。相手：{{villainCards}}（{{villainHand}}）。",
+      "reason": {
+        "category": "{{winner}}は{{loser}}より上位の役です。",
+        "kicker": "役が同じなので、最強の5枚のうち最初に異なるサイドカード（キッカー）で決まります。",
+        "higherSameCategory": "2人とも{{hand}}ですが、一方のほうが強いです。",
+        "boardPlays": "2人とも最強の5枚が{{t:board|ボード}}上にあるので「{{t:playing-the-board|プレイング・ザ・ボード}}」となり、{{t:split-pot|スプリットポット}}になります。",
+        "identical": "最強の5枚のランクが同じなので、{{t:split-pot|スプリットポット}}になります。"
+      },
+      "yes": "はい。",
+      "no": "いいえ。"
+    },
+    "bestHand": {
+      "prompt": "あなたの最強の役は何ですか？",
+      "explanation": "7枚のうち最強の5枚：{{cards}}、つまり{{hand}}です。",
+      "right": "はい、それがあなたの最強の役です。",
+      "tooHigh": "「{{hand}}」はできていません。条件に合うカードが本当に5枚あるか確認してください。",
+      "tooLow": "「{{hand}}」より強い役があります。最も高い役を探してください。"
+    },
+    "outs": {
+      "promptFlush": "{{t:flush|フラッシュ}}へのアウツは何枚ですか？",
+      "promptStraight": "{{t:straight|ストレート}}へのアウツは何枚ですか？",
+      "baseFlush": "同じスートのカードが4枚あります。1つのスートは13枚なので、残りは13 − 4 = 9枚です。",
+      "baseOesd": "両側に開いた連続する4枚があります。足りない2つのランクのどちらでも{{t:straight|ストレート}}になり、それぞれ4スートあるので8枚です。",
+      "baseGutshot": "{{t:straight|ストレート}}の真ん中のカードが1枚足りません。完成させるランクは1つだけで、4スートあるので4枚です。",
+      "chanceFlop": "{{base}}ターンでの確率：{{next}}（{{outs}} × 2 ≈ {{outs2}}）。追加の支払いなしで2枚とも見られる場合（例：オールイン後）、リバーまでの確率：{{river}}（{{outs}} × 4 ≈ {{outs4}}）。",
+      "chanceTurn": "{{base}}リバーでの確率：{{next}}（{{outs}} × 2 ≈ {{outs2}}）。",
+      "right": "はい。",
+      "wrongTooMany": "いいえ。この状況で{{n}}枚は多すぎます。",
+      "wrongTooFew": "いいえ。この状況で{{n}}枚は少なすぎます。"
+    },
+    "icm": {
+      "call": "{{t:call|コール}}",
+      "fold": "{{t:fold|フォールド}}",
+      "you": "あなた",
+      "player": "プレイヤー{{letter}}",
+      "stack": "{{name}} {{chips}}",
+      "table": "{{players}}人、{{paid}}位まで入賞（{{t:prize-pool|プライズプール}}の{{payouts}}）。スタック：{{stacks}}。",
+      "callPrompt": "{{t:bubble|バブル}}：{{table}}{{villain}}がオールインし、2人の間で{{atRisk}}{{t:chips|チップ}}がかかっています。あなたのハンドは相手の{{t:range|レンジ}}に対して{{equity}}のエクイティがあります。ブラインドは考慮しません。どうしますか？",
+      "callRight": "はい。{{equity}}は{{t:icm}}で必要な{{required}}を上回っています。",
+      "callWrong": "いいえ。{{t:icm}}では{{required}}のエクイティが必要ですが、あなたは{{equity}}です。",
+      "callWrongChips": "いいえ。{{t:icm}}では{{required}}のエクイティが必要ですが、あなたは{{equity}}です。{{t:chips|チップ}}を争うゲームなら{{t:call|コール}}は利益になりますが、ここでは負けたときに失う金額のほうが、勝ったときに増える金額より大きくなります。",
+      "foldRight": "はい。{{t:icm}}では{{required}}のエクイティが必要ですが、あなたは{{equity}}しかありません。",
+      "foldRightChips": "はい。{{t:icm}}では{{required}}のエクイティが必要ですが、あなたは{{equity}}しかありません。{{t:chips|チップ}}を争うゲームなら{{t:call|コール}}になるところです。これがまさに{{t:risk-premium|リスクプレミアム}}です。",
+      "foldWrong": "いいえ。{{equity}}のエクイティで十分です。{{t:icm}}での基準は{{required}}です。",
+      "callExplanation": "{{t:prize-pool|プライズプール}}におけるあなたのエクイティ：現在{{now}}、勝った場合{{win}}、負けた場合{{lose}}。バブルファクター = 損失 ÷ 利益 = {{loss}} ÷ {{gain}} ≈ {{bf}}なので、BF ÷ (BF + 1) ≈ {{required}}のエクイティが必要です。{{t:chips|チップ}}を争うゲームなら{{requiredChips}}で十分です。",
+      "equityPrompt": "{{table}}{{t:icm}}では、あなたのスタックの価値（{{t:prize-pool|プライズプール}}に占める割合）はいくらですか？",
+      "equityRight": "はい。各順位について「その順位になる確率 × その順位の{{t:payout|賞金}}」を合計したものです。",
+      "equityChips": "いいえ。それは{{t:chips|チップ}}に占めるあなたの割合です。{{t:payout|賞金}}のある{{t:tournament|トーナメント}}では、{{t:chips|チップ}}はお金に1対1で換算されません。",
+      "equityFirstOnly": "いいえ。それは1位になる確率 × 1位の{{t:payout|賞金}}だけです。ほかの入賞順位の確率も加えてください。",
+      "equityExplanationMore": "1位になる確率は、あなたのスタック ÷ 全{{t:chips|チップ}}（{{share}}）です。次の順位も、残りのプレイヤーの中から同じように計算します。合計は{{t:prize-pool|プライズプール}}の{{icm}}で、{{t:chips|チップ}}に占める割合より大きくなります。",
+      "equityExplanationLess": "1位になる確率は、あなたのスタック ÷ 全{{t:chips|チップ}}（{{share}}）です。次の順位も、残りのプレイヤーの中から同じように計算します。合計は{{t:prize-pool|プライズプール}}の{{icm}}で、{{t:chips|チップ}}に占める割合より小さくなります。"
+    },
+    "playerType": {
+      "name": {
+        "nit": "ニット",
+        "regular": "{{t:regular|レギュラー}}",
+        "passive": "パッシブな{{t:recreational|レクリエーショナルプレイヤー}}",
+        "maniac": "{{t:maniac|マニアック}}",
+        "unknown": "ハンド数が少なく判断できない"
+      },
+      "adjust": {
+        "nit": "相手の{{t:raise|レイズ}}や3ベットは尊重し、{{t:range|レンジ}}の下位のハンドはより多く{{t:fold|フォールド}}し、相手のブラインドはより多くスチールします。",
+        "regular": "モジュール3–9の基本戦略に近いプレイをし、相手の統計に明らかなミスがあるときだけそこから離れます。",
+        "passive": "薄いものも含めて{{t:value-bet|バリューベット}}を増やし、{{t:bluff|ブラフ}}は減らします。特にリバーで。",
+        "maniac": "相手には{{t:bluff|ブラフ}}せず、{{t:bluff|ブラフ}}をキャッチできるハンドではより広く{{t:call|コール}}し、非常に強いハンドでは相手にベットさせます。",
+        "unknown": "知らないプレイヤーとして、つまり基本戦略どおりにプレイし、さらにハンドを集めます。"
+      },
+      "fact": {
+        "unknown": "{{minHands}}ハンド未満では統計は偶然に左右されます。ここでは{{hands}}です。",
+        "nit": "ニットはハンドの{{nitMax}}%までをプレイします（{{t:vpip}}）。このプレイヤーは{{vpip}}%です。",
+        "regular": "{{t:regular|レギュラー}}はハンドの約{{low}}–{{high}}%をプレイし、{{t:vpip}} − {{t:pfr}}の差は{{gapMax}}までです。ここでは{{vpip}}%、差は{{gap}}です。",
+        "passive": "ルースパッシブなプレイヤーはハンドの{{loose}}%以上をプレイし、{{t:vpip}} − {{t:pfr}}の差は{{gapMin}}を超えます。ここでは{{vpip}}%、差は{{gap}}です。",
+        "maniac": "{{t:maniac|マニアック}}はハンドの{{loose}}%以上をプレイし、{{t:vpip}} − {{t:pfr}}の差は{{gapMax}}までです。ここでは{{vpip}}%、差は{{gap}}です。"
+      },
+      "sample_other": "{{count}}ハンド",
+      "prompt": "6-maxテーブルの相手、{{t:hud}}の統計：{{t:vpip}} {{vpip}}%、{{t:pfr}} {{pfr}}%、サンプル{{sample}}。どのタイプのプレイヤーですか？",
+      "whyRight": "はい。{{fact}}{{adjust}}",
+      "whyWrong": "いいえ。{{fact}}",
+      "readFew": "{{minHands}}未満なので、統計は偶然に左右されます",
+      "readEnough": "{{readHands}}以上なので、{{t:vpip}}と{{t:pfr}}を読み取れます",
+      "explanation": "まずサンプル：{{sample}}は{{read}}。{{fact}}{{adjust}}"
+    },
+    "points_other": "{{count}}点",
+    "potOdds": {
+      "prompt": "{{t:pot|ポット}}には{{pot}}あります。相手が{{bet}}を{{t:bet|ベット}}します。{{t:call|コール}}するにはどれだけのエクイティが必要ですか？",
+      "explanation": "{{t:bet|ベット}}後の{{t:pot|ポット}}は{{potAfter}}で、あなたが{{bet}}を支払うと合計{{total}}です。{{bet}} ÷ {{total}} {{sign}} {{required}}。",
+      "right": "はい。",
+      "mistakeNoCall": "いいえ。それは{{t:bet|ベット}}を{{t:bet|ベット}}後の{{t:pot|ポット}}で割った値です。分母には自分の{{t:call|コール}}も加えてください。",
+      "mistakeBetOverPot": "いいえ。それは{{t:bet|ベット}}を{{t:bet|ベット}}前の{{t:pot|ポット}}で割った値です。勝ち取れるもの全体に対して計算してください。",
+      "mistakeInverted": "いいえ。それは{{t:bet|ベット}}前の{{t:pot|ポット}}を{{t:bet|ベット}}後の{{t:pot|ポット}}で割った値で、分数が逆になっています。分子は支払う額、分母はあなたが{{t:call|コール}}した後の{{t:pot|ポット}}全体にします。"
+    },
+    "drawCall": {
+      "promptFlop": "フロップ。{{t:pot|ポット}}には{{pot}}あり、相手が{{bet}}を{{t:bet|ベット}}します。あなたは{{draw}}です。どうしますか？",
+      "promptTurn": "ターン。{{t:pot|ポット}}には{{pot}}あり、相手が{{bet}}を{{t:bet|ベット}}します。あなたは{{draw}}です。どうしますか？",
+      "drawFlush": "{{t:flush-draw|フラッシュドロー}}",
+      "drawOesd": "{{t:oesd|オープンエンド・ストレートドロー}}",
+      "drawGutshot": "ガットショット",
+      "call": "{{t:call|コール}}",
+      "fold": "{{t:fold|フォールド}}",
+      "outs_other": "アウツ{{count}}枚",
+      "explanationFlop": "見えていない{{unseen}}枚のうち{{outs}}があり、ターンでの確率は{{chance}}です。{{why}}必要なのは{{required}}です。{{verdict}}",
+      "explanationTurn": "見えていない{{unseen}}枚のうち{{outs}}があり、リバーでの確率は{{chance}}です。{{why}}必要なのは{{required}}です。{{verdict}}",
+      "whyFlop": "この{{t:bet|ベット}}だけを{{t:call|コール}}するので、1枚での確率で考えます。リバーの前には通常、もう一度支払いが必要になります。",
+      "whyTurn": "1枚での確率で考えます。残りは1枚だけです。",
+      "verdictGood": "確率が価格を上回っているので、{{t:call|コール}}は利益になります。",
+      "verdictNearFlop": "確率が価格をわずかに下回るので、単なる{{t:call|コール}}は損になります。利益になるのはインプライドオッズ、つまりヒット後にさらに勝てる場合だけで、しかもターンでの次の価格も高すぎないことが条件です。",
+      "verdictNearTurn": "確率が価格をわずかに下回るので、単なる{{t:call|コール}}は損になります。利益になるのはインプライドオッズ、つまりヒット後にさらに勝てる場合だけです。",
+      "verdictBad": "確率が価格を明らかに下回るので、{{t:call|コール}}は長期的に損になります。",
+      "right": "はい。",
+      "wrong": "いいえ。"
+    },
+    "texture": {
+      "label": {
+        "height": {
+          "high": "高い",
+          "middle": "中くらい",
+          "low": "低い"
+        },
+        "suits": {
+          "rainbow": "{{t:rainbow|レインボー}}",
+          "twoTone": "{{t:two-tone|ツートーン}}",
+          "monotone": "{{t:monotone|モノトーン}}"
+        },
+        "ranks": {
+          "paired": "{{t:paired|ペアボード}}",
+          "connected": "{{t:connected|コネクト}}",
+          "semiConnected": "{{t:semi-connected|セミコネクト}}",
+          "disconnected": "{{t:disconnected|ディスコネクト}}"
+        },
+        "wetness": {
+          "dry": "{{t:dry|ドライ}}",
+          "medium": "中間",
+          "wet": "{{t:wet|ウェット}}"
+        }
+      },
+      "axis": {
+        "height": "高さ",
+        "suits": "スート",
+        "ranks": "ランク",
+        "wetness": "{{t:dry|ドライ}}か{{t:wet|ウェット}}か"
+      },
+      "scale": "点数で数えます：複数の形で{{t:straight|ストレート}}が可能（2ランクの組み合わせが2組以上）なら{{made}}、1つの形でのみ{{t:straight|ストレート}}が可能なら{{madeOne}}、{{t:straight-draw|ストレートドロー}}のみなら{{draw}}。{{t:two-tone|ツートーン}}のフロップは{{twoTone}}、{{t:monotone|モノトーン}}は{{monotone}}。{{t:dry|ドライ}}は0–{{dryMax}}、中間は{{medium}}、{{t:wet|ウェット}}は{{wet}}以上",
+      "range": "{{from}}–{{to}}",
+      "def": {
+        "height": {
+          "high": "高いフロップは、最も高いカードがエース、キング、クイーンのいずれかです",
+          "middle": "中くらいのフロップは、最も高いカードがジャックか10です",
+          "low": "低いフロップは、最も高いカードが9以下です"
+        },
+        "suits": {
+          "rainbow": "{{t:rainbow|レインボー}}のフロップは3枚が3つの異なるスートなので、まだ誰も{{t:flush-draw|フラッシュドロー}}を持っていません",
+          "twoTone": "{{t:two-tone|ツートーン}}のフロップは同じスートのカードが2枚あるので、そのスートのカードを2枚持つプレイヤーは{{t:flush-draw|フラッシュドロー}}になります",
+          "monotone": "{{t:monotone|モノトーン}}のフロップは3枚すべてが同じスートなので、すでに{{t:flush|フラッシュ}}が可能です"
+        },
+        "ranks": {
+          "paired": "{{t:paired|ペアボード}}のフロップは同じランクのカードが2枚か3枚あります。この場合、プレイヤーの2枚を使う{{t:straight|ストレート}}は不可能ですが、{{t:straight-draw|ストレートドロー}}は可能なことがあります",
+          "connected": "{{t:connected|コネクト}}のフロップは連続する5つのランクの範囲に異なる3つのランクがあるので、すでに{{t:straight|ストレート}}が可能です（エースは1としても数えます）",
+          "semiConnected": "{{t:semi-connected|セミコネクト}}のフロップは連続する5つのランクの範囲に2つのランクがありますが、3つではありません。まだ{{t:straight|ストレート}}はありませんが、{{t:straight-draw|ストレートドロー}}（オープンエンドまたはガットショット）はすでに可能です",
+          "disconnected": "{{t:disconnected|ディスコネクト}}のフロップはランクが離れていて、どの2枚も連続する5つのランクの範囲に収まらないので、誰も{{t:straight-draw|ストレートドロー}}さえ持っていません"
+        },
+        "wetness": {
+          "dry": "{{t:dry|ドライ}}のフロップは{{t:draw|ドロー}}が少ないです。{{scale}}",
+          "medium": "中間のフロップは{{t:draw|ドロー}}がいくらかあります。{{scale}}",
+          "wet": "{{t:wet|ウェット}}のフロップは{{t:draw|ドロー}}が多いか、完成した{{t:straight|ストレート}}があります。{{scale}}"
+        }
+      },
+      "suitCount": {
+        "three": "3つの異なるスート",
+        "two": "同じスートが2枚",
+        "one": "同じスートが3枚"
+      },
+      "rankFact": {
+        "connected": "ここでは{{t:straight|ストレート}}が可能です。例：{{example}}。",
+        "pairedDraw": "ここでは2枚が同じランクです。{{t:straight-draw|ストレートドロー}}は例えば{{example}}でできます。",
+        "paired": "ここでは2枚が同じランクです。",
+        "semiConnected": "ここではまだ{{t:straight|ストレート}}はありませんが、{{t:straight-draw|ストレートドロー}}は例えば{{example}}でできます。",
+        "disconnected": "ここでは、プレイヤーのどの2枚でも{{t:straight-draw|ストレートドロー}}さえできません。"
+      },
+      "draws": {
+        "rainbow": "{{t:flush-draw|フラッシュドロー}}はありません（3つの異なるスート）",
+        "twoTone": "{{t:flush-draw|フラッシュドロー}}があります（同じスートが2枚）",
+        "monotone": "すでに{{t:flush|フラッシュ}}が可能です（同じスートが3枚）",
+        "straightMade": "複数の形で{{t:straight|ストレート}}が可能です。例：{{example}}",
+        "straightMadeOne": "{{t:straight|ストレート}}が可能なのは1つの形だけです：{{example}}",
+        "straightDraw": "{{t:straight|ストレート}}はありませんが、{{t:straight-draw|ストレートドロー}}があります。例：{{example}}",
+        "straightNone": "{{t:straight|ストレート}}も{{t:straight-draw|ストレートドロー}}もありません",
+        "total": "{{color}}：{{colorPoints}}、{{straight}}：{{straightPoints}}。合計{{points}}"
+      },
+      "prompt": {
+        "height": "このフロップはどのくらい高いですか？",
+        "suits": "このフロップのスートはいくつですか？",
+        "ranks": "このフロップは{{t:paired|ペアボード}}、{{t:connected|コネクト}}、{{t:semi-connected|セミコネクト}}、{{t:disconnected|ディスコネクト}}のどれですか？",
+        "wetness": "このフロップは{{t:dry|ドライ}}、中間、{{t:wet|ウェット}}のどれですか？",
+        "many": "各行でフロップの{{t:texture|テクスチャ}}を評価してください。"
+      },
+      "whyRight": "はい：{{def}}。{{fact}}",
+      "whyWrong": "いいえ：{{def}}。{{fact}}",
+      "factHeight": "最も高いカードは{{card}}です。",
+      "factSuits": "ここでは：{{suits}}。",
+      "factWetness": "ここでは{{draws}}。",
+      "summary": "このフロップは{{height}}、{{suits}}、{{ranks}}なので、{{wetness}}です（{{t:wetness|ウェット度}}{{points}}）。"
+    },
+    "vocab": {
+      "promptPlEn": "「{{pl}}」は英語で何と言いますか？",
+      "promptEnPl": "「{{en}}」はポーランド語で何という意味ですか？",
+      "promptAbbr": "略語「{{abbr}}」は何を表しますか？",
+      "promptDef": "説明に合う用語はどれですか？「{{def}}」",
+      "lineSame": "「{{pl}}」",
+      "lineSameAbbr": "「{{pl}}」（略語{{abbr}}）",
+      "line": "「{{pl}}」は英語で「{{en}}」",
+      "lineAbbr": "「{{pl}}」は英語で「{{en}}」、略語{{abbr}}",
+      "right": "はい：{{line}}。",
+      "wrong": "いいえ：{{line}}。",
+      "end": "{{line}}。",
+      "meaning": "意味：{{def}}",
+      "alsoSeen": "別の呼び方：{{list}}。"
+    }
+  }
+}

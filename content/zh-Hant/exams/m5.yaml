@@ -1,0 +1,100 @@
+# Pula pytań egzaminacyjnych modułu M5 (te same reguły co lekcje, inne sytuacje). Klasyfikacja tekstury i decyzja
+# c-betu BTN vs BB trafiają na egzamin z generatorów lekcji (texture, cbet), więc tu ich nie powtarzamy.
+module: m5
+drills:
+  - kind: choice
+    id: m5.exam.q1
+    family: m5.advantage.who
+    rules: [R-M5-003]
+    prompt: "你從 {{t:cutoff|CO}} {{t:open|開池}}，按鈕位和{{t:small-blind|小盲}}{{t:fold|棄牌}}，{{t:big-blind}}{{t:call|跟注}}。翻牌：[[Ac Jd 5h]]。誰有{{t:range-advantage|範圍優勢}}？"
+    table: { position: CO, board: "Ac Jd 5h" }
+    options:
+      - { text: "你，{{t:open|開池者}}", correct: true, why: "對：在有 A 的翻牌上，你的{{t:range|範圍}}包含所有 AA、AK 和 AJ。{{t:big-blind|大盲}}通常會在翻牌前把最強的 A {{t:raise|加注}}（3-bet），所以只{{t:call|跟注}}時，他手上這類牌很少。" }
+      - { text: "{{t:big-blind|大盲}}，因為他防守很多 A", why: "他防守很多 A，但都是弱 A（例如 A5、A8）。最強的 A 他會打 3-bet，所以平均來說，他在這裡的手牌比你弱。" }
+      - { text: "沒有人：A 對兩邊{{t:range|範圍}}的幫助一樣", why: "{{t:board|公牌}}上的 A 會影響兩邊的{{t:range|範圍}}，但程度不同：你的範圍裡有更多強 A，因為{{t:big-blind}}在翻牌前已經把其中最好的{{t:raise|加注}}了。" }
+  - kind: choice
+    id: m5.exam.q2
+    family: m5.advantage.who
+    rules: [R-M5-004]
+    prompt: "你從按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}。在下列哪個翻牌上，{{t:big-blind}}比你更常拿到{{t:two-pair}}或{{t:straight|順子}}？"
+    table: { position: BTN }
+    options:
+      - { text: "[[8h 6d 5c]]", correct: true, why: "對：低張、{{t:connected}}的翻牌會擊中{{t:connectors|連張}}和小牌手牌，而{{t:big-blind}}防守很多這類牌。你從按鈕位開池，高牌較多，這些牌在這裡都沒擊中。這是{{t:big-blind|大盲}}的{{t:nuts-advantage}}。" }
+      - { text: "[[Kd Td 3s]]", why: "不對：高張翻牌對{{t:open|開池者}}有利。你有更多帶好踢腳的 K、KT 和高{{t:pair|對子}}。" }
+      - { text: "[[Ah Ad 7c]]", why: "不對：在有一{{t:pair|對}} A 的翻牌上，你的 A 更多，因為{{t:big-blind}}在翻牌前會把最強的 A {{t:raise|加注}}。這裡沒有人有{{t:straight|順子}}。" }
+  - kind: choice
+    id: m5.exam.q3
+    family: m5.advantage.why
+    rules: [R-M5-005]
+    prompt: "在翻牌上，你會評估兩種優勢：{{t:range-advantage|範圍優勢}}和{{t:nuts-advantage|堅果優勢}}。哪一種告訴你下注要下多大？"
+    options:
+      - { text: "{{t:nuts-advantage|堅果優勢}}", correct: true, why: "對：當你最強的手牌比對手多得多，你很少會碰上更好的牌，所以可以用較大的尺寸下注。{{t:range-advantage|範圍優勢}}則告訴你多常下注。" }
+      - { text: "{{t:range-advantage|範圍優勢}}", why: "不對：{{t:range-advantage}}告訴你可以常常下注。沒有{{t:nuts-advantage|堅果優勢}}時你下小注，因為大額{{t:bet}}面對對手最強的手牌風險很高。" }
+      - { text: "都不是：尺寸只取決於你的手牌", why: "對手看不到你的手牌，只看得到你的{{t:range}}。你選擇的尺寸要同時適合你的許多手牌，而這由優勢決定。" }
+  - kind: choice
+    id: m5.exam.q4
+    family: m5.math.miss
+    rules: [R-M5-006, R-M5-013]
+    prompt: "一手沒有{{t:pair|對子}}的牌，約有 {{n:flop.miss.unpaired}} 的機率沒擊中翻牌，兩手同時沒擊中約為 {{n:flop.miss.two}}。三手這樣的牌（六個不同點數）同時沒擊中的頻率是多少？"
+    options:
+      - { text: "約 {{n:exam.m5.miss.three}}", correct: true, why: "對：在 {{n:exam.m5.unseen.three}} 張未知的牌中（不含你的牌），有 {{n:exam.m5.pair.outs.three}} 張能讓它們成對。翻牌的 {{n:cards.board.flop}} 張牌都不在其中的機率約為 {{n:exam.m5.miss.three}}。面對三個對手，{{t:bluff}}很少能闖過所有人。" }
+      - { text: "約 {{n:flop.miss.two}}，和兩手一樣", why: "不對：多一個對手，就多 {{n:pair.outs.unpaired}} 張可能讓他成對的牌。所有人都沒擊中的機率會隨著每多一位玩家而降低。" }
+      - { text: "約 {{n:flop.miss.unpaired}}，只看一個對手", why: "不對：{{t:bluff}}要贏下{{t:pot|底池}}，所有人都必須沒擊中。每多一個對手，這個機率就更低。" }
+  - kind: choice
+    id: m5.exam.q5
+    family: m5.math.alpha
+    rules: [R-M5-011]
+    prompt: "你從按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}。翻牌時{{t:pot|底池}}裡有 {{n:bb.pot-after.vs-btn}}。你用毫無勝算的手牌 c-bet {{n:cbet.btn.big}}。{{t:big-blind}}必須多常{{t:fold|棄牌}}，這次{{t:bet}}才能打平？"
+    table: { position: BTN }
+    options:
+      - { text: "超過 {{n:alpha.cbet.big}} 的情況", correct: true, why: "對：{{n:cbet.btn.big}} 是{{t:pot|底池}}的 {{n:cbet.size.big}}，而門檻只取決於下注與{{t:pot|底池}}的比例：下注 ÷ ({{t:pot}} + 下注) = {{n:alpha.cbet.big}}。和用{{t:chips|籌碼}}計算{{t:pot|底池}}時一樣。" }
+      - { text: "超過 {{n:alpha.cbet.small}} 的情況", why: "這是小額 c-bet（{{t:pot|底池}}的 {{n:cbet.size.small}}，也就是 {{n:cbet.btn.small}}）的門檻。下注越大風險越高，所以需要更常成功：{{n:alpha.cbet.big}}。" }
+      - { text: "超過 {{n:flop.miss.unpaired}} 的情況", why: "這是沒有{{t:pair|對子}}的手牌沒擊中翻牌的機率，不是下注的損益兩平門檻。門檻是 下注 ÷ ({{t:pot}} + 下注) = {{n:alpha.cbet.big}}。" }
+  - kind: choice
+    id: m5.exam.q6
+    family: m5.cbet.oop
+    rules: [R-M5-012]
+    prompt: "在下列哪種情況中，你作為{{t:open|開池者}} c-bet 的頻率最低？"
+    options:
+      - { text: "你從 {{t:hijack|HJ}} {{t:open|開池}}，按鈕位{{t:call|跟注}}，盲注位{{t:fold|棄牌}}", correct: true, why: "對：按鈕位是在有{{t:position|位置}}時{{t:call|跟注}}的，所以他的{{t:range}}很強（弱牌已經{{t:fold|棄牌}}，部分最強的牌則{{t:raise|加注}}了），而翻牌後你在每一{{t:street|輪}}都要先行動。" }
+      - { text: "你從按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}", why: "這裡你有{{t:position|位置}}，而{{t:big-blind}}防守範圍很寬，有很多弱牌。這是你 c-bet 最頻繁的情況。" }
+      - { text: "你從 {{t:cutoff|CO}} {{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}", why: "這裡翻牌後你也在{{t:big-blind|大盲}}之後行動，所以你有{{t:position|位置}}，而他寬鬆的防守裡有很多弱牌。" }
+  - kind: choice
+    id: m5.exam.q7
+    family: m5.cbet.oop
+    rules: [R-M5-012]
+    prompt: "{{t:out-of-position|無位置}}面對在有{{t:position|位置}}時{{t:call|跟注}}的玩家，你也常用強牌{{t:check|過牌}}。這代表什麼？"
+    options:
+      - { text: "你沒有放棄這手牌：{{t:check|過牌}}後你會{{t:call|跟注}}他的{{t:bet}}，或是 check-raise", correct: true, why: "對：{{t:out-of-position}}{{t:check|過牌}}不代表放棄{{t:pot|底池}}。強牌你會繼續用{{t:call|跟注}}或 check-raise 來打，而在有{{t:position|位置}}時{{t:call|跟注}}的對手，他的{{t:range}}常常會自己{{t:bet|下注}}。" }
+      - { text: "{{t:check|過牌}}後面對任何{{t:bet}}你都{{t:fold|棄牌}}", why: "不對：那樣對手每次{{t:bet|下注}}都能贏下{{t:pot|底池}}。許多{{t:check|過牌}}的手牌會{{t:call|跟注}}對手的{{t:bet}}。" }
+      - { text: "你只用沒有{{t:pair|對子}}的手牌{{t:check|過牌}}", why: "不對：{{t:out-of-position}}時你常用整個{{t:range|範圍}}{{t:check|過牌}}，包括強牌。如果只有弱牌{{t:check|過牌}}，對手很容易就能利用這一點。" }
+  - kind: choice
+    id: m5.exam.q8
+    family: m5.cbet.multi
+    rules: [R-M5-013]
+    prompt: "你從 {{t:hijack|HJ}} {{t:open|開池}}，按鈕位和{{t:big-blind}}{{t:call|跟注}}。面對兩個對手，你會最先放棄用哪些手牌 c-bet？"
+    table: { position: HJ }
+    options:
+      - { text: "沒有{{t:pair|對子}}也沒有{{t:draw|聽牌}}的{{t:bluff|詐唬}}", correct: true, why: "對：{{t:bluff}}必須闖過兩個對手，而兩手沒有{{t:pair|對子}}的牌同時沒擊中的機率只有約 {{n:flop.miss.two}}。你很少下注，主要用強牌和強{{t:draw|聽牌}}。" }
+      - { text: "強{{t:draw|聽牌}}", why: "不對：強{{t:draw|聽牌}}屬於面對多個對手時仍會偶爾下注的手牌，因為它們擊中後也能贏。" }
+      - { text: "都不放棄：c-bet 方式和面對一個對手時一樣", why: "不對：每多一個對手，就越可能有人擊中翻牌。面對兩個對手，你 c-bet 的頻率要低得多。" }
+  - kind: choice
+    id: m5.exam.q9
+    family: m5.cbet.size
+    rules: [R-M5-008]
+    prompt: "你從按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}後{{t:check|過牌}}。翻牌很{{t:wet}}。你有{{t:pair|一對}} 7 帶 A，沒有{{t:draw|聽牌}}。你怎麼做？"
+    table: { hand: "As 7c", position: BTN, board: "Td 9d 7s" }
+    options:
+      - { text: "{{t:check|過牌}}", correct: true, why: "對：在{{t:wet|濕潤}}的翻牌上你比較少下注，主要用強牌和強{{t:draw|聽牌}}。沒有{{t:draw|聽牌}}的最小{{t:pair}}頂多算中等牌力：會{{t:call|跟注}}你{{t:bet}}的，主要是更好的牌，以及對它有很多 equity 的{{t:draw|聽牌}}。" }
+      - { text: "C-bet {{t:pot|底池}}的 {{n:cbet.size.big}}", why: "在{{t:wet|濕潤}}翻牌上用大尺寸，是給強牌和強{{t:draw|聽牌}}的。拿最小的{{t:pair|對子}}，你是在對抗常常贏你或有很多 equity 的手牌時做大{{t:pot|底池}}。" }
+      - { text: "C-bet {{t:pot|底池}}的 {{n:cbet.size.small}}", why: "在{{t:wet|濕潤}}翻牌上，沒有{{t:draw|聽牌}}的中等牌更常{{t:check|過牌}}。小額{{t:bet}}會讓{{t:draw|聽牌}}便宜看到下一張牌，而較弱的牌本來就很少付錢。" }
+  - kind: choice
+    id: m5.exam.q10
+    family: m5.cbet.texture
+    rules: [R-M5-010]
+    prompt: "你從按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}後{{t:check|過牌}}。翻牌是{{t:monotone}}，所以依照 App 的評分屬於{{t:wet}}。當你確實要 c-bet 時，用多大的尺寸？"
+    table: { position: BTN, board: "Jd 7d 2d" }
+    options:
+      - { text: "小", correct: true, why: "對：任何玩家都可能已經有{{t:flush}}，所以你的{{t:nuts-advantage}}較小。在{{t:monotone|單色}}翻牌上，你下注比平常少，而且用小尺寸，避免在對抗同花時做大{{t:pot|底池}}。" }
+      - { text: "大，因為翻牌很{{t:wet}}", why: "「{{t:wet|濕潤}}」不等於「下大注」。較大的尺寸適用於不是{{t:monotone|單色}}的{{t:wet|濕潤}}翻牌。在{{t:monotone|單色}}翻牌上，大{{t:pot}}很危險，因為對手可能已經做成{{t:flush}}。" }
+      - { text: "整個{{t:pot|底池}}，讓{{t:draw|聽牌}}付出高昂代價", why: "在{{t:monotone|單色}}翻牌上，最大的威脅不是{{t:draw|聽牌}}，而是對手已經做成的同花。底池大小的下注，正是面對它們時風險最大。" }

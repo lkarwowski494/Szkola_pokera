@@ -1,0 +1,95 @@
+# Pula pytań egzaminacyjnych modułu M7 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m7.*).
+module: m7
+drills:
+  - kind: choice
+    id: m7.exam.q1
+    family: m7.barrel.card
+    rules: [R-M7-001]
+    prompt: "ボタンから{{t:open|オープン}}し、{{t:big-blind}}が{{t:call|コール}}しました。[[9s 6d 2c]]のフロップでCベットとして{{t:bet|ベット}}し、相手は{{t:call|コール}}しました。ターンでどのカードが落ちたとき、より頻繁に{{t:second-barrel|セカンドバレル}}を{{t:bet|ベット}}しますか？"
+    table: { position: BTN, board: "9s 6d 2c" }
+    options:
+      - { text: "[[Kh]]", correct: true, why: "正解です。低い{{t:board|ボード}}に落ちるキングは、守る側の{{t:range}}よりもあなたの{{t:open|オープン}}{{t:range}}（KQ、KJ、KT、AK）により頻繁にヒットします。また、{{t:big-blind}}がフロップで{{t:call|コール}}した{{t:pair}}は、どれも順位が一つ下がります。" }
+      - { text: "[[8c]]", why: "9と6がある中で8が落ちると、T7と75は{{t:straight|ストレート}}、98と86は{{t:two-pair}}になります。どれも{{t:big-blind}}が守るハンドです。このカードはむしろ相手を助けます。" }
+      - { text: "[[5s]]", why: "9、6、2がある中で5が落ちると、87と43が{{t:straight|ストレート}}になります。また、{{t:big-blind}}は小さいカードを多く守っています。あなたの{{t:range|レンジ}}に有利なカードではありません。" }
+  - kind: choice
+    id: m7.exam.q2
+    family: m7.barrel.bluff
+    rules: [R-M7-002]
+    prompt: "ボタンから{{t:open|オープン}}し、{{t:big-blind}}がフロップでCベットに{{t:call|コール}}しました。ターンは2で、相手は{{t:check|チェック}}します。あなたは{{t:pair|ペア}}のない2つのハンドのどちらかを持っています。{{t:second-barrel|セカンドバレル}}で{{t:bluff|ブラフ}}するなら、どちらがよいですか？"
+    table: { position: BTN, board: "Kc 9h 4h 2s" }
+    options:
+      - { text: "[[Qh Jh]]", correct: true, why: "正解です。{{t:flush-draw}}とガットショット（10）があります。これは{{t:semi-bluff}}です。相手が{{t:fold|フォールド}}したとき、またはリバーでヒットしたときに勝てます。" }
+      - { text: "[[8c 7c]]", why: "このハンドにはアウツがありません。リバーでどのカードが来ても{{t:straight|ストレート}}にも{{t:flush|フラッシュ}}にもなりません。アウツのない{{t:bluff|ブラフ}}には勝ち筋が一つしかないので、見送ることが多くなります。" }
+  - kind: choice
+    id: m7.exam.q3
+    family: m7.barrel.value
+    rules: [R-M7-003]
+    prompt: "ボタンから{{t:open|オープン}}し、{{t:big-blind}}がフロップでCベットに{{t:call|コール}}しました。ターンは5で、相手は{{t:check|チェック}}します。あなたはエース付きの{{t:second-pair|セカンドペア}}です。どうしますか？"
+    table: { hand: "Ad 7d", position: BTN, board: "Ts 7c 3d 5h" }
+    options:
+      - { text: "{{t:check|チェック}}", correct: true, why: "正解です。{{t:second-pair|セカンドペア}}は中程度のハンドです。フロップで{{t:call|コール}}した後の相手の{{t:range}}は強くなっています。2回目のベットに対して弱いハンドは{{t:fold|フォールド}}し、10以上のハンドが支払います。{{t:check|チェック}}すれば、{{t:pot|ポット}}を小さく保ったままショーダウンまで行けます。" }
+      - { text: "{{t:value|バリュー}}でベット", why: "中程度のハンドでのベットは、弱いハンドが支払うときに利益になります。しかし、フロップで{{t:call|コール}}した後の相手にはそうしたハンドが少なくなっています。支払うのは主にあなたに勝っているハンドです。" }
+      - { text: "ハンドを守るため大きくベット", why: "中程度の{{t:pair|ペア}}で大きくベットすると、弱いハンドは降り、強いハンドが残ります。支払うのが主にすでに勝っているハンドなら、プロテクションは役に立ちません。" }
+  - kind: numeric
+    id: m7.exam.q4
+    family: m7.barrel.math
+    rules: [R-M7-004]
+    prompt: "ターン。{{t:pot|ポット}}は{{n:exam.m7.pot}}です。ほとんど勝てないハンドで{{t:bluff|ブラフ}}し、{{n:exam.m7.bet.half}}を{{t:bet|ベット}}します。この{{t:bluff}}が損益ゼロになるには、相手がどのくらいの頻度で{{t:fold|フォールド}}する必要がありますか？数値をパーセントで入力してください。"
+    answer: exam.m7.alpha.half
+    explanation: "しきい値はベット ÷ ({{t:pot}} + ベット) = {{n:exam.m7.bet.half}} ÷ ({{n:exam.m7.pot}} + {{n:exam.m7.bet.half}}) = {{n:exam.m7.alpha.half}}です。アウツがあれば、このしきい値は下がります。{{t:call|コール}}された後でも勝つことがあるからです。"
+  - kind: choice
+    id: m7.exam.q5
+    family: m7.polar.concept
+    rules: [R-M7-005]
+    prompt: "ターンで、{{t:polarized|ポラライズ}}した{{t:range|レンジ}}でポットの3/4をベットします。そのとき、あなたの{{t:range|レンジ}}のうちどのハンドが{{t:check|チェック}}しますか？"
+    options:
+      - { text: "中程度のハンド（例：{{t:second-pair|セカンドペア}}）", correct: true, why: "正解です。{{t:polarized}}{{t:range}}は、非常に強いハンドと{{t:semi-bluff|セミブラフ}}でできています。中程度のハンドは大きな{{t:pot|ポット}}から得るものがないので、{{t:check|チェック}}してショーダウンを目指します。" }
+      - { text: "セットと{{t:two-pair}}", why: "これは{{t:range|レンジ}}の上側の極です。リバーの前に{{t:pot|ポット}}を大きくしたいので、大きなサイズでベットします。" }
+      - { text: "{{t:flush-draw|フラッシュドロー}}", why: "これは下側の極です。{{t:semi-bluff|セミブラフ}}には相手の{{t:fold|フォールド}}が必要なので、強いハンドと同じ大きなサイズでベットします。" }
+  - kind: choice
+    id: m7.exam.q6
+    family: m7.polar.price
+    rules: [R-M7-006]
+    prompt: "ターン。あなたは{{t:two-pair}}で、相手は{{t:flush-draw}}を持っている可能性があります（リバーで約{{n:odds.flush.turn-river}}）。{{t:pot|ポット}}は{{n:exam.m7.pot}}で、相手は{{t:check|チェック}}します。どうしますか？"
+    table: { hand: "Jc 8c", position: BTN, board: "Jh 8h 4s 2d" }
+    options:
+      - { text: "{{n:exam.m7.bet.three-quarters}}をベット", correct: true, why: "正解です。{{t:pot|ポット}}の3/4のベットに対して、{{t:draw}}には{{n:eq.bet-three-quarters}}のエクイティが必要ですが、実際は約{{n:odds.flush.turn-river}}です。相手は払いすぎになり、あなたは強いハンドで{{t:pot|ポット}}を大きくできます。" }
+      - { text: "{{n:exam.m7.bet.quarter}}をベット", sizeError: true, why: "アクションは正しいですが、サイズが違います。{{t:pot|ポット}}の1/4のベットなら、{{t:draw}}に必要なのは{{n:eq.bet-quarter}}だけで、約{{n:odds.flush.turn-river}}より少なくなります。小さなベットは相手によい価格を与えます。大きくベットしましょう。" }
+      - { text: "{{t:check|チェック}}", why: "フリーカードは{{t:flush-draw|フラッシュドロー}}へのプレゼントで、あなたは強いハンドの価値を失います。{{t:two-pair|ツーペア}}ならベットします。" }
+  - kind: numeric
+    id: m7.exam.q7
+    family: m7.implied.math
+    rules: [R-M7-008]
+    prompt: "ターン。{{t:pot|ポット}}は{{n:exam.m7.pot}}で、相手が{{n:exam.m7.bet.half}}を{{t:bet|ベット}}します。あなたは{{t:oesd}}です。アウツは{{n:outs.oesd}}枚、外れるカードは{{n:miss.oesd.turn}}枚です。{{t:call}}が損益ゼロになるには、ヒットした後のリバーで（{{t:bet|ベット}}後の{{t:pot|ポット}}に加えて）さらに何{{t:chips|チップ}}勝つ必要がありますか？数値を入力してください。"
+    answer: exam.m7.io.extra
+    explanation: "ヒットしたときに、合計で{{n:exam.m7.bet.half}} × {{n:miss.oesd.turn}} ÷ {{n:outs.oesd}} = {{n:exam.m7.io.need}}を勝つ必要があります。{{t:bet|ベット}}後の{{t:pot|ポット}}は{{n:exam.m7.io.pot-after-bet}}なので、{{n:exam.m7.io.extra}}足りません。これがあなたのインプライドオッズ、つまり相手にさらに支払ってもらう必要がある額です。"
+  - kind: choice
+    id: m7.exam.q8
+    family: m7.implied.when
+    rules: [R-M7-010]
+    prompt: "ターン。あなたは{{t:oesd}}（Jか6）で、{{t:board|ボード}}にはダイヤが2枚あります。慎重に数えると、アウツは何枚ですか？"
+    table: { hand: "9s 8s", board: "Td 7d 2c 3h" }
+    options:
+      - { text: "{{n:exam.m7.oesd.clean}}", correct: true, why: "正解です。{{n:outs.oesd}}枚のアウツのうち2枚（[[Jd]]と[[6d]]）は、{{t:board|ボード}}に3枚目のダイヤを落とします。そのとき、ダイヤ2枚を持つ相手は{{t:flush}}になり、あなたはヒットしても負け、しかも最も多く支払います。残るクリーンなアウツは{{n:exam.m7.oesd.clean}}枚です。" }
+      - { text: "{{n:outs.oesd}}", why: "これは{{t:straight|ストレート}}になるアウツのすべてですが、そのうち2枚は{{t:flush}}の可能性を作ります。{{t:board|ボード}}で{{t:flush|フラッシュ}}が完成しうるときは、アウツを少なめに数えます。" }
+      - { text: "{{n:outs.gutshot}}", why: "これはガットショットのアウツの数です。あなたは両側が開いた{{t:straight-draw}}を持っていて、引くのはダイヤの2枚だけです。" }
+  - kind: choice
+    id: m7.exam.q9
+    family: m7.probe.play
+    rules: [R-M7-011, R-M7-012]
+    prompt: "ボタンの{{t:open|オープン}}に対して{{t:big-blind}}を守っています。フロップでは2人とも{{t:check|チェック}}しました。ターンは2です。あなたが先に行動します。{{t:second-pair|セカンドペア}}とガットショット（4）を持っています。どうしますか？"
+    table: { hand: "6c 5d", position: BB, board: "9h 6s 3d 2c" }
+    options:
+      - { text: "ベット（プローブベット）", correct: true, why: "正解です。フロップで{{t:check|チェック}}したボタンは強いハンドが少なく、低い{{t:board}}はあなたの{{t:range|レンジ}}に合っています。{{t:pair|ペア}}は弱いハンドから支払ってもらいたく、フリーカードからも守りたいハンドです。さらにガットショットが追加のアウツになります。" }
+      - { text: "{{t:check|チェック}}してボタンの出方を見る", why: "ボタンにフリーカードを与えてしまいます。フロップで{{t:check|チェック}}したボタンは、ハイカードしか持っていないことがよくあります。低い{{t:board|ボード}}では、{{t:pair|ペア}}で自分からベットします。" }
+      - { text: "チェックレイズを狙って{{t:check|チェック}}", why: "フロップで{{t:check|チェック}}したボタンは、また{{t:check|チェック}}することが多く、そうなると何も稼げません。プローブベットなら、相手の弱いハンドからすぐにバリューを取れます。" }
+  - kind: choice
+    id: m7.exam.q10
+    family: m7.defend.turn
+    rules: [R-M7-013]
+    prompt: "{{t:big-blind}}を守っています。フロップでボタンのCベットに{{t:call|コール}}しました。ターンは6で、あなたが{{t:check|チェック}}すると、ボタンは{{t:pot|ポット}}の3/4を{{t:bet|ベット}}します。あなたは4の{{t:pair|ペア}}です。どうしますか？"
+    table: { hand: "4h 4d", position: BB, board: "Ks Jd 8c 6h" }
+    options:
+      - { text: "{{t:fold|フォールド}}", correct: true, why: "正解です。ボタンは{{t:second-barrel|セカンドバレル}}を、Cベットよりも狭い{{t:range|レンジ}}と大きいサイズで{{t:bet|ベット}}します。{{t:board|ボード}}のどのカードよりも低く、残り2枚の4以外にアウツのない最も弱い{{t:pair}}は、相手のベットの大半に負けます。" }
+      - { text: "フロップで{{t:call|コール}}したので{{t:call|コール}}", why: "フロップで支払った分はもう戻りません。ターンではハンドを改めて評価します。{{t:second-barrel|セカンドバレル}}に対しては、最も弱い{{t:pair|ペア}}は{{t:fold|フォールド}}します。" }
+      - { text: "{{t:raise|レイズ}}", why: "{{t:raise|レイズ}}すると、弱いハンドは{{t:fold|フォールド}}し、強いハンドが支払います。4の{{t:pair|ペア}}は{{t:value|バリュー}}ハンドでも、よい{{t:bluff|ブラフ}}でもありません。" }

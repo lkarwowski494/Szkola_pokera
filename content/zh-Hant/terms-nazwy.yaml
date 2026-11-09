@@ -1,0 +1,164 @@
+# K-05 (D-367, D-372): nazwa terminu w języku zh-Hant dla znacznika {{t:klucz}} bez formy; null = skrót albo nazwa angielska.
+# Ze szkicu docs/lokalizacja/przygotowane/terms-nazwy-zh-Hant.yaml (sesje AB/AD, 2026-11-09; komentarze: formy tłumacza i źródła). Strażnik: tools/content-build/src/nazwy.ts.
+royal-flush: "皇家同花順"  # royal flush; bez formy 2; formy: 皇家同花順×1
+straight-flush: "同花順"  # straight flush; bez formy 2; formy: 同花順×1, 同一花色的順子×1 [WIELE FORM]
+four-of-a-kind: "四條"  # four of a kind; bez formy 3; formy: 四條×5
+full-house: "葫蘆"  # full house; bez formy 6; formy: 葫蘆×11
+flush: "同花"  # flush; bez formy 36; formy: 同花×84
+straight: "順子"  # straight; bez formy 26; formy: 順子×132, 順×1 [WIELE FORM]
+three-of-a-kind: "三條"  # three of a kind; bez formy 8; formy: 三條×15, 三×1 [WIELE FORM]
+set: "三條"  # set; bez formy 1; formy: 三條×1
+two-pair: "兩對"  # two pair; bez formy 36; formy: 兩對×28
+pair: "對子"  # pair; bez formy 32; formy: 對子×205, 一對×53, 對×16, 兩對×1 [WIELE FORM]
+high-card: "高牌"  # high card; bez formy 2; formy: 高牌×1
+kicker: null  # kicker; bez formy 0; formy: — [DO USTALENIA]
+wheel: null  # wheel; bez formy 2; formy: — [DO USTALENIA]
+check: "過牌"  # check; bez formy 12; formy: 過牌×274
+bet: "下注"  # bet; bez formy 99; formy: 下注×308, 注×4, 定×1, 下×1, 下出×1 [WIELE FORM]
+call: "跟注"  # call; bez formy 61; formy: 跟注×804, 跟注者×2, 跟×1, 檢視×1 [WIELE FORM]
+raise: "加注"  # raise; bez formy 10; formy: 加注×308
+fold: "棄牌"  # fold; bez formy 47; formy: 棄牌×620, 棄掉×39, 蓋牌×27, 蓋掉×1, 已棄牌×1 [AB: Z2: 蓋牌 tylko w m11-l1 — ujednolicić]
+check-raise: null  # check-raise; bez formy 0; formy: — [DO USTALENIA]
+all-in: "全下"  # all-in; bez formy 0; formy: 全下×1
+pot: "底池"  # pot; bez formy 81; formy: 底池×810
+side-pot: "邊池"  # side pot; bez formy 0; formy: 邊池×2
+split-pot: "平分底池"  # split pot; bez formy 0; formy: 平分底池×16, 就平分底池×1 [WIELE FORM]
+playing-the-board: "打公牌"  # playing the board; bez formy 2; formy: 打公牌×2
+board: "公共牌"  # board; bez formy 5; formy: 公共牌×54, 牌面×41, 公牌×1, 牌桌×1, 牌桌上×1 [WIELE FORM]
+community-cards: "公共牌"  # community cards; bez formy 0; formy: 公共牌×12
+hole-cards: "底牌"  # hole cards; bez formy 2; formy: 底牌×1
+small-blind: "小盲"  # small blind; bez formy 23; formy: 小盲×104, SB×5, 小盲注×3 [WIELE FORM]
+big-blind: "大盲"  # big blind; bez formy 117; formy: 大盲×142, 大盲注×15, BB×6, 大盲位×3 [WIELE FORM]
+chips: "籌碼"  # chips; bez formy 7; formy: 籌碼×96
+stack: null  # stack; bez formy 0; formy: — [DO USTALENIA]
+street: "街"  # street; bez formy 1; formy: 街×68, 條街×6, 輪×4 [WIELE FORM]
+betting-round: "下注輪"  # betting round; bez formy 1; formy: 下注輪×7
+preflop: "翻牌前"  # preflop; bez formy 0; formy: 翻牌前×1
+flop: "翻牌"  # flop; bez formy 0; formy: 翻牌×1
+turn: "轉牌"  # turn; bez formy 0; formy: 轉牌×1
+river: "河牌"  # river; bez formy 0; formy: 河牌×1
+showdown: "攤牌"  # showdown; bez formy 0; formy: 攤牌×1
+position: "位置"  # position; bez formy 3; formy: 位置×92
+in-position: "有位置"  # in position; bez formy 29; formy: 有位置×27, 有利位置×2 [WIELE FORM]
+out-of-position: "無位置"  # out of position; bez formy 37; formy: 無位置×24, 沒有位置×17, 不利位置×4 [WIELE FORM]
+early-position: "前位"  # early position; bez formy 0; formy: 前位×2
+late-position: "後位"  # late position; bez formy 0; formy: 後位×1
+utg: null  # under the gun; bez formy 30; formy: UTG×16, 槍口位×1 [SKRÓT UTG]
+hijack: "HJ"  # hijack; bez formy 0; formy: HJ×17
+cutoff: "CO"  # cutoff; bez formy 0; formy: CO×54, 關煞位×1 [WIELE FORM]
+button: "BTN"  # button; bez formy 0; formy: BTN×3
+outs: "補牌"  # out; bez formy 0; formy: 補牌×1
+draw: "聽牌"  # draw; bez formy 23; formy: 聽牌×178
+flush-draw: "同花聽牌"  # flush draw; bez formy 16; formy: 同花聽牌×45
+straight-draw: "順子聽牌"  # straight draw; bez formy 2; formy: 順子聽牌×17
+oesd: null  # open-ended straight draw; bez formy 7; formy: 兩頭順子聽牌×10, 兩頭順聽牌×6 [SKRÓT OESD]
+gutshot: null  # gutshot; bez formy 0; formy: — [DO USTALENIA]
+backdoor: null  # backdoor; bez formy 0; formy: — [DO USTALENIA]
+pot-odds: null  # pot odds; bez formy 0; formy: — [DO USTALENIA]
+implied-odds: "隱含賠率"  # implied odds; bez formy 1; formy: 隱含賠率×1
+equity: "權益"  # equity; bez formy 4; formy: 權益×12, 勝率×3 [AB: Z2/Z3: UI, terms-def, 141× w tekście; 勝率 (108×) ujednolicić]
+equity-realization: "權益實現"  # equity realization; bez formy 0; formy: 權益實現×3, 實現勝率×2, 實現權益×2 [WIELE FORM]
+expected-value: "期望值"  # expected value; bez formy 2; formy: 期望值×8, EV×2 [WIELE FORM]
+combo: "組合"  # combo; bez formy 0; formy: 組合×30
+range: "範圍"  # range; bez formy 54; formy: 範圍×192
+mixed-hand: "混合手牌"  # mixing hand; bez formy 0; formy: 混合手牌×12
+open: "開池"  # open; bez formy 7; formy: 開池×248, 開池者×8, 開局加注×7 [WIELE FORM]
+suited: null  # suited; bez formy 0; formy: — [DO USTALENIA]
+offsuit: null  # offsuit; bez formy 0; formy: — [DO USTALENIA]
+pocket-pair: "口袋對"  # pocket pair; bez formy 0; formy: 口袋對×3
+connectors: "連張"  # connectors; bez formy 0; formy: 連張×24
+3-bet: null  # 3-bet; bez formy 0; formy: — [DO USTALENIA]
+4-bet: null  # 4-bet; bez formy 0; formy: — [DO USTALENIA]
+limp: "溜入"  # limp; bez formy 1; formy: 溜入×1 [AB: Z2: przeczytane źródło TW (pokerqz) ma 平跟, ale 平跟 = też flat call; 溜入 [DO USTALENIA] źródło, decyzja przy K-05; ujednolicić 跛入 i łacińskie limp]
+isolation: "隔離加注"  # isolation raise; bez formy 0; formy: 隔離加注×7
+texture: "牌面結構"  # texture; bez formy 0; formy: 牌面結構×8
+dry: "乾燥"  # dry; bez formy 1; formy: 乾燥×52
+wet: "濕潤"  # wet; bez formy 3; formy: 濕潤×26, 潮濕×1 [WIELE FORM]
+rainbow: "彩虹"  # rainbow; bez formy 0; formy: 彩虹×4
+two-tone: "雙色"  # two-tone; bez formy 0; formy: 雙色×6, 雙花色×1 [WIELE FORM]
+monotone: "單色"  # monotone; bez formy 1; formy: 單色×17, 單花色×1 [WIELE FORM]
+paired: "成對"  # paired; bez formy 0; formy: 成對×17
+connected: "連張"  # connected; bez formy 3; formy: 連張×9, 相連×4, 連接×3 [AB: Z1: UI i lekcje]
+disconnected: "不連張"  # disconnected; bez formy 0; formy: 不連張×4
+semi-connected: "半連張"  # semi-connected; bez formy 0; formy: 半連張×6, 半連接×1 [WIELE FORM]
+wetness: "濕潤度"  # wetness; bez formy 0; formy: 濕潤度×3, 潮濕度×2 [WIELE FORM]
+top-pair: "頂對"  # top pair; bez formy 23; formy: 頂對×62
+second-pair: "第二對"  # second pair; bez formy 0; formy: 第二對×9
+overpair: "超對"  # overpair; bez formy 8; formy: 超對×2
+c-bet: "持續下注"  # c-bet; bez formy 0; formy: 持續下注×2
+aggressor: "進攻者"  # aggressor; bez formy 2; formy: 進攻者×5, 主動進攻者×1, 主動方×1, 進攻方×1 [WIELE FORM]
+initiative: "主動權"  # initiative; bez formy 0; formy: 主動權×17
+range-advantage: "範圍優勢"  # range advantage; bez formy 5; formy: 範圍優勢×27
+nuts-advantage: "堅果優勢"  # nuts advantage; bez formy 5; formy: 堅果優勢×18
+nuts: "堅果牌"  # nuts; bez formy 0; formy: 堅果牌×1
+polarized: "極化"  # polarized; bez formy 8; formy: 極化×12, 兩極化×3 [WIELE FORM]
+polarization: null  # polarization; bez formy 0; formy: — [DO USTALENIA]
+linear: "線性"  # linear; bez formy 1; formy: 線性×9
+condensed: "壓縮"  # condensed; bez formy 0; formy: 壓縮×2
+value: "價值"  # value; bez formy 1; formy: 價值×94, 為了價值×5, 拿價值×4, 為價值×3, 價值街×2 [WIELE FORM]
+value-bet: "價值下注"  # value bet; bez formy 0; formy: 價值下注×1
+bluff: "詐唬"  # bluff; bez formy 60; formy: 詐唬×414
+semi-bluff: "半詐唬"  # semi-bluff; bez formy 6; formy: 半詐唬×18
+blocker: "阻擋牌"  # blocker; bez formy 0; formy: 阻擋牌×22
+bluff-catcher: null  # bluff catcher; bez formy 0; formy: — [DO USTALENIA]
+barrel: null  # barrel; bez formy 0; formy: — [DO USTALENIA]
+second-barrel: "第二槍"  # second barrel; bez formy 3; formy: 第二槍×23
+probe-bet: null  # probe bet; bez formy 0; formy: — [DO USTALENIA]
+donk-bet: null  # donk bet; bez formy 0; formy: — [DO USTALENIA]
+overbet: "超池下注"  # overbet; bez formy 0; formy: 超池下注×3
+effective-stack: "有效籌碼"  # effective stack; bez formy 2; formy: 有效籌碼×4
+spr: null  # stack-to-pot ratio; bez formy 175; formy: SPR×16 [SKRÓT SPR]
+mdf: null  # minimum defense frequency; bez formy 66; formy: MDF×7, 最低防守頻率×1 [SKRÓT MDF]
+alpha: "alpha"  # alpha; bez formy 2; formy: alpha×4
+variance: "變異數"  # variance; bez formy 7; formy: 變異數×9, 波動×7, 變異×3 [AB: Z2, kontrola (a): 波動/變異 ujednolicić; przeczytane PQ „變異數（Variance）”]
+buy-in: "買入"  # buy-in; bez formy 0; formy: 買入×83
+bankroll: "資金"  # bankroll; bez formy 0; formy: 資金×1
+tilt: null  # tilt; bez formy 0; formy: — [DO USTALENIA]
+winrate: "贏率"  # win rate; bez formy 0; formy: 勝率×1 [AB: Z2: 98× w treści; 勝率 koliduje z equity; źródło TW [DO USTALENIA]]
+downswing: "下風期"  # downswing; bez formy 0; formy: 下風期×28
+session: "場次"  # session; bez formy 2; formy: 牌局×49, 場次×5 [AB: Z1: 牌局 = też „rozdanie” (dwuznaczne)]
+stakes: "級別"  # stakes; bez formy 4; formy: 級別×59
+standard-deviation: "標準差"  # standard deviation; bez formy 1; formy: 標準差×43
+risk-of-ruin: "破產風險"  # risk of ruin; bez formy 0; formy: 破產風險×4
+mental-game: null  # mental game; bez formy 1; formy: — [DO USTALENIA]
+tournament: "錦標賽"  # tournament; bez formy 0; formy: 錦標賽×18
+push-fold: null  # push/fold; bez formy 0; formy: — [DO USTALENIA]
+shove: "推全下"  # shove; bez formy 0; formy: 推全下×13, 推×8, 全推×2, 推全下的人×1 [WIELE FORM]
+icm: null  # Independent Chip Model; bez formy 28; formy: ICM×2 [SKRÓT ICM]
+bubble: "泡沫"  # bubble; bez formy 0; formy: 泡沫×8, 泡沫期×3 [WIELE FORM]
+bubble-factor: null  # bubble factor; bez formy 0; formy: — [DO USTALENIA]
+cover: "覆蓋"  # cover; bez formy 0; formy: 覆蓋×5
+risk-premium: "風險溢價"  # risk premium; bez formy 0; formy: 風險溢價×8
+m-ratio: null  # M-ratio; bez formy 0; formy: — [DO USTALENIA]
+red-zone: "紅區"  # red zone; bez formy 1; formy: 紅區×1
+green-zone: "綠區"  # green zone; bez formy 0; formy: 綠區×2
+ante: null  # ante; bez formy 0; formy: — [DO USTALENIA]
+bb-ante: "大盲前注"  # big blind ante; bez formy 3; formy: 大盲前注×3
+fold-equity: null  # fold equity; bez formy 0; formy: — [DO USTALENIA]
+gap-concept: null  # gap concept; bez formy 0; formy: — [DO USTALENIA]
+chip-ev: null  # chip EV; bez formy 0; formy: — [DO USTALENIA]
+tournament-equity: "錦標賽權益"  # tournament equity; bez formy 0; formy: 錦標賽權益×1
+prize-pool: "獎金池"  # prize pool; bez formy 0; formy: 獎金池×11, 獎池×7 [WIELE FORM]
+payout: "獎金"  # payout; bez formy 0; formy: 獎金×12
+pay-jump: null  # pay jump; bez formy 0; formy: — [DO USTALENIA]
+final-table: "決賽桌"  # final table; bez formy 0; formy: 決賽桌×4
+short-stack: "短籌碼"  # short stack; bez formy 1; formy: 短籌碼×10, 短×1 [WIELE FORM]
+nash-equilibrium: null  # Nash equilibrium; bez formy 0; formy: — [DO USTALENIA]
+overcall: null  # overcall; bez formy 0; formy: — [DO USTALENIA]
+heads-up: null  # heads up; bez formy 0; formy: — [DO USTALENIA]
+dead-money: null  # dead money; bez formy 0; formy: — [DO USTALENIA]
+stack-off: null  # stack off; bez formy 0; formy: — [DO USTALENIA]
+exploit: "剝削"  # exploit; bez formy 0; formy: 剝削×9
+hud: null  # heads-up display; bez formy 3; formy: HUD×11 [SKRÓT HUD]
+vpip: null  # voluntarily put in pot; bez formy 73; formy: VPIP×17 [SKRÓT VPIP]
+pfr: null  # preflop raise; bez formy 51; formy: PFR×10 [SKRÓT PFR]
+wtsd: null  # went to showdown; bez formy 3; formy: — [SKRÓT WTSD]
+nit: "岩石型玩家"  # nit; bez formy 9; formy: 岩石玩家×7, 岩石型玩家×2, 極緊玩家×1 [AB: Z1: UI i rules]
+regular: "常規玩家"  # regular; bez formy 1; formy: 常客×6, 常規玩家×5 [AB: Z2: terms-def; 常客 w UI ujednolicić]
+tag: null  # tight aggressive; bez formy 1; formy: — [SKRÓT TAG]
+lag: null  # loose aggressive; bez formy 1; formy: — [SKRÓT LAG]
+recreational: "娛樂玩家"  # recreational player; bez formy 0; formy: 娛樂玩家×19, 休閒玩家×2 [AB: Z2: 19× w treści; 休閒玩家 w UI ujednolicić]
+calling-station: "跟注站"  # calling station; bez formy 1; formy: 跟注站×1
+maniac: "瘋子"  # maniac; bez formy 0; formy: 瘋子×14, 瘋狂玩家×4 [AB: większość form]
+rake: "抽水"  # rake; bez formy 36; formy: 抽水×20
+rake-cap: "抽水上限"  # rake cap; bez formy 0; formy: 抽水上限×6, 上限×1 [WIELE FORM]

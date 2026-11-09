@@ -1,0 +1,86 @@
+module: m11
+drills:
+  - kind: choice
+    id: m11.exam.q1
+    family: m11.threshold
+    rules: [R-M11-001]
+    prompt: "{{t:tournament|錦標賽}}。你有 {{n:exam.m11.mid.stack}}，前面所有人都已{{t:fold|棄牌}}。你的牌屬於中等：好到不該放棄，卻又弱到不適合在翻牌後繼續打。資料來源建議怎麼打？"
+    options:
+      - { text: "全下或{{t:fold}}", correct: true, why: "在 {{n:m11.thr.pushfold}} 到 {{n:m11.thr.upper}} 之間，push/fold 是較弱和中等牌的主要打法。以這種籌碼量全下，最能逼出對手{{t:fold|棄牌}}。這是簡化的說法：solver 對部分牌也會採用其他打法。" }
+      - { text: "最小加注，對手全下就{{t:fold}}", why: "在 {{n:exam.m11.mid.stack}} 時，加注後面對{{t:raise|加注}}再{{t:fold}}，等於不戰而交出一大部分籌碼。資料來源建議約從 {{n:m11.thr.raise}} 起再採用一般加注。" }
+      - { text: "平跟（limp），便宜看翻牌", why: "平跟無法讓你立刻贏下{{t:pot|底池}}，而拿著{{t:short-stack|短籌碼}}時，對手的{{t:fold|棄牌}}正是主要的獲利來源。" }
+  - kind: numeric
+    id: m11.exam.q2
+    family: m11.m
+    rules: [R-M11-005]
+    prompt: "你有 {{n:exam.m11.m.stack}} {{t:chips|籌碼}}。盲注是 {{n:exam.m11.m.sb}}/{{n:exam.m11.m.bb}}，{{t:big-blind}}還要另付前注 {{n:exam.m11.m.ante}}。你的 M 是多少？請輸入保留一位小數的數字。"
+    answer: exam.m11.m.value
+    explanation: "一圈的成本是 {{n:exam.m11.m.sb}} + {{n:exam.m11.m.bb}} + {{n:exam.m11.m.ante}} = {{n:exam.m11.m.orbit}}，所以 M = {{n:exam.m11.m.stack}} ÷ {{n:exam.m11.m.orbit}} = {{n:exam.m11.m.value}}。這遠低於約 {{n:m11.m.red}}：你只剩全下或{{t:fold}}可選，並且要盡量第一個進入{{t:pot|底池}}。"
+  - kind: choice
+    id: m11.exam.q3
+    family: m11.fold-equity
+    rules: [R-M11-004]
+    prompt: "{{t:small-blind|小盲}}，{{n:exam.m11.fe.depth}}，沒有前注，所有人都已{{t:fold|棄牌}}。{{t:big-blind}}必須多常{{t:fold|棄牌}}，你用毫無勝算的牌全下才能打平？"
+    options:
+      - { text: "超過 {{n:exam.m11.fe.alpha}} 的情況", correct: true, why: "你投入 {{n:exam.m11.fe.risk}}，是為了贏下 {{n:m11.push.10.win}} 盲注：{{n:exam.m11.fe.risk}} ÷（{{n:m11.push.10.win}} + {{n:exam.m11.fe.risk}}）≈ {{n:exam.m11.fe.alpha}}。對手不會這麼常{{t:fold|棄牌}}，所以全下也需要在對手{{t:call|跟注}}時具備權益。" }
+      - { text: "超過一半的情況", why: "你冒的風險遠大於可贏的：{{n:exam.m11.fe.risk}} 對 {{n:m11.push.10.win}}。門檻是 風險 ÷（贏得 + 風險），也就是約 {{n:exam.m11.fe.alpha}}。" }
+      - { text: "完全不必：{{n:exam.m11.fe.depth}} 時全下一定划算", why: "攤牌時毫無勝算的牌只能靠{{t:fold|棄牌}}獲利，而且需要約 {{n:exam.m11.fe.alpha}} 的棄牌。所以全下的{{t:range}}雖然寬，也不包含所有牌。" }
+  - kind: choice
+    id: m11.exam.q4
+    family: m11.ante
+    rules: [R-M11-003, R-M11-004]
+    prompt: "同樣是 {{n:exam.m11.fe.depth}} 的籌碼量、位在{{t:small-blind|小盲}}，但{{t:big-blind}}已付前注 {{n:m11.ante}}。現在對方必須多常{{t:fold|棄牌}}，你用毫無勝算的牌全下才能打平？"
+    options:
+      - { text: "超過 {{n:exam.m11.fe.alpha-ante}} 的情況，所以你可以{{t:shove|推}}更多牌", correct: true, why: "前注讓你在對手{{t:fold|棄牌}}後拿下的{{t:pot|底池}}變大：{{n:m11.push.10.win-ante}} 而不是 {{n:m11.push.10.win}}，風險卻不變（{{n:exam.m11.fe.risk}}）。{{n:exam.m11.fe.risk}} ÷（{{n:m11.push.10.win-ante}} + {{n:exam.m11.fe.risk}}）≈ {{n:exam.m11.fe.alpha-ante}}，而不是 {{n:exam.m11.fe.alpha}}。" }
+      - { text: "和沒有前注時一樣：超過 {{n:exam.m11.fe.alpha}}", why: "前注在{{t:pot|底池}}裡，對手{{t:fold|棄牌}}時就歸你。同樣的風險換來更大的報酬，門檻會降到約 {{n:exam.m11.fe.alpha-ante}}。" }
+      - { text: "更常，因為{{t:pot|底池}}裡可輸的更多", why: "前注已經在{{t:pot|底池}}裡，不屬於你的風險。你投入一樣多、能贏的更多，所以門檻會下降。" }
+  - kind: numeric
+    id: m11.exam.q5
+    family: m11.call.price
+    rules: [R-M11-006]
+    prompt: "雙方籌碼各 {{n:exam.m11.call.depth}}，沒有前注。你在{{t:big-blind|大盲}}，{{t:small-blind}}全下。{{t:call}}要划算，你需要多少百分比的權益？請輸入數字。"
+    answer: exam.m11.call.eq
+    explanation: "你的盲注已在{{t:pot|底池}}裡，所以只需補 {{n:exam.m11.call.depth}} − {{n:pf.blind.bb}} = {{n:exam.m11.call.cost}}。{{t:call|跟注}}後{{t:pot|底池}}共有 {{n:exam.m11.call.pot}}：{{n:exam.m11.call.cost}} ÷ {{n:exam.m11.call.pot}} ≈ {{n:exam.m11.call.eq}}。"
+  - kind: choice
+    id: m11.exam.q6
+    family: m11.call.gap
+    rules: [R-M11-007]
+    prompt: "雙方籌碼各 {{n:m11.depth.5}}，{{t:small-blind}}全下，你在{{t:big-blind|大盲}}。朋友建議：「凡是你自己在{{t:small-blind|小盲}}會{{t:shove|推}}全下的牌，都拿來{{t:call|跟注}}。」solver 怎麼說？"
+    options:
+      - { text: "你的{{t:call|跟注}}範圍較窄：約 {{n:m11.call.5}} 的牌，全下則約 {{n:m11.nash.push.5}}–{{n:m11.push.5}}", correct: true, why: "{{t:call|跟注者}}只能在攤牌時獲勝，而且面對的是已經篩選過的{{t:range|範圍}}。{{t:shove|推全下的人}}在對手{{t:fold|棄牌}}時也能贏。即使籌碼這麼短、價格也好，{{t:call|跟注}}的{{t:range}}仍然較窄。" }
+      - { text: "朋友說得對：{{n:m11.depth.5}} 時兩個{{t:range|範圍}}一樣", why: "{{t:short-stack|短籌碼}}會讓兩個{{t:range|範圍}}都變寬，但不會讓它們相同：全下有棄牌權益，{{t:call}}則沒有。solver 約用 {{n:m11.call.5}} 的牌{{t:call|跟注}}，而約{{t:shove|推}} {{n:m11.nash.push.5}}–{{n:m11.push.5}}（下限來自獨立的均衡計算，上限來自本 App 的 solver）。" }
+      - { text: "你的{{t:call|跟注}}範圍較寬，因為價格很好", why: "{{n:m11.depth.5}} 時的價格確實不錯（{{n:m11.call.5.eq}}），但你面對的是全下的{{t:range|範圍}}，而不是隨機一手牌。solver {{t:call|跟注}}的範圍比{{t:shove|推}}的範圍窄。" }
+  - kind: numeric
+    id: m11.exam.q7
+    family: m11.bf
+    rules: [R-M11-009, R-M11-008]
+    prompt: "{{t:bubble|泡沫}}：四名玩家，前三名有獎（分別為{{t:prize-pool|獎池}}的 {{n:m11.bf.p1}}、{{n:m11.bf.p2}}、{{n:m11.bf.p3}}）。籌碼量：{{n:exam.m11.bf.s1}}、你的 {{n:exam.m11.bf.s2}}、全下的對手 {{n:exam.m11.bf.s3}}，以及 {{n:exam.m11.bf.s4}}。依 {{t:icm}}，你{{t:call|跟注}}後若輸會損失{{t:prize-pool|獎池}}的 {{n:exam.m11.bf.loss}}，若贏則增加 {{n:exam.m11.bf.gain}}。泡沫因子是多少？請輸入保留兩位小數的數字。"
+    answer: exam.m11.bf.value
+    explanation: "泡沫因子 = 損失 ÷ 收益 = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.gain}} ≈ {{n:exam.m11.bf.value}}。你現在的權益是 {{n:exam.m11.bf.eq.now}}，贏了變成 {{n:exam.m11.bf.eq.win}}，輸了變成 {{n:exam.m11.bf.eq.lose}}：輸掉的代價大於贏得的增加。{{t:icm}} 不考慮{{t:position|位置}}或玩家技術，所以這個估值只是近似值。"
+  - kind: choice
+    id: m11.exam.q8
+    family: m11.bf
+    rules: [R-M11-009]
+    prompt: "同一局面：泡沫因子 {{n:exam.m11.bf.value}}。若只打{{t:chips|籌碼}}，有 {{n:exam.m11.bf.req-chips}} 的權益就足以{{t:call|跟注}}。依 {{t:icm}}，你需要多少？"
+    options:
+      - { text: "約 {{n:exam.m11.bf.req}}", correct: true, why: "所需權益 = BF ÷（BF + 1）= 損失 ÷（損失 + 收益）= {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.range}} ≈ {{n:exam.m11.bf.req}}。與 {{n:exam.m11.bf.req-chips}} 的差距就是{{t:risk-premium|風險溢價}}。" }
+      - { text: "{{n:exam.m11.bf.req-chips}}，和用{{t:chips|籌碼}}計算時一樣", why: "在有{{t:payout|獎金}}的{{t:tournament|錦標賽}}中，輸掉的錢比贏到的多，所以{{t:call}}必須更常獲勝：約 {{n:exam.m11.bf.req}}。" }
+      - { text: "少於 {{n:exam.m11.bf.req-chips}}，因為{{t:bubble|泡沫}}會逼對手{{t:bluff|詐唬}}", why: "泡沫因子大於 1，所需權益一定會高於以{{t:chips|籌碼}}計算的價格。這裡提高到約 {{n:exam.m11.bf.req}}。" }
+  - kind: choice
+    id: m11.exam.q9
+    family: m11.icm.call
+    rules: [R-M11-010]
+    prompt: "{{t:tournament|錦標賽}}的{{t:bubble|泡沫期}}。你的籌碼量中等。桌上籌碼最多、{{t:cover|覆蓋}}你的玩家全下。和只打{{t:chips|籌碼}}相比，你該怎麼{{t:call|跟注}}？"
+    options:
+      - { text: "明顯更緊", correct: true, why: "輸了你就會在進獎圈前被淘汰，而贏到的比輸掉的少：贏來的{{t:chips|籌碼}}價值低於輸掉的{{t:chips|籌碼}}。所以你需要的權益明顯高於只打{{t:chips|籌碼}}時。" }
+      - { text: "更寬，因為大籌碼會{{t:shove|推}}很多牌", why: "大籌碼確實可以{{t:shove|推}}得更寬，但正是因為你必須{{t:call|跟注}}得很緊。{{t:risk-premium|風險溢價}}會提高你的要求。" }
+      - { text: "一樣：{{t:icm}} 到{{t:final-table|決賽桌}}才重要", why: "在{{t:final-table|決賽桌}}和{{t:bubble|泡沫期}}都該更謹慎地{{t:call|跟注}}：在這裡，你能不能贏到任何獎金，取決於你是否存活。" }
+  - kind: choice
+    id: m11.exam.q10
+    family: m11.push.3max
+    rules: [R-M11-011]
+    prompt: "三名玩家，籌碼各 {{n:m11.depth.3max}}。你從哪裡{{t:shove|推}}全下的範圍較寬：在按鈕位、後面還有兩個盲注時，還是在按鈕位{{t:fold|棄牌}}後的{{t:small-blind|小盲}}？"
+    options:
+      - { text: "在{{t:small-blind|小盲}}：約 {{n:m11.3max.push.sb}} 的牌，按鈕位則約 {{n:m11.3max.push.btn}}", correct: true, why: "你後面每多一名玩家，就多一次有人拿到強牌的機會。在按鈕位必須有兩名玩家{{t:fold|棄牌}}，在{{t:small-blind|小盲}}只需一名。" }
+      - { text: "在按鈕位，因為它的{{t:position|位置}}最好", why: "全下之後就沒有人要做翻牌後的決定，所以{{t:position|位置}}在這裡毫無作用。重點是有多少玩家可能{{t:call|跟注}}：按鈕位後面有兩名。" }
+      - { text: "兩個位置都一樣", why: "solver 在按鈕位約{{t:shove|推}} {{n:m11.3max.push.btn}} 的牌，在{{t:small-blind|小盲}}則約 {{n:m11.3max.push.sb}}。差別來自你後面的玩家人數。" }

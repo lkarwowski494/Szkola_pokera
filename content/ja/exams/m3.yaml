@@ -1,0 +1,95 @@
+# Pula egzaminacyjna M3 (pozycja, ręce startowe, zakresy otwarć): reguły lekcji m3.l1–m3.l3, inne ręce i pozycje.
+# Decyzje otwarcia zgodne ze spotami solvera aplikacji (rfi.*): ręce poza listą klas niepewnych, częstość 0 albo ≥ 0,94.
+module: m3
+drills:
+  - kind: choice
+    id: m3.exam.q1
+    family: m3.position
+    rules: [R-M3-001]
+    prompt: "ボタンが{{t:open|オープン}}し、{{t:small-blind}}が{{t:fold|フォールド}}、{{t:big-blind}}が{{t:call|コール}}しました。フロップで最初にアクションするのは誰ですか？"
+    options:
+      - { text: "{{t:big-blind|ビッグブラインド}}", correct: true, why: "フロップ以降は、ブラインドが最初に、ボタンが最後にアクションします。そのため、ここではボタンに{{t:position|ポジション}}があり、{{t:big-blind}}は{{t:out-of-position}}でプレイします。" }
+      - { text: "ボタン（{{t:open|オープン}}したため）", why: "アクションの順番は、誰が{{t:open|オープン}}したかではなく、テーブルでの席で決まります。フロップ以降、ボタンは常に最後にアクションします。" }
+      - { text: "プリフロップで最後にアクションした人", why: "プリフロップではブラインドが最後にアクションしますが、フロップ以降は最初です。だからボタンの{{t:position}}が最も良いのです。" }
+  - kind: choice
+    id: m3.exam.q2
+    family: m3.open-early
+    rules: [R-M3-002]
+    prompt: "プリフロップで最初にアクションします。まだ誰もゲームに参加していません。どうしますか？"
+    table: { hand: "Ac Td", position: UTG }
+    options:
+      - { text: "{{t:raise|レイズ}}", correct: true, why: "オフスーツのATは、{{t:utg}}からの{{t:open|オープン}}{{t:range|レンジ}}（約{{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}ハンド）に入っています。アプリのソルバーはここで常にこのハンドをプレイします。" }
+      - { text: "{{t:fold|フォールド}}", why: "タイトすぎます。{{t:utg}}からは狭くプレイしますが、ATはまだ{{t:range|レンジ}}内です。" }
+      - { text: "{{t:big-blind|ビッグブラインド}}の額だけ払う", why: "最初に参加するなら、{{t:raise|レイズ}}か{{t:fold|フォールド}}です。リンプは{{t:initiative|イニシアチブ}}と、すぐにブラインドを獲得するチャンスを手放します。" }
+  - kind: choice
+    id: m3.exam.q3
+    family: m3.rfi.early
+    rules: [R-M3-006]
+    prompt: "{{t:utg}}が{{t:fold|フォールド}}し、次はあなたです。どうしますか？"
+    table: { hand: "Ah 9d", position: HJ }
+    options:
+      - { text: "{{t:fold|フォールド}}", correct: true, why: "あなたの後ろには、まだ4人のプレイヤーがいます。オフスーツのA9は、エースを引いても相手のAT、AJ、AQよりキッカーが弱いことがよくあります。アプリのソルバーは{{t:hijack|HJ}}から常にこのハンドを{{t:fold|フォールド}}します。" }
+      - { text: "{{t:raise|レイズ}}", why: "エースは魅力的ですが、{{t:hijack|HJ}}からは{{t:cutoff|CO}}やボタンよりも狭く{{t:open|オープン}}します。A9oが{{t:range|レンジ}}に入るのは{{t:cutoff|CO}}からです。" }
+  - kind: choice
+    id: m3.exam.q4
+    family: m3.rfi.late
+    rules: [R-M3-006]
+    prompt: "あなたより前の全員が{{t:fold|フォールド}}しました。どうしますか？"
+    table: { hand: "Ah 9d", position: CO }
+    options:
+      - { text: "{{t:raise|レイズ}}", correct: true, why: "後ろに残っているのはボタンとブラインドだけなので、{{t:hijack|HJ}}よりも広く{{t:open|オープン}}します。アプリのソルバーは、ここでA9oをほぼ常にプレイします。" }
+      - { text: "{{t:fold|フォールド}}", why: "それは{{t:hijack|HJ}}でのこのハンドのプレイ方法です。{{t:cutoff|CO}}では後ろのプレイヤーが1人少なく、{{t:range}}も広くなります。" }
+  - kind: choice
+    id: m3.exam.q5
+    family: m3.open-late
+    rules: [R-M3-003]
+    prompt: "全員があなたまで{{t:fold|フォールド}}しました。どうしますか？"
+    table: { hand: "Jd 9c", position: BTN }
+    options:
+      - { text: "{{t:raise|レイズ}}", correct: true, why: "ボタンでは約{{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}}ハンドを{{t:open|オープン}}します。残りはブラインドだけで、フロップ後は{{t:position|ポジション}}があるので、オフスーツのJ9も含まれます。" }
+      - { text: "{{t:fold|フォールド}}", why: "{{t:cutoff|CO}}からはソルバーはこのハンドをまれにしかプレイしませんが、ボタンでは常にプレイします。ブラインドだけが相手なら、それはタイトすぎます。" }
+      - { text: "{{t:big-blind|ビッグブラインド}}の額だけ払う", why: "リンプは{{t:initiative|イニシアチブ}}を手放します。{{t:raise|レイズ}}すれば、すぐにブラインドを獲得できることがよくあります。" }
+  - kind: choice
+    id: m3.exam.q6
+    family: m3.rfi.sb
+    rules: [R-M3-004, R-M3-007, R-M3-009]
+    prompt: "全員が{{t:small-blind|スモールブラインド}}のあなたまで{{t:fold|フォールド}}しました。どうしますか？"
+    table: { hand: "Td 8c", position: SB }
+    options:
+      - { text: "{{n:pf.open-size-sb}}に{{t:raise|レイズ}}", correct: true, why: "相手はもう{{t:big-blind|ビッグブラインド}}だけなので、約{{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}}ハンドと広く{{t:open|オープン}}します。フロップ後は最初にアクションするため、{{t:small-blind|スモールブラインド}}からは他の{{t:position|ポジション}}より少し大きく{{t:raise|レイズ}}します。" }
+      - { text: "{{n:pf.open-size}}に{{t:raise|レイズ}}", sizeError: true, why: "アクションは正しいですが、サイズが違います。{{n:pf.open-size}}は他の{{t:position|ポジション}}からの{{t:open}}です。{{t:small-blind|スモールブラインド}}からは{{t:out-of-position}}でプレイするので、{{n:pf.open-size-sb}}に{{t:raise|レイズ}}します。" }
+      - { text: "{{t:big-blind|ビッグブラインド}}の額だけ払う", why: "最初に参加するなら、{{t:raise|レイズ}}か{{t:fold|フォールド}}です（{{t:small-blind|スモールブラインド}}ではこれは単純化です。ソルバーの解の中には、ここで一部のハンドをリンプするものもあります）。リンプは{{t:initiative|イニシアチブ}}と、すぐにブラインドを獲得するチャンスを手放します。" }
+      - { text: "{{t:fold|フォールド}}", why: "タイトすぎます。相手が1人なら、アプリのソルバーは{{t:small-blind|スモールブラインド}}からT8oを常にプレイします。" }
+  - kind: numeric
+    id: m3.exam.n1
+    family: m3.open-early
+    rules: [R-M3-007]
+    prompt: "あなたより前の全員が{{t:fold|フォールド}}し、あなたは{{t:hijack|HJ}}で{{t:open|オープン}}します。何bbに{{t:raise|レイズ}}しますか？数字を入力してください。"
+    table: { hand: "Kh Qh", position: HJ }
+    answer: pf.open-size
+    explanation: "{{t:small-blind|スモールブラインド}}以外のすべての{{t:position|ポジション}}から、{{n:pf.open-size}}に{{t:open|オープン}}します（そこでは{{n:pf.open-size-sb}}）。サイズを1つにすればシンプルで、ハンドの強さも悟られません。これは単純化です。ソルバーは{{t:early-position|アーリーポジション}}からやや小さめに{{t:open|オープン}}します。"
+  - kind: choice
+    id: m3.exam.q7
+    family: m3.suited
+    rules: [R-M3-005]
+    prompt: "同じスートのT9が、スートの異なるT9より有利なのはなぜですか？"
+    options:
+      - { text: "{{t:flush}}という勝ち筋が1つ増える", correct: true, why: "ランクは同じなので、{{t:pair|ペア}}や{{t:straight|ストレート}}ができる頻度は変わりません。同じスートのハンドは、それに加えて{{t:flush|フラッシュ}}のチャンスがあります。" }
+      - { text: "{{t:pair|ペア}}ができやすい", why: "{{t:pair|ペア}}ができる確率はランクで決まり、ランクは同じです。" }
+      - { text: "{{t:straight|ストレート}}ができやすい", why: "{{t:straight|ストレート}}はカードのランクで決まり、同じスートかどうかは関係ありません。" }
+  - kind: choice
+    id: m3.exam.q8
+    family: m3.premium
+    rules: [R-M3-008]
+    prompt: "{{t:utg}}が{{t:raise|レイズ}}し、残りはあなたまで{{t:fold|フォールド}}しました。どうしますか？"
+    table: { hand: "Ks Kd", position: BTN }
+    options:
+      - { text: "もう一度{{t:raise|レイズ}}（3ベット）", correct: true, why: "KKは最も強いハンドの1つで、{{t:utg}}が{{t:open|オープン}}するほとんどのハンドに対して有利です。3ベットは{{t:pot|ポット}}を大きくし、通常は相手を1人にします。" }
+      - { text: "{{t:call|コール}}だけ", why: "相手を惑わすためにプレイされることもありますが、原則としてはバリューを失い、ブラインドを安く参加させてしまいます。" }
+      - { text: "{{t:fold|フォールド}}（{{t:utg}}の{{t:range}}は強いため）", why: "{{t:utg}}の{{t:range|レンジ}}は狭いですが、KKはそれに対してもはっきり有利です。" }
+  - kind: paint
+    id: m3.exam.p-co
+    family: m3.paint.late
+    rules: [R-M3-006]
+    spot: rfi.co
+    prompt: "あなたより前の全員が{{t:fold|フォールド}}し、あなたは{{t:cutoff|CO}}にいます。{{t:open|オープン}}するハンドを塗ってください。"

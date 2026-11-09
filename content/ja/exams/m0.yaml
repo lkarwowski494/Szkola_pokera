@@ -1,0 +1,92 @@
+# Pula egzaminacyjna M0 (układy kart): te same reguły co lekcja m0.l1, inne rozdania i sformułowania.
+module: m0
+drills:
+  - kind: choice
+    id: m0.exam.q1
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "相手はエースの{{t:three-of-a-kind|スリーカード}}、あなたはジャックまでの{{t:straight|ストレート}}です。勝つのはどちらですか？"
+    table: { hand: "Th 9h", opp: "Ac Ad", board: "As 8c 7d Jh 2s" }
+    options:
+      - { text: "あなた", correct: true, why: "あなたの5枚はJ-10-9-8-7で、{{t:straight}}です。{{t:straight|ストレート}}は{{t:three-of-a-kind|スリーカード}}より上の役なので、相手のカードの高さは関係ありません。" }
+      - { text: "相手（エースがあるから）", why: "エースが意味を持つのは、同じ役どうしのときだけです。ここでは役が違います。{{t:straight}}は{{t:three-of-a-kind|スリーカード}}に勝ちます。" }
+      - { text: "{{t:split-pot|スプリットポット}}", why: "違う役どうしは引き分けになりません。役の順位が高いほうが勝ちます。" }
+  - kind: choice
+    id: m0.exam.q2
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "あなたは9の{{t:four-of-a-kind|フォーカード}}、相手はキングの{{t:full-house|フルハウス}}です。勝つのはどちらですか？"
+    table: { hand: "9c 9d", opp: "Kh 2c", board: "9h 9s Kd Kc 3h" }
+    options:
+      - { text: "あなた", correct: true, why: "{{t:four-of-a-kind|フォーカード}}は役の順位で3位、{{t:full-house}}は4位です。役が違うので、相手のキングは助けになりません。" }
+      - { text: "相手（キングは9より高いから）", why: "カードの高さを比べるのは、同じ役どうしのときだけです。{{t:four-of-a-kind|フォーカード}}は必ず{{t:full-house|フルハウス}}に勝ちます。" }
+      - { text: "{{t:split-pot|スプリットポット}}（2人とも{{t:board|ボード}}を使うから）", why: "2人とも{{t:community-cards|コミュニティカード}}を使いますが、作る5枚はそれぞれ違います。あなたは{{t:four-of-a-kind|フォーカード}}、相手は{{t:full-house|フルハウス}}です。" }
+  - kind: choice
+    id: m0.exam.q3
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "相手はエースの{{t:pair|ワンペア}}、あなたは7と2の{{t:two-pair}}です。勝つのはどちらですか？"
+    options:
+      - { text: "あなた", correct: true, why: "{{t:two-pair|ツーペア}}は、低いカードでも{{t:pair|ワンペア}}より上の役です。まず役の順位を比べます。" }
+      - { text: "相手（エースが一番高いから）", why: "エースの{{t:pair|ワンペア}}も、あくまで{{t:pair}}です。高さで決まるのは、同じ役どうしのときだけです。" }
+      - { text: "キッカー次第", why: "キッカーが意味を持つのは、役の中心部分がまったく同じときだけです。ここでは役が違います。" }
+  - kind: choice
+    id: m0.exam.q4
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "2人とも{{t:board|ボード}}のクイーンと8の{{t:two-pair}}です。勝つのはどちらですか？"
+    table: { hand: "Ah 3c", opp: "Kd 4s", board: "Qs Qd 8h 8c 2s" }
+    options:
+      - { text: "あなた", correct: true, why: "役の中心部分（クイーンと8）が同じなので、5枚目のカードで決まります。あなたのエースが相手のキングに勝ちます。" }
+      - { text: "相手", why: "相手の5枚目はキング、あなたの5枚目はエースです。エースのほうが高いです。" }
+      - { text: "{{t:split-pot|スプリットポット}}", why: "引き分けになるのは5枚がまったく同じときです。ここでは5枚目が違います。エース対キングです。" }
+  - kind: choice
+    id: m0.exam.q5
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "2人ともキングの{{t:pair|ワンペア}}とエースを持っています。あなたの2枚目（4）は相手の2枚目（3）より高いです。勝つのはどちらですか？"
+    table: { hand: "Ac 4d", opp: "As 3h", board: "Kh Kd Qc Js 9h" }
+    options:
+      - { text: "{{t:split-pot|スプリットポット}}", correct: true, why: "2人とも最強の5枚はK-K-A-Q-Jです。4と3は5枚に入らないので、何も変わりません。" }
+      - { text: "あなた（4は3より高いから）", why: "キッカーが意味を持つのは、最強の5枚に入るときだけです。ここではクイーンとジャックが{{t:board}}から入るので、4は6枚目のカードです。" }
+      - { text: "相手", why: "相手の5枚はあなたと同じK-K-A-Q-Jです。" }
+  - kind: choice
+    id: m0.exam.q6
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "2人とも{{t:straight|ストレート}}です。勝つのはどちらですか？"
+    table: { hand: "Ah 2c", opp: "6d 7s", board: "3s 4d 5h Kc 9d" }
+    options:
+      - { text: "相手", correct: true, why: "あなたの{{t:straight}}はA-2-3-4-5、つまり{{t:wheel}}で、一番低い{{t:straight}}です。ここではエースは1として数えます。相手は3-4-5-6-7なので、相手の{{t:straight}}のほうが高いです。" }
+      - { text: "あなた（エースがあるから）", why: "エースから5までの{{t:straight|ストレート}}では、エースが一番低いカードです。同じ役どうしなら高い{{t:straight}}が勝ちます。7は5に勝ちます。" }
+      - { text: "{{t:split-pot|スプリットポット}}", why: "2人とも{{t:straight|ストレート}}ですが、高さが違います。引き分けになるのは5枚がまったく同じときです。" }
+  - kind: choice
+    id: m0.exam.q7
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "2人とも、{{t:board|ボード}}のエースを含むハートの{{t:flush|フラッシュ}}です。勝つのはどちらですか？"
+    table: { hand: "Kh 4h", opp: "Qh Jh", board: "Ah 9h 3h 7c 2d" }
+    options:
+      - { text: "あなた", correct: true, why: "{{t:flush|フラッシュ}}は一番高いカードから比べます。エースは共通で、2枚目はあなたのキング対相手のクイーンです。" }
+      - { text: "相手（高いカードが2枚あるから）", why: "上から順に、最初に違うカードで決まります。あなたのキングがクイーンに勝つので、残りのカードは関係ありません。" }
+      - { text: "{{t:split-pot|スプリットポット}}", why: "5枚が違います。A-K-9-4-3とA-Q-J-9-3です。" }
+  - kind: choice
+    id: m0.exam.q8
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "{{t:board|ボード}}に{{t:full-house}}があります。エース3枚とキング2枚です。あなたはクイーンの{{t:pair|ワンペア}}です。勝つのはどちらですか？"
+    table: { hand: "Qc Qd", opp: "7s 2c", board: "Ah Ad Ac Ks Kh" }
+    options:
+      - { text: "{{t:split-pot|スプリットポット}}", correct: true, why: "2人とも最強の5枚は{{t:board|ボード}}のA-A-A-K-Kです。あなたのクイーンでは弱い{{t:full-house|フルハウス}}（エースとクイーン）になるので、5枚に入りません。" }
+      - { text: "あなた（クイーンの{{t:pair|ワンペア}}があるから）", why: "エースとクイーンのフルハウスは、{{t:board|ボード}}にあるエースとキングのフルハウスより弱いです。そのため、相手と同じく{{t:board|ボード}}の5枚で勝負します。" }
+      - { text: "相手", why: "相手も{{t:board|ボード}}の5枚で勝負します。あなたと同じく、相手のカードも何も加えません。" }
+  - kind: choice
+    id: m0.exam.q9
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "{{t:board|ボード}}に9からキングまでの{{t:straight}}があります。勝つのはどちらですか？"
+    table: { hand: "Ac 2d", opp: "3c 3d", board: "Ts Jd Qc Kh 9s" }
+    options:
+      - { text: "あなた", correct: true, why: "あなたのエースで{{t:straight|ストレート}}がA-K-Q-J-10に伸びます。相手は{{t:board|ボード}}の5枚（K-Q-J-10-9）で勝負し、あなたの5枚のほうが高いです。" }
+      - { text: "{{t:split-pot|スプリットポット}}", why: "引き分けになるのは、2人とも最強の5枚が{{t:board|ボード}}にあるときだけです。あなたはエースのおかげで、より強い5枚を持っています。" }
+      - { text: "相手（{{t:pair|ワンペア}}があるから）", why: "3の{{t:pair|ワンペア}}は{{t:board|ボード}}の{{t:straight}}より弱いので、相手は{{t:board|ボード}}の5枚で勝負します。" }

@@ -1,0 +1,75 @@
+# Pula egzaminacyjna M1 (przebieg rozdania): te same reguły co lekcja m1.l1, inne sytuacje i sformułowania.
+module: m1
+drills:
+  - kind: choice
+    id: m1.exam.q1
+    family: m1.actions
+    rules: [R-M1-001]
+    prompt: "Au flop, votre adversaire a {{t:bet|misé}} et vous avez {{t:call|suivi}}. Au turn, vous parlez en premier. Que pouvez-vous faire ?"
+    options:
+      - { text: "{{t:check|Checker}} ou {{t:bet|miser}}", correct: true, why: "Le turn est un nouveau {{t:betting-round|tour d’enchères}}. Personne n’y a encore rien mis, vous avez donc les deux mêmes options qu’au début de chaque tour." }
+      - { text: "Seulement {{t:call|suivre}} ou {{t:fold|se coucher}}", why: "La {{t:bet|mise}} du flop a déjà été égalisée. Au turn, il n’y a rien à {{t:call|suivre}}." }
+      - { text: "{{t:raise|Relancer}} la {{t:bet|mise}} du flop", why: "On ne peut {{t:raise|relancer}} qu’une {{t:bet|mise}} du tour en cours. Celle du flop est close." }
+  - kind: choice
+    id: m1.exam.q2
+    family: m1.actions
+    rules: [R-M1-001]
+    prompt: "Un adversaire qui parle avant vous a {{t:bet|misé}}. Quel coup ne pouvez-vous pas jouer maintenant ?"
+    options:
+      - { text: "{{t:check|Checker}}", correct: true, why: "Vous ne pouvez {{t:check|checker}} que si, dans ce tour, personne avant vous n’a {{t:bet|misé}} ni {{t:raise|relancé}}. Ici, vous devez {{t:fold|vous coucher}}, {{t:call|suivre}} ou {{t:raise|relancer}}." }
+      - { text: "{{t:raise|Relancer}}", why: "La {{t:raise|relance}} est possible justement parce qu’il y a une {{t:bet|mise}} à augmenter." }
+      - { text: "{{t:fold|Se coucher}}", why: "{{t:fold|Se coucher}} est toujours possible quand il faut payer davantage." }
+  - kind: choice
+    id: m1.exam.q3
+    family: m1.actions
+    rules: [R-M1-002]
+    prompt: "River. Votre adversaire a {{t:check|checké}} et votre main perd presque certainement. Que faites-vous ?"
+    options:
+      - { text: "{{t:check|Checker}}", correct: true, why: "Le {{t:check|check}} ne coûte rien, et votre adversaire a pu rater lui aussi. {{t:fold|Se coucher}} reviendrait à abandonner le {{t:pot|pot}} sans combattre." }
+      - { text: "{{t:fold|Se coucher}}", why: "Quand vous pouvez {{t:check|checker}} gratuitement, {{t:fold|se coucher}} ne fait qu’abandonner vos chances de remporter le {{t:pot|pot}}. Vous n’y gagnez rien." }
+      - { text: "{{t:call|Suivre}}", why: "Votre adversaire n’a rien {{t:bet|misé}}, il n’y a donc rien à {{t:call|suivre}}." }
+  - kind: choice
+    id: m1.exam.q4
+    family: m1.actions
+    rules: [R-M1-003]
+    prompt: "Vous avez {{t:bet|misé}} au flop et votre adversaire a {{t:raise|relancé}}. Vous ne voulez pas continuer. Que faites-vous ?"
+    options:
+      - { text: "{{t:fold|Se coucher}}", correct: true, why: "Il y a une {{t:raise|relance}} à égaliser et vous ne voulez pas payer. Vous ne perdez que ce que vous avez déjà mis." }
+      - { text: "{{t:check|Checker}}", why: "Après la {{t:raise|relance}} de votre adversaire, vous ne pouvez pas {{t:check|checker}} : il faut payer davantage ou {{t:fold|vous coucher}}." }
+      - { text: "{{t:call|Suivre}} pour voir le turn", why: "Puisque vous ne voulez pas continuer, tout paiement supplémentaire est une perte de plus." }
+  - kind: choice
+    id: m1.exam.q5
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "Combien de {{t:community-cards|cartes communes}} y a-t-il sur le {{t:board|tableau}} pendant les enchères au turn ?"
+    options:
+      - { text: "4", correct: true, why: "Le flop a donné trois cartes, le turn en ajoute une quatrième. La cinquième n’arrive qu’à la river." }
+      - { text: "3", why: "Il y a trois cartes au flop. Le turn en ajoute une." }
+      - { text: "5", why: "Il n’y a cinq cartes qu’à la river." }
+  - kind: choice
+    id: m1.exam.q6
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "Après les enchères à la river, il ne reste que vous et un adversaire. Et ensuite ?"
+    options:
+      - { text: "Vous dévoilez vos cartes (showdown)", correct: true, why: "La river est le dernier {{t:betting-round|tour d’enchères}}. S’il reste au moins deux joueurs, ils montrent leurs cartes et la meilleure combinaison remporte le {{t:pot|pot}}." }
+      - { text: "Une carte de plus est distribuée", why: "Le {{t:board|tableau}} compte au plus cinq cartes. Il n’y en a plus après la river." }
+      - { text: "Le {{t:pot|pot}} est toujours partagé à parts égales", why: "Le partage n’a lieu qu’en cas de combinaisons égales. En général, la meilleure main gagne." }
+  - kind: choice
+    id: m1.exam.q7
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "Vous {{t:bet|misez}} au flop et tous les autres {{t:fold|se couchent}}. Que se passe-t-il ?"
+    options:
+      - { text: "Vous remportez le {{t:pot|pot}} sans montrer vos cartes", correct: true, why: "Il n’y a showdown que s’il reste au moins deux joueurs après la river. Quand vous restez seul, la main se termine." }
+      - { text: "Le turn et la river sont distribués, puis vous montrez vos cartes", why: "Il n’y a plus personne contre qui jouer, donc aucune autre carte n’est distribuée." }
+      - { text: "Vous devez montrer vos cartes pour remporter le {{t:pot|pot}}", why: "On montre ses cartes au showdown, et cette main n’y est pas arrivée." }
+  - kind: choice
+    id: m1.exam.q8
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "La main est allée jusqu’au showdown. Combien de {{t:betting-round|tours d’enchères}} ont eu lieu, préflop compris ?"
+    options:
+      - { text: "4", correct: true, why: "Préflop, flop, turn et river. Le showdown a lieu après le dernier tour, celui de la river." }
+      - { text: "3", why: "Le flop, le turn et la river font trois tours, mais le préflop les précède." }
+      - { text: "5", why: "Il y a cinq {{t:community-cards|cartes communes}}, mais quatre {{t:betting-round|tours d’enchères}} : le flop dévoile trois cartes d’un coup." }

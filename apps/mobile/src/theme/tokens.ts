@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import * as Font from 'expo-font';
+import i18n from 'i18next';
 import { AccessibilityInfo, Dimensions, PixelRatio, Platform, useColorScheme, type ColorSchemeName } from 'react-native';
 import { LITERATA, krojIndeksu, krojTytulu } from './kroje';
 import { kolory, odstep, promien, ruch, haptyka, typografia } from './tokeny';
@@ -76,7 +77,7 @@ export function useTokens(): Tokens {
 const s = typografia.skala;
 /** Sufit tytułów od AX1 (D-122, A04-07): czytany przy każdym renderze, jak krój. */
 const sufit = (r: { size: number; line: number; maxW: number | null }) => sufitTytulu(r, PixelRatio.getFontScale(), Dimensions.get('window').width);
-const krojTytulowy = () => krojTytulu(Font.isLoaded(LITERATA), PixelRatio.getFontScale());
+const krojTytulowy = () => krojTytulu(Font.isLoaded(LITERATA), PixelRatio.getFontScale(), i18n.language);
 /**
  * Style tekstu ze skali (pt). Tytuły: Literata 600 przy tekście do XXXL, od AX1 krój systemowy semibold (D-120, D-122;
  * `./kroje`); krój czytany przy każdym renderze (getter), bo ładuje się przy starcie i zależy od rozmiaru tekstu.

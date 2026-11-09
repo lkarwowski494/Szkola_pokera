@@ -1,0 +1,14 @@
+- { id: m0, order: 0, title: "規則與牌型", sub: "什麼牌大過什麼牌", phase: mvp }
+- { id: m1, order: 1, title: "一手牌的流程", sub: "盲注、各輪、行動", phase: mvp }
+- { id: m2, order: 2, title: "基礎數學", sub: "補牌、機率、底池賠率", phase: mvp }
+- { id: m3, order: 3, title: "位置與開池", sub: "誰最後行動、該用哪些牌開池", phase: mvp }
+- { id: m4, order: 4, title: "翻牌前面對行動", sub: "3-bet、防守、溜入者", phase: mvp }
+- { id: m5, order: 5, title: "翻牌：持續下注", sub: "牌面結構與下注尺寸", phase: f2 }
+- { id: m6, order: 6, title: "翻牌：防守", sub: "MDF、跟注、過牌加注", phase: f2 }
+- { id: m7, order: 7, title: "轉牌", sub: "第二槍與聽牌", phase: f2 }
+- { id: m8, order: 8, title: "河牌", sub: "價值、詐唬、阻擋牌", phase: f2 }
+- { id: m9, order: 9, title: "一手牌的規劃", sub: "SPR 與三條街的下注尺寸", phase: f2 }
+- { id: m10, order: 10, title: "剝削微級別牌局", sub: "玩家類型與玩家群體的常見錯誤", phase: f3 }
+- { id: m11, order: 11, title: "錦標賽與短籌碼", sub: "Push/fold 與 ICM", phase: f4, recommended: false }
+- { id: m12, order: 12, title: "心態與資金管理", sub: "波動與上頭", phase: f4 }
+- { id: m13, order: 13, title: "檢討自己的牌局", sub: "手牌複盤與漏洞", phase: f4 }

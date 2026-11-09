@@ -1,0 +1,887 @@
+{
+  "tabs": {
+    "review": "複習",
+    "rules": "規則",
+    "progress": "進度",
+    "today": "今天"
+  },
+  "today": {
+    "title": "今天",
+    "lessonOf": "{{modul}}，第 {{nr}} 課",
+    "startLesson": "開始課程",
+    "continueLesson": "繼續課程",
+    "courseDone": "所有課程皆已完成。練習和複習仍可繼續使用。",
+    "exercises": "練習",
+    "practice": "練習回合",
+    "practiceHint": "有評分和解說的決策",
+    "reviews": "今日複習",
+    "reviewsDue_other": "{{count}}",
+    "allLessons": "所有課程",
+    "rowLabel": "{{tytul}}。{{opis}}。",
+    "rowDone": "已完成。",
+    "rowStarted": "已開始。",
+    "rowPassed": "已通過。",
+    "rowScore": "得分：{{dobre}}/{{razem}}。"
+  },
+  "welcome": {
+    "title": "撲克學校",
+    "what": "你將學習如何在撲克中做決策：從遊戲規則到策略，每個決策都會評分，並解釋原因。",
+    "noMoney": "這是學習，不涉及真錢遊戲。",
+    "next": "首先回答幾個問題，了解你已經會什麼。你可以略過。",
+    "continue": "繼續"
+  },
+  "placement": {
+    "of": "第 {{n}} 題，共 {{total}} 題",
+    "skip": "略過",
+    "resultTitle": "你的起點",
+    "startAt": "你將從模組 {{modul}} 開始：「{{lekcja}}」。",
+    "passed": "評估中通過的模組：{{moduly}}。你隨時可以回到這些模組。",
+    "begin": "開始學習"
+  },
+  "purchase": {
+    "title": "完整存取權",
+    "unlocks": "沒有每日上限：每天都能進行練習回合、複習和重考。課程維持免費。",
+    "loading": "正在載入價格…",
+    "pricesUnavailable": "無法載入價格。請檢查網路連線，然後再試一次。",
+    "retry": "再試一次",
+    "plan": {
+      "quarter": "每季",
+      "year": "每年",
+      "lifetime": "終身存取權"
+    },
+    "renewsQuarter": "每 3 個月付款一次。除非取消，否則會自動續訂。",
+    "renewsYear": "每年付款一次。除非取消，否則會自動續訂。",
+    "oneTime": "一次性購買，之後不再付款。",
+    "cancelInfo": "你可以在 Apple 帳號設定（訂閱項目）中取消訂閱。取消後將不會續訂，完整存取權會保留到已付費期間結束。",
+    "restore": "回復購買項目",
+    "close": "關閉",
+    "terms": "使用條款（Terms of Use）",
+    "privacy": "隱私權政策",
+    "noPurchases": "我們在這個 Apple 帳號中找不到購買項目。",
+    "pending": "購買正在等待核准。核准後，存取權會自動開啟。",
+    "failed": "無法完成購買。請再試一次。",
+    "restoreFailed": "無法回復購買項目。請檢查網路連線，然後再試一次。"
+  },
+  "settings": {
+    "title": "設定",
+    "purchases": "購買項目",
+    "manage": "管理訂閱",
+    "other": "其他",
+    "help": "協助",
+    "reset": "刪除進度",
+    "resetTitle": "要刪除所有進度嗎？",
+    "resetBody": "課程、答案和複習將從這支手機刪除。購買項目會保留。如果想保留進度，請先匯出。",
+    "resetConfirm": "刪除",
+    "cancel": "取消",
+    "display": "顯示",
+    "reminderSection": "提醒",
+    "reminder": "每日提醒",
+    "reminderHint": "每天在 {{pora}} 傳送一則通知。開啟時，手機會詢問是否允許傳送通知。",
+    "reminderDenied": "手機設定中已關閉此 App 的通知。請在那裡開啟，才能收到提醒。",
+    "reminderFailed": "無法設定提醒。請再試一次。",
+    "general": "一般",
+    "language": "語言",
+    "restored": "已回復購買項目。完整存取權已開啟。",
+    "fullAccess": "完整存取權"
+  },
+  "data": {
+    "title": "資料",
+    "intro": "你的進度只存在這支手機上。匯出檔案可以把進度轉移到另一支手機，或保存為備份。",
+    "export": "匯出進度",
+    "neverExported": "尚未匯出進度。",
+    "lastExport": "上次匯出：{{data}}。",
+    "import": "匯入進度",
+    "importHint": "請選擇此 App 的匯出檔案。",
+    "replaceTitle": "要取代目前的進度嗎？",
+    "replaceBody": "檔案中的進度將取代這支手機上儲存的進度。此動作無法復原。",
+    "replaceConfirm": "取代",
+    "exported": "匯出檔案已準備好。",
+    "exportFailed": "無法匯出進度。請再試一次。",
+    "badFile": "此檔案無效，或不是來自此 App。你的進度沒有變更。",
+    "newerVersion": "此檔案來自較新版本的 App。請更新 App 後再試一次。",
+    "imported": "已載入檔案中的進度。",
+    "importFailed": "無法儲存檔案中的進度。你目前的進度沒有變更。"
+  },
+  "feedback": {
+    "section": "意見回饋",
+    "rate": "到商店評分",
+    "write": "寫信給我們",
+    "noMail": "無法開啟郵件。請寫信至：{{adres}}",
+    "report": "回報此題的錯誤",
+    "reportSubject": "題目 {{id}} 有錯誤",
+    "reportBody": "題目：{{id}}\nApp 版本：{{wersja}}\n語言：{{jezyk}}\n\n哪裡有問題？\n",
+    "noMailReport": "無法開啟郵件。請寫信至 {{adres}}，並附上題目 ID：{{id}}"
+  },
+  "start": {
+    "title": {
+      "practice": "練習回合",
+      "reviews": "複習",
+      "scenario": "手牌情境",
+      "exam": "模組測驗"
+    },
+    "counter_other": "每日上限：今天有 {{count}} 次免費活動。",
+    "renews": "上限將在午夜（{{godzina}}）重置。",
+    "reviewsWait_other": "你今天有 {{count}} 項複習。它們會等到上限重置，你不會失去任何東西。",
+    "alwaysFree": "課程，以及每個測驗的第一次作答，一律免費。",
+    "begin": "開始",
+    "fullAccess": "完整存取權",
+    "backToLesson": "返回課程"
+  },
+  "grade": {
+    "zgodne": "吻合",
+    "dopuszczalne": "可接受",
+    "niedokladnosc": "不精確",
+    "blad": "錯誤",
+    "label": "評分：{{slowo}}",
+    "announce": "{{ocena}}。{{opis}}"
+  },
+  "learn": {
+    "intro": "從零開始學無限注德州撲克。選擇任一課程，或依序學習。",
+    "recommended": "建議順序",
+    "soon": "即將推出",
+    "lessonsDone": "{{done}}/{{total}} 課",
+    "optional": "選修"
+  },
+  "lesson": {
+    "start": "練習",
+    "exercises_other": "{{count}} 題",
+    "rulesTitle": "本課規則",
+    "notFound": "找不到這堂課。"
+  },
+  "rule": {
+    "if": "如果",
+    "then": "就",
+    "because": "因為"
+  },
+  "level": {
+    "rules": "遊戲規則",
+    "math": "數學",
+    "gto": "理論（GTO）",
+    "heuristic": "經驗法則",
+    "exploit": "{{t:exploit|剝削}}"
+  },
+  "session": {
+    "of": "{{n}}/{{total}}",
+    "next": "繼續",
+    "finish": "完成",
+    "correct": "正確",
+    "wrong": "這次不對",
+    "timeout": "時間到",
+    "yourAnswer": "你的答案",
+    "rightAnswer": "正確答案",
+    "resultTitle": "結果",
+    "resultPerfect": "全對。你可以繼續往下學。",
+    "resultRetry": "回頭看看答錯的題目：複習會在適當的時候提醒你。",
+    "again": "再來一次",
+    "speed": "限時",
+    "close": "關閉",
+    "end": "結束",
+    "secondsLeft": "{{s}} 秒",
+    "avgTime": "平均決策時間：{{s}} 秒",
+    "check": "確認",
+    "clear": "清除",
+    "near": "接近了",
+    "acceptable": "可接受：求解器很少這樣打",
+    "yourAnswerAcceptable": "你的答案：可接受，但很少見",
+    "sizeError": "不精確：行動正確，尺寸錯誤",
+    "yourAnswerSize": "你的答案：行動正確，尺寸錯誤",
+    "numberLabel": "你的數字答案",
+    "saveFailed": "無法儲存你的答案。請再試一次。",
+    "chooseAction": "選擇行動",
+    "chooseAnswer": "選擇答案",
+    "saveNoSpace": "無法儲存你的答案：手機儲存空間不足。請釋放一些空間，然後再試一次。"
+  },
+  "exam": {
+    "title": "模組測驗",
+    "start": "模組測驗",
+    "hint_other": "{{count}} 題，來自本模組和之前的課程，沒有提示。解說在最後。",
+    "of": "測驗：{{n}}/{{total}}",
+    "empty": "這個模組還沒有題目。",
+    "resultTitle": "測驗結果",
+    "passed": "通過（及格標準 {{need}}）。答錯的題型已加入複習。",
+    "failed": "還沒通過（及格標準 {{need}}）。請看看下方的解說；答錯的題型已加入複習。",
+    "again": "新測驗",
+    "review": "檢視答案",
+    "best": "最佳成績：{{best}}/{{total}}",
+    "passedBadge": "已通過"
+  },
+  "review": {
+    "title": "複習",
+    "due_other": "{{count}} 個題型等待複習",
+    "none": "沒有需要複習的項目。做一堂新課，或稍後再回來。",
+    "start": "開始複習",
+    "speed": "限時練習",
+    "speedHint": "同樣的題目加上時間限制。訓練反射性的決策。",
+    "next": "下次複習：{{when}}"
+  },
+  "rules": {
+    "title": "規則手冊",
+    "search": "搜尋規則",
+    "empty": "沒有符合「{{q}}」的規則。",
+    "source": "來源",
+    "sources": "來源",
+    "sourceKind": {
+      "one": {
+        "math": "計算",
+        "rules": "遊戲規則",
+        "solver-pub": "已發表的求解器解",
+        "solver-app": "App 的求解器",
+        "book": "撲克理論書籍",
+        "study": "科學研究",
+        "reference": "百科全書",
+        "training": "教學網站",
+        "population": "玩家群體資料"
+      },
+      "many": {
+        "math": "計算",
+        "rules": "遊戲規則",
+        "solver-pub": "已發表的求解器解",
+        "solver-app": "App 的求解器",
+        "book": "撲克理論書籍",
+        "study": "科學研究",
+        "reference": "百科全書",
+        "training": "教學網站",
+        "population": "玩家群體資料"
+      }
+    },
+    "sourceCount": "{{count}}",
+    "sourceIndependent_other": "{{count}} 個獨立",
+    "singleSource": "單一來源",
+    "population": "玩家群體：{{population}}"
+  },
+  "progress": {
+    "title": "進度",
+    "accuracy": "正確率",
+    "answers_other": "{{count}} 個答案",
+    "weakest": "最弱的題型",
+    "noData": "先做幾道練習，你的統計資料就會出現在這裡。",
+    "streak_other": "連續天數：{{count}} 天",
+    "fourColor": "四色牌組",
+    "fourColorHint": "♦ 藍色，♣ 綠色。減少花色混淆。",
+    "haptics": "作答時震動",
+    "contentVersion": "內容版本：{{hash}}",
+    "resetFailed": "無法刪除進度。你的資料沒有變更。請再試一次。",
+    "more": "更多"
+  },
+  "advancement": {
+    "title": "程度指標",
+    "outOf": "滿分 100",
+    "outOfLong": "滿分 100 分",
+    "openHint": "顯示你在課程各領域的分數",
+    "knowledge": "知識",
+    "game": "實戰",
+    "gamePending": "有實戰模式後提供",
+    "gamePendingLong": "「實戰」部分會隨實戰模式一起推出：根據你在牌桌上的決策評分。在那之前，指標只顯示知識。",
+    "explain": "知識是預測的機率：在 {{days}} 天後、不經複習的情況下，你能解出課程中每項技能的題目。你還沒練習過的技能計為 0。分數會隨新課程和複習上升，長時間不複習則會下降。",
+    "practiced": "已練習 {{done}}/{{total}} 項技能",
+    "areas": "領域",
+    "noLessons": "沒有課程",
+    "optional": "選修模組：不計入總分。",
+    "recalcTitle": "新課程：指標已重新計算",
+    "recalcBody": "課程新增了技能。在你練習之前，這些技能計為 0，因此分數較低。",
+    "recalcDismiss": "關閉",
+    "gameAreas": "{{total}} 個領域中有 {{n}} 個有實戰分數",
+    "gameNone": "無實戰",
+    "gameTooLittle": "實戰不足：{{n}}/{{min}} 個決策",
+    "gameProvisional": "{{score}}（暫定）",
+    "areaLine": "知識 {{k}} · 實戰：{{g}}",
+    "gameExplain": "實戰是該領域最近 {{window}} 個已評分決策中，被評為吻合或可接受的決策比例，在 6 人桌、籌碼深度 100bb 的條件下計算。累積 {{min}} 個決策後才會顯示分數（未滿 {{window}} 個時為暫定）。每個領域中，知識和實戰各占一半；以{{t:chips|籌碼}}計算的牌局結果不計入指標。",
+    "history": "歷史",
+    "historyHint": "你使用 App 的每一天顯示一根長條。最近一次：{{last}}。",
+    "historyEmpty": "再學習幾天後就會出現歷史紀錄。"
+  },
+  "glossary": {
+    "title": "詞彙表",
+    "link": "詞彙表（中英）",
+    "intro": "課程中的術語及其英文名稱，與求解器、軟體和英文資料中的用法相同。",
+    "search": "以中文或英文搜尋",
+    "empty": "沒有符合「{{q}}」的術語。",
+    "count_other": "{{count}} 個術語",
+    "alsoEn": "也稱：{{list}}",
+    "areas": {
+      "hands": "牌型",
+      "actions": "玩家行動",
+      "table": "牌桌上",
+      "positions": "牌桌座位",
+      "math": "計算與機率",
+      "preflop": "翻牌前",
+      "board": "翻牌描述",
+      "strategy": "策略",
+      "mental": "資金管理與心態",
+      "tournament": "錦標賽"
+    }
+  },
+  "help": {
+    "title": "協助",
+    "link": "協助：當賭博失去控制時",
+    "intro": "以金錢進行的撲克是賭博。如果你的遊戲行為開始失控，可以使用下方的協助資源。",
+    "call": "撥打：{{phone}}",
+    "callA11y": "撥打 {{phone}}：{{name}}",
+    "openA11y": "{{label}}：在瀏覽器中開啟 {{host}}",
+    "openFailed": "無法開啟：{{target}}。請手動撥打號碼或輸入網址。"
+  },
+  "diagnostics": {
+    "title": "效能測試",
+    "link": "效能測試",
+    "intro": "以蒙地卡羅法（{{n}} 次模擬）計算 AA 對 KK 的權益並測量時間。要求：低於 {{ms}} ms。",
+    "run": "測量",
+    "running": "測量中…",
+    "pass": "符合要求",
+    "fail": "未符合要求",
+    "equity": "權益：中位數 {{ms}} ms（各次測量：{{runs}} ms）",
+    "check": "檢查：AA 權益 {{pct}}%（預期約 82%）",
+    "evals": "7 張牌評估：每秒 {{n}} 次",
+    "env": "引擎：{{engine}}，系統：{{os}}，開發者模式：{{dev}}",
+    "devYes": "是（結果偏低）",
+    "devNo": "否",
+    "note": "在 development build 中，程式碼執行速度比正式版慢；以 preview build 的測量結果為準。請截圖保存結果。"
+  },
+  "play": {
+    "title": "實戰",
+    "entry": "實戰",
+    "entryHint": "與電腦對手對打，沒有提示。每個決策會在{{t:session|牌局}}結束後評分。",
+    "mode": "模式",
+    "free": "自由對戰",
+    "freeHint": "包含所有情況，就像真正的牌局。",
+    "areas": "針對性訓練",
+    "areasHint": "每個領域只發出單一模組的情境。完成該模組所有課程後解鎖。",
+    "locked": "未解鎖：完成模組課程（{{done}}/{{total}}）",
+    "hands": "手數",
+    "opponents": "對手",
+    "advanced": "進階設定：分別設定每位對手",
+    "seat": "對手 {{n}}",
+    "timer": "決策時限",
+    "timerOff": "不限時",
+    "timerS": "{{s}} 秒",
+    "timerHint": "時間到時，若不需付出代價，App 會{{t:check|過牌}}，否則會{{t:fold|棄牌}}。這樣的決策不計入評分，但會在複習中再次出現。",
+    "format": "每位玩家每手牌開始時都有 100bb。{{t:chips|籌碼}}沒有任何價值。",
+    "tableSize": "玩家人數",
+    "tableSizeOpt": "{{n}} 人",
+    "tableSizeHint9": "9 人桌在 LJ 之前還有三個前段{{t:position|位置}}：{{t:utg}}、{{t:utg|UTG}}+1 和 {{t:utg|UTG}}+2。",
+    "tableSizeAreas": "訓練領域在 6 人桌進行。",
+    "start": "開始",
+    "recent": "最近的報告",
+    "recentItem": "{{date}} · {{hands}} 手 · 已評分 {{rated}}/{{all}}",
+    "styles": {
+      "balanced": "平衡型",
+      "tight-passive": "緊被動",
+      "tight-aggressive": "緊兇",
+      "loose-passive": "鬆被動",
+      "loose-aggressive": "鬆兇"
+    },
+    "styleHints": {
+      "balanced": "打法接近求解器的基準策略。",
+      "tight-passive": "玩的牌少，很少加注。",
+      "tight-aggressive": "玩的牌少，但經常加注。",
+      "loose-passive": "玩的牌多，經常只跟注。",
+      "loose-aggressive": "玩的牌多，經常加注。"
+    },
+    "tables": {
+      "balanced": "平衡型",
+      "loose-passive": "鬆被動",
+      "tight-aggressive": "緊兇",
+      "loose-aggressive": "鬆兇",
+      "mixed": "混合",
+      "custom": "自訂設定"
+    },
+    "tablesHint": {
+      "balanced": "所有對手都接近基準策略。",
+      "loose-passive": "所有人都玩很多牌，很少加注。",
+      "tight-aggressive": "所有人都玩很少牌，經常加注。",
+      "loose-aggressive": "所有人都玩很多牌，經常加注。",
+      "mixed": "每種風格各一位對手。",
+      "custom": "每位對手的風格分別設定。"
+    },
+    "handOf": "第 {{n}} 手，共 {{total}} 手",
+    "end": "結束",
+    "endConfirm": "要結束{{t:session|牌局}}嗎？報告會涵蓋已打完的手牌。",
+    "endYes": "結束",
+    "cancel": "繼續玩",
+    "you": "你",
+    "potLabel": "{{t:pot|底池}}：{{bb}}bb",
+    "yourTurn": "你的決策",
+    "waiting": "對手決策中…",
+    "fold": "{{t:fold|棄牌}}",
+    "check": "{{t:check|過牌}}",
+    "call": "{{t:call|跟注}} {{bb}}bb",
+    "bet": "{{t:bet|下注}} {{bb}}bb",
+    "betFrac": "{{t:bet|下注}}{{t:pot|底池}}的 {{pct}}（{{bb}}bb）",
+    "raise": "{{t:raise|加注}}到 {{bb}}bb",
+    "allin": "全下 {{bb}}bb",
+    "secondsLeft": "{{s}} 秒",
+    "handWon": "你贏得 {{bb}}bb",
+    "handLost": "你輸掉 {{bb}}bb",
+    "handEven": "沒有變化",
+    "nextHand": "下一手",
+    "toReport": "報告",
+    "shown": "{{t:showdown|攤牌}}：亮出手牌",
+    "folded": "{{t:fold|已棄牌}}",
+    "allInTag": "全下",
+    "autoNote": "來自訓練領域的牌局：你決策前的行動由產生器設定。",
+    "log": {
+      "fold": "{{pos}}：{{t:fold|棄牌}}",
+      "check": "{{pos}}：{{t:check|過牌}}",
+      "call": "{{pos}}：{{t:call|跟注}} {{bb}}bb",
+      "bet": "{{pos}}：{{t:bet|下注}} {{bb}}bb",
+      "raise": "{{pos}}：{{t:raise|加注}}到 {{bb}}bb",
+      "allin": "{{pos}}：全下 {{bb}}bb",
+      "blinds": "盲注 {{sb}}/{{bb}}bb"
+    },
+    "streets": {
+      "preflop": "{{t:preflop|翻牌前}}",
+      "flop": "{{t:flop|翻牌}}",
+      "turn": "{{t:turn|轉牌}}",
+      "river": "{{t:river|河牌}}"
+    },
+    "report": {
+      "title": "{{t:session|牌局}}報告",
+      "rated": "已評分 {{rated}}/{{all}} 個決策",
+      "ratedHint": "App 只評分有可驗證規則或求解器結果的決策。沒有評分的決策不代表「正確」。",
+      "verdicts": {
+        "compliant": "吻合",
+        "compliant-exploit": "吻合（{{t:exploit|剝削}}）",
+        "acceptable": "可接受",
+        "inaccuracy": "不精確",
+        "mistake": "錯誤",
+        "unrated": "未評分",
+        "timeout": "超時"
+      },
+      "verdictHints": {
+        "acceptable": "求解器很少這樣打，或規則談的是頻率；這不是錯誤。",
+        "inaccuracy": "行動正確，尺寸錯誤。視同錯誤。",
+        "timeout": "你沒有及時做出決策。這個情境會在複習中再次出現。"
+      },
+      "toFix": "需要改進",
+      "none": "已評分的決策中沒有任何錯誤。",
+      "good": "吻合和可接受的決策",
+      "show": "顯示（{{n}}）",
+      "hide": "隱藏",
+      "byModule": "依模組",
+      "moduleLine": "{{rated}} 個中有 {{ok}} 個沒有錯誤",
+      "yourAction": "你的決策：{{action}}",
+      "ruleSays": "規則",
+      "level": "確定度：{{level}}",
+      "source": "來源：{{source}}",
+      "lesson": "前往課程",
+      "replay": "牌局回放",
+      "cards": "複習卡：{{n}} 個來自錯誤的新情境。",
+      "result": "以{{t:chips|籌碼}}計的結果：{{bb}}bb",
+      "variance": "幾十手牌太少，結果無法說明你的打法；重要的是決策的評分。",
+      "again": "再玩「{{area}}」領域",
+      "done": "完成",
+      "detail": {
+        "solver": "求解器拿這手牌（{{hand}}）：{{options}}。",
+        "solverFold": "{{t:fold|棄牌}}",
+        "size": "規則建議的尺寸：{{expected}}bb，你的：{{actual}}bb。",
+        "cbet": "根據課程，這個翻牌的計畫：{{best}}。你的選擇：{{chosen}}。",
+        "cbetPlans": {
+          "check": "{{t:check|過牌}}",
+          "small": "小額{{t:c-bet|持續下注}}",
+          "big": "大額{{t:c-bet|持續下注}}"
+        },
+        "draw": "{{t:outs|補牌}}：{{unseen}} 張未知牌中有 {{outs}} 張，中牌機率：{{hit}}。所需{{t:equity|權益}}：{{required}}。",
+        "implied": "{{t:implied-odds|隱含賠率}}：中牌後還需要再贏約 {{need}}bb，{{t:pot|底池}}之外還有 {{have}}bb；{{t:spr|SPR}} {{spr}}（門檻 {{sprMin}}）；{{nuts}}。",
+        "nutsYes": "你有通往最強牌的{{t:draw|聽牌}}",
+        "nutsNo": "你沒有通往最強牌的{{t:draw|聽牌}}",
+        "freeCheck": "你本可以免費{{t:check|過牌}}。",
+        "limp": "你以只跟盲注的方式第一個入池（{{t:limp|溜入}}）。",
+        "timeoutCheck": "時間到：App 替你{{t:check|過牌}}了。",
+        "timeoutFold": "時間到：App 替你{{t:fold|棄牌}}了。"
+      }
+    },
+    "review": {
+      "entry_other": "{{count}} 個實戰情境等待複習",
+      "start": "複習實戰情境",
+      "title": "實戰情境",
+      "hint": "就是你犯錯的那個情境，花色經過互換，但正確決策不變。",
+      "of": "{{n}}/{{total}}",
+      "next": "繼續",
+      "finish": "完成",
+      "empty": "沒有需要複習的項目。"
+    }
+  },
+  "errors": {
+    "db": "無法開啟資料庫：{{message}}",
+    "render": {
+      "title": "發生錯誤",
+      "body": "無法顯示此畫面。請再試一次。",
+      "retry": "再試一次"
+    }
+  },
+  "postep": {
+    "odczytNieudany": "無法載入你的進度。請再試一次。",
+    "ponow": "再試一次"
+  },
+  "reminder": {
+    "title": "今天的簡短課程",
+    "body": "只要幾分鐘，就能鞏固你正在學的內容。"
+  },
+  "language": {
+    "title": "語言",
+    "auto": "與手機相同",
+    "name": "繁體中文",
+    "selected": "已選取",
+    "saveFailed": "無法儲存語言選擇。請再試一次。"
+  },
+  "table": {
+    "label": "牌桌上：{{list}}。",
+    "listAnd": "{{a}}和{{b}}",
+    "seatFold": "{{pos}} {{t:fold|棄牌}}",
+    "seatRaise": "{{pos}} {{t:raise|加注}}",
+    "seatHero": "你在 {{pos}}，拿著 {{hand}}",
+    "after": "在你之後行動：{{list}}",
+    "pair": "{{t:pair|一對}}",
+    "suited": "同花色",
+    "offsuit": "不同花色",
+    "folded_other": "{{list}} {{t:fold|棄牌}}",
+    "raised_other": "{{list}} {{t:raise|加注}}",
+    "yourPosition": "你的{{t:position|位置}}：{{pos}}。",
+    "yourCards": "你的手牌：{{cards}}。",
+    "oppCards": "對手的手牌：{{cards}}。",
+    "rowOpp": "對手",
+    "rowBoard": "{{t:board|牌面}}",
+    "board": "{{t:board|牌面}}：{{cards}}。",
+    "stateHero": "你",
+    "stateFold": "{{t:fold|棄牌}}",
+    "stateAfter": "在你之後",
+    "stateRaise": "{{t:raise|加注}}"
+  },
+  "strategy": {
+    "label": "求解器對 {{hand}} 的策略：{{list}}。",
+    "item": "{{action}} 百分之 {{pct}}",
+    "yourChoice": "你的選擇：{{action}}。",
+    "yourChoiceShort": "你的選擇",
+    "pct": "{{pct}}%"
+  },
+  "scale": {
+    "below": "低於 {{x}}%",
+    "between": "{{a}}–{{b}}%",
+    "from": "{{x}}% 以上",
+    "label": "等級量表：你的行動百分之 {{pct}}，區間 {{stopien}}。"
+  },
+  "paint": {
+    "legendPlay": "你玩",
+    "legendMiss": "− 缺少",
+    "legendExtra": "+ 多選",
+    "legendMixed": "• 混合",
+    "hint": "點一下格子或用手指拖曳來塗色。",
+    "cell": "{{hand}}，{{state}}",
+    "state": {
+      "painted": "已選取",
+      "fold": "{{t:fold|棄牌}}",
+      "hit": "正確，你玩",
+      "miss": "缺少，求解器會玩",
+      "extra": "多選，求解器{{t:fold|棄牌}}",
+      "mixed": "混合，算正確",
+      "none": "正確，{{t:fold|棄牌}}"
+    }
+  },
+  "range": {
+    "label": "{{title}}。玩百分之 {{pct}} 的手牌。",
+    "playPercent": "玩 {{pct}}% 的手牌"
+  },
+  "card": {
+    "name": "{{suit}}{{rank}}",
+    "rank": {
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "T": "10",
+      "J": "J",
+      "Q": "Q",
+      "K": "K",
+      "A": "A"
+    },
+    "suit": {
+      "s": "黑桃",
+      "h": "紅心",
+      "d": "方塊",
+      "c": "梅花"
+    }
+  },
+  "nav": {
+    "back": "返回"
+  },
+  "drill": {
+    "format": {
+      "percent": "{{n}}%"
+    },
+    "join": {
+      "sentence": "{{a}}{{b}}",
+      "list": "、"
+    },
+    "category": {
+      "straightFlush": "{{t:straight-flush|同花順}}",
+      "fourOfAKind": "{{t:four-of-a-kind|四條}}",
+      "fullHouse": "{{t:full-house|葫蘆}}",
+      "flush": "{{t:flush|同花}}",
+      "straight": "{{t:straight|順子}}",
+      "threeOfAKind": "{{t:three-of-a-kind|三條}}",
+      "twoPair": "{{t:two-pair|兩對}}",
+      "pair": "{{t:pair|一對}}",
+      "highCard": "{{t:high-card|高牌}}",
+      "royalFlush": "{{t:royal-flush|皇家同花順}}"
+    },
+    "categoryAcc": {
+      "straightFlush": "{{t:straight-flush|同花順}}",
+      "fourOfAKind": "{{t:four-of-a-kind|四條}}",
+      "fullHouse": "{{t:full-house|葫蘆}}",
+      "flush": "{{t:flush|同花}}",
+      "straight": "{{t:straight|順子}}",
+      "threeOfAKind": "{{t:three-of-a-kind|三條}}",
+      "twoPair": "{{t:two-pair|兩對}}",
+      "pair": "{{t:pair|一對}}",
+      "highCard": "{{t:high-card|高牌}}",
+      "royalFlush": "{{t:royal-flush|皇家同花順}}"
+    },
+    "paint": {
+      "explanation": "{{title}}。綠色格子：你玩而且有選取。「−」符號：{{t:range|範圍}}內、但你缺少的手牌。「+」符號：你選取了，但求解器會{{t:fold|棄牌}}。圓點：{{t:mixed-hand|混合手牌}}（求解器只是有時會玩）或有爭議的手牌（求解器在這手牌上與公開表格不同），因此兩種選擇都算正確。分數只在{{t:range|範圍}}內或已選取的手牌中計算{{t:combo|組合}}數（{{t:pair|對子}} {{pairCombos}}、同花色 {{suitedCombos}}、不同花色 {{offsuitCombos}}）。",
+      "score": "與求解器的吻合度：{{score}}（及格標準 {{pass}}）。"
+    },
+    "numeric": {
+      "yours": "你的答案：{{value}}",
+      "exact": "精確值：{{value}}",
+      "diffPp": "差距：{{diff}} 個百分點",
+      "diff": "差距：{{diff}}"
+    },
+    "range": {
+      "fold": "{{t:fold|棄牌}}",
+      "right": "對。求解器有 {{pct}} 的情況這樣打。",
+      "acceptable": "可接受。求解器有 {{pct}} 的情況這樣打，所以這不是錯誤，但它更常選擇其他行動。最好記住比較常見的那個。",
+      "wrongRare": "求解器只有 {{pct}} 的情況這樣打，也就是幾乎從不。",
+      "wrongVeryRare": "求解器拿這手牌這樣打的情況少於 {{pct}}。",
+      "wrongNever": "求解器拿這手牌從不這樣打。",
+      "freqs": "{{hand}}：{{freqs}}。",
+      "freq": "{{action}} {{pct}}",
+      "mixedNote": "這是邊緣手牌：求解器會混合行動，所以 App 會把至少 {{low}} 情況下採用的任何答案都視為正確。",
+      "acceptableNote": "採用頻率低於 {{low}}、但至少有 {{min}} 的行動屬於可接受：這不是錯誤，但複習會更快再出現。"
+    },
+    "whoWins": {
+      "prompt": "誰贏得這手牌？",
+      "hero": "你",
+      "villain": "對手",
+      "split": "{{t:split-pot|平分底池}}",
+      "facts": "你最好的五張牌：{{heroCards}}（{{heroHand}}）。對手：{{villainCards}}（{{villainHand}}）。",
+      "reason": {
+        "category": "{{winner}}的排名比{{loser}}高。",
+        "kicker": "牌型相同，所以由最好的五張牌中第一張不同的邊牌（踢腳）決定。",
+        "higherSameCategory": "你們都有{{hand}}，但其中一方的牌更大。",
+        "boardPlays": "兩位玩家最好的五張牌都在{{t:board|牌面}}上，所以兩人都是「{{t:playing-the-board|打公牌}}」，{{t:split-pot|平分底池}}。",
+        "identical": "最好的五張牌點數相同，所以{{t:split-pot|平分底池}}。"
+      },
+      "yes": "對。",
+      "no": "不對。"
+    },
+    "bestHand": {
+      "prompt": "你最好的牌型是什麼？",
+      "explanation": "七張牌中最好的五張：{{cards}}，也就是{{hand}}。",
+      "right": "對，這是你最好的牌型。",
+      "tooHigh": "你沒有「{{hand}}」。檢查是否真的有 5 張符合的牌。",
+      "tooLow": "你有比「{{hand}}」更好的牌。找出最高的牌型。"
+    },
+    "outs": {
+      "promptFlush": "你聽{{t:flush|同花}}有幾張補牌？",
+      "promptStraight": "你聽{{t:straight|順子}}有幾張補牌？",
+      "baseFlush": "你有 4 張同花色的牌。一種花色有 13 張，所以還剩 13 − 4 = 9 張。",
+      "baseOesd": "你有 4 張兩頭開放的連續牌。缺少的兩個點數各能湊成{{t:straight|順子}}，每個點數 4 種花色：共 8 張。",
+      "baseGutshot": "你的{{t:straight|順子}}中間缺一張。只有一個點數能補上，4 種花色：共 4 張。",
+      "chanceFlop": "{{base}}轉牌中牌機率：{{next}}（{{outs}} × 2 ≈ {{outs2}}）。如果你不用再付錢就能看到兩張牌（例如全下之後），到河牌為止：{{river}}（{{outs}} × 4 ≈ {{outs4}}）。",
+      "chanceTurn": "{{base}}河牌中牌機率：{{next}}（{{outs}} × 2 ≈ {{outs2}}）。",
+      "right": "對。",
+      "wrongTooMany": "不對。在這個情況下 {{n}} 太多了。",
+      "wrongTooFew": "不對。在這個情況下 {{n}} 太少了。"
+    },
+    "icm": {
+      "call": "{{t:call|跟注}}",
+      "fold": "{{t:fold|棄牌}}",
+      "you": "你",
+      "player": "玩家 {{letter}}",
+      "stack": "{{name}} {{chips}}",
+      "table": "{{players}} 位玩家，前 {{paid}} 名有獎金（{{t:prize-pool|獎池}}的 {{payouts}}）。籌碼量：{{stacks}}。",
+      "callPrompt": "{{t:bubble|泡沫}}：{{table}}{{villain}} 全下，你們之間有 {{atRisk}} {{t:chips|籌碼}}在爭奪。你的手牌對他的{{t:range|範圍}}有 {{equity}} 權益。忽略盲注。你會怎麼做？",
+      "callRight": "對。{{equity}} 高於{{t:icm}}所需的 {{required}}。",
+      "callWrong": "不對。根據{{t:icm}}，你需要 {{required}} 權益，而你有 {{equity}}。",
+      "callWrongChips": "不對。根據{{t:icm}}，你需要 {{required}} 權益，而你有 {{equity}}。如果是以{{t:chips|籌碼}}計的遊戲，{{t:call|跟注}}會有利可圖，但在這裡輸掉損失的錢比贏了增加的更多。",
+      "foldRight": "對。根據{{t:icm}}，你需要 {{required}} 權益，而你只有 {{equity}}。",
+      "foldRightChips": "對。根據{{t:icm}}，你需要 {{required}} 權益，而你只有 {{equity}}。如果是以{{t:chips|籌碼}}計的遊戲，這會是{{t:call|跟注}}：這正是{{t:risk-premium|風險溢價}}。",
+      "foldWrong": "不對。{{equity}} 權益就夠了：根據{{t:icm}}，門檻是 {{required}}。",
+      "callExplanation": "你在{{t:prize-pool|獎池}}中的權益：現在 {{now}}，贏了之後 {{win}}，輸了之後 {{lose}}。泡沫因子（bubble factor）= 損失 ÷ 收益 = {{loss}} ÷ {{gain}} ≈ {{bf}}，所以你需要 BF ÷ (BF + 1) ≈ {{required}} 權益。如果是以{{t:chips|籌碼}}計的遊戲，{{requiredChips}} 就夠了。",
+      "equityPrompt": "{{table}}根據{{t:icm}}，你的籌碼值多少（占{{t:prize-pool|獎池}}的比例）？",
+      "equityRight": "對。這是各名次的總和：獲得該名次的機率 × 該名次的{{t:payout|獎金}}。",
+      "equityChips": "不對。這是你在{{t:chips|籌碼}}中的占比。在有{{t:payout|獎金}}分配的{{t:tournament|錦標賽}}中，{{t:chips|籌碼}}不會一比一換算成錢。",
+      "equityFirstOnly": "不對。這只是第 1 名的機率 × 第 1 名的{{t:payout|獎金}}。還要加上其他有獎金名次的機率。",
+      "equityExplanationMore": "第 1 名的機率是你的籌碼 ÷ 全部{{t:chips|籌碼}}（{{share}}）；之後的名次用同樣方式在剩下的玩家中計算。合計為{{t:prize-pool|獎池}}的 {{icm}}，高於你在{{t:chips|籌碼}}中的占比。",
+      "equityExplanationLess": "第 1 名的機率是你的籌碼 ÷ 全部{{t:chips|籌碼}}（{{share}}）；之後的名次用同樣方式在剩下的玩家中計算。合計為{{t:prize-pool|獎池}}的 {{icm}}，低於你在{{t:chips|籌碼}}中的占比。"
+    },
+    "playerType": {
+      "name": {
+        "nit": "岩石型玩家",
+        "regular": "{{t:regular|常客}}",
+        "passive": "被動的{{t:recreational|娛樂玩家}}",
+        "maniac": "{{t:maniac|瘋子}}",
+        "unknown": "手數太少，無法判斷"
+      },
+      "adjust": {
+        "nit": "你尊重他的{{t:raise|加注}}和 3-bet，更常{{t:fold|棄掉}}{{t:range|範圍}}底部的手牌，也更常偷他的盲注。",
+        "regular": "你的打法接近模組 3–9 的基準，只有在他的統計數據顯示明顯錯誤時才偏離。",
+        "passive": "更多{{t:value-bet|價值下注}}，包括更薄的，並減少{{t:bluff|詐唬}}，尤其在河牌。",
+        "maniac": "你不對他{{t:bluff|詐唬}}，用能抓{{t:bluff|詐唬}}的手牌更寬地{{t:call|跟注}}，拿到非常強的牌時讓他下注。",
+        "unknown": "你把他當成未知玩家來打，也就是依照基準，並繼續累積手數。"
+      },
+      "fact": {
+        "unknown": "少於 {{minHands}} 手時，統計數據是隨機的；這裡是 {{hands}}。",
+        "nit": "岩石型玩家玩的牌最多占 {{nitMax}}%（{{t:vpip}}）；這位玩家玩 {{vpip}}%。",
+        "regular": "{{t:regular|常客}}玩約 {{low}}–{{high}}% 的牌，{{t:vpip}} − {{t:pfr}} 差距最多 {{gapMax}}；這裡是 {{vpip}}%，差距 {{gap}}。",
+        "passive": "被動的鬆型玩家玩 {{loose}}% 以上的牌，{{t:vpip}} − {{t:pfr}} 差距超過 {{gapMin}}；這裡是 {{vpip}}%，差距 {{gap}}。",
+        "maniac": "{{t:maniac|瘋子}}玩 {{loose}}% 以上的牌，{{t:vpip}} − {{t:pfr}} 差距最多 {{gapMax}}；這裡是 {{vpip}}%，差距 {{gap}}。"
+      },
+      "sample_other": "{{count}} 手",
+      "prompt": "6-max 牌桌上的對手，{{t:hud}} 統計數據：{{t:vpip}} {{vpip}}%、{{t:pfr}} {{pfr}}%，樣本 {{sample}}。這是哪種類型的玩家？",
+      "whyRight": "對。{{fact}}{{adjust}}",
+      "whyWrong": "不對。{{fact}}",
+      "readFew": "少於 {{minHands}}，所以統計數據是隨機的",
+      "readEnough": "至少 {{readHands}}，所以可以解讀 {{t:vpip}} 和 {{t:pfr}}",
+      "explanation": "先看樣本：{{sample}}，{{read}}。{{fact}}{{adjust}}"
+    },
+    "points_other": "{{count}} 分",
+    "potOdds": {
+      "prompt": "{{t:pot|底池}}裡有 {{pot}}。對手{{t:bet|下注}} {{bet}}。你需要多少權益才能{{t:call|跟注}}？",
+      "explanation": "{{t:bet|下注}}後的{{t:pot|底池}}是 {{potAfter}}，你補 {{bet}}，合計 {{total}}。{{bet}} ÷ {{total}} {{sign}} {{required}}。",
+      "right": "對。",
+      "mistakeNoCall": "不對。這是{{t:bet|下注}}除以{{t:bet|下注}}後的{{t:pot|底池}}。分母也要加上你自己的{{t:call|跟注}}。",
+      "mistakeBetOverPot": "不對。這是{{t:bet|下注}}除以{{t:bet|下注}}前的{{t:pot|底池}}。要和你能贏得的全部金額比較。",
+      "mistakeInverted": "不對。這是{{t:bet|下注}}前的{{t:pot|底池}}除以{{t:bet|下注}}後的{{t:pot|底池}}，分數倒過來了。分子應該是你要補的金額，分母是你{{t:call|跟注}}後的整個{{t:pot|底池}}。"
+    },
+    "drawCall": {
+      "promptFlop": "翻牌。{{t:pot|底池}}裡有 {{pot}}，對手{{t:bet|下注}} {{bet}}。你有{{draw}}。你會怎麼做？",
+      "promptTurn": "轉牌。{{t:pot|底池}}裡有 {{pot}}，對手{{t:bet|下注}} {{bet}}。你有{{draw}}。你會怎麼做？",
+      "drawFlush": "{{t:flush-draw|同花聽牌}}",
+      "drawOesd": "{{t:oesd|兩頭順子聽牌}}",
+      "drawGutshot": "卡順聽牌",
+      "call": "{{t:call|跟注}}",
+      "fold": "{{t:fold|棄牌}}",
+      "outs_other": "{{count}} 張補牌",
+      "explanationFlop": "在 {{unseen}} 張未知牌中你有 {{outs}}，也就是轉牌有 {{chance}} 的機率中牌。{{why}}你需要 {{required}}。{{verdict}}",
+      "explanationTurn": "在 {{unseen}} 張未知牌中你有 {{outs}}，也就是河牌有 {{chance}} 的機率中牌。{{why}}你需要 {{required}}。{{verdict}}",
+      "whyFlop": "重要的是一張牌的機率，因為你只是在{{t:call|跟注}}這次{{t:bet|下注}}：到河牌前你通常還得再付一次代價。",
+      "whyTurn": "重要的是一張牌的機率：只剩一張牌了。",
+      "verdictGood": "機率高於價格，所以{{t:call|跟注}}划算。",
+      "verdictNearFlop": "機率略低於價格，所以單純{{t:call|跟注}}會虧損。只有靠隱含賠率才可能划算，也就是中牌後能贏更多，而且前提是轉牌的下一個價格也不能太高。",
+      "verdictNearTurn": "機率略低於價格，所以單純{{t:call|跟注}}會虧損。只有靠隱含賠率才可能划算，也就是中牌後能贏更多。",
+      "verdictBad": "機率明顯低於價格，所以{{t:call|跟注}}長期來說會虧損。",
+      "right": "對。",
+      "wrong": "不對。"
+    },
+    "texture": {
+      "label": {
+        "height": {
+          "high": "高",
+          "middle": "中",
+          "low": "低"
+        },
+        "suits": {
+          "rainbow": "{{t:rainbow|彩虹}}",
+          "twoTone": "{{t:two-tone|雙色}}",
+          "monotone": "{{t:monotone|單色}}"
+        },
+        "ranks": {
+          "paired": "{{t:paired|成對}}",
+          "connected": "{{t:connected|連張}}",
+          "semiConnected": "{{t:semi-connected|半連張}}",
+          "disconnected": "{{t:disconnected|不連張}}"
+        },
+        "wetness": {
+          "dry": "{{t:dry|乾燥}}",
+          "medium": "中等",
+          "wet": "{{t:wet|濕潤}}"
+        }
+      },
+      "axis": {
+        "height": "高度",
+        "suits": "花色",
+        "ranks": "點數",
+        "wetness": "{{t:dry|乾燥}}還是{{t:wet|濕潤}}"
+      },
+      "scale": "計分方式：可用多種方式組成{{t:straight|順子}}（至少有兩組兩個點數）{{made}}，只能用一種方式組成{{t:straight|順子}} {{madeOne}}，只有{{t:straight-draw|順子聽牌}} {{draw}}；{{t:two-tone|雙色}}翻牌 {{twoTone}}，{{t:monotone|單色}} {{monotone}}。{{t:dry|乾燥}}是 0–{{dryMax}}，中等 {{medium}}，{{t:wet|濕潤}}是 {{wet}} 以上",
+      "range": "{{from}}–{{to}}",
+      "def": {
+        "height": {
+          "high": "高翻牌的最大牌是 A、K 或 Q",
+          "middle": "中翻牌的最大牌是 J 或 10",
+          "low": "低翻牌的最大牌是 9 或更小"
+        },
+        "suits": {
+          "rainbow": "{{t:rainbow|彩虹}}翻牌的三張牌是三種不同花色，所以還沒有人有{{t:flush-draw|同花聽牌}}",
+          "twoTone": "{{t:two-tone|雙色}}翻牌有兩張同花色的牌，所以玩家手上兩張這個花色的牌就構成{{t:flush-draw|同花聽牌}}",
+          "monotone": "{{t:monotone|單色}}翻牌的三張牌都是同一花色，所以已經可能成{{t:flush|同花}}"
+        },
+        "ranks": {
+          "paired": "{{t:paired|成對}}翻牌有兩張或三張點數相同的牌；這時用玩家的兩張牌不可能組成{{t:straight|順子}}，但有時可能有{{t:straight-draw|順子聽牌}}",
+          "connected": "{{t:connected|連張}}翻牌有三個不同點數落在五個連續點數之內，所以現在就可能有{{t:straight|順子}}（A 也可當作 1）",
+          "semiConnected": "{{t:semi-connected|半連張}}翻牌有兩個點數落在五個連續點數之內，但不到三個：還沒有{{t:straight|順子}}，但已經可能有{{t:straight-draw|順子聽牌}}（兩頭順或卡順）",
+          "disconnected": "{{t:disconnected|不連張}}翻牌的點數相距很遠，沒有任何兩個落在五個連續點數之內，所以沒有人連{{t:straight-draw|順子聽牌}}都有"
+        },
+        "wetness": {
+          "dry": "{{t:dry|乾燥}}翻牌的{{t:draw|聽牌}}很少。{{scale}}",
+          "medium": "中等翻牌有一些{{t:draw|聽牌}}。{{scale}}",
+          "wet": "{{t:wet|濕潤}}翻牌有很多{{t:draw|聽牌}}或已成的{{t:straight|順子}}。{{scale}}"
+        }
+      },
+      "suitCount": {
+        "three": "三種不同花色",
+        "two": "兩張同花色的牌",
+        "one": "三張同花色的牌"
+      },
+      "rankFact": {
+        "connected": "這裡可能有{{t:straight|順子}}，例如 {{example}}。",
+        "pairedDraw": "這裡有兩張牌點數相同；例如 {{example}} 可構成{{t:straight-draw|順子聽牌}}。",
+        "paired": "這裡有兩張牌點數相同。",
+        "semiConnected": "這裡還沒有{{t:straight|順子}}，但例如 {{example}} 可構成{{t:straight-draw|順子聽牌}}。",
+        "disconnected": "這裡玩家的任何兩張牌連{{t:straight-draw|順子聽牌}}都組不成。"
+      },
+      "draws": {
+        "rainbow": "沒有{{t:flush-draw|同花聽牌}}（三種不同花色）",
+        "twoTone": "有{{t:flush-draw|同花聽牌}}（兩張同花色的牌）",
+        "monotone": "已經可能成{{t:flush|同花}}（三張同花色的牌）",
+        "straightMade": "可用多種方式組成{{t:straight|順子}}，例如 {{example}}",
+        "straightMadeOne": "只能用一種方式組成{{t:straight|順子}}，即 {{example}}",
+        "straightDraw": "沒有{{t:straight|順子}}，但有{{t:straight-draw|順子聽牌}}，例如 {{example}}",
+        "straightNone": "沒有{{t:straight|順子}}，也沒有{{t:straight-draw|順子聽牌}}",
+        "total": "{{color}}：{{colorPoints}}；{{straight}}：{{straightPoints}}。合計 {{points}}"
+      },
+      "prompt": {
+        "height": "這個翻牌有多高？",
+        "suits": "這個翻牌有幾種花色？",
+        "ranks": "這個翻牌是{{t:paired|成對}}、{{t:connected|連張}}、{{t:semi-connected|半連張}}還是{{t:disconnected|不連張}}？",
+        "wetness": "這個翻牌是{{t:dry|乾燥}}、中等還是{{t:wet|濕潤}}？",
+        "many": "在每一列評估翻牌的{{t:texture|牌面結構}}。"
+      },
+      "whyRight": "對：{{def}}。{{fact}}",
+      "whyWrong": "不對：{{def}}。{{fact}}",
+      "factHeight": "最大的牌是 {{card}}。",
+      "factSuits": "這裡：{{suits}}。",
+      "factWetness": "這裡{{draws}}。",
+      "summary": "這個翻牌是{{height}}、{{suits}}且{{ranks}}，也就是{{wetness}}（{{t:wetness|濕潤度}} {{points}}）。"
+    },
+    "vocab": {
+      "promptPlEn": "「{{pl}}」的英文怎麼說？",
+      "promptEnPl": "「{{en}}」的中文意思是什麼？",
+      "promptAbbr": "縮寫「{{abbr}}」代表什麼？",
+      "promptDef": "哪個術語符合這段描述？「{{def}}」",
+      "lineSame": "「{{pl}}」",
+      "lineSameAbbr": "「{{pl}}」（縮寫 {{abbr}}）",
+      "line": "「{{pl}}」的英文是「{{en}}」",
+      "lineAbbr": "「{{pl}}」的英文是「{{en}}」，縮寫 {{abbr}}",
+      "right": "對：{{line}}。",
+      "wrong": "不對：{{line}}。",
+      "end": "{{line}}。",
+      "meaning": "意思：{{def}}",
+      "alsoSeen": "你也會看到：{{list}}。"
+    }
+  }
+}

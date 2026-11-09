@@ -932,6 +932,24 @@ E2E przed pushem: 42690423784 (4763dc6, sesja AA) **success** (zakończony 20:57
 - Nałożenie 4 języków wg rekomendacji wyżej (sesja kodu roli 09).
 - Strażnik działa tylko na tekście pl; w przekładach znacznik ocenia przegląd przekładu.
 
+## Sesja AE — 4 języki: nałożenie i wydanie w kodzie (2026-11-09, rola 09 build)
+Rola: `assemble.mjs` odrzucone przez klasyfikator — **wyjątek nazwany** D-381 (rola z `prompts/role/09-lokalizacja/rdzen.md` i `wzorce.md`).
+
+| Zadanie | Test (czerwony przed → zielony po) | Decyzja |
+|---|---|---|
+| §1 wzorzec URL: koniec adresu przed CJK/pełnoszerokościowymi, obcięcie końcowego `[.,;:]` (`scripts/i18n/wspolne.mjs`) | `przeklad-api.test.mjs` „adres URL przed interpunkcją…” (ja, zh-Hant, fr + zmieniony adres odrzucony) | D-365, D-370 |
+| §3 K-05: `content/<j>/terms-nazwy.yaml` ×4, strażnik `tools/content-build/src/nazwy.ts`, `renderTermsBare(…, nazwy)`, `TERM_NAMES`, `tr()` w aplikacji | `tools/content-build/test/terms-nazwy-09.test.ts` (brak modułu → 9/9), `features/drills/__tests__/terms.test.ts` (K-05) | D-367, D-372 |
+| Nałożenie 260 plików (6 artefaktów, poprawki, typografia fr) na pl z 935c9cf^, 16 miejsc AC ręcznie, kontrola (a) m12-l1 ponownie zaliczona ×4, `przeglad_jezyki` 11×4 | `pnpm content:build`, `pnpm i18n` 0 błędów, `tresci:rejestr` 0 błędów; `dowody/nalozenie-4-jezykow-2026-11-09.md` | D-379 |
+| Wydanie ja, zh-Hant, pt-BR, fr: słowniki, polyfille, `app.json`, `locales/systemowe/*`, krój CJK, słowniczek (nazwa lokalna), pt-PT → pt-BR | `i18n/__tests__/jezyk-4-09.test.ts` (5 ✕ → 5 ✓), `theme/__tests__/kroje-cjk-09.test.ts`, `glossary/__tests__/nazwy-lokalne-09.test.ts` | D-368, D-369, D-373, D-380 |
+
+### Zostaje
+- E2E flow dla jednego języka CJK wzorem `08-drugi-jezyk` — nie w tej sesji (koszt minut macOS, kontekst); zamiast: `docs/lokalizacja/lista-telefonu-4.md` (T-cjk-1…5, T-pf-1…7).
+- Ujednolicenie form poza próbą (plan-pt-BR-fr §3.5: fr `grosse blind` → `grosse blinde`, `limpers`, `solveur`; pt-BR top pair/fold; zh-Hant 勝率/波動 wg AB) — zmiany w m12 tylko z ponowną kontrolą (a). Raport form ≠ nazwa: `dowody/nalozenie-4-jezykow-2026-11-09.md`.
+- Wiersze `[DO USTALENIA]` w `content/<j>/terms-nazwy.yaml` (ja 34, zh-Hant 34, pt-BR 94, fr 40) — potwierdzenie źródłem (backlog).
+- NISKIE z kontroli (a): fr R-M12-002 „vérifiez” → „revoyez”, zh-Hant R-M12-002 檢查 → 檢視 (z ponowną kontrolą (a)).
+- Zrzuty 320 pt / AX5 w ja i fr (procedura roli 04); kształty Han T-cjk-2.
+- NISKIE z przeglądu D-043 (`dowody/d043-AE-2026-11-09.md` #2–#4): nazwy terminów przy tekście z łańcucha en, krój tytułu po zmianie języka bez remontu drzewa, utwardzenie wzorca URL.
+
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
 

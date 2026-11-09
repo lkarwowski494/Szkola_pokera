@@ -1,0 +1,96 @@
+# Pula pytań egzaminacyjnych modułu M6 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m6.*).
+module: m6
+drills:
+  - kind: numeric
+    id: m6.exam.q1
+    family: m6.mdf
+    rules: [R-M6-001, R-M6-005]
+    prompt: "リバーです。{{t:pot|ポット}}は{{n:exam.m6.pot}}で、相手が{{n:exam.m6.bet.three-quarters}}を{{t:bet|ベット}}します。{{t:mdf}}はいくつですか？つまり、{{t:range|レンジ}}の少なくともどれだけをディフェンスしますか？パーセントで数値を入力してください。"
+    answer: exam.m6.mdf.three-quarters
+    explanation: "{{t:mdf}} = {{t:pot}} ÷ ({{t:pot}} + ベット) = {{n:exam.m6.pot}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}}) = {{n:exam.m6.mdf.three-quarters}}。これより頻繁に{{t:fold|フォールド}}すると、勝ち目のない{{t:bluff}}が自動的に利益を出します。"
+  - kind: choice
+    id: m6.exam.q2
+    family: m6.alpha
+    rules: [R-M6-002]
+    prompt: "リバーです。{{t:pot|ポット}}は{{n:exam.m6.pot}}です。勝ち目のないハンドで{{n:exam.m6.bet.quarter}}の{{t:bluff|ブラフ}}を打ちます。この{{t:bluff}}が損益ゼロになるには、相手はどれくらいの頻度で{{t:fold|フォールド}}する必要がありますか？"
+    options:
+      - { text: "{{n:exam.m6.alpha.quarter}}より高い頻度", correct: true, why: "正解です。アルファ = ベット ÷ ({{t:pot}} + ベット) = {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}}) = {{n:exam.m6.alpha.quarter}}。小さな{{t:bluff}}はリスクが小さいので、まれな{{t:fold|フォールド}}で十分です。" }
+      - { text: "{{n:exam.m6.mdf.quarter}}より高い頻度", why: "それは{{t:mdf}}で、相手がディフェンスすべき{{t:range|レンジ}}の割合です。アルファはその残りで、{{n:exam.m6.alpha.quarter}}です。" }
+      - { text: "{{n:eq.bet-quarter}}より高い頻度", why: "それは相手が{{t:call|コール}}するのに必要なエクイティで、分母に相手の{{t:call}}も含まれます。{{t:bluff|ブラフ}}の基準はベット ÷ ({{t:pot}} + ベット) = {{n:exam.m6.alpha.quarter}}です。" }
+  - kind: choice
+    id: m6.exam.q3
+    family: m6.mdf-concept
+    rules: [R-M6-003]
+    prompt: "{{t:big-blind}}で、ボタンの{{t:open|オープン}}に対してディフェンスしています。フロップでボタンが{{t:pot|ポット}}の1/4のCベットを{{t:bet|ベット}}します。友人は「{{t:mdf}}は目安にすぎない」と言って、ここでハンドの半分以上を{{t:fold|フォールド}}しています。何が問題ですか？"
+    table: { position: BB }
+    options:
+      - { text: "フロップでは{{t:mdf}}より少しディフェンスを減らせますが、小さなCベットに大量に{{t:fold|フォールド}}はしません", correct: true, why: "正解です。{{t:pot|ポット}}の1/4のCベットに対する{{t:mdf}}は{{n:exam.m6.mdf.quarter}}です。フロップで{{t:out-of-position}}なら、ボタンの{{t:bluff|ブラフ}}にまだエクイティがあるので少しディフェンスを減らしてかまいません。しかし半分以上のハンドを{{t:fold}}すると、{{t:pot|ポット}}をただで渡すことになります。" }
+      - { text: "問題ありません。フロップでは{{t:mdf}}はまったく当てはまりません", why: "フロップの{{t:mdf}}は目安です。少し減らすことはできますが、いくらでも減らしてよいわけではありません。小さなCベットに対しては、十分なエクイティを持つハンドがいずれにせよ多くあります。" }
+      - { text: "フロップでは{{t:mdf}}より多くディフェンスする必要があります", why: "逆です。フロップで{{t:out-of-position}}なら、弱いハンドのエクイティをすべては実現できないため、少しディフェンスを減らせます。友人の間違いは、{{t:fold|フォールド}}が多すぎることです。" }
+  - kind: choice
+    id: m6.exam.q4
+    family: m6.exploit
+    rules: [R-M6-004]
+    prompt: "マイクロステークスです。めったに{{t:bluff|ブラフ}}しないパッシブな{{t:recreational|レクリエーショナルプレイヤー}}が、リバーで{{t:pot|ポット}}の3/4を{{t:bet|ベット}}します。あなたはクイーンの{{t:pair|ペア}}で、{{t:board|ボード}}にはエースとキングがあります。どうしますか？"
+    table: { hand: "Qd Qc", board: "Ah Jd 7c 4s Ks" }
+    options:
+      - { text: "{{t:fold|フォールド}}", correct: true, why: "正解です。あなたの{{t:pair}}は{{t:board|ボード}}のエースとキングより低いので、勝てるのは主に{{t:bluff|ブラフ}}です。このプレイヤーはめったに{{t:bluff|ブラフ}}しないので、相手に対しては{{t:mdf}}が示すより多く{{t:fold|フォールド}}します。" }
+      - { text: "{{t:mdf}}では約{{n:exam.m6.mdf.three-quarters}}をディフェンスすべきなので{{t:call|コール}}", why: "{{t:mdf}}は、相手が十分な頻度で{{t:bluff|ブラフ}}することを前提としています。このプレイヤーはそうしないので、{{t:call}}しても主に強いハンドに支払うことになります。" }
+      - { text: "{{t:raise|レイズ}}", why: "{{t:raise|レイズ}}すると、弱いハンドは{{t:fold|フォールド}}し、強いハンドだけが支払います。{{t:board|ボード}}の2枚より低い{{t:pair|ペア}}は、{{t:raise|レイズ}}するハンドではありません。" }
+  - kind: choice
+    id: m6.exam.q5
+    family: m6.flop.price
+    rules: [R-M6-005]
+    prompt: "フロップです。{{t:pot|ポット}}は{{n:exam.m6.pot}}です。ボタンがある回では{{n:exam.m6.bet.quarter}}、別の回では{{n:exam.m6.bet.three-quarters}}を{{t:bet|ベット}}します。それぞれの場合、{{t:call|コール}}するのに必要なエクイティはどれくらいですか？"
+    table: { position: BB }
+    options:
+      - { text: "約{{n:eq.bet-quarter}}と約{{n:eq.bet-three-quarters}}", correct: true, why: "正解です。ベット ÷ ({{t:pot}} + 2·ベット)。{{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}} + {{n:exam.m6.bet.quarter}}) = {{n:eq.bet-quarter}}、{{n:exam.m6.bet.three-quarters}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}} + {{n:exam.m6.bet.three-quarters}}) = {{n:eq.bet-three-quarters}}です。ベットが大きいほど、狭い{{t:range|レンジ}}でディフェンスします。" }
+      - { text: "約{{n:exam.m6.alpha.quarter}}と約{{n:eq.bet-three-quarters}}", why: "最初の数値はアルファ（ベット ÷ ({{t:pot}} + ベット)）で、ボタンの{{t:bluff|ブラフ}}の基準です。{{t:call|コール}}の価格には自分の{{t:call}}も加えます。正しくは{{n:eq.bet-quarter}}です。" }
+      - { text: "同じ{{t:pot}}なので、どちらも同じ", why: "違います。価格はベットサイズで決まります。ベットが大きいほど価格は悪くなり、{{n:eq.bet-quarter}}ではなく{{n:eq.bet-three-quarters}}になります。" }
+  - kind: choice
+    id: m6.exam.q6
+    family: m6.flop.call
+    rules: [R-M6-006]
+    prompt: "{{t:big-blind}}で、ボタンの{{t:open|オープン}}に対してディフェンスしています。フロップで{{t:check|チェック}}すると、ボタンが{{t:pot|ポット}}の1/3のCベットを{{t:bet|ベット}}します。あなたはエースハイで、{{t:draw|ドロー}}はありません。どうしますか？"
+    table: { hand: "Ac 6h", board: "Js 8d 3d", position: BB }
+    options:
+      - { text: "{{t:call|コール}}", correct: true, why: "正解です。小さなCベットに対して必要なエクイティは約{{n:eq.bet-third}}だけです。エースハイはボタンの{{t:bluff|ブラフ}}の一部に勝ち、{{t:pair|ペア}}になることもあるので、通常はディフェンスします。{{t:fold|フォールド}}するのは、{{t:pair|ペア}}も{{t:draw|ドロー}}もない最も弱いハンドです。" }
+      - { text: "{{t:fold|フォールド}}", why: "タイトすぎます。小さなCベットに対して、エースハイは通常ディフェンスします。{{t:fold|フォールド}}するのは、{{t:pair|ペア}}も{{t:draw|ドロー}}もないもっと弱いハンドです。" }
+      - { text: "チェックレイズ", why: "チェックレイズは主に最も強いハンドと{{t:draw|ドロー}}で行います。このハンドには価値も、2つ目の勝ち筋となる{{t:draw|ドロー}}もありません。" }
+  - kind: choice
+    id: m6.exam.q7
+    family: m6.flop.fold
+    rules: [R-M6-007]
+    prompt: "{{t:big-blind}}で、ボタンの{{t:open|オープン}}に対してディフェンスしています。[[8c 4d 2h]]のフロップで{{t:check|チェック}}すると、ボタンが{{t:pot|ポット}}の3/4のCベットを{{t:bet|ベット}}します。次のうち、{{t:call}}する意味が大きいのはどちらのハンドですか？"
+    table: { board: "8c 4d 2h", position: BB }
+    options:
+      - { text: "[[Ad Jd]]", correct: true, why: "正解です。どちらも{{t:pair|ペア}}のない2枚のハイカードですが、ダイヤのAJには最も強い{{t:flush|フラッシュ}}への{{t:flush-draw}}（バックドア）もあります。{{t:board|ボード}}にダイヤが1枚あるので、あと2枚のダイヤが必要です。大きなCベットに対して{{t:call|コール}}するなら、むしろこのようなハンドです。" }
+      - { text: "[[Ks Qs]]", why: "スペードのKQには、ここでは{{t:draw|ドロー}}がまったくありません。{{t:board|ボード}}にスペードはなく、{{t:straight|ストレート}}も遠すぎます。{{t:draw|ドロー}}のない2枚のハイカードは、大きなCベットに対して通常{{t:fold|フォールド}}します。" }
+  - kind: choice
+    id: m6.exam.q8
+    family: m6.xr.semibluff
+    rules: [R-M6-008]
+    prompt: "{{t:big-blind}}で、ボタンの{{t:open|オープン}}に対してディフェンスしています。[[Jh 8c 4h]]のフロップで{{t:check|チェック}}すると、ボタンが{{t:pot|ポット}}の1/3のCベットを{{t:bet|ベット}}します。次のうち、チェックレイズに最も適したハンドはどれですか？"
+    table: { board: "Jh 8c 4h", position: BB }
+    options:
+      - { text: "[[Qh Th]]", correct: true, why: "正解です。{{t:flush-draw}}とガットショット（9）は強い{{t:draw}}です。チェックレイズはボタンが{{t:fold|フォールド}}すれば勝ち、支払われても多くのアウツが残ります。" }
+      - { text: "[[Jd 5d]]", why: "キッカーの弱い{{t:top-pair|トップペア}}は{{t:call|コール}}するハンドです。チェックレイズすると、通常は弱いハンドが{{t:fold|フォールド}}し、強いハンドが支払います。" }
+      - { text: "[[As 3c]]", why: "{{t:draw|ドロー}}のないエースハイには2つ目の勝ち筋がありません。{{t:bluff}}としてのチェックレイズは、主に{{t:draw|ドロー}}で行います。" }
+  - kind: numeric
+    id: m6.exam.q9
+    family: m6.xr.size
+    rules: [R-M6-010]
+    prompt: "フロップです。{{t:pot|ポット}}は{{n:exam.m6.pot}}で、ボタンが{{n:exam.m6.bet.quarter}}の小さなCベットを{{t:bet|ベット}}します。あなたはCベットの{{n:xr.mult.example}}にチェックレイズします。いくらまで{{t:raise|レイズ}}しますか？{{t:chips|チップ}}の数を入力してください。"
+    table: { position: BB }
+    answer: exam.m6.xr
+    explanation: "{{n:exam.m6.bet.quarter}} × {{n:xr.mult.example}} = {{n:exam.m6.xr}}。小さなCベットに対しては、{{n:xr.mult.low}}～{{n:xr.mult.example}}の範囲の上限寄りに{{t:raise|レイズ}}します。最小のチェックレイズでは、ボタンに非常に良い価格を与えてしまいます。"
+  - kind: choice
+    id: m6.exam.q10
+    family: m6.xr.when
+    rules: [R-M6-009]
+    prompt: "{{t:big-blind}}で、ボタンの{{t:open|オープン}}に対してディフェンスしています。最も頻繁にチェックレイズするのはどのフロップですか？"
+    table: { position: BB }
+    options:
+      - { text: "[[8d 6c 5h]]", correct: true, why: "正解です。低く{{t:connected|コネクト}}したフロップでは、{{t:big-blind}}のほうがボタンより最も強い役（{{t:two-pair}}、{{t:straight|ストレート}}）を多く持つので、ここではより頻繁にチェックレイズします。" }
+      - { text: "[[Ks Qd Jh]]", why: "カードが近い高いフロップは、ボタンの{{t:range}}によく当たります（AK、AQ、KQ、高い{{t:pair|ペア}}）。ここではチェックレイズの頻度は低くなります。" }
+      - { text: "[[Ah Ad Qc]]", why: "エースの{{t:pair|ペア}}があるフロップでは、多くのエースで{{t:open|オープン}}したボタンのほうが最も強いハンドを多く持っています。ここではめったにチェックレイズしません。" }

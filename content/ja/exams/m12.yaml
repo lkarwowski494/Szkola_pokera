@@ -1,0 +1,93 @@
+module: m12
+drills:
+  - kind: choice
+    id: m12.exam.q1
+    family: m12.result-range
+    rules: [R-M12-001]
+    prompt: "平均{{n:var.wr.typical.high}}で勝っていて、{{t:standard-deviation|標準偏差}}は{{n:var.sd}}です。これから{{n:exam.m12.hands.k}}千ハンド（100ハンドを1ブロックとして{{n:exam.m12.blocks}}ブロック）をプレイします。約{{n:var.conf95}}の確信度で、結果はどの範囲に収まりますか？"
+    options:
+      - { text: "約{{n:exam.m12.ci.low.bi}}〜約{{n:exam.m12.ci.high.bi}}{{t:buy-in|バイイン}}", correct: true, why: "期待される結果は{{n:var.wr.typical.high}} × {{n:exam.m12.blocks}} = {{n:exam.m12.exp.bb}}、つまり{{n:exam.m12.exp.bi}}{{t:buy-in|バイイン}}です。結果の{{t:standard-deviation|標準偏差}}は{{n:var.sd}} × √{{n:exam.m12.blocks}} ≈ {{n:exam.m12.sd.bb}}、つまり約{{n:exam.m12.sd.bi}}{{t:buy-in|バイイン}}です。範囲：{{n:exam.m12.exp.bi}} ± {{n:var.z95}} × {{n:exam.m12.sd.bi}} ≈ ± {{n:exam.m12.ci.half.bi}}。" }
+      - { text: "ちょうど{{n:exam.m12.exp.bi}}{{t:buy-in|バイイン}}", why: "{{n:exam.m12.exp.bi}}{{t:buy-in|バイイン}}は期待される結果、つまり平均です。{{n:exam.m12.hands.k}}千ハンド後の結果の{{t:standard-deviation|標準偏差}}は約{{n:exam.m12.sd.bi}}{{t:buy-in|バイイン}}なので、実際の結果は平均から大きく離れることがあります。" }
+      - { text: "約{{n:exam.m12.exp.bi}}〜約{{n:exam.m12.ci.high.bi}}{{t:buy-in|バイイン}}：勝っているプレイヤーはマイナスで終わらない", why: "勝っているプレイヤーでもマイナスで終わることがあります。この条件では、範囲の下限は約{{n:exam.m12.ci.low.bi}}{{t:buy-in|バイイン}}です。" }
+  - kind: choice
+    id: m12.exam.q2
+    family: m12.winrate-sample
+    rules: [R-M12-001]
+    prompt: "{{n:exam.m12.hands.k}}千ハンドをプレイした時点で、ウィンレートは{{n:var.wr.typical.high}}、{{t:standard-deviation|標準偏差}}は{{n:var.sd}}です。本当のウィンレートについて何が分かりますか？"
+    options:
+      - { text: "約{{n:var.conf95}}の確信度で、約{{n:exam.m12.wr.ci.low}}〜約{{n:exam.m12.wr.ci.high}}の間にある", correct: true, why: "ウィンレートの誤差はSD ÷ √(ブロック数) = {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ {{n:exam.m12.se.wr}}です。範囲：{{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:exam.m12.se.wr}} ≈ ± {{n:exam.m12.ci.wr}}。{{n:exam.m12.hands.k}}千ハンドでは、勝っているかどうかさえ分かりません。" }
+      - { text: "大きなサンプルで結果がプラスなので、勝っている", why: "ウィンレートにとって{{n:exam.m12.hands.k}}千ハンドは小さなサンプルです。{{n:var.conf95}}の範囲は約{{n:exam.m12.wr.ci.low}}〜約{{n:exam.m12.wr.ci.high}}なので、負けているプレイも含まれます。" }
+      - { text: "サンプルが大きいので、{{n:var.wr.typical.high}}にとても近い", why: "{{n:exam.m12.hands.k}}千ハンドからは、そこまで狭い範囲は得られません。計算は{{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ ± {{n:exam.m12.ci.wr}}です。" }
+  - kind: choice
+    id: m12.exam.q3
+    family: m12.winrate-sample
+    rules: [R-M12-003]
+    prompt: "アグレッシブにプレイしていて、{{t:standard-deviation|標準偏差}}は{{n:var.sd.high}}です。{{n:var.conf95}}の確信度で、ウィンレートを± {{n:var.target}}の精度で知りたいとします。何ハンド必要ですか？"
+    options:
+      - { text: "約{{n:exam.m12.need.hands.k}}千ハンド", correct: true, why: "ブロック数 = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:exam.m12.need.ratio}}² ≈ {{n:exam.m12.need.blocks}}、つまり約{{n:exam.m12.need.hands.k}}千ハンドです。{{t:standard-deviation|標準偏差}}が高いほど、はるかに大きなサンプルが必要です。" }
+      - { text: "約{{n:var.need.hands.k}}千ハンド。{{t:standard-deviation|標準偏差}}が{{n:var.sd}}のときと同じ", why: "式の中で{{t:standard-deviation|標準偏差}}は2乗されているので、{{n:var.sd}}ではなく{{n:var.sd.high}}なら、明らかに多くのハンドが必要です。約{{n:exam.m12.need.hands.k}}千ハンドです。" }
+      - { text: "数万ハンドで十分", why: "誤差はハンド数の平方根に比例してしか小さくなりません。{{n:var.sd.high}}で± {{n:var.target}}の精度なら、100ハンドのブロックが約{{n:exam.m12.need.blocks}}個必要です。" }
+  - kind: choice
+    id: m12.exam.q4
+    family: m12.sample-size
+    rules: [R-M12-005, R-M12-001]
+    prompt: "プレイスタイルを変え、{{n:exam.m12.style.hands.k}}千ハンド後の結果は{{n:exam.m12.style.wr}}です。{{t:standard-deviation|標準偏差}}は{{n:var.sd}}です。これは新しいスタイルのほうが良いという証拠になりますか？"
+    options:
+      - { text: "いいえ。{{n:var.conf95}}の範囲は±約{{n:exam.m12.style.ci}}です。新しいプレイはハンドレビューで評価します", correct: true, why: "{{n:exam.m12.style.blocks}}ブロック後のウィンレートの誤差は{{n:var.sd}} ÷ {{n:exam.m12.style.sqrt}} ≈ {{n:exam.m12.style.se}}なので、範囲は± {{n:var.z95}} × {{n:exam.m12.style.se}} ≈ ± {{n:exam.m12.style.ci}}です。この結果は、スタイルが良くなった場合にも悪くなった場合にも起こりえます。戦略は判断のレビューで決めます。" }
+      - { text: "はい。{{n:exam.m12.style.wr}}は一般的なウィンレートよりずっと高い", why: "{{n:exam.m12.style.hands.k}}千ハンドでは、{{n:var.conf95}}の範囲は約± {{n:exam.m12.style.ci}}です。小さなサンプルでの高い結果は、主に{{t:variance|分散}}によるものです。" }
+      - { text: "はい、ほとんどの{{t:session|セッション}}で勝っていれば", why: "勝った{{t:session|セッション}}の数は、同じ結果を細かく区切っただけです。依然として{{n:exam.m12.style.hands.k}}千ハンドに基づいており、判断が良くなったかどうかは分かりません。" }
+  - kind: choice
+    id: m12.exam.q5
+    family: m12.resulting
+    rules: [R-M12-004]
+    prompt: "ターン。クリーンな{{t:flush-draw|フラッシュドロー}}を持っていて、{{t:pot|ポット}}は{{n:ex.pot}}です。相手が{{n:ex.bet.half}}でオールインし、これ以上は勝ち取れません。あなたは{{t:call|コール}}し、リバーで{{t:flush|フラッシュ}}が完成して勝ちました。この{{t:call|コール}}をどう評価しますか？"
+    options:
+      - { text: "勝ったが、悪いプレイだった", correct: true, why: "必要なエクイティは{{n:eq.bet-half}}でしたが、{{t:flush-draw|フラッシュドロー}}がリバーで完成するのは約{{n:odds.flush.turn-river}}です。相手はオールインなので、後から追加で支払ってもらうことはありません。何度も繰り返せば、このような{{t:call|コール}}は損をします。" }
+      - { text: "{{t:pot|ポット}}を獲得したので、良いプレイだった", why: "1回のハンドの結果で価格は変わりません。評価するのは、持っていた情報に基づく判断です。必要な{{n:eq.bet-half}}に対して、エクイティは{{n:odds.flush.turn-river}}でした。" }
+      - { text: "相手のカードが分からないと評価できない", why: "評価には、分かっていたことで十分です。相手はオールインで、あなたのハンドは{{t:flush|フラッシュ}}が完成したときだけ勝ち、価格からは{{n:eq.bet-half}}が必要でした。" }
+  - kind: choice
+    id: m12.exam.q6
+    family: m12.tilt-type
+    rules: [R-M12-006]
+    prompt: "大きな{{t:pot|ポット}}を失いました。自分は良いプレイをしたこと、これは{{t:variance|分散}}であること、相手も正しくプレイしたことは分かっています。それでも、負けたこと自体に腹が立って集中できません。ティルトのレッスンの分類では、これはどのタイプですか？"
+    options:
+      - { text: "負けることへの嫌悪によるティルト", correct: true, why: "{{t:variance|分散}}だと分かっていても、きっかけは負けたこと自体です。運や自分、相手を責めているわけではありません。" }
+      - { text: "不公平感によるティルト", why: "このタイプは、ポーカーは不公平だという感覚がきっかけになります。バッドビート、クーラー、相手のリバーでのヒットなどです。ここでは、すべてが普通に起きたと分かっていて、腹が立つのは負けたこと自体です。" }
+      - { text: "ミスによるティルト", why: "ミスによるティルトは、自分のミスへの怒りです。ここでは、良いプレイをしたと分かっています。" }
+      - { text: "復讐によるティルト", why: "復讐は、たとえば失礼な態度をとられた後など、相手に向けられるものです。ここでは相手は正しくプレイしていて、怒りの原因ではありません。" }
+  - kind: choice
+    id: m12.exam.q7
+    family: m12.tilt-response
+    rules: [R-M12-007]
+    prompt: "大きな{{t:pot|ポット}}を3回続けて失い、直前の{{t:call|コール}}が良かったかどうかもう判断できません。損失を早く取り戻すために、上の{{t:stakes|ステークス}}に移ろうかと考えています。どうしますか？"
+    options:
+      - { text: "{{t:session|セッション}}を終える", correct: true, why: "落ち着いて判断を評価できないことと、取り返したいという気持ちは、すでに最悪のレベル（Cゲーム）でプレイしているサインです。目標は、さらに失う前に早めにやめることです。" }
+      - { text: "何回か深呼吸して、上の{{t:stakes|ステークス}}でプレイを続ける", why: "深呼吸は、まだはっきり考えられるティルトの初期サインのときに役立ちます。ここではティルトがすでに大きくなっていて、上の{{t:stakes|ステークス}}は損失を増やすだけです。" }
+      - { text: "同じ{{t:stakes|ステークス}}で、強いハンドだけでプレイを続ける", why: "落ち着いて判断を評価できなくなったら、どのハンドを選んでも、プレイを続けることは最悪のレベル（Cゲーム）でプレイすることになります。{{t:session|セッション}}を終えます。" }
+  - kind: choice
+    id: m12.exam.q8
+    family: m12.risk-of-ruin
+    rules: [R-M12-009]
+    prompt: "{{t:standard-deviation|標準偏差}}{{n:var.sd}}で{{n:dd.wr-low}}勝っていて、手元には{{n:exam.m12.ror.bi}}{{t:buy-in|バイイン}}（{{n:exam.m12.ror.bb}}）あります。{{t:stakes|ステークス}}を一度も下げない場合、バンクロール全体を失うリスクはどれくらいですか？"
+    options:
+      - { text: "約{{n:exam.m12.ror}}", correct: true, why: "指数：2 × ウィンレート × バンクロール ÷ SD² = {{n:ror.two}} × {{n:dd.wr-low}} × {{n:exam.m12.ror.bb}} ÷ {{n:var.sd.sq}} = {{n:exam.m12.ror.x}}。したがってRoR = e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}です。" }
+      - { text: "勝っているのでゼロ", why: "ウィンレートがプラスでも、{{t:variance|分散}}からは守られません。このバンクロールとウィンレートでは、リスクは約{{n:exam.m12.ror}}で、ゼロより明らかに大きいです。" }
+      - { text: "ウィンレートが低いので約半分", why: "リスクはバンクロールに対して指数的に小さくなります。{{n:exam.m12.ror.bi}}{{t:buy-in|バイイン}}では指数は{{n:exam.m12.ror.x}}で、e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}です。" }
+  - kind: choice
+    id: m12.exam.q9
+    family: m12.move-down
+    rules: [R-M12-011]
+    prompt: "バンクロールを{{n:br.bi.beginner}}{{t:buy-in|バイイン}}と決めました。{{t:downswing|ダウンスウィング}}の後、手元は{{n:exam.m12.md.now}}です。どうしますか？"
+    options:
+      - { text: "{{t:stakes|ステークス}}を1つ下げる", correct: true, why: "ステークスを下げる基準は、決めた{{t:buy-in|バイイン}}数の半分です。{{n:br.bi.beginner}}なら{{n:exam.m12.md.half}}です。手元は{{n:exam.m12.md.now}}なので、それより少なくなっています。半分の{{t:stakes|ステークス}}なら、同じバンクロールで再びそのステークスの{{t:buy-in|バイイン}}数がほぼ満たされます。これは一般的な目安です。プレイをコントロールできなくなってきたら、「ヘルプ」画面を確認してください。" }
+      - { text: "{{n:exam.m12.md.now}}は基準の{{n:br.bi.move-down}}より多いので、そのまま続ける", why: "{{n:br.bi.move-down}}という基準は、{{n:br.bi.base}}{{t:buy-in|バイイン}}のバンクロールの半分です。基準は自分で決めたバンクロールから計算します。決めたのは{{n:br.bi.beginner}}なので、遅くとも{{n:exam.m12.md.half}}でステークスを下げます。" }
+      - { text: "そのまま続け、損失を取り戻すためにもっとプレイする", why: "損失を取り戻そうとするのは警告サインであって、計画ではありません。バンクロールは基準の{{n:exam.m12.md.half}}を下回ったので、{{t:stakes|ステークス}}を下げます。" }
+  - kind: choice
+    id: m12.exam.q10
+    family: m12.risk-of-ruin
+    rules: [R-M12-009]
+    prompt: "ウィンレートが想定の半分だと分かり、{{t:standard-deviation|標準偏差}}は変わりません。{{t:risk-of-ruin|破産リスク}}を同じに保つには、何{{t:buy-in|バイイン}}必要ですか？"
+    options:
+      - { text: "2倍", correct: true, why: "式RoR = e^(−2 × ウィンレート × バンクロール ÷ SD²)では、ウィンレートとバンクロールが積として並んでいます。ウィンレートが半分になると、同じ指数を得るにはバンクロールが2倍必要です。" }
+      - { text: "リスクはバンクロールだけで決まるので、同じ", why: "ウィンレートはバンクロールと並んで指数に含まれています。ウィンレートが低いと、同じバンクロールでもリスクは大きくなります。" }
+      - { text: "4倍", why: "2乗されているのは{{t:standard-deviation|標準偏差}}で、ウィンレートではありません。ウィンレートとバンクロールは積なので、{{t:buy-in|バイイン}}は2倍あれば十分です。" }

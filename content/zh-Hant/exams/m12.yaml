@@ -1,0 +1,93 @@
+module: m12
+drills:
+  - kind: choice
+    id: m12.exam.q1
+    family: m12.result-range
+    rules: [R-M12-001]
+    prompt: "你平均贏 {{n:var.wr.typical.high}}，{{t:standard-deviation|標準差}}為 {{n:var.sd}}，接下來要打 {{n:exam.m12.hands.k}} 千手牌（{{n:exam.m12.blocks}} 個每 100 手的區塊）。你的結果約有 {{n:var.conf95}} 的把握會落在哪個區間？"
+    options:
+      - { text: "約 {{n:exam.m12.ci.low.bi}} 到約 {{n:exam.m12.ci.high.bi}} 個{{t:buy-in|買入}}", correct: true, why: "你的期望是 {{n:var.wr.typical.high}} × {{n:exam.m12.blocks}} = {{n:exam.m12.exp.bb}}，也就是 {{n:exam.m12.exp.bi}} 個{{t:buy-in|買入}}。結果的{{t:standard-deviation|標準差}}是 {{n:var.sd}} × √{{n:exam.m12.blocks}} ≈ {{n:exam.m12.sd.bb}}，約 {{n:exam.m12.sd.bi}} 個{{t:buy-in|買入}}。區間：{{n:exam.m12.exp.bi}} ± {{n:var.z95}} × {{n:exam.m12.sd.bi}} ≈ ± {{n:exam.m12.ci.half.bi}}。" }
+      - { text: "剛好 {{n:exam.m12.exp.bi}} 個{{t:buy-in|買入}}", why: "{{n:exam.m12.exp.bi}} 個{{t:buy-in|買入}}是期望結果，也就是平均值。打完 {{n:exam.m12.hands.k}} 千手牌後，結果的{{t:standard-deviation|標準差}}約 {{n:exam.m12.sd.bi}} 個{{t:buy-in|買入}}，所以實際結果可能離平均值很遠。" }
+      - { text: "約 {{n:exam.m12.exp.bi}} 到約 {{n:exam.m12.ci.high.bi}} 個{{t:buy-in|買入}}：贏家不會以虧損收場", why: "贏家也可能以虧損收場：在這些參數下，區間下限約為 {{n:exam.m12.ci.low.bi}} 個{{t:buy-in|買入}}。" }
+  - kind: choice
+    id: m12.exam.q2
+    family: m12.winrate-sample
+    rules: [R-M12-001]
+    prompt: "打了 {{n:exam.m12.hands.k}} 千手牌後，你的贏率是 {{n:var.wr.typical.high}}，{{t:standard-deviation|標準差}}為 {{n:var.sd}}。關於你真正的贏率，你知道什麼？"
+    options:
+      - { text: "約有 {{n:var.conf95}} 的把握，它落在約 {{n:exam.m12.wr.ci.low}} 到約 {{n:exam.m12.wr.ci.high}} 之間", correct: true, why: "贏率的誤差是 SD ÷ √(區塊數) = {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ {{n:exam.m12.se.wr}}。區間：{{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:exam.m12.se.wr}} ≈ ± {{n:exam.m12.ci.wr}}。打了 {{n:exam.m12.hands.k}} 千手牌，你甚至不知道自己是不是贏家。" }
+      - { text: "知道你是贏家，因為大樣本下結果為正", why: "對贏率來說，{{n:exam.m12.hands.k}} 千手牌是小樣本：{{n:var.conf95}} 區間從約 {{n:exam.m12.wr.ci.low}} 到約 {{n:exam.m12.wr.ci.high}}，所以也包含輸錢的情況。" }
+      - { text: "知道它非常接近 {{n:var.wr.typical.high}}，因為樣本很大", why: "{{n:exam.m12.hands.k}} 千手牌得不出這麼窄的區間。你算的是 {{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ ± {{n:exam.m12.ci.wr}}。" }
+  - kind: choice
+    id: m12.exam.q3
+    family: m12.winrate-sample
+    rules: [R-M12-003]
+    prompt: "你打法激進，{{t:standard-deviation|標準差}}為 {{n:var.sd.high}}。你想以 {{n:var.conf95}} 的把握，把贏率精確到 ± {{n:var.target}}。你需要多少手牌？"
+    options:
+      - { text: "約 {{n:exam.m12.need.hands.k}} 千手", correct: true, why: "區塊數 = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:exam.m12.need.ratio}}² ≈ {{n:exam.m12.need.blocks}}，約 {{n:exam.m12.need.hands.k}} 千手牌。{{t:standard-deviation|標準差}}越高，需要的樣本就大得多。" }
+      - { text: "約 {{n:var.need.hands.k}} 千手，和{{t:standard-deviation|標準差}}為 {{n:var.sd}} 時一樣", why: "{{t:standard-deviation|標準差}}在公式中是平方項，所以標準差是 {{n:var.sd.high}} 而不是 {{n:var.sd}} 時，你需要的手數明顯更多：約 {{n:exam.m12.need.hands.k}} 千手。" }
+      - { text: "幾萬手牌就夠了", why: "誤差只會隨手數的平方根減少。在 {{n:var.sd.high}} 和 ± {{n:var.target}} 的精確度下，你需要約 {{n:exam.m12.need.blocks}} 個每 100 手的區塊。" }
+  - kind: choice
+    id: m12.exam.q4
+    family: m12.sample-size
+    rules: [R-M12-005, R-M12-001]
+    prompt: "你改變了打法，打了 {{n:exam.m12.style.hands.k}} 千手牌後贏率是 {{n:exam.m12.style.wr}}。{{t:standard-deviation|標準差}}為 {{n:var.sd}}。這能證明新打法比較好嗎？"
+    options:
+      - { text: "不能：{{n:var.conf95}} 區間約為 ± {{n:exam.m12.style.ci}}；新打法要在手牌複盤中評估", correct: true, why: "打了 {{n:exam.m12.style.blocks}} 個區塊後，贏率誤差是 {{n:var.sd}} ÷ {{n:exam.m12.style.sqrt}} ≈ {{n:exam.m12.style.se}}，所以區間是 ± {{n:var.z95}} × {{n:exam.m12.style.se}} ≈ ± {{n:exam.m12.style.ci}}。不管打法變好還是變差，都可能出現這種結果。決定策略的是對決策的複盤。" }
+      - { text: "能：{{n:exam.m12.style.wr}} 遠高於一般贏率", why: "只打 {{n:exam.m12.style.hands.k}} 千手牌時，{{n:var.conf95}} 區間約為 ± {{n:exam.m12.style.ci}}。小樣本的高結果主要來自{{t:variance|變異數}}。" }
+      - { text: "能，如果你大多數{{t:session|牌局}}都贏", why: "贏的{{t:session|牌局}}數只是把同一個結果切成好幾段。它仍然只根據 {{n:exam.m12.style.hands.k}} 千手牌，也無法說明你的決策是否變好。" }
+  - kind: choice
+    id: m12.exam.q5
+    family: m12.resulting
+    rules: [R-M12-004]
+    prompt: "轉牌。你拿著乾淨的{{t:flush-draw|同花聽牌}}，{{t:pot|底池}}有 {{n:ex.pot}}。對手以 {{n:ex.bet.half}} 全下，之後已經贏不到更多。你{{t:call|跟注}}，河牌來了{{t:flush|同花}}，你贏了。你怎麼評價這次{{t:call|跟注}}？"
+    options:
+      - { text: "是錯的，雖然贏了", correct: true, why: "你需要 {{n:eq.bet-half}} 的 equity，而{{t:flush-draw|同花聽牌}}在河牌成牌的機率約為 {{n:odds.flush.turn-river}}。對手已經全下，之後不會再多付你任何錢。重複很多次之後，這樣的{{t:call|跟注}}會虧錢。" }
+      - { text: "是對的，因為你贏了{{t:pot|底池}}", why: "單一手牌的結果不會改變價格。評價針對的是你根據當時資訊所做的決策：{{n:odds.flush.turn-river}} 的 equity 對上所需的 {{n:eq.bet-half}}。" }
+      - { text: "不知道對手的牌就無法評價", why: "你當時知道的就足以評價：對手已經全下，你的手牌只有成{{t:flush|同花}}才會贏，而價格需要 {{n:eq.bet-half}}。" }
+  - kind: choice
+    id: m12.exam.q6
+    family: m12.tilt-type
+    rules: [R-M12-006]
+    prompt: "你輸了一個大{{t:pot|底池}}。你知道自己打得很好，這是{{t:variance|變異數}}，對手也打得正確。但光是輸牌本身就讓你氣到無法專心。依照上頭課程中的分類，這是哪一種上頭？"
+    options:
+      - { text: "討厭輸型上頭", correct: true, why: "觸發點是輸牌本身，即使你知道這是{{t:variance|變異數}}。你沒有怪運氣、怪自己，也沒有怪對手。" }
+      - { text: "不公平型上頭", why: "這一型是由「撲克不公平」的感覺觸發：爆冷、冤家牌、對手在河牌中牌。這裡你知道一切都很正常，讓你生氣的是輸牌本身。" }
+      - { text: "失誤型上頭", why: "失誤型上頭是對自己犯錯感到生氣。這裡你知道自己打得很好。" }
+      - { text: "報復型上頭", why: "報復針對的是對手，例如在對方不尊重你之後。這裡對手打得正確，也不是你生氣的原因。" }
+  - kind: choice
+    id: m12.exam.q7
+    family: m12.tilt-response
+    rules: [R-M12-007]
+    prompt: "連輸三個大{{t:pot|底池}}後，你已經無法判斷上一次{{t:call|跟注}}是否正確，還想升到更高的{{t:stakes|級別}}好更快把輸的贏回來。你會怎麼做？"
+    options:
+      - { text: "結束這場{{t:session|牌局}}", correct: true, why: "無法冷靜評估決策、想把輸的贏回來，這些都是你已經在最差水準（C-game）下打牌的訊號。目標是在輸更多之前提早結束。" }
+      - { text: "深呼吸幾次，然後在更高的{{t:stakes|級別}}繼續打", why: "呼吸在上頭剛出現徵兆、你還能清楚思考時有幫助。這裡上頭已經加劇，更高的{{t:stakes|級別}}只會讓虧損變大。" }
+      - { text: "在同一個{{t:stakes|級別}}繼續打，但只打強牌", why: "當你已經無法冷靜評估決策時，繼續打就是用你最差的水準（C-game）在打，不管你選哪些手牌都一樣。你要結束這場{{t:session|牌局}}。" }
+  - kind: choice
+    id: m12.exam.q8
+    family: m12.risk-of-ruin
+    rules: [R-M12-009]
+    prompt: "你的贏率是 {{n:dd.wr-low}}，{{t:standard-deviation|標準差}}為 {{n:var.sd}}，手上有 {{n:exam.m12.ror.bi}} 個{{t:buy-in|買入}}（{{n:exam.m12.ror.bb}}）。如果你永遠不降{{t:stakes|級別}}，輸光全部資金的風險是多少？"
+    options:
+      - { text: "約 {{n:exam.m12.ror}}", correct: true, why: "指數：2 × 贏率 × 資金 ÷ SD² = {{n:ror.two}} × {{n:dd.wr-low}} × {{n:exam.m12.ror.bb}} ÷ {{n:var.sd.sq}} = {{n:exam.m12.ror.x}}，所以 RoR = e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}。" }
+      - { text: "零，因為你是贏家", why: "正的贏率無法讓你免受{{t:variance|變異數}}影響。以這樣的資金和贏率，風險約為 {{n:exam.m12.ror}}：明顯大於零。" }
+      - { text: "約一半，因為贏率很低", why: "風險會隨資金呈指數下降。有 {{n:exam.m12.ror.bi}} 個{{t:buy-in|買入}}時，指數是 {{n:exam.m12.ror.x}}，而 e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}。" }
+  - kind: choice
+    id: m12.exam.q9
+    family: m12.move-down
+    rules: [R-M12-011]
+    prompt: "你把資金設定為 {{n:br.bi.beginner}} 個{{t:buy-in|買入}}。經過一段{{t:downswing|下風期}}後，你剩下 {{n:exam.m12.md.now}}。你會怎麼做？"
+    options:
+      - { text: "降一個{{t:stakes|級別}}", correct: true, why: "降級門檻是你設定的{{t:buy-in|買入}}數的一半：設定 {{n:br.bi.beginner}} 時就是 {{n:exam.m12.md.half}}。你有 {{n:exam.m12.md.now}}，比門檻少。在低一半的{{t:stakes|級別}}，同樣的資金又幾乎是該級別完整的{{t:buy-in|買入}}數。這只是一般性建議；如果打牌開始失控，請查看「協助」畫面。" }
+      - { text: "留在原級別，因為 {{n:exam.m12.md.now}} 高於 {{n:br.bi.move-down}} 的門檻", why: "{{n:br.bi.move-down}} 的門檻是 {{n:br.bi.base}} 個{{t:buy-in|買入}}資金的一半。門檻要從你自己設定的資金來算。你設定的是 {{n:br.bi.beginner}}，所以最晚在 {{n:exam.m12.md.half}} 時就要降級。" }
+      - { text: "留在原級別並打更多，把輸的贏回來", why: "想把輸的贏回來是警訊，不是計畫。你的資金已經跌破 {{n:exam.m12.md.half}} 的門檻，所以你要降一個{{t:stakes|級別}}。" }
+  - kind: choice
+    id: m12.exam.q10
+    family: m12.risk-of-ruin
+    rules: [R-M12-009]
+    prompt: "你的贏率結果只有你原本假設的一半，而{{t:standard-deviation|標準差}}不變。要讓{{t:risk-of-ruin|破產風險}}維持不變，你需要多少{{t:buy-in|買入}}？"
+    options:
+      - { text: "兩倍", correct: true, why: "在 RoR = e^(−2 × 贏率 × 資金 ÷ SD²) 這個公式中，贏率和資金並列成乘積。贏率減半時，資金要變成兩倍，才能得到同樣的指數。" }
+      - { text: "一樣多，因為風險只取決於資金", why: "贏率和資金一起出現在指數中。贏率較低時，同樣的資金風險會更高。" }
+      - { text: "四倍", why: "平方的是{{t:standard-deviation|標準差}}，不是贏率。贏率和資金是乘積，所以兩倍的{{t:buy-in|買入}}就夠了。" }

@@ -1,0 +1,99 @@
+# Pula egzaminacyjna M2 (outy, szanse, pot odds): te same reguły co lekcje m2.l1 i m2.l2, inne rozdania i liczby.
+module: m2
+drills:
+  - kind: choice
+    id: m2.exam.q1
+    family: m2.outs.flush
+    rules: [R-M2-001]
+    prompt: "手札にダイヤは1枚だけですが、フロップには3枚出ています。{{t:flush|フラッシュ}}までのアウツは何枚ですか？"
+    table: { hand: "Ad Tc", board: "Kd 8d 3d" }
+    options:
+      - { text: "{{n:outs.flush}}", correct: true, why: "数えるのは、見えているそのスートのカードの合計です。手札に1枚、{{t:board|ボード}}に3枚で、合計{{n:draw.flush.seen}}枚です。残りは{{n:cards.per-suit}} − {{n:draw.flush.seen}} = {{n:outs.flush}}枚のダイヤです。" }
+      - { text: "{{n:outs.oesd}}", why: "それは{{t:oesd|OESD}}のアウツの数です。{{t:flush|フラッシュ}}を完成させるには、残り{{n:outs.flush}}枚のダイヤのうち1枚が必要です。" }
+      - { text: "{{n:cards.per-suit}}", why: "{{n:cards.per-suit}}枚はデッキにあるダイヤのすべてですが、そのうち{{n:draw.flush.seen}}枚はすでに見えています。" }
+  - kind: choice
+    id: m2.exam.q2
+    family: m2.outs.gutshot
+    rules: [R-M2-002]
+    prompt: "{{t:straight|ストレート}}までのアウツは何枚ですか？"
+    table: { hand: "Jc 9d", board: "Ts 7h 2c" }
+    options:
+      - { text: "{{n:outs.gutshot}}", correct: true, why: "J-10-9と7があり、真ん中の8が欠けています（ガットショット）。{{t:straight|ストレート}}になるのは8だけです：{{n:draw.gutshot.ranks}}ランク × {{n:cards.suits}}スート = {{n:outs.gutshot}}枚。" }
+      - { text: "{{n:outs.oesd}}", why: "それは、4枚が連続していて両端が開いている場合の数です。ここでは{{t:straight}}を完成させるのは8だけです。" }
+      - { text: "{{n:draw.oesd.ranks}}", why: "完成させるランクは1つ（8）ですが、スートは4つあります。" }
+  - kind: numeric
+    id: m2.exam.n1
+    family: m2.outs.oesd
+    rules: [R-M2-002]
+    prompt: "ターン。{{t:straight|ストレート}}までのアウツは何枚ですか？数字を入力してください。"
+    table: { hand: "Td 9d", board: "8c 7s 2h Ac" }
+    answer: outs.oesd
+    explanation: "10-9-8-7と、4枚が連続しています。どのJでも、どの6でも{{t:straight|ストレート}}になります：{{n:draw.oesd.ranks}}ランク × {{n:cards.suits}}スート = {{n:outs.oesd}}。"
+  - kind: choice
+    id: m2.exam.q3
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "フロップ。相手はオールインで、あなたは{{t:oesd|OESD}}（アウツ{{n:outs.oesd}}枚）です。{{t:call|コール}}した場合、リバーまでにヒットする確率はどれくらいですか？"
+    options:
+      - { text: "約{{n:odds.oesd.flop-river}}", correct: true, why: "相手はオールインなので、これ以上の{{t:bet|ベット}}なしでターンとリバーを見られます。2枚分を数えます：ルールによる概算は{{n:outs.oesd}} × 4 = {{n:odds.oesd.rule-flop}}、正確には{{n:odds.oesd.flop-river}}です。" }
+      - { text: "約{{n:odds.oesd.flop-turn}}", why: "それはターンだけでヒットする確率です。オールインならリバーも見られます。" }
+      - { text: "約{{n:odds.flush.flop-river}}", why: "それはアウツ{{n:outs.flush}}枚の{{t:flush-draw|フラッシュドロー}}の確率です。あなたのアウツは{{n:outs.oesd}}枚です。" }
+  - kind: choice
+    id: m2.exam.q4
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "フロップ。あなたは{{t:oesd|OESD}}で、相手が{{t:pot|ポット}}の半分を{{t:bet|ベット}}します。スタックは深いです。価格と比べるのは、どのヒット確率ですか？"
+    table: { hand: "Qh Jc", board: "Td 9s 3c" }
+    options:
+      - { text: "約{{n:odds.oesd.flop-turn}}、ターンのみ", correct: true, why: "{{t:call|コール}}で買えるのはカード1枚です。ターンで相手はまた{{t:bet|ベット}}できるので、1枚分を数えます：ルールによる概算は{{n:outs.oesd}} × 2 = {{n:odds.oesd.rule-next}}、正確には{{n:cards.unseen.flop}}枚中{{n:outs.oesd}}枚で、{{n:odds.oesd.flop-turn}}です。" }
+      - { text: "約{{n:odds.oesd.flop-river}}、リバーまで", why: "リバーまでの確率を使うのは、これ以上の{{t:bet|ベット}}なしで2枚とも確実に見られるとき、つまりオールインのときだけです。" }
+  - kind: numeric
+    id: m2.exam.n2
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "ターン。あなたはガットショット（アウツ{{n:outs.gutshot}}枚）です。2と4のルールでは、リバーでヒットする確率は何パーセントですか？数字を入力してください。"
+    answer: odds.gutshot.rule-turn
+    explanation: "残りは1枚なので2を掛けます：{{n:outs.gutshot}} × 2 = {{n:odds.gutshot.rule-turn}}（概算）。正確には{{n:cards.unseen.turn}}枚中{{n:outs.gutshot}}枚で、{{n:odds.gutshot.turn-river}}です。"
+  - kind: choice
+    id: m2.exam.q5
+    family: m2.pot-odds
+    rules: [R-M2-003]
+    prompt: "{{t:pot|ポット}}には{{n:exam.m2.half.pot}}あります。相手が{{n:exam.m2.half.bet}}を{{t:bet|ベット}}します。{{t:call|コール}}するには、どれだけのエクイティが必要ですか？"
+    options:
+      - { text: "{{n:exam.m2.half.eq}}", correct: true, why: "あなたが払うのは{{n:exam.m2.half.bet}}で、あなたの{{t:call|コール}}後の{{t:pot}}は{{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}です。{{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}。これは{{t:pot|ポット}}の半分の{{t:bet}}なので、{{t:pot|ポット}}がどの大きさでも結果は同じです。" }
+      - { text: "{{n:exam.m2.half.wrong}}", why: "それは{{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}で、あなたの{{t:call|コール}}が入っていません。払う額は、{{t:call|コール}}後の{{t:pot|ポット}}全体で割ります：{{n:exam.m2.half.total}}。" }
+      - { text: "{{n:exam.m2.half.wrong-pot}}", why: "それは{{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.pot}}、つまり{{t:bet}}を{{t:bet|ベット}}前の{{t:pot|ポット}}で割ったものです。分母は、あなたの{{t:call|コール}}後の{{t:pot}}全体でなければなりません。" }
+  - kind: numeric
+    id: m2.exam.n3
+    family: m2.pot-odds
+    rules: [R-M2-004]
+    prompt: "{{t:pot|ポット}}には{{n:exam.m2.pot.pot}}あります。相手が{{n:exam.m2.pot.bet}}を{{t:bet|ベット}}します。{{t:call|コール}}するには、何パーセントのエクイティが必要ですか？数字を入力してください。"
+    answer: exam.m2.pot.eq
+    explanation: "{{t:pot|ポット}}サイズの{{t:bet|ベット}}です。あなたは{{n:exam.m2.pot.bet}}を払い、あなたの{{t:call|コール}}後の{{t:pot|ポット}}は{{n:exam.m2.pot.pot}} + {{n:exam.m2.pot.bet}} + {{n:exam.m2.pot.bet}} = {{n:exam.m2.pot.total}}になります。{{n:exam.m2.pot.bet}} ÷ {{n:exam.m2.pot.total}} = {{n:exam.m2.pot.eq}}、つまり3分の1です。"
+  - kind: choice
+    id: m2.exam.q6
+    family: m2.draw-call
+    rules: [R-M2-004, R-M2-005]
+    prompt: "フロップ。あなたは{{t:flush-draw|フラッシュドロー}}で、スタックは深く、相手が{{t:pot|ポット}}全額を{{t:bet|ベット}}します。価格とヒット確率だけで考えてください（インプライドオッズは考えません）。どうしますか？"
+    table: { hand: "Js 6s", board: "Qs 4s 9d" }
+    options:
+      - { text: "{{t:fold|フォールド}}", correct: true, why: "必要なのは{{n:eq.bet-pot}}です。{{t:call|コール}}で買えるのはターンだけで、そこでヒットする確率は約{{n:odds.flush.flop-turn}}です。明らかに足りません。" }
+      - { text: "{{t:call|コール}}。リバーまでなら約{{n:odds.flush.flop-river}}あるから", why: "リバーまでの確率になるのは、これ以上の{{t:bet|ベット}}なしで2枚とも見られるときだけです。スタックが深いと相手はターンでまた{{t:bet|ベット}}できるので、この価格で買えるのはカード1枚、約{{n:odds.flush.flop-turn}}です。" }
+  - kind: choice
+    id: m2.exam.q7
+    family: m2.draw-call
+    rules: [R-M2-005]
+    prompt: "ターン。あなたは{{t:oesd|OESD}}です。{{t:pot|ポット}}には{{n:exam.m2.third.pot}}あり、相手が{{n:exam.m2.third.bet}}を{{t:bet|ベット}}します。価格とヒット確率だけで考えてください。どうしますか？"
+    table: { hand: "9h 8h", board: "Tc 7d 2s Kd" }
+    options:
+      - { text: "{{t:fold|フォールド}}", correct: true, why: "必要なのは{{n:exam.m2.third.bet}} ÷ {{n:exam.m2.third.total}} = {{n:exam.m2.third.eq}}です。{{t:straight|ストレート}}になるアウツは{{n:outs.oesd}}枚で、{{n:cards.unseen.turn}}枚中{{n:outs.oesd}}枚、約{{n:odds.oesd.turn-river}}です。ここでは小さな{{t:bet}}でも高すぎます。" }
+      - { text: "{{t:call|コール}}。{{t:bet}}が小さいから", why: "小さな{{t:bet}}は、良い価格と同じではありません。必要なのは{{n:exam.m2.third.eq}}で、あなたの確率は約{{n:odds.oesd.turn-river}}です。" }
+  - kind: choice
+    id: m2.exam.q8
+    family: m2.draw-call
+    rules: [R-M2-003, R-M2-002]
+    prompt: "フロップ。相手が{{t:pot|ポット}}の半分の額でオールインし、あなたは{{t:flush-draw|フラッシュドロー}}です。{{t:flush|フラッシュ}}をヒットしたときだけ勝つとします。どうしますか？"
+    table: { hand: "Kc Tc", board: "8c 3c Jd" }
+    options:
+      - { text: "{{t:call|コール}}", correct: true, why: "必要なのは{{n:eq.bet-half}}です。相手はオールインなので、これ以上の{{t:bet|ベット}}なしでターンとリバーを見られます：アウツ{{n:outs.flush}}枚で約{{n:odds.flush.flop-river}}です。必要な分より多いです。" }
+      - { text: "{{t:fold|フォールド}}。ターンでは約{{n:odds.flush.flop-turn}}しかないから", why: "カード1枚分の確率で数えるのは、相手がまだ{{t:bet|ベット}}できるときです。オールインなら2枚とも見られるので、リバーまでで数えます：約{{n:odds.flush.flop-river}}。" }

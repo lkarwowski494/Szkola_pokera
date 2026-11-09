@@ -1,0 +1,86 @@
+module: m11
+drills:
+  - kind: choice
+    id: m11.exam.q1
+    family: m11.threshold
+    rules: [R-M11-001]
+    prompt: "{{t:tournament|Tournoi}}. Vous avez {{n:exam.m11.mid.stack}}, et tous les joueurs avant vous se sont {{t:fold|couchés}}. Votre main est moyenne : trop bonne pour l'abandonner, trop faible pour la jouer après le flop. Quel plan les sources recommandent-elles ?"
+    options:
+      - { text: "All-in ou {{t:fold|se coucher}}", correct: true, why: "Entre {{n:m11.thr.pushfold}} et {{n:m11.thr.upper}}, le push/fold est la principale méthode pour les mains faibles et moyennes. Avec un tel stack, c'est l'all-in qui fait le plus souvent {{t:fold|coucher}} l'adversaire. C'est une simplification : les solvers jouent aussi certaines mains autrement." }
+      - { text: "Relance minimale, puis {{t:fold|se coucher}} face à l'all-in adverse", why: "À {{n:exam.m11.mid.stack}}, relancer puis se {{t:fold|coucher}} après une {{t:raise|relance}} cède une grande partie du stack sans combattre. Les sources recommandent la relance classique à partir d'env. {{n:m11.thr.raise}}." }
+      - { text: "Limp pour voir le flop à moindre coût", why: "Le limp ne vous donne aucune chance de remporter le {{t:pot|pot}} immédiatement, et avec un {{t:short-stack|short stack}}, c'est justement quand les adversaires se {{t:fold|couchent}} que vous trouvez votre principale source de profit." }
+  - kind: numeric
+    id: m11.exam.q2
+    family: m11.m
+    rules: [R-M11-005]
+    prompt: "Vous avez {{n:exam.m11.m.stack}} {{t:chips|jetons}}. Les blindes sont de {{n:exam.m11.m.sb}}/{{n:exam.m11.m.bb}}, et la {{t:big-blind|grosse blinde}} paie en plus une ante de {{n:exam.m11.m.ante}}. Combien vaut votre M ? Saisissez un nombre avec une décimale."
+    answer: exam.m11.m.value
+    explanation: "Un tour de table coûte {{n:exam.m11.m.sb}} + {{n:exam.m11.m.bb}} + {{n:exam.m11.m.ante}} = {{n:exam.m11.m.orbit}}, donc M = {{n:exam.m11.m.stack}} ÷ {{n:exam.m11.m.orbit}} = {{n:exam.m11.m.value}}. C'est bien en dessous d'env. {{n:m11.m.red}} : vous vous limitez désormais à all-in ou {{t:fold|se coucher}}, et vous cherchez à entrer le premier dans le {{t:pot|pot}}."
+  - kind: choice
+    id: m11.exam.q3
+    family: m11.fold-equity
+    rules: [R-M11-004]
+    prompt: "{{t:small-blind|Petite blinde}}, {{n:exam.m11.fe.depth}}, sans ante, tout le monde s'est {{t:fold|couché}}. À quelle fréquence la {{t:big-blind|grosse blinde}} devrait-elle se {{t:fold|coucher}} pour qu'un all-in avec une main sans aucune chance ne fasse ni gain ni perte ?"
+    options:
+      - { text: "Plus de {{n:exam.m11.fe.alpha}} du temps", correct: true, why: "Vous mettez {{n:exam.m11.fe.risk}} pour gagner {{n:m11.push.10.win}} blindes : {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha}}. L'adversaire ne se {{t:fold|couche}} pas aussi souvent, donc l'all-in a aussi besoin d'equity pour les cas où l'adversaire {{t:call|suit}}." }
+      - { text: "Plus de la moitié du temps", why: "Vous risquez bien plus que vous ne gagnez : {{n:exam.m11.fe.risk}} contre {{n:m11.push.10.win}}. Le seuil est risque ÷ (gain + risque), soit env. {{n:exam.m11.fe.alpha}}." }
+      - { text: "Jamais : à {{n:exam.m11.fe.depth}}, l'all-in est toujours rentable", why: "Une main sans chance au showdown ne gagne que lorsque l'adversaire se {{t:fold|couche}}, et il faut que cela arrive dans env. {{n:exam.m11.fe.alpha}} des cas. C'est pourquoi la {{t:range|range}} d'all-in, bien que large, n'inclut pas toutes les mains." }
+  - kind: choice
+    id: m11.exam.q4
+    family: m11.ante
+    rules: [R-M11-003, R-M11-004]
+    prompt: "Le même stack de {{n:exam.m11.fe.depth}} en {{t:small-blind|petite blinde}}, mais la {{t:big-blind|grosse blinde}} a payé une ante de {{n:m11.ante}}. À quelle fréquence doit-elle maintenant se {{t:fold|coucher}} pour qu'un all-in avec une main sans chance ne fasse ni gain ni perte ?"
+    options:
+      - { text: "Plus de {{n:exam.m11.fe.alpha-ante}} du temps, donc vous {{t:shove|faites tapis}} avec plus de mains", correct: true, why: "L'ante grossit le {{t:pot|pot}} que vous remportez quand l'adversaire se {{t:fold|couche}} : {{n:m11.push.10.win-ante}} au lieu de {{n:m11.push.10.win}}, alors que le risque reste le même ({{n:exam.m11.fe.risk}}). {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win-ante}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha-ante}} au lieu de {{n:exam.m11.fe.alpha}}." }
+      - { text: "Comme sans ante : plus de {{n:exam.m11.fe.alpha}}", why: "L'ante est dans le {{t:pot|pot}}, et vous la remportez quand l'adversaire se {{t:fold|couche}}. Une récompense plus grande pour le même risque abaisse le seuil à env. {{n:exam.m11.fe.alpha-ante}}." }
+      - { text: "Plus souvent, car il y a plus à perdre dans le {{t:pot|pot}}", why: "L'ante est déjà dans le {{t:pot|pot}}, elle ne fait pas partie de votre risque. Vous mettez autant et gagnez plus, donc le seuil baisse." }
+  - kind: numeric
+    id: m11.exam.q5
+    family: m11.call.price
+    rules: [R-M11-006]
+    prompt: "Stacks de {{n:exam.m11.call.depth}} chacun, sans ante. Vous êtes en {{t:big-blind|grosse blinde}}, et la {{t:small-blind|petite blinde}} a fait all-in. De quel pourcentage d'equity avez-vous besoin pour que {{t:call|suivre}} soit rentable ? Saisissez un nombre."
+    answer: exam.m11.call.eq
+    explanation: "Votre blinde est déjà dans le {{t:pot|pot}}, donc vous ajoutez {{n:exam.m11.call.depth}} − {{n:pf.blind.bb}} = {{n:exam.m11.call.cost}}. Une fois que vous avez {{t:call|suivi}}, le {{t:pot|pot}} contient {{n:exam.m11.call.pot}} : {{n:exam.m11.call.cost}} ÷ {{n:exam.m11.call.pot}} ≈ {{n:exam.m11.call.eq}}."
+  - kind: choice
+    id: m11.exam.q6
+    family: m11.call.gap
+    rules: [R-M11-007]
+    prompt: "Stacks de {{n:m11.depth.5}} chacun, la {{t:small-blind|petite blinde}} a fait all-in, et vous êtes en {{t:big-blind|grosse blinde}}. Un ami vous conseille : « {{t:call|Suivez}} avec toutes les mains avec lesquelles vous {{t:shove|feriez tapis}} vous-même depuis la {{t:small-blind|petite blinde}}. » Qu'en dit le solver ?"
+    options:
+      - { text: "Vous {{t:call|suivez}} plus serré : env. {{n:m11.call.5}} des mains contre env. {{n:m11.nash.push.5}}–{{n:m11.push.5}} pour l'all-in", correct: true, why: "Celui qui {{t:call|suit}} ne gagne qu'au showdown, et contre une {{t:range|range}} déjà filtrée. Celui qui {{t:shove|fait tapis}} gagne aussi quand l'adversaire se {{t:fold|couche}}. Même avec un {{t:short-stack|short stack}} aussi court et un bon prix, la {{t:range|range}} pour {{t:call|suivre}} est plus étroite." }
+      - { text: "Votre ami a raison : à {{n:m11.depth.5}}, les deux {{t:range|ranges}} sont identiques", why: "Un {{t:short-stack|short stack}} élargit les deux {{t:range|ranges}}, mais ne les rend pas égales : l'all-in a de la fold equity, {{t:call|suivre}} n'en a pas. Le solver {{t:call|suit}} avec env. {{n:m11.call.5}} des mains et {{t:shove|fait tapis}} avec env. {{n:m11.nash.push.5}}–{{n:m11.push.5}} (la borne inférieure provient d'un calcul d'équilibre indépendant, la borne supérieure du solver de l'application)." }
+      - { text: "Vous {{t:call|suivez}} plus large, car le prix est bon", why: "Le prix à {{n:m11.depth.5}} est bon ({{n:m11.call.5.eq}}), mais vous jouez contre la {{t:range|range}} d'all-in, et non contre une main aléatoire. Le solver {{t:call|suit}} plus serré qu'il ne {{t:shove|fait tapis}}." }
+  - kind: numeric
+    id: m11.exam.q7
+    family: m11.bf
+    rules: [R-M11-009, R-M11-008]
+    prompt: "{{t:bubble|Bulle}} : quatre joueurs, trois places payées ({{n:m11.bf.p1}}, {{n:m11.bf.p2}}, {{n:m11.bf.p3}} du {{t:prize-pool|prize pool}}). Stacks : {{n:exam.m11.bf.s1}}, le vôtre {{n:exam.m11.bf.s2}}, l'adversaire à tapis avec {{n:exam.m11.bf.s3}}, et {{n:exam.m11.bf.s4}}. Selon l'{{t:icm}}, si vous {{t:call|suivez}} et perdez, vous perdez {{n:exam.m11.bf.loss}} du {{t:prize-pool|prize pool}}, et si vous gagnez, vous gagnez {{n:exam.m11.bf.gain}}. Quel est le bubble factor ? Saisissez un nombre avec deux décimales."
+    answer: exam.m11.bf.value
+    explanation: "Bubble factor = perte ÷ gain = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.gain}} ≈ {{n:exam.m11.bf.value}}. Votre equity est actuellement de {{n:exam.m11.bf.eq.now}}, de {{n:exam.m11.bf.eq.win}} après une victoire et de {{n:exam.m11.bf.eq.lose}} après une défaite : perdre coûte plus que gagner ne rapporte. L'{{t:icm}} ne tient compte ni de la {{t:position|position}} ni du niveau des joueurs, donc cette évaluation est une approximation."
+  - kind: choice
+    id: m11.exam.q8
+    family: m11.bf
+    rules: [R-M11-009]
+    prompt: "Même spot : bubble factor {{n:exam.m11.bf.value}}. En jouant pour les {{t:chips|jetons}}, {{n:exam.m11.bf.req-chips}} d'equity suffit pour {{t:call|suivre}}. De combien avez-vous besoin selon l'{{t:icm}} ?"
+    options:
+      - { text: "Env. {{n:exam.m11.bf.req}}", correct: true, why: "Equity requise = BF ÷ (BF + 1) = perte ÷ (perte + gain) = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.range}} ≈ {{n:exam.m11.bf.req}}. L'écart par rapport à {{n:exam.m11.bf.req-chips}} correspond à la {{t:risk-premium|prime de risque}}." }
+      - { text: "{{n:exam.m11.bf.req-chips}}, comme en {{t:chips|jetons}}", why: "Dans un {{t:tournament|tournoi}} avec des {{t:payout|paiements}}, perdre coûte plus d'argent que gagner n'en rapporte, donc {{t:call|suivre}} doit gagner plus souvent : env. {{n:exam.m11.bf.req}}." }
+      - { text: "Moins de {{n:exam.m11.bf.req-chips}}, car la {{t:bubble|bulle}} force l'adversaire à {{t:bluff|bluffer}}", why: "Un bubble factor supérieur à 1 élève toujours l'equity requise au-dessus du prix en {{t:chips|jetons}}. Ici, à env. {{n:exam.m11.bf.req}}." }
+  - kind: choice
+    id: m11.exam.q9
+    family: m11.icm.call
+    rules: [R-M11-010]
+    prompt: "{{t:bubble|Bulle}} d'un {{t:tournament|tournoi}}. Vous avez un stack moyen. Le plus gros stack de la table, qui vous {{t:cover|couvre}}, fait all-in. Comment {{t:call|suivez}}-vous par rapport au jeu pour les {{t:chips|jetons}} ?"
+    options:
+      - { text: "Nettement plus serré", correct: true, why: "Perdre vous élimine juste avant les prix, et gagner rapporte moins que perdre ne coûte : les {{t:chips|jetons}} gagnés valent moins que les jetons perdus. C'est pourquoi il vous faut nettement plus d'equity qu'en jouant pour les {{t:chips|jetons}}." }
+      - { text: "Plus large, car le gros stack {{t:shove|fait tapis}} avec beaucoup de mains", why: "Le gros stack peut effectivement {{t:shove|faire tapis}} plus large, mais justement parce que vous devez {{t:call|suivre}} serré. La {{t:risk-premium|prime de risque}} relève vos exigences." }
+      - { text: "Pareil : l'{{t:icm}} ne compte qu'à la {{t:final-table|table finale}}", why: "{{t:call|Suivre}} plus prudemment s'applique aussi bien à la {{t:final-table|table finale}} qu'à la {{t:bubble|bulle}} : ici, c'est de votre survie que dépend le fait de gagner quoi que ce soit." }
+  - kind: choice
+    id: m11.exam.q10
+    family: m11.push.3max
+    rules: [R-M11-011]
+    prompt: "Trois joueurs, stacks de {{n:m11.depth.3max}} chacun. D'où {{t:shove|faites-vous tapis}} plus large : depuis le Bouton, avec les deux blindes derrière vous, ou depuis la {{t:small-blind|petite blinde}} après que le Bouton s'est {{t:fold|couché}} ?"
+    options:
+      - { text: "Depuis la {{t:small-blind|petite blinde}} : env. {{n:m11.3max.push.sb}} des mains contre env. {{n:m11.3max.push.btn}} depuis le Bouton", correct: true, why: "Chaque joueur derrière vous est une chance de plus que quelqu'un se réveille avec une main forte. Depuis le Bouton, deux joueurs doivent se {{t:fold|coucher}} ; depuis la {{t:small-blind|petite blinde}}, un seul." }
+      - { text: "Depuis le Bouton, car il a la meilleure {{t:position|position}}", why: "Après un all-in, plus personne ne prend de décisions après le flop, donc la {{t:position|position}} n'apporte rien ici. Ce qui compte, c'est le nombre de joueurs qui peuvent {{t:call|suivre}} : derrière le Bouton, il y en a deux." }
+      - { text: "Pareil depuis les deux places", why: "Le solver {{t:shove|fait tapis}} avec env. {{n:m11.3max.push.btn}} des mains depuis le Bouton, et avec env. {{n:m11.3max.push.sb}} depuis la {{t:small-blind|petite blinde}}. C'est le nombre de joueurs derrière vous qui fait la différence." }

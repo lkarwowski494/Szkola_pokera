@@ -1,0 +1,95 @@
+# Pula egzaminacyjna M3 (pozycja, ręce startowe, zakresy otwarć): reguły lekcji m3.l1–m3.l3, inne ręce i pozycje.
+# Decyzje otwarcia zgodne ze spotami solvera aplikacji (rfi.*): ręce poza listą klas niepewnych, częstość 0 albo ≥ 0,94.
+module: m3
+drills:
+  - kind: choice
+    id: m3.exam.q1
+    family: m3.position
+    rules: [R-M3-001]
+    prompt: "按鈕位{{t:open|開池}}，{{t:small-blind}}{{t:fold|棄牌}}，{{t:big-blind}}{{t:call|跟注}}。翻牌圈誰先行動？"
+    options:
+      - { text: "{{t:big-blind|大盲}}", correct: true, why: "從翻牌圈開始，盲注位先行動，按鈕位最後行動。所以這裡按鈕位有{{t:position|位置}}，而{{t:big-blind}}處於{{t:out-of-position}}。" }
+      - { text: "按鈕位，因為它{{t:open|開池}}", why: "行動順序取決於牌桌上的座位，而不是誰{{t:open|開池}}。從翻牌圈開始，按鈕位一定最後行動。" }
+      - { text: "翻牌前最後行動的人", why: "翻牌前盲注位最後行動，但從翻牌圈開始最先行動。所以按鈕位的{{t:position}}最好。" }
+  - kind: choice
+    id: m3.exam.q2
+    family: m3.open-early
+    rules: [R-M3-002]
+    prompt: "翻牌前你第一個行動，還沒有人入池。你怎麼做？"
+    table: { hand: "Ac Td", position: UTG }
+    options:
+      - { text: "{{t:raise|加注}}", correct: true, why: "不同花 AT 在{{t:utg}}的{{t:open|開池}}{{t:range|範圍}}內（約 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} 手牌）。App 的求解器在這裡一律會打這手牌。" }
+      - { text: "{{t:fold|棄牌}}", why: "太緊了。在{{t:utg}}你要打得窄，但 AT 仍在{{t:range|範圍}}內。" }
+      - { text: "平跟{{t:big-blind|大盲}}", why: "第一個入池時，你要嘛{{t:raise|加注}}，要嘛{{t:fold|棄牌}}。平跟會交出{{t:initiative|主動權}}，也失去立刻拿下盲注的機會。" }
+  - kind: choice
+    id: m3.exam.q3
+    family: m3.rfi.early
+    rules: [R-M3-006]
+    prompt: "{{t:utg}}{{t:fold|棄牌}}，下一個輪到你。你怎麼做？"
+    table: { hand: "Ah 9d", position: HJ }
+    options:
+      - { text: "{{t:fold|棄牌}}", correct: true, why: "你後面還有四位玩家。不同花 A9 常常中了 A，踢腳卻比對手的 AT、AJ 或 AQ 弱。App 的求解器在{{t:hijack|HJ}}一律會{{t:fold|棄掉}}這手牌。" }
+      - { text: "{{t:raise|加注}}", why: "A 很誘人，但在{{t:hijack|HJ}}你{{t:open|開池}}比在{{t:cutoff|CO}}和按鈕位更窄。A9o 要到{{t:cutoff|CO}}的{{t:range|範圍}}才會納入。" }
+  - kind: choice
+    id: m3.exam.q4
+    family: m3.rfi.late
+    rules: [R-M3-006]
+    prompt: "你前面的人都{{t:fold|棄牌}}了。你怎麼做？"
+    table: { hand: "Ah 9d", position: CO }
+    options:
+      - { text: "{{t:raise|加注}}", correct: true, why: "你後面只剩按鈕位和盲注位，所以你{{t:open|開池}}比在{{t:hijack|HJ}}更寬。App 的求解器在這裡幾乎總是會打 A9o。" }
+      - { text: "{{t:fold|棄牌}}", why: "這是你在{{t:hijack|HJ}}拿這手牌的打法。在{{t:cutoff|CO}}，你後面少一位玩家，{{t:range}}也更寬。" }
+  - kind: choice
+    id: m3.exam.q5
+    family: m3.open-late
+    rules: [R-M3-003]
+    prompt: "所有人都{{t:fold|棄牌}}到你。你怎麼做？"
+    table: { hand: "Jd 9c", position: BTN }
+    options:
+      - { text: "{{t:raise|加注}}", correct: true, why: "在按鈕位你約{{t:open|開池}} {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} 手牌。只剩盲注位，翻牌後你又有{{t:position|位置}}，所以不同花 J9 也在範圍內。" }
+      - { text: "{{t:fold|棄牌}}", why: "在{{t:cutoff|CO}}求解器很少打這手牌，但在按鈕位一律會打。只面對盲注位，這樣太緊了。" }
+      - { text: "平跟{{t:big-blind|大盲}}", why: "平跟會交出{{t:initiative|主動權}}。{{t:raise|加注}}常常能立刻拿下盲注。" }
+  - kind: choice
+    id: m3.exam.q6
+    family: m3.rfi.sb
+    rules: [R-M3-004, R-M3-007, R-M3-009]
+    prompt: "所有人都{{t:fold|棄牌}}到你，你在{{t:small-blind|小盲}}。你怎麼做？"
+    table: { hand: "Td 8c", position: SB }
+    options:
+      - { text: "{{t:raise|加注}}到 {{n:pf.open-size-sb}}", correct: true, why: "現在你只對上{{t:big-blind|大盲}}，所以你{{t:open|開池}}很寬，約 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} 手牌。翻牌後你先行動，所以在{{t:small-blind|小盲}}你{{t:raise|加注}}的尺寸比其他{{t:position|位置}}稍大。" }
+      - { text: "{{t:raise|加注}}到 {{n:pf.open-size}}", sizeError: true, why: "行動對了，尺寸錯了：{{n:pf.open-size}} 是其他{{t:position|位置}}的{{t:open}}尺寸。在{{t:small-blind|小盲}}你處於{{t:out-of-position}}，所以要{{t:raise|加注}}到 {{n:pf.open-size-sb}}。" }
+      - { text: "平跟{{t:big-blind|大盲}}", why: "第一個入池時，你要嘛{{t:raise|加注}}，要嘛{{t:fold|棄牌}}（在{{t:small-blind|小盲}}這是簡化：有些求解器的解法在這裡會平跟部分手牌）。平跟會交出{{t:initiative|主動權}}，也失去立刻拿下盲注的機會。" }
+      - { text: "{{t:fold|棄牌}}", why: "太緊了：只面對一位對手時，App 的求解器在{{t:small-blind|小盲}}一律會打 T8o。" }
+  - kind: numeric
+    id: m3.exam.n1
+    family: m3.open-early
+    rules: [R-M3-007]
+    prompt: "你前面的人都{{t:fold|棄牌}}了，你在{{t:hijack|HJ}}，要{{t:open|開池}}。你要{{t:raise|加注}}到幾 bb？請輸入數字。"
+    table: { hand: "Kh Qh", position: HJ }
+    answer: pf.open-size
+    explanation: "除了{{t:small-blind|小盲}}（那裡是 {{n:pf.open-size-sb}}），你在每個{{t:position|位置}}都{{t:open|開池}}到 {{n:pf.open-size}}。單一尺寸很簡單，也不會洩漏你的牌力。這是簡化：求解器在{{t:early-position|前位}}{{t:open|開池}}的尺寸會稍小。"
+  - kind: choice
+    id: m3.exam.q7
+    family: m3.suited
+    rules: [R-M3-005]
+    prompt: "為什麼同花 T9 比不同花 T9 好打？"
+    options:
+      - { text: "多了一條靠{{t:flush}}獲勝的路", correct: true, why: "點數相同，所以你中{{t:pair|對子}}和{{t:straight|順子}}的機率一樣。同花手牌還多了做成{{t:flush|同花}}的機會。" }
+      - { text: "更常中{{t:pair|對子}}", why: "中{{t:pair|對子}}的機率取決於點數，而點數是一樣的。" }
+      - { text: "更常中{{t:straight|順子}}", why: "{{t:straight|順子}}取決於牌的點數，而不是兩張牌是否同花。" }
+  - kind: choice
+    id: m3.exam.q8
+    family: m3.premium
+    rules: [R-M3-008]
+    prompt: "{{t:utg}}{{t:raise|加注}}，其他人都{{t:fold|棄牌}}到你。你怎麼做？"
+    table: { hand: "Ks Kd", position: BTN }
+    options:
+      - { text: "再{{t:raise|加注}}（3-bet）", correct: true, why: "KK 是最強的手牌之一，對上{{t:utg}}大多數{{t:open|開池}}手牌都是優勢方。3-bet 能做大{{t:pot|底池}}，通常也會讓你只面對一位對手。" }
+      - { text: "只{{t:call|跟注}}", why: "有時會為了迷惑對手這樣打，但作為原則，你會放棄價值，還讓盲注位便宜入池。" }
+      - { text: "{{t:fold|棄牌}}，因為{{t:utg}}的{{t:range}}很強", why: "{{t:utg}}的{{t:range|範圍}}很窄，但 KK 對上它仍是明顯的優勢方。" }
+  - kind: paint
+    id: m3.exam.p-co
+    family: m3.paint.late
+    rules: [R-M3-006]
+    spot: rfi.co
+    prompt: "你前面的人都{{t:fold|棄牌}}了，你在{{t:cutoff|CO}}。把你會{{t:open|開池}}的手牌塗上顏色。"

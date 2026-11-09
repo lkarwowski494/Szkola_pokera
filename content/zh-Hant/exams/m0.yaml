@@ -1,0 +1,92 @@
+# Pula egzaminacyjna M0 (układy kart): te same reguły co lekcja m0.l1, inne rozdania i sformułowania.
+module: m0
+drills:
+  - kind: choice
+    id: m0.exam.q1
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "對手是{{t:three-of-a-kind|三條}} A，你是到 J 的{{t:straight|順子}}。誰贏？"
+    table: { hand: "Th 9h", opp: "Ac Ad", board: "As 8c 7d Jh 2s" }
+    options:
+      - { text: "你", correct: true, why: "你的五張牌是 J-10-9-8-7，也就是{{t:straight}}。{{t:straight|順子}}在排名中高於{{t:three-of-a-kind|三條}}，所以對手的牌有多大並不重要。" }
+      - { text: "對手，因為他有 A", why: "只有在牌型相同時，A 才有意義。這裡牌型不同：{{t:straight}}勝過{{t:three-of-a-kind|三條}}。" }
+      - { text: "{{t:split-pot|平分底池}}", why: "不同牌型不會平手。排名較高的牌型獲勝。" }
+  - kind: choice
+    id: m0.exam.q2
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "你是{{t:four-of-a-kind|四條}} 9，對手是 K 的{{t:full-house|葫蘆}}。誰贏？"
+    table: { hand: "9c 9d", opp: "Kh 2c", board: "9h 9s Kd Kc 3h" }
+    options:
+      - { text: "你", correct: true, why: "{{t:four-of-a-kind|四條}}在排名中位居第 3，{{t:full-house}}位居第 4。對手的 K 幫不上忙，因為牌型不同。" }
+      - { text: "對手，因為 K 比 9 大", why: "只有在牌型相同時才比較牌的大小。{{t:four-of-a-kind|四條}}永遠勝過{{t:full-house|葫蘆}}。" }
+      - { text: "{{t:split-pot|平分底池}}，因為你們都用到{{t:board|牌面}}", why: "你們都用到{{t:community-cards|公共牌}}，但各自組成不同的五張牌：你是{{t:four-of-a-kind|四條}}，對手是{{t:full-house|葫蘆}}。" }
+  - kind: choice
+    id: m0.exam.q3
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "對手有{{t:pair|一對}} A，而你有{{t:two-pair}}：7 和 2。誰贏？"
+    options:
+      - { text: "你", correct: true, why: "{{t:two-pair|兩對}}在排名中高於{{t:pair|一對}}，即使牌很小也一樣。先比較的是牌型的等級。" }
+      - { text: "對手，因為 A 最大", why: "{{t:pair|一對}} A 終究只是{{t:pair}}。只有在牌型相同時，牌的大小才有決定性。" }
+      - { text: "要看踢腳牌", why: "只有在牌型核心完全相同時，踢腳牌才有意義。這裡牌型不同。" }
+  - kind: choice
+    id: m0.exam.q4
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "你們都是{{t:two-pair}}：{{t:board|牌面}}上的 Q 和 8。誰贏？"
+    table: { hand: "Ah 3c", opp: "Kd 4s", board: "Qs Qd 8h 8c 2s" }
+    options:
+      - { text: "你", correct: true, why: "牌型核心相同（Q 和 8），所以由第五張牌決定。你的 A 勝過對手的 K。" }
+      - { text: "對手", why: "對手的第五張牌是 K，而你是 A。A 比較大。" }
+      - { text: "{{t:split-pot|平分底池}}", why: "只有五張牌完全相同才會平分。這裡第五張牌不同：A 對 K。" }
+  - kind: choice
+    id: m0.exam.q5
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "你們都有{{t:pair|一對}} K 和一張 A。你的第二張牌（4）比對手的第二張牌（3）大。誰贏？"
+    table: { hand: "Ac 4d", opp: "As 3h", board: "Kh Kd Qc Js 9h" }
+    options:
+      - { text: "{{t:split-pot|平分底池}}", correct: true, why: "兩位玩家最好的五張牌都是 K-K-A-Q-J。4 和 3 不在這五張牌內，所以不會改變任何結果。" }
+      - { text: "你，因為 4 比 3 大", why: "只有在踢腳牌屬於最好的 5 張牌時，它才有意義。這裡 Q 和 J 來自{{t:board}}，所以你的 4 是第六張牌。" }
+      - { text: "對手", why: "對手的五張牌和你一樣：K-K-A-Q-J。" }
+  - kind: choice
+    id: m0.exam.q6
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "你們都有{{t:straight|順子}}。誰贏？"
+    table: { hand: "Ah 2c", opp: "6d 7s", board: "3s 4d 5h Kc 9d" }
+    options:
+      - { text: "對手", correct: true, why: "你的{{t:straight}}是 A-2-3-4-5，也就是{{t:wheel}}，最小的{{t:straight}}：這裡 A 當作 1。對手是 3-4-5-6-7，所以他的{{t:straight}}比較大。" }
+      - { text: "你，因為你有 A", why: "在 A 到 5 的{{t:straight|順子}}裡，A 是最小的牌。牌型相同時，較大的{{t:straight}}獲勝：7 勝過 5。" }
+      - { text: "{{t:split-pot|平分底池}}", why: "你們都有{{t:straight|順子}}，但大小不同。只有五張牌完全相同才會平分。" }
+  - kind: choice
+    id: m0.exam.q7
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "你們都有紅心{{t:flush|同花}}，且{{t:board|牌面}}上有 A。誰贏？"
+    table: { hand: "Kh 4h", opp: "Qh Jh", board: "Ah 9h 3h 7c 2d" }
+    options:
+      - { text: "你", correct: true, why: "{{t:flush|同花}}從最大的牌開始比較。A 是共用的，第二張牌是你的 K 對上對手的 Q。" }
+      - { text: "對手，因為他有兩張大牌", why: "依序比較第一張不同的最大牌。你的 K 勝過 Q，所以後面的牌不重要。" }
+      - { text: "{{t:split-pot|平分底池}}", why: "五張牌不同：A-K-9-4-3 和 A-Q-J-9-3。" }
+  - kind: choice
+    id: m0.exam.q8
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "{{t:board|牌面}}上是{{t:full-house}}：三張 A 和兩張 K。你有{{t:pair|一對}} Q。誰贏？"
+    table: { hand: "Qc Qd", opp: "7s 2c", board: "Ah Ad Ac Ks Kh" }
+    options:
+      - { text: "{{t:split-pot|平分底池}}", correct: true, why: "兩位玩家最好的五張牌都是{{t:board|牌面}}上的 A-A-A-K-K。你的 Q 只能組成較弱的{{t:full-house|葫蘆}}（A 帶 Q），所以不會用在這五張牌裡。" }
+      - { text: "你，因為你有{{t:pair|一對}} Q", why: "A 帶 Q 比{{t:board|牌面}}上的 A 帶 K 弱。所以你和對手一樣，都是用{{t:board|牌面}}比牌。" }
+      - { text: "對手", why: "對手也是用{{t:board|牌面}}的五張牌比牌。他的牌和你的一樣，沒有任何加分。" }
+  - kind: choice
+    id: m0.exam.q9
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "{{t:board|牌面}}上是 9 到 K 的{{t:straight}}。誰贏？"
+    table: { hand: "Ac 2d", opp: "3c 3d", board: "Ts Jd Qc Kh 9s" }
+    options:
+      - { text: "你", correct: true, why: "你的 A 把{{t:straight|順子}}延伸到 A-K-Q-J-10。對手用{{t:board|牌面}}的五張牌（K-Q-J-10-9）比牌，而你的比較大。" }
+      - { text: "{{t:split-pot|平分底池}}", why: "只有兩位玩家最好的五張牌都在{{t:board|牌面}}上時才會平分。你靠 A 組成了更好的五張牌。" }
+      - { text: "對手，因為他有{{t:pair|一對}}", why: "{{t:pair|一對}} 3 比{{t:board|牌面}}上的{{t:straight}}弱，所以對手是用{{t:board|牌面}}比牌。" }

@@ -85,6 +85,7 @@ describe('budowa bazy języka z plikiem nazw', () => {
     cpSync(contentDir, dir, { recursive: true });
     symlinkSync(join(contentDir, '..', 'tools'), join(root, 'tools'));
     symlinkSync(join(contentDir, '..', 'docs'), join(root, 'docs'));
+    rmSync(join(dir, 'ja'), { recursive: true, force: true });
     cpSync(join(dir, 'en'), join(dir, 'ja'), { recursive: true });
     const lekcja = join(dir, 'ja', 'lessons', 'm0-l1-uklady.md');
     writeFileSync(lekcja, `${readFileSync(lekcja, 'utf8')}\n\nK05 {{t:call}} K05\n`);

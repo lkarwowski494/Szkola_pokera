@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { Muted, Screen, Surface, Title } from '@/components/ui';
 import { definicjaTerminu } from '@/features/glossary/definicje';
-import { englishLabel, GLOSSARY_SIZE, glossarySections, zPolskimi, type GlossaryEntry } from '@/features/glossary/glossary';
+import { englishLabel, GLOSSARY_SIZE, glossarySections, nazwaLokalna, zPolskimi, type GlossaryEntry } from '@/features/glossary/glossary';
 import { jezykZadan } from '@/features/drills/text';
 import type { Jezyk } from '@szkola/jezyki';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
@@ -60,7 +60,9 @@ function Entry({ entry, jezyk }: { entry: GlossaryEntry; jezyk: Jezyk }) {
   const def = definicjaTerminu(entry.key, jezyk); // D-335: definicja w języku aplikacji, bez polskiej poza pl
   const pl = zPolskimi(jezyk);
   const inne = entry.enAlt.length > 0 ? <Muted>{t('glossary.alsoEn', { list: entry.enAlt.join(', ') })}</Muted> : null;
-  const etykieta = pl ? `${entry.pl}: ${en}${def ? `. ${def}` : ''}` : `${en}${def ? `. ${def}` : ''}`;
+  const lokalna = nazwaLokalna(entry, jezyk); // D-369: nazwa z tekstu lekcji nad angielską (ja, zh-Hant, pt-BR, fr)
+  const glowna = pl ? entry.pl : lokalna;
+  const etykieta = glowna ? `${glowna}: ${en}${def ? `. ${def}` : ''}` : `${en}${def ? `. ${def}` : ''}`;
   return (
     <View style={{ gap: odstep.xs }} accessible accessibilityLabel={etykieta}>
       {pl ? (
@@ -70,6 +72,12 @@ function Entry({ entry, jezyk }: { entry: GlossaryEntry; jezyk: Jezyk }) {
             <Text style={[styl.tresc, { color: tk.muted }]}>{en}</Text>
             {inne}
           </View>
+        </View>
+      ) : lokalna ? (
+        <View style={{ gap: 2 }}>
+          <Text style={[styl.tresc, { color: tk.ink, fontWeight: '600' }]}>{lokalna}</Text>
+          <Text style={[styl.tresc, { color: tk.muted }]}>{en}</Text>
+          {inne}
         </View>
       ) : (
         <View style={{ gap: 2 }}>

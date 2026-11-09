@@ -1,0 +1,86 @@
+# Pula pytań egzaminacyjnych modułu M9 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m9.*).
+module: m9
+drills:
+  - kind: choice
+    id: m9.exam.q1
+    family: m9.spr
+    rules: [R-M9-001]
+    prompt: "翻牌時{{t:pot|底池}}有 {{n:exam.m9.pot}}。你身後還有 {{n:exam.m9.stack.you}}，對手有 {{n:exam.m9.stack.opp}}。{{t:spr}}是多少？"
+    options:
+      - { text: "{{n:exam.m9.spr}}", correct: true, why: "對：要用{{t:effective-stack|有效籌碼}}計算，也就是兩者中較小的那個：{{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}。這手牌你能贏或輸的，不可能超過對手擁有的籌碼。" }
+      - { text: "{{n:exam.m9.spr.wrong}}", why: "這是你的籌碼 ÷ {{t:pot}}。對手籌碼較少，所以這手牌最多只能投入 {{n:exam.m9.stack.opp}}：{{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}。" }
+      - { text: "{{n:exam.m9.spr.inverted}}", why: "反了：{{t:spr}}是籌碼除以{{t:pot|底池}}，而不是{{t:pot}}除以籌碼。" }
+  - kind: choice
+    id: m9.exam.q2
+    family: m9.spr-zone
+    rules: [R-M9-010]
+    prompt: "翻牌的{{t:spr}}是 {{n:exam.m9.spr}}。依照{{t:spr}}區間，下列哪一手牌屬於邊緣牌：你拿它打{{t:value|價值}}，但不一定{{t:call|跟注}}對手的全下？"
+    options:
+      - { text: "{{t:top-pair|頂對}}加好踢腳", correct: true, why: "對：{{n:exam.m9.spr}} 落在 {{n:spr.zone.low}} 到 {{n:spr.zone.mid}} 的區間，在這個區間{{t:top-pair}}是邊緣牌（這是簡化說法）。低於 {{n:spr.zone.low}} 時，它通常會打到全部籌碼。" }
+      - { text: "暗三條", why: "即使{{t:spr}}高於 {{n:spr.zone.deep}}，暗三條也會打到全部籌碼。在{{t:spr}} {{n:exam.m9.spr}} 時，這明顯是要打全部籌碼的牌。" }
+      - { text: "用{{t:board|公共牌}}最大兩張組成的{{t:two-pair|兩對}}", why: "高{{t:two-pair}}即使在 {{n:spr.zone.mid}} 到 {{n:spr.zone.deep}} 的區間，也足以打到全部籌碼。在{{t:spr}} {{n:exam.m9.spr}} 時，它是要打全部籌碼的牌，不是邊緣牌。" }
+  - kind: numeric
+    id: m9.exam.q3
+    family: m9.spr-price
+    rules: [R-M9-002]
+    prompt: "翻牌。{{t:pot|底池}}有 {{n:exam.m9.pot}}，對手全下 {{n:exam.m9.stack.opp}}（{{t:spr}} {{n:exam.m9.spr}}）。你需要多少勝率才能{{t:call|跟注}}？請輸入百分比數字。"
+    answer: exam.m9.eq.jam
+    explanation: "你補上 {{n:exam.m9.stack.opp}}，是為了贏得{{t:pot|底池}}和對手的籌碼：{{n:exam.m9.stack.opp}} ÷ ({{n:exam.m9.pot}} + 2·{{n:exam.m9.stack.opp}}) = {{n:exam.m9.eq.jam}}。{{t:spr}}越低，價格越好。"
+  - kind: choice
+    id: m9.exam.q4
+    family: m9.commit-plan
+    rules: [R-M9-004, R-M9-003]
+    prompt: "翻牌，{{t:spr}} {{n:spr.low}}：{{t:pot|底池}} {{n:ex.pot}}，雙方籌碼各 {{n:spr.stack.low}}。你有{{t:overpair}}。你考慮下注半個{{t:pot|底池}}（{{n:ex.bet.half}}），下注後你會剩下 {{n:exam.m9.low.left}}。你的計畫是什麼？"
+    table: { hand: "Qh Qc", board: "Jd 7s 3c" }
+    options:
+      - { text: "下注，計畫打到全部籌碼", correct: true, why: "對：下注並被{{t:call|跟注}}後，{{t:pot|底池}}會有 {{n:ex.half.total}}，比你籌碼中剩下的 {{n:exam.m9.low.left}} 還多。面對對手全下，你只需要 {{n:exam.m9.eq.low-after-half}} 的勝率，而在這麼低的{{t:spr}}下，{{t:overpair}}會打到全部籌碼。" }
+      - { text: "下注 {{n:ex.bet.half}}，對手全下就{{t:fold}}", why: "下注後再{{t:fold}}在這裡沒有道理：你下注後，只要 {{n:exam.m9.eq.low-after-half}} 的勝率就足以{{t:call|跟注}}全下。要嘛打到全部籌碼，要嘛{{t:check|過牌}}。" }
+      - { text: "{{t:check|過牌}}，面對任何下注都{{t:fold|棄牌}}", why: "{{t:spr}}低於 {{n:spr.zone.low}} 時，{{t:overpair}}是要打全部籌碼的牌。面對下注{{t:fold}}，等於拿著非常強的牌放棄{{t:pot|底池}}。" }
+  - kind: choice
+    id: m9.exam.q5
+    family: m9.geo-size
+    rules: [R-M9-006]
+    prompt: "翻牌的{{t:spr}}是 {{n:exam.m9.spr}}。你想用兩次等額的{{t:bet|下注}}投入全部籌碼：翻牌一次、轉牌一次。你要下注{{t:pot|底池}}的幾分之幾？"
+    options:
+      - { text: "約{{t:pot|底池}}的 {{n:exam.m9.geo.two}}", correct: true, why: "對：(1 + 2f) 的平方 = 1 + 2·{{n:exam.m9.spr}}，所以 1 + 2f = 3，f = {{n:exam.m9.geo.two}}。下注一個{{t:pot|底池}}大小並被{{t:call}}，{{t:pot|底池}}會變成三倍，轉牌再下一次同樣大小的注就是全下。" }
+      - { text: "約{{t:pot|底池}}的 {{n:exam.m9.geo.three}}", why: "這是三條{{t:street|街}}的尺寸：(1 + 2f) 的三次方 = 1 + 2·{{n:exam.m9.spr}}。若只有兩條{{t:street|街}}，每次{{t:bet}}都必須更大。" }
+      - { text: "約{{t:pot|底池}}的 {{n:cbet.size.small}}", why: "兩次 1/3 {{t:pot|底池}}的{{t:bet|下注}}只會投入一小部分籌碼。幾何下注尺寸用公式計算：(1 + 2f) 的{{t:street|街}}數次方 = 1 + 2·{{t:spr}}。" }
+  - kind: choice
+    id: m9.exam.q6
+    family: m9.plan-streets
+    rules: [R-M9-008]
+    prompt: "你在按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}。你在{{t:dry|乾燥}}的低牌翻牌面上拿著 JJ 的{{t:overpair}}。這手牌通常能承受幾條{{t:value|價值}}街？"
+    table: { hand: "Jc Jd", board: "9h 5c 2d", position: BTN }
+    options:
+      - { text: "通常兩條，對手會用較弱的牌付錢時才打第三條", correct: true, why: "對：9、5 和更弱的{{t:pair|對子}}會付錢給{{t:overpair}}，但每多一條{{t:street|街}}，較差的牌就會{{t:fold|棄牌}}，留在{{t:pot|底池}}裡的大多是更好的牌。" }
+      - { text: "三條，一定如此", why: "三條{{t:value|價值}}街通常只有非常強的牌承受得住：暗三條、{{t:straight|順子}}、高{{t:two-pair}}。到第三次{{t:bet|下注}}時，JJ 的{{t:overpair}}常常是在付錢給更好的牌。" }
+      - { text: "一條都不打：一路{{t:check|過牌}}到攤牌", why: "太保守了：在{{t:dry|乾燥}}的翻牌面上，{{t:overpair}}能贏很多會付一到兩次{{t:bet|下注}}的牌。" }
+  - kind: choice
+    id: m9.exam.q7
+    family: m9.geo-srp
+    rules: [R-M9-007]
+    prompt: "單次加注{{t:pot|底池}}，籌碼各 {{n:format.stack}}：翻牌時{{t:pot}}是 {{n:bb.pot-after.vs-btn}}，你們每人身後各有 {{n:spr.srp.stack}}。你在翻牌、轉牌和河牌都下注整個{{t:pot|底池}}，對手每次都{{t:call|跟注}}。你總共會投入多少？"
+    table: { position: BTN }
+    options:
+      - { text: "{{n:srp.potbet.total}}：少於全部籌碼", correct: true, why: "對：{{n:srp.potbet.flop}} + {{n:srp.potbet.turn}} + {{n:srp.potbet.river}} = {{n:srp.potbet.total}}，總籌碼為 {{n:spr.srp.stack}}。翻牌時的{{t:pot|底池}}相對於籌碼很小，所以每條{{t:street|街}}的{{t:bet|下注}}都要約為{{t:pot|底池}}的 {{n:geo.srp.3}}，全部籌碼才會投入。" }
+      - { text: "全部籌碼：{{n:spr.srp.stack}}", why: "三次{{t:pot|底池}}大小的下注投入 {{n:srp.potbet.total}}。要投入全部籌碼，每條{{t:street|街}}都必須下注超過{{t:pot|底池}}。" }
+      - { text: "{{n:srp.half.total}}", why: "這是三次半{{t:pot|底池}}下注投入的金額。{{t:pot|底池}}大小的下注投入更多：{{n:srp.potbet.total}}。" }
+  - kind: choice
+    id: m9.exam.q8
+    family: m9.geo-size
+    rules: [R-M9-009]
+    prompt: "3-bet {{t:pot|底池}}，你有{{t:position|位置}}，{{t:spr}}約 {{n:spr.3bet-ip}}。你的牌值得打三條{{t:value|價值}}街，想投入全部籌碼。朋友建議每條{{t:street|街}}都下 1/3 {{t:pot|底池}}的小注。如果對手{{t:call|跟注}}三次會怎樣？"
+    table: { position: BTN }
+    options:
+      - { text: "你只會從 {{n:spr.3bet-ip.stack}} 的籌碼中投入約 {{n:g3b.third.total}}", correct: true, why: "對：小注讓後面的{{t:street|街}}只剩下小{{t:pot|底池}}。每條{{t:street|街}}約下注{{t:pot|底池}}的 {{n:geo.3bet-ip.3}}，全部籌碼才會投入，所以在翻牌就要選好幾何下注尺寸。" }
+      - { text: "到河牌時，全部籌碼都會進入{{t:pot|底池}}", why: "不會：三次 1/3 {{t:pot|底池}}的下注只投入約 {{n:g3b.third.total}}。大部分籌碼（{{n:spr.3bet-ip.stack}}）仍未投入。" }
+      - { text: "轉牌時就會投入全部籌碼", why: "反了：小注成長得很慢，因為{{t:pot}}是以乘法成長。只有約{{t:pot|底池}}的 {{n:geo.3bet-ip.3}} 的尺寸才能投入全部籌碼，而且要到河牌。" }
+  - kind: choice
+    id: m9.exam.q9
+    family: m9.spr-zone
+    rules: [R-M9-010]
+    prompt: "籌碼非常深：翻牌的{{t:spr}}高於 {{n:spr.zone.deep}}。你有高{{t:two-pair}}。你會計畫打到全部籌碼嗎？"
+    options:
+      - { text: "通常不會：在這樣的{{t:spr}}下，要打全部籌碼需要暗三條、{{t:straight|順子}}或更好的牌", correct: true, why: "對：高於 {{n:spr.zone.deep}} 時，要經過超過三次{{t:pot|底池}}大小的{{t:bet|下注}}，全部籌碼才會投入，而到最後對手主要是用非常強的牌付錢（這是{{t:spr}}區間的簡化說法）。" }
+      - { text: "會：高{{t:two-pair}}一定打到全部籌碼", why: "高{{t:two-pair}}通常在 {{n:spr.zone.mid}} 到 {{n:spr.zone.deep}} 的區間才足夠。再往上，願意投入全部籌碼的對手常常有暗三條或更好的牌。" }
+      - { text: "會，因為高{{t:spr}}在全下時提供好價格", why: "反了：{{t:spr}}越高，全下的價格越差，你也需要越強的牌，才能打到全部籌碼。" }

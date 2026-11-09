@@ -1,0 +1,95 @@
+# Pula pytań egzaminacyjnych modułu M7 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m7.*).
+module: m7
+drills:
+  - kind: choice
+    id: m7.exam.q1
+    family: m7.barrel.card
+    rules: [R-M7-001]
+    prompt: "你從按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}。翻牌 [[9s 6d 2c]]，你{{t:bet|下注}}做 c-bet，他{{t:call|跟注}}。轉牌發出哪張牌時，你更常{{t:bet|下注}}{{t:second-barrel|第二槍}}？"
+    table: { position: BTN, board: "9s 6d 2c" }
+    options:
+      - { text: "[[Kh]]", correct: true, why: "對：在較低的{{t:board|公共牌}}上，K 擊中你{{t:open|開池}}{{t:range}}（KQ、KJ、KT、AK）的頻率高於防守方的{{t:range}}，而{{t:big-blind}}用來{{t:call|跟注}}翻牌的每個{{t:pair}}，都會往下降一級。" }
+      - { text: "[[8c]]", why: "8 搭配 9 和 6，讓 T7 和 75 成{{t:straight|順子}}，讓 98 和 86 成{{t:two-pair}}，而這些正是{{t:big-blind}}會防守的手牌。這張牌比較會幫到他。" }
+      - { text: "[[5s]]", why: "5 搭配 9、6、2，讓 87 和 43 成{{t:straight|順子}}，而{{t:big-blind}}會防守很多小牌。這不是對你的{{t:range|範圍}}有利的牌。" }
+  - kind: choice
+    id: m7.exam.q2
+    family: m7.barrel.bluff
+    rules: [R-M7-002]
+    prompt: "你從按鈕位{{t:open|開池}}，{{t:big-blind}}在翻牌{{t:call|跟注}}了你的 c-bet。轉牌是 2，對手{{t:check|過牌}}。你拿的是兩手沒有{{t:pair|對子}}的牌之一。用哪一手打{{t:second-barrel|第二槍}}{{t:bluff|詐唬}}比較好？"
+    table: { position: BTN, board: "Kc 9h 4h 2s" }
+    options:
+      - { text: "[[Qh Jh]]", correct: true, why: "對：你有{{t:flush-draw}}和卡順（10）。這是{{t:semi-bluff}}：對手{{t:fold|棄牌}}時你贏，或是你在河牌擊中時贏。" }
+      - { text: "[[8c 7c]]", why: "這手牌沒有補牌：河牌沒有任何一張能讓它成{{t:straight|順子}}或{{t:flush|同花}}。沒有補牌的{{t:bluff|詐唬}}只有一條獲勝途徑，所以你更常放棄。" }
+  - kind: choice
+    id: m7.exam.q3
+    family: m7.barrel.value
+    rules: [R-M7-003]
+    prompt: "你從按鈕位{{t:open|開池}}，{{t:big-blind}}在翻牌{{t:call|跟注}}了你的 c-bet。轉牌是 5，對手{{t:check|過牌}}。你拿著帶 A 的{{t:second-pair|第二對}}。你怎麼做？"
+    table: { hand: "Ad 7d", position: BTN, board: "Ts 7c 3d 5h" }
+    options:
+      - { text: "{{t:check|過牌}}", correct: true, why: "對：{{t:second-pair|第二對}}是中等牌力的牌。對手{{t:call|跟注}}翻牌後，他的{{t:range}}更強：面對第二次下注，較差的牌會{{t:fold|棄牌}}，付錢的則是 10 以上的牌。{{t:check|過牌}}能讓你把{{t:pot|底池}}控制得小，並打到攤牌。" }
+      - { text: "{{t:value|價值}}下注", why: "用中等牌力下注，要靠較差的牌付錢才能賺，而對手{{t:call|跟注}}翻牌後，這類牌變少了。付錢的主要是贏你的牌。" }
+      - { text: "下大注保護手牌", why: "用中等{{t:pair|對子}}下大注，會把較差的牌趕走，留下較好的牌。當付錢的主要是已經領先的牌時，保護沒有幫助。" }
+  - kind: numeric
+    id: m7.exam.q4
+    family: m7.barrel.math
+    rules: [R-M7-004]
+    prompt: "轉牌。{{t:pot|底池}}裡有 {{n:exam.m7.pot}}。你用一手幾乎不會贏的牌{{t:bluff|詐唬}}，{{t:bet|下注}} {{n:exam.m7.bet.half}}。對手要多常{{t:fold|棄牌}}，這次{{t:bluff}}才能打平？請輸入百分比數字。"
+    answer: exam.m7.alpha.half
+    explanation: "門檻是 下注額 ÷ ({{t:pot}} + 下注額) = {{n:exam.m7.bet.half}} ÷ ({{n:exam.m7.pot}} + {{n:exam.m7.bet.half}}) = {{n:exam.m7.alpha.half}}。當你有補牌時，這個門檻會降低，因為被{{t:call|跟注}}後你有時也會贏。"
+  - kind: choice
+    id: m7.exam.q5
+    family: m7.polar.concept
+    rules: [R-M7-005]
+    prompt: "在轉牌，你用{{t:polarized|極化}}的{{t:range|範圍}}下注 3/4 {{t:pot|底池}}。這時你{{t:range|範圍}}中的哪些牌會{{t:check|過牌}}？"
+    options:
+      - { text: "中等牌，例如{{t:second-pair|第二對}}", correct: true, why: "對：{{t:polarized}}的{{t:range}}由非常強的牌和{{t:semi-bluff|半詐唬}}組成。中等牌無法從大{{t:pot|底池}}中獲利，所以會{{t:check|過牌}}，設法打到攤牌。" }
+      - { text: "暗三條和{{t:two-pair}}", why: "這是{{t:range|範圍}}的上端：這些牌想在河牌前做大{{t:pot|底池}}，所以用大尺寸下注。" }
+      - { text: "{{t:flush-draw|同花聽牌}}", why: "這是下端：{{t:semi-bluff|半詐唬}}需要對手{{t:fold|棄牌}}，所以用和強牌一樣的大尺寸下注。" }
+  - kind: choice
+    id: m7.exam.q6
+    family: m7.polar.price
+    rules: [R-M7-006]
+    prompt: "轉牌。你有{{t:two-pair}}，對手可能有{{t:flush-draw}}（河牌約 {{n:odds.flush.turn-river}}）。{{t:pot|底池}}裡有 {{n:exam.m7.pot}}，對手{{t:check|過牌}}。你怎麼做？"
+    table: { hand: "Jc 8c", position: BTN, board: "Jh 8h 4s 2d" }
+    options:
+      - { text: "下注 {{n:exam.m7.bet.three-quarters}}", correct: true, why: "對：面對 3/4 {{t:pot|底池}}的下注，{{t:draw}}需要 {{n:eq.bet-three-quarters}} 的 equity，而它約有 {{n:odds.flush.turn-river}}。它付的價格太高，而你用強牌做大{{t:pot|底池}}。" }
+      - { text: "下注 {{n:exam.m7.bet.quarter}}", sizeError: true, why: "行動對了，尺寸錯了：面對 1/4 {{t:pot|底池}}的下注，{{t:draw}}只需要 {{n:eq.bet-quarter}}，低於它約 {{n:odds.flush.turn-river}} 的勝率。小注給了它好價格。要下大注。" }
+      - { text: "{{t:check|過牌}}", why: "免費牌是送給{{t:flush-draw|同花聽牌}}的禮物，而你會失去強牌的價值。有{{t:two-pair|兩對}}時你要下注。" }
+  - kind: numeric
+    id: m7.exam.q7
+    family: m7.implied.math
+    rules: [R-M7-008]
+    prompt: "轉牌。{{t:pot|底池}}裡有 {{n:exam.m7.pot}}，對手{{t:bet|下注}} {{n:exam.m7.bet.half}}。你有{{t:oesd}}：{{n:outs.oesd}} 張補牌，{{n:miss.oesd.turn}} 張不中的牌。擊中後，你在河牌還得額外贏多少{{t:chips|籌碼}}（超出{{t:bet|下注}}後的{{t:pot|底池}}），{{t:call}}才能打平？請輸入數字。"
+    answer: exam.m7.io.extra
+    explanation: "擊中時你總共要贏 {{n:exam.m7.bet.half}} × {{n:miss.oesd.turn}} ÷ {{n:outs.oesd}} = {{n:exam.m7.io.need}}。{{t:bet|下注}}後{{t:pot|底池}}裡有 {{n:exam.m7.io.pot-after-bet}}，所以還差 {{n:exam.m7.io.extra}}。這就是你的隱含賠率：對手還必須再付給你這麼多。"
+  - kind: choice
+    id: m7.exam.q8
+    family: m7.implied.when
+    rules: [R-M7-010]
+    prompt: "轉牌。你有{{t:oesd}}（J 或 6），而{{t:board|公共牌}}上有兩張方塊。保守來算，你算幾張補牌？"
+    table: { hand: "9s 8s", board: "Td 7d 2c 3h" }
+    options:
+      - { text: "{{n:exam.m7.oesd.clean}}", correct: true, why: "對：{{n:outs.oesd}} 張補牌中，有兩張（[[Jd]] 和 [[6d]]）會讓{{t:board|公共牌}}出現第三張方塊。這時拿兩張方塊的對手有{{t:flush}}，而你即使擊中也會輸，而且付出最多。剩下 {{n:exam.m7.oesd.clean}} 張乾淨補牌。" }
+      - { text: "{{n:outs.oesd}}", why: "這是成{{t:straight|順子}}的所有補牌，但其中兩張會讓{{t:flush}}成為可能。當{{t:board|公共牌}}可能成{{t:flush|同花}}時，你算的補牌要少一些。" }
+      - { text: "{{n:outs.gutshot}}", why: "這是卡順的補牌數。你有的是兩頭開放的{{t:straight-draw}}，而且只需扣掉兩張方塊。" }
+  - kind: choice
+    id: m7.exam.q9
+    family: m7.probe.play
+    rules: [R-M7-011, R-M7-012]
+    prompt: "你在{{t:big-blind}}防守按鈕位的{{t:open|開池}}。翻牌你們雙方都{{t:check|過牌}}。轉牌是 2。你先行動。你有{{t:second-pair|第二對}}和卡順（4）。你怎麼做？"
+    table: { hand: "6c 5d", position: BB, board: "9h 6s 3d 2c" }
+    options:
+      - { text: "下注（probe bet）", correct: true, why: "對：按鈕位在翻牌{{t:check|過牌}}後，強牌比較少，而低的{{t:board}}符合你的{{t:range|範圍}}。{{t:pair|對子}}想從較差的牌拿到付款，也想避免送出免費牌，而卡順提供額外的補牌。" }
+      - { text: "{{t:check|過牌}}，看按鈕位怎麼做", why: "你送了按鈕位一張免費牌，而他在翻牌{{t:check|過牌}}後常常只有高張。在低的{{t:board|公共牌}}上，拿{{t:pair|對子}}要自己下注。" }
+      - { text: "{{t:check|過牌}}，打算過牌加注", why: "按鈕位在翻牌{{t:check|過牌}}後，常常會再{{t:check|過牌}}，這樣你什麼也賺不到。probe bet 能立刻從他較弱的牌拿到價值。" }
+  - kind: choice
+    id: m7.exam.q10
+    family: m7.defend.turn
+    rules: [R-M7-013]
+    prompt: "你在{{t:big-blind}}防守。你在翻牌{{t:call|跟注}}了按鈕位的 c-bet。轉牌是 6，你{{t:check|過牌}}，按鈕位{{t:bet|下注}} 3/4 {{t:pot|底池}}。你有{{t:pair|一對}} 4。你怎麼做？"
+    table: { hand: "4h 4d", position: BB, board: "Ks Jd 8c 6h" }
+    options:
+      - { text: "{{t:fold|棄牌}}", correct: true, why: "對：按鈕位打{{t:second-barrel|第二槍}}時，{{t:bet|下注}}的{{t:range|範圍}}比 c-bet 更窄、尺寸更大。最弱的{{t:pair}}，比{{t:board|公共牌}}上每張牌都小，除了兩張 4 以外沒有補牌，會輸給他大部分的下注。" }
+      - { text: "{{t:call|跟注}}，因為我已經{{t:call|跟注}}過翻牌", why: "你在翻牌投入的不會再回來。在轉牌你要重新評估手牌：面對{{t:second-barrel|第二槍}}，最弱的{{t:pair|對子}}要{{t:fold|棄牌}}。" }
+      - { text: "{{t:raise|加注}}", why: "{{t:raise|加注}}後，較差的牌會{{t:fold|棄牌}}，付錢的是較好的牌。{{t:pair|一對}} 4 既不是{{t:value|價值}}牌，也不是好的{{t:bluff|詐唬}}。" }

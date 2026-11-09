@@ -1,0 +1,153 @@
+# K-05 (D-367, D-372): nazwa terminu w języku fr dla znacznika {{t:klucz}} bez formy; null = skrót albo nazwa angielska.
+# Ze szkicu docs/lokalizacja/przygotowane/terms-nazwy-fr.yaml (sesje AB/AD, 2026-11-09; komentarze: formy tłumacza i źródła). Strażnik: tools/content-build/src/nazwy.ts.
+royal-flush: "quinte flush royale"  # royal flush; bez formy 1; formy: Quinte flush royale×1, quinte flush royale×1; źr. A:Flush-royale; B:Main_au_poker
+straight-flush: "quinte flush"  # straight flush; bez formy 1; formy: Quinte flush×1, quinte flush×1; źr. A:Quinte-flush_124; B:Main_au_poker
+four-of-a-kind: "carré"  # four of a kind; bez formy 1; formy: carré×6, Carré×1; źr. A:Carre_408; B:Main_au_poker
+full-house: "full"  # full house; bez formy 1; formy: full×15, Full×1; źr. A:Full_241; B:Main_au_poker
+flush: "couleur"  # flush; bez formy 4; formy: couleur×106, Couleur×5, couleurs×2; źr. A:Couleur_250; B:Main_au_poker
+straight: "quinte"  # straight; bez formy 4; formy: quinte×138, quintes×14, Quinte×4; źr. A:Quinte; B:Main_au_poker (suite, parfois quinte)
+three-of-a-kind: "brelan"  # three of a kind; bez formy 1; formy: brelan×20, Brelan×2, trois×2; źr. A:Brelan; B:Main_au_poker
+set: "set"  # set; bez formy 1; formy: set×1; źr. A:Set
+two-pair: "double paire"  # two pair; bez formy 2; formy: double paire×35, doubles paires×14, deux paires×10, Deux paires×2, Double paire×1; źr. A:Double-paire; B:Main_au_poker
+pair: "paire"  # pair; bez formy 5; formy: paire×206, paires×93, Paire×3; źr. A:Paire; B:Main_au_poker
+high-card: "carte haute"  # high card; bez formy 1; formy: Carte haute×1, carte haute×1; źr. A:Carte-haute_232; B:Main_au_poker (hauteur, parfois carte haute)
+kicker: "kicker"  # kicker; bez formy 0; formy: —; źr. A:Kicker; C:Texas_hold_em (carte de départage, kicker en anglais)
+wheel: "wheel"  # wheel; bez formy 0; formy: quinte blanche×1, wheel×1; źr. A:Wheel
+check: "check"  # check; bez formy 16; formy: checke×86, checkez×40, check×28, checker×24, checké×24, checkent×23; źr. A:Check (un check, en français : parole) [WIELE FORM]
+bet: "mise"  # bet; bez formy 17; formy: mise×256, mises×77, misé×25, miser×20, misez×14, Mise×6; źr. A:Bet (Synonymes : mise, miser)
+call: "call"  # call; bez formy 33; formy: suivre×186, suivi×125, suit×97, call×95, suivez×87, Suivre×50; źr. A:Call (Le call ...; synonymes suivre); D:PokerNews (Suivre) [WIELE FORM]
+raise: "relance"  # raise; bez formy 3; formy: relance×117, relancez×54, relancer×45, relancé×38, Je relance×18, Relance×14; źr. A:Relance; D:PokerNews (Relancer)
+fold: "fold"  # fold; bez formy 16; formy: se couche×94, couchez×80, couche×68, se coucher×66, coucher×46, Se coucher×44; źr. A:Se-coucher_248 (se couche (fold)); D:PokerNews (Fold : se débarrasser de la main) [WIELE FORM]
+check-raise: "check-raise"  # check-raise; bez formy 0; formy: —; źr. A:Check-Raise
+all-in: "all-in"  # all-in; bez formy 0; formy: à tapis×1; źr. A:All-in (se mettre all-in ou à tapis)
+pot: "pot"  # pot; bez formy 450; formy: pot×392, pots×27, Pot×25; źr. A:Pot; C:Texas_hold_em (remporte le pot)
+side-pot: "pot secondaire"  # side pot; bez formy 0; formy: pot secondaire×2; źr. A:Pot-exterieur-pot-secondaire
+split-pot: "partage du pot"  # split pot; bez formy 0; formy: Partage du pot×11, le pot est partagé×5, vous vous partagez le pot×1; źr. A:Pot-partage (split pot ... partagé); C:Texas_hold_em (le pot est alors séparé)
+playing-the-board: "jouer le board"  # playing the board; bez formy 0; formy: joue le board×1, jouez le board×1, jouer le board×1, jouent le board×1; źr. C:Texas_hold_em (on dit qu'il « joue le tableau »)
+board: "board"  # board; bez formy 24; formy: board×67, tableau×13; źr. A:Tableau (le tableau, ou board); C:Texas_hold_em [WIELE FORM]
+community-cards: "cartes communes"  # community cards; bez formy 0; formy: cartes communes×11, carte commune×1; źr. A:Cartes-communes; C:Texas_hold_em
+hole-cards: "cartes privatives"  # hole cards; bez formy 0; formy: cartes privatives×3; źr. A:Hole-cards (hole cards); C:Texas_hold_em (cartes privées)
+small-blind: "petite blinde"  # small blind; bez formy 12; formy: petite blinde×77, petite blind×24, Petite blinde×13, SB×5, small blind×4; źr. A:Blind (Small Blind (petite blinde)); D:PokerNews (petite blind)
+big-blind: "grosse blinde"  # big blind; bez formy 52; formy: grosse blinde×152, grosse blind×48, Grosse blinde×12, big blind×7, BB×6, grosses blindes×4; źr. A:Blind (Big Blind (grosse blinde)); D:PokerNews (à gauche de la grosse blinde) [WIELE FORM]
+chips: "jetons"  # chips; bez formy 2; formy: jetons×97, jeton×3; źr. A:Jetons-de-poker
+stack: "stack"  # stack; bez formy 0; formy: —; źr. A:Tapis (Par stack, ou tapis)
+street: "street"  # street; bez formy 22; formy: streets×38, street×17, tour d'enchères×2, Street×1; źr. A:Street (le turn est la 4ème street)
+betting-round: "tour d'enchères"  # betting round; bez formy 0; formy: tour d’enchères×2, tours d’enchères×2, tour d'enchères×2, tours d'enchères×2; źr. A:Relance (tour d'enchères); D:PokerNews
+preflop: "preflop"  # preflop; bez formy 0; formy: Preflop×1; źr. A:Preflop (le préflop)
+flop: "flop"  # flop; bez formy 0; formy: Flop×1; źr. C:Texas_hold_em; D:PokerNews
+turn: "turn"  # turn; bez formy 0; formy: Turn×1; źr. A:Street (le turn); D:PokerNews (Turn)
+river: "river"  # river; bez formy 0; formy: River×1; źr. A:River
+showdown: "showdown"  # showdown; bez formy 0; formy: Abattage×1; źr. A:Abattage_138 (Le Showdown, ou abattage)
+position: "position"  # position; bez formy 32; formy: position×47, positions×15, Position×1; źr. A:In-Position; C:Position_(poker)
+in-position: "en position"  # in position; bez formy 10; formy: en position×40, En position×8; źr. A:Hors-position_186 (Thèmes associés : En position); D:PokerNews (jouer en position)
+out-of-position: "hors de position"  # out of position; bez formy 17; formy: hors de position×26, hors position×17, Hors de position×11, Hors position×11; źr. A:Hors-position_186 (hors position; synonyme hors de position) [WIELE FORM]
+early-position: "début de parole"  # early position; bez formy 0; formy: premières positions×1, positions précoces×1; źr. A:Debut-de-parole [WIELE FORM]
+late-position: "fin de parole"  # late position; bez formy 0; formy: position tardive×1; źr. A:Fin-de-parole [WIELE FORM]
+hijack: "hijack"  # hijack; bez formy 0; formy: HJ×17; źr. A:Hijack_2049
+cutoff: "cutoff"  # cutoff; bez formy 0; formy: CO×54, cutoff×1; źr. A:Fin-de-parole (le cutoff et le button)
+button: "bouton"  # button; bez formy 0; formy: BTN×3; źr. A:Bouton_315
+outs: "out"  # out; bez formy 0; formy: Outs×1; źr. A:Outs
+draw: "tirage"  # draw; bez formy 0; formy: tirage×101, tirages×97, Tirage×2, Tirages×1; źr. A:Tirage_267
+flush-draw: "tirage couleur"  # flush draw; bez formy 1; formy: tirage couleur×49, tirages couleur×9, Tirage couleur×2; źr. A:Tirage-couleur_249
+straight-draw: "tirage quinte"  # straight draw; bez formy 0; formy: tirage quinte×19; źr. A:Tirage-quinte-bilateral (Un tirage quinte est ...)
+gutshot: "gutshot"  # gutshot; bez formy 0; formy: —; źr. A:Gutshot; A:Blocker (Les deux joueurs ont un gutshot)
+backdoor: "backdoor"  # backdoor; bez formy 0; formy: —; źr. A:Tirage-backdoor
+pot-odds: "cote du pot"  # pot odds; bez formy 0; formy: —; źr. A:Cote-du-pot
+implied-odds: "cote implicite"  # implied odds; bez formy 0; formy: cotes implicites×1, Cote implicite×1; źr. A:Cote-implicite; C:Texas_hold_em (cotes implicites) [WIELE FORM]
+equity: "équité"  # equity; bez formy 4; formy: équité×14, Équité×1; źr. D:PokerNews (calculateur d'équité); A:Equity (l'Equity)
+equity-realization: "réalisation de l'équité"  # equity realization; bez formy 0; formy: réalise son équité×2, réalise mal l'equity×1, réalise moins bien son equity×1, réaliser son équité×1, réalise bien son équité×1, réalisent mal leur équité×1; źr. brak [DO USTALENIA]
+expected-value: "espérance de gain"  # expected value; bez formy 1; formy: espérance de gain×8, EV×2, valeur espérée×1; źr. A:Esperance-de-gain [WIELE FORM]
+combo: "combo"  # combo; bez formy 0; formy: combinaisons×26, combos×4; źr. brak [WIELE FORM] [DO USTALENIA]
+range: "range"  # range; bez formy 92; formy: range×131, ranges×17, Range×4, Ranges×1; źr. D:PokerNews (la range de son adversaire; votre range); A:Merging_2024 używa „éventail”
+mixed-hand: "main mixte"  # mixing hand; bez formy 0; formy: main mixte×7, mains mixtes×4, Main mixte×1; źr. brak [DO USTALENIA]
+open: "ouverture"  # open; bez formy 2; formy: ouverture×96, ouvert×92, ouvre×26, ouvrez×25, ouvertures×8, a ouvert×7; źr. A:Open-Raise [WIELE FORM] [DO USTALENIA]
+suited: "assorti"  # suited; bez formy 0; formy: —; źr. A:Assorties_117
+offsuit: "dépareillé"  # offsuit; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+pocket-pair: "paire servie"  # pocket pair; bez formy 0; formy: paire servie×2, paires servies×1; źr. A:Pocket-pair (pocket paire) [DO USTALENIA]
+connectors: "connecteurs"  # connectors; bez formy 0; formy: connecteurs×23, connecteur×1; źr. A:Connecteur
+3-bet: "3-bet"  # 3-bet; bez formy 0; formy: —; źr. A:3bet
+4-bet: "4-bet"  # 4-bet; bez formy 0; formy: —; źr. A:4bet
+limp: "limp"  # limp; bez formy 1; formy: limp×1; źr. A:Limp
+isolation: "isolation"  # isolation raise; bez formy 0; formy: isolation×4, isoler×1, isole×1, isolez×1; źr. A:Isoler (L'isolation est ...)
+texture: "texture"  # texture; bez formy 2; formy: texture×5, Texture×1; źr. A:Texture_1952
+dry: "sec"  # dry; bez formy 0; formy: sec×44, secs×5, Sec×4; źr. A:Sec-tableau (Un tableau sec (ou dry board))
+wet: "humide"  # wet; bez formy 7; formy: humide×17, humides×4, Humide×2; źr. A:Sec-tableau („tableau wet”), Drawy_1951 [DO USTALENIA]
+rainbow: "rainbow"  # rainbow; bez formy 0; formy: rainbow×3, Rainbow×1; źr. A:Sec-tableau (il est rainbow)
+two-tone: "bicolore"  # two-tone; bez formy 0; formy: bicolore×6, Bicolore×1; źr. A:Twosuited („twosuited”) [DO USTALENIA]
+monotone: "monocolore"  # monotone; bez formy 4; formy: monocolore×7, monochrome×6, monotones×1, Monocolore×1; źr. brak [WIELE FORM] [DO USTALENIA]
+paired: "pairé"  # paired; bez formy 0; formy: pairé×15, Pairé×2; źr. A:Paired („paired”) [DO USTALENIA]
+connected: "connecté"  # connected; bez formy 1; formy: connecté×15, connectés×2, Connecté×1; źr. A:Connectivity (connexion) [DO USTALENIA]
+disconnected: "déconnecté"  # disconnected; bez formy 0; formy: déconnecté×3, Déconnecté×1; źr. brak [DO USTALENIA]
+semi-connected: "semi-connecté"  # semi-connected; bez formy 0; formy: semi-connecté×5, semi-connectés×1, Semi-connecté×1; źr. brak [DO USTALENIA]
+wetness: "humidité"  # wetness; bez formy 0; formy: humidité×5; źr. brak [DO USTALENIA]
+top-pair: "top paire"  # top pair; bez formy 3; formy: top paire×74, Top paire×3, top paires×3, paires les plus hautes×1, Top paires×1; źr. A:Top-paire [WIELE FORM]
+second-pair: "deuxième paire"  # second pair; bez formy 0; formy: deuxième paire×9; źr. A:Middle-pair („middle paire”) [DO USTALENIA]
+overpair: "overpaire"  # overpair; bez formy 0; formy: overpaire×9, overpairs×1; źr. A:Overpair („overpair”)
+c-bet: "c-bet"  # c-bet; bez formy 0; formy: c-bet×2; źr. A:Continuation-bet („continuation bet”)
+aggressor: "agresseur"  # aggressor; bez formy 0; formy: agresseur×10; źr. A:Agresseur
+initiative: "initiative"  # initiative; bez formy 4; formy: initiative×13; źr. A:Initiative
+range-advantage: "avantage de range"  # range advantage; bez formy 1; formy: avantage de range×29, Avantage de range×2; źr. brak [DO USTALENIA]
+nuts-advantage: "avantage de nuts"  # nuts advantage; bez formy 2; formy: avantage de nuts×19, Avantage de nuts×2; źr. brak [DO USTALENIA]
+nuts: "nuts"  # nuts; bez formy 0; formy: nuts×1; źr. A:Nuts (la nuts); C:Texas_hold_em (the nuts)
+polarized: "polarisé"  # polarized; bez formy 0; formy: polarisée×21, Polarisée×2; źr. A:Polarising_2023 (Un éventail est dit polarisé)
+polarization: "polarisation"  # polarization; bez formy 0; formy: —; źr. A:Polarising_2023 (la polarisation d’un éventail)
+linear: "linéaire"  # linear; bez formy 0; formy: linéaire×8, Linéaire×2; źr. brak [DO USTALENIA]
+condensed: "condensé"  # condensed; bez formy 0; formy: condensée×2; źr. brak [DO USTALENIA]
+value: "value"  # value; bez formy 0; formy: pour la valeur×32, streets de valeur×21, de value×16, pour la value×15, valeur×7, streets de value×4; źr. A:Value (La "value" (mot anglais pour valeur)) [WIELE FORM]
+value-bet: "value bet"  # value bet; bez formy 0; formy: value bets×1; źr. A:Value-Bet
+bluff: "bluff"  # bluff; bez formy 81; formy: bluffs×238, bluff×70, bluffe×47, bluffez×25, bluffer×10, bluffant×7; źr. A:Bluff; D:PokerNews („bluffer”)
+semi-bluff: "semi-bluff"  # semi-bluff; bez formy 6; formy: semi-bluffs×13, semi-bluff×5; źr. A:Semi-bluff
+blocker: "bloqueur"  # blocker; bez formy 0; formy: bloqueurs×13, bloqueur×8, Bloqueur×1; źr. A:Blocker używa „blocker” [DO USTALENIA]
+bluff-catcher: "bluff-catcher"  # bluff catcher; bez formy 0; formy: —; źr. A:Bluff-Catcher_325 („bluff catcher”)
+barrel: "barrel"  # barrel; bez formy 0; formy: —; źr. A:Second-barrel (barrel : canon)
+second-barrel: "second barrel"  # second barrel; bez formy 4; formy: second barrel×22; źr. A:Second-barrel
+probe-bet: "probe bet"  # probe bet; bez formy 0; formy: —; źr. A:Probe-Bet
+donk-bet: "donk bet"  # donk bet; bez formy 0; formy: —; źr. A:Donkbet („donkbet”)
+overbet: "overbet"  # overbet; bez formy 1; formy: overbet×2; źr. A:Overbet
+effective-stack: "stack effectif"  # effective stack; bez formy 0; formy: stack effectif×5, tapis effectif×1; źr. brak [DO USTALENIA]
+alpha: "alpha"  # alpha; bez formy 4; formy: alpha×2; źr. brak [DO USTALENIA]
+variance: "variance"  # variance; bez formy 11; formy: variance×15; źr. A:Variance; D:PokerNews (combattre la variance)
+buy-in: "buy-in"  # buy-in; bez formy 2; formy: buy-ins×80, buy-in×1; źr. A:Buy-In
+bankroll: "bankroll"  # bankroll; bez formy 0; formy: bankroll×1; źr. A:Bankroll
+tilt: "tilt"  # tilt; bez formy 0; formy: —; źr. A:Tilt
+winrate: "winrate"  # win rate; bez formy 1; formy: —; źr. A:Hourly-Winrate (Le winrate dépend ...)
+downswing: "downswing"  # downswing; bez formy 14; formy: downswing×8, downswings×5, Downswing×1; źr. A:Downswing
+session: "session"  # session; bez formy 11; formy: session×33, sessions×12; źr. brak [DO USTALENIA]
+stakes: "limite"  # stakes; bez formy 0; formy: limite×49, limites×12, Limite×1, micro-limites×1; źr. A:Micro-limites; D:PokerNews (restant à une limite)
+standard-deviation: "écart-type"  # standard deviation; bez formy 0; formy: écart-type×24, écart type×18, écarts-types×2; źr. brak [WIELE FORM] [DO USTALENIA]
+risk-of-ruin: "risque de ruine"  # risk of ruin; bez formy 0; formy: risque de ruine×3, Risque de ruine×1; źr. A:Risque-de-ruine
+mental-game: "mental game"  # mental game; bez formy 0; formy: jeu mental×1; źr. brak [DO USTALENIA]
+tournament: "tournoi"  # tournament; bez formy 0; formy: tournoi×15, Tournoi×2, tournois×1; źr. A:Tournoi
+push-fold: "push/fold"  # push/fold; bez formy 0; formy: —; źr. A:Push (un joueur push)
+shove: "push"  # shove; bez formy 0; formy: fait tapis×6, faites tapis×3, faire tapis×3, pushez×3, push×2, pushe×2; źr. A:Shove (effectue un push ou shove); A:Push [WIELE FORM]
+bubble: "bulle"  # bubble; bez formy 0; formy: Bulle×6, bulle×5; źr. A:Bulle
+bubble-factor: "bubble factor"  # bubble factor; bez formy 0; formy: —; źr. A:Bubble-factor_2045
+cover: "couvrir"  # cover; bez formy 0; formy: couvre×3, couvrez×2; źr. A:Couvrir
+risk-premium: "prime de risque"  # risk premium; bez formy 0; formy: prime de risque×7, Prime de risque×1; źr. brak [DO USTALENIA]
+m-ratio: "M"  # M-ratio; bez formy 0; formy: —; źr. A:M (Le M de Magriel)
+red-zone: "zone rouge"  # red zone; bez formy 1; formy: Zone rouge×1; źr. brak [DO USTALENIA]
+green-zone: "zone verte"  # green zone; bez formy 0; formy: Zone verte×1, zone verte×1; źr. brak [DO USTALENIA]
+ante: "ante"  # ante; bez formy 0; formy: —; źr. A:Ante (Un Ante est ...)
+bb-ante: "big blind ante"  # big blind ante; bez formy 3; formy: big blind ante×2, ante de grosse blinde×1; źr. brak [DO USTALENIA]
+fold-equity: "fold equity"  # fold equity; bez formy 0; formy: —; źr. A:Fold-equity
+gap-concept: "gap concept"  # gap concept; bez formy 0; formy: —; źr. A:Gap-concept
+chip-ev: "chip EV"  # chip EV; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+tournament-equity: "équité de tournoi"  # tournament equity; bez formy 0; formy: équité de tournoi×1; źr. brak [DO USTALENIA]
+prize-pool: "prize pool"  # prize pool; bez formy 0; formy: prize pool×18; źr. brak [DO USTALENIA]
+payout: "paiement"  # payout; bez formy 0; formy: paiements×5, gains×3, paiement×3, Paiements×1; źr. A:Payout („payout”) [WIELE FORM] [DO USTALENIA]
+pay-jump: "pay jump"  # pay jump; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+final-table: "table finale"  # final table; bez formy 0; formy: table finale×4; źr. A:Table-finale
+short-stack: "short stack"  # short stack; bez formy 1; formy: short stack×11, short stacks×1; źr. A:Petit-tapis (petit tapis (shortstack))
+nash-equilibrium: "équilibre de Nash"  # Nash equilibrium; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+overcall: "overcall"  # overcall; bez formy 0; formy: —; źr. A:Overcall
+heads-up: "heads-up"  # heads up; bez formy 0; formy: —; źr. A:Heads-up
+dead-money: "dead money"  # dead money; bez formy 0; formy: —; źr. A:Dead-Money
+stack-off: "stack off"  # stack off; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+exploit: "exploitation"  # exploit; bez formy 0; formy: exploitation×8, Exploitation×1; źr. A:Exploiter_2026 („Exploiter”)
+nit: "nit"  # nit; bez formy 12; formy: nit×6, nits×1, Nit×1; źr. A:Nit
+regular: "reg"  # regular; bez formy 0; formy: regs×4, régulier×2, Reg×2, Regs×2, réguliers×1, reg×1; źr. brak [WIELE FORM] [DO USTALENIA]
+recreational: "joueur récréatif"  # recreational player; bez formy 0; formy: joueur récréatif×10, joueurs récréatifs×8, Joueurs récréatifs×2, Joueur récréatif×1; źr. brak [DO USTALENIA]
+calling-station: "calling station"  # calling station; bez formy 1; formy: calling station×1; źr. A:Calling-Station
+maniac: "maniaque"  # maniac; bez formy 0; formy: maniaque×17, Maniaque×1; źr. A:Maniaque
+rake: "rake"  # rake; bez formy 38; formy: rake×18; źr. A:Rake
+rake-cap: "plafond de rake"  # rake cap; bez formy 0; formy: plafond de rake×5, plafond×2; źr. brak [DO USTALENIA]

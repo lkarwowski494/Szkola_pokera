@@ -1,0 +1,93 @@
+# Pula pytań egzaminacyjnych modułu M8 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m8.*).
+module: m8
+drills:
+  - kind: choice
+    id: m8.exam.q1
+    family: m8.value.threshold
+    rules: [R-M8-001]
+    prompt: "River: o adversário {{t:check|dá check}} e não pode {{t:raise|aumentar}}. No {{t:range}} dele há {{n:exam.m8.range.worse}} mãos piores que a sua, mas só {{n:exam.m8.call.worse}} delas vão {{t:call|pagar}} a sua aposta. Ele também vai pagar {{n:exam.m8.call.better}} vezes com uma mão melhor. Você aposta?"
+    options:
+      - { text: "Não, {{t:check|dou check}}", correct: true, why: "Isso: você conta só as mãos que vão pagar. A aposta ganha {{n:exam.m8.call.worse}} vezes e perde {{n:exam.m8.call.better}} vezes, ou seja, no líquido perde {{n:exam.m8.net.loss}} aposta. As mãos piores que {{t:fold|desistirem}} perderiam para você de qualquer forma depois do {{t:check|check}}." }
+      - { text: "Sim, porque há mais mãos piores do que melhores", why: "O adversário tem {{n:exam.m8.range.worse}} mãos piores, mas a maioria delas vai {{t:fold|desistir}} diante de uma aposta. Entre as mãos que vão pagar, há mais mãos melhores ({{n:exam.m8.call.better}} contra {{n:exam.m8.call.worse}})." }
+      - { text: "Sim, para descobrir onde estou", why: "Uma aposta “por informação” paga as mãos melhores, e as piores {{t:fold|desistem}}. Você recebe a mesma informação de graça depois do {{t:check|check}}, no showdown." }
+  - kind: choice
+    id: m8.exam.q2
+    family: m8.value.size
+    rules: [R-M8-003]
+    prompt: "Você {{t:open|abriu}} do Button, o {{t:big-blind}} {{t:call|pagou}}. No flop, c-bet e {{t:call}}; no turn, vocês dois {{t:check|deram check}}. No river, o {{t:big-blind}} {{t:check|dá check}}. Você tem {{t:top-pair}} com um nove e estima que ganha de pouco mais da metade das mãos que vão pagar. O que você faz?"
+    table: { hand: "Jh 9h", board: "Jc 7s 4d 2h 2c", position: BTN }
+    options:
+      - { text: "Aposta de cerca de 1/3 do {{t:pot|pote}}", correct: true, why: "Isso: é thin value. Setes, quatros e valetes mais fracos também vão {{t:call|pagar}} uma aposta pequena, então entre os {{t:call|calls}} sobram mais mãos piores do que melhores." }
+      - { text: "Aposta do {{t:pot|pote}} inteiro", sizeError: true, why: "Ação certa, tamanho errado: diante de uma aposta do tamanho do {{t:pot|pote}}, setes e quatros vão {{t:fold|desistir}}, e vão pagar principalmente valetes melhores e mãos mais fortes. Thin value você aposta menor, geralmente cerca de 1/4–1/2 do {{t:pot|pote}}." }
+      - { text: "{{t:check|Dou check}}, porque a mão é fraca demais para apostar", why: "Você perde valor: ganha de mais da metade das mãos que pagariam uma aposta pequena. Basta escolher um tamanho menor." }
+  - kind: numeric
+    id: m8.exam.q3
+    family: m8.bluff.share
+    rules: [R-M8-004, R-M8-005]
+    prompt: "River. Há {{n:exam.m8.pot}} no {{t:pot|pote}}, e você aposta {{n:exam.m8.bet}} com um {{t:range}} formado por mãos muito fortes e {{t:bluff|blefes}}. Em equilíbrio, que parte das suas apostas são {{t:bluff|blefes}}? Digite o número em porcentagem."
+    answer: exam.m8.share
+    explanation: "Proporção de {{t:bluff|blefes}} = aposta ÷ ({{t:pot}} + 2·aposta) = {{n:exam.m8.bet}} ÷ ({{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}) = {{n:exam.m8.share}}. A mão do adversário que pega {{t:bluff|blefes}} precisa dessa mesma equity, então não lucra nem com {{t:call}} nem com {{t:fold}}."
+  - kind: choice
+    id: m8.exam.q4
+    family: m8.bluff.combos
+    rules: [R-M8-004]
+    prompt: "River. Há {{n:exam.m8.pot}} no {{t:pot|pote}}, e você aposta {{n:exam.m8.bet}} com um {{t:range}} de {{n:exam.m8.range}} {{t:combo|combinações}}: valor e {{t:bluff|blefes}}. A proporção de {{t:bluff|blefes}} em equilíbrio é {{n:exam.m8.share}}. Quantas {{t:combo|combinações}} são {{t:bluff|blefes}}?"
+    options:
+      - { text: "{{n:exam.m8.bluffs}}", correct: true, why: "Isso: {{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}} {{t:bluff|blefes}} e {{n:exam.m8.value-combos}} {{t:combo|combinações}} {{t:value|de valor}}." }
+      - { text: "{{n:exam.m8.bluffs.wrong-pot}}", why: "Esse seria o número com uma aposta do {{t:pot|pote}} inteiro (proporção {{n:bluff.share.bet-pot}}). Com uma aposta menor, há menos {{t:bluff|blefes}}: {{n:exam.m8.share}}." }
+      - { text: "{{n:exam.m8.value-combos}}", why: "Esse é o número de {{t:combo|combinações}} {{t:value|de valor}}. Os {{t:bluff|blefes}} são a parte menor: {{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}}." }
+  - kind: choice
+    id: m8.exam.q5
+    family: m8.bluff.hands
+    rules: [R-M8-006]
+    prompt: "Você {{t:open|abriu}} do Button, o {{t:big-blind}} {{t:call|pagou}} e no river {{t:check|dá check}}. Com qual destas mãos é melhor {{t:bluff|blefar}}?"
+    table: { board: "Qs Tc 6d 3h 2s", position: BTN }
+    options:
+      - { text: "[[Kc Jc]]", correct: true, why: "Isso: o {{t:oesd|OESD}} não entrou, e só o rei como carta mais alta quase nunca ganha no showdown. Uma mão sem chances não perde nada quando o {{t:bluff}} não dá certo." }
+      - { text: "[[Ts 9s]]", why: "O {{t:second-pair|segundo par}} ganha depois do {{t:check|check}} contra {{t:draw|projetos}} que não entraram e mãos mais fracas. Com um {{t:bluff|blefe}}, você abriria mão desse ganho." }
+      - { text: "[[Qd 8d]]", why: "O {{t:top-pair|top pair}} tem valor de showdown. Você não {{t:bluff|blefa}} com uma mão que ganha com frequência depois do {{t:check|check}}." }
+  - kind: choice
+    id: m8.exam.q6
+    family: m8.blockers.bluff
+    rules: [R-M8-007]
+    prompt: "River. O {{t:big-blind|big blind}} {{t:check|dá check}}. Nesta {{t:board|mesa}}, KT e T8 fazem {{t:straight|sequência}}. Nenhuma das mãos abaixo tem {{t:pair|par}} nem chances no showdown. Com qual é melhor {{t:bluff|blefar}}?"
+    table: { board: "Qd Jc 4s 2h 9d", position: BTN }
+    options:
+      - { text: "[[Ts 7s]]", correct: true, why: "Isso: o dez bloqueia as duas {{t:straight|sequências}} (KT e T8), ou seja, as mãos com que o adversário com certeza vai pagar. Ele tem menos {{t:combo|combinações}} delas, então fica mais vezes com uma mão para desistir." }
+      - { text: "[[6s 5s]]", why: "Esta mão não bloqueia nenhuma mão forte do adversário. Ao escolher entre {{t:bluff|blefes}} sem chances, você prefere o que bloqueia o valor dele." }
+  - kind: numeric
+    id: m8.exam.q7
+    family: m8.blockers.combos
+    rules: [R-M8-009]
+    prompt: "Sem nenhuma informação, KQ tem {{n:combos.unpaired}} {{t:combo|combinações}}. Você tem [[Ad Qc]]. Quantas {{t:combo|combinações}} de KQ o adversário pode ter? Digite o número."
+    table: { hand: "Ad Qc" }
+    answer: combos.unpaired.one-blocked
+    explanation: "Você tem uma dama, então restam ao adversário {{n:pair.outs.per-rank}} damas e todos os {{n:cards.suits}} reis: {{n:pair.outs.per-rank}} × {{n:cards.suits}} = {{n:combos.unpaired.one-blocked}}. O ás não afeta o número de KQ."
+  - kind: choice
+    id: m8.exam.q8
+    family: m8.catch.math
+    rules: [R-M8-010]
+    prompt: "River. Há {{n:exam.m8.pot}} no {{t:pot|pote}}, e o adversário {{t:bet|aposta}} {{n:exam.m8.bet}}. Você tem um bluff-catcher e estima que os {{t:bluff|blefes}} são cerca de {{n:exam.m8.bluffs.est}} das apostas dele. O que você faz?"
+    options:
+      - { text: "{{t:fold|Desisto}}", correct: true, why: "Isso: você precisa de {{n:exam.m8.bet}} ÷ ({{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}) = {{n:exam.m8.share}} de equity, e um bluff-catcher só ganha de {{t:bluff|blefes}}, ou seja, em cerca de {{n:exam.m8.bluffs.est}} dos casos. {{t:call|Pagar}} dá prejuízo." }
+      - { text: "{{t:call|Pago}}", why: "A sua equity é a proporção de {{t:bluff|blefes}} nas apostas dele: {{n:exam.m8.bluffs.est}}. Isso é menos que os {{n:exam.m8.share}} necessários, então o {{t:call}} dá prejuízo." }
+      - { text: "{{t:raise|Aumento}}", why: "Depois de um {{t:raise|aumento}}, os {{t:bluff|blefes}} vão {{t:fold|desistir}}, e só mãos melhores vão pagar. Com um bluff-catcher, você não {{t:raise|aumenta}}." }
+  - kind: choice
+    id: m8.exam.q9
+    family: m8.catch.blockers
+    rules: [R-M8-011]
+    prompt: "Você defende o {{t:big-blind}}. As copas não entraram, e o river deu {{t:straight|sequência}} para T7 e 75. Você {{t:check|dá check}}, e o Button {{t:bet|aposta}} o {{t:pot|pote}} inteiro. Você tem {{t:top-pair}} com kicker fraco. Com qual destas mãos o {{t:call}} é melhor?"
+    table: { board: "Kh 9h 6c 2s 8d", position: BB }
+    options:
+      - { text: "[[Kc 7c]]", correct: true, why: "Isso: o sete bloqueia as duas novas {{t:straight|sequências}} (T7 e 75), ou seja, parte do valor do Button, e sem copas você não bloqueia os {{t:flush-draw|projetos de flush}} que não entraram, os principais {{t:bluff|blefes}} dele. Nas apostas dele sobram mais {{t:bluff|blefes}}." }
+      - { text: "[[Ks 3h]]", why: "A carta [[3h]] bloqueia parte dos {{t:flush-draw|projetos de flush}} que não entraram, ou seja, dos {{t:bluff|blefes}} do Button, e esta mão não bloqueia nenhuma {{t:straight|sequência}}. Nas apostas dele sobra mais valor." }
+  - kind: choice
+    id: m8.exam.q10
+    family: m8.value.check
+    rules: [R-M8-002]
+    prompt: "Você {{t:open|abriu}} do Button, o {{t:big-blind}} {{t:call|pagou}}. No flop, c-bet e {{t:call}}; no turn, vocês dois {{t:check|deram check}}. No river, o {{t:big-blind}} {{t:check|dá check}}. Você tem um {{t:pair|par}} de seis. O que você faz?"
+    table: { hand: "6d 6s", board: "Jc 8h 4d 3s Kc", position: BTN }
+    options:
+      - { text: "{{t:check|Dou check}}", correct: true, why: "Isso: o {{t:pair|par}} de seis ganha de {{t:draw|projetos}} que não entraram e de cartas altas, mas essas mãos vão {{t:fold|desistir}} diante de uma aposta. Vão pagar principalmente valetes, oitos e reis. {{t:check|Dando check}}, você vai ao showdown de graça." }
+      - { text: "Aposto pouco {{t:value|por valor}}", why: "Uma aposta pequena também será {{t:call|paga}} principalmente por {{t:pair|pares}} melhores. As mãos piores do adversário aqui são principalmente mãos sem {{t:pair|par}} e os {{t:pair|pares}} mais fracos, e elas raramente pagam." }
+      - { text: "Aposto alto para o adversário {{t:fold|desistir}} de um {{t:pair|par}} melhor", why: "A aposta transforma uma mão com valor de showdown em {{t:bluff|blefe}}. Você {{t:bluff|blefa}} com mãos sem chances, e esta mão ganha com frequência depois do {{t:check|check}}." }

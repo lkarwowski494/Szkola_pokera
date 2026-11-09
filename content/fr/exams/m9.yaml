@@ -1,0 +1,86 @@
+# Pula pytań egzaminacyjnych modułu M9 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m9.*).
+module: m9
+drills:
+  - kind: choice
+    id: m9.exam.q1
+    family: m9.spr
+    rules: [R-M9-001]
+    prompt: "Au flop, le {{t:pot}} est de {{n:exam.m9.pot}}. Il vous reste {{n:exam.m9.stack.you}} derrière, et votre adversaire a {{n:exam.m9.stack.opp}}. Quel est le {{t:spr}} ?"
+    options:
+      - { text: "{{n:exam.m9.spr}}", correct: true, why: "Oui : on le calcule à partir du {{t:effective-stack|stack effectif}}, c'est-à-dire le plus petit des deux : {{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}. Dans cette main, vous ne pouvez ni gagner ni perdre plus que ce que possède votre adversaire." }
+      - { text: "{{n:exam.m9.spr.wrong}}", why: "C'est votre stack ÷ {{t:pot}}. Votre adversaire a moins, donc au maximum {{n:exam.m9.stack.opp}} peut entrer en jeu dans la main : {{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}." }
+      - { text: "{{n:exam.m9.spr.inverted}}", why: "C'est l'inverse : le {{t:spr}} est le stack divisé par le {{t:pot}}, et non le {{t:pot}} divisé par le stack." }
+  - kind: choice
+    id: m9.exam.q2
+    family: m9.spr-zone
+    rules: [R-M9-010]
+    prompt: "Le {{t:spr}} au flop est de {{n:exam.m9.spr}}. Selon les zones de {{t:spr}}, laquelle de ces mains est une main limite : vous la jouez {{t:value|pour la value}}, mais vous ne {{t:call|suivez}} pas toujours le all-in de votre adversaire ?"
+    options:
+      - { text: "{{t:top-pair|Top paire}} avec un bon kicker", correct: true, why: "Oui : {{n:exam.m9.spr}} se situe dans la zone de {{n:spr.zone.low}} à {{n:spr.zone.mid}}, où la {{t:top-pair|top paire}} est une main limite (c'est une simplification). En dessous de {{n:spr.zone.low}}, elle se jouerait généralement pour tout le stack." }
+      - { text: "Set", why: "Un set se joue pour tout le stack même avec un {{t:spr}} supérieur à {{n:spr.zone.deep}}. Avec un {{t:spr}} de {{n:exam.m9.spr}}, c'est clairement une main pour tout le stack." }
+      - { text: "{{t:two-pair|Double paire}} avec les deux cartes les plus hautes du {{t:board}}", why: "Une {{t:two-pair|double paire}} haute suffit pour jouer le stack même dans la zone de {{n:spr.zone.mid}} à {{n:spr.zone.deep}}. Avec un {{t:spr}} de {{n:exam.m9.spr}}, c'est une main pour tout le stack, pas une main limite." }
+  - kind: numeric
+    id: m9.exam.q3
+    family: m9.spr-price
+    rules: [R-M9-002]
+    prompt: "Flop. Le {{t:pot}} est de {{n:exam.m9.pot}}, votre adversaire part all-in pour {{n:exam.m9.stack.opp}} ({{t:spr}} {{n:exam.m9.spr}}). De combien d'equity avez-vous besoin pour {{t:call|suivre}} ? Entrez le nombre en pourcentage."
+    answer: exam.m9.eq.jam
+    explanation: "Vous ajoutez {{n:exam.m9.stack.opp}} pour gagner le {{t:pot}} et le stack de votre adversaire : {{n:exam.m9.stack.opp}} ÷ ({{n:exam.m9.pot}} + 2·{{n:exam.m9.stack.opp}}) = {{n:exam.m9.eq.jam}}. Plus le {{t:spr}} est bas, meilleur est le prix."
+  - kind: choice
+    id: m9.exam.q4
+    family: m9.commit-plan
+    rules: [R-M9-004, R-M9-003]
+    prompt: "Flop, {{t:spr}} {{n:spr.low}} : le {{t:pot}} est de {{n:ex.pot}}, les stacks sont de {{n:spr.stack.low}} chacun. Vous avez une {{t:overpair|overpaire}}. Vous envisagez une mise de la moitié du {{t:pot}} ({{n:ex.bet.half}}), après laquelle il vous restera {{n:exam.m9.low.left}}. Quel plan ?"
+    table: { hand: "Qh Qc", board: "Jd 7s 3c" }
+    options:
+      - { text: "Miser en prévoyant de jouer tout le stack", correct: true, why: "Oui : si votre mise est {{t:call|suivie}}, le {{t:pot}} sera de {{n:ex.half.total}}, soit plus que les {{n:exam.m9.low.left}} qui vous restent dans votre stack. Face au all-in de votre adversaire, il ne vous faudrait que {{n:exam.m9.eq.low-after-half}} d'equity, et une {{t:overpair|overpaire}} avec un {{t:spr}} aussi bas se joue pour tout le stack." }
+      - { text: "Miser {{n:ex.bet.half}} et {{t:fold|se coucher}} si l'adversaire part all-in", why: "Miser puis {{t:fold|se coucher}} n'a pas de sens ici : après votre mise, {{n:exam.m9.eq.low-after-half}} d'equity suffit pour {{t:call|suivre}} le all-in. Soit vous jouez tout le stack, soit vous {{t:check|checkez}}." }
+      - { text: "Je {{t:check|checke}} et je {{t:fold|me couche}} face à toute mise", why: "Avec un {{t:spr}} inférieur à {{n:spr.zone.low}}, une {{t:overpair|overpaire}} est une main pour tout le stack. {{t:fold|Se coucher}} face à une mise revient à abandonner le {{t:pot}} avec une main très forte." }
+  - kind: choice
+    id: m9.exam.q5
+    family: m9.geo-size
+    rules: [R-M9-006]
+    prompt: "Le {{t:spr}} au flop est de {{n:exam.m9.spr}}. Vous voulez engager tout votre stack en deux {{t:bet|mises}} égales : au flop et au turn. Quelle fraction du {{t:pot}} misez-vous ?"
+    options:
+      - { text: "Env. {{n:exam.m9.geo.two}} du {{t:pot}}", correct: true, why: "Oui : (1 + 2f) au carré = 1 + 2·{{n:exam.m9.spr}}, donc 1 + 2f = 3 et f = {{n:exam.m9.geo.two}}. Une mise de la taille du {{t:pot}} et un {{t:call}} triplent le {{t:pot}}, et une deuxième mise de ce type au turn, c'est le all-in." }
+      - { text: "Env. {{n:exam.m9.geo.three}} du {{t:pot}}", why: "C'est la taille pour trois {{t:street|streets}} : (1 + 2f) au cube = 1 + 2·{{n:exam.m9.spr}}. Sur deux {{t:street|streets}}, chaque {{t:bet|mise}} doit être plus grosse." }
+      - { text: "Env. {{n:cbet.size.small}} du {{t:pot}}", why: "Deux {{t:bet|mises}} d'1/3 du {{t:pot}} n'engagent qu'une petite partie du stack. La taille géométrique se calcule avec la formule (1 + 2f) puissance le nombre de {{t:street|streets}} = 1 + 2·{{t:spr}}." }
+  - kind: choice
+    id: m9.exam.q6
+    family: m9.plan-streets
+    rules: [R-M9-008]
+    prompt: "Vous avez {{t:open|ouvert}} depuis le bouton, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}}. Vous avez une {{t:overpair|overpaire}} de valets sur un flop {{t:dry|sec}} et bas. Combien de {{t:value|streets de value}} cette main supportera-t-elle généralement ?"
+    table: { hand: "Jc Jd", board: "9h 5c 2d", position: BTN }
+    options:
+      - { text: "Généralement deux, une troisième quand l'adversaire paie avec des mains plus faibles", correct: true, why: "Oui : les neufs, les cinq et les {{t:pair|paires}} plus faibles paieront une {{t:overpair|overpaire}}, mais à chaque {{t:street}}, les mains moins bonnes {{t:fold|se couchent}} et il reste surtout de meilleures mains dans le {{t:pot}}." }
+      - { text: "Trois, toujours", why: "Ce sont généralement les mains très fortes qui supportent trois {{t:value|streets de value}} : sets, {{t:straight|quintes}}, {{t:two-pair|doubles paires}} hautes. Après la troisième {{t:bet|mise}}, une {{t:overpair|overpaire}} de valets paie souvent de meilleures mains." }
+      - { text: "Aucune : vous jouez en {{t:check|checkant}} jusqu'au showdown", why: "Trop prudent : sur un flop {{t:dry|sec}}, une {{t:overpair|overpaire}} bat de nombreuses mains qui paieront une ou deux {{t:bet|mises}}." }
+  - kind: choice
+    id: m9.exam.q7
+    family: m9.geo-srp
+    rules: [R-M9-007]
+    prompt: "Un {{t:pot}} relancé une fois, stacks de {{n:format.stack}} : au flop, le {{t:pot}} est de {{n:bb.pot-after.vs-btn}}, et chacun de vous a {{n:spr.srp.stack}} derrière. Vous misez la totalité du {{t:pot}} au flop, au turn et à la river, et votre adversaire {{t:call|suit}} toujours. Combien engagez-vous au total ?"
+    table: { position: BTN }
+    options:
+      - { text: "{{n:srp.potbet.total}} : moins que tout le stack", correct: true, why: "Oui : {{n:srp.potbet.flop}} + {{n:srp.potbet.turn}} + {{n:srp.potbet.river}} = {{n:srp.potbet.total}} sur un stack de {{n:spr.srp.stack}}. Le {{t:pot}} au flop est petit par rapport au stack, donc tout le stack n'entre qu'avec des {{t:bet|mises}} d'environ {{n:geo.srp.3}} du {{t:pot}} à chaque {{t:street}}." }
+      - { text: "Tout le stack : {{n:spr.srp.stack}}", why: "Trois mises de la taille du {{t:pot}} engagent {{n:srp.potbet.total}}. Pour engager tout le stack, il faut miser plus que le {{t:pot}} à chaque {{t:street}}." }
+      - { text: "{{n:srp.half.total}}", why: "C'est ce qu'engagent trois mises de la moitié du {{t:pot}}. Les mises de la taille du {{t:pot}} engagent davantage : {{n:srp.potbet.total}}." }
+  - kind: choice
+    id: m9.exam.q8
+    family: m9.geo-size
+    rules: [R-M9-009]
+    prompt: "Un {{t:pot}} 3-betté, vous avez la {{t:position}}, {{t:spr}} d'environ {{n:spr.3bet-ip}}. Vous avez une main pour trois {{t:value|streets de value}} et voulez engager tout votre stack. Un ami vous conseille de petites mises d'1/3 du {{t:pot}} à chaque {{t:street}}. Que se passe-t-il si votre adversaire {{t:call|suit}} trois fois ?"
+    table: { position: BTN }
+    options:
+      - { text: "Vous n'engagerez qu'environ {{n:g3b.third.total}} de votre stack de {{n:spr.3bet-ip.stack}}", correct: true, why: "Oui : les petites mises laissent un petit {{t:pot}} pour les {{t:street|streets}} suivantes. Tout le stack entre avec environ {{n:geo.3bet-ip.3}} du {{t:pot}} à chaque {{t:street}}, donc vous choisissez la taille géométrique dès le flop." }
+      - { text: "À la river, tout le stack sera dans le {{t:pot}}", why: "Non : trois mises d'1/3 du {{t:pot}} n'engagent qu'environ {{n:g3b.third.total}}. La majeure partie du stack ({{n:spr.3bet-ip.stack}}) reste non engagée." }
+      - { text: "Vous engagerez tout le stack dès le turn", why: "C'est l'inverse : les petites mises augmentent lentement, car le {{t:pot}} croît par multiplication. Seule une taille d'environ {{n:geo.3bet-ip.3}} du {{t:pot}} engage tout le stack, et ce à la river." }
+  - kind: choice
+    id: m9.exam.q9
+    family: m9.spr-zone
+    rules: [R-M9-010]
+    prompt: "Stacks très profonds : le {{t:spr}} au flop est supérieur à {{n:spr.zone.deep}}. Vous avez une {{t:two-pair|double paire}} haute. Prévoyez-vous de jouer tout le stack ?"
+    options:
+      - { text: "Généralement non : avec un tel {{t:spr}}, il vous faut un set, une {{t:straight|quinte}} ou mieux pour jouer tout le stack", correct: true, why: "Oui : au-dessus de {{n:spr.zone.deep}}, tout le stack n'entre qu'après plus de trois {{t:bet|mises}} de la taille du {{t:pot}}, et jusqu'au bout votre adversaire paie surtout avec des mains très fortes (c'est une simplification des zones de {{t:spr}})." }
+      - { text: "Oui : une {{t:two-pair|double paire}} haute joue toujours le stack", why: "Une {{t:two-pair|double paire}} haute suffit généralement dans la zone de {{n:spr.zone.mid}} à {{n:spr.zone.deep}}. Au-delà, un adversaire qui engage tout son stack a souvent un set ou mieux." }
+      - { text: "Oui, car un {{t:spr}} élevé donne un bon prix sur un all-in", why: "C'est l'inverse : plus le {{t:spr}} est élevé, plus le prix sur un all-in est mauvais et plus la main nécessaire pour jouer tout le stack doit être forte." }

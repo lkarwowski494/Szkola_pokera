@@ -3,4 +3,8 @@
 // (formatjs, intl-pluralrules). Dane liczby mnogiej dla każdego języka w wydaniu (lista = WYDANE, pilnuje konfiguracja.test.ts).
 import '@formatjs/intl-pluralrules/polyfill-force.js';
 import '@formatjs/intl-pluralrules/locale-data/en.js';
+import '@formatjs/intl-pluralrules/locale-data/fr.js';
+import '@formatjs/intl-pluralrules/locale-data/ja.js';
 import '@formatjs/intl-pluralrules/locale-data/pl.js';
+import '@formatjs/intl-pluralrules/locale-data/pt.js';
+import '@formatjs/intl-pluralrules/locale-data/zh.js';

@@ -1,0 +1,14 @@
+- { id: m0, order: 0, title: "ルールと役の強さ", sub: "どの役がどの役に勝つか", phase: mvp }
+- { id: m1, order: 1, title: "ハンドの進行", sub: "ブラインド、ストリート、アクション", phase: mvp }
+- { id: m2, order: 2, title: "基本の数学", sub: "アウツ、確率、ポットオッズ", phase: mvp }
+- { id: m3, order: 3, title: "ポジションとオープン", sub: "誰が最後にアクションするか、何をオープンするか", phase: mvp }
+- { id: m4, order: 4, title: "アクションを受けたときのプリフロップ", sub: "3ベット、ディフェンス、リンパー", phase: mvp }
+- { id: m5, order: 5, title: "フロップ：Cベット", sub: "テクスチャーとサイズ", phase: f2 }
+- { id: m6, order: 6, title: "フロップ：ディフェンス", sub: "MDF、コール、チェックレイズ", phase: f2 }
+- { id: m7, order: 7, title: "ターン", sub: "セカンドバレルとドロー", phase: f2 }
+- { id: m8, order: 8, title: "リバー", sub: "バリュー、ブラフ、ブロッカー", phase: f2 }
+- { id: m9, order: 9, title: "ハンドのプラン", sub: "SPRと3ストリートのサイズ", phase: f2 }
+- { id: m10, order: 10, title: "マイクロステークスのエクスプロイト", sub: "プレイヤータイプと母集団に多いミス", phase: f3 }
+- { id: m11, order: 11, title: "トーナメントとショートスタック", sub: "プッシュ/フォールドとICM", phase: f4, recommended: false }
+- { id: m12, order: 12, title: "メンタルゲームとバンクロール", sub: "分散とティルト", phase: f4 }
+- { id: m13, order: 13, title: "自分のプレイの分析", sub: "ハンドレビューとリーク", phase: f4 }

@@ -1,0 +1,111 @@
+# Pula egzaminacyjna M4 (gra wobec akcji preflop): reguły lekcji m4.l1–m4.l4, inne pozycje, ręce i rozmiary.
+# Bez pytań o podział 3-bet/sprawdzenie w spotach BB vs SB i BTN vs CO (tam uczymy tylko gram/pas, ADR-26).
+module: m4
+drills:
+  - kind: choice
+    id: m4.exam.q1
+    family: m4.3bet.size
+    rules: [R-M4-002, R-M4-003]
+    prompt: "{{t:cutoff|CO}} 以 {{n:pf.open-size}} {{t:open|開池}}，按鈕位{{t:fold|棄牌}}。你在{{t:small-blind|小盲}}，想要 3-bet。要加到多少？"
+    table: { hand: "Ad Kd", position: SB }
+    options:
+      - { text: "加到 {{n:pf.3bet.oop-total}}", correct: true, why: "翻牌後你要先行動，所以你{{t:raise|加注}}到約{{t:open|開池}}的 {{n:pf.3bet.size-oop}}。較大的尺寸讓 {{t:cutoff|CO}} 無法在{{t:in-position|有位置}}時便宜地{{t:call|跟注}}。" }
+      - { text: "加到 {{n:pf.3bet.ip-total}}", sizeError: true, why: "動作正確，但這是{{t:in-position|有位置}}玩家的尺寸（{{t:open|開池}}的 {{n:pf.3bet.size-ip}}）。從{{t:small-blind|小盲}}你會{{t:raise|加注}}到 {{n:pf.3bet.oop-total}}。" }
+      - { text: "只{{t:call|跟注}}", why: "從{{t:small-blind|小盲}}面對 {{t:cutoff|CO}}，你幾乎不{{t:call|跟注}}：你會在{{t:out-of-position|沒有位置}}的情況下打牌，而且你身後的{{t:big-blind|大盲}}還可能{{t:raise|加注}}。" }
+  - kind: choice
+    id: m4.exam.q2
+    family: m4.sb.vs-open
+    rules: [R-M4-003]
+    prompt: "按鈕位以 {{n:pf.open-size}} {{t:open|開池}}。你在{{t:small-blind|小盲}}。你會怎麼做？"
+    table: { hand: "8c 8d", position: SB }
+    options:
+      - { text: "3-bet", correct: true, why: "從{{t:small-blind|小盲}}面對按鈕位，你用{{t:range|範圍}}頂端約 {{n:pf.3bet-freq.sb-vs-btn}} 的手牌 3-bet，77 以上的{{t:pair|對子}}都在其中。" }
+      - { text: "{{t:call|跟注}}", why: "從{{t:small-blind|小盲}}面對按鈕位，你幾乎不{{t:call|跟注}}：你會在{{t:out-of-position|沒有位置}}、身後還有{{t:big-blind|大盲}}的情況下打牌。3-bet 讓你取得{{t:initiative|主動權}}，也有立刻獲勝的機會。" }
+      - { text: "{{t:fold|棄牌}}", why: "太緊了：88 位於你面對按鈕位寬{{t:open|開池}}時用來 3-bet 的{{t:range|範圍}}上半部。" }
+  - kind: choice
+    id: m4.exam.q3
+    family: m4.3bet.shape
+    rules: [R-M4-006]
+    prompt: "你在{{t:big-blind|大盲}}，按鈕位{{t:open|開池}}，{{t:small-blind|小盲}}{{t:fold|棄牌}}。下列哪手牌是典型的{{t:value|價值}} 3-bet？"
+    table: { position: BB }
+    options:
+      - { text: "JJ", correct: true, why: "從{{t:big-blind|大盲}}你用最強的手牌 3-bet（TT+、AQ+、AJs+）。JJ 想要大{{t:pot|底池}}。" }
+      - { text: "不同花的 A9", why: "不同花的 A（AJo–A9o）在{{t:big-blind|大盲}}通常只{{t:call|跟注}}：你以便宜的價格入池，並結束這輪行動。" }
+      - { text: "66", why: "中小{{t:pair|對子}}在{{t:big-blind|大盲}}通常{{t:call|跟注}}。它們靠翻牌後賺錢，而用它們 3-bet 遇到 4-bet 時很難處理。" }
+  - kind: choice
+    id: m4.exam.q4
+    family: m4.bb.price
+    rules: [R-M4-004]
+    prompt: "{{t:cutoff|CO}} 以 {{n:pf.open-size}} {{t:open|開池}}，按鈕位和{{t:small-blind|小盲}}{{t:fold|棄牌}}。你在{{t:big-blind|大盲}}需要多少勝率才能{{t:call|跟注}}（不計翻牌後的打法）？"
+    table: { position: BB }
+    options:
+      - { text: "約 {{n:eq.bb-vs-btn-open}}", correct: true, why: "價格取決於金額，而不是誰{{t:open|開池}}。你補 {{n:bb.call.vs-btn}} 進入{{t:call|跟注}}後共有 {{n:bb.pot-after.vs-btn}} 的{{t:pot|底池}}，和面對按鈕位時一樣。" }
+      - { text: "約一半", why: "如果{{t:pot|底池}}裡只有對手的{{t:bet|下注}}，你才需要一半。{{t:pot|底池}}裡的盲注改善了你的價格。" }
+      - { text: "約 {{n:eq.bb-vs-sb-open}}", why: "這是面對{{t:small-blind|小盲}}以 {{n:pf.open-size-sb}} {{t:open|開池}}時的價格。這裡的{{t:open|開池}}比較小。" }
+  - kind: choice
+    id: m4.exam.q5
+    family: m4.bb.3bet-size
+    rules: [R-M4-014]
+    prompt: "{{t:small-blind|小盲}}以 {{n:pf.open-size-sb}} {{t:open|開池}}。你在{{t:big-blind|大盲}}拿到 AA，要 3-bet。要加到多少？"
+    table: { hand: "Ah Ad", position: BB }
+    options:
+      - { text: "加到 {{n:exam.m4.bb-vs-sb.3bet}}", correct: true, why: "面對{{t:small-blind|小盲}}，翻牌後你有{{t:position|位置}}，所以 3-bet 約為{{t:open|開池}}的 {{n:pf.3bet.size-ip}}；面對 {{n:pf.open-size-sb}} 的{{t:open|開池}}，就是 {{n:exam.m4.bb-vs-sb.3bet}}。" }
+      - { text: "加到 {{n:exam.m4.bb-vs-sb.3bet-oop-size}}", sizeError: true, why: "動作正確，但{{t:open|開池}}的 {{n:pf.3bet.size-oop}} 是{{t:out-of-position|沒有位置}}時的尺寸。面對{{t:small-blind|小盲}}，{{t:big-blind|大盲}}有{{t:position|位置}}，所以{{t:raise|加注}}得少一些。" }
+      - { text: "加到 {{n:pf.3bet.ip-total}}", sizeError: true, why: "動作正確，但 {{n:pf.3bet.ip-total}} 是面對 {{n:pf.open-size}} {{t:open|開池}}的 3-bet。{{t:small-blind|小盲}}以 {{n:pf.open-size-sb}} {{t:open|開池}}，所以{{t:open|開池}}的 {{n:pf.3bet.size-ip}} 就是 {{n:exam.m4.bb-vs-sb.3bet}}。" }
+  - kind: choice
+    id: m4.exam.q6
+    family: m4.vs3bet.math
+    rules: [R-M4-007]
+    prompt: "你遭到一名翻牌後將有{{t:position|位置}}的玩家 3-bet。你通常會{{t:fold|棄掉}}多少比例的{{t:open|開池}}牌？"
+    options:
+      - { text: "約 {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}}", correct: true, why: "求解器的解和圖表大致就是這樣的{{t:fold|棄牌}}比例；上限略低於 {{n:alpha.vs-3bet-ip-size}} 的門檻：如果棄牌更頻繁，對手的 3-bet 用任何手牌都能獲利。" }
+      - { text: "除了 AA 和 KK 幾乎全部", why: "那樣對手用任意兩張牌 3-bet 都能獲利，因為你{{t:fold|棄牌}}的頻率遠高於 {{n:alpha.vs-3bet-ip-size}}。" }
+      - { text: "少於四分之一", why: "{{t:fold|棄牌}}太少：你會用輸給對手{{t:range|範圍}}、翻牌後也很難打的手牌去付 3-bet。" }
+  - kind: choice
+    id: m4.exam.q7
+    family: m4.vs3bet.oop
+    rules: [R-M4-008]
+    prompt: "你從 {{t:hijack|HJ}} 以 {{n:pf.open-size}} {{t:open|開池}}，按鈕位{{t:raise|加注}}到 {{n:pf.3bet.ip-total}}，其他人都{{t:fold|棄牌}}。你會怎麼做？"
+    table: { hand: "Ah Tc", position: HJ }
+    options:
+      - { text: "{{t:fold|棄牌}}", correct: true, why: "不同花的 AT 在{{t:out-of-position|沒有位置}}時常被 AJ、AQ 和 AK 壓制，翻牌後也難以{{t:equity-realization|實現勝率}}。面對 3-bet，這類手牌你會{{t:fold|棄掉}}。" }
+      - { text: "{{t:call|跟注}}", why: "A 很誘人，但{{t:out-of-position|沒有位置}}時你用同花牌和{{t:pair|對子}}{{t:call|跟注}}。ATo 太常中 A 卻踢腳較弱。" }
+      - { text: "{{t:value|價值}} 4-bet", why: "{{t:value|價值}} 4-bet 你通常用 AA、KK 和 AK。ATo 會輸給大多數會{{t:call|跟注}}它的手牌。" }
+  - kind: choice
+    id: m4.exam.q8
+    family: m4.vs3bet.ip
+    rules: [R-M4-009]
+    prompt: "你從按鈕位以 {{n:pf.open-size}} {{t:open|開池}}，{{t:small-blind|小盲}}{{t:raise|加注}}到 {{n:pf.3bet.oop-total}}，{{t:big-blind|大盲}}{{t:fold|棄牌}}。你會怎麼做？"
+    table: { hand: "9s 9h", position: BTN }
+    options:
+      - { text: "{{t:call|跟注}}", correct: true, why: "{{t:in-position|有位置}}時你{{t:call|跟注}}得更寬，包括 66 到 TT 的{{t:pair|對子}}。99 翻牌後很好打，也容易{{t:equity-realization|實現勝率}}。" }
+      - { text: "{{t:fold|棄牌}}", why: "太緊了：你{{t:fold|棄掉}}的是最小的{{t:pair|對子}}，而 99 在你{{t:in-position|有位置}}時的{{t:call|跟注}}{{t:range|範圍}}內。" }
+      - { text: "{{t:value|價值}} 4-bet", why: "{{t:value|價值}} 4-bet 你通常用 AA、KK 和 AK。99 寧可看翻牌。" }
+  - kind: choice
+    id: m4.exam.q9
+    family: m4.vs3bet.value
+    rules: [R-M4-010, R-M4-011]
+    prompt: "你從 {{t:hijack|HJ}} 以 {{n:pf.open-size}} {{t:open|開池}}，{{t:cutoff|CO}} {{t:raise|加注}}到 {{n:pf.3bet.ip-total}}，其他人都{{t:fold|棄牌}}。你會怎麼做？"
+    table: { hand: "As Ac", position: HJ }
+    options:
+      - { text: "4-bet 到約 {{n:pf.4bet.oop-example.low}}–{{n:exam.m4.4bet.oop.high}}", correct: true, why: "AA 你會做{{t:value|價值}} 4-bet。{{t:out-of-position|沒有位置}}時 4-bet 約為 3-bet 的 {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}}：{{n:pf.3bet.ip-total}} × {{n:pf.4bet.size-oop.low}} ≈ {{n:pf.4bet.oop-example.low}}，× {{n:pf.4bet.size-oop.high}} ≈ {{n:exam.m4.4bet.oop.high}}。" }
+      - { text: "{{t:call|跟注}}", why: "AA 想把整個籌碼都投進去。{{t:out-of-position|沒有位置}}時{{t:call|跟注}}會放棄{{t:value|價值}}和{{t:initiative|主動權}}。" }
+      - { text: "全下 {{n:format.stack}}", why: "全下會把對手原本會用來跟注普通 4-bet 的較弱手牌逼走。4-bet 到約 3-bet 的 {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} 之後，剩下的籌碼你無論如何都能輕鬆投進去。" }
+  - kind: numeric
+    id: m4.exam.n1
+    family: m4.iso.size
+    rules: [R-M4-012]
+    prompt: "兩名玩家跛入，按鈕位{{t:fold|棄牌}}。你在{{t:small-blind|小盲}}，想要{{t:isolation|隔離加注}}。你要{{t:raise|加注}}到多少 bb？請輸入數字。"
+    table: { hand: "Qs Qc", position: SB }
+    answer: exam.m4.iso.two-oop
+    explanation: "基本 {{n:pf.iso.base}}，兩名跛入者每人加 {{n:pf.iso.per-limper}}，再加 {{n:pf.iso.oop-extra}}，因為翻牌後你先行動：共 {{n:exam.m4.iso.two-oop}}。"
+  - kind: choice
+    id: m4.exam.q10
+    family: m4.iso.many
+    rules: [R-M4-013, R-M4-012]
+    prompt: "你前面有三名玩家只跟了{{t:big-blind|大盲}}。你在 {{t:cutoff|CO}}。你會怎麼做？"
+    table: { hand: "Ad Kh", position: CO }
+    options:
+      - { text: "{{t:raise|加注}}到 {{n:exam.m4.iso.three}}", correct: true, why: "面對多名跛入者，你{{t:raise|加注}}主要是為了{{t:value|價值}}，而 AK 正是這種手牌。尺寸：{{n:pf.iso.base}}，三名跛入者每人再加 {{n:pf.iso.per-limper}}。" }
+      - { text: "{{t:raise|加注}}到 {{n:pf.iso.one-limper}}", sizeError: true, why: "動作正確，但這是面對一名跛入者的尺寸。每多一名就加 {{n:pf.iso.per-limper}}，所以這裡是 {{n:exam.m4.iso.three}}。" }
+      - { text: "跟著跛入", why: "跟著跛入適合投機型手牌。AK 想要做大{{t:pot|底池}}，並減少對手人數。" }

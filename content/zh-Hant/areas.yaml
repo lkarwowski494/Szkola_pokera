@@ -1,0 +1,19 @@
+# Obszary trybu gry M13 (dokument 14, 4.3): jeden obszar = jeden moduł kursu. Generator ustawia sytuację przed
+# decyzją gracza (packages/poker-core/src/areas.ts), dalej rozdanie toczy się normalnie. rules = reguły z polem check,
+# które oceniają decyzje obszaru. Obszar odblokowuje się po ukończeniu wszystkich lekcji modułu (decyzja P14; ścieżka
+# przez test wstępny dojdzie z B-024). Etap 1: M2, M3, M4 bez gry wobec 3-betu, M5, rachunek M7.
+- module: m2
+  generator: flop-draw
+  rules: [R-M2-005, R-M7-008]
+- module: m3
+  generator: rfi
+  rules: [R-M3-002, R-M3-003, R-M3-004, R-M3-006, R-M3-007, R-M3-009]
+- module: m4
+  generator: vs-open
+  rules: [R-M4-001, R-M4-002, R-M4-003, R-M4-004, R-M4-005, R-M4-012, R-M4-014]
+- module: m5
+  generator: cbet-ip
+  rules: [R-M5-004, R-M5-007, R-M5-009]
+- module: m7
+  generator: turn-draw
+  rules: [R-M7-007, R-M7-008]

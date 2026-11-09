@@ -1,0 +1,93 @@
+# Pula pytań egzaminacyjnych modułu M8 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m8.*).
+module: m8
+drills:
+  - kind: choice
+    id: m8.exam.q1
+    family: m8.value.threshold
+    rules: [R-M8-001]
+    prompt: "リバーで相手が{{t:check|チェック}}し、相手はあなたに{{t:raise|レイズ}}できません。相手の{{t:range|レンジ}}にはあなたより弱いハンドが{{n:exam.m8.range.worse}}個ありますが、あなたのベットに{{t:call|コール}}するのはそのうち{{n:exam.m8.call.worse}}個だけです。また、より強いハンドでも{{n:exam.m8.call.better}}回支払ってきます。ベットしますか？"
+    options:
+      - { text: "いいえ、{{t:check|チェック}}します", correct: true, why: "正解です。数えるのは支払ってくれるハンドだけです。ベットは{{n:exam.m8.call.worse}}回勝ち、{{n:exam.m8.call.better}}回負けるので、差し引き{{n:exam.m8.net.loss}}ベットの損です。{{t:fold|フォールド}}する弱いハンドは、{{t:check|チェック}}してもどのみちあなたに負けていました。" }
+      - { text: "はい、弱いハンドのほうが強いハンドより多いからです", why: "相手には弱いハンドが{{n:exam.m8.range.worse}}個ありますが、その大半はベットに{{t:fold|フォールド}}します。支払ってくれるハンドの中では、強いハンドのほうが多いのです（{{n:exam.m8.call.better}}対{{n:exam.m8.call.worse}}）。" }
+      - { text: "はい、自分の立ち位置を知るためです", why: "「情報のため」のベットは強いハンドに支払うだけで、弱いハンドは{{t:fold|フォールド}}します。同じ情報は{{t:check|チェック}}すれば、ショーダウンで無料で得られます。" }
+  - kind: choice
+    id: m8.exam.q2
+    family: m8.value.size
+    rules: [R-M8-003]
+    prompt: "ボタンから{{t:open|オープン}}し、{{t:big-blind}}が{{t:call|コール}}しました。フロップはCベットと{{t:call}}、ターンは両者{{t:check|チェック}}でした。リバーで{{t:big-blind}}が{{t:check|チェック}}します。あなたは9キッカーの{{t:top-pair|トップペア}}で、支払ってくれるハンドの半分を少し超える程度に勝っていると見積もっています。どうしますか？"
+    table: { hand: "Jh 9h", board: "Jc 7s 4d 2h 2c", position: BTN }
+    options:
+      - { text: "{{t:pot|ポット}}の約1/3をベット", correct: true, why: "正解です。これはシンバリューです。小さいベットには7、4、弱いJも{{t:call|コール}}するので、{{t:call|コール}}するハンドの中には強いハンドより弱いハンドが多く残ります。" }
+      - { text: "{{t:pot|ポット}}全額をベット", sizeError: true, why: "アクションは正しいですが、サイズが違います。{{t:pot|ポット}}サイズのベットには7や4は{{t:fold|フォールド}}し、支払うのは主に強いJやより強いハンドです。シンバリューは小さめに、通常は{{t:pot|ポット}}の約1/4〜1/2でベットします。" }
+      - { text: "ベットするには弱すぎるので{{t:check|チェック}}します", why: "バリューを逃しています。小さいベットに支払うハンドの半分以上に勝っています。小さいサイズを選べば十分です。" }
+  - kind: numeric
+    id: m8.exam.q3
+    family: m8.bluff.share
+    rules: [R-M8-004, R-M8-005]
+    prompt: "リバーです。{{t:pot|ポット}}は{{n:exam.m8.pot}}で、あなたは非常に強いハンドと{{t:bluff|ブラフ}}からなる{{t:range|レンジ}}で{{n:exam.m8.bet}}をベットします。均衡では、あなたのベットのうち{{t:bluff|ブラフ}}はどれだけの割合ですか？パーセントで入力してください。"
+    answer: exam.m8.share
+    explanation: "{{t:bluff|ブラフ}}の割合 = ベット ÷ （{{t:pot}} + 2·ベット） = {{n:exam.m8.bet}} ÷ （{{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}） = {{n:exam.m8.share}}。{{t:bluff|ブラフ}}をキャッチする相手のハンドも同じだけのエクイティを必要とするので、{{t:call|コール}}しても{{t:fold|フォールド}}しても利益は出ません。"
+  - kind: choice
+    id: m8.exam.q4
+    family: m8.bluff.combos
+    rules: [R-M8-004]
+    prompt: "リバーです。{{t:pot|ポット}}は{{n:exam.m8.pot}}で、あなたはバリューと{{t:bluff|ブラフ}}からなる{{n:exam.m8.range}}{{t:combo|コンボ}}の{{t:range|レンジ}}で{{n:exam.m8.bet}}をベットします。均衡での{{t:bluff|ブラフ}}の割合は{{n:exam.m8.share}}です。{{t:bluff|ブラフ}}は何{{t:combo|コンボ}}ですか？"
+    options:
+      - { text: "{{n:exam.m8.bluffs}}", correct: true, why: "正解です。{{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}}の{{t:bluff|ブラフ}}と、{{n:exam.m8.value-combos}}の{{t:value|バリュー}}{{t:combo|コンボ}}です。" }
+      - { text: "{{n:exam.m8.bluffs.wrong-pot}}", why: "これは{{t:pot|ポット}}全額をベットした場合の数です（割合{{n:bluff.share.bet-pot}}）。ベットが小さければ{{t:bluff|ブラフ}}は少なくなります：{{n:exam.m8.share}}。" }
+      - { text: "{{n:exam.m8.value-combos}}", why: "これは{{t:value|バリュー}}{{t:combo|コンボ}}の数です。{{t:bluff|ブラフ}}は小さいほうの部分です：{{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}}。" }
+  - kind: choice
+    id: m8.exam.q5
+    family: m8.bluff.hands
+    rules: [R-M8-006]
+    prompt: "ボタンから{{t:open|オープン}}し、{{t:big-blind}}が{{t:call|コール}}して、リバーで{{t:check|チェック}}しました。次のうち、{{t:bluff|ブラフ}}に最も適したハンドはどれですか？"
+    table: { board: "Qs Tc 6d 3h 2s", position: BTN }
+    options:
+      - { text: "[[Kc Jc]]", correct: true, why: "正解です。{{t:oesd|オープンエンド・ストレートドロー}}は外れ、Kハイだけではショーダウンでほぼ勝てません。勝ち目のないハンドは、{{t:bluff}}が失敗しても何も失いません。" }
+      - { text: "[[Ts 9s]]", why: "{{t:second-pair|セカンドペア}}は{{t:check|チェック}}すれば、外れた{{t:draw|ドロー}}や弱いハンドに勝てます。{{t:bluff|ブラフ}}すると、その勝ちを手放すことになります。" }
+      - { text: "[[Qd 8d]]", why: "{{t:top-pair|トップペア}}にはショーダウンバリューがあります。{{t:check|チェック}}でよく勝てるハンドで{{t:bluff|ブラフ}}はしません。" }
+  - kind: choice
+    id: m8.exam.q6
+    family: m8.blockers.bluff
+    rules: [R-M8-007]
+    prompt: "リバーです。{{t:big-blind|ビッグブラインド}}が{{t:check|チェック}}します。この{{t:board|ボード}}ではKTとT8が{{t:straight}}になります。下のどちらのハンドも{{t:pair|ペア}}がなく、ショーダウンでの勝ち目もありません。{{t:bluff|ブラフ}}するならどちらが良いですか？"
+    table: { board: "Qd Jc 4s 2h 9d", position: BTN }
+    options:
+      - { text: "[[Ts 7s]]", correct: true, why: "正解です。Tは両方の{{t:straight|ストレート}}（KTとT8）、つまり相手が確実に支払うハンドをブロックします。相手はそれらの{{t:combo|コンボ}}が少なくなるので、フォールドすべきハンドを持っていることが多くなります。" }
+      - { text: "[[6s 5s]]", why: "このハンドは相手の強いハンドを何もブロックしていません。勝ち目のない{{t:bluff|ブラフ}}同士で選ぶなら、相手のバリューをブロックするほうを選びます。" }
+  - kind: numeric
+    id: m8.exam.q7
+    family: m8.blockers.combos
+    rules: [R-M8-009]
+    prompt: "何の情報もなければ、KQは{{n:combos.unpaired}}{{t:combo|コンボ}}あります。あなたは[[Ad Qc]]を持っています。相手が持ちうるKQは何{{t:combo|コンボ}}ですか？数を入力してください。"
+    table: { hand: "Ad Qc" }
+    answer: combos.unpaired.one-blocked
+    explanation: "あなたがQを1枚持っているので、相手に残るのはQ{{n:pair.outs.per-rank}}枚とK全{{n:cards.suits}}枚です：{{n:pair.outs.per-rank}} × {{n:cards.suits}} = {{n:combos.unpaired.one-blocked}}。AはKQの数に影響しません。"
+  - kind: choice
+    id: m8.exam.q8
+    family: m8.catch.math
+    rules: [R-M8-010]
+    prompt: "リバーです。{{t:pot|ポット}}は{{n:exam.m8.pot}}で、相手が{{n:exam.m8.bet}}を{{t:bet|ベット}}します。あなたはブラフキャッチャーを持っていて、相手のベットのうち約{{n:exam.m8.bluffs.est}}が{{t:bluff|ブラフ}}だと見積もっています。どうしますか？"
+    options:
+      - { text: "{{t:fold|フォールド}}", correct: true, why: "正解です。必要なエクイティは{{n:exam.m8.bet}} ÷ （{{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}） = {{n:exam.m8.share}}ですが、ブラフキャッチャーが勝てるのは{{t:bluff|ブラフ}}だけ、つまり約{{n:exam.m8.bluffs.est}}のケースです。{{t:call|コール}}は損になります。" }
+      - { text: "{{t:call|コール}}", why: "あなたのエクイティは相手のベットに占める{{t:bluff|ブラフ}}の割合、{{n:exam.m8.bluffs.est}}です。これは必要な{{n:exam.m8.share}}より少ないので、{{t:call}}は損になります。" }
+      - { text: "{{t:raise|レイズ}}", why: "{{t:raise|レイズ}}すると{{t:bluff|ブラフ}}は{{t:fold|フォールド}}し、支払うのは強いハンドだけです。ブラフキャッチャーでは{{t:raise|レイズ}}しません。" }
+  - kind: choice
+    id: m8.exam.q9
+    family: m8.catch.blockers
+    rules: [R-M8-011]
+    prompt: "あなたは{{t:big-blind}}をディフェンスしています。ハートは外れ、リバーでT7と75が{{t:straight}}になりました。あなたが{{t:check|チェック}}し、ボタンが{{t:pot|ポット}}全額を{{t:bet|ベット}}します。あなたは弱いキッカーの{{t:top-pair|トップペア}}です。次のうち、{{t:call}}が良いのはどちらのハンドですか？"
+    table: { board: "Kh 9h 6c 2s 8d", position: BB }
+    options:
+      - { text: "[[Kc 7c]]", correct: true, why: "正解です。7は新しくできた両方の{{t:straight|ストレート}}（T7と75）、つまりボタンのバリューの一部をブロックし、ハートがないので相手の主な{{t:bluff|ブラフ}}である外れた{{t:flush-draw|フラッシュドロー}}をブロックしません。相手のベットに{{t:bluff|ブラフ}}が多く残ります。" }
+      - { text: "[[Ks 3h]]", why: "[[3h]]は外れた{{t:flush-draw|フラッシュドロー}}、つまりボタンの{{t:bluff|ブラフ}}の一部をブロックし、このハンドはどの{{t:straight|ストレート}}もブロックしません。相手のベットにバリューが多く残ります。" }
+  - kind: choice
+    id: m8.exam.q10
+    family: m8.value.check
+    rules: [R-M8-002]
+    prompt: "ボタンから{{t:open|オープン}}し、{{t:big-blind}}が{{t:call|コール}}しました。フロップはCベットと{{t:call}}、ターンは両者{{t:check|チェック}}でした。リバーで{{t:big-blind}}が{{t:check|チェック}}します。あなたは6の{{t:pair|ペア}}です。どうしますか？"
+    table: { hand: "6d 6s", board: "Jc 8h 4d 3s Kc", position: BTN }
+    options:
+      - { text: "{{t:check|チェック}}", correct: true, why: "正解です。6の{{t:pair|ペア}}は外れた{{t:draw|ドロー}}やハイカードに勝てますが、それらのハンドはベットに{{t:fold|フォールド}}します。支払うのは主にJ、8、Kです。{{t:check|チェック}}すれば、無料でショーダウンに行けます。" }
+      - { text: "{{t:value|バリュー}}で小さくベット", why: "小さいベットでも、{{t:call|コール}}するのは主に強い{{t:pair|ペア}}です。ここでの相手の弱いハンドは主に{{t:pair|ペア}}のないハンドと最も弱い{{t:pair|ペア}}で、それらはめったに支払いません。" }
+      - { text: "相手に強い{{t:pair|ペア}}を{{t:fold|フォールド}}させるため大きくベット", why: "ベットすると、ショーダウンバリューのあるハンドが{{t:bluff}}に変わってしまいます。{{t:bluff|ブラフ}}は勝ち目のないハンドで行うもので、このハンドは{{t:check|チェック}}すればよく勝てます。" }
