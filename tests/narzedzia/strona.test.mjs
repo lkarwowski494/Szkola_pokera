@@ -1,7 +1,7 @@
 // K-10 (plan-1.0; D-307, D-308): strona polityki prywatności i wsparcia w site/ — wzór Trening tests/public-repo.test.ts:173–262
 // (2e4b0f8, odczyt 2026-11-09). Treść zgodna z etykietą App Privacy „Data Not Collected” (docs/architektura/prywatnosc.md §3):
 // pliki = wynik generatorów z jednego źródła, bez skryptów i zasobów zewnętrznych, bez SDK zbierających dane w aplikacji.
-// Publikacja (workflow Pages, włączenie Pages) czeka na zgodę właściciela (D-308): strażnik niżej.
+// Publikacja: tylko pages.yml, tylko site/, tylko z main (D-308, zgoda D-341 pkt 4, D-342): strażnik niżej.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
@@ -73,8 +73,28 @@ test('wsparcie: bez cen i bez liczby limitu wpisanej ręcznie (ceny w App Store;
   for (const j of ['pl', 'en']) assert.doesNotMatch(sekcja(h, j), /\$|USD|zł|€|\d+[,.]\d\d|\d+ (zadań|ćwiczeń|tasks|sessions)/);
 });
 
-test('D-308: brak workflow publikującego stronę, dopóki właściciel nie zgodzi się na publikację i włączenie Pages', () => {
-  for (const f of readdirSync(join(korzen, '.github/workflows'))) {
-    assert.doesNotMatch(czytaj(`.github/workflows/${f}`), /deploy-pages|upload-pages-artifact|configure-pages/, f);
-  }
+// D-342 (2026-11-09, zgoda właściciela na publikację D-341 pkt 4): jedyny workflow publikujący Pages to pages.yml — wyłącznie
+// katalog site/ i wyłącznie z main (push ścieżek site/** albo ręcznie z main). Wzór Trening .github/workflows/pages.yml:1–34
+// (2e4b0f8, odczyt 2026-11-09); odstępstwo nazwane: uprawnienia pages/id-token na poziomie zadania (zasada tego repo, workflowy.test).
+const PAGES = /deploy-pages|upload-pages-artifact|configure-pages|gh-pages/; // gh-pages: publikacja gałęzią (przegląd D-043, P2)
+test('D-308/D-342: Pages publikuje tylko pages.yml, tylko site/ i tylko z main', async () => {
+  const { parseDocument } = await import('yaml');
+  const publikujace = readdirSync(join(korzen, '.github/workflows')).filter((f) => PAGES.test(czytaj(`.github/workflows/${f}`)));
+  assert.deepEqual(publikujace, ['pages.yml']);
+  const w = parseDocument(czytaj('.github/workflows/pages.yml')).toJSON();
+  assert.deepEqual(Object.keys(w.on).sort(), ['push', 'workflow_dispatch']);
+  assert.deepEqual(w.on.push.branches, ['main']);
+  assert.deepEqual([...w.on.push.paths].sort(), ['.github/workflows/pages.yml', 'site/**']);
+  assert.equal(w.on.workflow_dispatch, null, 'dispatch bez wejść (nic do wstrzyknięcia)');
+  assert.deepEqual(Object.keys(w.jobs), ['deploy']);
+  const j = w.jobs.deploy;
+  assert.equal(j.if, "github.ref == 'refs/heads/main'", 'ręczne uruchomienie z innej gałęzi nie publikuje');
+  assert.deepEqual(j.permissions, { contents: 'read', pages: 'write', 'id-token': 'write' });
+  assert.equal(j.environment?.name, 'github-pages');
+  const uses = j.steps.map((k) => k.uses);
+  assert.deepEqual(uses, ['actions/checkout@v5', 'actions/configure-pages@v5', 'actions/upload-pages-artifact@v4', 'actions/deploy-pages@v4']);
+  assert.deepEqual(j.steps[0].with, { 'persist-credentials': false }, 'checkout bez ref (= main) i bez tokenu w .git');
+  assert.deepEqual(j.steps[2].with, { path: 'site' });
+  assert.ok(j.steps.every((k) => !k.run), 'bez własnych poleceń (nic nie dopisuje do site/)');
+  assert.doesNotMatch(czytaj('.github/workflows/pages.yml'), /secrets\./, 'bez sekretów');
 });

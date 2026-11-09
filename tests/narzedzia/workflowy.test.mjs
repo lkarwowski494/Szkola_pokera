@@ -19,6 +19,7 @@ test('każde zadanie ma timeout-minutes (domyślne 360 min to koszt bez sygnału
 test('domyślne uprawnienia tylko do odczytu; issues: write wyłącznie w zadaniu zgłoszenia nocnego', () => {
   for (const { n, d } of wf) {
     const w = d.toJSON();
+    assert.equal(typeof w.permissions, 'object', `${n}: permissions jako mapa (nie write-all/read-all)`);
     assert.equal(w.permissions?.contents, 'read', `${n}: permissions.contents`);
     for (const [k, v] of Object.entries(w.permissions)) if (k !== 'contents') assert.notEqual(v, 'write', `${n}: ${k}: write na poziomie workflowu`);
     for (const [id, j] of Object.entries(w.jobs)) if (j.permissions?.issues === 'write') assert.equal(`${n}:${id}`, 'nocny.yml:zgloszenie');
@@ -67,9 +68,40 @@ test('każde ${{ ma zamykające }}', () => {
   }
 });
 
-test('uprawnienia write na poziomie zadania: tylko issues w nocny.yml:zgloszenie', () => {
-  for (const { n, d } of wf) for (const [id, j] of Object.entries(d.toJSON().jobs))
-    for (const [k, v] of Object.entries(j.permissions ?? {})) if (v === 'write') assert.equal(`${n}:${id}:${k}`, 'nocny.yml:zgloszenie:issues');
+// D-342: pages.yml:deploy dostaje pages i id-token (wymóg actions/deploy-pages); reszta strażnika publikacji w strona.test.mjs.
+const WRITE_ZADANIA = ['nocny.yml:zgloszenie:issues', 'pages.yml:deploy:pages', 'pages.yml:deploy:id-token'];
+test('uprawnienia write na poziomie zadania: tylko issues w nocny.yml:zgloszenie oraz pages i id-token w pages.yml:deploy', () => {
+  for (const { n, d } of wf) for (const [id, j] of Object.entries(d.toJSON().jobs)) {
+    // przegląd D-043 (sesja U, P1): napis `write-all` dałby w Object.entries pojedyncze znaki i przeszedłby bez sygnału
+    assert.ok(j.permissions === undefined || typeof j.permissions === 'object', `${n}:${id}: permissions jako mapa`);
+    for (const [k, v] of Object.entries(j.permissions ?? {})) if (v === 'write') assert.ok(WRITE_ZADANIA.includes(`${n}:${id}:${k}`), `${n}:${id}:${k}`);
+  }
+});
+
+// D-342: workflowy przekładu leżą na main (workflow_dispatch wymaga pliku na gałęzi domyślnej), a skrypty scripts/i18n tylko na gałęzi
+// roboczej. Uruchomienie: `gh workflow run <plik> --ref <gałąź robocza>` — GitHub bierze wtedy workflow i checkout z tej gałęzi.
+// Uruchomienie z main (bez skryptów) ma paść czytelnie przed pnpm install i przed krokiem z kluczem.
+test('przekład i przegląd: checkout = ref uruchomienia, bez ref na sztywno; kontrola skryptu tuż po checkout, przed kluczem', () => {
+  for (const [n, skrypt] of [['przeklad-tlumaczen.yml', 'scripts/i18n/przeklad-api.mjs'], ['przeglad-tlumaczen.yml', 'scripts/i18n/przeglad-api.mjs']]) {
+    const w = json(n);
+    assert.deepEqual(Object.keys(w.on), ['workflow_dispatch'], n);
+    const kroki = Object.values(w.jobs)[0].steps;
+    assert.equal(kroki[0].uses, 'actions/checkout@v5', n);
+    assert.equal(kroki[0].with?.ref, undefined, `${n}: checkout ma brać ref uruchomienia (--ref)`);
+    const k = kroki[1];
+    assert.match(k.run ?? '', new RegExp(`\\[ ! -f ${skrypt.replace(/[./]/g, '\\$&')} \\]`), `${n}: brak kontroli skryptu`);
+    assert.match(k.run, /--ref/, `${n}: komunikat ma podać --ref`);
+    assert.match(k.run, /exit 1/, n);
+    const iKlucz = kroki.findIndex((x) => x.env?.ANTHROPIC_API_KEY);
+    assert.ok(iKlucz > 1, n);
+    assert.equal(kroki.filter((x) => JSON.stringify(x).includes('secrets.')).length, 1, `${n}: sekret w jednym kroku`);
+    // przegląd D-043 (sesja U, P2): jedno `secrets.` w całym pliku (także env zadania/workflowu), krok z kluczem tylko przy tryb=wyslij,
+    // wejścia nigdy wklejone w powłokę
+    const tekst = readFileSync(new URL(n, KAT), 'utf8');
+    assert.equal((tekst.match(/secrets\./g) ?? []).length, 1, `${n}: secrets. poza krokiem z kluczem`);
+    assert.equal(kroki[iKlucz].if, "inputs.tryb == 'wyslij'", n);
+    for (const x of kroki) assert.doesNotMatch(x.run ?? '', /\$\{\{/, `${n}: ${x.name}: wyrażenie w run`);
+  }
 });
 
 test('nocny.yml: grupy mutacji poker-core obejmują każdy plik src/ (bez bots.ts) dokładnie raz', () => {

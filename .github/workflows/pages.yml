@@ -1,0 +1,42 @@
+# Strona aplikacji (polityka prywatności, wsparcie): GitHub Pages z katalogu site/ przez Actions (D-308, D-341 pkt 4, D-342).
+# Wzór: Trening .github/workflows/pages.yml:1–34 (SHA 2e4b0f8, odczyt 2026-11-09). Publikowany jest wyłącznie site/ i wyłącznie
+# z main — nie docs/, nie gałąź robocza. Bez sekretów; token tylko do odczytu treści i wdrożenia Pages.
+# Odstępstwa od Treningu (nazwane, D-191): uprawnienia pages/id-token na poziomie zadania, nie workflowu (zasada tego repo,
+# tests/narzedzia/workflowy.test.mjs); `if: github.ref == 'refs/heads/main'` — ręczne uruchomienie z innej gałęzi nic nie publikuje.
+# Wymaga kroku właściciela: Settings → Pages → Source: GitHub Actions (bez tego configure-pages kończy się błędem).
+# Strażnik: tests/narzedzia/strona.test.mjs (D-308/D-342).
+name: Pages
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4

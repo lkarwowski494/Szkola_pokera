@@ -9,6 +9,8 @@
 # Odstępstwa od Treningu (odczyt 2026-11-09): wejścia jezyki, tylko, limit_usd, tryb zamiast limit, tylko_szacuj, zgoda_koszt
 # (Trening :7–30); bez fetch-depth 0 (Trening :42, tryb różnicy --od; u nas przegląd całego przekładu); pnpm install (pakiet yaml);
 # upload-artifact@v5 jak w ci.yml tego repo (Trening @v4, :82).
+# Uruchamianie (D-342): plik leży też na main (workflow_dispatch wymaga go na gałęzi domyślnej), ale skrypty tylko na gałęzi
+# roboczej — uruchamiać z `--ref <gałąź robocza>`; GitHub bierze wtedy workflow i checkout z tej gałęzi, sekret repozytorium działa.
 name: Przegląd tłumaczeń (API, ręcznie)
 on:
   workflow_dispatch:
@@ -52,6 +54,12 @@ jobs:
       - uses: actions/checkout@v5
         with:
           persist-credentials: false
+      - name: Skrypty z gałęzi roboczej (D-342 — na main leży tylko ten plik)
+        run: |
+          if [ ! -f scripts/i18n/przeglad-api.mjs ]; then
+            echo "::error::Brak scripts/i18n/przeglad-api.mjs w ref '$GITHUB_REF_NAME'. Uruchom z gałęzi roboczej: gh workflow run przeglad-tlumaczen.yml --ref <gałąź robocza> (D-342)."
+            exit 1
+          fi
       - uses: pnpm/action-setup@v5
       - uses: actions/setup-node@v5
         with:
