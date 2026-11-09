@@ -17,9 +17,11 @@ export interface PolaNakladki {
   tekst: ReadonlySet<string>;
   /** Klucze map, w których klucze wpisów są tekstem (np. `groups`: nazwa grupy → akcje); wpisy porównujemy po kolejności. */
   kluczeTekstem: ReadonlySet<string>;
+  /** Mapy, których klucze są kluczami innej mapy w tym samym obiekcie ([mapa, mapa wskazywana]); przekład musi wskazywać ten sam wpis. */
+  powiazane?: readonly (readonly [string, string])[];
 }
 
-export const POLA_SPOTS: PolaNakladki = { tekst: new Set(['title', 'text', 'why']), kluczeTekstem: new Set(['groups', 'wrongSizes']) };
+export const POLA_SPOTS: PolaNakladki = { tekst: new Set(['title', 'text', 'why']), kluczeTekstem: new Set(['groups', 'wrongSizes']), powiazane: [['wrongSizes', 'groups']] };
 export const POLA_HELPLINES: PolaNakladki = {
   tekst: new Set(['pointer', 'text', 'regions_label', 'info', 'hours', 'cost', 'language', 'label']),
   kluczeTekstem: new Set(),
@@ -52,7 +54,17 @@ export function roznicePoza(zrodlo: unknown, przeklad: unknown, pola: PolaNaklad
     }
     const ka = a.map(([k]) => k).join(','), kb = b.map(([k]) => k).join(',');
     if (ka !== kb) return [`${gdzie}: klucze [${kb}] ≠ źródło [${ka}]`];
-    return a.flatMap(([k, v]) => roznicePoza(v, (przeklad as Record<string, unknown>)[k], pola, sciezka ? `${sciezka}.${k}` : k, k));
+    const p = przeklad as Record<string, unknown>, z = zrodlo as Record<string, unknown>;
+    // np. wrongSizes → groups: klucz „złego rozmiaru” w przekładzie to przekład klucza tej samej grupy co w źródle
+    const powiazania = (pola.powiazane ?? []).flatMap(([m, cel]) => {
+      if (!z[m] || !z[cel] || typeof z[m] !== 'object' || typeof p[m] !== 'object' || typeof p[cel] !== 'object') return [];
+      const zc = Object.keys(z[cel] as object), pc = Object.keys(p[cel] as object), pm = Object.keys(p[m] as object);
+      return Object.keys(z[m] as object).flatMap((k, i) => {
+        const oczekiwany = pc[zc.indexOf(k)];
+        return pm[i] === oczekiwany ? [] : [`${sciezka ? `${sciezka}.` : ''}${m}: wpis ${i + 1} wskazuje „${pm[i]}”, a źródło grupę „${k}” (w przekładzie „${oczekiwany}”)`];
+      });
+    });
+    return [...powiazania, ...a.flatMap(([k, v]) => roznicePoza(v, p[k], pola, sciezka ? `${sciezka}.${k}` : k, k))];
   }
   return Object.is(zrodlo, przeklad) ? [] : [`${gdzie}: ${JSON.stringify(przeklad)} ≠ źródło ${JSON.stringify(zrodlo)}`];
 }

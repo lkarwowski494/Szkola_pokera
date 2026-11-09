@@ -47,4 +47,27 @@ describe('useTresc według języka (K2c)', () => {
     await waitFor(() => expect(blad).toHaveBeenCalledWith('tresc_niedostepna'));
     expect(result.current).toMatchObject({ stan: 'ok', plik: 'tresc-pl.db' });
   });
+
+  it('przygotowania idą po kolei: następne zaczyna się po zakończeniu poprzedniego (przegląd D-043, znalezisko 2)', async () => {
+    const wywolania: string[] = [];
+    const czekajace: (() => void)[] = [];
+    const przygotuj = (j: string) =>
+      new Promise<W>((ok) => {
+        wywolania.push(j);
+        czekajace.push(() => ok({ ok: true, wartosc: { plik: `tresc-${j}.db` } }));
+      });
+    const { result } = await renderHook(() => useTresc(przygotuj, () => undefined));
+    await act(async () => {
+      await i18n.changeLanguage('en');
+    });
+    expect(wywolania).toEqual(['pl']);
+    await act(async () => {
+      czekajace.shift()!();
+    });
+    await waitFor(() => expect(wywolania).toEqual(['pl', 'en']));
+    await act(async () => {
+      czekajace.shift()!();
+    });
+    await waitFor(() => expect(result.current).toMatchObject({ stan: 'ok', plik: 'tresc-en.db' }));
+  });
 });

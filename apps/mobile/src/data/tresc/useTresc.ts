@@ -20,6 +20,9 @@ export function useTresc(przygotuj: Przygotuj, zapiszBlad: (powod: PowodTresci) 
   // funkcje z propsów w refach: nowa funkcja przy każdym renderze rodzica nie przygotowuje bazy od nowa
   const fn = useRef({ przygotuj, zapiszBlad });
   fn.current = { przygotuj, zapiszBlad };
+  // Przygotowania po kolei (przegląd D-043): `przygotujTresc` usuwa stare pliki tresc-* po otwarciu swojej bazy, więc dwa
+  // równoległe przebiegi (szybka zmiana pl → en → pl) mogłyby skasować plik drugiego między listą a otwarciem.
+  const kolejka = useRef<Promise<unknown>>(Promise.resolve());
 
   useEffect(() => {
     const zmiana = (j: string) => ustawJezyk(j);
@@ -29,7 +32,10 @@ export function useTresc(przygotuj: Przygotuj, zapiszBlad: (powod: PowodTresci) 
 
   useEffect(() => {
     let aktualny = true;
-    void fn.current.przygotuj(jezyk).then((w) => {
+    const krok = kolejka.current.then(() => fn.current.przygotuj(jezyk));
+    kolejka.current = krok.catch(() => undefined);
+    // odrzucona obietnica (wyjątek adaptera) = ten sam stan co błąd przygotowania, bez nieobsłużonego odrzucenia
+    void krok.catch((): Wynik<{ plik: string }, PowodTresci> => ({ ok: false, powod: 'tresc_niedostepna' })).then((w) => {
       if (!aktualny) return;
       if (!w.ok) fn.current.zapiszBlad(w.powod);
       if (w.ok) ustaw({ stan: 'ok', plik: w.wartosc.plik });

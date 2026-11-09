@@ -88,7 +88,12 @@ describe('roznicePoza (strażnik nakładki)', () => {
   it('zgubiony {{n:…}}, zmieniona akcja solvera, zgubiony termin w kluczu grupy: różnice', () => {
     expect(roznicePoza(spot, { ...spot, title: 'Title' }, POLA_SPOTS)).toHaveLength(1);
     expect(roznicePoza(spot, { ...spot, groups: { 'Przebij {{t:raise}}': ['raise 3'] } }, POLA_SPOTS)).toHaveLength(1);
-    expect(roznicePoza(spot, { ...spot, groups: { Raise: ['raise 2.5'] } }, POLA_SPOTS)).toHaveLength(1);
+    expect(roznicePoza(spot, { ...spot, groups: { Raise: ['raise 2.5'] } }, POLA_SPOTS).length).toBeGreaterThan(0); // termin zgubiony + wrongSizes wskazuje nieistniejącą grupę
+  });
+  it('wrongSizes w przekładzie wskazuje tę samą grupę co w źródle (przegląd D-043, znalezisko 3)', () => {
+    const z = { groups: { Przebij: ['raise 2.5'], Sprawdź: ['call'] }, wrongSizes: { Przebij: [{ text: 'mały', why: 'bo' }] } };
+    expect(roznicePoza(z, { groups: { Raise: ['raise 2.5'], Call: ['call'] }, wrongSizes: { Raise: [{ text: 'small', why: 'b' }] } }, POLA_SPOTS)).toEqual([]);
+    expect(roznicePoza(z, { groups: { Raise: ['raise 2.5'], Call: ['call'] }, wrongSizes: { Call: [{ text: 'small', why: 'b' }] } }, POLA_SPOTS)).toHaveLength(1);
   });
   it('helplines: cytat źródła i numer nie są tekstem do przekładu', () => {
     const h = { entries: [{ id: 'x', phone: '988', info: 'Pomoc', sources: [{ url: 'https://a.org/', quote: 'Call 988' }] }] };
