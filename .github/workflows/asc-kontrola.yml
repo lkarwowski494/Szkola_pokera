@@ -1,0 +1,43 @@
+# Kontrola ustawień App Store Connect — TYLKO ODCZYT. Cienka warstwa: wywołuje workflow wspólny z publicznego repozytorium narzędzi studia
+# (lkarwowski494/apps4brew-narzedzia), PRZYPIĘTY do pełnego SHA (jak Trening, ten sam SHA 43afe81; wersję narzędzia podnosimy świadomie).
+# Konfiguracja aplikacji: store/asc-kontrola.json. Zmian w App Store Connect nie robi (żądania GET). Sekrety przekazane jawnie: tylko trzy.
+# Szkoła Pokera: przeniesione z Treningu (.github/workflows/asc-kontrola.yml, 2e4b0f8, odczyt 2026-11-09; D-348, D-352). Na main leży tylko ten plik;
+# uruchamianie: gh workflow run asc-kontrola.yml --ref claude/sleepy-brahmagupta-2065nu. Odstępstwo (nazwane): zadanie `galaz` przerywa przebieg
+# z gałęzi bez store/asc-kontrola.json (np. main) przed przekazaniem sekretów (jak D-343).
+name: ASC kontrola ustawień
+on:
+  workflow_dispatch:
+    inputs:
+      szczegoly:
+        description: 'Dołącz szczegóły (listy terytoriów, odpowiedzi wiekowe, lokalizacje)'
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: asc-kontrola
+  cancel-in-progress: false
+jobs:
+  galaz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Konfiguracja z gałęzi roboczej (uruchamiaj z --ref)
+        run: |
+          if [ ! -f store/asc-kontrola.json ]; then
+            echo "::error::Brak store/asc-kontrola.json: na main są tylko pliki workflowów (D-348). Uruchom: gh workflow run asc-kontrola.yml --ref claude/sleepy-brahmagupta-2065nu"
+            exit 1
+          fi
+  kontrola:
+    needs: galaz
+    uses: lkarwowski494/apps4brew-narzedzia/.github/workflows/asc-kontrola.yml@43afe81aa37a117dd32259f6452196a1efccd0ec
+    with:
+      config: store/asc-kontrola.json
+      szczegoly: ${{ inputs.szczegoly }}
+    secrets:
+      ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+      ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+      ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
