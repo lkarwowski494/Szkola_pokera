@@ -28,9 +28,16 @@ async function pamiec(port: PortBazy) {
   return null;
 }
 
-/** Odczyt sklepu → decyzja; udany odczyt zastępuje pamięć (także pustą — zwrot, W7). Wynik: dostęp. */
+/** Odczyt sklepu bez odrzucenia: wyjątek spoza adaptera (który sam zamienia błędy na `{ ok: false }`) = błąd sklepu (ADR 0006 pkt 4). */
+const odczytSklepu = (sklep: Pick<ZrodloDostepu, 'odczyt'>): Promise<OdczytSklepu> =>
+  sklep.odczyt().catch((): OdczytSklepu => ({ ok: false }));
+
+/**
+ * Odczyt sklepu → decyzja; udany odczyt zastępuje pamięć (także pustą — zwrot, W7). Wynik: dostęp. Nie odrzuca (pamięć i zapis
+ * zwracają `Wynik`, sklep przez `odczytSklepu`), więc wywołujący po zakupie zawsze dostaje decyzję (P2 przeglądu D-043, sesja Q).
+ */
 export async function odswiezDostep(port: PortBazy, sklep: Pick<ZrodloDostepu, 'odczyt'>, teraz: number): Promise<boolean> {
-  const [p, o] = await Promise.all([pamiec(port), sklep.odczyt()]);
+  const [p, o] = await Promise.all([pamiec(port), odczytSklepu(sklep)]);
   const d = decyduj(o, p, teraz);
   if (o.ok && d.nowaPamiec) {
     const z = await zapiszPamiec(port, d.nowaPamiec);

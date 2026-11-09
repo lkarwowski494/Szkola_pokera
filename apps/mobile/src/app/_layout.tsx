@@ -20,6 +20,7 @@ import { kontrolaK04, startPostepuExpo } from '@/data/postepExpo';
 import { PostepKontekst } from '@/data/postepKontekst';
 import type { PortBazy } from '@szkola/postep';
 import { ProviderTresci, useBazaTresci } from '@/data/tresc/kontekst';
+import { ekranStartowyDoZdjecia } from '@/data/tresc/startEkranu';
 import { getDrillById, getLessonSummaries, getModules } from '@/data/content/repo';
 import PierwszeUruchomienie from '@/features/ocena-poziomu/PierwszeUruchomienie';
 import { zegarTelefonu } from '@/platform/zegar';
@@ -128,20 +129,23 @@ export default function RootLayout() {
   const jezykGotowy = useJezykPrzedTresca(postep, zastosujJezyk);
   const tresc = useTresc(przygotujTrescExpo, zapiszBladTresci, jezykGotowy);
   const kroje = useKroje();
-  const trescGotowa = tresc.stan !== 'ladowanie' && postep.stan !== 'ladowanie' && kroje;
+  const [bazaTresciOtwarta, ustawBazaTresciOtwarta] = useState(false);
+  const pierwszeOtwarcie = useCallback(() => ustawBazaTresciOtwarta(true), []);
+  // ekran startowy schodzi, gdy nawigacja ma bazę w kontekście (bez pustej klatki, P2a przeglądu D-043 sesji Q) albo przy ekranie błędu
+  const startGotowy = ekranStartowyDoZdjecia({ tresc: tresc.stan, postep: postep.stan, kroje, bazaTresciOtwarta });
 
   // Raz na port (nie na obiekt `postep`, nowy przy każdym renderze — przegląd D-043 sesji Q): ustawienia interfejsu
   // z postep.db (D-251) przed zdjęciem ekranu startowego, potem odtworzenie przypomnienia (ADR 0012: start).
   // Przy błędzie startu postępu — od razu.
   const portPostepu = postep.stan === 'ok' ? postep.port : null;
   useEffect(() => {
-    if (!trescGotowa) return;
+    if (!startGotowy) return;
     if (portPostepu !== null) {
       void loadSettings(portPostepu)
         .finally(() => void SplashScreen.hideAsync())
         .then(() => odtworzZBazy(portPostepu, powiadomieniaExpo, { tytul: i18n.t('reminder.title'), tresc: i18n.t('reminder.body') }));
     } else void SplashScreen.hideAsync();
-  }, [loadSettings, trescGotowa, portPostepu]);
+  }, [loadSettings, startGotowy, portPostepu]);
 
   if (tresc.stan === 'ladowanie' || postep.stan === 'ladowanie' || !kroje) return null;
   if (tresc.stan === 'blad') return <RenderErrorScreen onRetry={tresc.ponow} />;
@@ -157,7 +161,7 @@ export default function RootLayout() {
         <PostepKontekst.Provider value={postep.port}>
           {/* Plik treści przygotowany przez useTresc (bez kopiowania przy każdym starcie, ADR 0005 pkt 2); zmiana języka
               podmienia bazę bez montowania nawigacji od nowa (ProviderTresci, plan-09 §13). */}
-          <ProviderTresci plik={tresc.plik} otworz={otworzTrescExpo} onBlad={zapiszBladTresci}>
+          <ProviderTresci plik={tresc.plik} otworz={otworzTrescExpo} onBlad={zapiszBladTresci} onPierwszeOtwarcie={pierwszeOtwarcie}>
             <BramkaStartu port={postep.port}>
               <Stack screenOptions={{ headerBackTitle: t('nav.back'), headerTintColor: tk.link }}>
                 <Stack.Screen name="(tabs)" options={{ headerShown: false }} />

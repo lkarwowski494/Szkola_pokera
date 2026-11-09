@@ -107,6 +107,51 @@ describe('ProviderTresci: zmiana bazy treści bez przemontowania drzewa (sesja P
     expect(screen.getByText('granica')).toBeTruthy();
   });
 
+  it('P2(c) przeglądu D-043 sesji Q: błąd otwarcia trafia do bieżącego onBlad (zmiana propsu w trakcie otwierania)', async () => {
+    const { otworz, zwolnij } = atrapy();
+    const stary = jest.fn();
+    const nowy = jest.fn();
+    const r = await render(<ProviderTresci plik="tresc-pl.db" otworz={otworz} onBlad={stary}><Dziecko /></ProviderTresci>);
+    await zwolnij('tresc-pl.db');
+    await r.rerender(<ProviderTresci plik="tresc-en.db" otworz={otworz} onBlad={stary}><Dziecko /></ProviderTresci>);
+    await r.rerender(<ProviderTresci plik="tresc-en.db" otworz={otworz} onBlad={nowy}><Dziecko /></ProviderTresci>);
+    await zwolnij('tresc-en.db', new Error('plik'));
+    expect(nowy).toHaveBeenCalledTimes(1);
+    expect(stary).not.toHaveBeenCalled();
+  });
+
+  it('P2(c): nowa funkcja otworz przy tym samym pliku nie otwiera bazy ponownie', async () => {
+    const { otworz, zwolnij } = atrapy();
+    const r = await render(<ProviderTresci plik="tresc-pl.db" otworz={(p) => otworz(p)} onBlad={() => undefined}><Dziecko /></ProviderTresci>);
+    await zwolnij('tresc-pl.db');
+    await r.rerender(<ProviderTresci plik="tresc-pl.db" otworz={(p) => otworz(p)} onBlad={() => undefined}><Dziecko /></ProviderTresci>);
+    expect(otworz).toHaveBeenCalledTimes(1);
+  });
+
+  it('P2(a): onPierwszeOtwarcie raz, dopiero gdy dzieci widzą bazę (ekran startowy bez pustej klatki); zmiana pliku go nie woła', async () => {
+    const { otworz, zwolnij } = atrapy();
+    const widoczne: boolean[] = [];
+    const onPierwsze = jest.fn(() => widoczne.push(screen.queryByText('tresc-pl.db') !== null));
+    const r = await render(<ProviderTresci plik="tresc-pl.db" otworz={otworz} onBlad={() => undefined} onPierwszeOtwarcie={onPierwsze}><Dziecko /></ProviderTresci>);
+    expect(onPierwsze).not.toHaveBeenCalled();
+    await zwolnij('tresc-pl.db');
+    expect(onPierwsze).toHaveBeenCalledTimes(1);
+    expect(widoczne).toEqual([true]);
+    await r.rerender(<ProviderTresci plik="tresc-en.db" otworz={otworz} onBlad={() => undefined} onPierwszeOtwarcie={onPierwsze}><Dziecko /></ProviderTresci>);
+    await zwolnij('tresc-en.db');
+    expect(onPierwsze).toHaveBeenCalledTimes(1);
+  });
+
+  it('P2(a): błąd pierwszego otwarcia też kończy start (ekran startowy zdjęty, granica błędu widoczna)', async () => {
+    const { otworz, zwolnij } = atrapy();
+    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const onPierwsze = jest.fn();
+    await render(<Granica><ProviderTresci plik="tresc-pl.db" otworz={otworz} onBlad={() => undefined} onPierwszeOtwarcie={onPierwsze}><Dziecko /></ProviderTresci></Granica>);
+    await zwolnij('tresc-pl.db', new Error('plik'));
+    expect(screen.getByText('granica')).toBeTruthy();
+    expect(onPierwsze).toHaveBeenCalledTimes(1);
+  });
+
   it('odmontowanie zamyka bieżącą bazę', async () => {
     const { bazy, otworz, zwolnij } = atrapy();
     const r = await render(<ProviderTresci plik="tresc-pl.db" otworz={otworz} onBlad={() => undefined}><Dziecko /></ProviderTresci>);

@@ -44,6 +44,13 @@ describe('odświeżenie dostępu', () => {
     expect((await odczytajPamiec(port)).ok && (await odczytajPamiec(port))).toEqual({ ok: true, wartosc: { produkty: [{ produkt: ROK, wygasaMs: T + 1000 }], odczytanoMs: T - 5 } });
     expect(await odswiezDostep(port, sklep([{ ok: false }]), T + 2000)).toBe(false); // pamięć po końcu okresu
   });
+  it('odrzucony odczyt sklepu (wyjątek spoza adaptera) = błąd sklepu: decyduje pamięć, bez odrzucenia (P2 przeglądu D-043 sesji Q)', async () => {
+    const { port } = await portTestowy();
+    await zapiszPamiec(port, { produkty: [{ produkt: ROK!, wygasaMs: T + 1000 }], odczytanoMs: T - 5 });
+    const rzuca = { odczyt: jest.fn(async (): Promise<OdczytSklepu> => { throw new Error('most natywny'); }) };
+    await expect(odswiezDostep(port, rzuca, T)).resolves.toBe(true);
+    expect(await odczytajPamiec(port)).toEqual({ ok: true, wartosc: { produkty: [{ produkt: ROK, wygasaMs: T + 1000 }], odczytanoMs: T - 5 } });
+  });
   it('udany odczyt bez zakupów czyści pamięć (zwrot, W7)', async () => {
     const { port } = await portTestowy();
     await zapiszPamiec(port, { produkty: [{ produkt: ROK!, wygasaMs: T + 1000 }], odczytanoMs: T - 5 });
