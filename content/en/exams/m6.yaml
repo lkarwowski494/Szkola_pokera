@@ -1,0 +1,96 @@
+# Pula pytań egzaminacyjnych modułu M6 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m6.*).
+module: m6
+drills:
+  - kind: numeric
+    id: m6.exam.q1
+    family: m6.mdf
+    rules: [R-M6-001, R-M6-005]
+    prompt: "River. The {{t:pot}} is {{n:exam.m6.pot}}, and your opponent {{t:bet|bets}} {{n:exam.m6.bet.three-quarters}}. What is the {{t:mdf}}, that is, at least what share of your {{t:range}} do you defend? Enter the number as a percentage."
+    answer: exam.m6.mdf.three-quarters
+    explanation: "{{t:mdf}} = {{t:pot}} ÷ ({{t:pot}} + bet) = {{n:exam.m6.pot}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}}) = {{n:exam.m6.mdf.three-quarters}}. If you {{t:fold}} more often, a {{t:bluff}} with no chance of winning profits automatically."
+  - kind: choice
+    id: m6.exam.q2
+    family: m6.alpha
+    rules: [R-M6-002]
+    prompt: "River. The {{t:pot}} is {{n:exam.m6.pot}}. You {{t:bluff}} with a hand that has no chance, betting {{n:exam.m6.bet.quarter}}. How often must your opponent {{t:fold}} for this {{t:bluff}} to break even?"
+    options:
+      - { text: "More often than {{n:exam.m6.alpha.quarter}} of the time", correct: true, why: "Yes: alpha = bet ÷ ({{t:pot}} + bet) = {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}}) = {{n:exam.m6.alpha.quarter}}. A small {{t:bluff}} risks little, so infrequent {{t:fold|folds}} are enough." }
+      - { text: "More often than {{n:exam.m6.mdf.quarter}} of the time", why: "That is the {{t:mdf}}: the share of the {{t:range}} your opponent should defend. Alpha is what remains: {{n:exam.m6.alpha.quarter}}." }
+      - { text: "More often than {{n:eq.bet-quarter}} of the time", why: "That is the equity your opponent needs to {{t:call}}; the denominator also includes their {{t:call}}. The threshold for a {{t:bluff}} is bet ÷ ({{t:pot}} + bet) = {{n:exam.m6.alpha.quarter}}." }
+  - kind: choice
+    id: m6.exam.q3
+    family: m6.mdf-concept
+    rules: [R-M6-003]
+    prompt: "You defend the {{t:big-blind}} against a Button {{t:open}}. On the flop, the Button {{t:bet|bets}} a 1/4-{{t:pot}} c-bet. A friend {{t:fold|folds}} more than half their hands here, because “{{t:mdf}} is only a reference point.” What is wrong?"
+    table: { position: BB }
+    options:
+      - { text: "On the flop you can defend slightly less than {{t:mdf}}, but you don’t {{t:fold}} en masse against small c-bets", correct: true, why: "Yes: against a 1/4-{{t:pot}} c-bet, {{t:mdf}} is {{n:exam.m6.mdf.quarter}}. On the flop {{t:out-of-position}} you may defend slightly less, because the Button’s {{t:bluff|bluffs}} still have equity, but {{t:fold|folding}} more than half your hands gives them the {{t:pot}} for nothing." }
+      - { text: "Nothing: on the flop {{t:mdf}} doesn’t apply at all", why: "On the flop {{t:mdf}} is a reference point: you can defend slightly less, not arbitrarily less. Against a small c-bet you still have many hands with enough equity." }
+      - { text: "On the flop you must defend more than {{t:mdf}}", why: "The opposite: on the flop {{t:out-of-position}} you can defend slightly less, because you won’t realize all the equity of weak hands. Your friend’s mistake is that they {{t:fold}} far too much." }
+  - kind: choice
+    id: m6.exam.q4
+    family: m6.exploit
+    rules: [R-M6-004]
+    prompt: "Micro stakes. A passive {{t:recreational}} who rarely {{t:bluff|bluffs}} {{t:bet|bets}} 3/4 {{t:pot}} on the river. You have a {{t:pair}} of queens, and the {{t:board}} has an ace and a king. What do you do?"
+    table: { hand: "Qd Qc", board: "Ah Jd 7c 4s Ks" }
+    options:
+      - { text: "{{t:fold|Fold}}", correct: true, why: "Yes: your {{t:pair}} is lower than the ace and king on the {{t:board}}, so it mainly beats {{t:bluff|bluffs}}. This player rarely {{t:bluff|bluffs}}, so against them you {{t:fold}} more often than {{t:mdf}} suggests." }
+      - { text: "{{t:call|Call}}, because {{t:mdf}} says to defend about {{n:exam.m6.mdf.three-quarters}}", why: "{{t:mdf}} assumes your opponent {{t:bluff|bluffs}} often enough. This player doesn’t, so a {{t:call}} mostly pays off better hands." }
+      - { text: "{{t:raise|Raise}}", why: "After a {{t:raise}}, worse hands {{t:fold}} and better ones pay. A {{t:pair}} lower than two {{t:board}} cards is not a hand to {{t:raise}} with." }
+  - kind: choice
+    id: m6.exam.q5
+    family: m6.flop.price
+    rules: [R-M6-005]
+    prompt: "Flop. The {{t:pot}} is {{n:exam.m6.pot}}. In one hand the Button {{t:bet|bets}} {{n:exam.m6.bet.quarter}}, and in another {{n:exam.m6.bet.three-quarters}}. How much equity do you need to {{t:call}} in each case?"
+    table: { position: BB }
+    options:
+      - { text: "About {{n:eq.bet-quarter}} and {{n:eq.bet-three-quarters}}", correct: true, why: "Yes: bet ÷ ({{t:pot}} + 2·bet). {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}} + {{n:exam.m6.bet.quarter}}) = {{n:eq.bet-quarter}}, and {{n:exam.m6.bet.three-quarters}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}} + {{n:exam.m6.bet.three-quarters}}) = {{n:eq.bet-three-quarters}}. Against a bigger bet you defend with a narrower {{t:range}}." }
+      - { text: "About {{n:exam.m6.alpha.quarter}} and {{n:eq.bet-three-quarters}}", why: "The first number is alpha (bet ÷ ({{t:pot}} + bet)), the threshold for the Button’s {{t:bluff}}. For the price of a {{t:call}}, add your own {{t:call}}: {{n:eq.bet-quarter}}." }
+      - { text: "The same in both, because it’s the same {{t:pot}}", why: "No: the price depends on the bet size. A bigger bet means a worse price: {{n:eq.bet-three-quarters}} instead of {{n:eq.bet-quarter}}." }
+  - kind: choice
+    id: m6.exam.q6
+    family: m6.flop.call
+    rules: [R-M6-006]
+    prompt: "You defend the {{t:big-blind}} against a Button {{t:open}}. On the flop you {{t:check}}, and the Button {{t:bet|bets}} a 1/3-{{t:pot}} c-bet. You have ace high, with no {{t:draw}}. What do you do?"
+    table: { hand: "Ac 6h", board: "Js 8d 3d", position: BB }
+    options:
+      - { text: "{{t:call|Call}}", correct: true, why: "Yes: against a small c-bet you need only about {{n:eq.bet-third}} equity. Ace high beats some of the Button’s {{t:bluff|bluffs}} and can make a {{t:pair}}, so you usually defend it. You {{t:fold}} the weakest hands with no {{t:pair}} and no {{t:draw}}." }
+      - { text: "{{t:fold|Fold}}", why: "Too tight: against a small c-bet, ace high usually defends. You {{t:fold}} weaker hands with no {{t:pair}} and no {{t:draw}}." }
+      - { text: "Check-raise", why: "You check-raise mainly with your strongest hands and {{t:draw|draws}}. This hand has neither value nor a {{t:draw}} that would give it a second way to win." }
+  - kind: choice
+    id: m6.exam.q7
+    family: m6.flop.fold
+    rules: [R-M6-007]
+    prompt: "You defend the {{t:big-blind}} against a Button {{t:open}}. On the [[8c 4d 2h]] flop you {{t:check}}, and the Button {{t:bet|bets}} a 3/4-{{t:pot}} c-bet. With which of these hands does a {{t:call}} make more sense?"
+    table: { board: "8c 4d 2h", position: BB }
+    options:
+      - { text: "[[Ad Jd]]", correct: true, why: "Yes: both hands are two high cards with no {{t:pair}}, but AJ of diamonds has an extra {{t:flush-draw}} (backdoor) to the highest {{t:flush}}: with one diamond on the {{t:board}}, it still needs two more diamonds. Against a big c-bet, this is the kind of hand you’d rather {{t:call}} with." }
+      - { text: "[[Ks Qs]]", why: "KQ of spades has no {{t:draw}} here: there is no spade on the {{t:board}}, and a {{t:straight}} is too far away. Against a big c-bet you usually {{t:fold}} two high cards with no {{t:draw}}." }
+  - kind: choice
+    id: m6.exam.q8
+    family: m6.xr.semibluff
+    rules: [R-M6-008]
+    prompt: "You defend the {{t:big-blind}} against a Button {{t:open}}. On the [[Jh 8c 4h]] flop you {{t:check}}, and the Button {{t:bet|bets}} a 1/3-{{t:pot}} c-bet. Which of these hands is best to check-raise?"
+    table: { board: "Jh 8c 4h", position: BB }
+    options:
+      - { text: "[[Qh Th]]", correct: true, why: "Yes: a {{t:flush-draw}} plus a gutshot (a nine) is a strong {{t:draw}}. A check-raise wins when the Button {{t:fold|folds}}, and if they pay, you still have many outs." }
+      - { text: "[[Jd 5d]]", why: "{{t:top-pair|Top pair}} with a weak kicker is a hand to {{t:call}} with. After a check-raise, worse hands usually {{t:fold}} and better ones pay." }
+      - { text: "[[As 3c]]", why: "Ace high with no {{t:draw}} has no second way to win. You check-raise as a {{t:bluff}} mainly with {{t:draw|draws}}." }
+  - kind: numeric
+    id: m6.exam.q9
+    family: m6.xr.size
+    rules: [R-M6-010]
+    prompt: "Flop. The {{t:pot}} is {{n:exam.m6.pot}}, and the Button {{t:bet|bets}} a small c-bet of {{n:exam.m6.bet.quarter}}. You check-raise to {{n:xr.mult.example}} the c-bet. What do you {{t:raise}} to? Enter the number of {{t:chips}}."
+    table: { position: BB }
+    answer: exam.m6.xr
+    explanation: "{{n:exam.m6.bet.quarter}} × {{n:xr.mult.example}} = {{n:exam.m6.xr}}. Against a small c-bet you {{t:raise}} closer to the top of the {{n:xr.mult.low}}–{{n:xr.mult.example}} interval: a minimum check-raise would give the Button a very good price."
+  - kind: choice
+    id: m6.exam.q10
+    family: m6.xr.when
+    rules: [R-M6-009]
+    prompt: "You defend the {{t:big-blind}} against a Button {{t:open}}. On which flop do you check-raise most often?"
+    table: { position: BB }
+    options:
+      - { text: "[[8d 6c 5h]]", correct: true, why: "Yes: on a low, {{t:connected}} flop the {{t:big-blind}} has more of the strongest hands ({{t:two-pair}}, {{t:straight|straights}}) than the Button, so it check-raises more often here." }
+      - { text: "[[Ks Qd Jh]]", why: "A high flop with cards close together hits the Button’s {{t:range}} well (AK, AQ, KQ, high {{t:pair|pairs}}). Here you check-raise less often." }
+      - { text: "[[Ah Ad Qc]]", why: "On a flop with a {{t:pair}} of aces, the Button, who {{t:open|opened}} with many aces, more often has the strongest hands. You rarely check-raise here." }

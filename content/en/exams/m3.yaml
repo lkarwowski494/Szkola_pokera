@@ -1,0 +1,95 @@
+# Pula egzaminacyjna M3 (pozycja, ręce startowe, zakresy otwarć): reguły lekcji m3.l1–m3.l3, inne ręce i pozycje.
+# Decyzje otwarcia zgodne ze spotami solvera aplikacji (rfi.*): ręce poza listą klas niepewnych, częstość 0 albo ≥ 0,94.
+module: m3
+drills:
+  - kind: choice
+    id: m3.exam.q1
+    family: m3.position
+    rules: [R-M3-001]
+    prompt: "The Button {{t:open|opened}}, the {{t:small-blind|small blind}} {{t:fold|folded}}, and the {{t:big-blind|big blind}} {{t:call|called}}. Who acts first on the flop?"
+    options:
+      - { text: "The {{t:big-blind|big blind}}", correct: true, why: "From the flop on, the blinds act first and the Button acts last. That's why the Button has {{t:position}} here and the {{t:big-blind|big blind}} plays {{t:out-of-position|out of position}}." }
+      - { text: "The Button, because it {{t:open|opened}}", why: "The order of action depends on your seat at the table, not on who {{t:open|opened}}. From the flop on, the Button always acts last." }
+      - { text: "Whoever acted last preflop", why: "Preflop, the blinds act last, but from the flop on they act first. That's why the Button's {{t:position}} is the best." }
+  - kind: choice
+    id: m3.exam.q2
+    family: m3.open-early
+    rules: [R-M3-002]
+    prompt: "You're first to act preflop, and no one has entered the pot yet. What do you do?"
+    table: { hand: "Ac Td", position: UTG }
+    options:
+      - { text: "{{t:raise|Raise}}", correct: true, why: "Offsuit AT is within the {{t:open|opening}} {{t:range}} from {{t:utg|under the gun}} (about {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} hands). The app's solver always plays it here." }
+      - { text: "{{t:fold|Fold}}", why: "Too tight. From {{t:utg|under the gun}} you play narrow, but AT is still in your {{t:range}}." }
+      - { text: "Call the {{t:big-blind|big blind}}", why: "When you're first in, you {{t:raise}} or {{t:fold}}. A limp gives up the {{t:initiative}} and the chance to win the blinds right away." }
+  - kind: choice
+    id: m3.exam.q3
+    family: m3.rfi.early
+    rules: [R-M3-006]
+    prompt: "The player {{t:utg|under the gun}} {{t:fold|folded}}, and you're next. What do you do?"
+    table: { hand: "Ah 9d", position: HJ }
+    options:
+      - { text: "{{t:fold|Fold}}", correct: true, why: "Four more players are still behind you. Offsuit A9 often makes an ace with a weaker kicker than opponents' AT, AJ, or AQ. The app's solver always {{t:fold|folds}} it from the {{t:hijack|HJ}}." }
+      - { text: "{{t:raise|Raise}}", why: "The ace is tempting, but from the {{t:hijack|HJ}} you {{t:open}} narrower than from the {{t:cutoff|CO}} and the Button. A9o only makes the {{t:cutoff|CO}} {{t:range}}." }
+  - kind: choice
+    id: m3.exam.q4
+    family: m3.rfi.late
+    rules: [R-M3-006]
+    prompt: "Everyone before you {{t:fold|folded}}. What do you do?"
+    table: { hand: "Ah 9d", position: CO }
+    options:
+      - { text: "{{t:raise|Raise}}", correct: true, why: "Only the Button and the blinds are left behind you, so you {{t:open}} wider than from the {{t:hijack|HJ}}. The app's solver plays A9o here almost always." }
+      - { text: "{{t:fold|Fold}}", why: "That's how you play this hand from the {{t:hijack|HJ}}. From the {{t:cutoff|CO}}, there's one fewer player behind you and the {{t:range}} is wider." }
+  - kind: choice
+    id: m3.exam.q5
+    family: m3.open-late
+    rules: [R-M3-003]
+    prompt: "Everyone {{t:fold|folded}} to you. What do you do?"
+    table: { hand: "Jd 9c", position: BTN }
+    options:
+      - { text: "{{t:raise|Raise}}", correct: true, why: "On the Button you {{t:open}} about {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} hands. Only the blinds are left, and after the flop you have {{t:position}}, so offsuit J9 makes the cut." }
+      - { text: "{{t:fold|Fold}}", why: "From the {{t:cutoff|CO}} the solver plays this hand rarely, but on the Button it always does. Against just the blinds, that's too tight." }
+      - { text: "Call the {{t:big-blind|big blind}}", why: "A limp gives up the {{t:initiative}}. A {{t:raise}} often wins the blinds right away." }
+  - kind: choice
+    id: m3.exam.q6
+    family: m3.rfi.sb
+    rules: [R-M3-004, R-M3-007, R-M3-009]
+    prompt: "Everyone {{t:fold|folded}} to you in the {{t:small-blind|small blind}}. What do you do?"
+    table: { hand: "Td 8c", position: SB }
+    options:
+      - { text: "{{t:raise|Raise}} to {{n:pf.open-size-sb}}", correct: true, why: "You're only up against the {{t:big-blind|big blind}} now, so you {{t:open}} wide, about {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} hands. After the flop you act first, so from the {{t:small-blind|small blind}} you {{t:raise}} a bit bigger than from other {{t:position|positions}}." }
+      - { text: "{{t:raise|Raise}} to {{n:pf.open-size}}", sizeError: true, why: "Right action, wrong size: {{n:pf.open-size}} is the {{t:open}} from the other {{t:position|positions}}. From the {{t:small-blind|small blind}} you play {{t:out-of-position|out of position}}, so you {{t:raise}} to {{n:pf.open-size-sb}}." }
+      - { text: "Call the {{t:big-blind|big blind}}", why: "When you're first in, you {{t:raise}} or {{t:fold}} (from the {{t:small-blind|small blind}} this is a simplification: some solver solutions limp some hands here). Limping gives up the {{t:initiative}} and the chance to win the blinds right away." }
+      - { text: "{{t:fold|Fold}}", why: "Too tight: against one opponent, the app's solver always plays T8o from the {{t:small-blind|small blind}}." }
+  - kind: numeric
+    id: m3.exam.n1
+    family: m3.open-early
+    rules: [R-M3-007]
+    prompt: "Everyone before you {{t:fold|folded}}, you're in the {{t:hijack|HJ}}, and you {{t:open}}. How many bb do you {{t:raise}} to? Enter a number."
+    table: { hand: "Kh Qh", position: HJ }
+    answer: pf.open-size
+    explanation: "You {{t:open}} to {{n:pf.open-size}} from every {{t:position}} except the {{t:small-blind|small blind}} (there it's {{n:pf.open-size-sb}}). One size is simple and doesn't give away your hand strength. This is a simplification: from {{t:early-position|early position}}, solvers {{t:open}} slightly smaller."
+  - kind: choice
+    id: m3.exam.q7
+    family: m3.suited
+    rules: [R-M3-005]
+    prompt: "Why does suited T9 play better than offsuit T9?"
+    options:
+      - { text: "It has an extra way to win: a {{t:flush}}", correct: true, why: "The ranks are the same, so you hit {{t:pair|pairs}} and {{t:straight|straights}} just as often. A suited hand adds the chance of a {{t:flush}} on top of that." }
+      - { text: "It hits a {{t:pair}} more often", why: "Your chance of a {{t:pair}} depends on the ranks, and those are the same." }
+      - { text: "It hits a {{t:straight}} more often", why: "{{t:straight|Straights}} depend on the ranks of the cards, not on whether the cards are suited." }
+  - kind: choice
+    id: m3.exam.q8
+    family: m3.premium
+    rules: [R-M3-008]
+    prompt: "The player {{t:utg|under the gun}} {{t:raise|raised}}, and the rest {{t:fold|folded}} to you. What do you do?"
+    table: { hand: "Ks Kd", position: BTN }
+    options:
+      - { text: "{{t:raise|Raise}} again (3-bet)", correct: true, why: "KK is one of the strongest hands and a favorite against most hands a player {{t:utg}} {{t:open|opens}} with. A 3-bet builds the {{t:pot}} and usually leaves you against one opponent." }
+      - { text: "Just {{t:call}}", why: "It's sometimes played for deception, but as a rule you give up value and let the blinds into the hand cheaply." }
+      - { text: "{{t:fold|Fold}}, because the player {{t:utg|under the gun}} has a strong {{t:range}}", why: "The {{t:utg|under the gun}} {{t:range}} is narrow, but KK is still a clear favorite against it." }
+  - kind: paint
+    id: m3.exam.p-co
+    family: m3.paint.late
+    rules: [R-M3-006]
+    spot: rfi.co
+    prompt: "Everyone before you {{t:fold|folded}}, and you're in the {{t:cutoff|CO}}. Paint the hands you {{t:open}} with."

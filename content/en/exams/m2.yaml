@@ -1,0 +1,99 @@
+# Pula egzaminacyjna M2 (outy, szanse, pot odds): te same reguły co lekcje m2.l1 i m2.l2, inne rozdania i liczby.
+module: m2
+drills:
+  - kind: choice
+    id: m2.exam.q1
+    family: m2.outs.flush
+    rules: [R-M2-001]
+    prompt: "You have only one diamond in your hand, but there are three on the flop. How many outs do you have to a {{t:flush}}?"
+    table: { hand: "Ad Tc", board: "Kd 8d 3d" }
+    options:
+      - { text: "{{n:outs.flush}}", correct: true, why: "What counts is how many cards of the suit you see in total: 1 in your hand and 3 on the {{t:board}}, {{n:draw.flush.seen}} altogether. That leaves {{n:cards.per-suit}} − {{n:draw.flush.seen}} = {{n:outs.flush}} diamonds." }
+      - { text: "{{n:outs.oesd}}", why: "That's how many outs an {{t:oesd}} has. To make the {{t:flush}}, you need one of the {{n:outs.flush}} remaining diamonds." }
+      - { text: "{{n:cards.per-suit}}", why: "{{n:cards.per-suit}} is every diamond in the deck, but you already see {{n:draw.flush.seen}} of them." }
+  - kind: choice
+    id: m2.exam.q2
+    family: m2.outs.gutshot
+    rules: [R-M2-002]
+    prompt: "How many outs do you have to a {{t:straight}}?"
+    table: { hand: "Jc 9d", board: "Ts 7h 2c" }
+    options:
+      - { text: "{{n:outs.gutshot}}", correct: true, why: "You have J-10-9 and 7, so you're missing the eight in the middle (gutshot). Only an eight gives you a {{t:straight}}: {{n:draw.gutshot.ranks}} rank × {{n:cards.suits}} suits = {{n:outs.gutshot}} cards." }
+      - { text: "{{n:outs.oesd}}", why: "That's what you'd have with four cards in a row, open at both ends. Here only an eight completes the {{t:straight}}." }
+      - { text: "{{n:draw.oesd.ranks}}", why: "One rank completes your hand (the eight), but in four suits." }
+  - kind: numeric
+    id: m2.exam.n1
+    family: m2.outs.oesd
+    rules: [R-M2-002]
+    prompt: "Turn. How many outs do you have to a {{t:straight}}? Enter a number."
+    table: { hand: "Td 9d", board: "8c 7s 2h Ac" }
+    answer: outs.oesd
+    explanation: "You have 10-9-8-7, four cards in a row. Any jack and any six gives you a {{t:straight}}: {{n:draw.oesd.ranks}} ranks × {{n:cards.suits}} suits = {{n:outs.oesd}}."
+  - kind: choice
+    id: m2.exam.q3
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "Flop. Your opponent is all-in and you have an {{t:oesd}} ({{n:outs.oesd}} outs). If you {{t:call}}, what is your chance of hitting by the river?"
+    options:
+      - { text: "About {{n:odds.oesd.flop-river}}", correct: true, why: "Your opponent is all-in, so you'll see the turn and the river with no further {{t:bet|bets}}. You count two cards: the rule's approximation is {{n:outs.oesd}} × 4 = {{n:odds.oesd.rule-flop}}, and the exact figure is {{n:odds.oesd.flop-river}}." }
+      - { text: "About {{n:odds.oesd.flop-turn}}", why: "That's the chance on the turn alone. With an all-in, you'll also see the river." }
+      - { text: "About {{n:odds.flush.flop-river}}", why: "That's the chance for a {{t:flush-draw}} with {{n:outs.flush}} outs. You have {{n:outs.oesd}}." }
+  - kind: choice
+    id: m2.exam.q4
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "Flop. You have an {{t:oesd}}, and your opponent {{t:bet|bets}} half the {{t:pot}}. Stacks are deep. Which chance of hitting do you compare with the price?"
+    table: { hand: "Qh Jc", board: "Td 9s 3c" }
+    options:
+      - { text: "About {{n:odds.oesd.flop-turn}}, on the turn only", correct: true, why: "A {{t:call}} buys one card. On the turn your opponent can {{t:bet}} again, so you count one card: the rule's approximation is {{n:outs.oesd}} × 2 = {{n:odds.oesd.rule-next}}, and the exact figure is {{n:outs.oesd}} out of {{n:cards.unseen.flop}}, which is {{n:odds.oesd.flop-turn}}." }
+      - { text: "About {{n:odds.oesd.flop-river}}, by the river", why: "Use the chance by the river only when you're sure to see both cards with no further {{t:bet|bets}}, that is, in an all-in." }
+  - kind: numeric
+    id: m2.exam.n2
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "Turn. You have a gutshot ({{n:outs.gutshot}} outs). What percentage chance of hitting on the river does the rule of 2 and 4 give? Enter a number."
+    answer: odds.gutshot.rule-turn
+    explanation: "There's one card left, so you multiply by 2: {{n:outs.gutshot}} × 2 = {{n:odds.gutshot.rule-turn}} (an approximation). Exactly: {{n:outs.gutshot}} out of {{n:cards.unseen.turn}}, which is {{n:odds.gutshot.turn-river}}."
+  - kind: choice
+    id: m2.exam.q5
+    family: m2.pot-odds
+    rules: [R-M2-003]
+    prompt: "There is {{n:exam.m2.half.pot}} in the {{t:pot}}. Your opponent {{t:bet|bets}} {{n:exam.m2.half.bet}}. How much equity do you need to {{t:call}}?"
+    options:
+      - { text: "{{n:exam.m2.half.eq}}", correct: true, why: "You put in {{n:exam.m2.half.bet}}, and after your {{t:call}} the {{t:pot}} holds {{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}. {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}. This is a half-{{t:pot}} {{t:bet}}, so the result is the same at any {{t:pot}} size." }
+      - { text: "{{n:exam.m2.half.wrong}}", why: "That's {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}, without your {{t:call}}. Divide what you put in by the whole {{t:pot}} after the {{t:call}}: {{n:exam.m2.half.total}}." }
+      - { text: "{{n:exam.m2.half.wrong-pot}}", why: "That's {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.pot}}: the {{t:bet}} divided by the {{t:pot}} before the {{t:bet}}. The denominator must be the whole {{t:pot}} after your {{t:call}}." }
+  - kind: numeric
+    id: m2.exam.n3
+    family: m2.pot-odds
+    rules: [R-M2-004]
+    prompt: "There is {{n:exam.m2.pot.pot}} in the {{t:pot}}. Your opponent {{t:bet|bets}} {{n:exam.m2.pot.bet}}. What percentage of equity do you need to {{t:call}}? Enter a number."
+    answer: exam.m2.pot.eq
+    explanation: "A {{t:pot}}-sized {{t:bet}}. You put {{n:exam.m2.pot.bet}} into a {{t:pot}} that, after your {{t:call}}, holds {{n:exam.m2.pot.pot}} + {{n:exam.m2.pot.bet}} + {{n:exam.m2.pot.bet}} = {{n:exam.m2.pot.total}}. {{n:exam.m2.pot.bet}} ÷ {{n:exam.m2.pot.total}} = {{n:exam.m2.pot.eq}}, which is one third."
+  - kind: choice
+    id: m2.exam.q6
+    family: m2.draw-call
+    rules: [R-M2-004, R-M2-005]
+    prompt: "Flop. You have a {{t:flush-draw}}, stacks are deep, and your opponent {{t:bet|bets}} the full {{t:pot}}. Count only the price and your chance of hitting (no implied odds). What do you do?"
+    table: { hand: "Js 6s", board: "Qs 4s 9d" }
+    options:
+      - { text: "{{t:fold|Fold}}", correct: true, why: "You need {{n:eq.bet-pot}}. A {{t:call}} buys only the turn, and on it you hit with a chance of about {{n:odds.flush.flop-turn}}. That's clearly not enough." }
+      - { text: "{{t:call|Call}}, because by the river I have about {{n:odds.flush.flop-river}}", why: "You only get the chance by the river when you see both cards with no further {{t:bet|bets}}. With deep stacks, your opponent can {{t:bet}} again on the turn, so at this price you're buying one card: about {{n:odds.flush.flop-turn}}." }
+  - kind: choice
+    id: m2.exam.q7
+    family: m2.draw-call
+    rules: [R-M2-005]
+    prompt: "Turn. You have an {{t:oesd}}. There is {{n:exam.m2.third.pot}} in the {{t:pot}}, and your opponent {{t:bet|bets}} {{n:exam.m2.third.bet}}. Count only the price and your chance of hitting. What do you do?"
+    table: { hand: "9h 8h", board: "Tc 7d 2s Kd" }
+    options:
+      - { text: "{{t:fold|Fold}}", correct: true, why: "You need {{n:exam.m2.third.bet}} ÷ {{n:exam.m2.third.total}} = {{n:exam.m2.third.eq}}. You have {{n:outs.oesd}} outs to a {{t:straight}}, which is {{n:outs.oesd}} out of {{n:cards.unseen.turn}}: about {{n:odds.oesd.turn-river}}. Even a small {{t:bet}} is too expensive here." }
+      - { text: "{{t:call|Call}}, because the {{t:bet}} is small", why: "A small {{t:bet}} is not the same as a good price. You need {{n:exam.m2.third.eq}}, and you have about {{n:odds.oesd.turn-river}}." }
+  - kind: choice
+    id: m2.exam.q8
+    family: m2.draw-call
+    rules: [R-M2-003, R-M2-002]
+    prompt: "Flop. Your opponent goes all-in for half the {{t:pot}}, and you have a {{t:flush-draw}}. Assume you win only if you hit your {{t:flush}}. What do you do?"
+    table: { hand: "Kc Tc", board: "8c 3c Jd" }
+    options:
+      - { text: "{{t:call|Call}}", correct: true, why: "You need {{n:eq.bet-half}}. Your opponent is all-in, so you'll see the turn and the river with no further {{t:bet|bets}}: {{n:outs.flush}} outs give you about {{n:odds.flush.flop-river}}. That's more than you need." }
+      - { text: "{{t:fold|Fold}}, because on the turn I only have about {{n:odds.flush.flop-turn}}", why: "You count the chance for one card when your opponent can still {{t:bet}}. With an all-in, you'll see both cards, so you count to the river: about {{n:odds.flush.flop-river}}." }

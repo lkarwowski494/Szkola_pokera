@@ -20,9 +20,11 @@ const skompiluj = (j: string) => pamiec.get(j) ?? (pamiec.set(j, compileContent(
 // domyślnych 5 s); limit dotyczy czasu kompilacji, nie asercji.
 describe('Treść na 35 języków (rola 08)', { timeout: 60_000 }, () => {
   it('T35-08-a język bez content/<język>: tekst ze źródła pl, liczby w formacie języka bazy, osobny skrót', () => {
+    // łańcuch de → en → pl (D-320): od nałożenia przekładu en (rola 09, K5, D-344) tekst bazy de pochodzi z content/en
     const pl = skompiluj('pl'), de = skompiluj('de');
-    expect([pl.tekst, de.tekst, de.locale]).toEqual(['pl', 'pl', 'de']);
-    expect(de.modules).toEqual(pl.modules);
+    const zastepczy = existsSync(join(contentDir, 'en')) ? 'en' : 'pl';
+    expect([pl.tekst, de.tekst, de.locale]).toEqual(['pl', zastepczy, 'de']);
+    expect(de.modules).toEqual(skompiluj(zastepczy).modules);
     expect(de.numbers.map((n) => n.value)).toEqual(pl.numbers.map((n) => n.value));
     expect(de.numbers.find((n) => n.display.includes('%'))?.display).toMatch(/\s%$/u);
     expect(de.hash).not.toBe(pl.hash);
@@ -41,7 +43,7 @@ describe('Treść na 35 języków (rola 08)', { timeout: 60_000 }, () => {
     expect([es.tekst, es419.tekst]).toEqual(['es', 'es']);
     expect(es.modules[0]?.title).toBe('Fundamentos');
     expect(es419.modules[0]?.title).toBe('Fundamentos');
-    expect(compileContent(join(root, 'content'), 'it').tekst).toBe('pl');
+    expect(compileContent(join(root, 'content'), 'it').tekst).toBe(existsSync(join(root, 'content/en')) ? 'en' : 'pl');
   });
 
   it('T35-08-c nieznany język → błąd budowy (nie cicha baza pod złą nazwą)', () => {
@@ -67,7 +69,7 @@ describe('Treść na 35 języków (rola 08)', { timeout: 60_000 }, () => {
     const db = new DatabaseSync(join(out, `tresc-${w}-de.db`), { readOnly: true });
     const meta = Object.fromEntries((db.prepare('SELECT key, value FROM meta').all() as { key: string; value: string }[]).map((r) => [r.key, r.value]));
     db.close();
-    expect(meta).toMatchObject({ format: '1', wersja: w, jezyk: 'de', jezyk_tekstu: 'pl', min_wersja_aplikacji: '0.1.0', hash: de.hash });
+    expect(meta).toMatchObject({ format: '1', wersja: w, jezyk: 'de', jezyk_tekstu: de.tekst, min_wersja_aplikacji: '0.1.0', hash: de.hash });
   });
 
   it('T35-08-f kontrola: obcy plik .db, brak pliku i plik nieaktualny są błędami; po pełnym zapisie brak błędów', () => {

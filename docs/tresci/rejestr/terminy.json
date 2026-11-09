@@ -3673,7 +3673,15 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": " | E3 2026-11-04 (przegląd zastępczy A7): dodane źródło dla „oddzielone od pieniędzy na życie”. | E3 2026-11-04 (przegląd zastępczy A7b): szczebel glosariusza 4; m12-l3 bez terminu przed definicją. | E3 2026-11-04 (D-159): definicja bez „pieniądze… na życie”."
+  "uwagi": " | E3 2026-11-04 (przegląd zastępczy A7): dodane źródło dla „oddzielone od pieniędzy na życie”. | E3 2026-11-04 (przegląd zastępczy A7b): szczebel glosariusza 4; m12-l3 bez terminu przed definicją. | E3 2026-11-04 (D-159): definicja bez „pieniądze… na życie”.",
+  "przeglad_jezyki": {
+   "en": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
+    "data": "2026-11-09",
+    "sha": "702138185692",
+    "kontrola": "a"
+   }
+  }
  },
  {
   "id": "t:tilt",
@@ -3859,7 +3867,15 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": " | E3 2026-11-04 (przegląd zastępczy A7): warunek „ta sama stawka” jak w lekcji m12-l4 (wzór RoR zakłada stałą grę). | E3 2026-11-04 (przegląd zastępczy A7b): jedna definicja w haśle i lekcji m12-l4."
+  "uwagi": " | E3 2026-11-04 (przegląd zastępczy A7): warunek „ta sama stawka” jak w lekcji m12-l4 (wzór RoR zakłada stałą grę). | E3 2026-11-04 (przegląd zastępczy A7b): jedna definicja w haśle i lekcji m12-l4.",
+  "przeglad_jezyki": {
+   "en": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
+    "data": "2026-11-09",
+    "sha": "0a49c03b910d",
+    "kontrola": "a"
+   }
+  }
  },
  {
   "id": "t:mental-game",

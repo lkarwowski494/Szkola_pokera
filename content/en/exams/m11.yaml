@@ -1,0 +1,86 @@
+module: m11
+drills:
+  - kind: choice
+    id: m11.exam.q1
+    family: m11.threshold
+    rules: [R-M11-001]
+    prompt: "{{t:tournament|Tournament}}. You have {{n:exam.m11.mid.stack}}, and everyone before you has {{t:fold|folded}}. Your hand is medium: too good to give up, too weak to play after the flop. What plan do the sources recommend?"
+    options:
+      - { text: "All-in or {{t:fold}}", correct: true, why: "Between {{n:m11.thr.pushfold}} and {{n:m11.thr.upper}}, push/fold is the main method for weaker and medium hands. With a stack like this, an all-in gets the most {{t:fold|folds}} from your opponent. This is a simplification: solvers also play some hands differently." }
+      - { text: "Min-raise, then {{t:fold}} to an opponent's all-in", why: "At {{n:exam.m11.mid.stack}}, raising and then folding to a {{t:raise}} gives up a large part of your stack without a fight. The sources recommend standard raising from about {{n:m11.thr.raise}}." }
+      - { text: "Limp to see the flop cheaply", why: "A limp gives you no chance to win the {{t:pot}} right away, and with a {{t:short-stack}} your opponents' {{t:fold|folds}} are exactly what makes you the most profit." }
+  - kind: numeric
+    id: m11.exam.q2
+    family: m11.m
+    rules: [R-M11-005]
+    prompt: "You have {{n:exam.m11.m.stack}} {{t:chips}}. The blinds are {{n:exam.m11.m.sb}}/{{n:exam.m11.m.bb}}, and the {{t:big-blind}} also posts an ante of {{n:exam.m11.m.ante}}. What is your M? Enter a number with one decimal place."
+    answer: exam.m11.m.value
+    explanation: "One orbit costs {{n:exam.m11.m.sb}} + {{n:exam.m11.m.bb}} + {{n:exam.m11.m.ante}} = {{n:exam.m11.m.orbit}}, so M = {{n:exam.m11.m.stack}} ÷ {{n:exam.m11.m.orbit}} = {{n:exam.m11.m.value}}. That's well below about {{n:m11.m.red}}: you now play only all-in or {{t:fold}}, and you try to be the first to enter the {{t:pot}}."
+  - kind: choice
+    id: m11.exam.q3
+    family: m11.fold-equity
+    rules: [R-M11-004]
+    prompt: "{{t:small-blind|Small blind}}, {{n:exam.m11.fe.depth}}, no ante, everyone has {{t:fold|folded}}. How often would the {{t:big-blind}} have to {{t:fold}} for an all-in to break even with a hand that has no chance at all?"
+    options:
+      - { text: "More than {{n:exam.m11.fe.alpha}} of the time", correct: true, why: "You put in {{n:exam.m11.fe.risk}} to win the {{n:m11.push.10.win}} in blinds: {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha}}. Your opponent doesn't {{t:fold}} that often, so the all-in also needs equity for when they {{t:call}}." }
+      - { text: "More than half the time", why: "You risk much more than you win: {{n:exam.m11.fe.risk}} versus {{n:m11.push.10.win}}. The threshold is risk ÷ (win + risk), i.e. about {{n:exam.m11.fe.alpha}}." }
+      - { text: "Never: at {{n:exam.m11.fe.depth}}, an all-in is always profitable", why: "A hand with no chance at showdown profits only from {{t:fold|folds}}, and it needs about {{n:exam.m11.fe.alpha}} of them. That's why the all-in {{t:range}}, though wide, doesn't include every hand." }
+  - kind: choice
+    id: m11.exam.q4
+    family: m11.ante
+    rules: [R-M11-003, R-M11-004]
+    prompt: "The same {{n:exam.m11.fe.depth}} stack in the {{t:small-blind}}, but the {{t:big-blind}} has posted an ante of {{n:m11.ante}}. How often do they now have to {{t:fold}} for an all-in to break even with a hand that has no chance?"
+    options:
+      - { text: "More than {{n:exam.m11.fe.alpha-ante}} of the time, so you {{t:shove}} more hands", correct: true, why: "The ante makes the {{t:pot}} you collect after a {{t:fold}} bigger: {{n:m11.push.10.win-ante}} instead of {{n:m11.push.10.win}}, while the risk stays the same ({{n:exam.m11.fe.risk}}). {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win-ante}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha-ante}} instead of {{n:exam.m11.fe.alpha}}." }
+      - { text: "The same as without the ante: more than {{n:exam.m11.fe.alpha}}", why: "The ante is in the {{t:pot}}, and you collect it when your opponent {{t:fold|folds}}. A bigger reward for the same risk lowers the threshold to about {{n:exam.m11.fe.alpha-ante}}." }
+      - { text: "More often, because there's more to lose in the {{t:pot}}", why: "The ante is already in the {{t:pot}}, not part of your risk. You put in the same amount and win more, so the threshold drops." }
+  - kind: numeric
+    id: m11.exam.q5
+    family: m11.call.price
+    rules: [R-M11-006]
+    prompt: "Stacks of {{n:exam.m11.call.depth}} each, no ante. You're in the {{t:big-blind}}, and the {{t:small-blind}} has gone all-in. What percentage of equity do you need for a {{t:call}} to be profitable? Enter a number."
+    answer: exam.m11.call.eq
+    explanation: "Your blind is already in the {{t:pot}}, so you add {{n:exam.m11.call.depth}} − {{n:pf.blind.bb}} = {{n:exam.m11.call.cost}}. After the {{t:call}}, the {{t:pot}} holds {{n:exam.m11.call.pot}}: {{n:exam.m11.call.cost}} ÷ {{n:exam.m11.call.pot}} ≈ {{n:exam.m11.call.eq}}."
+  - kind: choice
+    id: m11.exam.q6
+    family: m11.call.gap
+    rules: [R-M11-007]
+    prompt: "Stacks of {{n:m11.depth.5}} each, the {{t:small-blind}} has gone all-in, and you're in the {{t:big-blind}}. A friend advises: “{{t:call|Call}} with every hand you'd {{t:shove}} all-in yourself from the {{t:small-blind}}.” What does the solver say?"
+    options:
+      - { text: "You {{t:call}} narrower: about {{n:m11.call.5}} of hands versus about {{n:m11.nash.push.5}}–{{n:m11.push.5}} for the all-in", correct: true, why: "The {{t:call|caller}} wins only at showdown, and against a {{t:range}} that has already been filtered. The {{t:shove|shover}} also wins when the opponent {{t:fold|folds}}. Even with such a {{t:short-stack}} and a good price, the {{t:call|calling}} {{t:range}} is narrower." }
+      - { text: "Your friend is right: at {{n:m11.depth.5}}, both {{t:range|ranges}} are the same", why: "A {{t:short-stack}} widens both {{t:range|ranges}} but doesn't make them equal: an all-in has fold equity, and a {{t:call}} doesn't. The solver {{t:call|calls}} with about {{n:m11.call.5}} of hands and {{t:shove|shoves}} about {{n:m11.nash.push.5}}–{{n:m11.push.5}} (the lower bound comes from an independent equilibrium calculation, the upper from the app's solver)." }
+      - { text: "You {{t:call}} wider, because the price is good", why: "The price at {{n:m11.depth.5}} is good ({{n:m11.call.5.eq}}), but you're playing against the all-in {{t:range}}, not a random hand. The solver {{t:call|calls}} narrower than it {{t:shove|shoves}}." }
+  - kind: numeric
+    id: m11.exam.q7
+    family: m11.bf
+    rules: [R-M11-009, R-M11-008]
+    prompt: "{{t:bubble|Bubble}}: four players, three places paid ({{n:m11.bf.p1}}, {{n:m11.bf.p2}}, {{n:m11.bf.p3}} of the {{t:prize-pool}}). Stacks: {{n:exam.m11.bf.s1}}, yours {{n:exam.m11.bf.s2}}, the opponent all-in with {{n:exam.m11.bf.s3}}, and {{n:exam.m11.bf.s4}}. According to the {{t:icm}}, if you {{t:call}} and lose, you lose {{n:exam.m11.bf.loss}} of the {{t:prize-pool}}, and if you win, you gain {{n:exam.m11.bf.gain}}. What is the bubble factor? Enter a number with two decimal places."
+    answer: exam.m11.bf.value
+    explanation: "Bubble factor = loss ÷ gain = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.gain}} ≈ {{n:exam.m11.bf.value}}. Your equity is {{n:exam.m11.bf.eq.now}} now, {{n:exam.m11.bf.eq.win}} after a win and {{n:exam.m11.bf.eq.lose}} after a loss: losing costs more than winning adds. The {{t:icm}} doesn't account for {{t:position}} or player skill, so this valuation is an approximation."
+  - kind: choice
+    id: m11.exam.q8
+    family: m11.bf
+    rules: [R-M11-009]
+    prompt: "Same spot: bubble factor {{n:exam.m11.bf.value}}. Playing for {{t:chips}}, {{n:exam.m11.bf.req-chips}} equity is enough to {{t:call}}. How much do you need according to the {{t:icm}}?"
+    options:
+      - { text: "About {{n:exam.m11.bf.req}}", correct: true, why: "Required equity = BF ÷ (BF + 1) = loss ÷ (loss + gain) = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.range}} ≈ {{n:exam.m11.bf.req}}. The difference from {{n:exam.m11.bf.req-chips}} is the {{t:risk-premium}}." }
+      - { text: "{{n:exam.m11.bf.req-chips}}, the same as in {{t:chips}}", why: "In a {{t:tournament}} with {{t:payout|payouts}}, losing costs more money than winning adds, so a {{t:call}} has to win more often: about {{n:exam.m11.bf.req}}." }
+      - { text: "Less than {{n:exam.m11.bf.req-chips}}, because the {{t:bubble}} forces your opponent into {{t:bluff|bluffs}}", why: "A bubble factor above 1 always raises the required equity above the price in {{t:chips}}. Here, to about {{n:exam.m11.bf.req}}." }
+  - kind: choice
+    id: m11.exam.q9
+    family: m11.icm.call
+    rules: [R-M11-010]
+    prompt: "{{t:tournament|Tournament}} {{t:bubble}}. You have an average stack. The biggest stack at the table, which {{t:cover|covers}} you, goes all-in. How do you {{t:call}} compared with playing for {{t:chips}}?"
+    options:
+      - { text: "Clearly tighter", correct: true, why: "Losing knocks you out just before the prizes, and winning adds less than losing takes away: {{t:chips}} you win are worth less than {{t:chips}} you lose. That's why you need clearly more equity than when playing for {{t:chips}}." }
+      - { text: "Wider, because the big stack {{t:shove|shoves}} lots of hands", why: "The big stack can indeed {{t:shove}} wider, but precisely because you have to {{t:call}} tightly. The {{t:risk-premium}} raises your requirements." }
+      - { text: "The same: the {{t:icm}} only matters at the {{t:final-table}}", why: "More cautious {{t:call|calling}} applies both at the {{t:final-table}} and on the {{t:bubble}}: here, whether you win anything at all depends on your survival." }
+  - kind: choice
+    id: m11.exam.q10
+    family: m11.push.3max
+    rules: [R-M11-011]
+    prompt: "Three players, stacks of {{n:m11.depth.3max}} each. Where do you {{t:shove}} all-in wider: from the Button, with both blinds behind you, or from the {{t:small-blind}} after the Button {{t:fold|folds}}?"
+    options:
+      - { text: "From the {{t:small-blind}}: about {{n:m11.3max.push.sb}} of hands versus about {{n:m11.3max.push.btn}} from the Button", correct: true, why: "Every player behind you is an extra chance that someone wakes up with a strong hand. From the Button, two players have to {{t:fold}}; from the {{t:small-blind}}, only one." }
+      - { text: "From the Button, because it has the best {{t:position}}", why: "After an all-in, nobody makes postflop decisions anymore, so {{t:position}} gives you nothing here. What matters is how many players can {{t:call}}: there are two behind the Button." }
+      - { text: "The same from both seats", why: "The solver {{t:shove|shoves}} about {{n:m11.3max.push.btn}} of hands from the Button and about {{n:m11.3max.push.sb}} from the {{t:small-blind}}. The number of players behind you makes the difference." }

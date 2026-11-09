@@ -1,0 +1,91 @@
+module: m13
+drills:
+  - kind: numeric
+    id: m13.exam.q1
+    family: m13.equity-loss
+    rules: [R-M13-001]
+    prompt: "You go all-in {{n:exam.m13.n}} times with {{n:exam.m13.eq}} {{t:equity}}. On average, how many of these hands will you lose? Enter a number."
+    answer: exam.m13.lose.of-n
+    explanation: "With {{n:exam.m13.eq}} {{t:equity}} you lose 1 − {{n:exam.m13.eq}} = {{n:exam.m13.lose}} of such hands: {{n:exam.m13.n}} × {{n:exam.m13.lose}} = {{n:exam.m13.lose.of-n}}. Each of these losses is part of the math and is no reason to change your strategy."
+  - kind: choice
+    id: m13.exam.q2
+    family: m13.equity-loss
+    rules: [R-M13-001]
+    prompt: "Twice in one {{t:session}} you lost an all-in with {{n:exam.m13.eq.big}} {{t:equity}}. What does this mean for your strategy?"
+    options:
+      - { text: "Nothing: with that much {{t:equity}} you lose about {{n:exam.m13.lose.big}} of hands, and these two were among them", correct: true, why: "{{t:equity|Equity}} is the share of wins over many repetitions of the same situation. Losses in about {{n:exam.m13.lose.big}} of cases are part of it, even when they come close together." }
+      - { text: "That you need to play more carefully in these spots", why: "The decision with {{n:exam.m13.eq.big}} {{t:equity}} was good. Changing your strategy because of the result would mean giving up plays that win in about {{n:exam.m13.eq.big}} of cases." }
+      - { text: "That your opponents read your game better", why: "In an all-in only {{t:equity}} matters: an opponent's read doesn't change the cards that come. Two losses with a {{n:exam.m13.lose.big}} chance each are {{t:variance}}." }
+  - kind: choice
+    id: m13.exam.q3
+    family: m13.verdicts
+    rules: [R-M13-002]
+    prompt: "The solver plays your hand as a {{t:raise}} in {{n:exam.m13.solver.main}} of cases and as a {{t:fold}} in {{n:exam.m13.solver.rare}}. You {{t:fold|folded}}. How will the report rate this?"
+    options:
+      - { text: "Acceptable", correct: true, why: "The solver {{t:fold|folds}} in {{n:exam.m13.solver.rare}} of cases: at least {{n:range.mixed.min}}, but less often than {{n:range.mixed.low}}. It's the less frequent play of a {{t:mixed-hand}}, so it's not a mistake but an acceptable decision." }
+      - { text: "Aligned", why: "An action is aligned when the solver plays it in at least {{n:range.mixed.low}} of cases. {{t:fold|Fold}} at {{n:exam.m13.solver.rare}} is less frequent." }
+      - { text: "Mistake", why: "A mistake is an action the solver never plays. {{t:fold|Fold}} at {{n:exam.m13.solver.rare}} is the less frequent play of a {{t:mixed-hand}}, so both plays are correct." }
+  - kind: choice
+    id: m13.exam.q4
+    family: m13.verdicts
+    rules: [R-M13-002]
+    prompt: "The solver {{t:fold|folds}} your hand in {{n:exam.m13.solver.main2}} of cases and {{t:call|calls}} in {{n:exam.m13.solver.tiny}}. You {{t:call|called}}. What's the verdict?"
+    options:
+      - { text: "Inaccuracy", correct: true, why: "{{t:call|Calling}} in {{n:exam.m13.solver.tiny}} of cases is less than {{n:range.mixed.min}}. The report counts an action below the threshold as an inaccuracy, the same as a mistake: this is the app's threshold, not theory." }
+      - { text: "Mistake", why: "A mistake is an action the solver never plays. Here the solver {{t:call|calls}} in {{n:exam.m13.solver.tiny}} of cases." }
+      - { text: "Acceptable, because the solver also {{t:call|calls}} sometimes", why: "An action is acceptable when it's played in at least {{n:range.mixed.min}} of cases. {{n:exam.m13.solver.tiny}} is too low." }
+      - { text: "Ungraded", why: "“Ungraded” is what a decision gets when the app has neither a rule nor a solver result. Here there is a solver result." }
+  - kind: choice
+    id: m13.exam.q5
+    family: m13.suit-swap
+    rules: [R-M13-003]
+    prompt: "In a game you had J♣ T♣ on a 9♣ 8♦ 2♣ {{t:board}}. Which of these setups is the same situation, meaning it has the same correct decision?"
+    options:
+      - { text: "J♦ T♦ on a 9♦ 8♣ 2♦ {{t:board}}", correct: true, why: "Clubs were swapped for diamonds and diamonds for clubs, everywhere at once. You still have a {{t:flush-draw}} and an {{t:oesd}}, so the decision doesn't change." }
+      - { text: "J♣ T♣ on a 9♦ 8♣ 2♦ {{t:board}}", why: "The suits were swapped only on the {{t:board}}: your clubs no longer match the {{t:board}} and the {{t:flush-draw}} is gone. It's a different situation." }
+      - { text: "J♥ T♥ on a 9♣ 8♦ 2♣ {{t:board}}", why: "The suits were swapped only in your hand: hearts don't match the clubs on the {{t:board}}, so there's no {{t:flush-draw}} anymore." }
+  - kind: choice
+    id: m13.exam.q6
+    family: m13.sample
+    rules: [R-M13-004]
+    prompt: "Over a week you had {{n:exam.m13.opps}} opportunities to defend the {{t:big-blind}} against a Button {{t:open}}. What can you say about your defense frequency?"
+    options:
+      - { text: "I can already look at it, but without certainty", correct: true, why: "You count opportunities, not hands. You start looking at a stat from about {{n:hud.opps.look}} opportunities, and you become confident at about {{n:hud.opps.sure}}. {{n:exam.m13.opps}} is an early signal, not a conclusion." }
+      - { text: "I already know how often I defend", why: "{{n:exam.m13.opps}} opportunities is still fewer than the roughly {{n:hud.opps.sure}} at which you become confident." }
+      - { text: "Nothing, because stats need thousands of hands", why: "What counts is opportunities for this specific decision. From about {{n:hud.opps.look}} opportunities you can already look at the stat." }
+  - kind: choice
+    id: m13.exam.q7
+    family: m13.review-when
+    rules: [R-M13-005]
+    prompt: "You're finishing a long {{t:session}}, you're tired, and you have a few marked hands. When do you analyze them?"
+    options:
+      - { text: "In a few hours or tomorrow, with a clear head", correct: true, why: "Analysis while tired or right after a big loss is colored by emotion. The marked hands aren't going anywhere." }
+      - { text: "Right away, while I remember everything", why: "A short record of the hand is enough for a review. Fatigue hurts judgment, so it's better to review them later, with a clear head." }
+      - { text: "Between hands of the next {{t:session}}", why: "During play you only mark hands. Analyzing at the table takes your attention away from the next decisions." }
+  - kind: choice
+    id: m13.exam.q8
+    family: m13.review-which
+    rules: [R-M13-006]
+    prompt: "Which of these hands from your last {{t:session}} is most worth reviewing?"
+    options:
+      - { text: "A big {{t:pot}} where you hesitated for a long time before you {{t:call|called}} on the river", correct: true, why: "Hands with a tough decision are among those worth reviewing, and a big {{t:pot}} carries the most weight. The hesitation shows you didn't know what to do." }
+      - { text: "A preflop all-in with a {{t:pair}} of aces against a {{t:pair}} of kings, lost on the river", why: "This is a bad beat: the decision was obvious, and the loss is {{t:variance}}. You don't spend much time on hands like this." }
+      - { text: "A small {{t:pot}} won without a showdown after a c-bet", why: "A small {{t:pot}} without a tough decision teaches little. Review time is better spent on big {{t:pot|pots}} and decisions you hesitated over." }
+  - kind: choice
+    id: m13.exam.q9
+    family: m13.review-how
+    rules: [R-M13-008]
+    prompt: "You're reviewing a river {{t:call}}. Under an optimistic assumption about your opponent's {{t:range}} (lots of {{t:bluff|bluffs}}) the {{t:call}} makes money; under a pessimistic one it loses. What next?"
+    options:
+      - { text: "I estimate a realistic {{t:range}}: the rating depends on it", correct: true, why: "The extreme assumptions mark out the interval where reality lies. When a decision is good under one and bad under the other, the realistic assumption decides." }
+      - { text: "I rate the {{t:call}} as good, because it's good under the optimistic assumption", why: "The optimistic assumption is only one end of the interval. Since the {{t:call}} loses under the pessimistic one, the rating depends on how the opponent actually plays." }
+      - { text: "I rate the {{t:call}} as a mistake, because it loses under the pessimistic assumption", why: "A decision that's good under the pessimistic assumption is robust to a misread, but one that's bad under it isn't necessarily a mistake. The realistic assumption decides." }
+  - kind: choice
+    id: m13.exam.q10
+    family: m13.review-how
+    rules: [R-M13-007]
+    prompt: "A friend reviews hands by calculating equity and price right away, without writing down his first reaction. What is he missing?"
+    options:
+      - { text: "He can't see in which decisions his intuition misleads him", correct: true, why: "The difference between the first reaction and the calculation shows where intuition is wrong, and over time improves it. Without a record of the reaction, that difference isn't visible." }
+      - { text: "Nothing: only the result of the calculation matters", why: "The calculation rates one decision. Comparing your first reaction with the calculation shows where your intuition misleads you, and over time improves it." }
+      - { text: "Accuracy of the calculation, because the first reaction improves it", why: "The first reaction doesn't change the calculation. Its value lies in the comparison with the calculation, which shows where your intuition misleads you." }

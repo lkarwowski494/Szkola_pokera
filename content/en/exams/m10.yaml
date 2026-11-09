@@ -1,0 +1,82 @@
+module: m10
+drills:
+  - kind: choice
+    id: m10.exam.q1
+    family: m10.hud.stats
+    rules: [R-M10-001]
+    prompt: "Everyone {{t:fold|folded}} to the opponent in the {{t:small-blind}}. The opponent completes to the {{t:big-blind}}, and when the {{t:big-blind}} {{t:raise|raises}}, they {{t:fold}}. How does this hand change their stats?"
+    options:
+      - { text: "It increases {{t:vpip}}, but not {{t:pfr}}", correct: true, why: "Completing to the {{t:big-blind}} means voluntarily putting in {{t:chips}} beyond the forced blind, so it counts toward {{t:vpip}}. The opponent didn't {{t:raise}}, so {{t:pfr}} doesn't go up." }
+      - { text: "It doesn't change any of them, because the {{t:small-blind}} is a forced payment", why: "Only the blind itself is forced. Completing to the full {{t:big-blind}} is the opponent's decision, i.e. a voluntary payment, which increases {{t:vpip}}." }
+      - { text: "It increases {{t:vpip}} and {{t:pfr}}", why: "{{t:pfr}} only goes up when the opponent {{t:raise|raises}} themselves before the flop. Here the {{t:big-blind}} {{t:raise|raised}}, and the opponent only completed and {{t:fold|folded}}." }
+      - { text: "It doesn't increase {{t:vpip}}, because the opponent {{t:fold|folded}} before the flop anyway", why: "{{t:vpip}} counts voluntary payments, not whether the hand reached the flop. The opponent completed of their own accord, so the hand counts toward {{t:vpip}}." }
+  - kind: numeric
+    id: m10.exam.q2
+    family: m10.hud.sample
+    rules: [R-M10-002]
+    prompt: "The opponent has faced a c-bet {{n:exam.m10.se.n}} times and {{t:fold|folded}} in {{n:exam.m10.se.p}} of them. What is the standard error of their fold to c-bet in percentage points? Enter a number."
+    answer: exam.m10.se
+    explanation: "√(p × (1 − p) ÷ n) = √({{n:exam.m10.se.p}} × {{n:exam.m10.se.q}} ÷ {{n:exam.m10.se.n}}) ≈ {{n:exam.m10.se}}. You count opportunities (the c-bets they faced), not hands. With about {{n:var.conf95}} confidence, the true fold to c-bet lies within ± {{n:var.z95}} × {{n:exam.m10.se}} ≈ ± {{n:exam.m10.ci}}, i.e. between about {{n:exam.m10.ci.low}} and {{n:exam.m10.ci.high}}."
+  - kind: choice
+    id: m10.exam.q3
+    family: m10.hud.sample
+    rules: [R-M10-003]
+    prompt: "After {{n:exam.m10.mid.hands}} hands, the opponent has {{t:vpip}} {{n:exam.m10.mid.vpip}}, {{t:pfr}} {{n:exam.m10.mid.pfr}} and fold to 3-bet {{n:exam.m10.mid.f3b}}. Which of these numbers can you already base decisions on?"
+    options:
+      - { text: "{{t:vpip}} and {{t:pfr}}; fold to 3-bet is still chance", correct: true, why: "You can read {{t:vpip}} and {{t:pfr}} after about {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} hands, but fold to 3-bet only after about {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}, because the opportunity for it only comes up after an {{t:open}} and a 3-bet. {{n:exam.m10.mid.hands}} hands give just a few opportunities." }
+      - { text: "All three, because the sample exceeds {{n:hud.hands.vpip.low}} hands", why: "The threshold of about {{n:hud.hands.vpip.low}} hands applies to stats that have an opportunity in every hand. Fold to 3-bet has many times fewer and needs about {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}} hands." }
+      - { text: "None: stats are random before a thousand hands", why: "They are random below about {{n:hud.hands.random}} hands. After {{n:exam.m10.mid.hands}} hands, {{t:vpip}} and {{t:pfr}} already tell you something." }
+      - { text: "Only fold to 3-bet, because it's the most extreme", why: "An extreme number from a small sample is more often chance than a read. Reliability depends on the number of opportunities, and fold to 3-bet has the fewest here." }
+  - kind: choice
+    id: m10.exam.q4
+    family: m10.types.adjust
+    rules: [R-M10-007]
+    prompt: "A {{t:nit}} ({{t:vpip}} {{n:exam.m10.nit.vpip}}, {{t:pfr}} {{n:exam.m10.nit.pfr}}, {{n:exam.m10.nit.hands}} hands) {{t:open|opens}} from {{t:utg}}. You're on the Button with a hand from the bottom of the {{t:range}} you {{t:call}} such an {{t:open}} with in the module 4 baseline. What do you do?"
+    options:
+      - { text: "{{t:fold|Fold}}", correct: true, why: "A player who plays so few hands {{t:raise|raises}} mostly with the strongest ones. Hands from the bottom of your {{t:call|calling}} {{t:range}} are more often dominated against them, so you {{t:fold}} them more often than in the baseline." }
+      - { text: "{{t:call|Call}} as in the baseline, because you have {{t:position}}", why: "{{t:position|Position}} doesn't fix a dominated hand. The baseline assumes a typical {{t:open|opening}} {{t:range}}, and this player's {{t:range}} is much stronger." }
+      - { text: "3-bet as a {{t:bluff}}, because a {{t:nit}} only plays strong hands and will {{t:fold}}", why: "Their {{t:open|opening}} {{t:range}} is mostly the strongest hands, and those rarely {{t:fold}} to a 3-bet. A {{t:bluff}} here runs into the strongest part of their game." }
+  - kind: choice
+    id: m10.exam.q5
+    family: m10.types.adjust
+    rules: [R-M10-008]
+    prompt: "The opponent is a {{t:maniac}}: {{t:vpip}} {{n:exam.m10.maniac.vpip}}, {{t:pfr}} {{n:exam.m10.maniac.pfr}}, {{n:exam.m10.long.hands}} hands. You flopped a {{t:set}}, and the opponent {{t:bet|bets}}. What do you do?"
+    options:
+      - { text: "{{t:call|Call}} and let them keep betting", correct: true, why: "With a very strong hand, you let a {{t:maniac}} bet: their bets contain many {{t:bluff|bluffs}} and weak hands, and a {{t:call}} keeps them in play for the next {{t:street|streets}}." }
+      - { text: "{{t:raise|Raise}} as big as possible right away", why: "A {{t:raise}} makes their {{t:bluff|bluffs}} and weak hands {{t:fold}} before they put in more. Against a player who bets on their own, you make more by letting them do it." }
+      - { text: "{{t:fold|Fold}}, because a high {{t:pfr}} means strong hands", why: "A high {{t:pfr}} with such a high {{t:vpip}} means they {{t:raise}} with almost any hand, not that they have strong ones. A {{t:set}} is one of the best hands here." }
+  - kind: choice
+    id: m10.exam.q6
+    family: m10.types.adjust
+    rules: [R-M10-006]
+    prompt: "River. The opponent is a passive {{t:recreational}}: {{t:vpip}} {{n:exam.m10.rec.vpip}}, {{t:pfr}} {{n:exam.m10.rec.pfr}}, {{n:exam.m10.long.hands}} hands. They {{t:check}}. You have a hand that, in the module 8 baseline, you sometimes bet for {{t:value}} here and sometimes {{t:check}}. What do you do?"
+    options:
+      - { text: "Bet for {{t:value}}", correct: true, why: "This kind of player {{t:call|calls}} down with more weaker hands than the baseline opponent, so more of their {{t:call|calls}} are hands worse than yours. Against them, you also bet thinner hands for {{t:value}}." }
+      - { text: "{{t:check|Check}}, because a passive player only {{t:call|calls}} with good hands", why: "It's the opposite: a player with a large {{t:vpip}} − {{t:pfr}} gap plays many hands and {{t:call|calls}} down with them. That's exactly the reason to bet more, not less." }
+      - { text: "Do the same as in the baseline: sometimes bet, sometimes {{t:check}}", why: "The baseline assumes an opponent who defends correctly. This opponent {{t:call|calls}} too often, so a borderline hand shifts toward a {{t:value}} bet." }
+  - kind: choice
+    id: m10.exam.q7
+    family: m10.base.alpha
+    rules: [R-M10-010]
+    prompt: "The opponent has fold to c-bet {{n:exam.m10.fcb}} after {{n:exam.m10.long.hands}} hands. You missed the flop and have no {{t:draw}}. Which c-bet without a hand is immediately profitable?"
+    options:
+      - { text: "Only the small one, 1/3 {{t:pot}}", correct: true, why: "A 1/3-{{t:pot}} c-bet breaks even at {{n:alpha.cbet.small}} {{t:fold|folds}}, and a 3/4-{{t:pot}} one only at {{n:alpha.cbet.big}}. {{n:exam.m10.fcb}} is only enough for the small one. Fold to c-bet combines all sizes and tables, so this is an approximation." }
+      - { text: "Both, because the opponent {{t:fold|folds}} often", why: "A big c-bet risks more and needs over {{n:alpha.cbet.big}} {{t:fold|folds}}. The opponent {{t:fold|folds}} in {{n:exam.m10.fcb}}, which is too rarely." }
+      - { text: "Only the big one, because it forces a {{t:fold}} more", why: "Fold to c-bet from the {{t:hud}} doesn't tell you that the opponent {{t:fold|folds}} more often to a big bet. At {{n:exam.m10.fcb}} {{t:fold|folds}}, a big c-bet without a hand loses, because it needs {{n:alpha.cbet.big}}." }
+      - { text: "Neither, because the opponent {{t:fold|folds}} less than half the time", why: "The threshold isn't half, it's bet ÷ ({{t:pot}} + bet). For a 1/3-{{t:pot}} c-bet, it's {{n:alpha.cbet.small}}, so {{n:exam.m10.fcb}} is enough." }
+  - kind: choice
+    id: m10.exam.q8
+    family: m10.base.3bet
+    rules: [R-M10-011]
+    prompt: "The opponent has fold to 3-bet {{n:exam.m10.f3b.low}} after {{n:exam.m10.long.hands}} hands. They {{t:open}} from the {{t:cutoff}}, and you're on the Button with a hand you 3-bet as a {{t:bluff}} in the baseline. What do you change?"
+    options:
+      - { text: "Stop 3-betting this hand; against this opponent, 3-bet mostly strong hands", correct: true, why: "A 3-bet to {{n:pf.3bet.ip-total}} only profits without a hand at over {{n:alpha.vs-3bet-ip-size}} {{t:fold|folds}}, and this opponent {{t:fold|folds}} in {{n:exam.m10.f3b.low}}. A {{t:bluff}} would play a big {{t:pot}} with a weak hand, while strong hands get more {{t:call|calls}} from them: a {{t:linear}} {{t:range}}." }
+      - { text: "3-bet this hand more often, because the opponent is weak", why: "The opponent's weakness here is that they rarely {{t:fold}}. A {{t:bluff}} lives on {{t:fold|folds}}, so it loses against them." }
+      - { text: "Nothing: fold to 3-bet isn't reliable yet", why: "After {{n:exam.m10.long.hands}} hands, it is: you read fold to 3-bet after about {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}} hands." }
+  - kind: numeric
+    id: m10.exam.q9
+    family: m10.rake.math
+    rules: [R-M10-015]
+    prompt: "There's {{n:ex.pot}} in the {{t:pot}}, and the opponent {{t:bet|bets}} the full {{t:pot}}: {{n:ex.bet.pot}}. The room takes {{n:rake.ex.pct}} of the {{t:pot}}, and the {{t:rake-cap}} is out of reach. How much equity do you need to {{t:call}}? Enter a percentage."
+    answer: exam.m10.rake.eq
+    explanation: "The {{t:pot}} after the {{t:call}} is {{n:exam.m10.rake.total}}, and {{n:exam.m10.rake.after}} after the {{t:rake}} is taken out. You put in {{n:ex.bet.pot}}: {{n:ex.bet.pot}} ÷ {{n:exam.m10.rake.after}} ≈ {{n:exam.m10.rake.eq}} instead of {{n:eq.bet-pot}} without {{t:rake}}."

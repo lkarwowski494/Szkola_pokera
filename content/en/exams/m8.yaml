@@ -1,0 +1,93 @@
+# Pula pytań egzaminacyjnych modułu M8 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m8.*).
+module: m8
+drills:
+  - kind: choice
+    id: m8.exam.q1
+    family: m8.value.threshold
+    rules: [R-M8-001]
+    prompt: "River: your opponent {{t:check|checks}} and can't {{t:raise}} you. Their {{t:range}} contains {{n:exam.m8.range.worse}} hands worse than yours, but only {{n:exam.m8.call.worse}} of them will {{t:call}} your bet. They'll also pay {{n:exam.m8.call.better}} times with a better hand. Do you bet?"
+    options:
+      - { text: "No, {{t:check}}", correct: true, why: "Yes: count only the hands that will pay. The bet wins {{n:exam.m8.call.worse}} times and loses {{n:exam.m8.call.better}} times, a net loss of {{n:exam.m8.net.loss}} bet. Worse hands that {{t:fold}} would have lost to you after a {{t:check}} anyway." }
+      - { text: "Yes, because there are more worse hands than better ones", why: "Your opponent has {{n:exam.m8.range.worse}} worse hands, but most of them will {{t:fold}} to a bet. Among the hands that will pay, better ones outnumber worse ones ({{n:exam.m8.call.better}} vs {{n:exam.m8.call.worse}})." }
+      - { text: "Yes, to find out where I stand", why: "A bet “for information” pays off better hands, while worse ones {{t:fold}}. You get the same information for free after a {{t:check}}, at showdown." }
+  - kind: choice
+    id: m8.exam.q2
+    family: m8.value.size
+    rules: [R-M8-003]
+    prompt: "You {{t:open|opened}} from the Button, and the {{t:big-blind}} {{t:call|called}}. On the flop: c-bet and {{t:call}}; on the turn you both {{t:check|checked}}. On the river, the {{t:big-blind}} {{t:check|checks}}. You have {{t:top-pair}} with a nine and estimate that you beat just over half of the hands that will pay. What do you do?"
+    table: { hand: "Jh 9h", board: "Jc 7s 4d 2h 2c", position: BTN }
+    options:
+      - { text: "Bet about 1/3 of the {{t:pot}}", correct: true, why: "Yes: this is thin value. Sevens, fours and weaker jacks will also {{t:call}} a small bet, so the {{t:call|calls}} include more worse hands than better ones." }
+      - { text: "Bet the whole {{t:pot}}", sizeError: true, why: "Right action, wrong size: sevens and fours will {{t:fold}} to a {{t:pot}}-sized bet, and mostly better jacks and stronger hands will pay. Bet thin value smaller, usually about 1/4–1/2 of the {{t:pot}}." }
+      - { text: "{{t:check|Check}}, because the hand is too weak to bet", why: "You lose value: you beat more than half of the hands that will pay a small bet. Just choose a smaller size." }
+  - kind: numeric
+    id: m8.exam.q3
+    family: m8.bluff.share
+    rules: [R-M8-004, R-M8-005]
+    prompt: "River. The {{t:pot}} is {{n:exam.m8.pot}}, and you bet {{n:exam.m8.bet}} with a {{t:range}} made up of very strong hands and {{t:bluff|bluffs}}. At equilibrium, what share of your bets are {{t:bluff|bluffs}}? Enter the number as a percentage."
+    answer: exam.m8.share
+    explanation: "{{t:bluff|Bluff}} share = bet ÷ ({{t:pot}} + 2·bet) = {{n:exam.m8.bet}} ÷ ({{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}) = {{n:exam.m8.share}}. Your opponent's hand that catches {{t:bluff|bluffs}} needs the same equity, so it profits from neither a {{t:call}} nor a {{t:fold}}."
+  - kind: choice
+    id: m8.exam.q4
+    family: m8.bluff.combos
+    rules: [R-M8-004]
+    prompt: "River. The {{t:pot}} is {{n:exam.m8.pot}}, and you bet {{n:exam.m8.bet}} with a {{t:range}} of {{n:exam.m8.range}} {{t:combo|combos}}: value hands and {{t:bluff|bluffs}}. The equilibrium {{t:bluff}} share is {{n:exam.m8.share}}. How many {{t:combo|combos}} are {{t:bluff|bluffs}}?"
+    options:
+      - { text: "{{n:exam.m8.bluffs}}", correct: true, why: "Yes: {{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}} {{t:bluff|bluffs}} and {{n:exam.m8.value-combos}} {{t:value}} {{t:combo|combos}}." }
+      - { text: "{{n:exam.m8.bluffs.wrong-pot}}", why: "That's how many there would be with a bet of the whole {{t:pot}} (share {{n:bluff.share.bet-pot}}). With a smaller bet, there are fewer {{t:bluff|bluffs}}: {{n:exam.m8.share}}." }
+      - { text: "{{n:exam.m8.value-combos}}", why: "That's the number of {{t:value}} {{t:combo|combos}}. {{t:bluff|Bluffs}} are the smaller part: {{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}}." }
+  - kind: choice
+    id: m8.exam.q5
+    family: m8.bluff.hands
+    rules: [R-M8-006]
+    prompt: "You {{t:open|opened}} from the Button, the {{t:big-blind}} {{t:call|called}} and {{t:check|checks}} on the river. Which of these hands is best to {{t:bluff}} with?"
+    table: { board: "Qs Tc 6d 3h 2s", position: BTN }
+    options:
+      - { text: "[[Kc Jc]]", correct: true, why: "Yes: the {{t:oesd}} missed, and king-high almost never wins at showdown. A hand with no chance loses nothing when the {{t:bluff}} fails." }
+      - { text: "[[Ts 9s]]", why: "{{t:second-pair|Second pair}} wins after a {{t:check}} against missed {{t:draw|draws}} and weaker hands. By {{t:bluff|bluffing}}, you'd give up that win." }
+      - { text: "[[Qd 8d]]", why: "{{t:top-pair|Top pair}} has showdown value. You don't {{t:bluff}} with a hand that often wins after a {{t:check}}." }
+  - kind: choice
+    id: m8.exam.q6
+    family: m8.blockers.bluff
+    rules: [R-M8-007]
+    prompt: "River. The {{t:big-blind}} {{t:check|checks}}. On this {{t:board}}, KT and T8 make a {{t:straight}}. Neither hand below has a {{t:pair}} or any chance at showdown. Which is the better {{t:bluff}}?"
+    table: { board: "Qd Jc 4s 2h 9d", position: BTN }
+    options:
+      - { text: "[[Ts 7s]]", correct: true, why: "Yes: the ten blocks both {{t:straight|straights}} (KT and T8), the hands your opponent will definitely pay with. They have fewer {{t:combo|combos}} of them, so they're more often left with a hand to fold." }
+      - { text: "[[6s 5s]]", why: "This hand doesn't block any of your opponent's strong hands. When choosing between {{t:bluff|bluffs}} with no chance, prefer the one that blocks their value." }
+  - kind: numeric
+    id: m8.exam.q7
+    family: m8.blockers.combos
+    rules: [R-M8-009]
+    prompt: "Without any card information, KQ has {{n:combos.unpaired}} {{t:combo|combos}}. You hold [[Ad Qc]]. How many KQ {{t:combo|combos}} can your opponent have? Enter the number."
+    table: { hand: "Ad Qc" }
+    answer: combos.unpaired.one-blocked
+    explanation: "You hold one queen, so your opponent has {{n:pair.outs.per-rank}} queens and all {{n:cards.suits}} kings left: {{n:pair.outs.per-rank}} × {{n:cards.suits}} = {{n:combos.unpaired.one-blocked}}. The ace doesn't affect the number of KQ combos."
+  - kind: choice
+    id: m8.exam.q8
+    family: m8.catch.math
+    rules: [R-M8-010]
+    prompt: "River. The {{t:pot}} is {{n:exam.m8.pot}}, and your opponent {{t:bet|bets}} {{n:exam.m8.bet}}. You have a bluff-catcher and estimate that about {{n:exam.m8.bluffs.est}} of their bets are {{t:bluff|bluffs}}. What do you do?"
+    options:
+      - { text: "{{t:fold|Fold}}", correct: true, why: "Yes: you need {{n:exam.m8.bet}} ÷ ({{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}) = {{n:exam.m8.share}} equity, and a bluff-catcher only beats {{t:bluff|bluffs}}, i.e. about {{n:exam.m8.bluffs.est}} of the time. A {{t:call}} loses." }
+      - { text: "{{t:call|Call}}", why: "Your equity is the share of {{t:bluff|bluffs}} in their bets: {{n:exam.m8.bluffs.est}}. That's less than the {{n:exam.m8.share}} you need, so a {{t:call}} loses." }
+      - { text: "{{t:raise|Raise}}", why: "After a {{t:raise}}, {{t:bluff|bluffs}} will {{t:fold}}, and only better hands will pay. You don't {{t:raise}} with a bluff-catcher." }
+  - kind: choice
+    id: m8.exam.q9
+    family: m8.catch.blockers
+    rules: [R-M8-011]
+    prompt: "You're defending the {{t:big-blind}}. The hearts missed, and the river gave T7 and 75 a {{t:straight}}. You {{t:check}}, and the Button {{t:bet|bets}} the whole {{t:pot}}. You have {{t:top-pair}} with a weak kicker. With which of these hands is a {{t:call}} better?"
+    table: { board: "Kh 9h 6c 2s 8d", position: BB }
+    options:
+      - { text: "[[Kc 7c]]", correct: true, why: "Yes: the seven blocks both new {{t:straight|straights}} (T7 and 75), part of the Button's value, and without hearts you don't block the missed {{t:flush-draw|flush draws}}, their main {{t:bluff|bluffs}}. More {{t:bluff|bluffs}} remain in their bets." }
+      - { text: "[[Ks 3h]]", why: "The [[3h]] blocks some of the missed {{t:flush-draw|flush draws}}, i.e. the Button's {{t:bluff|bluffs}}, and this hand doesn't block any {{t:straight}}. More value remains in their bets." }
+  - kind: choice
+    id: m8.exam.q10
+    family: m8.value.check
+    rules: [R-M8-002]
+    prompt: "You {{t:open|opened}} from the Button, and the {{t:big-blind}} {{t:call|called}}. On the flop: c-bet and {{t:call}}; on the turn you both {{t:check|checked}}. On the river, the {{t:big-blind}} {{t:check|checks}}. You have a {{t:pair}} of sixes. What do you do?"
+    table: { hand: "6d 6s", board: "Jc 8h 4d 3s Kc", position: BTN }
+    options:
+      - { text: "{{t:check|Check}}", correct: true, why: "Yes: a {{t:pair}} of sixes beats missed {{t:draw|draws}} and high cards, but those hands will {{t:fold}} to a bet. Mostly jacks, eights and kings will pay. By {{t:check|checking}}, you go to showdown for free." }
+      - { text: "Bet small for {{t:value}}", why: "A small bet will also be {{t:call|called}} mostly by better {{t:pair|pairs}}. Your opponent's worse hands here are mostly hands with no {{t:pair}} and the weakest {{t:pair|pairs}}, and they rarely pay." }
+      - { text: "Bet big so your opponent {{t:fold|folds}} a better {{t:pair}}", why: "A bet turns a hand with showdown value into a {{t:bluff}}. You {{t:bluff}} with hands that have no chance, and this hand often wins after a {{t:check}}." }

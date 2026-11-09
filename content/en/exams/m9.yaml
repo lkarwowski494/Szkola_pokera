@@ -1,0 +1,86 @@
+# Pula pytań egzaminacyjnych modułu M9 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m9.*).
+module: m9
+drills:
+  - kind: choice
+    id: m9.exam.q1
+    family: m9.spr
+    rules: [R-M9-001]
+    prompt: "On the flop, the {{t:pot}} is {{n:exam.m9.pot}}. You have {{n:exam.m9.stack.you}} behind, and your opponent has {{n:exam.m9.stack.opp}}. What is the {{t:spr}}?"
+    options:
+      - { text: "{{n:exam.m9.spr}}", correct: true, why: "Yes: you calculate it from the {{t:effective-stack}}, the smaller of the two: {{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}. You can't win or lose more than your opponent has in this hand." }
+      - { text: "{{n:exam.m9.spr.wrong}}", why: "That's your stack ÷ {{t:pot}}. Your opponent has less, so at most {{n:exam.m9.stack.opp}} can go in during the hand: {{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}." }
+      - { text: "{{n:exam.m9.spr.inverted}}", why: "The other way around: the {{t:spr}} is the stack divided by the {{t:pot}}, not the {{t:pot}} divided by the stack." }
+  - kind: choice
+    id: m9.exam.q2
+    family: m9.spr-zone
+    rules: [R-M9-010]
+    prompt: "The {{t:spr}} on the flop is {{n:exam.m9.spr}}. According to the {{t:spr}} zones, which of these hands is borderline: you play it for {{t:value}}, but you don't always {{t:call}} your opponent's all-in?"
+    options:
+      - { text: "{{t:top-pair|Top pair}} with a good kicker", correct: true, why: "Yes: {{n:exam.m9.spr}} is in the zone from {{n:spr.zone.low}} to {{n:spr.zone.mid}}, where {{t:top-pair}} is a borderline hand (this is a simplification). Below {{n:spr.zone.low}}, it would usually play for the whole stack." }
+      - { text: "Set", why: "A set plays for the whole stack even when the {{t:spr}} is above {{n:spr.zone.deep}}. With the {{t:spr}} at {{n:exam.m9.spr}}, it's clearly a hand for the whole stack." }
+      - { text: "{{t:two-pair|Two pair}} with the top two cards on the {{t:board}}", why: "High {{t:two-pair}} is enough to play for the stack even in the zone from {{n:spr.zone.mid}} to {{n:spr.zone.deep}}. With the {{t:spr}} at {{n:exam.m9.spr}}, it's a hand for the whole stack, not a borderline one." }
+  - kind: numeric
+    id: m9.exam.q3
+    family: m9.spr-price
+    rules: [R-M9-002]
+    prompt: "Flop. The {{t:pot}} is {{n:exam.m9.pot}}, and your opponent goes all-in for {{n:exam.m9.stack.opp}} ({{t:spr}} {{n:exam.m9.spr}}). How much equity do you need to {{t:call}}? Enter the number as a percentage."
+    answer: exam.m9.eq.jam
+    explanation: "You put in {{n:exam.m9.stack.opp}} to win the {{t:pot}} and your opponent's stack: {{n:exam.m9.stack.opp}} ÷ ({{n:exam.m9.pot}} + 2·{{n:exam.m9.stack.opp}}) = {{n:exam.m9.eq.jam}}. The lower the {{t:spr}}, the better the price."
+  - kind: choice
+    id: m9.exam.q4
+    family: m9.commit-plan
+    rules: [R-M9-004, R-M9-003]
+    prompt: "Flop, {{t:spr}} {{n:spr.low}}: the {{t:pot}} is {{n:ex.pot}}, and both stacks are {{n:spr.stack.low}}. You have an {{t:overpair}}. You're considering a half-{{t:pot}} bet ({{n:ex.bet.half}}), after which you'll have {{n:exam.m9.low.left}} left. What's your plan?"
+    table: { hand: "Qh Qc", board: "Jd 7s 3c" }
+    options:
+      - { text: "Bet, planning to play for the whole stack", correct: true, why: "Yes: after a bet and a {{t:call}}, the {{t:pot}} would be {{n:ex.half.total}}, more than the {{n:exam.m9.low.left}} left in your stack. Against your opponent's all-in, you'd need only {{n:exam.m9.eq.low-after-half}} equity, and an {{t:overpair}} at such a low {{t:spr}} plays for the whole stack." }
+      - { text: "Bet {{n:ex.bet.half}} and {{t:fold}} if your opponent goes all-in", why: "Betting and folding makes no sense here: after your bet, {{n:exam.m9.eq.low-after-half}} equity is enough to {{t:call}} the all-in. Either you play for the whole stack, or you {{t:check}}." }
+      - { text: "{{t:check|Check}} and {{t:fold}} to any bet", why: "With the {{t:spr}} below {{n:spr.zone.low}}, an {{t:overpair}} is a hand for the whole stack. {{t:fold|Folding}} to a bet gives up the {{t:pot}} with a very strong hand." }
+  - kind: choice
+    id: m9.exam.q5
+    family: m9.geo-size
+    rules: [R-M9-006]
+    prompt: "The {{t:spr}} on the flop is {{n:exam.m9.spr}}. You want to get your whole stack in with two equal {{t:bet|bets}}: on the flop and on the turn. What fraction of the {{t:pot}} do you bet?"
+    options:
+      - { text: "About {{n:exam.m9.geo.two}} of the {{t:pot}}", correct: true, why: "Yes: (1 + 2f) squared = 1 + 2·{{n:exam.m9.spr}}, so 1 + 2f = 3 and f = {{n:exam.m9.geo.two}}. A {{t:pot}}-sized bet and a {{t:call}} triple the {{t:pot}}, and a second such bet on the turn is all-in." }
+      - { text: "About {{n:exam.m9.geo.three}} of the {{t:pot}}", why: "That's the size for three {{t:street|streets}}: (1 + 2f) cubed = 1 + 2·{{n:exam.m9.spr}}. For two {{t:street|streets}}, each {{t:bet}} has to be bigger." }
+      - { text: "About {{n:cbet.size.small}} of the {{t:pot}}", why: "Two {{t:bet|bets}} of 1/3 of the {{t:pot}} put in only a small part of the stack. Calculate the geometric size with the formula (1 + 2f) to the power of the number of {{t:street|streets}} = 1 + 2·{{t:spr}}." }
+  - kind: choice
+    id: m9.exam.q6
+    family: m9.plan-streets
+    rules: [R-M9-008]
+    prompt: "You {{t:open|opened}} from the Button, and the {{t:big-blind}} {{t:call|called}}. You have an {{t:overpair}} of jacks on a {{t:dry}}, low flop. How many streets of {{t:value}} will this hand usually stand?"
+    table: { hand: "Jc Jd", board: "9h 5c 2d", position: BTN }
+    options:
+      - { text: "Usually two, and a third when your opponent pays with weaker hands", correct: true, why: "Yes: nines, fives and weaker {{t:pair|pairs}} will pay off an {{t:overpair}}, but with each {{t:street}}, worse hands {{t:fold}}, and mostly better hands stay in the {{t:pot}}." }
+      - { text: "Three, always", why: "Three streets of {{t:value}} usually suit very strong hands: sets, {{t:straight|straights}}, high {{t:two-pair}}. After the third {{t:bet}}, an {{t:overpair}} of jacks often pays off better hands." }
+      - { text: "None: you {{t:check}} it down to showdown", why: "Too cautious: on a {{t:dry}} flop, an {{t:overpair}} beats many hands that will pay one or two {{t:bet|bets}}." }
+  - kind: choice
+    id: m9.exam.q7
+    family: m9.geo-srp
+    rules: [R-M9-007]
+    prompt: "A single-raised {{t:pot}}, {{n:format.stack}} stacks: on the flop, the {{t:pot}} is {{n:bb.pot-after.vs-btn}}, and each of you has {{n:spr.srp.stack}} behind. You bet the full {{t:pot}} on the flop, turn and river, and your opponent always {{t:call|calls}}. How much do you put in in total?"
+    table: { position: BTN }
+    options:
+      - { text: "{{n:srp.potbet.total}}: less than the whole stack", correct: true, why: "Yes: {{n:srp.potbet.flop}} + {{n:srp.potbet.turn}} + {{n:srp.potbet.river}} = {{n:srp.potbet.total}} out of a {{n:spr.srp.stack}} stack. The flop {{t:pot}} is small relative to the stack, so the whole stack only goes in with {{t:bet|bets}} of about {{n:geo.srp.3}} of the {{t:pot}} on each {{t:street}}." }
+      - { text: "The whole stack: {{n:spr.srp.stack}}", why: "Three {{t:pot}}-sized bets put in {{n:srp.potbet.total}}. To get the whole stack in, you have to bet more than the {{t:pot}} on each {{t:street}}." }
+      - { text: "{{n:srp.half.total}}", why: "That's what three half-{{t:pot}} bets put in. {{t:pot|Pot}}-sized bets put in more: {{n:srp.potbet.total}}." }
+  - kind: choice
+    id: m9.exam.q8
+    family: m9.geo-size
+    rules: [R-M9-009]
+    prompt: "A 3-bet {{t:pot}}, you have {{t:position}}, {{t:spr}} about {{n:spr.3bet-ip}}. You have a hand worth three streets of {{t:value}} and want to get your whole stack in. A friend suggests small bets of 1/3 of the {{t:pot}} on each {{t:street}}. What happens if your opponent {{t:call|calls}} three times?"
+    table: { position: BTN }
+    options:
+      - { text: "You'll put in only about {{n:g3b.third.total}} of your {{n:spr.3bet-ip.stack}} stack", correct: true, why: "Yes: small bets leave a small {{t:pot}} for the later {{t:street|streets}}. The whole stack goes in at about {{n:geo.3bet-ip.3}} of the {{t:pot}} on each {{t:street}}, so you choose the geometric size already on the flop." }
+      - { text: "By the river, the whole stack will be in the {{t:pot}}", why: "No: three bets of 1/3 of the {{t:pot}} put in only about {{n:g3b.third.total}}. Most of the stack ({{n:spr.3bet-ip.stack}}) stays behind." }
+      - { text: "You'll get the whole stack in by the turn", why: "The other way around: small bets grow slowly, because the {{t:pot}} grows by multiplication. Only a size of about {{n:geo.3bet-ip.3}} of the {{t:pot}} gets the whole stack in, and only on the river." }
+  - kind: choice
+    id: m9.exam.q9
+    family: m9.spr-zone
+    rules: [R-M9-010]
+    prompt: "Very deep stacks: the {{t:spr}} on the flop is higher than {{n:spr.zone.deep}}. You have high {{t:two-pair}}. Do you plan to play for the whole stack?"
+    options:
+      - { text: "Usually not: with the {{t:spr}} this high, you need a set, a {{t:straight}} or a better hand to play for the whole stack", correct: true, why: "Yes: above {{n:spr.zone.deep}}, the whole stack goes in only after more than three {{t:pot}}-sized {{t:bet|bets}}, and by the end your opponent pays mainly with very strong hands (this is a simplification of the {{t:spr}} zones)." }
+      - { text: "Yes: high {{t:two-pair}} always plays for the stack", why: "High {{t:two-pair}} is usually enough in the zone from {{n:spr.zone.mid}} to {{n:spr.zone.deep}}. Above that, an opponent who puts in the whole stack often has a set or better." }
+      - { text: "Yes, because a high {{t:spr}} gives a good price on an all-in", why: "The other way around: the higher the {{t:spr}}, the worse the price on an all-in and the stronger the hand you need to play for the whole stack." }

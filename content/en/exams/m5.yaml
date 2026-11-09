@@ -1,0 +1,100 @@
+# Pula pytań egzaminacyjnych modułu M5 (te same reguły co lekcje, inne sytuacje). Klasyfikacja tekstury i decyzja
+# c-betu BTN vs BB trafiają na egzamin z generatorów lekcji (texture, cbet), więc tu ich nie powtarzamy.
+module: m5
+drills:
+  - kind: choice
+    id: m5.exam.q1
+    family: m5.advantage.who
+    rules: [R-M5-003]
+    prompt: "You {{t:open|opened}} from the {{t:cutoff|CO}}, the Button and the {{t:small-blind}} {{t:fold|folded}}, and the {{t:big-blind}} {{t:call|called}}. Flop: [[Ac Jd 5h]]. Who has the {{t:range-advantage}}?"
+    table: { position: CO, board: "Ac Jd 5h" }
+    options:
+      - { text: "You, the {{t:open|opener}}", correct: true, why: "Yes: on an ace-high flop your {{t:range}} contains all AA, AK and AJ. The {{t:big-blind}} usually {{t:raise|raises}} the strongest aces before the flop (3-bet), so after just a {{t:call}} they have few of them." }
+      - { text: "The {{t:big-blind}}, because they defend many aces", why: "They defend many aces, but weak ones (e.g. A5, A8). They play the strongest aces as a 3-bet, so on average their hands here are weaker than yours." }
+      - { text: "Nobody: the ace hits both {{t:range|ranges}} equally", why: "An ace on the {{t:board}} affects both {{t:range|ranges}}, but not equally: yours has more strong aces, because the {{t:big-blind}} {{t:raise|raised}} the best of them before the flop." }
+  - kind: choice
+    id: m5.exam.q2
+    family: m5.advantage.who
+    rules: [R-M5-004]
+    prompt: "You {{t:open|opened}} from the Button, and the {{t:big-blind}} {{t:call|called}}. On which of these flops is the {{t:big-blind}} more likely than you to have {{t:two-pair}} or a {{t:straight}}?"
+    table: { position: BTN }
+    options:
+      - { text: "[[8h 6d 5c]]", correct: true, why: "Yes: a low, {{t:connected}} flop hits {{t:connectors}} and small-card hands, which the {{t:big-blind}} defends a lot. From the Button you have more high cards, which missed here. This is a {{t:nuts-advantage}} for the {{t:big-blind}}." }
+      - { text: "[[Kd Td 3s]]", why: "No: a high flop favors the {{t:open|opener}}. You have more kings with a good kicker, KT and high {{t:pair|pairs}}." }
+      - { text: "[[Ah Ad 7c]]", why: "No: on a flop with a {{t:pair}} of aces, you have more aces, because the {{t:big-blind}} {{t:raise|raises}} the strongest aces before the flop. Nobody has a {{t:straight}} here." }
+  - kind: choice
+    id: m5.exam.q3
+    family: m5.advantage.why
+    rules: [R-M5-005]
+    prompt: "On the flop you assess two advantages: {{t:range-advantage}} and {{t:nuts-advantage}}. Which one tells you how much to bet?"
+    options:
+      - { text: "{{t:nuts-advantage|Nuts advantage}}", correct: true, why: "Yes: when you have many more of the strongest hands than your opponent, you rarely run into a better hand, so you can bet a bigger size. {{t:range-advantage|Range advantage}} tells you how often to bet." }
+      - { text: "{{t:range-advantage|Range advantage}}", why: "No: {{t:range-advantage}} tells you that you can bet often. Without {{t:nuts-advantage}} you bet small, because a big {{t:bet}} risks a lot against your opponent's strongest hands." }
+      - { text: "Neither: the size depends only on your hand", why: "Your opponent doesn't see your hand, only your {{t:range}}. You choose a size that fits many of your hands at once, and that is decided by the advantages." }
+  - kind: choice
+    id: m5.exam.q4
+    family: m5.math.miss
+    rules: [R-M5-006, R-M5-013]
+    prompt: "One hand without a {{t:pair}} misses the flop about {{n:flop.miss.unpaired}} of the time, and two at once about {{n:flop.miss.two}}. How often do three such hands (six different ranks) miss at once?"
+    options:
+      - { text: "About {{n:exam.m5.miss.three}}", correct: true, why: "Yes: {{n:exam.m5.pair.outs.three}} of the {{n:exam.m5.unseen.three}} unknown cards (excluding yours) pair them. The chance that none of the {{n:cards.board.flop}} flop cards is among them is about {{n:exam.m5.miss.three}}. Against three opponents, a {{t:bluff}} rarely gets through all of them." }
+      - { text: "About {{n:flop.miss.two}}, the same as two", why: "No: a third opponent means another {{n:pair.outs.unpaired}} cards that can pair them. The chance that everyone misses shrinks with each player." }
+      - { text: "About {{n:flop.miss.unpaired}}, only one opponent counts", why: "No: for a {{t:bluff}} to win the {{t:pot}}, everyone has to miss. Each additional opponent lowers that chance." }
+  - kind: choice
+    id: m5.exam.q5
+    family: m5.math.alpha
+    rules: [R-M5-011]
+    prompt: "You {{t:open|opened}} from the Button, and the {{t:big-blind}} {{t:call|called}}. The {{t:pot}} on the flop is {{n:bb.pot-after.vs-btn}}. You c-bet {{n:cbet.btn.big}} with a hand that has no chance. How often must the {{t:big-blind}} {{t:fold}} for this {{t:bet}} to break even?"
+    table: { position: BTN }
+    options:
+      - { text: "More than {{n:alpha.cbet.big}} of the time", correct: true, why: "Yes: {{n:cbet.btn.big}} is {{n:cbet.size.big}} of the {{t:pot}}, and the threshold depends only on the ratio of the bet to the {{t:pot}}: bet ÷ ({{t:pot}} + bet) = {{n:alpha.cbet.big}}. The same as with the {{t:pot}} in {{t:chips}}." }
+      - { text: "More than {{n:alpha.cbet.small}} of the time", why: "That's the threshold for a small c-bet ({{n:cbet.size.small}} of the {{t:pot}}, i.e. {{n:cbet.btn.small}}). A bigger bet risks more, so it has to work more often: {{n:alpha.cbet.big}}." }
+      - { text: "More than {{n:flop.miss.unpaired}} of the time", why: "That's the chance that a hand without a {{t:pair}} misses the flop, not the bet's break-even threshold. The threshold is bet ÷ ({{t:pot}} + bet) = {{n:alpha.cbet.big}}." }
+  - kind: choice
+    id: m5.exam.q6
+    family: m5.cbet.oop
+    rules: [R-M5-012]
+    prompt: "In which of these situations do you, as the {{t:open|opener}}, c-bet least often?"
+    options:
+      - { text: "You {{t:open|opened}} from the {{t:hijack|HJ}}, the Button {{t:call|called}}, the blinds {{t:fold|folded}}", correct: true, why: "Yes: the Button {{t:call|called}} in {{t:position}}, so their {{t:range}} is strong (they {{t:fold|folded}} weak hands and {{t:raise|raised}} some of the strongest), and after the flop you act first on every {{t:street}}." }
+      - { text: "You {{t:open|opened}} from the Button, the {{t:big-blind}} {{t:call|called}}", why: "Here you have {{t:position}}, and the {{t:big-blind}} defends wide, with many weak hands. This is the setup where you c-bet most often." }
+      - { text: "You {{t:open|opened}} from the {{t:cutoff|CO}}, the {{t:big-blind}} {{t:call|called}}", why: "Here too you act after the {{t:big-blind}} after the flop, so you have {{t:position}}, and their wide defense contains many weak hands." }
+  - kind: choice
+    id: m5.exam.q7
+    family: m5.cbet.oop
+    rules: [R-M5-012]
+    prompt: "{{t:out-of-position|Out of position}} against a player who {{t:call|called}} in {{t:position}}, you often {{t:check}} strong hands too. What does this mean?"
+    options:
+      - { text: "You don't give up the hand: after {{t:check|checking}} you {{t:call}} their {{t:bet}} or check-raise", correct: true, why: "Yes: {{t:check|checking}} {{t:out-of-position}} doesn't give up the {{t:pot}}. You keep playing strong hands with a {{t:call}} or a check-raise, and the {{t:range}} of an opponent who {{t:call|called}} in {{t:position}} will often {{t:bet}} on its own." }
+      - { text: "After {{t:check|checking}} you {{t:fold}} to every {{t:bet}}", why: "No: then your opponent would win the {{t:pot}} with every {{t:bet}}. Many hands that {{t:check}} will {{t:call}} the opponent's {{t:bet}}." }
+      - { text: "You {{t:check}} only with hands without a {{t:pair}}", why: "No: {{t:out-of-position}} you often {{t:check}} your whole {{t:range}}, including strong hands. If only weak hands {{t:check|checked}}, your opponent would easily exploit it." }
+  - kind: choice
+    id: m5.exam.q8
+    family: m5.cbet.multi
+    rules: [R-M5-013]
+    prompt: "You {{t:open|opened}} from the {{t:hijack|HJ}}, and the Button and the {{t:big-blind}} {{t:call|called}}. Against two opponents, which hands do you stop c-betting first?"
+    table: { position: HJ }
+    options:
+      - { text: "{{t:bluff|Bluffs}} without a {{t:pair}} and without a {{t:draw}}", correct: true, why: "Yes: a {{t:bluff}} has to get through both opponents, and two hands without a {{t:pair}} miss at once only about {{n:flop.miss.two}} of the time. You bet rarely, mostly with strong hands and strong {{t:draw|draws}}." }
+      - { text: "Strong {{t:draw|draws}}", why: "No: strong {{t:draw|draws}} are among the hands that still sometimes bet against several opponents, because they also win when they hit." }
+      - { text: "None: you c-bet the same as against one", why: "No: each additional opponent increases the chance that someone hit the flop. Against two, you c-bet much less often." }
+  - kind: choice
+    id: m5.exam.q9
+    family: m5.cbet.size
+    rules: [R-M5-008]
+    prompt: "You {{t:open|opened}} from the Button, and the {{t:big-blind}} {{t:call|called}} and {{t:check|checks}}. The flop is {{t:wet}}. You have a {{t:pair}} of sevens with an ace, no {{t:draw}}. What do you do?"
+    table: { hand: "As 7c", position: BTN, board: "Td 9d 7s" }
+    options:
+      - { text: "{{t:check|Check}}", correct: true, why: "Yes: on a {{t:wet}} flop you bet less often, mostly with strong hands and strong {{t:draw|draws}}. The lowest {{t:pair}} without a {{t:draw}} is at best a medium hand: your {{t:bet}} will be {{t:call|called}} mostly by better hands and {{t:draw|draws}} that have a lot of equity against it." }
+      - { text: "C-bet {{n:cbet.size.big}} of the {{t:pot}}", why: "A big size on a {{t:wet}} flop is for strong hands and strong {{t:draw|draws}}. With the lowest {{t:pair}} you build a big {{t:pot}} against hands that often beat you or have a lot of equity." }
+      - { text: "C-bet {{n:cbet.size.small}} of the {{t:pot}}", why: "On a {{t:wet}} flop, medium hands without a {{t:draw}} {{t:check}} more often. A small {{t:bet}} gives {{t:draw|draws}} a cheap card, and weaker hands rarely pay anyway." }
+  - kind: choice
+    id: m5.exam.q10
+    family: m5.cbet.texture
+    rules: [R-M5-010]
+    prompt: "You {{t:open|opened}} from the Button, and the {{t:big-blind}} {{t:call|called}} and {{t:check|checks}}. The flop is {{t:monotone}}, so by the app's scoring it's {{t:wet}}. When you do c-bet, what size do you use?"
+    table: { position: BTN, board: "Jd 7d 2d" }
+    options:
+      - { text: "Small", correct: true, why: "Yes: any player may already have a {{t:flush}}, so your {{t:nuts-advantage}} is smaller. On a {{t:monotone}} flop you bet less often than usual and with a small size, so you don't build a big {{t:pot}} against a flush." }
+      - { text: "Big, because the flop is {{t:wet}}", why: "“{{t:wet|Wet}}” doesn't mean “big bet”. The bigger size applies to {{t:wet}} flops that aren't {{t:monotone}}. On a {{t:monotone}} flop a big {{t:pot}} is dangerous, because your opponent may already have a made {{t:flush}}." }
+      - { text: "The whole {{t:pot}}, so {{t:draw|draws}} pay a lot", why: "On a {{t:monotone}} flop the biggest danger isn't {{t:draw|draws}} but your opponent's made flushes. A pot-sized bet risks the most precisely against them." }

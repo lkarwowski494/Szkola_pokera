@@ -3,7 +3,7 @@
 // Uruchamianie: node --test docs/tresci/narzedzia/scal-rejestr.test.mjs (z katalogu głównego repo; część pnpm test:skrypty).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { cpSync, mkdtempSync, mkdirSync, readFileSync, writeFileSync, symlinkSync, rmSync, realpathSync } from 'node:fs';
+import { cpSync, mkdtempSync, mkdirSync, readFileSync, writeFileSync, symlinkSync, rmSync, realpathSync, readdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { createRequire } from 'node:module';
@@ -86,6 +86,12 @@ test('D-158: zmiana zdania ogólnego (fallback.text) unieważnia przegląd H-INT
 test('content/en bez kontroli (a) = błąd; zapis ze skrótem en = zgodne; zmiana zdania en unieważnia', () => {
   const d = kopia();
   try {
+    // stan wyjściowy niezależny od repo: bez content/en i bez zapisów przeglad_jezyki (od D-345 repo ma oba dla en)
+    rmSync(join(d, 'content/en'), { recursive: true, force: true });
+    for (const f of readdirSync(join(d, 'docs/tresci/rejestr')).filter((x) => x.endsWith('.json'))) {
+      const pf = join(d, 'docs/tresci/rejestr', f), a = JSON.parse(readFileSync(pf, 'utf8'));
+      if (Array.isArray(a)) { for (const w of a) delete w.przeglad_jezyki; writeFileSync(pf, JSON.stringify(a, null, 1) + '\n'); }
+    }
     for (const p of ['lessons', 'exams', 'rules.yaml']) cpSync(join(d, 'content/pl', p), join(d, 'content/en', p), { recursive: true });
     cpSync(join(d, 'content/helplines.yaml'), join(d, 'content/en/helplines.yaml'));
     const r1 = uruchom(d, '--przeglad', 'zastępczy');

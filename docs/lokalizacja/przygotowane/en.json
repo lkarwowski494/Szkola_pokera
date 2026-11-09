@@ -1,0 +1,903 @@
+{
+  "tabs": {
+    "review": "Reviews",
+    "rules": "Rules",
+    "progress": "Progress",
+    "today": "Today"
+  },
+  "today": {
+    "title": "Today",
+    "lessonOf": "{{modul}}, lesson {{nr}}",
+    "startLesson": "Start lesson",
+    "continueLesson": "Continue lesson",
+    "courseDone": "All lessons are complete. Practice and reviews still work.",
+    "exercises": "Exercises",
+    "practice": "Practice session",
+    "practiceHint": "Graded decisions with explanations",
+    "reviews": "Today's reviews",
+    "reviewsDue_one": "{{count}}",
+    "reviewsDue_other": "{{count}}",
+    "allLessons": "All lessons",
+    "rowLabel": "{{tytul}}. {{opis}}.",
+    "rowDone": "Completed.",
+    "rowStarted": "Started.",
+    "rowPassed": "Passed.",
+    "rowScore": "Score: {{dobre}} of {{razem}}."
+  },
+  "welcome": {
+    "title": "Poker School",
+    "what": "You learn to make poker decisions: from the rules of the game to strategy, with every decision graded and an explanation of why.",
+    "noMoney": "This is learning, with no real-money play.",
+    "next": "First, a few questions about what you already know. You can skip them.",
+    "continue": "Continue"
+  },
+  "placement": {
+    "of": "Question {{n}} of {{total}}",
+    "skip": "Skip",
+    "resultTitle": "Your starting point",
+    "startAt": "You start with module {{modul}}: “{{lekcja}}”.",
+    "passed": "Modules passed in the assessment: {{moduly}}. You can return to them at any time.",
+    "begin": "Start learning"
+  },
+  "purchase": {
+    "title": "Full access",
+    "unlocks": "No daily limit: practice sessions, reviews and exam retakes every day. Lessons stay free.",
+    "loading": "Loading prices…",
+    "pricesUnavailable": "Couldn't load prices. Check your connection and try again.",
+    "retry": "Try again",
+    "plan": {
+      "quarter": "Quarter",
+      "year": "Year",
+      "lifetime": "Lifetime access"
+    },
+    "renewsQuarter": "Billed every 3 months. Renews automatically until canceled.",
+    "renewsYear": "Billed once a year. Renews automatically until canceled.",
+    "oneTime": "One-time purchase, no further payments.",
+    "cancelInfo": "Cancel your subscription in your Apple account settings (Subscriptions). After you cancel, it won't renew, and full access stays until the end of the paid period.",
+    "restore": "Restore purchases",
+    "close": "Close",
+    "terms": "Terms of Use",
+    "privacy": "Privacy Policy",
+    "noPurchases": "We didn't find any purchases on this Apple account.",
+    "pending": "The purchase is waiting for approval. Access will turn on by itself once it's approved.",
+    "failed": "Couldn't complete the purchase. Try again.",
+    "restoreFailed": "Couldn't restore purchases. Check your connection and try again."
+  },
+  "settings": {
+    "title": "Settings",
+    "purchases": "Purchases",
+    "manage": "Manage subscription",
+    "other": "Other",
+    "help": "Help",
+    "reset": "Delete progress",
+    "resetTitle": "Delete all progress?",
+    "resetBody": "Lessons, answers and reviews will be deleted from this phone. Purchases stay. If you want to keep your progress, export it first.",
+    "resetConfirm": "Delete",
+    "cancel": "Cancel",
+    "display": "Display",
+    "reminderSection": "Reminder",
+    "reminder": "Daily reminder",
+    "reminderHint": "One notification a day at {{pora}}. When you turn this on, your phone will ask for permission to send notifications.",
+    "reminderDenied": "Notifications for this app are turned off in your phone settings. Turn them on there to get the reminder.",
+    "reminderFailed": "Couldn't set the reminder. Try again.",
+    "general": "General",
+    "language": "Language",
+    "restored": "Purchases restored. Full access is on.",
+    "fullAccess": "Full access"
+  },
+  "data": {
+    "title": "Data",
+    "intro": "Your progress is only on this phone. An export file moves it to another phone or keeps it as a backup.",
+    "export": "Export progress",
+    "neverExported": "Progress hasn't been exported yet.",
+    "lastExport": "Last export: {{data}}.",
+    "import": "Import progress",
+    "importHint": "Choose an export file from this app.",
+    "replaceTitle": "Replace current progress?",
+    "replaceBody": "Progress from the file will replace the progress saved on this phone. This can't be undone.",
+    "replaceConfirm": "Replace",
+    "exported": "The export file is ready.",
+    "exportFailed": "Couldn't export progress. Try again.",
+    "badFile": "This file is invalid or doesn't come from this app. Your progress hasn't changed.",
+    "newerVersion": "This file comes from a newer version of the app. Update the app and try again.",
+    "imported": "Progress from the file has been loaded.",
+    "importFailed": "Couldn't save progress from the file. Your current progress hasn't changed."
+  },
+  "feedback": {
+    "section": "Feedback",
+    "rate": "Rate in the store",
+    "write": "Write to us",
+    "noMail": "Couldn't open mail. Write to: {{adres}}",
+    "report": "Report an error in this exercise",
+    "reportSubject": "Error in exercise {{id}}",
+    "reportBody": "Exercise: {{id}}\nApp version: {{wersja}}\nLanguage: {{jezyk}}\n\nWhat's wrong?\n",
+    "noMailReport": "Couldn't open mail. Write to {{adres}} and include the exercise ID: {{id}}"
+  },
+  "start": {
+    "title": {
+      "practice": "Practice session",
+      "reviews": "Reviews",
+      "scenario": "Hand scenario",
+      "exam": "Module exam"
+    },
+    "counter_one": "Daily limit: {{count}} free activity for today.",
+    "counter_other": "Daily limit: {{count}} free activities for today.",
+    "renews": "The limit renews at midnight ({{godzina}}).",
+    "reviewsWait_one": "You have {{count}} review due today. It will come back once the limit renews, and you won't lose anything.",
+    "reviewsWait_other": "You have {{count}} reviews due today. They'll wait until the limit renews, and you won't lose anything.",
+    "alwaysFree": "Lessons and the first exam attempt are always free.",
+    "begin": "Start",
+    "fullAccess": "Full access",
+    "backToLesson": "Back to lesson"
+  },
+  "grade": {
+    "zgodne": "Aligned",
+    "dopuszczalne": "Acceptable",
+    "niedokladnosc": "Inaccuracy",
+    "blad": "Mistake",
+    "label": "Grade: {{slowo}}",
+    "announce": "{{ocena}}. {{opis}}"
+  },
+  "learn": {
+    "intro": "No-Limit Hold’em from scratch. Pick any lesson or go in order.",
+    "recommended": "Recommended order",
+    "soon": "Coming soon",
+    "lessonsDone": "{{done}} of {{total}} lessons",
+    "optional": "Optional"
+  },
+  "lesson": {
+    "start": "Exercises",
+    "exercises_one": "{{count}} exercise",
+    "exercises_other": "{{count}} exercises",
+    "rulesTitle": "Rules from this lesson",
+    "notFound": "This lesson doesn't exist."
+  },
+  "rule": {
+    "if": "If",
+    "then": "then",
+    "because": "because"
+  },
+  "level": {
+    "rules": "Game rules",
+    "math": "Math",
+    "gto": "Theory (GTO)",
+    "heuristic": "Heuristic",
+    "exploit": "{{t:exploit|Exploit}}"
+  },
+  "session": {
+    "of": "{{n}} of {{total}}",
+    "next": "Next",
+    "finish": "Finish",
+    "correct": "Correct",
+    "wrong": "Not this time",
+    "timeout": "Time's up",
+    "yourAnswer": "Your answer",
+    "rightAnswer": "Correct answer",
+    "resultTitle": "Result",
+    "resultPerfect": "Perfect score. You can move on.",
+    "resultRetry": "Come back to the exercises you got wrong: reviews will remind you of them at the right time.",
+    "again": "Again",
+    "speed": "Timed",
+    "close": "Close",
+    "end": "End",
+    "secondsLeft": "{{s}} s",
+    "avgTime": "Average decision time: {{s}} s",
+    "check": "Submit",
+    "clear": "Clear",
+    "near": "Almost",
+    "acceptable": "Acceptable: the solver rarely plays this",
+    "yourAnswerAcceptable": "Your answer: acceptable, but rare",
+    "sizeError": "Inaccuracy: right action, wrong size",
+    "yourAnswerSize": "Your answer: right action, wrong size",
+    "numberLabel": "Your numeric answer",
+    "saveFailed": "Couldn't save your answer. Try again.",
+    "chooseAction": "Choose an action",
+    "chooseAnswer": "Choose an answer",
+    "saveNoSpace": "Couldn't save your answer: your phone is out of storage. Free up some space and try again."
+  },
+  "exam": {
+    "title": "Module exam",
+    "start": "Module exam",
+    "hint_one": "{{count}} exercise from this module and earlier lessons, no hints. Explanations at the end.",
+    "hint_other": "{{count}} exercises from this module and earlier lessons, no hints. Explanations at the end.",
+    "of": "Exam: {{n}} of {{total}}",
+    "empty": "This module has no exercises yet.",
+    "resultTitle": "Exam result",
+    "passed": "Passed (pass mark {{need}}). Exercise families you got wrong were added to reviews.",
+    "failed": "Not yet (pass mark {{need}}). Go over the explanations below; exercise families you got wrong were added to reviews.",
+    "again": "New exam",
+    "review": "Review answers",
+    "best": "Best score: {{best}}/{{total}}",
+    "passedBadge": "passed"
+  },
+  "review": {
+    "title": "Reviews",
+    "due_one": "{{count}} exercise family is due for review",
+    "due_other": "{{count}} exercise families are due for review",
+    "none": "Nothing is due for review. Do a new lesson or come back later.",
+    "start": "Start review",
+    "speed": "Timed practice",
+    "speedHint": "The same exercises with a time limit. Builds reflex decisions.",
+    "next": "Next review: {{when}}"
+  },
+  "rules": {
+    "title": "Rulebook",
+    "search": "Search rules",
+    "empty": "No rules match “{{q}}”.",
+    "source": "Source",
+    "sources": "Sources",
+    "sourceKind": {
+      "one": {
+        "math": "calculation",
+        "rules": "game rules",
+        "solver-pub": "published solver solution",
+        "solver-app": "app's solver",
+        "book": "poker theory book",
+        "study": "scientific study",
+        "reference": "encyclopedia",
+        "training": "training site",
+        "population": "population data"
+      },
+      "many": {
+        "math": "calculation",
+        "rules": "game rules",
+        "solver-pub": "published solver solutions",
+        "solver-app": "app's solver",
+        "book": "poker theory books",
+        "study": "scientific studies",
+        "reference": "encyclopedias",
+        "training": "training sites",
+        "population": "population data"
+      }
+    },
+    "sourceCount": "{{count}}",
+    "sourceIndependent_one": "{{count}} independent",
+    "sourceIndependent_other": "{{count}} independent",
+    "singleSource": "single source",
+    "population": "Population: {{population}}"
+  },
+  "progress": {
+    "title": "Progress",
+    "accuracy": "Accuracy",
+    "answers_one": "{{count}} answer",
+    "answers_other": "{{count}} answers",
+    "weakest": "Weakest exercise families",
+    "noData": "Do your first exercises and your stats will show up here.",
+    "streak_one": "Streak: {{count}} day",
+    "streak_other": "Streak: {{count}} days",
+    "fourColor": "Four-color deck",
+    "fourColorHint": "♦ blue, ♣ green. Fewer mix-ups between suits.",
+    "haptics": "Vibration on answer",
+    "contentVersion": "Content version: {{hash}}",
+    "resetFailed": "Couldn't delete progress. Your data hasn't changed. Try again.",
+    "more": "More"
+  },
+  "advancement": {
+    "title": "Skill score",
+    "outOf": "out of 100",
+    "outOfLong": "out of 100 points",
+    "openHint": "Shows your score in each course area",
+    "knowledge": "Knowledge",
+    "game": "Play",
+    "gamePending": "available with play mode",
+    "gamePendingLong": "The “play” part will come with play mode: it will be scored from your decisions at the table. Until then, the score shows knowledge only.",
+    "explain": "Knowledge is the predicted chance that in {{days}} days, without reviewing, you'll solve an exercise for every skill in the course. A skill you haven't practiced yet counts as 0. The score goes up with new lessons and reviews and goes down when you don't review for a long time.",
+    "practiced": "{{done}} of {{total}} skills practiced",
+    "areas": "Areas",
+    "noLessons": "no lessons",
+    "optional": "Optional module: not included in the overall score.",
+    "recalcTitle": "New lessons – score recalculated",
+    "recalcBody": "The course has new skills. Until you practice them, they count as 0, so your score is lower.",
+    "recalcDismiss": "Close",
+    "gameAreas": "{{n}} of {{total}} areas with a play score",
+    "gameNone": "no play",
+    "gameTooLittle": "not enough play: {{n}} of {{min}} decisions",
+    "gameProvisional": "{{score}} (provisional)",
+    "areaLine": "Knowledge {{k}} · Play: {{g}}",
+    "gameExplain": "Play is the share of decisions graded as aligned or acceptable among the last {{window}} graded decisions in the area, at a 6-player table with 100bb stacks. The score appears from {{min}} decisions (provisional until {{window}}). In each area, knowledge and play count equally; your results in {{t:chips}} are not part of the score.",
+    "history": "History",
+    "historyHint": "One bar per day you used the app. Last: {{last}}.",
+    "historyEmpty": "History will appear after more days of learning."
+  },
+  "glossary": {
+    "title": "Glossary",
+    "link": "Glossary PL–EN",
+    "intro": "Polish terms from the course and their English names, as used in solvers, software and English-language materials.",
+    "search": "Search in Polish or English",
+    "empty": "No term matches “{{q}}”.",
+    "count_one": "{{count}} term",
+    "count_other": "{{count}} terms",
+    "alsoEn": "also: {{list}}",
+    "areas": {
+      "hands": "Hand rankings",
+      "actions": "Player actions",
+      "table": "At the table",
+      "positions": "Seats at the table",
+      "math": "Math and odds",
+      "preflop": "Before the flop",
+      "board": "Describing the flop",
+      "strategy": "Strategy",
+      "mental": "Bankroll and mindset",
+      "tournament": "Tournament play"
+    }
+  },
+  "help": {
+    "title": "Help",
+    "link": "Help: when gambling gets out of control",
+    "intro": "Poker for money is gambling. If your playing is starting to get out of control, you can use the help below.",
+    "call": "Call: {{phone}}",
+    "callA11y": "Call {{phone}}: {{name}}",
+    "openA11y": "{{label}}: open {{host}} in browser",
+    "openFailed": "Couldn't open: {{target}}. Dial the number or enter the address manually."
+  },
+  "diagnostics": {
+    "title": "Performance test",
+    "link": "Performance test",
+    "intro": "Computes AA vs KK equity with Monte Carlo ({{n}} trials) and measures the time. Requirement: under {{ms}} ms.",
+    "run": "Measure",
+    "running": "Measuring…",
+    "pass": "Requirement met",
+    "fail": "Requirement not met",
+    "equity": "Equity: median {{ms}} ms (runs: {{runs}} ms)",
+    "check": "Check: AA equity {{pct}}% (expected approx. 82%)",
+    "evals": "7-card evaluation: {{n}} per second",
+    "env": "Engine: {{engine}}, system: {{os}}, developer mode: {{dev}}",
+    "devYes": "yes (result understated)",
+    "devNo": "no",
+    "note": "In a development build, code runs slower than in the released version; the measurement in a preview build is the reliable one. Take a screenshot of the result."
+  },
+  "play": {
+    "title": "Play",
+    "entry": "Play",
+    "entryHint": "Hands against computer opponents, no hints. Every decision graded after the {{t:session}}.",
+    "mode": "Mode",
+    "free": "Free play",
+    "freeHint": "All situations, as in a real game.",
+    "areas": "Targeted training",
+    "areasHint": "An area deals only situations from one module. It unlocks after you complete all the module's lessons.",
+    "locked": "Locked: complete the module's lessons ({{done}} of {{total}})",
+    "hands": "Number of hands",
+    "opponents": "Opponents",
+    "advanced": "Advanced settings: each opponent separately",
+    "seat": "Opponent {{n}}",
+    "timer": "Decision time limit",
+    "timerOff": "No limit",
+    "timerS": "{{s}} s",
+    "timerHint": "When time runs out, the app {{t:check|checks}} if it costs nothing and otherwise {{t:fold|folds}}. Such a decision doesn't count toward grading, but it comes back in reviews.",
+    "format": "Every player starts each hand with 100bb. {{t:chips|Chips}} have no value.",
+    "tableSize": "Number of players",
+    "tableSizeOpt": "{{n}} players",
+    "tableSizeHint9": "At a 9-player table there are three more early {{t:position|positions}} before LJ: {{t:utg}}, {{t:utg|UTG}}+1 and {{t:utg|UTG}}+2.",
+    "tableSizeAreas": "Training areas play at a 6-player table.",
+    "start": "Start",
+    "recent": "Recent reports",
+    "recentItem": "{{date}} · {{hands}} hands · {{rated}} of {{all}} graded",
+    "styles": {
+      "balanced": "Balanced",
+      "tight-passive": "Tight passive",
+      "tight-aggressive": "Tight aggressive",
+      "loose-passive": "Loose passive",
+      "loose-aggressive": "Loose aggressive"
+    },
+    "styleHints": {
+      "balanced": "Plays close to the solver's baseline strategy.",
+      "tight-passive": "Plays few hands and rarely raises.",
+      "tight-aggressive": "Plays few hands but raises often.",
+      "loose-passive": "Plays many hands and often just calls.",
+      "loose-aggressive": "Plays many hands and raises often."
+    },
+    "tables": {
+      "balanced": "Balanced",
+      "loose-passive": "Loose passive",
+      "tight-aggressive": "Tight aggressive",
+      "loose-aggressive": "Loose aggressive",
+      "mixed": "Mixed",
+      "custom": "Custom settings"
+    },
+    "tablesHint": {
+      "balanced": "All opponents close to the baseline strategy.",
+      "loose-passive": "Everyone plays many hands and rarely raises.",
+      "tight-aggressive": "Everyone plays few hands and raises often.",
+      "loose-aggressive": "Everyone plays many hands and raises often.",
+      "mixed": "One opponent of each style.",
+      "custom": "Each opponent's style set separately."
+    },
+    "handOf": "Hand {{n}} of {{total}}",
+    "end": "End",
+    "endConfirm": "End the {{t:session}}? The report will cover the hands played.",
+    "endYes": "End",
+    "cancel": "Keep playing",
+    "you": "You",
+    "potLabel": "{{t:pot|Pot}}: {{bb}}bb",
+    "yourTurn": "Your decision",
+    "waiting": "Opponents are deciding…",
+    "fold": "{{t:fold|Fold}}",
+    "check": "{{t:check|Check}}",
+    "call": "{{t:call|Call}} {{bb}}bb",
+    "bet": "{{t:bet|Bet}} {{bb}}bb",
+    "betFrac": "{{t:bet|Bet}} {{pct}} {{t:pot}} ({{bb}}bb)",
+    "raise": "{{t:raise|Raise}} to {{bb}}bb",
+    "allin": "All-in {{bb}}bb",
+    "secondsLeft": "{{s}} s",
+    "handWon": "You win {{bb}}bb",
+    "handLost": "You lose {{bb}}bb",
+    "handEven": "No change",
+    "nextHand": "Next hand",
+    "toReport": "Report",
+    "shown": "{{t:showdown|Showdown}}: cards revealed",
+    "folded": "{{t:fold|folded}}",
+    "allInTag": "all-in",
+    "autoNote": "Hand from an area: the actions up to your decision were set by the generator.",
+    "log": {
+      "fold": "{{pos}}: {{t:fold|folds}}",
+      "check": "{{pos}}: {{t:check|checks}}",
+      "call": "{{pos}}: {{t:call|calls}} {{bb}}bb",
+      "bet": "{{pos}}: {{t:bet}} {{bb}}bb",
+      "raise": "{{pos}}: {{t:raise}} to {{bb}}bb",
+      "allin": "{{pos}}: all-in {{bb}}bb",
+      "blinds": "Blinds {{sb}}/{{bb}}bb"
+    },
+    "streets": {
+      "preflop": "{{t:preflop|Preflop}}",
+      "flop": "{{t:flop|Flop}}",
+      "turn": "{{t:turn|Turn}}",
+      "river": "{{t:river|River}}"
+    },
+    "report": {
+      "title": "{{t:session|Session}} report",
+      "rated": "{{rated}} of {{all}} decisions graded",
+      "ratedHint": "The app grades only decisions for which it has a verifiable rule or a solver result. An ungraded decision doesn't mean “correct”.",
+      "verdicts": {
+        "compliant": "Aligned",
+        "compliant-exploit": "Aligned ({{t:exploit}})",
+        "acceptable": "Acceptable",
+        "inaccuracy": "Inaccuracy",
+        "mistake": "Mistake",
+        "unrated": "Ungraded",
+        "timeout": "Timed out"
+      },
+      "verdictHints": {
+        "acceptable": "The solver rarely plays this, or the rule is about frequency; it's not a mistake.",
+        "inaccuracy": "Right action, wrong size. Counts as a mistake.",
+        "timeout": "You didn't decide in time. This situation comes back in reviews."
+      },
+      "toFix": "To improve",
+      "none": "No mistakes in the graded decisions.",
+      "good": "Aligned and acceptable decisions",
+      "show": "Show ({{n}})",
+      "hide": "Hide",
+      "byModule": "By module",
+      "moduleLine": "{{ok}} of {{rated}} without mistakes",
+      "yourAction": "Your decision: {{action}}",
+      "ruleSays": "Rule",
+      "level": "Confidence: {{level}}",
+      "source": "Source: {{source}}",
+      "lesson": "Go to lesson",
+      "replay": "Hand replay",
+      "cards": "Review cards: {{n}} new situations from mistakes.",
+      "result": "Result in {{t:chips}}: {{bb}}bb",
+      "variance": "A few dozen hands are too few for the result to say anything about your play; what matters is how your decisions are graded.",
+      "again": "Play the “{{area}}” area",
+      "done": "Done",
+      "detail": {
+        "solver": "Solver with this hand ({{hand}}): {{options}}.",
+        "solverFold": "{{t:fold}}",
+        "size": "Size per the rule: {{expected}}bb, yours: {{actual}}bb.",
+        "cbet": "Plan for this flop per the lesson: {{best}}. Your choice: {{chosen}}.",
+        "cbetPlans": {
+          "check": "{{t:check}}",
+          "small": "small {{t:c-bet}}",
+          "big": "big {{t:c-bet}}"
+        },
+        "draw": "{{t:outs|Outs}}: {{outs}} of {{unseen}} unseen cards, chance to hit: {{hit}}. Required {{t:equity}}: {{required}}.",
+        "implied": "{{t:implied-odds|Implied odds}}: after hitting you still need to win approx. {{need}}bb, and there's {{have}}bb behind the {{t:pot}}; {{t:spr|SPR}} {{spr}} (threshold {{sprMin}}); {{nuts}}.",
+        "nutsYes": "you have a {{t:draw}} to the best hand",
+        "nutsNo": "you don't have a {{t:draw}} to the best hand",
+        "freeCheck": "You could have {{t:check|checked}} for free.",
+        "limp": "You entered the hand first by just calling the blind ({{t:limp}}).",
+        "timeoutCheck": "Time ran out: the app {{t:check|checked}} for you.",
+        "timeoutFold": "Time ran out: the app {{t:fold|folded}} for you."
+      }
+    },
+    "review": {
+      "entry_one": "{{count}} situation from play is due for review",
+      "entry_other": "{{count}} situations from play are due for review",
+      "start": "Review situations from play",
+      "title": "Situations from play",
+      "hint": "The same situation in which you made a mistake, with card suits swapped so the correct decision doesn't change.",
+      "of": "{{n}} of {{total}}",
+      "next": "Next",
+      "finish": "Finish",
+      "empty": "Nothing is due for review."
+    }
+  },
+  "errors": {
+    "db": "Couldn't open the database: {{message}}",
+    "render": {
+      "title": "Something went wrong",
+      "body": "This screen couldn't be displayed. Try again.",
+      "retry": "Try again"
+    }
+  },
+  "postep": {
+    "odczytNieudany": "Couldn't load your progress. Try again.",
+    "ponow": "Try again"
+  },
+  "reminder": {
+    "title": "A short lesson for today",
+    "body": "A few minutes is enough to reinforce what you're learning."
+  },
+  "language": {
+    "title": "Language",
+    "auto": "Same as phone",
+    "name": "English",
+    "selected": "Selected",
+    "saveFailed": "Couldn't save your language choice. Try again."
+  },
+  "table": {
+    "label": "At the table: {{list}}.",
+    "listAnd": "{{a}} and {{b}}",
+    "seatFold": "{{pos}} {{t:fold|folded}}",
+    "seatRaise": "{{pos}} {{t:raise|raises}}",
+    "seatHero": "you in {{pos}} with {{hand}}",
+    "after": "acting after you: {{list}}",
+    "pair": "{{t:pair}}",
+    "suited": "same suit",
+    "offsuit": "different suits",
+    "folded_one": "{{list}} {{t:fold|folded}}",
+    "folded_other": "{{list}} {{t:fold|folded}}",
+    "raised_one": "{{list}} {{t:raise|raises}}",
+    "raised_other": "{{list}} {{t:raise|raise}}",
+    "yourPosition": "Your {{t:position}}: {{pos}}.",
+    "yourCards": "Your cards: {{cards}}.",
+    "oppCards": "Opponent's cards: {{cards}}.",
+    "rowOpp": "Opponent",
+    "rowBoard": "On the {{t:board}}",
+    "board": "On the {{t:board}}: {{cards}}.",
+    "stateHero": "you",
+    "stateFold": "{{t:fold|folded}}",
+    "stateAfter": "after you",
+    "stateRaise": "{{t:raise|raises}}"
+  },
+  "strategy": {
+    "label": "Solver strategy for {{hand}}: {{list}}.",
+    "item": "{{action}} {{pct}} percent",
+    "yourChoice": "Your choice: {{action}}.",
+    "yourChoiceShort": "your choice",
+    "pct": "{{pct}}%"
+  },
+  "scale": {
+    "below": "below {{x}}%",
+    "between": "{{a}}–{{b}}%",
+    "from": "from {{x}}%",
+    "label": "Grade scale: your action {{pct}} percent, band {{stopien}}."
+  },
+  "paint": {
+    "legendPlay": "you play",
+    "legendMiss": "− missing",
+    "legendExtra": "+ too many",
+    "legendMixed": "• mixed",
+    "hint": "Tap a cell or drag your finger to paint.",
+    "cell": "{{hand}}, {{state}}",
+    "state": {
+      "painted": "selected",
+      "fold": "{{t:fold}}",
+      "hit": "correct, you play",
+      "miss": "missing, solver plays",
+      "extra": "extra, solver {{t:fold|folds}}",
+      "mixed": "mixed, counted as correct",
+      "none": "correct, {{t:fold}}"
+    }
+  },
+  "range": {
+    "label": "{{title}}. Plays {{pct}} percent of hands.",
+    "playPercent": "Plays {{pct}}% of hands"
+  },
+  "card": {
+    "name": "{{rank}} of {{suit}}",
+    "rank": {
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "T": "10",
+      "J": "jack",
+      "Q": "queen",
+      "K": "king",
+      "A": "ace"
+    },
+    "suit": {
+      "s": "spades",
+      "h": "hearts",
+      "d": "diamonds",
+      "c": "clubs"
+    }
+  },
+  "nav": {
+    "back": "Back"
+  },
+  "drill": {
+    "format": {
+      "percent": "{{n}}%"
+    },
+    "join": {
+      "sentence": "{{a}} {{b}}",
+      "list": ", "
+    },
+    "category": {
+      "straightFlush": "{{t:straight-flush}}",
+      "fourOfAKind": "{{t:four-of-a-kind}}",
+      "fullHouse": "{{t:full-house}}",
+      "flush": "{{t:flush}}",
+      "straight": "{{t:straight}}",
+      "threeOfAKind": "{{t:three-of-a-kind}}",
+      "twoPair": "{{t:two-pair}}",
+      "pair": "{{t:pair}}",
+      "highCard": "{{t:high-card}}",
+      "royalFlush": "{{t:royal-flush}}"
+    },
+    "categoryAcc": {
+      "straightFlush": "a {{t:straight-flush}}",
+      "fourOfAKind": "{{t:four-of-a-kind}}",
+      "fullHouse": "a {{t:full-house}}",
+      "flush": "a {{t:flush}}",
+      "straight": "a {{t:straight}}",
+      "threeOfAKind": "{{t:three-of-a-kind}}",
+      "twoPair": "{{t:two-pair}}",
+      "pair": "a {{t:pair}}",
+      "highCard": "{{t:high-card}}",
+      "royalFlush": "a {{t:royal-flush}}"
+    },
+    "paint": {
+      "explanation": "{{title}}. Green cell: you play it and selected it. “−” sign: a hand from the {{t:range}} that's missing. “+” sign: selected, but the solver {{t:fold|folds}} it. Dot: a {{t:mixed-hand}} (the solver plays it only sometimes) or a disputed hand (the solver deviates from public charts on it), so it counts as correct either way. The score counts {{t:combo|combos}} ({{t:pair}} {{pairCombos}}, suited {{suitedCombos}}, offsuit {{offsuitCombos}}) only among hands in the {{t:range}} or selected.",
+      "score": "Match with the solver: {{score}} (pass mark {{pass}})."
+    },
+    "numeric": {
+      "yours": "Your answer: {{value}}",
+      "exact": "Exact: {{value}}",
+      "diffPp": "Difference: {{diff}} pp",
+      "diff": "Difference: {{diff}}"
+    },
+    "range": {
+      "fold": "{{t:fold|Fold}}",
+      "right": "Yes. The solver plays this {{pct}} of the time.",
+      "acceptable": "Acceptable. The solver plays this {{pct}} of the time, so it's not a mistake, but it more often chooses a different action. It's best to remember the more frequent one.",
+      "wrongRare": "The solver plays this only {{pct}} of the time, that is, almost never.",
+      "wrongVeryRare": "The solver plays this with this hand less than {{pct}} of the time.",
+      "wrongNever": "The solver never plays this with this hand.",
+      "freqs": "{{hand}}: {{freqs}}.",
+      "freq": "{{action}} {{pct}}",
+      "mixedNote": "This is a borderline hand: the solver mixes actions, so the app accepts as correct any answer played at least {{low}} of the time.",
+      "acceptableNote": "An action played less than {{low}} but at least {{min}} of the time is acceptable: it's not a mistake, but the review will come back sooner."
+    },
+    "whoWins": {
+      "prompt": "Who wins this hand?",
+      "hero": "You",
+      "villain": "Opponent",
+      "split": "{{t:split-pot|Split pot}}",
+      "facts": "Your best five: {{heroCards}} ({{heroHand}}). Opponent: {{villainCards}} ({{villainHand}}).",
+      "reason": {
+        "category": "{{winner}} ranks higher than {{loser}}.",
+        "kicker": "The hand category is the same, so the first differing side card (kicker) in the best five decides.",
+        "higherSameCategory": "You both have {{hand}}, but one is higher.",
+        "boardPlays": "Both players' best five is on the {{t:board}}, so both are “{{t:playing-the-board}}” and it's a {{t:split-pot}}.",
+        "identical": "The best fives have the same ranks, so it's a {{t:split-pot}}."
+      },
+      "yes": "Yes.",
+      "no": "No."
+    },
+    "bestHand": {
+      "prompt": "What is your best hand?",
+      "explanation": "The best five of the seven cards: {{cards}}. Hand: {{hand}}.",
+      "right": "Yes, that's your best hand.",
+      "tooHigh": "You don't have “{{hand}}”. Check whether there really are 5 matching cards.",
+      "tooLow": "You have something better than “{{hand}}”. Look for the highest hand."
+    },
+    "outs": {
+      "promptFlush": "How many outs do you have to a {{t:flush}}?",
+      "promptStraight": "How many outs do you have to a {{t:straight}}?",
+      "baseFlush": "You have 4 cards of one suit. A suit has 13 cards, so 13 − 4 = 9 are left.",
+      "baseOesd": "You have 4 consecutive cards open on both ends. Each of the two missing ranks makes a {{t:straight}}, in 4 suits each: 8 cards.",
+      "baseGutshot": "You're missing one card in the middle of the {{t:straight}}. Only one rank completes it, in 4 suits: 4 cards.",
+      "chanceFlop": "{{base}} Chance on the turn: {{next}} ({{outs}} × 2 ≈ {{outs2}}). By the river, if you see both cards without paying more (e.g. after an all-in): {{river}} ({{outs}} × 4 ≈ {{outs4}}).",
+      "chanceTurn": "{{base}} Chance on the river: {{next}} ({{outs}} × 2 ≈ {{outs2}}).",
+      "right": "Yes.",
+      "wrongTooMany": "No. {{n}} is too many in this situation.",
+      "wrongTooFew": "No. {{n}} is too few in this situation."
+    },
+    "icm": {
+      "call": "{{t:call|Call}}",
+      "fold": "{{t:fold|Fold}}",
+      "you": "You",
+      "player": "Player {{letter}}",
+      "stack": "{{name}} {{chips}}",
+      "table": "{{players}} players, {{paid}} places paid ({{payouts}} of the {{t:prize-pool}}). Stacks: {{stacks}}.",
+      "callPrompt": "{{t:bubble|Bubble}}: {{table}} {{villain}} goes all-in; {{atRisk}} {{t:chips}} are at stake between you. Your hand has {{equity}} equity against their {{t:range}}. Ignore the blinds. What do you do?",
+      "callRight": "Yes. {{equity}} is more than the {{required}} needed under {{t:icm|ICM}}.",
+      "callWrong": "No. Under {{t:icm|ICM}}, you need {{required}} equity, and you have {{equity}}.",
+      "callWrongChips": "No. Under {{t:icm|ICM}}, you need {{required}} equity, and you have {{equity}}. In a game for {{t:chips}}, a {{t:call}} would be profitable, but here losing costs more money than winning adds.",
+      "foldRight": "Yes. Under {{t:icm|ICM}}, you need {{required}} equity, and you only have {{equity}}.",
+      "foldRightChips": "Yes. Under {{t:icm|ICM}}, you need {{required}} equity, and you only have {{equity}}. In a game for {{t:chips}}, this would be a {{t:call}}: that's exactly the {{t:risk-premium}}.",
+      "foldWrong": "No. {{equity}} equity is enough: under {{t:icm|ICM}}, the threshold is {{required}}.",
+      "callExplanation": "Your equity in the {{t:prize-pool}}: now {{now}}, after a win {{win}}, after a loss {{lose}}. Bubble factor = loss ÷ gain = {{loss}} ÷ {{gain}} ≈ {{bf}}, so you need BF ÷ (BF + 1) ≈ {{required}} equity. In a game for {{t:chips}}, {{requiredChips}} would be enough.",
+      "equityPrompt": "{{table}} What is your stack worth under {{t:icm|ICM}} (share of the {{t:prize-pool}})?",
+      "equityRight": "Yes. It's the sum over places: chance of the place × {{t:payout}} for the place.",
+      "equityChips": "No. That's your share of the {{t:chips}}. In a {{t:tournament}} with {{t:payout|payouts}}, {{t:chips}} don't convert to money one to one.",
+      "equityFirstOnly": "No. That's only the chance of 1st place × the {{t:payout}} for 1st place. Add the chances of the other paid places.",
+      "equityExplanationMore": "The chance of 1st place is your stack ÷ all {{t:chips}} ({{share}}); you calculate the next places the same way among the remaining players. In total {{icm}} of the {{t:prize-pool}}, more than your share of the {{t:chips}}.",
+      "equityExplanationLess": "The chance of 1st place is your stack ÷ all {{t:chips}} ({{share}}); you calculate the next places the same way among the remaining players. In total {{icm}} of the {{t:prize-pool}}, less than your share of the {{t:chips}}."
+    },
+    "playerType": {
+      "name": {
+        "nit": "Nit",
+        "regular": "{{t:regular|Regular}}",
+        "passive": "Passive {{t:recreational}}",
+        "maniac": "{{t:maniac|Maniac}}",
+        "unknown": "Too few hands to tell"
+      },
+      "adjust": {
+        "nit": "You respect their {{t:raise|raises}} and 3-bets, {{t:fold}} hands from the bottom of your {{t:range}} more often, and steal their blinds more often.",
+        "regular": "You play close to the baseline from modules 3–9 and deviate from it only when their stats show a clear mistake.",
+        "passive": "More {{t:value-bet|value bets}}, including thinner ones, and fewer {{t:bluff|bluffs}}, especially on the river.",
+        "maniac": "You don't {{t:bluff}} them, you {{t:call}} wider with hands that catch {{t:bluff|bluffs}}, and with a very strong hand you let them bet.",
+        "unknown": "You play them like an unknown player, that is, by the baseline, and gather more hands."
+      },
+      "fact": {
+        "unknown": "Below {{minHands}} hands, stats are random; here there are {{hands}}.",
+        "nit": "A nit plays up to {{nitMax}}% of hands ({{t:vpip|VPIP}}); this player plays {{vpip}}%.",
+        "regular": "A {{t:regular}} plays approx. {{low}}–{{high}}% of hands with a {{t:vpip|VPIP}} − {{t:pfr|PFR}} gap of up to {{gapMax}}; here {{vpip}}% and a gap of {{gap}}.",
+        "passive": "A loose passive player plays {{loose}}% of hands or more with a {{t:vpip|VPIP}} − {{t:pfr|PFR}} gap of over {{gapMin}}; here {{vpip}}% and a gap of {{gap}}.",
+        "maniac": "A {{t:maniac}} plays {{loose}}% of hands or more with a {{t:vpip|VPIP}} − {{t:pfr|PFR}} gap of up to {{gapMax}}; here {{vpip}}% and a gap of {{gap}}."
+      },
+      "sample_one": "{{count}} hand",
+      "sample_other": "{{count}} hands",
+      "prompt": "An opponent at a 6-max table, {{t:hud|HUD}} stats: {{t:vpip|VPIP}} {{vpip}}%, {{t:pfr|PFR}} {{pfr}}%, sample {{sample}}. What type of player is this?",
+      "whyRight": "Yes. {{fact}} {{adjust}}",
+      "whyWrong": "No. {{fact}}",
+      "readFew": "fewer than {{minHands}}, so the stats are random",
+      "readEnough": "at least {{readHands}}, so {{t:vpip|VPIP}} and {{t:pfr|PFR}} can be read",
+      "explanation": "Sample first: {{sample}} is {{read}}. {{fact}} {{adjust}}"
+    },
+    "points_one": "{{count}} point",
+    "points_other": "{{count}} points",
+    "potOdds": {
+      "prompt": "There's {{pot}} in the {{t:pot}}. Your opponent {{t:bet|bets}} {{bet}}. How much equity do you need to {{t:call}}?",
+      "explanation": "The {{t:pot}} after the {{t:bet}} is {{potAfter}}; you put in {{bet}}, {{total}} in total. {{bet}} ÷ {{total}} {{sign}} {{required}}.",
+      "right": "Yes.",
+      "mistakeNoCall": "No. That's the {{t:bet}} divided by the {{t:pot}} after the {{t:bet}}. Add your own {{t:call}} to the denominator too.",
+      "mistakeBetOverPot": "No. That's the {{t:bet}} divided by the {{t:pot}} before the {{t:bet}}. Compare it with everything you can win.",
+      "mistakeInverted": "No. That's the {{t:pot}} before the {{t:bet}} divided by the {{t:pot}} after the {{t:bet}}, so the fraction is upside down. The top should be what you put in, and the bottom the whole {{t:pot}} after your {{t:call}}."
+    },
+    "drawCall": {
+      "promptFlop": "Flop. There's {{pot}} in the {{t:pot}}, and your opponent {{t:bet|bets}} {{bet}}. You have {{draw}}. What do you do?",
+      "promptTurn": "Turn. There's {{pot}} in the {{t:pot}}, and your opponent {{t:bet|bets}} {{bet}}. You have {{draw}}. What do you do?",
+      "drawFlush": "a {{t:flush-draw}}",
+      "drawOesd": "an {{t:oesd}}",
+      "drawGutshot": "a gutshot",
+      "call": "{{t:call|Call}}",
+      "fold": "{{t:fold|Fold}}",
+      "outs_one": "{{count}} out",
+      "outs_other": "{{count}} outs",
+      "explanationFlop": "You have {{outs}} out of {{unseen}} unseen cards, which is a {{chance}} chance on the turn. {{why}} You need {{required}}. {{verdict}}",
+      "explanationTurn": "You have {{outs}} out of {{unseen}} unseen cards, which is a {{chance}} chance on the river. {{why}} You need {{required}}. {{verdict}}",
+      "whyFlop": "What counts is the chance on one card, because you're only {{t:call|calling}} this {{t:bet}}: before the river you'll usually pay another price.",
+      "whyTurn": "What counts is the chance on one card: only one is left.",
+      "verdictGood": "The chance is greater than the price, so a {{t:call}} pays off.",
+      "verdictNearFlop": "The chance is slightly lower than the price, so a plain {{t:call}} loses. It can pay off only thanks to implied odds, that is, when you win more after hitting, and provided the next price on the turn isn't too high either.",
+      "verdictNearTurn": "The chance is slightly lower than the price, so a plain {{t:call}} loses. It can pay off only thanks to implied odds, that is, when you win more after hitting.",
+      "verdictBad": "The chance is clearly lower than the price, so a {{t:call}} loses in the long run.",
+      "right": "Yes.",
+      "wrong": "No."
+    },
+    "texture": {
+      "label": {
+        "height": {
+          "high": "High",
+          "middle": "Middle",
+          "low": "Low"
+        },
+        "suits": {
+          "rainbow": "{{t:rainbow|Rainbow}}",
+          "twoTone": "{{t:two-tone|Two-tone}}",
+          "monotone": "{{t:monotone|Monotone}}"
+        },
+        "ranks": {
+          "paired": "{{t:paired|Paired}}",
+          "connected": "{{t:connected|Connected}}",
+          "semiConnected": "{{t:semi-connected|Semi-connected}}",
+          "disconnected": "{{t:disconnected|Disconnected}}"
+        },
+        "wetness": {
+          "dry": "{{t:dry|Dry}}",
+          "medium": "Medium",
+          "wet": "{{t:wet|Wet}}"
+        }
+      },
+      "axis": {
+        "height": "Height",
+        "suits": "Suits",
+        "ranks": "Ranks",
+        "wetness": "{{t:dry|Dry}} or {{t:wet}}"
+      },
+      "scale": "We count points: a {{t:straight}} possible in several ways (with at least two sets of two ranks) {{made}}, a {{t:straight}} possible in one way {{madeOne}}, only a {{t:straight-draw}} {{draw}}; a {{t:two-tone}} flop {{twoTone}}, {{t:monotone}} {{monotone}}. {{t:dry|Dry}} is 0–{{dryMax}}, medium {{medium}}, {{t:wet}} {{wet}} or more",
+      "range": "{{from}}–{{to}}",
+      "def": {
+        "height": {
+          "high": "a high flop's top card is an ace, king or queen",
+          "middle": "a middle flop's top card is a jack or ten",
+          "low": "a low flop's top card is a nine or lower"
+        },
+        "suits": {
+          "rainbow": "a {{t:rainbow}} flop has three cards in three different suits, so no one has a {{t:flush-draw}} yet",
+          "twoTone": "a {{t:two-tone}} flop has two cards of one suit, so a player's two cards of that suit make a {{t:flush-draw}}",
+          "monotone": "a {{t:monotone}} flop has all three cards of one suit, so a {{t:flush}} is already possible"
+        },
+        "ranks": {
+          "paired": "a {{t:paired}} flop has two or three cards of the same rank; a {{t:straight}} using a player's two cards is then impossible, though a {{t:straight-draw}} is sometimes possible",
+          "connected": "a {{t:connected}} flop has three different ranks within five consecutive ones, so a {{t:straight}} is already possible (the ace also counts as one)",
+          "semiConnected": "a {{t:semi-connected}} flop has two ranks within five consecutive ones, but not three: there's no {{t:straight}} yet, but a {{t:straight-draw}} (open-ended or gutshot) is already possible",
+          "disconnected": "a {{t:disconnected}} flop has ranks so far apart that no two fit within five consecutive ones, so no one has even a {{t:straight-draw}}"
+        },
+        "wetness": {
+          "dry": "a {{t:dry}} flop gives few {{t:draw|draws}}. {{scale}}",
+          "medium": "a medium flop gives some {{t:draw|draws}}. {{scale}}",
+          "wet": "a {{t:wet}} flop gives many {{t:draw|draws}} or made {{t:straight|straights}}. {{scale}}"
+        }
+      },
+      "suitCount": {
+        "three": "three different suits",
+        "two": "two cards of one suit",
+        "one": "three cards of one suit"
+      },
+      "rankFact": {
+        "connected": "Here a {{t:straight}} is possible, e.g. with {{example}}.",
+        "pairedDraw": "Here two cards have the same rank; a {{t:straight-draw}} comes from, e.g., {{example}}.",
+        "paired": "Here two cards have the same rank.",
+        "semiConnected": "Here there's no {{t:straight}} yet, but a {{t:straight-draw}} comes from, e.g., {{example}}.",
+        "disconnected": "Here no two cards of a player give even a {{t:straight-draw}}."
+      },
+      "draws": {
+        "rainbow": "there's no {{t:flush-draw}} (three different suits)",
+        "twoTone": "there's a {{t:flush-draw}} (two cards of one suit)",
+        "monotone": "a {{t:flush}} is already possible (three cards of one suit)",
+        "straightMade": "a {{t:straight}} is possible in several ways, e.g. with {{example}}",
+        "straightMadeOne": "a {{t:straight}} is possible in only one way, with {{example}}",
+        "straightDraw": "there's no {{t:straight}}, but there's a {{t:straight-draw}}, e.g. with {{example}}",
+        "straightNone": "there's no {{t:straight}} or {{t:straight-draw}}",
+        "total": "{{color}}: {{colorPoints}}; {{straight}}: {{straightPoints}}. Total {{points}}"
+      },
+      "prompt": {
+        "height": "How high is this flop?",
+        "suits": "How many suits does this flop have?",
+        "ranks": "Is this flop {{t:paired}}, {{t:connected}}, {{t:semi-connected}} or {{t:disconnected}}?",
+        "wetness": "Is this flop {{t:dry}}, medium or {{t:wet}}?",
+        "many": "Rate the flop's {{t:texture}} in each row."
+      },
+      "whyRight": "Yes: {{def}}. {{fact}}",
+      "whyWrong": "No: {{def}}. {{fact}}",
+      "factHeight": "The top card is {{card}}.",
+      "factSuits": "Here: {{suits}}.",
+      "factWetness": "Here {{draws}}.",
+      "summary": "This flop is {{height}}, {{suits}} and {{ranks}}, so it's {{wetness}} ({{points}} of {{t:wetness}})."
+    },
+    "vocab": {
+      "promptPlEn": "What is “{{pl}}” called in English?",
+      "promptEnPl": "What does “{{en}}” mean in Polish?",
+      "promptAbbr": "What does the abbreviation “{{abbr}}” stand for?",
+      "promptDef": "Which term matches the description? “{{def}}”",
+      "lineSame": "“{{pl}}”",
+      "lineSameAbbr": "“{{pl}}” (abbreviation {{abbr}})",
+      "line": "“{{pl}}” is “{{en}}” in English",
+      "lineAbbr": "“{{pl}}” is “{{en}}” in English, abbreviation {{abbr}}",
+      "right": "Yes: {{line}}.",
+      "wrong": "No: {{line}}.",
+      "end": "{{line}}.",
+      "meaning": "Meaning: {{def}}",
+      "alsoSeen": "You'll also see: {{list}}."
+    }
+  }
+}

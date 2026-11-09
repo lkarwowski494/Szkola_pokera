@@ -1,0 +1,111 @@
+# Pula egzaminacyjna M4 (gra wobec akcji preflop): reguły lekcji m4.l1–m4.l4, inne pozycje, ręce i rozmiary.
+# Bez pytań o podział 3-bet/sprawdzenie w spotach BB vs SB i BTN vs CO (tam uczymy tylko gram/pas, ADR-26).
+module: m4
+drills:
+  - kind: choice
+    id: m4.exam.q1
+    family: m4.3bet.size
+    rules: [R-M4-002, R-M4-003]
+    prompt: "The {{t:cutoff|CO}} {{t:open|opened}} to {{n:pf.open-size}}, the Button {{t:fold|folded}}. You're in the {{t:small-blind}} and want to 3-bet. To what size?"
+    table: { hand: "Ad Kd", position: SB }
+    options:
+      - { text: "To {{n:pf.3bet.oop-total}}", correct: true, why: "You'll act first after the flop, so you {{t:raise}} to about {{n:pf.3bet.size-oop}} the {{t:open}}. The bigger size denies the {{t:cutoff|CO}} a cheap {{t:call}} {{t:in-position}}." }
+      - { text: "To {{n:pf.3bet.ip-total}}", sizeError: true, why: "Right action, but that's the size for a player {{t:in-position}} ({{n:pf.3bet.size-ip}} the {{t:open}}). From the {{t:small-blind}} you {{t:raise}} to {{n:pf.3bet.oop-total}}." }
+      - { text: "Just {{t:call}}", why: "From the {{t:small-blind}} against the {{t:cutoff|CO}} you almost never {{t:call}}: you'd be playing {{t:out-of-position}}, and the {{t:big-blind}} behind you can still {{t:raise}}." }
+  - kind: choice
+    id: m4.exam.q2
+    family: m4.sb.vs-open
+    rules: [R-M4-003]
+    prompt: "The Button {{t:open|opened}} to {{n:pf.open-size}}. You're in the {{t:small-blind}}. What do you do?"
+    table: { hand: "8c 8d", position: SB }
+    options:
+      - { text: "3-bet", correct: true, why: "Against the Button from the {{t:small-blind}} you 3-bet the top of your {{t:range}}, about {{n:pf.3bet-freq.sb-vs-btn}} of hands, and {{t:pair|pairs}} 77 and up belong to it." }
+      - { text: "{{t:call|Call}}", why: "From the {{t:small-blind}} against the Button you almost never {{t:call}}: you'd be playing {{t:out-of-position}} with the {{t:big-blind}} behind you. A 3-bet gives you the {{t:initiative}} and a chance to win right away." }
+      - { text: "{{t:fold|Fold}}", why: "Too tight: 88 is in the top part of the {{t:range}} you 3-bet against the Button's wide {{t:open}}." }
+  - kind: choice
+    id: m4.exam.q3
+    family: m4.3bet.shape
+    rules: [R-M4-006]
+    prompt: "You're in the {{t:big-blind}}, the Button {{t:open|opened}}, the {{t:small-blind}} {{t:fold|folded}}. Which of these hands is a typical 3-bet for {{t:value}}?"
+    table: { position: BB }
+    options:
+      - { text: "JJ", correct: true, why: "From the {{t:big-blind}} you 3-bet your strongest hands (TT+, AQ+, AJs+). JJ wants a big {{t:pot}}." }
+      - { text: "A9 offsuit", why: "Offsuit aces (AJo–A9o) in the {{t:big-blind}} you usually just {{t:call}}: you get in cheaply and close the action." }
+      - { text: "66", why: "Medium and small {{t:pair|pairs}} in the {{t:big-blind}} you usually {{t:call}}. They make their money after the flop, and a 3-bet with them handles a 4-bet badly." }
+  - kind: choice
+    id: m4.exam.q4
+    family: m4.bb.price
+    rules: [R-M4-004]
+    prompt: "The {{t:cutoff|CO}} {{t:open|opened}} to {{n:pf.open-size}}, the Button and the {{t:small-blind}} {{t:fold|folded}}. How much equity do you need in the {{t:big-blind}} to {{t:call}} (ignoring postflop play)?"
+    table: { position: BB }
+    options:
+      - { text: "About {{n:eq.bb-vs-btn-open}}", correct: true, why: "The price depends on the amounts, not on who {{t:open|opened}}. You put {{n:bb.call.vs-btn}} into a {{t:pot}} that holds {{n:bb.pot-after.vs-btn}} after your {{t:call}}, just like against the Button." }
+      - { text: "About half", why: "You'd need half if the {{t:pot}} held only the opponent's {{t:bet}}. The blinds in the {{t:pot}} improve your price." }
+      - { text: "About {{n:eq.bb-vs-sb-open}}", why: "That's the price against a {{t:small-blind}} {{t:open}} to {{n:pf.open-size-sb}}. Here the {{t:open}} is smaller." }
+  - kind: choice
+    id: m4.exam.q5
+    family: m4.bb.3bet-size
+    rules: [R-M4-014]
+    prompt: "The {{t:small-blind}} {{t:open|opened}} to {{n:pf.open-size-sb}}. You have AA in the {{t:big-blind}} and 3-bet. To what size?"
+    table: { hand: "Ah Ad", position: BB }
+    options:
+      - { text: "To {{n:exam.m4.bb-vs-sb.3bet}}", correct: true, why: "Against the {{t:small-blind}} you have {{t:position}} after the flop, so your 3-bet is about {{n:pf.3bet.size-ip}} the {{t:open}}, and against an {{t:open}} to {{n:pf.open-size-sb}} that's {{n:exam.m4.bb-vs-sb.3bet}}." }
+      - { text: "To {{n:exam.m4.bb-vs-sb.3bet-oop-size}}", sizeError: true, why: "Right action, but {{n:pf.3bet.size-oop}} the {{t:open}} is the {{t:out-of-position}} size. Against the {{t:small-blind}} the {{t:big-blind}} has {{t:position}}, so it {{t:raise|raises}} less." }
+      - { text: "To {{n:pf.3bet.ip-total}}", sizeError: true, why: "Right action, but {{n:pf.3bet.ip-total}} is a 3-bet against an {{t:open}} to {{n:pf.open-size}}. The {{t:small-blind}} {{t:open|opened}} to {{n:pf.open-size-sb}}, so {{n:pf.3bet.size-ip}} the {{t:open}} is {{n:exam.m4.bb-vs-sb.3bet}}." }
+  - kind: choice
+    id: m4.exam.q6
+    family: m4.vs3bet.math
+    rules: [R-M4-007]
+    prompt: "You face a 3-bet from a player who will have {{t:position}} after the flop. What share of your {{t:open|opens}} do you usually {{t:fold}}?"
+    options:
+      - { text: "About {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}}", correct: true, why: "That's roughly how often solver solutions and charts {{t:fold}}; the upper bound sits just below the {{n:alpha.vs-3bet-ip-size}} threshold: if you folded more often, the opponent's 3-bet would profit with any hand." }
+      - { text: "Almost all except AA and KK", why: "Then the opponent profits by 3-betting any two cards, because you {{t:fold}} much more often than {{n:alpha.vs-3bet-ip-size}}." }
+      - { text: "Less than a quarter", why: "Too few {{t:fold|folds}}: you'd be paying off 3-bets with hands that lose to the opponent's {{t:range}} and play badly after the flop." }
+  - kind: choice
+    id: m4.exam.q7
+    family: m4.vs3bet.oop
+    rules: [R-M4-008]
+    prompt: "You {{t:open|opened}} from the {{t:hijack|HJ}} to {{n:pf.open-size}}, the Button {{t:raise|raised}} to {{n:pf.3bet.ip-total}}, everyone else {{t:fold|folded}}. What do you do?"
+    table: { hand: "Ah Tc", position: HJ }
+    options:
+      - { text: "{{t:fold|Fold}}", correct: true, why: "Offsuit AT {{t:out-of-position}} is often dominated by AJ, AQ and AK, and it {{t:equity-realization|realizes its equity}} poorly after the flop. You {{t:fold}} hands like this against a 3-bet." }
+      - { text: "{{t:call|Call}}", why: "The ace is tempting, but {{t:out-of-position}} you {{t:call}} with suited hands and {{t:pair|pairs}}. ATo too often makes an ace with a weaker kicker." }
+      - { text: "4-bet for {{t:value}}", why: "For a 4-bet for {{t:value}} you usually play AA, KK and AK. ATo loses to most hands that will {{t:call}} it." }
+  - kind: choice
+    id: m4.exam.q8
+    family: m4.vs3bet.ip
+    rules: [R-M4-009]
+    prompt: "You {{t:open|opened}} from the Button to {{n:pf.open-size}}, the {{t:small-blind}} {{t:raise|raised}} to {{n:pf.3bet.oop-total}}, the {{t:big-blind}} {{t:fold|folded}}. What do you do?"
+    table: { hand: "9s 9h", position: BTN }
+    options:
+      - { text: "{{t:call|Call}}", correct: true, why: "{{t:in-position|In position}} you {{t:call}} wider, including {{t:pair|pairs}} from 66 to TT. 99 plays well after the flop and {{t:equity-realization|realizes its equity}} easily." }
+      - { text: "{{t:fold|Fold}}", why: "Too tight: you {{t:fold}} the lowest {{t:pair|pairs}}, and 99 is in your {{t:in-position}} {{t:call|calling}} {{t:range}}." }
+      - { text: "4-bet for {{t:value}}", why: "For a 4-bet for {{t:value}} you usually play AA, KK and AK. 99 prefers to see a flop." }
+  - kind: choice
+    id: m4.exam.q9
+    family: m4.vs3bet.value
+    rules: [R-M4-010, R-M4-011]
+    prompt: "You {{t:open|opened}} from the {{t:hijack|HJ}} to {{n:pf.open-size}}, the {{t:cutoff|CO}} {{t:raise|raised}} to {{n:pf.3bet.ip-total}}, everyone else {{t:fold|folded}}. What do you do?"
+    table: { hand: "As Ac", position: HJ }
+    options:
+      - { text: "4-bet to about {{n:pf.4bet.oop-example.low}}–{{n:exam.m4.4bet.oop.high}}", correct: true, why: "You 4-bet AA for {{t:value}}. {{t:out-of-position|Out of position}} the 4-bet is about {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} the 3-bet: {{n:pf.3bet.ip-total}} × {{n:pf.4bet.size-oop.low}} ≈ {{n:pf.4bet.oop-example.low}}, × {{n:pf.4bet.size-oop.high}} ≈ {{n:exam.m4.4bet.oop.high}}." }
+      - { text: "{{t:call|Call}}", why: "AA wants to get the whole stack in. A {{t:call}} {{t:out-of-position}} gives up {{t:value}} and the {{t:initiative}}." }
+      - { text: "All-in for {{n:format.stack}}", why: "Going all-in pushes out the weaker hands the opponent would call a normal 4-bet with. After a 4-bet of about {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} the 3-bet, you'll easily get the rest of the stack in anyway." }
+  - kind: numeric
+    id: m4.exam.n1
+    family: m4.iso.size
+    rules: [R-M4-012]
+    prompt: "Two players limp, the Button {{t:fold|folds}}. You're in the {{t:small-blind}} and want to {{t:isolation|isolate}}. How many bb do you {{t:raise}} to? Enter a number."
+    table: { hand: "Qs Qc", position: SB }
+    answer: exam.m4.iso.two-oop
+    explanation: "A base of {{n:pf.iso.base}}, plus {{n:pf.iso.per-limper}} for each of the two limpers, plus {{n:pf.iso.oop-extra}} because you act first after the flop: {{n:exam.m4.iso.two-oop}} in total."
+  - kind: choice
+    id: m4.exam.q10
+    family: m4.iso.many
+    rules: [R-M4-013, R-M4-012]
+    prompt: "Three players before you just called the {{t:big-blind}}. You're in the {{t:cutoff|CO}}. What do you do?"
+    table: { hand: "Ad Kh", position: CO }
+    options:
+      - { text: "{{t:raise|Raise}} to {{n:exam.m4.iso.three}}", correct: true, why: "Against many limpers you {{t:raise}} mostly for {{t:value}}, and AK is exactly that kind of hand. Size: {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} for each of the three limpers." }
+      - { text: "{{t:raise|Raise}} to {{n:pf.iso.one-limper}}", sizeError: true, why: "Right action, but that's the size against one limper. Each additional one adds {{n:pf.iso.per-limper}}, so here it's {{n:exam.m4.iso.three}}." }
+      - { text: "Limp behind", why: "Limping behind suits speculative hands. AK wants to build the {{t:pot}} and cut down the number of opponents." }

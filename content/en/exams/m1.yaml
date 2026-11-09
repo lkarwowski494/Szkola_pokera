@@ -1,0 +1,75 @@
+# Pula egzaminacyjna M1 (przebieg rozdania): te same reguły co lekcja m1.l1, inne sytuacje i sformułowania.
+module: m1
+drills:
+  - kind: choice
+    id: m1.exam.q1
+    family: m1.actions
+    rules: [R-M1-001]
+    prompt: "On the flop, your opponent {{t:bet}} and you {{t:call|called}}. On the turn, you act first. What can you do?"
+    options:
+      - { text: "{{t:check|Check}} or {{t:bet}}", correct: true, why: "The turn is a new {{t:betting-round}}. Nobody has put anything in yet, so you have the same two options as at the start of every round." }
+      - { text: "Only {{t:call}} or {{t:fold}}", why: "The {{t:bet}} from the flop has already been matched. On the turn, there is nothing to {{t:call}}." }
+      - { text: "{{t:raise|Raise}} the flop {{t:bet}}", why: "You can only {{t:raise}} a {{t:bet}} in the current round. The one from the flop is closed." }
+  - kind: choice
+    id: m1.exam.q2
+    family: m1.actions
+    rules: [R-M1-001]
+    prompt: "An opponent acting before you has {{t:bet}}. Which move can't you make now?"
+    options:
+      - { text: "{{t:check|Check}}", correct: true, why: "You can {{t:check}} only when nobody before you in this round has {{t:bet}} or {{t:raise|raised}}. Now you must {{t:fold}}, {{t:call}}, or {{t:raise}}." }
+      - { text: "{{t:raise|Raise}}", why: "A {{t:raise}} is possible precisely because there is a {{t:bet}} to raise." }
+      - { text: "{{t:fold|Fold}}", why: "A {{t:fold}} is always available when you have to put in more." }
+  - kind: choice
+    id: m1.exam.q3
+    family: m1.actions
+    rules: [R-M1-002]
+    prompt: "River. Your opponent {{t:check|checked}}, and your hand is almost certainly losing. What do you do?"
+    options:
+      - { text: "{{t:check|Check}}", correct: true, why: "A {{t:check}} costs nothing, and your opponent may have missed too. A {{t:fold}} would give up the {{t:pot}} without a fight." }
+      - { text: "{{t:fold|Fold}}", why: "When you can {{t:check}} for free, a {{t:fold}} only gives up your chance at the {{t:pot}}. You gain nothing." }
+      - { text: "{{t:call|Call}}", why: "Your opponent hasn't {{t:bet}} anything, so there is nothing to {{t:call}}." }
+  - kind: choice
+    id: m1.exam.q4
+    family: m1.actions
+    rules: [R-M1-003]
+    prompt: "You {{t:bet}} on the flop and your opponent {{t:raise|raised}}. You don't want to keep playing. What do you do?"
+    options:
+      - { text: "{{t:fold|Fold}}", correct: true, why: "There is a {{t:raise}} to match, and you don't want to pay. You lose only what you've already put in." }
+      - { text: "{{t:check|Check}}", why: "After your opponent's {{t:raise}}, you can't {{t:check}}: you have to put in more or {{t:fold}}." }
+      - { text: "{{t:call|Call}} to see the turn", why: "Since you don't want to keep playing, anything more you put in is an extra loss." }
+  - kind: choice
+    id: m1.exam.q5
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "How many {{t:community-cards}} are on the {{t:board}} during betting on the turn?"
+    options:
+      - { text: "4", correct: true, why: "The flop gave three cards, and the turn adds a fourth. The fifth comes only on the river." }
+      - { text: "3", why: "Three cards are on the flop. The turn adds one." }
+      - { text: "5", why: "There are five cards only on the river." }
+  - kind: choice
+    id: m1.exam.q6
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "After betting on the river, you and one opponent are left in the hand. What happens next?"
+    options:
+      - { text: "You both reveal your cards (showdown)", correct: true, why: "The river is the last {{t:betting-round}}. When at least two players remain, they show their cards and the best hand wins the {{t:pot}}." }
+      - { text: "One more card is dealt", why: "The {{t:board}} has at most five cards. There are no more after the river." }
+      - { text: "The {{t:pot}} is always split equally", why: "The pot is split only when hands are tied. Usually the better hand wins." }
+  - kind: choice
+    id: m1.exam.q7
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "You {{t:bet}} on the flop and everyone else {{t:fold|folds}}. What happens?"
+    options:
+      - { text: "You win the {{t:pot}} without showing your cards", correct: true, why: "A showdown happens only when at least two players remain after the river. When you're the only one left, the hand ends." }
+      - { text: "The turn and river are dealt, then you show your cards", why: "There's no one left to play against, so no more cards are dealt." }
+      - { text: "You have to show your cards to take the {{t:pot}}", why: "Cards are shown at showdown, and this hand never got there." }
+  - kind: choice
+    id: m1.exam.q8
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "The hand went to showdown. How many {{t:betting-round|betting rounds}} took place, counting preflop?"
+    options:
+      - { text: "4", correct: true, why: "Preflop, flop, turn, and river. The showdown comes after the last round, on the river." }
+      - { text: "3", why: "Flop, turn, and river are three rounds, but preflop comes before them." }
+      - { text: "5", why: "There are five {{t:community-cards}}, but four {{t:betting-round|betting rounds}}: the flop deals three cards at once." }

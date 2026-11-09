@@ -1,0 +1,95 @@
+# Pula pytań egzaminacyjnych modułu M7 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m7.*).
+module: m7
+drills:
+  - kind: choice
+    id: m7.exam.q1
+    family: m7.barrel.card
+    rules: [R-M7-001]
+    prompt: "You {{t:open|opened}} from the Button and the {{t:big-blind}} {{t:call|called}}. On the [[9s 6d 2c]] flop you {{t:bet}} as a c-bet, and they {{t:call|called}}. After which turn card do you {{t:bet}} a {{t:second-barrel}} more often?"
+    table: { position: BTN, board: "9s 6d 2c" }
+    options:
+      - { text: "[[Kh]]", correct: true, why: "Yes: a king on a lower {{t:board}} hits your {{t:open}} {{t:range}} (KQ, KJ, KT, AK) more often than the defender's {{t:range}}, and every {{t:pair}} the {{t:big-blind}} called the flop with drops one place lower." }
+      - { text: "[[8c]]", why: "With the nine and six, an eight gives a {{t:straight}} to T7 and 75 and {{t:two-pair}} to 98 and 86, which are hands the {{t:big-blind}} defends. This card tends to help them." }
+      - { text: "[[5s]]", why: "With the nine, six and two, a five gives a {{t:straight}} to 87 and 43, and the {{t:big-blind}} defends many small cards. This is not a card that favors your {{t:range}}." }
+  - kind: choice
+    id: m7.exam.q2
+    family: m7.barrel.bluff
+    rules: [R-M7-002]
+    prompt: "You {{t:open|opened}} from the Button, and the {{t:big-blind}} {{t:call|called}} your c-bet on the flop. The turn is a two, and your opponent {{t:check|checks}}. You have one of two hands with no {{t:pair}}. Which one is better to {{t:bluff}} with as a {{t:second-barrel}}?"
+    table: { position: BTN, board: "Kc 9h 4h 2s" }
+    options:
+      - { text: "[[Qh Jh]]", correct: true, why: "Yes: you have a {{t:flush-draw}} and a gutshot (a ten). This is a {{t:semi-bluff}}: you win when your opponent {{t:fold|folds}} or when you hit on the river." }
+      - { text: "[[8c 7c]]", why: "This hand has no outs: no river card gives it a {{t:straight}} or a {{t:flush}}. A {{t:bluff}} with no outs has only one way to win, so you give it up more often." }
+  - kind: choice
+    id: m7.exam.q3
+    family: m7.barrel.value
+    rules: [R-M7-003]
+    prompt: "You {{t:open|opened}} from the Button, and the {{t:big-blind}} {{t:call|called}} your c-bet on the flop. The turn is a five, and your opponent {{t:check|checks}}. You have {{t:second-pair}} with an ace. What do you do?"
+    table: { hand: "Ad 7d", position: BTN, board: "Ts 7c 3d 5h" }
+    options:
+      - { text: "{{t:check|Check}}", correct: true, why: "Yes: {{t:second-pair}} is a medium-strength hand. After calling the flop, your opponent's {{t:range}} is stronger: worse hands {{t:fold}} to a second bet, while tens and better pay you. By {{t:check|checking}}, you keep the {{t:pot}} small and get to showdown." }
+      - { text: "Bet for {{t:value}}", why: "A bet with a medium-strength hand makes money when worse hands pay, and after calling the flop your opponent has fewer of them. Mostly hands that beat you will pay." }
+      - { text: "Bet big to protect your hand", why: "A big bet with a medium {{t:pair}} pushes out worse hands and keeps better ones in. Protection doesn't help when mostly hands that are already winning pay." }
+  - kind: numeric
+    id: m7.exam.q4
+    family: m7.barrel.math
+    rules: [R-M7-004]
+    prompt: "Turn. The {{t:pot}} is {{n:exam.m7.pot}}. You {{t:bluff}} with a hand that will almost never win and {{t:bet}} {{n:exam.m7.bet.half}}. How often must your opponent {{t:fold}} for this {{t:bluff}} to break even? Enter the number as a percentage."
+    answer: exam.m7.alpha.half
+    explanation: "The threshold is bet ÷ ({{t:pot}} + bet) = {{n:exam.m7.bet.half}} ÷ ({{n:exam.m7.pot}} + {{n:exam.m7.bet.half}}) = {{n:exam.m7.alpha.half}}. When you have outs, this threshold drops, because you sometimes win even after a {{t:call}}."
+  - kind: choice
+    id: m7.exam.q5
+    family: m7.polar.concept
+    rules: [R-M7-005]
+    prompt: "On the turn you bet 3/4 {{t:pot}} with a {{t:polarized}} {{t:range}}. Which hands in your {{t:range}} {{t:check}} in that case?"
+    options:
+      - { text: "Medium-strength hands, e.g. {{t:second-pair}}", correct: true, why: "Yes: a {{t:polarized}} {{t:range}} is very strong hands and {{t:semi-bluff|semi-bluffs}}. Medium-strength hands don't gain from a big {{t:pot}}, so they {{t:check}} and try to reach showdown." }
+      - { text: "Sets and {{t:two-pair}}", why: "This is the top end of the {{t:range}}: these hands want to build the {{t:pot}} before the river, so they bet a big size." }
+      - { text: "{{t:flush-draw|Flush draws}}", why: "This is the bottom end: {{t:semi-bluff|semi-bluffs}} need your opponent's {{t:fold|folds}}, so they bet the same big size as strong hands." }
+  - kind: choice
+    id: m7.exam.q6
+    family: m7.polar.price
+    rules: [R-M7-006]
+    prompt: "Turn. You have {{t:two-pair}}, and your opponent may have a {{t:flush-draw}} (about {{n:odds.flush.turn-river}} on the river). The {{t:pot}} is {{n:exam.m7.pot}}, and your opponent {{t:check|checks}}. What do you do?"
+    table: { hand: "Jc 8c", position: BTN, board: "Jh 8h 4s 2d" }
+    options:
+      - { text: "Bet {{n:exam.m7.bet.three-quarters}}", correct: true, why: "Yes: against a 3/4 {{t:pot}} bet, a {{t:draw}} needs {{n:eq.bet-three-quarters}} equity and has about {{n:odds.flush.turn-river}}. It pays too much, and you build the {{t:pot}} with a strong hand." }
+      - { text: "Bet {{n:exam.m7.bet.quarter}}", sizeError: true, why: "Right action, wrong size: against a 1/4 {{t:pot}} bet, a {{t:draw}} needs only {{n:eq.bet-quarter}}, less than its roughly {{n:odds.flush.turn-river}}. A small bet gives it a good price. Bet big." }
+      - { text: "{{t:check|Check}}", why: "A free card is a gift to a {{t:flush-draw}}, and you lose value with a strong hand. With {{t:two-pair}}, you bet." }
+  - kind: numeric
+    id: m7.exam.q7
+    family: m7.implied.math
+    rules: [R-M7-008]
+    prompt: "Turn. The {{t:pot}} is {{n:exam.m7.pot}}, and your opponent {{t:bet|bets}} {{n:exam.m7.bet.half}}. You have an {{t:oesd}}: {{n:outs.oesd}} outs, {{n:miss.oesd.turn}} cards that miss. How many {{t:chips}} must you win in addition on the river after hitting (beyond the {{t:pot}} after the {{t:bet}}) for a {{t:call}} to break even? Enter the number."
+    answer: exam.m7.io.extra
+    explanation: "When you hit, you must win a total of {{n:exam.m7.bet.half}} × {{n:miss.oesd.turn}} ÷ {{n:outs.oesd}} = {{n:exam.m7.io.need}}. The {{t:pot}} after the {{t:bet}} is {{n:exam.m7.io.pot-after-bet}}, so {{n:exam.m7.io.extra}} is missing. These are your implied odds: the amount your opponent still has to pay you."
+  - kind: choice
+    id: m7.exam.q8
+    family: m7.implied.when
+    rules: [R-M7-010]
+    prompt: "Turn. You have an {{t:oesd}} (a jack or a six), and there are two diamonds on the {{t:board}}. How many outs do you count, conservatively?"
+    table: { hand: "9s 8s", board: "Td 7d 2c 3h" }
+    options:
+      - { text: "{{n:exam.m7.oesd.clean}}", correct: true, why: "Yes: of the {{n:outs.oesd}} outs, two ([[Jd]] and [[6d]]) put a third diamond on the {{t:board}}. Then an opponent with two diamonds has a {{t:flush}}, and you, having hit, lose and pay the most. That leaves {{n:exam.m7.oesd.clean}} clean outs." }
+      - { text: "{{n:outs.oesd}}", why: "These are all the outs to a {{t:straight}}, but two of them make a {{t:flush}} possible. When the {{t:board}} can make a {{t:flush}}, you count fewer outs." }
+      - { text: "{{n:outs.gutshot}}", why: "That's how many outs a gutshot has. You have a {{t:straight-draw}} open on both ends, and you subtract only the two diamonds." }
+  - kind: choice
+    id: m7.exam.q9
+    family: m7.probe.play
+    rules: [R-M7-011, R-M7-012]
+    prompt: "You defend the {{t:big-blind}} against a Button {{t:open}}. On the flop you both {{t:check|checked}}. The turn is a two. You act first. You have {{t:second-pair}} and a gutshot (a four). What do you do?"
+    table: { hand: "6c 5d", position: BB, board: "9h 6s 3d 2c" }
+    options:
+      - { text: "Bet (probe bet)", correct: true, why: "Yes: after {{t:check|checking}} the flop, the Button has fewer strong hands, and the low {{t:board}} suits your {{t:range}}. A {{t:pair}} wants to get paid by worse hands and protection from a free card, and the gutshot gives extra outs." }
+      - { text: "{{t:check|Check}} to see what the Button does", why: "You give the Button a free card, and after {{t:check|checking}} the flop they often has only high cards. On a low {{t:board}}, you bet a {{t:pair}} yourself." }
+      - { text: "{{t:check|Check}}, planning to check-raise", why: "After {{t:check|checking}} the flop, the Button will often {{t:check}} again, and then you win nothing. A probe bet collects value from their weaker hands right away." }
+  - kind: choice
+    id: m7.exam.q10
+    family: m7.defend.turn
+    rules: [R-M7-013]
+    prompt: "You defend the {{t:big-blind}}. You {{t:call|called}} the Button's c-bet on the flop. The turn is a six, you {{t:check}}, and the Button {{t:bet|bets}} 3/4 {{t:pot}}. You have a {{t:pair}} of fours. What do you do?"
+    table: { hand: "4h 4d", position: BB, board: "Ks Jd 8c 6h" }
+    options:
+      - { text: "{{t:fold|Fold}}", correct: true, why: "Yes: the Button fires a {{t:second-barrel}} with a narrower {{t:range}} and a bigger size than their c-bet. The weakest {{t:pair}}, below every card on the {{t:board}}, with no outs except the two fours, loses to most of their bets." }
+      - { text: "{{t:call|Call}}, because I already called the flop", why: "What you put in on the flop won't come back. On the turn you evaluate your hand again: against a {{t:second-barrel}}, the weakest {{t:pair|pairs}} {{t:fold}}." }
+      - { text: "{{t:raise|Raise}}", why: "After a {{t:raise}}, worse hands {{t:fold}} and better ones pay. A {{t:pair}} of fours is neither a {{t:value}} hand nor a good {{t:bluff}}." }

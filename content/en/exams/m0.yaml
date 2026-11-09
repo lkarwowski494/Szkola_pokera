@@ -1,0 +1,92 @@
+# Pula egzaminacyjna M0 (układy kart): te same reguły co lekcja m0.l1, inne rozdania i sformułowania.
+module: m0
+drills:
+  - kind: choice
+    id: m0.exam.q1
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "Your opponent has {{t:three-of-a-kind}} with aces, and you have a jack-high {{t:straight}}. Who wins?"
+    table: { hand: "Th 9h", opp: "Ac Ad", board: "As 8c 7d Jh 2s" }
+    options:
+      - { text: "You", correct: true, why: "Your five cards are J-10-9-8-7, a {{t:straight}}. A {{t:straight}} ranks above {{t:three-of-a-kind}}, so how high your opponent's cards are doesn't matter." }
+      - { text: "Your opponent, because they have aces", why: "Aces only matter when the hands are the same. Here the hands are different: a {{t:straight}} beats {{t:three-of-a-kind}}." }
+      - { text: "{{t:split-pot|Split pot}}", why: "Different hands don't tie. The higher-ranked hand wins." }
+  - kind: choice
+    id: m0.exam.q2
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "You have {{t:four-of-a-kind}} with nines, and your opponent has a {{t:full-house}} with kings. Who wins?"
+    table: { hand: "9c 9d", opp: "Kh 2c", board: "9h 9s Kd Kc 3h" }
+    options:
+      - { text: "You", correct: true, why: "{{t:four-of-a-kind|Four of a kind}} is 3rd in the ranking, a {{t:full-house}} 4th. Your opponent's kings don't help, because the hands are different." }
+      - { text: "Your opponent, because kings are higher than nines", why: "Card height is compared only when the hands are the same. {{t:four-of-a-kind|Four of a kind}} always beats a {{t:full-house}}." }
+      - { text: "{{t:split-pot|Split pot}}, because you both use the {{t:board}}", why: "You both use the {{t:community-cards}}, but each of you builds a different five: you {{t:four-of-a-kind}}, your opponent a {{t:full-house}}." }
+  - kind: choice
+    id: m0.exam.q3
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "Your opponent has a {{t:pair}} of aces, and you have {{t:two-pair}}: sevens and twos. Who wins?"
+    options:
+      - { text: "You", correct: true, why: "{{t:two-pair|Two pair}} ranks above a {{t:pair}}, even when it's low. The rank of the hand is compared first." }
+      - { text: "Your opponent, because aces are the highest", why: "A {{t:pair}} of aces is still just a {{t:pair}}. Card height only decides when the hands are the same." }
+      - { text: "It depends on the kicker", why: "The kicker only matters when the core of the hand is identical. Here the hands are different." }
+  - kind: choice
+    id: m0.exam.q4
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "You both have {{t:two-pair}}: queens and eights from the {{t:board}}. Who wins?"
+    table: { hand: "Ah 3c", opp: "Kd 4s", board: "Qs Qd 8h 8c 2s" }
+    options:
+      - { text: "You", correct: true, why: "The core of the hand is the same (queens and eights), so the fifth card decides. Your ace beats your opponent's king." }
+      - { text: "Your opponent", why: "Your opponent has a king as the fifth card, and you have an ace. The ace is higher." }
+      - { text: "{{t:split-pot|Split pot}}", why: "It would be a split only with an identical five. Here the fifth cards differ: ace versus king." }
+  - kind: choice
+    id: m0.exam.q5
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "You both have a {{t:pair}} of kings and an ace. Your second card (4) is higher than your opponent's second card (3). Who wins?"
+    table: { hand: "Ac 4d", opp: "As 3h", board: "Kh Kd Qc Js 9h" }
+    options:
+      - { text: "{{t:split-pot|Split pot}}", correct: true, why: "Both players' best five is K-K-A-Q-J. The 4 and the 3 don't fit into the five, so they change nothing." }
+      - { text: "You, because 4 is higher than 3", why: "A kicker only matters when it makes the best 5 cards. Here the queen and jack come from the {{t:board}}, so your four is the sixth card." }
+      - { text: "Your opponent", why: "Your opponent has the same five as you: K-K-A-Q-J." }
+  - kind: choice
+    id: m0.exam.q6
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "You both have a {{t:straight}}. Who wins?"
+    table: { hand: "Ah 2c", opp: "6d 7s", board: "3s 4d 5h Kc 9d" }
+    options:
+      - { text: "Your opponent", correct: true, why: "Your {{t:straight}} is A-2-3-4-5, the {{t:wheel}}, the lowest {{t:straight}}: the ace counts as a one here. Your opponent has 3-4-5-6-7, so their {{t:straight}} is higher." }
+      - { text: "You, because you have an ace", why: "In an ace-to-five {{t:straight}}, the ace is the lowest card. With the same hand, the higher {{t:straight}} wins: 7 beats 5." }
+      - { text: "{{t:split-pot|Split pot}}", why: "You both have a {{t:straight}}, but of different heights. It would be a split only with an identical five." }
+  - kind: choice
+    id: m0.exam.q7
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "You both have a heart {{t:flush}} with an ace on the {{t:board}}. Who wins?"
+    table: { hand: "Kh 4h", opp: "Qh Jh", board: "Ah 9h 3h 7c 2d" }
+    options:
+      - { text: "You", correct: true, why: "{{t:flush|Flushes}} are compared starting from the highest card. The ace is shared, and the second card is your king against your opponent's queen." }
+      - { text: "Your opponent, because they have two high cards", why: "What counts is the highest card that differs, in order. Your king beats the queen, so the remaining cards don't matter." }
+      - { text: "{{t:split-pot|Split pot}}", why: "The fives are different: A-K-9-4-3 and A-Q-J-9-3." }
+  - kind: choice
+    id: m0.exam.q8
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "There's a {{t:full-house}} on the {{t:board}}: three aces and two kings. You have a {{t:pair}} of queens. Who wins?"
+    table: { hand: "Qc Qd", opp: "7s 2c", board: "Ah Ad Ac Ks Kh" }
+    options:
+      - { text: "{{t:split-pot|Split pot}}", correct: true, why: "Both players' best five is A-A-A-K-K from the {{t:board}}. Your queens would make a weaker {{t:full-house}} (aces full of queens), so they don't make the five." }
+      - { text: "You, because you have a {{t:pair}} of queens", why: "Aces full of queens is weaker than aces full of kings, which is on the {{t:board}}. So you play the {{t:board}}, just like your opponent." }
+      - { text: "Your opponent", why: "Your opponent also plays the five from the {{t:board}}. Their cards add nothing, just like yours." }
+  - kind: choice
+    id: m0.exam.q9
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "There's a nine-to-king {{t:straight}} on the {{t:board}}. Who wins?"
+    table: { hand: "Ac 2d", opp: "3c 3d", board: "Ts Jd Qc Kh 9s" }
+    options:
+      - { text: "You", correct: true, why: "Your ace extends the {{t:straight}} to A-K-Q-J-10. Your opponent plays the five from the {{t:board}} (K-Q-J-10-9), and yours is higher." }
+      - { text: "{{t:split-pot|Split pot}}", why: "It's a split only when both players' best five is on the {{t:board}}. You have a better five thanks to your ace." }
+      - { text: "Your opponent, because they have a {{t:pair}}", why: "A {{t:pair}} of threes is weaker than the {{t:straight}} on the {{t:board}}, so your opponent plays the {{t:board}}." }

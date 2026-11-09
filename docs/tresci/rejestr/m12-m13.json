@@ -290,7 +290,15 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Wzór to przybliżenie przy stałym, znanym winrate i SD (strona: „with a constant win rate and standard deviation, the closed-form approximation”); MC potwierdza. Atrybucja „wzór Malmutha” w polu source (rules.yaml:1017–1024 i numbers.yaml ror.*) NIE występuje na stronie — usunąć albo dodać przeczytane źródło. Propozycja do lekcji m12-l4:117: dopisać „przybliżenie przy stałym winrate”. | E3 2026-11-04 (przegląd zastępczy A7): dopisane w lekcji: wzór jest przybliżeniem przy stałym winrate i SD. | E3 2026-11-04 (A8, S3): zastrzeżenie „przybliżenie przy stałym winrate i SD” także w karcie reguły."
+  "uwagi": "Wzór to przybliżenie przy stałym, znanym winrate i SD (strona: „with a constant win rate and standard deviation, the closed-form approximation”); MC potwierdza. Atrybucja „wzór Malmutha” w polu source (rules.yaml:1017–1024 i numbers.yaml ror.*) NIE występuje na stronie — usunąć albo dodać przeczytane źródło. Propozycja do lekcji m12-l4:117: dopisać „przybliżenie przy stałym winrate”. | E3 2026-11-04 (przegląd zastępczy A7): dopisane w lekcji: wzór jest przybliżeniem przy stałym winrate i SD. | E3 2026-11-04 (A8, S3): zastrzeżenie „przybliżenie przy stałym winrate i SD” także w karcie reguły.",
+  "przeglad_jezyki": {
+   "en": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
+    "data": "2026-11-09",
+    "sha": "771d1beedb90",
+    "kontrola": "a"
+   }
+  }
  },
  {
   "id": "R-M12-010",
@@ -409,7 +417,15 @@
   "werdykt_tekstu": "POPARTE",
   "poprawka": "then: „schodzisz o jedną stawkę niżej najpóźniej wtedy i wracasz, gdy bankroll się odbuduje”; w lekcji m12-l4:142 dopisać: „Źródła podają progi od połowy do pełnego bankrollu; połowa to najpóźniejszy z nich.”",
   "uwagi": "Sprzeczność na szczeblu 4: próg zejścia = połowa bankrollu (PokerSkill; SplitSuit nieczytelny), 30 wpisowych przy 3bb/100 (PokerListings, czyli pełny bankroll), spadek o 10 wpisowych (Primedope, odrzucony w D-M12-08 rachunkiem: odpala u ~95% wygrywających). Rachunek (szczebel 1) pokazuje tylko kierunek: przy połowie bankrollu RoR 24,5% — wysoko. Proponowana decyzja: część wspólna = „najpóźniej przy połowie”. Uwaga: cytat SplitSuit z pola source nieprzeczytany (HTTP 403). | E2 2026-11-04: poprawione (content/pl/rules.yaml:1036, :1039; content/pl/lessons/m12-l4-bankroll.md:142); było CZĘŚCIOWO; pole source bez nieodczytanego cytatu SplitSuit (403), zastąpione odczytaną tabelą PokerListings; to samo w numbers.yaml br.bi.move-down | E3 2026-11-04 (przegląd zastępczy A7): SPRZECZNE z PrimeDope („Losing 10 should trigger a move down”): lekcja i q-stay uczyły, że zejście po 10 wpisowych to błąd. Poprawka: q-stay ma dwie poprawne odpowiedzi (ADR-04), m12-l4:142 mówi, że zejście przed progiem połowy nie jest błędem; strona bezpieczna. | E3 2026-11-04 (D-159, A7c): „te same pieniądze to znów pełny bankroll” → „na stawce dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej wpisowych” (m12-l4, egzamin m12 q9); then: powrót wyżej przy pełnym bankrollu w wpisowych wyższej stawki (zdanie lekcji, źródła reguły bez zmian). | E3 2026-11-04 (A8, S3): „poniżej połowy” → „do połowy” (źródło: „half the roll, which is the point to move down”); warunek wr i SD przy 6% → 25%; cytat dla powrotu wyżej (PokerSkill). | E3 2026-11-04 (A9, S3): kwantyfikator zawężony do winrate 2–5bb/100 z symulacji; PrimeDope dopisane do pola source w rules.yaml. | E3 2026-11-04 (A10, S3): powrót jako warunek konieczny („Move up only when”): „najwcześniej wtedy”; m12-l4 q-move-down z warunkiem winrate i SD. | E3 2026-11-04 (A11, S3): egzamin M12 „najpóźniej przy” połowie zamiast „poniżej” (źródło: „half the roll, which is the point to move down”).",
-  "decyzja": "D-146"
+  "decyzja": "D-146",
+  "przeglad_jezyki": {
+   "en": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
+    "data": "2026-11-09",
+    "sha": "624c4b56df65",
+    "kontrola": "a"
+   }
+  }
  },
  {
   "id": "R-M12-012",
@@ -748,7 +764,15 @@
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": "numbers.yaml:456, cytat Primedope: „25-30 buy-ins at NL25-NL50” → „25 to 30 at NL25 to NL50” (dosłownie; kontekst: przy 5% ryzyka bankructwa).",
-  "uwagi": "Wartość poparta; cytat w polu source niedosłowny. | E2 2026-11-04: poprawione (content/numbers.yaml:456); było CZĘŚCIOWO; cytat dosłowny | E3 2026-11-04 (D-159): w treści jako przykład założonej liczby wpisowych, bez zalecenia „minimum”."
+  "uwagi": "Wartość poparta; cytat w polu source niedosłowny. | E2 2026-11-04: poprawione (content/numbers.yaml:456); było CZĘŚCIOWO; cytat dosłowny | E3 2026-11-04 (D-159): w treści jako przykład założonej liczby wpisowych, bez zalecenia „minimum”.",
+  "przeglad_jezyki": {
+   "en": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
+    "data": "2026-11-09",
+    "sha": "06937b50e952",
+    "kontrola": "a"
+   }
+  }
  },
  {
   "id": "n:br.bi.beginner",
@@ -791,7 +815,15 @@
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Dwa niezależne źródła szczebla 4 + rachunek. Można dopisać Upswing do pola source. | E3 2026-11-04 (D-159): w treści tylko jako przykład liczby wpisowych (tabela RoR, egzamin m12 q9), bez zalecenia dla początkujących."
+  "uwagi": "Dwa niezależne źródła szczebla 4 + rachunek. Można dopisać Upswing do pola source. | E3 2026-11-04 (D-159): w treści tylko jako przykład liczby wpisowych (tabela RoR, egzamin m12 q9), bez zalecenia dla początkujących.",
+  "przeglad_jezyki": {
+   "en": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
+    "data": "2026-11-09",
+    "sha": "6ce31d901828",
+    "kontrola": "a"
+   }
+  }
  },
  {
   "id": "n:br.bi.src-high",
@@ -881,7 +913,15 @@
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Wartość przykładowa scenariusza (program nauczania, dok. 09), nie twierdzenie; twierdzenia o niej liczy rachunek. Primedope dla tego scenariusza 45% (sprzeczne z rachunkiem, D-M12-02). | E3 2026-11-04 (A8, S3): m12-l4 q-stay: „w symulacji ok. 95% graczy wygrywających 5bb/100” zamiast „ok. 95% wygrywających”. | E3 2026-11-04 (A9, S3): m12-l1 i R-M12-011 — „prawie każdego wygrywającego” zawężone do winrate od dd.wr-low do var.wr.ex (symulacja). | E3 2026-11-04 (A10, S3): m12-l1 q-downswing: horyzont tys. rąk i warunek var.wr.ex, SD przy ok. 95%."
+  "uwagi": "Wartość przykładowa scenariusza (program nauczania, dok. 09), nie twierdzenie; twierdzenia o niej liczy rachunek. Primedope dla tego scenariusza 45% (sprzeczne z rachunkiem, D-M12-02). | E3 2026-11-04 (A8, S3): m12-l4 q-stay: „w symulacji ok. 95% graczy wygrywających 5bb/100” zamiast „ok. 95% wygrywających”. | E3 2026-11-04 (A9, S3): m12-l1 i R-M12-011 — „prawie każdego wygrywającego” zawężone do winrate od dd.wr-low do var.wr.ex (symulacja). | E3 2026-11-04 (A10, S3): m12-l1 q-downswing: horyzont tys. rąk i warunek var.wr.ex, SD przy ok. 95%.",
+  "przeglad_jezyki": {
+   "en": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
+    "data": "2026-11-09",
+    "sha": "68b868684fd0",
+    "kontrola": "a"
+   }
+  }
  },
  {
   "id": "n:format.stack",
@@ -1177,7 +1217,15 @@
   "jednostka": "count",
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Stała wzoru (ruch Browna z dryfem); atrybucja „Malmuth” nieodczytana."
+  "uwagi": "Stała wzoru (ruch Browna z dryfem); atrybucja „Malmuth” nieodczytana.",
+  "przeglad_jezyki": {
+   "en": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
+    "data": "2026-11-09",
+    "sha": "1e61af2a123f",
+    "kontrola": "a"
+   }
+  }
  },
  {
   "id": "n:skill.ahead",
@@ -1642,6 +1690,14 @@
   "uzyte_w": [
    "content/pl/lessons/m12-l4-bankroll.md",
    "helplines.yaml#ramka"
-  ]
+  ],
+  "przeglad_jezyki": {
+   "en": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja V)",
+    "data": "2026-11-09",
+    "sha": "f8e4a672ac6a",
+    "kontrola": "a"
+   }
+  }
  }
 ]

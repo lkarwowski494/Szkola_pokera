@@ -4,13 +4,14 @@
  * niż polski nie zostaje ani jedno słowo z kodu. Test podstawia słownik „en” z literami zamienionymi na X (poza
  * znacznikami {{…}}) i sprawdza, że w każdym wygenerowanym tekście zostają tylko: X, liczby, karty [[…]], nazwy rąk
  * (AKo) i nazwy angielskie terminów (w en znacznik {{t:…}} daje samą nazwę angielską, D-287).
- * P-2 (D-293): w języku innym niż polski ćwiczenie słownictwa pyta tylko o skrót (definicje w języku: K5).
+ * P-2 (D-293): w języku innym niż polski ćwiczenie słownictwa pyta o skrót i — gdy jest definicja w tym języku
+ * (`content/<język>/terms-def.yaml`, D-335; en od K5, D-345) — o termin do definicji; kierunków pl ↔ en nie ma.
  */
 import type { Drill } from '@szkola/content-schema';
 import { createRng, HAND_CLASSES } from '@szkola/poker-core';
 import i18n from '@/i18n';
 import pl from '@/i18n/locales/pl.json';
-import { TERMS } from '@/data/content/terms.generated';
+import { TERMS, TERM_DEFS } from '@/data/content/terms.generated';
 import type { RangeSpot } from '@/data/content/repo';
 import { instantiate } from '../engine';
 
@@ -26,8 +27,10 @@ const DOZWOLONE = new Set(
 );
 
 /** Słowa spoza słownika: wszystko, co nie jest X, kartą, nazwą ręki ani słowem z nazw angielskich terminów. */
+/** Definicje en to treść przełożona (K5), nie tekst z kodu: wycinamy je przed kontrolą słów. */
+const DEFINICJE_EN = Object.values(TERM_DEFS.en ?? {}).sort((a, b) => b.length - a.length);
 function obce(s: string): string[] {
-  const bez = s.replace(/\[\[[^\]]*\]\]/g, ' ').replace(/\b[2-9TJQKA]{2}[so]?\b/g, ' ');
+  const bez = DEFINICJE_EN.reduce((t, d) => t.split(d).join(' '), s).replace(/\[\[[^\]]*\]\]/g, ' ').replace(/\b[2-9TJQKA]{2}[so]?\b/g, ' ');
   return (bez.match(/\p{L}+/gu) ?? []).filter((w) => !/^x+$/i.test(w) && !/^[A-Z]$/.test(w) && !DOZWOLONE.has(w.toLowerCase()));
 }
 
@@ -77,10 +80,16 @@ describe('teksty zadań w języku innym niż polski (K2a, D-288)', () => {
     expect(w).not.toMatch(/\d,\d/);
   });
 
-  it('P-2: ćwiczenie słownictwa w en tylko w kierunku „skrót → nazwa”; obszar bez skrótów nie daje zadań', () => {
-    const pyt = instantiate(g('vocab', { area: 'positions', dir: 'both' }, 20), 'l1', createRng(5)).map((x) => (x as { prompt: string }).prompt);
-    const wzor = (pl as { drill: { vocab: { promptAbbr: string } } }).drill.vocab.promptAbbr.split('{{abbr}}')[0]!.replace(/\p{L}/gu, 'X');
-    expect(pyt.filter((p) => !p.startsWith(wzor))).toEqual([]);
-    expect(instantiate(g('vocab', { area: 'hands', dir: 'both' }, 5), 'l1', createRng(5))).toEqual([]);
+  it('P-2: ćwiczenie słownictwa w en tylko w kierunkach „skrót → nazwa” i „definicja → termin”; obszar bez skrótów — tylko definicje', () => {
+    const v = (pl as { drill: { vocab: { promptAbbr: string; promptDef: string } } }).drill.vocab;
+    const poczatek = (k: string, par: string) => k.split(par)[0]!.replace(/\p{L}/gu, 'X');
+    const [wzorAbbr, wzorDef] = [poczatek(v.promptAbbr, '{{abbr}}'), poczatek(v.promptDef, '{{def}}')];
+    const pytania = (area: string, n: number) => instantiate(g('vocab', { area, dir: 'both' }, n), 'l1', createRng(5)).map((x) => (x as { prompt: string }).prompt);
+    const pyt = pytania('positions', 20);
+    expect(pyt.length).toBeGreaterThan(0);
+    expect(pyt.filter((p) => !p.startsWith(wzorAbbr) && !p.startsWith(wzorDef))).toEqual([]);
+    const reka = pytania('hands', 5);
+    if (TERM_DEFS.en) expect(reka.length > 0 && reka.every((p) => p.startsWith(wzorDef))).toBe(true);
+    else expect(reka).toEqual([]);
   });
 });
