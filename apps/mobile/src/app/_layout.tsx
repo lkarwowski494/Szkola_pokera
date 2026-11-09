@@ -14,6 +14,7 @@ import { useSettings } from '@/state/settings';
 import { useTokens } from '@/theme/tokens';
 import { LIMIT_KROJU_MS, LITERATA, zaladujKroje } from '@/theme/kroje';
 import { przygotujTrescExpo } from '@/data/tresc/startTresci';
+import { useTresc } from '@/data/tresc/useTresc';
 import { kontrolaK04, startPostepuExpo } from '@/data/postepExpo';
 import { PostepKontekst } from '@/data/postepKontekst';
 import type { PortBazy } from '@szkola/postep';
@@ -45,36 +46,8 @@ function useKroje(): boolean {
   return gotowe;
 }
 
-type StanTresci = { stan: 'ladowanie' } | { stan: 'ok'; plik: string } | { stan: 'blad' };
-
-/**
- * Baza treści języka interfejsu (ADR 0005 pkt 2, D-232): jedna kopia z paczki na wersję treści, stary plik usuwany po
- * otwarciu nowego (`przygotujTresc`). Błąd = `tresc_niedostepna`: ekran z ponowieniem, postęp nietknięty (tlo-i-bledy.md §4).
- */
-function useTresc(): StanTresci & { ponow: () => void } {
-  const [stan, ustaw] = useState<StanTresci>({ stan: 'ladowanie' });
-  const [proba, ustawProbe] = useState(0);
-  useEffect(() => {
-    let aktualny = true;
-    void przygotujTrescExpo(i18n.language).then((w) => {
-      if (!aktualny) return;
-      if (!w.ok) zapiszBlad('tresc_niedostepna');
-      ustaw(w.ok ? { stan: 'ok', plik: w.wartosc.plik } : { stan: 'blad' });
-    });
-    return () => {
-      aktualny = false;
-    };
-  }, [proba]);
-  const ponow = useCallback(() => {
-    ustaw({ stan: 'ladowanie' });
-    ustawProbe((p) => p + 1);
-  }, []);
-  return { ...stan, ponow };
-}
-
 /** Zapisany język interfejsu (ADR 0014 pkt 3); „auto” zostaje przy języku z preferencji systemu wybranym przy imporcie i18n.
- *  Baza treści języka powstaje równolegle z językiem systemu (useTresc) — przy jednym wydanym języku (pl) to ten sam plik;
- *  przełączenie bazy treści po zapisanym wyborze przychodzi z drugim językiem treści (D-269, rola 09). */
+ *  Baza treści idzie za językiem aplikacji (useTresc słucha zmiany języka, K2c): zapisany wybór przełącza też treść. */
 async function zastosujJezyk(port: PortBazy): Promise<void> {
   const j = await czytajJezyk(port);
   if (!j.ok) zapiszBlad(j.powod, 'jezyk');
@@ -142,12 +115,17 @@ function BramkaStartu({ port, children }: { port: PortBazy; children: ReactNode 
   );
 }
 
+const zapiszBladTresci = () => zapiszBlad('tresc_niedostepna');
+/** Stała, nie literał w JSX: `SQLiteProvider` otwiera bazę od nowa przy każdej zmianie `options` (porównanie referencji,
+ *  expo-sqlite src/hooks.tsx:229), a RootLayout renderuje się ponownie np. po zmianie języka albo motywu. */
+const OPCJE_TRESCI = { useNewConnection: false };
+
 export default function RootLayout() {
   const scheme = useColorScheme();
   const tk = useTokens();
   const { t } = useTranslation(); // „Wróć” w nagłówku z t() i po zmianie języka (A04-10, D-284)
   const loadSettings = useSettings((s) => s.load);
-  const tresc = useTresc();
+  const tresc = useTresc(przygotujTrescExpo, zapiszBladTresci);
   const postep = usePostep();
   const kroje = useKroje();
   const trescGotowa = tresc.stan !== 'ladowanie' && postep.stan !== 'ladowanie' && kroje;
@@ -177,7 +155,7 @@ export default function RootLayout() {
       <GranicaBledu fallback={({ resetError }) => <RenderErrorScreen onRetry={resetError} />}>
         <PostepKontekst.Provider value={postep.port}>
           {/* Plik treści przygotowany przez useTresc (bez kopiowania przy każdym starcie, ADR 0005 pkt 2). */}
-          <SQLiteProvider databaseName={tresc.plik} options={{ useNewConnection: false }}>
+          <SQLiteProvider databaseName={tresc.plik} options={OPCJE_TRESCI}>
             <BramkaStartu port={postep.port}>
               <Stack screenOptions={{ headerBackTitle: t('nav.back'), headerTintColor: tk.link }}>
                 <Stack.Screen name="(tabs)" options={{ headerShown: false }} />

@@ -59,34 +59,69 @@ bledy.push(...sprawdzRejestr(rejestr, [], opcje, uwagi));
 // i cały plik lekcji albo egzaminu, który go używa (pole rules:, {{n:klucz}}); pole uzyte_w wpisu dopisuje pliki bez
 // odwołania po ID (np. ramka M12-L4). Zmiana któregokolwiek z nich unieważnia przegląd (strona bezpieczna: plik zamiast zdania).
 // Dlaczego: przegląd ma dotyczyć wersji tekstu, którą widział recenzent (D-027, E3 2026-11-04).
-const plikiTresci = ['content/pl/lessons', 'content/pl/exams'].flatMap((d) => readdirSync(d).sort().map((f) => `${d}/${f}`));
-const tekst = new Map(plikiTresci.map((p) => [p, readFileSync(p, 'utf8')]));
+/**
+ * Źródła tekstu języka `j` (rola 09, K2d): lekcje, egzaminy i reguły z content/<j>/ (brak pliku → ten z content/pl, jak
+ * łańcuch treści), pomoc z nakładki content/<j>/helplines.yaml (brak → plik wspólny). Liczby i terminy wspólne.
+ */
+const zrodlaJezyka = (j) => {
+  const kat = (d) => (existsSync(`content/${j}/${d}`) ? `content/${j}/${d}` : `content/pl/${d}`);
+  const plikiTresci = [kat('lessons'), kat('exams')].flatMap((d) => readdirSync(d).sort().map((f) => `${d}/${f}`));
+  const plikRules = existsSync(`content/${j}/rules.yaml`) ? `content/${j}/rules.yaml` : 'content/pl/rules.yaml';
+  const plikPomocy = existsSync(`content/${j}/helplines.yaml`) ? `content/${j}/helplines.yaml` : 'content/helplines.yaml';
+  const h = j === 'pl' ? pomocPlik : YAML.parse(readFileSync(plikPomocy, 'utf8'));
+  return {
+    tekst: new Map(plikiTresci.map((p) => [p, readFileSync(p, 'utf8')])),
+    wpisRules: new Map((j === 'pl' ? rules : YAML.parse(readFileSync(plikRules, 'utf8'))).map((r) => [r.id, r])),
+    pomocJ: h.entries ?? [],
+    ramka: { pointer: h.pointer, fallback: h.fallback },
+    // uzyte_w wskazuje ścieżki content/pl/…; w innym języku ten sam plik z content/<j>/, gdy jest
+    sciezka: (p) => (j !== 'pl' && p.startsWith('content/pl/') && existsSync(`content/${j}/${p.slice('content/pl/'.length)}`) ? `content/${j}/${p.slice('content/pl/'.length)}` : p),
+  };
+};
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-const wpisRules = new Map(rules.map((r) => [r.id, r]));
-const jednostki = (w) => {
+const jednostki = (w, z) => {
   const out = [];
-  if (wpisRules.has(w.id)) out.push(`rules.yaml#${w.id}\n${JSON.stringify(wpisRules.get(w.id))}`);
+  if (z.wpisRules.has(w.id)) out.push(`rules.yaml#${w.id}\n${JSON.stringify(z.wpisRules.get(w.id))}`);
   if (w.id.startsWith('n:') && w.id.slice(2) in nums) out.push(`numbers.yaml#${w.id}\n${JSON.stringify(nums[w.id.slice(2)])}`);
   if (w.id.startsWith('t:') && w.id.slice(2) in terms) out.push(`terms.yaml#${w.id}\n${JSON.stringify(terms[w.id.slice(2)])}`);
   // indeks wpisu w pliku: kolejność decyduje, który numer ekran pokazuje pierwszy (przegląd D-043, E3)
-  pomoc.forEach((e, i) => { if (e.claim === w.id) out.push(`helplines.yaml#${i}#${e.id}\n${JSON.stringify(e)}`); });
-  for (const e of pomocFallback) if (e.claim === w.id) out.push(`helplines.yaml#fallback\n${JSON.stringify({ pointer: pomocPlik.pointer, fallback: pomocPlik.fallback })}`);
+  z.pomocJ.forEach((e, i) => { if (e.claim === w.id) out.push(`helplines.yaml#${i}#${e.id}\n${JSON.stringify(e)}`); });
+  if (z.ramka.fallback?.claim === w.id) out.push(`helplines.yaml#fallback\n${JSON.stringify(z.ramka)}`);
   const wzor = w.id.startsWith('n:') ? new RegExp(`\\{\\{n:${esc(w.id.slice(2))}\\}\\}`) : w.id.startsWith('t:') ? null : new RegExp(`(?<![\\w-])${esc(w.id)}(?![\\w-])`);
-  if (wzor) for (const [p, t] of tekst) if (wzor.test(t)) out.push(`${p}\n${t}`);
-  for (const p of w.uzyte_w ?? []) {
-    if (p === 'helplines.yaml#ramka') { const h = YAML.parse(readFileSync('content/helplines.yaml', 'utf8')); out.push(`${p}\n${JSON.stringify({ pointer: h.pointer, fallback: h.fallback })}`); }
+  if (wzor) for (const [p, t] of z.tekst) if (wzor.test(t)) out.push(`${p}\n${t}`);
+  for (const p0 of w.uzyte_w ?? []) {
+    const p = z.sciezka(p0);
+    if (p0 === 'helplines.yaml#ramka') out.push(`${p0}\n${JSON.stringify(z.ramka)}`);
     else if (existsSync(p) && statSync(p).isFile()) out.push(`${p}\n${readFileSync(p, 'utf8')}`);
     else bledy.push(`rejestr ${w.id}: pole uzyte_w wskazuje nieistniejący plik albo katalog ${p}`);
   }
   return out;
 };
+const krytyczne = rejestr.filter((x) => x.krytyczne && x.status === 'potwierdzone');
 const skroty = [];
-for (const w of rejestr.filter((x) => x.krytyczne && x.status === 'potwierdzone')) {
-  const j = jednostki(w);
+const zPl = zrodlaJezyka('pl');
+for (const w of krytyczne) {
+  const j = jednostki(w, zPl);
   if (!j.length) bledy.push(`rejestr ${w.id}: twierdzenie krytyczne bez znanego miejsca użycia (dopisz uzyte_w)`);
   const s = skrot(j);
   skroty.push(`SKRÓT ${w.id} ${s} (${j.length} jedn.)`);
   if (w.przeglad?.sha && w.przeglad.sha !== s) (opcje.przedPrzegladem ? uwagi : bledy).push(`rejestr ${w.id}: przegląd dotyczy innej wersji zdań (${w.przeglad.sha}, teraz ${s})`);
+}
+// Rola 09, K2d (D-135, D-027): treść krytyczna w języku innym niż polski trafia do bazy tylko po kontroli (a) — przekład
+// zwrotny w świeżej sesji i porównanie sensu, plus drugi przegląd — zapisanej w polu przeglad_jezyki.<język> = { kto, data,
+// sha, kontrola }. Skrót liczony jak dla pl, ze źródeł języka. Język z katalogiem content/<j>/ bez zapisu albo z zapisem
+// dla innej wersji zdań = błąd (CI czerwone), więc przekład nie wejdzie bez kontroli. Dlaczego: przekład twierdzenia to
+// nowe twierdzenie (rola 09, zasada 3).
+const JEZYKI_TRESCI = existsSync('content') ? readdirSync('content').filter((d) => d !== 'pl' && /^[a-z]{2,3}(-[A-Za-z0-9]{2,8})?$/.test(d) && statSync(`content/${d}`).isDirectory()).sort() : [];
+for (const jz of JEZYKI_TRESCI) {
+  const z = zrodlaJezyka(jz);
+  for (const w of krytyczne) {
+    const s = skrot(jednostki(w, z));
+    skroty.push(`SKRÓT ${jz} ${w.id} ${s}`);
+    const pj = w.przeglad_jezyki?.[jz];
+    if (!pj?.sha) (opcje.przedPrzegladem ? uwagi : bledy).push(`rejestr ${w.id}: treść krytyczna w ${jz} bez kontroli (a) (przeglad_jezyki.${jz}, skrót ${s})`);
+    else if (pj.sha !== s) (opcje.przedPrzegladem ? uwagi : bledy).push(`rejestr ${w.id}: kontrola (a) w ${jz} dotyczy innej wersji zdań (${pj.sha}, teraz ${s})`);
+  }
 }
 if (argv.includes('--skroty')) for (const s of skroty) console.log(s);
 const ile = (f) => rejestr.reduce((m, w) => ((m[f(w)] = (m[f(w)] ?? 0) + 1), m), {});

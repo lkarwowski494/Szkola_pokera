@@ -81,3 +81,26 @@ test('D-158: zmiana zdania ogólnego (fallback.text) unieważnia przegląd H-INT
     assert.match(uruchom(d, '--przed-przegladem').stdout, /BŁĄD pokrycie: brak wpisu H-INT-9/);
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
+
+// Rola 09, K2d: treść krytyczna w języku innym niż polski wymaga zapisu kontroli (a) dla wersji zdań tego języka.
+test('content/en bez kontroli (a) = błąd; zapis ze skrótem en = zgodne; zmiana zdania en unieważnia', () => {
+  const d = kopia();
+  try {
+    for (const p of ['lessons', 'exams', 'rules.yaml']) cpSync(join(d, 'content/pl', p), join(d, 'content/en', p), { recursive: true });
+    cpSync(join(d, 'content/helplines.yaml'), join(d, 'content/en/helplines.yaml'));
+    const r1 = uruchom(d, '--przeglad', 'zastępczy');
+    assert.match(r1.stdout, /H-INT-2: treść krytyczna w en bez kontroli \(a\)/);
+    assert.equal(r1.status, 1);
+    const sha = r1.stdout.match(/^SKRÓT en H-INT-2 ([0-9a-f]{12})/m)?.[1] ?? uruchom(d, '--przed-przegladem', '--skroty').stdout.match(/^SKRÓT en H-INT-2 ([0-9a-f]{12})/m)?.[1];
+    assert.match(sha ?? '', /^[0-9a-f]{12}$/);
+    const p = join(d, 'docs/tresci/rejestr/pomoc.json'), r = JSON.parse(readFileSync(p, 'utf8'));
+    r.find((w) => w.id === 'H-INT-2').przeglad_jezyki = { en: { kto: ZAST, data: '2026-11-09', sha, kontrola: 'a' } };
+    writeFileSync(p, JSON.stringify(r, null, 1) + '\n');
+    assert.doesNotMatch(uruchom(d, '--przeglad', 'zastępczy').stdout, /H-INT-2: (treść krytyczna w en|kontrola \(a\) w en)/);
+    const h = join(d, 'content/en/helplines.yaml');
+    writeFileSync(h, readFileSync(h, 'utf8').replace(/text: 'Jeśli rozpoznajesz/, "text: 'If you recognise"));
+    assert.match(uruchom(d, '--przeglad', 'zastępczy').stdout, /H-INT-2: kontrola \(a\) w en dotyczy innej wersji zdań/);
+  } finally {
+    rmSync(d, { recursive: true, force: true });
+  }
+});
