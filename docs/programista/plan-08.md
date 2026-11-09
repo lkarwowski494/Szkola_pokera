@@ -930,3 +930,5 @@ Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę r
 **Koszt przekładu (`--szacuj`, Opus 5.5 Batch):** en ≈ 13,27 + 7,56 (definicje) ≈ 21 USD (najgorszy przypadek ≈ 46 USD; przebiegi po ≤ 15 USD); ja + pt-BR + fr + zh-Hant ≈ 55 USD (ponad ocenę 30–40 z D-303).
 **Blokery kodu (czekają na właściciela):** klucz `ANTHROPIC_API_KEY` i sposób uruchomienia (workflow ręczny działa tylko z gałęzi domyślnej → scalenie na main albo skrypt w sesji z kluczem w sekretach środowiska); W-04 adres e-mail/administrator, W-05 App Store ID, dane sprzedawcy JP (10-JP-02); D-308 publikacja `site/` (GitHub Pages).
 **Kroki właściciela (telefon/przeglądarka):** U-2 ochrona tła, U-5 zakupy w piaskownicy, zrzuty (zakup:plany jasny/ciemny, VoiceOver karty i siatka, ustawienia „Pełny dostęp”); T1 TR mevzuat (10–15 min, opcjonalnie).
+
+| 14:05 | właściciel → koordynator | D-341 (W): bez weta D-282–D-340; VN nie, TR po T1; przekład en teraz w sesji (klucz jako sekret środowiska, ≈ 21 USD), 4 języki po przeglądzie en; Pages tak (D-308), F-12 w 1.1 | koordynator: formularz klucza (request_credential), sesja kodu: przekład en (K3/K5) + przygotowanie Pages |
