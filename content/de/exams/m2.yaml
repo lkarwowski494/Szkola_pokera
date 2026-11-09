@@ -1,0 +1,99 @@
+# Pula egzaminacyjna M2 (outy, szanse, pot odds): te same reguły co lekcje m2.l1 i m2.l2, inne rozdania i liczby.
+module: m2
+drills:
+  - kind: choice
+    id: m2.exam.q1
+    family: m2.outs.flush
+    rules: [R-M2-001]
+    prompt: "Du hast nur eine Karo-Karte auf der Hand, aber auf dem Flop liegen drei. Wie viele Outs hast du zum {{t:flush|Flush}}?"
+    table: { hand: "Ad Tc", board: "Kd 8d 3d" }
+    options:
+      - { text: "{{n:outs.flush}}", correct: true, why: "Entscheidend ist, wie viele Karten dieser Farbe du insgesamt siehst: 1 auf der Hand und 3 auf dem {{t:board|Board}}, zusammen {{n:draw.flush.seen}}. Es bleiben {{n:cards.per-suit}} − {{n:draw.flush.seen}} = {{n:outs.flush}} Karo-Karten." }
+      - { text: "{{n:outs.oesd}}", why: "So viele Outs hat ein {{t:oesd|OESD}}. Zum {{t:flush|Flush}} fehlt dir eine der {{n:outs.flush}} übrigen Karo-Karten." }
+      - { text: "{{n:cards.per-suit}}", why: "{{n:cards.per-suit}} sind alle Karo-Karten im Deck, aber {{n:draw.flush.seen}} davon siehst du schon." }
+  - kind: choice
+    id: m2.exam.q2
+    family: m2.outs.gutshot
+    rules: [R-M2-002]
+    prompt: "Wie viele Outs hast du zur {{t:straight|Straße}}?"
+    table: { hand: "Jc 9d", board: "Ts 7h 2c" }
+    options:
+      - { text: "{{n:outs.gutshot}}", correct: true, why: "Du hast J-10-9 und 7, in der Mitte fehlt die Acht (Gutshot). Nur eine Acht bringt dir die {{t:straight|Straße}}: {{n:draw.gutshot.ranks}} Rang × {{n:cards.suits}} Farben = {{n:outs.gutshot}} Karten." }
+      - { text: "{{n:outs.oesd}}", why: "So viele wären es bei vier Karten in Folge, die an beiden Enden offen sind. Hier vervollständigt nur eine Acht die {{t:straight|Straße}}." }
+      - { text: "{{n:draw.oesd.ranks}}", why: "Nur ein Rang (die Acht) vervollständigt deine Hand, aber in vier Farben." }
+  - kind: numeric
+    id: m2.exam.n1
+    family: m2.outs.oesd
+    rules: [R-M2-002]
+    prompt: "Turn. Wie viele Outs hast du zur {{t:straight|Straße}}? Gib eine Zahl ein."
+    table: { hand: "Td 9d", board: "8c 7s 2h Ac" }
+    answer: outs.oesd
+    explanation: "Du hast 10-9-8-7, vier Karten in Folge. Jeder Bube und jede Sechs bringt dir die {{t:straight|Straße}}: {{n:draw.oesd.ranks}} Ränge × {{n:cards.suits}} Farben = {{n:outs.oesd}}."
+  - kind: choice
+    id: m2.exam.q3
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "Flop. Dein Gegner ist all-in, und du hast einen {{t:oesd|OESD}} ({{n:outs.oesd}} Outs). Wenn du {{t:call|callst}}, wie hoch ist deine Chance, bis zum River zu treffen?"
+    options:
+      - { text: "Ca. {{n:odds.oesd.flop-river}}", correct: true, why: "Dein Gegner ist all-in, also siehst du Turn und River ohne weitere {{t:bet|Bets}}. Du rechnest mit zwei Karten: Die Näherung nach der Regel ist {{n:outs.oesd}} × 4 = {{n:odds.oesd.rule-flop}}, genau sind es {{n:odds.oesd.flop-river}}." }
+      - { text: "Ca. {{n:odds.oesd.flop-turn}}", why: "So hoch ist die Chance allein auf dem Turn. Bei einem All-in siehst du auch den River." }
+      - { text: "Ca. {{n:odds.flush.flop-river}}", why: "Das ist die Chance für einen {{t:flush-draw|Flush-Draw}} mit {{n:outs.flush}} Outs. Du hast {{n:outs.oesd}}." }
+  - kind: choice
+    id: m2.exam.q4
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "Flop. Du hast einen {{t:oesd|OESD}}, und dein Gegner {{t:bet|setzt}} einen halben {{t:pot|Pot}}. Die Stacks sind tief. Welche Trefferchance vergleichst du mit dem Preis?"
+    table: { hand: "Qh Jc", board: "Td 9s 3c" }
+    options:
+      - { text: "Ca. {{n:odds.oesd.flop-turn}}, nur auf dem Turn", correct: true, why: "Ein {{t:call|Call}} kauft eine Karte. Auf dem Turn kann dein Gegner wieder {{t:bet|setzen}}, also rechnest du mit einer Karte: Die Näherung nach der Regel ist {{n:outs.oesd}} × 2 = {{n:odds.oesd.rule-next}}, genau sind es {{n:outs.oesd}} von {{n:cards.unseen.flop}}, also {{n:odds.oesd.flop-turn}}." }
+      - { text: "Ca. {{n:odds.oesd.flop-river}}, bis zum River", why: "Die Chance bis zum River nimmst du nur, wenn du sicher beide Karten ohne weitere {{t:bet|Bets}} siehst, also bei einem All-in." }
+  - kind: numeric
+    id: m2.exam.n2
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "Turn. Du hast einen Gutshot ({{n:outs.gutshot}} Outs). Wie viel Prozent Chance, auf dem River zu treffen, ergibt die 2-und-4-Regel? Gib eine Zahl ein."
+    answer: odds.gutshot.rule-turn
+    explanation: "Es bleibt eine Karte, also multiplizierst du mit 2: {{n:outs.gutshot}} × 2 = {{n:odds.gutshot.rule-turn}} (Näherung). Genau: {{n:outs.gutshot}} von {{n:cards.unseen.turn}}, also {{n:odds.gutshot.turn-river}}."
+  - kind: choice
+    id: m2.exam.q5
+    family: m2.pot-odds
+    rules: [R-M2-003]
+    prompt: "Im {{t:pot|Pot}} sind {{n:exam.m2.half.pot}}. Dein Gegner {{t:bet|setzt}} {{n:exam.m2.half.bet}}. Wie viel Equity brauchst du für einen {{t:call|Call}}?"
+    options:
+      - { text: "{{n:exam.m2.half.eq}}", correct: true, why: "Du zahlst {{n:exam.m2.half.bet}}, und der {{t:pot|Pot}} enthält nach deinem {{t:call|Call}} {{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}. {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}. Das ist eine {{t:bet|Bet}} von einem halben {{t:pot|Pot}}, also ist das Ergebnis bei jeder Größe des {{t:pot|Pots}} gleich." }
+      - { text: "{{n:exam.m2.half.wrong}}", why: "Das ist {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}, ohne deinen {{t:call|Call}}. Den Betrag, den du zahlst, teilst du durch den gesamten {{t:pot|Pot}} nach dem {{t:call|Call}}: {{n:exam.m2.half.total}}." }
+      - { text: "{{n:exam.m2.half.wrong-pot}}", why: "Das ist {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.pot}}: die {{t:bet|Bet}} geteilt durch den {{t:pot|Pot}} vor der {{t:bet|Bet}}. Im Nenner muss der gesamte {{t:pot|Pot}} nach deinem {{t:call|Call}} stehen." }
+  - kind: numeric
+    id: m2.exam.n3
+    family: m2.pot-odds
+    rules: [R-M2-004]
+    prompt: "Im {{t:pot|Pot}} sind {{n:exam.m2.pot.pot}}. Dein Gegner {{t:bet|setzt}} {{n:exam.m2.pot.bet}}. Wie viel Prozent Equity brauchst du für einen {{t:call|Call}}? Gib eine Zahl ein."
+    answer: exam.m2.pot.eq
+    explanation: "Eine {{t:bet|Bet}} in Höhe des {{t:pot|Pots}}. Du zahlst {{n:exam.m2.pot.bet}} in einen {{t:pot|Pot}}, der nach deinem {{t:call|Call}} {{n:exam.m2.pot.pot}} + {{n:exam.m2.pot.bet}} + {{n:exam.m2.pot.bet}} = {{n:exam.m2.pot.total}} enthält. {{n:exam.m2.pot.bet}} ÷ {{n:exam.m2.pot.total}} = {{n:exam.m2.pot.eq}}, also ein Drittel."
+  - kind: choice
+    id: m2.exam.q6
+    family: m2.draw-call
+    rules: [R-M2-004, R-M2-005]
+    prompt: "Flop. Du hast einen {{t:flush-draw|Flush-Draw}}, die Stacks sind tief, und dein Gegner {{t:bet|setzt}} den ganzen {{t:pot|Pot}}. Rechne nur mit Preis und Trefferchance (ohne Implied Odds). Was tust du?"
+    table: { hand: "Js 6s", board: "Qs 4s 9d" }
+    options:
+      - { text: "Ich {{t:fold|folde}}", correct: true, why: "Du brauchst {{n:eq.bet-pot}}. Ein {{t:call|Call}} kauft nur den Turn, und dort triffst du mit einer Chance von ca. {{n:odds.flush.flop-turn}}. Das ist klar zu wenig." }
+      - { text: "Ich {{t:call|calle}}, weil ich bis zum River ca. {{n:odds.flush.flop-river}} habe", why: "Die Chance bis zum River hast du nur, wenn du beide Karten ohne weitere {{t:bet|Bets}} siehst. Bei tiefen Stacks kann dein Gegner auf dem Turn wieder {{t:bet|setzen}}, also kaufst du für diesen Preis eine Karte: ca. {{n:odds.flush.flop-turn}}." }
+  - kind: choice
+    id: m2.exam.q7
+    family: m2.draw-call
+    rules: [R-M2-005]
+    prompt: "Turn. Du hast einen {{t:oesd|OESD}}. Im {{t:pot|Pot}} sind {{n:exam.m2.third.pot}}, dein Gegner {{t:bet|setzt}} {{n:exam.m2.third.bet}}. Rechne nur mit Preis und Trefferchance. Was tust du?"
+    table: { hand: "9h 8h", board: "Tc 7d 2s Kd" }
+    options:
+      - { text: "Ich {{t:fold|folde}}", correct: true, why: "Du brauchst {{n:exam.m2.third.bet}} ÷ {{n:exam.m2.third.total}} = {{n:exam.m2.third.eq}}. Zur {{t:straight|Straße}} hast du {{n:outs.oesd}} Outs, also {{n:outs.oesd}} von {{n:cards.unseen.turn}}: ca. {{n:odds.oesd.turn-river}}. Selbst eine kleine {{t:bet|Bet}} ist hier zu teuer." }
+      - { text: "Ich {{t:call|calle}}, weil die {{t:bet|Bet}} klein ist", why: "Eine kleine {{t:bet|Bet}} ist nicht dasselbe wie ein guter Preis. Du brauchst {{n:exam.m2.third.eq}} und hast ca. {{n:odds.oesd.turn-river}}." }
+  - kind: choice
+    id: m2.exam.q8
+    family: m2.draw-call
+    rules: [R-M2-003, R-M2-002]
+    prompt: "Flop. Dein Gegner geht für einen halben {{t:pot|Pot}} all-in, und du hast einen {{t:flush-draw|Flush-Draw}}. Nimm an, dass du nur gewinnst, wenn du den {{t:flush|Flush}} triffst. Was tust du?"
+    table: { hand: "Kc Tc", board: "8c 3c Jd" }
+    options:
+      - { text: "Ich {{t:call|calle}}", correct: true, why: "Du brauchst {{n:eq.bet-half}}. Dein Gegner ist all-in, also siehst du Turn und River ohne weitere {{t:bet|Bets}}: {{n:outs.flush}} Outs ergeben ca. {{n:odds.flush.flop-river}}. Das ist mehr, als du brauchst." }
+      - { text: "Ich {{t:fold|folde}}, weil ich auf dem Turn nur ca. {{n:odds.flush.flop-turn}} habe", why: "Mit der Chance für eine Karte rechnest du, wenn dein Gegner noch {{t:bet|setzen}} kann. Bei einem All-in siehst du beide Karten, also rechnest du bis zum River: ca. {{n:odds.flush.flop-river}}." }

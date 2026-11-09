@@ -20,6 +20,8 @@ const ROOT = new URL('../../../', import.meta.url).pathname;
 const args = process.argv.slice(2);
 const ZAPISZ = args.includes('--zapisz');
 const raportPlik = args.includes('--raport') ? args[args.indexOf('--raport') + 1] : null;
+// --jezyki de,es — tylko wskazane języki (sesja AK, D-393); bez flagi: wszystkie z REGULY.
+const JEZYKI = args.includes('--jezyki') ? args[args.indexOf('--jezyki') + 1].split(',') : null;
 
 const tag = (klucz, stara, nowa) => ({
   opis: `{{t:${klucz}|${stara}}} → ${nowa}`,
@@ -45,6 +47,19 @@ const PT_DE = {
   este: 'deste', esta: 'desta', estes: 'destes', estas: 'destas', isso: 'disso', isto: 'disto',
   um: 'de um', uma: 'de uma', uns: 'de uns', umas: 'de umas', sua: 'de sua', seu: 'de seu', suas: 'de suas', seus: 'de seus',
 };
+// Dokładny ciąg (kontekst rodzajnika przy znaczniku bez formy; D2-terminy.md konflikty 1–3).
+const lit = (stare, nowe) => ({
+  opis: `${stare} → ${nowe}`,
+  re: new RegExp(stare.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'),
+  zamien: () => nowe,
+});
+// Forma w znaczniku {{t:klucz|…}} przekształcana funkcją (temat czasownika/przymiotnika).
+const wForme = (klucz, reForma, fn, opis) => ({
+  opis,
+  re: new RegExp(`(?<!(?:\\b(?:el|un|los|del|al|este|ese|tu|su|cada|sus|tus|unos|estos|esos|primer|ningún) ))\\{\\{t:${klucz}\\|(${reForma})\\}\\}`, 'g'),
+  zamien: (m, forma) => `{{t:${klucz}|${fn(forma)}}}`,
+});
+const wielkaJak = (wzor, s) => (wzor[0] === wzor[0].toUpperCase() ? s[0].toUpperCase() + s.slice(1) : s);
 const wielka = (wzor, s) => (wzor[0] === wzor[0].toUpperCase() ? s[0].toUpperCase() + s.slice(1) : s);
 const ptFold = {
   opis: 'pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem)',
@@ -83,6 +98,32 @@ const REGULY = {
     tag('maniac', '瘋狂玩家', '瘋子'),
   ],
   ja: [],
+  // de (sesja AK, D-393): D2-terminy.md konflikty 1–3 (bet i SPR żeńskie, „hohe zwei Paare”), D1 „pushen”, m8-l3 zgubiony znacznik.
+  de: [
+    lit('planst du einen {{t:bet}}', 'planst du eine {{t:bet}}'),
+    lit('ein kleiner {{t:bet}}', 'eine kleine {{t:bet}}'), lit('Ein kleiner {{t:bet}}', 'Eine kleine {{t:bet}}'),
+    lit('und ein {{t:bet}} von', 'und eine {{t:bet}} von'), lit('den ersten {{t:bet}}', 'die erste {{t:bet}}'),
+    lit('Wie heißt dieser {{t:bet}}', 'Wie heißt diese {{t:bet}}'), lit('ist ein {{t:bet}}', 'ist eine {{t:bet}}'),
+    lit('mit einem {{t:bet}}', 'mit einer {{t:bet}}'),
+    lit('mit dem {{t:spr}}', 'mit der {{t:spr}}'), lit('Zonen des {{t:spr}}', 'Zonen der {{t:spr}}'),
+    lit('ist das {{t:spr}} zu hoch', 'ist die {{t:spr}} zu hoch'), lit('Bei welchem {{t:spr}}', 'Bei welcher {{t:spr}}'),
+    lit('einem {{t:spr|SPR}}', 'einer {{t:spr|SPR}}'), lit('des {{t:spr|SPR}}', 'der {{t:spr|SPR}}'),
+    lit('bei einem einzigen {{t:spr}}', 'bei einer einzigen {{t:spr}}'), lit('ein hoher {{t:spr|SPR}}', 'eine hohe {{t:spr|SPR}}'),
+    lit('hohes {{t:two-pair}}', 'hohe {{t:two-pair|zwei Paare}}'),
+    slowo('shoven', 'pushen'), slowo('shovst', 'pushst'), slowo('shovt', 'pusht'), slowo('Shover', 'Pusher'),
+    lit('Der Big Blind checkt am River', 'Der {{t:big-blind|Big Blind}} checkt am River'),
+  ],
+  // es (sesja AK, D-393): call „igualar” (E3/E1, forma UI), czasowniki w znaczniku; rzeczowniki po rodzajniku bez zmian.
+  // wet „húmedo”, paired „emparejado” (terms-nazwy-es), top pair „pareja mayor” (D-389).
+  es: [
+    // „pago/pagos” małą literą = rzeczownik („un pago”, „más pagos”) — bez zmiany; „Pago” = czasownik (opcja odpowiedzi).
+    wForme('call', 'Pago|[Pp]ag(?!os?\\}\\})[a-záéíóú]*', (f) => wielkaJak(f, f.toLowerCase().replace(/^pagu(?=[eé])/, 'igual').replace(/^pag/, 'igual')), 'es call pag… → igual… (czasownik)'),
+    wForme('wet', '[Mm]ojad[oa]s?', (f) => wielkaJak(f, f.toLowerCase().replace(/^mojad/, 'húmed')), 'es wet mojado → húmedo'),
+    wForme('paired', '[Dd]oblad[oa]s?', (f) => wielkaJak(f, f.toLowerCase().replace(/^doblad/, 'emparejad')), 'es paired doblado → emparejado'),
+    lit('Siempre {{t:call|pago}}', 'Siempre {{t:call|igualo}}'),
+    tag('top-pair', 'pareja máxima', 'pareja mayor'), tag('top-pair', 'Pareja máxima', 'Pareja mayor'),
+    tag('top-pair', 'parejas máximas', 'parejas mayores'), tag('top-pair', 'Parejas máximas', 'Parejas mayores'),
+  ],
 };
 const EQUITY_WIERSZ = { 'zh-Hant': '權益', ja: 'エクイティ' };
 
@@ -102,7 +143,7 @@ function krytyczne(rel, linie, nr) {
 }
 
 const raport = []; const m12 = []; const pozostale = []; let suma = 0;
-for (const jezyk of Object.keys(REGULY)) {
+for (const jezyk of Object.keys(REGULY).filter((j) => !JEZYKI || JEZYKI.includes(j))) {
   for (const rel of pliki(jezyk)) {
     const sciezka = join(ROOT, 'content', jezyk, rel);
     const linie = readFileSync(sciezka, 'utf8').split('\n');

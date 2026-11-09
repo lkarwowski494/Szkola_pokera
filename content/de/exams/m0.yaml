@@ -1,0 +1,92 @@
+# Pula egzaminacyjna M0 (układy kart): te same reguły co lekcja m0.l1, inne rozdania i sformułowania.
+module: m0
+drills:
+  - kind: choice
+    id: m0.exam.q1
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "Dein Gegner hat einen {{t:three-of-a-kind|Drilling}} Asse, du eine {{t:straight|Straße}} bis zum Buben. Wer gewinnt?"
+    table: { hand: "Th 9h", opp: "Ac Ad", board: "As 8c 7d Jh 2s" }
+    options:
+      - { text: "Du", correct: true, why: "Deine fünf Karten sind J-10-9-8-7, also eine {{t:straight|Straße}}. Eine {{t:straight|Straße}} steht in der Rangfolge über einem {{t:three-of-a-kind|Drilling}}, deshalb spielt die Höhe der Karten deines Gegners keine Rolle." }
+      - { text: "Dein Gegner, weil er Asse hat", why: "Asse zählen erst bei gleicher Hand. Hier sind die Hände verschieden: Eine {{t:straight|Straße}} schlägt einen {{t:three-of-a-kind|Drilling}}." }
+      - { text: "{{t:split-pot|Split Pot}}", why: "Verschiedene Hände gehen nicht unentschieden aus. Es gewinnt die in der Rangfolge höhere." }
+  - kind: choice
+    id: m0.exam.q2
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "Du hast einen {{t:four-of-a-kind|Vierling}} Neunen, dein Gegner ein {{t:full-house|Full House}} mit Königen. Wer gewinnt?"
+    table: { hand: "9c 9d", opp: "Kh 2c", board: "9h 9s Kd Kc 3h" }
+    options:
+      - { text: "Du", correct: true, why: "Ein {{t:four-of-a-kind|Vierling}} steht in der Rangfolge auf Platz 3, ein {{t:full-house|Full House}} auf Platz 4. Die Könige deines Gegners helfen nicht, weil die Hände verschieden sind." }
+      - { text: "Dein Gegner, weil Könige höher sind als Neunen", why: "Die Höhe der Karten wird nur bei gleicher Hand verglichen. Ein {{t:four-of-a-kind|Vierling}} schlägt immer ein {{t:full-house|Full House}}." }
+      - { text: "{{t:split-pot|Split Pot}}, weil ihr beide das {{t:board|Board}} nutzt", why: "Ihr nutzt beide die {{t:community-cards|Gemeinschaftskarten}}, aber jeder bildet andere fünf Karten: du einen {{t:four-of-a-kind|Vierling}}, dein Gegner ein {{t:full-house|Full House}}." }
+  - kind: choice
+    id: m0.exam.q3
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "Dein Gegner hat ein {{t:pair|Paar}} Asse, und du hast {{t:two-pair|zwei Paare}}: Siebenen und Zweien. Wer gewinnt?"
+    options:
+      - { text: "Du", correct: true, why: "{{t:two-pair|Zwei Paare}} stehen in der Rangfolge über einem {{t:pair|Paar}}, auch wenn sie niedrig sind. Zuerst wird der Rang der Hand verglichen." }
+      - { text: "Dein Gegner, weil Asse am höchsten sind", why: "Ein {{t:pair|Paar}} Asse ist immer noch nur ein {{t:pair|Paar}}. Die Höhe entscheidet erst bei gleicher Hand." }
+      - { text: "Hängt vom Kicker ab", why: "Der Kicker zählt nur, wenn der Kern der Hand identisch ist. Hier sind die Hände verschieden." }
+  - kind: choice
+    id: m0.exam.q4
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Ihr habt beide {{t:two-pair|zwei Paare}}: Damen und Achten vom {{t:board|Board}}. Wer gewinnt?"
+    table: { hand: "Ah 3c", opp: "Kd 4s", board: "Qs Qd 8h 8c 2s" }
+    options:
+      - { text: "Du", correct: true, why: "Der Kern der Hand ist gleich (Damen und Achten), also entscheidet die fünfte Karte. Dein Ass schlägt den König deines Gegners." }
+      - { text: "Dein Gegner", why: "Dein Gegner hat einen König als fünfte Karte, du ein Ass. Das Ass ist höher." }
+      - { text: "{{t:split-pot|Split Pot}}", why: "Geteilt würde nur bei identischen fünf Karten. Hier sind die fünften Karten verschieden: Ass gegen König." }
+  - kind: choice
+    id: m0.exam.q5
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Ihr habt beide ein {{t:pair|Paar}} Könige und ein Ass. Deine zweite Karte (4) ist höher als die zweite Karte deines Gegners (3). Wer gewinnt?"
+    table: { hand: "Ac 4d", opp: "As 3h", board: "Kh Kd Qc Js 9h" }
+    options:
+      - { text: "{{t:split-pot|Split Pot}}", correct: true, why: "Die besten fünf Karten beider Spieler sind K-K-A-Q-J. Die 4 und die 3 passen nicht in diese fünf Karten, also ändern sie nichts." }
+      - { text: "Du, weil 4 höher ist als 3", why: "Ein Kicker zählt nur, wenn er zu den besten 5 Karten gehört. Hier kommen Dame und Bube vom {{t:board|Board}}, also ist die Vier die sechste Karte." }
+      - { text: "Dein Gegner", why: "Dein Gegner hat dieselben fünf Karten wie du: K-K-A-Q-J." }
+  - kind: choice
+    id: m0.exam.q6
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Ihr habt beide eine {{t:straight|Straße}}. Wer gewinnt?"
+    table: { hand: "Ah 2c", opp: "6d 7s", board: "3s 4d 5h Kc 9d" }
+    options:
+      - { text: "Dein Gegner", correct: true, why: "Deine {{t:straight|Straße}} ist A-2-3-4-5, also das {{t:wheel|Wheel}}, die niedrigste {{t:straight|Straße}}: Das Ass zählt hier als Eins. Dein Gegner hat 3-4-5-6-7, also ist seine {{t:straight|Straße}} höher." }
+      - { text: "Du, weil du ein Ass hast", why: "In einer {{t:straight|Straße}} vom Ass bis zur Fünf ist das Ass die niedrigste Karte. Bei gleicher Hand gewinnt die höhere {{t:straight|Straße}}: 7 schlägt 5." }
+      - { text: "{{t:split-pot|Split Pot}}", why: "Ihr habt beide eine {{t:straight|Straße}}, aber unterschiedlich hoch. Geteilt würde nur bei identischen fünf Karten." }
+  - kind: choice
+    id: m0.exam.q7
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Ihr habt beide einen {{t:flush|Flush}} in Herz mit einem Ass auf dem {{t:board|Board}}. Wer gewinnt?"
+    table: { hand: "Kh 4h", opp: "Qh Jh", board: "Ah 9h 3h 7c 2d" }
+    options:
+      - { text: "Du", correct: true, why: "{{t:flush|Flushes}} werden ab der höchsten Karte verglichen. Das Ass ist gemeinsam, und bei der zweiten Karte steht dein König gegen die Dame deines Gegners." }
+      - { text: "Dein Gegner, weil er zwei hohe Karten hat", why: "Es zählt der Reihe nach die höchste Karte, die sich unterscheidet. Dein König schlägt die Dame, also spielen die weiteren Karten keine Rolle." }
+      - { text: "{{t:split-pot|Split Pot}}", why: "Die fünf Karten sind verschieden: A-K-9-4-3 und A-Q-J-9-3." }
+  - kind: choice
+    id: m0.exam.q8
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "Auf dem {{t:board|Board}} liegt ein {{t:full-house|Full House}}: drei Asse und zwei Könige. Du hast ein {{t:pair|Paar}} Damen. Wer gewinnt?"
+    table: { hand: "Qc Qd", opp: "7s 2c", board: "Ah Ad Ac Ks Kh" }
+    options:
+      - { text: "{{t:split-pot|Split Pot}}", correct: true, why: "Die besten fünf Karten beider Spieler sind A-A-A-K-K vom {{t:board|Board}}. Deine Damen ergäben ein schwächeres {{t:full-house|Full House}} (Asse mit Damen), also gehören sie nicht zu den fünf Karten." }
+      - { text: "Du, weil du ein {{t:pair|Paar}} Damen hast", why: "Asse mit Damen sind schwächer als Asse mit Königen, die auf dem {{t:board|Board}} liegen. Du spielst also das {{t:board|Board}}, genau wie dein Gegner." }
+      - { text: "Dein Gegner", why: "Auch dein Gegner spielt die fünf Karten vom {{t:board|Board}}. Seine Karten fügen nichts hinzu, genau wie deine." }
+  - kind: choice
+    id: m0.exam.q9
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "Auf dem {{t:board|Board}} liegt eine {{t:straight|Straße}} von der Neun bis zum König. Wer gewinnt?"
+    table: { hand: "Ac 2d", opp: "3c 3d", board: "Ts Jd Qc Kh 9s" }
+    options:
+      - { text: "Du", correct: true, why: "Dein Ass verlängert die {{t:straight|Straße}} zu A-K-Q-J-10. Dein Gegner spielt die fünf Karten vom {{t:board|Board}} (K-Q-J-10-9), und deine sind höher." }
+      - { text: "{{t:split-pot|Split Pot}}", why: "Geteilt wird nur, wenn die besten fünf Karten beider Spieler auf dem {{t:board|Board}} liegen. Du hast dank deines Asses die besseren fünf Karten." }
+      - { text: "Dein Gegner, weil er ein {{t:pair|Paar}} hat", why: "Ein {{t:pair|Paar}} Dreien ist schwächer als die {{t:straight|Straße}} auf dem {{t:board|Board}}, also spielt dein Gegner das {{t:board|Board}}." }

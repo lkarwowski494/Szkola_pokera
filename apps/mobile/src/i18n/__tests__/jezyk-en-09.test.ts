@@ -6,7 +6,7 @@ describe('wydanie en', () => {
     expect(jezykDlaUstawienia('auto', ['en-US'])).toBe('en');
     expect(jezykDlaUstawienia('auto', ['en-GB', 'pl-PL'])).toBe('en');
     expect(jezykDlaUstawienia('auto', ['pl-PL'])).toBe('pl');
-    expect(jezykDlaUstawienia('auto', ['de-DE'])).toBe('en');
+    expect(jezykDlaUstawienia('auto', ['ru-RU'])).toBe('en');
   });
   it('ustawienie ręczne wygrywa z telefonem', () => {
     expect(jezykDlaUstawienia('en', ['pl-PL'])).toBe('en');

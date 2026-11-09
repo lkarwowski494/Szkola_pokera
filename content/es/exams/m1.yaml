@@ -1,0 +1,75 @@
+# Pula egzaminacyjna M1 (przebieg rozdania): te same reguły co lekcja m1.l1, inne sytuacje i sformułowania.
+module: m1
+drills:
+  - kind: choice
+    id: m1.exam.q1
+    family: m1.actions
+    rules: [R-M1-001]
+    prompt: "En el flop, tu rival {{t:bet|apostó}} y tú {{t:call|igualaste}}. En el turn, hablas primero. ¿Qué puedes hacer?"
+    options:
+      - { text: "{{t:check|Pasar}} o {{t:bet|apostar}}", correct: true, why: "El turn es una nueva {{t:betting-round|ronda de apuestas}}. Nadie ha puesto nada todavía en ella, así que tienes las mismas dos opciones que al principio de cada ronda." }
+      - { text: "Solo {{t:call|igualar}} o {{t:fold|retirarse}}", why: "La {{t:bet|apuesta}} del flop ya se ha igualado. En el turn no hay nada que {{t:call|igualar}}." }
+      - { text: "{{t:raise|Subir}} la {{t:bet|apuesta}} del flop", why: "Solo puedes {{t:raise|subir}} una {{t:bet|apuesta}} de la ronda en curso. La del flop está cerrada." }
+  - kind: choice
+    id: m1.exam.q2
+    family: m1.actions
+    rules: [R-M1-001]
+    prompt: "Un rival que habla antes que tú ha {{t:bet|apostado}}. ¿Qué jugada no puedes hacer ahora?"
+    options:
+      - { text: "{{t:check|Pasar}}", correct: true, why: "Solo puedes {{t:check|pasar}} si en esta ronda nadie antes que tú ha {{t:bet|apostado}} ni {{t:raise|subido}}. Ahora tienes que {{t:fold|retirarte}}, {{t:call|igualar}} o {{t:raise|subir}}." }
+      - { text: "{{t:raise|Subir}}", why: "La {{t:raise|subida}} es posible precisamente porque hay una {{t:bet|apuesta}} que subir." }
+      - { text: "{{t:fold|Retirarse}}", why: "{{t:fold|Retirarse}} siempre es una opción cuando hay que poner más." }
+  - kind: choice
+    id: m1.exam.q3
+    family: m1.actions
+    rules: [R-M1-002]
+    prompt: "River. Tu rival ha {{t:check|pasado}} y tu mano casi seguro va perdiendo. ¿Qué haces?"
+    options:
+      - { text: "{{t:check|Paso}}", correct: true, why: "{{t:check|Pasar}} no cuesta nada, y puede que tu rival tampoco haya ligado. {{t:fold|Retirarte}} sería regalar el {{t:pot|bote}} sin pelear." }
+      - { text: "{{t:fold|Me retiro}}", why: "Si puedes {{t:check|pasar}} gratis, {{t:fold|retirarte}} solo te quita la opción de ganar el {{t:pot|bote}}. No ganas nada." }
+      - { text: "{{t:call|Igualo}}", why: "Tu rival no ha {{t:bet|apostado}} nada, así que no hay nada que {{t:call|igualar}}." }
+  - kind: choice
+    id: m1.exam.q4
+    family: m1.actions
+    rules: [R-M1-003]
+    prompt: "Has {{t:bet|apostado}} en el flop y tu rival ha {{t:raise|subido}}. No quieres seguir jugando. ¿Qué haces?"
+    options:
+      - { text: "{{t:fold|Me retiro}}", correct: true, why: "Hay una {{t:raise|subida}} que igualar y no quieres pagar. Solo pierdes lo que ya has puesto." }
+      - { text: "{{t:check|Paso}}", why: "Tras la {{t:raise|subida}} del rival no puedes {{t:check|pasar}}: tienes que poner más o {{t:fold|retirarte}}." }
+      - { text: "{{t:call|Igualo}} para ver el turn", why: "Si no quieres seguir jugando, todo lo que pongas de más es una pérdida añadida." }
+  - kind: choice
+    id: m1.exam.q5
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "¿Cuántas {{t:community-cards|cartas comunitarias}} hay en la {{t:board|mesa}} durante las apuestas del turn?"
+    options:
+      - { text: "4", correct: true, why: "El flop puso tres cartas y el turn añade la cuarta. La quinta no sale hasta el river." }
+      - { text: "3", why: "En el flop hay tres cartas. El turn añade una." }
+      - { text: "5", why: "No hay cinco cartas hasta el river." }
+  - kind: choice
+    id: m1.exam.q6
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "Tras las apuestas del river, quedáis en juego tú y un rival. ¿Qué pasa ahora?"
+    options:
+      - { text: "Mostráis las cartas (showdown)", correct: true, why: "El river es la última {{t:betting-round|ronda de apuestas}}. Si quedan al menos dos jugadores, muestran sus cartas y la mejor mano gana el {{t:pot|bote}}." }
+      - { text: "Sale una carta más", why: "En la {{t:board|mesa}} hay como máximo cinco cartas. Después del river no hay más." }
+      - { text: "El {{t:pot|bote}} siempre se reparte a partes iguales", why: "Solo se reparte cuando las manos empatan. Normalmente gana la mejor mano." }
+  - kind: choice
+    id: m1.exam.q7
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "{{t:bet|Apuestas}} en el flop y todos los demás {{t:fold|se retiran}}. ¿Qué pasa?"
+    options:
+      - { text: "Ganas el {{t:pot|bote}} sin enseñar tus cartas", correct: true, why: "Solo hay showdown si quedan al menos dos jugadores después del river. Si te quedas solo, la mano termina." }
+      - { text: "Salen el turn y el river, y luego enseñas tus cartas", why: "No queda nadie contra quien jugar, así que no salen más cartas." }
+      - { text: "Tienes que enseñar tus cartas para llevarte el {{t:pot|bote}}", why: "Las cartas se enseñan en el showdown, y aquí no se ha llegado a él." }
+  - kind: choice
+    id: m1.exam.q8
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "La mano llegó al showdown. ¿Cuántas {{t:betting-round|rondas de apuestas}} hubo, contando el preflop?"
+    options:
+      - { text: "4", correct: true, why: "Preflop, flop, turn y river. El showdown llega después de la última ronda, la del river." }
+      - { text: "3", why: "Flop, turn y river son tres rondas, pero antes está el preflop." }
+      - { text: "5", why: "Hay cinco {{t:community-cards|cartas comunitarias}}, pero cuatro {{t:betting-round|rondas de apuestas}}: el flop saca tres cartas a la vez." }

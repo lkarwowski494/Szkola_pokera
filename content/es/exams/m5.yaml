@@ -1,0 +1,100 @@
+# Pula pytań egzaminacyjnych modułu M5 (te same reguły co lekcje, inne sytuacje). Klasyfikacja tekstury i decyzja
+# c-betu BTN vs BB trafiają na egzamin z generatorów lekcji (texture, cbet), więc tu ich nie powtarzamy.
+module: m5
+drills:
+  - kind: choice
+    id: m5.exam.q1
+    family: m5.advantage.who
+    rules: [R-M5-003]
+    prompt: "{{t:open|Abriste}} desde el {{t:cutoff|CO}}, el Button y la {{t:small-blind|ciega pequeña}} {{t:fold|se retiraron}} y la {{t:big-blind|ciega grande}} {{t:call|igualó}}. Flop: [[Ac Jd 5h]]. ¿Quién tiene la {{t:range-advantage|ventaja de rango}}?"
+    table: { position: CO, board: "Ac Jd 5h" }
+    options:
+      - { text: "Tú, que {{t:open|abriste}}", correct: true, why: "Sí: en un flop con as tienes en tu {{t:range|rango}} todos los AA, AK y AJ. La {{t:big-blind|ciega grande}} suele {{t:raise|subir}} los ases más fuertes antes del flop (3-bet), así que tras un simple {{t:call|pago}} tiene pocos." }
+      - { text: "La {{t:big-blind|ciega grande}}, porque defiende muchos ases", why: "Defiende muchos ases, pero débiles (p. ej., A5, A8). Los ases más fuertes los juega con 3-bet, así que de media sus manos aquí son más débiles que las tuyas." }
+      - { text: "Nadie: el as conecta igual con ambos {{t:range|rangos}}", why: "Un as en la {{t:board|mesa}} afecta a ambos {{t:range|rangos}}, pero no por igual: en el tuyo hay más ases fuertes, porque la {{t:big-blind|ciega grande}} {{t:raise|subió}} los mejores antes del flop." }
+  - kind: choice
+    id: m5.exam.q2
+    family: m5.advantage.who
+    rules: [R-M5-004]
+    prompt: "{{t:open|Abriste}} desde el Button y la {{t:big-blind|ciega grande}} {{t:call|igualó}}. ¿En cuál de estos flops es la {{t:big-blind|ciega grande}} la que, con más frecuencia que tú, tiene {{t:two-pair|doble pareja}} o {{t:straight|escalera}}?"
+    table: { position: BTN }
+    options:
+      - { text: "[[8h 6d 5c]]", correct: true, why: "Sí: un flop bajo y {{t:connected|conectado}} le va bien a los {{t:connectors|conectores}} y a las manos con cartas pequeñas, que la {{t:big-blind|ciega grande}} defiende mucho. Tú, desde el Button, tienes más cartas altas, que aquí han fallado. Es una {{t:nuts-advantage|ventaja de nuts}} de la {{t:big-blind|ciega grande}}." }
+      - { text: "[[Kd Td 3s]]", why: "No: un flop alto favorece a quien {{t:open|abre}}. Tienes más reyes con buen kicker, KT y {{t:pair|parejas}} altas." }
+      - { text: "[[Ah Ad 7c]]", why: "No: en un flop con {{t:pair|pareja}} de ases, más ases tienes tú, porque la {{t:big-blind|ciega grande}} {{t:raise|sube}} los ases más fuertes antes del flop. Aquí nadie tiene {{t:straight|escalera}}." }
+  - kind: choice
+    id: m5.exam.q3
+    family: m5.advantage.why
+    rules: [R-M5-005]
+    prompt: "En el flop valoras dos ventajas: la {{t:range-advantage|ventaja de rango}} y la {{t:nuts-advantage|ventaja de nuts}}. ¿Cuál de ellas te indica cuánto apostar?"
+    options:
+      - { text: "{{t:nuts-advantage|Ventaja de nuts}}", correct: true, why: "Sí: cuando tienes muchas más manos de las más fuertes que tu rival, rara vez te toparás con una mano mejor, así que puedes apostar con un tamaño mayor. La {{t:range-advantage|ventaja de rango}} indica con qué frecuencia apostar." }
+      - { text: "{{t:range-advantage|Ventaja de rango}}", why: "No: la {{t:range-advantage|ventaja de rango}} indica que puedes apostar a menudo. Sin {{t:nuts-advantage|ventaja de nuts}} apuestas poco, porque una {{t:bet|apuesta}} grande arriesga mucho contra las manos más fuertes del rival." }
+      - { text: "Ninguna: el tamaño depende solo de tu mano", why: "El rival no ve tu mano, solo tu {{t:range|rango}}. Eliges el tamaño para que encaje con muchas de tus manos a la vez, y eso lo deciden las ventajas." }
+  - kind: choice
+    id: m5.exam.q4
+    family: m5.math.miss
+    rules: [R-M5-006, R-M5-013]
+    prompt: "Una mano sin {{t:pair|pareja}} falla el flop en aprox. {{n:flop.miss.unpaired}} de los casos, y dos a la vez en aprox. {{n:flop.miss.two}}. ¿Con qué frecuencia fallan a la vez tres manos así (seis valores distintos)?"
+    options:
+      - { text: "Aprox. {{n:exam.m5.miss.three}}", correct: true, why: "Sí: hay {{n:exam.m5.pair.outs.three}} cartas que emparejan entre las {{n:exam.m5.unseen.three}} desconocidas (sin contar tus cartas). La probabilidad de que ninguna de las {{n:cards.board.flop}} cartas del flop esté entre ellas es de aprox. {{n:exam.m5.miss.three}}. Contra tres rivales, un {{t:bluff|farol}} rara vez pasa por todos." }
+      - { text: "Aprox. {{n:flop.miss.two}}, igual que con dos", why: "No: un tercer rival son otras {{n:pair.outs.unpaired}} cartas que pueden emparejarlo. La probabilidad de que fallen todos disminuye con cada jugador." }
+      - { text: "Aprox. {{n:flop.miss.unpaired}}, solo cuenta un rival", why: "No: para que un {{t:bluff|farol}} gane el {{t:pot|bote}}, tienen que fallar todos. Cada rival adicional reduce esa probabilidad." }
+  - kind: choice
+    id: m5.exam.q5
+    family: m5.math.alpha
+    rules: [R-M5-011]
+    prompt: "{{t:open|Abriste}} desde el Button y la {{t:big-blind|ciega grande}} {{t:call|igualó}}. En el {{t:pot|bote}} del flop hay {{n:bb.pot-after.vs-btn}}. Haces c-bet de {{n:cbet.btn.big}} con una mano sin opciones. ¿Con qué frecuencia tiene que {{t:fold|retirarse}} la {{t:big-blind|ciega grande}} para que esta {{t:bet|apuesta}} quede a cero?"
+    table: { position: BTN }
+    options:
+      - { text: "Más de {{n:alpha.cbet.big}} de las veces", correct: true, why: "Sí: {{n:cbet.btn.big}} es {{n:cbet.size.big}} del {{t:pot|bote}}, y el umbral depende solo de la relación entre la apuesta y el {{t:pot|bote}}: apuesta ÷ ({{t:pot|bote}} + apuesta) = {{n:alpha.cbet.big}}. Lo mismo que con el {{t:pot|bote}} en {{t:chips|fichas}}." }
+      - { text: "Más de {{n:alpha.cbet.small}} de las veces", why: "Es el umbral para una c-bet pequeña ({{n:cbet.size.small}} del {{t:pot|bote}}, es decir, {{n:cbet.btn.small}}). Una apuesta mayor arriesga más, así que tiene que funcionar más a menudo: {{n:alpha.cbet.big}}." }
+      - { text: "Más de {{n:flop.miss.unpaired}} de las veces", why: "Es la probabilidad de que una mano sin {{t:pair|pareja}} falle el flop, no el umbral de rentabilidad de la apuesta. El umbral es apuesta ÷ ({{t:pot|bote}} + apuesta) = {{n:alpha.cbet.big}}." }
+  - kind: choice
+    id: m5.exam.q6
+    family: m5.cbet.oop
+    rules: [R-M5-012]
+    prompt: "¿En cuál de estas situaciones, habiendo {{t:open|abierto}}, haces c-bet con menos frecuencia?"
+    options:
+      - { text: "{{t:open|Abriste}} desde el {{t:hijack|HJ}}, el Button {{t:call|igualó}} y las ciegas {{t:fold|se retiraron}}", correct: true, why: "Sí: el Button {{t:call|igualó}} con {{t:position|posición}}, así que su {{t:range|rango}} es fuerte ({{t:fold|se retiró}} con las manos débiles y {{t:raise|subió}} parte de las más fuertes), y tú, después del flop, hablas primero en cada {{t:street|calle}}." }
+      - { text: "{{t:open|Abriste}} desde el Button y la {{t:big-blind|ciega grande}} {{t:call|igualó}}", why: "Aquí tienes {{t:position|posición}}, y la {{t:big-blind|ciega grande}} defiende de forma amplia, con muchas manos débiles. Es el escenario en el que haces c-bet con más frecuencia." }
+      - { text: "{{t:open|Abriste}} desde el {{t:cutoff|CO}} y la {{t:big-blind|ciega grande}} {{t:call|igualó}}", why: "Aquí también, después del flop, hablas después de la {{t:big-blind|ciega grande}}, así que tienes {{t:position|posición}}, y su defensa amplia incluye muchas manos débiles." }
+  - kind: choice
+    id: m5.exam.q7
+    family: m5.cbet.oop
+    rules: [R-M5-012]
+    prompt: "{{t:out-of-position|Fuera de posición}} contra un jugador que {{t:call|igualó}} con {{t:position|posición}}, a menudo {{t:check|pasas}} también con manos fuertes. ¿Qué significa esto?"
+    options:
+      - { text: "No renuncias a la mano: tras {{t:check|pasar}}, {{t:call|igualarás}} su {{t:bet|apuesta}} o harás check-raise", correct: true, why: "Sí: {{t:check|pasar}} {{t:out-of-position|fuera de posición}} no supone entregar el {{t:pot|bote}}. Las manos fuertes las sigues jugando con un {{t:call|pago}} o con check-raise, y el {{t:range|rango}} de un rival que {{t:call|igualó}} con {{t:position|posición}} a menudo {{t:bet|apostará}} por sí solo." }
+      - { text: "Tras {{t:check|pasar}}, te {{t:fold|retiras}} ante cualquier {{t:bet|apuesta}}", why: "No: entonces el rival ganaría el {{t:pot|bote}} con cada {{t:bet|apuesta}}. Muchas manos que {{t:check|pasan}} {{t:call|igualarán}} la {{t:bet|apuesta}} del rival." }
+      - { text: "{{t:check|Pasas}} solo con manos sin {{t:pair|pareja}}", why: "No: {{t:out-of-position|fuera de posición}} a menudo {{t:check|pasas}} con todo tu {{t:range|rango}}, también con manos fuertes. Si solo {{t:check|pasaran}} las manos débiles, el rival lo aprovecharía fácilmente." }
+  - kind: choice
+    id: m5.exam.q8
+    family: m5.cbet.multi
+    rules: [R-M5-013]
+    prompt: "{{t:open|Abriste}} desde el {{t:hijack|HJ}} y {{t:call|igualaron}} el Button y la {{t:big-blind|ciega grande}}. Contra dos rivales, ¿con qué manos dejas de hacer c-bet en primer lugar?"
+    table: { position: HJ }
+    options:
+      - { text: "Con {{t:bluff|faroles}} sin {{t:pair|pareja}} y sin {{t:draw|proyecto}}", correct: true, why: "Sí: el {{t:bluff|farol}} tiene que pasar por los dos rivales, y dos manos sin {{t:pair|pareja}} fallan a la vez solo en aprox. {{n:flop.miss.two}} de los casos. Apuestas pocas veces, sobre todo con manos fuertes y {{t:draw|proyectos}} fuertes." }
+      - { text: "Con {{t:draw|proyectos}} fuertes", why: "No: los {{t:draw|proyectos}} fuertes están entre las manos que, contra varios rivales, todavía apuestan a veces, porque también ganan cuando ligan." }
+      - { text: "Con ninguna: haces c-bet igual que contra uno", why: "No: cada rival adicional aumenta la probabilidad de que alguien haya ligado el flop. Contra dos, haces c-bet con mucha menos frecuencia." }
+  - kind: choice
+    id: m5.exam.q9
+    family: m5.cbet.size
+    rules: [R-M5-008]
+    prompt: "{{t:open|Abriste}} desde el Button, la {{t:big-blind|ciega grande}} {{t:call|igualó}} y {{t:check|pasa}}. El flop es {{t:wet|húmedo}}. Tienes {{t:pair|pareja}} de sietes con as, sin {{t:draw|proyecto}}. ¿Qué haces?"
+    table: { hand: "As 7c", position: BTN, board: "Td 9d 7s" }
+    options:
+      - { text: "{{t:check|Paso}}", correct: true, why: "Sí: en un flop {{t:wet|húmedo}} apuestas con menos frecuencia, sobre todo con manos fuertes y {{t:draw|proyectos}} fuertes. La {{t:pair|pareja}} más baja sin {{t:draw|proyecto}} es, como mucho, una mano media: tu {{t:bet|apuesta}} la {{t:call|igualarán}} sobre todo manos mejores y {{t:draw|proyectos}} con mucha equity contra ella." }
+      - { text: "C-bet de {{n:cbet.size.big}} del {{t:pot|bote}}", why: "Un tamaño grande en un flop {{t:wet|húmedo}} es para manos fuertes y {{t:draw|proyectos}} fuertes. Con la {{t:pair|pareja}} más baja construyes un {{t:pot|bote}} grande contra manos que a menudo te ganan o tienen mucha equity." }
+      - { text: "C-bet de {{n:cbet.size.small}} del {{t:pot|bote}}", why: "En un flop {{t:wet|húmedo}}, las manos medias sin {{t:draw|proyecto}} {{t:check|pasan}} más a menudo. Una {{t:bet|apuesta}} pequeña da a los {{t:draw|proyectos}} una carta barata, y las manos más débiles rara vez pagarán de todos modos." }
+  - kind: choice
+    id: m5.exam.q10
+    family: m5.cbet.texture
+    rules: [R-M5-010]
+    prompt: "{{t:open|Abriste}} desde el Button, la {{t:big-blind|ciega grande}} {{t:call|igualó}} y {{t:check|pasa}}. El flop es {{t:monotone|monocolor}}, así que según la puntuación de la app es {{t:wet|húmedo}}. Cuando sí haces c-bet, ¿con qué tamaño?"
+    table: { position: BTN, board: "Jd 7d 2d" }
+    options:
+      - { text: "Pequeño", correct: true, why: "Sí: cualquiera de los jugadores puede tener ya {{t:flush|color}}, así que tu {{t:nuts-advantage|ventaja de nuts}} es menor. En un flop {{t:monotone|monocolor}} apuestas con menos frecuencia de lo habitual y con un tamaño pequeño, para no construir un {{t:pot|bote}} grande contra un color." }
+      - { text: "Grande, porque el flop es {{t:wet|húmedo}}", why: "«{{t:wet|Húmedo}}» no significa «apuesta grande». El tamaño mayor corresponde a los flops {{t:wet|húmedos}} que no son {{t:monotone|monocolor}}. En uno {{t:monotone|monocolor}}, un {{t:pot|bote}} grande es peligroso, porque el rival puede tener ya {{t:flush|color}} hecho." }
+      - { text: "Todo el {{t:pot|bote}}, para que los {{t:draw|proyectos}} paguen caro", why: "En un flop {{t:monotone|monocolor}}, lo más peligroso no son los {{t:draw|proyectos}}, sino los colores ya hechos del rival. Una apuesta del tamaño del {{t:pot|bote}} es precisamente contra ellos donde más arriesga." }

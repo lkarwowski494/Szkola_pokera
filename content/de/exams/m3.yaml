@@ -1,0 +1,95 @@
+# Pula egzaminacyjna M3 (pozycja, ręce startowe, zakresy otwarć): reguły lekcji m3.l1–m3.l3, inne ręce i pozycje.
+# Decyzje otwarcia zgodne ze spotami solvera aplikacji (rfi.*): ręce poza listą klas niepewnych, częstość 0 albo ≥ 0,94.
+module: m3
+drills:
+  - kind: choice
+    id: m3.exam.q1
+    family: m3.position
+    rules: [R-M3-001]
+    prompt: "Der Button hat {{t:open|eröffnet}}, der {{t:small-blind}} hat {{t:fold|gefoldet}} und der {{t:big-blind}} hat {{t:call|gecallt}}. Wer ist auf dem Flop zuerst dran?"
+    options:
+      - { text: "Der {{t:big-blind|Big Blind}}", correct: true, why: "Ab dem Flop sind die Blinds zuerst dran und der Button zuletzt. Deshalb hat der Button hier {{t:position|Position}} und der {{t:big-blind}} spielt {{t:out-of-position}}." }
+      - { text: "Der Button, weil er {{t:open|eröffnet}} hat", why: "Die Reihenfolge hängt vom Platz am Tisch ab, nicht davon, wer {{t:open|eröffnet}} hat. Ab dem Flop ist der Button immer zuletzt dran." }
+      - { text: "Wer preflop zuletzt dran war", why: "Preflop sind die Blinds zuletzt dran, ab dem Flop aber zuerst. Deshalb ist die {{t:position}} des Buttons die beste." }
+  - kind: choice
+    id: m3.exam.q2
+    family: m3.open-early
+    rules: [R-M3-002]
+    prompt: "Du bist preflop als Erster dran, noch niemand ist ins Spiel eingestiegen. Was tust du?"
+    table: { hand: "Ac Td", position: UTG }
+    options:
+      - { text: "{{t:raise|Raisen}}", correct: true, why: "AT ungleichfarbig liegt in der {{t:range|Range}} zum {{t:open|Eröffnen}} von {{t:utg}} (ca. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} Hände). Der Solver der App spielt sie hier immer." }
+      - { text: "{{t:fold|Folden}}", why: "Zu tight. Von {{t:utg}} spielst du eng, aber AT ist noch in der {{t:range|Range}}." }
+      - { text: "Den {{t:big-blind|Big Blind}} bezahlen", why: "Als Erster im Pot {{t:raise|raist}} oder {{t:fold|foldest}} du. Mit einem Limp gibst du die {{t:initiative|Initiative}} und die Chance ab, die Blinds sofort zu gewinnen." }
+  - kind: choice
+    id: m3.exam.q3
+    family: m3.rfi.early
+    rules: [R-M3-006]
+    prompt: "{{t:utg}} hat {{t:fold|gefoldet}}, du bist als Nächster dran. Was tust du?"
+    table: { hand: "Ah 9d", position: HJ }
+    options:
+      - { text: "{{t:fold|Folden}}", correct: true, why: "Hinter dir sitzen noch vier Spieler. A9 ungleichfarbig trifft oft ein Ass mit schwächerem Kicker als AT, AJ oder AQ der Gegner. Der Solver der App {{t:fold|foldet}} sie aus dem {{t:hijack|HJ}} immer." }
+      - { text: "{{t:raise|Raisen}}", why: "Das Ass lockt, aber aus dem {{t:hijack|HJ}} {{t:open|eröffnest}} du enger als aus dem {{t:cutoff|CO}} und vom Button. A9o gehört erst zur {{t:range|Range}} des {{t:cutoff|CO}}." }
+  - kind: choice
+    id: m3.exam.q4
+    family: m3.rfi.late
+    rules: [R-M3-006]
+    prompt: "Alle vor dir haben {{t:fold|gefoldet}}. Was tust du?"
+    table: { hand: "Ah 9d", position: CO }
+    options:
+      - { text: "{{t:raise|Raisen}}", correct: true, why: "Hinter dir sind nur noch der Button und die Blinds, also {{t:open|eröffnest}} du weiter als aus dem {{t:hijack|HJ}}. Der Solver der App spielt A9o hier fast immer." }
+      - { text: "{{t:fold|Folden}}", why: "So spielst du diese Hand aus dem {{t:hijack|HJ}}. Im {{t:cutoff|CO}} sitzt ein Spieler weniger hinter dir und die {{t:range}} ist weiter." }
+  - kind: choice
+    id: m3.exam.q5
+    family: m3.open-late
+    rules: [R-M3-003]
+    prompt: "Alle haben zu dir {{t:fold|gefoldet}}. Was tust du?"
+    table: { hand: "Jd 9c", position: BTN }
+    options:
+      - { text: "{{t:raise|Raisen}}", correct: true, why: "Auf dem Button {{t:open|eröffnest}} du ca. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} Hände. Es sind nur noch die Blinds übrig, und nach dem Flop hast du {{t:position|Position}}, also passt J9 ungleichfarbig hinein." }
+      - { text: "{{t:fold|Folden}}", why: "Aus dem {{t:cutoff|CO}} spielt der Solver diese Hand selten, auf dem Button aber immer. Gegen nur die Blinds ist das zu tight." }
+      - { text: "Den {{t:big-blind|Big Blind}} bezahlen", why: "Mit einem Limp gibst du die {{t:initiative|Initiative}} ab. Ein {{t:raise|Raise}} gewinnt die Blinds oft sofort." }
+  - kind: choice
+    id: m3.exam.q6
+    family: m3.rfi.sb
+    rules: [R-M3-004, R-M3-007, R-M3-009]
+    prompt: "Alle haben zu dir {{t:fold|gefoldet}}, du sitzt im {{t:small-blind|Small Blind}}. Was tust du?"
+    table: { hand: "Td 8c", position: SB }
+    options:
+      - { text: "{{t:raise|Raisen}} auf {{n:pf.open-size-sb}}", correct: true, why: "Du spielst nur noch gegen den {{t:big-blind|Big Blind}}, also {{t:open|eröffnest}} du weit, ca. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} Hände. Nach dem Flop bist du zuerst dran, deshalb {{t:raise|raist}} du aus dem {{t:small-blind|Small Blind}} etwas höher als aus anderen {{t:position|Positionen}}." }
+      - { text: "{{t:raise|Raisen}} auf {{n:pf.open-size}}", sizeError: true, why: "Richtige Aktion, falsche Größe: {{n:pf.open-size}} ist die {{t:open|Eröffnung}} aus den übrigen {{t:position|Positionen}}. Aus dem {{t:small-blind|Small Blind}} spielst du {{t:out-of-position}}, also {{t:raise|raist}} du auf {{n:pf.open-size-sb}}." }
+      - { text: "Auf den {{t:big-blind|Big Blind}} ergänzen", why: "Als Erster im Pot {{t:raise|raist}} oder {{t:fold|foldest}} du (aus dem {{t:small-blind|Small Blind}} ist das eine Vereinfachung: Manche Solver-Lösungen limpen hier einen Teil der Hände). Mit dem Ergänzen gibst du die {{t:initiative|Initiative}} und die Chance ab, die Blinds sofort zu gewinnen." }
+      - { text: "{{t:fold|Folden}}", why: "Zu tight: Gegen einen Gegner spielt der Solver der App T8o aus dem {{t:small-blind|Small Blind}} immer." }
+  - kind: numeric
+    id: m3.exam.n1
+    family: m3.open-early
+    rules: [R-M3-007]
+    prompt: "Alle vor dir haben {{t:fold|gefoldet}}, du sitzt im {{t:hijack|HJ}} und {{t:open|eröffnest}}. Auf wie viele bb {{t:raise|raist}} du? Gib eine Zahl ein."
+    table: { hand: "Kh Qh", position: HJ }
+    answer: pf.open-size
+    explanation: "Du {{t:open|eröffnest}} auf {{n:pf.open-size}} aus jeder {{t:position|Position}} außer dem {{t:small-blind|Small Blind}} (dort {{n:pf.open-size-sb}}). Eine einzige Größe ist einfach und verrät nichts über die Stärke deiner Hand. Das ist eine Vereinfachung: Aus {{t:early-position|frühen Positionen}} {{t:open|eröffnen}} Solver etwas kleiner."
+  - kind: choice
+    id: m3.exam.q7
+    family: m3.suited
+    rules: [R-M3-005]
+    prompt: "Warum spielt sich T9 gleichfarbig besser als T9 ungleichfarbig?"
+    options:
+      - { text: "Sie hat mit dem {{t:flush}} einen zusätzlichen Weg zum Gewinn", correct: true, why: "Die Ränge sind gleich, also triffst du {{t:pair|Paare}} und {{t:straight|Straights}} genauso oft. Die gleichfarbige Hand bringt zusätzlich die Chance auf einen {{t:flush|Flush}}." }
+      - { text: "Sie trifft öfter ein {{t:pair|Paar}}", why: "Die Chance auf ein {{t:pair|Paar}} hängt von den Rängen ab, und die sind gleich." }
+      - { text: "Sie trifft öfter eine {{t:straight|Straight}}", why: "{{t:straight|Straights}} hängen von den Rängen der Karten ab, nicht davon, ob die Karten gleichfarbig sind." }
+  - kind: choice
+    id: m3.exam.q8
+    family: m3.premium
+    rules: [R-M3-008]
+    prompt: "{{t:utg}} hat {{t:raise|geraist}}, der Rest hat zu dir {{t:fold|gefoldet}}. Was tust du?"
+    table: { hand: "Ks Kd", position: BTN }
+    options:
+      - { text: "Erneut {{t:raise|raisen}} (3-Bet)", correct: true, why: "KK ist eine der stärksten Hände und Favorit gegen die meisten Hände, mit denen {{t:utg}} {{t:open|eröffnet}}. Die 3-Bet baut den {{t:pot|Pot}} auf und lässt dich meist mit einem Gegner allein." }
+      - { text: "Nur {{t:call|callen}}", why: "Wird manchmal zur Täuschung gespielt, aber in der Regel verschenkst du Value und lässt die Blinds billig ins Spiel." }
+      - { text: "{{t:fold|Folden}}, weil {{t:utg}} eine starke {{t:range}} hat", why: "Die {{t:range|Range}} von {{t:utg}} ist eng, aber KK ist gegen sie immer noch klarer Favorit." }
+  - kind: paint
+    id: m3.exam.p-co
+    family: m3.paint.late
+    rules: [R-M3-006]
+    spot: rfi.co
+    prompt: "Alle vor dir haben {{t:fold|gefoldet}}, du sitzt im {{t:cutoff|CO}}. Färbe die Hände ein, mit denen du {{t:open|eröffnest}}."

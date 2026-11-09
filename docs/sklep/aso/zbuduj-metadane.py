@@ -9,9 +9,9 @@ L = collections.OrderedDict()
 
 L['ja'] = dict(
  name='PokerGym: ポーカー戦略を学ぶ',
- subtitle='判断ごとに評価と解説・賭けなし',
+ subtitle='判断ごとに評価と解説、賭けなし',
  keywords='初心者,ホールデム,レンジ,プリフロップ,トレーナー,gto,icm,オッズ,クイズ',
- promotionalText='ルールから戦略まで、ポーカーを基礎から学べます。すべての判断に評価と「なぜ」の解説つき。リアルマネーのプレイなし、アカウント不要、広告なし。',
+ promotionalText='ポーカーを基礎のルールから戦略まで学べます。すべての判断に評価と「なぜ」の解説つき。リアルマネーのプレイなし、アカウント不要、広告なし。',
  description=(
  "PokerGymは、ノーリミット・テキサスホールデムでの判断の仕方を教えるアプリです。ルールと役の強さから、各ストリートの戦略まで学べます。すべてのプレイに評価がつき、なぜ良いのか、なぜ悪いのかを解説します。これは学習用のコースであり、ゲームではありません。賭け金も、獲得できるチップも、リアルマネーのプレイもありません。\n\n"
  "コース\n"
@@ -40,7 +40,7 @@ L['ja'] = dict(
 
 L['zh-Hant'] = dict(
  name='PokerGym: 德州撲克教學',
- subtitle='每個決策都有評分與解說，不涉賭注',
+ subtitle='每個決策都有評分與解說，不涉真錢',
  keywords='撲克策略,撲克訓練,新手入門,底池賠率,錦標賽,翻牌前,翻牌後,起手牌,gto,icm',
  promotionalText='從規則到策略，一步步學會撲克。每個決策都有評分和「為什麼」的解說。沒有真錢遊戲、不需帳號、沒有廣告。',
  description=(
@@ -62,8 +62,8 @@ L['zh-Hant'] = dict(
  "你的資料\n"
  "• 離線可用，不需帳號、沒有廣告、不追蹤\n"
  "• 進度只存在你的手機：可匯出成檔案、在另一支手機匯入，或刪除進度\n\n"
- "負責任地遊戲\n"
- "• 「說明」畫面提供賭博問題的求助管道\n\n"
+ "理性遊戲\n"
+ "• 「協助」畫面提供賭博問題的求助管道\n\n"
  "使用方式\n"
  "課堂、程度測驗和每個單元考試的第一次作答永遠免費。未購買時，每天可進行一項免費活動：一次練習、一次複習或一次重考。完整存取可取消此限制：季訂閱或年訂閱（自動續訂，直到在 Apple 帳號設定中取消），或一次性買斷（終身）。"
  + stopka('使用條款', '隱私權政策'))
@@ -103,31 +103,31 @@ L['pt-BR'] = dict(
 L['fr-FR'] = dict(
  name='PokerGym: cours de poker',
  subtitle='Apprendre à décider, sans mise',
- keywords='stratégie,texas,holdem,gto,preflop,postflop,range,outs,icm,tournoi,leçons,quiz,entraîneur',
+ keywords='stratégie,texas,holdem,gto,preflop,postflop,range,outs,icm,tournoi,leçons,quiz,entraînement',
  promotionalText='Étudiez le poker, des règles à la stratégie. Chaque décision est notée et expliquée. Pas de jeu d’argent, pas de compte, pas de publicité.',
  description=(
- "PokerGym enseigne la prise de décision au No-Limit Texas Hold'em, des règles et de la hiérarchie des mains jusqu’à la stratégie sur chaque street. Chaque coup reçoit une note et une explication : pourquoi il est bon ou mauvais. C’est un cours, pas un jeu : pas de mises, pas de jetons à gagner, pas de jeu d’argent.\n\n"
+ "PokerGym enseigne la prise de décision au No-Limit Texas Hold'em, des règles et de la hiérarchie des mains jusqu’à la stratégie sur chaque street. Chaque coup reçoit une note et une explication : pourquoi il est bon ou mauvais. C’est un cours, pas un jeu : pas de mises, pas de jetons à gagner, pas de jeu d’argent.\n\n"
  "COURS\n"
- "• Modules dans l’ordre : règles et combinaisons, déroulement d’une main, mathématiques (outs, cotes, cote du pot), position et ouverture, jeu preflop, flop, turn, river, plan de la main (SPR), jouer contre les erreurs courantes des joueurs plus faibles, tournois (push/fold et ICM), variance et tilt, analyse de votre propre jeu\n"
- "• Leçons avec exercices ; termes expliqués là où ils apparaissent et dans un glossaire\n"
+ "• Modules dans l’ordre : règles et combinaisons, déroulement d’une main, mathématiques (outs, cotes, cote du pot), position et ouverture, jeu preflop, flop, turn, river, plan de la main (SPR), jouer contre les erreurs courantes des joueurs plus faibles, tournois (push/fold et ICM), variance et tilt, analyse de votre propre jeu\n"
+ "• Leçons avec exercices ; termes expliqués là où ils apparaissent et dans un glossaire\n"
  "• Un court test de niveau au départ (8 questions au plus, facultatif) indique votre première leçon\n"
  "• Un examen de module (15 questions) permet de passer ce que vous savez déjà\n\n"
  "ENTRAÎNEMENT\n"
  "• Décisions notées sur quatre niveaux\n"
  "• Une explication chiffrée après chaque réponse\n"
  "• Choisir une action, saisir un nombre ou colorier une range de mains sur la grille\n"
- "• Séances courtes : arrêtez quand vous voulez et reprenez à la même question\n\n"
+ "• Séances courtes : arrêtez quand vous voulez et reprenez à la même question\n\n"
  "RÉVISIONS ET PROGRÈS\n"
  "• Les questions manquées reviennent en révisions espacées\n"
  "• Taux de réussite, types de questions les plus faibles, série de jours et indice de progression\n"
  "• Rappel quotidien facultatif\n\n"
  "VOS DONNÉES\n"
  "• Fonctionne hors ligne, sans compte, sans publicité et sans suivi\n"
- "• La progression reste sur votre téléphone : export vers un fichier, import sur un autre téléphone ou suppression\n\n"
- "JOUER RESPONSABLE\n"
+ "• La progression reste sur votre téléphone : export vers un fichier, import sur un autre téléphone ou suppression\n\n"
+ "JEU RESPONSABLE\n"
  "• Un écran Aide indique où trouver du soutien en cas de problème de jeu\n\n"
  "ACCÈS\n"
- "Les leçons, le test de niveau et la première tentative de chaque examen de module sont toujours gratuits. Sans achat, vous avez une activité gratuite par jour : une séance d’entraînement, une séance de révision ou un nouvel essai d’examen. L’accès complet supprime cette limite : abonnement trimestriel ou annuel (renouvelé automatiquement jusqu’à résiliation dans les réglages de votre compte Apple) ou un accès à vie en achat unique."
+ "Les leçons, le test de niveau et la première tentative de chaque examen de module sont toujours gratuits. Sans achat, vous avez une activité gratuite par jour : une séance d’entraînement, une séance de révision ou un nouvel essai d’examen. L’accès complet supprime cette limite : abonnement trimestriel ou annuel (renouvelé automatiquement jusqu’à résiliation dans les réglages de votre compte Apple) ou un accès à vie en achat unique."
  + stopka("Conditions d’utilisation", 'Politique de confidentialité'))
 )
 

@@ -20,14 +20,15 @@ const skompiluj = (j: string) => pamiec.get(j) ?? (pamiec.set(j, compileContent(
 // domyślnych 5 s); limit dotyczy czasu kompilacji, nie asercji.
 describe('Treść na 35 języków (rola 08)', { timeout: 60_000 }, () => {
   it('T35-08-a język bez content/<język>: tekst ze źródła pl, liczby w formacie języka bazy, osobny skrót', () => {
-    // łańcuch de → en → pl (D-320): od nałożenia przekładu en (rola 09, K5, D-344) tekst bazy de pochodzi z content/en
-    const pl = skompiluj('pl'), de = skompiluj('de');
+    // łańcuch sv → en → pl (D-320): od nałożenia przekładu en (rola 09, K5, D-344) tekst bazy pochodzi z content/en;
+    // do sesji AK (D-393) badanym językiem był de — od nałożenia de ma własny katalog, więc tu sv (CLDR: spacja przed %)
+    const pl = skompiluj('pl'), sv = skompiluj('sv');
     const zastepczy = existsSync(join(contentDir, 'en')) ? 'en' : 'pl';
-    expect([pl.tekst, de.tekst, de.locale]).toEqual(['pl', zastepczy, 'de']);
-    expect(de.modules).toEqual(skompiluj(zastepczy).modules);
-    expect(de.numbers.map((n) => n.value)).toEqual(pl.numbers.map((n) => n.value));
-    expect(de.numbers.find((n) => n.display.includes('%'))?.display).toMatch(/\s%$/u);
-    expect(de.hash).not.toBe(pl.hash);
+    expect([pl.tekst, sv.tekst, sv.locale]).toEqual(['pl', zastepczy, 'sv']);
+    expect(sv.modules).toEqual(skompiluj(zastepczy).modules);
+    expect(sv.numbers.map((n) => n.value)).toEqual(pl.numbers.map((n) => n.value));
+    expect(sv.numbers.find((n) => n.display.includes('%'))?.display).toMatch(/\s%$/u);
+    expect(sv.hash).not.toBe(pl.hash);
   });
 
   it('T35-08-b język z content/<język> bierze swój tekst; wariant bez katalogu idzie łańcuchem (es-419 → es → pl)', () => {

@@ -4,8 +4,8 @@ import { WYDANE } from '../slowniki';
 // Wydanie ja, zh-Hant, pt-BR, fr (plan-ja-zh-Hant §6, plan-pt-BR-fr §5; wzór K3 en): wybór z języka telefonu, ustawienie
 // ręczne, zmiana bez restartu; D-373: pt w innym regionie niż BR → pt-BR, dopóki pt nie jest wydany.
 describe('wydanie ja, zh-Hant, pt-BR, fr', () => {
-  it('cztery języki w wydaniu obok pl i en', () => {
-    expect([...WYDANE].sort()).toEqual(['en', 'fr', 'ja', 'pl', 'pt-BR', 'zh-Hant']);
+  it('cztery języki w wydaniu obok pl i en (kolejne wydania dopisują się obok, AK: de, es)', () => {
+    expect(WYDANE).toEqual(expect.arrayContaining(['en', 'fr', 'ja', 'pl', 'pt-BR', 'zh-Hant']));
   });
   it('telefon: ja-JP → ja; zh-Hant-TW, zh-TW, zh-HK → zh-Hant; zh-Hans-CN → en (ZAPASOWY)', () => {
     expect(jezykDlaUstawienia('auto', ['ja-JP'])).toBe('ja');

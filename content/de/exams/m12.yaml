@@ -1,0 +1,93 @@
+module: m12
+drills:
+  - kind: choice
+    id: m12.exam.q1
+    family: m12.result-range
+    rules: [R-M12-001]
+    prompt: "Du gewinnst im Schnitt {{n:var.wr.typical.high}} bei einer {{t:standard-deviation|Standardabweichung}} von {{n:var.sd}} und spielst {{n:exam.m12.hands.k}} Tsd. Hände ({{n:exam.m12.blocks}} Blöcke à 100). In welchem Intervall liegt dein Ergebnis mit etwa {{n:var.conf95}} Sicherheit?"
+    options:
+      - { text: "Von etwa {{n:exam.m12.ci.low.bi}} bis etwa {{n:exam.m12.ci.high.bi}} {{t:buy-in|Buy-ins}}", correct: true, why: "Du erwartest {{n:var.wr.typical.high}} × {{n:exam.m12.blocks}} = {{n:exam.m12.exp.bb}}, also {{n:exam.m12.exp.bi}} {{t:buy-in|Buy-ins}}. Die {{t:standard-deviation|Standardabweichung}} des Ergebnisses beträgt {{n:var.sd}} × √{{n:exam.m12.blocks}} ≈ {{n:exam.m12.sd.bb}}, also etwa {{n:exam.m12.sd.bi}} {{t:buy-in|Buy-ins}}. Intervall: {{n:exam.m12.exp.bi}} ± {{n:var.z95}} × {{n:exam.m12.sd.bi}} ≈ ± {{n:exam.m12.ci.half.bi}}." }
+      - { text: "Genau {{n:exam.m12.exp.bi}} {{t:buy-in|Buy-ins}}", why: "{{n:exam.m12.exp.bi}} {{t:buy-in|Buy-ins}} sind das erwartete Ergebnis, also der Durchschnitt. Die {{t:standard-deviation|Standardabweichung}} des Ergebnisses nach {{n:exam.m12.hands.k}} Tsd. Händen beträgt etwa {{n:exam.m12.sd.bi}} {{t:buy-in|Buy-ins}}, also kann das tatsächliche Ergebnis weit vom Durchschnitt entfernt sein." }
+      - { text: "Von etwa {{n:exam.m12.exp.bi}} bis etwa {{n:exam.m12.ci.high.bi}} {{t:buy-in|Buy-ins}}: Ein Gewinnspieler landet nicht im Minus", why: "Ein Gewinnspieler kann im Minus landen: Bei diesen Parametern liegt die untere Grenze des Intervalls bei etwa {{n:exam.m12.ci.low.bi}} {{t:buy-in|Buy-ins}}." }
+  - kind: choice
+    id: m12.exam.q2
+    family: m12.winrate-sample
+    rules: [R-M12-001]
+    prompt: "Nach {{n:exam.m12.hands.k}} Tsd. Händen liegt deine Winrate bei {{n:var.wr.typical.high}}, die {{t:standard-deviation|Standardabweichung}} bei {{n:var.sd}}. Was weißt du über deine wahre Winrate?"
+    options:
+      - { text: "Mit etwa {{n:var.conf95}} Sicherheit liegt sie zwischen etwa {{n:exam.m12.wr.ci.low}} und etwa {{n:exam.m12.wr.ci.high}}", correct: true, why: "Der Fehler der Winrate ist SD ÷ √(Blöcke) = {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ {{n:exam.m12.se.wr}}. Intervall: {{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:exam.m12.se.wr}} ≈ ± {{n:exam.m12.ci.wr}}. Nach {{n:exam.m12.hands.k}} Tsd. Händen weißt du nicht einmal, ob du gewinnst." }
+      - { text: "Dass du gewinnst, weil das Ergebnis nach einer großen Stichprobe positiv ist", why: "{{n:exam.m12.hands.k}} Tsd. Hände sind für die Winrate eine kleine Stichprobe: Das {{n:var.conf95}}-Intervall reicht von etwa {{n:exam.m12.wr.ci.low}} bis etwa {{n:exam.m12.wr.ci.high}}, schließt also auch Verlustspiel ein." }
+      - { text: "Dass sie sehr nah an {{n:var.wr.typical.high}} liegt, weil die Stichprobe groß ist", why: "Ein so enges Intervall lässt sich aus {{n:exam.m12.hands.k}} Tsd. Händen nicht ableiten. Du rechnest {{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ ± {{n:exam.m12.ci.wr}}." }
+  - kind: choice
+    id: m12.exam.q3
+    family: m12.winrate-sample
+    rules: [R-M12-003]
+    prompt: "Du spielst aggressiv, und deine {{t:standard-deviation|Standardabweichung}} beträgt {{n:var.sd.high}}. Du willst deine Winrate auf ± {{n:var.target}} genau kennen, bei {{n:var.conf95}} Sicherheit. Wie viele Hände brauchst du?"
+    options:
+      - { text: "Etwa {{n:exam.m12.need.hands.k}} Tsd.", correct: true, why: "Blöcke = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:exam.m12.need.ratio}}² ≈ {{n:exam.m12.need.blocks}}, also etwa {{n:exam.m12.need.hands.k}} Tsd. Hände. Eine höhere {{t:standard-deviation|Standardabweichung}} erfordert eine viel größere Stichprobe." }
+      - { text: "Etwa {{n:var.need.hands.k}} Tsd., genauso viele wie bei einer {{t:standard-deviation|Standardabweichung}} von {{n:var.sd}}", why: "Die {{t:standard-deviation|Standardabweichung}} steht in der Formel im Quadrat, also brauchst du bei {{n:var.sd.high}} statt {{n:var.sd}} deutlich mehr Hände: etwa {{n:exam.m12.need.hands.k}} Tsd." }
+      - { text: "Einige Zehntausend Hände reichen", why: "Der Fehler sinkt nur mit der Wurzel aus der Zahl der Hände. Bei {{n:var.sd.high}} und einer Genauigkeit von ± {{n:var.target}} brauchst du etwa {{n:exam.m12.need.blocks}} Blöcke à 100 Hände." }
+  - kind: choice
+    id: m12.exam.q4
+    family: m12.sample-size
+    rules: [R-M12-005, R-M12-001]
+    prompt: "Du hast deinen Spielstil geändert und nach {{n:exam.m12.style.hands.k}} Tsd. Händen {{n:exam.m12.style.wr}}. Die {{t:standard-deviation|Standardabweichung}} beträgt {{n:var.sd}}. Ist das ein Beweis, dass der neue Stil besser ist?"
+    options:
+      - { text: "Nein: Das {{n:var.conf95}}-Intervall beträgt ± etwa {{n:exam.m12.style.ci}}; neue Spielzüge bewertest du im Hand-Review", correct: true, why: "Der Fehler der Winrate nach {{n:exam.m12.style.blocks}} Blöcken ist {{n:var.sd}} ÷ {{n:exam.m12.style.sqrt}} ≈ {{n:exam.m12.style.se}}, also beträgt das Intervall ± {{n:var.z95}} × {{n:exam.m12.style.se}} ≈ ± {{n:exam.m12.style.ci}}. Ein solches Ergebnis passt sowohl zu einem besseren als auch zu einem schlechteren Stil. Über die Strategie entscheidet die Analyse der Entscheidungen." }
+      - { text: "Ja: {{n:exam.m12.style.wr}} ist viel mehr als eine typische Winrate", why: "Bei {{n:exam.m12.style.hands.k}} Tsd. Händen beträgt das {{n:var.conf95}}-Intervall etwa ± {{n:exam.m12.style.ci}}. Ein hohes Ergebnis aus einer kleinen Stichprobe ist vor allem {{t:variance|Varianz}}." }
+      - { text: "Ja, wenn du die meisten {{t:session|Sessions}} gewonnen hast", why: "Die Zahl gewonnener {{t:session|Sessions}} ist dasselbe Ergebnis, nur in Stücke zerlegt. Sie beruht weiterhin auf {{n:exam.m12.style.hands.k}} Tsd. Händen und sagt nicht, ob deine Entscheidungen besser sind." }
+  - kind: choice
+    id: m12.exam.q5
+    family: m12.resulting
+    rules: [R-M12-004]
+    prompt: "Turn. Du hast einen sauberen {{t:flush-draw|Flush-Draw}}, im {{t:pot|Pot}} sind {{n:ex.pot}}. Dein Gegner geht für {{n:ex.bet.half}} all-in, mehr lässt sich nicht mehr gewinnen. Du {{t:call|callst}}, der {{t:flush|Flush}} kommt am River, und du gewinnst. Wie bewertest du den {{t:call|Call}}?"
+    options:
+      - { text: "Er war schlecht, trotz des Gewinns", correct: true, why: "Du brauchtest {{n:eq.bet-half}} Equity, und ein {{t:flush-draw|Flush-Draw}} trifft am River in etwa {{n:odds.flush.turn-river}} der Fälle. Dein Gegner ist all-in, also zahlt er dir später nichts mehr. Über viele Wiederholungen verliert so ein {{t:call|Call}}." }
+      - { text: "Er war gut, weil du den {{t:pot|Pot}} gewonnen hast", why: "Das Ergebnis einer einzelnen Hand ändert den Preis nicht. Bewertet wird die Entscheidung mit den Informationen, die du hattest: {{n:odds.flush.turn-river}} Equity gegenüber den benötigten {{n:eq.bet-half}}." }
+      - { text: "Ohne die Karten des Gegners zu kennen, lässt sich das nicht bewerten", why: "Für die Bewertung reicht, was du wusstest: Dein Gegner ist all-in, deine Hand gewinnt nur, wenn du den {{t:flush|Flush}} triffst, und der Preis erfordert {{n:eq.bet-half}}." }
+  - kind: choice
+    id: m12.exam.q6
+    family: m12.tilt-type
+    rules: [R-M12-006]
+    prompt: "Du hast einen großen {{t:pot|Pot}} verloren. Du weißt, dass du gut gespielt hast und dass das {{t:variance|Varianz}} ist, und auch dein Gegner hat korrekt gespielt. Trotzdem ärgert dich schon der Verlust selbst so sehr, dass du dich nicht konzentrieren kannst. Welcher Tilt-Typ ist das laut der Einteilung aus der Lektion über Tilt?"
+    options:
+      - { text: "Tilt aus Hass aufs Verlieren", correct: true, why: "Auslöser ist der Verlust selbst, auch wenn du weißt, dass es {{t:variance|Varianz}} ist. Du gibst weder dem Glück noch dir selbst noch dem Gegner die Schuld." }
+      - { text: "Ungerechtigkeits-Tilt", why: "Dieser Typ wird durch das Gefühl ausgelöst, dass Poker ungerecht ist: Bad Beats, Cooler, Treffer des Gegners am River. Hier weißt du, dass alles normal gelaufen ist, und dich ärgert der Verlust selbst." }
+      - { text: "Fehler-Tilt", why: "Fehler-Tilt ist Ärger über eigene Fehler. Hier weißt du, dass du gut gespielt hast." }
+      - { text: "Rache-Tilt", why: "Rache richtet sich gegen einen Gegner, z. B. nach respektlosem Verhalten. Hier hat der Gegner korrekt gespielt und ist nicht der Grund für deinen Ärger." }
+  - kind: choice
+    id: m12.exam.q7
+    family: m12.tilt-response
+    rules: [R-M12-007]
+    prompt: "Nach drei verlorenen großen {{t:pot|Pots}} kannst du nicht mehr beurteilen, ob dein letzter {{t:call|Call}} gut war, und denkst darüber nach, auf ein höheres {{t:stakes|Limit}} zu wechseln, um die Verluste schneller zurückzuholen. Was tust du?"
+    options:
+      - { text: "Ich beende die {{t:session|Session}}", correct: true, why: "Wenn du Entscheidungen nicht mehr ruhig bewerten kannst und dir die Verluste zurückholen willst, sind das Signale, dass du bereits auf deinem schlechtesten Niveau spielst (C-Game). Ziel ist, früher aufzuhören, bevor du noch mehr verlierst." }
+      - { text: "Ich atme ein paarmal durch und spiele auf dem höheren {{t:stakes|Limit}} weiter", why: "Durchatmen hilft bei den ersten Anzeichen von Tilt, solange du noch klar denkst. Hier ist der Tilt schon gewachsen, und ein höheres {{t:stakes|Limit}} erhöht nur die Verluste." }
+      - { text: "Ich spiele auf demselben {{t:stakes|Limit}} weiter, aber nur starke Hände", why: "Wenn du Entscheidungen nicht mehr ruhig bewerten kannst, heißt Weiterspielen, auf deinem schlechtesten Niveau (C-Game) zu spielen, egal welche Hände du wählst. Du beendest die {{t:session|Session}}." }
+  - kind: choice
+    id: m12.exam.q8
+    family: m12.risk-of-ruin
+    rules: [R-M12-009]
+    prompt: "Du gewinnst {{n:dd.wr-low}} bei einer {{t:standard-deviation|Standardabweichung}} von {{n:var.sd}} und hast {{n:exam.m12.ror.bi}} {{t:buy-in|Buy-ins}} ({{n:exam.m12.ror.bb}}). Wie hoch ist das Risiko, deine gesamte Bankroll zu verlieren, wenn du nie ein {{t:stakes|Limit}} runtergehst?"
+    options:
+      - { text: "Etwa {{n:exam.m12.ror}}", correct: true, why: "Exponent: 2 × Winrate × Bankroll ÷ SD² = {{n:ror.two}} × {{n:dd.wr-low}} × {{n:exam.m12.ror.bb}} ÷ {{n:var.sd.sq}} = {{n:exam.m12.ror.x}}, also RoR = e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}." }
+      - { text: "Null, weil du gewinnst", why: "Eine positive Winrate schützt nicht vor {{t:variance|Varianz}}. Bei dieser Bankroll und Winrate liegt das Risiko bei etwa {{n:exam.m12.ror}}: deutlich über null." }
+      - { text: "Etwa die Hälfte, weil die Winrate niedrig ist", why: "Das Risiko sinkt exponentiell mit der Bankroll. Bei {{n:exam.m12.ror.bi}} {{t:buy-in|Buy-ins}} beträgt der Exponent {{n:exam.m12.ror.x}}, und e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}." }
+  - kind: choice
+    id: m12.exam.q9
+    family: m12.move-down
+    rules: [R-M12-011]
+    prompt: "Du hast deine Bankroll auf {{n:br.bi.beginner}} {{t:buy-in|Buy-ins}} festgelegt. Nach einem {{t:downswing|Downswing}} hast du {{n:exam.m12.md.now}}. Was tust du?"
+    options:
+      - { text: "Ich gehe ein {{t:stakes|Limit}} runter", correct: true, why: "Die Schwelle zum Absteigen ist die Hälfte der festgelegten Zahl an {{t:buy-in|Buy-ins}}: Bei {{n:br.bi.beginner}} sind das {{n:exam.m12.md.half}}. Du hast {{n:exam.m12.md.now}}, also weniger. Auf einem halb so hohen {{t:stakes|Limit}} ist dieselbe Bankroll wieder fast die volle Zahl seiner {{t:buy-in|Buy-ins}}. Das ist ein allgemeiner Hinweis; wenn dein Spielen außer Kontrolle gerät, schau dir den Bildschirm „Hilfe“ an." }
+      - { text: "Ich bleibe, weil {{n:exam.m12.md.now}} mehr als die Schwelle von {{n:br.bi.move-down}} ist", why: "Die Schwelle von {{n:br.bi.move-down}} ist die Hälfte einer Bankroll von {{n:br.bi.base}} {{t:buy-in|Buy-ins}}. Du berechnest sie aus der Bankroll, die du selbst festgelegt hast. Du hast {{n:br.bi.beginner}} festgelegt, also gehst du spätestens bei {{n:exam.m12.md.half}} runter." }
+      - { text: "Ich bleibe und spiele mehr, um die Verluste zurückzuholen", why: "Verlusten hinterherzujagen ist ein Warnsignal, kein Plan. Deine Bankroll ist unter die Schwelle von {{n:exam.m12.md.half}} gefallen, also gehst du ein {{t:stakes|Limit}} runter." }
+  - kind: choice
+    id: m12.exam.q10
+    family: m12.risk-of-ruin
+    rules: [R-M12-009]
+    prompt: "Deine Winrate ist nur halb so hoch, wie du angenommen hast, und die {{t:standard-deviation|Standardabweichung}} ändert sich nicht. Wie viele {{t:buy-in|Buy-ins}} brauchst du, damit dein {{t:risk-of-ruin|Ruinrisiko}} gleich bleibt?"
+    options:
+      - { text: "Doppelt so viele", correct: true, why: "In der Formel RoR = e^(−2 × Winrate × Bankroll ÷ SD²) stehen Winrate und Bankroll als Produkt nebeneinander. Halbiert sich die Winrate, ergibt erst eine doppelt so große Bankroll denselben Exponenten." }
+      - { text: "Genauso viele, weil das Risiko nur von der Bankroll abhängt", why: "Die Winrate steht im Exponenten neben der Bankroll. Bei niedrigerer Winrate ergibt dieselbe Bankroll ein höheres Risiko." }
+      - { text: "Viermal so viele", why: "Im Quadrat steht die {{t:standard-deviation|Standardabweichung}}, nicht die Winrate. Winrate und Bankroll bilden ein Produkt, also reichen doppelt so viele {{t:buy-in|Buy-ins}}." }

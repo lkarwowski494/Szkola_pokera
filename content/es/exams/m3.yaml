@@ -1,0 +1,95 @@
+# Pula egzaminacyjna M3 (pozycja, ręce startowe, zakresy otwarć): reguły lekcji m3.l1–m3.l3, inne ręce i pozycje.
+# Decyzje otwarcia zgodne ze spotami solvera aplikacji (rfi.*): ręce poza listą klas niepewnych, częstość 0 albo ≥ 0,94.
+module: m3
+drills:
+  - kind: choice
+    id: m3.exam.q1
+    family: m3.position
+    rules: [R-M3-001]
+    prompt: "El Button {{t:open|ha abierto}}, la {{t:small-blind|ciega pequeña}} {{t:fold|se ha retirado}} y la {{t:big-blind|ciega grande}} {{t:call|ha igualado}}. ¿Quién actúa primero en el flop?"
+    options:
+      - { text: "La {{t:big-blind|ciega grande}}", correct: true, why: "Desde el flop, las ciegas actúan primero y el Button, el último. Por eso aquí el Button tiene {{t:position|posición}} y la {{t:big-blind|ciega grande}} juega {{t:out-of-position|fuera de posición}}." }
+      - { text: "El Button, porque {{t:open|ha abierto}}", why: "El orden de acción depende de tu asiento en la mesa, no de quién {{t:open|ha abierto}}. Desde el flop, el Button siempre actúa el último." }
+      - { text: "Quien actuó el último preflop", why: "Preflop, las ciegas actúan las últimas, pero desde el flop, las primeras. Por eso la {{t:position|posición}} del Button es la mejor." }
+  - kind: choice
+    id: m3.exam.q2
+    family: m3.open-early
+    rules: [R-M3-002]
+    prompt: "Actúas primero preflop y nadie ha entrado aún en la mano. ¿Qué haces?"
+    table: { hand: "Ac Td", position: UTG }
+    options:
+      - { text: "{{t:raise|Subo}}", correct: true, why: "AT de distinto palo entra en el {{t:range|rango}} de {{t:open|apertura}} desde {{t:utg|UTG}} (unas {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} manos). El solver de la aplicación la juega aquí siempre." }
+      - { text: "{{t:fold|Me retiro}}", why: "Demasiado cerrado. Desde {{t:utg|UTG}} juegas estrecho, pero AT sigue dentro del {{t:range|rango}}." }
+      - { text: "Completo la {{t:big-blind|ciega grande}}", why: "Si eres el primero en entrar, {{t:raise|subes}} o {{t:fold|te retiras}}. El limp cede la {{t:initiative|iniciativa}} y la posibilidad de llevarte las ciegas de inmediato." }
+  - kind: choice
+    id: m3.exam.q3
+    family: m3.rfi.early
+    rules: [R-M3-006]
+    prompt: "{{t:utg|UTG}} {{t:fold|se ha retirado}} y tú eres el siguiente. ¿Qué haces?"
+    table: { hand: "Ah 9d", position: HJ }
+    options:
+      - { text: "{{t:fold|Me retiro}}", correct: true, why: "Aún quedan cuatro jugadores detrás de ti. A9 de distinto palo a menudo liga un as con peor kicker que el AT, AJ o AQ de los rivales. El solver de la aplicación siempre {{t:fold|se retira}} con ella desde el {{t:hijack|HJ}}." }
+      - { text: "{{t:raise|Subo}}", why: "El as tienta, pero desde el {{t:hijack|HJ}} {{t:open|abres}} más estrecho que desde el {{t:cutoff|CO}} y el Button. A9o no entra hasta el {{t:range|rango}} del {{t:cutoff|CO}}." }
+  - kind: choice
+    id: m3.exam.q4
+    family: m3.rfi.late
+    rules: [R-M3-006]
+    prompt: "Todos los jugadores antes que tú {{t:fold|se han retirado}}. ¿Qué haces?"
+    table: { hand: "Ah 9d", position: CO }
+    options:
+      - { text: "{{t:raise|Subo}}", correct: true, why: "Detrás de ti solo quedan el Button y las ciegas, así que {{t:open|abres}} más amplio que desde el {{t:hijack|HJ}}. El solver de la aplicación juega aquí A9o casi siempre." }
+      - { text: "{{t:fold|Me retiro}}", why: "Así juegas esta mano desde el {{t:hijack|HJ}}. Desde el {{t:cutoff|CO}} tienes un jugador menos detrás y el {{t:range|rango}} es más amplio." }
+  - kind: choice
+    id: m3.exam.q5
+    family: m3.open-late
+    rules: [R-M3-003]
+    prompt: "Todos {{t:fold|se han retirado}} hasta ti. ¿Qué haces?"
+    table: { hand: "Jd 9c", position: BTN }
+    options:
+      - { text: "{{t:raise|Subo}}", correct: true, why: "En el Button {{t:open|abres}} unas {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} manos. Solo quedan las ciegas y después del flop tienes {{t:position|posición}}, así que J9 de distinto palo entra." }
+      - { text: "{{t:fold|Me retiro}}", why: "Desde el {{t:cutoff|CO}} el solver juega esta mano pocas veces, pero en el Button, siempre. Contra solo las ciegas, es demasiado cerrado." }
+      - { text: "Completo la {{t:big-blind|ciega grande}}", why: "El limp cede la {{t:initiative|iniciativa}}. Una {{t:raise|subida}} a menudo se lleva las ciegas de inmediato." }
+  - kind: choice
+    id: m3.exam.q6
+    family: m3.rfi.sb
+    rules: [R-M3-004, R-M3-007, R-M3-009]
+    prompt: "Todos {{t:fold|se han retirado}} hasta ti en la {{t:small-blind|ciega pequeña}}. ¿Qué haces?"
+    table: { hand: "Td 8c", position: SB }
+    options:
+      - { text: "{{t:raise|Subo}} a {{n:pf.open-size-sb}}", correct: true, why: "Ya solo juegas contra la {{t:big-blind|ciega grande}}, así que {{t:open|abres}} amplio, unas {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} manos. Después del flop actúas primero; por eso, desde la {{t:small-blind|ciega pequeña}}, {{t:raise|subes}} algo más que desde otras {{t:position|posiciones}}." }
+      - { text: "{{t:raise|Subo}} a {{n:pf.open-size}}", sizeError: true, why: "Buena acción, tamaño incorrecto: {{n:pf.open-size}} es la {{t:open|apertura}} desde las demás {{t:position|posiciones}}. Desde la {{t:small-blind|ciega pequeña}} juegas {{t:out-of-position|fuera de posición}}, así que {{t:raise|subes}} a {{n:pf.open-size-sb}}." }
+      - { text: "Completo la {{t:big-blind|ciega grande}}", why: "Si eres el primero en entrar, {{t:raise|subes}} o {{t:fold|te retiras}} (desde la {{t:small-blind|ciega pequeña}} es una simplificación: algunas soluciones de solver completan aquí con parte de las manos). Completar cede la {{t:initiative|iniciativa}} y la posibilidad de llevarte las ciegas de inmediato." }
+      - { text: "{{t:fold|Me retiro}}", why: "Demasiado cerrado: contra un solo rival, el solver de la aplicación juega T8o desde la {{t:small-blind|ciega pequeña}} siempre." }
+  - kind: numeric
+    id: m3.exam.n1
+    family: m3.open-early
+    rules: [R-M3-007]
+    prompt: "Todos los jugadores antes que tú {{t:fold|se han retirado}}, estás en el {{t:hijack|HJ}} y {{t:open|abres}}. ¿A cuántas bb {{t:raise|subes}}? Escribe un número."
+    table: { hand: "Kh Qh", position: HJ }
+    answer: pf.open-size
+    explanation: "{{t:open|Abres}} a {{n:pf.open-size}} desde cualquier {{t:position|posición}} salvo la {{t:small-blind|ciega pequeña}} (allí, a {{n:pf.open-size-sb}}). Un único tamaño es sencillo y no revela la fuerza de tu mano. Es una simplificación: desde {{t:early-position|posiciones tempranas}}, los solvers {{t:open|abren}} algo menos."
+  - kind: choice
+    id: m3.exam.q7
+    family: m3.suited
+    rules: [R-M3-005]
+    prompt: "¿Por qué T9 del mismo palo juega mejor que T9 de distinto palo?"
+    options:
+      - { text: "Tiene una vía más para ganar: el {{t:flush|color}}", correct: true, why: "Los valores son los mismos, así que ligas {{t:pair|parejas}} y {{t:straight|escaleras}} igual de a menudo. La mano del mismo palo añade además la posibilidad de {{t:flush|color}}." }
+      - { text: "Liga {{t:pair|pareja}} más a menudo", why: "La probabilidad de {{t:pair|pareja}} depende de los valores, y estos son los mismos." }
+      - { text: "Liga {{t:straight|escalera}} más a menudo", why: "Las {{t:straight|escaleras}} dependen de los valores de las cartas, no de si son del mismo palo." }
+  - kind: choice
+    id: m3.exam.q8
+    family: m3.premium
+    rules: [R-M3-008]
+    prompt: "{{t:utg|UTG}} {{t:raise|ha subido}} y el resto {{t:fold|se ha retirado}} hasta ti. ¿Qué haces?"
+    table: { hand: "Ks Kd", position: BTN }
+    options:
+      - { text: "{{t:raise|Vuelvo a subir}} (3-bet)", correct: true, why: "KK es una de las manos más fuertes y es favorita contra la mayoría de las manos con las que {{t:utg|UTG}} {{t:open|abre}}. El 3-bet hace crecer el {{t:pot|bote}} y suele dejarte contra un solo rival." }
+      - { text: "Solo {{t:call|igualo}}", why: "A veces se juega para despistar, pero, como norma, renuncias a valor y dejas entrar a las ciegas en la mano por poco." }
+      - { text: "{{t:fold|Me retiro}}, porque {{t:utg|UTG}} tiene un {{t:range|rango}} fuerte", why: "El {{t:range|rango}} de {{t:utg|UTG}} es estrecho, pero KK sigue siendo claramente favorita contra él." }
+  - kind: paint
+    id: m3.exam.p-co
+    family: m3.paint.late
+    rules: [R-M3-006]
+    spot: rfi.co
+    prompt: "Todos los jugadores antes que tú {{t:fold|se han retirado}} y estás en el {{t:cutoff|CO}}. Pinta las manos con las que {{t:open|abres}}."

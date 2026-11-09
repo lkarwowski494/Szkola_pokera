@@ -1,0 +1,86 @@
+module: m11
+drills:
+  - kind: choice
+    id: m11.exam.q1
+    family: m11.threshold
+    rules: [R-M11-001]
+    prompt: "{{t:tournament|Torneo}}. Tienes {{n:exam.m11.mid.stack}} y todos los anteriores a ti se han {{t:fold|retirado}}. Tu mano es mediana: demasiado buena para tirarla y demasiado floja para jugar después del flop. ¿Qué plan recomiendan las fuentes?"
+    options:
+      - { text: "All-in o {{t:fold|retirarte}}", correct: true, why: "Entre {{n:m11.thr.pushfold}} y {{n:m11.thr.upper}}, el push/fold es el método principal para las manos más débiles y las medianas. Con un stack así, el all-in es lo que más {{t:fold|retiradas}} le saca al rival. Es una simplificación: los solvers también juegan algunas manos de otra forma." }
+      - { text: "Subida mínima y, ante el all-in del rival, {{t:fold|retirarte}}", why: "Con {{n:exam.m11.mid.stack}}, subir y {{t:fold|retirarte}} tras una {{t:raise|subida}} entrega buena parte del stack sin pelear. Las fuentes recomiendan la subida normal a partir de aprox. {{n:m11.thr.raise}}." }
+      - { text: "Limp, para ver el flop barato", why: "El limp no te da opción de ganar el {{t:pot|bote}} de inmediato, y con un {{t:short-stack|stack corto}} son precisamente las {{t:fold|retiradas}} de los rivales tu principal fuente de beneficio." }
+  - kind: numeric
+    id: m11.exam.q2
+    family: m11.m
+    rules: [R-M11-005]
+    prompt: "Tienes {{n:exam.m11.m.stack}} {{t:chips|fichas}}. Las ciegas son {{n:exam.m11.m.sb}}/{{n:exam.m11.m.bb}} y la {{t:big-blind|ciega grande}} pone además un ante de {{n:exam.m11.m.ante}}. ¿Cuánto vale tu M? Escribe un número con un decimal."
+    answer: exam.m11.m.value
+    explanation: "Una vuelta cuesta {{n:exam.m11.m.sb}} + {{n:exam.m11.m.bb}} + {{n:exam.m11.m.ante}} = {{n:exam.m11.m.orbit}}, así que M = {{n:exam.m11.m.stack}} ÷ {{n:exam.m11.m.orbit}} = {{n:exam.m11.m.value}}. Está muy por debajo de aprox. {{n:m11.m.red}}: ya solo juegas all-in o {{t:fold|retirarte}} e intentas entrar el primero en el {{t:pot|bote}}."
+  - kind: choice
+    id: m11.exam.q3
+    family: m11.fold-equity
+    rules: [R-M11-004]
+    prompt: "{{t:small-blind|Ciega pequeña}}, {{n:exam.m11.fe.depth}}, sin ante, todos se han {{t:fold|retirado}}. ¿Con qué frecuencia tendría que {{t:fold|retirarse}} la {{t:big-blind|ciega grande}} para que un all-in con una mano sin ninguna opción quede en tablas?"
+    options:
+      - { text: "En más del {{n:exam.m11.fe.alpha}} de los casos", correct: true, why: "Pones {{n:exam.m11.fe.risk}} para ganar {{n:m11.push.10.win}} en ciegas: {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha}}. El rival no se {{t:fold|retira}} tan a menudo, así que el all-in también necesita equity para cuando el rival {{t:call|iguala}}." }
+      - { text: "En más de la mitad de los casos", why: "Arriesgas mucho más de lo que ganas: {{n:exam.m11.fe.risk}} frente a {{n:m11.push.10.win}}. El umbral es riesgo ÷ (ganancia + riesgo), es decir, aprox. {{n:exam.m11.fe.alpha}}." }
+      - { text: "Nunca: con {{n:exam.m11.fe.depth}} el all-in siempre compensa", why: "Una mano sin opciones en el showdown solo gana con las {{t:fold|retiradas}}, y necesita aprox. un {{n:exam.m11.fe.alpha}}. Por eso el {{t:range|rango}} de all-in, aunque amplio, no incluye todas las manos." }
+  - kind: choice
+    id: m11.exam.q4
+    family: m11.ante
+    rules: [R-M11-003, R-M11-004]
+    prompt: "El mismo stack de {{n:exam.m11.fe.depth}} en la {{t:small-blind|ciega pequeña}}, pero la {{t:big-blind|ciega grande}} ha puesto un ante de {{n:m11.ante}}. ¿Con qué frecuencia tiene que {{t:fold|retirarse}} ahora para que un all-in con una mano sin opciones quede en tablas?"
+    options:
+      - { text: "En más del {{n:exam.m11.fe.alpha-ante}} de los casos, así que {{t:shove|pusheas}} más manos", correct: true, why: "El ante agranda el {{t:pot|bote}} que te llevas tras una {{t:fold|retirada}}: {{n:m11.push.10.win-ante}} en vez de {{n:m11.push.10.win}}, y el riesgo sigue siendo el mismo ({{n:exam.m11.fe.risk}}). {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win-ante}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha-ante}} en vez de {{n:exam.m11.fe.alpha}}." }
+      - { text: "Igual que sin ante: en más del {{n:exam.m11.fe.alpha}}", why: "El ante está en el {{t:pot|bote}} y te lo llevas cuando el rival se {{t:fold|retira}}. Una recompensa mayor con el mismo riesgo baja el umbral a aprox. {{n:exam.m11.fe.alpha-ante}}." }
+      - { text: "Más a menudo, porque en el {{t:pot|bote}} hay más que perder", why: "El ante ya está en el {{t:pot|bote}}, no en tu riesgo. Pones lo mismo y ganas más, así que el umbral baja." }
+  - kind: numeric
+    id: m11.exam.q5
+    family: m11.call.price
+    rules: [R-M11-006]
+    prompt: "Stacks de {{n:exam.m11.call.depth}} cada uno, sin ante. Estás en la {{t:big-blind|ciega grande}} y la {{t:small-blind|ciega pequeña}} ha ido all-in. ¿Qué porcentaje de equity necesitas para que {{t:call|igualar}} sea rentable? Escribe un número."
+    answer: exam.m11.call.eq
+    explanation: "Tu ciega ya está en el {{t:pot|bote}}, así que añades {{n:exam.m11.call.depth}} − {{n:pf.blind.bb}} = {{n:exam.m11.call.cost}}. Tras el {{t:call|pago}}, el {{t:pot|bote}} tiene {{n:exam.m11.call.pot}}: {{n:exam.m11.call.cost}} ÷ {{n:exam.m11.call.pot}} ≈ {{n:exam.m11.call.eq}}."
+  - kind: choice
+    id: m11.exam.q6
+    family: m11.call.gap
+    rules: [R-M11-007]
+    prompt: "Stacks de {{n:m11.depth.5}} cada uno, la {{t:small-blind|ciega pequeña}} ha ido all-in y tú estás en la {{t:big-blind|ciega grande}}. Un amigo te aconseja: «{{t:call|Iguala}} con cualquier mano con la que tú mismo {{t:shove|pushearías}} all-in desde la {{t:small-blind|ciega pequeña}}». ¿Qué dice el solver?"
+    options:
+      - { text: "{{t:call|Igualas}} más cerrado: aprox. {{n:m11.call.5}} de las manos frente a aprox. {{n:m11.nash.push.5}}–{{n:m11.push.5}} de all-in", correct: true, why: "Quien {{t:call|iguala}} solo gana en el showdown, y contra un {{t:range|rango}} que ya ha pasado un filtro. Quien {{t:shove|pushea}} gana también cuando el rival se {{t:fold|retira}}. Incluso con un {{t:short-stack|stack tan corto}} y buen precio, el {{t:range|rango}} de {{t:call|pago}} es más cerrado." }
+      - { text: "Tu amigo tiene razón: con {{n:m11.depth.5}} ambos {{t:range|rangos}} son iguales", why: "El {{t:short-stack|stack corto}} amplía ambos {{t:range|rangos}}, pero no los iguala: el all-in tiene fold equity y el {{t:call|pago}} no. El solver {{t:call|iguala}} con aprox. {{n:m11.call.5}} de las manos y {{t:shove|pushea}} aprox. {{n:m11.nash.push.5}}–{{n:m11.push.5}} (el límite inferior sale de un cálculo de equilibrio independiente y el superior, del solver de la aplicación)." }
+      - { text: "{{t:call|Igualas}} más abierto, porque el precio es bueno", why: "Con {{n:m11.depth.5}} el precio es bueno ({{n:m11.call.5.eq}}), pero juegas contra el {{t:range|rango}} de all-in, no contra una mano aleatoria. El solver {{t:call|iguala}} más cerrado de lo que {{t:shove|pushea}}." }
+  - kind: numeric
+    id: m11.exam.q7
+    family: m11.bf
+    rules: [R-M11-009, R-M11-008]
+    prompt: "{{t:bubble|Burbuja}}: cuatro jugadores, cobran tres puestos ({{n:m11.bf.p1}}, {{n:m11.bf.p2}} y {{n:m11.bf.p3}} de la {{t:prize-pool|bolsa de premios}}). Stacks: {{n:exam.m11.bf.s1}}, el tuyo {{n:exam.m11.bf.s2}}, el del rival que va all-in {{n:exam.m11.bf.s3}} y {{n:exam.m11.bf.s4}}. Según el {{t:icm|ICM}}, si {{t:call|igualas}} y pierdes, pierdes {{n:exam.m11.bf.loss}} de la {{t:prize-pool|bolsa de premios}}, y si ganas, ganas {{n:exam.m11.bf.gain}}. ¿Cuánto vale el bubble factor? Escribe un número con dos decimales."
+    answer: exam.m11.bf.value
+    explanation: "Bubble factor = pérdida ÷ ganancia = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.gain}} ≈ {{n:exam.m11.bf.value}}. Tu equity ahora es {{n:exam.m11.bf.eq.now}}; si ganas, {{n:exam.m11.bf.eq.win}}; si pierdes, {{n:exam.m11.bf.eq.lose}}: perder cuesta más de lo que suma ganar. El {{t:icm|ICM}} no tiene en cuenta la {{t:position|posición}} ni la habilidad de los jugadores, así que esta valoración es una aproximación."
+  - kind: choice
+    id: m11.exam.q8
+    family: m11.bf
+    rules: [R-M11-009]
+    prompt: "La misma situación: bubble factor {{n:exam.m11.bf.value}}. Jugando por {{t:chips|fichas}}, para {{t:call|igualar}} basta con {{n:exam.m11.bf.req-chips}} de equity. ¿Cuánto necesitas según el {{t:icm|ICM}}?"
+    options:
+      - { text: "Aprox. {{n:exam.m11.bf.req}}", correct: true, why: "Equity necesaria = BF ÷ (BF + 1) = pérdida ÷ (pérdida + ganancia) = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.range}} ≈ {{n:exam.m11.bf.req}}. La diferencia respecto a {{n:exam.m11.bf.req-chips}} es la {{t:risk-premium|prima de riesgo}}." }
+      - { text: "{{n:exam.m11.bf.req-chips}}, igual que en {{t:chips|fichas}}", why: "En un {{t:tournament|torneo}} con {{t:payout|premios}}, perder cuesta más dinero de lo que suma ganar, así que el {{t:call|pago}} tiene que ganar más a menudo: aprox. {{n:exam.m11.bf.req}}." }
+      - { text: "Menos de {{n:exam.m11.bf.req-chips}}, porque la {{t:bubble|burbuja}} obliga al rival a hacer {{t:bluff|faroles}}", why: "Un bubble factor mayor que 1 siempre sube la equity necesaria por encima del precio en {{t:chips|fichas}}. Aquí, hasta aprox. {{n:exam.m11.bf.req}}." }
+  - kind: choice
+    id: m11.exam.q9
+    family: m11.icm.call
+    rules: [R-M11-010]
+    prompt: "{{t:bubble|Burbuja}} de un {{t:tournament|torneo}}. Tienes un stack medio. El stack más grande de la mesa, que te {{t:cover|cubre}}, va all-in. ¿Cómo {{t:call|igualas}} en comparación con jugar por {{t:chips|fichas}}?"
+    options:
+      - { text: "Claramente más cerrado", correct: true, why: "Perder te elimina justo antes de los premios, y ganar suma menos de lo que quita perder: las {{t:chips|fichas}} que ganas valen menos que las que pierdes. Por eso necesitas claramente más equity que jugando por {{t:chips|fichas}}." }
+      - { text: "Más abierto, porque el stack grande {{t:shove|pushea}} muchas manos", why: "Es cierto que el stack grande puede {{t:shove|pushear}} más abierto, pero precisamente porque tú tienes que {{t:call|igualar}} cerrado. La {{t:risk-premium|prima de riesgo}} sube tus exigencias." }
+      - { text: "Igual: el {{t:icm|ICM}} solo cuenta en la {{t:final-table|mesa final}}", why: "{{t:call|Igualar}} con más cautela vale tanto en la {{t:final-table|mesa final}} como en la {{t:bubble|burbuja}}: aquí, de que sobrevivas depende que ganes algo." }
+  - kind: choice
+    id: m11.exam.q10
+    family: m11.push.3max
+    rules: [R-M11-011]
+    prompt: "Tres jugadores, stacks de {{n:m11.depth.3max}} cada uno. ¿Desde dónde {{t:shove|pusheas}} all-in más abierto: desde el Button, con las dos ciegas detrás, o desde la {{t:small-blind|ciega pequeña}} después de que el Button se {{t:fold|retire}}?"
+    options:
+      - { text: "Desde la {{t:small-blind|ciega pequeña}}: aprox. {{n:m11.3max.push.sb}} de las manos frente a aprox. {{n:m11.3max.push.btn}} desde el Button", correct: true, why: "Cada jugador que tienes detrás es una posibilidad más de que alguien se despierte con una mano fuerte. Desde el Button tienen que {{t:fold|retirarse}} dos jugadores; desde la {{t:small-blind|ciega pequeña}}, solo uno." }
+      - { text: "Desde el Button, porque tiene la mejor {{t:position|posición}}", why: "Tras un all-in nadie toma ya decisiones después del flop, así que la {{t:position|posición}} aquí no aporta nada. Lo que cuenta es cuántos jugadores pueden {{t:call|igualar}}: detrás del Button hay dos." }
+      - { text: "Igual desde ambos sitios", why: "El solver {{t:shove|pushea}} aprox. {{n:m11.3max.push.btn}} de las manos desde el Button y aprox. {{n:m11.3max.push.sb}} desde la {{t:small-blind|ciega pequeña}}. La diferencia la marca el número de jugadores que tienes detrás." }

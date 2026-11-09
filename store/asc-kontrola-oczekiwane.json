@@ -13,12 +13,12 @@
     },
     "ja": {
       "name": "PokerGym: ポーカー戦略を学ぶ",
-      "subtitle": "判断ごとに評価と解説・賭けなし",
+      "subtitle": "判断ごとに評価と解説、賭けなし",
       "keywords": "初心者,ホールデム,レンジ,プリフロップ,トレーナー,gto,icm,オッズ,クイズ"
     },
     "zh-Hant": {
       "name": "PokerGym: 德州撲克教學",
-      "subtitle": "每個決策都有評分與解說，不涉賭注",
+      "subtitle": "每個決策都有評分與解說，不涉真錢",
       "keywords": "撲克策略,撲克訓練,新手入門,底池賠率,錦標賽,翻牌前,翻牌後,起手牌,gto,icm"
     },
     "pt-BR": {
@@ -29,7 +29,7 @@
     "fr-FR": {
       "name": "PokerGym: cours de poker",
       "subtitle": "Apprendre à décider, sans mise",
-      "keywords": "stratégie,texas,holdem,gto,preflop,postflop,range,outs,icm,tournoi,leçons,quiz,entraîneur"
+      "keywords": "stratégie,texas,holdem,gto,preflop,postflop,range,outs,icm,tournoi,leçons,quiz,entraînement"
     },
     "en-GB": {
       "name": "PokerGym: GTO Strategy Trainer",
@@ -49,7 +49,7 @@
     "fr-CA": {
       "name": "PokerGym: cours de poker",
       "subtitle": "Apprendre à décider, sans mise",
-      "keywords": "stratégie,texas,holdem,gto,preflop,postflop,range,outs,icm,tournoi,leçons,quiz,entraîneur"
+      "keywords": "stratégie,texas,holdem,gto,preflop,postflop,range,outs,icm,tournoi,leçons,quiz,entraînement"
     }
   }
 }

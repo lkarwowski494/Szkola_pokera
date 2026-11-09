@@ -1,0 +1,91 @@
+module: m13
+drills:
+  - kind: numeric
+    id: m13.exam.q1
+    family: m13.equity-loss
+    rules: [R-M13-001]
+    prompt: "Du gehst {{n:exam.m13.n}} Mal mit {{t:equity}} von {{n:exam.m13.eq}} all-in. Wie viele dieser Hände verlierst du im Schnitt? Gib eine Zahl ein."
+    answer: exam.m13.lose.of-n
+    explanation: "Mit {{t:equity}} von {{n:exam.m13.eq}} verlierst du 1 − {{n:exam.m13.eq}} = {{n:exam.m13.lose}} solcher Hände: {{n:exam.m13.n}} × {{n:exam.m13.lose}} = {{n:exam.m13.lose.of-n}}. Jede dieser Niederlagen ist in der Rechnung enthalten und kein Grund, deine Strategie zu ändern."
+  - kind: choice
+    id: m13.exam.q2
+    family: m13.equity-loss
+    rules: [R-M13-001]
+    prompt: "Zweimal in einer {{t:session|Session}} hast du ein All-in mit {{t:equity}} von {{n:exam.m13.eq.big}} verloren. Was folgt daraus für deine Strategie?"
+    options:
+      - { text: "Nichts: Mit so viel {{t:equity}} verlierst du ca. {{n:exam.m13.lose.big}} der Hände, und diese zwei gehörten dazu", correct: true, why: "{{t:equity}} ist der Anteil der Gewinne über viele Wiederholungen derselben Situation. Niederlagen in ca. {{n:exam.m13.lose.big}} der Fälle gehören dazu, auch wenn sie dicht aufeinander folgen." }
+      - { text: "Dass du in diesen Spots vorsichtiger spielen musst", why: "Die Entscheidung mit {{t:equity}} von {{n:exam.m13.eq.big}} war gut. Die Strategie wegen des Ergebnisses zu ändern hieße, auf Spielzüge zu verzichten, die in ca. {{n:exam.m13.eq.big}} der Fälle gewinnen." }
+      - { text: "Dass deine Gegner dein Spiel besser lesen", why: "Im All-in zählt nur die {{t:equity}}: Ein Read des Gegners ändert nicht die Karten, die fallen. Zwei Niederlagen bei einer Chance von je {{n:exam.m13.lose.big}} sind {{t:variance|Varianz}}." }
+  - kind: choice
+    id: m13.exam.q3
+    family: m13.verdicts
+    rules: [R-M13-002]
+    prompt: "Der Solver spielt deine Hand in {{n:exam.m13.solver.main}} der Fälle als {{t:raise|Raise}} und in {{n:exam.m13.solver.rare}} als {{t:fold|Fold}}. Du hast {{t:fold|gefoldet}}. Wie bewertet der Bericht das?"
+    options:
+      - { text: "Zulässig", correct: true, why: "Der Solver spielt {{t:fold|Fold}} in {{n:exam.m13.solver.rare}} der Fälle: mindestens {{n:range.mixed.min}}, aber seltener als {{n:range.mixed.low}}. Das ist der seltenere Spielzug einer {{t:mixed-hand|gemischten Hand}}, also kein Fehler, sondern eine zulässige Entscheidung." }
+      - { text: "Übereinstimmend", why: "Übereinstimmend ist eine Aktion, die der Solver in mindestens {{n:range.mixed.low}} der Fälle spielt. {{t:fold|Fold}} mit {{n:exam.m13.solver.rare}} ist seltener." }
+      - { text: "Fehler", why: "Ein Fehler ist eine Aktion, die der Solver nie spielt. {{t:fold|Fold}} mit {{n:exam.m13.solver.rare}} ist der seltenere Spielzug einer {{t:mixed-hand|gemischten Hand}}, also sind beide Spielzüge korrekt." }
+  - kind: choice
+    id: m13.exam.q4
+    family: m13.verdicts
+    rules: [R-M13-002]
+    prompt: "Der Solver {{t:fold|foldet}} deine Hand in {{n:exam.m13.solver.main2}} der Fälle und {{t:call|callt}} in {{n:exam.m13.solver.tiny}}. Du hast {{t:call|gecallt}}. Wie lautet das Urteil?"
+    options:
+      - { text: "Ungenauigkeit", correct: true, why: "{{t:call|Callen}} in {{n:exam.m13.solver.tiny}} der Fälle ist weniger als {{n:range.mixed.min}}. Der Bericht wertet eine Aktion unter der Schwelle als Ungenauigkeit, also wie einen Fehler: Das ist die Schwelle der App, keine Theorie." }
+      - { text: "Fehler", why: "Ein Fehler ist eine Aktion, die der Solver nie spielt. Hier {{t:call|callt}} der Solver in {{n:exam.m13.solver.tiny}} der Fälle." }
+      - { text: "Zulässig, weil der Solver auch manchmal {{t:call|callt}}", why: "Zulässig ist eine Aktion, die in mindestens {{n:range.mixed.min}} der Fälle gespielt wird. {{n:exam.m13.solver.tiny}} ist zu wenig." }
+      - { text: "Ohne Bewertung", why: "„Ohne Bewertung“ bekommt eine Entscheidung, für die die App weder eine Regel noch ein Solver-Ergebnis hat. Hier gibt es ein Solver-Ergebnis." }
+  - kind: choice
+    id: m13.exam.q5
+    family: m13.suit-swap
+    rules: [R-M13-003]
+    prompt: "Im Spiel hattest du J♣ T♣ auf dem {{t:board|Board}} 9♣ 8♦ 2♣. Welche dieser Konstellationen ist dieselbe Situation, hat also dieselbe richtige Entscheidung?"
+    options:
+      - { text: "J♦ T♦ auf dem {{t:board|Board}} 9♦ 8♣ 2♦", correct: true, why: "Kreuz wurde gegen Karo getauscht und Karo gegen Kreuz, überall gleichzeitig. Du hast weiterhin einen {{t:flush-draw|Flush Draw}} und einen {{t:oesd|OESD}}, also ändert sich die Entscheidung nicht." }
+      - { text: "J♣ T♣ auf dem {{t:board|Board}} 9♦ 8♣ 2♦", why: "Die Farben wurden nur auf dem {{t:board|Board}} getauscht: Deine Kreuz passen nicht mehr zum {{t:board|Board}}, und der {{t:flush-draw|Flush Draw}} ist weg. Das ist eine andere Situation." }
+      - { text: "J♥ T♥ auf dem {{t:board|Board}} 9♣ 8♦ 2♣", why: "Die Farben wurden nur in deiner Hand getauscht: Herz passt nicht zu den Kreuz auf dem {{t:board|Board}}, also gibt es keinen {{t:flush-draw|Flush Draw}} mehr." }
+  - kind: choice
+    id: m13.exam.q6
+    family: m13.sample
+    rules: [R-M13-004]
+    prompt: "Im Laufe einer Woche hattest du {{n:exam.m13.opps}} Gelegenheiten, den {{t:big-blind|Big Blind}} gegen ein {{t:open|Open}} vom Button zu verteidigen. Was kannst du über deine Verteidigungsfrequenz sagen?"
+    options:
+      - { text: "Ich kann sie mir schon ansehen, aber ohne Gewissheit", correct: true, why: "Du zählst Gelegenheiten, nicht Hände. Eine Statistik schaust du dir ab ca. {{n:hud.opps.look}} Gelegenheiten an, Gewissheit gewinnst du bei ca. {{n:hud.opps.sure}}. {{n:exam.m13.opps}} ist ein erstes Signal, kein Schluss." }
+      - { text: "Ich weiß schon, wie oft ich verteidige", why: "{{n:exam.m13.opps}} Gelegenheiten sind immer noch weniger als die ca. {{n:hud.opps.sure}}, bei denen du Gewissheit gewinnst." }
+      - { text: "Nichts, denn Statistiken brauchen Tausende Hände", why: "Es zählen die Gelegenheiten für genau diese Entscheidung. Ab ca. {{n:hud.opps.look}} Gelegenheiten kannst du dir die Statistik schon ansehen." }
+  - kind: choice
+    id: m13.exam.q7
+    family: m13.review-when
+    rules: [R-M13-005]
+    prompt: "Du beendest eine lange {{t:session|Session}}, bist müde und hast ein paar markierte Hände. Wann analysierst du sie?"
+    options:
+      - { text: "In ein paar Stunden oder morgen, mit klarem Kopf", correct: true, why: "Eine Analyse im müden Zustand oder direkt nach einem großen Verlust ist von Emotionen gefärbt. Die markierten Hände laufen dir nicht weg." }
+      - { text: "Sofort, solange ich mich an alles erinnere", why: "Für die Durchsicht reicht eine kurze Notiz zur Hand. Müdigkeit verzerrt das Urteil, also schau sie dir besser später an, mit klarem Kopf." }
+      - { text: "Zwischen den Händen der nächsten {{t:session|Session}}", why: "Während des Spiels markierst du Hände nur. Eine Analyse am Tisch zieht Aufmerksamkeit von den nächsten Entscheidungen ab." }
+  - kind: choice
+    id: m13.exam.q8
+    family: m13.review-which
+    rules: [R-M13-006]
+    prompt: "Welche dieser Hände aus deiner letzten {{t:session|Session}} lohnt sich am meisten durchzusehen?"
+    options:
+      - { text: "Ein großer {{t:pot|Pot}}, in dem du lange gezögert hast, bevor du am River {{t:call|gecallt}} hast", correct: true, why: "Hände mit einer schwierigen Entscheidung gehören zu denen, die sich durchzusehen lohnen, und ein großer {{t:pot|Pot}} wiegt am meisten. Das Zögern zeigt, dass du nicht wusstest, was zu tun ist." }
+      - { text: "Ein All-in vor dem Flop mit einem {{t:pair|Paar}} Asse gegen ein {{t:pair|Paar}} Könige, am River verloren", why: "Das ist ein Bad Beat: Die Entscheidung war eindeutig, und der Verlust ist {{t:variance|Varianz}}. Mit solchen Händen verbringst du nicht viel Zeit." }
+      - { text: "Ein kleiner {{t:pot|Pot}}, nach einer C-Bet ohne Showdown gewonnen", why: "Ein kleiner {{t:pot|Pot}} ohne schwierige Entscheidung lehrt wenig. Die Zeit für die Durchsicht steckst du besser in große {{t:pot|Pots}} und Entscheidungen, bei denen du gezögert hast." }
+  - kind: choice
+    id: m13.exam.q9
+    family: m13.review-how
+    rules: [R-M13-008]
+    prompt: "Du siehst dir einen {{t:call|Call}} am River an. Bei einer optimistischen Annahme über die {{t:range|Range}} des Gegners (viele {{t:bluff|Bluffs}}) gewinnt der {{t:call|Call}} Geld, bei einer pessimistischen verliert er. Was jetzt?"
+    options:
+      - { text: "Ich schätze eine realistische {{t:range|Range}}: Von ihr hängt die Bewertung ab", correct: true, why: "Die extremen Annahmen stecken den Bereich ab, in dem die Realität liegt. Ist eine Entscheidung bei der einen gut und bei der anderen schlecht, entscheidet die realistische Annahme." }
+      - { text: "Ich bewerte den {{t:call|Call}} als gut, weil er bei der optimistischen Annahme gut ist", why: "Die optimistische Annahme ist nur ein Ende des Bereichs. Da der {{t:call|Call}} bei der pessimistischen verliert, hängt die Bewertung davon ab, wie der Gegner tatsächlich spielt." }
+      - { text: "Ich bewerte den {{t:call|Call}} als Fehler, weil er bei der pessimistischen Annahme verliert", why: "Eine Entscheidung, die bei der pessimistischen Annahme gut ist, ist robust gegen einen falschen Read, aber eine, die dabei schlecht ist, muss kein Fehler sein. Es entscheidet die realistische Annahme." }
+  - kind: choice
+    id: m13.exam.q10
+    family: m13.review-how
+    rules: [R-M13-007]
+    prompt: "Ein Freund sieht Hände durch, indem er sofort Equity und Preis berechnet, ohne seine erste Reaktion aufzuschreiben. Was entgeht ihm?"
+    options:
+      - { text: "Er sieht nicht, bei welchen Entscheidungen ihn seine Intuition täuscht", correct: true, why: "Der Unterschied zwischen erster Reaktion und Rechnung zeigt, wo die Intuition falschliegt, und verbessert sie mit der Zeit. Ohne Notiz der Reaktion ist dieser Unterschied nicht zu sehen." }
+      - { text: "Nichts: Es zählt nur das Ergebnis der Rechnung", why: "Die Rechnung bewertet eine Entscheidung. Der Vergleich deiner ersten Reaktion mit der Rechnung zeigt, wo dich deine Intuition täuscht, und verbessert sie mit der Zeit." }
+      - { text: "Die Genauigkeit der Rechnung, weil die erste Reaktion sie verbessert", why: "Die erste Reaktion ändert die Rechnung nicht. Ihr Wert liegt im Vergleich mit der Rechnung, der zeigt, wo dich deine Intuition täuscht." }

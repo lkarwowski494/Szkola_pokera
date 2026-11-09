@@ -3704,6 +3704,18 @@
     "data": "2026-11-09",
     "sha": "a14f0da9be62",
     "kontrola": "a"
+   },
+   "de": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AI: D1–D3, D-386; skrót po nałożeniu w sesji AK, m12-l1 + R-M12-* ponownie)",
+    "data": "2026-11-09",
+    "sha": "f761ca54626d",
+    "kontrola": "a"
+   },
+   "es": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AI: E1–E3, D-386; skrót po nałożeniu w sesji AK, m12-l1 + R-M12-* ponownie)",
+    "data": "2026-11-09",
+    "sha": "bfdc9bd0ba49",
+    "kontrola": "a"
    }
   }
  },
@@ -3921,6 +3933,18 @@
     "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AB; skrót po nałożeniu w sesji AE, m12-l1 ponownie)",
     "data": "2026-11-09",
     "sha": "3a19809de738",
+    "kontrola": "a"
+   },
+   "de": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AI: D1–D3, D-386; skrót po nałożeniu w sesji AK, m12-l1 + R-M12-* ponownie)",
+    "data": "2026-11-09",
+    "sha": "65f7bf10daaa",
+    "kontrola": "a"
+   },
+   "es": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AI: E1–E3, D-386; skrót po nałożeniu w sesji AK, m12-l1 + R-M12-* ponownie)",
+    "data": "2026-11-09",
+    "sha": "d05c0d02746f",
     "kontrola": "a"
    }
   }

@@ -1,0 +1,91 @@
+module: m13
+drills:
+  - kind: numeric
+    id: m13.exam.q1
+    family: m13.equity-loss
+    rules: [R-M13-001]
+    prompt: "Vas all-in {{n:exam.m13.n}} veces con una {{t:equity|equity}} de {{n:exam.m13.eq}}. ¿Cuántas de esas manos perderás de media? Escribe un número."
+    answer: exam.m13.lose.of-n
+    explanation: "Con una {{t:equity|equity}} de {{n:exam.m13.eq}} pierdes 1 − {{n:exam.m13.eq}} = {{n:exam.m13.lose}} de esas manos: {{n:exam.m13.n}} × {{n:exam.m13.lose}} = {{n:exam.m13.lose.of-n}}. Cada una de esas derrotas entra en las cuentas y no es motivo para cambiar de estrategia."
+  - kind: choice
+    id: m13.exam.q2
+    family: m13.equity-loss
+    rules: [R-M13-001]
+    prompt: "Dos veces en una misma {{t:session|sesión}} has perdido un all-in con una {{t:equity|equity}} de {{n:exam.m13.eq.big}}. ¿Qué implica esto para tu estrategia?"
+    options:
+      - { text: "Nada: con esa {{t:equity|equity}} pierdes aproximadamente el {{n:exam.m13.lose.big}} de las manos, y estas dos estaban entre ellas", correct: true, why: "La {{t:equity|equity}} es la proporción de victorias en muchas repeticiones de la misma situación. Las derrotas en aproximadamente el {{n:exam.m13.lose.big}} de los casos forman parte de ella, aunque lleguen muy seguidas." }
+      - { text: "Que en estos spots hay que jugar con más cuidado", why: "La decisión con una {{t:equity|equity}} de {{n:exam.m13.eq.big}} era buena. Cambiar de estrategia por el resultado supondría renunciar a jugadas que ganan en aproximadamente el {{n:exam.m13.eq.big}} de los casos." }
+      - { text: "Que los rivales leen mejor tu juego", why: "En un all-in solo cuenta la {{t:equity|equity}}: la lectura del rival no cambia las cartas que salgan. Dos derrotas con una probabilidad de {{n:exam.m13.lose.big}} cada una son {{t:variance|varianza}}." }
+  - kind: choice
+    id: m13.exam.q3
+    family: m13.verdicts
+    rules: [R-M13-002]
+    prompt: "El solver juega tu mano como {{t:raise|subida}} en el {{n:exam.m13.solver.main}} de los casos y como {{t:fold|fold}} en el {{n:exam.m13.solver.rare}}. Te has {{t:fold|retirado}}. ¿Cómo lo valorará el informe?"
+    options:
+      - { text: "Aceptable", correct: true, why: "El solver se {{t:fold|retira}} en el {{n:exam.m13.solver.rare}} de los casos: al menos el {{n:range.mixed.min}}, pero con menos frecuencia que el {{n:range.mixed.low}}. Es la jugada menos frecuente de una {{t:mixed-hand|mano mixta}}, así que no es un error, sino una decisión aceptable." }
+      - { text: "Alineada", why: "Alineada es la acción que el solver juega en al menos el {{n:range.mixed.low}} de los casos. El {{t:fold|fold}} en el {{n:exam.m13.solver.rare}} de los casos es menos frecuente." }
+      - { text: "Error", why: "Un error es una acción que el solver no juega nunca. El {{t:fold|fold}} en el {{n:exam.m13.solver.rare}} de los casos es la jugada menos frecuente de una {{t:mixed-hand|mano mixta}}, así que ambas jugadas son correctas." }
+  - kind: choice
+    id: m13.exam.q4
+    family: m13.verdicts
+    rules: [R-M13-002]
+    prompt: "El solver se {{t:fold|retira}} con tu mano en el {{n:exam.m13.solver.main2}} de los casos y {{t:call|iguala}} en el {{n:exam.m13.solver.tiny}}. Has {{t:call|igualado}}. ¿Cuál es el veredicto?"
+    options:
+      - { text: "Imprecisión", correct: true, why: "{{t:call|Igualar}} en el {{n:exam.m13.solver.tiny}} de los casos es menos que el {{n:range.mixed.min}}. El informe cuenta una acción por debajo del umbral como imprecisión, es decir, como un error: es un umbral de la aplicación, no de la teoría." }
+      - { text: "Error", why: "Un error es una acción que el solver no juega nunca. Aquí el solver {{t:call|iguala}} en el {{n:exam.m13.solver.tiny}} de los casos." }
+      - { text: "Aceptable, porque el solver también {{t:call|iguala}} a veces", why: "Aceptable es la acción que se juega en al menos el {{n:range.mixed.min}} de los casos. Un {{n:exam.m13.solver.tiny}} es demasiado poco." }
+      - { text: "Sin valorar", why: "«Sin valorar» es lo que recibe una decisión para la que la aplicación no tiene ni regla ni resultado del solver. Aquí sí hay resultado del solver." }
+  - kind: choice
+    id: m13.exam.q5
+    family: m13.suit-swap
+    rules: [R-M13-003]
+    prompt: "En la partida tenías J♣ T♣ en una {{t:board|mesa}} 9♣ 8♦ 2♣. ¿Cuál de estas configuraciones es la misma situación, es decir, tiene la misma decisión correcta?"
+    options:
+      - { text: "J♦ T♦ en una {{t:board|mesa}} 9♦ 8♣ 2♦", correct: true, why: "Se han cambiado los tréboles por diamantes y los diamantes por tréboles, en todas partes a la vez. Sigues teniendo un {{t:flush-draw|proyecto de color}} y un {{t:oesd|proyecto de escalera abierta}}, así que la decisión no cambia." }
+      - { text: "J♣ T♣ en una {{t:board|mesa}} 9♦ 8♣ 2♦", why: "Los palos se han cambiado solo en la {{t:board|mesa}}: tus tréboles ya no encajan con la {{t:board|mesa}} y el {{t:flush-draw|proyecto de color}} ha desaparecido. Es otra situación." }
+      - { text: "J♥ T♥ en una {{t:board|mesa}} 9♣ 8♦ 2♣", why: "Los palos se han cambiado solo en tu mano: los corazones no encajan con los tréboles de la {{t:board|mesa}}, así que ya no hay {{t:flush-draw|proyecto de color}}." }
+  - kind: choice
+    id: m13.exam.q6
+    family: m13.sample
+    rules: [R-M13-004]
+    prompt: "En una semana has tenido {{n:exam.m13.opps}} oportunidades de defender la {{t:big-blind|ciega grande}} ante una {{t:open|apertura}} desde el Button. ¿Qué puedes decir de tu frecuencia de defensa?"
+    options:
+      - { text: "Ya puedo mirarla, pero sin certeza", correct: true, why: "Cuentas oportunidades, no manos. Empiezas a mirar una estadística a partir de unas {{n:hud.opps.look}} oportunidades y ganas seguridad hacia las {{n:hud.opps.sure}}. {{n:exam.m13.opps}} es una señal preliminar, no una conclusión." }
+      - { text: "Ya sé con qué frecuencia defiendo", why: "{{n:exam.m13.opps}} oportunidades siguen siendo menos que las aproximadamente {{n:hud.opps.sure}} con las que ganas seguridad." }
+      - { text: "Nada, porque las estadísticas necesitan miles de manos", why: "Cuentan las oportunidades para esta decisión concreta. A partir de unas {{n:hud.opps.look}} oportunidades ya puedes mirar la estadística." }
+  - kind: choice
+    id: m13.exam.q7
+    family: m13.review-when
+    rules: [R-M13-005]
+    prompt: "Terminas una {{t:session|sesión}} larga, estás cansado y tienes algunas manos marcadas. ¿Cuándo las analizas?"
+    options:
+      - { text: "Dentro de unas horas o mañana, con la cabeza despejada", correct: true, why: "El análisis cuando estás cansado o justo después de una gran derrota está teñido de emociones. Las manos marcadas no se van a ir a ninguna parte." }
+      - { text: "Enseguida, mientras lo recuerdo todo", why: "Para la revisión basta con un breve registro de la mano. El cansancio empeora el juicio, así que es mejor revisarlas más tarde, con la cabeza despejada." }
+      - { text: "Entre mano y mano de la siguiente {{t:session|sesión}}", why: "Durante el juego solo marcas las manos. Analizar en la mesa te quita atención para las siguientes decisiones." }
+  - kind: choice
+    id: m13.exam.q8
+    family: m13.review-which
+    rules: [R-M13-006]
+    prompt: "¿Cuál de estas manos de tu última {{t:session|sesión}} vale más la pena revisar?"
+    options:
+      - { text: "Un {{t:pot|bote}} grande en el que dudaste mucho antes de {{t:call|igualar}} en el river", correct: true, why: "Las manos con una decisión difícil están entre las que vale la pena revisar, y un {{t:pot|bote}} grande es lo que más pesa. La duda muestra que no sabías qué hacer." }
+      - { text: "Un all-in preflop con {{t:pair|pareja}} de ases contra {{t:pair|pareja}} de reyes, perdido en el river", why: "Es un bad beat: la decisión era obvia y la derrota es {{t:variance|varianza}}. A manos así no les dedicas mucho tiempo." }
+      - { text: "Un {{t:pot|bote}} pequeño ganado sin showdown tras una c-bet", why: "Un {{t:pot|bote}} pequeño sin una decisión difícil enseña poco. Es mejor dedicar el tiempo de revisión a los {{t:pot|botes}} grandes y a las decisiones en las que dudaste." }
+  - kind: choice
+    id: m13.exam.q9
+    family: m13.review-how
+    rules: [R-M13-008]
+    prompt: "Estás revisando un {{t:call|call}} en el river. Con una suposición optimista sobre el {{t:range|rango}} del rival (muchos {{t:bluff|faroles}}), el {{t:call|call}} gana dinero; con una pesimista, pierde. ¿Y ahora qué?"
+    options:
+      - { text: "Estimo un {{t:range|rango}} realista: la valoración depende de él", correct: true, why: "Las suposiciones extremas delimitan el intervalo en el que está la realidad. Cuando una decisión es buena con una y mala con la otra, decide la suposición realista." }
+      - { text: "Doy el {{t:call|call}} por bueno, porque es bueno con la suposición optimista", why: "La suposición optimista es solo un extremo del intervalo. Como con la pesimista el {{t:call|call}} pierde, la valoración depende de cómo juega realmente el rival." }
+      - { text: "Considero el {{t:call|call}} un error, porque pierde con la suposición pesimista", why: "Una decisión buena con la suposición pesimista resiste un error de lectura, pero una mala con ella no tiene por qué ser un error. Decide la suposición realista." }
+  - kind: choice
+    id: m13.exam.q10
+    family: m13.review-how
+    rules: [R-M13-007]
+    prompt: "Un compañero revisa las manos calculando de inmediato la equity y el precio, sin anotar su primera reacción. ¿Qué pierde?"
+    options:
+      - { text: "No ve en qué decisiones le engaña la intuición", correct: true, why: "La diferencia entre la primera reacción y el cálculo muestra dónde se equivoca la intuición y, con el tiempo, la mejora. Sin anotar la reacción, esa diferencia no se ve." }
+      - { text: "Nada: solo cuenta el resultado del cálculo", why: "El cálculo valora una decisión. Comparar la primera reacción con el cálculo muestra dónde te engaña la intuición y, con el tiempo, la mejora." }
+      - { text: "Precisión en el cálculo, porque la primera reacción lo mejora", why: "La primera reacción no cambia el cálculo. Su valor está en la comparación con el cálculo, que muestra dónde te engaña la intuición." }

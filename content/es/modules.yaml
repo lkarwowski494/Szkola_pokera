@@ -1,0 +1,14 @@
+- { id: m0, order: 0, title: "Reglas y jugadas", sub: "Qué gana a qué", phase: mvp }
+- { id: m1, order: 1, title: "Desarrollo de una mano", sub: "Ciegas, calles, acciones", phase: mvp }
+- { id: m2, order: 2, title: "Matemáticas básicas", sub: "Outs, probabilidades, pot odds", phase: mvp }
+- { id: m3, order: 3, title: "Posición y aperturas", sub: "Quién habla el último y qué abrir", phase: mvp }
+- { id: m4, order: 4, title: "Preflop ante acción", sub: "3-bet, defensa, limpers", phase: mvp }
+- { id: m5, order: 5, title: "Flop: c-bet", sub: "Texturas y tamaños", phase: f2 }
+- { id: m6, order: 6, title: "Flop: defensa", sub: "MDF, call, check-raise", phase: f2 }
+- { id: m7, order: 7, title: "Turn", sub: "Segundo barril y proyectos", phase: f2 }
+- { id: m8, order: 8, title: "River", sub: "Valor, faroles, bloqueadores", phase: f2 }
+- { id: m9, order: 9, title: "Plan de la mano", sub: "SPR y tamaños en tres calles", phase: f2 }
+- { id: m10, order: 10, title: "Explotación en microlímites", sub: "Tipos de jugadores y errores de la población", phase: f3 }
+- { id: m11, order: 11, title: "Torneos y stacks cortos", sub: "Push/fold e ICM", phase: f4, recommended: false }
+- { id: m12, order: 12, title: "Juego mental y bankroll", sub: "Varianza y tilt", phase: f4 }
+- { id: m13, order: 13, title: "Análisis de tu propio juego", sub: "Revisión de manos y fugas", phase: f4 }

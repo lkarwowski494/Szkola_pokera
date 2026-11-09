@@ -1,0 +1,75 @@
+# Pula egzaminacyjna M1 (przebieg rozdania): te same reguły co lekcja m1.l1, inne sytuacje i sformułowania.
+module: m1
+drills:
+  - kind: choice
+    id: m1.exam.q1
+    family: m1.actions
+    rules: [R-M1-001]
+    prompt: "Am Flop hat dein Gegner {{t:bet|gesetzt}}, und du hast {{t:call|gecallt}}. Am Turn bist du als Erster dran. Was kannst du tun?"
+    options:
+      - { text: "{{t:check|Checken}} oder {{t:bet|setzen}}", correct: true, why: "Der Turn ist eine neue {{t:betting-round|Setzrunde}}. Darin hat noch niemand etwas eingezahlt, also hast du dieselben zwei Optionen wie zu Beginn jeder Runde." }
+      - { text: "Nur {{t:call|callen}} oder {{t:fold|folden}}", why: "Der {{t:bet|Einsatz}} vom Flop wurde bereits ausgeglichen. Am Turn gibt es nichts zu {{t:call|callen}}." }
+      - { text: "Den {{t:bet|Einsatz}} vom Flop {{t:raise|erhöhen}}", why: "{{t:raise|Erhöhen}} kannst du nur einen {{t:bet|Einsatz}} in der laufenden Runde. Der vom Flop ist abgeschlossen." }
+  - kind: choice
+    id: m1.exam.q2
+    family: m1.actions
+    rules: [R-M1-001]
+    prompt: "Ein Gegner vor dir hat {{t:bet|gesetzt}}. Welchen Zug kannst du jetzt nicht machen?"
+    options:
+      - { text: "{{t:check|Checken}}", correct: true, why: "{{t:check|Checken}} kannst du nur, wenn in dieser Runde niemand vor dir {{t:bet|gesetzt}} oder {{t:raise|erhöht}} hat. Jetzt musst du {{t:fold|folden}}, {{t:call|callen}} oder {{t:raise|erhöhen}}." }
+      - { text: "{{t:raise|Erhöhen}}", why: "Eine {{t:raise|Erhöhung}} ist gerade deshalb möglich, weil es einen {{t:bet|Einsatz}} gibt, den man erhöhen kann." }
+      - { text: "{{t:fold|Folden}}", why: "Ein {{t:fold|Fold}} ist immer möglich, wenn du nachzahlen musst." }
+  - kind: choice
+    id: m1.exam.q3
+    family: m1.actions
+    rules: [R-M1-002]
+    prompt: "River. Dein Gegner hat {{t:check|gecheckt}}, und deine Hand verliert fast sicher. Was tust du?"
+    options:
+      - { text: "Ich {{t:check|checke}}", correct: true, why: "{{t:check|Checken}} kostet nichts, und vielleicht hat auch dein Gegner nichts getroffen. Mit einem {{t:fold|Fold}} würdest du den {{t:pot|Pot}} kampflos abgeben." }
+      - { text: "Ich {{t:fold|folde}}", why: "Wenn du kostenlos {{t:check|checken}} kannst, gibst du mit einem {{t:fold|Fold}} nur deine Chance auf den {{t:pot|Pot}} ab. Du gewinnst nichts dabei." }
+      - { text: "Ich {{t:call|calle}}", why: "Dein Gegner hat nichts {{t:bet|gesetzt}}, also gibt es nichts zu {{t:call|callen}}." }
+  - kind: choice
+    id: m1.exam.q4
+    family: m1.actions
+    rules: [R-M1-003]
+    prompt: "Du hast am Flop {{t:bet|gesetzt}}, und dein Gegner hat {{t:raise|erhöht}}. Du willst nicht weiterspielen. Was tust du?"
+    options:
+      - { text: "Ich {{t:fold|folde}}", correct: true, why: "Es gibt eine {{t:raise|Erhöhung}} auszugleichen, und du willst nicht zahlen. Du verlierst nur, was du schon eingezahlt hast." }
+      - { text: "Ich {{t:check|checke}}", why: "Nach der {{t:raise|Erhöhung}} deines Gegners kannst du nicht {{t:check|checken}}: Du musst nachzahlen oder {{t:fold|folden}}." }
+      - { text: "Ich {{t:call|calle}}, um den Turn zu sehen", why: "Da du nicht weiterspielen willst, ist jede Nachzahlung ein zusätzlicher Verlust." }
+  - kind: choice
+    id: m1.exam.q5
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "Wie viele {{t:community-cards|Gemeinschaftskarten}} liegen auf dem {{t:board|Board}}, während am Turn gesetzt wird?"
+    options:
+      - { text: "4", correct: true, why: "Der Flop hat drei Karten gebracht, der Turn fügt eine vierte hinzu. Die fünfte kommt erst am River." }
+      - { text: "3", why: "Am Flop liegen drei Karten. Der Turn fügt eine hinzu." }
+      - { text: "5", why: "Fünf Karten liegen erst am River." }
+  - kind: choice
+    id: m1.exam.q6
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "Nach dem Setzen am River seid nur noch du und ein Gegner im Spiel. Wie geht es weiter?"
+    options:
+      - { text: "Ihr deckt eure Karten auf (Showdown)", correct: true, why: "Der River ist die letzte {{t:betting-round|Setzrunde}}. Wenn noch mindestens zwei Spieler übrig sind, zeigen sie ihre Karten, und die beste Hand gewinnt den {{t:pot|Pot}}." }
+      - { text: "Es kommt noch eine Karte", why: "Auf dem {{t:board|Board}} liegen höchstens fünf Karten. Nach dem River kommen keine weiteren." }
+      - { text: "Der {{t:pot|Pot}} wird immer zu gleichen Teilen geteilt", why: "Geteilt wird nur bei gleich starken Händen. Meist gewinnt die bessere Hand." }
+  - kind: choice
+    id: m1.exam.q7
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "Du {{t:bet|setzt}} am Flop, und alle anderen {{t:fold|folden}}. Was passiert?"
+    options:
+      - { text: "Du gewinnst den {{t:pot|Pot}}, ohne deine Karten zu zeigen", correct: true, why: "Einen Showdown gibt es nur, wenn nach dem River noch mindestens zwei Spieler übrig sind. Bleibst du allein übrig, endet die Hand." }
+      - { text: "Turn und River werden ausgeteilt, dann zeigst du deine Karten", why: "Es gibt niemanden mehr, gegen den du spielen kannst, also kommen keine weiteren Karten." }
+      - { text: "Du musst deine Karten zeigen, um den {{t:pot|Pot}} zu bekommen", why: "Karten werden beim Showdown gezeigt, und zu dem ist es hier nicht gekommen." }
+  - kind: choice
+    id: m1.exam.q8
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "Die Hand ging bis zum Showdown. Wie viele {{t:betting-round|Setzrunden}} gab es, wenn man den Preflop mitzählt?"
+    options:
+      - { text: "4", correct: true, why: "Preflop, Flop, Turn und River. Der Showdown folgt nach der letzten Runde, am River." }
+      - { text: "3", why: "Flop, Turn und River sind drei Runden, aber davor kommt noch der Preflop." }
+      - { text: "5", why: "Es gibt fünf {{t:community-cards|Gemeinschaftskarten}}, aber vier {{t:betting-round|Setzrunden}}: Der Flop legt drei Karten auf einmal aus." }

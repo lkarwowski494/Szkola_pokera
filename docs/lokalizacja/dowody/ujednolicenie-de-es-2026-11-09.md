@@ -1,0 +1,487 @@
+# Ujednolicenie form de, es (sesja AK, D-393) — zapisane
+
+Zamian: 472; wierszy w treści krytycznej m12: 6.
+
+## m12 (ponowna kontrola (a))
+- es lessons/m12-l2-decyzja-wynik.md:13
+- es lessons/m12-l2-decyzja-wynik.md:29
+- es lessons/m12-l2-decyzja-wynik.md:38
+- es lessons/m12-l2-decyzja-wynik.md:97
+- es lessons/m12-l3-tilt.md:118
+- es exams/m12.yaml:43
+
+## 勝率 bez zmiany (inne znaczenie albo brak equity w en)
+
+## Zamiany
+- de lessons/m11-l1-push-fold.md:65 shovst → pushst: «shovst» → «pushst»
+- de lessons/m11-l3-icm.md:79 shoven → pushen: «shoven» → «pushen»
+- de lessons/m11-l3-icm.md:164 shoven → pushen: «shoven» → «pushen»
+- de lessons/m7-l4-probe-obrona.md:13 Wie heißt dieser {{t:bet}} → Wie heißt diese {{t:bet}}: «Wie heißt dieser {{t:bet}}» → «Wie heißt diese {{t:bet}}»
+- de lessons/m7-l4-probe-obrona.md:16 ist ein {{t:bet}} → ist eine {{t:bet}}: «ist ein {{t:bet}}» → «ist eine {{t:bet}}»
+- de lessons/m7-l4-probe-obrona.md:26 mit einem {{t:bet}} → mit einer {{t:bet}}: «mit einem {{t:bet}}» → «mit einer {{t:bet}}»
+- de lessons/m7-l4-probe-obrona.md:56 mit einem {{t:bet}} → mit einer {{t:bet}}: «mit einem {{t:bet}}» → «mit einer {{t:bet}}»
+- de lessons/m7-l4-probe-obrona.md:122 ist ein {{t:bet}} → ist eine {{t:bet}}: «ist ein {{t:bet}}» → «ist eine {{t:bet}}»
+- de lessons/m8-l3-blokery.md:55 Der Big Blind checkt am River → Der {{t:big-blind|Big Blind}} checkt am River: «Der Big Blind checkt am River» → «Der {{t:big-blind|Big Blind}} checkt am River»
+- de lessons/m9-l1-spr.md:136 hohes {{t:two-pair}} → hohe {{t:two-pair|zwei Paare}}: «hohes {{t:two-pair}}» → «hohe {{t:two-pair|zwei Paare}}»
+- de lessons/m9-l3-rozmiar-geometryczny.md:27 Bei welchem {{t:spr}} → Bei welcher {{t:spr}}: «Bei welchem {{t:spr}}» → «Bei welcher {{t:spr}}»
+- de lessons/m9-l4-plan-trzech-ulic.md:16 planst du einen {{t:bet}} → planst du eine {{t:bet}}: «planst du einen {{t:bet}}» → «planst du eine {{t:bet}}»
+- de lessons/m9-l4-plan-trzech-ulic.md:36 ein kleiner {{t:bet}} → eine kleine {{t:bet}}: «ein kleiner {{t:bet}}» → «eine kleine {{t:bet}}»
+- de lessons/m9-l4-plan-trzech-ulic.md:65 Ein kleiner {{t:bet}} → Eine kleine {{t:bet}}: «Ein kleiner {{t:bet}}» → «Eine kleine {{t:bet}}»
+- de lessons/m9-l4-plan-trzech-ulic.md:85 und ein {{t:bet}} von → und eine {{t:bet}} von: «und ein {{t:bet}} von» → «und eine {{t:bet}} von»
+- de lessons/m9-l4-plan-trzech-ulic.md:95 den ersten {{t:bet}} → die erste {{t:bet}}: «den ersten {{t:bet}}» → «die erste {{t:bet}}»
+- de lessons/m9-l4-plan-trzech-ulic.md:95 mit dem {{t:spr}} → mit der {{t:spr}}: «mit dem {{t:spr}}» → «mit der {{t:spr}}»
+- de lessons/m9-l4-plan-trzech-ulic.md:109 mit dem {{t:spr}} → mit der {{t:spr}}: «mit dem {{t:spr}}» → «mit der {{t:spr}}»
+- de lessons/m9-l4-plan-trzech-ulic.md:115 Zonen des {{t:spr}} → Zonen der {{t:spr}}: «Zonen des {{t:spr}}» → «Zonen der {{t:spr}}»
+- de lessons/m9-l4-plan-trzech-ulic.md:127 ein kleiner {{t:bet}} → eine kleine {{t:bet}}: «ein kleiner {{t:bet}}» → «eine kleine {{t:bet}}»
+- de lessons/m9-l4-plan-trzech-ulic.md:130 ist das {{t:spr}} zu hoch → ist die {{t:spr}} zu hoch: «ist das {{t:spr}} zu hoch» → «ist die {{t:spr}} zu hoch»
+- de exams/m11.yaml:34 shovst → pushst: «shovst» → «pushst»
+- de exams/m11.yaml:48 shoven → pushen: «shoven» → «pushen»
+- de exams/m11.yaml:50 Shover → Pusher: «Shover» → «Pusher»
+- de exams/m11.yaml:51 shovt → pusht: «shovt» → «pusht»
+- de exams/m11.yaml:52 shovt → pusht: «shovt» → «pusht»
+- de exams/m11.yaml:76 shoven → pushen: «shoven» → «pushen»
+- de exams/m11.yaml:76 shovt → pusht: «shovt» → «pusht»
+- de exams/m11.yaml:82 shovst → pushst: «shovst» → «pushst»
+- de exams/m11.yaml:86 shovt → pusht: «shovt» → «pusht»
+- de exams/m9.yaml:20 einem {{t:spr|SPR}} → einer {{t:spr|SPR}}: «einem {{t:spr|SPR}}» → «einer {{t:spr|SPR}}»
+- de exams/m9.yaml:20 einem {{t:spr|SPR}} → einer {{t:spr|SPR}}: «einem {{t:spr|SPR}}» → «einer {{t:spr|SPR}}»
+- de exams/m9.yaml:21 einem {{t:spr|SPR}} → einer {{t:spr|SPR}}: «einem {{t:spr|SPR}}» → «einer {{t:spr|SPR}}»
+- de exams/m9.yaml:38 einem {{t:spr|SPR}} → einer {{t:spr|SPR}}: «einem {{t:spr|SPR}}» → «einer {{t:spr|SPR}}»
+- de exams/m9.yaml:84 einem {{t:spr|SPR}} → einer {{t:spr|SPR}}: «einem {{t:spr|SPR}}» → «einer {{t:spr|SPR}}»
+- de rules.yaml:753 einem {{t:spr|SPR}} → einer {{t:spr|SPR}}: «einem {{t:spr|SPR}}» → «einer {{t:spr|SPR}}»
+- de rules.yaml:753 einem {{t:spr|SPR}} → einer {{t:spr|SPR}}: «einem {{t:spr|SPR}}» → «einer {{t:spr|SPR}}»
+- de rules.yaml:762 einem {{t:spr|SPR}} → einer {{t:spr|SPR}}: «einem {{t:spr|SPR}}» → «einer {{t:spr|SPR}}»
+- de rules.yaml:770 einem {{t:spr|SPR}} → einer {{t:spr|SPR}}: «einem {{t:spr|SPR}}» → «einer {{t:spr|SPR}}»
+- de rules.yaml:808 des {{t:spr|SPR}} → der {{t:spr|SPR}}: «des {{t:spr|SPR}}» → «der {{t:spr|SPR}}»
+- de rules.yaml:817 des {{t:spr|SPR}} → der {{t:spr|SPR}}: «des {{t:spr|SPR}}» → «der {{t:spr|SPR}}»
+- de rules.yaml:818 einem {{t:spr|SPR}} → einer {{t:spr|SPR}}: «einem {{t:spr|SPR}}» → «einer {{t:spr|SPR}}»
+- es lessons/m10-l2-typy-graczy.md:22 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m10-l2-typy-graczy.md:31 es call pag… → igual… (czasownik): «{{t:call|pagan}}» → «{{t:call|igualan}}»
+- es lessons/m10-l2-typy-graczy.md:32 es call pag… → igual… (czasownik): «{{t:call|pagan}}» → «{{t:call|igualan}}»
+- es lessons/m10-l2-typy-graczy.md:39 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es lessons/m10-l2-typy-graczy.md:39 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m10-l2-typy-graczy.md:41 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m10-l2-typy-graczy.md:42 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m10-l2-typy-graczy.md:43 es call pag… → igual… (czasownik): «{{t:call|pagarán}}» → «{{t:call|igualarán}}»
+- es lessons/m10-l2-typy-graczy.md:43 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m10-l2-typy-graczy.md:49 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es lessons/m10-l2-typy-graczy.md:51 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es lessons/m10-l2-typy-graczy.md:53 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es lessons/m10-l2-typy-graczy.md:53 es call pag… → igual… (czasownik): «{{t:call|pagará}}» → «{{t:call|igualará}}»
+- es lessons/m10-l2-typy-graczy.md:62 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m10-l2-typy-graczy.md:78 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m10-l2-typy-graczy.md:80 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m10-l2-typy-graczy.md:80 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m10-l2-typy-graczy.md:82 es call pag… → igual… (czasownik): «{{t:call|paguen}}» → «{{t:call|igualen}}»
+- es lessons/m10-l2-typy-graczy.md:82 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m10-l2-typy-graczy.md:89 es call pag… → igual… (czasownik): «{{t:call|pagando}}» → «{{t:call|igualando}}»
+- es lessons/m10-l2-typy-graczy.md:99 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m10-l2-typy-graczy.md:109 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m10-l2-typy-graczy.md:126 es call pag… → igual… (czasownik): «{{t:call|pagan}}» → «{{t:call|igualan}}»
+- es lessons/m10-l2-typy-graczy.md:130 es call pag… → igual… (czasownik): «{{t:call|pagarán}}» → «{{t:call|igualarán}}»
+- es lessons/m10-l2-typy-graczy.md:130 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m10-l2-typy-graczy.md:132 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m10-l2-typy-graczy.md:139 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m10-l2-typy-graczy.md:139 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:15 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:15 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:15 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:24 es call pag… → igual… (czasownik): «{{t:call|pagan}}» → «{{t:call|igualan}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:24 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:25 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:25 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:26 es call pag… → igual… (czasownik): «{{t:call|pagan}}» → «{{t:call|igualan}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:31 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:34 Siempre {{t:call|pago}} → Siempre {{t:call|igualo}}: «Siempre {{t:call|pago}}» → «Siempre {{t:call|igualo}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:66 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:68 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:70 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:70 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:79 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:94 es call pag… → igual… (czasownik): «{{t:call|pagan}}» → «{{t:call|igualan}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:96 es call pag… → igual… (czasownik): «{{t:call|pagan}}» → «{{t:call|igualan}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:99 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m10-l3-odejscie-od-bazy.md:122 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m10-l4-rake.md:49 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m10-l4-rake.md:51 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m10-l4-rake.md:67 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m10-l4-rake.md:67 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m10-l4-rake.md:69 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m10-l4-rake.md:69 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m10-l4-rake.md:74 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m10-l4-rake.md:74 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m10-l4-rake.md:77 es call pag… → igual… (czasownik): «{{t:call|pagando}}» → «{{t:call|igualando}}»
+- es lessons/m10-l4-rake.md:77 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m10-l4-rake.md:78 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m10-l4-rake.md:87 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m10-l4-rake.md:121 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m10-l4-rake.md:121 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l1-push-fold.md:16 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l1-push-fold.md:17 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m11-l1-push-fold.md:72 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m11-l1-push-fold.md:79 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l1-push-fold.md:81 es call pag… → igual… (czasownik): «{{t:call|Pagando}}» → «{{t:call|Igualando}}»
+- es lessons/m11-l1-push-fold.md:83 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l1-push-fold.md:83 es call pag… → igual… (czasownik): «{{t:call|Pagar}}» → «{{t:call|Igualar}}»
+- es lessons/m11-l1-push-fold.md:83 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l1-push-fold.md:83 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l1-push-fold.md:91 es call pag… → igual… (czasownik): «{{t:call|pagará}}» → «{{t:call|igualará}}»
+- es lessons/m11-l1-push-fold.md:91 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m11-l1-push-fold.md:120 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l1-push-fold.md:170 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m11-l1-push-fold.md:170 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m11-l2-sprawdzanie.md:13 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l2-sprawdzanie.md:21 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l2-sprawdzanie.md:31 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l2-sprawdzanie.md:49 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m11-l2-sprawdzanie.md:57 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l2-sprawdzanie.md:58 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m11-l2-sprawdzanie.md:58 es call pag… → igual… (czasownik): «{{t:call|Pagar}}» → «{{t:call|Igualar}}»
+- es lessons/m11-l2-sprawdzanie.md:58 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l2-sprawdzanie.md:59 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m11-l2-sprawdzanie.md:64 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m11-l2-sprawdzanie.md:68 es call pag… → igual… (czasownik): «{{t:call|Paga}}» → «{{t:call|Iguala}}»
+- es lessons/m11-l2-sprawdzanie.md:69 es call pag… → igual… (czasownik): «{{t:call|Paga}}» → «{{t:call|Iguala}}»
+- es lessons/m11-l2-sprawdzanie.md:69 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l2-sprawdzanie.md:74 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m11-l2-sprawdzanie.md:76 es call pag… → igual… (czasownik): «{{t:call|Pagar}}» → «{{t:call|Igualar}}»
+- es lessons/m11-l2-sprawdzanie.md:76 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l2-sprawdzanie.md:83 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l2-sprawdzanie.md:86 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m11-l2-sprawdzanie.md:107 es call pag… → igual… (czasownik): «{{t:call|pagado}}» → «{{t:call|igualado}}»
+- es lessons/m11-l2-sprawdzanie.md:107 es call pag… → igual… (czasownik): «{{t:call|Pagas}}» → «{{t:call|Igualas}}»
+- es lessons/m11-l2-sprawdzanie.md:110 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m11-l2-sprawdzanie.md:111 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m11-l2-sprawdzanie.md:112 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m11-l2-sprawdzanie.md:114 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m11-l2-sprawdzanie.md:114 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l2-sprawdzanie.md:116 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l2-sprawdzanie.md:132 es call pag… → igual… (czasownik): «{{t:call|Pagas}}» → «{{t:call|Igualas}}»
+- es lessons/m11-l2-sprawdzanie.md:134 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l2-sprawdzanie.md:134 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l2-sprawdzanie.md:140 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m11-l2-sprawdzanie.md:150 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l2-sprawdzanie.md:150 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m11-l2-sprawdzanie.md:154 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m11-l2-sprawdzanie.md:154 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m11-l2-sprawdzanie.md:154 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l2-sprawdzanie.md:160 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m11-l2-sprawdzanie.md:160 es call pag… → igual… (czasownik): «{{t:call|pagado}}» → «{{t:call|igualado}}»
+- es lessons/m11-l2-sprawdzanie.md:166 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m11-l2-sprawdzanie.md:168 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m11-l2-sprawdzanie.md:175 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m11-l3-icm.md:45 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m11-l3-icm.md:52 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l3-icm.md:59 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l3-icm.md:63 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m11-l3-icm.md:68 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l3-icm.md:71 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m11-l3-icm.md:72 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m11-l3-icm.md:79 es call pag… → igual… (czasownik): «{{t:call|pagan}}» → «{{t:call|igualan}}»
+- es lessons/m11-l3-icm.md:79 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l3-icm.md:79 es call pag… → igual… (czasownik): «{{t:call|pagan}}» → «{{t:call|igualan}}»
+- es lessons/m11-l3-icm.md:81 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m11-l3-icm.md:161 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m11-l3-icm.md:163 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m11-l3-icm.md:164 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m12-l2-decyzja-wynik.md:13 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m12-l2-decyzja-wynik.md:29 es call pag… → igual… (czasownik): «{{t:call|Pagas}}» → «{{t:call|Igualas}}»
+- es lessons/m12-l2-decyzja-wynik.md:38 es call pag… → igual… (czasownik): «{{t:call|Pagas}}» → «{{t:call|Igualas}}»
+- es lessons/m12-l2-decyzja-wynik.md:97 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m12-l3-tilt.md:118 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m13-l3-przeglad.md:34 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m13-l3-przeglad.md:51 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m13-l3-przeglad.md:58 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m2-l1-outy.md:51 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m2-l1-outy.md:54 es call pag… → igual… (czasownik): «{{t:call|Pagar}}» → «{{t:call|Igualar}}»
+- es lessons/m2-l2-pot-odds.md:13 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m2-l2-pot-odds.md:26 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m2-l2-pot-odds.md:35 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m2-l2-pot-odds.md:63 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m2-l2-pot-odds.md:97 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m4-l3-wobec-3betu.md:13 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m4-l3-wobec-3betu.md:27 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m4-l3-wobec-3betu.md:37 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m4-l3-wobec-3betu.md:37 es call pag… → igual… (czasownik): «{{t:call|pagan}}» → «{{t:call|igualan}}»
+- es lessons/m4-l3-wobec-3betu.md:37 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m4-l3-wobec-3betu.md:46 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m4-l3-wobec-3betu.md:56 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m4-l3-wobec-3betu.md:57 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m4-l3-wobec-3betu.md:67 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m4-l3-wobec-3betu.md:76 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m4-l3-wobec-3betu.md:86 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m4-l3-wobec-3betu.md:90 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m4-l3-wobec-3betu.md:100 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m4-l3-wobec-3betu.md:100 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m4-l3-wobec-3betu.md:104 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m4-l3-wobec-3betu.md:108 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m4-l3-wobec-3betu.md:108 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m4-l3-wobec-3betu.md:112 es call pag… → igual… (czasownik): «{{t:call|pagan}}» → «{{t:call|igualan}}»
+- es lessons/m4-l3-wobec-3betu.md:112 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:13 es call pag… → igual… (czasownik): «{{t:call|pagado}}» → «{{t:call|igualado}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:25 es call pag… → igual… (czasownik): «{{t:call|pagando}}» → «{{t:call|igualando}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:31 es paired doblado → emparejado: «{{t:paired|doblado}}» → «{{t:paired|emparejado}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:32 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:32 es paired doblado → emparejado: «{{t:paired|doblado}}» → «{{t:paired|emparejado}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:33 es paired doblado → emparejado: «{{t:paired|doblado}}» → «{{t:paired|emparejado}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:46 es call pag… → igual… (czasownik): «{{t:call|pagado}}» → «{{t:call|igualado}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:49 es call pag… → igual… (czasownik): «{{t:call|pagan}}» → «{{t:call|igualan}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:49 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:51 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:56 es call pag… → igual… (czasownik): «{{t:call|pagado}}» → «{{t:call|igualado}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:66 es call pag… → igual… (czasownik): «{{t:call|pagado}}» → «{{t:call|igualado}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:66 es paired doblado → emparejado: «{{t:paired|doblado}}» → «{{t:paired|emparejado}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:69 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:69 es paired doblado → emparejado: «{{t:paired|doblado}}» → «{{t:paired|emparejado}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:71 es paired doblado → emparejado: «{{t:paired|doblado}}» → «{{t:paired|emparejado}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:76 es call pag… → igual… (czasownik): «{{t:call|pagado}}» → «{{t:call|igualado}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:103 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:106 es call pag… → igual… (czasownik): «{{t:call|pagado}}» → «{{t:call|igualado}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:110 es call pag… → igual… (czasownik): «{{t:call|pagando}}» → «{{t:call|igualando}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:118 es paired doblado → emparejado: «{{t:paired|Doblado}}» → «{{t:paired|Emparejado}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:120 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:120 es paired doblado → emparejado: «{{t:paired|doblado}}» → «{{t:paired|emparejado}}»
+- es lessons/m5-l3-czestotliwosc-rozmiar.md:133 es paired doblado → emparejado: «{{t:paired|doblado}}» → «{{t:paired|emparejado}}»
+- es lessons/m5-l4-bez-pozycji.md:32 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m5-l4-bez-pozycji.md:35 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m5-l4-bez-pozycji.md:36 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m5-l4-bez-pozycji.md:37 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m5-l4-bez-pozycji.md:53 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m6-l2-sprawdzenie.md:13 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m6-l2-sprawdzenie.md:16 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m6-l2-sprawdzenie.md:23 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m6-l2-sprawdzenie.md:26 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m6-l2-sprawdzenie.md:44 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m6-l2-sprawdzenie.md:44 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m6-l2-sprawdzenie.md:46 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m6-l2-sprawdzenie.md:55 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m6-l2-sprawdzenie.md:64 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m6-l2-sprawdzenie.md:64 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m6-l2-sprawdzenie.md:65 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m6-l2-sprawdzenie.md:74 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m6-l2-sprawdzenie.md:74 es call pag… → igual… (czasownik): «{{t:call|Pagar}}» → «{{t:call|Igualar}}»
+- es lessons/m6-l2-sprawdzenie.md:74 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m6-l2-sprawdzenie.md:74 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m6-l2-sprawdzenie.md:85 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m6-l2-sprawdzenie.md:91 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m6-l2-sprawdzenie.md:118 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m6-l2-sprawdzenie.md:127 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m6-l2-sprawdzenie.md:127 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m6-l2-sprawdzenie.md:132 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m6-l2-sprawdzenie.md:132 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m6-l2-sprawdzenie.md:134 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m6-l3-check-raise.md:17 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m6-l3-check-raise.md:17 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m6-l3-check-raise.md:28 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m6-l3-check-raise.md:41 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m6-l3-check-raise.md:49 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m6-l3-check-raise.md:54 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m6-l3-check-raise.md:63 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m6-l3-check-raise.md:72 es call pag… → igual… (czasownik): «{{t:call|pagan}}» → «{{t:call|igualan}}»
+- es lessons/m6-l3-check-raise.md:73 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m6-l3-check-raise.md:82 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m6-l3-check-raise.md:82 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m6-l3-check-raise.md:82 es call pag… → igual… (czasownik): «{{t:call|pagando}}» → «{{t:call|igualando}}»
+- es lessons/m6-l3-check-raise.md:82 {{t:top-pair|Pareja máxima}} → Pareja mayor: «{{t:top-pair|Pareja máxima}}» → «{{t:top-pair|Pareja mayor}}»
+- es lessons/m6-l3-check-raise.md:83 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m6-l3-check-raise.md:84 {{t:top-pair|Pareja máxima}} → Pareja mayor: «{{t:top-pair|Pareja máxima}}» → «{{t:top-pair|Pareja mayor}}»
+- es lessons/m6-l3-check-raise.md:94 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m6-l3-check-raise.md:103 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m6-l3-check-raise.md:112 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es lessons/m6-l3-check-raise.md:116 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m6-l3-check-raise.md:125 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m6-l3-check-raise.md:125 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m6-l3-check-raise.md:125 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m6-l3-check-raise.md:125 {{t:top-pair|parejas máximas}} → parejas mayores: «{{t:top-pair|parejas máximas}}» → «{{t:top-pair|parejas mayores}}»
+- es lessons/m7-l1-druga-beczka.md:85 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m7-l1-druga-beczka.md:134 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m7-l2-polaryzacja.md:16 {{t:top-pair|Parejas máximas}} → Parejas mayores: «{{t:top-pair|Parejas máximas}}» → «{{t:top-pair|Parejas mayores}}»
+- es lessons/m7-l2-polaryzacja.md:64 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m7-l4-probe-obrona.md:56 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m7-l4-probe-obrona.md:58 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m7-l4-probe-obrona.md:96 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m7-l4-probe-obrona.md:97 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m7-l4-probe-obrona.md:98 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m7-l4-probe-obrona.md:140 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m8-l1-value.md:40 es call pag… → igual… (czasownik): «{{t:call|pagarán}}» → «{{t:call|igualarán}}»
+- es lessons/m8-l1-value.md:47 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es lessons/m8-l1-value.md:47 es call pag… → igual… (czasownik): «{{t:call|pagaron}}» → «{{t:call|igualaron}}»
+- es lessons/m8-l1-value.md:50 es call pag… → igual… (czasownik): «{{t:call|pagado}}» → «{{t:call|igualado}}»
+- es lessons/m8-l1-value.md:50 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m8-l1-value.md:50 {{t:top-pair|Pareja máxima}} → Pareja mayor: «{{t:top-pair|Pareja máxima}}» → «{{t:top-pair|Pareja mayor}}»
+- es lessons/m8-l1-value.md:51 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m8-l1-value.md:52 es call pag… → igual… (czasownik): «{{t:call|pagado}}» → «{{t:call|igualado}}»
+- es lessons/m8-l1-value.md:57 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es lessons/m8-l1-value.md:57 es call pag… → igual… (czasownik): «{{t:call|pagaron}}» → «{{t:call|igualaron}}»
+- es lessons/m8-l1-value.md:61 es call pag… → igual… (czasownik): «{{t:call|pagarán}}» → «{{t:call|igualarán}}»
+- es lessons/m8-l1-value.md:67 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es lessons/m8-l1-value.md:67 es call pag… → igual… (czasownik): «{{t:call|pagaron}}» → «{{t:call|igualaron}}»
+- es lessons/m8-l1-value.md:67 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m8-l1-value.md:77 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m8-l1-value.md:80 es call pag… → igual… (czasownik): «{{t:call|pagarán}}» → «{{t:call|igualarán}}»
+- es lessons/m8-l1-value.md:99 es call pag… → igual… (czasownik): «{{t:call|pague}}» → «{{t:call|iguale}}»
+- es lessons/m8-l1-value.md:100 es call pag… → igual… (czasownik): «{{t:call|pagará}}» → «{{t:call|igualará}}»
+- es lessons/m8-l1-value.md:107 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m8-l1-value.md:129 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m8-l2-ile-blefow.md:15 es call pag… → igual… (czasownik): «{{t:call|pagando}}» → «{{t:call|igualando}}»
+- es lessons/m8-l2-ile-blefow.md:29 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m8-l2-ile-blefow.md:48 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m8-l2-ile-blefow.md:63 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m8-l2-ile-blefow.md:74 es call pag… → igual… (czasownik): «{{t:call|Pagar}}» → «{{t:call|Igualar}}»
+- es lessons/m8-l2-ile-blefow.md:75 es call pag… → igual… (czasownik): «{{t:call|pagando}}» → «{{t:call|igualando}}»
+- es lessons/m8-l2-ile-blefow.md:84 es call pag… → igual… (czasownik): «{{t:call|Pagar}}» → «{{t:call|Igualar}}»
+- es lessons/m8-l2-ile-blefow.md:84 es call pag… → igual… (czasownik): «{{t:call|Pagando}}» → «{{t:call|Igualando}}»
+- es lessons/m8-l2-ile-blefow.md:113 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es lessons/m8-l2-ile-blefow.md:119 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es lessons/m8-l4-bluff-catching.md:57 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l1-spr.md:80 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l1-spr.md:83 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es lessons/m9-l1-spr.md:83 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l1-spr.md:85 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l1-spr.md:134 {{t:top-pair|Pareja máxima}} → Pareja mayor: «{{t:top-pair|Pareja máxima}}» → «{{t:top-pair|Pareja mayor}}»
+- es lessons/m9-l1-spr.md:135 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l1-spr.md:139 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l1-spr.md:139 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:27 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:30 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:46 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:49 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:50 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:56 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:58 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:59 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:65 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:69 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:70 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:78 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:80 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:98 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:100 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:104 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:106 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:106 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l2-zaangazowanie.md:113 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l4-plan-trzech-ulic.md:23 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l4-plan-trzech-ulic.md:28 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l4-plan-trzech-ulic.md:37 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l4-plan-trzech-ulic.md:43 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l4-plan-trzech-ulic.md:46 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l4-plan-trzech-ulic.md:47 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l4-plan-trzech-ulic.md:72 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l4-plan-trzech-ulic.md:76 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l4-plan-trzech-ulic.md:77 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l4-plan-trzech-ulic.md:77 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l4-plan-trzech-ulic.md:84 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es lessons/m9-l4-plan-trzech-ulic.md:104 {{t:top-pair|Pareja máxima}} → Pareja mayor: «{{t:top-pair|Pareja máxima}}» → «{{t:top-pair|Pareja mayor}}»
+- es lessons/m9-l4-plan-trzech-ulic.md:130 {{t:top-pair|parejas máximas}} → parejas mayores: «{{t:top-pair|parejas máximas}}» → «{{t:top-pair|parejas mayores}}»
+- es exams/m10.yaml:34 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es exams/m10.yaml:36 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m10.yaml:37 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es exams/m10.yaml:45 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es exams/m10.yaml:54 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es exams/m10.yaml:55 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es exams/m10.yaml:55 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es exams/m10.yaml:56 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es exams/m10.yaml:80 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m11.yaml:25 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es exams/m11.yaml:41 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m11.yaml:48 es call pag… → igual… (czasownik): «{{t:call|Paga}}» → «{{t:call|Iguala}}»
+- es exams/m11.yaml:50 es call pag… → igual… (czasownik): «{{t:call|Pagas}}» → «{{t:call|Igualas}}»
+- es exams/m11.yaml:50 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es exams/m11.yaml:51 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es exams/m11.yaml:52 es call pag… → igual… (czasownik): «{{t:call|Pagas}}» → «{{t:call|Igualas}}»
+- es exams/m11.yaml:52 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es exams/m11.yaml:57 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es exams/m11.yaml:64 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m11.yaml:73 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es exams/m11.yaml:76 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m11.yaml:77 es call pag… → igual… (czasownik): «{{t:call|Pagar}}» → «{{t:call|Igualar}}»
+- es exams/m11.yaml:85 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m12.yaml:43 es call pag… → igual… (czasownik): «{{t:call|Pagas}}» → «{{t:call|Igualas}}»
+- es exams/m13.yaml:32 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es exams/m13.yaml:32 es call pag… → igual… (czasownik): «{{t:call|pagado}}» → «{{t:call|igualado}}»
+- es exams/m13.yaml:34 es call pag… → igual… (czasownik): «{{t:call|Pagar}}» → «{{t:call|Igualar}}»
+- es exams/m13.yaml:35 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es exams/m13.yaml:36 es call pag… → igual… (czasownik): «{{t:call|paga}}» → «{{t:call|iguala}}»
+- es exams/m13.yaml:71 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m2.yaml:36 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es exams/m2.yaml:48 es call pag… → igual… (czasownik): «{{t:call|Pagar}}» → «{{t:call|Igualar}}»
+- es exams/m2.yaml:61 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m2.yaml:63 es call pag… → igual… (czasownik): «{{t:call|pagues}}» → «{{t:call|iguales}}»
+- es exams/m2.yaml:64 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es exams/m2.yaml:64 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m2.yaml:65 es call pag… → igual… (czasownik): «{{t:call|pagues}}» → «{{t:call|iguales}}»
+- es exams/m2.yaml:70 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m2.yaml:72 es call pag… → igual… (czasownik): «{{t:call|pagues}}» → «{{t:call|iguales}}»
+- es exams/m2.yaml:80 es call pag… → igual… (czasownik): «{{t:call|Pagar}}» → «{{t:call|Igualar}}»
+- es exams/m2.yaml:81 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es exams/m2.yaml:90 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es exams/m2.yaml:98 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es exams/m4.yaml:12 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m4.yaml:14 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es exams/m4.yaml:23 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es exams/m4.yaml:23 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es exams/m4.yaml:34 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es exams/m4.yaml:39 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m4.yaml:72 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es exams/m4.yaml:72 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es exams/m4.yaml:73 es call pag… → igual… (czasownik): «{{t:call|pagarán}}» → «{{t:call|igualarán}}»
+- es exams/m4.yaml:81 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es exams/m4.yaml:81 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es exams/m4.yaml:92 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es exams/m4.yaml:92 es call pag… → igual… (czasownik): «{{t:call|Pagar}}» → «{{t:call|Igualar}}»
+- es exams/m5.yaml:9 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es exams/m5.yaml:19 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es exams/m5.yaml:47 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es exams/m5.yaml:59 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es exams/m5.yaml:59 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es exams/m5.yaml:60 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es exams/m5.yaml:61 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es exams/m5.yaml:66 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es exams/m5.yaml:68 es call pag… → igual… (czasownik): «{{t:call|pagarás}}» → «{{t:call|igualarás}}»
+- es exams/m5.yaml:68 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es exams/m5.yaml:69 es call pag… → igual… (czasownik): «{{t:call|pagarán}}» → «{{t:call|igualarán}}»
+- es exams/m5.yaml:75 es call pag… → igual… (czasownik): «{{t:call|pagaron}}» → «{{t:call|igualaron}}»
+- es exams/m5.yaml:85 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es exams/m5.yaml:85 es wet mojado → húmedo: «{{t:wet|mojado}}» → «{{t:wet|húmedo}}»
+- es exams/m5.yaml:88 es call pag… → igual… (czasownik): «{{t:call|pagarán}}» → «{{t:call|igualarán}}»
+- es exams/m5.yaml:88 es wet mojado → húmedo: «{{t:wet|mojado}}» → «{{t:wet|húmedo}}»
+- es exams/m5.yaml:89 es wet mojado → húmedo: «{{t:wet|mojado}}» → «{{t:wet|húmedo}}»
+- es exams/m5.yaml:90 es wet mojado → húmedo: «{{t:wet|mojado}}» → «{{t:wet|húmedo}}»
+- es exams/m5.yaml:95 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es exams/m5.yaml:95 es wet mojado → húmedo: «{{t:wet|mojado}}» → «{{t:wet|húmedo}}»
+- es exams/m5.yaml:99 es wet mojado → húmedo: «{{t:wet|mojado}}» → «{{t:wet|húmedo}}»
+- es exams/m5.yaml:99 es wet mojado → húmedo: «{{t:wet|Mojado}}» → «{{t:wet|Húmedo}}»
+- es exams/m5.yaml:99 es wet mojado → húmedo: «{{t:wet|mojados}}» → «{{t:wet|húmedos}}»
+- es exams/m6.yaml:19 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m6.yaml:38 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es exams/m6.yaml:44 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m6.yaml:57 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es exams/m6.yaml:64 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m6.yaml:67 es call pag… → igual… (czasownik): «{{t:call|pagas}}» → «{{t:call|igualas}}»
+- es exams/m6.yaml:77 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m6.yaml:77 {{t:top-pair|Pareja máxima}} → Pareja mayor: «{{t:top-pair|Pareja máxima}}» → «{{t:top-pair|Pareja mayor}}»
+- es exams/m7.yaml:8 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es exams/m7.yaml:8 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es exams/m7.yaml:11 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es exams/m7.yaml:18 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es exams/m7.yaml:27 es call pag… → igual… (czasownik): «{{t:call|pagó}}» → «{{t:call|igualó}}»
+- es exams/m7.yaml:30 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m7.yaml:31 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m7.yaml:39 es call pag… → igual… (czasownik): «{{t:call|pagan}}» → «{{t:call|igualan}}»
+- es exams/m7.yaml:63 es call pag… → igual… (czasownik): «{{t:call|pagar}}» → «{{t:call|igualar}}»
+- es exams/m7.yaml:90 es call pag… → igual… (czasownik): «{{t:call|Pagaste}}» → «{{t:call|Igualaste}}»
+- es exams/m7.yaml:94 es call pag… → igual… (czasownik): «{{t:call|Pago}}» → «{{t:call|Igualo}}»
+- es exams/m7.yaml:94 es call pag… → igual… (czasownik): «{{t:call|pagué}}» → «{{t:call|igualé}}»
+- es exams/m8.yaml:17 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es exams/m8.yaml:48 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es exams/m8.yaml:79 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es exams/m9.yaml:19 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es exams/m9.yaml:19 {{t:top-pair|Pareja máxima}} → Pareja mayor: «{{t:top-pair|Pareja máxima}}» → «{{t:top-pair|Pareja mayor}}»
+- es rules.yaml:502 {{t:top-pair|parejas máximas}} → parejas mayores: «{{t:top-pair|parejas máximas}}» → «{{t:top-pair|parejas mayores}}»
+- es rules.yaml:552 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es rules.yaml:760 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es rules.yaml:762 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es rules.yaml:801 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es rules.yaml:817 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»
+- es rules.yaml:817 {{t:top-pair|pareja máxima}} → pareja mayor: «{{t:top-pair|pareja máxima}}» → «{{t:top-pair|pareja mayor}}»

@@ -1,0 +1,164 @@
+# K-05 (D-367, D-372): nazwa terminu w języku de dla znacznika {{t:klucz}} bez formy; null = skrót albo nazwa angielska.
+# Ze szkicu docs/lokalizacja/przygotowane/terms-nazwy-de.yaml (przegląd D-386, sesja AI, 2026-11-09; komentarze: formy tłumacza i źródła). Strażnik: tools/content-build/src/nazwy.ts.
+royal-flush: "Royal Flush"  # royal flush; r. m; bez formy 0; formy: Royal Flush×3; źr. A
+straight-flush: "Straight Flush"  # straight flush; r. m; bez formy 0; formy: Straight Flush×3, Straße in einer Farbe×1; źr. A
+four-of-a-kind: "Vierling"  # four of a kind; r. m; bez formy 0; formy: Vierling×8; źr. A
+full-house: "Full House"  # full house; r. n; bez formy 1; formy: Full House×16; źr. A
+flush: "Flush"  # flush; r. m; bez formy 25; formy: Flush×92, Flushes×2, Flushs×1; źr. A
+straight: "Straße"  # straight; r. f; bez formy 7; formy: Straße×93, Straight×43, Straßen×11, Straights×5; źr. A; E:Straight (Eine Straight oder eine Straße) [WIELE FORM]
+three-of-a-kind: "Drilling"  # three of a kind; r. m; bez formy 0; formy: Drilling×23; źr. A
+set: "Set"  # set; r. n; bez formy 1; formy: Set×1; źr. E:Set
+two-pair: "zwei Paare"  # two pair; r. lm; bez formy 8; formy: Two Pair×22, zwei Paare×21, Zwei Paare×10, zwei Paaren×2, Two Pairs×2; źr. A (Zwei Paare); E:Kicker (Two Pair (zwei Paare)) [WIELE FORM]
+pair: "Paar"  # pair; r. n; bez formy 17; formy: Paar×198, Paare×77, Paaren×13, Pair×1, Paars×1; źr. A (Ein Paar)
+high-card: "High Card"  # high card; r. f; bez formy 0; formy: High Card×3; źr. A
+kicker: "Kicker"  # kicker; r. m; bez formy 0; formy: —; źr. E:Kicker
+wheel: "Wheel"  # wheel; r. n; bez formy 0; formy: Wheel×2; źr. D (vergleiche Wheel)
+check: "Check"  # check; r. m; bez formy 22; formy: checkst×52, checkt×50, checke×45, checken×43, Check×40, gecheckt×17; źr. E:Check
+bet: "Bet"  # bet; r. f; bez formy 46; formy: setzt×105, Bet×102, Einsatz×47, Bets×47, gesetzt×24, Einsätze×24; źr. E:Bet (Eine Bet)
+call: "Call"  # call; r. m; bez formy 99; formy: Call×203, gecallt×106, callt×105, callst×98, callen×81, Callen×71; źr. E:Call
+raise: "Raise"  # raise; r. m; bez formy 18; formy: raist×89, Raise×79, raisen×32, geraist×31, raise×17, Raisen×15; źr. E:Raise (ein Raise)
+fold: "Fold"  # fold; r. m; bez formy 36; formy: foldet×141, folden×139, gefoldet×99, foldest×97, Fold×78, Folds×55; źr. E:Fold
+check-raise: "Check-Raise"  # check-raise; r. m; bez formy 0; formy: —; źr. D (Check-Raise)
+all-in: "All-in"  # all-in; r. n; bez formy 1; formy: —; źr. B (der All-in-Spieler)
+pot: "Pot"  # pot; r. m; bez formy 217; formy: Pot×530, Pots×146; źr. E:Pot
+side-pot: "Side Pot"  # side pot; r. m; bez formy 0; formy: Nebenpot×2; źr. B; E:Side-Pot [INNA NIŻ TŁUMACZ]
+split-pot: "Split Pot"  # split pot; r. m; bez formy 0; formy: Split Pot×15, wird der Pot geteilt×1, teilt ihr den Pot×1; źr. E:Split-Pot; C
+playing-the-board: "das Board spielen"  # playing the board; r. wyrażenie; bez formy 0; formy: das Board spielen×2, das Board zu spielen×1, spielen beide das Board×1; źr. A (spielen alle Spieler den Royal Flush vom Board)
+board: "Board"  # board; r. n; bez formy 16; formy: Board×83, Boards×3; źr. E:Board
+community-cards: "Gemeinschaftskarten"  # community cards; r. lm; bez formy 0; formy: Gemeinschaftskarten×11, Gemeinschaftskarte×1; źr. E:Gemeinschaftskarten
+hole-cards: "Hole Cards"  # hole cards; r. lm; bez formy 0; formy: Handkarten×2, Hole Cards×1; źr. E:Hole-Cards [INNA NIŻ TŁUMACZ]
+small-blind: "Small Blind"  # small blind; r. m; bez formy 24; formy: Small Blind×99, Small Blinds×7, SB×5; źr. E:Small-Blind
+big-blind: "Big Blind"  # big blind; r. m; bez formy 99; formy: Big Blind×165, Big Blinds×12, BB×6; źr. E:Big-Blind
+chips: "Chips"  # chips; r. lm; bez formy 12; formy: Chips×87, Chip×3; źr. B
+stack: "Stack"  # stack; r. m; bez formy 0; formy: —; źr. E:Stack
+street: "Street"  # street; r. f; bez formy 18; formy: Streets×38, Street×24; źr. E:Street
+betting-round: "Setzrunde"  # betting round; r. f; bez formy 0; formy: Setzrunde×4, Setzrunden×4; źr. C; E:Raise (Setzrunde)
+preflop: "Preflop"  # preflop; r. wyrażenie; bez formy 0; formy: Preflop×1; źr. E:Street
+flop: "Flop"  # flop; r. m; bez formy 0; formy: Flop×1; źr. B; E:Street
+turn: "Turn"  # turn; r. m; bez formy 0; formy: Turn×1; źr. E:Street
+river: "River"  # river; r. m; bez formy 0; formy: River×1; źr. E:Street
+showdown: "Showdown"  # showdown; r. m; bez formy 0; formy: Showdown×1; źr. B
+position: "Position"  # position; r. f; bez formy 16; formy: Position×67, Positionen×12; źr. E:In-Position/Out-of-Position
+in-position: "in Position"  # in position; r. wyrażenie; bez formy 24; formy: in Position×26, In Position×8; źr. E:In-Position (In Position)
+out-of-position: "out of Position"  # out of position; r. wyrażenie; bez formy 28; formy: ohne Position×19, Ohne Position×17, out of Position×11, Out of Position×7; źr. E:Out-of-Position (Out of Position) [WIELE FORM]
+early-position: "frühe Position"  # early position; r. f; bez formy 0; formy: frühen Positionen×2 [DO USTALENIA]
+late-position: "späte Position"  # late position; r. f; bez formy 0; formy: später Position×1; źr. D (aus später Position)
+utg: "UTG"  # under the gun; r. m; bez formy 29; formy: UTG×18; źr. D (Under the Gun)
+hijack: "Hijack"  # hijack; r. m; bez formy 0; formy: HJ×17 [DO USTALENIA]
+cutoff: "Cutoff"  # cutoff; r. m; bez formy 1; formy: CO×54; źr. D (Cutoff)
+button: "Button"  # button; r. m; bez formy 0; formy: BTN×3; źr. C (Dealer-Button)
+outs: "Outs"  # out; r. lm; bez formy 0; formy: Outs×1; źr. E:Outs
+draw: "Draw"  # draw; r. m; bez formy 43; formy: Draws×105, Draw×53; źr. E:Draw
+flush-draw: "Flush-Draw"  # flush draw; r. m; bez formy 10; formy: Flush-Draw×30, Flush Draw×12, Flush-Draws×6, Flush Draws×3; źr. E:Flush-Draw (Flush Draw) [WIELE FORM]
+straight-draw: "Straight-Draw"  # straight draw; r. m; bez formy 2; formy: Straight-Draw×9, Straßen-Draw×5, Straight Draw×3; źr. E:Connectors (Straight-Draws) [WIELE FORM]
+oesd: "OESD"  # open-ended straight draw; r. m; bez formy 4; formy: OESD×17, OESDs×2; źr. E:OESD
+gutshot: "Gutshot"  # gutshot; r. m; bez formy 0; formy: —; źr. D (Gutshot)
+backdoor: "Backdoor"  # backdoor; r. wyrażenie; bez formy 0; formy: —; źr. E:Backdoor-Draw
+pot-odds: "Pot Odds"  # pot odds; r. lm; bez formy 0; formy: —; źr. E:Pot-Odds
+implied-odds: "Implied Odds"  # implied odds; r. lm; bez formy 0; formy: Implied Odds×2; źr. E:Implied-Odds
+equity: "Equity"  # equity; r. f; bez formy 11; formy: Equity×8; źr. E:Equity
+equity-realization: "Equity-Realisierung"  # equity realization; r. f; bez formy 0; formy: Equity-Realisierung×4, realisiert seine Equity×2, realisieren ihre Equity×1 [DO USTALENIA]
+expected-value: "Erwartungswert"  # expected value; r. m; bez formy 2; formy: Erwartungswert×7, EV×2, Erwartungswerts×1; źr. E:Erwartungswert
+combo: "Kombination"  # combo; r. f; bez formy 0; formy: Kombinationen×23, Kombos×4, Combos×3 [WIELE FORM] [DO USTALENIA]
+range: "Range"  # range; r. f; bez formy 63; formy: Range×164, Ranges×19; źr. E:Range
+mixed-hand: "gemischte Hand"  # mixing hand; r. f; bez formy 0; formy: gemischte Hand×4, gemischten Hand×3, gemischten Hände×2, gemischte Hände×2, Gemischte Hand×1 [DO USTALENIA]
+open: "Open"  # open; r. n; bez formy 6; formy: eröffnet×117, Eröffnung×54, Open×28, eröffnest×28, Opens×8, Eröffner×7; źr. E:Open-Raise [WIELE FORM]
+suited: "suited"  # suited; r. przym.; bez formy 0; formy: —; źr. E:Suited
+offsuit: "offsuit"  # offsuit; r. przym.; bez formy 0; formy: — [DO USTALENIA]
+pocket-pair: "Pocket Pair"  # pocket pair; r. n; bez formy 0; formy: Pocket Pairs×2, Pocket Pair×2; źr. E:Pocket-Pair
+connectors: "Connectors"  # connectors; r. lm; bez formy 3; formy: Connectors×20, Connector×1; źr. E:Connectors
+3-bet: "3-Bet"  # 3-bet; r. f; bez formy 0; formy: —; źr. E:3bet
+4-bet: "4-Bet"  # 4-bet; r. f; bez formy 0; formy: —; źr. E:4bet
+limp: "Limp"  # limp; r. m; bez formy 1; formy: Limp×1; źr. E:Limp
+isolation: "Isolation"  # isolation raise; r. f; bez formy 0; formy: Isolation×4, isolieren×1, isoliert×1, isolierst×1; źr. E:Isolieren (Das Isolieren eines Spielers) [DO USTALENIA]
+texture: "Textur"  # texture; r. f; bez formy 2; formy: Textur×6; źr. E:Textur
+dry: "trocken"  # dry; r. przym.; bez formy 0; formy: trockenen×29, trocken×10, trockener×9, Trocken×4, Trockener×1; źr. E:Textur (trocken (dry))
+wet: "nass"  # wet; r. przym.; bez formy 0; formy: nass×17, nassen×6, nasser×3, Nass×2, nasse×1, nassesten×1 [DO USTALENIA]
+rainbow: "Rainbow"  # rainbow; r. przym.; bez formy 0; formy: Rainbow×4; źr. E:Dry (rainbow)
+two-tone: "Two-Tone"  # two-tone; r. przym.; bez formy 0; formy: Two-Tone×3, zweifarbigen×1, zweifarbiger×1, zweifarbige×1, zweifarbig×1 [DO USTALENIA]
+monotone: "monoton"  # monotone; r. przym.; bez formy 0; formy: monoton×6, monotonen×5, monotoner×3, einfarbiger×2, einfarbig×1, einfarbigen×1 [DO USTALENIA]
+paired: "gepaart"  # paired; r. przym.; bez formy 0; formy: gepaarten×6, gepaart×5, gepaarter×4, Gepaart×2; źr. E:Paired (paired)
+connected: "verbunden"  # connected; r. przym.; bez formy 0; formy: verbundenen×7, verbunden×6, verbundener×4, connected×1, Verbunden×1; źr. E:Dry (verbunden (connected))
+disconnected: "unverbunden"  # disconnected; r. przym.; bez formy 0; formy: unverbundener×2, Unverbunden×1, unverbunden×1; źr. E:Connectors (unverbundene Karten)
+semi-connected: "halb verbunden"  # semi-connected; r. przym.; bez formy 0; formy: halb verbundener×3, halb verbunden×2, halb verbundenen×1, Halb verbunden×1 [DO USTALENIA]
+wetness: "Nässe"  # wetness; r. f; bez formy 0; formy: Nässe×5 [DO USTALENIA]
+top-pair: "Top Pair"  # top pair; r. n; bez formy 19; formy: Top Pair×61, Top Pairs×4; źr. E:Top-Pair
+second-pair: "Second Pair"  # second pair; r. n; bez formy 0; formy: Second Pair×5, zweites Paar×3, Zweites Paar×1 [WIELE FORM] [DO USTALENIA]
+overpair: "Overpair"  # overpair; r. n; bez formy 1; formy: Overpair×8, Overpairs×1; źr. E:Overpair
+c-bet: "C-Bet"  # c-bet; r. f; bez formy 0; formy: C-Bet×2; źr. E:Continuation-Bet (Continuation Bet)
+aggressor: "Aggressor"  # aggressor; r. m; bez formy 3; formy: Aggressor×6, Aggressors×1; źr. E:Aggressor
+initiative: "Initiative"  # initiative; r. f; bez formy 2; formy: Initiative×15; źr. E:Initiative
+range-advantage: "Range-Vorteil"  # range advantage; r. m; bez formy 4; formy: Range-Vorteil×28 [DO USTALENIA]
+nuts-advantage: "Nuts-Vorteil"  # nuts advantage; r. m; bez formy 1; formy: Nuts-Vorteil×22 [DO USTALENIA]
+nuts: "Nuts"  # nuts; r. lm; bez formy 0; formy: Nuts×1; źr. E:Nuts (Die Nuts)
+polarized: "polarisiert"  # polarized; r. przym.; bez formy 0; formy: polarisierte×10, polarisierten×6, polarisiert×3, Polarisiert×2, Polarisierte×2; źr. E:Polarising
+polarization: "Polarisierung"  # polarization; r. f; bez formy 0; formy: — [DO USTALENIA]
+linear: "linear"  # linear; r. przym.; bez formy 0; formy: linearen×5, Linear×2, lineare×1, Lineare×1, linear×1 [DO USTALENIA]
+condensed: "kondensiert"  # condensed; r. przym.; bez formy 0; formy: kondensiert×2 [DO USTALENIA]
+value: "Value"  # value; r. m; bez formy 2; formy: Value×42, Value-Streets×26, auf Value×24, für Value×10; źr. E:Value
+value-bet: "Value Bet"  # value bet; r. f; bez formy 0; formy: Value Bets×1; źr. E:Value-Bet
+bluff: "Bluff"  # bluff; r. m; bez formy 65; formy: Bluffs×238, Bluff×88, blufft×46, bluffst×32, bluffen×8, Bluffen×1; źr. E:Bluff
+semi-bluff: "Semi-Bluff"  # semi-bluff; r. m; bez formy 5; formy: Semi-Bluffs×13, Semi-Bluff×6; źr. E:Semibluff (Semibluff)
+blocker: "Blocker"  # blocker; r. m; bez formy 1; formy: Blocker×15, Blockern×6; źr. E:Blocker
+bluff-catcher: "Bluff Catcher"  # bluff catcher; r. m; bez formy 0; formy: —; źr. E:Bluff-Catcher
+barrel: "Barrel"  # barrel; r. m; bez formy 0; formy: — [DO USTALENIA]
+second-barrel: "Second Barrel"  # second barrel; r. m; bez formy 10; formy: Second Barrel×15, Second Barrels×1; źr. E:Second-Barrel
+probe-bet: "Probe Bet"  # probe bet; r. f; bez formy 0; formy: —; źr. E:Probe-Bet
+donk-bet: "Donk Bet"  # donk bet; r. f; bez formy 0; formy: —; źr. E:Donkbet (Donkbet)
+overbet: "Overbet"  # overbet; r. f; bez formy 1; formy: Overbet×2; źr. E:Overbet
+effective-stack: "effektiver Stack"  # effective stack; r. m; bez formy 0; formy: effektiven Stack×4, effektive Stack×2 [DO USTALENIA]
+spr: "SPR"  # stack-to-pot ratio; r. f; bez formy 140; formy: SPR×49; źr. E:SPR-Stack-to-Pot-Ratio
+mdf: "MDF"  # minimum defense frequency; r. f; bez formy 68; formy: MDF×6 [DO USTALENIA]
+alpha: "Alpha"  # alpha; r. n; bez formy 4; formy: Alpha×2 [DO USTALENIA]
+variance: "Varianz"  # variance; r. f; bez formy 4; formy: Varianz×22; źr. E:Varianz
+buy-in: "Buy-in"  # buy-in; r. n; bez formy 0; formy: Buy-ins×80, Buy-in×3; źr. E:Buy-In; D (Buy-In)
+bankroll: "Bankroll"  # bankroll; r. f; bez formy 0; formy: Bankroll×1; źr. E:Bankroll
+tilt: "Tilt"  # tilt; r. m; bez formy 0; formy: —; źr. E:Tilt
+winrate: "Winrate"  # win rate; r. f; bez formy 0; formy: Winrate×1; źr. E:Hourly-Winrate
+downswing: "Downswing"  # downswing; r. m; bez formy 9; formy: Downswing×14, Downswings×5; źr. E:Downswing
+session: "Session"  # session; r. f; bez formy 5; formy: Session×39, Sessions×12 [DO USTALENIA]
+stakes: "Limit"  # stakes; r. n; bez formy 0; formy: Limit×41, Limits×21, Mikrolimits×1; źr. E:Micro-Limit; E:Stakes (Stakes) [WIELE FORM]
+standard-deviation: "Standardabweichung"  # standard deviation; r. f; bez formy 2; formy: Standardabweichung×40, Standardabweichungen×2 [DO USTALENIA]
+risk-of-ruin: "Ruinrisiko"  # risk of ruin; r. n; bez formy 0; formy: Ruinrisiko×4; źr. E:Risk-of-Ruin (Das Risiko des Ruins)
+mental-game: "Mental Game"  # mental game; r. n; bez formy 1; formy: — [DO USTALENIA]
+tournament: "Turnier"  # tournament; r. n; bez formy 0; formy: Turnier×13, Turniers×4, Turniere×1; źr. E:Turnier
+push-fold: "Push/Fold"  # push/fold; r. wyrażenie; bez formy 0; formy: — [DO USTALENIA]
+shove: "Push"  # shove; r. m; bez formy 0; formy: pushst×5, shoven×4, shovt×4, pusht×4, shovst×3, pushen×2; źr. E:Push (pusht); E:Shove [WIELE FORM]
+icm: "ICM"  # Independent Chip Model; r. n; bez formy 21; formy: ICM×9; źr. E:ICM
+bubble: "Bubble"  # bubble; r. f; bez formy 0; formy: Bubble×11; źr. E:Bubble
+bubble-factor: "Bubble Factor"  # bubble factor; r. m; bez formy 0; formy: —; źr. E:Bubble-factor (Bubblefactor)
+cover: "covern"  # cover; r. wyrażenie; bez formy 0; formy: covert×3, coverst×2; źr. E:Covered
+risk-premium: "Risk Premium"  # risk premium; r. f; bez formy 0; formy: Risk Premium×7, Risikoprämie×1 [WIELE FORM] [DO USTALENIA]
+m-ratio: "M"  # M-ratio; r. wyrażenie; bez formy 0; formy: —; źr. E:M
+red-zone: "rote Zone"  # red zone; r. f; bez formy 0; formy: Rote Zone×1, rote Zone×1 [DO USTALENIA]
+green-zone: "grüne Zone"  # green zone; r. f; bez formy 0; formy: Grüne Zone×1, grüne Zone×1 [DO USTALENIA]
+ante: "Ante"  # ante; r. n; bez formy 0; formy: —; źr. E:Ante
+bb-ante: "Big Blind Ante"  # big blind ante; r. n; bez formy 5; formy: Big Blind Ante×1 [DO USTALENIA]
+fold-equity: "Fold Equity"  # fold equity; r. f; bez formy 0; formy: —; źr. E:Fold-Equity
+gap-concept: "Gap-Konzept"  # gap concept; r. n; bez formy 0; formy: —; źr. E:Gap-Konzept
+chip-ev: "Chip-EV"  # chip EV; r. m; bez formy 0; formy: — [DO USTALENIA]
+tournament-equity: "Turnier-Equity"  # tournament equity; r. f; bez formy 0; formy: Turnier-Equity×2 [DO USTALENIA]
+prize-pool: "Preispool"  # prize pool; r. m; bez formy 0; formy: Preispools×13, Preispool×5 [DO USTALENIA]
+payout: "Auszahlung"  # payout; r. f; bez formy 0; formy: Auszahlungen×9, Auszahlung×3; źr. E:Payout (die Auszahlung)
+pay-jump: "Pay Jump"  # pay jump; r. m; bez formy 0; formy: — [DO USTALENIA]
+final-table: "Finaltisch"  # final table; r. m; bez formy 0; formy: Finaltisch×4; źr. E:Final-Table (Final-Table)
+short-stack: "Short Stack"  # short stack; r. m; bez formy 0; formy: Short Stack×10, Short Stacks×3; źr. E:Shortstack (Shortstack)
+nash-equilibrium: "Nash-Gleichgewicht"  # Nash equilibrium; r. n; bez formy 0; formy: — [DO USTALENIA]
+overcall: "Overcall"  # overcall; r. m; bez formy 0; formy: —; źr. E:Overcall
+heads-up: "Heads-up"  # heads up; r. n; bez formy 0; formy: —; źr. E:Heads-up (Heads-Up)
+dead-money: "Dead Money"  # dead money; r. n; bez formy 0; formy: —; źr. E:Dead-Money
+stack-off: "Stack-off"  # stack off; r. wyrażenie; bez formy 0; formy: — [DO USTALENIA]
+exploit: "Exploit"  # exploit; r. m; bez formy 0; formy: Exploit×6, Exploits×2, exploitativ×1; źr. E:Exploiting
+hud: "HUD"  # heads-up display; r. n; bez formy 2; formy: HUD×12 [DO USTALENIA]
+vpip: "VPIP"  # voluntarily put in pot; r. m; bez formy 67; formy: VPIP×23; źr. E:VPIP
+pfr: "PFR"  # preflop raise; r. m; bez formy 46; formy: PFR×15; źr. E:PFR
+wtsd: "WTSD"  # went to showdown; r. m; bez formy 3; formy: —; źr. E:WTSD
+nit: "Nit"  # nit; r. m; bez formy 13; formy: Nit×6; źr. E:Nit (Eine Nit)
+regular: "Reg"  # regular; r. m; bez formy 0; formy: Regs×7, Reg×5 [DO USTALENIA]
+tag: "TAG"  # tight aggressive; r. m; bez formy 1; formy: —; źr. E:TAG
+lag: "LAG"  # loose aggressive; r. m; bez formy 1; formy: —; źr. E:LAG
+recreational: "Freizeitspieler"  # recreational player; r. m; bez formy 0; formy: Freizeitspieler×21; źr. E:Fish (ein „Fish“ ein schwacher, unerfahrener) [DO USTALENIA]
+calling-station: "Calling Station"  # calling station; r. f; bez formy 1; formy: Calling Station×1; źr. E:Calling-Station
+maniac: "Maniac"  # maniac; r. m; bez formy 9; formy: Maniac×8, Maniacs×1; źr. E:Maniac
+rake: "Rake"  # rake; r. m; bez formy 35; formy: Rake×17, Rakes×4; źr. E:Rake
+rake-cap: "Rake-Cap"  # rake cap; r. n; bez formy 0; formy: Rake-Cap×7; źr. E:Rake (Cap)
