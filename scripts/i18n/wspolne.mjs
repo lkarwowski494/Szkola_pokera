@@ -9,6 +9,7 @@
 //    --limit-usd (osobna zgoda), bez flagi --zgoda-koszt (Trening :238, :317);
 //  - MAX_TOKENS = 128 000 zamiast 64 000 (:27): jednostką jest cały plik treści, największy `content/pl/rules.yaml` ma
 //    ok. 141 tys. znaków (ok. 50 tys. tokenów wyjścia); limit wyjścia Opus 5.5 i Sonnet 5.5 to 128K (umiejętność claude-api);
+//  - nakładki plików wspólnych (spots.yaml, helplines.yaml): Trening ich nie ma; reguła z tools/content-build/src/nakladka.ts;
 //  - rejestr języków (REJESTR) przepisany z Treningu :48–62 jako „przewodnik głosu”, bo w repo nie ma osobnego przewodnika
 //    głosu dla języków docelowych (otwarte pytanie do roli 09/04).
 // Cennik (tabela „Current Models” umiejętności claude-api, stan pamięci podręcznej 2026-10-06, odczyt 2026-11-09):
@@ -20,7 +21,14 @@ import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import { createHash } from 'node:crypto';
 import { parse as parseYaml } from 'yaml';
+import { tsImport } from 'tsx/esm/api';
 import { splaszcz, wpisy } from '../sprawdz-i18n.mjs';
+
+/* Nakładki plików wspólnych (K2b): reguła pól i strażnik z jednego miejsca — tools/content-build/src/nakladka.ts (POLA_SPOTS,
+ * POLA_HELPLINES, roznicePoza), importowane przez tsx, nie kopiowane; content-build sprawdza po nałożeniu to samo. */
+const NAKLADKA = await tsImport('../../tools/content-build/src/nakladka.ts', import.meta.url);
+export const POLA_NAKLADEK = { 'content/ranges/spots.yaml': NAKLADKA.POLA_SPOTS, 'content/helplines.yaml': NAKLADKA.POLA_HELPLINES };
+export const roznicePoza = NAKLADKA.roznicePoza;
 
 /* ---------- liczby w jednym miejscu ---------- */
 export const MODELE = { opus: 'claude-opus-5-5', sonnet: 'claude-sonnet-5-5' };
@@ -122,6 +130,12 @@ export function jednostki(root, kod, prefiks) {
     let id = `${prefiks}__${kod}__${bezpiecznyId(r.replace(/\.(md|ya?ml)$/, ''))}`;
     if (id.length > 64) id = `${prefiks}__${kod}__${sha256(r).slice(0, 16)}`;
     out.push({ rodzaj: r.endsWith('.md') ? 'md' : 'yaml', zrodlo: `content/${ZRODLO}/${r}`, cel: `content/${kod}/${r}`, en: `content/en/${r}`, custom_id: id, tekst, zrodlo_sha256: sha256(tekst) });
+  }
+  // nakładki plików wspólnych: content/<rel> → content/<kod>/<rel> (tools/content-build/src/nakladka.ts, czytajZNakladka)
+  for (const [zr, pola] of Object.entries(POLA_NAKLADEK)) {
+    if (!existsSync(join(root, zr))) continue;
+    const rel = zr.slice('content/'.length), tekst = readFileSync(join(root, zr), 'utf8');
+    out.push({ rodzaj: 'nakladka', zrodlo: zr, cel: `content/${kod}/${rel}`, en: `content/en/${rel}`, custom_id: `${prefiks}__${kod}__n_${bezpiecznyId(rel.replace(/\.ya?ml$/, ''))}`, tekst, zrodlo_sha256: sha256(tekst), pola });
   }
   return out;
 }
@@ -233,6 +247,13 @@ export function kontrolaZnacznikow(j, tekst, kod) {
     }
     for (const k of Object.keys(we)) if (!zr[k]) out.push(`${k}: klucz spoza źródła`);
     return out;
+  }
+  if (j.rodzaj === 'nakladka') {
+    // strażnik content-build (roznicePoza: poza polami tekstowymi bez zmian, {{n:…}} i {{t:…}} w każdym polu i kluczu, wrongSizes → groups)
+    // plus pełne znaczniki (parametry, karty, adresy) w całym pliku
+    const a = bezpiecznieYaml(j.tekst, 'źródło'), b = bezpiecznieYaml(tekst, 'przekład');
+    if (a.blad || b.blad) return [a.blad ?? b.blad];
+    return [...roznicePoza(a.v, b.v, j.pola), ...porownajZnaczniki(JSON.stringify(a.v), JSON.stringify(b.v), 'plik')];
   }
   if (j.rodzaj === 'yaml') {
     const a = bezpiecznieYaml(j.tekst, 'źródło'), b = bezpiecznieYaml(tekst, 'przekład');

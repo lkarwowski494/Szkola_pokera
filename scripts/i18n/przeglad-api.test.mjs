@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, writeFileSync, mkdtempSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { atrapa, fetchZakazany, atrapaApi, LEKCJA_EN } from './fixture.mjs';
+import { atrapa, fetchZakazany, atrapaApi, LEKCJA_EN, SPOTS_PL, SPOTS_EN, HELPLINES_PL, HELPLINES_EN } from './fixture.mjs';
 import { PROMPT_PRZEGLADU, budujZadanieBatcha, jednostkiPrzegladu, segmenty, parsujTabele, main, parsujArgumenty } from './przeglad-api.mjs';
 import { glosariusz } from './wspolne.mjs';
 
@@ -94,4 +94,21 @@ test('pełny przegląd na atrapie API: raport z tabelą uwag i kontrolą lokaln�
   assert.deepEqual(r.jednostki[0].uwagi, [{ klucz: 'title', problem: 'zbyt ogólne', propozycja: 'Poker hand rankings', pewnosc: 'średnia' }]);
   assert.ok(r.jednostki[0].kontrola_lokalna.some((x) => /ex\.bet/.test(x)));
   assert.match(readFileSync(join(wy, 'podsumowanie.md'), 'utf8'), /\| klucz \| problem \| propozycja \| pewność \|/);
+});
+
+test('segmenty nakładek: pola tekstowe i klucze map groups/wrongSizes; numery, adresy i cytaty poza przeglądem', () => {
+  const root = atrapa();
+  const js = jednostkiPrzegladu(root, 'en');
+  const sp = js.find((j) => j.zrodlo === 'content/ranges/spots.yaml');
+  const s = segmenty(sp, SPOTS_PL, SPOTS_EN);
+  const k = Object.fromEntries(s.map((x) => [x.klucz, x]));
+  assert.equal(k['[0].title'].tlumaczenie, '{{t:pot}}, someone opened');
+  assert.equal(k['[0].groups{1}'].pl, 'Gram (3-bet albo {{t:call}})');
+  assert.equal(k['[0].groups{1}'].tlumaczenie, 'Play (3-bet or {{t:call}})');
+  assert.equal(k['[0].wrongSizes.Gram (3-bet albo {{t:call}})[0].why'].tlumaczenie, 'Too small.');
+  assert.ok(!Object.keys(k).some((x) => /path|hero|\.id$/.test(x)));
+  const hl = js.find((j) => j.zrodlo === 'content/helplines.yaml');
+  const h = segmenty(hl, HELPLINES_PL, HELPLINES_EN).map((x) => x.klucz);
+  assert.ok(h.includes('pointer') && h.includes('fallback.text') && h.includes('entries[0].info') && h.includes('entries[0].links[0].label'));
+  assert.ok(!h.some((x) => /name|quote|url|claim/.test(x)));
 });

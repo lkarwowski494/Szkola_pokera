@@ -2,14 +2,15 @@
 // żądanie, dostaje fetch rzucający albo atrapę API — żaden test nie łączy się z api.anthropic.com.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, writeFileSync, existsSync, mkdtempSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdtempSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { atrapa, fetchZakazany, atrapaApi, LEKCJA_EN } from './fixture.mjs';
+import { atrapa, fetchZakazany, atrapaApi, LEKCJA_EN, SPOTS_EN, HELPLINES_EN } from './fixture.mjs';
 import {
   budujZadanieBatcha, SYSTEM_PRZEKLADU, jednostkiPrzekladu, wyciagnijPropozycje, odczytajLinie, ocenPropozycje, main, parsujArgumenty,
 } from './przeklad-api.mjs';
-import { kontrolaZnacznikow, LIMIT_USD, DOMYSLNY_MODEL, kosztUsd, glosariusz } from './wspolne.mjs';
+import { kontrolaZnacznikow, LIMIT_USD, DOMYSLNY_MODEL, kosztUsd, glosariusz, POLA_NAKLADEK, roznicePoza } from './wspolne.mjs';
+import { tsImport } from 'tsx/esm/api';
 
 const cicho = () => {};
 const linie = () => { const l = []; return { log: (s) => l.push(String(s)), l }; };
@@ -34,11 +35,13 @@ test('cennik: Batch to połowa ceny standardowej', () => {
   assert.equal(kosztUsd(1e6, 1e6, 'claude-sonnet-5-5'), 6);
 });
 
-test('jednostki: słownik interfejsu jako jedna jednostka na język, każdy plik content/pl jako osobna; terms.yaml poza przekładem', () => {
+test('jednostki: słownik interfejsu jako jedna jednostka na język, każdy plik content/pl jako osobna, nakładki spots i helplines; terms.yaml poza przekładem', () => {
   const root = atrapa();
   const j = jednostkiPrzekladu(root, 'en');
-  assert.deepEqual(j.map((x) => x.zrodlo), ['apps/mobile/src/i18n/locales/pl.json', 'content/pl/exams/m0.yaml', 'content/pl/lessons/m0-l1-uklady.md']);
-  assert.deepEqual(j.map((x) => x.cel), ['apps/mobile/src/i18n/locales/en.json', 'content/en/exams/m0.yaml', 'content/en/lessons/m0-l1-uklady.md']);
+  assert.deepEqual(j.map((x) => x.zrodlo), ['apps/mobile/src/i18n/locales/pl.json', 'content/pl/exams/m0.yaml', 'content/pl/lessons/m0-l1-uklady.md', 'content/ranges/spots.yaml', 'content/helplines.yaml']);
+  assert.deepEqual(j.map((x) => x.cel), ['apps/mobile/src/i18n/locales/en.json', 'content/en/exams/m0.yaml', 'content/en/lessons/m0-l1-uklady.md', 'content/en/ranges/spots.yaml', 'content/en/helplines.yaml']);
+  assert.deepEqual(j.slice(3).map((x) => x.rodzaj), ['nakladka', 'nakladka']);
+  assert.deepEqual(j.slice(3).map((x) => x.en), ['content/en/ranges/spots.yaml', 'content/en/helplines.yaml']);
   assert.ok(!j.some((x) => x.zrodlo.includes('terms.yaml')));
   for (const x of j) assert.match(x.custom_id, /^[A-Za-z0-9_-]{1,64}$/);
   assert.equal(new Set(j.map((x) => x.custom_id)).size, j.length);
@@ -189,17 +192,19 @@ test('pełny przebieg na atrapie API: batch, wyniki, propozycje jako plik; złe 
   const api = atrapaApi((id) => {
     if (id.endsWith('__ui')) return JSON.stringify({ 'today.title': 'Today', 'today.lessonOf': '{{modul}}, lesson {{nr}}', 'today.reviewsDue_one': '{{count}} due', 'today.reviewsDue_other': '{{count}} due' });
     if (id.includes('lessons')) return `<<<PLIK>>>\n${LEKCJA_EN}<<<KONIEC>>>`;
+    if (id.includes('spots')) return `<<<PLIK>>>\n${SPOTS_EN}<<<KONIEC>>>`;
+    if (id.includes('helplines')) return `<<<PLIK>>>\n${HELPLINES_EN}<<<KONIEC>>>`;
     return '<<<PLIK>>>\nmodule: m0\ndrills: []\n<<<KONIEC>>>';
   });
   const kod = await main(['--wyjscie', wy], { ANTHROPIC_API_KEY: 'sk-ant-test-0000000000000' }, { fetchFn: api.fetchFn, log: cicho, root, spij: async () => {} });
   assert.equal(kod, 0);
   const post = api.wywolania.find((w) => w.sciezka === '/v1/messages/batches' && w.metoda === 'POST');
-  assert.equal(post.cialo.requests.length, 3, 'jedno żądanie na jednostkę');
+  assert.equal(post.cialo.requests.length, 5, 'jedno żądanie na jednostkę');
   assert.equal(post.naglowki['x-api-key'], 'sk-ant-test-0000000000000');
   const p = JSON.parse(readFileSync(join(wy, 'propozycje.json'), 'utf8'));
   assert.equal(p.batch_id, 'msgbatch_test1');
   const st = Object.fromEntries(p.jednostki.map((j) => [j.cel, j.status]));
-  assert.deepEqual(st, { 'apps/mobile/src/i18n/locales/en.json': 'przyjeta', 'content/en/lessons/m0-l1-uklady.md': 'przyjeta', 'content/en/exams/m0.yaml': 'odrzucona' });
+  assert.deepEqual(st, { 'apps/mobile/src/i18n/locales/en.json': 'przyjeta', 'content/en/lessons/m0-l1-uklady.md': 'przyjeta', 'content/en/exams/m0.yaml': 'odrzucona', 'content/en/ranges/spots.yaml': 'przyjeta', 'content/en/helplines.yaml': 'przyjeta' });
   assert.ok(p.jednostki.find((j) => j.status === 'odrzucona').powody.length > 0);
   assert.ok(!existsSync(join(root, 'content/en')), 'skrypt nie nakłada propozycji');
   assert.ok(!existsSync(join(root, 'apps/mobile/src/i18n/locales/en.json')));
@@ -226,4 +231,60 @@ test('--zastosuj: nakłada tylko propozycje zgodne ze źródłem; odrzuca zmieni
   // ręcznie zepsuta propozycja (zmieniony {{n:…}} po przeglądzie) też nie przejdzie
   writeFileSync(plik, JSON.stringify({ jednostki: [{ ...prop(md, LEKCJA_EN), tekst: LEKCJA_EN.replace('{{n:ex.pot}}', '{{n:ex.po}}') }] }));
   assert.equal(await main(['--zastosuj', plik], {}, { fetchFn: fetchZakazany, log: cicho, root }), 1);
+});
+
+/* ---------- nakładki plików wspólnych (K2b: tools/content-build/src/nakladka.ts, D-317–D-322) ---------- */
+const nakladka = (root, nazwa) => jednostkiPrzekladu(root, 'en').find((x) => x.zrodlo.endsWith(nazwa));
+
+test('nakładki: reguła pól z nakladka.ts (POLA_SPOTS, POLA_HELPLINES), nie kopia', async () => {
+  const ts = await tsImport('../../tools/content-build/src/nakladka.ts', import.meta.url);
+  // każdy tsImport ładuje osobną kopię modułu, więc porównanie po wartości; źródło jest jedno (nakladka.ts)
+  assert.deepEqual(POLA_NAKLADEK['content/ranges/spots.yaml'], ts.POLA_SPOTS);
+  assert.deepEqual(POLA_NAKLADEK['content/helplines.yaml'], ts.POLA_HELPLINES);
+  assert.equal(roznicePoza.toString(), ts.roznicePoza.toString());
+});
+
+test('nakładka spots: przetłumaczony tekst i klucze groups/wrongSizes przechodzą; zmiany poza tekstem odrzucone', () => {
+  const j = nakladka(atrapa(), 'spots.yaml');
+  assert.deepEqual(kontrolaZnacznikow(j, SPOTS_EN, 'en'), []);
+  assert.ok(kontrolaZnacznikow(j, SPOTS_EN.replace('path: "CO:raise2.5"', 'path: "CO:raise3"'), 'en').some((x) => /path/.test(x)));
+  assert.ok(kontrolaZnacznikow(j, SPOTS_EN.replace('    "Play (3-bet or {{t:call}})":', '    "Play (3-bet or call)":'), 'en').some((x) => /wrongSizes/.test(x)), 'klucz wrongSizes = przekład klucza grupy');
+  assert.ok(kontrolaZnacznikow(j, SPOTS_EN.replace('["raise 7.5", "call 2.5"]', '["raise 7.5"]'), 'en').length > 0);
+  assert.ok(kontrolaZnacznikow(j, SPOTS_EN.replace('3-bet to {{n:ex.pot}}', '3-bet to 7.5bb'), 'en').some((x) => /n:ex\.pot/.test(x)));
+  assert.ok(kontrolaZnacznikow(j, SPOTS_EN.replace('title: "{{t:pot}}, someone opened"', 'title: "The pot, someone opened"'), 'en').some((x) => /t:pot/.test(x)));
+  assert.ok(kontrolaZnacznikow(j, 'nie: [yaml', 'en').some((x) => /YAML/.test(x)));
+});
+
+test('nakładka helplines: tekst przetłumaczony przechodzi; name, quote, url i id bez zmian', () => {
+  const j = nakladka(atrapa(), 'helplines.yaml');
+  assert.deepEqual(kontrolaZnacznikow(j, HELPLINES_EN, 'en'), []);
+  assert.ok(kontrolaZnacznikow(j, HELPLINES_EN.replace("name: 'Gambling Therapy'", "name: 'Terapia hazardu'"), 'en').some((x) => /name/.test(x)));
+  assert.ok(kontrolaZnacznikow(j, HELPLINES_EN.replace("quote: 'free practical advice'", "quote: 'free advice'"), 'en').some((x) => /quote/.test(x)));
+  assert.ok(kontrolaZnacznikow(j, HELPLINES_EN.replace('id: int-x', 'id: int-y'), 'en').some((x) => /id/.test(x)));
+  assert.ok(kontrolaZnacznikow(j, HELPLINES_EN.replace("claim: H-INT-2", "claim: H-INT-3"), 'en').some((x) => /claim/.test(x)));
+});
+
+test('żądanie nakładki: pola tekstowe pliku i reguła kluczy wrongSizes w treści; angielskie odniesienie dla ja (D-289)', () => {
+  const root = atrapa();
+  const u = budujZadanieBatcha(root, 'en', nakladka(root, 'spots.yaml'), { model: 'claude-opus-5-5', effort: 'medium' }, glosariusz(root)).params.messages[0].content;
+  assert.match(u, /title, text, why/);
+  assert.match(u, /groups/);
+  assert.match(u, /wrongSizes/);
+  assert.match(u, /pot: pula → pot/);
+  const h = budujZadanieBatcha(root, 'en', nakladka(root, 'helplines.yaml'), { model: 'claude-opus-5-5', effort: 'medium' }, glosariusz(root)).params.messages[0].content;
+  assert.match(h, /pointer, text, regions_label, info, hours, cost, language, label/);
+  assert.match(h, /name, quote/);
+  const zEn = atrapa(); mkdirSync(join(zEn, 'content/en/ranges'), { recursive: true }); writeFileSync(join(zEn, 'content/en/ranges/spots.yaml'), SPOTS_EN);
+  const ja = budujZadanieBatcha(zEn, 'ja', nakladka(zEn, 'spots.yaml'), { model: 'claude-opus-5-5', effort: 'medium' }, glosariusz(zEn)).params.messages[0].content;
+  assert.match(ja, /Angielski przekład \(odniesienie/);
+  assert.ok(ja.includes(SPOTS_EN));
+});
+
+test('--zastosuj nakłada nakładkę do content/<język>/ranges/spots.yaml po kontroli', async () => {
+  const root = atrapa(); const wy = mkdtempSync(join(tmpdir(), 'k3a-wy-'));
+  const j = nakladka(root, 'spots.yaml');
+  const plik = join(wy, 'propozycje.json');
+  writeFileSync(plik, JSON.stringify({ jednostki: [{ ...ocenPropozycje(j, 'en', { blad: null, tekst: `<<<PLIK>>>\n${SPOTS_EN}<<<KONIEC>>>` }) }] }));
+  assert.equal(await main(['--zastosuj', plik], {}, { fetchFn: fetchZakazany, log: cicho, root }), 0);
+  assert.equal(readFileSync(join(root, 'content/en/ranges/spots.yaml'), 'utf8'), SPOTS_EN);
 });

@@ -5,6 +5,10 @@
 // po przeglądzie (--zastosuj), klucz tylko w ANTHROPIC_API_KEY (nigdy w logach, raporcie ani argumentach).
 // Jednostki: (a) słownik interfejsu `apps/mobile/src/i18n/locales/pl.json` z kontekstem `pl.kontekst.json` (jedna na język),
 // (b) każdy plik `content/pl/**` (Markdown lekcji, YAML egzaminów, reguł, modułów, obszarów; jedna = plik × język).
+// (c) nakładki plików wspólnych (K2b): `content/ranges/spots.yaml` → `content/<język>/ranges/spots.yaml` (tekst: title, text, why
+//     i klucze map groups oraz wrongSizes; klucz wrongSizes = przekład klucza tej samej grupy) i `content/helplines.yaml` →
+//     `content/<język>/helplines.yaml` (tekst: pointer, text, regions_label, info, hours, cost, language, label; bez zmian: name,
+//     quote, numery, adresy, id). Reguła pól i strażnik z `tools/content-build/src/nakladka.ts` (import przez tsx, bez kopii).
 // `content/terms.yaml` nie jest tłumaczony w K3a: terminy mają nazwy angielskie (`en`), nazwy lokalne innych języków — D-287, fala 1.
 // Odstępstwa od Treningu (plik:linia Treningu, odczyt 2026-11-09):
 //  - jednostka = plik treści albo cały słownik (przeklad-api.mjs:3 „jedno żądanie na język” z parami kluczy, :68–82): u nas
@@ -69,6 +73,15 @@ const regulaTerminow = (kod) => (kod === 'en'
   ? 'Terminy {{t:klucz|forma}}: w angielskim forma to sama nazwa angielska z glosariusza (liczba mnoga albo wielka litera według zdania); gdy pasuje bez zmian, wystarczy {{t:klucz}} (D-287).'
   : 'Terminy {{t:klucz|forma}}: forma to termin w tym języku, odmieniony zgodnie ze zdaniem; nazwa angielska z glosariusza to punkt odniesienia.');
 
+/** Pola nakładki z nakladka.ts — zastępują ogólną listę pól z promptu systemowego. */
+const regulaNakladki = (j) => [
+  `W tym pliku (zamiast ogólnej listy pól) tłumacz tylko wartości pól: ${[...j.pola.tekst].join(', ')}`,
+  j.pola.kluczeTekstem.size ? `oraz klucze map ${[...j.pola.kluczeTekstem].join(' i ')} (nazwy grup akcji; wpisy i ich kolejność bez zmian)` : '',
+  ...(j.pola.powiazane ?? []).map(([m, cel]) => `; klucz w ${m} to dokładnie ten sam przekład co klucz tej samej grupy w ${cel}`),
+  '. Wszystko inne bez zmian: identyfikatory, ścieżki solvera (path), pozycje, akcje, listy rąk, kotwice i aliasy YAML (&, *)',
+  j.zrodlo.endsWith('helplines.yaml') ? ', a także name, quote, numery telefonów, adresy (url), id, claim, kraje, daty i źródła.' : '.',
+].join('');
+
 export const jednostkiPrzekladu = (root, kod) => jednostki(root, kod, 'pr');
 
 /** Wpisy słownika interfejsu do promptu: klucz bazowy, polski tekst albo formy liczby mnogiej, kontekst, angielskie odniesienie. */
@@ -100,7 +113,8 @@ export function budujZadanie(root, kod, j, gl) {
   } else {
     tresc = [
       regulaTerminow(kod), blokGlosariusza(gl, kluczeTerminow(j.tekst)),
-      `Plik: ${j.zrodlo} → ${j.cel} (${j.rodzaj === 'md' ? 'lekcja Markdown z front matter YAML' : 'plik YAML'}).`,
+      `Plik: ${j.zrodlo} → ${j.cel} (${j.rodzaj === 'md' ? 'lekcja Markdown z front matter YAML' : j.rodzaj === 'nakladka' ? 'nakładka językowa pliku wspólnego, YAML' : 'plik YAML'}).`,
+      ...(j.rodzaj === 'nakladka' ? [regulaNakladki(j)] : []),
       'Tekst źródłowy (polski):', j.tekst,
       ...(en ? ['Angielski przekład (odniesienie, D-289):', en] : []),
     ];

@@ -102,6 +102,58 @@ fold:
   en: fold
 `;
 
+
+/** Pliki wspólne z nakładką językową (K2b, tools/content-build/src/nakladka.ts): spots.yaml i helplines.yaml. */
+export const SPOTS_PL = `# komentarz
+- id: vs-open.x
+  title: "{{t:pot|Pula}}, ktoś otworzył"
+  hero: BTN
+  path: "CO:raise2.5"
+  groups: &g { "Gram (3-bet albo {{t:call}})": ["raise 7.5", "call 2.5"] }
+  wrongSizes: &w
+    "Gram (3-bet albo {{t:call}})":
+      - { text: "3-bet do {{n:ex.pot}}", why: "Za mało." }
+- id: vs-open.y
+  title: "Drugi spot"
+  hero: SB
+  path: ""
+  groups: *g
+  wrongSizes: *w
+`;
+export const SPOTS_EN = `- id: vs-open.x
+  title: "{{t:pot}}, someone opened"
+  hero: BTN
+  path: "CO:raise2.5"
+  groups: &g { "Play (3-bet or {{t:call}})": ["raise 7.5", "call 2.5"] }
+  wrongSizes: &w
+    "Play (3-bet or {{t:call}})":
+      - { text: "3-bet to {{n:ex.pot}}", why: "Too small." }
+- id: vs-open.y
+  title: "Second spot"
+  hero: SB
+  path: ""
+  groups: *g
+  wrongSizes: *w
+`;
+export const HELPLINES_PL = `checked: '2026-11-04'
+pointer: 'Kontakt znajdziesz w ekranie „Pomoc”.'
+fallback:
+  claim: H-INT-2
+  text: 'Porozmawiaj z lekarzem.'
+regions_label: 'Numery w regionach'
+entries:
+  - id: int-x
+    name: 'Gambling Therapy'
+    info: 'Bezpłatne porady.'
+    links:
+      - label: 'Gambling Therapy'
+        url: https://www.gamblingtherapy.org/
+    sources:
+      - url: https://www.gamblingtherapy.org/
+        quote: 'free practical advice'
+`;
+export const HELPLINES_EN = HELPLINES_PL.replace('Kontakt znajdziesz w ekranie „Pomoc”.', 'You will find this contact on the Help screen.').replace('Porozmawiaj z lekarzem.', 'Talk to a doctor.').replace('Numery w regionach', 'Numbers by region').replace('Bezpłatne porady.', 'Free advice.');
+
 const zapisz = (root, rel, tekst) => { const p = join(root, rel); mkdirSync(dirname(p), { recursive: true }); writeFileSync(p, tekst); };
 
 /** Nowy katalog z atrapą projektu; `zEn` dopisuje angielskie pliki (odniesienie dla kolejnych języków, D-289). */
@@ -112,6 +164,8 @@ export function atrapa({ zEn = false } = {}) {
   zapisz(root, 'content/pl/exams/m0.yaml', EGZAMIN_PL);
   zapisz(root, 'apps/mobile/src/i18n/locales/pl.json', JSON.stringify(PL_JSON, null, 2) + '\n');
   zapisz(root, 'apps/mobile/src/i18n/locales/pl.kontekst.json', JSON.stringify(KONTEKST, null, 2) + '\n');
+  zapisz(root, 'content/ranges/spots.yaml', SPOTS_PL);
+  zapisz(root, 'content/helplines.yaml', HELPLINES_PL);
   if (zEn) {
     zapisz(root, 'content/en/lessons/m0-l1-uklady.md', LEKCJA_EN);
     zapisz(root, 'apps/mobile/src/i18n/locales/en.json', JSON.stringify({ today: { title: 'Today', lessonOf: '{{modul}}, lesson {{nr}}', reviewsDue_one: '{{count}} due today', reviewsDue_other: '{{count}} due today' } }, null, 2) + '\n');

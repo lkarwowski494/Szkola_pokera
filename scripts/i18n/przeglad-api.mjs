@@ -5,6 +5,7 @@
 // a poprawki nanosi człowiek albo agent po rozstrzygnięciu każdej uwagi. Klucz wyłącznie w ANTHROPIC_API_KEY.
 // Wejście modelu: polskie źródło, przekład, kontekst (słownik interfejsu: pl.kontekst.json), glosariusz (content/terms.yaml),
 // przewodnik głosu (rejestr języka) i — dla języków innych niż en — angielskie odniesienie, jeśli istnieje (D-289).
+// Jednostki jak w przekładzie, z nakładkami spots.yaml i helplines.yaml (segmenty: pola tekstowe i klucze grup z nakladka.ts).
 // Przekład bierze z repo (`content/<język>/…`, `locales/<język>.json`) albo z pliku propozycji przekładu (--propozycje),
 // żeby przejrzeć propozycje PRZED nałożeniem.
 // Prompt: z modułu `tlumaczenie` biblioteki `prompts` (brzmienie podane przez koordynatora K3a, 2026-11-09), dosłownie po polsku.
@@ -56,6 +57,24 @@ function polaYaml(v, sciezka = '', klucz = null, out = new Map()) {
   else if (PRZEKLADALNE.has(klucz) && typeof v === 'string') out.set(sciezka, v);
   return out;
 }
+/** Segmenty nakładki (pola z nakladka.ts): pola tekstowe i klucze map groups (po kolejności); klucze map powiązanych (wrongSizes)
+ * nie są osobnym segmentem, bo strażnik wymaga, by były przekładem klucza grupy. Ścieżka po kluczach źródła. */
+function polaNakladki(a, b, pola, sciezka = '', klucz = '', out = []) {
+  const brakTl = b === null;
+  if (typeof a === 'string' && pola.tekst.has(klucz)) { out.push({ klucz: sciezka, pl: a, tlumaczenie: brakTl ? null : typeof b === 'string' ? b : '' }); return out; }
+  if (Array.isArray(a)) { a.forEach((x, i) => polaNakladki(x, brakTl ? null : Array.isArray(b) ? b[i] : undefined, pola, `${sciezka}[${i}]`, klucz, out)); return out; }
+  if (a && typeof a === 'object') {
+    const eb = !brakTl && b && typeof b === 'object' ? Object.entries(b) : [];
+    const powiazana = (pola.powiazane ?? []).some(([m]) => m === klucz);
+    Object.entries(a).forEach(([k, v], i) => {
+      const tekstem = pola.kluczeTekstem.has(klucz);
+      if (tekstem && !powiazana) out.push({ klucz: `${sciezka}{${i + 1}}`, pl: k, tlumaczenie: brakTl ? null : eb[i]?.[0] ?? '' });
+      const vb = brakTl ? null : tekstem ? eb[i]?.[1] : b?.[k];
+      polaNakladki(v, vb === undefined ? (brakTl ? null : undefined) : vb, pola, sciezka ? `${sciezka}.${k}` : k, k, out);
+    });
+  }
+  return out;
+}
 const yamlBezpiecznie = (t) => { try { return parseYaml(t); } catch { return null; } };
 const akapity = (t) => String(t).split(/\r?\n\s*\r?\n/).map((s) => s.trim()).filter(Boolean);
 
@@ -67,6 +86,7 @@ export function segmenty(j, pl, tl) {
     return Object.entries(a).map(([k, w]) => ({ klucz: k, pl: opisPlurala(w), tlumaczenie: b ? (b[k] ? opisPlurala(b[k]) : '') : null, ...(j.kontekst?.[k] ? { kontekst: j.kontekst[k] } : {}) }));
   }
   const zYaml = (a, b) => { const pa = polaYaml(a), pb = b ? polaYaml(b) : null; return [...pa].map(([k, v]) => ({ klucz: k, pl: v, tlumaczenie: pb ? (pb.get(k) ?? '') : null })); };
+  if (j.rodzaj === 'nakladka') return polaNakladki(yamlBezpiecznie(pl), tl === null ? null : yamlBezpiecznie(tl) ?? {}, j.pola);
   if (j.rodzaj === 'yaml') return zYaml(yamlBezpiecznie(pl), tl === null ? null : yamlBezpiecznie(tl) ?? {});
   const a = rozdzielMd(pl), b = tl === null ? null : rozdzielMd(tl);
   const out = a.fm !== null ? zYaml(yamlBezpiecznie(a.fm), b === null ? null : yamlBezpiecznie(b.fm ?? '') ?? {}) : [];
