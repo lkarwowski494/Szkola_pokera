@@ -48,6 +48,14 @@ odds.gutshot.flop-turn: { formula: hitProbability, refs: [outs.gutshot, cards.un
 # D1 (dokument 12 M0–M3): w m2.l2.q2/q3 asy dają parę asów nad królem, więc liczą się jako dodatkowe (niepewne) outy.
 outs.flush-ace: { formula: sum, refs: [outs.flush, pair.outs.per-rank], unit: count, source: "obliczenie: 9 kart do koloru + 3 asy (dokument 12, D1)" }
 odds.flush-ace.turn-river: { formula: hitProbability, refs: [outs.flush-ace, cards.unseen.turn, streets.turn-river], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): 12 z 46 (dokument 12, D1)" }
+# D-339 (sesja T): granica i największy błąd reguły 2 i 4 (m2.l1 „Skąd te liczby”, R-M2-002). Błąd rośnie z liczbą outów, więc
+# największy przy granicy; z trzech sytuacji lekcji (flop → river × 4, flop → turn × 2, turn → river × 2) najdalej jest turn → river
+# (reguła zaniża: 20% wobec 10 z 46). Test `regula-blad-08` sprawdza, że to maksimum po 1…granica outów i wszystkich trzech sytuacjach.
+rule24.outs.max: { value: 10, unit: count, source: "serwis szkoleniowy, Poker drawing odds & outs explained (https://upswingpoker.com/poker-drawing-odds-outs-explained/): „For anything 10 outs or less, however, its accurate within 2% for the turn and river calculation”" }
+rule24.max.exact-turn: { formula: hitProbability, refs: [rule24.outs.max, cards.unseen.turn, streets.turn-river], unit: percent, decimals: 1, source: "obliczenie dokładne (poker-core): 10 z 46" }
+rule24.max.rule-turn: { formula: ruleOf2And4, refs: [rule24.outs.max, streets.turn-river], unit: percent, source: "reguła 2 i 4: 10 outów × 2" }
+rule24.error.max: { formula: diff, refs: [rule24.max.exact-turn, rule24.max.rule-turn], unit: percent, decimals: 1, source: "obliczenie: dokładnie − reguła przy granicy outów (turn → river)" }
+rule24.error.max.pp: { formula: product, refs: [rule24.error.max, math.hundred], unit: count, decimals: 0, source: "obliczenie: największy błąd reguły 2 i 4 w punktach procentowych (1,7 pp, zaokrąglone; dokument 12 M0–M3)" }
 
 # Przykładowe pule i zakłady z lekcji M2 (B-038): tekst przykładu i wynik liczą się z tych samych liczb.
 ex.pot: { value: 100, unit: count, source: "przykład w lekcji (pula w żetonach)" }

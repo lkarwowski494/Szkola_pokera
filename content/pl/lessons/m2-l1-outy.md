@@ -131,5 +131,5 @@ szansa ≈ outy × 4   (dwie karty, tylko gdy zobaczysz obie bez dalszych zakła
 Gdy rywal {{t:bet|stawia}} na flopie, twoje {{t:call}} kupuje tylko jedną kartę: turn. Na turnie rywal może {{t:bet|postawić}} znowu i za rivera zapłacisz osobno. Dlatego przy {{t:bet|zakładzie}} na flopie liczysz szansę na **następną kartę** (× 2): dla {{t:flush|koloru}} to {{n:outs.flush}} z {{n:cards.unseen.flop}}, czyli ok. {{n:odds.flush.flop-turn}}. Szansę **do rivera** (× 4, dla {{t:flush|koloru}} ok. {{n:odds.flush.flop-river}}) bierzesz tylko wtedy, gdy na pewno zobaczysz obie karty bez dalszych {{t:bet|zakładów}}, czyli gdy ktoś jest all-in.
 
 :::note Skąd te liczby
-Na turnie nie znasz {{n:cards.unseen.turn}} kart ({{n:cards.deck}} minus {{n:cards.hole}} twoje i {{n:cards.board.turn}} na {{t:board|stole}}). Szansa trafienia {{t:flush|koloru}} to {{n:outs.flush}} z {{n:cards.unseen.turn}}. Reguła 2 i 4 myli się najwyżej o ok. 2 punkty procentowe, dopóki outów jest nie więcej niż 10.
+Na turnie nie znasz {{n:cards.unseen.turn}} kart ({{n:cards.deck}} minus {{n:cards.hole}} twoje i {{n:cards.board.turn}} na {{t:board|stole}}). Szansa trafienia {{t:flush|koloru}} to {{n:outs.flush}} z {{n:cards.unseen.turn}}. Reguła 2 i 4 myli się najwyżej o ok. {{n:rule24.error.max.pp}} punkty procentowe, dopóki outów jest nie więcej niż {{n:rule24.outs.max}}.
 :::

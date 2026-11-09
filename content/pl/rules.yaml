@@ -87,7 +87,7 @@
   module: m2
   if: "masz policzone outy"
   then: "szacujesz szansę trafienia: outy × 2 przy jednej karcie, outy × 4 przy dwóch; przy {{t:bet|zakładzie}} na flopie liczysz jedną kartę (× 2), a × 4 tylko wtedy, gdy zobaczysz turn i river bez dalszych {{t:bet|zakładów}} (all-in)"
-  because: "za rivera rywal może kazać ci zapłacić osobno; reguła 2 i 4 myli się o ok. 2 punkty procentowe przy maks. 10 outach"
+  because: "za rivera rywal może kazać ci zapłacić osobno; reguła 2 i 4 myli się o ok. {{n:rule24.error.max.pp}} punkty procentowe przy maks. {{n:rule24.outs.max}} outach"
   level: math
   source: "serwis szkoleniowy, Poker drawing odds & outs explained (https://upswingpoker.com/poker-drawing-odds-outs-explained/): „For anything 10 outs or less, however, its accurate within 2% for the turn and river calculation”; rachunek: największy błąd 1,7 pp przy 10 outach (dokument 12 M0–M3)"
   sources: [{ kind: training, url: "https://upswingpoker.com/poker-drawing-odds-outs-explained/" }, { kind: math }]

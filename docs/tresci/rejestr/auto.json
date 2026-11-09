@@ -1025,6 +1025,138 @@
   "uwagi": ""
  },
  {
+  "id": "n:rule24.outs.max",
+  "rodzaj": "liczba",
+  "level": "math",
+  "twierdzenie": "rule24.outs.max = 10 [count]; serwis szkoleniowy, Poker drawing odds & outs explained (https://upswingpoker.com/poker-drawing-odds-outs-explained/): „For anything 10 outs or less, however, its accurate within 2% for the turn and river calculation”",
+  "zrodla": [
+   {
+    "adres": "rachunek: największy |reguła 2 i 4 − dokładnie| dla 1…10 outów (flop → river, flop → turn, turn → river) = 1,74 pp ≤ 2 pp",
+    "miejsce": "tools/content-build/test/regula-blad-08.test.ts; docs/tresci/odczyty/rachunek-2026-11-09.txt",
+    "cytat": "błąd rośnie z liczbą outów; przy 10 outach turn → river 21,7% wobec 20% (reguła)",
+    "odczyt": "2026-11-09",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://upswingpoker.com/poker-drawing-odds-outs-explained/",
+    "miejsce": "cytat przeniesiony z R-M2-002 (rules.yaml, source)",
+    "cytat": "For anything 10 outs or less, however, its accurate within 2% for the turn and river calculation",
+    "odczyt": "2026-11-09",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "rule24.outs.max",
+  "wartosc": 10,
+  "jednostka": "count",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "D-339: granica, do której lekcja m2.l1 i R-M2-002 podają błąd reguły; szczebel 1 = rachunek błędu w teście regula-blad-08"
+ },
+ {
+  "id": "n:rule24.max.exact-turn",
+  "rodzaj": "liczba",
+  "level": "math",
+  "twierdzenie": "rule24.max.exact-turn = (formuła hitProbability) [percent]; obliczenie dokładne (poker-core): 10 z 46",
+  "zrodla": [
+   {
+    "adres": "rachunek: hitProbability(rule24.outs.max, cards.unseen.turn, streets.turn-river)",
+    "miejsce": "docs/tresci/odczyty/rachunek-2026-11-09.txt",
+    "cytat": "przeliczone niezależnie w Pythonie z definicji wzoru; 0 rozbieżności z content-build",
+    "odczyt": "2026-11-09",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "rule24.max.exact-turn",
+  "wartosc": null,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "D-339"
+ },
+ {
+  "id": "n:rule24.max.rule-turn",
+  "rodzaj": "liczba",
+  "level": "math",
+  "twierdzenie": "rule24.max.rule-turn = (formuła ruleOf2And4) [percent]; reguła 2 i 4: 10 outów × 2",
+  "zrodla": [
+   {
+    "adres": "rachunek: ruleOf2And4(rule24.outs.max, streets.turn-river)",
+    "miejsce": "docs/tresci/odczyty/rachunek-2026-11-09.txt",
+    "cytat": "przeliczone niezależnie w Pythonie z definicji wzoru; 0 rozbieżności z content-build",
+    "odczyt": "2026-11-09",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "rule24.max.rule-turn",
+  "wartosc": null,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "D-339"
+ },
+ {
+  "id": "n:rule24.error.max",
+  "rodzaj": "liczba",
+  "level": "math",
+  "twierdzenie": "rule24.error.max = (formuła diff) [percent]; obliczenie: dokładnie − reguła przy granicy outów (turn → river)",
+  "zrodla": [
+   {
+    "adres": "rachunek: diff(rule24.max.exact-turn, rule24.max.rule-turn)",
+    "miejsce": "docs/tresci/odczyty/rachunek-2026-11-09.txt",
+    "cytat": "przeliczone niezależnie w Pythonie z definicji wzoru; 0 rozbieżności z content-build",
+    "odczyt": "2026-11-09",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "rule24.error.max",
+  "wartosc": null,
+  "jednostka": "percent",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "D-339"
+ },
+ {
+  "id": "n:rule24.error.max.pp",
+  "rodzaj": "liczba",
+  "level": "math",
+  "twierdzenie": "rule24.error.max.pp = (formuła product) [count]; obliczenie: największy błąd reguły 2 i 4 w punktach procentowych (1,7 pp, zaokrąglone; dokument 12 M0–M3)",
+  "zrodla": [
+   {
+    "adres": "rachunek: product(rule24.error.max, math.hundred)",
+    "miejsce": "docs/tresci/odczyty/rachunek-2026-11-09.txt",
+    "cytat": "przeliczone niezależnie w Pythonie z definicji wzoru; 0 rozbieżności z content-build",
+    "odczyt": "2026-11-09",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": "rule24.error.max.pp",
+  "wartosc": null,
+  "jednostka": "count",
+  "werdykt_tekstu": "POPARTE",
+  "poprawka": null,
+  "uwagi": "D-339; maksimum po sytuacjach i 1…10 outach sprawdza test regula-blad-08"
+ },
+ {
   "id": "n:ex.bet.pot",
   "rodzaj": "liczba",
   "level": "math",
