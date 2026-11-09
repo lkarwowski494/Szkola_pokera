@@ -1,9 +1,12 @@
-# Kontrola ustawień App Store Connect — TYLKO ODCZYT. Cienka warstwa: wywołuje workflow wspólny z publicznego repozytorium narzędzi studia
-# (lkarwowski494/apps4brew-narzedzia), PRZYPIĘTY do pełnego SHA (jak Trening, ten sam SHA 43afe81; wersję narzędzia podnosimy świadomie).
-# Konfiguracja aplikacji: store/asc-kontrola.json. Zmian w App Store Connect nie robi (żądania GET). Sekrety przekazane jawnie: tylko trzy.
+# Kontrola ustawień App Store Connect — TYLKO ODCZYT. Narzędzie: publiczne repozytorium narzędzi studia lkarwowski494/apps4brew-narzedzia
+# (asc-kontrola/kontrola.mjs; klient wysyła wyłącznie GET), pobrane w wersji PRZYPIĘTEJ do pełnego SHA (jak Trening, ten sam SHA 43afe81).
+# Konfiguracja aplikacji: store/asc-kontrola.json. Raport w podsumowaniu przebiegu; kod 1 = różnica albo błąd odczytu.
 # Szkoła Pokera: przeniesione z Treningu (.github/workflows/asc-kontrola.yml, 2e4b0f8, odczyt 2026-11-09; D-348, D-352). Na main leży tylko ten plik;
-# uruchamianie: gh workflow run asc-kontrola.yml --ref claude/sleepy-brahmagupta-2065nu. Odstępstwo (nazwane): zadanie `galaz` przerywa przebieg
-# z gałęzi bez store/asc-kontrola.json (np. main) przed przekazaniem sekretów (jak D-343).
+# uruchamianie: gh workflow run asc-kontrola.yml --ref claude/sleepy-brahmagupta-2065nu (z main przebieg pada przed kluczem, jak D-343).
+# Odstępstwo (nazwane): zamiast wywołania wspólnego workflowu (`uses: …/asc-kontrola.yml@SHA`) te same kroki tutaj — wspólny workflow ma
+# actions/setup-node@v5 bez `package-manager-cache: false`, a to repo ma `packageManager: pnpm`, więc pada przed kontrolą
+# („Unable to locate executable file: pnpm”, przebieg 42661200869). Narzędzie i jego wersja bez zmian.
+# Sekrety jak testflight.yml: ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8. Repozytorium publiczne: identyfikatory maskowane, klucz tylko w RUNNER_TEMP, usuwany zawsze.
 name: ASC kontrola ustawień
 on:
   workflow_dispatch:
@@ -18,9 +21,9 @@ concurrency:
   group: asc-kontrola
   cancel-in-progress: false
 jobs:
-  galaz:
+  kontrola:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
         with:
@@ -31,13 +34,37 @@ jobs:
             echo "::error::Brak store/asc-kontrola.json: na main są tylko pliki workflowów (D-348). Uruchom: gh workflow run asc-kontrola.yml --ref claude/sleepy-brahmagupta-2065nu"
             exit 1
           fi
-  kontrola:
-    needs: galaz
-    uses: lkarwowski494/apps4brew-narzedzia/.github/workflows/asc-kontrola.yml@43afe81aa37a117dd32259f6452196a1efccd0ec
-    with:
-      config: store/asc-kontrola.json
-      szczegoly: ${{ inputs.szczegoly }}
-    secrets:
-      ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
-      ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
-      ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+      - name: Narzędzie studia w przypiętej wersji
+        uses: actions/checkout@v5
+        with:
+          repository: lkarwowski494/apps4brew-narzedzia
+          ref: 43afe81aa37a117dd32259f6452196a1efccd0ec
+          path: .narzedzia-studia
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          package-manager-cache: false
+      - name: Klucz API do pliku tymczasowego (maskowany)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+        run: |
+          for v in ASC_KEY_ID ASC_ISSUER_ID ASC_KEY_P8; do [ -n "${!v}" ] || { echo "::error::Brak sekretu $v (te same sekrety co testflight.yml)"; exit 1; }; done
+          echo "::add-mask::$ASC_KEY_ID"; echo "::add-mask::$ASC_ISSUER_ID"
+          printf '%s\n' "$ASC_KEY_P8" | while IFS= read -r line; do case "$line" in -----*) ;; *) [ ${#line} -ge 20 ] && echo "::add-mask::$line" ;; esac; done; true
+          umask 077; printf '%s\n' "$ASC_KEY_P8" > "$RUNNER_TEMP/AuthKey.p8"
+      - name: Kontrola (tylko odczyt)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          SZCZEGOLY: ${{ inputs.szczegoly }}
+        run: |
+          set -o pipefail
+          export ASC_KEY_PATH="$RUNNER_TEMP/AuthKey.p8"
+          opcje=(); [ "$SZCZEGOLY" = "true" ] && opcje+=(--szczegoly)
+          node .narzedzia-studia/asc-kontrola/kontrola.mjs --config store/asc-kontrola.json "${opcje[@]}" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Usunięcie klucza z maszyny
+        if: always()
+        run: rm -f "$RUNNER_TEMP/AuthKey.p8"

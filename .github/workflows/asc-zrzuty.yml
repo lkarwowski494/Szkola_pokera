@@ -55,6 +55,7 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 22
+          package-manager-cache: false
       - name: Przebieg ze zrzutami to ręczny store-screenshots.yml (nie np. przebieg z forka)
         env:
           GH_TOKEN: ${{ github.token }}
@@ -120,6 +121,7 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 22
+          package-manager-cache: false
       - name: Przebieg ze zrzutami to ręczny store-screenshots.yml (nie np. przebieg z forka)
         env:
           GH_TOKEN: ${{ github.token }}

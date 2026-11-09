@@ -39,6 +39,7 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 22
+          package-manager-cache: false
       - name: Klucz API do pliku tymczasowego (maskowany)
         env:
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
@@ -83,6 +84,7 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 22
+          package-manager-cache: false
       - name: Środowisko release wymaga zatwierdzenia (bez reguły GitHub tworzy je bez ochrony)
         env:
           GH_TOKEN: ${{ github.token }}

@@ -282,14 +282,26 @@ test('asc-*.yml: tylko ręcznie; skrypt z gałęzi roboczej przed kluczem; zapis
   }
 });
 
-test('asc-kontrola.yml: workflow wspólny narzędzi studia przypięty do pełnego SHA; tylko trzy sekrety; zadanie straży gałęzi przed kontrolą', () => {
-  const w = json('asc-kontrola.yml');
-  assert.deepEqual(Object.keys(w.on), ['workflow_dispatch']);
-  assert.match(w.jobs.kontrola.uses, /^lkarwowski494\/apps4brew-narzedzia\/\.github\/workflows\/asc-kontrola\.yml@[0-9a-f]{40}$/);
-  assert.deepEqual(Object.keys(w.jobs.kontrola.secrets).sort(), SEKRETY_ASC);
-  assert.equal(w.jobs.kontrola.with.config, 'store/asc-kontrola.json');
-  assert.equal(w.jobs.kontrola.needs, 'galaz');
-  const k = w.jobs.galaz.steps;
-  assert.equal(k[0].uses, 'actions/checkout@v5'); assert.match(k[1].run, /\[ ! -f store\/asc-kontrola\.json \]/); assert.match(k[1].run, /--ref/);
-  assert.ok(!JSON.stringify(w.jobs.galaz).includes('secrets.'));
+// Przebiegi 42661188005, 42661194013, 42661200869 (2026-11-09): setup-node@v5 z `packageManager: pnpm` w package.json włącza pamięć pnpm
+// („Unable to locate executable file: pnpm”) — także we wspólnym workflowie narzędzi, którego nie zmienimy z tego repo. Stąd w asc-*.yml
+// `package-manager-cache: false`, a kontrola uruchamia narzędzie studia z checkoutu w przypiętym SHA (tylko odczyt, D-352).
+test('asc-*.yml: setup-node bez pamięci menedżera pakietów (repo z packageManager: pnpm, kroki bez pnpm)', () => {
+  for (const n of [...Object.keys(ASC), 'asc-kontrola.yml']) for (const [id, j] of Object.entries(json(n).jobs))
+    for (const k of j.steps ?? []) if (k.uses?.startsWith('actions/setup-node')) assert.equal(k.with?.['package-manager-cache'], false, `${n}:${id}`);
+});
+
+test('asc-kontrola.yml: narzędzie studia z checkoutu w pełnym SHA, tylko odczyt; kontrola gałęzi przed kluczem; trzy sekrety; klucz usuwany zawsze', () => {
+  const w = json('asc-kontrola.yml'); const tekst = readFileSync(new URL('asc-kontrola.yml', KAT), 'utf8');
+  assert.deepEqual(Object.keys(w.on), ['workflow_dispatch']); assert.deepEqual(Object.keys(w.jobs), ['kontrola']);
+  const k = w.jobs.kontrola.steps;
+  assert.equal(k[0].uses, 'actions/checkout@v5'); assert.equal(k[0].with?.ref, undefined);
+  assert.match(k[1].run, /\[ ! -f store\/asc-kontrola\.json \]/); assert.match(k[1].run, /--ref/); assert.match(k[1].run, /exit 1/);
+  const n = k.find((x) => x.with?.repository === 'lkarwowski494/apps4brew-narzedzia');
+  assert.match(n.with.ref, /^[0-9a-f]{40}$/); assert.equal(n.with.path, '.narzedzia-studia'); assert.equal(n.with['persist-credentials'], false);
+  const iKlucz = k.findIndex((x) => x.env?.ASC_KEY_P8); assert.ok(iKlucz > 1);
+  assert.match(k.find((x) => /kontrola\.mjs/.test(x.run ?? '')).run, /node \.narzedzia-studia\/asc-kontrola\/kontrola\.mjs --config store\/asc-kontrola\.json/);
+  assert.deepEqual([...new Set([...tekst.matchAll(/secrets\.(\w+)/g)].map((m) => m[1]))].sort(), SEKRETY_ASC);
+  assert.equal(k.at(-1).if, 'always()'); assert.match(k.at(-1).run, /rm -f "\$RUNNER_TEMP\/AuthKey\.p8"/);
+  for (const x of k) assert.doesNotMatch(x.run ?? '', /\$\{\{/, x.name);
+  assert.doesNotMatch(tekst, /environment:|--zapis|--apply/);
 });
