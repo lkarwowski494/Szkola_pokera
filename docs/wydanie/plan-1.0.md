@@ -115,8 +115,8 @@ Waga według CLAUDE.md „Audyty i wydania”: wydanie blokują tylko KRYTYCZNE 
 
 | # | Praca | 1.0? | Sesje [OCENA] | Zależy od |
 |---|---|---|---|---|
-| D-01 | Tekst sklepu pl/en (podtytuł, opis, słowa kluczowe), notatki dla recenzenta (bez hazardu: nauka decyzji, bez żetonów; 5.3.4 i 5.1.1(ix) z RYZ-02); propozycja nazwy en „Poker School” ze sprawdzeniem dostępności w App Store (D-293) | B | 1 | — |
-| D-02 | Kategoria wiekowa: kwestionariusz Apple przeczytany w dniu pracy, odpowiedź „Simulated Gambling” według OG-02 (scenariusze bez stawki → „None”, jeśli definicja S-19 się nie zmieniła); zamyka OP-18 | B (2.3.6) | 0,5 | — |
+| D-01 | **Zrobione 2026-11-09 (77ba939, D-309; `docs/wydanie/sklep.md`, `store/`).** Tekst sklepu pl/en (podtytuł, opis, słowa kluczowe), notatki dla recenzenta (bez hazardu: nauka decyzji, bez żetonów; 5.3.4 i 5.1.1(ix) z RYZ-02); propozycja nazwy en „Poker School” ze sprawdzeniem dostępności w App Store (D-293) | B | 1 | — |
+| D-02 | **Zrobione 2026-11-09 (b844733, D-310; `sklep.md` §6; override 18+ do weta).** Kategoria wiekowa: kwestionariusz Apple przeczytany w dniu pracy, odpowiedź „Simulated Gambling” według OG-02 (scenariusze bez stawki → „None”, jeśli definicja S-19 się nie zmieniła); zamyka OP-18 | B (2.3.6) | 0,5 | — |
 | D-03 | **Pełny głęboki audyt całości** przed upublicznieniem (stała lista: dane, migracje, prywatność, sekrety, prawa autorskie, dostępność, ryzyko odrzucenia; treść krytyczna w 6 językach; zgodność manifestu prywatności z kodem K-08). Od startu audytu zakres zamrożony | B | 1–2 | K-03, K-04, K-06–K-12 (stan kandydata bez zrzutów) |
 | D-04 | Lista kontrolna telefonu dla kandydata 1.0: T-01–T-10 ze `scope-contract.md` + języki (samosprawdzenie `Intl`, zmiana języka bez restartu, lekcja w en i ja) + piaskownica (6 scenariuszy kontraktu płatności) + U-2, U-5 z `plan-08.md` | B | 0,5 | K-14 |
 | D-05 | Plan wydania i plan „zły build” (§10) przeczytany przez właściciela (W1-08 Treningu) | B | 0 (jest w tym pliku) | — |
