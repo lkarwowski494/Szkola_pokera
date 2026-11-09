@@ -249,3 +249,12 @@ test('lokalizacje IAP: produkty w dwóch grupach subskrypcji = problem (niejedno
   const r = await iap.run({ client: a.client, data: js('store/iap-localizations.json'), apply: true, log: log() });
   assert.equal(r.code, 1); assert.match(r.problems.join(), /znaleziono 2/); assert.deepEqual(zapisy(a.calls), []);
 });
+
+test('fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów', () => {
+  // Kody ASC: docs/sklep/aso/README.md:18 (strona Apple „locale shortcodes”, odczyt 2026-11-09).
+  for (const k of ['de-DE', 'es-ES', 'es-MX', 'ko', 'it', 'vi']) assert.equal(meta.LOCALE_MAP[k], k, k);
+  const fala2 = js('docs/sklep/aso/metadane-fala2.json');
+  const wanted = meta.buildWanted({ meta: fala2, urls: js('store/app-store-urls.json') });
+  assert.deepEqual(Object.keys(wanted).sort(), ['de-DE', 'es-ES', 'es-MX', 'it', 'ko', 'vi']);
+  assert.deepEqual(meta.validate({ wanted }), []);
+});

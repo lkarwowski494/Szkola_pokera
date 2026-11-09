@@ -25,9 +25,12 @@ export const VERSION_FIELDS = ['description', 'keywords', 'promotionalText', 'su
 /** Stany wersji / informacji o aplikacji, w których metadane można edytować (nie: w sprzedaży, w recenzji, zastąpiona). */
 export const EDITABLE_STATES = new Set(['PREPARE_FOR_SUBMISSION', 'DEVELOPER_REJECTED', 'REJECTED', 'METADATA_REJECTED', 'INVALID_BINARY']);
 /** Kody lokalizacji repo (klucze store/app-store-metadata.json) → kody App Store Connect; jawnie (test pilnuje). null = ASC nie obsługuje (L-003: słoweński odrzucony 14.10.2026). */
-/** Szkoła Pokera: pl i en-US (+ aliasy) dziś; ja, pt-BR, fr-FR, fr-CA, zh-Hant po przekładzie (K-04, store/app-store-metadata.json `_opis`). */
+/** Szkoła Pokera: pl i en-US (+ aliasy) dziś; ja, pt-BR, fr-FR, fr-CA, zh-Hant po przekładzie (K-04, store/app-store-metadata.json `_opis`).
+ *  Fala 2 (D-374, D-391): de-DE, es-ES, es-MX, ko, it, vi — kody wg docs/sklep/aso/README.md:18 (strona Apple „locale shortcodes”, odczyt 2026-11-09);
+ *  same kody nic nie wgrywają: metadane fali 2 leżą w docs/sklep/aso/metadane-fala2.json, do store/ dopiero z buildem w tych językach. */
 export const LOCALE_MAP = {
   pl: 'pl', 'en-US': 'en-US', 'en-GB': 'en-GB', 'en-AU': 'en-AU', 'en-CA': 'en-CA', ja: 'ja', 'pt-BR': 'pt-BR', 'fr-FR': 'fr-FR', 'fr-CA': 'fr-CA', 'zh-Hant': 'zh-Hant',
+  'de-DE': 'de-DE', 'es-ES': 'es-ES', 'es-MX': 'es-MX', ko: 'ko', it: 'it', vi: 'vi',
 };
 /** Wstawki podmieniane adresem polityki prywatności (store/app-store-metadata.json `_opis`). */
 export const PRIVACY_PLACEHOLDERS = ['[ADRES PRYWATNOSCI]', '[PRIVACY URL]'];

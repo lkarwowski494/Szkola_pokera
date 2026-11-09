@@ -21,10 +21,11 @@ const znaki = (s: string) => [...s].length;
 const slowa = (s: string) => s.toLowerCase().split(/[^\p{L}\p{N}]+/u).filter(Boolean);
 
 // Nazwy aplikacji konkurencji (2.3.7): pełna nazwa przed dwukropkiem/myślnikiem, co najmniej 2 słowa (jak sprawdz-metadane.py).
-// „poker school” wyłączone: to nasza nazwa (D-309; jedyna aplikacja z frazą to „Gatsby Poker School”, sklep.md §5).
+// Bez wyłączeń: nasza nazwa to „PokerGym” (D-378); dawne wyłączenie „poker school” (D-309) usunięte w D-391 — w danych konkurencji
+// nie ma aplikacji o tej nazwie, a fraza „poker school” w naszych metadanych ma być teraz wychwytywana jak każda inna nazwa.
 const konkurencja = json<{ aplikacje: { nazwa: string }[] }>('docs/brd/dane/konkurencja-2026-11-03.json')
   .aplikacje.map((a) => a.nazwa.toLowerCase().split(/[:\-–|]/)[0]!.trim())
-  .filter((b) => b.split(/\s+/).length >= 2 && b !== 'poker school');
+  .filter((b) => b.split(/\s+/).length >= 2);
 // Marki i nazwy serwisów (sprawdz-metadane.py, lista „zakazane”, część marek).
 const MARKI = ['wizard', 'gtow', 'pokerstars', 'ggpoker', 'partypoker', '888', 'wsop', 'winamax', 'upswing', 'run it once', 'pokercoaching', 'flopzilla'];
 const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
