@@ -43,9 +43,10 @@ Nie twórz nowych sesji i nie archiwizuj — to robi koordynator. Nie edytuj sek
 
 ## 5. Stan i plan (2026-11-09 ok. 07:00 UTC; ostatnie wiersze „Koordynacja” w plan-08 = prawda)
 **W toku (07:59 UTC):**
-- Sesja N `session_01T66VByH8W6anihYjqyR6Ed` (kod/treść, rola 06, start 07:59): K-02 — 3 czerwone testy akceptacyjne; jeden push → E2E.
+- Sesja P `session_01T66VBz2PGWPmMDihAbfJDV` (kod, rola 09, start 08:18): K-03 K1–K4; bez pushu kodu przed końcem E2E 42584822763.
+- E2E 42584822763 (3c8bcfd, kod N: K-02 + 10-D01-01) od 08:17 → wynik ok. 08:57.
 - Sesja O `session_01T66VBwTFuVEVTdKPjsZ5gy` (tylko docs, rola 10, start 08:13): legalność VN, potem TR (włączenie = pytanie do właściciela).
-- N dostała 08:13 dodatek: 10-D01-01 WYSOKIE (purchase.unlocks bez „scenariuszy”, sklep.md §4) w tym samym pushu. W kolejce kodu: 10-D01-02 ŚREDNIE (wiersz „Pełny dostęp” w ustawieniach).
+- N zakończona 08:18 (K-02 14/14, 10-D01-01; D-311–D-315). W kolejce kodu: 10-D01-02 ŚREDNIE (wiersz „Pełny dostęp” w ustawieniach).
 - Zakończone dziś: I (A04-10/11, zakup US/JP, solver 180 s, Maestro; E2E 42578171401 zielone na b8eb0a2 = szczyt kodu z dowodem), K (plan-1.0), L (polityka prywatności, D-307/D-308). Zakończona M 08:13 (store/ pl/en, D-309 nazwa en, D-310 wiek: override 18+ — ważne do weta). Do raportu 14:00: weta D-282–D-310 (m.in. D-306 zdanie o anulowaniu, D-309, D-310), P-1, P-2/D-308, W-03, klucz API, W-04/W-05 dane właściciela, zrzuty z sesji I.
 
 **Kolejka:**
