@@ -670,12 +670,20 @@ Wszystkie ID mają rozstrzygnięcie w D-282–D-284, więc wszystkie są typu D 
 ### E1: stan napraw (sesja F)
 | ID | Stan | Commit | Test (czerwony przed → zielony) |
 |---|---|---|---|
-| A04-01 | zrobione | 11e26f9 | `uklad-08` „A04-01”, `Stol-08` „A04-01” ×2 — przed: etykieta bez A♣ A♦ |
-| A04-02 | zrobione | 3b2fb13 | `PierwszeUruchomienie-08` „A04-02” — przed: 4 teksty z „[[” |
-| A04-03, 08-F25 | zrobione | e06cedc, aaf30b5 (bez pustego `catch`, K-07) | `announce-08` 7 — przed (zaślepka): 0 ogłoszeń, brak przewinięcia i fokusu, `accessibilityLiveRegion` w `PanelDecyzji` |
-| A04-04 | zrobione | 317ee6c | `Stol-08` „A04-04” ×2 — przed: obraz z etykietą `""`, opis bez pozycji |
-| A04-05 | zrobione | 29f5ec7 | `skalowanie-08` „A04-05” 5 — przed: `allowFontScaling` undefined, stała 0 |
-| A04-06, A04-07 | zrobione | f8a6be8 | `skalowanie-08` „A04-06” 3, „A04-07” 2 — przed: brak `flexWrap`, tytuł bez sufitu, słowo stopnia 28/34 |
+| A04-01 | zrobione | 7ba70ac | `uklad-08` „A04-01”, `Stol-08` „A04-01” ×2 — przed: etykieta bez A♣ A♦ |
+| A04-02 | zrobione | 6bc64e1 | `PierwszeUruchomienie-08` „A04-02” — przed: 4 teksty z „[[” |
+| A04-03, 08-F25 | zrobione | c0f6797, eee2464 (bez pustego `catch`, K-07) | `announce-08` 7 — przed (zaślepka): 0 ogłoszeń, brak przewinięcia i fokusu, `accessibilityLiveRegion` w `PanelDecyzji` |
+| A04-04 | zrobione | 074425f | `Stol-08` „A04-04” ×2 — przed: obraz z etykietą `""`, opis bez pozycji |
+| A04-05 | zrobione | fb6f1ce | `skalowanie-08` „A04-05” 5 — przed: `allowFontScaling` undefined, stała 0 |
+| A04-06, A04-07 | zrobione | 7e05e1a | `skalowanie-08` „A04-06” 3, „A04-07” 2 — przed: brak `flexWrap`, tytuł bez sufitu, słowo stopnia 28/34 |
+
+| A04-08 | zrobione | 2dc77cc | `sesja-ekran-08` „A04-08” (strażnik statyczny: ekran sesji bez testu renderu, 08-F21) — przed: `opacity 0.75` |
+| A04-09 | zrobione | 327af22 | `widok-08` „A04-09” ×2 — przed: pusta etykieta (zaślepka), 0 użyć na „Dziś” |
+| A04-10, A04-11 | **zostaje** | — | następna sesja (wersja: przed rolą 09 — drugi język) |
+
+Pełny zestaw: `pnpm run ci` kod 0 na f8a6be8 (= 7e05e1a po rebase; mobile 450) i df9fe4e (= 327af22; mobile 61+ zestawów / 453 testy, i18n 0 błędów, 455 kluczy); rebase na docs sesji G (bez zmian kodu, `git diff --name-only` tylko `docs/`). Pierwszy przebieg CI na 317ee6c czerwony z właściwego powodu (K-07 `pusty-catch` w `announce.ts`) → eee2464. Typecheck w `pnpm run ci`; `expo lint` nieuruchamiany (jak w częściach 1–6).
+
+**Zostaje:** (1) A04-10 teksty poza `t()` (`PaintGrid.tsx:115, 153–156, 159`, `RangeGrid.tsx:15`, `PlayingCard.tsx:7–8, 26`, `RenderErrorScreen.tsx:17`, `_layout.tsx:180`; D-284: klucze `paint.*`, `range.label`, `card.rank.*`/`card.suit.*`, `error.retry`, `nav.back`, brzmienie pl bez zmian); (2) A04-11 etykieta kart w `uklad.ts` z nazw (te same klucze `card.*`); (3) E2E po pushu — wynik w Koordynacji; (4) F-SOLVER-CZAS (niżej). D-290 do weta.
 
 Odstępstwa nazwane: A04-03 i 08-F25 jednym commitem (D-283 łączy je w jeden krok, wspólne pliki); A04-06 i A04-07 jednym commitem (wspólny moduł `theme/skalowanie.ts` i plik testu). Ścieżki wrażliwe (CLAUDE.md) niedotknięte — przegląd D-043 nie dotyczy.
 
