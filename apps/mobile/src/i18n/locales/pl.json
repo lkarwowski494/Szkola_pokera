@@ -55,6 +55,7 @@
     "renewsQuarter": "Płatność co 3 miesiące. Odnawia się automatycznie do czasu anulowania.",
     "renewsYear": "Płatność raz na rok. Odnawia się automatycznie do czasu anulowania.",
     "oneTime": "Zakup jednorazowy, bez kolejnych płatności.",
+    "cancelInfo": "Subskrypcję anulujesz w ustawieniach konta Apple (Subskrypcje). Po anulowaniu nie odnowi się, a pełny dostęp zostaje do końca opłaconego okresu.",
     "restore": "Przywróć zakupy",
     "close": "Zamknij",
     "terms": "Warunki korzystania (Terms of Use)",

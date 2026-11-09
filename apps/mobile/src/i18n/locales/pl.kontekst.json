@@ -490,5 +490,6 @@
   "errors.render.title": "Nagłówek ekranu zastępczego po błędzie wyświetlania (RenderErrorScreen). Krótko. [A04-10, sesja I 2026-11-09; brzmienie pl jak dotąd w kodzie, D-284]",
   "errors.render.body": "Opis pod nagłówkiem ekranu błędu (RenderErrorScreen). [A04-10, sesja I 2026-11-09; brzmienie pl jak dotąd w kodzie, D-284]",
   "errors.render.retry": "Przycisk na ekranie błędu: wyświetla ekran jeszcze raz. [A04-10, sesja I 2026-11-09; brzmienie pl jak dotąd w kodzie, D-284]",
-  "nav.back": "Napis przycisku powrotu w nagłówku (iOS, obok strzałki). Krótko, ok. 4 znaki. [A04-10, sesja I 2026-11-09; brzmienie pl jak dotąd w kodzie, D-284]"
+  "nav.back": "Napis przycisku powrotu w nagłówku (iOS, obok strzałki). Krótko, ok. 4 znaki. [A04-10, sesja I 2026-11-09; brzmienie pl jak dotąd w kodzie, D-284]",
+  "purchase.cancelInfo": "Ekran zakupu, pod listą planów, przed przyciskami; tylko gdy jest plan odnawialny. Mówi, gdzie anulować i jaki jest skutek (10-US-01, 10-JP-01: bez samodzielnego „w każdej chwili”; w ja wymagany skutek). „Subskrypcje” = nazwa sekcji w ustawieniach konta Apple w danym języku. Nie obiecywać zwrotu pieniędzy. [sesja I 2026-11-09, tekst roboczy do akceptacji roli 04]"
 }

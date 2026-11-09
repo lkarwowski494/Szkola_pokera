@@ -128,6 +128,8 @@ export default function EkranZakupu({ sklep, onDostep, onZamknij, onWrocDoLekcji
               </Pressable>
             );
           })}
+          {/* 10-US-01/02, 10-JP-01 (D-301): jak anulować i z jakim skutkiem, widoczne przed decyzją; tylko przy planie odnawialnym */}
+          {odczyt.produkty.some((p) => p.okres !== null) ? <Text style={[styl.przypis, { color: tk.muted }]}>{t('purchase.cancelInfo')}</Text> : null}
         </View>
       ) : null}
       {komunikat ? (
