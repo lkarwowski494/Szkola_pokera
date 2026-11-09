@@ -1,0 +1,434 @@
+[
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/ranges/spots.yaml",
+  "stary": "C'est la taille utilisée {{t:out-of-position}}.",
+  "nowy": "C'est la taille utilisée {{t:out-of-position|hors de position}}.",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:out-of-position}} bez formy daje „out of position” obok „En position” w następnym zdaniu",
+  "grupa": "F1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/ranges/spots.yaml",
+  "stary": "{{t:big-blind|Grosse blinde}}, le Bouton a {{t:open|ouvert}} à 2,5bb, la {{t:small-blind}}",
+  "nowy": "{{t:big-blind|Grosse blinde}}, le Bouton a {{t:open|ouvert}} à 2,5bb, la {{t:small-blind|petite blinde}}",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:…}} bez formy renderuje angielską nazwę („small blind”/„big blind”) obok lokalnej „petite/grosse blinde” w tym samym tytule i po rodzajniku żeńskim „la”",
+  "grupa": "F1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/ranges/spots.yaml",
+  "stary": "{{t:big-blind|Grosse blinde}}, la {{t:small-blind}} a {{t:open|ouvert}}",
+  "nowy": "{{t:big-blind|Grosse blinde}}, la {{t:small-blind|petite blinde}} a {{t:open|ouvert}}",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:…}} bez formy renderuje angielską nazwę („small blind”/„big blind”) obok lokalnej „petite/grosse blinde” w tym samym tytule i po rodzajniku żeńskim „la”",
+  "grupa": "F1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/ranges/spots.yaml",
+  "stary": "à une table de 9 joueurs, le Bouton a {{t:open|ouvert}} à 2,5bb, la {{t:small-blind}}",
+  "nowy": "à une table de 9 joueurs, le Bouton a {{t:open|ouvert}} à 2,5bb, la {{t:small-blind|petite blinde}}",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:…}} bez formy renderuje angielską nazwę („small blind”/„big blind”) obok lokalnej „petite/grosse blinde” w tym samym tytule i po rodzajniku żeńskim „la”",
+  "grupa": "F1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/ranges/spots.yaml",
+  "stary": "joueurs, la {{t:small-blind}} a {{t:open|ouvert}}",
+  "nowy": "joueurs, la {{t:small-blind|petite blinde}} a {{t:open|ouvert}}",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:…}} bez formy renderuje angielską nazwę („small blind”/„big blind”) obok lokalnej „petite/grosse blinde” w tym samym tytule i po rodzajniku żeńskim „la”",
+  "grupa": "F1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/ranges/spots.yaml",
+  "stary": "la {{t:big-blind}} a payé une ante",
+  "nowy": "la {{t:big-blind|grosse blinde}} a payé une ante",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:…}} bez formy renderuje angielską nazwę („small blind”/„big blind”) obok lokalnej „petite/grosse blinde” w tym samym tytule i po rodzajniku żeńskim „la”",
+  "grupa": "F1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/ranges/spots.yaml",
+  "stary": "il reste encore la {{t:big-blind}} après vous",
+  "nowy": "il reste encore la {{t:big-blind|grosse blinde}} après vous",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:…}} bez formy renderuje angielską nazwę („small blind”/„big blind”) obok lokalnej „petite/grosse blinde” w tym samym tytule i po rodzajniku żeńskim „la”",
+  "grupa": "F1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/ranges/spots.yaml",
+  "stary": "la {{t:small-blind}} s'est {{t:fold|couchée}}. Vous",
+  "nowy": "la {{t:small-blind|petite blinde}} s'est {{t:fold|couchée}}. Vous",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:…}} bez formy renderuje angielską nazwę („small blind”/„big blind”) obok lokalnej „petite/grosse blinde” w tym samym tytule i po rodzajniku żeńskim „la”",
+  "grupa": "F1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/ranges/spots.yaml",
+  "stary": "la {{t:small-blind}} a {{t:call|suivi}}",
+  "nowy": "la {{t:small-blind|petite blinde}} a {{t:call|suivi}}",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:…}} bez formy renderuje angielską nazwę („small blind”/„big blind”) obok lokalnej „petite/grosse blinde” w tym samym tytule i po rodzajniku żeńskim „la”",
+  "grupa": "F1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "et vous en êtes sûr vers {{n:hud.opps.sure}}",
+  "nowy": "et vous gagnez en certitude vers environ {{n:hud.opps.sure}}",
+  "waga": "ŚREDNIE",
+  "powod": "pominięte „ok.” i wzmocniony sens: pl „pewności nabierasz przy ok. X”, fr „vous en êtes sûr vers X”",
+  "grupa": "F1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/rules.yaml",
+  "stary": "au moins montant à payer ×",
+  "nowy": "au moins le montant à payer ×",
+  "waga": "NISKIE",
+  "powod": "brak rodzajnika, zdanie nienaturalne",
+  "grupa": "F1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/modules.yaml",
+  "stary": "Blinds, rues, actions",
+  "nowy": "Blindes, streets, actions",
+  "waga": "ŚREDNIE",
+  "powod": "niespójna terminologia: w regułach i lekcjach „blindes” i „street(s)”",
+  "grupa": "F1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/modules.yaml",
+  "stary": "SPR et tailles de mise sur trois rues",
+  "nowy": "SPR et tailles de mise sur trois streets",
+  "waga": "ŚREDNIE",
+  "powod": "niespójna terminologia: w regułach „street” (R-M9-*), w module „rues”",
+  "grupa": "F1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/modules.yaml",
+  "stary": "3-bet, défense, limpers",
+  "nowy": "3-bet, défense, limpeurs",
+  "waga": "ŚREDNIE",
+  "powod": "niespójna terminologia z regułami R-M4-012/013 („limpeur”); uwaga: lekcje mieszają limpers/limpeurs",
+  "grupa": "F1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/modules.yaml",
+  "stary": "Tournois et tapis courts",
+  "nowy": "Tournois et short stacks",
+  "waga": "ŚREDNIE",
+  "powod": "niespójna terminologia: reguły M11 i lekcje używają „short stack” (ok. 35 razy), „tapis court” tylko tu",
+  "grupa": "F1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/modules.yaml",
+  "stary": "Mental et bankroll",
+  "nowy": "Mental game et bankroll",
+  "waga": "NISKIE",
+  "powod": "lekcje M12 używają „mental game”; „Mental” samo brzmi urwanie",
+  "grupa": "F1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "\"straightFlush\": \"{{t:straight-flush}}\"",
+  "nowy": "\"straightFlush\": \"{{t:straight-flush|quinte flush}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.straightFlush: znacznik bez formy wyświetla w fr nazwę angielską; nazwa układu trafia do zdań ({{hand}}, {{winner}}) obok francuskich form z categoryAcc",
+  "grupa": "F2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "\"fourOfAKind\": \"{{t:four-of-a-kind}}\"",
+  "nowy": "\"fourOfAKind\": \"{{t:four-of-a-kind|carré}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.fourOfAKind: znacznik bez formy wyświetla w fr nazwę angielską; nazwa układu trafia do zdań ({{hand}}, {{winner}}) obok francuskich form z categoryAcc",
+  "grupa": "F2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "\"fullHouse\": \"{{t:full-house}}\"",
+  "nowy": "\"fullHouse\": \"{{t:full-house|full}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.fullHouse: znacznik bez formy wyświetla w fr nazwę angielską; nazwa układu trafia do zdań ({{hand}}, {{winner}}) obok francuskich form z categoryAcc",
+  "grupa": "F2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "\"flush\": \"{{t:flush}}\"",
+  "nowy": "\"flush\": \"{{t:flush|couleur}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.flush: znacznik bez formy wyświetla w fr nazwę angielską; nazwa układu trafia do zdań ({{hand}}, {{winner}}) obok francuskich form z categoryAcc",
+  "grupa": "F2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "\"straight\": \"{{t:straight}}\"",
+  "nowy": "\"straight\": \"{{t:straight|quinte}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.straight: znacznik bez formy wyświetla w fr nazwę angielską; nazwa układu trafia do zdań ({{hand}}, {{winner}}) obok francuskich form z categoryAcc",
+  "grupa": "F2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "\"threeOfAKind\": \"{{t:three-of-a-kind}}\"",
+  "nowy": "\"threeOfAKind\": \"{{t:three-of-a-kind|brelan}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.threeOfAKind: znacznik bez formy wyświetla w fr nazwę angielską; nazwa układu trafia do zdań ({{hand}}, {{winner}}) obok francuskich form z categoryAcc",
+  "grupa": "F2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "\"twoPair\": \"{{t:two-pair}}\"",
+  "nowy": "\"twoPair\": \"{{t:two-pair|double paire}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.twoPair: znacznik bez formy wyświetla w fr nazwę angielską; nazwa układu trafia do zdań ({{hand}}, {{winner}}) obok francuskich form z categoryAcc",
+  "grupa": "F2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "\"pair\": \"{{t:pair}}\"",
+  "nowy": "\"pair\": \"{{t:pair|paire}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.pair: znacznik bez formy wyświetla w fr nazwę angielską; nazwa układu trafia do zdań ({{hand}}, {{winner}}) obok francuskich form z categoryAcc",
+  "grupa": "F2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "\"highCard\": \"{{t:high-card}}\"",
+  "nowy": "\"highCard\": \"{{t:high-card|carte haute}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.highCard: znacznik bez formy wyświetla w fr nazwę angielską; nazwa układu trafia do zdań ({{hand}}, {{winner}}) obok francuskich form z categoryAcc",
+  "grupa": "F2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "\"royalFlush\": \"{{t:royal-flush}}\"",
+  "nowy": "\"royalFlush\": \"{{t:royal-flush|quinte flush royale}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.royalFlush: znacznik bez formy wyświetla w fr nazwę angielską; nazwa układu trafia do zdań ({{hand}}, {{winner}}) obok francuskich form z categoryAcc",
+  "grupa": "F2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "({{t:pair}} {{pairCombos}},",
+  "nowy": "({{t:pair|paires}} {{pairCombos}},",
+  "waga": "ŚREDNIE",
+  "powod": "drill.paint.explanation: {{t:pair}} bez formy daje angielskie „pair” wśród francuskich „assorties/dépareillées”",
+  "grupa": "F2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "Il s'agit d'apprendre, sans jouer d'argent.",
+  "nowy": "Ici, vous apprenez sans jouer d'argent.",
+  "waga": "NISKIE",
+  "powod": "welcome.noMoney: zdanie nienaturalne; „To nauka bez gry na pieniądze”",
+  "grupa": "F2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "Le No-Limit Hold’em depuis zéro.",
+  "nowy": "Le No-Limit Hold'em à partir de zéro.",
+  "waga": "NISKIE",
+  "powod": "learn.intro: „à partir de zéro” naturalniejsze; jednolity apostrof jak w reszcie pliku",
+  "grupa": "F2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/terms-def.yaml",
+  "stary": "À ne pas confondre avec le call, qui consiste",
+  "nowy": "À ne pas confondre avec « suivre » (call), qui consiste",
+  "waga": "NISKIE",
+  "powod": "def check: pl przywołuje polskie słowo „sprawdzam”; po francusku odpowiednikiem jest „suivre” (forma w UI)",
+  "grupa": "F2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m5.yaml",
+  "stary": "concerne les flops {{t:wet}} qui",
+  "nowy": "concerne les flops {{t:wet|humides}} qui",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy po rzeczowniku w liczbie mnogiej: dziś „flops wet”, po K-05 „flops humide”",
+  "grupa": "F2"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "prompt: \"Vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind|grosse blind}} a {{t:call|suivi}} et {{t:check|checke}} au flop. Quel plan convient à ce flop ?\"",
+  "nowy": "prompt: \"Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}} et {{t:check|checke}} au flop. Quel plan convient à ce flop ?\"",
+  "waga": "ŚREDNIE",
+  "powod": "niespójna terminologia: korpus fr ma „grosse blinde” (153×) i „Bouton” (251×), m3-l3 „Bouton”; tu „grosse blind”/„Button”",
+  "grupa": "F3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "check: \"Oui : un flop bas aux cartes proches favorise la {{t:big-blind|grosse blind}}, qui a ici plus souvent une {{t:two-pair|double paire}} ou une {{t:straight|quinte}}. Vous faites des c-bets moins souvent que sur les flops hauts : beaucoup de mains {{t:check|checkent}}, et ce sont surtout les mains fortes et les gros {{t:draw|tirages}} qui misent.\"",
+  "nowy": "check: \"Oui : un flop bas aux cartes proches favorise la {{t:big-blind|grosse blinde}}, qui a ici plus souvent une {{t:two-pair|double paire}} ou une {{t:straight|quinte}}. Vous faites des c-bets moins souvent que sur les flops hauts : beaucoup de mains {{t:check|checkent}}, et ce sont surtout les mains fortes et les gros {{t:draw|tirages}} qui misent.\"",
+  "waga": "ŚREDNIE",
+  "powod": "niespójna terminologia: korpus fr ma „grosse blinde” (153×) i „Bouton” (251×), m3-l3 „Bouton”; tu „grosse blind”/„Button”",
+  "grupa": "F3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "small: \"Trop souvent : sur un flop bas aux cartes proches, c'est la {{t:big-blind|grosse blind}} qui a l'{{t:nuts-advantage|avantage de nuts}}. Des c-bets fréquents, même petits, lui donnent l'occasion de {{t:raise|relancer}} après avoir d'abord {{t:check|checké}} (check-raise) avec ses mains les plus fortes.\"",
+  "nowy": "small: \"Trop souvent : sur un flop bas aux cartes proches, c'est la {{t:big-blind|grosse blinde}} qui a l'{{t:nuts-advantage|avantage de nuts}}. Des c-bets fréquents, même petits, lui donnent l'occasion de {{t:raise|relancer}} après avoir d'abord {{t:check|checké}} (check-raise) avec ses mains les plus fortes.\"",
+  "waga": "ŚREDNIE",
+  "powod": "niespójna terminologia: korpus fr ma „grosse blinde” (153×) i „Bouton” (251×), m3-l3 „Bouton”; tu „grosse blind”/„Button”",
+  "grupa": "F3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "big: \"Trop souvent et trop cher : la {{t:big-blind|grosse blind}} a ici plus souvent touché une {{t:two-pair|double paire}} ou une {{t:straight|quinte}}. Un gros c-bet fréquent risque beaucoup alors que vous n'avez le plus souvent que des cartes hautes.\"",
+  "nowy": "big: \"Trop souvent et trop cher : la {{t:big-blind|grosse blinde}} a ici plus souvent touché une {{t:two-pair|double paire}} ou une {{t:straight|quinte}}. Un gros c-bet fréquent risque beaucoup alors que vous n'avez le plus souvent que des cartes hautes.\"",
+  "waga": "ŚREDNIE",
+  "powod": "niespójna terminologia: korpus fr ma „grosse blinde” (153×) i „Bouton” (251×), m3-l3 „Bouton”; tu „grosse blind”/„Button”",
+  "grupa": "F3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "prompt: \"Vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind|grosse blind}} a {{t:call|suivi}} et {{t:check|checke}}. Vous avez une {{t:pair|paire}} de rois avec un valet. Que faites-vous ?\"",
+  "nowy": "prompt: \"Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}} et {{t:check|checke}}. Vous avez une {{t:pair|paire}} de rois avec un valet. Que faites-vous ?\"",
+  "waga": "ŚREDNIE",
+  "powod": "niespójna terminologia: korpus fr ma „grosse blinde” (153×) i „Bouton” (251×), m3-l3 „Bouton”; tu „grosse blind”/„Button”",
+  "grupa": "F3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "- { text: \"C-bet {{n:cbet.btn.small}} ({{n:cbet.size.small}} du {{t:pot|pot}})\", correct: true, why: \"Oui : {{t:top-pair|top paire}} (une {{t:pair|paire}} avec la carte la plus haute du {{t:board|tableau}}) sur un flop {{t:dry|sec}}. Une petite {{t:bet|mise}} sera {{t:call|suivie}} par les sept, les deux et les rois plus faibles, et l'adversaire n'a presque aucun {{t:draw|tirage}}.\" }",
+  "nowy": "- { text: \"C-bet {{n:cbet.btn.small}} ({{n:cbet.size.small}} du {{t:pot|pot}})\", correct: true, why: \"Oui : {{t:top-pair|top paire}} (une {{t:pair|paire}} avec la carte la plus haute du {{t:board|board}}) sur un flop {{t:dry|sec}}. Une petite {{t:bet|mise}} sera {{t:call|suivie}} par les sept, les deux et les rois plus faibles, et l'adversaire n'a presque aucun {{t:draw|tirage}}.\" }",
+  "waga": "ŚREDNIE",
+  "powod": "„tableau” dla board — w korpusie i m0-l1 „board” (64× vs 13×)",
+  "grupa": "F3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "prompt: \"Vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind|grosse blind}} a {{t:call|suivi}} et {{t:check|checke}}. Vous avez un set de valets sur un flop avec beaucoup de {{t:draw|tirages}}. Que faites-vous ?\"",
+  "nowy": "prompt: \"Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}} et {{t:check|checke}}. Vous avez un set de valets sur un flop avec beaucoup de {{t:draw|tirages}}. Que faites-vous ?\"",
+  "waga": "ŚREDNIE",
+  "powod": "niespójna terminologia: korpus fr ma „grosse blinde” (153×) i „Bouton” (251×), m3-l3 „Bouton”; tu „grosse blind”/„Button”",
+  "grupa": "F3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "prompt: \"Vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind|grosse blind}} a {{t:call|suivi}} et {{t:check|checke}}. Le flop est {{t:paired|pairé}}. Quel plan convient ?\"",
+  "nowy": "prompt: \"Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}} et {{t:check|checke}}. Le flop est {{t:paired|pairé}}. Quel plan convient ?\"",
+  "waga": "ŚREDNIE",
+  "powod": "niespójna terminologia: korpus fr ma „grosse blinde” (153×) i „Bouton” (251×), m3-l3 „Bouton”; tu „grosse blind”/„Button”",
+  "grupa": "F3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "- { text: \"C-bet souvent et petit\", correct: true, why: \"Oui : vous avez l'{{t:range-advantage|avantage de range}}, et sur un flop {{t:paired|pairé}} un {{t:draw|tirage}} est rare, donc un adversaire sans {{t:pair|paire}} peut rarement payer même une petite {{t:bet|mise}}. Vous avez aussi plus de {{t:pair|paires}} hautes, p. ex. AA et KK, que la {{t:big-blind|grosse blind}} n'a généralement pas après avoir simplement {{t:call|suivi}}.\" }",
+  "nowy": "- { text: \"C-bet souvent et petit\", correct: true, why: \"Oui : vous avez l'{{t:range-advantage|avantage de range}}, et sur un flop {{t:paired|pairé}} un {{t:draw|tirage}} est rare, donc un adversaire sans {{t:pair|paire}} peut rarement payer même une petite {{t:bet|mise}}. Vous avez aussi plus de {{t:pair|paires}} hautes, p. ex. AA et KK, que la {{t:big-blind|grosse blinde}} n'a généralement pas après avoir simplement {{t:call|suivi}}.\" }",
+  "waga": "ŚREDNIE",
+  "powod": "niespójna terminologia: korpus fr ma „grosse blinde” (153×) i „Bouton” (251×), m3-l3 „Bouton”; tu „grosse blind”/„Button”",
+  "grupa": "F3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "prompt: \"Vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind|grosse blind}} a {{t:call|suivi}} et {{t:check|checke}}. Le flop est {{t:monotone|monochrome}}. Quel plan convient ?\"",
+  "nowy": "prompt: \"Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}} et {{t:check|checke}}. Le flop est {{t:monotone|monochrome}}. Quel plan convient ?\"",
+  "waga": "ŚREDNIE",
+  "powod": "niespójna terminologia: korpus fr ma „grosse blinde” (153×) i „Bouton” (251×), m3-l3 „Bouton”; tu „grosse blind”/„Button”",
+  "grupa": "F3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "- { text: \"Parce qu'une petite {{t:bet|mise}} n'a besoin d'un abandon que dans {{n:alpha.cbet.small}} des cas, et une grosse dans {{n:alpha.cbet.big}}\", correct: true, why: \"Oui : sur un flop {{t:dry|sec}}, les mains les plus faibles de l'adversaire (sans {{t:pair|paire}} et sans {{t:draw|tirage}}) se {{t:fold|couchent}} face aux deux tailles, donc une petite {{t:bet|mise}} obtient le même effet à moindre coût.\" }",
+  "nowy": "- { text: \"Parce qu'une petite {{t:bet|mise}} ne doit faire {{t:fold|coucher}} l'adversaire que dans {{n:alpha.cbet.small}} des cas, et une grosse dans {{n:alpha.cbet.big}}\", correct: true, why: \"Oui : sur un flop {{t:dry|sec}}, les mains les plus faibles de l'adversaire (sans {{t:pair|paire}} et sans {{t:draw|tirage}}) se {{t:fold|couchent}} face aux deux tailles, donc une petite {{t:bet|mise}} obtient le même effet à moindre coût.\" }",
+  "waga": "NISKIE",
+  "powod": "„besoin d'un abandon” nienaturalne dla fold",
+  "grupa": "F3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "Un c-bet ({{t:bet|mise}} de continuation) est une {{t:bet|mise}} au flop du joueur qui a fait la dernière {{t:raise|relance}} avant le flop. Dans cette leçon, vous jouez {{t:in-position|en position}} : vous avez {{t:open|ouvert}} depuis le Button, la {{t:big-blind|grosse blind}} a {{t:call|suivi}} et {{t:check|checke}} au flop. Le {{t:pot|pot}} au flop est de {{n:bb.pot-after.vs-btn}}. Deux questions se posent : à quelle fréquence miser et combien.",
+  "nowy": "Un c-bet ({{t:bet|mise}} de continuation) est une {{t:bet|mise}} au flop du joueur qui a fait la dernière {{t:raise|relance}} avant le flop. Dans cette leçon, vous jouez {{t:in-position|en position}} : vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind|grosse blinde}} a {{t:call|suivi}} et {{t:check|checke}} au flop. Le {{t:pot|pot}} au flop est de {{n:bb.pot-after.vs-btn}}. Deux questions se posent : à quelle fréquence miser et combien.",
+  "waga": "ŚREDNIE",
+  "powod": "niespójna terminologia: korpus fr ma „grosse blinde” (153×) i „Bouton” (251×), m3-l3 „Bouton”; tu „grosse blind”/„Button”",
+  "grupa": "F3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "Sur [[7s 6h 5d]], c'est la {{t:big-blind|grosse blind}} qui a plus souvent une {{t:two-pair|double paire}} ou une {{t:straight|quinte}} (leçon sur les avantages). De même sur les autres flops bas {{t:connected|connectés}} et {{t:semi-connected|semi-connectés}}. Vous faites des c-bets moins souvent que sur les flops hauts : beaucoup de mains {{t:check|checkent}}, et ce sont surtout les mains très fortes et les gros {{t:draw|tirages}} qui misent.",
+  "nowy": "Sur [[7s 6h 5d]], c'est la {{t:big-blind|grosse blinde}} qui a plus souvent une {{t:two-pair|double paire}} ou une {{t:straight|quinte}} (leçon sur les avantages). De même sur les autres flops bas {{t:connected|connectés}} et {{t:semi-connected|semi-connectés}}. Vous faites des c-bets moins souvent que sur les flops hauts : beaucoup de mains {{t:check|checkent}}, et ce sont surtout les mains très fortes et les gros {{t:draw|tirages}} qui misent.",
+  "waga": "ŚREDNIE",
+  "powod": "niespójna terminologia: korpus fr ma „grosse blinde” (153×) i „Bouton” (251×), m3-l3 „Bouton”; tu „grosse blind”/„Button”",
+  "grupa": "F3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m3-l3-zakresy-otwarc.md",
+  "stary": "La {{t:small-blind|small blind}} ne joue plus que contre la {{t:big-blind|big blind}}, elle {{t:open|ouvre}} donc presque aussi large que le Bouton : environ {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} des mains, bien qu'elle parle en premier après le flop. En {{t:stakes|micro-limites}}, depuis la {{t:small-blind|small blind}}, vous {{t:raise|relancez}} ou vous vous {{t:fold|couchez}}, sans compléter la {{t:big-blind|big blind}} : le {{t:rake|rake}} prélevé sur le {{t:pot|pot}} réduit le gain obtenu en complétant. C'est une simplification : certaines solutions de solveurs complètent avec une partie des mains depuis la {{t:small-blind|small blind}}. Le solveur de l'application {{t:open|ouvre}} d'ici {{n:solver.rfi.sb}} des mains, soit dans l'intervalle donné par les sources.",
+  "nowy": "La {{t:small-blind|petite blinde}} ne joue plus que contre la {{t:big-blind|grosse blinde}}, elle {{t:open|ouvre}} donc à peu près aussi large que le Bouton : environ {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} des mains, bien qu'elle parle en premier après le flop. En {{t:stakes|micro-limites}}, depuis la {{t:small-blind|petite blinde}}, vous {{t:raise|relancez}} ou vous vous {{t:fold|couchez}}, sans compléter la {{t:big-blind|grosse blinde}} : le {{t:rake|rake}} prélevé sur le {{t:pot|pot}} réduit le gain obtenu en complétant. C'est une simplification : certaines solutions de solveurs complètent avec une partie des mains depuis la {{t:small-blind|petite blinde}}. Le solveur de l'application {{t:open|ouvre}} d'ici {{n:solver.rfi.sb}} des mains, soit dans l'intervalle donné par les sources.",
+  "waga": "ŚREDNIE",
+  "powod": "niespójna terminologia: „small blind/big blind” po angielsku w formie, a korpus fr ma „petite blinde/grosse blinde” (i „les blindes” w tej lekcji); pl „podobnie szeroko jak Button” — „presque aussi large” zawęża sens",
+  "grupa": "F3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m0-l1-uklady.md",
+  "stary": "- { text: \"{{t:split-pot|Partage du pot}}\", why: \"Il y aurait partage avec une meilleure main de cinq cartes identique. Ici, le kicker les départage : as contre dame.\" }",
+  "nowy": "- { text: \"{{t:split-pot|Partage du pot}}\", why: \"Il y aurait partage si les deux meilleures mains de cinq cartes étaient identiques. Ici, le kicker les départage : as contre dame.\" }",
+  "waga": "NISKIE",
+  "powod": "nienaturalne: „partage avec une meilleure main de cinq cartes identique”",
+  "grupa": "F3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/exams/m2.yaml",
+  "stary": "- { text: \"{{n:outs.gutshot}}\", correct: true, why: \"Vous avez V-10-9 et 7 : il manque le huit au milieu (gutshot). Seul un huit vous donne la {{t:straight|quinte}} : {{n:draw.gutshot.ranks}} rang × {{n:cards.suits}} couleurs = {{n:outs.gutshot}} cartes.\" }",
+  "nowy": "- { text: \"{{n:outs.gutshot}}\", correct: true, why: \"Vous avez J-10-9 et 7 : il manque le huit au milieu (gutshot). Seul un huit vous donne la {{t:straight|quinte}} : {{n:draw.gutshot.ranks}} rang × {{n:cards.suits}} couleurs = {{n:outs.gutshot}} cartes.\" }",
+  "waga": "ŚREDNIE",
+  "powod": "„V-10-9” — karty na stole/w ręce pokazane jako J (Jc), a reszta korpusu używa angielskich liter (AK, KQ, QT); niespójne z grafiką kart",
+  "grupa": "F3"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m12-l4-bankroll.md",
+  "stary": "utilisez les contacts de la fiche sur le jeu responsable.",
+  "nowy": "utilisez les contacts de l'encadré « Jeu responsable ».",
+  "waga": "NISKIE",
+  "powod": "Odesłanie do pomocy: jednoznaczne wskazanie ramki :::note „Jeu responsable” w tej lekcji zamiast ogólnej „fiche”.",
+  "grupa": "A-fr"
+ }
+]

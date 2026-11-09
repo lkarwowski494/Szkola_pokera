@@ -1,0 +1,992 @@
+[
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"os dois jogadores têm o mesmo núcleo da mão: o mesmo {{t:pair|par}}, a mesma {{t:three-of-a-kind|trinca}} ou os mesmos {{t:two-pair}}\"",
+  "nowy": "if: \"os dois jogadores têm o mesmo núcleo da mão: o mesmo {{t:pair|par}}, a mesma {{t:three-of-a-kind|trinca}} ou os mesmos {{t:two-pair|dois pares}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você nunca {{t:fold|folda}}\"",
+  "nowy": "then: \"você nunca {{t:fold|desiste}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"o {{t:fold}} entrega o {{t:pot|pote}} sem nenhum benefício, e o {{t:check}} não custa nada\"",
+  "nowy": "because: \"a {{t:fold|desistência}} entrega o {{t:pot|pote}} sem nenhum benefício, e o {{t:check}} não custa nada\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você {{t:fold|folda}}\"",
+  "nowy": "then: \"você {{t:fold|desiste}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"o flop são 3 {{t:community-cards}}, o turn e o river uma cada; depois das apostas no river, os jogadores que restaram (pelo menos dois) mostram as cartas (showdown)\"",
+  "nowy": "then: \"o flop são 3 {{t:community-cards|cartas comunitárias}}, o turn e o river uma cada; depois das apostas no river, os jogadores que restaram (pelo menos dois) mostram as cartas (showdown)\"",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você {{t:fold|folda}} (sem argumentos adicionais, por exemplo implied odds)\"",
+  "nowy": "then: \"você {{t:fold|desiste}} (sem argumentos adicionais, por exemplo implied odds)\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"você está no Button e todos antes de você {{t:fold|foldaram}}\"",
+  "nowy": "if: \"você está no Button e todos antes de você {{t:fold|desistiram}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"todos {{t:fold|foldaram}} até você no {{t:utg}}\"",
+  "nowy": "if: \"todos {{t:fold|desistiram}} até você no {{t:utg}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"todos {{t:fold|foldaram}} até você no Button\"",
+  "nowy": "if: \"todos {{t:fold|desistiram}} até você no Button\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você {{t:raise|aumenta}} ou {{t:fold|folda}}, e não paga só o valor do blind (limp); no {{t:small-blind|small blind}} isso é uma simplificação: algumas soluções de solver dão limp com parte das mãos\"",
+  "nowy": "then: \"você {{t:raise|aumenta}} ou {{t:fold|desiste}}, e não paga só o valor do blind (limp); no {{t:small-blind|small blind}} isso é uma simplificação: algumas soluções de solver dão limp com parte das mãos\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"todos {{t:fold|foldaram}} até você no {{t:hijack|HJ}} ou no {{t:cutoff|CO}}\"",
+  "nowy": "if: \"todos {{t:fold|desistiram}} até você no {{t:hijack|HJ}} ou no {{t:cutoff|CO}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"todos {{t:fold|foldaram}} até você no {{t:small-blind|small blind}}\"",
+  "nowy": "if: \"todos {{t:fold|desistiram}} até você no {{t:small-blind|small blind}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você {{t:open|abre}} amplo, cerca de {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} das mãos, com {{t:raise|aumento}} para {{n:pf.open-size-sb}} ou {{t:fold}} (simplificação: algumas soluções de solver dão limp com parte das mãos do {{t:small-blind|small blind}})\"",
+  "nowy": "then: \"você {{t:open|abre}} amplo, cerca de {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} das mãos, com {{t:raise|aumento}} para {{n:pf.open-size-sb}} ou {{t:fold|desistência}} (simplificação: algumas soluções de solver dão limp com parte das mãos do {{t:small-blind|small blind}})\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"você joga numa mesa de 9 jogadores e todos antes de você {{t:fold|foldaram}}\"",
+  "nowy": "if: \"você joga numa mesa de 9 jogadores e todos antes de você {{t:fold|desistiram}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"atrás de você há mais jogadores que numa mesa de 6, então é mais frequente alguém ter uma mão melhor; quando os jogadores das primeiras posições {{t:fold|foldam}}, restam atrás do LJ tantos jogadores quanto atrás do {{t:utg}} numa mesa de 6\"",
+  "nowy": "because: \"atrás de você há mais jogadores que numa mesa de 6, então é mais frequente alguém ter uma mão melhor; quando os jogadores das primeiras posições {{t:fold|desistem}}, restam atrás do LJ tantos jogadores quanto atrás do {{t:utg}} numa mesa de 6\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você quase nunca {{t:call|paga}}: dá 3-bet ou {{t:fold|folda}} (contra o {{t:cutoff|CO}} isso é uma simplificação: a solução publicada calcula o spot contra o Button); contra o Button você dá 3-bet com o topo do seu {{t:range}} (cerca de {{n:pf.3bet-freq.sb-vs-btn}} das mãos, entre elas 77+ (55 e 66 com frequência), AJo+, KQo, A5s, A4s, T9s), e {{t:fold|folda}} o resto\"",
+  "nowy": "then: \"você quase nunca {{t:call|paga}}: dá 3-bet ou {{t:fold|desiste}} (contra o {{t:cutoff|CO}} isso é uma simplificação: a solução publicada calcula o spot contra o Button); contra o Button você dá 3-bet com o topo do seu {{t:range}} (cerca de {{n:pf.3bet-freq.sb-vs-btn}} das mãos, entre elas 77+ (55 e 66 com frequência), AJo+, KQo, A5s, A4s, T9s), e {{t:fold|desiste}} do resto\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"você está no {{t:big-blind|big blind}}, o Button {{t:open|abriu}} para {{n:pf.open-size}}, e o {{t:small-blind}} {{t:fold|foldou}}\"",
+  "nowy": "if: \"você está no {{t:big-blind|big blind}}, o Button {{t:open|abriu}} para {{n:pf.open-size}}, e o {{t:small-blind}} {{t:fold|desistiu}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você {{t:fold|folda}} cerca de {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}} das suas {{t:open|aberturas}}, {{t:call|paga}} com cerca de {{n:pf.vs3bet.call.low}}–{{n:pf.vs3bet.call.high}} e dá 4-bet com cerca de {{n:pf.vs3bet.4bet.low}}–{{n:pf.vs3bet.4bet.high}}\"",
+  "nowy": "then: \"você {{t:fold|desiste}} de cerca de {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}} das suas {{t:open|aberturas}}, {{t:call|paga}} com cerca de {{n:pf.vs3bet.call.low}}–{{n:pf.vs3bet.call.high}} e dá 4-bet com cerca de {{n:pf.vs3bet.4bet.low}}–{{n:pf.vs3bet.4bet.high}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"se você foldar com mais frequência que {{n:alpha.vs-3bet-ip-size}}, o adversário lucra dando 3-bet com qualquer mão, então você {{t:fold|folda}} logo abaixo desse limite\"",
+  "nowy": "because: \"se você desistir com mais frequência que {{n:alpha.vs-3bet-ip-size}}, o adversário lucra dando 3-bet com qualquer mão, então você {{t:fold|desiste}} logo abaixo desse limite\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você {{t:call|paga}} principalmente com cartas altas do mesmo naipe, ases fortes do mesmo naipe, {{t:pair|pares}} médios e altos e parte dos {{t:connectors|conectores}} do mesmo naipe; mãos mais fracas de naipes diferentes (KJo, ATo, QTo) você {{t:fold|folda}}\"",
+  "nowy": "then: \"você {{t:call|paga}} principalmente com cartas altas do mesmo naipe, ases fortes do mesmo naipe, {{t:pair|pares}} médios e altos e parte dos {{t:connectors|conectores}} do mesmo naipe; das mãos mais fracas de naipes diferentes (KJo, ATo, QTo) você {{t:fold|desiste}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você {{t:call|paga}} mais amplo: {{t:pair|pares}} de 66 a TT, mãos do mesmo naipe com cartas altas e {{t:connectors|conectores}} do mesmo naipe; os {{t:pair|pares}} mais baixos você {{t:fold|folda}}\"",
+  "nowy": "then: \"você {{t:call|paga}} mais amplo: {{t:pair|pares}} de 66 a TT, mãos do mesmo naipe com cartas altas e {{t:connectors|conectores}} do mesmo naipe; dos {{t:pair|pares}} mais baixos você {{t:fold|desiste}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"o flop soma menos de {{n:tex.threshold.medium}} pontos de {{t:wetness|umidade}}: uma {{t:straight|sequência}} possível de várias formas (com pelo menos duas combinações de dois valores) vale {{n:tex.points.straight.made}} pts, uma {{t:straight|sequência}} possível de uma só forma {{n:tex.points.straight.made-one}}, só um {{t:straight-draw}} {{n:tex.points.straight.draw}}, duas cartas do mesmo naipe {{n:tex.points.suits.two-tone}}, três do mesmo naipe {{n:tex.points.suits.monotone}}\"",
+  "nowy": "if: \"o flop soma menos de {{n:tex.threshold.medium}} pontos de {{t:wetness|umidade}}: uma {{t:straight|sequência}} possível de várias formas (com pelo menos duas combinações de dois valores) vale {{n:tex.points.straight.made}} pts, uma {{t:straight|sequência}} possível de uma só forma {{n:tex.points.straight.made-one}}, só um {{t:straight-draw|draw de sequência}} {{n:tex.points.straight.draw}}, duas cartas do mesmo naipe {{n:tex.points.suits.two-tone}}, três do mesmo naipe {{n:tex.points.suits.monotone}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"o {{t:big-blind}} defende muitos {{t:connectors|conectores}} do mesmo naipe e {{t:pair|pares}} pequenos, então mais vezes tem {{t:two-pair}} ou uma {{t:straight|sequência}}: é ele que tem {{t:nuts-advantage|vantagem de nuts}}\"",
+  "nowy": "because: \"o {{t:big-blind}} defende muitos {{t:connectors|conectores}} do mesmo naipe e {{t:pair|pares}} pequenos, então mais vezes tem {{t:two-pair|dois pares}} ou uma {{t:straight|sequência}}: é ele que tem {{t:nuts-advantage|vantagem de nuts}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"como {{t:aggressor}} pré-flop você tem {{t:position|posição}}, e o flop é {{t:dry|seco}} e alto, por exemplo K-7-2 de três naipes\"",
+  "nowy": "if: \"como {{t:aggressor|agressor}} pré-flop você tem {{t:position|posição}}, e o flop é {{t:dry|seco}} e alto, por exemplo K-7-2 de três naipes\"",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"você tem {{t:range-advantage|vantagem de range}}, e as mãos fracas do adversário quase não têm chance: uma {{t:bet|aposta}} pequena basta para ele {{t:fold|foldar}}, e {{t:pair|pares}} piores ainda vão {{t:call|pagar}}\"",
+  "nowy": "because: \"você tem {{t:range-advantage|vantagem de range}}, e as mãos fracas do adversário quase não têm chance: uma {{t:bet|aposta}} pequena basta para ele {{t:fold|desistir}}, e {{t:pair|pares}} piores ainda vão {{t:call|pagar}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"como {{t:aggressor}} pré-flop você tem {{t:position|posição}}, e o flop dá ao adversário muitos {{t:draw|draws}}, mas uma {{t:straight|sequência}} ainda não é possível, por exemplo K-J-7 {{t:two-tone|de dois naipes}}\"",
+  "nowy": "if: \"como {{t:aggressor|agressor}} pré-flop você tem {{t:position|posição}}, e o flop dá ao adversário muitos {{t:draw|draws}}, mas uma {{t:straight|sequência}} ainda não é possível, por exemplo K-J-7 {{t:two-tone|de dois naipes}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"como {{t:aggressor}} pré-flop você tem {{t:position|posição}}, e o flop é {{t:paired|pareado}}, por exemplo Q-Q-6\"",
+  "nowy": "if: \"como {{t:aggressor|agressor}} pré-flop você tem {{t:position|posição}}, e o flop é {{t:paired|pareado}}, por exemplo Q-Q-6\"",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"como {{t:aggressor}} pré-flop você tem {{t:position|posição}}, e o flop é {{t:monotone}} (três cartas do mesmo naipe)\"",
+  "nowy": "if: \"como {{t:aggressor|agressor}} pré-flop você tem {{t:position|posição}}, e o flop é {{t:monotone|monocromático}} (três cartas do mesmo naipe)\"",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"qualquer jogador já pode ter um {{t:flush}}, então a {{t:nuts-advantage}} do {{t:aggressor}} diminui, e num {{t:pot|pote}} grande o {{t:flush}} do adversário custa caro\"",
+  "nowy": "because: \"qualquer jogador já pode ter um {{t:flush}}, então a {{t:nuts-advantage|vantagem de nuts}} do {{t:aggressor|agressor}} diminui, e num {{t:pot|pote}} grande o {{t:flush}} do adversário custa caro\"",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"você dá c-bet sem nenhuma mão, contando só com o {{t:fold}} do adversário\"",
+  "nowy": "if: \"você dá c-bet sem nenhuma mão, contando só com a {{t:fold|desistência}} do adversário\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"com uma {{t:bet|aposta}} de {{n:cbet.size.small}} do {{t:pot|pote}}, o adversário precisa {{t:fold|foldar}} em mais de {{n:alpha.cbet.small}} dos casos, e com {{n:cbet.size.big}} do {{t:pot|pote}}, em mais de {{n:alpha.cbet.big}}\"",
+  "nowy": "then: \"com uma {{t:bet|aposta}} de {{n:cbet.size.small}} do {{t:pot|pote}}, o adversário precisa {{t:fold|desistir}} em mais de {{n:alpha.cbet.small}} dos casos, e com {{n:cbet.size.big}} do {{t:pot|pote}}, em mais de {{n:alpha.cbet.big}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"o {{t:range}} de quem {{t:call|paga}} com {{t:position|posição}} é {{t:condensed|condensado}}: as mãos fracas ele {{t:fold|foldou}}, e com parte das mais fortes ele {{t:raise|aumentou}}, então sobraram principalmente mãos médias e boas; além disso, depois do flop você age primeiro em todas as {{t:street|streets}}\"",
+  "nowy": "because: \"o {{t:range}} de quem {{t:call|paga}} com {{t:position|posição}} é {{t:condensed|condensado}}: das mãos fracas ele {{t:fold|desistiu}}, e com parte das mais fortes ele {{t:raise|aumentou}}, então sobraram principalmente mãos médias e boas; além disso, depois do flop você age primeiro em todas as {{t:street|streets}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"o {{t:bluff|blefe}} dá lucro quando o adversário {{t:fold|folda}} com mais frequência que alpha = aposta/({{t:pot|pote}}+aposta); com aposta de meio {{t:pot|pote}}, isso é {{n:alpha.bet-half}}\"",
+  "nowy": "then: \"o {{t:bluff|blefe}} dá lucro quando o adversário {{t:fold|desiste}} com mais frequência que alpha = aposta/({{t:pot|pote}}+aposta); com aposta de meio {{t:pot|pote}}, isso é {{n:alpha.bet-half}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"você arrisca a aposta para ganhar o {{t:pot|pote}}; quanto maior a aposta, mais vezes o adversário precisa {{t:fold|foldar}}\"",
+  "nowy": "because: \"você arrisca a aposta para ganhar o {{t:pot|pote}}; quanto maior a aposta, mais vezes o adversário precisa {{t:fold|desistir}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você pode defender menos do que o {{t:mdf}} indica (em flops ruins para quem defende, bem menos); você trata o {{t:mdf}} como ponto de referência, não como obrigação, mas não {{t:fold|folda}} em massa contra c-bets pequenos\"",
+  "nowy": "then: \"você pode defender menos do que o {{t:mdf}} indica (em flops ruins para quem defende, bem menos); você trata o {{t:mdf}} como ponto de referência, não como obrigação, mas não {{t:fold|desiste}} em massa contra c-bets pequenos\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você {{t:fold|folda}} mais do que o {{t:mdf}} indica, também com {{t:pair|pares}} médios\"",
+  "nowy": "then: \"você {{t:fold|desiste}} mais do que o {{t:mdf}} indica, também com {{t:pair|pares}} médios\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você continua com quase qualquer {{t:pair|par}}, com {{t:draw|draws}}, com cartas altas que têm um {{t:draw}} adicional (backdoor) e normalmente também com ás como carta mais alta; você {{t:fold|folda}} as mãos mais fracas sem {{t:pair|par}} e sem {{t:draw}}\"",
+  "nowy": "then: \"você continua com quase qualquer {{t:pair|par}}, com {{t:draw|draws}}, com cartas altas que têm um {{t:draw}} adicional (backdoor) e normalmente também com ás como carta mais alta; você {{t:fold|desiste}} das mãos mais fracas sem {{t:pair|par}} e sem {{t:draw}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"normalmente você {{t:fold|folda}} (em flops {{t:dry|secos}} com rei, porém, o solver {{t:call|paga}} com muitas mãos com ás)\"",
+  "nowy": "then: \"normalmente você {{t:fold|desiste}} (em flops {{t:dry|secos}} com rei, porém, o solver {{t:call|paga}} com muitas mãos com ás)\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você faz isso principalmente com as mãos mais fortes ({{t:two-pair}}, sets) e com {{t:draw|draws}} ({{t:flush}}, {{t:oesd}}); {{t:pair|pares}} médios você normalmente {{t:call|paga}} (simplificação: contra c-bets pequenos o solver também {{t:raise|aumenta}} com parte dos {{t:top-pair|top pairs}} e dos {{t:pair|pares}} fracos, para proteção)\"",
+  "nowy": "then: \"você faz isso principalmente com as mãos mais fortes ({{t:two-pair|dois pares}}, sets) e com {{t:draw|draws}} ({{t:flush}}, {{t:oesd}}); {{t:pair|pares}} médios você normalmente {{t:call|paga}} (simplificação: contra c-bets pequenos o solver também {{t:raise|aumenta}} com parte dos {{t:top-pair|top pairs}} e dos {{t:pair|pares}} fracos, para proteção)\"",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"depois de um check-raise, as mãos piores normalmente {{t:fold|foldam}}, e as melhores pagam, então um {{t:pair|par}} médio raramente ganha com isso; um {{t:draw}} tem dois caminhos para vencer: o {{t:fold}} do adversário ou acertar\"",
+  "nowy": "because: \"depois de um check-raise, as mãos piores normalmente {{t:fold|desistem}}, e as melhores pagam, então um {{t:pair|par}} médio raramente ganha com isso; um {{t:draw}} tem dois caminhos para vencer: a {{t:fold|desistência}} do adversário ou acertar\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você escolhe para isso principalmente {{t:draw|draws}} fortes; quanto menos o adversário {{t:fold|folda}}, menos {{t:bluff|blefes}} assim, e quando ele quase nunca {{t:fold|folda}}, você dá check-raise principalmente {{t:value|por valor}}\"",
+  "nowy": "then: \"você escolhe para isso principalmente {{t:draw|draws}} fortes; quanto menos o adversário {{t:fold|desiste}}, menos {{t:bluff|blefes}} assim, e quando ele quase nunca {{t:fold|desiste}}, você dá check-raise principalmente {{t:value|por valor}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"o {{t:bluff|blefe}} só lucra quando o adversário {{t:fold|folda}} com mais frequência que alpha (R-M6-002); um {{t:draw}} forte também vence quando acerta, então perde menos quando faltam {{t:fold|folds}}\"",
+  "nowy": "because: \"o {{t:bluff|blefe}} só lucra quando o adversário {{t:fold|desiste}} com mais frequência que alpha (R-M6-002); um {{t:draw}} forte também vence quando acerta, então perde menos quando faltam {{t:fold|desistências}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"normalmente você {{t:bluff|blefa}} com mãos que têm outs ({{t:flush-draw}}, draw de {{t:straight|sequência}}, gutshot com carta alta) quando o adversário tende a {{t:fold|foldar}} ou {{t:call|pagar}}; quando ele pode {{t:raise|aumentar}}, o solver também {{t:bluff|blefa}} com mãos sem outs (simplificação: a escolha depende de como o adversário vai responder)\"",
+  "nowy": "then: \"normalmente você {{t:bluff|blefa}} com mãos que têm outs ({{t:flush-draw}}, draw de {{t:straight|sequência}}, gutshot com carta alta) quando o adversário tende a {{t:fold|desistir}} ou {{t:call|pagar}}; quando ele pode {{t:raise|aumentar}}, o solver também {{t:bluff|blefa}} com mãos sem outs (simplificação: a escolha depende de como o adversário vai responder)\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"o {{t:semi-bluff|semiblefe}} vence de dois jeitos: quando o adversário {{t:fold|folda}} ou quando você acerta no river; o {{t:bluff|blefe}} sem outs tem só o primeiro caminho (stacks de cerca de {{n:format.stack}})\"",
+  "nowy": "because: \"o {{t:semi-bluff|semiblefe}} vence de dois jeitos: quando o adversário {{t:fold|desiste}} ou quando você acerta no river; o {{t:bluff|blefe}} sem outs tem só o primeiro caminho (stacks de cerca de {{n:format.stack}})\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"depois de {{t:call|pagar}} o flop, o adversário tem um {{t:range}} mais forte do que antes: contra uma aposta ele vai {{t:fold|foldar}} as mãos piores e pagar com as melhores; {{t:check|dando check}}, você mantém o {{t:pot|pote}} pequeno e chega ao showdown\"",
+  "nowy": "because: \"depois de {{t:call|pagar}} o flop, o adversário tem um {{t:range}} mais forte do que antes: contra uma aposta ele vai {{t:fold|desistir}} das mãos piores e pagar com as melhores; {{t:check|dando check}}, você mantém o {{t:pot|pote}} pequeno e chega ao showdown\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"com aposta de 3/4 do {{t:pot|pote}}, o adversário precisa {{t:fold|foldar}} em mais de {{n:alpha.bet-three-quarters}} dos casos; com aposta de meio {{t:pot|pote}}, em mais de {{n:alpha.bet-half}}\"",
+  "nowy": "then: \"com aposta de 3/4 do {{t:pot|pote}}, o adversário precisa {{t:fold|desistir}} em mais de {{n:alpha.bet-three-quarters}} dos casos; com aposta de meio {{t:pot|pote}}, em mais de {{n:alpha.bet-half}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"as mãos fortes querem construir o {{t:pot|pote}} antes do river, os {{t:bluff|blefes}} precisam de {{t:fold|folds}}, e as mãos médias não ganham nada com um {{t:pot|pote}} grande\"",
+  "nowy": "because: \"as mãos fortes querem construir o {{t:pot|pote}} antes do river, os {{t:bluff|blefes}} precisam de {{t:fold|desistências}}, e as mãos médias não ganham nada com um {{t:pot|pote}} grande\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"com muitas mãos fortes o Button apostaria, então depois do {{t:check}} ele tem menos delas; em boards altos, porém, a {{t:range-advantage}} continua do lado dele\"",
+  "nowy": "because: \"com muitas mãos fortes o Button apostaria, então depois do {{t:check}} ele tem menos delas; em boards altos, porém, a {{t:range-advantage|vantagem de range}} continua do lado dele\"",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você defende mais fechado que no flop: {{t:draw|draws}} só {{t:call|pagam}} com bom preço ou com implied odds, e mãos sem outs e os {{t:pair|pares}} mais fracos {{t:fold|foldam}}\"",
+  "nowy": "then: \"você defende mais fechado que no flop: {{t:draw|draws}} só {{t:call|pagam}} com bom preço ou com implied odds, e mãos sem outs e os {{t:pair|pares}} mais fracos {{t:fold|desistem}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"no river {{t:in-position}} você quer apostar {{t:value|por valor}}, e o adversário só pode {{t:call|pagar}} ou {{t:fold|foldar}}\"",
+  "nowy": "if: \"no river {{t:in-position}} você quer apostar {{t:value|por valor}}, e o adversário só pode {{t:call|pagar}} ou {{t:fold|desistir}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"cada {{t:call}} com mão pior ganha uma aposta, e cada {{t:call}} com mão melhor perde uma aposta; quando o adversário {{t:fold|folda}} uma mão pior, você ganha o mesmo {{t:pot|pote}} que ganharia depois de {{t:check|dar check}}\"",
+  "nowy": "because: \"cada {{t:call}} com mão pior ganha uma aposta, e cada {{t:call}} com mão melhor perde uma aposta; quando o adversário {{t:fold|desiste}} de uma mão pior, você ganha o mesmo {{t:pot|pote}} que ganharia depois de {{t:check|dar check}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"depois de uma aposta, as mãos piores {{t:fold|foldam}}, e as melhores pagam (ou {{t:raise|aumentam}}), então a aposta transforma uma mão com valor de showdown em {{t:bluff|blefe}}\"",
+  "nowy": "because: \"depois de uma aposta, as mãos piores {{t:fold|desistem}}, e as melhores pagam (ou {{t:raise|aumentam}}), então a aposta transforma uma mão com valor de showdown em {{t:bluff|blefe}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"assim a mão do adversário que só vence {{t:bluff|blefes}} tem exatamente a equity necessária ({{n:eq.bet-pot}}): não ganha nada nem {{t:call|pagando}} nem {{t:fold|foldando}}, então você não pode ser explorado\"",
+  "nowy": "because: \"assim a mão do adversário que só vence {{t:bluff|blefes}} tem exatamente a equity necessária ({{n:eq.bet-pot}}): não ganha nada nem {{t:call|pagando}} nem {{t:fold|desistindo}}, então você não pode ser explorado\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"os {{t:draw|draws}} que não entraram o adversário vai {{t:fold|foldar}}; uma carta desse naipe na sua mão reduz o número de mãos dele que vão foldar\"",
+  "nowy": "because: \"dos {{t:draw|draws}} que não entraram o adversário vai {{t:fold|desistir}}; uma carta desse naipe na sua mão reduz o número de mãos de que ele vai desistir\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você {{t:call|paga}} quando os {{t:bluff|blefes}} são mais que a equity necessária, por exemplo mais de {{n:eq.bet-pot}} das apostas do tamanho do {{t:pot|pote}}; quando há menos {{t:bluff|blefes}}, você {{t:fold|folda}}\"",
+  "nowy": "then: \"você {{t:call|paga}} quando os {{t:bluff|blefes}} são mais que a equity necessária, por exemplo mais de {{n:eq.bet-pot}} das apostas do tamanho do {{t:pot|pote}}; quando há menos {{t:bluff|blefes}}, você {{t:fold|desiste}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você {{t:call|paga}} com os melhores bluff-catchers: entre mãos de força parecida, escolhe as que têm melhores {{t:blocker|blockers}}; você {{t:fold|folda}} as mãos que perdem até para os {{t:bluff|blefes}}\"",
+  "nowy": "then: \"você {{t:call|paga}} com os melhores bluff-catchers: entre mãos de força parecida, escolhe as que têm melhores {{t:blocker|blockers}}; você {{t:fold|desiste}} das mãos que perdem até para os {{t:bluff|blefes}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você joga pelo stack inteiro: aposta ou {{t:call|paga}} com o plano de colocar tudo e normalmente não {{t:fold|folda}} contra o all-in\"",
+  "nowy": "then: \"você joga pelo stack inteiro: aposta ou {{t:call|paga}} com o plano de colocar tudo e normalmente não {{t:fold|desiste}} contra o all-in\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você não planeja {{t:bet|apostar}} e depois {{t:fold|foldar}} contra o all-in: ou joga pelo stack inteiro, ou {{t:check|dá check}}\"",
+  "nowy": "then: \"você não planeja {{t:bet|apostar}} e depois {{t:fold|desistir}} contra o all-in: ou joga pelo stack inteiro, ou {{t:check|dá check}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"com {{t:spr}} de {{n:spr.commit}}, depois de uma {{t:bet|aposta}} do tamanho do {{t:pot|pote}} você precisa, contra o all-in, de só {{n:eq.commit.after-pot}} de equity, então o {{t:fold}} normalmente não compensa\"",
+  "nowy": "because: \"com {{t:spr}} de {{n:spr.commit}}, depois de uma {{t:bet|aposta}} do tamanho do {{t:pot|pote}} você precisa, contra o all-in, de só {{n:eq.commit.after-pot}} de equity, então a {{t:fold|desistência}} normalmente não compensa\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você avalia quantas {{t:value|streets de valor}} a mão aguenta (os números de {{t:street|streets}} são uma simplificação): muito forte (set, {{t:straight|sequência}}, {{t:two-pair}} altos) três; {{t:top-pair}} com bom kicker ou {{t:overpair}} normalmente duas, e a terceira quando o adversário paga com mãos mais fracas; um {{t:pair|par}} mais fraco, uma ou nenhuma\"",
+  "nowy": "then: \"você avalia quantas {{t:value|streets de valor}} a mão aguenta (os números de {{t:street|streets}} são uma simplificação): muito forte (set, {{t:straight|sequência}}, {{t:two-pair|dois pares}} altos) três; {{t:top-pair}} com bom kicker ou {{t:overpair}} normalmente duas, e a terceira quando o adversário paga com mãos mais fracas; um {{t:pair|par}} mais fraco, uma ou nenhuma\"",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"a cada {{t:street}}, as mãos piores do adversário {{t:fold|foldam}}, e no {{t:pot|pote}} ficam principalmente mãos melhores que a sua\"",
+  "nowy": "because: \"a cada {{t:street}}, as mãos piores do adversário {{t:fold|desistem}}, e no {{t:pot|pote}} ficam principalmente mãos melhores que a sua\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"esse jogador vai ao showdown mais vezes e perde lá mais vezes, ou seja, {{t:call|paga}} com mãos mais fracas: mais dos {{t:call|calls}} dele são mãos piores que a sua (o limite de value bet do módulo 8), e o {{t:bluff|blefe}} só lucra quando o adversário {{t:fold|folda}} com mais frequência que o {{t:alpha}}\"",
+  "nowy": "because: \"esse jogador vai ao showdown mais vezes e perde lá mais vezes, ou seja, {{t:call|paga}} com mãos mais fracas: mais dos {{t:call|calls}} dele são mãos piores que a sua (o limite de value bet do módulo 8), e o {{t:bluff|blefe}} só lucra quando o adversário {{t:fold|desiste}} com mais frequência que o {{t:alpha}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você {{t:fold|folda}} as mãos da parte de baixo do seu {{t:range}} de {{t:call}} com mais frequência do que na base do módulo 4, e rouba os blinds dele com mais frequência\"",
+  "nowy": "then: \"você {{t:fold|desiste}} das mãos da parte de baixo do seu {{t:range}} de {{t:call}} com mais frequência do que na base do módulo 4, e rouba os blinds dele com mais frequência\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"as apostas e os {{t:raise|aumentos}} dele têm mais {{t:bluff|blefes}} do que na base, então mãos que na base estão no limite do {{t:call}} dão lucro, e o {{t:bluff|blefe}} contra quem raramente {{t:fold|folda}} perde\"",
+  "nowy": "because: \"as apostas e os {{t:raise|aumentos}} dele têm mais {{t:bluff|blefes}} do que na base, então mãos que na base estão no limite do {{t:call}} dão lucro, e o {{t:bluff|blefe}} contra quem raramente {{t:fold|desiste}} perde\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"primeiro você muda a decisão com as mãos que na base misturam {{t:call}} e {{t:fold}}: com excesso de {{t:bluff|blefes}} você sempre {{t:call|paga}} com elas; com falta, sempre {{t:fold|folda}}\"",
+  "nowy": "then: \"primeiro você muda a decisão com as mãos que na base misturam {{t:call|pagar}} e {{t:fold|desistir}}: com excesso de {{t:bluff|blefes}} você sempre {{t:call|paga}} com elas; com falta, sempre {{t:fold|desiste}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"o adversário {{t:fold|folda}} para c-bet com mais frequência que o {{t:alpha}} do seu tamanho\"",
+  "nowy": "if: \"o adversário {{t:fold|desiste}} diante de c-bet com mais frequência que o {{t:alpha}} do seu tamanho\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"um c-bet sem nenhuma mão lucra na hora: com c-bet de 1/3 do {{t:pot|pote}}, bastam mais de {{n:alpha.cbet.small}} de {{t:fold|folds}}; com c-bet de 3/4 do {{t:pot|pote}}, mais de {{n:alpha.cbet.big}}\"",
+  "nowy": "then: \"um c-bet sem nenhuma mão lucra na hora: com c-bet de 1/3 do {{t:pot|pote}}, bastam mais de {{n:alpha.cbet.small}} de {{t:fold|desistências}}; com c-bet de 3/4 do {{t:pot|pote}}, mais de {{n:alpha.cbet.big}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"o {{t:bluff|blefe}} arrisca a aposta para ganhar o {{t:pot|pote}}; lucra quando a porcentagem de {{t:fold|folds}} passa de aposta ÷ ({{t:pot|pote}} + aposta); o fold to c-bet do {{t:hud}} junta todos os tamanhos e boards, então é só uma aproximação\"",
+  "nowy": "because: \"o {{t:bluff|blefe}} arrisca a aposta para ganhar o {{t:pot|pote}}; lucra quando a porcentagem de {{t:fold|desistências}} passa de aposta ÷ ({{t:pot|pote}} + aposta); o fold to c-bet do {{t:hud}} junta todos os tamanhos e boards, então é só uma aproximação\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"o adversário raramente {{t:fold|folda}} para 3-bet (fold to 3-bet abaixo de cerca de {{n:hud.f3b.low}}), por exemplo um {{t:recreational|jogador recreativo}} típico\"",
+  "nowy": "if: \"o adversário raramente {{t:fold|desiste}} diante de 3-bet (fold to 3-bet abaixo de cerca de {{n:hud.f3b.low}}), por exemplo um {{t:recreational|jogador recreativo}} típico\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"um 3-bet {{t:in-position}} para {{n:pf.3bet.ip-total}} só lucra sem nenhuma mão com mais de {{n:alpha.vs-3bet-ip-size}} de {{t:fold|folds}}; quando o adversário raramente {{t:fold|folda}}, os {{t:bluff|blefes}} acabam jogando um {{t:pot|pote}} grande com mãos fracas, e as mãos fortes recebem mais {{t:call|calls}}\"",
+  "nowy": "because: \"um 3-bet {{t:in-position}} para {{n:pf.3bet.ip-total}} só lucra sem nenhuma mão com mais de {{n:alpha.vs-3bet-ip-size}} de {{t:fold|desistências}}; quando o adversário raramente {{t:fold|desiste}}, os {{t:bluff|blefes}} acabam jogando um {{t:pot|pote}} grande com mãos fracas, e as mãos fortes recebem mais {{t:call|calls}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"você joga cash 6-max em micro limites (NL2–NL25)\"",
+  "nowy": "if: \"você joga cash 6-max em microlimites (NL2–NL25)\"",
+  "waga": "NISKIE",
+  "powod": "pisownia „microlimites” (jak w lekcjach i modules.yaml po poprawce)",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você {{t:call|paga}} menos do que num jogo sem {{t:rake}}; com parte das mãos que sem {{t:rake}} {{t:call|pagariam}}, você dá 3-bet, e o resto você {{t:fold|folda}}\"",
+  "nowy": "then: \"você {{t:call|paga}} menos do que num jogo sem {{t:rake}}; com parte das mãos que sem {{t:rake}} {{t:call|pagariam}}, você dá 3-bet, e do resto você {{t:fold|desiste}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"o {{t:rake}} leva parte do {{t:pot|pote}} depois do flop, e um {{t:pot|pote}} que termina antes do flop fica livre dele: o {{t:call}} normalmente leva ao flop e paga {{t:rake}}, o 3-bet muitas vezes encerra a mão antes do flop, sem {{t:rake}}, e o {{t:fold}} não custa nada (algumas salas também cobram {{t:rake}} de {{t:pot|potes}} com 3-bet sem flop, então lá o 3-bet também paga)\"",
+  "nowy": "because: \"o {{t:rake}} leva parte do {{t:pot|pote}} depois do flop, e um {{t:pot|pote}} que termina antes do flop fica livre dele: o {{t:call}} normalmente leva ao flop e paga {{t:rake}}, o 3-bet muitas vezes encerra a mão antes do flop, sem {{t:rake}}, e a {{t:fold|desistência}} não custa nada (algumas salas também cobram {{t:rake}} de {{t:pot|potes}} com 3-bet sem flop, então lá o 3-bet também paga)\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"você ganha o {{t:pot|pote}} sem o {{t:rake}}, mas paga o valor inteiro; nos micro limites os {{t:pot|potes}} raramente chegam ao {{t:rake-cap|teto de rake}}, então o que conta é a porcentagem\"",
+  "nowy": "because: \"você ganha o {{t:pot|pote}} sem o {{t:rake}}, mas paga o valor inteiro; nos microlimites os {{t:pot|potes}} raramente chegam ao {{t:rake-cap|teto de rake}}, então o que conta é a porcentagem\"",
+  "waga": "NISKIE",
+  "powod": "pisownia „microlimites” (jak w lekcjach i modules.yaml po poprawce)",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"depois de uma série de derrotas você já não consegue avaliar decisões com calma (por exemplo só pensa em recuperar o que perdeu ou joga mãos que normalmente {{t:fold|folda}})\"",
+  "nowy": "if: \"depois de uma série de derrotas você já não consegue avaliar decisões com calma (por exemplo só pensa em recuperar o que perdeu ou joga mãos de que normalmente {{t:fold|desiste}})\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"num {{t:tournament|torneio}} você tem cerca de {{n:m11.thr.pushfold}} ou menos, e todos antes de você {{t:fold|foldaram}}\"",
+  "nowy": "if: \"num {{t:tournament|torneio}} você tem cerca de {{n:m11.thr.pushfold}} ou menos, e todos antes de você {{t:fold|desistiram}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você joga all-in ou {{t:fold}} (push/fold); entre {{n:m11.thr.pushfold}} e {{n:m11.thr.upper}}, o push/fold é o método principal para mãos mais fracas e médias, e acima de cerca de {{n:m11.thr.raise}} normalmente você faz um aumento comum\"",
+  "nowy": "then: \"você vai all-in ou {{t:fold|desiste}} (push/fold); entre {{n:m11.thr.pushfold}} e {{n:m11.thr.upper}}, o push/fold é o método principal para mãos mais fracas e médias, e acima de cerca de {{n:m11.thr.raise}} normalmente você faz um aumento comum\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"com {{t:short-stack}}, aumentar e {{t:fold|foldar}} depois de um {{t:raise|aumento}} entrega {{t:chips|fichas}} demais, e o all-in arranca o máximo de {{t:fold|folds}} do adversário; isso é uma simplificação: solvers com mais opções de ação dão limp ou min-raise com parte das mãos\"",
+  "nowy": "because: \"com {{t:short-stack}}, aumentar e {{t:fold|desistir}} depois de um {{t:raise|aumento}} entrega {{t:chips|fichas}} demais, e o all-in arranca o máximo de {{t:fold|desistências}} do adversário; isso é uma simplificação: solvers com mais opções de ação dão limp ou min-raise com parte das mãos\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"com stack mais curto você arrisca menos em relação aos blinds que leva quando o adversário {{t:fold|folda}}, e o adversário precisa {{t:call|pagar}} mais amplo\"",
+  "nowy": "because: \"com stack mais curto você arrisca menos em relação aos blinds que leva quando o adversário {{t:fold|desiste}}, e o adversário precisa {{t:call|pagar}} mais amplo\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"o ante aumenta o {{t:pot|pote}} que você leva quando o adversário {{t:fold|folda}}, e o risco do all-in continua o mesmo\"",
+  "nowy": "because: \"o ante aumenta o {{t:pot|pote}} que você leva quando o adversário {{t:fold|desiste}}, e o risco do all-in continua o mesmo\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você vence de dois jeitos: o adversário {{t:fold|folda}} e você leva o {{t:pot|pote}}, ou ele {{t:call|paga}} e você vence no showdown; uma mão sem chance, porém, precisaria de {{t:fold|folds}} em mais de {{n:m11.push.10.alpha}} dos casos (com {{n:m11.depth.10}}, sem ante)\"",
+  "nowy": "then: \"você vence de dois jeitos: o adversário {{t:fold|desiste}} e você leva o {{t:pot|pote}}, ou ele {{t:call|paga}} e você vence no showdown; uma mão sem chance, porém, precisaria de {{t:fold|desistências}} em mais de {{n:m11.push.10.alpha}} dos casos (com {{n:m11.depth.10}}, sem ante)\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você só joga all-in ou {{t:fold}} e tenta entrar no {{t:pot|pote}} primeiro\"",
+  "nowy": "then: \"você só vai all-in ou {{t:fold|desiste}} e tenta entrar no {{t:pot|pote}} primeiro\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "because: \"quem paga só vence no showdown, e contra um {{t:range}} que já é mais forte que um aleatório; quem {{t:shove|dá shove}} também vence quando o adversário {{t:fold|folda}}\"",
+  "nowy": "because: \"quem paga só vence no showdown, e contra um {{t:range}} que já é mais forte que um aleatório; quem {{t:shove|dá shove}} também vence quando o adversário {{t:fold|desiste}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você {{t:call|paga}} mais fechado: com três jogadores e {{n:m11.depth.3max}}, o {{t:small-blind}} {{t:call|paga}} o all-in do Button com cerca de {{n:m11.3max.call.sb}} das mãos, o {{t:big-blind}} (quando o {{t:small-blind|SB}} {{t:fold|foldou}}) com cerca de {{n:m11.3max.call.bb}}, e quando dois jogadores já estão all-in, só com cerca de {{n:m11.3max.call.bb-two}}, embora o preço caia para {{n:m11.3max.bb-two.eq}}\"",
+  "nowy": "then: \"você {{t:call|paga}} mais fechado: com três jogadores e {{n:m11.depth.3max}}, o {{t:small-blind}} {{t:call|paga}} o all-in do Button com cerca de {{n:m11.3max.call.sb}} das mãos, o {{t:big-blind}} (quando o {{t:small-blind|SB}} {{t:fold|desistiu}}) com cerca de {{n:m11.3max.call.bb}}, e quando dois jogadores já estão all-in, só com cerca de {{n:m11.3max.call.bb-two}}, embora o preço caia para {{n:m11.3max.bb-two.eq}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "if: \"depois de uma {{t:session|sessão}} você quer avaliar suas frequências (por exemplo com que frequência entra no jogo ou {{t:fold|folda}} para 3-bet)\"",
+  "nowy": "if: \"depois de uma {{t:session|sessão}} você quer avaliar suas frequências (por exemplo com que frequência entra no jogo ou {{t:fold|desiste}} diante de 3-bet)\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/rules.yaml",
+  "stary": "then: \"você revisa essa mão; com um cooler (duas mãos fortes, nenhuma das quais podia razoavelmente {{t:fold|foldar}}) e com uma bad beat você não gasta muito tempo\"",
+  "nowy": "then: \"você revisa essa mão; com um cooler (duas mãos fortes, nenhuma das quais podia razoavelmente {{t:fold|desistir}}) e com uma bad beat você não gasta muito tempo\"",
+  "waga": "ŚREDNIE",
+  "powod": "ujednolicenie terminu fold z resztą pt-BR (lekcje, egzaminy, spots, UI: „desistir”); znacznik bez formy / termin niespójny z resztą pliku",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/ranges/spots.yaml",
+  "stary": "title: \"{{t:small-blind|Small blind}}, stack de 5bb, todos {{t:fold|desistiram}}. All-in ou {{t:fold}}?\"",
+  "nowy": "title: \"{{t:small-blind|Small blind}}, stack de 5bb, todos {{t:fold|desistiram}}. All-in ou {{t:fold|desistir}}?\"",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:fold}} bez formy daje angielskie „fold” obok „desistiram/desistiu” w tym samym tytule",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/ranges/spots.yaml",
+  "stary": "title: \"{{t:small-blind|Small blind}}, stack de 10bb, todos {{t:fold|desistiram}}. All-in ou {{t:fold}}?\"",
+  "nowy": "title: \"{{t:small-blind|Small blind}}, stack de 10bb, todos {{t:fold|desistiram}}. All-in ou {{t:fold|desistir}}?\"",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:fold}} bez formy daje angielskie „fold” obok „desistiram/desistiu” w tym samym tytule",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/ranges/spots.yaml",
+  "stary": "title: \"{{t:small-blind|Small blind}}, stack de 15bb, todos {{t:fold|desistiram}}. All-in ou {{t:fold}}?\"",
+  "nowy": "title: \"{{t:small-blind|Small blind}}, stack de 15bb, todos {{t:fold|desistiram}}. All-in ou {{t:fold|desistir}}?\"",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:fold}} bez formy daje angielskie „fold” obok „desistiram/desistiu” w tym samym tytule",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/ranges/spots.yaml",
+  "stary": "title: \"{{t:small-blind|Small blind}}, stack de 10bb, o {{t:big-blind}} colocou um ante de 1bb, todos {{t:fold|desistiram}}. All-in ou {{t:fold}}?\"",
+  "nowy": "title: \"{{t:small-blind|Small blind}}, stack de 10bb, o {{t:big-blind}} colocou um ante de 1bb, todos {{t:fold|desistiram}}. All-in ou {{t:fold|desistir}}?\"",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:fold}} bez formy daje angielskie „fold” obok „desistiram/desistiu” w tym samym tytule",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/ranges/spots.yaml",
+  "stary": "title: \"{{t:small-blind|Small blind}}, três jogadores, stacks de 7,5bb cada, o Button {{t:fold|desistiu}}. All-in ou {{t:fold}}?\"",
+  "nowy": "title: \"{{t:small-blind|Small blind}}, três jogadores, stacks de 7,5bb cada, o Button {{t:fold|desistiu}}. All-in ou {{t:fold|desistir}}?\"",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:fold}} bez formy daje angielskie „fold” obok „desistiram/desistiu” w tym samym tytule",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/modules.yaml",
+  "stary": "title: \"Exploração nos micro stakes\"",
+  "nowy": "title: \"Exploração nos microlimites\"",
+  "waga": "NISKIE",
+  "powod": "pisownia „microlimites” (jak w lekcjach i modules.yaml po poprawce)",
+  "grupa": "P1"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "apps/mobile/src/i18n/locales/pt-BR.json",
+  "stary": "então só {{t:call|pagar}} perde. Pode compensar apenas graças às implied odds, ou seja, quando você ganha mais depois de acertar, e desde",
+  "nowy": "então {{t:call|pagar}}, por si só, perde. Pode compensar apenas graças às implied odds, ou seja, quando você ganha mais depois de acertar, e desde",
+  "waga": "ŚREDNIE",
+  "powod": "„só pagar perde” czyta się jak „tylko sprawdzenie traci”; źródło: samo sprawdzenie (bez implied odds) traci",
+  "grupa": "P2"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "apps/mobile/src/i18n/locales/pt-BR.json",
+  "stary": "então só {{t:call|pagar}} perde. Pode compensar apenas graças às implied odds, ou seja, quando você ganha mais depois de acertar.\"",
+  "nowy": "então {{t:call|pagar}}, por si só, perde. Pode compensar apenas graças às implied odds, ou seja, quando você ganha mais depois de acertar.\"",
+  "waga": "ŚREDNIE",
+  "powod": "jak wyżej (verdictNearTurn)",
+  "grupa": "P2"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "apps/mobile/src/i18n/locales/pt-BR.json",
+  "stary": "♦ azul, ♣ verde.",
+  "nowy": "♦ em azul, ♣ em verde.",
+  "waga": "NISKIE",
+  "powod": "naturalność: kolory symboli (pl „niebieskie, zielone”)",
+  "grupa": "P2"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "“microstakes” são os níveis mais baixos",
+  "nowy": "“microlimites” são os níveis mais baixos",
+  "waga": "ŚREDNIE",
+  "powod": "terminologia: stakes w treści = limite (62×), microlimites (9×); definicja ma się zgadzać z nazwą terminu",
+  "grupa": "P2"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "se continuar jogando nos mesmos stakes.",
+  "nowy": "se continuar jogando no mesmo limite.",
+  "waga": "ŚREDNIE",
+  "powod": "terminologia stakes → limite (jak w lekcjach); pl „na tej samej stawce”",
+  "grupa": "P2"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/terms-def.yaml",
+  "stary": "Jogador frequente num determinado stake, que joga muitas mãos;",
+  "nowy": "Jogador frequente num determinado limite, que joga um grande volume de mãos;",
+  "waga": "ŚREDNIE",
+  "powod": "„joga muitas mãos” w kursie znaczy styl luźny (VPIP); pl mówi o liczbie rozegranych rozdań; stakes → limite",
+  "grupa": "P2"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m0-l1-uklady.md",
+  "stary": "{ text: \"Depende da altura das cartas\", why: \"A altura das cartas só conta quando as duas mãos são do mesmo tipo.\" }",
+  "nowy": "{ text: \"Depende do valor das cartas\", why: \"O valor das cartas só conta quando as duas mãos são do mesmo tipo.\" }",
+  "waga": "ŚREDNIE",
+  "powod": "kalka „wysokość kart” → „altura”; w pt-BR naturalnie „valor das cartas”",
+  "grupa": "P3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m0-l1-uklady.md",
+  "stary": "Com a mesma mão, decide a altura dela:",
+  "nowy": "Com a mesma categoria, decide o valor dela:",
+  "waga": "ŚREDNIE",
+  "powod": "kalka „wysokość” → „altura”; „valor” naturalne; „mesma categoria” spójne z poprzednim zdaniem",
+  "grupa": "P3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m0-l1-uklady.md",
+  "stary": "{{t:straight-flush|Straight flush}}: {{t:straight|sequência}} do mesmo naipe",
+  "nowy": "{{t:straight-flush|Straight flush}}: {{t:straight-flush|sequência do mesmo naipe}}",
+  "waga": "NISKIE",
+  "powod": "przywraca klucz {{t:straight-flush}} ze źródła (ostrzeżenie: brakuje straight-flush, nadmiarowe straight)",
+  "grupa": "P3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m0-l1-uklady.md",
+  "stary": "O pote seria dividido com cinco melhores cartas idênticas.",
+  "nowy": "O pote seria dividido se as cinco melhores cartas fossem idênticas.",
+  "waga": "NISKIE",
+  "powod": "nienaturalna składnia",
+  "grupa": "P3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m2-l2-pot-odds.md",
+  "stary": "se acertar o seu jogo;",
+  "nowy": "se completar a sua mão;",
+  "waga": "NISKIE",
+  "powod": "„trafisz swój układ”: „jogo” niejasne, „mão” to termin używany w całej lekcji",
+  "grupa": "P3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m10-l1-statystyki.md",
+  "stary": "porque a maioria dos jogadores é {{t:nit|nit}}",
+  "nowy": "porque a maioria dos jogadores são {{t:nit|nits}}",
+  "waga": "NISKIE",
+  "powod": "źródło w liczbie mnogiej („to nity”)",
+  "grupa": "P3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m10-l1-statystyki.md",
+  "stary": "Desisto da {{t:exploit|exploração}}",
+  "nowy": "Abro mão da {{t:exploit|exploração}}",
+  "waga": "NISKIE",
+  "powod": "„Desisto” to w kursie stała etykieta odpowiedzi fold; tu znaczy „rezygnuję” — unikamy dwuznaczności",
+  "grupa": "P3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m2.yaml",
+  "stary": "Quanta equity você precisa para {{t:call|pagar}}?",
+  "nowy": "De quanta equity você precisa para {{t:call|pagar}}?",
+  "waga": "NISKIE",
+  "powod": "regência „precisar de”; spójne z lekcją m2-l2",
+  "grupa": "P3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/exams/m2.yaml",
+  "stary": "Que porcentagem de equity você precisa",
+  "nowy": "De que porcentagem de equity você precisa",
+  "waga": "NISKIE",
+  "powod": "regência „precisar de”; spójne z lekcją m2-l2 (n2)",
+  "grupa": "P3"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m12-l4-bankroll.md",
+  "stary": "desça um {{t:stakes|limite}} no máximo quando o bankroll cair",
+  "nowy": "desça um {{t:stakes|limite}} no mais tardar quando o bankroll cair",
+  "waga": "WYSOKIE",
+  "powod": "Próg zejścia (treść krytyczna, bankroll): „no máximo” = „najwyżej/maksymalnie”, dwuznaczne; źródło „najpóźniej wtedy”; reguła R-M12-011 w pt-BR ma już „no mais tardar”.",
+  "grupa": "A-pt-BR"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "content/pt-BR/lessons/m12-l4-bankroll.md",
+  "stary": "use os contatos do cartão sobre jogo responsável.",
+  "nowy": "use os contatos do quadro “Jogo responsável”.",
+  "waga": "ŚREDNIE",
+  "powod": "Odesłanie do pomocy (odpowiedzialna gra): „cartão” brzmi jak fizyczna karta; chodzi o ramkę :::note „Jogo responsável” w tej lekcji.",
+  "grupa": "A-pt-BR"
+ },
+ {
+  "jezyk": "pt-BR",
+  "cel": "apps/mobile/src/i18n/locales/pt-BR.json",
+  "stary": "\"terms\": \"Termos de Uso\"",
+  "nowy": "\"terms\": \"Termos de Uso (Terms of Use)\"",
+  "waga": "NISKIE",
+  "powod": "Tekst płatności: źródło pl ma dopisek „(Terms of Use)” (rozpoznawalność linku do warunków Apple), fr go zachowuje, pt-BR go pominął.",
+  "grupa": "A-pt-BR"
+ }
+]
