@@ -59,7 +59,7 @@ Nie ma w opisie (świadomie): scenariusze całego rozdania (F-12, D-305), liczba
 
 Skrypt `docs/wydanie/dowody/sprawdz-metadane.py` (uruchomienie z katalogu repo: `python3 -I docs/wydanie/dowody/sprawdz-metadane.py`): długości pól, bajty słów kluczowych, słowa ≥ 3 znaki, bez duplikatów i spacji, bez słów z nazwy, lista zakazanych słów (marki i operatorzy, ceny i waluty, obietnica wygranej, „for kids”) na granicach słów, nazwy aplikacji konkurencji z `docs/brd/dane/konkurencja-2026-11-03.json`. Wynik: `dowody/metadane-2026-11-09.txt`, **0 błędów, kod 0**. Pierwsze uruchomienie (podciągi) dało 5 trafień: 3 fałszywe („zł” w „złe”, „earn” w „learn”) i fraza „learn poker” (nazwa konkurenta) w tekście promocyjnym en, zastąpiona przez „Study poker”. Test samego sprawdzenia: „Wygraj teraz” → wykryte, „learn” → nie, „za 10 zł” → wykryte.
 
-Skrypt jest w `docs/` (pas dokumentów). Test w CI jak Trening `tests/store-metadata.test.ts` to praca pasa kodu przy K-11 (zgłoszenie do 08).
+Skrypt jest w `docs/` (pas dokumentów, dowód sesji M). **Od sesji S (D-334) kontrolę w CI robi `tests/kontrole/k11-sklep.test.ts`** (`pnpm test:kontrole` w `pnpm run ci`): te same reguły plus słowa kluczowe bez słów z podtytułu (jak Trening; usunięto „nauka” z pl) i mapa §2 jako wiersze testu — nowy punkt „•” w opisie wymaga wiersza mapy z miejscem w kodzie.
 
 ## 4. Zgłoszenia z D-01
 
