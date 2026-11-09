@@ -77,6 +77,14 @@ export function opisReki(m: readonly Miejsce[], reka: readonly string[], t: TFn)
 }
 
 const SYMBOL: Record<string, string> = { s: '♠', h: '♥', d: '♦', c: '♣' };
+const WARTOSCI = new Set(['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A']);
+
+/** Nazwa karty dla czytnika z kluczy `card.rank.*` i `card.suit.*` („as pik”, A04-10/A04-11, D-284); zły kod zostaje kodem, bez zgadywania. */
+export function nazwaKarty(c: string, t: TFn): string {
+  const [r = '', s = ''] = c;
+  if (!WARTOSCI.has(r) || !(s in SYMBOL)) return c;
+  return t('card.name', { rank: t(`card.rank.${r}`), suit: t(`card.suit.${s}`) });
+}
 const karta = (c: string) => `${c[0] === 'T' ? '10' : (c[0] ?? '')}${SYMBOL[c[1] ?? ''] ?? ''}`;
 
 /** Zadanie bez pozycji: karty tekstem pod stołem (design-spec, makieta `bez-pozycji`); kolejność jak rzędy na suknie: rywal, ty, stół (D-282). */

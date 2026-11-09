@@ -1,5 +1,6 @@
 import { HAND_CLASSES } from '@szkola/poker-core';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { PanResponder, StyleSheet, Text, View } from 'react-native';
 import type { PaintCell } from '@/features/drills/grade';
 import { odstep, styl, useTokens } from '@/theme/tokens';
@@ -24,6 +25,7 @@ export function PaintGrid({
   result?: readonly PaintCell[];
 }) {
   const tk = useTokens();
+  const { t } = useTranslation();
   const [size, setSize] = useState(0);
   const interactive = !!onChange && !result;
   // stan gestu i najnowsze propsy w refie: obsługa gestu działa poza renderem, więc czyta je dopiero przy dotyku
@@ -110,9 +112,10 @@ export function PaintGrid({
     if (result) return result[i] === 'hit' || (result[i] === 'mixed' && painted[i]) ? tk.primaryInk : tk.ink;
     return painted[i] ? tk.primaryInk : tk.ink;
   };
+  // A04-10 (D-284): stany pól dla czytnika z t(); klucze paint.state.* z zamkniętej listy (PaintCell)
   const a11yState = (i: number) => {
-    if (!result) return painted[i] ? 'zaznaczona' : 'pas';
-    return { hit: 'dobrze, grasz', miss: 'brakuje, solver gra', extra: 'nadmiarowa, solver pasuje', mixed: 'mieszana, zaliczona', none: 'dobrze, pas' }[result[i]!];
+    if (!result) return painted[i] ? t('paint.state.painted') : t('paint.state.fold');
+    return t(STAN_KLUCZ[result[i]!]);
   };
 
   return (
@@ -133,7 +136,7 @@ export function PaintGrid({
                   style={[styles.cell, cellStyle(i)]}
                   accessible
                   accessibilityRole={interactive ? 'checkbox' : 'text'}
-                  accessibilityLabel={`${hc}, ${a11yState(i)}`}
+                  accessibilityLabel={t('paint.cell', { hand: hc, state: a11yState(i) })}
                   {...(interactive
                     ? { accessibilityState: { checked: !!painted[i] }, accessibilityActions: [{ name: 'activate' as const }], onAccessibilityAction: () => toggle(i) }
                     : {})}
@@ -150,16 +153,24 @@ export function PaintGrid({
       </View>
       {result ? (
         <View style={styles.legend}>
-          <Legend color={tk.przejsciowe.good} label="grasz" />
-          <Legend color={tk.przejsciowe.badSoft} border={tk.przejsciowe.bad} label="− brakuje" />
-          <Legend color={tk.przejsciowe.warnSoft} border={tk.przejsciowe.warn} label="+ za dużo" />
-          <Legend color={tk.przejsciowe.feltSoft} label="• mieszana" />
+          <Legend color={tk.przejsciowe.good} label={t('paint.legendPlay')} />
+          <Legend color={tk.przejsciowe.badSoft} border={tk.przejsciowe.bad} label={t('paint.legendMiss')} />
+          <Legend color={tk.przejsciowe.warnSoft} border={tk.przejsciowe.warn} label={t('paint.legendExtra')} />
+          <Legend color={tk.przejsciowe.feltSoft} label={t('paint.legendMixed')} />
         </View>
       ) : null}
-      {!result ? <Text style={[styl.drobny, { color: tk.muted }]}>Dotknij pola albo przeciągnij palcem, żeby malować.</Text> : null}
+      {!result ? <Text style={[styl.drobny, { color: tk.muted }]}>{t('paint.hint')}</Text> : null}
     </View>
   );
 }
+
+const STAN_KLUCZ: Record<PaintCell, string> = {
+  hit: 'paint.state.hit',
+  miss: 'paint.state.miss',
+  extra: 'paint.state.extra',
+  mixed: 'paint.state.mixed',
+  none: 'paint.state.none',
+};
 
 function Legend({ color, border, label }: { color: string; border?: string; label: string }) {
   const tk = useTokens();

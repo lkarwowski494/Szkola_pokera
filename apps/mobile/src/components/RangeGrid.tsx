@@ -1,4 +1,5 @@
 import { HAND_CLASSES } from '@szkola/poker-core';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
 import type { RangeSpot } from '@/data/content/repo';
 import { odstep, styl, useTokens } from '@/theme/tokens';
@@ -10,9 +11,11 @@ import { odstep, styl, useTokens } from '@/theme/tokens';
 export function RangeGrid({ spot }: { spot: RangeSpot }) {
   const tk = useTokens();
   const colors = [tk.felt1, tk.przejsciowe.warn, tk.przejsciowe.cardBlue];
-  const pct = Math.round(spot.playPercent * 1000) / 10;
+  const { t, i18n } = useTranslation();
+  // A04-10 (D-284): liczba w formacie języka (jak `features/stol/skala.ts`), tekst z t()
+  const pct = new Intl.NumberFormat(i18n.language || 'pl', { maximumFractionDigits: 1 }).format(spot.playPercent * 100);
   return (
-    <View style={{ gap: odstep.s }} accessible accessibilityLabel={`${spot.title}. Gra ${pct} procent rąk.`}>
+    <View style={{ gap: odstep.s }} accessible accessibilityLabel={t('range.label', { title: spot.title, pct })}>
       <Text style={[styl.naglowek, { color: tk.ink }]}>{spot.title}</Text>
       <View style={[styles.grid, { borderColor: tk.separator }]}>
         {Array.from({ length: 13 }, (_, row) => (
@@ -47,7 +50,7 @@ export function RangeGrid({ spot }: { spot: RangeSpot }) {
             <Text style={[styl.drobny, { color: tk.muted }]}>{g.name}</Text>
           </View>
         ))}
-        <Text style={[styl.drobny, { color: tk.muted }]}>{`Gra ${String(pct).replace('.', ',')}% rąk`}</Text>
+        <Text style={[styl.drobny, { color: tk.muted }]}>{t('range.playPercent', { pct })}</Text>
       </View>
     </View>
   );

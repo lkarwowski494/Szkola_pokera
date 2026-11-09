@@ -1,11 +1,11 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
+import { nazwaKarty } from '@/features/stol/uklad';
 import { useSettings } from '@/state/settings';
 import { krojKarty, useTokens } from '@/theme/tokens';
 
 const SUIT: Record<string, string> = { s: '♠', h: '♥', d: '♦', c: '♣' };
-const SUIT_NAME: Record<string, string> = { s: 'pik', h: 'kier', d: 'karo', c: 'trefl' };
-const RANK_NAME: Record<string, string> = { T: '10', J: 'walet', Q: 'dama', K: 'król', A: 'as' };
 
 export type CardSize = 'sm' | 'md' | 'lg';
 const SIZES: Record<CardSize, { w: number; h: number; rank: number; suit: number }> = {
@@ -17,13 +17,14 @@ const SIZES: Record<CardSize, { w: number; h: number; rank: number; suit: number
 /** Karta do gry. Kod w formacie "As", "Td". Talia czterokolorowa według ustawień. */
 export const PlayingCard = memo(function PlayingCard({ code, size = 'md' }: { code: string; size?: CardSize }) {
   const tk = useTokens();
+  const { t } = useTranslation();
   const fourColor = useSettings((s) => s.fourColor);
   const rank = code[0]!;
   const suit = code[1]!;
   const color =
     suit === 'h' ? tk.cardRed : suit === 'd' ? (fourColor ? tk.przejsciowe.cardBlue : tk.cardRed) : suit === 'c' && fourColor ? tk.przejsciowe.cardGreen : tk.cardInk;
   const d = SIZES[size];
-  const label = `${RANK_NAME[rank] ?? rank} ${SUIT_NAME[suit]}`;
+  const label = nazwaKarty(code, t); // A04-10 (D-284): nazwa dla czytnika z kluczy card.*
   return (
     <View
       accessible

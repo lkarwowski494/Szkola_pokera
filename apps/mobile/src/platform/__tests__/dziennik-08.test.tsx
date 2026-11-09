@@ -1,6 +1,8 @@
 /// <reference types="jest" />
 // Krok 1 części 4 (ADR 0009 pkt 1–2): zamiast Sentry lokalny dziennik bez wysyłki i granica błędu ekranu.
 // Zastępuje observability/__tests__/crashReports.test.tsx (sprawdzał opcje Sentry, którego ADR 0009 nie dopuszcza).
+// A04-10: ekran zastępczy bierze teksty z t(); w aplikacji i18n inicjuje import w _layout przed granicą błędu
+import '@/i18n';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { Text } from 'react-native';
 import { KONFIGURACJA } from '@szkola/domena';

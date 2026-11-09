@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 import { Button } from '@/components/ui';
 import { odstep, styl, useTokens } from '@/theme/tokens';
@@ -8,13 +9,14 @@ import { odstep, styl, useTokens } from '@/theme/tokens';
  */
 export function RenderErrorScreen({ onRetry }: { onRetry: () => void }) {
   const tk = useTokens();
+  const { t } = useTranslation();
   return (
     <View style={{ flex: 1, justifyContent: 'center', gap: odstep.l, padding: odstep.xxl, backgroundColor: tk.bg }}>
       <Text accessibilityRole="header" style={[styl.naglowek, { color: tk.ink }]}>
-        Coś poszło nie tak
+        {t('errors.render.title')}
       </Text>
-      <Text style={[styl.tresc, { color: tk.muted }]}>Tego ekranu nie udało się wyświetlić. Spróbuj jeszcze raz.</Text>
-      <Button label="Spróbuj ponownie" onPress={onRetry} />
+      <Text style={[styl.tresc, { color: tk.muted }]}>{t('errors.render.body')}</Text>
+      <Button label={t('errors.render.retry')} onPress={onRetry} />
     </View>
   );
 }

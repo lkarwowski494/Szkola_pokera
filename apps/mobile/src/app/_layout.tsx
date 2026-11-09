@@ -5,6 +5,7 @@ import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import i18n from 'i18next';
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useColorScheme } from 'react-native';
 import { RenderErrorScreen } from '@/components/RenderErrorScreen';
 import { GranicaBledu } from '@/components/GranicaBledu';
@@ -144,6 +145,7 @@ function BramkaStartu({ port, children }: { port: PortBazy; children: ReactNode 
 export default function RootLayout() {
   const scheme = useColorScheme();
   const tk = useTokens();
+  const { t } = useTranslation(); // „Wróć” w nagłówku z t() i po zmianie języka (A04-10, D-284)
   const loadSettings = useSettings((s) => s.load);
   const tresc = useTresc();
   const postep = usePostep();
@@ -177,7 +179,7 @@ export default function RootLayout() {
           {/* Plik treści przygotowany przez useTresc (bez kopiowania przy każdym starcie, ADR 0005 pkt 2). */}
           <SQLiteProvider databaseName={tresc.plik} options={{ useNewConnection: false }}>
             <BramkaStartu port={postep.port}>
-              <Stack screenOptions={{ headerBackTitle: 'Wróć', headerTintColor: tk.link }}>
+              <Stack screenOptions={{ headerBackTitle: t('nav.back'), headerTintColor: tk.link }}>
                 <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
                 <Stack.Screen name="lesson/[id]" options={{ title: '' }} />
                 <Stack.Screen name="diagnostics" options={{ title: '' }} />

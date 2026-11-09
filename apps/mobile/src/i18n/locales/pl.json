@@ -532,7 +532,12 @@
     }
   },
   "errors": {
-    "db": "Nie udało się otworzyć bazy danych: {{message}}"
+    "db": "Nie udało się otworzyć bazy danych: {{message}}",
+    "render": {
+      "title": "Coś poszło nie tak",
+      "body": "Tego ekranu nie udało się wyświetlić. Spróbuj jeszcze raz.",
+      "retry": "Spróbuj ponownie"
+    }
   },
   "postep": {
     "odczytNieudany": "Nie udało się wczytać postępu. Spróbuj ponownie.",
@@ -590,5 +595,53 @@
     "between": "{{a}}–{{b}}%",
     "from": "od {{x}}%",
     "label": "Skala stopni: twoja akcja {{pct}} procent, przedział {{stopien}}."
+  },
+  "paint": {
+    "legendPlay": "grasz",
+    "legendMiss": "− brakuje",
+    "legendExtra": "+ za dużo",
+    "legendMixed": "• mieszana",
+    "hint": "Dotknij pola albo przeciągnij palcem, żeby malować.",
+    "cell": "{{hand}}, {{state}}",
+    "state": {
+      "painted": "zaznaczona",
+      "fold": "{{t:fold|pas}}",
+      "hit": "dobrze, grasz",
+      "miss": "brakuje, solver gra",
+      "extra": "nadmiarowa, solver {{t:fold|pasuje}}",
+      "mixed": "mieszana, zaliczona",
+      "none": "dobrze, {{t:fold|pas}}"
+    }
+  },
+  "range": {
+    "label": "{{title}}. Gra {{pct}} procent rąk.",
+    "playPercent": "Gra {{pct}}% rąk"
+  },
+  "card": {
+    "name": "{{rank}} {{suit}}",
+    "rank": {
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "T": "10",
+      "J": "walet",
+      "Q": "dama",
+      "K": "król",
+      "A": "as"
+    },
+    "suit": {
+      "s": "pik",
+      "h": "kier",
+      "d": "karo",
+      "c": "trefl"
+    }
+  },
+  "nav": {
+    "back": "Wróć"
   }
 }
