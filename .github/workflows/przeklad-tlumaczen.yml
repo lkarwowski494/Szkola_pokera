@@ -1,0 +1,109 @@
+# Przekład słownika interfejsu i treści kursu przez API Anthropic (K3a, plan-09; D-294, D-295). Tylko ręcznie, odczyt repozytorium.
+# Wzór: Trening .github/workflows/przeklad-tlumaczen.yml (SHA 2e4b0f8, odczyt 2026-11-09). Płatny z kredytów API właściciela
+# (Message Batches, -50%). Klucz: sekret ANTHROPIC_API_KEY, użyty w JEDNYM kroku, jako zmienna środowiskowa; skrypt nigdy go
+# nie wypisuje. Słowniki i treść NIE są zmieniane, workflow niczego nie commituje ani nie pushuje: wynik to artefakt
+# `raport-przekladu` (propozycje.json, podgląd plików, podsumowanie, szacunek; 7 dni). Nałożenie lokalnie po przeglądzie:
+# node scripts/i18n/przeklad-api.mjs --zastosuj raport-przekladu/propozycje.json
+# Limit kosztu przebiegu w skrypcie: 15 USD (D-295); powyżej stop; limit_usd > 15 skrypt odrzuca (sufit w kodzie).
+# Odstępstwa od Treningu (odczyt 2026-11-09): wejścia jezyki, tylko, limit_usd, tryb zamiast limit, tylko_szacuj, zgoda_koszt
+# (Trening :10–33); pnpm install, bo skrypty czytają YAML pakietem `yaml` (Trening: sam Node, :46–48); upload-artifact@v5
+# jak w ci.yml tego repo (Trening @v4, :84); krok płatny tylko przy tryb=wyslij (Trening: tylko_szacuj, :20, :71).
+# Uruchamianie (D-342): plik leży też na main (workflow_dispatch wymaga go na gałęzi domyślnej), ale skrypty tylko na gałęzi
+# roboczej — uruchamiać z `--ref <gałąź robocza>`; GitHub bierze wtedy workflow i checkout z tej gałęzi, sekret repozytorium działa.
+name: Przekład tłumaczeń (API, ręcznie)
+on:
+  workflow_dispatch:
+    inputs:
+      jezyki:
+        description: 'Kody języków po przecinku (np. en albo ja,fr); źródło to zawsze pl'
+        type: string
+        default: 'en'
+      model:
+        description: 'Model przekładu (domyślnie Opus 5.5, effort medium; sonnet = Sonnet 5.5, tańszy)'
+        type: choice
+        default: opus
+        options: [opus, sonnet]
+      limit_usd:
+        description: 'Limit kosztu przebiegu w USD, najwyżej 15 (D-295); skrypt odrzuca wyższy — to wymaga zgody właściciela i zmiany stałej LIMIT_USD w kodzie'
+        type: string
+        default: '15'
+      tryb:
+        description: 'szacuj = tylko koszt, nic płatnego; wyslij = batch płatny'
+        type: choice
+        default: szacuj
+        options: [szacuj, wyslij]
+      tylko:
+        description: 'Tylko pliki, których ścieżka zawiera podane fragmenty (po przecinku, np. lessons/m0-,exams/m0); puste = wszystkie'
+        type: string
+        default: ''
+      wznow:
+        description: 'Odbiór wyników wysłanego wcześniej batcha (msgbatch_… z logu); puste = nowy przekład'
+        type: string
+        default: ''
+permissions:
+  contents: read
+concurrency:
+  group: przeklad-tlumaczen
+  cancel-in-progress: false
+jobs:
+  przeklad:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Skrypty z gałęzi roboczej (D-342 — na main leży tylko ten plik)
+        run: |
+          if [ ! -f scripts/i18n/przeklad-api.mjs ]; then
+            echo "::error::Brak scripts/i18n/przeklad-api.mjs w ref '$GITHUB_REF_NAME'. Uruchom z gałęzi roboczej: gh workflow run przeklad-tlumaczen.yml --ref <gałąź robocza> (D-342)."
+            exit 1
+          fi
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Szacunek kosztu bez klucza i bez sieci — stop powyżej limitu
+        env:
+          WEJ_JEZYKI: ${{ inputs.jezyki }}
+          WEJ_MODEL: ${{ inputs.model }}
+          WEJ_LIMIT: ${{ inputs.limit_usd }}
+          WEJ_TYLKO: ${{ inputs.tylko }}
+        run: |
+          set -eu
+          ARGS=(--szacuj --jezyki "$WEJ_JEZYKI" --model "$WEJ_MODEL" --limit-usd "$WEJ_LIMIT" --wyjscie raport-przekladu)
+          if [ -n "$WEJ_TYLKO" ]; then ARGS+=(--tylko "$WEJ_TYLKO"); fi
+          node scripts/i18n/przeklad-api.mjs "${ARGS[@]}"
+      - name: Przekład (batch płatny albo odbiór wyników)
+        if: inputs.tryb == 'wyslij'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          WEJ_JEZYKI: ${{ inputs.jezyki }}
+          WEJ_MODEL: ${{ inputs.model }}
+          WEJ_LIMIT: ${{ inputs.limit_usd }}
+          WEJ_TYLKO: ${{ inputs.tylko }}
+          WEJ_WZNOW: ${{ inputs.wznow }}
+        run: |
+          set -eu
+          ARGS=(--jezyki "$WEJ_JEZYKI" --model "$WEJ_MODEL" --limit-usd "$WEJ_LIMIT" --wyjscie raport-przekladu)
+          if [ -n "$WEJ_TYLKO" ]; then ARGS+=(--tylko "$WEJ_TYLKO"); fi
+          if [ -n "$WEJ_WZNOW" ]; then
+            [[ "$WEJ_WZNOW" =~ ^msgbatch_[A-Za-z0-9]+$ ]] || { echo "::error::wznow: oczekiwany identyfikator msgbatch_…"; exit 1; }
+            ARGS+=(--wznow "$WEJ_WZNOW")
+          fi
+          node scripts/i18n/przeklad-api.mjs "${ARGS[@]}"
+      - name: Podsumowanie w logu przebiegu
+        if: always()
+        run: |
+          if [ -f raport-przekladu/podsumowanie.md ]; then cat raport-przekladu/podsumowanie.md >> "$GITHUB_STEP_SUMMARY"; fi
+          if [ -f raport-przekladu/szacunek.json ]; then node -e "const s=require('./raport-przekladu/szacunek.json');console.log('Szacunek USD: '+JSON.stringify(s.koszt_wg_modelu))" >> "$GITHUB_STEP_SUMMARY"; fi
+      - name: Artefakt (tylko raporty i propozycje, 7 dni)
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: raport-przekladu
+          path: raport-przekladu/
+          if-no-files-found: ignore
+          retention-days: 7
