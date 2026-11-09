@@ -738,6 +738,35 @@ Przegląd D-043 (subagent, świeży kontekst, diff `e6565f0..HEAD`): 1×P1 (wyż
 - K-06 (A04-12 haptyka, A04-13 pasek po ocenie; 08-F15, F22, F24) i K-07 (08-F21 test renderu ekranu sesji) — nie zaczęte (próg kontekstu).
 - E2E zmian tej sesji po pushu (nowa trasa `/purchase` bez flowu Maestro — flow dla 10-D01-02 do roli 07).
 
+## Naprawy — sesja R (2026-11-09, rola 08 build)
+Rola `08-programista --tryb build` złożona `tools/assemble.mjs` (repo `prompts`, odczyt 2026-11-09). Stan wyjściowy `0cc07bf`: `pnpm run ci` zielony poza moim czerwonym testem w toku (`ProviderTresci-08`, przebieg uruchomiony równolegle z pisaniem testu — wyjątek nazwany), mobile 71/72 zestawów, 501 testów.
+
+| Zadanie | Commit | Test (czerwony przed → zielony po) | Decyzja |
+|---|---|---|---|
+| 3×P2 przeglądu D-043 sesji Q: (a) pusta klatka przy starcie, (b) `odswiezDostep` bez odrzucenia, (c) `otworz`/`onBlad` w refie | ff4fa71 | `dostep-08` 1 (przed: „Rejected to value: most natywny”), `ProviderTresci-08` 4 (3 czerwone, 1 strażnik zielony od początku), `startEkranu-08` 3 (1 czerwony) | D-329 |
+| P1 przeglądu D-043 sesji R (ekran startowy nad ekranem błędu przy wyjątku pierwszego renderu — błąd z ff4fa71) | 3038ecc | `GranicaBledu-08` 2 (oba czerwone; strażnik czerwony bez zmiany `_layout`) | D-332 |
+| A04-12 haptyka, A04-13 pasek po ocenie | dbfc14f | `haptyka-08` 3 (przed: „notificationSuccess” zamiast „impactLight”), `PasekStrategii-08` „A04-13” (przed: brak osi `os-paska`) | D-330 |
+| 08-F15 tokeny kart, A04-16 karta | 05f689c | `motyw-08` „08-F15” (przed: brak tokenów), `PlayingCard-08` 3 (przed: promień 6, cień `#000`) | D-331 |
+| 08-F22 limit ⚙︎ | — (zrobione w A04-05, sesja F) | `skalowanie-08` | D-331 |
+| 08-F24 „Powtórki na dziś” | 2d9eff1 | `powtorki-nazwa-08` 6 (przed: 6/6 czerwone) | D-331 |
+| K-07 / 08-F21 test renderu ekranu sesji | 4f3e35f | `sesja-render-08` 4 — test istniejącego zachowania; dowód: mutanty M29–M32 (gałęzie `maStrategie`) i M33 (podpowiedź) zabite 5/5 (skrypt podmiany w scratchpadzie sesji, `session.tsx` przywrócony) | D-331 |
+| K-10 strona `site/` (polityka pl/en, wsparcie) | commit „Strona polityki…” | `tests/narzedzia/strona.test.mjs` 9 (bez `site/`: 7/9 czerwone) | D-333 |
+
+Pełny zestaw: `pnpm run ci` kod 0 po P2 (mobile 510), po K-06/K-07 (525), po P1 (527), po K-10 (527, skrypty 136/136). `expo lint` nieuruchamiany (jak w częściach 1–6). Przegląd D-043 (subagent, świeży kontekst, `0cc07bf..HEAD -- apps/mobile/src`): 1×P1 (wyżej, naprawione testem), reszta „bez uwag”.
+
+**Teksty do akceptacji 04/09:** `today.reviews` „Powtórki na dziś”, `today.reviewsDue` „{{count}}”; strona wsparcia (pl, en roboczy; zdanie pomocy en = przekład H-INT-2 do przeglądu treści, D-323).
+
+**Zgłoszenia do 04:** token haptyki dla niedokładności/błędu rozmiaru (dziś token Błędu); promień 12 osi paska (dziś `promien.przycisk` 14).
+
+**Stany do zrzutu (właściciel):** `sesja-decyzja:po-ocenie` jasny/ciemny (oś 44 pt z obrysem, trójkąt nad wyborem, podpisy pod segmentami; także AX3 i strategia z udziałem 0–5%); karty md/lg (promień 8, cień); talia czterokolorowa (karo niebieskie, trefl zielony); „Dziś” z powtórkami (wiersz „Powtórki na dziś”, wartość liczba). Telefon: haptyka po ocenie — Zgodna/Dopuszczalna lekkie stuknięcie, Błąd ostrzeżenie; zimny start bez błysku tła między ekranem startowym a „Dziś”.
+
+**Szkic workflow publikacji (NIE w repo, czeka na zgodę właściciela, D-308):** `.github/workflows/pages.yml` jak Trening (`on: push: branches: [main], paths: ['site/**', '.github/workflows/pages.yml']` + `workflow_dispatch`; `permissions: contents: read, pages: write, id-token: write`; kroki `actions/checkout@v5` (`persist-credentials: false`), `actions/configure-pages@v5`, `actions/upload-pages-artifact@v4` z `path: site`, `actions/deploy-pages@v4` w środowisku `github-pages`). Przed dodaniem: zdjąć strażnik D-308 w `strona.test.mjs` (zmiana testu za zgodą), wpisać W-04 zamiast `[DO USTALENIA]`, przegląd D-043 (ścieżka `.github/workflows/`).
+
+### Zostaje
+- NISKIE A04-14 (akceptacja, bez zmian), A04-15 (ustawienia jako listy grupowane), A04-17 (układ ekranu zakupu), A04-18 (z tokenami siatek 08-F27b) → 1.0.1 albo przy kolejnej sesji interfejsu.
+- K-10: publikacja (zgoda właściciela, D-308), fakty W-04 (adres poczty, administrator), przekład strony na ja/pt-BR/fr/zh-Hant (09), `ADRES_PRYWATNOSCI` w `platform/adresy.ts` po publikacji (K-09).
+- E2E zmian tej sesji po pushu (flowy 01/06 dotykają paska i „Dziś”).
+
 ## Treść K-02 — sesja N (2026-11-09, rola 06 build, plan-1.0 K-02)
 
 Wejście: 3 czerwone testy `pnpm test:akceptacja` (`docs/wydanie/dowody/stan-2026-11-09.txt`). Prompt roli: `node tools/assemble.mjs 06-tresci --tryb build` (repo prompts, 2026-11-09). Naprawiana treść, testy bez zmian.
