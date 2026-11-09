@@ -649,6 +649,42 @@ Ruch paska (240 ms) i znacznika (160 ms po 200 ms) oraz przenikanie przy „Ogra
 | ścieżki wrażliwe | niedotknięte — przegląd D-043 nie dotyczy |
 | zrzut | `ocena-poziomu:pytanie` (zgloszenia-08, lista zrzutów) pokaże teraz `Stol` |
 
+## Naprawy audytu roli 04 (sesja F, 2026-11-09)
+Rola `08-programista --tryb fix` (tekst złożony przez koordynatora, prompts c025063, wersja skrócona — wyjątek nazwany przez koordynatora). Raport: `docs/design/audyt-5b-6.md`; decyzje D-282–D-284 (A), D-285 (W, bez zmian w kodzie). Stan wyjściowy: `fec75e7`, `pnpm run ci` — wynik w tabeli „Stan wyjściowy F”.
+
+### E0: plan i klasyfikacja (D defekt / P produkt / M merytoryka)
+Wszystkie ID mają rozstrzygnięcie w D-282–D-284, więc wszystkie są typu D (bez P i M). Teksty nowych kluczy wg D-282/D-284 (brzmienie pl), terminologia „rywal” do potwierdzenia przez 06 (D-282).
+
+| Kol. | ID | Typ | Pliki | Test odtwarzający | Ryzyko |
+|---|---|---|---|---|---|
+| 1 | A04-01 | D | `features/stol/uklad.ts` (`opisKart` + `opp`), `components/Stol.tsx` (podpisy rzędów przy `opp`), `pl.json` | `uklad-08`, `Stol-08`: etykieta zawiera każdą narysowaną kartę; podpisy „Rywal”, „Na stole” | niskie |
+| 2 | A04-02 | D | `features/ocena-poziomu/EkranyOceny.tsx` | `PierwszeUruchomienie-08`/`EkranyOceny`: brak tekstu `[[`, karty z etykietami | testID `option-<i>` (flow 05) zostaje |
+| 3 | A04-03, 08-F25 | D | nowy `lib/announce.ts`, `PanelDecyzji.tsx`, `session.tsx`, `components/ui.tsx` (ref przewijania) | strażnik `accessibilityLiveRegion` tylko w pomocniku; ogłoszenie po ocenie (atrapa `AccessibilityInfo`); przewinięcie na górę i fokus po „Dalej” | `session.tsx` bez testu renderu (08-F21) — test na pomocnikach + strażnik statyczny |
+| 4 | A04-04 | D | `Stol.tsx`, `uklad.ts` | `Stol-08`: sama pozycja → bez obrazu, tekst „Twoja pozycja: BB”; pozycja z kartami bez przebiegu → dopisek w etykiecie | niskie |
+| 5 | A04-05–07 | D | `Stol.tsx`, `PlayingCard.tsx`, `PasekStrategii.tsx`, `SkalaStopni.tsx`, `StopienOceny.tsx`, `theme/tokens.ts` | RNTL: `allowFontScaling={false}`, `flexWrap`, `maxFontSizeMultiplier` | wygląd tylko na zrzucie |
+| 6 | A04-08–09 | D | `session.tsx:458`, `app/(tabs)/index.tsx` | strażnik/RNTL | niskie |
+| 7 | A04-10–11 | D | `PaintGrid`, `RangeGrid`, `PlayingCard`, `RenderErrorScreen`, `_layout`, `uklad.ts` | `i18n:kod` / RNTL etykiety kart | brzmienie pl bez zmian |
+
+Źródła API (zasada 12): React Native 0.88.1 z `package.json`, `node_modules/react-native/Libraries/Components/AccessibilityInfo/AccessibilityInfo.js:441–460` (`sendAccessibilityEvent(handle, 'focus')`, `announceForAccessibility`; `setAccessibilityFocus` oznaczone jako przestarzałe, :433), odczyt 2026-11-09. Trening (D-191): `lib/announce.ts:1–10`, `tests/interaction-guards.test.ts:88`, gałąź `main`, odczyt 2026-11-09.
+
+### E1: stan napraw (sesja F)
+| ID | Stan | Commit | Test (czerwony przed → zielony) |
+|---|---|---|---|
+| A04-01 | zrobione | 11e26f9 | `uklad-08` „A04-01”, `Stol-08` „A04-01” ×2 — przed: etykieta bez A♣ A♦ |
+| A04-02 | zrobione | 3b2fb13 | `PierwszeUruchomienie-08` „A04-02” — przed: 4 teksty z „[[” |
+| A04-03, 08-F25 | zrobione | e06cedc, aaf30b5 (bez pustego `catch`, K-07) | `announce-08` 7 — przed (zaślepka): 0 ogłoszeń, brak przewinięcia i fokusu, `accessibilityLiveRegion` w `PanelDecyzji` |
+| A04-04 | zrobione | 317ee6c | `Stol-08` „A04-04” ×2 — przed: obraz z etykietą `""`, opis bez pozycji |
+| A04-05 | zrobione | 29f5ec7 | `skalowanie-08` „A04-05” 5 — przed: `allowFontScaling` undefined, stała 0 |
+| A04-06, A04-07 | zrobione | (commit A04-06/07) | `skalowanie-08` „A04-06” 3, „A04-07” 2 — przed: brak `flexWrap`, tytuł bez sufitu, słowo stopnia 28/34 |
+
+Odstępstwa nazwane: A04-03 i 08-F25 jednym commitem (D-283 łączy je w jeden krok, wspólne pliki); A04-06 i A04-07 jednym commitem (wspólny moduł `theme/skalowanie.ts` i plik testu). Ścieżki wrażliwe (CLAUDE.md) niedotknięte — przegląd D-043 nie dotyczy.
+
+Nowe znalezisko (poza zakresem fix, nie naprawiam): **F-SOLVER-CZAS** — `tools/preflop-solver` test „wagi blokerów 3-way” trwa ok. 59 s przy limicie 60 s; w `pnpm run ci` (testy pakietów równolegle, 4 rdzenie) przekroczył limit na `fec75e7` bez zmian w kodzie (log stanu wyjściowego), osobno przechodzi 13/13 (59 s). Waga: ŚREDNIE (fałszywa czerwień CI, nie wpływa na aplikację). Opcje: (A) limit testu 180 s; (B) mniejsza próba w teście; rekomendacja A — decyzja roli 07/08 w kolejnej sesji.
+
+Teksty nowe do akceptacji 04/06: `table.oppCards`, `table.rowOpp`, `table.rowBoard`, `table.yourPosition`, `grade.announce`.
+
+Stany do zrzutu (właściciel): `sesja-bez-pozycji:przed` z „Kto wygrywa” (rzędy „Rywal”/„Na stole”), `ocena-poziomu:pytanie` przy m5.exam.q2 (karty zamiast „[[…]]”), zadanie z samą pozycją (`m6-l1-mdf-alpha`: wiersz „Twoja pozycja”), `sesja-decyzja:przed` i `po-ocenie-*` przy AX3 i AX5 na 390 pt (pasek i skala zawinięte, miejsca i karty bez wzrostu, słowo stopnia 34 pt), VoiceOver: ogłoszenie po dotknięciu akcji, fokus na „Zadanie n z m” po „Dalej”.
+
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
 
