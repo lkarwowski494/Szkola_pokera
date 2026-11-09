@@ -1,0 +1,337 @@
+{
+ "zrodlo": "https://itunes.apple.com/lookup?id=<24 id top25 z docs/wydanie/konkurencja/wejscie.json>&country=us&entity=software",
+ "odczyt": "2026-11-09",
+ "brak_w_wyniku": [
+  "Learn Poker Offline - Hold 'Em"
+ ],
+ "aplikacje": [
+  {
+   "id": 6590603158,
+   "nazwa": "GTO Preflop Wizard Poker AI",
+   "oceny_us": 3487,
+   "kategoria_glowna": "Education",
+   "gatunki": [
+    "Education",
+    "Sports"
+   ],
+   "wiek": "12+",
+   "typ": "zadania + ćwiczenia z AI",
+   "adres": "https://apps.apple.com/us/app/gto-preflop-wizard-poker-ai/id6590603158"
+  },
+  {
+   "id": 1622947056,
+   "nazwa": "GTO Preflop - Texas Hold'em",
+   "oceny_us": 2486,
+   "kategoria_glowna": "Sports",
+   "gatunki": [
+    "Sports",
+    "Education"
+   ],
+   "wiek": "17+",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "adres": "https://apps.apple.com/us/app/gto-preflop-texas-holdem/id1622947056"
+  },
+  {
+   "id": 1488850006,
+   "nazwa": "Postflop+ GTO Poker Trainer",
+   "oceny_us": 1982,
+   "kategoria_glowna": "Utilities",
+   "gatunki": [
+    "Utilities",
+    "Education"
+   ],
+   "wiek": "17+",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "adres": "https://apps.apple.com/us/app/postflop-gto-poker-trainer/id1488850006"
+  },
+  {
+   "id": 555222027,
+   "nazwa": "Enterra Poker Calculator",
+   "oceny_us": 1416,
+   "kategoria_glowna": "Productivity",
+   "gatunki": [
+    "Productivity",
+    "Utilities"
+   ],
+   "wiek": "4+",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "adres": "https://apps.apple.com/us/app/enterra-poker-calculator/id555222027"
+  },
+  {
+   "id": 6478522482,
+   "nazwa": "Poker Trainer - Learn Poker",
+   "oceny_us": 1177,
+   "kategoria_glowna": "Education",
+   "gatunki": [
+    "Education",
+    "Card",
+    "Casino",
+    "Games"
+   ],
+   "wiek": "17+",
+   "typ": "zadania + symulator rozdań",
+   "adres": "https://apps.apple.com/us/app/poker-trainer-learn-poker/id6478522482"
+  },
+  {
+   "id": 1530767783,
+   "nazwa": "Solver+ Poker : GTO Strategy",
+   "oceny_us": 1165,
+   "kategoria_glowna": "Education",
+   "gatunki": [
+    "Education",
+    "Entertainment"
+   ],
+   "wiek": "17+",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "adres": "https://apps.apple.com/us/app/solver-poker-gto-strategy/id1530767783"
+  },
+  {
+   "id": 1435468870,
+   "nazwa": "Preflop+ Poker GTO Nash Charts",
+   "oceny_us": 1022,
+   "kategoria_glowna": "Utilities",
+   "gatunki": [
+    "Utilities",
+    "Education"
+   ],
+   "wiek": "17+",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "adres": "https://apps.apple.com/us/app/preflop-poker-gto-nash-charts/id1435468870"
+  },
+  {
+   "id": 1553727514,
+   "nazwa": "Poker AI - Game & Strategy",
+   "oceny_us": 714,
+   "kategoria_glowna": "Utilities",
+   "gatunki": [
+    "Utilities",
+    "Education"
+   ],
+   "wiek": "17+",
+   "typ": "gra z botami",
+   "adres": "https://apps.apple.com/us/app/poker-ai-game-strategy/id1553727514"
+  },
+  {
+   "id": 6748104711,
+   "nazwa": "Poker Skill - Learn Holdem",
+   "oceny_us": 473,
+   "kategoria_glowna": "Games",
+   "gatunki": [
+    "Games",
+    "Card",
+    "Education"
+   ],
+   "wiek": "4+",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "adres": "https://apps.apple.com/us/app/poker-skill-learn-holdem/id6748104711"
+  },
+  {
+   "id": 6747833042,
+   "nazwa": "Poker Trainer: Flop Factor",
+   "oceny_us": 363,
+   "kategoria_glowna": "Education",
+   "gatunki": [
+    "Education",
+    "Sports"
+   ],
+   "wiek": "17+",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "adres": "https://apps.apple.com/us/app/poker-trainer-flop-factor/id6747833042"
+  },
+  {
+   "id": 581867383,
+   "nazwa": "Tournament Poker Coach",
+   "oceny_us": 313,
+   "kategoria_glowna": "Games",
+   "gatunki": [
+    "Games",
+    "Entertainment",
+    "Casino",
+    "Card"
+   ],
+   "wiek": "17+",
+   "typ": "scenariusze z prawdziwych rozdań",
+   "adres": "https://apps.apple.com/us/app/tournament-poker-coach/id581867383"
+  },
+  {
+   "id": 6747779080,
+   "nazwa": "Preflop AI: GTO Poker Trainer",
+   "oceny_us": 309,
+   "kategoria_glowna": "Education",
+   "gatunki": [
+    "Education"
+   ],
+   "wiek": "17+",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "adres": "https://apps.apple.com/us/app/preflop-ai-gto-poker-trainer/id6747779080"
+  },
+  {
+   "id": 1458491856,
+   "nazwa": "DTO MTT - GTO Poker Trainer",
+   "oceny_us": 283,
+   "kategoria_glowna": "Education",
+   "gatunki": [
+    "Education",
+    "Card",
+    "Games"
+   ],
+   "wiek": "17+",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "adres": "https://apps.apple.com/us/app/dto-mtt-gto-poker-trainer/id1458491856"
+  },
+  {
+   "id": 505831997,
+   "nazwa": "Insta Poker Coach Texas Holdem",
+   "oceny_us": 254,
+   "kategoria_glowna": "Games",
+   "gatunki": [
+    "Games",
+    "Card",
+    "Education",
+    "Casino"
+   ],
+   "wiek": "17+",
+   "typ": "scenariusze z prawdziwych rozdań",
+   "adres": "https://apps.apple.com/us/app/insta-poker-coach-texas-holdem/id505831997"
+  },
+  {
+   "id": 294379237,
+   "nazwa": "PokerCruncher - Advanced Odds",
+   "oceny_us": 254,
+   "kategoria_glowna": "Games",
+   "gatunki": [
+    "Games",
+    "Entertainment",
+    "Casino",
+    "Card"
+   ],
+   "wiek": "17+",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "adres": "https://apps.apple.com/us/app/pokercruncher-advanced-odds/id294379237"
+  },
+  {
+   "id": 1629141961,
+   "nazwa": "GTO Preflop",
+   "oceny_us": 243,
+   "kategoria_glowna": "Utilities",
+   "gatunki": [
+    "Utilities",
+    "Card",
+    "Simulation",
+    "Games"
+   ],
+   "wiek": "17+",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "adres": "https://apps.apple.com/us/app/gto-preflop/id1629141961"
+  },
+  {
+   "id": 6742486598,
+   "nazwa": "PokerArena: Play & Learn Poker",
+   "oceny_us": 223,
+   "kategoria_glowna": "Games",
+   "gatunki": [
+    "Games",
+    "Card"
+   ],
+   "wiek": "17+",
+   "typ": "gra z botami (play & learn)",
+   "adres": "https://apps.apple.com/us/app/pokerarena-play-learn-poker/id6742486598"
+  },
+  {
+   "id": 1445519206,
+   "nazwa": "Evenbet Poker Calculator",
+   "oceny_us": 175,
+   "kategoria_glowna": "Games",
+   "gatunki": [
+    "Games",
+    "Card",
+    "Sports"
+   ],
+   "wiek": "17+",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "adres": "https://apps.apple.com/us/app/evenbet-poker-calculator/id1445519206"
+  },
+  {
+   "id": 1630961215,
+   "nazwa": "NTPoker – GTO Poker Trainer",
+   "oceny_us": 163,
+   "kategoria_glowna": "Education",
+   "gatunki": [
+    "Education",
+    "Productivity"
+   ],
+   "wiek": "4+",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "adres": "https://apps.apple.com/us/app/ntpoker-gto-poker-trainer/id1630961215"
+  },
+  {
+   "id": 6758732164,
+   "nazwa": "Gambit -  Play and Learn Poker",
+   "oceny_us": 135,
+   "kategoria_glowna": "Games",
+   "gatunki": [
+    "Games",
+    "Education",
+    "Card",
+    "Casino"
+   ],
+   "wiek": "17+",
+   "typ": "kurs + gra z botami",
+   "adres": "https://apps.apple.com/us/app/gambit-play-and-learn-poker/id6758732164"
+  },
+  {
+   "id": 6458732631,
+   "nazwa": "GTO Ranges+ Poker Solver",
+   "oceny_us": 127,
+   "kategoria_glowna": "Sports",
+   "gatunki": [
+    "Sports",
+    "Card",
+    "Games"
+   ],
+   "wiek": "17+",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "adres": "https://apps.apple.com/us/app/gto-ranges-poker-solver/id6458732631"
+  },
+  {
+   "id": 1559404571,
+   "nazwa": "Poker Power Play",
+   "oceny_us": 126,
+   "kategoria_glowna": "Education",
+   "gatunki": [
+    "Education"
+   ],
+   "wiek": "17+",
+   "typ": "gra towarzyska z botami",
+   "adres": "https://apps.apple.com/us/app/poker-power-play/id1559404571"
+  },
+  {
+   "id": 1494263170,
+   "nazwa": "Learn Poker",
+   "oceny_us": 103,
+   "kategoria_glowna": "Games",
+   "gatunki": [
+    "Games",
+    "Education",
+    "Casino",
+    "Card"
+   ],
+   "wiek": "4+",
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "adres": "https://apps.apple.com/us/app/learn-poker/id1494263170"
+  },
+  {
+   "id": 1444569705,
+   "nazwa": "Poker Coaching",
+   "oceny_us": 73,
+   "kategoria_glowna": "Education",
+   "gatunki": [
+    "Education",
+    "Entertainment"
+   ],
+   "wiek": "4+",
+   "typ": "nie klasyfikowano",
+   "adres": "https://apps.apple.com/us/app/poker-coaching/id1444569705"
+  }
+ ]
+}
