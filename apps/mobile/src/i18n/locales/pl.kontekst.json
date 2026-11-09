@@ -448,5 +448,10 @@
   "table.rowOpp": "Użyty w: components/Stol.tsx (podpis rzędu kart rywala na suknie, A04-01, D-282). Jedno słowo, mieści się nad rzędem kart.",
   "table.rowBoard": "Użyty w: components/Stol.tsx (podpis rzędu kart wspólnych na suknie, tylko gdy są karty rywala, A04-01, D-282). Krótko.",
   "grade.announce": "Użyty w: features/stol/PanelDecyzji.tsx (ogłoszenie VoiceOver po ocenie decyzji, A04-03, D-283). ocena = „Ocena: Zgodna” albo „Czas minął”; opis = opis paska strategii (strategy.*). Dwa zdania, kolejność stała.",
-  "table.yourPosition": "Użyty w: features/stol/uklad.ts (zadanie z pozycją bez przebiegu akcji: wiersz zamiast stołu albo pierwsze zdanie opisu kart i etykiety VoiceOver, A04-04, D-282 pkt 2–3). pos = skrót pozycji (BB, BTN)."
+  "table.yourPosition": "Użyty w: features/stol/uklad.ts (zadanie z pozycją bez przebiegu akcji: wiersz zamiast stołu albo pierwsze zdanie opisu kart i etykiety VoiceOver, A04-04, D-282 pkt 2–3). pos = skrót pozycji (BB, BTN).",
+  "today.rowLabel": "Użyty w: features/dzis/widok.ts (etykieta VoiceOver wiersza na „Dziś”, A04-09). tytul i opis lekcji albo egzaminu; pierwsze zdanie etykiety.",
+  "today.rowDone": "Użyty w: features/dzis/widok.ts (etykieta VoiceOver wiersza na „Dziś”, A04-09). Stan lekcji (rodzaj żeński: lekcja).",
+  "today.rowStarted": "Użyty w: features/dzis/widok.ts (etykieta VoiceOver wiersza na „Dziś”, A04-09). Stan lekcji rozpoczętej, nieukończonej (rodzaj żeński).",
+  "today.rowPassed": "Użyty w: features/dzis/widok.ts (etykieta VoiceOver wiersza na „Dziś”, A04-09). Stan egzaminu modułu (rodzaj męski: egzamin).",
+  "today.rowScore": "Użyty w: features/dzis/widok.ts (etykieta VoiceOver wiersza na „Dziś”, A04-09). Najlepszy wynik lekcji: dobre z razem."
 }

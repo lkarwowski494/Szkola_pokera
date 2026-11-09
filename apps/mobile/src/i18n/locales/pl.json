@@ -19,7 +19,12 @@
     "reviewsDue_few": "{{count}} na dziś",
     "reviewsDue_many": "{{count}} na dziś",
     "reviewsDue_other": "{{count}} na dziś",
-    "allLessons": "Wszystkie lekcje"
+    "allLessons": "Wszystkie lekcje",
+    "rowLabel": "{{tytul}}. {{opis}}.",
+    "rowDone": "Ukończona.",
+    "rowStarted": "Rozpoczęta.",
+    "rowPassed": "Zaliczony.",
+    "rowScore": "Wynik: {{dobre}} z {{razem}}."
   },
   "welcome": {
     "title": "Szkoła Pokera",

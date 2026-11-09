@@ -9,7 +9,7 @@ import { getLessonSummaries, getModules } from '@/data/content/repo';
 import { odczytajKarty, odczytajPostepLekcji, wynikiLekcji, wynikiTestow, type PortBazy } from '@szkola/postep';
 import { useOdczytPostepu } from '@/data/postep';
 import BlokLekcji from '@/features/dzis/BlokLekcji';
-import { nastepnaNaDzis } from '@/features/dzis/widok';
+import { etykietaWiersza, nastepnaNaDzis } from '@/features/dzis/widok';
 import { czytajFaktyKursu } from '@/features/kurs/faktyKursu';
 import { podsumowanieLekcji, podsumowanieTestow } from '@/features/kurs/podsumowania';
 import { AdvancementCard } from '@/features/advancement/AdvancementCard';
@@ -138,7 +138,7 @@ export default function TodayScreen() {
                   key={l.id}
                   testID={`lesson-${l.id}`}
                   accessibilityRole="button"
-                  accessibilityLabel={`${l.title}. ${l.sub}`}
+                  accessibilityLabel={etykietaWiersza({ tytul: l.title, opis: l.sub, stan: state, wynik: p && p.total !== null && p.bestCorrect !== null ? { dobre: p.bestCorrect, razem: p.total } : null }, t)}
                   onPress={() => router.push({ pathname: '/lesson/[id]', params: { id: l.id } })}
                   style={({ pressed }) => [
                     styles.lesson,
@@ -159,7 +159,7 @@ export default function TodayScreen() {
             {available ? (
               <Pressable
                 accessibilityRole="button"
-                accessibilityLabel={`${t('exam.start')}. ${t('exam.hint', { count: EXAM_SIZE })}`}
+                accessibilityLabel={etykietaWiersza({ tytul: t('exam.start'), opis: t('exam.hint', { count: EXAM_SIZE }), stan: exams.get(m.id)?.passed ? 'passed' : 'new' }, t)}
                 onPress={() => router.push({ pathname: '/session', params: { mode: 'exam', moduleId: m.id } })}
                 style={({ pressed }) => [styles.lesson, { borderColor: exams.get(m.id)?.passed ? tk.ink : tk.separator, borderStyle: 'dashed', opacity: pressed ? 0.85 : 1 }]}
               >

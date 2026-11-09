@@ -3,7 +3,7 @@
 // z punktu startu): blok następnej lekcji ze ścieżki domeny (`stanKursu` + `nastepnaLekcja`) i lekcje do sesji ćwiczeń (D-260).
 import type { FaktyKursu } from '@szkola/domena';
 import type { LessonSummary, ModuleRow } from '@/data/content/repo';
-import { lekcjeDoCwiczen, modulyKursu, nastepnaNaDzis } from '@/features/dzis/widok';
+import { etykietaWiersza, lekcjeDoCwiczen, modulyKursu, nastepnaNaDzis } from '@/features/dzis/widok';
 
 const mod = (id: string, ord: number, title: string): ModuleRow => ({ id, ord, title, sub: '', phase: 'mvp', recommended: true });
 const lek = (id: string, moduleId: string, ord: number): LessonSummary => ({ id, moduleId, ord, title: `T ${id}`, sub: `S ${id}`, drillCount: 3 });
@@ -36,5 +36,28 @@ describe('widok Dziś', () => {
   it('lekcje do ćwiczeń: ukończone w kolejności kursu i następna; bez lekcji spoza kursu', () => {
     expect(lekcjeDoCwiczen(MODULY, LEKCJE, fakty({ ukonczoneLekcje: ['m1.l1', 'm0.l1', 'zz.l9'] }))).toEqual(['m0.l1', 'm1.l1', 'm0.l2']);
     expect(lekcjeDoCwiczen(MODULY, LEKCJE, fakty())).toEqual(['m0.l1']);
+  });
+});
+
+describe('A04-09: etykieta VoiceOver wiersza lekcji i egzaminu na „Dziś” ze stanem i wynikiem', () => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const i18n = require('@/i18n').default as { t: (k: string, o?: Record<string, unknown>) => string };
+  const t = i18n.t.bind(i18n);
+  it('ukończona z wynikiem, rozpoczęta, nowa (bez stanu), egzamin zaliczony', () => {
+    expect(etykietaWiersza({ tytul: 'Ranking układów', opis: 'Od najwyższego', stan: 'done', wynik: { dobre: 8, razem: 10 } }, t)).toBe(
+      'Ranking układów. Od najwyższego. Ukończona. Wynik: 8 z 10.',
+    );
+    expect(etykietaWiersza({ tytul: 'A', opis: 'B', stan: 'started', wynik: null }, t)).toBe('A. B. Rozpoczęta.');
+    expect(etykietaWiersza({ tytul: 'A', opis: 'B', stan: 'new' }, t)).toBe('A. B.');
+    expect(etykietaWiersza({ tytul: 'Egzamin', opis: '10 pytań', stan: 'passed' }, t)).toBe('Egzamin. 10 pytań. Zaliczony.');
+    // opis z kropką na końcu (exam.hint): bez podwójnej kropki
+    expect(etykietaWiersza({ tytul: 'Egzamin', opis: 'Wyjaśnienia na końcu.', stan: 'new' }, t)).toBe('Egzamin. Wyjaśnienia na końcu.');
+  });
+
+  it('ekran „Dziś” używa etykiety ze stanem dla lekcji i egzaminu', () => {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { readFileSync } = require('node:fs') as typeof import('node:fs');
+    const dzis = readFileSync(require('node:path').join(__dirname, '..', '..', '..', 'app', '(tabs)', 'index.tsx'), 'utf8');
+    expect((dzis.match(/accessibilityLabel=\{etykietaWiersza\(/g) ?? []).length).toBe(2);
   });
 });

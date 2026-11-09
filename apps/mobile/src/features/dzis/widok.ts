@@ -53,3 +53,18 @@ export function lekcjeDoCwiczen(moduly: readonly ModuleRow[], lekcje: readonly L
   const nastepna = nastepnaId(kurs, fakty);
   return nastepna === null ? ukonczone : [...ukonczone, nastepna];
 }
+
+type TFn = (k: string, o?: Record<string, unknown>) => string;
+/**
+ * Etykieta VoiceOver wiersza lekcji albo egzaminu na „Dziś” (A04-09): tytuł, opis, stan i wynik — stan nie tylko na
+ * rysunku kropki. Zdania z `t()` (`today.row*`), łączone spacją.
+ */
+export function etykietaWiersza(w: { tytul: string; opis: string; stan: 'done' | 'started' | 'new' | 'passed'; wynik?: { dobre: number; razem: number } | null }, t: TFn): string {
+  return [
+    t('today.rowLabel', { tytul: w.tytul, opis: w.opis.replace(/[.!?…]+\s*$/u, '') }), // opis z kropką (exam.hint) bez podwójnej
+    w.stan === 'done' ? t('today.rowDone') : w.stan === 'started' ? t('today.rowStarted') : w.stan === 'passed' ? t('today.rowPassed') : null,
+    w.wynik ? t('today.rowScore', { dobre: w.wynik.dobre, razem: w.wynik.razem }) : null,
+  ]
+    .filter((x): x is string => x !== null)
+    .join(' ');
+}
