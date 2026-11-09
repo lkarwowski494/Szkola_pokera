@@ -1,0 +1,148 @@
+# Poz. 3 kolejki nocy: przekład ja i zh-Hant przez API (rola 09, sesja AB, tylko docs), odczyt 2026-11-09, HEAD 583f799
+# Surowe artefakty NIE są w repo (wygasają 2026-11-16); tu skróty, liczby i lista jednostek. Pobrane: gh api …/actions/artifacts/<id>/zip, każdy do osobnego katalogu scratchpadu.
+# sha256 pliku zip = digest artefaktu w GitHub (sprawdzone).
+przebieg 42677941726 (ja, content/pl/lessons; head fcdf954): artefakt 13701526861 raport-przekladu.zip sha256 e6d6141738cf35d81a1a2b8f71792360a3ee466d3ce422b0303dc591cdc80578
+  propozycje.json sha256 021915f06fd33bcc23d7da9ab486383c1973dd91fd9a08058aaab07a71e3a57c
+przebieg 42677958807 (zh-Hant, content/pl/lessons; head fcdf954): artefakt 13702171129 sha256 aa6ebfc92f439376e5b6a81dc3ab497cf0bbac31234dc5ca8535b9c6b78fa144
+  propozycje.json sha256 660c4f17c344216531ff853ac5e6be22c8837f33a9c7681fe2ccf740004de6d8
+przebieg 42682266650 (ja+zh-Hant: exams, areas, modules, rules, spots, helplines, terms-def, ui; head 7803dee): artefakt 13704291515 sha256 c868e1ead7bd968ec23430b71f55544b2097d601954d537efe6735b27d87e678
+  propozycje.json sha256 f1c139b9981837001afe389739810c345fa7c5e5c7c2fadca9c68a8bb7f16bc4
+# Koszt rzeczywisty (scripts/i18n/wspolne.mjs kosztUsd, cennik w skrypcie ze stanu 2026-10-06, Batch; [OCENA] — cennika nie odczytano ponownie u źródła): 5,98 + 5,39 + 8,06 = 19,43 USD
+#   wobec szacunku D-358 dla ja+zh-Hant 14,44 USD (+35%; wyjście z myśleniem większe od założeń). Limit ≤ 15 USD na przebieg dotrzymany.
+## ja-lekcje: batch msgbatch_01Lk5Bm6FiqDsziCz2Ai5L6x, data 2026-11-09T18:56:57.600Z, model claude-opus-5-5/medium, tokeny we 548554 wy 488390, koszt wg kosztUsd 5.981008
+## zh-lekcje: batch msgbatch_01Rf1PEyyewsgMgrfVttf954, data 2026-11-09T19:00:33.418Z, model claude-opus-5-5/medium, tokeny we 549786 wy 429083, koszt wg kosztUsd 5.390402
+## reszta: batch msgbatch_017WRPG3we4PschMAPmof1w3, data 2026-11-09T19:31:31.746Z, model claude-opus-5-5/medium, tokeny we 887602 wy 628702, koszt wg kosztUsd 8.062224
+# Wynik w workflowie: ja 63 przyjęte / 2 odrzucone; zh-Hant 64 / 1 (razem 130 jednostek).
+# Ponowna ocena na HEAD 583f799 (kontrolaPropozycji z repo, bez zapisu; skrypt w scratchpadzie): skróty sha256 źródeł 130/130 zgodne;
+#   rules.yaml ja i zh-Hant: jedyne powody to 'adresy URL' (6 i 70 pól) — po poprawce wzorca URL (D-364) 0 różnic; m10-l1 ja: dalej odrzucona (realny dodatek tłumacza).
+# Lista jednostek (język, cel, status, skrót źródła, liczba ostrzeżeń terminów i liczb):
+ja	content/ja/lessons/m0-l1-uklady.md	przyjeta	sha_zr=2767f1d327bc	ost_terminy=1	ost_liczby=1
+ja	content/ja/lessons/m1-l1-przebieg.md	przyjeta	sha_zr=b52df2caa33c	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m10-l1-statystyki.md	odrzucona	sha_zr=1d1d658052cc	ost_terminy=0	ost_liczby=1	powody=1
+ja	content/ja/lessons/m10-l2-typy-graczy.md	przyjeta	sha_zr=634ca9596526	ost_terminy=1	ost_liczby=1
+ja	content/ja/lessons/m10-l3-odejscie-od-bazy.md	przyjeta	sha_zr=86ce1de9ca05	ost_terminy=1	ost_liczby=1
+ja	content/ja/lessons/m10-l4-rake.md	przyjeta	sha_zr=198bcf99f9eb	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m11-l1-push-fold.md	przyjeta	sha_zr=ad82176e53ad	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m11-l2-sprawdzanie.md	przyjeta	sha_zr=407332d8efd3	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m11-l3-icm.md	przyjeta	sha_zr=d5d56535bd07	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m12-l1-wariancja.md	przyjeta	sha_zr=036c837fcf24	ost_terminy=2	ost_liczby=1
+ja	content/ja/lessons/m12-l2-decyzja-wynik.md	przyjeta	sha_zr=f37ec1eebe6a	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m12-l3-tilt.md	przyjeta	sha_zr=6e2d3d397ae1	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m12-l4-bankroll.md	przyjeta	sha_zr=2d69f62dbffc	ost_terminy=1	ost_liczby=1
+ja	content/ja/lessons/m13-l1-raport.md	przyjeta	sha_zr=7c3ba659f8b9	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m13-l2-powtorki.md	przyjeta	sha_zr=e3bca15adb35	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m13-l3-przeglad.md	przyjeta	sha_zr=bb2a1d07822b	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m2-l1-outy.md	przyjeta	sha_zr=6714f2d50c02	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m2-l2-pot-odds.md	przyjeta	sha_zr=78846cdd5bd6	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m3-l1-pozycja.md	przyjeta	sha_zr=4dbbc405ebc2	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m3-l2-rece-startowe.md	przyjeta	sha_zr=8424e3a1d3ba	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m3-l3-zakresy-otwarc.md	przyjeta	sha_zr=272c510199f6	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m4-l1-3bet.md	przyjeta	sha_zr=fa9638072a03	ost_terminy=1	ost_liczby=1
+ja	content/ja/lessons/m4-l2-obrona-bb.md	przyjeta	sha_zr=a9d3d89bf8c3	ost_terminy=0	ost_liczby=0
+ja	content/ja/lessons/m4-l3-wobec-3betu.md	przyjeta	sha_zr=c195eab0c193	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m4-l4-limperzy.md	przyjeta	sha_zr=82c1c505ec4f	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m5-l1-tekstury.md	przyjeta	sha_zr=a726c80de603	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m5-l2-przewagi.md	przyjeta	sha_zr=fd890fd3dea2	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m5-l3-czestotliwosc-rozmiar.md	przyjeta	sha_zr=c9e23610057a	ost_terminy=2	ost_liczby=1
+ja	content/ja/lessons/m5-l4-bez-pozycji.md	przyjeta	sha_zr=a93f15f223a7	ost_terminy=2	ost_liczby=1
+ja	content/ja/lessons/m6-l1-mdf-alpha.md	przyjeta	sha_zr=ee204dc61339	ost_terminy=1	ost_liczby=0
+ja	content/ja/lessons/m6-l2-sprawdzenie.md	przyjeta	sha_zr=bccefefd0343	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m6-l3-check-raise.md	przyjeta	sha_zr=23774f5ec8e5	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m7-l1-druga-beczka.md	przyjeta	sha_zr=e9c656731273	ost_terminy=1	ost_liczby=1
+ja	content/ja/lessons/m7-l2-polaryzacja.md	przyjeta	sha_zr=d3a97308118f	ost_terminy=1	ost_liczby=1
+ja	content/ja/lessons/m7-l3-implied-odds.md	przyjeta	sha_zr=16248b183b6d	ost_terminy=1	ost_liczby=1
+ja	content/ja/lessons/m7-l4-probe-obrona.md	przyjeta	sha_zr=6569876d3a62	ost_terminy=3	ost_liczby=1
+ja	content/ja/lessons/m8-l1-value.md	przyjeta	sha_zr=233c7e0d490d	ost_terminy=1	ost_liczby=1
+ja	content/ja/lessons/m8-l2-ile-blefow.md	przyjeta	sha_zr=f02fa98c1187	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m8-l3-blokery.md	przyjeta	sha_zr=358f981b9a2e	ost_terminy=1	ost_liczby=1
+ja	content/ja/lessons/m8-l4-bluff-catching.md	przyjeta	sha_zr=6c88df287c88	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m9-l1-spr.md	przyjeta	sha_zr=1c5b26cd8d5a	ost_terminy=2	ost_liczby=1
+ja	content/ja/lessons/m9-l2-zaangazowanie.md	przyjeta	sha_zr=472146094ea5	ost_terminy=0	ost_liczby=1
+ja	content/ja/lessons/m9-l3-rozmiar-geometryczny.md	przyjeta	sha_zr=769a804caff1	ost_terminy=3	ost_liczby=1
+ja	content/ja/lessons/m9-l4-plan-trzech-ulic.md	przyjeta	sha_zr=bd85138047c1	ost_terminy=1	ost_liczby=1
+zh-Hant	content/zh-Hant/lessons/m0-l1-uklady.md	przyjeta	sha_zr=2767f1d327bc	ost_terminy=0	ost_liczby=1
+zh-Hant	content/zh-Hant/lessons/m1-l1-przebieg.md	przyjeta	sha_zr=b52df2caa33c	ost_terminy=1	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m10-l1-statystyki.md	przyjeta	sha_zr=1d1d658052cc	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m10-l2-typy-graczy.md	przyjeta	sha_zr=634ca9596526	ost_terminy=1	ost_liczby=1
+zh-Hant	content/zh-Hant/lessons/m10-l3-odejscie-od-bazy.md	przyjeta	sha_zr=86ce1de9ca05	ost_terminy=1	ost_liczby=1
+zh-Hant	content/zh-Hant/lessons/m10-l4-rake.md	przyjeta	sha_zr=198bcf99f9eb	ost_terminy=1	ost_liczby=1
+zh-Hant	content/zh-Hant/lessons/m11-l1-push-fold.md	przyjeta	sha_zr=ad82176e53ad	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m11-l2-sprawdzanie.md	przyjeta	sha_zr=407332d8efd3	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m11-l3-icm.md	przyjeta	sha_zr=d5d56535bd07	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m12-l1-wariancja.md	przyjeta	sha_zr=036c837fcf24	ost_terminy=2	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m12-l2-decyzja-wynik.md	przyjeta	sha_zr=f37ec1eebe6a	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m12-l3-tilt.md	przyjeta	sha_zr=6e2d3d397ae1	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m12-l4-bankroll.md	przyjeta	sha_zr=2d69f62dbffc	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m13-l1-raport.md	przyjeta	sha_zr=7c3ba659f8b9	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m13-l2-powtorki.md	przyjeta	sha_zr=e3bca15adb35	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m13-l3-przeglad.md	przyjeta	sha_zr=bb2a1d07822b	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m2-l1-outy.md	przyjeta	sha_zr=6714f2d50c02	ost_terminy=0	ost_liczby=1
+zh-Hant	content/zh-Hant/lessons/m2-l2-pot-odds.md	przyjeta	sha_zr=78846cdd5bd6	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m3-l1-pozycja.md	przyjeta	sha_zr=4dbbc405ebc2	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m3-l2-rece-startowe.md	przyjeta	sha_zr=8424e3a1d3ba	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m3-l3-zakresy-otwarc.md	przyjeta	sha_zr=272c510199f6	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m4-l1-3bet.md	przyjeta	sha_zr=fa9638072a03	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m4-l2-obrona-bb.md	przyjeta	sha_zr=a9d3d89bf8c3	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m4-l3-wobec-3betu.md	przyjeta	sha_zr=c195eab0c193	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m4-l4-limperzy.md	przyjeta	sha_zr=82c1c505ec4f	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m5-l1-tekstury.md	przyjeta	sha_zr=a726c80de603	ost_terminy=0	ost_liczby=1
+zh-Hant	content/zh-Hant/lessons/m5-l2-przewagi.md	przyjeta	sha_zr=fd890fd3dea2	ost_terminy=0	ost_liczby=1
+zh-Hant	content/zh-Hant/lessons/m5-l3-czestotliwosc-rozmiar.md	przyjeta	sha_zr=c9e23610057a	ost_terminy=3	ost_liczby=1
+zh-Hant	content/zh-Hant/lessons/m5-l4-bez-pozycji.md	przyjeta	sha_zr=a93f15f223a7	ost_terminy=1	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m6-l1-mdf-alpha.md	przyjeta	sha_zr=ee204dc61339	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m6-l2-sprawdzenie.md	przyjeta	sha_zr=bccefefd0343	ost_terminy=7	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m6-l3-check-raise.md	przyjeta	sha_zr=23774f5ec8e5	ost_terminy=2	ost_liczby=1
+zh-Hant	content/zh-Hant/lessons/m7-l1-druga-beczka.md	przyjeta	sha_zr=e9c656731273	ost_terminy=1	ost_liczby=1
+zh-Hant	content/zh-Hant/lessons/m7-l2-polaryzacja.md	przyjeta	sha_zr=d3a97308118f	ost_terminy=0	ost_liczby=1
+zh-Hant	content/zh-Hant/lessons/m7-l3-implied-odds.md	przyjeta	sha_zr=16248b183b6d	ost_terminy=0	ost_liczby=1
+zh-Hant	content/zh-Hant/lessons/m7-l4-probe-obrona.md	przyjeta	sha_zr=6569876d3a62	ost_terminy=2	ost_liczby=1
+zh-Hant	content/zh-Hant/lessons/m8-l1-value.md	przyjeta	sha_zr=233c7e0d490d	ost_terminy=1	ost_liczby=1
+zh-Hant	content/zh-Hant/lessons/m8-l2-ile-blefow.md	przyjeta	sha_zr=f02fa98c1187	ost_terminy=6	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m8-l3-blokery.md	przyjeta	sha_zr=358f981b9a2e	ost_terminy=0	ost_liczby=1
+zh-Hant	content/zh-Hant/lessons/m8-l4-bluff-catching.md	przyjeta	sha_zr=6c88df287c88	ost_terminy=8	ost_liczby=1
+zh-Hant	content/zh-Hant/lessons/m9-l1-spr.md	przyjeta	sha_zr=1c5b26cd8d5a	ost_terminy=3	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m9-l2-zaangazowanie.md	przyjeta	sha_zr=472146094ea5	ost_terminy=1	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m9-l3-rozmiar-geometryczny.md	przyjeta	sha_zr=769a804caff1	ost_terminy=2	ost_liczby=0
+zh-Hant	content/zh-Hant/lessons/m9-l4-plan-trzech-ulic.md	przyjeta	sha_zr=bd85138047c1	ost_terminy=0	ost_liczby=1
+ja	apps/mobile/src/i18n/locales/ja.json	przyjeta	sha_zr=ab1569ebac56	ost_terminy=0	ost_liczby=1
+ja	content/ja/areas.yaml	przyjeta	sha_zr=4a45c4a222f2	ost_terminy=0	ost_liczby=0
+ja	content/ja/exams/m0.yaml	przyjeta	sha_zr=83c74a143ec0	ost_terminy=0	ost_liczby=1
+ja	content/ja/exams/m1.yaml	przyjeta	sha_zr=2a5e5ee03db8	ost_terminy=0	ost_liczby=1
+ja	content/ja/exams/m10.yaml	przyjeta	sha_zr=08df0aad8cf1	ost_terminy=0	ost_liczby=1
+ja	content/ja/exams/m11.yaml	przyjeta	sha_zr=c8120abac544	ost_terminy=1	ost_liczby=1
+ja	content/ja/exams/m12.yaml	przyjeta	sha_zr=982818e1bd56	ost_terminy=0	ost_liczby=1
+ja	content/ja/exams/m13.yaml	przyjeta	sha_zr=dc5c1b503db4	ost_terminy=0	ost_liczby=1
+ja	content/ja/exams/m2.yaml	przyjeta	sha_zr=4371a7259115	ost_terminy=0	ost_liczby=1
+ja	content/ja/exams/m3.yaml	przyjeta	sha_zr=c59166b9a3b6	ost_terminy=0	ost_liczby=1
+ja	content/ja/exams/m4.yaml	przyjeta	sha_zr=321888591b4f	ost_terminy=1	ost_liczby=1
+ja	content/ja/exams/m5.yaml	przyjeta	sha_zr=f1dbaa3f2e3e	ost_terminy=0	ost_liczby=1
+ja	content/ja/exams/m6.yaml	przyjeta	sha_zr=e37716c99d3e	ost_terminy=0	ost_liczby=1
+ja	content/ja/exams/m7.yaml	przyjeta	sha_zr=29168971560c	ost_terminy=1	ost_liczby=1
+ja	content/ja/exams/m8.yaml	przyjeta	sha_zr=0d9c97d0b153	ost_terminy=0	ost_liczby=1
+ja	content/ja/exams/m9.yaml	przyjeta	sha_zr=0b34010d202d	ost_terminy=0	ost_liczby=1
+ja	content/ja/modules.yaml	przyjeta	sha_zr=0f54bf0bcf30	ost_terminy=0	ost_liczby=1
+ja	content/ja/rules.yaml	odrzucona	sha_zr=cb5439ccc244	ost_terminy=5	ost_liczby=1	powody=6
+ja	content/ja/ranges/spots.yaml	przyjeta	sha_zr=c8ad4718a659	ost_terminy=0	ost_liczby=1
+ja	content/ja/helplines.yaml	przyjeta	sha_zr=b49e6a2f10c5	ost_terminy=0	ost_liczby=0
+ja	content/ja/terms-def.yaml	przyjeta	sha_zr=9eca43f16225	ost_terminy=0	ost_liczby=1
+zh-Hant	apps/mobile/src/i18n/locales/zh-Hant.json	przyjeta	sha_zr=ab1569ebac56	ost_terminy=0	ost_liczby=1
+zh-Hant	content/zh-Hant/areas.yaml	przyjeta	sha_zr=4a45c4a222f2	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/exams/m0.yaml	przyjeta	sha_zr=83c74a143ec0	ost_terminy=0	ost_liczby=1
+zh-Hant	content/zh-Hant/exams/m1.yaml	przyjeta	sha_zr=2a5e5ee03db8	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/exams/m10.yaml	przyjeta	sha_zr=08df0aad8cf1	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/exams/m11.yaml	przyjeta	sha_zr=c8120abac544	ost_terminy=2	ost_liczby=0
+zh-Hant	content/zh-Hant/exams/m12.yaml	przyjeta	sha_zr=982818e1bd56	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/exams/m13.yaml	przyjeta	sha_zr=dc5c1b503db4	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/exams/m2.yaml	przyjeta	sha_zr=4371a7259115	ost_terminy=0	ost_liczby=1
+zh-Hant	content/zh-Hant/exams/m3.yaml	przyjeta	sha_zr=c59166b9a3b6	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/exams/m4.yaml	przyjeta	sha_zr=321888591b4f	ost_terminy=1	ost_liczby=0
+zh-Hant	content/zh-Hant/exams/m5.yaml	przyjeta	sha_zr=f1dbaa3f2e3e	ost_terminy=1	ost_liczby=1
+zh-Hant	content/zh-Hant/exams/m6.yaml	przyjeta	sha_zr=e37716c99d3e	ost_terminy=0	ost_liczby=1
+zh-Hant	content/zh-Hant/exams/m7.yaml	przyjeta	sha_zr=29168971560c	ost_terminy=0	ost_liczby=1
+zh-Hant	content/zh-Hant/exams/m8.yaml	przyjeta	sha_zr=0d9c97d0b153	ost_terminy=0	ost_liczby=1
+zh-Hant	content/zh-Hant/exams/m9.yaml	przyjeta	sha_zr=0b34010d202d	ost_terminy=0	ost_liczby=1
+zh-Hant	content/zh-Hant/modules.yaml	przyjeta	sha_zr=0f54bf0bcf30	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/rules.yaml	odrzucona	sha_zr=cb5439ccc244	ost_terminy=6	ost_liczby=1	powody=70
+zh-Hant	content/zh-Hant/ranges/spots.yaml	przyjeta	sha_zr=c8ad4718a659	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/helplines.yaml	przyjeta	sha_zr=b49e6a2f10c5	ost_terminy=0	ost_liczby=0
+zh-Hant	content/zh-Hant/terms-def.yaml	przyjeta	sha_zr=9eca43f16225	ost_terminy=0	ost_liczby=1
