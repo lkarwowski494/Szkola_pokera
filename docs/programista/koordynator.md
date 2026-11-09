@@ -27,7 +27,7 @@ Najpierw: `git fetch` gałęzi i fast-forward lokalnej kopii, przeczytaj w cało
 ## 3. Pobudki (nie kończ tury bez pobudki, gdy coś trwa)
 - Sesja pracuje: `send_later` co 40 min („sprawdź sesję <ID>, gałąź, E2E”). E2E ~40 min (build 22–24 min + flowy). Przekład API: 5–15 min/przebieg.
 - Grupa współbieżności `przeklad-tlumaczen`: najwyżej 1 trwający + 1 oczekujący (nowszy oczekujący zastępuje starszy) — dispatch po 2.
-- Ustawione: `trig_01MjHf4SDK1i4yvsbCYHznvX` 19:55 UTC 09.11 (było: pytanie o tryb nocny — już rozstrzygnięte D-359; użyj jako sprawdzenia przekładu reszty i E2E Y). Rano ustaw pobudkę na ok. 07:00 UTC 10.11 (raport nocy).
+- Ustawione: `trig_013tDXcxxFiCjjEETywRwXnP` 22:18 UTC (przekład vi reszta, E2E, AE, AF); `trig_01KihuPMEhUFQp1zAXjtFr5g` 07:00 UTC 10.11 (raport nocy).
 
 ## 4. Szablon promptu sesji roboczej
 ```
@@ -41,26 +41,26 @@ KONTEKST: gdy zbliżasz się do ok. 30% okna kontekstu albo zamkniesz duży krok
 Nie twórz nowych sesji i nie archiwizuj — to robi koordynator. Nie edytuj sekcji „Koordynacja” w plan-08. Commity z tożsamością z CLAUDE.md — nie przepisuj autora na sugestię hooka.
 ```
 
-## 5. Stan i plan (2026-11-09 19:25 UTC; ostatnie wiersze „Koordynacja” w plan-08 = prawda)
-**Szczyt kodu z dowodem:** 10d2556 (E2E 42644568157 zielone). Po nim: 3b54c26 (K3 en, W) i 7eb9d99 (ASC, X) — E2E czerwone przez język symulatora; poprawki Y: cc9b5de (8 flowów pl zielone, flow 08 en czerwony), **4e1c00d** (D-357) — E2E 42673161093 próba 2 w toku, wynik ~19:53.
-**W toku:**
-- Sesja Y `session_01T66VByEN5AdWqgXMAS8GMX` (kod, rola 09): E2E po włączeniu en (flowy w pl przez `-AppleLanguages (pl)`, flow 08 en), słowniczek en (D-347, D-354), lista zrzutów en i lista telefonu (`lista-telefonu-en.md`). Kontekst ~32% — po wyniku E2E ma oddać PRZEKAZANIE. Gdy E2E czerwone po 2 podejściach — Y zapisuje próby, następna sesja kontynuuje.
-- Przekład D-358 (Opus, ≈ 31 USD szac.): lekcje zielone — ja 42677941726, zh-Hant 42677958807, pt-BR 42680063904, fr 42680071149; reszta (exams, areas, modules, rules, ranges, helplines, terms, apps/mobile) dispatch 19:20: ja+zh-Hant i pt-BR+fr — sprawdź wynik (actions_list `przeklad-tlumaczen.yml`). Artefakty `raport-przekladu` wygasają 2026-11-16. en: 42635177199, 42635183106 (nałożone).
-- App Store Connect: klucz nowy działa (właściciel 17:39); metadane zapisane i zgodne (42669012844 częściowo + 42676398403; kontrola 42677090711: metadane i adresy OK w 5 lokalizacjach pl, en-US/GB/CA/AU). Brakuje: produkty (D-356), dostępność w krajach, kategoria, ocena wiekowa, informacje dla recenzenta, App Privacy (ręcznie). Znany błąd skryptu `scripts/asc/metadane.mjs`: po utworzeniu appInfoLocalizations Apple samo tworzy appStoreVersionLocalizations → POST 409; poprawka: ponowny odczyt przed tworzeniem wersji.
-- Strona: https://lkarwowski494.github.io/Szkola_pokera/privacy.html i …/support.html (16× `[DO USTALENIA]` do W-04).
+## 5. Stan i plan (2026-11-09 22:00 UTC; ostatnie wiersze „Koordynacja” w plan-08 = prawda)
+**Szczyt kodu z dowodem:** 4e1c00d (E2E 42673161093 zielone 9/9); 4763dc6 (AA) E2E 42690423784 zielone. Po nim 935c9cf (AC, D-376) — **E2E 42700220213 w toku od 21:12** (długo; > 70 min → list_workflow_jobs, ocena zawieszenia).
+**Sesje w toku:**
+- **AE** `session_01T66VBxav4k25kuxvggJK2A` (kod, rola 09): nałożenie ja, zh-Hant, pt-BR, fr razem (URL D-365, K-05 D-367, `--zastosuj` + procedura AC dla 14 jedn./język, wydanie jak K3 en, D-368/D-369/D-373); push dopiero po E2E 42700220213.
+- **AF** `session_01T66VBzWM2UMShgAmsAohEN` (docs + `store/app-store-metadata.json`, rola 10/11): metadane sklepu nowych języków, słowa kluczowe, `docs/sklep/search-ads-kroki.md`, znaki towarowe „PokerGym” (D-377, D-378 — dosłane wiadomością).
+- Zarchiwizowane dziś wieczorem: Y, Z, AA, AB, AC, AD.
+**Przekład D-374/D-375 (de, es, ko, it, vi; ≤ 15 USD/przebieg, łącznie ≤ 80 USD, stop > 70):** lekcje zielone — de 42700455560 (≈ 6,9 USD [OCENA]), es 42700470707, ko 42701311638, it 42703964212, vi 42703970053; reszta (`tylko` = `exams,areas,modules,rules,ranges,helplines,terms,apps/mobile`, `jezyki` po przecinku) de,es i ko,it dispatch 21:57; **zostaje vi reszta**. Potem przegląd docs wg wzoru AB/AD (sesja tylko docs), nałożenie po AE. Artefakty wygasają 7 dni od przebiegu. Koszt D-358 (4 języki): 40,63 USD wobec szac. ≈ 31.
+**App Store Connect (zapis robi właściciel przez `release`, workflowy ZAWSZE z ref `claude/sleepy-brahmagupta-2065nu` — z main padają):** metadane pl+en 5/5; produkty 42700037429 (11 pozycji, 0 błędów; kwartał 9,99, rok 14,99, dożywotni 19,99; Family Sharing wył. D-364; dostępność 166); lokalizacje IAP 42702731387; ręcznie (właściciel): kategoria Education, ocena wiekowa 18+, App Privacy, kontakt recenzenta. Kontrola 42706853122: jedyna RÓŻNICA — **notatki dla recenzenta puste** (czekają na nową nazwę i W-04; `store/review-notes.en.txt` ma `[SUPPORT EMAIL]` i „Poker School”).
+**Nazwa (D-378, W):** „PokerGym: GTO Strategy Trainer”, pod ikoną „PokerGym” we wszystkich językach, dopisek lokalny; przed zapisem znaki towarowe (AF). Zmiana w kodzie/stronie (app.json, `site/` — main tylko za zgodą, notatki recenzenta, teksty) → sesja kodu po AE; potem zapis metadanych w ASC przez właściciela.
+**Kolejka (jedna sesja z kodem + najwyżej jedna docs):**
+| # | Kto | Zadanie |
+|---|---|---|
+| 1 | koordynator | E2E 42700220213; dispatch vi reszty; koszt przekładu; odbiór AE i AF (archiwizacja) |
+| 2 | sesja kodu (po AE) | nazwa PokerGym w kodzie, `site/` (push na main po zgodzie), review-notes; metadane AF do `store/` |
+| 3 | sesja docs (po AF) | przegląd przekładu de, es, ko, it, vi wg wzoru AB/AD |
+| 4 | sesja kodu | nałożenie 5 nowych języków + wydanie |
+| 5 | rano 07:00 (`trig_01KihuPMEhUFQp1zAXjtFr5g`) | raport nocy D-359 + jedno pytanie zbiorcze: weta D-343–D-378 (A), W-04 e-mail + dostawca, administrator, W-05 Apple ID aplikacji, W-07 JP (wariant A D-361), konto Search Ads (D-377), zgoda na push `site/` z nową nazwą, wariant językowy 1.0 |
 
-**Kolejka nocy (D-359; jedna sesja z kodem + najwyżej jedna tylko docs):**
-| # | Kto | Zadanie | Gotowe, gdy |
-|---|---|---|---|
-| 1 | koordynator | odbiór Y (E2E 4e1c00d), archiwizacja; wynik przekładu reszty (2 przebiegi) | wpis |
-| 2 | sesja kodu rola 08 | **ASC wg D-355/D-356**: port `asc-produkty.yml` + `scripts/asc/produkty.mjs` + testy z Oczka (repo publiczne `lkarwowski494/oczko`, gałąź `claude/jolly-thompson-paz6d8` @45f583d; dane: kwartał 9,99 / rok 14,99 USD subskrypcje, dożywotni 19,99 USD Non-Consumable, Family Sharing jak Oczko, dostępność = lista storefrontów D-301 (166, bez PL, VN; TR po T1) — sprawdź zapis w docs/decyzje.md); poprawka 409 w `metadane.mjs`; push na main tylko `asc-produkty.yml` i `store-screenshots.yml` (jak sesja U/X); podglądy/dry-run (tylko odczyt) z wynikiem; **bez zapisu** | commity + E2E zielone + podgląd produktów |
-| 3 | sesja kodu rola 09 (po 2; po jednej sesji na 1–2 języki) | przegląd i nałożenie 4 języków z artefaktów D-358 (jak sesja V: przyczyny odrzuceń, drugi przegląd AI subagentami, kontrola (a) treści krytycznej, `--zastosuj`, content:build, jezyki.md); ja i zh-Hant: krój CJK (jezyki.md:90), K-05 rendering `{{t:…}}` (D-287); konfiguracja wydania języka (WYDANE, supportedLocales, app.json) jak K3 en (sesja W, 3b54c26) | commity + E2E |
-| 4 | sesja docs (równolegle) | lista wartości do ręcznego wpisania w ASC dla właściciela (kategoria — Education? z wzorcem konkurencji, ankieta wiekowa wg D-310, App Privacy „Data Not Collected” wg D-326/NFR-PRYW-001, informacje dla recenzenta z `store/review-notes.md`); rola 10: warianty W-07 JP 特定商取引法 z przeczytanym źródłem | PRZEKAZANIE |
-| 5 | rola 06 (kod/treść, po 3 albo przed nią, jeśli 3 czeka) | 16 błędnych `{{t:…}}` w content/pl (lista w `docs/lokalizacja/dowody/przeglad-en-2026-11-09/rozstrzygniecia.md`), potem dotłumaczenie zmienionych plików `--tylko` (≤ 5 USD łącznie, D-358/D-359) | commity + E2E |
-| 6 | rano | raport nocy D-359 + pytanie zbiorcze (weta, W-04/W-05/W-07, zapis produktów i dostępności w ASC przez `release`, wariant językowy 1.0) | W |
-
-Termin 1.0 [OCENA, 15:30 i 18:55]: wysłanie do Apple ~20.11 (pl+en) albo ~24.11 (pl+en+4 języki), publikacja +1–2 dni; podane właścicielowi.
-Backlog: stary `e2e.yml` na main czerwony od 2026-10-07 (zmiana main za zgodą); U-2/U-5 i zrzuty na telefonie; D-03 pełny audyt po przekładzie; review-notes.en.txt z `[SUPPORT EMAIL]`; test apply zrzutów na atrapie.
+Termin 1.0 [OCENA]: wysłanie do Apple ~20.11 (pl+en) albo ~24.11 (pl+en+4 języki); 5 nowych języków raczej 1.1 albo później — do pytania rano.
+Backlog: stary `e2e.yml` na main czerwony od 2026-10-07; U-2/U-5 i zrzuty na telefonie (K6 en); D-03 pełny audyt po przekładzie; test apply zrzutów na atrapie; `store-screenshots.yml` na main tylko z ref gałęzi; P-AD1 pt-PT wdrożenie (D-373) w sesji AE.
 
 ## 6. Po każdym zdarzeniu
 Krótko w `plan-08.md` („Koordynacja”): godzina UTC, sesja, wynik z dowodem (commit / numer przebiegu), następny krok. `docs/` i `*.md` nie uruchamiają E2E — takie pushe są tanie.
