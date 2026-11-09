@@ -1,0 +1,167 @@
+# Szkic K-05 (rola 09, przegląd E2, 2026-11-09): nazwa terminu w es (es-ES, „tú”) dla znacznika {{t:klucz}} bez formy.
+# Źródło kandydatów: k05-kand-es.tsv (najczęstsze formy {{t:klucz|forma}} w przekładzie es); nazwy rozstrzygnięte na przeczytanych źródłach (E2-terminy.md, [A]–[F]).
+# NIE jest to jeszcze plik treści: sesja kodu przenosi go do content/es/terms-nazwy.yaml po weryfikacji (D-367). Baza dla przyszłej nakładki es-419: różnice regionalne w E2-terminy.md.
+# Format wiersza: klucz: "nazwa"  # en; bez formy N; formy: forma×liczba …; źr.; [WIELE FORM] = tłumacz używa kilku form; [DO USTALENIA] = nazwa bez przeczytanego źródła (zostaje propozycja zgodna z przekładem) albo sprzeczna ze źródłem
+# Źródła: A = es.wikipedia.org/wiki/Texas_hold_%27em; B = es.wikipedia.org/wiki/P%C3%B3quer; C:<hasło> = www.pokerstrategy.com/es/glossary/<hasło>/ (es.pokerstrategy.com/glossary/ → 301); D = es.pokernews.com/reglas-de-poker/texas-holdem.htm; E = es.pokernews.com/estrategia-del-poquer/… (artykuły w E2-terminy.md); odczyt 2026-11-09
+royal-flush: "escalera real"  # royal flush; bez formy 1; formy: Escalera real×1, escalera real×1; źr. A:Texas_hold_em; D:PN-reglas; C:Royal-Flush-Escalera-Real
+straight-flush: "escalera de color"  # straight flush; bez formy 1; formy: Escalera de color×1, escalera de color×1; źr. A:Texas_hold_em; D:PN-reglas; C:Escalera-de-color
+four-of-a-kind: "póker"  # four of a kind; bez formy 1; formy: póker×6, Póker×1; źr. A:Texas_hold_em (Póquer); D:PN-reglas (Póker); C:Four-of-a-kind; pisownia: tłumacz „póker”, [A] „póquer” (RAE: obie)
+full-house: "full"  # full house; bez formy 1; formy: full×15, Full×1; źr. A:Texas_hold_em; C:Full
+flush: "color"  # flush; bez formy 9; formy: color×104, Color×5, colores×2; źr. A:Texas_hold_em; D:PN-reglas; C:Color
+straight: "escalera"  # straight; bez formy 18; formy: escalera×123, escaleras×15, Escalera×4; źr. A:Texas_hold_em; D:PN-reglas; C:Escalera
+three-of-a-kind: "trío"  # three of a kind; bez formy 2; formy: trío×18, Trío×2, tríos×1; źr. A:Texas_hold_em; D:PN-reglas; C:Three-of-a-kind
+set: "set"  # set; bez formy 1; formy: set×1; źr. C:Set
+two-pair: "doble pareja"  # two pair; bez formy 5; formy: doble pareja×37, dobles parejas×17, Doble pareja×4, Dobles parejas×2; źr. A:Texas_hold_em; D:PN-reglas (Dobles Parejas / Doble Pareja)
+pair: "pareja"  # pair; bez formy 5; formy: pareja×209, parejas×88, Pareja×3, Parejas×2; źr. A:Texas_hold_em; D:PN-reglas; C:Pareja
+high-card: "carta alta"  # high card; bez formy 1; formy: Carta alta×1, carta alta×1; źr. A:Texas_hold_em; D:PN-reglas; C:Carta-alta
+kicker: "kicker"  # kicker; bez formy 0; formy: —; źr. A:Texas_hold_em; C:Kicker
+wheel: "wheel"  # wheel; bez formy 0; formy: rueda×1, wheel×1; źr. C:Wheel [WIELE FORM]
+check: "pasar"  # check; bez formy 0; formy: pasar×67, Paso×47, pasa×46, pasas×44, pasan×22, Pasar×8; źr. D:PN-reglas; C:Pasar [WIELE FORM]
+bet: "apuesta"  # bet; bez formy 6; formy: apuesta×264, apuestas×89, apostar×20, apostado×18, Apuesta×6, Apostar×6; źr. D:PN-reglas; C:Apostar
+call: "call"  # call; bez formy 13; formy: igualar×127, pagar×101, pago×71, paga×53, Pago×48, igualas×48; źr. D:PN-reglas (Igualar (Call)); C:Odds-implicitas (hacer call); C:Ver; bez formy rzeczownik m. („un/el call”, „Defiendo (call o 3-bet)”) — „igualar” dałoby „un igualar”; tłumacz: igualar i pagar (≈2:1,7) — es-419 częściej „pagar” [WIELE FORM]
+raise: "subida"  # raise; bez formy 2; formy: subir×54, subida×54, subes×54, sube×33, Subo×33, Subida×14; źr. D:PN-reglas (Subir (Raise)); C:Subir_163
+fold: "fold"  # fold; bez formy 7; formy: Me retiro×76, retira×71, retiras×69, retirarse×66, retiradas×51, retirado×49; źr. D:PN-reglas (Retirarse (Fold)); C:Abandonar_248 (se retira o foldea); bez formy rzeczownik („¿All-in o fold?”, „fold aprox. N”) obok „call”, „3-bet” [WIELE FORM]
+check-raise: "check-raise"  # check-raise; bez formy 0; formy: —; źr. C:Check-raise
+all-in: "all-in"  # all-in; bez formy 1; formy: —; źr. C:Push; D:PN-reglas
+pot: "bote"  # pot; bez formy 7; formy: bote×829, botes×30, Bote×27; źr. A:Texas_hold_em; D:PN-reglas; C:Pot; es-ES; [B] „pozo” (Ameryka Łacińska)
+side-pot: "bote secundario"  # side pot; bez formy 0; formy: bote secundario×2; źr. C:Pot
+split-pot: "bote dividido"  # split pot; bez formy 0; formy: Bote dividido×11, el bote se divide×5, os repartís el bote×1; źr. C:Split-Pot-Bote-dividido
+playing-the-board: "jugar la mesa"  # playing the board; bez formy 0; formy: jugar la mesa×2, jugando la mesa×1, juegan la mesa×1; źr. brak [DO USTALENIA]
+board: "mesa"  # board; bez formy 4; formy: mesa×90, board×8; źr. C:Mesa; E:PN-art (board); bez formy „en la/de la {{t:board}}” (ż) — „board” (m) dałby „en la board” [WIELE FORM]
+community-cards: "cartas comunitarias"  # community cards; bez formy 0; formy: cartas comunitarias×11, carta comunitaria×1; źr. A:Texas_hold_em; D:PN-reglas
+hole-cards: "cartas propias"  # hole cards; bez formy 0; formy: cartas propias×3; źr. D:PN-reglas (dos cartas propias); A:Texas_hold_em (cartas de mano)
+small-blind: "ciega pequeña"  # small blind; bez formy 13; formy: ciega pequeña×104, Ciega pequeña×13, SB×5; źr. A:Texas_hold_em; D:PN-reglas; C:Ciega-pequena
+big-blind: "ciega grande"  # big blind; bez formy 37; formy: ciega grande×224, Ciega grande×12, BB×6, ciegas grandes×4; źr. A:Texas_hold_em; D:PN-reglas; C:Ciega-grande
+chips: "fichas"  # chips; bez formy 0; formy: fichas×99, ficha×3; źr. A:Texas_hold_em; C:Fichas-de-poker
+stack: "stack"  # stack; bez formy 0; formy: —; źr. C:Shortstack (stack (caja)); D:PN-reglas
+street: "calle"  # street; bez formy 0; formy: calles×40, calle×39, Calle×1; źr. A:Texas_hold_em; C:Street
+betting-round: "ronda de apuestas"  # betting round; bez formy 0; formy: ronda de apuestas×4, rondas de apuestas×4; źr. A:Texas_hold_em; D:PN-reglas
+preflop: "preflop"  # preflop; bez formy 0; formy: Preflop×1; źr. A:Texas_hold_em; D:PN-reglas
+flop: "flop"  # flop; bez formy 0; formy: Flop×1; źr. A:Texas_hold_em; D:PN-reglas
+turn: "turn"  # turn; bez formy 0; formy: Turn×1; źr. A:Texas_hold_em; D:PN-reglas
+river: "river"  # river; bez formy 0; formy: River×1; źr. A:Texas_hold_em; D:PN-reglas
+showdown: "showdown"  # showdown; bez formy 0; formy: Showdown×1; źr. A:Texas_hold_em; D:PN-reglas
+position: "posición"  # position; bez formy 2; formy: posición×80, posiciones×11, Posiciones×1, Posición×1; źr. C:Posicion
+in-position: "en posición"  # in position; bez formy 10; formy: en posición×40, En posición×8; źr. C:Posicion; E:PN-art
+out-of-position: "fuera de posición"  # out of position; bez formy 20; formy: fuera de posición×35, Fuera de posición×19, sin posición×5, Sin posición×3; źr. C:Fuera-de-posicion; E:PN-art;  (sin posición×8) [WIELE FORM]
+early-position: "primeras posiciones"  # early position; bez formy 0; formy: posiciones tempranas×2; źr. C:Primeras-posiciones; tłumacz „posiciones tempranas”×2 — brak w źródłach [WIELE FORM]
+late-position: "posición tardía"  # late position; bez formy 0; formy: posición tardía×1; źr. brak; [C:Late-Position] tylko ang. „late positions” [DO USTALENIA]
+utg: "UTG"  # under the gun; bez formy 21; formy: UTG×26; źr. C:Under-the-Gun; D:PN-reglas
+hijack: "hijack"  # hijack; bez formy 0; formy: HJ×17; źr. C:Hijack_2049
+cutoff: "cutoff"  # cutoff; bez formy 0; formy: CO×54, cutoff×1; źr. C:Cutoff
+button: "botón"  # button; bez formy 0; formy: BTN×3; źr. A:Texas_hold_em; D:PN-reglas; C:Boton
+outs: "outs"  # out; bez formy 0; formy: Outs×1; źr. C:Outs; E:PN-art
+draw: "proyecto"  # draw; bez formy 3; formy: proyectos×98, proyecto×97, Proyecto×2, Proyectos×1; źr. C:Outs (proyecto (draw)); C:draw
+flush-draw: "proyecto de color"  # flush draw; bez formy 5; formy: proyecto de color×45, proyectos de color×8, Proyecto de color×2, Proyectos de color×1; źr. C:Proyecto-de-color
+straight-draw: "proyecto de escalera"  # straight draw; bez formy 5; formy: proyecto de escalera×14; źr. C:Proyecto-de-escalera-de-doble-punta; C:Proyecto-interno-de-escalera
+oesd: "OESD"  # open-ended straight draw; bez formy 2; formy: proyecto de escalera abierta×13, Proyecto de escalera abierta×2, proyectos de escalera abierta×2, OESD×2, proyecto de escalera abierto×1, proyecto abierto de escalera×1; źr. C:OESD; C:Proyecto-de-escalera-de-doble-punta;  (proyecto de escalera abierta×17; źródło: „de doble punta”) [WIELE FORM]
+gutshot: "gutshot"  # gutshot; bez formy 0; formy: —; źr. C:Proyecto-interno-de-escalera
+backdoor: "backdoor"  # backdoor; bez formy 0; formy: —; źr. C:Backdoor-Draw
+pot-odds: "pot odds"  # pot odds; bez formy 0; formy: —; źr. C:Probabilidades-en-relacion-al-bote; E:PN-art
+implied-odds: "odds implícitas"  # implied odds; bez formy 0; formy: probabilidades implícitas×1, Implied odds×1; źr. C:Odds-implicitas; E:PN-art;  (probabilidades implícitas×1, implied odds×1) [WIELE FORM]
+equity: "equity"  # equity; bez formy 7; formy: equity×11, Equity×1; źr. C:Equity; E:PN-art; rodzaj: tłumacz ż („una/la equity”), [C] m („el equity”) — bez konfliktu, rodzajnik pisze tłumacz
+equity-realization: "realización de la equity"  # equity realization; bez formy 0; formy: realiza su equity×2, realiza mal su equity×1, realizas mal la equity×1, realiza peor su equity×1, realiza bien su equity×1, realizan mal su equity×1; źr. brak [DO USTALENIA]
+expected-value: "valor esperado"  # expected value; bez formy 0; formy: valor esperado×10, EV×2; źr. C:Valor-esperado
+combo: "combo"  # combo; bez formy 0; formy: combinaciones×20, combos×10; źr. E:PN-art (muy pocos combos);  (combinaciones×20) [WIELE FORM]
+range: "rango"  # range; bez formy 6; formy: rango×218, rangos×17, Rango×4, Rangos×1; źr. C:Rango; E:PN-art
+mixed-hand: "mano mixta"  # mixing hand; bez formy 0; formy: mano mixta×7, manos mixtas×4, Mano mixta×1; źr. brak; [C:Mezclar_2024] „rango mezclado” to inne pojęcie [DO USTALENIA]
+open: "apertura"  # open; bez formy 3; formy: apertura×94, abierto×35, Abriste×30, abre×25, abres×21, Has abierto×18; źr. E:PN-art (open raise / apertura) [WIELE FORM]
+suited: "del mismo palo"  # suited; bez formy 0; formy: —; źr. C:Conectores
+offsuit: "de distinto palo"  # offsuit; bez formy 0; formy: —; źr. C:Conectores
+pocket-pair: "pareja de mano"  # pocket pair; bez formy 0; formy: parejas de mano×2, pareja de mano×2; źr. C:Pocket-Pair-Pareja-de-mano
+connectors: "conectores"  # connectors; bez formy 0; formy: conectores×23, conector×1; źr. C:Conectores
+3-bet: "3-bet"  # 3-bet; bez formy 0; formy: —; źr. C:3-Bet
+4-bet: "4-bet"  # 4-bet; bez formy 0; formy: —; źr. C:4-bet_350
+limp: "limp"  # limp; bez formy 1; formy: limp×1; źr. C:Limp; E:PN-art
+isolation: "aislamiento"  # isolation raise; bez formy 0; formy: aislamiento×3, aislar×2, aísla×1, aíslas×1; źr. C:Aislar
+texture: "textura"  # texture; bez formy 2; formy: textura×5, Textura×1; źr. C:Textura_1952
+dry: "seco"  # dry; bez formy 11; formy: seco×32, secos×5, Seco×4, seca×1; źr. C:Seca_2031
+wet: "húmedo"  # wet; bez formy 9; formy: mojado×10, húmedos×4, húmedo×4, Mojado×2, mojados×1; źr. C:Seca_2031 (mesas húmedas); C:Drawy_1951; C:Textura_1952; tłumacz „mojado”×13 i „húmedo”×8 (+ „humedad” dla wetness) — „mojado” brak w źródłach [WIELE FORM]
+rainbow: "rainbow"  # rainbow; bez formy 2; formy: Rainbow×1, rainbow×1; źr. brak; [C:Seca_2031] „arco iris” [DO USTALENIA]
+two-tone: "bicolor"  # two-tone; bez formy 3; formy: bicolor×3, Bicolor×1; źr. brak [DO USTALENIA]
+monotone: "monocolor"  # monotone; bez formy 4; formy: monocolor×14, Monocolor×1; źr. brak [DO USTALENIA]
+paired: "emparejado"  # paired; bez formy 3; formy: doblado×8, emparejado×4, Doblado×1, Emparejado×1; źr. C:Emparejadas;  (doblado×9 — brak w źródłach) [WIELE FORM]
+connected: "conectado"  # connected; bez formy 4; formy: conectado×12, conectados×2, Conectado×1; źr. C:Conectividad
+disconnected: "desconectado"  # disconnected; bez formy 1; formy: desconectado×2, Desconectado×1; źr. brak [DO USTALENIA]
+semi-connected: "semiconectado"  # semi-connected; bez formy 2; formy: semiconectado×3, semiconectados×1, Semiconectado×1; źr. brak [DO USTALENIA]
+wetness: "humedad"  # wetness; bez formy 1; formy: humedad×4; źr. C:Textura_1952 (húmeda); częściowo
+top-pair: "top pair"  # top pair; bez formy 0; formy: pareja máxima×73, Pareja máxima×7, parejas máximas×3, Parejas máximas×1; źr. C:Pareja-mayor (top pair (pareja mayor)); E:PN-art; tłumacz „pareja máxima”×84 — brak w źródłach (źródła: top pair / pareja mayor) [WIELE FORM]
+second-pair: "segunda pareja"  # second pair; bez formy 0; formy: segunda pareja×9; źr. brak [DO USTALENIA]
+overpair: "overpair"  # overpair; bez formy 0; formy: sobrepareja×9, overpairs×1; źr. C:Overpair; E:PN-art; tłumacz „sobrepareja”×9 — brak w źródłach [WIELE FORM]
+c-bet: "c-bet"  # c-bet; bez formy 0; formy: c-bet×2; źr. E:PN-art; C:Apuesta-de-continuacion
+aggressor: "agresor"  # aggressor; bez formy 2; formy: agresor×8; źr. C:Agresor; E:PN-art
+initiative: "iniciativa"  # initiative; bez formy 0; formy: iniciativa×17; źr. C:Iniciativa
+range-advantage: "ventaja de rango"  # range advantage; bez formy 3; formy: ventaja de rango×27, Ventaja de rango×2; źr. brak [DO USTALENIA]
+nuts-advantage: "ventaja de nuts"  # nuts advantage; bez formy 3; formy: ventaja de nuts×18, Ventaja de nuts×2; źr. brak [DO USTALENIA]
+nuts: "nuts"  # nuts; bez formy 0; formy: nuts×1; źr. C:Nuts
+polarized: "polarizado"  # polarized; bez formy 0; formy: polarizado×21, Polarizado×2; źr. C:Polarizar_2023
+polarization: "polarización"  # polarization; bez formy 0; formy: —; źr. C:Polarizar_2023
+linear: "lineal"  # linear; bez formy 0; formy: lineal×8, Lineal×2; źr. brak [DO USTALENIA]
+condensed: "condensado"  # condensed; bez formy 0; formy: condensado×2; źr. brak [DO USTALENIA]
+value: "valor"  # value; bez formy 0; formy: por valor×49, calles de valor×25, valor×15, de valor×15, Calles de valor×1; źr. C:Value
+value-bet: "value bet"  # value bet; bez formy 0; formy: value bets×1; źr. C:Value-Bet
+bluff: "farol"  # bluff; bez formy 6; formy: faroles×240, farol×146, farolea×28, faroleas×18, va de farol×16, farolear×10; źr. B:Poquer; C:Farol; es-ES; w Ameryce Łacińskiej częściej „bluff/blof” (do sprawdzenia dla es-419)
+semi-bluff: "semifarol"  # semi-bluff; bez formy 0; formy: semifaroles×13, semifarol×11; źr. C:Semifarol
+blocker: "blocker"  # blocker; bez formy 0; formy: bloqueadores×12, bloqueador×8, Bloqueador×1, Bloqueadores×1; źr. C:Blocker; E:PN-art; tłumacz „bloqueador”×22 — brak w źródłach [WIELE FORM]
+bluff-catcher: "bluff catcher"  # bluff catcher; bez formy 0; formy: —; źr. C:Bluff-Catcher
+barrel: "barrel"  # barrel; bez formy 0; formy: —; źr. E:PN-art (metemos 3 barrels)
+second-barrel: "segundo barril"  # second barrel; bez formy 0; formy: segundo barril×22, second barrel×4; źr. brak; [C:Second-Barrel] „segundo cañonazo (second barrel)” [DO USTALENIA]
+probe-bet: "probe bet"  # probe bet; bez formy 0; formy: —; źr. brak; [C:Apuesta-de-prueba] to inne pojęcie [DO USTALENIA]
+donk-bet: "donk bet"  # donk bet; bez formy 0; formy: —; źr. C:Donkbet
+overbet: "overbet"  # overbet; bez formy 1; formy: sobreapuesta×2; źr. C:Overbet; tłumacz „sobreapuesta”×2 (ż) — „un {{t:overbet}}” wymaga m [WIELE FORM]
+effective-stack: "stack efectivo"  # effective stack; bez formy 0; formy: stack efectivo×6; źr. brak [DO USTALENIA]
+spr: "SPR"  # stack-to-pot ratio; bez formy 150; formy: SPR×39; źr. C:SPR-Stack-to-Pot-Ratio_1728
+mdf: "MDF"  # minimum defense frequency; bez formy 52; formy: MDF×22; źr. brak [DO USTALENIA]
+alpha: "alpha"  # alpha; bez formy 2; formy: alfa×2, alpha×2; źr. brak; tłumacz alfa×2, alpha×2 [DO USTALENIA]
+variance: "varianza"  # variance; bez formy 0; formy: varianza×26; źr. C:Varianza; C:Downswing
+buy-in: "buy-in"  # buy-in; bez formy 2; formy: buy-ins×80, buy-in×1; źr. C:Buy-in
+bankroll: "bankroll"  # bankroll; bez formy 1; formy: —; źr. C:Bankroll
+tilt: "tilt"  # tilt; bez formy 0; formy: —; źr. C:Tilt_101
+winrate: "winrate"  # win rate; bez formy 1; formy: —; źr. brak [DO USTALENIA]
+downswing: "downswing"  # downswing; bez formy 19; formy: downswings×5, downswing×3, Downswing×1; źr. C:Downswing
+session: "sesión"  # session; bez formy 0; formy: sesión×44, sesiones×12; źr. C:Session-review
+stakes: "límite"  # stakes; bez formy 0; formy: límite×50, límites×11, Límite×1, microlímites×1; źr. C:TAG (límites bajos)
+standard-deviation: "desviación estándar"  # standard deviation; bez formy 0; formy: desviación×24, desviación estándar×16, desviaciones×2, desviación típica×2; źr. brak; tłumacz też „desviación típica”×2 [DO USTALENIA]
+risk-of-ruin: "riesgo de ruina"  # risk of ruin; bez formy 0; formy: riesgo de ruina×3, Riesgo de ruina×1; źr. C:Risk-of-Ruin-Riesgo-de-Ruina
+mental-game: "juego mental"  # mental game; bez formy 0; formy: juego mental×1; źr. brak [DO USTALENIA]
+tournament: "torneo"  # tournament; bez formy 0; formy: torneo×15, Torneo×2, torneos×1; źr. A:Texas_hold_em; C:Torneo
+push-fold: "push/fold"  # push/fold; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+shove: "push"  # shove; bez formy 0; formy: push×9, pushea×5, pusheas×2, hace push×2, hacer push×2, pushearías×1; źr. C:Push; C:Shove (ver Push)
+icm: "ICM"  # Independent Chip Model; bez formy 17; formy: ICM×13; źr. C:ICM; C:Modelo-independiente-de-fichas
+bubble: "burbuja"  # bubble; bez formy 0; formy: Burbuja×6, burbuja×5; źr. C:Burbuja
+bubble-factor: "factor burbuja"  # bubble factor; bez formy 0; formy: —; źr. C:Factor-burbuja_2045
+cover: "cubrir"  # cover; bez formy 0; formy: cubre×3, cubres×2; źr. C:Cubierto
+risk-premium: "prima de riesgo"  # risk premium; bez formy 0; formy: prima de riesgo×7, Prima de riesgo×1; źr. brak [DO USTALENIA]
+m-ratio: "M"  # M-ratio; bez formy 0; formy: —; źr. C:M
+red-zone: "zona roja"  # red zone; bez formy 0; formy: Zona roja×1, zona roja×1; źr. brak [DO USTALENIA]
+green-zone: "zona verde"  # green zone; bez formy 0; formy: Zona verde×1, zona verde×1; źr. brak [DO USTALENIA]
+ante: "ante"  # ante; bez formy 0; formy: —; źr. C:Ante; C:Shortstack
+bb-ante: "ante de ciega grande"  # big blind ante; bez formy 0; formy: ante de ciega grande×4, big blind ante×2; źr. brak [DO USTALENIA]
+fold-equity: "fold equity"  # fold equity; bez formy 0; formy: —; źr. C:Fold-equity
+gap-concept: "gap concept"  # gap concept; bez formy 0; formy: —; źr. C:Gap-concept
+chip-ev: "chip EV"  # chip EV; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+tournament-equity: "equity de torneo"  # tournament equity; bez formy 0; formy: equity de torneo×2; źr. brak; [C] ma hasło „$EV” [DO USTALENIA]
+prize-pool: "bolsa de premios"  # prize pool; bez formy 0; formy: bolsa de premios×18; źr. brak; [C:Estructura-de-premios] „bote de premios” [DO USTALENIA]
+payout: "premio"  # payout; bez formy 0; formy: premios×5, pagos×3, premio×2, Pagos×1, pago×1; źr. C:Payout;  (pagos×4); [C] hasło „payout” [WIELE FORM]
+pay-jump: "salto de premios"  # pay jump; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+final-table: "mesa final"  # final table; bez formy 0; formy: mesa final×4; źr. C:Mesa-final
+short-stack: "stack corto"  # short stack; bez formy 0; formy: stack corto×10, stack tan corto×1, stack muy corto×1, stacks cortos×1; źr. C:Shortstack
+nash-equilibrium: "equilibrio de Nash"  # Nash equilibrium; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+overcall: "overcall"  # overcall; bez formy 0; formy: —; źr. C:Overcall
+heads-up: "heads-up"  # heads up; bez formy 0; formy: —; źr. C:Aislar
+dead-money: "dinero muerto"  # dead money; bez formy 0; formy: —; źr. C:Dinero-muerto
+stack-off: "stack off"  # stack off; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+exploit: "explotación"  # exploit; bez formy 0; formy: explotación×8, Explotación×1; źr. C:Explotar_2026; częściowo (czasownik „explotar”)
+hud: "HUD"  # heads-up display; bez formy 1; formy: HUD×13; źr. brak [DO USTALENIA]
+vpip: "VPIP"  # voluntarily put in pot; bez formy 73; formy: VPIP×17; źr. C:VPIP
+pfr: "PFR"  # preflop raise; bez formy 51; formy: PFR×10; źr. C:PFR
+wtsd: "WTSD"  # went to showdown; bez formy 3; formy: —; źr. C:WTSD
+nit: "nit"  # nit; bez formy 14; formy: nit×3, Nit×2, nits×1; źr. C:Nit
+regular: "regular"  # regular; bez formy 0; formy: regulares×5, reg×2, Regulares×2, Regular×1, regular×1, Reg×1; źr. E:PN-art (regulares)
+tag: "TAG"  # tight aggressive; bez formy 1; formy: —; źr. C:TAG
+lag: "LAG"  # loose aggressive; bez formy 1; formy: —; źr. C:LAG
+recreational: "jugador recreativo"  # recreational player; bez formy 0; formy: jugadores recreativos×8, jugador recreativo×7, jugador recreacional×3, Jugadores recreativos×2, Jugador recreativo×1; źr. brak; [E] „jugador recreacional”/„recreacionales”; tłumacz recreativo×18, recreacional×10 [WIELE FORM] [DO USTALENIA]
+calling-station: "calling station"  # calling station; bez formy 1; formy: calling station×1; źr. C:Calling-station
+maniac: "maníaco"  # maniac; bez formy 0; formy: maníaco×17, Maníaco×1; źr. C:Maniaco; E:PN-art
+rake: "rake"  # rake; bez formy 39; formy: rake×17; źr. C:Rake
+rake-cap: "tope de rake"  # rake cap; bez formy 0; formy: tope de rake×5, límite×1, tope×1; źr. brak [DO USTALENIA]
