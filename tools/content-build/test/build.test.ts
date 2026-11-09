@@ -319,9 +319,9 @@ describe('formuły sqrt, exp i normCdf oraz format bb/100 i tysięcy (M12)', () 
 
 describe('terminy PL ↔ EN (content/terms.yaml)', () => {
   const terms = loadTerms({
-    flush: { pl: 'kolor', en: 'flush', area: 'hands', forms: ['kolor', 'koloru'], skip: ['kolor kart'], source: 'test https://example.com' },
-    'small-blind': { pl: 'mały blind', en: 'small blind', abbr: 'SB', area: 'table', forms: ['mały blind', 'SB'], source: 'test https://example.com' },
-    equity: { pl: 'equity', en: 'equity', area: 'math', source: 'test https://example.com' },
+    flush: { pl: 'kolor', en: 'flush', area: 'hands', forms: ['kolor', 'koloru'], skip: ['kolor kart'], source: 'test https://example.com', lesson: 'm1-l1' },
+    'small-blind': { pl: 'mały blind', en: 'small blind', abbr: 'SB', area: 'table', forms: ['mały blind', 'SB'], source: 'test https://example.com', lesson: 'm1-l1' },
+    equity: { pl: 'equity', en: 'equity', area: 'math', source: 'test https://example.com', lesson: 'm1-l1' },
   });
   it('renderuje „forma (en)” przy pierwszym użyciu w jednostce, potem samą formę', () => {
     expect(terms.render('Masz {{t:flush}}, a rywal nie ma {{t:flush|koloru}}.', 'x')).toBe('Masz kolor (flush), a rywal nie ma koloru.');
@@ -347,11 +347,11 @@ describe('terminy PL ↔ EN (content/terms.yaml)', () => {
     expect(terms.unmarked('Kolor kart ma znaczenie. [[As Ks]] https://x.pl/kolor SB')).toEqual([{ form: 'SB', key: 'small-blind' }]);
   });
   it('odrzuca formy dla terminu bez nawiasu i powtórzoną formę', () => {
-    expect(() => loadTerms({ x: { pl: 'flop', en: 'flop', area: 'table', forms: ['flop'], source: 'test https://example.com' } })).toThrow(/nie wymaga znacznika/);
+    expect(() => loadTerms({ x: { pl: 'flop', en: 'flop', area: 'table', forms: ['flop'], source: 'test https://example.com', lesson: 'm1-l1' } })).toThrow(/nie wymaga znacznika/);
     expect(() =>
       loadTerms({
-        a: { pl: 'a', en: 'x', area: 'table', forms: ['zz'], source: 'test https://example.com' },
-        b: { pl: 'b', en: 'y', area: 'table', forms: ['zz'], source: 'test https://example.com' },
+        a: { pl: 'a', en: 'x', area: 'table', forms: ['zz'], source: 'test https://example.com', lesson: 'm1-l1' },
+        b: { pl: 'b', en: 'y', area: 'table', forms: ['zz'], source: 'test https://example.com', lesson: 'm1-l1' },
       }),
     ).toThrow(/należy do a i b/);
   });

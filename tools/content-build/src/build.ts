@@ -442,10 +442,10 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
  * rodzina każdego zadania istnieje w lekcjach tego modułu (karta FSRS rodziny powstaje w lekcjach).
  * Reguły, liczby, spoty i powtórzone identyfikatory sprawdza kompilacja zadania (wspólna z lekcjami).
  */
-/** Pole `lesson` terminu (D-221) wskazuje istniejącą lekcję; brak pola dozwolony, dopóki 06 nie uzupełni terminów. */
+/** Pole `lesson` terminu (D-221, wymagane od D-340) wskazuje istniejącą lekcję. */
 export function checkTermLessons(terms: Readonly<Record<string, TermEntry>>, lessonIds: ReadonlySet<string>): void {
   for (const [key, t] of Object.entries(terms)) {
-    if (t.lesson !== undefined && !lessonIds.has(t.lesson)) throw new Error(`terms.yaml: termin ${key} wskazuje nieznaną lekcję ${t.lesson}`);
+    if (!lessonIds.has(t.lesson)) throw new Error(`terms.yaml: termin ${key} wskazuje nieznaną lekcję ${t.lesson}`);
   }
 }
 

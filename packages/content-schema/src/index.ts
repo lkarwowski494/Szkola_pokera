@@ -72,8 +72,8 @@ export const TermEntry = z
     skip: z.array(z.string().min(1)).optional(),
     /** Adres i cytat ze źródła nazwy angielskiej (ADR-24). */
     source: z.string().min(10).regex(/https?:\/\//, 'źródło musi mieć adres'),
-    /** Lekcja definiująca termin (D-221, BR-KURS-003); opcjonalne do uzupełnienia 162 terminów przez 06, potem wymagane. */
-    lesson: id.optional(),
+    /** Lekcja definiująca termin (D-221, BR-KURS-003); wymagane od uzupełnienia 162 terminów (D-311, D-340). */
+    lesson: id,
   })
   .strict();
 export type TermEntry = z.infer<typeof TermEntry>;
