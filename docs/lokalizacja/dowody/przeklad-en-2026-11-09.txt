@@ -1,0 +1,14 @@
+# K3/K5 en: przekład przez API (rola 09, sesja V), 2026-11-09T15:03:03Z, commit bazowy 2643944
+# Surowe artefakty NIE są w repo (wygasają po 7 dniach); tu skróty i liczby. Źródło przekładu: ref @831ebba.
+przebieg 42635177199 (content/pl/lessons): artefakt 13681854583 raport-przekladu.zip sha256 45f9d0f45268a4dbf0c3a7b597d0d6820a39418a92f5d7c72aa7731b1052b00a
+  propozycje.json sha256 5af1b1a26a10ad19e2920165fa8d3e1509209e4ed6fdec326639b42d6e6c6f06; model claude-opus-5-5, effort medium, batch msgbatch_013XZaRyt4pcZw2TiKsbx1rd; tokeny we 331585, wy 375205
+  wynik w workflowie: 44 jednostki, przyjęte 25, odrzucone 19
+przebieg 42635183106 (exams, areas, modules, rules, ranges, helplines, terms-def, apps/mobile): artefakt 13682734306 sha256 551ec85f90957f2b1f56e497a1b58f0d6a0ea4ab155eabd82ef115f521515d23
+  propozycje.json sha256 b735be55b427b37b773e44b87320f91335660183ea8a2c929d4dcea1f5e7dced; batch msgbatch_01LCktPv9PSKzx5e7FYuyUm4
+  wynik w workflowie: 21 jednostek, przyjęte 14, odrzucone 7
+# Przyczyny 26 odrzuceń (D-344): 24 × różnica liczby {{t:…}} (ostrzeżenie po zmianie), 2 × mapy options/why (m5-l3, m5-l4; błąd kontroli)
+# Ponowna ocena po D-344 (kontrolaPropozycji na HEAD, skróty sha256 źródeł zgodne):
+a1/propozycje.json przyjęte 44 odrzucone 0
+a2/propozycje.json przyjęte 21 odrzucone 0
+# Ostrzeżenia do przeglądu: 64 (terminy {{t:…}} i liczby cyframi)
+# --zastosuj: 65 plików zapisanych (64 w content/en/, apps/mobile/src/i18n/locales/en.json); pnpm content:build kod 0; pnpm i18n kod 0 (0 błędów, 28 uwag: tekst taki sam jak źródło — same parametry/znaczniki/nazwy)
