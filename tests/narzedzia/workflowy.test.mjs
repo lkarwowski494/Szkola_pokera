@@ -290,6 +290,18 @@ test('asc-*.yml: setup-node bez pamięci menedżera pakietów (repo z packageMan
     for (const k of j.steps ?? []) if (k.uses?.startsWith('actions/setup-node')) assert.equal(k.with?.['package-manager-cache'], false, `${n}:${id}`);
 });
 
+// Przebiegi 42661899221, 42661904294, 42661910439 (2026-11-09): 401 NOT_AUTHORIZED przy wgranym kluczu. testflight.yml (zielony 37639316123)
+// przepuszcza klucz przez scripts/ci/asc-check.mjs (przycięcie ID, naprawa wklejonego .p8, diagnoza 401/403) — asc-*.yml robią to samo.
+test('asc-*.yml: klucz przez scripts/ci/asc-check.mjs jak testflight.yml; identyfikatory przycięte przed skryptem', () => {
+  for (const n of [...Object.keys(ASC), 'asc-kontrola.yml']) for (const [id, j] of Object.entries(json(n).jobs)) {
+    const k = j.steps ?? []; if (!k.length) continue;
+    const klucz = k.find((x) => x.env?.ASC_KEY_P8);
+    assert.ok(klucz.run.includes('OUT="$RUNNER_TEMP/AuthKey.p8" BUNDLE_ID=') && klucz.run.includes('node scripts/ci/asc-check.mjs'), `${n}:${id}: asc-check`);
+    const skrypt = k.find((x) => /node (scripts\/asc|\.narzedzia-studia)\//.test(x.run ?? ''));
+    for (const v of ['ASC_KEY_ID', 'ASC_ISSUER_ID']) assert.ok(skrypt.run.includes(`export ${v}="$(printf %s "$${v}" | tr -d '[:space:]')"`), `${n}:${id}:${v}`);
+  }
+});
+
 test('asc-kontrola.yml: narzędzie studia z checkoutu w pełnym SHA, tylko odczyt; kontrola gałęzi przed kluczem; trzy sekrety; klucz usuwany zawsze', () => {
   const w = json('asc-kontrola.yml'); const tekst = readFileSync(new URL('asc-kontrola.yml', KAT), 'utf8');
   assert.deepEqual(Object.keys(w.on), ['workflow_dispatch']); assert.deepEqual(Object.keys(w.jobs), ['kontrola']);
