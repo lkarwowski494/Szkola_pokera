@@ -143,3 +143,33 @@ Poza zakresem: pozostałe 33 języki (fale po en, osobne STOP), opis w App Store
 - Lista lokalizacji App Store Connect dla en (en-US, en-GB, en-CA, en-AU) i opis sklepu — rola 10.
 - Sprawdzenie legalności kraju przed włączeniem storefrontu (D-292, D-295): agent ze źródeł oficjalnych, kolejność US, JP, CA, GB, BR, FR, TW, VN, DE; żaden kraj nie ma dziś zapisu. Nie blokuje przekładu ani TestFlight wewnętrznego; blokuje włączenie kraju w App Store. Osobne zadanie (koordynator przydziela sesję).
 - Wycofanie wadliwego języka (D-295): nowym wydaniem — usunięcie z `WYDANE` i `supportedLocales`; procedura i test do dopisania w K8 (`jezyki.md`, „Utrzymanie”).
+
+## 11. Kolejność E1 dla sesji z kodem (stan po D-291–D-296)
+
+| Kolejność | Krok | Rodzaj | Zależy od |
+|---|---|---|---|
+| 1 | K1 warunek wejścia | sprawdzenie (`pnpm i18n:kod`) | sesja F: A04-10, A04-11 |
+| 2 | K2 mechanizm (a–e) | kod + testy; `tools/content-build/` = ścieżka wrażliwa (przegląd D-043) | K1 |
+| 3 | K3a narzędzie przekładu i przeglądu przez API | kod (`scripts/i18n/`) + workflowy ręczne (`.github/workflows/`, przegląd D-043) | — (równolegle z K2) |
+| 4 | K4 glosariusz en, zamrożenie źródła | docs (`docs/lokalizacja/glosariusz.md`, skróty w `jezyki.md`) | K2a (teksty zadań w słowniku) |
+| 5 | **krok właściciela:** sekret `ANTHROPIC_API_KEY` w ustawieniach repo | — | K3a gotowe, `--szacuj` z kwotą ≤ 15 USD (D-295) |
+| 6 | K3 słownik interfejsu en i K5 treść `content/en/` (3 fale): przebieg API → przegląd propozycji → nałożenie → `content:build` | pliki słowników i treści + kontrole | sekret, K2, K4 |
+| 7 | K6 zrzuty en i pseudolokalizacja | docs + zrzuty | K3, K5 |
+| 8 | K7 flow `08-drugi-jezyk` w bramce, lista kontrolna telefonu | kod E2E (z 07/08) + docs | K3, K5 |
+| 9 | K8 rejestr, sztafeta, procedura wycofania języka (D-295 pkt 1), przekazania | docs | K1–K7 |
+
+Bez sekretu da się zrobić kroki 1–4; kroki 6–8 czekają na sekret.
+
+## 12. Zadanie poza rolą 09: sprawdzenie legalności — US (D-292, D-295 pkt 2; sesja tylko z dokumentami)
+
+Wynik: `docs/wydanie/legalnosc/US.md` — tabela „pytanie | źródło szczebla 1 (adres, cytat ≤ 2 zdania, data odczytu) | wniosek | status (potwierdzone / ryzyko / `[DO USTALENIA]`)”, na końcu rekomendacja „włączyć / nie włączać / włączyć z warunkiem” do akceptacji albo weta właściciela. To nie jest opinia prawna (OP-13). Poniższe przepisy to **miejsca do przeczytania, nie ustalone fakty**; każde twierdzenie dopiero po przeczytaniu źródła.
+
+Pytania:
+1. Czy aplikacja jest „grą hazardową” w rozumieniu prawa federalnego (stawka, los, wygrana)? Aplikacja: bez stawek i wygranych, subskrypcja za naukę. Do przeczytania: definicje w 31 U.S.C. 5362 (UIGEA), 18 U.S.C. 1084 (Wire Act), 18 U.S.C. 1955.
+2. Prawo stanowe: czy któryś stan obejmuje nauczanie albo symulację pokera bez pieniędzy, przekazywanie „informacji o grach” albo urządzenia wspomagające grę? Do przeczytania: stany o najszerszych przepisach (np. Washington RCW 9.46, Nevada NRS 465 o urządzeniach); wynik: lista stanów z ryzykiem albo „brak”. App Store nie pozwala wyłączyć pojedynczego stanu, więc ryzyko w jednym stanie dotyczy całego storefrontu US.
+3. „Pomoc w grze” (Apple 5.3.4: „Illegal gambling aids … are not permitted”): czy aplikacja może być użyta w trakcie gry na pieniądze (pomoc w czasie rzeczywistym)? Zestawić z funkcjami (`docs/scope-contract.md`) i regulaminami pokojów jako tłem (szczebel niższy).
+4. Reklama i zachęty do gier na pieniądze: zero operatorów i linków (ADR-13, NFR-ZGOD-001–002) — potwierdzić w treści en (skrypt marek z BRD).
+5. Kategoria wiekowa (symulowany hazard) i wymogi App Store Connect dla US — tylko odczyt wytycznych Apple w dniu pracy.
+6. Subskrypcje z automatycznym odnowieniem (np. prawo stanowe o automatycznym odnawianiu): co zapewnia Apple, a co musi pokazać ekran zakupu — porównać z `EkranZakupu` i decyzjami D-266.
+
+Wzór procesu: rola 10/M8 (formalności przed wydaniem); hierarchia: przepisy i strony regulatorów = szczebel 1 (`zrodla.md`), kancelarie i media = wskazówka. Kolejne kraje (JP, CA, GB, BR, FR, TW, VN, DE) tym samym szablonem.
