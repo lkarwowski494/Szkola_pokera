@@ -15,9 +15,9 @@ export type Paleta = typeof kolory.light;
 
 /**
  * Wyjątek nazwany do części 6 (D-259): kolory spoza systemu roli 04, których używa jeszcze ekran decyzji
- * (stopnie oceny kolorem, siatka zakresów) i talia czterokolorowa (ustawienie `cztery_kolory`, D-251).
- * Część 6 zastępuje stopnie komponentami `SkalaStopni`/`StopienOceny` (stopnie bez koloru, design-spec
- * „Znaczenie kolorów”); kolory talii czterokolorowej — zgłoszenie 08-F15 do roli 04. Wartości z poprzedniego motywu.
+ * (stopnie oceny kolorem, siatka zakresów). Część 6 zastępuje stopnie komponentami `SkalaStopni`/`StopienOceny`
+ * (stopnie bez koloru, design-spec „Znaczenie kolorów”). Talia czterokolorowa ma tokeny `cardBlue`/`cardGreen` w systemie
+ * (08-F15, D-284). Wartości z poprzedniego motywu.
  */
 const przejscioweJasne = {
   good: '#1F7A4D',
@@ -27,8 +27,6 @@ const przejscioweJasne = {
   warn: '#8A5A00',
   warnSoft: '#FBF0D9',
   feltSoft: '#E3EFE8',
-  cardBlue: '#2456A6',
-  cardGreen: '#2A7A3B',
 };
 const przejscioweCiemne: typeof przejscioweJasne = {
   good: '#6FCF9A',
@@ -38,8 +36,6 @@ const przejscioweCiemne: typeof przejscioweJasne = {
   warn: '#E0B24F',
   warnSoft: '#33290F',
   feltSoft: '#1C2E25',
-  cardBlue: '#2456A6',
-  cardGreen: '#2A7A3B',
 };
 
 export type Tokens = Paleta & { przejsciowe: typeof przejscioweJasne };

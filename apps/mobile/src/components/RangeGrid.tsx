@@ -10,7 +10,7 @@ import { odstep, styl, useTokens } from '@/theme/tokens';
  */
 export function RangeGrid({ spot }: { spot: RangeSpot }) {
   const tk = useTokens();
-  const colors = [tk.felt1, tk.przejsciowe.warn, tk.przejsciowe.cardBlue];
+  const colors = [tk.felt1, tk.przejsciowe.warn, tk.cardBlue];
   const { t, i18n } = useTranslation();
   // A04-10 (D-284): liczba w formacie języka (jak `features/stol/skala.ts`), tekst z t()
   const pct = new Intl.NumberFormat(i18n.language || 'pl', { maximumFractionDigits: 1 }).format(spot.playPercent * 100);

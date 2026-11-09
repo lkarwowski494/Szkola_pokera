@@ -30,6 +30,8 @@ const light = {
   cardEdge: '#E4DCC8',
   cardInk: '#0A1430',
   cardRed: '#C8102E',
+  cardBlue: '#2456A6', // karo w talii czterokolorowej (ustawienie, 08-F15, D-284)
+  cardGreen: '#2A7A3B', // trefl w talii czterokolorowej
   gold: '#E2B850', // znacznik i obwódka „ty” (element graficzny)
   goldText: '#F8DC8E', // tekst „ty” na suknie i na granacie
   goldOnBg: '#7E5B0C', // tekst „ty” na jasnym tle
@@ -137,6 +139,8 @@ export const pary: Record<string, [keyof Paleta, keyof Paleta, number]> = {
   'karta na suknie': ['card', 'felt1', 3],
   'indeks karty (czarny)': ['cardInk', 'card', 4.5],
   'indeks karty (czerwony)': ['cardRed', 'card', 4.5],
+  'indeks karty (niebieski)': ['cardBlue', 'card', 4.5],
+  'indeks karty (zielony)': ['cardGreen', 'card', 4.5],
   'nazwa miejsca': ['seatInk', 'seat', 4.5],
   'stan miejsca': ['seatMuted', 'seat', 4.5],
   'tekst „ty” na miejscu': ['goldText', 'seat', 4.5],
