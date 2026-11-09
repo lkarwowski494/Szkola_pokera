@@ -7,6 +7,7 @@ import { buildPushFoldTree } from '../src/pushfold';
 import { actionFrequencies, playerReach } from '../src/report';
 import { PreflopSolver } from '../src/solver';
 import type { DecisionNode } from '../src/tree';
+import { LIMIT_CIEZKI_MS } from './limity';
 
 const file = join(resolve(import.meta.dirname, '../../..'), 'tools/equity/equity169.json');
 const has = existsSync(file);
@@ -45,7 +46,7 @@ describe.skipIf(!has)('solver: push/fold heads-up (wynik bez modelu EQR)', () =>
     // w grze dwuosobowej NashConv = wykorzystywalność
     expect(s.exploitability().nashConv).toBeLessThan(0.002);
     void playerReach;
-  }, 120_000);
+  }, LIMIT_CIEZKI_MS);
 });
 
 const file3 = join(resolve(import.meta.dirname, '../../..'), 'tools/equity/equity3.bin.gz');

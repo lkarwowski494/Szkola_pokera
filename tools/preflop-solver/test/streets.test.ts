@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { compatMatrix, N, PRIOR, type EquityData } from '../src/model';
 import { buildStreetTree, loadBoards, StreetModel, type SNode } from '../src/streets';
+import { LIMIT_CIEZKI_MS } from './limity';
 
 const data = loadBoards(readFileSync(new URL('../../equity/boards.bin.gz', import.meta.url)));
 const eq = JSON.parse(readFileSync(new URL('../../equity/equity169.json', import.meta.url), 'utf8')) as EquityData;
@@ -130,5 +131,5 @@ describe('gra trzech ulic', () => {
       ev1 += r1[h]! * v1[h]!;
     }
     expect(Math.abs(ev0 + ev1)).toBeLessThan(1e-6 * (Math.abs(ev0) + 1));
-  }, 60_000);
+  }, LIMIT_CIEZKI_MS);
 });

@@ -5,6 +5,7 @@ import { compatMatrix, computePairs, N, PRIOR, type EquityData } from '../src/mo
 import { buildPostflopTree, COMBO_CLASS, geometricFraction, loadFlops, PostflopModel, type PNode } from '../src/postflop';
 import { PreflopSolver } from '../src/solver';
 import { buildTree, DEFAULT_TREE, N_PLAYERS } from '../src/tree';
+import { LIMIT_CIEZKI_MS } from './limity';
 
 const flops = loadFlops(readFileSync(new URL('../../equity/flops.bin.gz', import.meta.url)));
 const realEquity = JSON.parse(readFileSync(new URL('../../equity/equity169.json', import.meta.url), 'utf8')) as EquityData;
@@ -110,7 +111,7 @@ describe('model gry po flopie', () => {
     // tolerancja: macierze koszyków zapisane jako float32
     expect(Math.abs(ev0 + ev1)).toBeLessThan(1e-6 * (Math.abs(ev0) + 1));
     expect(Math.abs(ev0)).toBeGreaterThan(0);
-  }, 60_000);
+  }, LIMIT_CIEZKI_MS);
 
   it('solver z grą po flopie: suma zerowa bez rake (drzewo bez pul 3-way)', () => {
     const pairs = computePairs();

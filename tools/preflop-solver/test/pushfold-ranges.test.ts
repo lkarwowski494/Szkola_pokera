@@ -6,6 +6,7 @@ import type { EquityData } from '../src/model';
 import { buildPushFoldTree } from '../src/pushfold';
 import { PreflopSolver } from '../src/solver';
 import type { DecisionNode } from '../src/tree';
+import { LIMIT_CIEZKI_MS } from './limity';
 
 const ROOT = resolve(import.meta.dirname, '../../..');
 const eqFile = join(ROOT, 'tools/equity/equity169.json');
@@ -59,5 +60,5 @@ describe.skipIf(!has)('zakresy push/fold M11 (content/ranges/pushfold.json)', ()
       const nA = node.actions.length;
       HAND_CLASSES.forEach((hc, h) => expect(Math.abs(spot.strategy[nA - 1]![hc]! - st[h * nA + nA - 1]!)).toBeLessThan(0.002));
     }
-  }, 120_000);
+  }, LIMIT_CIEZKI_MS);
 });

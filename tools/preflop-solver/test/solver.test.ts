@@ -7,6 +7,7 @@ import { computePairs, N, PRIOR, type EquityData } from '../src/model';
 import { PreflopSolver } from '../src/solver';
 import { threeWayCompat, type ThreeWayData } from '../src/threeway';
 import { buildTree, DEFAULT_TREE, isInPosition, N_PLAYERS, POSITIONS, positionsFor, postflopOrder, type Node } from '../src/tree';
+import { LIMIT_CIEZKI_MS } from './limity';
 
 /** Syntetyczna, symetryczna macierz equity: silniejsza klasa = niższy indeks rankingu. */
 function syntheticEquity(): EquityData {
@@ -101,7 +102,7 @@ describe('dane 3-way', () => {
     let s = 0;
     for (let x = 0; x < N; x++) for (let y = 0; y < N; y++) for (let z = 0; z < N; z++) s += PRIOR[x]! * PRIOR[y]! * PRIOR[z]! * c[x * N * N + y * N + z]!;
     expect(s).toBeCloseTo(1, 4);
-  }, 60_000);
+  }, LIMIT_CIEZKI_MS);
 });
 
 describe('solver', () => {
@@ -111,7 +112,7 @@ describe('solver', () => {
     let total = 0;
     for (let p = 0; p < N_PLAYERS; p++) total += s.value(p);
     expect(Math.abs(total)).toBeLessThan(1e-9);
-  }, 60_000);
+  }, LIMIT_CIEZKI_MS);
 
   it('wariant z członem implied odds (io) i własnymi wagami: bez rake gra nadal ma sumę zerową (także pule 3-way)', () => {
     const eq = syntheticEquity();
@@ -122,7 +123,7 @@ describe('solver', () => {
     let total = 0;
     for (let p = 0; p < N_PLAYERS; p++) total += s.value(p);
     expect(Math.abs(total)).toBeLessThan(1e-9);
-  }, 60_000);
+  }, LIMIT_CIEZKI_MS);
 
   it('z rake suma wartości jest ujemna (rake wychodzi z gry)', () => {
     const s = new PreflopSolver(buildTree(), syntheticEquity(), { k: 1, m: 0.08, rakeRate: 0.05, rakeCap: 3 }, undefined, syntheticThreeWay());
@@ -130,7 +131,7 @@ describe('solver', () => {
     let total = 0;
     for (let p = 0; p < N_PLAYERS; p++) total += s.value(p);
     expect(total).toBeLessThan(0);
-  }, 60_000);
+  }, LIMIT_CIEZKI_MS);
 
   it('wykorzystywalność maleje z iteracjami (drzewo bez pul 3-way, dla szybkości)', () => {
     const s = new PreflopSolver(buildTree({ ...DEFAULT_TREE, bbOvercall: false }), syntheticEquity(), { k: 1, m: 0.08, rakeRate: 0, rakeCap: 0 });
@@ -140,7 +141,7 @@ describe('solver', () => {
     const late = s.exploitability().nashConv;
     expect(late).toBeLessThan(early);
     expect(late).toBeGreaterThanOrEqual(-1e-9);
-  }, 120_000);
+  }, LIMIT_CIEZKI_MS);
 
   it('punkt kontrolny: zapis i wczytanie odtwarzają stan (dalsze iteracje dają ten sam wynik)', () => {
     const cfg = { ...DEFAULT_TREE, bbOvercall: false };
@@ -156,7 +157,7 @@ describe('solver', () => {
     a.step();
     b.step();
     expect(b.value(0)).toBeCloseTo(a.value(0), 12);
-  }, 60_000);
+  }, LIMIT_CIEZKI_MS);
 
   it('rozkład a priori sumuje się do 1', () => {
     let s = 0;
