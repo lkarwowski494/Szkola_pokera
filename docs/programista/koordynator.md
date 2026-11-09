@@ -27,7 +27,7 @@ Najpierw: `git fetch` gałęzi i fast-forward lokalnej kopii, przeczytaj w cało
 
 ## 3. Pobudki (nie kończ tury bez pobudki, gdy coś trwa)
 - Sesja robocza pracuje: `send_later` co 40 min („Koordynacja: sprawdź sesję <ID> i gałąź”). Trwa E2E (~40 min z buildem, ~21 min z `aplikacja_z_przebiegu`): pobudka 45 min (albo 25).
-- Ustawiona pobudka: `trig_0151hAd9NZf775he3hSV8fY4` na 2026-11-09 07:15 UTC — wynik E2E dispatch (`aplikacja_z_przebiegu=42566410755`) i stan sesji I. Traktuj jako swoją. Starsze pobudki z dnia (04:42, 05:26, 06:03, 06:48) są zużyte — gdy przyjdzie spóźniona, sprawdź stan i nie dubluj działań.
+- Ustawiona pobudka: `trig_015k5HQ7UpoMXJiGHxQ4C9q5` na 2026-11-09 08:01 UTC — E2E 42578171401 (kod sesji I) i PRZEKAZANIE I. Traktuj jako swoją. Starsze pobudki z dnia (04:42, 05:26, 06:03, 06:48) są zużyte — gdy przyjdzie spóźniona, sprawdź stan i nie dubluj działań.
 
 ## 4. Szablon promptu sesji roboczej
 ```
@@ -45,7 +45,8 @@ Nie twórz nowych sesji i nie archiwizuj — to robi koordynator. Nie edytuj sek
 **W toku:**
 - Sesja I `session_01T66VBzRvcm2jJpwtAj5SFw` (kod, 08 fix, start 06:49): A04-10 (teksty poza `t()` → klucze, warunek przekładu), A04-11 (nazwy kart dla VoiceOver), 10-US-01/02 + 10-JP-01 (EkranZakupu: zdanie o anulowaniu subskrypcji i skutku, D-301), F-SOLVER-CZAS (limit 180 s), ponowienie pobrania Maestro w `e2e-ios.yml` (D-043); jeden push kodu → E2E pełny.
 - Sesja K zakończona 07:07 (523a041, `docs/wydanie/plan-1.0.md`): wysłanie 1.0 do Apple 24.11–05.12, najpewniej ok. 27.11 [OCENA]; języki 1.0 pl, en, ja, pt-BR, fr, zh-Hant (D-303); do pytania 14:00: P-1 (F-12 w 1.1), P-2 (adres polityki: GitHub Pages), W-03 (API 30–40 USD); kolejka kodu po I: K-02 treść (3 czerwone testy, rola 06) → rola 09 K1–K8 → K-04 języki.
-- Sesja L `session_01T66VByZLqMbx2yavDCUxBi` (tylko docs, start 07:07): projekt polityki prywatności pl/en, odpowiedzi App Privacy, rekomendacja hostingu (08-F20, P-2), bez publikacji.
+- Sesja L zakończona 07:23 (7a8052f): polityka prywatności pl/en (projekt), App Privacy; do weta D-307, D-308 (GitHub Pages z `site/`); 10-PRYW-01 dla 08; Support URL wymagany (`support.html` blokuje wysyłkę).
+- E2E dispatch 42575336076 zielone (dowód A04-01..09). Sesja I wypchnęła kod 07:15 (b8eb0a2) → E2E 42578171401 w toku.
 - E2E: `workflow_dispatch` z `aplikacja_z_przebiegu=42566410755` (06:49) — szybki dowód flowów dla A04-01..09 (pełny przebieg 42566410755 padł 2× na curl 504 przy pobieraniu Maestro; flowy nieuruchomione). Szczyt kodu z dowodem E2E zielonym: 8362e14 (42531461257).
 
 **Kolejka:**
