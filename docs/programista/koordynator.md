@@ -43,11 +43,12 @@ Nie twórz nowych sesji i nie archiwizuj — to robi koordynator. Nie edytuj sek
 
 ## 5. Stan i plan (2026-11-09 ok. 07:00 UTC; ostatnie wiersze „Koordynacja” w plan-08 = prawda)
 **W toku (07:59 UTC):**
-- Sesja P `session_01T66VBz2PGWPmMDihAbfJDV` (kod, rola 09, start 08:18): K-03 K1–K4; bez pushu kodu przed końcem E2E 42584822763.
-- E2E 42584822763 (3c8bcfd) zielone 08:55 = szczyt kodu z dowodem; P może pushować.
+- Sesja Q `session_01T66VBwigMVRuadbpvi4XMo` (kod, rola 08, start 09:11): ŚREDNIE przed drugim językiem, 10-D01-02, 10-PRYW-01, store/** paths-ignore, K-06/K-07; czeka z pushem na E2E 42591233527.
+- P zakończona 09:11 (K-03 K1–K4, D-318–D-323; 4cd4a4d → E2E 42591233527 od 09:09, wynik ~09:50). K3/K5 przekład czeka na klucz i na sposób uruchomienia (workflow ręczny tylko z gałęzi domyślnej → scalenie albo lokalnie). Szacunek: en 13,27 USD, 4 języki 55,21 USD (W-03).
+- E2E 42584822763 (3c8bcfd) zielone 08:55 = szczyt kodu z dowodem.
 - Pas docs pusty od 09:01 (O zakończona: D-316 VN „nie teraz”, D-317 TR warunkowo + T1 krok właściciela — oba do akceptacji 14:00).
 - N zakończona 08:18 (K-02 14/14, 10-D01-01; D-311–D-315). W kolejce kodu: 10-D01-02 ŚREDNIE (wiersz „Pełny dostęp” w ustawieniach).
-- Zakończone dziś: I (A04-10/11, zakup US/JP, solver 180 s, Maestro; E2E 42578171401 zielone na b8eb0a2 = szczyt kodu z dowodem), K (plan-1.0), L (polityka prywatności, D-307/D-308). Zakończona M 08:13 (store/ pl/en, D-309 nazwa en, D-310 wiek: override 18+ — ważne do weta). Do raportu 14:00: weta D-282–D-310 (m.in. D-306 zdanie o anulowaniu, D-309, D-310), P-1, P-2/D-308, W-03, klucz API, W-04/W-05 dane właściciela, zrzuty z sesji I.
+- Zakończone dziś: I (A04-10/11, zakup US/JP, solver 180 s, Maestro; E2E 42578171401 zielone na b8eb0a2 = szczyt kodu z dowodem), K (plan-1.0), L (polityka prywatności, D-307/D-308). Zakończona M 08:13 (store/ pl/en, D-309 nazwa en, D-310 wiek: override 18+ — ważne do weta). Do raportu 14:00: weta D-282–D-323 (m.in. D-306, D-309 nazwa en, D-310 18+, D-316 VN i D-317 TR do akceptacji), W-03 = 55 USD za 4 języki + 13 USD en, sposób uruchomienia przekładu (scalenie na main vs lokalnie), P-1, P-2/D-308, W-03, klucz API, W-04/W-05 dane właściciela, zrzuty z sesji I.
 
 **Kolejka:**
 | # | Kiedy (UTC) | Kto | Zadanie | Gotowe, gdy |
