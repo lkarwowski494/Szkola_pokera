@@ -681,3 +681,5 @@ Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę r
 **Czerwone:** brak. **Otwarte:** 08-F20 polityka prywatności (WYSOKIE: blokuje App Store, nie TestFlight) i 08-F23 adres poczty — fakty właściciela `[DO USTALENIA]`; 5 mutantów przeżywa (M29–M32 → test renderu ekranu sesji, 08-F21 do roli 07; M40 → zrzut); D-122: limit szerokości tytułów od AX1 i dzielenie wyrazów; legenda `PaintGrid.tsx:153–156` poza tłumaczeniami (04/09); 08-F15–F28 do ról 04/05/06/07 (`zgloszenia-08.md`).
 
 **Kroki właściciela:** (1) odpowiedź na pytanie poranne (dane do 08-F20/F23, weta, następny krok); (2) telefon: U-2 ochrona tła, U-5 zakupy w piaskownicy; (3) zrzuty: 32 stany × jasny/ciemny = 64 pliki (lista w `zgloszenia-08.md`).
+| 04:00 | koordynator → właściciel | pytanie poranne: fakty 08-F20/F23 „zostaw [DO USTALENIA]”, D-273–D-280 bez weta, następny krok „audyt roli 04” — zapis D-281 (W) | — |
+| 04:01 | E `session_01T66VBzTvgU6XNMwtZcUYr1` | start: audyt zgodności roli 04, ekrany 5b i 6 (tylko docs; pytania produktowe w PRZEKAZANIU) | odbiór PRZEKAZANIA, potem sesja napraw 08 |
