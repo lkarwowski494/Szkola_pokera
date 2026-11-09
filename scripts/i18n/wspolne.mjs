@@ -197,6 +197,13 @@ const WZORCE = [
   ['adresy URL', /https?:\/\/[^\s"'<>)\]]+/g, (m) => m[0]],
 ];
 export function znaczniki(tekst) { return Object.fromEntries(WZORCE.map(([n, re, f]) => [n, [...String(tekst).matchAll(re)].map(f).sort()])); }
+/** Ostrzeżenie (nie błąd; przegląd D-043 K3a, znalezisko 4): liczby zapisane cyframi poza znacznikami ({{n:…}}, [[…]], identyfikatory,
+ * adresy itd.) różnią się od źródła. Separator dziesiętny bez znaczenia (2,5 = 2.5); liczba ręcznie w przekładzie łamie zasadę {{n:…}}. */
+export function ostrzezeniaLiczb(zr, tl) {
+  const liczby = (t) => { let s = String(t); for (const [, re] of WZORCE) s = s.replace(re, ' '); return (s.match(/\d+(?:[.,]\d+)?/g) ?? []).map((x) => x.replace(',', '.')).sort(); };
+  const { brak, nadmiar } = roznicaMultizbiorow(liczby(zr), liczby(tl));
+  return brak.length || nadmiar.length ? [`liczby cyframi poza znacznikami różne od źródła: ${brak.length ? `brakuje ${brak.join(', ')}` : ''}${brak.length && nadmiar.length ? '; ' : ''}${nadmiar.length ? `nadmiarowe ${nadmiar.join(', ')}` : ''}`] : [];
+}
 function roznicaMultizbiorow(a, b) {
   const licz = (xs) => xs.reduce((m, x) => m.set(x, (m.get(x) ?? 0) + 1), new Map());
   const la = licz(a), lb = licz(b), brak = [], nadmiar = [];

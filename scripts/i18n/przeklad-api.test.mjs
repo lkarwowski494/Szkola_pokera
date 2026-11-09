@@ -11,7 +11,7 @@ import {
   wyJednostki,
 } from './przeklad-api.mjs';
 import { parsujArgumenty as parsujArgumentyPrzegladu } from './przeglad-api.mjs';
-import { kontrolaZnacznikow, LIMIT_USD, DOMYSLNY_MODEL, kosztUsd, glosariusz, POLA_NAKLADEK, roznicePoza, maxTokensJednostki } from './wspolne.mjs';
+import { kontrolaZnacznikow, LIMIT_USD, DOMYSLNY_MODEL, kosztUsd, glosariusz, POLA_NAKLADEK, roznicePoza, maxTokensJednostki, ostrzezeniaLiczb } from './wspolne.mjs';
 import { tsImport } from 'tsx/esm/api';
 
 const cicho = () => {};
@@ -289,6 +289,26 @@ test('--zastosuj nakłada nakładkę do content/<język>/ranges/spots.yaml po ko
   writeFileSync(plik, JSON.stringify({ jednostki: [{ ...ocenPropozycje(j, 'en', { blad: null, tekst: `<<<PLIK>>>\n${SPOTS_EN}<<<KONIEC>>>` }) }] }));
   assert.equal(await main(['--zastosuj', plik], {}, { fetchFn: fetchZakazany, log: cicho, root }), 0);
   assert.equal(readFileSync(join(root, 'content/en/ranges/spots.yaml'), 'utf8'), SPOTS_EN);
+});
+
+/* ---------- przegląd D-043 K3a, znalezisko 4: liczby wpisane cyframi poza znacznikami ---------- */
+test('ostrzeżenie (nie błąd), gdy liczby zapisane cyframi poza znacznikami różnią się od źródła; 2,5 = 2.5', async () => {
+  const root = atrapa();
+  const md = jednostkiPrzekladu(root, 'en').find((x) => x.rodzaj === 'md');
+  const zle = LEKCJA_EN.replace('You put {{n:ex.bet}}', 'You put {{n:ex.bet}} (about 5bb)');
+  const ok = ocenPropozycje(md, 'en', { blad: null, tekst: `<<<PLIK>>>\n${LEKCJA_EN}<<<KONIEC>>>` });
+  assert.deepEqual(ok.ostrzezenia, []);
+  const p = ocenPropozycje(md, 'en', { blad: null, tekst: `<<<PLIK>>>\n${zle}<<<KONIEC>>>` });
+  assert.equal(p.status, 'przyjeta', 'ostrzeżenie nie odrzuca');
+  assert.equal(p.ostrzezenia.length, 1);
+  assert.match(p.ostrzezenia[0], /liczb.*5/);
+  assert.deepEqual(ostrzezeniaLiczb('Do 2,5bb i 3 razy', 'To 2.5bb and 3 times'), []);
+  const wy = mkdtempSync(join(tmpdir(), 'k3a-wy-')); const plik = join(wy, 'propozycje.json');
+  writeFileSync(plik, JSON.stringify({ jednostki: [p] }));
+  const { log, l } = linie();
+  assert.equal(await main(['--zastosuj', plik], {}, { fetchFn: fetchZakazany, log, root }), 0);
+  assert.equal(readFileSync(join(root, md.cel), 'utf8'), zle);
+  assert.match(l.join('\n'), /ostrzeżenie.*liczb/);
 });
 
 /* ---------- przegląd D-043 K3a, znalezisko 3: limit_usd z wejścia workflowu bez sufitu ---------- */

@@ -44,7 +44,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { splaszcz, wpisy } from '../sprawdz-i18n.mjs';
 import {
   maxTokensJednostki, stopLimitu, RABAT_BATCH, INTERWAL_S, REJESTR, WSPOLCZYNNIK, ZRODLO, nazwaJezyka, maskuj, sha256, przyblizTokeny, szacunek, tabelaSzacunku,
-  jednostki, czytajJesli, glosariusz, kluczeTerminow, blokGlosariusza, kontrolaZnacznikow, kategorie, odczytajLinie, klient, czekajNaBatch, jezykDocelowy, celBezpieczny,
+  jednostki, czytajJesli, glosariusz, kluczeTerminow, blokGlosariusza, kontrolaZnacznikow, kategorie, odczytajLinie, klient, czekajNaBatch, jezykDocelowy, celBezpieczny, ostrzezeniaLiczb,
   parsujWspolne, filtruj,
 } from './wspolne.mjs';
 
@@ -176,11 +176,11 @@ export function wyciagnijPropozycje(odp, j) {
 /** Ocena odpowiedzi dla jednostki → wpis pliku propozycji (status przyjeta/odrzucona z powodami). */
 export function ocenPropozycje(j, kod, odczyt) {
   const baza = { custom_id: j.custom_id, jezyk: kod, rodzaj: j.rodzaj, zrodlo: j.zrodlo, cel: j.cel, zrodlo_sha256: j.zrodlo_sha256 };
-  if (odczyt.blad) return { ...baza, status: 'odrzucona', powody: [odczyt.blad], tekst: null };
+  if (odczyt.blad) return { ...baza, status: 'odrzucona', powody: [odczyt.blad], ostrzezenia: [], tekst: null };
   const w = wyciagnijPropozycje(odczyt.tekst, j);
-  if (w.blad) return { ...baza, status: 'odrzucona', powody: [w.blad], tekst: null };
+  if (w.blad) return { ...baza, status: 'odrzucona', powody: [w.blad], ostrzezenia: [], tekst: null };
   const powody = kontrolaZnacznikow(j, w.tekst, kod);
-  return { ...baza, status: powody.length ? 'odrzucona' : 'przyjeta', powody, tekst: w.tekst };
+  return { ...baza, status: powody.length ? 'odrzucona' : 'przyjeta', powody, ostrzezenia: ostrzezeniaLiczb(j.tekst, w.tekst), tekst: w.tekst };
 }
 
 /* ---------- szacunek ---------- */
@@ -198,7 +198,7 @@ export function wierszSzacunku(root, kod, js, zadania) {
 /* ---------- nałożenie (lokalnie, po przeglądzie) ---------- */
 export function zastosuj(root, plik) {
   const p = JSON.parse(readFileSync(plik, 'utf8'));
-  const wynik = { zapisane: [], odrzucone: [] };
+  const wynik = { zapisane: [], odrzucone: [], ostrzezenia: [] };
   for (const e of p.jednostki ?? []) {
     const kod = e.jezyk;
     // kod i cel pochodzą z pliku propozycji (artefakt, mógł być zmieniony ręcznie): tylko język z listy i cel w content/<kod>/ albo locales/<kod>.json
@@ -212,6 +212,7 @@ export function zastosuj(root, plik) {
     if (powody.length) { wynik.odrzucone.push({ cel: e.cel, powod: powody.join('; ') }); continue; }
     const cel = join(root, j.cel); mkdirSync(dirname(cel), { recursive: true }); writeFileSync(cel, e.tekst);
     wynik.zapisane.push(j.cel);
+    for (const x of ostrzezeniaLiczb(j.tekst, e.tekst)) wynik.ostrzezenia.push({ cel: j.cel, tekst: x });
   }
   return wynik;
 }
@@ -220,8 +221,8 @@ export function podsumowanieMd(wpisyP, meta) {
   const ob = (s) => String(s ?? '').replace(/\|/g, '\\|').replace(/\n/g, ' ').slice(0, 300);
   const L = ['# Przekład przez API (propozycje)', '', `Model: \`${meta.model}\`, effort: \`${meta.effort}\`, batch: \`${meta.batch_id ?? '—'}\`. Jednostek: ${wpisyP.length}.`,
     'Propozycje do przeglądu — słowniki i treść nie zostały zmienione. Nałożenie po przeglądzie: `node scripts/i18n/przeklad-api.mjs --zastosuj <plik propozycje.json>`.', '',
-    '| język | jednostka | status | powody |', '|---|---|---|---|'];
-  for (const e of wpisyP) L.push(`| ${e.jezyk} | ${e.cel} | ${e.status} | ${ob(e.powody.join('; '))} |`);
+    '| język | jednostka | status | powody | ostrzeżenia |', '|---|---|---|---|---|'];
+  for (const e of wpisyP) L.push(`| ${e.jezyk} | ${e.cel} | ${e.status} | ${ob(e.powody.join('; '))} | ${ob((e.ostrzezenia ?? []).join('; '))} |`);
   return L.join('\n') + '\n';
 }
 
@@ -238,6 +239,7 @@ export async function main(argv, env, { fetchFn = fetch, log = console.log, root
     const w = zastosuj(root, resolve(o.zastosuj));
     log(`nałożono ${w.zapisane.length} plików; odrzucono ${w.odrzucone.length}`);
     for (const x of w.zapisane) log(`  zapisano: ${x}`);
+    for (const x of w.ostrzezenia) log(`  ostrzeżenie: ${x.cel}: ${x.tekst} (sprawdź przy przeglądzie; liczby tylko przez {{n:…}})`);
     for (const x of w.odrzucone) log(`  odrzucono: ${x.cel}: ${x.powod}`);
     log('Dalej: pnpm content:build, pnpm i18n, drugi przegląd (przeglad-api.mjs) i rozstrzygnięcie każdej uwagi.');
     return w.odrzucone.length ? 1 : 0;

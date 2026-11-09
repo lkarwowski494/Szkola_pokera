@@ -34,7 +34,7 @@ import { splaszcz, wpisy } from '../sprawdz-i18n.mjs';
 import {
   maxTokensJednostki, stopLimitu, RABAT_BATCH, INTERWAL_S, REJESTR, WSPOLCZYNNIK, ZRODLO, PRZEKLADALNE, nazwaJezyka, maskuj, przyblizTokeny, szacunek, tabelaSzacunku,
   jednostki, czytajJesli, glosariusz, kluczeTerminow, blokGlosariusza, kontrolaZnacznikow, rozdzielMd, odczytajLinie, klient, czekajNaBatch,
-  parsujWspolne, filtruj,
+  parsujWspolne, filtruj, ostrzezeniaLiczb,
 } from './wspolne.mjs';
 
 export const ZALOZENIA = { udzialUwag: 0.2, tokenyUwagi: 120, myslenieStale: 2000, myslenieUdzial: 0.3 };
@@ -165,7 +165,7 @@ export function parsujTabele(tekst) {
 
 export function raportJednostki(j, kod, odczyt) {
   const lokalne = kontrolaZnacznikow(j, j.tlumaczenie, kod);
-  return { custom_id: j.custom_id, zrodlo: j.zrodlo, cel: j.cel, blad: odczyt.blad, uwagi: odczyt.blad ? [] : parsujTabele(odczyt.tekst), kontrola_lokalna: lokalne };
+  return { custom_id: j.custom_id, zrodlo: j.zrodlo, cel: j.cel, blad: odczyt.blad, uwagi: odczyt.blad ? [] : parsujTabele(odczyt.tekst), kontrola_lokalna: lokalne, ostrzezenia: typeof j.tlumaczenie === 'string' ? ostrzezeniaLiczb(j.tekst, j.tlumaczenie) : [] };
 }
 
 export function podsumowanieMd(raporty, meta) {
