@@ -1,17 +1,29 @@
-import { renderTermsIn, termText, type TermInfo } from '@szkola/content-schema';
-import { TERMS, type AppTerm, type TermKey } from '@/data/content/terms.generated';
+import { renderTermsIn, termText, type TermInfo, type TermNames } from '@szkola/content-schema';
+import { jestJezykiem, lancuchTresci, ZAPASOWY, ZRODLO } from '@szkola/jezyki';
+import { TERM_NAMES, TERMS, type AppTerm, type TermKey } from '@/data/content/terms.generated';
 
 /**
  * Terminy PL ↔ EN w tekstach aplikacji: to samo źródło (content/terms.yaml → terms.generated.ts) i ten sam znacznik
  * {{t:klucz|forma}} co w treści. Jeden wywołany tekst = jedna jednostka: nazwa angielska przy pierwszym użyciu terminu.
- * Język tekstu decyduje o sposobie (D-287): po polsku „forma (en)”, w innym języku forma albo sama nazwa angielska.
+ * Język tekstu decyduje o sposobie (D-287): po polsku „forma (en)”, w innym języku forma, nazwa w tym języku (K-05,
+ * `TERM_NAMES` z content/<język>/terms-nazwy.yaml) albo sama nazwa angielska.
  */
 
 const lookup = (k: string): TermInfo | undefined => (TERMS as Record<string, AppTerm>)[k];
 
+/** Nazwy terminów dla tekstu w języku `jezyk`: wariant → język bazowy; en i pl nie mają nazw (D-287, T-01). */
+export function nazwyTerminow(jezyk: string, nazwy: typeof TERM_NAMES = TERM_NAMES): TermNames | undefined {
+  if (!jestJezykiem(jezyk)) return undefined;
+  for (const j of lancuchTresci(jezyk)) {
+    if (j === ZAPASOWY || j === ZRODLO) return undefined;
+    if (nazwy[j]) return nazwy[j];
+  }
+  return undefined;
+}
+
 /** Podstawia znaczniki {{t:…}} w jednym tekście w języku `jezyk` (domyślnie polski). Nieznany klucz rzuca błąd (łapią go testy). */
-export function tr(text: string, jezyk = 'pl'): string {
-  return renderTermsIn(jezyk, text, lookup, 'tekst aplikacji');
+export function tr(text: string, jezyk = 'pl', nazwy: typeof TERM_NAMES = TERM_NAMES): string {
+  return renderTermsIn(jezyk, text, lookup, 'tekst aplikacji', new Set(), undefined, nazwyTerminow(jezyk, nazwy));
 }
 
 /** Pojedynczy termin z nazwą angielską: term('flush', 'koloru') → „koloru (flush)”. */

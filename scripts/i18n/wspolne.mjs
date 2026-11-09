@@ -212,7 +212,9 @@ const WZORCE = [
   ['[[…]]', /\[\[([^\]]*)\]\]/g, (m) => `[[${m[1]}]]`],
   ['znaczniki <…>', /<\/?([A-Za-z]\w*)\s*\/?>/g, (m) => `<${m[1]}>`],
   ['identyfikatory reguł', /\bR-M\d+-\d+\b/g, (m) => m[0]],
-  ['adresy URL', /https?:\/\/[^\s"'<>)\]]+/g, (m) => m[0]],
+  // Adres kończy się przed interpunkcją pełnoszerokościową i pismem CJK (ja/zh nie mają spacji po adresie) i bez końcowego [.,;:]
+  // (pl „…/a: „cytat”” = fr „…/a : « cytat »”); D-365, D-370.
+  ['adresy URL', /https?:\/\/[^\s"'<>)\]\u3000-\u303f\u3040-\u30ff\u4e00-\u9fff\uff00-\uffef]+/g, (m) => m[0].replace(/[.,;:]+$/, '')],
 ];
 export function znaczniki(tekst) { return Object.fromEntries(WZORCE.map(([n, re, f]) => [n, [...String(tekst).matchAll(re)].map(f).sort()])); }
 /** Ostrzeżenie (nie błąd; przegląd D-043 K3a, znalezisko 4): liczby zapisane cyframi poza znacznikami ({{n:…}}, [[…]], identyfikatory,

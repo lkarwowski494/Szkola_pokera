@@ -39,6 +39,7 @@ import { checkSourceQuotes } from './sources';
 import { loadTerms } from './terms';
 import { znacznikiZwyklegoSlowa } from './znaczniki';
 import { czytajDefinicje } from './definicje';
+import { czytajNazwy } from './nazwy';
 import { czytajZNakladka, POLA_HELPLINES } from './nakladka';
 
 /** Ile różnych terminów (z nazwą angielską inną niż polska albo ze skrótem) musi mieć obszar ćwiczenia słownictwa. */
@@ -141,7 +142,8 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
     locale,
   );
   const termsFile = parseOrThrow(TermsFile, readYaml(join(contentDir, 'terms.yaml')), 'terms.yaml');
-  const terms = loadTerms(termsFile, tekst);
+  // K-05 (D-367): nazwy terminów w języku tekstu dla znaczników bez formy; strażnik pliku = błąd budowy
+  const terms = loadTerms(termsFile, tekst, czytajNazwy(contentDir, tekst, termsFile) ?? undefined);
   // D-335: strażnik nakładki definicji języka tekstu (błąd budowy przy niezgodnym pliku); same definicje idą do modułu
   // terminów aplikacji (TERM_DEFS, cli.ts), bo baza treści nie ma kolumny def, a słowniczek czyta terms.generated.ts
   czytajDefinicje(contentDir, tekst, termsFile);

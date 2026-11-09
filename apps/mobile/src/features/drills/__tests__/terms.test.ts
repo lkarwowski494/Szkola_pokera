@@ -12,7 +12,7 @@ import { createRng } from '@szkola/poker-core';
 import { TERMS, type AppTerm } from '@/data/content/terms.generated';
 import { instantiate } from '../engine';
 import { gradeAnswer } from '../grade';
-import { term, tr } from '../terms';
+import { nazwyTerminow, term, tr } from '../terms';
 import { DEF_CONFUSABLE, vocabModes } from '../vocab';
 
 const SOURCES = ['features/drills/text.ts', 'i18n/locales/pl.json'].map((p) => join(__dirname, '../../..', p));
@@ -50,6 +50,20 @@ describe('terminy w tekstach aplikacji', () => {
     expect(tr('{{t:raise|przebiłeś}} (3-bet)')).toBe('przebiłeś (raise; 3-bet)');
     expect(tr('(33% {{t:pot|puli}})')).toBe('(33% puli [pot])');
     expect(() => tr('{{t:nie-ma-takiego}}')).toThrow(/nieznany termin/);
+  });
+});
+
+describe('nazwa terminu w języku tekstu (K-05, D-367)', () => {
+  const NAZWY = { ja: { call: 'コール' }, es: { call: 'igualar' } };
+  it('ja: znacznik bez formy → nazwa z TERM_NAMES; forma wygrywa; en bez nazw → angielska', () => {
+    expect(tr('{{t:call}}／{{t:call|コールする}}', 'ja', NAZWY)).toBe('コール／コールする');
+    expect(tr('a {{t:call}}', 'en', NAZWY)).toBe('a call');
+    expect(tr('{{t:pot}}', 'ja', NAZWY)).toBe('pot');
+  });
+  it('wariant bez własnych nazw bierze nazwy języka bazowego, nie schodzi do en/pl', () => {
+    expect(nazwyTerminow('es-419', NAZWY)).toEqual({ call: 'igualar' });
+    expect(nazwyTerminow('fr', NAZWY)).toBeUndefined();
+    expect(nazwyTerminow('pl', NAZWY)).toBeUndefined();
   });
 });
 

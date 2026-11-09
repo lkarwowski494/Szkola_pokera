@@ -1,4 +1,4 @@
-import { renderTermsIn, termMatcher, termNeedsEnglish, type CompiledTerm, type TermEntry, type TermInfo } from '@szkola/content-schema';
+import { renderTermsIn, termMatcher, termNeedsEnglish, type CompiledTerm, type TermEntry, type TermInfo, type TermNames } from '@szkola/content-schema';
 
 /**
  * Terminy PL ↔ EN w potoku treści (content/terms.yaml). Znaczniki {{t:…}} zamieniamy na „forma (en)”, a polskie
@@ -18,9 +18,9 @@ export interface Terms {
 
 /**
  * `jezykTekstu`: język tekstu bazy (D-287). Po polsku nawias z nazwą angielską (T-01) i kontrola polskich form bez
- * znacznika (T-02); w innym języku forma albo sama nazwa angielska, bez kontroli polskich form.
+ * znacznika (T-02); w innym języku forma, nazwa z `nazwy` (K-05, terms-nazwy.yaml) albo nazwa angielska, bez kontroli polskich form.
  */
-export function loadTerms(file: Record<string, TermEntry>, jezykTekstu = 'pl'): Terms {
+export function loadTerms(file: Record<string, TermEntry>, jezykTekstu = 'pl', nazwy?: TermNames): Terms {
   const info = new Map<string, TermInfo>();
   const plSeen = new Map<string, string>();
   for (const [key, e] of Object.entries(file)) {
@@ -59,13 +59,17 @@ export function loadTerms(file: Record<string, TermEntry>, jezykTekstu = 'pl'): 
     info,
     compiled,
     used,
-    render: (text, where, seen = new Set()) => renderTermsIn(jezykTekstu, text, lookup, where, seen, used),
+    render: (text, where, seen = new Set()) => renderTermsIn(jezykTekstu, text, lookup, where, seen, used, nazwy),
     unmarked: (text) => (jezykTekstu === 'pl' ? matcher.find(text) : []),
   };
 }
 
 /** Moduł TS z terminami dla aplikacji (teksty zadań generowanych i ćwiczenie słownictwa). */
-export function termsModuleSource(terms: (CompiledTerm & { forms?: string[]; skip?: string[] })[], definicje: Readonly<Record<string, Readonly<Record<string, string>>>> = {}): string {
+export function termsModuleSource(
+  terms: (CompiledTerm & { forms?: string[]; skip?: string[] })[],
+  definicje: Readonly<Record<string, Readonly<Record<string, string>>>> = {},
+  nazwy: Readonly<Record<string, Readonly<Record<string, string>>>> = {},
+): string {
   const rows = terms.map((t) => {
     const fields = [`pl: ${JSON.stringify(t.pl)}`, `en: ${JSON.stringify(t.en)}`, `enAlt: ${JSON.stringify(t.enAlt)}`];
     if (t.abbr) fields.push(`abbr: ${JSON.stringify(t.abbr)}`);
@@ -101,6 +105,11 @@ export function termsModuleSource(terms: (CompiledTerm & { forms?: string[]; ski
     '/** Definicje w językach innych niż polski (D-335): content/<język>/terms-def.yaml, klucz terminu → definicja. */',
     'export const TERM_DEFS: Readonly<Partial<Record<string, Readonly<Record<string, string>>>>> = {',
     ...Object.entries(definicje).map(([j, d]) => `  ${JSON.stringify(j)}: ${JSON.stringify(d)},`),
+    '};',
+    '',
+    '/** Nazwy terminów w językach innych niż pl i en (K-05, D-367): content/<język>/terms-nazwy.yaml, klucz terminu → nazwa. */',
+    'export const TERM_NAMES: Readonly<Partial<Record<string, Readonly<Record<string, string>>>>> = {',
+    ...Object.entries(nazwy).map(([j, n]) => `  ${JSON.stringify(j)}: ${JSON.stringify(n)},`),
     '};',
     '',
   ].join('\n');

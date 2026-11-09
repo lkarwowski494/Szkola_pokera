@@ -11,7 +11,7 @@ import {
   wyJednostki,
 } from './przeklad-api.mjs';
 import { parsujArgumenty as parsujArgumentyPrzegladu, segmenty } from './przeglad-api.mjs';
-import { kontrolaZnacznikow, LIMIT_USD, DOMYSLNY_MODEL, kosztUsd, glosariusz, POLA_NAKLADEK, roznicePoza, maxTokensJednostki, ostrzezeniaLiczb } from './wspolne.mjs';
+import { kontrolaZnacznikow, LIMIT_USD, DOMYSLNY_MODEL, kosztUsd, glosariusz, POLA_NAKLADEK, roznicePoza, maxTokensJednostki, ostrzezeniaLiczb, porownajZnaczniki } from './wspolne.mjs';
 import { tsImport } from 'tsx/esm/api';
 
 const cicho = () => {};
@@ -116,6 +116,16 @@ test('kontrola znaczników: zgodny przekład przechodzi', () => {
   const root = atrapa();
   const [, , md] = jednostkiPrzekladu(root, 'en');
   assert.deepEqual(kontrolaZnacznikow(md, LEKCJA_EN, 'en'), []);
+});
+
+test('kontrola znaczników: adres URL przed interpunkcją pełnoszerokościową CJK i typograficzną fr to ten sam adres (D-365, D-370)', () => {
+  const zr = 'Źródła: https://x.org/a, https://y.org/b: „cytat” (https://z.org/c: „cytat”); https://w.org/d.';
+  assert.deepEqual(porownajZnaczniki(zr, '出典：https://x.org/a、https://y.org/b：「引用」（https://z.org/c：「引用」）；https://w.org/d。'), []);
+  assert.deepEqual(porownajZnaczniki(zr, '來源：https://x.org/a，https://y.org/b：「引用」(https://z.org/c：「引用」)；https://w.org/d。'), []);
+  assert.deepEqual(porownajZnaczniki(zr, 'Sources : https://x.org/a, https://y.org/b : « citation » (https://z.org/c : « citation ») ; https://w.org/d.'), []);
+  // zmieniony adres nadal odrzucony
+  const p = porownajZnaczniki(zr, '出典：https://x.org/A、https://y.org/b：「引用」（https://z.org/c：「引用」）；https://w.org/d。');
+  assert.ok(p.some((x) => /adresy URL/.test(x) && /x\.org/.test(x)), p.join('; '));
 });
 
 test('kontrola znaczników: zmieniony {{n:…}} odrzuca propozycję z powodem', () => {

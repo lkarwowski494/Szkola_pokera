@@ -105,28 +105,32 @@ export function renderTerms(text: string, lookup: TermLookup, where: string, see
   return out + text.slice(last);
 }
 
+/** Nazwy terminów w języku tekstu (K-05, `content/<język>/terms-nazwy.yaml`): klucz → nazwa; null = brak nazwy w języku. */
+export type TermNames = Readonly<Record<string, string | null>>;
+
 /**
- * Znaczniki terminów w tekście w języku innym niż polski (D-287): forma z tekstu, a bez formy nazwa angielska; bez
- * nawiasu, bo reguła T-01 objaśnia różnicę nazwy polskiej i angielskiej. Nieznany klucz przerywa jak w `renderTerms`.
- * W en to „sama nazwa angielska” (albo skrót, gdy polska nazwa jest skrótem); sposób dla pozostałych języków rozstrzyga
- * fala 1 (K-05) — do tego czasu ten sam.
+ * Znaczniki terminów w tekście w języku innym niż polski (D-287): forma z tekstu, a bez formy nazwa terminu w języku tekstu
+ * (K-05, D-367: `nazwy`), a bez niej nazwa angielska; bez nawiasu, bo reguła T-01 objaśnia różnicę nazwy polskiej
+ * i angielskiej. Nieznany klucz przerywa jak w `renderTerms`. W en (bez pliku nazw) to „sama nazwa angielska” (albo skrót,
+ * gdy polska nazwa jest skrótem).
  */
-export function renderTermsBare(text: string, lookup: TermLookup, where: string, used?: Set<string>): string {
+export function renderTermsBare(text: string, lookup: TermLookup, where: string, used?: Set<string>, nazwy?: TermNames): string {
   return text.replace(TERM_PLACEHOLDER, (_m, key: string, form?: string) => {
     const t = lookup(key);
     if (!t) throw new Error(`${where}: nieznany termin {{t:${key}}}`);
     used?.add(key);
-    // bez formy: nazwa angielska, a gdy polska nazwa jest skrótem (UTG, SPR) — ten sam skrót, jak w tekście źródła
-    return form ?? ((t.abbr && norm(t.pl) === norm(t.abbr)) || /^[A-Z][A-Z0-9+]{1,5}$/.test(t.pl) ? t.pl : t.en);
+    // bez formy: nazwa w języku tekstu; bez niej nazwa angielska, a gdy polska nazwa jest skrótem (UTG, SPR) — ten sam skrót
+    const nazwa = nazwy && Object.hasOwn(nazwy, key) ? nazwy[key] : null;
+    return form ?? nazwa ?? ((t.abbr && norm(t.pl) === norm(t.abbr)) || /^[A-Z][A-Z0-9+]{1,5}$/.test(t.pl) ? t.pl : t.en);
   });
 }
 
 /** Język, w którym terminy dostają nawias z nazwą angielską (reguła T-01); w pozostałych `renderTermsBare`. */
 export const JEZYK_NAWIASU_TERMINOW = 'pl';
 
-/** Renderer znaczników według języka tekstu: polski — `renderTerms` (nawias), inny — `renderTermsBare` (D-287). */
-export function renderTermsIn(jezyk: string, text: string, lookup: TermLookup, where: string, seen: Set<string> = new Set(), used?: Set<string>): string {
-  return jezyk === JEZYK_NAWIASU_TERMINOW ? renderTerms(text, lookup, where, seen, used) : renderTermsBare(text, lookup, where, used);
+/** Renderer znaczników według języka tekstu: polski — `renderTerms` (nawias), inny — `renderTermsBare` (D-287, K-05). */
+export function renderTermsIn(jezyk: string, text: string, lookup: TermLookup, where: string, seen: Set<string> = new Set(), used?: Set<string>, nazwy?: TermNames): string {
+  return jezyk === JEZYK_NAWIASU_TERMINOW ? renderTerms(text, lookup, where, seen, used) : renderTermsBare(text, lookup, where, used, nazwy);
 }
 
 function escapeRe(s: string): string {
