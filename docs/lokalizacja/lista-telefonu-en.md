@@ -10,7 +10,7 @@ Na każdym zrzucie: tekst po polsku = brak klucza albo tekst wpisany w kodzie; u
 
 | # | Ekran | Stan | Na co patrzeć |
 |---|---|---|---|
-| 1 | Powitanie | pierwsze uruchomienie | „Poker School”, zdanie „no real-money play”, przycisk „Continue” |
+| 1 | Powitanie | pierwsze uruchomienie | „PokerGym”, zdanie „no real-money play”, przycisk „Continue” |
 | 2 | Ocena poziomu | pierwsze pytanie | przycisk „Skip”, odpowiedzi w 2 wierszach bez ucięcia |
 | 3 | Dziś | po „Skip” | tytuł lekcji m0.l1 „Hand rankings”, liczniki (liczba mnoga en: 1 / 2) |
 | 4 | Lekcja | m0.l1 i jedna lekcja z tabelą (m2.l1) | szerokość tabel, liczby z separatorem en |
@@ -29,7 +29,7 @@ Build z TestFlight z commitem co najmniej tej sesji. Przed startem zrób eksport
 
 | # | Krok | Oczekiwany wynik | Wynik |
 |---|---|---|---|
-| T-en-1 | iOS: Ustawienia → Ogólne → Język i region → dodaj English i ustaw jako pierwszy; usuń aplikację i zainstaluj ponownie z TestFlight | nazwa pod ikoną „Poker School” | |
+| T-en-1 | iOS: Ustawienia → Ogólne → Język i region → dodaj English i ustaw jako pierwszy; usuń aplikację i zainstaluj ponownie z TestFlight | nazwa pod ikoną „PokerGym” (D-378) | |
 | T-en-2 | Otwórz aplikację | powitanie po angielsku; nigdzie polskich słów | |
 | T-en-3 | „Continue”, „Skip” | ekran „Today” po angielsku, pierwsza lekcja „Hand rankings” | |
 | T-en-4 | Otwórz lekcję, zrób jedno ćwiczenie | treść, pytanie, ocena i wyjaśnienie po angielsku; liczby z kropką dziesiętną (np. 2.5) | |

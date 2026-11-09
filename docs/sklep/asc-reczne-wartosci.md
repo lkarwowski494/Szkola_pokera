@@ -112,7 +112,7 @@ Tekst Notes: `store/review-notes.en.txt` z usuniętymi kluczami w nawiasach. Ety
 Zostają warunki z `store/review-notes.md`: ścieżki przejść na buildzie kandydata (D-04), produkty IAP w tym samym zgłoszeniu, adres poczty (W-04) — bez niego usuń akapit CONTACT.
 
 ```text
-Thank you for reviewing Poker School.
+Thank you for reviewing PokerGym.
 
 WHAT THE APP IS
 - A course in No-Limit Texas Hold'em decision-making: lessons, exercises graded on four levels with an explanation, spaced reviews and module exams.

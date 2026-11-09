@@ -46,7 +46,7 @@ test('bez skryptów, ramek, formularzy i zasobów zewnętrznych; odnośniki zewn
 
 test('„Data Not Collected”: polityka mówi, że aplikacja nie zbiera danych, i nie wspomina narzędzi zbierających dane', () => {
   const h = bezKomentarzy(czytaj('site/privacy.html'));
-  assert.match(sekcja(h, 'pl'), /Aplikacja Szkoła Pokera sama nie zbiera żadnych danych/);
+  assert.match(sekcja(h, 'pl'), /Aplikacja PokerGym sama nie zbiera żadnych danych/);
   assert.match(sekcja(h, 'en'), /does not collect any data/);
   assert.match(sekcja(h, 'pl'), /nie ma konta, serwera, reklam, analityki ani śledzenia/);
   assert.doesNotMatch(h, /Google Analytics|Firebase|Crashlytics|Sentry|Amplitude|Mixpanel|AppsFlyer|Adjust|Facebook SDK|ciasteczk|cookie/i);

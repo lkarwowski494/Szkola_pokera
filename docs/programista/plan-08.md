@@ -951,6 +951,22 @@ Rola: `assemble.mjs` odrzucone przez klasyfikator — **wyjątek nazwany** D-381
 - Zrzuty 320 pt / AX5 w ja i fr (procedura roli 04); kształty Han T-cjk-2.
 - NISKIE z przeglądu D-043 (`dowody/d043-AE-2026-11-09.md` #2–#4): nazwy terminów przy tekście z łańcucha en, krój tytułu po zmianie języka bez remontu drzewa, utwardzenie wzorca URL.
 
+## Sesja AG — nazwa PokerGym w kodzie, tekstach i stronie (2026-11-09, rola 08 build, D-378)
+Rola: `assemble.mjs 08-programista --tryb build` (prompts, 2026-11-09). Analogia D-191: Trening `app.json:3`, `locales/en.json:2` (2e4b0f8).
+
+| Krok | Test (czerwony przed → zielony po) | Decyzja |
+|---|---|---|
+| Inwentaryzacja: nazwa produktu w `app.json` `name`, 6× `locales/systemowe` (iOS + Android), 6× `welcome.title` (pl, en + nazwy lokalne ja/zh-Hant/pt-BR/fr), notatki recenzenta, polityka `.md` → `site/` (generatory `tools/strona`), listy telefonu; `content/` — brak wystąpień. Zostają (nazwa wewnętrzna/techniczna): slug, scheme, bundle id, pakiet, repo, `store/produkty.json` referenceName, komentarze, README, `docs/jakosc/strategia.md`, atrapy w testach przypomnień | — | D-384 pkt 2 |
+| Zmiana nazwy na „PokerGym” + strażnik | `tests/kontrole/nazwa-pokergym.test.ts`: 5 ✕ (37 trafień) → 5 ✓; zmienione asercje nazwy w `tests/narzedzia/asc.test.mjs:241`, `strona.test.mjs:49` (oczekiwana nowa nazwa, nie osłabienie) | D-384 |
+
+| Czerwone CI po 7bbc4f9 (AF: 10 lokalizacji ASC w metadanych) | `tests/narzedzia/asc.test.mjs` 5/21 ✕ na czystym 7bbc4f9 → oczekiwania na 10 kodów, 21/21 ✓; `kontrola-oczekiwane.mjs` wygenerowany | D-384 pkt 4 |
+
+### Zostaje
+- `store/asc-kontrola-oczekiwane.json` wygenerowany z metadanych AF (7bbc4f9). Fala 2 w `LOCALE_MAP` (prośba koordynatora 22:09) — nie w tej sesji; `tests/kontrole/k11-sklep.test.ts:24–27` wyłącza z listy konkurencji frazę „poker school” jako naszą nazwę — po zmianie nazwy w metadanych do przejrzenia (AF/kod).
+- `site/` na main (D-342, zgoda właściciela): `site/privacy.html`, `site/support.html`.
+- Drobne poza strażnikiem: `docs/sklep/asc-reczne-wartosci.md:21` i komunikat `scripts/asc/metadane.mjs:145` („App Store Connect → Szkoła Pokera”, test `asc.test.mjs:58`) — nazwa rekordu w ASC zmieni się dopiero po zapisie metadanych; poprawić po zapisie AF.
+- Telefon: nazwa pod ikoną „PokerGym” w 6 językach (listy `lista-telefonu-4.md` T-cjk-1, T-pf-1; `lista-telefonu-en.md` T-en-1).
+
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
 

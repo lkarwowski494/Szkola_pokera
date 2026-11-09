@@ -27,7 +27,7 @@ export function stronaWsparcia() {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Szkoła Pokera — wsparcie / Support</title>
+<title>PokerGym — wsparcie / Support</title>
 ${STYL}
 </head>
 <body>
@@ -36,7 +36,7 @@ ${STYL}
      Przed publikacją: adres poczty (W-04) zamiast [DO USTALENIA]; publikacja i włączenie Pages tylko za zgodą właściciela (D-308). -->
 <nav><a href="privacy.html">Prywatność / Privacy</a><a href="#en">English</a></nav>
 <section lang="pl" id="pl">
-<h1>Szkoła Pokera — wsparcie</h1>
+<h1>PokerGym — wsparcie</h1>
 <h2>Kontakt</h2>
 <p>Pytania, błędy i pomysły: [DO USTALENIA: adres poczty, W-04]. Aplikacja niczego nie wysyła sama — e-mail wysyłasz Ty, ze swojej poczty.
 Błąd w konkretnym zadaniu zgłosisz też przyciskiem „Zgłoś błąd w tym zadaniu” pod oceną.</p>
@@ -61,7 +61,7 @@ Błąd w konkretnym zadaniu zgłosisz też przyciskiem „Zgłoś błąd w tym z
 <hr>
 <section lang="en" id="en">
 <!-- Roboczy przekład (rola 09 ustali brzmienie i etykiety przycisków po przekładzie aplikacji). -->
-<h1>Szkoła Pokera — Support</h1>
+<h1>PokerGym — Support</h1>
 <h2>Contact</h2>
 <p>Questions, bugs and ideas: [DO USTALENIA: email address, W-04]. The app never sends anything by itself — you send the email, from your own mail app.
 You can also report a mistake in a specific task with “Report a problem with this task” below the grade.</p>

@@ -1,4 +1,4 @@
 {
-  "ios": { "CFBundleDisplayName": "Poker School" },
-  "android": { "app_name": "Poker School" }
+  "ios": { "CFBundleDisplayName": "PokerGym" },
+  "android": { "app_name": "PokerGym" }
 }

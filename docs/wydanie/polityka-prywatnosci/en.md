@@ -4,13 +4,13 @@ Same content as pl.md (pl.md is the source; final wording of other languages thr
 Template: Trening site/privacy.html (commit 2e4b0f8, read 2026-11-09). [DO USTALENIA] fields are owner facts (W-04, P-2): replace before publishing.
 -->
 
-# Szkoła Pokera — Privacy Policy
+# PokerGym — Privacy Policy
 
 Effective [DO USTALENIA: publication date] (app version [DO USTALENIA: 1.0.0]).
 
 ## In short
 
-The Szkoła Pokera app itself does not collect any data. Your learning progress stays on your iPhone. The app has no account, server, ads, analytics or tracking and sends no data to the developer. Purchases are handled by Apple (the App Store). Exception: an email you send us yourself (section “When you write to us”).
+The PokerGym app itself does not collect any data. Your learning progress stays on your iPhone. The app has no account, server, ads, analytics or tracking and sends no data to the developer. Purchases are handled by Apple (the App Store). Exception: an email you send us yourself (section “When you write to us”).
 
 The app teaches poker decision-making. It has no gambling for money or chips.
 

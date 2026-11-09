@@ -42,7 +42,7 @@ export function stronaPolityki() {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Szkoła Pokera — polityka prywatności / Privacy Policy</title>
+<title>PokerGym — polityka prywatności / Privacy Policy</title>
 ${STYL}
 </head>
 <body>

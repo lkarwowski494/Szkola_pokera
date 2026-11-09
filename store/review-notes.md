@@ -18,7 +18,7 @@ Rola 10, D-01 z `docs/wydanie/plan-1.0.md` §4.2; decyzja D-309. Wzór: Trening 
 ## English (do wklejenia)
 
 ```text
-Thank you for reviewing Poker School.
+Thank you for reviewing PokerGym.
 
 WHAT THE APP IS
 - A course in No-Limit Texas Hold'em decision-making: lessons, exercises graded on four levels with an explanation, spaced reviews and module exams.

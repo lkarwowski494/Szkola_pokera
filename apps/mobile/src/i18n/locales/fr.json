@@ -26,7 +26,7 @@
     "rowScore": "Score : {{dobre}} sur {{razem}}."
   },
   "welcome": {
-    "title": "École de poker",
+    "title": "PokerGym",
     "what": "Vous apprenez à prendre des décisions au poker : des règles du jeu à la stratégie, avec une évaluation de chaque décision et une explication du pourquoi.",
     "noMoney": "Ici, vous apprenez sans jouer d'argent.",
     "next": "Pour commencer, quelques questions sur ce que vous savez déjà. Vous pouvez les passer.",

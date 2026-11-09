@@ -28,10 +28,10 @@ test('identyfikator pakietu i produkty = app.json i konfiguracja.ts (jedno źró
   assert.deepEqual(Object.values(iap.PRODUCTS).map((p) => p.kind), ['subscription', 'subscription', 'iap']);
 });
 
-test('metadane z repo: pl, en-US i aliasy en-GB/en-CA/en-AU = en-US; wstawka adresu prywatności podmieniona; walidacja bez błędów', () => {
+test('metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów', () => {
   const w = meta.buildWanted(daneMeta());
-  assert.deepEqual(Object.keys(w).sort(), ['en-AU', 'en-CA', 'en-GB', 'en-US', 'pl']);
-  assert.deepEqual(w['en-GB'], w['en-US']);
+  assert.deepEqual(Object.keys(w).sort(), ['en-AU', 'en-CA', 'en-GB', 'en-US', 'fr-CA', 'fr-FR', 'ja', 'pl', 'pt-BR', 'zh-Hant']);
+  assert.deepEqual(w['en-GB'], w['en-US']); assert.deepEqual(w['fr-CA'], w['fr-FR']);
   const url = js('store/app-store-urls.json').privacyPolicyUrl;
   for (const l of ['pl', 'en-US']) { assert.ok(w[l].version.description.includes(url), l); assert.doesNotMatch(w[l].version.description, /\[[A-ZĄĆĘŁŃÓŚŹŻ ]+\]/, l); }
   assert.deepEqual(meta.validate({ wanted: w }), []);
@@ -46,11 +46,11 @@ test('metadane: pozostała wstawka [DO USTALENIA], limit podtytułu, adres bez h
   assert.ok(!e.some((k) => k.endsWith('/marketingUrl')));
 });
 
-test('metadane podgląd: tylko GET, plan „utwórz” dla 5 lokalizacji × 2 obiekty, kod 0; bez wersji: komunikat z krokiem, kod 0', async () => {
+test('metadane podgląd: tylko GET, plan „utwórz” dla 10 lokalizacji × 2 obiekty, kod 0; bez wersji: komunikat z krokiem, kod 0', async () => {
   const a = atrapa({ bundleId: APP }); const l = log();
   const r = await meta.run({ client: a.client, data: daneMeta(), log: l });
   assert.equal(r.code, 0); assert.deepEqual(zapisy(a.calls), []);
-  assert.equal(r.rows.info.filter((x) => x.action === 'utwórz').length, 5); assert.equal(r.rows.version.filter((x) => x.action === 'utwórz').length, 5);
+  assert.equal(r.rows.info.filter((x) => x.action === 'utwórz').length, 10); assert.equal(r.rows.version.filter((x) => x.action === 'utwórz').length, 10);
   assert.ok(!r.rows.version[0].create.marketingUrl, 'marketingUrl null nie jest wysyłany');
   assert.doesNotMatch(l.text(), /ID-/);
   const b = atrapa({ bundleId: APP, wersja: null }); const l2 = log();
@@ -66,7 +66,7 @@ test('metadane zapis: POST brakujących, PATCH różniących się, nigdy DELETE;
   assert.equal(r.code, 0);
   const z = zapisy(a.calls);
   assert.ok(z.every((c) => c.method === 'POST' || c.method === 'PATCH'));
-  assert.equal(z.filter((c) => c.method === 'PATCH').length, 1); assert.equal(z.filter((c) => c.method === 'POST').length, 9);
+  assert.equal(z.filter((c) => c.method === 'PATCH').length, 1); assert.equal(z.filter((c) => c.method === 'POST').length, 19); // info 9 (pl = PATCH) + wersja 10
   assert.equal(a.s.verLocs.find((x) => x.id === 'ID-de').attributes.description, 'x');
   const przed = a.calls.length; await meta.run({ client: a.client, data: daneMeta(), zapis: true, log: log() });
   assert.deepEqual(zapisy(a.calls.slice(przed)), []);
@@ -80,8 +80,8 @@ test('metadane zapis jak Apple: lokalizacje wersji utworzone przez Apple po appI
   assert.doesNotMatch(l.text(), /409/); assert.equal(r.code, 0);
   const z = zapisy(a.calls);
   assert.equal(z.filter((c) => c.method === 'POST' && c.path === '/v1/appStoreVersionLocalizations').length, 0);
-  assert.equal(z.filter((c) => c.method === 'PATCH' && c.path.startsWith('/v1/appStoreVersionLocalizations/')).length, 5);
-  assert.equal(a.s.verLocs.length, 5); assert.ok(a.s.verLocs.every((x) => x.attributes.description), 'opis zapisany we wszystkich 5');
+  assert.equal(z.filter((c) => c.method === 'PATCH' && c.path.startsWith('/v1/appStoreVersionLocalizations/')).length, 10);
+  assert.equal(a.s.verLocs.length, 10); assert.ok(a.s.verLocs.every((x) => x.attributes.description), 'opis zapisany we wszystkich 10');
 });
 
 test('metadane zapis z błędem walidacji albo bez wersji: kod 1, zero zapisów', async () => {
@@ -236,9 +236,9 @@ test('notatki dla recenzenta: bez kluczy słownika w nawiasach; etykiety = en.js
 
 test('kontrola: pliki generowane aktualne (--check); oczekiwane lokalizacje = lokalizacje metadanych z aliasami; notatki = blok EN', () => {
   execFileSync(process.execPath, [new URL('scripts/asc/kontrola-oczekiwane.mjs', ROOT).pathname, '--check'], { stdio: 'pipe' });
-  assert.deepEqual(Object.keys(js('store/asc-kontrola-oczekiwane.json').lokalizacje).sort(), ['en-AU', 'en-CA', 'en-GB', 'en-US', 'pl']);
+  assert.deepEqual(Object.keys(js('store/asc-kontrola-oczekiwane.json').lokalizacje).sort(), ['en-AU', 'en-CA', 'en-GB', 'en-US', 'fr-CA', 'fr-FR', 'ja', 'pl', 'pt-BR', 'zh-Hant']);
   const en = rd('store/review-notes.en.txt');
-  assert.ok(en.startsWith('Thank you for reviewing Poker School.')); assert.ok(rd('store/review-notes.md').includes(en.trim()));
+  assert.ok(en.startsWith('Thank you for reviewing PokerGym.')); assert.ok(rd('store/review-notes.md').includes(en.trim()));
   assert.ok(Buffer.byteLength(en.trim()) <= 4000);
   assert.equal(kontrola.OUT_NOTES, 'store/review-notes.en.txt');
 });

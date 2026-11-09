@@ -2,29 +2,54 @@
   "_opis": "PLIK GENEROWANY przez scripts/asc/kontrola-oczekiwane.mjs ze store/app-store-metadata.json (z aliasami) — tylko lokalizacje obsługiwane przez App Store Connect. Nie edytować ręcznie.",
   "lokalizacje": {
     "pl": {
-      "name": "Szkoła Pokera",
-      "subtitle": "Nauka decyzji z wyjaśnieniem",
-      "keywords": "texas,holdem,gto,preflop,postflop,zakresy,outy,szanse,icm,turnieje,kurs,lekcje,quiz,trener"
+      "name": "PokerGym: trener strategii GTO",
+      "subtitle": "Nauka pokera bez gry o stawki",
+      "keywords": "poker,texas,holdem,preflop,postflop,zakresy,outy,szanse,icm,turnieje,kurs,lekcje,quiz,decyzje"
     },
     "en-US": {
-      "name": "Poker School: Learn Strategy",
-      "subtitle": "Practice decisions, no betting",
-      "keywords": "texas,holdem,gto,preflop,postflop,ranges,outs,odds,icm,tournament,course,lessons,quiz,trainer,study"
+      "name": "PokerGym: GTO Strategy Trainer",
+      "subtitle": "Study poker, no real money",
+      "keywords": "texas,holdem,preflop,postflop,ranges,outs,odds,icm,tournament,course,lessons,quiz,learn,training"
+    },
+    "ja": {
+      "name": "PokerGym: ポーカー戦略を学ぶ",
+      "subtitle": "判断ごとに評価と解説・賭けなし",
+      "keywords": "初心者,ホールデム,レンジ,プリフロップ,トレーナー,gto,icm,オッズ,クイズ"
+    },
+    "zh-Hant": {
+      "name": "PokerGym: 德州撲克教學",
+      "subtitle": "每個決策都有評分與解說，不涉賭注",
+      "keywords": "撲克策略,撲克訓練,新手入門,底池賠率,錦標賽,翻牌前,翻牌後,起手牌,gto,icm"
+    },
+    "pt-BR": {
+      "name": "PokerGym: aprenda pôquer",
+      "subtitle": "Treine decisões, sem apostas",
+      "keywords": "poker,texas,holdem,gto,estratégia,curso,aulas,treinador,preflop,range,outs,icm,torneio,quiz"
+    },
+    "fr-FR": {
+      "name": "PokerGym: cours de poker",
+      "subtitle": "Apprendre à décider, sans mise",
+      "keywords": "stratégie,texas,holdem,gto,preflop,postflop,range,outs,icm,tournoi,leçons,quiz,entraîneur"
     },
     "en-GB": {
-      "name": "Poker School: Learn Strategy",
-      "subtitle": "Practice decisions, no betting",
-      "keywords": "texas,holdem,gto,preflop,postflop,ranges,outs,odds,icm,tournament,course,lessons,quiz,trainer,study"
+      "name": "PokerGym: GTO Strategy Trainer",
+      "subtitle": "Study poker, no real money",
+      "keywords": "texas,holdem,preflop,postflop,ranges,outs,odds,icm,tournament,course,lessons,quiz,learn,training"
     },
     "en-CA": {
-      "name": "Poker School: Learn Strategy",
-      "subtitle": "Practice decisions, no betting",
-      "keywords": "texas,holdem,gto,preflop,postflop,ranges,outs,odds,icm,tournament,course,lessons,quiz,trainer,study"
+      "name": "PokerGym: GTO Strategy Trainer",
+      "subtitle": "Study poker, no real money",
+      "keywords": "texas,holdem,preflop,postflop,ranges,outs,odds,icm,tournament,course,lessons,quiz,learn,training"
     },
     "en-AU": {
-      "name": "Poker School: Learn Strategy",
-      "subtitle": "Practice decisions, no betting",
-      "keywords": "texas,holdem,gto,preflop,postflop,ranges,outs,odds,icm,tournament,course,lessons,quiz,trainer,study"
+      "name": "PokerGym: GTO Strategy Trainer",
+      "subtitle": "Study poker, no real money",
+      "keywords": "texas,holdem,preflop,postflop,ranges,outs,odds,icm,tournament,course,lessons,quiz,learn,training"
+    },
+    "fr-CA": {
+      "name": "PokerGym: cours de poker",
+      "subtitle": "Apprendre à décider, sans mise",
+      "keywords": "stratégie,texas,holdem,gto,preflop,postflop,range,outs,icm,tournoi,leçons,quiz,entraîneur"
     }
   }
 }

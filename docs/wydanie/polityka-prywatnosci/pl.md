@@ -5,13 +5,13 @@ Wzór: Trening site/privacy.html (commit 2e4b0f8, odczyt 2026-11-09). Zmiana dzi
 Pola [DO USTALENIA] to fakty właściciela (W-04, P-2): przed publikacją zastąpić, nie zgadywać.
 -->
 
-# Szkoła Pokera — polityka prywatności
+# PokerGym — polityka prywatności
 
 Obowiązuje od [DO USTALENIA: data publikacji] (wersja aplikacji [DO USTALENIA: 1.0.0]).
 
 ## W skrócie
 
-Aplikacja Szkoła Pokera sama nie zbiera żadnych danych. Twój postęp w nauce zostaje na Twoim iPhonie. Aplikacja nie ma konta, serwera, reklam, analityki ani śledzenia i nie wysyła danych do twórcy. Zakupy obsługuje Apple (App Store). Wyjątek: e-mail, który sam do nas wyślesz (sekcja „Gdy do nas piszesz”).
+Aplikacja PokerGym sama nie zbiera żadnych danych. Twój postęp w nauce zostaje na Twoim iPhonie. Aplikacja nie ma konta, serwera, reklam, analityki ani śledzenia i nie wysyła danych do twórcy. Zakupy obsługuje Apple (App Store). Wyjątek: e-mail, który sam do nas wyślesz (sekcja „Gdy do nas piszesz”).
 
 Aplikacja uczy podejmowania decyzji w pokerze. Nie ma w niej gry na pieniądze ani na żetony.
 
