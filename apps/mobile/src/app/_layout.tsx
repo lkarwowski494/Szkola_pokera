@@ -13,13 +13,12 @@ import { podlaczDziennik, zapiszBlad } from '@/platform/dziennik';
 import { useSettings } from '@/state/settings';
 import { useTokens } from '@/theme/tokens';
 import { LIMIT_KROJU_MS, LITERATA, zaladujKroje } from '@/theme/kroje';
-import { przygotujTrescExpo } from '@/data/tresc/startTresci';
+import { otworzTrescExpo, przygotujTrescExpo } from '@/data/tresc/startTresci';
 import { useTresc } from '@/data/tresc/useTresc';
 import { kontrolaK04, startPostepuExpo } from '@/data/postepExpo';
 import { PostepKontekst } from '@/data/postepKontekst';
 import type { PortBazy } from '@szkola/postep';
-import { SQLiteProvider } from 'expo-sqlite';
-import { useBazaTresci } from '@/data/tresc/kontekst';
+import { ProviderTresci, useBazaTresci } from '@/data/tresc/kontekst';
 import { getDrillById, getLessonSummaries, getModules } from '@/data/content/repo';
 import PierwszeUruchomienie from '@/features/ocena-poziomu/PierwszeUruchomienie';
 import { zegarTelefonu } from '@/platform/zegar';
@@ -117,27 +116,32 @@ function BramkaStartu({ port, children }: { port: PortBazy; children: ReactNode 
 }
 
 const zapiszBladTresci = () => zapiszBlad('tresc_niedostepna');
-/** Stała, nie literał w JSX: `SQLiteProvider` otwiera bazę od nowa przy każdej zmianie `options` (porównanie referencji,
- *  expo-sqlite src/hooks.tsx:229), a RootLayout renderuje się ponownie np. po zmianie języka albo motywu. */
-const OPCJE_TRESCI = { useNewConnection: false };
 
 export default function RootLayout() {
   const scheme = useColorScheme();
   const tk = useTokens();
   const { t } = useTranslation(); // „Wróć” w nagłówku z t() i po zmianie języka (A04-10, D-284)
   const loadSettings = useSettings((s) => s.load);
-  const tresc = useTresc(przygotujTrescExpo, zapiszBladTresci);
   const postep = usePostep();
+  // Zapisany język (ADR 0014 pkt 3) przed pierwszym przygotowaniem bazy treści: jedna kopia bazy przy zimnym starcie
+  // z językiem innym niż systemowy (przegląd sesji P, plan-09 §13). Bez bazy postępu (błąd startu) — język z i18n.
+  const [jezykGotowy, ustawJezykGotowy] = useState(false);
+  useEffect(() => {
+    if (postep.stan === 'ladowanie') return;
+    if (postep.stan === 'blad') ustawJezykGotowy(true);
+    else void zastosujJezyk(postep.port).finally(() => ustawJezykGotowy(true));
+  }, [postep]);
+  const tresc = useTresc(przygotujTrescExpo, zapiszBladTresci, jezykGotowy);
   const kroje = useKroje();
   const trescGotowa = tresc.stan !== 'ladowanie' && postep.stan !== 'ladowanie' && kroje;
 
   useEffect(() => {
     if (!trescGotowa) return;
-    // ustawienia interfejsu z postep.db (D-251) i język (ADR 0014 pkt 3) przed zdjęciem ekranu startowego; potem odtworzenie
-    // przypomnienia z zapisu (ADR 0012: start). Przy błędzie startu postępu — od razu.
+    // ustawienia interfejsu z postep.db (D-251) przed zdjęciem ekranu startowego (język zastosowany wyżej, przed treścią);
+    // potem odtworzenie przypomnienia z zapisu (ADR 0012: start). Przy błędzie startu postępu — od razu.
     if (postep.stan === 'ok') {
       const port = postep.port;
-      void Promise.all([loadSettings(port), zastosujJezyk(port)])
+      void loadSettings(port)
         .finally(() => void SplashScreen.hideAsync())
         .then(() => odtworzZBazy(port, powiadomieniaExpo, { tytul: i18n.t('reminder.title'), tresc: i18n.t('reminder.body') }));
     } else void SplashScreen.hideAsync();
@@ -155,8 +159,9 @@ export default function RootLayout() {
       {/* błąd renderowania: wpis w dzienniku lokalnym (ADR 0009) i ekran z ponowieniem zamiast zamknięcia aplikacji */}
       <GranicaBledu fallback={({ resetError }) => <RenderErrorScreen onRetry={resetError} />}>
         <PostepKontekst.Provider value={postep.port}>
-          {/* Plik treści przygotowany przez useTresc (bez kopiowania przy każdym starcie, ADR 0005 pkt 2). */}
-          <SQLiteProvider databaseName={tresc.plik} options={OPCJE_TRESCI}>
+          {/* Plik treści przygotowany przez useTresc (bez kopiowania przy każdym starcie, ADR 0005 pkt 2); zmiana języka
+              podmienia bazę bez montowania nawigacji od nowa (ProviderTresci, plan-09 §13). */}
+          <ProviderTresci plik={tresc.plik} otworz={otworzTrescExpo} onBlad={zapiszBladTresci}>
             <BramkaStartu port={postep.port}>
               <Stack screenOptions={{ headerBackTitle: t('nav.back'), headerTintColor: tk.link }}>
                 <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
@@ -171,7 +176,7 @@ export default function RootLayout() {
                 <Stack.Screen name="session" options={{ presentation: 'fullScreenModal', headerShown: false, gestureEnabled: false }} />
               </Stack>
             </BramkaStartu>
-          </SQLiteProvider>
+          </ProviderTresci>
         </PostepKontekst.Provider>
       </GranicaBledu>
     </ThemeProvider>

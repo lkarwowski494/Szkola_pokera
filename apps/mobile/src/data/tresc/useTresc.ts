@@ -10,8 +10,14 @@ type Przygotuj = (jezyk: string) => Promise<Wynik<{ plik: string }, PowodTresci>
  * (ustawienia albo zapisany wybór zastosowany przy starcie) przygotowuje bazę nowego języka, a do jej gotowości zostaje
  * poprzednia (bez ekranu ładowania). Błąd bazy nowego języka zostawia poprzednią i trafia do dziennika; błąd przy
  * starcie (brak żadnej bazy) daje ekran błędu z ponowieniem (tlo-i-bledy.md §4).
+ * `start`: do czasu zastosowania zapisanego języka (z bazy postępu) nic nie przygotowuje — inaczej zimny start z zapisanym
+ * językiem innym niż systemowy kopiował dwie bazy (język systemu, potem zapisany; przegląd sesji P, plan-09 §13).
  */
-export function useTresc(przygotuj: Przygotuj, zapiszBlad: (powod: PowodTresci) => void): StanTresci & { ponow: () => void } {
+export function useTresc(
+  przygotuj: Przygotuj,
+  zapiszBlad: (powod: PowodTresci) => void,
+  start = true,
+): StanTresci & { ponow: () => void } {
   const [stan, ustaw] = useState<StanTresci>({ stan: 'ladowanie' });
   const [proba, ustawProbe] = useState(0);
   const [jezyk, ustawJezyk] = useState(i18n.language);
@@ -31,6 +37,7 @@ export function useTresc(przygotuj: Przygotuj, zapiszBlad: (powod: PowodTresci) 
   }, []);
 
   useEffect(() => {
+    if (!start) return;
     let aktualny = true;
     const krok = kolejka.current.then(() => fn.current.przygotuj(jezyk));
     kolejka.current = krok.catch(() => undefined);
@@ -44,7 +51,7 @@ export function useTresc(przygotuj: Przygotuj, zapiszBlad: (powod: PowodTresci) 
     return () => {
       aktualny = false;
     };
-  }, [proba, jezyk]);
+  }, [proba, jezyk, start]);
 
   const ponow = useCallback(() => {
     ustaw({ stan: 'ladowanie' });

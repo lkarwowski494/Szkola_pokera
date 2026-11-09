@@ -1,5 +1,5 @@
 // Start treści w aplikacji (ADR 0005 pkt 2, K-06, D-232): `przygotujTresc` z domeny na adapterach expo. Zwraca nazwę pliku
-// w katalogu baz expo-sqlite, którą `SQLiteProvider` otwiera po nazwie; baza otwarta do sprawdzenia manifestu jest zamykana.
+// w katalogu baz expo-sqlite, którą `ProviderTresci` (data/tresc/kontekst) otwiera po nazwie; baza otwarta do sprawdzenia manifestu jest zamykana.
 // Błąd = `tresc_niedostepna` (ekran błędu z ponowieniem; dane użytkownika nietknięte, tlo-i-bledy.md §4).
 import { openDatabaseAsync, type SQLiteDatabase } from 'expo-sqlite';
 import { KONFIGURACJA, przygotujTresc, type PowodTresci, type Wynik } from '@szkola/domena';
@@ -49,3 +49,6 @@ export async function przygotujTrescExpo(jezyk: string): Promise<Wynik<{ plik: s
   await wynik.wartosc.baza.closeAsync().catch(() => undefined);
   return { ok: true, wartosc: { plik: wynik.wartosc.plik } };
 }
+
+/** Otwarcie przygotowanego pliku treści dla `ProviderTresci` (katalog baz expo-sqlite, jak dotąd `SQLiteProvider`). */
+export const otworzTrescExpo = (plik: string): Promise<SQLiteDatabase> => openDatabaseAsync(plik);
