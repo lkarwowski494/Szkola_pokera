@@ -19,14 +19,15 @@ N=0; FAILED=0
 for lang in ${LANGS//,/ }; do
   mkdir -p "$OUT/$lang"
   while IFS=$'\t' read -r name route; do
-    xcrun simctl terminate "$UDID" "$BUNDLE" >/dev/null 2>&1 || true
-    C=$(xcrun simctl get_app_container "$UDID" "$BUNDLE" data)
+    xcrun simctl terminate "$UDID" "$BUNDLE" >/dev/null 2>&1 </dev/null || true
+    C=$(xcrun simctl get_app_container "$UDID" "$BUNDLE" data </dev/null)
     rm -f "$C/Documents/SQLite/postep.db" "$C/Documents/SQLite/postep.db-wal" "$C/Documents/SQLite/postep.db-shm"
-    node "$DIR/dane-pokazowe.mjs" "$C/Documents/SQLite" "$lang" >/dev/null
-    xcrun simctl launch "$UDID" "$BUNDLE" -AppleLanguages "($lang)" >/dev/null
+    # </dev/null: stdin pętli to lista ekranów — polecenie, które by go czytało, połknęłoby resztę listy (przegląd D-043, P2)
+    node "$DIR/dane-pokazowe.mjs" "$C/Documents/SQLite" "$lang" >/dev/null </dev/null
+    xcrun simctl launch "$UDID" "$BUNDLE" -AppleLanguages "($lang)" >/dev/null </dev/null
     sleep 8   # zimny start: ekran startowy, kopia bazy treści przy pierwszym uruchomieniu, odczyt postępu
-    if [ "$route" != "/" ]; then xcrun simctl openurl "$UDID" "$SCHEMAT://${route#/}"; sleep 3; fi
-    if xcrun simctl io "$UDID" screenshot "$OUT/$lang/$name.png" >/dev/null 2>&1 && [ -s "$OUT/$lang/$name.png" ]; then N=$((N+1)); echo "$lang/$name.png"
+    if [ "$route" != "/" ]; then xcrun simctl openurl "$UDID" "$SCHEMAT://${route#/}" </dev/null; sleep 3; fi
+    if xcrun simctl io "$UDID" screenshot "$OUT/$lang/$name.png" >/dev/null 2>&1 </dev/null && [ -s "$OUT/$lang/$name.png" ]; then N=$((N+1)); echo "$lang/$name.png"
     else FAILED=$((FAILED+1)); echo "::warning::Brak zrzutu $lang/$name"; fi
   done < <(node -e 'const l=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")); for (const e of l[process.argv[2]]) console.log(e.nazwa+"\t"+e.trasa)' "$LISTA" "$ZESTAW")
 done

@@ -783,7 +783,10 @@ E2E 42601439302 (8f78583, kod R): czerwony po 5 min na infrastrukturze — `pod 
 
 **Lista telefonu:** ustawienia → „Pełny dostęp” → ekran zakupu (bez „Wróć do lekcji”), „Zamknij” wraca do ustawień; słowniczek po polsku bez zmian (definicje pod terminami).
 
+Przegląd D-043 (subagent, świeży kontekst, `833ce01..e205c0e`): **0×P1**. P2 naprawione od razu (commit „Przegląd D-043 sesji S…”): klucze z prototypu w strażniku definicji (`Object.hasOwn`, test `definicje-08` czerwony → zielony), to samo w walidacji rozmiarów `store-screenshots.yml`, `</dev/null` dla poleceń w pętli `zrzuty-sklepu.sh`. P2 do backlogu: niżej.
+
 ### Zostaje
+- P2 przeglądu D-043: (a) nakładka definicji wymaga kompletu kluczy — nowy termin z `def` w `terms.yaml` czerwieni `content:build` dla języka z `terms-def.yaml` do nowego przekładu, a zmiana polskiej definicji przechodzi bez sygnału (skrót sha256 tylko w potoku przekładu) → decyzja przy pierwszym przekładzie: zapis skrótu źródła w pliku albo ostrzeżenie zamiast błędu; (b) `termDefRevealsName` nie zna nazw lokalnych (ja/zh, fala 1); (c) `store-screenshots.yml` sprawdza tylko format kodów języków — dodać kontrolę względem `WYDANE`; (d) przy `aplikacja_z_przebiegu` wypisać SHA przebiegu źródłowego (zgodność lekcji z danymi pokazowymi).
 - K-12: pierwsze uruchomienie `store-screenshots.yml` (zgoda koordynatora; minuty macOS) i ocena zrzutów; ryzyko: okno „Otworzyć w …?” po `simctl openurl` (Trening zamyka je akcją Maestro `dialogi`) — jeśli wyjdzie, dodać akcję; ekran decyzji z oceną (sesja) wymaga akcji Maestro; bogatsze dane pokazowe (odpowiedzi, seria, powtórki) przez `zacznijAktywnosc`/`zapiszKrok`; ramki i podpisy — decyzja 04/właściciela; en pokaże tekst polski do wydania en.
 - K-11: tekst sklepu ja/pt-BR/fr/zh-Hant (K-04) — test obejmie je automatycznie (pętla po lokalizacjach); mapa §2 sprawdza punkty pl i en-US.
 - D-335: pierwszy przekład `terms-def.yaml` w przebiegu API en (K3/K5, po sekrecie); ekran słowniczka nadal pokazuje polskie nazwy terminów także w en (P-2 słowniczka — 09/04).

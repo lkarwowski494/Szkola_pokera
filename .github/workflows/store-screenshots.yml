@@ -53,7 +53,7 @@ jobs:
           node -e '
             const l = JSON.parse(require("fs").readFileSync("scripts/ci/zrzuty-sklepu.json", "utf8"));
             const r = process.env.ROZMIARY.split(",").map((s) => s.trim()).filter(Boolean);
-            const zle = r.filter((x) => !(x in l.rozmiary));
+            const zle = r.filter((x) => !Object.hasOwn(l.rozmiary, x));
             if (zle.length || !r.length) { console.error(`::error::Nieznane rozmiary: ${zle.join(", ") || "(puste)"}; dozwolone: ${Object.keys(l.rozmiary).join(", ")}`); process.exit(1); }
             if (!/^[a-z]{2}(-[A-Za-z0-9]+)?(,[a-z]{2}(-[A-Za-z0-9]+)?)*$/.test(process.env.JEZYKI.replace(/\s/g, ""))) { console.error("::error::Języki: kody po przecinku, np. pl,en"); process.exit(1); }
             const m = { include: r.map((x) => ({ rozmiar: x, wzorzec: l.rozmiary[x] })) };

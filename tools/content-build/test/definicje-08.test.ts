@@ -41,6 +41,9 @@ describe('strażnik roznicaDefinicji', () => {
     expect(roznicaDefinicji(zr, { a: 3, b: 'Cards.' })).toEqual(['a: pusty albo nie-tekst']);
     expect(roznicaDefinicji(zr, { a: 'Chips {{n:x}}.', b: 'Cards <b>.' })).toEqual(['a: znaczniki w definicji (def to czysty tekst)', 'b: znaczniki w definicji (def to czysty tekst)']);
     expect(roznicaDefinicji(zr, ['Chips.'])).toEqual(['(korzeń): nie mapa klucz → definicja']);
+    // przegląd D-043 sesji S (P2): klucze z prototypu nie są kluczami źródła
+    expect(roznicaDefinicji(zr, { a: 'Chips.', b: 'Cards.', constructor: 'x' })).toEqual(['constructor: klucz spoza źródła (termin bez def albo nieznany)']);
+    expect(roznicaDefinicji({ ...zr, toString: 'Def.' }, { a: 'Chips.', b: 'Cards.' })).toEqual(['toString: brak definicji w przekładzie']);
   });
 });
 

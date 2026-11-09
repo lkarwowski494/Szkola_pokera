@@ -32,12 +32,12 @@ export function roznicaDefinicji(zrodlo: Readonly<Record<string, string>>, przek
   const p = przeklad as Record<string, unknown>;
   const out: string[] = [];
   for (const k of Object.keys(zrodlo)) {
-    if (!(k in p)) { out.push(`${k}: brak definicji w przekładzie`); continue; }
+    if (!Object.hasOwn(p, k)) { out.push(`${k}: brak definicji w przekładzie`); continue; }
     const v = p[k];
     if (typeof v !== 'string' || !v.trim()) out.push(`${k}: pusty albo nie-tekst`);
     else if (ZNACZNIK.test(v)) out.push(`${k}: znaczniki w definicji (def to czysty tekst)`);
   }
-  for (const k of Object.keys(p)) if (!(k in zrodlo)) out.push(`${k}: klucz spoza źródła (termin bez def albo nieznany)`);
+  for (const k of Object.keys(p)) if (!Object.hasOwn(zrodlo, k)) out.push(`${k}: klucz spoza źródła (termin bez def albo nieznany)`);
   return out;
 }
 
