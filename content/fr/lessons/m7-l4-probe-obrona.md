@@ -113,7 +113,7 @@ drills:
     prompt: "Turn. L'adversaire {{t:bet|mise}} {{n:ex.bet.three-quarters}} dans un {{t:pot|pot}} de {{n:ex.pot}}. Quelle est la {{t:mdf}} ? Saisissez le nombre en pourcentage."
     table: { position: BB }
     answer: mdf.bet-three-quarters
-    explanation: "{{t:mdf}} = {{t:pot}} ÷ ({{t:pot}} + mise) = {{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:mdf.bet-three-quarters}}. Dans un exemple publié au turn, le solver défendait en moyenne près de la {{t:mdf}} ; {{t:out-of-position|hors de position}}, il arrive que vous défendiez moins (au flop comme au turn). Quand vous savez que l'adversaire {{t:bluff|bluffe}} moins souvent, vous vous {{t:fold|couchez}} plus souvent (le calcul est en M8, dans la leçon sur la façon d'attraper les {{t:bluff|bluffs}})."
+    explanation: "{{t:mdf}} = {{t:pot}} ÷ ({{t:pot}} + mise) = {{n:ex.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}}) = {{n:mdf.bet-three-quarters}}. Dans un exemple publié au turn, le solveur défendait en moyenne près de la {{t:mdf}} ; {{t:out-of-position|hors de position}}, il arrive que vous défendiez moins (au flop comme au turn). Quand vous savez que l'adversaire {{t:bluff|bluffe}} moins souvent, vous vous {{t:fold|couchez}} plus souvent (le calcul est en M8, dans la leçon sur la façon d'attraper les {{t:bluff|bluffs}})."
 ---
 Au turn, vous rencontrerez deux nouvelles situations : le Bouton n'a pas fait de c-bet et a {{t:check|checké}}, ou il a fait un c-bet et mise une deuxième fois. Dans la première, vous pouvez attaquer vous-même ; dans la seconde, vous défendez plus serré qu'au flop.
 
@@ -139,8 +139,8 @@ Quand vous avez {{t:call|suivi}} un c-bet et que le Bouton mise une deuxième fo
 - les mains sans outs et les {{t:pair|paires}} les plus faibles {{t:fold|se couchent}} plus souvent,
 - la {{t:top-pair}} {{t:call|suit}} généralement encore.
 
-La {{t:mdf}} reste le point de référence : face à une mise de 3/4 du {{t:pot|pot}}, elle vaut {{n:mdf.bet-three-quarters}}. Dans un exemple publié au turn, le solver défendait en moyenne près de cette valeur ; {{t:out-of-position|hors de position}}, il arrive que vous défendiez moins. Vous défendez aussi moins lorsque l'adversaire {{t:bluff|bluffe}} moins souvent que ne le suppose la {{t:mdf}}.
+La {{t:mdf}} reste le point de référence : face à une mise de 3/4 du {{t:pot|pot}}, elle vaut {{n:mdf.bet-three-quarters}}. Dans un exemple publié au turn, le solveur défendait en moyenne près de cette valeur ; {{t:out-of-position|hors de position}}, il arrive que vous défendiez moins. Vous défendez aussi moins lorsque l'adversaire {{t:bluff|bluffe}} moins souvent que ne le suppose la {{t:mdf}}.
 
 :::note D'où viennent ces règles
-Les règles du probe bet et de la défense contre un {{t:second-barrel|second barrel}} sont des heuristiques issues de supports de formation et d'analyses de solvers. La défense au turn proche de la {{t:mdf}} est illustrée par un exemple de solver publié. L'application n'indique pas de fréquences en pourcentage, car les sources diffèrent selon le board. Les chiffres sur les mains avec lesquelles les joueurs de micro-limites {{t:bet|misent}} en probe bet exigent une source décrivant la population (échantillon, {{t:stakes|limites}}, sites), c'est pourquoi ils ne figurent pas ici.
+Les règles du probe bet et de la défense contre un {{t:second-barrel|second barrel}} sont des heuristiques issues de supports de formation et d'analyses de solvers. La défense au turn proche de la {{t:mdf}} est illustrée par un exemple de solveur publié. L'application n'indique pas de fréquences en pourcentage, car les sources diffèrent selon le board. Les chiffres sur les mains avec lesquelles les joueurs de micro-limites {{t:bet|misent}} en probe bet exigent une source décrivant la population (échantillon, {{t:stakes|limites}}, sites), c'est pourquoi ils ne figurent pas ici.
 :::

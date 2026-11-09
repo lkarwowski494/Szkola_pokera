@@ -71,7 +71,7 @@ drills:
     prompt: "Você defende o {{t:big-blind}} contra a {{t:open|abertura}} do Button. No flop você {{t:check|dá check}}, e o Button {{t:bet|aposta}} 1/3 do {{t:pot|pote}} de c-bet. O que você faz?"
     table: { hand: "Kh 9h", board: "Jc Td 4s", position: BB }
     options:
-      - { text: "{{t:call|Pago}}", correct: true, why: "Você tem um gutshot para {{t:straight|sequência}} (dama) e um rei mais alto que a mesa. {{t:call|Pagar}} compra uma carta: você acerta o gutshot no turn em cerca de {{n:odds.gutshot.flop-turn}}, e o rei acrescenta alguns outs para {{t:top-pair|par mais alto}}. Somado, isso é menos que o preço de {{n:eq.bet-third}}, mas, ao acertar a {{t:straight|sequência}}, você ganha mais (implied odds), e o rei sozinho às vezes vence os {{t:bluff|blefes}} do Button. Contra uma c-bet pequena, isso basta para {{t:call|pagar}}." }
+      - { text: "{{t:call|Pago}}", correct: true, why: "Você tem um gutshot para {{t:straight|sequência}} (dama) e um rei mais alto que a mesa. {{t:call|Pagar}} compra uma carta: você acerta o gutshot no turn em cerca de {{n:odds.gutshot.flop-turn}}, e o rei acrescenta alguns outs para {{t:top-pair|top pair}}. Somado, isso é menos que o preço de {{n:eq.bet-third}}, mas, ao acertar a {{t:straight|sequência}}, você ganha mais (implied odds), e o rei sozinho às vezes vence os {{t:bluff|blefes}} do Button. Contra uma c-bet pequena, isso basta para {{t:call|pagar}}." }
       - { text: "{{t:fold|Desisto}}", why: "Apertado demais: {{t:draw|projeto}} mais carta alta é suficiente contra uma c-bet pequena." }
       - { text: "Check-raise all-in", why: "Você arrisca o stack inteiro com uma mão que ainda não tem nada. Esse tamanho expulsa as mãos mais fracas, e só as melhores pagam." }
   - kind: choice

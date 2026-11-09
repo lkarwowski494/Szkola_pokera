@@ -51,17 +51,17 @@ drills:
     id: m11.l2.q-76s
     family: m11.call.gap
     rules: [R-M11-007]
-    prompt: "À {{n:m11.depth.10}}, le solver fait all-in depuis la {{t:small-blind|petite blinde}} avec sept-six assortis (76s). Vous avez cette main en {{t:big-blind|grosse blinde}} et c'est la {{t:small-blind|petite blinde}} qui a fait all-in. Que faites-vous ?"
+    prompt: "À {{n:m11.depth.10}}, le solveur fait all-in depuis la {{t:small-blind|petite blinde}} avec sept-six assortis (76s). Vous avez cette main en {{t:big-blind|grosse blinde}} et c'est la {{t:small-blind|petite blinde}} qui a fait all-in. Que faites-vous ?"
     table: { hand: "7s 6s", position: BB }
     options:
-      - { text: "Je {{t:fold|me couche}}", correct: true, why: "L'all-in avec 76s est rentable surtout parce que l'adversaire {{t:fold|se couche}}. En {{t:call|suivant}}, vous ne gagnez qu'à l'abattage, et contre une {{t:range|range}} d'all-in qui contient beaucoup de hautes cartes et de {{t:pair|paires}}. Le solver {{t:fold|se couche}} avec cette main." }
+      - { text: "Je {{t:fold|me couche}}", correct: true, why: "L'all-in avec 76s est rentable surtout parce que l'adversaire {{t:fold|se couche}}. En {{t:call|suivant}}, vous ne gagnez qu'à l'abattage, et contre une {{t:range|range}} d'all-in qui contient beaucoup de hautes cartes et de {{t:pair|paires}}. Le solveur {{t:fold|se couche}} avec cette main." }
       - { text: "Je {{t:call|suis}}, car depuis la {{t:small-blind|petite blinde}} je ferais all-in avec", why: "Le {{t:call|call}} est une autre situation : vous n'avez pas de fold equity, et la {{t:range|range}} adverse est plus forte qu'une range aléatoire. Pour {{t:call|suivre}}, il vous faut une main plus forte." }
       - { text: "Je {{t:call|suis}}, car une main assortie se développe bien", why: "Après un all-in, il n'y a plus de jeu où la main pourrait se développer. Seule compte l'équité jusqu'à l'abattage." }
   - kind: choice
     id: m11.l2.q-22
     family: m11.call.depth
     rules: [R-M11-007]
-    prompt: "{{t:big-blind|Grosse blinde}}, la {{t:small-blind|petite blinde}} a fait all-in. Vous avez une {{t:pair|paire}} de deux. À {{n:m11.depth.10}}, le solver {{t:call|suit}}. Et à {{n:m11.depth.15}} ?"
+    prompt: "{{t:big-blind|Grosse blinde}}, la {{t:small-blind|petite blinde}} a fait all-in. Vous avez une {{t:pair|paire}} de deux. À {{n:m11.depth.10}}, le solveur {{t:call|suit}}. Et à {{n:m11.depth.15}} ?"
     table: { hand: "2d 2c", position: BB }
     options:
       - { text: "Il {{t:fold|se couche}}", correct: true, why: "À {{n:m11.depth.15}}, le prix monte à {{n:m11.call.15.eq}}, et la {{t:range|range}} d'all-in est plus serrée (env. {{n:m11.push.15}} mains), donc la {{t:pair|paire}} de deux tombe plus souvent sur une {{t:pair|paire}} supérieure. La {{t:range|range}} de {{t:call|call}} passe d'env. {{n:m11.call.10}} à env. {{n:m11.call.15}} mains." }
@@ -75,7 +75,7 @@ drills:
     options:
       - { text: "Celui qui suit n'a pas de fold equity et joue contre une {{t:range|range}} plus forte qu'une range aléatoire", correct: true, why: "Un all-in gagne aussi quand l'adversaire {{t:fold|se couche}}. Un {{t:call|call}} ne gagne qu'à l'abattage, et contre des mains déjà sélectionnées. D'où la vieille règle : pour {{t:call|suivre}}, il faut une meilleure main que pour faire all-in en premier." }
       - { text: "La {{t:big-blind|grosse blinde}} paie plus", why: "Les deux risquent le même stack, et la {{t:big-blind|BB}} a déjà sa blinde dans le {{t:pot|pot}}, elle ajoute donc même moins." }
-      - { text: "Le solver se trompe", why: "C'est l'équilibre d'un jeu où l'on fait all-in ou l'on {{t:fold|se couche}} : aucun joueur ne peut gagner plus en changeant seulement sa propre {{t:range|range}}. La différence vient de la fold equity." }
+      - { text: "Le solveur se trompe", why: "C'est l'équilibre d'un jeu où l'on fait all-in ou l'on {{t:fold|se couche}} : aucun joueur ne peut gagner plus en changeant seulement sa propre {{t:range|range}}. La différence vient de la fold equity." }
   - kind: choice
     id: m11.l2.q-ante
     family: m11.call.price
@@ -107,8 +107,8 @@ drills:
     prompt: "Trois joueurs, stacks de {{n:m11.depth.3max}} chacun. Le Bouton a fait all-in, la {{t:small-blind|petite blinde}} a {{t:call|suivi}}. En {{t:big-blind|grosse blinde}}, il ne vous faut que {{n:m11.3max.bb-two.eq}} d'équité. {{t:call|Suivez}}-vous plus large que lorsque le Bouton était seul à faire all-in ?"
     table: { position: BB }
     options:
-      - { text: "Non, plus serré", correct: true, why: "Le prix est meilleur, mais vous jouez contre deux {{t:range|ranges}}, dont celle du joueur qui a suivi et qui a une main forte. Le solver {{t:call|suit}} ici avec env. {{n:m11.3max.call.bb-two}} mains, et quand seul le Bouton est all-in, avec env. {{n:m11.3max.call.bb}}." }
-      - { text: "Oui, car le prix est bien meilleur", why: "Un meilleur prix ne suffit pas : contre deux adversaires, l'équité des mains plus faibles chute vite. Le solver ne {{t:call|suit}} qu'avec env. {{n:m11.3max.call.bb-two}} mains." }
+      - { text: "Non, plus serré", correct: true, why: "Le prix est meilleur, mais vous jouez contre deux {{t:range|ranges}}, dont celle du joueur qui a suivi et qui a une main forte. Le solveur {{t:call|suit}} ici avec env. {{n:m11.3max.call.bb-two}} mains, et quand seul le Bouton est all-in, avec env. {{n:m11.3max.call.bb}}." }
+      - { text: "Oui, car le prix est bien meilleur", why: "Un meilleur prix ne suffit pas : contre deux adversaires, l'équité des mains plus faibles chute vite. Le solveur ne {{t:call|suit}} qu'avec env. {{n:m11.3max.call.bb-two}} mains." }
       - { text: "Pareil, car seule votre main compte", why: "Ce qui compte, c'est l'équité face aux mains adverses. Celui qui suit l'all-in du Bouton a une {{t:range|range}} plus forte que le Bouton, vous {{t:call|suivez}} donc plus serré." }
 ---
 Quand un adversaire fait all-in et que vous êtes en {{t:big-blind|grosse blinde}}, la décision est simple dans sa forme : vous {{t:call|suivez}} ou vous vous {{t:fold|couchez}}. Après un {{t:call|call}}, il n'y a plus de jeu, donc seuls comptent le prix et votre équité face à la {{t:range|range}} d'all-in.
@@ -165,7 +165,7 @@ call.bb-vs-two-3max
 
 ## Avec une ante, vous {{t:call|suivez}} plus large
 
-L'ante reste dans le {{t:pot|pot}}, donc pour le même complément vous gagnez plus : à {{n:m11.depth.10}} avec une {{t:bb-ante|big blind ante}} de {{n:m11.ante}}, il vous faut {{n:m11.call.10-ante.eq}} au lieu de {{n:m11.call.10.eq}}. Avec une ante, l'adversaire {{t:shove|fait}} aussi {{t:shove|tapis}} plus large, donc le solver {{t:call|suit}} avec env. {{n:m11.call.10-ante}} mains.
+L'ante reste dans le {{t:pot|pot}}, donc pour le même complément vous gagnez plus : à {{n:m11.depth.10}} avec une {{t:bb-ante|big blind ante}} de {{n:m11.ante}}, il vous faut {{n:m11.call.10-ante.eq}} au lieu de {{n:m11.call.10.eq}}. Avec une ante, l'adversaire {{t:shove|fait}} aussi {{t:shove|tapis}} plus large, donc le solveur {{t:call|suit}} avec env. {{n:m11.call.10-ante}} mains.
 
 ```range
 call.bb-10-ante

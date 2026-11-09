@@ -32,9 +32,9 @@ drills:
     prompt: "Vous avez {{t:open|ouvert}} depuis le {{t:cutoff|CO}}, le Button a {{t:call|suivi}}, les blindes se sont {{t:fold|couchées}}. Vous avez {{t:top-pair|top paire}} avec le meilleur kicker sur un flop {{t:dry|sec}}. Vous parlez en premier. Que faites-vous ?"
     table: { hand: "Ah Kc", position: CO, board: "As 9h 4c" }
     options:
-      - { text: "{{t:check|Checker}} (pour {{t:call|suivre}} la {{t:bet|mise}} du Button)", correct: true, why: "Oui : le Button a {{t:call|suivi}} avec la {{t:position}}, sa {{t:range}} est donc forte, et sur ce flop le solver {{t:out-of-position|hors position}} {{t:check|checke}} presque toute sa {{t:range}}, y compris {{t:top-pair|top paire}} avec le meilleur kicker. Après avoir {{t:check|checké}}, vous {{t:call|suivez}} la {{t:bet|mise}} du Button." }
-      - { text: "C-bet de {{n:cbet.size.small}} du {{t:pot}}", why: "Trop souvent : dans cette configuration, le solver mise dans moins de {{n:cbet.oop.a94.bet}} des cas. Vous jouez {{t:top-pair|top paire}} avec le meilleur kicker en {{t:check|checkant}} et en {{t:call|suivant}}." }
-      - { text: "C-bet de {{n:cbet.size.big}} du {{t:pot}}", why: "Trop souvent : dans cette configuration, le solver mise dans moins de {{n:cbet.oop.a94.bet}} des cas. Vous jouez {{t:top-pair|top paire}} avec le meilleur kicker en {{t:check|checkant}} et en {{t:call|suivant}}." }
+      - { text: "{{t:check|Checker}} (pour {{t:call|suivre}} la {{t:bet|mise}} du Button)", correct: true, why: "Oui : le Button a {{t:call|suivi}} avec la {{t:position}}, sa {{t:range}} est donc forte, et sur ce flop le solveur {{t:out-of-position|hors position}} {{t:check|checke}} presque toute sa {{t:range}}, y compris {{t:top-pair|top paire}} avec le meilleur kicker. Après avoir {{t:check|checké}}, vous {{t:call|suivez}} la {{t:bet|mise}} du Button." }
+      - { text: "C-bet de {{n:cbet.size.small}} du {{t:pot}}", why: "Trop souvent : dans cette configuration, le solveur mise dans moins de {{n:cbet.oop.a94.bet}} des cas. Vous jouez {{t:top-pair|top paire}} avec le meilleur kicker en {{t:check|checkant}} et en {{t:call|suivant}}." }
+      - { text: "C-bet de {{n:cbet.size.big}} du {{t:pot}}", why: "Trop souvent : dans cette configuration, le solveur mise dans moins de {{n:cbet.oop.a94.bet}} des cas. Vous jouez {{t:top-pair|top paire}} avec le meilleur kicker en {{t:check|checkant}} et en {{t:call|suivant}}." }
       - { text: "{{t:fold|Se coucher}}", why: "Personne n'a encore {{t:bet|misé}}, donc {{t:fold|se coucher}} n'apporte rien : vous pouvez {{t:check|checker}} gratuitement (règle du module 1). Cette main, vous la jouez en {{t:check|checkant}} et en {{t:call|suivant}}." }
   - kind: choice
     id: m5.l4.q-multi
@@ -53,8 +53,8 @@ drills:
     prompt: "Vous avez {{t:open|ouvert}} depuis le {{t:cutoff|CO}}, le Button et la {{t:big-blind|grosse blinde}} ont {{t:call|suivi}}. La {{t:big-blind|grosse blinde}} {{t:check|checke}}. Vous avez {{t:top-pair|top paire}} avec un bon kicker. Que faites-vous ?"
     table: { hand: "Kd Qd", position: CO, board: "Ks 8c 3h" }
     options:
-      - { text: "{{t:check|Checker}}", correct: true, why: "Oui : dans un {{t:pot}} multiway sur un flop {{t:dry|sec}}, le solver {{t:check|checke}} très souvent, même avec des mains très fortes, car les deux joueurs qui ont {{t:call|suivi}} ont, ensemble, plus souvent touché le flop." }
-      - { text: "Miser {{t:value|pour la value}}", why: "Contre deux adversaires sur un flop {{t:dry|sec}}, le solver {{t:check|checke}} même avec une main très forte ; vous misez rarement et petit, surtout quand le flop touche bien votre {{t:range}}." }
+      - { text: "{{t:check|Checker}}", correct: true, why: "Oui : dans un {{t:pot}} multiway sur un flop {{t:dry|sec}}, le solveur {{t:check|checke}} très souvent, même avec des mains très fortes, car les deux joueurs qui ont {{t:call|suivi}} ont, ensemble, plus souvent touché le flop." }
+      - { text: "Miser {{t:value|pour la value}}", why: "Contre deux adversaires sur un flop {{t:dry|sec}}, le solveur {{t:check|checke}} même avec une main très forte ; vous misez rarement et petit, surtout quand le flop touche bien votre {{t:range}}." }
       - { text: "{{t:fold|Se coucher}}", why: "Personne n'a {{t:bet|misé}}, donc vous pouvez {{t:check|checker}} gratuitement. {{t:fold|Se coucher}} reviendrait à abandonner un {{t:pot}} dans lequel vous êtes probablement devant." }
   - kind: choice
     id: m5.l4.q-multi-math
@@ -103,5 +103,5 @@ Quand vous {{t:open|ouvrez}} depuis le {{t:cutoff|CO}} et que le Button {{t:call
 Chaque adversaire supplémentaire est une chance de plus que quelqu'un ait touché le flop. Une main sans {{t:pair|paire}} rate le flop dans env. {{n:flop.miss.unpaired}} des cas, mais deux en même temps seulement dans env. {{n:flop.miss.two}}. Un {{t:bluff}} doit passer tout le monde, donc contre plusieurs adversaires, vous renoncez surtout aux {{t:bluff|bluffs}}. Vous misez rarement et petit, surtout sur les flops qui touchent bien votre {{t:range}} ; sur un flop {{t:dry|sec}}, vous {{t:check|checkez}} souvent même avec une main très forte.
 
 :::note D'où viennent ces règles
-Les règles de cette leçon proviennent de résultats de solvers publiés (c-bet {{t:out-of-position|hors position}}, c-bet sur un flop avec un as et dans un {{t:pot}} multiway) et de supports de formation ({{t:pot}} multiway). Ce sont des heuristiques : l'application n'indique pas de fréquences en pourcentage. La probabilité que deux mains ratent en même temps est un calcul exact pour deux mains de quatre rangs différents ; il ne tient pas compte de vos cartes, comme le chiffre pour une seule main.
+Les règles de cette leçon proviennent de résultats de solveurs publiés (c-bet {{t:out-of-position|hors position}}, c-bet sur un flop avec un as et dans un {{t:pot}} multiway) et de supports de formation ({{t:pot}} multiway). Ce sont des heuristiques : l'application n'indique pas de fréquences en pourcentage. La probabilité que deux mains ratent en même temps est un calcul exact pour deux mains de quatre rangs différents ; il ne tient pas compte de vos cartes, comme le chiffre pour une seule main.
 :::

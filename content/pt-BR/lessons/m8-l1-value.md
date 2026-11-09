@@ -47,7 +47,7 @@ drills:
     prompt: "Você {{t:open|abriu}} do Button, e o {{t:big-blind}} {{t:call|pagou}}. Você apostou no flop e no turn e foi {{t:call|pago}} nas duas vezes. River, o {{t:big-blind}} {{t:check|passa}}. O que você faz?"
     table: { hand: "Ah Kd", board: "Ks 9c 4d 2h 7s", position: BTN }
     options:
-      - { text: "Aposto por {{t:value|valor}}", correct: true, why: "{{t:top-pair|Par mais alto}} com o melhor kicker. Um rival que {{t:call|pagou}} duas {{t:street|rodadas}} tem muitos reis mais fracos (KQ, KJ, KT) e noves, e havia poucos {{t:draw|projetos}} nesta {{t:board|mesa}}. Mãos piores vão pagar com muito mais frequência do que as melhores ({{t:two-pair|dois pares}}, sets). Normalmente o {{t:top-pair|par mais alto}} aguenta duas {{t:value|rodadas de valor}} (M9); aqui, uma terceira, porque o rival paga com reis mais fracos." }
+      - { text: "Aposto por {{t:value|valor}}", correct: true, why: "{{t:top-pair|Top pair}} com o melhor kicker. Um rival que {{t:call|pagou}} duas {{t:street|rodadas}} tem muitos reis mais fracos (KQ, KJ, KT) e noves, e havia poucos {{t:draw|projetos}} nesta {{t:board|mesa}}. Mãos piores vão pagar com muito mais frequência do que as melhores ({{t:two-pair|dois pares}}, sets). Normalmente o {{t:top-pair|top pair}} aguenta duas {{t:value|rodadas de valor}} (M9); aqui, uma terceira, porque o rival paga com reis mais fracos." }
       - { text: "{{t:check|Passo}}, porque o rival pode ter um set", why: "Pode, mas é raro. Ao {{t:check|passar}}, você perde a aposta de todos os reis mais fracos com que ele pagaria. Você conta quem vai {{t:call|pagar}}, e não se existe uma mão melhor." }
       - { text: "{{t:check|Passo}} para o rival blefar", why: "Um rival que {{t:call|pagou}} duas vezes tem principalmente {{t:pair|pares}} e raramente {{t:bluff|blefa}} depois que você {{t:check|passa}}. Você lucra com mais segurança apostando contra os reis mais fracos dele." }
   - kind: choice
@@ -64,7 +64,7 @@ drills:
     id: m8.l1.q-who-calls
     family: m8.value.concept
     rules: [R-M8-001, R-M8-003]
-    prompt: "Você {{t:open|abriu}} do Button, e o {{t:big-blind}} {{t:call|pagou}}. No flop você fez c-bet e foi {{t:call|pago}}; no turn, os dois {{t:check|passaram}}. River, o {{t:big-blind}} {{t:check|passa}}. Você tem {{t:top-pair|par mais alto}} com kicker dez. Quais mãos vão pagar uma aposta pequena e são piores que a sua?"
+    prompt: "Você {{t:open|abriu}} do Button, e o {{t:big-blind}} {{t:call|pagou}}. No flop você fez c-bet e foi {{t:call|pago}}; no turn, os dois {{t:check|passaram}}. River, o {{t:big-blind}} {{t:check|passa}}. Você tem {{t:top-pair|top pair}} com kicker dez. Quais mãos vão pagar uma aposta pequena e são piores que a sua?"
     table: { hand: "Qd Td", board: "Qs 8h 4c 3d 2s", position: BTN }
     options:
       - { text: "Oitos, quatros e damas com kicker mais fraco", correct: true, why: "Essas mãos pagaram o flop e têm {{t:pair|par}}, então muitas vezes vão pagar uma aposta pequena. Você perde para dama com kicker melhor, {{t:two-pair|dois pares}}, sets e {{t:straight|sequências}} (A5, 65), mas há mais {{t:call|pagamentos}} com mãos piores." }
@@ -74,7 +74,7 @@ drills:
     id: m8.l1.q-thin-size
     family: m8.value.size
     rules: [R-M8-003]
-    prompt: "Mesma situação: você tem {{t:top-pair|par mais alto}} com kicker dez, e o {{t:big-blind}} passa no river. Há {{n:ex.pot}} no {{t:pot|pote}}. O que você faz?"
+    prompt: "Mesma situação: você tem {{t:top-pair|top pair}} com kicker dez, e o {{t:big-blind}} passa no river. Há {{n:ex.pot}} no {{t:pot|pote}}. O que você faz?"
     table: { hand: "Qd Td", board: "Qs 8h 4c 3d 2s", position: BTN }
     options:
       - { text: "Aposta de {{n:ex.bet.quarter}}, ou seja, 1/4 do {{t:pot|pote}}", correct: true, why: "Thin value: você ganha de pouco mais da metade das mãos que vão pagar. Oitos, quatros e damas mais fracas vão {{t:call|pagar}} uma aposta pequena, então continua havendo mais {{t:call|pagamentos}} com mãos piores do que com melhores." }
@@ -126,7 +126,7 @@ Quando o rival pode {{t:raise|aumentar}} e você teria que {{t:fold|desistir}} n
 
 ## Thin value: pouco, mas pago
 
-Thin value (valor fino) é uma aposta com uma mão que ganha de pouco mais da metade dos {{t:call|pagamentos}}, por exemplo {{t:top-pair|par mais alto}} com kicker médio. Essa aposta você faz **menor** do que com uma mão forte, geralmente cerca de 1/4–1/2 do {{t:pot|pote}}: uma aposta pequena também é paga por {{t:pair|pares}} mais fracos, mas diante de uma grande eles vão {{t:fold|desistir}} e só vão sobrar mãos melhores.
+Thin value (valor fino) é uma aposta com uma mão que ganha de pouco mais da metade dos {{t:call|pagamentos}}, por exemplo {{t:top-pair|top pair}} com kicker médio. Essa aposta você faz **menor** do que com uma mão forte, geralmente cerca de 1/4–1/2 do {{t:pot|pote}}: uma aposta pequena também é paga por {{t:pair|pares}} mais fracos, mas diante de uma grande eles vão {{t:fold|desistir}} e só vão sobrar mãos melhores.
 
 Isto é uma simplificação: sem risco de check-raise, o solver faz thin value com apostas de até cerca de 1/4 do {{t:pot|pote}}, e com esse risco, com {{t:position|posição}}, raramente fica abaixo de 1/2 do {{t:pot|pote}}.
 

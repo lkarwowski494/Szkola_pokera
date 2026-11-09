@@ -3,14 +3,14 @@ id: m11.l2
 module: m11
 order: 2
 title: "跟注全下"
-sub: "你需要多少勝率，以及為什麼跟注要更緊"
+sub: "你需要多少權益，以及為什麼跟注要更緊"
 rules: [R-M11-006, R-M11-007, R-M11-012]
 drills:
   - kind: numeric
     id: m11.l2.n-price-10
     family: m11.call.price
     rules: [R-M11-006]
-    prompt: "你在{{t:big-blind|大盲}}位，有 {{n:m11.depth.10}}，沒有前注。{{t:small-blind|小盲}}全下 {{n:m11.depth.10}}。你需要百分之多少的勝率，{{t:call|跟注}}才有利可圖？請輸入數字。"
+    prompt: "你在{{t:big-blind|大盲}}位，有 {{n:m11.depth.10}}，沒有前注。{{t:small-blind|小盲}}全下 {{n:m11.depth.10}}。你需要百分之多少的權益，{{t:call|跟注}}才有利可圖？請輸入數字。"
     table: { position: BB }
     answer: m11.call.10.eq
     explanation: "你的盲注已經在{{t:pot|底池}}裡，所以你只要補 {{n:m11.call.10.cost}}。{{t:call|跟注}}後{{t:pot|底池}}有 {{n:m11.call.10.pot}}：{{n:m11.call.10.cost}} ÷ {{n:m11.call.10.pot}} = {{n:m11.call.10.eq}}。"
@@ -18,7 +18,7 @@ drills:
     id: m11.l2.q-price-5
     family: m11.call.price
     rules: [R-M11-006]
-    prompt: "同樣的局面，但雙方籌碼都是 {{n:m11.depth.5}}。你需要多少勝率才能{{t:call|跟注}}全下？"
+    prompt: "同樣的局面，但雙方籌碼都是 {{n:m11.depth.5}}。你需要多少權益才能{{t:call|跟注}}全下？"
     table: { position: BB }
     options:
       - { text: "{{n:m11.call.5.eq}}", correct: true, why: "你補 {{n:m11.call.5.cost}} 進{{t:pot|底池}}，{{t:call|跟注}}後底池有 {{n:m11.call.5.pot}}：{{n:m11.call.5.eq}}。籌碼越短，盲注占籌碼的比例越大，所以價格越好。" }
@@ -28,7 +28,7 @@ drills:
     id: m11.l2.q-price-15
     family: m11.call.price
     rules: [R-M11-006]
-    prompt: "雙方籌碼都是 {{n:m11.depth.15}}，{{t:small-blind|小盲}}全下。你需要多少勝率才能{{t:call|跟注}}？"
+    prompt: "雙方籌碼都是 {{n:m11.depth.15}}，{{t:small-blind|小盲}}全下。你需要多少權益才能{{t:call|跟注}}？"
     table: { position: BB }
     options:
       - { text: "{{n:m11.call.15.eq}}", correct: true, why: "你補 {{n:m11.call.15.cost}} 進 {{n:m11.call.15.pot}} 的{{t:pot|底池}}：{{n:m11.call.15.eq}}。籌碼越深，越接近一半。" }
@@ -56,7 +56,7 @@ drills:
     options:
       - { text: "{{t:fold|棄牌}}", correct: true, why: "用 76s 全下之所以有利，主要是靠對手{{t:fold|棄牌}}。{{t:call|跟注}}時，你只能在攤牌時獲勝，而且面對的是有很多高牌和{{t:pair|對子}}的全下{{t:range|範圍}}。求解器會{{t:fold|棄掉}}這手牌。" }
       - { text: "{{t:call|跟注}}，因為我在{{t:small-blind|小盲}}位也會用它全下", why: "{{t:call|跟注}}是另一種情況：你沒有棄牌收益，而對手的{{t:range|範圍}}比隨機牌更強。{{t:call|跟注}}需要更強的手牌。" }
-      - { text: "{{t:call|跟注}}，因為同花牌發展性好", why: "全下之後就沒有後續行動，手牌沒有機會發展。只看到攤牌為止的勝率。" }
+      - { text: "{{t:call|跟注}}，因為同花牌發展性好", why: "全下之後就沒有後續行動，手牌沒有機會發展。只看到攤牌為止的權益。" }
   - kind: choice
     id: m11.l2.q-22
     family: m11.call.depth
@@ -80,7 +80,7 @@ drills:
     id: m11.l2.q-ante
     family: m11.call.price
     rules: [R-M11-006]
-    prompt: "這局有{{t:bb-ante|大盲前注}}。你在{{t:big-blind|大盲}}位，有 {{n:m11.depth.10}}，並付了 {{n:m11.ante}} 的前注。{{t:small-blind|小盲}}全下。你需要多少勝率才能{{t:call|跟注}}？"
+    prompt: "這局有{{t:bb-ante|大盲前注}}。你在{{t:big-blind|大盲}}位，有 {{n:m11.depth.10}}，並付了 {{n:m11.ante}} 的前注。{{t:small-blind|小盲}}全下。你需要多少權益才能{{t:call|跟注}}？"
     table: { position: BB }
     options:
       - { text: "{{n:m11.call.10-ante.eq}}", correct: true, why: "你補的金額一樣（{{n:m11.call.10.cost}}），但{{t:pot|底池}}裡還有前注：{{t:call|跟注}}後是 {{n:m11.call.10-ante.pot}}。{{n:m11.call.10.cost}} ÷ {{n:m11.call.10-ante.pot}} = {{n:m11.call.10-ante.eq}}。所以有前注時你{{t:call|跟注}}更寬：約 {{n:m11.call.10-ante}} 的手牌，而不是 {{n:m11.call.10}}。" }
@@ -104,24 +104,24 @@ drills:
     id: m11.l2.q-overcall
     family: m11.call.3max
     rules: [R-M11-012]
-    prompt: "三名玩家，每人籌碼 {{n:m11.depth.3max}}。按鈕位全下，{{t:small-blind|小盲}}{{t:call|跟注}}。你在{{t:big-blind|大盲}}位只需要 {{n:m11.3max.bb-two.eq}} 的勝率。你會比只有按鈕位全下時{{t:call|跟注}}得更寬嗎？"
+    prompt: "三名玩家，每人籌碼 {{n:m11.depth.3max}}。按鈕位全下，{{t:small-blind|小盲}}{{t:call|跟注}}。你在{{t:big-blind|大盲}}位只需要 {{n:m11.3max.bb-two.eq}} 的權益。你會比只有按鈕位全下時{{t:call|跟注}}得更寬嗎？"
     table: { position: BB }
     options:
       - { text: "不會，要更緊", correct: true, why: "價格更好，但你面對兩個{{t:range|範圍}}，其中包括一個拿著強牌的跟注者。求解器在這裡用約 {{n:m11.3max.call.bb-two}} 的手牌{{t:call|跟注}}，而只有按鈕位全下時約為 {{n:m11.3max.call.bb}}。" }
-      - { text: "會，因為價格好很多", why: "價格更好還不夠：面對兩個對手，較弱手牌的勝率下降得很快。求解器只用約 {{n:m11.3max.call.bb-two}} 的手牌{{t:call|跟注}}。" }
-      - { text: "一樣，因為只看你自己的手牌", why: "重要的是你對上對手手牌的勝率。跟注按鈕位全下的玩家，{{t:range|範圍}}比按鈕位更強，所以你要{{t:call|跟注}}得更緊。" }
+      - { text: "會，因為價格好很多", why: "價格更好還不夠：面對兩個對手，較弱手牌的權益下降得很快。求解器只用約 {{n:m11.3max.call.bb-two}} 的手牌{{t:call|跟注}}。" }
+      - { text: "一樣，因為只看你自己的手牌", why: "重要的是你對上對手手牌的權益。跟注按鈕位全下的玩家，{{t:range|範圍}}比按鈕位更強，所以你要{{t:call|跟注}}得更緊。" }
 ---
-當對手全下而你在{{t:big-blind|大盲}}位時，決定在形式上很簡單：{{t:call|跟注}}或{{t:fold|棄牌}}。{{t:call|跟注}}之後就沒有後續行動，所以只看價格，以及你對上全下{{t:range|範圍}}的勝率。
+當對手全下而你在{{t:big-blind|大盲}}位時，決定在形式上很簡單：{{t:call|跟注}}或{{t:fold|棄牌}}。{{t:call|跟注}}之後就沒有後續行動，所以只看價格，以及你對上全下{{t:range|範圍}}的權益。
 
 ## {{t:call|跟注}}的價格
 
 你的盲注已經在{{t:pot|底池}}裡。籌碼為 {{n:m11.depth.10}} 時，你補 {{n:m11.call.10.cost}}，{{t:call|跟注}}後{{t:pot|底池}}有 {{n:m11.call.10.pot}}。
 
 ```formula
-所需勝率 = 補注金額 ÷ 跟注後的底池
+所需權益 = 補注金額 ÷ 跟注後的底池
 ```
 
-| 籌碼 | 補注金額 | {{t:call|跟注}}後的{{t:pot|底池}} | 所需勝率 |
+| 籌碼 | 補注金額 | {{t:call|跟注}}後的{{t:pot|底池}} | 所需權益 |
 |---|---|---|---|
 | {{n:m11.depth.5}} | {{n:m11.call.5.cost}} | {{n:m11.call.5.pot}} | {{n:m11.call.5.eq}} |
 | {{n:m11.depth.10}} | {{n:m11.call.10.cost}} | {{n:m11.call.10.pot}} | {{n:m11.call.10.eq}} |
@@ -137,7 +137,7 @@ drills:
 call.bb-10
 ```
 
-在 {{n:m11.depth.10}} 時，{{t:small-blind|小盲}}用約 {{n:m11.push.10}} 的手牌全下，而{{t:big-blind|大盲}}用約 {{n:m11.call.10}} {{t:call|跟注}}。像 [[7s 6s]] 這樣的手牌，你在{{t:small-blind|小盲}}位會{{t:shove|推全下}}，但面對全下時要{{t:fold|棄掉}}：沒有棄牌收益，它們對上高牌和{{t:pair|對子}}的勝率太低。作為比較，某訓練網站的表格在 {{n:m11.depth.10}} 時給出的{{t:call|跟注}}{{t:range|範圍}}是 {{n:m11.ext.call.10}}。
+在 {{n:m11.depth.10}} 時，{{t:small-blind|小盲}}用約 {{n:m11.push.10}} 的手牌全下，而{{t:big-blind|大盲}}用約 {{n:m11.call.10}} {{t:call|跟注}}。像 [[7s 6s]] 這樣的手牌，你在{{t:small-blind|小盲}}位會{{t:shove|推全下}}，但面對全下時要{{t:fold|棄掉}}：沒有棄牌收益，它們對上高牌和{{t:pair|對子}}的權益太低。作為比較，某訓練網站的表格在 {{n:m11.depth.10}} 時給出的{{t:call|跟注}}{{t:range|範圍}}是 {{n:m11.ext.call.10}}。
 
 ```range
 call.bb-15
@@ -151,13 +151,13 @@ call.bb-5
 
 ## 當你後面還有人
 
-三名玩家、每人籌碼 {{n:m11.depth.3max}} 時，{{t:small-blind|小盲}}只用約 {{n:m11.3max.call.sb}} 的手牌{{t:call|跟注}}按鈕位的全下，儘管他只需要 {{n:m11.3max.sb.eq}} 的勝率。在同樣情況下，當{{t:small-blind|小盲}}已經{{t:fold|棄牌}}，{{t:big-blind|大盲}}補 {{n:m11.3max.bb.cost}} 進 {{n:m11.3max.bb.pot}} 的{{t:pot|底池}}，需要 {{n:m11.3max.bb.eq}} 的勝率，並用約 {{n:m11.3max.call.bb}} {{t:call|跟注}}。差別主要來自你後面的玩家（價格差異不大）：{{t:small-blind|小盲}}{{t:call|跟注}}後，可能碰上{{t:big-blind|大盲}}更強的手牌。
+三名玩家、每人籌碼 {{n:m11.depth.3max}} 時，{{t:small-blind|小盲}}只用約 {{n:m11.3max.call.sb}} 的手牌{{t:call|跟注}}按鈕位的全下，儘管他只需要 {{n:m11.3max.sb.eq}} 的權益。在同樣情況下，當{{t:small-blind|小盲}}已經{{t:fold|棄牌}}，{{t:big-blind|大盲}}補 {{n:m11.3max.bb.cost}} 進 {{n:m11.3max.bb.pot}} 的{{t:pot|底池}}，需要 {{n:m11.3max.bb.eq}} 的權益，並用約 {{n:m11.3max.call.bb}} {{t:call|跟注}}。差別主要來自你後面的玩家（價格差異不大）：{{t:small-blind|小盲}}{{t:call|跟注}}後，可能碰上{{t:big-blind|大盲}}更強的手牌。
 
 ```range
 call.sb-vs-btn-3max
 ```
 
-當已經有兩名玩家全下時，價格降到 {{n:m11.3max.bb-two.eq}}，但{{t:big-blind|大盲}}仍只用約 {{n:m11.3max.call.bb-two}} 的手牌{{t:call|跟注}}。面對兩個{{t:range|範圍}}，而且其中一個已經{{t:call|跟注}}全下，較弱的手牌勝率下降得很快。
+當已經有兩名玩家全下時，價格降到 {{n:m11.3max.bb-two.eq}}，但{{t:big-blind|大盲}}仍只用約 {{n:m11.3max.call.bb-two}} 的手牌{{t:call|跟注}}。面對兩個{{t:range|範圍}}，而且其中一個已經{{t:call|跟注}}全下，較弱的手牌權益下降得很快。
 
 ```range
 call.bb-vs-two-3max

@@ -96,5 +96,5 @@ drills:
     table: { position: BTN, board: "Jd 7d 2d" }
     options:
       - { text: "Petite", correct: true, why: "Oui : n'importe quel joueur peut déjà avoir une {{t:flush}}, donc votre {{t:nuts-advantage}} est plus petit. Sur un flop {{t:monotone}}, vous misez moins souvent que d'habitude et avec une petite taille, pour ne pas construire un gros {{t:pot}} contre une couleur." }
-      - { text: "Grosse, car le flop est {{t:wet}}", why: "« {{t:wet|Humide}} » ne veut pas dire « grosse mise ». La taille plus grosse concerne les flops {{t:wet|humides}} qui ne sont pas {{t:monotone|monotones}}. Sur un flop {{t:monotone}}, un gros {{t:pot}} est dangereux, car l'adversaire peut avoir une {{t:flush}} déjà faite." }
+      - { text: "Grosse, car le flop est {{t:wet}}", why: "« {{t:wet|Wet}} » ne veut pas dire « grosse mise ». La taille plus grosse concerne les flops {{t:wet|wet}} qui ne sont pas {{t:monotone|monotones}}. Sur un flop {{t:monotone}}, un gros {{t:pot}} est dangereux, car l'adversaire peut avoir une {{t:flush}} déjà faite." }
       - { text: "Tout le {{t:pot}}, pour que les {{t:draw|tirages}} paient cher", why: "Sur un flop {{t:monotone}}, le plus dangereux, ce ne sont pas les {{t:draw|tirages}}, mais les couleurs déjà faites de l'adversaire. Une mise de la taille du {{t:pot}} risque le plus justement contre elles." }

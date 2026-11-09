@@ -44,7 +44,7 @@ drills:
     table: { hand: "Ac Kh", board: "Ks 9d 4c", position: BTN }
     options:
       - { text: "兩次各約 {{n:geo.4bet.2}} {{t:pot|底池}}的{{t:bet|下注}}：轉牌時整個籌碼投入", correct: true, why: "沒錯：{{t:spr}}約 {{n:spr.4bet}} 時，兩條{{t:street|街}}就足以投入整個籌碼。在這裡，{{t:top-pair|頂對}}的兩條街{{t:value|價值}}就等於為整個籌碼而戰。" }
-      - { text: "小額{{t:bet}}，面對全下就{{t:fold}}", why: "{{t:spr}}約 {{n:spr.4bet}} 時，拿帶 A 的{{t:top-pair|頂對}}面對全下{{t:fold}}會放棄太多：你只需要約 {{n:eq.jam.4bet}} 的勝率，自己{{t:bet|下注}}之後需要的更少。" }
+      - { text: "小額{{t:bet}}，面對全下就{{t:fold}}", why: "{{t:spr}}約 {{n:spr.4bet}} 時，拿帶 A 的{{t:top-pair|頂對}}面對全下{{t:fold}}會放棄太多：你只需要約 {{n:eq.jam.4bet}} 的權益，自己{{t:bet|下注}}之後需要的更少。" }
       - { text: "每條{{t:street|街}}都{{t:check|過牌}}，以控制{{t:pot|底池}}", why: "控制{{t:pot|底池}}在{{t:spr}}高時才有意義。這裡{{t:pot}}相對於籌碼已經很大，而較差的牌（AQ、QQ、JJ）很樂意投入剩下的籌碼。" }
   - kind: choice
     id: m9.l4.q-line-3bet

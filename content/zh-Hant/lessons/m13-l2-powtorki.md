@@ -46,20 +46,20 @@ drills:
     id: m13.l2.q-vpip
     family: m13.sample
     rules: [R-M13-004, R-M10-003]
-    prompt: "一場幾十手牌的{{t:session|牌局}}結束後，你算出自己在將近一半的手牌中入池。這代表什麼？"
+    prompt: "一場幾十手牌的{{t:session|場次}}結束後，你算出自己在將近一半的手牌中入池。這代表什麼？"
     options:
-      - { text: "目前還看不出什麼：樣本太小", correct: true, why: "就連 {{t:vpip}} 也要在大約 {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} 手牌後才能解讀。從一場{{t:session|牌局}}，你能評估單一決策，但無法評估自己的頻率。" }
+      - { text: "目前還看不出什麼：樣本太小", correct: true, why: "就連 {{t:vpip}} 也要在大約 {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} 手牌後才能解讀。從一個{{t:session|場次}}，你能評估單一決策，但無法評估自己的頻率。" }
       - { text: "你打得太鬆，需要改", why: "也許是，也許不是：幾十手牌太少，分不出是你的風格還是發牌的分布。去看每一次入池決策的評分。" }
       - { text: "你打得很好，因為贏了很多手", why: "結果無法說明決策品質，而一場 {{t:session}} 也無法說明頻率。" }
   - kind: choice
     id: m13.l2.q-opps
     family: m13.sample
     rules: [R-M13-004]
-    prompt: "在一場{{t:session|牌局}}中你兩次面對 4-bet，兩次都{{t:fold|棄牌}}。你現在能確定自己面對 4-bet {{t:fold|棄牌}}太頻繁嗎？"
+    prompt: "在一個{{t:session|場次}}中你兩次面對 4-bet，兩次都{{t:fold|棄牌}}。你現在能確定自己面對 4-bet {{t:fold|棄牌}}太頻繁嗎？"
     options:
       - { text: "不能：要看的是機會次數，兩次太少", correct: true, why: "有一位教練要到大約 {{n:hud.opps.look}} 次機會才會看這項統計，到大約 {{n:hud.opps.sure}} 次才有把握。兩次機會只是雜訊；這些決策要逐一評估。" }
       - { text: "能：你在任何情況下都{{t:fold|棄牌}}", why: "兩次中兩次看起來像「總是」，但只有兩次機會時，即使是一半時候{{t:fold|棄牌}}的策略，也常會得到這種結果。" }
-      - { text: "能，如果是在同一場{{t:session|牌局}}中", why: "一場 {{t:session}} 不會改變什麼：機會次數仍然很少。" }
+      - { text: "能，如果是在同一個{{t:session|場次}}中", why: "一場 {{t:session}} 不會改變什麼：機會次數仍然很少。" }
   - kind: choice
     id: m13.l2.q-area
     family: m13.cards
@@ -67,7 +67,7 @@ drills:
     prompt: "「翻牌：c-bet」遊戲區域什麼時候解鎖？"
     options:
       - { text: "完成這個單元的所有課程後", correct: true, why: "對：這個區域只發出單元中的情境，所以要等你學會它的規則才會解鎖。自由對局從一開始就能使用。" }
-      - { text: "贏了幾場{{t:session|牌局}}後", why: "{{t:chips|籌碼}}輸贏不會解鎖任何東西：那主要是雜訊。" }
+      - { text: "贏了幾個{{t:session|場次}}後", why: "{{t:chips|籌碼}}輸贏不會解鎖任何東西：那主要是雜訊。" }
       - { text: "立刻，和自由對局一樣", why: "自由對局從第一天就能使用，區域則要等上完單元的課程才會開放。" }
 ---
 報告中的每個錯誤，都會在複習中回到你面前。這堂課說明它怎麼運作。
@@ -88,9 +88,9 @@ drills:
 
 一個遊戲區域就是課程中的一個單元。完成該單元的所有課程後就會解鎖，而且只發出這個單元中的情境，例如 Button {{t:open|開池}}後的 c-bet。你可以從報告直接前往錯誤最多的區域。
 
-## 一場{{t:session|牌局}}不是統計
+## 一個{{t:session|場次}}不是統計
 
-報告不會顯示你的頻率，例如你多常入池。就連 {{t:vpip}} 也要在大約 {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} 手牌後才能解讀，而少見的情境在一場{{t:session|牌局}}中只會出現幾次。有一位教練建議計算機會次數，而不是手牌數：他在大約 {{n:hud.opps.look}} 次機會時開始看統計，到大約 {{n:hud.opps.sure}} 次才有把握。
+報告不會顯示你的頻率，例如你多常入池。就連 {{t:vpip}} 也要在大約 {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} 手牌後才能解讀，而少見的情境在一個{{t:session|場次}}中只會出現幾次。有一位教練建議計算機會次數，而不是手牌數：他在大約 {{n:hud.opps.look}} 次機會時開始看統計，到大約 {{n:hud.opps.sure}} 次才有把握。
 
 :::note 這些規則的來源
 花色互換是精確計算：牌型排名不區分花色。手牌樣本與{{t:exploit|剝削}}單元相同（兩份訓練教材）；機會次數：一份關於 {{t:hud|HUD}} 統計樣本大小的訓練教材。複習門檻是 App 的設定，沒有來源。

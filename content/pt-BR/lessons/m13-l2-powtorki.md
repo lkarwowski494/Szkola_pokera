@@ -55,10 +55,10 @@ drills:
     id: m13.l2.q-opps
     family: m13.sample
     rules: [R-M13-004]
-    prompt: "Em uma {{t:session|sessão}}, você enfrentou um 4-bet duas vezes e {{t:fold|foldou}} nas duas. Você já sabe que {{t:fold|folda}} para 4-bet com frequência demais?"
+    prompt: "Em uma {{t:session|sessão}}, você enfrentou um 4-bet duas vezes e {{t:fold|desistiu}} nas duas. Você já sabe que {{t:fold|desiste}} diante de 4-bet com frequência demais?"
     options:
       - { text: "Não: o que conta são as oportunidades, e duas são poucas demais", correct: true, why: "Um dos treinadores só olha a estatística a partir de cerca de {{n:hud.opps.look}} oportunidades e ganha confiança com cerca de {{n:hud.opps.sure}}. Duas oportunidades são ruído; você avalia cada uma dessas decisões separadamente." }
-      - { text: "Sim: você {{t:fold|folda}} em toda situação", why: "Duas em duas parece “sempre”, mas, com duas oportunidades, até uma estratégia que {{t:fold|folda}} em metade dos casos muitas vezes dá esse resultado." }
+      - { text: "Sim: você {{t:fold|desiste}} em toda situação", why: "Duas em duas parece “sempre”, mas, com duas oportunidades, até uma estratégia que {{t:fold|desiste}} em metade dos casos muitas vezes dá esse resultado." }
       - { text: "Sim, se foi em uma única {{t:session|sessão}}", why: "Uma {{t:session}} não acrescenta nada: o número de oportunidades continua pequeno." }
   - kind: choice
     id: m13.l2.q-area

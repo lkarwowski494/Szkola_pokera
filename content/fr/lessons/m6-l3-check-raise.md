@@ -14,7 +14,7 @@ drills:
     table: { hand: "6c 5c", board: "7h 6d 5s", position: BB }
     options:
       - { text: "Check-raise", correct: true, why: "Une {{t:two-pair|double paire}} sur un flop bas et {{t:connected|connecté}} est une main à jouer {{t:value|pour la value}}. Sur ces flops, la {{t:big-blind|grosse blinde}} a plus de combinaisons très fortes que le Bouton. En {{t:raise|relançant}}, vous construisez le {{t:pot}} et faites payer les {{t:pair|paires}} et les {{t:draw|tirages}}." }
-      - { text: "{{t:call|Suivre}}", correct: true, why: "Bien aussi : sur un flop très {{t:connected|connecté}}, le solver se contente de {{t:call|suivre}} avec une partie des {{t:two-pair|doubles paires}}. Le check-raise construit plus souvent le {{t:pot}} et protège la main." }
+      - { text: "{{t:call|Suivre}}", correct: true, why: "Bien aussi : sur un flop très {{t:connected|connecté}}, le solveur se contente de {{t:call|suivre}} avec une partie des {{t:two-pair|doubles paires}}. Le check-raise construit plus souvent le {{t:pot}} et protège la main." }
       - { text: "{{t:fold|Se coucher}}", why: "Une {{t:two-pair|double paire}} est l'une des mains les plus fortes sur ce flop. {{t:fold|Se coucher}} est une grosse erreur." }
   - kind: choice
     id: m6.l3.q-set-size
@@ -80,7 +80,7 @@ drills:
     table: { hand: "Kd 9c", board: "Ks 7d 2c", position: BB }
     options:
       - { text: "{{t:call|Suivre}}", correct: true, why: "Une {{t:top-pair|top paire}} avec un kicker faible est une main pour {{t:call|suivre}}. Elle bat les {{t:bluff|bluffs}} du Bouton, et en {{t:call|suivant}}, vous les maintenez dans le coup." }
-      - { text: "Check-raise", why: "En général, vous {{t:call|suivez}}. Après une {{t:raise|relance}}, ce sont surtout des mains meilleures et des {{t:draw|tirages}} qui vous paient ; le check-raise avec une telle main est un coup rare du solver face aux petits c-bets." }
+      - { text: "Check-raise", why: "En général, vous {{t:call|suivez}}. Après une {{t:raise|relance}}, ce sont surtout des mains meilleures et des {{t:draw|tirages}} qui vous paient ; le check-raise avec une telle main est un coup rare du solveur face aux petits c-bets." }
       - { text: "{{t:fold|Se coucher}}", why: "Une {{t:top-pair|top paire}} face à un petit c-bet, c'est nettement trop fort pour {{t:fold|se coucher}}." }
   - kind: choice
     id: m6.l3.q-ace-high-board
@@ -122,7 +122,7 @@ Vous faites un check-raise pour deux raisons :
 - **{{t:value|pour la value}}** : vous avez une main très forte ({{t:two-pair|double paire}}, set) et voulez construire le {{t:pot}},
 - **en {{t:semi-bluff}}** : vous avez un {{t:draw|tirage}} ({{t:flush|couleur}}, {{t:oesd|tirage quinte bilatéral}}) qui gagne de deux façons : quand le Bouton {{t:fold|se couche}} ou quand vous touchez.
 
-Avec les mains moyennes, par exemple une {{t:top-pair|top paire}} avec un kicker faible, vous {{t:call|suivez}} en général : après une {{t:raise|relance}}, les mains plus faibles du Bouton {{t:fold|se coucheront}} plus souvent, et les meilleures paieront. C'est une simplification : face aux petits c-bets, le solver {{t:raise|relance}} aussi une partie des {{t:top-pair|top paires}} et des {{t:pair|paires}} faibles pour se protéger. À l'inverse, avec une {{t:two-pair|double paire}} sur un flop très {{t:connected|connecté}}, le solver se contente souvent de {{t:call|suivre}}.
+Avec les mains moyennes, par exemple une {{t:top-pair|top paire}} avec un kicker faible, vous {{t:call|suivez}} en général : après une {{t:raise|relance}}, les mains plus faibles du Bouton {{t:fold|se coucheront}} plus souvent, et les meilleures paieront. C'est une simplification : face aux petits c-bets, le solveur {{t:raise|relance}} aussi une partie des {{t:top-pair|top paires}} et des {{t:pair|paires}} faibles pour se protéger. À l'inverse, avec une {{t:two-pair|double paire}} sur un flop très {{t:connected|connecté}}, le solveur se contente souvent de {{t:call|suivre}}.
 
 ## Quand plus souvent
 

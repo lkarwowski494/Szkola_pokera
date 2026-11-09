@@ -961,7 +961,7 @@
 - id: R-M12-002
   module: m12
   if: "你遭遇 {{n:dd.bi.small}} 個{{t:buy-in|買入}}的{{t:downswing|下風期}}"
-  then: "你不把它當成打得差的證據，而是檢查輸掉的那些牌局中的決策"
+  then: "你不把它當成打得差的證據，而是檢視輸掉的那些手牌中的決策"
   because: "在 {{n:var.hands.k}} 千手牌中，贏率 {{n:var.wr.ex}}（SD {{n:var.sd}}）的玩家，約有 {{n:dd.p.small.100k}} 會遭遇從高點下滑這麼多的{{t:downswing|下風期}}"
   level: heuristic
   source: "計算：蒙地卡羅模擬（numbers.yaml，鍵 dd.*）；撲克計算器網站，Examples and Impacts of Variance in Cash Games，對此情境給出的數字較低（M12 報告）"
@@ -993,7 +993,7 @@
 - id: R-M12-006
   module: m12
   if: "你注意到自己檔案中情緒失控（tilt）的第一個徵兆（例如被爆冷後生氣、想懲罰對手）"
-  then: "你立刻反應：深呼吸，再加上一句事先準備好的話，提醒自己為什麼這是{{t:variance|波動}}，或是可以學習的錯誤"
+  then: "你立刻反應：深呼吸，再加上一句事先準備好的話，提醒自己為什麼這是{{t:variance|變異數}}，或是可以學習的錯誤"
   because: "情緒失控一旦加劇，你就無法清楚思考，這時就再也控制不住了"
   level: heuristic
   source: "Tendler，新聞網站訪談（2014）（「When tilt becomes too intense, it shuts down your ability to think」，「you must begin correcting tilt when it's small」）；Tendler 與 Carter，The Mental Game of Poker（2011），「injecting logic」技巧"

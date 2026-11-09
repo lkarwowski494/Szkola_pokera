@@ -1,0 +1,152 @@
+#!/usr/bin/env node
+// Ujednolicenie form terminów poza próbą przeglądu (rola 09, sesja AH, 2026-11-09, D-391).
+// Źródło reguł: plan-pt-BR-fr.md §3.5 (fr, pt-BR), terms-nazwy zh-Hant (wiersze [AB: … ujednolicić]),
+// przeglad-ja-zh-Hant J2/Z2/Z3 (勝率 = equity). Zapisuje do content/<j>/ i drukuje raport zamian.
+//
+//   node docs/lokalizacja/narzedzia/ujednolic-formy.mjs [--zapisz] [--raport <plik.md>]
+//
+// Bez --zapisz: tylko raport (próba). Zasady bezpieczeństwa:
+// - zamiany w formie znacznika {{t:klucz|forma}} — dokładne dopasowanie formy;
+// - zamiany w tekście wolnym nie dotykają kluczy {{n:…}}, {{t:klucz…}} ani adresów (granice: : . / - i litery);
+// - 勝率 → 權益 (zh-Hant) i → エクイティ (ja) tylko w wierszu, którego odpowiednik w content/en (te same numery wierszy,
+//   sprawdzone: liczba wierszy równa) zawiera „equity” co najmniej tyle razy, ile 勝率, i nie zawiera „win rate/winrate”;
+//   pozostałe wystąpienia trafiają do raportu bez zmiany;
+// - każde trafienie w treści krytycznej m12 (lessons/m12-*, exams/m12.yaml, R-M12-* w rules.yaml) jest wypisane osobno
+//   — wymaga ponownej kontroli (a).
+import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
+import { join } from 'node:path';
+
+const ROOT = new URL('../../../', import.meta.url).pathname;
+const args = process.argv.slice(2);
+const ZAPISZ = args.includes('--zapisz');
+const raportPlik = args.includes('--raport') ? args[args.indexOf('--raport') + 1] : null;
+
+const tag = (klucz, stara, nowa) => ({
+  opis: `{{t:${klucz}|${stara}}} → ${nowa}`,
+  re: new RegExp(`\\{\\{t:${klucz}\\|${stara.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\}\\}`, 'g'),
+  zamien: () => `{{t:${klucz}|${nowa}}}`,
+});
+// Tekst wolny: słowo nie będące częścią klucza/adresu.
+const slowo = (stare, nowe, opis) => ({
+  opis: opis ?? `${stare} → ${nowe}`,
+  re: new RegExp(`(?<![:./\\w-])${stare}(?![.\\w/-])`, 'g'),
+  zamien: () => nowe,
+});
+
+// pt-BR: fold jako czasownik → formy „desistir” (P1, P3; rules.yaml przyjęte wcześniej w próbie).
+const PT_FOLD = {
+  folda: 'desiste', foldar: 'desistir', foldaram: 'desistiram', foldarem: 'desistirem', foldou: 'desistiu',
+  foldam: 'desistem', foldando: 'desistindo', foldo: 'desisto', folde: 'desista', foldei: 'desisti',
+  foldasse: 'desistisse', 'foldará': 'desistirá', foldaria: 'desistiria', foldem: 'desistam', foldamos: 'desistimos',
+};
+// „desistir” jest nieprzechodni: „folda os pares” → „desiste dos pares”.
+const PT_DE = {
+  o: 'do', a: 'da', os: 'dos', as: 'das', esse: 'desse', essa: 'dessa', esses: 'desses', essas: 'dessas',
+  este: 'deste', esta: 'desta', estes: 'destes', estas: 'destas', isso: 'disso', isto: 'disto',
+  um: 'de um', uma: 'de uma', uns: 'de uns', umas: 'de umas', sua: 'de sua', seu: 'de seu', suas: 'de suas', seus: 'de seus',
+};
+const wielka = (wzor, s) => (wzor[0] === wzor[0].toUpperCase() ? s[0].toUpperCase() + s.slice(1) : s);
+const ptFold = {
+  opis: 'pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem)',
+  re: new RegExp(`(\\{\\{t:fold\\|)?(?<![:./\\w-])([Ff]old(?:${Object.keys(PT_FOLD).map((k) => k.slice(4)).sort((a, b) => b.length - a.length).join('|')}))(?![\\wá])(\\}\\})?( (\\S+))?`, 'g'),
+  zamien: (m, otw, forma, zam, reszta, nast) => {
+    const nowa = wielka(forma, PT_FOLD[forma.toLowerCase()]);
+    let ogon = reszta ?? '';
+    if (nast && PT_DE[nast] !== undefined) ogon = ` ${PT_DE[nast]}`;
+    else if (nast && nast.startsWith('{{t:') && !/^\{\{t:(call|raise|check|bet|fold)\b/.test(nast)) ogon = ` de ${nast}`;
+    return `${otw ?? ''}${nowa}${zam ?? ''}${ogon}`;
+  },
+};
+
+const REGULY = {
+  fr: [
+    tag('big-blind', 'grosse blind', 'grosse blinde'),
+    tag('big-blind', 'La grosse blind', 'La grosse blinde'),
+    slowo('grosse blind(?!e)', 'grosse blinde', 'grosse blind → grosse blinde (tekst)'),
+    tag('small-blind', 'petite blind', 'petite blinde'),
+    slowo('petite blind(?!e)', 'petite blinde', 'petite blind → petite blinde (tekst)'),
+    slowo('une blind(?!e)', 'une blinde', 'une blind → une blinde (tekst)'),
+    slowo('limpers', 'limpeurs'), slowo('Limpers', 'Limpeurs'),
+    slowo('solvers', 'solveurs'), slowo('Solvers', 'Solveurs'), slowo('solver', 'solveur'), slowo('Solver', 'Solveur'),
+  ],
+  'pt-BR': [
+    tag('top-pair', 'par mais alto', 'top pair'), tag('top-pair', 'Par mais alto', 'Top pair'),
+    tag('top-pair', 'pares mais altos', 'top pairs'),
+    ptFold,
+  ],
+  'zh-Hant': [
+    tag('fold', '蓋牌', '棄牌'), tag('fold', '蓋掉', '棄掉'),
+    tag('equity', '勝率', '權益'), tag('winrate', '勝率', '贏率'),
+    tag('variance', '波動', '變異數'), tag('variance', '變異', '變異數'),
+    tag('session', '牌局', '場次'), tag('regular', '常客', '常規玩家'),
+    tag('recreational', '休閒玩家', '娛樂玩家'), tag('nit', '岩石玩家', '岩石型玩家'), tag('nit', '極緊玩家', '岩石型玩家'),
+    tag('maniac', '瘋狂玩家', '瘋子'),
+  ],
+  ja: [],
+};
+const EQUITY_WIERSZ = { 'zh-Hant': '權益', ja: 'エクイティ' };
+
+function pliki(jezyk) {
+  const baza = join(ROOT, 'content', jezyk);
+  const out = [];
+  for (const k of ['lessons', 'exams']) for (const f of readdirSync(join(baza, k))) out.push(`${k}/${f}`);
+  for (const f of readdirSync(baza)) if (f.endsWith('.yaml') && f !== 'terms-nazwy.yaml') out.push(f);
+  return out;
+}
+
+function krytyczne(rel, linie, nr) {
+  if (/^lessons\/m12-/.test(rel) || rel === 'exams/m12.yaml') return true;
+  if (rel !== 'rules.yaml') return false;
+  for (let i = nr; i >= 0; i--) { const m = /^- id: (R-[\w-]+)/.exec(linie[i]); if (m) return m[1].startsWith('R-M12-'); }
+  return false;
+}
+
+const raport = []; const m12 = []; const pozostale = []; let suma = 0;
+for (const jezyk of Object.keys(REGULY)) {
+  for (const rel of pliki(jezyk)) {
+    const sciezka = join(ROOT, 'content', jezyk, rel);
+    const linie = readFileSync(sciezka, 'utf8').split('\n');
+    const enSc = join(ROOT, 'content', 'en', rel);
+    const en = existsSync(enSc) ? readFileSync(enSc, 'utf8').split('\n') : null;
+    let zmiany = 0;
+    for (let i = 0; i < linie.length; i++) {
+      let l = linie[i];
+      // Pola `source:` (cytaty dosłowne « … » i tytuły źródeł, często po angielsku) — bez zmian (kontrola (a) AH, ŚREDNIE).
+      if (/^\s*-?\s*source:/.test(l)) continue;
+      for (const r of REGULY[jezyk]) {
+        l = l.replace(r.re, (...a) => {
+          const nowy = r.zamien(...a);
+          if (nowy !== a[0]) { raport.push(`${jezyk} ${rel}:${i + 1} ${r.opis}: «${a[0]}» → «${nowy}»`); zmiany++; }
+          return nowy;
+        });
+      }
+      if (EQUITY_WIERSZ[jezyk] && l.includes('勝率')) {
+        const ile = l.split('勝率').length - 1;
+        const enL = en && en.length === linie.length ? en[i] : null;
+        const eq = enL ? (enL.match(/equity/gi) ?? []).length : 0;
+        if (enL && eq >= ile && !/win ?rate/i.test(enL)) {
+          l = l.replaceAll('勝率', EQUITY_WIERSZ[jezyk]);
+          raport.push(`${jezyk} ${rel}:${i + 1} 勝率 → ${EQUITY_WIERSZ[jezyk]} ×${ile} (en: equity ×${eq})`); zmiany += ile;
+        } else pozostale.push(`${jezyk} ${rel}:${i + 1} 勝率 ×${ile} bez zmiany (en: equity ×${eq}${enL && /win ?rate/i.test(enL) ? ', win rate' : ''}${enL ? '' : ', brak wiersza en'})`);
+      }
+      if (l !== linie[i]) {
+        if (krytyczne(rel, linie, i)) m12.push(`${jezyk} ${rel}:${i + 1}`);
+        linie[i] = l;
+      }
+    }
+    if (zmiany) { suma += zmiany; if (ZAPISZ) writeFileSync(sciezka, linie.join('\n')); }
+  }
+}
+
+const tekst = [
+  `# Ujednolicenie form (D-391) — ${ZAPISZ ? 'zapisane' : 'próba'}`, '',
+  `Zamian: ${suma}; wierszy w treści krytycznej m12: ${m12.length}.`, '',
+  '## m12 (ponowna kontrola (a))', ...m12.map((x) => `- ${x}`), '',
+  '## 勝率 bez zmiany (inne znaczenie albo brak equity w en)', ...pozostale.map((x) => `- ${x}`), '',
+  '## Zamiany', ...raport.map((x) => `- ${x}`), '',
+].join('\n');
+if (raportPlik) writeFileSync(raportPlik, tekst);
+console.log(tekst.split('## Zamiany')[0]);
+const policz = {};
+for (const r of raport) { const k = r.split(' ')[0] + ' ' + r.split(': «')[0].split(' ').slice(2).join(' '); policz[k] = (policz[k] ?? 0) + 1; }
+console.log(Object.entries(policz).map(([k, v]) => `${v}\t${k}`).join('\n'));

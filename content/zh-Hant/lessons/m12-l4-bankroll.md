@@ -100,8 +100,8 @@ drills:
     prompt: "哪個跡象顯示你打牌可能開始失控？"
     options:
       - { text: "輸了之後又回去打，想把輸的贏回來", correct: true, why: "追輸是診斷準則中列出的賭博問題跡象之一。如果你在自己身上看到這類跡象，請使用負責任遊戲卡片上的聯絡資訊。" }
-      - { text: "{{t:session|牌局}}結束後分析輸掉的手牌", why: "這是健康的學習習慣。問題的跡象包括追輸、打得比計畫久，以及借錢打牌。" }
-      - { text: "按照計畫結束{{t:session|牌局}}", why: "這是對打牌的良好控制。問題的跡象會是打得比計畫久，或覺得非得把輸的贏回來。" }
+      - { text: "{{t:session|場次}}結束後分析輸掉的手牌", why: "這是健康的學習習慣。問題的跡象包括追輸、打得比計畫久，以及借錢打牌。" }
+      - { text: "按照計畫結束{{t:session|場次}}", why: "這是對打牌的良好控制。問題的跡象會是打得比計畫久，或覺得非得把輸的贏回來。" }
   # słownictwo PL ↔ EN (decyzja właściciela 4.10.2026): terminy z content/terms.yaml, obszar mental
   - kind: generated
     id: m12.l4.g-vocab-mental

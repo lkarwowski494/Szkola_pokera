@@ -1,0 +1,488 @@
+# Ujednolicenie form w wydanych językach (sesja AH, 2026-11-09, D-391)
+
+Skrypt: `docs/lokalizacja/narzedzia/ujednolic-formy.mjs` (reguły z plan-pt-BR-fr §3.5, terms-nazwy zh-Hant `[AB: …]`, przeglądy Z1–Z3, J2, F1, F3, P1, P3). Drugi przebieg skryptu na wyniku: 0 zamian (idempotentny).
+
+## Podsumowanie
+- Przebieg 1: 438 zamian (fr 138, pt-BR 109, zh-Hant 190, ja 1); 27 wierszy m12 (tylko zh-Hant).
+- Cofnięte: 6 wierszy `source:` w `content/fr/rules.yaml` (skrypt zmienił dosłowne cytaty i tytuły angielskie: solver, Limpers) — ŚREDNIE z kontroli (a); skrypt pomija odtąd pola `source:`; pt-BR `rules.yaml:59` (tekst własny, nie cytat) — zamiana „foldar” → „desistir” przywrócona ręcznie.
+- Przebieg 2 (fr): `{{t:small-blind|petite blind}}` → `petite blinde` ×24, „une blind” → „une blinde” ×2.
+- Ręcznie wg kontroli (a): pt-BR m4-l3:17, :100 („desiste de cerca de”), m4-l3:104 („desiste delas”), m13-l2:58 i m11-l3:77 („diante de”), rules.yaml („da qual precisa desistir”), m9-l2:50 („desistir do top pair”); zh-Hant 場{{t:session|場次}} → 個{{t:session|場次}} ×22 (podwojony klasyfikator), m12-l2:86 „輸的牌局” → `輸的{{t:session|場次}}`, R-M12-002 檢查 → 檢視 i 牌局 → 手牌 („hands you lost”); fr R-M12-002 „vérifiez” → „revoyez”.
+- Tokeny: `{{n:…}}` i klucze `{{t:…}}` identyczne przed i po w 63 plikach (skrypt), poza zamierzonym `{{t:session}}` w m12-l2:86.
+- `pnpm content:build` 0; `pnpm i18n` 0 błędów, uwagi 153 przed i po; `scal-rejestr --przeglad zastępczy --sprawdz` 0 błędów po odnowieniu 7 skrótów zh-Hant (R-M12-009, R-M12-011, M12-L4-RAMKA, n:br.bi.base, n:br.bi.beginner, n:dd.bi.small, n:ror.two).
+
+## Kontrola (a) m12 ponownie (subagent, świeży kontekst; przekład zwrotny przed otwarciem pl/en)
+zh-Hant: 36 zmienionych wierszy m12 (exams 3, l1 1, l2 14, l3 7, l4 2, rules R-M12-002, R-M12-006); fr: R-M12-002. **Zaliczona: 0 KRYT / 0 WYS / 0 ŚR sensu**; tokeny {{n:…}} 21 = 21 w tej samej kolejności. 權益 = equity we wszystkich 8 miejscach (zgodnie z terms-nazwy i terms-def:57, R-M12-004); 變異數 w R-M12-006 zgodne z kanonem. NISKIE (stylu) naprawione wyżej: klasyfikator 場場次, m12-l2:86, R-M12-002 牌局.
+Zostaje (NISKIE): „結束這個場次” poprawne, ale naturalniej brzmiałoby „結束這次打牌” — poza zakresem mechanicznym.
+
+## 勝率 bez zmiany (en bez „equity” w wierszu albo inne znaczenie)
+- zh-Hant lessons/m10-l2-typy-graczy.md:116 勝率 ×2 bez zmiany (en: equity ×0, win rate)
+- zh-Hant lessons/m10-l2-typy-graczy.md:124 勝率 ×1 bez zmiany (en: equity ×0, win rate)
+- zh-Hant lessons/m6-l3-check-raise.md:53 勝率 ×1 bez zmiany (en: equity ×0)
+- zh-Hant lessons/m6-l3-check-raise.md:54 勝率 ×1 bez zmiany (en: equity ×0)
+- zh-Hant lessons/m7-l2-polaryzacja.md:81 勝率 ×1 bez zmiany (en: equity ×0)
+- zh-Hant lessons/m7-l4-probe-obrona.md:96 勝率 ×1 bez zmiany (en: equity ×0)
+- zh-Hant exams/m7.yaml:57 勝率 ×1 bez zmiany (en: equity ×0)
+- zh-Hant rules.yaml:873 勝率 ×1 bez zmiany (en: equity ×0)
+- ja lessons/m10-l2-typy-graczy.md:123 勝率 ×1 bez zmiany (en: equity ×0)
+- ja lessons/m3-l2-rece-startowe.md:37 勝率 ×1 bez zmiany (en: equity ×0)
+- ja lessons/m7-l3-implied-odds.md:68 勝率 ×1 bez zmiany (en: equity ×0)
+- ja lessons/m7-l4-probe-obrona.md:77 勝率 ×1 bez zmiany (en: equity ×0)
+- ja lessons/m7-l4-probe-obrona.md:87 勝率 ×1 bez zmiany (en: equity ×0)
+- ja lessons/m7-l4-probe-obrona.md:96 勝率 ×1 bez zmiany (en: equity ×0)
+- ja rules.yaml:873 勝率 ×1 bez zmiany (en: equity ×0)
+
+## Zamiany przebiegu 1 (raport skryptu)
+- fr lessons/m10-l3-odejscie-od-bazy.md:22 solver → solveur: «solver» → «solveur»
+- fr lessons/m10-l3-odejscie-od-bazy.md:33 solver → solveur: «solver» → «solveur»
+- fr lessons/m10-l3-odejscie-od-bazy.md:99 solver → solveur: «solver» → «solveur»
+- fr lessons/m10-l3-odejscie-od-bazy.md:111 solver → solveur: «solver» → «solveur»
+- fr lessons/m10-l3-odejscie-od-bazy.md:129 solver → solveur: «solver» → «solveur»
+- fr lessons/m10-l3-odejscie-od-bazy.md:129 solver → solveur: «solver» → «solveur»
+- fr lessons/m10-l4-rake.md:67 solver → solveur: «solver» → «solveur»
+- fr lessons/m10-l4-rake.md:69 solver → solveur: «solver» → «solveur»
+- fr lessons/m10-l4-rake.md:74 solver → solveur: «solver» → «solveur»
+- fr lessons/m10-l4-rake.md:78 solver → solveur: «solver» → «solveur»
+- fr lessons/m10-l4-rake.md:85 solver → solveur: «solver» → «solveur»
+- fr lessons/m10-l4-rake.md:118 solver → solveur: «solver» → «solveur»
+- fr lessons/m10-l4-rake.md:126 solver → solveur: «solver» → «solveur»
+- fr lessons/m11-l1-push-fold.md:17 solvers → solveurs: «solvers» → «solveurs»
+- fr lessons/m11-l1-push-fold.md:60 solver → solveur: «solver» → «solveur»
+- fr lessons/m11-l1-push-fold.md:64 solver → solveur: «solver» → «solveur»
+- fr lessons/m11-l1-push-fold.md:123 solvers → solveurs: «solvers» → «solveurs»
+- fr lessons/m11-l1-push-fold.md:138 solver → solveur: «solver» → «solveur»
+- fr lessons/m11-l1-push-fold.md:152 solver → solveur: «solver» → «solveur»
+- fr lessons/m11-l1-push-fold.md:174 solver → solveur: «solver» → «solveur»
+- fr lessons/m11-l2-sprawdzanie.md:54 solver → solveur: «solver» → «solveur»
+- fr lessons/m11-l2-sprawdzanie.md:57 solver → solveur: «solver» → «solveur»
+- fr lessons/m11-l2-sprawdzanie.md:64 solver → solveur: «solver» → «solveur»
+- fr lessons/m11-l2-sprawdzanie.md:78 solver → solveur: «solver» → «solveur»
+- fr lessons/m11-l2-sprawdzanie.md:110 solver → solveur: «solver» → «solveur»
+- fr lessons/m11-l2-sprawdzanie.md:111 solver → solveur: «solver» → «solveur»
+- fr lessons/m11-l2-sprawdzanie.md:168 solver → solveur: «solver» → «solveur»
+- fr lessons/m13-l1-raport.md:34 solver → solveur: «solver» → «solveur»
+- fr lessons/m13-l1-raport.md:36 solver → solveur: «solver» → «solveur»
+- fr lessons/m13-l1-raport.md:38 solver → solveur: «solver» → «solveur»
+- fr lessons/m13-l1-raport.md:43 solver → solveur: «solver» → «solveur»
+- fr lessons/m13-l1-raport.md:47 solver → solveur: «solver» → «solveur»
+- fr lessons/m13-l1-raport.md:52 solver → solveur: «solver» → «solveur»
+- fr lessons/m13-l1-raport.md:63 solver → solveur: «solver» → «solveur»
+- fr lessons/m13-l1-raport.md:74 solver → solveur: «solver» → «solveur»
+- fr lessons/m13-l1-raport.md:90 solver → solveur: «solver» → «solveur»
+- fr lessons/m13-l1-raport.md:91 solver → solveur: «solver» → «solveur»
+- fr lessons/m13-l1-raport.md:92 solver → solveur: «solver» → «solveur»
+- fr lessons/m13-l1-raport.md:93 solver → solveur: «solver» → «solveur»
+- fr lessons/m13-l1-raport.md:101 solver → solveur: «solver» → «solveur»
+- fr lessons/m13-l1-raport.md:101 solver → solveur: «solver» → «solveur»
+- fr lessons/m4-l1-3bet.md:23 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l1-3bet.md:36 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l1-3bet.md:37 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l1-3bet.md:43 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l1-3bet.md:46 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l1-3bet.md:87 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l1-3bet.md:99 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l1-3bet.md:99 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l1-3bet.md:104 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l1-3bet.md:104 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:5 grosse blind → grosse blinde (tekst): «grosse blind» → «grosse blinde»
+- fr lessons/m4-l2-obrona-bb.md:13 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:21 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:31 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:41 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:67 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:69 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:69 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:91 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:92 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:92 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m5-l3-czestotliwosc-rozmiar.md:112 solvers → solveurs: «solvers» → «solveurs»
+- fr lessons/m5-l3-czestotliwosc-rozmiar.md:112 solvers → solveurs: «solvers» → «solveurs»
+- fr lessons/m5-l3-czestotliwosc-rozmiar.md:116 solvers → solveurs: «solvers» → «solveurs»
+- fr lessons/m5-l3-czestotliwosc-rozmiar.md:122 solvers → solveurs: «solvers» → «solveurs»
+- fr lessons/m5-l3-czestotliwosc-rozmiar.md:122 solver → solveur: «solver» → «solveur»
+- fr lessons/m5-l3-czestotliwosc-rozmiar.md:133 solvers → solveurs: «solvers» → «solveurs»
+- fr lessons/m5-l3-czestotliwosc-rozmiar.md:133 solvers → solveurs: «solvers» → «solveurs»
+- fr lessons/m5-l4-bez-pozycji.md:35 solver → solveur: «solver» → «solveur»
+- fr lessons/m5-l4-bez-pozycji.md:36 solver → solveur: «solver» → «solveur»
+- fr lessons/m5-l4-bez-pozycji.md:37 solver → solveur: «solver» → «solveur»
+- fr lessons/m5-l4-bez-pozycji.md:56 solver → solveur: «solver» → «solveur»
+- fr lessons/m5-l4-bez-pozycji.md:57 solver → solveur: «solver» → «solveur»
+- fr lessons/m5-l4-bez-pozycji.md:106 solvers → solveurs: «solvers» → «solveurs»
+- fr lessons/m6-l1-mdf-alpha.md:132 solver → solveur: «solver» → «solveur»
+- fr lessons/m6-l2-sprawdzenie.md:46 solver → solveur: «solver» → «solveur»
+- fr lessons/m6-l2-sprawdzenie.md:132 solver → solveur: «solver» → «solveur»
+- fr lessons/m6-l3-check-raise.md:17 solver → solveur: «solver» → «solveur»
+- fr lessons/m6-l3-check-raise.md:83 solver → solveur: «solver» → «solveur»
+- fr lessons/m6-l3-check-raise.md:125 solver → solveur: «solver» → «solveur»
+- fr lessons/m6-l3-check-raise.md:125 solver → solveur: «solver» → «solveur»
+- fr lessons/m7-l1-druga-beczka.md:13 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m7-l1-druga-beczka.md:16 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m7-l1-druga-beczka.md:17 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m7-l1-druga-beczka.md:33 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m7-l1-druga-beczka.md:36 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m7-l1-druga-beczka.md:43 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m7-l1-druga-beczka.md:48 solver → solveur: «solver» → «solveur»
+- fr lessons/m7-l1-druga-beczka.md:53 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m7-l1-druga-beczka.md:72 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m7-l1-druga-beczka.md:82 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m7-l1-druga-beczka.md:123 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m7-l1-druga-beczka.md:128 solver → solveur: «solver» → «solveur»
+- fr lessons/m7-l1-druga-beczka.md:137 solver → solveur: «solver» → «solveur»
+- fr lessons/m7-l2-polaryzacja.md:138 solver → solveur: «solver» → «solveur»
+- fr lessons/m7-l4-probe-obrona.md:116 solver → solveur: «solver» → «solveur»
+- fr lessons/m7-l4-probe-obrona.md:142 solver → solveur: «solver» → «solveur»
+- fr lessons/m7-l4-probe-obrona.md:145 solver → solveur: «solver» → «solveur»
+- fr lessons/m8-l1-value.md:131 solver → solveur: «solver» → «solveur»
+- fr lessons/m8-l1-value.md:138 solver → solveur: «solver» → «solveur»
+- fr lessons/m9-l3-rozmiar-geometryczny.md:64 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr lessons/m9-l3-rozmiar-geometryczny.md:119 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr exams/m11.yaml:9 solvers → solveurs: «solvers» → «solveurs»
+- fr exams/m11.yaml:48 solver → solveur: «solver» → «solveur»
+- fr exams/m11.yaml:51 solver → solveur: «solver» → «solveur»
+- fr exams/m11.yaml:51 solver → solveur: «solver» → «solveur»
+- fr exams/m11.yaml:52 solver → solveur: «solver» → «solveur»
+- fr exams/m11.yaml:86 solver → solveur: «solver» → «solveur»
+- fr exams/m13.yaml:23 solver → solveur: «solver» → «solveur»
+- fr exams/m13.yaml:25 solver → solveur: «solver» → «solveur»
+- fr exams/m13.yaml:26 solver → solveur: «solver» → «solveur»
+- fr exams/m13.yaml:27 solver → solveur: «solver» → «solveur»
+- fr exams/m13.yaml:32 solver → solveur: «solver» → «solveur»
+- fr exams/m13.yaml:35 solver → solveur: «solver» → «solveur»
+- fr exams/m13.yaml:35 solver → solveur: «solver» → «solveur»
+- fr exams/m13.yaml:36 solver → solveur: «solver» → «solveur»
+- fr exams/m3.yaml:11 {{t:big-blind|La grosse blind}} → La grosse blinde: «{{t:big-blind|La grosse blind}}» → «{{t:big-blind|La grosse blinde}}»
+- fr exams/m3.yaml:21 solver → solveur: «solver» → «solveur»
+- fr exams/m3.yaml:23 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr exams/m3.yaml:31 solver → solveur: «solver» → «solveur»
+- fr exams/m3.yaml:40 solver → solveur: «solver» → «solveur»
+- fr exams/m3.yaml:50 solver → solveur: «solver» → «solveur»
+- fr exams/m3.yaml:51 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr exams/m3.yaml:59 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr exams/m3.yaml:61 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr exams/m3.yaml:61 solvers → solveurs: «solvers» → «solveurs»
+- fr exams/m3.yaml:62 solver → solveur: «solver» → «solveur»
+- fr exams/m3.yaml:70 solvers → solveurs: «solvers» → «solveurs»
+- fr exams/m4.yaml:101 limpers → limpeurs: «limpers» → «limpeurs»
+- fr exams/m4.yaml:109 limpers → limpeurs: «limpers» → «limpeurs»
+- fr exams/m8.yaml:53 {{t:big-blind|grosse blind}} → grosse blinde: «{{t:big-blind|grosse blind}}» → «{{t:big-blind|grosse blinde}}»
+- fr rules.yaml:252 solver → solveur: «solver» → «solveur»
+- fr rules.yaml:260 Solver → Solveur: «Solver» → «Solveur»
+- fr rules.yaml:309 Limpers → Limpeurs: «Limpers» → «Limpeurs»
+- fr rules.yaml:317 limpers → limpeurs: «limpers» → «limpeurs»
+- fr rules.yaml:437 solver → solveur: «solver» → «solveur»
+- fr rules.yaml:497 solver → solveur: «solver» → «solveur»
+- pt-BR lessons/m11-l1-push-fold.md:13 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldaram}}» → «{{t:fold|desistiram}}»
+- pt-BR lessons/m11-l1-push-fold.md:16 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldar}}» → «{{t:fold|desistir}}»
+- pt-BR lessons/m11-l1-push-fold.md:24 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldar}} diante» → «{{t:fold|desistir}} diante»
+- pt-BR lessons/m11-l1-push-fold.md:25 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldam}}» → «{{t:fold|desistem}}»
+- pt-BR lessons/m11-l1-push-fold.md:40 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldarem}}» → «{{t:fold|desistirem}}»
+- pt-BR lessons/m11-l1-push-fold.md:55 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldaram}}» → «{{t:fold|desistiram}}»
+- pt-BR lessons/m11-l1-push-fold.md:60 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldaram}} e» → «{{t:fold|desistiram}} e»
+- pt-BR lessons/m11-l1-push-fold.md:63 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|Folda}}» → «{{t:fold|Desiste}}»
+- pt-BR lessons/m11-l1-push-fold.md:64 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}} essa» → «{{t:fold|desiste}} dessa»
+- pt-BR lessons/m11-l1-push-fold.md:70 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldar}} para» → «{{t:fold|desistir}} para»
+- pt-BR lessons/m11-l1-push-fold.md:72 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}} tanto» → «{{t:fold|desiste}} tanto»
+- pt-BR lessons/m11-l1-push-fold.md:74 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folde}} de» → «{{t:fold|desista}} de»
+- pt-BR lessons/m11-l1-push-fold.md:81 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldam}} ou» → «{{t:fold|desistem}} ou»
+- pt-BR lessons/m11-l1-push-fold.md:82 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldar}}» → «{{t:fold|desistir}}»
+- pt-BR lessons/m11-l1-push-fold.md:90 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}}» → «{{t:fold|desiste}}»
+- pt-BR lessons/m11-l1-push-fold.md:108 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}} o» → «{{t:fold|desiste}} do»
+- pt-BR lessons/m11-l1-push-fold.md:120 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldar}}» → «{{t:fold|desistir}}»
+- pt-BR lessons/m11-l1-push-fold.md:120 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldar}}» → «{{t:fold|desistir}}»
+- pt-BR lessons/m11-l1-push-fold.md:138 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldaram}}» → «{{t:fold|desistiram}}»
+- pt-BR lessons/m11-l1-push-fold.md:138 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldar}}» → «{{t:fold|desistir}}»
+- pt-BR lessons/m11-l1-push-fold.md:156 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldarem}}» → «{{t:fold|desistirem}}»
+- pt-BR lessons/m11-l1-push-fold.md:156 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldou}}» → «{{t:fold|desistiu}}»
+- pt-BR lessons/m11-l1-push-fold.md:170 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}} ou» → «{{t:fold|desiste}} ou»
+- pt-BR lessons/m11-l2-sprawdzanie.md:57 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|Foldo}}» → «{{t:fold|Desisto}}»
+- pt-BR lessons/m11-l2-sprawdzanie.md:57 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}} essa» → «{{t:fold|desiste}} dessa»
+- pt-BR lessons/m11-l2-sprawdzanie.md:67 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|Folda}}» → «{{t:fold|Desiste}}»
+- pt-BR lessons/m11-l2-sprawdzanie.md:76 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}}» → «{{t:fold|desiste}}»
+- pt-BR lessons/m11-l2-sprawdzanie.md:114 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}}» → «{{t:fold|desiste}}»
+- pt-BR lessons/m11-l2-sprawdzanie.md:134 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}}» → «{{t:fold|desiste}}»
+- pt-BR lessons/m11-l2-sprawdzanie.md:140 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}} contra» → «{{t:fold|desiste}} contra»
+- pt-BR lessons/m11-l2-sprawdzanie.md:154 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldou}}» → «{{t:fold|desistiu}}»
+- pt-BR lessons/m11-l2-sprawdzanie.md:175 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldaram}}» → «{{t:fold|desistiram}}»
+- pt-BR lessons/m11-l3-icm.md:70 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|Foldo}}» → «{{t:fold|Desisto}}»
+- pt-BR lessons/m11-l3-icm.md:77 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «folda para» → «desiste para»
+- pt-BR lessons/m11-l3-icm.md:164 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldar}}» → «{{t:fold|desistir}}»
+- pt-BR lessons/m13-l2-powtorki.md:58 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldou}} nas» → «{{t:fold|desistiu}} nas»
+- pt-BR lessons/m13-l2-powtorki.md:58 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}} para» → «{{t:fold|desiste}} para»
+- pt-BR lessons/m13-l2-powtorki.md:61 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}} em» → «{{t:fold|desiste}} em»
+- pt-BR lessons/m13-l2-powtorki.md:61 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}} em» → «{{t:fold|desiste}} em»
+- pt-BR lessons/m4-l3-wobec-3betu.md:6 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «Foldar» → «Desistir»
+- pt-BR lessons/m4-l3-wobec-3betu.md:13 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldaram}}» → «{{t:fold|desistiram}}»
+- pt-BR lessons/m4-l3-wobec-3betu.md:16 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldar}} com» → «{{t:fold|desistir}} com»
+- pt-BR lessons/m4-l3-wobec-3betu.md:17 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}} cerca» → «{{t:fold|desiste}} cerca»
+- pt-BR lessons/m4-l3-wobec-3betu.md:18 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|Foldar}} a» → «{{t:fold|Desistir}} da»
+- pt-BR lessons/m4-l3-wobec-3betu.md:23 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldaram}}» → «{{t:fold|desistiram}}»
+- pt-BR lessons/m4-l3-wobec-3betu.md:26 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|Foldo}}» → «{{t:fold|Desisto}}»
+- pt-BR lessons/m4-l3-wobec-3betu.md:33 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldaram}}» → «{{t:fold|desistiram}}»
+- pt-BR lessons/m4-l3-wobec-3betu.md:38 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|Foldo}}» → «{{t:fold|Desisto}}»
+- pt-BR lessons/m4-l3-wobec-3betu.md:38 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|Foldar}} aqui» → «{{t:fold|Desistir}} aqui»
+- pt-BR lessons/m4-l3-wobec-3betu.md:43 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldou}} e» → «{{t:fold|desistiu}} e»
+- pt-BR lessons/m4-l3-wobec-3betu.md:46 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldar}} no» → «{{t:fold|desistir}} no»
+- pt-BR lessons/m4-l3-wobec-3betu.md:47 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|Foldo}}» → «{{t:fold|Desisto}}»
+- pt-BR lessons/m4-l3-wobec-3betu.md:47 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|Foldar}} seria» → «{{t:fold|Desistir}} seria»
+- pt-BR lessons/m4-l3-wobec-3betu.md:53 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldou}} e» → «{{t:fold|desistiu}} e»
+- pt-BR lessons/m4-l3-wobec-3betu.md:56 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|Foldo}}» → «{{t:fold|Desisto}}»
+- pt-BR lessons/m4-l3-wobec-3betu.md:56 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}} os» → «{{t:fold|desiste}} dos»
+- pt-BR lessons/m4-l3-wobec-3betu.md:63 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldaram}}» → «{{t:fold|desistiram}}»
+- pt-BR lessons/m4-l3-wobec-3betu.md:68 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|Foldo}}» → «{{t:fold|Desisto}}»
+- pt-BR lessons/m4-l3-wobec-3betu.md:68 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|Foldar}} é» → «{{t:fold|Desistir}} é»
+- pt-BR lessons/m4-l3-wobec-3betu.md:73 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldaram}}» → «{{t:fold|desistiram}}»
+- pt-BR lessons/m4-l3-wobec-3betu.md:77 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|Foldo}}» → «{{t:fold|Desisto}}»
+- pt-BR lessons/m4-l3-wobec-3betu.md:83 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldou}}» → «{{t:fold|desistiu}}»
+- pt-BR lessons/m4-l3-wobec-3betu.md:90 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldar}}» → «{{t:fold|desistir}}»
+- pt-BR lessons/m4-l3-wobec-3betu.md:98 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldar}} com» → «{{t:fold|desistir}} com»
+- pt-BR lessons/m4-l3-wobec-3betu.md:100 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}} cerca» → «{{t:fold|desiste}} cerca»
+- pt-BR lessons/m4-l3-wobec-3betu.md:100 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «foldando com» → «desistindo com»
+- pt-BR lessons/m4-l3-wobec-3betu.md:104 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}}» → «{{t:fold|desiste}}»
+- pt-BR lessons/m4-l3-wobec-3betu.md:108 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|folda}} os» → «{{t:fold|desiste}} dos»
+- pt-BR lessons/m4-l3-wobec-3betu.md:112 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «{{t:fold|foldou}}» → «{{t:fold|desistiu}}»
+- pt-BR lessons/m5-l3-czestotliwosc-rozmiar.md:49 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m5-l3-czestotliwosc-rozmiar.md:51 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m6-l2-sprawdzenie.md:74 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m8-l1-value.md:50 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m8-l1-value.md:50 {{t:top-pair|Par mais alto}} → Top pair: «{{t:top-pair|Par mais alto}}» → «{{t:top-pair|Top pair}}»
+- pt-BR lessons/m8-l1-value.md:67 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m8-l1-value.md:77 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m8-l1-value.md:129 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m8-l4-bluff-catching.md:57 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l1-spr.md:80 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l1-spr.md:83 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l1-spr.md:85 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l1-spr.md:134 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l1-spr.md:135 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l1-spr.md:139 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l1-spr.md:139 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:27 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:30 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:46 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:49 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:50 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:56 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:58 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:59 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:65 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:69 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:70 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:78 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:80 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:98 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:100 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:104 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:106 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:106 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR lessons/m9-l2-zaangazowanie.md:113 {{t:top-pair|par mais alto}} → top pair: «{{t:top-pair|par mais alto}}» → «{{t:top-pair|top pair}}»
+- pt-BR exams/m6.yaml:77 {{t:top-pair|Par mais alto}} → Top pair: «{{t:top-pair|Par mais alto}}» → «{{t:top-pair|Top pair}}»
+- pt-BR exams/m9.yaml:19 {{t:top-pair|Par mais alto}} → Top pair: «{{t:top-pair|Par mais alto}}» → «{{t:top-pair|Top pair}}»
+- pt-BR rules.yaml:59 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «foldar» → «desistir»
+- pt-BR rules.yaml:446 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «foldar com» → «desistir com»
+- pt-BR rules.yaml:695 pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem): «foldar» → «desistir»
+- zh-Hant lessons/m10-l1-statystyki.md:68 {{t:regular|常客}} → 常規玩家: «{{t:regular|常客}}» → «{{t:regular|常規玩家}}»
+- zh-Hant lessons/m10-l1-statystyki.md:68 {{t:maniac|瘋狂玩家}} → 瘋子: «{{t:maniac|瘋狂玩家}}» → «{{t:maniac|瘋子}}»
+- zh-Hant lessons/m10-l1-statystyki.md:68 {{t:maniac|瘋狂玩家}} → 瘋子: «{{t:maniac|瘋狂玩家}}» → «{{t:maniac|瘋子}}»
+- zh-Hant lessons/m10-l1-statystyki.md:69 {{t:nit|岩石玩家}} → 岩石型玩家: «{{t:nit|岩石玩家}}» → «{{t:nit|岩石型玩家}}»
+- zh-Hant lessons/m10-l1-statystyki.md:69 {{t:nit|岩石玩家}} → 岩石型玩家: «{{t:nit|岩石玩家}}» → «{{t:nit|岩石型玩家}}»
+- zh-Hant lessons/m10-l1-statystyki.md:85 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m10-l1-statystyki.md:87 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m10-l1-statystyki.md:130 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m10-l2-typy-graczy.md:29 {{t:regular|常客}} → 常規玩家: «{{t:regular|常客}}» → «{{t:regular|常規玩家}}»
+- zh-Hant lessons/m10-l2-typy-graczy.md:63 {{t:nit|岩石玩家}} → 岩石型玩家: «{{t:nit|岩石玩家}}» → «{{t:nit|岩石型玩家}}»
+- zh-Hant lessons/m10-l2-typy-graczy.md:107 {{t:nit|岩石玩家}} → 岩石型玩家: «{{t:nit|岩石玩家}}» → «{{t:nit|岩石型玩家}}»
+- zh-Hant lessons/m10-l2-typy-graczy.md:116 {{t:regular|常客}} → 常規玩家: «{{t:regular|常客}}» → «{{t:regular|常規玩家}}»
+- zh-Hant lessons/m10-l2-typy-graczy.md:118 {{t:regular|常客}} → 常規玩家: «{{t:regular|常客}}» → «{{t:regular|常規玩家}}»
+- zh-Hant lessons/m10-l2-typy-graczy.md:135 {{t:nit|岩石玩家}} → 岩石型玩家: «{{t:nit|岩石玩家}}» → «{{t:nit|岩石型玩家}}»
+- zh-Hant lessons/m10-l2-typy-graczy.md:137 {{t:nit|岩石玩家}} → 岩石型玩家: «{{t:nit|岩石玩家}}» → «{{t:nit|岩石型玩家}}»
+- zh-Hant lessons/m10-l2-typy-graczy.md:142 {{t:nit|岩石玩家}} → 岩石型玩家: «{{t:nit|岩石玩家}}» → «{{t:nit|岩石型玩家}}»
+- zh-Hant lessons/m11-l1-push-fold.md:13 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:15 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:15 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:16 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:24 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:25 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:40 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:55 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:60 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:63 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:64 {{t:fold|蓋掉}} → 棄掉: «{{t:fold|蓋掉}}» → «{{t:fold|棄掉}}»
+- zh-Hant lessons/m11-l1-push-fold.md:70 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:72 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:74 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:74 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:81 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:82 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:90 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:90 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:108 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:120 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:120 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:138 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:138 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:156 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:156 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:170 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l1-push-fold.md:170 {{t:fold|蓋牌}} → 棄牌: «{{t:fold|蓋牌}}» → «{{t:fold|棄牌}}»
+- zh-Hant lessons/m11-l2-sprawdzanie.md:6 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m11-l2-sprawdzanie.md:13 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m11-l2-sprawdzanie.md:21 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m11-l2-sprawdzanie.md:31 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m11-l2-sprawdzanie.md:59 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m11-l2-sprawdzanie.md:83 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m11-l2-sprawdzanie.md:107 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m11-l2-sprawdzanie.md:111 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m11-l2-sprawdzanie.md:112 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m11-l2-sprawdzanie.md:114 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m11-l2-sprawdzanie.md:121 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m11-l2-sprawdzanie.md:124 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m11-l2-sprawdzanie.md:140 勝率 → 權益 ×1 (en: equity ×2)
+- zh-Hant lessons/m11-l2-sprawdzanie.md:154 勝率 → 權益 ×2 (en: equity ×2)
+- zh-Hant lessons/m11-l2-sprawdzanie.md:160 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m12-l1-wariancja.md:102 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l2-decyzja-wynik.md:16 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m12-l2-decyzja-wynik.md:17 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m12-l2-decyzja-wynik.md:31 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m12-l2-decyzja-wynik.md:40 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m12-l2-decyzja-wynik.md:49 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m12-l2-decyzja-wynik.md:65 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l2-decyzja-wynik.md:67 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l2-decyzja-wynik.md:68 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l2-decyzja-wynik.md:83 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l2-decyzja-wynik.md:83 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l2-decyzja-wynik.md:85 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m12-l2-decyzja-wynik.md:86 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l2-decyzja-wynik.md:86 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l2-decyzja-wynik.md:106 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m12-l2-decyzja-wynik.md:112 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l3-tilt.md:17 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l3-tilt.md:33 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l3-tilt.md:69 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l3-tilt.md:96 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l3-tilt.md:96 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l3-tilt.md:98 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l3-tilt.md:108 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l3-tilt.md:126 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l4-bankroll.md:103 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m12-l4-bankroll.md:104 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m13-l1-raport.md:70 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m13-l1-raport.md:73 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m13-l1-raport.md:76 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m13-l1-raport.md:105 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m13-l2-powtorki.md:49 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m13-l2-powtorki.md:51 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m13-l2-powtorki.md:58 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m13-l2-powtorki.md:62 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m13-l2-powtorki.md:70 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m13-l2-powtorki.md:91 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m13-l2-powtorki.md:93 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m13-l3-przeglad.md:15 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m13-l3-przeglad.md:17 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m13-l3-przeglad.md:24 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m13-l3-przeglad.md:52 {{t:equity|勝率}} → 權益: «{{t:equity|勝率}}» → «{{t:equity|權益}}»
+- zh-Hant lessons/m13-l3-przeglad.md:58 {{t:equity|勝率}} → 權益: «{{t:equity|勝率}}» → «{{t:equity|權益}}»
+- zh-Hant lessons/m13-l3-przeglad.md:66 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m13-l3-przeglad.md:68 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant lessons/m13-l3-przeglad.md:82 {{t:equity|勝率}} → 權益: «{{t:equity|勝率}}» → «{{t:equity|權益}}»
+- zh-Hant lessons/m6-l1-mdf-alpha.md:31 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l1-mdf-alpha.md:40 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l1-mdf-alpha.md:56 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l1-mdf-alpha.md:70 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l1-mdf-alpha.md:72 勝率 → 權益 ×2 (en: equity ×2)
+- zh-Hant lessons/m6-l1-mdf-alpha.md:74 勝率 → 權益 ×2 (en: equity ×2)
+- zh-Hant lessons/m6-l1-mdf-alpha.md:82 勝率 → 權益 ×2 (en: equity ×3)
+- zh-Hant lessons/m6-l1-mdf-alpha.md:118 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l1-mdf-alpha.md:126 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l1-mdf-alpha.md:128 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l1-mdf-alpha.md:132 勝率 → 權益 ×2 (en: equity ×3)
+- zh-Hant lessons/m6-l2-sprawdzenie.md:13 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l2-sprawdzenie.md:17 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l2-sprawdzenie.md:18 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l2-sprawdzenie.md:23 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l2-sprawdzenie.md:34 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l2-sprawdzenie.md:35 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l2-sprawdzenie.md:44 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l2-sprawdzenie.md:54 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l2-sprawdzenie.md:66 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l2-sprawdzenie.md:91 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l2-sprawdzenie.md:94 勝率 → 權益 ×3 (en: equity ×3)
+- zh-Hant lessons/m6-l2-sprawdzenie.md:102 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l2-sprawdzenie.md:104 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l2-sprawdzenie.md:112 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l2-sprawdzenie.md:116 勝率 → 權益 ×2 (en: equity ×2)
+- zh-Hant lessons/m6-l3-check-raise.md:26 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l3-check-raise.md:27 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l3-check-raise.md:41 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l3-check-raise.md:49 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m6-l3-check-raise.md:135 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m7-l2-polaryzacja.md:44 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m7-l2-polaryzacja.md:45 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m7-l2-polaryzacja.md:71 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m7-l2-polaryzacja.md:102 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m7-l3-implied-odds.md:49 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m7-l3-implied-odds.md:58 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m7-l3-implied-odds.md:122 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m8-l2-ile-blefow.md:29 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m8-l2-ile-blefow.md:63 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m8-l2-ile-blefow.md:65 勝率 → 權益 ×2 (en: equity ×2)
+- zh-Hant lessons/m8-l2-ile-blefow.md:66 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m8-l2-ile-blefow.md:67 勝率 → 權益 ×2 (en: equity ×2)
+- zh-Hant lessons/m8-l2-ile-blefow.md:119 勝率 → 權益 ×2 (en: equity ×2)
+- zh-Hant lessons/m8-l4-bluff-catching.md:25 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m8-l4-bluff-catching.md:32 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m8-l4-bluff-catching.md:41 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m8-l4-bluff-catching.md:104 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m8-l4-bluff-catching.md:106 勝率 → 權益 ×2 (en: equity ×2)
+- zh-Hant lessons/m8-l4-bluff-catching.md:108 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m8-l4-bluff-catching.md:114 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant lessons/m9-l4-plan-trzech-ulic.md:47 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant exams/m10.yaml:34 {{t:nit|極緊玩家}} → 岩石型玩家: «{{t:nit|極緊玩家}}» → «{{t:nit|岩石型玩家}}»
+- zh-Hant exams/m10.yaml:43 {{t:maniac|瘋狂玩家}} → 瘋子: «{{t:maniac|瘋狂玩家}}» → «{{t:maniac|瘋子}}»
+- zh-Hant exams/m10.yaml:45 {{t:maniac|瘋狂玩家}} → 瘋子: «{{t:maniac|瘋狂玩家}}» → «{{t:maniac|瘋子}}»
+- zh-Hant exams/m10.yaml:52 {{t:recreational|休閒玩家}} → 娛樂玩家: «{{t:recreational|休閒玩家}}» → «{{t:recreational|娛樂玩家}}»
+- zh-Hant exams/m10.yaml:80 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant exams/m12.yaml:38 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant exams/m12.yaml:38 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant exams/m12.yaml:64 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant exams/m12.yaml:66 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant exams/m13.yaml:14 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant exams/m13.yaml:18 {{t:variance|變異}} → 變異數: «{{t:variance|變異}}» → «{{t:variance|變異數}}»
+- zh-Hant exams/m13.yaml:60 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant exams/m13.yaml:64 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant exams/m13.yaml:69 {{t:session|牌局}} → 場次: «{{t:session|牌局}}» → «{{t:session|場次}}»
+- zh-Hant exams/m13.yaml:72 {{t:variance|變異}} → 變異數: «{{t:variance|變異}}» → «{{t:variance|變異數}}»
+- zh-Hant exams/m4.yaml:39 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant exams/m4.yaml:71 勝率 → 權益 ×1 (en: equity ×2)
+- zh-Hant exams/m4.yaml:81 勝率 → 權益 ×1 (en: equity ×2)
+- zh-Hant exams/m9.yaml:26 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant exams/m9.yaml:36 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant exams/m9.yaml:37 勝率 → 權益 ×1 (en: equity ×1)
+- zh-Hant rules.yaml:996 {{t:variance|波動}} → 變異數: «{{t:variance|波動}}» → «{{t:variance|變異數}}»
+- ja lessons/m6-l1-mdf-alpha.md:74 勝率 → エクイティ ×1 (en: equity ×2)
+
+## Zamiany przebiegu 2
+- fr lessons/m4-l1-3bet.md:23 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l1-3bet.md:33 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l1-3bet.md:36 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l1-3bet.md:87 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l1-3bet.md:93 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l1-3bet.md:99 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l1-3bet.md:101 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l1-3bet.md:104 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l1-3bet.md:104 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:13 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:21 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:25 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:41 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:67 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:69 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:69 une blind → une blinde (tekst): «une blind» → «une blinde»
+- fr lessons/m4-l2-obrona-bb.md:81 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:83 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l2-obrona-bb.md:92 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr lessons/m4-l4-limperzy.md:18 une blind → une blinde (tekst): «une blind» → «une blinde»
+- fr exams/m3.yaml:56 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr exams/m3.yaml:59 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr exams/m3.yaml:60 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr exams/m3.yaml:61 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr exams/m3.yaml:62 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»
+- fr exams/m3.yaml:70 {{t:small-blind|petite blind}} → petite blinde: «{{t:small-blind|petite blind}}» → «{{t:small-blind|petite blinde}}»

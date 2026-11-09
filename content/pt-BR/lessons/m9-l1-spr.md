@@ -77,12 +77,12 @@ drills:
     id: m9.l1.q-zone
     family: m9.spr-zone
     rules: [R-M9-010]
-    prompt: "Você {{t:raise|aumentou}} do Button (3-bet) e o {{t:cutoff|CO}} {{t:call|pagou}}. O {{t:spr}} no flop é de cerca de {{n:spr.3bet-ip}}. Você acertou o {{t:top-pair|par mais alto}} com um bom kicker. Como você trata essa mão?"
+    prompt: "Você {{t:raise|aumentou}} do Button (3-bet) e o {{t:cutoff|CO}} {{t:call|pagou}}. O {{t:spr}} no flop é de cerca de {{n:spr.3bet-ip}}. Você acertou o {{t:top-pair|top pair}} com um bom kicker. Como você trata essa mão?"
     table: { position: BTN }
     options:
-      - { text: "Como uma mão no limite: você joga {{t:value|por valor}}, mas nem sempre {{t:call|paga}} o all-in do adversário", correct: true, why: "Um {{t:spr}} de cerca de {{n:spr.3bet-ip}} está na zona de {{n:spr.zone.low}} a {{n:spr.zone.mid}}, em que o {{t:top-pair|par mais alto}} é uma mão no limite. A decisão sobre o stack inteiro depende de como o adversário joga e de como está a {{t:board|mesa}}." }
+      - { text: "Como uma mão no limite: você joga {{t:value|por valor}}, mas nem sempre {{t:call|paga}} o all-in do adversário", correct: true, why: "Um {{t:spr}} de cerca de {{n:spr.3bet-ip}} está na zona de {{n:spr.zone.low}} a {{n:spr.zone.mid}}, em que o {{t:top-pair|top pair}} é uma mão no limite. A decisão sobre o stack inteiro depende de como o adversário joga e de como está a {{t:board|mesa}}." }
       - { text: "Você sempre joga pelo stack inteiro", why: "Em geral isso só acontece com {{t:spr}} abaixo de cerca de {{n:spr.zone.low}}, por exemplo depois de um 4-bet (cerca de {{n:spr.4bet}}). Com {{t:spr}} de cerca de {{n:spr.3bet-ip}}, são necessárias mais {{t:bet|apostas}} até o all-in, e quem paga até o fim são principalmente mãos mais fortes." }
-      - { text: "Você joga com cautela, como num {{t:spr}} muito alto", why: "Você joga o {{t:top-pair|par mais alto}} com essa cautela acima de cerca de {{n:spr.zone.deep}}, por exemplo num {{t:pot}} com um único aumento (cerca de {{n:spr.srp}}). Depois de um 3-bet, o {{t:spr}} é bem mais baixo." }
+      - { text: "Você joga com cautela, como num {{t:spr}} muito alto", why: "Você joga o {{t:top-pair|top pair}} com essa cautela acima de cerca de {{n:spr.zone.deep}}, por exemplo num {{t:pot}} com um único aumento (cerca de {{n:spr.srp}}). Depois de um 3-bet, o {{t:spr}} é bem mais baixo." }
   - kind: numeric
     id: m9.l1.n-jam-spr2
     family: m9.spr-price
@@ -131,12 +131,12 @@ Você define as zonas de {{t:spr}} pelo {{t:spr}} no flop. Quanto mais alto o {{
 
 | {{t:spr}} | Com o que você costuma jogar pelo stack inteiro |
 |---|---|
-| abaixo de {{n:spr.zone.low}} | {{t:top-pair|par mais alto}} e mãos melhores |
-| de {{n:spr.zone.low}} a {{n:spr.zone.mid}} | o {{t:top-pair|par mais alto}} é uma mão no limite |
+| abaixo de {{n:spr.zone.low}} | {{t:top-pair|top pair}} e mãos melhores |
+| de {{n:spr.zone.low}} a {{n:spr.zone.mid}} | o {{t:top-pair|top pair}} é uma mão no limite |
 | de {{n:spr.zone.mid}} a {{n:spr.zone.deep}} | {{t:two-pair|dois pares}} altos e mãos melhores |
 | acima de {{n:spr.zone.deep}} | set, {{t:straight|sequência}} e mãos melhores |
 
-Depois de uma {{t:open|abertura}} e um {{t:call|pagamento}} ({{t:spr}} de cerca de {{n:spr.srp}}), você está na zona mais alta; depois de um 3-bet (cerca de {{n:spr.3bet-ip}}), na zona em que o {{t:top-pair|par mais alto}} fica no limite; e depois de um 4-bet (cerca de {{n:spr.4bet}}), na mais baixa. Os limites são uma simplificação. As fontes dividem as zonas de formas diferentes, mas concordam que, abaixo de cerca de {{n:spr.zone.low}}, o {{t:top-pair|par mais alto}} joga pelo stack, e que, com {{t:spr}} mais alto, um único {{t:pair|par}} faz isso cada vez menos. O limite de {{n:spr.zone.mid}} é uma convenção adotada no aplicativo. O limite de {{n:spr.zone.deep}} vem da conta: com {{t:spr}} de {{n:spr.zone.deep}}, três {{t:bet|apostas}} do tamanho do {{t:pot}} levam ao all-in.
+Depois de uma {{t:open|abertura}} e um {{t:call|pagamento}} ({{t:spr}} de cerca de {{n:spr.srp}}), você está na zona mais alta; depois de um 3-bet (cerca de {{n:spr.3bet-ip}}), na zona em que o {{t:top-pair|top pair}} fica no limite; e depois de um 4-bet (cerca de {{n:spr.4bet}}), na mais baixa. Os limites são uma simplificação. As fontes dividem as zonas de formas diferentes, mas concordam que, abaixo de cerca de {{n:spr.zone.low}}, o {{t:top-pair|top pair}} joga pelo stack, e que, com {{t:spr}} mais alto, um único {{t:pair|par}} faz isso cada vez menos. O limite de {{n:spr.zone.mid}} é uma convenção adotada no aplicativo. O limite de {{n:spr.zone.deep}} vem da conta: com {{t:spr}} de {{n:spr.zone.deep}}, três {{t:bet|apostas}} do tamanho do {{t:pot}} levam ao all-in.
 
 ## {{t:spr}} baixo: preço melhor no all-in
 

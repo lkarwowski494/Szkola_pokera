@@ -12,7 +12,7 @@ two-pair: "兩對"  # two pair; bez formy 36; formy: 兩對×28
 pair: "對子"  # pair; bez formy 32; formy: 對子×205, 一對×53, 對×16, 兩對×1 [WIELE FORM]
 high-card: "高牌"  # high card; bez formy 2; formy: 高牌×1
 kicker: null  # kicker; bez formy 0; formy: — [DO USTALENIA]
-wheel: null  # wheel; bez formy 2; formy: — [DO USTALENIA]
+wheel: null  # wheel; bez formy 2; formy: — [potw. D-392: https://qq-poker.com.tw/texas-holdem-hand-ranking/ („也常稱 Wheel” — nazwa angielska), odczyt 2026-11-09]
 check: "過牌"  # check; bez formy 12; formy: 過牌×274
 bet: "下注"  # bet; bez formy 99; formy: 下注×308, 注×4, 定×1, 下×1, 下出×1 [WIELE FORM]
 call: "跟注"  # call; bez formy 61; formy: 跟注×804, 跟注者×2, 跟×1, 檢視×1 [WIELE FORM]
@@ -69,7 +69,7 @@ pocket-pair: "口袋對"  # pocket pair; bez formy 0; formy: 口袋對×3
 connectors: "連張"  # connectors; bez formy 0; formy: 連張×24
 3-bet: null  # 3-bet; bez formy 0; formy: — [DO USTALENIA]
 4-bet: null  # 4-bet; bez formy 0; formy: — [DO USTALENIA]
-limp: "溜入"  # limp; bez formy 1; formy: 溜入×1 [AB: Z2: przeczytane źródło TW (pokerqz) ma 平跟, ale 平跟 = też flat call; 溜入 [DO USTALENIA] źródło, decyzja przy K-05; ujednolicić 跛入 i łacińskie limp]
+limp: "溜入"  # limp; bez formy 1; formy: 溜入×1 [AB: Z2: przeczytane źródło TW (pokerqz) ma 平跟, ale 平跟 = też flat call; 溜入 [DO USTALENIA] źródło, decyzja przy K-05; ujednolicić 跛入 i łacińskie limp; D-392: przeczytane kpoker.org (zh-TW) „平跟進池 / Limp”; 溜入 bez źródła, ale 48× w tekście — zmiana nazwy tylko z ujednoliceniem tekstu (backlog)]
 isolation: "隔離加注"  # isolation raise; bez formy 0; formy: 隔離加注×7
 texture: "牌面結構"  # texture; bez formy 0; formy: 牌面結構×8
 dry: "乾燥"  # dry; bez formy 1; formy: 乾燥×52

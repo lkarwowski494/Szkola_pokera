@@ -67,14 +67,14 @@ drills:
     rules: [R-M11-009, R-M11-010]
     prompt: "{{t:bubble|Bolha}}, o exemplo da lição. Sua mão tem cerca de {{n:m11.bf.example-eq}} de equity contra o {{t:range}} de all-in do adversário. Num jogo por {{t:chips|fichas}}, o {{t:call}} compensaria, porque bastam {{n:m11.bf.req-chips}}. O que você faz aqui?"
     options:
-      - { text: "{{t:fold|Foldo}}", correct: true, why: "Segundo o {{t:icm}}, aqui você precisa de {{n:m11.bf.req}} de equity. Uma mão que vence com menos frequência perde dinheiro, embora estivesse no lucro em {{t:chips|fichas}}." }
+      - { text: "{{t:fold|Desisto}}", correct: true, why: "Segundo o {{t:icm}}, aqui você precisa de {{n:m11.bf.req}} de equity. Uma mão que vence com menos frequência perde dinheiro, embora estivesse no lucro em {{t:chips|fichas}}." }
       - { text: "{{t:call|Pago}}, porque em {{t:chips|fichas}} é lucro", why: "Num {{t:tournament|torneio}} com {{t:payout|pagamentos}}, o que conta é o dinheiro, não as {{t:chips|fichas}}. Perder custa {{n:m11.bf.loss}} da {{t:prize-pool|premiação}}, e vencer dá só {{n:m11.bf.gain}}." }
       - { text: "{{t:call|Pago}}, porque venço mais da metade das vezes", why: "Uma mão com {{n:m11.bf.example-eq}} vence mais da metade das vezes e, mesmo assim, aqui é fraca demais: o limite é {{n:m11.bf.req}}." }
   - kind: choice
     id: m11.l3.q-covering
     family: m11.icm.call
     rules: [R-M11-010]
-    prompt: "{{t:bubble|Bolha}} do {{t:tournament|torneio}}. Você tem o maior stack da mesa e {{t:cover|cobre}} todos. O stack médio folda para você com muita frequência. O que isso significa?"
+    prompt: "{{t:bubble|Bolha}} do {{t:tournament|torneio}}. Você tem o maior stack da mesa e {{t:cover|cobre}} todos. O stack médio desiste diante de você com muita frequência. O que isso significa?"
     options:
       - { text: "Você pode fazer {{t:shove|shove}} com mais mãos, porque os adversários {{t:call|pagam}} de forma apertada", correct: true, why: "Ao {{t:call|pagar}}, o stack médio arrisca ser eliminado logo antes da premiação, então precisa de muita equity. Você, se perder, perde só parte do stack. Os adversários {{t:call|pagam}} de forma apertada, então você leva o {{t:pot|pote}} sem disputa com mais frequência." }
       - { text: "Você joga mais apertado para não perder a liderança", why: "O líder tem o menor risco da mesa. Jogar apertado abre mão da sua principal vantagem: a pressão sobre os stacks médios." }
@@ -161,7 +161,7 @@ O resultado é **{{n:m11.bf.req}}**. Num jogo por {{t:chips|fichas}}, você arri
 A mesma tendência aparece num equilíbrio publicado para três jogadores com stacks iguais (artigo científico de 2008): quando o Button e o {{t:small-blind}} já estão all-in, o {{t:big-blind}} {{t:call|paga}} com {{n:m11.jamfold3.overcall.single}} das mãos numa mão isolada, mas num {{t:tournament|torneio}} com {{t:payout|pagamentos}} só com {{n:m11.jamfold3.overcall.tourn}}, ou seja, apenas os {{t:pocket-pair|pares de mão}} mais altos e AKs.
 
 :::note Quem {{t:call|paga}} de forma apertada
-O stack médio na {{t:bubble|bolha}} ou na {{t:final-table|mesa final}} (a última mesa do {{t:tournament|torneio}}, onde se joga pelos maiores prêmios) {{t:call|paga}} all-ins de forma muito mais apertada do que num jogo por {{t:chips|fichas}}. O stack grande, que {{t:cover|cobre}} os adversários, arrisca menos e pode aproveitar isso: fazer {{t:shove|shove}} com mais mãos, porque os adversários precisam {{t:fold|foldar}}. O bubble factor depende de todos os stacks da mesa, por isso não é calculado durante o jogo: ele é praticado em exemplos para desenvolver a intuição.
+O stack médio na {{t:bubble|bolha}} ou na {{t:final-table|mesa final}} (a última mesa do {{t:tournament|torneio}}, onde se joga pelos maiores prêmios) {{t:call|paga}} all-ins de forma muito mais apertada do que num jogo por {{t:chips|fichas}}. O stack grande, que {{t:cover|cobre}} os adversários, arrisca menos e pode aproveitar isso: fazer {{t:shove|shove}} com mais mãos, porque os adversários precisam {{t:fold|desistir}}. O bubble factor depende de todos os stacks da mesa, por isso não é calculado durante o jogo: ele é praticado em exemplos para desenvolver a intuição.
 :::
 
 ## Limitações do {{t:icm}}

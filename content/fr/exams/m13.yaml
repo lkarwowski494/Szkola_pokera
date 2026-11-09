@@ -20,20 +20,20 @@ drills:
     id: m13.exam.q3
     family: m13.verdicts
     rules: [R-M13-002]
-    prompt: "Le solver joue votre main en {{t:raise|relance}} dans {{n:exam.m13.solver.main}} des cas et se {{t:fold|couche}} dans {{n:exam.m13.solver.rare}}. Vous vous êtes {{t:fold|couché}}. Comment le rapport évaluera-t-il ce choix ?"
+    prompt: "Le solveur joue votre main en {{t:raise|relance}} dans {{n:exam.m13.solver.main}} des cas et se {{t:fold|couche}} dans {{n:exam.m13.solver.rare}}. Vous vous êtes {{t:fold|couché}}. Comment le rapport évaluera-t-il ce choix ?"
     options:
-      - { text: "Acceptable", correct: true, why: "Le solver se {{t:fold|couche}} dans {{n:exam.m13.solver.rare}} des cas : au moins {{n:range.mixed.min}}, mais moins souvent que {{n:range.mixed.low}}. C'est le coup le moins fréquent d'une {{t:mixed-hand|main mixte}}, donc ce n'est pas une erreur, mais une décision acceptable." }
-      - { text: "Conforme", why: "Une action est conforme quand le solver la joue dans au moins {{n:range.mixed.low}} des cas. Se {{t:fold|coucher}} à {{n:exam.m13.solver.rare}} est moins fréquent." }
-      - { text: "Erreur", why: "Une erreur est une action que le solver ne joue jamais. Se {{t:fold|coucher}} à {{n:exam.m13.solver.rare}} est le coup le moins fréquent d'une {{t:mixed-hand|main mixte}}, donc les deux coups sont corrects." }
+      - { text: "Acceptable", correct: true, why: "Le solveur se {{t:fold|couche}} dans {{n:exam.m13.solver.rare}} des cas : au moins {{n:range.mixed.min}}, mais moins souvent que {{n:range.mixed.low}}. C'est le coup le moins fréquent d'une {{t:mixed-hand|main mixte}}, donc ce n'est pas une erreur, mais une décision acceptable." }
+      - { text: "Conforme", why: "Une action est conforme quand le solveur la joue dans au moins {{n:range.mixed.low}} des cas. Se {{t:fold|coucher}} à {{n:exam.m13.solver.rare}} est moins fréquent." }
+      - { text: "Erreur", why: "Une erreur est une action que le solveur ne joue jamais. Se {{t:fold|coucher}} à {{n:exam.m13.solver.rare}} est le coup le moins fréquent d'une {{t:mixed-hand|main mixte}}, donc les deux coups sont corrects." }
   - kind: choice
     id: m13.exam.q4
     family: m13.verdicts
     rules: [R-M13-002]
-    prompt: "Le solver se {{t:fold|couche}} avec votre main dans {{n:exam.m13.solver.main2}} des cas et {{t:call|suit}} dans {{n:exam.m13.solver.tiny}}. Vous avez {{t:call|suivi}}. Quel est le verdict ?"
+    prompt: "Le solveur se {{t:fold|couche}} avec votre main dans {{n:exam.m13.solver.main2}} des cas et {{t:call|suit}} dans {{n:exam.m13.solver.tiny}}. Vous avez {{t:call|suivi}}. Quel est le verdict ?"
     options:
       - { text: "Imprécision", correct: true, why: "{{t:call|Suivre}} dans {{n:exam.m13.solver.tiny}} des cas, c'est moins que {{n:range.mixed.min}}. Le rapport compte une action sous le seuil comme une imprécision, c'est-à-dire comme une erreur : c'est un seuil de l'application, pas de la théorie." }
-      - { text: "Erreur", why: "Une erreur est une action que le solver ne joue jamais. Ici, le solver {{t:call|suit}} dans {{n:exam.m13.solver.tiny}} des cas." }
-      - { text: "Acceptable, car le solver {{t:call|suit}} aussi parfois", why: "Une action est acceptable quand elle est jouée dans au moins {{n:range.mixed.min}} des cas. {{n:exam.m13.solver.tiny}}, c'est trop peu." }
+      - { text: "Erreur", why: "Une erreur est une action que le solveur ne joue jamais. Ici, le solveur {{t:call|suit}} dans {{n:exam.m13.solver.tiny}} des cas." }
+      - { text: "Acceptable, car le solveur {{t:call|suit}} aussi parfois", why: "Une action est acceptable quand elle est jouée dans au moins {{n:range.mixed.min}} des cas. {{n:exam.m13.solver.tiny}}, c'est trop peu." }
       - { text: "Sans évaluation", why: "« Sans évaluation » s'applique à une décision pour laquelle l'application n'a ni règle ni résultat du solver. Ici, il y a un résultat du solver." }
   - kind: choice
     id: m13.exam.q5

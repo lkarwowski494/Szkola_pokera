@@ -23,7 +23,7 @@ drills:
     id: m9.exam.q3
     family: m9.spr-price
     rules: [R-M9-002]
-    prompt: "翻牌。{{t:pot|底池}}有 {{n:exam.m9.pot}}，對手全下 {{n:exam.m9.stack.opp}}（{{t:spr}} {{n:exam.m9.spr}}）。你需要多少勝率才能{{t:call|跟注}}？請輸入百分比數字。"
+    prompt: "翻牌。{{t:pot|底池}}有 {{n:exam.m9.pot}}，對手全下 {{n:exam.m9.stack.opp}}（{{t:spr}} {{n:exam.m9.spr}}）。你需要多少權益才能{{t:call|跟注}}？請輸入百分比數字。"
     answer: exam.m9.eq.jam
     explanation: "你補上 {{n:exam.m9.stack.opp}}，是為了贏得{{t:pot|底池}}和對手的籌碼：{{n:exam.m9.stack.opp}} ÷ ({{n:exam.m9.pot}} + 2·{{n:exam.m9.stack.opp}}) = {{n:exam.m9.eq.jam}}。{{t:spr}}越低，價格越好。"
   - kind: choice
@@ -33,8 +33,8 @@ drills:
     prompt: "翻牌，{{t:spr}} {{n:spr.low}}：{{t:pot|底池}} {{n:ex.pot}}，雙方籌碼各 {{n:spr.stack.low}}。你有{{t:overpair}}。你考慮下注半個{{t:pot|底池}}（{{n:ex.bet.half}}），下注後你會剩下 {{n:exam.m9.low.left}}。你的計畫是什麼？"
     table: { hand: "Qh Qc", board: "Jd 7s 3c" }
     options:
-      - { text: "下注，計畫打到全部籌碼", correct: true, why: "對：下注並被{{t:call|跟注}}後，{{t:pot|底池}}會有 {{n:ex.half.total}}，比你籌碼中剩下的 {{n:exam.m9.low.left}} 還多。面對對手全下，你只需要 {{n:exam.m9.eq.low-after-half}} 的勝率，而在這麼低的{{t:spr}}下，{{t:overpair}}會打到全部籌碼。" }
-      - { text: "下注 {{n:ex.bet.half}}，對手全下就{{t:fold}}", why: "下注後再{{t:fold}}在這裡沒有道理：你下注後，只要 {{n:exam.m9.eq.low-after-half}} 的勝率就足以{{t:call|跟注}}全下。要嘛打到全部籌碼，要嘛{{t:check|過牌}}。" }
+      - { text: "下注，計畫打到全部籌碼", correct: true, why: "對：下注並被{{t:call|跟注}}後，{{t:pot|底池}}會有 {{n:ex.half.total}}，比你籌碼中剩下的 {{n:exam.m9.low.left}} 還多。面對對手全下，你只需要 {{n:exam.m9.eq.low-after-half}} 的權益，而在這麼低的{{t:spr}}下，{{t:overpair}}會打到全部籌碼。" }
+      - { text: "下注 {{n:ex.bet.half}}，對手全下就{{t:fold}}", why: "下注後再{{t:fold}}在這裡沒有道理：你下注後，只要 {{n:exam.m9.eq.low-after-half}} 的權益就足以{{t:call|跟注}}全下。要嘛打到全部籌碼，要嘛{{t:check|過牌}}。" }
       - { text: "{{t:check|過牌}}，面對任何下注都{{t:fold|棄牌}}", why: "{{t:spr}}低於 {{n:spr.zone.low}} 時，{{t:overpair}}是要打全部籌碼的牌。面對下注{{t:fold}}，等於拿著非常強的牌放棄{{t:pot|底池}}。" }
   - kind: choice
     id: m9.exam.q5

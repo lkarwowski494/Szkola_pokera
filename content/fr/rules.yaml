@@ -340,7 +340,7 @@
 - id: R-M5-002
   module: m5
   if: "le flop totalise au moins {{n:tex.threshold.wet}} points d'{{t:wetness|humidité}} (points comme dans la définition du flop {{t:dry|sec}})"
-  then: "c'est un flop {{t:wet|humide}} : l'adversaire a souvent des {{t:draw|tirages}}, et parfois déjà une {{t:straight|quinte}} ou une {{t:flush|couleur}}"
+  then: "c'est un flop {{t:wet|wet}} : l'adversaire a souvent des {{t:draw|tirages}}, et parfois déjà une {{t:straight|quinte}} ou une {{t:flush|couleur}}"
   because: "les cartes suivantes changent souvent le leader, donc la main qui est la meilleure maintenant est moins sûre"
   level: rules
   source: "définition de la texture dans l'application (poker-core, texture.ts : WETNESS_POINTS, WETNESS_THRESHOLDS) ; notion de flop humide : site de formation, Sizing Your C-Bets ; site de formation, What Is a Continuation Bet ; exemples de flops humides : site de formation (987, QJT), site de formation, Bet Sizing Strategy: 8 Rules (T954, https://upswingpoker.com/bet-size-strategy-tips-rules/) ; la limite intermédiaire/humide est une convention de l'application"

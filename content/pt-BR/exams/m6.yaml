@@ -74,7 +74,7 @@ drills:
     table: { board: "Jh 8c 4h", position: BB }
     options:
       - { text: "[[Qh Th]]", correct: true, why: "Sim: um {{t:flush-draw|projeto de flush}} mais um gutshot (o nove) é um {{t:draw|projeto}} forte. O check-raise ganha quando o Button {{t:fold|desiste}}, e, quando ele paga, você ainda tem muitos outs." }
-      - { text: "[[Jd 5d]]", why: "{{t:top-pair|Par mais alto}} com kicker fraco é mão para {{t:call|pagar}}. Depois de um check-raise, as mãos piores normalmente {{t:fold|desistem}} e as melhores pagam." }
+      - { text: "[[Jd 5d]]", why: "{{t:top-pair|Top pair}} com kicker fraco é mão para {{t:call|pagar}}. Depois de um check-raise, as mãos piores normalmente {{t:fold|desistem}} e as melhores pagam." }
       - { text: "[[As 3c]]", why: "Ás como carta mais alta sem {{t:draw|projeto}} não tem uma segunda forma de ganhar. O check-raise como {{t:bluff}} você faz principalmente com {{t:draw|projetos}}." }
   - kind: numeric
     id: m6.exam.q9

@@ -50,7 +50,7 @@ drills:
     id: m8.exam.q6
     family: m8.blockers.bluff
     rules: [R-M8-007]
-    prompt: "River. La {{t:big-blind|grosse blind}} {{t:check|checke}}. Sur ce {{t:board|board}}, KT et T8 ont une {{t:straight}}. Aucune des deux mains ci-dessous n'a de {{t:pair|paire}} ni de chance au showdown. Avec laquelle vaut-il mieux {{t:bluff|bluffer}} ?"
+    prompt: "River. La {{t:big-blind|grosse blinde}} {{t:check|checke}}. Sur ce {{t:board|board}}, KT et T8 ont une {{t:straight}}. Aucune des deux mains ci-dessous n'a de {{t:pair|paire}} ni de chance au showdown. Avec laquelle vaut-il mieux {{t:bluff|bluffer}} ?"
     table: { board: "Qd Jc 4s 2h 9d", position: BTN }
     options:
       - { text: "[[Ts 7s]]", correct: true, why: "Oui : le dix bloque les deux {{t:straight|quintes}} (KT et T8), c'est-à-dire les mains avec lesquelles l'adversaire paiera à coup sûr. Il en a moins de {{t:combo|combinaisons}}, donc il lui reste plus souvent une main à coucher." }

@@ -64,25 +64,25 @@ drills:
     rules: [R-M10-014]
     prompt: "Vous jouez sur un site qui ne prélève le {{t:rake}} que sur les {{t:pot|pots}} qui atteignent le flop. Quelqu'un avant vous {{t:open|ouvre}}, et vous êtes en {{t:position}} avec une main pour laquelle {{t:call|suivre}} serait limite sans rake. Que change le {{t:rake}} ?"
     options:
-      - { text: "{{t:call|Suivre}} moins souvent : avec les mains limites pour {{t:call|suivre}}, {{t:fold|se coucher}} ou 3-bet plus souvent", correct: true, why: "Dans les solutions de solver publiées avec rake, les joueurs en {{t:position}} face à une {{t:open|ouverture}} jouent env. {{n:rake.solver.vpip-drop.low}}–{{n:rake.solver.vpip-drop.high}} de mains en moins. C'est le fait de {{t:call|suivre}} lui-même qui perd, car un {{t:pot}} après le flop paie le {{t:rake}}, alors qu'un {{t:pot}} gagné par un 3-bet avant le flop ne le paie pas." }
+      - { text: "{{t:call|Suivre}} moins souvent : avec les mains limites pour {{t:call|suivre}}, {{t:fold|se coucher}} ou 3-bet plus souvent", correct: true, why: "Dans les solutions de solveur publiées avec rake, les joueurs en {{t:position}} face à une {{t:open|ouverture}} jouent env. {{n:rake.solver.vpip-drop.low}}–{{n:rake.solver.vpip-drop.high}} de mains en moins. C'est le fait de {{t:call|suivre}} lui-même qui perd, car un {{t:pot}} après le flop paie le {{t:rake}}, alors qu'un {{t:pot}} gagné par un 3-bet avant le flop ne le paie pas." }
       - { text: "Rien : le {{t:rake}} ne concerne que le jeu après le flop", why: "C'est précisément pour cela qu'il change la décision avant le flop : {{t:call|suivre}} mène au flop et au rake, alors que 3-better ou {{t:fold|se coucher}} met souvent fin au coup sans rake." }
-      - { text: "{{t:call|Suivre}} plus souvent, car les {{t:pot|pots}} après le flop sont gros", why: "C'est l'inverse : le {{t:rake}} prend une part justement de ces {{t:pot|pots}}. Le solver avec rake {{t:call|suit}} nettement moins souvent." }
+      - { text: "{{t:call|Suivre}} plus souvent, car les {{t:pot|pots}} après le flop sont gros", why: "C'est l'inverse : le {{t:rake}} prend une part justement de ces {{t:pot|pots}}. Le solveur avec rake {{t:call|suit}} nettement moins souvent." }
   - kind: choice
     id: m10.l4.q-bb-minraise
     family: m10.rake.preflop
     rules: [R-M10-014]
-    prompt: "Dans ces mêmes solutions de solver, la {{t:big-blind|grosse blinde}} ne {{t:call|suit}} un min-raise en jeu avec rake que dans env. {{n:rake.solver.bb-minraise}} des cas où elle le {{t:call|suit}} sans rake. Qu'est-ce que cela implique pour vous en {{t:big-blind|grosse blinde}} ?"
+    prompt: "Dans ces mêmes solutions de solveur, la {{t:big-blind|grosse blinde}} ne {{t:call|suit}} un min-raise en jeu avec rake que dans env. {{n:rake.solver.bb-minraise}} des cas où elle le {{t:call|suit}} sans rake. Qu'est-ce que cela implique pour vous en {{t:big-blind|grosse blinde}} ?"
     options:
       - { text: "Défendre toujours beaucoup de mains, mais plus serré que dans les tableaux calculés sans rake", correct: true, why: "La {{t:big-blind|grosse blinde}} défend toujours souvent, car elle a déjà des {{t:chips|jetons}} dans le {{t:pot}} et clôt l'action. Le {{t:rake}} supprime toutefois les décisions de {{t:call|suivre}} les plus faibles : les tableaux sans rake sont donc trop larges pour vous." }
       - { text: "Cesser de défendre la {{t:big-blind|grosse blinde}} en {{t:call|suivant}}", why: "Non : selon l'auteur, {{t:call|suivre}} depuis les blindes reste une part importante de la stratégie, y compris avec rake. Ce qui change, c'est la largeur de la défense, pas son existence." }
-      - { text: "Défendre aussi large, car en {{t:big-blind|grosse blinde}} le {{t:rake}} ne compte pas", why: "Il compte : si vous {{t:call|suivez}}, le {{t:pot}} va au flop et paie le {{t:rake}}. C'est pourquoi le solver {{t:call|suit}} moins souvent depuis la {{t:big-blind|grosse blinde}}." }
+      - { text: "Défendre aussi large, car en {{t:big-blind|grosse blinde}} le {{t:rake}} ne compte pas", why: "Il compte : si vous {{t:call|suivez}}, le {{t:pot}} va au flop et paie le {{t:rake}}. C'est pourquoi le solveur {{t:call|suit}} moins souvent depuis la {{t:big-blind|grosse blinde}}." }
   - kind: choice
     id: m10.l4.q-gg-3bet
     family: m10.rake.preflop
     rules: [R-M10-014]
     prompt: "Sur certains sites, le {{t:rake}} est aussi prélevé sur les {{t:pot|pots}} 3-betés qui se terminent avant le flop. Qu'est-ce que cela change à l'argument « un 3-bet ne paie pas de rake » ?"
     options:
-      - { text: "Sur un tel site, cet argument s'affaiblit : le 3-bet paie aussi, donc l'avantage du 3-bet sur le fait de {{t:call|suivre}} est moindre", correct: true, why: "Le résultat du solver concerne une structure « no flop, no drop », dans laquelle un {{t:pot}} sans flop est exempt de rake. Sur un tel site, cette règle ne couvre que les {{t:pot|pots}} sans 3-bet : {{t:call|suivre}} perd donc toujours à cause du rake, mais le 3-bet n'en est pas exempt." }
+      - { text: "Sur un tel site, cet argument s'affaiblit : le 3-bet paie aussi, donc l'avantage du 3-bet sur le fait de {{t:call|suivre}} est moindre", correct: true, why: "Le résultat du solveur concerne une structure « no flop, no drop », dans laquelle un {{t:pot}} sans flop est exempt de rake. Sur un tel site, cette règle ne couvre que les {{t:pot|pots}} sans 3-bet : {{t:call|suivre}} perd donc toujours à cause du rake, mais le 3-bet n'en est pas exempt." }
       - { text: "Rien, car le {{t:rake}} sur un 3-bet est négligeable", why: "On ne peut pas le savoir sans faire le calcul pour un site donné. La seule certitude, c'est que le 3-bet n'est plus exempt de rake." }
       - { text: "Sur un tel site, il faut toujours {{t:call|suivre}} au lieu de 3-better", why: "{{t:call|Suivre}} mène au flop et paie le {{t:rake}}, comme avant. La seule différence, c'est que le 3-bet paie aussi." }
 ---
@@ -115,7 +115,7 @@ Mise de {{n:ex.bet.half}} dans un {{t:pot}} de {{n:ex.pot}} : sans rake, il vou
 
 ## Ce que le {{t:rake}} change avant le flop
 
-Sur de nombreux sites, le {{t:rake}} n'est prélevé que sur les {{t:pot|pots}} qui atteignent le flop (« no flop, no drop »). Un {{t:pot}} gagné avant le flop en est alors exempt, tandis qu'un {{t:pot}} où l'on a {{t:call|suivi}} le paie. Dans les solutions de solver publiées pour la NL100 avec rake :
+Sur de nombreux sites, le {{t:rake}} n'est prélevé que sur les {{t:pot|pots}} qui atteignent le flop (« no flop, no drop »). Un {{t:pot}} gagné avant le flop en est alors exempt, tandis qu'un {{t:pot}} où l'on a {{t:call|suivi}} le paie. Dans les solutions de solveur publiées pour la NL100 avec rake :
 
 - les joueurs en {{t:position}} face à une {{t:open|ouverture}} jouent env. {{n:rake.solver.vpip-drop.low}}–{{n:rake.solver.vpip-drop.high}} de mains en moins ; c'est surtout le fait de {{t:call|suivre}} qui perd, et les 3-bets sont un peu plus nombreux ;
 - la {{t:big-blind|grosse blinde}} ne {{t:call|suit}} un min-raise que dans env. {{n:rake.solver.bb-minraise}} des cas où elle le fait sans rake, même si la défense des blindes repose toujours sur le fait de {{t:call|suivre}}.
@@ -123,5 +123,5 @@ Sur de nombreux sites, le {{t:rake}} n'est prélevé que sur les {{t:pot|pots}} 
 Pour la même raison, au module 3, depuis la {{t:small-blind|petite blinde}}, vous {{t:raise|relancez}} ou vous vous {{t:fold|couchez}}, sans compléter jusqu'à la {{t:big-blind|grosse blinde}}. Certains sites prélèvent aussi le {{t:rake}} sur les {{t:pot|pots}} 3-betés qui se terminent avant le flop ; là, le 3-bet n'en est pas exempt.
 
 :::note Sources
-Niveau du rake : comparaison du rake des sites en ligne de 2026 (grilles des deux plus grands sites converties en bb/100, consultée le 5 octobre 2026) ; d'autres sites ont d'autres chiffres. Perte de la population : rapport indépendant sur la population (cash NLHE 6-max, sites avec bases de suivi des mains, joueurs ayant au moins 100 mains ; l'auteur ne précise ni les sites ni la période). Effet du rake sur le jeu avant le flop : article publié sur les tailles de relance avant le flop, solutions de solver pour des tapis de {{n:rake.solver.depth}} ; l'auteur écrit que les conclusions se transposent en grande partie à d'autres formats, donc pour un tapis de {{n:format.stack}}, c'est une simplification. Le seuil d'equity est un calcul.
+Niveau du rake : comparaison du rake des sites en ligne de 2026 (grilles des deux plus grands sites converties en bb/100, consultée le 5 octobre 2026) ; d'autres sites ont d'autres chiffres. Perte de la population : rapport indépendant sur la population (cash NLHE 6-max, sites avec bases de suivi des mains, joueurs ayant au moins 100 mains ; l'auteur ne précise ni les sites ni la période). Effet du rake sur le jeu avant le flop : article publié sur les tailles de relance avant le flop, solutions de solveur pour des tapis de {{n:rake.solver.depth}} ; l'auteur écrit que les conclusions se transposent en grande partie à d'autres formats, donc pour un tapis de {{n:format.stack}}, c'est une simplification. Le seuil d'equity est un calcul.
 :::

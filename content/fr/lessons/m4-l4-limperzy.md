@@ -15,7 +15,7 @@ drills:
     options:
       - { text: "À {{n:pf.iso.one-limper}}", correct: true, why: "Base {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} par limpeur. Cette taille retire au limpeur son bon prix." }
       - { text: "À {{n:pf.min-raise}}", why: "Une {{t:raise|relance}} minimale donne au limpeur un excellent prix et ne remporte presque jamais le {{t:pot|pot}} immédiatement." }
-      - { text: "À {{n:pf.open-size}}, comme une {{t:open|ouverture}} normale", why: "Le limpeur a déjà mis une blind, donc le {{t:pot|pot}} est plus gros. La {{t:raise|relance}} doit être plus grosse qu'une {{t:open|ouverture}} normale." }
+      - { text: "À {{n:pf.open-size}}, comme une {{t:open|ouverture}} normale", why: "Le limpeur a déjà mis une blinde, donc le {{t:pot|pot}} est plus gros. La {{t:raise|relance}} doit être plus grosse qu'une {{t:open|ouverture}} normale." }
   - kind: choice
     id: m4.l4.q-two
     family: m4.iso.size

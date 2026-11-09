@@ -23,8 +23,8 @@ drills:
     prompt: "{{t:pot|底池}}有 {{n:ex.third.pot}}，莊位{{t:bet|下注}} {{n:ex.third.bet}} 作為 c-bet。你有暗三條，想要過牌加注。你要{{t:raise|加注}}到多少？"
     table: { hand: "4s 4d", board: "Qc 9h 4h", position: BB }
     options:
-      - { text: "加到 {{n:xr.example}}", correct: true, why: "這是 c-bet 的 {{n:xr.mult.example}}。莊位要再補 {{n:xr.example.extra}}，需要約 {{n:eq.vs-xr.example}} 的勝率：較差的{{t:pair|對子}}和弱{{t:draw|聽牌}}（卡順）價格不夠，而{{t:flush|同花}}聽牌和{{t:oesd|兩頭順聽牌}}就得付錢進入大{{t:pot|底池}}。" }
-      - { text: "加到 {{n:xr.too-small}}", sizeError: true, why: "動作對，但尺寸太小：莊位只需再補 {{n:xr.too-small.extra}}，需要約 {{n:eq.vs-xr.too-small}} 的勝率。任何{{t:flush-draw|同花聽牌}}或{{t:straight|順子}}聽牌幾乎不用代價就會跟。" }
+      - { text: "加到 {{n:xr.example}}", correct: true, why: "這是 c-bet 的 {{n:xr.mult.example}}。莊位要再補 {{n:xr.example.extra}}，需要約 {{n:eq.vs-xr.example}} 的權益：較差的{{t:pair|對子}}和弱{{t:draw|聽牌}}（卡順）價格不夠，而{{t:flush|同花}}聽牌和{{t:oesd|兩頭順聽牌}}就得付錢進入大{{t:pot|底池}}。" }
+      - { text: "加到 {{n:xr.too-small}}", sizeError: true, why: "動作對，但尺寸太小：莊位只需再補 {{n:xr.too-small.extra}}，需要約 {{n:eq.vs-xr.too-small}} 的權益。任何{{t:flush-draw|同花聽牌}}或{{t:straight|順子}}聽牌幾乎不用代價就會跟。" }
       - { text: "{{t:call|跟注}}", why: "翻牌有兩張紅心，又有能成{{t:straight|順子}}的牌，跟注會讓你失去價值和保護：轉牌很多牌會讓行動停下，或打敗你的牌。暗三條要馬上做大{{t:pot|底池}}。" }
   - kind: numeric
     id: m6.l3.n-size
@@ -38,7 +38,7 @@ drills:
     id: m6.l3.n-price-vs-xr
     family: m6.xr.size
     rules: [R-M6-010]
-    prompt: "{{t:pot|底池}}原本有 {{n:ex.third.pot}}，莊位{{t:bet|下注}} {{n:ex.third.bet}}，你{{t:raise|加注}}到 {{n:xr.example}}。莊位需要百分之多少的勝率才能{{t:call|跟注}}？請輸入數字。"
+    prompt: "{{t:pot|底池}}原本有 {{n:ex.third.pot}}，莊位{{t:bet|下注}} {{n:ex.third.bet}}，你{{t:raise|加注}}到 {{n:xr.example}}。莊位需要百分之多少的權益才能{{t:call|跟注}}？請輸入數字。"
     table: { position: BB }
     answer: eq.vs-xr.example
     explanation: "莊位要補 {{n:xr.example}} − {{n:ex.third.bet}} = {{n:xr.example.extra}}。此時{{t:pot|底池}}有 {{n:xr.example.pot-after}}，他{{t:call|跟注}}後再多 {{n:xr.example.extra}}。{{n:xr.example.extra}} ÷ ({{n:xr.example.pot-after}} + {{n:xr.example.extra}}) = {{n:eq.vs-xr.example}}。"
@@ -46,7 +46,7 @@ drills:
     id: m6.l3.q-price-small-xr
     family: m6.xr.size
     rules: [R-M6-010]
-    prompt: "{{t:pot|底池}}原本有 {{n:ex.third.pot}}，莊位{{t:bet|下注}} {{n:ex.third.bet}}，你只{{t:raise|加注}}到 {{n:xr.too-small}}。莊位需要多少勝率才能{{t:call|跟注}}？"
+    prompt: "{{t:pot|底池}}原本有 {{n:ex.third.pot}}，莊位{{t:bet|下注}} {{n:ex.third.bet}}，你只{{t:raise|加注}}到 {{n:xr.too-small}}。莊位需要多少權益才能{{t:call|跟注}}？"
     table: { position: BB }
     options:
       - { text: "約 {{n:eq.vs-xr.too-small}}", correct: true, why: "他要補 {{n:xr.too-small.extra}}，進入 {{n:xr.too-small.pot-after}} 的{{t:pot|底池}}：{{n:xr.too-small.extra}} ÷ ({{n:xr.too-small.pot-after}} + {{n:xr.too-small.extra}}) = {{n:eq.vs-xr.too-small}}。這麼便宜，他幾乎任何牌都會跟，所以{{t:raise|加注}}要比 c-bet 大好幾倍。" }
@@ -132,7 +132,7 @@ drills:
 
 ## 尺寸多大
 
-過牌加注的尺寸以 c-bet 計算。例如：{{t:pot|底池}}有 {{n:ex.third.pot}}，c-bet 是 {{n:ex.third.bet}}。過牌加注到 c-bet 的 {{n:xr.mult.example}}，就是{{t:raise|加注}}到 {{n:xr.example}}：莊位要補 {{n:xr.example.extra}}，需要約 **{{n:eq.vs-xr.example}}** 的勝率。只{{t:raise|加注}}到 {{n:xr.too-small}}，給他的價格約 **{{n:eq.vs-xr.too-small}}**：只要有任何{{t:draw|聽牌}}，他幾乎都會跟。所以你要{{t:raise|加注}}到 c-bet 的約 {{n:xr.mult.low}}–{{n:xr.mult.example}}，c-bet 越小就加越多，而不是最小加注。
+過牌加注的尺寸以 c-bet 計算。例如：{{t:pot|底池}}有 {{n:ex.third.pot}}，c-bet 是 {{n:ex.third.bet}}。過牌加注到 c-bet 的 {{n:xr.mult.example}}，就是{{t:raise|加注}}到 {{n:xr.example}}：莊位要補 {{n:xr.example.extra}}，需要約 **{{n:eq.vs-xr.example}}** 的權益。只{{t:raise|加注}}到 {{n:xr.too-small}}，給他的價格約 **{{n:eq.vs-xr.too-small}}**：只要有任何{{t:draw|聽牌}}，他幾乎都會跟。所以你要{{t:raise|加注}}到 c-bet 的約 {{n:xr.mult.low}}–{{n:xr.mult.example}}，c-bet 越小就加越多，而不是最小加注。
 
 :::note 不{{t:fold|棄牌}}的對手
 過牌加注的{{t:bluff|詐唬}}靠對手{{t:fold|棄牌}}賺錢（回想第一課的 alpha）。面對翻牌幾乎從不{{t:fold|棄牌}}的玩家，你主要為了{{t:value|價值}}而{{t:raise|加注}}，{{t:bluff|詐唬}}則留給最強的{{t:draw|聽牌}}。

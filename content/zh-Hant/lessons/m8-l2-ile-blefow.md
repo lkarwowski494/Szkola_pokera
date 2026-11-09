@@ -26,7 +26,7 @@ drills:
     rules: [R-M8-004]
     prompt: "河牌。{{t:pot|底池}}有 {{n:ex.pot}}，你下注 {{n:ex.bet.three-quarters}}。在均衡狀態下，你的下注中有多少比例是{{t:bluff|詐唬}}？"
     options:
-      - { text: "{{n:bluff.share.bet-three-quarters}}", correct: true, why: "{{n:ex.bet.three-quarters}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}} + {{n:ex.bet.three-quarters}}) = {{n:bluff.share.bet-three-quarters}}。這個數字和對手{{t:call|跟注}}所需的勝率相同。" }
+      - { text: "{{n:bluff.share.bet-three-quarters}}", correct: true, why: "{{n:ex.bet.three-quarters}} ÷ ({{n:ex.pot}} + {{n:ex.bet.three-quarters}} + {{n:ex.bet.three-quarters}}) = {{n:bluff.share.bet-three-quarters}}。這個數字和對手{{t:call|跟注}}所需的權益相同。" }
       - { text: "{{n:alpha.bet-three-quarters}}", why: "這是 alpha：一次毫無勝算的{{t:bluff|詐唬}}需要多常成功。{{t:range|範圍}}中的{{t:bluff|詐唬}}佔比，要把兩筆下注都放進分母來算：{{n:bluff.share.bet-three-quarters}}。" }
       - { text: "{{n:mdf.bet-three-quarters}}", why: "這是{{t:mdf|最低防守頻率}}，也就是對手應該防守多少。你的{{t:bluff|詐唬}}佔比是 {{n:bluff.share.bet-three-quarters}}。" }
   - kind: choice
@@ -60,11 +60,11 @@ drills:
     id: m8.l2.q-same-as-equity
     family: m8.bluff.alpha
     rules: [R-M8-004]
-    prompt: "為什麼你下注中的{{t:bluff|詐唬}}佔比，和對手{{t:call|跟注}}所需的勝率用同一個公式計算？"
+    prompt: "為什麼你下注中的{{t:bluff|詐唬}}佔比，和對手{{t:call|跟注}}所需的權益用同一個公式計算？"
     options:
-      - { text: "因為對手的抓詐唬牌剛好在你{{t:bluff|詐唬}}時贏", correct: true, why: "他的牌輸給你的價值牌、贏過你的{{t:bluff|詐唬}}，所以它的勝率就是{{t:bluff|詐唬}}佔比。當這個佔比等於所需勝率時，{{t:call|跟注}}剛好打平，對手不管跟注還是棄牌都無法利用你。" }
-      - { text: "這是巧合，公式只是看起來很像", why: "這不是巧合。你選擇{{t:bluff|詐唬}}佔比，就是要讓抓詐唬牌的勝率等於它的價格。" }
-      - { text: "因為對手總是剛好擁有所需的勝率", why: "對手的勝率取決於你的下注。是你調整{{t:bluff|詐唬}}的數量，讓結果剛好打平。" }
+      - { text: "因為對手的抓詐唬牌剛好在你{{t:bluff|詐唬}}時贏", correct: true, why: "他的牌輸給你的價值牌、贏過你的{{t:bluff|詐唬}}，所以它的權益就是{{t:bluff|詐唬}}佔比。當這個佔比等於所需權益時，{{t:call|跟注}}剛好打平，對手不管跟注還是棄牌都無法利用你。" }
+      - { text: "這是巧合，公式只是看起來很像", why: "這不是巧合。你選擇{{t:bluff|詐唬}}佔比，就是要讓抓詐唬牌的權益等於它的價格。" }
+      - { text: "因為對手總是剛好擁有所需的權益", why: "對手的權益取決於你的下注。是你調整{{t:bluff|詐唬}}的數量，讓結果剛好打平。" }
   - kind: choice
     id: m8.l2.q-too-many
     family: m8.bluff.balance
@@ -116,7 +116,7 @@ drills:
 詐唬佔比 = 下注 ÷ (底池 + 2·下注)
 ```
 
-這和 M2 裡{{t:call|跟注}}所需勝率的公式相同。這不是巧合：抓詐唬牌剛好在你{{t:bluff|詐唬}}時贏，所以它的勝率就是你的{{t:bluff|詐唬}}佔比。下注整個{{t:pot|底池}}時：{{n:ex.bet.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.pot}} + {{n:ex.bet.pot}}) = **{{n:bluff.share.bet-pot}}**，也就是每三次下注有一次是{{t:bluff|詐唬}}。
+這和 M2 裡{{t:call|跟注}}所需權益的公式相同。這不是巧合：抓詐唬牌剛好在你{{t:bluff|詐唬}}時贏，所以它的權益就是你的{{t:bluff|詐唬}}佔比。下注整個{{t:pot|底池}}時：{{n:ex.bet.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.pot}} + {{n:ex.bet.pot}}) = **{{n:bluff.share.bet-pot}}**，也就是每三次下注有一次是{{t:bluff|詐唬}}。
 
 ## 下注越大，{{t:bluff|詐唬}}越多
 

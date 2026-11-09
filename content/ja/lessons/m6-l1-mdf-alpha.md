@@ -71,7 +71,7 @@ drills:
     options:
       - { text: "{{t:mdf}}は{{t:range|レンジ}}全体、エクイティは単一のハンドに関するもの", correct: true, why: "{{t:mdf}}は、相手がどんなカードでも{{t:bluff|ブラフ}}できるようにならないよう、自分の全ハンドのうちどれだけの割合を守るかを示します。必要エクイティは、相手が実際に{{t:bet|ベット}}してくるハンドに対して、特定のハンドでの{{t:call|コール}}が利益になるかどうかを示します。" }
       - { text: "どちらかの計算が間違っている", why: "どちらも正しいです：{{n:ex.third.pot}} ÷ {{n:ex.third.pot-after-bet}} = {{n:mdf.bet-third}}、および{{n:ex.third.bet}} ÷ {{n:ex.third.total}} = {{n:eq.bet-third}}。それぞれ異なる問いに答えています。" }
-      - { text: "エクイティが{{n:mdf.bet-third}}以上あれば{{t:call|コール}}する", why: "概念の混同です。{{t:call|コール}}には{{n:eq.bet-third}}のエクイティで十分です。{{n:mdf.bet-third}}は{{t:range|レンジ}}の割合であり、単一のハンドの勝率ではありません。" }
+      - { text: "エクイティが{{n:mdf.bet-third}}以上あれば{{t:call|コール}}する", why: "概念の混同です。{{t:call|コール}}には{{n:eq.bet-third}}のエクイティで十分です。{{n:mdf.bet-third}}は{{t:range|レンジ}}の割合であり、単一のハンドのエクイティではありません。" }
   - kind: choice
     id: m6.l1.q-flop-mdf
     family: m6.mdf-concept

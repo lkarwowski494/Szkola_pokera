@@ -71,12 +71,12 @@ limp: "limp"  # limp; bez formy 1; formy: limp×1; źr. A:Limp
 isolation: "isolation"  # isolation raise; bez formy 0; formy: isolation×4, isoler×1, isole×1, isolez×1; źr. A:Isoler (L'isolation est ...)
 texture: "texture"  # texture; bez formy 2; formy: texture×5, Texture×1; źr. A:Texture_1952
 dry: "sec"  # dry; bez formy 0; formy: sec×44, secs×5, Sec×4; źr. A:Sec-tableau (Un tableau sec (ou dry board))
-wet: "humide"  # wet; bez formy 7; formy: humide×17, humides×4, Humide×2; źr. A:Sec-tableau („tableau wet”), Drawy_1951 [DO USTALENIA]
+wet: "wet"  # wet; bez formy 7; formy: humide×17, humides×4, Humide×2; źr. A:Sec-tableau („tableau wet”), Drawy_1951 [zmiana D-392: https://www.pokerstrategy.com/fr/glossary/Sec-tableau/ („tableau wet”), https://www.pokerstrategy.com/fr/glossary/Drawy_1951/; „humide” w żadnym przeczytanym źródle, odczyt 2026-11-09]
 rainbow: "rainbow"  # rainbow; bez formy 0; formy: rainbow×3, Rainbow×1; źr. A:Sec-tableau (il est rainbow)
 two-tone: "bicolore"  # two-tone; bez formy 0; formy: bicolore×6, Bicolore×1; źr. A:Twosuited („twosuited”) [DO USTALENIA]
 monotone: "monocolore"  # monotone; bez formy 4; formy: monocolore×7, monochrome×6, monotones×1, Monocolore×1; źr. brak [WIELE FORM] [DO USTALENIA]
 paired: "pairé"  # paired; bez formy 0; formy: pairé×15, Pairé×2; źr. A:Paired („paired”) [DO USTALENIA]
-connected: "connecté"  # connected; bez formy 1; formy: connecté×15, connectés×2, Connecté×1; źr. A:Connectivity (connexion) [DO USTALENIA]
+connected: "connecté"  # connected; bez formy 1; formy: connecté×15, connectés×2, Connecté×1; źr. A:Connectivity (connexion) [potw. D-392: https://www.pokerstrategy.com/fr/glossary/Connectivity/, odczyt 2026-11-09]
 disconnected: "déconnecté"  # disconnected; bez formy 0; formy: déconnecté×3, Déconnecté×1; źr. brak [DO USTALENIA]
 semi-connected: "semi-connecté"  # semi-connected; bez formy 0; formy: semi-connecté×5, semi-connectés×1, Semi-connecté×1; źr. brak [DO USTALENIA]
 wetness: "humidité"  # wetness; bez formy 0; formy: humidité×5; źr. brak [DO USTALENIA]

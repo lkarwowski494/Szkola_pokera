@@ -128,12 +128,12 @@ Quand l'adversaire peut vous {{t:raise|relancer}} et que vous devriez alors {{t:
 
 La thin value (valeur fine) est une mise avec une main qui bat à peine plus de la moitié des {{t:call|calls}}, par ex. une {{t:top-pair|top paire}} avec un kicker moyen. Vous faites cette mise **plus petite** qu'avec une main forte, en général env. 1/4–1/2 du {{t:pot|pot}} : les {{t:pair|paires}} plus faibles paieront aussi une petite mise, mais face à une grosse, elles {{t:fold|se coucheront}} et il ne restera que les meilleures mains.
 
-C'est une simplification : sans risque de check-raise, un solver mise la thin value jusqu'à env. 1/4 du {{t:pot|pot}}, et avec ce risque, en {{t:position|position}}, il descend rarement sous 1/2 {{t:pot|pot}}.
+C'est une simplification : sans risque de check-raise, un solveur mise la thin value jusqu'à env. 1/4 du {{t:pot|pot}}, et avec ce risque, en {{t:position|position}}, il descend rarement sous 1/2 {{t:pot|pot}}.
 
 ## Une main moyenne {{t:check|checke}}
 
 Vous avez une main moyenne {{t:in-position|en position}}, par ex. une {{t:second-pair|deuxième paire}}. Les mains moins bonnes de l'adversaire {{t:fold|se coucheront}} face à une mise, et les meilleures paieront. La mise transforme alors votre main en {{t:bluff|bluff}}. Vous {{t:check|checkez}} : vous gagnerez le showdown contre les mains moins bonnes sans rien payer aux meilleures.
 
 :::note D'où viennent ces règles
-Le seuil de plus de la moitié des {{t:call|calls}} relève des mathématiques pures (mise {{t:in-position|en position}}, sans {{t:raise|relance}} et sans rake). La taille de la thin value et le {{t:check|check}} avec une main moyenne proviennent d'analyses de solver publiées ({{t:tournament|tournois}} avec des stacks plus courts) et de supports de formation.
+Le seuil de plus de la moitié des {{t:call|calls}} relève des mathématiques pures (mise {{t:in-position|en position}}, sans {{t:raise|relance}} et sans rake). La taille de la thin value et le {{t:check|check}} avec une main moyenne proviennent d'analyses de solveur publiées ({{t:tournament|tournois}} avec des stacks plus courts) et de supports de formation.
 :::

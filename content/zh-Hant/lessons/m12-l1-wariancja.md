@@ -99,7 +99,7 @@ drills:
 
 **贏率**是每 100 手牌的平均獲利，以{{t:big-blind|大盲注}}計算。微注級別的贏錢玩家通常是 {{n:var.wr.typical.low}}–{{n:var.wr.typical.high}}。
 
-**{{t:standard-deviation|標準差}}（SD）**是每 100 手牌結果的典型離散程度。在 6 人桌現金局中通常是 {{n:var.sd.low}}–{{n:var.sd.high}}，一般以 {{n:var.sd}} 作為典型值。{{t:standard-deviation|標準差}}比贏率大數十倍，所以一場{{t:session|牌局}}、甚至一個月的結果，能說明的事情都很少。
+**{{t:standard-deviation|標準差}}（SD）**是每 100 手牌結果的典型離散程度。在 6 人桌現金局中通常是 {{n:var.sd.low}}–{{n:var.sd.high}}，一般以 {{n:var.sd}} 作為典型值。{{t:standard-deviation|標準差}}比贏率大數十倍，所以一個{{t:session|場次}}、甚至一個月的結果，能說明的事情都很少。
 
 ## 打很多手牌之後的結果
 

@@ -11,11 +11,11 @@ drills:
     id: m13.exam.q2
     family: m13.equity-loss
     rules: [R-M13-001]
-    prompt: "在同一個{{t:session|牌局}}中，你兩次在擁有 {{n:exam.m13.eq.big}} {{t:equity|權益}}時全下落敗。這對你的策略代表什麼？"
+    prompt: "在同一個{{t:session|場次}}中，你兩次在擁有 {{n:exam.m13.eq.big}} {{t:equity|權益}}時全下落敗。這對你的策略代表什麼？"
     options:
       - { text: "什麼都不代表：有這麼多{{t:equity|權益}}，你仍會輸掉約 {{n:exam.m13.lose.big}} 的牌，而這兩手正好在其中", correct: true, why: "{{t:equity|權益}}是同一情境重複多次時的獲勝比例。約 {{n:exam.m13.lose.big}} 情況下的輸牌是其中一部分，即使它們接連出現也一樣。" }
       - { text: "代表在這些局面中要打得更謹慎", why: "以 {{n:exam.m13.eq.big}} {{t:equity|權益}}做出的決策是好的。因為結果而改變策略，等於放棄約 {{n:exam.m13.eq.big}} 情況下都會贏的打法。" }
-      - { text: "代表對手更能看穿你的打法", why: "全下時只有{{t:equity|權益}}重要：對手的判讀不會改變接下來發出的牌。每次都有 {{n:exam.m13.lose.big}} 機率輸，兩次落敗就是{{t:variance|變異}}。" }
+      - { text: "代表對手更能看穿你的打法", why: "全下時只有{{t:equity|權益}}重要：對手的判讀不會改變接下來發出的牌。每次都有 {{n:exam.m13.lose.big}} 機率輸，兩次落敗就是{{t:variance|變異數}}。" }
   - kind: choice
     id: m13.exam.q3
     family: m13.verdicts
@@ -57,19 +57,19 @@ drills:
     id: m13.exam.q7
     family: m13.review-when
     rules: [R-M13-005]
-    prompt: "你剛結束一個很長的{{t:session|牌局}}，覺得很累，還標記了幾手牌。你什麼時候分析它們？"
+    prompt: "你剛結束一個很長的{{t:session|場次}}，覺得很累，還標記了幾手牌。你什麼時候分析它們？"
     options:
       - { text: "幾小時後或明天，頭腦清醒的時候", correct: true, why: "在疲累時或剛大輸之後分析，會受到情緒影響。標記的牌不會跑掉。" }
       - { text: "馬上，趁我還記得所有細節", why: "複盤只需要一份簡短的牌局紀錄。疲勞會影響判斷，所以最好晚點、頭腦清醒時再看。" }
-      - { text: "在下一個{{t:session|牌局}}的手與手之間", why: "打牌時你只需要標記牌局。在牌桌上分析會分散你對接下來決策的注意力。" }
+      - { text: "在下一個{{t:session|場次}}的手與手之間", why: "打牌時你只需要標記牌局。在牌桌上分析會分散你對接下來決策的注意力。" }
   - kind: choice
     id: m13.exam.q8
     family: m13.review-which
     rules: [R-M13-006]
-    prompt: "上一個{{t:session|牌局}}的以下哪手牌最值得複盤？"
+    prompt: "上一個{{t:session|場次}}的以下哪手牌最值得複盤？"
     options:
       - { text: "一個大{{t:pot|底池}}，你在河牌猶豫了很久才{{t:call|跟注}}", correct: true, why: "有困難決策的牌屬於值得複盤的牌，而大{{t:pot|底池}}影響最大。猶豫說明你不知道該怎麼做。" }
-      - { text: "翻牌前用一{{t:pair|對}} A 對上一{{t:pair|對}} K 全下，在河牌輸掉", why: "這是 bad beat：決策很明顯，輸牌是{{t:variance|變異}}。這類牌不需要花太多時間。" }
+      - { text: "翻牌前用一{{t:pair|對}} A 對上一{{t:pair|對}} K 全下，在河牌輸掉", why: "這是 bad beat：決策很明顯，輸牌是{{t:variance|變異數}}。這類牌不需要花太多時間。" }
       - { text: "持續下注後沒攤牌就贏下的小{{t:pot|底池}}", why: "沒有困難決策的小{{t:pot|底池}}能學到的不多。複盤時間最好用在大{{t:pot|底池}}和讓你猶豫的決策上。" }
   - kind: choice
     id: m13.exam.q9

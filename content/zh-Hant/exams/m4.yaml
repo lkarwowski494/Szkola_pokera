@@ -36,7 +36,7 @@ drills:
     id: m4.exam.q4
     family: m4.bb.price
     rules: [R-M4-004]
-    prompt: "{{t:cutoff|CO}} 以 {{n:pf.open-size}} {{t:open|開池}}，按鈕位和{{t:small-blind|小盲}}{{t:fold|棄牌}}。你在{{t:big-blind|大盲}}需要多少勝率才能{{t:call|跟注}}（不計翻牌後的打法）？"
+    prompt: "{{t:cutoff|CO}} 以 {{n:pf.open-size}} {{t:open|開池}}，按鈕位和{{t:small-blind|小盲}}{{t:fold|棄牌}}。你在{{t:big-blind|大盲}}需要多少權益才能{{t:call|跟注}}（不計翻牌後的打法）？"
     table: { position: BB }
     options:
       - { text: "約 {{n:eq.bb-vs-btn-open}}", correct: true, why: "價格取決於金額，而不是誰{{t:open|開池}}。你補 {{n:bb.call.vs-btn}} 進入{{t:call|跟注}}後共有 {{n:bb.pot-after.vs-btn}} 的{{t:pot|底池}}，和面對按鈕位時一樣。" }
@@ -68,7 +68,7 @@ drills:
     prompt: "你從 {{t:hijack|HJ}} 以 {{n:pf.open-size}} {{t:open|開池}}，按鈕位{{t:raise|加注}}到 {{n:pf.3bet.ip-total}}，其他人都{{t:fold|棄牌}}。你會怎麼做？"
     table: { hand: "Ah Tc", position: HJ }
     options:
-      - { text: "{{t:fold|棄牌}}", correct: true, why: "不同花的 AT 在{{t:out-of-position|沒有位置}}時常被 AJ、AQ 和 AK 壓制，翻牌後也難以{{t:equity-realization|實現勝率}}。面對 3-bet，這類手牌你會{{t:fold|棄掉}}。" }
+      - { text: "{{t:fold|棄牌}}", correct: true, why: "不同花的 AT 在{{t:out-of-position|沒有位置}}時常被 AJ、AQ 和 AK 壓制，翻牌後也難以{{t:equity-realization|實現權益}}。面對 3-bet，這類手牌你會{{t:fold|棄掉}}。" }
       - { text: "{{t:call|跟注}}", why: "A 很誘人，但{{t:out-of-position|沒有位置}}時你用同花牌和{{t:pair|對子}}{{t:call|跟注}}。ATo 太常中 A 卻踢腳較弱。" }
       - { text: "{{t:value|價值}} 4-bet", why: "{{t:value|價值}} 4-bet 你通常用 AA、KK 和 AK。ATo 會輸給大多數會{{t:call|跟注}}它的手牌。" }
   - kind: choice
@@ -78,7 +78,7 @@ drills:
     prompt: "你從按鈕位以 {{n:pf.open-size}} {{t:open|開池}}，{{t:small-blind|小盲}}{{t:raise|加注}}到 {{n:pf.3bet.oop-total}}，{{t:big-blind|大盲}}{{t:fold|棄牌}}。你會怎麼做？"
     table: { hand: "9s 9h", position: BTN }
     options:
-      - { text: "{{t:call|跟注}}", correct: true, why: "{{t:in-position|有位置}}時你{{t:call|跟注}}得更寬，包括 66 到 TT 的{{t:pair|對子}}。99 翻牌後很好打，也容易{{t:equity-realization|實現勝率}}。" }
+      - { text: "{{t:call|跟注}}", correct: true, why: "{{t:in-position|有位置}}時你{{t:call|跟注}}得更寬，包括 66 到 TT 的{{t:pair|對子}}。99 翻牌後很好打，也容易{{t:equity-realization|實現權益}}。" }
       - { text: "{{t:fold|棄牌}}", why: "太緊了：你{{t:fold|棄掉}}的是最小的{{t:pair|對子}}，而 99 在你{{t:in-position|有位置}}時的{{t:call|跟注}}{{t:range|範圍}}內。" }
       - { text: "{{t:value|價值}} 4-bet", why: "{{t:value|價值}} 4-bet 你通常用 AA、KK 和 AK。99 寧可看翻牌。" }
   - kind: choice

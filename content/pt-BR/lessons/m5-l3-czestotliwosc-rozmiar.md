@@ -46,9 +46,9 @@ drills:
     prompt: "Você {{t:open|abriu}} do Button, o {{t:big-blind}} {{t:call|pagou}} e {{t:check|dá check}}. Você tem um {{t:pair|par}} de reis com valete. O que você faz?"
     table: { hand: "Kh Jc", position: BTN, board: "Ks 7d 2c" }
     options:
-      - { text: "C-bet {{n:cbet.btn.small}} ({{n:cbet.size.small}} do {{t:pot|pote}})", correct: true, why: "Isso: {{t:top-pair|par mais alto}} ({{t:pair|par}} com a carta mais alta da {{t:board|mesa}}) em um flop {{t:dry|seco}}. Uma {{t:bet|aposta}} pequena recebe {{t:call|pagamento}} de setes, duques e reis mais fracos, e o rival quase não tem {{t:draw|projetos}}." }
+      - { text: "C-bet {{n:cbet.btn.small}} ({{n:cbet.size.small}} do {{t:pot|pote}})", correct: true, why: "Isso: {{t:top-pair|top pair}} ({{t:pair|par}} com a carta mais alta da {{t:board|mesa}}) em um flop {{t:dry|seco}}. Uma {{t:bet|aposta}} pequena recebe {{t:call|pagamento}} de setes, duques e reis mais fracos, e o rival quase não tem {{t:draw|projetos}}." }
       - { text: "C-bet {{n:cbet.btn.big}} ({{n:cbet.size.big}} do {{t:pot|pote}})", sizeError: true, why: "Ação certa, tamanho errado: em um flop {{t:dry|seco}}, o rival não tem {{t:draw|projetos}}, e as mãos que erraram também vão {{t:fold|desistir}} diante de uma {{t:bet|aposta}} pequena. Uma {{t:bet|aposta}} maior faz {{t:fold|desistir}} mais ou menos as mesmas mãos, mas arrisca mais. Aposte cerca de {{n:cbet.size.small}} do {{t:pot|pote}}." }
-      - { text: "{{t:check|Dou check}}", why: "Você perde valor: o rival tem muitos {{t:pair|pares}} mais fracos e mãos com ás que pagariam uma {{t:bet|aposta}} pequena. Em um flop {{t:dry|seco}} com {{t:top-pair|par mais alto}}, você aposta." }
+      - { text: "{{t:check|Dou check}}", why: "Você perde valor: o rival tem muitos {{t:pair|pares}} mais fracos e mãos com ás que pagariam uma {{t:bet|aposta}} pequena. Em um flop {{t:dry|seco}} com {{t:top-pair|top pair}}, você aposta." }
   - kind: choice
     id: m5.l3.q-set-wet
     family: m5.cbet.size

@@ -19,7 +19,7 @@ drills:
     id: m10.l3.q-small-shift
     family: m10.base.mixed
     rules: [R-M10-009]
-    prompt: "Dans un exemple de solver publié, l'adversaire {{t:bluff|bluffe}} à la river avec environ {{n:overbluff.lock}} de ses mises au lieu d'environ {{n:overbluff.base}}. Comment change votre réponse à sa mise avec les mains qui attrapent les {{t:bluff|bluffs}} ?"
+    prompt: "Dans un exemple de solveur publié, l'adversaire {{t:bluff|bluffe}} à la river avec environ {{n:overbluff.lock}} de ses mises au lieu d'environ {{n:overbluff.base}}. Comment change votre réponse à sa mise avec les mains qui attrapent les {{t:bluff|bluffs}} ?"
     options:
       - { text: "Vous cessez de {{t:fold|vous coucher}} : les mains qui mélangeaient dans la base {{t:call|suivent}} désormais toujours", correct: true, why: "Cela a suffi pour que, dans la solution où la stratégie de l'adversaire est verrouillée, la défense ne fasse plus que {{t:call|suivre}}. Les mains indifférentes réagissent au moindre surplus de {{t:bluff|bluffs}}." }
       - { text: "Presque rien : quelques points, c'est trop peu pour changer quoi que ce soit", why: "Pour des mains indifférentes, quelques points, c'est beaucoup : à l'équilibre, {{t:call|suivre}} et {{t:fold|se coucher}} leur rapportent la même chose, donc tout surplus de {{t:bluff|bluffs}} fait pencher la décision vers {{t:call|suivre}}." }
@@ -30,7 +30,7 @@ drills:
     rules: [R-M10-009]
     prompt: "Vous savez que, dans une ligne donnée, l'adversaire {{t:bluff|bluffe}} moins souvent qu'à l'équilibre. Que faites-vous avec une main qui attrape les {{t:bluff|bluffs}} et qui, dans la base, {{t:call|suit}} parfois et {{t:fold|se couche}} parfois ?"
     options:
-      - { text: "Je {{t:fold|me couche}} toujours", correct: true, why: "Quand il y a moins de {{t:bluff|bluffs}} que ne l'exige l'équilibre, les mains indifférentes perdent en {{t:call|suivant}}. Résultat du solver : face à un manque de {{t:bluff|bluffs}}, vous {{t:fold|vous couchez}} toujours." }
+      - { text: "Je {{t:fold|me couche}} toujours", correct: true, why: "Quand il y a moins de {{t:bluff|bluffs}} que ne l'exige l'équilibre, les mains indifférentes perdent en {{t:call|suivant}}. Résultat du solveur : face à un manque de {{t:bluff|bluffs}}, vous {{t:fold|vous couchez}} toujours." }
       - { text: "Je {{t:call|paie}} toujours, pour que l'adversaire ne m'exploite pas avec des {{t:bluff|bluffs}}", why: "Un adversaire qui {{t:bluff|bluffe}} trop rarement ne pourra pas exploiter le fait que vous {{t:fold|vous couchiez}}. C'est vous qui exploitez son erreur en {{t:fold|vous couchant}}." }
       - { text: "Je joue comme dans la base, moitié-moitié", why: "Mélanger n'a de sens que lorsque les deux décisions rapportent la même chose. Face à un manque de {{t:bluff|bluffs}}, {{t:fold|se coucher}} rapporte davantage." }
   - kind: numeric
@@ -96,7 +96,7 @@ L'{{t:exploit|exploitation}} ne remplace pas la base, elle la décale. D'abord, 
 - l'adversaire {{t:bluff|bluffe}} trop souvent : les {{t:mixed-hand|mains mixtes}} {{t:call|suivent}} toujours ;
 - l'adversaire {{t:bluff|bluffe}} trop rarement : les {{t:mixed-hand|mains mixtes}} {{t:fold|se couchent}} toujours.
 
-Il en faut peu. Dans un exemple de solver publié (le bouton mise à la river après une ligne mise, {{t:check}}, mise), faire passer les {{t:bluff|bluffs}} de l'adversaire d'environ {{n:overbluff.base}} à environ {{n:overbluff.lock}} a fait basculer la défense de la {{t:big-blind|grosse blinde}} : elle ne fait plus que {{t:call|suivre}}. Les mains qui, dans la base, {{t:fold|se couchent}} toujours ou continuent toujours ne changent de décision que lorsque l'adversaire s'écarte fortement de l'équilibre.
+Il en faut peu. Dans un exemple de solveur publié (le bouton mise à la river après une ligne mise, {{t:check}}, mise), faire passer les {{t:bluff|bluffs}} de l'adversaire d'environ {{n:overbluff.base}} à environ {{n:overbluff.lock}} a fait basculer la défense de la {{t:big-blind|grosse blinde}} : elle ne fait plus que {{t:call|suivre}}. Les mains qui, dans la base, {{t:fold|se couchent}} toujours ou continuent toujours ne changent de décision que lorsque l'adversaire s'écarte fortement de l'équilibre.
 
 ## Le {{t:bluff}} calculé avec un seuil
 
@@ -108,7 +108,7 @@ Un {{t:bluff}} rapporte quand l'adversaire {{t:fold|se couche}} plus souvent que
 
 Pour un c-bet de 1/3 du {{t:pot}}, c'est {{n:alpha.cbet.small}} ; pour 3/4 du {{t:pot}}, {{n:alpha.cbet.big}}. Le fold to c-bet du {{t:hud}} montre si l'adversaire est au-dessus ou en dessous de ce seuil. C'est une approximation : la statistique regroupe toutes les tailles et tous les flops, et votre main a généralement encore un peu d'équité. Sur un flop qui touche la {{t:range}} de l'adversaire, il {{t:fold|se couche}} moins souvent qu'en moyenne.
 
-Les joueurs de la population des micro-limites en ligne (NL25) {{t:fold|se couchent}} face à un c-bet au flop dans {{n:mda.all.fcb}} des cas en moyenne. Ce n'est pas forcément une erreur : le solver {{t:out-of-position|hors de position}} au flop {{t:fold|se couche}} lui aussi plus souvent que ne l'indique la {{t:mdf}} (module 6). C'est pourquoi une moyenne de population au-dessus du seuil ne justifie pas à elle seule un c-bet sans main ; il vous faut une lecture de l'adversaire concerné ou un flop qui ne touche pas sa {{t:range}}.
+Les joueurs de la population des micro-limites en ligne (NL25) {{t:fold|se couchent}} face à un c-bet au flop dans {{n:mda.all.fcb}} des cas en moyenne. Ce n'est pas forcément une erreur : le solveur {{t:out-of-position|hors de position}} au flop {{t:fold|se couche}} lui aussi plus souvent que ne l'indique la {{t:mdf}} (module 6). C'est pourquoi une moyenne de population au-dessus du seuil ne justifie pas à elle seule un c-bet sans main ; il vous faut une lecture de l'adversaire concerné ou un flop qui ne touche pas sa {{t:range}}.
 
 ## 3-better un joueur qui ne {{t:fold|se couche}} pas
 
@@ -126,5 +126,5 @@ Dans la base, les {{t:bluff|bluffs}} en 3-bet vivent des {{t:fold|folds}} et de 
 Plus l'échantillon est petit, plus l'erreur de la statistique est grande (leçon 1). Sur un petit échantillon, vous ne décalez que les mains limites, et seulement dans le sens de la lecture. Un grand écart, avec toute votre {{t:range}}, n'a de sens qu'avec un grand échantillon et une erreur nette de l'adversaire. S'écarter de la base est en soi une erreur qu'un bon adversaire peut exploiter.
 
 :::note Sources
-Le principe des {{t:mixed-hand|mains mixtes}} provient d'une analyse de solver publiée, avec la stratégie de l'adversaire verrouillée (une solution de solver, pas des données de population). Les seuils d'{{t:alpha}} relèvent du calcul. Les fold to 3-bet et fold to c-bet de la population proviennent d'une base de statistiques publique (une grande room en ligne, NL25–NL100, {{n:mda.period.months}} mois avant octobre 2026). La limite de fold to 3-bet et le principe « petit échantillon, petit écart » sont des recommandations issues de deux supports de formation.
+Le principe des {{t:mixed-hand|mains mixtes}} provient d'une analyse de solveur publiée, avec la stratégie de l'adversaire verrouillée (une solution de solveur, pas des données de population). Les seuils d'{{t:alpha}} relèvent du calcul. Les fold to 3-bet et fold to c-bet de la population proviennent d'une base de statistiques publique (une grande room en ligne, NL25–NL100, {{n:mda.period.months}} mois avant octobre 2026). La limite de fold to 3-bet et le principe « petit échantillon, petit écart » sont des recommandations issues de deux supports de formation.
 :::

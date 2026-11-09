@@ -61,7 +61,7 @@ drills:
     id: m9.l3.q-3bet-oop
     family: m9.geo-size
     rules: [R-M9-006]
-    prompt: "{{t:pot|Pot}} après votre 3-bet depuis la {{t:big-blind|grosse blind}}, {{t:spr}} d'environ {{n:spr.3bet-oop}}. Vous voulez engager tout le stack d'ici la river avec des {{t:bet|mises}} égales. Quelle fraction du {{t:pot}} sur chaque {{t:street}} ?"
+    prompt: "{{t:pot|Pot}} après votre 3-bet depuis la {{t:big-blind|grosse blinde}}, {{t:spr}} d'environ {{n:spr.3bet-oop}}. Vous voulez engager tout le stack d'ici la river avec des {{t:bet|mises}} égales. Quelle fraction du {{t:pot}} sur chaque {{t:street}} ?"
     table: { position: BB }
     options:
       - { text: "Environ {{n:geo.3bet-oop.3}} du {{t:pot}}", correct: true, why: "Oui : avec un {{t:spr}} d'environ {{n:spr.3bet-oop}}, (1 + 2f) à la puissance trois = 1 + 2·{{n:spr.3bet-oop}}, donc f ≈ {{n:geo.3bet-oop.3}}. Un {{t:spr}} plus bas qu'après un 3-bet {{t:in-position|en position}}, donc une taille plus petite aussi." }
@@ -116,7 +116,7 @@ Exemple : avec un {{t:spr}} de {{n:geo.half.spr}}, trois {{t:bet|mises}} d'un d
 |---|---|---|---|
 | {{t:open|Ouverture}} et {{t:call}} | {{n:spr.srp}} | {{n:geo.srp.3}} du {{t:pot}} | – |
 | 3-bet {{t:in-position|en position}} | {{n:spr.3bet-ip}} | {{n:geo.3bet-ip.3}} du {{t:pot}} | – |
-| 3-bet depuis la {{t:big-blind|grosse blind}} | {{n:spr.3bet-oop}} | {{n:geo.3bet-oop.3}} du {{t:pot}} | – |
+| 3-bet depuis la {{t:big-blind|grosse blinde}} | {{n:spr.3bet-oop}} | {{n:geo.3bet-oop.3}} du {{t:pot}} | – |
 | 4-bet | {{n:spr.4bet}} | {{n:geo.4bet.3}} du {{t:pot}} | {{n:geo.4bet.2}} du {{t:pot}} |
 
 Dans un {{t:pot}} 3-bet {{t:in-position|en position}}, cela donne des {{t:bet|mises}} de {{n:geo.3bet-ip.flop}}, {{n:geo.3bet-ip.turn}} et {{n:geo.3bet-ip.river}}, soit {{n:geo.3bet-ip.total}} au total, c'est-à-dire tout le stack.

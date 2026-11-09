@@ -14,7 +14,7 @@ drills:
     options:
       - { text: "All-in ou {{t:fold}}", correct: true, why: "À environ {{n:m11.thr.pushfold}} ou moins, les sources recommandent unanimement le push/fold. Relancer puis {{t:fold|se coucher}} sur une {{t:raise|relance}} vous ferait abandonner trop de stack, alors que l'all-in pousse le plus souvent l'adversaire à {{t:fold|se coucher}}." }
       - { text: "Relancer à {{n:pf.open-size}}, puis décider après une {{t:raise|relance}}", why: "Après une telle relance, il vous reste peu derrière le {{t:pot|pot}}, donc face à une {{t:raise|relance}} all-in, vous êtes de toute façon presque obligé de {{t:call|suivre}}. L'adversaire n'a pas besoin de {{t:fold|se coucher}}, et vous perdez votre fold equity." }
-      - { text: "{{t:call|Suivre}} la blinde (limp) et voir le flop", why: "Le limp ne vous donne aucune chance de remporter le {{t:pot|pot}} immédiatement. Les solvers qui disposent de toutes les actions limpent parfois, mais c'est une stratégie pour joueurs avancés ; le plan simple et sûr, c'est all-in ou {{t:fold}}." }
+      - { text: "{{t:call|Suivre}} la blinde (limp) et voir le flop", why: "Le limp ne vous donne aucune chance de remporter le {{t:pot|pot}} immédiatement. Les solveurs qui disposent de toutes les actions limpent parfois, mais c'est une stratégie pour joueurs avancés ; le plan simple et sûr, c'est all-in ou {{t:fold}}." }
   - kind: choice
     id: m11.l1.q-threshold-deep
     family: m11.threshold
@@ -57,11 +57,11 @@ drills:
     id: m11.l1.q-k2o
     family: m11.push.depth
     rules: [R-M11-002]
-    prompt: "{{t:small-blind|Petite blinde}}, tout le monde {{t:fold|s'est couché}}, vous avez K2o. À {{n:m11.depth.10}}, le solver part all-in avec cette main. Et à {{n:m11.depth.15}} ?"
+    prompt: "{{t:small-blind|Petite blinde}}, tout le monde {{t:fold|s'est couché}}, vous avez K2o. À {{n:m11.depth.10}}, le solveur part all-in avec cette main. Et à {{n:m11.depth.15}} ?"
     table: { hand: "Kd 2c", position: SB }
     options:
       - { text: "{{t:fold|Se coucher}}", correct: true, why: "À {{n:m11.depth.15}}, vous risquez davantage par rapport aux blindes, donc la {{t:range}} d'all-in se resserre d'environ {{n:m11.push.10}} à environ {{n:m11.push.15}} mains. K2o en sort." }
-      - { text: "All-in, car le roi est une carte forte", why: "À {{n:m11.depth.15}}, K2o tombe trop souvent sur un meilleur roi ou un as dans la {{t:range|range}} avec laquelle l'adversaire {{t:call|suit}}. Le solver la {{t:fold|couche}}." }
+      - { text: "All-in, car le roi est une carte forte", why: "À {{n:m11.depth.15}}, K2o tombe trop souvent sur un meilleur roi ou un as dans la {{t:range|range}} avec laquelle l'adversaire {{t:call|suit}}. Le solveur la {{t:fold|couche}}." }
       - { text: "All-in, car plus le stack est profond, plus on joue large", why: "C'est l'inverse : plus le stack est profond, plus la {{t:range}} d'all-in est serrée. C'est avec un {{t:short-stack|short stack}} très court que vous faites {{t:shove|push}} le plus large." }
   - kind: choice
     id: m11.l1.q-fold-equity
@@ -120,7 +120,7 @@ Vous comptez votre stack en {{t:big-blind|grosses blindes}}. Les sources s'accor
 Pourquoi pas une relance ? Quand vous avez {{n:m11.depth.10}} et relancez à {{n:pf.open-size}}, il vous reste si peu derrière le {{t:pot|pot}} que, face à une {{t:raise}} all-in, vous devez de toute façon presque forcément {{t:call|suivre}}. L'adversaire sait que vous ne {{t:fold|vous coucherez}} pas, donc il n'a rien à craindre. Partir all-in tout de suite tire de votre stack le maximum de **fold equity**, c'est-à-dire du profit lié au fait que l'adversaire {{t:fold|se couche}}.
 
 :::note Simplification
-Le push/fold est une simplification. Les solvers qui peuvent aussi choisir le limp ou une petite relance limpent ou relancent au minimum une partie des mains à {{n:m11.depth.10}}. All-in ou {{t:fold}} reste toutefois simple, il est difficile d'y commettre une grosse erreur, et les sources le recommandent comme point de départ.
+Le push/fold est une simplification. Les solveurs qui peuvent aussi choisir le limp ou une petite relance limpent ou relancent au minimum une partie des mains à {{n:m11.depth.10}}. All-in ou {{t:fold}} reste toutefois simple, il est difficile d'y commettre une grosse erreur, et les sources le recommandent comme point de départ.
 :::
 
 ## M : combien de tours de table vous tenez
@@ -135,7 +135,7 @@ Exemple : vous avez {{n:m11.m.stack}} {{t:chips|jetons}}, blindes {{n:m11.m.sb}
 
 ## Plus le stack est court, plus on joue large
 
-Les grilles de cette leçon ont été calculées par le solver de cette application pour la situation la plus simple : tout le monde {{t:fold|s'est couché}}, vous jouez depuis la {{t:small-blind|petite blinde}} contre la {{t:big-blind|grosse blinde}}, et chacun ne peut que partir all-in ou {{t:fold|se coucher}}.
+Les grilles de cette leçon ont été calculées par le solveur de cette application pour la situation la plus simple : tout le monde {{t:fold|s'est couché}}, vous jouez depuis la {{t:small-blind|petite blinde}} contre la {{t:big-blind|grosse blinde}}, et chacun ne peut que partir all-in ou {{t:fold|se coucher}}.
 
 ```range
 push.sb-15
@@ -149,7 +149,7 @@ push.sb-10
 push.sb-5
 ```
 
-À {{n:m11.depth.15}}, vous partez all-in avec environ {{n:m11.push.15}} mains, à {{n:m11.depth.10}} avec environ {{n:m11.push.10}}, et à {{n:m11.depth.5}} déjà avec environ {{n:m11.nash.push.5}}–{{n:m11.push.5}}. Moins vous risquez par rapport aux blindes, plus il y a de mains rentables. À titre de comparaison, le tableau d'un site de formation indique {{n:m11.ext.push.10}} à {{n:m11.depth.10}} ; l'écart reste dans la tolérance de validation du solver, et la tendance est la même.
+À {{n:m11.depth.15}}, vous partez all-in avec environ {{n:m11.push.15}} mains, à {{n:m11.depth.10}} avec environ {{n:m11.push.10}}, et à {{n:m11.depth.5}} déjà avec environ {{n:m11.nash.push.5}}–{{n:m11.push.5}}. Moins vous risquez par rapport aux blindes, plus il y a de mains rentables. À titre de comparaison, le tableau d'un site de formation indique {{n:m11.ext.push.10}} à {{n:m11.depth.10}} ; l'écart reste dans la tolérance de validation du solveur, et la tendance est la même.
 
 ## Trois joueurs : plus il y a d'adversaires derrière vous, plus c'est serré
 
@@ -171,7 +171,7 @@ Un all-in gagne quand l'adversaire {{t:fold|se couche}}, ou quand il {{t:call|su
 
 ## L'ante élargit la {{t:range}}
 
-L'ante, ce sont des {{t:chips}} supplémentaires dans le {{t:pot|pot}} avant la donne. Avec {{t:bb-ante}}, la {{t:big-blind}} paie une ante de {{n:m11.ante}}, donc un all-in remporte {{n:m11.push.10.win-ante}} au lieu de {{n:m11.push.10.win}}, alors que le risque reste le même. Dans cette structure, la {{t:range|range}} passe d'environ {{n:m11.push.10}} à environ {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} mains (le solver de l'application et un calcul d'équilibre indépendant diffèrent d'une fraction de point).
+L'ante, ce sont des {{t:chips}} supplémentaires dans le {{t:pot|pot}} avant la donne. Avec {{t:bb-ante}}, la {{t:big-blind}} paie une ante de {{n:m11.ante}}, donc un all-in remporte {{n:m11.push.10.win-ante}} au lieu de {{n:m11.push.10.win}}, alors que le risque reste le même. Dans cette structure, la {{t:range|range}} passe d'environ {{n:m11.push.10}} à environ {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}} mains (le solveur de l'application et un calcul d'équilibre indépendant diffèrent d'une fraction de point).
 
 ```range
 push.sb-10-ante

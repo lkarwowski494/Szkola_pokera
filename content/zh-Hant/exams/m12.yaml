@@ -35,7 +35,7 @@ drills:
     options:
       - { text: "不能：{{n:var.conf95}} 區間約為 ± {{n:exam.m12.style.ci}}；新打法要在手牌複盤中評估", correct: true, why: "打了 {{n:exam.m12.style.blocks}} 個區塊後，贏率誤差是 {{n:var.sd}} ÷ {{n:exam.m12.style.sqrt}} ≈ {{n:exam.m12.style.se}}，所以區間是 ± {{n:var.z95}} × {{n:exam.m12.style.se}} ≈ ± {{n:exam.m12.style.ci}}。不管打法變好還是變差，都可能出現這種結果。決定策略的是對決策的複盤。" }
       - { text: "能：{{n:exam.m12.style.wr}} 遠高於一般贏率", why: "只打 {{n:exam.m12.style.hands.k}} 千手牌時，{{n:var.conf95}} 區間約為 ± {{n:exam.m12.style.ci}}。小樣本的高結果主要來自{{t:variance|變異數}}。" }
-      - { text: "能，如果你大多數{{t:session|牌局}}都贏", why: "贏的{{t:session|牌局}}數只是把同一個結果切成好幾段。它仍然只根據 {{n:exam.m12.style.hands.k}} 千手牌，也無法說明你的決策是否變好。" }
+      - { text: "能，如果你大多數{{t:session|場次}}都贏", why: "贏的{{t:session|場次}}數只是把同一個結果切成好幾段。它仍然只根據 {{n:exam.m12.style.hands.k}} 千手牌，也無法說明你的決策是否變好。" }
   - kind: choice
     id: m12.exam.q5
     family: m12.resulting
@@ -61,9 +61,9 @@ drills:
     rules: [R-M12-007]
     prompt: "連輸三個大{{t:pot|底池}}後，你已經無法判斷上一次{{t:call|跟注}}是否正確，還想升到更高的{{t:stakes|級別}}好更快把輸的贏回來。你會怎麼做？"
     options:
-      - { text: "結束這場{{t:session|牌局}}", correct: true, why: "無法冷靜評估決策、想把輸的贏回來，這些都是你已經在最差水準（C-game）下打牌的訊號。目標是在輸更多之前提早結束。" }
+      - { text: "結束這個{{t:session|場次}}", correct: true, why: "無法冷靜評估決策、想把輸的贏回來，這些都是你已經在最差水準（C-game）下打牌的訊號。目標是在輸更多之前提早結束。" }
       - { text: "深呼吸幾次，然後在更高的{{t:stakes|級別}}繼續打", why: "呼吸在上頭剛出現徵兆、你還能清楚思考時有幫助。這裡上頭已經加劇，更高的{{t:stakes|級別}}只會讓虧損變大。" }
-      - { text: "在同一個{{t:stakes|級別}}繼續打，但只打強牌", why: "當你已經無法冷靜評估決策時，繼續打就是用你最差的水準（C-game）在打，不管你選哪些手牌都一樣。你要結束這場{{t:session|牌局}}。" }
+      - { text: "在同一個{{t:stakes|級別}}繼續打，但只打強牌", why: "當你已經無法冷靜評估決策時，繼續打就是用你最差的水準（C-game）在打，不管你選哪些手牌都一樣。你要結束這個{{t:session|場次}}。" }
   - kind: choice
     id: m12.exam.q8
     family: m12.risk-of-ruin

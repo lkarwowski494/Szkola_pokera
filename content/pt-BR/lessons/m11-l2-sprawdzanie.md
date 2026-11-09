@@ -54,7 +54,7 @@ drills:
     prompt: "Com {{n:m11.depth.10}}, o solver vai all-in do {{t:small-blind|small blind}} com sete e seis do mesmo naipe (76s). Você tem essa mão no {{t:big-blind|big blind}}, e foi o {{t:small-blind|small blind}} que foi all-in. O que você faz?"
     table: { hand: "7s 6s", position: BB }
     options:
-      - { text: "{{t:fold|Foldo}}", correct: true, why: "Ir all-in com 76s é lucrativo principalmente graças aos {{t:fold|folds}} do adversário. Ao {{t:call|pagar}}, você só ganha no showdown, e contra um {{t:range|range}} de all-in com muitas cartas altas e {{t:pair|pares}}. O solver {{t:fold|folda}} essa mão." }
+      - { text: "{{t:fold|Desisto}}", correct: true, why: "Ir all-in com 76s é lucrativo principalmente graças aos {{t:fold|folds}} do adversário. Ao {{t:call|pagar}}, você só ganha no showdown, e contra um {{t:range|range}} de all-in com muitas cartas altas e {{t:pair|pares}}. O solver {{t:fold|desiste}} dessa mão." }
       - { text: "{{t:call|Pago}}, porque do {{t:small-blind|small blind}} eu iria all-in com ela", why: "{{t:call|Pagar}} é outra situação: você não tem fold equity, e o {{t:range|range}} do adversário é mais forte que um aleatório. Para {{t:call|pagar}}, você precisa de uma mão mais forte." }
       - { text: "{{t:call|Pago}}, porque mão do mesmo naipe se desenvolve bem", why: "Depois de um all-in, não há jogo posterior em que a mão possa se desenvolver. Só conta a equity até o showdown." }
   - kind: choice
@@ -64,7 +64,7 @@ drills:
     prompt: "{{t:big-blind|Big blind}}, e o {{t:small-blind|small blind}} foi all-in. Você tem um {{t:pair|par}} de dois. Com {{n:m11.depth.10}}, o solver {{t:call|paga}}. E com {{n:m11.depth.15}}?"
     table: { hand: "2d 2c", position: BB }
     options:
-      - { text: "{{t:fold|Folda}}", correct: true, why: "Com {{n:m11.depth.15}}, o preço sobe para {{n:m11.call.15.eq}}, e o {{t:range|range}} de all-in é mais estreito (cerca de {{n:m11.push.15}} mãos), então um {{t:pair|par}} de dois encontra um {{t:pair|par}} maior com mais frequência. O {{t:range|range}} de {{t:call|call}} cai de cerca de {{n:m11.call.10}} para cerca de {{n:m11.call.15}} mãos." }
+      - { text: "{{t:fold|Desiste}}", correct: true, why: "Com {{n:m11.depth.15}}, o preço sobe para {{n:m11.call.15.eq}}, e o {{t:range|range}} de all-in é mais estreito (cerca de {{n:m11.push.15}} mãos), então um {{t:pair|par}} de dois encontra um {{t:pair|par}} maior com mais frequência. O {{t:range|range}} de {{t:call|call}} cai de cerca de {{n:m11.call.10}} para cerca de {{n:m11.call.15}} mãos." }
       - { text: "{{t:call|Paga}}, porque um {{t:pair|par}} é sempre favorito", why: "Um {{t:pair|par}} de dois contra duas cartas maiores é mais ou menos um cara ou coroa, e contra qualquer {{t:pair|par}} maior é um azarão claro. Com um stack mais fundo, o adversário {{t:shove|dá shove}} com menos mãos fracas, então os {{t:pair|pares}} formam uma parte maior do {{t:range|range}} dele." }
       - { text: "{{t:call|Paga}}, porque quanto mais fundo o stack, mais aberto", why: "Ao contrário: quanto mais fundo o stack, mais custa o {{t:call|call}} e mais estreito é o {{t:range|range}} de {{t:call|call}}." }
   - kind: choice
@@ -73,7 +73,7 @@ drills:
     rules: [R-M11-007]
     prompt: "Com {{n:m11.depth.10}}, o {{t:small-blind|small blind}} vai all-in com cerca de {{n:m11.push.10}} mãos, mas o {{t:big-blind|big blind}} {{t:call|paga}} só com cerca de {{n:m11.call.10}}. Por quê?"
     options:
-      - { text: "Quem paga não tem fold equity e joga contra um {{t:range|range}} mais forte que um aleatório", correct: true, why: "O all-in também ganha quando o adversário {{t:fold|folda}}. O {{t:call|call}} só ganha no showdown, e contra mãos que já passaram por uma seleção. Daí a velha regra: para {{t:call|pagar}}, você precisa de uma mão melhor do que para ir all-in primeiro." }
+      - { text: "Quem paga não tem fold equity e joga contra um {{t:range|range}} mais forte que um aleatório", correct: true, why: "O all-in também ganha quando o adversário {{t:fold|desiste}}. O {{t:call|call}} só ganha no showdown, e contra mãos que já passaram por uma seleção. Daí a velha regra: para {{t:call|pagar}}, você precisa de uma mão melhor do que para ir all-in primeiro." }
       - { text: "O {{t:big-blind|big blind}} paga mais", why: "Os dois arriscam o mesmo stack, e o {{t:big-blind|BB}} já tem seu blind no {{t:pot|pote}}, então completa até menos." }
       - { text: "O solver está errado", why: "Este é o equilíbrio do jogo de all-in ou {{t:fold|fold}}: nenhum jogador ganha mudando apenas o próprio {{t:range|range}}. A diferença vem da fold equity." }
   - kind: choice
@@ -111,7 +111,7 @@ drills:
       - { text: "Sim, porque o preço é muito melhor", why: "Um preço melhor não basta: contra dois adversários, a equity das mãos mais fracas cai rápido. O solver {{t:call|paga}} só com cerca de {{n:m11.3max.call.bb-two}} mãos." }
       - { text: "Igual, porque só a sua mão importa", why: "Importa a equity contra as mãos dos adversários. Quem paga o all-in do Button tem um {{t:range|range}} mais forte que o do Button, então você {{t:call|paga}} mais apertado." }
 ---
-Quando um adversário vai all-in e você está no {{t:big-blind|big blind}}, a decisão é simples na forma: você {{t:call|paga}} ou {{t:fold|folda}}. Depois do {{t:call|call}}, não há mais jogo, então só contam o preço e a sua equity contra o {{t:range|range}} de all-in.
+Quando um adversário vai all-in e você está no {{t:big-blind|big blind}}, a decisão é simples na forma: você {{t:call|paga}} ou {{t:fold|desiste}}. Depois do {{t:call|call}}, não há mais jogo, então só contam o preço e a sua equity contra o {{t:range|range}} de all-in.
 
 ## O preço do {{t:call|call}}
 
@@ -131,13 +131,13 @@ Quanto mais curto o stack, melhor o preço, porque seu blind é uma parte maior 
 
 ## Você {{t:call|paga}} mais apertado do que {{t:shove|dá shove}}
 
-Indo all-in primeiro, você também ganha quando o adversário {{t:fold|folda}}. Ao {{t:call|pagar}}, você só ganha no showdown, e contra mãos que o adversário escolheu para ir all-in. Por isso, para {{t:call|pagar}}, você precisa de uma mão melhor do que para ir all-in primeiro (na literatura, isso se chama “gap concept”).
+Indo all-in primeiro, você também ganha quando o adversário {{t:fold|desiste}}. Ao {{t:call|pagar}}, você só ganha no showdown, e contra mãos que o adversário escolheu para ir all-in. Por isso, para {{t:call|pagar}}, você precisa de uma mão melhor do que para ir all-in primeiro (na literatura, isso se chama “gap concept”).
 
 ```range
 call.bb-10
 ```
 
-Com {{n:m11.depth.10}}, o {{t:small-blind|small blind}} vai all-in com cerca de {{n:m11.push.10}} mãos, e o {{t:big-blind|big blind}} {{t:call|paga}} com cerca de {{n:m11.call.10}}. Mãos como [[7s 6s]] você {{t:shove|dá shove}} do {{t:small-blind|small blind}}, mas {{t:fold|folda}} contra um all-in: sem fold equity, elas têm equity de menos contra cartas altas e {{t:pair|pares}}. Para comparar, a tabela de um site de treinamento dá, com {{n:m11.depth.10}}, um {{t:range|range}} de {{t:call|call}} de {{n:m11.ext.call.10}}.
+Com {{n:m11.depth.10}}, o {{t:small-blind|small blind}} vai all-in com cerca de {{n:m11.push.10}} mãos, e o {{t:big-blind|big blind}} {{t:call|paga}} com cerca de {{n:m11.call.10}}. Mãos como [[7s 6s]] você {{t:shove|dá shove}} do {{t:small-blind|small blind}}, mas {{t:fold|desiste}} contra um all-in: sem fold equity, elas têm equity de menos contra cartas altas e {{t:pair|pares}}. Para comparar, a tabela de um site de treinamento dá, com {{n:m11.depth.10}}, um {{t:range|range}} de {{t:call|call}} de {{n:m11.ext.call.10}}.
 
 ```range
 call.bb-15
@@ -151,7 +151,7 @@ Um stack mais fundo significa um {{t:call|call}} mais caro e um {{t:range|range}
 
 ## Quando ainda há alguém depois de você
 
-Com três jogadores e stacks de {{n:m11.depth.3max}} cada, o {{t:small-blind|small blind}} {{t:call|paga}} o all-in do Button só com cerca de {{n:m11.3max.call.sb}} mãos, embora precise de {{n:m11.3max.sb.eq}} de equity. O {{t:big-blind|big blind}} na mesma situação, quando o {{t:small-blind|small blind}} {{t:fold|foldou}}, completa {{n:m11.3max.bb.cost}} num {{t:pot|pote}} de {{n:m11.3max.bb.pot}}, precisa de {{n:m11.3max.bb.eq}} de equity e {{t:call|paga}} com cerca de {{n:m11.3max.call.bb}}. A diferença vem principalmente do jogador depois de você (os preços diferem pouco): o {{t:small-blind|small blind}} pode {{t:call|pagar}} e encontrar uma mão ainda mais forte do {{t:big-blind|big blind}}.
+Com três jogadores e stacks de {{n:m11.depth.3max}} cada, o {{t:small-blind|small blind}} {{t:call|paga}} o all-in do Button só com cerca de {{n:m11.3max.call.sb}} mãos, embora precise de {{n:m11.3max.sb.eq}} de equity. O {{t:big-blind|big blind}} na mesma situação, quando o {{t:small-blind|small blind}} {{t:fold|desistiu}}, completa {{n:m11.3max.bb.cost}} num {{t:pot|pote}} de {{n:m11.3max.bb.pot}}, precisa de {{n:m11.3max.bb.eq}} de equity e {{t:call|paga}} com cerca de {{n:m11.3max.call.bb}}. A diferença vem principalmente do jogador depois de você (os preços diferem pouco): o {{t:small-blind|small blind}} pode {{t:call|pagar}} e encontrar uma mão ainda mais forte do {{t:big-blind|big blind}}.
 
 ```range
 call.sb-vs-btn-3max
@@ -172,5 +172,5 @@ call.bb-10-ante
 ```
 
 :::note {{t:range|Ranges}} nesta lição
-As grades tratam do jogo entre dois jogadores: o {{t:small-blind|small blind}} contra o {{t:big-blind|big blind}}, quando todos os outros {{t:fold|foldaram}}, e contam {{t:chips|fichas}}, não dinheiro. Quando, num {{t:tournament|torneio}}, as {{t:payout|premiações}} importam, você {{t:call|paga}} ainda mais apertado (próxima lição).
+As grades tratam do jogo entre dois jogadores: o {{t:small-blind|small blind}} contra o {{t:big-blind|big blind}}, quando todos os outros {{t:fold|desistiram}}, e contam {{t:chips|fichas}}, não dinheiro. Quando, num {{t:tournament|torneio}}, as {{t:payout|premiações}} importam, você {{t:call|paga}} ainda mais apertado (próxima lição).
 :::

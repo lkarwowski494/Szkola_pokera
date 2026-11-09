@@ -12,7 +12,7 @@ two-pair: "ツーペア"  # two pair; bez formy 41; formy: ツーペア×23
 pair: "ペア"  # pair; bez formy 41; formy: ペア×258, ワンペア×9 [WIELE FORM]
 high-card: "ハイカード"  # high card; bez formy 2; formy: ハイカード×1
 kicker: null  # kicker; bez formy 0; formy: — [DO USTALENIA]
-wheel: null  # wheel; bez formy 2; formy: — [DO USTALENIA]
+wheel: null  # wheel; bez formy 2; formy: — [potw. D-392: https://ja.wikipedia.org/wiki/ポーカー・ハンドの一覧 („Wheelとも呼ばれる” — nazwa angielska), odczyt 2026-11-09]
 check: "チェック"  # check; bez formy 15; formy: チェック×272
 bet: "ベット"  # bet; bez formy 109; formy: ベット×314, 置いて×1 [WIELE FORM]
 call: "コール"  # call; bez formy 107; formy: コール×759, コールする×2, コールする側×1, コーラー×1 [WIELE FORM]
@@ -114,13 +114,13 @@ variance: "分散"  # variance; bez formy 14; formy: 分散×11, バリアンス
 buy-in: "バイイン"  # buy-in; bez formy 2; formy: バイイン×81
 bankroll: "バンクロール"  # bankroll; bez formy 0; formy: バンクロール×1
 tilt: null  # tilt; bez formy 0; formy: — [DO USTALENIA]
-winrate: null  # win rate; bez formy 1; formy: — [DO USTALENIA]
+winrate: "ウィンレート"  # win rate; bez formy 1; formy: — [zmiana D-392: https://zero-poker.com/poker-word-winrate/, odczyt 2026-11-09]
 downswing: "ダウンスウィング"  # downswing; bez formy 5; formy: ダウンスウィング×21, ダウンスイング×2 [AB: kontrola (a): ujednolicić ダウンスイング]
 session: "セッション"  # session; bez formy 7; formy: セッション×49
 stakes: "ステークス"  # stakes; bez formy 7; formy: ステークス×58
 standard-deviation: "標準偏差"  # standard deviation; bez formy 0; formy: 標準偏差×44
 risk-of-ruin: "破産リスク"  # risk of ruin; bez formy 0; formy: 破産リスク×4
-mental-game: null  # mental game; bez formy 1; formy: — [DO USTALENIA]
+mental-game: "メンタルゲーム"  # mental game; bez formy 1; formy: — [zmiana D-392: https://light-three.com/pokerterms/, odczyt 2026-11-09]
 tournament: "トーナメント"  # tournament; bez formy 1; formy: トーナメント×17
 push-fold: null  # push/fold; bez formy 0; formy: — [DO USTALENIA]
 shove: "プッシュ"  # shove; bez formy 0; formy: プッシュ×23, プッシュする側×1 [WIELE FORM]
@@ -158,7 +158,7 @@ regular: "レギュラー"  # regular; bez formy 2; formy: レギュラー×10
 tag: null  # tight aggressive; bez formy 1; formy: — [SKRÓT TAG]
 lag: null  # loose aggressive; bez formy 1; formy: — [SKRÓT LAG]
 recreational: "レクリエーショナルプレイヤー"  # recreational player; bez formy 0; formy: レクリエーショナルプレイヤー×21
-calling-station: null  # calling station; bez formy 2; formy: — [DO USTALENIA]
+calling-station: "コーリングステーション"  # calling station; bez formy 2; formy: — [zmiana D-392: https://mpj-portal.jp/forbeginners/beginner-pokerglossary/, odczyt 2026-11-09]
 maniac: "マニアック"  # maniac; bez formy 0; formy: マニアック×18
 rake: "レーキ"  # rake; bez formy 42; formy: レーキ×14
 rake-cap: "レーキ上限"  # rake cap; bez formy 0; formy: レーキ上限×4, レーキキャップ×2, 上限×1 [WIELE FORM]

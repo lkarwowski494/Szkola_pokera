@@ -16,7 +16,7 @@ drills:
     rules: [R-M9-010]
     prompt: "O {{t:spr}} no flop é {{n:exam.m9.spr}}. Segundo as zonas de {{t:spr}}, qual destas mãos é limítrofe: você a joga {{t:value|por valor}}, mas nem sempre {{t:call|paga}} o all-in do rival?"
     options:
-      - { text: "{{t:top-pair|Par mais alto}} com bom kicker", correct: true, why: "Sim: {{n:exam.m9.spr}} está na zona de {{n:spr.zone.low}} a {{n:spr.zone.mid}}, na qual o {{t:top-pair}} é uma mão limítrofe (isto é uma simplificação). Abaixo de {{n:spr.zone.low}}, normalmente jogaria pelo stack inteiro." }
+      - { text: "{{t:top-pair|Top pair}} com bom kicker", correct: true, why: "Sim: {{n:exam.m9.spr}} está na zona de {{n:spr.zone.low}} a {{n:spr.zone.mid}}, na qual o {{t:top-pair}} é uma mão limítrofe (isto é uma simplificação). Abaixo de {{n:spr.zone.low}}, normalmente jogaria pelo stack inteiro." }
       - { text: "Set", why: "O set joga pelo stack inteiro mesmo com {{t:spr}} acima de {{n:spr.zone.deep}}. Com {{t:spr}} de {{n:exam.m9.spr}}, é uma mão claramente para o stack inteiro." }
       - { text: "{{t:two-pair|Dois pares}} com as duas cartas mais altas do {{t:board|board}}", why: "{{t:two-pair}} altos bastam para jogar pelo stack mesmo na zona de {{n:spr.zone.mid}} a {{n:spr.zone.deep}}. Com {{t:spr}} de {{n:exam.m9.spr}}, é uma mão para o stack inteiro, não limítrofe." }
   - kind: numeric

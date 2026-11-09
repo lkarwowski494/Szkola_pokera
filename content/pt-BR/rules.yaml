@@ -56,7 +56,7 @@
   because: "a {{t:fold|desistência}} entrega o {{t:pot|pote}} sem nenhum benefício, e o {{t:check}} não custa nada"
   level: math
   check: { kind: free-check-fold }
-  source: "cálculo: dar check custa 0 e mantém a chance de ganhar o pote, então nunca é pior que foldar"
+  source: "cálculo: dar check custa 0 e mantém a chance de ganhar o pote, então nunca é pior que desistir"
   sources: [{ kind: math }]
 - id: R-M1-003
   module: m1
@@ -443,7 +443,7 @@
   module: m6
   if: "o adversário aposta 1/3 do {{t:pot|pote}} no river"
   then: "em teoria você defende ({{t:call|paga}} ou {{t:raise|aumenta}}) cerca de {{n:mdf.bet-third}} do seu {{t:range}}; esse é o {{t:mdf}}"
-  because: "um {{t:bluff|blefe}} sem chance arrisca 1 parte para ganhar 3; se você foldar com mais frequência que {{n:alpha.bet-third}}, o adversário lucra {{t:bluff|blefando}} com quaisquer cartas"
+  because: "um {{t:bluff|blefe}} sem chance arrisca 1 parte para ganhar 3; se você desistir com mais frequência que {{n:alpha.bet-third}}, o adversário lucra {{t:bluff|blefando}} com quaisquer cartas"
   level: math
   source: "cálculo: MDF = pote/(pote+aposta); site de treinamento, MDF in Poker: Why Most Players Misuse It (https://pokercoaching.com/blog/mdf-poker: “The framework is a starting point, not a rule”)"
   sources: [{ kind: training, url: "https://pokercoaching.com/blog/mdf-poker" }, { kind: math }]
@@ -692,7 +692,7 @@
   module: m8
   if: "você escolhe um {{t:bluff|blefe}} entre as mãos sem valor de showdown"
   then: "você escolhe uma mão com uma carta que bloqueia as mãos fortes do adversário, aquelas com que ele vai pagar (por exemplo o ás do naipe, quando há três cartas do mesmo naipe no {{t:board}})"
-  because: "quando você segura uma carta das mãos mais fortes dele, o adversário tem menos {{t:combo|combos}} delas, então mais vezes fica com uma mão para foldar"
+  because: "quando você segura uma carta das mãos mais fortes dele, o adversário tem menos {{t:combo|combos}} delas, então mais vezes fica com uma mão da qual precisa desistir"
   level: heuristic
   source: "programa de ensino M8; site de solver comercial, Blockers & Unblockers: The Secret to Picking Great Bluffs; site de treinamento, What is Unblocking in Poker"
   sources: [{ kind: solver-pub }, { kind: training }]

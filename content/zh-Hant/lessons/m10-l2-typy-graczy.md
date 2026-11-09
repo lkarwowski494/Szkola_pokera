@@ -26,7 +26,7 @@ drills:
     id: m10.l2.q-data-passive
     family: m10.types.adjust
     rules: [R-M10-006]
-    prompt: "根據線上微級別（NL25）的玩家群體資料，{{t:recreational|娛樂玩家}}有{{n:mda.rec.wtsd}}的情況會打到攤牌，並贏下{{n:mda.rec.wsd}}的攤牌；{{t:regular|常客}}則是{{n:mda.reg.wtsd}}和{{n:mda.reg.wsd}}。這代表什麼？"
+    prompt: "根據線上微級別（NL25）的玩家群體資料，{{t:recreational|娛樂玩家}}有{{n:mda.rec.wtsd}}的情況會打到攤牌，並贏下{{n:mda.rec.wsd}}的攤牌；{{t:regular|常規玩家}}則是{{n:mda.reg.wtsd}}和{{n:mda.reg.wsd}}。這代表什麼？"
     options:
       - { text: "{{t:recreational|娛樂玩家}}更常付錢看到最後，也更常輸：他們用較弱的牌{{t:call|跟注}}", correct: true, why: "他們更常打到攤牌，卻更少贏，所以是帶著較弱的牌走到那裡。面對他們，你要用更多牌下注{{t:value|拿價值}}，並減少{{t:bluff|詐唬}}。" }
       - { text: "{{t:recreational|娛樂玩家}}更常{{t:bluff|詐唬}}", why: "這些數字說的是他們多常打到攤牌、帶著什麼牌，而不是{{t:bluff|詐唬}}。他們贏的攤牌較少，是因為用較弱的牌{{t:call|跟注}}。" }
@@ -60,7 +60,7 @@ drills:
     options:
       - { text: "{{t:fold|棄牌}}", correct: true, why: "玩牌這麼少的人，3-bet主要用最強的牌：AQ、AK和高{{t:pair|對子}}，這些牌都壓制AJ。面對他，你要比第4單元的基準策略更常{{t:fold|棄牌}}。" }
       - { text: "{{t:call|跟注}}，因為AJ是強牌", why: "AJ面對寬的{{t:range|範圍}}是強牌。面對{{t:vpip}} {{n:hud.ex.nit.vpip}}的玩家的3-bet，它常被壓制，而且沒有{{t:position|位置}}。" }
-      - { text: "4-bet", why: "對{{t:nit|岩石玩家}}用AJ 4-bet，是在對抗一個壓制它、又很少{{t:fold|棄牌}}的{{t:range|範圍}}。這既不是{{t:value}}，也不是好的{{t:bluff}}。" }
+      - { text: "4-bet", why: "對{{t:nit|岩石型玩家}}用AJ 4-bet，是在對抗一個壓制它、又很少{{t:fold|棄牌}}的{{t:range|範圍}}。這既不是{{t:value}}，也不是好的{{t:bluff}}。" }
   - kind: choice
     id: m10.l2.q-nit-steal
     family: m10.types.adjust
@@ -104,7 +104,7 @@ drills:
 
 | 類型 | {{t:vpip}} | {{t:vpip}} − {{t:pfr}} | 相對基準策略的漏洞 |
 |---|---|---|---|
-| {{t:nit|岩石玩家}} | 最多約{{n:hud.vpip.nit-max}} | 小 | 玩的牌太少 |
+| {{t:nit|岩石型玩家}} | 最多約{{n:hud.vpip.nit-max}} | 小 | 玩的牌太少 |
 | {{t:regular}}（{{t:tag}}、{{t:lag}}） | 約{{n:hud.vpip.reg.low}}–{{n:hud.vpip.reg.high}} | 小 | 接近基準策略 |
 | 被動的{{t:recreational|娛樂玩家}} | 約{{n:hud.vpip.loose}}起 | 超過{{n:hud.gap.passive}}點 | 玩的牌太多，太常{{t:call|跟注}} |
 | {{t:maniac|瘋子}} | 約{{n:hud.vpip.loose}}起 | 最多約{{n:hud.gap.aggressive}}點 | 玩的牌太多，太常{{t:raise|加注}} |
@@ -113,9 +113,9 @@ drills:
 
 ## 玩家群體資料怎麼說
 
-一個公開的統計資料庫提供某個大型線上平台玩家的平均統計，NL25 6-max，涵蓋過去{{n:mda.period.months}}個月的所有牌局。其中{{t:regular|常客}}是{{t:vpip}} {{n:mda.reg.def.low}}–{{n:mda.reg.def.high}}且勝率高於{{n:mda.reg.def.wr}}的玩家，{{t:recreational|娛樂玩家}}則是{{t:vpip}}超過{{n:mda.rec.def}}且勝率低於{{n:mda.rec.def.wr}}的玩家：
+一個公開的統計資料庫提供某個大型線上平台玩家的平均統計，NL25 6-max，涵蓋過去{{n:mda.period.months}}個月的所有牌局。其中{{t:regular|常規玩家}}是{{t:vpip}} {{n:mda.reg.def.low}}–{{n:mda.reg.def.high}}且勝率高於{{n:mda.reg.def.wr}}的玩家，{{t:recreational|娛樂玩家}}則是{{t:vpip}}超過{{n:mda.rec.def}}且勝率低於{{n:mda.rec.def.wr}}的玩家：
 
-| 統計 | {{t:regular|常客}} | {{t:recreational|娛樂玩家}} |
+| 統計 | {{t:regular|常規玩家}} | {{t:recreational|娛樂玩家}} |
 |---|---|---|
 | {{t:vpip}} / {{t:pfr}} | {{n:mda.reg.vpip}} / {{n:mda.reg.pfr}} | {{n:mda.rec.vpip}} / {{n:mda.rec.pfr}} |
 | 面對3-bet棄牌 | {{n:mda.reg.f3b}} | {{n:mda.rec.f3b}} |
@@ -132,12 +132,12 @@ drills:
 - 你用更多牌下注{{t:value|拿價值}}，包括更薄的價值，例如拿{{t:top-pair|頂對}}加較弱踢腳打三條{{t:street|街}}；
 - 你更少{{t:bluff|詐唬}}，尤其是在河牌：{{t:bluff}}要賺錢所需的{{t:fold|棄牌}}並不存在。
 
-## {{t:nit|岩石玩家}}和{{t:maniac|瘋子}}
+## {{t:nit|岩石型玩家}}和{{t:maniac|瘋子}}
 
-**{{t:nit|岩石玩家}}**只玩強牌。當他{{t:raise|加注}}或3-bet時，你{{t:call|跟注}}{{t:range|範圍}}底部的牌更常被壓制，所以你要比第4單元的基準策略更常用這些牌{{t:fold|棄牌}}。當他在盲注位時，你要更常偷盲，因為他很少防守。
+**{{t:nit|岩石型玩家}}**只玩強牌。當他{{t:raise|加注}}或3-bet時，你{{t:call|跟注}}{{t:range|範圍}}底部的牌更常被壓制，所以你要比第4單元的基準策略更常用這些牌{{t:fold|棄牌}}。當他在盲注位時，你要更常偷盲，因為他很少防守。
 
 **{{t:maniac|瘋子}}**玩很多牌，而且幾乎每手都{{t:raise|加注}}。他的下注比基準策略含有更多{{t:bluff|詐唬}}，所以處於{{t:call|跟注}}邊緣的牌你要{{t:call|跟注}}，拿非常強的牌時讓他下注，自己則不{{t:bluff|詐唬}}：他很少{{t:fold|棄牌}}。
 
 :::note 這些門檻從哪來
-類型門檻是教練的慣例（兩份培訓教材，6-max線上現金局）：我們取兩者的交集，或涵蓋兩個來源的區間。玩家群體資料來自公開的統計資料庫（一個大型線上平台，NL25–NL100，2026年10月之前{{n:mda.period.months}}個月的所有牌局；網站未提供手牌數）。判讀{{t:nit|岩石玩家}}和{{t:maniac|瘋子}}依據的是特定對手的統計，而不是整個玩家群體的資料，因此需要樣本。
+類型門檻是教練的慣例（兩份培訓教材，6-max線上現金局）：我們取兩者的交集，或涵蓋兩個來源的區間。玩家群體資料來自公開的統計資料庫（一個大型線上平台，NL25–NL100，2026年10月之前{{n:mda.period.months}}個月的所有牌局；網站未提供手牌數）。判讀{{t:nit|岩石型玩家}}和{{t:maniac|瘋子}}依據的是特定對手的統計，而不是整個玩家群體的資料，因此需要樣本。
 :::

@@ -31,25 +31,25 @@ drills:
     id: m13.l1.q-mixed
     family: m13.verdicts
     rules: [R-M13-002]
-    prompt: "Dans ce spot, le solver joue votre main à peu près à parts égales : {{t:raise|relancer}} ou {{t:fold|se coucher}}. {{t:fold|Vous vous êtes couché}}. Comment le rapport va-t-il l'évaluer ?"
+    prompt: "Dans ce spot, le solveur joue votre main à peu près à parts égales : {{t:raise|relancer}} ou {{t:fold|se coucher}}. {{t:fold|Vous vous êtes couché}}. Comment le rapport va-t-il l'évaluer ?"
     options:
-      - { text: "Conforme", correct: true, why: "Oui : une action jouée par le solver dans au moins {{n:range.mixed.low}} des cas est conforme. À l'équilibre, un joueur ne mélange que des coups de même {{t:expected-value|espérance de gain}}, donc les deux sont corrects." }
+      - { text: "Conforme", correct: true, why: "Oui : une action jouée par le solveur dans au moins {{n:range.mixed.low}} des cas est conforme. À l'équilibre, un joueur ne mélange que des coups de même {{t:expected-value|espérance de gain}}, donc les deux sont corrects." }
       - { text: "Erreur, car il fallait {{t:raise|relancer}}", why: "Non : avec une {{t:mixed-hand|main mixte}}, les deux coups ont la même {{t:expected-value|espérance de gain}}. Le rapport ne pénalise pas le choix de l'un d'eux." }
-      - { text: "Non évaluée", why: "Non : le spot a un résultat de solver, donc la décision est évaluée. « Non évaluée » s'applique à une décision pour laquelle l'application n'a pas de règle vérifiable." }
+      - { text: "Non évaluée", why: "Non : le spot a un résultat de solveur, donc la décision est évaluée. « Non évaluée » s'applique à une décision pour laquelle l'application n'a pas de règle vérifiable." }
   - kind: choice
     id: m13.l1.q-rare
     family: m13.verdicts
     rules: [R-M13-002]
-    prompt: "Le solver joue votre main {{t:raise|en relançant}} dans environ {{n:range.mixed.high}} des cas, et {{t:call|en suivant}} dans les autres. {{t:call|Vous avez suivi}}. Quel verdict ?"
+    prompt: "Le solveur joue votre main {{t:raise|en relançant}} dans environ {{n:range.mixed.high}} des cas, et {{t:call|en suivant}} dans les autres. {{t:call|Vous avez suivi}}. Quel verdict ?"
     options:
       - { text: "Conforme", correct: true, why: "Oui : {{t:call|suivre}}, joué dans environ {{n:range.mixed.low}} des cas, ne passe pas sous le seuil de « conforme » ({{n:range.mixed.low}}). C'est une {{t:mixed-hand|main mixte}}." }
       - { text: "Acceptable", why: "Est acceptable une action jouée dans au moins {{n:range.mixed.min}}, mais moins souvent que dans {{n:range.mixed.low}} des cas. Ici, {{t:call|suivre}} atteint le seuil de « conforme »." }
-      - { text: "Erreur", why: "Une erreur est une action que le solver ne joue jamais. Une action jouée moins souvent que dans {{n:range.mixed.min}} des cas est une imprécision." }
+      - { text: "Erreur", why: "Une erreur est une action que le solveur ne joue jamais. Une action jouée moins souvent que dans {{n:range.mixed.min}} des cas est une imprécision." }
   - kind: choice
     id: m13.l1.q-size
     family: m13.verdicts
     rules: []
-    prompt: "Dans un spot où le solver joue un 3-bet, vous faites un 3-bet, mais d'une taille différente de celle que recommande la règle. Quel verdict ?"
+    prompt: "Dans un spot où le solveur joue un 3-bet, vous faites un 3-bet, mais d'une taille différente de celle que recommande la règle. Quel verdict ?"
     options:
       - { text: "Imprécision", correct: true, why: "Oui : bonne action, mauvaise taille. Cela compte comme une erreur et revient dans les révisions, mais le rapport affiche une explication distincte sur la taille." }
       - { text: "Conforme", why: "L'action est bonne, mais la taille compte : un 3-bet trop petit offre un bon prix à l'adversaire, un 3-bet trop gros risque plus que nécessaire." }
@@ -60,7 +60,7 @@ drills:
     rules: []
     prompt: "Rapport : « 14 décisions évaluées sur 30 ». Que signifient les autres décisions ?"
     options:
-      - { text: "L'application n'avait pour elles ni règle vérifiable ni résultat de solver", correct: true, why: "Oui : « non évaluée » ne veut pas dire « bien ». Ces décisions pouvaient être bonnes ou mauvaises ; le rapport ne le sait pas et le dit clairement." }
+      - { text: "L'application n'avait pour elles ni règle vérifiable ni résultat de solveur", correct: true, why: "Oui : « non évaluée » ne veut pas dire « bien ». Ces décisions pouvaient être bonnes ou mauvaises ; le rapport ne le sait pas et le dit clairement." }
       - { text: "Elles étaient bonnes, donc le rapport ne les affiche pas", why: "Non : le rapport compte les bonnes décisions comme conformes. « Non évaluée » signifie une absence d'évaluation, pas un compliment." }
       - { text: "Elles étaient trop faciles pour être évaluées", why: "Ce n'est pas une question de difficulté. Sont évaluées les décisions pour lesquelles l'application dispose d'une règle avec condition ou d'un spot de solver." }
   - kind: choice
@@ -71,7 +71,7 @@ drills:
     options:
       - { text: "L'évaluation des décisions", correct: true, why: "Oui : quelques dizaines de mains, c'est trop peu pour que le résultat signifie quelque chose. Même après des milliers de mains, le résultat reste en grande partie du bruit, et chaque erreur a son coût, quelle que soit l'issue de la main." }
       - { text: "Le résultat en {{t:chips|jetons}}", why: "Le résultat d'une courte {{t:session|session}} dépend surtout des cartes. C'est justement pour cela que le rapport l'affiche dans une police plus petite." }
-      - { text: "Les deux autant", why: "Un résultat sur quelques dizaines de mains ne dit presque rien du niveau de jeu. Une décision évaluée par une règle ou par un solver en dit bien plus." }
+      - { text: "Les deux autant", why: "Un résultat sur quelques dizaines de mains ne dit presque rien du niveau de jeu. Une décision évaluée par une règle ou par un solveur en dit bien plus." }
 ---
 Le rapport de fin de {{t:session|session}} évalue vos décisions, et non ce que vous avez gagné. Cette leçon explique comment le lire.
 
@@ -87,10 +87,10 @@ probabilité de perdre = 1 − équité
 
 ## Niveaux d'évaluation
 
-- **Conforme** : action recommandée par la règle, ou jouée par le solver dans au moins {{n:range.mixed.low}} des cas (ce seuil est un réglage de l'application).
-- **Acceptable** : le solver la joue rarement (au moins {{n:range.mixed.min}}, mais moins souvent que {{n:range.mixed.low}}), ou la règle parle de fréquence (« souvent », « moins souvent ») et vous avez choisi l'option la moins fréquente. Ce n'est pas une erreur.
-- **Imprécision** : bonne action mais mauvaise taille, ou action que le solver joue, mais moins souvent que dans {{n:range.mixed.min}} des cas. Elle compte comme une erreur : c'est un réglage de l'application, pas de la théorie.
-- **Erreur** : action contraire à une règle formulée de façon catégorique, ou action que le solver ne joue jamais.
+- **Conforme** : action recommandée par la règle, ou jouée par le solveur dans au moins {{n:range.mixed.low}} des cas (ce seuil est un réglage de l'application).
+- **Acceptable** : le solveur la joue rarement (au moins {{n:range.mixed.min}}, mais moins souvent que {{n:range.mixed.low}}), ou la règle parle de fréquence (« souvent », « moins souvent ») et vous avez choisi l'option la moins fréquente. Ce n'est pas une erreur.
+- **Imprécision** : bonne action mais mauvaise taille, ou action que le solveur joue, mais moins souvent que dans {{n:range.mixed.min}} des cas. Elle compte comme une erreur : c'est un réglage de l'application, pas de la théorie.
+- **Erreur** : action contraire à une règle formulée de façon catégorique, ou action que le solveur ne joue jamais.
 - **Non évaluée** : l'application n'a pas de règle vérifiable pour cette décision. Cela ne veut pas dire « bien ».
 - **Temps dépassé** : la limite de temps étant activée, l'application a joué à votre place. Cette décision ne compte pas dans l'évaluation, mais elle revient dans les révisions.
 
@@ -98,7 +98,7 @@ En haut du rapport figure le décompte « X décisions évaluées sur Y ». Ap
 
 ## {{t:mixed-hand|Main mixte}}
 
-Quand le solver joue votre main de deux façons, les deux sont correctes. La théorie de l'équilibre l'explique par le principe d'indifférence : un joueur ne mélange que des coups qui ont la même {{t:expected-value|espérance de gain}}. C'est pourquoi le rapport ne pénalise pas le choix de l'un d'eux, et classe le coup le moins fréquent comme acceptable lorsque le solver le joue dans au moins {{n:range.mixed.min}} des cas ; en dessous, c'est une imprécision (réglage de l'application).
+Quand le solveur joue votre main de deux façons, les deux sont correctes. La théorie de l'équilibre l'explique par le principe d'indifférence : un joueur ne mélange que des coups qui ont la même {{t:expected-value|espérance de gain}}. C'est pourquoi le rapport ne pénalise pas le choix de l'un d'eux, et classe le coup le moins fréquent comme acceptable lorsque le solveur le joue dans au moins {{n:range.mixed.min}} des cas ; en dessous, c'est une imprécision (réglage de l'application).
 
 ## Résultat en {{t:chips|jetons}}
 

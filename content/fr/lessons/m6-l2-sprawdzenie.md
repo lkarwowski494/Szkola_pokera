@@ -43,7 +43,7 @@ drills:
     options:
       - { text: "{{t:call|Suivre}}", correct: true, why: "La {{t:pair|paire}} moyenne bat tous les {{t:bluff|bluffs}} du Bouton (mains sans {{t:pair|paire}}), et il ne vous faut que {{n:eq.bet-third}} d'équité pour {{t:call|suivre}}. Une défense standard." }
       - { text: "{{t:fold|Se coucher}}", why: "Trop serré. Face à un petit c-bet, vous {{t:fold|couchez}} les mains les plus faibles sans {{t:pair|paire}} ni {{t:draw|tirage}}, pas une {{t:pair|paire}}." }
-      - { text: "Check-raise", why: "En général, vous {{t:call|suivez}}. Après une {{t:raise|relance}}, ce sont surtout de meilleures mains et des {{t:draw|tirages}} qui vous paient ; check-raiser avec ce type de main est un coup rare du solver face aux petits c-bets." }
+      - { text: "Check-raise", why: "En général, vous {{t:call|suivez}}. Après une {{t:raise|relance}}, ce sont surtout de meilleures mains et des {{t:draw|tirages}} qui vous paient ; check-raiser avec ce type de main est un coup rare du solveur face aux petits c-bets." }
   - kind: choice
     id: m6.l2.q-bare-overcards
     family: m6.flop.fold
@@ -129,6 +129,6 @@ Rappel de M2 : {{t:call|suivre}} une {{t:bet|mise}} au flop vous achète une ca
 ## Ce que vous {{t:fold|couchez}}
 
 - les mains sans {{t:pair|paire}} ni {{t:draw|tirage}} qui n'ont ni as ni cartes plus hautes que le board ; sur les flops avec un as, vous en {{t:fold|couchez}} davantage,
-- généralement deux cartes hautes sans {{t:draw|tirage}} quand le c-bet est gros (sur les flops {{t:dry|secs}} avec un roi, le solver {{t:call|suit}} toutefois avec beaucoup de mains contenant un as) ; vous {{t:call|suivez}} plutôt quand vous avez un {{t:draw|tirage}} supplémentaire, idéalement vers la meilleure {{t:flush|couleur}} possible.
+- généralement deux cartes hautes sans {{t:draw|tirage}} quand le c-bet est gros (sur les flops {{t:dry|secs}} avec un roi, le solveur {{t:call|suit}} toutefois avec beaucoup de mains contenant un as) ; vous {{t:call|suivez}} plutôt quand vous avez un {{t:draw|tirage}} supplémentaire, idéalement vers la meilleure {{t:flush|couleur}} possible.
 
 À mesure que le c-bet augmente, les mains suivantes parmi les plus faibles ne sont plus {{t:call|suivies}}, mais couchées.

@@ -54,7 +54,7 @@ drills:
     id: m8.l4.q-unblock-bluffs
     family: m8.catch.blockers
     rules: [R-M8-011]
-    prompt: "As espadas não vieram. No river, você {{t:check|dá check}}, e o Button {{t:bet|aposta}} o {{t:pot|pote}} inteiro. Você tem {{t:top-pair|par mais alto}} com kicker dez. Com qual destas duas mãos {{t:call|pagar}} é melhor?"
+    prompt: "As espadas não vieram. No river, você {{t:check|dá check}}, e o Button {{t:bet|aposta}} o {{t:pot|pote}} inteiro. Você tem {{t:top-pair|top pair}} com kicker dez. Com qual destas duas mãos {{t:call|pagar}} é melhor?"
     table: { board: "Kd 9s 5s 2c 3h", position: BB }
     options:
       - { text: "[[Kc Tc]]", correct: true, why: "Sem espadas, você não bloqueia os {{t:flush-draw|projetos de flush}} furados, que são os principais {{t:bluff|blefes}} do Button (por exemplo, dez e valete de espadas). No {{t:range|range}} dele sobram mais {{t:bluff|blefes}}, dos quais você ganha." }

@@ -22,14 +22,14 @@ drills:
     rules: [R-M8-010]
     prompt: "河牌。{{t:pot|底池}}有 {{n:ex.pot}}，對手{{t:bet|下注}}滿{{t:pot|底池}}：{{n:ex.bet.pot}}。你拿著抓詐唬牌。他的下注中至少要有百分之多少是{{t:bluff|詐唬}}，{{t:call|跟注}}才划算？請輸入數字。"
     answer: eq.bet-pot
-    explanation: "你的勝率就是他的下注中{{t:bluff|詐唬}}所占的比例。你補上 {{n:ex.bet.pot}}，是為了贏得{{t:call|跟注}}後的{{t:pot|底池}}：{{n:ex.bet.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.pot}} + {{n:ex.bet.pot}}) = {{n:eq.bet-pot}}。這和上一課均衡狀態下{{t:bluff|詐唬}}所占的比例是同一個數字。"
+    explanation: "你的權益就是他的下注中{{t:bluff|詐唬}}所占的比例。你補上 {{n:ex.bet.pot}}，是為了贏得{{t:call|跟注}}後的{{t:pot|底池}}：{{n:ex.bet.pot}} ÷ ({{n:ex.pot}} + {{n:ex.bet.pot}} + {{n:ex.bet.pot}}) = {{n:eq.bet-pot}}。這和上一課均衡狀態下{{t:bluff|詐唬}}所占的比例是同一個數字。"
   - kind: choice
     id: m8.l4.q-few-bluffs
     family: m8.catch.math
     rules: [R-M8-010]
     prompt: "河牌。對手{{t:bet|下注}}半個{{t:pot|底池}}。你拿著抓詐唬牌，估計他的下注中{{t:bluff|詐唬}}約占 {{n:catch.ex.bluffs-low}}。你怎麼做？"
     options:
-      - { text: "{{t:fold|棄牌}}", correct: true, why: "你需要 {{n:eq.bet-half}} 的勝率，而你的抓詐唬牌只有 {{n:catch.ex.bluffs-low}} 的情況會贏。{{t:call|跟注}}會虧損。" }
+      - { text: "{{t:fold|棄牌}}", correct: true, why: "你需要 {{n:eq.bet-half}} 的權益，而你的抓詐唬牌只有 {{n:catch.ex.bluffs-low}} 的情況會贏。{{t:call|跟注}}會虧損。" }
       - { text: "{{t:call|跟注}}，因為 {{t:mdf}} 是 {{n:mdf.bet-half}}", why: "{{t:mdf}} 是用來防範{{t:bluff|詐唬}}夠頻繁的對手。{{t:bluff|詐唬}}太少時，用抓詐唬牌{{t:call|跟注}}就是送錢。" }
       - { text: "{{t:raise|加注}}", why: "你的牌只贏{{t:bluff|詐唬}}。{{t:raise|加注}}後，{{t:bluff|詐唬}}會{{t:fold|棄牌}}，付錢的是{{t:value|價值}}牌：你輸得更多。" }
   - kind: choice
@@ -38,7 +38,7 @@ drills:
     rules: [R-M8-010]
     prompt: "河牌。對手{{t:bet|下注}}滿{{t:pot|底池}}。你拿著抓詐唬牌，估計他的下注中{{t:bluff|詐唬}}約占 {{n:catch.ex.bluffs-high}}。你怎麼做？"
     options:
-      - { text: "{{t:call|跟注}}", correct: true, why: "你需要 {{n:eq.bet-pot}} 的勝率，而{{t:bluff|詐唬}}占了 {{n:catch.ex.bluffs-high}}。對手{{t:bluff|詐唬}}的比例高於均衡，所以{{t:call|跟注}}能賺錢。" }
+      - { text: "{{t:call|跟注}}", correct: true, why: "你需要 {{n:eq.bet-pot}} 的權益，而{{t:bluff|詐唬}}占了 {{n:catch.ex.bluffs-high}}。對手{{t:bluff|詐唬}}的比例高於均衡，所以{{t:call|跟注}}能賺錢。" }
       - { text: "{{t:fold|棄牌}}，因為下注很大", why: "大額下注把價格拉高到 {{n:eq.bet-pot}}，但{{t:bluff|詐唬}}比這更多。重點是比較這兩個數字，而不只是看下注大小。" }
       - { text: "{{t:raise|加注}}全下", why: "抓詐唬牌不{{t:raise|加注}}：{{t:bluff|詐唬}}會{{t:fold|棄牌}}，付錢的只有比你好的牌。" }
   - kind: choice
@@ -101,17 +101,17 @@ drills:
 ---
 現在你換到另一邊：對手在河牌下注，而你拿著中等強度的牌。這通常是一手**抓詐唬牌**，也就是輸給對手每一手{{t:value|價值}}牌、但能贏他{{t:bluff|詐唬}}的牌。
 
-## 你的勝率就是他的{{t:bluff|詐唬}}
+## 你的權益就是他的{{t:bluff|詐唬}}
 
-抓詐唬牌只在對手{{t:bluff|詐唬}}時才會贏。所以它的勝率，就是對手下注中{{t:bluff|詐唬}}所占的比例。當這個比例高於 M2 學到的所需勝率時，你就{{t:call|跟注}}：
+抓詐唬牌只在對手{{t:bluff|詐唬}}時才會贏。所以它的權益，就是對手下注中{{t:bluff|詐唬}}所占的比例。當這個比例高於 M2 學到的所需權益時，你就{{t:call|跟注}}：
 
-| 對手下注 | 所需勝率（{{t:bluff|詐唬}}至少占） |
+| 對手下注 | 所需權益（{{t:bluff|詐唬}}至少占） |
 |---|---|
 | 1/3 {{t:pot|底池}} | {{n:eq.bet-third}} |
 | 1/2 {{t:pot|底池}} | {{n:eq.bet-half}} |
 | 滿{{t:pot|底池}} | {{n:eq.bet-pot}} |
 
-當對手{{t:bluff|詐唬}}的比例剛好和上一課一樣（滿{{t:pot|底池}}下注時為 {{n:bluff.share.bet-pot}}），{{t:call|跟注}}不賺不賠。他{{t:bluff|詐唬}}得更頻繁，你就{{t:call|跟注}}；更少，你就{{t:fold|棄牌}}。這些數字未計入抽水；抽水會讓所需勝率略微提高。
+當對手{{t:bluff|詐唬}}的比例剛好和上一課一樣（滿{{t:pot|底池}}下注時為 {{n:bluff.share.bet-pot}}），{{t:call|跟注}}不賺不賠。他{{t:bluff|詐唬}}得更頻繁，你就{{t:call|跟注}}；更少，你就{{t:fold|棄牌}}。這些數字未計入抽水；抽水會讓所需權益略微提高。
 
 ## 防守多少，用什麼防守
 

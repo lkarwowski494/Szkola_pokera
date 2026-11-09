@@ -31,7 +31,7 @@ drills:
     id: m10.exam.q4
     family: m10.types.adjust
     rules: [R-M10-007]
-    prompt: "一名{{t:nit|極緊玩家}}（{{t:vpip}} {{n:exam.m10.nit.vpip}}、{{t:pfr}} {{n:exam.m10.nit.pfr}}、{{n:exam.m10.nit.hands}} 手）從{{t:utg|槍口位}}{{t:open|開池}}。你在按鈕位，拿著一手位於{{t:range|範圍}}底部的牌，在模組 4 的基準策略中，你會用這個範圍{{t:call|跟注}}這種{{t:open|開池}}。你怎麼做？"
+    prompt: "一名{{t:nit|岩石型玩家}}（{{t:vpip}} {{n:exam.m10.nit.vpip}}、{{t:pfr}} {{n:exam.m10.nit.pfr}}、{{n:exam.m10.nit.hands}} 手）從{{t:utg|槍口位}}{{t:open|開池}}。你在按鈕位，拿著一手位於{{t:range|範圍}}底部的牌，在模組 4 的基準策略中，你會用這個範圍{{t:call|跟注}}這種{{t:open|開池}}。你怎麼做？"
     options:
       - { text: "{{t:fold|棄牌}}", correct: true, why: "玩這麼少手牌的玩家，主要用最強的牌{{t:raise|加注}}。你{{t:call|跟注}}{{t:range|範圍}}底部的牌面對他時更常被壓制，所以你要比基準策略更常{{t:fold|棄掉}}這些牌。" }
       - { text: "像基準策略一樣{{t:call|跟注}}，因為我有{{t:position|位置}}", why: "{{t:position|位置}}救不了被壓制的牌。基準策略假設的是典型的{{t:open|開池}}{{t:range|範圍}}，而這名玩家的{{t:range|範圍}}強得多。" }
@@ -40,16 +40,16 @@ drills:
     id: m10.exam.q5
     family: m10.types.adjust
     rules: [R-M10-008]
-    prompt: "對手是{{t:maniac|瘋狂玩家}}：{{t:vpip}} {{n:exam.m10.maniac.vpip}}、{{t:pfr}} {{n:exam.m10.maniac.pfr}}、{{n:exam.m10.long.hands}} 手。你在翻牌中了{{t:set|三條}}，對手{{t:bet|下注}}。你怎麼做？"
+    prompt: "對手是{{t:maniac|瘋子}}：{{t:vpip}} {{n:exam.m10.maniac.vpip}}、{{t:pfr}} {{n:exam.m10.maniac.pfr}}、{{n:exam.m10.long.hands}} 手。你在翻牌中了{{t:set|三條}}，對手{{t:bet|下注}}。你怎麼做？"
     options:
-      - { text: "{{t:call|跟注}}，讓他繼續下注", correct: true, why: "拿著非常強的牌時，就讓{{t:maniac|瘋狂玩家}}下注：他的下注中有大量{{t:bluff|詐唬}}和弱牌，而{{t:call}}能讓這些牌留在牌局中，進入接下來的{{t:street|街}}。" }
+      - { text: "{{t:call|跟注}}，讓他繼續下注", correct: true, why: "拿著非常強的牌時，就讓{{t:maniac|瘋子}}下注：他的下注中有大量{{t:bluff|詐唬}}和弱牌，而{{t:call}}能讓這些牌留在牌局中，進入接下來的{{t:street|街}}。" }
       - { text: "立刻{{t:raise|加注}}，加越大越好", why: "{{t:raise|加注}}會讓他的{{t:bluff|詐唬}}和弱牌在投入更多之前就{{t:fold|棄牌}}。面對會主動下注的玩家，讓他自己下注，你賺得更多。" }
       - { text: "{{t:fold|棄牌}}，因為{{t:pfr}}高代表強牌", why: "{{t:vpip}}這麼高時，{{t:pfr}}高代表他幾乎什麼牌都{{t:raise|加注}}，而不是他拿著強牌。{{t:set}}在這裡是最好的牌之一。" }
   - kind: choice
     id: m10.exam.q6
     family: m10.types.adjust
     rules: [R-M10-006]
-    prompt: "河牌。對手是被動的{{t:recreational|休閒玩家}}：{{t:vpip}} {{n:exam.m10.rec.vpip}}、{{t:pfr}} {{n:exam.m10.rec.pfr}}、{{n:exam.m10.long.hands}} 手。他{{t:check|過牌}}。你手上的牌，在模組 8 的基準策略中有時會在這裡{{t:value|價值}}下注，有時會{{t:check|過牌}}。你怎麼做？"
+    prompt: "河牌。對手是被動的{{t:recreational|娛樂玩家}}：{{t:vpip}} {{n:exam.m10.rec.vpip}}、{{t:pfr}} {{n:exam.m10.rec.pfr}}、{{n:exam.m10.long.hands}} 手。他{{t:check|過牌}}。你手上的牌，在模組 8 的基準策略中有時會在這裡{{t:value|價值}}下注，有時會{{t:check|過牌}}。你怎麼做？"
     options:
       - { text: "{{t:value|價值}}下注", correct: true, why: "這種玩家會用比基準策略中的對手更多的弱牌一路{{t:call|跟注}}到底，所以他的{{t:call|跟注}}中有更多牌比你差。面對他，更薄的牌也要{{t:value|價值}}下注。" }
       - { text: "{{t:check|過牌}}，因為被動玩家只用好牌{{t:call|跟注}}", why: "正好相反：{{t:vpip}} − {{t:pfr}}差距大的玩家玩很多手牌，並會用它們一路{{t:call|跟注}}到底。這正是要多下注而不是少下注的理由。" }
@@ -77,6 +77,6 @@ drills:
     id: m10.exam.q9
     family: m10.rake.math
     rules: [R-M10-015]
-    prompt: "{{t:pot|底池}}中有 {{n:ex.pot}}，對手{{t:bet|下注}}滿{{t:pot|底池}}：{{n:ex.bet.pot}}。牌室抽取{{t:pot|底池}}的 {{n:rake.ex.pct}}，且遠未達到{{t:rake-cap|抽水上限}}。你需要多少勝率（equity）才能{{t:call|跟注}}？請輸入百分比。"
+    prompt: "{{t:pot|底池}}中有 {{n:ex.pot}}，對手{{t:bet|下注}}滿{{t:pot|底池}}：{{n:ex.bet.pot}}。牌室抽取{{t:pot|底池}}的 {{n:rake.ex.pct}}，且遠未達到{{t:rake-cap|抽水上限}}。你需要多少權益（equity）才能{{t:call|跟注}}？請輸入百分比。"
     answer: exam.m10.rake.eq
     explanation: "{{t:call|跟注}}後的{{t:pot|底池}}是 {{n:exam.m10.rake.total}}，扣除{{t:rake|抽水}}後是 {{n:exam.m10.rake.after}}。你投入 {{n:ex.bet.pot}}：{{n:ex.bet.pot}} ÷ {{n:exam.m10.rake.after}} ≈ {{n:exam.m10.rake.eq}}，而不是沒有{{t:rake|抽水}}時的 {{n:eq.bet-pot}}。"

@@ -41,8 +41,8 @@ drills:
     prompt: "你在按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}了翻牌的 c-bet。轉牌是一張 2。{{t:pot|底池}}有 {{n:ex.pot}}，對手{{t:check|過牌}}。你有暗三。你怎麼做？"
     table: { hand: "7c 7d", position: BTN, board: "Jh 7h 4s 2c" }
     options:
-      - { text: "下注 {{n:ex.bet.three-quarters}}", correct: true, why: "沒錯：對手可能有{{t:draw}}，聽{{t:flush|同花}}（兩張紅心）和{{t:straight|順子}}（例如 65、T9）。面對 3/4 {{t:pot|底池}}的下注，{{t:flush-draw}}需要 {{n:eq.bet-three-quarters}} 的勝率，而{{t:flush}}成牌的機率約 {{n:odds.flush.turn-river}}。對上你的暗三，他的機會更小：[[4h]] 和 [[2h]] 會讓你拿到{{t:full-house|葫蘆}}，所以他只剩 {{n:outs.flush.vs-set}} 張乾淨的 outs，約 {{n:odds.flush.vs-set}}。他付得太貴了。" }
-      - { text: "下注 {{n:ex.bet.quarter}}", sizeError: true, why: "行動對，尺寸錯：面對 1/4 {{t:pot|底池}}的下注，{{t:draw}}只需要 {{n:eq.bet-quarter}} 的勝率，所以拿到好價格。在有{{t:flush-draw|同花聽牌}}的{{t:board|公共牌}}上拿著非常強的牌，你要下大注。" }
+      - { text: "下注 {{n:ex.bet.three-quarters}}", correct: true, why: "沒錯：對手可能有{{t:draw}}，聽{{t:flush|同花}}（兩張紅心）和{{t:straight|順子}}（例如 65、T9）。面對 3/4 {{t:pot|底池}}的下注，{{t:flush-draw}}需要 {{n:eq.bet-three-quarters}} 的權益，而{{t:flush}}成牌的機率約 {{n:odds.flush.turn-river}}。對上你的暗三，他的機會更小：[[4h]] 和 [[2h]] 會讓你拿到{{t:full-house|葫蘆}}，所以他只剩 {{n:outs.flush.vs-set}} 張乾淨的 outs，約 {{n:odds.flush.vs-set}}。他付得太貴了。" }
+      - { text: "下注 {{n:ex.bet.quarter}}", sizeError: true, why: "行動對，尺寸錯：面對 1/4 {{t:pot|底池}}的下注，{{t:draw}}只需要 {{n:eq.bet-quarter}} 的權益，所以拿到好價格。在有{{t:flush-draw|同花聽牌}}的{{t:board|公共牌}}上拿著非常強的牌，你要下大注。" }
       - { text: "{{t:check|過牌}}", why: "免費牌是送給{{t:draw|聽牌}}的禮物，而且你沒有在河牌前做大{{t:pot|底池}}。在有{{t:flush-draw|同花聽牌}}的{{t:board|公共牌}}上，暗三要下注。" }
   - kind: choice
     id: m7.l2.q-semibluff-size
@@ -68,7 +68,7 @@ drills:
     id: m7.l2.n-price-big
     family: m7.polar.price
     rules: [R-M7-006]
-    prompt: "轉牌。{{t:pot|底池}}有 {{n:ex.pot}}，你拿非常強的牌下注 {{n:ex.bet.three-quarters}}。拿著{{t:draw|聽牌}}的對手需要多少百分比的勝率才能{{t:call|跟注}}？請輸入數字。"
+    prompt: "轉牌。{{t:pot|底池}}有 {{n:ex.pot}}，你拿非常強的牌下注 {{n:ex.bet.three-quarters}}。拿著{{t:draw|聽牌}}的對手需要多少百分比的權益才能{{t:call|跟注}}？請輸入數字。"
     answer: eq.bet-three-quarters
     explanation: "對手要投入 {{n:ex.bet.three-quarters}}，{{t:call|跟注}}後{{t:pot|底池}}是 {{n:ex.pot}} + {{n:ex.bet.three-quarters}} + {{n:ex.bet.three-quarters}}：{{n:eq.bet-three-quarters}}。{{t:flush-draw|同花聽牌}}在轉牌約有 {{n:odds.flush.turn-river}}，所以他付得太貴了。"
   - kind: choice
@@ -99,7 +99,7 @@ drills:
     id: m7.l2.n-price-pot
     family: m7.polar.price
     rules: [R-M7-006]
-    prompt: "轉牌。{{t:pot|底池}}有 {{n:ex.pot}}，你下注整個{{t:pot|底池}}：{{n:ex.bet.pot}}。對手需要多少百分比的勝率才能{{t:call|跟注}}？請輸入數字。"
+    prompt: "轉牌。{{t:pot|底池}}有 {{n:ex.pot}}，你下注整個{{t:pot|底池}}：{{n:ex.bet.pot}}。對手需要多少百分比的權益才能{{t:call|跟注}}？請輸入數字。"
     answer: eq.bet-pot
     explanation: "對手要投入 {{n:ex.bet.pot}}，{{t:call|跟注}}後{{t:pot|底池}}是 {{n:ex.pot}} + {{n:ex.bet.pot}} + {{n:ex.bet.pot}}：{{n:eq.bet-pot}}。無論是{{t:flush}}聽牌（約 {{n:odds.flush.turn-river}}）還是兩頭{{t:straight}}聽牌（約 {{n:odds.oesd.turn-river}}），都沒有這麼高的機會。"
 ---

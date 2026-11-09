@@ -98,7 +98,7 @@ drills:
     prompt: "Deux joueurs limpent, le Button se {{t:fold|couche}}. Vous êtes à la {{t:small-blind|petite blinde}} et voulez {{t:isolation|isoler}}. À combien de bb {{t:raise|relancez}}-vous ? Saisissez un nombre."
     table: { hand: "Qs Qc", position: SB }
     answer: exam.m4.iso.two-oop
-    explanation: "Une base de {{n:pf.iso.base}}, plus {{n:pf.iso.per-limper}} pour chacun des deux limpers, plus {{n:pf.iso.oop-extra}} parce que vous parlez en premier après le flop : {{n:exam.m4.iso.two-oop}} au total."
+    explanation: "Une base de {{n:pf.iso.base}}, plus {{n:pf.iso.per-limper}} pour chacun des deux limpeurs, plus {{n:pf.iso.oop-extra}} parce que vous parlez en premier après le flop : {{n:exam.m4.iso.two-oop}} au total."
   - kind: choice
     id: m4.exam.q10
     family: m4.iso.many
@@ -106,6 +106,6 @@ drills:
     prompt: "Trois joueurs avant vous ont simplement complété la {{t:big-blind}}. Vous êtes au {{t:cutoff|CO}}. Que faites-vous ?"
     table: { hand: "Ad Kh", position: CO }
     options:
-      - { text: "Je {{t:raise|relance}} à {{n:exam.m4.iso.three}}", correct: true, why: "Face à plusieurs limpers, vous {{t:raise|relancez}} surtout {{t:value|pour la valeur}}, et AK est justement ce type de main. Taille : {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} pour chacun des trois limpers." }
+      - { text: "Je {{t:raise|relance}} à {{n:exam.m4.iso.three}}", correct: true, why: "Face à plusieurs limpeurs, vous {{t:raise|relancez}} surtout {{t:value|pour la valeur}}, et AK est justement ce type de main. Taille : {{n:pf.iso.base}} plus {{n:pf.iso.per-limper}} pour chacun des trois limpers." }
       - { text: "Je {{t:raise|relance}} à {{n:pf.iso.one-limper}}", sizeError: true, why: "Bonne action, mais c'est la taille face à un seul limper. Chaque limper supplémentaire ajoute {{n:pf.iso.per-limper}}, donc ici {{n:exam.m4.iso.three}}." }
       - { text: "Je complète", why: "Compléter convient aux mains spéculatives. AK veut construire le {{t:pot|pot}} et réduire le nombre d'adversaires." }

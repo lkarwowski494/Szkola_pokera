@@ -46,7 +46,7 @@ drills:
     prompt: "轉牌。{{t:pot|底池}}有 {{n:ex.third.pot}}，對手{{t:bet|下注}} {{n:io.flush.bet}}。你有{{t:flush-draw}}：{{n:cards.unseen.turn}} 張牌中有 {{n:outs.flush}} 張補牌。擊中時，你在河牌還得額外贏多少{{t:chips|籌碼}}，{{t:call}}才能打平？請輸入數字。"
     table: { hand: "Kh Jh", board: "Ah 8h 3c 2s" }
     answer: io.flush.extra
-    explanation: "你需要 {{n:io.flush.eq}} 勝率，而你約有 {{n:odds.flush.turn-river}}。在 {{n:cards.unseen.turn}} 種可能的河牌中，你擊中 {{n:outs.flush}} 次、落空 {{n:miss.flush.turn}} 次，每次落空都損失 {{n:io.flush.bet}}。所以每次擊中都必須帶來 {{n:io.flush.bet}} × {{n:miss.flush.turn}} ÷ {{n:outs.flush}} = {{n:io.flush.need}}。{{t:pot|底池}}裡有 {{n:io.flush.pot-after-bet}}，還差 {{n:io.flush.extra}}。"
+    explanation: "你需要 {{n:io.flush.eq}} 權益，而你約有 {{n:odds.flush.turn-river}}。在 {{n:cards.unseen.turn}} 種可能的河牌中，你擊中 {{n:outs.flush}} 次、落空 {{n:miss.flush.turn}} 次，每次落空都損失 {{n:io.flush.bet}}。所以每次擊中都必須帶來 {{n:io.flush.bet}} × {{n:miss.flush.turn}} ÷ {{n:outs.flush}} = {{n:io.flush.need}}。{{t:pot|底池}}裡有 {{n:io.flush.pot-after-bet}}，還差 {{n:io.flush.extra}}。"
   - kind: choice
     id: m7.l3.q-implied-oesd
     family: m7.implied.math
@@ -55,7 +55,7 @@ drills:
     options:
       - { text: "約 {{n:io.oesd.extra}}", correct: true, why: "每次擊中都必須帶來 {{n:io.oesd.bet}} × {{n:miss.oesd.turn}} ÷ {{n:outs.oesd}} = {{n:io.oesd.need}}。{{t:pot|底池}}裡有 {{n:io.oesd.pot-after-bet}}，所以還差 {{n:io.oesd.extra}}。" }
       - { text: "約 {{n:io.oesd.need}}", why: "這是你每次擊中總共要贏的數目。其中一部分已經在{{t:pot|底池}}裡（{{n:io.oesd.pot-after-bet}}），所以額外還差 {{n:io.oesd.extra}}。" }
-      - { text: "不用，價格已經夠了", why: "你需要 {{n:eq.bet-half}} 勝率，而你約有 {{n:odds.oesd.turn-river}}。光靠{{t:pot}}不夠，還差 {{n:io.oesd.extra}}。" }
+      - { text: "不用，價格已經夠了", why: "你需要 {{n:eq.bet-half}} 權益，而你約有 {{n:odds.oesd.turn-river}}。光靠{{t:pot}}不夠，還差 {{n:io.oesd.extra}}。" }
   - kind: choice
     id: m7.l3.q-nut-implied
     family: m7.implied.when
@@ -119,7 +119,7 @@ drills:
 
 ## 隱含賠率
 
-隱含賠率（implied odds）是你擊中時能在河牌贏到的{{t:chips}}。範例：{{t:pot|底池}}有 {{n:ex.third.pot}}，對手{{t:bet|下注}} {{n:io.flush.bet}}，你有{{t:flush-draw}}。你需要 {{n:io.flush.bet}} ÷ {{n:io.flush.total}} = {{n:io.flush.eq}} 勝率，而你約有 {{n:odds.flush.turn-river}}。光靠{{t:pot}}不夠。
+隱含賠率（implied odds）是你擊中時能在河牌贏到的{{t:chips}}。範例：{{t:pot|底池}}有 {{n:ex.third.pot}}，對手{{t:bet|下注}} {{n:io.flush.bet}}，你有{{t:flush-draw}}。你需要 {{n:io.flush.bet}} ÷ {{n:io.flush.total}} = {{n:io.flush.eq}} 權益，而你約有 {{n:odds.flush.turn-river}}。光靠{{t:pot}}不夠。
 
 在 {{n:cards.unseen.turn}} 種可能的河牌中，你擊中 {{n:outs.flush}} 次、落空 {{n:miss.flush.turn}} 次。要打平，每次擊中帶來的必須和落空的代價一樣多：
 

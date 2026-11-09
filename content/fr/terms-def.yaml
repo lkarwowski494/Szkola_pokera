@@ -79,7 +79,7 @@ paired: "Board sur lequel il y a une paire (deux cartes de même valeur), p. ex.
 connected: "Board sur lequel quelqu'un a déjà pu faire une quinte, p. ex. 9-8-7."
 disconnected: "Board aux cartes éloignées les unes des autres, avec lequel il est difficile de former une quinte ou un tirage quinte, p. ex. K-7-2."
 semi-connected: "Board sur lequel il existe des tirages quinte, mais où aucune quinte n'est encore possible, p. ex. T-8-3 (classification adoptée dans ce cours)."
-wetness: "Le degré auquel un board favorise les tirages et les mains fortes : de sec à humide. On parle aussi du degré de coordination du board."
+wetness: "Le degré auquel un board favorise les tirages et les mains fortes : de sec à wet. On parle aussi du degré de coordination du board."
 top-pair: "Paire formée avec la carte la plus haute du board, p. ex. K♠ Q♦ sur un flop K-7-2."
 second-pair: "Paire formée avec la deuxième carte la plus haute du board, p. ex. 7♠ 6♠ sur un flop K-7-2."
 overpair: "Paire servie supérieure à toutes les cartes du board, p. ex. Q-Q sur un flop J-7-2."
