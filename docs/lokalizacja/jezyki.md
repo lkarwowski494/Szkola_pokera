@@ -4,6 +4,8 @@ Decyzja: D-131 (polityka „szeroka”, 35 lokalizacji; słowa właściciela 202
 
 Stan: 2026-11-04, rola 09-lokalizacja, build, E0 (wejście wczesne po roli 05). Prompt roli: biblioteka `prompts` c025063, złożony `assemble.mjs` (kod 0, 57 099 znaków). Wynik E0 czeka na akceptację właściciela (bramka STOP).
 
+Ponowne wejście 2026-11-09 (E0 po roli 08 i audycie 04): decyzje D-131–D-135 stoją (D-286); plan drugiego języka i pytanie o jego wybór: `docs/lokalizacja/plan-09.md`.
+
 ## Środowisko (E0, ETAP 0)
 
 | Sprawdzone | Wynik |

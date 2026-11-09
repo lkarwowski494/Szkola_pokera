@@ -1,0 +1,54 @@
+# Pomiar stanu wyjściowego roli 09 (E0 ponowne wejście), 2026-11-09, commit fec75e7
+# Skrypt pomiaru: miary.mjs (scratchpad sesji; metoda: wartości słownika spłaszczone; słowa = ciągi liter \p{L}, w treści bez usuwania kluczy YAML i znaczników)
+
+$ node miary.mjs
+UI: wartosci 484 klucze bazowe 445 znaki 14821 slowa 1824 kontekst 445 bez kontekstu 0
+content/pl/areas.yaml {"pliki":1,"B":878,"slowa":108,"n":0,"t":0}
+content/pl/exams {"pliki":14,"B":134294,"slowa":12624,"n":700,"t":1488}
+content/pl/lessons {"pliki":44,"B":489176,"slowa":46606,"n":2424,"t":5630}
+content/pl/modules.yaml {"pliki":1,"B":1332,"slowa":189,"n":0,"t":0}
+content/pl/rules.yaml {"pliki":1,"B":141197,"slowa":15603,"n":277,"t":924}
+content/pl razem {"pliki":61,"B":766877,"slowa":75130,"n":3401,"t":8042}
+content/terms.yaml 87049 B 11899 slow
+content/helplines.yaml 2497 B 298 slow
+content/numbers.yaml 154574 B 21134 slow
+
+$ pnpm -s i18n   (kod wyjścia 0)
+błędy: 0, uwagi: 0; języki: pl; kluczy w źródle: 445
+
+$ pnpm -s i18n:kod   (kod wyjścia 1)
+BŁĄD kod apps/mobile/src/components/PaintGrid.tsx:153: tekst na sztywno „grasz”
+BŁĄD kod apps/mobile/src/components/PaintGrid.tsx:154: tekst na sztywno „− brakuje”
+BŁĄD kod apps/mobile/src/components/PaintGrid.tsx:155: tekst na sztywno „+ za dużo”
+BŁĄD kod apps/mobile/src/components/PaintGrid.tsx:156: tekst na sztywno „• mieszana”
+BŁĄD kod apps/mobile/src/components/PaintGrid.tsx:159: tekst na sztywno „Dotknij pola albo przeciągnij palcem, żeby malować.”
+BŁĄD kod apps/mobile/src/components/RangeGrid.tsx:15: tekst na sztywno „…. Gra … procent rąk.”
+BŁĄD kod apps/mobile/src/components/RangeGrid.tsx:50: tekst na sztywno „Gra …% rąk”
+BŁĄD kod apps/mobile/src/components/RenderErrorScreen.tsx:14: tekst na sztywno „Coś poszło nie tak”
+BŁĄD kod apps/mobile/src/components/RenderErrorScreen.tsx:16: tekst na sztywno „Tego ekranu nie udało się wyświetlić. Spróbuj jeszcze raz.”
+BŁĄD kod apps/mobile/src/components/RenderErrorScreen.tsx:17: tekst na sztywno „Spróbuj ponownie”
+UWAGA kod apps/mobile/src/app/glossary.tsx:36 t(`glossary.areas.${s.area}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/session.tsx:361 t(bladZapisu === 'brak_miejsca' ? 'session.saveNoSpace' : 'session.saveFailed'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/settings.tsx:108 t(KLUCZ[komunikat]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/RuleCard.tsx:15 t(`level.${rule.level}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/Stol.tsx:91 t(STAN_KLUCZ[m.stan]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/ruleSources.ts:11 t(`rules.sourceKind.one.${kind}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/ruleSources.ts:13 t(`rules.sourceKind.many.${kind}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/ruleSources.ts:17 t(total === 1 ? 'rules.source' : 'rules.sources'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/dane/EkranDanych.tsx:91 t(KLUCZ[komunikat]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/dzis/BlokLekcji.tsx:14 t(blok.rozpoczeta ? 'today.continueLesson' : 'today.startLesson'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/ocena/StopienOceny.tsx:22 t(`grade.${ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/start/EkranStartu.tsx:37 t(`start.title.${TYTUL[rodzaj]}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/skala.ts:23 t(`grade.${stopien}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/skala.ts:33 t(`grade.${ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/zakup/EkranZakupu.tsx:106 t(k.nazwa): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/zakup/EkranZakupu.tsx:107 t(k.opis): klucz dynamiczny, sprawdź listę wartości
+błędy: 10, uwagi: 16; języki: pl; kluczy w źródle: 445
+
+$ literały z tekstem w apps/mobile/src/features/drills/text.pl.ts
+literaly 269 z tekstem 158 znaki 13030  (literał z ≥3 literami i polską literą albo spacją)
+
+$ grep "text.pl" apps/mobile/src (importy poza testami)
+apps/mobile/src/app/session.tsx:30:import { pct, t as dt } from '@/features/drills/text.pl';
+apps/mobile/src/features/drills/vocab.ts:4:import { vocabText } from './text.pl';
+apps/mobile/src/features/drills/engine.ts:34:import { capitalize, categoryName, pctEquity, t, TEXTURE_AXIS_LABELS, TEXTURE_LABELS, textureText } from './text.pl';
