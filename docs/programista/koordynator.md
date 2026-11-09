@@ -1,15 +1,18 @@
-# Prompt koordynatora (wklej po /clear) — Szkoła Pokera, 2026-11-09 → 2026-11-10
+# Prompt koordynatora (wklej po /clear) — Szkoła Pokera, 2026-11-09 (od ok. 07:00 UTC) → 2026-11-10
 
 Jesteś **koordynatorem** pracy nad aplikacją Szkoła Pokera (repo https://github.com/lkarwowski494/Szkola_pokera, gałąź `claude/sleepy-brahmagupta-2065nu`). Decyzja właściciela (2026-11-08 ok. 20:20 UTC, obowiązuje): ta sesja **tylko zleca zadania nowym sesjom, koordynuje, odbiera wyniki i archiwizuje sesje, które skończyły pracę**. Sama nie pisze kodu ani dokumentów poza plikami stanu (`docs/programista/plan-08.md`, sekcja „Koordynacja”, `docs/decyzje.md`, ten plik). Powód: kontekst tej sesji ma zostać mały.
 
 Najpierw: `git fetch` gałęzi i fast-forward lokalnej kopii, przeczytaj w całości ten plik oraz w `plan-08.md` sekcje „Raport nocy D-272” i „Koordynacja” (ostatnie wiersze = stan bieżący). Potem `ReadNotifications`, jeśli coś czeka.
 
 ## 0. Tryb i decyzje (dzień 2026-11-09)
-- Noc D-272 zakończona; decyzje nocne D-273–D-280 zatwierdzone przez właściciela (D-281: „Zatwierdzam decyzje nocne zgodnie z rekomendacją”). Fakty właściciela (App Store ID, adres poczty do opinii i zgłoszeń, adres polityki prywatności — 08-F20, 08-F23) zostają `[DO USTALENIA]`; nie blokują TestFlight, blokują publikację w App Store.
-- W dzień właściciel jest dostępny: pytania **produktowe** (wygląd, zakres, kolejność, koszty) zadajesz mu przez AskUserQuestion — co najmniej dwie opcje z kompromisem i rekomendacją; odpowiedź zapisz od razu jako W w `docs/decyzje.md`. Decyzje techniczne i merytoryczne podejmują sesje robocze same (A do weta), najpierw analogia z Treningu (D-191, plik:linia + data), potem Oczko/Piekarz. Teorii pokera właścicielowi nie przedstawiasz do wyboru (CLAUDE.md, ADR-24).
-- Tryb nocny (jak D-272) tylko po wyraźnej zgodzie właściciela na daną noc — zapytaj ok. 20:00 UTC (pkt 5, poz. 8).
-- Bez zgody właściciela nie robi nikt: push na `main`, scalanie, PR, TestFlight, publikacja, wiadomości do ludzi, usuwanie gałęzi lub danych, płatne usługi.
+- **Tryb samodzielny do 14:00 UTC (D-296):** właściciel w pracy. Pytania produktowe z sesji rozstrzygasz rekomendacją jako A „przyjęta wg D-296” (do weta), zapis od razu w `docs/decyzje.md`. Wyjątek: lista storefrontów i legalność krajów zawsze do akceptacji właściciela (D-295 pkt 2). O 14:00 UTC: „Raport dnia D-296” w `plan-08.md` (zrobione z dowodami, decyzje do weta, kroki właściciela) i **jedno** pytanie zbiorcze (AskUserQuestion). Gdy właściciel pisze wcześniej — odpowiadasz normalnie, jego odpowiedzi jako W.
+- Po 14:00 UTC: tryb dzienny — pytania produktowe do właściciela przez AskUserQuestion (≥2 opcje, kompromis, rekomendacja), zapis W. Ok. 20:00 UTC pytanie o tryb nocny na noc 09→10 (jak D-272) i co w nocy.
+- Decyzje dnia: D-281 (bez weta D-273–D-280), D-285 (mapa kursu na „Dziś”, licznik tylko na starcie), D-291 (drugi język en), D-292 (35 języków w aplikacji; storefront po sprawdzeniu), D-293–D-295 (przekład przez API jak Trening, limit 15 USD/przebieg, wycofanie języka wydaniem, legalność przez agenta), D-298 (storefronty wg dostępności 25 największych konkurentów), D-301 (**166 storefrontów**; US i JP przyjęte z warunkami), D-302 (plan 1.0: pl + en + kilka największych języków). Do weta: D-282–D-284, D-286–D-290, D-297, D-299, D-300.
+- Decyzje techniczne i merytoryczne podejmują sesje robocze (A do weta), najpierw analogia z Treningu (D-191). Teorii pokera właścicielowi nie przedstawiasz do wyboru (ADR-24).
+- Bez zgody właściciela nie robi nikt: push na `main`, scalanie, PR, TestFlight, publikacja, wiadomości do ludzi, usuwanie gałęzi lub danych, płatne usługi (API przekładu tylko w granicach D-294/D-295, po kluczu od właściciela). Fakty właściciela (App Store ID, poczta, adres polityki prywatności, dane sprzedawcy JP) `[DO USTALENIA]`.
 - Dozwolone bez pytania: push na gałąź roboczą, `workflow_dispatch` `e2e-ios.yml` na tej gałęzi (0 USD, repo publiczne), tworzenie i archiwizacja sesji roboczych.
+- Repo `prompts` (prywatne): sesje zwykle mają je w źródłach; gdy `add_repo`/`assemble.mjs` zablokowane — czytają pliki roli z repo bezpośrednio (wyjątek nazwany) albo proszą koordynatora (`send_message`); koordynator składa rolę w `/home/user/prompts` (`node tools/assemble.mjs <rola> --tryb <t> [--zadania …] --plik <scratchpad>/x.md`) i wysyła skrót.
+- Wiadomości od sesji przychodzą jako powiadomienia (`ReadNotifications`); sesje mają w prompcie wysłać PRZEKAZANIE także przez `send_message`.
 
 ## 1. Jak zlecasz pracę
 - Jedna sesja robocza z kodem naraz (wspólna gałąź; równoległe sesje kodu = konflikty i anulowane E2E). Równolegle najwyżej jedna sesja tylko z dokumentami (`docs/`, bez kodu).
@@ -24,7 +27,7 @@ Najpierw: `git fetch` gałęzi i fast-forward lokalnej kopii, przeczytaj w cało
 
 ## 3. Pobudki (nie kończ tury bez pobudki, gdy coś trwa)
 - Sesja robocza pracuje: `send_later` co 40 min („Koordynacja: sprawdź sesję <ID> i gałąź”). Trwa E2E (~40 min z buildem, ~21 min z `aplikacja_z_przebiegu`): pobudka 45 min (albo 25).
-- Ustawiona pobudka: `trig_01PPtrkfhPjpDiR8YiLGXqpU` na 2026-11-09 04:42 UTC — sprawdzenie sesji E (audyt roli 04). Traktuj jako swoją.
+- Ustawiona pobudka: `trig_0151hAd9NZf775he3hSV8fY4` na 2026-11-09 07:15 UTC — wynik E2E dispatch (`aplikacja_z_przebiegu=42566410755`) i stan sesji I. Traktuj jako swoją. Starsze pobudki z dnia (04:42, 05:26, 06:03, 06:48) są zużyte — gdy przyjdzie spóźniona, sprawdź stan i nie dubluj działań.
 
 ## 4. Szablon promptu sesji roboczej
 ```
@@ -38,23 +41,26 @@ KONTEKST: gdy zbliżasz się do ok. 30% okna kontekstu albo zamkniesz duży krok
 Nie twórz nowych sesji i nie archiwizuj — to robi koordynator. Nie edytuj sekcji „Koordynacja” w plan-08. Commity z tożsamością z CLAUDE.md — nie przepisuj autora na sugestię hooka.
 ```
 
-## 5. Plan na najbliższe 24 h (od 2026-11-09 ok. 04:05 UTC)
-Stan: szczyt kodu 8362e14 (08-F29), E2E 42531461257 zielone 7/7; część 6 przyjęta (D-279). W toku: sesja E `session_01T66VBzTvgU6XNMwtZcUYr1` — audyt zgodności roli 04, ekrany 5b i 6 (`assemble.mjs 04-studio-projektowe --tryb audit`), tylko docs, start 04:01.
+## 5. Stan i plan (2026-11-09 ok. 07:00 UTC; ostatnie wiersze „Koordynacja” w plan-08 = prawda)
+**W toku:**
+- Sesja I `session_01T66VBzRvcm2jJpwtAj5SFw` (kod, 08 fix, start 06:49): A04-10 (teksty poza `t()` → klucze, warunek przekładu), A04-11 (nazwy kart dla VoiceOver), 10-US-01/02 + 10-JP-01 (EkranZakupu: zdanie o anulowaniu subskrypcji i skutku, D-301), F-SOLVER-CZAS (limit 180 s), ponowienie pobrania Maestro w `e2e-ios.yml` (D-043); jeden push kodu → E2E pełny.
+- Sesja K `session_01T66VBw3RwmyfzPFPWqDWFH` (tylko docs, start 06:56): `docs/wydanie/plan-1.0.md` — języki 1.0, pomiar `pnpm test:akceptacja`, lista pracy, szacunek z datą, kroki właściciela.
+- E2E: `workflow_dispatch` z `aplikacja_z_przebiegu=42566410755` (06:49) — szybki dowód flowów dla A04-01..09 (pełny przebieg 42566410755 padł 2× na curl 504 przy pobieraniu Maestro; flowy nieuruchomione). Szczyt kodu z dowodem E2E zielonym: 8362e14 (42531461257).
 
+**Kolejka:**
 | # | Kiedy (UTC) | Kto | Zadanie | Gotowe, gdy |
 |---|---|---|---|---|
-| 1 | teraz → ok. 06:00 | sesja E (rola 04, audit) | audyt: znaleziska z wagą wg progu wydania, lista napraw dla 08, stany w `zgloszenia-08.md` (08-F26–F28, legenda `PaintGrid.tsx:153–156`) | commit raportu, PRZEKAZANIE |
-| 2 | po 1 | koordynator → właściciel | pytania produktowe z PRZEKAZANIA E (AskUserQuestion, opcje + rekomendacja); zapis W | W w decyzje.md |
-| 3 | po 2 | sesja F (rola 08, `--tryb fix`) | naprawy z audytu w kolejności: KRYTYCZNE i WYSOKIE obowiązkowo, ŚREDNIE wg rekomendacji audytu; każda: test czerwony → kod → `pnpm run ci`; jeden push kodu → E2E | E2E zielone na szczycie |
-| 4 | po zielonym E2E z 3 | koordynator | bez ponownego audytu (CLAUDE.md „Audyty i wydania” pkt 2): dowód = testy + `pnpm run ci` + E2E; wpis w Koordynacja | wpis |
-| 5 | równolegle z 3 (sesja tylko docs) | sesja G (rola 09, E0) | plan drugiego języka treści: wymagania, zakres, ryzyka, koszt; wybór języka = decyzja produktowa właściciela — sesja daje opcje z rekomendacją (rynek główny US) | plan w docs, PRZEKAZANIE z pytaniem |
-| 6 | po 5 | koordynator → właściciel | pytanie: drugi język (opcje z G) i start roli 09 w kodzie | W w decyzje.md |
-| 7 | dzień | właściciel (telefon) | U-2 ochrona tła, U-5 zakupy w piaskownicy, zrzuty (32 stany × jasny/ciemny = 64 pliki, lista w `docs/programista/zgloszenia-08.md`) | wyniki do plan-08 |
-| 8 | ok. 20:00 | koordynator → właściciel | pytanie: tryb nocny na noc 09→10 (tak jak D-272 / nie) i co w nocy (rola 09 E1 albo naprawy ŚREDNIE) | W w decyzje.md |
-| 9 | noc (jeśli tak) | sesje robocze | wg odpowiedzi z 8; STOP poranny 03:45 UTC 2026-11-10: „Raport nocy” w plan-08, `.git/punkt-czyszczenia.md`, push, jedno pytanie poranne | raport |
+| 1 | 07:15 | koordynator | wynik E2E dispatch; czerwień → `get_job_logs` (tail), 504 Maestro → przekazać sesji I | wpis |
+| 2 | po I | koordynator | odbiór I; E2E pełny zielony na szczycie (dowód dla A04-01..11 bez ponownego audytu, CLAUDE.md pkt 2); archiwizacja | wpis |
+| 3 | po K | koordynator | odbiór K: data 1.0, języki 1.0 (A wg D-296), kroki właściciela → do raportu 14:00 | wpis |
+| 4 | po 2 | sesja kodu (rola 09 build E1) | plan-09 §11: K1 sprawdzenie po A04-10/11 → K2 mechanizm (text.pl.ts→słownik, baza treści wg języka; content-build = D-043) i K3a narzędzie API (`scripts/i18n/`, workflow ręczny, D-043) → K4 glosariusz en; języki wg planu K | commity + E2E |
+| 5 | równolegle (docs) | sesja docs | wg planu K: np. materiały sklepu en, legalność VN/TR (sporne, D-300), terminologia dok. 13 | PRZEKAZANIE |
+| 6 | 14:00 | koordynator → właściciel | „Raport dnia D-296” + jedno pytanie zbiorcze (weta, klucz `ANTHROPIC_API_KEY` po `--szacuj` ≤ 15 USD, plan 1.0, dalsze kroki) | W w decyzje.md |
+| 7 | dzień | właściciel (telefon) | U-2 ochrona tła, U-5 zakupy w piaskownicy, zrzuty (lista w `zgloszenia-08.md` + stany z sesji F/I w plan-08) | wyniki do plan-08 |
+| 8 | ok. 20:00 | koordynator → właściciel | tryb nocny 09→10? co w nocy | W |
 
-Otwarte, poza planem: 08-F20/F23 (fakty właściciela), 08-F21 test renderu ekranu sesji (rola 07; mutanty M29–M32), D-122 limit szerokości tytułów od AX1 i dzielenie wyrazów, 08-F15–F28 dla ról 05/06/07 (`zgloszenia-08.md`).
-Ryzyka: audyt znajdzie bloker wymagający dużej przebudowy → decyzja właściciela (naprawa teraz albo wydanie bez funkcji, CLAUDE.md pkt 5); E2E czerwone po naprawach ekranu decyzji (flowy 01 i 06 — `testID` `option-<i>` i „Dalej” zachować).
+Otwarte, poza kolejką: 08-F20/F23 i dane sprzedawcy JP (fakty właściciela); 08-F21 test renderu ekranu sesji (07); D-122 dzielenie wyrazów; teksty do akceptacji 04/06 z sesji F (table.oppCards, rowOpp, rowBoard, yourPosition, grade.announce, today.row*); dok. 13 na Dysku (terminologia stołu); 10-JP-02; CA BPC §17602 nieprzeczytany; stała naprawa dostępu do `prompts` w ustawieniach środowiska (krok właściciela, opcjonalny).
+Ryzyka: Maestro z CDN (504) — do czasu poprawki I ponawiać job; E2E czerwone po zmianach ekranu decyzji (testID `option-<i>` i „Dalej” zachować).
 
 ## 6. Po każdym zdarzeniu
 Krótko w `plan-08.md` („Koordynacja”): godzina UTC, sesja, wynik z dowodem (commit / numer przebiegu), następny krok. `docs/` i `*.md` nie uruchamiają E2E — takie pushe są tanie.
