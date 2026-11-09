@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Pressable, Text, View } from 'react-native';
+import { RichText } from '@/components/RichText';
 import { Button, Screen } from '@/components/ui';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 
@@ -30,9 +31,10 @@ export function EkranPytaniaOceny({ numer, liczba, tresc, odpowiedzi, onOdpowied
     <Screen>
       <Text style={[styl.przypis, { color: tk.muted }]}>{t('placement.of', { n: numer, total: liczba })}</Text>
       {stol}
-      <Text accessibilityRole="header" style={[styl.tytul, { color: tk.ink }]}>
-        {tresc}
-      </Text>
+      {/* A04-02: treść i odpowiedzi z kartami [[…]] przez RichText, jak w sesji (session.tsx); nagłówek obejmuje karty */}
+      <View accessible accessibilityRole="header">
+        <RichText text={tresc} style={styl.tytul} />
+      </View>
       <View style={{ gap: odstep.s }}>
         {odpowiedzi.map((o, i) => (
           <Pressable
@@ -52,7 +54,7 @@ export function EkranPytaniaOceny({ numer, liczba, tresc, odpowiedzi, onOdpowied
               opacity: pressed ? 0.85 : 1,
             })}
           >
-            <Text style={[styl.tresc, { color: tk.ink }]}>{o}</Text>
+            <RichText text={o} style={styl.tresc} />
           </Pressable>
         ))}
       </View>

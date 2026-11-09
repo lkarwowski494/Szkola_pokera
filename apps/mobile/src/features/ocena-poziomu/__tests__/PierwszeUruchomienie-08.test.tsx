@@ -11,6 +11,7 @@ import { opisKart } from '@/features/stol/uklad';
 import type { Drill } from '@szkola/content-schema';
 import type { DrillRow } from '@/data/content/repo';
 import PierwszeUruchomienie from '@/features/ocena-poziomu/PierwszeUruchomienie';
+import { EkranPytaniaOceny } from '@/features/ocena-poziomu/EkranyOceny';
 import { PYTANIA_OCENY } from '@/features/ocena-poziomu/ocenaPoziomu';
 import { utworzZegar } from '@/platform/zegar';
 import { portTestowy } from '@/test-utils/postepTestowy';
@@ -109,5 +110,27 @@ describe('pierwsze uruchomienie', () => {
     db.prepare("INSERT INTO ustawienie (klucz, wartosc, zmieniono_ms) VALUES ('punkt_startu', ?, ?)").run(JSON.stringify({ modulId: 'm0', ustawionoMs: T0 }), T0);
     await render(<Bramka port={port} />);
     await screen.findByText('DZIŚ');
+  });
+});
+
+describe('A04-02: karty w treści i odpowiedziach oceny poziomu', () => {
+  it('tokeny [[…]] rysowane jak karty (RichText), bez surowych kodów; testID option-<i> zostaje (flow 05)', async () => {
+    const onOdpowiedz = jest.fn();
+    await render(
+      <EkranPytaniaOceny
+        numer={1}
+        liczba={5}
+        tresc="Który flop [[8h 6d 5c]] jest najbardziej skoordynowany?"
+        odpowiedzi={['[[8h 6d 5c]]', '[[Kd Td 3s]]', '[[Ah Ad 7c]]']}
+        onOdpowiedz={onOdpowiedz}
+        onPomin={jest.fn()}
+      />,
+    );
+    expect(screen.queryAllByText(/\[\[/)).toHaveLength(0);
+    expect(screen.getAllByLabelText('8 kier').length).toBeGreaterThanOrEqual(2);
+    expect(screen.getByLabelText('as karo')).toBeTruthy();
+    expect(screen.getByRole('header')).toBeTruthy();
+    await fireEvent.press(screen.getByTestId('option-2'));
+    expect(onOdpowiedz).toHaveBeenLastCalledWith(2);
   });
 });
