@@ -1,5 +1,6 @@
 # Rola 10/11, sesja AF (2026-11-09): teksty sklepu dla nowych języków (D-377, D-369; nazwa PokerGym D-378). Jedno źródło dla store/ (fala 1) i docs/sklep/aso/metadane-fala2.json (fala 2).
 # Uruchomienie z katalogu repo: python3 -I docs/sklep/aso/zbuduj-metadane.py  (dopisuje fala 1 do store/app-store-metadata.json, nadpisuje plik fali 2)
+# Z flagą --tylko-fala2: tylko plik fali 2, store/ bez zmian. Przegląd językowy: docs/sklep/aso/przeglad-jezykowy-2026-11-09.md
 import json, collections
 EULA = 'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/'
 def stopka(terms, priv): return f"\n\n{terms} / Terms of Use: {EULA}\n{priv} / Privacy Policy: [PRIVACY URL]"
@@ -137,11 +138,11 @@ F2['de-DE'] = dict(
  keywords='strategie,texas,holdem,gto,preflop,postflop,range,outs,odds,icm,turnier,kurs,quiz,trainer,anfänger',
  promotionalText='Poker von den Regeln bis zur Strategie lernen. Jede Entscheidung wird bewertet und erklärt. Kein Echtgeldspiel, kein Konto, keine Werbung.',
  description=(
- "PokerGym bringt dir Entscheidungen im No-Limit Texas Hold'em bei – von den Regeln und der Rangfolge der Hände bis zur Strategie auf jeder Straße. Jeder Spielzug bekommt eine Bewertung und eine Erklärung, warum er gut oder schlecht ist. Es ist ein Kurs, kein Spiel: keine Einsätze, keine Chips zu gewinnen und kein Echtgeldspiel.\n\n"
+ "PokerGym bringt dir Entscheidungen im No-Limit Texas Hold'em bei – von den Regeln und der Rangfolge der Hände bis zur Strategie auf jeder Street. Jeder Spielzug bekommt eine Bewertung und eine Erklärung, warum er gut oder schlecht ist. Es ist ein Kurs, kein Spiel: keine Einsätze, keine Chips zu gewinnen und kein Echtgeldspiel.\n\n"
  "KURS\n"
  "• Module der Reihe nach: Regeln und Handrangfolge, Ablauf einer Hand, Mathematik (Outs, Odds, Pot Odds), Position und Eröffnung, Preflop-Spiel, Flop, Turn, River, Handplanung (SPR), Spiel gegen typische Fehler schwächerer Spieler, Turniere (Push/Fold und ICM), Varianz und Tilt, Analyse des eigenen Spiels\n"
  "• Lektionen mit Übungen; Begriffe werden an Ort und Stelle und in einem Glossar erklärt\n"
- "• Ein kurzer Einstufungstest am Anfang (bis zu 8 Fragen, überspringbar) zeigt deine erste Lektion\n"
+ "• Ein kurzer Einstufungstest am Anfang (bis zu 8 Fragen, überspringbar) schlägt dir deine erste Lektion vor\n"
  "• Eine Modulprüfung (15 Fragen) lässt dich überspringen, was du schon kannst\n\n"
  "ÜBEN\n"
  "• Entscheidungen in vier Stufen bewertet\n"
@@ -158,7 +159,7 @@ F2['de-DE'] = dict(
  "VERANTWORTUNGSVOLL SPIELEN\n"
  "• Ein Hilfe-Bildschirm zeigt, wo es Unterstützung bei Glücksspielproblemen gibt\n\n"
  "ZUGANG\n"
- "Lektionen, Einstufungstest und der erste Versuch jeder Modulprüfung sind immer kostenlos. Ohne Kauf hast du eine kostenlose Aktivität pro Tag: eine Übungseinheit, eine Wiederholung oder einen neuen Prüfungsversuch. Der Vollzugriff hebt dieses Limit auf: Quartals- oder Jahresabo (verlängert sich automatisch, bis es in den Einstellungen deines Apple Accounts gekündigt wird) oder ein einmaliger lebenslanger Zugang."
+ "Lektionen, Einstufungstest und der erste Versuch jeder Modulprüfung sind immer kostenlos. Ohne Kauf hast du eine kostenlose Aktivität pro Tag: eine Übungseinheit, eine Wiederholung oder einen neuen Prüfungsversuch. Der Vollzugriff hebt dieses Limit auf: Quartals- oder Jahresabo (verlängert sich automatisch, bis es in den Einstellungen deines Apple Accounts gekündigt wird) oder ein dauerhafter Zugang per Einmalkauf."
  + stopka('Nutzungsbedingungen', 'Datenschutzerklärung'))
 )
 F2['es-ES'] = dict(
@@ -195,7 +196,7 @@ F2['ko'] = dict(
  name='PokerGym: 홀덤 포커 배우기',
  subtitle='결정마다 평가와 해설, 베팅 없음',
  keywords='텍사스홀덤,프리플랍,포스트플랍,토너먼트,gto,icm,트레이너,홀덤공부',
- promotionalText='규칙부터 전략까지 포커를 배우세요. 모든 결정에 평가와 \'왜\'에 대한 해설이 있습니다. 실제 돈 게임, 계정, 광고가 없습니다.',
+ promotionalText='규칙부터 전략까지 포커를 배우세요. 모든 결정에 평가와 ‘왜’에 대한 해설이 있습니다. 실제 돈 게임과 광고가 없고, 계정 없이 사용합니다.',
  description=(
  "PokerGym은 노리밋 텍사스 홀덤(No-Limit Texas Hold'em)에서 결정을 내리는 법을 가르칩니다. 규칙과 족보부터 각 스트리트의 전략까지 배웁니다. 모든 플레이에 평가가 붙고, 왜 좋은지 또는 나쁜지 해설합니다. 이것은 게임이 아니라 강좌입니다. 베팅도, 딸 수 있는 칩도, 실제 돈 게임도 없습니다.\n\n"
  "강좌\n"
@@ -205,18 +206,18 @@ F2['ko'] = dict(
  "• 모듈 시험(15문제)으로 이미 아는 내용은 건너뛰기\n\n"
  "연습\n"
  "• 결정을 네 단계로 평가\n"
- "• 모든 답 뒤에 숫자로 된 해설\n"
+ "• 모든 답에 숫자를 곁들인 해설\n"
  "• 액션 선택, 숫자 입력, 그리드에서 핸드 레인지 칠하기\n"
  "• 짧은 연습 세션: 언제든 멈추고 같은 문제로 돌아오기\n\n"
  "복습과 진도\n"
  "• 틀린 문제는 간격 반복 복습으로 다시 출제\n"
  "• 정답률, 가장 약한 문제 유형, 연속 일수, 실력 지수\n"
- "• 선택 사항인 매일 알림\n\n"
+ "• 매일 알림(선택 사항)\n\n"
  "내 데이터\n"
  "• 오프라인으로 작동, 계정·광고·추적 없음\n"
  "• 진도는 내 휴대폰에만 저장: 파일로 내보내기, 다른 휴대폰에서 가져오기, 진도 삭제\n\n"
  "책임감 있는 플레이\n"
- "• '도움말' 화면에서 도박 문제 상담처 안내\n\n"
+ "• ‘도움말’ 화면에서 도박 문제 상담처 안내\n\n"
  "이용 방법\n"
  "레슨, 레벨 테스트, 각 모듈 시험의 첫 응시는 항상 무료입니다. 구매하지 않으면 하루에 무료 활동 1개(연습 세션, 복습 또는 시험 재응시)를 이용할 수 있습니다. 전체 이용권은 이 제한을 없앱니다: 분기 또는 연간 구독(Apple 계정 설정에서 해지할 때까지 자동 갱신) 또는 1회 결제 평생 이용."
  + stopka('이용 약관', '개인정보 처리방침'))
@@ -224,7 +225,7 @@ F2['ko'] = dict(
 F2['it'] = dict(
  name='PokerGym: impara il poker',
  subtitle='Decidi meglio, senza puntate',
- keywords='strategia,texas,holdem,gto,preflop,postflop,range,outs,odds,icm,torneo,corso,lezioni,allenatore',
+ keywords='strategia,texas,holdem,gto,preflop,postflop,range,outs,odds,icm,torneo,corso,lezioni,allenamento',
  promotionalText='Studia il poker dalle regole alla strategia. Ogni decisione riceve un voto e una spiegazione. Niente gioco con soldi veri, niente account, niente pubblicità.',
  description=(
  "PokerGym insegna a prendere decisioni nel No-Limit Texas Hold'em, dalle regole e dalla scala dei punti fino alla strategia su ogni street. Ogni giocata riceve un voto e una spiegazione del perché è buona o cattiva. È un corso, non un gioco: niente puntate, niente fiches da vincere e niente gioco con soldi veri.\n\n"
@@ -254,22 +255,22 @@ F2['it'] = dict(
 F2['vi'] = dict(
  name='PokerGym: học poker',
  subtitle='Tập quyết định, không cá cược',
- keywords='texas,holdem,gto,preflop,postflop,range,outs,odds,icm,quiz,trainer,tilt,strategy',
+ keywords='texas,holdem,gto,preflop,postflop,range,outs,odds,icm,quiz,trainer,tilt,strategy,chiến,thuật',
  promotionalText='Học poker từ luật chơi đến chiến thuật. Mỗi quyết định đều được chấm điểm và giải thích. Không chơi bằng tiền thật, không cần tài khoản, không quảng cáo.',
  description=(
- "PokerGym dạy cách ra quyết định trong No-Limit Texas Hold'em, từ luật chơi và thứ tự các bộ bài đến chiến thuật ở từng vòng. Mỗi nước đi đều được chấm điểm và giải thích vì sao tốt hay chưa tốt. Đây là một khóa học, không phải trò chơi: không có tiền cược, không có chip để thắng và không chơi bằng tiền thật.\n\n"
+ "PokerGym dạy cách ra quyết định trong No-Limit Texas Hold'em, từ luật chơi và thứ hạng các tay bài đến chiến thuật ở từng vòng. Mỗi nước đi đều được chấm điểm và giải thích vì sao tốt hay chưa tốt. Đây là một khóa học, không phải trò chơi: không có tiền cược, không có chip để thắng và không chơi bằng tiền thật.\n\n"
  "KHÓA HỌC\n"
- "• Các học phần theo thứ tự: luật và thứ tự bộ bài, diễn biến một ván, toán (outs, odds, pot odds), vị trí và mở bài, giai đoạn preflop, flop, turn, river, lập kế hoạch ván bài (SPR), đối phó với lỗi thường gặp của người chơi yếu hơn, giải đấu (push/fold và ICM), phương sai và tilt, phân tích lối chơi của chính bạn\n"
+ "• Các học phần theo thứ tự: luật và thứ hạng tay bài, diễn biến một ván, toán (outs, odds, pot odds), vị trí và mở cược, giai đoạn preflop, flop, turn, river, lập kế hoạch ván bài (SPR), đối phó với lỗi thường gặp của người chơi yếu hơn, giải đấu (push/fold và ICM), phương sai và tilt, phân tích lối chơi của chính bạn\n"
  "• Bài học kèm bài tập; thuật ngữ được giải thích ngay tại chỗ và trong bảng thuật ngữ\n"
  "• Bài kiểm tra trình độ ngắn lúc đầu (tối đa 8 câu, có thể bỏ qua) gợi ý bài học đầu tiên\n"
  "• Bài thi học phần (15 câu) giúp bạn bỏ qua phần đã biết\n\n"
  "LUYỆN TẬP\n"
  "• Quyết định được chấm theo bốn mức\n"
  "• Sau mỗi câu trả lời có lời giải thích kèm con số\n"
- "• Chọn hành động, nhập số hoặc tô range bài trên lưới\n"
+ "• Chọn hành động, nhập số hoặc tô range tay bài trên lưới\n"
  "• Buổi luyện tập ngắn: dừng bất cứ lúc nào và quay lại đúng câu đó\n\n"
  "ÔN TẬP VÀ TIẾN ĐỘ\n"
- "• Câu trả lời sai sẽ quay lại trong các lượt ôn tập giãn cách\n"
+ "• Câu hỏi bạn trả lời sai sẽ quay lại trong các lượt ôn tập giãn cách\n"
  "• Tỷ lệ đúng, dạng câu hỏi yếu nhất, chuỗi ngày và chỉ số tiến bộ\n"
  "• Nhắc nhở hằng ngày (tùy chọn)\n\n"
  "DỮ LIỆU CỦA BẠN\n"
@@ -278,16 +279,18 @@ F2['vi'] = dict(
  "CHƠI CÓ TRÁCH NHIỆM\n"
  "• Màn hình Trợ giúp cho biết nơi tìm hỗ trợ khi gặp vấn đề với cờ bạc\n\n"
  "QUYỀN TRUY CẬP\n"
- "Bài học, bài kiểm tra trình độ và lần thi đầu tiên của mỗi học phần luôn miễn phí. Nếu không mua, bạn có một hoạt động miễn phí mỗi ngày: một buổi luyện tập, một lượt ôn tập hoặc một lần thi lại. Truy cập đầy đủ bỏ giới hạn này: gói đăng ký theo quý hoặc theo năm (tự động gia hạn cho đến khi bạn hủy trong cài đặt Tài khoản Apple) hoặc mở khóa trọn đời thanh toán một lần."
+ "Bài học, bài kiểm tra trình độ và lần thi đầu tiên của mỗi học phần luôn miễn phí. Nếu không mua, bạn có một hoạt động miễn phí mỗi ngày: một buổi luyện tập, một lượt ôn tập hoặc một lần thi lại. Truy cập đầy đủ bỏ giới hạn này: gói đăng ký theo quý hoặc theo năm (tự động gia hạn cho đến khi bạn hủy trong cài đặt Tài khoản Apple) hoặc mở khóa trọn đời với một lần thanh toán."
  + stopka('Điều khoản sử dụng', 'Chính sách quyền riêng tư'))
 )
 
 if __name__ == '__main__':
-  p = 'store/app-store-metadata.json'
-  m = json.load(open(p), object_pairs_hook=collections.OrderedDict)
-  for k, v in L.items(): m['lokalizacje'][k] = v
-  m['_aliasy']['fr-CA'] = 'fr-FR'
-  json.dump(m, open(p, 'w'), ensure_ascii=False, indent=2); open(p, 'a').write('\n')
+  import sys
+  if '--tylko-fala2' not in sys.argv:  # przegląd językowy 2026-11-09: fala 2 bez dotykania store/ (fala 1 = sesja kodu)
+    p = 'store/app-store-metadata.json'
+    m = json.load(open(p), object_pairs_hook=collections.OrderedDict)
+    for k, v in L.items(): m['lokalizacje'][k] = v
+    m['_aliasy']['fr-CA'] = 'fr-FR'
+    json.dump(m, open(p, 'w'), ensure_ascii=False, indent=2); open(p, 'a').write('\n')
   f2 = collections.OrderedDict(_opis='Fala 2 (D-374): de-DE, es-ES, es-MX (= es-ES), ko, it, vi. Poza store/, bo scripts/asc/metadane.mjs LOCALE_MAP nie zna tych kodów (walidacja zablokowałaby cały zapis). Przeniesienie do store/ po dopisaniu kodów do LOCALE_MAP (sesja kodu). Źródło: docs/sklep/aso/zbuduj-metadane.py; uzasadnienie: docs/sklep/aso/README.md.', _aliasy={'es-MX': 'es-ES'}, lokalizacje=F2)
   json.dump(f2, open('docs/sklep/aso/metadane-fala2.json', 'w'), ensure_ascii=False, indent=2); open('docs/sklep/aso/metadane-fala2.json', 'a').write('\n')
   for d in (L, F2):
