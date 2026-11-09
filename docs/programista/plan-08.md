@@ -695,6 +695,25 @@ Teksty nowe do akceptacji 04/06: `table.oppCards`, `table.rowOpp`, `table.rowBoa
 
 Stany do zrzutu (właściciel): `sesja-bez-pozycji:przed` z „Kto wygrywa” (rzędy „Rywal”/„Na stole”), `ocena-poziomu:pytanie` przy m5.exam.q2 (karty zamiast „[[…]]”), zadanie z samą pozycją (`m6-l1-mdf-alpha`: wiersz „Twoja pozycja”), `sesja-decyzja:przed` i `po-ocenie-*` przy AX3 i AX5 na 390 pt (pasek i skala zawinięte, miejsca i karty bez wzrostu, słowo stopnia 34 pt), VoiceOver: ogłoszenie po dotknięciu akcji, fokus na „Zadanie n z m” po „Dalej”.
 
+## Naprawy — sesja I (2026-11-09, rola 08 fix)
+Rola `08-programista --tryb fix` złożona `tools/assemble.mjs` (repo `prompts`, odczyt 2026-11-09). Stan wyjściowy `1607c7b`: `pnpm run ci` kod 0, mobile 453. Wszystkie ID typu D (rozstrzygnięte w D-284, D-297/D-299/D-301 i rekomendacji sesji F); szczegóły wykonania D-306 (do weta). Commity jeszcze bez SHA po pushu — w tabeli SHA z gałęzi po `git pull --rebase`.
+
+| ID | Commit | Test (czerwony przed → zielony po) |
+|---|---|---|
+| A04-10 | 1eb4df7 | `teksty-08` 6 (język testowy z oznaczonymi tekstami) — przed 6/6 czerwone („Unable to find … X-HINT”); `pnpm i18n:kod` 10 błędów → 0; `i18n:kod` w `pnpm run ci` |
+| A04-11 | 00e0cb2 | `uklad-08` „A04-11” ×2, `Stol-08` — przed 4/17 („A♥ K♦…” zamiast „as kier i król karo…”); zmiana specyfikacji w 5 istniejących asercjach (etykieta z nazw, symbole w tekście widocznym) |
+| 10-US-01, 10-US-02, 10-JP-01 | f6182d5 | `anulowanie-08` 4 — przed 2/4 („Unable to find … /ustawieniach konta Apple/”; 2 strażniki zielone od początku) |
+| F-SOLVER-CZAS | 302ce3c | `limity.test.ts` — przed: 10 limitów < 180 s; wyjątek nazwany: przekroczenia nie odtworzono tu (2 próby, w tym pod 4× obciążeniem CPU: najdłuższy test 14,9 s), dowód z logu sesji F |
+| Maestro (42566410755) | 965231c | `workflowy.test.mjs` „krok Maestro ponawia instalację” — przed „bez pipefail”; symulacja z atrapą curl: 0/2/3 awarie → 1 próba / sukces w 3. / kod 1; przegląd D-043: brak uwag |
+
+Pełny zestaw: `pnpm run ci` kod 0 po każdym commicie (ostatni: mobile 465, preflop-solver 44, skrypty 83). Pierwszy przebieg po A04-10 czerwony z dwóch powodów (teksty „pas/pasuje” bez `{{t:fold|…}}`, test dziennika bez `import '@/i18n'`) — poprawione przed pushem w tym samym commicie. `expo lint` nieuruchamiany (jak w częściach 1–6).
+
+**Teksty do akceptacji 04** (brzmienie pl jak dotąd poza nowym): `purchase.cancelInfo` (nowy, D-306 pkt 4); pozostałe 37 kluczy A04-10 to przeniesione napisy bez zmiany brzmienia — wyjątek: stany pól `PaintGrid` z „pas/pasuje” mają znacznik terminu, a etykieta `RangeGrid` czyta liczbę w formacie języka („42,5”).
+
+**Stany do zrzutu (właściciel):** `zakup:plany` (jasny/ciemny) — zdanie o anulowaniu pod planami, przed „Przywróć zakupy”; VoiceOver: zadanie „Kto wygrywa” (karty czytane nazwami „as trefl…”, nie symbolami), siatka malowania po ocenie (stany pól), karta w treści (np. „walet trefl”).
+
+**Zostaje:** E2E pełny po pushu (wynik niżej); `[DO USTALENIA]` warunki zwrotów Apple (zdanie ich nie obiecuje); 10-JP-02 dane sprzedawcy (właściciel/rola 10); przekład `purchase.cancelInfo` i `card.*` — rola 09.
+
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
 
