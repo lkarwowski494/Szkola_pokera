@@ -1,0 +1,288 @@
+# Pomiar stanu do planu 1.0 — 2026-11-09, commit 0f03c8e (sesja K)
+
+## pnpm test:akceptacja (pełny log)
+
+> szkola-pokera@ test:akceptacja <repo>
+> a=0; pnpm test:akceptacja:domena || a=1; pnpm test:akceptacja:ekrany || a=1; exit $a
+
+
+> szkola-pokera@ test:akceptacja:domena <repo>
+> tsc -p tests/akceptacja && vitest run --root tests/akceptacja
+
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (tests/akceptacja/vitest.config.ts:2:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v5.0.3 <repo>/tests/akceptacja
+
+ ❯ tresc/kryteria-terminy.test.ts (2 tests | 1 failed) 11ms
+   ❯ AK-BR-KURS-003: termin w lekcji i kolejność definicji (2)
+     × AK-BR-KURS-003-b żaden termin nie pojawia się przed lekcją, która go definiuje (pole lekcji definiującej w terms.yaml) 6ms
+ ❯ tresc/kryteria-liczby.test.ts (11 tests | 2 failed) 18ms
+   ❯ AK-BR-CWI-003 i AK-BR-KURS-005: szanse trafienia i reguła 2 i 4 (RD-04, RD-05) (4)
+     × AK-BR-KURS-005-a przybliżenie 36% (RD-05-W1); każde przybliżenie z reguły 2 i 4 w treści stoi w pliku z dokładnym wynikiem dla tych outów i słowem „przybliżenie” 7ms
+   ❯ AK-BR-CWI-005: equity ICM trzech graczy (RD-09-W1) (2)
+     × AK-BR-CWI-005-b każdy plik z equity ICM nazywa ograniczenie modelu (umiejętności i pozycja) 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tresc/kryteria-liczby.test.ts > AK-BR-CWI-003 i AK-BR-KURS-005: szanse trafienia i reguła 2 i 4 (RD-04, RD-05) > AK-BR-KURS-005-a przybliżenie 36% (RD-05-W1); każde przybliżenie z reguły 2 i 4 w treści stoi w pliku z dokładnym wynikiem dla tych outów i słowem „przybliżenie”
+AssertionError: przybliżenia bez dokładnego wyniku albo bez słowa „przybliżenie” (zgłoszenie dla 06): expected [ …(7) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "odds.flush.rule-turn w pl/lessons/m2-l1-outy.md (bez „przybliżenie”)",
++   "odds.flush.rule-turn w pl/lessons/m7-l3-implied-odds.md (bez „przybliżenie”)",
++   "odds.gutshot.rule-flop w pl/lessons/m2-l1-outy.md (bez „przybliżenie”)",
++   "odds.gutshot.rule-turn w pl/exams/m2.yaml (bez „przybliżenie”)",
++   "odds.gutshot.rule-turn w pl/lessons/m2-l1-outy.md (bez „przybliżenie”)",
++   "odds.oesd.rule-flop w pl/exams/m2.yaml (bez „przybliżenie”)",
++   "odds.oesd.rule-next w pl/exams/m2.yaml (bez „przybliżenie”)",
++ ]
+
+ ❯ tresc/kryteria-liczby.test.ts:110:107
+    108|       }
+    109|     }
+    110|     expect(braki, 'przybliżenia bez dokładnego wyniku albo bez słowa „…
+       |                                                                                                           ^
+    111|   });
+    112|   it('AK-BR-KURS-005-b 15 outów: 60% (RD-05-W3) wobec dokładnego 54,12…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tresc/kryteria-liczby.test.ts > AK-BR-CWI-005: equity ICM trzech graczy (RD-09-W1) > AK-BR-CWI-005-b każdy plik z equity ICM nazywa ograniczenie modelu (umiejętności i pozycja)
+AssertionError: pliki z ICM bez ograniczenia modelu (zgłoszenie dla 06): expected [ 'pl/lessons/m11-l3-icm.md', …(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "pl/lessons/m11-l3-icm.md",
++   "pl/exams/m11.yaml",
++ ]
+
+ ❯ tresc/kryteria-liczby.test.ts:137:78
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tresc/kryteria-terminy.test.ts > AK-BR-KURS-003: termin w lekcji i kolejność definicji > AK-BR-KURS-003-b żaden termin nie pojawia się przed lekcją, która go definiuje (pole lekcji definiującej w terms.yaml)
+AssertionError: terminy bez lekcji definiującej (162 z 162): expected [ 'royal-flush', …(161) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "royal-flush",
++   "straight-flush",
++   "four-of-a-kind",
++   "full-house",
++   "flush",
++   "straight",
++   "three-of-a-kind",
++   "set",
++   "two-pair",
++   "pair",
++   "high-card",
++   "kicker",
++   "wheel",
++   "check",
++   "bet",
++   "call",
++   "raise",
++   "fold",
++   "check-raise",
++   "all-in",
++   "pot",
++   "side-pot",
++   "split-pot",
++   "playing-the-board",
++   "board",
++   "community-cards",
++   "hole-cards",
++   "small-blind",
++   "big-blind",
++   "chips",
++   "stack",
++   "street",
++   "betting-round",
++   "preflop",
++   "flop",
++   "turn",
++   "river",
++   "showdown",
++   "position",
++   "in-position",
++   "out-of-position",
++   "early-position",
++   "late-position",
++   "utg",
++   "hijack",
++   "cutoff",
++   "button",
++   "outs",
++   "draw",
++   "flush-draw",
++   "straight-draw",
++   "oesd",
++   "gutshot",
++   "backdoor",
++   "pot-odds",
++   "implied-odds",
++   "equity",
++   "equity-realization",
++   "expected-value",
++   "combo",
++   "range",
++   "mixed-hand",
++   "open",
++   "suited",
++   "offsuit",
++   "pocket-pair",
++   "connectors",
++   "3-bet",
++   "4-bet",
++   "limp",
++   "isolation",
++   "texture",
++   "dry",
++   "wet",
++   "rainbow",
++   "two-tone",
++   "monotone",
++   "paired",
++   "connected",
++   "disconnected",
++   "semi-connected",
++   "wetness",
++   "top-pair",
++   "second-pair",
++   "overpair",
++   "c-bet",
++   "aggressor",
++   "initiative",
++   "range-advantage",
++   "nuts-advantage",
++   "nuts",
++   "polarized",
++   "polarization",
++   "linear",
++   "condensed",
++   "value",
++   "value-bet",
++   "bluff",
++   "semi-bluff",
++   "blocker",
++   "bluff-catcher",
++   "barrel",
++   "second-barrel",
++   "probe-bet",
++   "donk-bet",
++   "overbet",
++   "effective-stack",
++   "spr",
++   "mdf",
++   "alpha",
++   "variance",
++   "buy-in",
++   "bankroll",
++   "tilt",
++   "winrate",
++   "downswing",
++   "session",
++   "stakes",
++   "standard-deviation",
++   "risk-of-ruin",
++   "mental-game",
++   "tournament",
++   "push-fold",
++   "shove",
++   "icm",
++   "bubble",
++   "bubble-factor",
++   "cover",
++   "risk-premium",
++   "m-ratio",
++   "red-zone",
++   "green-zone",
++   "ante",
++   "bb-ante",
++   "fold-equity",
++   "gap-concept",
++   "chip-ev",
++   "tournament-equity",
++   "prize-pool",
++   "payout",
++   "pay-jump",
++   "final-table",
++   "short-stack",
++   "nash-equilibrium",
++   "overcall",
++   "heads-up",
++   "dead-money",
++   "stack-off",
++   "exploit",
++   "hud",
++   "vpip",
++   "pfr",
++   "wtsd",
++   "nit",
++   "regular",
++   "tag",
++   "lag",
++   "recreational",
++   "calling-station",
++   "maniac",
++   "rake",
++   "rake-cap",
++ ]
+
+ ❯ tresc/kryteria-terminy.test.ts:33:113
+     31|     // Pole z lekcją definiującą (propozycja nazwy: `lesson: m2.l1`) —…
+     32|     const bezLekcji = Object.keys(TERMINY).filter((k) => typeof TERMIN…
+     33|     expect(bezLekcji, `terminy bez lekcji definiującej (${bezLekcji.le…
+       |                                                                                                                 ^
+     34|     const pozycja = new Map(LEKCJE.map((l, i) => [l.id, i]));
+     35|     const za_wczesnie: string[] = [];
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  3 failed | 11 passed (14)
+   Start at  06:56:10
+   Duration  1.40s (import 56%, transform 25%, tests 19%)
+
+ ELIFECYCLE  Command failed with exit code 1.
+
+> szkola-pokera@ test:akceptacja:ekrany <repo>
+> ls tests/akceptacja/ekrany/*.test.tsx >/dev/null 2>&1 || { echo 'Brak testów oczekujących ekranów (wszystkie w apps/mobile, D-175).'; exit 0; }; tsc -p tests/akceptacja/ekrany && pnpm --filter @szkola/mobile exec jest -c jest.akceptacja.config.js
+
+Brak testów oczekujących ekranów (wszystkie w apps/mobile, D-175).
+ ELIFECYCLE  Command failed with exit code 1.
+exit=1
+
+## pnpm run ci (wiersze z liczbą testów i wynik)
+40:packages/srs test:       Tests  21 passed (21)
+45:packages/jezyki test:       Tests  136 passed (136)
+50:packages/poker-core test:       Tests  155 passed (155)
+66:packages/domena test:       Tests  314 passed (314)
+73:tools/preflop-solver test:       Tests  43 passed (43)
+120:packages/postep test:       Tests  105 passed (105)
+139:tools/content-build test:       Tests  124 passed (124)
+520:apps/mobile test: Tests:       453 passed, 453 total
+1043:      Tests  8 passed (8)
+1060:błędy: 0, uwagi: 0; języki: pl; kluczy w źródle: 455
+1081:krytyczne: 56
+1083:exit=0
+
+## pnpm i18n:kod (koniec)
+UWAGA kod apps/mobile/src/features/zakup/EkranZakupu.tsx:107 t(k.opis): klucz dynamiczny, sprawdź listę wartości
+błędy: 10, uwagi: 18; języki: pl; kluczy w źródle: 455
+ ELIFECYCLE  Command failed with exit code 1.
+exit=1
