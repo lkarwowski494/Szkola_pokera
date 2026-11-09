@@ -10,7 +10,7 @@ drills:
     id: m5.l4.q-oop-plan
     family: m5.cbet.oop
     rules: [R-M5-012]
-    prompt: "{{t:open|Otworzyłeś}} z {{t:cutoff|CO}}, Button {{t:call|sprawdził}}, blindy {{t:fold|spasowały}}. Flop jest średni i {{t:connected}}. Mówisz pierwszy. Jaki plan {{t:fold|pasuje}}?"
+    prompt: "{{t:open|Otworzyłeś}} z {{t:cutoff|CO}}, Button {{t:call|sprawdził}}, blindy {{t:fold|spasowały}}. Flop jest średni i {{t:connected}}. Mówisz pierwszy. Który plan jest tu właściwy?"
     table: { position: CO, board: "Jd 9s 8c" }
     options:
       - { text: "{{t:check|Czekam}} częściej niż {{t:in-position}}", correct: true, why: "Tak: Button {{t:call|sprawdził}} z {{t:position|pozycji}}, więc ma silny {{t:range}}, a flop średni i {{t:connected}} dobrze trafia jego {{t:pair|pary}} i {{t:connectors|konektory}}. {{t:out-of-position|Bez pozycji}} {{t:check|czekasz}} tu bardzo często, także z silnymi rękami." }

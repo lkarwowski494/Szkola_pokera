@@ -14,7 +14,7 @@ drills:
     options:
       - { text: "Button ({{t:button|BTN}})", correct: true, why: "Od flopu Button mówi ostatni, więc zawsze zna decyzje rywali przed swoją." }
       - { text: "{{t:big-blind|Duży blind}}", why: "{{t:big-blind|BB}} płaci mniej za wejście, bo już wpłacił, ale od flopu mówi jako jeden z pierwszych." }
-      - { text: "{{t:utg}}", why: "{{t:utg}} mówi pierwszy preflop i ma za sobą cały {{t:board}}. To najtrudniejsze miejsce do otwierania." }
+      - { text: "{{t:utg}}", why: "{{t:utg}} mówi pierwszy preflop i ma za sobą wszystkich graczy przy stole. To najtrudniejsze miejsce do otwierania." }
   - kind: choice
     id: m3.l1.q2
     family: m3.open-early

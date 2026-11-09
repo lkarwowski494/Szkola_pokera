@@ -74,7 +74,7 @@ drills:
     options:
       - { text: "{{t:check|Czekam}}", correct: true, why: "{{t:pair|Para}} dziewiątek to średnia ręka: wygrywa z {{t:bluff|blefami}}, ale przegrywa z każdym królem. Na drugi bet rywal {{t:fold|spasuje}} gorsze ręce, a zapłaci królami. {{t:check|Czekając}}, trzymasz {{t:pot|pulę}} małą i dochodzisz do showdownu." }
       - { text: "Betuję {{n:ex.bet.three-quarters}}", why: "Rywal {{t:call|sprawdził}} już flop na {{t:board|stole}} z królem. Gorsze ręce (ósemki, trójki) {{t:fold|spasują}} albo zapłacą raz, a lepsze zapłacą zawsze. Taki bet zarabia na lepszych rękach." }
-      - { text: "Betuję, żeby {{t:call|sprawdzić}}, gdzie stoję", why: "Bet „dla informacji” to częsty błąd: płacisz za nią, bo lepsze ręce i tak cię nie przepuszczą, a gorsze uciekną. Betujesz {{t:value|dla wartości}} albo jako {{t:bluff}}." }
+      - { text: "Betuję, żeby się przekonać, gdzie stoję", why: "Bet „dla informacji” to częsty błąd: płacisz za nią, bo lepsze ręce i tak cię nie przepuszczą, a gorsze uciekną. Betujesz {{t:value|dla wartości}} albo jako {{t:bluff}}." }
   - kind: choice
     id: m7.l1.q-value-top
     family: m7.barrel.value

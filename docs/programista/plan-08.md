@@ -868,6 +868,7 @@ Rola `08-programista --tryb build`: `add_repo prompts` odrzucone przez klasyfika
 | Zadanie | Commit | Test (czerwony przed → zielony po) | Decyzja |
 |---|---|---|---|
 | 4 workflowy `asc-*.yml` + `scripts/asc/*.mjs` + dane `store/` (adresy, lokalizacje IAP ze słownika, konfiguracja kontroli, pliki generowane) | 123fc16 | `asc.test.mjs` 16 (przed: brak modułów), `workflowy.test.mjs` +2 (przed: brak plików); mutanty 17/17 | D-352 |
+| Treść krytyczna `n:dd.bi.small` (pozycje 1 i 16): kontrola zastępcza subagentem ZGODNE, `przeglad.sha` → 17562103d899 (`docs/tresci/e3/AC-kontrola-dd.md`) | `pnpm tresci:rejestr` (przed: „przegląd dotyczy innej wersji zdań”, po: 0 błędów) | D-376 |
 | Przegląd D-043 (subagent, świeży kontekst): P1 brak; P2.2 artefakt zrzutów z dowolnego przebiegu (np. z forka) → kontrola `actions/runs/$RUN` = ręczny `store-screenshots.yml`; P3: `jezyki` zaczynające się od `-`, `stateOf` bez `state`, dry-run IAP bez klienta GET, zły odnośnik w komentarzu | c6031bc | mutant M18 (kontrola przebiegu) zabity; M19 (klient GET w dry-run IAP) równoważny — dry-run nie ma ścieżki zapisu, opakowanie to obrona w głąb | D-352 |
 
 `pnpm run ci` kod 0 przed poprawkami przeglądu (mobile 537/537, skrypty 167/167); po poprawkach `pnpm test:skrypty` 167/167.
@@ -912,6 +913,24 @@ Rola `08-programista --tryb build`: repo `prompts` sklonowane, ale uruchomienie 
 - Ręcznie w ASC: kategoria Education (D-360), ocena wiekowa, App Privacy, App Review Information (D-362).
 - P2 nazwane w D-364: ponowny POST dostępności produktu przy nowych terytoriach wł.
 - `store-screenshots.yml` na main nie ma kroku „skrypty z gałęzi” — uruchomienie z `main` padnie po zużyciu minut macOS (repo publiczne: bez opłat); uruchamiać z `--ref` gałęzi.
+
+## Sesja AC — 16 błędnych `{{t:…}}` w content/pl (2026-11-09, rola 06 build)
+Rola `06-tresc --tryb build`: `add_repo lkarwowski494/prompts` odrzucone przez klasyfikator — **wyjątek nazwany**; rola wg dokumentów w repo (CLAUDE.md, ADR-24, `docs/lokalizacja/`), analogia z mechanizmów repo (T-02 `skip`), Trening niedostępny w sesji.
+
+| Zadanie | Test (czerwony przed → zielony po) | Decyzja |
+|---|---|---|
+| 16 miejsc z listy `rozstrzygniecia.md` poprawione w `content/pl` (13 plików) + `skip` „turn/river/flop to trójka” w `content/terms.yaml`; `content/en` bez zmian (już poprawny) | `tools/content-build/test/znacznik-zwykle-slowo-06.test.ts` (przed: dokładnie 16 pozycji listy, 19 linii; po: 27/27) | D-376 |
+| Strażnik budowy `tools/content-build/src/znaczniki.ts` (13 wzorców, tylko tekst pl) wpięty w `build.ts` | jw. + 11 przypadków poprawnego użycia bez alarmu | D-376 |
+| Przegląd D-043 (subagent, świeży kontekst): 0 KRYT/WYS/ŚR, 4 NISKIE — wszystkie naniesione (zawężone 3 wzorce, m11-l3 „equity turniejowego”) | test jw. | D-376 |
+
+Wpływ na przekład ja/zh-Hant/pt-BR/fr (D-358, przebiegi 19:06–19:44 na źródle sprzed zmiany): skróty `zrodlo_sha256` (`scripts/i18n/wspolne.mjs:162`) zmienione w **14 jednostkach na język** (56 razem): `content/pl/rules.yaml` i lekcje m3-l1, m5-l3, m5-l4, m7-l1, m7-l2, m7-l4, m8-l1, m9-l3, m9-l4, m10-l3, m11-l1, m11-l3, m12-l1; pozostałe 51 jednostek na język (w tym definicje z `terms.yaml` — `skip` nie zmienia skrótu) bez zmian. `--zastosuj` odrzuci te 14 („źródło zmienione…”, `wspolne.mjs:214`). Szacunek dotłumaczenia (`--szacuj --tylko`, 0 USD): 9,68 USD, najgorszy przypadek 18,85 USD > 5 USD (D-359) → **bez wysyłki**.
+Rekomendacja dla sesji kodu nakładającej 4 języki (0 USD): (1) `git checkout <commit sprzed AC> -- content/pl` (np. `d726aef`), (2) `--zastosuj` propozycji 4 języków, (3) `git checkout HEAD -- content/pl`, (4) w `content/{ja,zh-Hant,pt-BR,fr}` ręcznie poprawić odpowiedniki 16 miejsc wg `content/en` (te same pola; w przekładzie mogły zostać błędne znaczniki, np. `{{t:three-of-a-kind}}` w „turn to 3”, `{{t:fold}}` przy „plan pasuje”), (5) `pnpm content:build`, `pnpm run ci`. Opcja droższa: dotłumaczyć 14 plików API w 4 przebiegach po języku (≤ 5 USD każdy najgorszy przypadek) — wymaga zgody na koszt ponad D-359.
+
+E2E przed pushem: 42690423784 (4763dc6, sesja AA) **success** (zakończony 20:57 UTC); push AC dopiero po nim.
+
+### Zostaje
+- Nałożenie 4 języków wg rekomendacji wyżej (sesja kodu roli 09).
+- Strażnik działa tylko na tekście pl; w przekładach znacznik ocenia przegląd przekładu.
 
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.

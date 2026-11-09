@@ -19676,9 +19676,9 @@
   "uproszczenie": null,
   "krytyczne": true,
   "przeglad": {
-   "kto": "weryfikacja zastępcza (subagent)",
-   "data": "2026-11-04",
-   "sha": "124d1ba3c752"
+   "kto": "weryfikacja zastępcza (subagent): redakcja bez zmiany sensu, usunięty błędny {{t:call}} w m12-l1 q-dd-meaning i R-M12-002 (docs/tresci/e3/AC-kontrola-dd.md)",
+   "data": "2026-11-09",
+   "sha": "17562103d899"
   },
   "wielkosc": "dd.bi.small",
   "wartosc": 10,

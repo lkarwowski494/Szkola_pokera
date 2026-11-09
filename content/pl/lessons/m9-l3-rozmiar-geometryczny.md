@@ -28,7 +28,7 @@ drills:
     options:
       - { text: "{{n:geo.half.spr}}", correct: true, why: "{{t:pot|Pula}} {{n:ex.pot}}: {{t:bet|zakłady}} {{n:ex.bet.half}}, {{n:geo.half.turn}} i {{n:geo.half.river}} dają razem {{n:geo.half.total}}, czyli stack {{n:geo.half.stack}}. Ze wzoru: (1 + 2·{{n:ex.frac.half}}) do potęgi trzeciej = 1 + 2·{{n:geo.half.spr}}." }
       - { text: "{{n:spr.zone.deep}}", why: "Przy {{t:spr}} {{n:spr.zone.deep}} trzeba betować całą {{t:pot|pulę}} na każdej {{t:street|ulicy}}. {{t:bet|Zakłady}} pół {{t:pot|puli}} wpłacą wtedy tylko {{n:geo.half.total}} z {{n:geo.ex.stack}}." }
-      - { text: "{{n:spr.commit}}", why: "Przy {{t:spr}} {{n:spr.commit}} trzy {{t:bet|zakłady}} pół {{t:pot|puli}} to za dużo: stack skończy się już na riverze, zanim {{t:bet|postawisz}} pełne pół {{t:pot|puli}}. {{t:fold|Pasuje}} {{t:spr}} {{n:geo.half.spr}}." }
+      - { text: "{{n:spr.commit}}", why: "Przy {{t:spr}} {{n:spr.commit}} trzy {{t:bet|zakłady}} pół {{t:pot|puli}} to za dużo: stack skończy się już na riverze, zanim {{t:bet|postawisz}} pełne pół {{t:pot|puli}}. Taki plan odpowiada {{t:spr}} {{n:geo.half.spr}}." }
   - kind: choice
     id: m9.l3.q-srp-half
     family: m9.geo-srp

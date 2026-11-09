@@ -86,8 +86,10 @@ three-of-a-kind:
   def: "Trzy karty tej samej wysokości i dwie inne. W hold'emie ma dwie odmiany o osobnych nazwach: set, gdy para jest w ręce, a trzecia karta na stole, oraz trips, gdy para leży na stole, a trzecia karta jest w ręce."
   area: hands
   lesson: m0.l1
-  # „trójki” to też karty rangi 3 („ósemki, trójki”), więc obowiązkowe tylko formy liczby pojedynczej
+  # „trójki” to też karty rangi 3 („ósemki, trójki”), więc obowiązkowe tylko formy liczby pojedynczej;
+  # „Turn to trójka” = karta rangi 3 (jak „Turn to dwójka”), nie układ (D-376)
   forms: [trójka, trójkę, trójką, trójce]
+  skip: [turn to trójka, river to trójka, flop to trójka]
   source: "Wikipedia, List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands): „Three of a kind, also known as trips or a set”; glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Three of a kind: A made hand consisting of three cards of the same rank. Synonymous with \"trips\". …”"
 set:
   pl: set

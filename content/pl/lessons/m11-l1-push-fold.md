@@ -76,7 +76,7 @@ drills:
     id: m11.l1.q-two-ways
     family: m11.fold-equity
     rules: [R-M11-004]
-    prompt: "Dlaczego z {{t:short-stack|short stackiem}} wolisz wejść all-in pierwszy, niż {{t:check|czekać}}, aż ktoś inny wejdzie all-in, i {{t:call|sprawdzić}}?"
+    prompt: "Dlaczego z {{t:short-stack|short stackiem}} wolisz wejść all-in pierwszy, niż poczekać, aż ktoś inny wejdzie all-in, i {{t:call|sprawdzić}}?"
     options:
       - { text: "Bo all-in wygrywa na dwa sposoby", correct: true, why: "Wchodząc pierwszy, zgarniasz {{t:pot|pulę}}, gdy wszyscy {{t:fold|spasują}}, albo wygrywasz na showdownie. {{t:call|Sprawdzając}}, wygrywasz tylko na showdownie." }
       - { text: "Bo all-in ma zawsze więcej equity", why: "Equity ręki nie zależy od tego, kto wszedł pierwszy. Różnica jest w tym, że all-in daje rywalowi szansę {{t:fold|spasować}}." }

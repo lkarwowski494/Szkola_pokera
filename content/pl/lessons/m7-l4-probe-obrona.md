@@ -40,7 +40,7 @@ drills:
     id: m7.l4.q-probe-oesd
     family: m7.probe.play
     rules: [R-M7-011, R-M7-012]
-    prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie obaj {{t:check|czekaliście}}. Turn to {{t:three-of-a-kind}}. Mówisz pierwszy. Co robisz?"
+    prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie obaj {{t:check|czekaliście}}. Turn to trójka. Mówisz pierwszy. Co robisz?"
     table: { hand: "7h 6h", position: BB, board: "8c 5d 2s 3h" }
     options:
       - { text: "Betuję (probe bet)", correct: true, why: "Masz {{t:oesd}} (czwórka albo dziewiątka) na niskim {{t:board|stole}}, który pasuje do twojego {{t:range|zakresu}}. Wygrywasz, gdy Button {{t:fold|spasuje}}, a gdy {{t:call|sprawdzi}}, nadal masz {{n:outs.oesd}} outów." }
@@ -50,7 +50,7 @@ drills:
     id: m7.l4.q-probe-value
     family: m7.probe.play
     rules: [R-M7-012]
-    prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie obaj {{t:check|czekaliście}}. Turn to {{t:three-of-a-kind}}. Mówisz pierwszy. Co robisz?"
+    prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na flopie obaj {{t:check|czekaliście}}. Turn to trójka. Mówisz pierwszy. Co robisz?"
     table: { hand: "9c 8d", position: BB, board: "8h 5c 2d 3s" }
     options:
       - { text: "Betuję (probe bet)", correct: true, why: "{{t:top-pair|Najwyższa para}} to dobra ręka do probe betu: zapłacą ci słabsze {{t:pair|pary}} i wysokie karty Buttona, a {{t:bet|zakładem}} nie dajesz im darmowej karty." }

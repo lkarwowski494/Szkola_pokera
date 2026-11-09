@@ -119,7 +119,7 @@ Gracze populacji mikrostawek online (NL25) {{t:fold|pasują}} na c-bet na flopie
 | {{t:regular|Regi}} | {{n:mda.reg.f3b}} |
 | {{t:recreational|Gracze rekreacyjni}} | {{n:mda.rec.f3b}} |
 
-W bazie {{t:bluff|blefy}} 3-betem żyją z {{t:fold|pasów}} i z equity po flopie. Wobec gracza, który {{t:fold|pasuje}} w {{n:mda.rec.f3b}}, {{t:fold|pasów}} prawie nie ma, za to {{t:call|sprawdza}} on słabszymi rękami. Dlatego 3-betujesz go {{t:range|zakresem}} {{t:linear|liniowym}}: więcej silnych rąk {{t:value|dla wartości}}, prawie bez {{t:bluff|blefów}}. Trenerzy w dwóch materiałach szkoleniowych {{t:bet|stawiają}} tę granicę przy fold to 3-bet ok. {{n:hud.f3b.low}}.
+W bazie {{t:bluff|blefy}} 3-betem żyją z {{t:fold|pasów}} i z equity po flopie. Wobec gracza, który {{t:fold|pasuje}} w {{n:mda.rec.f3b}}, {{t:fold|pasów}} prawie nie ma, za to {{t:call|sprawdza}} on słabszymi rękami. Dlatego 3-betujesz go {{t:range|zakresem}} {{t:linear|liniowym}}: więcej silnych rąk {{t:value|dla wartości}}, prawie bez {{t:bluff|blefów}}. Trenerzy w dwóch materiałach szkoleniowych wyznaczają tę granicę przy fold to 3-bet ok. {{n:hud.f3b.low}}.
 
 ## Mała próba, małe odejście
 

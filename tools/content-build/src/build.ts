@@ -37,6 +37,7 @@ import { findHardcodedNumbers, PLACEHOLDER, resolveNumbers, substitute, type Res
 import { applyTransitional, loadRegistry, loadTransitional, registryViolations, type RegistryUse } from './registry';
 import { checkSourceQuotes } from './sources';
 import { loadTerms } from './terms';
+import { znacznikiZwyklegoSlowa } from './znaczniki';
 import { czytajDefinicje } from './definicje';
 import { czytajZNakladka, POLA_HELPLINES } from './nakladka';
 
@@ -145,6 +146,8 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   // terminów aplikacji (TERM_DEFS, cli.ts), bo baza treści nie ma kolumny def, a słowniczek czyta terms.generated.ts
   czytajDefinicje(contentDir, tekst, termsFile);
   const termErrors: string[] = [];
+  /** Znacznik terminu na zwykłym słowie w tekście polskim (D-376, znaczniki.ts). */
+  const misuseErrors: string[] = [];
   const helplinesPlik = czytajZNakladka(contentDir, tekst, 'helplines.yaml', POLA_HELPLINES);
   const helplines = loadHelplines(parseOrThrow(HelplinesFile, helplinesPlik.dane, helplinesPlik.plik));
   const helplinesUsed = { count: 0 };
@@ -159,6 +162,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
     // liczby z % lub bb wpisane ręcznie wykrywamy też w zadaniach i regułach, nie tylko w tekście lekcji
     const hard = findHardcodedNumbers(text);
     if (hard.length && checkNumbers) warnings.push(`${where}: liczby wpisane ręcznie (użyj {{n:…}}): ${hard.join(', ')}`);
+    if (tekst === 'pl') for (const e of znacznikiZwyklegoSlowa(text)) misuseErrors.push(`${fileCtx} ${where}: ${e}`);
     if (checkTerms) {
       // bloki ```formula i ```range nie są zdaniami: wzory zostają bez nawiasów
       const raw = terms.unmarked(text.replace(/```[\s\S]*?```/g, ''));
@@ -402,6 +406,9 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   }
   for (const key of numbers.keys()) if (!used.has(key)) warnings.push(`liczba ${key} nie jest nigdzie używana`);
   if (helplinesUsed.count === 0) warnings.push('telefony pomocy (helplines.yaml) nie są użyte w żadnej lekcji ({{helplines}})');
+  if (misuseErrors.length) {
+    throw new Error(`Znacznik terminu na zwykłym słowie (${misuseErrors.length} miejsc; D-376, tools/content-build/src/znaczniki.ts):\n${misuseErrors.map((e) => `  - ${e}`).join('\n')}`);
+  }
   if (termErrors.length) {
     const shown = termErrors.slice(0, 40);
     throw new Error(

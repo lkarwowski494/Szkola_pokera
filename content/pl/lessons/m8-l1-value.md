@@ -84,7 +84,7 @@ drills:
     id: m8.l1.q-where-am-i
     family: m8.value.check
     rules: [R-M8-002]
-    prompt: "Kolega mówi: „Na riverze ze średnią {{t:pair|parą}} betuję, żeby {{t:call|sprawdzić}}, gdzie jestem”. Co jest nie tak z tym pomysłem?"
+    prompt: "Kolega mówi: „Na riverze ze średnią {{t:pair|parą}} betuję, żeby się przekonać, gdzie jestem”. Co jest nie tak z tym pomysłem?"
     options:
       - { text: "Gorsze ręce {{t:fold|spasują}}, a lepsze zapłacą", correct: true, why: "Po takim becie ręce, z którymi wygrywasz, {{t:fold|pasują}}, a te, z którymi przegrywasz, płacą albo {{t:raise|przebijają}}. Informację dostajesz za darmo po {{t:check|czekaniu}}, bo z {{t:position|pozycji}} rywal pokaże karty przy showdownie." }
       - { text: "Nic, to dobry sposób na zdobycie informacji", why: "Informacja kosztuje tu bet, który zwykle przegrywasz. Po {{t:check|czekaniu}} zobaczysz rękę rywala bez dopłaty." }

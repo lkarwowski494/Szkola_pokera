@@ -961,7 +961,7 @@
 - id: R-M12-002
   module: m12
   if: "wpadasz w {{t:downswing}} o {{n:dd.bi.small}} {{t:buy-in|wpisowych}}"
-  then: "nie traktujesz go jako dowodu złej gry, tylko {{t:call|sprawdzasz}} decyzje w przegranych rozdaniach"
+  then: "nie traktujesz go jako dowodu złej gry, tylko przeglądasz decyzje w przegranych rozdaniach"
   because: "w {{n:var.hands.k}} tys. rąk taki {{t:downswing}} od szczytu przytrafia się ok. {{n:dd.p.small.100k}} graczy wygrywających {{n:var.wr.ex}} (SD {{n:var.sd}})"
   level: heuristic
   source: "obliczenie: symulacja Monte Carlo (numbers.yaml, klucze dd.*); serwis z kalkulatorami pokerowymi, Examples and Impacts of Variance in Cash Games, podaje dla tego scenariusza niższą liczbę (raport M12)"

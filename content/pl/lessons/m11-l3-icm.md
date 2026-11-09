@@ -17,7 +17,7 @@ drills:
     id: m11.l3.q-second
     family: m11.icm.second
     rules: [R-M11-008]
-    prompt: "Ten sam {{t:board}} ({{n:m11.icm.a.s1}}, {{n:m11.icm.a.s2}}, {{n:m11.icm.a.s3}}). Duży stack zajął 1. miejsce. Jaka jest teraz szansa najkrótszego stacku na 2. miejsce?"
+    prompt: "Te same stacki ({{n:m11.icm.a.s1}}, {{n:m11.icm.a.s2}}, {{n:m11.icm.a.s3}}). Duży stack zajął 1. miejsce. Jaka jest teraz szansa najkrótszego stacku na 2. miejsce?"
     options:
       - { text: "{{n:m11.icm.a.second3.via1}}", correct: true, why: "Zostali dwaj gracze z {{n:m11.icm.a.rest1}} {{t:chips|żetonów}}, z czego krótki ma {{n:m11.icm.a.s3}}: {{n:m11.icm.a.s3}} ÷ {{n:m11.icm.a.rest1}} = {{n:m11.icm.a.second3.via1}}." }
       - { text: "{{n:m11.icm.a.chips3}}", why: "To szansa na 1. miejsce, liczona ze wszystkich {{t:chips|żetonów}}. Gdy zwycięzca odpada z liczenia, dzielisz tylko przez {{t:chips}} pozostałych: {{n:m11.icm.a.rest1}}." }
@@ -37,7 +37,7 @@ drills:
     options:
       - { text: "{{n:m11.icm.a.eq1}}, czyli mniej niż udział w {{t:chips|żetonach}}", correct: true, why: "Duży stack może wygrać najwyżej {{n:m11.icm.a.p1}} {{t:prize-pool|puli nagród}}, choć ma szansę na wszystkie {{t:chips}}. Dlatego {{t:chips}} lidera są warte mniej niż ich udział, a {{t:short-stack|short stacku}} więcej ({{n:m11.icm.a.eq3}})." }
       - { text: "{{n:m11.icm.a.chips1}}, tyle co udział w {{t:chips|żetonach}}", why: "Tak byłoby, gdyby zwycięzca brał całą {{t:prize-pool|pulę nagród}}. Przy {{t:payout|wypłatach}} {{n:m11.icm.a.p1}}/{{n:m11.icm.a.p2}} każdy {{t:chips|żeton}} dużego stacku jest wart mniej: {{n:m11.icm.a.eq1}}." }
-      - { text: "{{n:m11.icm.a.p1}}, bo prawie na pewno wygra", why: "Ma tylko {{n:m11.icm.a.chips1}} szans na 1. miejsce, a resztę {{t:pot|puli}} dostaje za 2. miejsce. Razem {{n:m11.icm.a.eq1}}." }
+      - { text: "{{n:m11.icm.a.p1}}, bo prawie na pewno wygra", why: "Ma tylko {{n:m11.icm.a.chips1}} szans na 1. miejsce, a resztę {{t:tournament-equity|equity turniejowego}} daje mu 2. miejsce. Razem {{n:m11.icm.a.eq1}}." }
   - kind: numeric
     id: m11.l3.n-bf
     family: m11.bf
@@ -158,7 +158,7 @@ potrzebne equity = BF ÷ (BF + 1)
 
 Wychodzi **{{n:m11.bf.req}}**. W grze o {{t:chips}} ryzykujesz {{n:m11.bf.s3}}, żeby wygrać {{n:m11.bf.s3}}, więc wystarczyłoby {{n:m11.bf.req-chips}}. Różnica, {{n:m11.bf.premium}}, to **{{t:risk-premium}}**.
 
-Ten sam kierunek widać w opublikowanej równowadze dla trzech graczy z równymi stackami (praca naukowa z 2008 roku): gdy Button i {{t:small-blind}} są już all-in, {{t:big-blind}} w pojedynczym rozdaniu {{t:call|sprawdza}} {{n:m11.jamfold3.overcall.single}} rąk, a w {{t:tournament|turnieju}} z {{t:payout|wypłatami}} tylko {{n:m11.jamfold3.overcall.tourn}}, czyli same {{t:top-pair|najwyższe pary}} i AKs.
+Ten sam kierunek widać w opublikowanej równowadze dla trzech graczy z równymi stackami (praca naukowa z 2008 roku): gdy Button i {{t:small-blind}} są już all-in, {{t:big-blind}} w pojedynczym rozdaniu {{t:call|sprawdza}} {{n:m11.jamfold3.overcall.single}} rąk, a w {{t:tournament|turnieju}} z {{t:payout|wypłatami}} tylko {{n:m11.jamfold3.overcall.tourn}}, czyli same najwyższe {{t:pocket-pair|pocket pary}} i AKs.
 
 :::note Kto {{t:call|sprawdza}} ciasno
 Średni stack na {{t:bubble|bubble}} albo przy {{t:final-table|stole finałowym}} (ostatnim stoliku {{t:tournament|turnieju}}, przy którym gra się o najwyższe nagrody) {{t:call|sprawdza}} all-iny dużo ciaśniej niż w grze o {{t:chips}}. Duży stack, który {{t:cover|pokrywa}} rywali, ryzykuje mniej i może na tym grać: {{t:shove|pushować}} szerzej, bo rywale muszą {{t:fold|pasować}}. Bubble factor zależy od wszystkich stacków przy stole, dlatego nie liczy się go przy stole, tylko ćwiczy na przykładach, żeby wyrobić wyczucie.

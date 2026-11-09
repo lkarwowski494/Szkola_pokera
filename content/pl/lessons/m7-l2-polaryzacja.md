@@ -48,7 +48,7 @@ drills:
     id: m7.l2.q-semibluff-size
     family: m7.polar.size
     rules: [R-M7-005, R-M7-002]
-    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} c-bet na flopie. Turn to {{t:three-of-a-kind}}. W {{t:pot|puli}} jest {{n:ex.pot}}, rywal {{t:check|czeka}}. Co robisz?"
+    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} c-bet na flopie. Turn to trójka. W {{t:pot|puli}} jest {{n:ex.pot}}, rywal {{t:check|czeka}}. Co robisz?"
     table: { hand: "Qh Jh", position: BTN, board: "Th 6h 2c 3s" }
     options:
       - { text: "Betuję {{n:ex.bet.three-quarters}}", correct: true, why: "Tak: {{t:flush-draw}} z dwiema wysokimi kartami to dobry {{t:semi-bluff}}. Betujesz tym samym dużym rozmiarem co silne ręce, więc rywal nie odróżni {{t:bluff|blefu}} od wartości." }

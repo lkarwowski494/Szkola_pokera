@@ -63,7 +63,7 @@ drills:
     id: m5.l3.q-paired
     family: m5.cbet.texture
     rules: [R-M5-009]
-    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i {{t:check|czeka}}. Flop jest {{t:paired}}. Jaki plan {{t:fold|pasuje}}?"
+    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i {{t:check|czeka}}. Flop jest {{t:paired}}. Który plan jest tu właściwy?"
     table: { position: BTN, board: "Qd Qs 6h" }
     options:
       - { text: "C-bet często i mało", correct: true, why: "Tak: masz {{t:range-advantage|przewagę zakresu}}, a na {{t:paired|sparowanym}} flopie trudno o {{t:draw}}, więc rywal bez {{t:pair|pary}} rzadko może zapłacić nawet mały {{t:bet}}. Masz też więcej wysokich {{t:pair|par}}, np. AA i KK, których {{t:big-blind}} po samym {{t:call|sprawdzeniu}} zwykle nie ma." }
@@ -73,7 +73,7 @@ drills:
     id: m5.l3.q-mono
     family: m5.cbet.texture
     rules: [R-M5-010]
-    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i {{t:check|czeka}}. Flop jest {{t:monotone}}. Jaki plan {{t:fold|pasuje}}?"
+    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}} i {{t:check|czeka}}. Flop jest {{t:monotone}}. Który plan jest tu właściwy?"
     table: { position: BTN, board: "Kh 8h 3h" }
     options:
       - { text: "C-bet rzadziej niż zwykle i mało", correct: true, why: "Tak: {{t:flush}} może mieć już każdy z graczy, więc twoja {{t:nuts-advantage}} jest mniejsza niż na zwykłym wysokim flopie. Betujesz rzadziej i małym rozmiarem, żeby nie budować dużej {{t:pot|puli}} przeciw kolorowi." }
