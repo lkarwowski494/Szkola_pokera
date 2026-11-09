@@ -61,6 +61,7 @@ Raport: `docs/design/audyt-5b-6.md`; decyzje D-282–D-284. Nowe znaleziska dla 
 ### 10 / właściciel (F20, F23)
 - Adres polityki prywatności (F20) — warunek publikacji w App Store.
 - App Store ID i adres poczty do opinii i zgłoszeń (F23).
+- Rola 10 (2026-11-09): projekt polityki `docs/wydanie/polityka-prywatnosci/` (rekomendacja hostingu D-308), App Privacy `docs/wydanie/app-privacy.md`. Support URL jest wymagany w ASC (PV-1) — strona wsparcia blokuje wysyłkę. Nowe dla 08: **10-PRYW-01** (ŚREDNIE) dodać `3B52.1` do FileTimestamp w `app.json:23` + K-08; dla 05: **10-PRYW-02** (NISKIE) inwentarz `prywatnosc.md` §1/§4 (dziennik w zgłoszeniu, brak `expo-store-review`).
 
 ## Zrzuty od właściciela (scalona lista z części 5b i 6)
 
