@@ -3,7 +3,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, writeFileSync, existsSync, mkdtempSync, mkdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
 import { tmpdir } from 'node:os';
 import { atrapa, fetchZakazany, atrapaApi, LEKCJA_EN, SPOTS_EN, HELPLINES_EN } from './fixture.mjs';
 import {
@@ -287,4 +287,22 @@ test('--zastosuj nakłada nakładkę do content/<język>/ranges/spots.yaml po ko
   writeFileSync(plik, JSON.stringify({ jednostki: [{ ...ocenPropozycje(j, 'en', { blad: null, tekst: `<<<PLIK>>>\n${SPOTS_EN}<<<KONIEC>>>` }) }] }));
   assert.equal(await main(['--zastosuj', plik], {}, { fetchFn: fetchZakazany, log: cicho, root }), 0);
   assert.equal(readFileSync(join(root, 'content/en/ranges/spots.yaml'), 'utf8'), SPOTS_EN);
+});
+
+/* ---------- przegląd D-043 K3a, znalezisko 1: język z pliku propozycji bez walidacji (zapis poza repo) ---------- */
+const EGZ_EN = 'module: m0\ndrills:\n  - kind: choice\n    id: m0.exam.q1\n    rules: [R-M0-001]\n    prompt: "You have a {{t:pot}} of {{n:ex.pot}}."\n    options:\n      - { text: "Yes", correct: true, why: "Because {{n:eq.bet-pot}}." }\n';
+test('--zastosuj odrzuca język spoza listy i ścieżkę poza content/<język>/ (path traversal z pliku propozycji)', async () => {
+  const root = atrapa(); const poza = mkdtempSync(join(tmpdir(), 'k3a-poza-')); const wy = mkdtempSync(join(tmpdir(), 'k3a-wy-'));
+  const kod = relative(join(root, 'content'), poza); // np. ../../k3a-poza-XXXX
+  const egz = jednostkiPrzekladu(root, 'en').find((x) => x.zrodlo === 'content/pl/exams/m0.yaml');
+  const plik = join(wy, 'propozycje.json');
+  writeFileSync(plik, JSON.stringify({ jednostki: [{ jezyk: kod, zrodlo: egz.zrodlo, cel: `content/${kod}/exams/m0.yaml`, zrodlo_sha256: egz.zrodlo_sha256, tekst: EGZ_EN }] }));
+  const { log, l } = linie();
+  assert.equal(await main(['--zastosuj', plik], {}, { fetchFn: fetchZakazany, log, root }), 1);
+  assert.ok(!existsSync(join(poza, 'exams/m0.yaml')), 'zapis poza repozytorium');
+  assert.match(l.join('\n'), /język/);
+  // kod z listy, ale cel z kropkami — też odrzucony
+  writeFileSync(plik, JSON.stringify({ jednostki: [{ jezyk: 'en', zrodlo: egz.zrodlo, cel: 'content/en/../../x.yaml', zrodlo_sha256: egz.zrodlo_sha256, tekst: EGZ_EN }] }));
+  assert.equal(await main(['--zastosuj', plik], {}, { fetchFn: fetchZakazany, log: cicho, root }), 1);
+  assert.ok(!existsSync(join(root, '..', 'x.yaml')));
 });

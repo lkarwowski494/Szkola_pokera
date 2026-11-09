@@ -18,7 +18,7 @@
 // Klient: fetch bez zależności jak Trening (:240–254); umiejętność claude-api zaleca SDK `@anthropic-ai/sdk`, ale dodanie
 // zależności zmienia package.json i lockfile (poza zakresem K3a) — odstępstwo od zalecenia, zgodne z Treningiem.
 import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
-import { join, relative, sep } from 'node:path';
+import { join, relative, resolve, sep } from 'node:path';
 import { createHash } from 'node:crypto';
 import { parse as parseYaml } from 'yaml';
 import { tsImport } from 'tsx/esm/api';
@@ -115,7 +115,17 @@ const bezpiecznyId = (s) => s.replace(/[^A-Za-z0-9_-]/g, '_');
 /** Jednostki żądań dla języka `kod`: słownik interfejsu (jedna jednostka) i każdy plik `content/pl/**` (.md, .yaml).
  * `content/terms.yaml` nie jest tłumaczony w K3a: terminy mają nazwy angielskie (pole `en`), a nazwy lokalne dla języków
  * innych niż en rozstrzyga D-287 przy fali 1. */
+/** Język docelowy z listy 35 (bez pl) — kod trafia do ścieżek zapisu, więc nic spoza listy (przegląd D-043 K3a, znalezisko 1). */
+export const jezykDocelowy = (kod) => typeof kod === 'string' && kod !== ZRODLO && JEZYKI.includes(kod);
+/** Cel zapisu leży w content/<kod>/ albo jest dokładnie locales/<kod>.json (po rozwiązaniu ścieżki). */
+export function celBezpieczny(root, kod, cel) {
+  if (!jezykDocelowy(kod) || typeof cel !== 'string') return false;
+  const p = resolve(root, cel), tresc = resolve(root, 'content', kod) + sep;
+  return p.startsWith(tresc) || p === resolve(root, SCIEZKA_UI, `${kod}.json`);
+}
+
 export function jednostki(root, kod, prefiks) {
+  if (!jezykDocelowy(kod)) throw new Error(`nieznany język docelowy: ${String(kod).slice(0, 40)}`);
   const out = [];
   const pUi = join(root, SCIEZKA_UI, `${ZRODLO}.json`);
   if (existsSync(pUi)) {

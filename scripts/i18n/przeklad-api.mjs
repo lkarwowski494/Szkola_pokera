@@ -44,7 +44,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { splaszcz, wpisy } from '../sprawdz-i18n.mjs';
 import {
   MAX_TOKENS, RABAT_BATCH, INTERWAL_S, REJESTR, WSPOLCZYNNIK, ZRODLO, nazwaJezyka, maskuj, sha256, przyblizTokeny, szacunek, tabelaSzacunku,
-  jednostki, czytajJesli, glosariusz, kluczeTerminow, blokGlosariusza, kontrolaZnacznikow, kategorie, odczytajLinie, klient, czekajNaBatch,
+  jednostki, czytajJesli, glosariusz, kluczeTerminow, blokGlosariusza, kontrolaZnacznikow, kategorie, odczytajLinie, klient, czekajNaBatch, jezykDocelowy, celBezpieczny,
   parsujWspolne, filtruj,
 } from './wspolne.mjs';
 
@@ -195,8 +195,11 @@ export function zastosuj(root, plik) {
   const wynik = { zapisane: [], odrzucone: [] };
   for (const e of p.jednostki ?? []) {
     const kod = e.jezyk;
-    const j = typeof kod === 'string' && kod !== ZRODLO ? jednostki(root, kod, 'pr').find((x) => x.zrodlo === e.zrodlo) : null;
-    if (!j || j.cel !== e.cel) { wynik.odrzucone.push({ cel: String(e.cel), powod: 'jednostka spoza źródła albo zły język/cel' }); continue; }
+    // kod i cel pochodzą z pliku propozycji (artefakt, mógł być zmieniony ręcznie): tylko język z listy i cel w content/<kod>/ albo locales/<kod>.json
+    if (!jezykDocelowy(kod)) { wynik.odrzucone.push({ cel: String(e.cel).slice(0, 120), powod: `nieznany język docelowy „${String(kod).slice(0, 40)}”` }); continue; }
+    if (!celBezpieczny(root, kod, e.cel)) { wynik.odrzucone.push({ cel: String(e.cel).slice(0, 120), powod: `cel poza content/${kod}/ i locales/${kod}.json` }); continue; }
+    const j = jednostki(root, kod, 'pr').find((x) => x.zrodlo === e.zrodlo);
+    if (!j || j.cel !== e.cel || !celBezpieczny(root, kod, j.cel)) { wynik.odrzucone.push({ cel: String(e.cel), powod: 'jednostka spoza źródła albo zły język/cel' }); continue; }
     if (typeof e.tekst !== 'string') { wynik.odrzucone.push({ cel: e.cel, powod: `brak tekstu propozycji (${(e.powody ?? []).join('; ') || 'odrzucona'})` }); continue; }
     if (e.zrodlo_sha256 !== j.zrodlo_sha256) { wynik.odrzucone.push({ cel: e.cel, powod: 'źródło zmienione od przekładu (inny skrót sha256) — potrzebny nowy przekład' }); continue; }
     const powody = kontrolaZnacznikow(j, e.tekst, kod);
