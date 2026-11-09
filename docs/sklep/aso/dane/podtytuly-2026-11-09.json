@@ -1,0 +1,1053 @@
+{
+ "_opis": "apps.apple.com/{kraj}/app/id{id}: pierwszy element class=\"subtitle svelte-…\" strony (podtytuł aplikacji), top 8 z każdej frazy nauki z search.json, max 12 na kraj; odczyt 2026-11-09 22:01 UTC",
+ "kraje": {
+  "us": [
+   {
+    "id": 6478522482,
+    "nazwa": "Poker Trainer - Learn Poker",
+    "podtytul": "Simulator & offline practice",
+    "oceny": 1177,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6748104711,
+    "nazwa": "Poker Skill - Learn Holdem",
+    "podtytul": "Lessons, Drills, AI Trainer",
+    "oceny": 475,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6446099491,
+    "nazwa": "Offsuit: Texas Holdem Poker",
+    "podtytul": "Learn GTO & Play with Friends",
+    "oceny": 3576,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6785714176,
+    "nazwa": "Raise Ready: Learn Poker",
+    "podtytul": "Texas Hold'em Strategy Coach",
+    "oceny": 2,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6791753299,
+    "nazwa": "Learn Poker: Hyperdrive",
+    "podtytul": "Texas Hold'em Rules & Odds",
+    "oceny": 0,
+    "gatunek": "Reference"
+   },
+   {
+    "id": 6761502652,
+    "nazwa": "Handly: Learn Poker Offline",
+    "podtytul": "Texas Hold'em practice coach",
+    "oceny": 55,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6813610475,
+    "nazwa": "Pokerly: Poker Trainer & Odds",
+    "podtytul": "Learn Texas Holdem Strategy",
+    "oceny": 2,
+    "gatunek": "Education"
+   },
+   {
+    "id": 470080587,
+    "nazwa": "Offline Poker - Texas Holdem",
+    "podtytul": "No-Wait No-Limit Poker",
+    "oceny": 7119,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1622947056,
+    "nazwa": "GTO Preflop - Texas Hold'em",
+    "podtytul": "Learn the GTO Poker Strategy",
+    "oceny": 2486,
+    "gatunek": "Sports"
+   },
+   {
+    "id": 6590603158,
+    "nazwa": "GTO Preflop Wizard Poker AI",
+    "podtytul": "Bravo Trainer & Solver offline",
+    "oceny": 3487,
+    "gatunek": "Education"
+   },
+   {
+    "id": 284602850,
+    "nazwa": "Texas Hold’em",
+    "podtytul": "The App Store classic is back!",
+    "oceny": 74316,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1553727514,
+    "nazwa": "Poker AI - Game & Strategy",
+    "podtytul": "Texas Hold'em Poker Toolbox",
+    "oceny": 714,
+    "gatunek": "Utilities"
+   }
+  ],
+  "pl": [
+   {
+    "id": 6782936673,
+    "nazwa": "Vibe Poker: Learn Texas Holdem",
+    "podtytul": "Trainer, Puzzles & Ranked Play",
+    "oceny": 0,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6787507770,
+    "nazwa": "PreFlop GTO Poker Trainer",
+    "podtytul": "Range Charts & Hand Practice",
+    "oceny": 0,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6738748434,
+    "nazwa": "GTO Gecko: Poker Study",
+    "podtytul": "GTO Ranges & Strategy",
+    "oceny": 3,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6758763848,
+    "nazwa": "Handsight: Poker Odds Scanner",
+    "podtytul": "Hold'em & Omaha Calculator",
+    "oceny": 0,
+    "gatunek": "Entertainment"
+   },
+   {
+    "id": 6737678499,
+    "nazwa": "Poker Trainer GTO - POKER Q'z",
+    "podtytul": "Learn Poker: Quiz & Strategy",
+    "oceny": 1,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6778599458,
+    "nazwa": "Poker Equity & Odds Calculator",
+    "podtytul": "Texas Holdem Pot Odds Trainer",
+    "oceny": 3,
+    "gatunek": "Utilities"
+   },
+   {
+    "id": 6756220388,
+    "nazwa": "PLO Gecko: Omaha Poker Trainer",
+    "podtytul": "GTO Preflop & Postflop Solver",
+    "oceny": 1,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6806193121,
+    "nazwa": "PurePoker Trainer",
+    "podtytul": "Hold'em charts & drills",
+    "oceny": 0,
+    "gatunek": "Education"
+   },
+   {
+    "id": 1630961215,
+    "nazwa": "NTPoker – GTO Poker Trainer",
+    "podtytul": "Preflop & Postflop Training",
+    "oceny": 11,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6751030270,
+    "nazwa": "Pai Gow Poker by Pokerist",
+    "podtytul": "#1 Casino Pai Gow Poker",
+    "oceny": 4,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6752563787,
+    "nazwa": "Caribbean Poker by Pokerist",
+    "podtytul": "#1 Five-card Stud Poker Game",
+    "oceny": 1,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6479562719,
+    "nazwa": "PocketSolver: Poker GTO Solver",
+    "podtytul": "Poker Post-Flop GTO Solver",
+    "oceny": 0,
+    "gatunek": "Utilities"
+   }
+  ],
+  "jp": [
+   {
+    "id": 6737678499,
+    "nazwa": "POKER Q'z — ポーカー学習＆GTOトレーナー",
+    "podtytul": "15万DL突破 | AI解説と診断で勝率アップ",
+    "oceny": 1590,
+    "gatunek": "Education"
+   },
+   {
+    "id": 1630961215,
+    "nazwa": "NTPoker - ポーカー学習 ＆ GTOトレーニング -",
+    "podtytul": "GTO,プリフロップ, ハンドレンジ,エクイティ計算,勉強",
+    "oceny": 2601,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6773373269,
+    "nazwa": "ポーカーアンドポーカー",
+    "podtytul": "ゼロから学ぶテキサスホールデム",
+    "oceny": 1,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6796903191,
+    "nazwa": "HoldemEdge ポーカー戦略学習・勝率と確率の計算",
+    "podtytul": "勝率計算機とプリフロップ表、勉強と練習のドリル",
+    "oceny": 0,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6768326350,
+    "nazwa": "ポーカーラッシュ",
+    "podtytul": "高速にハンドを回して戦略を身につける",
+    "oceny": 4,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6748104711,
+    "nazwa": "Poker Skill - ポーカーを学ぼう",
+    "podtytul": "レッスン・パズル・AIでテキサスホールデム上達",
+    "oceny": 7,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6743380248,
+    "nazwa": "ハマる ポーカー-友達と2～4人で対戦できるオンラインゲーム",
+    "podtytul": "1人でもOK・トランプ/カードゲーム好きな友達と一緒に遊ぼう",
+    "oceny": 111,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6752538893,
+    "nazwa": "Freezeout AI",
+    "podtytul": "GTO戦略をわかりやすく解説するポーカーAI",
+    "oceny": 1,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6476597728,
+    "nazwa": "EDGE POKER (エッジポーカー)",
+    "podtytul": "踏みだせ、ポーカーのド真ん中へ。AI搭載テキサスホールデム",
+    "oceny": 19298,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6806506088,
+    "nazwa": "GTOトレーナー - ポーカー戦略学習",
+    "podtytul": "レンジ表とソルバーで学ぶ日本語GTO",
+    "oceny": 3,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6776802364,
+    "nazwa": "ROY EDGE - ポーカーGTO戦略",
+    "podtytul": "GTOで勝率を上げるポーカーアドバイザー",
+    "oceny": 1,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1530767783,
+    "nazwa": "Solver+ ポーカーソルバー：GTO MTT ICM",
+    "podtytul": "ポストフロップ・プリフロップ：レンジ PKO 衛星 期待値",
+    "oceny": 772,
+    "gatunek": "Education"
+   }
+  ],
+  "tw": [
+   {
+    "id": 6737678499,
+    "nazwa": "POKER Q'z: 德州撲克 GTO 訓練",
+    "podtytul": "撲克策略、牌型與 GTO 訓練",
+    "oceny": 54,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6782936673,
+    "nazwa": "Vibe Poker: 德州撲克教學、新手練習",
+    "podtytul": "撲克謎題逐題解說學牌技，三人快局與線上排位賽",
+    "oceny": 1,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6791753299,
+    "nazwa": "德州光速進階：德州撲克教學",
+    "podtytul": "規則入門、起手牌分析與機率練習",
+    "oceny": 0,
+    "gatunek": "Reference"
+   },
+   {
+    "id": 6448717874,
+    "nazwa": "GTO 德州撲克訓練器：翻牌後",
+    "podtytul": "GTO AI 教練・德撲教學・策略測驗",
+    "oceny": 12,
+    "gatunek": "Utilities"
+   },
+   {
+    "id": 1630961215,
+    "nazwa": "德州撲克訓練器 - NTPoker",
+    "podtytul": "範圍圖、GTO求解、翻牌後訓練",
+    "oceny": 171,
+    "gatunek": "Education"
+   },
+   {
+    "id": 1035219558,
+    "nazwa": "Boqu德州撲克",
+    "podtytul": "奧馬哈與短牌，錦標賽全天開打",
+    "oceny": 24,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1530767783,
+    "nazwa": "Solver+ 德州撲克 GTO 解算器：MTT ICM",
+    "podtytul": "翻後 + 翻前範圍：現金 賽事 PKO 衛星 EV 期望值",
+    "oceny": 265,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6738748434,
+    "nazwa": "GTO Gecko: 德州撲克 Wizard",
+    "podtytul": "德撲求解器・訓練器・翻前範圍表",
+    "oceny": 14,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6755123658,
+    "nazwa": "GTO Shark·Poker教练·德州扑克起手牌",
+    "podtytul": "翻前策略计算器·德扑训练教学",
+    "oceny": 1,
+    "gatunek": "Education"
+   },
+   {
+    "id": 284602850,
+    "nazwa": "德州撲克",
+    "podtytul": "App Store 經典遊戲，強勢回歸！",
+    "oceny": 856,
+    "gatunek": "Games"
+   }
+  ],
+  "br": [
+   {
+    "id": 1448884851,
+    "nazwa": "MONOPOLY Poker - Texas Holdem",
+    "podtytul": "#1 O Jogo Oficial de Pôquer",
+    "oceny": 444,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1630961215,
+    "nazwa": "Treinador GTO Poker - NTPoker",
+    "podtytul": "GTO, Solver, Treino, Equidade",
+    "oceny": 87,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6782936673,
+    "nazwa": "Vibe Poker: Aprender poker",
+    "podtytul": "Jogo de Texas Holdem online",
+    "oceny": 2,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6761502652,
+    "nazwa": "Handly: Aprenda Pôquer Offline",
+    "podtytul": "Coach de pôquer que se adapta",
+    "oceny": 1,
+    "gatunek": "Games"
+   },
+   {
+    "id": 370339723,
+    "nazwa": "Poker Texas Hold'em: Pokerist",
+    "podtytul": "#1 Poker",
+    "oceny": 9201,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1448478295,
+    "nazwa": "PokerStars Texas Holdem Brasil",
+    "podtytul": "Jogos de pôquer online",
+    "oceny": 39381,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6590603158,
+    "nazwa": "Poker Trainer Preflop Wizard",
+    "podtytul": "GTO Solver learn easy offline",
+    "oceny": 158,
+    "gatunek": "Education"
+   },
+   {
+    "id": 480523695,
+    "nazwa": "Poker Heat: Texas Holdem Poker",
+    "podtytul": "Jogos de Texas Holdem Poker",
+    "oceny": 3203,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6737678499,
+    "nazwa": "POKER Q'z: Poker Trainer GTO",
+    "podtytul": "Aprenda poker: quiz e treino",
+    "oceny": 56,
+    "gatunek": "Education"
+   },
+   {
+    "id": 561941526,
+    "nazwa": "Dragon City: RPG de Estratégia",
+    "podtytul": "Batalha e Aventura com Dragões",
+    "oceny": 91667,
+    "gatunek": "Games"
+   },
+   {
+    "id": 909480609,
+    "nazwa": "Estrelas do Basquete",
+    "podtytul": "Pacotes de times e estratégias",
+    "oceny": 157,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1478813930,
+    "nazwa": "POKER Texas Hold'em e Fechado",
+    "podtytul": "Dois aplicativos em um só!",
+    "oceny": 1377,
+    "gatunek": "Games"
+   }
+  ],
+  "fr": [
+   {
+    "id": 6737678499,
+    "nazwa": "Poker Trainer GTO - POKER Q'z",
+    "podtytul": "Quiz poker & Coach GTO",
+    "oceny": 34,
+    "gatunek": "Education"
+   },
+   {
+    "id": 370339723,
+    "nazwa": "Texas Hold'em Poker : Pokerist",
+    "podtytul": "L'appli de poker ultime",
+    "oceny": 17411,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1553727514,
+    "nazwa": "Poker AI - Game & Strategy",
+    "podtytul": "Utilitaires",
+    "oceny": 12,
+    "gatunek": "Utilities"
+   },
+   {
+    "id": 354902315,
+    "nazwa": "Zynga Poker ™ - Texas Hold'em",
+    "podtytul": "Play Texas Holdem Poker Games",
+    "oceny": 24398,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1494460783,
+    "nazwa": "ATHYLPS - Poker Trainer",
+    "podtytul": "Cartes",
+    "oceny": 0,
+    "gatunek": "Games"
+   },
+   {
+    "id": 284602850,
+    "nazwa": "Texas Hold’em",
+    "podtytul": "Le retour d’un classique !",
+    "oceny": 3940,
+    "gatunek": "Games"
+   },
+   {
+    "id": 583376357,
+    "nazwa": "Poker Master: Trainer & Games",
+    "podtytul": "Apprends et maîtrise Hold'em",
+    "oceny": 1,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1488850006,
+    "nazwa": "Postflop+ GTO Solveur Poker EV",
+    "podtytul": "100% Hors ligne MTT Cash Spins",
+    "oceny": 262,
+    "gatunek": "Utilities"
+   },
+   {
+    "id": 1448884851,
+    "nazwa": "MONOPOLY Poker - Texas Holdem",
+    "podtytul": "Le Jeu Officiel de Poker Pro",
+    "oceny": 6169,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1530767783,
+    "nazwa": "Solver+ Poker GTO Solveur MTT",
+    "podtytul": "Postflop + Préflop : Cash ICM",
+    "oceny": 124,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6470451283,
+    "nazwa": "Tarot Classique Multijoueur",
+    "podtytul": "Redécouvrez votre jeu favori",
+    "oceny": 36653,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6502453075,
+    "nazwa": "Balatro",
+    "podtytul": "L'union du poker et solitaire",
+    "oceny": 5430,
+    "gatunek": "Games"
+   }
+  ],
+  "ca": [
+   {
+    "id": 370339723,
+    "nazwa": "Texas Hold'em Poker : Pokerist",
+    "podtytul": "#1 Poker",
+    "oceny": 6807,
+    "gatunek": "Games"
+   },
+   {
+    "id": 719525810,
+    "nazwa": "WSOP Poker: Texas Holdem Game",
+    "podtytul": "Online Casino Poker Card Games",
+    "oceny": 29582,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6737678499,
+    "nazwa": "Poker Trainer GTO - POKER Q'z",
+    "podtytul": "Learn Poker: Quiz & Strategy",
+    "oceny": 4,
+    "gatunek": "Education"
+   },
+   {
+    "id": 1494460783,
+    "nazwa": "ATHYLPS - Poker Trainer",
+    "podtytul": "App that helps you learn poker",
+    "oceny": 2,
+    "gatunek": "Games"
+   },
+   {
+    "id": 877638937,
+    "nazwa": "Governor of Poker - Friends",
+    "podtytul": "Texas Holdem Poker Card Games",
+    "oceny": 4242,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1364570884,
+    "nazwa": "Poker Face: Texas Holdem Live",
+    "podtytul": "Video chat poker with friends!",
+    "oceny": 4333,
+    "gatunek": "Games"
+   },
+   {
+    "id": 497361777,
+    "nazwa": "PokerStars Poker en Ligne",
+    "podtytul": "Play Real Money Texas Holdem!",
+    "oceny": 64897,
+    "gatunek": "Games"
+   },
+   {
+    "id": 534130702,
+    "nazwa": "888 Poker: Texas Holdem Online",
+    "podtytul": "Real Money Online Poker Games",
+    "oceny": 8933,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1636802011,
+    "nazwa": "Pusoy ZingPlay - Chinese Poker",
+    "podtytul": "Relaxing Strategy Card Game",
+    "oceny": 1916,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1553727514,
+    "nazwa": "Poker AI - Game & Strategy",
+    "podtytul": "Texas Hold'em Poker Toolbox",
+    "oceny": 30,
+    "gatunek": "Utilities"
+   },
+   {
+    "id": 1530767783,
+    "nazwa": "Solver+ Poker GTO Solveur MTT",
+    "podtytul": "Fast Pocket GTO Poker Solver",
+    "oceny": 194,
+    "gatunek": "Education"
+   },
+   {
+    "id": 1211842090,
+    "nazwa": "Video Poker Strategy",
+    "podtytul": "Casino",
+    "oceny": 19,
+    "gatunek": "Games"
+   }
+  ],
+  "de": [
+   {
+    "id": 6478522482,
+    "nazwa": "Poker Trainer - Learn Poker",
+    "podtytul": "Bildung",
+    "oceny": 47,
+    "gatunek": "Education"
+   },
+   {
+    "id": 1541518500,
+    "nazwa": "Evenbet Poker Trainer",
+    "podtytul": "Bildung",
+    "oceny": 4,
+    "gatunek": "Education"
+   },
+   {
+    "id": 470080587,
+    "nazwa": "Offline Poker - Texas Holdem",
+    "podtytul": "Karten",
+    "oceny": 444,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6747833042,
+    "nazwa": "Poker Lernen: Flop Factor",
+    "podtytul": "Texas Holdem Offline",
+    "oceny": 3,
+    "gatunek": "Education"
+   },
+   {
+    "id": 284602850,
+    "nazwa": "Texas Hold’em",
+    "podtytul": "Wieder zurück im App Store!",
+    "oceny": 4831,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1448884851,
+    "nazwa": "MONOPOLY Poker - Texas Holdem",
+    "podtytul": "Offizielles Poker Tycoon-Spiel",
+    "oceny": 1721,
+    "gatunek": "Games"
+   },
+   {
+    "id": 719525810,
+    "nazwa": "WSOP Texas Holdem Poker",
+    "podtytul": "Lerne Casino Kartenspiele",
+    "oceny": 9979,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1488850006,
+    "nazwa": "Postflop+ Solver GTO Poker MTT",
+    "podtytul": "100% Offline Cash Spins HU ICM",
+    "oceny": 151,
+    "gatunek": "Utilities"
+   },
+   {
+    "id": 6502453075,
+    "nazwa": "Balatro",
+    "podtytul": "Poker trifft auf Solitaire",
+    "oceny": 6201,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1530767783,
+    "nazwa": "Solver+ Poker GTO Solver MTT",
+    "podtytul": "Postflop & Preflop: Cash ICM",
+    "oceny": 84,
+    "gatunek": "Education"
+   },
+   {
+    "id": 1094591345,
+    "nazwa": "Pokémon GO",
+    "podtytul": "Pokédex, Raid & PvP Strategie",
+    "oceny": 67845,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1553727514,
+    "nazwa": "Poker AI - Game & Strategy",
+    "podtytul": "Dienst­programme",
+    "oceny": 13,
+    "gatunek": "Utilities"
+   }
+  ],
+  "es": [
+   {
+    "id": 1448884851,
+    "nazwa": "MONOPOLY Póker - Texas Holdem",
+    "podtytul": "#1 El Juego Oficial de Póker",
+    "oceny": 1033,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1626050814,
+    "nazwa": "Poker Academy",
+    "podtytul": "Master Poker Strategy with AI",
+    "oceny": 0,
+    "gatunek": "Education"
+   },
+   {
+    "id": 370339723,
+    "nazwa": "Póquer Texas Hold'em: Pokerist",
+    "podtytul": "#1 Póquer",
+    "oceny": 7014,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1630961215,
+    "nazwa": "NTPoker GTO y Estrategia Póker",
+    "podtytul": "Entrena GTO Pre y Postflop Ya",
+    "oceny": 26,
+    "gatunek": "Education"
+   },
+   {
+    "id": 470080587,
+    "nazwa": "Offline Poker - Texas Holdem",
+    "podtytul": "Heads Up / Multiplayer Games",
+    "oceny": 25,
+    "gatunek": "Games"
+   },
+   {
+    "id": 354902315,
+    "nazwa": "Zynga Poker ™ - Texas Hold'em",
+    "podtytul": "Play Texas Holdem Poker Games",
+    "oceny": 4447,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6590603158,
+    "nazwa": "GTO Preflop Wizard Poker AI",
+    "podtytul": "Educación",
+    "oceny": 72,
+    "gatunek": "Education"
+   },
+   {
+    "id": 877638937,
+    "nazwa": "Governor of Poker - Holdem",
+    "podtytul": "Texas Holdem - Juegos de Carta",
+    "oceny": 5865,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6755123658,
+    "nazwa": "GTO Shark Poker·Estrategia",
+    "podtytul": "Entrena Rangos·Solver AI",
+    "oceny": 1,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6737678499,
+    "nazwa": "POKER Q'z: Texas Holdem GTO",
+    "podtytul": "Aprende poker: quiz y rangos",
+    "oceny": 27,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6461776324,
+    "nazwa": "Poker PreFlop Trainer GTO",
+    "podtytul": "Domina la Estrategia Pre-Flop",
+    "oceny": 0,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6448717874,
+    "nazwa": "Entrenador Poker GTO: Postflop",
+    "podtytul": "Estrategia Poker GTO, Coach IA",
+    "oceny": 3,
+    "gatunek": "Utilities"
+   }
+  ],
+  "mx": [
+   {
+    "id": 6737678499,
+    "nazwa": "POKER Q'z: Texas Holdem GTO",
+    "podtytul": "Aprende poker: quiz y rangos",
+    "oceny": 36,
+    "gatunek": "Education"
+   },
+   {
+    "id": 1448884851,
+    "nazwa": "MONOPOLY Póker - Texas Holdem",
+    "podtytul": "#1 El Juego Oficial de Póker",
+    "oceny": 1327,
+    "gatunek": "Games"
+   },
+   {
+    "id": 572194977,
+    "nazwa": "Poker! Hold'em sin internet",
+    "podtytul": "Juego de cartas vs computadora",
+    "oceny": 10,
+    "gatunek": "Games"
+   },
+   {
+    "id": 370339723,
+    "nazwa": "Póquer Texas Hold'em: Pokerist",
+    "podtytul": "#1 Póquer",
+    "oceny": 3906,
+    "gatunek": "Games"
+   },
+   {
+    "id": 470080587,
+    "nazwa": "Offline Poker - Texas Holdem",
+    "podtytul": "Heads Up / Multiplayer Games",
+    "oceny": 28,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1626050814,
+    "nazwa": "Poker Academy",
+    "podtytul": "Master Poker Strategy with AI",
+    "oceny": 5,
+    "gatunek": "Education"
+   },
+   {
+    "id": 1630961215,
+    "nazwa": "NTPoker GTO y Estrategia Póker",
+    "podtytul": "Entrena GTO Pre y Postflop Ya",
+    "oceny": 10,
+    "gatunek": "Education"
+   },
+   {
+    "id": 354902315,
+    "nazwa": "Zynga Poker Texas Holdem Poker",
+    "podtytul": "Texas Hold'em Poker Card Games",
+    "oceny": 4946,
+    "gatunek": "Games"
+   }
+  ],
+  "kr": [
+   {
+    "id": 6761502652,
+    "nazwa": "Handly: 오프라인 포커 배우기",
+    "podtytul": "나에게 맞춰주는 포커 코치",
+    "oceny": 14,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6448717874,
+    "nazwa": "홀덤 GTO 포커 트레이너: 포스트플랍",
+    "podtytul": "GTO AI 코치·홀덤 학습·전략 퀴즈",
+    "oceny": 45,
+    "gatunek": "Utilities"
+   },
+   {
+    "id": 6737678499,
+    "nazwa": "포커 홀덤 GTO 트레이너 - POKER Q'z",
+    "podtytul": null,
+    "oceny": 22,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6787552890,
+    "nazwa": "PostFlop 홀덤 포커 GTO 트레이너 승률계산",
+    "podtytul": "포스트플랍 전략·팟오즈·아웃츠·확률 공부 실전 연습",
+    "oceny": 0,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6754956216,
+    "nazwa": "DAD 포커 - AI 포커 코치",
+    "podtytul": "AI 코치, 뱅크롤, 전략 도구",
+    "oceny": 3,
+    "gatunek": "Productivity"
+   },
+   {
+    "id": 6752538893,
+    "nazwa": "Freezeout AI",
+    "podtytul": "AI 기반 텍사스 홀덤 핸드 복기 앱",
+    "oceny": 5,
+    "gatunek": "Education"
+   },
+   {
+    "id": 1507872328,
+    "nazwa": "WPL : 홀덤, 토너먼트, 오마하, 올인폴드, 픽앤고",
+    "podtytul": "대한민국 홀덤의 새로운 기준! WPL",
+    "oceny": 3126,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6748104711,
+    "nazwa": "Poker Skill - 홀덤 포커 배우기",
+    "podtytul": "레슨, 드릴, AI 코치로 매일 연습",
+    "oceny": 5,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6800491418,
+    "nazwa": "Off the Felt: 포커 수학",
+    "podtytul": "하루 5분, 포커 수학 배우기",
+    "oceny": 0,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6814329397,
+    "nazwa": "라인쳌: 홀덤 액션 학습",
+    "podtytul": "기본 행동을 다섯 문제로 배우기",
+    "oceny": 0,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6791753299,
+    "nazwa": "텍사스 홀덤 광속 레벨업",
+    "podtytul": "포커 입문: 규칙부터 핸드 연습까지",
+    "oceny": 0,
+    "gatunek": "Reference"
+   },
+   {
+    "id": 1282278150,
+    "nazwa": "바둑 - 바둑게임",
+    "podtytul": "바둑 배우기",
+    "oceny": 187,
+    "gatunek": "Games"
+   }
+  ],
+  "it": [
+   {
+    "id": 6748104711,
+    "nazwa": "Poker Skill - Impara Holdem",
+    "podtytul": "Lezioni, puzzle e coach IA",
+    "oceny": 4,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6737678499,
+    "nazwa": "Poker Trainer GTO - POKER Q'z",
+    "podtytul": "Impara poker: quiz e strategia",
+    "oceny": 37,
+    "gatunek": "Education"
+   },
+   {
+    "id": 583376357,
+    "nazwa": "Poker Master: Trainer & Games",
+    "podtytul": "Impara e migliora a Hold'em",
+    "oceny": 2,
+    "gatunek": "Games"
+   },
+   {
+    "id": 370339723,
+    "nazwa": "Texas Hold'em Poker: Pokerist",
+    "podtytul": "Poker nº1",
+    "oceny": 6858,
+    "gatunek": "Games"
+   },
+   {
+    "id": 354902315,
+    "nazwa": "Zynga Poker - Texas Holdem",
+    "podtytul": "Giochi di Carte da Casinò",
+    "oceny": 14673,
+    "gatunek": "Games"
+   },
+   {
+    "id": 719525810,
+    "nazwa": "WSOP Poker: Texas Holdem Game",
+    "podtytul": "Gioco di Texas Holdem Poker",
+    "oceny": 3415,
+    "gatunek": "Games"
+   },
+   {
+    "id": 463801955,
+    "nazwa": "PokerStars: Poker, Slot, Sport",
+    "podtytul": "Casino, Blackjack, Carte",
+    "oceny": 52537,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1364570884,
+    "nazwa": "Poker Face: Texas Holdem Live",
+    "podtytul": "Carte",
+    "oceny": 2731,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1630961215,
+    "nazwa": "NTPoker: GTO e Strategia Poker",
+    "podtytul": "Allenamento GTO Pre e Postflop",
+    "oceny": 20,
+    "gatunek": "Education"
+   },
+   {
+    "id": 959038492,
+    "nazwa": "Blackjack 21: Blackjackist",
+    "podtytul": "Blackjack nº1",
+    "oceny": 7238,
+    "gatunek": "Games"
+   },
+   {
+    "id": 504452059,
+    "nazwa": "Tap Poker Sociale",
+    "podtytul": "Texas Hold’em con amici",
+    "oceny": 0,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6787552890,
+    "nazwa": "PostFlop Poker Trainer GTO",
+    "podtytul": "Strategia, probabilità, odds",
+    "oceny": 0,
+    "gatunek": "Education"
+   }
+  ],
+  "vn": [
+   {
+    "id": 1517574144,
+    "nazwa": "Học Poker",
+    "podtytul": "Education",
+    "oceny": 1,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6738748434,
+    "nazwa": "GTO Gecko: Poker Study",
+    "podtytul": "GTO Ranges & Strategy",
+    "oceny": 41,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6737678499,
+    "nazwa": "Poker Trainer GTO - POKER Q'z",
+    "podtytul": "Learn Poker: Quiz & Strategy",
+    "oceny": 13,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6761502652,
+    "nazwa": "Handly: Learn Poker Offline",
+    "podtytul": "Texas Hold'em practice coach",
+    "oceny": 0,
+    "gatunek": "Games"
+   },
+   {
+    "id": 1629141961,
+    "nazwa": "GTO Preflop",
+    "podtytul": "Fast Preflop Poker Decisions",
+    "oceny": 176,
+    "gatunek": "Utilities"
+   },
+   {
+    "id": 6782936673,
+    "nazwa": "Vibe Poker: Learn Texas Holdem",
+    "podtytul": "Trainer, Puzzles & Ranked Play",
+    "oceny": 3,
+    "gatunek": "Games"
+   },
+   {
+    "id": 6787552890,
+    "nazwa": "PostFlop GTO Poker Trainer",
+    "podtytul": "Holdem Pot Odds & Maths Drills",
+    "oceny": 0,
+    "gatunek": "Education"
+   },
+   {
+    "id": 6448717874,
+    "nazwa": "GTO Poker Trainer: Postflop",
+    "podtytul": "GTO AI Coach & Poker Strategy",
+    "oceny": 42,
+    "gatunek": "Utilities"
+   }
+  ]
+ }
+}

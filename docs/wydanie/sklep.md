@@ -6,7 +6,7 @@ Stan: 2026-11-09, sesja M (tylko dokumenty), commit wejściowy ab0bb2f. Zadania 
 
 **Wynik w skrócie**
 - Pliki: `store/app-store-metadata.json` (pl, en-US; en-GB/CA/AU = en-US), `store/review-notes.md` (notatki en do wklejenia, pl dla właściciela). Miejsce `store/` jak w Treningu (D-309).
-- Nazwa en: **„Poker School: Learn Strategy”** (28 znaków). W App Store nie znaleziono aplikacji o nazwie „Poker School” (§5).
+- Nazwa en: **„Poker School: Learn Strategy”** (28 znaków). W App Store nie znaleziono aplikacji o nazwie „Poker School” (§5). **Zastąpiona 2026-11-09 przez D-378 (W): „PokerGym: GTO Strategy Trainer”; nowe nazwy i słowa kluczowe: `docs/sklep/aso/README.md` (D-382).**
 - Kontrola tekstu: `docs/wydanie/dowody/metadane-2026-11-09.txt`, **kod 0** (limity, bajty, brak nazw konkurencji i marek, brak cen i obietnicy wygranej).
 - Kategoria wiekowa (D-02, D-310): odpowiedzi z kodu dają 13+; rekomendacja A: override do 18+ (grupa docelowa dorośli); Simulated Gambling = None; OP-18 zamknięte dla ankiety Apple 1.0 (§6).
 - Zgłoszenia do innych ról: 10-D01-01 (WYSOKIE, tekst ekranu zakupu obiecuje scenariusze), 10-D01-02 (ŚREDNIE), §4.
@@ -141,4 +141,4 @@ Otwarte do D-06 (przed wpisem w ASC, ponowny odczyt w dniu wysyłki): czy katego
 ## 7. Otwarte
 - Słowa kluczowe bez badania fraz (brak danych o wolumenie wyszukiwań, 0 USD): zestaw z częstości słów w nazwach 102 aplikacji konkurencji (`poker` 83, `trainer` 44, `gto` 34, `learn` 12, `preflop` 8, `odds` 8; `docs/brd/dane/konkurencja-2026-11-03.json`) [OCENA]. Poprawa po premierze: rola 11 / moduł `widocznosc-w-sklepie`.
 - Kategoria główna (Education [OCENA], plan-1.0 D2): poza D-01, nie rozstrzygnięta.
-- Wersje ja, pt-BR, fr-FR, fr-CA, zh-Hant: przekład przez API w K-04 (rola 09).
+- Wersje ja, zh-Hant, pt-BR, fr-FR (fr-CA = fr-FR) w `store/`, fala 2 (de-DE, es-ES, es-MX, ko, it, vi) w `docs/sklep/aso/metadane-fala2.json`: sesja AF, D-382, `docs/sklep/aso/README.md` (2026-11-09).

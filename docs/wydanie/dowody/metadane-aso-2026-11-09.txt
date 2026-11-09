@@ -1,0 +1,59 @@
+== store/app-store-metadata.json aliasy: {'en-GB': 'en-US', 'en-CA': 'en-US', 'en-AU': 'en-US', 'fr-CA': 'fr-FR'}
+pl name 30/30 OK
+pl subtitle 29/30 OK
+pl keywords 93 B, 14 słów, min 3 zn., z nazwy/podtytułu: [] OK
+pl promotionalText 131/170 OK
+pl description 2023/4000 OK
+en-US name 30/30 OK
+en-US subtitle 26/30 OK
+en-US keywords 96 B, 14 słów, min 3 zn., z nazwy/podtytułu: [] OK
+en-US promotionalText 119/170 OK
+en-US description 2018/4000 OK
+ja name 19/30 OK
+ja subtitle 15/30 OK
+ja keywords 98 B, 9 słów, min 3 zn., z nazwy/podtytułu: [] OK
+ja promotionalText 70/170 OK
+ja description 1033/4000 OK
+zh-Hant name 16/30 OK
+zh-Hant subtitle 16/30 OK
+zh-Hant keywords 99 B, 10 słów, min 3 zn., z nazwy/podtytułu: [] OK
+zh-Hant promotionalText 50/170 OK
+zh-Hant description 801/4000 OK
+pt-BR name 24/30 OK
+pt-BR subtitle 28/30 OK
+pt-BR keywords 92 B, 14 słów, min 3 zn., z nazwy/podtytułu: [] OK
+pt-BR promotionalText 131/170 OK
+pt-BR description 2150/4000 OK
+fr-FR name 24/30 OK
+fr-FR subtitle 30/30 OK
+fr-FR keywords 92 B, 13 słów, min 3 zn., z nazwy/podtytułu: [] OK
+fr-FR promotionalText 138/170 OK
+fr-FR description 2279/4000 OK
+== docs/sklep/aso/metadane-fala2.json aliasy: {'es-MX': 'es-ES'}
+de-DE name 22/30 OK
+de-DE subtitle 30/30 OK
+de-DE keywords 99 B, 15 słów, min 3 zn., z nazwy/podtytułu: [] OK
+de-DE promotionalText 138/170 OK
+de-DE description 2244/4000 OK
+es-ES name 23/30 OK
+es-ES subtitle 30/30 OK
+es-ES keywords 100 B, 14 słów, min 3 zn., z nazwy/podtytułu: [] OK
+es-ES promotionalText 144/170 OK
+es-ES description 2216/4000 OK
+ko name 19/30 OK
+ko subtitle 18/30 OK
+ko keywords 91 B, 8 słów, min 3 zn., z nazwy/podtytułu: [] OK
+ko promotionalText 71/170 OK
+ko description 1055/4000 OK
+it name 25/30 OK
+it subtitle 28/30 OK
+it keywords 95 B, 14 słów, min 3 zn., z nazwy/podtytułu: [] OK
+it promotionalText 157/170 OK
+it description 2200/4000 OK
+vi name 19/30 OK
+vi subtitle 29/30 OK
+vi keywords 80 B, 13 słów, min 3 zn., z nazwy/podtytułu: [] OK
+vi promotionalText 153/170 OK
+vi description 2100/4000 OK
+błędów: 0
+kod 0
