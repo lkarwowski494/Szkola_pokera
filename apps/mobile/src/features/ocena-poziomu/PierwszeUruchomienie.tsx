@@ -51,6 +51,10 @@ export default function PierwszeUruchomienie({
     return p.ok ? { e: 'gotowe' } : { e: 'blad' };
   }, [port, wiersz, moduly, zegar, pierwszy]);
 
+  // `zacznij` przez ref: nowa baza treści po zmianie języka daje nowe `moduly` i `wiersz`, a ponowny odczyt startu
+  // ustawiałby „ładowanie” i odmontował nawigację (powrót na „Dziś” z ekranu „Język”, D-357). Start czytany raz na port.
+  const zacznijRef = useRef(zacznij);
+  zacznijRef.current = zacznij;
   const wczytaj = useCallback(() => {
     ustawEtap({ e: 'ladowanie' });
     void etapStartu(port)
@@ -61,11 +65,11 @@ export default function PierwszeUruchomienie({
         }
         if (w.wartosc === 'gotowe') return { e: 'gotowe' };
         if (w.wartosc === 'powitanie') return { e: 'powitanie' };
-        return zacznij();
+        return zacznijRef.current();
       })
       .catch((): Etap => ({ e: 'blad' }))
       .then(ustawEtap);
-  }, [port, zacznij]);
+  }, [port]);
   useEffect(wczytaj, [wczytaj]);
 
   const pomin = (ocena: Ocena | null) => {
