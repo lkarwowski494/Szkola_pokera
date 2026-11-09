@@ -2,7 +2,6 @@ import { createRng } from '@szkola/poker-core';
 import { dzienLokalny, type Limit } from '@szkola/domena';
 import { odczytajKarty, porzucAktywnosc, wynikiTestow, zadaniaZTestow } from '@szkola/postep';
 import Constants from 'expo-constants';
-import * as Haptics from 'expo-haptics';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useBazaTresci } from '@/data/tresc/kontekst';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -46,6 +45,7 @@ import { ADRES_KONTAKTOWY, ADRES_PRYWATNOSCI, ADRES_WARUNKOW } from '@/platform/
 import { ZglosBlad } from '@/features/opinie/Opinie';
 import { ocenaExpo } from '@/platform/opinie';
 import { sklepAplikacji } from '@/platform/zakupy';
+import { haptykaOceny, wykonajHaptyke } from '@/features/session/haptyka';
 import { odswiezDostep, useDostep } from '@/state/dostep';
 import { zapiszBlad } from '@/platform/dziennik';
 import { zegarTelefonu } from '@/platform/zegar';
@@ -247,9 +247,7 @@ export default function SessionScreen() {
         }
         setCurrent({ item, answer, grade, elapsedMs });
         if (haptics) {
-          void Haptics.notificationAsync(
-            grade === 'correct' ? Haptics.NotificationFeedbackType.Success : grade === 'wrong' ? Haptics.NotificationFeedbackType.Error : Haptics.NotificationFeedbackType.Warning,
-          );
+          void wykonajHaptyke(haptykaOceny(grade)).catch(() => undefined); // tokeny `haptyka` (A04-12)
         }
       });
     },

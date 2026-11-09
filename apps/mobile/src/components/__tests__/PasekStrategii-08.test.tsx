@@ -8,6 +8,8 @@ import { fireEvent, render, screen } from '@testing-library/react-native';
 import { StyleSheet } from 'react-native';
 import { PasekStrategii } from '@/components/PasekStrategii';
 import { opisPaska } from '@/features/stol/pasek';
+import { promien, styl } from '@/theme/tokens';
+import { kolory } from '@/theme/tokeny';
 
 const t = i18n.t.bind(i18n);
 const J9O = [
@@ -36,5 +38,18 @@ describe('PasekStrategii', () => {
     expect(screen.getByText(t('strategy.yourChoiceShort'))).toBeTruthy();
     expect(screen.getByTestId('znacznik-1')).toBeTruthy();
     expect(screen.queryByTestId('znacznik-0')).toBeNull();
+  });
+
+  it('A04-13: oś po ocenie jak makieta e3.css:111, 114 — 44 pt, obrys onFelt 1,5, zaokrąglona; znacznik trójkątem; podpisy przypis w szerokości segmentu', async () => {
+    await render(<PasekStrategii opcje={J9O} wybor={1} klasa="J9o" />);
+    const os = StyleSheet.flatten(screen.getByTestId('os-paska').props.style);
+    expect(os).toMatchObject({ height: 44, borderWidth: 1.5, borderColor: kolory.light.onFelt, borderRadius: promien.przycisk, overflow: 'hidden' });
+    const znacznik = StyleSheet.flatten(screen.getByTestId('znacznik-1').props.style);
+    expect(znacznik).toMatchObject({ width: 0, height: 0, borderTopWidth: 15, borderLeftWidth: 10, borderRightWidth: 10, borderTopColor: kolory.light.gold, borderLeftColor: 'transparent', borderRightColor: 'transparent' });
+    expect(StyleSheet.flatten(screen.getByText('80%').props.style).fontSize).toBe(styl.przypis.fontSize);
+    // podpis stoi w kolumnie swojego segmentu (ta sama szerokość co segment osi), z minimalną szerokością przy małym udziale
+    const podpis = StyleSheet.flatten(screen.getByTestId('podpis-1').props.style);
+    expect(podpis.flexBasis).toBe(0);
+    expect(podpis.minWidth).toBeGreaterThan(0);
   });
 });
