@@ -1,0 +1,182 @@
+[
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m0-l1-uklady.md",
+  "stary": "{{t:straight-flush|Scala colore}}: una {{t:straight|scala}} tutta dello stesso seme",
+  "nowy": "{{t:straight-flush|Scala colore}}: una {{t:straight-flush|scala tutta dello stesso seme}}",
+  "waga": "ŚREDNIE",
+  "powod": "Zmieniony klucz znacznika: źródło ma drugi {{t:straight-flush|strit w kolorze}}, przekład {{t:straight|scala}}; multizbiór {{t:…}} różny od pl (ostrzeżenie automatyczne).",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m0-l1-uklady.md",
+  "stary": "Il piatto si dividerebbe con una migliore cinquina identica. Qui le distingue",
+  "nowy": "Il piatto si dividerebbe se le migliori cinquine fossero identiche. Qui le distingue",
+  "waga": "NISKIE",
+  "powod": "„con una migliore cinquina identica” niegramatyczne; „le” nie ma do czego się odnieść.",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m2-l2-pot-odds.md",
+  "stary": "{{t:fold|Lascio}}\", correct: true",
+  "nowy": "{{t:fold|Foldo}}\", correct: true",
+  "waga": "ŚREDNIE",
+  "powod": "Fold jako „lasciare” tylko w m2-l2 (i m5-l1); egzamin M2 i większość korpusu: „foldare/Foldo”.",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m2-l2-pot-odds.md",
+  "stary": "{{t:fold|Lascio}}\", why: \"Troppo economico per {{t:fold|lasciare}}",
+  "nowy": "{{t:fold|Foldo}}\", why: \"Costa troppo poco per {{t:fold|foldare}}",
+  "waga": "ŚREDNIE",
+  "powod": "Jak wyżej (fold = foldare); przy okazji kalka „Troppo economico per” → „Costa troppo poco per”.",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m2-l2-pot-odds.md",
+  "stary": "Se è inferiore, {{t:fold|lasci}}.",
+  "nowy": "Se è inferiore, {{t:fold|foldi}}.",
+  "waga": "ŚREDNIE",
+  "powod": "Fold = foldare jak w egzaminie M2 i korpusie.",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m2-l2-pot-odds.md",
+  "stary": "è la probabilità con una carta, non fino al river",
+  "nowy": "è la probabilità su una carta, non fino al river",
+  "waga": "NISKIE",
+  "powod": "„probabilità con una carta” nienaturalne; egzamin M2: „La probabilità su una carta”.",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m10-l1-statystyki.md",
+  "stary": "Rinuncio all'{{t:exploit}}",
+  "nowy": "Rinuncio allo {{t:exploit|sfruttamento}}",
+  "waga": "ŚREDNIE",
+  "powod": "Znacznik bez formy po elizji „all'”: korpus it używa „sfruttamento” (wymaga „allo”); „all'sfruttamento” byłoby błędne.",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m10-l1-statystyki.md",
+  "stary": "L'{{t:exploit}} è un allontanamento",
+  "nowy": "Lo {{t:exploit|sfruttamento}} è un allontanamento",
+  "waga": "ŚREDNIE",
+  "powod": "Jak wyżej: elizja „L'” nie zgadza się z nazwą „sfruttamento”; pl ma {{t:exploit|Eksploatacja}} z formą.",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m10-l1-statystyki.md",
+  "stary": "{{t:fold|folda}} su una c-bet | ha ricevuto una c-bet",
+  "nowy": "{{t:fold|folda}} su un c-bet | ha ricevuto un c-bet",
+  "waga": "NISKIE",
+  "powod": "Rodzaj „c-bet”: w tej samej lekcji i w m5-l3 męski („il c-bet”, „un c-bet”).",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l4-bankroll.md",
+  "stary": "Risali al più presto quando hai un bankroll completo",
+  "nowy": "Risali non prima di avere un bankroll completo",
+  "waga": "WYSOKIE",
+  "powod": "Treść krytyczna, granica: pl „najwcześniej wtedy, gdy”; „al più presto” czyta się jako „jak najszybciej”, czyli zachęta do powrotu wyżej zamiast warunku minimalnego.",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/lessons/m12-l4-bankroll.md",
+  "stary": "nascondi il gioco alle persone vicine",
+  "nowy": "nascondi il gioco alle persone care",
+  "waga": "NISKIE",
+  "powod": "pl „przed bliskimi” = przed bliskimi osobami (rodzina); „persone vicine” to dosłownie osoby obok.",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m2.yaml",
+  "stary": "Questi sono gli out di un {{t:oesd|OESD}}.",
+  "nowy": "Questi sono gli out di un {{t:oesd|progetto di scala bilaterale}}.",
+  "waga": "ŚREDNIE",
+  "powod": "Skrót „OESD” nie występuje w lekcji m2-l1 it (tam „Progetto di scala bilaterale”) ani w egzaminach m7, m8, m13.",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m2.yaml",
+  "stary": "e tu hai un {{t:oesd|OESD}} ({{n:outs.oesd}} out)",
+  "nowy": "e tu hai un {{t:oesd|progetto di scala bilaterale}} ({{n:outs.oesd}} out)",
+  "waga": "ŚREDNIE",
+  "powod": "Jak wyżej (jedna nazwa OESD w korpusie it).",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m2.yaml",
+  "stary": "Flop. Hai un {{t:oesd|OESD}} e l'avversario",
+  "nowy": "Flop. Hai un {{t:oesd|progetto di scala bilaterale}} e l'avversario",
+  "waga": "ŚREDNIE",
+  "powod": "Jak wyżej.",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m2.yaml",
+  "stary": "Turn. Hai un {{t:oesd|OESD}}. Il",
+  "nowy": "Turn. Hai un {{t:oesd|progetto di scala bilaterale}}. Il",
+  "waga": "ŚREDNIE",
+  "powod": "Jak wyżej.",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m2.yaml",
+  "stary": "Ti chiude un solo valore (l'otto), ma in quattro semi.",
+  "nowy": "Il punto te lo chiude un solo valore (l'otto), ma in quattro semi.",
+  "waga": "NISKIE",
+  "powod": "„Ti chiude” (zamyka cię) niejasne; pl „Domyka cię” = domyka twój układ.",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m2.yaml",
+  "stary": "qualsiasi jack e qualsiasi sei",
+  "nowy": "qualsiasi fante e qualsiasi sei",
+  "waga": "NISKIE",
+  "powod": "Figura J w lekcjach M0–M5 to „fante” (m5-l3: „set di fanti”).",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m2.yaml",
+  "stary": "Quanti out hai per la {{t:straight|scala}}? Scrivi un numero.",
+  "nowy": "Quanti out hai per la {{t:straight|scala}}? Inserisci un numero.",
+  "waga": "NISKIE",
+  "powod": "Polecenie w korpusie: „Inserisci un numero” (39×), „Scrivi” tylko 3× w egzaminie M2.",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m2.yaml",
+  "stary": "regola del 2 e del 4? Scrivi un numero.",
+  "nowy": "regola del 2 e del 4? Inserisci un numero.",
+  "waga": "NISKIE",
+  "powod": "Jak wyżej.",
+  "grupa": "I3"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/exams/m2.yaml",
+  "stary": "per {{t:call|chiamare}}? Scrivi un numero.",
+  "nowy": "per {{t:call|chiamare}}? Inserisci un numero.",
+  "waga": "NISKIE",
+  "powod": "Jak wyżej.",
+  "grupa": "I3"
+ }
+]

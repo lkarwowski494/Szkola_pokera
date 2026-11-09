@@ -1,0 +1,169 @@
+# Szkic K-05 (rola 09, przegląd V2, 2026-11-09): nazwa terminu w vi („bạn”) dla znacznika {{t:klucz}} bez formy.
+# Źródło kandydatów: k05-kand-vi.tsv (najczęstsze formy {{t:klucz|forma}} w przekładzie vi); nazwy rozstrzygnięte na przeczytanych źródłach (V2-terminy.md, [A]–[E], [G]).
+# NIE jest to jeszcze plik treści: sesja kodu przenosi go do content/vi/terms-nazwy.yaml po weryfikacji (D-367).
+# Format wiersza: klucz: "nazwa"  # en; bez formy N; formy: forma×liczba …; źr.; [WIELE FORM] = tłumacz używa kilku form; [DO USTALENIA] = nazwa bez przeczytanego źródła (zostaje propozycja zgodna z przekładem/UI) albo źródło tylko częściowe
+# Nazwy małą literą (jak es/de); znacznik bez formy na początku zdania renderuje się małą literą — pomiar w V2-terminy.md.
+# Źródła (odczyt 2026-11-09): A = vi.wikipedia.org/wiki/Texas_hold_%27em; B = vi.wikipedia.org/wiki/Poker (→ „Xì tố”); C:<hasło> = ggpoker.com/vi/poker-basics/poker-terms/ (glosariusz, hasło angielskie + definicja wietnamska);
+#   D = ggpoker.com/vi/poker-basics/{poker-hand-rankings,how-to-play-poker,how-to-play-texas-holdem-poker,basic-poker-strategy-tips,poker-hands-odds}/; E = vi.wiktionary.org/wiki/tháu_cáy; G = ggpoker.com/vi/ (menu)
+royal-flush: "sảnh rồng"  # royal flush; bez formy 2; formy: Thùng phá sảnh hoàng gia×1; źr. A; D:hand-rankings (Sảnh Rồng, sảnh chúa); B ma „Thùng chúa”; tłumacz „Thùng phá sảnh hoàng gia”×1 (m0-l1) — brak w źródłach [WIELE FORM]
+straight-flush: "thùng phá sảnh"  # straight flush; bez formy 2; formy: Thùng phá sảnh×1, sảnh cùng chất×1; źr. A; B; D:hand-rankings
+four-of-a-kind: "tứ quý"  # four of a kind; bez formy 3; formy: Tứ quý×3, tứ quý×2; źr. A; B; D:hand-rankings
+full-house: "cù lũ"  # full house; bez formy 6; formy: cù lũ×8, Cù lũ×3; źr. A; B; D:hand-rankings
+flush: "thùng"  # flush; bez formy 36; formy: thùng×74, Thùng×10; źr. A; B; D:hand-rankings
+straight: "sảnh"  # straight; bez formy 36; formy: sảnh×112, Sảnh×11; źr. A; B; D:hand-rankings
+three-of-a-kind: "bộ ba"  # three of a kind; bez formy 8; formy: bộ ba×12, Bộ ba×3; źr. C:Set („Bộ ba”); D:hand-rankings („Bộ ba”); A ma „Sám cô” — terms-def „sám cô”×3 → poprawka [WIELE FORM]
+set: "set"  # set; bez formy 1; formy: set×1; źr. C:Set; D:hand-rankings („Còn được gọi là Trips hoặc Set”)
+two-pair: "hai đôi"  # two pair; bez formy 41; formy: hai đôi×15, Hai đôi×8; źr. A; D:hand-rankings
+pair: "đôi"  # pair; bez formy 27; formy: đôi×256, Đôi×25; źr. A; C:Pair („Hai lá bài cùng hạng”); D:hand-rankings („Một Đôi”)
+high-card: "mậu thầu"  # high card; bez formy 2; formy: Mậu thầu×1; źr. B („Mậu thầu / High Card”); A „Bài cao”, D „Lá Bài Cao” — „bài cao” w treści też = wysokie karty ogólnie, stąd „mậu thầu”
+kicker: "kicker"  # kicker; bez formy 0; formy: —; źr. C:Kicker („Còn được gọi là lá bài phụ”)
+wheel: "wheel"  # wheel; bez formy 2; formy: —; źr. D:hand-rankings („Thùng Phá Sảnh Wheel”)
+check: "check"  # check; bez formy 41; formy: xem bài×118, check×72, Xem bài×36, Check×18; źr. A („Không cược (Check)”); C:Check; D:how-to-play („check, bet, raise hay fold”); tłumacz „xem bài”×154 — brak w źródłach [WIELE FORM]
+bet: "cược"  # bet; bez formy 69; formy: cược×287, lần cược×39, đặt×14, Cược×13, mức cược×3, cú cược×2; źr. C:Bet („Cược mở đầu của một vòng cược”); A nazywa bet „Tố (Bet)” — sprzeczne z C i B, gdzie „tố” = raise
+call: "theo"  # call; bez formy 55; formy: theo×718, Theo×93, việc theo×1; źr. A („Theo (Call)”); C:Call („Để theo cược.”); bez formy także rzeczownik („lượt theo”, „bị theo”); UI drill.icm.foldRightChips poprawione („một lần theo”); m2-l2 „khoản [call]” do sesji lekcji
+raise: "tố"  # raise; bez formy 6; formy: tố×243, Tố×64, lần tố×2, cú tố×2, tố lại×1; źr. B („tố (raise/lên giá)”); C:Reraise („Tố thêm sau khi đã bị tố”), C:Limp („chỉ theo cược thay vì tố”); A „Tố thêm (Raise)”
+fold: "bỏ bài"  # fold; bez formy 43; formy: bỏ bài×542, Bỏ bài×102, bỏ×46, Bỏ×1; źr. A („Bỏ bài (Fold)”); C:Fold; GG („Jackpot tất tay hoặc bỏ bài”) — działa jako czasownik i rzeczownik („All-in hoặc bỏ bài”)
+check-raise: "check-raise"  # check-raise; bez formy 0; formy: —; źr. C:Check-raise
+all-in: "all-in"  # all-in; bez formy 0; formy: all-in×1; źr. C:All-in
+pot: "pot"  # pot; bez formy 156; formy: pot×590, hũ×81, Pot×52, Hũ×13; źr. A; C:Pot; D; tłumacz „hũ”×94 — brak w źródłach (B: „gà (pot)”) [WIELE FORM]
+side-pot: "side pot"  # side pot; bez formy 1; formy: hũ phụ×1; źr. C:Side pot („Một quỹ riêng”), C:Active player („các pot phụ”); tłumacz „hũ phụ”×1
+split-pot: "chia pot"  # split pot; bez formy 0; formy: Chia pot×11, chia pot×3, pot được chia×3; źr. A („pot sẽ được chia đều”); B („chia gà (en: Split Pot)”)
+playing-the-board: "chơi bài trên board"  # playing the board; bez formy 2; formy: chơi bài trên board×1, chơi bài trên bàn×1; źr. C:Play the board (częściowo: „trên bàn”) [DO USTALENIA]
+board: "board"  # board; bez formy 5; formy: bài chung×45, bàn×43, board×9; źr. C:Board, Dry board, Wet board; tłumacz „bài chung”×45, „bàn”×43 („bàn” = też stół) [WIELE FORM]
+community-cards: "lá bài chung"  # community cards; bez formy 2; formy: lá bài chung×8, các lá bài chung×1, bài chung×1; źr. A; C:Community card
+hole-cards: "bài tẩy"  # hole cards; bez formy 1; formy: lá bài tẩy×2; źr. A („Bài riêng (Bài tẩy)”); C:Hole cards („Còn được gọi là bài tẩy”)
+small-blind: "small blind"  # small blind; bez formy 26; formy: mù nhỏ×54, small blind×25, Mù nhỏ×21, SB×5, Small blind×4; źr. A (Small Blind; też „mù nhỏ”); C:Blind; tłumacz „mù nhỏ”×75, „small blind”×29 [WIELE FORM]
+big-blind: "big blind"  # big blind; bez formy 130; formy: mù lớn×81, big blind×34, Mù lớn×19, Big blind×12, BB×6; źr. A (Big Blind; też „mù lớn”); C:Big blind; D; tłumacz „mù lớn”×100, „big blind”×46 [WIELE FORM]
+chips: "chip"  # chips; bez formy 32; formy: chip×69, Chip×1; źr. C:Chip
+stack: "stack"  # stack; bez formy 0; formy: —; źr. C:Stack
+street: "street"  # street; bez formy 1; formy: vòng cược×43, vòng×26, street×8, Vòng cược×1; źr. C:Street; tłumacz „vòng cược”×44 (= nazwa betting-round), „vòng”×26 [WIELE FORM]
+betting-round: "vòng cược"  # betting round; bez formy 1; formy: vòng cược×7; źr. A; C:Street („một vòng cược”)
+preflop: "preflop"  # preflop; bez formy 0; formy: Preflop×1; źr. A („Vòng cược thứ nhất (Pre-Flop)”)
+flop: "flop"  # flop; bez formy 0; formy: Flop×1; źr. A; C:Flop
+turn: "turn"  # turn; bez formy 0; formy: Turn×1; źr. A; C:Turn
+river: "river"  # river; bez formy 0; formy: River×1; źr. A; C:River
+showdown: "showdown"  # showdown; bez formy 0; formy: Showdown×1; źr. A; C:Showdown
+position: "vị trí"  # position; bez formy 2; formy: vị trí×81, Vị trí×9, có vị trí×3; źr. A; C:In position, Out of position
+in-position: "có vị trí"  # in position; bez formy 31; formy: có vị trí×20, Khi có vị trí×4, Có vị trí×3; źr. C:In position („đang ở vị trí”) — częściowo; para do „không có vị trí”
+out-of-position: "không có vị trí"  # out of position; bez formy 30; formy: không có vị trí×43, Không có vị trí×7, Khi không có vị trí×2; źr. C:Out of position („không có vị trí”)
+early-position: "vị trí đầu"  # early position; bez formy 0; formy: vị trí đầu×1, các vị trí đầu×1; źr. C:First position („vị trí đầu tiên”) — częściowo
+late-position: "vị trí muộn"  # late position; bez formy 0; formy: vị trí muộn×1; źr. C:Blind steal („từ vị trí muộn”)
+utg: "UTG"  # under the gun; bez formy 30; formy: UTG×17; źr. C:Under the gun
+hijack: "hijack"  # hijack; bez formy 0; formy: HJ×17; źr. C:Hijack seat
+cutoff: "cutoff"  # cutoff; bez formy 0; formy: CO×55; źr. C:Cutoff
+button: "button"  # button; bez formy 0; formy: BTN×3; źr. A („Dealer (Button)”); C:Button
+outs: "out"  # out; bez formy 0; formy: Out×1; źr. C:Outs
+draw: "bài chờ"  # draw; bez formy 40; formy: bài chờ×95, draw×59, Bài chờ×6, Draw×1; źr. C:Draw, drawing hand („Một tay bài chờ”); tłumacz „draw”×60 — UI 4× → poprawka [WIELE FORM]
+flush-draw: "bài chờ thùng"  # flush draw; bez formy 19; formy: draw thùng×20, bài chờ thùng×16, Bài chờ thùng×3, Draw thùng×3; źr. C (wzór „bài chờ sảnh”) — częściowo; tłumacz „draw thùng”×23 [WIELE FORM]
+straight-draw: "bài chờ sảnh"  # straight draw; bez formy 14; formy: draw sảnh×4, bài chờ sảnh×1; źr. C:Open-ended straight draw („bộ bài chờ sảnh”); tłumacz „draw sảnh”×4
+oesd: "OESD"  # open-ended straight draw; bez formy 11; formy: OESD×9, Bài chờ sảnh hai đầu×2, bài chờ sảnh hai đầu×1; źr. C:Open-ended straight draw („bài chờ sảnh hai đầu”); tłumacz OESD×9
+gutshot: "gutshot"  # gutshot; bez formy 0; formy: —; źr. C:Gutshot
+backdoor: "backdoor"  # backdoor; bez formy 0; formy: —; źr. C:Backdoor
+pot-odds: "pot odds"  # pot odds; bez formy 0; formy: —; źr. C:Pot odds
+implied-odds: "implied odds"  # implied odds; bez formy 1; formy: Implied odds×1; źr. C:Implied odds
+equity: "equity"  # equity; bez formy 14; formy: equity×3, Equity×2; źr. C:Equity
+equity-realization: "hiện thực hóa equity"  # equity realization; bez formy 0; formy: hiện thực hóa equity×7; źr. brak [DO USTALENIA]
+expected-value: "giá trị kỳ vọng"  # expected value; bez formy 1; formy: giá trị kỳ vọng×9, EV×2; źr. C:Equity („Giá trị kỳ vọng toán học”)
+combo: "combo"  # combo; bez formy 0; formy: tổ hợp×19, combo×11; źr. brak; tłumacz „tổ hợp”×19 (A: „tổ hợp” = układ 5 kart) [DO USTALENIA] [WIELE FORM]
+range: "range"  # range; bez formy 55; formy: dải bài×104, range×61, Dải bài×14, phạm vi bài×6, Range×5, Phạm vi bài×1; źr. C:Range of hands, Bluff catching range; tłumacz „dải bài”×118, „phạm vi bài”×7 — brak w źródłach [WIELE FORM]
+mixed-hand: "tay bài trộn"  # mixing hand; bez formy 0; formy: tay bài trộn×8, tay bài hỗn hợp×3, Tay bài trộn×1; źr. brak [DO USTALENIA]
+open: "mở cược"  # open; bez formy 9; formy: mở×121, mở bài×77, mở pot×31, mở cược×13, lượt mở×9, lượt mở cược×5, Mở pot×2, Mở×2; źr. C:Open („Đặt cược đầu tiên để vào pot”), C:Aggressive („cược mở”); sklep D-387 („mở cược”); tłumacz „mở bài”×77, „mở pot”×33 — „mở bài” = wstęp/odkrycie karty (B: „mở 1 lá bài”) [WIELE FORM]
+suited: "cùng chất"  # suited; bez formy 0; formy: —; źr. C:Suited („Có cùng chất.”)
+offsuit: "khác chất"  # offsuit; bez formy 0; formy: —; źr. brak (antonim „cùng chất”) [DO USTALENIA]
+pocket-pair: "pocket pair"  # pocket pair; bez formy 0; formy: đôi túi×3, đôi tẩy×1; źr. C:Pocket pair; tłumacz „đôi túi”×3, „đôi tẩy”×1 — brak w źródłach [WIELE FORM]
+connectors: "connector"  # connectors; bez formy 1; formy: bài liên tiếp×10, connector×8, bài liền×4, bài liền nhau×1; źr. C:Connectors; tłumacz „bài liên tiếp”×10, „connector”×8 [WIELE FORM]
+3-bet: "3-bet"  # 3-bet; bez formy 0; formy: —; źr. brak w C (C:Squeeze play „tố lại”) [DO USTALENIA]
+4-bet: "4-bet"  # 4-bet; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+limp: "limp"  # limp; bez formy 1; formy: limp×1; źr. C:Limp, limp in
+isolation: "tố cô lập"  # isolation raise; bez formy 0; formy: tố cô lập×6, cô lập×1; źr. C:Isolation („ý định cô lập một người chơi”)
+texture: "kết cấu"  # texture; bez formy 0; formy: kết cấu×4, Kết cấu×3, cấu trúc×1; źr. C:Dry board („Kết cấu của các lá bài chung”)
+dry: "khô"  # dry; bez formy 10; formy: khô×39, Khô×4; źr. C:Dry board („Một bàn được coi là khô”)
+wet: "ướt"  # wet; bez formy 12; formy: ướt×16, Ướt×2; źr. C:Wet board („Một bàn ướt”)
+rainbow: "rainbow"  # rainbow; bez formy 3; formy: Rainbow×1; źr. C:Rainbow
+two-tone: "hai chất"  # two-tone; bez formy 1; formy: hai chất×5, Hai chất×1; źr. brak [DO USTALENIA]
+monotone: "đồng chất"  # monotone; bez formy 6; formy: đồng chất×12, Đồng chất×1; źr. C/D („đồng chất” = jeden kolor, np. „sảnh đồng chất”) — częściowo
+paired: "có đôi"  # paired; bez formy 6; formy: có đôi×10, Có đôi×1; źr. brak [DO USTALENIA]
+connected: "liên kết"  # connected; bez formy 7; formy: liên kết×11, Liên kết×1; źr. brak [DO USTALENIA]
+disconnected: "rời rạc"  # disconnected; bez formy 1; formy: rời rạc×2, Rời rạc×1; źr. brak [DO USTALENIA]
+semi-connected: "bán liên kết"  # semi-connected; bez formy 0; formy: bán liên kết×6, Bán liên kết×1; źr. brak [DO USTALENIA]
+wetness: "độ ướt"  # wetness; bez formy 0; formy: độ ướt×5; źr. C:Wet board — częściowo
+top-pair: "top pair"  # top pair; bez formy 22; formy: đôi cao nhất×44, Đôi cao nhất×17, Đôi lớn nhất×1; źr. C:Top pair; tłumacz „đôi cao nhất”×62 — w D to „wyższa para w dwóch parach” [WIELE FORM]
+second-pair: "đôi thứ hai"  # second pair; bez formy 0; formy: đôi thứ hai×6, Đôi thứ hai×3; źr. C:Second pair („Cặp thứ hai”) — częściowo
+overpair: "overpair"  # overpair; bez formy 8; formy: overpair×2; źr. C:Overpair
+c-bet: "c-bet"  # c-bet; bez formy 0; formy: c-bet×2; źr. C:Continuation bet
+aggressor: "người tấn công"  # aggressor; bez formy 0; formy: người tấn công×9, người chủ động×1; źr. brak; terms-def „aggressor”×4 [DO USTALENIA] [WIELE FORM]
+initiative: "thế chủ động"  # initiative; bez formy 0; formy: thế chủ động×16, Thế chủ động×1; źr. C:Donk bet („không chủ động”) — częściowo
+range-advantage: "lợi thế range"  # range advantage; bez formy 4; formy: lợi thế dải bài×19, lợi thế range×5, Lợi thế dải bài×4; źr. brak; zgodne z nazwą range; tłumacz „lợi thế dải bài”×23 [DO USTALENIA] [WIELE FORM]
+nuts-advantage: "lợi thế nuts"  # nuts advantage; bez formy 7; formy: lợi thế nuts×11, Lợi thế nuts×5; źr. brak [DO USTALENIA]
+nuts: "nuts"  # nuts; bez formy 0; formy: nuts×1; źr. C:Nut hand
+polarized: "phân cực"  # polarized; bez formy 4; formy: phân cực×17, Phân cực×2; źr. brak [DO USTALENIA]
+polarization: "sự phân cực"  # polarization; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+linear: "tuyến tính"  # linear; bez formy 1; formy: tuyến tính×7, Tuyến tính×2; źr. brak [DO USTALENIA]
+condensed: "cô đặc"  # condensed; bez formy 0; formy: cô đặc×1, dải bài cô đặc×1; źr. brak [DO USTALENIA]
+value: "giá trị"  # value; bez formy 1; formy: lấy giá trị×49, giá trị×31, vòng giá trị×15, vòng cược giá trị×5, street giá trị×3, Vòng giá trị×1, để lấy giá trị×1, vòng lấy giá trị×1; źr. C:Value bet — częściowo; tłumacz „lấy giá trị”×49
+value-bet: "value bet"  # value bet; bez formy 0; formy: value bet×1; źr. C:Value bet
+bluff: "bluff"  # bluff; bez formy 107; formy: bluff×222, tháu cáy×78, cú bluff×19, Bluff×17, cú tháu cáy×12, đánh lừa×9, cú đánh lừa×5, Cú bluff×4; źr. C:Bluff; E: „tháu cáy” = „Bịp bợm bằng cách nói già (thtục)”; tłumacz „tháu cáy”×90, „đánh lừa”×14 [WIELE FORM]
+semi-bluff: "semi-bluff"  # semi-bluff; bez formy 10; formy: bán tháu cáy×10, semi-bluff×3, Semi-bluff×1; źr. C:Semi-bluff; tłumacz „bán tháu cáy”×10 [WIELE FORM]
+blocker: "blocker"  # blocker; bez formy 4; formy: blocker×8, bài chặn×5, Blocker×4, Bài chặn×1; źr. C:Blocker („Một lá bài chặn”)
+bluff-catcher: "bluff catcher"  # bluff catcher; bez formy 0; formy: —; źr. C:Bluff catching range — częściowo
+barrel: "barrel"  # barrel; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+second-barrel: "second barrel"  # second barrel; bez formy 19; formy: second barrel×7; źr. brak [DO USTALENIA]
+probe-bet: "probe bet"  # probe bet; bez formy 0; formy: —; źr. C:Probe bet
+donk-bet: "donk bet"  # donk bet; bez formy 0; formy: —; źr. C:Donk bet
+overbet: "overbet"  # overbet; bez formy 1; formy: overbet×1, Overbet×1; źr. C:Overbet
+effective-stack: "stack hiệu dụng"  # effective stack; bez formy 2; formy: stack hiệu dụng×3, Stack hiệu dụng×1; źr. brak [DO USTALENIA]
+spr: "SPR"  # stack-to-pot ratio; bez formy 175; formy: SPR×16; źr. skrót
+mdf: "MDF"  # minimum defense frequency; bez formy 59; formy: MDF×15; źr. skrót
+alpha: "alpha"  # alpha; bez formy 4; formy: alpha×2; źr. brak [DO USTALENIA]
+variance: "phương sai"  # variance; bez formy 7; formy: phương sai×17, Phương sai×2; źr. C:Variance (definicja po wietn. bez nazwy) — „phương sai” to ogólny termin statystyki [DO USTALENIA]
+buy-in: "buy-in"  # buy-in; bez formy 2; formy: buy-in×80, Buy-in×1; źr. C:Buy-in
+bankroll: "bankroll"  # bankroll; bez formy 0; formy: bankroll×1; źr. C:Bankroll
+tilt: "tilt"  # tilt; bez formy 0; formy: —; źr. C:Tilt
+winrate: "winrate"  # win rate; bez formy 1; formy: —; źr. brak [DO USTALENIA]
+downswing: "downswing"  # downswing; bez formy 12; formy: Downswing×9, downswing×5, chuỗi thua×2; źr. C:Downswing
+session: "phiên chơi"  # session; bez formy 2; formy: phiên chơi×38, phiên×16; źr. brak; UI „phiên”×3 [DO USTALENIA]
+stakes: "mức cược"  # stakes; bez formy 3; formy: mức cược×56, Mức cược×4; źr. C:Bankroll management („Chọn mức cược và loại trò chơi”); terms-def „mức stakes”×2 → poprawka
+standard-deviation: "độ lệch chuẩn"  # standard deviation; bez formy 0; formy: độ lệch chuẩn×28, Độ lệch chuẩn×16; źr. brak (ogólny termin statystyki) [DO USTALENIA]
+risk-of-ruin: "rủi ro phá sản"  # risk of ruin; bez formy 0; formy: rủi ro phá sản×3, Rủi ro phá sản×1; źr. brak [DO USTALENIA]
+mental-game: "mental game"  # mental game; bez formy 1; formy: —; źr. brak [DO USTALENIA]
+tournament: "giải đấu"  # tournament; bez formy 1; formy: giải đấu×15, Giải đấu×2; źr. A; C:Tournament
+push-fold: "push/fold"  # push/fold; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+shove: "push"  # shove; bez formy 0; formy: đẩy×8, push×7, đẩy all-in×7, shove×2; źr. C:Push („Đặt cược tất cả.”); tłumacz „đẩy”×8, „đẩy all-in”×7 [WIELE FORM]
+icm: "ICM"  # Independent Chip Model; bez formy 28; formy: ICM×2; źr. skrót
+bubble: "bubble"  # bubble; bez formy 0; formy: Bubble×6, bubble×5; źr. C:Bubble
+bubble-factor: "bubble factor"  # bubble factor; bez formy 0; formy: —; źr. brak; UI „Bubble factor” [DO USTALENIA]
+cover: "cover"  # cover; bez formy 0; formy: cover×4, phủ×1; źr. brak [DO USTALENIA]
+risk-premium: "risk premium"  # risk premium; bez formy 3; formy: risk premium×2, Phần bù rủi ro×2, Risk premium×1; źr. brak; tłumacz „Phần bù rủi ro”×2 [DO USTALENIA] [WIELE FORM]
+m-ratio: "M"  # M-ratio; bez formy 0; formy: —; źr. C:M-ratio
+red-zone: "vùng đỏ"  # red zone; bez formy 1; formy: Vùng đỏ×1; źr. brak [DO USTALENIA]
+green-zone: "vùng xanh"  # green zone; bez formy 0; formy: Vùng xanh×2; źr. brak [DO USTALENIA]
+ante: "ante"  # ante; bez formy 0; formy: —; źr. C:Ante
+bb-ante: "big blind ante"  # big blind ante; bez formy 3; formy: ante mù lớn×2, big blind ante×1; źr. brak; tłumacz „ante mù lớn”×2 [DO USTALENIA]
+fold-equity: "fold equity"  # fold equity; bez formy 0; formy: —; źr. C:Fold equity
+gap-concept: "gap concept"  # gap concept; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+chip-ev: "chip EV"  # chip EV; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+tournament-equity: "equity giải đấu"  # tournament equity; bez formy 0; formy: equity giải đấu×1, Equity giải đấu×1; źr. brak [DO USTALENIA]
+prize-pool: "tổng giải thưởng"  # prize pool; bez formy 0; formy: quỹ thưởng×11, tổng giải thưởng×5, quỹ giải thưởng×2; źr. C:Buy-in („xác định tổng giải thưởng”); UI ×5; tłumacz lekcji „quỹ thưởng”×11 — brak w źródłach [WIELE FORM]
+payout: "tiền thưởng"  # payout; bez formy 1; formy: tiền thưởng×9, Tiền thưởng×1, trả thưởng×1; źr. C:Bubble („cấu trúc trả thưởng”) — częściowo
+pay-jump: "bước nhảy tiền thưởng"  # pay jump; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+final-table: "bàn chung kết"  # final table; bez formy 0; formy: bàn chung kết×4; źr. GG ggpoker.com/vi/ („Bàn Chung Kết Nổi Bật” = Featured Final Table); C:Final table („Bàn cuối cùng”)
+short-stack: "short stack"  # short stack; bez formy 1; formy: short stack×6, Short stack×3, stack ngắn×3; źr. C:Short stack; tłumacz „stack ngắn”×3 [WIELE FORM]
+nash-equilibrium: "cân bằng Nash"  # Nash equilibrium; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+overcall: "overcall"  # overcall; bez formy 0; formy: —; źr. C:Overcall
+heads-up: "heads-up"  # heads up; bez formy 0; formy: —; źr. C:Heads up poker
+dead-money: "dead money"  # dead money; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+stack-off: "stack off"  # stack off; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+exploit: "khai thác"  # exploit; bez formy 0; formy: khai thác×6, Khai thác×3; źr. brak; UI „khai thác” [DO USTALENIA]
+hud: "HUD"  # heads-up display; bez formy 1; formy: HUD×13; źr. GG ggpoker.com/vi/ („HUD thông minh”)
+vpip: "VPIP"  # voluntarily put in pot; bez formy 73; formy: VPIP×17; źr. C:VPIP
+pfr: "PFR"  # preflop raise; bez formy 51; formy: PFR×10; źr. skrót
+wtsd: "WTSD"  # went to showdown; bez formy 3; formy: —; źr. skrót
+nit: "nit"  # nit; bez formy 10; formy: nit×6, Nit×3; źr. C:Nit
+regular: "reg"  # regular; bez formy 1; formy: reg×7, Reg×4; źr. brak; UI „Reg” [DO USTALENIA]
+tag: "TAG"  # tight aggressive; bez formy 1; formy: —; źr. skrót
+lag: "LAG"  # loose aggressive; bez formy 1; formy: —; źr. skrót
+recreational: "người chơi giải trí"  # recreational player; bez formy 0; formy: người chơi giải trí×14, Người chơi giải trí×7; źr. brak; C ma tylko „Fish” [DO USTALENIA]
+calling-station: "calling station"  # calling station; bez formy 1; formy: calling station×1; źr. C:Calling station
+maniac: "maniac"  # maniac; bez formy 0; formy: maniac×13, Maniac×5; źr. C:Maniac
+rake: "rake"  # rake; bez formy 35; formy: rake×20, phí rake×1; źr. C:Rakeback („tiền cào”) — częściowo
+rake-cap: "mức trần rake"  # rake cap; bez formy 0; formy: mức trần rake×6, mức trần×1; źr. brak [DO USTALENIA]

@@ -1,0 +1,335 @@
+[
+ {
+  "jezyk": "vi",
+  "cel": "apps/mobile/src/i18n/locales/vi.json",
+  "stary": "bạn không có {{t:draw|draw}} tới",
+  "nowy": "bạn không có {{t:draw|bài chờ}} tới",
+  "waga": "ŚREDNIE",
+  "powod": "draw → „bài chờ” (nazwa K-05; źródło C: „Một tay bài chờ”; lekcje „bài chờ”×101); UI pisało „draw”",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "apps/mobile/src/i18n/locales/vi.json",
+  "stary": "tạo ra ít {{t:draw|draw}}",
+  "nowy": "tạo ra ít {{t:draw|bài chờ}}",
+  "waga": "ŚREDNIE",
+  "powod": "draw → „bài chờ” (nazwa K-05; źródło C: „Một tay bài chờ”; lekcje „bài chờ”×101); UI pisało „draw”",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "apps/mobile/src/i18n/locales/vi.json",
+  "stary": "tạo ra một số {{t:draw|draw}}",
+  "nowy": "tạo ra một số {{t:draw|bài chờ}}",
+  "waga": "ŚREDNIE",
+  "powod": "draw → „bài chờ” (nazwa K-05; źródło C: „Một tay bài chờ”; lekcje „bài chờ”×101); UI pisało „draw”",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "apps/mobile/src/i18n/locales/vi.json",
+  "stary": "tạo ra nhiều {{t:draw|draw}}",
+  "nowy": "tạo ra nhiều {{t:draw|bài chờ}}",
+  "waga": "ŚREDNIE",
+  "powod": "draw → „bài chờ” (nazwa K-05; źródło C: „Một tay bài chờ”; lekcje „bài chờ”×101); UI pisało „draw”",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "apps/mobile/src/i18n/locales/vi.json",
+  "stary": "\"tight-passive\": \"Chặt bị động\"",
+  "nowy": "\"tight-passive\": \"Chặt thụ động\"",
+  "waga": "ŚREDNIE",
+  "powod": "„bị động” → „thụ động”: lekcje m10 i egzaminy mają „thụ động”×19 (ta sama etykieta typu gracza), źródło C:Calling station „lỏng lẻo và thụ động”",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "apps/mobile/src/i18n/locales/vi.json",
+  "stary": "\"loose-passive\": \"Lỏng bị động\",\n      \"loose-aggressive\"",
+  "nowy": "\"loose-passive\": \"Lỏng thụ động\",\n      \"loose-aggressive\"",
+  "waga": "ŚREDNIE",
+  "powod": "„bị động” → „thụ động”: lekcje m10 i egzaminy mają „thụ động”×19 (ta sama etykieta typu gracza), źródło C:Calling station „lỏng lẻo và thụ động”",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "apps/mobile/src/i18n/locales/vi.json",
+  "stary": "\"loose-passive\": \"Lỏng bị động\",\n      \"tight-aggressive\"",
+  "nowy": "\"loose-passive\": \"Lỏng thụ động\",\n      \"tight-aggressive\"",
+  "waga": "ŚREDNIE",
+  "powod": "„bị động” → „thụ động”: lekcje m10 i egzaminy mają „thụ động”×19 (ta sama etykieta typu gracza), źródło C:Calling station „lỏng lẻo và thụ động”",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "apps/mobile/src/i18n/locales/vi.json",
+  "stary": "{{t:recreational|Người chơi giải trí}} bị động",
+  "nowy": "{{t:recreational|Người chơi giải trí}} thụ động",
+  "waga": "ŚREDNIE",
+  "powod": "„bị động” → „thụ động”: lekcje m10 i egzaminy mają „thụ động”×19 (ta sama etykieta typu gracza), źródło C:Calling station „lỏng lẻo và thụ động” (m10-l2: „người chơi giải trí thụ động”)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "apps/mobile/src/i18n/locales/vi.json",
+  "stary": "Người chơi lỏng bị động chơi từ",
+  "nowy": "Người chơi lỏng thụ động chơi từ",
+  "waga": "ŚREDNIE",
+  "powod": "„bị động” → „thụ động”: lekcje m10 i egzaminy mają „thụ động”×19 (ta sama etykieta typu gracza), źródło C:Calling station „lỏng lẻo và thụ động”",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "apps/mobile/src/i18n/locales/vi.json",
+  "stary": "đây sẽ là {{t:call}}:",
+  "nowy": "đây sẽ là một lần {{t:call|theo}}:",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy z nazwą K-05 „theo” da „đây sẽ là theo” (czasownik po „là”) — niegramatyczne; rzeczownik „một lần theo”",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "apps/mobile/src/i18n/locales/vi.json",
+  "stary": "\"gamePending\": \"có khi có chế độ chơi\"",
+  "nowy": "\"gamePending\": \"có sau khi có chế độ chơi\"",
+  "waga": "ŚREDNIE",
+  "powod": "„có khi” czyta się też „być może” — dwuznaczne; pl „dostępne po trybie gry”",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "apps/mobile/src/i18n/locales/vi.json",
+  "stary": "\"link\": \"Bảng thuật ngữ\",",
+  "nowy": "\"link\": \"Bảng thuật ngữ Việt–Anh\",",
+  "waga": "NISKIE",
+  "powod": "pl „Słowniczek PL–EN”: link ma mówić, że to słowniczek z nazwami angielskimi (intro: „tên tiếng Anh của chúng”)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "full-house: \"Sám cô và một đôi",
+  "nowy": "full-house: \"Bộ ba và một đôi",
+  "waga": "ŚREDNIE",
+  "powod": "„sám cô” → „bộ ba” (nazwa K-05; C:Set, D:hand-rankings; lekcje „bộ ba”×15, UI kategoria bez formy)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "cù lũ có sám cô cao hơn thắng",
+  "nowy": "cù lũ có bộ ba cao hơn thắng",
+  "waga": "ŚREDNIE",
+  "powod": "„sám cô” → „bộ ba” (nazwa K-05; C:Set, D:hand-rankings; lekcje „bộ ba”×15, UI kategoria bez formy)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "set: \"Sám cô tạo từ",
+  "nowy": "set: \"Bộ ba tạo từ",
+  "waga": "ŚREDNIE",
+  "powod": "„sám cô” → „bộ ba” (nazwa K-05; C:Set, D:hand-rankings; lekcje „bộ ba”×15, UI kategoria bez formy)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "tag: \"Lối chơi chặt và hung hãn: ít tay bài nhưng chơi hung hãn",
+  "nowy": "tag: \"Lối chơi chặt và hung hăng: ít tay bài nhưng chơi hung hăng",
+  "waga": "ŚREDNIE",
+  "powod": "„hung hãn” → „hung hăng”: UI (play.styles) i lekcje „hung hăng”×13; C:Aggression factor „mức độ hung hăng”",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "lag: \"Lối chơi lỏng và hung hãn: nhiều tay bài, chơi hung hãn.",
+  "nowy": "lag: \"Lối chơi lỏng và hung hăng: nhiều tay bài, chơi hung hăng.",
+  "waga": "ŚREDNIE",
+  "powod": "„hung hãn” → „hung hăng”: UI (play.styles) i lekcje „hung hăng”×13; C:Aggression factor „mức độ hung hăng”",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "rất lỏng và hung hãn,",
+  "nowy": "rất lỏng và hung hăng,",
+  "waga": "ŚREDNIE",
+  "powod": "„hung hãn” → „hung hăng”: UI (play.styles) i lekcje „hung hăng”×13; C:Aggression factor „mức độ hung hăng”",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "thận trọng hoặc hung hãn.",
+  "nowy": "thận trọng hoặc hung hăng.",
+  "waga": "ŚREDNIE",
+  "powod": "„hung hãn” → „hung hăng”: UI (play.styles) i lekcje „hung hăng”×13; C:Aggression factor „mức độ hung hăng”",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "ở cùng mức stakes.",
+  "nowy": "ở cùng mức cược.",
+  "waga": "ŚREDNIE",
+  "powod": "„mức stakes” → „mức cược” (nazwa K-05 stakes; lekcje m12 „mức cược”×56; C:Bankroll management „Chọn mức cược”) — moduł 12",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "ở một mức stakes,",
+  "nowy": "ở một mức cược,",
+  "waga": "ŚREDNIE",
+  "powod": "„mức stakes” → „mức cược” (nazwa K-05 stakes; lekcje m12 „mức cược”×56; C:Bankroll management „Chọn mức cược”)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "hoàn thành một draw. Ví dụ: với draw thùng",
+  "nowy": "hoàn thành một bài chờ. Ví dụ: với bài chờ thùng",
+  "waga": "ŚREDNIE",
+  "powod": "draw/draw thùng/draw sảnh → bài chờ/bài chờ thùng/bài chờ sảnh (nazwy K-05; C:Draw, C:Open-ended straight draw „bài chờ sảnh”)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "draw sảnh gồm bốn lá liên tiếp",
+  "nowy": "bài chờ sảnh gồm bốn lá liên tiếp",
+  "waga": "ŚREDNIE",
+  "powod": "draw/draw thùng/draw sảnh → bài chờ/bài chờ thùng/bài chờ sảnh (nazwy K-05; C:Draw, C:Open-ended straight draw „bài chờ sảnh”)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "gutshot: \"Draw sảnh thiếu",
+  "nowy": "gutshot: \"Bài chờ sảnh thiếu",
+  "waga": "ŚREDNIE",
+  "powod": "draw/draw thùng/draw sảnh → bài chờ/bài chờ thùng/bài chờ sảnh (nazwy K-05; C:Draw, C:Open-ended straight draw „bài chờ sảnh”)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "backdoor: \"Draw ở flop",
+  "nowy": "backdoor: \"Bài chờ ở flop",
+  "waga": "ŚREDNIE",
+  "powod": "draw/draw thùng/draw sảnh → bài chờ/bài chờ thùng/bài chờ sảnh (nazwy K-05; C:Draw, C:Open-ended straight draw „bài chờ sảnh”)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "những tay bài và draw nào",
+  "nowy": "những tay bài và bài chờ nào",
+  "waga": "ŚREDNIE",
+  "powod": "draw/draw thùng/draw sảnh → bài chờ/bài chờ thùng/bài chờ sảnh (nazwy K-05; C:Draw, C:Open-ended straight draw „bài chờ sảnh”)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "có thể có ít draw và ít",
+  "nowy": "có thể có ít bài chờ và ít",
+  "waga": "ŚREDNIE",
+  "powod": "draw/draw thùng/draw sảnh → bài chờ/bài chờ thùng/bài chờ sảnh (nazwy K-05; C:Draw, C:Open-ended straight draw „bài chờ sảnh”)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "có thể có nhiều draw và tay",
+  "nowy": "có thể có nhiều bài chờ và tay",
+  "waga": "ŚREDNIE",
+  "powod": "draw/draw thùng/draw sảnh → bài chờ/bài chờ thùng/bài chờ sảnh (nazwy K-05; C:Draw, C:Open-ended straight draw „bài chờ sảnh”)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "ở flop không ai có draw thùng.",
+  "nowy": "ở flop không ai có bài chờ thùng.",
+  "waga": "ŚREDNIE",
+  "powod": "draw/draw thùng/draw sảnh → bài chờ/bài chờ thùng/bài chờ sảnh (nazwy K-05; C:Draw, C:Open-ended straight draw „bài chờ sảnh”)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "nên có thể có draw thùng.",
+  "nowy": "nên có thể có bài chờ thùng.",
+  "waga": "ŚREDNIE",
+  "powod": "draw/draw thùng/draw sảnh → bài chờ/bài chờ thùng/bài chờ sảnh (nazwy K-05; C:Draw, C:Open-ended straight draw „bài chờ sảnh”)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "khó tạo sảnh hoặc draw sảnh",
+  "nowy": "khó tạo sảnh hoặc bài chờ sảnh",
+  "waga": "ŚREDNIE",
+  "powod": "draw/draw thùng/draw sảnh → bài chờ/bài chờ thùng/bài chờ sảnh (nazwy K-05; C:Draw, C:Open-ended straight draw „bài chờ sảnh”)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Board có draw sảnh nhưng",
+  "nowy": "Board có bài chờ sảnh nhưng",
+  "waga": "ŚREDNIE",
+  "powod": "draw/draw thùng/draw sảnh → bài chờ/bài chờ thùng/bài chờ sảnh (nazwy K-05; C:Draw, C:Open-ended straight draw „bài chờ sảnh”)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "thuận lợi cho draw và",
+  "nowy": "thuận lợi cho bài chờ và",
+  "waga": "ŚREDNIE",
+  "powod": "draw/draw thùng/draw sảnh → bài chờ/bài chờ thùng/bài chờ sảnh (nazwy K-05; C:Draw, C:Open-ended straight draw „bài chờ sảnh”)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "(ví dụ có draw)",
+  "nowy": "(ví dụ có bài chờ)",
+  "waga": "ŚREDNIE",
+  "powod": "draw/draw thùng/draw sảnh → bài chờ/bài chờ thùng/bài chờ sảnh (nazwy K-05; C:Draw, C:Open-ended straight draw „bài chờ sảnh”)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "tay bài yếu hoặc draw.",
+  "nowy": "tay bài yếu hoặc bài chờ.",
+  "waga": "ŚREDNIE",
+  "powod": "draw/draw thùng/draw sảnh → bài chờ/bài chờ thùng/bài chờ sảnh (nazwy K-05; C:Draw, C:Open-ended straight draw „bài chờ sảnh”)",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/terms-def.yaml",
+  "stary": "Những đồng xu tròn",
+  "nowy": "Những đĩa tròn nhỏ",
+  "waga": "NISKIE",
+  "powod": "„đồng xu” = moneta; C:Chip „Một đĩa nhỏ”",
+  "grupa": "V2"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/modules.yaml",
+  "stary": "title: \"Vị trí và mở bài\", sub: \"Ai hành động cuối và nên mở bài nào\"",
+  "nowy": "title: \"Vị trí và mở cược\", sub: \"Ai hành động cuối và nên mở cược với tay bài nào\"",
+  "waga": "ŚREDNIE",
+  "powod": "„mở bài” = wstęp wypracowania / odkrycie karty (B: „mở 1 lá bài”); sklep D-387 zmienił na „mở cược”; C:Open „Đặt cược đầu tiên để vào pot”. Poza zakresem V2 (modules) — spójność z opisem w sklepie",
+  "grupa": "V2"
+ }
+]

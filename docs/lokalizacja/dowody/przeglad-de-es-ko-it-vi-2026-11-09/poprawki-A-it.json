@@ -1,0 +1,11 @@
+[
+ {
+  "jezyk": "it",
+  "cel": "content/it/rules.yaml",
+  "stary": "e risali al più presto quando hai un bankroll completo in {{t:buy-in|buy-in}} del {{t:stakes|limite}} superiore\"",
+  "nowy": "e risali solo quando hai un bankroll completo in {{t:buy-in|buy-in}} del {{t:stakes|limite}} superiore, non prima\"",
+  "waga": "WYSOKIE",
+  "powod": "R-M12-011 then: „risali al più presto quando” jest dwuznaczne (it zwykle „jak najszybciej, gdy”), a pl „wracasz najwcześniej wtedy, gdy” to dolna granica powrotu; „solo quando …, non prima” oddaje granicę jednoznacznie (odpowiedzialna gra, m12) Waga podniesiona do WYSOKIE przez sesję AJ: dwuznaczna granica w treści krytycznej m12, spójnie z I3 (m12-l4, ten sam zwrot).",
+  "grupa": "A-it"
+ }
+]

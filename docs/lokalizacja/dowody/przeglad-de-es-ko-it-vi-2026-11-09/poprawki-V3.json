@@ -1,0 +1,83 @@
+[
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l4-bankroll.md",
+  "stary": "prompt: \"Một người chơi trung bình thua ở {{t:stakes|mức cược}} của mình",
+  "nowy": "prompt: \"Một người chơi tính trung bình đang thua ở {{t:stakes|mức cược}} của mình",
+  "waga": "ŚREDNIE",
+  "powod": "Dwuznaczność: „Một người chơi trung bình thua” czyta się „przeciętny gracz przegrywa”; pl: „gracz przegrywa średnio” (ujemny winrate). Treść m12 (bankroll).",
+  "grupa": "V3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l4-bankroll.md",
+  "stary": "text: \"Có, vì bạn đang chơi tốt\"",
+  "nowy": "text: \"Có, vì kết quả của bạn đang tốt\"",
+  "waga": "NISKIE",
+  "powod": "pl „bo dobrze ci idzie” = dobre wyniki; „đang chơi tốt” = grasz dobrze (umiejętność), a why mówi o wariancji wyniku.",
+  "grupa": "V3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l4-bankroll.md",
+  "stary": "Bạn nhập winrate và SD theo bb/100, bankroll theo bb.",
+  "nowy": "Winrate và SD tính theo bb/100, bankroll tính theo bb.",
+  "waga": "NISKIE",
+  "powod": "„nhập” = wpisujesz (do pola); pl „podajesz” = wyrażasz w jednostkach.",
+  "grupa": "V3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m2-l2-pot-odds.md",
+  "stary": "chúng sẽ quay lại trong các học phần sau",
+  "nowy": "chúng sẽ quay lại trong các mô-đun sau",
+  "waga": "ŚREDNIE",
+  "powod": "Niespójny termin „moduł”: UI vi i większość lekcji (30×) „mô-đun”, tu „học phần”.",
+  "grupa": "V3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m2-l2-pot-odds.md",
+  "stary": "và giá trị này âm đúng khi equity nhỏ hơn",
+  "nowy": "và giá trị này âm khi và chỉ khi equity nhỏ hơn",
+  "waga": "NISKIE",
+  "powod": "pl „dokładnie wtedy, gdy”; „âm đúng khi” brzmi jak „ujemne akurat wtedy”; „khi và chỉ khi” = wtedy i tylko wtedy.",
+  "grupa": "V3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m2-l2-pot-odds.md",
+  "stary": "why: \"Người chơi nâng cao đôi khi",
+  "nowy": "why: \"Người chơi trình độ cao đôi khi",
+  "waga": "NISKIE",
+  "powod": "„người chơi nâng cao” nienaturalne; „trình độ cao” = zaawansowany.",
+  "grupa": "V3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l1-statystyki.md",
+  "stary": "{{t:aggressor|người chủ động}}",
+  "nowy": "{{t:aggressor|người tấn công}}",
+  "waga": "ŚREDNIE",
+  "powod": "Niespójny termin aggressor: w korpusie vi (m5-l2, m6-l2, m7-l4, rules.yaml) „người tấn công”, tu jedyny raz „người chủ động”.",
+  "grupa": "V3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m10-l1-statystyki.md",
+  "stary": "tần suất bet flop sau lần",
+  "nowy": "tần suất cược ở flop sau lần",
+  "waga": "NISKIE",
+  "powod": "Niepotrzebne angielskie „bet” jako czasownik; w korpusie „cược”.",
+  "grupa": "V3"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/exams/m2.yaml",
+  "stary": "3 lá trên {{t:board|bài chung}}",
+  "nowy": "3 lá trên {{t:board|bàn}}",
+  "waga": "ŚREDNIE",
+  "powod": "Termin board: „bài chung” to nazwa community-cards („lá bài chung”, m0-l1); lekcje M2 i m0-l1 używają dla board „bàn”.",
+  "grupa": "V3"
+ }
+]

@@ -1,0 +1,11 @@
+[
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m12-l1-wariancja.md",
+  "stary": "bạn sẽ kết thúc trong khoảng từ **{{n:var.ci.low.bi}} đến {{n:var.ci.high.bi}}",
+  "nowy": "bạn sẽ kết thúc ở mức từ khoảng **{{n:var.ci.low.bi}} đến khoảng {{n:var.ci.high.bi}}",
+  "waga": "NISKIE",
+  "powod": "m12-l1 treść, przykład: pl „między ok. {{n:var.ci.low.bi}} a {{n:var.ci.high.bi}}” — vi zgubiło „ok.” (przybliżenie) przy zaokrąglonych granicach; drill q-ci95 w vi ma „từ khoảng … đến khoảng”",
+  "grupa": "A-vi"
+ }
+]

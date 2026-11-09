@@ -1,0 +1,794 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"플랍은 {{t:community-cards|커뮤니티 카드}} 3장, 턴과 리버는 각각 1장입니다. 리버 베팅이 끝나면 남은 플레이어(최소 2명)가 카드를 공개합니다(쇼다운)\"",
+  "nowy": "  then: \"플롭은 {{t:community-cards|커뮤니티 카드}} 3장, 턴과 리버는 각각 1장입니다. 리버 베팅이 끝나면 남은 플레이어(최소 2명)가 카드를 공개합니다(쇼다운)\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"플랍에서 {{t:flush|플러시}}를 만들 같은 무늬 카드가 {{n:draw.flush.seen}}장 있을 때\"",
+  "nowy": "  if: \"플롭에서 {{t:flush|플러시}}를 만들 같은 무늬 카드가 {{n:draw.flush.seen}}장 있을 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"한 무늬에는 카드가 {{n:cards.per-suit}}장 있고 그중 {{n:draw.flush.seen}}장이 보입니다. 플랍에서 {{t:bet|베팅}}에 {{t:call|콜}}하면 카드 한 장만 볼 수 있습니다\"",
+  "nowy": "  because: \"한 무늬에는 카드가 {{n:cards.per-suit}}장 있고 그중 {{n:draw.flush.seen}}장이 보입니다. 플롭에서 {{t:bet|베팅}}에 {{t:call|콜}}하면 카드 한 장만 볼 수 있습니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"적중 확률을 추정합니다: 카드 한 장이면 아웃 × 2, 두 장이면 아웃 × 4. 플랍에서 {{t:bet|베팅}}을 받으면 한 장(× 2)으로 계산하고, × 4는 추가 {{t:bet|베팅}} 없이 턴과 리버를 모두 볼 때(올인)만 씁니다\"",
+  "nowy": "  then: \"적중 확률을 추정합니다: 카드 한 장이면 아웃 × 2, 두 장이면 아웃 × 4. 플롭에서 {{t:bet|베팅}}을 받으면 한 장(× 2)으로 계산하고, × 4는 추가 {{t:bet|베팅}} 없이 턴과 리버를 모두 볼 때(올인)만 씁니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"플랍부터 마지막에 행동하고, 뒤에는 블라인드만 남아 있습니다\"",
+  "nowy": "  because: \"플롭부터 마지막에 행동하고, 뒤에는 블라인드만 남아 있습니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"블라인드만 남았고, 플랍 이후에는 {{t:position|포지션}}을 가집니다\"",
+  "nowy": "  because: \"블라인드만 남았고, 플롭 이후에는 {{t:position|포지션}}을 가집니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"뒤에 남은 플레이어가 적을수록 누군가 더 좋은 핸드를 가질 확률이 낮아지고, 플랍 이후 {{t:position|포지션}}을 가질 때가 많아집니다\"",
+  "nowy": "  because: \"뒤에 남은 플레이어가 적을수록 누군가 더 좋은 핸드를 가질 확률이 낮아지고, 플롭 이후 {{t:position|포지션}}을 가질 때가 많아집니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"이제 {{t:big-blind|빅 블라인드}}만 상대합니다. 플랍 이후에는 먼저 행동하므로 버튼과 비슷한 넓이로 {{t:open|오픈}}하고, 그보다 훨씬 넓게 하지는 않습니다\"",
+  "nowy": "  because: \"이제 {{t:big-blind|빅 블라인드}}만 상대합니다. 플롭 이후에는 먼저 행동하므로 버튼과 비슷한 넓이로 {{t:open|오픈}}하고, 그보다 훨씬 넓게 하지는 않습니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"이 크기는 플랍에서 적절한 스택 대 팟 비율을 만들고 상대에게 싼 가격을 주지 않습니다\"",
+  "nowy": "  because: \"이 크기는 플롭에서 적절한 스택 대 팟 비율을 만들고 상대에게 싼 가격을 주지 않습니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"플랍 이후 먼저 행동하게 되므로, 더 큰 {{t:raise|레이즈}}로 상대가 {{t:in-position|인 포지션}}에서 싸게 {{t:call|콜}}하지 못하게 합니다\"",
+  "nowy": "  because: \"플롭 이후 먼저 행동하게 되므로, 더 큰 {{t:raise|레이즈}}로 상대가 {{t:in-position|인 포지션}}에서 싸게 {{t:call|콜}}하지 못하게 합니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"넓게 디펜드합니다. {{t:call|콜}}에 필요한 에퀴티가 약 {{n:eq.bb-vs-btn-open}}뿐이기 때문입니다\"",
+  "nowy": "  then: \"넓게 방어합니다. {{t:call|콜}}에 필요한 에퀴티가 약 {{n:eq.bb-vs-btn-open}}뿐이기 때문입니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"큰 {{t:pot|팟}}에 조금만 더 내면 됩니다. 공개된 솔버 해법은 여기서 핸드의 약 {{n:pf.bb-def.vs-btn.pub.low}}–{{n:pf.bb-def.vs-btn.pub.high}}를 디펜드합니다\"",
+  "nowy": "  because: \"큰 {{t:pot|팟}}에 조금만 더 내면 됩니다. 공개된 솔버 해법은 여기서 핸드의 약 {{n:pf.bb-def.vs-btn.pub.low}}–{{n:pf.bb-def.vs-btn.pub.high}}를 방어합니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"플랍 이후 {{t:position|포지션}}을 가질 플레이어에게 3벳을 받았을 때\"",
+  "nowy": "  if: \"플롭 이후 {{t:position|포지션}}을 가질 플레이어에게 3벳을 받았을 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"3벳을 받았고 플랍 이후 {{t:out-of-position|아웃 오브 포지션}}이 될 때\"",
+  "nowy": "  if: \"3벳을 받았고 플롭 이후 {{t:out-of-position|아웃 오브 포지션}}이 될 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"3벳을 받았고 플랍 이후 {{t:position|포지션}}을 가질 때\"",
+  "nowy": "  if: \"3벳을 받았고 플롭 이후 {{t:position|포지션}}을 가질 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"림퍼가 한 명 늘 때마다 누군가 {{t:call|콜}}할 확률이 높아지므로 프리플랍 {{t:bluff|블러프}}의 가치가 떨어집니다\"",
+  "nowy": "  because: \"림퍼가 한 명 늘 때마다 누군가 {{t:call|콜}}할 확률이 높아지므로 프리플롭 {{t:bluff|블러프}}의 가치가 떨어집니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"{{t:call|콜}}에 약 {{n:eq.bb-vs-sb-open}} 에퀴티가 필요하지만, 넓게, 핸드의 절반 이상을 디펜드합니다. 3벳은 {{t:open|오픈}} 금액의 약 {{n:pf.3bet.size-ip}}입니다\"",
+  "nowy": "  then: \"{{t:call|콜}}에 약 {{n:eq.bb-vs-sb-open}} 에퀴티가 필요하지만, 넓게, 핸드의 절반 이상을 방어합니다. 3벳은 {{t:open|오픈}} 금액의 약 {{n:pf.3bet.size-ip}}입니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"플랍 이후 {{t:position|포지션}}을 가지므로 에퀴티를 더 많이 실현합니다. 공개된 솔버 해법은 여기서 핸드의 약 {{n:pf.bb-def.vs-sb.pub}}를 디펜드합니다\"",
+  "nowy": "  because: \"플롭 이후 {{t:position|포지션}}을 가지므로 에퀴티를 더 많이 실현합니다. 공개된 솔버 해법은 여기서 핸드의 약 {{n:pf.bb-def.vs-sb.pub}}를 방어합니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"플랍의 {{t:wetness|웻니스}} 점수가 {{n:tex.threshold.medium}}점 미만일 때: 여러 방법으로 가능한 {{t:straight|스트레이트}}(두 랭크 조합이 두 개 이상)는 {{n:tex.points.straight.made}}점, 한 가지 방법으로만 가능한 {{t:straight|스트레이트}}는 {{n:tex.points.straight.made-one}}점, {{t:straight-draw|스트레이트 드로우}}만 있으면 {{n:tex.points.straight.draw}}점, 같은 무늬 두 장은 {{n:tex.points.suits.two-tone}}점, 같은 무늬 세 장은 {{n:tex.points.suits.monotone}}점\"",
+  "nowy": "  if: \"플롭의 {{t:wetness|웻니스}} 점수가 {{n:tex.threshold.medium}}점 미만일 때: 여러 방법으로 가능한 {{t:straight|스트레이트}}(두 랭크 조합이 두 개 이상)는 {{n:tex.points.straight.made}}점, 한 가지 방법으로만 가능한 {{t:straight|스트레이트}}는 {{n:tex.points.straight.made-one}}점, {{t:straight-draw|스트레이트 드로우}}만 있으면 {{n:tex.points.straight.draw}}점, 같은 무늬 두 장은 {{n:tex.points.suits.two-tone}}점, 같은 무늬 세 장은 {{n:tex.points.suits.monotone}}점\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"{{t:dry|드라이}} 플랍입니다: {{t:draw|드로우}}가 적고, 아직 아무도 완성된 {{t:straight|스트레이트}}나 {{t:flush|플러시}}를 갖고 있지 않습니다\"",
+  "nowy": "  then: \"{{t:dry|드라이}} 플롭입니다: {{t:draw|드로우}}가 적고, 아직 아무도 완성된 {{t:straight|스트레이트}}나 {{t:flush|플러시}}를 갖고 있지 않습니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"다음 카드가 선두를 바꾸는 일이 드물어, 플랍에서 가장 좋은 핸드가 보통 끝까지 가장 좋은 핸드로 남습니다\"",
+  "nowy": "  because: \"다음 카드가 선두를 바꾸는 일이 드물어, 플롭에서 가장 좋은 핸드가 보통 끝까지 가장 좋은 핸드로 남습니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"플랍의 {{t:wetness|웻니스}} 점수가 {{n:tex.threshold.wet}}점 이상일 때(점수는 {{t:dry|드라이}} 플랍 정의와 같습니다)\"",
+  "nowy": "  if: \"플롭의 {{t:wetness|웻니스}} 점수가 {{n:tex.threshold.wet}}점 이상일 때(점수는 {{t:dry|드라이}} 플롭 정의와 같습니다)\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"{{t:wet|웻}} 플랍입니다: 상대가 {{t:draw|드로우}}를 가진 경우가 많고, 때로는 이미 {{t:straight|스트레이트}}나 {{t:flush|플러시}}를 갖고 있습니다\"",
+  "nowy": "  then: \"{{t:wet|웻}} 플롭입니다: 상대가 {{t:draw|드로우}}를 가진 경우가 많고, 때로는 이미 {{t:straight|스트레이트}}나 {{t:flush|플러시}}를 갖고 있습니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"프리플랍에 {{t:open|오픈}}했고 {{t:big-blind|빅 블라인드}}가 {{t:call|콜}}했으며, 플랍에 에이스나 킹이 있을 때\"",
+  "nowy": "  if: \"프리플롭에 {{t:open|오픈}}했고 {{t:big-blind|빅 블라인드}}가 {{t:call|콜}}했으며, 플롭에 에이스나 킹이 있을 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"{{t:big-blind|빅 블라인드}}는 AA, KK, AK 대부분을 프리플랍에 {{t:raise|레이즈}}하므로, {{t:call|콜}}만 했다면 그런 핸드가 적습니다. 반면 나는 그 핸드를 모두 갖고 있습니다\"",
+  "nowy": "  because: \"{{t:big-blind|빅 블라인드}}는 AA, KK, AK 대부분을 프리플롭에 {{t:raise|레이즈}}하므로, {{t:call|콜}}만 했다면 그런 핸드가 적습니다. 반면 나는 그 핸드를 모두 갖고 있습니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"프리플랍에 {{t:open|오픈}}했고, 플랍이 낮으며 {{t:connected|커넥티드}}이거나 {{t:semi-connected|세미 커넥티드}}일 때(예: 7-6-5)\"",
+  "nowy": "  if: \"프리플롭에 {{t:open|오픈}}했고, 플롭이 낮으며 {{t:connected|커넥티드}}이거나 {{t:semi-connected|세미 커넥티드}}일 때(예: 7-6-5)\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"높은 플랍보다 c벳을 덜 하고, 많은 핸드로 {{t:check|체크}}합니다\"",
+  "nowy": "  then: \"높은 플롭보다 C벳을 덜 하고, 많은 핸드로 {{t:check|체크}}합니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"{{t:big-blind|빅 블라인드}}는 수티드 {{t:connectors|커넥터}}와 작은 {{t:pair|페어}}를 많이 디펜드하므로 {{t:two-pair|투페어}}나 {{t:straight|스트레이트}}를 더 자주 가집니다: {{t:nuts-advantage|너츠 우위}}는 상대에게 있습니다\"",
+  "nowy": "  because: \"{{t:big-blind|빅 블라인드}}는 수티드 {{t:connectors|커넥터}}와 작은 {{t:pair|페어}}를 많이 방어하므로 {{t:two-pair|투페어}}나 {{t:straight|스트레이트}}를 더 자주 가집니다: {{t:nuts-advantage|너츠 우위}}는 상대에게 있습니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"약 {{n:flop.miss.unpaired}}의 경우 플랍이 상대 카드 중 어느 것과도 페어를 만들지 않습니다\"",
+  "nowy": "  then: \"약 {{n:flop.miss.unpaired}}의 경우 플롭이 상대 카드 중 어느 것과도 페어를 만들지 않습니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"알 수 없는 카드 {{n:cards.unseen.preflop}}장 중 상대 핸드와 페어가 되는 카드는 {{n:pair.outs.unpaired}}장뿐이고, 플랍은 {{n:cards.board.flop}}장뿐입니다\"",
+  "nowy": "  because: \"알 수 없는 카드 {{n:cards.unseen.preflop}}장 중 상대 핸드와 페어가 되는 카드는 {{n:pair.outs.unpaired}}장뿐이고, 플롭은 {{n:cards.board.flop}}장뿐입니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"프리플랍 {{t:aggressor|어그레서}}로서 {{t:position|포지션}}을 가지고 있고, 플랍이 {{t:dry|드라이}}하며 높을 때(예: 무늬가 모두 다른 K-7-2)\"",
+  "nowy": "  if: \"프리플롭 {{t:aggressor|어그레서}}로서 {{t:position|포지션}}을 가지고 있고, 플롭이 {{t:dry|드라이}}하며 높을 때(예: 무늬가 모두 다른 K-7-2)\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"자주, 작게, {{t:pot|팟}}의 약 {{n:cbet.size.small}}로 c벳합니다(단순화: 이런 플랍에서 솔버는 {{t:overbet|오버벳}}도 사용합니다)\"",
+  "nowy": "  then: \"자주, 작게, {{t:pot|팟}}의 약 {{n:cbet.size.small}}로 C벳합니다(단순화: 이런 플롭에서 솔버는 {{t:overbet|오버벳}}도 사용합니다)\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"프리플랍 {{t:aggressor|어그레서}}로서 {{t:position|포지션}}을 가지고 있고, 플랍이 상대에게 {{t:draw|드로우}}를 많이 주지만 아직 {{t:straight|스트레이트}}는 불가능할 때(예: {{t:two-tone|투톤}} K-J-7)\"",
+  "nowy": "  if: \"프리플롭 {{t:aggressor|어그레서}}로서 {{t:position|포지션}}을 가지고 있고, 플롭이 상대에게 {{t:draw|드로우}}를 많이 주지만 아직 {{t:straight|스트레이트}}는 불가능할 때(예: {{t:two-tone|투톤}} K-J-7)\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"c벳 빈도는 줄이고 사이즈는 키웁니다(예: {{t:pot|팟}}의 {{n:cbet.size.big}}). {{t:draw|드로우}}가 없는 중간 핸드는 더 자주 {{t:check|체크}}합니다. 이미 {{t:straight|스트레이트}}가 가능하면(예: J-T-8) 솔버는 더 작은 사이즈로 베팅합니다\"",
+  "nowy": "  then: \"C벳 빈도는 줄이고 사이즈는 키웁니다(예: {{t:pot|팟}}의 {{n:cbet.size.big}}). {{t:draw|드로우}}가 없는 중간 핸드는 더 자주 {{t:check|체크}}합니다. 이미 {{t:straight|스트레이트}}가 가능하면(예: J-T-8) 솔버는 더 작은 사이즈로 베팅합니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"프리플랍 {{t:aggressor|어그레서}}로서 {{t:position|포지션}}을 가지고 있고, 플랍이 {{t:paired|페어드}}일 때(예: Q-Q-6)\"",
+  "nowy": "  if: \"프리플롭 {{t:aggressor|어그레서}}로서 {{t:position|포지션}}을 가지고 있고, 플롭이 {{t:paired|페어드}}일 때(예: Q-Q-6)\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"자주, 작게 c벳합니다\"",
+  "nowy": "  then: \"자주, 작게 C벳합니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"{{t:range-advantage|레인지 우위}}가 있고 {{t:paired|페어드}} 플랍에서는 {{t:draw|드로우}}가 생기기 어려우므로, {{t:pair|페어}}가 없는 상대는 작은 {{t:bet|베팅}}에도 {{t:call|콜}}하기 어렵습니다. 큰 {{t:bet|베팅}}은 이득이 없습니다. 양쪽 누구든 {{t:three-of-a-kind|트리플}}을 가질 수 있기 때문입니다\"",
+  "nowy": "  because: \"{{t:range-advantage|레인지 우위}}가 있고 {{t:paired|페어드}} 플롭에서는 {{t:draw|드로우}}가 생기기 어려우므로, {{t:pair|페어}}가 없는 상대는 작은 {{t:bet|베팅}}에도 {{t:call|콜}}하기 어렵습니다. 큰 {{t:bet|베팅}}은 이득이 없습니다. 양쪽 누구든 {{t:three-of-a-kind|트리플}}을 가질 수 있기 때문입니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"프리플랍 {{t:aggressor|어그레서}}로서 {{t:position|포지션}}을 가지고 있고, 플랍이 {{t:monotone|모노톤}}일 때(같은 무늬 세 장)\"",
+  "nowy": "  if: \"프리플롭 {{t:aggressor|어그레서}}로서 {{t:position|포지션}}을 가지고 있고, 플롭이 {{t:monotone|모노톤}}일 때(같은 무늬 세 장)\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"평소보다 c벳을 덜 하고, 작게 합니다\"",
+  "nowy": "  then: \"평소보다 C벳을 덜 하고, 작게 합니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"핸드가 전혀 없이 상대의 {{t:fold|폴드}}만 노리고 c벳할 때\"",
+  "nowy": "  if: \"핸드가 전혀 없이 상대의 {{t:fold|폴드}}만 노리고 C벳할 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"프리플랍에 {{t:open|오픈}}했고 상대가 {{t:position|포지션}}을 가진 채 {{t:call|콜}}했을 때(예: {{t:cutoff|CO}}에서의 내 {{t:open|오픈}}에 버튼이 콜)\"",
+  "nowy": "  if: \"프리플롭에 {{t:open|오픈}}했고 상대가 {{t:position|포지션}}을 가진 채 {{t:call|콜}}했을 때(예: {{t:cutoff|CO}}에서의 내 {{t:open|오픈}}에 버튼이 콜)\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"{{t:in-position|인 포지션}}일 때보다 c벳을 덜 하고, 좋은 핸드로도 더 자주 {{t:check|체크}}합니다\"",
+  "nowy": "  then: \"{{t:in-position|인 포지션}}일 때보다 C벳을 덜 하고, 좋은 핸드로도 더 자주 {{t:check|체크}}합니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"{{t:position|포지션}}에서 {{t:call|콜}}한 플레이어의 {{t:range|레인지}}는 {{t:condensed|컨덴스드}}입니다: 약한 핸드는 {{t:fold|폴드}}했고 가장 강한 핸드 일부는 {{t:raise|레이즈}}했으므로 주로 중간 핸드와 좋은 핸드가 남아 있습니다. 게다가 플랍 이후 모든 {{t:street|스트리트}}에서 내가 먼저 행동합니다\"",
+  "nowy": "  because: \"{{t:position|포지션}}에서 {{t:call|콜}}한 플레이어의 {{t:range|레인지}}는 {{t:condensed|컨덴스드}}입니다: 약한 핸드는 {{t:fold|폴드}}했고 가장 강한 핸드 일부는 {{t:raise|레이즈}}했으므로 주로 중간 핸드와 좋은 핸드가 남아 있습니다. 게다가 플롭 이후 모든 {{t:street|스트리트}}에서 내가 먼저 행동합니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"플랍에서 상대가 두 명 이상일 때\"",
+  "nowy": "  if: \"플롭에서 상대가 두 명 이상일 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"c벳을 훨씬 덜 하고, 주로 강한 핸드와 강한 {{t:draw|드로우}}로 합니다. {{t:bluff|블러프}}는 적게 하고, 베팅할 때는 작게 합니다\"",
+  "nowy": "  then: \"C벳을 훨씬 덜 하고, 주로 강한 핸드와 강한 {{t:draw|드로우}}로 합니다. {{t:bluff|블러프}}는 적게 하고, 베팅할 때는 작게 합니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"이론상 {{t:range|레인지}}의 약 {{n:mdf.bet-third}}를 디펜드합니다({{t:call|콜}} 또는 {{t:raise|레이즈}}). 이것이 {{t:mdf|MDF}}입니다\"",
+  "nowy": "  then: \"이론상 {{t:range|레인지}}의 약 {{n:mdf.bet-third}}를 방어합니다({{t:call|콜}} 또는 {{t:raise|레이즈}}). 이것이 {{t:mdf|MDF}}입니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"{{t:out-of-position|아웃 오브 포지션}}에서 플랍 베팅을 받았을 때\"",
+  "nowy": "  if: \"{{t:out-of-position|아웃 오브 포지션}}에서 플롭 베팅을 받았을 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"{{t:mdf|MDF}}가 가리키는 것보다 적게 디펜드해도 됩니다(디펜더에게 불리한 플랍에서는 눈에 띄게 적게). {{t:mdf|MDF}}는 의무가 아니라 기준점으로 삼되, 작은 c벳에 대량으로 {{t:fold|폴드}}하지는 않습니다\"",
+  "nowy": "  then: \"{{t:mdf|MDF}}가 가리키는 것보다 적게 방어해도 됩니다(디펜더에게 불리한 플롭에서는 눈에 띄게 적게). {{t:mdf|MDF}}는 의무가 아니라 기준점으로 삼되, 작은 C벳에 대량으로 {{t:fold|폴드}}하지는 않습니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"더 좁은 {{t:range|레인지}}로 디펜드합니다: {{t:pot|팟}}의 1/3 베팅이면 {{t:mdf|MDF}}는 {{n:mdf.bet-third}}, {{t:pot|팟}} 크기 베팅이면 {{n:mdf.bet-pot}}입니다\"",
+  "nowy": "  then: \"더 좁은 {{t:range|레인지}}로 방어합니다: {{t:pot|팟}}의 1/3 베팅이면 {{t:mdf|MDF}}는 {{n:mdf.bet-third}}, {{t:pot|팟}} 크기 베팅이면 {{n:mdf.bet-pot}}입니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"{{t:big-blind|빅 블라인드}}에서 작은 c벳(약 {{t:pot|팟}}의 1/3)을 받았을 때\"",
+  "nowy": "  if: \"{{t:big-blind|빅 블라인드}}에서 작은 C벳(약 {{t:pot|팟}}의 1/3)을 받았을 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"{{t:pair|페어}}도 {{t:draw|드로우}}도 없는 하이카드 두 장을 가졌고, c벳이 클 때({{t:pot|팟}}의 3/4 이상)\"",
+  "nowy": "  if: \"{{t:pair|페어}}도 {{t:draw|드로우}}도 없는 하이카드 두 장을 가졌고, C벳이 클 때({{t:pot|팟}}의 3/4 이상)\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"보통 {{t:fold|폴드}}합니다(다만 킹이 있는 {{t:dry|드라이}} 플랍에서는 솔버가 에이스 핸드를 많이 {{t:call|콜}}합니다)\"",
+  "nowy": "  then: \"보통 {{t:fold|폴드}}합니다(다만 킹이 있는 {{t:dry|드라이}} 플롭에서는 솔버가 에이스 핸드를 많이 {{t:call|콜}}합니다)\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"플랍에서 체크레이즈를 하고 싶을 때\"",
+  "nowy": "  if: \"플롭에서 체크레이즈를 하고 싶을 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"주로 가장 강한 핸드({{t:two-pair|투페어}}, 셋)와 {{t:draw|드로우}}({{t:flush|플러시}}, {{t:oesd|OESD}})로 합니다. 중간 {{t:pair|페어}}는 보통 {{t:call|콜}}합니다(단순화: 작은 c벳에 대해 솔버는 보호를 위해 일부 {{t:top-pair|탑 페어}}와 약한 {{t:pair|페어}}도 {{t:raise|레이즈}}합니다)\"",
+  "nowy": "  then: \"주로 가장 강한 핸드({{t:two-pair|투페어}}, 셋)와 {{t:draw|드로우}}({{t:flush|플러시}}, {{t:oesd|OESD}})로 합니다. 중간 {{t:pair|페어}}는 보통 {{t:call|콜}}합니다(단순화: 작은 C벳에 대해 솔버는 보호를 위해 일부 {{t:top-pair|탑 페어}}와 약한 {{t:pair|페어}}도 {{t:raise|레이즈}}합니다)\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"c벳이 작거나, 플랍이 낮고 {{t:connected|커넥티드}}일 때(예: 7-6-5)\"",
+  "nowy": "  if: \"C벳이 작거나, 플롭이 낮고 {{t:connected|커넥티드}}일 때(예: 7-6-5)\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"체크레이즈를 더 자주 합니다. 레이저에게 유리한 높은 플랍(예: K-J-T, A-A-K)과 큰 c벳에 대해서는 덜 합니다\"",
+  "nowy": "  then: \"체크레이즈를 더 자주 합니다. 레이저에게 유리한 높은 플롭(예: K-J-T, A-A-K)과 큰 C벳에 대해서는 덜 합니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"낮은 플랍에서는 {{t:big-blind|빅 블라인드}}가 가장 강한 족보를 더 많이 가지고({{t:nuts-advantage|너츠 우위}}), 작은 c벳은 {{t:raise|레이즈}}할 싼 기회를 줍니다\"",
+  "nowy": "  because: \"낮은 플롭에서는 {{t:big-blind|빅 블라인드}}가 가장 강한 족보를 더 많이 가지고({{t:nuts-advantage|너츠 우위}}), 작은 C벳은 {{t:raise|레이즈}}할 싼 기회를 줍니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"플랍에서 체크레이즈할 때\"",
+  "nowy": "  if: \"플롭에서 체크레이즈할 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"c벳 금액의 약 {{n:xr.mult.low}}–{{n:xr.mult.example}}로 {{t:raise|레이즈}}하고, c벳이 작을수록 더 크게 합니다. 최소 레이즈는 하지 않습니다\"",
+  "nowy": "  then: \"C벳 금액의 약 {{n:xr.mult.low}}–{{n:xr.mult.example}}로 {{t:raise|레이즈}}하고, C벳이 작을수록 더 크게 합니다. 최소 레이즈는 하지 않습니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"c벳의 {{n:xr.mult.example}}로 체크레이즈하면 버튼은 {{t:call|콜}}에 약 {{n:eq.vs-xr.example}} 에퀴티가 필요하지만, c벳의 {{n:xr.too-small.mult}}면 {{n:eq.vs-xr.too-small}}만 있으면 됩니다. 그렇게 싸면 어떤 {{t:draw|드로우}}로든 콜합니다\"",
+  "nowy": "  because: \"C벳의 {{n:xr.mult.example}}로 체크레이즈하면 버튼은 {{t:call|콜}}에 약 {{n:eq.vs-xr.example}} 에퀴티가 필요하지만, C벳의 {{n:xr.too-small.mult}}면 {{n:eq.vs-xr.too-small}}만 있으면 됩니다. 그렇게 싸면 어떤 {{t:draw|드로우}}로든 콜합니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"{{t:position|포지션}}에서 플랍에 c벳했고 상대가 {{t:call|콜}}했는데, 낮은 {{t:board|보드}}에 턴으로 높은 카드(에이스나 킹)가 떨어졌을 때\"",
+  "nowy": "  if: \"{{t:position|포지션}}에서 플롭에 C벳했고 상대가 {{t:call|콜}}했는데, 낮은 {{t:board|보드}}에 턴으로 높은 카드(에이스나 킹)가 떨어졌을 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"턴에서 중간 핸드(예: {{t:second-pair|세컨드 페어}}나 키커가 약한 {{t:top-pair|탑 페어}})를 가졌고, 상대가 이미 c벳에 {{t:call|콜}}했을 때\"",
+  "nowy": "  if: \"턴에서 중간 핸드(예: {{t:second-pair|세컨드 페어}}나 키커가 약한 {{t:top-pair|탑 페어}})를 가졌고, 상대가 이미 C벳에 {{t:call|콜}}했을 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"플랍에서 {{t:call|콜}}한 뒤 상대의 {{t:range|레인지}}는 그 전보다 강합니다: 베팅하면 더 약한 핸드는 {{t:fold|폴드}}하고 더 강한 핸드는 돈을 냅니다. {{t:check|체크}}하면 {{t:pot|팟}}을 작게 유지하고 쇼다운까지 갑니다\"",
+  "nowy": "  because: \"플롭에서 {{t:call|콜}}한 뒤 상대의 {{t:range|레인지}}는 그 전보다 강합니다: 베팅하면 더 약한 핸드는 {{t:fold|폴드}}하고 더 강한 핸드는 돈을 냅니다. {{t:check|체크}}하면 {{t:pot|팟}}을 작게 유지하고 쇼다운까지 갑니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"카드 한 장 기준으로 확률을 셉니다: {{t:flush|플러시}}는 약 {{n:odds.flush.turn-river}}이며, 플랍에서 리버까지처럼 {{n:odds.flush.flop-river}}가 아닙니다\"",
+  "nowy": "  then: \"카드 한 장 기준으로 확률을 셉니다: {{t:flush|플러시}}는 약 {{n:odds.flush.turn-river}}이며, 플롭에서 리버까지처럼 {{n:odds.flush.flop-river}}가 아닙니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"리버까지 카드가 한 장 남았으므로, 플랍에서 두 장으로 계산한 확률의 대략 절반입니다\"",
+  "nowy": "  because: \"리버까지 카드가 한 장 남았으므로, 플롭에서 두 장으로 계산한 확률의 대략 절반입니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"{{t:big-blind|빅 블라인드}}를 디펜드했는데, 버튼이 {{t:open|오픈}} 후 플랍에서 c벳하지 않았을 때({{t:check|체크}})\"",
+  "nowy": "  if: \"{{t:big-blind|빅 블라인드}}를 방어했는데, 버튼이 {{t:open|오픈}} 후 플롭에서 C벳하지 않았을 때({{t:check|체크}})\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"플랍에서 c벳에 {{t:call|콜}}했는데 상대가 턴에서 다시 베팅할 때\"",
+  "nowy": "  if: \"플롭에서 C벳에 {{t:call|콜}}했는데 상대가 턴에서 다시 베팅할 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"플랍보다 좁게 디펜드합니다: {{t:draw|드로우}}는 가격이 좋거나 임플라이드 오즈가 있을 때만 {{t:call|콜}}하고, 아웃 없는 핸드와 가장 약한 {{t:pair|페어}}는 {{t:fold|폴드}}합니다\"",
+  "nowy": "  then: \"플롭보다 좁게 방어합니다: {{t:draw|드로우}}는 가격이 좋거나 임플라이드 오즈가 있을 때만 {{t:call|콜}}하고, 아웃 없는 핸드와 가장 약한 {{t:pair|페어}}는 {{t:fold|폴드}}합니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"상대는 c벳보다 좁은 {{t:range|레인지}}로, 보통 더 큰 사이즈로 {{t:second-barrel|세컨드 배럴}}을 {{t:bet|베팅}}하며, {{t:draw|드로우}}에게는 카드가 한 장만 남았습니다\"",
+  "nowy": "  because: \"상대는 C벳보다 좁은 {{t:range|레인지}}로, 보통 더 큰 사이즈로 {{t:second-barrel|세컨드 배럴}}을 {{t:bet|베팅}}하며, {{t:draw|드로우}}에게는 카드가 한 장만 남았습니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"리버에서 베팅을 받고 {{t:range|레인지}}로 디펜드할 때\"",
+  "nowy": "  if: \"리버에서 베팅을 받고 {{t:range|레인지}}로 방어할 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"플랍에서 {{t:spr|SPR}}을 계산할 때\"",
+  "nowy": "  if: \"플롭에서 {{t:spr|SPR}}을 계산할 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"프리플랍의 {{t:raise|레이즈}}마다 {{t:pot|팟}}은 몇 배로 커지지만, 남은 스택은 훨씬 천천히 줄어듭니다\"",
+  "nowy": "  because: \"프리플롭의 {{t:raise|레이즈}}마다 {{t:pot|팟}}은 몇 배로 커지지만, 남은 스택은 훨씬 천천히 줄어듭니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"상대가 플랍에서 스택 전체로 올인할 때\"",
+  "nowy": "  if: \"상대가 플롭에서 스택 전체로 올인할 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"플랍의 {{t:spr|SPR}}이 약 {{n:spr.zone.low}}보다 낮고(예: {{n:spr.commit}}), {{t:top-pair|탑 페어}} 이상의 핸드를 가졌을 때\"",
+  "nowy": "  if: \"플롭의 {{t:spr|SPR}}이 약 {{n:spr.zone.low}}보다 낮고(예: {{n:spr.commit}}), {{t:top-pair|탑 페어}} 이상의 핸드를 가졌을 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"플랍의 {{t:pot|팟}}은 스택에 비해 작습니다. 모든 {{t:street|스트리트}}에서 {{t:pot|팟}}의 약 {{n:geo.srp.3}}로 {{t:bet|베팅}}해야 스택 전체가 들어갑니다\"",
+  "nowy": "  because: \"플롭의 {{t:pot|팟}}은 스택에 비해 작습니다. 모든 {{t:street|스트리트}}에서 {{t:pot|팟}}의 약 {{n:geo.srp.3}}로 {{t:bet|베팅}}해야 스택 전체가 들어갑니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"플랍에서 {{t:bet|베팅}}하기 전에 핸드를 계획할 때\"",
+  "nowy": "  if: \"플롭에서 {{t:bet|베팅}}하기 전에 핸드를 계획할 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"플랍부터 작은 사이즈가 아니라 기하학적 사이즈로 베팅합니다\"",
+  "nowy": "  then: \"플롭부터 작은 사이즈가 아니라 기하학적 사이즈로 베팅합니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"{{t:vpip|VPIP}}는 프리플랍에 자발적으로 {{t:chips|칩}}을 넣는 핸드의 비율({{t:call|콜}} 또는 {{t:raise|레이즈}}, 블라인드는 제외)이고, {{t:pfr|PFR}}은 프리플랍에 {{t:raise|레이즈}}하는 핸드의 비율({{t:open|오픈}}, 3벳, 4벳)입니다. {{t:pfr|PFR}}은 절대 {{t:vpip|VPIP}}를 넘지 않습니다\"",
+  "nowy": "  then: \"{{t:vpip|VPIP}}는 프리플롭에 자발적으로 {{t:chips|칩}}을 넣는 핸드의 비율({{t:call|콜}} 또는 {{t:raise|레이즈}}, 블라인드는 제외)이고, {{t:pfr|PFR}}은 프리플롭에 {{t:raise|레이즈}}하는 핸드의 비율({{t:open|오픈}}, 3벳, 4벳)입니다. {{t:pfr|PFR}}은 절대 {{t:vpip|VPIP}}를 넘지 않습니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"핸드를 이렇게 적게 플레이하는 사람은 주로 가장 강한 핸드로 {{t:raise|레이즈}}하므로, 내 중간 핸드가 도미네이트당하는 경우가 많습니다. 또 블라인드를 좁게 디펜드하므로 내 {{t:open|오픈}}이 바로 이기는 경우가 많습니다\"",
+  "nowy": "  because: \"핸드를 이렇게 적게 플레이하는 사람은 주로 가장 강한 핸드로 {{t:raise|레이즈}}하므로, 내 중간 핸드가 도미네이트당하는 경우가 많습니다. 또 블라인드를 좁게 방어하므로 내 {{t:open|오픈}}이 바로 이기는 경우가 많습니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"상대가 c벳에 내 사이즈의 {{t:alpha|알파}}보다 자주 {{t:fold|폴드}}할 때\"",
+  "nowy": "  if: \"상대가 C벳에 내 사이즈의 {{t:alpha|알파}}보다 자주 {{t:fold|폴드}}할 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  then: \"핸드 없이 하는 c벳도 바로 이익입니다: {{t:pot|팟}}의 1/3 c벳이면 {{t:fold|폴드}}가 {{n:alpha.cbet.small}}를 넘으면 되고, {{t:pot|팟}}의 3/4 c벳이면 {{n:alpha.cbet.big}}를 넘으면 됩니다\"",
+  "nowy": "  then: \"핸드 없이 하는 C벳도 바로 이익입니다: {{t:pot|팟}}의 1/3 C벳이면 {{t:fold|폴드}}가 {{n:alpha.cbet.small}}를 넘으면 되고, {{t:pot|팟}}의 3/4 C벳이면 {{n:alpha.cbet.big}}를 넘으면 됩니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"{{t:bluff|블러프}}는 {{t:pot|팟}}을 얻으려고 베팅 금액을 겁니다. {{t:fold|폴드}} 비율이 베팅 ÷ ({{t:pot|팟}} + 베팅)을 넘으면 이익입니다. {{t:hud|HUD}}의 폴드 투 c벳은 모든 사이즈와 보드를 합친 값이므로 근사치일 뿐입니다\"",
+  "nowy": "  because: \"{{t:bluff|블러프}}는 {{t:pot|팟}}을 얻으려고 베팅 금액을 겁니다. {{t:fold|폴드}} 비율이 베팅 ÷ ({{t:pot|팟}} + 베팅)을 넘으면 이익입니다. {{t:hud|HUD}}의 폴드 투 C벳은 모든 사이즈와 보드를 합친 값이므로 근사치일 뿐입니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"{{t:rake|레이크}}는 플랍까지 가는 모든 {{t:pot|팟}}에서 모든 플레이어가 냅니다. 이기려면 {{t:rake|레이크}}보다 더 큰 차이로 상대를 이겨야 합니다\"",
+  "nowy": "  because: \"{{t:rake|레이크}}는 플롭까지 가는 모든 {{t:pot|팟}}에서 모든 플레이어가 냅니다. 이기려면 {{t:rake|레이크}}보다 더 큰 차이로 상대를 이겨야 합니다\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  if: \"플랍까지 간 {{t:pot|팟}}에서만 {{t:rake|레이크}}를 떼는 게임에서 {{t:open|오픈}}을 받았을 때\"",
+  "nowy": "  if: \"플롭까지 간 {{t:pot|팟}}에서만 {{t:rake|레이크}}를 떼는 게임에서 {{t:open|오픈}}을 받았을 때\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "  because: \"{{t:rake|레이크}}는 플랍 이후 {{t:pot|팟}}의 일부를 가져가고, 프리플랍에 끝난 {{t:pot|팟}}에서는 떼지 않습니다: {{t:call|콜}}은 보통 플랍으로 이어져 {{t:rake|레이크}}를 내고, 3벳은 {{t:rake|레이크}} 없이 프리플랍에 핸드를 끝내는 경우가 많으며, {{t:fold|폴드}}는 비용이 없습니다(일부 포커룸은 플랍 없이 끝난 3벳 {{t:pot|팟}}에서도 {{t:rake|레이크}}를 떼므로, 그곳에서는 3벳도 레이크를 냅니다)\"",
+  "nowy": "  because: \"{{t:rake|레이크}}는 플롭 이후 {{t:pot|팟}}의 일부를 가져가고, 프리플롭에 끝난 {{t:pot|팟}}에서는 떼지 않습니다: {{t:call|콜}}은 보통 플롭으로 이어져 {{t:rake|레이크}}를 내고, 3벳은 {{t:rake|레이크}} 없이 프리플롭에 핸드를 끝내는 경우가 많으며, {{t:fold|폴드}}는 비용이 없습니다(일부 포커룸은 플롭 없이 끝난 3벳 {{t:pot|팟}}에서도 {{t:rake|레이크}}를 떼므로, 그곳에서는 3벳도 레이크를 냅니다)\"",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/modules.yaml",
+  "stary": "- { id: m4, order: 4, title: \"액션에 대응하는 프리플랍\", sub: \"3벳, 디펜스, 림퍼\", phase: mvp }",
+  "nowy": "- { id: m4, order: 4, title: \"액션에 대응하는 프리플롭\", sub: \"3벳, 방어, 림퍼\", phase: mvp }",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/modules.yaml",
+  "stary": "- { id: m5, order: 5, title: \"플랍: 씨벳\", sub: \"텍스처와 사이즈\", phase: f2 }",
+  "nowy": "- { id: m5, order: 5, title: \"플롭: C벳\", sub: \"텍스처와 사이즈\", phase: f2 }",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/modules.yaml",
+  "stary": "- { id: m6, order: 6, title: \"플랍: 디펜스\", sub: \"MDF, 콜, 체크레이즈\", phase: f2 }",
+  "nowy": "- { id: m6, order: 6, title: \"플롭: 방어\", sub: \"MDF, 콜, 체크레이즈\", phase: f2 }",
+  "waga": "ŚREDNIE",
+  "powod": "OPCJA [DO USTALENIA]: ujednolicenie z większością przekładu ko: 플롭 (nie 플랍), C벳 (nie c벳/씨벳), 방어 (nie 디펜드/디펜스)",
+  "grupa": "K1"
+ }
+]

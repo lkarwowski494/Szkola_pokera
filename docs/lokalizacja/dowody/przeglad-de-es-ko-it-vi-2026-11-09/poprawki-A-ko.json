@@ -1,0 +1,11 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "{{n:dd.wr-low}}에서 {{n:var.wr.ex}}로 이기는",
+  "nowy": "윈레이트 {{n:dd.wr-low}}~{{n:var.wr.ex}}로 이기는",
+  "waga": "ŚREDNIE",
+  "powod": "R-M12-011 because: „A에서 B로 이기는” da się czytać jako zmiana winrate z A na B (ta sama konstrukcja w polu if oznacza zmianę bankrollu); pl „od A do B” to przedział winrate; zapis jak w lekcji m12-l1 q-dd-meaning („윈레이트 A~B로 이기는”)",
+  "grupa": "A-ko"
+ }
+]

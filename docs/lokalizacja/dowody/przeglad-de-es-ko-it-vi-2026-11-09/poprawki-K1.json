@@ -1,0 +1,74 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "즉시 대응합니다: 호흡하고, 이것이 왜 {{t:variance|변동성}}이거나",
+  "nowy": "즉시 대응합니다: 심호흡을 하고, 이것이 왜 {{t:variance|분산}}이거나",
+  "waga": "ŚREDNIE",
+  "powod": "R-M12-006 then: wariancja to w ko w całym przekładzie „분산” (lekcje m12-l1/l2/l4, egzamin m12, terms-def), tu „변동성”; przy okazji „호흡하고” (oddychasz) → „심호흡을 하고” (bierzesz głęboki oddech)",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/modules.yaml",
+  "stary": "sub: \"변동성과 틸트\"",
+  "nowy": "sub: \"분산과 틸트\"",
+  "waga": "ŚREDNIE",
+  "powod": "m12 sub: „Wariancja” = „분산” jak w lekcji m12-l1 i regułach po poprawce",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "적중했을 때 총 콜 금액 × (빗나가는 카드 ÷ 아웃) 이상을 이길 수 있을 때만",
+  "nowy": "적중했을 때 합계로 최소 콜 금액 × (빗나가는 카드 ÷ 아웃)을 이길 수 있을 때만",
+  "waga": "ŚREDNIE",
+  "powod": "R-M7-008 then: „총 콜 금액” czyta się jako „łączna kwota sprawdzeń”; pl: „wygrasz łącznie co najmniej dopłata × (…)” — „łącznie” dotyczy wygranej, „co najmniej” to granica",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "{{t:expected-value|기대값}}",
+  "nowy": "{{t:expected-value|기댓값}}",
+  "waga": "NISKIE",
+  "powod": "R-M13-002: pisownia normatywna „기댓값” (사이시옷), tak jak w większości lekcji",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "{{t:short-stack|숏스택}}",
+  "nowy": "{{t:short-stack|숏 스택}}",
+  "waga": "NISKIE",
+  "powod": "R-M11-001: „숏 스택” jak w lekcjach m11, egzaminie m11 i terms-def",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/modules.yaml",
+  "stary": "title: \"토너먼트와 숏스택\"",
+  "nowy": "title: \"토너먼트와 숏 스택\"",
+  "waga": "NISKIE",
+  "powod": "m11 title: „숏 스택” jak w lekcjach m11",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "일부 출처는 이런 손실 직후 내리라고 권합니다",
+  "nowy": "일부 출처는 이 정도 손실에서 이미 내리라고 권합니다",
+  "waga": "NISKIE",
+  "powod": "R-M12-011 because: pl „radzi zejść już po takiej stracie” (już przy tej stracie, wcześniej niż reguła), „직후” = „zaraz po”",
+  "grupa": "K1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "stary": "(스트리트 수는 단순화)",
+  "nowy": "({{t:street|스트리트}} 수는 단순화)",
+  "waga": "NISKIE",
+  "powod": "R-M9-008 then: przywraca znacznik {{t:street}} ze źródła (ostrzeżenie automatyczne)",
+  "grupa": "K1"
+ }
+]

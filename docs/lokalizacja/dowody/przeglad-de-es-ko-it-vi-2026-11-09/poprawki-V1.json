@@ -1,0 +1,245 @@
+[
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "hành động trước ở mọi {{t:street|street}}",
+  "nowy": "hành động trước ở mọi {{t:street|vòng cược}}",
+  "waga": "ŚREDNIE",
+  "powod": "R-M5-012 because: ulica = „street”, a lekcje vi (70×) i modules m1/m9 mają „vòng cược”/„vòng”; jedna nazwa na pojęcie",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "chịu được hai {{t:value|street giá trị}}",
+  "nowy": "chịu được hai {{t:value|vòng cược giá trị}}",
+  "waga": "ŚREDNIE",
+  "powod": "R-M9-003 because: „street giá trị” → „vòng cược giá trị” jak w lekcjach m9 (spójność terminu ulica)",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "để đưa cả stack vào trước river, phải cược hơn {{t:pot|pot}} ở mỗi {{t:street|street}}",
+  "nowy": "để đưa cả stack vào cho tới river, phải cược hơn {{t:pot|pot}} ở mỗi {{t:street|vòng cược}}",
+  "waga": "ŚREDNIE",
+  "powod": "R-M9-005 because: pl „do rivera” (łącznie z riverem), vi „trước river” = przed riverem (zmienia rachunek o jedną ulicę); plus termin ulica",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "then: \"ở mỗi {{t:street|street}} bạn cược",
+  "nowy": "then: \"ở mỗi {{t:street|vòng cược}} bạn cược",
+  "waga": "ŚREDNIE",
+  "powod": "R-M9-006 then: spójność terminu ulica (vòng cược)",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "mũ số {{t:street|street}} =",
+  "nowy": "mũ số {{t:street|vòng cược}} =",
+  "waga": "ŚREDNIE",
+  "powod": "R-M9-006 then: spójność terminu ulica (vòng cược)",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "bạn cược ở ba {{t:street|street}}",
+  "nowy": "bạn cược ở ba {{t:street|vòng cược}}",
+  "waga": "ŚREDNIE",
+  "powod": "R-M9-007 if: spójność terminu ulica (vòng cược)",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "{{n:geo.srp.3}} {{t:pot|pot}} ở mỗi {{t:street|street}}",
+  "nowy": "{{n:geo.srp.3}} {{t:pot|pot}} ở mỗi {{t:street|vòng cược}}",
+  "waga": "ŚREDNIE",
+  "powod": "R-M9-007 because: spójność terminu ulica (vòng cược)",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "chịu được bao nhiêu {{t:value|street giá trị}} (số street là đơn giản hóa)",
+  "nowy": "chịu được bao nhiêu {{t:value|vòng cược giá trị}} (số vòng cược là đơn giản hóa)",
+  "waga": "ŚREDNIE",
+  "powod": "R-M9-008 then: spójność terminu ulica (vòng cược)",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "thường hai, street thứ ba khi",
+  "nowy": "thường hai, vòng thứ ba khi",
+  "waga": "ŚREDNIE",
+  "powod": "R-M9-008 then: spójność terminu ulica",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "một hoặc không street nào",
+  "nowy": "một hoặc không vòng nào",
+  "waga": "ŚREDNIE",
+  "powod": "R-M9-008 then: spójność terminu ulica",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "qua mỗi {{t:street|street}}",
+  "nowy": "qua mỗi {{t:street|vòng cược}}",
+  "waga": "ŚREDNIE",
+  "powod": "R-M9-008 because: spójność terminu ulica (vòng cược)",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "tay đủ cho ba {{t:value|street giá trị}}",
+  "nowy": "tay đủ cho ba {{t:value|vòng cược giá trị}}",
+  "waga": "ŚREDNIE",
+  "powod": "R-M9-009 if: spójność terminu ulica (vòng cược giá trị)",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "{{n:geo.3bet-ip.3}} {{t:pot|pot}} ở mỗi {{t:street|street}}",
+  "nowy": "{{n:geo.3bet-ip.3}} {{t:pot|pot}} ở mỗi {{t:street|vòng cược}}",
+  "waga": "ŚREDNIE",
+  "powod": "R-M9-009 because: spójność terminu ulica (vòng cược)",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "bạn {{t:open|mở}} rộng hơn từ {{t:utg|UTG}} nhưng hẹp hơn từ Button; từ {{t:cutoff|CO}} rộng hơn từ {{t:hijack|HJ}}",
+  "nowy": "bạn {{t:open|mở}} rộng hơn so với khi ở {{t:utg|UTG}} nhưng hẹp hơn so với khi ở Button; từ {{t:cutoff|CO}} rộng hơn so với từ {{t:hijack|HJ}}",
+  "waga": "WYSOKIE",
+  "powod": "R-M3-006 then: „mở rộng hơn từ UTG nhưng hẹp hơn từ Button” da się przeczytać „otwierasz szerzej z UTG, a węziej z Buttona” (odwrócone zalecenie); „so với” jednoznacznie wskazuje punkt porównania",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "{{t:open|mở}} hẹp hơn từ {{t:utg|UTG}} ở bàn 6 người",
+  "nowy": "{{t:open|mở}} hẹp hơn so với khi ở {{t:utg|UTG}} của bàn 6 người",
+  "waga": "ŚREDNIE",
+  "powod": "R-M3-010 then: „hẹp hơn từ UTG ở bàn 6 người” dwuznaczne (porównanie czy miejsce); „so với khi ở” jak w lekcjach",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "ngay cả {{n:skill.pct}} người chơi giỏi nhất cũng chỉ vượt {{n:skill.pct}} người chơi kém nhất trong khoảng {{n:skill.ahead}} trường hợp sau khoảng {{n:skill.hands}} ván",
+  "nowy": "ngay cả {{n:skill.pct}} người chơi giỏi nhất cũng phải sau khoảng {{n:skill.hands}} ván mới vượt {{n:skill.pct}} người chơi kém nhất trong khoảng {{n:skill.ahead}} trường hợp",
+  "waga": "ŚREDNIE",
+  "powod": "R-M12-005 because: pl „dopiero po ok. N rękach” (potrzeba wielu rąk); vi „chỉ vượt … trong khoảng X trường hợp sau N ván” przenosi „tylko” na odsetek; „phải sau … mới” oddaje „dopiero”",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "chỉ có nghĩa là “trong khoảng từ",
+  "nowy": "chỉ có nghĩa là “khoảng từ",
+  "waga": "NISKIE",
+  "powod": "R-M12-001 because: pl „między ok. A a B”; „trong khoảng từ” = „w przedziale od”, gubi „ok.”",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "xảy ra với hầu hết người chơi thắng",
+  "nowy": "xảy ra với gần như mọi người chơi thắng",
+  "waga": "NISKIE",
+  "powod": "R-M12-011 because: pl „prawie każdemu”; „hầu hết” = „większości”, „gần như mọi” = „prawie każdemu”",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "ứng với mức cược của bạn",
+  "nowy": "ứng với kích thước cược của bạn",
+  "waga": "ŚREDNIE",
+  "powod": "R-M10-010 if: „mức cược” to w vi termin stawki ({{t:stakes|mức cược}}, „mức cược micro”); tu chodzi o rozmiar betu; „kích thước cược” jak modules m5/m9",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "gộp mọi mức cược và mọi board",
+  "nowy": "gộp mọi kích thước cược và mọi board",
+  "waga": "ŚREDNIE",
+  "powod": "R-M10-010 because: „mọi mức cược” czyta się „wszystkie stawki”; pl „wszystkie rozmiary”",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "một mức cược cho mọi {{t:position|vị trí}}",
+  "nowy": "một kích thước cược cho mọi {{t:position|vị trí}}",
+  "waga": "NISKIE",
+  "powod": "R-M3-007 because: rozmiar, nie stawka (mức cược = stawka)",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "bạn thay đổi mức cược với",
+  "nowy": "bạn thay đổi kích thước cược với",
+  "waga": "NISKIE",
+  "powod": "R-M8-005 if: rozmiar betu, nie stawka",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "thắng một mức cược, mỗi lần",
+  "nowy": "thắng một khoản cược, mỗi lần",
+  "waga": "NISKIE",
+  "powod": "R-M8-001 because: „jeden bet” = khoản cược (jak R-M5-011 „khoản cược”), nie „mức cược” (stawka)",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/rules.yaml",
+  "stary": "thua một mức cược;",
+  "nowy": "thua một khoản cược;",
+  "waga": "NISKIE",
+  "powod": "R-M8-001 because: jw.",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/modules.yaml",
+  "stary": "sub: \"MDF, call, check-raise\"",
+  "nowy": "sub: \"MDF, theo, check-raise\"",
+  "waga": "ŚREDNIE",
+  "powod": "m6 sub: „call” obok „theo” w regułach (114×) i lekcjach (231×)",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/modules.yaml",
+  "stary": "sub: \"Value, bluff, blocker\"",
+  "nowy": "sub: \"Giá trị, bluff, blocker\"",
+  "waga": "NISKIE",
+  "powod": "m8 sub: value w regułach i lekcjach to „giá trị”",
+  "grupa": "V1"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/ranges/spots.yaml",
+  "stary": "Đây là mức cược khi {{t:out-of-position}}.",
+  "nowy": "Đây là kích thước cược khi {{t:out-of-position|không có vị trí}}.",
+  "waga": "NISKIE",
+  "powod": "BTN vs CO why: rozmiar, nie stawka (mức cược); znacznik bez formy, forma jak w regułach",
+  "grupa": "V1"
+ }
+]

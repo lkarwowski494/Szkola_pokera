@@ -1,0 +1,272 @@
+[
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "\"title\": \"Scuola di Poker\"",
+  "nowy": "\"title\": \"PokerGym\"",
+  "waga": "ŚREDNIE",
+  "powod": "welcome.title: marka „PokerGym” bez tłumaczenia (D-384), źródło pl ma już „PokerGym”",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "altrimenti {{t:fold|passa}}. Una decisione",
+  "nowy": "altrimenti {{t:fold|folda}}. Una decisione",
+  "waga": "ŚREDNIE",
+  "powod": "fold: UI miesza „passare” (13×) z „fold” (6×), lekcje mają foldare ×~560 wobec passare ×~110, a nazwa K-05 to „fold”; [A] it.wikipedia używa „passa” dla check („Bob passa, Carol passa”) — ujednolicenie do fold/foldare usuwa dwuznaczność (play.timerHint)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "\"fold\": \"{{t:fold|Passo}}\",\n    \"check\": \"{{t:check|Check}}\"",
+  "nowy": "\"fold\": \"{{t:fold|Fold}}\",\n    \"check\": \"{{t:check|Check}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "fold: UI miesza „passare” (13×) z „fold” (6×), lekcje mają foldare ×~560 wobec passare ×~110, a nazwa K-05 to „fold”; [A] it.wikipedia używa „passa” dla check („Bob passa, Carol passa”) — ujednolicenie do fold/foldare usuwa dwuznaczność (play.fold; przycisk obok „Check”)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "\"fold\": \"{{pos}}: {{t:fold|passa}}\"",
+  "nowy": "\"fold\": \"{{pos}}: {{t:fold|folda}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "fold: UI miesza „passare” (13×) z „fold” (6×), lekcje mają foldare ×~560 wobec passare ×~110, a nazwa K-05 to „fold”; [A] it.wikipedia używa „passa” dla check („Bob passa, Carol passa”) — ujednolicenie do fold/foldare usuwa dwuznaczność (play.log.fold)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "l'app ha {{t:fold|passato}} per te",
+  "nowy": "l'app ha {{t:fold|foldato}} per te",
+  "waga": "ŚREDNIE",
+  "powod": "fold: UI miesza „passare” (13×) z „fold” (6×), lekcje mają foldare ×~560 wobec passare ×~110, a nazwa K-05 to „fold”; [A] it.wikipedia używa „passa” dla check („Bob passa, Carol passa”) — ujednolicenie do fold/foldare usuwa dwuznaczność (play.report.detail.timeoutFold)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "\"seatFold\": \"{{pos}} {{t:fold|passa}}\"",
+  "nowy": "\"seatFold\": \"{{pos}} {{t:fold|folda}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "fold: UI miesza „passare” (13×) z „fold” (6×), lekcje mają foldare ×~560 wobec passare ×~110, a nazwa K-05 to „fold”; [A] it.wikipedia używa „passa” dla check („Bob passa, Carol passa”) — ujednolicenie do fold/foldare usuwa dwuznaczność (table.seatFold)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "{{t:fold|ha passato}}",
+  "nowy": "{{t:fold|ha foldato}}",
+  "waga": "ŚREDNIE",
+  "powod": "fold: UI miesza „passare” (13×) z „fold” (6×), lekcje mają foldare ×~560 wobec passare ×~110, a nazwa K-05 to „fold”; [A] it.wikipedia używa „passa” dla check („Bob passa, Carol passa”) — ujednolicenie do fold/foldare usuwa dwuznaczność (table.folded_one)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "\"folded_many\": \"{{list}} {{t:fold|hanno passato}}\"",
+  "nowy": "\"folded_many\": \"{{list}} {{t:fold|hanno foldato}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "fold: UI miesza „passare” (13×) z „fold” (6×), lekcje mają foldare ×~560 wobec passare ×~110, a nazwa K-05 to „fold”; [A] it.wikipedia używa „passa” dla check („Bob passa, Carol passa”) — ujednolicenie do fold/foldare usuwa dwuznaczność (table.folded_many)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "\"folded_other\": \"{{list}} {{t:fold|hanno passato}}\"",
+  "nowy": "\"folded_other\": \"{{list}} {{t:fold|hanno foldato}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "fold: UI miesza „passare” (13×) z „fold” (6×), lekcje mają foldare ×~560 wobec passare ×~110, a nazwa K-05 to „fold”; [A] it.wikipedia używa „passa” dla check („Bob passa, Carol passa”) — ujednolicenie do fold/foldare usuwa dwuznaczność (table.folded_other)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "\"extra\": \"di troppo, il solver la {{t:fold|passa}}\"",
+  "nowy": "\"extra\": \"di troppo, il solver la {{t:fold|folda}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "fold: UI miesza „passare” (13×) z „fold” (6×), lekcje mają foldare ×~560 wobec passare ×~110, a nazwa K-05 to „fold”; [A] it.wikipedia używa „passa” dla check („Bob passa, Carol passa”) — ujednolicenie do fold/foldare usuwa dwuznaczność (paint.state.extra)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "selezionata, ma il solver la {{t:fold|passa}}",
+  "nowy": "selezionata, ma il solver la {{t:fold|folda}}",
+  "waga": "ŚREDNIE",
+  "powod": "fold: UI miesza „passare” (13×) z „fold” (6×), lekcje mają foldare ×~560 wobec passare ×~110, a nazwa K-05 to „fold”; [A] it.wikipedia używa „passa” dla check („Bob passa, Carol passa”) — ujednolicenie do fold/foldare usuwa dwuznaczność (drill.paint.explanation)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "\"fold\": \"{{t:fold|Passo}}\",\n      \"you\": \"Tu\"",
+  "nowy": "\"fold\": \"{{t:fold|Foldo}}\",\n      \"you\": \"Tu\"",
+  "waga": "ŚREDNIE",
+  "powod": "fold: UI miesza „passare” (13×) z „fold” (6×), lekcje mają foldare ×~560 wobec passare ×~110, a nazwa K-05 to „fold”; [A] it.wikipedia używa „passa” dla check („Bob passa, Carol passa”) — ujednolicenie do fold/foldare usuwa dwuznaczność (drill.icm.fold; lekcje: „Foldo”×45 w odpowiedziach)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "\"fold\": \"{{t:fold|Passo}}\",\n      \"outs_one\"",
+  "nowy": "\"fold\": \"{{t:fold|Foldo}}\",\n      \"outs_one\"",
+  "waga": "ŚREDNIE",
+  "powod": "fold: UI miesza „passare” (13×) z „fold” (6×), lekcje mają foldare ×~560 wobec passare ×~110, a nazwa K-05 to „fold”; [A] it.wikipedia używa „passa” dla check („Bob passa, Carol passa”) — ujednolicenie do fold/foldare usuwa dwuznaczność (drill.drawCall.fold)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "{{t:fold|passi}} più spesso, e gli rubi",
+  "nowy": "{{t:fold|foldi}} più spesso, e gli rubi",
+  "waga": "ŚREDNIE",
+  "powod": "fold: UI miesza „passare” (13×) z „fold” (6×), lekcje mają foldare ×~560 wobec passare ×~110, a nazwa K-05 to „fold”; [A] it.wikipedia używa „passa” dla check („Bob passa, Carol passa”) — ujednolicenie do fold/foldare usuwa dwuznaczność (drill.playerType.adjust.nit)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "In una partita a {{t:chips}} una {{t:call}} converrebbe",
+  "nowy": "In una partita a {{t:chips}} un {{t:call}} converrebbe",
+  "waga": "ŚREDNIE",
+  "powod": "rodzaj „call”: nazwa K-05 „call” (m., [C] „Un call è…”); 13 miejsc bez formy w lekcjach/egzaminach ma „il/un {{t:call}}”, a UI „la/una {{t:call}}” — dziś (render en) wyświetla „una call” (drill.icm.callWrongChips)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "sarebbe una {{t:call}}: è proprio",
+  "nowy": "sarebbe un {{t:call}}: è proprio",
+  "waga": "ŚREDNIE",
+  "powod": "rodzaj „call”: nazwa K-05 „call” (m., [C] „Un call è…”); 13 miejsc bez formy w lekcjach/egzaminach ma „il/un {{t:call}}”, a UI „la/una {{t:call}}” — dziś (render en) wyświetla „una call” (drill.icm.foldRightChips)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "aggiungi anche la tua {{t:call}}.",
+  "nowy": "aggiungi anche il tuo {{t:call}}.",
+  "waga": "ŚREDNIE",
+  "powod": "rodzaj „call”: nazwa K-05 „call” (m., [C] „Un call è…”); 13 miejsc bez formy w lekcjach/egzaminach ma „il/un {{t:call}}”, a UI „la/una {{t:call}}” — dziś (render en) wyświetla „una call” (drill.potOdds.mistakeNoCall)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "quindi la {{t:call}} conviene.",
+  "nowy": "quindi il {{t:call}} conviene.",
+  "waga": "ŚREDNIE",
+  "powod": "rodzaj „call”: nazwa K-05 „call” (m., [C] „Un call è…”); 13 miejsc bez formy w lekcjach/egzaminach ma „il/un {{t:call}}”, a UI „la/una {{t:call}}” — dziś (render en) wyświetla „una call” (drill.drawCall.verdictGood)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "quindi la sola {{t:call}} perde. Può convenire solo grazie alle implied odds, cioè quando dopo aver centrato vinci di più, e a condizione",
+  "nowy": "quindi il solo {{t:call}} perde. Può convenire solo grazie alle implied odds, cioè quando dopo aver centrato vinci di più, e a condizione",
+  "waga": "ŚREDNIE",
+  "powod": "rodzaj „call”: nazwa K-05 „call” (m., [C] „Un call è…”); 13 miejsc bez formy w lekcjach/egzaminach ma „il/un {{t:call}}”, a UI „la/una {{t:call}}” — dziś (render en) wyświetla „una call” (drill.drawCall.verdictNearFlop)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "quindi la sola {{t:call}} perde. Può convenire solo grazie alle implied odds, cioè quando dopo aver centrato vinci di più.\"",
+  "nowy": "quindi il solo {{t:call}} perde. Può convenire solo grazie alle implied odds, cioè quando dopo aver centrato vinci di più.\"",
+  "waga": "ŚREDNIE",
+  "powod": "rodzaj „call”: nazwa K-05 „call” (m., [C] „Un call è…”); 13 miejsc bez formy w lekcjach/egzaminach ma „il/un {{t:call}}”, a UI „la/una {{t:call}}” — dziś (render en) wyświetla „una call” (drill.drawCall.verdictNearTurn)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "quindi la {{t:call}} perde nel lungo periodo",
+  "nowy": "quindi il {{t:call}} perde nel lungo periodo",
+  "waga": "ŚREDNIE",
+  "powod": "rodzaj „call”: nazwa K-05 „call” (m., [C] „Un call è…”); 13 miejsc bez formy w lekcjach/egzaminach ma „il/un {{t:call}}”, a UI „la/una {{t:call}}” — dziś (render en) wyświetla „una call” (drill.drawCall.verdictBad)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "\"acceptable\": \"Accettabile: il solver gioca così raramente\"",
+  "nowy": "\"acceptable\": \"Accettabile: il solver gioca così, ma raramente\"",
+  "waga": "ŚREDNIE",
+  "powod": "session.acceptable: „il solver gioca così raramente” czyta się „solver gra tak rzadko (w ogóle)”; pl: solver wybiera to zagranie rzadko",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "\"Il solver gioca così raramente oppure",
+  "nowy": "\"Il solver gioca così, ma raramente, oppure",
+  "waga": "ŚREDNIE",
+  "powod": "play.report.verdictHints.acceptable: jw. (dwuznaczne „così raramente”)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "\"unknown\": \"Troppe poche mani per giudicare\"",
+  "nowy": "\"unknown\": \"Troppo poche mani per giudicare\"",
+  "waga": "NISKIE",
+  "powod": "drill.playerType.name.unknown: „troppo” przed przymiotnikiem jest nieodmienne („troppe poche” — błąd)",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "\"again\": \"Ancora\"",
+  "nowy": "\"again\": \"Di nuovo\"",
+  "waga": "NISKIE",
+  "powod": "session.again: samo „Ancora” na przycisku jest dwuznaczne („jeszcze/więcej”); pl „Jeszcze raz”",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "stesso valore; un {{t:straight-draw}} lo dà ad es. {{example}}.",
+  "nowy": "stesso valore; un {{t:straight-draw}} si ha ad es. con {{example}}.",
+  "waga": "NISKIE",
+  "powod": "drill.texture.rankFact.pairedDraw: „un progetto di scala lo dà ad es. X” — szyk niejasny (kto daje co); jak draws.straightDraw „ad es. con {{example}}”",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "apps/mobile/src/i18n/locales/it.json",
+  "stary": "ma un {{t:straight-draw}} lo dà ad es. {{example}}.",
+  "nowy": "ma un {{t:straight-draw}} si ha ad es. con {{example}}.",
+  "waga": "NISKIE",
+  "powod": "drill.texture.rankFact.semiConnected: jw.",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/terms-def.yaml",
+  "stary": "di un dato limite che gioca molte mani;",
+  "nowy": "di un dato limite che gioca un grande volume di mani;",
+  "waga": "ŚREDNIE",
+  "powod": "regular: „gioca molte mani” w kursie = styl loose (play.styleHints, typy graczy); pl „rozgrywa dużo rąk” = wolumen",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/terms-def.yaml",
+  "stary": "da asciutto a bagnato.",
+  "nowy": "da secco a bagnato.",
+  "waga": "ŚREDNIE",
+  "powod": "wetness: UI (Secco, drill.texture.*) i nazwa K-05 dry = „secco”; „asciutto” to druga forma tego samego pojęcia",
+  "grupa": "I2"
+ },
+ {
+  "jezyk": "it",
+  "cel": "content/it/terms-def.yaml",
+  "stary": "i «micro-limiti» sono",
+  "nowy": "i «microlimiti» sono",
+  "waga": "NISKIE",
+  "powod": "stakes: lekcje „microlimiti”×6 (definicja jedyna z łącznikiem)",
+  "grupa": "I2"
+ }
+]

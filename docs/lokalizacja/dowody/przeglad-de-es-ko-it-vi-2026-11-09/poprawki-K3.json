@@ -1,0 +1,218 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "stary": "책임감 있는 게임 카드에 있는 연락처를 이용하세요",
+  "nowy": "이 레슨 끝의 ‘책임감 있는 게임’ 안내에 있는 연락처를 이용하세요",
+  "waga": "ŚREDNIE",
+  "powod": "Treść krytyczna (odpowiedzialna gra): „책임감 있는 게임 카드” — w kursie pokera „카드” czyta się jako kartę do gry; odesłanie do ramki pomocy niejasne. Wskazanie ramki na końcu lekcji.",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "stary": "같은 뱅크롤이 다시 그 스테이크 {{t:buy-in|바이인}}으로 거의 전체 수에 해당합니다.\" }",
+  "nowy": "같은 뱅크롤이 그 스테이크의 {{t:buy-in|바이인}}으로 세면 다시 계획한 수에 거의 가깝습니다.\" }",
+  "waga": "ŚREDNIE",
+  "powod": "Zdanie niezrozumiałe („odpowiada prawie całej liczbie w wpisowych tej stawki”); pl: na stawce dwa razy niższej ten sam bankroll to znów prawie pełna liczba jej wpisowych.",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "stary": "같은 뱅크롤이 다시 그 스테이크 {{t:buy-in|바이인}}으로 거의 전체 수에 해당합니다. 다시 올라가는",
+  "nowy": "같은 뱅크롤이 그 스테이크의 {{t:buy-in|바이인}}으로 세면 다시 계획한 수에 거의 가깝습니다. 다시 올라가는",
+  "waga": "ŚREDNIE",
+  "powod": "Jak wyżej, sekcja „Kiedy zejść stawkę” (treść krytyczna m12).",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "stary": "{{n:var.hands.k}}천 핸드 동안",
+  "nowy": "{{n:var.hands.k}}k 핸드 동안",
+  "waga": "ŚREDNIE",
+  "powod": "„100천 핸드” — po koreańsku tysiące powyżej 10 liczy się w 만 (10만); „100천” nienaturalne. m12-l1 używa „{{n:var.hands.k}}k 핸드” (7×).",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "stary": "누가 이기나요: {{t:flush|플러시}}인가요, {{t:straight|스트레이트}}인가요?",
+  "nowy": "누가 이깁니까: {{t:flush|플러시}}입니까, {{t:straight|스트레이트}}입니까?",
+  "waga": "ŚREDNIE",
+  "powod": "Rejestr: pytanie w 해요체 (-나요/-인가요); REJESTR ko -니다 (w korpusie 424× -니까?).",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "stary": "{{t:flush|플러시}}입니다. 누가 이기나요?",
+  "nowy": "{{t:flush|플러시}}입니다. 누가 이깁니까?",
+  "waga": "ŚREDNIE",
+  "powod": "Rejestr: -나요 → -ㅂ니까.",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "stary": "어느 쪽이 더 강한가요: {{t:two-pair|투페어}}인가요, {{t:three-of-a-kind|트리플}}인가요?",
+  "nowy": "어느 쪽이 더 강합니까: {{t:two-pair|투페어}}입니까, {{t:three-of-a-kind|트리플}}입니까?",
+  "waga": "ŚREDNIE",
+  "powod": "Rejestr: -ㄴ가요 → -ㅂ니까.",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "stary": "킹 {{t:pair|페어}}입니다. 누가 이기나요?",
+  "nowy": "킹 {{t:pair|페어}}입니다. 누가 이깁니까?",
+  "waga": "ŚREDNIE",
+  "powod": "Rejestr: -나요 → -ㅂ니까.",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "stary": "깔려 있습니다. 누가 이기나요?",
+  "nowy": "깔려 있습니다. 누가 이깁니까?",
+  "waga": "ŚREDNIE",
+  "powod": "Rejestr: -나요 → -ㅂ니까.",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "stary": "{{t:two-pair|투페어}}끼리는 높은 {{t:pair|페어}}부터 비교합니다",
+  "nowy": "{{t:pair|페어}}가 두 개일 때는 높은 {{t:pair|페어}}부터 비교합니다",
+  "waga": "ŚREDNIE",
+  "powod": "Zmieniony klucz znacznika: pl „przy dwóch {{t:pair|parach}}” (pair), ko {{t:two-pair}}; multizbiór {{t:…}} różny od pl (jak D3 dla de).",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m0-l1-uklady.md",
+  "stary": "{{t:straight-flush|스트레이트 플러시}}: 같은 무늬로 된 {{t:straight|스트레이트}}",
+  "nowy": "{{t:straight-flush|스트레이트 플러시}}: {{t:straight-flush|같은 무늬로 된 스트레이트}}",
+  "waga": "NISKIE",
+  "powod": "Multizbiór terminów: pl ma 2× {{t:straight-flush}} w wierszu tabeli, ko 1× straight-flush + 1× straight (ostrzeżenie automatyczne).",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m2-l2-pot-odds.md",
+  "stary": "{{t:call|콜하려면}} 에퀴티가 얼마나 필요할까요?",
+  "nowy": "{{t:call|콜하려면}} 에퀴티가 얼마나 필요합니까?",
+  "waga": "ŚREDNIE",
+  "powod": "Rejestr: -ㄹ까요 → -ㅂ니까.",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m2-l2-pot-odds.md",
+  "stary": "{{t:bet|베팅합니다}}. 에퀴티가 얼마나 필요할까요?",
+  "nowy": "{{t:bet|베팅합니다}}. 에퀴티가 얼마나 필요합니까?",
+  "waga": "ŚREDNIE",
+  "powod": "Rejestr: -ㄹ까요 → -ㅂ니까.",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m2-l2-pot-odds.md",
+  "stary": "에퀴티가 몇 퍼센트 필요할까요?",
+  "nowy": "에퀴티가 몇 퍼센트 필요합니까?",
+  "waga": "ŚREDNIE",
+  "powod": "Rejestr: -ㄹ까요 → -ㅂ니까.",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m2-l2-pot-odds.md",
+  "stary": "이 값은 에퀴티가 필요한 값보다 작을 때 정확히 음수가 됩니다",
+  "nowy": "이 값은 에퀴티가 필요한 값보다 작을 때, 그리고 그때에만 음수가 됩니다",
+  "waga": "NISKIE",
+  "powod": "„dokładnie wtedy, gdy” (równoważność) oddane jako „staje się dokładnie ujemne, gdy”; sens „wtedy i tylko wtedy” zatarty.",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m2-l2-pot-odds.md",
+  "stary": "{ text: \"{{t:raise|레이즈}} 올인\"",
+  "nowy": "{ text: \"올인 {{t:raise|레이즈합니다}}\"",
+  "waga": "NISKIE",
+  "powod": "Etykieta odpowiedzi bez formy zdaniowej, pozostałe opcje „콜합니다/폴드합니다”.",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "{{t:three-of-a-kind|쓰리 오브 어 카인드}}는 두 플레이어 모두",
+  "nowy": "{{t:three-of-a-kind|트리플}}은 두 플레이어 모두",
+  "waga": "ŚREDNIE",
+  "powod": "Niespójny termin: three-of-a-kind = „트리플” w korpusie 19×, „쓰리 오브 어 카인드” tylko w m5-l3 (4×).",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "{{t:three-of-a-kind|쓰리 오브 어 카인드}}를 가질 수 있으므로 큰 {{t:bet|베팅}}은 이득이 없고, 상대의",
+  "nowy": "{{t:three-of-a-kind|트리플}}을 가질 수 있으므로 큰 {{t:bet|베팅}}은 이득이 없고, 상대의",
+  "waga": "ŚREDNIE",
+  "powod": "Jak wyżej.",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "{{t:three-of-a-kind|쓰리 오브 어 카인드}}를 가질 수 있으므로 큰 {{t:bet|베팅}}은 이득이 없고, {{t:pair",
+  "nowy": "{{t:three-of-a-kind|트리플}}을 가질 수 있으므로 큰 {{t:bet|베팅}}은 이득이 없고, {{t:pair",
+  "waga": "ŚREDNIE",
+  "powod": "Jak wyżej.",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "{{t:three-of-a-kind|쓰리 오브 어 카인드}}를 가질 수 있으므로 큰 {{t:bet|베팅}}은 이득이 없습니다",
+  "nowy": "{{t:three-of-a-kind|트리플}}을 가질 수 있으므로 큰 {{t:bet|베팅}}은 이득이 없습니다",
+  "waga": "ŚREDNIE",
+  "powod": "Jak wyżej.",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m10-l1-statystyki.md",
+  "stary": "플롭 전에 {{t:fold|폴드}}한 핸드는",
+  "nowy": "플롭 전에 폴드한 핸드는",
+  "waga": "NISKIE",
+  "powod": "Nadmiarowy {{t:fold}} względem pl („Ręce spasowane” bez znacznika); ostrzeżenie automatyczne.",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m2.yaml",
+  "stary": "{{t:flush-draw|플러시 드로}}의 확률입니다",
+  "nowy": "{{t:flush-draw|플러시 드로우}}의 확률입니다",
+  "waga": "ŚREDNIE",
+  "powod": "Niespójny termin: flush-draw = „플러시 드로우” w korpusie 47× (m2-l2), „플러시 드로” w egzaminie M2.",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m2.yaml",
+  "stary": "{{t:flush-draw|플러시 드로}}가 있고, 스택은",
+  "nowy": "{{t:flush-draw|플러시 드로우}}가 있고, 스택은",
+  "waga": "ŚREDNIE",
+  "powod": "Jak wyżej.",
+  "grupa": "K3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/exams/m2.yaml",
+  "stary": "{{t:flush-draw|플러시 드로}}가 있습니다.",
+  "nowy": "{{t:flush-draw|플러시 드로우}}가 있습니다.",
+  "waga": "ŚREDNIE",
+  "powod": "Jak wyżej.",
+  "grupa": "K3"
+ }
+]

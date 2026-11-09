@@ -1,0 +1,425 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "apps/mobile/src/i18n/locales/ko.json",
+  "stary": "\"title\": \"포커 스쿨\"",
+  "nowy": "\"title\": \"PokerGym\"",
+  "waga": "ŚREDNIE",
+  "powod": "Marka „PokerGym” bez tłumaczenia (D-384); źródło pl ma już „PokerGym”, przekład „포커 스쿨” = „Szkoła pokera” (stara nazwa)",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "apps/mobile/src/i18n/locales/ko.json",
+  "stary": "\"category\": \"{{winner}}가 {{loser}}보다 서열이 높습니다.\"",
+  "nowy": "\"category\": \"{{winner}} 족보가 {{loser}} 족보보다 서열이 높습니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Partykuła „가” po {{winner}} pasuje tylko do nazw zakończonych samogłoską; dla „트리플” (trójka) daje niegramatyczne „트리플가”; dodane „족보” (układ) — partykuła zawsze poprawna",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "apps/mobile/src/i18n/locales/ko.json",
+  "stary": "\"higherSameCategory\": \"둘 다 {{hand}}를 가졌지만 한쪽이 더 높습니다.\"",
+  "nowy": "\"higherSameCategory\": \"둘 다 {{hand}} 족보이지만 한쪽이 더 높습니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "„{{hand}}를” — przy „트리플” niegramatyczne „트리플를” (po spółgłosce „을”); przeformułowane bez partykuły zależnej od nazwy: „obaj macie układ {{hand}}, ale jeden jest wyższy”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "apps/mobile/src/i18n/locales/ko.json",
+  "stary": "\"tooHigh\": \"“{{hand}}”가 아닙니다.",
+  "nowy": "\"tooHigh\": \"“{{hand}}” 족보가 없습니다.",
+  "waga": "ŚREDNIE",
+  "powod": "„“{{hand}}”가 아닙니다” = „to nie jest {{hand}}” z partykułą błędną dla „트리플”; pl „Nie masz układu {{hand}}” → „“{{hand}}” 족보가 없습니다” (nie masz układu …)",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "apps/mobile/src/i18n/locales/ko.json",
+  "stary": "\"after\": \"내 다음 차례: {{list}}\"",
+  "nowy": "\"after\": \"내 뒤 순서: {{list}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "„내 다음 차례” = „moja następna kolejka” (dwuznaczne, czytane jak „twoja kolej po …”); pl „po tobie {{list}}” = gracze działający po tobie → „내 뒤 순서” (kolejność za mną)",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "apps/mobile/src/i18n/locales/ko.json",
+  "stary": "\"stateAfter\": \"내 다음\"",
+  "nowy": "\"stateAfter\": \"내 뒤 순서\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jak table.after: „내 다음” = „mój następny”; pl „po tobie” (gracz działa po tobie) → „내 뒤 순서”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "apps/mobile/src/i18n/locales/ko.json",
+  "stary": "\"small\": \"작은 {{t:c-bet|씨벳}}\"",
+  "nowy": "\"small\": \"작은 {{t:c-bet|C벳}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna nazwa c-betu: terms-def i nazwa K-05 „C벳” (thepoker.co.kr „C벳 Continuation bet”, pokerqz „포커 C벳(C-Bet)이란?”); w UI „씨벳”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "apps/mobile/src/i18n/locales/ko.json",
+  "stary": "\"big\": \"큰 {{t:c-bet|씨벳}}\"",
+  "nowy": "\"big\": \"큰 {{t:c-bet|C벳}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jak wyżej: ujednolicenie „씨벳” → „C벳” (terms-def, nazwa K-05, źródła)",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "apps/mobile/src/i18n/locales/ko.json",
+  "stary": "\"twoPair\": \"{{t:two-pair|투페어}}\",\n      \"pair\": \"{{t:pair|원페어}}\",\n      \"highCard\": \"{{t:high-card|하이카드}}\",\n      \"royalFlush\": \"{{t:royal-flush|로열 플러시}}\"\n    },\n    \"categoryAcc\"",
+  "nowy": "\"twoPair\": \"{{t:two-pair|투 페어}}\",\n      \"pair\": \"{{t:pair|원페어}}\",\n      \"highCard\": \"{{t:high-card|하이카드}}\",\n      \"royalFlush\": \"{{t:royal-flush|로열 플러시}}\"\n    },\n    \"categoryAcc\"",
+  "waga": "ŚREDNIE",
+  "powod": "Pisownia two pair: lekcje i egzaminy „투 페어”×32 wobec „투페어”×16; źródła ko.wikipedia i thepoker.co.kr „투 페어”; nazwa K-05 „투 페어”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "apps/mobile/src/i18n/locales/ko.json",
+  "stary": "\"twoPair\": \"{{t:two-pair|투페어}}\",\n      \"pair\": \"{{t:pair|원페어}}\",\n      \"highCard\": \"{{t:high-card|하이카드}}\",\n      \"royalFlush\": \"{{t:royal-flush|로열 플러시}}\"\n    },\n    \"paint\"",
+  "nowy": "\"twoPair\": \"{{t:two-pair|투 페어}}\",\n      \"pair\": \"{{t:pair|원페어}}\",\n      \"highCard\": \"{{t:high-card|하이카드}}\",\n      \"royalFlush\": \"{{t:royal-flush|로열 플러시}}\"\n    },\n    \"paint\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jak wyżej (categoryAcc): „투페어” → „투 페어”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "apps/mobile/src/i18n/locales/ko.json",
+  "stary": "{{t:pfr|PFR}}를 읽을",
+  "nowy": "{{t:pfr|PFR}}을 읽을",
+  "waga": "NISKIE",
+  "powod": "PFR czyta się „피에프알” (końcowe ㄹ) → partykuła „을”, nie „를”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "apps/mobile/src/i18n/locales/ko.json",
+  "stary": "개 있습니다. 한도가 갱신될 때까지 기다리며",
+  "nowy": "개 있습니다. 복습은 한도가 갱신될 때까지 기다리며",
+  "waga": "NISKIE",
+  "powod": "Brak podmiotu: „기다리며” (czekając) czyta się jak „ty czekasz”; pl „Poczekają” (powtórki poczekają) → dodany podmiot „복습은”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "예: 플러시 드로우라면 내 무늬의 남은 카드들이 아웃츠입니다.",
+  "nowy": "예: 플러시 드로우라면 내 무늬의 남은 카드들이 아웃입니다.",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna nazwa outów: UI, lekcje i nazwa K-05 „아웃” (thepoker.co.kr „아웃 Outs”, daum „Outs (아웃)”); „아웃츠” tylko tutaj",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "regular: \"해당 스테이크에 자주 나와 많은 핸드를 플레이하는 플레이어입니다.",
+  "nowy": "regular: \"해당 스테이크에서 꾸준히 많은 핸드를 소화하는 단골 플레이어입니다.",
+  "waga": "ŚREDNIE",
+  "powod": "„많은 핸드를 플레이하는” = „gra dużo rąk” — w kursie (play.styleHints, typy graczy) to opis stylu luźnego; pl „stały bywalec… rozgrywa dużo rąk” = wolumen → „꾸준히 많은 핸드를 소화하는 단골 플레이어”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "set: \"손에 든 페어와 보드의 카드 한 장으로 만든 트리플입니다(예: K-7-2 플랍에서 7♣ 7♦).\"",
+  "nowy": "set: \"손에 든 페어와 보드의 카드 한 장으로 만든 트리플입니다(예: K-7-2 플롭에서 7♣ 7♦).\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "check: \"칩을 더 내지 않고 계속 진행하는 것으로, 더 낼 금액이 없을 때만 할 수 있습니다. 즉 이번 베팅 라운드에서 아직 아무도 베팅하지 않았을 때입니다(프리플랍에서는 아무도 레이즈하지 않았을 때 빅 블라인드가 할 수 있습니다). 상대의 베팅에 맞춰 칩을 더 내는 콜과 혼동하지 마세요.\"",
+  "nowy": "check: \"칩을 더 내지 않고 계속 진행하는 것으로, 더 낼 금액이 없을 때만 할 수 있습니다. 즉 이번 베팅 라운드에서 아직 아무도 베팅하지 않았을 때입니다(프리플롭에서는 아무도 레이즈하지 않았을 때 빅 블라인드가 할 수 있습니다). 상대의 베팅에 맞춰 칩을 더 내는 콜과 혼동하지 마세요.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "board: \"가운데에 공개된 커뮤니티 카드(플랍, 턴, 리버)로, 모든 플레이어가 사용합니다. 게임하는 테이블이 아니라 카드를 뜻합니다.\"",
+  "nowy": "board: \"가운데에 공개된 커뮤니티 카드(플롭, 턴, 리버)로, 모든 플레이어가 사용합니다. 게임하는 테이블이 아니라 카드를 뜻합니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "street: \"베팅 라운드를 가리키는 은어입니다. 프리플랍, 플랍, 턴, 리버가 네 개의 스트리트입니다. 예: “세 스트리트 밸류”는 플랍, 턴, 리버에서 밸류를 위해 베팅하는 것입니다.\"",
+  "nowy": "street: \"베팅 라운드를 가리키는 은어입니다. 프리플롭, 플롭, 턴, 리버가 네 개의 스트리트입니다. 예: “세 스트리트 밸류”는 플롭, 턴, 리버에서 밸류를 위해 베팅하는 것입니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "betting-round: \"플레이어들이 차례로 체크, 베팅, 콜, 레이즈 또는 폴드하는 핸드의 단계입니다. 홀덤에는 프리플랍, 플랍, 턴, 리버의 네 라운드가 있습니다.\"",
+  "nowy": "betting-round: \"플레이어들이 차례로 체크, 베팅, 콜, 레이즈 또는 폴드하는 핸드의 단계입니다. 홀덤에는 프리플롭, 플롭, 턴, 리버의 네 라운드가 있습니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "preflop: \"첫 번째 베팅 라운드로, 홀 카드를 나눈 뒤 보드에 플랍이 깔리기 전입니다.\"",
+  "nowy": "preflop: \"첫 번째 베팅 라운드로, 홀 카드를 나눈 뒤 보드에 플롭이 깔리기 전입니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "flop: \"프리플랍 베팅 후 한꺼번에 깔리는 첫 세 장의 커뮤니티 카드입니다. 두 번째 베팅 라운드도 이렇게 부릅니다.\"",
+  "nowy": "flop: \"프리플롭 베팅 후 한꺼번에 깔리는 첫 세 장의 커뮤니티 카드입니다. 두 번째 베팅 라운드도 이렇게 부릅니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "in-position: \"플랍 이후 마지막으로 행동하는 플레이어의 상황으로, 결정하기 전에 상대의 행동을 봅니다.\"",
+  "nowy": "in-position: \"플롭 이후 마지막으로 행동하는 플레이어의 상황으로, 결정하기 전에 상대의 행동을 봅니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "out-of-position: \"플랍 이후 상대보다 먼저 행동하는 플레이어의 상황으로, 상대의 행동을 모른 채 결정합니다.\"",
+  "nowy": "out-of-position: \"플롭 이후 상대보다 먼저 행동하는 플레이어의 상황으로, 상대의 행동을 모른 채 결정합니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "early-position: \"프리플랍에서 가장 먼저 행동하는 자리들입니다(예: UTG). 뒤에 아직 행동할 플레이어가 많습니다.\"",
+  "nowy": "early-position: \"프리플롭에서 가장 먼저 행동하는 자리들입니다(예: UTG). 뒤에 아직 행동할 플레이어가 많습니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "utg: \"프리플랍에서 가장 먼저 행동하는 플레이어로, 빅 블라인드 바로 왼쪽에 앉습니다.\"",
+  "nowy": "utg: \"프리플롭에서 가장 먼저 행동하는 플레이어로, 빅 블라인드 바로 왼쪽에 앉습니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "button: \"딜러 자리로, “딜러” 원판으로 표시합니다. 플랍 이후 모든 베팅 라운드에서 마지막으로 행동합니다.\"",
+  "nowy": "button: \"딜러 자리로, “딜러” 원판으로 표시합니다. 플롭 이후 모든 베팅 라운드에서 마지막으로 행동합니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "backdoor: \"플랍에서 턴과 리버에 연달아 맞는 카드 두 장이 필요한 드로우입니다. 예: 플랍 이후 같은 무늬 카드 세 장.\"",
+  "nowy": "backdoor: \"플롭에서 턴과 리버에 연달아 맞는 카드 두 장이 필요한 드로우입니다. 예: 플롭 이후 같은 무늬 카드 세 장.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "open: \"앞의 모든 플레이어가 폴드했을 때 프리플랍에서 레이즈로 팟에 처음 들어가는 것입니다.\"",
+  "nowy": "open: \"앞의 모든 플레이어가 폴드했을 때 프리플롭에서 레이즈로 팟에 처음 들어가는 것입니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "pocket-pair: \"홀 카드 두 장으로 된 페어입니다(예: 프리플랍의 8♣ 8♦).\"",
+  "nowy": "pocket-pair: \"홀 카드 두 장으로 된 페어입니다(예: 프리플롭의 8♣ 8♦).\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "3-bet: \"프리플랍에서 오픈에 대한 첫 레이즈입니다. 이 이름은 빅 블라인드를 첫 번째 베팅, 오픈을 두 번째 베팅으로 셉니다.\"",
+  "nowy": "3-bet: \"프리플롭에서 오픈에 대한 첫 레이즈입니다. 이 이름은 빅 블라인드를 첫 번째 베팅, 오픈을 두 번째 베팅으로 셉니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "limp: \"아직 아무도 레이즈하지 않았을 때 프리플랍에서 빅 블라인드를 콜만 해서 팟에 들어가는 것입니다.\"",
+  "nowy": "limp: \"아직 아무도 레이즈하지 않았을 때 프리플롭에서 빅 블라인드를 콜만 해서 팟에 들어가는 것입니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "rainbow: \"세 장이 모두 다른 무늬인 플랍으로, 플랍에서는 아무도 플러시 드로우를 갖지 못합니다.\"",
+  "nowy": "rainbow: \"세 장이 모두 다른 무늬인 플롭으로, 플롭에서는 아무도 플러시 드로우를 갖지 못합니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "two-tone: \"두 장이 같은 무늬인 플랍으로, 플러시 드로우가 가능합니다.\"",
+  "nowy": "two-tone: \"두 장이 같은 무늬인 플롭으로, 플러시 드로우가 가능합니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "monotone: \"세 장이 모두 같은 무늬인 플랍으로, 이미 플러시가 완성되었을 수 있습니다.\"",
+  "nowy": "monotone: \"세 장이 모두 같은 무늬인 플롭으로, 이미 플러시가 완성되었을 수 있습니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "top-pair: \"보드에서 가장 높은 카드로 만든 페어입니다(예: K-7-2 플랍에서 K♠ Q♦).\"",
+  "nowy": "top-pair: \"보드에서 가장 높은 카드로 만든 페어입니다(예: K-7-2 플롭에서 K♠ Q♦).\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "second-pair: \"보드에서 두 번째로 높은 카드로 만든 페어입니다(예: K-7-2 플랍에서 7♠ 6♠).\"",
+  "nowy": "second-pair: \"보드에서 두 번째로 높은 카드로 만든 페어입니다(예: K-7-2 플롭에서 7♠ 6♠).\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "overpair: \"보드의 모든 카드보다 높은 포켓 페어입니다(예: J-7-2 플랍에서 Q-Q).\"",
+  "nowy": "overpair: \"보드의 모든 카드보다 높은 포켓 페어입니다(예: J-7-2 플롭에서 Q-Q).\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "c-bet: \"컨티뉴에이션 베팅으로, 이전 라운드에서 어그레서였던 플레이어의 베팅입니다. 예: 프리플랍에서 오픈한 뒤 플랍에서 하는 베팅.\"",
+  "nowy": "c-bet: \"컨티뉴에이션 베팅으로, 이전 라운드에서 어그레서였던 플레이어의 베팅입니다. 예: 프리플롭에서 오픈한 뒤 플롭에서 하는 베팅.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "second-barrel: \"연속된 두 번째 베팅입니다. 플랍에서 C벳을 한 뒤 턴에서 다시 베팅하는 것입니다.\"",
+  "nowy": "second-barrel: \"연속된 두 번째 베팅입니다. 플롭에서 C벳을 한 뒤 턴에서 다시 베팅하는 것입니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "probe-bet: \"프리플랍 어그레서가 플랍에서 C벳 대신 체크한 뒤, 아웃 오브 포지션 플레이어가 턴에서 하는 베팅입니다.\"",
+  "nowy": "probe-bet: \"프리플롭 어그레서가 플롭에서 C벳 대신 체크한 뒤, 아웃 오브 포지션 플레이어가 턴에서 하는 베팅입니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "overbet: \"플랍 이후 팟 전체보다 큰 베팅입니다.\"",
+  "nowy": "overbet: \"플롭 이후 팟 전체보다 큰 베팅입니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "spr: \"스트리트 시작 시점의 유효 스택을 팟으로 나눈 값입니다(핸드 계획에는 플랍 기준으로 계산합니다). 팟에 비해 스택이 얼마나 깊은지 보여 줍니다(SPR이 낮을수록 모든 칩이 더 빨리 팟에 들어갑니다).\"",
+  "nowy": "spr: \"스트리트 시작 시점의 유효 스택을 팟으로 나눈 값입니다(핸드 계획에는 플롭 기준으로 계산합니다). 팟에 비해 스택이 얼마나 깊은지 보여 줍니다(SPR이 낮을수록 모든 칩이 더 빨리 팟에 들어갑니다).\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "push-fold: \"숏 스택을 위한 단순화된 전략으로, 프리플랍에서 올인하거나 폴드만 합니다.\"",
+  "nowy": "push-fold: \"숏 스택을 위한 단순화된 전략으로, 프리플롭에서 올인하거나 폴드만 합니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "shove: \"올인하는 플레이로, 보통 프리플랍 레이즈로 합니다.\"",
+  "nowy": "shove: \"올인하는 플레이로, 보통 프리플롭 레이즈로 합니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "vpip: \"HUD 통계로, 플레이어가 프리플랍에서 자발적으로 팟에 돈을 넣는(콜이나 레이즈) 핸드의 비율입니다.\"",
+  "nowy": "vpip: \"HUD 통계로, 플레이어가 프리플롭에서 자발적으로 팟에 돈을 넣는(콜이나 레이즈) 핸드의 비율입니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "pfr: \"HUD 통계로, 플레이어가 프리플랍에서 레이즈하는 핸드의 비율입니다.\"",
+  "nowy": "pfr: \"HUD 통계로, 플레이어가 프리플롭에서 레이즈하는 핸드의 비율입니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/terms-def.yaml",
+  "stary": "wtsd: \"HUD 통계로, 플랍을 본 플레이어가 쇼다운까지 가는 빈도입니다.\"",
+  "nowy": "wtsd: \"HUD 통계로, 플롭을 본 플레이어가 쇼다운까지 가는 빈도입니다.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jedna pisownia flopa w aplikacji: UI i większość lekcji „플롭”/„프리플롭” (×447), terms-def „플랍”/„프리플랍”; ko.wikipedia „플롭” (11× wobec 1×), pisownia normatywna 외래어 표기법; nazwa K-05 „플롭”",
+  "grupa": "K2"
+ }
+]

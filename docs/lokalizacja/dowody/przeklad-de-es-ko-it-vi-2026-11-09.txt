@@ -15,7 +15,8 @@ przebieg 42707292121 (de+es reszta: exams, areas, modules, rules, spots, helplin
   propozycje.json 085b334b4d44cab32c62a658ba70e822a8c81d1a299025c2df60b7cfb32d6e7a
 przebieg 42707298446 (ko+it reszta; head a3907b9): artefakt 13715857062 zip 93eb119df9f07486d5c4b94caaa39b531571647e7c7070102b0ee59209109e95
   propozycje.json 79c1e7134320372fe8829be8d239cb6b86be2e7070e5d47d34c5c51aa2b20b75
-przebieg 42710131602 (vi reszta; head e67157a): success 22:32:53Z, artefakt 13716755980 digest 03d592f48541277953bad516a0f8d2964777f5687add277cd4752d73a4d2b49b (NIE pobrany w AI — następna sesja; 21 jednostek, przyjęte 21, odrzucone 0 wg logu)
+przebieg 42710131602 (vi reszta; head e67157a): success 22:32:53Z, artefakt 13716755980 zip 03d592f48541277953bad516a0f8d2964777f5687add277cd4752d73a4d2b49b (pobrany w AJ, zip = digest)
+  propozycje.json a0870ef4e7e91b5776ef9ad4a20833aad4460dcc931d261960f67ece2d828c8a
 
 # Wynik w workflowie: 0 odrzuceń we wszystkich 7 zakończonych przebiegach (lekcje 5 × 44, reszta 2 × 42 = 304 jednostki przyjęte).
 # Ponowna ocena na HEAD 1c3e752 (docs/lokalizacja/narzedzia/ocena-propozycji.mjs, bez zapisu):
@@ -45,3 +46,6 @@ przebieg 42710131602 (vi reszta; head e67157a): success 22:32:53Z, artefakt 1371
 #   batches.md:3 „processes Messages API requests asynchronously at 50% of standard prices” → 2 / 10 USD za 1 mln w Batch (zgodne z CENY w wspolne.mjs).
 # Wyjście rzeczywiste 17–77% ponad szacunek skryptu (ko lekcje 345 988 → 613 684); Σ max_tokens nieprzekroczone.
 # Limit 15 USD na przebieg (D-341) dotrzymany w każdym. Na język ok. 10,7–11,7 USD (jak 4 języki D-358: 10,2 USD).
+# Sesja AJ (2026-11-09, HEAD 33fdec3): pobrane ponownie ko/it/vi lekcje, ko+it reszta i vi reszta — sha256 zip = digest 5/5, sha256 propozycje.json jak wyżej.
+# ocena-propozycji.mjs na HEAD 33fdec3: lekcje ko/it/vi 44/44 × 3; ko+it reszta 40/42 (tylko UI ko/it, welcome.title — D-385); vi reszta 21/21 (UI vi aktualny, welcome.title „PokerGym”).
+# Przegląd ko/it/vi i test łączny list poprawek: przeglad-de-es-ko-it-vi-2026-11-09/rozstrzygniecia.md (sekcja „ko, it, vi”; 301 nałożonych, 0 pominiętych).
