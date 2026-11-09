@@ -834,6 +834,34 @@ Przegląd D-043 (subagent, świeży kontekst, diff sesji T): **brak uwag P0/P1**
 - Stan stołu „sprawdza”/„all-in” (D-338, odrzucona opcja) — tylko gdy dojdą ścieżki z `call`, z tekstem i makietą od 04.
 - E2E zmian tej sesji po pushu.
 
+## Sesja U — main wg D-342 (2026-11-09, rola 08 build)
+Rola `08-programista --tryb build`: repo `prompts` nie ma w kontenerze (`/home/user/prompts` brak) — wyjątek nazwany jak w sesji S; tańsza kontrola: zasady z sekcji Q/R/S i CLAUDE.md, cykl test czerwony → zmiana → `pnpm run ci` → commit, przegląd D-043 subagentem. Trening z publicznego klonu (2e4b0f8, odczyt 2026-11-09). Stan wyjściowy `bcd099f`.
+
+| Zadanie | Commit | Test (czerwony przed → zielony po) | Decyzja |
+|---|---|---|---|
+| `pages.yml` (tylko `site/`, tylko z `main`) + strażnik D-308/D-342 zamiast „żaden workflow nie publikuje Pages” | e7408a1 | `strona.test.mjs` „Pages publikuje tylko pages.yml…” (przed: brak pliku); mutanty 4/4 zabite (`path: .`, bez `if`, push z `claude/**`, akcja Pages w `ci.yml`) | D-343 |
+| Workflowy przekładu/przeglądu pod dispatch z `main` na `--ref` gałęzi roboczej: krok kontroli skryptu przed instalacją i kluczem | e7408a1 | `workflowy.test.mjs` „przekład i przegląd: checkout = ref uruchomienia…” (przed: brak kroku) | D-343 |
+| Przegląd D-043 (subagent): P1 `permissions: write-all` przechodził test (napis zamiast mapy); P2 sekret w `env` zadania, krok z kluczem bez `if`, `gh-pages` | e7408a1 | mutanty `write-all` i `env: K: secrets.…` zabite | D-343 |
+| Push na `main` tylko dozwolonych ścieżek | `main` 23950a4..7e15c6a | `git diff --stat origin/main..HEAD`: `pages.yml` 42, `przeglad-tlumaczen.yml` 110, `przeklad-tlumaczen.yml` 109, `site/privacy.html` 133, `site/support.html` 72; 5 plików, 466+, 0− | D-342 |
+
+`pnpm run ci` kod 0 (przed poprawkami przeglądu); po poprawkach testów `pnpm test:skrypty` 144/144. Pierwszy przebieg Pages na `main`: 42632952082 — **czerwony zgodnie z oczekiwaniem**: `configure-pages` „Get Pages site failed … Not Found” (Pages niewłączone; krok właściciela (b)).
+
+**Kroki właściciela (D-342):**
+- (a) GitHub → repo `Szkola_pokera` → Settings → Secrets and variables → Actions → New repository secret: nazwa `ANTHROPIC_API_KEY`, wartość = klucz API z console.anthropic.com. Uwaga: sekret repozytorium widzi każdy workflow z każdej gałęzi; mocniej (opcjonalnie): sekret środowiska ograniczonego do gałęzi `claude/*` — wymaga też zmiany workflowów (P2 przeglądu).
+- (b) Settings → Pages → Build and deployment → Source: **GitHub Actions**.
+- (c) Po (b): Actions → Pages → Run workflow (gałąź `main`) albo ponowienie przebiegu 42632952082 („Re-run jobs”). Adresy: `https://lkarwowski494.github.io/Szkola_pokera/privacy.html`, `…/support.html`. Strony zawierają jeszcze `[DO USTALENIA]` (W-04 adres poczty, dane administratora, data) — zgoda na publikację D-341 pkt 4.
+
+**Dispatch przekładu en (koordynator, po kroku (a); koszt API — D-294, D-295, D-341):**
+1. Szacunek bez klucza i bez kosztu: `gh workflow run przeklad-tlumaczen.yml --repo lkarwowski494/Szkola_pokera --ref claude/sleepy-brahmagupta-2065nu -f jezyki=en -f model=opus -f limit_usd=15 -f tryb=szacuj` (MCP: `actions_run_trigger`, `workflow_id: przeklad-tlumaczen.yml`, `ref: claude/sleepy-brahmagupta-2065nu`, `inputs: {jezyki: en, model: opus, limit_usd: "15", tryb: szacuj}`). Wynik w podsumowaniu przebiegu i artefakcie `raport-przekladu`.
+2. Gdy szacunek > 15 USD (D-341: en ≈ 21 USD) — skrypt przerywa; podział na przebiegi przez `tylko` (np. `-f tylko=locales/` i `-f tylko=content/`; dokładne fragmenty ścieżek wg listy jednostek w szacunku). Limit 15 USD obowiązuje **na przebieg**, nie łącznie.
+3. Płatny: to samo z `-f tryb=wyslij`; odbiór wyników po przerwaniu: `-f wznow=msgbatch_…` z logu.
+4. **Zawsze `--ref` gałęzi roboczej** — uruchomienie z `main` kończy się błędem kroku „Skrypty z gałęzi roboczej” przed instalacją i kluczem. Nałożenie wyniku lokalnie: `node scripts/i18n/przeklad-api.mjs --zastosuj raport-przekladu/propozycje.json`.
+
+### Zostaje
+- Kroki właściciela (a)–(c); W-04 i dane administratora w `site/` (`[DO USTALENIA]`) — zmiana `site/` na `main` znowu tylko za zgodą (D-342 obejmowała jednorazowe przeniesienie tych ścieżek; kolejne aktualizacje `site/` i workflowów na `main` — do potwierdzenia przez koordynatora/właściciela).
+- P2 przeglądu: sekret środowiska ograniczony do `claude/*` zamiast sekretu repozytorium (decyzja właściciela, zmiana Settings + `environment:` w workflowach przekładu).
+- `main` ma stary `e2e.yml` z harmonogramem codziennym (czerwony od 2026-10-07, przed tą sesją) — poza zakresem D-342; do decyzji, czy wyłączyć.
+
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
 
