@@ -2,7 +2,7 @@
 
 Stan: 2026-11-09, sesja G (tylko dokumenty), rola 09-lokalizacja, tryb build, etap E0 — **plan, bez wdrożenia**. Prompt roli: `prompts` (klon `--depth 1` z 2026-11-09), złożony `node tools/assemble.mjs 09-lokalizacja --tryb build` (kod 0, 57 099 znaków; skrypt przeczytany przed uruchomieniem). Wejście wczesne E0–E1 zamknięte 2026-11-04 (D-136, D-138); rola mówi, że po 08 i audycie 04 E0 skraca się do sprawdzenia, czy decyzja z `jezyki.md` stoi, a nowy dowód daje STOP z wariantami.
 
-Decyzja do podjęcia przez właściciela: **który język jest drugi** (pytanie P-1 niżej). Polityka języków się nie zmienia: 35 języków w wydaniu (D-131, CLAUDE.md „Stan projektu”). „Drugi język” to pierwszy język przekładu, na którym sprawdzamy cały łańcuch (mechanizm, przekład treści, kontrole, E2E), zanim ruszą fale pozostałych 33.
+**Rozstrzygnięte 2026-11-09:** drugi język = **en** (D-291, właściciel); wszystkie 35 języków w aplikacji, a storefront kraju dopiero po sprawdzeniu legalności (D-292). Otwarte pytania produktowe: P-2, P-3. Polityka języków się nie zmienia: 35 języków w wydaniu (D-131, CLAUDE.md „Stan projektu”). „Drugi język” to pierwszy język przekładu, na którym sprawdzamy cały łańcuch (mechanizm, przekład treści, kontrole, E2E), zanim ruszą fale pozostałych 33.
 
 ## 1. Analogia z Treningu (D-191; repo `lkarwowski494/trening`, SHA 2e4b0f8, odczyt 2026-11-09)
 
@@ -52,7 +52,7 @@ Nowy fakt, który zmienia zakres, ale nie decyzje: `text.pl.ts` (27 KB polskich 
 
 ## 4. Pytania produktowe (do koordynatora; agent ich nie rozstrzyga)
 
-### P-1. Który język jest drugi
+### P-1. Który język jest drugi — rozstrzygnięte: A (en), D-291
 
 | Opcja | Za | Przeciw | Koszt (czas agenta) |
 |---|---|---|---|
@@ -92,7 +92,7 @@ Rekomendacja: **A (en)**. Najkrótsza droga do treści, którą przeczyta rynek 
 
 ## 6. Zakres najbliższego etapu (E1 ponownego wejścia: mechanizm drugiego języka i przekład en)
 
-Kroki dla sesji wdrożeniowej (osobna sesja z kodem, po odpowiedzi na P-1–P-3; przy B albo C kroki K3–K5 dotyczą wybranego języka).
+Kroki dla sesji wdrożeniowej (osobna sesja z kodem; język en, D-291; P-2 dotyczy K2e, P-3 dotyczy K3).
 
 | Krok | Co | Definicja ukończenia (dowód) |
 |---|---|---|
@@ -139,3 +139,4 @@ Poza zakresem: pozostałe 33 języki (fale po en, osobne STOP), opis w App Store
 - `[DO USTALENIA]` K2d: jak strażnik przeglądu treści krytycznej liczy skrót dla en (dziś dla pl).
 - Komunikaty walidacji w `packages/poker-core/src/table.ts:287–303` są po polsku; gra z botami jest poza interfejsem (D-104) — do sprawdzenia w K2, czy którykolwiek trafia na ekran.
 - Lista lokalizacji App Store Connect dla en (en-US, en-GB, en-CA, en-AU) i opis sklepu — rola 10.
+- Sprawdzenie legalności kraju przed włączeniem storefrontu (D-292): żaden kraj nie ma dziś zapisu, także US; kto, jakim źródłem i w jakiej kolejności (rynki z CLAUDE.md najpierw) — do koordynatora (rola 02/10). Nie blokuje przekładu ani TestFlight wewnętrznego; blokuje włączenie kraju w App Store.
