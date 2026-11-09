@@ -4,7 +4,7 @@
 # nie wypisuje. Słowniki i treść NIE są zmieniane, workflow niczego nie commituje ani nie pushuje: wynik to artefakt
 # `raport-przekladu` (propozycje.json, podgląd plików, podsumowanie, szacunek; 7 dni). Nałożenie lokalnie po przeglądzie:
 # node scripts/i18n/przeklad-api.mjs --zastosuj raport-przekladu/propozycje.json
-# Limit kosztu przebiegu w skrypcie: 15 USD (D-295); powyżej stop. Wyższy limit_usd tylko za osobną zgodą właściciela.
+# Limit kosztu przebiegu w skrypcie: 15 USD (D-295); powyżej stop; limit_usd > 15 skrypt odrzuca (sufit w kodzie).
 # Odstępstwa od Treningu (odczyt 2026-11-09): wejścia jezyki, tylko, limit_usd, tryb zamiast limit, tylko_szacuj, zgoda_koszt
 # (Trening :10–33); pnpm install, bo skrypty czytają YAML pakietem `yaml` (Trening: sam Node, :46–48); upload-artifact@v5
 # jak w ci.yml tego repo (Trening @v4, :84); krok płatny tylko przy tryb=wyslij (Trening: tylko_szacuj, :20, :71).
@@ -22,7 +22,7 @@ on:
         default: opus
         options: [opus, sonnet]
       limit_usd:
-        description: 'Limit kosztu przebiegu w USD (D-295: 15; wyższy tylko za zgodą właściciela)'
+        description: 'Limit kosztu przebiegu w USD, najwyżej 15 (D-295); skrypt odrzuca wyższy — to wymaga zgody właściciela i zmiany stałej LIMIT_USD w kodzie'
         type: string
         default: '15'
       tryb:

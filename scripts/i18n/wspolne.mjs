@@ -351,7 +351,10 @@ export function parsujWspolne(argv, dodatkowe = {}) {
     else if (a === '--model') { const v = wart(i++, a); o.model = MODELE[v] ?? v; }
     else if (a === '--effort') o.effort = wart(i++, a);
     else if (a === '--jezyki') o.jezyki = wart(i++, a).split(',').map((s) => s.trim()).filter(Boolean);
-    else if (a === '--limit-usd') { const v = wart(i++, a); const n = Number(v); if (v.trim() === '' || !Number.isFinite(n) || n <= 0) throw new Error('--limit-usd: liczba dodatnia (USD)'); o.limitUsd = n; }
+    else if (a === '--limit-usd') { const v = wart(i++, a); const n = Number(v); if (v.trim() === '' || !Number.isFinite(n) || n <= 0) throw new Error('--limit-usd: liczba dodatnia (USD)');
+      // sufit = LIMIT_USD (przegląd D-043 K3a, znalezisko 3): wejście workflowu nie podniesie limitu; wyższy tylko zmianą stałej w kodzie
+      if (n > LIMIT_USD) throw new Error(`--limit-usd: ${n} USD powyżej ${LIMIT_USD} USD wymaga osobnej zgody właściciela (D-295) i zmiany stałej LIMIT_USD w scripts/i18n/wspolne.mjs; mniejszy przebieg: --tylko, --jezyki`);
+      o.limitUsd = n; }
     else if (a === '--wznow') { const v = wart(i++, a); if (v) o.wznow = v; }
     else if (a === '--wyjscie') o.wyjscie = wart(i++, a);
     else if (a === '--czekaj-min') o.czekajMin = Number(wart(i++, a));

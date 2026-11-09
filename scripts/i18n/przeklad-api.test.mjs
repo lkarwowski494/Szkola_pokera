@@ -10,6 +10,7 @@ import {
   budujZadanieBatcha, SYSTEM_PRZEKLADU, jednostkiPrzekladu, wyciagnijPropozycje, odczytajLinie, ocenPropozycje, main, parsujArgumenty,
   wyJednostki,
 } from './przeklad-api.mjs';
+import { parsujArgumenty as parsujArgumentyPrzegladu } from './przeglad-api.mjs';
 import { kontrolaZnacznikow, LIMIT_USD, DOMYSLNY_MODEL, kosztUsd, glosariusz, POLA_NAKLADEK, roznicePoza, maxTokensJednostki } from './wspolne.mjs';
 import { tsImport } from 'tsx/esm/api';
 
@@ -288,6 +289,15 @@ test('--zastosuj nakłada nakładkę do content/<język>/ranges/spots.yaml po ko
   writeFileSync(plik, JSON.stringify({ jednostki: [{ ...ocenPropozycje(j, 'en', { blad: null, tekst: `<<<PLIK>>>\n${SPOTS_EN}<<<KONIEC>>>` }) }] }));
   assert.equal(await main(['--zastosuj', plik], {}, { fetchFn: fetchZakazany, log: cicho, root }), 0);
   assert.equal(readFileSync(join(root, 'content/en/ranges/spots.yaml'), 'utf8'), SPOTS_EN);
+});
+
+/* ---------- przegląd D-043 K3a, znalezisko 3: limit_usd z wejścia workflowu bez sufitu ---------- */
+test('--limit-usd powyżej 15 USD odrzucone (osobna zgoda właściciela, D-295); do 15 USD przyjęte', async () => {
+  assert.throws(() => parsujArgumenty(['--limit-usd', '15.01']), /D-295/);
+  assert.throws(() => parsujArgumenty(['--limit-usd', '100']), /zgod/);
+  assert.equal(parsujArgumenty(['--limit-usd', '15']).limitUsd, 15);
+  assert.equal(parsujArgumenty(['--limit-usd', '0.5']).limitUsd, 0.5);
+  assert.throws(() => parsujArgumentyPrzegladu(['--limit-usd', '16']), /D-295/);
 });
 
 /* ---------- przegląd D-043 K3a, znalezisko 2: max_tokens 128 000 na żądanie łamie limit D-295 w najgorszym przypadku ---------- */

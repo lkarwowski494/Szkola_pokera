@@ -23,7 +23,7 @@ on:
         default: opus
         options: [opus, sonnet]
       limit_usd:
-        description: 'Limit kosztu przebiegu w USD (D-295: 15; wyższy tylko za zgodą właściciela)'
+        description: 'Limit kosztu przebiegu w USD, najwyżej 15 (D-295); skrypt odrzuca wyższy — to wymaga zgody właściciela i zmiany stałej LIMIT_USD w kodzie'
         type: string
         default: '15'
       tryb:
