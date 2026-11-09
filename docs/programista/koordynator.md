@@ -56,7 +56,7 @@ Nie twórz nowych sesji i nie archiwizuj — to robi koordynator. Nie edytuj sek
 | 1 | koordynator | E2E 42700220213; dispatch vi reszty; koszt przekładu; odbiór AE i AF (archiwizacja) |
 | 2 | AG — ZROBIONE e67157a (E2E 42709979531) | nazwa PokerGym w kodzie, `site/` (push na main po zgodzie), review-notes; metadane AF do `store/` |
 | 3 | ZROBIONE: AI de+es (d3d6fe9), AJ ko/it/vi (f0aab7e) | przegląd przekładu de, es, ko, it, vi wg wzoru AB/AD + przegląd językowy metadanych 9 języków (D-383) |
-| 4 | AH `session_01T66VBzFkgto6wWEdfnpqJv` (od 22:16) resztki AE + LOCALE_MAP; potem sesja kodu | resztki AE (ujednolicenie form pt-BR/fr/zh-Hant, terms-nazwy, flow CJK, zrzuty), potem nałożenie 5 nowych języków + wydanie |
+| 4 | AH zrobione (200d6a2); AK `session_01T66VBwzydL3Fmhtu5jsx2c` (od 23:08) nałożenie 5 języków | resztki AE (ujednolicenie form pt-BR/fr/zh-Hant, terms-nazwy, flow CJK, zrzuty), potem nałożenie 5 nowych języków + wydanie |
 | 5 | rano 07:00 (`trig_01KihuPMEhUFQp1zAXjtFr5g`) | raport nocy D-359 + jedno pytanie zbiorcze: weta D-343–D-378 (A), W-04 e-mail + dostawca, administrator, W-05 Apple ID aplikacji, W-07 JP (wariant A D-361), konto Search Ads (D-377), zgoda na push `site/` z nową nazwą, wariant językowy 1.0 |
 
 Termin 1.0 [OCENA]: wysłanie do Apple ~20.11 (pl+en) albo ~24.11 (pl+en+4 języki); 5 nowych języków raczej 1.1 albo później — do pytania rano.
