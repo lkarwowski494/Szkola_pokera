@@ -811,6 +811,27 @@ Dowody: `pnpm test:akceptacja` exit 0, 14/14 (było 11/14); `pnpm content:build`
 - 06/07: `m2-l1-outy.md` „Skąd te liczby”: liczby „2 punkty procentowe” i „10” outów wpisane ręcznie, nie przez `{{n:}}` (rachunek się zgadza: 10 outów, 2 karty: 40% wobec 38,39%) — NISKIE.
 - Przekład: zmienione zdania pl (m2.l1, m3.l3, m7.l3, m11.l3, egzaminy m2 i m11) wchodzą do K-03 przed zamrożeniem K4.
 
+## Naprawy — sesja T (2026-11-09, rola 08 build)
+Rola `08-programista --tryb build` złożona `tools/assemble.mjs` (repo `prompts`, odczyt 2026-11-09). Trening z publicznego klonu (2e4b0f8, 2026-11-09). Stan wyjściowy `7a697da`: `pnpm run ci` zielony poza moim testem w toku (`uklad-08`, przebieg równoległy z pisaniem testu — wyjątek nazwany jak w sesji R), mobile 531/533.
+
+| Zadanie | Realność | Commit | Test (czerwony przed → zielony po) | Decyzja |
+|---|---|---|---|---|
+| 1. `uklad.ts:27` każda akcja ≠ fold → „przebija” | teoretyczne (9 spotów 6-max: tylko fold/raise; push/fold i 9-max już dziś null), poprawka tania | „Stół: przebija tylko dla raise” | `uklad-08` „akcja bez stanu stołu” (przed: HJ:call → „przebija”); strażnik ścieżek `spots.yaml` (zielony od początku) | D-338 |
+| 2. m2.l1 „Skąd te liczby”: „2 pp” i „10” na sztywno (+ to samo w R-M2-002 `because`) | realne (zasada techniczna CLAUDE.md), rachunek się zgadzał | „m2.l1 i R-M2-002: granica outów” | content-build `regula-blad-08` 2 (przed: brak kluczy, liczby na sztywno); rejestr D-141 5 wpisów, przeliczenie niezależne 0 rozbieżności | D-339 |
+| 3. `lesson` wymagane w `TermEntry` | realne (nowy termin bez lekcji przechodził schemat) | „TermEntry: lesson wymagane” | `terminy-lekcja-08` (przed: „expected true to be false”); zmiana testu z powodem w komentarzu | D-340 |
+| 4. P2 sesji S (a)–(d) | (a) teoretyczne dziś — brak `content/*/terms-def.yaml`; (b) brzegowe, fala 1 ja/zh; (c) sprzeczne z obecnym zamierzeniem: `jezyki` domyślnie `pl,en`, en celowo przed wydaniem (`store-screenshots.yml:8,17`); (d) brzegowe | — | — | backlog niżej |
+
+Pełny zestaw po zmianach: `pnpm run ci` kod 0 — mobile 533/533, content-build 144/144, skrypty 143/143, `i18n:kod` 0 błędów; `pnpm content:build` 35 baz (44 lekcje, 141 reguł, 829 liczb, 162 terminy). `expo lint` nieuruchamiany (jak w częściach 1–6).
+
+**Teksty do akceptacji 04/06:** brak nowych kluczy interfejsu; zdania m2.l1 i R-M2-002 bez zmiany brzmienia po polsku (liczby z `numbers.yaml`). Przekład: zmienione źródło m2.l1 i R-M2-002 → K-03.
+
+**Lista telefonu:** m2.l1 „Skąd te liczby” pokazuje „ok. 2 punkty procentowe … nie więcej niż 10” jak dotąd; stół w zadaniach zakresów bez zmian.
+
+### Zostaje
+- P2 sesji S: (a) skrót źródła w `terms-def.yaml` albo ostrzeżenie → przy pierwszym przekładzie definicji (K-03/K5 en); (b) nazwy lokalne w `termDefRevealsName` → przekład ja/zh-Hant (fala 1); (c) kontrola kodów języków względem `WYDANE` → po wydaniu en (dziś zablokowałaby zamierzony zrzut en); (d) SHA przebiegu źródłowego w zrzutach → 1.0.1.
+- Stan stołu „sprawdza”/„all-in” (D-338, odrzucona opcja) — tylko gdy dojdą ścieżki z `call`, z tekstem i makietą od 04.
+- E2E zmian tej sesji po pushu.
+
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
 
