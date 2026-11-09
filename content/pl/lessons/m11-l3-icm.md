@@ -166,4 +166,4 @@ Ten sam kierunek widać w opublikowanej równowadze dla trzech graczy z równymi
 
 ## Ograniczenia {{t:icm}}
 
-{{t:icm}} nie zna {{t:position|pozycji}}, rosnących blindów ani umiejętności graczy. To dobre przybliżenie do decyzji o all-inie, ale nie dokładna wycena {{t:tournament|turnieju}}.
+{{t:icm}} nie uwzględnia {{t:position|pozycji}}, rosnących blindów ani umiejętności graczy. To przybliżenie, a nie dokładna wycena {{t:tournament|turnieju}}.

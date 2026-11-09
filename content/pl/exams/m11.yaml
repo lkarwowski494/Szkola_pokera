@@ -53,10 +53,10 @@ drills:
   - kind: numeric
     id: m11.exam.q7
     family: m11.bf
-    rules: [R-M11-009]
+    rules: [R-M11-009, R-M11-008]
     prompt: "{{t:bubble|Bubble}}: czterech graczy, płatne trzy miejsca ({{n:m11.bf.p1}}, {{n:m11.bf.p2}}, {{n:m11.bf.p3}} {{t:prize-pool|puli nagród}}). Stacki: {{n:exam.m11.bf.s1}}, twoje {{n:exam.m11.bf.s2}}, rywal all-in {{n:exam.m11.bf.s3}} i {{n:exam.m11.bf.s4}}. Według {{t:icm}} {{t:call|sprawdzając}} tracisz przy przegranej {{n:exam.m11.bf.loss}} {{t:prize-pool|puli nagród}}, a przy wygranej zyskujesz {{n:exam.m11.bf.gain}}. Ile wynosi bubble factor? Wpisz liczbę z dwoma miejscami po przecinku."
     answer: exam.m11.bf.value
-    explanation: "Bubble factor = strata ÷ zysk = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.gain}} ≈ {{n:exam.m11.bf.value}}. Twoje equity teraz to {{n:exam.m11.bf.eq.now}}, po wygranej {{n:exam.m11.bf.eq.win}}, po przegranej {{n:exam.m11.bf.eq.lose}}: przegrana kosztuje więcej, niż wygrana dodaje."
+    explanation: "Bubble factor = strata ÷ zysk = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.gain}} ≈ {{n:exam.m11.bf.value}}. Twoje equity teraz to {{n:exam.m11.bf.eq.now}}, po wygranej {{n:exam.m11.bf.eq.win}}, po przegranej {{n:exam.m11.bf.eq.lose}}: przegrana kosztuje więcej, niż wygrana dodaje. {{t:icm}} nie uwzględnia {{t:position|pozycji}} ani umiejętności graczy, więc ta wycena jest przybliżeniem."
   - kind: choice
     id: m11.exam.q8
     family: m11.bf

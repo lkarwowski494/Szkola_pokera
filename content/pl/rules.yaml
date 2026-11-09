@@ -1103,7 +1103,7 @@
   then: "szansa na 1. miejsce = twój stack ÷ wszystkie {{t:chips}}; szansa na 2. miejsce liczysz tak samo spośród graczy, którzy zostali, dla każdego możliwego zwycięzcy; equity = suma szans × {{t:payout|wypłaty}}"
   because: "ten model zakłada równe umiejętności graczy, więc o kolejności decydują tylko stacki"
   level: math
-  source: "serwis komercyjnego solvera, ICM Basics (https://blog.gtowizard.com/icm-basics/): „The Independent Chip Model assumes all players are equally skilled, and therefore the probability of winning is purely a function of stack sizes”, „divide their chips by the total amount of chips in play”, „Assume one of the other players wins, remove their chips from play, and divide our chips by the remaining chips in play”; rachunek na przykładzie stacków (raport E1 M9–M11)"
+  source: "serwis komercyjnego solvera, ICM Basics (https://blog.gtowizard.com/icm-basics/): „The Independent Chip Model assumes all players are equally skilled, and therefore the probability of winning is purely a function of stack sizes”, sekcja Limitations of ICM: „ICM doesn’t consider players’ positions.”, „ICM ignores blinds increasing.” (odczyt 2026-11-09), „divide their chips by the total amount of chips in play”, „Assume one of the other players wins, remove their chips from play, and divide our chips by the remaining chips in play”; rachunek na przykładzie stacków (raport E1 M9–M11)"
   sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/icm-basics/" }, { kind: math }]
 - id: R-M11-009
   module: m11

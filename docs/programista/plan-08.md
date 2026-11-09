@@ -716,6 +716,25 @@ Pełny zestaw: `pnpm run ci` kod 0 po każdym commicie (ostatni: mobile 465, pre
 
 **Zostaje:** `[DO USTALENIA]` warunki zwrotów Apple (zdanie ich nie obiecuje); 10-JP-02 dane sprzedawcy (właściciel/rola 10); przekład `purchase.cancelInfo` i `card.*` — rola 09.
 
+## Treść K-02 — sesja N (2026-11-09, rola 06 build, plan-1.0 K-02)
+
+Wejście: 3 czerwone testy `pnpm test:akceptacja` (`docs/wydanie/dowody/stan-2026-11-09.txt`). Prompt roli: `node tools/assemble.mjs 06-tresci --tryb build` (repo prompts, 2026-11-09). Naprawiana treść, testy bez zmian.
+
+| Test | Przyczyna | Zmiana | Decyzja |
+|---|---|---|---|
+| AK-BR-KURS-003-b | brak pola `lesson` w 162 terminach | `lesson` w każdym wpisie `content/terms.yaml` (pierwsza lekcja z terminem w tekście; 35 ręcznie z kontekstu; 7 terminów tylko słownikowych → lekcja tematu) | D-311 |
+| AK-BR-CWI-005-b | „ICM nie zna …” zamiast „nie uwzględnia …”; egzamin m11 bez ograniczenia modelu | m11.l3: „nie uwzględnia pozycji, rosnących blindów ani umiejętności”; m11.exam.q7: zdanie o ograniczeniu + R-M11-008; cytat „Limitations of ICM” (GTO Wizard, odczyt 2026-11-09) w `source` R-M11-008 | D-312 |
+| AK-BR-KURS-005-a | wynik reguły 2 i 4 bez słowa „przybliżenie” (m2.l1, m7.l3, egzamin m2) | „(przybliżenie)” / „w przybliżeniu” przy każdym wyniku reguły; zdanie we wstępie sekcji „Reguła 2 i 4” | D-313 |
+| F-17, F-26 (NISKIE) | czekały na akceptację 06 | zaakceptowane bez zmian treści; ryzyko `uklad.ts:27` (każda akcja ≠ fold → „przebija”) dla 05/08 | D-314 |
+
+Dowody: `pnpm test:akceptacja` exit 0, 14/14 (było 11/14); `pnpm content:build` exit 0 (44 lekcje, 162 terminy); `pnpm run ci` exit 0 (2026-11-09, po poprawkach weryfikacji); niezależna weryfikacja zmienionych zdań subagentem (świeży kontekst): POPARTE poza `set` (→ m4.l1), `stakes` (→ m3.l3 + znacznik) i zdaniem m11.l3 „dobre przybliżenie…” (zawężone) — poprawione; ponowny przegląd zastępczy t:bankroll i t:risk-of-ruin (pole `lesson` zmieniło skrót, D-157): 0 rozbieżności, nowe `przeglad.sha`.
+
+### Zostaje
+- 05/08: `lesson` z opcjonalnego na wymagane w `TermEntry` (D-221 „potem wymagane”; zmienia test `terminy-lekcja-08.test.ts:9`).
+- 06 po 1.0: 7 terminów tylko słownikowych (D-311) wpisać do lekcji tematu albo zostawić jako słowniczek.
+- 06/07: `m2-l1-outy.md` „Skąd te liczby”: liczby „2 punkty procentowe” i „10” outów wpisane ręcznie, nie przez `{{n:}}` (rachunek się zgadza: 10 outów, 2 karty: 40% wobec 38,39%) — NISKIE.
+- Przekład: zmienione zdania pl (m2.l1, m3.l3, m7.l3, m11.l3, egzaminy m2 i m11) wchodzą do K-03 przed zamrożeniem K4.
+
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
 

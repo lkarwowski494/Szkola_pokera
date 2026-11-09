@@ -14,7 +14,7 @@ drills:
     options:
       - { text: "Ok. {{n:odds.flush.turn-river}}", correct: true, why: "Tak: została jedna karta. {{n:outs.flush}} outów z {{n:cards.unseen.turn}} nieznanych kart to {{n:odds.flush.turn-river}}, mniej więcej połowa szansy z flopu." }
       - { text: "Nadal ok. {{n:odds.flush.flop-river}}, bo outów jest tyle samo", why: "Outów jest tyle samo, ale kart do odkrycia mniej. {{n:odds.flush.flop-river}} liczy dwie karty, a na turnie została jedna." }
-      - { text: "Nie da się tego policzyć bez kalkulatora", why: "Da się: reguła 2 i 4 z M2. Jedna karta, więc outy × 2: ok. {{n:odds.flush.rule-turn}}. Dokładnie {{n:odds.flush.turn-river}}." }
+      - { text: "Nie da się tego policzyć bez kalkulatora", why: "Da się: reguła 2 i 4 z M2. Jedna karta, więc outy × 2: w przybliżeniu {{n:odds.flush.rule-turn}}. Dokładnie {{n:odds.flush.turn-river}}." }
   - kind: generated
     id: m7.l3.g-outs-turn
     family: m7.draw.odds

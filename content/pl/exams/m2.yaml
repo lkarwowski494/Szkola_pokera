@@ -35,7 +35,7 @@ drills:
     rules: [R-M2-002]
     prompt: "Flop. Rywal jest all-in, a ty masz {{t:oesd|OESD}} ({{n:outs.oesd}} outów). Jeśli {{t:call|sprawdzisz}}, jaka jest szansa trafienia do rivera?"
     options:
-      - { text: "Ok. {{n:odds.oesd.flop-river}}", correct: true, why: "Rywal jest all-in, więc zobaczysz turn i rivera bez dalszych {{t:bet|zakładów}}. Liczysz dwie karty: reguła daje {{n:outs.oesd}} × 4 = {{n:odds.oesd.rule-flop}}, a dokładnie {{n:odds.oesd.flop-river}}." }
+      - { text: "Ok. {{n:odds.oesd.flop-river}}", correct: true, why: "Rywal jest all-in, więc zobaczysz turn i rivera bez dalszych {{t:bet|zakładów}}. Liczysz dwie karty: przybliżenie z reguły to {{n:outs.oesd}} × 4 = {{n:odds.oesd.rule-flop}}, a dokładnie {{n:odds.oesd.flop-river}}." }
       - { text: "Ok. {{n:odds.oesd.flop-turn}}", why: "Tyle wynosi szansa na samym turnie. Przy all-inie zobaczysz też rivera." }
       - { text: "Ok. {{n:odds.flush.flop-river}}", why: "To szansa dla {{t:flush-draw|drawa do koloru}} z {{n:outs.flush}} outami. Ty masz {{n:outs.oesd}}." }
   - kind: choice
@@ -45,7 +45,7 @@ drills:
     prompt: "Flop. Masz {{t:oesd|OESD}}, a rywal {{t:bet|stawia}} pół {{t:pot|puli}}. Stacki są głębokie. Jaką szansę trafienia porównujesz z ceną?"
     table: { hand: "Qh Jc", board: "Td 9s 3c" }
     options:
-      - { text: "Ok. {{n:odds.oesd.flop-turn}}, tylko na turnie", correct: true, why: "{{t:call|Sprawdzenie}} kupuje jedną kartę. Na turnie rywal może {{t:bet|postawić}} znowu, więc liczysz jedną kartę: reguła daje {{n:outs.oesd}} × 2 = {{n:odds.oesd.rule-next}}, a dokładnie {{n:outs.oesd}} z {{n:cards.unseen.flop}}, czyli {{n:odds.oesd.flop-turn}}." }
+      - { text: "Ok. {{n:odds.oesd.flop-turn}}, tylko na turnie", correct: true, why: "{{t:call|Sprawdzenie}} kupuje jedną kartę. Na turnie rywal może {{t:bet|postawić}} znowu, więc liczysz jedną kartę: przybliżenie z reguły to {{n:outs.oesd}} × 2 = {{n:odds.oesd.rule-next}}, a dokładnie {{n:outs.oesd}} z {{n:cards.unseen.flop}}, czyli {{n:odds.oesd.flop-turn}}." }
       - { text: "Ok. {{n:odds.oesd.flop-river}}, do rivera", why: "Szansę do rivera bierzesz tylko wtedy, gdy na pewno zobaczysz obie karty bez dalszych {{t:bet|zakładów}}, czyli przy all-inie." }
   - kind: numeric
     id: m2.exam.n2
@@ -53,7 +53,7 @@ drills:
     rules: [R-M2-002]
     prompt: "Turn. Masz gutshot ({{n:outs.gutshot}} outy). Ile procent szans na trafienie na riverze daje reguła 2 i 4? Wpisz liczbę."
     answer: odds.gutshot.rule-turn
-    explanation: "Została jedna karta, więc mnożysz przez 2: {{n:outs.gutshot}} × 2 = {{n:odds.gutshot.rule-turn}}. Dokładnie: {{n:outs.gutshot}} z {{n:cards.unseen.turn}}, czyli {{n:odds.gutshot.turn-river}}."
+    explanation: "Została jedna karta, więc mnożysz przez 2: {{n:outs.gutshot}} × 2 = {{n:odds.gutshot.rule-turn}} (przybliżenie). Dokładnie: {{n:outs.gutshot}} z {{n:cards.unseen.turn}}, czyli {{n:odds.gutshot.turn-river}}."
   - kind: choice
     id: m2.exam.q5
     family: m2.pot-odds

@@ -32,7 +32,7 @@ drills:
     rules: [R-M2-002]
     prompt: "Turn, masz {{n:outs.flush}} outów do {{t:flush|koloru}}. Jaka jest szansa, że trafisz na riverze?"
     options:
-      - { text: "Ok. {{n:odds.flush.turn-river}}", correct: true, why: "Jedna karta do odkrycia: {{n:outs.flush}} × 2 = {{n:odds.flush.rule-turn}}. Dokładnie {{n:outs.flush}} z {{n:cards.unseen.turn}} nieznanych kart, czyli {{n:odds.flush.turn-river}}." }
+      - { text: "Ok. {{n:odds.flush.turn-river}}", correct: true, why: "Jedna karta do odkrycia: {{n:outs.flush}} × 2 = {{n:odds.flush.rule-turn}} (przybliżenie). Dokładnie {{n:outs.flush}} z {{n:cards.unseen.turn}} nieznanych kart, czyli {{n:odds.flush.turn-river}}." }
       - { text: "Ok. {{n:odds.flush.flop-river}}", why: "To szansa na flopie, gdy przed tobą są dwie karty. Na turnie została jedna." }
       - { text: "Ok. {{n:ex.wrong.half}}", why: "{{n:ex.wrong.half}} znaczyłoby, że {{t:flush}} daje co druga nieznana karta. Daje go tylko {{n:outs.flush}} z {{n:cards.unseen.turn}}." }
   - kind: choice
@@ -41,8 +41,8 @@ drills:
     rules: [R-M2-002]
     prompt: "Na flopie masz gutshot ({{n:outs.gutshot}} outy). Jaka jest szansa trafienia do rivera?"
     options:
-      - { text: "Ok. {{n:odds.gutshot.flop-river}}", correct: true, why: "{{n:outs.gutshot}} × 4 = {{n:odds.gutshot.rule-flop}}. Dokładnie {{n:odds.gutshot.flop-river}}. Tyle masz jednak tylko wtedy, gdy zobaczysz obie karty bez dalszych {{t:bet|zakładów}} (all-in). Gdy rywal {{t:bet|stawia}} na flopie, płacisz za jedną kartę: wtedy szansa to ok. {{n:odds.gutshot.flop-turn}}." }
-      - { text: "Ok. {{n:odds.gutshot.rule-turn}}", why: "To szansa przy jednej karcie ({{n:outs.gutshot}} × 2). Pytanie dotyczy obu kart: turnu i rivera." }
+      - { text: "Ok. {{n:odds.gutshot.flop-river}}", correct: true, why: "{{n:outs.gutshot}} × 4 = {{n:odds.gutshot.rule-flop}} (przybliżenie). Dokładnie {{n:odds.gutshot.flop-river}}. Tyle masz jednak tylko wtedy, gdy zobaczysz obie karty bez dalszych {{t:bet|zakładów}} (all-in). Gdy rywal {{t:bet|stawia}} na flopie, płacisz za jedną kartę: wtedy szansa to ok. {{n:odds.gutshot.flop-turn}}." }
+      - { text: "Ok. {{n:odds.gutshot.rule-turn}}", why: "To przybliżenie szansy przy jednej karcie ({{n:outs.gutshot}} × 2). Pytanie dotyczy obu kart: turnu i rivera." }
       - { text: "Ok. {{n:odds.oesd.flop-river}}", why: "Tyle miałbyś z {{n:outs.oesd}} outami. Gutshot ma tylko {{n:outs.gutshot}}." }
   - kind: choice
     id: m2.l1.q5
@@ -87,7 +87,7 @@ drills:
     rules: [R-M2-002]
     prompt: "Turn. Masz {{n:outs.flush}} outów do {{t:flush|koloru}}. Ile procent szans na trafienie na riverze daje reguła 2 i 4? Wpisz liczbę."
     answer: odds.flush.rule-turn
-    explanation: "Jedna karta do odkrycia, więc mnożysz przez 2: {{n:outs.flush}} × 2 = {{n:odds.flush.rule-turn}}. Dokładnie: {{n:outs.flush}} z {{n:cards.unseen.turn}} kart, czyli {{n:odds.flush.turn-river}}."
+    explanation: "Jedna karta do odkrycia, więc mnożysz przez 2: {{n:outs.flush}} × 2 = {{n:odds.flush.rule-turn}} (przybliżenie). Dokładnie: {{n:outs.flush}} z {{n:cards.unseen.turn}} kart, czyli {{n:odds.flush.turn-river}}."
   - kind: generated
     id: m2.l1.g3
     family: m2.outs.gutshot
@@ -112,6 +112,8 @@ drills:
 - **Dziura w {{t:straight|stricie}} (gutshot)**, np. 5-6-8-9 bez siódemki: **{{n:outs.gutshot}} outy**.
 
 ## Reguła 2 i 4
+
+Reguła daje przybliżenie szansy bez kalkulatora: mnożysz outy przez 2 albo 4. Dokładne szanse są w tabeli niżej.
 
 ```formula
 szansa ≈ outy × 2   (jedna karta do odkrycia)
