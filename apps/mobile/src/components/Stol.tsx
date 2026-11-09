@@ -9,8 +9,8 @@ import { CardRow } from './PlayingCard';
  * Stół z góry (08 cz. 6 krok 3, D-274; design-spec „`Stol`: zależy od danych zadania”, D-119; makieta e3 `przed-decyzja`
  * i `bez-pozycji`). Z pozycją i poprawnym przebiegiem: owal z 6 miejscami (ty na dole, kolejność wskazówek zegara), twoje
  * karty na suknie, pod stołem klasa ręki i dopisek. Bez pozycji albo przy złych danych: owal bez miejsc, karty wspólne na
- * suknie, twoje przy krawędzi, opis kart tekstem. Miejsca mają stały rozmiar (rysunek); informację niesie też tekst pod
- * stołem i etykieta dla czytnika (design-spec „Typografia”).
+ * suknie, twoje przy krawędzi, opis kart tekstem. Miejsca mają stały rozmiar (rysunek), ich tekst się nie skaluje (A04-05,
+ * D-283 pkt 3); informację niesie tekst pod stołem i etykieta dla czytnika (design-spec „Typografia”).
  */
 type Table = NonNullable<DrillInstance['table']>;
 
@@ -104,10 +104,10 @@ function Siedzenie({ m }: { m: Miejsce }): React.JSX.Element {
         },
       ]}
     >
-      <Text style={[styles.nazwa, { color: tk.seatInk }]} numberOfLines={1}>
+      <Text style={[styles.nazwa, { color: tk.seatInk }]} numberOfLines={1} allowFontScaling={false}>
         {m.pozycja}
       </Text>
-      <Text style={[styles.stan, { color: ty ? tk.goldText : tk.seatMuted }]} numberOfLines={1} adjustsFontSizeToFit>
+      <Text style={[styles.stan, { color: ty ? tk.goldText : tk.seatMuted }]} numberOfLines={1} adjustsFontSizeToFit allowFontScaling={false}>
         {t(STAN_KLUCZ[m.stan])}
       </Text>
     </View>

@@ -15,6 +15,7 @@ import { podsumowanieLekcji, podsumowanieTestow } from '@/features/kurs/podsumow
 import { AdvancementCard } from '@/features/advancement/AdvancementCard';
 import { EXAM_SIZE } from '@/features/drills/thresholds';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
+import { ZNAK_SKALA_MAX } from '@/theme/skalowanie';
 
 const PUSTE_LEKCJE: ReturnType<typeof podsumowanieLekcji> = new Map();
 const PUSTE_TESTY: ReturnType<typeof podsumowanieTestow> = new Map();
@@ -91,7 +92,7 @@ export default function TodayScreen() {
         {/* makieta e3 „dzis”: ikona ustawień w prawym górnym rogu, etykieta czytnika „Ustawienia” (design-spec.md:70). Znak ⚙︎
             zamiast rysunku SVG z makiety: system nie ma komponentu ikony (zgłoszenie 08-F22 → 04). */}
         <Pressable testID="ustawienia" accessibilityRole="button" accessibilityLabel={t('settings.title')} hitSlop={12} onPress={() => router.push('/settings')}>
-          <Text style={[styl.naglowek, { color: tk.ink }]} accessibilityElementsHidden importantForAccessibility="no">
+          <Text style={[styl.naglowek, { color: tk.ink }]} maxFontSizeMultiplier={ZNAK_SKALA_MAX} accessibilityElementsHidden importantForAccessibility="no">
             ⚙︎
           </Text>
         </Pressable>
@@ -145,7 +146,7 @@ export default function TodayScreen() {
                   ]}
                 >
                   <View style={[styles.dot, { borderColor: tk.ink, backgroundColor: state === 'done' ? tk.primaryBg : 'transparent', borderStyle: state === 'started' ? 'dashed' : 'solid' }]}>
-                    {state === 'done' ? <Text style={{ color: tk.primaryInk, fontWeight: '800' }}>✓</Text> : null}
+                    {state === 'done' ? <Text style={{ color: tk.primaryInk, fontWeight: '800' }} maxFontSizeMultiplier={ZNAK_SKALA_MAX}>✓</Text> : null}
                   </View>
                   <View style={{ flex: 1, gap: 2 }}>
                     <Text style={[styl.tresc, { color: tk.ink, fontWeight: '600' }]}>{l.title}</Text>
@@ -163,7 +164,7 @@ export default function TodayScreen() {
                 style={({ pressed }) => [styles.lesson, { borderColor: exams.get(m.id)?.passed ? tk.ink : tk.separator, borderStyle: 'dashed', opacity: pressed ? 0.85 : 1 }]}
               >
                 <View style={[styles.dot, { borderColor: tk.ink, backgroundColor: exams.get(m.id)?.passed ? tk.primaryBg : 'transparent' }]}>
-                  {exams.get(m.id)?.passed ? <Text style={{ color: tk.primaryInk, fontWeight: '800' }}>✓</Text> : null}
+                  {exams.get(m.id)?.passed ? <Text style={{ color: tk.primaryInk, fontWeight: '800' }} maxFontSizeMultiplier={ZNAK_SKALA_MAX}>✓</Text> : null}
                 </View>
                 <View style={{ flex: 1, gap: 2 }}>
                   <Text style={[styl.tresc, { color: tk.ink, fontWeight: '600' }]}>{t('exam.start')}</Text>

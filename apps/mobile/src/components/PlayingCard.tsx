@@ -33,8 +33,9 @@ export const PlayingCard = memo(function PlayingCard({ code, size = 'md' }: { co
         { width: d.w, height: d.h, backgroundColor: tk.card, borderColor: tk.cardEdge, borderRadius: size === 'sm' ? 4 : 6 },
       ]}
     >
-      <Text style={[styles.rank, { color, fontSize: d.rank, lineHeight: d.rank * 1.05, fontFamily: krojKarty() }]}>{rank === 'T' ? '10' : rank}</Text>
-      <Text style={[styles.suit, { color, fontSize: d.suit, lineHeight: d.suit * 1.1 }]}>{SUIT[suit]}</Text>
+      {/* rysunek karty o stałym rozmiarze: indeks i kolor bez skalowania (A04-05, D-283 pkt 3) */}
+      <Text allowFontScaling={false} style={[styles.rank, { color, fontSize: d.rank, lineHeight: d.rank * 1.05, fontFamily: krojKarty() }]}>{rank === 'T' ? '10' : rank}</Text>
+      <Text allowFontScaling={false} style={[styles.suit, { color, fontSize: d.suit, lineHeight: d.suit * 1.1 }]}>{SUIT[suit]}</Text>
     </View>
   );
 });
