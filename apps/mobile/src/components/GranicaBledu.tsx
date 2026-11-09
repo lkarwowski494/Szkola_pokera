@@ -1,7 +1,12 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react';
 import { zapiszBlad } from '@/platform/dziennik';
 
-type Props = { children: ReactNode; fallback: (p: { resetError: () => void }) => ReactNode };
+type Props = {
+  children: ReactNode;
+  fallback: (p: { resetError: () => void }) => ReactNode;
+  /** Po złapaniu błędu (np. zdjęcie ekranu startowego, gdy pierwszy render nawigacji się nie udał — przegląd D-043 sesji R). */
+  onBlad?: () => void;
+};
 
 /**
  * Granica błędu renderowania (ADR 0009; tlo-i-bledy.md §4 `wyjatek_ekranu`): wpis w dzienniku lokalnym i ekran zastępczy.
@@ -17,6 +22,7 @@ export class GranicaBledu extends Component<Props, { blad: boolean }> {
 
   componentDidCatch(_error: Error, _info: ErrorInfo): void {
     zapiszBlad('wyjatek_ekranu');
+    this.props.onBlad?.();
   }
 
   private reset = (): void => this.setState({ blad: false });

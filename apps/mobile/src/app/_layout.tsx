@@ -156,8 +156,9 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={theme}>
-      {/* błąd renderowania: wpis w dzienniku lokalnym (ADR 0009) i ekran z ponowieniem zamiast zamknięcia aplikacji */}
-      <GranicaBledu fallback={({ resetError }) => <RenderErrorScreen onRetry={resetError} />}>
+      {/* błąd renderowania: wpis w dzienniku lokalnym (ADR 0009) i ekran z ponowieniem zamiast zamknięcia aplikacji; błąd zdejmuje
+          też ekran startowy (pierwszy render nawigacji mógł się nie udać przed `onPierwszeOtwarcie`, przegląd D-043 sesji R) */}
+      <GranicaBledu fallback={({ resetError }) => <RenderErrorScreen onRetry={resetError} />} onBlad={pierwszeOtwarcie}>
         <PostepKontekst.Provider value={postep.port}>
           {/* Plik treści przygotowany przez useTresc (bez kopiowania przy każdym starcie, ADR 0005 pkt 2); zmiana języka
               podmienia bazę bez montowania nawigacji od nowa (ProviderTresci, plan-09 §13). */}
