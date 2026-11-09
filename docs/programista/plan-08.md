@@ -868,14 +868,25 @@ Rola `08-programista --tryb build`: `add_repo prompts` odrzucone przez klasyfika
 | Zadanie | Commit | Test (czerwony przed → zielony po) | Decyzja |
 |---|---|---|---|
 | 4 workflowy `asc-*.yml` + `scripts/asc/*.mjs` + dane `store/` (adresy, lokalizacje IAP ze słownika, konfiguracja kontroli, pliki generowane) | 123fc16 | `asc.test.mjs` 16 (przed: brak modułów), `workflowy.test.mjs` +2 (przed: brak plików); mutanty 17/17 | D-352 |
-| Przegląd D-043 (subagent, świeży kontekst): P1 brak; P2.2 artefakt zrzutów z dowolnego przebiegu (np. z forka) → kontrola `actions/runs/$RUN` = ręczny `store-screenshots.yml`; P3: `jezyki` zaczynające się od `-`, `stateOf` bez `state`, dry-run IAP bez klienta GET, zły odnośnik w komentarzu | (ten commit) | mutant M18 (kontrola przebiegu) zabity; M19 (klient GET w dry-run IAP) równoważny — dry-run nie ma ścieżki zapisu, opakowanie to obrona w głąb | D-352 |
+| Przegląd D-043 (subagent, świeży kontekst): P1 brak; P2.2 artefakt zrzutów z dowolnego przebiegu (np. z forka) → kontrola `actions/runs/$RUN` = ręczny `store-screenshots.yml`; P3: `jezyki` zaczynające się od `-`, `stateOf` bez `state`, dry-run IAP bez klienta GET, zły odnośnik w komentarzu | c6031bc | mutant M18 (kontrola przebiegu) zabity; M19 (klient GET w dry-run IAP) równoważny — dry-run nie ma ścieżki zapisu, opakowanie to obrona w głąb | D-352 |
 
 `pnpm run ci` kod 0 przed poprawkami przeglądu (mobile 537/537, skrypty 167/167); po poprawkach `pnpm test:skrypty` 167/167.
+
+| Przebiegi podglądu (tylko odczyt, `--ref` gałęzi) | Wynik | Następny krok |
+|---|---|---|
+| seria 1 (main 7e15c6a..970c4d3): 42661188005 metadane, 42661194013 IAP, 42661200869 kontrola | czerwone: `setup-node@v5` „Unable to locate executable file: pnpm” (`packageManager: pnpm` włącza pamięć pnpm; Trening ma npm; także we wspólnym workflowie narzędzi) | 377dfdd: `package-manager-cache: false`; kontrola uruchamia narzędzie studia z checkoutu w SHA 43afe81 (test czerwony → zielony); main f256f8f |
+| seria 2: 42661899221, 42661904294, 42661910439 | czerwone: walidacja repo OK („5 lokalizacji … w porządku”), potem `GET /v1/apps → 401 NOT_AUTHORIZED` | 7eb9d99: klucz przez `scripts/ci/asc-check.mjs` jak `testflight.yml` (przycięcie ID, naprawa `.p8`, diagnoza); main 19301c2 |
+| seria 3: 42662633291 metadane, 42662639195 IAP, 42662645193 kontrola | czerwone: „Klucz prywatny: poprawny format (EC)”, „Apple odrzuciło klucz (401): ASC_KEY_ID, ASC_ISSUER_ID i ASC_KEY_P8 nie pochodzą od tego samego aktywnego klucza (albo klucz unieważniony)” | **krok właściciela** (sekrety); bez kodu. Stan ASC (co jest, czego brakuje) — nieznany do czasu działającego klucza |
+| `asc-zrzuty.yml` | nieuruchomiony: `store-screenshots.yml` nie ma na `main` (404 przy liście przebiegów), więc nie ma przebiegu z artefaktem `sklep-zrzuty-<rozmiar>` | pytanie właściciela: `store-screenshots.yml` na main (jak D-342/D-348) |
+
+Main po sesji: 7e15c6a → 970c4d3 → f256f8f → 19301c2, każdy push tylko 4 pliki `asc-*.yml` (`git diff --stat` sprawdzony przy każdym), bez `--force`. Zapisu do ASC nie uruchamiano. E2E 42651521831 (3b54c26, kod sesji W) **czerwone** (krok ponowienia flowów; artefakt `e2e-wyniki` 13694027306) — poza zakresem X; pushe X zmieniające `.github/`/`scripts/` uruchomiły nowe E2E na 7eb9d99.
 
 ### Zostaje
 - P2.1 przeglądu: sekrety ASC są sekretami repozytorium — zatwierdzenie `release` chroni przed pomyłką, nie przed osobą z prawem zapisu do repo, która zmieni workflow na innej gałęzi (dotyczy też `testflight.yml`). Mocniej: klucz z prawem zapisu jako sekret środowiska `release`, do odczytu osobny klucz o słabszej roli — decyzja właściciela (pytanie w PRZEKAZANIU).
 - P2.3: test trybu apply zrzutów na atrapie (rezerwacja, PUT, 409 DUPLICATE, brak adresów wgrywania w logu) — logika bez zmian względem Treningu, tam pokryta (`tests/asc-zrzuty.test.ts`); do backlogu przed pierwszym apply.
 - P3.1: nazwa referencyjna obrazu bez rozmiaru (6.3 po 6.9 przemianowuje obraz na „[zastąpiony]”, bez utraty) — wgrywać jeden rozmiar (6.9).
+- Krok właściciela: nowy klucz API App Store Connect (Users and Access → Integrations → Team Keys, rola Admin jak testflight.yml) i nadpisanie WSZYSTKICH trzech sekretów repo `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_P8` wartościami tego jednego klucza; potem ponowić podglądy (koordynator: `actions_run_trigger`, `ref` gałęzi, tryb podglad/dry-run). Dotyczy też `testflight.yml` (ten sam klucz).
+- Krok właściciela przed pierwszym zapisem: Settings → Environments → `release` z Required reviewers (właściciel); reguła gałęzi środowiska musi dopuszczać `claude/sleepy-brahmagupta-2065nu`. Bez tego zadanie zapisu pada przed kluczem (strażnik).
 - `store/review-notes.en.txt` ma `[SUPPORT EMAIL]` i klucze etykiet — kontrola pokaże różnicę do czasu podmiany (W-04, K-03).
 
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
