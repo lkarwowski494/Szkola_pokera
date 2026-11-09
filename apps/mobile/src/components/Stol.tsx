@@ -31,11 +31,12 @@ export function Stol({ table }: { table: Table }): React.JSX.Element {
   const { t } = useTranslation();
   const miejsca = table.position && table.path !== undefined ? ukladStolu(table.position, table.path) : null;
   const reka = table.hand ?? [];
-  const etykieta = miejsca ? etykietaStolu(miejsca, reka, t) : opisKart(table, t);
+  const etykieta = miejsca ? etykietaStolu(miejsca, reka, t) : opisKart(table, t, { nazwy: true }); // A04-11: czytnik dostaje nazwy kart
+  const tekstKart = miejsca ? '' : opisKart(table, t); // widoczny tekst pod stołem z symbolami (A04-11)
   const opis = miejsca ? opisReki(miejsca, reka, t) : null;
   // A04-04 (D-282 pkt 2): bez kart i bez miejsc nie ma czego rysować — sam tekst (pozycja), żadnej pustej grafiki
   if (!miejsca && !table.opp?.length && !table.board?.length && !reka.length) {
-    return etykieta ? <Text style={[styl.tresc, { color: tk.ink }]}>{etykieta}</Text> : <></>;
+    return tekstKart ? <Text style={[styl.tresc, { color: tk.ink }]}>{tekstKart}</Text> : <></>;
   }
   return (
     <View style={{ gap: odstep.m }}>
@@ -67,7 +68,9 @@ export function Stol({ table }: { table: Table }): React.JSX.Element {
           <Text style={[styl.przypis, { color: tk.muted }]}>{opis.dopisek}</Text>
         </View>
       ) : (
-        <Text style={[styl.przypis, { color: tk.ink }]}>{etykieta}</Text>
+        <Text accessibilityLabel={etykieta} style={[styl.przypis, { color: tk.ink }]}>
+          {tekstKart}
+        </Text>
       )}
     </View>
   );

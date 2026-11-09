@@ -47,7 +47,7 @@ describe('pierwsze uruchomienie', () => {
     await screen.findByText(/bez gry na pieniądze/);
     await fireEvent.press(screen.getByRole('button', { name: 'Dalej' }));
     await screen.findByText(`Pytanie ${pierwsze}`);
-    const etykieta = opisKart({ hand: ['Jc', '9d'], board: ['Ts', '7h', '2c'] }, i18n.t.bind(i18n));
+    const etykieta = opisKart({ hand: ['Jc', '9d'], board: ['Ts', '7h', '2c'] }, i18n.t.bind(i18n), { nazwy: true }); // A04-11: nazwy kart dla czytnika
     expect(screen.getByRole('image').props.accessibilityLabel).toBe(etykieta);
     expect(screen.queryByText('Twoje karty')).toBeNull(); // podpis starego `TableFelt`
   });

@@ -3,7 +3,7 @@
 // docs/design/ekrany/e3.html, ekrany przed-decyzja i bez-pozycji).
 import '@/i18n';
 import i18n from 'i18next';
-import { etykietaStolu, opisKart, opisReki, ukladStolu } from '@/features/stol/uklad';
+import { etykietaStolu, nazwaKarty, opisKart, opisReki, ukladStolu } from '@/features/stol/uklad';
 
 const t = i18n.t.bind(i18n);
 
@@ -63,5 +63,18 @@ describe('teksty stołu', () => {
   it('A04-01 (D-282 pkt 1): karty rywala w opisie przed twoimi i wspólnymi — każda narysowana karta jest w opisie', () => {
     const table = { opp: ['Ac', 'Ad'], hand: ['Th', '9h'], board: ['As', '8c', '7d', 'Jh', '2s'] };
     expect(opisKart(table, t)).toBe('Karty rywala: A♣ A♦. Twoje karty: 10♥ 9♥. Na stole (board): A♠ 8♣ 7♦ J♥ 2♠.');
+  });
+
+  it('A04-11 (audyt roli 04): wariant dla czytnika — nazwy kart zamiast symboli (makieta e3.html:118), ta sama kolejność', () => {
+    const table = { opp: ['Ac', 'Ad'], hand: ['Th', '9h'], board: ['As', '8c', '7d', 'Jh', '2s'] };
+    expect(opisKart(table, t, { nazwy: true })).toBe(
+      'Karty rywala: as trefl i as karo. Twoje karty: 10 kier i 9 kier. Na stole (board): as pik, 8 trefl, 7 karo, walet kier i 2 pik.',
+    );
+    expect(opisKart(table, t, { nazwy: true })).not.toMatch(/[♠♥♦♣]/);
+  });
+
+  it('A04-11: nazwaKarty — brzmienie pl jak dotąd w PlayingCard; zły kod zostaje kodem (bez zgadywania)', () => {
+    expect(['As', 'Kh', 'Qd', 'Jc', 'Ts', '2h'].map((c) => nazwaKarty(c, t))).toEqual(['as pik', 'król kier', 'dama karo', 'walet trefl', '10 pik', '2 kier']);
+    expect(nazwaKarty('Xx', t)).toBe('Xx');
   });
 });

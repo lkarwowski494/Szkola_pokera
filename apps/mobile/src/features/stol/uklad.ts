@@ -87,13 +87,21 @@ export function nazwaKarty(c: string, t: TFn): string {
 }
 const karta = (c: string) => `${c[0] === 'T' ? '10' : (c[0] ?? '')}${SYMBOL[c[1] ?? ''] ?? ''}`;
 
-/** Zadanie bez pozycji: karty tekstem pod stołem (design-spec, makieta `bez-pozycji`); kolejność jak rzędy na suknie: rywal, ty, stół (D-282). */
-export function opisKart(s: { opp?: readonly string[]; hand?: readonly string[]; board?: readonly string[]; position?: Position }, t: TFn): string {
+/**
+ * Zadanie bez pozycji: karty tekstem pod stołem (design-spec, makieta `bez-pozycji`); kolejność jak rzędy na suknie: rywal, ty, stół (D-282).
+ * `nazwy`: wariant dla czytnika — nazwy kart („as pik i 10 kier”, makieta e3.html:118) zamiast symboli (A04-11); tekst widoczny zostaje z symbolami.
+ */
+export function opisKart(
+  s: { opp?: readonly string[]; hand?: readonly string[]; board?: readonly string[]; position?: Position },
+  t: TFn,
+  o: { nazwy?: boolean } = {},
+): string {
+  const karty = (xs: readonly string[]) => (o.nazwy ? lista(xs.map((c) => nazwaKarty(c, t)), t) : xs.map(karta).join(' '));
   return [
     s.position ? t('table.yourPosition', { pos: s.position }) : null, // A04-04, D-282 pkt 2–3: pozycja bez przebiegu nie znika
-    s.opp?.length ? t('table.oppCards', { cards: s.opp.map(karta).join(' ') }) : null, // A04-01, D-282 pkt 1
-    s.hand?.length ? t('table.yourCards', { cards: s.hand.map(karta).join(' ') }) : null,
-    s.board?.length ? t('table.board', { cards: s.board.map(karta).join(' ') }) : null,
+    s.opp?.length ? t('table.oppCards', { cards: karty(s.opp) }) : null, // A04-01, D-282 pkt 1
+    s.hand?.length ? t('table.yourCards', { cards: karty(s.hand) }) : null,
+    s.board?.length ? t('table.board', { cards: karty(s.board) }) : null,
   ]
     .filter((x): x is string => x !== null)
     .join(' ');
