@@ -42,7 +42,13 @@ export function Stol({ table }: { table: Table }): React.JSX.Element {
               <CardRow cards={reka} size="lg" />
             ) : (
               <>
-                {table.opp?.length ? <CardRow cards={table.opp} size="md" /> : null}
+                {table.opp?.length ? (
+                  <>
+                    <PodpisRzedu tekst={t('table.rowOpp')} />
+                    <CardRow cards={table.opp} size="md" />
+                    {table.board?.length ? <PodpisRzedu tekst={t('table.rowBoard')} /> : null}
+                  </>
+                ) : null}
                 {table.board?.length ? <CardRow cards={table.board} size="md" /> : null}
                 {reka.length ? <CardRow cards={reka} size="lg" /> : null}
               </>
@@ -60,6 +66,16 @@ export function Stol({ table }: { table: Table }): React.JSX.Element {
         <Text style={[styl.przypis, { color: tk.ink }]}>{etykieta}</Text>
       )}
     </View>
+  );
+}
+
+/** Podpis rzędu kart na suknie przy kartach rywala (A04-01, D-282 pkt 1): rywal i karty wspólne mają ten sam rozmiar. */
+function PodpisRzedu({ tekst }: { tekst: string }): React.JSX.Element {
+  const tk = useTokens();
+  return (
+    <Text style={[styl.przypis, { color: tk.onFelt }]} allowFontScaling={false}>
+      {tekst}
+    </Text>
   );
 }
 

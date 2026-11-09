@@ -79,9 +79,10 @@ export function opisReki(m: readonly Miejsce[], reka: readonly string[], t: TFn)
 const SYMBOL: Record<string, string> = { s: '♠', h: '♥', d: '♦', c: '♣' };
 const karta = (c: string) => `${c[0] === 'T' ? '10' : (c[0] ?? '')}${SYMBOL[c[1] ?? ''] ?? ''}`;
 
-/** Zadanie bez pozycji: karty tekstem pod stołem (design-spec, makieta `bez-pozycji`). */
-export function opisKart(s: { hand?: readonly string[]; board?: readonly string[] }, t: TFn): string {
+/** Zadanie bez pozycji: karty tekstem pod stołem (design-spec, makieta `bez-pozycji`); kolejność jak rzędy na suknie: rywal, ty, stół (D-282). */
+export function opisKart(s: { opp?: readonly string[]; hand?: readonly string[]; board?: readonly string[] }, t: TFn): string {
   return [
+    s.opp?.length ? t('table.oppCards', { cards: s.opp.map(karta).join(' ') }) : null, // A04-01, D-282 pkt 1
     s.hand?.length ? t('table.yourCards', { cards: s.hand.map(karta).join(' ') }) : null,
     s.board?.length ? t('table.board', { cards: s.board.map(karta).join(' ') }) : null,
   ]

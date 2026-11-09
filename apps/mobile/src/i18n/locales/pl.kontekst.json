@@ -443,5 +443,8 @@
   "scale.below": "Użyty w: features/stol/skala.ts, components/SkalaStopni.tsx (skala stopni po ocenie, 08 cz. 6, D-274). Zakres przedziału „Błąd”; x = próg w procentach w zapisie języka (3,5).",
   "scale.between": "Użyty w: features/stol/skala.ts, components/SkalaStopni.tsx (skala stopni po ocenie, 08 cz. 6, D-274). Zakres przedziału „Dopuszczalna”; a, b = progi w procentach.",
   "scale.from": "Użyty w: features/stol/skala.ts, components/SkalaStopni.tsx (skala stopni po ocenie, 08 cz. 6, D-274). Zakres przedziału „Zgodna”; x = próg w procentach.",
-  "scale.label": "Użyty w: features/stol/skala.ts, components/SkalaStopni.tsx (skala stopni po ocenie, 08 cz. 6, D-274). VoiceOver; pct = częstość twojej akcji, stopien = słowo stopnia małą literą."
+  "scale.label": "Użyty w: features/stol/skala.ts, components/SkalaStopni.tsx (skala stopni po ocenie, 08 cz. 6, D-274). VoiceOver; pct = częstość twojej akcji, stopien = słowo stopnia małą literą.",
+  "table.oppCards": "Użyty w: features/stol/uklad.ts (opis kart pod stołem i etykieta VoiceOver, A04-01, D-282). Karty rywala przed twoimi kartami; cards = karty symbolami. „rywal” jak w treści (content/pl/exams/m0.yaml:8), terminologia do potwierdzenia przez 06.",
+  "table.rowOpp": "Użyty w: components/Stol.tsx (podpis rzędu kart rywala na suknie, A04-01, D-282). Jedno słowo, mieści się nad rzędem kart.",
+  "table.rowBoard": "Użyty w: components/Stol.tsx (podpis rzędu kart wspólnych na suknie, tylko gdy są karty rywala, A04-01, D-282). Krótko."
 }

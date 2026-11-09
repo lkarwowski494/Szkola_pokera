@@ -59,4 +59,9 @@ describe('teksty stołu', () => {
     expect(opisKart({ hand: ['Jc', '9d'], board: ['Ts', '7h', '2c'] }, t)).toBe('Twoje karty: J♣ 9♦. Na stole (board): 10♠ 7♥ 2♣.');
     expect(opisKart({ board: ['Ts', '7h', '2c'] }, t)).toBe('Na stole (board): 10♠ 7♥ 2♣.');
   });
+
+  it('A04-01 (D-282 pkt 1): karty rywala w opisie przed twoimi i wspólnymi — każda narysowana karta jest w opisie', () => {
+    const table = { opp: ['Ac', 'Ad'], hand: ['Th', '9h'], board: ['As', '8c', '7d', 'Jh', '2s'] };
+    expect(opisKart(table, t)).toBe('Karty rywala: A♣ A♦. Twoje karty: 10♥ 9♥. Na stole (board): A♠ 8♣ 7♦ J♥ 2♠.');
+  });
 });

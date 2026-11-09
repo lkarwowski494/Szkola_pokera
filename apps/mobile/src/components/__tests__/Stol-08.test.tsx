@@ -36,4 +36,20 @@ describe('Stol', () => {
     expect(screen.queryAllByTestId(/^miejsce-/)).toHaveLength(0);
     expect(screen.getByRole('image').props.accessibilityLabel).toBe(opisKart(table, t));
   });
+
+  it('A04-01 (D-282 pkt 1): zadanie z kartami rywala — etykieta i opis zawierają każdą narysowaną kartę, rzędy podpisane „Rywal” i „Na stole”', async () => {
+    const table = { opp: ['Ac', 'Ad'], hand: ['Th', '9h'], board: ['As', '8c', '7d', 'Jh', '2s'] };
+    await render(<Stol table={table} />);
+    const etykieta: string = screen.getByRole('image').props.accessibilityLabel;
+    const nazwa = (c: string) => `${c[0] === 'T' ? '10' : c[0]}${({ s: '♠', h: '♥', d: '♦', c: '♣' } as Record<string, string>)[c[1]!]}`;
+    for (const c of [...table.opp, ...table.hand, ...table.board]) expect(etykieta).toContain(nazwa(c));
+    expect(etykieta.indexOf('Karty rywala')).toBeGreaterThanOrEqual(0);
+    expect(screen.getByText('Rywal')).toBeTruthy();
+    expect(screen.getByText('Na stole (board)')).toBeTruthy();
+  });
+
+  it('A04-01: bez kart rywala rzędy bez podpisów (makieta `bez-pozycji` bez zmian)', async () => {
+    await render(<Stol table={{ hand: ['Jc', '9d'], board: ['Ts', '7h', '2c'] }} />);
+    expect(screen.queryByText('Rywal')).toBeNull();
+  });
 });
