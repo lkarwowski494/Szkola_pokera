@@ -862,6 +862,22 @@ Rola `08-programista --tryb build`: repo `prompts` nie ma w kontenerze (`/home/u
 - P2 przeglądu: sekret środowiska ograniczony do `claude/*` zamiast sekretu repozytorium (decyzja właściciela, zmiana Settings + `environment:` w workflowach przekładu).
 - `main` ma stary `e2e.yml` z harmonogramem codziennym (czerwony od 2026-10-07, przed tą sesją) — poza zakresem D-342; do decyzji, czy wyłączyć.
 
+## Sesja X — ASC wg D-348 (2026-11-09, rola 08 build)
+Rola `08-programista --tryb build`: `add_repo prompts` odrzucone przez klasyfikator, klon bez uwierzytelnienia niemożliwy (repo prywatne) — wyjątek nazwany jak w sesjach S i U; tańsza kontrola: zasady z sekcji Q/R/S/U i CLAUDE.md, cykl test czerwony → zmiana → `pnpm run ci` → commit, przegląd D-043 subagentem. Trening z publicznego klonu 2e4b0f8 (commit 2026-10-31, odczyt 2026-11-09); narzędzie studia `lkarwowski494/apps4brew-narzedzia` publiczne (git ls-remote), SHA 43afe81 jak Trening. Stan wyjściowy `56addc1`.
+
+| Zadanie | Commit | Test (czerwony przed → zielony po) | Decyzja |
+|---|---|---|---|
+| 4 workflowy `asc-*.yml` + `scripts/asc/*.mjs` + dane `store/` (adresy, lokalizacje IAP ze słownika, konfiguracja kontroli, pliki generowane) | 123fc16 | `asc.test.mjs` 16 (przed: brak modułów), `workflowy.test.mjs` +2 (przed: brak plików); mutanty 17/17 | D-352 |
+| Przegląd D-043 (subagent, świeży kontekst): P1 brak; P2.2 artefakt zrzutów z dowolnego przebiegu (np. z forka) → kontrola `actions/runs/$RUN` = ręczny `store-screenshots.yml`; P3: `jezyki` zaczynające się od `-`, `stateOf` bez `state`, dry-run IAP bez klienta GET, zły odnośnik w komentarzu | (ten commit) | mutant M18 (kontrola przebiegu) zabity; M19 (klient GET w dry-run IAP) równoważny — dry-run nie ma ścieżki zapisu, opakowanie to obrona w głąb | D-352 |
+
+`pnpm run ci` kod 0 przed poprawkami przeglądu (mobile 537/537, skrypty 167/167); po poprawkach `pnpm test:skrypty` 167/167.
+
+### Zostaje
+- P2.1 przeglądu: sekrety ASC są sekretami repozytorium — zatwierdzenie `release` chroni przed pomyłką, nie przed osobą z prawem zapisu do repo, która zmieni workflow na innej gałęzi (dotyczy też `testflight.yml`). Mocniej: klucz z prawem zapisu jako sekret środowiska `release`, do odczytu osobny klucz o słabszej roli — decyzja właściciela (pytanie w PRZEKAZANIU).
+- P2.3: test trybu apply zrzutów na atrapie (rezerwacja, PUT, 409 DUPLICATE, brak adresów wgrywania w logu) — logika bez zmian względem Treningu, tam pokryta (`tests/asc-zrzuty.test.ts`); do backlogu przed pierwszym apply.
+- P3.1: nazwa referencyjna obrazu bez rozmiaru (6.3 po 6.9 przemianowuje obraz na „[zastąpiony]”, bez utraty) — wgrywać jeden rozmiar (6.9).
+- `store/review-notes.en.txt` ma `[SUPPORT EMAIL]` i klucze etykiet — kontrola pokaże różnicę do czasu podmiany (W-04, K-03).
+
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
 

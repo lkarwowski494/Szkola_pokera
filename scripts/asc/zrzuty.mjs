@@ -114,7 +114,7 @@ export function loadShots({ iphone, zegarek, jezyki = '' }) {
   return { shots: { iphone: ip, ...(wt.size ? { zegarek: wt } : {}) }, problems };
 }
 
-const stateOf = r => r.attributes?.appStoreState ?? r.attributes?.appVersionState ?? '';
+const stateOf = r => r.attributes?.appStoreState ?? r.attributes?.appVersionState ?? r.attributes?.state ?? '';
 /** Aplikacja, edytowalna wersja iOS i jej lokalizacje (tylko GET). */
 export async function discover(client) {
   const apps = await client.list('/v1/apps?filter[bundleId]=' + BUNDLE_ID);

@@ -98,7 +98,7 @@ export function planLocalizations({ wanted, part, fields, mapping = LOCALE_MAP, 
 const toMap = rows => new Map(rows.map(r => [r.attributes.locale, { id: r.id, attrs: r.attributes }]));
 /** Klient tylko do odczytu (tryb podglądu): każda metoda poza GET kończy się błędem. */
 export const readOnlyClient = c => ({ ...c, call: (m, p, b) => { if (m !== 'GET') throw new Error(`Podgląd jest tylko do odczytu (${m})`); return c.call(m, p, b); } });
-const stateOf = r => r.attributes?.appStoreState ?? r.attributes?.appVersionState ?? '';
+const stateOf = r => r.attributes?.appStoreState ?? r.attributes?.appVersionState ?? r.attributes?.state ?? '';
 
 /** Znajduje aplikację, edytowalną wersję i edytowalną informację o aplikacji oraz ich lokalizacje (tylko GET). */
 export async function discover(client) {

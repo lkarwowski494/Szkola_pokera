@@ -123,7 +123,9 @@ export async function discover(client, log) {
 }
 
 /** Główny przebieg. Zwraca { code, counts } (code 1 przy brakujących obiektach lub błędach zapisu). */
-export async function run({ client, data, apply = false, log = console.log }) {
+export async function run({ client: pelny, data, apply = false, log = console.log }) {
+  /* dry-run tylko przez klienta GET (przegląd D-043 sesji X, P3; jak readOnlyClient w metadane.mjs) */
+  const client = apply ? pelny : { ...pelny, call: (m, p, b) => { if (m !== 'GET') throw new Error(`Dry-run jest tylko do odczytu (${m})`); return pelny.call(m, p, b); } };
   const { targets, problems } = await discover(client, log);
   log(`Tryb: ${apply ? 'APPLY (zapis)' : 'DRY-RUN (bez zmian)'}; obiektów znalezionych: ${targets.length} z 4`);
   const counts = { 'utwórz': 0, 'zaktualizuj': 0, 'pomiń': 0, błędy: 0, różniceWłaściciela: 0 };

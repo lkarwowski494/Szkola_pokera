@@ -55,6 +55,16 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 22
+      - name: Przebieg ze zrzutami to ręczny store-screenshots.yml (nie np. przebieg z forka)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN: ${{ inputs.zrzuty_z_przebiegu }}
+          JEZYKI: ${{ inputs.jezyki }}
+        run: |
+          case "$RUN" in ''|*[!0-9]*) echo "::error::zrzuty_z_przebiegu: tylko cyfry"; exit 1 ;; esac
+          case "$JEZYKI" in -*) echo "::error::jezyki: kody języków, nie opcje"; exit 1 ;; esac
+          z=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN" --jq '.path + " " + .event') || { echo "::error::Nie udało się odczytać przebiegu $RUN"; exit 1; }
+          [ "$z" = ".github/workflows/store-screenshots.yml workflow_dispatch" ] || { echo "::error::Przebieg $RUN nie jest ręcznym store-screenshots.yml"; exit 1; }
       - uses: actions/download-artifact@v4
         with:
           name: sklep-zrzuty-${{ inputs.rozmiar }}
@@ -110,6 +120,16 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 22
+      - name: Przebieg ze zrzutami to ręczny store-screenshots.yml (nie np. przebieg z forka)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN: ${{ inputs.zrzuty_z_przebiegu }}
+          JEZYKI: ${{ inputs.jezyki }}
+        run: |
+          case "$RUN" in ''|*[!0-9]*) echo "::error::zrzuty_z_przebiegu: tylko cyfry"; exit 1 ;; esac
+          case "$JEZYKI" in -*) echo "::error::jezyki: kody języków, nie opcje"; exit 1 ;; esac
+          z=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN" --jq '.path + " " + .event') || { echo "::error::Nie udało się odczytać przebiegu $RUN"; exit 1; }
+          [ "$z" = ".github/workflows/store-screenshots.yml workflow_dispatch" ] || { echo "::error::Przebieg $RUN nie jest ręcznym store-screenshots.yml"; exit 1; }
       - uses: actions/download-artifact@v4
         with:
           name: sklep-zrzuty-${{ inputs.rozmiar }}

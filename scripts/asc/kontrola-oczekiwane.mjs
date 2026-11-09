@@ -5,7 +5,7 @@
 // Odstępstwo (D-352): nazwa z store/app-store-metadata.json (bez app-store-names.json).
 // Wyjście: store/asc-kontrola-oczekiwane.json (kod ASC → name, subtitle, keywords) i store/review-notes.en.txt (blok EN).
 //   node scripts/asc/kontrola-oczekiwane.mjs           → zapis plików
-//   node scripts/asc/kontrola-oczekiwane.mjs --check   → kod 1, gdy pliki w repo różnią się od wygenerowanych (test: tests/asc-kontrola.test.ts)
+//   node scripts/asc/kontrola-oczekiwane.mjs --check   → kod 1, gdy pliki w repo różnią się od wygenerowanych (test: tests/narzedzia/asc.test.mjs)
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';

@@ -272,6 +272,13 @@ test('asc-*.yml: tylko ręcznie; skrypt z gałęzi roboczej przed kluczem; zapis
     assert.ok(iStraz > 1 && iStraz < kz.findIndex((x) => x.env?.ASC_KEY_P8), `${n}: kontrola zatwierdzania release przed kluczem`);
     assert.match(kz[iStraz].run, /required_reviewers/, n); assert.match(kz[iStraz].run, /exit 1/, n);
     assert.deepEqual(w.jobs[zapis].permissions, { contents: 'read', actions: 'read' }, `${n}: odczyt środowiska wymaga actions: read`);
+    // przegląd D-043 sesji X (P2): artefakt zrzutów tylko z ręcznego przebiegu store-screenshots.yml, sprawdzone przed pobraniem
+    if (n === 'asc-zrzuty.yml') for (const id of [odczyt, zapis]) {
+      const k = w.jobs[id].steps; const iPob = k.findIndex((x) => x.uses?.startsWith('actions/download-artifact'));
+      const iSpr = k.findIndex((x) => /actions\/runs\/\$RUN/.test(x.run ?? ''));
+      assert.ok(iSpr > 1 && iSpr < iPob, `${n}:${id}: kontrola przebiegu przed pobraniem`);
+      assert.match(k[iSpr].run, /store-screenshots\.yml workflow_dispatch/, n); assert.equal(k[iSpr].env.RUN, '${{ inputs.zrzuty_z_przebiegu }}', n);
+    }
   }
 });
 
