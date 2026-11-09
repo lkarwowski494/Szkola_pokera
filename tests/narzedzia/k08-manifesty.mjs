@@ -2,7 +2,8 @@
 // K-08 (docs/architektura/kontrole-07.md; prywatnosc.md §2): required reason API w drzewie zależności wobec
 // `expo.ios.privacyManifests` w app.json. Kontrola informacyjna (strategia.md §8.1): wynik do przeglądu roli 10.
 // Uruchomienie: node tests/narzedzia/k08-manifesty.mjs [katalog_node_modules ...] [--app apps/mobile/app.json] [--json]
-// Kod wyjścia: 0 — każda kategoria z manifestów pakietów i z trafień w kodzie bez manifestu jest w app.json, lista
+// Kod wyjścia: 0 — każda kategoria z manifestów pakietów i z trafień w kodzie bez manifestu jest w app.json (z powodami
+// z POWODY_WYMAGANE dla obecnych pakietów), lista
 // NSPrivacyCollectedDataTypes pusta, NSPrivacyTracking nie true (NFR-PRYW-001); 1 — braki; 2 — błąd uruchomienia.
 // Nie uruchamia kodu pakietów: tylko odczyt plików.
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
@@ -26,6 +27,17 @@ export const API_APPLE = {
   NSPrivacyAccessedAPICategoryActiveKeyboards: { nazwy: ['activeInputModes'], funkcjeC: [] },
   NSPrivacyAccessedAPICategoryUserDefaults: { nazwy: ['UserDefaults', 'NSUserDefaults'], funkcjeC: [] },
 };
+// Powody, których wymaga użycie API przez zależność bez własnego manifestu (powody deklaruje wtedy aplikacja; Apple: powody
+// mają „accurately reflect your use”). Sama obecność kategorii w app.json ich nie zastępuje (10-PRYW-01, app-privacy.md §3).
+export const POWODY_WYMAGANE = [
+  {
+    pakiet: 'expo-document-picker',
+    kategoria: 'NSPrivacyAccessedAPICategoryFileTimestamp',
+    powod: '3B52.1',
+    dlaczego: 'contentModificationDateKey pliku wybranego przez użytkownika, ios/DocumentPickerModule.swift:128 (import postępu)',
+  },
+];
+
 const WZORCE = Object.entries(API_APPLE).map(([kat, { nazwy, funkcjeC }]) => [kat, new RegExp(
   [...nazwy.map((n) => `\\b${n}\\b`), ...funkcjeC.map((f) => `(?<![\\w.>])${f}\\s*\\(`)].join('|'),
 )]);
@@ -79,7 +91,7 @@ function bezKomentarzy(linia) {
   return linia.replace(/\/\*.*?\*\//g, '').replace(/\/\/.*$/, ''); // komentarz w linii: /* … statfs() */
 }
 
-export function skanuj(katalogi, appJson) {
+export function skanuj(katalogi, appJson, powodyWymagane = POWODY_WYMAGANE) {
   const pakiety = [];
   for (const nm of katalogi) for (const p of pakietyNatywne(nm)) {
     const nazwa = JSON.parse(readFileSync(join(p, 'package.json'), 'utf8')).name ?? relative(nm, p);
@@ -104,6 +116,10 @@ export function skanuj(katalogi, appJson) {
   const pm = JSON.parse(readFileSync(appJson, 'utf8')).expo?.ios?.privacyManifests ?? {};
   const wAplikacji = new Map((pm.NSPrivacyAccessedAPITypes ?? []).map((t) => [t.NSPrivacyAccessedAPIType, t.NSPrivacyAccessedAPITypeReasons ?? []]));
   const braki = [...wymagane.keys()].filter((k) => !wAplikacji.has(k)).sort();
+  const nazwyPakietow = new Set(pakiety.map((p) => p.nazwa));
+  const brakiPowodow = powodyWymagane
+    .filter((r) => nazwyPakietow.has(r.pakiet) && !(wAplikacji.get(r.kategoria) ?? []).includes(r.powod))
+    .map((r) => `${r.kategoria}: ${r.powod} (${r.pakiet}: ${r.dlaczego})`);
   const naruszenia = [];
   if ((pm.NSPrivacyCollectedDataTypes ?? []).length) naruszenia.push(`app.json: NSPrivacyCollectedDataTypes ma ${pm.NSPrivacyCollectedDataTypes.length} wpisów (NFR-PRYW-001: pusta lista)`);
   if (pm.NSPrivacyTracking === true) naruszenia.push('app.json: NSPrivacyTracking = true');
@@ -116,6 +132,7 @@ export function skanuj(katalogi, appJson) {
     wymagane: Object.fromEntries([...wymagane].map(([k, v]) => [k, [...v].sort()])),
     wAplikacji: Object.fromEntries(wAplikacji),
     braki,
+    brakiPowodow,
     naruszenia,
     trafienia: pakiety.flatMap((p) => p.trafienia.map((t) => ({ pakiet: p.nazwa, ...t, plik: relative(p.katalog, t.plik) }))),
   };
@@ -132,9 +149,10 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
     else {
       console.log(`K-08: pakiety natywne ${w.pakiety.length}, z manifestem ${w.pakiety.filter((p) => p.manifesty).length}, trafienia w kodzie bez manifestu ${w.trafienia.length}`);
       for (const [k, z] of Object.entries(w.wymagane)) console.log(`${w.braki.includes(k) ? 'BRAK ' : 'ok   '} ${k} ← ${z.join('; ')}${w.wAplikacji[k] ? ` | app.json: ${w.wAplikacji[k].join(', ')}` : ''}`);
+      for (const b of w.brakiPowodow) console.log(`BRAK POWODU ${b}`);
       for (const n of w.naruszenia) console.log(`NARUSZENIE ${n}`);
     }
-    process.exit(w.braki.length || w.naruszenia.length ? 1 : 0);
+    process.exit(w.braki.length || w.brakiPowodow.length || w.naruszenia.length ? 1 : 0);
   } catch (e) {
     console.error(e);
     process.exit(2);
