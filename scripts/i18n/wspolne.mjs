@@ -9,6 +9,8 @@
 //    --limit-usd (osobna zgoda), bez flagi --zgoda-koszt (Trening :238, :317);
 //  - MAX_TOKENS = 128 000 zamiast 64 000 (:27): jednostką jest cały plik treści, największy `content/pl/rules.yaml` ma
 //    ok. 141 tys. znaków (ok. 50 tys. tokenów wyjścia); limit wyjścia Opus 5.5 i Sonnet 5.5 to 128K (umiejętność claude-api);
+//    to tylko górny próg — max_tokens żądania = min(128 000, ⌈2 × szacunek wyjścia jednostki + 4000⌉), a przebieg staje
+//    także wtedy, gdy najgorszy przypadek (Σ max_tokens) przekracza limit (przegląd D-043 K3a, znalezisko 2);
 //  - nakładki plików wspólnych (spots.yaml, helplines.yaml): Trening ich nie ma; reguła z tools/content-build/src/nakladka.ts;
 //  - rejestr języków (REJESTR) przepisany z Treningu :48–62 jako „przewodnik głosu”, bo w repo nie ma osobnego przewodnika
 //    głosu dla języków docelowych (otwarte pytanie do roli 09/04).
@@ -93,18 +95,32 @@ export function kosztUsd(tokWe, tokWy, model) {
   const c = CENY[model]; if (!c) throw new Error(`nieznany model dla cennika: ${model}`);
   return ((tokWe * c.we + tokWy * c.wy) / 1e6) * RABAT_BATCH;
 }
+/** max_tokens żądania z szacunku wyjścia jednostki: 2 × szacunek + 4000 (zapas na myślenie), najwyżej MAX_TOKENS.
+ * Przegląd D-043 K3a, znalezisko 2: stałe 128 000 na żądanie dawało najgorszy przypadek kilka razy ponad limit D-295.
+ * Odpowiedź dłuższa niż ten próg wraca jako „ucięta (max_tokens)” i jednostka jest odrzucona (ponowienie osobno, --tylko). */
+export const maxTokensJednostki = (wy) => Math.min(MAX_TOKENS, Math.ceil(2 * wy + 4000));
+/** Wiersze: { jezyk, jednostek, we, wy, wyMax } — wyMax = Σ max_tokens żądań (najgorszy przypadek: każde żądanie zużywa cały próg). */
 export function szacunek(wiersze, model) {
-  const we = wiersze.reduce((s, w) => s + w.we, 0); const wy = wiersze.reduce((s, w) => s + w.wy, 0);
-  return { jezykow: wiersze.length, jednostek: wiersze.reduce((s, w) => s + w.jednostek, 0), tokeny_we: we, tokeny_wy: wy, koszt_usd: kosztUsd(we, wy, model),
-    koszt_wg_modelu: Object.fromEntries(Object.values(MODELE).map((m) => [m, kosztUsd(we, wy, m)])) };
+  const suma = (k) => wiersze.reduce((s, w) => s + (w[k] ?? 0), 0);
+  const we = suma('we'), wy = suma('wy'), wyMax = suma('wyMax');
+  const wgModelu = (f) => Object.fromEntries(Object.values(MODELE).map((m) => [m, f(m)]));
+  return { jezykow: wiersze.length, jednostek: suma('jednostek'), tokeny_we: we, tokeny_wy: wy, tokeny_wy_max: wyMax,
+    koszt_usd: kosztUsd(we, wy, model), koszt_max_usd: kosztUsd(we, wyMax, model),
+    koszt_wg_modelu: wgModelu((m) => kosztUsd(we, wy, m)), koszt_max_wg_modelu: wgModelu((m) => kosztUsd(we, wyMax, m)) };
 }
-/** Tabela szacunku do logu: wiersz na język i suma. */
+/** Tabela szacunku do logu: wiersz na język i suma; „najgorszy przypadek” = koszt przy Σ max_tokens. */
 export function tabelaSzacunku(wiersze, s, model) {
   const usd = (x) => x.toFixed(2);
-  const L = [`| język | jednostek | tokeny wejścia | tokeny wyjścia | ${model} USD | uwagi |`, '|---|---|---|---|---|---|'];
-  for (const w of wiersze) L.push(`| ${w.jezyk} | ${w.jednostek} | ${w.we} | ${w.wy} | ${usd(kosztUsd(w.we, w.wy, model))} | ${w.uwagi ?? ''} |`);
-  L.push(`| **suma** | ${s.jednostek} | ${s.tokeny_we} | ${s.tokeny_wy} | ${usd(s.koszt_usd)} | ${Object.entries(s.koszt_wg_modelu).map(([m, c]) => `${m} ≈ ${usd(c)}`).join('; ')} |`);
+  const L = [`| język | jednostek | tokeny wejścia | tokeny wyjścia (szacunek) | tokeny wyjścia (Σ max_tokens) | ${model} USD szacunek | ${model} USD najgorszy przypadek | uwagi |`, '|---|---|---|---|---|---|---|---|'];
+  for (const w of wiersze) L.push(`| ${w.jezyk} | ${w.jednostek} | ${w.we} | ${w.wy} | ${w.wyMax} | ${usd(kosztUsd(w.we, w.wy, model))} | ${usd(kosztUsd(w.we, w.wyMax, model))} | ${w.uwagi ?? ''} |`);
+  L.push(`| **suma** | ${s.jednostek} | ${s.tokeny_we} | ${s.tokeny_wy} | ${s.tokeny_wy_max} | ${usd(s.koszt_usd)} | ${usd(s.koszt_max_usd)} | szacunek: ${Object.entries(s.koszt_wg_modelu).map(([m, c]) => `${m} ≈ ${usd(c)}`).join('; ')}; najgorszy przypadek: ${Object.entries(s.koszt_max_wg_modelu).map(([m, c]) => `${m} ≈ ${usd(c)}`).join('; ')} |`);
   return L;
+}
+/** Dwa progi D-295: szacunek i najgorszy przypadek (Σ max_tokens) ≤ limit; zwraca komunikat STOP albo null. */
+export function stopLimitu(s, limit, etap) {
+  if (s.koszt_usd > limit) return `STOP (${etap}): szacowany koszt ${s.koszt_usd.toFixed(2)} USD przekracza limit ${limit} USD (D-295); podziel przebieg (--tylko, --jezyki)`;
+  if (s.koszt_max_usd > limit) return `STOP (${etap}): najgorszy przypadek (Σ max_tokens) ${s.koszt_max_usd.toFixed(2)} USD przekracza limit ${limit} USD (D-295); podziel przebieg (--tylko, --jezyki)`;
+  return null;
 }
 
 /* ---------- jednostki ---------- */

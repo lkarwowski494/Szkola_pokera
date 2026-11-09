@@ -32,7 +32,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { parse as parseYaml } from 'yaml';
 import { splaszcz, wpisy } from '../sprawdz-i18n.mjs';
 import {
-  MAX_TOKENS, RABAT_BATCH, INTERWAL_S, REJESTR, WSPOLCZYNNIK, ZRODLO, PRZEKLADALNE, nazwaJezyka, maskuj, przyblizTokeny, szacunek, tabelaSzacunku,
+  maxTokensJednostki, stopLimitu, RABAT_BATCH, INTERWAL_S, REJESTR, WSPOLCZYNNIK, ZRODLO, PRZEKLADALNE, nazwaJezyka, maskuj, przyblizTokeny, szacunek, tabelaSzacunku,
   jednostki, czytajJesli, glosariusz, kluczeTerminow, blokGlosariusza, kontrolaZnacznikow, rozdzielMd, odczytajLinie, klient, czekajNaBatch,
   parsujWspolne, filtruj,
 } from './wspolne.mjs';
@@ -121,9 +121,15 @@ export function budujZadanie(root, kod, j, gl, tlZastepczy = null) {
   return { system: systemPrzegladu(kod), messages: [{ role: 'user', content: user }], segmentow: lista.length };
 }
 
+/** [OCENA] Szacunek wyjścia przeglądu jednostki: wiersze tabeli (udział segmentów z uwagą × tokeny wiersza) + myślenie
+ * (stałe + udział tokenów polskiego i przekładu). Podstawa max_tokens żądania i szacunku kosztu. */
+export function wyJednostkiPrzegladu(segmentow, tekstPl, kod) {
+  return Math.ceil(segmentow * ZALOZENIA.udzialUwag * ZALOZENIA.tokenyUwagi + ZALOZENIA.myslenieStale + ZALOZENIA.myslenieUdzial * przyblizTokeny(tekstPl) * (1 + WSPOLCZYNNIK(kod)));
+}
+
 export function budujZadanieBatcha(root, kod, j, { model, effort }, gl, tlZastepczy = null) {
   const z = budujZadanie(root, kod, j, gl, tlZastepczy);
-  return { custom_id: j.custom_id, segmentow: z.segmentow, params: { model, max_tokens: MAX_TOKENS, system: z.system, messages: z.messages, output_config: { effort } } };
+  return { custom_id: j.custom_id, segmentow: z.segmentow, params: { model, max_tokens: maxTokensJednostki(wyJednostkiPrzegladu(z.segmentow, j.tekst, kod)), system: z.system, messages: z.messages, output_config: { effort } } };
 }
 
 /** Podział wiersza tabeli na komórki: | wewnątrz {{…}} i [[…]] oraz \| nie dzielą. */
@@ -204,29 +210,31 @@ export async function main(argv, env, { fetchFn = fetch, log = console.log, root
 
   if (!o.wznow) {
     const wiersze = plan.map((x) => {
-      let we = 0, wy = 0, szac = false;
+      let we = 0, wy = 0, wyMax = 0, szac = false;
       for (const [i, j] of x.doWyslania.entries()) {
         const p = x.zadania[i].params;
         const tekstSeg = przyblizTokeny(j.tekst);
         we += przyblizTokeny(`${p.system}\n${p.messages.map((m) => m.content).join('\n')}`);
         if (j.tlumaczenie === null) { szac = true; we += Math.ceil(tekstSeg * (WSPOLCZYNNIK(x.kod) - 1)); }
         if (x.kod !== 'en' && !czytajJesli(root, j.en)) we += tekstSeg; // angielskie odniesienie powstaje przed falami
-        wy += Math.ceil(x.zadania[i].segmentow * ZALOZENIA.udzialUwag * ZALOZENIA.tokenyUwagi + ZALOZENIA.myslenieStale + ZALOZENIA.myslenieUdzial * tekstSeg * (1 + WSPOLCZYNNIK(x.kod)));
+        wy += wyJednostkiPrzegladu(x.zadania[i].segmentow, j.tekst, x.kod); wyMax += p.max_tokens;
       }
-      return { jezyk: x.kod, jednostek: x.doWyslania.length, we, wy, przeklad_szacowany: szac, uwagi: szac ? 'przekład szacowany (brak w repo)' : '' };
+      return { jezyk: x.kod, jednostek: x.doWyslania.length, we, wy, wyMax, przeklad_szacowany: szac, uwagi: szac ? 'przekład szacowany (brak w repo)' : '' };
     });
     const s = szacunek(wiersze, o.model);
     const zrodlo = 'przybliżenie bez sieci (wejście i wyjście z założeń)';
     log(`szacunek (${zrodlo}, Batch −${RABAT_BATCH * 100}%, ceny claude-api 2026-10-06):`);
     for (const l of tabelaSzacunku(wiersze, s, o.model)) log(l);
     writeFileSync(join(o.wyjscie, 'szacunek.json'), JSON.stringify({ zrodlo, model: o.model, effort: o.effort, limit_usd: o.limitUsd, zalozenia_wyjscia: ZALOZENIA, ...s, wiersze }, null, 1) + '\n');
-    if (s.koszt_usd > o.limitUsd) { log(`STOP: szacowany koszt ${s.koszt_usd.toFixed(2)} USD przekracza limit ${o.limitUsd} USD (D-295); większy przebieg tylko za osobną zgodą (--limit-usd) albo w częściach (--tylko, --jezyki)`); return 1; }
+    let stop = stopLimitu(s, o.limitUsd, 'szacunek bez sieci');
+    if (stop) { log(stop); return 1; }
     if (o.szacuj) return 0;
     if (!api) { log('brak ANTHROPIC_API_KEY — przebieg płatny niemożliwy (użyj --szacuj)'); return 2; }
     for (const [i, x] of plan.entries()) { let we = 0; for (const z of x.zadania) we += await api.liczTokeny(z.params); wiersze[i].we = we; }
     const s2 = szacunek(wiersze, o.model);
-    log(`szacunek z count_tokens: wejście ${s2.tokeny_we}, wyjście ${s2.tokeny_wy}; ${o.model} ≈ ${s2.koszt_usd.toFixed(2)} USD`);
-    if (s2.koszt_usd > o.limitUsd) { log(`STOP: szacowany koszt ${s2.koszt_usd.toFixed(2)} USD przekracza limit ${o.limitUsd} USD (D-295)`); return 1; }
+    log(`szacunek z count_tokens: wejście ${s2.tokeny_we}, wyjście ${s2.tokeny_wy} (Σ max_tokens ${s2.tokeny_wy_max}); ${o.model} ≈ ${s2.koszt_usd.toFixed(2)} USD, najgorszy przypadek ${s2.koszt_max_usd.toFixed(2)} USD`);
+    stop = stopLimitu(s2, o.limitUsd, 'przed wysłaniem, wejście z count_tokens');
+    if (stop) { log(stop); return 1; }
   }
   if (!api) { log('brak ANTHROPIC_API_KEY — odbiór wyników niemożliwy'); return 2; }
 

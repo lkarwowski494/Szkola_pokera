@@ -8,8 +8,9 @@ import { tmpdir } from 'node:os';
 import { atrapa, fetchZakazany, atrapaApi, LEKCJA_EN, SPOTS_EN, HELPLINES_EN } from './fixture.mjs';
 import {
   budujZadanieBatcha, SYSTEM_PRZEKLADU, jednostkiPrzekladu, wyciagnijPropozycje, odczytajLinie, ocenPropozycje, main, parsujArgumenty,
+  wyJednostki,
 } from './przeklad-api.mjs';
-import { kontrolaZnacznikow, LIMIT_USD, DOMYSLNY_MODEL, kosztUsd, glosariusz, POLA_NAKLADEK, roznicePoza } from './wspolne.mjs';
+import { kontrolaZnacznikow, LIMIT_USD, DOMYSLNY_MODEL, kosztUsd, glosariusz, POLA_NAKLADEK, roznicePoza, maxTokensJednostki } from './wspolne.mjs';
 import { tsImport } from 'tsx/esm/api';
 
 const cicho = () => {};
@@ -54,7 +55,7 @@ test('żądanie batcha: model, effort, persona tłumacza i reguły znaczników w
   assert.equal(z.custom_id, lekcja.custom_id);
   assert.equal(z.params.model, 'claude-opus-5-5');
   assert.deepEqual(z.params.output_config, { effort: 'medium' });
-  assert.ok(z.params.max_tokens >= 64000);
+  assert.equal(z.params.max_tokens, maxTokensJednostki(wyJednostki(lekcja, 'en')), 'max_tokens z szacunku jednostki (D-043 K3a, znalezisko 2)');
   assert.equal(z.params.thinking, undefined, 'Opus 5.5: thinking zawsze adaptacyjny, parametru nie wysyłamy');
   assert.equal(z.params.system, SYSTEM_PRZEKLADU);
   assert.match(z.params.system, /tłumacz/i);
@@ -287,6 +288,43 @@ test('--zastosuj nakłada nakładkę do content/<język>/ranges/spots.yaml po ko
   writeFileSync(plik, JSON.stringify({ jednostki: [{ ...ocenPropozycje(j, 'en', { blad: null, tekst: `<<<PLIK>>>\n${SPOTS_EN}<<<KONIEC>>>` }) }] }));
   assert.equal(await main(['--zastosuj', plik], {}, { fetchFn: fetchZakazany, log: cicho, root }), 0);
   assert.equal(readFileSync(join(root, 'content/en/ranges/spots.yaml'), 'utf8'), SPOTS_EN);
+});
+
+/* ---------- przegląd D-043 K3a, znalezisko 2: max_tokens 128 000 na żądanie łamie limit D-295 w najgorszym przypadku ---------- */
+test('max_tokens przekładu z szacunku jednostki: min(128 000, ⌈2 × szacunek wyjścia + 4000⌉)', () => {
+  const root = atrapa();
+  for (const j of jednostkiPrzekladu(root, 'en')) {
+    const z = budujZadanieBatcha(root, 'en', j, { model: 'claude-opus-5-5', effort: 'medium' }, glosariusz(root));
+    assert.equal(z.params.max_tokens, Math.min(128000, Math.ceil(2 * wyJednostki(j, 'en') + 4000)), j.zrodlo);
+    assert.equal(z.params.max_tokens, maxTokensJednostki(wyJednostki(j, 'en')));
+    assert.ok(z.params.max_tokens < 128000);
+  }
+  assert.equal(maxTokensJednostki(1e6), 128000);
+});
+
+test('--szacuj: szacunek i najgorszy przypadek (koszt przy Σ max_tokens); STOP, gdy najgorszy przypadek > limit', async () => {
+  const root = atrapa(); const wy = mkdtempSync(join(tmpdir(), 'k3a-wy-')); const { log, l } = linie();
+  assert.equal(await main(['--szacuj', '--wyjscie', wy], {}, { fetchFn: fetchZakazany, log, root }), 0);
+  const s = JSON.parse(readFileSync(join(wy, 'szacunek.json'), 'utf8'));
+  assert.ok(s.tokeny_wy_max > s.tokeny_wy && s.koszt_max_usd > s.koszt_usd);
+  assert.match(l.join('\n'), /najgorszy przypadek/);
+  const lim = String((s.koszt_usd + s.koszt_max_usd) / 2);
+  assert.equal(await main(['--szacuj', '--limit-usd', lim, '--wyjscie', wy], {}, { fetchFn: fetchZakazany, log, root }), 1);
+  assert.match(l.at(-1), /STOP.*najgorszy przypadek/);
+});
+
+test('drugi STOP przed wysłaniem: koszt(wejście z count_tokens, Σ max_tokens) > limit → kod 1, batch niewysłany', async () => {
+  const root = atrapa(); const wy = mkdtempSync(join(tmpdir(), 'k3a-wy-'));
+  await main(['--szacuj', '--wyjscie', wy], {}, { fetchFn: fetchZakazany, log: cicho, root });
+  const s = JSON.parse(readFileSync(join(wy, 'szacunek.json'), 'utf8'));
+  const we = 1000 * s.jednostek; // atrapa count_tokens: 1000 na żądanie
+  const lim = (kosztUsd(we, s.tokeny_wy, 'claude-opus-5-5') + kosztUsd(we, s.tokeny_wy_max, 'claude-opus-5-5')) / 2;
+  const api = atrapaApi(() => 'x'); const { log, l } = linie();
+  // limit niższy niż najgorszy przypadek z przybliżenia też zatrzyma — więc sprawdzamy oba poziomy osobno
+  const kod = await main(['--limit-usd', String(lim), '--wyjscie', wy], { ANTHROPIC_API_KEY: 'sk-ant-test-0000000000000' }, { fetchFn: api.fetchFn, log, root });
+  assert.equal(kod, 1);
+  assert.match(l.join('\n'), /najgorszy przypadek/);
+  assert.ok(!api.wywolania.some((w) => w.sciezka === '/v1/messages/batches' && w.metoda === 'POST'));
 });
 
 /* ---------- przegląd D-043 K3a, znalezisko 1: język z pliku propozycji bez walidacji (zapis poza repo) ---------- */

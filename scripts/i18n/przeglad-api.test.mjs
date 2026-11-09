@@ -5,8 +5,8 @@ import { readFileSync, writeFileSync, mkdtempSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { atrapa, fetchZakazany, atrapaApi, LEKCJA_EN, SPOTS_PL, SPOTS_EN, HELPLINES_PL, HELPLINES_EN } from './fixture.mjs';
-import { PROMPT_PRZEGLADU, budujZadanieBatcha, jednostkiPrzegladu, segmenty, parsujTabele, main, parsujArgumenty } from './przeglad-api.mjs';
-import { glosariusz } from './wspolne.mjs';
+import { PROMPT_PRZEGLADU, budujZadanieBatcha, jednostkiPrzegladu, segmenty, parsujTabele, main, parsujArgumenty, wyJednostkiPrzegladu } from './przeglad-api.mjs';
+import { glosariusz, maxTokensJednostki } from './wspolne.mjs';
 
 const cicho = () => {};
 
@@ -111,4 +111,21 @@ test('segmenty nakładek: pola tekstowe i klucze map groups/wrongSizes; numery, 
   const h = segmenty(hl, HELPLINES_PL, HELPLINES_EN).map((x) => x.klucz);
   assert.ok(h.includes('pointer') && h.includes('fallback.text') && h.includes('entries[0].info') && h.includes('entries[0].links[0].label'));
   assert.ok(!h.some((x) => /name|quote|url|claim/.test(x)));
+});
+
+/* ---------- przegląd D-043 K3a, znalezisko 2: max_tokens 128 000 na żądanie łamie limit D-295 w najgorszym przypadku ---------- */
+test('max_tokens przeglądu z szacunku jednostki (2 × szacunek + 4000, najwyżej 128 000); --szacuj pokazuje najgorszy przypadek', async () => {
+  const root = atrapa({ zEn: true });
+  const md = jednostkiPrzegladu(root, 'en').find((j) => j.rodzaj === 'md');
+  const z = budujZadanieBatcha(root, 'en', md, { model: 'claude-opus-5-5', effort: 'medium' }, glosariusz(root));
+  assert.equal(z.params.max_tokens, maxTokensJednostki(wyJednostkiPrzegladu(z.segmentow, md.tekst, 'en')));
+  assert.ok(z.params.max_tokens < 128000);
+  const wy = mkdtempSync(join(tmpdir(), 'k3a-pg-')); const l = [];
+  assert.equal(await main(['--szacuj', '--wyjscie', wy], {}, { fetchFn: fetchZakazany, log: (s) => l.push(s), root }), 0);
+  const s = JSON.parse(readFileSync(join(wy, 'szacunek.json'), 'utf8'));
+  assert.ok(s.koszt_max_usd > s.koszt_usd);
+  assert.match(l.join('\n'), /najgorszy przypadek/);
+  const lim = String((s.koszt_usd + s.koszt_max_usd) / 2);
+  assert.equal(await main(['--szacuj', '--limit-usd', lim, '--wyjscie', wy], {}, { fetchFn: fetchZakazany, log: (x) => l.push(x), root }), 1);
+  assert.match(l.at(-1), /STOP.*najgorszy przypadek/);
 });
