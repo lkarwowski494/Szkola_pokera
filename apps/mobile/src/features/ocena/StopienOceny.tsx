@@ -23,8 +23,8 @@ export default function StopienOceny({ ocena, naSuknie = false }: PropsStopniaOc
   const kolor = naSuknie ? tk.onFelt : tk.ink;
   return (
     <View accessible accessibilityLabel={t('grade.label', { slowo })} style={{ flexDirection: 'row', alignItems: 'baseline', gap: odstep.s }}>
-      <Text style={[styl.tytul, { color: kolor }]}>{ZNAK[ocena]}</Text>
-      <Text style={[styl.tytul, { color: kolor }]}>{slowo}</Text>
+      <Text style={[styl.slowoStopnia, { color: kolor }]}>{ZNAK[ocena]}</Text>
+      <Text style={[styl.slowoStopnia, { color: kolor }]}>{slowo}</Text>
     </View>
   );
 }

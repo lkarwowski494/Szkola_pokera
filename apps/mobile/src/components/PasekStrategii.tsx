@@ -1,7 +1,8 @@
 import * as Haptics from 'expo-haptics';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AccessibilityInfo, Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
+import { AccessibilityInfo, Animated, Easing, PixelRatio, Pressable, StyleSheet, Text, View } from 'react-native';
+import { podstawaSegmentu } from '@/theme/skalowanie';
 import { opisPaska, segmentyPaska, type OpcjaPaska } from '@/features/stol/pasek';
 import { odstep, promien, ruch, styl, useTokens } from '@/theme/tokens';
 
@@ -58,7 +59,7 @@ export function PasekStrategii({
             }}
             style={({ pressed }) => [
               styles.przycisk,
-              { minHeight: CEL_AKCJI, borderLeftWidth: i === 0 ? 0 : StyleSheet.hairlineWidth * 2, borderColor: tk.actionEdge, opacity: pressed ? 0.85 : 1 },
+              { flexBasis: podstawaSegmentu(PixelRatio.getFontScale()), minHeight: CEL_AKCJI, borderLeftWidth: i === 0 ? 0 : StyleSheet.hairlineWidth * 2, borderColor: tk.actionEdge, opacity: pressed ? 0.85 : 1 },
             ]}
           >
             <Text style={[styl.naglowek, { color: tk.actionInk, textAlign: 'center' }]}>{o.text}</Text>
@@ -127,8 +128,8 @@ function PoOcenie({ opcje, wybor, klasa }: { opcje: readonly OpcjaPaskaUI[]; wyb
 }
 
 const styles = StyleSheet.create({
-  przyciski: { flexDirection: 'row', borderRadius: promien.przycisk, borderWidth: StyleSheet.hairlineWidth * 2, overflow: 'hidden' },
-  przycisk: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstep.s, paddingVertical: odstep.m },
+  przyciski: { flexDirection: 'row', flexWrap: 'wrap', borderRadius: promien.przycisk, borderWidth: StyleSheet.hairlineWidth * 2, overflow: 'hidden' },
+  przycisk: { flexGrow: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstep.s, paddingVertical: odstep.m },
   os: { flexDirection: 'row', alignItems: 'flex-end' },
   segment: { height: 16 },
   znacznik: { alignSelf: 'center', width: 12, height: 12, borderRadius: promien.przedzial, marginBottom: odstep.xs },

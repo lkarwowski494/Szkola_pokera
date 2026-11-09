@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import * as Font from 'expo-font';
-import { AccessibilityInfo, PixelRatio, Platform, useColorScheme, type ColorSchemeName } from 'react-native';
+import { AccessibilityInfo, Dimensions, PixelRatio, Platform, useColorScheme, type ColorSchemeName } from 'react-native';
 import { LITERATA, krojIndeksu, krojTytulu } from './kroje';
 import { kolory, odstep, promien, ruch, haptyka, typografia } from './tokeny';
+import { sufitTytulu } from './skalowanie';
 
 /**
  * Moduł motywu (08 cz. 5b krok 1, P-2 = B, D-256, D-259): kolory, odstępy, promienie, ruch i haptyka wyłącznie
@@ -77,6 +78,8 @@ export function useTokens(): Tokens {
 }
 
 const s = typografia.skala;
+/** Sufit tytułów od AX1 (D-122, A04-07): czytany przy każdym renderze, jak krój. */
+const sufit = (r: { size: number; line: number; maxW: number | null }) => sufitTytulu(r, PixelRatio.getFontScale(), Dimensions.get('window').width);
 const krojTytulowy = () => krojTytulu(Font.isLoaded(LITERATA), PixelRatio.getFontScale());
 /**
  * Style tekstu ze skali (pt). Tytuły: Literata 600 przy tekście do XXXL, od AX1 krój systemowy semibold (D-120, D-122;
@@ -85,10 +88,14 @@ const krojTytulowy = () => krojTytulu(Font.isLoaded(LITERATA), PixelRatio.getFon
  */
 export const styl = {
   get tytulDuzy() {
-    return { fontSize: s.tytulDuzy.size, lineHeight: s.tytulDuzy.line, fontWeight: '600' as const, fontFamily: krojTytulowy() };
+    return { ...sufit(s.tytulDuzy), fontWeight: '600' as const, fontFamily: krojTytulowy() };
   },
   get tytul() {
-    return { fontSize: s.tytul.size, lineHeight: s.tytul.line, fontWeight: '600' as const, fontFamily: krojTytulowy() };
+    return { ...sufit(s.tytul), fontWeight: '600' as const, fontFamily: krojTytulowy() };
+  },
+  /** Słowo stopnia na suknie (D-122: 34/38, sufit 8,5% szerokości; A04-07). */
+  get slowoStopnia() {
+    return { ...sufit(s.slowoStopnia), fontWeight: '600' as const, fontFamily: krojTytulowy() };
   },
   naglowek: { fontSize: s.tresc.size, lineHeight: s.tresc.line, fontWeight: '600' as const },
   tresc: { fontSize: s.tresc.size, lineHeight: s.tresc.line, fontWeight: '400' as const },

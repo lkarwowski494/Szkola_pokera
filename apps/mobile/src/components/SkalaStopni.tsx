@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, Text, View } from 'react-native';
+import { PixelRatio, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { mnoznikSkaliStopni, podstawaPrzedzialu } from '@/theme/skalowanie';
 import { etykietaSkali, przedzialySkali, type OcenaDecyzji } from '@/features/stol/skala';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 
@@ -11,6 +12,8 @@ import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 export function SkalaStopni({ czestosc, ocena }: { czestosc: number; ocena: OcenaDecyzji }): React.JSX.Element {
   const tk = useTokens();
   const { t } = useTranslation();
+  const skala = PixelRatio.getFontScale();
+  const mnoznik = mnoznikSkaliStopni(useWindowDimensions().width); // A04-06: sufit tekstu jak makieta (e3.css:112)
   return (
     <View accessible accessibilityRole="image" accessibilityLabel={etykietaSkali(czestosc, ocena, t)} style={styles.rzad}>
       {przedzialySkali(ocena, t).map((p) => (
@@ -18,10 +21,10 @@ export function SkalaStopni({ czestosc, ocena }: { czestosc: number; ocena: Ocen
           key={p.stopien}
           testID={`przedzial-${p.stopien}`}
           accessibilityState={{ selected: p.twoj }}
-          style={[styles.przedzial, { borderColor: p.twoj ? tk.gold : tk.scaleEdge, borderWidth: p.twoj ? 2.5 : 1 }]}
+          style={[styles.przedzial, { flexBasis: podstawaPrzedzialu(skala, p.twoj), borderColor: p.twoj ? tk.gold : tk.scaleEdge, borderWidth: p.twoj ? 2.5 : 1 }]}
         >
-          <Text style={[styl.drobny, { color: p.twoj ? tk.goldText : tk.onFelt, fontWeight: '600' }]}>{p.slowo}</Text>
-          <Text style={[styl.drobny, { color: p.twoj ? tk.goldText : tk.onFeltMuted, fontVariant: ['tabular-nums'] }]}>{p.zakres}</Text>
+          <Text maxFontSizeMultiplier={mnoznik} style={[styl.drobny, { color: p.twoj ? tk.goldText : tk.onFelt, fontWeight: '600' }]}>{p.slowo}</Text>
+          <Text maxFontSizeMultiplier={mnoznik} style={[styl.drobny, { color: p.twoj ? tk.goldText : tk.onFeltMuted, fontVariant: ['tabular-nums'] }]}>{p.zakres}</Text>
         </View>
       ))}
     </View>
@@ -29,6 +32,6 @@ export function SkalaStopni({ czestosc, ocena }: { czestosc: number; ocena: Ocen
 }
 
 const styles = StyleSheet.create({
-  rzad: { flexDirection: 'row', gap: odstep.s },
-  przedzial: { flex: 1, borderRadius: promien.przedzial, paddingVertical: odstep.s, paddingHorizontal: odstep.s, gap: 2 },
+  rzad: { flexDirection: 'row', flexWrap: 'wrap', gap: odstep.s },
+  przedzial: { flexGrow: 1, minWidth: 0, borderRadius: promien.przedzial, paddingVertical: odstep.s, paddingHorizontal: odstep.s, gap: 2 },
 });
