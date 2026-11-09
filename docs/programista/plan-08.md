@@ -816,12 +816,14 @@ Rola `08-programista --tryb build` złożona `tools/assemble.mjs` (repo `prompts
 
 | Zadanie | Realność | Commit | Test (czerwony przed → zielony po) | Decyzja |
 |---|---|---|---|---|
-| 1. `uklad.ts:27` każda akcja ≠ fold → „przebija” | teoretyczne (9 spotów 6-max: tylko fold/raise; push/fold i 9-max już dziś null), poprawka tania | „Stół: przebija tylko dla raise” | `uklad-08` „akcja bez stanu stołu” (przed: HJ:call → „przebija”); strażnik ścieżek `spots.yaml` (zielony od początku) | D-338 |
-| 2. m2.l1 „Skąd te liczby”: „2 pp” i „10” na sztywno (+ to samo w R-M2-002 `because`) | realne (zasada techniczna CLAUDE.md), rachunek się zgadzał | „m2.l1 i R-M2-002: granica outów” | content-build `regula-blad-08` 2 (przed: brak kluczy, liczby na sztywno); rejestr D-141 5 wpisów, przeliczenie niezależne 0 rozbieżności | D-339 |
-| 3. `lesson` wymagane w `TermEntry` | realne (nowy termin bez lekcji przechodził schemat) | „TermEntry: lesson wymagane” | `terminy-lekcja-08` (przed: „expected true to be false”); zmiana testu z powodem w komentarzu | D-340 |
+| 1. `uklad.ts:27` każda akcja ≠ fold → „przebija” | teoretyczne (9 spotów 6-max: tylko fold/raise; push/fold i 9-max już dziś null), poprawka tania | 6a031b1 | `uklad-08` „akcja bez stanu stołu” (przed: HJ:call → „przebija”); strażnik ścieżek `spots.yaml` (zielony od początku) | D-338 |
+| 2. m2.l1 „Skąd te liczby”: „2 pp” i „10” na sztywno (+ to samo w R-M2-002 `because`) | realne (zasada techniczna CLAUDE.md), rachunek się zgadzał | 0e03d1d | content-build `regula-blad-08` 2 (przed: brak kluczy, liczby na sztywno); rejestr D-141 5 wpisów, przeliczenie niezależne 0 rozbieżności | D-339 |
+| 3. `lesson` wymagane w `TermEntry` | realne (nowy termin bez lekcji przechodził schemat) | 317b30c | `terminy-lekcja-08` (przed: „expected true to be false”); zmiana testu z powodem w komentarzu | D-340 |
 | 4. P2 sesji S (a)–(d) | (a) teoretyczne dziś — brak `content/*/terms-def.yaml`; (b) brzegowe, fala 1 ja/zh; (c) sprzeczne z obecnym zamierzeniem: `jezyki` domyślnie `pl,en`, en celowo przed wydaniem (`store-screenshots.yml:8,17`); (d) brzegowe | — | — | backlog niżej |
 
 Pełny zestaw po zmianach: `pnpm run ci` kod 0 — mobile 533/533, content-build 144/144, skrypty 143/143, `i18n:kod` 0 błędów; `pnpm content:build` 35 baz (44 lekcje, 141 reguł, 829 liczb, 162 terminy). `expo lint` nieuruchamiany (jak w częściach 1–6).
+
+Przegląd D-043 (subagent, świeży kontekst, diff sesji T): **brak uwag P0/P1** — identyfikatory modułów, lekcji, zadań, egzaminów, reguł, zakresów i terminów w bazie pl identyczne przed i po; błąd reguły przeliczony dla trzech sytuacji (maksimum turn → river); żaden test nie osłabiony.
 
 **Teksty do akceptacji 04/06:** brak nowych kluczy interfejsu; zdania m2.l1 i R-M2-002 bez zmiany brzmienia po polsku (liczby z `numbers.yaml`). Przekład: zmienione źródło m2.l1 i R-M2-002 → K-03.
 
