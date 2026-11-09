@@ -2,7 +2,7 @@
 
 Stan: 2026-11-09, sesja G (tylko dokumenty), rola 09-lokalizacja, tryb build, etap E0 — **plan, bez wdrożenia**. Prompt roli: `prompts` (klon `--depth 1` z 2026-11-09), złożony `node tools/assemble.mjs 09-lokalizacja --tryb build` (kod 0, 57 099 znaków; skrypt przeczytany przed uruchomieniem). Wejście wczesne E0–E1 zamknięte 2026-11-04 (D-136, D-138); rola mówi, że po 08 i audycie 04 E0 skraca się do sprawdzenia, czy decyzja z `jezyki.md` stoi, a nowy dowód daje STOP z wariantami.
 
-**Rozstrzygnięte 2026-11-09:** drugi język = **en** (D-291, właściciel); wszystkie 35 języków w aplikacji, a storefront kraju dopiero po sprawdzeniu legalności (D-292). Otwarte pytania produktowe: P-2, P-3. Polityka języków się nie zmienia: 35 języków w wydaniu (D-131, CLAUDE.md „Stan projektu”). „Drugi język” to pierwszy język przekładu, na którym sprawdzamy cały łańcuch (mechanizm, przekład treści, kontrole, E2E), zanim ruszą fale pozostałych 33.
+**Rozstrzygnięte 2026-11-09:** drugi język = **en** (D-291, właściciel); wszystkie 35 języków w aplikacji, a storefront kraju dopiero po sprawdzeniu legalności (D-292). P-2 i P-3 według rekomendacji (D-293); przekład i przegląd przez API jak w Treningu (D-294). Polityka języków się nie zmienia: 35 języków w wydaniu (D-131, CLAUDE.md „Stan projektu”). „Drugi język” to pierwszy język przekładu, na którym sprawdzamy cały łańcuch (mechanizm, przekład treści, kontrole, E2E), zanim ruszą fale pozostałych 33.
 
 ## 1. Analogia z Treningu (D-191; repo `lkarwowski494/trening`, SHA 2e4b0f8, odczyt 2026-11-09)
 
@@ -62,7 +62,7 @@ Nowy fakt, który zmienia zakres, ale nie decyzje: `text.pl.ts` (27 KB polskich 
 
 Rekomendacja: **A (en)**. Najkrótsza droga do treści, którą przeczyta rynek główny, z gotowym glosariuszem i testami. Japoński idzie zaraz po nim, bo stoi w fali 1 (D-131).
 
-### P-2. Ćwiczenie słownictwa w języku innym niż polski
+### P-2. Ćwiczenie słownictwa w języku innym niż polski — rozstrzygnięte: A, D-293
 
 Ćwiczenie ma cztery kierunki: polska nazwa → angielska, angielska → polska, skrót → nazwa i definicja → termin (`vocab.ts:7–12`; decyzja właściciela 4.10.2026). W wersji angielskiej dwa pierwsze kierunki tracą sens.
 
@@ -72,7 +72,7 @@ Rekomendacja: **A (en)**. Najkrótsza droga do treści, którą przeczyta rynek 
 | B. W en ćwiczenie słownictwa ukryte | mniej pracy przy przekładzie; znika ćwiczenie, które w en nadal uczy (skróty, definicje) |
 | C. W każdym języku kierunki „nazwa w języku aplikacji ↔ nazwa angielska” | ma sens od trzeciego języka (ja, de…), w en nie; to decyzja na falę 1, nie na en |
 
-### P-3. Nazwa pod ikoną w angielskim
+### P-3. Nazwa pod ikoną w angielskim — rozstrzygnięte: A, D-293
 
 | Opcja | Kompromis |
 |---|---|
@@ -88,7 +88,7 @@ Rekomendacja: **A (en)**. Najkrótsza droga do treści, którą przeczyta rynek 
 5. **Formy i gramatyka.** Liczniki w kluczach mnogich tylko całkowite (ADR 0014 pkt 5); teksty `text.pl.ts` z parametrami, bez sklejania; angielskie formy mnogie `one/other`.
 6. **Dostępność.** Etykiety VoiceOver w en (także nazwy kart z A04-11), `accessibilityLanguage` zgodny z językiem aplikacji.
 7. **Konfiguracja.** `supportedLocales`, `locales/systemowe/en.json` (nazwa pod ikoną, P-3), `WYDANE` i `locale-data/en.js` w polyfillu — spięte testem `konfiguracja.test.ts` (ADR 0014 pkt 8).
-8. **Bez płatnych usług.** Przekład i przeglądy w sesjach agenta (wzór Treningu z 05.10.2026, §1); API tłumaczeń tylko za osobną zgodą właściciela.
+8. **Przekład przez API jak w Treningu (D-294).** Message Batches, Opus 5.5 (effort medium), propozycje jako artefakt ręcznego workflowu, nałożenie lokalnie dopiero po przeglądzie i kontrolach; limit kosztu przebiegu w skrypcie. Odstępstwo nazwane: Trening tłumaczy pary kluczy słownika, u nas dochodzą pliki treści (Markdown i YAML) — jednostką żądania jest plik treści, a znaczniki `{{n:…}}`, `{{t:…}}`, `[[karty]]` i identyfikatory muszą wrócić bez zmian (kontrola skryptem przed nałożeniem i `content:build` po nim).
 
 ## 6. Zakres najbliższego etapu (E1 ponownego wejścia: mechanizm drugiego języka i przekład en)
 
@@ -99,6 +99,7 @@ Kroki dla sesji wdrożeniowej (osobna sesja z kodem; język en, D-291; P-2 dotyc
 | K1 | Warunek wejścia: A04-10 i A04-11 zrobione przez sesję F | `pnpm i18n:kod` kod 0 albo uwagi wpisane do `wyjatki.json` z powodem; nazwy kart z kluczy |
 | K2 | Mechanizm: (a) `text.pl.ts` → klucze słownika interfejsu z kontekstem (D-288); (b) `content-build`: renderowanie terminu według języka bazy (D-287); (c) przełączenie bazy treści po zmianie języka w trakcie działania (reszta D-269); (d) strażnik przeglądu treści krytycznej dla języka innego niż pl; (e) ćwiczenie słownictwa według P-2 | testy czerwone przed kodem, potem zielone; `pnpm run ci` kod 0; przegląd D-043 (ścieżki wrażliwe: `tools/content-build/`) |
 | K3 | Słownik interfejsu en: 445 kluczy + teksty z K2a, `locales/systemowe/en.json`, `supportedLocales` i polyfill | `pnpm i18n` kod 0 z en; `konfiguracja.test.ts` zielony; drugi przegląd AI w świeżym kontekście (prompt z modułu `tlumaczenie`), każda propozycja rozstrzygnięta |
+| K3a | Narzędzie przekładu jak w Treningu: `scripts/i18n/przeklad-api.mjs` i `przeglad-api.mjs` (szacunek bez sieci `--szacuj`, `--limit`, `--wznow`, `--zastosuj`), workflowy ręczne `przeklad-tlumaczen.yml` i `przeglad-tlumaczen.yml` (sekret w jednym kroku); krok właściciela: sekret `ANTHROPIC_API_KEY` w repo | testy skryptu bez sieci (budowa żądania, parsowanie, kontrola znaczników, limit kosztu); przebieg `--szacuj` z kwotą; przegląd D-043 (`.github/workflows/`) |
 | K4 | Glosariusz en z `terms.yaml`; zamrożenie źródła (`sha256sum` słownika i plików `content/pl`) | `docs/lokalizacja/glosariusz.md`; skróty w `jezyki.md` |
 | K5 | Przekład treści `content/en/` falami po modułach (M0–M3, M4–M7, M8–M12), każda fala: przekład, `content:build`, skrypt, drugi przegląd AI, kontrola (a) dla krytycznych | `pnpm content:build` kod 0 (strażniki rejestru, liczb, terminów); 0 rozbieżności znaczników; wpis fali w `jezyki.md` (maszynowe, model, data, SHA źródła) |
 | K6 | Zrzuty en (Expo web, procedura roli 04) kluczowych ekranów i pseudolokalizacja | `docs/lokalizacja/zrzuty/en/`; obcięcia zgłoszone roli 04 |
@@ -118,14 +119,15 @@ Poza zakresem: pozostałe 33 języki (fale po en, osobne STOP), opis w App Store
 | Przegląd tylko modelem (bez człowieka) przepuszcza błąd w treści krytycznej | realne, przyjęte (D-027, ZAL-L02) | kontrola (a) i drugi przegląd; przegląd eksperta, gdy aplikacja zyska użytkowników (CLAUDE.md) |
 | Hermes bez `Intl.PluralRules` na telefonie | teoretyczne przy en (formy `one/other` jak domyślne i18next), realne od ja/pl | samosprawdzenie przy starcie; lista kontrolna telefonu (ZAL-L01) |
 | Rozmiar paczki po kolejnej prawdziwej bazie | teoretyczne przy jednym języku | pomiar w K5 (ADR 0005, próg 50 MB [OCENA]) |
-| Przekład w sesjach agenta trwa długo i zużywa limit AI | realne | fale po modułach; punkt czyszczenia po każdej fali |
+| Koszt API wyższy niż szacunek albo przebieg zapętlony | brzegowe | `--szacuj` przed wysłaniem; limit kosztu przebiegu w skrypcie (stop powyżej bez zgody); `--wznow` zamiast ponownego wysłania |
+| Model zmienia znacznik albo identyfikator w pliku treści | realne | odrzucenie propozycji przy różnicy znaczników przed nałożeniem; `content:build` po nałożeniu |
 
 ## 8. Koszt
 
-- **Pieniądze:** 0 USD (bez API tłumaczeń; GitHub Actions dla repo publicznego bez opłat; E2E na macOS jak dotąd).
-- **Czas agenta [OCENA]:** K2 4–6 h; K3 1–2 h; K4 0,5 h; K5 10–16 h (ok. 80 tys. słów w 3 falach, z przeglądem drugim agentem i kontrolą (a)); K6–K8 2–3 h. Razem ok. 18–28 h pracy agenta w 6–10 sesjach.
+- **Pieniądze (API, D-294) [OCENA, przed pierwszym przebiegiem zastąpi ją `--szacuj`]:** treść `content/pl` to 745 374 znaki (ok. 250 tys. tokenów), z interfejsem, terminami i tekstami zadań ok. 270 tys. tokenów wejścia. Przekład en, Opus 5.5 Batch (2 / 10 USD za mln tokenów po rabacie): ok. 5–7 USD; drugi przegląd en: ok. 2–4 USD; razem en ok. 7–11 USD (Sonnet 5.5 ok. połowa). Dla porównania pozostałe 33 języki później: rząd 200–230 USD (Opus) — osobna zgoda przy fali 1. Cennik: tabela modeli umiejętności claude-api (stan 2026-10-06, zgodny z Treningiem `przeglad-api.mjs:20–21`), ponowny odczyt u źródła przed przebiegiem. GitHub Actions dla repo publicznego bez opłat.
+- **Czas agenta [OCENA]:** K2 4–6 h; K3 1–2 h; K3a 3–4 h; K4 0,5 h; K5 4–6 h (przegląd propozycji API, kontrola (a), nałożenie w 3 falach); K6–K8 2–3 h. Razem ok. 15–22 h w 5–8 sesjach.
 - **Oczekiwanie:** przebiegi E2E iOS (ok. 30 min każdy, limit składnika 30 min, D-258), CI po każdym pushu kodu.
-- **Czas właściciela:** odpowiedzi P-1–P-3 (ok. 5 min); weto D-286–D-289 (ok. 10 min); lista kontrolna na telefonie po K7 (ok. 20–30 min [OCENA]).
+- **Czas właściciela:** sekret `ANTHROPIC_API_KEY` w ustawieniach repo i zgoda na kwotę limitu (ok. 10 min); weto D-286–D-289 (ok. 10 min); lista kontrolna na telefonie po K7 (ok. 20–30 min [OCENA]).
 
 ## 9. Decyzje agenta do weta (wpisane w `docs/decyzje.md`)
 
