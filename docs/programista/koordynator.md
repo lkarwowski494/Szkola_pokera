@@ -44,7 +44,8 @@ Nie twórz nowych sesji i nie archiwizuj — to robi koordynator. Nie edytuj sek
 ## 5. Stan i plan (2026-11-09 ok. 07:00 UTC; ostatnie wiersze „Koordynacja” w plan-08 = prawda)
 **W toku:**
 - Sesja I `session_01T66VBzRvcm2jJpwtAj5SFw` (kod, 08 fix, start 06:49): A04-10 (teksty poza `t()` → klucze, warunek przekładu), A04-11 (nazwy kart dla VoiceOver), 10-US-01/02 + 10-JP-01 (EkranZakupu: zdanie o anulowaniu subskrypcji i skutku, D-301), F-SOLVER-CZAS (limit 180 s), ponowienie pobrania Maestro w `e2e-ios.yml` (D-043); jeden push kodu → E2E pełny.
-- Sesja K `session_01T66VBw3RwmyfzPFPWqDWFH` (tylko docs, start 06:56): `docs/wydanie/plan-1.0.md` — języki 1.0, pomiar `pnpm test:akceptacja`, lista pracy, szacunek z datą, kroki właściciela.
+- Sesja K zakończona 07:07 (523a041, `docs/wydanie/plan-1.0.md`): wysłanie 1.0 do Apple 24.11–05.12, najpewniej ok. 27.11 [OCENA]; języki 1.0 pl, en, ja, pt-BR, fr, zh-Hant (D-303); do pytania 14:00: P-1 (F-12 w 1.1), P-2 (adres polityki: GitHub Pages), W-03 (API 30–40 USD); kolejka kodu po I: K-02 treść (3 czerwone testy, rola 06) → rola 09 K1–K8 → K-04 języki.
+- Sesja L `session_01T66VByZLqMbx2yavDCUxBi` (tylko docs, start 07:07): projekt polityki prywatności pl/en, odpowiedzi App Privacy, rekomendacja hostingu (08-F20, P-2), bez publikacji.
 - E2E: `workflow_dispatch` z `aplikacja_z_przebiegu=42566410755` (06:49) — szybki dowód flowów dla A04-01..09 (pełny przebieg 42566410755 padł 2× na curl 504 przy pobieraniu Maestro; flowy nieuruchomione). Szczyt kodu z dowodem E2E zielonym: 8362e14 (42531461257).
 
 **Kolejka:**
