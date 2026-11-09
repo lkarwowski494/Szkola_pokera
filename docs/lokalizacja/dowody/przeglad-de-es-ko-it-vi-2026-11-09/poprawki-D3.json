@@ -1,0 +1,119 @@
+[
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m0-l1-uklady.md",
+  "stary": "und bei {{t:two-pair|zwei Paaren}} vergleicht man",
+  "nowy": "und bei zwei {{t:pair|Paaren}} vergleicht man",
+  "waga": "ŚREDNIE",
+  "powod": "Zmieniony klucz znacznika terminu: źródło ma {{t:pair|parach}} (pair), przekład {{t:two-pair}}; multizbiór {{t:…}} różny od pl (pair 13/14, two-pair 9/8).",
+  "grupa": "D3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m2-l2-pot-odds.md",
+  "stary": "ist das die Chance mit einer Karte, nicht bis zum River",
+  "nowy": "ist das die Chance für eine Karte, nicht bis zum River",
+  "waga": "NISKIE",
+  "powod": "„Chance mit einer Karte” nienaturalne; w egzaminie M2 „Chance für eine Karte”.",
+  "grupa": "D3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "also ist dein {{t:nuts-advantage}} kleiner",
+  "nowy": "also ist dein {{t:nuts-advantage|Nuts-Vorteil}} kleiner",
+  "waga": "ŚREDNIE",
+  "powod": "Znacznik bez formy renderuje nazwę angielską „nuts advantage” obok lokalnej „Nuts-Vorteil” w tej samej lekcji (wiersze 39, 104); jedyne takie miejsce w korpusie de.",
+  "grupa": "D3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "betten mit größerer Größe,",
+  "nowy": "betten größer,",
+  "waga": "NISKIE",
+  "powod": "Tautologia „mit größerer Größe”.",
+  "grupa": "D3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m12-l4-bankroll.md",
+  "stary": "nutze die Kontakte auf der Karte zum verantwortungsvollen Spielen.",
+  "nowy": "nutze die Kontakte im Hinweis „Verantwortungsvolles Spielen“ am Ende dieser Lektion.",
+  "waga": "ŚREDNIE",
+  "powod": "Treść krytyczna (odpowiedzialna gra): „Karte” w kursie pokera czyta się jako karta do gry; odesłanie do pomocy ma jednoznacznie wskazać ramkę :::note „Verantwortungsvolles Spielen” w tej lekcji.",
+  "grupa": "D3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m2.yaml",
+  "stary": "Die {{t:straight|Straße}} bringt dir nur eine Acht:",
+  "nowy": "Nur eine Acht bringt dir die {{t:straight|Straße}}:",
+  "waga": "WYSOKIE",
+  "powod": "Odwrócony sens: pl „Strita daje tylko ósemka” (tylko ósemka daje strita); de „Die Straße bringt dir nur eine Acht” = strit daje ci tylko ósemkę.",
+  "grupa": "D3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m2.yaml",
+  "stary": "Deine Hand vervollständigt ein Rang (die Acht), aber in vier Farben.",
+  "nowy": "Nur ein Rang (die Acht) vervollständigt deine Hand, aber in vier Farben.",
+  "waga": "ŚREDNIE",
+  "powod": "Szyk OVS czyta się jak „twoja ręka domyka jedną rangę”; pl: domyka cię jedna ranga.",
+  "grupa": "D3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m2.yaml",
+  "stary": "Das ist ein {{t:bet|Bet}} von einem halben",
+  "nowy": "Das ist eine {{t:bet|Bet}} von einem halben",
+  "waga": "NISKIE",
+  "powod": "Rodzaj „Bet”: w korpusie de dominuje żeński (die/eine Bet ~55×), egzamin M2 używa męskiego.",
+  "grupa": "D3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m2.yaml",
+  "stary": ": der {{t:bet|Bet}} geteilt durch den {{t:pot|Pot}} vor dem {{t:bet|Bet}}.",
+  "nowy": ": die {{t:bet|Bet}} geteilt durch den {{t:pot|Pot}} vor der {{t:bet|Bet}}.",
+  "waga": "NISKIE",
+  "powod": "Rodzaj „Bet” jak w reszcie korpusu (żeński).",
+  "grupa": "D3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m2.yaml",
+  "stary": "explanation: \"Ein {{t:bet|Bet}} in Höhe",
+  "nowy": "explanation: \"Eine {{t:bet|Bet}} in Höhe",
+  "waga": "NISKIE",
+  "powod": "Rodzaj „Bet” jak w reszcie korpusu (żeński).",
+  "grupa": "D3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m2.yaml",
+  "stary": "Selbst ein kleiner {{t:bet|Bet}} ist hier",
+  "nowy": "Selbst eine kleine {{t:bet|Bet}} ist hier",
+  "waga": "NISKIE",
+  "powod": "Rodzaj „Bet” jak w reszcie korpusu (żeński).",
+  "grupa": "D3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m2.yaml",
+  "stary": "weil der {{t:bet|Bet}} klein ist",
+  "nowy": "weil die {{t:bet|Bet}} klein ist",
+  "waga": "NISKIE",
+  "powod": "Rodzaj „Bet” jak w reszcie korpusu (żeński).",
+  "grupa": "D3"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/exams/m2.yaml",
+  "stary": "\"Ein kleiner {{t:bet|Bet}} ist nicht dasselbe",
+  "nowy": "\"Eine kleine {{t:bet|Bet}} ist nicht dasselbe",
+  "waga": "NISKIE",
+  "powod": "Rodzaj „Bet” jak w reszcie korpusu (żeński).",
+  "grupa": "D3"
+ }
+]

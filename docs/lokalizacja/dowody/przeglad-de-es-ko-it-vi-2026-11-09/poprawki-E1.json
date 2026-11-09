@@ -1,0 +1,434 @@
+[
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "Ese tamaño es para jugar {{t:out-of-position}}.",
+  "nowy": "Ese tamaño es para jugar {{t:out-of-position|fuera de posición}}.",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:out-of-position}} bez formy renderuje angielskie „out of position” obok „En posición” w następnym zdaniu",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:utg}}, nadie ha entrado todavía en el bote",
+  "nowy": "{{t:utg|UTG}}, nadie ha entrado todavía en el bote",
+  "waga": "NISKIE",
+  "powod": "{{t:utg}} bez formy renderuje „under the gun”; reguły es mają wszędzie {{t:utg|UTG}}",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "Botón, todos antes que tú se han {{t:fold|retirado}}",
+  "nowy": "Button, todos antes que tú se han {{t:fold|retirado}}",
+  "waga": "ŚREDNIE",
+  "powod": "„Botón” wobec „Button” w regułach (30×) i w nazwach miejsc; jedna nazwa na pojęcie",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "Botón, el {{t:cutoff|CO}} ha {{t:open|abierto}} a 2,5bb",
+  "nowy": "Button, el {{t:cutoff|CO}} ha {{t:open|abierto}} a 2,5bb",
+  "waga": "ŚREDNIE",
+  "powod": "„Botón” wobec „Button” w regułach (30×) i w nazwach miejsc; jedna nazwa na pojęcie",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:small-blind|Ciega pequeña}}, el Botón ha {{t:open|abierto}} a 2,5bb",
+  "nowy": "{{t:small-blind|Ciega pequeña}}, el Button ha {{t:open|abierto}} a 2,5bb",
+  "waga": "ŚREDNIE",
+  "powod": "„Botón” wobec „Button” w regułach (30×) i w nazwach miejsc; jedna nazwa na pojęcie",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:big-blind|Ciega grande}}, el Botón ha {{t:open|abierto}} a 2,5bb, la {{t:small-blind}} se ha {{t:fold|retirado}}",
+  "nowy": "{{t:big-blind|Ciega grande}}, el Button ha {{t:open|abierto}} a 2,5bb, la {{t:small-blind|ciega pequeña}} se ha {{t:fold|retirado}}",
+  "waga": "ŚREDNIE",
+  "powod": "„Botón” wobec „Button” w regułach (30×) i w nazwach miejsc; jedna nazwa na pojęcie; {{t:small-blind}} bez formy renderuje angielskie „small blind” po „la”, obok „Ciega grande/pequeña” w tym samym tytule",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:big-blind|Ciega grande}}, la {{t:small-blind}} ha {{t:open|abierto}} a 3bb",
+  "nowy": "{{t:big-blind|Ciega grande}}, la {{t:small-blind|ciega pequeña}} ha {{t:open|abierto}} a 3bb",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:small-blind}} bez formy renderuje angielskie „small blind” po „la”, obok „Ciega grande/pequeña” w tym samym tytule",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:utg}} en una mesa de 9 jugadores, nadie ha entrado todavía en el bote",
+  "nowy": "{{t:utg|UTG}} en una mesa de 9 jugadores, nadie ha entrado todavía en el bote",
+  "waga": "NISKIE",
+  "powod": "{{t:utg}} bez formy renderuje „under the gun”; reguły es mają wszędzie {{t:utg|UTG}}",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:utg|UTG}}+1 en una mesa de 9 jugadores, {{t:utg}} se ha {{t:fold|retirado}}",
+  "nowy": "{{t:utg|UTG}}+1 en una mesa de 9 jugadores, {{t:utg|UTG}} se ha {{t:fold|retirado}}",
+  "waga": "NISKIE",
+  "powod": "{{t:utg}} bez formy renderuje „under the gun”; reguły es mają wszędzie {{t:utg|UTG}}",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "Botón en una mesa de 9 jugadores, todos antes que tú se han {{t:fold|retirado}}",
+  "nowy": "Button en una mesa de 9 jugadores, todos antes que tú se han {{t:fold|retirado}}",
+  "waga": "ŚREDNIE",
+  "powod": "„Botón” wobec „Button” w regułach (30×) i w nazwach miejsc; jedna nazwa na pojęcie",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "Botón en una mesa de 9 jugadores, el {{t:cutoff|CO}} ha {{t:open|abierto}} a 2,5bb",
+  "nowy": "Button en una mesa de 9 jugadores, el {{t:cutoff|CO}} ha {{t:open|abierto}} a 2,5bb",
+  "waga": "ŚREDNIE",
+  "powod": "„Botón” wobec „Button” w regułach (30×) i w nazwach miejsc; jedna nazwa na pojęcie",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:small-blind|Ciega pequeña}} en una mesa de 9 jugadores, el Botón ha {{t:open|abierto}} a 2,5bb",
+  "nowy": "{{t:small-blind|Ciega pequeña}} en una mesa de 9 jugadores, el Button ha {{t:open|abierto}} a 2,5bb",
+  "waga": "ŚREDNIE",
+  "powod": "„Botón” wobec „Button” w regułach (30×) i w nazwach miejsc; jedna nazwa na pojęcie",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:big-blind|Ciega grande}} en una mesa de 9 jugadores, el Botón ha {{t:open|abierto}} a 2,5bb, la {{t:small-blind}} se ha {{t:fold|retirado}}",
+  "nowy": "{{t:big-blind|Ciega grande}} en una mesa de 9 jugadores, el Button ha {{t:open|abierto}} a 2,5bb, la {{t:small-blind|ciega pequeña}} se ha {{t:fold|retirado}}",
+  "waga": "ŚREDNIE",
+  "powod": "„Botón” wobec „Button” w regułach (30×) i w nazwach miejsc; jedna nazwa na pojęcie; {{t:small-blind}} bez formy renderuje angielskie „small blind” po „la”, obok „Ciega grande/pequeña” w tym samym tytule",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:big-blind|Ciega grande}} en una mesa de 9 jugadores, la {{t:small-blind}} ha {{t:open|abierto}} a 3bb",
+  "nowy": "{{t:big-blind|Ciega grande}} en una mesa de 9 jugadores, la {{t:small-blind|ciega pequeña}} ha {{t:open|abierto}} a 3bb",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:small-blind}} bez formy renderuje angielskie „small blind” po „la”, obok „Ciega grande/pequeña” w tym samym tytule",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:small-blind|Ciega pequeña}}, stack de 10bb, la {{t:big-blind}} ha puesto un ante de 1bb, todos se han {{t:fold|retirado}}. ¿All-in o {{t:fold}}?",
+  "nowy": "{{t:small-blind|Ciega pequeña}}, stack de 10bb, la {{t:big-blind|ciega grande}} ha puesto un ante de 1bb, todos se han {{t:fold|retirado}}. ¿All-in o {{t:fold}}?",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:big-blind}} bez formy renderuje angielskie „big blind” po „la”, obok „Ciega pequeña” w tym samym tytule",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:big-blind|Ciega grande}}, stack de 5bb. La {{t:small-blind|ciega pequeña}} ha ido all-in. ¿{{t:call|Pagas}} o te {{t:fold|retiras}}?",
+  "nowy": "{{t:big-blind|Ciega grande}}, stack de 5bb. La {{t:small-blind|ciega pequeña}} ha ido all-in. ¿{{t:call|Igualas}} o te {{t:fold|retiras}}?",
+  "waga": "ŚREDNIE",
+  "powod": "„pagar” wobec „igualar” w regułach i na przycisku akcji w UI („Igualar”)",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:big-blind|Ciega grande}}, stack de 10bb. La {{t:small-blind|ciega pequeña}} ha ido all-in. ¿{{t:call|Pagas}} o te {{t:fold|retiras}}?",
+  "nowy": "{{t:big-blind|Ciega grande}}, stack de 10bb. La {{t:small-blind|ciega pequeña}} ha ido all-in. ¿{{t:call|Igualas}} o te {{t:fold|retiras}}?",
+  "waga": "ŚREDNIE",
+  "powod": "„pagar” wobec „igualar” w regułach i na przycisku akcji w UI („Igualar”)",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:big-blind|Ciega grande}}, stack de 15bb. La {{t:small-blind|ciega pequeña}} ha ido all-in. ¿{{t:call|Pagas}} o te {{t:fold|retiras}}?",
+  "nowy": "{{t:big-blind|Ciega grande}}, stack de 15bb. La {{t:small-blind|ciega pequeña}} ha ido all-in. ¿{{t:call|Igualas}} o te {{t:fold|retiras}}?",
+  "waga": "ŚREDNIE",
+  "powod": "„pagar” wobec „igualar” w regułach i na przycisku akcji w UI („Igualar”)",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:big-blind|Ciega grande}}, stack de 10bb, has puesto un ante de 1bb. La {{t:small-blind|ciega pequeña}} ha ido all-in. ¿{{t:call|Pagas}} o te {{t:fold|retiras}}?",
+  "nowy": "{{t:big-blind|Ciega grande}}, stack de 10bb, has puesto un ante de 1bb. La {{t:small-blind|ciega pequeña}} ha ido all-in. ¿{{t:call|Igualas}} o te {{t:fold|retiras}}?",
+  "waga": "ŚREDNIE",
+  "powod": "„pagar” wobec „igualar” w regułach i na przycisku akcji w UI („Igualar”)",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "Botón, tres jugadores, stacks de 7,5bb cada uno. ¿Vas all-in o te {{t:fold|retiras}}?",
+  "nowy": "Button, tres jugadores, stacks de 7,5bb cada uno. ¿Vas all-in o te {{t:fold|retiras}}?",
+  "waga": "ŚREDNIE",
+  "powod": "„Botón” wobec „Button” w regułach (30×) i w nazwach miejsc; jedna nazwa na pojęcie",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:small-blind|Ciega pequeña}}, tres jugadores, stacks de 7,5bb cada uno, el Botón se ha {{t:fold|retirado}}. ¿All-in o {{t:fold}}?",
+  "nowy": "{{t:small-blind|Ciega pequeña}}, tres jugadores, stacks de 7,5bb cada uno, el Button se ha {{t:fold|retirado}}. ¿All-in o {{t:fold}}?",
+  "waga": "ŚREDNIE",
+  "powod": "„Botón” wobec „Button” w regułach (30×) i w nazwach miejsc; jedna nazwa na pojęcie",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:small-blind|Ciega pequeña}}, tres jugadores, stacks de 7,5bb cada uno. El Botón ha ido all-in y detrás de ti todavía queda la {{t:big-blind}}. ¿{{t:call|Pagas}} o te {{t:fold|retiras}}?",
+  "nowy": "{{t:small-blind|Ciega pequeña}}, tres jugadores, stacks de 7,5bb cada uno. El Button ha ido all-in y detrás de ti todavía queda la {{t:big-blind|ciega grande}}. ¿{{t:call|Igualas}} o te {{t:fold|retiras}}?",
+  "waga": "ŚREDNIE",
+  "powod": "„Botón” wobec „Button” w regułach (30×) i w nazwach miejsc; jedna nazwa na pojęcie; {{t:big-blind}} bez formy renderuje angielskie „big blind” po „la”, obok „Ciega pequeña” w tym samym tytule; „pagar” wobec „igualar” w regułach i na przycisku akcji w UI („Igualar”)",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:big-blind|Ciega grande}}, tres jugadores, stacks de 7,5bb cada uno. El Botón ha ido all-in, la {{t:small-blind}} se ha {{t:fold|retirado}}. ¿{{t:call|Pagas}} o te {{t:fold|retiras}}?",
+  "nowy": "{{t:big-blind|Ciega grande}}, tres jugadores, stacks de 7,5bb cada uno. El Button ha ido all-in, la {{t:small-blind|ciega pequeña}} se ha {{t:fold|retirado}}. ¿{{t:call|Igualas}} o te {{t:fold|retiras}}?",
+  "waga": "ŚREDNIE",
+  "powod": "„Botón” wobec „Button” w regułach (30×) i w nazwach miejsc; jedna nazwa na pojęcie; {{t:small-blind}} bez formy renderuje angielskie „small blind” po „la”, obok „Ciega grande/pequeña” w tym samym tytule; „pagar” wobec „igualar” w regułach i na przycisku akcji w UI („Igualar”)",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "{{t:big-blind|Ciega grande}}, tres jugadores, stacks de 7,5bb cada uno. El Botón ha ido all-in, la {{t:small-blind}} ha {{t:call|pagado}}. ¿{{t:call|Pagas}} o te {{t:fold|retiras}}?",
+  "nowy": "{{t:big-blind|Ciega grande}}, tres jugadores, stacks de 7,5bb cada uno. El Button ha ido all-in, la {{t:small-blind|ciega pequeña}} ha {{t:call|igualado}}. ¿{{t:call|Igualas}} o te {{t:fold|retiras}}?",
+  "waga": "ŚREDNIE",
+  "powod": "„Botón” wobec „Button” w regułach (30×) i w nazwach miejsc; jedna nazwa na pojęcie; {{t:small-blind}} bez formy renderuje angielskie „small blind” po „la”, obok „Ciega grande/pequeña” w tym samym tytule; „pagar” wobec „igualar” w regułach i na przycisku akcji w UI („Igualar”)",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "path: \"5bb|SB:allin\"\n  groups: { \"{{t:call|Pago}}\"",
+  "nowy": "path: \"5bb|SB:allin\"\n  groups: { \"{{t:call|Igualo}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "etykieta grupy „Pago” wobec „igualar” w regułach i na przycisku „Igualar” w UI",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "path: \"10bb|SB:allin\"\n  groups: { \"{{t:call|Pago}}\"",
+  "nowy": "path: \"10bb|SB:allin\"\n  groups: { \"{{t:call|Igualo}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "etykieta grupy „Pago” wobec „igualar” w regułach i na przycisku „Igualar” w UI",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "path: \"15bb|SB:allin\"\n  groups: { \"{{t:call|Pago}}\"",
+  "nowy": "path: \"15bb|SB:allin\"\n  groups: { \"{{t:call|Igualo}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "etykieta grupy „Pago” wobec „igualar” w regułach i na przycisku „Igualar” w UI",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "path: \"10bb-ante|SB:allin\"\n  groups: { \"{{t:call|Pago}}\"",
+  "nowy": "path: \"10bb-ante|SB:allin\"\n  groups: { \"{{t:call|Igualo}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "etykieta grupy „Pago” wobec „igualar” w regułach i na przycisku „Igualar” w UI",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "path: \"3max-7.5bb|BTN:allin\"\n  groups: { \"{{t:call|Pago}}\"",
+  "nowy": "path: \"3max-7.5bb|BTN:allin\"\n  groups: { \"{{t:call|Igualo}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "etykieta grupy „Pago” wobec „igualar” w regułach i na przycisku „Igualar” w UI",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "path: \"3max-7.5bb|BTN:allin,SB:fold\"\n  groups: { \"{{t:call|Pago}}\"",
+  "nowy": "path: \"3max-7.5bb|BTN:allin,SB:fold\"\n  groups: { \"{{t:call|Igualo}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "etykieta grupy „Pago” wobec „igualar” w regułach i na przycisku „Igualar” w UI",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/ranges/spots.yaml",
+  "stary": "path: \"3max-7.5bb|BTN:allin,SB:call\"\n  groups: { \"{{t:call|Pago}}\"",
+  "nowy": "path: \"3max-7.5bb|BTN:allin,SB:call\"\n  groups: { \"{{t:call|Igualo}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "etykieta grupy „Pago” wobec „igualar” w regułach i na przycisku „Igualar” w UI",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/modules.yaml",
+  "stary": "sub: \"Second barrel y proyectos\"",
+  "nowy": "sub: \"Segundo barril y proyectos\"",
+  "waga": "ŚREDNIE",
+  "powod": "reguły M7 i tytuł lekcji m7.l1 używają „segundo barril”",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "añades algunos {{t:bluff|faroles}} con ases suited (A5s, A4s)",
+  "nowy": "añades algunos {{t:bluff|faroles}} con ases del mismo palo (A5s, A4s)",
+  "waga": "ŚREDNIE",
+  "powod": "„suited” wobec „del mismo palo” w lekcjach es (51× wobec 3×) i w R-M3-005; pl konsekwentnie „w kolorze”",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "{{t:connectors|conectores}} suited) las juegas de forma mixta",
+  "nowy": "{{t:connectors|conectores}} del mismo palo) las juegas de forma mixta",
+  "waga": "ŚREDNIE",
+  "powod": "„suited” wobec „del mismo palo” w lekcjach es (51× wobec 3×) i w R-M3-005; pl konsekwentnie „w kolorze”",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "a veces A4s, y {{t:connectors|conectores}} suited; las",
+  "nowy": "a veces A4s, y {{t:connectors|conectores}} del mismo palo; las",
+  "waga": "ŚREDNIE",
+  "powod": "„suited” wobec „del mismo palo” w lekcjach es (51× wobec 3×) i w R-M3-005; pl konsekwentnie „w kolorze”",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "(los ases suited bloquean AA y AK)",
+  "nowy": "(los ases del mismo palo bloquean AA y AK)",
+  "waga": "ŚREDNIE",
+  "powod": "„suited” wobec „del mismo palo” w lekcjach es (51× wobec 3×) i w R-M3-005; pl konsekwentnie „w kolorze”",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "sobre todo con cartas altas suited, ases suited fuertes,",
+  "nowy": "sobre todo con cartas altas del mismo palo, ases fuertes del mismo palo,",
+  "waga": "ŚREDNIE",
+  "powod": "„suited” wobec „del mismo palo” w lekcjach es (51× wobec 3×) i w R-M3-005; pl konsekwentnie „w kolorze”",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "y parte de los {{t:connectors|conectores}} suited; con las manos más débiles",
+  "nowy": "y parte de los {{t:connectors|conectores}} del mismo palo; con las manos más débiles",
+  "waga": "ŚREDNIE",
+  "powod": "„suited” wobec „del mismo palo” w lekcjach es (51× wobec 3×) i w R-M3-005; pl konsekwentnie „w kolorze”",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "manos suited con cartas altas y {{t:connectors|conectores}} suited;",
+  "nowy": "manos del mismo palo con cartas altas y {{t:connectors|conectores}} del mismo palo;",
+  "waga": "ŚREDNIE",
+  "powod": "„suited” wobec „del mismo palo” w lekcjach es (51× wobec 3×) i w R-M3-005; pl konsekwentnie „w kolorze”",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "pequeñas, {{t:connectors|conectores}} suited) puedes completarlas",
+  "nowy": "pequeñas, {{t:connectors|conectores}} del mismo palo) puedes completarlas",
+  "waga": "ŚREDNIE",
+  "powod": "„suited” wobec „del mismo palo” w lekcjach es (51× wobec 3×) i w R-M3-005; pl konsekwentnie „w kolorze”",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "defiende muchos {{t:connectors|conectores}} suited y",
+  "nowy": "defiende muchos {{t:connectors|conectores}} del mismo palo y",
+  "waga": "ŚREDNIE",
+  "powod": "„suited” wobec „del mismo palo” w lekcjach es (51× wobec 3×) i w R-M3-005; pl konsekwentnie „w kolorze”",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "describen así a los jugadores recreacionales pasivos",
+  "nowy": "describen así a los jugadores recreativos pasivos",
+  "waga": "ŚREDNIE",
+  "powod": "„recreacional” wobec „recreativo” w lekcjach es (15×) i w UI; jedna forma terminu recreational",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "puntos es un {{t:recreational|jugador recreacional}} pasivo",
+  "nowy": "puntos es un {{t:recreational|jugador recreativo}} pasivo",
+  "waga": "ŚREDNIE",
+  "powod": "„recreacional” wobec „recreativo” w lekcjach es (15×) i w UI; jedna forma terminu recreational",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "juegas contra un {{t:recreational|jugador recreacional}} pasivo",
+  "nowy": "juegas contra un {{t:recreational|jugador recreativo}} pasivo",
+  "waga": "ŚREDNIE",
+  "powod": "„recreacional” wobec „recreativo” w lekcjach es (15×) i w UI; jedna forma terminu recreational",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "population: \"jugadores recreacionales en una",
+  "nowy": "population: \"jugadores recreativos en una",
+  "waga": "ŚREDNIE",
+  "powod": "„recreacional” wobec „recreativo” w lekcjach es (15×) i w UI; jedna forma terminu recreational",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "p. ej. un {{t:recreational|jugador recreacional}} típico",
+  "nowy": "p. ej. un {{t:recreational|jugador recreativo}} típico",
+  "waga": "ŚREDNIE",
+  "powod": "„recreacional” wobec „recreativo” w lekcjach es (15×) i w UI; jedna forma terminu recreational",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "fold to 3-bet de los jugadores recreacionales 31%",
+  "nowy": "fold to 3-bet de los jugadores recreativos 31%",
+  "waga": "ŚREDNIE",
+  "powod": "„recreacional” wobec „recreativo” w lekcjach es (15×) i w UI; jedna forma terminu recreational",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/rules.yaml",
+  "stary": "el objetivo es parar antes, antes de perder",
+  "nowy": "el objetivo es parar a tiempo, antes de perder",
+  "waga": "NISKIE",
+  "powod": "powtórzenie „antes, antes” (R-M12-007)",
+  "grupa": "E1"
+ }
+]

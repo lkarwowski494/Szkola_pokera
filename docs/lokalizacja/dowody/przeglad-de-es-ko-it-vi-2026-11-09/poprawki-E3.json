@@ -1,0 +1,155 @@
+[
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "la {{t:big-blind}} ha {{t:call|pagado}} y en el flop {{t:check|pasa}}. ¿Qué plan",
+  "nowy": "la {{t:big-blind|ciega grande}} ha {{t:call|pagado}} y en el flop {{t:check|pasa}}. ¿Qué plan",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:big-blind}} bez formy renderuje angielskie „big blind” („la big blind”) w pliku, który w l. 38 i w całym es (224×) ma „ciega grande”",
+  "grupa": "E3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "es la {{t:big-blind}} quien tiene la {{t:nuts-advantage",
+  "nowy": "es la {{t:big-blind|ciega grande}} quien tiene la {{t:nuts-advantage",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:big-blind}} bez formy renderuje angielskie „big blind” („la big blind”) w pliku, który w l. 38 i w całym es (224×) ma „ciega grande”",
+  "grupa": "E3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "caro: la {{t:big-blind}} ha ligado",
+  "nowy": "caro: la {{t:big-blind|ciega grande}} ha ligado",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:big-blind}} bez formy renderuje angielskie „big blind” („la big blind”) w pliku, który w l. 38 i w całym es (224×) ma „ciega grande”",
+  "grupa": "E3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "la {{t:big-blind}} ha {{t:call|pagado}} y {{t:check|pasa}}. Tienes {{t:pair",
+  "nowy": "la {{t:big-blind|ciega grande}} ha {{t:call|pagado}} y {{t:check|pasa}}. Tienes {{t:pair",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:big-blind}} bez formy renderuje angielskie „big blind” („la big blind”) w pliku, który w l. 38 i w całym es (224×) ma „ciega grande”",
+  "grupa": "E3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "la {{t:big-blind}} ha {{t:call|pagado}} y {{t:check|pasa}}. Tienes un set",
+  "nowy": "la {{t:big-blind|ciega grande}} ha {{t:call|pagado}} y {{t:check|pasa}}. Tienes un set",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:big-blind}} bez formy renderuje angielskie „big blind” („la big blind”) w pliku, który w l. 38 i w całym es (224×) ma „ciega grande”",
+  "grupa": "E3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "la {{t:big-blind}} ha {{t:call|pagado}} y {{t:check|pasa}}. El flop está",
+  "nowy": "la {{t:big-blind|ciega grande}} ha {{t:call|pagado}} y {{t:check|pasa}}. El flop está",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:big-blind}} bez formy renderuje angielskie „big blind” („la big blind”) w pliku, który w l. 38 i w całym es (224×) ma „ciega grande”",
+  "grupa": "E3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "que la {{t:big-blind}} normalmente",
+  "nowy": "que la {{t:big-blind|ciega grande}} normalmente",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:big-blind}} bez formy renderuje angielskie „big blind” („la big blind”) w pliku, który w l. 38 i w całym es (224×) ma „ciega grande”",
+  "grupa": "E3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "la {{t:big-blind}} ha {{t:call|pagado}} y {{t:check|pasa}}. El flop es {{t:monotone",
+  "nowy": "la {{t:big-blind|ciega grande}} ha {{t:call|pagado}} y {{t:check|pasa}}. El flop es {{t:monotone",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:big-blind}} bez formy renderuje angielskie „big blind” („la big blind”) w pliku, który w l. 38 i w całym es (224×) ma „ciega grande”",
+  "grupa": "E3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "la {{t:big-blind}} ha {{t:call|pagado}} y en el flop {{t:check|pasa}}. El {{t:pot",
+  "nowy": "la {{t:big-blind|ciega grande}} ha {{t:call|pagado}} y en el flop {{t:check|pasa}}. El {{t:pot",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:big-blind}} bez formy renderuje angielskie „big blind” („la big blind”) w pliku, który w l. 38 i w całym es (224×) ma „ciega grande”",
+  "grupa": "E3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "En [[7s 6h 5d]] es la {{t:big-blind}} quien",
+  "nowy": "En [[7s 6h 5d]] es la {{t:big-blind|ciega grande}} quien",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:big-blind}} bez formy renderuje angielskie „big blind” („la big blind”) w pliku, który w l. 38 i w całym es (224×) ma „ciega grande”",
+  "grupa": "E3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "el rival tiene pocos {{t:draw|proyectos}}, y las manos que han fallado se {{t:fold|retirarán}} también ante una {{t:bet|apuesta}} pequeña. Ante una {{t:bet|apuesta}} mayor se {{t:fold|retiran}} más o menos las mismas manos, pero arriesga más.",
+  "nowy": "el rival tiene pocos {{t:draw|proyectos}}, y las manos que han fallado se {{t:fold|retirarán}} también ante una {{t:bet|apuesta}} pequeña. Una {{t:bet|apuesta}} mayor hace que se {{t:fold|retiren}} más o menos las mismas manos, pero arriesga más.",
+  "waga": "ŚREDNIE",
+  "powod": "„Ante una apuesta mayor se retiran… pero arriesga más” – „arriesga” bez podmiotu, czyta się jak „rywal ryzykuje”; pl: „Większy bet spasuje te same ręce, a ryzykuje więcej” (podmiotem jest bet)",
+  "grupa": "E3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "el rival no tiene {{t:draw|proyectos}}, y las manos que han fallado se {{t:fold|retirarán}} también ante una {{t:bet|apuesta}} pequeña. Ante una {{t:bet|apuesta}} mayor se {{t:fold|retiran}} más o menos las mismas manos, pero arriesga más.",
+  "nowy": "el rival no tiene {{t:draw|proyectos}}, y las manos que han fallado se {{t:fold|retirarán}} también ante una {{t:bet|apuesta}} pequeña. Una {{t:bet|apuesta}} mayor hace que se {{t:fold|retiren}} más o menos las mismas manos, pero arriesga más.",
+  "waga": "ŚREDNIE",
+  "powod": "„Ante una apuesta mayor se retiran… pero arriesga más” – „arriesga” bez podmiotu, czyta się jak „rywal ryzykuje”; pl: „Większy bet spasuje te same ręce, a ryzykuje więcej” (podmiotem jest bet)",
+  "grupa": "E3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "{{t:call|pagando}}. Ante una {{t:bet|apuesta}} mayor se {{t:fold|retiran}} más o menos las mismas manos, pero arriesga más.",
+  "nowy": "{{t:call|pagando}}. Una {{t:bet|apuesta}} mayor hace que se {{t:fold|retiren}} más o menos las mismas manos, pero arriesga más.",
+  "waga": "ŚREDNIE",
+  "powod": "„Ante una apuesta mayor se retiran… pero arriesga más” – „arriesga” bez podmiotu, czyta się jak „rywal ryzykuje”; pl: „Większy bet spasuje te same ręce, a ryzykuje więcej” (podmiotem jest bet)",
+  "grupa": "E3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m10-l1-statystyki.md",
+  "stary": "se {{t:fold|retira}} ante una c-bet | ha recibido una c-bet |",
+  "nowy": "se {{t:fold|retira}} ante un c-bet | ha recibido un c-bet |",
+  "waga": "NISKIE",
+  "powod": "rodzaj: w tej samej tabeli i w m5-l3 „el/un c-bet” (es: un/el c-bet ok. 110×, una/la ok. 30×)",
+  "grupa": "E3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m10-l1-statystyki.md",
+  "stary": "el error de tu {{t:winrate}}",
+  "nowy": "el error de tu {{t:winrate|winrate}}",
+  "waga": "NISKIE",
+  "powod": "{{t:winrate}} bez formy daje „win rate”, a moduł 12 es pisze „winrate”",
+  "grupa": "E3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m0-l1-uklady.md",
+  "stary": "Se dividiría con una mejor jugada de cinco cartas idéntica.",
+  "nowy": "El bote se dividiría si la mejor jugada de cinco cartas fuera idéntica.",
+  "waga": "NISKIE",
+  "powod": "niejasna składnia („con una mejor jugada… idéntica”); pl: podział byłby przy identycznej najlepszej piątce",
+  "grupa": "E3"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/lessons/m12-l4-bankroll.md",
+  "stary": "señales de un problema de juego",
+  "nowy": "señales de un problema con el juego",
+  "waga": "NISKIE",
+  "powod": "naturalniejsze w es-ES (problema con el juego / juego problemático); treść krytyczna, sens zachowany",
+  "grupa": "E3"
+ }
+]

@@ -1,0 +1,209 @@
+[
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "du {{t:call|callst}} weiter: {{t:pair|Paare}} von 66",
+  "nowy": "du {{t:call|callst}} breiter: {{t:pair|Paare}} von 66",
+  "waga": "ŚREDNIE",
+  "powod": "R-M4-009 then: „weiter” przy czasowniku czyta się jako „dalej, nadal” (callst weiter = nadal sprawdzasz), a pl mówi „szerzej”; lekcje de używają „breiter”",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "{{t:call|callst}} weiter mit Händen, die {{t:bluff|Bluffs}} fangen",
+  "nowy": "{{t:call|callst}} breiter mit Händen, die {{t:bluff|Bluffs}} fangen",
+  "waga": "ŚREDNIE",
+  "powod": "R-M10-008 then: „weiter” przy czasowniku czyta się jako „dalej, nadal” (callst weiter = nadal sprawdzasz), a pl mówi „szerzej”; lekcje de używają „breiter”",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "dein Gegner muss weiter {{t:call|callen}}",
+  "nowy": "dein Gegner muss breiter {{t:call|callen}}",
+  "waga": "ŚREDNIE",
+  "powod": "R-M11-002 because: „weiter” przy czasowniku czyta się jako „dalej, nadal” (callst weiter = nadal sprawdzasz), a pl mówi „szerzej”; lekcje de używają „breiter”",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "kann weiter {{t:shove|pushen}}",
+  "nowy": "kann breiter {{t:shove|pushen}}",
+  "waga": "ŚREDNIE",
+  "powod": "R-M11-010 then: „weiter” przy czasowniku czyta się jako „dalej, nadal” (callst weiter = nadal sprawdzasz), a pl mówi „szerzej”; lekcje de używają „breiter” (tu: „może dalej pushować”)",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/rules.yaml",
+  "stary": "du reagierst sofort: ein Atemzug und ein vorbereiteter Satz",
+  "nowy": "du reagierst sofort: ein tiefer Atemzug und ein vorbereiteter Satz",
+  "waga": "NISKIE",
+  "powod": "R-M12-006 then: pl „oddech” = świadome wzięcie oddechu; samo „ein Atemzug” brzmi jak „jeden wdech”",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/modules.yaml",
+  "stary": "sub: \"Blinds, Straßen, Aktionen\"",
+  "nowy": "sub: \"Blinds, Streets, Aktionen\"",
+  "waga": "ŚREDNIE",
+  "powod": "m1 sub: „Straße” to w de nazwa układu strit (lekcje: {{t:straight|Straße}}); jako „ulica” reguły i lekcje używają „Street”",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/modules.yaml",
+  "stary": "SPR und Sizings über drei Straßen",
+  "nowy": "SPR und Sizings über drei Streets",
+  "waga": "ŚREDNIE",
+  "powod": "m9 sub: „Straße” to w de nazwa układu strit (lekcje: {{t:straight|Straße}}); jako „ulica” reguły i lekcje używają „Street”",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/modules.yaml",
+  "stary": "title: \"Position und Opening\", sub: \"Wer zuletzt handelt und was du openst\"",
+  "nowy": "title: \"Position und Eröffnung\", sub: \"Wer zuletzt handelt und was du eröffnest\"",
+  "waga": "ŚREDNIE",
+  "powod": "m3: reguły, spots i większość lekcji mają „eröffnen/Eröffnung” (k05: ok. 200×), „Opening/openst” tylko tu i rzadko w lekcjach",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/modules.yaml",
+  "stary": "Exploits auf Micro Stakes",
+  "nowy": "Exploits auf Mikrolimits",
+  "waga": "ŚREDNIE",
+  "powod": "m10 title: stawka = „Limit”, reguły R-M10-013/015 i lekcje m10 mają „Mikrolimits”; „Micro Stakes” to nazwa angielska obok lokalnej",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/ranges/spots.yaml",
+  "stary": "Das ist die Größe für {{t:out-of-position}}. {{t:in-position|In Position}} {{t:raise|raist}} du etwa {{n:pf.3bet.size-ip}} des {{t:open|Opens}}",
+  "nowy": "Das ist die Größe {{t:out-of-position|ohne Position}}. {{t:in-position|In Position}} {{t:raise|raist}} du etwa {{n:pf.3bet.size-ip}} der {{t:open|Eröffnung}}",
+  "waga": "ŚREDNIE",
+  "powod": "{{t:out-of-position}} bez formy daje angielskie „out of position” („Größe für out of position”) obok „In Position”; „des Opens” niespójne z R-M4-001 („der Eröffnung”) i resztą pliku („eröffnet”)",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/ranges/spots.yaml",
+  "stary": "{{t:big-blind|Big Blind}}, Button hat auf 2,5bb {{t:open|eröffnet}}, der {{t:small-blind}} hat",
+  "nowy": "{{t:big-blind|Big Blind}}, Button hat auf 2,5bb {{t:open|eröffnet}}, der {{t:small-blind|Small Blind}} hat",
+  "waga": "NISKIE",
+  "powod": "{{t:…}} bez formy daje angielską nazwę małą literą („der small blind”/„der big blind”) obok „Small Blind/Big Blind” w tym samym pliku",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/ranges/spots.yaml",
+  "stary": "am 9er-Tisch, Button hat auf 2,5bb {{t:open|eröffnet}}, der {{t:small-blind}}",
+  "nowy": "am 9er-Tisch, Button hat auf 2,5bb {{t:open|eröffnet}}, der {{t:small-blind|Small Blind}}",
+  "waga": "NISKIE",
+  "powod": "{{t:…}} bez formy daje angielską nazwę małą literą („der small blind”/„der big blind”) obok „Small Blind/Big Blind” w tym samym pliku",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/ranges/spots.yaml",
+  "stary": "{{t:big-blind|Big Blind}}, der {{t:small-blind}} hat auf 3bb",
+  "nowy": "{{t:big-blind|Big Blind}}, der {{t:small-blind|Small Blind}} hat auf 3bb",
+  "waga": "NISKIE",
+  "powod": "{{t:…}} bez formy daje angielską nazwę małą literą („der small blind”/„der big blind”) obok „Small Blind/Big Blind” w tym samym pliku",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/ranges/spots.yaml",
+  "stary": "am 9er-Tisch, der {{t:small-blind}} hat auf 3bb",
+  "nowy": "am 9er-Tisch, der {{t:small-blind|Small Blind}} hat auf 3bb",
+  "waga": "NISKIE",
+  "powod": "{{t:…}} bez formy daje angielską nazwę małą literą („der small blind”/„der big blind”) obok „Small Blind/Big Blind” w tym samym pliku",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/ranges/spots.yaml",
+  "stary": "der {{t:small-blind}} hat {{t:fold|gefoldet}}. {{t:call|Callst}}",
+  "nowy": "der {{t:small-blind|Small Blind}} hat {{t:fold|gefoldet}}. {{t:call|Callst}}",
+  "waga": "NISKIE",
+  "powod": "{{t:…}} bez formy daje angielską nazwę małą literą („der small blind”/„der big blind”) obok „Small Blind/Big Blind” w tym samym pliku",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/ranges/spots.yaml",
+  "stary": "der {{t:small-blind}} hat {{t:call|gecallt}}",
+  "nowy": "der {{t:small-blind|Small Blind}} hat {{t:call|gecallt}}",
+  "waga": "NISKIE",
+  "powod": "{{t:…}} bez formy daje angielską nazwę małą literą („der small blind”/„der big blind”) obok „Small Blind/Big Blind” w tym samym pliku",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/ranges/spots.yaml",
+  "stary": "der {{t:big-blind}} hat 1bb Ante gezahlt",
+  "nowy": "der {{t:big-blind|Big Blind}} hat 1bb Ante gezahlt",
+  "waga": "NISKIE",
+  "powod": "{{t:…}} bez formy daje angielską nazwę małą literą („der small blind”/„der big blind”) obok „Small Blind/Big Blind” w tym samym pliku",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/ranges/spots.yaml",
+  "stary": "hinter dir sitzt noch der {{t:big-blind}}",
+  "nowy": "hinter dir sitzt noch der {{t:big-blind|Big Blind}}",
+  "waga": "NISKIE",
+  "powod": "{{t:…}} bez formy daje angielską nazwę małą literą („der small blind”/„der big blind”) obok „Small Blind/Big Blind” w tym samym pliku",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/ranges/spots.yaml",
+  "stary": "Stack 5bb, alle haben {{t:fold|gefoldet}}. All-in oder {{t:fold}}?",
+  "nowy": "Stack 5bb, alle haben {{t:fold|gefoldet}}. All-in oder {{t:fold|Fold}}?",
+  "waga": "NISKIE",
+  "powod": "{{t:fold}} bez formy daje „fold” małą literą („All-in oder fold?”), reszta pliku ma „Fold/gefoldet”",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/ranges/spots.yaml",
+  "stary": "Stack 10bb, alle haben {{t:fold|gefoldet}}. All-in oder {{t:fold}}?",
+  "nowy": "Stack 10bb, alle haben {{t:fold|gefoldet}}. All-in oder {{t:fold|Fold}}?",
+  "waga": "NISKIE",
+  "powod": "{{t:fold}} bez formy daje „fold” małą literą („All-in oder fold?”), reszta pliku ma „Fold/gefoldet”",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/ranges/spots.yaml",
+  "stary": "Stack 15bb, alle haben {{t:fold|gefoldet}}. All-in oder {{t:fold}}?",
+  "nowy": "Stack 15bb, alle haben {{t:fold|gefoldet}}. All-in oder {{t:fold|Fold}}?",
+  "waga": "NISKIE",
+  "powod": "{{t:fold}} bez formy daje „fold” małą literą („All-in oder fold?”), reszta pliku ma „Fold/gefoldet”",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/ranges/spots.yaml",
+  "stary": "Ante gezahlt, alle haben {{t:fold|gefoldet}}. All-in oder {{t:fold}}?",
+  "nowy": "Ante gezahlt, alle haben {{t:fold|gefoldet}}. All-in oder {{t:fold|Fold}}?",
+  "waga": "NISKIE",
+  "powod": "{{t:fold}} bez formy daje „fold” małą literą („All-in oder fold?”), reszta pliku ma „Fold/gefoldet”",
+  "grupa": "D1"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/ranges/spots.yaml",
+  "stary": "Button hat {{t:fold|gefoldet}}. All-in oder {{t:fold}}?",
+  "nowy": "Button hat {{t:fold|gefoldet}}. All-in oder {{t:fold|Fold}}?",
+  "waga": "NISKIE",
+  "powod": "{{t:fold}} bez formy daje „fold” małą literą („All-in oder fold?”), reszta pliku ma „Fold/gefoldet”",
+  "grupa": "D1"
+ }
+]
