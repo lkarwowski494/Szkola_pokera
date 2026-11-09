@@ -111,6 +111,17 @@ test('klient: token tylko do https://api.appstoreconnect.apple.com/ (obcy host, 
   assert.deepEqual({ w, wolano }, { w: ['odmowa', 'odmowa', 'odmowa', 'ok'], wolano: 1 });
 });
 
+// Przegląd D-043 sesji AA (P1-1): identyfikatory Apple w base64 (price pointy, territoryAvailabilities) przechodziły przez maskę [0-9a-f-]{8,}
+// do komunikatu błędu → STOP → $GITHUB_STEP_SUMMARY publicznego repo. Komunikat błędu ma tylko szablon ścieżki.
+test('klient: błąd na ścieżce z identyfikatorem base64 albo liczbowym → w komunikacie tylko {id}', async () => {
+  const k = iap.makeClient({ fetchFn: async () => ({ ok: false, status: 404, json: async () => ({ errors: [{ code: 'NOT_FOUND', title: 'x' }] }) }), token: 't' });
+  for (const [p, wzor] of [['/v1/subscriptionPricePoints/eyJzIjoiNjc0NDU2NzgzMyIsInQiOiJBRkcifQ/equalizations?include=territory', '/v1/subscriptionPricePoints/{id}/equalizations'],
+    ['/v1/territoryAvailabilities/ZXhhbXBsZTEyMw', '/v1/territoryAvailabilities/{id}'], ['/v1/apps/1234567890/appAvailabilityV2', '/v1/apps/{id}/appAvailabilityV2'], ['/v1/territories', '/v1/territories']]) {
+    const e = await k.call('GET', p).catch((x) => x);
+    assert.ok(e.message.startsWith(`GET ${wzor} → 404`), e.message); assert.doesNotMatch(e.message, /eyJ|ZXhh|1234567890/);
+  }
+});
+
 test('store/iap-localizations.json: pl → pl, en → en-US; teksty = słownik aplikacji (purchase.*), limity 30/45; bez języków spoza wydanych', () => {
   const d = js('store/iap-localizations.json');
   assert.deepEqual(d.wpisaneRecznie, {});

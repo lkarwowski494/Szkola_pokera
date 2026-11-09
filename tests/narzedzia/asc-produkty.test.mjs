@@ -53,6 +53,7 @@ test('dane: lista storefrontów 1.0 = 166 unikalnych kodów, bez POL, VNM, TUR, 
   assert.equal(l.length, 166); assert.equal(new Set(l).size, 166); assert.equal(sf.liczba, 166);
   for (const x of ['POL', 'VNM', 'TUR', 'KOR', 'CHN', 'AFG', 'GAB', 'MAR']) assert.ok(!l.includes(x), x);
   assert.ok(l.includes('USA'));
+  assert.deepEqual(l.filter((c) => !/^[A-Z]{3}$/.test(c)), [], 'identyfikatory terytoriów ASC = ISO-3 (przegląd D-043 AA, P1-2: „BO”)');
   assert.deepEqual(P.wczytajDane(new URL('store/produkty.json', ROOT)).terytoria, l);
 });
 

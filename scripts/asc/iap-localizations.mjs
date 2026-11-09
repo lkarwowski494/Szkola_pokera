@@ -30,6 +30,12 @@ export function makeJwt({ keyId, issuerId, keyPem, now = Math.floor(Date.now() /
   return `${head}.${body}.${b64u(sig)}`;
 }
 
+/** Szablon ścieżki do komunikatów błędów: /vN/zasób/{id}/relacja — identyfikator (pozycja 3) i wszystko za relacją = {id} (identyfikatory Apple bywają
+ *  liczbowe albo w base64 — przegląd D-043 sesji AA, P1-1; repo publiczne, komunikat trafia do podsumowania przebiegu). */
+export function szablonSciezki(path) {
+  return path.split('?')[0].replace(/^https:\/\/[^/]+/, '').split('/').map((x, i) => (i === 3 || i > 4) && x ? '{id}' : x).join('/');
+}
+
 /** Klient API: tylko GET/POST/PATCH; stronicowanie przez links.next; błąd bez treści odpowiedzi (tylko status, kody i tytuły).
  *  `token`: tekst albo fabryka `() => tekst` wywoływana przy każdym żądaniu (długie przebiegi odnawiają token; zgodne wstecz ze stałym tokenem). */
 export function makeClient({ fetchFn = fetch, token, sleep = ms => new Promise(r => setTimeout(r, ms)) }) {
@@ -44,7 +50,7 @@ export function makeClient({ fetchFn = fetch, token, sleep = ms => new Promise(r
       let json = null; try { json = await res.json(); } catch { json = null; }
       if (!res.ok) {
         const errs = (json?.errors ?? []).map(e => [e.code, e.title].filter(Boolean).join(': ')).filter(Boolean).join('; ');
-        const err = new Error(`${method} ${path.split('?')[0].replace(/\/[0-9a-f-]{8,}/gi, '/{id}')} → ${res.status}${errs ? ` (${errs})` : ''}`); err.status = res.status; throw err;
+        const err = new Error(`${method} ${szablonSciezki(path)} → ${res.status}${errs ? ` (${errs})` : ''}`); err.status = res.status; throw err;
       }
       return json;
     }
