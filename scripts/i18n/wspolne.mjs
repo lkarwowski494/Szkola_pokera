@@ -200,6 +200,11 @@ export function blokGlosariusza(gl, klucze = null) {
 /* ---------- kontrola znaczników (przed nałożeniem propozycji i w kontroli lokalnej przeglądu) ---------- */
 /** Pola YAML z tekstem do przekładu (pomiar 2026-11-09 na content/pl: pozostałe pola to identyfikatory, kody kart, liczby, adresy). */
 export const PRZEKLADALNE = new Set(['prompt', 'text', 'why', 'explanation', 'because', 'if', 'then', 'title', 'sub', 'population', 'source']);
+/** Pola, których wartością bywa mapa tekstów kluczowana identyfikatorem odpowiedzi (`options: { check: "…" }`, `cases[].why: { check: "…" }`;
+ * pomiar 2026-11-09: m5-l3, m5-l4). Wartości takiej mapy są przekładalne, klucze nie (D-344, przebieg en 42635177199). */
+const MAPY_TEKSTOW = new Map([['options', 'text'], ['why', 'why']]);
+/** Klucz decydujący o przekładalności dziecka: w mapie tekstów (obiekt bezpośrednio pod `options`/`why`, nie element listy) — pole tekstowe. */
+export const kluczDziecka = (klucz, sciezka, k) => (MAPY_TEKSTOW.has(klucz) && !sciezka.endsWith(']') ? MAPY_TEKSTOW.get(klucz) : k);
 const WZORCE = [
   ['{{n:…}}', /\{\{n:([^}|]+)(?:\|[^}]*)?\}\}/g, (m) => `{{n:${m[1].trim()}}}`],
   ['{{t:…}}', /\{\{t:([^}|]+)(?:\|[^}]*)?\}\}/g, (m) => `{{t:${m[1].trim()}}}`],
@@ -250,7 +255,7 @@ export function porownajYaml(a, b, sciezka = '', klucz = null, out = []) {
     const ka = Object.keys(a), kb = Object.keys(b);
     const brak = ka.filter((k) => !kb.includes(k)), nadmiar = kb.filter((k) => !ka.includes(k));
     if (brak.length || nadmiar.length) out.push(`${s}: klucze różne (${[brak.length ? `brak ${brak.join(', ')}` : '', nadmiar.length ? `nadmiarowe ${nadmiar.join(', ')}` : ''].filter(Boolean).join('; ')})`);
-    for (const k of ka.filter((x) => kb.includes(x))) porownajYaml(a[k], b[k], sciezka ? `${sciezka}.${k}` : k, k, out);
+    for (const k of ka.filter((x) => kb.includes(x))) porownajYaml(a[k], b[k], sciezka ? `${sciezka}.${k}` : k, kluczDziecka(klucz, sciezka, k), out);
     return out;
   }
   if (PRZEKLADALNE.has(klucz) && typeof a === 'string') {
@@ -268,8 +273,22 @@ const bezpiecznieYaml = (t, gdzie) => { try { return { v: parseYaml(t) }; } catc
 /** Kategorie liczby mnogiej języka (CLDR przez Intl), jak scripts/sprawdz-i18n.mjs. */
 export const kategorie = (kod, porzadkowe = false) => { try { return new Intl.PluralRules(kod, { type: porzadkowe ? 'ordinal' : 'cardinal' }).resolvedOptions().pluralCategories; } catch { return null; } };
 
+/** Różnica znaczników {{t:…}} (linia z porownajZnaczniki). */
+const ROZNICA_TERMINOW = /(?:^|: )\{\{t:…\}\}: (?:brakuje|nadmiarowe)/;
+/**
+ * Kontrola propozycji → { powody (odrzucenie), ostrzezenia }. W lekcjach, egzaminach i plikach YAML (rodzaj md/yaml) różnica
+ * znaczników {{t:…}} jest ostrzeżeniem (D-344): poza polskim znacznik renderuje samą nazwę angielską (D-287), a naturalny przekład
+ * zmienia liczbę wystąpień terminu („strit w kolorze” → „a straight in one suit”, „dwie pary” → „two pair”). Terminologię sprawdza
+ * przegląd z glosariuszem. Nakładki (strażnik content-build) i słownik interfejsu — bez zmian, twardo.
+ */
+export function kontrolaPropozycji(j, tekst, kod) {
+  const wszystkie = kontrolaZnacznikowTwarda(j, tekst, kod);
+  if (j.rodzaj !== 'md' && j.rodzaj !== 'yaml') return { powody: wszystkie, ostrzezenia: [] };
+  return { powody: wszystkie.filter((x) => !ROZNICA_TERMINOW.test(x)), ostrzezenia: wszystkie.filter((x) => ROZNICA_TERMINOW.test(x)).map((x) => `terminy: ${x}`) };
+}
 /** Kontrola propozycji wobec jednostki źródłowej → lista powodów odrzucenia (pusta = zgodna). */
-export function kontrolaZnacznikow(j, tekst, kod) {
+export function kontrolaZnacznikow(j, tekst, kod) { return kontrolaPropozycji(j, tekst, kod).powody; }
+function kontrolaZnacznikowTwarda(j, tekst, kod) {
   if (typeof tekst !== 'string' || !tekst.trim()) return ['pusty przekład'];
   if (j.rodzaj === 'ui') {
     let tl; try { tl = splaszcz(JSON.parse(tekst)); } catch (e) { return [`niepoprawny JSON: ${e.message}`]; }

@@ -124,10 +124,35 @@ test('kontrola znaczników: zmieniony {{n:…}} odrzuca propozycję z powodem', 
   assert.ok(p.some((x) => /\{\{n:/.test(x) && /ex\.bet/.test(x)), p.join('; '));
 });
 
-test('kontrola znaczników: zgubiony {{t:…}} odrzuca propozycję', () => {
+test('kontrola znaczników: różnica {{t:…}} w lekcji i egzaminie to ostrzeżenie, nie odrzucenie (D-344; przebieg en 42635177199)', () => {
+  const root = atrapa();
+  const md = jednostkiPrzekladu(root, 'en')[2];
+  const tl = LEKCJA_EN.replace('into the {{t:pot}}', 'into the pot');
+  assert.deepEqual(kontrolaZnacznikow(md, tl, 'en'), [], 'w en znacznik renderuje samą nazwę angielską — przekład bez niego nie psuje treści');
+  const p = ocenPropozycje(md, 'en', { blad: null, tekst: `<<<PLIK>>>\n${tl}<<<KONIEC>>>` });
+  assert.equal(p.status, 'przyjeta');
+  assert.ok(p.ostrzezenia.some((x) => /\{\{t:/.test(x) && /pot/.test(x)), p.ostrzezenia.join('; '));
+  const egz = jednostkiPrzekladu(root, 'en')[1];
+  const dobry = 'module: m0\ndrills:\n  - kind: choice\n    id: m0.exam.q1\n    rules: [R-M0-001]\n    prompt: "You have a pot of {{n:ex.pot}}."\n    options:\n      - { text: "Yes", correct: true, why: "Because {{n:eq.bet-pot}}." }\n';
+  assert.deepEqual(kontrolaZnacznikow(egz, dobry, 'en'), []);
+  assert.deepEqual(kontrolaZnacznikow(egz, dobry.replace('{{n:ex.pot}}', '{{n:ex.bet}}'), 'en').length, 1, '{{n:…}} nadal twardo');
+});
+
+test('kontrola znaczników: {{t:…}} w nakładce i słowniku interfejsu nadal odrzuca (strażnik content-build, i18n)', () => {
+  const j = jednostkiPrzekladu(atrapa(), 'en').find((x) => x.zrodlo.endsWith('spots.yaml'));
+  assert.ok(kontrolaZnacznikow(j, SPOTS_EN.replace('title: "{{t:pot}}, someone opened"', 'title: "The pot, someone opened"'), 'en').some((x) => /t:pot/.test(x)));
+});
+
+test('kontrola znaczników: mapy tekstów options/why (klucz = id odpowiedzi) są przekładalne (D-344; m5-l3, m5-l4)', () => {
   const md = jednostkiPrzekladu(atrapa(), 'en')[2];
-  const p = kontrolaZnacznikow(md, LEKCJA_EN.replace('into the {{t:pot}}', 'into the pot'), 'en');
-  assert.ok(p.some((x) => /\{\{t:/.test(x) && /pot/.test(x)), p.join('; '));
+  const mapa = (o1, o2, w1) => `    options:\n      ${o1}\n      ${o2}\n    cases:\n      - when: { height: [high] }\n        best: check\n        why:\n          ${w1}\n`;
+  const zr = { ...md, tekst: md.tekst.replace(/    options:\n(      - .*\n)+/, mapa('check: "{{t:check|Czekam}} częściej"', 'small: "Mało: {{n:ex.bet}}"', 'check: "Tak: {{n:ex.pot}}"')) };
+  assert.notEqual(zr.tekst, md.tekst, 'atrapa ma blok options do podmiany');
+  const tl = LEKCJA_EN.replace(/    options:\n(      - .*\n)+/, mapa('check: "{{t:check}} more often"', 'small: "Small: {{n:ex.bet}}"', 'check: "Yes: {{n:ex.pot}}"'));
+  assert.deepEqual(kontrolaZnacznikow(zr, tl, 'en'), []);
+  assert.ok(kontrolaZnacznikow(zr, tl.replace('Small: {{n:ex.bet}}', 'Small: 5bb'), 'en').some((x) => /options\.small/.test(x) && /ex\.bet/.test(x)), 'znaczniki w mapie nadal sprawdzane');
+  assert.ok(kontrolaZnacznikow(zr, tl.replace('best: check', 'best: small'), 'en').some((x) => /best/.test(x)), 'identyfikator obok mapy bez zmian');
+  assert.ok(kontrolaZnacznikow(zr, tl.replace('small: "Small', 'maly: "Small'), 'en').some((x) => /klucze/.test(x)), 'klucze mapy (id odpowiedzi) bez zmian');
 });
 
 test('kontrola znaczników: zmieniony klucz YAML, zmienione id i zmieniona karta odrzucają propozycję', () => {

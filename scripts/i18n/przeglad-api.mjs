@@ -34,7 +34,7 @@ import { splaszcz, wpisy } from '../sprawdz-i18n.mjs';
 import {
   maxTokensJednostki, stopLimitu, RABAT_BATCH, INTERWAL_S, REJESTR, WSPOLCZYNNIK, ZRODLO, PRZEKLADALNE, nazwaJezyka, maskuj, przyblizTokeny, szacunek, tabelaSzacunku,
   jednostki, czytajJesli, glosariusz, kluczeTerminow, blokGlosariusza, kontrolaZnacznikow, rozdzielMd, odczytajLinie, klient, czekajNaBatch,
-  parsujWspolne, filtruj, ostrzezeniaLiczb,
+  parsujWspolne, filtruj, ostrzezeniaLiczb, kluczDziecka, kontrolaPropozycji,
 } from './wspolne.mjs';
 
 export const ZALOZENIA = { udzialUwag: 0.2, tokenyUwagi: 120, myslenieStale: 2000, myslenieUdzial: 0.3 };
@@ -53,7 +53,7 @@ export const systemPrzegladu = (kod) => [
 const opisPlurala = (w) => (w.formy ? Object.entries(w.formy).map(([k, v]) => `${k}: ${v}`).join(' · ') : w.tekst);
 function polaYaml(v, sciezka = '', klucz = null, out = new Map()) {
   if (Array.isArray(v)) v.forEach((x, i) => polaYaml(x, `${sciezka}[${i}]`, klucz, out));
-  else if (v && typeof v === 'object') for (const [k, x] of Object.entries(v)) polaYaml(x, sciezka ? `${sciezka}.${k}` : k, k, out);
+  else if (v && typeof v === 'object') for (const [k, x] of Object.entries(v)) polaYaml(x, sciezka ? `${sciezka}.${k}` : k, kluczDziecka(klucz, sciezka, k), out);
   else if (PRZEKLADALNE.has(klucz) && typeof v === 'string') out.set(sciezka, v);
   return out;
 }
@@ -168,8 +168,8 @@ export function parsujTabele(tekst) {
 }
 
 export function raportJednostki(j, kod, odczyt) {
-  const lokalne = kontrolaZnacznikow(j, j.tlumaczenie, kod);
-  return { custom_id: j.custom_id, zrodlo: j.zrodlo, cel: j.cel, blad: odczyt.blad, uwagi: odczyt.blad ? [] : parsujTabele(odczyt.tekst), kontrola_lokalna: lokalne, ostrzezenia: typeof j.tlumaczenie === 'string' ? ostrzezeniaLiczb(j.tekst, j.tlumaczenie) : [] };
+  const k = typeof j.tlumaczenie === 'string' ? kontrolaPropozycji(j, j.tlumaczenie, kod) : { powody: kontrolaZnacznikow(j, j.tlumaczenie, kod), ostrzezenia: [] };
+  return { custom_id: j.custom_id, zrodlo: j.zrodlo, cel: j.cel, blad: odczyt.blad, uwagi: odczyt.blad ? [] : parsujTabele(odczyt.tekst), kontrola_lokalna: k.powody, ostrzezenia: typeof j.tlumaczenie === 'string' ? [...k.ostrzezenia, ...ostrzezeniaLiczb(j.tekst, j.tlumaczenie)] : [] };
 }
 
 export function podsumowanieMd(raporty, meta) {

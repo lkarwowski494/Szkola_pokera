@@ -44,7 +44,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { splaszcz, wpisy } from '../sprawdz-i18n.mjs';
 import {
   maxTokensJednostki, stopLimitu, RABAT_BATCH, INTERWAL_S, REJESTR, WSPOLCZYNNIK, ZRODLO, nazwaJezyka, maskuj, sha256, przyblizTokeny, szacunek, tabelaSzacunku,
-  jednostki, czytajJesli, glosariusz, kluczeTerminow, blokGlosariusza, kontrolaZnacznikow, kategorie, odczytajLinie, klient, czekajNaBatch, jezykDocelowy, celBezpieczny, ostrzezeniaLiczb,
+  jednostki, czytajJesli, glosariusz, kluczeTerminow, blokGlosariusza, kontrolaZnacznikow, kategorie, odczytajLinie, klient, czekajNaBatch, jezykDocelowy, celBezpieczny, ostrzezeniaLiczb, kontrolaPropozycji,
   parsujWspolne, filtruj,
 } from './wspolne.mjs';
 
@@ -183,8 +183,8 @@ export function ocenPropozycje(j, kod, odczyt) {
   if (odczyt.blad) return { ...baza, status: 'odrzucona', powody: [odczyt.blad], ostrzezenia: [], tekst: null };
   const w = wyciagnijPropozycje(odczyt.tekst, j);
   if (w.blad) return { ...baza, status: 'odrzucona', powody: [w.blad], ostrzezenia: [], tekst: null };
-  const powody = kontrolaZnacznikow(j, w.tekst, kod);
-  return { ...baza, status: powody.length ? 'odrzucona' : 'przyjeta', powody, ostrzezenia: ostrzezeniaLiczb(j.tekst, w.tekst), tekst: w.tekst };
+  const { powody, ostrzezenia } = kontrolaPropozycji(j, w.tekst, kod);
+  return { ...baza, status: powody.length ? 'odrzucona' : 'przyjeta', powody, ostrzezenia: [...ostrzezenia, ...ostrzezeniaLiczb(j.tekst, w.tekst)], tekst: w.tekst };
 }
 
 /* ---------- szacunek ---------- */
@@ -212,11 +212,11 @@ export function zastosuj(root, plik) {
     if (!j || j.cel !== e.cel || !celBezpieczny(root, kod, j.cel)) { wynik.odrzucone.push({ cel: String(e.cel), powod: 'jednostka spoza źródła albo zły język/cel' }); continue; }
     if (typeof e.tekst !== 'string') { wynik.odrzucone.push({ cel: e.cel, powod: `brak tekstu propozycji (${(e.powody ?? []).join('; ') || 'odrzucona'})` }); continue; }
     if (e.zrodlo_sha256 !== j.zrodlo_sha256) { wynik.odrzucone.push({ cel: e.cel, powod: 'źródło zmienione od przekładu (inny skrót sha256) — potrzebny nowy przekład' }); continue; }
-    const powody = kontrolaZnacznikow(j, e.tekst, kod);
+    const { powody, ostrzezenia } = kontrolaPropozycji(j, e.tekst, kod);
     if (powody.length) { wynik.odrzucone.push({ cel: e.cel, powod: powody.join('; ') }); continue; }
     const cel = join(root, j.cel); mkdirSync(dirname(cel), { recursive: true }); writeFileSync(cel, e.tekst);
     wynik.zapisane.push(j.cel);
-    for (const x of ostrzezeniaLiczb(j.tekst, e.tekst)) wynik.ostrzezenia.push({ cel: j.cel, tekst: x });
+    for (const x of [...ostrzezenia, ...ostrzezeniaLiczb(j.tekst, e.tekst)]) wynik.ostrzezenia.push({ cel: j.cel, tekst: x });
   }
   return wynik;
 }

@@ -80,6 +80,17 @@ test('limit kosztu przeglądu: powyżej limitu STOP, kod 1, bez wysłania', asyn
   assert.ok(!api.wywolania.some((w) => w.metoda === 'POST' && w.sciezka === '/v1/messages/batches'));
 });
 
+test('segmenty: wartości map options/why (klucz = id odpowiedzi) trafiają do przeglądu (D-344)', () => {
+  const md = { rodzaj: 'md' };
+  const pl = '---\ndrills:\n  - id: q\n    options:\n      check: "Czekam"\n    cases:\n      - best: check\n        why:\n          check: "Tak"\n---\n\nTekst.\n';
+  const en = pl.replace('"Czekam"', '"Check"').replace('"Tak"', '"Yes"').replace('Tekst.', 'Text.');
+  const s = segmenty(md, pl, en);
+  const k = Object.fromEntries(s.map((x) => [x.klucz, x.tlumaczenie]));
+  assert.equal(k['drills[0].options.check'], 'Check');
+  assert.equal(k['drills[0].cases[0].why.check'], 'Yes');
+  assert.ok(!('drills[0].cases[0].best' in k) && !('drills[0].id' in k));
+});
+
 test('pełny przegląd na atrapie API: raport z tabelą uwag i kontrolą lokalną znaczników; przekład z pliku propozycji', async () => {
   const root = atrapa(); const wy = mkdtempSync(join(tmpdir(), 'k3a-pg-'));
   const plik = join(wy, 'propozycje.json');
