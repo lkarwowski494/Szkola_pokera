@@ -20,7 +20,8 @@ export type PropsEkranuZakupu = {
   sklep: SklepEkranu;
   onDostep(): void; // dostęp odblokowany (zakup albo przywrócenie) — bez ponownego uruchomienia (BR-ZAK-002)
   onZamknij(): void;
-  onWrocDoLekcji(): void; // „Wróć do lekcji” (BR-LIM-001, słownik interakcji design-spec.md)
+  /** „Wróć do lekcji” (BR-LIM-001, słownik interakcji design-spec.md); brak = ekran otwarty spoza lekcji (ustawienia, 10-D01-02) — bez przycisku. */
+  onWrocDoLekcji?(): void;
   otworzWarunki(): void; // Terms of Use
   otworzPrywatnosc(): void; // polityka prywatności
 };
@@ -139,7 +140,7 @@ export default function EkranZakupu({ sklep, onDostep, onZamknij, onWrocDoLekcji
       ) : null}
       <View style={{ gap: odstep.s }}>
         <Button variant="ghost" label={t('purchase.restore')} onPress={() => void przywroc()} disabled={zajety} />
-        <Button variant="ghost" label={t('start.backToLesson')} onPress={onWrocDoLekcji} />
+        {onWrocDoLekcji ? <Button variant="ghost" label={t('start.backToLesson')} onPress={onWrocDoLekcji} /> : null}
       </View>
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: odstep.l, justifyContent: 'center' }}>
         <Button variant="ghost" accessibilityRole="link" label={t('purchase.terms')} onPress={otworzWarunki} />

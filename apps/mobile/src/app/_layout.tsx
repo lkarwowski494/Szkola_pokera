@@ -173,6 +173,7 @@ export default function RootLayout() {
                 <Stack.Screen name="settings" options={{ title: '' }} />
                 <Stack.Screen name="data" options={{ title: '' }} />
                 <Stack.Screen name="language" options={{ title: '' }} />
+                <Stack.Screen name="purchase" options={{ presentation: 'modal', headerShown: false }} />
                 <Stack.Screen name="session" options={{ presentation: 'fullScreenModal', headerShown: false, gestureEnabled: false }} />
               </Stack>
             </BramkaStartu>

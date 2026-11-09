@@ -12,13 +12,15 @@ export type PropsEkranuUstawien = {
   subskrypcjaAktywna: boolean;
   otworzZarzadzanie(): Promise<void>; // arkusz zarządzania subskrypcjami sklepu (ADR 0006 pkt 5)
   onPrzywroc(): void;
+  /** 10-D01-02 (opcjonalne — kontrakt 07 bez zmian): „Pełny dostęp” otwiera ekran zakupu także przed wyczerpaniem limitu; brak = bez wiersza (pełny dostęp już jest). */
+  onPelnyDostep?(): void;
   onPomoc(): void;
   usunPostep(): Promise<void>; // repozytorium daneUzytkownika (pakiet postep); wołane tylko po potwierdzeniu
   /** Rozszerzenie roli 08 (5b, D-262; opcjonalne — kontrakt 07 bez zmian): sekcje trasy (dane, opinie, przypomnienie, język). */
   sekcje?: ReactNode;
 };
 
-export default function EkranUstawien({ subskrypcjaAktywna, otworzZarzadzanie, onPrzywroc, onPomoc, usunPostep, sekcje }: PropsEkranuUstawien): React.JSX.Element {
+export default function EkranUstawien({ subskrypcjaAktywna, otworzZarzadzanie, onPrzywroc, onPelnyDostep, onPomoc, usunPostep, sekcje }: PropsEkranuUstawien): React.JSX.Element {
   const tk = useTokens();
   const { t } = useTranslation();
   const potwierdzUsuniecie = () =>
@@ -33,6 +35,7 @@ export default function EkranUstawien({ subskrypcjaAktywna, otworzZarzadzanie, o
       </Text>
       <View style={{ gap: odstep.s }}>
         <Text style={[styl.przypis, { color: tk.muted }]}>{t('settings.purchases')}</Text>
+        {onPelnyDostep ? <Button variant="ghost" label={t('settings.fullAccess')} onPress={onPelnyDostep} /> : null}
         {subskrypcjaAktywna ? <Button variant="ghost" label={t('settings.manage')} onPress={() => void otworzZarzadzanie()} /> : null}
         <Button variant="ghost" label={t('purchase.restore')} onPress={onPrzywroc} />
       </View>

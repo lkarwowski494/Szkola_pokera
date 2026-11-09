@@ -39,6 +39,7 @@ export default function SettingsRoute() {
   const tk = useTokens();
   const { t, i18n } = useTranslation();
   const settings = useSettings();
+  const pro = useDostep((s) => s.pro);
   const [subskrypcja, ustawSubskrypcje] = useState(false);
   const [przypomnienie, ustawPrzypomnienie] = useState<boolean | null>(null);
   const [komunikat, ustawKomunikat] = useState<Komunikat>(null);
@@ -99,6 +100,7 @@ export default function SettingsRoute() {
       subskrypcjaAktywna={subskrypcja}
       otworzZarzadzanie={() => sklepAplikacji().zarzadzaj()}
       onPrzywroc={przywroc}
+      onPelnyDostep={pro ? undefined : () => router.push('/purchase')}
       onPomoc={() => router.push('/help')}
       usunPostep={usunPostep}
       sekcje={

@@ -84,7 +84,8 @@
     "reminderFailed": "Nie udało się ustawić przypomnienia. Spróbuj ponownie.",
     "general": "Ogólne",
     "language": "Język",
-    "restored": "Zakupy przywrócone. Pełny dostęp jest włączony."
+    "restored": "Zakupy przywrócone. Pełny dostęp jest włączony.",
+    "fullAccess": "Pełny dostęp"
   },
   "data": {
     "title": "Dane",

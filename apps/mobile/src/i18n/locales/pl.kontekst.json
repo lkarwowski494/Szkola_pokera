@@ -408,6 +408,7 @@
   "settings.general": "Etykieta sekcji z danymi i językiem. [08 cz. 5b krok 5, 2026-11-08; tekst do akceptacji 04/06]",
   "settings.language": "Wiersz przejścia do wyboru języka (F-16); obok nazwa obecnego języka. [08 cz. 5b krok 5, 2026-11-08; tekst do akceptacji 04/06]",
   "settings.restored": "Komunikat po udanym „Przywróć zakupy” w ustawieniach (BR-ZAK-003). [08 cz. 5b krok 5, 2026-11-08; tekst do akceptacji 04/06]",
+  "settings.fullAccess": "Wiersz w sekcji Zakupy ustawień: przejście do ekranu zakupu także przed wyczerpaniem dziennego limitu; widoczny tylko bez pełnego dostępu (10-D01-02, wzór Treningu „Zobacz plany”). Ta sama nazwa co tytuł ekranu zakupu. [08, 2026-11-09; tekst do akceptacji 04]",
   "reminder.title": "Tytuł codziennego powiadomienia; bez danych osobowych i bez liczby powtórek (ADR 0012 pkt 3). [08 cz. 5b krok 5, 2026-11-08; tekst do akceptacji 04/06]",
   "reminder.body": "Treść codziennego powiadomienia (ADR 0012 pkt 3). [08 cz. 5b krok 5, 2026-11-08; tekst do akceptacji 04/06]",
   "language.title": "Tytuł ekranu wyboru języka (F-16). [08 cz. 5b krok 5, 2026-11-08; tekst do akceptacji 04/06]",
