@@ -23,14 +23,14 @@ drills:
     options:
       - { text: "Dejas de {{t:fold|retirarte}}: las manos que en la base mezclaban ahora siempre {{t:call|igualan}}", correct: true, why: "Eso bastó para que, en la solución con la estrategia del rival bloqueada, la defensa pasara a {{t:call|igualar}} siempre. Las manos indiferentes reaccionan al menor exceso de {{t:bluff|faroles}}." }
       - { text: "Casi nada: unos pocos puntos son demasiado poco para cambiar algo", why: "Para las manos indiferentes, unos pocos puntos es mucho: en equilibrio, {{t:call|igualar}} y {{t:fold|retirarse}} les dan lo mismo, así que cualquier exceso de {{t:bluff|faroles}} inclina la balanza hacia {{t:call|igualar}}." }
-      - { text: "Empiezas a {{t:raise|subir}} con manos que cazan {{t:bluff|faroles}}", why: "Con una {{t:raise|subida}}, el rival abandona sus {{t:bluff|faroles}} y te {{t:call|igualan}} las manos mejores. Una mano que caza {{t:bluff|faroles}} gana al {{t:call|pagar}}." }
+      - { text: "Empiezas a {{t:raise|subir}} con manos que cazan {{t:bluff|faroles}}", why: "Con una {{t:raise|subida}}, el rival abandona sus {{t:bluff|faroles}} y te {{t:call|igualan}} las manos mejores. Una mano que caza {{t:bluff|faroles}} gana al {{t:call|igualar}}." }
   - kind: choice
     id: m10.l3.q-underbluff
     family: m10.base.mixed
     rules: [R-M10-009]
     prompt: "Sabes que, en una línea concreta, el rival {{t:bluff|farolea}} menos a menudo que en equilibrio. ¿Qué haces con una mano que caza {{t:bluff|faroles}} y que en la base a veces {{t:call|iguala}} y a veces se {{t:fold|retira}}?"
     options:
-      - { text: "Siempre me {{t:fold|retiro}}", correct: true, why: "Cuando hay menos {{t:bluff|faroles}} de los que exige el equilibrio, las manos indiferentes pierden al {{t:call|pagar}}. Resultado del solver: con déficit de {{t:bluff|faroles}}, siempre te {{t:fold|retiras}}." }
+      - { text: "Siempre me {{t:fold|retiro}}", correct: true, why: "Cuando hay menos {{t:bluff|faroles}} de los que exige el equilibrio, las manos indiferentes pierden al {{t:call|igualar}}. Resultado del solver: con déficit de {{t:bluff|faroles}}, siempre te {{t:fold|retiras}}." }
       - { text: "Siempre {{t:call|igualo}}, para que el rival no me explote con {{t:bluff|faroles}}", why: "Un rival que {{t:bluff|farolea}} demasiado poco no puede aprovechar que te {{t:fold|retires}}. Eres tú quien aprovecha su error al {{t:fold|retirarte}}." }
       - { text: "Juego como en la base, mitad y mitad", why: "Mezclar solo tiene sentido cuando ambas decisiones dan lo mismo. Con déficit de {{t:bluff|faroles}}, {{t:fold|retirarse}} da más." }
   - kind: numeric

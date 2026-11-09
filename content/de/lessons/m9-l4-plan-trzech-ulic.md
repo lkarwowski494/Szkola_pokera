@@ -44,7 +44,7 @@ drills:
     table: { hand: "Ac Kh", board: "Ks 9d 4c", position: BTN }
     options:
       - { text: "Zwei {{t:bet|Einsätze}} von je ca. {{n:geo.4bet.2}} des {{t:pot|Pots}}: Am Turn geht der ganze Stack rein", correct: true, why: "Ja: Bei {{t:spr}} ca. {{n:spr.4bet}} reichen zwei {{t:street|Streets}}, um den ganzen Stack einzuzahlen. Zwei {{t:value|Value-Streets}} mit {{t:top-pair|Top Pair}} bedeuten hier das Spiel um den ganzen Stack." }
-      - { text: "Kleiner {{t:bet}} und {{t:fold}} gegen ein All-in", why: "Bei {{t:spr}} ca. {{n:spr.4bet}} gibt ein {{t:fold}} gegen ein All-in mit {{t:top-pair|Top Pair}} und Ass zu viel her: Dir reichen ca. {{n:eq.jam.4bet}} Equity, nach deinem eigenen {{t:bet|Einsatz}} sogar noch weniger." }
+      - { text: "Kleine {{t:bet}} und {{t:fold}} gegen ein All-in", why: "Bei {{t:spr}} ca. {{n:spr.4bet}} gibt ein {{t:fold}} gegen ein All-in mit {{t:top-pair|Top Pair}} und Ass zu viel her: Dir reichen ca. {{n:eq.jam.4bet}} Equity, nach deinem eigenen {{t:bet|Einsatz}} sogar noch weniger." }
       - { text: "Ich {{t:check|checke}} auf jeder {{t:street|Street}}, um den {{t:pot|Pot}} zu kontrollieren", why: "Kontrolle über den {{t:pot|Pot}} ist bei hohem {{t:spr}} sinnvoll. Hier ist der {{t:pot}} im Verhältnis zum Stack schon groß, und schlechtere Hände (AQ, QQ, JJ) zahlen den Rest gern ein." }
   - kind: choice
     id: m9.l4.q-line-3bet

@@ -991,7 +991,7 @@ Rola: `add_repo prompts` odrzucone przez klasyfikator — **wyjątek nazwany** j
 
 | Krok | Test / dowód (czerwony przed → zielony po) | Decyzja |
 |---|---|---|
-| 1. Nałożenie de+es: 3 artefakty, 162 poprawki (0 pominiętych), wariant A UI (`welcome.title`), `--zastosuj` 130 plików; ujednolicenie form 474 (skrypt `ujednolic-formy.mjs --jezyki de,es`); K-05 terms-nazwy de/es; kontrola (a) m12-l1 + R-M12-* ponownie **zaliczona ×2**; `przeglad_jezyki` 11 × 2 | `pnpm content:build` 0; `pnpm i18n` 0 błędów; `scal-rejestr --sprawdz` 22 błędy → 0; `dowody/nalozenie-de-es-2026-11-09.md` | D-393 |
+| 1. Nałożenie de+es: 3 artefakty, 162 poprawki (0 pominiętych), wariant A UI (`welcome.title`), `--zastosuj` 130 plików; ujednolicenie form 482 (skrypt `ujednolic-formy.mjs --jezyki de,es`); K-05 terms-nazwy de/es; kontrola (a) m12-l1 + R-M12-* ponownie **zaliczona ×2**; `przeglad_jezyki` 11 × 2 | `pnpm content:build` 0; `pnpm i18n` 0 błędów; `scal-rejestr --sprawdz` 22 błędy → 0; `dowody/nalozenie-de-es-2026-11-09.md` | D-393 |
 | 2. Wydanie de, es: `WYDANE`, polyfille, `app.json` supportedLocales/locales, `locales/systemowe/de|es.json` („PokerGym”); stare asercje stanu wydania: `jezyk-4-09` (lista → zawiera), `jezyk-en-09` (spoza wydania de-DE → ru-RU), `tresc-35-08` T35-08-a (de → sv, bo de ma już katalog) | `i18n/__tests__/jezyk-de-es-09.test.ts` 5 ✕ → 6 ✓; `konfiguracja.test.ts` 1 ✕ → ✓; `nazwa-pokergym` 5/5 | D-393 |
 | 3. Fala 1 metadanych: 8 propozycji (ja ×2, zh-Hant ×3, fr ×3) w `docs/sklep/aso/zbuduj-metadane.py` → `store/app-store-metadata.json`; `asc-kontrola-oczekiwane.json` odświeżony; fala 2 nie przeniesiona | `sprawdz-metadane-aso.py` kod 0; `node --test tests/narzedzia/asc.test.mjs` 22/22 | D-393 |
 
@@ -999,7 +999,7 @@ Rola: `add_repo prompts` odrzucone przez klasyfikator — **wyjątek nazwany** j
 - **ko, it, vi** (nałożenie §1–§5 + wydanie): następna sesja; artefakty wygasają 2026-11-16 (ko lekcje 13712785439, it 13713531627, vi 13713362603, ko+it reszta 13715857062, vi reszta 13716755980). Narzędzie `ujednolic-formy.mjs` ma już flagę `--jezyki` — dopisać reguły ko/it/vi z planu §3. Test T35-08-b używa „it” jako języka bez katalogu — po nałożeniu it zmienić (np. na nl).
 - NISKIE (backlog): de „der Bet” w tekście wolnym ok. 60 miejsc (rodzaj męski obok żeńskiego); es rzeczownik call „pago” (m12-l2) vs „el call” (exams/m12:43,45); de R-M12-006 „ein tiefer Atemzug”, es R-M12-007 „parar a tiempo” (styl, kontrola (a)); typografia de „…“ i es ¿/¡ — raport skryptem nie zrobiony (plan §6, nie błąd).
 - Telefon (lista do dopisania w `lista-telefonu-*.md`): plan §7 T-d-1…3, T-e-1, T-5-1 (de, es).
-- Przegląd D-043: wynik w PRZEKAZANIU.
+- Przegląd D-043: `dowody/d043-AK-2026-11-09.md` — KRYT 0, WYS 0, ŚR 1 i 3 NISKIE naprawione.
 
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.

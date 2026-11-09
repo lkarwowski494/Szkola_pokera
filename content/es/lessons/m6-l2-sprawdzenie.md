@@ -14,7 +14,7 @@ drills:
     table: { position: BB }
     options:
       - { text: "{{n:eq.bet-third}}", correct: true, why: "Pones {{n:ex.third.bet}} en un {{t:pot|bote}} que, tras {{t:call|igualar}}, tendrá {{n:ex.third.total}}: {{n:ex.third.bet}} ÷ {{n:ex.third.total}} = {{n:eq.bet-third}}. Un c-bet pequeño da un precio muy bueno." }
-      - { text: "{{n:alpha.bet-third}}", why: "Eso es alpha: con qué frecuencia tiene que funcionar el {{t:bluff|farol}} del Button. En el denominador de la equity necesaria suma también lo que pones al {{t:call|pagar}}." }
+      - { text: "{{n:alpha.bet-third}}", why: "Eso es alpha: con qué frecuencia tiene que funcionar el {{t:bluff|farol}} del Button. En el denominador de la equity necesaria suma también lo que pones al {{t:call|igualar}}." }
       - { text: "{{n:mdf.bet-third}}", why: "Eso es la {{t:mdf|MDF}}, es decir, una parte del {{t:range|rango}}, no la equity de una mano. Además, en el flop {{t:out-of-position|sin posición}} defiendes algo menos que la {{t:mdf|MDF}}." }
   - kind: numeric
     id: m6.l2.n-price-three-quarters

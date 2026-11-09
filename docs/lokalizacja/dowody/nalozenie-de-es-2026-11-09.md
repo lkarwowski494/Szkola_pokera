@@ -17,16 +17,16 @@ de lekcje 44, es lekcje 44, de+es reszta 42 plików; kod 0, odrzucone 0. Ostrze�
 ## Ujednolicenie form poza próbą (`narzedzia/ujednolic-formy.mjs --jezyki de,es --zapisz`; drugi przebieg: 0 zamian)
 | język | reguła | zamian |
 |---|---|---|
-| de | bet żeński przy znaczniku bez formy (eine/einer/diese/die erste/eine kleine; m7-l4, m9-l4) | 11 |
+| de | bet żeński przy znaczniku bez formy (eine/einer/diese/die erste/eine kleine; m7-l4, m9-l4; + „Kleine” m9-l4:47 po D-043) | 12 |
 | de | SPR żeński (der/welcher/die; einem/des `{{t:spr\|SPR}}` → einer/der; „einer einzigen”, „eine hohe”) | 19 |
 | de | `hohes {{t:two-pair}}` → `hohe {{t:two-pair\|zwei Paare}}` (m9-l1:136) | 1 |
 | de | shoven/shovst/shovt/Shover → pushen/pushst/pusht/Pusher (m11) | 12 |
 | de | m8-l3:55 „Der Big Blind” → `{{t:big-blind\|Big Blind}}` | 1 |
-| es | call: formy czasownika w `{{t:call\|pag…}}` → `igual…` (pagu+e → igual+e); rzeczowniki „pago/pagos” (59, „un pago”, „más pagos”) bez zmiany | 328 + 1 („Siempre … igualo”) |
+| es | call: formy czasownika w `{{t:call\|pag…}}` → `igual…` (pagu+e → igual+e); rzeczowniki „pago/pagos” (59, „un pago”, „más pagos”) bez zmiany | 335 + 1 („Siempre … igualo”; 7 po D-043: „al pagar”, „los pagas” — czasownik) |
 | es | top pair „pareja máxima/mayor” (D-389) | 84 |
 | es | wet „mojado” → „húmedo” (w znaczniku) | 8 |
 | es | paired „doblado” → „emparejado” (w znaczniku) | 9 |
-Razem 474 (de 44, es 430; raport wierszowy: `ujednolicenie-de-es-2026-11-09.md`). Treść krytyczna m12 dotknięta: es 6 wierszy w m12-l2, m12-l3:118, exams/m12:43 (tylko pagar→igualar; kontrola objęła 7 kandydatów) — objęte kontrolą (a) niżej. de m12-l3:133 zmienione przez D4 (lista przeglądu, D-390).
+Razem 482 (de 45, es 437; po przeglądzie D-043 +8; raport wierszowy: `ujednolicenie-de-es-2026-11-09.md`). Treść krytyczna m12 dotknięta: es 6 wierszy w m12-l2, m12-l3:118, exams/m12:43 (tylko pagar→igualar; kontrola objęła 7 kandydatów) — objęte kontrolą (a) niżej. de m12-l3:133 zmienione przez D4 (lista przeglądu, D-390).
 
 Poza zakresem (NISKIE, backlog): de „der Bet” w tekście wolnym ok. 60 miejsc (rodzaj męski obok żeńskiego 138×; oba w użyciu, zmiana wymaga przepisania odmiany przymiotników); es rzeczownik call „pago” vs „call” (m12-l2 vs exams/m12); de R-M12-006 „ein tiefer Atemzug”; es R-M12-007 „parar a tiempo”.
 

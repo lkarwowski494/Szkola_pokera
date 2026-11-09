@@ -21,7 +21,8 @@ const args = process.argv.slice(2);
 const ZAPISZ = args.includes('--zapisz');
 const raportPlik = args.includes('--raport') ? args[args.indexOf('--raport') + 1] : null;
 // --jezyki de,es — tylko wskazane języki (sesja AK, D-393); bez flagi: wszystkie z REGULY.
-const JEZYKI = args.includes('--jezyki') ? args[args.indexOf('--jezyki') + 1].split(',') : null;
+const JEZYKI = args.includes('--jezyki') ? (args[args.indexOf('--jezyki') + 1] ?? '').split(',').filter(Boolean) : null;
+if (JEZYKI && !JEZYKI.length) { console.error('--jezyki: podaj kody, np. --jezyki de,es'); process.exit(2); }
 
 const tag = (klucz, stara, nowa) => ({
   opis: `{{t:${klucz}|${stara}}} → ${nowa}`,
@@ -56,10 +57,9 @@ const lit = (stare, nowe) => ({
 // Forma w znaczniku {{t:klucz|…}} przekształcana funkcją (temat czasownika/przymiotnika).
 const wForme = (klucz, reForma, fn, opis) => ({
   opis,
-  re: new RegExp(`(?<!(?:\\b(?:el|un|los|del|al|este|ese|tu|su|cada|sus|tus|unos|estos|esos|primer|ningún) ))\\{\\{t:${klucz}\\|(${reForma})\\}\\}`, 'g'),
+  re: new RegExp(`(?<!(?:\\b(?:el|un|del|este|ese|tu|su|cada|sus|tus|unos|estos|esos|primer|ningún) ))\\{\\{t:${klucz}\\|(${reForma})\\}\\}`, 'g'),
   zamien: (m, forma) => `{{t:${klucz}|${fn(forma)}}}`,
 });
-const wielkaJak = (wzor, s) => (wzor[0] === wzor[0].toUpperCase() ? s[0].toUpperCase() + s.slice(1) : s);
 const wielka = (wzor, s) => (wzor[0] === wzor[0].toUpperCase() ? s[0].toUpperCase() + s.slice(1) : s);
 const ptFold = {
   opis: 'pt-BR fold (czasownik) → desistir (+ „de” przed dopełnieniem)',
@@ -101,7 +101,7 @@ const REGULY = {
   // de (sesja AK, D-393): D2-terminy.md konflikty 1–3 (bet i SPR żeńskie, „hohe zwei Paare”), D1 „pushen”, m8-l3 zgubiony znacznik.
   de: [
     lit('planst du einen {{t:bet}}', 'planst du eine {{t:bet}}'),
-    lit('ein kleiner {{t:bet}}', 'eine kleine {{t:bet}}'), lit('Ein kleiner {{t:bet}}', 'Eine kleine {{t:bet}}'),
+    lit('ein kleiner {{t:bet}}', 'eine kleine {{t:bet}}'), lit('Kleiner {{t:bet}}', 'Kleine {{t:bet}}'), lit('Ein kleiner {{t:bet}}', 'Eine kleine {{t:bet}}'),
     lit('und ein {{t:bet}} von', 'und eine {{t:bet}} von'), lit('den ersten {{t:bet}}', 'die erste {{t:bet}}'),
     lit('Wie heißt dieser {{t:bet}}', 'Wie heißt diese {{t:bet}}'), lit('ist ein {{t:bet}}', 'ist eine {{t:bet}}'),
     lit('mit einem {{t:bet}}', 'mit einer {{t:bet}}'),
@@ -117,9 +117,9 @@ const REGULY = {
   // wet „húmedo”, paired „emparejado” (terms-nazwy-es), top pair „pareja mayor” (D-389).
   es: [
     // „pago/pagos” małą literą = rzeczownik („un pago”, „más pagos”) — bez zmiany; „Pago” = czasownik (opcja odpowiedzi).
-    wForme('call', 'Pago|[Pp]ag(?!os?\\}\\})[a-záéíóú]*', (f) => wielkaJak(f, f.toLowerCase().replace(/^pagu(?=[eé])/, 'igual').replace(/^pag/, 'igual')), 'es call pag… → igual… (czasownik)'),
-    wForme('wet', '[Mm]ojad[oa]s?', (f) => wielkaJak(f, f.toLowerCase().replace(/^mojad/, 'húmed')), 'es wet mojado → húmedo'),
-    wForme('paired', '[Dd]oblad[oa]s?', (f) => wielkaJak(f, f.toLowerCase().replace(/^doblad/, 'emparejad')), 'es paired doblado → emparejado'),
+    wForme('call', 'Pago|[Pp]ag(?!os?\\}\\})[a-záéíóú]*', (f) => wielka(f, f.toLowerCase().replace(/^pagu(?=[eé])/, 'igual').replace(/^pag/, 'igual')), 'es call pag… → igual… (czasownik)'),
+    wForme('wet', '[Mm]ojad[oa]s?', (f) => wielka(f, f.toLowerCase().replace(/^mojad/, 'húmed')), 'es wet mojado → húmedo'),
+    wForme('paired', '[Dd]oblad[oa]s?', (f) => wielka(f, f.toLowerCase().replace(/^doblad/, 'emparejad')), 'es paired doblado → emparejado'),
     lit('Siempre {{t:call|pago}}', 'Siempre {{t:call|igualo}}'),
     tag('top-pair', 'pareja máxima', 'pareja mayor'), tag('top-pair', 'Pareja máxima', 'Pareja mayor'),
     tag('top-pair', 'parejas máximas', 'parejas mayores'), tag('top-pair', 'Parejas máximas', 'Parejas mayores'),

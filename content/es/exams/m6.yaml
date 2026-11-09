@@ -35,7 +35,7 @@ drills:
     table: { hand: "Qd Qc", board: "Ah Jd 7c 4s Ks" }
     options:
       - { text: "{{t:fold|Me retiro}}", correct: true, why: "Sí: tu {{t:pair|pareja}} es más baja que el as y el rey de la {{t:board|mesa}}, así que gana sobre todo a {{t:bluff|faroles}}. Este jugador rara vez {{t:bluff|farolea}}, así que contra él te {{t:fold|retiras}} más a menudo de lo que indica la {{t:mdf}}." }
-      - { text: "{{t:call|Igualo}}, porque la {{t:mdf}} manda defender aprox. {{n:exam.m6.mdf.three-quarters}}", why: "La {{t:mdf}} supone que el rival {{t:bluff|farolea}} con suficiente frecuencia. Este jugador no lo hace, así que al {{t:call|pagar}} pagas sobre todo a manos mejores." }
+      - { text: "{{t:call|Igualo}}, porque la {{t:mdf}} manda defender aprox. {{n:exam.m6.mdf.three-quarters}}", why: "La {{t:mdf}} supone que el rival {{t:bluff|farolea}} con suficiente frecuencia. Este jugador no lo hace, así que al {{t:call|igualar}} pagas sobre todo a manos mejores." }
       - { text: "{{t:raise|Subo}}", why: "Tras la {{t:raise|subida}}, las manos peores se {{t:fold|retirarán}} y pagarán las mejores. Una {{t:pair|pareja}} más baja que dos cartas de la {{t:board|mesa}} no es una mano para {{t:raise|subir}}." }
   - kind: choice
     id: m6.exam.q5

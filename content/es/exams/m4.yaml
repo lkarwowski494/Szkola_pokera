@@ -30,7 +30,7 @@ drills:
     table: { position: BB }
     options:
       - { text: "JJ", correct: true, why: "Desde la {{t:big-blind|ciega grande}} haces 3-bet con tus manos más fuertes (TT+, AQ+, AJs+). JJ quiere un {{t:pot|bote}} grande." }
-      - { text: "A9 de distinto palo", why: "Los ases de distinto palo (AJo–A9o) en la {{t:big-blind|ciega grande}} normalmente solo los {{t:call|pagas}}: entras barato y cierras la acción." }
+      - { text: "A9 de distinto palo", why: "Los ases de distinto palo (AJo–A9o) en la {{t:big-blind|ciega grande}} normalmente solo los {{t:call|igualas}}: entras barato y cierras la acción." }
       - { text: "66", why: "Las {{t:pair|parejas}} medianas y pequeñas en la {{t:big-blind|ciega grande}} normalmente las {{t:call|igualas}}. Ganan dinero después del flop, y un 3-bet con ellas aguanta mal un 4-bet." }
   - kind: choice
     id: m4.exam.q4

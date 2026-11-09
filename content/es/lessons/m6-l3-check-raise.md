@@ -70,7 +70,7 @@ drills:
     table: { hand: "9s 8s", board: "7d 6c 2h", position: BB }
     options:
       - { text: "Check-raise", correct: true, why: "Un {{t:oesd|proyecto de escalera abierta}} ({{n:outs.oesd}} outs) frente a un c-bet pequeño, que te da una ocasión barata de {{t:raise|subir}}. {{t:raise|Subiendo}} puedes ganar de inmediato y, si te {{t:call|igualan}}, aún puedes ligar." }
-      - { text: "{{t:call|Igualo}}", correct: true, why: "También es buena: ligas la {{t:straight|escalera}} en el turn aprox. el {{n:odds.oesd.flop-turn}} de las veces, algo menos que el precio de {{n:eq.bet-third}}, pero si la ligas ganarás más (implied odds) y, si nadie {{t:bet|apuesta}} en el turn, también verás el river gratis. Parte de los {{t:draw|proyectos}} fuertes los {{t:call|pagas}}, para que tus {{t:call|pagos}} no sean todos débiles." }
+      - { text: "{{t:call|Igualo}}", correct: true, why: "También es buena: ligas la {{t:straight|escalera}} en el turn aprox. el {{n:odds.oesd.flop-turn}} de las veces, algo menos que el precio de {{n:eq.bet-third}}, pero si la ligas ganarás más (implied odds) y, si nadie {{t:bet|apuesta}} en el turn, también verás el river gratis. Parte de los {{t:draw|proyectos}} fuertes los {{t:call|igualas}}, para que tus {{t:call|pagos}} no sean todos débiles." }
       - { text: "{{t:fold|Me retiro}}", why: "Demasiado cerrado: con {{n:outs.oesd}} outs ligas la {{t:straight|escalera}} en el turn aprox. el {{n:odds.oesd.flop-turn}} de las veces, no mucho menos que el precio de {{n:eq.bet-third}}; el resto lo aportan las implied odds y la opción de ver un river gratis. Además, puedes hacer check-raise." }
   - kind: choice
     id: m6.l3.q-top-pair-weak
