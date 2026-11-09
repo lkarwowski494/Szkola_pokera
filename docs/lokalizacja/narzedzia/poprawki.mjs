@@ -2,7 +2,10 @@
 // Nakłada poprawki drugiego przeglądu na KOPIĘ pliku propozycji przekładu (artefakt `raport-przekladu`), przed
 // `node scripts/i18n/przeklad-api.mjs --zastosuj`. Rola 09, sesja AB (2026-11-09, D-366). Nie zapisuje do content/ ani locales/.
 //
-//   node docs/lokalizacja/narzedzia/poprawki.mjs <propozycje.json> <poprawki.json> [<poprawki2.json> …] --wyjscie <nowy.json>
+//   node docs/lokalizacja/narzedzia/poprawki.mjs <propozycje.json> <poprawki.json> [<poprawki2.json> …] --wyjscie <nowy.json> [--typografia-fr]
+//
+// --typografia-fr (sesja AD, D-371): w jednostkach fr zwykła spacja przed ? ! : ; » i po « → spacja nierozdzielająca U+00A0
+// (REJESTR fr, scripts/i18n/wspolne.mjs:60–75; bez niej wiersz może się złamać przed dwukropkiem). Nakładana PO poprawkach.
 //
 // poprawki.json: tablica { jezyk, cel, stary, nowy, waga, powod }. `stary` musi wystąpić w tekście jednostki (jezyk, cel)
 // dokładnie raz — inaczej poprawka jest pomijana z powodem (kod wyjścia 1, plik wyjściowy i tak powstaje bez niej).
@@ -28,13 +31,27 @@ export function nalozPoprawki(prop, listy) {
   return wynik;
 }
 
+/** fr: spacja przed ? ! : ; » i po « → U+00A0. Pomija bloki ``` (zakresy, formuły). Zwraca liczbę zamian. */
+export function typografiaFr(prop) {
+  let ile = 0;
+  for (const j of prop.jednostki) {
+    if (j.jezyk !== 'fr' || typeof j.tekst !== 'string') continue;
+    j.tekst = j.tekst.split(/(```[\s\S]*?```)/).map((cz, i) => (i % 2 ? cz : cz
+      .replace(/ (?=[?!:;»])/g, () => (ile++, '\u00a0'))
+      .replace(/« /g, () => (ile++, '«\u00a0')))).join('');
+  }
+  return ile;
+}
+
 if (import.meta.url === `file://${process.argv[1]}`) {
   const argv = process.argv.slice(2);
   const iw = argv.indexOf('--wyjscie');
   if (iw < 0 || argv.length < 4) { console.error('użycie: poprawki.mjs <propozycje.json> <poprawki.json>… --wyjscie <nowy.json>'); process.exit(2); }
-  const wyj = argv[iw + 1], pliki = argv.filter((_, i) => i !== iw && i !== iw + 1);
+  const typo = argv.includes('--typografia-fr');
+  const wyj = argv[iw + 1], pliki = argv.filter((x, i) => i !== iw && i !== iw + 1 && x !== '--typografia-fr');
   const prop = JSON.parse(readFileSync(pliki[0], 'utf8'));
   const w = nalozPoprawki(prop, pliki.slice(1).map((f) => JSON.parse(readFileSync(f, 'utf8'))));
+  if (typo) console.log(`typografia fr: zamian ${typografiaFr(prop)}`);
   writeFileSync(wyj, JSON.stringify(prop, null, 1) + '\n');
   console.log(`nałożone: ${w.nalozone.length}, pominięte: ${w.pominiete.length}, z innych plików propozycji: ${w.poza}`);
   for (const x of w.pominiete) console.log(`  POMINIĘTA ${x}`);
