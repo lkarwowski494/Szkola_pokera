@@ -889,6 +889,30 @@ Main po sesji: 7e15c6a → 970c4d3 → f256f8f → 19301c2, każdy push tylko 4 
 - Krok właściciela przed pierwszym zapisem: Settings → Environments → `release` z Required reviewers (właściciel); reguła gałęzi środowiska musi dopuszczać `claude/sleepy-brahmagupta-2065nu`. Bez tego zadanie zapisu pada przed kluczem (strażnik).
 - `store/review-notes.en.txt` ma `[SUPPORT EMAIL]` i klucze etykiet — kontrola pokaże różnicę do czasu podmiany (W-04, K-03).
 
+## Sesja AA — produkty ASC wg D-356 (2026-11-09, rola 08 build)
+Rola `08-programista --tryb build`: repo `prompts` sklonowane, ale uruchomienie `assemble.mjs` odrzucone przez klasyfikator — wyjątek nazwany; tańsza kontrola: przeczytane wprost `shared/zasady.md`, `shared/tryby/build.md`, `shared/srodowisko.md`, `role/08-programista/rdzen.md` (zasady + tryb build). Oczko z publicznego klonu `claude/jolly-thompson-paz6d8` @45f583d (odczyt 2026-11-09). Stan wyjściowy `1a5d942`, `pnpm test:skrypty` 171/171.
+
+| Zadanie | Commit | Test (czerwony przed → zielony po) | Decyzja |
+|---|---|---|---|
+| `asc-produkty.yml` + `scripts/asc/produkty.mjs` + `store/produkty.json` (port z Oczka; dostępność APLIKACJI v2 dodana; 166 storefrontów; nowe terytoria wył.; Family Sharing wył. wg monetyzacja.md) | 031d4c5 | `asc-produkty.test.mjs` 11 (przed: zaślepka, 10 czerwonych na asercjach); mutanty 6/6; `workflowy.test.mjs` (asc-produkty w zestawie ASC, 3 czerwone przed plikiem) | D-364 |
+| 409 metadanych: ponowny odczyt lokalizacji wersji w zapisie | 031d4c5 | `asc.test.mjs` „metadane zapis jak Apple…” (przed: 5× 409) | D-364 |
+| Klient: token tylko do api.appstoreconnect.apple.com (z Oczka) | 031d4c5 | `asc.test.mjs` „klient: token tylko do…” (przed: wolano 4) | D-364 |
+| Z-01 EDUCATION, Z-02 dostępność + grupa cen 166, Z-03 notatki bez kluczy (11 etykiet = en.json) | 031d4c5 | `asc.test.mjs` 2 testy (czerwone przed) | D-364 |
+| Przegląd D-043 (subagent): P1-1 identyfikatory base64 w komunikatach błędów → `szablonSciezki`; P1-2 „BO” → „BOL” | 4763dc6 | `asc.test.mjs` „…identyfikatorem base64…”, test ISO-3 listy (oba czerwone przed) | D-364 |
+
+`pnpm run ci` kod 0 przed i po poprawkach przeglądu (skrypty 186 → 187). Main `19301c2..388dacc`: tylko `asc-produkty.yml` (124) i `store-screenshots.yml` (173), 297+, 0− (`git diff --stat 19301c2 origin/main`), bez `--force`.
+
+| Przebieg (tylko odczyt, ref gałęzi, 4763dc6) | Wynik |
+|---|---|
+| `asc-produkty` 42690563402 | **zielony**; zapis pominięty. 175 terytoriów w ASC, 166 z listy rozpoznanych (BOL, XKS istnieją). Plan 11 pozycji: dostępność aplikacji (166 wł., 9 wył., nowe wył.), grupa „pelny”, kwartał i rok (+ dostępność, ceny), dożywotni (+ dostępność, cena); 0 STOP, 0 nieodwracalnych |
+| `asc-kontrola` 42690568851 | czerwony zgodnie z oczekiwaniem: metadane i adresy OK (5 lokalizacji); RÓŻNICA kategoria (brak w ASC, oczekiwane EDUCATION — wpis ręczny); BRAK DANYCH dostępność (404) i recenzent; BŁĄD produkty/ceny/oferty/Family Sharing (brak produktów) |
+
+### Zostaje
+- Krok właściciela: `asc-produkty.yml` tryb `apply` (`ref` gałęzi) i zatwierdzenie w `release`; potem `asc-iap-localizations.yml` apply, potem `asc-kontrola`. Pierwszy zapis potwierdzi kształt żądań dostępności aplikacji (P2: PATCH territoryAvailabilities opisany w dokumentacji jako pre-order — używany tylko przy istniejącej dostępności) i harmonogramu ceny dożywotniego (P2: `included` bez relacji `inAppPurchaseV2`, jak Oczko).
+- Ręcznie w ASC: kategoria Education (D-360), ocena wiekowa, App Privacy, App Review Information (D-362).
+- P2 nazwane w D-364: ponowny POST dostępności produktu przy nowych terytoriach wł.
+- `store-screenshots.yml` na main nie ma kroku „skrypty z gałęzi” — uruchomienie z `main` padnie po zużyciu minut macOS (repo publiczne: bez opłat); uruchamiać z `--ref` gałęzi.
+
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
 
