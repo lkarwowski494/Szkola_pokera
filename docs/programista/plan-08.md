@@ -675,7 +675,7 @@ Wszystkie ID mają rozstrzygnięcie w D-282–D-284, więc wszystkie są typu D 
 | A04-03, 08-F25 | zrobione | e06cedc, aaf30b5 (bez pustego `catch`, K-07) | `announce-08` 7 — przed (zaślepka): 0 ogłoszeń, brak przewinięcia i fokusu, `accessibilityLiveRegion` w `PanelDecyzji` |
 | A04-04 | zrobione | 317ee6c | `Stol-08` „A04-04” ×2 — przed: obraz z etykietą `""`, opis bez pozycji |
 | A04-05 | zrobione | 29f5ec7 | `skalowanie-08` „A04-05” 5 — przed: `allowFontScaling` undefined, stała 0 |
-| A04-06, A04-07 | zrobione | (commit A04-06/07) | `skalowanie-08` „A04-06” 3, „A04-07” 2 — przed: brak `flexWrap`, tytuł bez sufitu, słowo stopnia 28/34 |
+| A04-06, A04-07 | zrobione | f8a6be8 | `skalowanie-08` „A04-06” 3, „A04-07” 2 — przed: brak `flexWrap`, tytuł bez sufitu, słowo stopnia 28/34 |
 
 Odstępstwa nazwane: A04-03 i 08-F25 jednym commitem (D-283 łączy je w jeden krok, wspólne pliki); A04-06 i A04-07 jednym commitem (wspólny moduł `theme/skalowanie.ts` i plik testu). Ścieżki wrażliwe (CLAUDE.md) niedotknięte — przegląd D-043 nie dotyczy.
 
