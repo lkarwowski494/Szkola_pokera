@@ -14,7 +14,7 @@ Rola 04, build E3, 2026-11-04. Decyzje: D-114 (ekran kluczowy), D-116 (pasek str
 ## Znaczenie kolorów
 - **Złoto znaczy wyłącznie „ty”**: twoje miejsce przy stole, znacznik twojego wyboru na pasku, twój przedział na skali. Nigdy wygrana ani „dobrze”.
 - Kier `cardRed` tylko na kartach; kolor karty zawsze z symbolem (NFR-DOST-001).
-- Stopnie oceny (Błąd, Dopuszczalna, Zgodna) nie mają koloru: niosą je znak, słowo i obwódka przedziału.
+- Stopnie oceny (Błąd, Dopuszczalna, Zgodna) nie mają koloru: niosą je znak, słowo i obwódka przedziału; znaki: ✓ Zgodna, ≈ Dopuszczalna, ~ Niedokładność, ✗ Błąd (D-213, D-284; bez kółka wokół znaku).
 - `alert` tylko dla błędu działania (zakup, import), zawsze z tekstem, co zrobić.
 - Bez żetonów i puli (bez hazardu, cel właściciela 2026-11-03).
 
@@ -41,13 +41,14 @@ Rola 04, build E3, 2026-11-04. Decyzje: D-114 (ekran kluczowy), D-116 (pasek str
 | `BlokLekcji` (sukno na „Dziś”) | własny, prosty | rama + sukno, bez kart i miejsc |
 
 ### `Stol`: zależy od danych zadania (D-119)
-- Zadanie ma pozycję i stan graczy (sytuacja z przebiegiem akcji, np. `spots.yaml` z `path`): owal z miejscami w kolejności zgodnej z ruchem wskazówek zegara, ty na dole; miejsce: nazwa pozycji + stan („pas” z obwódką kreskowaną, „czeka”, „ty” ze złotą obwódką 2,5 pt). Liczba miejsc = `meta.players`.
+- Zadanie ma pozycję i stan graczy (sytuacja z przebiegiem akcji, np. `spots.yaml` z `path`): owal z miejscami w kolejności zgodnej z ruchem wskazówek zegara, ty na dole; miejsce: nazwa pozycji + stan („pas” z obwódką kreskowaną, „przebija”, „po tobie”, „ty” ze złotą obwódką 2,5 pt; D-275, D-284). Liczba miejsc = `meta.players`.
 - Zadanie bez pozycji (outy, szanse, pot odds, kombinatoryka, siła ręki, np. `m2.exam.q2`): owal bez miejsc; karty wspólne na suknie, twoje przy krawędzi stołu; pod stołem opis tekstem („Twoje karty: J♣ 9♦. Na stole: 10♠ 7♥ 2♣.”). Nie ma pustych ani wyszarzonych miejsc.
-- Etykieta VoiceOver budowana z tych samych danych, np. „Stół: UTG pas, HJ pas, ty na CO z J9o, czekają BTN, SB i BB.”
+- Karty rywala (`opp`): rząd z podpisem „Rywal” nad nim, karty wspólne z podpisem „Na stole”; opis i etykieta zawierają każdą narysowaną kartę (D-282). Sama pozycja bez kart i przebiegu: bez owalu, wiersz „Twoja pozycja: BB”; pozycja z kartami bez przebiegu: dopisek pozycji w opisie (D-282).
+- Etykieta VoiceOver budowana z tych samych danych, np. „Przy stole: UTG pas (fold), HJ pas (fold), ty na CO z J9o, po tobie BTN, SB i BB.” (D-275: „stół” = karty wspólne, „czekać” = check). Karty w etykiecie nazwami, nie symbolami (A04-11).
 
 ### `PasekStrategii`
 - Przed decyzją: równe segmenty-przyciski (po jednym na akcję, cel ≥ 64 pt wysokości), nic nie zdradzają.
-- Po ocenie: te same granice przesunięte do częstotliwości solvera (np. pas 80%, przebicie 20%), część „pas” kreskowana, złoty znacznik nad twoim wyborem, podpisy z procentami i „twój wybór”. Opis VoiceOver: „Strategia solvera dla J9o: pas 80 procent, przebicie 20 procent. Twój wybór: przebicie.”
+- Po ocenie: te same granice przesunięte do częstotliwości solvera (np. pas 80%, przebicie 20%), część „pas” kreskowana (w RN: wypełnienie `foldFill` + kreskowana obwódka `foldStripe`, D-284), złoty znacznik nad twoim wyborem, podpisy z procentami i „twój wybór”. Opis VoiceOver: „Strategia solvera dla J9o: pas 80 procent, przebicie 20 procent. Twój wybór: przebicie.”
 
 ## Słownik interakcji
 Domyślny słownik studia, z ustaleniami projektu: **Zakończ** (wyjście z sesji ćwiczeń i egzaminu, lewy górny róg; sesja zapisana, bez pytania — F-07), **Dalej** (następne zadanie po ocenie), **Wróć do lekcji** (z ekranu limitu, jeden ruch, BR-LIM-001), **Przywróć zakupy** (ekran zakupu i ustawienia), **Zamknij** (ekran zakupu), **Zgłoś błąd w tym zadaniu** (PR-09). Usunięcie danych (PR-07): „Usuń postęp” z potwierdzeniem. Nazwa „dzienny limit”, nigdy „pula” (D-111).
@@ -83,5 +84,6 @@ Domyślny słownik studia, z ustaleniami projektu: **Zakończ** (wyjście z sesj
 
 ## Otwarte
 - Przejście poznawcze i test 3–5 osób (kryteria „Intuicyjność” z `docs/scope-contract.md`) — po implementacji, na TestFlight; wynik wraca do roli 03.
-- Ekrany poza kluczowymi (ocena poziomu, lekcja, powtórki, scenariusz, dane, pomoc, ustawienia) rola 08 buduje z tych komponentów; audyt roli 04 po implementacji.
+- Ekrany poza kluczowymi (ocena poziomu, lekcja, powtórki, scenariusz, dane, pomoc, ustawienia) rola 08 buduje z tych komponentów; audyt roli 04 części 5b i 6: `audyt-5b-6.md` (2026-11-09; naprawy dla 08, D-282–D-284).
+- Tokeny `cardBlue`, `cardGreen` (talia czterokolorowa, D-284) i tokeny siatek `PaintGrid`/`RangeGrid` (08-F27b) — do dopisania w `tokeny.ts` razem z kopią w aplikacji.
 - Najdłuższy język (35 języków): sprawdzenie układu na de/fr/vi po przekładzie — rola 06/08; sufity tytułów są liczone od szerokości, nie od słowa polskiego.
