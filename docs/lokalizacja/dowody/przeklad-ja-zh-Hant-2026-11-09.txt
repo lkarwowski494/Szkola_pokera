@@ -14,7 +14,7 @@ przebieg 42682266650 (ja+zh-Hant: exams, areas, modules, rules, spots, helplines
 ## reszta: batch msgbatch_017WRPG3we4PschMAPmof1w3, data 2026-11-09T19:31:31.746Z, model claude-opus-5-5/medium, tokeny we 887602 wy 628702, koszt wg kosztUsd 8.062224
 # Wynik w workflowie: ja 63 przyjęte / 2 odrzucone; zh-Hant 64 / 1 (razem 130 jednostek).
 # Ponowna ocena na HEAD 583f799 (kontrolaPropozycji z repo, bez zapisu; skrypt w scratchpadzie): skróty sha256 źródeł 130/130 zgodne;
-#   rules.yaml ja i zh-Hant: jedyne powody to 'adresy URL' (6 i 70 pól) — po poprawce wzorca URL (D-364) 0 różnic; m10-l1 ja: dalej odrzucona (realny dodatek tłumacza).
+#   rules.yaml ja i zh-Hant: jedyne powody to 'adresy URL' (6 i 70 pól) — po poprawce wzorca URL (D-365) 0 różnic; m10-l1 ja: dalej odrzucona (realny dodatek tłumacza).
 # Lista jednostek (język, cel, status, skrót źródła, liczba ostrzeżeń terminów i liczb):
 ja	content/ja/lessons/m0-l1-uklady.md	przyjeta	sha_zr=2767f1d327bc	ost_terminy=1	ost_liczby=1
 ja	content/ja/lessons/m1-l1-przebieg.md	przyjeta	sha_zr=b52df2caa33c	ost_terminy=0	ost_liczby=1

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Nakłada poprawki drugiego przeglądu na KOPIĘ pliku propozycji przekładu (artefakt `raport-przekladu`), przed
-// `node scripts/i18n/przeklad-api.mjs --zastosuj`. Rola 09, sesja AB (2026-11-09, D-365). Nie zapisuje do content/ ani locales/.
+// `node scripts/i18n/przeklad-api.mjs --zastosuj`. Rola 09, sesja AB (2026-11-09, D-366). Nie zapisuje do content/ ani locales/.
 //
 //   node docs/lokalizacja/narzedzia/poprawki.mjs <propozycje.json> <poprawki.json> [<poprawki2.json> …] --wyjscie <nowy.json>
 //

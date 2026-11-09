@@ -1,0 +1,839 @@
+[
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "stary": "https://beyondgto.com/ranges/lj-open-6max-100bb、HJ、CO、BTNも同様",
+  "nowy": "https://beyondgto.com/ranges/lj-open-6max-100bb, HJ、CO、BTNも同様",
+  "waga": "ŚREDNIE",
+  "powod": "Adres URL sklejony z pełnoszerokościową interpunkcją: kontrola automatyczna odczytuje go z doklejonym tekstem (odrzucenie pliku). Separator ASCII + spacja jak w źródle pl; adres bez zmian.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "stary": "https://preflopwizard.app/blog/9-max-preflop-chart；2つ目",
+  "nowy": "https://preflopwizard.app/blog/9-max-preflop-chart; 2つ目",
+  "waga": "ŚREDNIE",
+  "powod": "Adres URL sklejony z pełnoszerokościową interpunkcją: kontrola automatyczna odczytuje go z doklejonym tekstem (odrzucenie pliku). Separator ASCII + spacja jak w źródle pl; adres bez zmian.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "stary": "https://about-poker.com/preflop-gto/preflop-range-chart-cash-game；ドキュメント10",
+  "nowy": "https://about-poker.com/preflop-gto/preflop-range-chart-cash-game; ドキュメント10",
+  "waga": "ŚREDNIE",
+  "powod": "Adres URL sklejony z pełnoszerokościową interpunkcją: kontrola automatyczna odczytuje go z doklejonym tekstem (odrzucenie pliku). Separator ASCII + spacja jak w źródle pl; adres bez zmian.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "stary": "https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics：「A5s calls",
+  "nowy": "https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics: 「A5s calls",
+  "waga": "ŚREDNIE",
+  "powod": "Adres URL sklejony z pełnoszerokościową interpunkcją: kontrola automatyczna odczytuje go z doklejonym tekstem (odrzucenie pliku). Separator ASCII + spacja jak w źródle pl; adres bez zmian.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "stary": "https://beyondgto.com/defense/bb-vs-sb：「A5s",
+  "nowy": "https://beyondgto.com/defense/bb-vs-sb: 「A5s",
+  "waga": "ŚREDNIE",
+  "powod": "Adres URL sklejony z pełnoszerokościową interpunkcją: kontrola automatyczna odczytuje go z doklejonym tekstem (odrzucenie pliku). Separator ASCII + spacja jak w źródle pl; adres bez zmian.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "stary": "https://blog.gtowizard.com/preflop-range-morphology/：レンジ",
+  "nowy": "https://blog.gtowizard.com/preflop-range-morphology/: レンジ",
+  "waga": "ŚREDNIE",
+  "powod": "Adres URL sklejony z pełnoszerokościową interpunkcją: kontrola automatyczna odczytuje go z doklejonym tekstem (odrzucenie pliku). Separator ASCII + spacja jak w źródle pl; adres bez zmian.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "stary": "https://pokercoaching.com/blog/mdf-poker：「The framework",
+  "nowy": "https://pokercoaching.com/blog/mdf-poker: 「The framework",
+  "waga": "ŚREDNIE",
+  "powod": "Adres URL sklejony z pełnoszerokościową interpunkcją: kontrola automatyczna odczytuje go z doklejonym tekstem (odrzucenie pliku). Separator ASCII + spacja jak w źródle pl; adres bez zmian.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "stary": "https://blog.gtowizard.com/mdf-alpha：「On average",
+  "nowy": "https://blog.gtowizard.com/mdf-alpha: 「On average",
+  "waga": "ŚREDNIE",
+  "powod": "Adres URL sklejony z pełnoszerokościową interpunkcją: kontrola automatyczna odczytuje go z doklejonym tekstem (odrzucenie pliku). Separator ASCII + spacja jak w źródle pl; adres bez zmian.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "stary": "https://deepfold.co/en/blog/bluff-catching-principles：パッシブ",
+  "nowy": "https://deepfold.co/en/blog/bluff-catching-principles: パッシブ",
+  "waga": "ŚREDNIE",
+  "powod": "Adres URL sklejony z pełnoszerokościową interpunkcją: kontrola automatyczna odczytuje go z doklejonym tekstem (odrzucenie pliku). Separator ASCII + spacja jak w źródle pl; adres bez zmian.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "stary": "https://pokercoaching.com/blog/mdf-poker：「In low-stakes",
+  "nowy": "https://pokercoaching.com/blog/mdf-poker: 「In low-stakes",
+  "waga": "ŚREDNIE",
+  "powod": "Adres URL sklejony z pełnoszerokościową interpunkcją: kontrola automatyczna odczytuje go z doklejonym tekstem (odrzucenie pliku). Separator ASCII + spacja jak w źródle pl; adres bez zmian.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "stary": "『no flop, no drop』",
+  "nowy": "“no flop, no drop”",
+  "waga": "ŚREDNIE",
+  "powod": "R-M10-014 source: cytat angielski ma być dosłowny; w oryginale wewnętrzny cudzysłów to “no flop, no drop”, nie japońskie 『』.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "stary": "{{n:var.hands.k}}千ハンド後でも",
+  "nowy": "{{n:var.hands.k}}kハンド後でも",
+  "waga": "ŚREDNIE",
+  "powod": "„{{n:var.hands.k}}千ハンド” renderuje się jako „100千ハンド” (a var.need.hands.k jako setki 千), co po japońsku jest nienaturalne; zapis „100kハンド” jest utarty w japońskim pokerze i użyty już w lekcji m12-l1-wariancja. Klucz {{n}} bez zmian.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "stary": "{{n:var.hands.k}}千ハンドの間に",
+  "nowy": "{{n:var.hands.k}}kハンドの間に",
+  "waga": "ŚREDNIE",
+  "powod": "„{{n:var.hands.k}}千ハンド” renderuje się jako „100千ハンド” (a var.need.hands.k jako setki 千), co po japońsku jest nienaturalne; zapis „100kハンド” jest utarty w japońskim pokerze i użyty już w lekcji m12-l1-wariancja. Klucz {{n}} bez zmian.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "stary": "約{{n:var.need.hands.k}}千ハンドが必要です",
+  "nowy": "約{{n:var.need.hands.k}}kハンドが必要です",
+  "waga": "ŚREDNIE",
+  "powod": "„{{n:var.hands.k}}千ハンド” renderuje się jako „100千ハンド” (a var.need.hands.k jako setki 千), co po japońsku jest nienaturalne; zapis „100kハンド” jest utarty w japońskim pokerze i użyty już w lekcji m12-l1-wariancja. Klucz {{n}} bez zmian.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "stary": "{{n:var.hands.k}}千ハンドで{{n:dd.bi.small}}",
+  "nowy": "{{n:var.hands.k}}kハンドで{{n:dd.bi.small}}",
+  "waga": "ŚREDNIE",
+  "powod": "„{{n:var.hands.k}}千ハンド” renderuje się jako „100千ハンド” (a var.need.hands.k jako setki 千), co po japońsku jest nienaturalne; zapis „100kハンド” jest utarty w japońskim pokerze i użyty już w lekcji m12-l1-wariancja. Klucz {{n}} bez zmian.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "stary": "相手が{{t:fold|フォールド}}しないほど、そうした",
+  "nowy": "相手の{{t:fold|フォールド}}が少ないほど、そうした",
+  "waga": "NISKIE",
+  "powod": "R-M6-011: „im rzadziej rywal pasuje” = im mniej foldów; „フォールドしないほど” brzmi jak „im bardziej nie pasuje”.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "stary": "（例：どれくらいゲームに参加するか、3ベットに{{t:fold|フォールド}}するか）",
+  "nowy": "（例：どれくらいの頻度でハンドに参加するか、3ベットに{{t:fold|フォールド}}するか）",
+  "waga": "NISKIE",
+  "powod": "R-M13-004: „jak często” dotyczy obu przykładów; „ハンドに参加” = wejście do rozdania (VPIP), „ゲームに参加” sugeruje dołączenie do gry.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/modules.yaml",
+  "stary": "プレイヤータイプと全体の傾向的なミス",
+  "nowy": "プレイヤータイプと母集団に多いミス",
+  "waga": "ŚREDNIE",
+  "powod": "m10 sub: „błędy populacji”; „全体の傾向的なミス” jest nienaturalne i niejasne; lekcje M10 i reguły używają „母集団”.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/ranges/spots.yaml",
+  "stary": "これは{{t:out-of-position}}でのサイズです。",
+  "nowy": "これは{{t:out-of-position|アウトオブポジション}}でのサイズです。",
+  "waga": "ŚREDNIE",
+  "powod": "Znacznik bez formy pokaże łacińskie „out of position” w zdaniu, w którym zaraz obok stoi forma {{t:in-position|インポジション}}; niespójne (K-05).",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/ranges/spots.yaml",
+  "stary": "&g-btn-vs-co { \"プレイ（7.5bbに3ベットか{{t:call}}）\"",
+  "nowy": "&g-btn-vs-co { \"プレイ（7.5bbに3ベットか{{t:call|コール}}）\"",
+  "waga": "ŚREDNIE",
+  "powod": "Etykieta grupy siatki: bez formy wyświetli „call” po łacinie w japońskiej etykiecie (K-05). Zmień razem z kluczem w wierszu why (ten sam napis).",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/ranges/spots.yaml",
+  "stary": "    \"プレイ（7.5bbに3ベットか{{t:call}}）\":",
+  "nowy": "    \"プレイ（7.5bbに3ベットか{{t:call|コール}}）\":",
+  "waga": "ŚREDNIE",
+  "powod": "Ten sam klucz grupy co w groups (&g-btn-vs-co) — musi być identyczny po zmianie.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/ranges/spots.yaml",
+  "stary": "&g-bb-vs-btn { \"ディフェンド（{{t:call}}か3ベット）\"",
+  "nowy": "&g-bb-vs-btn { \"ディフェンス（{{t:call|コール}}か3ベット）\"",
+  "waga": "ŚREDNIE",
+  "powod": "Etykieta grupy: łacińskie „call” bez formy (K-05); „ディフェンス” spójne z regułami (ディフェンスします). Sprawdź, czy klucz grupy nie jest powtórzony w innym miejscu pliku.",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/ranges/spots.yaml",
+  "stary": "&g-bb-vs-sb { \"ディフェンド（{{t:call}}か3ベット）\"",
+  "nowy": "&g-bb-vs-sb { \"ディフェンス（{{t:call|コール}}か3ベット）\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jak wyżej (BB vs SB).",
+  "grupa": "J1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"category\": {\n      \"straightFlush\": \"{{t:straight-flush}}\",\n      \"fourOfAKind\": \"{{t:four-of-a-kind}}\",\n      \"fullHouse\": \"{{t:full-house}}\",\n      \"flush\": \"{{t:flush}}\",\n      \"straight\": \"{{t:straight}}\",\n      \"threeOfAKind\": \"{{t:three-of-a-kind}}\",\n      \"twoPair\": \"{{t:two-pair}}\",\n      \"pair\": \"{{t:pair}}\",\n      \"highCard\": \"{{t:high-card}}\",\n      \"royalFlush\": \"{{t:royal-flush}}\"\n    }",
+  "nowy": "\"category\": {\n      \"straightFlush\": \"{{t:straight-flush|ストレートフラッシュ}}\",\n      \"fourOfAKind\": \"{{t:four-of-a-kind|フォーカード}}\",\n      \"fullHouse\": \"{{t:full-house|フルハウス}}\",\n      \"flush\": \"{{t:flush|フラッシュ}}\",\n      \"straight\": \"{{t:straight|ストレート}}\",\n      \"threeOfAKind\": \"{{t:three-of-a-kind|スリーカード}}\",\n      \"twoPair\": \"{{t:two-pair|ツーペア}}\",\n      \"pair\": \"{{t:pair|ワンペア}}\",\n      \"highCard\": \"{{t:high-card|ハイカード}}\",\n      \"royalFlush\": \"{{t:royal-flush|ロイヤルフラッシュ}}\"\n    }",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.*: nazwy układów (opcje odpowiedzi w zadaniu „najlepszy układ”, wyjaśnienia „kto wygrywa”) wyświetlałyby się po angielsku w środku japońskiego zdania. Formy jak w terms-def i lekcjach ja (Wikipedia ja „ポーカー・ハンドの一覧”: フォーカード, スリーカード, ワンペア). Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"categoryAcc\": {\n      \"straightFlush\": \"{{t:straight-flush}}\",\n      \"fourOfAKind\": \"{{t:four-of-a-kind}}\",\n      \"fullHouse\": \"{{t:full-house}}\",\n      \"flush\": \"{{t:flush}}\",\n      \"straight\": \"{{t:straight}}\",\n      \"threeOfAKind\": \"{{t:three-of-a-kind}}\",\n      \"twoPair\": \"{{t:two-pair}}\",\n      \"pair\": \"{{t:pair}}\",\n      \"highCard\": \"{{t:high-card}}\",\n      \"royalFlush\": \"{{t:royal-flush}}\"\n    }",
+  "nowy": "\"categoryAcc\": {\n      \"straightFlush\": \"{{t:straight-flush|ストレートフラッシュ}}\",\n      \"fourOfAKind\": \"{{t:four-of-a-kind|フォーカード}}\",\n      \"fullHouse\": \"{{t:full-house|フルハウス}}\",\n      \"flush\": \"{{t:flush|フラッシュ}}\",\n      \"straight\": \"{{t:straight|ストレート}}\",\n      \"threeOfAKind\": \"{{t:three-of-a-kind|スリーカード}}\",\n      \"twoPair\": \"{{t:two-pair|ツーペア}}\",\n      \"pair\": \"{{t:pair|ワンペア}}\",\n      \"highCard\": \"{{t:high-card|ハイカード}}\",\n      \"royalFlush\": \"{{t:royal-flush|ロイヤルフラッシュ}}\"\n    }",
+  "waga": "ŚREDNIE",
+  "powod": "drill.categoryAcc.*: nazwy układów (opcje odpowiedzi w zadaniu „najlepszy układ”, wyjaśnienia „kto wygrywa”) wyświetlałyby się po angielsku w środku japońskiego zdania. Formy jak w terms-def i lekcjach ja (Wikipedia ja „ポーカー・ハンドの一覧”: フォーカード, スリーカード, ワンペア). Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"explanation\": \"{{title}}。緑のマス：プレイするハンドで、選択済み。「−」記号：{{t:range|レンジ}}に含まれるのに不足しているハンド。「+」記号：選択したが、ソルバーは{{t:fold|フォールド}}するハンド。ドット：{{t:mixed-hand|ミックスハンド}}（ソルバーがときどきしかプレイしない）または意見が分かれるハンド（ソルバーが公開されている表と異なる）で、どちらでも正解扱いです。スコアは、{{t:range|レンジ}}に含まれるか選択したハンドの中だけで{{t:combo|コンボ}}を数えます（{{t:pair}} {{pairCombos}}、同じスート {{suitedCombos}}、異なるスート {{offsuitCombos}}）。\"",
+  "nowy": "\"explanation\": \"{{title}}。緑のマス：プレイするハンドで、選択済み。「−」記号：{{t:range|レンジ}}に含まれるのに不足しているハンド。「+」記号：選択したが、ソルバーは{{t:fold|フォールド}}するハンド。ドット：{{t:mixed-hand|ミックスハンド}}（ソルバーがときどきしかプレイしない）または意見が分かれるハンド（ソルバーが公開されている表と異なる）で、どちらでも正解扱いです。スコアは、{{t:range|レンジ}}に含まれるか選択したハンドの中だけで{{t:combo|コンボ}}を数えます（{{t:pair|ペア}} {{pairCombos}}、同じスート {{suitedCombos}}、異なるスート {{offsuitCombos}}）。\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „explanation”: bez formy: pair. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"boardPlays\": \"2人とも最強の5枚が{{t:board|ボード}}上にあるので「{{t:playing-the-board}}」となり、{{t:split-pot|スプリットポット}}になります。\"",
+  "nowy": "\"boardPlays\": \"2人とも最強の5枚が{{t:board|ボード}}上にあるので「{{t:playing-the-board|プレイング・ザ・ボード}}」となり、{{t:split-pot|スプリットポット}}になります。\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „boardPlays”: bez formy: playing-the-board. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"foldRightChips\": \"はい。{{t:icm}}では{{required}}のエクイティが必要ですが、あなたは{{equity}}しかありません。{{t:chips|チップ}}を争うゲームなら{{t:call|コール}}になるところです。これがまさに{{t:risk-premium}}です。\"",
+  "nowy": "\"foldRightChips\": \"はい。{{t:icm}}では{{required}}のエクイティが必要ですが、あなたは{{equity}}しかありません。{{t:chips|チップ}}を争うゲームなら{{t:call|コール}}になるところです。これがまさに{{t:risk-premium|リスクプレミアム}}です。\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „foldRightChips”: bez formy: risk-premium. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"drawFlush\": \"{{t:flush-draw}}\"",
+  "nowy": "\"drawFlush\": \"{{t:flush-draw|フラッシュドロー}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „drawFlush”: bez formy: flush-draw. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"drawOesd\": \"{{t:oesd}}\"",
+  "nowy": "\"drawOesd\": \"{{t:oesd|オープンエンド・ストレートドロー}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „drawOesd”: bez formy: oesd. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"whyFlop\": \"この{{t:bet}}だけを{{t:call|コール}}するので、1枚での確率で考えます。リバーの前には通常、もう一度支払いが必要になります。\"",
+  "nowy": "\"whyFlop\": \"この{{t:bet|ベット}}だけを{{t:call|コール}}するので、1枚での確率で考えます。リバーの前には通常、もう一度支払いが必要になります。\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „whyFlop”: bez formy: bet. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"verdictGood\": \"確率が価格を上回っているので、{{t:call}}は利益になります。\"",
+  "nowy": "\"verdictGood\": \"確率が価格を上回っているので、{{t:call|コール}}は利益になります。\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „verdictGood”: bez formy: call. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"verdictNearFlop\": \"確率が価格をわずかに下回るので、単なる{{t:call}}は損になります。利益になるのはインプライドオッズ、つまりヒット後にさらに勝てる場合だけで、しかもターンでの次の価格も高すぎないことが条件です。\"",
+  "nowy": "\"verdictNearFlop\": \"確率が価格をわずかに下回るので、単なる{{t:call|コール}}は損になります。利益になるのはインプライドオッズ、つまりヒット後にさらに勝てる場合だけで、しかもターンでの次の価格も高すぎないことが条件です。\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „verdictNearFlop”: bez formy: call. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"verdictNearTurn\": \"確率が価格をわずかに下回るので、単なる{{t:call}}は損になります。利益になるのはインプライドオッズ、つまりヒット後にさらに勝てる場合だけです。\"",
+  "nowy": "\"verdictNearTurn\": \"確率が価格をわずかに下回るので、単なる{{t:call|コール}}は損になります。利益になるのはインプライドオッズ、つまりヒット後にさらに勝てる場合だけです。\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „verdictNearTurn”: bez formy: call. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"verdictBad\": \"確率が価格を明らかに下回るので、{{t:call}}は長期的に損になります。\"",
+  "nowy": "\"verdictBad\": \"確率が価格を明らかに下回るので、{{t:call|コール}}は長期的に損になります。\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „verdictBad”: bez formy: call. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"wetness\": \"{{t:dry|ドライ}}か{{t:wet}}か\"",
+  "nowy": "\"wetness\": \"{{t:dry|ドライ}}か{{t:wet|ウェット}}か\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „wetness”: bez formy: wet. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"scale\": \"点数で数えます：複数の形で{{t:straight}}が可能（2ランクの組み合わせが2組以上）なら{{made}}、1つの形でのみ{{t:straight}}が可能なら{{madeOne}}、{{t:straight-draw}}のみなら{{draw}}。{{t:two-tone}}のフロップは{{twoTone}}、{{t:monotone}}は{{monotone}}。{{t:dry|ドライ}}は0–{{dryMax}}、中間は{{medium}}、{{t:wet}}は{{wet}}以上\"",
+  "nowy": "\"scale\": \"点数で数えます：複数の形で{{t:straight|ストレート}}が可能（2ランクの組み合わせが2組以上）なら{{made}}、1つの形でのみ{{t:straight|ストレート}}が可能なら{{madeOne}}、{{t:straight-draw|ストレートドロー}}のみなら{{draw}}。{{t:two-tone|ツートーン}}のフロップは{{twoTone}}、{{t:monotone|モノトーン}}は{{monotone}}。{{t:dry|ドライ}}は0–{{dryMax}}、中間は{{medium}}、{{t:wet|ウェット}}は{{wet}}以上\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „scale”: bez formy: straight, straight-draw, two-tone, monotone, wet. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"rainbow\": \"{{t:rainbow}}のフロップは3枚が3つの異なるスートなので、まだ誰も{{t:flush-draw|フラッシュドロー}}を持っていません\"",
+  "nowy": "\"rainbow\": \"{{t:rainbow|レインボー}}のフロップは3枚が3つの異なるスートなので、まだ誰も{{t:flush-draw|フラッシュドロー}}を持っていません\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „rainbow”: bez formy: rainbow. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"twoTone\": \"{{t:two-tone}}のフロップは同じスートのカードが2枚あるので、そのスートのカードを2枚持つプレイヤーは{{t:flush-draw}}になります\"",
+  "nowy": "\"twoTone\": \"{{t:two-tone|ツートーン}}のフロップは同じスートのカードが2枚あるので、そのスートのカードを2枚持つプレイヤーは{{t:flush-draw|フラッシュドロー}}になります\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „twoTone”: bez formy: two-tone, flush-draw. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"monotone\": \"{{t:monotone}}のフロップは3枚すべてが同じスートなので、すでに{{t:flush}}が可能です\"",
+  "nowy": "\"monotone\": \"{{t:monotone|モノトーン}}のフロップは3枚すべてが同じスートなので、すでに{{t:flush|フラッシュ}}が可能です\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „monotone”: bez formy: monotone, flush. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"paired\": \"{{t:paired}}のフロップは同じランクのカードが2枚か3枚あります。この場合、プレイヤーの2枚を使う{{t:straight}}は不可能ですが、{{t:straight-draw}}は可能なことがあります\"",
+  "nowy": "\"paired\": \"{{t:paired|ペアボード}}のフロップは同じランクのカードが2枚か3枚あります。この場合、プレイヤーの2枚を使う{{t:straight|ストレート}}は不可能ですが、{{t:straight-draw|ストレートドロー}}は可能なことがあります\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „paired”: bez formy: paired, straight, straight-draw. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"connected\": \"{{t:connected}}のフロップは連続する5つのランクの範囲に異なる3つのランクがあるので、すでに{{t:straight}}が可能です（エースは1としても数えます）\"",
+  "nowy": "\"connected\": \"{{t:connected|コネクト}}のフロップは連続する5つのランクの範囲に異なる3つのランクがあるので、すでに{{t:straight|ストレート}}が可能です（エースは1としても数えます）\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „connected”: bez formy: connected, straight. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"semiConnected\": \"{{t:semi-connected|セミコネクト}}のフロップは連続する5つのランクの範囲に2つのランクがありますが、3つではありません。まだ{{t:straight|ストレート}}はありませんが、{{t:straight-draw}}（オープンエンドまたはガットショット）はすでに可能です\"",
+  "nowy": "\"semiConnected\": \"{{t:semi-connected|セミコネクト}}のフロップは連続する5つのランクの範囲に2つのランクがありますが、3つではありません。まだ{{t:straight|ストレート}}はありませんが、{{t:straight-draw|ストレートドロー}}（オープンエンドまたはガットショット）はすでに可能です\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „semiConnected”: bez formy: straight-draw. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"disconnected\": \"{{t:disconnected}}のフロップはランクが離れていて、どの2枚も連続する5つのランクの範囲に収まらないので、誰も{{t:straight-draw|ストレートドロー}}さえ持っていません\"",
+  "nowy": "\"disconnected\": \"{{t:disconnected|ディスコネクト}}のフロップはランクが離れていて、どの2枚も連続する5つのランクの範囲に収まらないので、誰も{{t:straight-draw|ストレートドロー}}さえ持っていません\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „disconnected”: bez formy: disconnected. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"dry\": \"{{t:dry}}のフロップは{{t:draw|ドロー}}が少ないです。{{scale}}\"",
+  "nowy": "\"dry\": \"{{t:dry|ドライ}}のフロップは{{t:draw|ドロー}}が少ないです。{{scale}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „dry”: bez formy: dry. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"wet\": \"{{t:wet}}のフロップは{{t:draw|ドロー}}が多いか、完成した{{t:straight|ストレート}}があります。{{scale}}\"",
+  "nowy": "\"wet\": \"{{t:wet|ウェット}}のフロップは{{t:draw|ドロー}}が多いか、完成した{{t:straight|ストレート}}があります。{{scale}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „wet”: bez formy: wet. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"connected\": \"ここでは{{t:straight}}が可能です。例：{{example}}。\"",
+  "nowy": "\"connected\": \"ここでは{{t:straight|ストレート}}が可能です。例：{{example}}。\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „connected”: bez formy: straight. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"pairedDraw\": \"ここでは2枚が同じランクです。{{t:straight-draw}}は例えば{{example}}でできます。\"",
+  "nowy": "\"pairedDraw\": \"ここでは2枚が同じランクです。{{t:straight-draw|ストレートドロー}}は例えば{{example}}でできます。\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „pairedDraw”: bez formy: straight-draw. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"semiConnected\": \"ここではまだ{{t:straight|ストレート}}はありませんが、{{t:straight-draw}}は例えば{{example}}でできます。\"",
+  "nowy": "\"semiConnected\": \"ここではまだ{{t:straight|ストレート}}はありませんが、{{t:straight-draw|ストレートドロー}}は例えば{{example}}でできます。\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „semiConnected”: bez formy: straight-draw. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"twoTone\": \"{{t:flush-draw}}があります（同じスートが2枚）\"",
+  "nowy": "\"twoTone\": \"{{t:flush-draw|フラッシュドロー}}があります（同じスートが2枚）\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „twoTone”: bez formy: flush-draw. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"monotone\": \"すでに{{t:flush}}が可能です（同じスートが3枚）\"",
+  "nowy": "\"monotone\": \"すでに{{t:flush|フラッシュ}}が可能です（同じスートが3枚）\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „monotone”: bez formy: flush. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"straightMade\": \"複数の形で{{t:straight}}が可能です。例：{{example}}\"",
+  "nowy": "\"straightMade\": \"複数の形で{{t:straight|ストレート}}が可能です。例：{{example}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „straightMade”: bez formy: straight. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"straightMadeOne\": \"{{t:straight}}が可能なのは1つの形だけです：{{example}}\"",
+  "nowy": "\"straightMadeOne\": \"{{t:straight|ストレート}}が可能なのは1つの形だけです：{{example}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „straightMadeOne”: bez formy: straight. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"straightDraw\": \"{{t:straight|ストレート}}はありませんが、{{t:straight-draw}}があります。例：{{example}}\"",
+  "nowy": "\"straightDraw\": \"{{t:straight|ストレート}}はありませんが、{{t:straight-draw|ストレートドロー}}があります。例：{{example}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „straightDraw”: bez formy: straight-draw. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"ranks\": \"このフロップは{{t:paired}}、{{t:connected}}、{{t:semi-connected|セミコネクト}}、{{t:disconnected}}のどれですか？\"",
+  "nowy": "\"ranks\": \"このフロップは{{t:paired|ペアボード}}、{{t:connected|コネクト}}、{{t:semi-connected|セミコネクト}}、{{t:disconnected|ディスコネクト}}のどれですか？\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „ranks”: bez formy: paired, connected, disconnected. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md). W tym pytaniu część nazw ma już formę japońską, a etykiety odpowiedzi są po japońsku, więc mieszanka pisma utrudnia dopasowanie.",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"wetness\": \"このフロップは{{t:dry}}、中間、{{t:wet}}のどれですか？\"",
+  "nowy": "\"wetness\": \"このフロップは{{t:dry|ドライ}}、中間、{{t:wet|ウェット}}のどれですか？\"",
+  "waga": "ŚREDNIE",
+  "powod": "Klucz „wetness”: bez formy: dry, wet. Znacznik {{t:…}} bez formy pokazuje w tekście japońskim nazwę angielską alfabetem łacińskim (K-05); forma japońska jak w pozostałych miejscach przekładu (glosariusz roboczy J2-terminy.md).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"search\": \"日本語または英語で検索\"",
+  "nowy": "\"search\": \"英語名または略語で検索\"",
+  "waga": "ŚREDNIE",
+  "powod": "Wyszukiwarka słowniczka poza pl przeszukuje tylko nazwę angielską, en_alt i skrót (apps/mobile/src/features/glossary/glossary.ts:41, haystack); obietnica wyszukiwania po japońsku jest nieprawdziwa (wpisanie „フォールド” nic nie znajdzie). Źródło pl „po polsku albo po angielsku” dotyczy tylko pl.",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "\"intro\": \"コースの用語と、その英語名です。ソルバーやソフト、英語の資料で使われる呼び方と同じです。\"",
+  "nowy": "\"intro\": \"コースのポーカー用語を、ソルバーやソフト、英語の資料で使われる英語名と短い解説で紹介します。\"",
+  "waga": "NISKIE",
+  "powod": "Ekran pokazuje poza pl nazwę angielską i definicję po japońsku (glossary.tsx:60–63, D-347); obecny tekst obiecuje „terminy i ich nazwy angielskie”, jakby były też nazwy japońskie; zgodnie z en „with short definitions”.",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "stary": "（期待値 約82%）",
+  "nowy": "（想定 約82%）",
+  "waga": "NISKIE",
+  "powod": "„期待値” to w pokerze termin EV (expected value); tu chodzi o oczekiwany wynik kontroli, co myli ucznia (ekran diagnostyczny).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-def.yaml",
+  "stary": "得る喜びよりどれだけ大きいか",
+  "nowy": "得る利益よりどれだけ大きいか",
+  "waga": "NISKIE",
+  "powod": "en „than winning the same number helps”: „喜び” (radość) to emocja, nie wartość; definicja liczbowa ICM.",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-def.yaml",
+  "stary": "支払い構造と全プレイヤーのスタックを考慮して",
+  "nowy": "賞金構造と全プレイヤーのスタックを考慮して",
+  "waga": "NISKIE",
+  "powod": "„payout structure” = struktura wypłat nagród; „支払い構造” to kalka (struktura płatności); w ui ja payout = 賞金.",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-def.yaml",
+  "stary": "その支払い構造とスタックのもとで",
+  "nowy": "その賞金構造とスタックのもとで",
+  "waga": "NISKIE",
+  "powod": "Jak wyżej (tournament-equity), spójnie z icm i payout = 賞金.",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "に{{t:bet|置いて}}います",
+  "nowy": "に置いています",
+  "waga": "WYSOKIE",
+  "powod": "Znacznik bet przy „置いて” (ustawiają granicę), czyli w innym znaczeniu niż zakład; błąd odziedziczony ze źródła pl („{{t:bet|stawiają}} tę granicę”, content/pl/lessons/m10-l3-odejscie-od-bazy.md:122) — poprawić też pl i en.",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "{{t:position|インポジション}}の3ベットは",
+  "nowy": "{{t:in-position|インポジション}}の3ベットは",
+  "waga": "ŚREDNIE",
+  "powod": "Forma „インポジション” to termin in-position (terms.yaml:356), nie position; odsyłacz do słowniczka wskazywałby złe hasło.",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "{{t:position|インポジション}}の3ベットが",
+  "nowy": "{{t:in-position|インポジション}}の3ベットが",
+  "waga": "ŚREDNIE",
+  "powod": "Jak wyżej (m10-l3, sekcja o 3-becie z pozycji).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l1-wariancja.md",
+  "stary": "数字で見るバリアンス",
+  "nowy": "数字で見る分散",
+  "waga": "ŚREDNIE",
+  "powod": "Niespójna terminologia: variance = „分散” w 11 znacznikach (m12-l3, m12-l4, m13-l1) i w terms-def (standard-deviation „分散の平方根”), „バリアンス” tylko tu i w jednym znaczniku. Źródło: light-three.com/poker-advanced-terms-quiz/ „分散: 短期的な結果の上下幅”.",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l1-wariancja.md",
+  "stary": "{{t:variance|バリアンス}}計算ツール",
+  "nowy": "{{t:variance|分散}}計算ツール",
+  "waga": "ŚREDNIE",
+  "powod": "Jak wyżej: jedna forma dla variance (分散).",
+  "grupa": "J2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l1-statystyki.md",
+  "stary": "{{n:hud.se.ex.n}}ではなく{{n:hud.se.f3b.n}}回の機会でフォールド・トゥ・3ベットが{{n:hud.se.f3b.p}}なら、区間は",
+  "nowy": "フォールド・トゥ・3ベットが{{n:hud.se.f3b.n}}回の機会のうち{{n:hud.se.f3b.p}}なら、区間は",
+  "waga": "KRYTYCZNE",
+  "powod": "Nadmiarowy znacznik {{n:hud.se.ex.n}} („zamiast X rąk”), którego nie ma w źródle (pl: „Fold to 3-bet {{n:hud.se.f3b.p}} z {{n:hud.se.f3b.n}} okazji to przedział od … do …: prawie nic.”); powód odrzucenia pliku. Poprawka przywraca dokładnie zestaw kluczy źródła.",
+  "grupa": "J3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "Cベット（コンティニュエーション{{t:bet}}）",
+  "nowy": "Cベット（コンティニュエーション{{t:bet|ベット}}）",
+  "waga": "ŚREDNIE",
+  "powod": "Znacznik bez formy renderuje łacińskie „bet” w środku japońskiego złożenia („コンティニュエーションbet”); forma ベット jak w reszcie pliku (K-05).",
+  "grupa": "J3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m0-l1-uklady.md",
+  "stary": "prompt: \"{{t:flush}}と{{t:straight}}、勝つのはどちらですか？\"",
+  "nowy": "prompt: \"{{t:flush|フラッシュ}}と{{t:straight|ストレート}}、勝つのはどちらですか？\"",
+  "waga": "ŚREDNIE",
+  "powod": "Pierwsze pytanie kursu: bez formy wyświetli „flushとstraight” po łacinie; nazwy układów w katakanie są standardem w ja (K-05, decyzja systemowa — zastosować, jeśli K-05 nie wprowadzi form automatycznie).",
+  "grupa": "J3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m0-l1-uklady.md",
+  "stary": "prompt: \"{{t:two-pair}}と{{t:three-of-a-kind}}、強いのはどちらですか？\"",
+  "nowy": "prompt: \"{{t:two-pair|ツーペア}}と{{t:three-of-a-kind|スリーカード}}、強いのはどちらですか？\"",
+  "waga": "ŚREDNIE",
+  "powod": "Jak wyżej: łacińskie „two pairとthree of a kind” w pytaniu dla początkującego (K-05).",
+  "grupa": "J3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m2-l2-pot-odds.md",
+  "stary": "これはエクイティが必要な値より小さいときにちょうどマイナスになります",
+  "nowy": "これはエクイティが必要な値より小さいとき、かつそのときに限りマイナスになります",
+  "waga": "NISKIE",
+  "powod": "pl „dokładnie wtedy, gdy” = równoważność (wtedy i tylko wtedy); „ちょうどマイナスになる” czyta się jak „staje się dokładnie ujemne”.",
+  "grupa": "J3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l1-statystyki.md",
+  "stary": "資金を差し押さえることがあります",
+  "nowy": "資金を没収することがあります",
+  "waga": "NISKIE",
+  "powod": "„zatrzymać środki” przez salę = konfiskata; 差し押さえ to zajęcie prawne/komornicze.",
+  "grupa": "J3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l4-bankroll.md",
+  "stary": "始めました。{{t:downswing|ダウンスイング}}の後、残",
+  "nowy": "始めました。{{t:downswing|ダウンスウィング}}の後、残",
+  "waga": "ŚREDNIE",
+  "powod": "Spójność pisowni downswing: 21× ダウンスウィング (m12-l1, egzamin, rules), 2× ダウンスイング tylko w m12-l4.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l4-bankroll.md",
+  "stary": "why: \"{{t:downswing|ダウンスイング}}のたびに",
+  "nowy": "why: \"{{t:downswing|ダウンスウィング}}のたびに",
+  "waga": "ŚREDNIE",
+  "powod": "Spójność pisowni downswing: 21× ダウンスウィング (m12-l1, egzamin, rules), 2× ダウンスイング tylko w m12-l4.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l4-bankroll.md",
+  "stary": "全体より深い{{t:downswing}}に見舞わ",
+  "nowy": "全体より深い{{t:downswing|ダウンスウィング}}に見舞わ",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w środku zdania japońskiego (np. „ただのvarianceだから”, „上のstakesはbuy-inが2倍”); forma zgodna z resztą przekładu ja. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l4-bankroll.md",
+  "stary": "ける。ただの{{t:variance}}だから\", why: \"おそらく{{t:variance}}なのは確かですが、まさにそれから守ってくれるのが{{t:stakes|ステークス}}を下げることです。{{n:br.ex.below}}{{t:buy-in|バイイン}}では、次の{{t:downswing}}ですべて",
+  "nowy": "ける。ただの{{t:variance|分散}}だから\", why: \"おそらく{{t:variance|分散}}なのは確かですが、まさにそれから守ってくれるのが{{t:stakes|ステークス}}を下げることです。{{n:br.ex.below}}{{t:buy-in|バイイン}}では、次の{{t:downswing|ダウンスウィング}}ですべて",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w środku zdania japońskiego (np. „ただのvarianceだから”, „上のstakesはbuy-inが2倍”); forma zgodna z resztą przekładu ja. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l4-bankroll.md",
+  "stary": "さいまま上の{{t:stakes}}に移ると",
+  "nowy": "さいまま上の{{t:stakes|ステークス}}に移ると",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w środku zdania japońskiego (np. „ただのvarianceだから”, „上のstakesはbuy-inが2倍”); forma zgodna z resztą przekładu ja. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l4-bankroll.md",
+  "stary": "にこの程度の{{t:downswing}}を経験し",
+  "nowy": "にこの程度の{{t:downswing|ダウンスウィング}}を経験し",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w środku zdania japońskiego (np. „ただのvarianceだから”, „上のstakesはbuy-inが2倍”); forma zgodna z resztą przekładu ja. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l4-bankroll.md",
+  "stary": "います。上の{{t:stakes}}は{{t:buy-in}}が2倍で",
+  "nowy": "います。上の{{t:stakes|ステークス}}は{{t:buy-in|バイイン}}が2倍で",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w środku zdania japońskiego (np. „ただのvarianceだから”, „上のstakesはbuy-inが2倍”); forma zgodna z resztą przekładu ja. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l4-bankroll.md",
+  "stary": "1か月は主に{{t:variance}}によるも",
+  "nowy": "1か月は主に{{t:variance|分散}}によるも",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w środku zdania japońskiego (np. „ただのvarianceだから”, „上のstakesはbuy-inが2倍”); forma zgodna z resztą przekładu ja. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l4-bankroll.md",
+  "stary": "スのまま上の{{t:stakes}}に移って",
+  "nowy": "スのまま上の{{t:stakes|ステークス}}に移って",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w środku zdania japońskiego (np. „ただのvarianceだから”, „上のstakesはbuy-inが2倍”); forma zgodna z resztą przekładu ja. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l4-bankroll.md",
+  "stary": "数えます。1{{t:buy-in}}は、プレ",
+  "nowy": "数えます。1{{t:buy-in|バイイン}}は、プレ",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w środku zdania japońskiego (np. „ただのvarianceだから”, „上のstakesはbuy-inが2倍”); forma zgodna z resztą przekładu ja. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m12.yaml",
+  "stary": "結果は、主に{{t:variance}}によるも",
+  "nowy": "結果は、主に{{t:variance|分散}}によるも",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w środku zdania japońskiego (np. „ただのvarianceだから”, „上のstakesはbuy-inが2倍”); forma zgodna z resztą przekładu ja. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m12.yaml",
+  "stary": "。クリーンな{{t:flush-draw}}を持っていて、{{t:pot|ポット}}は{{n:ex.pot}}です。相手が{{n:ex.bet.half}}でオールインし、これ以上は勝ち取れません。あなたは{{t:call|コール}}し、リバーで{{t:flush}}が完成して勝ちました。この{{t:call}}をどう評",
+  "nowy": "。クリーンな{{t:flush-draw|フラッシュドロー}}を持っていて、{{t:pot|ポット}}は{{n:ex.pot}}です。相手が{{n:ex.bet.half}}でオールインし、これ以上は勝ち取れません。あなたは{{t:call|コール}}し、リバーで{{t:flush|フラッシュ}}が完成して勝ちました。この{{t:call|コール}}をどう評",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w środku zdania japońskiego (np. „ただのvarianceだから”, „上のstakesはbuy-inが2倍”); forma zgodna z resztą przekładu ja. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m12.yaml",
+  "stary": "}でしたが、{{t:flush-draw}}がリバーで完成するのは約{{n:odds.flush.turn-river}}です。相手はオールインなので、後から追加で支払ってもらうことはありません。何度も繰り返せば、このような{{t:call}}は損をし",
+  "nowy": "}でしたが、{{t:flush-draw|フラッシュドロー}}がリバーで完成するのは約{{n:odds.flush.turn-river}}です。相手はオールインなので、後から追加で支払ってもらうことはありません。何度も繰り返せば、このような{{t:call|コール}}は損をし",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w środku zdania japońskiego (np. „ただのvarianceだから”, „上のstakesはbuy-inが2倍”); forma zgodna z resztą przekładu ja. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m12.yaml",
+  "stary": "こと、これは{{t:variance}}であるこ",
+  "nowy": "こと、これは{{t:variance|分散}}であるこ",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w środku zdania japońskiego (np. „ただのvarianceだから”, „上のstakesはbuy-inが2倍”); forma zgodna z resztą przekładu ja. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m12.yaml",
+  "stary": "why: \"{{t:variance}}だと分か",
+  "nowy": "why: \"{{t:variance|分散}}だと分か",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w środku zdania japońskiego (np. „ただのvarianceだから”, „上のstakesはbuy-inが2倍”); forma zgodna z resztą przekładu ja. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m12.yaml",
+  "stary": "ていて、上の{{t:stakes}}は損失を",
+  "nowy": "ていて、上の{{t:stakes|ステークス}}は損失を",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w środku zdania japońskiego (np. „ただのvarianceだから”, „上のstakesはbuy-inが2倍”); forma zgodna z resztą przekładu ja. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m12.yaml",
+  "stary": "{ text: \"負け嫌いティルト\"",
+  "nowy": "{ text: \"負けることへの嫌悪によるティルト\"",
+  "waga": "ŚREDNIE",
+  "powod": "Spójność z lekcją m12-l3: pytanie każe wskazać typ „według podziału z lekcji o tilcie”, a nazwy typów w egzaminie (負け嫌い/不公平/ミス/復讐ティルト) różnią się od nazw w tabeli lekcji (負けることへの嫌悪/不公平感/ミス/復讐によるティルト); pl używa tych samych nazw w lekcji i egzaminie.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m12.yaml",
+  "stary": "{ text: \"不公平ティルト\"",
+  "nowy": "{ text: \"不公平感によるティルト\"",
+  "waga": "ŚREDNIE",
+  "powod": "Spójność z lekcją m12-l3: pytanie każe wskazać typ „według podziału z lekcji o tilcie”, a nazwy typów w egzaminie (負け嫌い/不公平/ミス/復讐ティルト) różnią się od nazw w tabeli lekcji (負けることへの嫌悪/不公平感/ミス/復讐によるティルト); pl używa tych samych nazw w lekcji i egzaminie.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m12.yaml",
+  "stary": "{ text: \"ミスティルト\", why: \"ミスティルトは",
+  "nowy": "{ text: \"ミスによるティルト\", why: \"ミスによるティルトは",
+  "waga": "ŚREDNIE",
+  "powod": "Spójność z lekcją m12-l3: pytanie każe wskazać typ „według podziału z lekcji o tilcie”, a nazwy typów w egzaminie (負け嫌い/不公平/ミス/復讐ティルト) różnią się od nazw w tabeli lekcji (負けることへの嫌悪/不公平感/ミス/復讐によるティルト); pl używa tych samych nazw w lekcji i egzaminie.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m12.yaml",
+  "stary": "{ text: \"復讐ティルト\"",
+  "nowy": "{ text: \"復讐によるティルト\"",
+  "waga": "ŚREDNIE",
+  "powod": "Spójność z lekcją m12-l3: pytanie każe wskazać typ „według podziału z lekcji o tilcie”, a nazwy typów w egzaminie (負け嫌い/不公平/ミス/復讐ティルト) różnią się od nazw w tabeli lekcji (負けることへの嫌悪/不公平感/ミス/復讐によるティルト); pl używa tych samych nazw w lekcji i egzaminie.",
+  "grupa": "A"
+ }
+]

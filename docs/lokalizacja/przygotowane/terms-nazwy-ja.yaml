@@ -1,6 +1,6 @@
 # Szkic K-05 (rola 09, sesja AB, 2026-11-09): nazwa terminu w ja dla znacznika {{t:klucz}} bez formy.
 # Wygenerowane z propozycji przekładu (przebiegi 42677941726/42677958807/42682266650): najczęstsza forma {{t:klucz|forma}}.
-# NIE jest to jeszcze plik treści: sesja kodu przenosi go do content/ja/terms-nazwy.yaml po weryfikacji (D-366).
+# NIE jest to jeszcze plik treści: sesja kodu przenosi go do content/ja/terms-nazwy.yaml po weryfikacji (D-367).
 # Format wiersza: klucz: "nazwa"  # en; bez formy N; formy: forma×liczba …; [SKRÓT] = zostaje skrót; [DO USTALENIA] = brak formy w przekładzie
 royal-flush: "ロイヤルフラッシュ"  # royal flush; bez formy 2; formy: ロイヤルフラッシュ×1
 straight-flush: "ストレートフラッシュ"  # straight flush; bez formy 2; formy: ストレートフラッシュ×1
@@ -80,7 +80,7 @@ rainbow: "レインボー"  # rainbow; bez formy 1; formy: レインボー×3
 two-tone: "ツートーン"  # two-tone; bez formy 3; formy: ツートーン×4
 monotone: "モノトーン"  # monotone; bez formy 6; formy: モノトーン×13
 paired: "ペアボード"  # paired; bez formy 2; formy: ペアボード×7, ペアの×6, ペア×2 [WIELE FORM]
-connected: "コネクト"  # connected; bez formy 5; formy: コネクト×5, コネクトした×5, コネクテッド×4 [WIELE FORM]
+connected: "コネクテッド"  # connected; bez formy 5; formy: コネクト×5, コネクトした×5, コネクテッド×4 [AB: J2: jedna forma przymiotnikowa (koneksja tekstur, UI drill.texture)]
 disconnected: "ディスコネクテッド"  # disconnected; bez formy 2; formy: ディスコネクテッド×1, ディスコネクト×1 [WIELE FORM]
 semi-connected: "セミコネクト"  # semi-connected; bez formy 0; formy: セミコネクト×5, セミコネクテッド×2 [WIELE FORM]
 wetness: "ウェット度"  # wetness; bez formy 0; formy: ウェット度×4, ウェットさ×1 [WIELE FORM]
@@ -93,7 +93,7 @@ initiative: "イニシアチブ"  # initiative; bez formy 0; formy: イニシア
 range-advantage: "レンジアドバンテージ"  # range advantage; bez formy 6; formy: レンジアドバンテージ×26
 nuts-advantage: "ナッツアドバンテージ"  # nuts advantage; bez formy 9; formy: ナッツアドバンテージ×14
 nuts: "ナッツ"  # nuts; bez formy 0; formy: ナッツ×1
-polarized: "ポラライズ"  # polarized; bez formy 1; formy: ポラライズ×18, ポラライズド×3, ポラライズした×1 [WIELE FORM]
+polarized: "ポラライズ"  # polarized; bez formy 1; formy: ポラライズ×18, ポラライズド×3, ポラライズした×1 [AB: większość form]
 polarization: null  # polarization; bez formy 0; formy: — [DO USTALENIA]
 linear: "リニア"  # linear; bez formy 0; formy: リニア×10
 condensed: "コンデンスド"  # condensed; bez formy 0; formy: コンデンスド×1, コンデンス×1 [WIELE FORM]
@@ -112,12 +112,12 @@ effective-stack: "エフェクティブスタック"  # effective stack; bez for
 spr: null  # stack-to-pot ratio; bez formy 175; formy: SPR×14 [SKRÓT SPR]
 mdf: null  # minimum defense frequency; bez formy 67; formy: MDF×8 [SKRÓT MDF]
 alpha: "アルファ"  # alpha; bez formy 4; formy: アルファ×2
-variance: "分散"  # variance; bez formy 14; formy: 分散×11, バリアンス×1 [WIELE FORM]
+variance: "分散"  # variance; bez formy 14; formy: 分散×11, バリアンス×1 [AB: J2, kontrola (a): バリアンス bez przeczytanego źródła; tekst ujednolicić]
 buy-in: "バイイン"  # buy-in; bez formy 2; formy: バイイン×81
 bankroll: "バンクロール"  # bankroll; bez formy 0; formy: バンクロール×1
 tilt: null  # tilt; bez formy 0; formy: — [DO USTALENIA]
 winrate: null  # win rate; bez formy 1; formy: — [DO USTALENIA]
-downswing: "ダウンスウィング"  # downswing; bez formy 5; formy: ダウンスウィング×21, ダウンスイング×2 [WIELE FORM]
+downswing: "ダウンスウィング"  # downswing; bez formy 5; formy: ダウンスウィング×21, ダウンスイング×2 [AB: kontrola (a): ujednolicić ダウンスイング]
 session: "セッション"  # session; bez formy 7; formy: セッション×49
 stakes: "ステークス"  # stakes; bez formy 7; formy: ステークス×58
 standard-deviation: "標準偏差"  # standard deviation; bez formy 0; formy: 標準偏差×44

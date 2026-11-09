@@ -1,0 +1,749 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "stary": "翻牌的{{t:wetness|潮濕度}}得分低於",
+  "nowy": "翻牌的{{t:wetness|濕潤度}}得分低於",
+  "waga": "ŚREDNIE",
+  "powod": "spójność z UI (texture:濕潤/單色/雙色/連張/半連張) i lekcjami; ta sama etykieta pojęcia w regule i w ćwiczeniu tekstur",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "stary": "翻牌的{{t:wetness|潮濕度}}得分至少",
+  "nowy": "翻牌的{{t:wetness|濕潤度}}得分至少",
+  "waga": "ŚREDNIE",
+  "powod": "spójność z UI (texture:濕潤/單色/雙色/連張/半連張) i lekcjami; ta sama etykieta pojęcia w regule i w ćwiczeniu tekstur",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "stary": "這是{{t:wet|潮濕}}翻牌",
+  "nowy": "這是{{t:wet|濕潤}}翻牌",
+  "waga": "ŚREDNIE",
+  "powod": "spójność z UI (texture:濕潤/單色/雙色/連張/半連張) i lekcjami; ta sama etykieta pojęcia w regule i w ćwiczeniu tekstur",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "stary": "；潮濕翻牌的概念",
+  "nowy": "；濕潤翻牌的概念",
+  "waga": "NISKIE",
+  "powod": "pole source: ta sama nazwa co w if/then po poprawce",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "stary": "；潮濕翻牌範例",
+  "nowy": "；濕潤翻牌範例",
+  "waga": "NISKIE",
+  "powod": "pole source: ta sama nazwa co w if/then po poprawce",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "stary": "中等／潮濕的界線",
+  "nowy": "中等／濕潤的界線",
+  "waga": "NISKIE",
+  "powod": "pole source: ta sama nazwa co w if/then po poprawce",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "stary": "：潮濕翻牌不代表要大額下注",
+  "nowy": "：濕潤翻牌不代表要大額下注",
+  "waga": "NISKIE",
+  "powod": "pole source: ta sama nazwa co w if/then po poprawce",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "stary": "{{t:connected|連接}}或{{t:semi-connected|半連接}}",
+  "nowy": "{{t:connected|連張}}或{{t:semi-connected|半連張}}",
+  "waga": "ŚREDNIE",
+  "powod": "spójność z UI (texture:濕潤/單色/雙色/連張/半連張) i lekcjami; ta sama etykieta pojęcia w regule i w ćwiczeniu tekstur",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "stary": "且{{t:connected|連接}}（例如 7-6-5",
+  "nowy": "且{{t:connected|連張}}（例如 7-6-5",
+  "waga": "ŚREDNIE",
+  "powod": "spójność z UI (texture:濕潤/單色/雙色/連張/半連張) i lekcjami; ta sama etykieta pojęcia w regule i w ćwiczeniu tekstur",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "stary": "{{t:two-tone|雙花色}}的 K-J-7",
+  "nowy": "{{t:two-tone|雙色}}的 K-J-7",
+  "waga": "ŚREDNIE",
+  "powod": "spójność z UI (texture:濕潤/單色/雙色/連張/半連張) i lekcjami; ta sama etykieta pojęcia w regule i w ćwiczeniu tekstur",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "stary": "{{t:monotone|單花色}}（三張同",
+  "nowy": "{{t:monotone|單色}}（三張同",
+  "waga": "ŚREDNIE",
+  "powod": "spójność z UI (texture:濕潤/單色/雙色/連張/半連張) i lekcjami; ta sama etykieta pojęcia w regule i w ćwiczeniu tekstur",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "stary": "這是{{t:variance|變異}}",
+  "nowy": "這是{{t:variance|波動}}",
+  "waga": "NISKIE",
+  "powod": "„這是變異” brzmi jak termin statystyczny; w kontekście tiltu naturalniej „波動” (tak moduł m12 sub i lekcje)",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "stary": "不只補齊盲注（溜入，limp）",
+  "nowy": "而不是只補齊盲注（溜入，limp）",
+  "waga": "NISKIE",
+  "powod": "„不只” można odczytać „nie tylko (ale też)”; źródło: „nie dopłacasz samego blinda”",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "stary": "這類牌局中平均有 1 − e 你會輸",
+  "nowy": "這類牌局平均會輸掉其中的 1 − e",
+  "waga": "NISKIE",
+  "powod": "niezręczny szyk; sens bez zmian (przegrywasz średnio w 1 − e rozdań)",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/modules.yaml",
+  "stary": "防守、跛入者",
+  "nowy": "防守、溜入者",
+  "waga": "ŚREDNIE",
+  "powod": "reguły M4 i większość lekcji używają 溜入 dla limp; podtytuł modułu m4 używał 跛入者",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "title: \"{{t:utg}}，還沒有人入池\"",
+  "nowy": "title: \"{{t:utg|UTG}}，還沒有人入池\"",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "\"9 人桌的{{t:utg}}，還沒有人入池\"",
+  "nowy": "\"9 人桌的{{t:utg|UTG}}，還沒有人入池\"",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "，{{t:utg}}{{t:fold|棄牌}}了\"",
+  "nowy": "，{{t:utg|UTG}}{{t:fold|棄牌}}了\"",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "{ \"玩這手（3-bet 到 7.5bb 或{{t:call}}）\": [",
+  "nowy": "{ \"玩這手（3-bet 到 7.5bb 或{{t:call|跟注}}）\": [",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku; klucz grupy: zmienić RAZEM z kluczem w wrongSizes (następna pozycja), inaczej wrongSizes nie trafi w grupę",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "    \"玩這手（3-bet 到 7.5bb 或{{t:call}}）\":",
+  "nowy": "    \"玩這手（3-bet 到 7.5bb 或{{t:call|跟注}}）\":",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku; klucz wrongSizes = klucz groups (poprzednia pozycja)",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "這是{{t:out-of-position}}時用的尺寸",
+  "nowy": "這是{{t:out-of-position|無位置}}時用的尺寸",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "  title: \"{{t:big-blind|大盲}}，按鈕位以 2.5bb {{t:open|開池}}，{{t:small-blind}}",
+  "nowy": "  title: \"{{t:big-blind|大盲}}，按鈕位以 2.5bb {{t:open|開池}}，{{t:small-blind|小盲}}",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "\"9 人桌的{{t:big-blind|大盲}}，按鈕位以 2.5bb {{t:open|開池}}，{{t:small-blind}}",
+  "nowy": "\"9 人桌的{{t:big-blind|大盲}}，按鈕位以 2.5bb {{t:open|開池}}，{{t:small-blind|小盲}}",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "\"防守（{{t:call}}或 3-bet）\": [\"call 2.5\"",
+  "nowy": "\"防守（{{t:call|跟注}}或 3-bet）\": [\"call 2.5\"",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku (klucz grupy; brak wrongSizes w tym spocie)",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "\"防守（{{t:call}}或 3-bet）\": [\"call 3\"",
+  "nowy": "\"防守（{{t:call|跟注}}或 3-bet）\": [\"call 3\"",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku (klucz grupy)",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "  title: \"{{t:big-blind|大盲}}，{{t:small-blind}}以 3bb",
+  "nowy": "  title: \"{{t:big-blind|大盲}}，{{t:small-blind|小盲}}以 3bb",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "\"9 人桌的{{t:big-blind|大盲}}，{{t:small-blind}}以 3bb",
+  "nowy": "\"9 人桌的{{t:big-blind|大盲}}，{{t:small-blind|小盲}}以 3bb",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "籌碼量 5bb，所有人都{{t:fold|棄牌}}了。全下還是{{t:fold}}？",
+  "nowy": "籌碼量 5bb，所有人都{{t:fold|棄牌}}了。全下還是{{t:fold|棄牌}}？",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "籌碼量 10bb，所有人都{{t:fold|棄牌}}了。全下還是{{t:fold}}？",
+  "nowy": "籌碼量 10bb，所有人都{{t:fold|棄牌}}了。全下還是{{t:fold|棄牌}}？",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "籌碼量 15bb，所有人都{{t:fold|棄牌}}了。全下還是{{t:fold}}？",
+  "nowy": "籌碼量 15bb，所有人都{{t:fold|棄牌}}了。全下還是{{t:fold|棄牌}}？",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "{{t:big-blind}}下了 1bb 前注，所有人都{{t:fold|棄牌}}了。全下還是{{t:fold}}？",
+  "nowy": "{{t:big-blind|大盲}}下了 1bb 前注，所有人都{{t:fold|棄牌}}了。全下還是{{t:fold|棄牌}}？",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "按鈕位{{t:fold|棄牌}}了。全下還是{{t:fold}}？",
+  "nowy": "按鈕位{{t:fold|棄牌}}了。全下還是{{t:fold|棄牌}}？",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "你後面還有{{t:big-blind}}。",
+  "nowy": "你後面還有{{t:big-blind|大盲}}。",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "，{{t:small-blind}}{{t:fold|棄牌}}了。你要",
+  "nowy": "，{{t:small-blind|小盲}}{{t:fold|棄牌}}了。你要",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/ranges/spots.yaml",
+  "stary": "，{{t:small-blind}}{{t:call|跟注}}了。",
+  "nowy": "，{{t:small-blind|小盲}}{{t:call|跟注}}了。",
+  "waga": "ŚREDNIE",
+  "powod": "znacznik bez formy pokazuje w zh nazwę angielską łacinką w środku zdania (K-05); dodana forma z tego samego pliku",
+  "grupa": "Z1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "stary": "    \"category\": {\n      \"straightFlush\": \"{{t:straight-flush}}\",\n      \"fourOfAKind\": \"{{t:four-of-a-kind}}\",\n      \"fullHouse\": \"{{t:full-house}}\",\n      \"flush\": \"{{t:flush}}\",\n      \"straight\": \"{{t:straight}}\",\n      \"threeOfAKind\": \"{{t:three-of-a-kind}}\",\n      \"twoPair\": \"{{t:two-pair}}\",\n      \"pair\": \"{{t:pair}}\",\n      \"highCard\": \"{{t:high-card}}\",\n      \"royalFlush\": \"{{t:royal-flush}}\"\n    },\n    \"categoryAcc\": {\n      \"straightFlush\": \"{{t:straight-flush}}\",\n      \"fourOfAKind\": \"{{t:four-of-a-kind}}\",\n      \"fullHouse\": \"{{t:full-house}}\",\n      \"flush\": \"{{t:flush}}\",\n      \"straight\": \"{{t:straight}}\",\n      \"threeOfAKind\": \"{{t:three-of-a-kind}}\",\n      \"twoPair\": \"{{t:two-pair}}\",\n      \"pair\": \"{{t:pair}}\",\n      \"highCard\": \"{{t:high-card}}\",\n      \"royalFlush\": \"{{t:royal-flush}}\"\n    },\n",
+  "nowy": "    \"category\": {\n      \"straightFlush\": \"{{t:straight-flush|同花順}}\",\n      \"fourOfAKind\": \"{{t:four-of-a-kind|四條}}\",\n      \"fullHouse\": \"{{t:full-house|葫蘆}}\",\n      \"flush\": \"{{t:flush|同花}}\",\n      \"straight\": \"{{t:straight|順子}}\",\n      \"threeOfAKind\": \"{{t:three-of-a-kind|三條}}\",\n      \"twoPair\": \"{{t:two-pair|兩對}}\",\n      \"pair\": \"{{t:pair|一對}}\",\n      \"highCard\": \"{{t:high-card|高牌}}\",\n      \"royalFlush\": \"{{t:royal-flush|皇家同花順}}\"\n    },\n    \"categoryAcc\": {\n      \"straightFlush\": \"{{t:straight-flush|同花順}}\",\n      \"fourOfAKind\": \"{{t:four-of-a-kind|四條}}\",\n      \"fullHouse\": \"{{t:full-house|葫蘆}}\",\n      \"flush\": \"{{t:flush|同花}}\",\n      \"straight\": \"{{t:straight|順子}}\",\n      \"threeOfAKind\": \"{{t:three-of-a-kind|三條}}\",\n      \"twoPair\": \"{{t:two-pair|兩對}}\",\n      \"pair\": \"{{t:pair|一對}}\",\n      \"highCard\": \"{{t:high-card|高牌}}\",\n      \"royalFlush\": \"{{t:royal-flush|皇家同花順}}\"\n    },\n",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category/categoryAcc: znacznik bez formy pokazuje w chińskim UI angielskie nazwy układów (przyciski odpowiedzi w ćwiczeniu M0 i {{winner}}/{{loser}} w wyjaśnieniu „X 的排名比 Y 高”); formy zgodne z terms-def i glosariuszem pokerqz.com/zh-TW (K-05)",
+  "grupa": "Z2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "stary": "\"drawFlush\": \"{{t:flush-draw}}\"",
+  "nowy": "\"drawFlush\": \"{{t:flush-draw|同花聽牌}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "„你有flush draw” — łacińska nazwa w zdaniu; forma jak w 45 innych miejscach",
+  "grupa": "Z2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "stary": "\"drawOesd\": \"{{t:oesd}}\"",
+  "nowy": "\"drawOesd\": \"{{t:oesd|兩頭順子聽牌}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "łacińska nazwa w zdaniu; forma większościowa w przekładzie (10×)",
+  "grupa": "Z2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "stary": "\"drawGutshot\": \"gutshot\"",
+  "nowy": "\"drawGutshot\": \"卡順聽牌\"",
+  "waga": "ŚREDNIE",
+  "powod": "słowo angielskie bez tłumaczenia w zdaniu „你有gutshot”; terms-def straight-draw używa 卡順; 卡順/內聽順 potwierdzone w źródłach tajwańskich [AB: bez znacznika — UI ma twardą kontrolę liczby {{t:…}}, D-344]",
+  "grupa": "Z2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "stary": "（兩頭順或 gutshot）",
+  "nowy": "（兩頭順或卡順）",
+  "waga": "ŚREDNIE",
+  "powod": "słowo angielskie w środku zdania; spójność z terms-def (卡順)",
+  "grupa": "Z2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "stary": "兩人都是「{{t:playing-the-board}}」",
+  "nowy": "兩人都是「{{t:playing-the-board|打公牌}}」",
+  "waga": "ŚREDNIE",
+  "powod": "łacińska nazwa w cudzysłowie; forma 打公牌 jak w m0-l1 i rules.yaml",
+  "grupa": "Z2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "stary": "（{{t:pair}} {{pairCombos}}、",
+  "nowy": "（{{t:pair|對子}} {{pairCombos}}、",
+  "waga": "ŚREDNIE",
+  "powod": "„pair” po łacinie w nawiasie między chińskimi „同花色/不同花色”",
+  "grupa": "Z2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "stary": "\"passive\": \"被動的{{t:recreational|休閒玩家}}\"",
+  "nowy": "\"passive\": \"被動的{{t:recreational|娛樂玩家}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "niespójność: recreational = 娛樂玩家 w 19 miejscach treści i w terms-def; 休閒玩家 tylko tu i w exams/m10",
+  "grupa": "Z2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "stary": "\"alwaysFree\": \"課程和第一次測驗一律免費。\"",
+  "nowy": "\"alwaysFree\": \"課程，以及每個測驗的第一次作答，一律免費。\"",
+  "waga": "ŚREDNIE",
+  "powod": "treść płatnicza: „第一次測驗” czyta się jak „pierwszy egzamin (kursu)”, a źródło mówi o pierwszym podejściu do każdego egzaminu",
+  "grupa": "Z2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "apps/mobile/src/i18n/locales/zh-Hant.json",
+  "stary": "Bubble factor = 損失",
+  "nowy": "泡沫因子（bubble factor）= 損失",
+  "waga": "NISKIE",
+  "powod": "termin bez tłumaczenia; 泡沫因子 w glosariuszu pokerqz.com/zh-TW",
+  "grupa": "Z2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-def.yaml",
+  "stary": "根據已發表的 solver 分析",
+  "nowy": "根據已發表的求解器分析",
+  "waga": "ŚREDNIE",
+  "powod": "„solver” po łacinie; w całym przekładzie 求解器",
+  "grupa": "Z2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/terms-def.yaml",
+  "stary": "通常比常規玩家弱",
+  "nowy": "通常比常客弱",
+  "waga": "ŚREDNIE",
+  "powod": "regular = 常客 w UI (nazwa typu gracza w ćwiczeniu) i 6× w treści; jedna nazwa na pojęcie",
+  "grupa": "Z2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l1-statystyki.md",
+  "stary": "{{t:winrate|勝率}}",
+  "nowy": "{{t:winrate|贏率}}",
+  "waga": "ŚREDNIE",
+  "powod": "勝率 w przekładzie oznacza equity (108×); winrate wszędzie indziej 贏率 (98×) — kolizja pojęć",
+  "grupa": "Z2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l3-odejscie-od-bazy.md",
+  "stary": "{{t:bet|定}}",
+  "nowy": "定",
+  "waga": "ŚREDNIE",
+  "powod": "„定界線” (ustawić granicę) to nie bet; błędny znacznik przeniesiony ze źródła pl („stawiają tę granicę” z {{t:bet}}) — źródło pl do poprawy osobno",
+  "grupa": "Z2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l4-plan-trzech-ulic.md",
+  "stary": "{{t:call|檢視}}",
+  "nowy": "檢視",
+  "waga": "ŚREDNIE",
+  "powod": "„重新檢視計畫” (przejrzeć plan) to nie call; błąd znacznika przeniesiony ze źródła pl („plan {{t:call|sprawdzasz}}”)",
+  "grupa": "Z2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m7-l2-polaryzacja.md",
+  "stary": "轉牌是一張{{t:three-of-a-kind|三}}",
+  "nowy": "轉牌是一張 3",
+  "waga": "ŚREDNIE",
+  "powod": "turn to karta 3♠ (board Th 6h 2c 3s), nie układ trójka; znacznik three-of-a-kind błędny (błąd źródła pl „Turn to {{t:three-of-a-kind}}”)",
+  "grupa": "Z2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m2.yaml",
+  "stary": "你需要多少勝率才能{{t:call|跟注}}？",
+  "nowy": "你需要多少權益才能{{t:call|跟注}}？",
+  "waga": "ŚREDNIE",
+  "powod": "equity: w lekcji m2.l2 (i 141 razy w zh-Hant) „權益”, w egzaminie tego samego modułu „勝率”; 勝率 w m10/m12 bywa też winrate — jedna nazwa na pojęcie",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m2.yaml",
+  "stary": "你需要百分之多少的勝率才能{{t:call|跟注}}？",
+  "nowy": "你需要百分之多少的權益才能{{t:call|跟注}}？",
+  "waga": "ŚREDNIE",
+  "powod": "jw., spójność z m2.l2 (equity = 權益)",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l1-statystyki.md",
+  "stary": "第 3–9 單元",
+  "nowy": "第 3–9 模組",
+  "waga": "ŚREDNIE",
+  "powod": "moduł: interfejs (zh-Hant.json) i m2.l2 używają „模組”",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l1-statystyki.md",
+  "stary": "在第 12 單元",
+  "nowy": "在第 12 模組",
+  "waga": "ŚREDNIE",
+  "powod": "jw., spójność z interfejsem",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l1-statystyki.md",
+  "stary": "{{t:call|跟注}}別人的{{t:open|開局加注}}",
+  "nowy": "{{t:call|跟注}}別人的{{t:open|開池}}",
+  "waga": "ŚREDNIE",
+  "powod": "open: wszędzie indziej w zh-Hant „開池” (248×), tylko m10.l1 „開局加注”",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l1-statystyki.md",
+  "stary": "只有在對手{{t:open|開局加注}}並遭到 3-bet 時，才會出現",
+  "nowy": "只有在對手{{t:open|開池}}並遭到 3-bet 時，才會出現",
+  "waga": "ŚREDNIE",
+  "powod": "spójność open = 開池",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l1-statystyki.md",
+  "stary": "{{t:open|開局加注}}、3-bet 或 4-bet",
+  "nowy": "{{t:open|開池}}、3-bet 或 4-bet",
+  "waga": "ŚREDNIE",
+  "powod": "spójność open = 開池",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l1-statystyki.md",
+  "stary": "| 3-bet | 多常{{t:raise|加注}}別人的{{t:open|開局加注}} | 在他之前有人{{t:open|開局加注}} |",
+  "nowy": "| 3-bet | 多常{{t:raise|加注}}別人的{{t:open|開池}} | 在他之前有人{{t:open|開池}} |",
+  "waga": "ŚREDNIE",
+  "powod": "spójność open = 開池",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l1-statystyki.md",
+  "stary": "| 他{{t:open|開局加注}}並遭到 3-bet |",
+  "nowy": "| 他{{t:open|開池}}並遭到 3-bet |",
+  "waga": "ŚREDNIE",
+  "powod": "spójność open = 開池",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l1-statystyki.md",
+  "stary": "面對 3-bet 棄牌率則只有在對手{{t:open|開局加注}}並遭到",
+  "nowy": "面對 3-bet 棄牌率則只有在對手{{t:open|開池}}並遭到",
+  "waga": "ŚREDNIE",
+  "powod": "spójność open = 開池",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m0-l1-uklady.md",
+  "stary": "兩邊都是{{t:pair|兩對}}時",
+  "nowy": "兩邊都是{{t:two-pair|兩對}}時",
+  "waga": "ŚREDNIE",
+  "powod": "forma „兩對” to nazwa układu two pair; ze znacznikiem pair słowniczek pokaże definicję pary",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m0-l1-uklady.md",
+  "stary": "{{t:pair}} K 大過{{t:pair|一對}} Q",
+  "nowy": "{{t:pair|一對}} K 大過{{t:pair|一對}} Q",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: bez formy pokaże „pair K 大過一對 Q” — łacińska nazwa w środku zdania, niespójnie z formą obok",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m0-l1-uklady.md",
+  "stary": "{{t:pair|一對}} A 只是{{t:pair}}。",
+  "nowy": "{{t:pair|一對}} A 只是{{t:pair|一對}}。",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: „一對 A 只是 pair” razi",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m0-l1-uklady.md",
+  "stary": "prompt: \"誰贏：{{t:flush}}還是{{t:straight}}？\"",
+  "nowy": "prompt: \"誰贏：{{t:flush|同花}}還是{{t:straight|順子}}？\"",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: w lekcji o nazwach układów pytanie „flush還是straight” po łacinie, a odpowiedzi po chińsku (同花/順子)",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m0-l1-uklady.md",
+  "stary": "prompt: \"哪個比較大：{{t:two-pair}}還是{{t:three-of-a-kind}}？\"",
+  "nowy": "prompt: \"哪個比較大：{{t:two-pair|兩對}}還是{{t:three-of-a-kind|三條}}？\"",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: jw., odpowiedzi to 三條/兩對",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m2-l2-pot-odds.md",
+  "stary": "| 整個{{t:pot}} |",
+  "nowy": "| 整個{{t:pot|底池}} |",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: w tabeli „整個pot” obok „半個底池”",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "C-bet（持續{{t:bet}}）",
+  "nowy": "C-bet（持續{{t:bet|下注}}）",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: „持續bet” — utarta nazwa to 持續下注",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "stary": "\"{{t:check|過牌}}比下注更常\"",
+  "nowy": "\"較常{{t:check|過牌}}，較少下注\"",
+  "waga": "NISKIE",
+  "powod": "nienaturalny szyk",
+  "grupa": "Z3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m12-l1-wariancja.md",
+  "stary": "title: \"用數字看變異\"",
+  "nowy": "title: \"用數字看變異數\"",
+  "waga": "ŚREDNIE",
+  "powod": "Spójność terminu variance: w lekcji i egzaminie {{t:variance|變異數}}; tytuł z 變異 nie pasuje do odsyłaczy.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m12-l4-bankroll.md",
+  "stary": "，因為這只是{{t:variance|波動}}\", why: \"這很可能確實是{{t:variance|波動}}，但降{",
+  "nowy": "，因為這只是{{t:variance|變異數}}\", why: \"這很可能確實是{{t:variance|變異數}}，但降{",
+  "waga": "ŚREDNIE",
+  "powod": "Spójność terminu variance: m12-l4 używa 波動 (7×), a m12-l1 (do której odsyła „見波動那一課”), egzamin m12, m10-l4, m12-l2, m12-l3, m13-l1 — 變異數; odsyłacz do lekcji o wariancji wskazuje lekcję o innej nazwie.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m12-l4-bankroll.md",
+  "stary": "打得好主要是{{t:variance|波動}}（見{{t:variance|波動}}那一課）",
+  "nowy": "打得好主要是{{t:variance|變異數}}（見{{t:variance|變異數}}那一課）",
+  "waga": "ŚREDNIE",
+  "powod": "Spójność terminu variance: m12-l4 używa 波動 (7×), a m12-l1 (do której odsyła „見波動那一課”), egzamin m12, m10-l4, m12-l2, m12-l3, m13-l1 — 變異數; odsyłacz do lekcji o wariancji wskazuje lekcję o innej nazwie.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m12-l4-bankroll.md",
+  "stary": "。資金防的是{{t:variance|波動}}，不是打",
+  "nowy": "。資金防的是{{t:variance|變異數}}，不是打",
+  "waga": "ŚREDNIE",
+  "powod": "Spójność terminu variance: m12-l4 używa 波動 (7×), a m12-l1 (do której odsyła „見波動那一課”), egzamin m12, m10-l4, m12-l2, m12-l3, m13-l1 — 變異數; odsyłacz do lekcji o wariancji wskazuje lekcję o innej nazwie.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m12-l4-bankroll.md",
+  "stary": "常多手牌（見{{t:variance|波動}}那一課）。贏率為負時，再多資金也沒用，因為資金防的是{{t:variance|波動}}，不是打",
+  "nowy": "常多手牌（見{{t:variance|變異數}}那一課）。贏率為負時，再多資金也沒用，因為資金防的是{{t:variance|變異數}}，不是打",
+  "waga": "ŚREDNIE",
+  "powod": "Spójność terminu variance: m12-l4 używa 波動 (7×), a m12-l1 (do której odsyła „見波動那一課”), egzamin m12, m10-l4, m12-l2, m12-l3, m13-l1 — 變異數; odsyłacz do lekcji o wariancji wskazuje lekcję o innej nazwie.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m12-l4-bankroll.md",
+  "stary": "以買入數衡量波動",
+  "nowy": "以買入數衡量變異數",
+  "waga": "ŚREDNIE",
+  "powod": "Podtytuł lekcji: „Wariancja liczona we wpisowych” — ten sam termin co w treści (變異數).",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m12.yaml",
+  "stary": "結果主要來自{{t:variance}}。\" }",
+  "nowy": "結果主要來自{{t:variance|變異數}}。\" }",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w zdaniu chińskim (np. „這是variance”, „乾淨的flush draw”, „而standard deviation告訴你”); forma zgodna z resztą przekładu zh-Hant. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m12.yaml",
+  "stary": "你拿著乾淨的{{t:flush-draw}}，{{t:pot|底池}}有 {{n:ex.pot}}。對手以 {{n:ex.bet.half}} 全下，之後已經贏不到更多。你{{t:call|跟注}}，河牌來了{{t:flush}}，你贏了。你怎麼評價這次{{t:call}}？\"",
+  "nowy": "你拿著乾淨的{{t:flush-draw|同花聽牌}}，{{t:pot|底池}}有 {{n:ex.pot}}。對手以 {{n:ex.bet.half}} 全下，之後已經贏不到更多。你{{t:call|跟注}}，河牌來了{{t:flush|同花}}，你贏了。你怎麼評價這次{{t:call|跟注}}？\"",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w zdaniu chińskim (np. „這是variance”, „乾淨的flush draw”, „而standard deviation告訴你”); forma zgodna z resztą przekładu zh-Hant. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m12.yaml",
+  "stary": "uity，而{{t:flush-draw}}在河牌成牌的機率約為 {{n:odds.flush.turn-river}}。對手已經全下，之後不會再多付你任何錢。重複很多次之後，這樣的{{t:call}}會虧錢。",
+  "nowy": "uity，而{{t:flush-draw|同花聽牌}}在河牌成牌的機率約為 {{n:odds.flush.turn-river}}。對手已經全下，之後不會再多付你任何錢。重複很多次之後，這樣的{{t:call|跟注}}會虧錢。",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w zdaniu chińskim (np. „這是variance”, „乾淨的flush draw”, „而standard deviation告訴你”); forma zgodna z resztą przekładu zh-Hant. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m12.yaml",
+  "stary": "得很好，這是{{t:variance}}，對手也",
+  "nowy": "得很好，這是{{t:variance|變異數}}，對手也",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w zdaniu chińskim (np. „這是variance”, „乾淨的flush draw”, „而standard deviation告訴你”); forma zgodna z resztą przekładu zh-Hant. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m12.yaml",
+  "stary": "使你知道這是{{t:variance}}。你沒有",
+  "nowy": "使你知道這是{{t:variance|變異數}}。你沒有",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w zdaniu chińskim (np. „這是variance”, „乾淨的flush draw”, „而standard deviation告訴你”); forma zgodna z resztą przekładu zh-Hant. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m12.yaml",
+  "stary": "加劇，更高的{{t:stakes}}只會讓虧",
+  "nowy": "加劇，更高的{{t:stakes|級別}}只會讓虧",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w zdaniu chińskim (np. „這是variance”, „乾淨的flush draw”, „而standard deviation告訴你”); forma zgodna z resztą przekładu zh-Hant. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m12-l1-wariancja.md",
+  "stary": "均贏多少，而{{t:standard-deviation}}告訴你結",
+  "nowy": "均贏多少，而{{t:standard-deviation|標準差}}告訴你結",
+  "waga": "ŚREDNIE",
+  "powod": "K-05: znacznik {{t:…}} bez formy wyświetli nazwę angielską alfabetem łacińskim w zdaniu chińskim (np. „這是variance”, „乾淨的flush draw”, „而standard deviation告訴你”); forma zgodna z resztą przekładu zh-Hant. Nie zmienia sensu.",
+  "grupa": "A"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m12.yaml",
+  "stary": "{ text: \"厭惡輸牌型上頭\"",
+  "nowy": "{ text: \"討厭輸型上頭\"",
+  "waga": "ŚREDNIE",
+  "powod": "Spójność z lekcją m12-l3: pytanie każe wskazać typ „依照上頭課程中的分類”, a lekcja (tabela i drille) nazywa ten typ 討厭輸型上頭; egzamin ma 厭惡輸牌型上頭. pl używa tej samej nazwy w lekcji i egzaminie.",
+  "grupa": "A"
+ }
+]

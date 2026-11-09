@@ -1,6 +1,6 @@
 # Szkic K-05 (rola 09, sesja AB, 2026-11-09): nazwa terminu w zh-Hant dla znacznika {{t:klucz}} bez formy.
 # Wygenerowane z propozycji przekładu (przebiegi 42677941726/42677958807/42682266650): najczęstsza forma {{t:klucz|forma}}.
-# NIE jest to jeszcze plik treści: sesja kodu przenosi go do content/zh-Hant/terms-nazwy.yaml po weryfikacji (D-366).
+# NIE jest to jeszcze plik treści: sesja kodu przenosi go do content/zh-Hant/terms-nazwy.yaml po weryfikacji (D-367).
 # Format wiersza: klucz: "nazwa"  # en; bez formy N; formy: forma×liczba …; [SKRÓT] = zostaje skrót; [DO USTALENIA] = brak formy w przekładzie
 royal-flush: "皇家同花順"  # royal flush; bez formy 2; formy: 皇家同花順×1
 straight-flush: "同花順"  # straight flush; bez formy 2; formy: 同花順×1, 同一花色的順子×1 [WIELE FORM]
@@ -19,7 +19,7 @@ check: "過牌"  # check; bez formy 12; formy: 過牌×274
 bet: "下注"  # bet; bez formy 99; formy: 下注×308, 注×4, 定×1, 下×1, 下出×1 [WIELE FORM]
 call: "跟注"  # call; bez formy 61; formy: 跟注×804, 跟注者×2, 跟×1, 檢視×1 [WIELE FORM]
 raise: "加注"  # raise; bez formy 10; formy: 加注×308
-fold: "棄牌"  # fold; bez formy 47; formy: 棄牌×620, 棄掉×39, 蓋牌×27, 蓋掉×1, 已棄牌×1 [WIELE FORM]
+fold: "棄牌"  # fold; bez formy 47; formy: 棄牌×620, 棄掉×39, 蓋牌×27, 蓋掉×1, 已棄牌×1 [AB: Z2: 蓋牌 tylko w m11-l1 — ujednolicić]
 check-raise: null  # check-raise; bez formy 0; formy: — [DO USTALENIA]
 all-in: "全下"  # all-in; bez formy 0; formy: 全下×1
 pot: "底池"  # pot; bez formy 81; formy: 底池×810
@@ -58,7 +58,7 @@ gutshot: null  # gutshot; bez formy 0; formy: — [DO USTALENIA]
 backdoor: null  # backdoor; bez formy 0; formy: — [DO USTALENIA]
 pot-odds: null  # pot odds; bez formy 0; formy: — [DO USTALENIA]
 implied-odds: "隱含賠率"  # implied odds; bez formy 1; formy: 隱含賠率×1
-equity: "權益"  # equity; bez formy 4; formy: 權益×12, 勝率×3 [WIELE FORM]
+equity: "權益"  # equity; bez formy 4; formy: 權益×12, 勝率×3 [AB: Z2/Z3: UI, terms-def, 141× w tekście; 勝率 (108×) ujednolicić]
 equity-realization: "權益實現"  # equity realization; bez formy 0; formy: 權益實現×3, 實現勝率×2, 實現權益×2 [WIELE FORM]
 expected-value: "期望值"  # expected value; bez formy 2; formy: 期望值×8, EV×2 [WIELE FORM]
 combo: "組合"  # combo; bez formy 0; formy: 組合×30
@@ -71,7 +71,7 @@ pocket-pair: "口袋對"  # pocket pair; bez formy 0; formy: 口袋對×3
 connectors: "連張"  # connectors; bez formy 0; formy: 連張×24
 3-bet: null  # 3-bet; bez formy 0; formy: — [DO USTALENIA]
 4-bet: null  # 4-bet; bez formy 0; formy: — [DO USTALENIA]
-limp: "溜入"  # limp; bez formy 1; formy: 溜入×1
+limp: "溜入"  # limp; bez formy 1; formy: 溜入×1 [AB: Z2: przeczytane źródło TW (pokerqz) ma 平跟, ale 平跟 = też flat call; 溜入 [DO USTALENIA] źródło, decyzja przy K-05; ujednolicić 跛入 i łacińskie limp]
 isolation: "隔離加注"  # isolation raise; bez formy 0; formy: 隔離加注×7
 texture: "牌面結構"  # texture; bez formy 0; formy: 牌面結構×8
 dry: "乾燥"  # dry; bez formy 1; formy: 乾燥×52
@@ -80,7 +80,7 @@ rainbow: "彩虹"  # rainbow; bez formy 0; formy: 彩虹×4
 two-tone: "雙色"  # two-tone; bez formy 0; formy: 雙色×6, 雙花色×1 [WIELE FORM]
 monotone: "單色"  # monotone; bez formy 1; formy: 單色×17, 單花色×1 [WIELE FORM]
 paired: "成對"  # paired; bez formy 0; formy: 成對×17
-connected: "連張"  # connected; bez formy 3; formy: 連張×9, 相連×4, 連接×3 [WIELE FORM]
+connected: "連張"  # connected; bez formy 3; formy: 連張×9, 相連×4, 連接×3 [AB: Z1: UI i lekcje]
 disconnected: "不連張"  # disconnected; bez formy 0; formy: 不連張×4
 semi-connected: "半連張"  # semi-connected; bez formy 0; formy: 半連張×6, 半連接×1 [WIELE FORM]
 wetness: "濕潤度"  # wetness; bez formy 0; formy: 濕潤度×3, 潮濕度×2 [WIELE FORM]
@@ -112,13 +112,13 @@ effective-stack: "有效籌碼"  # effective stack; bez formy 2; formy: 有效�
 spr: null  # stack-to-pot ratio; bez formy 175; formy: SPR×16 [SKRÓT SPR]
 mdf: null  # minimum defense frequency; bez formy 66; formy: MDF×7, 最低防守頻率×1 [SKRÓT MDF]
 alpha: "alpha"  # alpha; bez formy 2; formy: alpha×4
-variance: "變異數"  # variance; bez formy 7; formy: 變異數×9, 波動×7, 變異×3 [WIELE FORM]
+variance: "變異數"  # variance; bez formy 7; formy: 變異數×9, 波動×7, 變異×3 [AB: Z2, kontrola (a): 波動/變異 ujednolicić; przeczytane PQ „變異數（Variance）”]
 buy-in: "買入"  # buy-in; bez formy 0; formy: 買入×83
 bankroll: "資金"  # bankroll; bez formy 0; formy: 資金×1
 tilt: null  # tilt; bez formy 0; formy: — [DO USTALENIA]
-winrate: "勝率"  # win rate; bez formy 0; formy: 勝率×1
+winrate: "贏率"  # win rate; bez formy 0; formy: 勝率×1 [AB: Z2: 98× w treści; 勝率 koliduje z equity; źródło TW [DO USTALENIA]]
 downswing: "下風期"  # downswing; bez formy 0; formy: 下風期×28
-session: "牌局"  # session; bez formy 2; formy: 牌局×49, 場次×5 [WIELE FORM]
+session: "場次"  # session; bez formy 2; formy: 牌局×49, 場次×5 [AB: Z1: 牌局 = też „rozdanie” (dwuznaczne)]
 stakes: "級別"  # stakes; bez formy 4; formy: 級別×59
 standard-deviation: "標準差"  # standard deviation; bez formy 1; formy: 標準差×43
 risk-of-ruin: "破產風險"  # risk of ruin; bez formy 0; formy: 破產風險×4
@@ -155,12 +155,12 @@ hud: null  # heads-up display; bez formy 3; formy: HUD×11 [SKRÓT HUD]
 vpip: null  # voluntarily put in pot; bez formy 73; formy: VPIP×17 [SKRÓT VPIP]
 pfr: null  # preflop raise; bez formy 51; formy: PFR×10 [SKRÓT PFR]
 wtsd: null  # went to showdown; bez formy 3; formy: — [SKRÓT WTSD]
-nit: "岩石玩家"  # nit; bez formy 9; formy: 岩石玩家×7, 岩石型玩家×2, 極緊玩家×1 [WIELE FORM]
-regular: "常客"  # regular; bez formy 1; formy: 常客×6, 常規玩家×5 [WIELE FORM]
+nit: "岩石型玩家"  # nit; bez formy 9; formy: 岩石玩家×7, 岩石型玩家×2, 極緊玩家×1 [AB: Z1: UI i rules]
+regular: "常規玩家"  # regular; bez formy 1; formy: 常客×6, 常規玩家×5 [AB: Z2: terms-def; 常客 w UI ujednolicić]
 tag: null  # tight aggressive; bez formy 1; formy: — [SKRÓT TAG]
 lag: null  # loose aggressive; bez formy 1; formy: — [SKRÓT LAG]
-recreational: "娛樂玩家"  # recreational player; bez formy 0; formy: 娛樂玩家×19, 休閒玩家×2 [WIELE FORM]
+recreational: "娛樂玩家"  # recreational player; bez formy 0; formy: 娛樂玩家×19, 休閒玩家×2 [AB: Z2: 19× w treści; 休閒玩家 w UI ujednolicić]
 calling-station: "跟注站"  # calling station; bez formy 1; formy: 跟注站×1
-maniac: "瘋子"  # maniac; bez formy 0; formy: 瘋子×14, 瘋狂玩家×4 [WIELE FORM]
+maniac: "瘋子"  # maniac; bez formy 0; formy: 瘋子×14, 瘋狂玩家×4 [AB: większość form]
 rake: "抽水"  # rake; bez formy 36; formy: 抽水×20
 rake-cap: "抽水上限"  # rake cap; bez formy 0; formy: 抽水上限×6, 上限×1 [WIELE FORM]
