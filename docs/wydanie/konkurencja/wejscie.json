@@ -1,0 +1,303 @@
+{
+ "odczyt": "2026-11-09",
+ "top25": {
+  "zrodlo": "docs/brd/dane/konkurencja-2026-11-03.json",
+  "regula": "25 największych wg oceny_us, bez pomijania"
+ },
+ "zetony10": {
+  "zrodlo": "https://itunes.apple.com/search?term=poker&entity=software&country=us&limit=200",
+  "regula": "10 największych gier Texas Hold'em wg userRatingCount; pominięte: blackjack (1472419762, 959038492) i video poker (1092611311 i in.) — inne gry niż poker z rozdaniami"
+ },
+ "aplikacje": [
+  {
+   "id": 6590603158,
+   "nazwa": "GTO Preflop Wizard Poker AI",
+   "oceny_us": 3483,
+   "typ": "zadania + ćwiczenia z AI",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 1622947056,
+   "nazwa": "GTO Preflop - Texas Hold'em",
+   "oceny_us": 2486,
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 1488850006,
+   "nazwa": "Postflop+ GTO Poker Trainer",
+   "oceny_us": 1982,
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 555222027,
+   "nazwa": "Enterra Poker Calculator",
+   "oceny_us": 1416,
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 6478522482,
+   "nazwa": "Poker Trainer - Learn Poker",
+   "oceny_us": 1165,
+   "typ": "zadania + symulator rozdań",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 1530767783,
+   "nazwa": "Solver+ Poker : GTO Strategy",
+   "oceny_us": 1163,
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 1435468870,
+   "nazwa": "Preflop+ Poker GTO Nash Charts",
+   "oceny_us": 1022,
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 1553727514,
+   "nazwa": "Poker AI - Game & Strategy",
+   "oceny_us": 714,
+   "typ": "gra z botami",
+   "rodzaj": "gra z botami",
+   "grupa": "top25"
+  },
+  {
+   "id": 6748414132,
+   "nazwa": "Learn Poker Offline - Hold 'Em",
+   "oceny_us": 598,
+   "typ": "gra z botami",
+   "rodzaj": "gra z botami",
+   "grupa": "top25"
+  },
+  {
+   "id": 6748104711,
+   "nazwa": "Poker Skill - Learn Holdem",
+   "oceny_us": 417,
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 6747833042,
+   "nazwa": "Poker Trainer: Flop Factor",
+   "oceny_us": 360,
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 581867383,
+   "nazwa": "Tournament Poker Coach",
+   "oceny_us": 312,
+   "typ": "scenariusze z prawdziwych rozdań",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 6747779080,
+   "nazwa": "Preflop AI: GTO Poker Trainer",
+   "oceny_us": 298,
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 1458491856,
+   "nazwa": "DTO MTT - GTO Poker Trainer",
+   "oceny_us": 283,
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 505831997,
+   "nazwa": "Insta Poker Coach Texas Holdem",
+   "oceny_us": 254,
+   "typ": "scenariusze z prawdziwych rozdań",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 294379237,
+   "nazwa": "PokerCruncher - Advanced Odds",
+   "oceny_us": 254,
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 1629141961,
+   "nazwa": "GTO Preflop",
+   "oceny_us": 243,
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 6742486598,
+   "nazwa": "PokerArena: Play & Learn Poker",
+   "oceny_us": 220,
+   "typ": "gra z botami (play & learn)",
+   "rodzaj": "gra z botami",
+   "grupa": "top25"
+  },
+  {
+   "id": 1445519206,
+   "nazwa": "Evenbet Poker Calculator",
+   "oceny_us": 175,
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 1630961215,
+   "nazwa": "NTPoker – GTO Poker Trainer",
+   "oceny_us": 163,
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 6758732164,
+   "nazwa": "Gambit -  Play and Learn Poker",
+   "oceny_us": 134,
+   "typ": "kurs + gra z botami",
+   "rodzaj": "gra z botami",
+   "grupa": "top25"
+  },
+  {
+   "id": 6458732631,
+   "nazwa": "GTO Ranges+ Poker Solver",
+   "oceny_us": 126,
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 1559404571,
+   "nazwa": "Poker Power Play",
+   "oceny_us": 126,
+   "typ": "gra towarzyska z botami",
+   "rodzaj": "gra z botami",
+   "grupa": "top25"
+  },
+  {
+   "id": 1494263170,
+   "nazwa": "Learn Poker",
+   "oceny_us": 103,
+   "typ": "zadania, lekcje albo narzędzia (sprawdzone ręcznie w opisie)",
+   "rodzaj": "nauka / narzędzie",
+   "grupa": "top25"
+  },
+  {
+   "id": 1444569705,
+   "nazwa": "Poker Coaching",
+   "oceny_us": 73,
+   "typ": "nie klasyfikowano",
+   "rodzaj": "nie klasyfikowano",
+   "grupa": "top25"
+  },
+  {
+   "id": 719525810,
+   "nazwa": "WSOP Texas Holdem Poker Game",
+   "oceny_us": 368076,
+   "typ": "gra pokerowa na żetony (Games, darmowa, 17+)",
+   "rodzaj": "gra na żetony",
+   "grupa": "zetony10",
+   "sprzedawca": "Playtika LTD"
+  },
+  {
+   "id": 354902315,
+   "nazwa": "Zynga Poker ™ - Texas Hold'em",
+   "oceny_us": 134822,
+   "typ": "gra pokerowa na żetony (Games, darmowa, 17+)",
+   "rodzaj": "gra na żetony",
+   "grupa": "zetony10",
+   "sprzedawca": "Zynga Inc."
+  },
+  {
+   "id": 480523695,
+   "nazwa": "Poker Heat: Texas Holdem Games",
+   "oceny_us": 114702,
+   "typ": "gra pokerowa na żetony (Games, darmowa, 17+)",
+   "rodzaj": "gra na żetony",
+   "grupa": "zetony10",
+   "sprzedawca": "Playtika LTD"
+  },
+  {
+   "id": 284602850,
+   "nazwa": "Texas Hold’em",
+   "oceny_us": 74312,
+   "typ": "gra pokerowa na żetony (Games, darmowa, 17+)",
+   "rodzaj": "gra na żetony",
+   "grupa": "zetony10",
+   "sprzedawca": "Apple Inc."
+  },
+  {
+   "id": 1364570884,
+   "nazwa": "Poker Face: Texas Holdem Live",
+   "oceny_us": 62779,
+   "typ": "gra pokerowa na żetony (Games, darmowa, 17+)",
+   "rodzaj": "gra na żetony",
+   "grupa": "zetony10",
+   "sprzedawca": "Comunix Ltd"
+  },
+  {
+   "id": 370339723,
+   "nazwa": "Texas Hold'em Poker: Pokerist",
+   "oceny_us": 57485,
+   "typ": "gra pokerowa na żetony (Games, darmowa, 17+)",
+   "rodzaj": "gra na żetony",
+   "grupa": "zetony10",
+   "sprzedawca": "WISE WAVE CORPORATION LIMITED"
+  },
+  {
+   "id": 1150250440,
+   "nazwa": "Mega Hit Poker: Texas Holdem",
+   "oceny_us": 54918,
+   "typ": "gra pokerowa na żetony (Games, darmowa, 17+)",
+   "rodzaj": "gra na żetony",
+   "grupa": "zetony10",
+   "sprzedawca": "Wonder People Co., Ltd."
+  },
+  {
+   "id": 1018155306,
+   "nazwa": "Octro Poker Texas Holdem Games",
+   "oceny_us": 41513,
+   "typ": "gra pokerowa na żetony (Games, darmowa, 17+)",
+   "rodzaj": "gra na żetony",
+   "grupa": "zetony10",
+   "sprzedawca": "Octro Inc."
+  },
+  {
+   "id": 1477775889,
+   "nazwa": "Holdem or Foldem: Texas Poker",
+   "oceny_us": 30694,
+   "typ": "gra pokerowa na żetony (Games, darmowa, 17+)",
+   "rodzaj": "gra na żetony",
+   "grupa": "zetony10",
+   "sprzedawca": "HK DENGSHEN TECHNOLOGY CO., LIMITED"
+  },
+  {
+   "id": 592081067,
+   "nazwa": "Pokerrrr 2: Texas Holdem Poker",
+   "oceny_us": 29369,
+   "typ": "gra pokerowa na żetony (Games, darmowa, 17+)",
+   "rodzaj": "gra na żetony",
+   "grupa": "zetony10",
+   "sprzedawca": "Mondraw Limited"
+  }
+ ]
+}
