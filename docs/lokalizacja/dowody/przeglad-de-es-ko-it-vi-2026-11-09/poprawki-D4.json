@@ -1,0 +1,11 @@
+[
+ {
+  "jezyk": "de",
+  "cel": "content/de/lessons/m12-l3-tilt.md",
+  "stary": "lies die Karte zum verantwortungsvollen Spielen in der Lektion über die Bankroll.",
+  "nowy": "lies den Hinweis „Verantwortungsvolles Spielen“ in der Lektion über die Bankroll.",
+  "waga": "ŚREDNIE",
+  "powod": "Treść krytyczna (odpowiedzialna gra), m12-l3:133: „Karte” w kursie pokera czyta się jako karta do gry; odesłanie ma wskazać ramkę :::note „Verantwortungsvolles Spielen” w m12-l4 (de m12-l4:143), jak poprawka D3 w m12-l4. Kontrola (a) zdania: rozstrzygniecia.md (sesja AJ).",
+  "grupa": "D4"
+ }
+]
