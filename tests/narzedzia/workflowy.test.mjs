@@ -192,3 +192,16 @@ test('e2e-ios.yml: push ignoruje store/** (obok docs/**, *.md, tests/**, .claude
   const ignor = json('e2e-ios.yml').on.push['paths-ignore'];
   for (const w of ['docs/**', '**/*.md', 'tests/**', '.claude/**', 'store/**']) assert.ok(ignor.includes(w), w);
 });
+
+// K-12 (D-337): zrzuty sklepu tylko ręcznie (koszt minut macOS bez sygnału przy pushu), bez sekretów poza GITHUB_TOKEN do artefaktu.
+test('store-screenshots.yml: tylko workflow_dispatch; rozmiary i ekrany z scripts/ci/zrzuty-sklepu.json; bez sekretów poza GITHUB_TOKEN', () => {
+  const p = new URL('store-screenshots.yml', KAT);
+  const wf = parseDocument(readFileSync(p, 'utf8')).toJSON();
+  assert.deepEqual(Object.keys(wf.on), ['workflow_dispatch']);
+  assert.equal(wf.on.workflow_dispatch.inputs.jezyki.default, 'pl,en');
+  assert.equal(wf.on.workflow_dispatch.inputs.rozmiary.default, '6.9,6.3');
+  const tekst = readFileSync(p, 'utf8');
+  assert.deepEqual([...tekst.matchAll(/secrets\.(\w+)/g)].map((m) => m[1]).filter((s) => s !== 'GITHUB_TOKEN'), []);
+  assert.match(tekst, /scripts\/ci\/zrzuty-sklepu\.sh/);
+  assert.match(tekst, /scripts\/ci\/zrzuty-sklepu\.json/);
+});

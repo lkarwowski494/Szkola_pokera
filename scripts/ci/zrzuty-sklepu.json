@@ -1,0 +1,17 @@
+{
+  "_opis": "Ekrany zrzutów sklepu (K-12, D-337): nazwa pliku i trasa expo-router otwierana łączem szkolapokera://<trasa> po starcie z danymi pokazowymi (scripts/ci/dane-pokazowe.mjs). Kolejność = kolejność w App Store Connect. Ekran decyzji z oceną (sesja) wymaga akcji Maestro — następny krok (plan-08 „Naprawy — sesja S”, Zostaje). zakup: tylko do przeglądu zakupów (B2), nie na stronę sklepu.",
+  "ekrany": [
+    { "nazwa": "01-dzis", "trasa": "/" },
+    { "nazwa": "02-lekcja", "trasa": "/lesson/m2.l1" },
+    { "nazwa": "03-postep", "trasa": "/progress" },
+    { "nazwa": "04-slowniczek", "trasa": "/glossary" },
+    { "nazwa": "05-pomoc", "trasa": "/help" }
+  ],
+  "przeglad": [
+    { "nazwa": "zakup", "trasa": "/purchase" }
+  ],
+  "rozmiary": {
+    "6.9": "iPhone 17 Pro Max \\(",
+    "6.3": "iPhone 17 Pro \\("
+  }
+}

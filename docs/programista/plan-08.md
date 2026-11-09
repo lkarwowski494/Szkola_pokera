@@ -767,6 +767,27 @@ Pełny zestaw: `pnpm run ci` kod 0 po P2 (mobile 510), po K-06/K-07 (525), po P1
 - K-10: publikacja (zgoda właściciela, D-308), fakty W-04 (adres poczty, administrator), przekład strony na ja/pt-BR/fr/zh-Hant (09), `ADRES_PRYWATNOSCI` w `platform/adresy.ts` po publikacji (K-09).
 - E2E zmian tej sesji po pushu (flowy 01/06 dotykają paska i „Dziś”).
 
+## Naprawy — sesja S (2026-11-09, rola 08 build)
+Rola `08-programista --tryb build`: `add_repo lkarwowski494/prompts` odrzucone przez klasyfikator trybu auto — pliki roli nieprzeczytane (wyjątek nazwany; tańsza kontrola: zasady roli zapisane w sekcjach Q i R tego planu i w CLAUDE.md, cykl test czerwony → kod → `pnpm run ci` → commit, przegląd D-043 subagentem). Trening czytany z publicznego klonu (2e4b0f8, 2026-11-09). Stan wyjściowy `833ce01`.
+
+| Zadanie | Commit | Test (czerwony przed → zielony po) | Decyzja |
+|---|---|---|---|
+| K-11 test metadanych sklepu w `pnpm run ci` | 48fa51f | `tests/kontrole/k11-sklep.test.ts` 14 — czerwony na „nauka” (słowo z podtytułu w słowach kluczowych pl, usunięte); mutanty 6/6 zabite | D-334 |
+| Nakładka definicji `content/<język>/terms-def.yaml` (otwarte #3 sesji P) | 3f4f57d | content-build `definicje-08` 8 (brak modułu → zielony), aplikacja `definicje-08` 4 (2 czerwone bez zmian w `vocab.ts`/`text.ts`), `przeklad-api.test.mjs` 4 nowe; 35 baz bez zmian | D-335 |
+| Flow Maestro ekranu zakupu z ustawień (D-325) | c136413 | `e2e-flowy.test.mjs` (limit 61 ≠ 64) i `workflowy.test.mjs` (76/81) czerwone → zielone; `e2e-ponowienia.test.mjs` 7 → 8 | D-336 |
+| K-12 workflow `store-screenshots.yml` (tylko ręcznie, nieuruchamiany) | commit „Workflow zrzutów…” | `dane-pokazowe.test.mjs` 2, `workflowy.test.mjs` 1 nowy | D-337 |
+
+E2E 42601439302 (8f78583, kod R): czerwony po 5 min na infrastrukturze — `pod install` → `rsync … write: Input/output error` w pamięci podręcznej CocoaPods runnera; flowy nieuruchomione, bez naprawy w kodzie (klasa brzegowa). Push tej sesji uruchamia E2E na kodzie R+S (8 flowów).
+
+**Teksty do akceptacji 04:** brak nowych kluczy interfejsu. Reguła promptu przekładu definicji (`REGULA_DEFINICJI`, `przeklad-api.mjs`) — 09.
+
+**Lista telefonu:** ustawienia → „Pełny dostęp” → ekran zakupu (bez „Wróć do lekcji”), „Zamknij” wraca do ustawień; słowniczek po polsku bez zmian (definicje pod terminami).
+
+### Zostaje
+- K-12: pierwsze uruchomienie `store-screenshots.yml` (zgoda koordynatora; minuty macOS) i ocena zrzutów; ryzyko: okno „Otworzyć w …?” po `simctl openurl` (Trening zamyka je akcją Maestro `dialogi`) — jeśli wyjdzie, dodać akcję; ekran decyzji z oceną (sesja) wymaga akcji Maestro; bogatsze dane pokazowe (odpowiedzi, seria, powtórki) przez `zacznijAktywnosc`/`zapiszKrok`; ramki i podpisy — decyzja 04/właściciela; en pokaże tekst polski do wydania en.
+- K-11: tekst sklepu ja/pt-BR/fr/zh-Hant (K-04) — test obejmie je automatycznie (pętla po lokalizacjach); mapa §2 sprawdza punkty pl i en-US.
+- D-335: pierwszy przekład `terms-def.yaml` w przebiegu API en (K3/K5, po sekrecie); ekran słowniczka nadal pokazuje polskie nazwy terminów także w en (P-2 słowniczka — 09/04).
+
 ## Treść K-02 — sesja N (2026-11-09, rola 06 build, plan-1.0 K-02)
 
 Wejście: 3 czerwone testy `pnpm test:akceptacja` (`docs/wydanie/dowody/stan-2026-11-09.txt`). Prompt roli: `node tools/assemble.mjs 06-tresci --tryb build` (repo prompts, 2026-11-09). Naprawiana treść, testy bez zmian.
