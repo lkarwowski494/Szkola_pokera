@@ -15,7 +15,7 @@ import { gradeAnswer } from '../grade';
 import { term, tr } from '../terms';
 import { DEF_CONFUSABLE, vocabModes } from '../vocab';
 
-const SOURCES = ['features/drills/text.pl.ts', 'i18n/locales/pl.json'].map((p) => join(__dirname, '../../..', p));
+const SOURCES = ['features/drills/text.ts', 'i18n/locales/pl.json'].map((p) => join(__dirname, '../../..', p));
 
 /** Kod bez komentarzy i nazw wywoływanych metod (np. `out.push(`): ani jedno, ani drugie nie trafia do interfejsu. */
 function stripComments(src: string): string {

@@ -105,6 +105,28 @@ export function renderTerms(text: string, lookup: TermLookup, where: string, see
   return out + text.slice(last);
 }
 
+/**
+ * Znaczniki terminów w tekście w języku innym niż polski (D-287): forma z tekstu, a bez formy nazwa angielska; bez
+ * nawiasu, bo reguła T-01 objaśnia różnicę nazwy polskiej i angielskiej. Nieznany klucz przerywa jak w `renderTerms`.
+ * W en to „sama nazwa angielska”; sposób dla pozostałych języków rozstrzyga fala 1 (K-05) — do tego czasu ten sam.
+ */
+export function renderTermsBare(text: string, lookup: TermLookup, where: string, used?: Set<string>): string {
+  return text.replace(TERM_PLACEHOLDER, (_m, key: string, form?: string) => {
+    const t = lookup(key);
+    if (!t) throw new Error(`${where}: nieznany termin {{t:${key}}}`);
+    used?.add(key);
+    return form ?? t.en;
+  });
+}
+
+/** Język, w którym terminy dostają nawias z nazwą angielską (reguła T-01); w pozostałych `renderTermsBare`. */
+export const JEZYK_NAWIASU_TERMINOW = 'pl';
+
+/** Renderer znaczników według języka tekstu: polski — `renderTerms` (nawias), inny — `renderTermsBare` (D-287). */
+export function renderTermsIn(jezyk: string, text: string, lookup: TermLookup, where: string, seen: Set<string> = new Set(), used?: Set<string>): string {
+  return jezyk === JEZYK_NAWIASU_TERMINOW ? renderTerms(text, lookup, where, seen, used) : renderTermsBare(text, lookup, where, used);
+}
+
 function escapeRe(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }

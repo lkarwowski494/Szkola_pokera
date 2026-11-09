@@ -31,9 +31,8 @@ import {
   type Rng,
 } from '@szkola/poker-core';
 import type { RangeSpot } from '@/data/content/repo';
-import { capitalize, categoryName, pctEquity, t, TEXTURE_AXIS_LABELS, TEXTURE_LABELS, textureText } from './text.pl';
+import { capitalize, categoryName, pctEquity, t, textureAxisLabel, textureLabel, textureText, trJ, zdania } from './text';
 import { MIXED_HIGH, MIXED_LOW, MIXED_MIN } from './thresholds';
-import { tr } from './terms';
 import { vocabBatch } from './vocab';
 import type { DrillInstance, DrillOption, NumericInstance, Position, TextureAxisItem } from './types';
 
@@ -138,9 +137,9 @@ function fromTexture(d: TextureDrill, lessonId: string | null, rng: Rng, i: numb
   const { flop, texture } = generateTextureSpot(rng, axes);
   const items: TextureAxisItem[] = axes.map(<A extends TextureAxis>(axis: A) => ({
     axis,
-    label: TEXTURE_AXIS_LABELS[axis],
+    label: textureAxisLabel(axis),
     options: (TEXTURE_VALUES[axis] as readonly FlopTexture[A][]).map((v) => ({
-      text: (TEXTURE_LABELS[axis] as Record<string, string>)[v as string]!,
+      text: textureLabel(axis, v),
       correct: texture[axis] === v,
       why: textureText.why(axis, v, flop, texture),
     })),
@@ -276,7 +275,7 @@ function whoWins(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: number
   const s = generateWhoWins(rng, kicker ? { reason: 'kicker' } : {});
   const winner = s.winner === 'villain' ? s.villainResult : s.heroResult;
   const loser = s.winner === 'villain' ? s.heroResult : s.villainResult;
-  const explanation = `${t.whoWins.facts(s.heroResult, s.villainResult)} ${t.whoWins.reason(s.reason, winner, loser)}`;
+  const explanation = zdania(t.whoWins.facts(s.heroResult, s.villainResult), t.whoWins.reason(s.reason, winner, loser));
   const opt = (key: 'hero' | 'villain' | 'split', text: string): DrillOption => ({
     text,
     correct: s.winner === key,
@@ -307,7 +306,7 @@ function bestHand(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: numbe
   const distractors = shuffle(rng, candidates).slice(0, 3);
   const options = shuffle(rng, [correct, ...distractors]).map((cat) => {
     const name = categoryName({ category: cat as (typeof HandCategory)[keyof typeof HandCategory], strength: 9999 });
-    const text = capitalize(tr(name));
+    const text = capitalize(trJ(name));
     return {
       text,
       correct: cat === correct,
@@ -462,7 +461,7 @@ function rangeDecision(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: 
         // rozmiar spoza strategii solvera: częstość 0 (pasek strategii pokazuje go jako twój wybór z 0%)
         verdict[gi] !== 'wrong'
           ? { text: w.text, correct: false, sizeError: true, why: w.why, czestosc: 0 }
-          : { text: w.text, correct: false, why: `${t.range.wrong(f)} ${w.why}`, czestosc: 0 },
+          : { text: w.text, correct: false, why: zdania(t.range.wrong(f), w.why), czestosc: 0 },
       );
     }
   });

@@ -644,5 +644,291 @@
   },
   "nav": {
     "back": "Wróć"
+  },
+  "drill": {
+    "format": {
+      "percent": "{{n}}%"
+    },
+    "join": {
+      "sentence": "{{a}} {{b}}",
+      "list": ", "
+    },
+    "category": {
+      "straightFlush": "{{t:straight-flush}}",
+      "fourOfAKind": "{{t:four-of-a-kind}}",
+      "fullHouse": "{{t:full-house}}",
+      "flush": "{{t:flush}}",
+      "straight": "{{t:straight}}",
+      "threeOfAKind": "{{t:three-of-a-kind}}",
+      "twoPair": "{{t:two-pair}}",
+      "pair": "{{t:pair}}",
+      "highCard": "{{t:high-card}}",
+      "royalFlush": "{{t:royal-flush}}"
+    },
+    "categoryAcc": {
+      "straightFlush": "{{t:straight-flush|pokera}}",
+      "fourOfAKind": "{{t:four-of-a-kind|karetę}}",
+      "fullHouse": "{{t:full-house|fulla}}",
+      "flush": "{{t:flush}}",
+      "straight": "{{t:straight|strita}}",
+      "threeOfAKind": "{{t:three-of-a-kind|trójkę}}",
+      "twoPair": "{{t:two-pair}}",
+      "pair": "{{t:pair|parę}}",
+      "highCard": "{{t:high-card|wysoką kartę}}",
+      "royalFlush": "{{t:royal-flush|pokera królewskiego}}"
+    },
+    "paint": {
+      "explanation": "{{title}}. Zielone pole: grasz i zaznaczyłeś. Znak „−”: ręka z {{t:range|zakresu}}, której brakuje. Znak „+”: zaznaczona, a solver ją {{t:fold|pasuje}}. Kropka: {{t:mixed-hand|ręka mieszana}} (solver gra ją tylko czasem) albo sporna (solver odbiega w niej od publicznych tabel), więc jest zaliczona w obie strony. Wynik liczy {{t:combo|kombinacje}} ({{t:pair}} {{pairCombos}}, w kolorze {{suitedCombos}}, w różnych kolorach {{offsuitCombos}}) tylko wśród rąk z {{t:range|zakresu}} albo zaznaczonych.",
+      "score": "Zgodność z solverem: {{score}} (zaliczenie od {{pass}})."
+    },
+    "numeric": {
+      "yours": "Twoja odpowiedź: {{value}}",
+      "exact": "Dokładnie: {{value}}",
+      "diffPp": "Różnica: {{diff}} pp",
+      "diff": "Różnica: {{diff}}"
+    },
+    "range": {
+      "fold": "{{t:fold|Pas}}",
+      "right": "Tak. Solver gra tak w {{pct}} przypadków.",
+      "acceptable": "Dopuszczalne. Solver gra tak w {{pct}} przypadków, więc to nie błąd, ale częściej wybiera inną akcję. Najlepiej zapamiętaj tę częstszą.",
+      "wrongRare": "Solver gra tak tylko w {{pct}} przypadków, czyli prawie nigdy.",
+      "wrongVeryRare": "Solver gra tak z tą ręką rzadziej niż w {{pct}} przypadków.",
+      "wrongNever": "Solver nigdy tak nie gra z tą ręką.",
+      "freqs": "{{hand}}: {{freqs}}.",
+      "freq": "{{action}} {{pct}}",
+      "mixedNote": "To ręka graniczna: solver miesza akcje, więc aplikacja uznaje za dobrą każdą odpowiedź graną w co najmniej {{low}} przypadków.",
+      "acceptableNote": "Akcja grana rzadziej niż w {{low}}, ale co najmniej w {{min}} przypadków, jest dopuszczalna: to nie błąd, ale powtórka wróci szybciej."
+    },
+    "whoWins": {
+      "prompt": "Kto wygrywa to rozdanie?",
+      "hero": "Ty",
+      "villain": "Przeciwnik",
+      "split": "{{t:split-pot|Podział puli}}",
+      "facts": "Twoja najlepsza piątka: {{heroCards}} ({{heroHand}}). Przeciwnik: {{villainCards}} ({{villainHand}}).",
+      "reason": {
+        "category": "{{winner}} jest wyżej w rankingu niż {{loser}}.",
+        "kicker": "Układ jest ten sam, więc decyduje pierwsza różniąca się karta boczna (kicker) w najlepszej piątce.",
+        "higherSameCategory": "Obaj macie {{hand}}, ale jeden układ jest wyższy.",
+        "boardPlays": "Najlepsza piątka obu graczy leży na {{t:board|stole}}, więc „{{t:playing-the-board}}” i {{t:split-pot|pula jest dzielona}}.",
+        "identical": "Najlepsze piątki mają te same rangi, więc {{t:split-pot|pula jest dzielona}}."
+      },
+      "yes": "Tak.",
+      "no": "Nie."
+    },
+    "bestHand": {
+      "prompt": "Jaki jest twój najlepszy układ?",
+      "explanation": "Najlepsza piątka z siedmiu kart: {{cards}}, czyli {{hand}}.",
+      "right": "Tak, to twój najlepszy układ.",
+      "tooHigh": "Nie masz układu „{{hand}}”. Sprawdź, czy naprawdę jest 5 pasujących kart.",
+      "tooLow": "Masz coś lepszego niż „{{hand}}”. Szukaj najwyższego układu."
+    },
+    "outs": {
+      "promptFlush": "Ile masz outów do {{t:flush|koloru}}?",
+      "promptStraight": "Ile masz outów do {{t:straight|strita}}?",
+      "baseFlush": "Masz 4 karty w kolorze. W kolorze jest 13 kart, więc zostało 13 − 4 = 9.",
+      "baseOesd": "Masz 4 kolejne karty otwarte z obu stron. {{t:straight|Strita}} daje każda z dwóch brakujących rang, po 4 kolory: 8 kart.",
+      "baseGutshot": "Brakuje jednej karty w środku {{t:straight|strita}}. Domyka go tylko jedna ranga, w 4 kolorach: 4 karty.",
+      "chanceFlop": "{{base}} Szansa na turnie: {{next}} ({{outs}} × 2 ≈ {{outs2}}). Do rivera, jeśli zobaczysz obie karty bez dopłaty (np. po all-in): {{river}} ({{outs}} × 4 ≈ {{outs4}}).",
+      "chanceTurn": "{{base}} Szansa na riverze: {{next}} ({{outs}} × 2 ≈ {{outs2}}).",
+      "right": "Tak.",
+      "wrongTooMany": "Nie. {{n}} to za dużo w tej sytuacji.",
+      "wrongTooFew": "Nie. {{n}} to za mało w tej sytuacji."
+    },
+    "icm": {
+      "call": "{{t:call|Sprawdzam}}",
+      "fold": "{{t:fold|Pasuję}}",
+      "you": "Ty",
+      "player": "Gracz {{letter}}",
+      "stack": "{{name}} {{chips}}",
+      "table": "{{players}} graczy, płatne {{paid}} miejsca ({{payouts}} {{t:prize-pool|puli nagród}}). Stacki: {{stacks}}.",
+      "callPrompt": "{{t:bubble|Bubble}}: {{table}} {{villain}} wchodzi all-in, w grze między wami jest {{atRisk}} {{t:chips|żetonów}}. Twoja ręka ma {{equity}} equity wobec jego {{t:range|zakresu}}. Blindy pomijamy. Co robisz?",
+      "callRight": "Tak. {{equity}} to więcej niż potrzebne według {{t:icm}} {{required}}.",
+      "callWrong": "Nie. Według {{t:icm}} potrzebujesz {{required}} equity, a masz {{equity}}.",
+      "callWrongChips": "Nie. Według {{t:icm}} potrzebujesz {{required}} equity, a masz {{equity}}. W grze o {{t:chips}} {{t:call}} by się opłacało, ale przegrana kosztuje tu więcej pieniędzy, niż wygrana dodaje.",
+      "foldRight": "Tak. Według {{t:icm}} potrzebujesz {{required}} equity, a masz tylko {{equity}}.",
+      "foldRightChips": "Tak. Według {{t:icm}} potrzebujesz {{required}} equity, a masz tylko {{equity}}. W grze o {{t:chips}} byłoby to {{t:call}}: to właśnie {{t:risk-premium}}.",
+      "foldWrong": "Nie. {{equity}} equity wystarcza: według {{t:icm}} próg to {{required}}.",
+      "callExplanation": "Twoje equity w {{t:prize-pool|puli nagród}}: teraz {{now}}, po wygranej {{win}}, po przegranej {{lose}}. Bubble factor = strata ÷ zysk = {{loss}} ÷ {{gain}} ≈ {{bf}}, więc potrzebujesz BF ÷ (BF + 1) ≈ {{required}} equity. W grze o {{t:chips}} wystarczyłoby {{requiredChips}}.",
+      "equityPrompt": "{{table}} Ile według {{t:icm}} jest wart twój stack (część {{t:prize-pool|puli nagród}})?",
+      "equityRight": "Tak. To suma po miejscach: szansa na miejsce × {{t:payout}} za miejsce.",
+      "equityChips": "Nie. To twój udział w {{t:chips|żetonach}}. W {{t:tournament|turnieju}} z {{t:payout|wypłatami}} {{t:chips}} nie przeliczają się na pieniądze jeden do jednego.",
+      "equityFirstOnly": "Nie. To tylko szansa na 1. miejsce × {{t:payout}} za 1. miejsce. Dolicz szanse na kolejne płatne miejsca.",
+      "equityExplanationMore": "Szansa na 1. miejsce to twój stack ÷ wszystkie {{t:chips}} ({{share}}); kolejne miejsca liczysz tak samo spośród pozostałych graczy. Razem {{icm}} {{t:prize-pool|puli nagród}}, więcej niż udział w {{t:chips|żetonach}}.",
+      "equityExplanationLess": "Szansa na 1. miejsce to twój stack ÷ wszystkie {{t:chips}} ({{share}}); kolejne miejsca liczysz tak samo spośród pozostałych graczy. Razem {{icm}} {{t:prize-pool|puli nagród}}, mniej niż udział w {{t:chips|żetonach}}."
+    },
+    "playerType": {
+      "name": {
+        "nit": "Nit",
+        "regular": "{{t:regular|Reg}}",
+        "passive": "Pasywny {{t:recreational|gracz rekreacyjny}}",
+        "maniac": "{{t:maniac|Maniak}}",
+        "unknown": "Za mało rąk, żeby ocenić"
+      },
+      "adjust": {
+        "nit": "Jego {{t:raise|przebicia}} i 3-bety szanujesz, rękami z dołu {{t:range|zakresu}} {{t:fold|pasujesz}} częściej, a jego blindy kradniesz częściej.",
+        "regular": "Grasz blisko bazy z modułów 3–9 i odchodzisz od niej tylko przy wyraźnym błędzie w jego statystykach.",
+        "passive": "Więcej {{t:value-bet|value betów}}, także cieńszych, i mniej {{t:bluff|blefów}}, zwłaszcza na riverze.",
+        "maniac": "Nie {{t:bluff|blefujesz}} go, ręce łapiące {{t:bluff|blefy}} {{t:call|sprawdzasz}} szerzej, a z bardzo silną ręką pozwalasz mu betować.",
+        "unknown": "Grasz z nim jak z nieznanym graczem, czyli według bazy, i zbierasz kolejne ręce."
+      },
+      "fact": {
+        "unknown": "Poniżej {{minHands}} rąk statystyki są przypadkowe; tu jest {{hands}}.",
+        "nit": "Nit gra do {{nitMax}}% rąk ({{t:vpip}}); ten gracz gra {{vpip}}%.",
+        "regular": "{{t:regular|Reg}} gra ok. {{low}}–{{high}}% rąk z różnicą {{t:vpip}} − {{t:pfr}} do {{gapMax}}; tu {{vpip}}% i różnica {{gap}}.",
+        "passive": "Pasywny gracz luźny gra od {{loose}}% rąk z różnicą {{t:vpip}} − {{t:pfr}} ponad {{gapMin}}; tu {{vpip}}% i różnica {{gap}}.",
+        "maniac": "{{t:maniac|Maniak}} gra od {{loose}}% rąk z różnicą {{t:vpip}} − {{t:pfr}} do {{gapMax}}; tu {{vpip}}% i różnica {{gap}}."
+      },
+      "sample_one": "{{count}} ręka",
+      "sample_few": "{{count}} ręce",
+      "sample_many": "{{count}} rąk",
+      "sample_other": "{{count}} ręki",
+      "prompt": "Rywal przy stole 6-max, statystyki z {{t:hud|HUD-a}}: {{t:vpip}} {{vpip}}%, {{t:pfr}} {{pfr}}%, próba {{sample}}. Jaki to typ gracza?",
+      "whyRight": "Tak. {{fact}} {{adjust}}",
+      "whyWrong": "Nie. {{fact}}",
+      "readFew": "mniej niż {{minHands}}, więc statystyki są przypadkowe",
+      "readEnough": "co najmniej {{readHands}}, więc {{t:vpip}} i {{t:pfr}} da się czytać",
+      "explanation": "Najpierw próba: {{sample}} to {{read}}. {{fact}} {{adjust}}"
+    },
+    "points_one": "{{count}} punkt",
+    "points_few": "{{count}} punkty",
+    "points_many": "{{count}} punktów",
+    "points_other": "{{count}} punktu",
+    "potOdds": {
+      "prompt": "W {{t:pot|puli}} jest {{pot}}. Przeciwnik {{t:bet|stawia}} {{bet}}. Ile equity potrzebujesz do {{t:call|sprawdzenia}}?",
+      "explanation": "{{t:pot|Pula}} po {{t:bet|zakładzie}} to {{potAfter}}, dopłacasz {{bet}}, razem {{total}}. {{bet}} ÷ {{total}} {{sign}} {{required}}.",
+      "right": "Tak.",
+      "mistakeNoCall": "Nie. To {{t:bet}} podzielony przez {{t:pot|pulę}} po {{t:bet|zakładzie}}. Do mianownika dolicz też swoje {{t:call}}.",
+      "mistakeBetOverPot": "Nie. To {{t:bet}} podzielony przez {{t:pot|pulę}} sprzed {{t:bet|zakładu}}. Liczysz wobec wszystkiego, co możesz wygrać.",
+      "mistakeInverted": "Nie. To {{t:pot}} sprzed {{t:bet|zakładu}} podzielona przez {{t:pot|pulę}} po {{t:bet|zakładzie}}, czyli ułamek odwrócony. Na górze ma być to, co dopłacasz, a na dole cała {{t:pot}} po twoim {{t:call|sprawdzeniu}}."
+    },
+    "drawCall": {
+      "promptFlop": "Flop. W {{t:pot|puli}} jest {{pot}}, przeciwnik {{t:bet|stawia}} {{bet}}. Masz {{draw}}. Co robisz?",
+      "promptTurn": "Turn. W {{t:pot|puli}} jest {{pot}}, przeciwnik {{t:bet|stawia}} {{bet}}. Masz {{draw}}. Co robisz?",
+      "drawFlush": "{{t:flush-draw}}",
+      "drawOesd": "{{t:oesd}}",
+      "drawGutshot": "gutshot",
+      "call": "{{t:call|Sprawdzam}}",
+      "fold": "{{t:fold|Pasuję}}",
+      "outs_one": "{{count}} out",
+      "outs_few": "{{count}} outy",
+      "outs_many": "{{count}} outów",
+      "outs_other": "{{count}} outu",
+      "explanationFlop": "Masz {{outs}} z {{unseen}} nieznanych kart, czyli {{chance}} szans na turnie. {{why}} Potrzebujesz {{required}}. {{verdict}}",
+      "explanationTurn": "Masz {{outs}} z {{unseen}} nieznanych kart, czyli {{chance}} szans na riverze. {{why}} Potrzebujesz {{required}}. {{verdict}}",
+      "whyFlop": "Liczy się szansa na jedną kartę, bo {{t:call|sprawdzasz}} tylko ten {{t:bet}}: przed riverem zwykle zapłacisz kolejną cenę.",
+      "whyTurn": "Liczy się szansa na jedną kartę: została już tylko jedna.",
+      "verdictGood": "Szansa jest większa niż cena, więc {{t:call}} się opłaca.",
+      "verdictNearFlop": "Szansa jest trochę mniejsza niż cena, więc samo {{t:call}} traci. Może się opłacić tylko dzięki implied odds, czyli gdy po trafieniu wygrasz więcej, i pod warunkiem, że kolejna cena na turnie też nie będzie za wysoka.",
+      "verdictNearTurn": "Szansa jest trochę mniejsza niż cena, więc samo {{t:call}} traci. Może się opłacić tylko dzięki implied odds, czyli gdy po trafieniu wygrasz więcej.",
+      "verdictBad": "Szansa jest wyraźnie mniejsza niż cena, więc {{t:call}} traci w długim terminie.",
+      "right": "Tak.",
+      "wrong": "Nie."
+    },
+    "texture": {
+      "label": {
+        "height": {
+          "high": "Wysoki",
+          "middle": "Średni",
+          "low": "Niski"
+        },
+        "suits": {
+          "rainbow": "{{t:rainbow|Rainbow}}",
+          "twoTone": "{{t:two-tone|Dwukolorowy}}",
+          "monotone": "{{t:monotone|Jednokolorowy}}"
+        },
+        "ranks": {
+          "paired": "{{t:paired|Sparowany}}",
+          "connected": "{{t:connected|Połączony}}",
+          "semiConnected": "{{t:semi-connected|Półpołączony}}",
+          "disconnected": "{{t:disconnected|Niepołączony}}"
+        },
+        "wetness": {
+          "dry": "{{t:dry|Suchy}}",
+          "medium": "Pośredni",
+          "wet": "{{t:wet|Mokry}}"
+        }
+      },
+      "axis": {
+        "height": "Wysokość",
+        "suits": "Kolory",
+        "ranks": "Rangi",
+        "wetness": "{{t:dry|Suchy}} czy {{t:wet}}"
+      },
+      "scale": "Liczymy punkty: {{t:straight}} możliwy na kilka sposobów (z co najmniej dwoma zestawami dwóch rang) {{made}}, {{t:straight}} możliwy na jeden sposób {{madeOne}}, sam {{t:straight-draw}} {{draw}}; flop {{t:two-tone}} {{twoTone}}, {{t:monotone}} {{monotone}}. {{t:dry|Suchy}} to 0–{{dryMax}}, pośredni {{medium}}, {{t:wet}} {{wet}} i więcej",
+      "range": "{{from}}–{{to}}",
+      "def": {
+        "height": {
+          "high": "flop wysoki ma najwyższą kartę asa, króla albo damę",
+          "middle": "flop średni ma najwyższą kartę waleta albo dziesiątkę",
+          "low": "flop niski ma najwyższą kartę dziewiątkę albo niższą"
+        },
+        "suits": {
+          "rainbow": "flop {{t:rainbow}} ma trzy karty w trzech różnych kolorach, więc nikt nie ma jeszcze {{t:flush-draw|drawa do koloru}}",
+          "twoTone": "flop {{t:two-tone}} ma dwie karty w jednym kolorze, więc dwie karty gracza w tym kolorze dają {{t:flush-draw}}",
+          "monotone": "flop {{t:monotone}} ma wszystkie trzy karty w jednym kolorze, więc {{t:flush}} jest już możliwy"
+        },
+        "ranks": {
+          "paired": "flop {{t:paired}} ma dwie albo trzy karty tej samej rangi; {{t:straight}} z dwiema kartami gracza jest wtedy niemożliwy, choć {{t:straight-draw}} bywa możliwy",
+          "connected": "flop {{t:connected}} ma trzy różne rangi w obrębie pięciu kolejnych, więc {{t:straight}} jest możliwy już teraz (as liczy się też jako jedynka)",
+          "semiConnected": "flop {{t:semi-connected|półpołączony}} ma dwie rangi w obrębie pięciu kolejnych, ale nie trzy: {{t:straight|strita}} jeszcze nie ma, a {{t:straight-draw}} (otwarty albo gutshot) już jest możliwy",
+          "disconnected": "flop {{t:disconnected}} ma rangi tak odległe, że żadne dwie nie mieszczą się w pięciu kolejnych, więc nikt nie ma nawet {{t:straight-draw|drawa do strita}}"
+        },
+        "wetness": {
+          "dry": "flop {{t:dry}} daje mało {{t:draw|drawów}}. {{scale}}",
+          "medium": "flop pośredni daje część {{t:draw|drawów}}. {{scale}}",
+          "wet": "flop {{t:wet}} daje dużo {{t:draw|drawów}} albo gotowe {{t:straight|strity}}. {{scale}}"
+        }
+      },
+      "suitCount": {
+        "three": "trzy różne kolory",
+        "two": "dwie karty w jednym kolorze",
+        "one": "trzy karty w jednym kolorze"
+      },
+      "rankFact": {
+        "connected": "Tu {{t:straight}} jest możliwy, np. z {{example}}.",
+        "pairedDraw": "Tu dwie karty mają tę samą rangę; {{t:straight-draw}} daje np. {{example}}.",
+        "paired": "Tu dwie karty mają tę samą rangę.",
+        "semiConnected": "Tu {{t:straight|strita}} jeszcze nie ma, ale {{t:straight-draw}} daje np. {{example}}.",
+        "disconnected": "Tu żadne dwie karty gracza nie dadzą nawet {{t:straight-draw|drawa do strita}}."
+      },
+      "draws": {
+        "rainbow": "nie ma {{t:flush-draw|drawa do koloru}} (trzy różne kolory)",
+        "twoTone": "jest {{t:flush-draw}} (dwie karty w jednym kolorze)",
+        "monotone": "{{t:flush}} jest już możliwy (trzy karty w jednym kolorze)",
+        "straightMade": "{{t:straight}} jest możliwy na kilka sposobów, np. z {{example}}",
+        "straightMadeOne": "{{t:straight}} jest możliwy tylko na jeden sposób, z {{example}}",
+        "straightDraw": "{{t:straight|strita}} nie ma, ale jest {{t:straight-draw}}, np. z {{example}}",
+        "straightNone": "nie ma {{t:straight|strita}} ani {{t:straight-draw|drawa do strita}}",
+        "total": "{{color}}: {{colorPoints}}; {{straight}}: {{straightPoints}}. Razem {{points}}"
+      },
+      "prompt": {
+        "height": "Jak wysoki jest ten flop?",
+        "suits": "Ile kolorów ma ten flop?",
+        "ranks": "Czy ten flop jest {{t:paired}}, {{t:connected}}, {{t:semi-connected|półpołączony}} czy {{t:disconnected}}?",
+        "wetness": "Czy ten flop jest {{t:dry}}, pośredni czy {{t:wet}}?",
+        "many": "Oceń {{t:texture|teksturę}} flopa w każdym wierszu."
+      },
+      "whyRight": "Tak: {{def}}. {{fact}}",
+      "whyWrong": "Nie: {{def}}. {{fact}}",
+      "factHeight": "Najwyższa karta to {{card}}.",
+      "factSuits": "Tu: {{suits}}.",
+      "factWetness": "Tu {{draws}}.",
+      "summary": "Ten flop jest {{height}}, {{suits}} i {{ranks}}, czyli {{wetness}} ({{points}} {{t:wetness|mokrości}})."
+    },
+    "vocab": {
+      "promptPlEn": "Jak po angielsku nazywa się „{{pl}}”?",
+      "promptEnPl": "Co po polsku znaczy „{{en}}”?",
+      "promptAbbr": "Co oznacza skrót „{{abbr}}”?",
+      "promptDef": "Który termin pasuje do opisu? „{{def}}”",
+      "lineSame": "„{{pl}}”",
+      "lineSameAbbr": "„{{pl}}” (skrót {{abbr}})",
+      "line": "„{{pl}}” to po angielsku „{{en}}”",
+      "lineAbbr": "„{{pl}}” to po angielsku „{{en}}”, skrót {{abbr}}",
+      "right": "Tak: {{line}}.",
+      "wrong": "Nie: {{line}}.",
+      "end": "{{line}}.",
+      "meaning": "Znaczenie: {{def}}",
+      "alsoSeen": "Spotkasz też: {{list}}."
+    }
   }
 }

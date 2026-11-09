@@ -24,8 +24,13 @@ const tagiSystemu = (): string[] => {
   }
 };
 
-// Znaczniki terminów {{t:…}} podstawiamy przed i18next (jego interpolacja też używa {{…}}). Terminy tylko po polsku do E3 (słownik terminów na język).
-const slowniki = Object.fromEntries(Object.entries(SLOWNIKI).map(([j, drzewo]) => [j, trDeep(drzewo)]));
+// Znaczniki terminów {{t:…}} podstawiamy przed i18next (jego interpolacja też używa {{…}}), według języka słownika (D-287).
+// Wyjątek: `drill.*` (teksty zadań generowanych, D-288) zostaje surowe — parametry niosą znaczniki terminów (nazwy układów),
+// więc nawias „przy pierwszym użyciu” liczy się na gotowym tekście w `features/drills/text.ts` (i18next zostawia
+// nieznany parametr `{{t:…}}` bez zmian: `skipOnVariables`).
+const slowniki = Object.fromEntries(
+  Object.entries(SLOWNIKI).map(([j, { drill, ...reszta }]) => [j, { ...trDeep(reszta, j), ...(drill === undefined ? {} : { drill }) }]),
+);
 
 void i18n.use(initReactI18next).init(opcjeI18next(slowniki, jezykDlaUstawienia('auto', tagiSystemu()), { scisle: __DEV__ }));
 

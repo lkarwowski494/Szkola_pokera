@@ -1,0 +1,24 @@
+# K1: pnpm i18n:kod, 2026-11-09T08:19:10Z, commit 3c8bcfd
+UWAGA kod apps/mobile/src/app/glossary.tsx:36 t(`glossary.areas.${s.area}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/session.tsx:173 t(bladZapisu === 'brak_miejsca' ? 'session.saveNoSpace' : 'session.saveFailed'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/session.tsx:374 t(bladZapisu === 'brak_miejsca' ? 'session.saveNoSpace' : 'session.saveFailed'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/app/settings.tsx:108 t(KLUCZ[komunikat]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/PaintGrid.tsx:118 t(STAN_KLUCZ[result[i]!]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/RuleCard.tsx:15 t(`level.${rule.level}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/Stol.tsx:114 t(STAN_KLUCZ[m.stan]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/ruleSources.ts:11 t(`rules.sourceKind.one.${kind}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/ruleSources.ts:13 t(`rules.sourceKind.many.${kind}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/components/ruleSources.ts:17 t(total === 1 ? 'rules.source' : 'rules.sources'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/dane/EkranDanych.tsx:91 t(KLUCZ[komunikat]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/dzis/BlokLekcji.tsx:14 t(blok.rozpoczeta ? 'today.continueLesson' : 'today.startLesson'): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/ocena/StopienOceny.tsx:22 t(`grade.${ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/start/EkranStartu.tsx:37 t(`start.title.${TYTUL[rodzaj]}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/PanelDecyzji.tsx:35 t(`grade.${ocenaDecyzji(rekord.grade)}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/skala.ts:23 t(`grade.${stopien}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/skala.ts:33 t(`grade.${ocena}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/uklad.ts:86 t(`card.rank.${r}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/stol/uklad.ts:86 t(`card.suit.${s}`): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/zakup/EkranZakupu.tsx:106 t(k.nazwa): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod apps/mobile/src/features/zakup/EkranZakupu.tsx:107 t(k.opis): klucz dynamiczny, sprawdź listę wartości
+błędy: 0, uwagi: 21; języki: pl; kluczy w źródle: 493
+kod wyjścia: 0

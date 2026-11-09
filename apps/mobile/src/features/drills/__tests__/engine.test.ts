@@ -6,7 +6,7 @@ import { buildExamSession, buildFamilySession, interleaveRows } from '@/features
 import { instantiate, rangeVerdict } from '../engine';
 import { gradeAnswer, gradeNumeric, isPass, parseNumberInput, scorePaint } from '../grade';
 import { splitCardTokens } from '../cardTokens';
-import { pctEquity } from '../text.pl';
+import { pctEquity } from '../text';
 import { EXAM_MAX_PER_GENERATOR, EXAM_SIZE, MIXED_HIGH, MIXED_LOW, MIXED_MIN, PAINT_PASS } from '../thresholds';
 import type { ChoiceInstance, DrillInstance, NumericInstance } from '../types';
 

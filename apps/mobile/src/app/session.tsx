@@ -28,7 +28,7 @@ import {
 } from '@/data/content/repo';
 import { usePortPostepu, zapiszBladPostepu } from '@/data/postep';
 import { gradeAnswer, isPass, parseNumberInput, scorePaint } from '@/features/drills/grade';
-import { pct, t as dt } from '@/features/drills/text.pl';
+import { pct, t as dt } from '@/features/drills/text';
 import { EXAM_PASS, PAINT_PASS } from '@/features/drills/thresholds';
 import type { ChoiceInstance, DrillAnswer, DrillInstance, GradeResult, NumericInstance, PaintInstance, TextureInstance } from '@/features/drills/types';
 import { odpowiedzWSesji, otworzSesje, type PowodSesji, type RodzajSesji, type Sesja } from '@/features/session/aktywnoscSesji';

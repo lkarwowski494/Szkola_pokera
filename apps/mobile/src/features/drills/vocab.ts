@@ -1,7 +1,8 @@
 import { termDefRevealsName, termNeedsEnglish, termText, type GeneratedDrill } from '@szkola/content-schema';
 import { shuffle, type Rng } from '@szkola/poker-core';
 import { TERMS, type AppTerm } from '@/data/content/terms.generated';
-import { vocabText } from './text.pl';
+import { ZRODLO } from '@szkola/jezyki';
+import { jezykZadan, vocabText } from './text';
 import type { DrillInstance, DrillOption } from './types';
 
 /**
@@ -51,8 +52,12 @@ function confusable(a: string, b: string): boolean {
   return DEF_CONFUSABLE.some(([x, y]) => (x === a && y === b) || (x === b && y === a));
 }
 
-/** Kierunki, w których można zapytać o termin. */
-export function vocabModes(t: AppTerm): VocabMode[] {
+/**
+ * Kierunki, w których można zapytać o termin. W języku innym niż polski (P-2, D-293) tylko „skrót → nazwa”;
+ * „definicja → termin” wróci, gdy definicje będą w tym języku (przekład `def`, K5). Kierunki pl-en i en-pl mają sens tylko po polsku.
+ */
+export function vocabModes(t: AppTerm, jezyk: string = jezykZadan()): VocabMode[] {
+  if (jezyk !== ZRODLO) return t.abbr && t.abbr.toLowerCase() !== t.en.toLowerCase() ? ['abbr'] : [];
   const out: VocabMode[] = [];
   if (termNeedsEnglish(t)) out.push('pl-en', 'en-pl');
   if (t.abbr && t.abbr.toLowerCase() !== t.en.toLowerCase()) out.push('abbr');
@@ -99,6 +104,8 @@ export function vocabBatch(d: GeneratedDrill, lessonId: string | null, rng: Rng,
     return dir === 'def' ? modes.includes('def') : dir === 'both' ? modes.length > 0 : modes.some((m) => m !== 'def');
   };
   const pool = ALL.filter((t) => t.area === area && usable(t));
+  // poza polskim obszar bez skrótów nie daje zadań (P-2: mniejsza pula), po polsku pusty obszar to błąd treści
+  if (pool.length === 0 && jezykZadan() !== ZRODLO) return [];
   if (pool.length === 0) throw new Error(`Zadanie ${d.id}: brak terminów w obszarze ${area}`);
   const order = shuffle(rng, pool);
   return Array.from({ length: count }, (_, j) => {
