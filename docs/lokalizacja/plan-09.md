@@ -173,3 +173,28 @@ Pytania:
 6. Subskrypcje z automatycznym odnowieniem (np. prawo stanowe o automatycznym odnawianiu): co zapewnia Apple, a co musi pokazać ekran zakupu — porównać z `EkranZakupu` i decyzjami D-266.
 
 Wzór procesu: rola 10/M8 (formalności przed wydaniem); hierarchia: przepisy i strony regulatorów = szczebel 1 (`zrodla.md`), kancelarie i media = wskazówka. Kolejne kraje (JP, CA, GB, BR, FR, TW, VN, DE) tym samym szablonem.
+
+## 13. Stan wykonania E1 (sesja P z kodem, 2026-11-09)
+
+| Krok | Stan | Dowód |
+|---|---|---|
+| K1 | zrobione: `pnpm i18n:kod` kod 0, 0 błędów, 21 uwag (klucze dynamiczne z zamkniętą listą wartości: stopnie oceny, karty, poziomy, rodzaje źródeł) | `dowody/k1-i18n-kod-2026-11-09.txt` |
+| K2a | zrobione (D-318): `drills/text.ts` + `drill.*` w `pl.json` (205 kluczy bazowych z kontekstem); P-2 w kodzie | test `teksty-jezyk-09.test.ts` (czerwony → zielony); testy zadań pl 80/80 bez zmian tekstów |
+| K2b | zrobione (D-319–D-321): terminy według języka tekstu bazy, łańcuch → en → pl, nakładka `spots.yaml`/`helplines.yaml` ze strażnikiem | `tools/content-build/test/jezyk-tresci-09.test.ts` (9), `packages/jezyki/test/lancuch.test.ts` (3 nowe); `content:build` 35 baz bez zmian plików |
+| K2c | zrobione (D-322): baza treści za językiem aplikacji, bez restartu | `src/data/tresc/__tests__/useTresc-09.test.tsx` (2) |
+| K2d | zrobione (D-323): `przeglad_jezyki.<język>` wymagane dla 11 twierdzeń krytycznych w każdym `content/<język>/` | `scal-rejestr.test.mjs` (czerwony na skrypcie z HEAD, zielony po zmianie); skróty pl 11/11 identyczne |
+| K2e | zrobione w K2a (P-2, D-293) | jak K2a |
+| K3a | kod gotowy (subagent w worktree); przegląd D-043 w toku: `scripts/i18n/` (przekład, przegląd, `--szacuj`, `--zastosuj` z kontrolą znaczników i sha256 źródła), workflowy ręczne `przeklad-tlumaczen.yml`, `przeglad-tlumaczen.yml` | testy `scripts/i18n/*.test.mjs`; `dowody/szacunek-api-2026-11-09.txt` |
+| K4 | zrobione: glosariusz z `terms.yaml` (162 terminy; generator z `--sprawdz`), zamrożenie źródła (66 plików, skrót zbiorczy w pliku dowodu) | `glosariusz.md`, `narzedzia/glosariusz.mjs`, `dowody/zamrozenie-k4-2026-11-09.txt` |
+
+Szacunek API (`--szacuj`, Opus 5.5, Batch, cennik ze stanu 2026-10-06 — ponowny odczyt u źródła przed przebiegiem): en przekład 7,06 USD + przegląd 5,61 USD = 12,67 USD (każdy przebieg < 15 USD, D-295); ja, pt-BR, fr, zh-Hant razem przekład 28,71 + przegląd 23,98 = 52,69 USD (po jednym języku: przekład 6,74–7,61, przegląd 5,82–6,17 USD — każdy przebieg < 15 USD), więcej niż ocena D-303 (30–40 USD) — pytanie W-03. Sonnet 5.5: połowa.
+
+### Zostaje
+
+- **Krok właściciela:** sekret `ANTHROPIC_API_KEY` w ustawieniach repo; workflowy ręczne są widoczne do uruchomienia dopiero na gałęzi domyślnej (GitHub pokazuje „Run workflow” tylko dla workflowów z gałęzi domyślnej) — do decyzji: scalenie albo uruchomienie lokalne skryptu przez właściciela.
+- K3 i K5 (przebiegi API en, przegląd propozycji, nałożenie falami, kontrola (a) dla 11 twierdzeń + H-INT-2 z zapisem `przeglad_jezyki.en`) — po sekrecie.
+- **Definicje terminów `def`** (162, ok. 2 900 słów) nie mają jednostki przekładu: bez nich w en nie ma kierunku „definicja → termin” (P-2) ani definicji w słowniczku en. Propozycja na K5: plik `content/<język>/terms-def.yaml` (klucz → definicja) jako nakładka, budowa bierze definicję języka tekstu.
+- Testy aplikacji zakładają język pl, bo `WYDANE = ["pl"]`; po dodaniu `en.json` język testów zależy od `getLocales()` w Jest (`[DO SPRAWDZENIA]`: moduł natywny w testach rzuca, więc dziś pusta lista) — ustawić go jawnie w `jest.setup.js` (K3).
+- Ćwiczenie słownictwa poza pl: obszar bez skrótów daje 0 zadań; sprawdzić w K7 (E2E en), czy sesja z samym takim zadaniem nie zostaje pusta.
+- Forma `{{t:klucz|forma}}` dla języków fali 1 (K-05) i przewodnik głosu dla języków docelowych (prompt K3a używa rejestru z Treningu) — decyzja 09 z 04/06 przed K-04.
+- `content/pl/rules.yaml` (ok. 141 tys. znaków) idzie jednym żądaniem; przy ucięciu odpowiedzi podzielić plik.
