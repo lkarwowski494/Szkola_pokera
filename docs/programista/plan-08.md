@@ -943,6 +943,7 @@ Rola: `assemble.mjs` odrzucone przez klasyfikator — **wyjątek nazwany** D-381
 | Wydanie ja, zh-Hant, pt-BR, fr: słowniki, polyfille, `app.json`, `locales/systemowe/*`, krój CJK, słowniczek (nazwa lokalna), pt-PT → pt-BR | `i18n/__tests__/jezyk-4-09.test.ts` (5 ✕ → 5 ✓), `theme/__tests__/kroje-cjk-09.test.ts`, `glossary/__tests__/nazwy-lokalne-09.test.ts` | D-368, D-369, D-373, D-380 |
 
 ### Zostaje
+- E2E przed pushem: 42700220213 (935c9cf) **success** (21:57 UTC); E2E po pushu AE — wynik w Koordynacji.
 - E2E flow dla jednego języka CJK wzorem `08-drugi-jezyk` — nie w tej sesji (koszt minut macOS, kontekst); zamiast: `docs/lokalizacja/lista-telefonu-4.md` (T-cjk-1…5, T-pf-1…7).
 - Ujednolicenie form poza próbą (plan-pt-BR-fr §3.5: fr `grosse blind` → `grosse blinde`, `limpers`, `solveur`; pt-BR top pair/fold; zh-Hant 勝率/波動 wg AB) — zmiany w m12 tylko z ponowną kontrolą (a). Raport form ≠ nazwa: `dowody/nalozenie-4-jezykow-2026-11-09.md`.
 - Wiersze `[DO USTALENIA]` w `content/<j>/terms-nazwy.yaml` (ja 34, zh-Hant 34, pt-BR 94, fr 40) — potwierdzenie źródłem (backlog).
