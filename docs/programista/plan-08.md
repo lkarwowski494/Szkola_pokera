@@ -712,7 +712,9 @@ Pełny zestaw: `pnpm run ci` kod 0 po każdym commicie (ostatni: mobile 465, pre
 
 **Stany do zrzutu (właściciel):** `zakup:plany` (jasny/ciemny) — zdanie o anulowaniu pod planami, przed „Przywróć zakupy”; VoiceOver: zadanie „Kto wygrywa” (karty czytane nazwami „as trefl…”, nie symbolami), siatka malowania po ocenie (stany pól), karta w treści (np. „walet trefl”).
 
-**Zostaje:** E2E pełny po pushu (wynik niżej); `[DO USTALENIA]` warunki zwrotów Apple (zdanie ich nie obiecuje); 10-JP-02 dane sprzedawcy (właściciel/rola 10); przekład `purchase.cancelInfo` i `card.*` — rola 09.
+**E2E:** 42578171401 (push b8eb0a2, pełny build, kod sesji I) **zielony**, 07:15–07:47 UTC (status sprawdzony przez `actions_get`); dispatch koordynatora 42575336076 (aplikacja z 42566410755, kod A04-01..09) **zielony** 06:48–07:11 UTC.
+
+**Zostaje:** `[DO USTALENIA]` warunki zwrotów Apple (zdanie ich nie obiecuje); 10-JP-02 dane sprzedawcy (właściciel/rola 10); przekład `purchase.cancelInfo` i `card.*` — rola 09.
 
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
