@@ -468,7 +468,7 @@ function ChoiceOptions({ item, picked, onPick, readOnly }: { item: ChoiceInstanc
                 backgroundColor: tk.surface,
                 borderColor: oznaczona ? tk.ink : tk.separator,
                 borderWidth: oznaczona ? 2.5 : 1.5,
-                opacity: answered && !oznaczona ? 0.75 : pressed ? 0.85 : 1,
+                opacity: pressed ? 0.85 : 1, // A04-08: bez przezroczystości niewybranych po ocenie (kontrast wyjaśnienia ≥ 4,5:1)
               },
             ]}
           >
