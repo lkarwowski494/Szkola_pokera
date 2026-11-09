@@ -1,0 +1,266 @@
+{
+ "_opis": "Sprawdzenie zajętości nazw w App Store (D-01, D-309): iTunes Search API https://itunes.apple.com/search?term=<fraza>&entity=software&country=<kraj>&limit=50, 0 USD, 2026-11-09 ok. 08:00–08:03 UTC (pierwsze wywołania 403/puste, ponowione po 12 s). Zapisane tylko trackId, trackName, sellerName, userRatingCount wyników zawierających frazę; cudzych opisów nie kopiujemy. Ograniczenie: wyszukiwarka zwraca do 50 wyników na kraj, a ostateczną unikalność nazwy sprawdza App Store Connect przy zapisie nazwy (krok właściciela).",
+ "zapytania": {
+  "Poker Academy | gb": {
+   "resultCount": 43,
+   "zawierajace_fraze": [
+    {
+     "trackId": 1626050814,
+     "trackName": "Poker Academy: Learn GTO poker",
+     "sellerName": "iSolve Sp. z o.o.",
+     "userRatingCount": 1
+    },
+    {
+     "trackId": 6760155052,
+     "trackName": "Video Poker Academy",
+     "sellerName": "Thoughtful Org Partners LLC",
+     "userRatingCount": 0
+    }
+   ]
+  },
+  "Poker Academy | jp": {
+   "resultCount": 48,
+   "zawierajace_fraze": [
+    {
+     "trackId": 1626050814,
+     "trackName": "Poker Academy: Learn GTO poker",
+     "sellerName": "iSolve Sp. z o.o.",
+     "userRatingCount": 0
+    }
+   ]
+  },
+  "Poker Academy | us": {
+   "resultCount": 46,
+   "zawierajace_fraze": [
+    {
+     "trackId": 1626050814,
+     "trackName": "Poker Academy: Learn GTO poker",
+     "sellerName": "iSolve Sp. z o.o.",
+     "userRatingCount": 8
+    },
+    {
+     "trackId": 6760155052,
+     "trackName": "Video Poker Academy",
+     "sellerName": "Thoughtful Org Partners LLC",
+     "userRatingCount": 14
+    }
+   ]
+  },
+  "Poker Coach | gb": {
+   "resultCount": 49,
+   "zawierajace_fraze": [
+    {
+     "trackId": 1444569705,
+     "trackName": "Poker Coaching",
+     "sellerName": "Jonathan Little Inc.",
+     "userRatingCount": 10
+    },
+    {
+     "trackId": 581867383,
+     "trackName": "Tournament Poker Coach",
+     "sellerName": "Gamoz, Inc",
+     "userRatingCount": 25
+    },
+    {
+     "trackId": 6755294637,
+     "trackName": "Pokr: GTO & AI Poker Coach",
+     "sellerName": "Timeless Lab LLC",
+     "userRatingCount": 1
+    },
+    {
+     "trackId": 505831997,
+     "trackName": "Insta Poker Coach Texas Holdem",
+     "sellerName": "Gamoz, Inc",
+     "userRatingCount": 39
+    },
+    {
+     "trackId": 6746586602,
+     "trackName": "Poker Coach+ | AI Assistant",
+     "sellerName": "Crafty Wheel Studios Pty Ltd",
+     "userRatingCount": 1
+    },
+    {
+     "trackId": 6450306141,
+     "trackName": "The Nuts: Poker Coaching Game",
+     "sellerName": "Seligman Ventures Global Limited",
+     "userRatingCount": 4
+    }
+   ]
+  },
+  "Poker Coach | jp": {
+   "resultCount": 49,
+   "zawierajace_fraze": [
+    {
+     "trackId": 1444569705,
+     "trackName": "Poker Coaching",
+     "sellerName": "Jonathan Little Inc.",
+     "userRatingCount": 1
+    },
+    {
+     "trackId": 581867383,
+     "trackName": "Tournament Poker Coach",
+     "sellerName": "Gamoz, Inc",
+     "userRatingCount": 1
+    },
+    {
+     "trackId": 6755294637,
+     "trackName": "Pokr: GTO & AI Poker Coach",
+     "sellerName": "Timeless Lab LLC",
+     "userRatingCount": 1
+    },
+    {
+     "trackId": 505831997,
+     "trackName": "Insta Poker Coach Texas Holdem",
+     "sellerName": "Gamoz, Inc",
+     "userRatingCount": 2
+    },
+    {
+     "trackId": 6753262036,
+     "trackName": "Poker Coach: AI Strategy",
+     "sellerName": "Super Duper Limited",
+     "userRatingCount": 0
+    },
+    {
+     "trackId": 6450306141,
+     "trackName": "The Nuts: Poker Coaching Game",
+     "sellerName": "Seligman Ventures Global Limited",
+     "userRatingCount": 0
+    },
+    {
+     "trackId": 6759677861,
+     "trackName": "Perfect Draw Video Poker Coach",
+     "sellerName": "KEVINSMAK LLC",
+     "userRatingCount": 0
+    },
+    {
+     "trackId": 6757681392,
+     "trackName": "10x Poker: AI Poker Coach",
+     "sellerName": "Blue T Group, LLC",
+     "userRatingCount": 0
+    },
+    {
+     "trackId": 6760940784,
+     "trackName": "Fable Poker Coach",
+     "sellerName": "Casino Engineer LLC",
+     "userRatingCount": 0
+    },
+    {
+     "trackId": 6769274495,
+     "trackName": "RangeIQ: GTO Poker Coach",
+     "sellerName": "Yogesh Badke",
+     "userRatingCount": 0
+    },
+    {
+     "trackId": 6746586602,
+     "trackName": "Poker Coach+ | AI Assistant",
+     "sellerName": "Crafty Wheel Studios Pty Ltd",
+     "userRatingCount": 0
+    }
+   ]
+  },
+  "Poker Coach | us": {
+   "resultCount": 45,
+   "zawierajace_fraze": [
+    {
+     "trackId": 1444569705,
+     "trackName": "Poker Coaching",
+     "sellerName": "Jonathan Little Inc.",
+     "userRatingCount": 73
+    },
+    {
+     "trackId": 6755294637,
+     "trackName": "Pokr: GTO & AI Poker Coach",
+     "sellerName": "Timeless Lab LLC",
+     "userRatingCount": 66
+    },
+    {
+     "trackId": 581867383,
+     "trackName": "Tournament Poker Coach",
+     "sellerName": "Gamoz, Inc",
+     "userRatingCount": 313
+    },
+    {
+     "trackId": 505831997,
+     "trackName": "Insta Poker Coach Texas Holdem",
+     "sellerName": "Gamoz, Inc",
+     "userRatingCount": 254
+    },
+    {
+     "trackId": 6789286272,
+     "trackName": "Poker Coach: GTO Training",
+     "sellerName": "Yaoquan Li",
+     "userRatingCount": 1
+    },
+    {
+     "trackId": 6786891736,
+     "trackName": "TiltProof: Poker Coach",
+     "sellerName": "ron dangur",
+     "userRatingCount": 5
+    },
+    {
+     "trackId": 6759677861,
+     "trackName": "Perfect Draw Video Poker Coach",
+     "sellerName": "KEVINSMAK LLC",
+     "userRatingCount": 55
+    }
+   ]
+  },
+  "Poker Lessons | gb": {
+   "resultCount": 44,
+   "zawierajace_fraze": [
+    {
+     "trackId": 6756941420,
+     "trackName": "River: Poker Lessons & Trainer",
+     "sellerName": "Gto Solutions AS",
+     "userRatingCount": 0
+    }
+   ]
+  },
+  "Poker Lessons | jp": {
+   "resultCount": 49,
+   "zawierajace_fraze": []
+  },
+  "Poker Lessons | us": {
+   "resultCount": 48,
+   "zawierajace_fraze": [
+    {
+     "trackId": 6756941420,
+     "trackName": "River: Poker Lessons & Trainer",
+     "sellerName": "Gto Solutions AS",
+     "userRatingCount": 3
+    }
+   ]
+  },
+  "Poker School | gb": {
+   "resultCount": 45,
+   "zawierajace_fraze": []
+  },
+  "Poker School | jp": {
+   "resultCount": 48,
+   "zawierajace_fraze": []
+  },
+  "Poker School | us": {
+   "resultCount": 49,
+   "zawierajace_fraze": [
+    {
+     "trackId": 6457674497,
+     "trackName": "Gatsby Poker School",
+     "sellerName": "Aleksey Bobrov",
+     "userRatingCount": 0
+    }
+   ]
+  },
+  "Szkoła Pokera | gb": {
+   "resultCount": 0,
+   "zawierajace_fraze": []
+  },
+  "Szkoła Pokera | jp": {
+   "resultCount": 0,
+   "zawierajace_fraze": []
+  },
+  "Szkoła Pokera | us": {
+   "resultCount": 0,
+   "zawierajace_fraze": []
+  }
+ }
+}
