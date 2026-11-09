@@ -10,7 +10,7 @@ import {
   budujZadanieBatcha, SYSTEM_PRZEKLADU, jednostkiPrzekladu, wyciagnijPropozycje, odczytajLinie, ocenPropozycje, main, parsujArgumenty,
   wyJednostki,
 } from './przeklad-api.mjs';
-import { parsujArgumenty as parsujArgumentyPrzegladu } from './przeglad-api.mjs';
+import { parsujArgumenty as parsujArgumentyPrzegladu, segmenty } from './przeglad-api.mjs';
 import { kontrolaZnacznikow, LIMIT_USD, DOMYSLNY_MODEL, kosztUsd, glosariusz, POLA_NAKLADEK, roznicePoza, maxTokensJednostki, ostrzezeniaLiczb } from './wspolne.mjs';
 import { tsImport } from 'tsx/esm/api';
 
@@ -373,4 +373,53 @@ test('--zastosuj odrzuca język spoza listy i ścieżkę poza content/<język>/ 
   writeFileSync(plik, JSON.stringify({ jednostki: [{ jezyk: 'en', zrodlo: egz.zrodlo, cel: 'content/en/../../x.yaml', zrodlo_sha256: egz.zrodlo_sha256, tekst: EGZ_EN }] }));
   assert.equal(await main(['--zastosuj', plik], {}, { fetchFn: fetchZakazany, log: cicho, root }), 1);
   assert.ok(!existsSync(join(root, '..', 'x.yaml')));
+});
+
+/* ---------- definicje terminów: jednostka content/<kod>/terms-def.yaml (D-335; content-build: definicje.ts) ---------- */
+const zDefinicjami = () => {
+  const root = atrapa();
+  writeFileSync(join(root, 'content/terms.yaml'), readFileSync(join(root, 'content/terms.yaml'), 'utf8').replace(/^pot:\n/m, 'pot:\n  def: "Żetony postawione w rozdaniu."\n'));
+  return root;
+};
+const DEF_EN = 'pot: "Chips bet in the hand."\n';
+
+test('definicje: jednostka tylko gdy terms.yaml ma def; cel content/<kod>/terms-def.yaml; źródło i strażnik z definicje.ts', async () => {
+  assert.ok(!jednostkiPrzekladu(atrapa(), 'en').some((x) => x.rodzaj === 'definicje'), 'atrapa bez def: brak jednostki');
+  const root = zDefinicjami();
+  const j = jednostkiPrzekladu(root, 'ja').find((x) => x.rodzaj === 'definicje');
+  assert.ok(j);
+  assert.equal(j.cel, 'content/ja/terms-def.yaml');
+  assert.equal(j.en, 'content/en/terms-def.yaml');
+  assert.deepEqual(j.klucze, ['pot']);
+  const ts = await tsImport('../../tools/content-build/src/definicje.ts', import.meta.url);
+  assert.equal(j.tekst, ts.tekstZrodlaDefinicji({ pot: { def: 'Żetony postawione w rozdaniu.' } }));
+  assert.match(j.custom_id, /^[A-Za-z0-9_-]{1,64}$/);
+});
+
+test('definicje: kontrola przekładu — te same klucze, niepuste, bez znaczników', () => {
+  const j = jednostkiPrzekladu(zDefinicjami(), 'en').find((x) => x.rodzaj === 'definicje');
+  assert.deepEqual(kontrolaZnacznikow(j, DEF_EN, 'en'), []);
+  assert.deepEqual(kontrolaZnacznikow(j, 'pot: "Chips {{n:x}}."\n', 'en'), ['pot: znaczniki w definicji (def to czysty tekst)']);
+  assert.deepEqual(kontrolaZnacznikow(j, 'pot: "Chips."\nflop: "Cards."\n', 'en'), ['flop: klucz spoza źródła (termin bez def albo nieznany)']);
+  assert.deepEqual(kontrolaZnacznikow(j, 'inne: "x"\n', 'en'), ['pot: brak definicji w przekładzie', 'inne: klucz spoza źródła (termin bez def albo nieznany)']);
+});
+
+test('definicje: żądanie z regułą pliku i glosariuszem terminów z kluczy; segmenty przeglądu po kluczach', () => {
+  const root = zDefinicjami();
+  const j = jednostkiPrzekladu(root, 'en').find((x) => x.rodzaj === 'definicje');
+  const u = budujZadanieBatcha(root, 'en', j, { model: 'claude-opus-5-5', effort: 'medium' }, glosariusz(root)).params.messages[0].content;
+  assert.match(u, /definicje terminów słowniczka/);
+  assert.match(u, /klucze bez zmian/);
+  assert.match(u, /pot: pula → pot/);
+  assert.deepEqual(segmenty(j, j.tekst, DEF_EN), [{ klucz: 'pot', pl: 'Żetony postawione w rozdaniu.', tlumaczenie: 'Chips bet in the hand.' }]);
+  assert.deepEqual(segmenty(j, j.tekst, null), [{ klucz: 'pot', pl: 'Żetony postawione w rozdaniu.', tlumaczenie: null }]);
+});
+
+test('definicje: --zastosuj zapisuje content/en/terms-def.yaml po kontroli (bez sieci)', async () => {
+  const root = zDefinicjami(); const wy = mkdtempSync(join(tmpdir(), 'k3a-wy-'));
+  const j = jednostkiPrzekladu(root, 'en').find((x) => x.rodzaj === 'definicje');
+  const plik = join(wy, 'propozycje.json');
+  writeFileSync(plik, JSON.stringify({ jednostki: [{ ...ocenPropozycje(j, 'en', { blad: null, tekst: `<<<PLIK>>>\n${DEF_EN}<<<KONIEC>>>` }) }] }));
+  assert.equal(await main(['--zastosuj', plik], {}, { fetchFn: fetchZakazany, log: () => {}, root }), 0);
+  assert.equal(readFileSync(join(root, 'content/en/terms-def.yaml'), 'utf8'), DEF_EN);
 });

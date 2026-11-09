@@ -1,7 +1,8 @@
 import { termDefRevealsName, termNeedsEnglish, termText, type GeneratedDrill } from '@szkola/content-schema';
 import { shuffle, type Rng } from '@szkola/poker-core';
 import { TERMS, type AppTerm } from '@/data/content/terms.generated';
-import { ZRODLO } from '@szkola/jezyki';
+import { ZRODLO, type Jezyk } from '@szkola/jezyki';
+import { terminWJezyku } from '@/features/glossary/definicje';
 import { jezykZadan, vocabText } from './text';
 import type { DrillInstance, DrillOption } from './types';
 
@@ -53,11 +54,16 @@ function confusable(a: string, b: string): boolean {
 }
 
 /**
- * Kierunki, w których można zapytać o termin. W języku innym niż polski (P-2, D-293) tylko „skrót → nazwa”;
- * „definicja → termin” wróci, gdy definicje będą w tym języku (przekład `def`, K5). Kierunki pl-en i en-pl mają sens tylko po polsku.
+ * Kierunki, w których można zapytać o termin. W języku innym niż polski (P-2, D-293) „skrót → nazwa” i „definicja → termin”,
+ * gdy definicja jest w tym języku (nakładka terms-def.yaml, D-335). Kierunki pl-en i en-pl mają sens tylko po polsku.
  */
 export function vocabModes(t: AppTerm, jezyk: string = jezykZadan()): VocabMode[] {
-  if (jezyk !== ZRODLO) return t.abbr && t.abbr.toLowerCase() !== t.en.toLowerCase() ? ['abbr'] : [];
+  if (jezyk !== ZRODLO) {
+    // `t.def` poza polskim to definicja w języku zadań (terminWJezyku, D-335); bez niej tylko „skrót → nazwa”
+    const poza: VocabMode[] = t.abbr && t.abbr.toLowerCase() !== t.en.toLowerCase() ? ['abbr'] : [];
+    if (t.def && !termDefRevealsName(t)) poza.push('def');
+    return poza;
+  }
   const out: VocabMode[] = [];
   if (termNeedsEnglish(t)) out.push('pl-en', 'en-pl');
   if (t.abbr && t.abbr.toLowerCase() !== t.en.toLowerCase()) out.push('abbr');
@@ -66,16 +72,16 @@ export function vocabModes(t: AppTerm, jezyk: string = jezykZadan()): VocabMode[
 }
 
 /** Tekst opcji: w kierunku def polski termin z nazwą angielską w nawiasie (reguła T-01), np. „kolor (flush)”, „flop”. */
-const shown = (t: Entry, mode: VocabMode) => (mode === 'en-pl' ? t.pl : mode === 'def' ? termText(t) : t.en);
+const shown = (t: Entry, mode: VocabMode) => (mode === 'en-pl' ? t.pl : mode === 'def' ? (jezykZadan() === ZRODLO ? termText(t) : t.en) : t.en);
 
-function options(target: Entry, mode: VocabMode, rng: Rng): Entry[] {
+function options(target: Entry, mode: VocabMode, rng: Rng, all: readonly Entry[]): Entry[] {
   // dystraktory najpierw z tego samego obszaru, potem z innych; każda opcja ma inny tekst
   const ok = (t: Entry) =>
     t.key !== target.key &&
     (mode === 'def' ? !confusable(t.key, target.key) : vocabModes(t).some((m) => m !== 'def')) &&
     (mode !== 'abbr' || termNeedsEnglish(t) || !!t.abbr);
-  const same = shuffle(rng, ALL.filter((t) => ok(t) && t.area === target.area));
-  const other = shuffle(rng, ALL.filter((t) => ok(t) && t.area !== target.area));
+  const same = shuffle(rng, all.filter((t) => ok(t) && t.area === target.area));
+  const other = shuffle(rng, all.filter((t) => ok(t) && t.area !== target.area));
   const picked: Entry[] = [target];
   const texts = new Set([shown(target, mode).toLowerCase()]);
   for (const t of [...same, ...other]) {
@@ -103,7 +109,10 @@ export function vocabBatch(d: GeneratedDrill, lessonId: string | null, rng: Rng,
     const modes = vocabModes(t);
     return dir === 'def' ? modes.includes('def') : dir === 'both' ? modes.length > 0 : modes.some((m) => m !== 'def');
   };
-  const pool = ALL.filter((t) => t.area === area && usable(t));
+  // definicje w języku zadań (D-335): po polsku bez zmian, poza polskim z nakładki albo bez definicji
+  const jezyk: Jezyk = jezykZadan();
+  const all = jezyk === ZRODLO ? ALL : ALL.map((t) => terminWJezyku(t, jezyk));
+  const pool = all.filter((t) => t.area === area && usable(t));
   // poza polskim obszar bez skrótów nie daje zadań (P-2: mniejsza pula), po polsku pusty obszar to błąd treści
   if (pool.length === 0 && jezykZadan() !== ZRODLO) return [];
   if (pool.length === 0) throw new Error(`Zadanie ${d.id}: brak terminów w obszarze ${area}`);
@@ -115,7 +124,7 @@ export function vocabBatch(d: GeneratedDrill, lessonId: string | null, rng: Rng,
     const allowed =
       dir === 'both' ? modes : dir === 'def' ? ['def' as const] : modes.filter((m) => m === dir || (m === 'abbr' && !modes.includes(dir as VocabMode)));
     const mode = allowed[Math.floor(rng() * allowed.length)]!;
-    const opts: DrillOption[] = options(target, mode, rng).map((t) => {
+    const opts: DrillOption[] = options(target, mode, rng, all).map((t) => {
       const correct = t.key === target.key;
       return { text: shown(t, mode), correct, why: correct ? vocabText.right(t) : vocabText.wrong(t, mode === 'en-pl') };
     });

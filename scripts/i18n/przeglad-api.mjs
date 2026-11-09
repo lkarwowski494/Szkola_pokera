@@ -86,6 +86,10 @@ export function segmenty(j, pl, tl) {
     return Object.entries(a).map(([k, w]) => ({ klucz: k, pl: opisPlurala(w), tlumaczenie: b ? (b[k] ? opisPlurala(b[k]) : '') : null, ...(j.kontekst?.[k] ? { kontekst: j.kontekst[k] } : {}) }));
   }
   const zYaml = (a, b) => { const pa = polaYaml(a), pb = b ? polaYaml(b) : null; return [...pa].map(([k, v]) => ({ klucz: k, pl: v, tlumaczenie: pb ? (pb.get(k) ?? '') : null })); };
+  if (j.rodzaj === 'definicje') {
+    const a = yamlBezpiecznie(pl) ?? {}, b = tl === null ? null : yamlBezpiecznie(tl) ?? {};
+    return Object.entries(a).map(([k, v]) => ({ klucz: k, pl: String(v), tlumaczenie: b === null ? null : typeof b[k] === 'string' ? b[k] : '' }));
+  }
   if (j.rodzaj === 'nakladka') return polaNakladki(yamlBezpiecznie(pl), tl === null ? null : yamlBezpiecznie(tl) ?? {}, j.pola);
   if (j.rodzaj === 'yaml') return zYaml(yamlBezpiecznie(pl), tl === null ? null : yamlBezpiecznie(tl) ?? {});
   const a = rozdzielMd(pl), b = tl === null ? null : rozdzielMd(tl);
@@ -115,7 +119,7 @@ export function budujZadanie(root, kod, j, gl, tlZastepczy = null) {
     `Przewodnik głosu (rejestr i konwencje tego języka): ${REJESTR[kod] ?? 'jak w iOS danego języka'}.`,
     `Jednostka: ${j.zrodlo} → ${j.cel}. ${j.rodzaj === 'ui' ? 'Kontekst klucza w polu „kontekst” (miejsce i przybliżona długość).' : 'Kontekst: treść kursu (lekcja, egzamin, reguły); długość bez sztywnego limitu poza krótkimi odpowiedziami w ćwiczeniach (przyciski).'}`,
     kod === 'en' ? 'Terminy {{t:…}} w angielskim renderują samą nazwę angielską z glosariusza (D-287).' : 'Pole „en” to angielski przekład (odniesienie), „tlumaczenie” to tekst do oceny.',
-    blokGlosariusza(gl, j.rodzaj === 'ui' ? null : kluczeTerminow(j.tekst)),
+    blokGlosariusza(gl, j.rodzaj === 'ui' ? null : j.rodzaj === 'definicje' ? j.klucze : kluczeTerminow(j.tekst)),
     `Segmentów: ${lista.length}.`, '', JSON.stringify(lista),
   ].join('\n');
   return { system: systemPrzegladu(kod), messages: [{ role: 'user', content: user }], segmentow: lista.length };

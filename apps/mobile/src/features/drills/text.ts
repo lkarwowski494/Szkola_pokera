@@ -463,8 +463,8 @@ interface VocabTerm {
 
 /** Nazwa terminu w języku zadań: po polsku polska, w innym języku angielska (nazwy lokalne: fala 1, K-05). */
 const nazwa = (x: VocabTerm) => (jezykZadan() === ZRODLO ? x.pl : x.en);
-/** Definicja w języku zadań: dziś tylko po polsku (przekład definicji: K5). */
-const definicja = (x: VocabTerm) => (jezykZadan() === ZRODLO ? x.def : undefined);
+/** Definicja w języku zadań: termin przychodzi już z definicją tego języka (terminWJezyku w vocab.ts, D-335). */
+const definicja = (x: VocabTerm) => x.def;
 
 const vocabLine = (x: VocabTerm) =>
   nazwa(x).toLowerCase() === x.en.toLowerCase()

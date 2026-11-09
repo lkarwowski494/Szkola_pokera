@@ -180,3 +180,7 @@ export const TERMS = {
 } as const satisfies Record<string, AppTerm>;
 
 export type TermKey = keyof typeof TERMS;
+
+/** Definicje w językach innych niż polski (D-335): content/<język>/terms-def.yaml, klucz terminu → definicja. */
+export const TERM_DEFS: Readonly<Partial<Record<string, Readonly<Record<string, string>>>>> = {
+};

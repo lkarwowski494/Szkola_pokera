@@ -2,6 +2,8 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { compileAll, sprawdzTresci, trescModuleSource, writeContentDbs } from './build';
 import { helplinesModuleSource } from './helplines';
+import { parse as parseYaml } from 'yaml';
+import { definicjeJezykow } from './definicje';
 import { termsModuleSource } from './terms';
 
 const root = resolve(import.meta.dirname, '../../..');
@@ -21,7 +23,7 @@ try {
   const tresci = compileAll(contentDir);
   const content = tresci.find((c) => c.locale === 'pl')!;
   for (const w of new Set(tresci.flatMap((c) => c.warnings))) console.warn(`uwaga: ${w}`);
-  const termsSrc = termsModuleSource(content.terms);
+  const termsSrc = termsModuleSource(content.terms, definicjeJezykow(contentDir, parseYaml(readFileSync(join(contentDir, 'terms.yaml'), 'utf8'))));
   const helplinesSrc = helplinesModuleSource(content.helplines);
   const trescSrc = trescModuleSource(tresci);
   if (mode === 'check') {

@@ -31,6 +31,10 @@ import { splaszcz, wpisy } from '../sprawdz-i18n.mjs';
 const NAKLADKA = await tsImport('../../tools/content-build/src/nakladka.ts', import.meta.url);
 export const POLA_NAKLADEK = { 'content/ranges/spots.yaml': NAKLADKA.POLA_SPOTS, 'content/helplines.yaml': NAKLADKA.POLA_HELPLINES };
 export const roznicePoza = NAKLADKA.roznicePoza;
+/* Nakładka definicji terminów (D-335): źródło jednostki i strażnik z tools/content-build/src/definicje.ts (bez kopii). */
+const DEFINICJE = await tsImport('../../tools/content-build/src/definicje.ts', import.meta.url);
+export const PLIK_DEFINICJI = DEFINICJE.PLIK_DEFINICJI;
+export const roznicaDefinicji = DEFINICJE.roznicaDefinicji;
 
 /* ---------- liczby w jednym miejscu ---------- */
 export const MODELE = { opus: 'claude-opus-5-5', sonnet: 'claude-sonnet-5-5' };
@@ -163,6 +167,15 @@ export function jednostki(root, kod, prefiks) {
     const rel = zr.slice('content/'.length), tekst = readFileSync(join(root, zr), 'utf8');
     out.push({ rodzaj: 'nakladka', zrodlo: zr, cel: `content/${kod}/${rel}`, en: `content/en/${rel}`, custom_id: `${prefiks}__${kod}__n_${bezpiecznyId(rel.replace(/\.ya?ml$/, ''))}`, tekst, zrodlo_sha256: sha256(tekst), pola });
   }
+  // definicje terminów (pole def z content/terms.yaml) → content/<kod>/terms-def.yaml (D-335; content-build: definicje.ts)
+  const pTerms = join(root, 'content/terms.yaml');
+  if (existsSync(pTerms)) {
+    const defs = DEFINICJE.zrodloDefinicji(parseYaml(readFileSync(pTerms, 'utf8')) ?? {});
+    if (Object.keys(defs).length) {
+      const tekst = DEFINICJE.tekstZrodlaDefinicji(parseYaml(readFileSync(pTerms, 'utf8')));
+      out.push({ rodzaj: 'definicje', zrodlo: 'content/terms.yaml', cel: `content/${kod}/${PLIK_DEFINICJI}`, en: `content/en/${PLIK_DEFINICJI}`, custom_id: `${prefiks}__${kod}__defs`, tekst, zrodlo_sha256: sha256(tekst), klucze: Object.keys(defs) });
+    }
+  }
   return out;
 }
 
@@ -287,6 +300,12 @@ export function kontrolaZnacznikow(j, tekst, kod) {
     const a = bezpiecznieYaml(j.tekst, 'źródło'), b = bezpiecznieYaml(tekst, 'przekład');
     if (a.blad || b.blad) return [a.blad ?? b.blad];
     return [...roznicePoza(a.v, b.v, j.pola), ...porownajZnaczniki(JSON.stringify(a.v), JSON.stringify(b.v), 'plik')];
+  }
+  if (j.rodzaj === 'definicje') {
+    // strażnik content-build (roznicaDefinicji): te same klucze, niepuste napisy, czysty tekst bez znaczników
+    const a = bezpiecznieYaml(j.tekst, 'źródło'), b = bezpiecznieYaml(tekst, 'przekład');
+    if (a.blad || b.blad) return [a.blad ?? b.blad];
+    return roznicaDefinicji(a.v, b.v);
   }
   if (j.rodzaj === 'yaml') {
     const a = bezpiecznieYaml(j.tekst, 'źródło'), b = bezpiecznieYaml(tekst, 'przekład');

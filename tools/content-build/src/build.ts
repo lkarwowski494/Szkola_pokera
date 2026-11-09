@@ -37,6 +37,7 @@ import { findHardcodedNumbers, PLACEHOLDER, resolveNumbers, substitute, type Res
 import { applyTransitional, loadRegistry, loadTransitional, registryViolations, type RegistryUse } from './registry';
 import { checkSourceQuotes } from './sources';
 import { loadTerms } from './terms';
+import { czytajDefinicje } from './definicje';
 import { czytajZNakladka, POLA_HELPLINES } from './nakladka';
 
 /** Ile różnych terminów (z nazwą angielską inną niż polska albo ze skrótem) musi mieć obszar ćwiczenia słownictwa. */
@@ -140,6 +141,9 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   );
   const termsFile = parseOrThrow(TermsFile, readYaml(join(contentDir, 'terms.yaml')), 'terms.yaml');
   const terms = loadTerms(termsFile, tekst);
+  // D-335: strażnik nakładki definicji języka tekstu (błąd budowy przy niezgodnym pliku); same definicje idą do modułu
+  // terminów aplikacji (TERM_DEFS, cli.ts), bo baza treści nie ma kolumny def, a słowniczek czyta terms.generated.ts
+  czytajDefinicje(contentDir, tekst, termsFile);
   const termErrors: string[] = [];
   const helplinesPlik = czytajZNakladka(contentDir, tekst, 'helplines.yaml', POLA_HELPLINES);
   const helplines = loadHelplines(parseOrThrow(HelplinesFile, helplinesPlik.dane, helplinesPlik.plik));

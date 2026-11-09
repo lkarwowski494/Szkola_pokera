@@ -82,6 +82,9 @@ const regulaNakladki = (j) => [
   j.zrodlo.endsWith('helplines.yaml') ? ', a także name, quote, numery telefonów, adresy (url), id, claim, kraje, daty i źródła.' : '.',
 ].join('');
 
+/** Definicje terminów (D-335): mapa klucz → definicja; klucze bez zmian, wartości jako czysty tekst. */
+const REGULA_DEFINICJI = 'W tym pliku tłumacz tylko wartości (definicje dla początkującego, 1–2 zdania); klucze bez zmian i w tej samej kolejności, wszystkie klucze obecne. Definicja to czysty tekst: bez znaczników {{…}}, [[…]] i <…>. Nazwę terminu w definicji podawaj tak jak w glosariuszu.';
+
 export const jednostkiPrzekladu = (root, kod) => jednostki(root, kod, 'pr');
 
 /** Wpisy słownika interfejsu do promptu: klucz bazowy, polski tekst albo formy liczby mnogiej, kontekst, angielskie odniesienie. */
@@ -112,9 +115,10 @@ export function budujZadanie(root, kod, j, gl) {
     ];
   } else {
     tresc = [
-      regulaTerminow(kod), blokGlosariusza(gl, kluczeTerminow(j.tekst)),
-      `Plik: ${j.zrodlo} → ${j.cel} (${j.rodzaj === 'md' ? 'lekcja Markdown z front matter YAML' : j.rodzaj === 'nakladka' ? 'nakładka językowa pliku wspólnego, YAML' : 'plik YAML'}).`,
+      regulaTerminow(kod), blokGlosariusza(gl, j.rodzaj === 'definicje' ? j.klucze : kluczeTerminow(j.tekst)),
+      `Plik: ${j.zrodlo} → ${j.cel} (${j.rodzaj === 'md' ? 'lekcja Markdown z front matter YAML' : j.rodzaj === 'nakladka' ? 'nakładka językowa pliku wspólnego, YAML' : j.rodzaj === 'definicje' ? 'definicje terminów słowniczka, YAML: klucz terminu → definicja' : 'plik YAML'}).`,
       ...(j.rodzaj === 'nakladka' ? [regulaNakladki(j)] : []),
+      ...(j.rodzaj === 'definicje' ? [REGULA_DEFINICJI] : []),
       'Tekst źródłowy (polski):', j.tekst,
       ...(en ? ['Angielski przekład (odniesienie, D-289):', en] : []),
     ];

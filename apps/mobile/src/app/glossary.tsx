@@ -2,7 +2,9 @@ import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { Muted, Screen, Surface, Title } from '@/components/ui';
+import { definicjaTerminu } from '@/features/glossary/definicje';
 import { englishLabel, GLOSSARY_SIZE, glossarySections, type GlossaryEntry } from '@/features/glossary/glossary';
+import { jezykZadan } from '@/features/drills/text';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
 
 /** Słowniczek PL ↔ EN: wszystkie terminy z content/terms.yaml w obszarach, z wyszukiwaniem w obu językach. */
@@ -50,8 +52,9 @@ function Entry({ entry }: { entry: GlossaryEntry }) {
   const tk = useTokens();
   const { t } = useTranslation();
   const en = englishLabel(entry);
+  const def = definicjaTerminu(entry.key, jezykZadan()); // D-335: definicja w języku aplikacji, bez polskiej poza pl
   return (
-    <View style={{ gap: odstep.xs }} accessible accessibilityLabel={`${entry.pl}: ${en}${entry.def ? `. ${entry.def}` : ''}`}>
+    <View style={{ gap: odstep.xs }} accessible accessibilityLabel={`${entry.pl}: ${en}${def ? `. ${def}` : ''}`}>
       <View style={styles.row}>
         <Text style={[styl.tresc, { color: tk.ink, fontWeight: '600', flex: 1 }]}>{entry.pl}</Text>
         <View style={{ flex: 1, gap: 2 }}>
@@ -59,7 +62,7 @@ function Entry({ entry }: { entry: GlossaryEntry }) {
           {entry.enAlt.length > 0 ? <Muted>{t('glossary.alsoEn', { list: entry.enAlt.join(', ') })}</Muted> : null}
         </View>
       </View>
-      {entry.def ? <Text style={[styl.przypis, { color: tk.ink }]}>{entry.def}</Text> : null}
+      {def ? <Text style={[styl.przypis, { color: tk.ink }]}>{def}</Text> : null}
     </View>
   );
 }

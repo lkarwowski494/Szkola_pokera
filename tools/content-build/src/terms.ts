@@ -65,7 +65,7 @@ export function loadTerms(file: Record<string, TermEntry>, jezykTekstu = 'pl'): 
 }
 
 /** Moduł TS z terminami dla aplikacji (teksty zadań generowanych i ćwiczenie słownictwa). */
-export function termsModuleSource(terms: (CompiledTerm & { forms?: string[]; skip?: string[] })[]): string {
+export function termsModuleSource(terms: (CompiledTerm & { forms?: string[]; skip?: string[] })[], definicje: Readonly<Record<string, Readonly<Record<string, string>>>> = {}): string {
   const rows = terms.map((t) => {
     const fields = [`pl: ${JSON.stringify(t.pl)}`, `en: ${JSON.stringify(t.en)}`, `enAlt: ${JSON.stringify(t.enAlt)}`];
     if (t.abbr) fields.push(`abbr: ${JSON.stringify(t.abbr)}`);
@@ -97,6 +97,11 @@ export function termsModuleSource(terms: (CompiledTerm & { forms?: string[]; ski
     '} as const satisfies Record<string, AppTerm>;',
     '',
     'export type TermKey = keyof typeof TERMS;',
+    '',
+    '/** Definicje w językach innych niż polski (D-335): content/<język>/terms-def.yaml, klucz terminu → definicja. */',
+    'export const TERM_DEFS: Readonly<Partial<Record<string, Readonly<Record<string, string>>>>> = {',
+    ...Object.entries(definicje).map(([j, d]) => `  ${JSON.stringify(j)}: ${JSON.stringify(d)},`),
+    '};',
     '',
   ].join('\n');
 }
