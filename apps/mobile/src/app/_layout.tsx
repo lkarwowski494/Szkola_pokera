@@ -15,6 +15,7 @@ import { useTokens } from '@/theme/tokens';
 import { LIMIT_KROJU_MS, LITERATA, zaladujKroje } from '@/theme/kroje';
 import { otworzTrescExpo, przygotujTrescExpo } from '@/data/tresc/startTresci';
 import { useTresc } from '@/data/tresc/useTresc';
+import { useJezykPrzedTresca } from '@/data/tresc/jezykStartu';
 import { kontrolaK04, startPostepuExpo } from '@/data/postepExpo';
 import { PostepKontekst } from '@/data/postepKontekst';
 import type { PortBazy } from '@szkola/postep';
@@ -123,29 +124,24 @@ export default function RootLayout() {
   const { t } = useTranslation(); // „Wróć” w nagłówku z t() i po zmianie języka (A04-10, D-284)
   const loadSettings = useSettings((s) => s.load);
   const postep = usePostep();
-  // Zapisany język (ADR 0014 pkt 3) przed pierwszym przygotowaniem bazy treści: jedna kopia bazy przy zimnym starcie
-  // z językiem innym niż systemowy (przegląd sesji P, plan-09 §13). Bez bazy postępu (błąd startu) — język z i18n.
-  const [jezykGotowy, ustawJezykGotowy] = useState(false);
-  useEffect(() => {
-    if (postep.stan === 'ladowanie') return;
-    if (postep.stan === 'blad') ustawJezykGotowy(true);
-    else void zastosujJezyk(postep.port).finally(() => ustawJezykGotowy(true));
-  }, [postep]);
+  // Zapisany język przed pierwszym przygotowaniem bazy treści (jedna kopia bazy przy zimnym starcie, D-324); raz na port.
+  const jezykGotowy = useJezykPrzedTresca(postep, zastosujJezyk);
   const tresc = useTresc(przygotujTrescExpo, zapiszBladTresci, jezykGotowy);
   const kroje = useKroje();
   const trescGotowa = tresc.stan !== 'ladowanie' && postep.stan !== 'ladowanie' && kroje;
 
+  // Raz na port (nie na obiekt `postep`, nowy przy każdym renderze — przegląd D-043 sesji Q): ustawienia interfejsu
+  // z postep.db (D-251) przed zdjęciem ekranu startowego, potem odtworzenie przypomnienia (ADR 0012: start).
+  // Przy błędzie startu postępu — od razu.
+  const portPostepu = postep.stan === 'ok' ? postep.port : null;
   useEffect(() => {
     if (!trescGotowa) return;
-    // ustawienia interfejsu z postep.db (D-251) przed zdjęciem ekranu startowego (język zastosowany wyżej, przed treścią);
-    // potem odtworzenie przypomnienia z zapisu (ADR 0012: start). Przy błędzie startu postępu — od razu.
-    if (postep.stan === 'ok') {
-      const port = postep.port;
-      void loadSettings(port)
+    if (portPostepu !== null) {
+      void loadSettings(portPostepu)
         .finally(() => void SplashScreen.hideAsync())
-        .then(() => odtworzZBazy(port, powiadomieniaExpo, { tytul: i18n.t('reminder.title'), tresc: i18n.t('reminder.body') }));
+        .then(() => odtworzZBazy(portPostepu, powiadomieniaExpo, { tytul: i18n.t('reminder.title'), tresc: i18n.t('reminder.body') }));
     } else void SplashScreen.hideAsync();
-  }, [loadSettings, trescGotowa, postep]);
+  }, [loadSettings, trescGotowa, portPostepu]);
 
   if (tresc.stan === 'ladowanie' || postep.stan === 'ladowanie' || !kroje) return null;
   if (tresc.stan === 'blad') return <RenderErrorScreen onRetry={tresc.ponow} />;
