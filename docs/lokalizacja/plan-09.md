@@ -88,7 +88,7 @@ Rekomendacja: **A (en)**. Najkrótsza droga do treści, którą przeczyta rynek 
 5. **Formy i gramatyka.** Liczniki w kluczach mnogich tylko całkowite (ADR 0014 pkt 5); teksty `text.pl.ts` z parametrami, bez sklejania; angielskie formy mnogie `one/other`.
 6. **Dostępność.** Etykiety VoiceOver w en (także nazwy kart z A04-11), `accessibilityLanguage` zgodny z językiem aplikacji.
 7. **Konfiguracja.** `supportedLocales`, `locales/systemowe/en.json` (nazwa pod ikoną, P-3), `WYDANE` i `locale-data/en.js` w polyfillu — spięte testem `konfiguracja.test.ts` (ADR 0014 pkt 8).
-8. **Przekład przez API jak w Treningu (D-294).** Message Batches, Opus 5.5 (effort medium), propozycje jako artefakt ręcznego workflowu, nałożenie lokalnie dopiero po przeglądzie i kontrolach; limit kosztu przebiegu w skrypcie. Odstępstwo nazwane: Trening tłumaczy pary kluczy słownika, u nas dochodzą pliki treści (Markdown i YAML) — jednostką żądania jest plik treści, a znaczniki `{{n:…}}`, `{{t:…}}`, `[[karty]]` i identyfikatory muszą wrócić bez zmian (kontrola skryptem przed nałożeniem i `content:build` po nim).
+8. **Przekład przez API jak w Treningu (D-294).** Message Batches, Opus 5.5 (effort medium), propozycje jako artefakt ręcznego workflowu, nałożenie lokalnie dopiero po przeglądzie i kontrolach; limit kosztu przebiegu w skrypcie: 15 USD dla en (D-295). Odstępstwo nazwane: Trening tłumaczy pary kluczy słownika, u nas dochodzą pliki treści (Markdown i YAML) — jednostką żądania jest plik treści, a znaczniki `{{n:…}}`, `{{t:…}}`, `[[karty]]` i identyfikatory muszą wrócić bez zmian (kontrola skryptem przed nałożeniem i `content:build` po nim).
 
 ## 6. Zakres najbliższego etapu (E1 ponownego wejścia: mechanizm drugiego języka i przekład en)
 
@@ -141,4 +141,5 @@ Poza zakresem: pozostałe 33 języki (fale po en, osobne STOP), opis w App Store
 - `[DO USTALENIA]` K2d: jak strażnik przeglądu treści krytycznej liczy skrót dla en (dziś dla pl).
 - Komunikaty walidacji w `packages/poker-core/src/table.ts:287–303` są po polsku; gra z botami jest poza interfejsem (D-104) — do sprawdzenia w K2, czy którykolwiek trafia na ekran.
 - Lista lokalizacji App Store Connect dla en (en-US, en-GB, en-CA, en-AU) i opis sklepu — rola 10.
-- Sprawdzenie legalności kraju przed włączeniem storefrontu (D-292): żaden kraj nie ma dziś zapisu, także US; kto, jakim źródłem i w jakiej kolejności (rynki z CLAUDE.md najpierw) — do koordynatora (rola 02/10). Nie blokuje przekładu ani TestFlight wewnętrznego; blokuje włączenie kraju w App Store.
+- Sprawdzenie legalności kraju przed włączeniem storefrontu (D-292, D-295): agent ze źródeł oficjalnych, kolejność US, JP, CA, GB, BR, FR, TW, VN, DE; żaden kraj nie ma dziś zapisu. Nie blokuje przekładu ani TestFlight wewnętrznego; blokuje włączenie kraju w App Store. Osobne zadanie (koordynator przydziela sesję).
+- Wycofanie wadliwego języka (D-295): nowym wydaniem — usunięcie z `WYDANE` i `supportedLocales`; procedura i test do dopisania w K8 (`jezyki.md`, „Utrzymanie”).
