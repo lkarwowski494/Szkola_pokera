@@ -1,0 +1,290 @@
+[
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"straightFlush\": \"{{t:straight-flush}}\"",
+  "nowy": "\"straightFlush\": \"{{t:straight-flush|escalera de color}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.straightFlush: {{t:…}} bez formy dziś renderuje angielską nazwę układu w zdaniach hiszpańskich („Ambos tenéis {{hand}}”, „{{winner}} está por encima de {{loser}}”), obok form z categoryAcc; forma jak w categoryAcc",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"fourOfAKind\": \"{{t:four-of-a-kind}}\"",
+  "nowy": "\"fourOfAKind\": \"{{t:four-of-a-kind|póker}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.fourOfAKind: {{t:…}} bez formy dziś renderuje angielską nazwę układu w zdaniach hiszpańskich („Ambos tenéis {{hand}}”, „{{winner}} está por encima de {{loser}}”), obok form z categoryAcc; forma jak w categoryAcc",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"fullHouse\": \"{{t:full-house}}\"",
+  "nowy": "\"fullHouse\": \"{{t:full-house|full}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.fullHouse: {{t:…}} bez formy dziś renderuje angielską nazwę układu w zdaniach hiszpańskich („Ambos tenéis {{hand}}”, „{{winner}} está por encima de {{loser}}”), obok form z categoryAcc; forma jak w categoryAcc",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"flush\": \"{{t:flush}}\"",
+  "nowy": "\"flush\": \"{{t:flush|color}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.flush: {{t:…}} bez formy dziś renderuje angielską nazwę układu w zdaniach hiszpańskich („Ambos tenéis {{hand}}”, „{{winner}} está por encima de {{loser}}”), obok form z categoryAcc; forma jak w categoryAcc",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"straight\": \"{{t:straight}}\"",
+  "nowy": "\"straight\": \"{{t:straight|escalera}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.straight: {{t:…}} bez formy dziś renderuje angielską nazwę układu w zdaniach hiszpańskich („Ambos tenéis {{hand}}”, „{{winner}} está por encima de {{loser}}”), obok form z categoryAcc; forma jak w categoryAcc",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"threeOfAKind\": \"{{t:three-of-a-kind}}\"",
+  "nowy": "\"threeOfAKind\": \"{{t:three-of-a-kind|trío}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.threeOfAKind: {{t:…}} bez formy dziś renderuje angielską nazwę układu w zdaniach hiszpańskich („Ambos tenéis {{hand}}”, „{{winner}} está por encima de {{loser}}”), obok form z categoryAcc; forma jak w categoryAcc",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"twoPair\": \"{{t:two-pair}}\"",
+  "nowy": "\"twoPair\": \"{{t:two-pair|doble pareja}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.twoPair: {{t:…}} bez formy dziś renderuje angielską nazwę układu w zdaniach hiszpańskich („Ambos tenéis {{hand}}”, „{{winner}} está por encima de {{loser}}”), obok form z categoryAcc; forma jak w categoryAcc",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"pair\": \"{{t:pair}}\"",
+  "nowy": "\"pair\": \"{{t:pair|pareja}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.pair: {{t:…}} bez formy dziś renderuje angielską nazwę układu w zdaniach hiszpańskich („Ambos tenéis {{hand}}”, „{{winner}} está por encima de {{loser}}”), obok form z categoryAcc; forma jak w categoryAcc",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"highCard\": \"{{t:high-card}}\"",
+  "nowy": "\"highCard\": \"{{t:high-card|carta alta}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.highCard: {{t:…}} bez formy dziś renderuje angielską nazwę układu w zdaniach hiszpańskich („Ambos tenéis {{hand}}”, „{{winner}} está por encima de {{loser}}”), obok form z categoryAcc; forma jak w categoryAcc",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"royalFlush\": \"{{t:royal-flush}}\"",
+  "nowy": "\"royalFlush\": \"{{t:royal-flush|escalera real}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.category.royalFlush: {{t:…}} bez formy dziś renderuje angielską nazwę układu w zdaniach hiszpańskich („Ambos tenéis {{hand}}”, „{{winner}} está por encima de {{loser}}”), obok form z categoryAcc; forma jak w categoryAcc",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"Q\": \"reina\"",
+  "nowy": "\"Q\": \"dama\"",
+  "waga": "ŚREDNIE",
+  "powod": "card.rank.Q: „reina” (etykieta karty, VoiceOver „reina de picas”), a słowniczek i lekcje mówią „dama” (34× vs 5×); jedna nazwa na pojęcie",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "un as, un rey o una reina\"",
+  "nowy": "un as, un rey o una dama\"",
+  "waga": "ŚREDNIE",
+  "powod": "drill.texture.def.height.high: „reina” wobec „dama” w słowniczku i lekcjach",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"wet\": \"{{t:wet|Mojado}}\"",
+  "nowy": "\"wet\": \"{{t:wet|Húmedo}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "wet: „mojado” brak w przeczytanych źródłach (PokerStrategy: „mesa húmeda”), a ta sama oś nazywa się „humedad” (wetness); nazwa K-05 „húmedo”",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"wetness\": \"{{t:dry|Seco}} o {{t:wet|mojado}}\"",
+  "nowy": "\"wetness\": \"{{t:dry|Seco}} o {{t:wet|húmedo}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "jak wyżej: oś „humedad”, źródło „húmeda”",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "{{t:wet|mojado}} {{wet}} o más",
+  "nowy": "{{t:wet|húmedo}} {{wet}} o más",
+  "waga": "ŚREDNIE",
+  "powod": "jak wyżej (drill.texture.scale)",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"un flop {{t:wet|mojado}} da muchos",
+  "nowy": "\"un flop {{t:wet|húmedo}} da muchos",
+  "waga": "ŚREDNIE",
+  "powod": "jak wyżej (drill.texture.def.wetness.wet)",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "intermedio o {{t:wet|mojado}}?",
+  "nowy": "intermedio o {{t:wet|húmedo}}?",
+  "waga": "ŚREDNIE",
+  "powod": "jak wyżej (drill.texture.prompt.wetness)",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"Esto es aprendizaje, sin jugar con dinero.\"",
+  "nowy": "\"Aquí aprendes sin jugar con dinero.\"",
+  "waga": "NISKIE",
+  "powod": "welcome.noMoney: sztywne „Esto es aprendizaje”",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "{{t:call|igualas}} más amplio con manos que cazan",
+  "nowy": "{{t:call|igualas}} con más manos que cazan",
+  "waga": "NISKIE",
+  "powod": "drill.playerType.adjust.maniac: kalka „igualas más amplio”",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "apps/mobile/src/i18n/locales/es.json",
+  "stary": "\"Las lecciones, las respuestas y los repasos se borrarán",
+  "nowy": "\"El progreso de las lecciones, las respuestas y los repasos se borrarán",
+  "waga": "NISKIE",
+  "powod": "settings.resetBody: „Las lecciones… se borrarán” brzmi jak usunięcie samych lekcji (treść danych; pl ma ten sam skrót)",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "contrapone al jugador recreacional.",
+  "nowy": "contrapone al jugador recreativo.",
+  "waga": "ŚREDNIE",
+  "powod": "regular: „recreacional”, a UI (drill.playerType.name.passive) i nazwa K-05 „jugador recreativo”; jedna nazwa na pojęcie",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "Tu parte esperada del bote de premios",
+  "nowy": "Tu parte esperada de la bolsa de premios",
+  "waga": "ŚREDNIE",
+  "powod": "tournament-equity: „bote de premios”, a prize-pool w UI i treści to „bolsa de premios” (18×)",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "Jugador muy tight que",
+  "nowy": "Jugador muy cerrado (tight) que",
+  "waga": "ŚREDNIE",
+  "powod": "nit: „tight” bez odpowiednika, a UI (play.styles) używa „cerrado”; most „cerrado (tight)” łączy oba",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "jugador muy loose y agresivo",
+  "nowy": "jugador muy suelto (loose) y agresivo",
+  "waga": "ŚREDNIE",
+  "powod": "maniac: „loose” bez odpowiednika, a UI (play.styles) używa „suelto”",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "de seca a mojada",
+  "nowy": "de seca a húmeda",
+  "waga": "ŚREDNIE",
+  "powod": "wetness: „mojada” obok nazwy osi „humedad”; źródło „mesa húmeda”",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "son el color al as de corazones",
+  "nowy": "es el color al as de corazones",
+  "waga": "NISKIE",
+  "powod": "nuts: niezgodność liczby („la mano… son el color”)",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "más alta del póquer:",
+  "nowy": "más alta del póker:",
+  "waga": "NISKIE",
+  "powod": "pisownia: słowniczek „póquer”, UI i lekcje „póker” (obie wg RAE poprawne; jedna w aplikacji)",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "dos póqueres del mismo valor",
+  "nowy": "dos pókeres del mismo valor",
+  "waga": "NISKIE",
+  "powod": "pisownia: słowniczek „póquer”, UI i lekcje „póker” (obie wg RAE poprawne; jedna w aplikacji)",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "jugar al póquer;",
+  "nowy": "jugar al póker;",
+  "waga": "NISKIE",
+  "powod": "pisownia: słowniczek „póquer”, UI i lekcje „póker” (obie wg RAE poprawne; jedna w aplikacji)",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "Un rato de póquer,",
+  "nowy": "Un rato de póker,",
+  "waga": "NISKIE",
+  "powod": "pisownia: słowniczek „póquer”, UI i lekcje „póker” (obie wg RAE poprawne; jedna w aplikacji)",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "en póquer suele",
+  "nowy": "en póker suele",
+  "waga": "NISKIE",
+  "powod": "pisownia: słowniczek „póquer”, UI i lekcje „póker” (obie wg RAE poprawne; jedna w aplikacji)",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "es",
+  "cel": "content/es/terms-def.yaml",
+  "stary": "psicológica del póquer:",
+  "nowy": "psicológica del póker:",
+  "waga": "NISKIE",
+  "powod": "pisownia: słowniczek „póquer”, UI i lekcje „póker” (obie wg RAE poprawne; jedna w aplikacji)",
+  "grupa": "E2"
+ }
+]

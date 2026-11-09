@@ -1,0 +1,254 @@
+[
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"straight\": \"{{t:straight|Straight}}\"",
+  "nowy": "\"straight\": \"{{t:straight|Straße}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "Ten sam układ (straight) ma w aplikacji dwie nazwy: UI „Straight”, a lekcje (Straße×104 wobec Straight×48), definicje (wheel, split-pot, draw, connected…) i nazwa K-05 „Straße”; ujednolicenie na „Straße” (de.wikipedia „Ein Straight, im Deutschen auch Straße”; PokerStrategy „Eine Straight oder eine Straße”), rodzaj żeński bez zmian",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"straight\": \"eine {{t:straight|Straight}}\"",
+  "nowy": "\"straight\": \"eine {{t:straight|Straße}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "Ten sam układ (straight) ma w aplikacji dwie nazwy: UI „Straight”, a lekcje (Straße×104 wobec Straight×48), definicje (wheel, split-pot, draw, connected…) i nazwa K-05 „Straße”; ujednolicenie na „Straße” (de.wikipedia „Ein Straight, im Deutschen auch Straße”; PokerStrategy „Eine Straight oder eine Straße”), rodzaj żeński bez zmian",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"promptStraight\": \"Wie viele Outs hast du auf eine {{t:straight|Straight}}?\"",
+  "nowy": "\"promptStraight\": \"Wie viele Outs hast du auf eine {{t:straight|Straße}}?\"",
+  "waga": "ŚREDNIE",
+  "powod": "Ten sam układ (straight) ma w aplikacji dwie nazwy: UI „Straight”, a lekcje (Straße×104 wobec Straight×48), definicje (wheel, split-pot, draw, connected…) i nazwa K-05 „Straße”; ujednolicenie na „Straße” (de.wikipedia „Ein Straight, im Deutschen auch Straße”; PokerStrategy „Eine Straight oder eine Straße”), rodzaj żeński bez zmian",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"baseOesd\": \"Du hast 4 aufeinanderfolgende Karten, an beiden Enden offen. Jeder der beiden fehlenden Ränge macht eine {{t:straight|Straight}}, in je 4 Farben: 8 Karten.\"",
+  "nowy": "\"baseOesd\": \"Du hast 4 aufeinanderfolgende Karten, an beiden Enden offen. Jeder der beiden fehlenden Ränge macht eine {{t:straight|Straße}}, in je 4 Farben: 8 Karten.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Ten sam układ (straight) ma w aplikacji dwie nazwy: UI „Straight”, a lekcje (Straße×104 wobec Straight×48), definicje (wheel, split-pot, draw, connected…) i nazwa K-05 „Straße”; ujednolicenie na „Straße” (de.wikipedia „Ein Straight, im Deutschen auch Straße”; PokerStrategy „Eine Straight oder eine Straße”), rodzaj żeński bez zmian",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"baseGutshot\": \"Dir fehlt eine Karte in der Mitte der {{t:straight|Straight}}. Nur ein Rang vervollständigt sie, in 4 Farben: 4 Karten.\"",
+  "nowy": "\"baseGutshot\": \"Dir fehlt eine Karte in der Mitte der {{t:straight|Straße}}. Nur ein Rang vervollständigt sie, in 4 Farben: 4 Karten.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Ten sam układ (straight) ma w aplikacji dwie nazwy: UI „Straight”, a lekcje (Straße×104 wobec Straight×48), definicje (wheel, split-pot, draw, connected…) i nazwa K-05 „Straße”; ujednolicenie na „Straße” (de.wikipedia „Ein Straight, im Deutschen auch Straße”; PokerStrategy „Eine Straight oder eine Straße”), rodzaj żeński bez zmian",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"scale\": \"Wir zählen Punkte: eine auf mehrere Arten mögliche {{t:straight|Straight}} (mit mindestens zwei Sätzen aus zwei Rängen) {{made}}, eine auf nur eine Art mögliche {{t:straight|Straight}} {{madeOne}}, nur ein {{t:straight-draw|Straight-Draw}} {{draw}}; ein {{t:two-tone|Two-Tone}}-Flop {{twoTone}}, ein {{t:monotone|monotoner}} {{monotone}}. {{t:dry|Trocken}} ist 0–{{dryMax}}, mittel {{medium}}, {{t:wet|nass}} {{wet}} und mehr\"",
+  "nowy": "\"scale\": \"Wir zählen Punkte: eine auf mehrere Arten mögliche {{t:straight|Straße}} (mit mindestens zwei Sätzen aus zwei Rängen) {{made}}, eine auf nur eine Art mögliche {{t:straight|Straße}} {{madeOne}}, nur ein {{t:straight-draw|Straight-Draw}} {{draw}}; ein {{t:two-tone|Two-Tone}}-Flop {{twoTone}}, ein {{t:monotone|monotoner}} {{monotone}}. {{t:dry|Trocken}} ist 0–{{dryMax}}, mittel {{medium}}, {{t:wet|nass}} {{wet}} und mehr\"",
+  "waga": "ŚREDNIE",
+  "powod": "Ten sam układ (straight) ma w aplikacji dwie nazwy: UI „Straight”, a lekcje (Straße×104 wobec Straight×48), definicje (wheel, split-pot, draw, connected…) i nazwa K-05 „Straße”; ujednolicenie na „Straße” (de.wikipedia „Ein Straight, im Deutschen auch Straße”; PokerStrategy „Eine Straight oder eine Straße”), rodzaj żeński bez zmian",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"paired\": \"ein {{t:paired|gepaarter}} Flop hat zwei oder drei Karten desselben Rangs; eine {{t:straight|Straight}} mit beiden Karten eines Spielers ist dann unmöglich, ein {{t:straight-draw|Straight-Draw}} ist aber manchmal möglich\"",
+  "nowy": "\"paired\": \"ein {{t:paired|gepaarter}} Flop hat zwei oder drei Karten desselben Rangs; eine {{t:straight|Straße}} mit beiden Karten eines Spielers ist dann unmöglich, ein {{t:straight-draw|Straight-Draw}} ist aber manchmal möglich\"",
+  "waga": "ŚREDNIE",
+  "powod": "Ten sam układ (straight) ma w aplikacji dwie nazwy: UI „Straight”, a lekcje (Straße×104 wobec Straight×48), definicje (wheel, split-pot, draw, connected…) i nazwa K-05 „Straße”; ujednolicenie na „Straße” (de.wikipedia „Ein Straight, im Deutschen auch Straße”; PokerStrategy „Eine Straight oder eine Straße”), rodzaj żeński bez zmian",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"connected\": \"ein {{t:connected|verbundener}} Flop hat drei verschiedene Ränge innerhalb von fünf aufeinanderfolgenden, also ist eine {{t:straight|Straight}} schon jetzt möglich (das Ass zählt auch als Eins)\"",
+  "nowy": "\"connected\": \"ein {{t:connected|verbundener}} Flop hat drei verschiedene Ränge innerhalb von fünf aufeinanderfolgenden, also ist eine {{t:straight|Straße}} schon jetzt möglich (das Ass zählt auch als Eins)\"",
+  "waga": "ŚREDNIE",
+  "powod": "Ten sam układ (straight) ma w aplikacji dwie nazwy: UI „Straight”, a lekcje (Straße×104 wobec Straight×48), definicje (wheel, split-pot, draw, connected…) i nazwa K-05 „Straße”; ujednolicenie na „Straße” (de.wikipedia „Ein Straight, im Deutschen auch Straße”; PokerStrategy „Eine Straight oder eine Straße”), rodzaj żeński bez zmian",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"semiConnected\": \"ein {{t:semi-connected|halb verbundener}} Flop hat zwei Ränge innerhalb von fünf aufeinanderfolgenden, aber nicht drei: Eine {{t:straight|Straight}} gibt es noch nicht, ein {{t:straight-draw|Straight-Draw}} (offen oder Gutshot) ist aber schon möglich\"",
+  "nowy": "\"semiConnected\": \"ein {{t:semi-connected|halb verbundener}} Flop hat zwei Ränge innerhalb von fünf aufeinanderfolgenden, aber nicht drei: Eine {{t:straight|Straße}} gibt es noch nicht, ein {{t:straight-draw|Straight-Draw}} (offen oder Gutshot) ist aber schon möglich\"",
+  "waga": "ŚREDNIE",
+  "powod": "Ten sam układ (straight) ma w aplikacji dwie nazwy: UI „Straight”, a lekcje (Straße×104 wobec Straight×48), definicje (wheel, split-pot, draw, connected…) i nazwa K-05 „Straße”; ujednolicenie na „Straße” (de.wikipedia „Ein Straight, im Deutschen auch Straße”; PokerStrategy „Eine Straight oder eine Straße”), rodzaj żeński bez zmian",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"wet\": \"ein {{t:wet|nasser}} Flop bietet viele {{t:draw|Draws}} oder fertige {{t:straight|Straights}}. {{scale}}\"",
+  "nowy": "\"wet\": \"ein {{t:wet|nasser}} Flop bietet viele {{t:draw|Draws}} oder fertige {{t:straight|Straßen}}. {{scale}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "Ten sam układ (straight) ma w aplikacji dwie nazwy: UI „Straight”, a lekcje (Straße×104 wobec Straight×48), definicje (wheel, split-pot, draw, connected…) i nazwa K-05 „Straße”; ujednolicenie na „Straße” (de.wikipedia „Ein Straight, im Deutschen auch Straße”; PokerStrategy „Eine Straight oder eine Straße”), rodzaj żeński bez zmian",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"connected\": \"Hier ist eine {{t:straight|Straight}} möglich, z. B. mit {{example}}.\"",
+  "nowy": "\"connected\": \"Hier ist eine {{t:straight|Straße}} möglich, z. B. mit {{example}}.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Ten sam układ (straight) ma w aplikacji dwie nazwy: UI „Straight”, a lekcje (Straße×104 wobec Straight×48), definicje (wheel, split-pot, draw, connected…) i nazwa K-05 „Straße”; ujednolicenie na „Straße” (de.wikipedia „Ein Straight, im Deutschen auch Straße”; PokerStrategy „Eine Straight oder eine Straße”), rodzaj żeński bez zmian",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"semiConnected\": \"Hier gibt es noch keine {{t:straight|Straight}}, aber einen {{t:straight-draw|Straight-Draw}} ergibt z. B. {{example}}.\"",
+  "nowy": "\"semiConnected\": \"Hier gibt es noch keine {{t:straight|Straße}}, aber einen {{t:straight-draw|Straight-Draw}} ergibt z. B. {{example}}.\"",
+  "waga": "ŚREDNIE",
+  "powod": "Ten sam układ (straight) ma w aplikacji dwie nazwy: UI „Straight”, a lekcje (Straße×104 wobec Straight×48), definicje (wheel, split-pot, draw, connected…) i nazwa K-05 „Straße”; ujednolicenie na „Straße” (de.wikipedia „Ein Straight, im Deutschen auch Straße”; PokerStrategy „Eine Straight oder eine Straße”), rodzaj żeński bez zmian",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"straightMade\": \"eine {{t:straight|Straight}} ist auf mehrere Arten möglich, z. B. mit {{example}}\"",
+  "nowy": "\"straightMade\": \"eine {{t:straight|Straße}} ist auf mehrere Arten möglich, z. B. mit {{example}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "Ten sam układ (straight) ma w aplikacji dwie nazwy: UI „Straight”, a lekcje (Straße×104 wobec Straight×48), definicje (wheel, split-pot, draw, connected…) i nazwa K-05 „Straße”; ujednolicenie na „Straße” (de.wikipedia „Ein Straight, im Deutschen auch Straße”; PokerStrategy „Eine Straight oder eine Straße”), rodzaj żeński bez zmian",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"straightMadeOne\": \"eine {{t:straight|Straight}} ist nur auf eine Art möglich, mit {{example}}\"",
+  "nowy": "\"straightMadeOne\": \"eine {{t:straight|Straße}} ist nur auf eine Art möglich, mit {{example}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "Ten sam układ (straight) ma w aplikacji dwie nazwy: UI „Straight”, a lekcje (Straße×104 wobec Straight×48), definicje (wheel, split-pot, draw, connected…) i nazwa K-05 „Straße”; ujednolicenie na „Straße” (de.wikipedia „Ein Straight, im Deutschen auch Straße”; PokerStrategy „Eine Straight oder eine Straße”), rodzaj żeński bez zmian",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"straightDraw\": \"es gibt keine {{t:straight|Straight}}, aber einen {{t:straight-draw|Straight-Draw}}, z. B. mit {{example}}\"",
+  "nowy": "\"straightDraw\": \"es gibt keine {{t:straight|Straße}}, aber einen {{t:straight-draw|Straight-Draw}}, z. B. mit {{example}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "Ten sam układ (straight) ma w aplikacji dwie nazwy: UI „Straight”, a lekcje (Straße×104 wobec Straight×48), definicje (wheel, split-pot, draw, connected…) i nazwa K-05 „Straße”; ujednolicenie na „Straße” (de.wikipedia „Ein Straight, im Deutschen auch Straße”; PokerStrategy „Eine Straight oder eine Straße”), rodzaj żeński bez zmian",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"straightNone\": \"es gibt weder eine {{t:straight|Straight}} noch einen {{t:straight-draw|Straight-Draw}}\"",
+  "nowy": "\"straightNone\": \"es gibt weder eine {{t:straight|Straße}} noch einen {{t:straight-draw|Straight-Draw}}\"",
+  "waga": "ŚREDNIE",
+  "powod": "Ten sam układ (straight) ma w aplikacji dwie nazwy: UI „Straight”, a lekcje (Straße×104 wobec Straight×48), definicje (wheel, split-pot, draw, connected…) i nazwa K-05 „Straße”; ujednolicenie na „Straße” (de.wikipedia „Ein Straight, im Deutschen auch Straße”; PokerStrategy „Eine Straight oder eine Straße”), rodzaj żeński bez zmian",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"limp\": \"Du hast die Hand eröffnet, indem du nur den Blind mitgegangen bist ({{t:limp|Limp}}).\",",
+  "nowy": "\"limp\": \"Du bist als Erster in die Hand eingestiegen, indem du nur den Big Blind gezahlt hast ({{t:limp|Limp}}).\",",
+  "waga": "ŚREDNIE",
+  "powod": "„den Blind mitgegangen bist” jest niegramatyczne (mitgehen jest nieprzechodnie); pl „wszedłeś do rozdania jako pierwszy samym blindem”: „als Erster” zgubione, „eröffnet” sugeruje open (przebicie), czyli przeciwieństwo limpa",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "apps/mobile/src/i18n/locales/de.json",
+  "stary": "\"passive\": \"Ein passiver loser Spieler spielt ab",
+  "nowy": "\"passive\": \"Ein loose-passiver Spieler spielt ab",
+  "waga": "ŚREDNIE",
+  "powod": "„loser Spieler” czyta się jak „Loser” (przegrany); w tym samym UI styl nazywa się „Loose-passiv” (play.styles.loose-passive), pl „pasywny gracz luźny”",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/terms-def.yaml",
+  "stary": "der viele Hände spielt; im Kurs",
+  "nowy": "der dort ein großes Volumen an Händen spielt; im Kurs",
+  "waga": "ŚREDNIE",
+  "powod": "pl „rozgrywa dużo rąk” = wolumen; „viele Hände spielen” w kursie znaczy styl luźny (play.styleHints „Spielt viele Hände”, typy graczy), co przeczy sensowi „reg”",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/terms-def.yaml",
+  "stary": "„Micro Stakes“ sind die niedrigsten Stufen",
+  "nowy": "„Mikrolimits“ sind die niedrigsten Stufen",
+  "waga": "ŚREDNIE",
+  "powod": "W treści stakes = „Limit” (Limit×41, Limits×21), poziomy najniższe = „Mikrolimits” (10× w lekcjach i rules, także {{t:stakes|Mikrolimits}}); „Micro Stakes” tylko tu i w tytule modułu 10",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/terms-def.yaml",
+  "stary": "wenn du auf denselben Stakes weiterspielst",
+  "nowy": "wenn du auf demselben Limit weiterspielst",
+  "waga": "ŚREDNIE",
+  "powod": "Moduł 12 (treść krytyczna): niespójne z nazwą „Limit” używaną w lekcjach o bankrollu i wariancji (m12-l1, m12-l4)",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/terms-def.yaml",
+  "stary": "Bei einem Flush Draw sind",
+  "nowy": "Bei einem Flush-Draw sind",
+  "waga": "NISKIE",
+  "powod": "Pisownia jak w UI i nazwie K-05 (Flush-Draw×36/Straight-Draw×9 z łącznikiem wobec Flush Draw×19/Straight Draw×7)",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/terms-def.yaml",
+  "stary": "niemand einen Flush Draw hat",
+  "nowy": "niemand einen Flush-Draw hat",
+  "waga": "NISKIE",
+  "powod": "Pisownia jak w UI i nazwie K-05 (Flush-Draw×36/Straight-Draw×9 z łącznikiem wobec Flush Draw×19/Straight Draw×7)",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/terms-def.yaml",
+  "stary": "sodass Flush Draws möglich",
+  "nowy": "sodass Flush-Draws möglich",
+  "waga": "NISKIE",
+  "powod": "Pisownia jak w UI i nazwie K-05 (Flush-Draw×36/Straight-Draw×9 z łącznikiem wobec Flush Draw×19/Straight Draw×7)",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/terms-def.yaml",
+  "stary": "ein Straight Draw aus vier",
+  "nowy": "ein Straight-Draw aus vier",
+  "waga": "NISKIE",
+  "powod": "Pisownia jak w UI i nazwie K-05 (Flush-Draw×36/Straight-Draw×9 z łącznikiem wobec Flush Draw×19/Straight Draw×7)",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/terms-def.yaml",
+  "stary": "\"Ein Straight Draw, dem",
+  "nowy": "\"Ein Straight-Draw, dem",
+  "waga": "NISKIE",
+  "powod": "Pisownia jak w UI i nazwie K-05 (Flush-Draw×36/Straight-Draw×9 z łącznikiem wobec Flush Draw×19/Straight Draw×7)",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/terms-def.yaml",
+  "stary": "oder ein Straight Draw bilden",
+  "nowy": "oder ein Straight-Draw bilden",
+  "waga": "NISKIE",
+  "powod": "Pisownia jak w UI i nazwie K-05 (Flush-Draw×36/Straight-Draw×9 z łącznikiem wobec Flush Draw×19/Straight Draw×7)",
+  "grupa": "D2"
+ },
+ {
+  "jezyk": "de",
+  "cel": "content/de/terms-def.yaml",
+  "stary": "Board mit Straight Draws",
+  "nowy": "Board mit Straight-Draws",
+  "waga": "NISKIE",
+  "powod": "Pisownia jak w UI i nazwie K-05 (Flush-Draw×36/Straight-Draw×9 z łącznikiem wobec Flush Draw×19/Straight Draw×7)",
+  "grupa": "D2"
+ }
+]
