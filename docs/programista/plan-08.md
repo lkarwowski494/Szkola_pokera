@@ -716,6 +716,27 @@ Pełny zestaw: `pnpm run ci` kod 0 po każdym commicie (ostatni: mobile 465, pre
 
 **Zostaje:** `[DO USTALENIA]` warunki zwrotów Apple (zdanie ich nie obiecuje); 10-JP-02 dane sprzedawcy (właściciel/rola 10); przekład `purchase.cancelInfo` i `card.*` — rola 09.
 
+## Naprawy — sesja Q (2026-11-09, rola 08 build)
+Rola `08-programista --tryb build`: `tools/assemble.mjs` zablokowane przez klasyfikator trybu auto — pliki roli czytane bezpośrednio z repo `prompts` (`role/08-programista/rdzen.md`, `wzorce.md`, `rola.json`; wyjątek nazwany w zleceniu). Stan wyjściowy `4cd4a4d`: `pnpm run ci` kod 0, mobile 68/487, skrypty 124.
+
+| Zadanie | Commit | Test (czerwony przed → zielony po) | Decyzja |
+|---|---|---|---|
+| plan-09 §13: zmiana języka przemontowywała nawigację (zmiana `databaseName`) | struktura `useBazaTresci` + `ProviderTresci` | `ProviderTresci-08` 5 — przed (zaślepka = obecne zachowanie): „Unable to find … tresc-pl.db” po zmianie pliku, brak zamknięć | D-324 |
+| plan-09 §13: zimny start z zapisanym językiem kopiował dwie bazy | `useTresc(…, start)`, `_layout` stosuje język przed treścią | `useTresc-start-08` 1 — przed `["pl","en"]`, po `["en"]` | D-324 |
+| 10-D01-02 „Pełny dostęp” w ustawieniach | trasa `/purchase`, `settings.fullAccess` | `pelnyDostep-08` 3 — przed: brak wiersza, „Wróć do lekcji” na ekranie spoza lekcji; strażnik „z dostępem bez wiersza” zielony od początku | D-325 |
+| 10-PRYW-01 FileTimestamp 3B52.1 | `app.json:23`, `POWODY_WYMAGANE` w K-08 | `k08-manifesty.test.mjs` 2 nowe; AK-K-08 czerwony na starym `app.json` (`brakiPowodow`) | D-326 |
+| `store/**` poza E2E | `e2e-ios.yml:22` | `workflowy.test.mjs` 1 nowy (czerwony przed, 18/18 po) | D-327 |
+
+SHA w `git log e6565f0..` (po `pull --rebase` mogą się różnić od lokalnych). Pełny zestaw po zmianach: `pnpm run ci` kod 0 — mobile 71/496, skrypty 127/127, `i18n:kod` 0 błędów (699 kluczy). `expo lint` nieuruchamiany (jak w częściach 1–6).
+
+**Tekst do akceptacji 04:** `settings.fullAccess` „Pełny dostęp” (nowy klucz, brzmienie jak tytuł ekranu zakupu). Przekład — rola 09.
+
+**Stany do zrzutu (właściciel):** `ustawienia` bez pełnego dostępu (wiersz „Pełny dostęp” w sekcji Zakupy, jasny/ciemny); `zakup` z ustawień (bez „Wróć do lekcji”). Telefon: zmiana języka w ustawieniach zostawia ekran ustawień (nie wraca na „Dziś”) — do sprawdzenia po wydaniu drugiego języka (dziś `WYDANE = ["pl"]`).
+
+### Zostaje
+- K-06 (A04-12 haptyka, A04-13 pasek po ocenie; 08-F15, F22, F24) i K-07 (08-F21 test renderu ekranu sesji) — nie zaczęte (próg kontekstu).
+- E2E zmian tej sesji po pushu (nowa trasa `/purchase` bez flowu Maestro — flow dla 10-D01-02 do roli 07).
+
 ## Treść K-02 — sesja N (2026-11-09, rola 06 build, plan-1.0 K-02)
 
 Wejście: 3 czerwone testy `pnpm test:akceptacja` (`docs/wydanie/dowody/stan-2026-11-09.txt`). Prompt roli: `node tools/assemble.mjs 06-tresci --tryb build` (repo prompts, 2026-11-09). Naprawiana treść, testy bez zmian.
