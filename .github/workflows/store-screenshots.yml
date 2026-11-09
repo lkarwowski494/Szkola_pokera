@@ -1,0 +1,173 @@
+# Zrzuty ekranu iPhone'a do App Store Connect (K-12, plan-1.0 §4.1; D-337). Tylko ręcznie: Actions → „Zrzuty do App Store” → Run workflow.
+# Wzór: Trening .github/workflows/store-screenshots.yml (2e4b0f8, odczyt 2026-11-09): zadanie budowy (Release, symulator, bez podpisu),
+# zadania zrzutów na rozmiar, dane pokazowe zapisane w bazie aplikacji, ekrany otwierane łączem aplikacji, artefakty 3 dni, bez sekretów.
+# Rozmiary (Trening, odczyt Apple 14.10.2026, ponowny odczyt przed wysyłką — plan-1.0 D-06): 6.9 = iPhone 17 Pro Max (1320 × 2868),
+# 6.3 = iPhone 17 Pro (1206 × 2622); iPad niepotrzebny (app.json: supportsTablet false). Ekrany i trasy: scripts/ci/zrzuty-sklepu.json.
+# Odstępstwa od Treningu (nazwane): pnpm zamiast npm; aplikacja może przyjść z przebiegu e2e-ios.yml (ten sam build Release na symulator,
+# artefakt szkola-sim-app, 1 dzień) zamiast własnego artefaktu; bez podziału języków na zadania, ramek i podpisów (2 języki × 5 ekranów).
+# Języki: dziś pl i en (en pokazuje tekst polski, dopóki en nie jest wydany — WYDANE w apps/mobile/src/i18n); kolejne po przekładzie K-04.
+# Repo publiczne — minuty macOS bez opłat; uruchomienie tylko za zgodą koordynatora (zasady sesji).
+name: Zrzuty do App Store
+on:
+  workflow_dispatch:
+    inputs:
+      jezyki:
+        description: 'Języki aplikacji po przecinku (np. "pl,en")'
+        required: false
+        default: 'pl,en'
+      rozmiary:
+        description: 'Rozmiary iPhone po przecinku: 6.9 i/albo 6.3'
+        required: false
+        default: '6.9,6.3'
+      wyglad:
+        description: 'Wygląd systemu symulatora: light albo dark'
+        type: choice
+        options: [light, dark]
+        default: light
+      aplikacja_z_przebiegu:
+        description: 'Numer przebiegu e2e-ios.yml z gotową aplikacją (artefakt szkola-sim-app żyje 1 dzień); pusty = zbuduj od nowa (~30 min)'
+        required: false
+        default: ''
+permissions:
+  contents: read
+  actions: read  # pobranie artefaktu aplikacji z przebiegu e2e-ios.yml (download-artifact z run-id)
+concurrency:
+  group: store-screenshots-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Rozmiary i języki z wejścia (tylko z listy)
+        id: plan
+        env:
+          ROZMIARY: ${{ inputs.rozmiary }}
+          JEZYKI: ${{ inputs.jezyki }}
+        run: |
+          node -e '
+            const l = JSON.parse(require("fs").readFileSync("scripts/ci/zrzuty-sklepu.json", "utf8"));
+            const r = process.env.ROZMIARY.split(",").map((s) => s.trim()).filter(Boolean);
+            const zle = r.filter((x) => !Object.hasOwn(l.rozmiary, x));
+            if (zle.length || !r.length) { console.error(`::error::Nieznane rozmiary: ${zle.join(", ") || "(puste)"}; dozwolone: ${Object.keys(l.rozmiary).join(", ")}`); process.exit(1); }
+            if (!/^[a-z]{2}(-[A-Za-z0-9]+)?(,[a-z]{2}(-[A-Za-z0-9]+)?)*$/.test(process.env.JEZYKI.replace(/\s/g, ""))) { console.error("::error::Języki: kody po przecinku, np. pl,en"); process.exit(1); }
+            const m = { include: r.map((x) => ({ rozmiar: x, wzorzec: l.rozmiary[x] })) };
+            require("fs").appendFileSync(process.env.GITHUB_OUTPUT, `matrix=${JSON.stringify(m)}\n`);
+            console.log(`rozmiary: ${r.join(", ")}`);'
+  build:
+    if: inputs.aplikacja_z_przebiegu == '' && github.repository == 'lkarwowski494/szkola_pokera'
+    runs-on: macos-26
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Xcode
+        run: |
+          xcodebuild -version
+          v=$(xcodebuild -version | head -1 | awk '{print $2}')
+          [ "$(printf '%s\n' 26.4 "$v" | sort -V | head -1)" = "26.4" ] || { echo "::error::Xcode $v jest za stary dla Expo SDK 57 (wymagane 26.4+)"; exit 1; }
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Treść aktualna
+        run: pnpm content:check
+      - name: Projekt iOS (expo prebuild)
+        working-directory: apps/mobile
+        run: npx expo prebuild --platform ios --no-install --clean
+      - name: CocoaPods
+        working-directory: apps/mobile/ios
+        run: pod install
+      - name: Kompilacja na symulator (Release, bez podpisu — jak w sklepie)
+        working-directory: apps/mobile/ios
+        run: |
+          set -o pipefail
+          WS=$(ls -d *.xcworkspace | head -1); SCHEME="${WS%.xcworkspace}"
+          xcodebuild -workspace "$WS" -scheme "$SCHEME" -configuration Release -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            2>&1 | tee xcodebuild.log | { if command -v xcbeautify >/dev/null; then xcbeautify; else cat; fi; }
+          APP=$(ls -d build/Build/Products/Release-iphonesimulator/*.app | head -1)
+          test -n "$APP" && test -f "$APP/main.jsbundle"
+          cd "$(dirname "$APP")" && zip -qry "$GITHUB_WORKSPACE/szkola-sim.zip" "$(basename "$APP")"
+      - uses: actions/upload-artifact@v5
+        with:
+          name: szkola-sim-app-sklep
+          path: szkola-sim.zip
+          retention-days: 3
+      - uses: actions/upload-artifact@v5
+        if: failure()
+        with:
+          name: xcodebuild-log-sklep
+          path: apps/mobile/ios/xcodebuild.log
+          retention-days: 3
+  zrzuty:
+    name: 'zrzuty (${{ matrix.rozmiar }})'
+    needs: [plan, build]
+    if: ${{ !cancelled() && needs.plan.result == 'success' && (needs.build.result == 'success' || needs.build.result == 'skipped') && github.repository == 'lkarwowski494/szkola_pokera' }}
+    runs-on: macos-26
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 2  # 2 z 5 maszyn macOS planu darmowego; reszta zostaje dla E2E
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - uses: actions/download-artifact@v5
+        if: inputs.aplikacja_z_przebiegu != ''
+        with:
+          name: szkola-sim-app
+          run-id: ${{ inputs.aplikacja_z_przebiegu }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v5
+        if: inputs.aplikacja_z_przebiegu == ''
+        with:
+          name: szkola-sim-app-sklep
+      - name: Symulator i aplikacja
+        env:
+          WZORZEC: ${{ matrix.wzorzec }}
+          WYGLAD: ${{ inputs.wyglad }}
+        run: |
+          mkdir -p app && unzip -q szkola-sim.zip -d app
+          DEV=$(xcrun simctl list devices available | grep -m1 -E "$WZORZEC" | sed -E 's/.*\(([0-9A-F-]{36})\).*/\1/' || true)
+          [ -n "$DEV" ] || { echo "::error::Brak symulatora pasującego do wzorca $WZORZEC"; xcrun simctl list devices available | grep -E 'iPhone' | sed -E 's/\([0-9A-F-]{36}\)//'; exit 1; }
+          echo "SIM=$DEV" >> "$GITHUB_ENV"
+          xcrun simctl boot "$DEV" || true
+          xcrun simctl bootstatus "$DEV" -b
+          [ "$WYGLAD" = light ] || xcrun simctl ui "$DEV" appearance dark
+          xcrun simctl install "$DEV" app/*.app
+      - name: Zrzuty ekranu (strona sklepu)
+        env:
+          JEZYKI: ${{ inputs.jezyki }}
+          ROZMIAR: ${{ matrix.rozmiar }}
+        run: bash scripts/ci/zrzuty-sklepu.sh "$SIM" "sklep-zrzuty/$ROZMIAR" "$JEZYKI" ekrany
+      - name: Zrzut ekranu zakupu (przegląd zakupów, B2 — tylko 6.9)
+        if: matrix.rozmiar == '6.9'
+        env:
+          JEZYKI: ${{ inputs.jezyki }}
+        run: bash scripts/ci/zrzuty-sklepu.sh "$SIM" sklep-zakup "$JEZYKI" przeglad
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: sklep-zrzuty-${{ matrix.rozmiar }}
+          retention-days: 3
+          if-no-files-found: ignore
+          path: |
+            sklep-zrzuty
+            sklep-zakup
