@@ -2,7 +2,7 @@ import type { Block, Inline } from '@szkola/content-schema';
 import { Fragment, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { odstep, promien, styl, useTokens } from '@/theme/tokens';
-import { useSQLiteContext } from 'expo-sqlite';
+import { useBazaTresci } from '@/data/tresc/kontekst';
 import { getRangeSpot } from '@/data/content/repo';
 import { CardRow } from './PlayingCard';
 import { RangeGrid } from './RangeGrid';
@@ -123,7 +123,7 @@ function BlockView({ block }: { block: Block }) {
 }
 
 function RangeBlock({ id }: { id: string }) {
-  const db = useSQLiteContext();
+  const db = useBazaTresci();
   const spot = getRangeSpot(db, id);
   return spot ? <RangeGrid spot={spot} /> : null;
 }

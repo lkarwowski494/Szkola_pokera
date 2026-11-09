@@ -4,7 +4,7 @@ import { odczytajKarty, porzucAktywnosc, wynikiTestow, zadaniaZTestow } from '@s
 import Constants from 'expo-constants';
 import * as Haptics from 'expo-haptics';
 import { router, useLocalSearchParams } from 'expo-router';
-import { useSQLiteContext } from 'expo-sqlite';
+import { useBazaTresci } from '@/data/tresc/kontekst';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Linking, Pressable, StyleSheet, Text, TextInput, View, type HostInstance, type ScrollViewInstance } from 'react-native';
@@ -79,7 +79,7 @@ type Stan =
  */
 export default function SessionScreen() {
   const { mode = 'lesson', lessonId, moduleId } = useLocalSearchParams<{ mode?: SessionMode; lessonId?: string; moduleId?: string }>();
-  const db = useSQLiteContext();
+  const db = useBazaTresci();
   const port = usePortPostepu();
   const tk = useTokens();
   const { t, i18n } = useTranslation();

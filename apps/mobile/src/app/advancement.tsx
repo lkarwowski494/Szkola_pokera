@@ -1,5 +1,5 @@
 import { ADVANCEMENT } from '@szkola/srs';
-import { useSQLiteContext } from 'expo-sqlite';
+import { useBazaTresci } from '@/data/tresc/kontekst';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
@@ -13,7 +13,7 @@ import { odstep, styl, useTokens } from '@/theme/tokens';
 
 /** Rozbicie wskaźnika zaawansowania na obszary (moduły kursu); tylko wiedza — część „gra” usunięta z trybem gry (ADR 0011). */
 export default function AdvancementScreen() {
-  const db = useSQLiteContext();
+  const db = useBazaTresci();
   const tk = useTokens();
   const { t } = useTranslation();
   const r = useAdvancement();

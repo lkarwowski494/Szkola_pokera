@@ -1,4 +1,4 @@
-import { useSQLiteContext } from 'expo-sqlite';
+import { useBazaTresci } from '@/data/tresc/kontekst';
 import { useEffect } from 'react';
 import { create } from 'zustand';
 import { getContentHash, getFamilyModules, getModules } from '@/data/content/repo';
@@ -40,7 +40,7 @@ export const useContentNoticeStore = create<NoticeState>((set, get) => ({
 }));
 
 export function useContentChangeNotice(): { visible: boolean; dismiss: () => void } {
-  const db = useSQLiteContext();
+  const db = useBazaTresci();
   const port = usePortPostepu();
   const { visible, dismiss, check } = useContentNoticeStore();
   useEffect(() => {

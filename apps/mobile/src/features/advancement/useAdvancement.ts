@@ -1,7 +1,7 @@
 import { computeAdvancement, type AdvancementReport } from '@szkola/srs';
 import { odczytajKarty } from '@szkola/postep';
 import { useFocusEffect } from 'expo-router';
-import { useSQLiteContext } from 'expo-sqlite';
+import { useBazaTresci } from '@/data/tresc/kontekst';
 import { useCallback, useMemo, useState } from 'react';
 import { getFamilyModules, getModules } from '@/data/content/repo';
 import { kartaZWiersza, usePortPostepu, zapiszBladPostepu } from '@/data/postep';
@@ -16,7 +16,7 @@ import { zapiszHistorie } from './historia';
  * Do pierwszego odczytu (i przy błędzie odczytu) raport z pustej listy kart — wskaźnik pokazuje wtedy brak wyniku („–”).
  */
 export function useAdvancement(): AdvancementReport {
-  const db = useSQLiteContext();
+  const db = useBazaTresci();
   const port = usePortPostepu();
   const areas = useMemo(() => buildAreas(getModules(db), getFamilyModules(db)), [db]);
   const [report, setReport] = useState(() => computeAdvancement(areas, [], Date.now()));

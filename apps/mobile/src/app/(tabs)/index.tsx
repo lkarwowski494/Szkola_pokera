@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { useSQLiteContext } from 'expo-sqlite';
+import { useBazaTresci } from '@/data/tresc/kontekst';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
@@ -69,7 +69,7 @@ function WierszGrupy({ testID, tytul, podpis, wartosc, onPress, pierwszy }: { te
  * lekcje (każdą można otworzyć, FR-01). Licznik dziennego limitu: na ekranie startu aktywności (EkranStartu, session.tsx).
  */
 export default function TodayScreen() {
-  const db = useSQLiteContext();
+  const db = useBazaTresci();
   const tk = useTokens();
   const { t } = useTranslation();
   const modules = useMemo(() => getModules(db), [db]);

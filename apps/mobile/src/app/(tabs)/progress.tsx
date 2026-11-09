@@ -1,6 +1,6 @@
 import { dniZOdpowiedzia, seriaDni, statystykiRodzin, type PortBazy } from '@szkola/postep';
 import { router } from 'expo-router';
-import { useSQLiteContext } from 'expo-sqlite';
+import { useBazaTresci } from '@/data/tresc/kontekst';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
@@ -23,7 +23,7 @@ async function czytajPostep(port: PortBazy) {
 
 /** Postęp (FR-09); ustawienia przeniesione do ekranu „Ustawienia” (ikona na „Dziś”, 08 cz. 5b krok 5); zostają słowniczek i Pomoc (flow 04). */
 export default function ProgressScreen() {
-  const db = useSQLiteContext();
+  const db = useBazaTresci();
   const tk = useTokens();
   const { t } = useTranslation();
   const labels = useMemo(() => getFamilyLabels(db), [db]);

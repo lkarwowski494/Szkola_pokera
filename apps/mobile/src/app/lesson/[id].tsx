@@ -1,5 +1,5 @@
 import { router, Stack, useLocalSearchParams } from 'expo-router';
-import { useSQLiteContext } from 'expo-sqlite';
+import { useBazaTresci } from '@/data/tresc/kontekst';
 import { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
@@ -13,7 +13,7 @@ import { odstep } from '@/theme/tokens';
 
 export default function LessonScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const db = useSQLiteContext();
+  const db = useBazaTresci();
   const { t } = useTranslation();
   const port = usePortPostepu();
   const lesson = useMemo(() => getLesson(db, id), [db, id]);

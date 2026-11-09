@@ -18,7 +18,8 @@ import { useTresc } from '@/data/tresc/useTresc';
 import { kontrolaK04, startPostepuExpo } from '@/data/postepExpo';
 import { PostepKontekst } from '@/data/postepKontekst';
 import type { PortBazy } from '@szkola/postep';
-import { SQLiteProvider, useSQLiteContext } from 'expo-sqlite';
+import { SQLiteProvider } from 'expo-sqlite';
+import { useBazaTresci } from '@/data/tresc/kontekst';
 import { getDrillById, getLessonSummaries, getModules } from '@/data/content/repo';
 import PierwszeUruchomienie from '@/features/ocena-poziomu/PierwszeUruchomienie';
 import { zegarTelefonu } from '@/platform/zegar';
@@ -102,7 +103,7 @@ function usePostep(): StanPostepu & { ponow: () => void } {
 
 /** Pierwsze uruchomienie (PR-01) nad nawigacją: moduły i pierwsze lekcje z bazy treści, pytania oceny z puli egzaminów. */
 function BramkaStartu({ port, children }: { port: PortBazy; children: ReactNode }) {
-  const db = useSQLiteContext();
+  const db = useBazaTresci();
   const moduly = useMemo(() => {
     const lekcje = getLessonSummaries(db);
     return getModules(db).map((m) => ({ id: m.id, title: m.title, pierwszaLekcja: lekcje.find((l) => l.moduleId === m.id)?.title ?? null }));
