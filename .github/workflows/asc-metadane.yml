@@ -1,0 +1,116 @@
+# Wgranie metadanych sklepu (nazwa, podtytuł, słowa kluczowe, opis, tekst promocyjny, adresy) z repozytorium do App Store Connect przez API
+# (skrypt scripts/asc/metadane.mjs, dane store/app-store-metadata.json i store/app-store-urls.json). Tylko ręcznie.
+# tryb podglad (domyślny): tylko odczyt (GET) — co jest w ASC i w repo, lista zmian; zadanie bez środowiska.
+# tryb zapis: osobne zadanie w środowisku `release` (zatwierdzenie właściciela); tworzy brakujące i aktualizuje różniące się, NIGDY nie usuwa.
+# Szkoła Pokera: przeniesione z Treningu (.github/workflows/asc-metadane.yml, 2e4b0f8, odczyt 2026-11-09; decyzja właściciela D-348, wykonanie D-352).
+# Na main leży tylko ten plik (rejestracja workflow_dispatch); skrypty i dane sklepu są na gałęzi roboczej. Uruchamianie WYŁĄCZNIE:
+#   gh workflow run asc-metadane.yml --ref claude/sleepy-brahmagupta-2065nu [-f ...]   — z main przebieg pada w kroku „Skrypty z gałęzi roboczej”, przed kluczem.
+# Odstępstwa od Treningu (nazwane): krok „Skrypty z gałęzi roboczej” (jak D-343); w zadaniu zapisu krok sprawdzający, że środowisko `release` ma
+# wymaganych recenzentów (GitHub tworzy brakujące środowisko bez ochrony — wtedy zapis poszedłby bez zatwierdzenia), stąd `actions: read` w tym zadaniu.
+# Sekrety jak testflight.yml: ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8 (bez nowych). Repozytorium publiczne: identyfikatory klucza maskowane,
+# klucz tylko w RUNNER_TEMP i usuwany zawsze; skrypt nigdy nie usuwa niczego w App Store Connect.
+name: ASC metadane sklepu
+on:
+  workflow_dispatch:
+    inputs:
+      tryb:
+        description: 'podglad = tylko odczyt i lista zmian; zapis = utwórz brakujące i zaktualizuj różniące się (nigdy nie usuwa; wymaga zatwierdzenia release)'
+        type: choice
+        options: [podglad, zapis]
+        default: podglad
+permissions:
+  contents: read
+concurrency:
+  group: asc-metadane
+  cancel-in-progress: false
+jobs:
+  podglad:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Skrypty z gałęzi roboczej (uruchamiaj z --ref)
+        run: |
+          if [ ! -f scripts/asc/metadane.mjs ]; then
+            echo "::error::Brak scripts/asc/metadane.mjs: na main są tylko pliki workflowów (D-348). Uruchom: gh workflow run asc-metadane.yml --ref claude/sleepy-brahmagupta-2065nu"
+            exit 1
+          fi
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Klucz API do pliku tymczasowego (maskowany)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+        run: |
+          for v in ASC_KEY_ID ASC_ISSUER_ID ASC_KEY_P8; do [ -n "${!v}" ] || { echo "::error::Brak sekretu $v (te same sekrety co testflight.yml)"; exit 1; }; done
+          echo "::add-mask::$ASC_KEY_ID"; echo "::add-mask::$ASC_ISSUER_ID"
+          printf '%s\n' "$ASC_KEY_P8" | while IFS= read -r line; do case "$line" in -----*) ;; *) [ ${#line} -ge 20 ] && echo "::add-mask::$line" ;; esac; done; true
+          umask 077; printf '%s\n' "$ASC_KEY_P8" > "$RUNNER_TEMP/AuthKey.p8"
+      - name: Podgląd (tylko odczyt)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+        run: |
+          set -o pipefail
+          export ASC_KEY_PATH="$RUNNER_TEMP/AuthKey.p8"
+          node scripts/asc/metadane.mjs --podglad | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Usunięcie klucza z maszyny
+        if: always()
+        run: rm -f "$RUNNER_TEMP/AuthKey.p8"
+
+  zapis:
+    needs: podglad
+    if: ${{ inputs.tryb == 'zapis' }}
+    environment: release
+    permissions:
+      contents: read
+      actions: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Skrypty z gałęzi roboczej (uruchamiaj z --ref)
+        run: |
+          if [ ! -f scripts/asc/metadane.mjs ]; then
+            echo "::error::Brak scripts/asc/metadane.mjs: na main są tylko pliki workflowów (D-348). Uruchom: gh workflow run asc-metadane.yml --ref claude/sleepy-brahmagupta-2065nu"
+            exit 1
+          fi
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Środowisko release wymaga zatwierdzenia (bez reguły GitHub tworzy je bez ochrony)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          typy=$(gh api "repos/$GITHUB_REPOSITORY/environments/release" --jq '[.protection_rules[]?.type] | join(",")') || { echo "::error::Nie udało się odczytać środowiska release"; exit 1; }
+          case ",$typy," in
+            *,required_reviewers,*) echo "Środowisko release: wymagane zatwierdzenie — jest." ;;
+            *) echo "::error::Środowisko release bez wymaganych recenzentów (Settings → Environments → release → Required reviewers) — zapis wstrzymany, nic nie zapisano"; exit 1 ;;
+          esac
+      - name: Klucz API do pliku tymczasowego (maskowany)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+        run: |
+          for v in ASC_KEY_ID ASC_ISSUER_ID ASC_KEY_P8; do [ -n "${!v}" ] || { echo "::error::Brak sekretu $v (te same sekrety co testflight.yml)"; exit 1; }; done
+          echo "::add-mask::$ASC_KEY_ID"; echo "::add-mask::$ASC_ISSUER_ID"
+          printf '%s\n' "$ASC_KEY_P8" | while IFS= read -r line; do case "$line" in -----*) ;; *) [ ${#line} -ge 20 ] && echo "::add-mask::$line" ;; esac; done; true
+          umask 077; printf '%s\n' "$ASC_KEY_P8" > "$RUNNER_TEMP/AuthKey.p8"
+      - name: Zapis metadanych (nigdy nie usuwa)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+        run: |
+          set -o pipefail
+          export ASC_KEY_PATH="$RUNNER_TEMP/AuthKey.p8"
+          node scripts/asc/metadane.mjs --zapis | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Usunięcie klucza z maszyny
+        if: always()
+        run: rm -f "$RUNNER_TEMP/AuthKey.p8"

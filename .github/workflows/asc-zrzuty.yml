@@ -1,0 +1,153 @@
+# Wgranie zrzutów ekranu sklepu (iPhone; pl i en) z artefaktu workflowu store-screenshots.yml (`sklep-zrzuty-<rozmiar>`, katalog sklep-zrzuty/<rozmiar>/<język>)
+# do edytowalnej wersji aplikacji w App Store Connect przez API (skrypt scripts/asc/zrzuty.mjs, interfejs App Asset Library). Tylko ręcznie.
+# Tryb dry-run (domyślny): tylko odczyt — lista, co zostałoby wgrane; zadanie bez środowiska. Tryb apply: osobne zadanie w środowisku `release`
+# (zatwierdzenie właściciela); wgrywa i układa zrzuty, NIGDY nie usuwa, pomija grupy, które mają już zrzuty. Bez zegarka (aplikacja bez Apple Watch).
+# Szkoła Pokera: przeniesione z Treningu (.github/workflows/asc-zrzuty.yml, 2e4b0f8, odczyt 2026-11-09; decyzja właściciela D-348, wykonanie D-352).
+# Na main leży tylko ten plik (rejestracja workflow_dispatch); skrypty i dane sklepu są na gałęzi roboczej. Uruchamianie WYŁĄCZNIE:
+#   gh workflow run asc-zrzuty.yml --ref claude/sleepy-brahmagupta-2065nu [-f ...]   — z main przebieg pada w kroku „Skrypty z gałęzi roboczej”, przed kluczem.
+# Odstępstwa od Treningu (nazwane): krok „Skrypty z gałęzi roboczej” (jak D-343); w zadaniu zapisu krok sprawdzający, że środowisko `release` ma
+# wymaganych recenzentów (GitHub tworzy brakujące środowisko bez ochrony — wtedy zapis poszedłby bez zatwierdzenia), stąd `actions: read` w tym zadaniu.
+# Sekrety jak testflight.yml: ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8 (bez nowych). Repozytorium publiczne: identyfikatory klucza maskowane,
+# klucz tylko w RUNNER_TEMP i usuwany zawsze; skrypt nigdy nie usuwa niczego w App Store Connect.
+name: ASC zrzuty ekranu
+on:
+  workflow_dispatch:
+    inputs:
+      tryb:
+        description: 'dry-run = tylko lista, co zostałoby wgrane; apply = wgraj i ułóż (nigdy nie usuwa; wymaga zatwierdzenia release)'
+        type: choice
+        options: [dry-run, apply]
+        default: dry-run
+      zrzuty_z_przebiegu:
+        description: 'Numer przebiegu store-screenshots.yml z artefaktem sklep-zrzuty-<rozmiar> (żyje 3 dni)'
+        required: true
+        type: string
+      rozmiar:
+        description: 'Który rozmiar iPhone wgrać: 6.9 (1320 × 2868, wystarcza — Apple skaluje w dół) albo 6.3 (1206 × 2622)'
+        type: choice
+        options: ['6.9', '6.3']
+        default: '6.9'
+      jezyki:
+        description: 'Tylko te języki aplikacji, np. pl albo pl,en (pusty = wszystkie z artefaktu)'
+        required: false
+        type: string
+        default: ''
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: asc-zrzuty
+  cancel-in-progress: false
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Skrypty z gałęzi roboczej (uruchamiaj z --ref)
+        run: |
+          if [ ! -f scripts/asc/zrzuty.mjs ]; then
+            echo "::error::Brak scripts/asc/zrzuty.mjs: na main są tylko pliki workflowów (D-348). Uruchom: gh workflow run asc-zrzuty.yml --ref claude/sleepy-brahmagupta-2065nu"
+            exit 1
+          fi
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          name: sklep-zrzuty-${{ inputs.rozmiar }}
+          path: sklep
+          run-id: ${{ inputs.zrzuty_z_przebiegu }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Klucz API do pliku tymczasowego (maskowany)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+        run: |
+          for v in ASC_KEY_ID ASC_ISSUER_ID ASC_KEY_P8; do [ -n "${!v}" ] || { echo "::error::Brak sekretu $v (te same sekrety co testflight.yml)"; exit 1; }; done
+          echo "::add-mask::$ASC_KEY_ID"; echo "::add-mask::$ASC_ISSUER_ID"
+          printf '%s\n' "$ASC_KEY_P8" | while IFS= read -r line; do case "$line" in -----*) ;; *) [ ${#line} -ge 20 ] && echo "::add-mask::$line" ;; esac; done; true
+          umask 077; printf '%s\n' "$ASC_KEY_P8" > "$RUNNER_TEMP/AuthKey.p8"
+      - name: Plan (tylko odczyt)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ROZMIAR: ${{ inputs.rozmiar }}
+          JEZYKI: ${{ inputs.jezyki }}
+        run: |
+          set -o pipefail
+          export ASC_KEY_PATH="$RUNNER_TEMP/AuthKey.p8"
+          D="sklep/sklep-zrzuty/$ROZMIAR"; [ -d "$D" ] || D="sklep/$ROZMIAR"
+          ARGS=(--iphone "$D" --dry-run)
+          [ -n "$JEZYKI" ] && ARGS+=(--jezyki "$JEZYKI")
+          node scripts/asc/zrzuty.mjs "${ARGS[@]}" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Usunięcie klucza z maszyny
+        if: always()
+        run: rm -f "$RUNNER_TEMP/AuthKey.p8"
+
+  zapis:
+    needs: plan
+    if: ${{ inputs.tryb == 'apply' }}
+    environment: release
+    permissions:
+      contents: read
+      actions: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Skrypty z gałęzi roboczej (uruchamiaj z --ref)
+        run: |
+          if [ ! -f scripts/asc/zrzuty.mjs ]; then
+            echo "::error::Brak scripts/asc/zrzuty.mjs: na main są tylko pliki workflowów (D-348). Uruchom: gh workflow run asc-zrzuty.yml --ref claude/sleepy-brahmagupta-2065nu"
+            exit 1
+          fi
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          name: sklep-zrzuty-${{ inputs.rozmiar }}
+          path: sklep
+          run-id: ${{ inputs.zrzuty_z_przebiegu }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Środowisko release wymaga zatwierdzenia (bez reguły GitHub tworzy je bez ochrony)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          typy=$(gh api "repos/$GITHUB_REPOSITORY/environments/release" --jq '[.protection_rules[]?.type] | join(",")') || { echo "::error::Nie udało się odczytać środowiska release"; exit 1; }
+          case ",$typy," in
+            *,required_reviewers,*) echo "Środowisko release: wymagane zatwierdzenie — jest." ;;
+            *) echo "::error::Środowisko release bez wymaganych recenzentów (Settings → Environments → release → Required reviewers) — zapis wstrzymany, nic nie zapisano"; exit 1 ;;
+          esac
+      - name: Klucz API do pliku tymczasowego (maskowany)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+        run: |
+          for v in ASC_KEY_ID ASC_ISSUER_ID ASC_KEY_P8; do [ -n "${!v}" ] || { echo "::error::Brak sekretu $v (te same sekrety co testflight.yml)"; exit 1; }; done
+          echo "::add-mask::$ASC_KEY_ID"; echo "::add-mask::$ASC_ISSUER_ID"
+          printf '%s\n' "$ASC_KEY_P8" | while IFS= read -r line; do case "$line" in -----*) ;; *) [ ${#line} -ge 20 ] && echo "::add-mask::$line" ;; esac; done; true
+          umask 077; printf '%s\n' "$ASC_KEY_P8" > "$RUNNER_TEMP/AuthKey.p8"
+      - name: Wgranie zrzutów (nigdy nie usuwa)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ROZMIAR: ${{ inputs.rozmiar }}
+          JEZYKI: ${{ inputs.jezyki }}
+        run: |
+          set -o pipefail
+          export ASC_KEY_PATH="$RUNNER_TEMP/AuthKey.p8"
+          D="sklep/sklep-zrzuty/$ROZMIAR"; [ -d "$D" ] || D="sklep/$ROZMIAR"
+          ARGS=(--iphone "$D" --apply)
+          [ -n "$JEZYKI" ] && ARGS+=(--jezyki "$JEZYKI")
+          node scripts/asc/zrzuty.mjs "${ARGS[@]}" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Usunięcie klucza z maszyny
+        if: always()
+        run: rm -f "$RUNNER_TEMP/AuthKey.p8"

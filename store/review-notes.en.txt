@@ -1,0 +1,28 @@
+Thank you for reviewing Poker School.
+
+WHAT THE APP IS
+- A course in No-Limit Texas Hold'em decision-making: lessons, exercises graded on four levels with an explanation, spaced reviews and module exams.
+- No real-money gaming. There are no stakes, no chips or credits, no prizes, no leaderboards and no play against other people or bots. An exercise shows a situation and asks for a decision; the result is a grade and an explanation, never a win or a loss.
+- The app does not take input from hands played elsewhere and gives no advice during live play. All hands come from the app's own course content.
+- The app does not offer, link to or advertise any gambling operator.
+
+NO ACCOUNT, NO SERVER
+- No sign-in and no backend. Progress is stored only on the device. No demo account is needed.
+- First launch: a welcome screen, then a short placement check (up to 8 questions); "Skip" (placement.skip) works on every question.
+
+IN-APP PURCHASES (one subscription group: quarterly and yearly auto-renewable subscriptions, plus a one-time lifetime unlock; no introductory offers or free trials)
+- Free without purchase: all lessons, the placement check and the first attempt at each module exam. One more activity per day is free: a practice session, a review session or an exam retake.
+- To reach the purchase screen: on the "Today" tab (tabs.today) tap "Practice session" (today.practice), then "Start" (start.begin). This uses today's free activity. Close the session with "End" (session.end), tap "Practice session" again and then "Full access" (start.fullAccess).
+- The purchase screen shows prices and periods from the App Store, the auto-renewal and cancellation terms, "Restore purchases" (purchase.restore), and links to the Terms of Use (Apple's standard EULA) and the Privacy Policy.
+- Settings (gear icon on the "Today" tab): "Restore purchases"; "Manage subscription" (settings.manage) appears when a subscription is active.
+- Ongoing value (3.1.2(a)): new lessons, exercises and content corrections are added in regular updates, and new exercises are generated for spaced reviews. Users who prefer one payment can choose the lifetime unlock.
+
+DATA
+- No data is collected. The only network connections are App Store purchase calls (StoreKit).
+- Settings > "Data" (data.title): export progress to a file and import it. Settings > "Delete progress" (settings.reset) asks for confirmation first.
+
+RESPONSIBLE GAMBLING
+- "Help" (settings.help) in Settings and in the Progress tab: where to find support for problem gambling (talk to a doctor or a mental health professional; emergency number; an international online support service).
+
+CONTACT
+- [SUPPORT EMAIL]

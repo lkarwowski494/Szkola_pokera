@@ -1,0 +1,6 @@
+{
+  "_opis": "Adresy do App Store Connect (App Information → Privacy Policy URL; wersja → Support URL, Marketing URL). Format jak Trening store/app-store-urls.json (2e4b0f8, odczyt 2026-11-09; D-348). Adresy: D-308 (GitHub Pages z katalogu site/, opublikowane 2026-11-09, przebieg 42632952082). marketingUrl: null — pole opcjonalne w App Store Connect, strona marketingowa nie ustalona (skrypt go nie wysyła). Gdy aplikacja dostanie adres polityki (ADRES_PRYWATNOSCI w apps/mobile/src/platform/adresy.ts, 08-F20), ma być równy privacyPolicyUrl.",
+  "privacyPolicyUrl": "https://lkarwowski494.github.io/Szkola_pokera/privacy.html",
+  "supportUrl": "https://lkarwowski494.github.io/Szkola_pokera/support.html",
+  "marketingUrl": null
+}

@@ -1,0 +1,30 @@
+{
+  "_opis": "PLIK GENEROWANY przez scripts/asc/kontrola-oczekiwane.mjs ze store/app-store-metadata.json (z aliasami) — tylko lokalizacje obsługiwane przez App Store Connect. Nie edytować ręcznie.",
+  "lokalizacje": {
+    "pl": {
+      "name": "Szkoła Pokera",
+      "subtitle": "Nauka decyzji z wyjaśnieniem",
+      "keywords": "texas,holdem,gto,preflop,postflop,zakresy,outy,szanse,icm,turnieje,kurs,lekcje,quiz,trener"
+    },
+    "en-US": {
+      "name": "Poker School: Learn Strategy",
+      "subtitle": "Practice decisions, no betting",
+      "keywords": "texas,holdem,gto,preflop,postflop,ranges,outs,odds,icm,tournament,course,lessons,quiz,trainer,study"
+    },
+    "en-GB": {
+      "name": "Poker School: Learn Strategy",
+      "subtitle": "Practice decisions, no betting",
+      "keywords": "texas,holdem,gto,preflop,postflop,ranges,outs,odds,icm,tournament,course,lessons,quiz,trainer,study"
+    },
+    "en-CA": {
+      "name": "Poker School: Learn Strategy",
+      "subtitle": "Practice decisions, no betting",
+      "keywords": "texas,holdem,gto,preflop,postflop,ranges,outs,odds,icm,tournament,course,lessons,quiz,trainer,study"
+    },
+    "en-AU": {
+      "name": "Poker School: Learn Strategy",
+      "subtitle": "Practice decisions, no betting",
+      "keywords": "texas,holdem,gto,preflop,postflop,ranges,outs,odds,icm,tournament,course,lessons,quiz,trainer,study"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+ "_opis": "Lokalizacje produktów zakupu w App Store Connect (nazwy i opisy) — dane dla scripts/asc/iap-localizations.mjs (workflow asc-iap-localizations.yml). Wzór: Trening store/iap-localizations.json (2e4b0f8, odczyt 2026-11-09; D-348). Teksty NIE są nowe: to teksty ekranu zakupu ze słownika aplikacji (apps/mobile/src/i18n/locales/<język>.json, purchase.title, purchase.plan.*, pierwsze zdanie purchase.renewsQuarter/renewsYear, purchase.oneTime; D-306/D-315); zgodność pilnuje tests/narzedzia/asc.test.mjs (D-352). Tylko języki wydane w aplikacji (pl, en); kolejne po wydaniu języka. Klucze produktów = końcówki ID z packages/domena/src/konfiguracja.ts. Limity: nazwa 30, opis 45 (Apple, In-App Purchase Information; jak Trening). wpisaneRecznie: lokalizacje wpisane przez właściciela ręcznie, których skrypt nie zapisuje — brak.",
+ "limity": {
+  "nazwa": 30,
+  "opis": 45
+ },
+ "wpisaneRecznie": {},
+ "tlumaczenia": {
+  "pl": {
+   "ascLocale": "pl",
+   "group": {
+    "name": "Pełny dostęp"
+   },
+   "kwartal": {
+    "name": "Kwartał",
+    "description": "Płatność co 3 miesiące."
+   },
+   "rok": {
+    "name": "Rok",
+    "description": "Płatność raz na rok."
+   },
+   "dozywotni": {
+    "name": "Dostęp dożywotni",
+    "description": "Zakup jednorazowy, bez kolejnych płatności."
+   }
+  },
+  "en": {
+   "ascLocale": "en-US",
+   "group": {
+    "name": "Full access"
+   },
+   "kwartal": {
+    "name": "Quarter",
+    "description": "Billed every 3 months."
+   },
+   "rok": {
+    "name": "Year",
+    "description": "Billed once a year."
+   },
+   "dozywotni": {
+    "name": "Lifetime access",
+    "description": "One-time purchase, no further payments."
+   }
+  }
+ }
+}

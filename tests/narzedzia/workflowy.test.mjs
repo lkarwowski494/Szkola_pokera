@@ -237,3 +237,52 @@ test('store-screenshots.yml: tylko workflow_dispatch; rozmiary i ekrany z script
   assert.match(tekst, /scripts\/ci\/zrzuty-sklepu\.sh/);
   assert.match(tekst, /scripts\/ci\/zrzuty-sklepu\.json/);
 });
+
+// D-348: workflowy App Store Connect z Treningu (asc-*.yml, 2e4b0f8, odczyt 2026-11-09). Na main leżą tylko pliki workflowów (rejestracja
+// workflow_dispatch), skrypty i dane sklepu tylko na gałęzi roboczej — uruchomienie `--ref <gałąź robocza>`, z main pada przed kluczem (jak D-343).
+// Odczyt domyślnie; zapis tylko w osobnym zadaniu w środowisku `release` po zadaniu odczytu i po sprawdzeniu, że `release` wymaga zatwierdzenia.
+const ASC = { 'asc-metadane.yml': ['podglad', 'zapis', 'zapis'], 'asc-iap-localizations.yml': ['plan', 'apply', 'apply'], 'asc-zrzuty.yml': ['plan', 'zapis', 'apply'] };
+const SEKRETY_ASC = ['ASC_ISSUER_ID', 'ASC_KEY_ID', 'ASC_KEY_P8'];
+test('asc-*.yml: tylko ręcznie; skrypt z gałęzi roboczej przed kluczem; zapis tylko w zadaniu release po odczycie i po kontroli zatwierdzania; klucz usuwany zawsze', () => {
+  for (const [n, [odczyt, zapis, tryb]] of Object.entries(ASC)) {
+    const w = json(n); const tekst = readFileSync(new URL(n, KAT), 'utf8');
+    assert.deepEqual(Object.keys(w.on), ['workflow_dispatch'], n);
+    assert.deepEqual(Object.keys(w.jobs).sort(), [odczyt, zapis].sort(), n);
+    assert.equal(w.jobs[odczyt].environment, undefined, `${n}: odczyt bez środowiska`);
+    assert.equal(w.jobs[zapis].environment, 'release', n);
+    assert.equal(w.jobs[zapis].needs, odczyt, n);
+    assert.equal(w.jobs[zapis].if, `\${{ inputs.tryb == '${tryb}' }}`, n);
+    assert.ok(w.on.workflow_dispatch.inputs.tryb.options[0] !== tryb && w.on.workflow_dispatch.inputs.tryb.default !== tryb, `${n}: domyślnie odczyt`);
+    assert.deepEqual([...new Set([...tekst.matchAll(/secrets\.(\w+)/g)].map((m) => m[1]))].sort(), [...SEKRETY_ASC, ...(n === 'asc-zrzuty.yml' ? ['GITHUB_TOKEN'] : [])].sort(), n);
+    for (const id of [odczyt, zapis]) {
+      const k = w.jobs[id].steps; const ozn = `${n}:${id}`;
+      assert.equal(k[0].uses, 'actions/checkout@v5', ozn); assert.equal(k[0].with?.ref, undefined, ozn); assert.equal(k[0].with?.['persist-credentials'], false, ozn);
+      assert.match(k[1].run ?? '', /\[ ! -f scripts\/asc\/[\w-]+\.mjs \]/, `${ozn}: kontrola skryptu`); assert.match(k[1].run, /--ref/, ozn); assert.match(k[1].run, /exit 1/, ozn);
+      const iKlucz = k.findIndex((x) => x.env?.ASC_KEY_P8);
+      assert.ok(iKlucz > 1, ozn);
+      assert.equal(k.filter((x) => x.env?.ASC_KEY_P8).length, 1, `${ozn}: klucz w jednym kroku`);
+      assert.match(k[iKlucz].run, /RUNNER_TEMP\/AuthKey\.p8/, ozn); assert.match(k[iKlucz].run, /add-mask/, ozn);
+      const ost = k.at(-1); assert.equal(ost.if, 'always()', ozn); assert.equal(ost.run.trim(), 'rm -f "$RUNNER_TEMP/AuthKey.p8"', ozn);
+      for (const x of k) assert.doesNotMatch(x.run ?? '', /\$\{\{/, `${ozn}: ${x.name}: wyrażenie w run`);
+      const skrypt = k.filter((x) => /node scripts\/asc\//.test(x.run ?? '')).map((x) => x.run).join('\n');
+      if (id === odczyt) assert.doesNotMatch(skrypt, /--(zapis|apply)\b/, `${ozn}: odczyt bez trybu zapisu`);
+      else assert.match(skrypt, /--(zapis|apply)\b/, ozn);
+    }
+    const kz = w.jobs[zapis].steps; const iStraz = kz.findIndex((x) => /environments\/release/.test(x.run ?? ''));
+    assert.ok(iStraz > 1 && iStraz < kz.findIndex((x) => x.env?.ASC_KEY_P8), `${n}: kontrola zatwierdzania release przed kluczem`);
+    assert.match(kz[iStraz].run, /required_reviewers/, n); assert.match(kz[iStraz].run, /exit 1/, n);
+    assert.deepEqual(w.jobs[zapis].permissions, { contents: 'read', actions: 'read' }, `${n}: odczyt środowiska wymaga actions: read`);
+  }
+});
+
+test('asc-kontrola.yml: workflow wspólny narzędzi studia przypięty do pełnego SHA; tylko trzy sekrety; zadanie straży gałęzi przed kontrolą', () => {
+  const w = json('asc-kontrola.yml');
+  assert.deepEqual(Object.keys(w.on), ['workflow_dispatch']);
+  assert.match(w.jobs.kontrola.uses, /^lkarwowski494\/apps4brew-narzedzia\/\.github\/workflows\/asc-kontrola\.yml@[0-9a-f]{40}$/);
+  assert.deepEqual(Object.keys(w.jobs.kontrola.secrets).sort(), SEKRETY_ASC);
+  assert.equal(w.jobs.kontrola.with.config, 'store/asc-kontrola.json');
+  assert.equal(w.jobs.kontrola.needs, 'galaz');
+  const k = w.jobs.galaz.steps;
+  assert.equal(k[0].uses, 'actions/checkout@v5'); assert.match(k[1].run, /\[ ! -f store\/asc-kontrola\.json \]/); assert.match(k[1].run, /--ref/);
+  assert.ok(!JSON.stringify(w.jobs.galaz).includes('secrets.'));
+});
