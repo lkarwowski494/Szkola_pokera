@@ -43,7 +43,9 @@ Nie twórz nowych sesji i nie archiwizuj — to robi koordynator. Nie edytuj sek
 
 ## 5. Stan i plan (2026-11-09 ok. 07:00 UTC; ostatnie wiersze „Koordynacja” w plan-08 = prawda)
 **W toku (07:59 UTC):**
-- Pas kodu pusty od 11:50 (T zakończona: D-338–D-340). E2E 42612037585 (ed87405, kod T) zielone 12:58 = szczyt kodu z dowodem. Dalsza praca kodu czeka na odpowiedzi z 14:00.
+- 14:05 D-341 (W): bez weta D-282–D-340; VN nie, TR po T1; przekład en, 4 języki po przeglądzie en; Pages tak; F-12 w 1.1. 14:10 D-342 (W): na main tylko workflowy przekładu, pages.yml, site/ (klucz dla api.anthropic.com nie da się zapisać w środowisku).
+- Sesja U `session_01T66VBydwQecN32ytZUWQfB` (kod, rola 08, start 14:09): pages.yml + strażnik, workflowy przekładu pod dispatch z ref, push wybranych plików na main, lista kroków właściciela (sekret ANTHROPIC_API_KEY, Pages Source). Potem: koordynator uruchamia przekład en (dispatch) po potwierdzeniu klucza przez właściciela; dalej sesja 09 przegląd en (K3/K5).
+- Tryb dzienny od 14:00: pytania produktowe do właściciela; ok. 20:00 pytanie o tryb nocny.
 - Zakończone: S 11:04 (K-11, terms-def, flow /purchase, K-12 workflow zrzutów nieuruchomiony; D-334–D-337), Q 09:55 (D-324–D-328), R 10:32 (K-06, K-07, K-10 site/ bez publikacji; D-329–D-333). E2E 42596932204 (0cc07bf) zielone 10:29 = szczyt kodu z dowodem. Kod blokowany przez właściciela: K-03 K3/K5 i K-04 (klucz API, scalenie albo uruchomienie lokalne), K-09 (W-04/W-05), publikacja site/ (D-308).
 - P zakończona 09:11 (K-03 K1–K4, D-318–D-323; 4cd4a4d → E2E 42591233527 od 09:09, wynik ~09:50). K3/K5 przekład czeka na klucz i na sposób uruchomienia (workflow ręczny tylko z gałęzi domyślnej → scalenie albo lokalnie). Szacunek: en 13,27 USD, 4 języki 55,21 USD (W-03).
 - Pas docs pusty od 09:01 (O zakończona: D-316 VN „nie teraz”, D-317 TR warunkowo + T1 krok właściciela — oba do akceptacji 14:00).
