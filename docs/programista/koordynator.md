@@ -43,12 +43,12 @@ Nie twórz nowych sesji i nie archiwizuj — to robi koordynator. Nie edytuj sek
 
 ## 5. Stan i plan (2026-11-09 ok. 07:00 UTC; ostatnie wiersze „Koordynacja” w plan-08 = prawda)
 **W toku (07:59 UTC):**
-- Sesja S `session_01T66VBy7W51Q2tS7XtyAgMA` (kod, rola 08, start 10:32): K-11 test metadanych, terms-def, flow /purchase, K-12 workflow zrzutów (bez uruchomienia); czeka z pushem na E2E 42601439302 (8f78583, kod R, od 10:31, ~11:10).
-- Zakończone: Q 09:55 (D-324–D-328), R 10:32 (K-06, K-07, K-10 site/ bez publikacji; D-329–D-333). E2E 42596932204 (0cc07bf) zielone 10:29 = szczyt kodu z dowodem. Kod blokowany przez właściciela: K-03 K3/K5 i K-04 (klucz API, scalenie albo uruchomienie lokalne), K-09 (W-04/W-05), publikacja site/ (D-308).
+- Sesja T `session_01T66VBvQzCaBh3aPDwArugy` (kod, rola 08, start 11:04): uklad.ts:27, m2.l1 liczby, TermEntry.lesson, P2; czeka z pushem na E2E 42605856335 (7a697da, kod R+S, od 11:03, ~11:45; poprzedni 42601439302 padł na infrastrukturze).
+- Zakończone: S 11:04 (K-11, terms-def, flow /purchase, K-12 workflow zrzutów nieuruchomiony; D-334–D-337), Q 09:55 (D-324–D-328), R 10:32 (K-06, K-07, K-10 site/ bez publikacji; D-329–D-333). E2E 42596932204 (0cc07bf) zielone 10:29 = szczyt kodu z dowodem. Kod blokowany przez właściciela: K-03 K3/K5 i K-04 (klucz API, scalenie albo uruchomienie lokalne), K-09 (W-04/W-05), publikacja site/ (D-308).
 - P zakończona 09:11 (K-03 K1–K4, D-318–D-323; 4cd4a4d → E2E 42591233527 od 09:09, wynik ~09:50). K3/K5 przekład czeka na klucz i na sposób uruchomienia (workflow ręczny tylko z gałęzi domyślnej → scalenie albo lokalnie). Szacunek: en 13,27 USD, 4 języki 55,21 USD (W-03).
 - Pas docs pusty od 09:01 (O zakończona: D-316 VN „nie teraz”, D-317 TR warunkowo + T1 krok właściciela — oba do akceptacji 14:00).
 - N zakończona 08:18 (K-02 14/14, 10-D01-01; D-311–D-315). W kolejce kodu: 10-D01-02 ŚREDNIE (wiersz „Pełny dostęp” w ustawieniach).
-- Zakończone dziś: I (A04-10/11, zakup US/JP, solver 180 s, Maestro; E2E 42578171401 zielone na b8eb0a2 = szczyt kodu z dowodem), K (plan-1.0), L (polityka prywatności, D-307/D-308). Zakończona M 08:13 (store/ pl/en, D-309 nazwa en, D-310 wiek: override 18+ — ważne do weta). Do raportu 14:00: weta D-282–D-333 (m.in. D-306, D-309 nazwa en, D-310 18+, D-316 VN i D-317 TR do akceptacji), W-03 = 55 USD za 4 języki + 13 USD en, sposób uruchomienia przekładu (scalenie na main vs lokalnie), P-1, P-2/D-308, W-03, klucz API, W-04/W-05 dane właściciela, zrzuty z sesji I.
+- Zakończone dziś: I (A04-10/11, zakup US/JP, solver 180 s, Maestro; E2E 42578171401 zielone na b8eb0a2 = szczyt kodu z dowodem), K (plan-1.0), L (polityka prywatności, D-307/D-308). Zakończona M 08:13 (store/ pl/en, D-309 nazwa en, D-310 wiek: override 18+ — ważne do weta). Do raportu 14:00: weta D-282–D-337 (m.in. D-306, D-309 nazwa en, D-310 18+, D-316 VN i D-317 TR do akceptacji), W-03 = 55 USD za 4 języki + 13 USD en, sposób uruchomienia przekładu (scalenie na main vs lokalnie), P-1, P-2/D-308, W-03, klucz API, W-04/W-05 dane właściciela, zrzuty z sesji I.
 
 **Kolejka:**
 | # | Kiedy (UTC) | Kto | Zadanie | Gotowe, gdy |
