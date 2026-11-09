@@ -8,11 +8,8 @@ import { AccessibilityInfo, type HostInstance, type ScrollViewInstance } from 'r
  * `features/dostepnosc/__tests__/announce-08.test.tsx`). API: RN 0.88.1, `AccessibilityInfo.js:441–460`, odczyt 2026-11-09.
  */
 export const announce = (text: string): void => {
-  try {
-    AccessibilityInfo.announceForAccessibility(text);
-  } catch {
-    /* brak czytnika / środowisko testowe */
-  }
+  // bez try/catch: RN woła moduł natywny przez `?.` (AccessibilityInfo.js:458–460), brak czytnika nie rzuca błędu
+  AccessibilityInfo.announceForAccessibility(text);
 };
 
 /** Ogłasza `text`, gdy zmieni się na niepusty (ocena po decyzji, błąd zapisu). */
@@ -32,12 +29,6 @@ export function useNoweZadanie(klucz: unknown, przewijanie: RefObject<ScrollView
     if (Object.is(poprzedni.current, klucz)) return;
     poprzedni.current = klucz;
     przewijanie.current?.scrollTo({ y: 0, animated: false });
-    if (fokus.current) {
-      try {
-        AccessibilityInfo.sendAccessibilityEvent(fokus.current, 'focus');
-      } catch {
-        /* brak czytnika / środowisko testowe */
-      }
-    }
+    if (fokus.current) AccessibilityInfo.sendAccessibilityEvent(fokus.current, 'focus');
   }, [klucz, przewijanie, fokus]);
 }
