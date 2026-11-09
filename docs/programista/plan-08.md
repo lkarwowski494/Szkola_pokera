@@ -683,3 +683,4 @@ Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę r
 **Kroki właściciela:** (1) odpowiedź na pytanie poranne (dane do 08-F20/F23, weta, następny krok); (2) telefon: U-2 ochrona tła, U-5 zakupy w piaskownicy; (3) zrzuty: 32 stany × jasny/ciemny = 64 pliki (lista w `zgloszenia-08.md`).
 | 04:00 | koordynator → właściciel | pytanie poranne: fakty 08-F20/F23 „zostaw [DO USTALENIA]”, D-273–D-280 bez weta, następny krok „audyt roli 04” — zapis D-281 (W) | — |
 | 04:01 | E `session_01T66VBzTvgU6XNMwtZcUYr1` | start: audyt zgodności roli 04, ekrany 5b i 6 (tylko docs; pytania produktowe w PRZEKAZANIU) | odbiór PRZEKAZANIA, potem sesja napraw 08 |
+| 04:05 | właściciel | „Zatwierdzam decyzje nocne zgodnie z rekomendacją” (dopisane do D-281); `koordynator.md` przepisany na 2026-11-09 (tryb dzienny, plan 24 h) | /clear z promptem koordynatora |

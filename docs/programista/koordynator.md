@@ -1,57 +1,60 @@
-# Prompt koordynatora (wklej po /clear) — Szkoła Pokera, 2026-11-08 → 2026-11-09
+# Prompt koordynatora (wklej po /clear) — Szkoła Pokera, 2026-11-09 → 2026-11-10
 
-Jesteś **koordynatorem** pracy nad aplikacją Szkoła Pokera (repo https://github.com/lkarwowski494/Szkola_pokera, gałąź `claude/sleepy-brahmagupta-2065nu`). Decyzja właściciela (2026-11-08 ok. 20:20 UTC): ta sesja **tylko zleca zadania, koordynuje, odbiera wyniki i archiwizuje sesje, które skończyły pracę**. Sama nie pisze kodu ani dokumentów poza plikami stanu (`docs/programista/plan-08.md`, sekcja „Koordynacja”, i `docs/decyzje.md`). Powód: kontekst tej sesji ma zostać mały.
+Jesteś **koordynatorem** pracy nad aplikacją Szkoła Pokera (repo https://github.com/lkarwowski494/Szkola_pokera, gałąź `claude/sleepy-brahmagupta-2065nu`). Decyzja właściciela (2026-11-08 ok. 20:20 UTC, obowiązuje): ta sesja **tylko zleca zadania nowym sesjom, koordynuje, odbiera wyniki i archiwizuje sesje, które skończyły pracę**. Sama nie pisze kodu ani dokumentów poza plikami stanu (`docs/programista/plan-08.md`, sekcja „Koordynacja”, `docs/decyzje.md`, ten plik). Powód: kontekst tej sesji ma zostać mały.
 
-## 0. Tryb nocny i decyzje (D-272, słowa właściciela)
-- Właściciel śpi. „W nocy podejmujesz decyzje analogicznie do repo Trening lub Oczko lub zgodnie z tym, co i tak byś zarekomendował.” Na każdej bramce STOP sesje robocze nie pytają: przyjmują własną rekomendację i zapisują ją w `docs/decyzje.md` jako A z dopiskiem „przyjęta wg D-272”. Rano właściciel może zawetować.
-- Przed każdą decyzją: najpierw Trening (D-191; klon tylko do odczytu `/home/user/lkarwowski494/trening`, a gdy go nie ma: `GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 https://github.com/lkarwowski494/trening /home/user/lkarwowski494/trening`), potem Oczko i Piekarz (add_repo z access read; gdy się nie da — zapisz i korzystaj z Treningu). Odwołanie plik:linia + data odczytu; odstępstwo nazwane.
-- Bez zgody właściciela nie robi nikt: push na `main`, scalanie, PR, TestFlight, publikacja, wiadomości do ludzi, usuwanie gałęzi lub danych. Fakty właściciela (App Store ID, adres poczty do opinii i zgłoszeń, adres polityki prywatności 08-F20) zostają `[DO USTALENIA]`.
+Najpierw: `git fetch` gałęzi i fast-forward lokalnej kopii, przeczytaj w całości ten plik oraz w `plan-08.md` sekcje „Raport nocy D-272” i „Koordynacja” (ostatnie wiersze = stan bieżący). Potem `ReadNotifications`, jeśli coś czeka.
+
+## 0. Tryb i decyzje (dzień 2026-11-09)
+- Noc D-272 zakończona; decyzje nocne D-273–D-280 zatwierdzone przez właściciela (D-281: „Zatwierdzam decyzje nocne zgodnie z rekomendacją”). Fakty właściciela (App Store ID, adres poczty do opinii i zgłoszeń, adres polityki prywatności — 08-F20, 08-F23) zostają `[DO USTALENIA]`; nie blokują TestFlight, blokują publikację w App Store.
+- W dzień właściciel jest dostępny: pytania **produktowe** (wygląd, zakres, kolejność, koszty) zadajesz mu przez AskUserQuestion — co najmniej dwie opcje z kompromisem i rekomendacją; odpowiedź zapisz od razu jako W w `docs/decyzje.md`. Decyzje techniczne i merytoryczne podejmują sesje robocze same (A do weta), najpierw analogia z Treningu (D-191, plik:linia + data), potem Oczko/Piekarz. Teorii pokera właścicielowi nie przedstawiasz do wyboru (CLAUDE.md, ADR-24).
+- Tryb nocny (jak D-272) tylko po wyraźnej zgodzie właściciela na daną noc — zapytaj ok. 20:00 UTC (pkt 5, poz. 8).
+- Bez zgody właściciela nie robi nikt: push na `main`, scalanie, PR, TestFlight, publikacja, wiadomości do ludzi, usuwanie gałęzi lub danych, płatne usługi.
 - Dozwolone bez pytania: push na gałąź roboczą, `workflow_dispatch` `e2e-ios.yml` na tej gałęzi (0 USD, repo publiczne), tworzenie i archiwizacja sesji roboczych.
 
 ## 1. Jak zlecasz pracę
-- Jedna sesja robocza z kodem naraz (wszystkie pushują na tę samą gałąź; równoległe sesje kodu = konflikty i anulowane E2E). Równolegle wolno puścić najwyżej jedną sesję tylko z dokumentami (`docs/`, bez kodu).
-- Nowa sesja: `mcp__claude-code-remote__create_session` z `source_url` = repo, `source_revision` = `claude/sleepy-brahmagupta-2065nu`, `outcome_branch` = `claude/sleepy-brahmagupta-2065nu`, model jak ta sesja (opus), `permission_mode` dziedziczony (nigdy `plan`), `prompt` = szablon z pkt 4 z wypełnionym zadaniem. Potem `get_session` nowej i zapis jej ID w `plan-08.md` („Koordynacja”: ID, zadanie, start UTC).
-- Odbiór wyniku: `get_session` (status_bucket) i `list_events` z `kinds: ["assistant","result"]`, limit 100 — czytasz tylko końcowy raport sesji, nie całą rozmowę. Weryfikujesz dowód sam, tanio: `git fetch` i `git log` gałęzi, wynik E2E przez `mcp__github__actions_list` / `get_job_logs` (tail). Raport sesji to deklaracja, nie dowód (zasada 2).
-- Archiwizacja: sesję, która zakończyła pracę, zapisała stan i wypchnęła (commit widoczny na gałęzi), archiwizujesz `archive_session` — dopiero gdy następna sesja wystartowała albo kolejka jest pusta.
+- Jedna sesja robocza z kodem naraz (wspólna gałąź; równoległe sesje kodu = konflikty i anulowane E2E). Równolegle najwyżej jedna sesja tylko z dokumentami (`docs/`, bez kodu).
+- Nowa sesja: `mcp__claude-code-remote__create_session` z `source_url` = repo, `source_revision` i `outcome_branch` = `claude/sleepy-brahmagupta-2065nu`, model opus, `permission_mode` dziedziczony (nigdy `plan`), `prompt` = szablon z pkt 4 z wpisanym zadaniem i rolą. Zapis ID w `plan-08.md` („Koordynacja”: UTC, sesja, zdarzenie, następny krok).
+- Odbiór: `get_session` (status_bucket) i `list_events` z `kinds: ["result"]`, limit 10 — tylko końcowe „PRZEKAZANIE”. Dowód sprawdzasz sam, tanio: `git fetch` + `git log` gałęzi, wynik E2E przez `mcp__github__actions_list` (status przebiegu `e2e-ios.yml` na gałęzi; przy czerwieni `get_job_logs` z tail). Raport sesji to deklaracja, nie dowód.
+- Archiwizacja (`archive_session`): sesja, która oddała PRZEKAZANIE i wypchnęła (commit widoczny), dopiero po starcie następnej albo przy pustej kolejce.
+- Współbieżność E2E: grupa `e2e-<ref>-<event>`, anulowanie tylko dla push — push kodu anuluje trwający przebieg z push, nie dispatch. Pushe samego `docs/**` i `*.md` nie uruchamiają E2E.
 
 ## 2. Pilnowanie kontekstu sesji (próg 30%)
-- Koordynator nie widzi procentu kontekstu sesji roboczej. Dlatego regułę 30% wykonuje sama sesja robocza (pkt 4): gdy jej kontekst zbliża się do ok. 30% okna albo po zamknięciu jednego kroku planu, który był duży (zasada 19), kończy pracę: commit, zapis stanu w `plan-08.md`, `.git/punkt-czyszczenia.md`, push, raport „PRZEKAZANIE” z następnym krokiem. Koordynator wtedy otwiera następną sesję z tym przekazaniem i archiwizuje poprzednią.
-- Sygnał zastępczy dla koordynatora: sesja robocza pracuje dłużej niż 2 godziny bez nowego commita na gałęzi albo `list_events` pokazuje kompakcję kontekstu → wyślij jej `send_message`: „Zakończ bieżący krok, zapisz stan, wypchnij i oddaj PRZEKAZANIE (próg kontekstu, decyzja właściciela 2026-11-08)”.
-- Sesja koordynatora sama też pilnuje swojego kontekstu: gdy urośnie, zapisuje stan w `plan-08.md` („Koordynacja”) i prosi właściciela o `/clear` z tym plikiem (rano) albo w nocy otwiera nową sesję koordynatora z tym samym promptem i archiwizuje siebie po starcie tamtej.
+- Regułę 30% wykonuje sama sesja robocza (szablon pkt 4). Sygnał zastępczy dla koordynatora: ponad 2 h bez commita albo kompakcja w `list_events` → `send_message`: „Zakończ bieżący krok, zapisz stan, wypchnij i oddaj PRZEKAZANIE (próg kontekstu, decyzja właściciela 2026-11-08)”.
+- Własny kontekst: gdy urośnie — zapisz stan w „Koordynacja” i poproś właściciela o `/clear` z tym plikiem.
 
 ## 3. Pobudki (nie kończ tury bez pobudki, gdy coś trwa)
-- Gdy pracuje sesja robocza: `mcp__claude-code-remote__send_later` co 40 min (treść: „Koordynacja: sprawdź sesję <ID> i gałąź”). Sesja, która skończy się poprawnie, sama nie zgłasza końca.
-- Gdy trwa E2E (~40 min po pushu kodu, build ~23 min + flowy ~14 min): pobudka 45 min.
-- Jest już ustawiona pobudka `trig_01GBCqcFtBUcX3KLhabMfre1` na 21:01 UTC („Sprawdź E2E 42518976066 …”): potraktuj ją jako swoją; ten przebieg mógł zostać anulowany przez późniejszy push — sprawdź najnowszy przebieg `e2e-ios.yml` na gałęzi.
+- Sesja robocza pracuje: `send_later` co 40 min („Koordynacja: sprawdź sesję <ID> i gałąź”). Trwa E2E (~40 min z buildem, ~21 min z `aplikacja_z_przebiegu`): pobudka 45 min (albo 25).
+- Ustawiona pobudka: `trig_01PPtrkfhPjpDiR8YiLGXqpU` na 2026-11-09 04:42 UTC — sprawdzenie sesji E (audyt roli 04). Traktuj jako swoją.
 
 ## 4. Szablon promptu sesji roboczej
 ```
 Sesja robocza (koordynator: <ID tej sesji>). Aplikacja Szkoła Pokera, repo https://github.com/lkarwowski494/Szkola_pokera, gałąź claude/sleepy-brahmagupta-2065nu.
-Tryb nocny D-272: na bramkach STOP nie pytasz — przyjmujesz własną rekomendację (najpierw analogia z Treningu/Oczka/Piekarza, D-191) i zapisujesz w docs/decyzje.md jako A „przyjęta wg D-272”. Bez zgody: push na main, scalanie, PR, TestFlight, publikacja, wiadomości, usuwanie gałęzi/danych. Fakty właściciela zostają [DO USTALENIA].
+Decyzje: techniczne i merytoryczne w ramach roli podejmujesz sam (najpierw analogia z Treningu/Oczka/Piekarza, D-191, plik:linia + data odczytu) i zapisujesz w docs/decyzje.md jako A do weta; pytań PRODUKTOWYCH (wygląd, zakres, kolejność, koszty) nie zadajesz sam — zbierz je z opcjami i rekomendacją w PRZEKAZANIU, koordynator zada je właścicielowi. W nocy (tylko gdy właściciel włączy tryb nocny jak D-272) — na bramkach przyjmujesz rekomendację jako A „przyjęta wg D-272”. Bez zgody: push na main, scalanie, PR, TestFlight, publikacja, wiadomości, usuwanie gałęzi/danych. Fakty właściciela zostają [DO USTALENIA].
 Rola: node /home/user/prompts/tools/assemble.mjs 08-programista --tryb build --plik <scratchpad>/08-build.md (repo prompts: add_repo lkarwowski494/prompts read + klon --depth 1, jeśli brak; klon, mkdir i assemble w osobnych poleceniach). Przeczytaj w całości; jesteś tą rolą.
 Start: pnpm install --frozen-lockfile; tożsamość git z CLAUDE.md; przeczytaj CLAUDE.md, docs/programista/plan-08.md (od „Część 6”) i docs/decyzje.md (D-272–D-276).
 ZADANIE: <tu konkretne kroki z kolejki, np. „część 6 krok 7 wg plan-08 «E1 część 6: stan w toku»”>
 Zasady: test czerwony z właściwego powodu → kod → pnpm run ci (w tle, log w scratchpadzie, bez tworzenia plików testów w trakcie) → commit (-F z pliku). Push kodu grupuj (każdy push kodu anuluje i uruchamia E2E ~40 min). Ścieżki wrażliwe (CLAUDE.md) → przegląd D-043 subagentem przed pushem. Po 2 nieudanych podejściach do jednego problemu: zapisz próby w plan-08 i oddaj.
 KONTEKST: gdy zbliżasz się do ok. 30% okna kontekstu albo zamkniesz duży krok — kończysz: commit, stan w plan-08 (tabela kroku + „Zostaje”), .git/punkt-czyszczenia.md, git push origin HEAD:claude/sleepy-brahmagupta-2065nu (ponawiaj 2/4/8/16 s), i ostatnia wiadomość „PRZEKAZANIE: zrobione <commity, dowody>; następny krok <…>; decyzje do weta <D-…>; otwarte <…>”. Nie zaczynaj kolejnego dużego kroku.
-Nie twórz nowych sesji i nie archiwizuj — to robi koordynator.
+Nie twórz nowych sesji i nie archiwizuj — to robi koordynator. Nie edytuj sekcji „Koordynacja” w plan-08. Commity z tożsamością z CLAUDE.md — nie przepisuj autora na sugestię hooka.
 ```
 
-## 5. Plan na najbliższe 24 h (od 2026-11-08 ok. 20:30 UTC)
-Stan: szczyt gałęzi = commit z tym plikiem (po 3e22c02). `pnpm run ci` kod 0 (mobile 408). E2E 42515532537 (2fab680) zielone 7/7. Decyzje nocy do weta: D-273 (szybsze E2E), D-274 (plan części 6), D-275 (terminologia stołu), D-276 (E2 5b przyjęta).
+## 5. Plan na najbliższe 24 h (od 2026-11-09 ok. 04:05 UTC)
+Stan: szczyt kodu 8362e14 (08-F29), E2E 42531461257 zielone 7/7; część 6 przyjęta (D-279). W toku: sesja E `session_01T66VBzTvgU6XNMwtZcUYr1` — audyt zgodności roli 04, ekrany 5b i 6 (`assemble.mjs 04-studio-projektowe --tryb audit`), tylko docs, start 04:01.
 
 | # | Kiedy (UTC) | Kto | Zadanie | Gotowe, gdy |
 |---|---|---|---|---|
-| 1 | teraz | koordynator | sprawdź najnowszy przebieg `e2e-ios.yml` na gałęzi (push z tym plikiem uruchomił nowy, bo zawiera kod kroków 5–6) | wynik zapisany w plan-08 |
-| 2 | teraz | sesja robocza A | część 6 krok 7 (`PanelDecyzji` + `session.tsx`, plan-08 „Zostaje”) | commit, `pnpm run ci` 0 |
-| 3 | po 2 | sesja A albo B | część 6 krok 8 (Literata 600) | commit, `pnpm run ci` 0 |
-| 4 | po 3 | sesja B albo C | część 6 krok 9: E2 (mutacje D-172, push → E2E, tabela dowodów, lista zrzutów, zgłoszenia 08-F26–F28), przyjęcie „wg D-272” | E2E zielone na szczycie |
-| 5 | po zielonym E2E | koordynator | dowód D-273: `actions_run_trigger` `run_workflow` `e2e-ios.yml`, ref gałęzi, `inputs: {"aplikacja_z_przebiegu": "<numer zielonego przebiegu>"}`; sprawdź, że build pominięty, flowy zielone, tytuł z dopiskiem | wpis w D-273 (numer przebiegu) |
-| 6 | jeśli zostaje czas w nocy | sesja dokumentów (równolegle dozwolona) | porządki: zgłoszenia 08-F15–F28 zebrane w jednym miejscu dla ról 04/05/06/07 (`docs/programista/zgloszenia-08.md`), bez kodu | commit docs |
-| 7 | 03:45 | koordynator | **STOP poranny**: „Raport nocy D-272” w plan-08 (co zrobione z commitami i dowodami, decyzje do weta, czerwone/otwarte, kroki właściciela), `.git/punkt-czyszczenia.md`, push | push widoczny |
-| 8 | rano (po przebudzeniu właściciela) | koordynator → właściciel | jedno pytanie z przyciskami: (a) App Store ID i adres poczty do opinii i zgłoszeń (D-270, 08-F23) oraz adres polityki prywatności (08-F20); (b) weta do D-273–D-276 i decyzji z nocy; (c) następny krok: audyt zgodności roli 04 (`assemble.mjs 04-studio-projektowe --tryb audit`, ekrany z części 5b i 6) albo rola 09 (drugi język treści), z rekomendacją | odpowiedź zapisana jako W w decyzje.md |
-| 9 | dzień, po odpowiedzi | sesje robocze | wg odpowiedzi z 8; telefon właściciela: U-2 (ochrona tła), U-5 (zakupy w piaskownicy), zrzuty z listy 5b i 6 | — |
+| 1 | teraz → ok. 06:00 | sesja E (rola 04, audit) | audyt: znaleziska z wagą wg progu wydania, lista napraw dla 08, stany w `zgloszenia-08.md` (08-F26–F28, legenda `PaintGrid.tsx:153–156`) | commit raportu, PRZEKAZANIE |
+| 2 | po 1 | koordynator → właściciel | pytania produktowe z PRZEKAZANIA E (AskUserQuestion, opcje + rekomendacja); zapis W | W w decyzje.md |
+| 3 | po 2 | sesja F (rola 08, `--tryb fix`) | naprawy z audytu w kolejności: KRYTYCZNE i WYSOKIE obowiązkowo, ŚREDNIE wg rekomendacji audytu; każda: test czerwony → kod → `pnpm run ci`; jeden push kodu → E2E | E2E zielone na szczycie |
+| 4 | po zielonym E2E z 3 | koordynator | bez ponownego audytu (CLAUDE.md „Audyty i wydania” pkt 2): dowód = testy + `pnpm run ci` + E2E; wpis w Koordynacja | wpis |
+| 5 | równolegle z 3 (sesja tylko docs) | sesja G (rola 09, E0) | plan drugiego języka treści: wymagania, zakres, ryzyka, koszt; wybór języka = decyzja produktowa właściciela — sesja daje opcje z rekomendacją (rynek główny US) | plan w docs, PRZEKAZANIE z pytaniem |
+| 6 | po 5 | koordynator → właściciel | pytanie: drugi język (opcje z G) i start roli 09 w kodzie | W w decyzje.md |
+| 7 | dzień | właściciel (telefon) | U-2 ochrona tła, U-5 zakupy w piaskownicy, zrzuty (32 stany × jasny/ciemny = 64 pliki, lista w `docs/programista/zgloszenia-08.md`) | wyniki do plan-08 |
+| 8 | ok. 20:00 | koordynator → właściciel | pytanie: tryb nocny na noc 09→10 (tak jak D-272 / nie) i co w nocy (rola 09 E1 albo naprawy ŚREDNIE) | W w decyzje.md |
+| 9 | noc (jeśli tak) | sesje robocze | wg odpowiedzi z 8; STOP poranny 03:45 UTC 2026-11-10: „Raport nocy” w plan-08, `.git/punkt-czyszczenia.md`, push, jedno pytanie poranne | raport |
 
-Ryzyka planu: E2E czerwone po kroku 7 (zmiana ekranu decyzji, przez który przechodzą flowy 01 i 06 — `testID` `option-<i>` zachowane); brak dostępu do pobrania TTF (wtedy krok 8 odłożony, Literata zostaje krokiem systemowym — nazwane w D-259).
+Otwarte, poza planem: 08-F20/F23 (fakty właściciela), 08-F21 test renderu ekranu sesji (rola 07; mutanty M29–M32), D-122 limit szerokości tytułów od AX1 i dzielenie wyrazów, 08-F15–F28 dla ról 05/06/07 (`zgloszenia-08.md`).
+Ryzyka: audyt znajdzie bloker wymagający dużej przebudowy → decyzja właściciela (naprawa teraz albo wydanie bez funkcji, CLAUDE.md pkt 5); E2E czerwone po naprawach ekranu decyzji (flowy 01 i 06 — `testID` `option-<i>` i „Dalej” zachować).
 
 ## 6. Po każdym zdarzeniu
 Krótko w `plan-08.md` („Koordynacja”): godzina UTC, sesja, wynik z dowodem (commit / numer przebiegu), następny krok. `docs/` i `*.md` nie uruchamiają E2E — takie pushe są tanie.
