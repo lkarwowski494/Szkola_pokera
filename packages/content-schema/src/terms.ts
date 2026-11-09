@@ -108,14 +108,16 @@ export function renderTerms(text: string, lookup: TermLookup, where: string, see
 /**
  * Znaczniki terminów w tekście w języku innym niż polski (D-287): forma z tekstu, a bez formy nazwa angielska; bez
  * nawiasu, bo reguła T-01 objaśnia różnicę nazwy polskiej i angielskiej. Nieznany klucz przerywa jak w `renderTerms`.
- * W en to „sama nazwa angielska”; sposób dla pozostałych języków rozstrzyga fala 1 (K-05) — do tego czasu ten sam.
+ * W en to „sama nazwa angielska” (albo skrót, gdy polska nazwa jest skrótem); sposób dla pozostałych języków rozstrzyga
+ * fala 1 (K-05) — do tego czasu ten sam.
  */
 export function renderTermsBare(text: string, lookup: TermLookup, where: string, used?: Set<string>): string {
   return text.replace(TERM_PLACEHOLDER, (_m, key: string, form?: string) => {
     const t = lookup(key);
     if (!t) throw new Error(`${where}: nieznany termin {{t:${key}}}`);
     used?.add(key);
-    return form ?? t.en;
+    // bez formy: nazwa angielska, a gdy polska nazwa jest skrótem (UTG, SPR) — ten sam skrót, jak w tekście źródła
+    return form ?? ((t.abbr && norm(t.pl) === norm(t.abbr)) || /^[A-Z][A-Z0-9+]{1,5}$/.test(t.pl) ? t.pl : t.en);
   });
 }
 

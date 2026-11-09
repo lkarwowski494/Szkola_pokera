@@ -43,3 +43,27 @@ describe('łańcuch zastępczy w i18next', () => {
     expect(i.t('nie.ma', { defaultValue: 'zapas' })).toBe('zapas');
   });
 });
+
+// Rola 09, K2b (D-289): po przekładzie en językiem zastępczym treści i interfejsu jest en (wariant → język → en → pl).
+// Wybór języka z preferencji systemu (`wybierzJezyk`) zostaje przy `lancuchZastepczy`: drugi język z telefonu
+// użytkownika ma pierwszeństwo przed en.
+import { lancuchTresci, wybierzJezyk } from '../src/index';
+describe('łańcuch treści z en (D-289)', () => {
+  it('ja → en → pl; pt-BR → pt → en → pl; en → pl; pl → pl', () => {
+    expect(lancuchTresci('ja')).toEqual(['ja', 'en', 'pl']);
+    expect(lancuchTresci('pt-BR')).toEqual(['pt-BR', 'pt', 'en', 'pl']);
+    expect(lancuchTresci('en')).toEqual(['en', 'pl']);
+    expect(lancuchTresci('pl')).toEqual(['pl']);
+  });
+  it('i18next: brak klucza w de → en, brak w en → pl', async () => {
+    const i = await utworzI18n({ ...slowniki, en: { tylkoPl: 'English' } }, 'de');
+    expect(i.t('tylkoPl')).toBe('English');
+    expect(i.t('lekcja.ex', { count: 2 })).toBe('2 Aufgaben');
+    const j = await utworzI18n({ pl: { x: 'Polski' }, en: {}, de: {} }, 'de');
+    expect(j.t('x')).toBe('Polski');
+  });
+  it('wybór z telefonu bez zmian: [ja, pl] przy wydanych pl, en → pl (drugi język użytkownika przed en)', () => {
+    expect(wybierzJezyk(['ja-JP', 'pl-PL'], ['pl', 'en'])).toBe('pl');
+    expect(wybierzJezyk(['ja-JP'], ['pl', 'en'])).toBe('en');
+  });
+});

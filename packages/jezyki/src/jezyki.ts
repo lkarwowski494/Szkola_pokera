@@ -24,6 +24,17 @@ export function lancuchZastepczy(j: Jezyk): Jezyk[] {
   return [...new Set<Jezyk>([j, ...(baza ? [baza] : []), ZRODLO])];
 }
 
+/**
+ * Łańcuch tekstów (treść i brakujące klucze interfejsu, D-289): wariant → język → en → pl. Po przekładzie en to on, a nie
+ * źródło, jest językiem zastępczym (Trening: brak klucza → angielski, `docs/16-jezyki-i-marka.md:23`). Wybór języka
+ * z preferencji telefonu (`wybierzJezyk`) zostaje przy `lancuchZastepczy`.
+ */
+export function lancuchTresci(j: Jezyk): Jezyk[] {
+  const baza = NAKLADKI[j];
+  if (j === ZRODLO) return [ZRODLO];
+  return [...new Set<Jezyk>([j, ...(baza ? [baza] : []), ZAPASOWY, ZRODLO])];
+}
+
 /** Regiony, w których hiszpański dziedziczy po es-419 (CLDR supplementalData.xml, parentLocales; odczyt przez Trening 2026-10-09). */
 const REGIONY_ES_419 = ['419', 'AR', 'BO', 'BR', 'BZ', 'CL', 'CO', 'CR', 'CU', 'DO', 'EC', 'GT', 'HN', 'JP', 'MX', 'NI', 'PA', 'PE', 'PR', 'PY', 'SV', 'US', 'UY', 'VE'];
 /** Regiony chińskiego w piśmie tradycyjnym (CLDR likelySubtags: zh_TW, zh_HK, zh_MO → Hant). */

@@ -28,7 +28,7 @@ import {
   type RuleDef,
 } from '@szkola/content-schema';
 import { KONFIGURACJA, nazwaPlikuTresci } from '@szkola/domena';
-import { JEZYKI, jestJezykiem, lancuchZastepczy } from '@szkola/jezyki';
+import { JEZYKI, jestJezykiem, lancuchTresci } from '@szkola/jezyki';
 import { classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, textureMatches, type TextureFilter } from '@szkola/poker-core';
 import { expandHelplines, loadHelplines, type Helplines } from './helplines';
 import { compileMarkdown } from './markdown';
@@ -37,6 +37,7 @@ import { findHardcodedNumbers, PLACEHOLDER, resolveNumbers, substitute, type Res
 import { applyTransitional, loadRegistry, loadTransitional, registryViolations, type RegistryUse } from './registry';
 import { checkSourceQuotes } from './sources';
 import { loadTerms } from './terms';
+import { czytajZNakladka, POLA_HELPLINES } from './nakladka';
 
 /** Ile różnych terminów (z nazwą angielską inną niż polska albo ze skrótem) musi mieć obszar ćwiczenia słownictwa. */
 export const VOCAB_MIN_TERMS = 4;
@@ -127,10 +128,10 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   let fileCtx = 'ranges/spots.yaml';
   const used = new Set<string>();
   if (!jestJezykiem(locale)) throw new Error(`Nieznany język treści "${locale}" (lista: @szkola/jezyki)`);
-  // tekst z pierwszego języka łańcucha, który ma katalog content/<język> (D-228); liczby zawsze w języku bazy (D-230)
-  const tekst = lancuchZastepczy(locale).find((j) => existsSync(join(contentDir, j)));
+  // tekst z pierwszego języka łańcucha wariant → język → en → pl, który ma katalog content/<język> (D-228, D-289); liczby zawsze w języku bazy (D-230)
+  const tekst = lancuchTresci(locale).find((j) => existsSync(join(contentDir, j)));
   if (tekst === undefined) throw new Error(`Brak katalogu treści dla "${locale}" ani dla języków zastępczych`);
-  const { spots: ranges } = compileRanges(contentDir);
+  const { spots: ranges } = compileRanges(contentDir, tekst);
   const rangeIds = new Set(ranges.map((r) => r.id));
   const numbers = resolveNumbers(
     parseOrThrow(NumbersFile, readYaml(join(contentDir, 'numbers.yaml')), 'numbers.yaml'),
@@ -138,9 +139,10 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
     locale,
   );
   const termsFile = parseOrThrow(TermsFile, readYaml(join(contentDir, 'terms.yaml')), 'terms.yaml');
-  const terms = loadTerms(termsFile);
+  const terms = loadTerms(termsFile, tekst);
   const termErrors: string[] = [];
-  const helplines = loadHelplines(parseOrThrow(HelplinesFile, readYaml(join(contentDir, 'helplines.yaml')), 'helplines.yaml'));
+  const helplinesPlik = czytajZNakladka(contentDir, tekst, 'helplines.yaml', POLA_HELPLINES);
+  const helplines = loadHelplines(parseOrThrow(HelplinesFile, helplinesPlik.dane, helplinesPlik.plik));
   const helplinesUsed = { count: 0 };
   for (const e of helplines.entries) registryUses.push({ plik: 'helplines.yaml', gdzie: e.id, id: e.claim });
   registryUses.push({ plik: 'helplines.yaml', gdzie: 'fallback', id: helplines.fallback.claim });
@@ -160,7 +162,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
     }
     const out = terms.render(substitute(text, numbers, where, used), where, seen);
     // nawias z nazwą angielską tuż przed nawiasem z treści daje „(…) (…)”: przeredaguj zdanie
-    if (/\)\s\(/.test(out) && /\{\{t:/.test(text)) warnings.push(`${where}: dwa nawiasy obok siebie: ${out.match(/[^\s]+ \([^)]*\) \([^)]*\)/)?.[0] ?? ''}`);
+    if (tekst === 'pl' && /\)\s\(/.test(out) && /\{\{t:/.test(text)) warnings.push(`${where}: dwa nawiasy obok siebie: ${out.match(/[^\s]+ \([^)]*\) \([^)]*\)/)?.[0] ?? ''}`);
     return out;
   };
   for (const r of ranges) {

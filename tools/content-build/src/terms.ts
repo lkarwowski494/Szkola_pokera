@@ -1,4 +1,4 @@
-import { renderTerms, termMatcher, termNeedsEnglish, type CompiledTerm, type TermEntry, type TermInfo } from '@szkola/content-schema';
+import { renderTermsIn, termMatcher, termNeedsEnglish, type CompiledTerm, type TermEntry, type TermInfo } from '@szkola/content-schema';
 
 /**
  * Terminy PL ↔ EN w potoku treści (content/terms.yaml). Znaczniki {{t:…}} zamieniamy na „forma (en)”, a polskie
@@ -16,7 +16,11 @@ export interface Terms {
   used: Set<string>;
 }
 
-export function loadTerms(file: Record<string, TermEntry>): Terms {
+/**
+ * `jezykTekstu`: język tekstu bazy (D-287). Po polsku nawias z nazwą angielską (T-01) i kontrola polskich form bez
+ * znacznika (T-02); w innym języku forma albo sama nazwa angielska, bez kontroli polskich form.
+ */
+export function loadTerms(file: Record<string, TermEntry>, jezykTekstu = 'pl'): Terms {
   const info = new Map<string, TermInfo>();
   const plSeen = new Map<string, string>();
   for (const [key, e] of Object.entries(file)) {
@@ -55,8 +59,8 @@ export function loadTerms(file: Record<string, TermEntry>): Terms {
     info,
     compiled,
     used,
-    render: (text, where, seen = new Set()) => renderTerms(text, lookup, where, seen, used),
-    unmarked: (text) => matcher.find(text),
+    render: (text, where, seen = new Set()) => renderTermsIn(jezykTekstu, text, lookup, where, seen, used),
+    unmarked: (text) => (jezykTekstu === 'pl' ? matcher.find(text) : []),
   };
 }
 

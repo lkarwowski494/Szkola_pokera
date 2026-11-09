@@ -22,7 +22,7 @@ const iksy = (v: unknown): unknown =>
       : v;
 
 const DOZWOLONE = new Set(
-  Object.values(TERMS).flatMap((t) => [t.en, ...t.enAlt, ...('abbr' in t && t.abbr ? [t.abbr] : [])]).flatMap((s) => s.toLowerCase().split(/[^\p{L}]+/u)).concat(['test', 'raise']),
+  Object.values(TERMS).flatMap((t) => [t.en, ...t.enAlt, ...('abbr' in t && t.abbr ? [t.abbr] : []), ...(/^[A-Z][A-Z0-9+]{1,5}$/.test(t.pl) ? [t.pl] : [])]).flatMap((s) => s.toLowerCase().split(/[^\p{L}]+/u)).concat(['test', 'raise']),
 );
 
 /** Słowa spoza słownika: wszystko, co nie jest X, kartą, nazwą ręki ani słowem z nazw angielskich terminów. */

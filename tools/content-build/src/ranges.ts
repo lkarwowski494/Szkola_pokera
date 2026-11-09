@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
+import { czytajZNakladka, POLA_SPOTS } from './nakladka';
 import { RangeSpotsFile, type CompiledRangeSpot } from '@szkola/content-schema';
 import { combosCount, HAND_CLASSES } from '@szkola/poker-core';
 
@@ -15,12 +16,14 @@ const DEFAULT_SOLVER = 'preflop-6max-100bb.json';
  * Kompiluje nazwane spoty zakresów z wyniku solvera preflop (ADR-20).
  * Brak pliku solvera = brak zakresów (lekcje z blokiem ```range nie przejdą walidacji).
  */
-export function compileRanges(contentDir: string): { spots: CompiledRangeSpot[]; solverMeta: Record<string, unknown> | null } {
+/** `tekst`: język tekstu bazy; tytuły i nazwy grup z nakładki `content/<tekst>/ranges/spots.yaml`, gdy jest (K2b). */
+export function compileRanges(contentDir: string, tekst = 'pl'): { spots: CompiledRangeSpot[]; solverMeta: Record<string, unknown> | null } {
   const defsPath = join(contentDir, 'ranges/spots.yaml');
   const solverPath = join(contentDir, 'ranges', DEFAULT_SOLVER);
   if (!existsSync(defsPath) || !existsSync(solverPath)) return { spots: [], solverMeta: null };
-  const r = RangeSpotsFile.safeParse(parseYaml(readFileSync(defsPath, 'utf8')));
-  if (!r.success) throw new Error(`ranges/spots.yaml: ${r.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join('; ')}`);
+  const { dane, plik } = czytajZNakladka(contentDir, tekst, 'ranges/spots.yaml', POLA_SPOTS);
+  const r = RangeSpotsFile.safeParse(dane);
+  if (!r.success) throw new Error(`${plik}: ${r.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join('; ')}`);
   const solver = JSON.parse(readFileSync(solverPath, 'utf8')) as SolverFile;
   // inne pliki solvera (pole solver w spots.yaml, np. pushfold.json w M11): wczytywane raz, ścieżki węzłów osobno dla pliku
   const files = new Map<string, Map<string, SolverFile['spots'][number]>>([[DEFAULT_SOLVER, new Map(solver.spots.map((s) => [s.path, s]))]]);
