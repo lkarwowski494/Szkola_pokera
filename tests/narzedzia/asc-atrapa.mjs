@@ -1,6 +1,8 @@
 // Atrapa App Store Connect API do testów scripts/asc/*.mjs (D-348): klient { call, list } jak makeClient, wywołania zapisane w `calls`.
 // Identyfikatory atrapy mają prefiks „ID-”, żeby test mógł sprawdzić, że żaden nie trafia do logu.
-export function atrapa({ bundleId, wersja = 'PREPARE_FOR_SUBMISSION', info = 'PREPARE_FOR_SUBMISSION', produkty = [], grupaInnychSubskrypcji = false } = {}) {
+// `jakApple`: POST appInfoLocalizations tworzy też pustą appStoreVersionLocalization tej lokalizacji (zapis 42669012844, 2026-11-09: en-* wersji 409 DUPLICATE);
+// POST appStoreVersionLocalizations dla istniejącej lokalizacji zawsze = 409 (jak Apple).
+export function atrapa({ bundleId, wersja = 'PREPARE_FOR_SUBMISSION', info = 'PREPARE_FOR_SUBMISSION', produkty = [], grupaInnychSubskrypcji = false, jakApple = false } = {}) {
   let n = 0; const id = () => `ID-${++n}`;
   const s = {
     app: { id: 'ID-app', attributes: { bundleId } },
@@ -35,8 +37,11 @@ export function atrapa({ bundleId, wersja = 'PREPARE_FOR_SUBMISSION', info = 'PR
     [/^\/v1\/appAssetLibraries\/ID-lib\/images$/, () => s.library],
   ];
   const POSTY = {
-    '/v1/appInfoLocalizations': (b) => s.infoLocs.push(loc(null, b.data.attributes)),
-    '/v1/appStoreVersionLocalizations': (b) => s.verLocs.push(loc(null, b.data.attributes)),
+    '/v1/appInfoLocalizations': (b) => { s.infoLocs.push(loc(null, b.data.attributes)); if (jakApple && s.versions.length && !s.verLocs.some((x) => x.attributes.locale === b.data.attributes.locale)) s.verLocs.push(loc(null, { locale: b.data.attributes.locale })); },
+    '/v1/appStoreVersionLocalizations': (b) => {
+      if (s.verLocs.some((x) => x.attributes.locale === b.data.attributes.locale)) throw Object.assign(new Error('POST /v1/appStoreVersionLocalizations → 409 (ENTITY_ERROR.ATTRIBUTE.INVALID.DUPLICATE)'), { status: 409 });
+      s.verLocs.push(loc(null, b.data.attributes));
+    },
     '/v1/subscriptionGroupLocalizations': (b) => s.locs.get(b.data.relationships.subscriptionGroup.data.id).push(loc(null, b.data.attributes)),
     '/v1/subscriptionLocalizations': (b) => s.locs.get(b.data.relationships.subscription.data.id).push(loc(null, b.data.attributes)),
     '/v1/inAppPurchaseLocalizations': (b) => s.locs.get(b.data.relationships.inAppPurchaseV2.data.id).push(loc(null, b.data.attributes)),

@@ -151,6 +151,9 @@ export async function run({ client, data, zapis = false, log = console.log, find
     const fields = part === 'version' && !d.isFirst && Object.values(wanted).some(w => w.version.whatsNew !== undefined) ? [...T.fields, 'whatsNew'] : T.fields;
     const label = part === 'info' ? 'Informacje o aplikacji (appInfoLocalizations)' : 'Wersja (appStoreVersionLocalizations)';
     if (!parent) { log(`### ${label}: brak edytowalnego obiektu — pominięto\n`); continue; }
+    // Apple po POST appInfoLocalizations samo tworzy appStoreVersionLocalizations tych lokalizacji (zapis 42669012844, 2026-11-09: 409 DUPLICATE
+    // dla en-*) — plan wersji w trybie zapisu liczony po ponownym odczycie, więc istniejące stają się PATCH, nie POST.
+    if (zapis && part === 'version') d.verLocs = toMap(await c.list(`/v1/appStoreVersions/${parent.id}/appStoreVersionLocalizations`));
     const { rows, extra } = planLocalizations({ wanted, part, fields, existing: part === 'info' ? d.infoLocs : d.verLocs });
     for (const r of rows) for (const f of fields) if (bad.has(`${r.lang}/${f}`)) r.fields[f] = 'błąd';
     if (zapis) for (const r of rows) {

@@ -1,0 +1,13 @@
+{
+  "_opis": "Produkty zakupu w App Store Connect — dane dla scripts/asc/produkty.mjs (workflow asc-produkty.yml; port z Oczka 45f583d, D-356). Product ID są w stałej PRODUCTS w scripts/asc/iap-localizations.mjs (= packages/domena/src/konfiguracja.ts, ADR 0006 pkt 1); grupa subskrypcji „pelny” (ADR 0006 pkt 1). Ceny i okresy = docs/monetyzacja.md „Sesja 2, E3” (kwartał 9,99 / rok 14,99 / dożywotni 19,99 USD; decyzja właściciela 2026-11-03); kraj bazowy USA, pozostałe kraje: równoważniki Apple (bez cen ręcznych; monetyzacja.md: „inne kraje według tabel cen sklepów”). Family Sharing WYŁĄCZONE (monetyzacja.md, bramka E2: „Bez próby, Family Sharing wył.”; odstępstwo od Oczka nazwane w D-364). Dostępność aplikacji i produktów = lista docs/sklep/dowody/storefronty-1.0.json (166, D-301/D-362), nowe terytoria Apple wyłączone (CLAUDE.md: kolejne storefronty dopiero po sprawdzeniu legalności, D-292). Bez ofert wprowadzających. Zgodność pilnuje tests/narzedzia/asc-produkty.test.mjs.",
+  "krajBazowy": "USA",
+  "familySharing": false,
+  "dostepnosc": { "plik": "docs/sklep/dowody/storefronty-1.0.json", "pole": "wlaczone_iso3", "noweTerytoria": false },
+  "nadpisaniaCen": {},
+  "grupa": { "referenceName": "pelny" },
+  "produkty": {
+    "kwartal": { "referenceName": "Szkola Pokera kwartal", "okres": "THREE_MONTHS", "cenaBazowa": "9.99", "poziomGrupy": 1 },
+    "rok": { "referenceName": "Szkola Pokera rok", "okres": "ONE_YEAR", "cenaBazowa": "14.99", "poziomGrupy": 1 },
+    "dozywotni": { "referenceName": "Szkola Pokera dozywotni", "typ": "NON_CONSUMABLE", "cenaBazowa": "19.99" }
+  }
+}

@@ -1,0 +1,124 @@
+# Produkty zakupu w App Store Connect przez API (D-356): grupa subskrypcji „pelny”, kwartał i rok (subskrypcje odnawiane), dożywotni (Non-Consumable),
+# ceny (kraj bazowy USA: 9,99 / 14,99 / 19,99; reszta = równoważniki Apple), dostępność produktów i APLIKACJI = 166 storefrontów
+# (docs/sklep/dowody/storefronty-1.0.json, D-301/D-362), nowe terytoria wył., Family Sharing wył. (docs/monetyzacja.md). Skrypt scripts/asc/produkty.mjs,
+# dane store/produkty.json. Port z Oczka (.github/workflows/asc-produkty.yml, gałąź claude/jolly-thompson-paz6d8 @45f583d, odczyt 2026-11-09) w układzie
+# asc-iap-localizations.yml tego repo (D-352): krok „Skrypty z gałęzi roboczej”, klucz przez scripts/ci/asc-check.mjs, kontrola zatwierdzania `release`.
+# Odstępstwa od Oczka: bez wejścia family_sharing (wyłączone z danych), zadanie zapisu z `actions: read` (kontrola środowiska). Kolejność uruchamiania:
+# 1. asc-produkty (to), 2. asc-iap-localizations (nazwy i opisy; wymaga istnienia produktów). Nigdy nie usuwa i niczego nie wyłącza; nie zmienia Product ID,
+# okresu ani istniejącej ceny (rozbieżność = STOP w planie, nic nie jest zapisywane); bez „Add for Review”.
+# Na main leży tylko ten plik (rejestracja workflow_dispatch, D-356); skrypty i dane są na gałęzi roboczej. Uruchamianie WYŁĄCZNIE:
+#   gh workflow run asc-produkty.yml --ref claude/sleepy-brahmagupta-2065nu [-f tryb=apply]   — z main przebieg pada w kroku „Skrypty z gałęzi roboczej”, przed kluczem.
+# Sekrety jak testflight.yml: ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8 (bez nowych). Klucz tylko w RUNNER_TEMP i usuwany zawsze.
+name: ASC produkty zakupu
+on:
+  workflow_dispatch:
+    inputs:
+      tryb:
+        description: 'dry-run = tylko plan; apply = utwórz brakujące (nigdy nie usuwa, nie zmienia istniejących cen i okresów; wymaga zatwierdzenia release)'
+        type: choice
+        options: [dry-run, apply]
+        default: dry-run
+permissions:
+  contents: read
+concurrency:
+  group: asc-produkty
+  cancel-in-progress: false
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Skrypty z gałęzi roboczej (uruchamiaj z --ref)
+        run: |
+          if [ ! -f scripts/asc/produkty.mjs ]; then
+            echo "::error::Brak scripts/asc/produkty.mjs: na main są tylko pliki workflowów (D-356). Uruchom: gh workflow run asc-produkty.yml --ref claude/sleepy-brahmagupta-2065nu"
+            exit 1
+          fi
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          package-manager-cache: false
+      - name: Klucz API do pliku tymczasowego (maskowany)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+        run: |
+          for v in ASC_KEY_ID ASC_ISSUER_ID ASC_KEY_P8; do [ -n "${!v}" ] || { echo "::error::Brak sekretu $v (te same sekrety co testflight.yml)"; exit 1; }; done
+          echo "::add-mask::$ASC_KEY_ID"; echo "::add-mask::$ASC_ISSUER_ID"
+          printf '%s\n' "$ASC_KEY_P8" | while IFS= read -r line; do case "$line" in -----*) ;; *) [ ${#line} -ge 20 ] && echo "::add-mask::$line" ;; esac; done; true
+          # jak testflight.yml: format bez wypisywania wartości, naprawa wklejonego .p8 (zapis 600 do RUNNER_TEMP), jeden GET z diagnozą 401/403
+          OUT="$RUNNER_TEMP/AuthKey.p8" BUNDLE_ID=$(node -p "require('./apps/mobile/app.json').expo.ios.bundleIdentifier") node scripts/ci/asc-check.mjs
+      - name: Produkty (plan, tylko odczyt)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+        run: |
+          set -o pipefail
+          export ASC_KEY_PATH="$RUNNER_TEMP/AuthKey.p8"
+          export ASC_KEY_ID="$(printf %s "$ASC_KEY_ID" | tr -d '[:space:]')"
+          export ASC_ISSUER_ID="$(printf %s "$ASC_ISSUER_ID" | tr -d '[:space:]')"
+          node scripts/asc/produkty.mjs --dry-run | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Usunięcie klucza z maszyny
+        if: always()
+        run: rm -f "$RUNNER_TEMP/AuthKey.p8"
+
+  apply:
+    needs: plan
+    if: ${{ inputs.tryb == 'apply' }}
+    environment: release
+    permissions:
+      contents: read
+      actions: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Skrypty z gałęzi roboczej (uruchamiaj z --ref)
+        run: |
+          if [ ! -f scripts/asc/produkty.mjs ]; then
+            echo "::error::Brak scripts/asc/produkty.mjs: na main są tylko pliki workflowów (D-356). Uruchom: gh workflow run asc-produkty.yml --ref claude/sleepy-brahmagupta-2065nu"
+            exit 1
+          fi
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          package-manager-cache: false
+      - name: Środowisko release wymaga zatwierdzenia (bez reguły GitHub tworzy je bez ochrony)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          typy=$(gh api "repos/$GITHUB_REPOSITORY/environments/release" --jq '[.protection_rules[]?.type] | join(",")') || { echo "::error::Nie udało się odczytać środowiska release"; exit 1; }
+          case ",$typy," in
+            *,required_reviewers,*) echo "Środowisko release: wymagane zatwierdzenie — jest." ;;
+            *) echo "::error::Środowisko release bez wymaganych recenzentów (Settings → Environments → release → Required reviewers) — zapis wstrzymany, nic nie zapisano"; exit 1 ;;
+          esac
+      - name: Klucz API do pliku tymczasowego (maskowany)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+        run: |
+          for v in ASC_KEY_ID ASC_ISSUER_ID ASC_KEY_P8; do [ -n "${!v}" ] || { echo "::error::Brak sekretu $v (te same sekrety co testflight.yml)"; exit 1; }; done
+          echo "::add-mask::$ASC_KEY_ID"; echo "::add-mask::$ASC_ISSUER_ID"
+          printf '%s\n' "$ASC_KEY_P8" | while IFS= read -r line; do case "$line" in -----*) ;; *) [ ${#line} -ge 20 ] && echo "::add-mask::$line" ;; esac; done; true
+          # jak testflight.yml: format bez wypisywania wartości, naprawa wklejonego .p8 (zapis 600 do RUNNER_TEMP), jeden GET z diagnozą 401/403
+          OUT="$RUNNER_TEMP/AuthKey.p8" BUNDLE_ID=$(node -p "require('./apps/mobile/app.json').expo.ios.bundleIdentifier") node scripts/ci/asc-check.mjs
+      - name: Produkty (zapis; nigdy nie usuwa)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+        run: |
+          set -o pipefail
+          export ASC_KEY_PATH="$RUNNER_TEMP/AuthKey.p8"
+          export ASC_KEY_ID="$(printf %s "$ASC_KEY_ID" | tr -d '[:space:]')"
+          export ASC_ISSUER_ID="$(printf %s "$ASC_ISSUER_ID" | tr -d '[:space:]')"
+          node scripts/asc/produkty.mjs --apply | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Usunięcie klucza z maszyny
+        if: always()
+        run: rm -f "$RUNNER_TEMP/AuthKey.p8"

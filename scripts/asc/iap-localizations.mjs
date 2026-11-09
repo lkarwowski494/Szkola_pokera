@@ -36,6 +36,8 @@ export function makeClient({ fetchFn = fetch, token, sleep = ms => new Promise(r
   async function call(method, path, body) {
     if (!ALLOWED_METHODS.has(method)) throw new Error(`Niedozwolona metoda ${method} — skrypt nigdy nie usuwa`);
     const url = path.startsWith('http') ? path : API + path;
+    // Token nigdy nie opuszcza api.appstoreconnect.apple.com (np. `links.next` z podstawionej odpowiedzi); Oczko scripts/asc/iap-localizations.mjs:45–46 (45f583d, odczyt 2026-11-09).
+    if (!url.startsWith(API + '/')) throw new Error('Adres spoza API App Store Connect — odmowa');
     for (let attempt = 0; ; attempt++) {
       const res = await fetchFn(url, { method, headers: { Authorization: `Bearer ${typeof token === 'function' ? token() : token}`, 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
       if (res.status === 429 && attempt < 3) { await sleep(2000 * (attempt + 1)); continue; }

@@ -72,6 +72,18 @@ test('metadane zapis: POST brakujących, PATCH różniących się, nigdy DELETE;
   assert.deepEqual(zapisy(a.calls.slice(przed)), []);
 });
 
+// Zapis 42669012844 (2026-11-09): po utworzeniu appInfoLocalizations Apple samo tworzy appStoreVersionLocalizations tych lokalizacji,
+// więc POST wersji z planu sprzed zapisu dał 409 DUPLICATE dla en-*. Plan wersji liczony po ponownym odczycie (PATCH zamiast POST).
+test('metadane zapis jak Apple: lokalizacje wersji utworzone przez Apple po appInfo → ponowny odczyt, PATCH zamiast POST, kod 0, bez 409', async () => {
+  const a = atrapa({ bundleId: APP, jakApple: true }); const l = log();
+  const r = await meta.run({ client: a.client, data: daneMeta(), zapis: true, log: l });
+  assert.doesNotMatch(l.text(), /409/); assert.equal(r.code, 0);
+  const z = zapisy(a.calls);
+  assert.equal(z.filter((c) => c.method === 'POST' && c.path === '/v1/appStoreVersionLocalizations').length, 0);
+  assert.equal(z.filter((c) => c.method === 'PATCH' && c.path.startsWith('/v1/appStoreVersionLocalizations/')).length, 5);
+  assert.equal(a.s.verLocs.length, 5); assert.ok(a.s.verLocs.every((x) => x.attributes.description), 'opis zapisany we wszystkich 5');
+});
+
 test('metadane zapis z błędem walidacji albo bez wersji: kod 1, zero zapisów', async () => {
   const d = daneMeta(); d.meta = structuredClone(d.meta); d.meta.lokalizacje.pl.subtitle = 'x'.repeat(40);
   const a = atrapa({ bundleId: APP });
@@ -86,6 +98,17 @@ test('klient: DELETE odrzucany przed wysłaniem; błąd bez treści odpowiedzi i
   await assert.rejects(c.call('DELETE', '/v1/x'), /nigdy nie usuwa/); assert.deepEqual(wysl, []);
   await assert.rejects(c.call('PATCH', '/v1/appInfoLocalizations/0123456789abcdef', {}), (e) => !/SEKRET|0123456789abcdef/.test(e.message) && /409/.test(e.message));
   assert.throws(() => meta.readOnlyClient(c).call('POST', '/v1/x'), /tylko do odczytu/);
+});
+
+// Oczko tests/wydanie/asc-produkty.test.ts „klient nie wysyła tokenu na adres spoza…” (45f583d, odczyt 2026-11-09; przegląd bezpieczeństwa Oczka 2026-11-03):
+// `links.next` z odpowiedzi to pełny adres — token nie może trafić poza API App Store Connect.
+test('klient: token tylko do https://api.appstoreconnect.apple.com/ (obcy host, http, podszyty sufiks → odmowa bez wysyłki)', async () => {
+  let wolano = 0; const k = iap.makeClient({ fetchFn: async () => { wolano++; return { ok: true, status: 200, json: async () => ({ data: [] }) }; }, token: 't' });
+  const w = [];
+  for (const u of ['https://obcy.example/v1/x', 'http://api.appstoreconnect.apple.com/v1/x', 'https://api.appstoreconnect.apple.com.obcy.example/v1/x', 'https://api.appstoreconnect.apple.com/v1/x']) {
+    try { await k.call('GET', u); w.push('ok'); } catch { w.push('odmowa'); }
+  }
+  assert.deepEqual({ w, wolano }, { w: ['odmowa', 'odmowa', 'odmowa', 'ok'], wolano: 1 });
 });
 
 test('store/iap-localizations.json: pl → pl, en → en-US; teksty = słownik aplikacji (purchase.*), limity 30/45; bez języków spoza wydanych', () => {
@@ -174,6 +197,30 @@ test('kontrola: store/asc-kontrola.json zgodna z kodem i docs/monetyzacja.md (pa
   assert.ok(existsSync(new URL(c.adresy.plik, ROOT)));
   assert.equal(c.uwagiRecenzenta.plik, 'store/review-notes.en.txt');
   assert.deepEqual(c.metadane.zrodla.map((z) => z.plik), ['store/asc-kontrola-oczekiwane.json']);
+});
+
+// Z-01 (D-360): kategoria główna Education, dodatkowa brak (null = narzędzie tylko wypisuje). Z-02 (D-301, D-362): dostępność aplikacji = 166 storefrontów
+// z docs/sklep/dowody/storefronty-1.0.json (to samo wejście co asc-produkty); ceny: próbka 8 rynków z CLAUDE.md + grupa „storefronty-1.0” (166, kwota null
+// = narzędzie wypisuje jedną linię na produkt z krajami bez ceny), żeby kontrola widziała brak ceny w każdym kraju listy.
+test('kontrola: kategoria EDUCATION (D-360); dostępność i grupa cen = 166 storefrontów z storefronty-1.0.json (D-301/D-362); próbka rynków ⊂ listy', () => {
+  const c = js('store/asc-kontrola.json'); const l = js('docs/sklep/dowody/storefronty-1.0.json').wlaczone_iso3;
+  assert.deepEqual(c.kategoria, { glowna: 'EDUCATION', dodatkowa: null });
+  assert.deepEqual(c.dostepnosc.terytoria, l);
+  assert.deepEqual(c.terytoria.grupy, { 'storefronty-1.0': l });
+  for (const k of ['kwartal', 'rok', 'dozywotni']) assert.equal(c.ceny[k]['storefronty-1.0'], null, k);
+  for (const t of c.terytoria.wybrane) assert.ok(l.includes(t), t);
+});
+
+// Z-03 (sesja Z, asc-reczne-wartosci.md §4): w notatkach dla recenzenta same etykiety interfejsu, bez kluczy słownika w nawiasach;
+// każda etykieta, do której notatki odsyłają, = tekst z en.json (recenzent widzi aplikację po angielsku).
+test('notatki dla recenzenta: bez kluczy słownika w nawiasach; etykiety = en.json', () => {
+  const en = js('apps/mobile/src/i18n/locales/en.json'); const t = (k) => k.split('.').reduce((o, x) => o?.[x], en);
+  const etykiety = ['placement.skip', 'tabs.today', 'today.practice', 'start.begin', 'session.end', 'start.fullAccess', 'purchase.restore', 'settings.manage', 'data.title', 'settings.reset', 'settings.help'];
+  for (const f of ['store/review-notes.en.txt', 'store/review-notes.md']) {
+    const tekst = f.endsWith('.md') ? rd(f).split('```text')[1].split('```')[0] : rd(f);
+    assert.doesNotMatch(tekst, /\((?:[a-z]+[A-Z]?[a-z]*\.)+[a-zA-Z]+\)/, `${f}: klucz w nawiasie`);
+    for (const k of etykiety) { assert.equal(typeof t(k), 'string', k); assert.ok(tekst.includes(`"${t(k)}"`), `${f}: „${t(k)}” (${k})`); }
+  }
 });
 
 test('kontrola: pliki generowane aktualne (--check); oczekiwane lokalizacje = lokalizacje metadanych z aliasami; notatki = blok EN', () => {

@@ -241,7 +241,7 @@ test('store-screenshots.yml: tylko workflow_dispatch; rozmiary i ekrany z script
 // D-348: workflowy App Store Connect z Treningu (asc-*.yml, 2e4b0f8, odczyt 2026-11-09). Na main leżą tylko pliki workflowów (rejestracja
 // workflow_dispatch), skrypty i dane sklepu tylko na gałęzi roboczej — uruchomienie `--ref <gałąź robocza>`, z main pada przed kluczem (jak D-343).
 // Odczyt domyślnie; zapis tylko w osobnym zadaniu w środowisku `release` po zadaniu odczytu i po sprawdzeniu, że `release` wymaga zatwierdzenia.
-const ASC = { 'asc-metadane.yml': ['podglad', 'zapis', 'zapis'], 'asc-iap-localizations.yml': ['plan', 'apply', 'apply'], 'asc-zrzuty.yml': ['plan', 'zapis', 'apply'] };
+const ASC = { 'asc-metadane.yml': ['podglad', 'zapis', 'zapis'], 'asc-iap-localizations.yml': ['plan', 'apply', 'apply'], 'asc-zrzuty.yml': ['plan', 'zapis', 'apply'], 'asc-produkty.yml': ['plan', 'apply', 'apply'] }; // asc-produkty: D-356
 const SEKRETY_ASC = ['ASC_ISSUER_ID', 'ASC_KEY_ID', 'ASC_KEY_P8'];
 test('asc-*.yml: tylko ręcznie; skrypt z gałęzi roboczej przed kluczem; zapis tylko w zadaniu release po odczycie i po kontroli zatwierdzania; klucz usuwany zawsze', () => {
   for (const [n, [odczyt, zapis, tryb]] of Object.entries(ASC)) {

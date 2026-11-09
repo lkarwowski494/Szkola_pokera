@@ -170,8 +170,8 @@ Przez API da się ustawić (API-1): ocenę wiekową (`AgeRatingDeclarationUpdate
 | Nazwa, podtytuł, słowa kluczowe, opis, tekst promocyjny, Privacy/Support URL | `asc-metadane.yml` (zapisane 2026-11-09, plan-08 18:17–18:47) | bez zmian |
 | Lokalizacje zakupów | `asc-iap-localizations.yml` | po produktach |
 | Zrzuty | `asc-zrzuty.yml` (D-355) | bez zmian |
-| Produkty, ceny, Family Sharing | workflow produktów (D-356, port z Oczka) — w budowie | bez zmian |
-| **Dostępność aplikacji (166 krajów)** | nikt; D-356 mówi o dostępności w workflow produktów | lista z §5 jako wejście workflowu; czy port z Oczka ustawia dostępność **aplikacji**, czy tylko zakupów — [DO SPRAWDZENIA w sesji kodu] |
+| Produkty, ceny, Family Sharing | `asc-produkty.yml` (D-356, port z Oczka; D-364: Family Sharing wył. wg monetyzacja.md) | bez zmian |
+| **Dostępność aplikacji (166 krajów)** | `asc-produkty.yml` (D-364: port z Oczka ustawiał tylko zakupy; dodana dostępność aplikacji v2, nowe terytoria wył.) | lista z §5 = wejście workflowu (`store/produkty.json` → `storefronty-1.0.json`) |
 | Kategoria | ręcznie (§1); `asc-kontrola` tylko odczyt | ręcznie, 1 min (jak Trening Z-20) |
 | Ocena wiekowa | ręcznie (§2) | ręcznie: jednorazowa, a odpowiedzi wymagają oceny człowieka; API możliwe, ale nie warto budować dla jednego wpisu |
 | App Review Information | ręcznie (§4); `asc-kontrola` czyta notatki z `store/review-notes.en.txt` | ręcznie: kontakt to dane osobowe, nie trafiają do repo |
