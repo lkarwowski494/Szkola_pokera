@@ -5,7 +5,7 @@
 import type { Drill } from '@szkola/content-schema';
 import type { DrillRow } from '@/data/content/repo';
 import {
-  PYTANIA_OCENY, etapStartu, odpowiedzOceny, pominOcene, punktStartuZOceny, zacznijOcene, type Ocena, type WejscieOceny,
+  PYTANIA_OCENY, etapStartu, odpowiedzOceny, pominOcene, punktStartuZOceny, zacznijOcene, zacznijOdPoczatku, type Ocena, type WejscieOceny,
 } from '@/features/ocena-poziomu/ocenaPoziomu';
 import { utworzZegar } from '@/platform/zegar';
 import { portTestowy } from '@/test-utils/postepTestowy';
@@ -55,11 +55,11 @@ describe('reguła wyniku oceny (D-264)', () => {
 });
 
 describe('pierwsze uruchomienie z postep.db', () => {
-  it('pusty postęp → powitanie; ocena w toku → ocena; punkt startu → gotowe', async () => {
+  it('pusty postęp → powitanie; ocena w toku → powitanie (wybór na starcie, D-475); punkt startu → gotowe', async () => {
     const { port } = await portTestowy();
     expect(await etapStartu(port)).toEqual({ ok: true, wartosc: 'powitanie' });
     const o = await zacznij(port);
-    expect(await etapStartu(port)).toEqual({ ok: true, wartosc: 'ocena' });
+    expect(await etapStartu(port)).toEqual({ ok: true, wartosc: 'powitanie' });
     expect((await pominOcene(port, o, T0, 'm0')).ok).toBe(true);
     expect(await etapStartu(port)).toEqual({ ok: true, wartosc: 'gotowe' });
   });
@@ -93,6 +93,20 @@ describe('pierwsze uruchomienie z postep.db', () => {
     expect(db.prepare('SELECT COUNT(*) AS n FROM karta').get()).toEqual({ n: 0 });
   });
 
+  it('BR-ONB-001 „Zacznij od początku” (D-475): bez oceny w toku → M0; z przerwaną oceną → M0 i aktywność porzucona, postęp pusty', async () => {
+    const pusta = await portTestowy();
+    expect(await zacznijOdPoczatku(pusta.port, T0, 'm0')).toEqual({ ok: true, wartosc: undefined });
+    expect(punkt(pusta.db)).toEqual({ modulId: 'm0', ustawionoMs: T0 });
+    const { port, db } = await portTestowy();
+    const o = await zacznij(port);
+    await odpowiedzOceny(port, o, indeks(o, true), T0 + 1);
+    expect(await zacznijOdPoczatku(port, T0 + 5, 'm0')).toEqual({ ok: true, wartosc: undefined });
+    expect(db.prepare('SELECT stan FROM aktywnosc').get()).toEqual({ stan: 'porzucona' });
+    expect(punkt(db)).toEqual({ modulId: 'm0', ustawionoMs: T0 + 5 });
+    expect(db.prepare('SELECT COUNT(*) AS n FROM karta').get()).toEqual({ n: 0 });
+    expect(await etapStartu(port)).toEqual({ ok: true, wartosc: 'gotowe' });
+  });
+
   it('„Pomiń” na powitaniu (bez aktywności) też ustawia M0', async () => {
     const { port, db } = await portTestowy();
     expect((await pominOcene(port, null, T0, 'm0')).ok).toBe(true);
@@ -119,14 +133,14 @@ describe('pierwsze uruchomienie z postep.db', () => {
     expect(await etapStartu(port)).toEqual({ ok: true, wartosc: 'gotowe' });
   });
 
-  it('BR-ONB-001-c przerwana ocena: po ponownym uruchomieniu od początku (stara porzucona), postęp pusty', async () => {
+  it('BR-ONB-001 „Przerwana ocena”: po ponownym uruchomieniu ekran wyboru (D-475); „Przejdź test” zaczyna od początku (stara porzucona), postęp pusty', async () => {
     const { port, sciezka } = await portTestowy();
     const o = await zacznij(port);
     const r = await odpowiedzOceny(port, o, indeks(o, true), T0 + 1);
     expect(r.ok).toBe(true);
     await port.zamknij();
     const drugi = await portTestowy(sciezka);
-    expect(await etapStartu(drugi.port)).toEqual({ ok: true, wartosc: 'ocena' });
+    expect(await etapStartu(drugi.port)).toEqual({ ok: true, wartosc: 'powitanie' });
     const nowa = await zacznij(drugi.port);
     expect(nowa.odpowiedzi).toHaveLength(0);
     expect(drugi.db.prepare('SELECT stan, krok FROM aktywnosc ORDER BY start_ms, id').all()).toEqual([
@@ -135,6 +149,36 @@ describe('pierwsze uruchomienie z postep.db', () => {
     ]);
     expect(punkt(drugi.db)).toBeNull();
     expect(drugi.db.prepare('SELECT COUNT(*) AS n FROM postep_lekcji').get()).toEqual({ n: 0 });
+  });
+
+  it('BR-ONB-001 „Nie wiem” (D-475): zapisane jako nie wiem (odróżnialne), niezaliczone, ocena kroku jak błędna, następne pytanie', async () => {
+    const { port, db } = await portTestowy();
+    const o = await zacznij(port);
+    const r = await odpowiedzOceny(port, o, null, T0 + 1);
+    if (!r.ok) throw new Error(r.powod);
+    expect(r.wartosc.punktStartu).toBeNull();
+    expect(r.wartosc.ocena.odpowiedzi).toEqual([false]);
+    const w = db.prepare('SELECT zadanie_id, wybor, zaliczona FROM odpowiedz').get() as { zadanie_id: string; wybor: string; zaliczona: number };
+    expect(w.zaliczona).toBe(0);
+    expect(JSON.parse(w.wybor)).toEqual({ nieWiem: true });
+  });
+
+  it('BR-ONB-001 „Nie wiem” nie zawyża poziomu: same „Nie wiem” → M0; „Nie wiem” w M3 przy reszcie poprawnej → M3', async () => {
+    for (const nieWiemWModule of [null, 'm3']) {
+      const { port, db } = await portTestowy();
+      let o = await zacznij(port);
+      let wynik: string | null = null;
+      for (let k = 0; k < o.items.length; k++) {
+        const nie = nieWiemWModule === null || PYTANIA_OCENY[k]!.modulId === nieWiemWModule;
+        const r = await odpowiedzOceny(port, o, nie ? null : indeks(o, true), T0 + k + 1);
+        if (!r.ok) throw new Error(r.powod);
+        o = r.wartosc.ocena;
+        wynik = r.wartosc.punktStartu;
+      }
+      expect(wynik).toBe(nieWiemWModule ?? 'm0');
+      expect(punkt(db)).toMatchObject({ modulId: nieWiemWModule ?? 'm0' });
+      expect(db.prepare('SELECT COUNT(*) AS n FROM karta').get()).toEqual({ n: 0 });
+    }
   });
 
   it('ponowny zapis tego samego kroku (podwójne dotknięcie): jeden wiersz odpowiedzi, krok 1', async () => {

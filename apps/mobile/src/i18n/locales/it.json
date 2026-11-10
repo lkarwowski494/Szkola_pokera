@@ -29,12 +29,13 @@
     "title": "PokerGym",
     "what": "Impari a prendere decisioni nel poker: dalle regole del gioco alla strategia, con una valutazione di ogni decisione e la spiegazione del perché.",
     "noMoney": "Qui si impara, senza giocare con soldi veri.",
-    "next": "Per cominciare, qualche domanda su ciò che sai già. Puoi saltarle.",
-    "continue": "Avanti"
+    "next": "Test di livello: al massimo {{n}} domande, circa {{min}} min. Puoi anche iniziare dall'inizio.",
+    "takeTest": "Fai il test di livello",
+    "startFresh": "Inizia dall'inizio"
   },
   "placement": {
     "of": "Domanda {{n}} di {{total}}",
-    "skip": "Salta",
+    "dontKnow": "Non lo so",
     "resultTitle": "Il tuo punto di partenza",
     "startAt": "Inizi dal modulo {{modul}}: “{{lekcja}}”.",
     "passed": "Moduli superati con la valutazione: {{moduly}}. Puoi tornarci in qualsiasi momento.",

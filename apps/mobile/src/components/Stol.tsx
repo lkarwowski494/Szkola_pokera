@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
 import type { DrillInstance } from '@/features/drills/types';
+import { ukladRzedow } from '@/features/stol/ukladRzedow';
 import { etykietaStolu, opisKart, opisReki, ukladStolu, type Miejsce, type StanMiejsca } from '@/features/stol/uklad';
 import { odstep, styl, typografia, useTokens } from '@/theme/tokens';
 import { CardRow } from './PlayingCard';
@@ -29,6 +31,7 @@ const STAN_KLUCZ: Record<StanMiejsca, string> = { ty: 'table.stateHero', pas: 't
 export function Stol({ table }: { table: Table }): React.JSX.Element {
   const tk = useTokens();
   const { t } = useTranslation();
+  const [szerokosc, ustawSzerokosc] = useState(0); // szerokość pola z onLayout; 0 = jeszcze nie zmierzona (proporcja 1,7:1)
   const miejsca = table.position && table.path !== undefined ? ukladStolu(table.position, table.path) : null;
   const reka = table.hand ?? [];
   const etykieta = miejsca ? etykietaStolu(miejsca, reka, t) : opisKart(table, t, { nazwy: true }); // A04-11: czytnik dostaje nazwy kart
@@ -38,10 +41,19 @@ export function Stol({ table }: { table: Table }): React.JSX.Element {
   if (!miejsca && !table.opp?.length && !table.board?.length && !reka.length) {
     return tekstKart ? <Text style={[styl.tresc, { color: tk.ink }]}>{tekstKart}</Text> : <></>;
   }
+  // D-476: stół bez miejsc z kilkoma rzędami (rywal, board, gracz): wysokość owalu z liczby rzędów, karty mniejsze, gdy się nie mieszczą
+  const rzedy = { opp: table.opp?.length ?? 0, board: table.board?.length ?? 0, hero: reka.length };
+  const uklad = !miejsca && szerokosc > 0 ? ukladRzedow(szerokosc, rzedy) : null;
   return (
     <View style={{ gap: odstep.m }}>
-      <View accessible accessibilityRole="image" accessibilityLabel={etykieta} style={[styles.pole, { paddingVertical: miejsca ? MIEJSCE.h / 2 : 0 }]}>
-        <View style={[styles.rama, { backgroundColor: tk.frame }]}>
+      <View
+        accessible
+        accessibilityRole="image"
+        accessibilityLabel={etykieta}
+        onLayout={(e) => ustawSzerokosc(Math.round(e.nativeEvent.layout.width))}
+        style={[styles.pole, { paddingVertical: miejsca ? MIEJSCE.h / 2 : 0 }]}
+      >
+        <View testID="stol-rama" style={[styles.rama, { backgroundColor: tk.frame }, uklad ? { aspectRatio: undefined, height: uklad.wysokoscRamy } : null]}>
           <View style={[styles.sukno, { backgroundColor: tk.felt1, borderColor: tk.felt2 }]}>
             {miejsca ? (
               <CardRow cards={reka} size="lg" />
@@ -50,12 +62,12 @@ export function Stol({ table }: { table: Table }): React.JSX.Element {
                 {table.opp?.length ? (
                   <>
                     <PodpisRzedu tekst={t('table.rowOpp')} />
-                    <CardRow cards={table.opp} size="md" />
+                    <CardRow cards={table.opp} size={uklad?.opp ?? 'md'} />
                     {table.board?.length ? <PodpisRzedu tekst={t('table.rowBoard')} /> : null}
                   </>
                 ) : null}
-                {table.board?.length ? <CardRow cards={table.board} size="md" /> : null}
-                {reka.length ? <CardRow cards={reka} size="lg" /> : null}
+                {table.board?.length ? <CardRow cards={table.board} size={uklad?.board ?? 'md'} /> : null}
+                {reka.length ? <CardRow cards={reka} size={uklad?.hero ?? 'lg'} /> : null}
               </>
             )}
           </View>

@@ -1294,3 +1294,8 @@ Polecenie: `docs/koordynacja/polecenia/AX.md` @ 8aa18d1; start `sesja-ax-pytania
 - Rola 04/08: `table.yourPosition` (`pl.json:577`) — same skróty UTG/SB/BTN/BB (przekazane przez koordynatora do sesji kodu).
 - Rola 06: m5.q2 + `because` R-M5-004 (D-487); utrwalone formuły „Dopłacam do dużego blinda” (m3-l1:27, :37; exams/m3.yaml q5, q6) i „Nikt jeszcze nie wszedł do gry” (m3-l2:22) — rekomendacja: ujednolicić z D-485 przy następnej poprawce M3 (lekcja uczy terminu, więc pilność niska).
 - Dokument 13 na Drive: wpis w `docs/tresci/dowody-ax/wpis-dokument-13.md` (konektor bez edycji — krok koordynatora/właściciela).
+
+## Sesja AW — ocena poziomu: wybór na starcie, „Nie wiem”, układ stołu (2026-11-10, rola 08 build; D-475, D-476)
+- Zrobione: BR-ONB-001 i scenariusze (D-475); `EkranPowitania` z „Przejdź test poziomujący” / „Zacznij od początku” (`welcome.next` z {{n}} pytań i {{min}} min z `KONFIGURACJA`); `EkranPytaniaOceny`: „Nie wiem” zamiast „Pomiń” (zapis `{"nieWiem":true}`, zaliczona 0, bez migracji); `etapStartu` → powitanie także po przerwanej ocenie; `zacznijOdPoczatku`; klucze pl, en i 10 języków (tłumacz + osobny recenzent; `pnpm i18n` kod 0); flowy Maestro 01–05, 08, wspólny; notatki dla recenzenta; `ukladRzedow` i `Stol` (D-476).
+- Testy: `ocenaPoziomu-08` (+3), `PierwszeUruchomienie-08` (+1, 2 zmienione wg nowego wymagania), `powitanie-ocena` (zmienione), `ukladRzedow-08` (8), `Stol-08` (+2).
+- Nie zrobiono: zrzuty (brak symulatora), migracja schematu (niepotrzebna).

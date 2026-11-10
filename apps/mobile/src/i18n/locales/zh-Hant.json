@@ -27,12 +27,13 @@
     "title": "PokerGym",
     "what": "你將學習如何在撲克中做決策：從遊戲規則到策略，每個決策都會評分，並解釋原因。",
     "noMoney": "這是學習，不涉及真錢遊戲。",
-    "next": "首先回答幾個問題，了解你已經會什麼。你可以略過。",
-    "continue": "繼續"
+    "next": "分級測驗：最多 {{n}} 題，約 {{min}} 分鐘。你也可以從頭開始。",
+    "takeTest": "參加分級測驗",
+    "startFresh": "從頭開始"
   },
   "placement": {
     "of": "第 {{n}} 題，共 {{total}} 題",
-    "skip": "略過",
+    "dontKnow": "我不知道",
     "resultTitle": "你的起點",
     "startAt": "你將從模組 {{modul}} 開始：「{{lekcja}}」。",
     "passed": "評估中通過的模組：{{moduly}}。你隨時可以回到這些模組。",

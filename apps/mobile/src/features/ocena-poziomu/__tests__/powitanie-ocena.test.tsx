@@ -1,11 +1,11 @@
 /// <reference types="jest" />
 // Testy oczekujące PR-01 (rola 07 E3, D-187; R-35, R-36; BR-ONB-001, BR-ONB-002, BR-ONB-004, NFR-DOST-002).
 // Logika oceny (przejścia, „Pomiń” → porzucona i punkt startu M0, przerwanie) jest w tests/akceptacja/domena/maszyny.test.ts;
-// tu ekran: elementy po roli i nazwie oraz wywołania akcji. Przerwana ocena po ponownym uruchomieniu (BR-ONB-001-c) — E2E 01.
+// tu ekran: elementy po roli i nazwie oraz wywołania akcji. Przerwana ocena po ponownym uruchomieniu (ekran wyboru, D-475) — PierwszeUruchomienie-08.test.tsx i E2E 05.
 import '@/i18n';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { KONFIGURACJA } from '@szkola/domena';
-const { OCENA_POZIOMU_MAKS_PYTAN } = KONFIGURACJA;
+const { OCENA_POZIOMU_MAKS_PYTAN, OCENA_POZIOMU_CZAS_S } = KONFIGURACJA;
 import EkranPowitania from '@/features/powitanie/EkranPowitania';
 import { EkranPytaniaOceny, EkranWynikuOceny } from '@/features/ocena-poziomu/EkranyOceny';
 import { NAZWY, ZNACZENIA } from '@/test-utils/ekrany/teksty';
@@ -15,21 +15,31 @@ jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({
 
 describe('BR-ONB-004 pierwszy ekran', () => {
   it('AK-BR-ONB-004: tekst mówi o nauce decyzji w pokerze bez gry na pieniądze; bez obietnicy wygranej i gry online', async () => {
-    await render(<EkranPowitania onDalej={jest.fn()} />);
+    await render(<EkranPowitania onTest={jest.fn()} onOdPoczatku={jest.fn()} />);
     const tekst = tekstEkranu();
     expect(tekst).toMatch(ZNACZENIA.decyzje);
     expect(tekst).toMatch(ZNACZENIA.bezPieniedzy);
     for (const zakazany of ZNACZENIA.zakazanePowitanie) expect(tekst).not.toMatch(zakazany);
   });
 
-  it('AK-BR-ONB-004-b: jeden przycisk prowadzi dalej; każdy element dotykowy ma rolę i nazwę (NFR-DOST-002)', async () => {
-    const onDalej = jest.fn();
-    await render(<EkranPowitania onDalej={onDalej} />);
-    const przyciski = screen.getAllByRole('button');
-    expect(przyciski).toHaveLength(1);
-    await fireEvent.press(przyciski[0]!);
-    expect(onDalej).toHaveBeenCalledTimes(1);
+  it('AK-BR-ONB-001-wybor: dwie akcje „Przejdź test poziomujący” (główna) i „Zacznij od początku”, każda woła swoją funkcję; NFR-DOST-002', async () => {
+    const onTest = jest.fn();
+    const onOdPoczatku = jest.fn();
+    await render(<EkranPowitania onTest={onTest} onOdPoczatku={onOdPoczatku} />);
+    expect(screen.getAllByRole('button')).toHaveLength(2);
+    await fireEvent.press(screen.getByRole('button', { name: NAZWY.przejdzTest }));
+    expect(onTest).toHaveBeenCalledTimes(1);
+    expect(onOdPoczatku).not.toHaveBeenCalled();
+    await fireEvent.press(screen.getByRole('button', { name: NAZWY.odPoczatku }));
+    expect(onOdPoczatku).toHaveBeenCalledTimes(1);
     expect(elementyBezRoliLubNazwy()).toEqual([]);
+  });
+
+  it('AK-BR-ONB-001-wybor-info: informacja o długości testu: najwyżej 8 pytań, ok. 2 minuty (OCENA_POZIOMU_MAKS_PYTAN, OCENA_POZIOMU_CZAS_S)', async () => {
+    await render(<EkranPowitania onTest={jest.fn()} onOdPoczatku={jest.fn()} />);
+    expect(tekstEkranu()).toContain(`${OCENA_POZIOMU_MAKS_PYTAN}`);
+    expect(tekstEkranu()).toContain(`${OCENA_POZIOMU_CZAS_S / 60}`);
+    expect(tekstEkranu()).not.toMatch(/pomiń|pominąć/i);
   });
 });
 
@@ -37,22 +47,23 @@ describe('BR-ONB-001 ocena poziomu: ekran pytania', () => {
   const odpowiedzi = ['Nie znam zasad', 'Znam zasady', 'Gram regularnie'];
 
   it.each(Array.from({ length: OCENA_POZIOMU_MAKS_PYTAN }, (_, i) => i + 1))(
-    'AK-BR-ONB-001-pomin: „Pomiń” na ekranie pytania %i z OCENA_POZIOMU_MAKS_PYTAN woła onPomin, bez odpowiedzi',
+    'AK-BR-ONB-001-nie-wiem: „Nie wiem” na ekranie pytania %i z OCENA_POZIOMU_MAKS_PYTAN woła onNieWiem, bez odpowiedzi; „Pomiń” nie ma (D-475)',
     async (numer) => {
-      const onPomin = jest.fn();
+      const onNieWiem = jest.fn();
       const onOdpowiedz = jest.fn();
       await render(
-        <EkranPytaniaOceny numer={numer} liczba={OCENA_POZIOMU_MAKS_PYTAN} tresc="Jak dobrze znasz pokera?" odpowiedzi={odpowiedzi} onOdpowiedz={onOdpowiedz} onPomin={onPomin} />,
+        <EkranPytaniaOceny numer={numer} liczba={OCENA_POZIOMU_MAKS_PYTAN} tresc="Jak dobrze znasz pokera?" odpowiedzi={odpowiedzi} onOdpowiedz={onOdpowiedz} onNieWiem={onNieWiem} />,
       );
-      await fireEvent.press(screen.getByRole('button', { name: NAZWY.pomin }));
-      expect(onPomin).toHaveBeenCalledTimes(1);
+      expect(screen.queryByRole('button', { name: /pomiń/i })).toBeNull();
+      await fireEvent.press(screen.getByRole('button', { name: NAZWY.nieWiem }));
+      expect(onNieWiem).toHaveBeenCalledTimes(1);
       expect(onOdpowiedz).not.toHaveBeenCalled();
     },
   );
 
   it('AK-BR-ONB-001-a: każda odpowiedź jest przyciskiem z nazwą i woła onOdpowiedz ze swoim indeksem; NFR-DOST-002', async () => {
     const onOdpowiedz = jest.fn();
-    await render(<EkranPytaniaOceny numer={1} liczba={OCENA_POZIOMU_MAKS_PYTAN} tresc="Jak dobrze znasz pokera?" odpowiedzi={odpowiedzi} onOdpowiedz={onOdpowiedz} onPomin={jest.fn()} />);
+    await render(<EkranPytaniaOceny numer={1} liczba={OCENA_POZIOMU_MAKS_PYTAN} tresc="Jak dobrze znasz pokera?" odpowiedzi={odpowiedzi} onOdpowiedz={onOdpowiedz} onNieWiem={jest.fn()} />);
     for (const [i, o] of odpowiedzi.entries()) {
       await fireEvent.press(screen.getByRole('button', { name: new RegExp(o) }));
       expect(onOdpowiedz).toHaveBeenLastCalledWith(i);

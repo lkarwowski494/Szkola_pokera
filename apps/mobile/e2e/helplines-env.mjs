@@ -16,7 +16,7 @@ const env = {
   HELP_ABROAD: h.abroadText,
   HELP_CHECKED: h.checkedText,
   ...slowniczek(),
-  // flowy oczekujące (oczekujace/, D-189): pierwsza lekcja M0 = punkt startu po „Pomiń” (BR-ONB-001-b)
+  // flowy oczekujące (oczekujace/, D-189): pierwsza lekcja M0 = punkt startu po „Zacznij od początku” (BR-ONB-001, D-475)
   LEKCJA_START_TYTUL: tytulPierwszejLekcji('pl'),
   LEKCJA_START_TYTUL_EN: tytulPierwszejLekcji('en'),
   // 08-drugi-jezyk.yaml (K7, D-353): teksty ekranów en ze słownika aplikacji; wzorzec Maestro = pełne dopasowanie
@@ -36,8 +36,7 @@ function tekstyEn() {
   const pl = slownik('pl');
   return {
     POWITANIE_EN: `.*${re(klucz(en, 'welcome.noMoney'))}.*`,
-    DALEJ_EN: re(klucz(en, 'welcome.continue')),
-    POMIN_EN: re(klucz(en, 'placement.skip')),
+    OD_POCZATKU_EN: re(klucz(en, 'welcome.startFresh')),
     JEZYK_TYTUL_EN: re(klucz(en, 'language.title')),
     JEZYK_TYTUL_PL: re(klucz(pl, 'language.title')),
   };

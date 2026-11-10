@@ -4,7 +4,9 @@
 
 /** Słownik interakcji (docs/design/design-spec.md, „Słownik interakcji”) i nazwy z kryteriów BRD. */
 export const NAZWY = {
-  pomin: /^Pomiń$/, // BR-ONB-001 „Pomiń” na każdym ekranie
+  nieWiem: /^Nie wiem$/, // BR-ONB-001 „Nie wiem” na ekranie pytania oceny (D-475)
+  przejdzTest: /^Przejdź test poziomujący$/, // BR-ONB-001 wybór na starcie
+  odPoczatku: /^Zacznij od początku$/, // BR-ONB-001 wybór na starcie
   przywroc: /^Przywróć zakupy$/, // BR-ZAK-003, słownik interakcji
   zamknij: /^Zamknij$/, // słownik interakcji (ekran zakupu)
   wrocDoLekcji: /^Wróć do lekcji$/, // BR-LIM-001, słownik interakcji

@@ -27,12 +27,13 @@
     "title": "PokerGym",
     "what": "Bạn học cách ra quyết định trong poker: từ luật chơi đến chiến lược, mỗi quyết định đều được chấm điểm kèm giải thích lý do.",
     "noMoney": "Đây là học tập, không chơi ăn tiền.",
-    "next": "Trước tiên, có vài câu hỏi về những gì bạn đã biết. Bạn có thể bỏ qua chúng.",
-    "continue": "Tiếp tục"
+    "next": "Bài kiểm tra trình độ: tối đa {{n}} câu hỏi, khoảng {{min}} phút. Bạn cũng có thể bắt đầu từ đầu.",
+    "takeTest": "Làm bài kiểm tra trình độ",
+    "startFresh": "Bắt đầu từ đầu"
   },
   "placement": {
     "of": "Câu hỏi {{n}} trên {{total}}",
-    "skip": "Bỏ qua",
+    "dontKnow": "Tôi không biết",
     "resultTitle": "Điểm xuất phát của bạn",
     "startAt": "Bạn bắt đầu từ mô-đun {{modul}}: “{{lekcja}}”.",
     "passed": "Các mô-đun đã đạt qua bài đánh giá: {{moduly}}. Bạn có thể quay lại chúng bất cứ lúc nào.",

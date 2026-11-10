@@ -12,8 +12,7 @@ name: Drugi język
 - extendedWaitUntil:
     visible: '${POWITANIE_EN}'
     timeout: 30000
-- tapOn: '${DALEJ_EN}'
-- tapOn: '${POMIN_EN}'
+- tapOn: '${OD_POCZATKU_EN}'
 - extendedWaitUntil:
     visible: '${LEKCJA_START_TYTUL_EN}'
     timeout: 30000

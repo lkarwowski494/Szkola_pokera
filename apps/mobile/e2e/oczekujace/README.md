@@ -8,7 +8,7 @@ Uruchomienie lokalne (macOS z Xcode, aplikacja zbudowana na symulator):
 `maestro test $(node apps/mobile/e2e/helplines-env.mjs) apps/mobile/e2e/oczekujace/05-ocena-poziomu.yaml`
 
 Kontrakt z ekranami (to samo co w testach RNTL, `tests/akceptacja/ekrany/teksty.ts`): nazwy przycisków ze słownika
-interakcji roli 04 („Pomiń”, „Dalej”, „Zacznij”, „Zakończ”, „Wróć do lekcji”), odpowiedzi `option-<i>` i lekcje
+interakcji roli 04 („Zacznij od początku”, „Nie wiem”, „Dalej”, „Zacznij”, „Zakończ”, „Wróć do lekcji”), odpowiedzi `option-<i>` i lekcje
 `lesson-<id>` jak w obecnej aplikacji; nowe identyfikatory: `dzis-cwiczenia`, `dzis-powtorki`, `dzis-scenariusz`
 (wejścia z ekranu „Dziś” do startu aktywności), `akcja-<i>` (akcje scenariusza), `ustawienia`, `ustawienia-jezyk`,
 `jezyk-<kod>`. Teksty treści przychodzą z `content/` przez `helplines-env.mjs` (`-e`), nie są wpisane w YAML.

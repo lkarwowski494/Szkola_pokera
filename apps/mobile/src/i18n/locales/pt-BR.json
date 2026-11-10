@@ -29,12 +29,13 @@
     "title": "PokerGym",
     "what": "Você aprende a tomar decisões no pôquer: das regras do jogo à estratégia, com avaliação de cada decisão e a explicação do porquê.",
     "noMoney": "Isto é aprendizado, sem jogo a dinheiro.",
-    "next": "Para começar, algumas perguntas sobre o que você já sabe. Você pode pulá-las.",
-    "continue": "Continuar"
+    "next": "Teste de nivelamento: até {{n}} perguntas, cerca de {{min}} min. Você também pode começar do início.",
+    "takeTest": "Fazer o teste de nivelamento",
+    "startFresh": "Começar do início"
   },
   "placement": {
     "of": "Pergunta {{n}} de {{total}}",
-    "skip": "Pular",
+    "dontKnow": "Não sei",
     "resultTitle": "Seu ponto de partida",
     "startAt": "Você começa pelo módulo {{modul}}: “{{lekcja}}”.",
     "passed": "Módulos aprovados na avaliação: {{moduly}}. Você pode voltar a eles a qualquer momento.",

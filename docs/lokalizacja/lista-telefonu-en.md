@@ -45,3 +45,11 @@ Build z TestFlight z commitem co najmniej tej sesji. Przed startem zrób eksport
 | T-ikona-3 | Zamknij aplikację i uruchom ją ponownie, w jasnym i w ciemnym trybie | ekran startowy: jasne tło w jasnym, granatowe w ciemnym, ta sama ikona na środku | |
 
 Samosprawdzenie `Intl` (liczba mnoga) działa przy starcie aplikacji: w buildzie TestFlight błąd nie jest pokazywany, więc kontrolą jest T-en-3 i T-en-4 (np. „1 term” / „2 terms” w słowniczku po wyszukaniu).
+
+## Sesja AW (2026-11-10): ocena poziomu i stół — do sprawdzenia na telefonie
+- [ ] Pierwsze uruchomienie: powitanie ma dwa przyciski „Przejdź test poziomujący” (główny) i „Zacznij od początku” oraz zdanie „najwyżej 8 pytań, ok. 2 min”.
+- [ ] „Zacznij od początku” → od razu „Dziś”, bez pytań.
+- [ ] „Przejdź test poziomujący” → pytanie 1 z 8; pod odpowiedziami przycisk „Nie wiem” (en: „I don't know”), brak „Pomiń”; „Nie wiem” przechodzi do następnego pytania; po 8 × „Nie wiem” wynik = moduł M0.
+- [ ] Przerwanie po kilku pytaniach (zamknięcie aplikacji) → po ponownym otwarciu ekran wyboru, nie pytanie.
+- [ ] Pytanie 1 z 8 (rywal A♣ A♦, board A♠ 8♣ 7♦ J♥ 2♠, twoje 10♥ 9♥): karty rywala, board i twoje mieszczą się w owalu, tekst pod stołem czytelny; sprawdź też iPhone SE (wąski) i największy tekst. Ten sam stół w lekcjach i egzaminach z showdownem.
+- [ ] Ustawienia → ponowna ocena (BR-ONB-003): działa jak dotąd.

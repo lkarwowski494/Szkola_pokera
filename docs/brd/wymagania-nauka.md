@@ -5,24 +5,35 @@ Kryteria w Gherkinie po polsku. Liczby pochodzą z wektorów RD albo z decyzji; 
 
 ## Ocena poziomu (ONB)
 
-### BR-ONB-001: Krótka ocena poziomu do pominięcia
+### BR-ONB-001: Krótka ocena poziomu z wyborem na starcie
 - Przepływ: PR-01
-- Dowód potrzeby: J-05; W-02, W-03 pkt 3; brak pomijania to skarga u konkurenta (recenzja S-49); River ma test poziomujący [FAKT S-44]
+- Dowód potrzeby: J-05; W-02, W-03 pkt 3; brak pomijania to skarga u konkurenta (recenzja S-49); River ma test poziomujący [FAKT S-44]; test na telefonie, build 1009 (właściciel, 2026-11-10)
 - Zależy od: ZAL-002
-- Liczba pytań i najdłuższy czas oceny: najwyżej 8 pytań, ok. 2 minuty [OCENA], „Pomiń” na każdym ekranie, bez ekranu zakupu na końcu (D-105; OP-20 rozstrzygnięte)
+- Liczba pytań i najdłuższy czas oceny: najwyżej 8 pytań, ok. 2 minuty [OCENA]; rezygnacja z oceny tylko przez ekran wyboru na starcie, na ekranie pytania jest „Nie wiem” zamiast „Pomiń”; bez ekranu zakupu na końcu (D-105 w części liczby pytań i braku zakupu; D-475 zmienia część „Pomiń na każdym ekranie”)
 - Kryteria akceptacji:
+  - Scenariusz: Wybór na starcie
+    - Zakładając, że aplikacja jest uruchomiona pierwszy raz
+    - Gdy użytkownik zobaczy ekran powitalny (BR-ONB-004)
+    - Wtedy widzi dwie akcje: „Przejdź test poziomujący” (główna) i „Zacznij od początku”
+    - Oraz widzi informację, że test to najwyżej 8 pytań i ok. 2 minuty
   - Scenariusz: Użytkownik przechodzi ocenę
-    - Zakładając, że aplikacja jest uruchomiona pierwszy raz
-    - Gdy użytkownik odpowie na wszystkie pytania o poziom i cel
+    - Zakładając, że użytkownik wybrał „Przejdź test poziomujący”
+    - Gdy odpowie na wszystkie pytania
     - Wtedy widzi swój punkt startu na ścieżce i przycisk rozpoczęcia nauki
-  - Scenariusz: Użytkownik pomija ocenę
+  - Scenariusz: Użytkownik zaczyna od początku
     - Zakładając, że aplikacja jest uruchomiona pierwszy raz
-    - Gdy użytkownik wybierze „Pomiń”
-    - Wtedy punktem startu jest pierwsza lekcja modułu M0
+    - Gdy użytkownik wybierze „Zacznij od początku”
+    - Wtedy punktem startu jest pierwsza lekcja modułu M0, a postęp nauki jest pusty
+  - Scenariusz: Użytkownik nie zna odpowiedzi
+    - Zakładając, że użytkownik jest na ekranie pytania oceny
+    - Gdy wybierze „Nie wiem”
+    - Wtedy odpowiedź jest policzona jak błędna (nie podnosi poziomu), zapisana jako „nie wiem”, a użytkownik przechodzi do następnego pytania
+    - Oraz na ekranie pytania nie ma akcji rezygnacji z całej oceny
   - Scenariusz: Przerwana ocena
     - Zakładając, że użytkownik odpowiedział na część pytań
     - Gdy zamknie aplikację i otworzy ją ponownie
-    - Wtedy widzi ocenę od początku albo opcję „Pomiń”, a postęp nauki jest pusty
+    - Wtedy widzi ekran wyboru na starcie, a postęp nauki jest pusty
+    - Oraz wybór „Przejdź test poziomujący” zaczyna ocenę od pierwszego pytania
 
 ### BR-ONB-002: Wynik oceny wyznacza punkt startu
 - Przepływ: PR-01

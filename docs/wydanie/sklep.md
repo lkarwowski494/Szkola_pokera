@@ -40,7 +40,7 @@ Skutek dla tekstów: limity niżej są bezpieczniejsze z dwóch brzmień (100 **
 |---|---|
 | Moduły: zasady … analiza własnej gry (13 tematów, bez liczby modułów) | `content/pl/modules.yaml:1–14`; każdy moduł ma lekcje (`content/pl/lessons`, 44 pliki, m0–m13) |
 | Terminy w miejscu użycia i słowniczek | `apps/mobile/src/app/glossary.tsx`, `features/glossary/glossary.ts`; wejście z zakładki Postęp `(tabs)/progress.tsx:77` |
-| Ocena poziomu do 8 pytań, „Pomiń”, wskazana lekcja | `packages/domena/src/konfiguracja.ts:9`; `pl.json` `placement.skip`, `placement.startAt` |
+| Ocena poziomu do 8 pytań, „Zacznij od początku” (rezygnacja z testu, D-475), wskazana lekcja | `packages/domena/src/konfiguracja.ts:9`; `pl.json` `welcome.startFresh`, `placement.startAt` |
 | Egzamin modułu 15 zadań | `konfiguracja.ts:6–7` (próg 85% nie w opisie) |
 | Ocena w czterech stopniach | `pl.json` `grade.zgodne/dopuszczalne/niedokladnosc/blad` |
 | Wybór akcji, odpowiedź liczbowa, malowanie zakresu | `session.chooseAction`, `session.numberLabel`, `paint.*`; `features/session/build.ts:66` |
