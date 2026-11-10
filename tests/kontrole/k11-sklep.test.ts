@@ -89,7 +89,7 @@ const STOPNIE = ['zgodne', 'dopuszczalne', 'niedokladnosc', 'blad'] as const;
 const MAPA: Wiersz[] = [
   { co: 'moduły kursu', pl: /^• Moduły po kolei:/, en: /^• Modules in order:/, kod: () => plik('content/pl/modules.yaml') && plik('apps/mobile/src/app/lesson') },
   { co: 'terminy i słowniczek', pl: /słowniczku/, en: /glossary/, kod: () => plik('apps/mobile/src/app/glossary.tsx') && typeof klucz('glossary') === 'object' },
-  { co: 'ocena poziomu', pl: /ocena poziomu na start \(do \d+ pytań, możesz ją pominąć\)/, en: /placement check at the start \(up to \d+ questions, skippable\)/, kod: () => typeof klucz('placement.skip') === 'string' && typeof klucz('placement.startAt') === 'string' },
+  { co: 'ocena poziomu', pl: /ocena poziomu na start \(do \d+ pytań, możesz ją pominąć\)/, en: /placement check at the start \(up to \d+ questions, skippable\)/, kod: () => typeof klucz('welcome.startFresh') === 'string' && typeof klucz('placement.startAt') === 'string' },
   { co: 'egzamin modułu', pl: /Egzamin modułu \(\d+ zadań\)/, en: /module exam \(\d+ questions\)/, kod: () => KONFIGURACJA.TEST_MODULU_LICZBA_ZADAN > 0 },
   { co: 'cztery stopnie oceny', pl: /^• Decyzje z oceną w czterech stopniach: /, en: /^• Decisions graded on four levels: /, kod: () => STOPNIE.every((s) => typeof klucz(`grade.${s}`) === 'string') },
   { co: 'wyjaśnienie z liczbami', pl: /^• Wyjaśnienie z liczbami/, en: /^• An explanation with the numbers/, kod: () => plik('packages/domena/src/wyjasnienie.ts') },
