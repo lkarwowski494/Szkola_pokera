@@ -31,7 +31,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 |---|---|---|---|---|---|---|
 | AV | session_01T66VBypDXrEWs35z1DWk7U | 08 fix, kod (sonnet) | sesja-av-ikona @ 40e5cef (start) | — | — | w toku: ikona D-123 → aplikacja (KO-025); cmp promptu identyczne |
 | AW | session_01T66VBvecFidWwcDkVK34J4 | 08 build, kod (sonnet) | sesja-aw-ocena @ 40e5cef (start) | — | — | w toku: ekran wyboru + „Nie wiem” (KO-026) + układ stołu (zad. 7, D-476); plan przyjęty, szac. 3–4 h; cmp promptu: wynik subagenta w drodze |
-| AX | [ID po starcie] | 06 fix, treść (opus) | sesja-ax-pytania @ 40e5cef (start) | — | — | start zlecony 10:00: zrozumiałość pytań oceny (KO-027) |
+| AX | session_01T66VBvoHtBam11taia24sJ | 06 fix, treść (opus) | sesja-ax-pytania @ 40e5cef (start) | — | — | w toku: zrozumiałość pytań oceny (KO-027); cmp promptu: 1 linia (374) — ucieczki `\u00A0\u202F` w regexie zamienione na dosłowne znaki, równoważne (WG-07, 3. raz) |
 
 Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%), AT (7,32 USD, 26,4%), AU (5,37 USD, 32,4%). Litery użyte dotąd: A…Z, AA…AT ; AU startuje 07:10 (następna: **AV**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
