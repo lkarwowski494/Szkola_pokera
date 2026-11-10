@@ -1,7 +1,7 @@
 // Wybór wariantu scenariusza bez powtórzeń (BR-GEN-002, D-532): w sesji 0 powtórzeń odcisku, między sesjami odcisk spoza
 // okna ostatnich odcisków szablonu na poziomie; gdy wolnego nie ma, odcisk widziany najdawniej. Czysta logika: historia
 // i ziarno startowe to argumenty (zapis historii: pakiet postep).
-import { generateVariant, type GeneratorTemplate, type ScenarioLevel, type ScenarioVariant } from '@szkola/poker-core';
+import { generateVariant, type GeneratorContext, type GeneratorTemplate, type ScenarioLevel, type ScenarioVariant } from '@szkola/poker-core';
 import { KONFIGURACJA } from './konfiguracja';
 
 export interface WpisHistorii { odcisk: string; ziarno: number }
@@ -10,6 +10,8 @@ export interface OpcjeWyboru {
   historia: readonly WpisHistorii[];
   /** Odciski już zagrane w tej sesji scenariuszy (wszystkie szablony; odcisk zawiera id szablonu i poziom). */
   sesja: ReadonlySet<string>;
+  /** Dane spoza szablonu dla punktów range-spot, cbet-case, size-spot i icm-call (D-661); bez nich takie punkty dają TemplateError. */
+  kontekst?: GeneratorContext;
   /** Do testów: zamiennik generatora. */
   generuj?: typeof generateVariant;
 }
@@ -24,14 +26,14 @@ export function wybierzWariant(szablon: GeneratorTemplate, poziom: ScenarioLevel
   const zajete = new Set([...okno.map((w) => w.odcisk), ...o.sesja]);
   let ostatni: ScenarioVariant | null = null;
   for (let k = 0; k < WYBOR_MAKS_PROB; k++) {
-    const v = generuj(szablon, poziom, (ziarnoStartowe + Math.imul(k, KROK_ZIARNA)) >>> 0);
+    const v = generuj(szablon, poziom, (ziarnoStartowe + Math.imul(k, KROK_ZIARNA)) >>> 0, o.kontekst);
     if (!zajete.has(v.fingerprint)) return v;
     ostatni = v;
   }
   // Brak wolnego odcisku: najdawniej widziany z okna, o ile nie był w tej sesji (D-532).
   for (const w of okno) {
     if (o.sesja.has(w.odcisk)) continue;
-    return generuj(szablon, poziom, w.ziarno);
+    return generuj(szablon, poziom, w.ziarno, o.kontekst);
   }
   if (!ostatni) throw new Error('wybierzWariant: brak prób');
   return ostatni;
