@@ -12,20 +12,24 @@ export default function BlokLekcji({ blok, onOtworz }: { blok: BlokNastepnejLekc
   const tk = useTokens();
   const { t } = useTranslation();
   const akcja = t(blok.rozpoczeta ? 'today.continueLesson' : 'today.startLesson');
+  const miejsce = t('today.lessonOf', { modul: blok.modulTytul, nr: blok.nrLekcji });
+  // Cały kafelek jest jednym przyciskiem (D-541, menu-i-zebatka.md): „{akcja}: {tytuł}. {miejsce}.”; „przycisk” w środku to rysunek.
   return (
-    <View style={{ backgroundColor: tk.frame, borderRadius: promien.sukno, padding: odstep.s }}>
+    <Pressable
+      testID="dzis-lekcja"
+      accessibilityRole="button"
+      accessibilityLabel={`${akcja}: ${blok.tytul}. ${miejsce}.`}
+      onPress={() => onOtworz(blok.lekcjaId)}
+      style={({ pressed }) => ({ backgroundColor: tk.frame, borderRadius: promien.sukno, padding: odstep.s, opacity: pressed ? 0.92 : 1 })}
+    >
       <View style={{ backgroundColor: tk.felt1, borderRadius: promien.sukno - odstep.s, padding: odstep.l, gap: odstep.xs }}>
-        <Text style={[styl.przypis, { color: tk.onFeltMuted }]}>{t('today.lessonOf', { modul: blok.modulTytul, nr: blok.nrLekcji })}</Text>
+        <Text style={[styl.przypis, { color: tk.onFeltMuted }]}>{miejsce}</Text>
         <Text accessibilityRole="header" style={[styl.tytul, { color: tk.onFelt }]}>
           {blok.tytul}
         </Text>
         <Text style={[styl.przypis, { color: tk.onFeltMuted }]}>{blok.opis}</Text>
-        <Pressable
-          testID="dzis-lekcja"
-          accessibilityRole="button"
-          accessibilityLabel={`${akcja}: ${blok.tytul}`}
-          onPress={() => onOtworz(blok.lekcjaId)}
-          style={({ pressed }) => ({
+        <View
+          style={{
             marginTop: odstep.l,
             minHeight: 56,
             borderRadius: promien.przycisk,
@@ -33,12 +37,11 @@ export default function BlokLekcji({ blok, onOtworz }: { blok: BlokNastepnejLekc
             alignItems: 'center',
             justifyContent: 'center',
             paddingHorizontal: odstep.l,
-            opacity: pressed ? 0.85 : 1,
-          })}
+          }}
         >
           <Text style={[styl.naglowek, { color: tk.cardInk }]}>{akcja}</Text>
-        </Pressable>
+        </View>
       </View>
-    </View>
+    </Pressable>
   );
 }

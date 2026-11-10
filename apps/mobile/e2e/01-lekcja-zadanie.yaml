@@ -8,10 +8,12 @@ name: Lekcja i pierwsze zadanie
       AppleLanguages: '(pl)'
 # pierwsze uruchomienie (cz. 5b krok 3): powitanie → „Zacznij od początku” → „Dziś” (BR-ONB-001, D-475)
 - runFlow: wspolne/za-powitaniem.yaml
+# lista lekcji jest w zakładce „Lekcje” (D-542, KO-045; wcześniej na „Dziś”); asercja wstępu ta sama, zmiana ścieżki dotarcia
+- tapOn:
+    id: 'zakladka-lekcje'
 - extendedWaitUntil:
     visible: 'No-Limit Hold’em od zera.*'
     timeout: 30000
-# lista lekcji leży na „Dziś” pod blokiem lekcji, ćwiczeniami i wskaźnikiem — poza ekranem (cz. 5b krok 1b; przebieg 42508961244)
 - scrollUntilVisible:
     element:
       id: 'lesson-m0.l1'

@@ -68,3 +68,13 @@ export function etykietaWiersza(w: { tytul: string; opis: string; stan: 'done' |
     .filter((x): x is string => x !== null)
     .join(' ');
 }
+
+/** Kolumny kafelków na „Dziś” (D-541): przy dużym tekście jedna kolumna. Próg 1,3 = od ok. AX1 (iOS: AX1 ≈ 1,35, XXXL ≈ 1,24 skali treści). */
+export function liczbaKolumnKafli(skalaTekstu: number): 1 | 2 {
+  return skalaTekstu >= 1.3 ? 1 : 2;
+}
+
+/** Etykieta VoiceOver kafelka: „{tytuł}. {stan}.” — stan nie tylko tekstem na ekranie; bez podwójnej kropki. */
+export function etykietaKafla(tytul: string, stan: string): string {
+  return `${tytul}. ${stan.replace(/[.!?…]+\s*$/u, '')}.`;
+}

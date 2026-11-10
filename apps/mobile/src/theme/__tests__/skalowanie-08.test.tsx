@@ -27,14 +27,14 @@ describe('A04-05: tekst w rysunkach', () => {
     for (const x of [screen.getByText('10'), screen.getByText('♥')]) expect(x.props.allowFontScaling).toBe(false);
   });
 
-  it('znaki-ikony na „Dziś” (⚙︎, ✓) z limitem ZNAK_SKALA_MAX = 1,4', () => {
+  // BI (D-540, D-542): zębatka to rysunek SVG (`Ikona`, stały rozmiar), nie znak „⚙︎”; ✓ w kropkach lekcji i egzaminu jest w `lessons.tsx`.
+  it('znaki-✓ na „Lekcjach” z limitem ZNAK_SKALA_MAX = 1,4; „Dziś” bez znaku ⚙︎ (rysunek SVG)', () => {
     expect(ZNAK_SKALA_MAX).toBe(1.4);
+    const lekcje = readFileSync(join(__dirname, '..', '..', 'app', '(tabs)', 'lessons.tsx'), 'utf8');
+    expect((lekcje.match(/maxFontSizeMultiplier=\{ZNAK_SKALA_MAX\}[^>]*>✓</g) ?? []).length).toBe(2);
     const dzis = readFileSync(join(__dirname, '..', '..', 'app', '(tabs)', 'index.tsx'), 'utf8');
-    const znaki = dzis.split('\n').filter((l) => /⚙︎|>✓</.test(l) && !/^\s*(\{\/\*|\/\/|\*)/.test(l) && !/zamiast rysunku/.test(l));
-    expect(znaki.length).toBeGreaterThanOrEqual(3);
-    // ⚙︎ stoi w osobnym wierszu: sprawdzamy element Text, który go zawiera
-    expect(dzis).toMatch(/maxFontSizeMultiplier=\{ZNAK_SKALA_MAX\}[^>]*>\s*⚙︎/);
-    expect((dzis.match(/maxFontSizeMultiplier=\{ZNAK_SKALA_MAX\}[^>]*>✓</g) ?? []).length).toBe(2);
+    expect(dzis.split('\n').filter((l) => /⚙︎/.test(l) && !/^\s*(\{\/\*|\/\/|\*)/.test(l))).toEqual([]);
+    expect(dzis).toMatch(/<Ikona nazwa="ustawienia"/);
   });
 });
 

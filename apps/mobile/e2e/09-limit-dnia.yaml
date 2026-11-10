@@ -22,7 +22,9 @@ name: Limit dnia
 - assertVisible: '.*odnowi.*'
 - takeScreenshot: 09-limit-wyczerpany
 - tapOn: 'Wróć do lekcji'
-# lista lekcji pod blokiem lekcji, ćwiczeniami i wskaźnikiem — poza ekranem (przebieg 42508961244)
+# lista lekcji jest w zakładce „Lekcje” (D-542, KO-045)
+- tapOn:
+    id: 'zakladka-lekcje'
 - scrollUntilVisible:
     element:
       id: 'lesson-m0.l1'

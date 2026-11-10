@@ -54,10 +54,11 @@ describe('A04-09: etykieta VoiceOver wiersza lekcji i egzaminu na „Dziś” ze
     expect(etykietaWiersza({ tytul: 'Egzamin', opis: 'Wyjaśnienia na końcu.', stan: 'new' }, t)).toBe('Egzamin. Wyjaśnienia na końcu.');
   });
 
-  it('ekran „Dziś” używa etykiety ze stanem dla lekcji i egzaminu', () => {
+  // BI (D-542): lista lekcji i egzaminów przeniesiona z „Dziś” do zakładki „Lekcje” (`lessons.tsx`); asercja ta sama, inny plik.
+  it('ekran „Lekcje” używa etykiety ze stanem dla lekcji i egzaminu', () => {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { readFileSync } = require('node:fs') as typeof import('node:fs');
-    const dzis = readFileSync(require('node:path').join(__dirname, '..', '..', '..', 'app', '(tabs)', 'index.tsx'), 'utf8');
+    const dzis = readFileSync(require('node:path').join(__dirname, '..', '..', '..', 'app', '(tabs)', 'lessons.tsx'), 'utf8');
     expect((dzis.match(/accessibilityLabel=\{etykietaWiersza\(/g) ?? []).length).toBe(2);
   });
 });

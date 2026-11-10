@@ -11,8 +11,9 @@ name: Powtórki
 - extendedWaitUntil:
     visible: 'No-Limit Hold’em od zera.*'
     timeout: 30000
-# zakładka po id: tekst „Powtórki” ma też wiersz na „Dziś” (`dzis-powtorki`), a stuknięcie po tekście trafiło
-# w wiersz i otworzyło sesję powtórek (przebieg 42508961244; 08-F24 → 04). Asercja bez zmian.
+# D-541/KO-045: zakładki „Powtórki” nie ma; kolejka powtórek otwiera się z kafelka `dzis-powtorki`, przez ekran startu
+# („Zacznij”) do stanu pustej kolejki. Asercja ta sama, zmiana ścieżki dotarcia.
 - tapOn:
-    id: 'zakladka-powtorki'
+    id: 'dzis-powtorki'
+- tapOn: 'Zacznij.*'
 - assertVisible: 'Nic nie czeka na powtórkę.*'
