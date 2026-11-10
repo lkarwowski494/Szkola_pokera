@@ -4,7 +4,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { findVariantMarkers, generateVariant, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type RangeSpotData, type ScenarioLevel } from '@szkola/poker-core';
+import { findVariantMarkers, generateVariant, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type SizeRuleData, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
@@ -105,7 +105,7 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         const ex = b.expected[i];
         if (ex !== undefined && ex !== 'call' && ex !== 'fold') e.push(`${p} poziom ${l}: oczekiwana akcja punktu icm-call to call albo fold, jest ${ex}`);
         const m = b.margins?.[i]?.min ?? b.marginMin;
-        if (!(m > 0)) e.push(`${p} poziom ${l}: punkt icm-call wymaga marginMin > 0 (decyzja bliska progu nie ma jednoznacznej odpowiedzi)`);
+        if (!((m ?? 0) > 0)) e.push(`${p} poziom ${l}: punkt icm-call wymaga marginMin > 0 (decyzja bliska progu nie ma jednoznacznej odpowiedzi)`);
       }
     } else if (d.kind === 'size-spot') {
       const r = ctx.sizeRules?.find((x) => x.id === d.rule);
@@ -132,6 +132,9 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         const ex = t.bounds[l]?.expected[i];
         if (ex !== undefined && ex !== 'call' && ex !== 'fold') e.push(`${p} poziom ${l}: oczekiwana akcja punktu draw-call to call albo fold, jest ${ex}`);
         if (t.bounds[l] && t.bounds[l]!.draws.length === 0) e.push(`${p} poziom ${l}: punkt draw-call wymaga listy draws`);
+        const b = t.bounds[l];
+        if (b && b.marginMin === undefined && b.margins === undefined) e.push(`${p} poziom ${l}: punkt draw-call wymaga marginMin albo margins (bez wartości domyślnej, ŚR-003)`);
+        else if (b && l === 'latwy' && !((b.margins?.[i]?.min ?? b.marginMin ?? 0) > 0)) e.push(`${p} poziom ${l}: margines dolny musi być > 0 (łatwa decyzja nie leży przy progu, ŚR-003)`);
       }
       if (i === 0 && d.pots.length === 0) e.push(`${p} brak puli do losowania`);
     }
@@ -171,7 +174,7 @@ export function checkScenarioGenerator(
   t: ScenarioTemplate,
   pojemnoscMin: number = POJEMNOSC_MIN,
   proby: number = PROBY_POJEMNOSCI,
-  ctx: GeneratorContext = { spots: [] as readonly RangeSpotData[], thresholds: { mixedMin: 0.035, mixedLow: 0.25 } },
+  ctx?: GeneratorContext, // bez kontekstu punkty range-spot, cbet-case, size-spot i icm-call kończą się TemplateError (brak zgadywanych progów, NIS-006)
 ): string[] {
   const e: string[] = [];
   const g = { id: t.id, stackBb: t.stackBb, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;

@@ -102,8 +102,8 @@ export interface LevelBounds {
   draws: readonly DrawKind[];
   flop?: TextureFilter;
   /** Odległość szansy na trafienie od ceny (ułamek, 0,10 = 10 pp): marginMin ≤ odległość < marginMax (null = bez górnej granicy), zawsze > 0. */
-  marginMin: number;
-  marginMax: number | null;
+  marginMin?: number;
+  marginMax?: number | null;
   reject: readonly RejectCondition[];
   /** F5: tylko draw „do najlepszej ręki” (udział nutowych outów ≥ NUT_DRAW_MIN_SHARE). */
   drawToBest?: boolean;
@@ -289,7 +289,7 @@ function decide(hit: number, required: number): 'call' | 'fold' {
 }
 
 function inMargin(margin: number, b: LevelBounds, i: number): boolean {
-  const m = b.margins?.[i] ?? { min: b.marginMin, max: b.marginMax };
+  const m = b.margins?.[i] ?? { min: b.marginMin ?? 0, max: b.marginMax ?? null };
   return margin > 0 && margin >= m.min && (m.max === null || margin < m.max);
 }
 
@@ -430,7 +430,8 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     // F5: all-in rywala na flopie to sprawdzenie całego stosu, więc rachunek na dwie karty (R-M2-002); inaczej jedna karta
     const allIn = spec.villain === 'all-in';
     const hit = allIn && spec.street === 'flop' ? hitProbability(spot.outs, 52 - 2 - stol.length, 2) : spot.hitNextCard;
-    const linie = allIn ? [Math.round(t.stackBb! - (pot - MARTWE_BLINDY_BB) / 2)] : spec.fractions.map((f) => Math.round(pot * f));
+    // all-in = dokładnie stos gracza za pulą, bez zaokrąglenia (KO-056 ŚR-002: zaokrąglenie w górę dawało zakład większy niż stos o do 0,5 bb)
+    const linie = allIn ? [t.stackBb! - (pot - MARTWE_BLINDY_BB) / 2] : spec.fractions.map((f) => Math.round(pot * f));
     // ŚR-203: zakład nie jest większy niż stos gracza za pulą (stackBb − wkład przed flopem − wcześniejsze zakłady); bez stackBb bez ograniczenia
     const stosGracza = typeof t.stackBb === 'number' ? t.stackBb - ((k === 0 ? pot : draws[0]!.pot) - MARTWE_BLINDY_BB) / 2 - draws.reduce((sum, x) => sum + x.bet, 0) : Infinity;
     const ok = linie

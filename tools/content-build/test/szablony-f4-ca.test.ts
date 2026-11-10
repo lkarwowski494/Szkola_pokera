@@ -80,7 +80,7 @@ describe('F4: icm-call', () => {
           if (Math.abs(p.handEquity - eq) > 1e-9) bledy.push(`${seed}: equity ${p.handEquity} ≠ ${eq}`);
           if (Math.abs(p.required - wymagane) > 1e-9) bledy.push(`${seed}: wymagane ${p.required} ≠ ${wymagane}`);
           if (poprawna !== b.expected[0] || p.correct !== poprawna) bledy.push(`${seed}: poprawna ${poprawna}/${p.correct}, oczekiwano ${b.expected[0]}`);
-          if (marza < b.marginMin || (b.marginMax !== null && marza >= b.marginMax) || marza <= 0) bledy.push(`${seed}: margines ${marza} poza [${b.marginMin}, ${b.marginMax}]`);
+          if (marza < (b.marginMin ?? 0) || (b.marginMax !== null && marza >= b.marginMax) || marza <= 0) bledy.push(`${seed}: margines ${marza} poza [${b.marginMin}, ${b.marginMax}]`);
           if (b.chipsDiffer && (eq >= 0.5 ? 'call' : 'fold') === poprawna) bledy.push(`${seed}: akcja ICM równa akcji w grze o żetony`);
         }
         expect(bledy).toEqual([]);

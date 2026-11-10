@@ -508,8 +508,8 @@ export const ScenarioLevelBounds = z
     drawToBest: z.boolean().optional(),
     /** F5: margines osobno na punkt decyzji (po jednym na punkt, kolejność jak w decisions); zastępuje marginMin/marginMax. */
     margins: z.array(z.object({ min: z.number().min(0).max(1), max: z.number().min(0).max(1).nullable() }).strict()).min(1).max(2).optional(),
-    /** Odległość szansy od ceny jako ułamek (0,10 = 10 pp): marginMin ≤ odległość < marginMax (null = bez górnej granicy). */
-    marginMin: z.number().min(0).max(1).default(0),
+    /** Odległość szansy od ceny jako ułamek (0,10 = 10 pp): marginMin ≤ odległość < marginMax (null = bez górnej granicy). Bez wartości domyślnej (KO-056 ŚR-003): punkty draw-call i icm-call wymagają jawnego marginesu, a poziom łatwy dodatniego (sprawdza build). */
+    marginMin: z.number().min(0).max(1).optional(),
     marginMax: z.number().min(0).max(1).nullable().default(null),
     /** F4: poprawna akcja ICM różni się od akcji w grze o żetony (equity ≥ 50% przy fold albo odwrotnie). */
     chipsDiffer: z.boolean().optional(),
@@ -523,7 +523,7 @@ export const ScenarioLevelBounds = z
     expected: z.array(z.string().min(1)).min(1).max(2),
   })
   .strict()
-  .refine((b) => b.marginMax === null || b.marginMax > b.marginMin, 'marginMax musi być większy od marginMin');
+  .refine((b) => b.marginMax === null || b.marginMax > (b.marginMin ?? 0), 'marginMax musi być większy od marginMin');
 
 /** Wyjaśnienie własnej odpowiedzi (BR-OCE-002): sytuacja → zagranie → „bo” (BR-OCE-001); liczby tylko jako {{n:klucz}}. */
 export const ScenarioActionText = z.object({ action: z.enum(['call', 'fold']), explanation: z.string().min(1) }).strict();

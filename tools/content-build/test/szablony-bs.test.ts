@@ -41,7 +41,7 @@ describe('szablony scenariuszy z treści: decyzja niezmienna i oceny zgodne z ra
             const akcja = spot.hitNextCard > cena ? 'call' : 'fold';
             const margines = Math.abs(spot.hitNextCard - cena);
             if (akcja !== b.expected[i]) bledy.push(`${seed}#${i + 1}: rachunek ${akcja}, szablon ${b.expected[i]}`);
-            if (!(margines > 0 && margines >= b.marginMin && (b.marginMax === null || margines < b.marginMax))) bledy.push(`${seed}#${i + 1}: margines ${margines}`);
+            if (!(margines > 0 && margines >= (b.marginMin ?? 0) && (b.marginMax === null || margines < b.marginMax))) bledy.push(`${seed}#${i + 1}: margines ${margines}`);
             zaklady += d.bet;
             if (akcja === 'fold') {
               // R-M7-008: po trafieniu trzeba wygrać łącznie dopłata × (nietrafiające ÷ outy); ponad pulę po zakładzie to implied odds

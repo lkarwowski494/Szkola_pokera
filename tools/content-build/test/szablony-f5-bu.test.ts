@@ -36,11 +36,11 @@ describe('F5: rozszerzenia draw-call', () => {
             const cena = requiredEquity(d.pot, d.bet);
             const akcja = hit > cena ? 'call' : 'fold';
             if (akcja !== b.expected[i]) bledy.push(`${seed}#${i + 1}: rachunek ${akcja}, szablon ${b.expected[i]}`);
-            const m = b.margins?.[i] ?? { min: b.marginMin, max: b.marginMax };
+            const m = b.margins?.[i] ?? { min: b.marginMin ?? 0, max: b.marginMax };
             const margines = Math.abs(hit - cena);
             if (!(margines > 0 && margines >= m.min && (m.max === null || margines < m.max))) bledy.push(`${seed}#${i + 1}: margines ${margines} poza [${m.min}, ${m.max}]`);
             if (spec.villain === 'all-in') {
-              const stosZaPula = Math.round(t.stackBb - wkladGracza(d.pot));
+              const stosZaPula = t.stackBb - wkladGracza(d.pot) // KO-056 ŚR-002: all-in to dokładnie stos, bez zaokrąglenia (wcześniej oracle powtarzał zaokrąglenie z generatora);
               if (d.bet !== stosZaPula) bledy.push(`${seed}#${i + 1}: all-in ${d.bet}, oczekiwano ${stosZaPula}`);
             }
           });
