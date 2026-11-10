@@ -35,9 +35,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Tak: niski flop z kartami blisko siebie trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}: ma tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a ty nie masz {{t:nuts-advantage|przewagi nutsów}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|drawy}}."
-          small: "Za często: na niskim flopie z kartami blisko siebie nie masz {{t:nuts-advantage|przewagi nutsów}}. Częste c-bety, nawet małe, dają {{t:big-blind|dużemu blindowi}} okazję do {{t:raise|przebicia}} po wcześniejszym {{t:check|czekaniu}} (check-raise) najsilniejszymi rękami."
-          big: "Za często i za drogo: {{t:big-blind}} ma tu w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}. Częsty duży c-bet ryzykuje dużo, gdy sam zwykle masz tylko wysokie karty."
+          check: "Tak: niski flop z kartami blisko siebie trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}: broni on wielu rąk z małymi kartami, a twoje wysokie karty tu chybiły. Na flopie {{t:connected|połączonym}} ma on też {{t:straight|strity}} i {{t:two-pair|dwie pary}}, więc zwykle nie masz {{t:nuts-advantage|przewagi nutsów}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|drawy}}."
+          small: "Za często: niski flop z kartami blisko siebie trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}, a na {{t:connected|połączonym}} zwykle nie masz {{t:nuts-advantage|przewagi nutsów}}. Częste c-bety, nawet małe, dają {{t:big-blind|dużemu blindowi}} okazję do {{t:raise|przebicia}} po wcześniejszym {{t:check|czekaniu}} (check-raise) najsilniejszymi rękami."
+          big: "Za często i za drogo: ten flop trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}, a na {{t:connected|połączonym}} ma on też {{t:straight|strity}} i {{t:two-pair|dwie pary}}. Częsty duży c-bet ryzykuje dużo, gdy sam zwykle masz tylko wysokie karty."
     count: 6
   - kind: choice
     id: m5.l3.q-kj
@@ -123,7 +123,7 @@ Uwaga: „{{t:wet}}” nie znaczy „duży bet”. {{t:monotone|Jednokolorowy}} 
 
 ## Niski z kartami blisko siebie: częściej {{t:check|czekasz}}
 
-Na [[7s 6h 5d]] {{t:big-blind}} ma w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a ty nie masz {{t:nuts-advantage|przewagi nutsów}} (lekcja o przewagach). Podobnie na innych niskich flopach {{t:connected|połączonych}} i {{t:semi-connected|półpołączonych}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie bardzo silne ręce i mocne {{t:draw|drawy}}.
+Na [[7s 6h 5d]] {{t:big-blind}} ma w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a ty nie masz {{t:nuts-advantage|przewagi nutsów}} (lekcja o przewagach). Zwykle podobnie jest na innych niskich flopach {{t:connected|połączonych}}. Na niskim flopie {{t:semi-connected|półpołączonym}} {{t:straight|strita}} jeszcze nie ma, ale flop i tak trafia ręce z małymi kartami, których {{t:big-blind}} broni dużo, a twoje wysokie karty chybiły. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie bardzo silne ręce i mocne {{t:draw|drawy}}.
 
 ## Ile musi {{t:fold|spasować}} rywal
 

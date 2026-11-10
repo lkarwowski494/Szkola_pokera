@@ -20947,8 +20947,15 @@
   "id": "R-M5-004",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "otworzyłeś przed flopem, a flop jest niski i connected albo półpołączony, np. 7-6-5 → c-betujesz rzadziej niż na wysokich flopach, a wiele rąk czeka, bo big-blind broni wielu konektorów i rąk z małymi kartami, które trafiają tu strity i dwie pary, a twoje wysokie karty chybiły: nie masz przewagi nutsów",
+  "twierdzenie": "otworzyłeś przed flopem, a flop jest niski i connected albo półpołączony, np. 7-6-5 → c-betujesz rzadziej niż na wysokich flopach, a wiele rąk czeka, bo big-blind broni wielu konektorów i rąk z małymi kartami, które trafiają niski flop, a twoje wysokie karty chybiły; na flopie połączonym ma też strity i dwie pary, więc zwykle nie masz przewagi nutsów",
   "zrodla": [
+   {
+    "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
+    "miejsce": "sekcja Why Are High Cards Bet More?, cash BTN vs BB",
+    "cytat": "a large portion of their range consists of low-card holdings because of the preflop discount posed by the blinds. We connect better with high-card boards and get to bet more.",
+    "odczyt": "2026-11-10",
+    "szczebel": 2
+   },
    {
     "adres": "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/",
     "miejsce": "sekcja Flop Connectedness, cash BTN vs BB",
@@ -21007,7 +21014,7 @@
    }
   ],
   "status": "potwierdzone",
-  "uproszczenie": null,
+  "uproszczenie": "cytat MTT 40bb dotyczy BTN vs SB; kierunek przeniesiony na BTN vs BB w grze gotówkowej (zgodny z artykułem o grze gotówkowej); strity i brak przewagi nutsów tylko na flopie połączonym (D-510)",
   "krytyczne": false,
   "przeglad": null,
   "wielkosc": null,
@@ -21015,7 +21022,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "Rdzeń (niski połączony flop: c-bet rzadziej, BB ma przewagę nutsów) potwierdzony szczeblem 2, ale tylko na danych turniejowych (20bb i 40bb), nie cash 100bb jak format aplikacji. Zdanie o wczesnej pozycji pochodzi z raportu 12a-06 (wniosek bez cytatu); GTO Gecko mówi o wczesnej pozycji tylko w kontekście gry bez pozycji wobec Buttona. E2 2026-11-04: poprawione (content/pl/rules.yaml:359, usunięte zdanie o wczesnej pozycji bez źródła); było CZĘŚCIOWO. | BA 2026-11-10 (KO-029, D-500): `because` było „więc częściej ma two-pair albo strita: to on ma przewagę nutsów” — NIEPOPARTE (szczebel 2 nie podaje zliczenia dla 100bb cash; rachunek na niezwalidowanym składzie zakresu BB z solvera aplikacji daje remis na 8-6-5 i odwrotny kierunek na 6-5-4: docs/tresci/dowody-ba/zadanie1-zrodla.md). Usunięte źródło-rachunek „setów obaj mają podobnie” — SPRZECZNE z rachunkiem (BTN 9,0 vs BB 3,6–5,3 komb. setów na 8-6-5/7-6-5). Jest: część wspólna źródeł — otwierający nie ma przewagi nutsów, BB ma w zakresie strity.",
+  "uwagi": "Rdzeń (niski połączony flop: c-bet rzadziej, BB ma przewagę nutsów) potwierdzony szczeblem 2, ale tylko na danych turniejowych (20bb i 40bb), nie cash 100bb jak format aplikacji. Zdanie o wczesnej pozycji pochodzi z raportu 12a-06 (wniosek bez cytatu); GTO Gecko mówi o wczesnej pozycji tylko w kontekście gry bez pozycji wobec Buttona. E2 2026-11-04: poprawione (content/pl/rules.yaml:359, usunięte zdanie o wczesnej pozycji bez źródła); było CZĘŚCIOWO. | BA 2026-11-10 (KO-029, D-500): `because` było „więc częściej ma two-pair albo strita: to on ma przewagę nutsów” — NIEPOPARTE (szczebel 2 nie podaje zliczenia dla 100bb cash; rachunek na niezwalidowanym składzie zakresu BB z solvera aplikacji daje remis na 8-6-5 i odwrotny kierunek na 6-5-4: docs/tresci/dowody-ba/zadanie1-zrodla.md). Usunięte źródło-rachunek „setów obaj mają podobnie” — SPRZECZNE z rachunkiem (BTN 9,0 vs BB 3,6–5,3 komb. setów na 8-6-5/7-6-5). Jest: część wspólna źródeł — otwierający nie ma przewagi nutsów, BB ma w zakresie strity. 2026-11-10 (D-510): na niskich flopach półpołączonych strit niemożliwy, a GTO Wizard (Overbetting the Flop in Cash Games, 973r) daje BTN przewagę nutsów (overpary); `best: check` dla nich — otwarte pytanie (e1-m5-m8.md).",
   "partia": [
    "m5-m8"
   ]
@@ -21761,7 +21768,7 @@
   "id": "R-M6-009",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "c-bet jest mały albo flop jest niski i connected (np. 7-6-5) → robisz check-raise częściej; na wysokich flopach dobrych dla przebijającego (np. K-J-T, A-A-K) i wobec dużych c-betów rzadziej, bo na niskich, połączonych flopach big-blind ma w zakresie strity i dwie pary, a Button nie ma przewagi nutsów; mały c-bet daje tanią okazję do przebicia",
+  "twierdzenie": "c-bet jest mały albo flop jest niski i connected (np. 7-6-5) → robisz check-raise częściej; na wysokich flopach dobrych dla przebijającego (np. K-J-T, A-A-K) i wobec dużych c-betów rzadziej, bo na niskich, połączonych flopach big-blind ma w zakresie strity i dwie pary, a Button zwykle nie ma przewagi nutsów; mały c-bet daje tanią okazję do przebicia",
   "zrodla": [
    {
     "adres": "https://upswingpoker.com/check-raise-poker-strategy-flop-c-bet/",
