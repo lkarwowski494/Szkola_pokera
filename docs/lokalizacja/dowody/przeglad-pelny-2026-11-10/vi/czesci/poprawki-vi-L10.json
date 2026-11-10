@@ -1,0 +1,245 @@
+[
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "Bạn có {{t:flush-draw|draw thùng}} sạch ({{n:outs.flush}}",
+    "nowy": "Bạn có {{t:flush-draw|bài chờ thùng}} sạch ({{n:outs.flush}}",
+    "waga": "ŚR",
+    "powod": "m12-l2:29 prompt: termin flush-draw: przyjęta nazwa w terms-nazwy.yaml to „bài chờ thùng”, nie „draw thùng”",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "Turn. {{t:flush-draw|Draw thùng}} sạch",
+    "nowy": "Turn. {{t:flush-draw|Bài chờ thùng}} sạch",
+    "waga": "ŚR",
+    "powod": "m12-l2:38 prompt: termin flush-draw: przyjęta nazwa w terms-nazwy.yaml to „bài chờ thùng”, nie „draw thùng”",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "{{t:call|theo}} với {{t:flush-draw|draw thùng}} một cược bằng cả {{t:pot|pot}} trên turn là tệ",
+    "nowy": "{{t:call|theo}} một cược bằng cả {{t:pot|pot}} trên turn với {{t:flush-draw|bài chờ thùng}} là tệ",
+    "waga": "ŚR",
+    "powod": "m12-l2:97: termin flush-draw: przyjęta nazwa w terms-nazwy.yaml to „bài chờ thùng”, nie „draw thùng”; przy okazji szyk: dopełnienie („một cược bằng cả pot”) bezpośrednio po czasowniku",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "nhưng vẫn thắng khoảng một lần trong năm",
+    "nowy": "nhưng cứ khoảng năm lần thì vẫn thắng một lần",
+    "waga": "ŚR",
+    "powod": "m12-l2:97: pl „raz na pięć”; „một lần trong năm” czyta się naturalnie jako „raz w roku” (năm = pięć / rok)",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "{{t:range|phạm vi bài}} của đối thủ và những gì",
+    "nowy": "{{t:range|range}} của đối thủ và những gì",
+    "waga": "ŚR",
+    "powod": "m12-l2:49 why: termin range: przyjęta nazwa w terms-nazwy.yaml to „range”; „phạm vi bài” to trzecia, mniejszościowa forma",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "{{t:range|phạm vi bài}} của đối thủ (M2",
+    "nowy": "{{t:range|range}} của đối thủ (M2",
+    "waga": "ŚR",
+    "powod": "m12-l2:106: termin range: przyjęta nazwa w terms-nazwy.yaml to „range”; „phạm vi bài” to trzecia, mniejszościowa forma",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "cũng chỉ dẫn trước trong khoảng {{n:skill.ahead}} trường hợp sau khoảng {{n:skill.hands}} tay bài",
+    "nowy": "cũng phải sau khoảng {{n:skill.hands}} tay bài mới dẫn trước trong khoảng {{n:skill.ahead}} trường hợp",
+    "waga": "ŚR",
+    "powod": "m12-l2:67 why: pl „wychodzi na prowadzenie … dopiero po ok. N rękach”; „chỉ dẫn trước trong khoảng X trường hợp” czyta się jako „prowadzi tylko w X przypadków” — „dopiero” przeniesione na liczbę rąk",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "ngay cả khi nó mang lại lợi",
+    "nowy": "ngay cả khi nó mang lại lợi nhuận",
+    "waga": "NISKIE",
+    "powod": "m12-l2:85 why: „mang lại lợi” brzmi jak urwane; pl „nawet jeśli się opłacił”",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "những sai lầm mang lại lợi cũng",
+    "nowy": "những sai lầm mang lại lợi nhuận cũng",
+    "waga": "NISKIE",
+    "powod": "m12-l2:108: „mang lại lợi” brzmi jak urwane; pl „błędy, które się opłaciły”",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l3-tilt.md",
+    "stary": "why: \"{{t:stakes}} cao hơn cũng làm tăng",
+    "nowy": "why: \"{{t:stakes|Mức cược}} cao hơn cũng làm tăng",
+    "waga": "NISKIE",
+    "powod": "m12-l3:35 why: termin bez formy na początku zdania renderuje się małą literą („mức cược cao hơn…”); dodana forma z wielką literą, klucz bez zmian",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l3-tilt.md",
+    "stary": "{{t:stakes}} cao hơn đi cùng",
+    "nowy": "{{t:stakes|Mức cược}} cao hơn đi cùng",
+    "waga": "NISKIE",
+    "powod": "m12-l3:71 why: termin bez formy na początku zdania renderuje się małą literą; dodana forma z wielką literą, klucz bez zmian",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l3-tilt.md",
+    "stary": "bạn tức giận vì vận may",
+    "nowy": "bạn tức giận vì may rủi",
+    "waga": "NISKIE",
+    "powod": "m12-l3:16 why: pl „los”: „vận may” znaczy raczej „szczęście, dobry los”; w m12-l1/l2 „los” oddano jako „may rủi”",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l3-tilt.md",
+    "stary": "đổ lỗi cho vận may mà",
+    "nowy": "đổ lỗi cho may rủi mà",
+    "waga": "NISKIE",
+    "powod": "m12-l3:43 why: pl „los”: „vận may” znaczy raczej „szczęście, dobry los”; w m12-l1/l2 „los” oddano jako „may rủi”",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l3-tilt.md",
+    "stary": "ván bài thật bất công",
+    "nowy": "trò chơi này thật bất công",
+    "waga": "NISKIE",
+    "powod": "m12-l3:13 prompt: pl „gra jest niesprawiedliwa” (gra w ogóle), „ván bài” = pojedyncze rozdanie",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l4-bankroll.md",
+    "stary": "Sau một {{t:downswing|chuỗi thua}}, bạn còn",
+    "nowy": "Sau một {{t:downswing|downswing}}, bạn còn",
+    "waga": "ŚR",
+    "powod": "m12-l4:47 prompt: termin downswing — przyjęta nazwa „downswing” (tak w m12-l1 i egzaminie q9); „chuỗi thua” w m12-l3:100 oddaje zwykłe „seria strat”",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l4-bankroll.md",
+    "stary": "sau mỗi {{t:downswing|chuỗi thua}}",
+    "nowy": "sau mỗi {{t:downswing|downswing}}",
+    "waga": "ŚR",
+    "powod": "m12-l4:60 why: termin downswing — przyjęta nazwa „downswing”, nie „chuỗi thua”",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l4-bankroll.md",
+    "stary": "nghìn ván, còn việc",
+    "nowy": "nghìn tay, còn việc",
+    "waga": "NISKIE",
+    "powod": "m12-l4:58 why: pl „tys. rąk”; wszędzie indziej „nghìn tay”, „ván” = rozdanie",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l4-bankroll.md",
+    "stary": "cần rất nhiều ván (bài học",
+    "nowy": "cần rất nhiều tay bài (bài học",
+    "waga": "NISKIE",
+    "powod": "m12-l4:133: pl „bardzo wielu rąk”; w module ręka = „tay (bài)”, „ván” = rozdanie",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l4-bankroll.md",
+    "stary": "hãy dùng các liên hệ trong thẻ",
+    "nowy": "hãy dùng thông tin liên hệ trong thẻ",
+    "waga": "NISKIE",
+    "powod": "m12-l4:102 why (treść krytyczna, sens bez zmian): „các liên hệ” to kalka; naturalnie i zgodnie z helplines.yaml pointer „thông tin liên hệ”",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m12.yaml",
+    "stary": "Bạn có {{t:flush-draw|draw thùng}} sạch, trong",
+    "nowy": "Bạn có {{t:flush-draw|bài chờ thùng}} sạch, trong",
+    "waga": "ŚR",
+    "powod": "m12.exam.q5 prompt (linia 43): termin flush-draw: przyjęta nazwa w terms-nazwy.yaml to „bài chờ thùng”, nie „draw thùng”",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m12.yaml",
+    "stary": "còn {{t:flush-draw|draw thùng}} trúng ở river",
+    "nowy": "còn {{t:flush-draw|bài chờ thùng}} trúng ở river",
+    "waga": "ŚR",
+    "powod": "m12.exam.q5 why (linia 45): termin flush-draw: przyjęta nazwa w terms-nazwy.yaml to „bài chờ thùng”, nie „draw thùng”",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m12.yaml",
+    "stary": "text: \"Tilt vì sai lầm\"",
+    "nowy": "text: \"Tilt vì mắc lỗi\"",
+    "waga": "ŚR",
+    "powod": "m12.exam.q6 (linia 56) text: typ tiltu w lekcji m12-l3 nazywa się „Tilt vì mắc lỗi”; pytanie odwołuje się do podziału z lekcji",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m12.yaml",
+    "stary": "why: \"Tilt vì sai lầm là sự tức giận",
+    "nowy": "why: \"Tilt vì mắc lỗi là sự tức giận",
+    "waga": "ŚR",
+    "powod": "m12.exam.q6 (linia 56) why: nazwa typu jak w lekcji m12-l3 („Tilt vì mắc lỗi”)",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m12.yaml",
+    "stary": "đây là loại tilt nào?",
+    "nowy": "đây là kiểu tilt nào?",
+    "waga": "NISKIE",
+    "powod": "m12.exam.q6 prompt (linia 52): w lekcji m12-l3 „typ tiltu” = „kiểu tilt”",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m12.yaml",
+    "stary": "Loại này bị kích hoạt",
+    "nowy": "Kiểu tilt này bị kích hoạt",
+    "waga": "NISKIE",
+    "powod": "m12.exam.q6 (linia 55) why: w lekcji m12-l3 „typ tiltu” = „kiểu tilt”",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/exams/m12.yaml",
+    "stary": "đổ lỗi cho vận may, cho bản thân",
+    "nowy": "đổ lỗi cho may rủi, cho bản thân",
+    "waga": "NISKIE",
+    "powod": "m12.exam.q6 (linia 54) why: pl „los”: „vận may” znaczy raczej „szczęście, dobry los”; w m12-l1/l2 „los” oddano jako „may rủi”",
+    "grupa": "vi-L10"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/lessons/m12-l1-wariancja.md",
+    "stary": "chứ không phải chỉ qua kết quả",
+    "nowy": "chứ không phải qua bản thân kết quả",
+    "waga": "NISKIE",
+    "powod": "m12-l1:83 why: pl „a nie sam wynik”; „không phải chỉ qua kết quả” = „nie tylko przez wynik”, sugeruje, że wynik też o tym mówi",
+    "grupa": "vi-L10"
+  }
+]
