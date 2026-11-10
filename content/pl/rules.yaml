@@ -1177,8 +1177,8 @@
   then: "nie ma już {{t:bet|zakładów}}: rozdanie rozstrzyga sam układ po wyłożeniu {{t:community-cards|kart wspólnych}}, a gdy nikt nie ma {{t:pair|pary}} ani lepszego układu, wygrywa wyższa karta"
   because: "bez dalszych {{t:bet|zakładów}} nikt nie może już {{t:fold|spasować}}, więc liczy się tylko ranking układów; przy samych wysokich kartach decyduje najwyższa"
   level: rules
-  source: "zasady Texas Hold'em: regulamin kasyna zatwierdzony przez kalifornijskiego regulatora hazardu (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), Card Values and Hand Rankings: High Card „A hand that consists of five cards that do not make any of the hands listed above. An Ace, King, Queen, Jack and 9 is the highest ranked High Card hand”"
-  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
+  source: "zasady Texas Hold'em: regulamin kasyna zatwierdzony przez kalifornijskiego regulatora hazardu (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), Card Values and Hand Rankings: High Card „A hand that consists of five cards that do not make any of the hands listed above. An Ace, King, Queen, Jack and 9 is the highest ranked High Card hand”; reguły turniejowe Poker TDA (https://www.pokertda.com/view-poker-tda-rules/), reguła 17 Face Up for All-Ins: „All hands will be tabled without delay once a player is all-in and all betting action by all other players in the hand is complete.”"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }, { kind: rules, url: "https://www.pokertda.com/view-poker-tda-rules/" }]
 
 # M13: analiza własnej gry (dokument 14, sekcja 8; decyzje D-M13-12…15 w dokumencie „12 Weryfikacja źródeł — M10–M13”).
 # „Decyzja, nie wynik” uczy R-M12-004 (jedna reguła na jedno pojęcie); mechanika powtórek z gry to opis aplikacji,

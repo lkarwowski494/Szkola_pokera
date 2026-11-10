@@ -1,0 +1,12 @@
+PASS src/features/drills/__tests__/bq-zrodla-004.test.ts
+  06-tresci-004 (BQ): R-M11-013 ma źródło TDA reguła 17
+    ✓ sources w każdym języku zawiera regulamin TDA (12 ms)
+    ✓ source pl cytuje regułę 17 dosłownie (2 ms)
+    ✓ rejestr (bn.json) ma źródło szczebla 1 z cytatem i datą odczytu (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        0.464 s, estimated 1 s
+Ran all test suites matching /src\/features\/drills\/__tests__\/bq-zrodla-004.test.ts/i.
+kod 0

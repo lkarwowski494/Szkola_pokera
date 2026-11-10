@@ -139,6 +139,13 @@
     "cytat": "A hand that consists of five cards that do not make any of the hands listed above.",
     "odczyt": "2026-11-10",
     "szczebel": 1
+   },
+   {
+    "adres": "https://www.pokertda.com/view-poker-tda-rules/",
+    "miejsce": "reguła 17 (Face Up for All-Ins)",
+    "cytat": "All hands will be tabled without delay once a player is all-in and all betting action by all other players in the hand is complete.",
+    "odczyt": "2026-11-10",
+    "szczebel": 1
    }
   ],
   "status": "potwierdzone",
@@ -150,6 +157,6 @@
   "jednostka": null,
   "werdykt_tekstu": null,
   "poprawka": null,
-  "uwagi": "sesja BN, KO-040 (06-tresci-002), D-595 | sesja BQ 06-tresci-003: powód `highAllIn` w aplikacji tylko przy asie albo królu (wariant b recenzji BP); R-M11-013 opisuje rozstrzyganie puli, nie siłę dziesiątki czy waleta; 23 pary Q/J/10 bez powodu z klasy ręki (wyjątki nazwane), powód z ceny R-M11-006 w otwartych"
+  "uwagi": "sesja BN, KO-040 (06-tresci-002), D-595 | sesja BQ 06-tresci-003: powód `highAllIn` w aplikacji tylko przy asie albo królu (wariant b recenzji BP); R-M11-013 opisuje rozstrzyganie puli, nie siłę dziesiątki czy waleta; 23 pary Q/J/10 bez powodu z klasy ręki (wyjątki nazwane), powód z ceny R-M11-006 w otwartych | sesja BQ 06-tresci-004: źródło części „nie ma już zakładów” po all-in: Poker TDA reguła 17, przeczytana 2026-11-10 (curl, cytat dosłowny na surowym tekście)"
  }
 ]

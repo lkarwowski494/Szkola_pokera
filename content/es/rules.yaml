@@ -1176,8 +1176,8 @@
   then: "ya no hay más {{t:bet|apuestas}}: la mano se decide al repartir las {{t:community-cards}}, y si nadie tiene {{t:pair|pareja}} o algo mejor, gana la carta más alta"
   because: "sin más {{t:bet|apuestas}} nadie puede {{t:fold|retirarse}}, así que solo cuenta el ranking de manos; con solo cartas altas decide la más alta"
   level: rules
-  source: "reglas de Texas Hold'em: reglamento aprobado por el regulador de California (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), High Card"
-  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
+  source: "reglas de Texas Hold'em: reglamento aprobado por el regulador de California (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), High Card; reglas de torneo de la Poker TDA (https://www.pokertda.com/view-poker-tda-rules/), regla 17 Face Up for All-Ins"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }, { kind: rules, url: "https://www.pokertda.com/view-poker-tda-rules/" }]
 # M13: analiza własnej gry (dokument 14, sekcja 8; decyzje D-M13-12…15 w dokumencie „12 Weryfikacja źródeł — M10–M13”).
 # „Decyzja, nie wynik” uczy R-M12-004 (jedna reguła na jedno pojęcie); mechanika powtórek z gry to opis aplikacji,
 # więc jest w tekście lekcji, a nie w księdze reguł.
