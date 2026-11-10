@@ -1,0 +1,5 @@
+Stan wyjściowy pnpm run ci @ b9a656a (2026-11-10), kod 1, 7m06s
+content-build: 4 failed | 217 passed
+- build.test.ts "prawdziwa treść: każdy termin ma źródło…" — timeout 5000 ms (wolna maszyna)
+- liczby-jezyk-08.test.ts "LJ-08-d strażnik…" — timeout 5000 ms
+- szablon-scenariusza-bf.test.ts x2 — oczekują tylko sc-test-draw / braku pola scenarios, a content/ ma od BS sc-01, sc-02, sc-19

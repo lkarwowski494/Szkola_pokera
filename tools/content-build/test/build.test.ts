@@ -367,7 +367,7 @@ describe('terminy PL ↔ EN (content/terms.yaml)', () => {
       if (d.kind !== 'generated') continue;
       expect(c.terms.filter((t) => t.area === d.params.area && vocabEligible(t)).length).toBeGreaterThanOrEqual(VOCAB_MIN_TERMS);
     }
-  });
+}, 120_000); // pełna kompilacja treści: wolna maszyna przekracza domyślne 5 s (BU, 2026-11-10)
 });
 
 describe('plik bazy treści', () => {

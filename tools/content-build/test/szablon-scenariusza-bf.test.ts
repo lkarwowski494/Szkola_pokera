@@ -124,12 +124,15 @@ describe('walidacja szablonu w budowaniu', () => {
 });
 
 describe('compileContent z szablonami scenariuszy', () => {
+  // Izolacja od prawdziwych szablonów w content/ (od BS są tam sc-01, sc-02, sc-19): kopia treści zaczyna bez katalogu scenarios.
   const zTreścią = (pliki: Record<string, string>) => {
     const root = mkdtempSync(join(tmpdir(), 'scen-'));
     try {
       cpSync(contentDir, join(root, 'content'), { recursive: true });
       symlinkSync(join(contentDir, '..', 'tools'), join(root, 'tools'));
       symlinkSync(join(contentDir, '..', 'docs'), join(root, 'docs'));
+      rmSync(join(root, 'content/pl/scenarios'), { recursive: true, force: true });
+      rmSync(join(root, 'content/en/scenarios'), { recursive: true, force: true });
       mkdirSync(join(root, 'content/pl/scenarios'), { recursive: true });
       for (const [n, y] of Object.entries(pliki)) writeFileSync(join(root, 'content/pl/scenarios', n), y);
       return compileContent(join(root, 'content'));
@@ -148,7 +151,16 @@ describe('compileContent z szablonami scenariuszy', () => {
     const zly = kopia((b) => { delete (b.decisions[0] as { rule?: string }).rule; });
     expect(() => zTreścią({ 'sc-test-draw.yaml': yaml(zly) })).toThrow(/sc-test-draw.*punkt decyzji 1/);
   }, 120_000);
-  it('bez katalogu scenarios treść nie ma pola scenarios (hash bez zmian do czasu pierwszych szablonów)', () => {
-    expect('scenarios' in compileContent(contentDir)).toBe(false);
+  it('bez katalogu scenarios treść nie ma pola scenarios (hash bez zmian, gdy treść nie ma szablonów)', () => {
+    const root = mkdtempSync(join(tmpdir(), 'scen-'));
+    try {
+      cpSync(contentDir, join(root, 'content'), { recursive: true });
+      symlinkSync(join(contentDir, '..', 'tools'), join(root, 'tools'));
+      symlinkSync(join(contentDir, '..', 'docs'), join(root, 'docs'));
+      for (const j of ['pl', 'en']) rmSync(join(root, 'content', j, 'scenarios'), { recursive: true, force: true });
+      expect('scenarios' in compileContent(join(root, 'content'))).toBe(false);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   }, 120_000);
 });
