@@ -6,6 +6,7 @@ import type { Konfiguracja } from './konfiguracja';
 import { KONFIGURACJA } from './konfiguracja';
 import { mozeStartowac, type Limit } from './limit';
 import type { RodzajAktywnosci, Wynik } from './typy';
+import type { StartWariantu } from './wariant';
 
 // --- aktywnosc (sesja, powtórki, scenariusz, test modułu, lekcja, ocena poziomu; stan trwały: aktywnosc.stan + krok) ---
 export interface PlanAktywnosci {
@@ -19,6 +20,13 @@ export interface PlanAktywnosci {
   // D-248 (08-F10): zadania kroków w kolejności (sesja, powtórki, test, lekcja, ocena poziomu) — wznowienie buduje ten sam
   // zestaw; `ziarno` (liczba całkowita) odtwarza zadanie generowane. Plan zapisany w JSON kolumny `plan` (schemat v1 bez zmian).
   zadania?: readonly ZadaniePlanu[];
+  // tylko `scenariusz` (BR-GEN-001, BT): poziom i ziarno wariantu — z szablonu `trescId`, poziomu i ziarna generator odtwarza
+  // te same karty przy wznowieniu i przy „Zagraj jeszcze raz”; poziom jest też podstawą poziomu automatycznego (BR-POZ-002).
+  wariant?: WariantPlanu;
+}
+export interface WariantPlanu {
+  poziom: 'latwy' | 'sredni' | 'trudny';
+  ziarno: number; // liczba całkowita
 }
 export interface ZadaniePlanu {
   id: string;
@@ -56,9 +64,11 @@ export function startAktywnosci(wej: {
   teraz: number;
   dzienLokalny: string;
   strefa: string;
+  /** Tylko scenariusz (KO-043, ŚR-101): historia i odcisk startowanego wariantu; powtórka tego samego wariantu nie zużywa limitu. */
+  wariant?: StartWariantu;
 }): Wynik<AktywnoscWToku, 'limit_wyczerpany' | 'plan_niepoprawny'> {
   if (!planPoprawny(wej.rodzaj, wej.plan, KONFIGURACJA)) return { ok: false, powod: 'plan_niepoprawny' };
-  const m = mozeStartowac(wej.rodzaj, wej.pierwszePodejscieTestu, wej.limit);
+  const m = mozeStartowac(wej.rodzaj, wej.pierwszePodejscieTestu, wej.limit, wej.wariant);
   if (!m.start) return { ok: false, powod: m.powod };
   return {
     ok: true,
@@ -128,10 +138,11 @@ export function wejscieDoAktywnosci(
   wToku: AktywnoscWToku | null,
   pierwszePodejscieTestu: boolean,
   limit: Limit,
+  wariant?: StartWariantu, // tylko scenariusz (KO-043): powtórka wariantu poza limitem
 ): WejscieDoAktywnosci {
   const tegoRodzaju = wToku !== null && wToku.rodzaj === rodzaj ? wToku : null;
   if (tegoRodzaju && tegoRodzaju.plan.trescId === trescId) return { akcja: 'wznow', aktywnosc: tegoRodzaju };
-  const m = mozeStartowac(rodzaj, pierwszePodejscieTestu, limit);
+  const m = mozeStartowac(rodzaj, pierwszePodejscieTestu, limit, wariant);
   if (!m.start) return { akcja: 'ekran_zakupu' };
   return tegoRodzaju ? { akcja: 'porzuc_i_start', porzuc: tegoRodzaju, zLimitu: m.zLimitu } : { akcja: 'start', zLimitu: m.zLimitu };
 }

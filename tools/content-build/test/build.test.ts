@@ -367,7 +367,7 @@ describe('terminy PL ↔ EN (content/terms.yaml)', () => {
       if (d.kind !== 'generated') continue;
       expect(c.terms.filter((t) => t.area === d.params.area && vocabEligible(t)).length).toBeGreaterThanOrEqual(VOCAB_MIN_TERMS);
     }
-  });
+  }, 120_000); // compileContent pl z kontrolą generatora szablonów (D-555) trwa ok. 10 s (sesja BS)
 });
 
 describe('plik bazy treści', () => {

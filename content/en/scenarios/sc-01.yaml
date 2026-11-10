@@ -1,0 +1,35 @@
+# sc-01: English text of content/pl/scenarios/sc-01.yaml (role 06, session BS, 2026-11-10); structure must match pl (test szablony-bs).
+id: sc-01
+module: m2
+situation: "After a {{t:3-bet}} you have a {{t:flush-draw}}, and your opponent {{t:bet|bets}} small on the flop and on the turn."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni, trudny]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, call] }
+  sredni: { draws: [flush], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, call] }
+  trudny: { draws: [flush], marginMin: 0, marginMax: 0.02, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, call] }
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [18, 20, 22, 24]
+    fractions: [0.1, 0.2, 0.25, 0.3]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - action: call
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} {{t:bet|bets}} small compared with the {{t:pot}}. You {{t:call}}, because you pay for one card only, and your {{t:flush-draw}} hits on it more often than such a low price requires. You have {{n:outs.flush}} outs, so the {{t:flush}} comes on the turn about {{n:odds.flush.flop-turn}} of the time, roughly one card in five."
+      - action: fold
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}, and your opponent in the {{w:rywal}} {{t:bet|bets}} small compared with the {{t:pot}}. A {{t:fold}} gives up a {{t:pot}} where a {{t:call}} makes money: against such a small {{t:bet}} your {{t:flush-draw}} hits more often than the price requires. Fold when the price is higher than your chance of hitting, not because you have not made your hand yet."
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.1, 0.2, 0.25, 0.3]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: call
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}: the turn did not bring the {{t:flush}}, and your opponent in the {{w:rywal}} {{t:bet|bets}} small again. You {{t:call}}, because one card is left before the river, and at such a low price your {{t:flush-draw}} still hits often enough. The {{t:flush}} comes on the river about {{n:odds.flush.turn-river}} of the time, roughly one card in five."
+      - action: fold
+        explanation: "You have {{w:reka}} on the {{w:pozycja}}, the {{t:board}} is {{w:stol}}: the turn did not bring the {{t:flush}}, and your opponent in the {{w:rywal}} {{t:bet|bets}} small again. Folding is too tight: on the turn you count the chance for one card, and against such a small {{t:bet}} that card hits more often than the price requires, so you give up a {{t:pot}} where a {{t:call}} makes money."

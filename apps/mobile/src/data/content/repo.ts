@@ -1,4 +1,4 @@
-import type { Block, Drill, RuleSourceSummary } from '@szkola/content-schema';
+import { ScenarioTemplate, type Block, type Drill, type RuleSourceSummary } from '@szkola/content-schema';
 import type { SQLiteDatabase } from 'expo-sqlite';
 
 /** Odczyt treści z content-vN.db (tylko do odczytu, ADR-08). */
@@ -242,4 +242,19 @@ export function getRuleLessons(db: SQLiteDatabase): Map<string, string> {
   const out = new Map<string, string>();
   for (const r of rows) for (const rule of JSON.parse(r.rules) as string[]) if (!out.has(rule)) out.set(rule, r.id);
   return out;
+}
+
+/**
+ * Szablony scenariuszy (BR-SZB-001) z tabeli `scenarios` (id, module_id, ord, data = JSON szablonu po budowaniu treści).
+ * Baza bez tabeli (treść bez scenariuszy) daje pustą listę; wiersz niezgodny ze schematem to błąd treści (wyjątek, nie ciche
+ * pominięcie): ekran pokazuje wtedy błąd odczytu zamiast zaniżonej listy.
+ */
+export function getScenarioTemplates(db: Pick<SQLiteDatabase, 'getAllSync'>): ScenarioTemplate[] {
+  const jest = db.getAllSync<{ n: number }>("SELECT count(*) AS n FROM sqlite_master WHERE type = 'table' AND name = 'scenarios'");
+  if ((jest[0]?.n ?? 0) === 0) return [];
+  return db.getAllSync<{ id: string; data: string }>('SELECT s.id AS id, s.data AS data FROM scenarios s JOIN modules m ON m.id = s.module_id ORDER BY m.ord, s.ord, s.id').map((r) => {
+    const t = ScenarioTemplate.safeParse(JSON.parse(r.data));
+    if (!t.success || t.data.id !== r.id) throw new Error(`Szablon scenariusza ${r.id} niezgodny ze schematem`);
+    return t.data;
+  });
 }

@@ -43,7 +43,9 @@
   },
   "scenarios": {
     "title": "シナリオ",
-    "soon": "シナリオは近日公開です。それまでは練習セッションで判断を練習できます。"
+    "soon": "シナリオは近日公開です。それまでは練習セッションで判断を練習できます。",
+    "levels": "レベル：{{lista}}",
+    "locked": "モジュール{{n}}の最初のレッスンのあと"
   },
   "welcome": {
     "title": "PokerGym",
@@ -971,6 +973,83 @@
       "end": "{{line}}。",
       "meaning": "意味：{{def}}",
       "alsoSeen": "別の呼び方：{{list}}。"
+    }
+  },
+  "scenario": {
+    "missing": "このシナリオは存在しないか、まだ解放されていません。",
+    "nav": {
+      "back": "シナリオ",
+      "title": "シナリオ",
+      "finish": "終了"
+    },
+    "level": {
+      "label": "レベル",
+      "group": "難易度",
+      "auto": "自動",
+      "latwy": "やさしい",
+      "sredni": "ふつう",
+      "trudny": "むずかしい"
+    },
+    "start": {
+      "about": "あなた：{{ty}}、相手：{{rywal}}。スタック{{bb}}bb。",
+      "nowAuto": "現在：{{poziom}}。成績に合わせてレベルが自動で変わります。",
+      "nowManual": "選択中のレベル：{{poziom}}。",
+      "missing": "このハンドには「{{wybrany}}」はありません。「{{poziom}}」で遊びます。",
+      "hint": "ハンドごとにカードが変わります。結果は判断の評価で、勝ち負けではありません。",
+      "begin": "ハンドを始める"
+    },
+    "street": {
+      "preflop": "プリフロップ",
+      "flop": "フロップ",
+      "turn": "ターン",
+      "river": "リバー"
+    },
+    "streets": {
+      "label": "ハンドの段階"
+    },
+    "table": {
+      "label": "あなた：{{ty}}、カード{{reka}}。相手：{{rywal}}。公開カード：{{stol}}。",
+      "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
+      "you": "あなた",
+      "villain": "相手"
+    },
+    "pot": "{{t:pot|ポット}}{{pula}}bb ・ {{t:call|コール}}に{{kwota}}bb",
+    "log": {
+      "label": "ハンドの流れ"
+    },
+    "yourMove": "あなたの番",
+    "verdict": {
+      "yours": "あなたの選択：{{akcja}}。より良い選択：{{lepiej}}。",
+      "yoursGood": "あなたの選択：{{akcja}}。"
+    },
+    "why": {
+      "weaker": "「{{akcja}}」が弱い理由",
+      "better": "「{{akcja}}」が良い理由",
+      "good": "「{{akcja}}」が良い理由",
+      "whyNot": "なぜ「{{akcja}}」ではないのか"
+    },
+    "scale": {
+      "label": "各アクションの評価：{{lista}}。",
+      "yourChoice": "あなたの選択"
+    },
+    "numbers": {
+      "title": "数字",
+      "line": "{{t:pot|ポット}}は{{pula}}bb、{{t:call|コール}}に{{kwota}}bbかかるので、必要な勝率は{{potrzeba}}、つまり約{{razPotrzeba}}回に1回勝てればよい計算です。アウツは見えていない{{nieznane}}枚中{{outy}}枚で、完成するのは{{trafisz}}、約{{razTrafisz}}回に1回です。"
+    },
+    "next": {
+      "street": "次へ：{{ulica}}",
+      "summary": "まとめを見る"
+    },
+    "end": {
+      "title": "ハンド終了",
+      "better": "より良い選択：{{akcja}}。",
+      "score": "良い判断：{{wszystkie}}回中{{dobre}}回。",
+      "newDeal": "新しいハンド",
+      "again": "同じハンドをもう一度",
+      "close": "閉じる",
+      "showdownYou": "リバーは{{river}}。相手は{{karty}}を見せました。あなたの役のほうが上です。",
+      "showdownVillain": "リバーは{{river}}。相手は{{karty}}を見せました。相手の役のほうが上です。",
+      "showdownTie": "リバーは{{river}}。相手は{{karty}}を見せました。役は同じです。"
     }
   }
 }

@@ -1,5 +1,5 @@
 // Repozytorium aktywności (moduly.md: „krok + odpowiedź w jednej transakcji”; ADR 0010; dane.md: UPSERT kroku po przerwaniu).
-import { OCENY_ODPOWIEDZI, type AkcjaPlanu, type AktywnoscWToku, type OcenaOdpowiedzi, type PlanAktywnosci, type RodzajAktywnosci, type Wynik, type ZadaniePlanu } from '@szkola/domena';
+import { OCENY_ODPOWIEDZI, type AkcjaPlanu, type AktywnoscWToku, type OcenaOdpowiedzi, type PlanAktywnosci, type RodzajAktywnosci, type Wynik, type WariantPlanu, type ZadaniePlanu } from '@szkola/domena';
 import { powtorkaTx, type WierszKarty, type WierszLogu } from './powtorki';
 import type { PowodOdczytu } from './ustawienia';
 import type { PortBazy, Tx } from './port';
@@ -138,6 +138,7 @@ async function zamknijTx(tx: Tx, id: string, stan: 'zakonczona' | 'porzucona', k
   if (r.zmiany !== 1) throw new Error(`Aktywność ${id} nie jest w toku`);
 }
 
+const POZIOMY = ['latwy', 'sredni', 'trudny'] as const;
 const liczbaCalkowita = (v: unknown): v is number => typeof v === 'number' && Number.isInteger(v);
 
 function wierszOdpowiedzi(w: unknown): OdpowiedzKroku | null {
@@ -167,7 +168,7 @@ export function parsujPlan(v: unknown): PlanAktywnosci | null {
   if (typeof v !== 'object' || v === null || Array.isArray(v)) return null;
   if (!('liczbaKrokow' in v) || !liczbaCalkowita(v.liczbaKrokow)) return null;
   if (!('trescId' in v) || (v.trescId !== null && typeof v.trescId !== 'string')) return null;
-  const plan: { liczbaKrokow: number; trescId: string | null; decyzje?: AkcjaPlanu[][]; zadania?: ZadaniePlanu[] } = { liczbaKrokow: v.liczbaKrokow, trescId: v.trescId };
+  const plan: { liczbaKrokow: number; trescId: string | null; decyzje?: AkcjaPlanu[][]; zadania?: ZadaniePlanu[]; wariant?: WariantPlanu } = { liczbaKrokow: v.liczbaKrokow, trescId: v.trescId };
   if ('decyzje' in v && v.decyzje !== undefined) {
     if (!Array.isArray(v.decyzje)) return null;
     const decyzje: AkcjaPlanu[][] = [];
@@ -193,5 +194,47 @@ export function parsujPlan(v: unknown): PlanAktywnosci | null {
     }
     plan.zadania = zadania;
   }
+  if ('wariant' in v && v.wariant !== undefined) {
+    const w = v.wariant;
+    if (typeof w !== 'object' || w === null || !('poziom' in w) || !('ziarno' in w) || !liczbaCalkowita(w.ziarno)) return null;
+    const poziom = POZIOMY.find((p) => p === w.poziom);
+    if (poziom === undefined) return null;
+    plan.wariant = { poziom, ziarno: w.ziarno };
+  }
   return plan;
+}
+
+// Wynik ukończonego wariantu scenariusza do poziomu automatycznego (BR-POZ-002, D-534): szablon, poziom z planu, oceny decyzji
+// w kolejności kroków. Tylko aktywności zakończone, z co najmniej jedną odpowiedzią i z wariantem w planie.
+export interface WynikScenariusza { trescId: string; poziom: WariantPlanu['poziom']; startMs: number; oceny: OcenaOdpowiedzi[] }
+export async function wynikiScenariuszy(port: PortBazy): Promise<Wynik<WynikScenariusza[], PowodOdczytu>> {
+  try {
+    const wiersze = await port.all<unknown>(
+      `SELECT a.id AS id, a.plan AS plan, a.start_ms AS start_ms, o.ocena AS ocena FROM aktywnosc a
+       JOIN odpowiedz o ON o.aktywnosc_id = a.id WHERE a.rodzaj = 'scenariusz' AND a.stan = 'zakonczona'
+       ORDER BY a.start_ms ASC, a.id ASC, o.krok ASC`,
+    );
+    const wynik: WynikScenariusza[] = [];
+    let ostatniId: string | null = null;
+    for (const w of wiersze) {
+      if (typeof w !== 'object' || w === null || !('id' in w) || typeof w.id !== 'string' || !('plan' in w) || typeof w.plan !== 'string') return { ok: false, powod: 'odczyt_nieudany' };
+      if (!('start_ms' in w) || !liczbaCalkowita(w.start_ms) || !('ocena' in w)) return { ok: false, powod: 'odczyt_nieudany' };
+      const ocena = OCENY_ODPOWIEDZI.find((o) => o === w.ocena);
+      if (ocena === undefined) return { ok: false, powod: 'odczyt_nieudany' };
+      if (w.id === ostatniId) {
+        wynik[wynik.length - 1]?.oceny.push(ocena);
+        continue;
+      }
+      ostatniId = w.id;
+      // Plan zakończonej aktywności jest tu czytany po raz pierwszy: zły (stary build, import) = wiersz pominięty, bo wynik służy
+      // tylko do poziomu automatycznego i jeden zły wiersz nie może blokować wszystkich scenariuszy (przegląd D-043 P1).
+      let plan: PlanAktywnosci | null = null;
+      try { plan = parsujPlan(JSON.parse(w.plan) as unknown); } catch { plan = null; }
+      if (!plan || plan.trescId === null || plan.wariant === undefined) { ostatniId = null; continue; }
+      wynik.push({ trescId: plan.trescId, poziom: plan.wariant.poziom, startMs: w.start_ms, oceny: [ocena] });
+    }
+    return { ok: true, wartosc: wynik };
+  } catch {
+    return { ok: false, powod: 'odczyt_nieudany' };
+  }
 }

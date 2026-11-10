@@ -47,7 +47,9 @@
   },
   "scenarios": {
     "title": "Scénarios",
-    "soon": "Les scénarios arrivent bientôt. D'ici là, entraîne tes décisions dans la séance d'exercices."
+    "soon": "Les scénarios arrivent bientôt. D'ici là, entraîne tes décisions dans la séance d'exercices.",
+    "levels": "Niveaux : {{lista}}",
+    "locked": "Après la première leçon du module {{n}}"
   },
   "welcome": {
     "title": "PokerGym",
@@ -1007,6 +1009,83 @@
       "end": "{{line}}.",
       "meaning": "Signification : {{def}}",
       "alsoSeen": "Vous verrez aussi : {{list}}."
+    }
+  },
+  "scenario": {
+    "missing": "Ce scénario n'existe pas ou n'est pas encore débloqué.",
+    "nav": {
+      "back": "Scénarios",
+      "title": "Scénario",
+      "finish": "Terminer"
+    },
+    "level": {
+      "label": "Niveau",
+      "group": "Niveau de difficulté",
+      "auto": "Automatique",
+      "latwy": "Facile",
+      "sredni": "Moyen",
+      "trudny": "Difficile"
+    },
+    "start": {
+      "about": "Toi : {{ty}}, adversaire : {{rywal}}. Profondeur {{bb}} bb.",
+      "nowAuto": "Maintenant : {{poziom}}. Le niveau s’adapte à tes résultats.",
+      "nowManual": "Niveau choisi : {{poziom}}.",
+      "missing": "Cette main n’existe pas au niveau « {{wybrany}} ». Tu la joueras au niveau « {{poziom}} ».",
+      "hint": "Chaque main a de nouvelles cartes. Le résultat, ce sont les évaluations de tes décisions, pas un gain.",
+      "begin": "Commencer la main"
+    },
+    "street": {
+      "preflop": "Preflop",
+      "flop": "Flop",
+      "turn": "Turn",
+      "river": "River"
+    },
+    "streets": {
+      "label": "Étapes de la main"
+    },
+    "table": {
+      "label": "Toi : {{ty}}, cartes {{reka}}. Adversaire : {{rywal}}. Cartes découvertes : {{stol}}.",
+      "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
+      "you": "toi",
+      "villain": "adversaire"
+    },
+    "pot": "{{t:pot|Pot}} {{pula}} bb · à {{t:call|suivre}} {{kwota}} bb",
+    "log": {
+      "label": "Déroulement de la main"
+    },
+    "yourMove": "À toi de jouer",
+    "verdict": {
+      "yours": "Ton choix : {{akcja}}. Mieux : {{lepiej}}.",
+      "yoursGood": "Ton choix : {{akcja}}."
+    },
+    "why": {
+      "weaker": "Pourquoi « {{akcja}} » est le coup le plus faible",
+      "better": "Pourquoi « {{akcja}} » est le meilleur coup",
+      "good": "Pourquoi « {{akcja}} » est un bon coup",
+      "whyNot": "Pourquoi pas « {{akcja}} »"
+    },
+    "scale": {
+      "label": "Évaluation des actions : {{lista}}.",
+      "yourChoice": "ton choix"
+    },
+    "numbers": {
+      "title": "Chiffres",
+      "line": "Le {{t:pot|pot}} est de {{pula}} bb et {{t:call|suivre}} coûte {{kwota}} bb, donc il te faut {{potrzeba}} d’équité, soit gagner environ une fois sur {{razPotrzeba}}. Outs : {{outy}} sur {{nieznane}} cartes non vues : tu touches ton tirage dans {{trafisz}} des cas, environ une fois sur {{razTrafisz}}."
+    },
+    "next": {
+      "street": "Suite : {{ulica}}",
+      "summary": "Voir le résumé"
+    },
+    "end": {
+      "title": "Main terminée",
+      "better": "Mieux : {{akcja}}.",
+      "score": "Bonnes décisions : {{dobre}} sur {{wszystkie}}.",
+      "newDeal": "Nouvelle main",
+      "again": "Rejouer la même main",
+      "close": "Fermer",
+      "showdownYou": "Le river est {{river}}. L’adversaire montre {{karty}} : ta main est plus forte.",
+      "showdownVillain": "Le river est {{river}}. L’adversaire montre {{karty}} : sa main est plus forte.",
+      "showdownTie": "Le river est {{river}}. L’adversaire montre {{karty}} : les mains sont égales."
     }
   }
 }

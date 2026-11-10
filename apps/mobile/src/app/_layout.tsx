@@ -170,6 +170,7 @@ export default function RootLayout() {
                 <Stack.Screen name="diagnostics" options={{ title: '' }} />
                 <Stack.Screen name="advancement" options={{ title: '' }} />
                 <Stack.Screen name="scenarios" options={{ title: '' }} />
+                <Stack.Screen name="scenario" options={{ presentation: 'fullScreenModal', headerShown: false, gestureEnabled: false }} />
                 <Stack.Screen name="glossary" options={{ title: '' }} />
                 <Stack.Screen name="help" options={{ title: '' }} />
                 <Stack.Screen name="settings" options={{ title: '' }} />

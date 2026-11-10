@@ -1,0 +1,36 @@
+# SC-19 (M7): draw do koloru na turnie wobec dużego zakładu przy niskim SPR: implied odds nie ratują sprawdzenia.
+# Oceny: rachunek R-M2-005 (flop) i R-M7-008 (turn: dopłata × nietrafiające ÷ outy wobec żetonów za pulą; test szablony-bs
+# liczy go z całym stosem, D-630); R-M7-009 (heuristic): przy niskim SPR implied odds nie ma skąd wziąć. 35 bb, bez T: D-631.
+id: sc-19
+module: m7
+situation: "Przy krótkich stosach po {{t:3-bet|3-becie}} masz {{t:flush-draw}}; rywal {{t:bet|stawia}} mało na flopie i dużo na turnie."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 35
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+  sredni: { draws: [flush], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [16, 18, 20, 22]
+    fractions: [0.1, 0.2, 0.25]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} mało w stosunku do {{t:pot|puli}}. {{t:call|Sprawdzasz}}, bo płacisz tylko za jedną kartę, a {{t:flush-draw}} trafia na niej częściej, niż wymaga tak niska cena. {{t:flush|Kolor}} wpada na turnie w ok. {{n:odds.flush.flop-turn}} przypadków, czyli mniej więcej co piątą kartę."
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}, a rywal z {{w:rywal}} {{t:bet|stawia}} mało w stosunku do {{t:pot|puli}}. {{t:fold|Pas}} oddaje {{t:pot|pulę}}, na której {{t:call|sprawdzenie}} zarabia: przy tak małym {{t:bet|zakładzie}} {{t:flush-draw}} trafia częściej, niż wymaga cena."
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.6667, 0.75, 1]
+    villain: bet
+    rule: R-M7-008
+    actions:
+      - action: call
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}: turn nie dał {{t:flush|koloru}}, a rywal z {{w:rywal}} {{t:bet|stawia}} dużo. {{t:call|Sprawdzenie}} liczy na {{t:implied-odds}}, a tu ich nie ma: przy niskim {{t:spr}} za {{t:pot|pulą}} zostało tak mało {{t:chips|żetonów}}, że nawet gdy po trafieniu wygrasz wszystkie, nie pokryją przegranych {{t:call|sprawdzeń}}. Implied odds liczą się dopiero wtedy, gdy rywal ma jeszcze z czego ci zapłacić."
+      - action: fold
+        explanation: "Masz {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}: turn nie dał {{t:flush|koloru}}, a rywal z {{w:rywal}} {{t:bet|stawia}} dużo. {{t:fold|Pasujesz}}, bo ostatnia karta trafia rzadziej, niż wymaga cena, a {{t:implied-odds}} tego nie zmienią: przy niskim {{t:spr}} za {{t:pot|pulą}} zostało za mało {{t:chips|żetonów}}, żeby wygrana po trafieniu odrobiła przegrane {{t:call|sprawdzenia}}. {{t:flush|Kolor}} wpada na riverze w ok. {{n:odds.flush.turn-river}} przypadków, czyli mniej więcej co piątą kartę."

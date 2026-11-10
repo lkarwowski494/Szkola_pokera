@@ -68,5 +68,5 @@ describe('JAK-F07-02: liczby w treści według języka bazy', () => {
       return n.display !== dawnyFormatPl(n.value, e.unit, e.decimals);
     }).map((n) => ({ key: n.key, display: n.display }));
     expect(rozne).toEqual([]);
-  });
+  }, 120_000); // compileContent pl z kontrolą generatora szablonów (D-555) trwa ok. 10 s (sesja BS)
 });

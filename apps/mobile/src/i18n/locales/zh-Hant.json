@@ -43,7 +43,9 @@
   },
   "scenarios": {
     "title": "情境",
-    "soon": "情境即將推出。在此之前，可以在練習回合中練習決策。"
+    "soon": "情境即將推出。在此之前，可以在練習回合中練習決策。",
+    "levels": "難度：{{lista}}",
+    "locked": "完成模組 {{n}} 的第一堂課後"
   },
   "welcome": {
     "title": "PokerGym",
@@ -971,6 +973,83 @@
       "end": "{{line}}。",
       "meaning": "意思：{{def}}",
       "alsoSeen": "你也會看到：{{list}}。"
+    }
+  },
+  "scenario": {
+    "missing": "此情境不存在，或尚未解鎖。",
+    "nav": {
+      "back": "情境",
+      "title": "情境",
+      "finish": "結束"
+    },
+    "level": {
+      "label": "難度",
+      "group": "難度",
+      "auto": "自動",
+      "latwy": "簡單",
+      "sredni": "中等",
+      "trudny": "困難"
+    },
+    "start": {
+      "about": "你：{{ty}}，對手：{{rywal}}。籌碼深度 {{bb}} bb。",
+      "nowAuto": "目前：{{poziom}}。難度會依你的成績自動調整。",
+      "nowManual": "已選難度：{{poziom}}。",
+      "missing": "這手牌沒有「{{wybrany}}」難度，將以「{{poziom}}」進行。",
+      "hint": "每手牌都是新牌。結果是對決策的評分，不是輸贏。",
+      "begin": "開始這手牌"
+    },
+    "street": {
+      "preflop": "翻牌前",
+      "flop": "翻牌",
+      "turn": "轉牌",
+      "river": "河牌"
+    },
+    "streets": {
+      "label": "牌局階段"
+    },
+    "table": {
+      "label": "你：{{ty}}，手牌 {{reka}}。對手：{{rywal}}。已翻開的牌：{{stol}}。",
+      "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
+      "you": "你",
+      "villain": "對手"
+    },
+    "pot": "{{t:pot|底池}} {{pula}} bb · {{t:call|跟注}}需 {{kwota}} bb",
+    "log": {
+      "label": "牌局過程"
+    },
+    "yourMove": "輪到你",
+    "verdict": {
+      "yours": "你的選擇：{{akcja}}。更好的是：{{lepiej}}。",
+      "yoursGood": "你的選擇：{{akcja}}。"
+    },
+    "why": {
+      "weaker": "為什麼「{{akcja}}」較弱",
+      "better": "為什麼「{{akcja}}」較好",
+      "good": "為什麼「{{akcja}}」是好的打法",
+      "whyNot": "為什麼不是「{{akcja}}」"
+    },
+    "scale": {
+      "label": "各行動的評價：{{lista}}。",
+      "yourChoice": "你的選擇"
+    },
+    "numbers": {
+      "title": "數字",
+      "line": "{{t:pot|底池}}是 {{pula}} bb，{{t:call|跟注}}要 {{kwota}} bb，所以你需要 {{potrzeba}} 的勝率，也就是大約每 {{razPotrzeba}} 次贏 1 次。補牌數是未見的 {{nieznane}} 張中的 {{outy}} 張：成牌機率 {{trafisz}}，大約每 {{razTrafisz}} 次 1 次。"
+    },
+    "next": {
+      "street": "下一步：{{ulica}}",
+      "summary": "查看總結"
+    },
+    "end": {
+      "title": "這手牌結束",
+      "better": "更好的是：{{akcja}}。",
+      "score": "好的決策：{{wszystkie}} 次中 {{dobre}} 次。",
+      "newDeal": "新的一手牌",
+      "again": "再玩一次同一手牌",
+      "close": "關閉",
+      "showdownYou": "河牌是 {{river}}。對手亮出 {{karty}}：你的牌型較高。",
+      "showdownVillain": "河牌是 {{river}}。對手亮出 {{karty}}：對手的牌型較高。",
+      "showdownTie": "河牌是 {{river}}。對手亮出 {{karty}}：牌型相同。"
     }
   }
 }
