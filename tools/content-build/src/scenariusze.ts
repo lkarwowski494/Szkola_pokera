@@ -74,7 +74,7 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
       const brak = (['reka', 'stol', 'pozycja'] as const).filter((m) => !w.includes(m));
       if (brak.length) e.push(`${p} akcja ${a.action}: zdanie sytuacji (pierwsze) musi mieć znaczniki wariantu ${brak.map((m) => `{{w:${m}}}`).join(', ')}, żeby pokazywało karty i pozycję z wylosowanego wariantu`);
     }
-    if (i === 0 && d.street !== 'flop') e.push(`${p} pierwsza decyzja jest na flopie`);
+    if (i === 0 && d.street !== 'flop' && t.decisions.length === 2) e.push(`${p} przy dwóch punktach decyzji pierwszy jest na flopie`);
     if (i === 1 && d.street !== 'turn') e.push(`${p} druga decyzja jest na turnie`);
     if (i === 0 && d.pots.length === 0) e.push(`${p} brak puli do losowania`);
   });
@@ -89,7 +89,7 @@ export const PROBY_POJEMNOSCI = 2000;
 /** Generator musi wytwarzać warianty na każdym poziomie (granice i oczekiwana akcja spełnialne) w liczbie odcisków ≥ POJEMNOSC_MIN po odrzuceniach (dolna granica z losowań; parametry do testu progu). */
 export function checkScenarioGenerator(t: ScenarioTemplate, pojemnoscMin: number = POJEMNOSC_MIN, proby: number = PROBY_POJEMNOSCI): string[] {
   const e: string[] = [];
-  const g = { id: t.id, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+  const g = { id: t.id, stackBb: t.stackBb, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
   for (const level of t.levels as ScenarioLevel[]) {
     const odciski = new Set<string>();
     try {

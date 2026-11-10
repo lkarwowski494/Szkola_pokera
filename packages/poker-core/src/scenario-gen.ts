@@ -4,7 +4,8 @@
 import type { Card } from './cards';
 import { dealCards, rankOf, suitOf } from './cards';
 import { analyseOutsSpot, type DrawKind } from './drills';
-import { requiredEquity } from './math';
+import { nutOutsShare, NUT_DRAW_MIN_SHARE } from './grading';
+import { hitProbability, requiredEquity } from './math';
 import { createRng, pick } from './rng';
 import { SUIT_PERMUTATIONS } from './situation';
 import { classifyFlop, textureMatches, type TextureFilter } from './texture';
@@ -19,8 +20,10 @@ export interface DecisionSpec {
   street: 'flop' | 'turn';
   /** Pule do wylosowania na pierwszej decyzji (kolejne wynikają z linii: pula + 2 × zakład). */
   pots: readonly number[];
-  /** Dopuszczalne ułamki puli w zakładzie rywala. */
+  /** Dopuszczalne ułamki puli w zakładzie rywala (przy linii `bet`). */
   fractions: readonly number[];
+  /** Linia rywala: `bet` (ułamek puli, domyślnie) albo `all-in` (F5: cały stos za pulą, stackBb − wkład gracza). */
+  villain?: 'bet' | 'all-in';
 }
 export interface LevelBounds {
   draws: readonly DrawKind[];
@@ -29,6 +32,10 @@ export interface LevelBounds {
   marginMin: number;
   marginMax: number | null;
   reject: readonly RejectCondition[];
+  /** F5: tylko draw „do najlepszej ręki” (udział nutowych outów ≥ NUT_DRAW_MIN_SHARE). */
+  drawToBest?: boolean;
+  /** F5: margines osobno na punkt decyzji (po jednym na punkt); zastępuje marginMin/marginMax. */
+  margins?: readonly { min: number; max: number | null }[];
   /**
    * Poprawna akcja w każdym punkcie decyzji tego poziomu, po jednej na punkt (BR-SZB-001, BR-GEN-003, D-556). Granice losowania
    * mają ją gwarantować: generator odrzuca wariant, w którym rachunek daje inną akcję, więc w poziomie decyzja się nie zmienia.
@@ -37,6 +44,8 @@ export interface LevelBounds {
 }
 export interface GeneratorTemplate {
   id: string;
+  /** Głębokość w bb: potrzebna tylko przy linii `all-in` (F5). */
+  stackBb?: number;
   levels: Partial<Record<ScenarioLevel, LevelBounds>>;
   decisions: readonly DecisionSpec[];
 }
@@ -69,6 +78,8 @@ export class TemplateError extends Error {}
 /** Po ilu odrzuceniach z rzędu generator zgłasza błąd szablonu (BR-GEN-003). */
 export const MAX_CONSECUTIVE_REJECTIONS = 1000;
 
+/** Martwe blindy w puli przed flopem (SB 0,5 + BB 1): wkład gracza preflop ≈ (pula − 1,5) ÷ 2 (F5, linia all-in; jak test szablony-bs). */
+const MARTWE_BLINDY_BB = 1.5;
 const IDENTITY: readonly number[] = [0, 1, 2, 3];
 const RANK_CHARS = '23456789TJQKA';
 
@@ -95,11 +106,11 @@ export function variantFingerprint(templateId: string, level: ScenarioLevel, her
 
 function validateTemplate(t: GeneratorTemplate): void {
   const d = t.decisions;
-  if (d.length < 1 || d.length > 2 || d[0]!.street !== 'flop' || (d.length === 2 && d[1]!.street !== 'turn')) {
-    throw new TemplateError(`${t.id}: decyzje to flop albo flop i turn`);
-  }
+  const ok = (d.length === 1 && (d[0]!.street === 'flop' || d[0]!.street === 'turn')) || (d.length === 2 && d[0]!.street === 'flop' && d[1]!.street === 'turn');
+  if (!ok) throw new TemplateError(`${t.id}: decyzje to flop, turn (decyzja od turnu) albo flop i turn`);
   if (d[0]!.pots.length === 0) throw new TemplateError(`${t.id}: pierwsza decyzja bez puli do losowania`);
-  if (d.some((x) => x.fractions.length === 0)) throw new TemplateError(`${t.id}: decyzja bez ułamków zakładu`);
+  if (d.some((x) => x.villain === 'all-in') && !(typeof t.stackBb === 'number' && t.stackBb > 0)) throw new TemplateError(`${t.id}: linia all-in wymaga stackBb`);
+  if (d.some((x) => x.villain !== 'all-in' && x.fractions.length === 0)) throw new TemplateError(`${t.id}: decyzja bez ułamków zakładu`);
 }
 
 /** Reguła draw-price: wołamy, gdy szansa na trafienie przewyższa cenę sprawdzenia. */
@@ -107,8 +118,9 @@ function decide(hit: number, required: number): 'call' | 'fold' {
   return hit > required ? 'call' : 'fold';
 }
 
-function inMargin(margin: number, b: LevelBounds): boolean {
-  return margin > 0 && margin >= b.marginMin && (b.marginMax === null || margin < b.marginMax);
+function inMargin(margin: number, b: LevelBounds, i: number): boolean {
+  const m = b.margins?.[i] ?? { min: b.marginMin, max: b.marginMax };
+  return margin > 0 && margin >= m.min && (m.max === null || margin < m.max);
 }
 
 function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, seed: number, rng: () => number): ScenarioVariant | null {
@@ -130,24 +142,26 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     const spot = analyseOutsSpot(hero, stol);
     if (!spot || !(b.draws as readonly string[]).includes(spot.draw.kind)) return null;
     pot = i === 0 ? pick(rng, spec.pots) : pot + 2 * decisions[0]!.bet;
-    const ok = spec.fractions
-      .map((fraction) => {
-        const bet = Math.round(pot * fraction);
-        return { fraction, bet, margin: bet > 0 ? Math.abs(spot.hitNextCard - requiredEquity(pot, bet)) : 0 };
-      })
-      .filter((x) => inMargin(x.margin, b) && decide(spot.hitNextCard, requiredEquity(pot, x.bet)) === b.expected[i]); // BR-GEN-003: tylko oczekiwana akcja
+    // F5: all-in rywala na flopie to sprawdzenie całego stosu, więc rachunek na dwie karty (R-M2-002); inaczej jedna karta
+    const allIn = spec.villain === 'all-in';
+    const hit = allIn && spec.street === 'flop' ? hitProbability(spot.outs, 52 - 2 - stol.length, 2) : spot.hitNextCard;
+    const linie = allIn ? [Math.round(t.stackBb! - (pot - MARTWE_BLINDY_BB) / 2)] : spec.fractions.map((f) => Math.round(pot * f));
+    const ok = linie
+      .map((bet) => ({ fraction: bet / pot, bet, margin: bet > 0 ? Math.abs(hit - requiredEquity(pot, bet)) : 0 }))
+      .filter((x) => inMargin(x.margin, b, i) && decide(hit, requiredEquity(pot, x.bet)) === b.expected[i]); // BR-GEN-003: tylko oczekiwana akcja
     if (ok.length === 0) return null;
+    if (b.drawToBest && nutOutsShare(hero, stol) < NUT_DRAW_MIN_SHARE) return null; // F5: draw do najlepszej ręki (po tanich warunkach: nutOutsShare jest drogie)
     const chosen = pick(rng, ok);
     const required = requiredEquity(pot, chosen.bet);
     decisions.push({
-      street: spec.street, pot, bet: chosen.bet, fraction: chosen.fraction, required, hit: spot.hitNextCard, outs: spot.outs,
-      kind: spot.draw.kind as DrawKind, correct: decide(spot.hitNextCard, required), margin: chosen.margin,
+      street: spec.street, pot, bet: chosen.bet, fraction: chosen.fraction, required, hit, outs: spot.outs,
+      kind: spot.draw.kind as DrawKind, correct: decide(hit, required), margin: chosen.margin,
     });
     outCards.push(...spot.draw.all);
     previousOuts = spot.draw.all;
   }
   if (b.reject.includes('rywal-ma-out-gracza') && villain.some((c) => outCards.includes(c))) return null;
-  const shown = board.slice(0, t.decisions.length === 2 ? 4 : 3);
+  const shown = board.slice(0, t.decisions[t.decisions.length - 1]!.street === 'turn' ? 4 : 3);
   return { templateId: t.id, level, seed, hero, villain, board, decisions, fingerprint: variantFingerprint(t.id, level, hero, shown) };
 }
 

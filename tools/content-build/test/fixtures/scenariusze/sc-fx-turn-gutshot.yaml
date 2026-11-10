@@ -1,0 +1,21 @@
+# Fixture testu BU (F5): decyzja od turnu (flop bez akcji gracza), pas gutshotem wobec dużego zakładu. Nie jest treścią aplikacji.
+id: sc-fx-turn-gutshot
+module: m2
+situation: "Fixture: gutshot na turnie."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 35
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [gutshot], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+  sredni: { draws: [gutshot], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+decisions:
+  - street: turn
+    kind: draw-call
+    pots: [12, 14, 16]
+    fractions: [0.15, 0.2, 0.5, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - { action: call, explanation: "Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}, a rywal z {{w:rywal}} stawia. Sprawdzasz, bo szansa na trafienie jest wyższa niż cena." }
+      - { action: fold, explanation: "Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}, a rywal z {{w:rywal}} stawia dużo. Pasujesz, bo szansa na trafienie jest niższa niż cena." }

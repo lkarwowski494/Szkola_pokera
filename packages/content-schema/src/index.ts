@@ -502,6 +502,10 @@ export const ScenarioLevelBounds = z
   .object({
     draws: z.array(ScenarioDraw).min(1),
     flop: TextureFilter.optional(),
+    /** F5: tylko draw „do najlepszej ręki” (udział nutowych outów ≥ NUT_DRAW_MIN_SHARE, R-M7-009). */
+    drawToBest: z.boolean().optional(),
+    /** F5: margines osobno na punkt decyzji (po jednym na punkt, kolejność jak w decisions); zastępuje marginMin/marginMax. */
+    margins: z.array(z.object({ min: z.number().min(0).max(1), max: z.number().min(0).max(1).nullable() }).strict()).min(1).max(2).optional(),
     /** Odległość szansy od ceny jako ułamek (0,10 = 10 pp): marginMin ≤ odległość < marginMax (null = bez górnej granicy). */
     marginMin: z.number().min(0).max(1),
     marginMax: z.number().min(0).max(1).nullable(),
@@ -522,8 +526,8 @@ export const ScenarioDecision = z
     /** Pule do wylosowania na pierwszej decyzji; kolejne wynikają z linii (pula + 2 × zakład). */
     pots: z.array(z.number().positive()),
     fractions: z.array(z.number().positive()).min(1),
-    /** Linia rywala przed decyzją (D-109): w tym kroku rywal zawsze stawia ułamek puli z `fractions`. */
-    villain: z.literal('bet'),
+    /** Linia rywala przed decyzją (D-109): `bet` = ułamek puli z `fractions`; `all-in` (F5) = cały stos za pulą (stackBb − wkład gracza). */
+    villain: z.enum(['bet', 'all-in']),
     /** Źródło oceny (RD-11, ADR-24): reguła z rules.yaml albo rachunek z numbers.yaml; dokładnie jedno. */
     rule: id.optional(),
     calc: id.optional(),

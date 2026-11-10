@@ -1,0 +1,35 @@
+# Fixture testu BU (F5): margines osobno na każdy punkt decyzji (flop: duży, turn: mały). Nie jest treścią aplikacji.
+id: sc-fx-margines
+module: m2
+situation: "Fixture: dwa punkty decyzji z osobnymi marginesami."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 35
+levels: [sredni]
+bounds:
+  sredni:
+    draws: [oesd]
+    marginMin: 0.02
+    marginMax: null
+    margins: [{ min: 0.1, max: null }, { min: 0.02, max: 0.1 }]
+    reject: [rywal-ma-out-gracza, stol-sparowany]
+    expected: [call, fold]
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [16, 18, 20, 22]
+    fractions: [0.05, 0.1, 0.2, 0.25]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - { action: call, explanation: "Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}, a rywal z {{w:rywal}} stawia. Sprawdzasz, bo szansa na trafienie jest wyższa niż cena." }
+      - { action: fold, explanation: "Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}, a rywal z {{w:rywal}} stawia dużo. Pasujesz, bo szansa na trafienie jest niższa niż cena." }
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.5, 0.6667, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - { action: call, explanation: "Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}, a rywal z {{w:rywal}} stawia. Sprawdzasz, bo szansa na trafienie jest wyższa niż cena." }
+      - { action: fold, explanation: "Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}, a rywal z {{w:rywal}} stawia dużo. Pasujesz, bo szansa na trafienie jest niższa niż cena." }
