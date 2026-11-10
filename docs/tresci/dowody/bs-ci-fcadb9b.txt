@@ -1,0 +1,225 @@
+# pnpm run ci @ fcadb9b (2026-11-10T18:55:11Z), sesja BS
+
+> szkola-pokera@ ci /home/user/Szkola_pokera
+> pnpm typecheck && pnpm test && pnpm test:skrypty && pnpm test:kontrole && pnpm k08 && pnpm i18n:kod && pnpm content:check && pnpm tresci:rejestr
+
+
+> szkola-pokera@ typecheck /home/user/Szkola_pokera
+> pnpm -r --if-present typecheck
+
+Scope: 9 of 10 workspace projects
+packages/content-schema typecheck$ tsc -p tsconfig.json
+packages/jezyki typecheck$ tsc -p tsconfig.json
+packages/poker-core typecheck$ tsc -p tsconfig.json
+packages/srs typecheck$ tsc -p tsconfig.json
+packages/jezyki typecheck: Done
+packages/content-schema typecheck: Done
+packages/srs typecheck: Done
+packages/poker-core typecheck: Done
+packages/domena typecheck$ tsc -p tsconfig.json && tsc -p tsconfig.test.json
+tools/preflop-solver typecheck$ tsc -p tsconfig.json
+tools/preflop-solver typecheck: Done
+packages/domena typecheck: Done
+packages/postep typecheck$ tsc -p tsconfig.json && tsc -p tsconfig.test.json
+tools/content-build typecheck$ tsc -p tsconfig.json
+tools/content-build typecheck: Done
+packages/postep typecheck: Done
+apps/mobile typecheck$ tsc --noEmit
+apps/mobile typecheck: Done
+
+> szkola-pokera@ test /home/user/Szkola_pokera
+> pnpm -r --if-present test
+
+Scope: 9 of 10 workspace projects
+packages/jezyki test$ vitest run
+packages/poker-core test$ vitest run
+packages/srs test$ vitest run
+packages/jezyki test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/jezyki
+packages/srs test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/srs
+packages/poker-core test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/poker-core
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/srs test:    Start at  18:55:29
+packages/srs test:    Duration  616ms (transform 51%, setup 19%, tests 17%, import 10%, worker 3%)
+packages/srs test: Done
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/jezyki test:    Start at  18:55:29
+packages/jezyki test:    Duration  935ms (tests 48%, transform 31%, import 17%, worker 4%)
+packages/jezyki test: Done
+packages/poker-core test:  Test Files  14 passed (14)
+packages/poker-core test:       Tests  178 passed (178)
+packages/poker-core test:    Start at  18:55:29
+packages/poker-core test:    Duration  114.09s (tests 95%, import 4%, transform 1%)
+packages/poker-core test: Done
+packages/domena test$ vitest run
+tools/preflop-solver test$ vitest run
+tools/preflop-solver test:  RUN  v5.0.3 /home/user/Szkola_pokera/tools/preflop-solver
+packages/domena test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/domena
+packages/domena test: (node:5301) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/domena test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/domena test: (node:5390) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/domena test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/domena test:  Test Files  23 passed (23)
+packages/domena test:       Tests  332 passed (332)
+packages/domena test:    Start at  18:57:24
+packages/domena test:    Duration  8.57s (tests 68%, transform 16%, import 11%, setup 4%, worker 1%)
+packages/domena test:     Isolate  23 workers spawned · ~195ms startup each (spawn + environment, per file)
+packages/domena test:              at least ~1.30s faster with isolate: false — reuses workers across files instead of one per file
+packages/domena test: Done
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+tools/preflop-solver test:    Start at  18:57:24
+tools/preflop-solver test:    Duration  54.64s (tests 97%, import 1%, transform 1%)
+tools/preflop-solver test: Done
+packages/postep test$ vitest run
+tools/content-build test$ vitest run
+packages/postep test:  RUN  v5.0.3 /home/user/Szkola_pokera/packages/postep
+tools/content-build test:  RUN  v5.0.3 /home/user/Szkola_pokera/tools/content-build
+packages/postep test: (node:5546) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:5568) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:5566) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:5567) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:5547) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:5545) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:5587) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:5594) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:5601) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:5608) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:5615) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:5622) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:5629) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:5636) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:5643) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:5656) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:5650) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:5671) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test: (node:5677) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+packages/postep test: (Use `node --trace-warnings ...` to show where the warning was created)
+packages/postep test:  Test Files  17 passed (17)
+packages/postep test:       Tests  136 passed (136)
+packages/postep test:    Start at  18:58:19
+packages/postep test:    Duration  5.37s (tests 70%, transform 16%, import 13%, worker 1%)
+packages/postep test:     Isolate  17 workers spawned · ~184ms startup each (spawn + environment, per file)
+packages/postep test:              at least ~857ms faster with isolate: false — reuses workers across files instead of one per file
+packages/postep test: Done
+tools/content-build test: (node:5689) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:5696) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test:  ❯ test/szablon-scenariusza-bf.test.ts (21 tests | 2 failed) 28222ms
+tools/content-build test:    ❯ compileContent z szablonami scenariuszy (3)
+tools/content-build test:      × szablon trafia do treści, liczby w wyjaśnieniach są podstawione 13538ms
+tools/content-build test:      × bez katalogu scenarios treść nie ma pola scenarios (hash bez zmian do czasu pierwszych szablonów) 12346ms
+tools/content-build test: (node:5704) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:5714) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:5721) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:5728) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:5735) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test:  ❯ test/build.test.ts (39 tests | 1 failed) 64655ms
+tools/content-build test:    ❯ terminy PL ↔ EN (content/terms.yaml) (7)
+tools/content-build test:      × prawdziwa treść: każdy termin ma źródło z adresem, ćwiczenie słownictwa ma w obszarze co najmniej 4 terminy 12745ms
+tools/content-build test: (node:5752) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:5759) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:5745) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:5773) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test:  ❯ test/liczby-jezyk-08.test.ts (4 tests | 1 failed) 14342ms
+tools/content-build test:    ❯ JAK-F07-02: liczby w treści według języka bazy (4)
+tools/content-build test:      × LJ-08-d strażnik: w bazie `pl` każda liczba z numbers.yaml ma ten sam zapis co przed zmianą 14323ms
+tools/content-build test: (node:5797) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: (node:5806) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+tools/content-build test: (Use `node --trace-warnings ...` to show where the warning was created)
+tools/content-build test: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+tools/content-build test:  FAIL  test/build.test.ts > terminy PL ↔ EN (content/terms.yaml) > prawdziwa treść: każdy termin ma źródło z adresem, ćwiczenie słownictwa ma w obszarze co najmniej 4 terminy
+tools/content-build test: Error: Test timed out in 5000ms.
+tools/content-build test: If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+tools/content-build test:  ❯ test/build.test.ts:358:3
+tools/content-build test:     356|     ).toThrow(/należy do a i b/);
+tools/content-build test:     357|   });
+tools/content-build test:     358|   it('prawdziwa treść: każdy termin ma źródło z adresem, ćwiczenie sło…
+tools/content-build test:        |   ^
+tools/content-build test:     359|     const c = compileContent(contentDir);
+tools/content-build test:     360|     expect(c.terms.length).toBeGreaterThan(80);
+tools/content-build test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+tools/content-build test:  FAIL  test/liczby-jezyk-08.test.ts > JAK-F07-02: liczby w treści według języka bazy > LJ-08-d strażnik: w bazie `pl` każda liczba z numbers.yaml ma ten sam zapis co przed zmianą
+tools/content-build test: Error: Test timed out in 5000ms.
+tools/content-build test: If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+tools/content-build test:  ❯ test/liczby-jezyk-08.test.ts:62:3
+tools/content-build test:      60|   });
+tools/content-build test:      61|
+tools/content-build test:      62|   it('LJ-08-d strażnik: w bazie `pl` każda liczba z numbers.yaml ma te…
+tools/content-build test:        |   ^
+tools/content-build test:      63|     const wpisy = NumbersFile.parse(parseYaml(readFileSync(join(conten…
+tools/content-build test:      64|     const liczby = compileContent(contentDir, 'pl').numbers;
+tools/content-build test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+tools/content-build test:  FAIL  test/szablon-scenariusza-bf.test.ts > compileContent z szablonami scenariuszy > szablon trafia do treści, liczby w wyjaśnieniach są podstawione
+tools/content-build test: AssertionError: expected [ 'sc-01', 'sc-02', 'sc-19', …(1) ] to deeply equal [ 'sc-test-draw' ]
+tools/content-build test: - Expected
+tools/content-build test: + Received
+tools/content-build test:   [
+tools/content-build test: +   "sc-01",
+tools/content-build test: +   "sc-02",
+tools/content-build test: +   "sc-19",
+tools/content-build test:     "sc-test-draw",
+tools/content-build test:   ]
+tools/content-build test:  ❯ test/szablon-scenariusza-bf.test.ts:143:43
+tools/content-build test:     141|   it('szablon trafia do treści, liczby w wyjaśnieniach są podstawione'…
+tools/content-build test:     142|     const c = zTreścią({ 'sc-test-draw.yaml': yaml(BAZA) });
+tools/content-build test:     143|     expect(c.scenarios?.map((s) => s.id)).toEqual(['sc-test-draw']);
+tools/content-build test:        |                                           ^
+tools/content-build test:     144|     expect(c.scenarios?.[0]?.decisions[0]?.actions[0]?.explanation).no…
+tools/content-build test:     145|     expect(c.scenarios?.[0]?.decisions[0]?.actions[0]?.explanation).to…
+tools/content-build test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+tools/content-build test:  FAIL  test/szablon-scenariusza-bf.test.ts > compileContent z szablonami scenariuszy > bez katalogu scenarios treść nie ma pola scenarios (hash bez zmian do czasu pierwszych szablonów)
+tools/content-build test: AssertionError: expected true to be false // Object.is equality
+tools/content-build test: - Expected
+tools/content-build test: + Received
+tools/content-build test: - false
+tools/content-build test: + true
+tools/content-build test:  ❯ test/szablon-scenariusza-bf.test.ts:152:55
+tools/content-build test:     150|   }, 120_000);
+tools/content-build test:     151|   it('bez katalogu scenarios treść nie ma pola scenarios (hash bez zmi…
+tools/content-build test:     152|     expect('scenarios' in compileContent(contentDir)).toBe(false);
+tools/content-build test:        |                                                       ^
+tools/content-build test:     153|   }, 120_000);
+tools/content-build test:     154| });
+tools/content-build test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+tools/content-build test:  Test Files  3 failed | 16 passed (19)
+tools/content-build test:       Tests  4 failed | 217 passed (221)
+tools/content-build test:    Start at  18:58:19
+tools/content-build test:    Duration  157.88s (tests 77%, import 22%)
+tools/content-build test: Failed
+/home/user/Szkola_pokera/tools/content-build:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @szkola/content-build@0.1.0 test: `vitest run`
+Exit status 1
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed with exit code 1.
+KOD WYJŚCIA: 1
