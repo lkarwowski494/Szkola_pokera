@@ -231,11 +231,15 @@ describe('„Postęp” (KO-045)', () => {
   });
 });
 
-describe('„Scenariusze” do czasu kroku F', () => {
-  it('stan „wkrótce” bez przycisków (brak martwego przycisku)', async () => {
+describe('„Scenariusze” po zapisie szablonów do bazy treści (BS, BU, BT)', () => {
+  // D-722: wcześniej treść nie miała szablonów i ekran pokazywał „wkrótce”; po scaleniu BS+BU+BT lista jest z bazy treści.
+  it('nowy użytkownik: lista szablonów z bazą treści, bez „wkrótce”, każdy przycisk wyłączony z powodem (brak martwego przycisku)', async () => {
     await otworz(ScenariosScreen);
     expect(screen.getByText(t('scenarios.title'))).toBeTruthy();
-    expect(screen.getByText(t('scenarios.soon'))).toBeTruthy();
-    expect(screen.queryAllByRole('button')).toHaveLength(0);
+    expect(screen.queryByText(t('scenarios.soon'))).toBeNull();
+    const przyciski = screen.queryAllByRole('button');
+    expect(przyciski.length).toBeGreaterThan(0);
+    for (const b of przyciski) expect(b.props.accessibilityState).toMatchObject({ disabled: true });
+    expect(screen.getAllByText(/^Po pierwszej lekcji modułu \d+$/).length).toBe(przyciski.length);
   });
 });

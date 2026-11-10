@@ -18,7 +18,9 @@ export const AKCJE: readonly Akcja[] = ['fold', 'call'];
 
 /** Szablon z treści → szablon generatora (jedna definicja granic dla treści i generatora, BR-SZB-001). */
 export function naGenerator(s: ScenarioTemplate): GeneratorTemplate {
-  return { id: s.id, levels: s.bounds, decisions: s.decisions.map((d) => ({ street: d.street, pots: d.pots, fractions: d.fractions })) };
+  return { id: s.id, levels: s.bounds, decisions: s.decisions.map((d) => d.kind === 'range-spot'
+      ? { kind: d.kind, street: d.street, spot: d.spot }
+      : { kind: d.kind, street: d.street, pots: d.pots, fractions: d.fractions, villain: d.villain }) };
 }
 
 /** Graf do planu aktywności (D-219): pas kończy rozdanie, sprawdzenie prowadzi do następnej decyzji albo do pokazania kart. */

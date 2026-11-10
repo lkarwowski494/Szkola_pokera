@@ -1,6 +1,8 @@
 # Rejestr decyzji w repo: Szkoła Pokera
 Kopia robocza decyzji ról sztafety od roli 03 (2026-11-03). Rejestr główny to dokument 03 na Dysku („03 Rejestr decyzji (ADR)”), którego konektor nie edytuje: wpisy niżej czekają na przeniesienie (krok właściciela). Numeracja D-101 i dalej jest numeracją tego projektu; D-0nn w innych dokumentach to decyzje biblioteki `prompts` (np. D-024, D-027). *Dlaczego:* decyzja bez zapisu z datą i odrzuconymi opcjami nie da się sprawdzić ani cofnąć.
 
+Nowe decyzje sesji zapisuj w osobnym pliku `docs/decyzje/<litera>.md` (ten sam format wiersza co niżej), nie dopisuj ich do tej tabeli (KO-054, 2026-11-10). *Dlaczego:* dopiski na końcu jednej tabeli dawały konflikt przy każdym scaleniu.
+
 Kto: W = właściciel (jego słowa), A = agent na podstawie delegacji z `CLAUDE.md` („Delegacja decyzji”, 2026-11-03; właściciel może zawetować).
 
 | ID | Data | Kto | Decyzja | Odrzucone | Podstawa | Zależy od |

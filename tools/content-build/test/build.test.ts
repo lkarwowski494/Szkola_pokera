@@ -83,7 +83,7 @@ describe('treść projektu', () => {
   // dwie pełne kompilacje treści; przy rosnącej treści i obciążonym runnerze domyślne 5 s bywało za mało
   it('jest deterministyczna (ten sam hash)', () => {
     expect(compileContent(contentDir).hash).toBe(compileContent(contentDir).hash);
-  }, 30_000);
+  }, 120_000); // po scaleniu BS+BU jedna kompilacja ok. 16 s, dwie > 30 s (CD, D-720)
 });
 
 describe('pula egzaminacyjna (content/pl/exams)', () => {
