@@ -54,4 +54,6 @@ Nie dotyczy: brak (wszystkie 12 ról dotyczy). Repo treści prywatnych: brak (CL
 - Wyjątek nazwany od wyjścia roli: `K/prompty/` w `.git/info/exclude` (biblioteka prywatna, repo publiczne); reszta K commitowana na `sesja-ay-audyt` (polecenie AY pkt 3) zamiast samego exclude.
 
 ## Decyzja
+**Zatwierdzone 2026-11-10 ok. 11:50 UTC** (słowa właściciela przekazane przez koordynatora, dosłownie): „Wariant głęboki, zgoda na dołączenie repo”; wcześniej: „Ok po nowym buildzie” — fan-out po sygnale koordynatora o uruchomionym buildzie i jego SHA. `add_repo prompts` ponowione raz 11:48 UTC: odrzucone przez klasyfikator uprawnień sesji → prompty ról składa koordynator (opcja b).
+
 (a) **wariant głęboki** jak wyżej (rekomendacja: CLAUDE.md „Audyty i wydania” pkt 4 — przed upublicznieniem „pełny, głęboki audyt całości”; treść jest główną wartością, a jej przegląd jest zastępczy, więc drugi niezależny przebieg 06 tani wobec ryzyka błędnych twierdzeń) · (b) standardowy: wszystkie 12 ról, 3 soczewki, weryfikacja P0/P1; 5,8–11,9 mln; słabszy w treści · (c) lekki: 02, 05, 06, 07, 09, 10, 12; 3–6 mln; werdykt nie może być GOTOWE, nie spełnia D-304 · (d) zmiany właściciela.
