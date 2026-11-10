@@ -67,6 +67,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 | BQ | session_01T66VBxNvFHegPZt6NhenVR | 06 fix, treść (opus/high) | sesja-bq-poprawki @ 8b600ee (start) | — | — | poprawki 06-tresci-001…005 po BP (polecenie BQ.md @ cc8be4b, pula D-610…D-624); start 17:38; cmp: linia 372 (regex LICZBA \u → nbsp, 3. raz) — poprawka wysłana |
 | BR | session_01T66VBwJkgwMZ12y7Cixrzq | 08 build, kod (sonnet) | claude/sleepy-brahmagupta-2065nu @ 00b0566 (start) | — | — | scalenie bf-generator + bq-poprawki + bi-menu, ci (polecenie BR.md @ dd73c43, pula D-625…D-629); start 18:20; cmp identyczne |
 | BS | session_01T66VByFt6mTKSY59mobNwH | 06 build, treść (opus/high) | sesja-bs-szablony @ 70fdf40 (start) | — | — | krok C: 14 szablonów „umie” (polecenie BS.md @ 8b4e77c, pula D-630…D-644); start 18:35, effort high przyjęty; cmp: tylko linia 417 (regex LICZBA) — poprawka wysłana |
+| BT | session_01T66VBvFdPnQQap1o7BrZTD | 08 build, kod (sonnet) | sesja-bt-ekran @ 60465c0 (start) | — | — | krok F: ekran scenariusza (polecenie BT.md @ 4862fb8, pula D-645…D-659); start 18:50; cmp: brak pustej linii 200 (1 B) — poprawka wysłana |
 Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%), AT (7,32 USD, 26,4%), AU (5,37 USD, 32,4%), AV (0,85 USD, 15,4%), BA (13,39 USD, 29,1% → BB), BB (8,34 USD, 23,4% → BC). Litery użyte dotąd: A…Z, AA…AT ; następna litera: **BV**. Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
 ## Plan 24 h (UTC)
