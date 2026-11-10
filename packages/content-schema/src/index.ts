@@ -7,7 +7,7 @@ export * from './terms';
  * Kontrakt treści: wspólny dla potoku content-build (walidacja) i aplikacji (typy).
  * Zmiana tego pliku = zmiana wersji schematu (CONTENT_SCHEMA_VERSION).
  */
-export const CONTENT_SCHEMA_VERSION = 6;
+export const CONTENT_SCHEMA_VERSION = 7; // 7: tabela scenarios w bazie treści (KO-050, D-664)
 
 const id = z.string().regex(/^[a-z0-9][a-z0-9.\-]*$/i, 'identyfikator: litery, cyfry, kropki, myślniki');
 const cardsText = z.string().regex(/^([2-9TJQKA][shdc])( [2-9TJQKA][shdc])*$/, 'karty w formacie "As Kd"');

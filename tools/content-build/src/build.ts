@@ -625,6 +625,7 @@ export function writeContentDb(content: CompiledContent, outDir: string, wersja 
     CREATE TABLE ranges (id TEXT PRIMARY KEY, title TEXT NOT NULL, hero TEXT NOT NULL, path TEXT NOT NULL, play_percent REAL NOT NULL, groups TEXT NOT NULL, uncertain TEXT NOT NULL, solver TEXT NOT NULL, actions TEXT NOT NULL);
     CREATE TABLE game_kit (key TEXT PRIMARY KEY, value TEXT NOT NULL);
     CREATE TABLE terms (key TEXT PRIMARY KEY, pl TEXT NOT NULL, en TEXT NOT NULL, en_alt TEXT NOT NULL, abbr TEXT, area TEXT NOT NULL);
+    CREATE TABLE scenarios (id TEXT PRIMARY KEY, module_id TEXT NOT NULL REFERENCES modules(id), ord INTEGER NOT NULL, data TEXT NOT NULL);
   `);
   const tx = (fn: () => void) => {
     db.exec('BEGIN');
@@ -666,6 +667,9 @@ export function writeContentDb(content: CompiledContent, outDir: string, wersja 
     kit.run('areas', JSON.stringify(content.areas));
     const te = db.prepare('INSERT INTO terms VALUES (?, ?, ?, ?, ?, ?)');
     for (const t of content.terms) te.run(t.key, t.pl, t.en, JSON.stringify(t.enAlt), t.abbr ?? null, t.area);
+    // KO-050: szablony scenariuszy (BR-SZB-001), jeden wiersz na szablon; data = JSON jak w compileContent().scenarios
+    const sc = db.prepare('INSERT INTO scenarios VALUES (?, ?, ?, ?)');
+    (content.scenarios ?? []).forEach((t, i) => sc.run(t.id, t.module, i, JSON.stringify(t)));
   });
   db.exec('VACUUM');
   db.close();
