@@ -1,0 +1,27 @@
+$ bash -c pnpm test:akceptacja
+
+> szkola-pokera@ test:akceptacja /home/user/Szkola_pokera
+> a=0; pnpm test:akceptacja:domena || a=1; pnpm test:akceptacja:ekrany || a=1; exit $a
+
+
+> szkola-pokera@ test:akceptacja:domena /home/user/Szkola_pokera
+> tsc -p tests/akceptacja && vitest run --root tests/akceptacja
+
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (tests/akceptacja/vitest.config.ts:2:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v5.0.3 /home/user/Szkola_pokera/tests/akceptacja
+
+
+ Test Files  3 passed (3)
+      Tests  14 passed (14)
+   Start at  10:52:08
+   Duration  1.27s (import 50%, tests 28%, transform 22%, worker 1%)
+
+
+> szkola-pokera@ test:akceptacja:ekrany /home/user/Szkola_pokera
+> ls tests/akceptacja/ekrany/*.test.tsx >/dev/null 2>&1 || { echo 'Brak testów oczekujących ekranów (wszystkie w apps/mobile, D-175).'; exit 0; }; tsc -p tests/akceptacja/ekrany && pnpm --filter @szkola/mobile exec jest -c jest.akceptacja.config.js
+
+Brak testów oczekujących ekranów (wszystkie w apps/mobile, D-175).
+KOD WYJŚCIA: 0
