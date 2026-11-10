@@ -1,0 +1,13 @@
+# Sesja CB: dane właściciela do polityki, wsparcia i sklepu (W-04, W-05, W-07) — Szkoła Pokera
+Koordynator: session_01T66VBzJJVF7UGtLwjYvqQx (raporty i PRZEKAZANIE tylko przez send_message do tego ID; przy zmianie koordynatora pisz do nowego). Gałąź stanu: koordynacja (tylko odczyt).
+
+1. Rola: 10-wydanie w trybie build. Prompt roli w pierwszej wiadomości po linii `=== PROMPT ROLI ===`. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `sesja-cb-dane` @ 70fdf40 (inny HEAD: zgłoś). Tożsamość commitów według CLAUDE.md. Sesja z dokumentami i `site/` (bez kodu aplikacji).
+3. Fakty od właściciela (2026-11-10 ok. 20:50 UTC, dosłownie): „support@apps4brew.com Google workspace dane sprzedawcy Łukasz Karwowski apple id 6819977165”. Odczyt: W-04 adres wsparcia `support@apps4brew.com`, dostawca poczty Google Workspace; administrator/sprzedawca: Łukasz Karwowski; W-05 Apple ID aplikacji 6819977165. **Forma prawna sprzedawcy nie została podana** — nie zgaduj: zostaw `[DO USTALENIA: forma prawna]` i zgłoś w raporcie.
+4. Zadania:
+   1. Wstaw fakty w miejsca `[DO USTALENIA]` dotyczące W-04, W-05, W-07 i administratora: `docs/wydanie/polityka-prywatnosci/*`, `site/privacy.html`, `site/support.html`, `docs/wydanie/app-privacy.md` (Support URL), `docs/wydanie/legalnosc/JP.md` (oznaczenie sprzedawcy wg wariantu A z rejestru) i metadane w `store/`, jeśli tam są pola. Lista miejsc: `git grep -n 'DO USTALENIA'` — wypisz w raporcie, które zostały i dlaczego.
+   2. Odbiorca/podmiot przetwarzający: Google Workspace — podstawa transferu poza EOG z przeczytanego źródła pierwotnego (np. lista uczestników EU-US Data Privacy Framework na dataprivacyframework.gov albo warunki przetwarzania danych Google Workspace), adres + cytat + data odczytu; bez przeczytanego źródła: `[DO USTALENIA]`.
+   3. Wersje językowe polityki i wsparcia, które istnieją w repo: te same pola (bez nowego przekładu treści; tylko podstawienie faktów). Kontrole repo (`pnpm run ci` albo skrypt sprawdzający site/ i metadane, jeśli jest) kod 0, dowód w `docs/wydanie/dowody/cb-<sha>.txt`.
+5. Zakazy: **nic na `main`** (push `site/` na main wymaga osobnej zgody właściciela, D-378 — koordynator o nią poprosi), nic w App Store Connect, nie scalasz, nie tworzysz/archiwizujesz sesji, nie piszesz na `koordynacja`, bez --no-verify, force-push, AskUserQuestion. Repo publiczne: poza podanymi faktami żadnych innych danych osobowych.
+6. Decyzje: pula **D-710…D-714**, zapis w `docs/decyzje/CB.md` (KO-054).
+7. Kontekst: od 30% PRZEKAZANIE. Raport ≤ 10 linii: SHA, lista podmienionych pól, co zostało `[DO USTALENIA]`, źródło transferu, ci.
