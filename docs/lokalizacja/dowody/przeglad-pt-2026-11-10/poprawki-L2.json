@@ -1,0 +1,407 @@
+[
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m4-l1-3bet.md",
+    "stary": "{{t:pocket-pair|par de mão}}",
+    "nowy": "{{t:pocket-pair|pocket pair}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny: w m5-l2 i reszcie pt „pocket pair”.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m4-l1-3bet.md",
+    "stary": "já há um pouco mais {{t:call|pagamentos}}",
+    "nowy": "já há um pouco mais de {{t:call|pagamentos}}",
+    "waga": "NISKIE",
+    "powod": "Składnia pt-PT: „um pouco mais de”.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m4-l3-wobec-3betu.md",
+    "stary": "e as blinds {{t:fold|desistiram}}. Que parte",
+    "nowy": "e os blinds {{t:fold|desistiram}}. Que parte",
+    "waga": "ŚREDNIE",
+    "powod": "Rodzaj „blinds” niespójny: w m4-l1/l2/l4 i większości pt „os blinds” (23 vs 7).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m4-l3-wobec-3betu.md",
+    "stary": "e as blinds {{t:fold|desistiram}}. O que faz?\"\n    table: { hand: \"Kc Jd\"",
+    "nowy": "e os blinds {{t:fold|desistiram}}. O que faz?\"\n    table: { hand: \"Kc Jd\"",
+    "waga": "ŚREDNIE",
+    "powod": "Rodzaj „blinds” niespójny (os blinds).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m4-l3-wobec-3betu.md",
+    "stary": "e as blinds {{t:fold|desistiram}}. O que faz?\"\n    table: { hand: \"As Kd\"",
+    "nowy": "e os blinds {{t:fold|desistiram}}. O que faz?\"\n    table: { hand: \"As Kd\"",
+    "waga": "ŚREDNIE",
+    "powod": "Rodzaj „blinds” niespójny (os blinds).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m4-l3-wobec-3betu.md",
+    "stary": "e as blinds {{t:fold|desistiram}}. O que faz?\"\n    table: { hand: \"Qs Qh\"",
+    "nowy": "e os blinds {{t:fold|desistiram}}. O que faz?\"\n    table: { hand: \"Qs Qh\"",
+    "waga": "ŚREDNIE",
+    "powod": "Rodzaj „blinds” niespójny (os blinds).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m4-l3-wobec-3betu.md",
+    "stary": "e as blinds {{t:fold|desistiram}}. O que faz?\"\n    table: { hand: \"Ad Jd\"",
+    "nowy": "e os blinds {{t:fold|desistiram}}. O que faz?\"\n    table: { hand: \"Ad Jd\"",
+    "waga": "ŚREDNIE",
+    "powod": "Rodzaj „blinds” niespójny (os blinds).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l1-tekstury.md",
+    "stary": "O flop é {{t:monotone|monocolor}}:",
+    "nowy": "O flop é {{t:monotone|monocromático}}:",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny: m5-l3 „monocromático” (6×), m5-l1 „monocolor” (4×); jedna nazwa.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l1-tekstury.md",
+    "stary": "Num flop {{t:monotone|monocolor}}, o {{t:flush|flush}} pode estar feito já agora.",
+    "nowy": "Num flop {{t:monotone|monocromático}}, o {{t:flush|flush}} pode já estar feito.",
+    "waga": "ŚREDNIE",
+    "powod": "„já agora” w pt-PT znaczy „przy okazji”; pl „już teraz” = „pode já estar feito”. Plus termin monocromático.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l1-tekstury.md",
+    "stary": "Um flop **{{t:monotone|monocolor}}**",
+    "nowy": "Um flop **{{t:monotone|monocromático}}**",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny (monocromático).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l1-tekstury.md",
+    "stary": "Um flop {{t:monotone|monocolor}} é sempre",
+    "nowy": "Um flop {{t:monotone|monocromático}} é sempre",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny (monocromático).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l1-tekstury.md",
+    "stary": "porque altera o equilíbrio de forças já agora",
+    "nowy": "porque altera já o equilíbrio de forças",
+    "waga": "ŚREDNIE",
+    "powod": "„já agora” w pt-PT = „przy okazji”; pl „już teraz”.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l2-przewagi.md",
+    "stary": "\"O próprio jogador, que {{t:open|abriu}} do Button\", correct: true",
+    "nowy": "\"Eu, que {{t:open|abri}} do Button\", correct: true",
+    "waga": "ŚREDNIE",
+    "powod": "Nienaturalne „O próprio jogador” dla pl „Ty, otwierający”; opcje w 1. osobie jak „Pago”, „Desisto”.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l2-przewagi.md",
+    "stary": "\"O próprio jogador, que {{t:open|abriu}} do Button\", why:",
+    "nowy": "\"Eu, que {{t:open|abri}} do Button\", why:",
+    "waga": "ŚREDNIE",
+    "powod": "Jak wyżej (opcja błędna q-765).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l2-przewagi.md",
+    "stary": "Num flop baixo e {{t:connected|ligado}}",
+    "nowy": "Num flop baixo e {{t:connected|conectado}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny: m5-l1 i m5-l3 „conectado”.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "parte das mãos (p. ex. com uma copa alta) aposta pouco de bom grado.",
+    "nowy": "parte das mãos (p. ex. com uma copa alta) aposta de bom grado com um tamanho pequeno.",
+    "waga": "WYSOKIE",
+    "powod": "„aposta pouco de bom grado” czyta się „obstawia niechętnie”; pl „chętnie betuje mało” (chętnie, małym rozmiarem).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "Aposta {{n:cbet.ex.small}} sem qualquer mão. Em que percentagem dos casos tem o adversário de {{t:fold|desistir}} para que esta {{t:bet|aposta}} fique a zero?",
+    "nowy": "Aposta {{n:cbet.ex.small}} sem qualquer mão. Em que percentagem dos casos tem o adversário de {{t:fold|desistir}} para que esta {{t:bet|aposta}} não dê lucro nem prejuízo?",
+    "waga": "ŚREDNIE",
+    "powod": "„ficar a zero” w pt-PT = zostać bez niczego; pl „wychodzić na zero” = break-even.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "Aposta {{n:cbet.ex.big}} sem qualquer mão. Em que percentagem dos casos tem o adversário de {{t:fold|desistir}} para que esta {{t:bet|aposta}} fique a zero?",
+    "nowy": "Aposta {{n:cbet.ex.big}} sem qualquer mão. Em que percentagem dos casos tem o adversário de {{t:fold|desistir}} para que esta {{t:bet|aposta}} não dê lucro nem prejuízo?",
+    "waga": "ŚREDNIE",
+    "powod": "Jak wyżej (break-even).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "sem qualquer mão fica a zero quando",
+    "nowy": "sem qualquer mão não dá lucro nem prejuízo quando",
+    "waga": "ŚREDNIE",
+    "powod": "Jak wyżej (break-even).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "médio e {{t:connected|ligado}}. É o primeiro",
+    "nowy": "médio e {{t:connected|conectado}}. É o primeiro",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny (conectado).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "por isso tem um {{t:range|leque}} forte, e um flop médio e {{t:connected|ligado}} acerta bem nos seus {{t:pair|pares}} e {{t:connectors|conectores}}.",
+    "nowy": "por isso tem um {{t:range}} forte, e um flop médio e {{t:connected|conectado}} acerta bem nos {{t:pair|pares}} e {{t:connectors|conectores}} dele.",
+    "waga": "ŚREDNIE",
+    "powod": "„leque” zamiast „range” (cały pt poza m5-l4: range); „conectado”; „nos seus pares” przy formie „si” czyta się „twoje pary”, pl „jego pary” (Buttona).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "não favorece o seu {{t:range|leque}}",
+    "nowy": "não favorece o seu {{t:range}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny: range (leque tylko w m5-l4).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "o {{t:range|leque}} do Button é forte aqui",
+    "nowy": "o {{t:range}} do Button é forte aqui",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny: range.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "e o leque dele depois de {{t:call|pagar}} é forte",
+    "nowy": "e o {{t:range}} dele depois de {{t:call|pagar}} é forte",
+    "waga": "ŚREDNIE",
+    "powod": "Brak znacznika {{t:range}} (jest w pl) i termin niespójny.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "por isso o leque dele é forte",
+    "nowy": "por isso o {{t:range}} dele é forte",
+    "waga": "ŚREDNIE",
+    "powod": "Brak znacznika {{t:range}} (jest w pl) i termin niespójny.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "com quase todo o {{t:range|leque}}",
+    "nowy": "com quase todo o {{t:range}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny: range.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "acerta bem no seu {{t:range|leque}}",
+    "nowy": "acerta bem no seu {{t:range}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny: range.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "vantagem de leque",
+    "nowy": "vantagem de range",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny: m5-l2/m5-l3 „vantagem de range”.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "o {{t:range|leque}} do Button é forte: {{t:fold|desistiu}}",
+    "nowy": "o {{t:range}} do Button é forte: {{t:fold|desistiu}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny: range.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "Um {{t:range|leque}} assim",
+    "nowy": "Um {{t:range}} assim",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny: range.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "frequentemente com todo o {{t:range|leque}}",
+    "nowy": "frequentemente com todo o {{t:range}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny: range.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "favorecem muito fortemente o seu {{t:range|leque}}",
+    "nowy": "favorecem muito fortemente o seu {{t:range}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny: range.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "acertam bem no seu {{t:range|leque}}",
+    "nowy": "acertam bem no seu {{t:range}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny: range.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "\"C-bet frequente e pequena, como no Button\"",
+    "nowy": "\"C-bet frequente e pequeno, como no Button\"",
+    "waga": "ŚREDNIE",
+    "powod": "Rodzaj „c-bet” niespójny: w m5-l1–l3 męski (o/um c-bet, pequeno).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "Porque a c-bet {{t:out-of-position}} é proibida",
+    "nowy": "Porque o c-bet {{t:out-of-position}} é proibido",
+    "waga": "ŚREDNIE",
+    "powod": "Rodzaj „c-bet” niespójny (męski).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "A questão é que a c-bet",
+    "nowy": "A questão é que o c-bet",
+    "waga": "ŚREDNIE",
+    "powod": "Rodzaj „c-bet” niespójny (męski).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "\"C-bet pequena, como num jogo um contra um\"",
+    "nowy": "\"C-bet pequeno, como num jogo um contra um\"",
+    "waga": "ŚREDNIE",
+    "powod": "Rodzaj „c-bet” niespójny (męski).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "small: \"C-bet frequente e pequena:",
+    "nowy": "small: \"C-bet frequente e pequeno:",
+    "waga": "ŚREDNIE",
+    "powod": "Rodzaj „c-bet” niespójny; w m5-l3 ta sama opcja: „C-bet frequente e pequeno”.",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "C-bets frequentes, mesmo pequenas, dão-lhe",
+    "nowy": "C-bets frequentes, mesmo pequenos, dão-lhe",
+    "waga": "ŚREDNIE",
+    "powod": "Rodzaj „c-bet” niespójny (męski, jak m5-l3).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "Demasiado frequente e demasiado cara: o",
+    "nowy": "Demasiado frequente e demasiado caro: o",
+    "waga": "ŚREDNIE",
+    "powod": "Rodzaj „c-bet” niespójny (męski).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "Uma c-bet grande e frequente",
+    "nowy": "Um c-bet grande e frequente",
+    "waga": "ŚREDNIE",
+    "powod": "Rodzaj „c-bet” niespójny (męski, jak m5-l3 „Um c-bet grande e frequente”).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "e as blinds {{t:fold|desistiram}}. O flop",
+    "nowy": "e os blinds {{t:fold|desistiram}}. O flop",
+    "waga": "ŚREDNIE",
+    "powod": "Rodzaj „blinds” niespójny (os blinds).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "e as blinds {{t:fold|desistiram}}. Tem",
+    "nowy": "e os blinds {{t:fold|desistiram}}. Tem",
+    "waga": "ŚREDNIE",
+    "powod": "Rodzaj „blinds” niespójny (os blinds).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "{ text: \"{{t:fold|Desistir}}\", why:",
+    "nowy": "{ text: \"{{t:fold|Desisto}}\", why:",
+    "waga": "NISKIE",
+    "powod": "Opcje w 1. osobie („Passo”, „Desisto” w pozostałych zadaniach).",
+    "grupa": "L2"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m5-l4-bez-pozycji.md",
+    "stary": "big: \"Ação certa, tamanho errado",
+    "nowy": "big: \"Boa ação, tamanho errado",
+    "waga": "NISKIE",
+    "powod": "Ta sama formuła pl „Dobra akcja, zły rozmiar” w pt wszędzie „Boa ação, tamanho errado”.",
+    "grupa": "L2"
+  }
+]

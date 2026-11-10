@@ -1,0 +1,11 @@
+Przekład pl → pt (pt-PT) przez API — sesja AO, 2026-11-10 (D-405)
+Szacunek bez sieci (przeklad-api.mjs --szacuj --jezyki pt --model opus, @e01ba05): 8,15 USD (najgorszy 17,10 → podział):
+  --tylko lessons: 4,78 (najgorszy 10,54); --tylko areas,exams,modules,rules,locales,spots,helplines,terms: 3,37 (najgorszy 6,56); 44 + 21 = 65 jednostek.
+Przebiegi (workflow przeklad-tlumaczen.yml, ref sesja-ao-pt-pt @e01ba05, opus, effort medium, limit 15):
+  42765074236 lessons  — batch msgbatch_014BekFiC2bmjcrRA3rxcEmZ; 44/44 przyjęte; tokeny we 548501, wy 518449 → 6,28 USD
+      artefakt 13738624525, zip sha256 d19bb69b530e9fd5829785b2fc1020cb542f27837df50ec1c0cf0baa573b2de3 (wygasa 2026-11-17)
+  42765077031 reszta   — 21/21 przyjęte; tokeny we 443588, wy 336001 → 4,25 USD
+      artefakt 13739778340, zip sha256 44ef9cc06443bc4b7e84dad25a61bd1a3934410f7f9d09b3cbdc83e732b02f40 (wygasa 2026-11-17)
+Razem: 10,53 USD (limit właściciela 25 USD; szacunek × 1,35 = 11,0). Rzeczywisty/szacunek: lekcje 1,31, reszta 1,26.
+Ostrzeżenia terminów ({{t:}}): lekcje m0-l1, m9-l1, m9-l3, m9-l4; exams m7 (2× call); rules.yaml (pot, call, bet, …) — rozstrzygane w przeglądzie.
+Koszt cen: scripts/i18n/wspolne.mjs:42 (CENY opus we 4, wy 20 USD/Mtok) × RABAT_BATCH 0,5.
