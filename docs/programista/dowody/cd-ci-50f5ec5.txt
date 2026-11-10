@@ -1,0 +1,31 @@
+pnpm run ci @ 50f5ec5 (kod kontrolny: pnpm content:build przed CI), 2026-11-10
+packages/srs test:  Test Files  3 passed (3)
+packages/srs test:       Tests  21 passed (21)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/jezyki test:       Tests  144 passed (144)
+packages/poker-core test:  Test Files  14 passed (14)
+packages/poker-core test:       Tests  178 passed (178)
+packages/domena test:  Test Files  24 passed (24)
+packages/domena test:       Tests  337 passed (337)
+tools/preflop-solver test:  Test Files  9 passed (9)
+tools/preflop-solver test:       Tests  44 passed (44)
+packages/postep test:  Test Files  18 passed (18)
+packages/postep test:       Tests  141 passed (141)
+tools/content-build test:  Test Files  25 passed (25)
+tools/content-build test:       Tests  249 passed (249)
+apps/mobile test: Test Suites: 109 passed, 109 total
+apps/mobile test: Tests:       814 passed, 814 total
+# Subtest: metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+ok 108 - metadane z repo: pl, en-US, ja, zh-Hant, pt-BR, fr-FR i aliasy en-GB/en-CA/en-AU = en-US, fr-CA = fr-FR (D-382 AF); wstawka adresu prywatności podmieniona; walidacja bez błędów
+# Subtest: fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+ok 128 - fala 2 (D-374, D-391): kody de-DE, es-ES, es-MX, ko, it, vi w LOCALE_MAP; docs/sklep/aso/metadane-fala2.json waliduje się bez błędów
+# Subtest: poprawny plik (z identyfikatorem UUID): 0 błędów
+ok 152 - poprawny plik (z identyfikatorem UUID): 0 błędów
+# Subtest: D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+ok 159 - D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+# Subtest: każdy workflow parsuje się bez błędów
+ok 170 - każdy workflow parsuje się bez błędów
+ Test Files  6 passed (6)
+      Tests  35 passed (35)
+0 błędów, 0 uwag
+exit=0
