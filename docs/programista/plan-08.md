@@ -1034,6 +1034,22 @@ Polecenie: `docs/koordynacja/polecenia/AO.md` @ bf15b37. Zadanie 1 (szacunek prz
 
 Uwagi: łatki sprawdzone `git apply --check` na 55edcb0 (3 × ok). Stopka commitu 55edcb0 ma literówkę w identyfikatorze sesji (bez force-push nie poprawiono). Zasada 30% kontekstu: sesja AO kończy na kroku 3a.
 
+## Sesja AS — pt (pt-PT): przegląd reszty, terminologia, ASO (2026-11-10, rola 09 build, następczyni AO; w toku)
+Polecenie: `docs/koordynacja/polecenia/AS.md` @ b57b939, start `sesja-ao-pt-pt` @ c8ccacf (zgodny). Dowody: `docs/lokalizacja/dowody/przeglad-pt-2026-11-10/`.
+
+| Krok | Stan / dowód |
+|---|---|
+| Artefakty przekładu | pobrane przez MCP GitHub (`download_workflow_run_artifact`), sha256 zip = dowód AO (d19bb69b…, 44ef9cc0…); wygasają 2026-11-17 |
+| 3b. Przegląd reszty (całość) | **zrobione**, 6 subagentów w świeżym kontekście: E1 (m0–m6, 253 jedn.), E2 (m7–m13, 425; m12 {{n:}} 122 = pl), R1 (R-M0…M6, 60 reguł/241 pól), R2 (R-M7…M13, 81/328), R3 (spots 67, areas 5, modules 28, helplines 4), U (`pt.json` 731 kluczy, terms-def 162, m13-l1 11, m12-l1:140 1). **KRYT 0, WYS 0**; ŚR E1 30, E2 32 miejsca, R1 3, R2 8, R3 3, U 9. Listy `poprawki-E1,E2,R1,R2,R3,U.json` = 33+38+6+9+3+38 = **127, test na kopii `art2/propozycje.json`: 127 nałożonych, 0 pominiętych, kod 0** |
+| 3c. Kontrola (a) | przekład zwrotny bez źródła: `a-zwrotny-pt-pl.md` (m12-l1, m12-l4, egzamin m12, helplines, R-M12-*; 14 miejsc DWUZNACZNE); porównanie w trzeciej sesji: `wynik-a-pt.md` (patrz wiersz niżej / PRZEKAZANIE) |
+| 3d. Terminologia (D-406) | **decyzja zapisana**: `terminologia-D-406.md` (źródła PokerNews Portugal + Priberam, odczyt 2026-11-10): flush „flush” (nie „cor”), flush draw „flush draw”, draw „draw” (nie „projeto”), top pair „top pair”, check formy „passar”, shove „shove” (push = błąd), stakes „limite(s)/microlimites”, street „ronda”, board „mesa”, range „range”; preflop zostaje (odstępstwo nazwane). 27 poprawek E1/E2/U wprowadza formy „cor/projeto” — **nakładać wszystkie, potem ujednolicenie** (reguły pt w `ujednolic-formy.mjs` do dopisania; zmiana rodzaju „a/uma cor” → „o/um flush” wymaga listy kontekstów) |
+| 3e. K-05 `content/pt/terms-nazwy.yaml` | **do zrobienia**: wzór `content/pt-BR/terms-nazwy.yaml`, nazwy z D-406; formy korpusu: skrypt `formy.mjs` (do odtworzenia: liczy `{{t:klucz|forma}}` w `content/pt`) |
+| 3f. Nałożenie | **do zrobienia**: `poprawki.mjs art1/propozycje.json poprawki-L1…L6.json` (244, 0 pominiętych — sprawdzone w AS) i `art2/propozycje.json poprawki-E1,E2,R1,R2,R3,U[,A].json` (127) → `przeklad-api.mjs --zastosuj` (oba przyjęte w AS, 0 odrzuceń) → ujednolicenie D-406 → K-05 → kontrola (a) zmian w m12 → `content:build` |
+| 3g. Wydanie w kodzie | **do zrobienia**: łatki `ao-pt/*.patch` (`git apply --check` 3 × ok na 78f1c5f) + dopiski z wiersza 3g sesji AO; U: `language.name` „Português (Portugal)”, `pt.json` podpiąć w `slowniki.ts` z regułą pt-PT |
+| 4 / zad. 3 AS. ASO pt-PT | **zrobione**: forma formalna (aprenda, Treine, seu…) jak aplikacja, „ronda de apostas” zamiast „street”; kontrola `sprawdz-metadane-aso.py` kod 0 (D-407) |
+
+Uwaga dla następcy: `content/pt/` i `locales/pt.json` są w drzewie **nieśledzone** (nałożone roboczo do przeglądu, bez poprawek E/R/U) — hook pre-push `content:check` blokuje push, gdy są obecne; przed pushem samych docs przenieść je poza repo. Sesja AS kończy na kroku 3b/3c (reguła 30% kontekstu).
+
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
 
