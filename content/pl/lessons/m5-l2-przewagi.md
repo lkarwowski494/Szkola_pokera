@@ -20,12 +20,12 @@ drills:
     id: m5.l2.q-765
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}}. Flop: [[7s 6h 5d]]. Kto częściej ma tu bardzo silną rękę ({{t:two-pair}} albo {{t:straight}})?"
+    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}}. Flop: [[7s 6h 5d]]. Czy masz tu {{t:nuts-advantage|przewagę nutsów}}, czyli wyraźnie więcej najsilniejszych rąk niż rywal?"
     table: { position: BTN, board: "7s 6h 5d" }
     options:
-      - { text: "{{t:big-blind|Duży blind}}", correct: true, why: "Tak: {{t:big-blind}} broni wielu {{t:connectors|konektorów}} w kolorze i rąk z szóstką albo siódemką. Ty z Buttona masz więcej wysokich kart, które tu chybiły. To {{t:nuts-advantage}} {{t:big-blind|dużego blinda}}." }
-      - { text: "Ty, {{t:open|otwierający}} z Buttona", why: "Nie: twój {{t:range}} jest pełen wysokich kart. Masz więcej {{t:overpair|overpar}} ({{t:pocket-pair|pocket par}} wyższych od każdej karty na {{t:board|stole}}, np. TT, JJ), ale mniej {{t:two-pair|dwóch par}} i {{t:straight|stritów}}; setów (trójek z {{t:pocket-pair|pocket parą}}) macie podobnie dużo." }
-      - { text: "Obaj tak samo często", why: "Nie: {{t:range|zakresy}} różnią się składem. Szeroka obrona {{t:big-blind|dużego blinda}} ma dużo małych kart, a twój {{t:range}} wysokie." }
+      - { text: "Nie: {{t:straight|strity}} i {{t:two-pair|dwie pary}} ma tu też {{t:big-blind}}", correct: true, why: "Tak: {{t:big-blind}} broni wielu {{t:connectors|konektorów}} w kolorze i rąk z szóstką albo siódemką, które trafiają tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}. Twoje wysokie karty tu chybiły, więc najsilniejszych rąk nie masz wyraźnie więcej." }
+      - { text: "Tak, bo {{t:open|otworzyłeś}} przed flopem", why: "Nie: {{t:open|otwarcie}} daje ci przewagę na wysokich flopach. Na niskim, {{t:connected|połączonym}} flopie twoje wysokie karty chybiły, a {{t:range}} rywala trafia tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}." }
+      - { text: "Tak, bo masz więcej wysokich {{t:pair|par}}", why: "Nie: masz więcej {{t:overpair|overpar}} ({{t:pocket-pair|pocket par}} wyższych od każdej karty na {{t:board|stole}}, np. TT, JJ), ale na takim flopie {{t:overpair}} nie należy do najsilniejszych rąk: przegrywa ze {{t:straight|stritem}}, setem i {{t:two-pair|dwiema parami}}." }
   - kind: choice
     id: m5.l2.q-capped
     family: m5.advantage.why
@@ -85,7 +85,7 @@ Przed flopem {{t:range|zakresy}} graczy wyglądają różnie. {{t:open|Otwieraj�
 
 Masz {{t:range-advantage|przewagę zakresu}}, gdy na danym flopie twoje ręce są średnio silniejsze niż ręce rywala. Na [[Ks 7d 2c]] po {{t:open|otwarciu}} z Buttona to ty masz więcej króli z dobrym kickerem i więcej wysokich {{t:pair|par}}. {{t:big-blind|Duży blind}} ma tu dużo rąk, które chybiły.
 
-Na niskim, {{t:connected|połączonym}} flopie, np. [[7s 6h 5d]], {{t:range-advantage}} prawie znika, a najsilniejsze ręce częściej ma {{t:big-blind}}: broni wielu {{t:connectors|konektorów}} w kolorze i rąk z szóstką albo siódemką, więc częściej ma {{t:two-pair}} albo {{t:straight|strita}}.
+Na niskim, {{t:connected|połączonym}} flopie, np. [[7s 6h 5d]], {{t:range-advantage}} prawie znika. {{t:big-blind|Duży blind}} broni wielu {{t:connectors|konektorów}} w kolorze i rąk z szóstką albo siódemką, które trafiają tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a twoje wysokie karty chybiły.
 
 ## {{t:nuts-advantage|Przewaga nutsów}}
 

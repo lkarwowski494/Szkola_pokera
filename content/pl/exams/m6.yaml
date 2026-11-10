@@ -91,6 +91,6 @@ drills:
     prompt: "Bronisz {{t:big-blind}} przeciw {{t:open|otwarciu}} Buttona. Na którym flopie robisz check-raise najczęściej?"
     table: { position: BB }
     options:
-      - { text: "[[8d 6c 5h]]", correct: true, why: "Tak: na niskim, {{t:connected|połączonym}} flopie {{t:big-blind}} ma więcej najsilniejszych układów ({{t:two-pair}}, {{t:straight|strity}}) niż Button, więc check-raise robi tu częściej." }
+      - { text: "[[8d 6c 5h]]", correct: true, why: "Tak: na niskim, {{t:connected|połączonym}} flopie {{t:big-blind}} ma w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a Button nie ma {{t:nuts-advantage|przewagi nutsów}}, więc check-raise robisz tu częściej." }
       - { text: "[[Ks Qd Jh]]", why: "Wysoki flop z kartami blisko siebie dobrze trafia {{t:range}} Buttona (AK, AQ, KQ, wysokie {{t:pair|pary}}). Tu check-raise robisz rzadziej." }
       - { text: "[[Ah Ad Qc]]", why: "Na flopie z {{t:pair|parą}} asów najsilniejsze ręce częściej ma Button, który {{t:open|otwierał}} wieloma asami. Check-raise robisz tu rzadko." }

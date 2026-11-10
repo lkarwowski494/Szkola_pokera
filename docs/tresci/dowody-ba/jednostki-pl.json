@@ -1,0 +1,146 @@
+[
+ {
+  "plik": "exams/m5.yaml",
+  "linia": 19,
+  "pl_stare": "    prompt: \"{{t:open|Otworzyłeś}} grę z Buttona, a gracz na {{t:big-blind|dużym blindzie}} {{t:call|sprawdził}}. Na którym z tych flopów (pierwszych trzech {{t:community-cards|kart wspólnych}}) ten gracz częściej niż ty ma {{t:two-pair}} albo {{t:straight|strita}}?\"",
+  "pl_nowe": "    prompt: \"{{t:open|Otworzyłeś}} grę z Buttona, a gracz na {{t:big-blind|dużym blindzie}} {{t:call|sprawdził}}. Na którym z tych flopów (pierwszych trzech {{t:community-cards|kart wspólnych}}) nie masz {{t:nuts-advantage|przewagi nutsów}}, czyli wyraźnie więcej najsilniejszych rąk niż rywal?\""
+ },
+ {
+  "plik": "exams/m5.yaml",
+  "linia": 22,
+  "pl_stare": "      - { text: \"[[8h 6d 5c]]\", correct: true, why: \"Tak: niski, {{t:connected}} flop trafia {{t:connectors|konektory}} i ręce z małymi kartami, których {{t:big-blind}} broni dużo. Ty z Buttona masz więcej wysokich kart, które tu chybiły. To {{t:nuts-advantage}} {{t:big-blind|dużego blinda}}.\" }",
+  "pl_nowe": "      - { text: \"[[8h 6d 5c]]\", correct: true, why: \"Tak: niski, {{t:connected}} flop trafia {{t:connectors|konektory}} i ręce z małymi kartami, których {{t:big-blind}} broni dużo, więc {{t:straight|strity}} i {{t:two-pair|dwie pary}} ma tu także on. Twoje wysokie karty tu chybiły, więc najsilniejszych rąk nie masz wyraźnie więcej.\" }"
+ },
+ {
+  "plik": "exams/m5.yaml",
+  "linia": 23,
+  "pl_stare": "      - { text: \"[[Kd Td 3s]]\", why: \"Nie: wysoki flop sprzyja {{t:open|otwierającemu}}. Masz więcej króli z dobrym kickerem, KT i wysokich {{t:pair|par}}.\" }",
+  "pl_nowe": "      - { text: \"[[Kd Td 3s]]\", why: \"Nie: flop z dwiema wysokimi kartami daje {{t:nuts-advantage|przewagę nutsów}} {{t:open|otwierającemu}}. Masz tu więcej najsilniejszych rąk, np. KK i KT, bo {{t:big-blind}} większość KK {{t:raise|przebija}} przed flopem.\" }"
+ },
+ {
+  "plik": "exams/m5.yaml",
+  "linia": 24,
+  "pl_stare": "      - { text: \"[[Ah Ad 7c]]\", why: \"Nie: na flopie z {{t:pair|parą}} asów więcej asów masz ty, bo {{t:big-blind}} najsilniejsze asy {{t:raise|przebija}} przed flopem. {{t:straight|Strita}} nikt tu nie ma.\" }",
+  "pl_nowe": "      - { text: \"[[Ah Qd 7c]]\", why: \"Nie: na flopie z asem i damą to ty masz więcej najsilniejszych rąk, np. AA i AQ, bo {{t:big-blind}} najsilniejsze asy zwykle {{t:raise|przebija}} przed flopem.\" }"
+ },
+ {
+  "plik": "exams/m6.yaml",
+  "linia": 94,
+  "pl_stare": "      - { text: \"[[8d 6c 5h]]\", correct: true, why: \"Tak: na niskim, {{t:connected|połączonym}} flopie {{t:big-blind}} ma więcej najsilniejszych układów ({{t:two-pair}}, {{t:straight|strity}}) niż Button, więc check-raise robi tu częściej.\" }",
+  "pl_nowe": "      - { text: \"[[8d 6c 5h]]\", correct: true, why: \"Tak: na niskim, {{t:connected|połączonym}} flopie {{t:big-blind}} ma w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a Button nie ma {{t:nuts-advantage|przewagi nutsów}}, więc check-raise robisz tu częściej.\" }"
+ },
+ {
+  "plik": "lessons/m5-l2-przewagi.md",
+  "linia": 23,
+  "pl_stare": "    prompt: \"{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}}. Flop: [[7s 6h 5d]]. Kto częściej ma tu bardzo silną rękę ({{t:two-pair}} albo {{t:straight}})?\"",
+  "pl_nowe": "    prompt: \"{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}}. Flop: [[7s 6h 5d]]. Czy masz tu {{t:nuts-advantage|przewagę nutsów}}, czyli wyraźnie więcej najsilniejszych rąk niż rywal?\""
+ },
+ {
+  "plik": "lessons/m5-l2-przewagi.md",
+  "linia": 26,
+  "pl_stare": "      - { text: \"{{t:big-blind|Duży blind}}\", correct: true, why: \"Tak: {{t:big-blind}} broni wielu {{t:connectors|konektorów}} w kolorze i rąk z szóstką albo siódemką. Ty z Buttona masz więcej wysokich kart, które tu chybiły. To {{t:nuts-advantage}} {{t:big-blind|dużego blinda}}.\" }",
+  "pl_nowe": "      - { text: \"Nie: {{t:straight|strity}} i {{t:two-pair|dwie pary}} ma tu też {{t:big-blind}}\", correct: true, why: \"Tak: {{t:big-blind}} broni wielu {{t:connectors|konektorów}} w kolorze i rąk z szóstką albo siódemką, które trafiają tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}. Twoje wysokie karty tu chybiły, więc najsilniejszych rąk nie masz wyraźnie więcej.\" }"
+ },
+ {
+  "plik": "lessons/m5-l2-przewagi.md",
+  "linia": 27,
+  "pl_stare": "      - { text: \"Ty, {{t:open|otwierający}} z Buttona\", why: \"Nie: twój {{t:range}} jest pełen wysokich kart. Masz więcej {{t:overpair|overpar}} ({{t:pocket-pair|pocket par}} wyższych od każdej karty na {{t:board|stole}}, np. TT, JJ), ale mniej {{t:two-pair|dwóch par}} i {{t:straight|stritów}}; setów (trójek z {{t:pocket-pair|pocket parą}}) macie podobnie dużo.\" }",
+  "pl_nowe": "      - { text: \"Tak, bo {{t:open|otworzyłeś}} przed flopem\", why: \"Nie: {{t:open|otwarcie}} daje ci przewagę na wysokich flopach. Na niskim, {{t:connected|połączonym}} flopie twoje wysokie karty chybiły, a {{t:range}} rywala trafia tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}.\" }"
+ },
+ {
+  "plik": "lessons/m5-l2-przewagi.md",
+  "linia": 28,
+  "pl_stare": "      - { text: \"Obaj tak samo często\", why: \"Nie: {{t:range|zakresy}} różnią się składem. Szeroka obrona {{t:big-blind|dużego blinda}} ma dużo małych kart, a twój {{t:range}} wysokie.\" }",
+  "pl_nowe": "      - { text: \"Tak, bo masz więcej wysokich {{t:pair|par}}\", why: \"Nie: masz więcej {{t:overpair|overpar}} ({{t:pocket-pair|pocket par}} wyższych od każdej karty na {{t:board|stole}}, np. TT, JJ), ale na takim flopie {{t:overpair}} nie należy do najsilniejszych rąk: przegrywa ze {{t:straight|stritem}}, setem i {{t:two-pair|dwiema parami}}.\" }"
+ },
+ {
+  "plik": "lessons/m5-l2-przewagi.md",
+  "linia": 88,
+  "pl_stare": "Na niskim, {{t:connected|połączonym}} flopie, np. [[7s 6h 5d]], {{t:range-advantage}} prawie znika, a najsilniejsze ręce częściej ma {{t:big-blind}}: broni wielu {{t:connectors|konektorów}} w kolorze i rąk z szóstką albo siódemką, więc częściej ma {{t:two-pair}} albo {{t:straight|strita}}.",
+  "pl_nowe": "Na niskim, {{t:connected|połączonym}} flopie, np. [[7s 6h 5d]], {{t:range-advantage}} prawie znika. {{t:big-blind|Duży blind}} broni wielu {{t:connectors|konektorów}} w kolorze i rąk z szóstką albo siódemką, które trafiają tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a twoje wysokie karty chybiły."
+ },
+ {
+  "plik": "lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 38,
+  "pl_stare": "          check: \"Tak: niski flop z kartami blisko siebie sprzyja {{t:big-blind|dużemu blindowi}}, który częściej ma tu {{t:two-pair}} albo {{t:straight|strita}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|drawy}}.\"",
+  "pl_nowe": "          check: \"Tak: niski flop z kartami blisko siebie trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}: ma tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a ty nie masz {{t:nuts-advantage|przewagi nutsów}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|drawy}}.\""
+ },
+ {
+  "plik": "lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 39,
+  "pl_stare": "          small: \"Za często: na niskim flopie z kartami blisko siebie to {{t:big-blind}} ma {{t:nuts-advantage|przewagę nutsów}}. Częste c-bety, nawet małe, dają mu okazję do {{t:raise|przebicia}} po wcześniejszym {{t:check|czekaniu}} (check-raise) najsilniejszymi rękami.\"",
+  "pl_nowe": "          small: \"Za często: na niskim flopie z kartami blisko siebie nie masz {{t:nuts-advantage|przewagi nutsów}}. Częste c-bety, nawet małe, dają {{t:big-blind|dużemu blindowi}} okazję do {{t:raise|przebicia}} po wcześniejszym {{t:check|czekaniu}} (check-raise) najsilniejszymi rękami.\""
+ },
+ {
+  "plik": "lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 40,
+  "pl_stare": "          big: \"Za często i za drogo: {{t:big-blind}} częściej trafił tu {{t:two-pair}} albo {{t:straight|strita}}. Częsty duży c-bet ryzykuje dużo, gdy sam zwykle masz tylko wysokie karty.\"",
+  "pl_nowe": "          big: \"Za często i za drogo: {{t:big-blind}} ma tu w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}. Częsty duży c-bet ryzykuje dużo, gdy sam zwykle masz tylko wysokie karty.\""
+ },
+ {
+  "plik": "lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 126,
+  "pl_stare": "Na [[7s 6h 5d]] to {{t:big-blind}} częściej ma {{t:two-pair}} albo {{t:straight|strita}} (lekcja o przewagach). Podobnie na innych niskich flopach {{t:connected|połączonych}} i {{t:semi-connected|półpołączonych}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie bardzo silne ręce i mocne {{t:draw|drawy}}.",
+  "pl_nowe": "Na [[7s 6h 5d]] {{t:big-blind}} ma w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a ty nie masz {{t:nuts-advantage|przewagi nutsów}} (lekcja o przewagach). Podobnie na innych niskich flopach {{t:connected|połączonych}} i {{t:semi-connected|półpołączonych}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie bardzo silne ręce i mocne {{t:draw|drawy}}."
+ },
+ {
+  "plik": "lessons/m5-l4-bez-pozycji.md",
+  "linia": 90,
+  "pl_stare": "          check: \"Tak: niski flop z kartami blisko siebie sprzyja {{t:big-blind|dużemu blindowi}}, który częściej ma tu {{t:two-pair}} albo {{t:straight|strita}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|drawy}}.\"",
+  "pl_nowe": "          check: \"Tak: niski flop z kartami blisko siebie trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}: ma tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a ty nie masz {{t:nuts-advantage|przewagi nutsów}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|drawy}}.\""
+ },
+ {
+  "plik": "lessons/m5-l4-bez-pozycji.md",
+  "linia": 91,
+  "pl_stare": "          small: \"Za często: na niskim flopie z kartami blisko siebie to {{t:big-blind}} ma {{t:nuts-advantage|przewagę nutsów}}. Częste c-bety, nawet małe, dają mu okazję do {{t:raise|przebicia}} (check-raise) najsilniejszymi rękami.\"",
+  "pl_nowe": "          small: \"Za często: na niskim flopie z kartami blisko siebie nie masz {{t:nuts-advantage|przewagi nutsów}}. Częste c-bety, nawet małe, dają {{t:big-blind|dużemu blindowi}} okazję do {{t:raise|przebicia}} (check-raise) najsilniejszymi rękami.\""
+ },
+ {
+  "plik": "lessons/m5-l4-bez-pozycji.md",
+  "linia": 92,
+  "pl_stare": "          big: \"Za często i za drogo: {{t:big-blind}} częściej trafił tu {{t:two-pair}} albo {{t:straight|strita}}. Częsty duży c-bet ryzykuje dużo, gdy sam zwykle masz tylko wysokie karty.\"",
+  "pl_nowe": "          big: \"Za często i za drogo: {{t:big-blind}} ma tu w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}. Częsty duży c-bet ryzykuje dużo, gdy sam zwykle masz tylko wysokie karty.\""
+ },
+ {
+  "plik": "lessons/m6-l3-check-raise.md",
+  "linia": 16,
+  "pl_stare": "      - { text: \"Check-raise\", correct: true, why: \"{{t:two-pair|Dwie pary}} na niskim, {{t:connected|połączonym}} flopie to ręka {{t:value|dla wartości}}. Na takich flopach {{t:big-blind}} ma więcej najsilniejszych układów niż Button. {{t:raise|Przebiciem}} budujesz {{t:pot|pulę}} i każesz płacić {{t:pair|parom}} i {{t:draw|drawom}}.\" }",
+  "pl_nowe": "      - { text: \"Check-raise\", correct: true, why: \"{{t:two-pair|Dwie pary}} na niskim, {{t:connected|połączonym}} flopie to ręka {{t:value|dla wartości}}. Na takich flopach {{t:big-blind}} ma w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a Button nie ma {{t:nuts-advantage|przewagi nutsów}}. {{t:raise|Przebiciem}} budujesz {{t:pot|pulę}} i każesz płacić {{t:pair|parom}} i {{t:draw|drawom}}.\" }"
+ },
+ {
+  "plik": "lessons/m6-l3-check-raise.md",
+  "linia": 130,
+  "pl_stare": "- **Na niskich, {{t:connected|połączonych}} flopach** (np. [[7h 6d 5s]]). {{t:big-blind|Duży blind}} broni wielu niskich rąk, więc zwykle ma tu więcej {{t:two-pair|dwóch par}} i {{t:straight|stritów}} niż Button, czyli {{t:nuts-advantage|przewagę nutsów}}.",
+  "pl_nowe": "- **Na niskich, {{t:connected|połączonych}} flopach** (np. [[7h 6d 5s]]). {{t:big-blind|Duży blind}} broni wielu niskich rąk, które trafiają tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}, więc Button nie ma tu {{t:nuts-advantage|przewagi nutsów}}."
+ },
+ {
+  "plik": "rules.yaml",
+  "linia": 360,
+  "pl_stare": "  because: \"{{t:big-blind}} broni wielu {{t:connectors|konektorów}} w kolorze i małych {{t:pair|par}}, więc częściej ma {{t:two-pair}} albo {{t:straight|strita}}: to on ma {{t:nuts-advantage|przewagę nutsów}}\"",
+  "pl_nowe": "  because: \"{{t:big-blind}} broni wielu {{t:connectors|konektorów}} i rąk z małymi kartami, które trafiają tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a twoje wysokie karty chybiły: nie masz {{t:nuts-advantage|przewagi nutsów}}\""
+ },
+ {
+  "plik": "rules.yaml",
+  "linia": 363,
+  "pl_stare": "  source: \"kombinatoryka: Button otwiera wszystkie pary 55–77, a duży blind je sprawdza, więc setów obaj mają podobnie; serwis komercyjnego solvera, Bullying the Blinds (na 654r Button czeka ponad połowę zakresu; „Even on 654r… BB has less than 52% equity”)\"",
+  "pl_nowe": "  source: \"serwis komercyjnego solvera, Flop Heuristics: IP C-Betting in Cash Games (BTN vs BB: „flopped straights often being in the BB’s range”; „Size down and bet less on flops that complete straights and flushes in your opponent’s range”); serwis komercyjnego solvera, Flop Heuristics: IP C-Betting in MTTs (na flopach połączonych „the raiser generally does not have a nuts advantage”); serwis komercyjnego solvera, Bullying the Blinds (20bb, 654r: „BB’s advantage at the top end”, Button czeka ponad połowę zakresu); serwis szkoleniowy, 3 Concepts That Should Shape Your Postflop Strategy („the Big Blind will often have the nut advantage”, https://upswingpoker.com/nut-range-positional-advantage/)\""
+ },
+ {
+  "plik": "rules.yaml",
+  "linia": 364,
+  "pl_stare": "  sources: [{ kind: solver-pub }, { kind: math }]",
+  "pl_nowe": "  sources: [{ kind: solver-pub }, { kind: training, url: \"https://upswingpoker.com/nut-range-positional-advantage/\" }]"
+ },
+ {
+  "plik": "rules.yaml",
+  "linia": 511,
+  "pl_stare": "  because: \"na niskich flopach {{t:big-blind}} ma więcej najsilniejszych układów ({{t:nuts-advantage}}), a mały c-bet daje tanią okazję do {{t:raise|przebicia}}\"",
+  "pl_nowe": "  because: \"na niskich, {{t:connected|połączonych}} flopach {{t:big-blind}} ma w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a Button nie ma {{t:nuts-advantage|przewagi nutsów}}; mały c-bet daje tanią okazję do {{t:raise|przebicia}}\""
+ },
+ {
+  "plik": "rules.yaml",
+  "linia": 513,
+  "pl_stare": "  source: \"serwis szkoleniowy, How to Check-Raise Like a High Stakes Juggernaut (flopy, na których nie przebijać: K♣J♥T♠, Q♥J♦T♠, A♥A♠K♥; check-raise 12,65% wobec 33% i 8,66% wobec 66% puli); serwis komercyjnego solvera („The larger the BTN bets, the less BB raises”)\"",
+  "pl_nowe": "  source: \"serwis szkoleniowy, How to Check-Raise Like a High Stakes Juggernaut (flopy, na których nie przebijać: K♣J♥T♠, Q♥J♦T♠, A♥A♠K♥; check-raise 12,65% wobec 33% i 8,66% wobec 66% puli); serwis komercyjnego solvera („The larger the BTN bets, the less BB raises”); serwis komercyjnego solvera, Flop Heuristics: IP C-Betting in Cash Games („flopped straights often being in the BB’s range”)\""
+ }
+]
