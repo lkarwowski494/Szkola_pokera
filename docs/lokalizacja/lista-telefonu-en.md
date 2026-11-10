@@ -54,5 +54,5 @@ Samosprawdzenie `Intl` (liczba mnoga) działa przy starcie aplikacji: w buildzie
 - [ ] Pytanie 1 z 8 (rywal A♣ A♦, board A♠ 8♣ 7♦ J♥ 2♠, twoje 10♥ 9♥): karty rywala, board i twoje mieszczą się w owalu, tekst pod stołem czytelny; sprawdź też iPhone SE (wąski) i największy tekst. Ten sam stół w lekcjach i egzaminach z showdownem.
 
 ## Session AZ: position name at the table (KO-028, D-495)
-- [ ] Task with a position and no action line: the line reads "Your position: under the gun (UTG)." style (full name plus abbreviation: small blind (SB), big blind (BB), button (BTN)), not the bare abbreviation. Not cut off; on iPhone SE and at the largest text it wraps between words.
+- [ ] Task with a position and no action line: the line reads "Your position: small blind (SB).", "big blind (BB)", "button (BTN)" (full name plus abbreviation); for UTG it stays "UTG" (en has no separate name for it, same as before). Not cut off; on iPhone SE and at the largest text it wraps between words.
 - [ ] VoiceOver reads the same line with the position name.
