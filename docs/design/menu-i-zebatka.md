@@ -12,6 +12,7 @@ Rola 04, build, 2026-11-10. Wejście: KO-036 (zębatka), KO-041 (menu z kafelkam
 | Mieszczenie bez przewijania 375×667 | `miesci-sie-menu.txt` (`narzedzia/miesci-sie.mjs`), kod 0 |
 | Przepełnienie 320/390/430 × domyślny/AX5 | `przepelnienie-menu.txt` (`narzedzia/przepelnienie.mjs`), kod 0 |
 | Kontrast par menu (4 warianty palety) | `kontrast-menu.txt` (wejście `narzedzia/kontrast-menu.json`), kod 0 |
+| Powtórki przy pustej kolejce (BI-002, sesja BY): przed i opcje A, B, C | `ekrany/powtorki-pusta.html` + `ekrany/powtorki-pusta.css` (generuje `narzedzia/powtorki-pusta-makieta.mjs`); arkusze `wzorce-zrzuty/powtorki-pusta/`; kontrast `kontrast-powtorki-pusta.txt` (kod 1 tylko przez pary opcji B); wiersze `wiersze-powtorki-pusta.txt` |
 
 ## Zębatka (KO-036, D-540)
 - Dziś (`apps/mobile/src/app/(tabs)/index.tsx:84-88`): znak tekstowy „⚙︎” 17 pt, kolor `ink`, `hitSlop` 12, skala do 1,4. Para kolorów `ink`/`bg` ma 15,49:1 (jasny) i 15,67:1 (ciemny), więc paleta nie jest przyczyną; ikona ginie, bo znak ma cienką kreskę i mały rozmiar (antyaliasing zjada kontrast krawędzi).
@@ -37,7 +38,39 @@ Wymagania: BR-MENU-001…003 (`docs/brd/wymagania-scenariusze.md`, D-535) z erra
 | Wszystko zrobione | „Kurs ukończony” + `today.courseDone` (bez przycisku) | Powtórki „3 na dziś”, Scenariusze „Poziom: trudny (auto)” |
 | Limit wyczerpany | bez zmian (lekcje bez limitu) | Sesja ćwiczeń i Scenariusze: stan „Darmowa jutro”, tło przezroczyste, obwódka kreskowana (nie tylko kolor); pod kafelkami „Dzienny limit wykorzystany…” + link „Pełny dostęp” (BR-LIM-001; nazwa „dzienny limit”, D-111) |
 | Pro | jak w trakcie, bez stanu limitu | — |
-Stuknięcie kafelka w stanie limitu prowadzi do istniejącego ekranu startu aktywności z licznikiem (nie blokuje wejścia).
+Stuknięcie kafelka w stanie limitu prowadzi do istniejącego ekranu startu aktywności z licznikiem (nie blokuje wejścia). Wyjątek: Powtórki przy 0 na dziś (sekcja niżej).
+
+### Powtórki przy pustej kolejce (BI-002, sesja BY; D-685 warunkowa do odpowiedzi właściciela)
+Problem (kod @ 70fdf40): kafelek „Po pierwszej lekcji” / „Brak na dziś” prowadzi na ekran startu z licznikiem i przyciskiem „Zacznij”. Dopiero po „Zacznij” użytkownik widzi pusty stan. Przy wyczerpanym limicie ekran startu pokazuje „Pełny dostęp” i „Wróć do lekcji”, czyli zakup, choć nie ma czego odblokować. Limit nie przepada, bo pusty zestaw niczego nie zapisuje (`apps/mobile/src/features/session/aktywnoscSesji.ts:61-62`). Makieta: `ekrany/powtorki-pusta.html` (generuje `narzedzia/powtorki-pusta-makieta.mjs`); arkusze: `wzorce-zrzuty/powtorki-pusta/arkusz-390-light.png`, `-390-dark.png`, `-320-light-ax5.png`, `-390-szarosc.png`; kontrast: `kontrast-powtorki-pusta.txt`.
+
+**Przejście (opcja A, rekomendowana):**
+| Stan przy stuknięciu kafelka | Ekran |
+|---|---|
+| Aktywność powtórek w toku | wznowienie, bez zmian (pierwszeństwo przed resztą) |
+| N > 0 na dziś, limit dostępny albo Pro | ekran startu z licznikiem, bez zmian |
+| N > 0 na dziś, limit wyczerpany | ekran startu z „Masz N powtórek… niczego nie stracisz” i „Pełny dostęp”, bez zmian (BR-LIM-004) |
+| **0 na dziś, są karty** (każdy stan limitu, także Pro) | **od razu pusty stan:** tytuł „Powtórki”, „Na dziś nie masz powtórek.” (`styl.naglowek`), „Następna powtórka: {kiedy}” (`styl.tresc`), przycisk „Zamknij”. Bez licznika i bez „Pełny dostęp” |
+| **0 na dziś, brak kart** (nic jeszcze nie odpowiedziane) | **od razu pusty stan:** „Powtórki pojawią się po pierwszej lekcji.” (`styl.naglowek`), „Zadania z lekcji wracają tu w odstępach, a te z błędem wcześniej.” (`styl.tresc`, `muted`), „Zamknij” |
+
+- Wariant pustego stanu zależy od istnienia kart, nie od ukończonych lekcji: karta powstaje przy pierwszej odpowiedzi w dowolnej aktywności (`apps/mobile/src/features/session/aktywnoscSesji.ts:113`), więc ktoś bez ukończonej lekcji może już mieć termin.
+- {kiedy}: najwcześniejszy `termin_ms` > teraz. Ten sam dzień lokalny: „dziś o {godzina}”. Następny dzień: „jutro o {godzina}”. Później: dzień i miesiąc z `Intl.DateTimeFormat(język, { day: 'numeric', month: 'long' })`, np. „14 listopada”. Godzina z `godzinaWStrefie` (`EkranStartu.tsx`). Kafelek dalej liczy „na dziś” jako termin ≤ teraz, więc „dziś o 18:40” jest możliwe (kroki nauki FSRS).
+- Kafelek bez zmian: aktywny, stan „Brak na dziś” / „Po pierwszej lekcji”, etykieta „{tytuł}. {stan}.”. Jak Scenariusze „wkrótce”: każdy kafelek prowadzi do ekranu, który mówi, co dalej.
+- VoiceOver: tytuł „Powtórki” jako nagłówek; czytanie w kolejności wizualnej; „Zamknij” jako przycisk (ekran to `fullScreenModal` bez gestu, `apps/mobile/src/app/_layout.tsx:179`, więc przycisk zostaje jedynym wyjściem).
+- Teksty pl (system 04, głos `design-spec.md` „Głos”; przekład 12 języków: rola 09):
+  | Klucz | pl | Stan |
+  |---|---|---|
+  | `review.emptyToday` | Na dziś nie masz powtórek. | nowy (pierwsze zdanie wzoru `docs/design/design-spec.md:68`) |
+  | `review.next` | Następna powtórka: {{when}} | istniejący, dziś nieużywany |
+  | `review.whenToday` | dziś o {{godzina}} | nowy |
+  | `review.whenTomorrow` | jutro o {{godzina}} | nowy |
+  | `review.emptyNew` | Powtórki pojawią się po pierwszej lekcji. | nowy |
+  | `review.emptyNewHint` | Zadania z lekcji wracają tu w odstępach, a te z błędem wcześniej. | nowy (BR-POW-001) |
+  | `review.none` | Nic nie czeka na powtórkę. Zrób nową lekcję albo wróć później. | zostaje dla wznowienia z pustym zestawem (zmiana treści) |
+- Wdrożenie (rola 08, po decyzji): w `app/session.tsx` `wejdz` dla `mode === 'review'`: przy `akcja === 'ekran_startu'` i 0 kart z terminem ≤ teraz zwróć stan pusty z najbliższym terminem zamiast `start`. Test: 0 na dziś × {limit dostępny, wyczerpany, Pro} × {są karty, brak kart} → brak `EkranStartu`, brak „Pełny dostęp”, tekst terminu. Flow Maestro 02 (dziś zakłada „Zacznij”) do dostosowania.
+
+**Opcje odrzucone (do weta właściciela):**
+- B, kafelek nieaktywny (`accessibilityState.disabled`, konwencja `Button` z przezroczystością 0,4): stan kafelka ma 2,0–3,2:1 przy progu 4,5:1 (`kontrast-powtorki-pusta.txt`). Wyjątek WCAG dla nieaktywnych kontrolek jest, ale ten tekst niesie informację. Stuknięcie nic nie daje, a terminu nie da się nigdzie pokazać. Trening nie wyłącza wejść nawigacyjnych (D-685).
+- C, A + termin na kafelku („Brak na dziś, następna jutro”): termin bez stuknięcia, najbliżej Treningu („Następne: …”, Trening `components/TodayPlan.tsx:89`). Odstępstwo od Treningu, nazwane: zmienia zatwierdzony stan kafelka (D-541), wnosi format daty w 12 językach na ekran główny i wydłuża stan kafelka z 1 do 2 wierszy przy 320 i 390 pt, domyślnie i przy AX5 (`wiersze-powtorki-pusta.txt`, `narzedzia/powtorki-pusta-wiersze.mjs`). U Treningu termin jest planem dnia, a powtórek użytkownik nie planuje, więc termin wystarczy jedno stuknięcie dalej.
 
 ### Ekran „Lekcje” (D-542)
 Zakładka paska (KO-045; bez „‹ Dziś”). Duży tytuł „Lekcje”, licznik „3 z 44 lekcji” z paskiem postępu, lista grupowana 14 modułów (`content/pl/modules.yaml`) ze stanem „N z M” albo „Ukończony”; bieżący moduł rozwinięty (lekcje + „Egzamin modułu, 15 pytań”), pozostałe zwinięte, stuknięcie rozwija w miejscu (`accessibilityState.expanded`). Wiersz lekcji jak dziś (`etykietaWiersza`).

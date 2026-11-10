@@ -1,0 +1,11 @@
+/* Sesja BY (rola 04, fix BI-002): pusta kolejka Powtórek. Uzupełnia e3.css i menu.css; kolory wyłącznie z tokeny.css.
+   Ekran startu i pusty stan odwzorowują Screen + style z apps/mobile/src/theme/tokens.ts (tytul, naglowek, tresc, przypis) i Button (primary/ghost). */
+.podpis { margin: 0 20px 4px; font-size: var(--t-drobny); }
+.ekran-tytul { font-size: var(--t-tytul); line-height: 1.2; padding: 8px 20px 0; }
+.naglowek { font-size: var(--t-tresc); font-weight: 600; line-height: 1.35; margin: 12px 20px 0; }
+.tresc { font-size: var(--t-tresc); line-height: 1.35; margin: 8px 20px 0; }
+.tresc.muted { color: var(--muted); }
+.przyciski.gora { margin-top: 24px; padding: 0 16px; }
+.przycisk.duch { border: 1.5px solid var(--primary-bg); color: var(--link); background: transparent; }
+/* Opcja B: konwencja nieaktywnego przycisku z systemu (Button `disabled`: przezroczystość 0,4, components/ui.tsx); kafelek bez akcji */
+.kafel.nieaktywny { opacity: 0.4; }
