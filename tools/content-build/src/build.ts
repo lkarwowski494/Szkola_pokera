@@ -386,16 +386,19 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   const scenarios: ScenarioTemplate[] = [];
   const scenarioFiles = loadScenarioTemplates(join(localeDir, 'scenarios'));
   const seenScenarioIds = new Set<string>();
+  // progi oceny z zakresów (ADR-26) dla generatora punktów range-spot; brak liczb = punkty range-spot nie przejdą sprawdzenia generatora
+  const scenarioThresholds = { mixedMin: numbers.get('range.mixed.min')?.value ?? 0.035, mixedLow: numbers.get('range.mixed.low')?.value ?? 0.25 };
   for (const { file, template } of scenarioFiles) {
     fileCtx = `${tekst}/scenarios/${file}`;
     const errs = checkScenarioTemplate(template, file, {
       ruleLevels: new Map(rules.map((r) => [r.id, r.level])),
       numberKeys: new Set(numbers.keys()),
       moduleIds,
+      spots: new Map(ranges.map((r) => [r.id, r.actions.map((a) => a.label)])),
     });
     if (seenScenarioIds.has(template.id)) errs.push(`szablon ${template.id}: powtórzony identyfikator`);
     seenScenarioIds.add(template.id);
-    if (locale === 'pl' && errs.length === 0) errs.push(...checkScenarioGenerator(template));
+    if (locale === 'pl' && errs.length === 0) errs.push(...checkScenarioGenerator(template, undefined, undefined, { spots: ranges, thresholds: scenarioThresholds }));
     if (errs.length) throw new Error(errs.join('\n'));
     template.decisions.forEach((d, i) => {
       const gdzie = `${template.id}#${i + 1}`;
@@ -408,7 +411,7 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
       decisions: template.decisions.map((d, i) => ({
         ...d,
         actions: d.actions.map((a) => ({ ...a, explanation: sub(a.explanation, `${template.id}#${i + 1}.${a.action}`) })),
-      })),
+      }) as typeof d),
     });
   }
 

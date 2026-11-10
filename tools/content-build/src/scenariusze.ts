@@ -4,13 +4,15 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { findVariantMarkers, generateVariant, VARIANT_MARKERS, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
+import { findVariantMarkers, generateVariant, VARIANT_MARKERS, type GeneratorContext, type GeneratorTemplate, type RangeSpotData, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
   ruleLevels: ReadonlyMap<string, RuleLevel>;
   numberKeys: ReadonlySet<string>;
   moduleIds: ReadonlySet<string>;
+  /** id spotu zakresu → etykiety akcji węzła solvera (F1); bez tego punkty range-spot są błędem. */
+  spots?: ReadonlyMap<string, readonly string[]>;
 }
 export interface LoadedScenario { file: string; template: ScenarioTemplate }
 
@@ -59,8 +61,30 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
       else if (level === 'exploit') exploit = true;
     }
     if (d.calc !== undefined && !ctx.numberKeys.has(d.calc)) e.push(`${p} nieznany rachunek ${d.calc}`);
-    const akcje = d.actions.map((a) => a.action).sort().join(',');
-    if (akcje !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+    if (d.kind === 'range-spot') {
+      const labels = ctx.spots?.get(d.spot);
+      if (!labels) e.push(`${p} nieznany spot zakresu ${d.spot}`);
+      else {
+        const nieznane = d.actions.map((a) => a.action).filter((a) => !labels.includes(a));
+        if (nieznane.length) e.push(`${p} akcje spoza węzła spotu ${d.spot}: ${nieznane.join(', ')} (są: ${labels.join(', ')})`);
+        if (new Set(d.actions.map((a) => a.action)).size !== d.actions.length) e.push(`${p} akcja powtórzona`);
+        for (const l of SCENARIO_LEVELS_LIST) {
+          const ex = t.bounds[l]?.expected[i];
+          if (ex !== undefined && !d.actions.some((a) => a.action === ex)) e.push(`${p} poziom ${l}: oczekiwana akcja ${ex} nie ma wyjaśnienia (BR-OCE-002)`);
+          if (ex !== undefined && !labels.includes(ex)) e.push(`${p} poziom ${l}: oczekiwana akcja ${ex} spoza węzła spotu ${d.spot}`);
+          if (t.bounds[l] && !t.bounds[l]!.freqs?.[i]) e.push(`${p} poziom ${l}: punkt range-spot wymaga przedziału freqs`);
+        }
+      }
+    } else {
+      const akcje = d.actions.map((a) => a.action).sort().join(',');
+      if (akcje !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const ex = t.bounds[l]?.expected[i];
+        if (ex !== undefined && ex !== 'call' && ex !== 'fold') e.push(`${p} poziom ${l}: oczekiwana akcja punktu draw-call to call albo fold, jest ${ex}`);
+        if (t.bounds[l] && t.bounds[l]!.draws.length === 0) e.push(`${p} poziom ${l}: punkt draw-call wymaga listy draws`);
+      }
+      if (i === 0 && d.pots.length === 0) e.push(`${p} brak puli do losowania`);
+    }
     for (const a of d.actions) {
       // BR-OCE-001/002, D-557: pierwsze zdanie wymienia rękę, pozycję i stół z wariantu (znaczniki), a nie z przykładu w treści
       // koniec zdania szukany poza znacznikami {{…}} (kropka w kluczu {{n:a.b}} nie kończy zdania), także „。！？” (CJK); 08-programista-105
@@ -74,9 +98,9 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
       const brak = (['reka', 'stol', 'pozycja'] as const).filter((m) => !w.includes(m));
       if (brak.length) e.push(`${p} akcja ${a.action}: zdanie sytuacji (pierwsze) musi mieć znaczniki wariantu ${brak.map((m) => `{{w:${m}}}`).join(', ')}, żeby pokazywało karty i pozycję z wylosowanego wariantu`);
     }
-    if (i === 0 && d.street !== 'flop' && t.decisions.length === 2) e.push(`${p} przy dwóch punktach decyzji pierwszy jest na flopie`);
-    if (i === 1 && d.street !== 'turn') e.push(`${p} druga decyzja jest na turnie`);
-    if (i === 0 && d.pots.length === 0) e.push(`${p} brak puli do losowania`);
+    if (d.kind === 'draw-call' && i === 1 && t.decisions[0]!.kind === 'draw-call' && d.street !== 'turn') e.push(`${p} druga decyzja draw-call jest na turnie`);
+    if (d.kind === 'draw-call' && i === 0 && t.decisions.length === 2 && t.decisions[1]!.kind === 'draw-call' && d.street !== 'flop') e.push(`${p} przy dwóch punktach decyzji pierwszy jest na flopie`);
+    if (d.kind === 'range-spot' && i !== 0) e.push(`${p} punkt range-spot jest pierwszy`);
   });
   if (t.villainType !== undefined && !exploit) e.push(`${pre} typ rywala wymaga reguły exploit z populacją (ADR-24, szczebel 5)`);
   return e;
@@ -87,13 +111,18 @@ export const POJEMNOSC_MIN = 40;
 export const PROBY_POJEMNOSCI = 2000;
 
 /** Generator musi wytwarzać warianty na każdym poziomie (granice i oczekiwana akcja spełnialne) w liczbie odcisków ≥ POJEMNOSC_MIN po odrzuceniach (dolna granica z losowań; parametry do testu progu). */
-export function checkScenarioGenerator(t: ScenarioTemplate, pojemnoscMin: number = POJEMNOSC_MIN, proby: number = PROBY_POJEMNOSCI): string[] {
+export function checkScenarioGenerator(
+  t: ScenarioTemplate,
+  pojemnoscMin: number = POJEMNOSC_MIN,
+  proby: number = PROBY_POJEMNOSCI,
+  ctx: GeneratorContext = { spots: [] as readonly RangeSpotData[], thresholds: { mixedMin: 0.035, mixedLow: 0.25 } },
+): string[] {
   const e: string[] = [];
   const g = { id: t.id, stackBb: t.stackBb, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
   for (const level of t.levels as ScenarioLevel[]) {
     const odciski = new Set<string>();
     try {
-      for (let seed = 1; seed <= proby; seed++) odciski.add(generateVariant(g, level, seed).fingerprint);
+      for (let seed = 1; seed <= proby; seed++) odciski.add(generateVariant(g, level, seed, ctx).fingerprint);
     } catch (err) {
       e.push(`szablon ${t.id}: poziom ${level}: generator nie wytwarza wariantów (${err instanceof Error ? err.message : String(err)})`);
       continue;

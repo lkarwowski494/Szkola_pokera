@@ -3,8 +3,9 @@
 // kartę wobec ceny sprawdzenia, reguła draw-price), jak generateDrawCall.
 import type { Card } from './cards';
 import { dealCards, rankOf, suitOf } from './cards';
+import { classCombos, classOf, HAND_CLASSES } from './ranges';
 import { analyseOutsSpot, type DrawKind } from './drills';
-import { nutOutsShare, NUT_DRAW_MIN_SHARE } from './grading';
+import { nutOutsShare, NUT_DRAW_MIN_SHARE, rangeVerdict } from './grading';
 import { hitProbability, requiredEquity } from './math';
 import { createRng, pick } from './rng';
 import { SUIT_PERMUTATIONS } from './situation';
@@ -16,7 +17,8 @@ export type ScenarioLevel = (typeof SCENARIO_LEVELS)[number];
 /** Warunki odrzucenia wariantu, który zmieniłby poprawną decyzję (BR-GEN-003). */
 export type RejectCondition = 'rywal-ma-out-gracza' | 'stol-sparowany';
 
-export interface DecisionSpec {
+export interface DrawCallSpec {
+  kind?: 'draw-call';
   street: 'flop' | 'turn';
   /** Pule do wylosowania na pierwszej decyzji (kolejne wynikają z linii: pula + 2 × zakład). */
   pots: readonly number[];
@@ -24,6 +26,26 @@ export interface DecisionSpec {
   fractions: readonly number[];
   /** Linia rywala: `bet` (ułamek puli, domyślnie) albo `all-in` (F5: cały stos za pulą, stackBb − wkład gracza). */
   villain?: 'bet' | 'all-in';
+}
+/** F1: punkt decyzji preflop oceniany częstościami solvera w spocie (ADR-26). */
+export interface RangeSpotSpec {
+  kind: 'range-spot';
+  street: 'preflop';
+  spot: string;
+}
+export type DecisionSpec = DrawCallSpec | RangeSpotSpec;
+
+/** Spot zakresu dla generatora (CompiledRangeSpot z content-build): akcje węzła solvera z częstościami dla 169 klas. */
+export interface RangeSpotData {
+  id: string;
+  uncertain: readonly string[];
+  actions: readonly { label: string; freqs: readonly number[] }[];
+}
+/** Dane spoza szablonu, potrzebne punktom range-spot: poker-core nie czyta plików (D-661). */
+export interface GeneratorContext {
+  spots: readonly RangeSpotData[];
+  /** range.mixed.min i range.mixed.low z numbers.yaml (ADR-26). */
+  thresholds: { mixedMin: number; mixedLow: number };
 }
 export interface LevelBounds {
   draws: readonly DrawKind[];
@@ -36,11 +58,13 @@ export interface LevelBounds {
   drawToBest?: boolean;
   /** F5: margines osobno na punkt decyzji (po jednym na punkt); zastępuje marginMin/marginMax. */
   margins?: readonly { min: number; max: number | null }[];
+  /** F1: przedział częstości akcji oczekiwanej na punkt decyzji range-spot (null = inny rodzaj punktu); min ≤ f ≤ max. */
+  freqs?: readonly ({ min: number; max: number } | null)[];
   /**
    * Poprawna akcja w każdym punkcie decyzji tego poziomu, po jednej na punkt (BR-SZB-001, BR-GEN-003, D-556). Granice losowania
    * mają ją gwarantować: generator odrzuca wariant, w którym rachunek daje inną akcję, więc w poziomie decyzja się nie zmienia.
    */
-  expected: readonly ('call' | 'fold')[];
+  expected: readonly string[];
 }
 export interface GeneratorTemplate {
   id: string;
@@ -50,7 +74,9 @@ export interface GeneratorTemplate {
   decisions: readonly DecisionSpec[];
 }
 
-export interface VariantDecision {
+export interface DrawCallVariantDecision {
+  /** Rodzaj punktu decyzji (rozróżnik unii VariantDecision; `kind` zostaje rodzajem drawa, wstecznie zgodnie). */
+  point: 'draw-call';
   street: 'flop' | 'turn';
   pot: number;
   bet: number;
@@ -62,6 +88,18 @@ export interface VariantDecision {
   correct: 'call' | 'fold';
   margin: number;
 }
+export interface RangeSpotVariantDecision {
+  point: 'range-spot';
+  street: 'preflop';
+  spot: string;
+  handClass: string;
+  /** Częstości wszystkich akcji węzła dla klasy ręki i ich werdykty (ADR-26). */
+  options: { action: string; f: number; verdict: 'correct' | 'acceptable' | 'inaccuracy' | 'wrong' }[];
+  correct: string;
+  /** Częstość akcji oczekiwanej. */
+  freq: number;
+}
+export type VariantDecision = DrawCallVariantDecision | RangeSpotVariantDecision;
 export interface ScenarioVariant {
   templateId: string;
   level: ScenarioLevel;
@@ -69,7 +107,10 @@ export interface ScenarioVariant {
   hero: [Card, Card];
   villain: [Card, Card];
   board: Card[];
-  decisions: VariantDecision[];
+  /** Punkty draw-call w kolejności szablonu (jak dotąd, wstecznie zgodnie). */
+  decisions: DrawCallVariantDecision[];
+  /** Wszystkie punkty decyzji w kolejności szablonu (range-spot i draw-call); indeks = indeks w `decisions` szablonu i `expected` poziomu. */
+  points: VariantDecision[];
   fingerprint: string;
 }
 
@@ -105,12 +146,19 @@ export function variantFingerprint(templateId: string, level: ScenarioLevel, her
 }
 
 function validateTemplate(t: GeneratorTemplate): void {
-  const d = t.decisions;
-  const ok = (d.length === 1 && (d[0]!.street === 'flop' || d[0]!.street === 'turn')) || (d.length === 2 && d[0]!.street === 'flop' && d[1]!.street === 'turn');
-  if (!ok) throw new TemplateError(`${t.id}: decyzje to flop, turn (decyzja od turnu) albo flop i turn`);
-  if (d[0]!.pots.length === 0) throw new TemplateError(`${t.id}: pierwsza decyzja bez puli do losowania`);
-  if (d.some((x) => x.villain === 'all-in') && !(typeof t.stackBb === 'number' && t.stackBb > 0)) throw new TemplateError(`${t.id}: linia all-in wymaga stackBb`);
-  if (d.some((x) => x.villain !== 'all-in' && x.fractions.length === 0)) throw new TemplateError(`${t.id}: decyzja bez ułamków zakładu`);
+  const all = t.decisions;
+  const ranges = all.filter((x) => x.kind === 'range-spot');
+  const d = all.filter((x): x is DrawCallSpec => x.kind !== 'range-spot');
+  if (all.length < 1 || all.length > 2) throw new TemplateError(`${t.id}: szablon ma 1 albo 2 punkty decyzji`);
+  if (ranges.length > 1 || (ranges.length === 1 && all[0]!.kind !== 'range-spot')) throw new TemplateError(`${t.id}: punkt range-spot jest najwyżej jeden i pierwszy`);
+  if (d.length > 0) {
+    // decyzje draw-call: flop, turn (decyzja od turnu) albo flop i turn
+    const ok = (d.length === 1 && (d[0]!.street === 'flop' || d[0]!.street === 'turn')) || (d.length === 2 && d[0]!.street === 'flop' && d[1]!.street === 'turn');
+    if (!ok) throw new TemplateError(`${t.id}: decyzje to flop, turn (decyzja od turnu) albo flop i turn`);
+    if (d[0]!.pots.length === 0) throw new TemplateError(`${t.id}: pierwsza decyzja bez puli do losowania`);
+    if (d.some((x) => x.villain === 'all-in') && !(typeof t.stackBb === 'number' && t.stackBb > 0)) throw new TemplateError(`${t.id}: linia all-in wymaga stackBb`);
+    if (d.some((x) => x.villain !== 'all-in' && x.fractions.length === 0)) throw new TemplateError(`${t.id}: decyzja bez ułamków zakładu`);
+  }
 }
 
 /** Reguła draw-price: wołamy, gdy szansa na trafienie przewyższa cenę sprawdzenia. */
@@ -123,25 +171,69 @@ function inMargin(margin: number, b: LevelBounds, i: number): boolean {
   return margin > 0 && margin >= m.min && (m.max === null || margin < m.max);
 }
 
-function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, seed: number, rng: () => number): ScenarioVariant | null {
-  const cards = dealCards(rng, 9);
-  const hero: [Card, Card] = [cards[0]!, cards[1]!];
-  const villain: [Card, Card] = [cards[2]!, cards[3]!];
-  const board = cards.slice(4);
+/** F1: klasy rąk, w których akcja oczekiwana ma częstość z przedziału poziomu i werdykt „zgodna” (ADR-26); klasy niepewne pominięte. */
+function eligibleClasses(spot: RangeSpotData, expected: string, range: { min: number; max: number }, ctx: GeneratorContext): { hc: string; h: number }[] {
+  const idx = spot.actions.findIndex((a) => a.label === expected);
+  if (idx < 0) return [];
+  const out: { hc: string; h: number }[] = [];
+  HAND_CLASSES.forEach((hc, h) => {
+    if (spot.uncertain.includes(hc)) return;
+    const freqs = spot.actions.map((a) => a.freqs[h]!);
+    const f = freqs[idx]!;
+    if (f >= range.min && f <= range.max && rangeVerdict(freqs, ctx.thresholds)[idx] === 'correct') out.push({ hc, h });
+  });
+  return out;
+}
+
+function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, seed: number, rng: () => number, ctx: GeneratorContext | undefined): ScenarioVariant | null {
+  const first = t.decisions[0]!;
+  let hero: [Card, Card];
+  let rest: Card[];
+  let preflop: RangeSpotVariantDecision | null = null;
+  if (first.kind === 'range-spot') {
+    if (!ctx) throw new TemplateError(`${t.id}: punkt range-spot wymaga danych zakresów (GeneratorContext)`);
+    const spot = ctx.spots.find((x) => x.id === first.spot);
+    if (!spot) throw new TemplateError(`${t.id}: nieznany spot ${first.spot}`);
+    const expected = b.expected[0]!;
+    const range = b.freqs?.[0];
+    if (!range) throw new TemplateError(`${t.id}: poziom ${level}: punkt range-spot bez przedziału freqs`);
+    const classes = eligibleClasses(spot, expected, range, ctx);
+    if (classes.length === 0) throw new TemplateError(`${t.id}: poziom ${level}: żadna klasa rąk nie spełnia przedziału częstości ${range.min}–${range.max} dla ${expected} w spocie ${spot.id}`);
+    const chosen = pick(rng, classes);
+    const combo = pick(rng, classCombos(chosen.hc));
+    hero = [combo[0], combo[1]];
+    rest = dealCards(rng, 7, hero);
+    const freqs = spot.actions.map((a) => a.freqs[chosen.h]!);
+    const verdicts = rangeVerdict(freqs, ctx.thresholds);
+    preflop = {
+      point: 'range-spot', street: 'preflop', spot: spot.id, handClass: classOf(hero[0], hero[1]),
+      options: spot.actions.map((a, i) => ({ action: a.label, f: freqs[i]!, verdict: verdicts[i]! })),
+      correct: expected, freq: freqs[spot.actions.findIndex((a) => a.label === expected)]!,
+    };
+  } else {
+    const cards = dealCards(rng, 9);
+    hero = [cards[0]!, cards[1]!];
+    rest = cards.slice(2);
+  }
+  const villain: [Card, Card] = [rest[0]!, rest[1]!];
+  const board = rest.slice(2);
   const flop = board.slice(0, 3);
   if (!textureMatches(classifyFlop(flop), b.flop ?? {})) return null;
   if (b.reject.includes('stol-sparowany') && new Set(flop.map(rankOf)).size < 3) return null;
 
-  const decisions: VariantDecision[] = [];
+  const points: VariantDecision[] = preflop ? [preflop] : [];
+  const draws: DrawCallVariantDecision[] = [];
   const outCards: Card[] = [];
   let pot = 0;
   let previousOuts: readonly Card[] = [];
   for (const [i, spec] of t.decisions.entries()) {
+    if (spec.kind === 'range-spot') continue;
+    const k = draws.length; // numer punktu draw-call (pierwszy losuje pulę, drugi liczy ją z linii)
     const stol = board.slice(0, spec.street === 'flop' ? 3 : 4);
-    if (i === 1 && previousOuts.includes(board[3]!)) return null; // linia: karta turnu nie trafia
+    if (k === 1 && previousOuts.includes(board[3]!)) return null; // linia: karta turnu nie trafia
     const spot = analyseOutsSpot(hero, stol);
     if (!spot || !(b.draws as readonly string[]).includes(spot.draw.kind)) return null;
-    pot = i === 0 ? pick(rng, spec.pots) : pot + 2 * decisions[0]!.bet;
+    pot = k === 0 ? pick(rng, spec.pots) : pot + 2 * draws[0]!.bet;
     // F5: all-in rywala na flopie to sprawdzenie całego stosu, więc rachunek na dwie karty (R-M2-002); inaczej jedna karta
     const allIn = spec.villain === 'all-in';
     const hit = allIn && spec.street === 'flop' ? hitProbability(spot.outs, 52 - 2 - stol.length, 2) : spot.hitNextCard;
@@ -153,23 +245,26 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     if (b.drawToBest && nutOutsShare(hero, stol) < NUT_DRAW_MIN_SHARE) return null; // F5: draw do najlepszej ręki (po tanich warunkach: nutOutsShare jest drogie)
     const chosen = pick(rng, ok);
     const required = requiredEquity(pot, chosen.bet);
-    decisions.push({
-      street: spec.street, pot, bet: chosen.bet, fraction: chosen.fraction, required, hit, outs: spot.outs,
+    const dec: DrawCallVariantDecision = {
+      point: 'draw-call', street: spec.street, pot, bet: chosen.bet, fraction: chosen.fraction, required, hit, outs: spot.outs,
       kind: spot.draw.kind as DrawKind, correct: decide(hit, required), margin: chosen.margin,
-    });
+    };
+    draws.push(dec);
+    points.push(dec);
     outCards.push(...spot.draw.all);
     previousOuts = spot.draw.all;
   }
   if (b.reject.includes('rywal-ma-out-gracza') && villain.some((c) => outCards.includes(c))) return null;
-  const shown = board.slice(0, t.decisions[t.decisions.length - 1]!.street === 'turn' ? 4 : 3);
-  return { templateId: t.id, level, seed, hero, villain, board, decisions, fingerprint: variantFingerprint(t.id, level, hero, shown) };
+  const last = [...t.decisions].reverse().find((x) => x.kind !== 'range-spot');
+  const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : [];
+  return { templateId: t.id, level, seed, hero, villain, board, decisions: draws, points, fingerprint: variantFingerprint(t.id, level, hero, shown) };
 }
 
 /**
  * Wariant = szablon + poziom + ziarno (D-531): ręce i pięć kart stołu ustalone od razu, ten sam wynik dla tych samych
  * danych. Odrzuca losowania łamiące granice poziomu; po MAX_CONSECUTIVE_REJECTIONS odrzuceniach z rzędu zgłasza błąd szablonu.
  */
-export function generateVariant(template: GeneratorTemplate, level: ScenarioLevel, seed: number): ScenarioVariant {
+export function generateVariant(template: GeneratorTemplate, level: ScenarioLevel, seed: number, ctx?: GeneratorContext): ScenarioVariant {
   validateTemplate(template);
   const bounds = template.levels[level];
   if (!bounds) throw new TemplateError(`${template.id}: brak poziomu ${level}`);
@@ -178,7 +273,7 @@ export function generateVariant(template: GeneratorTemplate, level: ScenarioLeve
   }
   const rng = createRng(seed);
   for (let i = 0; i < MAX_CONSECUTIVE_REJECTIONS; i++) {
-    const v = tryVariant(template, level, bounds, seed, rng);
+    const v = tryVariant(template, level, bounds, seed, rng, ctx);
     if (v) return v;
   }
   throw new TemplateError(`${template.id}: ${MAX_CONSECUTIVE_REJECTIONS} odrzuceń z rzędu na poziomie ${level}`);

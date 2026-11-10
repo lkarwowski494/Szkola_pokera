@@ -1,0 +1,20 @@
+# Fixture testu BU (F1): punkt range-spot z częstości solvera (spot rfi.btn), trzy poziomy wg przedziału częstości akcji oczekiwanej. Nie jest treścią aplikacji.
+id: sc-fx-rfi-btn
+module: m3
+situation: "Fixture: otwarcie z Buttona."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni, trudny]
+bounds:
+  latwy: { freqs: [{ min: 0.99, max: 1 }], expected: ["raise 2.5"] }
+  sredni: { freqs: [{ min: 0.9, max: 0.99 }], expected: ["raise 2.5"] }
+  trudny: { freqs: [{ min: 0.25, max: 0.9 }], expected: ["raise 2.5"] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.btn
+    rule: R-M3-003
+    actions:
+      - { action: "raise 2.5", explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, wszyscy przed tobą spasowali. Otwierasz, bo ta ręka jest w zakresie solvera." }
+      - { action: fold, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, wszyscy przed tobą spasowali. Pas oddaje rękę z zakresu otwarcia." }

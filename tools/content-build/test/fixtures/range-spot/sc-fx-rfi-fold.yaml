@@ -1,0 +1,18 @@
+# Fixture testu BU (F1): oczekiwany pas (spot rfi.utg, ręce spoza zakresu otwarcia). Nie jest treścią aplikacji.
+id: sc-fx-rfi-fold
+module: m3
+situation: "Fixture: pas z UTG."
+table: 6max
+positions: { hero: UTG, villain: BB }
+stackBb: 100
+levels: [latwy]
+bounds:
+  latwy: { freqs: [{ min: 0.99, max: 1 }], expected: [fold] }
+decisions:
+  - street: preflop
+    kind: range-spot
+    spot: rfi.utg
+    rule: R-M3-002
+    actions:
+      - { action: "raise 2.5", explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, wszyscy przed tobą spasowali. Otwarcie tą ręką jest poza zakresem." }
+      - { action: fold, explanation: "Masz {{w:reka}} na {{w:pozycja}}, {{w:stol}}, wszyscy przed tobą spasowali. Pasujesz, bo ręka jest poza zakresem otwarcia z UTG." }

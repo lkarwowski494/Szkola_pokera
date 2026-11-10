@@ -25,7 +25,7 @@ describe('F5: rozszerzenia draw-call', () => {
           const v = generateVariant(g, level, seed);
           expect(v.decisions.length).toBe(t.decisions.length);
           v.decisions.forEach((d, i) => {
-            const spec = t.decisions[i]!;
+            const spec = t.decisions[i]! as { street: string; villain?: string };
             if (d.street !== spec.street) bledy.push(`${seed}#${i + 1}: ulica ${d.street}`);
             const stol = v.board.slice(0, d.street === 'flop' ? 3 : 4);
             const spot = analyseOutsSpot(v.hero, stol);

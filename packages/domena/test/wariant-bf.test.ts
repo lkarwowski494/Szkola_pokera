@@ -40,7 +40,7 @@ describe('BR-GEN-002: wybór wariantu bez powtórzeń', () => {
 
   it('brak wolnego odcisku: najdawniej widziany z okna, pomijając odciski tej sesji', () => {
     const pula = ['a', 'b', 'c'].map((odcisk, i): ScenarioVariant => ({
-      templateId: 't', level: 'sredni', seed: 100 + i, hero: [0, 1], villain: [2, 3], board: [4, 5, 6, 7, 8], decisions: [], fingerprint: odcisk,
+      templateId: 't', level: 'sredni', seed: 100 + i, hero: [0, 1], villain: [2, 3], board: [4, 5, 6, 7, 8], decisions: [], points: [], fingerprint: odcisk,
     }));
     // generator zna tylko trzy odciski; ziarno wybiera jeden z nich
     const generuj = (_: GeneratorTemplate, __: ScenarioLevel, ziarno: number): ScenarioVariant => pula[ziarno >= 100 && ziarno <= 102 ? ziarno - 100 : ziarno % 3]!;
