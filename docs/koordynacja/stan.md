@@ -23,7 +23,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 
 ## Teraz
 - Gałąź robocza @ **40e5cef**: pt-PT (AT) + poprawki pełnego przeglądu 9 języków (AU, 2849, WYS 15) + KO-020/021/022/024. CI 42778528710 i E2E 42778528672 **success**. Wszystkie sesje dnia przyjęte i zarchiwizowane; aktywnych sesji brak.
-- **Czeka na właściciela:** build TestFlight (`testflight.yml` z ref `claude/sleepy-brahmagupta-2065nu`, Approve), potem listy telefonu (`docs/lokalizacja/lista-telefonu-*.md`, w tym pt-PT i T-au-*).
+- **Czeka na właściciela:** build TestFlight wysłany (42785838180 success 09:13) → testy na telefonie: listy telefonu (`docs/lokalizacja/lista-telefonu-*.md`, w tym pt-PT i T-au-*).
 - Następne dla koordynatora: po buildzie — odbiór wyników telefonu; backlog (en-US „correct”→„Aligned” rola 10; błędy źródła pl → rola 06: m2.yaml:89, m10-l3:49, text.ts:152; NISKIE pt-PT N-1…N-3). Kontroli brak, gdy nic nie trwa; linia 14:00.
 
 ## Sesje
@@ -118,3 +118,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-10 07:55 | koordynator | E2E 42772729272 na 1db8449 **success** (07:39) → **AT przyjęta** (CI + E2E + recenzja). Robocza ff → **40e5cef** (AU + pt-PT); CI i E2E na 40e5cef ruszają. Kontekst koordynatora 26,2% (koszt 11,21 USD) | po zielonym E2E: przyjęcie i archiwum AU, prośba o build TestFlight; przekazanie koordynatora przy 30% |
 | 11-10 08:50 | koordynator | E2E 42778528672 na 40e5cef **success** (08:39; kompilacja 22 min, flowy 15 min), CI 42778528710 success → **AU przyjęta** (commit, autor, CI+E2E na SHA, recenzja niezależna); zarchiwizowana, 5,37 USD, kontekst 32,4% | prośba do właściciela: build TestFlight |
 | 11-10 08:51 | właściciel | „Kliknąłem” → TestFlight 42785838180 na 40e5cef (workflow_dispatch, numer przebiegu 9 → build 1009), in_progress | kontrola 09:22 |
+| 11-10 09:23 | koordynator | TestFlight 42785838180 na 40e5cef **success** (09:13, 22 min); numer buildu 1009 wg reguły workflowu (niesprawdzone w ASC) | właściciel: telefon wg list; linia 14:00 |
