@@ -11,6 +11,7 @@ Stan: E4 (2026-11-03): BRD zakończone i przekazane (definicja ukończenia z dow
 | `dane/konkurencja-2026-11-03.json` | 102 aplikacje nauki: oceny, ceny, wiek, języki, typ (bez cudzych opisów i recenzji) | E2 |
 | `wymagania.md` | przepływy PR-01–PR-09, NFR (13), pokrycie wymiarów | fix 2026-11-03 |
 | `wymagania-nauka.md` | BR: ocena poziomu (ONB), kurs (KURS), ćwiczenia (CWI), powtórki (POW), scenariusze (SCN) | E3 |
+| `wymagania-scenariusze.md` | BR: szablony scenariuszy (SZB), generator (GEN), poziom (POZ), ocena „dlaczego” (OCE), ekran główny (MENU) | rola 03, 2026-11-10 (KO-035…KO-041; przegląd 01: ER-14, ER-15) |
 | `wymagania-sklep.md` | BR: zakup (ZAK), dane (DANE), pomoc (POM), języki (JEZ), dzienny limit (LIM), opinie (OPIN) | fix 2026-11-03 |
 
 ## Streszczenie E2
