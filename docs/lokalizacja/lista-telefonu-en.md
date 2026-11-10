@@ -40,5 +40,8 @@ Build z TestFlight z commitem co najmniej tej sesji. Przed startem zrób eksport
 | T-en-9 | Telefon z powrotem na polski (T-en-1 w drugą stronę), otwórz aplikację | po polsku | |
 | T-en-10 | Największy tekst (Ustawienia iOS → Ekran i jasność → Wielkość tekstu, maksimum) przy en: Today, lekcja, ustawienia | bez uciętych przycisków i etykiet (zrzut, jeśli coś jest ucięte) | |
 | T-en-11 | VoiceOver przy en: Today i słowniczek | czytane z wymową angielską; słowniczek: „termin. definicja” | |
+| T-ikona-1 | Nowy build (1010 lub późniejszy) zainstaluj z TestFlight, wyjdź na ekran główny | ikona: granatowe tło, nowe karty (nie stara ikona z buildu 1009) | |
+| T-ikona-2 | iOS: tapeta ciemna albo Ustawienia → Ekran i jasność → Ciemny; obejrzyj ikonę | wariant ciemny ikony (`ios-dark.png`), czytelny | |
+| T-ikona-3 | Zamknij aplikację i uruchom ją ponownie, w jasnym i w ciemnym trybie | ekran startowy: jasne tło w jasnym, granatowe w ciemnym, ta sama ikona na środku | |
 
 Samosprawdzenie `Intl` (liczba mnoga) działa przy starcie aplikacji: w buildzie TestFlight błąd nie jest pokazywany, więc kontrolą jest T-en-3 i T-en-4 (np. „1 term” / „2 terms” w słowniczku po wyszukaniu).

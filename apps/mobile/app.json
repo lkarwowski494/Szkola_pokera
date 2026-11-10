@@ -8,7 +8,7 @@
     "scheme": "szkolapokera",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/images/icon.png",
+      "icon": { "light": "./assets/images/icon.png", "dark": "./assets/images/ios-dark.png" },
       "bundleIdentifier": "pl.lkarwowski.szkolapokera",
       "appleTeamId": "8NQ9GHY8GF",
       "supportsTablet": false,
@@ -28,10 +28,9 @@
     "android": {
       "package": "pl.lkarwowski.szkolapokera",
       "adaptiveIcon": {
-        "backgroundColor": "#0A1430",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "backgroundColor": "#22488A",
+        "foregroundImage": "./assets/images/android-foreground.png",
+        "monochromeImage": "./assets/images/android-monochrome.png"
       }
     },
     "plugins": [
@@ -40,7 +39,7 @@
       ["expo-localization", { "supportedLocales": { "ios": ["pl", "en", "ja", "zh-Hant", "pt-BR", "fr", "de", "es", "ko", "it", "vi", "pt"], "android": ["pl", "en", "ja", "zh-Hant", "pt-BR", "fr", "de", "es", "ko", "it", "vi", "pt"] }, "supportsRTL": false }],
       [
         "expo-splash-screen",
-        { "backgroundColor": "#0A1430", "image": "./assets/images/splash-icon.png", "imageWidth": 180 }
+        { "backgroundColor": "#E9EDF5", "image": "./assets/images/splash-icon.png", "imageWidth": 180, "dark": { "backgroundColor": "#0A1430", "image": "./assets/images/splash-icon.png" } }
       ],
       ["expo-notifications", { "enableRemoteNotifications": false }],
       "expo-iap"

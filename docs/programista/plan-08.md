@@ -1079,6 +1079,18 @@ Polecenie: `docs/koordynacja/polecenia/AT.md` @ 4e864e7, start `sesja-ao-pt-pt` 
 
 Otwarte: zrzuty pt (E2) i telefon — krok właściciela/koordynatora; E2E po scaleniu (koordynator); autor 3 commitów AS do poprawy przy scaleniu (polecenie AT pkt 2).
 
+## Sesja AV — ikona zaakceptowana w aplikacji (2026-11-10, rola 08 fix, KO-025; D-470)
+Polecenie: `docs/koordynacja/polecenia/AV.md` @ 0c7d969, start `sesja-av-ikona` @ 40e5cef (zgodny). Dowód: `docs/lokalizacja/dowody/av-ikona-ci-2026-11-10.log`.
+
+| Krok | Stan / dowód |
+|---|---|
+| Klasyfikacja | D (defekt: pliki i wpisy ikon nie podmienione po D-123) |
+| Test przed kodem | `tests/kontrole/k09-ikona.test.ts`: czerwony 8/8 na starych plikach i `app.json`, zielony po zmianie |
+| Zmiana | 5 plików skopiowanych z `docs/design/ikona/`, `app.json` (tylko ikony i ekran startowy), usunięte 3 pliki `android-icon-*.png` |
+| `pnpm run ci` | kod 0 (log w dowodzie) |
+
+Otwarte: weryfikacja na telefonie (lista T-ikona w `lista-telefonu-en.md`); Icon Composer / `.icon` na macOS (design-spec:83) poza zakresem.
+
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
 
