@@ -33,3 +33,6 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | AX | 06 fix (opus) | — | 16,56 (10:08) | 28,5 | 09:36 → 09:37 → e0ab3d2 10:05 → CI/E2E bca751e w toku | ok. 25 min: jw. | subagenci ok. 0,9 mln tokenów wg sesji; m5.q2 nie zmieściło się w kontekście |
 | BA | 06 fix (opus) | — | 13,39 | 29,1 | 10:40 → 10:46 → 02ec8c4 11:06 → (bez CI roboczej; recenzja WYS 2) → przekazanie 11:06, archiwum 11:23 | 0 | praca 20 min; recenzja niezależna znalazła 2 WYS w poprawce blokera → następca BB; subagenci ok. 730 tys. tokenów wg sesji |
 | BB | 06 fix (opus) | — | 8,34 | 23,4 | 11:15 → 11:21 → fbb2d15 11:37 → kontrola poprawek 11:44 → czeka na scalenie | 0 | praca 16 min; oddała część B przy 23% (próg 25% z polecenia liczony ostrożnie) |
+| AW (końcowy) | 08 build (sonnet) | — | 4,86 | 28,6 | … → 0a89f70 10:15 → w bca751e (E2E czerwone 11:42, regresja ramy stołu) → naprawa AZ → E2E 42812007468 na 57a83bf zielone 13:11 → przyjęte i zarchiwizowane 13:31 | kolejka macos-26 ok. 25 min (11:59→12:24) + 1 przebieg E2E stracony (66 min) | regresja nie wykryta przez 2 recenzje |
+| AX (końcowy) | 06 fix (opus) | — | 16,56 | 28,5 | … → przyjęte 13:31 (E2E 57a83bf) | jw. | — |
+| BB/BA (KO-029) | 06 fix (opus) | — | — | — | fbb2d15 w 57a83bf → E2E zielone 13:11 | — | przyjęte |
