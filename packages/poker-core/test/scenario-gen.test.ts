@@ -11,9 +11,9 @@ import { referenceScore } from './reference-evaluator';
 const POZIOMY: ScenarioLevel[] = ['latwy', 'sredni', 'trudny'];
 const WSZYSTKIE_DRAWY = ['flush', 'oesd', 'gutshot'] as const;
 const POZIOMY_GRANIC = {
-  latwy: { draws: WSZYSTKIE_DRAWY, marginMin: 0.1, marginMax: null, reject: ['rywal-ma-out-gracza', 'stol-sparowany'] },
-  sredni: { draws: WSZYSTKIE_DRAWY, marginMin: 0.02, marginMax: 0.1, reject: ['rywal-ma-out-gracza', 'stol-sparowany'] },
-  trudny: { draws: WSZYSTKIE_DRAWY, marginMin: 0.0001, marginMax: 0.02, reject: ['rywal-ma-out-gracza', 'stol-sparowany'] },
+  latwy: { draws: WSZYSTKIE_DRAWY, marginMin: 0.1, marginMax: null, reject: ['rywal-ma-out-gracza', 'stol-sparowany'], expected: ['fold'] },
+  sredni: { draws: WSZYSTKIE_DRAWY, marginMin: 0.02, marginMax: 0.1, reject: ['rywal-ma-out-gracza', 'stol-sparowany'], expected: ['fold'] },
+  trudny: { draws: WSZYSTKIE_DRAWY, marginMin: 0.0001, marginMax: 0.02, reject: ['rywal-ma-out-gracza', 'stol-sparowany'], expected: ['call'] },
 } as const;
 // Szablony testowe (nie treść dla użytkownika): A — jedna decyzja na flopie, B — linia flop → brak trafienia na turnie → druga decyzja.
 const SZABLON_A: GeneratorTemplate = {
@@ -21,7 +21,7 @@ const SZABLON_A: GeneratorTemplate = {
   decisions: [{ street: 'flop', pots: [20, 40, 60, 100], fractions: BET_FRACTIONS }],
 };
 const SZABLON_B: GeneratorTemplate = {
-  id: 'test-b', levels: { latwy: POZIOMY_GRANIC.latwy, sredni: POZIOMY_GRANIC.sredni },
+  id: 'test-b', levels: { latwy: { ...POZIOMY_GRANIC.latwy, expected: ['fold', 'fold'] }, sredni: { ...POZIOMY_GRANIC.sredni, expected: ['fold', 'call'] } },
   decisions: [{ street: 'flop', pots: [20, 40, 60], fractions: BET_FRACTIONS }, { street: 'turn', pots: [], fractions: BET_FRACTIONS }],
 };
 
@@ -64,6 +64,7 @@ function sprawdz(v: ScenarioVariant, s: GeneratorTemplate, poziom: ScenarioLevel
     const cena = d.bet / (pula + 2 * d.bet);
     expect(d.pot).toBe(pula);
     expect(d.correct).toBe(szansa > cena ? 'call' : 'fold'); // wyrocznia decyzji
+    expect(d.correct).toBe(g.expected[i]); // ocena oczekiwana z szablonu (BR-GEN-003, D-556)
     const odl = Math.abs(szansa - cena);
     expect(odl).toBeGreaterThan(0);
     if (poziom === 'latwy') expect(odl).toBeGreaterThanOrEqual(0.1); // BR-GEN-003: ≥ 10 pp
@@ -114,6 +115,18 @@ describe('generator wariantów: ziarno i odcisk (BR-GEN-001, D-531)', () => {
   });
   it('szablon niespełnialny: błąd szablonu po 1000 odrzuceniach z rzędu, bez wariantu', () => {
     const zly: GeneratorTemplate = { id: 'zly', levels: { latwy: { ...POZIOMY_GRANIC.latwy, marginMin: 0.99, marginMax: null } }, decisions: SZABLON_A.decisions };
+    expect(() => generateVariant(zly, 'latwy', 1)).toThrow(TemplateError);
+  });
+  it('oczekiwana akcja nieosiągalna w granicach poziomu: błąd szablonu, nie wariant z inną oceną (BR-GEN-003, D-556)', () => {
+    // łatwy (≥ 10 pp) przy zakładzie 2 × pula: cena 40% — „call” niemożliwy
+    const nieosiagalny: GeneratorTemplate = {
+      id: 'nieosiagalny', levels: { latwy: { ...POZIOMY_GRANIC.latwy, expected: ['call'] } },
+      decisions: [{ street: 'flop', pots: [20, 40], fractions: [2] }],
+    };
+    expect(() => generateVariant(nieosiagalny, 'latwy', 1)).toThrow(TemplateError);
+  });
+  it('liczba oczekiwanych akcji różna od liczby punktów decyzji to błąd szablonu', () => {
+    const zly: GeneratorTemplate = { id: 'zly2', levels: { latwy: { ...POZIOMY_GRANIC.latwy, expected: ['fold', 'fold'] } }, decisions: SZABLON_A.decisions };
     expect(() => generateVariant(zly, 'latwy', 1)).toThrow(TemplateError);
   });
   it('poziom, którego szablon nie ma, to błąd', () => {

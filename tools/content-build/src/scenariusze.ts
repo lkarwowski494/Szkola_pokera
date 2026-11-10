@@ -45,6 +45,10 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
     const ma = t.bounds[l] !== undefined;
     if (t.levels.includes(l) && !ma) e.push(`${pre} poziom ${l} na liście poziomów, ale bez granic losowania`);
     if (!t.levels.includes(l) && ma) e.push(`${pre} granice poziomu ${l} bez poziomu na liście poziomów`);
+    const oczekiwane = t.bounds[l]?.expected;
+    if (oczekiwane !== undefined && oczekiwane.length !== t.decisions.length) {
+      e.push(`${pre} poziom ${l}: oczekiwanych akcji ${oczekiwane.length}, punktów decyzji ${t.decisions.length} (po jednej na punkt, D-556)`);
+    }
   }
   let exploit = false;
   t.decisions.forEach((d, i) => {
@@ -67,21 +71,21 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
 
 /** Pojemność wariantów na poziom (BR-GEN-002 c): co najmniej tyle różnych odcisków. */
 export const POJEMNOSC_MIN = 40;
-const PROBY_POJEMNOSCI = 2000;
+export const PROBY_POJEMNOSCI = 2000;
 
-/** Generator musi wytwarzać warianty na każdym poziomie (granice spełnialne) w liczbie odcisków ≥ POJEMNOSC_MIN (dolna granica z losowań). */
-export function checkScenarioGenerator(t: ScenarioTemplate): string[] {
+/** Generator musi wytwarzać warianty na każdym poziomie (granice i oczekiwana akcja spełnialne) w liczbie odcisków ≥ POJEMNOSC_MIN po odrzuceniach (dolna granica z losowań; parametry do testu progu). */
+export function checkScenarioGenerator(t: ScenarioTemplate, pojemnoscMin: number = POJEMNOSC_MIN, proby: number = PROBY_POJEMNOSCI): string[] {
   const e: string[] = [];
   const g = { id: t.id, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
   for (const level of t.levels as ScenarioLevel[]) {
     const odciski = new Set<string>();
     try {
-      for (let seed = 1; seed <= PROBY_POJEMNOSCI; seed++) odciski.add(generateVariant(g, level, seed).fingerprint);
+      for (let seed = 1; seed <= proby; seed++) odciski.add(generateVariant(g, level, seed).fingerprint);
     } catch (err) {
       e.push(`szablon ${t.id}: poziom ${level}: generator nie wytwarza wariantów (${err instanceof Error ? err.message : String(err)})`);
       continue;
     }
-    if (odciski.size < POJEMNOSC_MIN) e.push(`szablon ${t.id}: poziom ${level}: pojemność ${odciski.size} odcisków w ${PROBY_POJEMNOSCI} losowaniach, wymagane ${POJEMNOSC_MIN}`);
+    if (odciski.size < pojemnoscMin) e.push(`szablon ${t.id}: poziom ${level}: pojemność ${odciski.size} odcisków w ${proby} losowaniach, wymagane ${pojemnoscMin}`);
   }
   return e;
 }

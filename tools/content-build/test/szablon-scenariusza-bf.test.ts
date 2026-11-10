@@ -8,7 +8,7 @@ import { compileContent } from '../src/build';
 import { checkScenarioGenerator, checkScenarioTemplate, type ScenarioCheckContext } from '../src/scenariusze';
 
 const contentDir = join(resolve(import.meta.dirname, '../../..'), 'content');
-const BOUNDS = { draws: ['flush', 'oesd', 'gutshot'], marginMin: 0.02, marginMax: null, reject: ['rywal-ma-out-gracza', 'stol-sparowany'] };
+const BOUNDS = { draws: ['flush', 'oesd', 'gutshot'], marginMin: 0.02, marginMax: null, reject: ['rywal-ma-out-gracza', 'stol-sparowany'], expected: ['fold'] };
 const BAZA = {
   id: 'sc-test-draw',
   module: 'm2',
@@ -79,6 +79,20 @@ describe('walidacja szablonu w budowaniu', () => {
     const ok = kopia((b) => { b.decisions[0]!.rule = 'R-M10-006'; });
     expect(checkScenarioTemplate(t({ ...(ok as object), villainType: 'nit' }), 'sc-test-draw.yaml', ctx)).toEqual([]);
   });
+  it('oczekiwane akcje: po jednej na punkt decyzji (schemat wymaga ≥ 1, budowanie sprawdza liczbę)', () => {
+    expect(ScenarioTemplate.safeParse(kopia((b) => { (b.bounds.sredni as { expected: string[] }).expected = []; })).success).toBe(false);
+    const e = checkScenarioTemplate(t(kopia((b) => { (b.bounds.sredni as { expected: string[] }).expected = ['fold', 'fold']; })), 'sc-test-draw.yaml', ctx);
+    expect(e.join('\n')).toMatch(/sc-test-draw.*poziom sredni.*oczekiwanych akcji 2.*punktów decyzji 1/);
+  });
+  it('generator: oczekiwana akcja nieosiągalna w granicach poziomu — błąd z id i poziomem (BR-GEN-003)', () => {
+    const e = checkScenarioGenerator(t(kopia((b) => { (b.bounds.latwy as { expected: string[] }).expected = ['call']; b.decisions[0]!.fractions = [2]; })), 40, 50);
+    expect(e.join('\n')).toMatch(/sc-test-draw.*poziom latwy.*generator nie wytwarza wariantów/);
+  }, 120_000);
+  it('generator: pojemność po odrzuceniach poniżej progu to błąd (D-532, próg ≥ 40)', () => {
+    const e = checkScenarioGenerator(t(BAZA), 1_000_000, 100);
+    expect(e.join('\n')).toMatch(/sc-test-draw.*poziom latwy.*pojemność \d+ odcisków w 100 losowaniach, wymagane 1000000/);
+    expect(checkScenarioGenerator(t(BAZA))).toEqual([]); // domyślny próg 40 spełniony
+  }, 120_000);
   it('generator: poprawny szablon ma pojemność ≥ 40 na poziom, niespełnialne granice dają błąd z id i poziomem', () => {
     expect(checkScenarioGenerator(t(BAZA))).toEqual([]);
     const zly = t(kopia((b) => { b.bounds.sredni = { ...BOUNDS, marginMin: 0.99 }; }));

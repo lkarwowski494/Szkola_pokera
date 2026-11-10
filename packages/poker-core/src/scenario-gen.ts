@@ -29,6 +29,11 @@ export interface LevelBounds {
   marginMin: number;
   marginMax: number | null;
   reject: readonly RejectCondition[];
+  /**
+   * Poprawna akcja w każdym punkcie decyzji tego poziomu, po jednej na punkt (BR-SZB-001, BR-GEN-003, D-556). Granice losowania
+   * mają ją gwarantować: generator odrzuca wariant, w którym rachunek daje inną akcję, więc w poziomie decyzja się nie zmienia.
+   */
+  expected: readonly ('call' | 'fold')[];
 }
 export interface GeneratorTemplate {
   id: string;
@@ -97,6 +102,11 @@ function validateTemplate(t: GeneratorTemplate): void {
   if (d.some((x) => x.fractions.length === 0)) throw new TemplateError(`${t.id}: decyzja bez ułamków zakładu`);
 }
 
+/** Reguła draw-price: wołamy, gdy szansa na trafienie przewyższa cenę sprawdzenia. */
+function decide(hit: number, required: number): 'call' | 'fold' {
+  return hit > required ? 'call' : 'fold';
+}
+
 function inMargin(margin: number, b: LevelBounds): boolean {
   return margin > 0 && margin >= b.marginMin && (b.marginMax === null || margin < b.marginMax);
 }
@@ -125,13 +135,13 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
         const bet = Math.round(pot * fraction);
         return { fraction, bet, margin: bet > 0 ? Math.abs(spot.hitNextCard - requiredEquity(pot, bet)) : 0 };
       })
-      .filter((x) => inMargin(x.margin, b));
+      .filter((x) => inMargin(x.margin, b) && decide(spot.hitNextCard, requiredEquity(pot, x.bet)) === b.expected[i]); // BR-GEN-003: tylko oczekiwana akcja
     if (ok.length === 0) return null;
     const chosen = pick(rng, ok);
     const required = requiredEquity(pot, chosen.bet);
     decisions.push({
       street: spec.street, pot, bet: chosen.bet, fraction: chosen.fraction, required, hit: spot.hitNextCard, outs: spot.outs,
-      kind: spot.draw.kind as DrawKind, correct: spot.hitNextCard > required ? 'call' : 'fold', margin: chosen.margin,
+      kind: spot.draw.kind as DrawKind, correct: decide(spot.hitNextCard, required), margin: chosen.margin,
     });
     outCards.push(...spot.draw.all);
     previousOuts = spot.draw.all;
@@ -149,6 +159,9 @@ export function generateVariant(template: GeneratorTemplate, level: ScenarioLeve
   validateTemplate(template);
   const bounds = template.levels[level];
   if (!bounds) throw new TemplateError(`${template.id}: brak poziomu ${level}`);
+  if (bounds.expected.length !== template.decisions.length) {
+    throw new TemplateError(`${template.id}: poziom ${level}: oczekiwanych akcji ${bounds.expected.length}, punktów decyzji ${template.decisions.length}`);
+  }
   const rng = createRng(seed);
   for (let i = 0; i < MAX_CONSECUTIVE_REJECTIONS; i++) {
     const v = tryVariant(template, level, bounds, seed, rng);

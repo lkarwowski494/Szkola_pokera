@@ -506,6 +506,8 @@ export const ScenarioLevelBounds = z
     marginMin: z.number().min(0).max(1),
     marginMax: z.number().min(0).max(1).nullable(),
     reject: z.array(ScenarioReject),
+    /** Poprawna akcja w każdym punkcie decyzji tego poziomu, po jednej na punkt (BR-SZB-001, BR-GEN-003, D-556). */
+    expected: z.array(z.enum(['call', 'fold'])).min(1).max(2),
   })
   .strict()
   .refine((b) => b.marginMax === null || b.marginMax > b.marginMin, 'marginMax musi być większy od marginMin');

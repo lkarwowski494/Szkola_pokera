@@ -5,7 +5,7 @@ import { KONFIGURACJA as K, wybierzWariant, type WpisHistorii } from '../src';
 
 const SZABLON: GeneratorTemplate = {
   id: 'test-w',
-  levels: { sredni: { draws: ['flush', 'oesd', 'gutshot'], marginMin: 0.02, marginMax: 0.1, reject: ['rywal-ma-out-gracza', 'stol-sparowany'] } },
+  levels: { sredni: { draws: ['flush', 'oesd', 'gutshot'], marginMin: 0.02, marginMax: 0.1, reject: ['rywal-ma-out-gracza', 'stol-sparowany'], expected: ['fold'] } },
   decisions: [{ street: 'flop', pots: [20, 40, 60], fractions: BET_FRACTIONS }],
 };
 
