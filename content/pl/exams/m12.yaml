@@ -24,7 +24,7 @@ drills:
     rules: [R-M12-003]
     prompt: "Grasz agresywnie i twoje {{t:standard-deviation|odchylenie}} wynosi {{n:var.sd.high}}. Chcesz znać winrate z dokładnością ± {{n:var.target}} przy {{n:var.conf95}} pewności. Ile rąk potrzebujesz?"
     options:
-      - { text: "Ok. {{n:exam.m12.need.hands.k}} tys.", correct: true, why: "Bloki = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:exam.m12.need.ratio}}² ≈ {{n:exam.m12.need.blocks}}, czyli ok. {{n:exam.m12.need.hands.k}} tys. rąk. Wyższe {{t:standard-deviation|odchylenie}} wymaga dużo większej próby." }
+      - { text: "Ok. {{n:exam.m12.need.hands.k}} tys.", correct: true, why: "Wyższe {{t:standard-deviation|odchylenie}} wymaga dużo większej próby: stoi we wzorze w kwadracie, a błąd maleje dopiero z pierwiastkiem z liczby rąk. Rachunek: bloki = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:exam.m12.need.ratio}}² ≈ {{n:exam.m12.need.blocks}}, czyli ok. {{n:exam.m12.need.hands.k}} tys. rąk." }
       - { text: "Ok. {{n:var.need.hands.k}} tys., tyle samo co przy {{t:standard-deviation|odchyleniu}} {{n:var.sd}}", why: "{{t:standard-deviation|Odchylenie}} stoi we wzorze w kwadracie, więc przy {{n:var.sd.high}} zamiast {{n:var.sd}} potrzebujesz wyraźnie więcej rąk: ok. {{n:exam.m12.need.hands.k}} tys." }
       - { text: "Kilkadziesiąt tysięcy rąk wystarczy", why: "Błąd maleje dopiero z pierwiastkiem z liczby rąk. Przy {{n:var.sd.high}} i dokładności ± {{n:var.target}} potrzebujesz ok. {{n:exam.m12.need.blocks}} bloków po 100 rąk." }
   - kind: choice
