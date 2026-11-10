@@ -75,7 +75,7 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 
 ## Pule numerów decyzji
 - Rejestr aplikacji `docs/decyzje.md`: ostatni D-394. Pule: AM D-395…D-399, AN D-400…D-404, AO D-405…D-419, AP D-420…D-429, AQ D-430…D-439, AR D-440…D-449; AT D-408…D-419 (reszta puli AO/AS); AU zarezerwowana D-450…D-469; następny wolny **D-470**.
-- KO następny: **KO-033**. Pule: AV D-470…D-474, AW D-475…D-484, AX D-485…D-494; AZ D-495…D-499, BA D-500…D-509, BB D-510…D-519, BC D-520…D-529; następny wolny **D-530**. Uwaga: AV wpisała D-470 na końcu tabeli `docs/decyzje.md` (numeracja pul, nie ciągła).
+- KO następny: **KO-034**. Pule: AV D-470…D-474, AW D-475…D-484, AX D-485…D-494; AZ D-495…D-499, BA D-500…D-509, BB D-510…D-519, BC D-520…D-529; następny wolny **D-530**. Uwaga: AV wpisała D-470 na końcu tabeli `docs/decyzje.md` (numeracja pul, nie ciągła).
 
 ## Dziennik (najnowsze na dole; starszy w `docs/programista/plan-08.md` „Koordynacja”)
 | UTC | Sesja | Zdarzenie z dowodem | Następny krok |
@@ -166,3 +166,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-10 11:45 | koordynator | kontrola poprawek BB **fbb2d15** (subagent): werdykt „scalić” — Z-1…Z-5 naprawione, cytaty potwierdzone curl, skrypt nietautologiczny (mutacja → 1 naruszenie), content:build czysty, content:check 0 — `recenzje/kontrola-bb-fbb2d15.md`. Nowe N-1 (ŚR, poza diffem): `best: check` / „c-betujesz rzadziej” na niskich półpołączonych wbrew kierunkowi źródła o 973r — otwarte pytanie `docs/tresci/e1-m5-m8.md:67`, **do rozstrzygnięcia przed App Store** (sesja 06). **KO-029 (BA+BB) gotowe do scalenia** = `sesja-ba-m5q2` @ fbb2d15. BB zarchiwizowana (8,34 USD, 23,4%). E2E 42800500800 nadal in_progress (11:39) | po uruchomieniu buildu: scalić AZ f6d0565, potem fbb2d15 (BC jest potomkiem) |
 | 11-10 11:47 | koordynator | BC wystartowała (session_01T66VBwoBUWuJtuhuG26K6h; cmp: tylko znana różnica w linii 374) | plan BC; kontrola 11:49 |
 | 11-10 11:48 | BC → koordynator | plan (wg sesji): zmiana 14/72 komórek (UTG ×12: pl „pierwsza pozycja po blindach”, en „under the gun”…; HJ/CO w ja, zh-Hant), 58 zostaje; 345 gołych `{{t:utg}}` → `{{t:utg\|UTG}}` w 12 językach (render lekcji identyczny — dowód skryptem); konflikt z testem D-319 → KO-032 (wyjątek nazwany); szac. 1,5 h. Przyjęte z warunkami (dowód renderu, locales/store, pełny tekst linii pl/en) | PRZEKAZANIE BC ok. 13:20 |
+| 11-10 11:50 | właściciel → koordynator → AY | „Wariant głęboki, zgoda na dołączenie repo” → KO-033; przekazane AY dosłownie: ponowić add_repo raz, fan-out po sygnale o buildzie | odpowiedź AY (add_repo); kontrola 11:49 E2E |
