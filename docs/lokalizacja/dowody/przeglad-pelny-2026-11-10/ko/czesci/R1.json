@@ -1,0 +1,22 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 29,
+  "stary": "또는 같은 {{t:two-pair|투페어}}\"",
+  "nowy": "또는 같은 {{t:two-pair|투 페어}}\"",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy: two-pair = „투 페어” (ze spacją), w regule R-M0-002 forma „투페어”. Pl: „te same {{t:two-pair}}”. Ujednolicenie pisowni nazwy układu.",
+  "grupa": "R1"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 213,
+  "stary": "이 크기는 플롭에서 적절한 스택 대 팟 비율을 만들고",
+  "nowy": "이 크기는 플롭에서 적절한 스택 대 {{t:pot|팟}} 비율을 만들고",
+  "waga": "ŚR",
+  "powod": "Zgubiony znacznik terminu: pl R-M4-001 because „stosunek stacka do {{t:pot|puli}}”, w przekładzie „팟” bez znacznika {{t:pot|…}} (liczba znaczników t: w linii inna niż w pl). Przywrócony znacznik, tekst widoczny bez zmian.",
+  "grupa": "R1"
+ }
+]

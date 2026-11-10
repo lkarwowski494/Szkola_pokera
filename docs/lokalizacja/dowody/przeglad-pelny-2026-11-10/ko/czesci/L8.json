@@ -1,0 +1,122 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 38,
+  "stary": "{{n:var.sqrt-blocks}}로 계산하세요",
+  "nowy": "{{n:var.sqrt-blocks}}으로 계산하세요",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: wartość to 31,6 (kończy się na „육”, spółgłoska), więc poprawnie „으로”, nie „로”. Sens jak w pl („Przyjmij √… ≈ …”) bez zmian.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 49,
+  "stary": "느리게 좁힙니다: 오차는 핸드 수의 제곱근에 비례해 줄어듭니다",
+  "nowy": "느리게 좁힙니다: 오차는 핸드 수의 제곱근에 반비례해 줄어듭니다",
+  "waga": "NISKIE",
+  "powod": "pl: „błąd maleje z pierwiastkiem z liczby rąk”. „제곱근에 비례해 줄어듭니다” (maleje proporcjonalnie do pierwiastka) jest matematycznie nieścisłe; błąd jest odwrotnie proporcjonalny do pierwiastka („반비례”).",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l1-wariancja.md",
+  "linia": 118,
+  "stary": "윈레이트 추정 오차는 핸드 수의 제곱근에 비례해 줄어듭니다",
+  "nowy": "윈레이트 추정 오차는 핸드 수의 제곱근에 반비례해 줄어듭니다",
+  "waga": "NISKIE",
+  "powod": "pl: „Błąd oszacowania winrate maleje z pierwiastkiem z liczby rąk”. Jak w linii 49: zależność odwrotna („반비례”), nie „비례”.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l2-decyzja-wynik.md",
+  "linia": 68,
+  "stary": "{{n:var.hands.k}}천 핸드도",
+  "nowy": "{{n:var.hands.k}}k 핸드도",
+  "waga": "ŚR",
+  "powod": "pl: „nawet {{n:var.hands.k}} tys. rąk”. „100천 핸드” to nienaturalny zapis liczby po koreańsku i niezgodny z resztą modułu (lekcje m12-l1 i m12-l4 mają wszędzie „{{n:var.hands.k}}k 핸드”); ujednolicenie do „k 핸드”.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l3-tilt.md",
+  "linia": 35,
+  "stary": "(뱅크롤과 리스크 레슨)",
+  "nowy": "(뱅크롤과 위험 레슨)",
+  "waga": "NISKIE",
+  "powod": "pl: „(lekcja o bankrollu i ryzyku)”. Tytuł tej lekcji w ko to „뱅크롤과 위험” (m12-l4, pole title); odesłanie ma używać tej samej nazwy.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "linia": 32,
+  "stary": "약 {{n:ror.base.wr-min}}이 나옵니다",
+  "nowy": "약 {{n:ror.base.wr-min}}가 나옵니다",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: wartość to procent (39%, „퍼센트” kończy się samogłoską), więc „가”, nie „이”. Sens jak w pl („wychodzi ok. …”).",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "linia": 41,
+  "stary": "약 {{n:ror.base.wr-min}}이 됩니다",
+  "nowy": "약 {{n:ror.base.wr-min}}가 됩니다",
+  "waga": "NISKIE",
+  "powod": "Partykuła po procencie („퍼센트” kończy się samogłoską): „가 됩니다”, nie „이 됩니다”. Sens jak w pl („daje ok. …”).",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "linia": 47,
+  "stary": "{{n:br.ex.below}}이 남았습니다",
+  "nowy": "{{n:br.ex.below}}가 남았습니다",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: wartość to 14 („십사”, samogłoska), więc „가”, nie „이”. Sens jak w pl („masz {{n:br.ex.below}}”).",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "linia": 51,
+  "stary": "절박함에서 오는 틸트입니다",
+  "nowy": "절박함 틸트입니다",
+  "waga": "ŚR",
+  "powod": "pl: „To tilt z desperacji” — nazwa typu tiltu z lekcji m12-l3, gdzie ko ma konsekwentnie „절박함 틸트” (tabela i ćwiczenia). Jedna nazwa na jedno pojęcie.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "linia": 102,
+  "stary": "이 레슨 끝의 ‘책임감 있는 게임’ 안내에 있는 연락처를",
+  "nowy": "‘책임감 있는 게임’ 안내에 있는 연락처를",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna. pl: „skorzystaj z kontaktów z karty o odpowiedzialnej grze” — w ko dodano „이 레슨 끝의” („na końcu tej lekcji”), czego nie ma w pl; ćwiczenie może być pokazane poza lekcją (powtórki), więc dodatek bywa mylący. Usunięcie dodatku przywraca zgodność z pl.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "linia": 137,
+  "stary": "{{n:br.bi.move-down}}으로)",
+  "nowy": "{{n:br.bi.move-down}}로)",
+  "waga": "NISKIE",
+  "powod": "Partykuła po liczbie: wartość to 15 („십오”, samogłoska), więc „로”, nie „으로”. Sens jak w pl („z {{n:br.bi.base}} do {{n:br.bi.move-down}}”).",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m12-l4-bankroll.md",
+  "linia": 141,
+  "stary": "{{n:study.beginner}}을 공부에",
+  "nowy": "{{n:study.beginner}}를 공부에",
+  "waga": "NISKIE",
+  "powod": "Partykuła po procencie (80%, „퍼센트” kończy się samogłoską): „를”, nie „을”. Sens jak w pl („ok. {{n:study.beginner}} czasu przeznaczasz na naukę”).",
+  "grupa": "L8"
+ }
+]

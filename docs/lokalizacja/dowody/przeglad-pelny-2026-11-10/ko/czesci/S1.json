@@ -1,0 +1,12 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/helplines.yaml",
+  "linia": 27,
+  "stary": "도박의 영향을 받는 누구에게나 무료 실질적 조언과 정서적 지원을 온라인으로 제공합니다.",
+  "nowy": "도박의 영향을 받는 누구에게나 실질적인 조언과 정서적 지원을 온라인으로 무료 제공합니다.",
+  "waga": "NISKIE",
+  "powod": "pl: „Bezpłatne porady praktyczne i wsparcie emocjonalne online dla każdego, kogo dotyka hazard; poufnie.” Sens zachowany, ale zbitka „무료 실질적 조언” (dwa określenia rzeczownikowe bez łącznika) jest nienaturalna; po zmianie „무료” odnosi się jednoznacznie do porad i wsparcia, jak w pl. Żadna informacja nie jest dodana ani usunięta.",
+  "grupa": "S1"
+ }
+]

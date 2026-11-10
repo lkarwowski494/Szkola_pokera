@@ -1,0 +1,302 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 6,
+  "stary": "sub: \"인 포지션 c-bet\"",
+  "nowy": "sub: \"인 포지션 C벳\"",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: c-bet = „C벳”; w tej lekcji zostawiono angielskie „c-bet” (pl „C-bet z pozycją”), a lekcje m5-l4 i m6-l3 piszą „C벳”. Przykład mechanizmu opisanego w uwagach (55 trafień).",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 39,
+  "stary": "기회(check-raise)를",
+  "nowy": "기회(체크레이즈)를",
+  "waga": "ŚR",
+  "powod": "Resztka angielska „check-raise” w tekście ko (pl „(check-raise)”); terms-nazwy ko: check-raise = „체크레이즈”, tak też w tej samej odpowiedzi w m5-l4:91.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 39,
+  "stary": "쪽에 {{t:nuts-advantage|너츠 우위}}가",
+  "nowy": "쪽에 {{t:nuts-advantage|넛 우위}}가",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: nuts-advantage = „넛 우위” (pl „przewagę nutsów”); forma „너츠 우위” niezgodna z nazwą, w m5-l4:91 jest „넛 우위”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 79,
+  "stary": "당신의 {{t:nuts-advantage|너츠 우위}}는",
+  "nowy": "당신의 {{t:nuts-advantage|넛 우위}}는",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: nuts-advantage = „넛 우위” (pl „twoja {{t:nuts-advantage}}”); forma „너츠 우위” niezgodna z nazwą.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 104,
+  "stary": "{{t:wet|웨트}} 플롭에서, 그리고 {{t:nuts-advantage|너츠 우위}}가",
+  "nowy": "{{t:wet|웻}} 플롭에서, 그리고 {{t:nuts-advantage|넛 우위}}가",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: wet = „웻”, nuts-advantage = „넛 우위” (pl „na mokrym flopie i z przewagą nutsów”); formy „웨트” i „너츠 우위” niezgodne z nazwami.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 56,
+  "stary": "잭 세트를",
+  "nowy": "잭 셋을",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: set = „셋” (pl „seta waletów”); „세트” występuje tylko w tej lekcji, reszta przekładu (np. m6-l3) pisze „셋”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 60,
+  "stary": "당신의 세트는",
+  "nowy": "당신의 셋은",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: set = „셋” (pl „twój set”); „세트” niezgodne z resztą przekładu.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 112,
+  "stary": "{{t:overbet|오버베팅}}",
+  "nowy": "{{t:overbet|오버벳}}",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: overbet = „오버벳” (pl „overbetu”); forma „오버베팅” niezgodna z nazwą.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 122,
+  "stary": "“{{t:wet|웨트}}”가",
+  "nowy": "“{{t:wet|웻}}”이",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: wet = „웻” (pl „{{t:wet}}” nie znaczy „duży bet”); forma „웨트” niezgodna z nazwą; partykuła dopasowana do spółgłoski końcowej.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 122,
+  "stary": "항상 {{t:wet|웨트}}로 분류되지만",
+  "nowy": "항상 {{t:wet|웻}}으로 분류되지만",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: wet = „웻” (pl „jest w aplikacji zawsze {{t:wet}}”); forma „웨트” niezgodna z nazwą; partykuła „으로” po spółgłosce.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 122,
+  "stary": "{{t:wetness|웨트니스}}에",
+  "nowy": "{{t:wetness|웻니스}}에",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: wetness = „웻니스” (pl „z mokrością”); forma „웨트니스” niezgodna z nazwą.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 122,
+  "stary": "가장 {{t:wet|웨트한}}",
+  "nowy": "가장 {{t:wet|웻한}}",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: wet = „웻” (pl „najbardziej mokrych flopach”); forma „웨트한” niezgodna z nazwą.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l4-bez-pozycji.md",
+  "linia": 18,
+  "stary": "{{t:initiative|이니셔티브}}를 잃지",
+  "nowy": "{{t:initiative|주도권}}을 잃지",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: initiative = „주도권” (pl „żeby nie stracić inicjatywy”); forma „이니셔티브” niezgodna z nazwą; partykuła „을” po spółgłosce.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l4-bez-pozycji.md",
+  "linia": 18,
+  "stary": "{{t:initiative|이니셔티브}}만으로는",
+  "nowy": "{{t:initiative|주도권}}만으로는",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: initiative = „주도권” (pl „Inicjatywa nie wygrywa sama”); forma „이니셔티브” niezgodna z nazwą.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m5-l4-bez-pozycji.md",
+  "linia": 99,
+  "stary": "{{t:condensed|압축된}} 레인지",
+  "nowy": "{{t:condensed|컨덴스드}} 레인지",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: condensed = „컨덴스드” (pl „jest {{t:condensed|skondensowany}}”); forma „압축된” nie jest postacią nazwy terminu.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l1-mdf-alpha.md",
+  "linia": 55,
+  "stary": "알파는 블러프가 이익을",
+  "nowy": "알파는 {{t:bluff|블러프}}가 이익을",
+  "waga": "ŚR",
+  "powod": "Zgubiony znacznik terminu: pl „zanim twój {{t:bluff}} zacznie zarabiać”, w ko zwykły tekst „블러프” bez {{t:bluff|…}} (w pl 1 znacznik bluff w tym zdaniu, w ko 0).",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l1-mdf-alpha.md",
+  "linia": 79,
+  "stary": "1/3 크기 c-bet을",
+  "nowy": "1/3 크기 C벳을",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: c-bet = „C벳” (pl „stawia c-bet 1/3 puli”); angielskie „c-bet” w tekście ko. Przykład mechanizmu z uwag.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 6,
+  "stary": "sub: \"포지션 없이 c-bet 방어하기\"",
+  "nowy": "sub: \"포지션 없이 C벳 방어하기\"",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: c-bet = „C벳” (pl „Obrona przed c-betem bez pozycji”); angielskie „c-bet” w podtytule ko. Przykład mechanizmu z uwag.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 100,
+  "stary": "## c-bet의 가격",
+  "nowy": "## C벳의 가격",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: c-bet = „C벳” (pl „## Cena c-betu”); angielskie „c-bet” w nagłówku ko. Przykład mechanizmu z uwag.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 36,
+  "stary": "{{t:polarized|양극화된}} {{t:range|레인지}}",
+  "nowy": "{{t:polarized|폴라라이즈드}} {{t:range|레인지}}",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: polarized = „폴라라이즈드” (pl „{{t:range}} {{t:polarized}}”); forma „양극화된” nie jest postacią nazwy terminu.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 94,
+  "stary": "{{t:out-of-position|포지션 없이}} 플레이하면 턴과",
+  "nowy": "{{t:out-of-position|아웃 오브 포지션}}에서는 턴과",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: out-of-position = „아웃 오브 포지션” (pl „Bez pozycji mówisz pierwszy na turnie i riverze”); forma „포지션 없이” nie jest postacią nazwy, w tej samej lekcji znacznik bez formy daje „아웃 오브 포지션”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 114,
+  "stary": "## {{t:out-of-position|포지션 없이}}는 덜 실현합니다",
+  "nowy": "## {{t:out-of-position|아웃 오브 포지션}}에서는 덜 실현합니다",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: out-of-position = „아웃 오브 포지션” (pl „## Bez pozycji realizujesz mniej”); forma „포지션 없이” nie jest postacią nazwy.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 116,
+  "stary": "{{t:out-of-position|포지션 없이}} 플레이하면 모든",
+  "nowy": "{{t:out-of-position|아웃 오브 포지션}}에서는 모든",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: out-of-position = „아웃 오브 포지션” (pl „Bez pozycji mówisz pierwszy na każdej ulicy”); forma „포지션 없이” nie jest postacią nazwy.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 96,
+  "stary": "{{t:expected-value|기대값}}",
+  "nowy": "{{t:expected-value|기댓값}}",
+  "waga": "NISKIE",
+  "powod": "terms-nazwy ko: expected-value = „기댓값” (pl „Liczy się {{t:expected-value}}”); „기대값” to pisownia nienormatywna i niezgodna z nazwą.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l2-sprawdzenie.md",
+  "linia": 116,
+  "stary": "수딧 핸드",
+  "nowy": "수티드 핸드",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: suited = „수티드” (pl „Ręce w kolorze”); „수딧” to inna nazwa tego samego pojęcia.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l3-check-raise.md",
+  "linia": 41,
+  "stary": "{{t:bet|벳했고}}, {{n:xr.example}}까지 {{t:raise|레이즈했습니다}}",
+  "nowy": "{{t:bet|벳했고}}, 당신은 {{n:xr.example}}까지 {{t:raise|레이즈했습니다}}",
+  "waga": "ŚR",
+  "powod": "pl „Button postawił …, a ty przebiłeś do …”: w ko brak podmiotu drugiego zdania, więc czyta się, że to Button przebił. Dodany podmiot „당신은”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l3-check-raise.md",
+  "linia": 49,
+  "stary": "{{t:bet|벳했고}}, {{n:xr.too-small}}까지만 {{t:raise|레이즈했습니다}}",
+  "nowy": "{{t:bet|벳했고}}, 당신은 {{n:xr.too-small}}까지만 {{t:raise|레이즈했습니다}}",
+  "waga": "ŚR",
+  "powod": "pl „Button postawił …, a ty przebiłeś tylko do …”: w ko brak podmiotu drugiego zdania, więc czyta się, że to Button przebił. Dodany podmiot „당신은”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l3-check-raise.md",
+  "linia": 54,
+  "stary": "직접 C벳에 {{t:call|콜할}} 때",
+  "nowy": "당신이 C벳에 {{t:call|콜할}} 때",
+  "waga": "NISKIE",
+  "powod": "pl „Tyle potrzebowałeś ty, żeby sprawdzić c-bet”: „직접” (bezpośrednio/osobiście) nie oddaje jasno przeciwstawienia ty – Button; „당신이” mówi to wprost.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l3-check-raise.md",
+  "linia": 125,
+  "stary": "솔버도 보호를 위해 일부 {{t:top-pair|탑 페어}}와 약한 {{t:pair|페어}}로 {{t:raise|레이즈합니다}}",
+  "nowy": "솔버가 보호를 위해 일부 {{t:top-pair|탑 페어}}와 약한 {{t:pair|페어}}로도 {{t:raise|레이즈합니다}}",
+  "waga": "NISKIE",
+  "powod": "pl „solver przebija też część najwyższych par i słabych par”: „też” odnosi się do rąk, a „솔버도” znaczy „solver także (jak ktoś inny)”. Partykuła „도” przeniesiona na ręce.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m6-l3-check-raise.md",
+  "linia": 130,
+  "stary": "{{t:nuts-advantage|넛 어드밴티지}}",
+  "nowy": "{{t:nuts-advantage|넛 우위}}",
+  "waga": "ŚR",
+  "powod": "terms-nazwy ko: nuts-advantage = „넛 우위” (pl „czyli przewagę nutsów”); forma „넛 어드밴티지” niezgodna z nazwą.",
+  "grupa": "L3"
+ }
+]

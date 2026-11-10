@@ -1,0 +1,162 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 360,
+  "stary": "{{t:nuts-advantage|너츠 우위}}는 상대에게",
+  "nowy": "{{t:nuts-advantage|넛 우위}}는 상대에게",
+  "waga": "ŚR",
+  "powod": "forma znacznika niezgodna z content/ko/terms-nazwy.yaml: nuts-advantage = „넛 우위” (pl „przewaga nutsów”); tłumacz pisze „너츠 우위”, a nuts = „넛”; jedna nazwa na pojęcie",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 367,
+  "stary": "훨씬 많을 때({{t:nuts-advantage|너츠 우위}})",
+  "nowy": "훨씬 많을 때({{t:nuts-advantage|넛 우위}})",
+  "waga": "ŚR",
+  "powod": "forma znacznika niezgodna z content/ko/terms-nazwy.yaml: nuts-advantage = „넛 우위” (pl „przewaga nutsów”); tłumacz pisze „너츠 우위”, a nuts = „넛”; jedna nazwa na pojęcie",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 411,
+  "stary": "{{t:aggressor|어그레서}}의 {{t:nuts-advantage|너츠 우위}}",
+  "nowy": "{{t:aggressor|어그레서}}의 {{t:nuts-advantage|넛 우위}}",
+  "waga": "ŚR",
+  "powod": "forma znacznika niezgodna z content/ko/terms-nazwy.yaml: nuts-advantage = „넛 우위” (pl „przewaga nutsów”); tłumacz pisze „너츠 우위”, a nuts = „넛”; jedna nazwa na pojęcie",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 511,
+  "stary": "가지고({{t:nuts-advantage|너츠 우위}})",
+  "nowy": "가지고({{t:nuts-advantage|넛 우위}})",
+  "waga": "ŚR",
+  "powod": "forma znacznika niezgodna z content/ko/terms-nazwy.yaml: nuts-advantage = „넛 우위” (pl „przewaga nutsów”); tłumacz pisze „너츠 우위”, a nuts = „넛”; jedna nazwa na pojęcie",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 360,
+  "stary": "{{t:two-pair|투페어}}나 {{t:straight|스트레이트}}를 더 자주",
+  "nowy": "{{t:two-pair|투 페어}}나 {{t:straight|스트레이트}}를 더 자주",
+  "waga": "ŚR",
+  "powod": "forma znacznika niezgodna z terms-nazwy: two-pair = „투 페어” (ze spacją; pl „dwie pary”), tu „투페어”",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 502,
+  "stary": "({{t:two-pair|투페어}}, 셋)",
+  "nowy": "({{t:two-pair|투 페어}}, 셋)",
+  "waga": "ŚR",
+  "powod": "forma znacznika niezgodna z terms-nazwy: two-pair = „투 페어” (ze spacją; pl „dwie pary”), tu „투페어”",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 502,
+  "stary": "{{t:oesd|OESD}}",
+  "nowy": "{{t:oesd|양방향 스트레이트 드로우}}",
+  "waga": "ŚR",
+  "powod": "forma znacznika nie jest postacią nazwy z terms-nazwy: oesd = „양방향 스트레이트 드로우” (pl „{{t:oesd}}”); skrót „OESD” to inna nazwa tego samego pojęcia",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 338,
+  "stary": "드라이 플랍의 개념: 교육 사이트, Sizing Your C-Bets; 교육 사이트, What Is a Continuation Bet; 드라이 플랍 예시",
+  "nowy": "드라이 플롭의 개념: 교육 사이트, Sizing Your C-Bets; 교육 사이트, What Is a Continuation Bet; 드라이 플롭 예시",
+  "waga": "NISKIE",
+  "powod": "pisownia „플랍” niezgodna z terms-nazwy (flop = „플롭”) i z polami if/then tej samej reguły (pl „flop”); pole source",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 346,
+  "stary": "웻 플랍의 개념: 교육 사이트, Sizing Your C-Bets; 교육 사이트, What Is a Continuation Bet; 웻 플랍 예시",
+  "nowy": "웻 플롭의 개념: 교육 사이트, Sizing Your C-Bets; 교육 사이트, What Is a Continuation Bet; 웻 플롭 예시",
+  "waga": "NISKIE",
+  "powod": "pisownia „플랍” niezgodna z terms-nazwy (flop = „플롭”) i z polami if/then tej samej reguły (pl „flop”); pole source",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 413,
+  "stary": "웻 플랍이라고 해서 큰 베팅을 뜻하지는 않습니다",
+  "nowy": "웻 플롭이라고 해서 큰 베팅을 뜻하지는 않습니다",
+  "waga": "NISKIE",
+  "powod": "pisownia „플랍” niezgodna z terms-nazwy (flop = „플롭”) i z polami if/then tej samej reguły (pl „flop”); pole source",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 513,
+  "stary": "레이즈하지 말아야 할 플랍:",
+  "nowy": "레이즈하지 말아야 할 플롭:",
+  "waga": "NISKIE",
+  "powod": "pisownia „플랍” niezgodna z terms-nazwy (flop = „플롭”) i z polami if/then tej samej reguły (pl „flop”); pole source",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 429,
+  "stary": "UTG vs BTN c벳 28%",
+  "nowy": "UTG vs BTN C벳 28%",
+  "waga": "NISKIE",
+  "powod": "pisownia „c벳” niezgodna z terms-nazwy (c-bet = „C벳”) i z polami if/then (pl „c-bet”); pole source",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 464,
+  "stary": "작은 c벳에 대한 디펜스",
+  "nowy": "작은 C벳에 대한 디펜스",
+  "waga": "NISKIE",
+  "powod": "pisownia „c벳” niezgodna z terms-nazwy (c-bet = „C벳”) i z polami if/then (pl „c-bet”); pole source",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 521,
+  "stary": "작은 c벳 상대 4.5배, 큰 c벳 상대 3.2배",
+  "nowy": "작은 C벳 상대 4.5배, 큰 C벳 상대 3.2배",
+  "waga": "NISKIE",
+  "powod": "pisownia „c벳” niezgodna z terms-nazwy (c-bet = „C벳”) i z polami if/then (pl „c-bet”); pole source",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 595,
+  "stary": "{{n:io.flush.extra}}가 필요합니다",
+  "nowy": "{{n:io.flush.extra}}이 필요합니다",
+  "waga": "NISKIE",
+  "powod": "błąd partykuły: {{n:io.flush.extra}} daje „50” (오십, kończy się spółgłoską), więc poprawnie „50이 필요합니다”, nie „50가” (pl „to {{n:io.flush.extra}} ponad pulę”)",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/rules.yaml",
+  "linia": 626,
+  "stary": "프로브 {{t:bet|베팅}}을 할 때",
+  "nowy": "프로브 벳을 {{t:bet|베팅}}할 때",
+  "waga": "NISKIE",
+  "powod": "pl „{{t:bet|stawiasz}} probe bet”: nazwa zagrania w terms-nazwy to „프로브 벳” i tak stoi w R-M7-011 (linia 619); tu „프로브 베팅”; wzór jak „세컨드 배럴을 {{t:bet|베팅}}” w linii 537",
+  "grupa": "R2"
+ }
+]

@@ -1,0 +1,252 @@
+[
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l2-sprawdzanie.md",
+  "linia": 134,
+  "stary": "“갭 콘셉트(gap concept)”",
+  "nowy": "“갭 컨셉(gap concept)”",
+  "waga": "ŚR",
+  "powod": "pl: „gap concept”; terms-nazwy ko: gap-concept = „갭 컨셉”, a w lekcji „갭 콘셉트”. Jedna nazwa na pojęcie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l2-sprawdzanie.md",
+  "linia": 67,
+  "stary": "더 좁아서(약 {{n:m11.push.15}}의 핸드) 2 {{t:pair|페어}}가",
+  "nowy": "더 좁아서(약 {{n:m11.push.15}}의 핸드) 2의 {{t:pair|페어}}가",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:pair}} dwójek” (para dwójek). „2 페어” czyta się jak „투 페어” (dwie pary, inny układ); „2의 페어” jest jednoznaczne i zgodne z poleceniem („2로 이루어진 페어”).",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l2-sprawdzanie.md",
+  "linia": 68,
+  "stary": "why: \"2 {{t:pair|페어}}는 더 높은 카드 두 장을",
+  "nowy": "why: \"2의 {{t:pair|페어}}는 더 높은 카드 두 장을",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:pair|Para}} dwójek wobec dwóch wyższych kart”. „2 페어” czyta się jak „투 페어” (dwie pary); „2의 페어” jest jednoznaczne.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l2-sprawdzanie.md",
+  "linia": 57,
+  "stary": "그것도 하이 카드와 {{t:pair|페어}}가 많은 올인",
+  "nowy": "그것도 높은 카드와 {{t:pair|페어}}가 많은 올인",
+  "waga": "NISKIE",
+  "powod": "pl: „dużo wysokich kart i par”. „하이 카드” to w ko nazwa układu high card (terms-nazwy: 하이카드); tu chodzi o wysokie karty, jak w tej samej lekcji „더 높은 카드 두 장”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l2-sprawdzanie.md",
+  "linia": 140,
+  "stary": "폴드 에퀴티가 없으면 하이 카드와 {{t:pair|페어}}를 상대로",
+  "nowy": "폴드 에퀴티가 없으면 높은 카드와 {{t:pair|페어}}를 상대로",
+  "waga": "NISKIE",
+  "powod": "pl: „przeciw wysokim kartom i parom”. „하이 카드” to nazwa układu high card; tu chodzi o wysokie karty („높은 카드”).",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l3-icm.md",
+  "linia": 29,
+  "stary": "prompt: \"{{t:payout|페이아웃}}: 1위는",
+  "nowy": "prompt: \"{{t:payout|상금}}: 1위는",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:payout|Wypłaty}}”. terms-nazwy ko: payout = „상금”; forma w znaczniku ma być postacią tej nazwy (tak jest w m11-l2: {{t:payout|상금}}), nie „페이아웃”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l3-icm.md",
+  "linia": 39,
+  "stary": "{{n:m11.icm.a.p1}}/{{n:m11.icm.a.p2}} {{t:payout|페이아웃}}에서는",
+  "nowy": "{{n:m11.icm.a.p1}}/{{n:m11.icm.a.p2}} {{t:payout|상금}} 구조에서는",
+  "waga": "ŚR",
+  "powod": "pl: „Przy {{t:payout|wypłatach}} …/…”. terms-nazwy ko: payout = „상금”, nie „페이아웃”; „상금 구조에서는” zachowuje sens „przy wypłatach 60/40”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l3-icm.md",
+  "linia": 71,
+  "stary": "why: \"{{t:payout|페이아웃}}이 있는 {{t:tournament|토너먼트}}에서는 {{t:chips}}이 아니라",
+  "nowy": "why: \"{{t:payout|상금}} 구조가 있는 {{t:tournament|토너먼트}}에서는 {{t:chips}}이 아니라",
+  "waga": "ŚR",
+  "powod": "pl: „W turnieju z {{t:payout|wypłatami}}”. terms-nazwy ko: payout = „상금”, nie „페이아웃”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m11-l3-icm.md",
+  "linia": 161,
+  "stary": "{{t:call|콜하지만}}, {{t:payout|페이아웃}}이 있는",
+  "nowy": "{{t:call|콜하지만}}, {{t:payout|상금}} 구조가 있는",
+  "waga": "ŚR",
+  "powod": "pl: „w turnieju z {{t:payout|wypłatami}}”. terms-nazwy ko: payout = „상금”, nie „페이아웃”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 61,
+  "stary": "결정 30개 중 14개 평가됨",
+  "nowy": "결정 30개 중 14개 평가",
+  "waga": "ŚR",
+  "powod": "pl cytuje napis z ekranu „Oceniono 14 z 30 decyzji”; w interfejsie ko (play.report.rated) napis brzmi „결정 {{all}}개 중 {{rated}}개 평가”. Cytat ma być taki jak na ekranie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 97,
+  "stary": "결정 Y개 중 X개 평가됨",
+  "nowy": "결정 Y개 중 X개 평가",
+  "waga": "ŚR",
+  "powod": "pl cytuje napis z ekranu „Oceniono X z Y decyzji”; w interfejsie ko: „결정 {{all}}개 중 {{rated}}개 평가”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 5,
+  "stary": "title: \"게임 리포트 읽는 법\"",
+  "nowy": "title: \"게임 보고서 읽는 법\"",
+  "waga": "ŚR",
+  "powod": "pl: „raport z gry”; ekran w interfejsie ko nazywa się „세션 보고서” (play.report.title), a lekcja pisze „리포트”. Jedna nazwa na pojęcie (pozostałe miejsca: uwagi, „Do ujednolicenia skryptem”).",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 76,
+  "stary": "{{t:session|세션}} 후 리포트는 얼마를",
+  "nowy": "{{t:session|세션}} 후 보고서는 얼마를",
+  "waga": "ŚR",
+  "powod": "pl: „Raport po sesji”; w interfejsie ko „보고서” (play.report.title: „세션 보고서”), w lekcji „리포트”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 105,
+  "stary": "결과는 리포트 맨 아래에",
+  "nowy": "결과는 보고서 맨 아래에",
+  "waga": "ŚR",
+  "powod": "pl: „na dole raportu”; w interfejsie ko „보고서”, w lekcji „리포트”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 13,
+  "stary": "좋은 결정이었는데도 이런 핸드에서 몇 퍼센트를 집니까?",
+  "nowy": "좋은 결정이었는데도 이런 핸드 중 몇 퍼센트에서 집니까?",
+  "waga": "NISKIE",
+  "powod": "pl: „W ilu procentach takich rozdań przegrywasz”. „몇 퍼센트를 집니까” brzmi jak „ile procent przegrywasz” (czego?); „이런 핸드 중 몇 퍼센트에서” oddaje „w ilu procentach rozdań”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l1-raport.md",
+  "linia": 27,
+  "stary": "{{n:m13.eq.example2}}입니다. 이런 핸드에서 몇 퍼센트를 집니까?",
+  "nowy": "{{n:m13.eq.example2}}입니다. 이런 핸드 중 몇 퍼센트에서 집니까?",
+  "waga": "NISKIE",
+  "powod": "pl: „W ilu procentach takich rozdań przegrywasz?”. Jak wyżej: „이런 핸드 중 몇 퍼센트에서” oddaje „w ilu procentach rozdań”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 58,
+  "stary": "4-bet을 두 번 받았고",
+  "nowy": "4벳을 두 번 받았고",
+  "waga": "ŚR",
+  "powod": "pl: „4-bet”; terms-nazwy ko: 4-bet = „4벳” (reszta przekładu: 4벳 ×51, „4-bet” tylko w tej linii). Resztka angielskiego zapisu.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 58,
+  "stary": "이제 4-bet에 너무 자주",
+  "nowy": "이제 4벳에 너무 자주",
+  "waga": "ŚR",
+  "powod": "pl: „pasujesz na 4-bet za często”; terms-nazwy ko: 4-bet = „4벳”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 67,
+  "stary": "“플롭: c-bet” 게임 영역은",
+  "nowy": "“플롭: C벳” 게임 영역은",
+  "waga": "ŚR",
+  "powod": "pl cytuje nazwę obszaru = tytuł modułu m5 „Flop: c-bet”; w ko moduł nazywa się „플롭: C벳” (content/ko/modules.yaml), terms-nazwy: c-bet = „C벳”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 89,
+  "stary": "{{t:open|오픈}}한 후의 c-bet입니다",
+  "nowy": "{{t:open|오픈}}한 후의 C벳입니다",
+  "waga": "ŚR",
+  "powod": "pl: „c-bet po otwarciu z Buttona”; terms-nazwy ko: c-bet = „C벳”. Resztka angielskiego zapisu.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 69,
+  "stary": "잠금 해제됩니다. 자유 게임은 처음부터",
+  "nowy": "잠금 해제됩니다. 자유 플레이는 처음부터",
+  "waga": "ŚR",
+  "powod": "pl: „Gra swobodna” (nazwa trybu z interfejsu); w interfejsie ko tryb nazywa się „자유 플레이” (play.free), a lekcja pisze „자유 게임”.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 71,
+  "stary": "text: \"바로, 자유 게임처럼\"",
+  "nowy": "text: \"바로, 자유 플레이처럼\"",
+  "waga": "ŚR",
+  "powod": "pl: „jak gra swobodna”; w interfejsie ko „자유 플레이” (play.free).",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 71,
+  "stary": "why: \"자유 게임은 첫날부터",
+  "nowy": "why: \"자유 플레이는 첫날부터",
+  "waga": "ŚR",
+  "powod": "pl: „Gra swobodna jest dostępna od pierwszego dnia”; w interfejsie ko „자유 플레이” (play.free).",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l2-powtorki.md",
+  "linia": 95,
+  "stary": ":::note 이 원칙의 근거",
+  "nowy": ":::note 이 원칙의 출처",
+  "waga": "NISKIE",
+  "powod": "pl: ten sam nagłówek ramki „Skąd te zasady” w m13-l1, l2 i l3; w ko l1 i l3 mają „이 원칙의 출처”, l2 „이 원칙의 근거”. Ujednolicenie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ko",
+  "cel": "content/ko/lessons/m13-l3-przeglad.md",
+  "linia": 26,
+  "stary": "text: \"하지 않습니다. 운이 나빴을 뿐입니다\"",
+  "nowy": "text: \"절대 하지 않습니다. 운이 나빴을 뿐입니다\"",
+  "waga": "NISKIE",
+  "powod": "pl: „Nigdy, bo to pech”; w ko zgubione „nigdy” („하지 않습니다” = „nie robię”).",
+  "grupa": "L7"
+ }
+]
