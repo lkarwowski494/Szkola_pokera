@@ -48,3 +48,7 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | BL | 08 audit (recenzja BI) | — | 7,09 | 30,2 | 16:15 → 16:17 → 16:29 (4ad6dc2; test c6697d7) → — (docs/test, bez CI) → 16:37 | 0 | „przyjąć z warunkiem” WYS 1; zarchiwizowana 16:37 |
 | BI | 08 build (menu W2, zębatka; krok G) | — | 5,12 | 35,0 | 15:53 → 15:55 → 524e569 16:08 → 5f17558 CI 16:25 → 1f69723 CI 16:40 → 16:48 | 0 | kontekst ponad 30% przy końcu |
 | BN | 06 build (06-tresci-002 + B/C KO-040) | — | 14,21 | 39,3 | 16:24 → 16:26 → … → 5cd9d8c 17:08 → CI w toku → (recenzja BP) | 0 | kontekst ponad 30% (WG kandydat: 06 opus, 2. raz dziś po BG) |
+| BO | 08 audit (recenzja BM) | — | 5,24 | 24,6 | 16:48 → 17:12 → 9e3cb2a 17:35 → — (docs) → 17:37 | 0 | PRZYJĄĆ; zarchiwizowana 17:50 (polecenie właściciela) |
+| BP | 06 audit (recenzja BN) | — | 5,77 | 26,6 | 17:12 → 17:16 → 3f57245/8b600ee 17:30 → — → 17:35 | 0 | przyjąć z warunkiem; zarchiwizowana 17:50 |
+| BM | 08 fix (poprawki BJ + NIS-104/105) | — | 2,90 | 24,1 | 16:22 → 16:24 → 49654a6 CI 16:43 → 51a98a9 17:41 (CI w toku) → przyjęta 17:37 (49654a6) | 0 | zarchiwizowana 17:50 przed CI 51a98a9 (polecenie właściciela) |
+| AY | M1 audit (wstrzymany KO-035) | — | 14,02 | 26,1 | 10:46 → … → wstrzymana 15:00 | — | zarchiwizowana 17:50; stan `audit/M1-2026-11-10/stan.md` @ 6c730c9 na sesja-ay-audyt — wznowienie nową sesją M1 |
