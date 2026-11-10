@@ -29,6 +29,9 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
+| AV | session_01T66VBypDXrEWs35z1DWk7U | 08 fix, kod (sonnet) | sesja-av-ikona @ 40e5cef (start) | — | — | w toku: ikona D-123 → aplikacja (KO-025); cmp promptu identyczne |
+| AW | session_01T66VBvecFidWwcDkVK34J4 | 08 build, kod (sonnet) | sesja-aw-ocena @ 40e5cef (start) | — | — | w toku: ekran wyboru + „Nie wiem” (KO-026) + układ stołu (zad. 7, D-476); plan przyjęty, szac. 3–4 h; cmp promptu: wynik subagenta w drodze |
+| AX | [ID po starcie] | 06 fix, treść (opus) | sesja-ax-pytania @ 40e5cef (start) | — | — | start zlecony 10:00: zrozumiałość pytań oceny (KO-027) |
 
 Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%), AT (7,32 USD, 26,4%), AU (5,37 USD, 32,4%). Litery użyte dotąd: A…Z, AA…AT ; AU startuje 07:10 (następna: **AV**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
@@ -123,3 +126,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-10 09:50 | właściciel | telefon (build 1009): „Nie wiem” + ekran wyboru na starcie oceny → KO-026; polecenie AW, gałąź `sesja-aw-ocena` @ 40e5cef | start AW |
 | 11-10 10:00 | właściciel | telefon: pytanie oceny 4 z 8 (`content/pl/exams/m3.yaml:18`) — „Nie rozumiem co to znaczy po polsku.” → KO-027, polecenie AX (06 fix), gałąź `sesja-ax-pytania` @ 40e5cef | start AX |
 | 11-10 10:10 | właściciel | telefon: ocena pytanie 1 z 8 — karty gracza zasłaniają opis pod stołem, karty rywala wystają nad stół (układ 2+5+2) — WYSOKIE; dopisane jako zadanie 7 w poleceniu AW (ten sam ekran, bez kolizji gałęzi) | wiadomość do AW po starcie |
+| 11-10 09:36 | AW → koordynator | plan po E0: wybór na ekranie powitania BR-ONB-004 (dwa przyciski zamiast „Dalej”), „Nie wiem” = index −1 w JSON odpowiedzi (bez migracji), Stol.tsx wysokość sukna rośnie z liczbą rzędów (D-476), brak analogii w Treningu; decyzji nie wymaga | PRZEKAZANIE AW |
