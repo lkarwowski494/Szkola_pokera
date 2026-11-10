@@ -210,12 +210,12 @@ test('kontrola: store/asc-kontrola.json zgodna z kodem i docs/monetyzacja.md (pa
   assert.deepEqual(c.metadane.zrodla.map((z) => z.plik), ['store/asc-kontrola-oczekiwane.json']);
 });
 
-// Z-01 (D-360): kategoria główna Education, dodatkowa brak (null = narzędzie tylko wypisuje). Z-02 (D-301, D-362): dostępność aplikacji = 166 storefrontów
+// Z-01 (D-395, zastępuje D-360): kategoria główna Education, dodatkowa Games (podkategoria Card ręcznie). Z-02 (D-301, D-362): dostępność aplikacji = 166 storefrontów
 // z docs/sklep/dowody/storefronty-1.0.json (to samo wejście co asc-produkty); ceny: próbka 8 rynków z CLAUDE.md + grupa „storefronty-1.0” (166, kwota null
 // = narzędzie wypisuje jedną linię na produkt z krajami bez ceny), żeby kontrola widziała brak ceny w każdym kraju listy.
-test('kontrola: kategoria EDUCATION (D-360); dostępność i grupa cen = 166 storefrontów z storefronty-1.0.json (D-301/D-362); próbka rynków ⊂ listy', () => {
+test('kontrola: kategoria EDUCATION + GAMES (D-395); dostępność i grupa cen = 166 storefrontów z storefronty-1.0.json (D-301/D-362); próbka rynków ⊂ listy', () => {
   const c = js('store/asc-kontrola.json'); const l = js('docs/sklep/dowody/storefronty-1.0.json').wlaczone_iso3;
-  assert.deepEqual(c.kategoria, { glowna: 'EDUCATION', dodatkowa: null });
+  assert.deepEqual(c.kategoria, { glowna: 'EDUCATION', dodatkowa: 'GAMES' });
   assert.deepEqual(c.dostepnosc.terytoria, l);
   assert.deepEqual(c.terytoria.grupy, { 'storefronty-1.0': l });
   for (const k of ['kwartal', 'rok', 'dozywotni']) assert.equal(c.ceny[k]['storefronty-1.0'], null, k);

@@ -29,23 +29,13 @@ App Store Connect → Apps → Szkoła Pokera. Role Apple: Account Holder, Admin
 | 5 | Dostępność w krajach | przez workflow produktów (D-356), wartość z §5 | §5 | zatwierdzenie `release` |
 | 6 | Pozostałe pola ręczne | §6 | §6 | 5 min |
 
-## 1. Kategoria (decyzja D-360)
+## 1. Kategoria (decyzja D-395, zastępuje D-360)
 
-**Wpisz:** Primary Category = **Education**. Secondary Category = **brak (puste)**.
+**Wpisz:** Primary Category = **Education**. Secondary Category = **Games**, podkategoria Games = **Card** (decyzja właściciela 2026-11-10, weto D-360). Szczegóły, sprawdzenie u źródła i kroki ręczne: `docs/sklep/kategoria-games-card.md`.
 
-Zasada Apple (KAT-1): „Your primary category should be the one that best describes the main function or subject matter of your app.” … „Research how similar apps are categorized” … „Choosing categories that are not appropriate for your app is against the App Review Guidelines.” Opis Education: „Apps that provide an interactive learning experience on a specific skill or subject.” Opis Games: „Apps that provide single or multiplayer interactive activities for entertainment purposes. For example: … board, card …”. Skutek gier (KAT-1): „Apps and games with Entertainment or Games selected as a primary or secondary category in App Store Connect will appear in the corresponding Time Allowance category.”
+Zasada Apple (KAT-1): „Your primary category should be the one that best describes the main function or subject matter of your app.” Opis Education: „Apps that provide an interactive learning experience on a specific skill or subject.” Skutek Games (KAT-1): „Apps and games with Entertainment or Games selected as a primary or secondary category in App Store Connect will appear in the corresponding Time Allowance category.”
 
-Wzorzec konkurencji (LK-1, US, 24 z 25 aplikacji top 25 nauki; „Learn Poker Offline” nie wróciła w wyniku): kategoria główna Education 9, Games 8, Utilities 4, Sports 2, Productivity 1; dodatkowa (gatunki poza główną) Card 12, Education 8, Casino 6, Games 4, Entertainment 4, Sports 3. Największe: GTO Preflop Wizard (3487 ocen) Education + Sports; Poker Trainer – Learn Poker Education + Games/Card/Casino; Solver+ Education + Entertainment; NTPoker Education + Productivity.
-
-Analogia D-191 (TR-1, wiersz Z-20): „Kategoria główna Health & Fitness; brak kategorii dodatkowej” — Trening nie wybrał dodatkowej.
-
-| Opcja | Wartość | Kompromis |
-|---|---|---|
-| **A (przyjęta wg D-359)** | Education, bez dodatkowej | opis Education pasuje do kursu wprost; zgodne z notatkami dla recenzenta („It is a course, not a game”) i z odpowiedzią Simulated Gambling = None (D-310); bez kategorii Games aplikacja nie trafia do limitu czasu „Games” w Czasie przed ekranem; jak Trening. Koszt: brak drugiej półki przeglądania |
-| B | Education + Games (podkategoria Card) | najczęstsza para u konkurencji (Card 12×); widoczność w Games → Card. Koszt: limit „Games” w Czasie przed ekranem, sprzeczność z pozycjonowaniem „nie gra”, Games wymaga podkategorii; większe ryzyko pytań recenzenta o 5.3.4 |
-| C | Education + Sports | jak lider GTO Preflop Wizard; opis Sports zawiera „instruction”. Koszt: poker jako sport to rozciągnięcie opisu Apple („professional, amateur, collegiate, or recreational sporting activities”), ryzyko „not appropriate” z KAT-1 |
-
-Zmiana kategorii po wydaniu jest możliwa z kolejną wersją, więc A jest odwracalne. `store/asc-kontrola.json` ma `"kategoria": { "glowna": null }`: po wecie albo akceptacji sesja kodu wpisuje `EDUCATION` (zgłoszenie Z-01 niżej).
+Historia wyboru (D-360, odrzucone przez właściciela): Education bez dodatkowej (jak Trening, D-191, TR-1 wiersz Z-20). Wzorzec konkurencji (LK-1, US): dodatkowa Card 12×, Education 8×, Casino 6×; Poker Trainer – Learn Poker: Education + Games/Card/Casino.
 
 ## 2. Ocena wiekowa (D-310, potwierdzona na zestawie pytań z dziś: D-362)
 
@@ -172,7 +162,7 @@ Przez API da się ustawić (API-1): ocenę wiekową (`AgeRatingDeclarationUpdate
 | Zrzuty | `asc-zrzuty.yml` (D-355) | bez zmian |
 | Produkty, ceny, Family Sharing | `asc-produkty.yml` (D-356, port z Oczka; D-364: Family Sharing wył. wg monetyzacja.md) | bez zmian |
 | **Dostępność aplikacji (166 krajów)** | `asc-produkty.yml` (D-364: port z Oczka ustawiał tylko zakupy; dodana dostępność aplikacji v2, nowe terytoria wył.) | lista z §5 = wejście workflowu (`store/produkty.json` → `storefronty-1.0.json`) |
-| Kategoria | ręcznie (§1); `asc-kontrola` tylko odczyt | ręcznie, 1 min (jak Trening Z-20) |
+| Kategoria | ręcznie (§1, `kategoria-games-card.md`); `asc-kontrola` tylko odczyt | ręcznie, 2 min |
 | Ocena wiekowa | ręcznie (§2) | ręcznie: jednorazowa, a odpowiedzi wymagają oceny człowieka; API możliwe, ale nie warto budować dla jednego wpisu |
 | App Review Information | ręcznie (§4); `asc-kontrola` czyta notatki z `store/review-notes.en.txt` | ręcznie: kontakt to dane osobowe, nie trafiają do repo |
 | App Privacy | ręcznie (§3) | tylko ręcznie (brak API) |
@@ -186,7 +176,7 @@ Przez API da się ustawić (API-1): ocenę wiekową (`AgeRatingDeclarationUpdate
 
 | ID | Dla | Co | Waga |
 |---|---|---|---|
-| Z-01 | sesja kodu (08) | `store/asc-kontrola.json`: `kategoria.glowna` = `EDUCATION`, `dodatkowa` = null (po wecie D-360 albo rano) | NISKIE |
+| Z-01 | sesja kodu (08) | `store/asc-kontrola.json`: `kategoria` = `EDUCATION` + `dodatkowa` = `GAMES` (zrobione w D-395) | NISKIE |
 | Z-02 | sesja kodu (08) | `store/asc-kontrola.json`: terytoria = 166 z `docs/sklep/dowody/storefronty-1.0.json` zamiast 8 (D-301); ten sam plik jako wejście workflowu produktów/dostępności (D-356) | ŚREDNIE (kontrola pokaże fałszywą RÓŻNICĘ; dostępność to warunek publikacji, nie TestFlight) |
 | Z-03 | sesja kodu (08) | `store/review-notes.md` / `.en.txt`: usunąć klucze w nawiasach (etykiety zgodne z en.json, §4) | NISKIE |
 | Z-04 | rola 10 przed wpisem | 18+ a potwierdzanie wieku (otwarte z D-310) | warunek wpisu |

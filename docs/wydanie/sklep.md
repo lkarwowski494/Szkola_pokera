@@ -140,5 +140,5 @@ Otwarte do D-06 (przed wpisem w ASC, ponowny odczyt w dniu wysyłki): czy katego
 
 ## 7. Otwarte
 - Słowa kluczowe bez badania fraz (brak danych o wolumenie wyszukiwań, 0 USD): zestaw z częstości słów w nazwach 102 aplikacji konkurencji (`poker` 83, `trainer` 44, `gto` 34, `learn` 12, `preflop` 8, `odds` 8; `docs/brd/dane/konkurencja-2026-11-03.json`) [OCENA]. Poprawa po premierze: rola 11 / moduł `widocznosc-w-sklepie`.
-- Kategoria główna (Education [OCENA], plan-1.0 D2): poza D-01, nie rozstrzygnięta.
+- Kategoria: Primary Education, Secondary Games / podkategoria Card (D-395, zastępuje D-360; `docs/sklep/kategoria-games-card.md`).
 - Wersje ja, zh-Hant, pt-BR, fr-FR (fr-CA = fr-FR) w `store/`, fala 2 (de-DE, es-ES, es-MX, ko, it, vi) w `docs/sklep/aso/metadane-fala2.json`: sesja AF, D-382, `docs/sklep/aso/README.md` (2026-11-09).
