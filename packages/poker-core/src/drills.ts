@@ -130,32 +130,40 @@ export function straightOutPlaysBoard(board: readonly Card[], straightOuts: read
   return straightOuts.some((c) => hasStraight(new Set([...boardRanks, rankOf(c)])));
 }
 
+/**
+ * Fakty o drawie dla znanych kart (bez losowania): null, gdy to nie draw do koloru albo strita korzystający z kart gracza
+ * (kolor na stole, gotowy strit, out dający strita samemu stołowi). Wspólne dla generateOuts i generatora scenariuszy.
+ */
+export function analyseOutsSpot(hole: readonly Card[], board: readonly Card[]): OutsSpot | null {
+  const boardSize = board.length;
+  const draw = drawOuts(hole, board);
+  if (draw.kind === 'none') return null;
+  // draw do koloru musi korzystać z karty gracza, inaczej to „kolor na stole”
+  if (draw.flush.length && !hole.some((c) => suitOf(c) === suitOf(draw.flush[0]!))) return null;
+  // out do strita, który daje strita samemu stołowi, nie jest pełnym outem (najwyżej podział puli)
+  if (straightOutPlaysBoard(board, draw.straight)) return null;
+  const evaluated = evaluateHand([...hole, ...board]);
+  if (evaluated.category <= 4) return null; // już gotowy strit lub lepiej
+  const unseen = 52 - 2 - boardSize;
+  const outs = draw.all.length;
+  return {
+    hole: [...hole],
+    board: [...board],
+    draw,
+    outs,
+    street: boardSize === 3 ? 'flop' : 'turn',
+    unseen,
+    hitNextCard: hitProbability(outs, unseen, 1),
+    hitToRiver: hitProbability(outs, unseen, boardSize === 3 ? 2 : 1),
+  };
+}
+
 export function generateOuts(rng: Rng, kind: DrawKind, street: 'flop' | 'turn' = 'flop'): OutsSpot {
   const boardSize = street === 'flop' ? 3 : 4;
   return retry(() => {
     const cards = dealCards(rng, 2 + boardSize);
-    const hole = cards.slice(0, 2);
-    const board = cards.slice(2);
-    const draw = drawOuts(hole, board);
-    if (draw.kind !== kind) return null;
-    // draw do koloru musi korzystać z karty gracza, inaczej to „kolor na stole”
-    if (draw.flush.length && !hole.some((c) => suitOf(c) === suitOf(draw.flush[0]!))) return null;
-    // out do strita, który daje strita samemu stołowi, nie jest pełnym outem (najwyżej podział puli)
-    if (straightOutPlaysBoard(board, draw.straight)) return null;
-    const evaluated = evaluateHand([...hole, ...board]);
-    if (evaluated.category <= 4) return null; // już gotowy strit lub lepiej
-    const unseen = 52 - 2 - boardSize;
-    const outs = draw.all.length;
-    return {
-      hole,
-      board,
-      draw,
-      outs,
-      street,
-      unseen,
-      hitNextCard: hitProbability(outs, unseen, 1),
-      hitToRiver: hitProbability(outs, unseen, street === 'flop' ? 2 : 1),
-    };
+    const spot = analyseOutsSpot(cards.slice(0, 2), cards.slice(2));
+    return spot && spot.draw.kind === kind ? spot : null;
   });
 }
 

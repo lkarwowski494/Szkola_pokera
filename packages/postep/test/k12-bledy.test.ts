@@ -11,6 +11,7 @@ import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { afterEach, describe, expect, it } from 'vitest';
+import { KONFIGURACJA } from '../../domena/src';
 import { type OdpowiedzKroku, type PortBazy, uruchomPostep, zapiszKrok, zapiszPowtorke } from '../src';
 import { adapterNode, ile, integralnosc, otworzNode, TABELE_EKSPORTU, zawartosc, type Zdarzenie } from '../../../tests/narzedzia/postep-node';
 import { plikiNode, sha256 } from '../../../tests/narzedzia/pliki-node';
@@ -21,7 +22,8 @@ import { bladIO, katalogTymczasowy, przygotuj, sprzatnij } from './wspolne';
 afterEach(sprzatnij);
 
 const bladSQLite = (errcode: number) => Object.assign(new Error(`SQLite ${errcode}`), { code: 'ERR_SQLITE_ERROR', errcode, errstr: `kod ${errcode}` });
-const TABELE = [...TABELE_EKSPORTU, 'uprawnienie_cache'];
+// Baza z wzorca jest v1: tabele wydane w v1 (wariant_historia dochodzi dopiero z migracją v2, D-532)
+const TABELE = [...TABELE_EKSPORTU.filter((t) => t !== 'wariant_historia'), 'uprawnienie_cache'];
 const OPERACJE = {
   // nowy krok aktywności w toku (wzorzec: a-scen, krok 1)
   zapiszKrok: (port) => zapiszKrok(port, 'a-scen', { krok: 1, zadanie_id: 'z2', rodzina_id: 'r1', wybor: '{"akcja":"fold"}',
@@ -105,7 +107,7 @@ describe('K-12 baza uszkodzona przy otwarciu', () => {
     },
   };
   for (const [nazwa, uszkodz] of Object.entries(USZKODZENIA)) {
-    it(`K-12: ${nazwa} → plik przemianowany na postep-uszkodzona-<ms>.db z tymi samymi bajtami, nowa pusta baza v1, nic nie usunięte`, async () => {
+    it(`K-12: ${nazwa} → plik przemianowany na postep-uszkodzona-<ms>.db z tymi samymi bajtami, nowa pusta baza bieżącego schematu, nic nie usunięte`, async () => {
       const k = katalogTymczasowy();
       const sciezka = join(k, 'postep.db');
       uszkodz(sciezka);
@@ -115,7 +117,7 @@ describe('K-12 baza uszkodzona przy otwarciu', () => {
       expect(sha256(uszkodzona!)).toBe(suma);
       expect(wywolania.filter((w) => w.op === 'usun')).toEqual([]);
       await port.zamknij();
-      expect(odczyt(sciezka)).toEqual({ wersja: 1, aktywnosci: 0, ustawienia: 0, integrity: 'ok', kluczeObce: 0 });
+      expect(odczyt(sciezka)).toEqual({ wersja: KONFIGURACJA.SCHEMAT_WERSJA, aktywnosci: 0, ustawienia: 0, integrity: 'ok', kluczeObce: 0 });
     });
   }
   // Zero utraty (zasada wspólna 10): każdy plik sprzed startu zostaje gdzieś w katalogu z tymi samymi bajtami (multizbiór sum).
@@ -156,15 +158,16 @@ describe('K-12 baza uszkodzona przy otwarciu', () => {
     expect(wywolania.filter((w) => w.op !== 'istnieje')).toEqual([]);
     await port.zamknij();
     const po = new DatabaseSync(sciezka, { readOnly: true });
-    expect(zawartosc(po, TABELE)).toEqual(przed);
+    expect(zawartosc(po, TABELE)).toEqual(przed); // dane v1 bez zmian po migracji v2
+    expect(ile(po, 'wariant_historia')).toBe(0);
     po.close();
   });
-  it('K-12: brak pliku → nowa pusta baza v1, uszkodzona = null', async () => {
+  it('K-12: brak pliku → nowa pusta baza bieżącego schematu, uszkodzona = null', async () => {
     const k = katalogTymczasowy();
     const { port, uszkodzona } = await start(k);
     expect(uszkodzona).toBeNull();
     await port.zamknij();
-    expect(odczyt(join(k, 'postep.db'))).toMatchObject({ wersja: 1, aktywnosci: 0, integrity: 'ok' });
+    expect(odczyt(join(k, 'postep.db'))).toMatchObject({ wersja: KONFIGURACJA.SCHEMAT_WERSJA, aktywnosci: 0, integrity: 'ok' });
   });
   it('K-12: SQLITE_IOERR przy otwarciu zdrowej bazy nie jest uszkodzeniem: plik nie przemianowany ani usunięty, bajty bez zmian', async () => {
     const k = katalogTymczasowy();

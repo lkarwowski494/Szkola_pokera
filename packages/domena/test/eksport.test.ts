@@ -1,7 +1,7 @@
 // Testy akceptacyjne walidacji pliku eksportu (BR-DANE-002 „Plik uszkodzony albo obcy”, „Plik z nowszej wersji”; ADR 0008 pkt 1–3, „Testy odrzucenia”).
 // Część „postęp bez zmian” sprawdza test integracyjny przez port (K-11, pakiet postep); tu tylko decyzja przed dotknięciem bazy.
 import { describe, expect, it } from 'vitest';
-import { FORMAT_EKSPORTU, KONFIGURACJA as K, migrujFormat, walidujEksport } from '../src';
+import { FORMAT_EKSPORTU, KONFIGURACJA as K, migrujFormat, TABELE_EKSPORTU, walidujEksport } from '../src';
 
 const koperta = (zmiany: Record<string, unknown> = {}) => ({
   format: FORMAT_EKSPORTU,
@@ -12,6 +12,9 @@ const koperta = (zmiany: Record<string, unknown> = {}) => ({
   dane: { ustawienie: [{ klucz: 'jezyk', wartosc: '"pl"' }], postep_lekcji: [], aktywnosc: [], odpowiedz: [], wynik_testu: [], karta: [], log_powtorki: [] },
   ...zmiany,
 });
+
+// Wynik walidacji: stary plik bez `wariant_historia` (D-532) dostaje pustą tablicę; reszta bez zmian.
+const znormalizowana = () => { const k = koperta(); return { ...k, dane: { ...k.dane, wariant_historia: [] } }; };
 
 describe('AK-BR-DANE-002: walidacja pliku przed importem', () => {
   it('AK-BR-DANE-002-c plik obcy (inny `format`) → bledny_plik', () => {
@@ -30,6 +33,24 @@ describe('AK-BR-DANE-002: walidacja pliku przed importem', () => {
     delete dane[tabela];
     expect(walidujEksport(JSON.stringify({ ...k, dane }), K.EKSPORT_WERSJA_FORMATU)).toEqual({ ok: false, powod: 'bledny_plik' });
   });
+  it('D-532: stary plik v1 bez tabeli wariant_historia przechodzi, brak = pusta tablica (tylko ta tabela jest opcjonalna)', () => {
+    const w = walidujEksport(JSON.stringify(koperta()), K.EKSPORT_WERSJA_FORMATU);
+    expect(w.ok && w.wartosc.dane.wariant_historia).toEqual([]);
+    expect(w.ok && w.wartosc.wersja_formatu).toBe(1);
+  });
+  it.each(['x', {}, 5, null])('D-532: wariant_historia obecna, ale nie tablica obiektów (%j) → bledny_plik', (v) => {
+    const k = koperta();
+    expect(walidujEksport(JSON.stringify({ ...k, dane: { ...k.dane, wariant_historia: v } }), K.EKSPORT_WERSJA_FORMATU)).toEqual({ ok: false, powod: 'bledny_plik' });
+  });
+  it('D-532: wariant_historia z wierszem niebędącym obiektem → bledny_plik', () => {
+    const k = koperta();
+    expect(walidujEksport(JSON.stringify({ ...k, dane: { ...k.dane, wariant_historia: [1] } }), K.EKSPORT_WERSJA_FORMATU)).toEqual({ ok: false, powod: 'bledny_plik' });
+  });
+  it('D-532: WARIANTY_HISTORIA_OKNO = 20, a wariant_historia jest w TABELE_EKSPORTU', () => {
+    expect(K.WARIANTY_HISTORIA_OKNO).toBe(20);
+    expect(TABELE_EKSPORTU).toContain('wariant_historia');
+    expect(K.SCHEMAT_WERSJA).toBe(2);
+  });
   it('AK-BR-DANE-002-c brak `dane` → bledny_plik', () => {
     const { dane: _d, ...bez } = koperta();
     expect(walidujEksport(JSON.stringify(bez), K.EKSPORT_WERSJA_FORMATU)).toEqual({ ok: false, powod: 'bledny_plik' });
@@ -42,9 +63,9 @@ describe('AK-BR-DANE-002: walidacja pliku przed importem', () => {
   });
   it('AK-BR-DANE-002-a plik tej samej wersji → koperta bez zmian', () => {
     const w = walidujEksport(JSON.stringify(koperta()), K.EKSPORT_WERSJA_FORMATU);
-    expect(w).toEqual({ ok: true, wartosc: koperta() });
+    expect(w).toEqual({ ok: true, wartosc: znormalizowana() }); // D-532: brak wariant_historia = []
   });
   it('AK-ADR0008-3 migracja formatu v1 → v1 bez zmian', () => {
-    expect(migrujFormat(koperta())).toEqual(koperta());
+    expect(migrujFormat(koperta())).toEqual(znormalizowana());
   });
 });

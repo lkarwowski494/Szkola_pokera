@@ -1,16 +1,19 @@
 // Kontrola pliku eksportu z telefonu przed commitem do tests/dane/eksport/ (strategia.md §4; ADR 0008; repo publiczne, zasada wspólna 14).
 // Plik trafia do repo tylko bez błędów: pola koperty ADR 0008, tabele i kolumny z schemat.sql, bez adresów e-mail i nazw urządzeń.
-// Uruchom: node tests/narzedzia/sprawdz-eksport.mjs <plik.json> [<schemat.sql>]   (kod 1 przy błędzie)
+// Uruchom: node tests/narzedzia/sprawdz-eksport.mjs <plik.json> [<schemat.sql> [<schemat-v2.sql>]]   (kod 1 przy błędzie)
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 export const POLA_KOPERTY = ['format', 'wersja_formatu', 'utworzono', 'aplikacja', 'dane'];
-export const TABELE_EKSPORTU = ['ustawienie', 'postep_lekcji', 'aktywnosc', 'odpowiedz', 'wynik_testu', 'karta', 'log_powtorki'];
+export const TABELE_EKSPORTU = ['ustawienie', 'postep_lekcji', 'aktywnosc', 'odpowiedz', 'wynik_testu', 'karta', 'log_powtorki', 'wariant_historia'];
+// Pliki sprzed migracji v2 (D-532) nie mają `wariant_historia`; import traktuje brak jako pustą tabelę, więc kontrola też (jak domena/eksport.ts).
+export const TABELE_OPCJONALNE = ['wariant_historia'];
 const KOLUMNY_JSON = new Set(['wartosc', 'miejsce', 'plan', 'wybor']);
 const EMAIL = /[^\s@"]+@[^\s@"]+\.[a-z]{2,}/i;
 const URZADZENIE = /\b(iPhone|iPad|iPod|MacBook|iMac|Apple Watch|Galaxy|Pixel)\b/i;
 const DLUGI_TEKST = 120; // dłuższy napis to uwaga (tekst wpisany ręcznie?), nie błąd: aplikacja nie ma pól tekstowych w tabelach eksportu
 
+// Schemat bazy = v1 (schemat.sql) + migracje (schemat-v2.sql, D-532): kolumny tabel z obu plików.
 export function kolumnyZeSchematu(sql) {
   const wynik = {};
   for (const m of sql.matchAll(/CREATE TABLE (\w+) \(([\s\S]*?)\n\);/g)) {
@@ -40,6 +43,7 @@ export function sprawdzEksport(tekst, schematSql) {
     } else if (w && typeof w === 'object') for (const [kl, v] of Object.entries(w)) { napisy(kl, `${sciezka}<klucz>`); napisy(v, `${sciezka}.${kl}`); }
   };
   for (const t of TABELE_EKSPORTU) {
+    if (dane[t] === undefined && TABELE_OPCJONALNE.includes(t)) continue;
     if (!Array.isArray(dane[t])) { bledy.push(`brak tabeli ${t}`); continue; }
     const dozwolone = new Set(kolumny[t] ?? []);
     dane[t].forEach((wiersz, i) => {
@@ -56,9 +60,10 @@ export function sprawdzEksport(tekst, schematSql) {
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const [plik, schemat = fileURLToPath(new URL('../../docs/architektura/schemat.sql', import.meta.url))] = process.argv.slice(2);
-  if (!plik) { console.error('użycie: node tests/narzedzia/sprawdz-eksport.mjs <plik.json> [<schemat.sql>]'); process.exit(2); }
-  const { bledy, uwagi } = sprawdzEksport(readFileSync(plik, 'utf8'), readFileSync(schemat, 'utf8'));
+  const [plik, schemat = fileURLToPath(new URL('../../docs/architektura/schemat.sql', import.meta.url)),
+    schematV2 = fileURLToPath(new URL('../../docs/architektura/schemat-v2.sql', import.meta.url))] = process.argv.slice(2);
+  if (!plik) { console.error('użycie: node tests/narzedzia/sprawdz-eksport.mjs <plik.json> [<schemat.sql> [<schemat-v2.sql>]]'); process.exit(2); }
+  const { bledy, uwagi } = sprawdzEksport(readFileSync(plik, 'utf8'), `${readFileSync(schemat, 'utf8')}\n${readFileSync(schematV2, 'utf8')}`);
   for (const u of uwagi) console.log(`UWAGA ${u}`);
   for (const b of bledy) console.log(`BŁĄD  ${b}`);
   console.log(`${bledy.length} błędów, ${uwagi.length} uwag`);

@@ -4,14 +4,14 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { TABELE_EKSPORTU } from '../../domena/src';
 import { eksportuj, importuj, KOLUMNY_EKSPORTU, TYPY_KOLUMN, usunPostep } from '../src';
 import { ile, zawartosc } from '../../../tests/narzedzia/postep-node';
-import { DZIEN_WZORCA, schematV1, T0 } from '../../../tests/narzedzia/wzorzec-bazy';
+import { DZIEN_WZORCA, schematV1, schematV2, T0 } from '../../../tests/narzedzia/wzorzec-bazy';
 import { przygotuj, sprzatnij } from './wspolne';
 
 afterEach(sprzatnij);
 
 describe('D-202 kolumny eksportu', () => {
-  it('KOLUMNY_EKSPORTU = kolumny tabel w docs/architektura/schemat.sql (kolejność i zbiór), dla każdej z 7 tabel', () => {
-    const db = new DatabaseSync(':memory:'); db.exec(schematV1());
+  it('KOLUMNY_EKSPORTU = kolumny tabel w schemat.sql + schemat-v2.sql (kolejność i zbiór), dla każdej z 8 tabel (v1 + v2, D-532)', () => {
+    const db = new DatabaseSync(':memory:'); db.exec(schematV1()); db.exec(schematV2());
     const zSchematu = Object.fromEntries(TABELE_EKSPORTU.map((t) => [t, (db.prepare(`PRAGMA table_info(${t})`).all() as { name: string }[]).map((k) => k.name)]));
     expect(KOLUMNY_EKSPORTU).toEqual(zSchematu);
     const typ = (k: { type: string; notnull: number; pk: number }) => k.type === 'TEXT' ? 't' : k.type === 'REAL' ? 'r' : k.notnull || k.pk ? 'i' : 'i?';

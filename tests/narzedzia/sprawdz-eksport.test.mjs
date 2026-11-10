@@ -4,7 +4,9 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { kolumnyZeSchematu, sprawdzEksport, TABELE_EKSPORTU } from './sprawdz-eksport.mjs';
 
-const SCHEMAT = readFileSync(new URL('../../docs/architektura/schemat.sql', import.meta.url), 'utf8');
+// v1 + v2 (D-532): schemat bazy = schemat.sql + schemat-v2.sql
+const SCHEMAT = readFileSync(new URL('../../docs/architektura/schemat.sql', import.meta.url), 'utf8') + '\n'
+  + readFileSync(new URL('../../docs/architektura/schemat-v2.sql', import.meta.url), 'utf8');
 const dobry = () => ({
   format: 'szkola-pokera-postep', wersja_formatu: 1, utworzono: '2026-11-04T12:00:00.000Z', aplikacja: '1.0.0',
   dane: {
@@ -15,9 +17,10 @@ const dobry = () => ({
 });
 const sprawdz = (k) => sprawdzEksport(JSON.stringify(k), SCHEMAT);
 
-test('kolumny z schemat.sql: 9 tabel, aktywnosc ma 10 kolumn', () => {
+test('kolumny z schemat.sql + schemat-v2.sql: 10 tabel, aktywnosc ma 10 kolumn', () => {
   const k = kolumnyZeSchematu(SCHEMAT);
-  assert.equal(Object.keys(k).length, 9);
+  assert.equal(Object.keys(k).length, 10);
+  assert.deepEqual(k.wariant_historia, ['id', 'szablon_id', 'poziom', 'odcisk', 'ziarno', 'zagrano_ms']);
   assert.deepEqual(k.aktywnosc, ['id', 'rodzaj', 'stan', 'z_limitu', 'dzien_lokalny', 'strefa', 'plan', 'krok', 'start_ms', 'koniec_ms']);
 });
 test('poprawny plik (z identyfikatorem UUID): 0 błędów', () => assert.deepEqual(sprawdz(dobry()).bledy, []));
@@ -50,4 +53,17 @@ test('długi napis → uwaga, nie błąd', () => {
   const r = sprawdz(k);
   assert.deepEqual(r.bledy, []);
   assert.equal(r.uwagi.length, 1);
+});
+
+test('D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd', () => {
+  const stary = dobry(); delete stary.dane.wariant_historia;
+  assert.deepEqual(sprawdz(stary).bledy, []);
+  const nowy = dobry(); nowy.dane.wariant_historia = [{ id: 1, szablon_id: 's01', poziom: 'latwy', odcisk: 'abc', ziarno: 1, zagrano_ms: 2 }];
+  assert.deepEqual(sprawdz(nowy).bledy, []);
+  nowy.dane.wariant_historia[0].obca = 1;
+  assert.ok(sprawdz(nowy).bledy.includes('wariant_historia[0].obca: kolumna spoza schemat.sql'));
+});
+test('brak innej tabeli (np. karta) nadal błąd', () => {
+  const k = dobry(); delete k.dane.karta;
+  assert.ok(sprawdz(k).bledy.includes('brak tabeli karta'));
 });

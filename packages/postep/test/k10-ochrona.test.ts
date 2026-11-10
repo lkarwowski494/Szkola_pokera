@@ -80,13 +80,13 @@ describe('K-10 ochrona długich operacji', () => {
     db.exec('PRAGMA foreign_keys = ON'); // jak otworzPostep przed migruj (moduly.md)
     const logi = (db.prepare('SELECT count(*) AS n FROM log_powtorki').get() as { n: number }).n;
     const kartaSql = (db.prepare("SELECT sql FROM sqlite_schema WHERE name = 'karta'").get() as { sql: string }).sql;
-    const przebudowa = { wersja: 2, przebudowa: true, sql: `${kartaSql.replace('CREATE TABLE karta', 'CREATE TABLE karta_n')};
+    const przebudowa = { wersja: 3, przebudowa: true, sql: `${kartaSql.replace('CREATE TABLE karta', 'CREATE TABLE karta_n')};
       INSERT INTO karta_n SELECT * FROM karta; DROP TABLE karta; ALTER TABLE karta_n RENAME TO karta;
       CREATE INDEX idx_karta_termin ON karta(termin_ms);` };
     const w = await migruj(adapterNode(db, (z) => dziennik.push(`sql:${z.sql}`)), [...listaMigracji(), przebudowa], atrapa.ochrona);
-    expect(w).toEqual({ ok: true, wartosc: 2 });
+    expect(w).toEqual({ ok: true, wartosc: 3 });
     const r = dziennik.findIndex((x) => x.startsWith('rozpocznij:'));
-    const start = dziennik.findIndex((x) => /foreign_keys\s*=\s*OFF|BEGIN|karta_n/i.test(x));
+    const start = dziennik.findIndex((x) => /foreign_keys\s*=\s*OFF|karta_n/i.test(x));
     expect(r).toBeGreaterThanOrEqual(0);
     expect(r).toBeLessThan(start);
     expect(jedenRaz(atrapa.zakonczenia)).toBe(true);

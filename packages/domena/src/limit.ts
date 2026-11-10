@@ -1,5 +1,6 @@
 // Limit dnia (ADR 0007; sygnatury: docs/architektura/moduly.md „Porty domeny”).
 import type { Konfiguracja } from './konfiguracja';
+import { czyPowtorkaWariantu, type StartWariantu } from './wariant';
 import type { RodzajAktywnosci } from './typy';
 
 export type Limit = { bezLimitu: true } | { bezLimitu: false; pozostalo: number; odnowienieMs: number };
@@ -16,13 +17,16 @@ export function limitDnia(wej: { zuzyteDzis: number; pro: boolean; dzien: string
 }
 
 // Poza limitem: lekcja, ocena poziomu, pierwsze podejście do testu modułu (BR-LIM-003, ADR 0007 pkt 1: CHECK rodzajów z limitu).
-// Pro: start każdej aktywności, nic nie idzie z limitu.
+// Pro: start każdej aktywności, nic nie idzie z limitu. KO-043: powtórka tego samego wariantu scenariusza („Zagraj jeszcze raz
+// to samo rozdanie”) to ta sama aktywność, więc też poza limitem; limit liczy nowe warianty.
 export function mozeStartowac(
   rodzaj: RodzajAktywnosci,
   pierwszePodejscieTestu: boolean,
   limit: Limit,
+  wariant?: StartWariantu,
 ): { start: true; zLimitu: boolean } | { start: false; powod: 'limit_wyczerpany' } {
-  const poza = rodzaj === 'lekcja' || rodzaj === 'ocena_poziomu' || (rodzaj === 'test_modulu' && pierwszePodejscieTestu);
+  const poza =
+    rodzaj === 'lekcja' || rodzaj === 'ocena_poziomu' || (rodzaj === 'test_modulu' && pierwszePodejscieTestu) || (rodzaj === 'scenariusz' && wariant !== undefined && czyPowtorkaWariantu(wariant));
   if (limit.bezLimitu || poza) return { start: true, zLimitu: false };
   if (limit.pozostalo > 0) return { start: true, zLimitu: true };
   return { start: false, powod: 'limit_wyczerpany' };

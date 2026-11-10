@@ -61,7 +61,7 @@ jobs:
           - { grupa: srs, pakiet: srs, pliki: '**/*.ts' }
           - { grupa: poker-core-ocena, pakiet: poker-core, pliki: 'grading.ts evaluate.ts cards.ts math.ts' }
           - { grupa: poker-core-stol, pakiet: poker-core, pliki: 'table.ts play.ts' }
-          - { grupa: poker-core-reszta, pakiet: poker-core, pliki: 'texture.ts drills.ts hud.ts ranges.ts icm.ts equity.ts holding.ts situation.ts draws.ts rng.ts bench.ts index.ts' }
+          - { grupa: poker-core-reszta, pakiet: poker-core, pliki: 'texture.ts drills.ts hud.ts ranges.ts icm.ts equity.ts holding.ts situation.ts draws.ts rng.ts scenario-gen.ts bench.ts index.ts' }
     name: mutacje (${{ matrix.grupa }})
     steps:
       - uses: actions/checkout@v5

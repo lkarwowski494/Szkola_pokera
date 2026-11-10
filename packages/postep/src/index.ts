@@ -10,3 +10,4 @@ export * from './testy';
 export * from './statystyki';
 export * from './uprawnienia';
 export * from './dziennik';
+export * from './wariantyHistoria';

@@ -7,6 +7,9 @@ import { DatabaseSync } from 'node:sqlite';
 
 export const SCIEZKA_SCHEMATU = fileURLToPath(new URL('../../docs/architektura/schemat.sql', import.meta.url));
 export const schematV1 = () => readFileSync(SCIEZKA_SCHEMATU, 'utf8');
+// Migracja v2 (D-532): osobny plik, bo schemat.sql = wydana migracja v1 (wydanej migracji się nie zmienia, dane.md „Polityka migracji”).
+export const SCIEZKA_SCHEMATU_V2 = fileURLToPath(new URL('../../docs/architektura/schemat-v2.sql', import.meta.url));
+export const schematV2 = () => readFileSync(SCIEZKA_SCHEMATU_V2, 'utf8');
 export const T0 = 1_793_000_000_000; // stały czas wzorca (ms UTC)
 export const DZIEN_WZORCA = '2026-10-26';
 const D = 86_400_000;

@@ -1,5 +1,5 @@
 # Dane: model, migracje, kopie, eksport (rola 05 E2, 2026-11-04)
-Decyzje: ADR 0002 (SQLite w `Documents/SQLite`), 0003 (port z kolejką, UPSERT, runner `user_version`, dziennik `DELETE`), 0004 (`postep.db` od zera), 0005 (treść osobno, baza na język), 0006 (pamięć uprawnień), 0007 (limit), 0008 (eksport JSON), 0010 (maszyny stanów). Schemat: [`schemat.sql`](schemat.sql). Dowód: [`eksperymenty/e2-schemat.mjs`](eksperymenty/e2-schemat.mjs), wynik [`e2-schemat.wynik.txt`](eksperymenty/e2-schemat.wynik.txt).
+Decyzje: ADR 0002 (SQLite w `Documents/SQLite`), 0003 (port z kolejką, UPSERT, runner `user_version`, dziennik `DELETE`), 0004 (`postep.db` od zera), 0005 (treść osobno, baza na język), 0006 (pamięć uprawnień), 0007 (limit), 0008 (eksport JSON), 0010 (maszyny stanów). Schemat: [`schemat.sql`](schemat.sql) (migracja v1) + [`schemat-v2.sql`](schemat-v2.sql) (migracja v2: `wariant_historia`, D-532). Dowód: [`eksperymenty/e2-schemat.mjs`](eksperymenty/e2-schemat.mjs), wynik [`e2-schemat.wynik.txt`](eksperymenty/e2-schemat.wynik.txt).
 
 ## Dowód uruchomienia
 Komenda (z katalogu `docs/architektura/eksperymenty`): `node --no-warnings e2-schemat.mjs ../schemat.sql <katalog-tymczasowy>` → **43 wyniki zgodne, kod wyjścia 0** (SQLite 3.53.4, Node 22.23.4, 2026-11-04). Obejmuje:
@@ -116,6 +116,7 @@ Identyfikatory treści (`zadanie_id`, `rodzina_id`, `lekcja_id`, `modul_id`, sce
 { "format": "szkola-pokera-postep", "wersja_formatu": 1, "utworzono": "2026-11-04T12:00:00.000Z", "aplikacja": "1.0.0",
   "dane": { "ustawienie": [], "postep_lekcji": [], "aktywnosc": [], "odpowiedz": [], "wynik_testu": [], "karta": [], "log_powtorki": [] } }
 ```
+- Od migracji v2 (D-532) plik ma ósmą tabelę `wariant_historia` (historia odcisków wariantów scenariuszy, okno 20 na szablon i poziom); `wersja_formatu` zostaje 1. Plik sprzed v2 bez tej tabeli się importuje: brak = pusta historia (tylko ta tabela jest opcjonalna, pozostałe 7 wymagane; `packages/domena/src/eksport.ts`). Import zastępuje historię, „Usuń postęp” ją czyści.
 - Wiersze jak w tabelach (nazwy kolumn = klucze). Poza plikiem: `uprawnienie_cache` (przywraca sklep), `dziennik`.
 - Import: walidacja całości przed dotknięciem bazy (obcy `format`, zła struktura, ucięty plik → `bledny_plik`; `wersja_formatu` wyższa → `nowsza_wersja`); potwierdzenie przy istniejącym postępie; kopia `VACUUM INTO`; jedna transakcja: usunięcie (dzieci przed rodzicami), wstawienie, `foreign_key_check`; błąd → `ROLLBACK`. Dzisiejsze aktywności z limitu, których nie ma w pliku, zostają (ADR 0007).
 - Starsza `wersja_formatu` przechodzi przez czystą funkcję migracji formatu przed walidacją.
