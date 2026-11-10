@@ -1,4 +1,4 @@
-# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 06:45 UTC)
+# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 09:50 UTC)
 
 Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T66VBzPr7MhGZ3A6RPdfBG`. Dawne pliki stanu zostają na gałęzi roboczej: `docs/programista/koordynator.md` (prompt i kolejka nocy), `docs/programista/plan-08.md` sekcja „Koordynacja” (dziennik od 2026-11-08, ostatni wpis 01:51 UTC 10.11), `docs/decyzje.md` (rejestr D-NNN aplikacji, ostatni D-394).
 
@@ -22,9 +22,13 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
-- Gałąź robocza @ **40e5cef**: pt-PT (AT) + poprawki pełnego przeglądu 9 języków (AU, 2849, WYS 15) + KO-020/021/022/024. CI 42778528710 i E2E 42778528672 **success**. Wszystkie sesje dnia przyjęte i zarchiwizowane; aktywnych sesji brak.
-- **Czeka na właściciela:** build TestFlight wysłany (42785838180 success 09:13) → testy na telefonie: listy telefonu (`docs/lokalizacja/lista-telefonu-*.md`, w tym pt-PT i T-au-*).
-- Następne dla koordynatora: po buildzie — odbiór wyników telefonu; backlog (en-US „correct”→„Aligned” rola 10; błędy źródła pl → rola 06: m2.yaml:89, m10-l3:49, text.ts:152; NISKIE pt-PT N-1…N-3). Kontroli brak, gdy nic nie trwa; linia 14:00.
+- **Przekazanie koordynatora w toku** (kontekst 35,1% o 09:46): następca przejmuje wg E6 pkt 5. Właściciel przełączył model tej sesji na `claude-fable-5-2` (`/model`, ok. 08:00 UTC) — następca startuje na tym samym modelu.
+- Build TestFlight 1009 (przebieg 42785838180, 40e5cef) u właściciela na telefonie; właściciel zgłasza uwagi zrzutami w czacie koordynatora. Dotąd: ikona (KO-025 → AV), „Nie wiem” + ekran wyboru (KO-026 → AW), niezrozumiałe pytanie pl (KO-027 → AX), układ stołu (AW zad. 7).
+- Gałąź robocza @ **128a089** (40e5cef + AV ikona): CI i E2E na 128a089 w toku od ok. 09:45 — **sprawdzić wynik** (Actions, gałąź `claude/sleepy-brahmagupta-2065nu`), potem przyjąć i zarchiwizować AV (koszt do `koszty.md`).
+- **AW: PRZEKAZANIE bd965be** (`sesja-aw-ocena`, zad. 1–7). Do zrobienia przez następcę: (1) AW dostała po przekazaniu 2 wiadomości — scalić roboczą 128a089 i zad. 8 (`table.yourPosition`: nazwa pozycji zamiast samego skrótu) — sprawdzić, czy odpowiedziała/wykonała (get_session, ls-remote); jeśli nie i kontekst AW ≥ 30% → nowa sesja 08; (2) recenzja niezależna AW zlecona subagentowi poprzedniego koordynatora — wynik miał trafić do jego scratchpadu (`recenzja-aw.md`), **następca go nie zobaczy → zlecić recenzję ponownie** (zakres w dzienniku 09:47); (3) po recenzji i scaleniu z roboczą: ff/merge do roboczej, CI + E2E (flowy Maestro zmienione, nieuruchomione lokalnie — pierwsze E2E jest dowodem).
+- **AX w toku** (`sesja-ax-pytania`, 06 fix): poprawa brzmienia 7 z 8 pytań oceny + zad. 6 (m5.q2 jednoznaczność) + 11 języków; szac. koniec ok. 11:30. Po PRZEKAZANIU: recenzja niezależna (treść: sens bez zmian, poprawna odpowiedź bez zmian), scalenie po AW (bazy .db: przebudowa po scaleniu przez sesję), CI + E2E.
+- Kolejność scalania: AV (zrobione) → AW → AX; push kodu na roboczą nie w trakcie E2E (anuluje przebieg) — czekać na koniec.
+- Po zielonym E2E na szczycie z AV+AW+AX: prośba do właściciela o nowy build TestFlight (KO-025: „build razem z poprawkami”) i lista telefonu (pozycje T-ikona-1..3, ocena, stół).
 
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
@@ -68,7 +72,7 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 
 ## Pule numerów decyzji
 - Rejestr aplikacji `docs/decyzje.md`: ostatni D-394. Pule: AM D-395…D-399, AN D-400…D-404, AO D-405…D-419, AP D-420…D-429, AQ D-430…D-439, AR D-440…D-449; AT D-408…D-419 (reszta puli AO/AS); AU zarezerwowana D-450…D-469; następny wolny **D-470**.
-- KO następny: **KO-028**. Pule: AV D-470…D-474, AW D-475…D-484, AX D-485…D-494; następny wolny D-495.
+- KO następny: **KO-028**. Pule: AV D-470…D-474, AW D-475…D-484, AX D-485…D-494; następny wolny D-495. Uwaga: AV wpisała D-470 na końcu tabeli `docs/decyzje.md` (numeracja pul, nie ciągła).
 
 ## Dziennik (najnowsze na dole; starszy w `docs/programista/plan-08.md` „Koordynacja”)
 | UTC | Sesja | Zdarzenie z dowodem | Następny krok |
@@ -129,3 +133,5 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-10 09:36 | AW → koordynator | plan po E0: wybór na ekranie powitania BR-ONB-004 (dwa przyciski zamiast „Dalej”), „Nie wiem” = index −1 w JSON odpowiedzi (bez migracji), Stol.tsx wysokość sukna rośnie z liczbą rzędów (D-476), brak analogii w Treningu; decyzji nie wymaga | PRZEKAZANIE AW |
 | 11-10 09:45 | AV → koordynator; koordynator | PRZEKAZANIE 128a089: test `tests/kontrole/k09-ikona.test.ts` 8 ✕ → ✓, 5 PNG = `docs/design/ikona/` (bloby identyczne — sprawdzone), `app.json` tylko ikony i splash dokładnie wg design-spec:82 (diff 11 linii przeczytany przez koordynatora = przegląd ścieżki wrażliwej poza autorem), autor zgodny, `pnpm run ci` 0 wg sesji; D-470. Robocza ff → **128a089**, CI+E2E ruszają | wynik CI/E2E → archiwum AV |
 | 11-10 09:43 | AX → koordynator | raport po zad. 2: pula oceny = 8 stałych pytań (`ocenaPoziomu.ts:19-28`: m0.q1, m1.q2, m2.q5, m3.q2, m4.q1, m5.q2, m6.q5, m8.q1); początkujący 11 WYS/28 ŚR/15 NIS, do poprawy 7 z 8; szac. 1,5–2 h. Zgłoszenia: (a) `table.yourPosition` same skróty → przekazane AW jako zad. 8; (b) m5.q2 dystraktor niejednoznaczny (A-A-7: każda para kieszonkowa = dwie pary) → AX rozstrzyga jako zad. 6 (szczebel 1 ADR-24) | PRZEKAZANIA AW, AX |
+| 11-10 09:46 | AW → koordynator | PRZEKAZANIE bd965be: zad. 1–7, `pnpm run ci` 0 wg sesji (log `docs/programista/dowody/aw-ci-2026-11-10.log`), testy czerwone→zielone, stół owal 177→310 pt przy 390 pt, przy 320 pt board „sm” (`aw-stol-uklad-2026-11-10.md`), D-475, D-476 do weta, zgłoszenia AW-1..3 do roli 04; zmienione istniejące testy wg nowego wymagania (do sprawdzenia w recenzji); flowy Maestro nieuruchomione; otwarte: opis sklepu „możesz ją pominąć”, rejestr pt w placement.*, przegląd ścieżek wrażliwych nieodbyty | recenzja niezależna (zlecona 09:47 subagentowi: dane użytkownika/format „nieWiem”, logika wyniku, testy nieosłabione + mutacje, układ 320/390 pt, i18n 12 języków, store/) — **do ponowienia przez następcę**; AW ma jeszcze scalić 128a089 i zad. 8 |
+| 11-10 09:50 | koordynator | kontekst 35,1%, koszt 22,91 USD → przekazanie E6 | następca |
