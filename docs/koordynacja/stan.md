@@ -18,6 +18,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
+- **WSTRZYMANE** słowami właściciela 2026-11-10 ok. 05:25 UTC: „WSTRZYMAJ PRACE”. Przypomnienia koordynatora usunięte; żadnych sesji, raportu ani linii do odwołania przez właściciela.
 - Kolejka nocy D-359 wykonana: przekład + nałożenie + wydanie w kodzie 11 języków (pl, en, ja, zh-Hant, pt-BR, fr, de, es, ko, it, vi), nazwa PokerGym w kodzie, metadane sklepu. Brak aktywnych sesji podrzędnych.
 - Szczyt kodu z dowodem: **6afa34d** (E2E 42732430729 zielone 01:41; CI 42732569378 na 3d9b776, ten sam kod, zielone). Gałąź robocza @ ab820a8 (tylko docs nad 6afa34d).
 - Następny krok: **07:00 UTC raport nocy D-359** (w `docs/programista/plan-08.md`) + jedno pytanie zbiorcze do właściciela (treść: „Czeka na właściciela”). Do tego czasu bez nowych sesji.
@@ -70,3 +71,4 @@ Litery użyte dotąd: A…Z, AA…AL (następna: **AM**). Polecenia nocy były w
 | 11-10 05:15 | koordynator | migracja na M9: gałąź `koordynacja` @ ab820a8, pliki stanu | przekazanie następcy M9 |
 | 11-10 05:12 | koordynator | przekazane do session_01T66VBvZebfV7GaciZqtW3H (start bez błędu); przypomnienie trig_01KihuPMEhUFQp1zAXjtFr5g usunięte — raport 07:00 tworzy następca | PRZEJĄŁEM → archiwizacja poprzednika |
 | 11-10 05:20 | koordynator (session_01T66VBvZebfV7GaciZqtW3H) | przejęcie E6 pkt 5: przypomnienia 07:00/14:00/05:00 utworzone; add_repo prompts odrzucony (klasyfikator); trening/oczko/piekarz publiczne, klon na żądanie; od sesji podrzędnych brak wiadomości; aktywnych sesji brak | PRZEJĄŁEM → raport 07:00 |
+| 11-10 05:25 | koordynator | WSTRZYMANE przez właściciela; usunięte trig_01AeLXmJouMbVztuzcB4fAF7, trig_019PQfnnVoXW4mwtNVKTwddy, trig_01TZaaQwGGQsTwNNy3JN3WHC | czekam na słowa właściciela |
