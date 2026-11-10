@@ -6,8 +6,7 @@
  * (tools/content-build/src/scenariusze.ts) przekazuje `stackBb`. Skutek: ekran losuje inne warianty niż sprawdzone w budowaniu
  * i pokazuje na turnie zakład większy niż stos gracza (SC-02 i SC-19, 35 bb, poziom łatwy).
  *
- * D-740 (CH): przypadki oznaczone `it.failing`, żeby `pnpm run ci` zostało zielone; `it.failing` przechodzi, dopóki błąd istnieje.
- * Po naprawie (`stackBb` w `naGenerator`) test padnie: naprawiający zmienia `it.failing` na `it` (wtedy zielony).
+ * D-740 (CH): przypadki były `it.failing` do naprawy; po naprawie (CK, `stackBb` w `naGenerator`) są zwykłymi `it` (asercje bez zmian).
  */
 import type { ScenarioTemplate } from '@szkola/content-schema';
 import { generateVariant } from '@szkola/poker-core';
@@ -33,10 +32,10 @@ const SC19 = szablon('sc-19', 'flush', [0.1, 0.2, 0.25], [0.6667, 0.75, 1]);
 const MARTWE_BLINDY_BB = 1.5; // jak scenario-gen.ts
 
 describe('recenzja CH-01: ekran (naGenerator) nie pokazuje zakładu większego niż stos gracza (ŚR-203, BU KO-051)', () => {
-  it.failing('adapter przekazuje stackBb generatorowi', () => {
+  it('adapter przekazuje stackBb generatorowi', () => {
     expect(naGenerator(SC02).stackBb).toBe(35);
   });
-  it.failing.each([
+  it.each([
     ['SC-02', SC02],
     ['SC-19', SC19],
   ] as const)('%s poziom łatwy, ziarna 1–200: zakład na turnie ≤ stos gracza za pulą', (_n, sz) => {

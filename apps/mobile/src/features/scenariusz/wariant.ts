@@ -16,9 +16,13 @@ export type Akcja = 'fold' | 'call';
 /** Kolejność akcji na pasku: pas, sprawdzenie (jak w makiecie 04: najtańsza akcja pierwsza). */
 export const AKCJE: readonly Akcja[] = ['fold', 'call'];
 
-/** Szablon z treści → szablon generatora (jedna definicja granic dla treści i generatora, BR-SZB-001). */
+/**
+ * Szablon z treści → szablon generatora (jedna definicja granic dla treści i generatora, BR-SZB-001). `stackBb` jest potrzebne
+ * generatorowi do ograniczenia zakładu do stosu gracza (ŚR-203) i do linii `all-in` (F5); budowanie treści przekazuje je tak samo
+ * (`tools/content-build/src/scenariusze.ts`, `checkScenarioGenerator`), więc ekran losuje te same warianty co kontrola (CK, 08-programista-001).
+ */
 export function naGenerator(s: ScenarioTemplate): GeneratorTemplate {
-  return { id: s.id, levels: s.bounds, decisions: s.decisions.map((d) => d.kind === 'range-spot'
+  return { id: s.id, stackBb: s.stackBb, levels: s.bounds, decisions: s.decisions.map((d) => d.kind === 'range-spot'
       ? { kind: d.kind, street: d.street, spot: d.spot }
       : { kind: d.kind, street: d.street, pots: d.pots, fractions: d.fractions, villain: d.villain }) };
 }
