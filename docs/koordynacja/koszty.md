@@ -52,3 +52,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | BP | 06 audit (recenzja BN) | — | 5,77 | 26,6 | 17:12 → 17:16 → 3f57245/8b600ee 17:30 → — → 17:35 | 0 | przyjąć z warunkiem; zarchiwizowana 17:50 |
 | BM | 08 fix (poprawki BJ + NIS-104/105) | — | 2,90 | 24,1 | 16:22 → 16:24 → 49654a6 CI 16:43 → 51a98a9 17:41 (CI w toku) → przyjęta 17:37 (49654a6) | 0 | zarchiwizowana 17:50 przed CI 51a98a9 (polecenie właściciela) |
 | AY | M1 audit (wstrzymany KO-035) | — | 14,02 | 26,1 | 10:46 → … → wstrzymana 15:00 | — | zarchiwizowana 17:50; stan `audit/M1-2026-11-10/stan.md` @ 6c730c9 na sesja-ay-audyt — wznowienie nową sesją M1 |
+| BQ | 06 fix (opus/high) | — | 6,68 | 26,7 | 17:34 → 17:38 → 17:44 → 17:59 → 18:15 | 16 min (odbiór: przejęcie koordynatora) | przyjęta po CI 42869998001 |

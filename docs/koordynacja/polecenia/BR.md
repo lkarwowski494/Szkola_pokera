@@ -1,0 +1,13 @@
+# Sesja BR: scalenie 3 gałęzi do roboczej + CI + E2E — Szkoła Pokera
+Koordynator: session_01T66VBxUvdwEFgDrhyD7ZbX (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: `koordynacja` (tylko do odczytu).
+
+1. Rola: 08-programista w trybie build. Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź robocza `claude/sleepy-brahmagupta-2065nu` @ 00b0566 (inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md, sprawdź przed pierwszym commitem.
+3. Zadania:
+   1. Scal do roboczej (merge --no-ff, w tej kolejności): `origin/sesja-bf-generator` @ 51a98a9 (CI 42867492239 zielone; wg próby koordynatora bez konfliktu), `origin/sesja-bq-poprawki` @ 1c83839 (CI 42869998001; zawiera BN i BG), `origin/sesja-bi-menu` @ 697b871 (CI 42856226279 na 1f69723). Konflikt wg próby koordynatora tylko w `docs/decyzje.md` (oba boki dopisały wiersze na końcu tabeli) → rozwiąż sumą obu stron, kolejność numerów rosnąco, bez utraty wierszy; sprawdź, że żaden numer D- nie występuje dwa razy. Inne konflikty (np. `apps/mobile/src/i18n/locales`, `content/`) rozwiąż zachowując obie zmiany; niejasny → PYTANIE. Gotowe: 3 commity scalenia, `git merge-base --is-ancestor` każdej z 3 gałęzi z HEAD = 0.
+   2. Po scaleniu: `pnpm content:build`, potem `pnpm run ci` → kod 0, log do `docs/programista/dowody/br-ci-<SHA>.txt` (w kontekście tylko podsumowanie). Czerwone: diagnoza i naprawa wyłącznie skutków scalenia (testy przed kodem); poza tym → PYTANIE.
+   3. Push na `claude/sleepy-brahmagupta-2065nu` (zbiorczo, jeden push). Gotowe: SHA w raporcie. CI i E2E (e2e-ios.yml) wyzwala koordynator.
+4. Zakazy: nie scalasz do `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na gałąź `koordynacja`, nie zmieniasz workflowów, nigdy --no-verify ani force-push, nie pytasz właściciela bezpośrednio (bez AskUserQuestion). STOP-y roli i punkt czyszczenia z zasady wspólnej 19 zamieniasz na raport do koordynatora.
+5. Decyzje: techniczne rozstrzygasz sama do weta (najpierw analogia z `lkarwowski494/trening`, `repo:plik:linia`); produktowe → PYTANIE z ≥ 2 opcjami i rekomendacją. Numery decyzji tylko z puli D-625…D-629.
+6. Kontekst: od 30% okna kończysz krok, zapisujesz stan w `docs/programista/stan-br.md`, push, PRZEKAZANIE. Koszt: bez pułapu (mandat), raportuj.
+7. Raporty (≤ 10 linii, send_message): po scaleniu (konflikty i jak rozwiązane); PRZEKAZANIE: SHA, plik dowodu ci, decyzje, otwarte.
