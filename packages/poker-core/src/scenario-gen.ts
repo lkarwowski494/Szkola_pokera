@@ -6,6 +6,7 @@ import { dealCards, rankOf, suitOf } from './cards';
 import { classCombos, classOf, HAND_CLASSES } from './ranges';
 import { analyseOutsSpot, type DrawKind } from './drills';
 import { nutOutsShare, NUT_DRAW_MIN_SHARE, rangeVerdict } from './grading';
+import { classifyHolding } from './holding';
 import { hitProbability, requiredEquity } from './math';
 import { createRng, pick } from './rng';
 import { SUIT_PERMUTATIONS } from './situation';
@@ -117,7 +118,7 @@ export interface ScenarioVariant {
 export class TemplateError extends Error {}
 
 /** Po ilu odrzuceniach z rzędu generator zgłasza błąd szablonu (BR-GEN-003). */
-export const MAX_CONSECUTIVE_REJECTIONS = 1000;
+export const MAX_CONSECUTIVE_REJECTIONS = 5000; // BR-GEN-003 mówi 1000; po odrzuceniu gotowych rąk (06-tresci-201) sc-19 miał ok. 0,5% rozdań dla poziomu, więc 1000 kończyło się sporadycznym błędem szablonu (D-665, do weta)
 
 /** Martwe blindy w puli przed flopem (SB 0,5 + BB 1): wkład gracza preflop ≈ (pula − 1,5) ÷ 2 (F5, linia all-in; jak test szablony-bs). */
 const MARTWE_BLINDY_BB = 1.5;
@@ -233,12 +234,18 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     if (k === 1 && previousOuts.includes(board[3]!)) return null; // linia: karta turnu nie trafia
     const spot = analyseOutsSpot(hero, stol);
     if (!spot || !(b.draws as readonly string[]).includes(spot.draw.kind)) return null;
+    // 06-tresci-201: gdy karta gracza poprawia stół (para i lepiej), equity to nie same outy; reguła draw-price nie pasuje
+    // (tak samo wyłącza ją silnik ocen: grading.ts drawFacts, `improvesBoard`), więc takiego wariantu nie pokazujemy
+    if (classifyHolding(hero, stol).improvesBoard) return null;
     pot = k === 0 ? pick(rng, spec.pots) : pot + 2 * draws[0]!.bet;
     // F5: all-in rywala na flopie to sprawdzenie całego stosu, więc rachunek na dwie karty (R-M2-002); inaczej jedna karta
     const allIn = spec.villain === 'all-in';
     const hit = allIn && spec.street === 'flop' ? hitProbability(spot.outs, 52 - 2 - stol.length, 2) : spot.hitNextCard;
     const linie = allIn ? [Math.round(t.stackBb! - (pot - MARTWE_BLINDY_BB) / 2)] : spec.fractions.map((f) => Math.round(pot * f));
+    // ŚR-203: zakład nie jest większy niż stos gracza za pulą (stackBb − wkład przed flopem − wcześniejsze zakłady); bez stackBb bez ograniczenia
+    const stosGracza = typeof t.stackBb === 'number' ? t.stackBb - ((k === 0 ? pot : draws[0]!.pot) - MARTWE_BLINDY_BB) / 2 - draws.reduce((sum, x) => sum + x.bet, 0) : Infinity;
     const ok = linie
+      .filter((bet) => allIn || bet <= stosGracza) // all-in to z definicji cały stos (zaokrąglony)
       .map((bet) => ({ fraction: bet / pot, bet, margin: bet > 0 ? Math.abs(hit - requiredEquity(pot, bet)) : 0 }))
       .filter((x) => inMargin(x.margin, b, i) && decide(hit, requiredEquity(pot, x.bet)) === b.expected[i]); // BR-GEN-003: tylko oczekiwana akcja
     if (ok.length === 0) return null;
