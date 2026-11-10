@@ -1,0 +1,6 @@
+Sonda (worktree 713314b, plik testu tymczasowy, usunięty): dwa równoległe otworzScenariusz (limit pozostało 1, tryb 'nowe', różne ziarna)
+na jednym porcie node:sqlite (portTestowy) — odpowiada podwójnemu dotknięciu „Nowe rozdanie” w KoniecScenariusza (scenario.tsx kolejne()
+nie ma blokady ani stanu ładowania).
+Komenda: npx jest --ci src/features/scenariusz/__tests__/sonda-wyscig.test.ts (apps/mobile) → Tests: 1 passed (sonda bez asercji)
+Wynik: {"a":true,"b":true,"wToku":[{"id":"s1","z_limitu":1},{"id":"s2","z_limitu":1}],"zuzyte":{"ok":true,"wartosc":2}}
+Wniosek: oba starty udane, dwie aktywności 'scenariusz' w_toku, zużycie dnia 2 przy limicie 1.

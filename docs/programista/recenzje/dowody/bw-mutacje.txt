@@ -1,0 +1,73 @@
+Mutacje ręczne (worktree 713314b w scratchpadzie, każdy plik przywrócony po przebiegu; git status worktree pusty). Komenda testu w każdej sekcji: vitest run / jest --ci na pliku albo katalogu.
+== M1-maszyny (packages/domena/src/maszyny.ts): s/mozeStartowac(wej.rodzaj, wej.pierwszePodejscieTestu, wej.limit, wej.wariant)/mozeStartowac(wej.rodzaj, wej.pierwszePodejscieTestu, wej.limit)/
+71c71
+<   const m = mozeStartowac(wej.rodzaj, wej.pierwszePodejscieTestu, wej.limit, wej.wariant);
+---
+>   const m = mozeStartowac(wej.rodzaj, wej.pierwszePodejscieTestu, wej.limit);
+     × limit wyczerpany + powtórka ostatniego wariantu → start poza limitem (zLimitu: false) 6ms
+      Tests  1 failed | 4 passed (5)
+kod wyjścia: 1 (mutant ZABITY)
+== M2-start-bez-wariantu (apps/mobile/src/features/scenariusz/aktywnoscScenariusza.ts): /^    wariant: { historia: h, odcisk: wariant.fingerprint },$/d
+100d99
+<     wariant: { historia: h, odcisk: wariant.fingerprint },
+  ● powtórka i nowe rozdanie (KO-043, BR-GEN-002) › „Zagraj jeszcze raz” przy wyczerpanym limicie: ten sam wariant, poza limitem; „Nowe rozdanie” → limit_wyczerpany
+  ● powtórka i nowe rozdanie (KO-043, BR-GEN-002) › powtórka przy rozdaniu w toku tego samego szablonu: stare porzucone, w toku zostaje jedno (nie dwa)
+Tests:       2 failed, 49 passed, 51 total
+kod wyjścia: 1 (mutant ZABITY)
+== M3-poziom-prog (apps/mobile/src/features/scenariusz/poziom.ts): s/u >= PROG_DOBRE/u > PROG_DOBRE/
+45c45
+<     dobre = u >= PROG_DOBRE && wynik.poziom === poziom ? dobre + 1 : 0;
+---
+>     dobre = u > PROG_DOBRE && wynik.poziom === poziom ? dobre + 1 : 0;
+Tests:       15 passed, 15 total
+kod wyjścia: 0 (mutant PRZEŻYŁ)
+== M4-wyniki-stan (packages/postep/src/aktywnosci.ts): s/ AND a.stan = 'zakonczona'//
+214c214
+<        JOIN odpowiedz o ON o.aktywnosc_id = a.id WHERE a.rodzaj = 'scenariusz' AND a.stan = 'zakonczona'
+---
+>        JOIN odpowiedz o ON o.aktywnosc_id = a.id WHERE a.rodzaj = 'scenariusz'
+     × tylko zakończone scenariusze, od najstarszego, z poziomem, szablonem i ocenami decyzji w kolejności kroków 16ms
+      Tests  1 failed | 140 passed (141)
+kod wyjścia: 1 (mutant ZABITY)
+== M5-dostep (apps/mobile/src/features/scenariusz/dostep.ts): s/return modulZaliczony(p, s.module) || /return true || modulZaliczony(p, s.module) || /
+18c18
+<   return modulZaliczony(p, s.module) || lekcjeModulu.some((l) => p.ukonczoneLekcje.includes(l));
+---
+>   return true || modulZaliczony(p, s.module) || lekcjeModulu.some((l) => p.ukonczoneLekcje.includes(l));
+  ● odblokowanie szablonu (D-647) › bez ukończonej lekcji modułu i bez zaliczenia: zablokowany
+Tests:       1 failed, 50 passed, 51 total
+kod wyjścia: 1 (mutant ZABITY)
+== M6-pula (apps/mobile/src/features/scenariusz/wariant.ts): s/pulaBb: d.pot + d.bet/pulaBb: d.pot/
+81c81
+<   return { indeks, ulica: d.street, stol: v.board.slice(0, d.street === 'flop' ? 3 : 4).map(cardToString), pulaBb: d.pot + d.bet, doSprawdzeniaBb: d.bet };
+---
+>   return { indeks, ulica: d.street, stol: v.board.slice(0, d.street === 'flop' ? 3 : 4).map(cardToString), pulaBb: d.pot, doSprawdzeniaBb: d.bet };
+  ● widok decyzji: wszystko w bb › pula po zakładzie rywala = pula przed + zakład; do sprawdzenia = zakład (całkowite bb); karty stołu zależą od ulicy
+  ● przebieg: decyzja › pula i kwota w bb, dwie akcje (pas, sprawdzenie z kwotą), karty ustalone; bez wygranej
+Tests:       2 failed, 49 passed, 51 total
+kod wyjścia: 1 (mutant ZABITY)
+== M7-powtorka-ziarno (apps/mobile/src/features/scenariusz/aktywnoscScenariusza.ts): s/generateVariant(generator, w.poziom, ostatni.ziarno)/generateVariant(generator, w.poziom, ostatni.ziarno + 1)/
+88c88
+<     wariant = w.tryb === 'powtorka' && ostatni ? generateVariant(generator, w.poziom, ostatni.ziarno) : wybierzWariant(generator, w.poziom, w.ziarno, { historia: h, sesja: w.sesja });
+---
+>     wariant = w.tryb === 'powtorka' && ostatni ? generateVariant(generator, w.poziom, ostatni.ziarno + 1) : wybierzWariant(generator, w.poziom, w.ziarno, { historia: h, sesja: w.sesja });
+  ● powtórka i nowe rozdanie (KO-043, BR-GEN-002) › „Zagraj jeszcze raz” przy wyczerpanym limicie: ten sam wariant, poza limitem; „Nowe rozdanie” → limit_wyczerpany
+  ● powtórka i nowe rozdanie (KO-043, BR-GEN-002) › powtórka przy rozdaniu w toku tego samego szablonu: stare porzucone, w toku zostaje jedno (nie dwa)
+Tests:       2 failed, 49 passed, 51 total
+kod wyjścia: 1 (mutant ZABITY)
+== M8-repo-id (apps/mobile/src/data/content/repo.ts): s/ || t.data.id !== r.id//
+257c257
+<     if (!t.success || t.data.id !== r.id) throw new Error(`Szablon scenariusza ${r.id} niezgodny ze schematem`);
+---
+>     if (!t.success) throw new Error(`Szablon scenariusza ${r.id} niezgodny ze schematem`);
+  ● getScenarioTemplates › wiersz niezgodny ze schematem albo z innym id → wyjątek (błąd treści, nie cicho zaniżona lista)
+Tests:       1 failed, 2 passed, 3 total
+kod wyjścia: 1 (mutant ZABITY)
+== M9-poziom-prog-slabe (src/features/scenariusz/poziom.ts): u < PROG_SLABE → u <= PROG_SLABE
+44c44
+<     slabe = u < PROG_SLABE ? slabe + 1 : 0;
+---
+>     slabe = u <= PROG_SLABE ? slabe + 1 : 0;
+  ● poziomAuto (BR-POZ-002) › dokładnie 50% dobrych decyzji nie jest „mniej niż 50%”; 2 słabe warianty to za mało
+Tests:       1 failed, 14 passed, 15 total
+kod wyjścia: 1

@@ -1,0 +1,9 @@
+Komenda: tsx sonda-tmp.mts content/pl/scenarios/sc-01.yaml sc-02.yaml sc-19.yaml (plik sondy tymczasowy w tools/content-build, usunięty; ziarna 1..3000 na poziom; Intl pl-PL; potrzeba 0 miejsc, trafisz 1 miejsce jak zdanieLiczb).
+sc-01 latwy: decyzji 6000, sprzecznych z oceną po zaokrągleniu 0
+sc-01 sredni: decyzji 6000, sprzecznych z oceną po zaokrągleniu 0
+sc-01 trudny: decyzji 6000, sprzecznych z oceną po zaokrągleniu 0
+sc-02 latwy: decyzji 6000, sprzecznych z oceną po zaokrągleniu 0
+sc-02 sredni: decyzji 6000, sprzecznych z oceną po zaokrągleniu 0
+sc-19 latwy: decyzji 6000, sprzecznych z oceną po zaokrągleniu 0
+sc-19 sredni: decyzji 6000, sprzecznych z oceną po zaokrągleniu 0
+EXIT=0
