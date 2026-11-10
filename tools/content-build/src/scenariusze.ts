@@ -102,3 +102,20 @@ export function checkScenarioGenerator(t: ScenarioTemplate, pojemnoscMin: number
   }
   return e;
 }
+
+/** ŚR-103 b: zestaw szablonów jednego modułu nie ma wszystkich łatwych poziomów z tą samą odpowiedzią (uczyłoby „zawsze call”). */
+export function checkScenarioSet(templates: readonly ScenarioTemplate[]): string[] {
+  const wgModulu = new Map<string, { id: string; expected: string }[]>();
+  for (const t of templates) {
+    const e = t.bounds.latwy?.expected;
+    if (e === undefined) continue; // brak łatwego poziomu zgłasza checkScenarioTemplate
+    wgModulu.set(t.module, [...(wgModulu.get(t.module) ?? []), { id: t.id, expected: e.join(',') }]);
+  }
+  const errors: string[] = [];
+  for (const [module, list] of wgModulu) {
+    if (list.length >= 2 && new Set(list.map((x) => x.expected)).size === 1) {
+      errors.push(`moduł ${module}: wszystkie szablony (${list.map((x) => x.id).join(', ')}) mają na poziomie łatwym tę samą odpowiedź ${list[0]!.expected}; dodaj szablon z inną (ŚR-103 b)`);
+    }
+  }
+  return errors;
+}

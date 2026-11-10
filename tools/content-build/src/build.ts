@@ -29,7 +29,7 @@ import {
   type ScenarioTemplate,
 } from '@szkola/content-schema';
 import { KONFIGURACJA, nazwaPlikuTresci } from '@szkola/domena';
-import { checkScenarioGenerator, checkScenarioTemplate, loadScenarioTemplates } from './scenariusze';
+import { checkScenarioGenerator, checkScenarioSet, checkScenarioTemplate, loadScenarioTemplates } from './scenariusze';
 import { JEZYKI, jestJezykiem, lancuchTresci } from '@szkola/jezyki';
 import { classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, textureMatches, type TextureFilter } from '@szkola/poker-core';
 import { expandHelplines, loadHelplines, type Helplines } from './helplines';
@@ -411,6 +411,9 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
       })),
     });
   }
+
+  const setErrors = checkScenarioSet(scenarios);
+  if (setErrors.length) throw new Error(setErrors.join('\n'));
 
   for (const m of modules) {
     if (!lessons.some((l) => l.module === m.id) && m.phase === 'mvp') warnings.push(`moduł ${m.id} (MVP) nie ma lekcji`);
