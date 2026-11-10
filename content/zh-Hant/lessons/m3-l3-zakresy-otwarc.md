@@ -38,7 +38,7 @@ drills:
     family: m3.paint.early
     rules: [R-M3-002]
     spot: rfi.utg
-    prompt: "你是第一個行動的人（{{t:utg}}）。請塗出你會用來{{t:open|開池}}的手牌。"
+    prompt: "你是第一個行動的人（{{t:utg|UTG}}）。請塗出你會用來{{t:open|開池}}的手牌。"
 ---
 {{t:open|開池}}{{t:range|範圍}}是指在你前面的玩家都已{{t:fold|棄牌}}時，你會用來{{t:raise|加注}}的手牌清單。下方的表格由本 App 的翻牌前求解器計算，適用於 6 人桌、籌碼量為 {{n:format.stack}} 的牌局。
 
@@ -52,7 +52,7 @@ drills:
 rfi.utg
 ```
 
-在 {{t:utg}}，求解器會{{t:open|開池}} {{n:solver.rfi.utg}} 的手牌。專業資料給出的數字是 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}。
+在 {{t:utg|UTG}}，求解器會{{t:open|開池}} {{n:solver.rfi.utg}} 的手牌。專業資料給出的數字是 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}。
 
 ```range
 rfi.hj
@@ -77,7 +77,7 @@ rfi.sb
 {{t:small-blind|小盲}}只需要對抗{{t:big-blind|大盲}}，所以{{t:open|開池}}的寬度和按鈕位差不多：約 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} 的手牌，即使翻牌後它是第一個行動。在微{{t:stakes|級別}}，你在{{t:small-blind|小盲}}要嘛{{t:raise|加注}}，要嘛{{t:fold|棄牌}}，不要補到{{t:big-blind|大盲}}：從{{t:pot|底池}}收取的{{t:rake}}會降低補注的獲利。這是一種簡化：有些求解器的解法會用{{t:small-blind|小盲}}的部分手牌補注。本 App 的求解器在這個位置{{t:open|開池}} {{n:solver.rfi.sb}} 的手牌，落在資料給出的區間內。
 
 :::note 在 9 人桌
-在 9 人桌，{{t:hijack|HJ}} 前面還有三個{{t:position|位置}}：{{t:utg}}、{{t:utg|UTG}}+1 和 {{t:utg|UTG}}+2，接著是 LJ。這時 {{t:utg}} 後面坐著八名玩家，所以在 {{t:utg}}、{{t:utg|UTG}}+1 和 {{t:utg|UTG}}+2，你{{t:open|開池}}要比 6 人桌的 {{t:utg}} 更緊：因為你後面的玩家更多。當這三名玩家都{{t:fold|棄牌}}後，LJ 的打法就像 6 人桌的 {{t:utg}}，之後的{{t:position|位置}}則和上方表格相同。對於 9 人桌的前段{{t:position|位置}}，我們只提供方向：這些{{t:range|範圍}}的數字和組成，我們還沒有和已公布的求解器解法核對過。
+在 9 人桌，{{t:hijack|HJ}} 前面還有三個{{t:position|位置}}：{{t:utg|UTG}}、{{t:utg|UTG}}+1 和 {{t:utg|UTG}}+2，接著是 LJ。這時 {{t:utg|UTG}} 後面坐著八名玩家，所以在 {{t:utg|UTG}}、{{t:utg|UTG}}+1 和 {{t:utg|UTG}}+2，你{{t:open|開池}}要比 6 人桌的 {{t:utg|UTG}} 更緊：因為你後面的玩家更多。當這三名玩家都{{t:fold|棄牌}}後，LJ 的打法就像 6 人桌的 {{t:utg|UTG}}，之後的{{t:position|位置}}則和上方表格相同。對於 9 人桌的前段{{t:position|位置}}，我們只提供方向：這些{{t:range|範圍}}的數字和組成，我們還沒有和已公布的求解器解法核對過。
 :::
 
 :::note 如何記住

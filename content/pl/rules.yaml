@@ -127,7 +127,7 @@
   sources: [{ kind: training, url: "https://upswingpoker.com/small-blind-poker-strategy-tips/" }, { kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub, url: "https://beyondgto.com/ranges/btn-open-6max-100bb" }]
 - id: R-M3-002
   module: m3
-  if: "wszyscy {{t:fold|spasowali}} do ciebie na {{t:utg}}"
+  if: "wszyscy {{t:fold|spasowali}} do ciebie na {{t:utg|UTG}}"
   then: "{{t:open|otwierasz}} ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk"
   because: "za tobą jest jeszcze pięciu graczy, więc ktoś częściej ma lepszą rękę"
   level: gto
@@ -163,7 +163,7 @@
 - id: R-M3-006
   module: m3
   if: "wszyscy {{t:fold|spasowali}} do ciebie na {{t:hijack|HJ}} albo {{t:cutoff|CO}}"
-  then: "{{t:open|otwierasz}} szerzej niż z {{t:utg}}, a węziej niż z Buttona; z {{t:cutoff|CO}} szerzej niż z {{t:hijack|HJ}}"
+  then: "{{t:open|otwierasz}} szerzej niż z {{t:utg|UTG}}, a węziej niż z Buttona; z {{t:cutoff|CO}} szerzej niż z {{t:hijack|HJ}}"
   because: "im mniej graczy zostało za tobą, tym rzadziej ktoś ma lepszą rękę i tym częściej po flopie masz {{t:position|pozycję}}"
   level: gto
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [rfi.hj, rfi.co, nine.rfi.hj, nine.rfi.co] }
@@ -199,8 +199,8 @@
 - id: R-M3-010
   module: m3
   if: "grasz przy stole 9-osobowym i wszyscy przed tobą {{t:fold|spasowali}}"
-  then: "z {{t:utg}}, {{t:utg|UTG}}+1 i {{t:utg|UTG}}+2 {{t:open|otwierasz}} węziej niż z {{t:utg}} przy stole 6-osobowym; od LJ dalej grasz jak przy stole 6-osobowym (LJ jak {{t:utg}})"
-  because: "za tobą siedzi więcej graczy niż przy stole 6-osobowym, więc częściej ktoś ma lepszą rękę; gdy wcześni gracze {{t:fold|spasują}}, za LJ zostaje tylu graczy co za {{t:utg}} przy stole 6-osobowym"
+  then: "z {{t:utg|UTG}}, {{t:utg|UTG}}+1 i {{t:utg|UTG}}+2 {{t:open|otwierasz}} węziej niż z {{t:utg|UTG}} przy stole 6-osobowym; od LJ dalej grasz jak przy stole 6-osobowym (LJ jak {{t:utg|UTG}})"
+  because: "za tobą siedzi więcej graczy niż przy stole 6-osobowym, więc częściej ktoś ma lepszą rękę; gdy wcześni gracze {{t:fold|spasują}}, za LJ zostaje tylu graczy co za {{t:utg|UTG}} przy stole 6-osobowym"
   level: heuristic
   check: { kind: solver-spot, players: [9], stackBb: [100], spots: [nine.rfi.utg, nine.rfi.utg1, nine.rfi.utg2, nine.rfi.lj] }
   source: "solver preflop projektu, stół 9-osobowy 100bb (ADR-20; dokument 10, „Pomiar N9a końcowy”: walidacja częściowa N1–N4, NashConv 0,0094bb; skład UTG–UTG+2 niezweryfikowany, a częstości bez walidacji szczebla 2 (D-153), więc reguła podaje tylko kierunek, bez liczb solvera; poziom heuristic, D-144). Zgodne z przedziałem wspólnym tabel 9-max szczebla 4: UTG ok. 9–13%, UTG+1 ok. 11–14% (serwis z tabelami preflop, 9-Max Preflop Chart, https://preflopwizard.app/blog/9-max-preflop-chart; drugi serwis z tabelami preflop, https://about-poker.com/preflop-gto/preflop-range-chart-cash-game; dokument 10, „Konfiguracja 9-max 100bb”). Gra po pasach UTG–UTG+2 to dokładnie gra 6-max (test drzewa)"

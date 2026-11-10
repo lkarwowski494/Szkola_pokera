@@ -127,7 +127,7 @@
   sources: [{ kind: training, url: "https://upswingpoker.com/small-blind-poker-strategy-tips/" }, { kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub, url: "https://beyondgto.com/ranges/btn-open-6max-100bb" }]
 - id: R-M3-002
   module: m3
-  if: "{{t:utg}}にいて、あなたまで全員が{{t:fold|フォールド}}した場合"
+  if: "{{t:utg|UTG}}にいて、あなたまで全員が{{t:fold|フォールド}}した場合"
   then: "約{{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}のハンドを{{t:open|オープン}}します"
   because: "後ろにまだ5人いるので、誰かがより強いハンドを持っていることが多いからです"
   level: gto
@@ -163,7 +163,7 @@
 - id: R-M3-006
   module: m3
   if: "{{t:hijack|HJ}}か{{t:cutoff|CO}}にいて、あなたまで全員が{{t:fold|フォールド}}した場合"
-  then: "{{t:utg}}より広く、ボタンより狭く{{t:open|オープン}}します。{{t:cutoff|CO}}からは{{t:hijack|HJ}}より広くします"
+  then: "{{t:utg|UTG}}より広く、ボタンより狭く{{t:open|オープン}}します。{{t:cutoff|CO}}からは{{t:hijack|HJ}}より広くします"
   because: "後ろに残るプレイヤーが少ないほど、誰かがより強いハンドを持っていることは少なくなり、フロップ後に{{t:position|ポジション}}を持てることが多くなるからです"
   level: gto
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [rfi.hj, rfi.co, nine.rfi.hj, nine.rfi.co] }
@@ -199,8 +199,8 @@
 - id: R-M3-010
   module: m3
   if: "9人テーブルでプレイしていて、前の全員が{{t:fold|フォールド}}した場合"
-  then: "{{t:utg}}、{{t:utg|UTG}}+1、{{t:utg|UTG}}+2からは、6人テーブルの{{t:utg}}より狭く{{t:open|オープン}}します。LJ以降は6人テーブルと同じようにプレイします（LJは{{t:utg}}と同じ）"
-  because: "6人テーブルより後ろに座るプレイヤーが多いので、誰かがより強いハンドを持っていることが多いからです。前のプレイヤーが{{t:fold|フォールド}}すると、LJの後ろには6人テーブルの{{t:utg}}の後ろと同じ人数が残ります"
+  then: "{{t:utg|UTG}}、{{t:utg|UTG}}+1、{{t:utg|UTG}}+2からは、6人テーブルの{{t:utg|UTG}}より狭く{{t:open|オープン}}します。LJ以降は6人テーブルと同じようにプレイします（LJは{{t:utg|UTG}}と同じ）"
+  because: "6人テーブルより後ろに座るプレイヤーが多いので、誰かがより強いハンドを持っていることが多いからです。前のプレイヤーが{{t:fold|フォールド}}すると、LJの後ろには6人テーブルの{{t:utg|UTG}}の後ろと同じ人数が残ります"
   level: heuristic
   check: { kind: solver-spot, players: [9], stackBb: [100], spots: [nine.rfi.utg, nine.rfi.utg1, nine.rfi.utg2, nine.rfi.lj] }
   source: "プロジェクトのプリフロップソルバー、9人テーブル100bb (ADR-20；ドキュメント10、「N9a最終測定」：N1–N4の部分的な検証、NashConv 0.0094bb；UTG–UTG+2の構成は未検証で、頻度は第2段階の検証がない (D-153) ため、このルールは方向だけを示し、ソルバーの数値は示さない；レベルheuristic、D-144)。第4段階の9-maxチャートの共通範囲と一致：UTG約9–13%、UTG+1約11–14% (プリフロップチャートのサイト、9-Max Preflop Chart、https://preflopwizard.app/blog/9-max-preflop-chart; 2つ目のプリフロップチャートのサイト、https://about-poker.com/preflop-gto/preflop-range-chart-cash-game; ドキュメント10、「9-max 100bbの構成」)。UTG–UTG+2がフォールドした後のプレイは6-maxのプレイとまったく同じ (ツリーのテスト)"

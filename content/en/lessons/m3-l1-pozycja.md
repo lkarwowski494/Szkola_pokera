@@ -14,7 +14,7 @@ drills:
     options:
       - { text: "Button ({{t:button|BTN}})", correct: true, why: "From the flop on, the Button acts last, so it always knows the opponents' decisions before making its own." }
       - { text: "{{t:big-blind|Big blind}}", why: "The {{t:big-blind|BB}} pays less to enter because it has already put money in, but from the flop on it acts among the first." }
-      - { text: "{{t:utg}}", why: "{{t:utg}} acts first preflop and has the whole table behind it. It's the hardest spot to open from." }
+      - { text: "{{t:utg|UTG}}", why: "{{t:utg|UTG}} acts first preflop and has the whole table behind it. It's the hardest spot to open from." }
   - kind: choice
     id: m3.l1.q2
     family: m3.open-early
@@ -22,9 +22,9 @@ drills:
     prompt: "Everyone before you has {{t:fold|folded}}. What do you do?"
     table: { hand: "Kc 9d", position: UTG }
     options:
-      - { text: "{{t:fold|Fold}}", correct: true, why: "Offsuit K9 is outside the {{t:utg}} {{t:open|opening}} {{t:range}}, the list of hands you {{t:open}} with from this {{t:position}}. Five players are behind you, and someone often has a king with a better kicker." }
-      - { text: "{{t:raise|Raise}}", why: "From {{t:utg}} you {{t:open}} only about {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} of hands. K9o easily hits a king and loses to KQ or AK." }
-      - { text: "Call the {{t:big-blind}}", why: "Just calling (a limp) from {{t:utg}} is a bad habit. Either the hand is worth a {{t:raise}}, or you {{t:fold}}." }
+      - { text: "{{t:fold|Fold}}", correct: true, why: "Offsuit K9 is outside the {{t:utg|UTG}} {{t:open|opening}} {{t:range}}, the list of hands you {{t:open}} with from this {{t:position}}. Five players are behind you, and someone often has a king with a better kicker." }
+      - { text: "{{t:raise|Raise}}", why: "From {{t:utg|UTG}} you {{t:open}} only about {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} of hands. K9o easily hits a king and loses to KQ or AK." }
+      - { text: "Call the {{t:big-blind}}", why: "Just calling (a limp) from {{t:utg|UTG}} is a bad habit. Either the hand is worth a {{t:raise}}, or you {{t:fold}}." }
   - kind: choice
     id: m3.l1.q3
     family: m3.open-late
@@ -58,13 +58,13 @@ The dealer button (**{{t:button|BTN}}**, Button) moves every hand. It determines
 
 | {{t:position|Position}} | When it acts | How wide to {{t:open}} |
 |---|---|---|
-| {{t:utg}} | First preflop | about {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} of hands |
-| {{t:hijack|HJ}}, {{t:cutoff|CO}} | After {{t:utg}}; {{t:cutoff|CO}} right before the Button | wider and wider |
+| {{t:utg|UTG}} | First preflop | about {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} of hands |
+| {{t:hijack|HJ}}, {{t:cutoff|CO}} | After {{t:utg|UTG}}; {{t:cutoff|CO}} right before the Button | wider and wider |
 | {{t:button|BTN}} | Last from the flop on | about {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} of hands |
 | {{t:small-blind|SB}}, {{t:big-blind|BB}} | Last preflop, first from the flop on | {{t:small-blind|SB}} {{t:open|opens}} when everyone {{t:fold|folds}} (lesson on {{t:range|ranges}}); blind defense in module M4 |
 
-**{{t:hijack|HJ}}** (Hijack) sits after {{t:utg}}, two seats before the Button, and **{{t:cutoff|CO}}** (Cutoff) sits right before the Button. These are middle {{t:position|positions}}: fewer players are behind them than behind {{t:utg}}, so you {{t:open}} wider from them, but still tighter than from the Button.
+**{{t:hijack|HJ}}** (Hijack) sits after {{t:utg|UTG}}, two seats before the Button, and **{{t:cutoff|CO}}** (Cutoff) sits right before the Button. These are middle {{t:position|positions}}: fewer players are behind them than behind {{t:utg|UTG}}, so you {{t:open}} wider from them, but still tighter than from the Button.
 
 :::note {{t:open|Open}} size
-You {{t:open}} with a {{t:raise}} to {{n:pf.open-size}} from every {{t:position}}, and from the {{t:small-blind}} to {{n:pf.open-size-sb}}. This is a simplification: in solver solutions, {{t:open|opens}} from {{t:early-position|early positions}} are slightly smaller (e.g. {{n:pf.open-size.solver-utg}} from {{t:utg}} and {{n:pf.open-size.solver-co}} from {{t:cutoff|CO}}), but one size is easier to learn. When you're first in, don't just pay the blind (that's a {{t:limp}}, entering by simply making a {{t:call}} of the {{t:big-blind}}): a {{t:raise}} can win the {{t:pot}} right away and gives you the {{t:initiative}}, because whoever {{t:raise|raised}} last usually makes the next {{t:bet}}.
+You {{t:open}} with a {{t:raise}} to {{n:pf.open-size}} from every {{t:position}}, and from the {{t:small-blind}} to {{n:pf.open-size-sb}}. This is a simplification: in solver solutions, {{t:open|opens}} from {{t:early-position|early positions}} are slightly smaller (e.g. {{n:pf.open-size.solver-utg}} from {{t:utg|UTG}} and {{n:pf.open-size.solver-co}} from {{t:cutoff|CO}}), but one size is easier to learn. When you're first in, don't just pay the blind (that's a {{t:limp}}, entering by simply making a {{t:call}} of the {{t:big-blind}}): a {{t:raise}} can win the {{t:pot}} right away and gives you the {{t:initiative}}, because whoever {{t:raise|raised}} last usually makes the next {{t:bet}}.
 :::

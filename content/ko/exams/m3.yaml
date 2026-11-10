@@ -18,14 +18,14 @@ drills:
     prompt: "테이블에는 여섯 명이 앉아 있고, 카드가 막 나눠졌습니다. 당신이 가장 먼저 결정하며, 당신 앞에서는 아직 아무도 플레이하지 않았습니다. 어떻게 하시겠습니까?"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|레이즈합니다}}", correct: true, why: "오프수트 AT는 {{t:utg}}에서의 {{t:open|오픈}} {{t:range|레인지}}(핸드의 약 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}})에 들어갑니다. 앱의 솔버는 여기서 이 핸드를 항상 플레이합니다." }
-      - { text: "{{t:fold|폴드합니다}}", why: "너무 타이트합니다. {{t:utg}}에서는 좁게 플레이하지만, AT는 여전히 {{t:range|레인지}}에 들어갑니다." }
+      - { text: "{{t:raise|레이즈합니다}}", correct: true, why: "오프수트 AT는 {{t:utg|UTG}}에서의 {{t:open|오픈}} {{t:range|레인지}}(핸드의 약 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}})에 들어갑니다. 앱의 솔버는 여기서 이 핸드를 항상 플레이합니다." }
+      - { text: "{{t:fold|폴드합니다}}", why: "너무 타이트합니다. {{t:utg|UTG}}에서는 좁게 플레이하지만, AT는 여전히 {{t:range|레인지}}에 들어갑니다." }
       - { text: "{{t:big-blind|빅 블라인드}} 금액을 {{t:call|콜합니다}}", why: "가장 먼저 들어갈 때는 {{t:raise|레이즈하거나}} {{t:fold|폴드합니다}}. {{t:big-blind|빅 블라인드}} 금액만 {{t:call|콜하는}} 것은 {{t:limp|림프}}이며, {{t:initiative|주도권}}과 블라인드를 바로 가져올 기회를 내줍니다." }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early
     rules: [R-M3-006]
-    prompt: "{{t:utg}}가 {{t:fold|폴드했고}}, 다음은 당신 차례입니다. 어떻게 하시겠습니까?"
+    prompt: "{{t:utg|UTG}}가 {{t:fold|폴드했고}}, 다음은 당신 차례입니다. 어떻게 하시겠습니까?"
     table: { hand: "Ah 9d", position: HJ }
     options:
       - { text: "{{t:fold|폴드합니다}}", correct: true, why: "당신 뒤에 아직 네 명의 플레이어가 남아 있습니다. 오프수트 A9는 에이스를 맞혀도 상대의 AT, AJ, AQ보다 키커가 약한 경우가 많습니다. 앱의 솔버는 {{t:hijack|HJ}}에서 이 핸드를 항상 {{t:fold|폴드합니다}}." }
@@ -81,12 +81,12 @@ drills:
     id: m3.exam.q8
     family: m3.premium
     rules: [R-M3-008]
-    prompt: "{{t:utg}}가 {{t:raise|레이즈했고}}, 나머지는 당신에게까지 {{t:fold|폴드했습니다}}. 어떻게 하시겠습니까?"
+    prompt: "{{t:utg|UTG}}가 {{t:raise|레이즈했고}}, 나머지는 당신에게까지 {{t:fold|폴드했습니다}}. 어떻게 하시겠습니까?"
     table: { hand: "Ks Kd", position: BTN }
     options:
-      - { text: "다시 {{t:raise|레이즈합니다}}(3벳)", correct: true, why: "KK는 가장 강한 핸드 중 하나이며, {{t:utg}}가 {{t:open|오픈하는}} 대부분의 핸드에 대해 우위에 있습니다. 3벳은 {{t:pot|팟}}을 키우고 보통 상대를 한 명만 남깁니다." }
+      - { text: "다시 {{t:raise|레이즈합니다}}(3벳)", correct: true, why: "KK는 가장 강한 핸드 중 하나이며, {{t:utg|UTG}}가 {{t:open|오픈하는}} 대부분의 핸드에 대해 우위에 있습니다. 3벳은 {{t:pot|팟}}을 키우고 보통 상대를 한 명만 남깁니다." }
       - { text: "{{t:call|콜만 합니다}}", why: "속임수로 플레이하기도 하지만, 원칙적으로는 밸류를 포기하고 블라인드를 싸게 게임에 들여보냅니다." }
-      - { text: "{{t:utg}}의 {{t:range|레인지}}가 강하므로 {{t:fold|폴드합니다}}", why: "{{t:utg}}의 {{t:range|레인지}}는 좁지만, KK는 여전히 그에 대해 확실한 우위에 있습니다." }
+      - { text: "{{t:utg|UTG}}의 {{t:range|레인지}}가 강하므로 {{t:fold|폴드합니다}}", why: "{{t:utg|UTG}}의 {{t:range|레인지}}는 좁지만, KK는 여전히 그에 대해 확실한 우위에 있습니다." }
   - kind: paint
     id: m3.exam.p-co
     family: m3.paint.late

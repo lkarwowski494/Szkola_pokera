@@ -18,14 +18,14 @@ drills:
     prompt: "Há seis jogadores na mesa e as cartas acabaram de ser distribuídas. Você é o primeiro a decidir: ninguém jogou antes de você ainda. O que você faz?"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|Aumento}} o {{t:big-blind|big blind}}", correct: true, why: "AT de naipes diferentes está dentro do {{t:range}} de {{t:open|abertura}} do {{t:utg}} (cerca de {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} mãos). O solver do app sempre joga essa mão aqui." }
-      - { text: "{{t:fold|Desisto}}", why: "Apertado demais. No {{t:utg}} você joga poucas mãos, mas AT ainda está no {{t:range}}." }
+      - { text: "{{t:raise|Aumento}} o {{t:big-blind|big blind}}", correct: true, why: "AT de naipes diferentes está dentro do {{t:range}} de {{t:open|abertura}} do {{t:utg|UTG}} (cerca de {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} mãos). O solver do app sempre joga essa mão aqui." }
+      - { text: "{{t:fold|Desisto}}", why: "Apertado demais. No {{t:utg|UTG}} você joga poucas mãos, mas AT ainda está no {{t:range}}." }
       - { text: "{{t:call|Pago}} o {{t:big-blind|big blind}}", why: "Sendo o primeiro, você {{t:raise|aumenta}} ou {{t:fold|desiste}}. Só {{t:call|pagar}} o {{t:big-blind|big blind}} é dar {{t:limp|limp}}: isso entrega a {{t:initiative}} e a chance de levar os blinds na hora." }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early
     rules: [R-M3-006]
-    prompt: "O {{t:utg}} {{t:fold|desistiu}} e você é o próximo. O que você faz?"
+    prompt: "O {{t:utg|UTG}} {{t:fold|desistiu}} e você é o próximo. O que você faz?"
     table: { hand: "Ah 9d", position: HJ }
     options:
       - { text: "{{t:fold|Desisto}}", correct: true, why: "Ainda há quatro jogadores atrás de você. A9 de naipes diferentes muitas vezes acerta um ás com kicker pior que o AT, AJ ou AQ dos adversários. O solver do app sempre {{t:fold|desiste}} dessa mão no {{t:hijack|HJ}}." }
@@ -81,12 +81,12 @@ drills:
     id: m3.exam.q8
     family: m3.premium
     rules: [R-M3-008]
-    prompt: "O {{t:utg}} {{t:raise|aumentou}} e os demais {{t:fold|desistiram}} até você. O que você faz?"
+    prompt: "O {{t:utg|UTG}} {{t:raise|aumentou}} e os demais {{t:fold|desistiram}} até você. O que você faz?"
     table: { hand: "Ks Kd", position: BTN }
     options:
-      - { text: "{{t:raise|Aumento}} de novo (3-bet)", correct: true, why: "KK é uma das mãos mais fortes e favorita contra a maioria das mãos com que o {{t:utg}} {{t:open|abre}}. O 3-bet infla o {{t:pot}} e geralmente deixa você contra um só adversário." }
+      - { text: "{{t:raise|Aumento}} de novo (3-bet)", correct: true, why: "KK é uma das mãos mais fortes e favorita contra a maioria das mãos com que o {{t:utg|UTG}} {{t:open|abre}}. O 3-bet infla o {{t:pot}} e geralmente deixa você contra um só adversário." }
       - { text: "Só {{t:call|pago}}", why: "Às vezes é jogado para enganar, mas, como regra, você abre mão de valor e deixa os blinds entrarem barato na mão." }
-      - { text: "{{t:fold|Desisto}}, porque o {{t:utg}} tem um {{t:range}} forte", why: "O {{t:range}} do {{t:utg}} é estreito, mas KK ainda é claramente favorito contra ele." }
+      - { text: "{{t:fold|Desisto}}, porque o {{t:utg|UTG}} tem um {{t:range}} forte", why: "O {{t:range}} do {{t:utg|UTG}} é estreito, mas KK ainda é claramente favorito contra ele." }
   - kind: paint
     id: m3.exam.p-co
     family: m3.paint.late

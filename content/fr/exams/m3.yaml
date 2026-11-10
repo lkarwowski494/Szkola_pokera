@@ -18,14 +18,14 @@ drills:
     prompt: "Six joueurs sont à la table et les cartes viennent d'être distribuées. Vous décidez en premier : personne n'a encore joué avant vous. Que faites-vous ?"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|Je relance}}", correct: true, why: "AT dépareillé fait partie de la {{t:range}} d'{{t:open|ouverture}} depuis {{t:utg}} (env. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} des mains). Le solveur de l'application la joue toujours ici." }
-      - { text: "{{t:fold|Je me couche}}", why: "Trop serré. Depuis {{t:utg}}, vous jouez étroit, mais AT est encore dans la {{t:range}}." }
+      - { text: "{{t:raise|Je relance}}", correct: true, why: "AT dépareillé fait partie de la {{t:range}} d'{{t:open|ouverture}} depuis {{t:utg|UTG}} (env. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} des mains). Le solveur de l'application la joue toujours ici." }
+      - { text: "{{t:fold|Je me couche}}", why: "Trop serré. Depuis {{t:utg|UTG}}, vous jouez étroit, mais AT est encore dans la {{t:range}}." }
       - { text: "Je {{t:call|paie}} la {{t:big-blind|grosse blinde}}", why: "En premier, vous {{t:raise|relancez}} ou vous {{t:fold|vous couchez}}. Se contenter de {{t:call|payer}} la {{t:big-blind|grosse blinde}}, c'est faire un {{t:limp|limp}} : vous cédez l'{{t:initiative}} et la chance de remporter les blindes tout de suite." }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early
     rules: [R-M3-006]
-    prompt: "{{t:utg}} {{t:fold|s'est couché}}, vous êtes le suivant. Que faites-vous ?"
+    prompt: "{{t:utg|UTG}} {{t:fold|s'est couché}}, vous êtes le suivant. Que faites-vous ?"
     table: { hand: "Ah 9d", position: HJ }
     options:
       - { text: "{{t:fold|Je me couche}}", correct: true, why: "Il reste encore quatre joueurs derrière vous. A9 dépareillé touche souvent un as avec un kicker plus faible que les AT, AJ ou AQ adverses. Avec cette main, le solveur de l'application {{t:fold|se couche}} toujours depuis le {{t:hijack|HJ}}." }
@@ -81,12 +81,12 @@ drills:
     id: m3.exam.q8
     family: m3.premium
     rules: [R-M3-008]
-    prompt: "{{t:utg}} {{t:raise|a relancé}}, les autres {{t:fold|se sont couchés}} jusqu'à vous. Que faites-vous ?"
+    prompt: "{{t:utg|UTG}} {{t:raise|a relancé}}, les autres {{t:fold|se sont couchés}} jusqu'à vous. Que faites-vous ?"
     table: { hand: "Ks Kd", position: BTN }
     options:
-      - { text: "{{t:raise|Je relance}} à nouveau (3-bet)", correct: true, why: "KK est l'une des mains les plus fortes et favorite face à la plupart des mains avec lesquelles {{t:utg}} {{t:open|ouvre}}. Le 3-bet fait grossir le {{t:pot}} et vous laisse généralement face à un seul adversaire." }
+      - { text: "{{t:raise|Je relance}} à nouveau (3-bet)", correct: true, why: "KK est l'une des mains les plus fortes et favorite face à la plupart des mains avec lesquelles {{t:utg|UTG}} {{t:open|ouvre}}. Le 3-bet fait grossir le {{t:pot}} et vous laisse généralement face à un seul adversaire." }
       - { text: "Je {{t:call|suis}} seulement", why: "Cela se joue parfois pour brouiller les pistes, mais en règle générale, vous perdez de la valeur et laissez entrer les blindes à bas prix." }
-      - { text: "{{t:fold|Je me couche}}, car {{t:utg}} a une {{t:range}} forte", why: "La {{t:range}} de {{t:utg}} est étroite, mais KK reste nettement favori face à elle." }
+      - { text: "{{t:fold|Je me couche}}, car {{t:utg|UTG}} a une {{t:range}} forte", why: "La {{t:range}} de {{t:utg|UTG}} est étroite, mais KK reste nettement favori face à elle." }
   - kind: paint
     id: m3.exam.p-co
     family: m3.paint.late

@@ -18,14 +18,14 @@ drills:
     prompt: "桌上有六位玩家，牌剛發完。你第一個做決定：在你之前還沒有人行動。你怎麼做？"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|加注}}", correct: true, why: "不同花 AT 在{{t:utg}}的{{t:open|開池}}{{t:range|範圍}}內（約 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} 手牌）。App 的求解器在這裡一律會打這手牌。" }
-      - { text: "{{t:fold|棄牌}}", why: "太緊了。在{{t:utg}}你要打得窄，但 AT 仍在{{t:range|範圍}}內。" }
+      - { text: "{{t:raise|加注}}", correct: true, why: "不同花 AT 在{{t:utg|UTG}}的{{t:open|開池}}{{t:range|範圍}}內（約 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} 手牌）。App 的求解器在這裡一律會打這手牌。" }
+      - { text: "{{t:fold|棄牌}}", why: "太緊了。在{{t:utg|UTG}}你要打得窄，但 AT 仍在{{t:range|範圍}}內。" }
       - { text: "{{t:call|跟注}}{{t:big-blind|大盲}}", why: "第一個入池時，你要嘛{{t:raise|加注}}，要嘛{{t:fold|棄牌}}。只{{t:call|跟注}}{{t:big-blind|大盲}}就是{{t:limp|溜入}}：這會交出{{t:initiative|主動權}}，也失去立刻拿下盲注的機會。" }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early
     rules: [R-M3-006]
-    prompt: "{{t:utg}}{{t:fold|棄牌}}，下一個輪到你。你怎麼做？"
+    prompt: "{{t:utg|UTG}}{{t:fold|棄牌}}，下一個輪到你。你怎麼做？"
     table: { hand: "Ah 9d", position: HJ }
     options:
       - { text: "{{t:fold|棄牌}}", correct: true, why: "你後面還有四位玩家。不同花 A9 常常中了 A，踢腳卻比對手的 AT、AJ 或 AQ 弱。App 的求解器在{{t:hijack|HJ}}一律會{{t:fold|棄掉}}這手牌。" }
@@ -81,12 +81,12 @@ drills:
     id: m3.exam.q8
     family: m3.premium
     rules: [R-M3-008]
-    prompt: "{{t:utg}}{{t:raise|加注}}，其他人都{{t:fold|棄牌}}到你。你怎麼做？"
+    prompt: "{{t:utg|UTG}}{{t:raise|加注}}，其他人都{{t:fold|棄牌}}到你。你怎麼做？"
     table: { hand: "Ks Kd", position: BTN }
     options:
-      - { text: "再{{t:raise|加注}}（3-bet）", correct: true, why: "KK 是最強的手牌之一，對上{{t:utg}}大多數{{t:open|開池}}手牌都是優勢方。3-bet 能做大{{t:pot|底池}}，通常也會讓你只面對一位對手。" }
+      - { text: "再{{t:raise|加注}}（3-bet）", correct: true, why: "KK 是最強的手牌之一，對上{{t:utg|UTG}}大多數{{t:open|開池}}手牌都是優勢方。3-bet 能做大{{t:pot|底池}}，通常也會讓你只面對一位對手。" }
       - { text: "只{{t:call|跟注}}", why: "有時會為了迷惑對手這樣打，但作為原則，你會放棄價值，還讓盲注位便宜入池。" }
-      - { text: "{{t:fold|棄牌}}，因為{{t:utg}}的{{t:range}}很強", why: "{{t:utg}}的{{t:range|範圍}}很窄，但 KK 對上它仍是明顯的優勢方。" }
+      - { text: "{{t:fold|棄牌}}，因為{{t:utg|UTG}}的{{t:range}}很強", why: "{{t:utg|UTG}}的{{t:range|範圍}}很窄，但 KK 對上它仍是明顯的優勢方。" }
   - kind: paint
     id: m3.exam.p-co
     family: m3.paint.late

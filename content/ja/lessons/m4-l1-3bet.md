@@ -76,7 +76,7 @@ drills:
 
 ## {{t:position|ポジション}}で{{t:call|コール}}するかが決まる
 
-公開されているソルバーの解によると、{{t:cutoff|CO}}からの{{t:open|オープン}}に対して、ボタンは通常ハンドの約{{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}}を3ベットし、{{t:call|コール}}は約{{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}にとどまります。{{t:utg}}からの{{t:open|オープン}}（この解では最小サイズの{{n:pf.open-size.solver-utg}}まで）に対しては、{{t:call|コール}}が3ベットよりやや多くなります。約{{n:pf.call-freq.btn-vs-utg}}対{{n:pf.3bet-freq.btn-vs-utg}}です。{{t:utg}}の{{t:range|レンジ}}は強いので、3ベットは4ベットを受けることが多くなり、その場で{{t:pot|ポット}}を獲得できることは少なくなります。
+公開されているソルバーの解によると、{{t:cutoff|CO}}からの{{t:open|オープン}}に対して、ボタンは通常ハンドの約{{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}}を3ベットし、{{t:call|コール}}は約{{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}にとどまります。{{t:utg|UTG}}からの{{t:open|オープン}}（この解では最小サイズの{{n:pf.open-size.solver-utg}}まで）に対しては、{{t:call|コール}}が3ベットよりやや多くなります。約{{n:pf.call-freq.btn-vs-utg}}対{{n:pf.3bet-freq.btn-vs-utg}}です。{{t:utg|UTG}}の{{t:range|レンジ}}は強いので、3ベットは4ベットを受けることが多くなり、その場で{{t:pot|ポット}}を獲得できることは少なくなります。
 
 ```range
 vs-open.btn-vs-co

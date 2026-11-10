@@ -14,7 +14,7 @@ drills:
     options:
       - { text: "Button ({{t:button|BTN}})", correct: true, why: "Dal flop in poi il Button agisce per ultimo, quindi conosce sempre le decisioni degli avversari prima della propria." }
       - { text: "{{t:big-blind|Big blind}}", why: "Il {{t:big-blind|BB}} paga meno per entrare perché ha già messo dei soldi, ma dal flop in poi agisce tra i primi." }
-      - { text: "{{t:utg}}", why: "{{t:utg}} agisce per primo preflop e ha dietro di sé tutti i giocatori al tavolo. È il posto più difficile da cui aprire." }
+      - { text: "{{t:utg|UTG}}", why: "{{t:utg|UTG}} agisce per primo preflop e ha dietro di sé tutti i giocatori al tavolo. È il posto più difficile da cui aprire." }
   - kind: choice
     id: m3.l1.q2
     family: m3.open-early
@@ -22,9 +22,9 @@ drills:
     prompt: "Tutti prima di te {{t:fold|hanno foldato}}. Cosa fai?"
     table: { hand: "Kc 9d", position: UTG }
     options:
-      - { text: "{{t:fold|Foldo}}", correct: true, why: "K9 di semi diversi è fuori dal {{t:range}} di {{t:open|apertura}} da {{t:utg}}, cioè dalla lista di mani con cui {{t:open|apri}} da questa {{t:position|posizione}}. Dietro di te ci sono cinque giocatori e spesso qualcuno ha un re con un kicker migliore." }
-      - { text: "{{t:raise|Rilancio}}", why: "Da {{t:utg}} {{t:open|apri}} solo circa {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} delle mani. K9o centra facilmente un re e perde contro KQ o AK." }
-      - { text: "Pareggio il {{t:big-blind|big blind}}", why: "Limitarsi a pareggiare (limp) da {{t:utg}} è una cattiva abitudine. O la mano vale un {{t:raise|rilancio}}, o {{t:fold|foldi}}." }
+      - { text: "{{t:fold|Foldo}}", correct: true, why: "K9 di semi diversi è fuori dal {{t:range}} di {{t:open|apertura}} da {{t:utg|UTG}}, cioè dalla lista di mani con cui {{t:open|apri}} da questa {{t:position|posizione}}. Dietro di te ci sono cinque giocatori e spesso qualcuno ha un re con un kicker migliore." }
+      - { text: "{{t:raise|Rilancio}}", why: "Da {{t:utg|UTG}} {{t:open|apri}} solo circa {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} delle mani. K9o centra facilmente un re e perde contro KQ o AK." }
+      - { text: "Pareggio il {{t:big-blind|big blind}}", why: "Limitarsi a pareggiare (limp) da {{t:utg|UTG}} è una cattiva abitudine. O la mano vale un {{t:raise|rilancio}}, o {{t:fold|foldi}}." }
   - kind: choice
     id: m3.l1.q3
     family: m3.open-late
@@ -58,13 +58,13 @@ Il bottone del dealer (**{{t:button|BTN}}**, Button) si sposta a ogni mano. Da l
 
 | {{t:position|Posizione}} | Quando agisce | Quanto largo {{t:open|aprire}} |
 |---|---|---|
-| {{t:utg}} | Per primo preflop | circa {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} delle mani |
-| {{t:hijack|HJ}}, {{t:cutoff|CO}} | Dopo {{t:utg}}; {{t:cutoff|CO}} subito prima del Button | sempre più largo |
+| {{t:utg|UTG}} | Per primo preflop | circa {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} delle mani |
+| {{t:hijack|HJ}}, {{t:cutoff|CO}} | Dopo {{t:utg|UTG}}; {{t:cutoff|CO}} subito prima del Button | sempre più largo |
 | {{t:button|BTN}} | Per ultimo dal flop in poi | circa {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} delle mani |
 | {{t:small-blind|SB}}, {{t:big-blind|BB}} | Per ultimi preflop, per primi dal flop in poi | lo {{t:small-blind|SB}} {{t:open|apre}} quando tutti {{t:fold|foldano}} (lezione sui {{t:range|range}}); difesa dei blind nel modulo M4 |
 
-L'**{{t:hijack|HJ}}** (Hijack) siede dopo {{t:utg}}, due posti prima del Button, e il **{{t:cutoff|CO}}** (Cutoff) subito prima del Button. Sono {{t:position|posizioni}} centrali: dietro di loro ci sono meno giocatori che dietro {{t:utg}}, quindi da lì {{t:open|apri}} più largo, ma comunque più stretto che dal Button.
+L'**{{t:hijack|HJ}}** (Hijack) siede dopo {{t:utg|UTG}}, due posti prima del Button, e il **{{t:cutoff|CO}}** (Cutoff) subito prima del Button. Sono {{t:position|posizioni}} centrali: dietro di loro ci sono meno giocatori che dietro {{t:utg|UTG}}, quindi da lì {{t:open|apri}} più largo, ma comunque più stretto che dal Button.
 
 :::note Dimensione dell'{{t:open|apertura}}
-{{t:open|Apri}} con un {{t:raise|rilancio}} a {{n:pf.open-size}} da ogni {{t:position|posizione}}, e dallo {{t:small-blind|small blind}} a {{n:pf.open-size-sb}}. È una semplificazione: nelle soluzioni dei solver le {{t:open|aperture}} dalle {{t:early-position|posizioni iniziali}} sono un po' più piccole (ad es. {{n:pf.open-size.solver-utg}} da {{t:utg}} e {{n:pf.open-size.solver-co}} dal {{t:cutoff|CO}}), ma un'unica dimensione è più facile da imparare. Quando entri per primo, non ti limiti a pagare il blind (è un {{t:limp}}, cioè entrare con una semplice {{t:call|chiamata}} del {{t:big-blind|big blind}}): un {{t:raise}} può vincere subito il {{t:pot|piatto}} e ti dà l'{{t:initiative|iniziativa}}, perché chi ha {{t:raise|rilanciato}} per ultimo di solito fa la {{t:bet|puntata}} successiva.
+{{t:open|Apri}} con un {{t:raise|rilancio}} a {{n:pf.open-size}} da ogni {{t:position|posizione}}, e dallo {{t:small-blind|small blind}} a {{n:pf.open-size-sb}}. È una semplificazione: nelle soluzioni dei solver le {{t:open|aperture}} dalle {{t:early-position|posizioni iniziali}} sono un po' più piccole (ad es. {{n:pf.open-size.solver-utg}} da {{t:utg|UTG}} e {{n:pf.open-size.solver-co}} dal {{t:cutoff|CO}}), ma un'unica dimensione è più facile da imparare. Quando entri per primo, non ti limiti a pagare il blind (è un {{t:limp}}, cioè entrare con una semplice {{t:call|chiamata}} del {{t:big-blind|big blind}}): un {{t:raise}} può vincere subito il {{t:pot|piatto}} e ti dà l'{{t:initiative|iniziativa}}, perché chi ha {{t:raise|rilanciato}} per ultimo di solito fa la {{t:bet|puntata}} successiva.
 :::

@@ -84,7 +84,7 @@ drills:
     prompt: "The player {{t:utg|under the gun}} {{t:raise|raised}}, and the rest {{t:fold|folded}} to you. What do you do?"
     table: { hand: "Ks Kd", position: BTN }
     options:
-      - { text: "{{t:raise|Raise}} again (3-bet)", correct: true, why: "KK is one of the strongest hands and a favorite against most hands a player {{t:utg}} {{t:open|opens}} with. A 3-bet builds the {{t:pot}} and usually leaves you against one opponent." }
+      - { text: "{{t:raise|Raise}} again (3-bet)", correct: true, why: "KK is one of the strongest hands and a favorite against most hands a player {{t:utg|UTG}} {{t:open|opens}} with. A 3-bet builds the {{t:pot}} and usually leaves you against one opponent." }
       - { text: "Just {{t:call}}", why: "It's sometimes played for deception, but as a rule you give up value and let the blinds into the hand cheaply." }
       - { text: "{{t:fold|Fold}}, because the player {{t:utg|under the gun}} has a strong {{t:range}}", why: "The {{t:utg|under the gun}} {{t:range}} is narrow, but KK is still a clear favorite against it." }
   - kind: paint

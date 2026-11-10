@@ -18,14 +18,14 @@ drills:
     prompt: "テーブルには6人のプレイヤーがいて、カードが配られたところです。あなたが最初に判断します。あなたより前には、まだ誰もプレイしていません。どうしますか？"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|レイズ}}", correct: true, why: "オフスートのATは、{{t:utg}}からの{{t:open|オープン}}{{t:range|レンジ}}（約{{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}ハンド）に入っています。アプリのソルバーはここで常にこのハンドをプレイします。" }
-      - { text: "{{t:fold|フォールド}}", why: "タイトすぎます。{{t:utg}}からは狭くプレイしますが、ATはまだ{{t:range|レンジ}}内です。" }
+      - { text: "{{t:raise|レイズ}}", correct: true, why: "オフスートのATは、{{t:utg|UTG}}からの{{t:open|オープン}}{{t:range|レンジ}}（約{{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}ハンド）に入っています。アプリのソルバーはここで常にこのハンドをプレイします。" }
+      - { text: "{{t:fold|フォールド}}", why: "タイトすぎます。{{t:utg|UTG}}からは狭くプレイしますが、ATはまだ{{t:range|レンジ}}内です。" }
       - { text: "{{t:big-blind|ビッグブラインド}}の額を{{t:call|コール}}", why: "最初に参加するなら、{{t:raise|レイズ}}か{{t:fold|フォールド}}です。{{t:big-blind|ビッグブラインド}}の額を{{t:call|コール}}するだけのプレイは{{t:limp|リンプ}}と呼ばれ、{{t:initiative|イニシアチブ}}と、すぐにブラインドを獲得するチャンスを手放します。" }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early
     rules: [R-M3-006]
-    prompt: "{{t:utg}}が{{t:fold|フォールド}}し、次はあなたです。どうしますか？"
+    prompt: "{{t:utg|UTG}}が{{t:fold|フォールド}}し、次はあなたです。どうしますか？"
     table: { hand: "Ah 9d", position: HJ }
     options:
       - { text: "{{t:fold|フォールド}}", correct: true, why: "あなたの後ろには、まだ4人のプレイヤーがいます。オフスートのA9は、エースを引いても相手のAT、AJ、AQよりキッカーが弱いことがよくあります。アプリのソルバーは{{t:hijack|HJ}}から常にこのハンドを{{t:fold|フォールド}}します。" }
@@ -81,12 +81,12 @@ drills:
     id: m3.exam.q8
     family: m3.premium
     rules: [R-M3-008]
-    prompt: "{{t:utg}}が{{t:raise|レイズ}}し、残りはあなたまで{{t:fold|フォールド}}しました。どうしますか？"
+    prompt: "{{t:utg|UTG}}が{{t:raise|レイズ}}し、残りはあなたまで{{t:fold|フォールド}}しました。どうしますか？"
     table: { hand: "Ks Kd", position: BTN }
     options:
-      - { text: "もう一度{{t:raise|レイズ}}（3ベット）", correct: true, why: "KKは最も強いハンドの1つで、{{t:utg}}が{{t:open|オープン}}するほとんどのハンドに対して有利です。3ベットは{{t:pot|ポット}}を大きくし、通常は相手を1人にします。" }
+      - { text: "もう一度{{t:raise|レイズ}}（3ベット）", correct: true, why: "KKは最も強いハンドの1つで、{{t:utg|UTG}}が{{t:open|オープン}}するほとんどのハンドに対して有利です。3ベットは{{t:pot|ポット}}を大きくし、通常は相手を1人にします。" }
       - { text: "{{t:call|コール}}だけ", why: "相手を惑わすためにプレイされることもありますが、原則としてはバリューを失い、ブラインドを安く参加させてしまいます。" }
-      - { text: "{{t:fold|フォールド}}（{{t:utg}}の{{t:range}}は強いため）", why: "{{t:utg}}の{{t:range|レンジ}}は狭いですが、KKはそれに対してもはっきり有利です。" }
+      - { text: "{{t:fold|フォールド}}（{{t:utg|UTG}}の{{t:range}}は強いため）", why: "{{t:utg|UTG}}の{{t:range|レンジ}}は狭いですが、KKはそれに対してもはっきり有利です。" }
   - kind: paint
     id: m3.exam.p-co
     family: m3.paint.late

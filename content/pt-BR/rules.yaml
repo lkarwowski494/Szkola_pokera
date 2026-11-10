@@ -127,7 +127,7 @@
   sources: [{ kind: training, url: "https://upswingpoker.com/small-blind-poker-strategy-tips/" }, { kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub, url: "https://beyondgto.com/ranges/btn-open-6max-100bb" }]
 - id: R-M3-002
   module: m3
-  if: "todos {{t:fold|desistiram}} até você no {{t:utg}}"
+  if: "todos {{t:fold|desistiram}} até você no {{t:utg|UTG}}"
   then: "você {{t:open|abre}} cerca de {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} das mãos"
   because: "ainda há cinco jogadores atrás de você, então é mais frequente alguém ter uma mão melhor"
   level: gto
@@ -163,7 +163,7 @@
 - id: R-M3-006
   module: m3
   if: "todos {{t:fold|desistiram}} até você no {{t:hijack|HJ}} ou no {{t:cutoff|CO}}"
-  then: "você {{t:open|abre}} mais amplo que do {{t:utg}} e mais fechado que do Button; do {{t:cutoff|CO}}, mais amplo que do {{t:hijack|HJ}}"
+  then: "você {{t:open|abre}} mais amplo que do {{t:utg|UTG}} e mais fechado que do Button; do {{t:cutoff|CO}}, mais amplo que do {{t:hijack|HJ}}"
   because: "quanto menos jogadores restam atrás de você, menos vezes alguém tem uma mão melhor e mais vezes você tem {{t:position|posição}} depois do flop"
   level: gto
   check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [rfi.hj, rfi.co, nine.rfi.hj, nine.rfi.co] }
@@ -199,8 +199,8 @@
 - id: R-M3-010
   module: m3
   if: "você joga numa mesa de 9 jogadores e todos antes de você {{t:fold|desistiram}}"
-  then: "do {{t:utg}}, {{t:utg|UTG}}+1 e {{t:utg|UTG}}+2 você {{t:open|abre}} mais fechado que do {{t:utg}} numa mesa de 6 jogadores; do LJ em diante você joga como numa mesa de 6 jogadores (o LJ como o {{t:utg}})"
-  because: "atrás de você há mais jogadores que numa mesa de 6, então é mais frequente alguém ter uma mão melhor; quando os jogadores das primeiras posições {{t:fold|desistem}}, restam atrás do LJ tantos jogadores quanto atrás do {{t:utg}} numa mesa de 6"
+  then: "do {{t:utg|UTG}}, {{t:utg|UTG}}+1 e {{t:utg|UTG}}+2 você {{t:open|abre}} mais fechado que do {{t:utg|UTG}} numa mesa de 6 jogadores; do LJ em diante você joga como numa mesa de 6 jogadores (o LJ como o {{t:utg|UTG}})"
+  because: "atrás de você há mais jogadores que numa mesa de 6, então é mais frequente alguém ter uma mão melhor; quando os jogadores das primeiras posições {{t:fold|desistem}}, restam atrás do LJ tantos jogadores quanto atrás do {{t:utg|UTG}} numa mesa de 6"
   level: heuristic
   check: { kind: solver-spot, players: [9], stackBb: [100], spots: [nine.rfi.utg, nine.rfi.utg1, nine.rfi.utg2, nine.rfi.lj] }
   source: "solver de pré-flop do projeto, mesa de 9 jogadores 100bb (ADR-20; documento 10, “Medição N9a final”: validação parcial N1–N4, NashConv 0,0094bb; a composição de UTG–UTG+2 não foi verificada, e as frequências não têm validação de nível 2 (D-153), então a regra dá só a direção, sem números do solver; nível heuristic, D-144). Compatível com o intervalo comum das tabelas 9-max de nível 4: UTG cerca de 9–13%, UTG+1 cerca de 11–14% (site com tabelas de pré-flop, 9-Max Preflop Chart, https://preflopwizard.app/blog/9-max-preflop-chart; segundo site com tabelas de pré-flop, https://about-poker.com/preflop-gto/preflop-range-chart-cash-game; documento 10, “Configuração 9-max 100bb”). O jogo depois dos folds de UTG–UTG+2 é exatamente o jogo 6-max (teste da árvore)"

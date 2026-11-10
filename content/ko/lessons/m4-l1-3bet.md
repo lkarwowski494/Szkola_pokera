@@ -76,7 +76,7 @@ drills:
 
 ## {{t:position|포지션}}이 {{t:call|콜}} 여부를 결정합니다
 
-공개된 솔버 솔루션에 따르면, {{t:cutoff|CO}}의 {{t:open|오픈}}에 맞선 버튼은 보통 핸드의 약 {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}}를 3벳하고, {{t:call|콜}}은 약 {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}에 불과합니다. {{t:utg}}의 {{t:open|오픈}}(이 솔루션에서는 {{n:pf.open-size.solver-utg}}까지의 최소 오픈)에 맞서면 {{t:call|콜}}이 3벳보다 이미 약간 더 많습니다: 약 {{n:pf.call-freq.btn-vs-utg}} 대 {{n:pf.3bet-freq.btn-vs-utg}}입니다. {{t:utg}} {{t:range|레인지}}는 강하기 때문에, 3벳은 4벳을 더 자주 맞고 {{t:pot|팟}}을 바로 가져가는 경우는 더 드뭅니다.
+공개된 솔버 솔루션에 따르면, {{t:cutoff|CO}}의 {{t:open|오픈}}에 맞선 버튼은 보통 핸드의 약 {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}}를 3벳하고, {{t:call|콜}}은 약 {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}에 불과합니다. {{t:utg|UTG}}의 {{t:open|오픈}}(이 솔루션에서는 {{n:pf.open-size.solver-utg}}까지의 최소 오픈)에 맞서면 {{t:call|콜}}이 3벳보다 이미 약간 더 많습니다: 약 {{n:pf.call-freq.btn-vs-utg}} 대 {{n:pf.3bet-freq.btn-vs-utg}}입니다. {{t:utg|UTG}} {{t:range|레인지}}는 강하기 때문에, 3벳은 4벳을 더 자주 맞고 {{t:pot|팟}}을 바로 가져가는 경우는 더 드뭅니다.
 
 ```range
 vs-open.btn-vs-co

@@ -76,7 +76,7 @@ Gdy ktoś przed tobą {{t:open|otworzył}}, masz trzy możliwości: {{t:fold|pas
 
 ## {{t:position|Pozycja}} decyduje, czy {{t:call|sprawdzać}}
 
-Według opublikowanych rozwiązań solverów Button wobec {{t:open|otwarcia}} z {{t:cutoff|CO}} zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a {{t:call|sprawdza}} tylko ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}. Wobec {{t:open|otwarcia}} z {{t:utg}} (w tym rozwiązaniu minimalnego, do {{n:pf.open-size.solver-utg}}) {{t:call|sprawdzeń}} jest już nieco więcej niż 3-betów: ok. {{n:pf.call-freq.btn-vs-utg}} wobec {{n:pf.3bet-freq.btn-vs-utg}}. {{t:range|Zakres}} {{t:utg}} jest silny, więc 3-bet częściej dostaje 4-bet i rzadziej wygrywa {{t:pot|pulę}} od razu.
+Według opublikowanych rozwiązań solverów Button wobec {{t:open|otwarcia}} z {{t:cutoff|CO}} zwykle 3-betuje ok. {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} rąk, a {{t:call|sprawdza}} tylko ok. {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}. Wobec {{t:open|otwarcia}} z {{t:utg|UTG}} (w tym rozwiązaniu minimalnego, do {{n:pf.open-size.solver-utg}}) {{t:call|sprawdzeń}} jest już nieco więcej niż 3-betów: ok. {{n:pf.call-freq.btn-vs-utg}} wobec {{n:pf.3bet-freq.btn-vs-utg}}. {{t:range|Zakres}} {{t:utg|UTG}} jest silny, więc 3-bet częściej dostaje 4-bet i rzadziej wygrywa {{t:pot|pulę}} od razu.
 
 ```range
 vs-open.btn-vs-co

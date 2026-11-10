@@ -76,7 +76,7 @@ Wenn jemand vor dir {{t:open|eröffnet}} hat, hast du drei Möglichkeiten: Du {{
 
 ## Die {{t:position|Position}} entscheidet, ob du {{t:call|callst}}
 
-Laut veröffentlichten Solver-Lösungen 3-bettet der Button gegen eine {{t:open|Eröffnung}} vom {{t:cutoff|CO}} meist etwa {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} der Hände und {{t:call|callt}} nur etwa {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}. Gegen eine {{t:open|Eröffnung}} von {{t:utg}} (in dieser Lösung eine minimale, auf {{n:pf.open-size.solver-utg}}) gibt es schon etwas mehr {{t:call|Calls}} als 3-Bets: etwa {{n:pf.call-freq.btn-vs-utg}} gegenüber {{n:pf.3bet-freq.btn-vs-utg}}. Die {{t:range|Range}} von {{t:utg}} ist stark, also bekommt eine 3-Bet häufiger eine 4-Bet und gewinnt seltener sofort den {{t:pot|Pot}}.
+Laut veröffentlichten Solver-Lösungen 3-bettet der Button gegen eine {{t:open|Eröffnung}} vom {{t:cutoff|CO}} meist etwa {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} der Hände und {{t:call|callt}} nur etwa {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}. Gegen eine {{t:open|Eröffnung}} von {{t:utg|UTG}} (in dieser Lösung eine minimale, auf {{n:pf.open-size.solver-utg}}) gibt es schon etwas mehr {{t:call|Calls}} als 3-Bets: etwa {{n:pf.call-freq.btn-vs-utg}} gegenüber {{n:pf.3bet-freq.btn-vs-utg}}. Die {{t:range|Range}} von {{t:utg|UTG}} ist stark, also bekommt eine 3-Bet häufiger eine 4-Bet und gewinnt seltener sofort den {{t:pot|Pot}}.
 
 ```range
 vs-open.btn-vs-co
