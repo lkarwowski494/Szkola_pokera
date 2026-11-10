@@ -1,5 +1,6 @@
 import { czyProsicOOcene, KONFIGURACJA, type MiejsceProsby, type Pamiec, type UstawieniaPrzypomnienia, type Wynik } from '@szkola/domena';
 import { jestJezykiem, type Jezyk } from '@szkola/jezyki';
+import { parsujWyborPoziomu, type WyborPoziomu } from '@/features/scenariusz/poziom';
 import { odczytajUstawienie, zapiszUstawienie, type PortBazy, type PowodOdczytu, type PowodZapisu } from '@szkola/postep';
 
 /**
@@ -8,7 +9,7 @@ import { odczytajUstawienie, zapiszUstawienie, type PortBazy, type PowodOdczytu,
  * importu) daje wartość domyślną z modułu konfiguracji; data eksportu i chwila prośby bez poprawnej liczby zostają brakiem.
  * Błąd odczytu bazy nie udaje braku: `odczyt_nieudany`.
  */
-const KLUCZ = { przypomnienie: 'przypomnienie', jezyk: 'jezyk', opinie: 'opinie', ostatniEksport: 'ostatni_eksport' } as const;
+const KLUCZ = { przypomnienie: 'przypomnienie', jezyk: 'jezyk', opinie: 'opinie', ostatniEksport: 'ostatni_eksport', poziomScenariusza: 'scenariusz_poziom' } as const;
 
 export type UstawienieJezyka = 'auto' | Jezyk;
 
@@ -65,3 +66,8 @@ export const zapiszProsbeOOcene = (port: PortBazy, terazMs: number) => zapiszUst
 export function czySubskrypcjaAktywna(pamiec: Pamiec | null, terazMs: number): boolean {
   return pamiec !== null && pamiec.produkty.some((p) => p.wygasaMs !== null && p.wygasaMs > terazMs);
 }
+
+// Ręczny wybór poziomu scenariusza (KO-039, BR-POZ-002): zapamiętany do wyboru „Automatycznie”. Preferencja interfejsu: wartość
+// o złym kształcie (np. z importu) daje „auto” (domyślne zachowanie), nie błąd.
+export const czytajPoziomScenariusza = (port: PortBazy) => czytaj<WyborPoziomu>(port, KLUCZ.poziomScenariusza, (v) => parsujWyborPoziomu(v) ?? 'auto');
+export const zapiszPoziomScenariusza = (port: PortBazy, p: WyborPoziomu, terazMs: number) => zapiszUstawienie(port, KLUCZ.poziomScenariusza, p, terazMs);
