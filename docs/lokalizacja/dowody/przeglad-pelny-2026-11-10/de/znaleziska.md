@@ -1,6 +1,6 @@
 # Pełny przegląd przekładu pl → de: znaleziska (sesja AR, 2026-11-10)
 
-Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przegladu.md`; 15 niezależnych recenzentów AI w świeżym kontekście (ten sam model co sesja), każdy czyta swój zakres w całości obok źródła pl. To drugi przegląd AI, nie ocena rodzimego użytkownika języka. Szczegóły, pokrycie, „Do sprawdzenia przez człowieka” i uwagi do źródła pl: pliki `czesci/de-<ID>.md`. Poprawki do nałożenia: `poprawki-de.json` (format `docs/lokalizacja/narzedzia/poprawki.mjs`: jezyk, cel, stary, nowy, waga, powod, grupa; kolejność = kolejność nakładania).
+Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przegladu.md`; 16 niezależnych recenzentów AI w świeżym kontekście (ten sam model co sesja), każdy czyta swój zakres w całości obok źródła pl. To drugi przegląd AI, nie ocena rodzimego użytkownika języka. Szczegóły, pokrycie, „Do sprawdzenia przez człowieka” i uwagi do źródła pl: pliki `czesci/de-<ID>.md`. Poprawki do nałożenia: `poprawki-de.json` (format `docs/lokalizacja/narzedzia/poprawki.mjs`: jezyk, cel, stary, nowy, waga, powod, grupa; kolejność = kolejność nakładania).
 
 ## Liczby
 
@@ -19,9 +19,10 @@ Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przeg
 | de-L8 | 0 | 0 | 24 | 9 | 31 |
 | de-L9 | 0 | 0 | 6 | 4 | 8 |
 | de-L10 | 0 | 0 | 6 | 5 | 9 |
+| de-L11 | 0 | 0 | 17 | 4 | 19 |
 | de-U1 | 0 | 0 | 5 | 6 | 9 |
 | de-T1 | 0 | 0 | 8 | 3 | 4 |
-| **razem** | **0** | **5** | **176** | **154** | **349** (KRYT 0, WYS 5, ŚR 163, NISKIE 181) |
+| **razem** | **0** | **5** | **193** | **158** | **368** (KRYT 0, WYS 5, ŚR 180, NISKIE 183) |
 
 ## Znaleziska (od najpoważniejszych)
 
@@ -195,6 +196,23 @@ Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przeg
 | de-L10 | ŚR | content/de/exams/m12.yaml:56 | why: "Fehler-Tilt ist Ärger | why: "Tilt aus Fehlern ist Ärger | Jak nr 2, to samo w uzasadnieniu. | wysoka | tak |
 | de-L10 | ŚR | content/de/exams/m12.yaml:57 | text: "Rache-Tilt" | text: "Tilt aus Rache" | Jak nr 2 (lekcja: „Tilt aus Rache”). | wysoka | tak |
 | de-L10 | ŚR | content/de/exams/m12.yaml:36 | bewertest du im Hand-Review | bewertest du in der Handanalyse | „Przegląd rozdań” w m12-l2:67 i :69 to „Handanalyse”; w egzaminie to samo pojęcie pod inną nazwą. | wysoka | tak |
+| de-L11 | ŚR | m13-l1-raport.md:36 | text: "Konform" | text: "Übereinstimmend" | Nazwa oceny „Zgodna”: interfejs (de.json `grade.zgodne`, `game.report.verdicts.compliant`) ma „Übereinstimmend”; lekcja uczy etykiety, której użytkownik nie zobaczy w raporcie | wysoka | tak |
+| de-L11 | ŚR | m13-l1-raport.md:36 | ist konform. | ist übereinstimmend. | jw. (why) | wysoka | tak |
+| de-L11 | ŚR | m13-l1-raport.md:45 | text: "Konform" | text: "Übereinstimmend" | jw. | wysoka | tak |
+| de-L11 | ŚR | m13-l1-raport.md:45 | die Schwelle für konform ({{n:range.mixed.low}}) | die Schwelle für übereinstimmend (…) | jw. (why) | wysoka | tak |
+| de-L11 | ŚR | m13-l1-raport.md:46 | text: "Zulässig", why: "Zulässig ist | text: "Vertretbar", why: "Vertretbar ist | Nazwa oceny „Dopuszczalna”: interfejs (`grade.dopuszczalne`, `verdicts.acceptable`) ma „Vertretbar” | wysoka | tak |
+| de-L11 | ŚR | m13-l1-raport.md:46 | die Schwelle für konform." | die Schwelle für übereinstimmend." | jak nr 1 (koniec why) | wysoka | tak |
+| de-L11 | ŚR | m13-l1-raport.md:55 | text: "Konform" | text: "Übereinstimmend" | jak nr 1 | wysoka | tak |
+| de-L11 | ŚR | m13-l1-raport.md:64 | zählt der Bericht als konform. | zählt der Bericht als übereinstimmend. | jak nr 1 | wysoka | tak |
+| de-L11 | ŚR | m13-l1-raport.md:90 | - **Konform**: | - **Übereinstimmend**: | jak nr 1 (lista stopni oceny) | wysoka | tak |
+| de-L11 | ŚR | m13-l1-raport.md:91 | - **Zulässig**: | - **Vertretbar**: | jak nr 5 (lista stopni oceny) | wysoka | tak |
+| de-L11 | ŚR | m13-l1-raport.md:95 | - **Zeit abgelaufen**: | - **Zeit überschritten**: | „Przekroczony czas” jako stopień oceny: w raporcie etykieta to „Zeit überschritten” (`game.report.verdicts.timeout`); „Zeit abgelaufen” to inny napis (sesja ćwiczeń, szczegół raportu) | wysoka | tak |
+| de-L11 | ŚR | m13-l1-raport.md:101 | Spielzug als zulässig, | Spielzug als vertretbar, | jak nr 5 | wysoka | tak |
+| de-L11 | ŚR | m13-l2-powtorki.md:33 | Eine zulässige Entscheidung | Eine vertretbare Entscheidung | jak nr 5 | wysoka | tak |
+| de-L11 | ŚR | m13-l2-powtorki.md:34 | Korrekte und zulässige Entscheidungen | Übereinstimmende und vertretbare Entscheidungen | „Zgodne i dopuszczalne”: tu „zgodne” = „Korrekte” (trzecia nazwa tej samej oceny w module); interfejs: `game.report.good` = „Übereinstimmende und vertretbare Entscheidungen” | wysoka | tak |
+| de-L11 | ŚR | m13-l3-przeglad.md:60 | bestätigt sie auch die realistische Annahme | wird sie auch von der realistischen Annahme bestätigt | „założenie realistyczne też ją potwierdzi”: szyk zdania pozwala odczytać odwrotnie (decyzja potwierdza założenie) | średnia | tak |
+| de-L11 | ŚR | m0-l1-uklady.md:81 | {{t:hole-cards\|Handkarten}} | {{t:hole-cards\|Hole Cards}} | Termin wg `terms-nazwy.yaml`: „Hole Cards” (tak w reszcie korpusu i w ćwiczeniu słownictwa tej lekcji); „Handkarten” to druga nazwa tego samego pojęcia | średnia | tak |
+| de-L11 | ŚR | m0-l1-uklady.md:104 | deine {{t:hole-cards\|Handkarten}} nichts | deine {{t:hole-cards\|Hole Cards}} nichts | jw. | średnia | tak |
 | de-U1 | ŚR | `docs/sklep/aso/metadane-fala2.json`:9 (de-DE subtitle) | Entscheiden üben, ohne Einsatz | Entscheiden üben ohne Echtgeld | „ohne Einsatz” jest dwuznaczne: „bez stawki”, ale równie naturalnie „bez zaangażowania, bez wysiłku”; pl „bez gry o stawki”, en „no real money”. Zamiennik: 30 znaków, spójny z „Kein Echtgeldspiel” w tekście promocyjnym | średnia | tak |
 | de-U1 | ŚR | `docs/sklep/aso/metadane-fala2.json`:12 (de-DE description, ÜBEN) | Entscheidungen in vier Stufen bewertet | Entscheidungen in vier Stufen bewertet: übereinstimmend, vertretbar, Ungenauigkeit, Fehler | pominięte nazwy czterech stopni oceny, które są w pl i en; nazwy jak w słowniku aplikacji (grade.*) | wysoka | tak |
 | de-U1 | ŚR | `apps/mobile/src/i18n/locales/de.json`:724 (drill.icm.foldRightChips) | {{t:risk-premium\|Risikoprämie}} | {{t:risk-premium\|Risk Premium}} | przyjęta nazwa terminu to „Risk Premium” (terms-nazwy.yaml; w treści ×10 wobec „Risikoprämie” ×2) | wysoka | tak |
@@ -353,6 +371,10 @@ Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przeg
 | de-L10 | NISKIE | content/de/lessons/m12-l3-tilt.md:88 | an der Spitze am Ende leicht wieder verloren | an der Spitze hinten leicht wieder verloren | „Postęp z przodu łatwo traci się z tyłu”: „am Ende” czyta się jako „w końcu”, obraz gąsienicy (przód/tył) się gubi. | średnia | tak |
 | de-L10 | NISKIE | content/de/exams/m12.yaml (całość) względem lekcji m12 | „Intervall”, „etwa”, „Blöcke à 100”, „ein Limit runtergehen” | (w lekcjach:) „Bereich”, „ca.”, „Blöcke zu je 100”, „im Limit absteigen” | Egzamin i lekcje oddają te same zwroty źródła inaczej (przedział, ok., bloków po 100, zejść stawkę). Sens bez zmian; ujednolicenie wymaga wyboru wariantu dla całego korpusu. | wysoka | nie |
 | de-L10 | NISKIE | content/de/lessons/m12-l4-bankroll.md:24, :77; content/de/exams/m12.yaml:11 | Gewinnspieler / Verlustspieler | (w m12-l1:) gewinnender Spieler / verlierende Spieler | Dwa warianty dla „wygrywający / przegrywający gracz” w przejrzanych plikach; „Gewinnspieler” może się kojarzyć z „Gewinnspiel” (loteria). Wybór wariantu dla korpusu. | średnia | nie |
+| de-L11 | NISKIE | m13-l2-powtorki.md:24 | Deine Herzen passen | Deine Herzkarten passen | „twoje kiery”: kolor to „Herz”, karty to „Herzkarten”; „Herzen” = serca | wysoka | tak |
+| de-L11 | NISKIE | m13-l2-powtorki.md:95 | Woher diese Regeln kommen | Woher diese Regeln stammen | Nagłówek notki „Skąd te zasady”: w m13-l1:107 i m13-l3:86 „stammen”; niespójność w module | wysoka | tak |
+| de-L11 | NISKIE | m13-l2-powtorki.md:51, 53, 93 | Frequenzen | Häufigkeiten | „częstotliwości”: m13-l1:91, 97 i interfejs (`verdictHints.acceptable`) mają „Häufigkeit(en)”; oba słowa poprawne, wybór dla całego korpusu | średnia | nie |
+| de-L11 | NISKIE | m13-l2-powtorki.md:52 | Schau auf die Bewertung jeder Entscheidung, mitzuspielen. | np. Schau auf die Bewertung jeder einzelnen Entscheidung, in eine Hand einzusteigen. | „ocenę każdej decyzji wejścia do gry”: zdanie poprawne, ale niezręczne | średnia | nie |
 | de-U1 | NISKIE | `docs/sklep/aso/metadane-fala2.json`:12 (de-DE description) | Tagesserie und ein Fortschrittswert | Tagesserie und ein Leistungsindex | „wskaźnik zaawansowania” w aplikacji to „Leistungsindex” (advancement.title); dwie nazwy jednego pojęcia | średnia | tak |
 | de-U1 | NISKIE | `apps/mobile/src/i18n/locales/de.json`:662 (drill.numeric.diffPp) | {{diff}} Pp. | {{diff}} Prozentpunkte | „Pp.” nie jest przyjętym niemieckim skrótem punktów procentowych (w treści de występuje „pp”) | średnia | tak |
 | de-U1 | NISKIE | `apps/mobile/src/i18n/locales/de.json`:56 (purchase.cancelInfo) | deines Apple-Accounts (Abonnements) | deines Apple Accounts (Abonnements) | nazwa własna Apple: „Apple Account” bez łącznika; tak w opisie sklepu de-DE | średnia | tak |
@@ -433,6 +455,10 @@ Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przeg
 | de-L10 | content/de/exams/m12.yaml | tak | 93 |
 | de-L10 | content/de/helplines.yaml (względem content/helplines.yaml) | tak | 39 |
 | de-L10 | content/de/terms-nazwy.yaml (terminologia, pomocniczo) | tak | 164 |
+| de-L11 | content/de/lessons/m0-l1-uklady.md | tak | 104 |
+| de-L11 | content/de/lessons/m13-l1-raport.md | tak | 109 |
+| de-L11 | content/de/lessons/m13-l2-powtorki.md | tak | 97 |
+| de-L11 | content/de/lessons/m13-l3-przeglad.md | tak | 88 |
 | de-U1 | `apps/mobile/src/i18n/locales/de.json` (względem `pl.json`, klucz po kluczu; kontekst `pl.kontekst.json` dla kluczy wątpliwych) | tak | 903 (715 kluczy; pl: 935 linii, 747 kluczy) |
 | de-U1 | `apps/mobile/locales/systemowe/de.json` (względem `pl.json`) | tak | 4 |
 | de-U1 | `docs/sklep/aso/metadane-fala2.json`, lokalizacja `de-DE` (względem `pl` i `en-US` w `store/app-store-metadata.json`) | tak (wpis de-DE, `_opis`, `_aliasy`; pozostałe lokalizacje pliku poza zakresem) | 43 (de-DE: linie 7–13) |

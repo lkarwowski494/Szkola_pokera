@@ -1,6 +1,6 @@
 # Pełny przegląd przekładu pl → vi: znaleziska (sesja AR, 2026-11-10)
 
-Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przegladu.md`; 15 niezależnych recenzentów AI w świeżym kontekście (ten sam model co sesja), każdy czyta swój zakres w całości obok źródła pl. To drugi przegląd AI, nie ocena rodzimego użytkownika języka. Szczegóły, pokrycie, „Do sprawdzenia przez człowieka” i uwagi do źródła pl: pliki `czesci/vi-<ID>.md`. Poprawki do nałożenia: `poprawki-vi.json` (format `docs/lokalizacja/narzedzia/poprawki.mjs`: jezyk, cel, stary, nowy, waga, powod, grupa; kolejność = kolejność nakładania).
+Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przegladu.md`; 16 niezależnych recenzentów AI w świeżym kontekście (ten sam model co sesja), każdy czyta swój zakres w całości obok źródła pl. To drugi przegląd AI, nie ocena rodzimego użytkownika języka. Szczegóły, pokrycie, „Do sprawdzenia przez człowieka” i uwagi do źródła pl: pliki `czesci/vi-<ID>.md`. Poprawki do nałożenia: `poprawki-vi.json` (format `docs/lokalizacja/narzedzia/poprawki.mjs`: jezyk, cel, stary, nowy, waga, powod, grupa; kolejność = kolejność nakładania).
 
 ## Liczby
 
@@ -19,9 +19,10 @@ Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przeg
 | vi-L8 | 0 | 0 | 11 | 9 | 47 |
 | vi-L9 | 0 | 0 | 19 | 6 | 72 |
 | vi-L10 | 0 | 0 | 13 | 15 | 27 |
+| vi-L11 | 0 | 0 | 18 | 8 | 23 |
 | vi-U1 | 0 | 0 | 11 | 3 | 11 |
 | vi-T1 | 0 | 0 | 57 | 2 | 46 |
-| **razem** | **0** | **3** | **310** | **97** | **460** (KRYT 0, WYS 3, ŚR 394, NISKIE 63) |
+| **razem** | **0** | **3** | **328** | **105** | **483** (KRYT 0, WYS 3, ŚR 412, NISKIE 68) |
 
 ## Znaleziska (od najpoważniejszych)
 
@@ -272,6 +273,24 @@ Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przeg
 | vi-L10 | ŚR | m12-l4:60 | {{t:downswing\|chuỗi thua}} | {{t:downswing\|downswing}} | jw. | wysoka | tak |
 | vi-L10 | ŚR | egzamin:56 (q6 text) | Tilt vì sai lầm | Tilt vì mắc lỗi | nazwa typu tiltu inna niż w lekcji m12-l3 („Tilt vì mắc lỗi”), a pytanie odwołuje się do podziału z lekcji | wysoka | tak |
 | vi-L10 | ŚR | egzamin:56 (q6 why) | Tilt vì sai lầm là sự tức giận | Tilt vì mắc lỗi là sự tức giận | jw. | wysoka | tak |
+| vi-L11 | ŚR | m13-l1-raport.md:95 | **Hết giờ** | **Quá thời gian** | nazwa stopnia „Przekroczony czas” w raporcie vi (`play.report.verdict.timeout`) to „Quá thời gian”; lekcja opisuje stopnie raportu | średnia | tak |
+| vi-L11 | ŚR | m13-l2-powtorki.md:33 (text) | Lỗi, quyết định thiếu chính xác | Sai lầm, quyết định thiếu chính xác | stopień „Błąd” w interfejsie i w m13-l1 to „Sai lầm” (`verdict.mistake`) | wysoka | tak |
+| vi-L11 | ŚR | m13-l2-powtorki.md:33 (why) | không phải là lỗi, nên không tạo thẻ | không phải là sai lầm, nên không tạo thẻ | jw. | wysoka | tak |
+| vi-L11 | ŚR | m13-l2-powtorki.md:35 (text) | Chỉ lỗi, không tính | Chỉ sai lầm, không tính | jw. | wysoka | tak |
+| vi-L11 | ŚR | m13-l2-powtorki.md:35 (why) | được tính như lỗi | được tính như sai lầm | jw.; interfejs: „Được tính như sai lầm” | wysoka | tak |
+| vi-L11 | ŚR | m13-l2-powtorki.md:77 | Lỗi, quyết định thiếu chính xác và quyết định sau khi hết giờ sẽ | Sai lầm, quyết định thiếu chính xác … | jw.; interfejs: „Thẻ ôn tập: … từ các sai lầm” | wysoka | tak |
+| vi-L11 | ŚR | m13-l2-powtorki.md:85 | lỗi hoặc quyết định thiếu chính xác | sai lầm hoặc quyết định thiếu chính xác | jw. (wyliczenie stopni) | wysoka | tak |
+| vi-L11 | ŚR | m13-l2-powtorki.md:34 (why) | Quyết định đúng và chấp nhận được | Quyết định phù hợp và chấp nhận được | stopień „Zgodna” = „Phù hợp”; interfejs ma dosłownie „Quyết định phù hợp và chấp nhận được” | wysoka | tak |
+| vi-L11 | ŚR | m13-l2-powtorki.md:44 (text) | Khóa khu vực của mô-đun này | Khóa lĩnh vực của mô-đun này | „obszar” w interfejsie vi to „lĩnh vực” (`play.areasHint`, `report.again`, `areas`); lekcja konsekwentnie „khu vực” | wysoka | tak |
+| vi-L11 | ŚR | m13-l2-powtorki.md:44 (why) | Khu vực đã mở khóa sau các bài học | Lĩnh vực đã mở khóa sau các bài học | jw. | wysoka | tak |
+| vi-L11 | ŚR | m13-l2-powtorki.md:67 | khu vực chơi „Flop: c-bet” | lĩnh vực chơi “Flop: c-bet” | jw.; dodatkowo polskie cudzysłowy „…” (reszta przekładu “…”) | wysoka | tak |
+| vi-L11 | ŚR | m13-l2-powtorki.md:69 (why) | Đúng: khu vực chỉ chia | Đúng: lĩnh vực chỉ chia | jw. | wysoka | tak |
+| vi-L11 | ŚR | m13-l2-powtorki.md:71 (why) | còn các khu vực chỉ mở | còn các lĩnh vực chỉ mở | jw. | wysoka | tak |
+| vi-L11 | ŚR | m13-l2-powtorki.md:89 | Khu vực chơi là một mô-đun | Lĩnh vực chơi là một mô-đun | jw. | wysoka | tak |
+| vi-L11 | ŚR | m13-l2-powtorki.md:89 | Khu vực được mở khóa sau khi bạn | Lĩnh vực được mở khóa sau khi bạn | jw. | wysoka | tak |
+| vi-L11 | ŚR | m13-l2-powtorki.md:89 | đi thẳng đến khu vực có | đi thẳng đến lĩnh vực có | jw. | wysoka | tak |
+| vi-L11 | ŚR | m13-l3-przeglad.md:80 | các hành động và mức cược ở mỗi | các hành động và kích cỡ cược ở mỗi | „rozmiary” w m13-l1/l2 = „kích cỡ”; „mức cược” to przyjęta nazwa terminu stakes | średnia | tak |
+| vi-L11 | ŚR | m0-l1-uklady.md:87 | {{t:royal-flush\|Thùng phá sảnh hoàng gia}} | {{t:royal-flush\|Sảnh rồng}} | przyjęta nazwa w `terms-nazwy.yaml`: „sảnh rồng”; forma jednorazowa, niezgodna ze słowniczkiem | średnia | tak |
 | vi-U1 | ŚR | `content/vi/modules.yaml`:8 | `Second barrel và draw` | `Second barrel và bài chờ` | Niespójny termin: przyjęta nazwa draw = „bài chờ” (terms-nazwy.yaml), słownik interfejsu używa „bài chờ”. | wysoka | tak |
 | vi-U1 | ŚR | `content/vi/ranges/spots.yaml`:76 | `{{t:big-blind\|Mù lớn}}, Button … 2,5bb, {{t:small-blind}} đã` | `… {{t:small-blind\|mù nhỏ}} đã` | W jednym tytule „Mù lớn” (forma) i goły znacznik wyświetlany jako „small blind” — dwie nazwy jednego pojęcia w zdaniu. Dodana forma, klucz znacznika bez zmian. | średnia | tak |
 | vi-U1 | ŚR | `content/vi/ranges/spots.yaml`:81 | `{{t:big-blind\|Mù lớn}}, {{t:small-blind}} đã` | `{{t:big-blind\|Mù lớn}}, {{t:small-blind\|mù nhỏ}} đã` | jw. | średnia | tak |
@@ -432,6 +451,14 @@ Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przeg
 | vi-L10 | NISKIE | m12-l2:108 | những sai lầm mang lại lợi | những sai lầm mang lại lợi nhuận | jw. | średnia | tak |
 | vi-L10 | NISKIE | m12-l1:83 | chứ không phải chỉ qua kết quả | chứ không phải qua bản thân kết quả | pl „a nie sam wynik”; obecne brzmienie = „nie tylko przez wynik” | średnia | tak |
 | vi-L10 | NISKIE | m12-l2:65, 67, 68, 83 (2×), 86 (2×), 112 | {{t:session\|phiên}} | {{t:session\|phiên chơi}} | przyjęta nazwa „phiên chơi” (tak w m12-l3, l4, egzaminie); skrócona forma zrozumiała, decyzja korpusowa | wysoka | nie |
+| vi-L11 | NISKIE | m13-l2-powtorki.md:34 (text) | đã được chấm | đã được đánh giá | „ocenione” wszędzie indziej „(được) đánh giá” | wysoka | tak |
+| vi-L11 | NISKIE | m13-l2-powtorki.md:52 (why) | Hãy xem điểm đánh giá của | Hãy xem đánh giá của | źródło „ocenę każdej decyzji”; „điểm” sugeruje punktację, której raport nie ma | średnia | tak |
+| vi-L11 | NISKIE | m13-l2-powtorki.md:15 (why) | với át và | với lá A và | as w pozostałych plikach „lá A” / „A” | średnia | tak |
+| vi-L11 | NISKIE | m13-l2-powtorki.md:17 (why) | giữ nguyên mọi tổ hợp bài | giữ nguyên mọi tay bài | „układ” w m0-l1 = „tay bài”; „tổ hợp” w korpusie także = combo | średnia | tak |
+| vi-L11 | NISKIE | m13-l2-powtorki.md:96 | thứ hạng tổ hợp bài | thứ hạng tay bài | jw. („ranking układów”) | średnia | tak |
+| vi-L11 | NISKIE | m0-l1-uklady.md:104 (por. :52) | {{t:playing-the-board\|chơi bài trên bàn}} | (do ustalenia w korpusie) | linia 52 bez formy wyświetla „chơi bài trên board”, linia 104 „chơi bài trên bàn”; termin oznaczony [DO USTALENIA] | średnia | nie |
+| vi-L11 | NISKIE | m0-l1:49–53, m13-l2:13–26, m13-l3:33 | {{t:board\|bàn}} / {{t:board\|bài chung}} / {{t:board\|board}} | jedna forma | trzy różne formy terminu board w zakresie; także range: „dải bài” (m13-l1:97) i „range” (m13-l3:58, 83); wybór w całym korpusie | wysoka | nie |
+| vi-L11 | NISKIE | m13-l2-powtorki.md:13, 40, 42, 43, 73, 83, 85, 89 | lỗi (ogólnie „błąd”) | sai lầm (jeśli ujednolicać) | po poprawkach 2–7 w lekcji zostaje „lỗi” w znaczeniu ogólnym obok „sai lầm” jako stopnia; m13-l1 i m13-l3 używają wyłącznie „sai lầm”; zrozumiałe, decyzja stylistyczna | średnia | nie |
 | vi-U1 | NISKIE | `apps/mobile/src/i18n/locales/vi.json`:655 (`drill.range.acceptable`) | `nhưng nó thường chọn một hành động khác hơn` | `nhưng nó chọn một hành động khác thường xuyên hơn` | „częściej wybiera inną akcję”; szyk „khác hơn” jest dwuznaczny (czyta się jak „bardziej inną akcję”). | średnia | tak |
 | vi-U1 | NISKIE | `apps/mobile/src/i18n/locales/vi.json`:67 (`settings.purchases`) | `Mua hàng` | `Giao dịch mua` | Etykieta sekcji zakupów: „Mua hàng” = robienie zakupów; reszta słownika mówi „giao dịch mua” (`purchase.restore`, `settings.restored`, `settings.resetBody`). | średnia | tak |
 | vi-U1 | NISKIE | `content/vi/modules.yaml`:6,10 względem `vi.json` (`session.sizeError`, `play.report.detail.size` i in.) | `kích thước cược` (modules, spots:62) / `kích cỡ` (vi.json, 4×) | jedna nazwa na „rozmiar (zakładu)” | Dwie nazwy jednego pojęcia w przejrzanych plikach; obie zrozumiałe. Wybór w całym korpusie. | średnia | nie |
@@ -509,6 +536,10 @@ Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przeg
 | vi-L10 | content/vi/exams/m12.yaml | tak | 93 |
 | vi-L10 | content/vi/helplines.yaml (wobec content/helplines.yaml) | tak | 39 |
 | vi-L10 | content/vi/terms-nazwy.yaml (pomocniczo) | tak | 164 |
+| vi-L11 | content/vi/lessons/m0-l1-uklady.md | tak | 105 |
+| vi-L11 | content/vi/lessons/m13-l1-raport.md | tak | 110 |
+| vi-L11 | content/vi/lessons/m13-l2-powtorki.md | tak | 98 |
+| vi-L11 | content/vi/lessons/m13-l3-przeglad.md | tak | 89 |
 | vi-U1 | `apps/mobile/src/i18n/locales/vi.json` (względem `pl.json`, 935 linii) | tak — klucz po kluczu, 699 kluczy bazowych; zestaw kluczy, formy liczby mnogiej i znaczniki sprawdzone także skryptem | 887 |
 | vi-U1 | `apps/mobile/src/i18n/locales/pl.kontekst.json` | nie — tylko wpisy kluczy z wątpliwością (pomocniczy, nie jest przekładem) | 701 |
 | vi-U1 | `apps/mobile/locales/systemowe/vi.json` (względem `pl.json`) | tak | 4 |

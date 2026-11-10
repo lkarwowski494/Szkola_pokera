@@ -3448,6 +3448,195 @@
  },
  {
   "jezyk": "fr",
+  "cel": "content/fr/lessons/m0-l1-uklady.md",
+  "stary": "{{t:straight|quinte}} dans une seule couleur",
+  "nowy": "{{t:straight-flush|quinte dans une seule couleur}}",
+  "waga": "NISKIE",
+  "powod": "m0-l1:88: naprawa znacznika: źródło ma tu drugi {{t:straight-flush|strit w kolorze}}, przekład podmienił klucz na straight; opis „quinte dans une seule couleur” oznacza quinte flush",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l1-raport.md",
+  "stary": "spot de solver",
+  "nowy": "spot de solveur",
+  "waga": "NISKIE",
+  "powod": "m13-l1:65: „solver” zamiast „solveur” (w lekcji, korpusie i interfejsie wszędzie „solveur”)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l1-raport.md",
+  "stary": "par rapport à un solver",
+  "nowy": "par rapport à un solveur",
+  "waga": "NISKIE",
+  "powod": "m13-l1:108: „solver” zamiast „solveur” (spójność z lekcją i interfejsem)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l1-raport.md",
+  "stary": ":::note D'où viennent ces principes",
+  "nowy": ":::note D'où viennent ces règles",
+  "waga": "NISKIE",
+  "powod": "m13-l1:107: ten sam nagłówek pl „Skąd te zasady” ma w m13-l2 i m13-l3 (i 14× w korpusie) postać „D'où viennent ces règles”",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l3-przeglad.md",
+  "stary": "résultats de solver",
+  "nowy": "résultats de solveur",
+  "waga": "NISKIE",
+  "powod": "m13-l3:87: „solver” zamiast „solveur” (spójność z korpusem i interfejsem)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "Elle verrouillera la zone de ce module",
+  "nowy": "Elle verrouillera le domaine de ce module",
+  "waga": "ŚR",
+  "powod": "m13-l2:44 text: obszar gry = „domaine” w interfejsie fr.json (play.areasHint, game.report.again, progress.areas), lekcja ma „zone”",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "Une zone débloquée après les leçons reste accessible",
+  "nowy": "Un domaine débloqué après les leçons reste accessible",
+  "waga": "ŚR",
+  "powod": "m13-l2:44 why: obszar gry = „domaine” w interfejsie fr.json (play.areasHint, game.report.again, progress.areas), lekcja ma „zone”",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "Quand la zone de jeu « Flop : c-bet » se débloque-t-elle",
+  "nowy": "Quand le domaine de jeu « Flop : c-bet » se débloque-t-il",
+  "waga": "ŚR",
+  "powod": "m13-l2:67: obszar gry = „domaine” w interfejsie fr.json (play.areasHint, game.report.again, progress.areas), lekcja ma „zone”",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "Oui : la zone ne distribue que des situations du module, elle se débloque donc",
+  "nowy": "Oui : le domaine ne distribue que des situations du module, il se débloque donc",
+  "waga": "ŚR",
+  "powod": "m13-l2:69: obszar gry = „domaine” w interfejsie fr.json (play.areasHint, game.report.again, progress.areas), lekcja ma „zone”",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "et les zones seulement après",
+  "nowy": "et les domaines seulement après",
+  "waga": "ŚR",
+  "powod": "m13-l2:71: obszar gry = „domaine” w interfejsie fr.json (play.areasHint, game.report.again, progress.areas), lekcja ma „zone”",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "Une zone de jeu correspond à un module du cours. Elle se débloque",
+  "nowy": "Un domaine de jeu correspond à un module du cours. Il se débloque",
+  "waga": "ŚR",
+  "powod": "m13-l2:89: obszar gry = „domaine” w interfejsie fr.json (play.areasHint, game.report.again, progress.areas), lekcja ma „zone”",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "vous passez directement à la zone où",
+  "nowy": "vous passez directement au domaine où",
+  "waga": "ŚR",
+  "powod": "m13-l2:89: obszar gry = „domaine” w interfejsie fr.json (play.areasHint, game.report.again, progress.areas), lekcja ma „zone”",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "décisions prises après la fin du temps imparti\", correct",
+  "nowy": "décisions au temps dépassé\", correct",
+  "waga": "ŚR",
+  "powod": "m13-l2:33: pl „decyzje po przekroczonym czasie” to stopień oceny „Temps dépassé” (fr.json game.report.verdicts.timeout, m13-l1:95); „prises après la fin du temps imparti” nie przywołuje nazwy i sugeruje, że gracz zdecydował po czasie (decyzję podjęła aplikacja)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "décisions prises après la fin du temps imparti deviennent",
+  "nowy": "décisions au temps dépassé deviennent",
+  "waga": "ŚR",
+  "powod": "m13-l2:77: pl „decyzje po przekroczonym czasie” to stopień oceny „Temps dépassé” (fr.json game.report.verdicts.timeout, m13-l1:95); „prises après la fin du temps imparti” nie przywołuje nazwy i sugeruje, że gracz zdecydował po czasie (decyzję podjęła aplikacja)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "{{t:flush-draw|tirage couleur}} par l'as",
+  "nowy": "{{t:flush-draw|tirage couleur}} à l'as",
+  "waga": "NISKIE",
+  "powod": "m13-l2:15: „draw do koloru z asem” to po francusku „tirage couleur à l'as”; „par l'as” jest nienaturalne",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "Un des entraîneurs ne regarde",
+  "nowy": "Un des coachs ne regarde",
+  "waga": "NISKIE",
+  "powod": "m13-l2:60: trener = „coach” w korpusie fr (42×, m.in. m10-l1:123, rules.yaml R-M13-004 source); „entraîneur” tylko w m13 (4×)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l2-powtorki.md",
+  "stary": "Un des entraîneurs conseille",
+  "nowy": "Un des coachs conseille",
+  "waga": "NISKIE",
+  "powod": "m13-l2:93: trener = „coach” w korpusie fr (42×, m.in. m10-l1:123, rules.yaml R-M13-004 source); „entraîneur” tylko w m13 (4×)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l3-przeglad.md",
+  "stary": "des conseils d'entraîneurs",
+  "nowy": "des conseils de coachs",
+  "waga": "NISKIE",
+  "powod": "m13-l3:64: trener = „coach” w korpusie fr (42×, m.in. m10-l1:123, rules.yaml R-M13-004 source); „entraîneur” tylko w m13 (4×)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l3-przeglad.md",
+  "stary": "des heuristiques d'entraîneurs",
+  "nowy": "des heuristiques de coachs",
+  "waga": "NISKIE",
+  "powod": "m13-l3:87: trener = „coach” w korpusie fr (42×, m.in. m10-l1:123, rules.yaml R-M13-004 source); „entraîneur” tylko w m13 (4×)",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l3-przeglad.md",
+  "stary": "les {{t:position|positions}}, les tapis, les actions",
+  "nowy": "les {{t:position|positions}}, les stacks, les actions",
+  "waga": "NISKIE",
+  "powod": "m13-l3:80: pl „stacki”; przyjęta nazwa terminu to „stack” (terms-nazwy.yaml), w korpusie „les/des stacks” 31× wobec „tapis” 6×",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/lessons/m13-l3-przeglad.md",
+  "stary": "Pendant une partie en direct",
+  "nowy": "Pendant une partie en live",
+  "waga": "NISKIE",
+  "powod": "m13-l3:13: „gra na żywo” (en: live game) to w pokerze po francusku „en live”; „en direct” oznacza transmisję na żywo",
+  "grupa": "fr-L11"
+ },
+ {
+  "jezyk": "fr",
   "cel": "apps/mobile/src/i18n/locales/fr.json",
   "stary": "{{t:wet|Humide}}",
   "nowy": "{{t:wet|Wet}}",

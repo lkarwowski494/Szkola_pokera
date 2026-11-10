@@ -1,6 +1,6 @@
 # Pełny przegląd przekładu pl → fr: znaleziska (sesja AR, 2026-11-10)
 
-Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przegladu.md`; 15 niezależnych recenzentów AI w świeżym kontekście (ten sam model co sesja), każdy czyta swój zakres w całości obok źródła pl. To drugi przegląd AI, nie ocena rodzimego użytkownika języka. Szczegóły, pokrycie, „Do sprawdzenia przez człowieka” i uwagi do źródła pl: pliki `czesci/fr-<ID>.md`. Poprawki do nałożenia: `poprawki-fr.json` (format `docs/lokalizacja/narzedzia/poprawki.mjs`: jezyk, cel, stary, nowy, waga, powod, grupa; kolejność = kolejność nakładania).
+Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przegladu.md`; 16 niezależnych recenzentów AI w świeżym kontekście (ten sam model co sesja), każdy czyta swój zakres w całości obok źródła pl. To drugi przegląd AI, nie ocena rodzimego użytkownika języka. Szczegóły, pokrycie, „Do sprawdzenia przez człowieka” i uwagi do źródła pl: pliki `czesci/fr-<ID>.md`. Poprawki do nałożenia: `poprawki-fr.json` (format `docs/lokalizacja/narzedzia/poprawki.mjs`: jezyk, cel, stary, nowy, waga, powod, grupa; kolejność = kolejność nakładania).
 
 ## Liczby
 
@@ -19,9 +19,10 @@ Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przeg
 | fr-L8 | 0 | 0 | 15 | 15 | 27 |
 | fr-L9 | 0 | 0 | 35 | 11 | 43 |
 | fr-L10 | 0 | 0 | 15 | 30 | 42 |
+| fr-L11 | 0 | 0 | 11 | 13 | 21 |
 | fr-U1 | 0 | 0 | 8 | 6 | 10 |
 | fr-T1 | 0 | 0 | 8 | 4 | 5 |
-| **razem** | **0** | **5** | **267** | **182** | **398** (KRYT 0, WYS 5, ŚR 244, NISKIE 149) |
+| **razem** | **0** | **5** | **278** | **195** | **419** (KRYT 0, WYS 5, ŚR 253, NISKIE 161) |
 
 ## Znaleziska (od najpoważniejszych)
 
@@ -283,6 +284,17 @@ Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przeg
 | fr-L10 | ŚR | m12-l2-decyzja-wynik.md:106 | et l'equity face à | et l'équité face à | termin equity: terms-nazwy.yaml fr = „équité”; pl ma tu nieoznaczone „equity” | wysoka | tak |
 | fr-L10 | ŚR | m12.yaml:45 | equity, | équité, | termin equity: terms-nazwy.yaml fr = „équité” | wysoka | tak |
 | fr-L10 | ŚR | m12.yaml:46 | equity face | équité face | termin equity: terms-nazwy.yaml fr = „équité” | wysoka | tak |
+| fr-L11 | ŚR | m13-l2-powtorki.md:44 (text) | Elle verrouillera la zone de ce module | Elle verrouillera le domaine de ce module | „Obszar” to w interfejsie „domaine” (`play.areasHint`, `game.report.again`: „Jouer le domaine « … »”, `progress.areas`); lekcja opisująca funkcję używa innej nazwy niż ekran. | wysoka | tak |
+| fr-L11 | ŚR | m13-l2-powtorki.md:44 (why) | Une zone débloquée après les leçons | Un domaine débloqué après les leçons | jw. | wysoka | tak |
+| fr-L11 | ŚR | m13-l2-powtorki.md:67 | Quand la zone de jeu « Flop : c-bet » se débloque-t-elle | Quand le domaine de jeu « Flop : c-bet » se débloque-t-il | jw. | wysoka | tak |
+| fr-L11 | ŚR | m13-l2-powtorki.md:69 | la zone ne distribue que des situations du module, elle se débloque donc | le domaine ne distribue que des situations du module, il se débloque donc | jw. | wysoka | tak |
+| fr-L11 | ŚR | m13-l2-powtorki.md:71 | et les zones seulement après | et les domaines seulement après | jw. | wysoka | tak |
+| fr-L11 | ŚR | m13-l2-powtorki.md:89 | Une zone de jeu correspond à un module du cours. Elle se débloque | Un domaine de jeu correspond à un module du cours. Il se débloque | jw. | wysoka | tak |
+| fr-L11 | ŚR | m13-l2-powtorki.md:89 | vous passez directement à la zone où | vous passez directement au domaine où | jw. | wysoka | tak |
+| fr-L11 | ŚR | m13-l2-powtorki.md:33 | décisions prises après la fin du temps imparti | décisions au temps dépassé | pl „decyzje po przekroczonym czasie” odsyła do stopnia „Temps dépassé” (`game.report.verdicts.timeout`, m13-l1:95); omówienie nie przywołuje nazwy i sugeruje, że gracz zdecydował po czasie, a decyzję podjęła aplikacja. | średnia | tak |
+| fr-L11 | ŚR | m13-l2-powtorki.md:77 | décisions prises après la fin du temps imparti deviennent | décisions au temps dépassé deviennent | jw. | średnia | tak |
+| fr-L11 | ŚR | m13-l2-powtorki.md:31, 33, 42, 43, 77, 81 | fiches de révision / fiche (12×) | jedna nazwa w lekcji i w interfejsie | pl „karty powtórek”; interfejs: „Cartes de révision : {{n}} nouvelles situations…” (`game.report.cards`). Lekcja i ekran raportu nazywają to samo inaczej. Zalecenie: zmienić jeden napis interfejsu na „Fiches de révision” („fiche” nie myli się z kartami do gry, por. „les mêmes rangs de cartes” w tej samej linii 77), a nie 12 miejsc w lekcji; decyzja terminologiczna poza zakresem tej części. | wysoka | nie |
+| fr-L11 | ŚR | m0-l1-uklady.md:31, 33, 34, 94, 99 | deux paires / Deux paires (formy `{{t:two-pair\|…}}`) | double paire (albo zmiana nazwy przyjętej) | `terms-nazwy.yaml`: `two-pair: "double paire"`; ćwiczenie słownikowe tej samej lekcji (generator `vocab`, obszar hands) pokaże „double paire”, a tabela rankingu i pytania mają „deux paires”. Obie formy są poprawne po francusku; wybór dla całego korpusu (w korpusie obie). | średnia | nie |
 | fr-U1 | ŚR | `apps/mobile/src/i18n/locales/fr.json`:833 (drill.texture.label.wetness.wet) | `{{t:wet\|Humide}}` | `{{t:wet\|Wet}}` | terms-nazwy.yaml: wet = „wet”; treść kursu używa formy „wet” (19×), interfejs „humide” — dwie nazwy jednego pojęcia | wysoka | tak |
 | fr-U1 | ŚR | fr.json:840 (drill.texture.axis.wetness) | `{{t:dry\|Sec}} ou {{t:wet\|humide}}` | `{{t:dry\|Sec}} ou {{t:wet\|wet}}` | jw. | wysoka | tak |
 | fr-U1 | ŚR | fr.json:842 (drill.texture.scale) | `intermédiaire {{medium}}, {{t:wet\|humide}}` | `… {{t:wet\|wet}}` | jw. | wysoka | tak |
@@ -471,6 +483,19 @@ Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przeg
 | fr-L10 | NISKIE | m12-l2-decyzja-wynik.md:13, 22 | Préflop / préflop | preflop | terms-nazwy.yaml ma „preflop” (bez akcentu); w korpusie fr obie pisownie (preflop ×84, préflop ×41), obie poprawne po francusku — wybór pisowni dla całego korpusu, nie tylko tego modułu | średnia | nie |
 | fr-L10 | NISKIE | m12-l2-decyzja-wynik.md:13, 22, 97; exams/m12.yaml:43, 45, 47 | tout votre tapis / à tapis / fait tapis | (stack / all-in) | terms-nazwy.yaml: stack = „stack”, all-in = „all-in” (forma „à tapis” dopuszczona w komentarzu); m12-l4:113 ma „stack complet”. Sens bez zmian, naturalny francuski; do decyzji przy ujednolicaniu korpusu | średnia | nie |
 | fr-L10 | NISKIE | m12-l2-decyzja-wynik.md:67, 69 vs exams/m12.yaml:36 | nouveaux coups / nouvelles actions | (jedno słowo) | pl „nowe zagrania” w obu miejscach; dwa różne odpowiedniki, sens ten sam | średnia | nie |
+| fr-L11 | NISKIE | m0-l1-uklady.md:88 | `{{t:straight\|quinte}} dans une seule couleur` | `{{t:straight-flush\|quinte dans une seule couleur}}` | Źródło ma tu drugi znacznik `{{t:straight-flush\|strit w kolorze}}`; przekład podmienił klucz na `straight` (naprawa znacznika). | wysoka | tak |
+| fr-L11 | NISKIE | m13-l1-raport.md:65 | spot de solver | spot de solveur | „solver” zamiast „solveur” (lekcja, korpus 112× i interfejs mają „solveur”). | wysoka | tak |
+| fr-L11 | NISKIE | m13-l1-raport.md:108 | par rapport à un solver | par rapport à un solveur | jw. | wysoka | tak |
+| fr-L11 | NISKIE | m13-l3-przeglad.md:87 | résultats de solver | résultats de solveur | jw. | wysoka | tak |
+| fr-L11 | NISKIE | m13-l1-raport.md:107 | D'où viennent ces principes | D'où viennent ces règles | Ten sam nagłówek pl „Skąd te zasady” w m13-l2:95 i m13-l3:86 (i 14× w korpusie) brzmi „D'où viennent ces règles”. | średnia | tak |
+| fr-L11 | NISKIE | m13-l2-powtorki.md:15 | `{{t:flush-draw\|tirage couleur}} par l'as` | `{{t:flush-draw\|tirage couleur}} à l'as` | „draw do koloru z asem” = „tirage couleur à l'as”; „par l'as” nienaturalne. | średnia | tak |
+| fr-L11 | NISKIE | m13-l2-powtorki.md:60 | Un des entraîneurs ne regarde | Un des coachs ne regarde | „trener” w korpusie fr to „coach” (42×, m.in. m10-l1:123, źródła reguł R-M13 w `rules.yaml`); „entraîneur” tylko w m13 (4×). | średnia | tak |
+| fr-L11 | NISKIE | m13-l2-powtorki.md:93 | Un des entraîneurs conseille | Un des coachs conseille | jw. | średnia | tak |
+| fr-L11 | NISKIE | m13-l3-przeglad.md:64 | des conseils d'entraîneurs | des conseils de coachs | jw. | średnia | tak |
+| fr-L11 | NISKIE | m13-l3-przeglad.md:87 | des heuristiques d'entraîneurs | des heuristiques de coachs | jw. | średnia | tak |
+| fr-L11 | NISKIE | m13-l3-przeglad.md:80 | les tapis | les stacks | pl „stacki”; przyjęta nazwa „stack” (`terms-nazwy.yaml`), w korpusie „les/des stacks” 31× wobec „tapis” 6×; „tapis” w m13-l1 oznacza all-in („partez à tapis”). | średnia | tak |
+| fr-L11 | NISKIE | m13-l3-przeglad.md:13 | Pendant une partie en direct | Pendant une partie en live | „gra na żywo” (en: „live game”) to w pokerze „en live”; „en direct” kojarzy się z transmisją. | średnia | tak |
+| fr-L11 | NISKIE | m13-l2-powtorki.md (cały plik) | spacja zwykła przed „:”, „?”, „;” i w « » w części linii, nierozdzielająca w 24 liniach | jedna konwencja w pliku | Typografia niespójna w obrębie pliku (np. linia 67 i 69 z U+00A0, linia 13 i 15 ze zwykłą spacją); bez wpływu na sens, do ujednolicenia narzędziem. | wysoka | nie |
 | fr-U1 | NISKIE | store/app-store-metadata.json:50 (fr-FR description) | `indice de progression` | `indice de niveau` | w aplikacji „Indice de niveau” (advancement.title) | wysoka | tak |
 | fr-U1 | NISKIE | store/app-store-metadata.json:50 (fr-FR description, ACCÈS) | `une séance d’entraînement` | `une séance d’exercices` | w aplikacji „Séance d'exercices” (today.practice, start.title.practice) | średnia | tak |
 | fr-U1 | NISKIE | `content/fr/modules.yaml`:5 (m4 title) | `Préflop face` | `Preflop face` | pisownia terminu wg terms-nazwy.yaml i interfejsu („Preflop”, bez akcentu) | średnia | tak |
@@ -553,6 +578,10 @@ Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przeg
 | fr-L10 | content/fr/exams/m12.yaml | tak | 93 |
 | fr-L10 | content/fr/helplines.yaml (względem content/helplines.yaml) | tak | 39 |
 | fr-L10 | content/fr/terms-nazwy.yaml (terminologia, pomocniczo) | tak | 153 |
+| fr-L11 | content/fr/lessons/m0-l1-uklady.md | tak | 104 |
+| fr-L11 | content/fr/lessons/m13-l1-raport.md | tak | 109 |
+| fr-L11 | content/fr/lessons/m13-l2-powtorki.md | tak | 97 |
+| fr-L11 | content/fr/lessons/m13-l3-przeglad.md | tak | 88 |
 | fr-U1 | `apps/mobile/src/i18n/locales/fr.json` (wobec `pl.json`, klucz po kluczu; `pl.kontekst.json` punktowo dla kluczy wątpliwych) | tak | 919 (pl: 935) |
 | fr-U1 | `apps/mobile/locales/systemowe/fr.json` (wobec `pl.json`) | tak | 4 |
 | fr-U1 | `store/app-store-metadata.json`, lokalizacja `fr-FR` (wobec `pl`, pomocniczo `en-US`) | tak | 53 (cały plik) |

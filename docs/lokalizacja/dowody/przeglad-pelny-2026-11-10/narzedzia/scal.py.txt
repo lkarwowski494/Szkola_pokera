@@ -1,0 +1,51 @@
+# python3 scal.py <jezyk>  (cwd = repo): scala części w znaleziska.md + poprawki-<jezyk>.json, liczy wagi
+import json,re,sys,glob,os
+L=sys.argv[1]; B=f"docs/lokalizacja/dowody/przeglad-pelny-2026-11-10/{L}"
+ORD=["R1","R2","R3","L1","L2","L3","L4","L5","L6","L7","L8","L9","L10","L11","U1","T1"]
+W=["KRYT","WYS","ŚR","NISKIE"]
+def norm(w):
+    w=w.strip().strip('*').upper()
+    return "KRYT" if w.startswith("KRYT") else "WYS" if w.startswith("WYS") else "ŚR" if w.startswith("ŚR") else "NISKIE" if w.startswith("NISK") else None
+def cells(l): return [c.strip() for c in re.split(r'(?<!\\)\|', l.strip())[1:-1]]
+rows=[];pok=[];licz={};brak=[];allp=[]
+for id in ORD:
+    f=f"{B}/czesci/{L}-{id}.md"
+    if not os.path.exists(f): brak.append(id); continue
+    sec=None; n={w:0 for w in W}
+    for l in open(f,encoding='utf8'):
+        if l.startswith('#'): 
+            t=l.lower(); sec='pok' if 'pokrycie' in t else 'zn' if 'znalezisk' in t else None; continue
+        if l.lstrip().startswith('**') and 'okrycie' in l: sec='pok'; continue
+        if l.lstrip().startswith('**') and 'nalezisk' in l: sec='zn'; continue
+        if not l.startswith('|'): continue
+        c=cells(l)
+        if not c or re.match(r'^:?-+',c[0]) : continue
+        if sec=='pok' and c[0].lower() not in('plik',): pok.append((id,c))
+        if sec=='zn' and len(c)>=6:
+            w=norm(c[1])
+            if not w: continue
+            n[w]+=1; rows.append((W.index(w),id,c))
+    licz[id]=n
+    p=f"{B}/czesci/poprawki-{L}-{id}.json"
+    lst=json.load(open(p,encoding='utf8')) if os.path.exists(p) else None
+    if lst is None: brak.append(id+" (json)")
+    else:
+        for x in lst: x['waga']=norm(x['waga']) or x['waga']
+        allp+=lst; licz[id]['json']=len(lst)
+json.dump(allp,open(f"{B}/poprawki-{L}.json",'w',encoding='utf8'),ensure_ascii=False,indent=1); open(f"{B}/poprawki-{L}.json",'a').write('\n')
+tot={w:sum(licz[i][w] for i in licz) for w in W}
+pj={w:sum(1 for x in allp if x['waga']==w) for w in W}
+o=[f"# Pełny przegląd przekładu pl → {L}: znaleziska (sesja AR, 2026-11-10)\n",
+f"Baza: `claude/sleepy-brahmagupta-2065nu` @ 016317e. Metoda: `../instrukcja-przegladu.md`; 16 niezależnych recenzentów AI w świeżym kontekście (ten sam model co sesja), każdy czyta swój zakres w całości obok źródła pl. To drugi przegląd AI, nie ocena rodzimego użytkownika języka. Szczegóły, pokrycie, „Do sprawdzenia przez człowieka” i uwagi do źródła pl: pliki `czesci/{L}-<ID>.md`. Poprawki do nałożenia: `poprawki-{L}.json` (format `docs/lokalizacja/narzedzia/poprawki.mjs`: jezyk, cel, stary, nowy, waga, powod, grupa; kolejność = kolejność nakładania).\n",
+"## Liczby\n","| część | KRYT | WYS | ŚR | NISKIE | poprawek JSON |","|---|---|---|---|---|---|"]
+for i in ORD:
+    if i in licz: o.append(f"| {L}-{i} | "+" | ".join(str(licz[i][w]) for w in W)+f" | {licz[i].get('json','brak')} |")
+o.append(f"| **razem** | "+" | ".join(f"**{tot[w]}**" for w in W)+f" | **{len(allp)}** (KRYT {pj['KRYT']}, WYS {pj['WYS']}, ŚR {pj['ŚR']}, NISKIE {pj['NISKIE']}) |\n")
+if brak: o.append("Brak części: "+", ".join(brak)+"\n")
+o+=["## Znaleziska (od najpoważniejszych)\n","| część | waga | plik:linia | było | ma być | powód | pewność | JSON |","|---|---|---|---|---|---|---|---|"]
+for wi,id,c in sorted(rows,key=lambda r:(r[0],ORD.index(r[1]))):
+    c=(c+['','',''])[:8]; o.append(f"| {L}-{id} | {W[wi]} | "+" | ".join(c[2:8])+" |")
+o+=["\n## Pokrycie plików (z części)\n","| część | plik | przeczytany w całości | linie |","|---|---|---|---|"]
+for id,c in pok: o.append(f"| {L}-{id} | "+" | ".join((c+['',''])[:3])+" |")
+open(f"{B}/znaleziska.md",'w',encoding='utf8').write("\n".join(o)+"\n")
+print(L,tot,"json",len(allp),pj,"brak",brak,"wiersze pokrycia",len(pok))

@@ -3628,6 +3628,213 @@
  },
  {
   "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l1-raport.md",
+  "stary": "**Hết giờ**",
+  "nowy": "**Quá thời gian**",
+  "waga": "ŚR",
+  "powod": "m13-l1:95: nazwa stopnia „Przekroczony czas” w raporcie vi to „Quá thời gian” (play.report.verdict.timeout), lekcja ma „Hết giờ”",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "text: \"Lỗi, quyết định thiếu chính xác",
+  "nowy": "text: \"Sai lầm, quyết định thiếu chính xác",
+  "waga": "ŚR",
+  "powod": "m13-l2:33 text: stopień oceny „Błąd” w interfejsie vi i w m13-l1 to „Sai lầm” (play.report.verdict.mistake), tu „lỗi”",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "không phải là lỗi, nên không tạo thẻ",
+  "nowy": "không phải là sai lầm, nên không tạo thẻ",
+  "waga": "ŚR",
+  "powod": "m13-l2:33 why: stopień oceny „Błąd” w interfejsie vi i w m13-l1 to „Sai lầm” (play.report.verdict.mistake), tu „lỗi”",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "Chỉ lỗi, không tính",
+  "nowy": "Chỉ sai lầm, không tính",
+  "waga": "ŚR",
+  "powod": "m13-l2:35 text: stopień oceny „Błąd” w interfejsie vi i w m13-l1 to „Sai lầm” (play.report.verdict.mistake), tu „lỗi”",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "được tính như lỗi",
+  "nowy": "được tính như sai lầm",
+  "waga": "ŚR",
+  "powod": "m13-l2:35 why: stopień oceny „Błąd” w interfejsie vi i w m13-l1 to „Sai lầm” (play.report.verdict.mistake), tu „lỗi” (por. report: „Được tính như sai lầm”)",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "Lỗi, quyết định thiếu chính xác và quyết định sau khi hết giờ sẽ",
+  "nowy": "Sai lầm, quyết định thiếu chính xác và quyết định sau khi hết giờ sẽ",
+  "waga": "ŚR",
+  "powod": "m13-l2:77: stopień oceny „Błąd” w interfejsie vi i w m13-l1 to „Sai lầm” (play.report.verdict.mistake), tu „lỗi”",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "}} lỗi hoặc quyết định thiếu chính xác",
+  "nowy": "}} sai lầm hoặc quyết định thiếu chính xác",
+  "waga": "ŚR",
+  "powod": "m13-l2:85: stopień oceny „Błąd” w interfejsie vi i w m13-l1 to „Sai lầm” (play.report.verdict.mistake), tu „lỗi”",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "đã được chấm",
+  "nowy": "đã được đánh giá",
+  "waga": "NISKIE",
+  "powod": "m13-l2:34 text: „ocenione” w interfejsie i m13-l1 to „(được) đánh giá”, tu „chấm”",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "Quyết định đúng và chấp nhận được",
+  "nowy": "Quyết định phù hợp và chấp nhận được",
+  "waga": "ŚR",
+  "powod": "m13-l2:34 why: stopień „Zgodna” to „Phù hợp” (interfejs: „Quyết định phù hợp và chấp nhận được”), tu „đúng”",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "Khóa khu vực của mô-đun này",
+  "nowy": "Khóa lĩnh vực của mô-đun này",
+  "waga": "ŚR",
+  "powod": "m13-l2:44 text: obszar gry w interfejsie vi to „lĩnh vực” (play.areasHint, report.again „Chơi lĩnh vực”), lekcja ma „khu vực”",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "Khu vực đã mở khóa sau các bài học",
+  "nowy": "Lĩnh vực đã mở khóa sau các bài học",
+  "waga": "ŚR",
+  "powod": "m13-l2:44 why: obszar gry w interfejsie vi to „lĩnh vực” (play.areasHint, report.again „Chơi lĩnh vực”), lekcja ma „khu vực”",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "khu vực chơi „Flop: c-bet”",
+  "nowy": "lĩnh vực chơi “Flop: c-bet”",
+  "waga": "ŚR",
+  "powod": "m13-l2:67: obszar gry w interfejsie vi to „lĩnh vực” (play.areasHint, report.again „Chơi lĩnh vực”), lekcja ma „khu vực”; przy okazji polskie cudzysłowy „…” zamiast “…” używanych w całym przekładzie",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "Đúng: khu vực chỉ chia",
+  "nowy": "Đúng: lĩnh vực chỉ chia",
+  "waga": "ŚR",
+  "powod": "m13-l2:69 why: obszar gry w interfejsie vi to „lĩnh vực” (play.areasHint, report.again „Chơi lĩnh vực”), lekcja ma „khu vực”",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "còn các khu vực chỉ mở",
+  "nowy": "còn các lĩnh vực chỉ mở",
+  "waga": "ŚR",
+  "powod": "m13-l2:71 why: obszar gry w interfejsie vi to „lĩnh vực” (play.areasHint, report.again „Chơi lĩnh vực”), lekcja ma „khu vực”",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "Khu vực chơi là một mô-đun",
+  "nowy": "Lĩnh vực chơi là một mô-đun",
+  "waga": "ŚR",
+  "powod": "m13-l2:89: obszar gry w interfejsie vi to „lĩnh vực” (play.areasHint, report.again „Chơi lĩnh vực”), lekcja ma „khu vực”",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "Khu vực được mở khóa sau khi bạn",
+  "nowy": "Lĩnh vực được mở khóa sau khi bạn",
+  "waga": "ŚR",
+  "powod": "m13-l2:89: obszar gry w interfejsie vi to „lĩnh vực” (play.areasHint, report.again „Chơi lĩnh vực”), lekcja ma „khu vực”",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "đi thẳng đến khu vực có",
+  "nowy": "đi thẳng đến lĩnh vực có",
+  "waga": "ŚR",
+  "powod": "m13-l2:89: obszar gry w interfejsie vi to „lĩnh vực” (play.areasHint, report.again „Chơi lĩnh vực”), lekcja ma „khu vực”",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "Hãy xem điểm đánh giá của",
+  "nowy": "Hãy xem đánh giá của",
+  "waga": "NISKIE",
+  "powod": "m13-l2:52 why: źródło „ocenę każdej decyzji”; „điểm đánh giá” sugeruje wynik punktowy, którego raport nie ma",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "với át và",
+  "nowy": "với lá A và",
+  "waga": "NISKIE",
+  "powod": "m13-l2:15 why: as w pozostałych lekcjach zakresu to „lá A”/„A”, tu jednorazowo „át”",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "giữ nguyên mọi tổ hợp bài",
+  "nowy": "giữ nguyên mọi tay bài",
+  "waga": "NISKIE",
+  "powod": "m13-l2:17 why: „układ” w m0-l1 to „tay bài”; „tổ hợp” w korpusie oznacza też combo",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l2-powtorki.md",
+  "stary": "thứ hạng tổ hợp bài",
+  "nowy": "thứ hạng tay bài",
+  "waga": "NISKIE",
+  "powod": "m13-l2:96: „ranking układów” w m0-l1 to „thứ hạng/xếp hạng tay bài”; jedna nazwa na jedno pojęcie",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m13-l3-przeglad.md",
+  "stary": "các hành động và mức cược ở mỗi",
+  "nowy": "các hành động và kích cỡ cược ở mỗi",
+  "waga": "ŚR",
+  "powod": "m13-l3:80: „rozmiary” w m13-l1 i m13-l2 to „kích cỡ”; „mức cược” to przyjęta nazwa terminu stakes (stawki)",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
+  "cel": "content/vi/lessons/m0-l1-uklady.md",
+  "stary": "{{t:royal-flush|Thùng phá sảnh hoàng gia}}",
+  "nowy": "{{t:royal-flush|Sảnh rồng}}",
+  "waga": "ŚR",
+  "powod": "m0-l1:87: przyjęta nazwa terminu royal-flush w terms-nazwy.yaml to „sảnh rồng”; forma „Thùng phá sảnh hoàng gia” występuje tylko tu",
+  "grupa": "vi-L11"
+ },
+ {
+  "jezyk": "vi",
   "cel": "content/vi/modules.yaml",
   "stary": "Second barrel và draw",
   "nowy": "Second barrel và bài chờ",
