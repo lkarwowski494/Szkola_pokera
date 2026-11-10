@@ -1,0 +1,191 @@
+[
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l1-tekstury.md",
+    "stary": "(bilatéral ou ventral)",
+    "nowy": "(bilatéral ou gutshot)",
+    "waga": "ŚR",
+    "powod": "m5-l1:74: pl „otwarty albo gutshot”; przyjęta nazwa gutshot = „gutshot” (terms-nazwy.yaml fr), „ventral” jedyny raz w korpusie fr",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l1-tekstury.md",
+    "stary": "une {{t:pair|paire}} au {{t:board|tableau}}",
+    "nowy": "une {{t:pair|paire}} sur le {{t:board|board}}",
+    "waga": "ŚR",
+    "powod": "m5-l1:29 (q-connected, why 3): niespójny termin board; przyjęta nazwa „board” (terms-nazwy.yaml fr), tak w m5-l2, m5-l3 i egzaminie",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l1-tekstury.md",
+    "stary": "trois cœurs au {{t:board|tableau}}",
+    "nowy": "trois cœurs sur le {{t:board|board}}",
+    "waga": "ŚR",
+    "powod": "m5-l1:37 (q-monotone, why 1): niespójny termin board; przyjęta nazwa „board” (terms-nazwy.yaml fr)",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l1-tekstury.md",
+    "stary": "trois sont déjà au {{t:board|tableau}}",
+    "nowy": "trois sont déjà sur le {{t:board|board}}",
+    "waga": "ŚR",
+    "powod": "m5-l1:38 (q-monotone, why 2): niespójny termin board; przyjęta nazwa „board” (terms-nazwy.yaml fr)",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l1-tekstury.md",
+    "stary": "les trois cartes du {{t:board|tableau}}",
+    "nowy": "les trois cartes du {{t:board|board}}",
+    "waga": "ŚR",
+    "powod": "m5-l1:58: niespójny termin board; przyjęta nazwa „board” (terms-nazwy.yaml fr)",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l1-tekstury.md",
+    "stary": "qu'aucune paire de cartes ne tient dans",
+    "nowy": "que deux cartes ne tiennent jamais dans",
+    "waga": "NISKIE",
+    "powod": "m5-l1:76: pl „żadne dwie”; „paire de cartes” myli się z terminem paire (układ); w m5-l1:28 to samo oddano jako „combinaison de deux cartes”",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l2-przewagi.md",
+    "stary": "{{t:overpair|overpairs}}",
+    "nowy": "{{t:overpair|overpaires}}",
+    "waga": "ŚR",
+    "powod": "m5-l2:27 (q-765, why 2): przyjęta nazwa overpair = „overpaire” (terms-nazwy.yaml fr); forma angielska",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "Le flop est {{t:monotone|monochrome}}",
+    "nowy": "Le flop est {{t:monotone|monocolore}}",
+    "waga": "ŚR",
+    "powod": "m5-l3:76 (q-mono prompt): niespójny termin monotone; przyjęta nazwa „monocolore” (terms-nazwy.yaml fr), tak w m5-l1 i egzaminie",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "Sur un flop {{t:monotone|monochrome}}, un gros",
+    "nowy": "Sur un flop {{t:monotone|monocolore}}, un gros",
+    "waga": "ŚR",
+    "powod": "m5-l3:80 (q-mono, why 2): niespójny termin monotone; przyjęta nazwa „monocolore”",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "{{t:paired|Pairé}} et {{t:monotone|monochrome}}",
+    "nowy": "{{t:paired|Pairé}} et {{t:monotone|monocolore}}",
+    "waga": "ŚR",
+    "powod": "m5-l3:118 (nagłówek): niespójny termin monotone; przyjęta nazwa „monocolore”",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "Sur un flop {{t:monotone|monochrome}}, p. ex.",
+    "nowy": "Sur un flop {{t:monotone|monocolore}}, p. ex.",
+    "waga": "ŚR",
+    "powod": "m5-l3:120: niespójny termin monotone; przyjęta nazwa „monocolore”",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "un flop {{t:monotone|monochrome}} est toujours",
+    "nowy": "un flop {{t:monotone|monocolore}} est toujours",
+    "waga": "ŚR",
+    "powod": "m5-l3:122: niespójny termin monotone; przyjęta nazwa „monocolore”",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "{{t:monotone|monochrome}} : moins souvent et petit",
+    "nowy": "{{t:monotone|monocolore}} : moins souvent et petit",
+    "waga": "ŚR",
+    "powod": "m5-l3:133 (note): niespójny termin monotone; przyjęta nazwa „monocolore”",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "Une main non pairée rate le flop",
+    "nowy": "Une main sans {{t:pair|paire}} rate le flop",
+    "waga": "WYS",
+    "powod": "m5-l3:130: zgubiony znacznik {{t:pair|…}} (pl „Ręka bez {{t:pair|pary}}”); poprawka celowo przywraca znacznik t:pair, brzmienie jak w m5-l4:103",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "de mains hauteur as qui",
+    "nowy": "de mains avec un as qui",
+    "waga": "NISKIE",
+    "powod": "m5-l3:51 (q-kj, why 3): pl „rąk z asem”; „hauteur as” = as wysoka (bez pary), węższe niż źródło",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
+    "stary": "car ces chiffres proviennent de résultats de solvers",
+    "nowy": "car ces chiffres proviennent de résultats de solveurs",
+    "waga": "NISKIE",
+    "powod": "m5-l3:133 (note): „solvers” obok „solveurs” w tym samym akapicie i pliku",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l4-bez-pozycji.md",
+    "stary": "vous réalisez son equity",
+    "nowy": "vous réalisez son équité",
+    "waga": "ŚR",
+    "powod": "m5-l4:27 (q-oop-why, why 3): przyjęta nazwa equity = „équité” (terms-nazwy.yaml fr), tak w egzaminie m5 q9",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l4-bez-pozycji.md",
+    "stary": "le {{t:bluff}} doit passer les deux",
+    "nowy": "le {{t:bluff}} doit passer face aux deux",
+    "waga": "NISKIE",
+    "powod": "m5-l4:47 (q-multi, why 2): pl „musi przejść przez obu”; „passer les deux” niegramatyczne, w egzaminie q8 „passer face aux deux adversaires”",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m5-l4-bez-pozycji.md",
+    "stary": "doit passer tout le monde",
+    "nowy": "doit passer face à tous",
+    "waga": "NISKIE",
+    "powod": "m5-l4:103: pl „musi przejść przez wszystkich”; „passer tout le monde” niegramatyczne, w egzaminie q4 „passe rarement face à tous”",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m5.yaml",
+    "stary": "six hauteurs différentes",
+    "nowy": "six rangs différents",
+    "waga": "ŚR",
+    "powod": "exams/m5 q4 prompt (linia 38): pl „sześć różnych rang”; ranga = „rang” w m5-l1 i m5-l4:63 („quatre rangs différents”), „hauteur” w m5-l1 to wysokość flopa",
+    "grupa": "fr-L3"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m5.yaml",
+    "stary": "{{t:monotone|monotones}}",
+    "nowy": "{{t:monotone|monocolores}}",
+    "waga": "ŚR",
+    "powod": "exams/m5 q10 why 2 (linia 99): przyjęta nazwa monotone = „monocolore” (terms-nazwy.yaml fr); „monotone” po francusku znaczy „jednostajny”",
+    "grupa": "fr-L3"
+  }
+]

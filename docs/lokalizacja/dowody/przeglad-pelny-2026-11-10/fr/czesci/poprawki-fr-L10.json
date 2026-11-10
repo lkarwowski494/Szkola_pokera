@@ -1,0 +1,380 @@
+[
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l3-tilt.md",
+    "stary": "lisez la fiche sur le jeu responsable",
+    "nowy": "lisez l'encadré « Jeu responsable »",
+    "waga": "ŚR",
+    "powod": "m12-l3:133: pl „kartę o odpowiedzialnej grze”; ta sama ramka w m12-l4:102 i jej tytuł (m12-l4:143) to „l'encadré « Jeu responsable »” — jedna nazwa na odesłanie do treści krytycznej",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m12.yaml",
+    "stary": "text: \"Le tilt d'erreur\"",
+    "nowy": "text: \"Le tilt de l'erreur\"",
+    "waga": "ŚR",
+    "powod": "exam m12:56: q6: nazwa typu tiltu w lekcji m12-l3 (16, 42, 43, 53) to „tilt de l'erreur”; pytanie odwołuje się do podziału z lekcji",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m12.yaml",
+    "stary": "Le tilt d'erreur, c'est",
+    "nowy": "Le tilt de l'erreur, c'est",
+    "waga": "ŚR",
+    "powod": "exam m12:56: q6 why: nazwa typu tiltu jak w lekcji m12-l3 („tilt de l'erreur”)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l4-bankroll.md",
+    "stary": "C'est du tilt par désespoir",
+    "nowy": "C'est du tilt de désespoir",
+    "waga": "ŚR",
+    "powod": "m12-l4:51: q-move-up/move-down why: nazwa typu tiltu w m12-l3 (17, 33, 71) to „tilt de désespoir”",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "à partir de quand le talent commence à l'emporter",
+    "nowy": "à partir de quand la compétence commence à l'emporter",
+    "waga": "ŚR",
+    "powod": "m12-l2:74: pl „umiejętność” (skill, rzecz wyuczona), „talent” sugeruje wrodzony dar; w tym samym pliku „écart de niveau”",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "le talent ne commençait à l'emporter",
+    "nowy": "la compétence ne commençait à l'emporter",
+    "waga": "ŚR",
+    "powod": "m12-l2:112: pl „umiejętność zaczynała przeważać”; „talent” ≠ umiejętność",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "equity.\"",
+    "nowy": "équité.\"",
+    "waga": "ŚR",
+    "powod": "m12-l2:16: termin equity: terms-nazwy.yaml fr = „équité”; pl ma tu nieoznaczone „equity”",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "equity au",
+    "nowy": "équité au",
+    "waga": "ŚR",
+    "powod": "m12-l2:17: termin equity: terms-nazwy.yaml fr = „équité”; pl ma tu nieoznaczone „equity”",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "{{n:eq.bet-quarter}} d'equity et vous",
+    "nowy": "{{n:eq.bet-quarter}} d'équité et vous",
+    "waga": "ŚR",
+    "powod": "m12-l2:31: termin equity: terms-nazwy.yaml fr = „équité”; pl ma tu nieoznaczone „equity”",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "equity et",
+    "nowy": "équité et",
+    "waga": "ŚR",
+    "powod": "m12-l2:40: termin equity: terms-nazwy.yaml fr = „équité”; pl ma tu nieoznaczone „equity”",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "prix, l'equity face à",
+    "nowy": "prix, l'équité face à",
+    "waga": "ŚR",
+    "powod": "m12-l2:49: termin equity: terms-nazwy.yaml fr = „équité”; pl ma tu nieoznaczone „equity”",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "equity que",
+    "nowy": "équité que",
+    "waga": "ŚR",
+    "powod": "m12-l2:85: termin equity: terms-nazwy.yaml fr = „équité”; pl ma tu nieoznaczone „equity”",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "equity",
+    "nowy": "équité",
+    "waga": "ŚR",
+    "powod": "m12-l2:106: termin equity: terms-nazwy.yaml fr = „équité”; pl ma tu nieoznaczone „equity”",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m12.yaml",
+    "stary": "equity,",
+    "nowy": "équité,",
+    "waga": "ŚR",
+    "powod": "exam m12:45: termin equity: terms-nazwy.yaml fr = „équité”",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m12.yaml",
+    "stary": "equity",
+    "nowy": "équité",
+    "waga": "ŚR",
+    "powod": "exam m12:46: termin equity: terms-nazwy.yaml fr = „équité”",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "{{t:standard-deviation|écart type}} d'env.",
+    "nowy": "{{t:standard-deviation|écart-type}} d'env.",
+    "waga": "NISKIE",
+    "powod": "m12-l2:68: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "{{t:standard-deviation|écart type}}",
+    "nowy": "{{t:standard-deviation|écart-type}}",
+    "waga": "NISKIE",
+    "powod": "m12-l2:77: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l4-bankroll.md",
+    "stary": "avec un {{t:standard-deviation|écart type}} de {{n:var.sd}}",
+    "nowy": "avec un {{t:standard-deviation|écart-type}} de {{n:var.sd}}",
+    "waga": "NISKIE",
+    "powod": "m12-l4:20: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l4-bankroll.md",
+    "stary": "{{n:br.bi.base}} {{t:buy-in|buy-ins}}, un {{t:standard-deviation|écart type}} de {{n:var.sd}}, mais un",
+    "nowy": "{{n:br.bi.base}} {{t:buy-in|buy-ins}}, un {{t:standard-deviation|écart-type}} de {{n:var.sd}}, mais un",
+    "waga": "NISKIE",
+    "powod": "m12-l4:29: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l4-bankroll.md",
+    "stary": "un {{t:standard-deviation|écart type}} de {{n:var.sd}},",
+    "nowy": "un {{t:standard-deviation|écart-type}} de {{n:var.sd}},",
+    "waga": "NISKIE",
+    "powod": "m12-l4:38: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l4-bankroll.md",
+    "stary": "{{t:standard-deviation|écart type}}",
+    "nowy": "{{t:standard-deviation|écart-type}}",
+    "waga": "NISKIE",
+    "powod": "m12-l4:123: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m12.yaml",
+    "stary": "{{n:var.wr.typical.high}} avec un {{t:standard-deviation|écart type}} de {{n:var.sd}} et",
+    "nowy": "{{n:var.wr.typical.high}} avec un {{t:standard-deviation|écart-type}} de {{n:var.sd}} et",
+    "waga": "NISKIE",
+    "powod": "exam m12:7: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m12.yaml",
+    "stary": "{{t:buy-in|buy-ins}}. L'{{t:standard-deviation|écart type}} du résultat",
+    "nowy": "{{t:buy-in|buy-ins}}. L'{{t:standard-deviation|écart-type}} du résultat",
+    "waga": "NISKIE",
+    "powod": "exam m12:9: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m12.yaml",
+    "stary": "{{t:standard-deviation|écart type}} du",
+    "nowy": "{{t:standard-deviation|écart-type}} du",
+    "waga": "NISKIE",
+    "powod": "exam m12:10: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m12.yaml",
+    "stary": "votre {{t:standard-deviation|écart type}} de",
+    "nowy": "votre {{t:standard-deviation|écart-type}} de",
+    "waga": "NISKIE",
+    "powod": "exam m12:16: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m12.yaml",
+    "stary": "votre {{t:standard-deviation|écart type}} est",
+    "nowy": "votre {{t:standard-deviation|écart-type}} est",
+    "waga": "NISKIE",
+    "powod": "exam m12:25: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m12.yaml",
+    "stary": "{{t:standard-deviation|écart type}} plus",
+    "nowy": "{{t:standard-deviation|écart-type}} plus",
+    "waga": "NISKIE",
+    "powod": "exam m12:27: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m12.yaml",
+    "stary": "un {{t:standard-deviation|écart type}} de {{n:var.sd}}\",",
+    "nowy": "un {{t:standard-deviation|écart-type}} de {{n:var.sd}}\",",
+    "waga": "NISKIE",
+    "powod": "exam m12:28: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m12.yaml",
+    "stary": "\"L'{{t:standard-deviation|écart type}} est",
+    "nowy": "\"L'{{t:standard-deviation|écart-type}} est",
+    "waga": "NISKIE",
+    "powod": "exam m12:28: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m12.yaml",
+    "stary": "{{t:standard-deviation|écart type}} est",
+    "nowy": "{{t:standard-deviation|écart-type}} est",
+    "waga": "NISKIE",
+    "powod": "exam m12:34: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m12.yaml",
+    "stary": "{{t:standard-deviation|écart type}} de",
+    "nowy": "{{t:standard-deviation|écart-type}} de",
+    "waga": "NISKIE",
+    "powod": "exam m12:71: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m12.yaml",
+    "stary": "{{t:standard-deviation|écart type}} ne",
+    "nowy": "{{t:standard-deviation|écart-type}} ne",
+    "waga": "NISKIE",
+    "powod": "exam m12:89: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m12.yaml",
+    "stary": "{{t:standard-deviation|écart type}}",
+    "nowy": "{{t:standard-deviation|écart-type}}",
+    "waga": "NISKIE",
+    "powod": "exam m12:93: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "{{n:var.hands.k}} milliers de mains",
+    "nowy": "{{n:var.hands.k}} mille mains",
+    "waga": "NISKIE",
+    "powod": "m12-l2:68: wszędzie indziej w module „{{n:…}} mille mains”; „100 milliers de mains” niepoprawne",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "contre les {{n:skill.pct}} plus faibles",
+    "nowy": "contre les {{n:skill.pct}} les plus faibles",
+    "waga": "NISKIE",
+    "powod": "m12-l2:67: stopień najwyższy („najsłabszego”) wymaga rodzajnika: „les plus faibles”; bez niego czyta się jak stopień wyższy",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "devancent les {{n:skill.pct}} plus faibles",
+    "nowy": "devancent les {{n:skill.pct}} les plus faibles",
+    "waga": "NISKIE",
+    "powod": "m12-l2:76: stopień najwyższy: „les plus faibles”",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
+    "stary": "devançaient les {{n:skill.pct}} plus faibles",
+    "nowy": "devançaient les {{n:skill.pct}} les plus faibles",
+    "waga": "NISKIE",
+    "powod": "m12-l2:112: stopień najwyższy: „les plus faibles”",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l3-tilt.md",
+    "stary": "relance sur vos blinds",
+    "nowy": "relance sur vos blindes",
+    "waga": "NISKIE",
+    "powod": "m12-l3:22: pisownia: terms-nazwy.yaml „blinde”, w korpusie przeważa „blindes”",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l3-tilt.md",
+    "stary": "ce qui vous déclenche",
+    "nowy": "ce qui déclenche votre tilt",
+    "waga": "NISKIE",
+    "powod": "m12-l3:78: kalka „co cię wyzwala”; po francusku wyzwala się tilt, nie gracza (por. m12-l3:118 „ce qui le déclenche”)",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l3-tilt.md",
+    "stary": "Votre jeu a un écart",
+    "nowy": "Votre niveau de jeu varie",
+    "waga": "NISKIE",
+    "powod": "m12-l3:130: kalka „gra ma rozrzut”; „a un écart” jest po francusku niezręczne i niejasne",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l4-bankroll.md",
+    "stary": "Elle le protège de la faillite",
+    "nowy": "Elle le protège de la ruine",
+    "waga": "NISKIE",
+    "powod": "m12-l4:77: pl „bankructwo” = to samo pojęcie co w {{t:risk-of-ruin}} („risque de ruine”); „faillite” to inne słowo na to samo pojęcie",
+    "grupa": "fr-L10"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m12-l1-wariancja.md",
+    "stary": "fait normalement partie du jeu d'un joueur gagnant",
+    "nowy": "est une composante normale du jeu d'un joueur gagnant",
+    "waga": "NISKIE",
+    "powod": "m12-l1:65: pl „jest normalną częścią gry”; „fait normalement partie” czyta się jak „zwykle należy do”",
+    "grupa": "fr-L10"
+  }
+]
