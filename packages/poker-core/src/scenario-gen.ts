@@ -6,7 +6,7 @@ import { dealCards, rankOf, suitOf } from './cards';
 import { classCombos, classOf, HAND_CLASSES } from './ranges';
 import { analyseOutsSpot, type DrawKind } from './drills';
 import { nutOutsShare, NUT_DRAW_MIN_SHARE, rangeVerdict } from './grading';
-import { classifyHolding } from './holding';
+import { classifyHolding, type HoldingClass } from './holding';
 import { hitProbability, requiredEquity } from './math';
 import { createRng, pick } from './rng';
 import { SUIT_PERMUTATIONS } from './situation';
@@ -34,7 +34,24 @@ export interface RangeSpotSpec {
   street: 'preflop';
   spot: string;
 }
-export type DecisionSpec = DrawCallSpec | RangeSpotSpec;
+/** F2: c-bet na flopie; `rule` to reguła, której przypadek (`cases`) dopasowany po teksturze flopu daje poprawną akcję (grading.ts, cbet-case). */
+export interface CbetCaseSpec {
+  kind: 'cbet-case';
+  street: 'flop';
+  rule: string;
+}
+export type DecisionSpec = DrawCallSpec | RangeSpotSpec | CbetCaseSpec;
+
+/** Akcje punktu cbet-case (bet-small/bet-big to rozmiar c-betu małym/dużym, grading.ts `chosen`). */
+export type CbetCaseAction = 'check' | 'bet-small' | 'bet-big';
+/** Klasa ręki gracza względem flopu dla filtru poziomu (F2). */
+export type HoldingFilter = 'air' | 'pair' | 'draw';
+/** Przypadek c-betu z treści (EvalRule.check.cases): tekstura flopu → najlepszy plan; `rule` wskazuje regułę, z której wynika. */
+export interface CbetCaseData {
+  when: TextureFilter;
+  best: 'check' | 'small' | 'big';
+  rule?: string;
+}
 
 /** Spot zakresu dla generatora (CompiledRangeSpot z content-build): akcje węzła solvera z częstościami dla 169 klas. */
 export interface RangeSpotData {
@@ -47,6 +64,8 @@ export interface GeneratorContext {
   spots: readonly RangeSpotData[];
   /** range.mixed.min i range.mixed.low z numbers.yaml (ADR-26). */
   thresholds: { mixedMin: number; mixedLow: number };
+  /** F2: przypadki c-betu z reguł cbet-case (kolejność jak w treści; pierwszy pasujący po teksturze, jak grading.ts). */
+  cbetCases?: readonly CbetCaseData[];
 }
 export interface LevelBounds {
   draws: readonly DrawKind[];
@@ -59,6 +78,8 @@ export interface LevelBounds {
   drawToBest?: boolean;
   /** F5: margines osobno na punkt decyzji (po jednym na punkt); zastępuje marginMin/marginMax. */
   margins?: readonly { min: number; max: number | null }[];
+  /** F2: ręka gracza z jednej z tych klas względem flopu (brak = dowolna). */
+  holding?: readonly HoldingFilter[];
   /** F1: przedział częstości akcji oczekiwanej na punkt decyzji range-spot (null = inny rodzaj punktu); min ≤ f ≤ max. */
   freqs?: readonly ({ min: number; max: number } | null)[];
   /**
@@ -100,7 +121,16 @@ export interface RangeSpotVariantDecision {
   /** Częstość akcji oczekiwanej. */
   freq: number;
 }
-export type VariantDecision = DrawCallVariantDecision | RangeSpotVariantDecision;
+export interface CbetCaseVariantDecision {
+  point: 'cbet-case';
+  street: 'flop';
+  rule: string;
+  /** Poprawna akcja z przypadku c-betu dla tekstury flopu (jak oracle grading.ts: compliant). */
+  correct: CbetCaseAction;
+  /** Klasa ręki gracza względem flopu (classifyHolding.cls). */
+  holding: HoldingClass;
+}
+export type VariantDecision = DrawCallVariantDecision | RangeSpotVariantDecision | CbetCaseVariantDecision;
 export interface ScenarioVariant {
   templateId: string;
   level: ScenarioLevel;
@@ -123,6 +153,13 @@ export const MAX_CONSECUTIVE_REJECTIONS = 5000; // BR-GEN-003 mówi 1000; po odr
 /** Martwe blindy w puli przed flopem (SB 0,5 + BB 1): wkład gracza preflop ≈ (pula − 1,5) ÷ 2 (F5, linia all-in; jak test szablony-bs). */
 const MARTWE_BLINDY_BB = 1.5;
 const IDENTITY: readonly number[] = [0, 1, 2, 3];
+/** Nazwy planu z przypadku c-betu (CbetAction z content-schema) → akcje punktu cbet-case. */
+const CBET_ACTION: Record<CbetCaseData['best'], CbetCaseAction> = { check: 'check', small: 'bet-small', big: 'bet-big' };
+
+/** Filtr klasy ręki (F2): air = klasa `air` (bez pary i drawa); pair = jedna para z kartą gracza (także kieszonkowa); draw = klasa `draw` (od HOLDING_LIMITS.drawOutsMin outów, bez pary). */
+function holdingMatches(f: HoldingFilter, h: ReturnType<typeof classifyHolding>): boolean {
+  return f === 'air' ? h.cls === 'air' : f === 'pair' ? h.pairKind !== null : h.cls === 'draw';
+}
 const RANK_CHARS = '23456789TJQKA';
 
 /**
@@ -149,9 +186,13 @@ export function variantFingerprint(templateId: string, level: ScenarioLevel, her
 function validateTemplate(t: GeneratorTemplate): void {
   const all = t.decisions;
   const ranges = all.filter((x) => x.kind === 'range-spot');
-  const d = all.filter((x): x is DrawCallSpec => x.kind !== 'range-spot');
+  const d = all.filter((x): x is DrawCallSpec => x.kind !== 'range-spot' && x.kind !== 'cbet-case');
   if (all.length < 1 || all.length > 2) throw new TemplateError(`${t.id}: szablon ma 1 albo 2 punkty decyzji`);
   if (ranges.length > 1 || (ranges.length === 1 && all[0]!.kind !== 'range-spot')) throw new TemplateError(`${t.id}: punkt range-spot jest najwyżej jeden i pierwszy`);
+  const cbets = all.filter((x) => x.kind === 'cbet-case');
+  if (cbets.length > 1 || (cbets.length === 1 && (d.length > 0 || all[all.length - 1]!.kind !== 'cbet-case'))) {
+    throw new TemplateError(`${t.id}: punkt cbet-case jest najwyżej jeden, ostatni i bez punktów draw-call`);
+  }
   if (d.length > 0) {
     // decyzje draw-call: flop, turn (decyzja od turnu) albo flop i turn
     const ok = (d.length === 1 && (d[0]!.street === 'flop' || d[0]!.street === 'turn')) || (d.length === 2 && d[0]!.street === 'flop' && d[1]!.street === 'turn');
@@ -229,6 +270,18 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
   let previousOuts: readonly Card[] = [];
   for (const [i, spec] of t.decisions.entries()) {
     if (spec.kind === 'range-spot') continue;
+    if (spec.kind === 'cbet-case') {
+      if (!ctx?.cbetCases) throw new TemplateError(`${t.id}: punkt cbet-case wymaga przypadków c-betu (GeneratorContext.cbetCases)`);
+      // jak grading.ts `cbet-case`: pierwszy przypadek pasujący do tekstury; liczy się tylko, gdy wskazuje regułę punktu
+      const c = ctx.cbetCases.find((x) => textureMatches(classifyFlop(flop), x.when));
+      if (!c || c.rule !== spec.rule) return null;
+      const correct = CBET_ACTION[c.best];
+      if (correct !== b.expected[i]) return null; // BR-GEN-003: tylko oczekiwana akcja
+      const h = classifyHolding(hero, flop);
+      if (b.holding && !b.holding.some((f) => holdingMatches(f, h))) return null;
+      points.push({ point: 'cbet-case', street: 'flop', rule: spec.rule, correct, holding: h.cls });
+      continue;
+    }
     const k = draws.length; // numer punktu draw-call (pierwszy losuje pulę, drugi liczy ją z linii)
     const stol = board.slice(0, spec.street === 'flop' ? 3 : 4);
     if (k === 1 && previousOuts.includes(board[3]!)) return null; // linia: karta turnu nie trafia
@@ -262,8 +315,8 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     previousOuts = spot.draw.all;
   }
   if (b.reject.includes('rywal-ma-out-gracza') && villain.some((c) => outCards.includes(c))) return null;
-  const last = [...t.decisions].reverse().find((x) => x.kind !== 'range-spot');
-  const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : [];
+  const last = [...t.decisions].reverse().find((x): x is DrawCallSpec => x.kind !== 'range-spot' && x.kind !== 'cbet-case');
+  const shown = last ? board.slice(0, last.street === 'turn' ? 4 : 3) : t.decisions.some((x) => x.kind === 'cbet-case') ? flop : [];
   return { templateId: t.id, level, seed, hero, villain, board, decisions: draws, points, fingerprint: variantFingerprint(t.id, level, hero, shown) };
 }
 

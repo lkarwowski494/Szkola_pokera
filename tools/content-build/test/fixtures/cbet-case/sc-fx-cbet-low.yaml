@@ -1,0 +1,27 @@
+# Fixture testu CA (F2): c-bet na niskim połączonym flopie (przypadek R-M5-004: best check). Nie jest treścią aplikacji.
+id: sc-fx-cbet-low
+module: m5
+situation: "Fixture: otworzyłeś z Buttona, duży blind sprawdził i czeka na niskim połączonym flopie."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni, trudny]
+bounds:
+  latwy:
+    flop: { height: [low], suits: [rainbow], ranks: [connected] }
+    holding: [air]
+    expected: [check]
+  sredni:
+    flop: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
+    holding: [air, pair]
+    expected: [check]
+  trudny:
+    flop: { height: [low], suits: [rainbow, two-tone], ranks: [connected, semi-connected] }
+    expected: [check]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-004
+    actions:
+      - { action: check, explanation: "Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}, duży blind sprawdził i czeka. Czekasz, bo duży blind broni wielu konektorów, które trafiają taki flop." }
+      - { action: bet-small, explanation: "Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}, duży blind sprawdził i czeka. Mały zakład na niskim połączonym flopie płaci rękom, które ten flop trafiły." }

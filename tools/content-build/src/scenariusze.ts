@@ -4,7 +4,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { ScenarioTemplate, SCENARIO_LEVELS_LIST, type RuleLevel } from '@szkola/content-schema';
-import { findVariantMarkers, generateVariant, VARIANT_MARKERS, type GeneratorContext, type GeneratorTemplate, type RangeSpotData, type ScenarioLevel } from '@szkola/poker-core';
+import { findVariantMarkers, generateVariant, VARIANT_MARKERS, type CbetCaseData, type GeneratorContext, type GeneratorTemplate, type RangeSpotData, type ScenarioLevel } from '@szkola/poker-core';
 
 export interface ScenarioCheckContext {
   /** id reguły → poziom pewności (rules.yaml). */
@@ -13,7 +13,11 @@ export interface ScenarioCheckContext {
   moduleIds: ReadonlySet<string>;
   /** id spotu zakresu → etykiety akcji węzła solvera (F1); bez tego punkty range-spot są błędem. */
   spots?: ReadonlyMap<string, readonly string[]>;
+  /** Przypadki c-betu z reguł cbet-case (F2); bez nich punkty cbet-case są błędem. */
+  cbetCases?: readonly CbetCaseData[];
 }
+/** Akcje punktu cbet-case ↔ plan z przypadku c-betu (CbetAction z content-schema). */
+const CBET_AKCJE = { check: 'check', small: 'bet-small', big: 'bet-big' } as const;
 export interface LoadedScenario { file: string; template: ScenarioTemplate }
 
 const stem = (file: string) => file.replace(/\.yaml$/, '');
@@ -75,7 +79,20 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
           if (t.bounds[l] && !t.bounds[l]!.freqs?.[i]) e.push(`${p} poziom ${l}: punkt range-spot wymaga przedziału freqs`);
         }
       }
-    } else {
+    } else if (d.kind === 'cbet-case') {
+      const przypadki = (ctx.cbetCases ?? []).filter((c) => c.rule === d.rule);
+      if (przypadki.length === 0) e.push(`${p} reguła ${d.rule} nie ma przypadku c-betu (zadanie c-btn: cases z rule: ${d.rule}); punkt cbet-case ocenia przypadek, nie rachunek`);
+      const mozliwe = new Set(przypadki.map((c) => CBET_AKCJE[c.best]));
+      if (new Set(d.actions.map((a) => a.action)).size !== d.actions.length) e.push(`${p} akcja powtórzona`);
+      for (const l of SCENARIO_LEVELS_LIST) {
+        const b = t.bounds[l];
+        if (!b) continue;
+        const ex = b.expected[i];
+        if (ex !== undefined && !d.actions.some((a) => a.action === ex)) e.push(`${p} poziom ${l}: oczekiwana akcja ${ex} nie ma wyjaśnienia (BR-OCE-002)`);
+        if (ex !== undefined && przypadki.length > 0 && !mozliwe.has(ex as 'check')) e.push(`${p} poziom ${l}: oczekiwana akcja ${ex} nie wynika z żadnego przypadku reguły ${d.rule} (są: ${[...mozliwe].join(', ')})`);
+        if (b.flop === undefined) e.push(`${p} poziom ${l}: punkt cbet-case wymaga filtra flop (przypadek c-betu zależy od tekstury)`);
+      }
+    } else if (d.kind === 'draw-call') {
       const akcje = d.actions.map((a) => a.action).sort().join(',');
       if (akcje !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
       for (const l of SCENARIO_LEVELS_LIST) {
@@ -84,6 +101,9 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
         if (t.bounds[l] && t.bounds[l]!.draws.length === 0) e.push(`${p} poziom ${l}: punkt draw-call wymaga listy draws`);
       }
       if (i === 0 && d.pots.length === 0) e.push(`${p} brak puli do losowania`);
+    }
+    if (d.kind !== 'cbet-case') {
+      for (const l of SCENARIO_LEVELS_LIST) if (t.bounds[l]?.holding !== undefined) e.push(`${p} poziom ${l}: holding tylko dla punktu cbet-case`);
     }
     for (const a of d.actions) {
       // BR-OCE-001/002, D-557: pierwsze zdanie wymienia rękę, pozycję i stół z wariantu (znaczniki), a nie z przykładu w treści

@@ -1,0 +1,29 @@
+# Fixture testu CA (F2): c-bet na suchym wysokim flopie (przypadek R-M5-007: best small), poziomy wg klasy ręki. Nie jest treścią aplikacji.
+id: sc-fx-cbet-dry
+module: m5
+situation: "Fixture: otworzyłeś z Buttona, duży blind sprawdził i czeka na suchym wysokim flopie."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 100
+levels: [latwy, sredni, trudny]
+bounds:
+  latwy:
+    flop: { height: [high], suits: [rainbow], ranks: [disconnected], wetness: [dry] }
+    holding: [air]
+    expected: [bet-small]
+  sredni:
+    flop: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected] }
+    holding: [pair]
+    expected: [bet-small]
+  trudny:
+    flop: { height: [high], suits: [rainbow], ranks: [disconnected, semi-connected] }
+    holding: [draw]
+    expected: [bet-small]
+decisions:
+  - street: flop
+    kind: cbet-case
+    rule: R-M5-007
+    actions:
+      - { action: bet-small, explanation: "Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}, duży blind sprawdził i czeka. Stawiasz mało, bo masz przewagę zakresu." }
+      - { action: check, explanation: "Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}, duży blind sprawdził i czeka. Czekanie oddaje darmową kartę rękom, które mały zakład by spasował." }
+      - { action: bet-big, explanation: "Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}, duży blind sprawdził i czeka. Duży zakład na suchym flopie nie jest potrzebny, bo mały wystarcza." }

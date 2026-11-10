@@ -495,6 +495,7 @@ export type ScenarioLevel = z.infer<typeof ScenarioLevel>;
 export const SCENARIO_LEVELS_LIST = ScenarioLevel.options;
 export const ScenarioPosition = z.enum(['UTG', 'UTG1', 'UTG2', 'LJ', 'HJ', 'CO', 'BTN', 'SB', 'BB']);
 export const ScenarioDraw = z.enum(['flush', 'oesd', 'gutshot']);
+export const ScenarioHolding = z.enum(['air', 'pair', 'draw']);
 export const ScenarioReject = z.enum(['rywal-ma-out-gracza', 'stol-sparowany']);
 
 /** Granice losowania poziomu: z czego losuje ręka gracza i stół, margines od progu decyzji, warunki odrzucenia. */
@@ -510,6 +511,8 @@ export const ScenarioLevelBounds = z
     /** Odległość szansy od ceny jako ułamek (0,10 = 10 pp): marginMin ≤ odległość < marginMax (null = bez górnej granicy). */
     marginMin: z.number().min(0).max(1).default(0),
     marginMax: z.number().min(0).max(1).nullable().default(null),
+    /** F2: tylko ręka gracza z tej klasy względem flopu (air: bez pary i drawa; pair: para z kartą gracza; draw: draw od HOLDING_LIMITS.drawOutsMin outów). */
+    holding: z.array(ScenarioHolding).min(1).optional(),
     /** F1: przedział częstości akcji oczekiwanej w spocie solvera na punkt decyzji (null = punkt nie jest range-spot); min ≤ f ≤ max. */
     freqs: z.array(z.object({ min: z.number().min(0).max(1), max: z.number().min(0).max(1) }).strict().nullable()).min(1).max(2).optional(),
     reject: z.array(ScenarioReject).default([]),
@@ -558,7 +561,22 @@ export const ScenarioRangeSpotDecision = z
   .strict()
   .refine(oneSource, ONE_SOURCE_MSG);
 
-export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioDrawCallDecision, ScenarioRangeSpotDecision]);
+/**
+ * F2: c-bet na flopie po otwarciu (BTN) i obronie BB. Poprawna akcja wynika z przypadku c-betu reguły (`cases` zadania
+ * c-btn, dopasowanie po teksturze flopu, przypadek musi wskazywać tę regułę jak w grading.ts): check, bet-small, bet-big.
+ */
+export const ScenarioCbetCaseDecision = z
+  .object({
+    street: z.literal('flop'),
+    kind: z.literal('cbet-case'),
+    rule: id,
+    /** Rachunek nie ocenia c-betu (źródłem jest reguła z przypadkami); pole istnieje tylko dla wspólnego kształtu punktów. */
+    calc: z.never().optional(),
+    actions: z.array(z.object({ action: z.enum(['check', 'bet-small', 'bet-big']), explanation: z.string().min(1) }).strict()).min(2).max(3),
+  })
+  .strict();
+
+export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioDrawCallDecision, ScenarioRangeSpotDecision, ScenarioCbetCaseDecision]);
 export type ScenarioDecision = z.infer<typeof ScenarioDecision>;
 
 export const ScenarioTemplate = z
