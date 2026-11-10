@@ -4,7 +4,7 @@ Wygenerowany z `content/terms.yaml` (`node docs/lokalizacja/narzedzia/glosariusz
 
 Zasady:
 - Nazwa angielska pochodzi z przeczytanego źródła (kolumna „Źródło”, pełny cytat w `terms.yaml`, pole `source`). Tłumacz nie wymyśla nazwy; brak terminu w źródle to pytanie `[DO USTALENIA]` do roli 06.
-- W tekście en znacznik `{{t:klucz}}` daje samą nazwę angielską, bez nawiasu (D-287); polska nazwa będąca skrótem (UTG, SPR, ICM) zostaje skrótem. Forma `{{t:klucz|forma}}` w przekładzie to postać w języku docelowym (np. liczba mnoga „flushes”); klucz bez zmian.
+- W tekście en znacznik `{{t:klucz}}` daje samą nazwę angielską, bez nawiasu (D-287); polska nazwa będąca skrótem (SPR, ICM) zostaje skrótem; UTG ma od D-520 nazwę opisową, a w treści formę `{{t:utg|UTG}}`. Forma `{{t:klucz|forma}}` w przekładzie to postać w języku docelowym (np. liczba mnoga „flushes”); klucz bez zmian.
 - Pozostałe języki (fala 1, K-05): do decyzji 09 z 06; robocze założenie jak w Treningu — nazwa angielska.
 - Nie tłumaczyć: nazwy własne (solver, tytuły książek, autorzy), notacja kart `[[As Kd]]`, skróty pozycji i akcji przy stole.
 - Definicje (kolumna „Znaczenie”) są po polsku; ich przekład to osobna jednostka K5 (ćwiczenie „definicja → termin” w en czeka na nią, D-293).
@@ -56,7 +56,7 @@ Terminów: 162.
 | `out-of-position` | bez pozycji | Sytuacja gracza, który po flopie działa przed rywalem, więc decyduje, nie znając jego zagrania. | https://gtowizard.com/en/glossary/ | out of position | skrót OOP |
 | `early-position` | wczesna pozycja | Pierwsze miejsca do działania przed flopem (np. UTG); za Tobą jest jeszcze wielu graczy. | https://gtowizard.com/en/glossary/ | early position | skrót EP |
 | `late-position` | późna pozycja | Miejsca, które działają jako ostatnie: Button i miejsca tuż przed nim, zwłaszcza Cutoff. | https://gtowizard.com/en/glossary/ | late position | — |
-| `utg` | UTG | Pierwszy gracz do działania przed flopem, siedzący bezpośrednio na lewo od dużego blinda. | https://gtowizard.com/en/glossary/ | under the gun | w tekście en domyślnie „UTG” |
+| `utg` | pierwsza pozycja po blindach | Pierwszy gracz do działania przed flopem, siedzący bezpośrednio na lewo od dużego blinda. | https://gtowizard.com/en/glossary/ | under the gun | skrót UTG; w treści forma `{{t:utg\|UTG}}`, nazwa (en „under the gun”) przy stole i w słowniczku (D-520) |
 | `hijack` | Hijack | Miejsce bezpośrednio przed Cutoffem, czyli drugie na prawo od Buttona. | https://gtowizard.com/en/glossary/ | hijack | skrót HJ |
 | `cutoff` | Cutoff | Miejsce bezpośrednio na prawo od Buttona, działające tuż przed nim. | https://gtowizard.com/en/glossary/ | cutoff | skrót CO |
 | `button` | Button | Miejsce rozdającego, oznaczone krążkiem „dealer”. Po flopie działa jako ostatnie w każdej rundzie licytacji. | https://gtowizard.com/en/glossary/ | button | skrót BTN |

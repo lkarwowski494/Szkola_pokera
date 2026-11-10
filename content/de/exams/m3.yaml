@@ -18,14 +18,14 @@ drills:
     prompt: "Am Tisch sitzen sechs Spieler, die Karten wurden gerade ausgeteilt. Du entscheidest als Erster: Vor dir war noch niemand an der Reihe. Was tust du?"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "Den {{t:big-blind|Big Blind}} {{t:raise|raisen}}", correct: true, why: "AT ungleichfarbig liegt in der {{t:range|Range}} zum {{t:open|Eröffnen}} von {{t:utg}} (ca. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} der Hände). Der Solver der App spielt sie hier immer." }
-      - { text: "{{t:fold|Folden}}", why: "Zu tight. Von {{t:utg}} spielst du eng, aber AT ist noch in der {{t:range|Range}}." }
+      - { text: "Den {{t:big-blind|Big Blind}} {{t:raise|raisen}}", correct: true, why: "AT ungleichfarbig liegt in der {{t:range|Range}} zum {{t:open|Eröffnen}} von {{t:utg|UTG}} (ca. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} der Hände). Der Solver der App spielt sie hier immer." }
+      - { text: "{{t:fold|Folden}}", why: "Zu tight. Von {{t:utg|UTG}} spielst du eng, aber AT ist noch in der {{t:range|Range}}." }
       - { text: "Den {{t:big-blind|Big Blind}} {{t:call|callen}}", why: "Als Erster im Pot {{t:raise|raist}} oder {{t:fold|foldest}} du. Nur den {{t:big-blind|Big Blind}} zu {{t:call|callen}} ist ein {{t:limp|Limp}}: Damit gibst du die {{t:initiative|Initiative}} und die Chance ab, die Blinds sofort zu gewinnen." }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early
     rules: [R-M3-006]
-    prompt: "{{t:utg}} hat {{t:fold|gefoldet}}, du bist als Nächster dran. Was tust du?"
+    prompt: "{{t:utg|UTG}} hat {{t:fold|gefoldet}}, du bist als Nächster dran. Was tust du?"
     table: { hand: "Ah 9d", position: HJ }
     options:
       - { text: "{{t:fold|Folden}}", correct: true, why: "Hinter dir sitzen noch vier Spieler. A9 ungleichfarbig trifft oft ein Ass mit schwächerem Kicker als AT, AJ oder AQ der Gegner. Der Solver der App {{t:fold|foldet}} sie aus dem {{t:hijack|HJ}} immer." }
@@ -81,12 +81,12 @@ drills:
     id: m3.exam.q8
     family: m3.premium
     rules: [R-M3-008]
-    prompt: "{{t:utg}} hat {{t:raise|geraist}}, der Rest hat zu dir {{t:fold|gefoldet}}. Was tust du?"
+    prompt: "{{t:utg|UTG}} hat {{t:raise|geraist}}, der Rest hat zu dir {{t:fold|gefoldet}}. Was tust du?"
     table: { hand: "Ks Kd", position: BTN }
     options:
-      - { text: "Erneut {{t:raise|raisen}} (3-Bet)", correct: true, why: "KK ist eine der stärksten Hände und Favorit gegen die meisten Hände, mit denen {{t:utg}} {{t:open|eröffnet}}. Die 3-Bet baut den {{t:pot|Pot}} auf und lässt dich meist mit einem Gegner allein." }
+      - { text: "Erneut {{t:raise|raisen}} (3-Bet)", correct: true, why: "KK ist eine der stärksten Hände und Favorit gegen die meisten Hände, mit denen {{t:utg|UTG}} {{t:open|eröffnet}}. Die 3-Bet baut den {{t:pot|Pot}} auf und lässt dich meist mit einem Gegner allein." }
       - { text: "Nur {{t:call|callen}}", why: "Wird manchmal zur Täuschung gespielt, aber in der Regel verschenkst du Value und lässt die Blinds billig ins Spiel." }
-      - { text: "{{t:fold|Folden}}, weil {{t:utg}} eine starke {{t:range}} hat", why: "Die {{t:range|Range}} von {{t:utg}} ist eng, aber KK ist gegen sie immer noch klarer Favorit." }
+      - { text: "{{t:fold|Folden}}, weil {{t:utg|UTG}} eine starke {{t:range}} hat", why: "Die {{t:range|Range}} von {{t:utg|UTG}} ist eng, aber KK ist gegen sie immer noch klarer Favorit." }
   - kind: paint
     id: m3.exam.p-co
     family: m3.paint.late

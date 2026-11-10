@@ -43,6 +43,7 @@ in-position: "em posição"  # bez formy 25; formy: em posição×25 · Em posi�
 out-of-position: "fora de posição"  # bez formy 21; formy: fora de posição×39 · Fora de posição×22
 early-position: "posição inicial"  # bez formy 0; formy: posições iniciais×2
 late-position: "posição tardia"  # bez formy 0; formy: posição tardia×1; pt-PT: korpus pt (pt-BR: posição final)
+utg: "under the gun"  # under the gun; w treści forma UTG; źr. https://www.pokerstrategy.com/pt/glossary/Under-the-Gun/ („Under the Gun ( UTG ) refere-se à posição imediatamente à esquerda das blinds”); D-520, odczyt 2026-11-10
 hijack: "hijack"  # bez formy 0; formy: HJ×17
 cutoff: "cutoff"  # bez formy 0; formy: CO×55
 button: "button"  # bez formy 0; formy: BTN×3

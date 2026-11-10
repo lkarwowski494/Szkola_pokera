@@ -14,7 +14,7 @@ drills:
     options:
       - { text: "Button ({{t:button|BTN}})", correct: true, why: "Od flopu Button mówi ostatni, więc zawsze zna decyzje rywali przed swoją." }
       - { text: "{{t:big-blind|Duży blind}}", why: "{{t:big-blind|BB}} płaci mniej za wejście, bo już wpłacił, ale od flopu mówi jako jeden z pierwszych." }
-      - { text: "{{t:utg}}", why: "{{t:utg}} mówi pierwszy preflop i ma za sobą wszystkich graczy przy stole. To najtrudniejsze miejsce do otwierania." }
+      - { text: "{{t:utg|UTG}}", why: "{{t:utg|UTG}} mówi pierwszy preflop i ma za sobą wszystkich graczy przy stole. To najtrudniejsze miejsce do otwierania." }
   - kind: choice
     id: m3.l1.q2
     family: m3.open-early
@@ -22,9 +22,9 @@ drills:
     prompt: "Wszyscy przed tobą {{t:fold|spasowali}}. Co robisz?"
     table: { hand: "Kc 9d", position: UTG }
     options:
-      - { text: "{{t:fold|Pasuję}}", correct: true, why: "K9 w różnych kolorach jest poza {{t:range|zakresem}} {{t:open|otwarcia}} z {{t:utg}}, czyli poza listą rąk, z którymi {{t:open|otwierasz}} z tej {{t:position|pozycji}}. Za tobą jest pięciu graczy i często ktoś ma króla z lepszym kickerem." }
-      - { text: "{{t:raise|Przebijam}}", why: "Z {{t:utg}} {{t:open|otwierasz}} tylko ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk. K9o łatwo trafia króla i przegrywa z KQ albo AK." }
-      - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Samo dopłacenie (limp) z {{t:utg}} to słaby nawyk. Albo ręka jest warta {{t:raise|przebicia}}, albo {{t:fold|pasujesz}}." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "K9 w różnych kolorach jest poza {{t:range|zakresem}} {{t:open|otwarcia}} z {{t:utg|UTG}}, czyli poza listą rąk, z którymi {{t:open|otwierasz}} z tej {{t:position|pozycji}}. Za tobą jest pięciu graczy i często ktoś ma króla z lepszym kickerem." }
+      - { text: "{{t:raise|Przebijam}}", why: "Z {{t:utg|UTG}} {{t:open|otwierasz}} tylko ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk. K9o łatwo trafia króla i przegrywa z KQ albo AK." }
+      - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Samo dopłacenie (limp) z {{t:utg|UTG}} to słaby nawyk. Albo ręka jest warta {{t:raise|przebicia}}, albo {{t:fold|pasujesz}}." }
   - kind: choice
     id: m3.l1.q3
     family: m3.open-late
@@ -58,13 +58,13 @@ Przycisk dealera (**{{t:button|BTN}}**, Button) przesuwa się co rozdanie. Od ni
 
 | {{t:position|Pozycja}} | Kiedy mówi | Jak szeroko {{t:open|otwierać}} |
 |---|---|---|
-| {{t:utg}} | Pierwszy preflop | ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk |
-| {{t:hijack|HJ}}, {{t:cutoff|CO}} | Po {{t:utg}}; {{t:cutoff|CO}} tuż przed Buttonem | coraz szerzej |
+| {{t:utg|UTG}} | Pierwszy preflop | ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk |
+| {{t:hijack|HJ}}, {{t:cutoff|CO}} | Po {{t:utg|UTG}}; {{t:cutoff|CO}} tuż przed Buttonem | coraz szerzej |
 | {{t:button|BTN}} | Ostatni od flopu | ok. {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} rąk |
 | {{t:small-blind|SB}}, {{t:big-blind|BB}} | Ostatni preflop, pierwsi od flopu | {{t:small-blind|SB}} {{t:open|otwiera}}, gdy wszyscy {{t:fold|spasują}} (lekcja o {{t:range|zakresach}}); obrona blindów w module M4 |
 
-**{{t:hijack|HJ}}** (Hijack) siedzi za {{t:utg}}, dwa miejsca przed Buttonem, a **{{t:cutoff|CO}}** (Cutoff) tuż przed Buttonem. To {{t:position|pozycje}} środkowe: za nimi jest mniej graczy niż za {{t:utg}}, więc {{t:open|otwierasz}} z nich szerzej, ale wciąż węziej niż z Buttona.
+**{{t:hijack|HJ}}** (Hijack) siedzi za {{t:utg|UTG}}, dwa miejsca przed Buttonem, a **{{t:cutoff|CO}}** (Cutoff) tuż przed Buttonem. To {{t:position|pozycje}} środkowe: za nimi jest mniej graczy niż za {{t:utg|UTG}}, więc {{t:open|otwierasz}} z nich szerzej, ale wciąż węziej niż z Buttona.
 
 :::note Rozmiar {{t:open|otwarcia}}
-{{t:open|Otwierasz}} {{t:raise|przebiciem}} do {{n:pf.open-size}} z każdej {{t:position|pozycji}}, a z {{t:small-blind|małego blinda}} do {{n:pf.open-size-sb}}. To uproszczenie: w rozwiązaniach solverów {{t:open|otwarcia}} z {{t:early-position|wczesnych pozycji}} są nieco mniejsze (np. {{n:pf.open-size.solver-utg}} z {{t:utg}} i {{n:pf.open-size.solver-co}} z {{t:cutoff|CO}}), ale jeden rozmiar jest łatwiejszy do nauki. Wchodząc jako pierwszy, nie dopłacasz samego blinda (to {{t:limp}}, czyli wejście przez samo {{t:call|sprawdzenie}} {{t:big-blind|dużego blinda}}): {{t:raise}} może od razu wygrać {{t:pot|pulę}} i daje {{t:initiative|inicjatywę}}, bo kto ostatni {{t:raise|przebijał}}, ten zwykle wykonuje następny {{t:bet|zakład}}.
+{{t:open|Otwierasz}} {{t:raise|przebiciem}} do {{n:pf.open-size}} z każdej {{t:position|pozycji}}, a z {{t:small-blind|małego blinda}} do {{n:pf.open-size-sb}}. To uproszczenie: w rozwiązaniach solverów {{t:open|otwarcia}} z {{t:early-position|wczesnych pozycji}} są nieco mniejsze (np. {{n:pf.open-size.solver-utg}} z {{t:utg|UTG}} i {{n:pf.open-size.solver-co}} z {{t:cutoff|CO}}), ale jeden rozmiar jest łatwiejszy do nauki. Wchodząc jako pierwszy, nie dopłacasz samego blinda (to {{t:limp}}, czyli wejście przez samo {{t:call|sprawdzenie}} {{t:big-blind|dużego blinda}}): {{t:raise}} może od razu wygrać {{t:pot|pulę}} i daje {{t:initiative|inicjatywę}}, bo kto ostatni {{t:raise|przebijał}}, ten zwykle wykonuje następny {{t:bet|zakład}}.
 :::

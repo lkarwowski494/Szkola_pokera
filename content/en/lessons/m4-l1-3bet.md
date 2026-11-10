@@ -76,7 +76,7 @@ When someone before you has {{t:open|opened}}, you have three options: {{t:fold}
 
 ## {{t:position|Position}} decides whether to {{t:call}}
 
-According to published solver solutions, the Button facing an {{t:open}} from the {{t:cutoff}} usually 3-bets about {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} of hands and {{t:call|calls}} only about {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}. Against an {{t:open}} from {{t:utg}} (a minimum {{t:open}} in this solution, to {{n:pf.open-size.solver-utg}}), there are already slightly more {{t:call|calls}} than 3-bets: about {{n:pf.call-freq.btn-vs-utg}} versus {{n:pf.3bet-freq.btn-vs-utg}}. The {{t:utg}} {{t:range}} is strong, so a 3-bet more often faces a 4-bet and less often wins the {{t:pot}} right away.
+According to published solver solutions, the Button facing an {{t:open}} from the {{t:cutoff}} usually 3-bets about {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} of hands and {{t:call|calls}} only about {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}. Against an {{t:open}} from {{t:utg|UTG}} (a minimum {{t:open}} in this solution, to {{n:pf.open-size.solver-utg}}), there are already slightly more {{t:call|calls}} than 3-bets: about {{n:pf.call-freq.btn-vs-utg}} versus {{n:pf.3bet-freq.btn-vs-utg}}. The {{t:utg|UTG}} {{t:range}} is strong, so a 3-bet more often faces a 4-bet and less often wins the {{t:pot}} right away.
 
 ```range
 vs-open.btn-vs-co

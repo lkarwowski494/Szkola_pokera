@@ -38,7 +38,7 @@ drills:
     family: m3.paint.early
     rules: [R-M3-002]
     spot: rfi.utg
-    prompt: "You're first to act ({{t:utg}}). Paint the hands you {{t:open}} with."
+    prompt: "You're first to act ({{t:utg|UTG}}). Paint the hands you {{t:open}} with."
 ---
 An {{t:open|opening}} {{t:range}} is the list of hands you {{t:raise}} with when everyone before you has {{t:fold|folded}}. The grids below were calculated by this app's preflop solver for play at a 6-player table with {{n:format.stack}} stacks.
 
@@ -52,7 +52,7 @@ Each cell is one kind of hand. Above the diagonal are suited hands (e.g. AKs), b
 rfi.utg
 ```
 
-From {{t:utg}}, the solver {{t:open|opens}} {{n:solver.rfi.utg}} of hands. Professional sources give {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}.
+From {{t:utg|UTG}}, the solver {{t:open|opens}} {{n:solver.rfi.utg}} of hands. Professional sources give {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}.
 
 ```range
 rfi.hj
@@ -77,7 +77,7 @@ rfi.sb
 The {{t:small-blind}} plays only against the {{t:big-blind}}, so it {{t:open|opens}} about as wide as the Button: around {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} of hands, even though it acts first after the flop. At micro {{t:stakes}}, from the {{t:small-blind}} you either {{t:raise}} or {{t:fold}}, without completing to the {{t:big-blind}}: the {{t:rake}} taken from the {{t:pot}} reduces the profit from completing. This is a simplification: some solver solutions complete with some hands from the {{t:small-blind}}. The app's solver {{t:open|opens}} {{n:solver.rfi.sb}} of hands from here, which is within the interval given by the sources.
 
 :::note At a 9-player table
-At a 9-player table, there are three more {{t:position|positions}} before the {{t:hijack|HJ}}: {{t:utg}}, {{t:utg|UTG}}+1 and {{t:utg|UTG}}+2, followed by the LJ. Eight players then sit behind {{t:utg}}, so from {{t:utg}}, {{t:utg|UTG}}+1 and {{t:utg|UTG}}+2 you {{t:open}} tighter than from {{t:utg}} at a 6-player table: more players sit behind you. When those three players {{t:fold}}, the LJ plays like {{t:utg}} at a 6-player table, and the later {{t:position|positions}} play the same as in the grids above. For the early {{t:position|positions}} at a 9-player table, we give only the direction: we haven't yet checked the numbers or the composition of these {{t:range|ranges}} against published solver solutions.
+At a 9-player table, there are three more {{t:position|positions}} before the {{t:hijack|HJ}}: {{t:utg|UTG}}, {{t:utg|UTG}}+1 and {{t:utg|UTG}}+2, followed by the LJ. Eight players then sit behind {{t:utg|UTG}}, so from {{t:utg|UTG}}, {{t:utg|UTG}}+1 and {{t:utg|UTG}}+2 you {{t:open}} tighter than from {{t:utg|UTG}} at a 6-player table: more players sit behind you. When those three players {{t:fold}}, the LJ plays like {{t:utg|UTG}} at a 6-player table, and the later {{t:position|positions}} play the same as in the grids above. For the early {{t:position|positions}} at a 9-player table, we give only the direction: we haven't yet checked the numbers or the composition of these {{t:range|ranges}} against published solver solutions.
 :::
 
 :::note How to remember

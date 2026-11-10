@@ -76,7 +76,7 @@ Khi có người trước bạn đã {{t:open|mở}}, bạn có ba lựa chọn:
 
 ## {{t:position|Vị trí}} quyết định có nên {{t:call|theo}} hay không
 
-Theo các lời giải solver đã công bố, Button trước lượt {{t:open|mở}} từ {{t:cutoff|CO}} thường 3-bet khoảng {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} số tay, và chỉ {{t:call|theo}} khoảng {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}. Trước lượt {{t:open|mở}} từ {{t:utg}} (trong lời giải này là mở tối thiểu, lên {{n:pf.open-size.solver-utg}}), số lần {{t:call|theo}} đã nhiều hơn một chút so với 3-bet: khoảng {{n:pf.call-freq.btn-vs-utg}} so với {{n:pf.3bet-freq.btn-vs-utg}}. {{t:range|Range}} của {{t:utg}} mạnh, nên 3-bet thường bị 4-bet hơn và ít khi thắng {{t:pot|pot}} ngay hơn.
+Theo các lời giải solver đã công bố, Button trước lượt {{t:open|mở}} từ {{t:cutoff|CO}} thường 3-bet khoảng {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} số tay, và chỉ {{t:call|theo}} khoảng {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}. Trước lượt {{t:open|mở}} từ {{t:utg|UTG}} (trong lời giải này là mở tối thiểu, lên {{n:pf.open-size.solver-utg}}), số lần {{t:call|theo}} đã nhiều hơn một chút so với 3-bet: khoảng {{n:pf.call-freq.btn-vs-utg}} so với {{n:pf.3bet-freq.btn-vs-utg}}. {{t:range|Range}} của {{t:utg|UTG}} mạnh, nên 3-bet thường bị 4-bet hơn và ít khi thắng {{t:pot|pot}} ngay hơn.
 
 ```range
 vs-open.btn-vs-co

@@ -38,7 +38,7 @@ drills:
     family: m3.paint.early
     rules: [R-M3-002]
     spot: rfi.utg
-    prompt: "Du bist als Erster am Zug ({{t:utg}}). Male die Hände an, mit denen du {{t:open|eröffnest}}."
+    prompt: "Du bist als Erster am Zug ({{t:utg|UTG}}). Male die Hände an, mit denen du {{t:open|eröffnest}}."
 ---
 Die {{t:range|Range}} für die {{t:open|Eröffnung}} ist die Liste der Hände, mit denen du {{t:raise|raist}}, wenn alle vor dir {{t:fold|gefoldet}} haben. Die Raster unten hat der Preflop-Solver dieser App für das Spiel an einem 6er-Tisch mit Stacks von {{n:format.stack}} berechnet.
 
@@ -52,7 +52,7 @@ Jedes Feld steht für eine Art von Hand. Über der Diagonalen stehen die Hände 
 rfi.utg
 ```
 
-Von {{t:utg}} {{t:open|eröffnet}} der Solver {{n:solver.rfi.utg}} der Hände. Professionelle Quellen nennen {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}.
+Von {{t:utg|UTG}} {{t:open|eröffnet}} der Solver {{n:solver.rfi.utg}} der Hände. Professionelle Quellen nennen {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}.
 
 ```range
 rfi.hj
@@ -77,7 +77,7 @@ rfi.sb
 Der {{t:small-blind|Small Blind}} spielt nur noch gegen den {{t:big-blind|Big Blind}}, deshalb {{t:open|eröffnet}} er ähnlich breit wie der Button: etwa {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} der Hände, obwohl er nach dem Flop als Erster handelt. Auf {{t:stakes|Mikrolimits}} {{t:raise|raist}} du aus dem {{t:small-blind|Small Blind}} oder {{t:fold|foldest}}, ohne zum {{t:big-blind|Big Blind}} zu komplettieren: Der {{t:rake|Rake}}, der vom {{t:pot|Pot}} abgezogen wird, verringert den Gewinn aus dem Komplettieren. Das ist eine Vereinfachung: Manche Solver-Lösungen komplettieren einen Teil der Hände aus dem {{t:small-blind|Small Blind}}. Der Solver der App {{t:open|eröffnet}} von hier {{n:solver.rfi.sb}} der Hände, also innerhalb der Spanne aus den Quellen.
 
 :::note Am 9er-Tisch
-Am 9er-Tisch gibt es vor dem {{t:hijack|HJ}} noch drei {{t:position|Positionen}}: {{t:utg}}, {{t:utg|UTG}}+1 und {{t:utg|UTG}}+2, danach kommt der LJ. Hinter {{t:utg}} sitzen dann acht Spieler, deshalb {{t:open|eröffnest}} du von {{t:utg}}, {{t:utg|UTG}}+1 und {{t:utg|UTG}}+2 enger als von {{t:utg}} am 6er-Tisch: Hinter dir sitzen mehr Spieler. Wenn diese drei Spieler {{t:fold|folden}}, spielt der LJ wie {{t:utg}} am 6er-Tisch und die späteren {{t:position|Positionen}} genauso wie in den Rastern oben. Für die frühen {{t:position|Positionen}} am 9er-Tisch geben wir nur die Richtung an: Die Zahlen und die Zusammensetzung dieser {{t:range|Ranges}} haben wir noch nicht mit veröffentlichten Solver-Lösungen abgeglichen.
+Am 9er-Tisch gibt es vor dem {{t:hijack|HJ}} noch drei {{t:position|Positionen}}: {{t:utg|UTG}}, {{t:utg|UTG}}+1 und {{t:utg|UTG}}+2, danach kommt der LJ. Hinter {{t:utg|UTG}} sitzen dann acht Spieler, deshalb {{t:open|eröffnest}} du von {{t:utg|UTG}}, {{t:utg|UTG}}+1 und {{t:utg|UTG}}+2 enger als von {{t:utg|UTG}} am 6er-Tisch: Hinter dir sitzen mehr Spieler. Wenn diese drei Spieler {{t:fold|folden}}, spielt der LJ wie {{t:utg|UTG}} am 6er-Tisch und die späteren {{t:position|Positionen}} genauso wie in den Rastern oben. Für die frühen {{t:position|Positionen}} am 9er-Tisch geben wir nur die Richtung an: Die Zahlen und die Zusammensetzung dieser {{t:range|Ranges}} haben wir noch nicht mit veröffentlichten Solver-Lösungen abgeglichen.
 :::
 
 :::note So merkst du es dir

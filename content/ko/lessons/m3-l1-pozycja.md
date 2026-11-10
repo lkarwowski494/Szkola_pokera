@@ -14,7 +14,7 @@ drills:
     options:
       - { text: "버튼 ({{t:button|BTN}})", correct: true, why: "플롭부터 버튼은 마지막에 행동하므로, 자신이 결정하기 전에 항상 상대의 결정을 알 수 있습니다." }
       - { text: "{{t:big-blind|빅 블라인드}}", why: "{{t:big-blind|BB}}는 이미 돈을 냈기 때문에 참여 비용이 적지만, 플롭부터는 가장 먼저 행동하는 쪽에 속합니다." }
-      - { text: "{{t:utg}}", why: "{{t:utg}}는 프리플롭에서 가장 먼저 행동하며, 테이블의 모든 플레이어가 뒤에 있습니다. 오픈하기 가장 어려운 자리입니다." }
+      - { text: "{{t:utg|UTG}}", why: "{{t:utg|UTG}}는 프리플롭에서 가장 먼저 행동하며, 테이블의 모든 플레이어가 뒤에 있습니다. 오픈하기 가장 어려운 자리입니다." }
   - kind: choice
     id: m3.l1.q2
     family: m3.open-early
@@ -22,9 +22,9 @@ drills:
     prompt: "앞의 모든 플레이어가 {{t:fold|폴드}}했습니다. 어떻게 하시겠습니까?"
     table: { hand: "Kc 9d", position: UTG }
     options:
-      - { text: "{{t:fold|폴드}}합니다", correct: true, why: "오프수트 K9은 {{t:utg}} {{t:open|오픈}} {{t:range|레인지}}, 즉 이 {{t:position|포지션}}에서 {{t:open|오픈}}하는 핸드 목록에 들어가지 않습니다. 뒤에 다섯 명의 플레이어가 있고, 누군가 더 좋은 키커의 킹을 가진 경우가 많습니다." }
-      - { text: "{{t:raise|레이즈}}합니다", why: "{{t:utg}}에서는 핸드의 약 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}만 {{t:open|오픈}}합니다. K9o는 킹을 맞추기 쉽지만 KQ나 AK에 집니다." }
-      - { text: "{{t:big-blind|빅 블라인드}} 금액만 맞춥니다", why: "{{t:utg}}에서 금액만 맞추는 것(림프)은 나쁜 습관입니다. 핸드가 {{t:raise|레이즈}}할 가치가 있거나, 아니면 {{t:fold|폴드}}합니다." }
+      - { text: "{{t:fold|폴드}}합니다", correct: true, why: "오프수트 K9은 {{t:utg|UTG}} {{t:open|오픈}} {{t:range|레인지}}, 즉 이 {{t:position|포지션}}에서 {{t:open|오픈}}하는 핸드 목록에 들어가지 않습니다. 뒤에 다섯 명의 플레이어가 있고, 누군가 더 좋은 키커의 킹을 가진 경우가 많습니다." }
+      - { text: "{{t:raise|레이즈}}합니다", why: "{{t:utg|UTG}}에서는 핸드의 약 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}만 {{t:open|오픈}}합니다. K9o는 킹을 맞추기 쉽지만 KQ나 AK에 집니다." }
+      - { text: "{{t:big-blind|빅 블라인드}} 금액만 맞춥니다", why: "{{t:utg|UTG}}에서 금액만 맞추는 것(림프)은 나쁜 습관입니다. 핸드가 {{t:raise|레이즈}}할 가치가 있거나, 아니면 {{t:fold|폴드}}합니다." }
   - kind: choice
     id: m3.l1.q3
     family: m3.open-late
@@ -58,13 +58,13 @@ drills:
 
 | {{t:position|포지션}} | 행동 시점 | {{t:open|오픈}} 범위 |
 |---|---|---|
-| {{t:utg}} | 프리플롭에서 첫 번째 | 핸드의 약 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} |
-| {{t:hijack|HJ}}, {{t:cutoff|CO}} | {{t:utg}} 다음; {{t:cutoff|CO}}는 버튼 바로 앞 | 점점 넓게 |
+| {{t:utg|UTG}} | 프리플롭에서 첫 번째 | 핸드의 약 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} |
+| {{t:hijack|HJ}}, {{t:cutoff|CO}} | {{t:utg|UTG}} 다음; {{t:cutoff|CO}}는 버튼 바로 앞 | 점점 넓게 |
 | {{t:button|BTN}} | 플롭부터 마지막 | 핸드의 약 {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} |
 | {{t:small-blind|SB}}, {{t:big-blind|BB}} | 프리플롭에서 마지막, 플롭부터 첫 번째 | 모두 {{t:fold|폴드}}하면 {{t:small-blind|SB}}가 {{t:open|오픈}}합니다({{t:range|레인지}} 레슨); 블라인드 방어는 M4 모듈에서 다룹니다 |
 
-**{{t:hijack|HJ}}**(Hijack)는 {{t:utg}} 다음, 버튼보다 두 자리 앞에 앉고, **{{t:cutoff|CO}}**(Cutoff)는 버튼 바로 앞에 앉습니다. 이들은 중간 {{t:position|포지션}}입니다. 뒤에 있는 플레이어가 {{t:utg}}보다 적으므로 이 자리에서는 더 넓게 {{t:open|오픈}}하지만, 버튼보다는 여전히 좁게 오픈합니다.
+**{{t:hijack|HJ}}**(Hijack)는 {{t:utg|UTG}} 다음, 버튼보다 두 자리 앞에 앉고, **{{t:cutoff|CO}}**(Cutoff)는 버튼 바로 앞에 앉습니다. 이들은 중간 {{t:position|포지션}}입니다. 뒤에 있는 플레이어가 {{t:utg|UTG}}보다 적으므로 이 자리에서는 더 넓게 {{t:open|오픈}}하지만, 버튼보다는 여전히 좁게 오픈합니다.
 
 :::note {{t:open|오픈}} 사이즈
-모든 {{t:position|포지션}}에서 {{n:pf.open-size}}로 {{t:raise|레이즈}}해 {{t:open|오픈}}하고, {{t:small-blind|스몰 블라인드}}에서는 {{n:pf.open-size-sb}}로 오픈합니다. 이는 단순화한 것입니다. 솔버 솔루션에서는 {{t:early-position|얼리 포지션}}의 {{t:open|오픈}}이 조금 더 작지만(예: {{t:utg}}에서 {{n:pf.open-size.solver-utg}}, {{t:cutoff|CO}}에서 {{n:pf.open-size.solver-co}}), 한 가지 사이즈가 배우기 더 쉽습니다. 처음으로 참여할 때는 블라인드 금액만 내지 않습니다(이것이 {{t:limp}}, 즉 {{t:big-blind|빅 블라인드}}에 단순히 {{t:call|콜}}해서 참여하는 것입니다). {{t:raise}}는 {{t:pot|팟}}을 바로 가져올 수 있고 {{t:initiative|주도권}}을 줍니다. 마지막으로 {{t:raise|레이즈}}한 플레이어가 보통 다음 {{t:bet|베팅}}을 하기 때문입니다.
+모든 {{t:position|포지션}}에서 {{n:pf.open-size}}로 {{t:raise|레이즈}}해 {{t:open|오픈}}하고, {{t:small-blind|스몰 블라인드}}에서는 {{n:pf.open-size-sb}}로 오픈합니다. 이는 단순화한 것입니다. 솔버 솔루션에서는 {{t:early-position|얼리 포지션}}의 {{t:open|오픈}}이 조금 더 작지만(예: {{t:utg|UTG}}에서 {{n:pf.open-size.solver-utg}}, {{t:cutoff|CO}}에서 {{n:pf.open-size.solver-co}}), 한 가지 사이즈가 배우기 더 쉽습니다. 처음으로 참여할 때는 블라인드 금액만 내지 않습니다(이것이 {{t:limp}}, 즉 {{t:big-blind|빅 블라인드}}에 단순히 {{t:call|콜}}해서 참여하는 것입니다). {{t:raise}}는 {{t:pot|팟}}을 바로 가져올 수 있고 {{t:initiative|주도권}}을 줍니다. 마지막으로 {{t:raise|레이즈}}한 플레이어가 보통 다음 {{t:bet|베팅}}을 하기 때문입니다.
 :::

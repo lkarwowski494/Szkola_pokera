@@ -38,7 +38,7 @@ drills:
     family: m3.paint.early
     rules: [R-M3-002]
     spot: rfi.utg
-    prompt: "Vous parlez en premier ({{t:utg}}). Coloriez les mains avec lesquelles vous {{t:open|ouvrez}}."
+    prompt: "Vous parlez en premier ({{t:utg|UTG}}). Coloriez les mains avec lesquelles vous {{t:open|ouvrez}}."
 ---
 Une {{t:range|range}} d'{{t:open|ouverture}} est la liste des mains avec lesquelles vous {{t:raise|relancez}} lorsque tous les joueurs avant vous se sont {{t:fold|couchés}}. Les grilles ci-dessous ont été calculées par le solveur préflop de cette application pour une table à 6 joueurs et des tapis de {{n:format.stack}}.
 
@@ -52,7 +52,7 @@ Chaque case correspond à un type de main. Au-dessus de la diagonale se trouvent
 rfi.utg
 ```
 
-Depuis {{t:utg}}, le solveur {{t:open|ouvre}} {{n:solver.rfi.utg}} des mains. Les sources professionnelles indiquent {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}.
+Depuis {{t:utg|UTG}}, le solveur {{t:open|ouvre}} {{n:solver.rfi.utg}} des mains. Les sources professionnelles indiquent {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}.
 
 ```range
 rfi.hj
@@ -77,7 +77,7 @@ rfi.sb
 La {{t:small-blind|petite blinde}} ne joue plus que contre la {{t:big-blind|grosse blinde}}, elle {{t:open|ouvre}} donc à peu près aussi large que le Bouton : environ {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} des mains, bien qu'elle parle en premier après le flop. En {{t:stakes|micro-limites}}, depuis la {{t:small-blind|petite blinde}}, vous {{t:raise|relancez}} ou vous vous {{t:fold|couchez}}, sans compléter la {{t:big-blind|grosse blinde}} : le {{t:rake|rake}} prélevé sur le {{t:pot|pot}} réduit le gain obtenu en complétant. C'est une simplification : certaines solutions de solveurs complètent avec une partie des mains depuis la {{t:small-blind|petite blinde}}. Le solveur de l'application {{t:open|ouvre}} d'ici {{n:solver.rfi.sb}} des mains, soit dans l'intervalle donné par les sources.
 
 :::note À une table à 9 joueurs
-À une table à 9 joueurs, il y a encore trois {{t:position|positions}} avant le {{t:hijack|HJ}} : {{t:utg}}, {{t:utg|UTG}}+1 et {{t:utg|UTG}}+2, suivies du LJ. Huit joueurs sont alors assis derrière {{t:utg}}, donc depuis {{t:utg}}, {{t:utg|UTG}}+1 et {{t:utg|UTG}}+2, vous {{t:open|ouvrez}} plus serré que depuis {{t:utg}} à une table à 6 joueurs : davantage de joueurs sont assis derrière vous. Lorsque ces trois joueurs se sont {{t:fold|couchés}}, le LJ joue comme {{t:utg}} à une table à 6 joueurs, et les {{t:position|positions}} suivantes de la même façon que dans les grilles ci-dessus. Pour les premières {{t:position|positions}} à une table à 9 joueurs, nous n'indiquons que la tendance : nous n'avons encore vérifié ni les chiffres ni la composition de ces {{t:range|ranges}} par rapport aux solutions de solveurs publiées.
+À une table à 9 joueurs, il y a encore trois {{t:position|positions}} avant le {{t:hijack|HJ}} : {{t:utg|UTG}}, {{t:utg|UTG}}+1 et {{t:utg|UTG}}+2, suivies du LJ. Huit joueurs sont alors assis derrière {{t:utg|UTG}}, donc depuis {{t:utg|UTG}}, {{t:utg|UTG}}+1 et {{t:utg|UTG}}+2, vous {{t:open|ouvrez}} plus serré que depuis {{t:utg|UTG}} à une table à 6 joueurs : davantage de joueurs sont assis derrière vous. Lorsque ces trois joueurs se sont {{t:fold|couchés}}, le LJ joue comme {{t:utg|UTG}} à une table à 6 joueurs, et les {{t:position|positions}} suivantes de la même façon que dans les grilles ci-dessus. Pour les premières {{t:position|positions}} à une table à 9 joueurs, nous n'indiquons que la tendance : nous n'avons encore vérifié ni les chiffres ni la composition de ces {{t:range|ranges}} par rapport aux solutions de solveurs publiées.
 :::
 
 :::note Comment retenir

@@ -61,9 +61,9 @@ describe('treść w języku innym niż polski (rola 09, K2b)', { timeout: 120_00
     const wsp = readFileSync(join(dir, 'ranges/spots.yaml'), 'utf8');
     const naklad = join(dir, 'en/ranges/spots.yaml');
     cpSync(join(dir, 'ranges'), join(dir, 'en/ranges'), { recursive: true, filter: (p) => !p.endsWith('.json') });
-    writeFileSync(naklad, wsp.replace('{{t:utg}}, nikt jeszcze nie wszedł do gry', '{{t:utg}}, nobody has entered the pot yet'));
+    writeFileSync(naklad, wsp.replace('{{t:utg|UTG}}, nikt jeszcze nie wszedł do gry', '{{t:utg|UTG}}, nobody has entered the pot yet').replace('{{t:utg|UTG}} przy stole 9-osobowym, nikt jeszcze nie wszedł do gry', '{{t:utg}} at a 9-player table, nobody has entered the pot yet'));
     const c = compileContent(dir, 'en');
-    expect(c.ranges.map((r) => r.title)).toContain('UTG, nobody has entered the pot yet');
+    expect(c.ranges.map((r) => r.title)).toEqual(expect.arrayContaining(['UTG, nobody has entered the pot yet', 'under the gun at a 9-player table, nobody has entered the pot yet'])); // KO-032/D-520: jawna forma = skrót (intencja D-319), goły znacznik = nazwa (linia stołu)
     expect(compileContent(dir, 'pl').ranges.map((r) => r.title).join('|')).not.toContain('nobody');
     writeFileSync(naklad, wsp.replace(/path: "([^"]*)"/, 'path: "$1x"'));
     expect(() => compileContent(dir, 'en')).toThrow(/ranges\/spots\.yaml: przekład zmienia coś poza tekstem/);

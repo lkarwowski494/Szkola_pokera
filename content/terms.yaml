@@ -391,12 +391,15 @@ late-position:
   forms: [późna pozycja, późnej pozycji, późną pozycję, późne pozycje, późnych pozycji, późnych pozycjach]
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Late Position: A term that generally refers to the Button and positions close to it”"
 utg:
-  pl: UTG
+  # D-520 (KO-028): nazwa opisowa zamiast samego skrótu (linia „Twoja pozycja” przy stole, słowniczek); w lekcjach
+  # znacznik ma formę {{t:utg|UTG}}, więc tekst lekcji się nie zmienia
+  pl: pierwsza pozycja po blindach
   en: under the gun
+  abbr: UTG
   def: "Pierwszy gracz do działania przed flopem, siedzący bezpośrednio na lewo od dużego blinda."
   area: positions
   lesson: m3.l1
-  forms: [UTG]
+  forms: [UTG, pierwsza pozycja po blindach, pierwszej pozycji po blindach, pierwszą pozycję po blindach, pierwszą pozycją po blindach]
   source: "glosariusz serwisu komercyjnego solvera (https://gtowizard.com/en/glossary/): „Under The Gun (UTG): The position to the immediate left of the Big Blind.”; Wikipedia, Glossary of poker terms (https://en.wikipedia.org/wiki/Glossary_of_poker_terms): „under the gun: The playing position to the direct left of the blinds”"
 hijack:
   pl: Hijack

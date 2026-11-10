@@ -43,7 +43,7 @@ in-position: "có vị trí"  # in position; bez formy 31; formy: có vị trí�
 out-of-position: "không có vị trí"  # out of position; bez formy 30; formy: không có vị trí×43, Không có vị trí×7, Khi không có vị trí×2; źr. C:Out of position („không có vị trí”)
 early-position: "vị trí đầu"  # early position; bez formy 0; formy: vị trí đầu×1, các vị trí đầu×1; źr. C:First position („vị trí đầu tiên”) — częściowo
 late-position: "vị trí muộn"  # late position; bez formy 0; formy: vị trí muộn×1; źr. C:Blind steal („từ vị trí muộn”)
-utg: "UTG"  # under the gun; bez formy 30; formy: UTG×17; źr. C:Under the gun
+utg: "under the gun"  # under the gun; w treści forma UTG; źr. C https://ggpoker.com/vi/poker-basics/poker-terms/ („Người chơi ở vị trí under the gun phải hành động đầu tiên trong vòng cược đầu tiên”; serwis operatora — tylko świadectwo uzusu); D-520, odczyt 2026-11-10
 hijack: "hijack"  # hijack; bez formy 0; formy: HJ×17; źr. C:Hijack seat
 cutoff: "cutoff"  # cutoff; bez formy 0; formy: CO×55; źr. C:Cutoff
 button: "button"  # button; bez formy 0; formy: BTN×3; źr. A („Dealer (Button)”); C:Button

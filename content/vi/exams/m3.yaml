@@ -18,14 +18,14 @@ drills:
     prompt: "Bàn có sáu người chơi và bài vừa được chia. Bạn là người quyết định đầu tiên: trước bạn chưa ai chơi. Bạn làm gì?"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|Tố}}", correct: true, why: "AT khác chất nằm trong {{t:range|range}} {{t:open|mở cược}} từ {{t:utg}} (khoảng {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} tay bài). Solver của ứng dụng luôn chơi tay này ở đây." }
-      - { text: "{{t:fold|Bỏ bài}}", why: "Quá chặt. Từ {{t:utg}} bạn chơi hẹp, nhưng AT vẫn nằm trong {{t:range|range}}." }
+      - { text: "{{t:raise|Tố}}", correct: true, why: "AT khác chất nằm trong {{t:range|range}} {{t:open|mở cược}} từ {{t:utg|UTG}} (khoảng {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} tay bài). Solver của ứng dụng luôn chơi tay này ở đây." }
+      - { text: "{{t:fold|Bỏ bài}}", why: "Quá chặt. Từ {{t:utg|UTG}} bạn chơi hẹp, nhưng AT vẫn nằm trong {{t:range|range}}." }
       - { text: "{{t:call|Theo}} {{t:big-blind|big blind}}", why: "Khi vào ván đầu tiên, bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}}. Chỉ {{t:call|theo}} {{t:big-blind|big blind}} được gọi là {{t:limp|limp}}: cách này làm mất {{t:initiative|thế chủ động}} và cơ hội ăn các blind ngay lập tức." }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early
     rules: [R-M3-006]
-    prompt: "{{t:utg}} {{t:fold|bỏ bài}}, bạn là người tiếp theo. Bạn làm gì?"
+    prompt: "{{t:utg|UTG}} {{t:fold|bỏ bài}}, bạn là người tiếp theo. Bạn làm gì?"
     table: { hand: "Ah 9d", position: HJ }
     options:
       - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Sau bạn vẫn còn bốn người chơi. A9 khác chất thường bắt được át với kicker yếu hơn AT, AJ hay AQ của đối thủ. Solver của ứng dụng luôn {{t:fold|bỏ}} tay này ở {{t:hijack|HJ}}." }
@@ -81,12 +81,12 @@ drills:
     id: m3.exam.q8
     family: m3.premium
     rules: [R-M3-008]
-    prompt: "{{t:utg}} {{t:raise|tố}}, những người còn lại {{t:fold|bỏ bài}} đến lượt bạn. Bạn làm gì?"
+    prompt: "{{t:utg|UTG}} {{t:raise|tố}}, những người còn lại {{t:fold|bỏ bài}} đến lượt bạn. Bạn làm gì?"
     table: { hand: "Ks Kd", position: BTN }
     options:
-      - { text: "{{t:raise|Tố}} lại (3-bet)", correct: true, why: "KK là một trong những tay mạnh nhất và chiếm ưu thế trước phần lớn các tay mà {{t:utg}} dùng để {{t:open|mở cược}}. 3-bet giúp xây {{t:pot|pot}} và thường khiến bạn chỉ còn đấu với một đối thủ." }
+      - { text: "{{t:raise|Tố}} lại (3-bet)", correct: true, why: "KK là một trong những tay mạnh nhất và chiếm ưu thế trước phần lớn các tay mà {{t:utg|UTG}} dùng để {{t:open|mở cược}}. 3-bet giúp xây {{t:pot|pot}} và thường khiến bạn chỉ còn đấu với một đối thủ." }
       - { text: "Chỉ {{t:call|theo}}", why: "Đôi khi được chơi để đánh lừa, nhưng theo nguyên tắc chung, bạn bỏ lỡ giá trị và để các blind vào ván với giá rẻ." }
-      - { text: "{{t:fold|Bỏ bài}}, vì {{t:utg}} có {{t:range}} mạnh", why: "{{t:range|Range}} của {{t:utg}} hẹp, nhưng KK vẫn chiếm ưu thế rõ rệt trước nó." }
+      - { text: "{{t:fold|Bỏ bài}}, vì {{t:utg|UTG}} có {{t:range}} mạnh", why: "{{t:range|Range}} của {{t:utg|UTG}} hẹp, nhưng KK vẫn chiếm ưu thế rõ rệt trước nó." }
   - kind: paint
     id: m3.exam.p-co
     family: m3.paint.late

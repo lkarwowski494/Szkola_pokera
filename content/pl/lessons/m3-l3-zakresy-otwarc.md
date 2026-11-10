@@ -38,7 +38,7 @@ drills:
     family: m3.paint.early
     rules: [R-M3-002]
     spot: rfi.utg
-    prompt: "Jesteś pierwszy do mówienia ({{t:utg}}). Pomaluj ręce, którymi {{t:open|otwierasz}}."
+    prompt: "Jesteś pierwszy do mówienia ({{t:utg|UTG}}). Pomaluj ręce, którymi {{t:open|otwierasz}}."
 ---
 {{t:range|Zakres}} {{t:open|otwarcia}} to lista rąk, z którymi {{t:raise|przebijasz}}, gdy wszyscy przed tobą {{t:fold|spasowali}}. Siatki poniżej policzył solver preflop tej aplikacji dla gry przy stole 6-osobowym i stacków {{n:format.stack}}.
 
@@ -52,7 +52,7 @@ Każde pole to jeden rodzaj ręki. Nad przekątną są ręce w jednym kolorze (n
 rfi.utg
 ```
 
-Z {{t:utg}} solver {{t:open|otwiera}} {{n:solver.rfi.utg}} rąk. Profesjonalne źródła podają {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}.
+Z {{t:utg|UTG}} solver {{t:open|otwiera}} {{n:solver.rfi.utg}} rąk. Profesjonalne źródła podają {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}.
 
 ```range
 rfi.hj
@@ -77,7 +77,7 @@ rfi.sb
 {{t:small-blind|Mały blind}} gra już tylko przeciw {{t:big-blind|dużemu blindowi}}, więc {{t:open|otwiera}} podobnie szeroko jak Button: ok. {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} rąk, mimo że po flopie mówi pierwszy. Na {{t:stakes|mikrostawkach}} z {{t:small-blind|małego blinda}} {{t:raise|przebijasz}} albo {{t:fold|pasujesz}}, bez dopłacania do {{t:big-blind|dużego blinda}}: {{t:rake}} pobierany od {{t:pot|puli}} zmniejsza zysk z dopłacania. To uproszczenie: niektóre rozwiązania solverów część rąk z {{t:small-blind|małego blinda}} dopłacają. Solver aplikacji {{t:open|otwiera}} stąd {{n:solver.rfi.sb}} rąk, czyli w przedziale ze źródeł.
 
 :::note Przy stole 9-osobowym
-Przy stole 9-osobowym przed {{t:hijack|HJ}} są jeszcze trzy {{t:position|pozycje}}: {{t:utg}}, {{t:utg|UTG}}+1 i {{t:utg|UTG}}+2, a za nimi LJ. Za {{t:utg}} siedzi wtedy ośmiu graczy, więc z {{t:utg}}, {{t:utg|UTG}}+1 i {{t:utg|UTG}}+2 {{t:open|otwierasz}} węziej niż z {{t:utg}} przy stole 6-osobowym: za tobą siedzi więcej graczy. Gdy ci trzej gracze {{t:fold|spasują}}, LJ gra jak {{t:utg}} przy stole 6-osobowym, a dalsze {{t:position|pozycje}} tak samo jak w siatkach powyżej. Dla wczesnych {{t:position|pozycji}} przy stole 9-osobowym podajemy tylko kierunek: liczb ani składu tych {{t:range|zakresów}} nie sprawdziliśmy jeszcze z opublikowanymi rozwiązaniami solverów.
+Przy stole 9-osobowym przed {{t:hijack|HJ}} są jeszcze trzy {{t:position|pozycje}}: {{t:utg|UTG}}, {{t:utg|UTG}}+1 i {{t:utg|UTG}}+2, a za nimi LJ. Za {{t:utg|UTG}} siedzi wtedy ośmiu graczy, więc z {{t:utg|UTG}}, {{t:utg|UTG}}+1 i {{t:utg|UTG}}+2 {{t:open|otwierasz}} węziej niż z {{t:utg|UTG}} przy stole 6-osobowym: za tobą siedzi więcej graczy. Gdy ci trzej gracze {{t:fold|spasują}}, LJ gra jak {{t:utg|UTG}} przy stole 6-osobowym, a dalsze {{t:position|pozycje}} tak samo jak w siatkach powyżej. Dla wczesnych {{t:position|pozycji}} przy stole 9-osobowym podajemy tylko kierunek: liczb ani składu tych {{t:range|zakresów}} nie sprawdziliśmy jeszcze z opublikowanymi rozwiązaniami solverów.
 :::
 
 :::note Jak zapamiętać

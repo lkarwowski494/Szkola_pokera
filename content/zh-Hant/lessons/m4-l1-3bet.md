@@ -76,7 +76,7 @@ drills:
 
 ## {{t:position|位置}}決定是否{{t:call|跟注}}
 
-根據已公開的求解器解，按鈕位面對 {{t:cutoff|CO}} 的{{t:open|開池}}，通常 3-bet 約 {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} 的手牌，只{{t:call|跟注}}約 {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}。面對 {{t:utg}} 的{{t:open|開池}}（在這個解中是最小尺度，到 {{n:pf.open-size.solver-utg}}），{{t:call|跟注}}已經比 3-bet 略多：約 {{n:pf.call-freq.btn-vs-utg}} 對 {{n:pf.3bet-freq.btn-vs-utg}}。{{t:utg}} 的{{t:range|範圍}}很強，所以 3-bet 更常遭到 4-bet，也更少能直接贏下{{t:pot|底池}}。
+根據已公開的求解器解，按鈕位面對 {{t:cutoff|CO}} 的{{t:open|開池}}，通常 3-bet 約 {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} 的手牌，只{{t:call|跟注}}約 {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}。面對 {{t:utg|UTG}} 的{{t:open|開池}}（在這個解中是最小尺度，到 {{n:pf.open-size.solver-utg}}），{{t:call|跟注}}已經比 3-bet 略多：約 {{n:pf.call-freq.btn-vs-utg}} 對 {{n:pf.3bet-freq.btn-vs-utg}}。{{t:utg|UTG}} 的{{t:range|範圍}}很強，所以 3-bet 更常遭到 4-bet，也更少能直接贏下{{t:pot|底池}}。
 
 ```range
 vs-open.btn-vs-co

@@ -14,7 +14,7 @@ drills:
     options:
       - { text: "Button ({{t:button|BTN}})", correct: true, why: "A partir do flop, o Button age por último, então sempre conhece as decisões dos rivais antes de tomar a sua." }
       - { text: "{{t:big-blind|Big blind}}", why: "O {{t:big-blind|BB}} paga menos para entrar porque já colocou fichas, mas a partir do flop age entre os primeiros." }
-      - { text: "{{t:utg}}", why: "O {{t:utg}} age primeiro no preflop e tem todos os jogadores da mesa atrás de si. É o lugar mais difícil para abrir." }
+      - { text: "{{t:utg|UTG}}", why: "O {{t:utg|UTG}} age primeiro no preflop e tem todos os jogadores da mesa atrás de si. É o lugar mais difícil para abrir." }
   - kind: choice
     id: m3.l1.q2
     family: m3.open-early
@@ -22,9 +22,9 @@ drills:
     prompt: "Todos antes de você {{t:fold|desistiram}}. O que você faz?"
     table: { hand: "Kc 9d", position: UTG }
     options:
-      - { text: "{{t:fold|Desisto}}", correct: true, why: "K9 de naipes diferentes está fora do {{t:range|range}} de {{t:open|abertura}} do {{t:utg}}, ou seja, fora da lista de mãos com as quais você {{t:open|abre}} desta {{t:position|posição}}. Há cinco jogadores atrás de você, e muitas vezes alguém tem um rei com um kicker melhor." }
-      - { text: "{{t:raise|Aumento}}", why: "Do {{t:utg}} você {{t:open|abre}} só cerca de {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} das mãos. K9o acerta um rei com facilidade e perde para KQ ou AK." }
-      - { text: "Pago o {{t:big-blind|big blind}}", why: "Só pagar (limp) do {{t:utg}} é um hábito ruim. Ou a mão vale um {{t:raise|aumento}}, ou você {{t:fold|desiste}}." }
+      - { text: "{{t:fold|Desisto}}", correct: true, why: "K9 de naipes diferentes está fora do {{t:range|range}} de {{t:open|abertura}} do {{t:utg|UTG}}, ou seja, fora da lista de mãos com as quais você {{t:open|abre}} desta {{t:position|posição}}. Há cinco jogadores atrás de você, e muitas vezes alguém tem um rei com um kicker melhor." }
+      - { text: "{{t:raise|Aumento}}", why: "Do {{t:utg|UTG}} você {{t:open|abre}} só cerca de {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} das mãos. K9o acerta um rei com facilidade e perde para KQ ou AK." }
+      - { text: "Pago o {{t:big-blind|big blind}}", why: "Só pagar (limp) do {{t:utg|UTG}} é um hábito ruim. Ou a mão vale um {{t:raise|aumento}}, ou você {{t:fold|desiste}}." }
   - kind: choice
     id: m3.l1.q3
     family: m3.open-late
@@ -58,13 +58,13 @@ O botão do dealer (**{{t:button|BTN}}**, Button) se move a cada mão. Ele defin
 
 | {{t:position|Posição}} | Quando age | Com que amplitude {{t:open|abrir}} |
 |---|---|---|
-| {{t:utg}} | Primeiro no preflop | cerca de {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} das mãos |
-| {{t:hijack|HJ}}, {{t:cutoff|CO}} | Depois do {{t:utg}}; o {{t:cutoff|CO}} logo antes do Button | cada vez mais amplo |
+| {{t:utg|UTG}} | Primeiro no preflop | cerca de {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} das mãos |
+| {{t:hijack|HJ}}, {{t:cutoff|CO}} | Depois do {{t:utg|UTG}}; o {{t:cutoff|CO}} logo antes do Button | cada vez mais amplo |
 | {{t:button|BTN}} | Último a partir do flop | cerca de {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} das mãos |
 | {{t:small-blind|SB}}, {{t:big-blind|BB}} | Últimos no preflop, primeiros a partir do flop | O {{t:small-blind|SB}} {{t:open|abre}} quando todos {{t:fold|desistirem}} (lição sobre {{t:range|ranges}}); defesa dos blinds no módulo M4 |
 
-O **{{t:hijack|HJ}}** (Hijack) fica depois do {{t:utg}}, dois lugares antes do Button, e o **{{t:cutoff|CO}}** (Cutoff), logo antes do Button. São {{t:position|posições}} intermediárias: há menos jogadores atrás delas do que atrás do {{t:utg}}, então você {{t:open|abre}} mais amplo a partir delas, mas ainda mais fechado do que no Button.
+O **{{t:hijack|HJ}}** (Hijack) fica depois do {{t:utg|UTG}}, dois lugares antes do Button, e o **{{t:cutoff|CO}}** (Cutoff), logo antes do Button. São {{t:position|posições}} intermediárias: há menos jogadores atrás delas do que atrás do {{t:utg|UTG}}, então você {{t:open|abre}} mais amplo a partir delas, mas ainda mais fechado do que no Button.
 
 :::note Tamanho da {{t:open|abertura}}
-Você {{t:open|abre}} com um {{t:raise|aumento}} para {{n:pf.open-size}} de qualquer {{t:position|posição}}, e do {{t:small-blind|small blind}} para {{n:pf.open-size-sb}}. Isso é uma simplificação: nas soluções de solvers, as {{t:open|aberturas}} das {{t:early-position|posições iniciais}} são um pouco menores (por exemplo, {{n:pf.open-size.solver-utg}} do {{t:utg}} e {{n:pf.open-size.solver-co}} do {{t:cutoff|CO}}), mas um único tamanho é mais fácil de aprender. Ao entrar primeiro, você não paga só o blind (isso é {{t:limp|limp}}, ou seja, entrar apenas {{t:call|pagando}} o {{t:big-blind|big blind}}): um {{t:raise|aumento}} pode ganhar o {{t:pot|pote}} na hora e dá a você a {{t:initiative|iniciativa}}, porque quem {{t:raise|aumentou}} por último costuma fazer a próxima {{t:bet|aposta}}.
+Você {{t:open|abre}} com um {{t:raise|aumento}} para {{n:pf.open-size}} de qualquer {{t:position|posição}}, e do {{t:small-blind|small blind}} para {{n:pf.open-size-sb}}. Isso é uma simplificação: nas soluções de solvers, as {{t:open|aberturas}} das {{t:early-position|posições iniciais}} são um pouco menores (por exemplo, {{n:pf.open-size.solver-utg}} do {{t:utg|UTG}} e {{n:pf.open-size.solver-co}} do {{t:cutoff|CO}}), mas um único tamanho é mais fácil de aprender. Ao entrar primeiro, você não paga só o blind (isso é {{t:limp|limp}}, ou seja, entrar apenas {{t:call|pagando}} o {{t:big-blind|big blind}}): um {{t:raise|aumento}} pode ganhar o {{t:pot|pote}} na hora e dá a você a {{t:initiative|iniciativa}}, porque quem {{t:raise|aumentou}} por último costuma fazer a próxima {{t:bet|aposta}}.
 :::

@@ -43,7 +43,7 @@ in-position: "인 포지션"  # in position; bez formy 20; formy: 인 포지션�
 out-of-position: "아웃 오브 포지션"  # out of position; bez formy 27; formy: 아웃 오브 포지션×51, 포지션 없이×4; źr. C, D, E;  tłumacz też „포지션 없이”×4
 early-position: "얼리 포지션"  # early position; bez formy 0; formy: 얼리 포지션×2; źr. D, E
 late-position: "레이트 포지션"  # late position; bez formy 1; formy: —; źr. D, E
-utg: "UTG"  # under the gun; bez formy 29; formy: UTG×18; źr. C, D, F
+utg: "언더 더 건"  # under the gun; w treści forma UTG; źr. D https://pokerqz.com/ko/tools/glossary/under-the-gun (nagłówek „언더 더 건 (UTG)”); D-520, odczyt 2026-11-10
 hijack: "하이잭"  # hijack; bez formy 0; formy: HJ×17; źr. C, D
 cutoff: "컷오프"  # cutoff; bez formy 0; formy: CO×54, 컷오프×1; źr. C, D, E
 button: "버튼"  # button; bez formy 0; formy: BTN×3; źr. A, C, D, E, F

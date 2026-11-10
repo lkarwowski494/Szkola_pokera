@@ -76,7 +76,7 @@ Quando alguém antes de você já {{t:open|abriu}}, você tem três opções: {{
 
 ## A {{t:position|posição}} decide se vale {{t:call|pagar}}
 
-Segundo soluções de solvers publicadas, o Button contra uma {{t:open|abertura}} do {{t:cutoff|CO}} costuma dar 3-bet com cerca de {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} das mãos e {{t:call|paga}} só com cerca de {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}. Contra uma {{t:open|abertura}} do {{t:utg}} (nesta solução, mínima, para {{n:pf.open-size.solver-utg}}), já há um pouco mais de {{t:call|pagamentos}} do que de 3-bets: cerca de {{n:pf.call-freq.btn-vs-utg}} contra {{n:pf.3bet-freq.btn-vs-utg}}. O {{t:range}} do {{t:utg}} é forte, então o 3-bet recebe 4-bet com mais frequência e ganha o {{t:pot|pote}} de imediato com menos frequência.
+Segundo soluções de solvers publicadas, o Button contra uma {{t:open|abertura}} do {{t:cutoff|CO}} costuma dar 3-bet com cerca de {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}} das mãos e {{t:call|paga}} só com cerca de {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}. Contra uma {{t:open|abertura}} do {{t:utg|UTG}} (nesta solução, mínima, para {{n:pf.open-size.solver-utg}}), já há um pouco mais de {{t:call|pagamentos}} do que de 3-bets: cerca de {{n:pf.call-freq.btn-vs-utg}} contra {{n:pf.3bet-freq.btn-vs-utg}}. O {{t:range}} do {{t:utg|UTG}} é forte, então o 3-bet recebe 4-bet com mais frequência e ganha o {{t:pot|pote}} de imediato com menos frequência.
 
 ```range
 vs-open.btn-vs-co

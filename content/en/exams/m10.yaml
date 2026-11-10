@@ -31,7 +31,7 @@ drills:
     id: m10.exam.q4
     family: m10.types.adjust
     rules: [R-M10-007]
-    prompt: "A {{t:nit}} ({{t:vpip}} {{n:exam.m10.nit.vpip}}, {{t:pfr}} {{n:exam.m10.nit.pfr}}, {{n:exam.m10.nit.hands}} hands) {{t:open|opens}} from {{t:utg}}. You're on the Button with a hand from the bottom of the {{t:range}} you {{t:call}} such an {{t:open}} with in the module 4 baseline. What do you do?"
+    prompt: "A {{t:nit}} ({{t:vpip}} {{n:exam.m10.nit.vpip}}, {{t:pfr}} {{n:exam.m10.nit.pfr}}, {{n:exam.m10.nit.hands}} hands) {{t:open|opens}} from {{t:utg|UTG}}. You're on the Button with a hand from the bottom of the {{t:range}} you {{t:call}} such an {{t:open}} with in the module 4 baseline. What do you do?"
     options:
       - { text: "{{t:fold|Fold}}", correct: true, why: "A player who plays so few hands {{t:raise|raises}} mostly with the strongest ones. Hands from the bottom of your {{t:call|calling}} {{t:range}} are more often dominated against them, so you {{t:fold}} them more often than in the baseline." }
       - { text: "{{t:call|Call}} as in the baseline, because you have {{t:position}}", why: "{{t:position|Position}} doesn't fix a dominated hand. The baseline assumes a typical {{t:open|opening}} {{t:range}}, and this player's {{t:range}} is much stronger." }

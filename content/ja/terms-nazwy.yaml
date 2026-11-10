@@ -43,9 +43,9 @@ in-position: "インポジション"  # in position; bez formy 46; formy: イン
 out-of-position: "アウトオブポジション"  # out of position; bez formy 54; formy: アウトオブポジション×28
 early-position: "アーリーポジション"  # early position; bez formy 0; formy: アーリーポジション×2
 late-position: "レイトポジション"  # late position; bez formy 0; formy: レイトポジション×1
-utg: null  # under the gun; bez formy 36; formy: UTG×11 [SKRÓT UTG]
-hijack: "HJ"  # hijack; bez formy 0; formy: HJ×17
-cutoff: "CO"  # cutoff; bez formy 0; formy: CO×55
+utg: "アンダーザガン"  # under the gun; w treści forma UTG; źr. https://pokerqz.com/ja/tools/glossary/under-the-gun („アンダーザガン（UTG）とは、ポーカーにおいてビッグブラインド（BB）のすぐ後ろのポジションを指します”); D-520, odczyt 2026-11-10
+hijack: "ハイジャック"  # hijack; w treści forma HJ; źr. https://pokerqz.com/ja/tools/glossary/hijack („ハイジャック（HJ）とは、…カットオフ（CO）の直前”); D-520, odczyt 2026-11-10
+cutoff: "カットオフ"  # cutoff; w treści forma CO; źr. https://pokerqz.com/ja/tools/glossary/cutoff („カットオフ(CO)とは、ポーカーにおいてボタン（BTN）の直前に位置するポジション”); D-520, odczyt 2026-11-10
 button: "ボタン"  # button; bez formy 0; formy: BTN×3
 outs: "アウツ"  # out; bez formy 0; formy: アウツ×1
 draw: "ドロー"  # draw; bez formy 24; formy: ドロー×180

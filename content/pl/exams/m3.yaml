@@ -18,14 +18,14 @@ drills:
     prompt: "Gracie w sześć osób, karty właśnie rozdane. Decydujesz jako pierwszy, przed tobą nikt jeszcze nie zagrał. Co robisz?"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|Przebijam}} {{t:big-blind|duży blind}}", correct: true, why: "AT w różnych kolorach mieści się w {{t:range|zakresie}} {{t:open|otwarcia}} z {{t:utg}} (ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk). Solver aplikacji gra ją tu zawsze." }
-      - { text: "{{t:fold|Pasuję}}", why: "Za ciasno. Z {{t:utg}} grasz wąsko, ale AT jest jeszcze w {{t:range|zakresie}}." }
+      - { text: "{{t:raise|Przebijam}} {{t:big-blind|duży blind}}", correct: true, why: "AT w różnych kolorach mieści się w {{t:range|zakresie}} {{t:open|otwarcia}} z {{t:utg|UTG}} (ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk). Solver aplikacji gra ją tu zawsze." }
+      - { text: "{{t:fold|Pasuję}}", why: "Za ciasno. Z {{t:utg|UTG}} grasz wąsko, ale AT jest jeszcze w {{t:range|zakresie}}." }
       - { text: "{{t:call|Sprawdzam}} {{t:big-blind|duży blind}}", why: "Jako pierwszy {{t:raise|przebijasz}} albo {{t:fold|pasujesz}}. Samo {{t:call|sprawdzenie}} {{t:big-blind|dużego blinda}} to {{t:limp}}: oddaje {{t:initiative|inicjatywę}} i szansę na zgarnięcie blindów od razu." }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early
     rules: [R-M3-006]
-    prompt: "{{t:utg}} {{t:fold|spasował}}, ty jesteś następny. Co robisz?"
+    prompt: "{{t:utg|UTG}} {{t:fold|spasował}}, ty jesteś następny. Co robisz?"
     table: { hand: "Ah 9d", position: HJ }
     options:
       - { text: "{{t:fold|Pasuję}}", correct: true, why: "Za tobą jest jeszcze czterech graczy. A9 w różnych kolorach często trafia asa ze słabszym kickerem niż AT, AJ czy AQ rywali. Solver aplikacji {{t:fold|pasuje}} nią z {{t:hijack|HJ}} zawsze." }
@@ -81,12 +81,12 @@ drills:
     id: m3.exam.q8
     family: m3.premium
     rules: [R-M3-008]
-    prompt: "{{t:utg}} {{t:raise|przebił}}, reszta {{t:fold|spasowała}} do ciebie. Co robisz?"
+    prompt: "{{t:utg|UTG}} {{t:raise|przebił}}, reszta {{t:fold|spasowała}} do ciebie. Co robisz?"
     table: { hand: "Ks Kd", position: BTN }
     options:
-      - { text: "{{t:raise|Przebijam}} ponownie (3-bet)", correct: true, why: "KK to jedna z najmocniejszych rąk i faworyt wobec większości rąk, którymi {{t:utg}} {{t:open|otwiera}}. 3-bet buduje {{t:pot|pulę}} i zwykle zostawia cię z jednym rywalem." }
+      - { text: "{{t:raise|Przebijam}} ponownie (3-bet)", correct: true, why: "KK to jedna z najmocniejszych rąk i faworyt wobec większości rąk, którymi {{t:utg|UTG}} {{t:open|otwiera}}. 3-bet buduje {{t:pot|pulę}} i zwykle zostawia cię z jednym rywalem." }
       - { text: "Tylko {{t:call|sprawdzam}}", why: "Bywa grane dla zmyłki, ale jako zasada oddajesz wartość i wpuszczasz blindy tanio do gry." }
-      - { text: "{{t:fold|Pasuję}}, bo {{t:utg}} ma silny {{t:range}}", why: "{{t:range|Zakres}} {{t:utg}} jest wąski, ale KK wciąż jest wobec niego wyraźnym faworytem." }
+      - { text: "{{t:fold|Pasuję}}, bo {{t:utg|UTG}} ma silny {{t:range}}", why: "{{t:range|Zakres}} {{t:utg|UTG}} jest wąski, ale KK wciąż jest wobec niego wyraźnym faworytem." }
   - kind: paint
     id: m3.exam.p-co
     family: m3.paint.late

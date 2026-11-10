@@ -9,7 +9,7 @@
 # rangeDecision, a w malowaniu zakresu liczą się jak ręce mieszane (zaliczone w obie strony). Jedna lista (kotwica
 # &uncertain-rfi), spoty zakresów otwarć (M3) tylko się do niej odwołują.
 - id: rfi.utg
-  title: "{{t:utg}}, noch niemand ist ins Spiel eingestiegen"
+  title: "{{t:utg|UTG}}, noch niemand ist ins Spiel eingestiegen"
   hero: UTG
   path: ""
   groups: { "{{t:raise|Raise}} auf 2,5bb": ["raise 2.5"] }
@@ -92,14 +92,14 @@
 # dokładnie grą 6-max (LJ = UTG w 6-max), więc spoty LJ…BB mają te same grupy i klasy niepewne co spoty 6-max wyżej.
 # Odpowiedzi na otwarcia z UTG–UTG+2 nie mają celów walidacji, więc spotów nie mają (boty grają tam heurystykami).
 - id: nine.rfi.utg
-  title: "{{t:utg}} am 9er-Tisch, noch niemand ist ins Spiel eingestiegen"
+  title: "{{t:utg|UTG}} am 9er-Tisch, noch niemand ist ins Spiel eingestiegen"
   hero: UTG
   solver: preflop-9max-100bb.json
   path: ""
   groups: { "{{t:raise|Raise}} auf 2,5bb": ["raise 2.5"] }
   uncertain: [A4s, KTs, T9s]
 - id: nine.rfi.utg1
-  title: "{{t:utg|UTG}}+1 am 9er-Tisch, {{t:utg}} hat {{t:fold|gefoldet}}"
+  title: "{{t:utg|UTG}}+1 am 9er-Tisch, {{t:utg|UTG}} hat {{t:fold|gefoldet}}"
   hero: UTG+1
   solver: preflop-9max-100bb.json
   path: "UTG:fold"

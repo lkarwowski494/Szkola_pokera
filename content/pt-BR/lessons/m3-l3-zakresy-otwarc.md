@@ -38,7 +38,7 @@ drills:
     family: m3.paint.early
     rules: [R-M3-002]
     spot: rfi.utg
-    prompt: "Você é o primeiro a agir ({{t:utg}}). Pinte as mãos com que você {{t:open|abre}}."
+    prompt: "Você é o primeiro a agir ({{t:utg|UTG}}). Pinte as mãos com que você {{t:open|abre}}."
 ---
 Um {{t:range|range}} de {{t:open|abertura}} é a lista de mãos com que você {{t:raise|aumenta}} quando todos antes de você {{t:fold|desistiram}}. As grades abaixo foram calculadas pelo solver pré-flop deste app para o jogo em mesa de 6 jogadores com stacks de {{n:format.stack}}.
 
@@ -52,7 +52,7 @@ Cada célula é um tipo de mão. Acima da diagonal ficam as mãos do mesmo naipe
 rfi.utg
 ```
 
-Do {{t:utg}}, o solver {{t:open|abre}} {{n:solver.rfi.utg}} das mãos. Fontes profissionais indicam {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}.
+Do {{t:utg|UTG}}, o solver {{t:open|abre}} {{n:solver.rfi.utg}} das mãos. Fontes profissionais indicam {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}.
 
 ```range
 rfi.hj
@@ -77,7 +77,7 @@ rfi.sb
 O {{t:small-blind|small blind}} joga apenas contra o {{t:big-blind|big blind}}, então {{t:open|abre}} com amplitude semelhante à do Button: cerca de {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} das mãos, embora aja primeiro depois do flop. Nos {{t:stakes|microlimites}}, do {{t:small-blind|small blind}} você {{t:raise|aumenta}} ou {{t:fold|desiste}}, sem completar para o {{t:big-blind|big blind}}: o {{t:rake}} cobrado do {{t:pot|pote}} reduz o lucro de completar. Isso é uma simplificação: algumas soluções de solver completam com parte das mãos do {{t:small-blind|small blind}}. O solver do app {{t:open|abre}} daqui {{n:solver.rfi.sb}} das mãos, ou seja, dentro do intervalo das fontes.
 
 :::note Em mesa de 9 jogadores
-Em uma mesa de 9 jogadores, antes do {{t:hijack|HJ}} há mais três {{t:position|posições}}: {{t:utg}}, {{t:utg|UTG}}+1 e {{t:utg|UTG}}+2 e, depois delas, o LJ. Atrás do {{t:utg}} ficam então oito jogadores, por isso do {{t:utg}}, {{t:utg|UTG}}+1 e {{t:utg|UTG}}+2 você {{t:open|abre}} de forma mais fechada do que do {{t:utg}} na mesa de 6 jogadores: há mais jogadores atrás de você. Quando esses três jogadores {{t:fold|desistirem}}, o LJ joga como o {{t:utg}} na mesa de 6 jogadores, e as {{t:position|posições}} seguintes jogam igual às grades acima. Para as {{t:position|posições}} iniciais na mesa de 9 jogadores, indicamos apenas a direção: ainda não conferimos os números nem a composição desses {{t:range|ranges}} com soluções de solver publicadas.
+Em uma mesa de 9 jogadores, antes do {{t:hijack|HJ}} há mais três {{t:position|posições}}: {{t:utg|UTG}}, {{t:utg|UTG}}+1 e {{t:utg|UTG}}+2 e, depois delas, o LJ. Atrás do {{t:utg|UTG}} ficam então oito jogadores, por isso do {{t:utg|UTG}}, {{t:utg|UTG}}+1 e {{t:utg|UTG}}+2 você {{t:open|abre}} de forma mais fechada do que do {{t:utg|UTG}} na mesa de 6 jogadores: há mais jogadores atrás de você. Quando esses três jogadores {{t:fold|desistirem}}, o LJ joga como o {{t:utg|UTG}} na mesa de 6 jogadores, e as {{t:position|posições}} seguintes jogam igual às grades acima. Para as {{t:position|posições}} iniciais na mesa de 9 jogadores, indicamos apenas a direção: ainda não conferimos os números nem a composição desses {{t:range|ranges}} com soluções de solver publicadas.
 :::
 
 :::note Como memorizar
