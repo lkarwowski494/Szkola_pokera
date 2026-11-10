@@ -1,0 +1,461 @@
+[
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l1-value.md",
+    "stary": "as mãos piores normalmente {{t:fold|desistem}} e pagam as melhores, pelo que",
+    "nowy": "as mãos piores normalmente {{t:fold|desistem}} e quem paga são as melhores, pelo que",
+    "waga": "ŚREDNIE",
+    "powod": "Dwuznaczne 'e pagam as melhores' (można czytać: gorsze ręce płacą lepszym); pl: 'a płacą lepsze'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l1-value.md",
+    "stary": "porque, com {{t:position|posição}}, o adversário mostrará as cartas no showdown.",
+    "nowy": "porque, como tem {{t:position|posição}}, o adversário mostrará as cartas no showdown.",
+    "waga": "ŚREDNIE",
+    "powod": "'com posição, o adversário' sugeruje, że pozycję ma rywal; pl: 'z pozycji' (ty masz pozycję).",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l3-rozmiar-geometryczny.md",
+    "stary": "A maior parte do stack fica atrás: com um",
+    "nowy": "A maior parte do stack fica atrás do {{t:pot|pote}}: com um",
+    "waga": "ŚREDNIE",
+    "powod": "Brak znacznika {{t:pot}} ze źródła ('zostaje za {{t:pot|pulą}}'); ostrzeżenie skryptu m9-l3 drills[3].options[0].why.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l1-value.md",
+    "stary": "havia poucos {{t:draw|draws}} nesta",
+    "nowy": "havia poucos {{t:draw|projetos}} nesta",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: draw = 'projeto' (m8-l3, m8-l4, m9-l2), nie 'draws'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l1-value.md",
+    "stary": "ganha a {{t:draw|draws}} falhados",
+    "nowy": "ganha a {{t:draw|projetos}} falhados",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: draw = 'projeto'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l2-ile-blefow.md",
+    "stary": "\"As mais fracas, p. ex. {{t:draw|draws}} falhados",
+    "nowy": "\"As mais fracas, p. ex. {{t:draw|projetos}} falhados",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: draw = 'projeto'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l2-ile-blefow.md",
+    "stary": "escolha as **mãos mais fracas**, p. ex. {{t:draw|draws}} falhados",
+    "nowy": "escolha as **mãos mais fracas**, p. ex. {{t:draw|projetos}} falhados",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: draw = 'projeto'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l2-ile-blefow.md",
+    "stary": "(os {{t:flush|flushes}} falhados ficam",
+    "nowy": "(as {{t:flush|cores}} falhadas ficam",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: flush = 'cor' (m8-l4; 42 wystąpienia w korpusie pt wobec 16 'flush').",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l3-blokery.md",
+    "stary": "menos AK, menos flushes com o ás.",
+    "nowy": "menos AK, menos cores com ás.",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: flush = 'cor'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l3-blokery.md",
+    "stary": "terceira carta de copas e um {{t:flush}} é possível.",
+    "nowy": "terceira carta de copas e uma {{t:flush|cor}} é possível.",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: flush = 'cor'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l3-blokery.md",
+    "stary": "bloqueia os flushes mais fortes do adversário: ele não pode ter {{t:flush}} com o ás,",
+    "nowy": "bloqueia as cores mais fortes do adversário: ele não pode ter {{t:flush|cor}} com ás,",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: flush = 'cor'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l3-blokery.md",
+    "stary": "mas não bloqueia nenhum {{t:flush}}. O adversário mantém todos os seus flushes, com os quais vai pagar.",
+    "nowy": "mas não bloqueia nenhuma {{t:flush|cor}}. O adversário mantém todas as suas cores, com as quais vai pagar.",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: flush = 'cor'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l3-blokery.md",
+    "stary": "reduz o número de flushes do adversário",
+    "nowy": "reduz o número de cores do adversário",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: flush = 'cor'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l3-blokery.md",
+    "stary": "O {{t:flush-draw|projeto de flush}} em espadas",
+    "nowy": "O {{t:flush-draw|projeto de cor}} em espadas",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: flush-draw = 'projeto de cor' (m8-l4; 15+ wystąpień w korpusie).",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l3-blokery.md",
+    "stary": "parte dos {{t:flush-draw|projetos de flush}} falhados",
+    "nowy": "parte dos {{t:flush-draw|projetos de cor}} falhados",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: flush-draw = 'projeto de cor'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l3-blokery.md",
+    "stary": "e os flushes e os reis vão pagar.",
+    "nowy": "e as cores e os reis vão pagar.",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: flush = 'cor'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l3-blokery.md",
+    "stary": "Numa {{t:board|mesa}} com flush possível,",
+    "nowy": "Numa {{t:board|mesa}} com cor possível,",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: flush = 'cor'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l3-blokery.md",
+    "stary": "o adversário não tem {{t:flush}} com o ás, ou seja,",
+    "nowy": "o adversário não tem {{t:flush|cor}} com ás, ou seja,",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: flush = 'cor'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l3-blokery.md",
+    "stary": "Quando o {{t:flush-draw|projeto de flush}} **não entra**",
+    "nowy": "Quando o {{t:flush-draw|projeto de cor}} **não entra**",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: flush-draw = 'projeto de cor'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l3-blokery.md",
+    "stary": "faz {{t:bluff}} com flushes falhados.",
+    "nowy": "faz {{t:bluff}} com cores falhadas.",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: flush = 'cor'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l1-value.md",
+    "stary": "- { text: \"Aposto {{t:value|para valor}}\", correct: true",
+    "nowy": "- { text: \"Aposto {{t:value|por valor}}\", correct: true",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: 'dla wartości' = 'por valor' (m8-l2, m8-l3, m9).",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l1-value.md",
+    "stary": "- { text: \"Aposto {{t:value|para valor}}\", why: \"Quem vai pagar?",
+    "nowy": "- { text: \"Aposto {{t:value|por valor}}\", why: \"Quem vai pagar?",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: 'dla wartości' = 'por valor'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l1-spr.md",
+    "stary": "depois de uma {{t:open|abertura}} e de um {{t:call|call}}.\" }",
+    "nowy": "depois de uma {{t:open|abertura}} e de um {{t:call|pagamento}}.\" }",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: call (rzeczownik) = 'pagamento' (m8, m9-l3; 77 w korpusie wobec 16 'call').",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l1-spr.md",
+    "stary": "depois de um 3-bet e de um {{t:call|call}}.",
+    "nowy": "depois de um 3-bet e de um {{t:call|pagamento}}.",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: call = 'pagamento'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l1-spr.md",
+    "stary": "com 4-bet e {{t:call|call}}\"",
+    "nowy": "com 4-bet e {{t:call|pagamento}}\"",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: call = 'pagamento'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l1-spr.md",
+    "stary": "com 3-bet e {{t:call|call}}\"",
+    "nowy": "com 3-bet e {{t:call|pagamento}}\"",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: call = 'pagamento'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l1-spr.md",
+    "stary": "depois do {{t:call|call}} fica em",
+    "nowy": "depois do {{t:call|pagamento}} fica em",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: call = 'pagamento'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l1-spr.md",
+    "stary": "e de um {{t:call|call}}: cerca de",
+    "nowy": "e de um {{t:call|pagamento}}: cerca de",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: call = 'pagamento'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l1-spr.md",
+    "stary": "e de um {{t:call|call}} ({{t:spr}}",
+    "nowy": "e de um {{t:call|pagamento}} ({{t:spr}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: call = 'pagamento'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l1-spr.md",
+    "stary": "Num {{t:pot|pote}} com um único aumento, o {{t:pot}} é muito menor",
+    "nowy": "Num {{t:pot|pote}} com uma só subida, o {{t:pot}} é muito menor",
+    "waga": "ŚREDNIE",
+    "powod": "Niespójne w grupie L4: 'pula z jednym podbiciem' = 'pote com uma só subida' (m9-l2, m9-l3, m9-l4: 10 wystąpień), w m9-l1 'com um único aumento'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l1-spr.md",
+    "stary": "num {{t:pot|pote}} com um único aumento.",
+    "nowy": "num {{t:pot|pote}} com uma só subida.",
+    "waga": "ŚREDNIE",
+    "powod": "Niespójne w grupie L4: 'pula z jednym podbiciem' = 'pote com uma só subida' (m9-l2, m9-l3, m9-l4: 10 wystąpień), w m9-l1 'com um único aumento'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l1-spr.md",
+    "stary": "\"Num {{t:pot|pote}} com um único aumento\"",
+    "nowy": "\"Num {{t:pot|pote}} com uma só subida\"",
+    "waga": "ŚREDNIE",
+    "powod": "Niespójne w grupie L4: 'pula z jednym podbiciem' = 'pote com uma só subida' (m9-l2, m9-l3, m9-l4: 10 wystąpień), w m9-l1 'com um único aumento'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l1-spr.md",
+    "stary": "p. ex. num {{t:pot|pote}} com um único aumento (",
+    "nowy": "p. ex. num {{t:pot|pote}} com uma só subida (",
+    "waga": "ŚREDNIE",
+    "powod": "Niespójne w grupie L4: 'pula z jednym podbiciem' = 'pote com uma só subida' (m9-l2, m9-l3, m9-l4: 10 wystąpień), w m9-l1 'com um único aumento'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l1-spr.md",
+    "stary": "e num {{t:pot|pote}} com um único aumento, já",
+    "nowy": "e num {{t:pot|pote}} com uma só subida, já",
+    "waga": "ŚREDNIE",
+    "powod": "Niespójne w grupie L4: 'pula z jednym podbiciem' = 'pote com uma só subida' (m9-l2, m9-l3, m9-l4: 10 wystąpień), w m9-l1 'com um único aumento'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l2-zaangazowanie.md",
+    "stary": "prompt: \"{{t:pot|Pote}} com uma única subida,",
+    "nowy": "prompt: \"{{t:pot|Pote}} com uma só subida,",
+    "waga": "NISKIE",
+    "powod": "Niespójne w grupie L4: 'pula z jednym podbiciem' = 'pote com uma só subida' (m9-l2, m9-l3, m9-l4: 10 wystąpień), w m9-l1 'com um único aumento'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l2-zaangazowanie.md",
+    "stary": "Num {{t:pot|pote}} com uma única subida, o {{t:spr}}",
+    "nowy": "Num {{t:pot|pote}} com uma só subida, o {{t:spr}}",
+    "waga": "NISKIE",
+    "powod": "Niespójne w grupie L4: 'pula z jednym podbiciem' = 'pote com uma só subida' (m9-l2, m9-l3, m9-l4: 10 wystąpień), w m9-l1 'com um único aumento'.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "{{n:spr.srp}}. Tem {{t:top-pair|par mais alto}} com o melhor kicker",
+    "nowy": "{{n:spr.srp}}. Tem {{t:top-pair|par de topo}} com o melhor kicker",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: top-pair = 'par de topo' (m8-l1, m9-l1, m9-l2; 33 w korpusie); 'par mais alto' dwuznaczne (= 'wyższa para').",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "cauteloso: {{t:top-pair|par mais alto}} com o melhor kicker",
+    "nowy": "cauteloso: o {{t:top-pair|par de topo}} com o melhor kicker",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: top-pair = 'par de topo' (m8-l1, m9-l1, m9-l2; 33 w korpusie); 'par mais alto' dwuznaczne (= 'wyższa para').",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "\"Duas, como {{t:top-pair|par mais alto}}\"",
+    "nowy": "\"Duas, como o {{t:top-pair|par de topo}}\"",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: top-pair = 'par de topo' (m8-l1, m9-l1, m9-l2; 33 w korpusie); 'par mais alto' dwuznaczne (= 'wyższa para').",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "{{n:spr.4bet}}. Tem {{t:top-pair|par mais alto}} com o melhor kicker",
+    "nowy": "{{n:spr.4bet}}. Tem {{t:top-pair|par de topo}} com o melhor kicker",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: top-pair = 'par de topo' (m8-l1, m9-l1, m9-l2; 33 w korpusie); 'par mais alto' dwuznaczne (= 'wyższa para').",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "{{t:value|rondas de valor}} com {{t:top-pair|par mais alto}} significam",
+    "nowy": "{{t:value|rondas de valor}} com {{t:top-pair|par de topo}} significam",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: top-pair = 'par de topo' (m8-l1, m9-l1, m9-l2; 33 w korpusie); 'par mais alto' dwuznaczne (= 'wyższa para').",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "all-in com {{t:top-pair|par mais alto}} e ás cede",
+    "nowy": "all-in com {{t:top-pair|par de topo}} e ás cede",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: top-pair = 'par de topo' (m8-l1, m9-l1, m9-l2; 33 w korpusie); 'par mais alto' dwuznaczne (= 'wyższa para').",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "Tem {{t:top-pair|par mais alto}} com um bom kicker",
+    "nowy": "Tem {{t:top-pair|par de topo}} com um bom kicker",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: top-pair = 'par de topo' (m8-l1, m9-l1, m9-l2; 33 w korpusie); 'par mais alto' dwuznaczne (= 'wyższa para').",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "O {{t:top-pair|par mais alto}} com {{t:spr}}",
+    "nowy": "O {{t:top-pair|par de topo}} com {{t:spr}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: top-pair = 'par de topo' (m8-l1, m9-l1, m9-l2; 33 w korpusie); 'par mais alto' dwuznaczne (= 'wyższa para').",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "\"Não: com {{t:top-pair|par mais alto}} {{t:check|passo}} sempre\"",
+    "nowy": "\"Não: com {{t:top-pair|par de topo}} {{t:check|passo}} sempre\"",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: top-pair = 'par de topo' (m8-l1, m9-l1, m9-l2; 33 w korpusie); 'par mais alto' dwuznaczne (= 'wyższa para').",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "\"O {{t:top-pair|par mais alto}} quer",
+    "nowy": "\"O {{t:top-pair|par de topo}} quer",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: top-pair = 'par de topo' (m8-l1, m9-l1, m9-l2; 33 w korpusie); 'par mais alto' dwuznaczne (= 'wyższa para').",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "{{t:value|rondas de valor}} com {{t:top-pair|par mais alto}} bastam",
+    "nowy": "{{t:value|rondas de valor}} com {{t:top-pair|par de topo}} bastam",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: top-pair = 'par de topo' (m8-l1, m9-l1, m9-l2; 33 w korpusie); 'par mais alto' dwuznaczne (= 'wyższa para').",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "| {{t:top-pair|Par mais alto}} com bom kicker",
+    "nowy": "| {{t:top-pair|Par de topo}} com bom kicker",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: top-pair = 'par de topo' (m8-l1, m9-l1, m9-l2; 33 w korpusie); 'par mais alto' dwuznaczne (= 'wyższa para').",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "muitos {{t:top-pair|pares mais altos}} recolham",
+    "nowy": "muitos {{t:top-pair|pares de topo}} recolham",
+    "waga": "ŚREDNIE",
+    "powod": "Termin niespójny w grupie L4 i z większością korpusu pt: top-pair = 'par de topo' (m8-l1, m9-l1, m9-l2; 33 w korpusie); 'par mais alto' dwuznaczne (= 'wyższa para').",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m8-l2-ile-blefow.md",
+    "stary": "desistiria de tudo exceto de mãos ainda mais fortes",
+    "nowy": "desistiria com tudo exceto com mãos ainda mais fortes",
+    "waga": "NISKIE",
+    "powod": "Styl: 'desistir de tudo' = zrezygnować ze wszystkiego; chodzi o pasowanie wszystkimi rękami poza silniejszymi.",
+    "grupa": "L4"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m9-l3-rozmiar-geometryczny.md",
+    "stary": "quantas rondas de {{t:value|valor}} uma mão aguenta",
+    "nowy": "quantas {{t:value|rondas de valor}} uma mão aguenta",
+    "waga": "NISKIE",
+    "powod": "Forma znacznika jak w reszcie grupy ({{t:value|rondas de valor}}, pl: {{t:value|ulic wartości}}).",
+    "grupa": "L4"
+  }
+]

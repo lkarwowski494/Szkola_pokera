@@ -1,0 +1,161 @@
+diff --git a/apps/mobile/src/i18n/index.ts b/apps/mobile/src/i18n/index.ts
+index ff7f6bb..e5e5099 100644
+--- a/apps/mobile/src/i18n/index.ts
++++ b/apps/mobile/src/i18n/index.ts
+@@ -3,7 +3,7 @@ import './polyfille';
+ import { getLocales } from 'expo-localization';
+ import i18n from 'i18next';
+ import { initReactI18next } from 'react-i18next';
+-import { jestJezykiem, opcjeI18next, sprawdzIntl, wybierzJezyk, ZRODLO, type Jezyk } from '@szkola/jezyki';
++import { jestJezykiem, opcjeI18next, regulyLiczbyMnogiej, sprawdzIntl, znacznikIntl, wybierzJezyk, ZRODLO, type Jezyk } from '@szkola/jezyki';
+ import { trDeep } from '@/features/drills/terms';
+ import { SLOWNIKI, WYDANE } from './slowniki';
+ 
+@@ -32,7 +32,7 @@ const slowniki = Object.fromEntries(
+   Object.entries(SLOWNIKI).map(([j, { drill, ...reszta }]) => [j, { ...trDeep(reszta, j), ...(drill === undefined ? {} : { drill }) }]),
+ );
+ 
+-void i18n.use(initReactI18next).init(opcjeI18next(slowniki, jezykDlaUstawienia('auto', tagiSystemu()), { scisle: __DEV__ }));
++void i18n.use(initReactI18next).use(regulyLiczbyMnogiej).init(opcjeI18next(slowniki, jezykDlaUstawienia('auto', tagiSystemu()), { scisle: __DEV__ }));
+ 
+ /** Zmiana języka w trakcie działania (ustawienia): bez restartu i bez dotykania danych użytkownika (dane to kody, ADR 0005). */
+ export async function ustawJezyk(ustawienie: UstawienieJezyka): Promise<Jezyk> {
+@@ -41,7 +41,7 @@ export async function ustawJezyk(ustawienie: UstawienieJezyka): Promise<Jezyk> {
+   return j;
+ }
+ 
+-const problemy = sprawdzIntl(WYDANE);
++const problemy = sprawdzIntl(WYDANE.map(znacznikIntl));
+ if (problemy.length) {
+   const komunikat = `Intl.PluralRules: ${problemy.join('; ')}`;
+   if (__DEV__) throw new Error(komunikat);
+diff --git a/packages/jezyki/src/formaty.ts b/packages/jezyki/src/formaty.ts
+index 8868695..9185f31 100644
+--- a/packages/jezyki/src/formaty.ts
++++ b/packages/jezyki/src/formaty.ts
+@@ -1,7 +1,12 @@
+ import type { Jezyk } from './jezyki';
+ 
+-/** Tag przekazywany do `Intl`: kod języka aplikacji (serbski domyślnie cyrylicą, chiński tradycyjny z pismem). Region telefonu nie zmienia formatu (D-134: język aplikacji decyduje). */
+-export const znacznikIntl = (j: Jezyk): string => j;
++/**
++ * Tag przekazywany do `Intl` (liczby, daty, liczba mnoga): kod języka aplikacji (serbski domyślnie cyrylicą, chiński tradycyjny
++ * z pismem). Region telefonu nie zmienia formatu (D-134: język aplikacji decyduje). Wyjątek: „pt” w aplikacji to portugalski europejski, a CLDR „pt” bez regionu to
++ * wariant brazylijski (plurals.xml: pt i = 0..1, pt_PT i = 1) — więc pt → pt-PT, jak Trening `lib/i18n.ts:28` (TAG pt: 'pt-PT',
++ * odczyt 2026-11-10; D-405). Pozostałe kody bez zmian.
++ */
++export const znacznikIntl = (j: Jezyk): string => (j === 'pt' ? 'pt-PT' : j);
+ 
+ /** Liczba wg języka: znak dziesiętny i grupowanie z `Intl.NumberFormat`. `miejsca` = stała liczba cyfr po przecinku
+  *  (minimum = maksimum; D-220, ADR 0014: „34,97%” ma tyle cyfr co wartość w treści, „35,00%” nie traci zer). */
+diff --git a/packages/jezyki/src/i18n.ts b/packages/jezyki/src/i18n.ts
+index 50301ba..7acdecd 100644
+--- a/packages/jezyki/src/i18n.ts
++++ b/packages/jezyki/src/i18n.ts
+@@ -1,4 +1,5 @@
+-import i18next, { type InitOptions, type i18n } from 'i18next';
++import i18next, { type InitOptions, type ThirdPartyModule, type i18n } from 'i18next';
++import { znacznikIntl } from './formaty';
+ import { jestJezykiem, jezykZTagu, lancuchTresci, type Jezyk } from './jezyki';
+ 
+ /** Słowniki zagnieżdżone w formacie i18next v4 (`klucz_one`, `klucz_few`, …), język → drzewo tekstów. */
+@@ -36,9 +37,23 @@ export function opcjeI18next(slowniki: Slowniki, jezyk: Jezyk, opcje: OpcjeI18n
+   };
+ }
+ 
++/**
++ * Reguła liczby mnogiej według `znacznikIntl` (D-405): i18next tworzy `Intl.PluralRules` z kodu języka, a „pt” w CLDR to wariant
++ * brazylijski (0 → „one”); w aplikacji „pt” = pt-PT (0 → „other”). Moduł `3rdParty` jest inicjowany po utworzeniu usług
++ * i18next, więc podmiana obejmuje każdy `t()` z `count`. Test: `test/pt-pt-09.test.ts`.
++ */
++export const regulyLiczbyMnogiej: ThirdPartyModule = {
++  type: '3rdParty',
++  init(instancja: i18n) {
++    const r = instancja.services.pluralResolver as unknown as { getRule(kod: string, o?: object): unknown };
++    const oryginal = r.getRule.bind(r);
++    r.getRule = (kod, o) => oryginal(jestJezykiem(kod) ? znacznikIntl(kod) : kod, o);
++  },
++};
++
+ /** Osobna instancja (testy, `content-build`); aplikacja używa globalnej instancji z `react-i18next`. */
+ export async function utworzI18n(slowniki: Slowniki, jezyk: Jezyk, opcje: OpcjeI18n = {}): Promise<i18n> {
+-  const instancja = i18next.createInstance();
++  const instancja = i18next.createInstance().use(regulyLiczbyMnogiej);
+   await instancja.init(opcjeI18next(slowniki, jezyk, opcje));
+   return instancja;
+ }
+diff --git a/packages/jezyki/test/polyfill.test.ts b/packages/jezyki/test/polyfill.test.ts
+index 804c136..9a13101 100644
+--- a/packages/jezyki/test/polyfill.test.ts
++++ b/packages/jezyki/test/polyfill.test.ts
+@@ -1,7 +1,7 @@
+ // Ścieżka Hermesa: Intl.PluralRules z polyfillu formatjs (polyfill-force + locale-data), nie z ICU Node.
+ // Test w Node potwierdza dane polyfillu; działanie w silniku Hermes sprawdza samosprawdzenie przy starcie aplikacji (telefon).
+ import { beforeAll, describe, expect, it } from 'vitest';
+-import { JEZYKI, sprawdzIntl } from '../src/index';
++import { JEZYKI, sprawdzIntl, znacznikIntl } from '../src/index';
+ import { WEKTORY } from './wektory';
+ 
+ const natywny = Intl.PluralRules;
+@@ -14,6 +14,7 @@ const ZNANE_ROZNICE_ULAMKI = ['bg', 'da', 'el', 'es', 'es-419', 'hu', 'lt', 'lv'
+ beforeAll(async () => {
+   await import('@formatjs/intl-pluralrules/polyfill-force.js');
+   for (const j of new Set(JEZYKI.map((x) => x.split('-')[0]))) await import(`@formatjs/intl-pluralrules/locale-data/${j}.js`);
++  await import('@formatjs/intl-pluralrules/locale-data/pt-PT.js'); // pt aplikacji = pt-PT (D-405), jak w polyfille.ts
+ });
+ 
+ describe('polyfill formatjs dla 35 języków', () => {
+@@ -23,6 +24,10 @@ describe('polyfill formatjs dla 35 języków', () => {
+   it('sprawdzIntl: 0 problemów po załadowaniu danych', () => {
+     expect(sprawdzIntl(JEZYKI)).toEqual([]);
+   });
++  it('znaczniki Intl (pt → pt-PT, D-405): 0 problemów, pt-PT 0 → other', () => {
++    expect(sprawdzIntl(JEZYKI.map(znacznikIntl))).toEqual([]);
++    expect(new Intl.PluralRules('pt-PT').select(0)).toBe('other');
++  });
+   for (const [jezyk, wektory] of Object.entries(WEKTORY)) {
+     for (const [n, kategoria] of wektory) {
+       it(`wektor ${jezyk}: ${n} → ${kategoria}`, () => {
+diff --git a/packages/jezyki/test/pt-pt-09.test.ts b/packages/jezyki/test/pt-pt-09.test.ts
+new file mode 100644
+index 0000000..d57bd1b
+--- /dev/null
++++ b/packages/jezyki/test/pt-pt-09.test.ts
+@@ -0,0 +1,37 @@
++// Wydanie pt (pt-PT) — sesja AO (D-405). Kod języka aplikacji „pt” = portugalski europejski (jak Trening `lib/i18n.ts:28`,
++// TAG pt → 'pt-PT', odczyt 2026-11-10). CLDR „pt” bez regionu to wariant brazylijski (plurals.xml: pt i = 0..1, pt_PT i = 1),
++// więc znacznik Intl i reguła liczby mnogiej dla „pt” muszą iść przez „pt-PT”: inaczej 0 → „one” („0 lição”).
++import { describe, expect, it } from 'vitest';
++import { formatujLiczbe, utworzI18n, wybierzJezyk, znacznikIntl } from '../src/index';
++
++describe('pt = pt-PT', () => {
++  it('znacznik Intl: pt → pt-PT; pt-BR i inne bez zmian', () => {
++    expect(znacznikIntl('pt')).toBe('pt-PT');
++    expect(znacznikIntl('pt-BR')).toBe('pt-BR');
++    expect(znacznikIntl('pl')).toBe('pl');
++  });
++  it('liczby pt według pt-PT (grupowanie od 5 cyfr), pt-BR bez zmian', () => {
++    expect(formatujLiczbe(1234.5, 'pt')).toBe(new Intl.NumberFormat('pt-PT').format(1234.5));
++    expect(formatujLiczbe(1234.5, 'pt-BR')).toBe(new Intl.NumberFormat('pt-BR').format(1234.5));
++  });
++  it('liczba mnoga pt: 0 → other (pt-PT), pt-BR: 0 → one', async () => {
++    const slowniki = {
++      pl: { lekcje_one: '{{count}} lekcja', lekcje_few: '{{count}} lekcje', lekcje_many: '{{count}} lekcji', lekcje_other: '{{count}} lekcji' },
++      pt: { lekcje_one: '{{count}} lição', lekcje_many: '{{count}} de lições', lekcje_other: '{{count}} lições' },
++      'pt-BR': { lekcje_one: '{{count}} lição', lekcje_many: '{{count}} de lições', lekcje_other: '{{count}} lições' },
++    };
++    const pt = await utworzI18n(slowniki, 'pt');
++    expect(pt.t('lekcje', { count: 0 })).toBe('0 lições');
++    expect(pt.t('lekcje', { count: 1 })).toBe('1 lição');
++    expect(pt.t('lekcje', { count: 2 })).toBe('2 lições');
++    const br = await utworzI18n(slowniki, 'pt-BR');
++    expect(br.t('lekcje', { count: 0 })).toBe('0 lição');
++  });
++  it('wybór: pt-PT, pt-AO → pt, gdy pt ma słownik; pt-BR i samo „pt” → pt-BR', () => {
++    const dostepne = ['pl', 'en', 'pt-BR', 'pt'] as const;
++    expect(wybierzJezyk(['pt-PT'], dostepne)).toBe('pt');
++    expect(wybierzJezyk(['pt-AO'], dostepne)).toBe('pt');
++    expect(wybierzJezyk(['pt-BR'], dostepne)).toBe('pt-BR');
++    expect(wybierzJezyk(['pt'], dostepne)).toBe('pt-BR');
++  });
++});

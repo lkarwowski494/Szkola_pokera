@@ -1,0 +1,650 @@
+[
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m6-l1-mdf-alpha.md",
+    "stary": "ainda têm equity ({{t:draw|draws}}, cartas altas)",
+    "nowy": "ainda têm equity ({{t:draw|projetos}}, cartas altas)",
+    "waga": "ŚREDNIE",
+    "powod": "Termin draw: w całym pt dominuje „projeto/projetos” (~90 wystąpień), „draws” to forma mniejszościowa; jedna nazwa na pojęcie.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m6-l1-mdf-alpha.md",
+    "stary": "As {{t:street|streets}} futuras",
+    "nowy": "As {{t:street|rondas}} futuras",
+    "waga": "ŚREDNIE",
+    "powod": "Termin street: w pt „ronda/rondas” (~58), „streets” tylko 2 razy; jedna nazwa na pojęcie.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m6-l1-mdf-alpha.md",
+    "stary": "onde os {{t:draw|draws}} já não melhoram",
+    "nowy": "onde os {{t:draw|projetos}} já não melhoram",
+    "waga": "ŚREDNIE",
+    "powod": "Termin draw: w całym pt dominuje „projeto/projetos” (~90 wystąpień), „draws” to forma mniejszościowa; jedna nazwa na pojęcie.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m6-l1-mdf-alpha.md",
+    "stary": "ainda têm equity: os {{t:draw|draws}} e as cartas altas",
+    "nowy": "ainda têm equity: os {{t:draw|projetos}} e as cartas altas",
+    "waga": "ŚREDNIE",
+    "powod": "Termin draw: w całym pt dominuje „projeto/projetos” (~90 wystąpień), „draws” to forma mniejszościowa; jedna nazwa na pojęcie.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m6-l1-mdf-alpha.md",
+    "stary": "lucra {{t:bluff|fazendo bluff}}",
+    "nowy": "lucra a {{t:bluff|fazer bluff}}",
+    "waga": "NISKIE",
+    "powod": "Gerundium (kalka BR); w pt-PT „a + bezokolicznik”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m6-l2-sprawdzenie.md",
+    "stary": "probabilidade de ganhar jogando até ao fim",
+    "nowy": "probabilidade de ganhar se a mão for até ao fim",
+    "waga": "NISKIE",
+    "powod": "Gerundium „jogando” (styl BR); forma europejska jak w m6-l2:94 („se a mão for até ao showdown”).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m6-l3-check-raise.md",
+    "stary": "{{t:top-pair|Par máximo}} com kicker fraco é uma mão para",
+    "nowy": "{{t:top-pair|Par de topo}} com kicker fraco é uma mão para",
+    "waga": "ŚREDNIE",
+    "powod": "Termin top-pair: w pt dominuje „par de topo” (33); „par máximo”/„top pair” niespójne między lekcjami.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m6-l3-check-raise.md",
+    "stary": "{{t:top-pair|Par máximo}} contra uma c-bet pequena",
+    "nowy": "{{t:top-pair|Par de topo}} contra uma c-bet pequena",
+    "waga": "ŚREDNIE",
+    "powod": "Termin top-pair: w pt dominuje „par de topo” (33); „par máximo”/„top pair” niespójne między lekcjami.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m6-l3-check-raise.md",
+    "stary": "{{t:top-pair|par máximo}} com kicker fraco, normalmente",
+    "nowy": "{{t:top-pair|par de topo}} com kicker fraco, normalmente",
+    "waga": "ŚREDNIE",
+    "powod": "Termin top-pair: w pt dominuje „par de topo” (33); „par máximo”/„top pair” niespójne między lekcjami.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m6-l3-check-raise.md",
+    "stary": "parte dos {{t:top-pair|pares máximos}}",
+    "nowy": "parte dos {{t:top-pair|pares de topo}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin top-pair: w pt dominuje „par de topo” (33); „par máximo”/„top pair” niespójne między lekcjami.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m6-l3-check-raise.md",
+    "stary": "({{t:two-pair}}, set)",
+    "nowy": "({{t:two-pair|dois pares}}, set)",
+    "waga": "ŚREDNIE",
+    "powod": "Goły znacznik {{t:two-pair}} w pt renderuje angielskie „two pair” (brak content/pt/terms-nazwy.yaml), a ta sama lekcja używa „dois pares”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m6-l3-check-raise.md",
+    "stary": "com {{t:two-pair}} num flop muito",
+    "nowy": "com {{t:two-pair|dois pares}} num flop muito",
+    "waga": "ŚREDNIE",
+    "powod": "Goły znacznik {{t:two-pair}} w pt renderuje angielskie „two pair” (brak content/pt/terms-nazwy.yaml), a ta sama lekcja używa „dois pares”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m6-l3-check-raise.md",
+    "stary": "sobretudo sets e {{t:two-pair}}, menos",
+    "nowy": "sobretudo sets e {{t:two-pair|dois pares}}, menos",
+    "waga": "ŚREDNIE",
+    "powod": "Goły znacznik {{t:two-pair}} w pt renderuje angielskie „two pair” (brak content/pt/terms-nazwy.yaml), a ta sama lekcja używa „dois pares”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m6-l3-check-raise.md",
+    "stary": "o {{t:raise}} deve ser várias vezes maior",
+    "nowy": "o {{t:raise|aumento}} deve ser várias vezes maior",
+    "waga": "ŚREDNIE",
+    "powod": "Goły {{t:raise}} renderuje w pt „raise”; lekcja używa „aumento”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m6-l3-check-raise.md",
+    "stary": "se receber um {{t:call}}, ainda pode acertar",
+    "nowy": "se lhe {{t:call|pagarem}}, ainda pode acertar",
+    "waga": "ŚREDNIE",
+    "powod": "Goły {{t:call}} renderuje w pt „call”; lekcja używa „pagar/pagamento”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m6-l3-check-raise.md",
+    "stary": "Um gutshot com carta alta é um bom {{t:call}} ao preço de",
+    "nowy": "Com um gutshot e uma carta alta, {{t:call|pagar}} compensa ao preço de",
+    "waga": "ŚREDNIE",
+    "powod": "Goły {{t:call}} renderuje w pt „call”; lekcja używa „pagar”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l1-druga-beczka.md",
+    "stary": "Cada {{t:pair}} dele desce um lugar.",
+    "nowy": "Cada {{t:pair|par}} dele desce um lugar.",
+    "waga": "ŚREDNIE",
+    "powod": "Goły znacznik {{t:pair}} renderuje w pt „pair” („o pair do adversário”); w lekcji wszędzie indziej „par”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l1-druga-beczka.md",
+    "stary": "e o {{t:pair}} do adversário passa a ser",
+    "nowy": "e o {{t:pair|par}} do adversário passa a ser",
+    "waga": "ŚREDNIE",
+    "powod": "Goły znacznik {{t:pair}} renderuje w pt „pair” („o pair do adversário”); w lekcji wszędzie indziej „par”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l1-druga-beczka.md",
+    "stary": "cada {{t:pair}} do adversário desce um lugar",
+    "nowy": "cada {{t:pair|par}} do adversário desce um lugar",
+    "waga": "ŚREDNIE",
+    "powod": "Goły znacznik {{t:pair}} renderuje w pt „pair” („o pair do adversário”); w lekcji wszędzie indziej „par”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l1-druga-beczka.md",
+    "stary": "e {{t:two-pair}} a 87",
+    "nowy": "e {{t:two-pair|dois pares}} a 87",
+    "waga": "ŚREDNIE",
+    "powod": "Goły znacznik {{t:two-pair}} w pt renderuje angielskie „two pair” (brak content/pt/terms-nazwy.yaml), a ta sama lekcja używa „dois pares”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l1-druga-beczka.md",
+    "stary": "e {{t:two-pair}} às mãos 76 e 97",
+    "nowy": "e {{t:two-pair|dois pares}} às mãos 76 e 97",
+    "waga": "ŚREDNIE",
+    "powod": "Goły znacznik {{t:two-pair}} w pt renderuje angielskie „two pair” (brak content/pt/terms-nazwy.yaml), a ta sama lekcja używa „dois pares”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l1-druga-beczka.md",
+    "stary": "e {{t:two-pair}} às mãos que ele mais defende",
+    "nowy": "e {{t:two-pair|dois pares}} às mãos que ele mais defende",
+    "waga": "ŚREDNIE",
+    "powod": "Goły znacznik {{t:two-pair}} w pt renderuje angielskie „two pair” (brak content/pt/terms-nazwy.yaml), a ta sama lekcja używa „dois pares”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l1-druga-beczka.md",
+    "stary": "ou {{t:top-pair}} com kicker fraco",
+    "nowy": "ou {{t:top-pair|par de topo}} com kicker fraco",
+    "waga": "ŚREDNIE",
+    "powod": "Termin top-pair: w pt dominuje „par de topo” (33); „par máximo”/„top pair” niespójne między lekcjami. Goły znacznik renderuje „top pair”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l1-druga-beczka.md",
+    "stary": "{{t:top-pair|Par máximo}} com o melhor kicker",
+    "nowy": "{{t:top-pair|Par de topo}} com o melhor kicker",
+    "waga": "ŚREDNIE",
+    "powod": "Termin top-pair: w pt dominuje „par de topo” (33); „par máximo”/„top pair” niespójne między lekcjami.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l1-druga-beczka.md",
+    "stary": "Alpha = aposta ÷ ({{t:pot}} + aposta)",
+    "nowy": "Alpha = aposta ÷ ({{t:pot|pote}} + aposta)",
+    "waga": "ŚREDNIE",
+    "powod": "Goły znacznik {{t:pot}} renderuje w pt „pot”; w kursie pt „pote” (558 wystąpień).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l1-druga-beczka.md",
+    "stary": "em aposta ÷ ({{t:pot}} + aposta)",
+    "nowy": "em aposta ÷ ({{t:pot|pote}} + aposta)",
+    "waga": "ŚREDNIE",
+    "powod": "Goły znacznik {{t:pot}} renderuje w pt „pot”; w kursie pt „pote” (558 wystąpień).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l1-druga-beczka.md",
+    "stary": "probabilidade de {{t:fold}}, mas",
+    "nowy": "probabilidade de {{t:fold|desistência}}, mas",
+    "waga": "ŚREDNIE",
+    "powod": "Goły {{t:fold}} renderuje w pt „fold”; kurs używa „desistir/desistência”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l2-polaryzacja.md",
+    "stary": "{{t:top-pair|Pares máximos}}, {{t:pair|pares}} médios",
+    "nowy": "{{t:top-pair|Pares de topo}}, {{t:pair|pares}} médios",
+    "waga": "ŚREDNIE",
+    "powod": "Termin top-pair: w pt dominuje „par de topo” (33); „par máximo”/„top pair” niespójne między lekcjami.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l2-polaryzacja.md",
+    "stary": "Um {{t:top-pair|par máximo}} com kicker fraco",
+    "nowy": "Um {{t:top-pair|par de topo}} com kicker fraco",
+    "waga": "ŚREDNIE",
+    "powod": "Termin top-pair: w pt dominuje „par de topo” (33); „par máximo”/„top pair” niespójne między lekcjami.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l2-polaryzacja.md",
+    "stary": "o adversário não sabe o que tem.",
+    "nowy": "o adversário não sabe qual é a sua mão.",
+    "waga": "ŚREDNIE",
+    "powod": "pl „rywal nie wie, co masz” (ty); „não sabe o que tem” czyta się jako „nie wie, co (sam) ma” — dwuznaczność odwraca sens wniosku.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l3-implied-odds.md",
+    "stary": "o adversário {{t:bet|aposta}} {{n:io.flush.bet}} e tem um {{t:flush-draw|projeto de cor}}. Precisa de",
+    "nowy": "o adversário {{t:bet|aposta}} {{n:io.flush.bet}}, e a sua mão é um {{t:flush-draw|projeto de cor}}. Precisa de",
+    "waga": "WYSOKIE",
+    "powod": "pl „rywal stawia…, ty masz flush-draw”; w pt podmiot „tem” to adversário — przykład czyta się tak, jakby to rywal miał projeto de cor (zmieniony sens).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l3-implied-odds.md",
+    "stary": "O {{t:pot}} por si só não chega; faltam",
+    "nowy": "O {{t:pot|pote}} por si só não chega; faltam",
+    "waga": "ŚREDNIE",
+    "powod": "Goły znacznik {{t:pot}} renderuje w pt „pot”; w kursie pt „pote” (558 wystąpień).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l3-implied-odds.md",
+    "stary": "O {{t:pot}} por si só não chega.",
+    "nowy": "O {{t:pot|pote}} por si só não chega.",
+    "waga": "ŚREDNIE",
+    "powod": "Goły znacznik {{t:pot}} renderuje w pt „pot”; w kursie pt „pote” (558 wystąpień).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l3-implied-odds.md",
+    "stary": "= stack ÷ {{t:pot}} =",
+    "nowy": "= stack ÷ {{t:pot|pote}} =",
+    "waga": "ŚREDNIE",
+    "powod": "Goły znacznik {{t:pot}} renderuje w pt „pot”; w kursie pt „pote” (558 wystąpień).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l3-implied-odds.md",
+    "stary": "Isso é o {{t:pot}}.",
+    "nowy": "Isso é o {{t:pot|pote}}.",
+    "waga": "ŚREDNIE",
+    "powod": "Goły znacznik {{t:pot}} renderuje w pt „pot”; w kursie pt „pote” (558 wystąpień).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l3-implied-odds.md",
+    "stary": "são as {{t:chips}} que o adversário",
+    "nowy": "são as {{t:chips|fichas}} que o adversário",
+    "waga": "ŚREDNIE",
+    "powod": "Goły {{t:chips}} renderuje w pt „chips”; kurs używa „fichas” (51).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l3-implied-odds.md",
+    "stary": "é o {{t:effective-stack}}, ou seja",
+    "nowy": "é o {{t:effective-stack|stack efetivo}}, ou seja",
+    "waga": "NISKIE",
+    "powod": "Goły znacznik renderuje „effective stack”; w pt także „stack efetivo”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l3-implied-odds.md",
+    "stary": "{{t:straight|sequência}}? Escreva o número.",
+    "nowy": "{{t:straight|sequência}}? Introduza o número.",
+    "waga": "NISKIE",
+    "powod": "Polecenie pola liczbowego w pozostałych lekcjach: „Introduza o número”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l3-implied-odds.md",
+    "stary": "fique em equilíbrio? Escreva o número.",
+    "nowy": "fique em equilíbrio? Introduza o número.",
+    "waga": "NISKIE",
+    "powod": "Polecenie pola liczbowego w pozostałych lekcjach: „Introduza o número”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l3-implied-odds.md",
+    "stary": "mesmo que o adversário aposte tudo o que lhe resta",
+    "nowy": "mesmo que o adversário pague tudo o que lhe resta",
+    "waga": "NISKIE",
+    "powod": "pl „wpłaci” = zapłaci/włoży do puli, nie „postawi”; „pague” bliżej sensu.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "O Button {{t:open|abriu}} e, na {{t:big-blind|big blind}}, {{t:call|pagou}}.",
+    "nowy": "O Button {{t:open|abriu}}; está na {{t:big-blind|big blind}} e {{t:call|pagou}}.",
+    "waga": "WYSOKIE",
+    "powod": "pl „ty w dużym blindzie sprawdziłeś”; w pt podmiot „pagou” odczytuje się jako Button (zmieniony sens: kto sprawdził).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "todas as {{t:street|streets}}",
+    "nowy": "todas as {{t:street|rondas}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin street: w pt „ronda/rondas” (~58), „streets” tylko 2 razy; jedna nazwa na pojęcie.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "Em que {{t:board}} {{t:bet|aposta}}",
+    "nowy": "Em que {{t:board|mesa}} {{t:bet|aposta}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin board: w pt „mesa” (41), tylko m7-l4 używa „board(s)”; jedna nazwa na pojęcie (pl: „stół” wszędzie).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "Num {{t:board}} alto, a",
+    "nowy": "Numa {{t:board|mesa}} alta, a",
+    "waga": "ŚREDNIE",
+    "powod": "Termin board: w pt „mesa” (41), tylko m7-l4 używa „board(s)”; jedna nazwa na pojęcie (pl: „stół” wszędzie).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "nos boards baixos aposta com mais frequência, nos altos com menos",
+    "nowy": "nas mesas baixas aposta com mais frequência, nas altas com menos",
+    "waga": "ŚREDNIE",
+    "powod": "Termin board: w pt „mesa” (41), tylko m7-l4 używa „board(s)”; jedna nazwa na pojęcie (pl: „stół” wszędzie).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "num {{t:board}} baixo que se ajusta",
+    "nowy": "numa {{t:board|mesa}} baixa que se ajusta",
+    "waga": "ŚREDNIE",
+    "powod": "Termin board: w pt „mesa” (41), tylko m7-l4 używa „board(s)”; jedna nazwa na pojęcie (pl: „stół” wszędzie).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "nem {{t:draw}}, e o {{t:board}} alto favorece",
+    "nowy": "nem {{t:draw|projeto}}, e a {{t:board|mesa}} alta favorece",
+    "waga": "ŚREDNIE",
+    "powod": "Termin board: w pt „mesa” (41), tylko m7-l4 używa „board(s)”; jedna nazwa na pojęcie (pl: „stół” wszędzie). Termin draw: w całym pt dominuje „projeto/projetos” (~90 wystąpień), „draws” to forma mniejszościowa; jedna nazwa na pojęcie.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "num {{t:board}} destes só ganha",
+    "nowy": "numa {{t:board|mesa}} destas só ganha",
+    "waga": "ŚREDNIE",
+    "powod": "Termin board: w pt „mesa” (41), tylko m7-l4 używa „board(s)”; jedna nazwa na pojęcie (pl: „stół” wszędzie).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "com mais frequência em boards baixos e com mãos",
+    "nowy": "com mais frequência em mesas baixas e com mãos",
+    "waga": "ŚREDNIE",
+    "powod": "Termin board: w pt „mesa” (41), tylko m7-l4 używa „board(s)”; jedna nazwa na pojęcie (pl: „stół” wszędzie).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "**Com mais frequência em boards baixos**",
+    "nowy": "**Com mais frequência em mesas baixas**",
+    "waga": "ŚREDNIE",
+    "powod": "Termin board: w pt „mesa” (41), tylko m7-l4 używa „board(s)”; jedna nazwa na pojęcie (pl: „stół” wszędzie).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "**Com menos frequência em boards altos**",
+    "nowy": "**Com menos frequência em mesas altas**",
+    "waga": "ŚREDNIE",
+    "powod": "Termin board: w pt „mesa” (41), tylko m7-l4 używa „board(s)”; jedna nazwa na pojęcie (pl: „stół” wszędzie).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "consoante o board.",
+    "nowy": "consoante a mesa.",
+    "waga": "ŚREDNIE",
+    "powod": "Termin board: w pt „mesa” (41), tylko m7-l4 używa „board(s)”; jedna nazwa na pojęcie (pl: „stół” wszędzie).",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "com um {{t:draw}} pode ver o river",
+    "nowy": "com um {{t:draw|projeto}} pode ver o river",
+    "waga": "ŚREDNIE",
+    "powod": "Termin draw: w całym pt dominuje „projeto/projetos” (~90 wystąpień), „draws” to forma mniejszościowa; jedna nazwa na pojęcie. Goły znacznik renderuje „draw”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "com {{t:draw|draws}} e {{t:bluff|bluffs}}",
+    "nowy": "com {{t:draw|projetos}} e {{t:bluff|bluffs}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin draw: w całym pt dominuje „projeto/projetos” (~90 wystąpień), „draws” to forma mniejszościowa; jedna nazwa na pojęcie.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "e os {{t:draw|draws}} já só têm uma carta\"",
+    "nowy": "e os {{t:draw|projetos}} já só têm uma carta\"",
+    "waga": "ŚREDNIE",
+    "powod": "Termin draw: w całym pt dominuje „projeto/projetos” (~90 wystąpień), „draws” to forma mniejszościowa; jedna nazwa na pojęcie.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "e os seus {{t:draw|draws}} perdem metade",
+    "nowy": "e os seus {{t:draw|projetos}} perdem metade",
+    "waga": "ŚREDNIE",
+    "powod": "Termin draw: w całym pt dominuje „projeto/projetos” (~90 wystąpień), „draws” to forma mniejszościowa; jedna nazwa na pojęcie.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "- **{{t:draw|draws}} fortes**",
+    "nowy": "- **{{t:draw|projetos}} fortes**",
+    "waga": "ŚREDNIE",
+    "powod": "Termin draw: w całym pt dominuje „projeto/projetos” (~90 wystąpień), „draws” to forma mniejszościowa; jedna nazwa na pojęcie.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "Os seus {{t:draw|draws}} já só têm uma carta. Por isso:",
+    "nowy": "Os seus {{t:draw|projetos}} já só têm uma carta. Por isso:",
+    "waga": "ŚREDNIE",
+    "powod": "Termin draw: w całym pt dominuje „projeto/projetos” (~90 wystąpień), „draws” to forma mniejszościowa; jedna nazwa na pojęcie.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "- os {{t:draw|draws}} só {{t:call|pagam}}",
+    "nowy": "- os {{t:draw|projetos}} só {{t:call|pagam}}",
+    "waga": "ŚREDNIE",
+    "powod": "Termin draw: w całym pt dominuje „projeto/projetos” (~90 wystąpień), „draws” to forma mniejszościowa; jedna nazwa na pojęcie.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "O {{t:top-pair|top pair}} é uma boa mão",
+    "nowy": "O {{t:top-pair|par de topo}} é uma boa mão",
+    "waga": "ŚREDNIE",
+    "powod": "Termin top-pair: w pt dominuje „par de topo” (33); „par máximo”/„top pair” niespójne między lekcjami.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "E com {{t:top-pair|top pair}} quer apostar",
+    "nowy": "E com um {{t:top-pair|par de topo}} quer apostar",
+    "waga": "ŚREDNIE",
+    "powod": "Termin top-pair: w pt dominuje „par de topo” (33); „par máximo”/„top pair” niespójne między lekcjami.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "O {{t:top-pair|top pair}} vale demasiado",
+    "nowy": "O {{t:top-pair|par de topo}} vale demasiado",
+    "waga": "ŚREDNIE",
+    "powod": "Termin top-pair: w pt dominuje „par de topo” (33); „par máximo”/„top pair” niespójne między lekcjami.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "O {{t:top-pair|top pair}} bate-os a todos",
+    "nowy": "O {{t:top-pair|par de topo}} bate-os a todos",
+    "waga": "ŚREDNIE",
+    "powod": "Termin top-pair: w pt dominuje „par de topo” (33); „par máximo”/„top pair” niespójne między lekcjami.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "O {{t:top-pair|top pair}} com kicker médio",
+    "nowy": "O {{t:top-pair|par de topo}} com kicker médio",
+    "waga": "ŚREDNIE",
+    "powod": "Termin top-pair: w pt dominuje „par de topo” (33); „par máximo”/„top pair” niespójne między lekcjami.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "- o {{t:top-pair}} normalmente",
+    "nowy": "- o {{t:top-pair|par de topo}} normalmente",
+    "waga": "ŚREDNIE",
+    "powod": "Termin top-pair: w pt dominuje „par de topo” (33); „par máximo”/„top pair” niespójne między lekcjami. Goły znacznik renderuje „top pair”.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "baixa a {{t:mdf}}",
+    "nowy": "baixa o {{t:mdf}}",
+    "waga": "NISKIE",
+    "powod": "Rodzaj MDF: w m6 (lekcja definiująca) „o MDF”, w m7-l4 „a MDF”; ujednolicić rodzaj.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "Qual é a {{t:mdf}}?",
+    "nowy": "Qual é o {{t:mdf}}?",
+    "waga": "NISKIE",
+    "powod": "Rodzaj MDF: w m6 (lekcja definiująca) „o MDF”, w m7-l4 „a MDF”; ujednolicić rodzaj.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "perto da {{t:mdf}}; {{t:out-of-position",
+    "nowy": "perto do {{t:mdf}}; {{t:out-of-position",
+    "waga": "NISKIE",
+    "powod": "Rodzaj MDF: w m6 (lekcja definiująca) „o MDF”, w m7-l4 „a MDF”; ujednolicić rodzaj.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "A {{t:mdf}} continua a ser",
+    "nowy": "O {{t:mdf}} continua a ser",
+    "waga": "NISKIE",
+    "powod": "Rodzaj MDF: w m6 (lekcja definiująca) „o MDF”, w m7-l4 „a MDF”; ujednolicić rodzaj.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "do que a {{t:mdf}} pressupõe",
+    "nowy": "do que o {{t:mdf}} pressupõe",
+    "waga": "NISKIE",
+    "powod": "Rodzaj MDF: w m6 (lekcja definiująca) „o MDF”, w m7-l4 „a MDF”; ujednolicić rodzaj.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "perto da {{t:mdf}} é mostrada",
+    "nowy": "perto do {{t:mdf}} é mostrada",
+    "waga": "NISKIE",
+    "powod": "Rodzaj MDF: w m6 (lekcja definiująca) „o MDF”, w m7-l4 „a MDF”; ujednolicić rodzaj.",
+    "grupa": "L3"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m7-l4-probe-obrona.md",
+    "stary": "recebe uma carta grátis que pode vencê-lo;",
+    "nowy": "recebe uma carta grátis que pode bater a sua mão;",
+    "waga": "NISKIE",
+    "powod": "„vencê-lo” dwuznaczne (Button czy gracz); pl „która może cię pobić”.",
+    "grupa": "L3"
+  }
+]

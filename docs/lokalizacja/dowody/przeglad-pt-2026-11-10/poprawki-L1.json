@@ -1,0 +1,245 @@
+[
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m2-l2-pot-odds.md",
+    "stary": "Quando o adversário {{t:bet|aposta}} e tem um {{t:draw|projeto}}, a pergunta é:",
+    "nowy": "Quando tem um {{t:draw|projeto}} e o adversário {{t:bet|aposta}}, a pergunta é:",
+    "waga": "WYSOKIE",
+    "powod": "Zmieniony sens: w pt podmiotem 'tem um projeto' czyta się przeciwnik (pl: 'a ty masz draw').",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m2-l1-outy.md",
+    "stary": "pode {{t:bet|apostar}} de novo e pagará o river à parte. {{n:outs.flush}}",
+    "nowy": "pode {{t:bet|apostar}} de novo, e o river paga-se à parte. {{n:outs.flush}}",
+    "waga": "WYSOKIE",
+    "powod": "Zmieniony sens: 'o adversário pode apostar ... e pagará' czyta się, że płaci przeciwnik (pl: 'za rivera zapłacisz osobno').",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m2-l1-outy.md",
+    "stary": "pode {{t:bet|apostar}} de novo e pagará o river à parte. Por isso",
+    "nowy": "pode {{t:bet|apostar}} de novo, e o river paga-se à parte. Por isso",
+    "waga": "WYSOKIE",
+    "powod": "Jw. (sekcja 'Uma carta ou duas?'): podmiot 'pagará' = przeciwnik.",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m2-l1-outy.md",
+    "stary": "Quando o adversário {{t:bet|aposta}} no flop, paga por uma carta:",
+    "nowy": "Quando o adversário {{t:bet|aposta}} no flop, o seu pagamento compra apenas uma carta:",
+    "waga": "ŚREDNIE",
+    "powod": "Niejednoznaczny podmiot 'paga' po zdaniu z przeciwnikiem; pl 'płacisz za jedną kartę'.",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m2-l1-outy.md",
+    "stary": "compara o preço do {{t:call|call}}?",
+    "nowy": "compara o preço do {{t:call|pagamento}}?",
+    "waga": "ŚREDNIE",
+    "powod": "Termin call w całym pt: pagar/pagamento (nie 'call').",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m2-l1-outy.md",
+    "stary": "\"O {{t:call|call}} compra apenas uma carta.",
+    "nowy": "\"O {{t:call|pagamento}} compra apenas uma carta.",
+    "waga": "ŚREDNIE",
+    "powod": "Termin call: pagamento.",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m0-l1-uklady.md",
+    "stary": "porque tem um par de ases\"",
+    "nowy": "porque tem um {{t:pair|par}} de ases\"",
+    "waga": "ŚREDNIE",
+    "powod": "Brak znacznika {{t:pair}} obecnego w źródle ({{t:pair|parę}}).",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m0-l1-uklady.md",
+    "stary": "Qual vence: um {{t:flush|flush}} ou uma",
+    "nowy": "Qual vence: uma {{t:flush|cor}} ou uma",
+    "waga": "ŚREDNIE",
+    "powod": "Termin flush: w pt dominuje 'cor' (45 vs 18 w korpusie, m2 'cor', flush-draw 'projeto de cor'); m0 jako lekcja definiująca używa 'flush'.",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m0-l1-uklady.md",
+    "stary": "{ text: \"{{t:flush|Flush}}\", correct: true, why: \"O {{t:flush|flush}} está mais acima",
+    "nowy": "{ text: \"{{t:flush|Cor}}\", correct: true, why: \"A {{t:flush|cor}} está mais acima",
+    "waga": "ŚREDNIE",
+    "powod": "Termin flush: cor.",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m0-l1-uklady.md",
+    "stary": "uma posição abaixo do {{t:flush|flush}}.",
+    "nowy": "uma posição abaixo da {{t:flush|cor}}.",
+    "waga": "ŚREDNIE",
+    "powod": "Termin flush: cor.",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m0-l1-uklady.md",
+    "stary": "o adversário tem um {{t:flush|flush}}. Quem",
+    "nowy": "o adversário tem uma {{t:flush|cor}}. Quem",
+    "waga": "ŚREDNIE",
+    "powod": "Termin flush: cor.",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m0-l1-uklady.md",
+    "stary": "bate o {{t:flush|flush}}\", correct: true",
+    "nowy": "bate a {{t:flush|cor}}\", correct: true",
+    "waga": "ŚREDNIE",
+    "powod": "Termin flush: cor.",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m0-l1-uklady.md",
+    "stary": "o {{t:flush|flush}} em 5.º",
+    "nowy": "a {{t:flush|cor}} em 5.º",
+    "waga": "ŚREDNIE",
+    "powod": "Termin flush: cor.",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m0-l1-uklady.md",
+    "stary": "{{t:full-house|full house}}, {{t:flush|flush}}, {{t:straight|sequência}}.",
+    "nowy": "{{t:full-house|full house}}, {{t:flush|cor}}, {{t:straight|sequência}}.",
+    "waga": "ŚREDNIE",
+    "powod": "Termin flush: cor.",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m0-l1-uklady.md",
+    "stary": "O adversário: o {{t:flush|flush}} bate",
+    "nowy": "O adversário: a {{t:flush|cor}} bate",
+    "waga": "ŚREDNIE",
+    "powod": "Termin flush: cor.",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m0-l1-uklady.md",
+    "stary": "| 5 | {{t:flush|Flush}} |",
+    "nowy": "| 5 | {{t:flush|Cor}} |",
+    "waga": "ŚREDNIE",
+    "powod": "Termin flush: cor (tabela rankingu).",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m3-l1-pozycja.md",
+    "stary": "fora do {{t:range|leque}} de",
+    "nowy": "fora do {{t:range|range}} de",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje 'range' (68 w korpusie vs leque 11, gama 13); w L1 trzy formy (gama/ranges/leque).",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m3-l1-pozycja.md",
+    "stary": "(lição sobre {{t:range|leques}})",
+    "nowy": "(lição sobre {{t:range|ranges}})",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje 'range' (68 w korpusie vs leque 11, gama 13); w L1 trzy formy (gama/ranges/leque).",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m3-l3-zakresy-otwarc.md",
+    "stary": "title: \"Gamas de abertura\"",
+    "nowy": "title: \"Ranges de abertura\"",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje 'range' (68 w korpusie vs leque 11, gama 13); w L1 trzy formy (gama/ranges/leque).",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m3-l3-zakresy-otwarc.md",
+    "stary": "Uma {{t:range|gama}} de {{t:open|abertura}} é",
+    "nowy": "Um {{t:range|range}} de {{t:open|abertura}} é",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje 'range' (68 w korpusie vs leque 11, gama 13); w L1 trzy formy (gama/ranges/leque).",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m3-l3-zakresy-otwarc.md",
+    "stary": "a {{t:range|gama}} cresce",
+    "nowy": "o {{t:range|range}} cresce",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje 'range' (68 w korpusie vs leque 11, gama 13); w L1 trzy formy (gama/ranges/leque).",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m3-l3-zakresy-otwarc.md",
+    "stary": "destas {{t:range|gamas}} com",
+    "nowy": "destes {{t:range|ranges}} com",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje 'range' (68 w korpusie vs leque 11, gama 13); w L1 trzy formy (gama/ranges/leque).",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m3-l3-zakresy-otwarc.md",
+    "stary": "do limite da {{t:range|gama}}.",
+    "nowy": "do limite do {{t:range|range}}.",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje 'range' (68 w korpusie vs leque 11, gama 13); w L1 trzy formy (gama/ranges/leque).",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m3-l3-zakresy-otwarc.md",
+    "stary": "Estas {{t:range|gamas}} provêm",
+    "nowy": "Estes {{t:range|ranges}} provêm",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje 'range' (68 w korpusie vs leque 11, gama 13); w L1 trzy formy (gama/ranges/leque).",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m3-l3-zakresy-otwarc.md",
+    "stary": "no limite da {{t:range|gama}}, diferem",
+    "nowy": "no limite do {{t:range|range}}, diferem",
+    "waga": "ŚREDNIE",
+    "powod": "Termin range: w pt dominuje 'range' (68 w korpusie vs leque 11, gama 13); w L1 trzy formy (gama/ranges/leque).",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m3-l3-zakresy-otwarc.md",
+    "stary": "{{t:stakes|micro-limites}}",
+    "nowy": "{{t:stakes|microlimites}}",
+    "waga": "NISKIE",
+    "powod": "Pisownia AO90: przedrostek micro- bez łącznika przed spółgłoską.",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "pt",
+    "cel": "content/pt/lessons/m2-l2-pot-odds.md",
+    "stary": "apenas {{n:ex.bet.quarter}} para um {{t:pot|pote}} de",
+    "nowy": "apenas {{n:ex.bet.quarter}} num {{t:pot|pote}} de",
+    "waga": "NISKIE",
+    "powod": "Naturalność: zakład 'num pote de X' (pl 'do puli').",
+    "grupa": "L1"
+  }
+]
