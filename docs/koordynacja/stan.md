@@ -1,4 +1,4 @@
-# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 05:15 UTC)
+# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 05:20 UTC)
 
 Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T66VBzPr7MhGZ3A6RPdfBG`. Dawne pliki stanu zostają na gałęzi roboczej: `docs/programista/koordynator.md` (prompt i kolejka nocy), `docs/programista/plan-08.md` sekcja „Koordynacja” (dziennik od 2026-11-08, ostatni wpis 01:51 UTC 10.11), `docs/decyzje.md` (rejestr D-NNN aplikacji, ostatni D-394).
 
@@ -13,7 +13,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
   - Workflowy App Store Connect w trybie zapisu uruchamia i zatwierdza (`release`) **tylko właściciel**, zawsze z ref gałęzi roboczej (z `main` padają). Koordynator: tylko podglądy/kontrola.
 - Zawsze za zgodą: push i scalenie na `main` (poza listą wyżej), PR, App Store Connect zapis, TestFlight, publikacja, usuwanie gałęzi i danych, force-push, koszty stałe, wiadomości do ludzi, koszt API ponad pułap.
 - Pułapy kosztu: sesja [DO USTALENIA] (w praktyce 4,6–40 USD na sesję, `koszty.md`), doba [DO USTALENIA]; API przekładu wg zgód wyżej. Do ustalenia słowami właściciela.
-- Koordynator aktywny: session_01T66VBzPr7MhGZ3A6RPdfBG (do przekazania 2026-11-10 ok. 05:20 UTC; następca wpisze siebie).
+- Koordynator aktywny: session_01T66VBvZebfV7GaciZqtW3H (od 2026-11-10 05:12 UTC; poprzednik session_01T66VBzPr7MhGZ3A6RPdfBG).
 - Środowisko: environment_id env_011LiSvPc7hKtQZSkk13hSky, model claude-opus-5-5, wysiłek medium, permission_mode auto, extra_allowed_tools brak; repo sesji: lkarwowski494/Szkola_pokera, lkarwowski494/prompts (biblioteka, prywatna — dodawać przez add_repo read).
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
@@ -47,11 +47,13 @@ Litery użyte dotąd: A…Z, AA…AL (następna: **AM**). Polecenia nocy były w
 - Zakres 1.0: które języki (wydane w kodzie 11) i kiedy wysyłka do Apple [OCENA ~20.11 pl+en albo później z resztą]; fala 2 metadanych do `store/`.
 - Konto Apple Search Ads (D-377; najpewniej dopiero po premierze, `docs/sklep/search-ads-kroki.md`).
 - Pułapy kosztu sesji i doby do mandatu; tryb decyzji w dzień.
+- Zgoda na `add_repo lkarwowski494/prompts` (read): odrzucone przez klasyfikator trybu auto 05:12 (tak samo u koordynatora Piekarza 00:16). Bez biblioteki koordynator nie składa ról sesji podrzędnych → do zgody bez nowych sesji (E6 pkt 5.1). Alternatywa: reguła uprawnienia dla `mcp__claude-code-remote__add_repo` w ustawieniach.
 - Notatki recenzenta ASC (jedyna RÓŻNICA kontroli 42706853122) — czekają na W-04.
 
 ## Przypomnienia
-- Poprzednik usuwa swoje przy przekazaniu (było: trig_01KihuPMEhUFQp1zAXjtFr5g „Raport nocy D-359” 07:00).
-- Następca tworzy: „Koordynator Szkoła Pokera: raport nocy” 07:00 UTC 10.11 (jednorazowo), „…: linia 14:00”, „…: linia 05:00” (od 11.11). Kontrola tylko gdy coś trwa.
+- trig_01AeLXmJouMbVztuzcB4fAF7 „Koordynator Szkoła Pokera: raport nocy” 07:00 UTC 10.11 (jednorazowo) · trig_019PQfnnVoXW4mwtNVKTwddy „…: linia 14:00” 10.11 · trig_01TZaaQwGGQsTwNNy3JN3WHC „…: linia 05:00” 11.11. Kontrola tylko gdy coś trwa.
+- Poprzednika: trig_01BrH7Zk3tSKmXLeQ1wovYhg „kontrola przekazania” 05:42 (sprząta poprzednik).
+- Push na gałąź stanu przechodzi przez hook pre-push (typecheck, i18n, content) — w nowym kontenerze najpierw `pnpm install --frozen-lockfile` (5,6 s).
 
 ## Pule numerów decyzji
 - Rejestr aplikacji `docs/decyzje.md`: ostatni D-394; następny wolny **D-395**. Sesjom przydzielaj pule (noc: 4 kolizje numerów, WG-01).
@@ -67,3 +69,4 @@ Litery użyte dotąd: A…Z, AA…AL (następna: **AM**). Polecenia nocy były w
 | 11-10 01:41 | — | E2E 42732430729 (6afa34d, AL ko/it/vi) zielone; CI 42732569378 (3d9b776) zielone | raport 07:00 |
 | 11-10 05:15 | koordynator | migracja na M9: gałąź `koordynacja` @ ab820a8, pliki stanu | przekazanie następcy M9 |
 | 11-10 05:12 | koordynator | przekazane do session_01T66VBvZebfV7GaciZqtW3H (start bez błędu); przypomnienie trig_01KihuPMEhUFQp1zAXjtFr5g usunięte — raport 07:00 tworzy następca | PRZEJĄŁEM → archiwizacja poprzednika |
+| 11-10 05:20 | koordynator (session_01T66VBvZebfV7GaciZqtW3H) | przejęcie E6 pkt 5: przypomnienia 07:00/14:00/05:00 utworzone; add_repo prompts odrzucony (klasyfikator); trening/oczko/piekarz publiczne, klon na żądanie; od sesji podrzędnych brak wiadomości; aktywnych sesji brak | PRZEJĄŁEM → raport 07:00 |
