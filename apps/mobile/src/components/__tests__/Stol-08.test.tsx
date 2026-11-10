@@ -70,3 +70,22 @@ describe('Stol', () => {
   });
 });
 
+
+describe('D-476: stół z trzema rzędami (rywal 2 + board 5 + gracz 2)', () => {
+  const table = { opp: ['Ac', 'Ad'], hand: ['Th', '9h'], board: ['As', '8c', '7d', 'Jh', '2s'] };
+  const wysokoscRamy = () => {
+    const s = screen.getByTestId('stol-rama').props.style;
+    return (Array.isArray(s) ? Object.assign({}, ...s.flat(Infinity).filter(Boolean)) : s).height as number | undefined;
+  };
+
+  it.each([320, 390])('po pomiarze (%i pt ekranu) owal dostaje wysokość z układu rzędów, nie z samej proporcji 1,7:1', async (ekran) => {
+    const { fireEvent } = require('@testing-library/react-native');
+    const { ukladRzedow } = require('@/features/stol/ukladRzedow');
+    await render(<Stol table={table} />);
+    const pole = ekran - 32;
+    await fireEvent(screen.getByRole('image'), 'layout', { nativeEvent: { layout: { width: pole, height: 0, x: 0, y: 0 } } });
+    const u = ukladRzedow(pole, { opp: 2, board: 5, hero: 2 });
+    expect(wysokoscRamy()).toBe(u.wysokoscRamy);
+    expect(u.wysokoscRamy).toBeGreaterThan(Math.floor(u.szerokoscRamy / 1.7)); // stary układ (sama proporcja) był za niski
+  });
+});

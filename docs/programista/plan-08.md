@@ -1266,3 +1266,8 @@ Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę r
 **Czerwone:** brak. **Otwarte:** flow E2E CJK; zrzuty 320 pt / AX5 dla ja i fr; NISKIE z przeglądów AE/AK/AL; `terms-nazwy` [DO USTALENIA] (ko 25, it 52, vi 48 + 22 z D-392); zh-Hant limp 溜入; notatki recenzenta ASC (czekają na W-04).
 
 **Kroki właściciela:** (1) pytanie zbiorcze (weta, zakres 1.0, tryb decyzji i pułapy kosztu, `site/`, build do testów); (2) fakty W-04 (e-mail wsparcia, administrator), W-05 (Apple ID aplikacji), W-07 (dane sprzedawcy JP); (3) znaki towarowe „pokergym” / „poker gym” w USPTO, EUIPO, WIPO przed zapisem nazwy w ASC (D-378, D-382); (4) telefon: `docs/lokalizacja/lista-telefonu-4.md`, `lista-telefonu-de-es.md`, `lista-telefonu-ko-it-vi.md`, K6 en — po buildzie TestFlight.
+
+## Sesja AW — ocena poziomu: wybór na starcie, „Nie wiem”, układ stołu (2026-11-10, rola 08 build; D-475, D-476)
+- Zrobione: BR-ONB-001 i scenariusze (D-475); `EkranPowitania` z „Przejdź test poziomujący” / „Zacznij od początku” (`welcome.next` z {{n}} pytań i {{min}} min z `KONFIGURACJA`); `EkranPytaniaOceny`: „Nie wiem” zamiast „Pomiń” (zapis `{"nieWiem":true}`, zaliczona 0, bez migracji); `etapStartu` → powitanie także po przerwanej ocenie; `zacznijOdPoczatku`; klucze pl, en i 10 języków (tłumacz + osobny recenzent; `pnpm i18n` kod 0); flowy Maestro 01–05, 08, wspólny; notatki dla recenzenta; `ukladRzedow` i `Stol` (D-476).
+- Testy: `ocenaPoziomu-08` (+3), `PierwszeUruchomienie-08` (+1, 2 zmienione wg nowego wymagania), `powitanie-ocena` (zmienione), `ukladRzedow-08` (8), `Stol-08` (+2).
+- Nie zrobiono: zrzuty (brak symulatora), migracja schematu (niepotrzebna).

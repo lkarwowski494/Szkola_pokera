@@ -76,3 +76,8 @@ Część 6 (14 stanów):
 Razem 32 stany, 64 pliki. Usunięty duplikat: `sesja:po-ocenie` z listy 5b — ekran oceny w sesji przebudowano w części 6 (krok 7, D-277), więc jego stan po ocenie pokrywają stany `sesja-decyzja:po-ocenie-*`, `sesja-bez-pozycji:po-ocenie` i `sesja-tekstura:po-ocenie`. Przy okazji `ocena-poziomu:pytanie` pokaże stół `Stol` (08-F29 zamknięte 8362e14, D-280).
 
 Do sprawdzenia na urządzeniu przy zrzutach (plan-08 „Ryzyka”, l. 548 i 632): ochrona tła (U-2), zakupy w piaskownicy (U-5), eksport/import pliku, przypomnienie, prośba o ocenę; ruch paska i znacznika oraz „Ogranicz ruch”; start z krojem Literata (bez pustego ekranu > 3 s); przełączenie kroju przy AX1; VoiceOver na stole, pasku i skali; cele dotyku segmentów ≥ 64 pt.
+
+## Sesja AW (2026-11-10): do roli 04
+- **AW-1 (stół z trzema rzędami, D-476):** design-spec „`Stol`” nie opisuje układu rywal + board + gracz. Zastosowano najprostszy wariant z istniejących elementów: wysokość owalu z liczby rzędów, karty md → sm, gdy rząd się nie mieści (320 pt: board 5 kart w rozmiarze „sm”, 22 × 30 pt). Prośba: makieta/decyzja dla trzech rzędów (np. mniejszy podpis, board w dwóch rzędach, owal niżej).
+- **AW-2 (wybór na starcie, D-475):** ekran wyboru = istniejący ekran powitania z dwoma przyciskami (`Button` primary + ghost), bez nowych stylów; tekst `welcome.next` o długości testu i nowe teksty „Przejdź test poziomujący”, „Zacznij od początku”, „Nie wiem” do akceptacji 04/06. „Nie wiem” = wariant ghost jak dawne „Pomiń”.
+- **AW-3 (rola 10/09, sklep):** `store/` i metadane z K-11 mówią „możesz ją pominąć” (ocena poziomu): nadal prawdziwe („Zacznij od początku”), ale do przeglądu przy kolejnej zmianie opisu; notatki dla recenzenta zmienione w tej sesji.
