@@ -3,7 +3,7 @@
     "jezyk": "fr",
     "cel": "content/fr/lessons/m12-l3-tilt.md",
     "stary": "lisez la fiche sur le jeu responsable",
-    "nowy": "lisez l'encadré « Jeu responsable »",
+    "nowy": "lisez l'encadré « Jeu responsable »",
     "waga": "ŚR",
     "powod": "m12-l3:133: pl „kartę o odpowiedzialnej grze”; ta sama ramka w m12-l4:102 i jej tytuł (m12-l4:143) to „l'encadré « Jeu responsable »” — jedna nazwa na odesłanie do treści krytycznej",
     "grupa": "fr-L10"
@@ -32,7 +32,7 @@
     "stary": "C'est du tilt par désespoir",
     "nowy": "C'est du tilt de désespoir",
     "waga": "ŚR",
-    "powod": "m12-l4:51: q-move-up/move-down why: nazwa typu tiltu w m12-l3 (17, 33, 71) to „tilt de désespoir”",
+    "powod": "m12-l4:51: q-move-down why: nazwa typu tiltu w m12-l3 (17, 33, 71) to „tilt de désespoir”",
     "grupa": "fr-L10"
   },
   {
@@ -83,8 +83,8 @@
   {
     "jezyk": "fr",
     "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
-    "stary": "equity et",
-    "nowy": "équité et",
+    "stary": "{{n:eq.bet-pot}} d'equity et vous",
+    "nowy": "{{n:eq.bet-pot}} d'équité et vous",
     "waga": "ŚR",
     "powod": "m12-l2:40: termin equity: terms-nazwy.yaml fr = „équité”; pl ma tu nieoznaczone „equity”",
     "grupa": "fr-L10"
@@ -110,8 +110,8 @@
   {
     "jezyk": "fr",
     "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
-    "stary": "equity",
-    "nowy": "équité",
+    "stary": "et l'equity face à",
+    "nowy": "et l'équité face à",
     "waga": "ŚR",
     "powod": "m12-l2:106: termin equity: terms-nazwy.yaml fr = „équité”; pl ma tu nieoznaczone „equity”",
     "grupa": "fr-L10"
@@ -128,8 +128,8 @@
   {
     "jezyk": "fr",
     "cel": "content/fr/exams/m12.yaml",
-    "stary": "equity",
-    "nowy": "équité",
+    "stary": "equity face",
+    "nowy": "équité face",
     "waga": "ŚR",
     "powod": "exam m12:46: termin equity: terms-nazwy.yaml fr = „équité”",
     "grupa": "fr-L10"
@@ -146,8 +146,8 @@
   {
     "jezyk": "fr",
     "cel": "content/fr/lessons/m12-l2-decyzja-wynik.md",
-    "stary": "{{t:standard-deviation|écart type}}",
-    "nowy": "{{t:standard-deviation|écart-type}}",
+    "stary": "{{t:standard-deviation|écart type}} (leçon",
+    "nowy": "{{t:standard-deviation|écart-type}} (leçon",
     "waga": "NISKIE",
     "powod": "m12-l2:77: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
     "grupa": "fr-L10"
@@ -173,8 +173,8 @@
   {
     "jezyk": "fr",
     "cel": "content/fr/lessons/m12-l4-bankroll.md",
-    "stary": "un {{t:standard-deviation|écart type}} de {{n:var.sd}},",
-    "nowy": "un {{t:standard-deviation|écart-type}} de {{n:var.sd}},",
+    "stary": "{{n:br.bi.base}} {{t:buy-in|buy-ins}}, un {{t:standard-deviation|écart type}} de {{n:var.sd}}, mais vous",
+    "nowy": "{{n:br.bi.base}} {{t:buy-in|buy-ins}}, un {{t:standard-deviation|écart-type}} de {{n:var.sd}}, mais vous",
     "waga": "NISKIE",
     "powod": "m12-l4:38: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
     "grupa": "fr-L10"
@@ -182,8 +182,8 @@
   {
     "jezyk": "fr",
     "cel": "content/fr/lessons/m12-l4-bankroll.md",
-    "stary": "{{t:standard-deviation|écart type}}",
-    "nowy": "{{t:standard-deviation|écart-type}}",
+    "stary": "Avec un {{t:standard-deviation|écart type}} de {{n:var.sd}}",
+    "nowy": "Avec un {{t:standard-deviation|écart-type}} de {{n:var.sd}}",
     "waga": "NISKIE",
     "powod": "m12-l4:123: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
     "grupa": "fr-L10"
@@ -209,8 +209,8 @@
   {
     "jezyk": "fr",
     "cel": "content/fr/exams/m12.yaml",
-    "stary": "{{t:standard-deviation|écart type}} du",
-    "nowy": "{{t:standard-deviation|écart-type}} du",
+    "stary": "moyenne. L'{{t:standard-deviation|écart type}} du résultat",
+    "nowy": "moyenne. L'{{t:standard-deviation|écart-type}} du résultat",
     "waga": "NISKIE",
     "powod": "exam m12:10: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
     "grupa": "fr-L10"
@@ -263,8 +263,8 @@
   {
     "jezyk": "fr",
     "cel": "content/fr/exams/m12.yaml",
-    "stary": "{{t:standard-deviation|écart type}} est",
-    "nowy": "{{t:standard-deviation|écart-type}} est",
+    "stary": "Votre {{t:standard-deviation|écart type}} est",
+    "nowy": "Votre {{t:standard-deviation|écart-type}} est",
     "waga": "NISKIE",
     "powod": "exam m12:34: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
     "grupa": "fr-L10"
@@ -272,8 +272,8 @@
   {
     "jezyk": "fr",
     "cel": "content/fr/exams/m12.yaml",
-    "stary": "{{t:standard-deviation|écart type}} de",
-    "nowy": "{{t:standard-deviation|écart-type}} de",
+    "stary": "{{n:dd.wr-low}} avec un {{t:standard-deviation|écart type}} de {{n:var.sd}} et",
+    "nowy": "{{n:dd.wr-low}} avec un {{t:standard-deviation|écart-type}} de {{n:var.sd}} et",
     "waga": "NISKIE",
     "powod": "exam m12:71: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
     "grupa": "fr-L10"
@@ -290,8 +290,8 @@
   {
     "jezyk": "fr",
     "cel": "content/fr/exams/m12.yaml",
-    "stary": "{{t:standard-deviation|écart type}}",
-    "nowy": "{{t:standard-deviation|écart-type}}",
+    "stary": "{{t:standard-deviation|écart type}} qui",
+    "nowy": "{{t:standard-deviation|écart-type}} qui",
     "waga": "NISKIE",
     "powod": "exam m12:93: pisownia terminu: terms-nazwy.yaml i m12-l1 mają „écart-type” (z łącznikiem)",
     "grupa": "fr-L10"

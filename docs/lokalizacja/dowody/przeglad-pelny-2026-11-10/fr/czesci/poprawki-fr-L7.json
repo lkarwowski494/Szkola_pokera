@@ -1,0 +1,542 @@
+[
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l1-spr.md",
+    "stary": "De combien d'equity avez-vous",
+    "nowy": "De combien d'équité avez-vous",
+    "waga": "ŚR",
+    "powod": "m9-l1:90 (n-jam-spr2 prompt): termin: terms-nazwy.yaml fr ma equity = „équité” (tak też m9-l2 w całości); tu zostawione angielskie „equity”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l1-spr.md",
+    "stary": "Equity nécessaire = {{n:commit.stack}}",
+    "nowy": "Équité nécessaire = {{n:commit.stack}}",
+    "waga": "ŚR",
+    "powod": "m9-l1:92 (n-jam-spr2 explanation): termin: terms-nazwy.yaml fr ma equity = „équité” (tak też m9-l2 w całości); tu zostawione angielskie „equity”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l1-spr.md",
+    "stary": "avez-vous besoin du moins d'equity pour",
+    "nowy": "vous faut-il le moins d'équité pour",
+    "waga": "ŚR",
+    "powod": "m9-l1:97 (q-jam-price prompt): termin: terms-nazwy.yaml fr ma equity = „équité” (tak też m9-l2 w całości); tu zostawione angielskie „equity”; przy okazji „besoin du moins d'…” (pl „najmniej equity”) czyta się jak „du moins” = „przynajmniej”, jaśniej „vous faut-il le moins d'…”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l1-spr.md",
+    "stary": "Equity nécessaire = stack",
+    "nowy": "Équité nécessaire = stack",
+    "waga": "ŚR",
+    "powod": "m9-l1:143: termin: terms-nazwy.yaml fr ma equity = „équité” (tak też m9-l2 w całości); tu zostawione angielskie „equity”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "d'equity, et encore moins",
+    "nowy": "d'équité, et encore moins",
+    "waga": "ŚR",
+    "powod": "m9-l4:47 (q-tp-4bet): termin: terms-nazwy.yaml fr ma equity = „équité” (tak też m9-l2 w całości); tu zostawione angielskie „equity”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m9.yaml",
+    "stary": "De combien d'equity avez-vous",
+    "nowy": "De combien d'équité avez-vous",
+    "waga": "ŚR",
+    "powod": "exams/m9:26 (q3 prompt): termin: terms-nazwy.yaml fr ma equity = „équité” (tak też m9-l2 w całości); tu zostawione angielskie „equity”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m9.yaml",
+    "stary": "{{n:exam.m9.eq.low-after-half}} d'equity, et",
+    "nowy": "{{n:exam.m9.eq.low-after-half}} d'équité, et",
+    "waga": "ŚR",
+    "powod": "exams/m9:36 (q4 opcja 1 why): termin: terms-nazwy.yaml fr ma equity = „équité” (tak też m9-l2 w całości); tu zostawione angielskie „equity”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m9.yaml",
+    "stary": "{{n:exam.m9.eq.low-after-half}} d'equity suffit",
+    "nowy": "{{n:exam.m9.eq.low-after-half}} d'équité suffit",
+    "waga": "ŚR",
+    "powod": "exams/m9:37 (q4 opcja 2 why): termin: terms-nazwy.yaml fr ma equity = „équité” (tak też m9-l2 w całości); tu zostawione angielskie „equity”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l2-zaangazowanie.md",
+    "stary": "{{t:pot|Pot}} avec une seule relance, stacks",
+    "nowy": "{{t:pot|Pot}} à une seule relance, stacks",
+    "waga": "ŚR",
+    "powod": "m9-l2:65 (q-tp-srp prompt): niespójny termin: pl „pula z jednym podbiciem” ma w module M9 cztery nazwy (à une seule relance / avec une seule relance / simplement relancé / relancé une fois); ujednolicenie do dominującej „à une seule relance” (m9-l1, m9-l4)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l2-zaangazowanie.md",
+    "stary": "Dans un {{t:pot}} avec une seule relance, le",
+    "nowy": "Dans un {{t:pot}} à une seule relance, le",
+    "waga": "ŚR",
+    "powod": "m9-l2:110: niespójny termin: pl „pula z jednym podbiciem” ma w module M9 cztery nazwy (à une seule relance / avec une seule relance / simplement relancé / relancé une fois); ujednolicenie do dominującej „à une seule relance” (m9-l1, m9-l4)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l3-rozmiar-geometryczny.md",
+    "stary": "{{t:pot|Pot}} simplement relancé : au flop",
+    "nowy": "{{t:pot|Pot}} à une seule relance : au flop",
+    "waga": "ŚR",
+    "powod": "m9-l3:36 (q-srp-half prompt): niespójny termin: pl „pula z jednym podbiciem” ma w module M9 cztery nazwy (à une seule relance / avec une seule relance / simplement relancé / relancé une fois); ujednolicenie do dominującej „à une seule relance” (m9-l1, m9-l4)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l3-rozmiar-geometryczny.md",
+    "stary": "{{t:pot|Pot}} simplement relancé, {{t:spr}}",
+    "nowy": "{{t:pot|Pot}} à une seule relance, {{t:spr}}",
+    "waga": "ŚR",
+    "powod": "m9-l3:45 (q-srp-geo prompt): niespójny termin: pl „pula z jednym podbiciem” ma w module M9 cztery nazwy (à une seule relance / avec une seule relance / simplement relancé / relancé une fois); ujednolicenie do dominującej „à une seule relance” (m9-l1, m9-l4)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l3-rozmiar-geometryczny.md",
+    "stary": "Dans un {{t:pot}} simplement relancé, le",
+    "nowy": "Dans un {{t:pot}} à une seule relance, le",
+    "waga": "ŚR",
+    "powod": "m9-l3:48 (q-srp-geo opcja 2 why): niespójny termin: pl „pula z jednym podbiciem” ma w module M9 cztery nazwy (à une seule relance / avec une seule relance / simplement relancé / relancé une fois); ujednolicenie do dominującej „à une seule relance” (m9-l1, m9-l4)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l3-rozmiar-geometryczny.md",
+    "stary": "## Le {{t:pot}} simplement relancé est profond",
+    "nowy": "## Le {{t:pot}} à une seule relance est profond",
+    "waga": "ŚR",
+    "powod": "m9-l3:124 (nagłówek): niespójny termin: pl „pula z jednym podbiciem” ma w module M9 cztery nazwy (à une seule relance / avec une seule relance / simplement relancé / relancé une fois); ujednolicenie do dominującej „à une seule relance” (m9-l1, m9-l4)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m9.yaml",
+    "stary": "Un {{t:pot}} relancé une fois, stacks",
+    "nowy": "Un {{t:pot}} à une seule relance, stacks",
+    "waga": "ŚR",
+    "powod": "exams/m9:62 (q7 prompt): niespójny termin: pl „pula z jednym podbiciem” ma w module M9 cztery nazwy (à une seule relance / avec une seule relance / simplement relancé / relancé une fois); ujednolicenie do dominującej „à une seule relance” (m9-l1, m9-l4)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m9.yaml",
+    "stary": "Un {{t:pot}} 3-betté, vous",
+    "nowy": "Un {{t:pot}} 3-bet, vous",
+    "waga": "NISKIE",
+    "powod": "exams/m9:72 (q8 prompt): niespójność: pl „pula 3-betowana” w lekcjach M9 to „pot 3-bet” (m9-l3, m9-l4), tu „pot 3-betté”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m9.yaml",
+    "stary": "pas toujours le all-in de",
+    "nowy": "pas toujours l'all-in de",
+    "waga": "NISKIE",
+    "powod": "exams/m9:17 (q2 prompt): typografia/spójność: w lekcjach M9 i w korpusie elizja „l'all-in” (ok. 35×), tylko w tym egzaminie „le/au all-in”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m9.yaml",
+    "stary": "Face au all-in de",
+    "nowy": "Face à l'all-in de",
+    "waga": "NISKIE",
+    "powod": "exams/m9:36 (q4 opcja 1 why): typografia/spójność: w lekcjach M9 i w korpusie elizja „l'all-in” (ok. 35×), tylko w tym egzaminie „le/au all-in”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m9.yaml",
+    "stary": "{{t:call|suivre}} le all-in. Soit",
+    "nowy": "{{t:call|suivre}} l'all-in. Soit",
+    "waga": "NISKIE",
+    "powod": "exams/m9:37 (q4 opcja 2 why): typografia/spójność: w lekcjach M9 i w korpusie elizja „l'all-in” (ok. 35×), tylko w tym egzaminie „le/au all-in”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/exams/m9.yaml",
+    "stary": "au turn, c'est le all-in",
+    "nowy": "au turn, c'est l'all-in",
+    "waga": "NISKIE",
+    "powod": "exams/m9:45 (q5 opcja 1 why): typografia/spójność: w lekcjach M9 i w korpusie elizja „l'all-in” (ok. 35×), tylko w tym egzaminie „le/au all-in”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l3-rozmiar-geometryczny.md",
+    "stary": "{{n:spr.4bet}} {{t:pot|pots}} d'emblée",
+    "nowy": "{{n:spr.4bet}} fois le {{t:pot}} d'emblée",
+    "waga": "NISKIE",
+    "powod": "m9-l3:78 (q-4bet-two opcja 3 why): pl „zakład ok. {{n:spr.4bet}} puli”; wartość ok. 1,7, więc liczba mnoga „1,7 pots” jest błędna (fr: l.mn. od 2); naturalnie „1,7 fois le pot”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l3-rozmiar-geometryczny.md",
+    "stary": "de la taille du {{t:pot}} {{n:srp.potbet.total}} d'un stack",
+    "nowy": "de la taille du {{t:pot}}, {{n:srp.potbet.total}} d'un stack",
+    "waga": "NISKIE",
+    "powod": "m9-l3:126: elipsa czasownika bez przecinka zlewa „taille du pot” z kwotą („…du pot 39 BB d'un stack”); przecinek jak w pl po „puli”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "ou {{t:check}} et {{t:call|suivi}}.",
+    "nowy": "ou {{t:check}} puis {{t:call}}.",
+    "waga": "ŚR",
+    "powod": "m9-l4:36 (q-middle-pair opcja 1 why): pl „{{t:check}} i {{t:call|sprawdzanie}}” (linia check–call); „check et suivi” nie jest nazwą zagrania („suivi” czyta się jak imiesłów bierny albo „monitoring”); nazwa terminu wg terms-nazwy to „call”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "puis {{t:check}} et {{t:call|suivi}} :",
+    "nowy": "puis {{t:check}} et {{t:call}} :",
+    "waga": "ŚR",
+    "powod": "m9-l4:123 (lista linii): pl „{{t:check}} i {{t:call|sprawdzanie}}” (linia check–call); „check et suivi” nie jest nazwą zagrania („suivi” czyta się jak imiesłów bierny albo „monitoring”); nazwa terminu wg terms-nazwy to „call”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "{{t:top-pair|top paire}} à l'as, c'est",
+    "nowy": "{{t:top-pair|top paire}} avec un as, c'est",
+    "waga": "NISKIE",
+    "powod": "m9-l4:47 (q-tp-4bet opcja 2 why): pl „najwyższą parą z asem” (AK na K-high, as = kicker); „top paire à l'as” sugeruje parę asów; w m9-l2 to samo wyrażenie oddane „top paire avec un as”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "sur les {{t:street|streets}} suivantes. Quelques",
+    "nowy": "sur les {{t:street|streets}} successives. Quelques",
+    "waga": "NISKIE",
+    "powod": "m9-l4:119: pl „na kolejnych ulicach” = na następujących po sobie ulicach (flop, turn, river), nie „na następnych”",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis\", correct:",
+    "nowy": "stack\", correct:",
+    "waga": "ŚR",
+    "powod": "m9-l4:26: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis n'entrerait",
+    "nowy": "stack n'entrerait",
+    "waga": "ŚR",
+    "powod": "m9-l4:26: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis entre au",
+    "nowy": "stack entre au",
+    "waga": "ŚR",
+    "powod": "m9-l4:46: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis. Ici, deux",
+    "nowy": "stack. Ici, deux",
+    "waga": "ŚR",
+    "powod": "m9-l4:46: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "c'est jouer tout le tapis",
+    "nowy": "c'est jouer tout le stack",
+    "waga": "ŚR",
+    "powod": "m9-l4:46: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis, et les",
+    "nowy": "stack, et les",
+    "waga": "ŚR",
+    "powod": "m9-l4:48: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis d'ici la",
+    "nowy": "stack d'ici la",
+    "waga": "ŚR",
+    "powod": "m9-l4:53: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis. À chaque",
+    "nowy": "stack. À chaque",
+    "waga": "ŚR",
+    "powod": "m9-l4:56: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis demande",
+    "nowy": "stack demande",
+    "waga": "ŚR",
+    "powod": "m9-l4:57: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis serait",
+    "nowy": "stack serait",
+    "waga": "ŚR",
+    "powod": "m9-l4:58: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis sans de",
+    "nowy": "stack sans de",
+    "waga": "ŚR",
+    "powod": "m9-l4:65: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "faut-il jouer tout le tapis",
+    "nowy": "faut-il jouer tout le stack",
+    "waga": "ŚR",
+    "powod": "m9-l4:66: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis, et cette",
+    "nowy": "stack, et cette",
+    "waga": "ŚR",
+    "powod": "m9-l4:75: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis. Avec des",
+    "nowy": "stack. Avec des",
+    "waga": "ŚR",
+    "powod": "m9-l4:75: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tout le tapis. La",
+    "nowy": "tout le stack. La",
+    "waga": "ŚR",
+    "powod": "m9-l4:76: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "non pour tout le tapis",
+    "nowy": "non pour tout le stack",
+    "waga": "ŚR",
+    "powod": "m9-l4:77: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "{{t:pot|pot}}, tapis",
+    "nowy": "{{t:pot|pot}}, stacks",
+    "waga": "ŚR",
+    "powod": "m9-l4:82: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module); tu l.mn. „stacks” (pl „stacki po”)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "du reste du tapis",
+    "nowy": "du reste du stack",
+    "waga": "ŚR",
+    "powod": "m9-l4:82: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "le tapis est",
+    "nowy": "le stack est",
+    "waga": "ŚR",
+    "powod": "m9-l4:84: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "pour jouer tout le tapis",
+    "nowy": "pour jouer tout le stack",
+    "waga": "ŚR",
+    "powod": "m9-l4:84: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "reste du tapis.\"",
+    "nowy": "reste du stack.\"",
+    "waga": "ŚR",
+    "powod": "m9-l4:85: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis\", why:",
+    "nowy": "stack\", why:",
+    "waga": "ŚR",
+    "powod": "m9-l4:86: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis ne vaut",
+    "nowy": "stack ne vaut",
+    "waga": "ŚR",
+    "powod": "m9-l4:86: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tout le tapis ?",
+    "nowy": "tout le stack ?",
+    "waga": "ŚR",
+    "powod": "m9-l4:95: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis et vous",
+    "nowy": "stack et vous",
+    "waga": "ŚR",
+    "powod": "m9-l4:111: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "le tapis :**",
+    "nowy": "le stack :**",
+    "waga": "ŚR",
+    "powod": "m9-l4:111: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis, donc vous",
+    "nowy": "stack, donc vous",
+    "waga": "ŚR",
+    "powod": "m9-l4:112: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "jouez le tapis",
+    "nowy": "jouez le stack",
+    "waga": "ŚR",
+    "powod": "m9-l4:112: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "de mettre tout le tapis.",
+    "nowy": "de mettre tout le stack.",
+    "waga": "ŚR",
+    "powod": "m9-l4:113: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tout le tapis. Une",
+    "nowy": "tout le stack. Une",
+    "waga": "ŚR",
+    "powod": "m9-l4:115: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis : dans",
+    "nowy": "stack : dans",
+    "waga": "ŚR",
+    "powod": "m9-l4:115: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "tapis (zones",
+    "nowy": "stack (zones",
+    "waga": "ŚR",
+    "powod": "m9-l4:115: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "d'un tapis de",
+    "nowy": "d'un stack de",
+    "waga": "ŚR",
+    "powod": "m9-l4:127: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  },
+  {
+    "jezyk": "fr",
+    "cel": "content/fr/lessons/m9-l4-plan-trzech-ulic.md",
+    "stary": "mettent tout le tapis",
+    "nowy": "mettent tout le stack",
+    "waga": "ŚR",
+    "powod": "m9-l4:127: termin: terms-nazwy.yaml fr ma stack = „stack” i tak jest w m9-l1…l3 oraz w egzaminie M9; tylko ta lekcja oddaje pl „stack” jako „tapis” (jedno pojęcie, dwie nazwy w module)",
+    "grupa": "fr-L7"
+  }
+]

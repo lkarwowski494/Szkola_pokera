@@ -110,8 +110,8 @@
   {
     "jezyk": "fr",
     "cel": "content/fr/lessons/m5-l3-czestotliwosc-rozmiar.md",
-    "stary": "{{t:monotone|monochrome}} : moins souvent et petit",
-    "nowy": "{{t:monotone|monocolore}} : moins souvent et petit",
+    "stary": "; {{t:monotone|monochrome}}",
+    "nowy": "; {{t:monotone|monocolore}}",
     "waga": "ŚR",
     "powod": "m5-l3:133 (note): niespójny termin monotone; przyjęta nazwa „monocolore”",
     "grupa": "fr-L3"

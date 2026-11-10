@@ -1,0 +1,92 @@
+[
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "{{t:wet|Humide}}",
+  "nowy": "{{t:wet|Wet}}",
+  "waga": "ŚR",
+  "powod": "Terminologia: terms-nazwy.yaml fr ma wet: \"wet\" (zmiana D-392 w komentarzu), treść kursu używa formy wet (19×), a słownik interfejsu „humide”; drill.texture.label.wetness.wet",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "{{t:dry|Sec}} ou {{t:wet|humide}}",
+  "nowy": "{{t:dry|Sec}} ou {{t:wet|wet}}",
+  "waga": "ŚR",
+  "powod": "Terminologia: terms-nazwy.yaml fr ma wet: \"wet\" (zmiana D-392 w komentarzu), treść kursu używa formy wet (19×), a słownik interfejsu „humide”; drill.texture.axis.wetness",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "intermédiaire {{medium}}, {{t:wet|humide}}",
+  "nowy": "intermédiaire {{medium}}, {{t:wet|wet}}",
+  "waga": "ŚR",
+  "powod": "Terminologia: terms-nazwy.yaml fr ma wet: \"wet\" (zmiana D-392 w komentarzu), treść kursu używa formy wet (19×), a słownik interfejsu „humide”; drill.texture.scale",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "un flop {{t:wet|humide}} donne",
+  "nowy": "un flop {{t:wet|wet}} donne",
+  "waga": "ŚR",
+  "powod": "Terminologia: terms-nazwy.yaml fr ma wet: \"wet\" (zmiana D-392 w komentarzu), treść kursu używa formy wet (19×), a słownik interfejsu „humide”; drill.texture.def.wetness.wet",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "intermédiaire ou {{t:wet|humide}}",
+  "nowy": "intermédiaire ou {{t:wet|wet}}",
+  "waga": "ŚR",
+  "powod": "Terminologia: terms-nazwy.yaml fr ma wet: \"wet\" (zmiana D-392 w komentarzu), treść kursu używa formy wet (19×), a słownik interfejsu „humide”; drill.texture.prompt.wetness",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "apps/mobile/src/i18n/locales/fr.json",
+  "stary": "Vous avez ouvert le coup en vous contentant de payer la blinde",
+  "nowy": "Vous êtes entré le premier dans le coup en payant seulement la blinde",
+  "waga": "ŚR",
+  "powod": "play.report.detail.limp: pl „Wszedłeś do rozdania jako pierwszy samym blindem (limp)”; „ouvert” koliduje z terminem open = ouverture (otwarcie przebiciem), a limp właśnie nie jest otwarciem; zgubione też „jako pierwszy”",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "content/fr/modules.yaml",
+  "stary": "Préflop face",
+  "nowy": "Preflop face",
+  "waga": "NISKIE",
+  "powod": "modules.yaml m4 title: pisownia terminu wg terms-nazwy.yaml (preflop: \"preflop\") i słownika interfejsu (Preflop), bez akcentu",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "store/app-store-metadata.json",
+  "stary": "Décisions notées sur quatre niveaux",
+  "nowy": "Décisions notées sur quatre niveaux : conforme, acceptable, imprécision, erreur",
+  "waga": "ŚR",
+  "powod": "fr-FR description, ENTRAÎNEMENT: pominięte wyliczenie czterech stopni oceny (pl: „zgodna, dopuszczalna, niedokładność, błąd”; en-US też je wymienia); nazwy jak w słowniku interfejsu (grade.*)",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "store/app-store-metadata.json",
+  "stary": "indice de progression",
+  "nowy": "indice de niveau",
+  "waga": "NISKIE",
+  "powod": "fr-FR description, RÉVISIONS ET PROGRÈS: „wskaźnik zaawansowania” w aplikacji to „Indice de niveau” (advancement.title); jedna nazwa na jedno pojęcie",
+  "grupa": "fr-U1"
+ },
+ {
+  "jezyk": "fr",
+  "cel": "store/app-store-metadata.json",
+  "stary": "une séance d’entraînement",
+  "nowy": "une séance d’exercices",
+  "waga": "NISKIE",
+  "powod": "fr-FR description, ACCÈS: „sesja ćwiczeń” w aplikacji to „Séance d’exercices” (today.practice, start.title.practice); spójność nazwy aktywności objętej limitem",
+  "grupa": "fr-U1"
+ }
+]

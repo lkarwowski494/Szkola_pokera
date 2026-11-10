@@ -92,8 +92,8 @@
   {
     "jezyk": "fr",
     "cel": "content/fr/lessons/m4-l1-3bet.md",
-    "stary": "ne {{t:call|suit}} presque rien",
-    "nowy": "ne {{t:call|suit}} presque jamais",
+    "stary": "{{t:call|suit}} presque rien",
+    "nowy": "{{t:call|suit}} presque jamais",
     "waga": "NISKIE",
     "powod": "m4-l1:93: niezręczne « suivre rien »; sens: prawie nigdy nie sprawdza",
     "grupa": "fr-L2"
