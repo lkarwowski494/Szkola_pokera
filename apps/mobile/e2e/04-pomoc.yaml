@@ -9,8 +9,10 @@ name: Pomoc
       AppleLanguages: '(pl)'
 # pierwsze uruchomienie (cz. 5b krok 3): powitanie → „Zacznij od początku” → „Dziś” (BR-ONB-001, D-475)
 - runFlow: wspolne/za-powitaniem.yaml
+# „Dziś” po powitaniu: czekamy na element tego ekranu (blok lekcji); wstęp listy lekcji jest w zakładce „Lekcje” (D-542)
 - extendedWaitUntil:
-    visible: 'No-Limit Hold’em od zera.*'
+    visible:
+      id: 'dzis-lekcja'
     timeout: 30000
 - tapOn: 'Postęp'
 - scrollUntilVisible:
