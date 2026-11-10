@@ -1,0 +1,95 @@
+# Pula egzaminacyjna M3 (pozycja, ręce startowe, zakresy otwarć): reguły lekcji m3.l1–m3.l3, inne ręce i pozycje.
+# Decyzje otwarcia zgodne ze spotami solvera aplikacji (rfi.*): ręce poza listą klas niepewnych, częstość 0 albo ≥ 0,94.
+module: m3
+drills:
+  - kind: choice
+    id: m3.exam.q1
+    family: m3.position
+    rules: [R-M3-001]
+    prompt: "버튼이 {{t:open|오픈했고}}, {{t:small-blind|스몰 블라인드}}는 {{t:fold|폴드했으며}}, {{t:big-blind|빅 블라인드}}가 {{t:call|콜했습니다}}. 플롭에서 누가 먼저 액션합니까?"
+    options:
+      - { text: "{{t:big-blind|빅 블라인드}}", correct: true, why: "플롭부터는 블라인드가 먼저 액션하고 버튼이 마지막으로 액션합니다. 그래서 여기서는 버튼이 {{t:position|포지션}}을 가지고, {{t:big-blind|빅 블라인드}}는 {{t:out-of-position|아웃 오브 포지션}}으로 플레이합니다." }
+      - { text: "버튼, {{t:open|오픈했기}} 때문에", why: "액션 순서는 누가 {{t:open|오픈했는지}}가 아니라 테이블에서의 자리에 따라 정해집니다. 플롭부터 버튼은 항상 마지막으로 액션합니다." }
+      - { text: "프리플롭에서 마지막으로 액션한 사람", why: "프리플롭에서는 블라인드가 마지막으로 액션하지만, 플롭부터는 먼저 액션합니다. 그래서 버튼의 {{t:position|포지션}}이 가장 좋습니다." }
+  - kind: choice
+    id: m3.exam.q2
+    family: m3.open-early
+    rules: [R-M3-002]
+    prompt: "프리플롭에서 당신이 가장 먼저 액션하며, 아직 아무도 게임에 참여하지 않았습니다. 어떻게 하시겠습니까?"
+    table: { hand: "Ac Td", position: UTG }
+    options:
+      - { text: "{{t:raise|레이즈합니다}}", correct: true, why: "오프수트 AT는 {{t:utg}}에서의 {{t:open|오픈}} {{t:range|레인지}}(약 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}개 핸드)에 들어갑니다. 앱의 솔버는 여기서 이 핸드를 항상 플레이합니다." }
+      - { text: "{{t:fold|폴드합니다}}", why: "너무 타이트합니다. {{t:utg}}에서는 좁게 플레이하지만, AT는 여전히 {{t:range|레인지}}에 들어갑니다." }
+      - { text: "{{t:big-blind|빅 블라인드}} 금액만 맞춥니다", why: "가장 먼저 들어갈 때는 {{t:raise|레이즈하거나}} {{t:fold|폴드합니다}}. 림프는 {{t:initiative|주도권}}과 블라인드를 바로 가져올 기회를 내줍니다." }
+  - kind: choice
+    id: m3.exam.q3
+    family: m3.rfi.early
+    rules: [R-M3-006]
+    prompt: "{{t:utg}}가 {{t:fold|폴드했고}}, 다음은 당신 차례입니다. 어떻게 하시겠습니까?"
+    table: { hand: "Ah 9d", position: HJ }
+    options:
+      - { text: "{{t:fold|폴드합니다}}", correct: true, why: "당신 뒤에 아직 네 명의 플레이어가 남아 있습니다. 오프수트 A9는 에이스를 맞혀도 상대의 AT, AJ, AQ보다 키커가 약한 경우가 많습니다. 앱의 솔버는 {{t:hijack|HJ}}에서 이 핸드를 항상 {{t:fold|폴드합니다}}." }
+      - { text: "{{t:raise|레이즈합니다}}", why: "에이스가 끌리지만, {{t:hijack|HJ}}에서는 {{t:cutoff|CO}}나 버튼에서보다 좁게 {{t:open|오픈합니다}}. A9o는 {{t:cutoff|CO}} {{t:range|레인지}}부터 들어갑니다." }
+  - kind: choice
+    id: m3.exam.q4
+    family: m3.rfi.late
+    rules: [R-M3-006]
+    prompt: "당신 앞의 모두가 {{t:fold|폴드했습니다}}. 어떻게 하시겠습니까?"
+    table: { hand: "Ah 9d", position: CO }
+    options:
+      - { text: "{{t:raise|레이즈합니다}}", correct: true, why: "당신 뒤에는 버튼과 블라인드만 남았으므로 {{t:hijack|HJ}}에서보다 넓게 {{t:open|오픈합니다}}. 앱의 솔버는 여기서 A9o를 거의 항상 플레이합니다." }
+      - { text: "{{t:fold|폴드합니다}}", why: "그것은 {{t:hijack|HJ}}에서 이 핸드를 플레이하는 방법입니다. {{t:cutoff|CO}}에서는 당신 뒤의 플레이어가 한 명 적고 {{t:range|레인지}}도 더 넓습니다." }
+  - kind: choice
+    id: m3.exam.q5
+    family: m3.open-late
+    rules: [R-M3-003]
+    prompt: "당신에게까지 모두 {{t:fold|폴드했습니다}}. 어떻게 하시겠습니까?"
+    table: { hand: "Jd 9c", position: BTN }
+    options:
+      - { text: "{{t:raise|레이즈합니다}}", correct: true, why: "버튼에서는 약 {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}}개 핸드를 {{t:open|오픈합니다}}. 블라인드만 남았고 플롭 이후에는 {{t:position|포지션}}을 가지므로, 오프수트 J9도 들어갑니다." }
+      - { text: "{{t:fold|폴드합니다}}", why: "{{t:cutoff|CO}}에서는 솔버가 이 핸드를 드물게 플레이하지만, 버튼에서는 항상 플레이합니다. 블라인드만 상대할 때 그것은 너무 타이트합니다." }
+      - { text: "{{t:big-blind|빅 블라인드}} 금액만 맞춥니다", why: "림프는 {{t:initiative|주도권}}을 내줍니다. {{t:raise|레이즈}}는 종종 블라인드를 바로 가져옵니다." }
+  - kind: choice
+    id: m3.exam.q6
+    family: m3.rfi.sb
+    rules: [R-M3-004, R-M3-007, R-M3-009]
+    prompt: "{{t:small-blind|스몰 블라인드}}에 있는 당신에게까지 모두 {{t:fold|폴드했습니다}}. 어떻게 하시겠습니까?"
+    table: { hand: "Td 8c", position: SB }
+    options:
+      - { text: "{{n:pf.open-size-sb}}까지 {{t:raise|레이즈합니다}}", correct: true, why: "이제 {{t:big-blind|빅 블라인드}}만 상대하므로 약 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}}개 핸드로 넓게 {{t:open|오픈합니다}}. 플롭 이후에는 먼저 액션하므로, {{t:small-blind|스몰 블라인드}}에서는 다른 {{t:position|포지션}}보다 조금 더 크게 {{t:raise|레이즈합니다}}." }
+      - { text: "{{n:pf.open-size}}까지 {{t:raise|레이즈합니다}}", sizeError: true, why: "액션은 맞지만 크기가 틀렸습니다. {{n:pf.open-size}}는 나머지 {{t:position|포지션}}에서의 {{t:open|오픈}} 크기입니다. {{t:small-blind|스몰 블라인드}}에서는 {{t:out-of-position|아웃 오브 포지션}}으로 플레이하므로 {{n:pf.open-size-sb}}까지 {{t:raise|레이즈합니다}}." }
+      - { text: "{{t:big-blind|빅 블라인드}} 금액만 맞춥니다", why: "가장 먼저 들어갈 때는 {{t:raise|레이즈하거나}} {{t:fold|폴드합니다}}({{t:small-blind|스몰 블라인드}}에서는 이것이 단순화입니다. 일부 솔버 솔루션은 여기서 일부 핸드를 림프합니다). 림프는 {{t:initiative|주도권}}과 블라인드를 바로 가져올 기회를 내줍니다." }
+      - { text: "{{t:fold|폴드합니다}}", why: "너무 타이트합니다. 상대가 한 명일 때 앱의 솔버는 {{t:small-blind|스몰 블라인드}}에서 T8o를 항상 플레이합니다." }
+  - kind: numeric
+    id: m3.exam.n1
+    family: m3.open-early
+    rules: [R-M3-007]
+    prompt: "당신 앞의 모두가 {{t:fold|폴드했고}}, 당신은 {{t:hijack|HJ}}에서 {{t:open|오픈합니다}}. 몇 bb까지 {{t:raise|레이즈합니까}}? 숫자를 입력하세요."
+    table: { hand: "Kh Qh", position: HJ }
+    answer: pf.open-size
+    explanation: "{{t:small-blind|스몰 블라인드}}를 제외한 모든 {{t:position|포지션}}에서 {{n:pf.open-size}}까지 {{t:open|오픈합니다}}(스몰 블라인드에서는 {{n:pf.open-size-sb}}). 한 가지 크기는 단순하고 핸드의 강도를 드러내지 않습니다. 이것은 단순화입니다. 솔버는 {{t:early-position|얼리 포지션}}에서 조금 더 작게 {{t:open|오픈합니다}}."
+  - kind: choice
+    id: m3.exam.q7
+    family: m3.suited
+    rules: [R-M3-005]
+    prompt: "같은 무늬의 T9가 다른 무늬의 T9보다 플레이하기 좋은 이유는 무엇입니까?"
+    options:
+      - { text: "{{t:flush|플러시}}로 이기는 길이 하나 더 있습니다", correct: true, why: "랭크가 같으므로 {{t:pair|페어}}와 {{t:straight|스트레이트}}는 똑같이 맞힙니다. 같은 무늬의 핸드는 여기에 {{t:flush|플러시}} 기회를 더합니다." }
+      - { text: "{{t:pair|페어}}를 더 자주 맞힙니다", why: "{{t:pair|페어}}가 될 확률은 랭크에 달려 있고, 랭크는 같습니다." }
+      - { text: "{{t:straight|스트레이트}}를 더 자주 맞힙니다", why: "{{t:straight|스트레이트}}는 카드의 랭크에 달려 있으며, 카드가 같은 무늬인지와는 관계가 없습니다." }
+  - kind: choice
+    id: m3.exam.q8
+    family: m3.premium
+    rules: [R-M3-008]
+    prompt: "{{t:utg}}가 {{t:raise|레이즈했고}}, 나머지는 당신에게까지 {{t:fold|폴드했습니다}}. 어떻게 하시겠습니까?"
+    table: { hand: "Ks Kd", position: BTN }
+    options:
+      - { text: "다시 {{t:raise|레이즈합니다}}(3-bet)", correct: true, why: "KK는 가장 강한 핸드 중 하나이며, {{t:utg}}가 {{t:open|오픈하는}} 대부분의 핸드에 대해 우위에 있습니다. 3-bet은 {{t:pot|팟}}을 키우고 보통 상대를 한 명만 남깁니다." }
+      - { text: "{{t:call|콜만 합니다}}", why: "속임수로 플레이하기도 하지만, 원칙적으로는 밸류를 포기하고 블라인드를 싸게 게임에 들여보냅니다." }
+      - { text: "{{t:utg}}의 {{t:range|레인지}}가 강하므로 {{t:fold|폴드합니다}}", why: "{{t:utg}}의 {{t:range|레인지}}는 좁지만, KK는 여전히 그에 대해 확실한 우위에 있습니다." }
+  - kind: paint
+    id: m3.exam.p-co
+    family: m3.paint.late
+    rules: [R-M3-006]
+    spot: rfi.co
+    prompt: "당신 앞의 모두가 {{t:fold|폴드했고}}, 당신은 {{t:cutoff|CO}}에 있습니다. {{t:open|오픈하는}} 핸드를 칠하세요."

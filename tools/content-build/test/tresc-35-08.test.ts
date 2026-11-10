@@ -44,7 +44,7 @@ describe('Treść na 35 języków (rola 08)', { timeout: 60_000 }, () => {
     expect([es.tekst, es419.tekst]).toEqual(['es', 'es']);
     expect(es.modules[0]?.title).toBe('Fundamentos');
     expect(es419.modules[0]?.title).toBe('Fundamentos');
-    expect(compileContent(join(root, 'content'), 'it').tekst).toBe(existsSync(join(root, 'content/en')) ? 'en' : 'pl');
+    expect(compileContent(join(root, 'content'), 'nl').tekst).toBe(existsSync(join(root, 'content/en')) ? 'en' : 'pl');
   });
 
   it('T35-08-c nieznany język → błąd budowy (nie cicha baza pod złą nazwą)', () => {

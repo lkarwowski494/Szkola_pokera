@@ -1,0 +1,14 @@
+- { id: m0, order: 0, title: "규칙과 족보", sub: "무엇이 무엇을 이기는지", phase: mvp }
+- { id: m1, order: 1, title: "핸드 진행", sub: "블라인드, 스트리트, 액션", phase: mvp }
+- { id: m2, order: 2, title: "기초 수학", sub: "아웃, 확률, 팟 오즈", phase: mvp }
+- { id: m3, order: 3, title: "포지션과 오픈", sub: "누가 마지막에 행동하고 무엇을 오픈할지", phase: mvp }
+- { id: m4, order: 4, title: "액션에 대응하는 프리플롭", sub: "3벳, 방어, 림퍼", phase: mvp }
+- { id: m5, order: 5, title: "플롭: C벳", sub: "텍스처와 사이즈", phase: f2 }
+- { id: m6, order: 6, title: "플롭: 방어", sub: "MDF, 콜, 체크레이즈", phase: f2 }
+- { id: m7, order: 7, title: "턴 플레이", sub: "세컨드 배럴과 드로우", phase: f2 }
+- { id: m8, order: 8, title: "리버", sub: "밸류, 블러프, 블로커", phase: f2 }
+- { id: m9, order: 9, title: "핸드 플랜", sub: "SPR과 세 스트리트에 걸친 사이즈", phase: f2 }
+- { id: m10, order: 10, title: "마이크로 스테이크 익스플로잇", sub: "플레이어 유형과 플레이어 풀의 실수", phase: f3 }
+- { id: m11, order: 11, title: "토너먼트와 숏 스택", sub: "푸시/폴드와 ICM", phase: f4, recommended: false }
+- { id: m12, order: 12, title: "멘탈 게임과 뱅크롤", sub: "분산과 틸트", phase: f4 }
+- { id: m13, order: 13, title: "자기 게임 분석", sub: "핸드 리뷰와 릭", phase: f4 }

@@ -1,0 +1,99 @@
+# Pula egzaminacyjna M2 (outy, szanse, pot odds): te same reguły co lekcje m2.l1 i m2.l2, inne rozdania i liczby.
+module: m2
+drills:
+  - kind: choice
+    id: m2.exam.q1
+    family: m2.outs.flush
+    rules: [R-M2-001]
+    prompt: "손에는 다이아몬드가 한 장뿐이지만 플롭에는 세 장이 깔려 있습니다. {{t:flush|플러시}}까지 아웃은 몇 개입니까?"
+    table: { hand: "Ad Tc", board: "Kd 8d 3d" }
+    options:
+      - { text: "{{n:outs.flush}}", correct: true, why: "중요한 것은 보이는 같은 무늬 카드의 총수입니다. 손에 1장, {{t:board|보드}}에 3장, 합해서 {{n:draw.flush.seen}}장입니다. 남은 다이아몬드는 {{n:cards.per-suit}} − {{n:draw.flush.seen}} = {{n:outs.flush}}장입니다." }
+      - { text: "{{n:outs.oesd}}", why: "이것은 {{t:oesd|OESD}}의 아웃 수입니다. {{t:flush|플러시}}를 완성하려면 남은 다이아몬드 {{n:outs.flush}}장 중 한 장이 필요합니다." }
+      - { text: "{{n:cards.per-suit}}", why: "{{n:cards.per-suit}}장은 덱에 있는 다이아몬드 전체이지만, 그중 {{n:draw.flush.seen}}장은 이미 보입니다." }
+  - kind: choice
+    id: m2.exam.q2
+    family: m2.outs.gutshot
+    rules: [R-M2-002]
+    prompt: "{{t:straight|스트레이트}}까지 아웃은 몇 개입니까?"
+    table: { hand: "Jc 9d", board: "Ts 7h 2c" }
+    options:
+      - { text: "{{n:outs.gutshot}}", correct: true, why: "J-10-9와 7이 있으므로 가운데 8이 빠져 있습니다(거트샷). {{t:straight|스트레이트}}를 만드는 카드는 8뿐입니다: {{n:draw.gutshot.ranks}}개 랭크 × {{n:cards.suits}}개 무늬 = {{n:outs.gutshot}}장." }
+      - { text: "{{n:outs.oesd}}", why: "연속된 네 장이 양쪽으로 열려 있을 때의 아웃 수입니다. 여기서는 8만 {{t:straight|스트레이트}}를 완성합니다." }
+      - { text: "{{n:draw.oesd.ranks}}", why: "핸드를 완성하는 랭크는 하나(8)이지만, 무늬는 네 가지입니다." }
+  - kind: numeric
+    id: m2.exam.n1
+    family: m2.outs.oesd
+    rules: [R-M2-002]
+    prompt: "턴. {{t:straight|스트레이트}}까지 아웃은 몇 개입니까? 숫자를 입력하세요."
+    table: { hand: "Td 9d", board: "8c 7s 2h Ac" }
+    answer: outs.oesd
+    explanation: "10-9-8-7, 연속된 네 장이 있습니다. 모든 J와 모든 6이 {{t:straight|스트레이트}}를 만듭니다: {{n:draw.oesd.ranks}}개 랭크 × {{n:cards.suits}}개 무늬 = {{n:outs.oesd}}."
+  - kind: choice
+    id: m2.exam.q3
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "플롭. 상대가 올인했고, {{t:oesd|OESD}}({{n:outs.oesd}}아웃)가 있습니다. {{t:call|콜}}하면 리버까지 맞힐 확률은 얼마입니까?"
+    options:
+      - { text: "약 {{n:odds.oesd.flop-river}}", correct: true, why: "상대가 올인했으므로 추가 {{t:bet|베팅}} 없이 턴과 리버를 모두 봅니다. 두 장을 계산합니다: 규칙에 따른 근사치는 {{n:outs.oesd}} × 4 = {{n:odds.oesd.rule-flop}}이고, 정확한 값은 {{n:odds.oesd.flop-river}}입니다." }
+      - { text: "약 {{n:odds.oesd.flop-turn}}", why: "턴 한 장만의 확률입니다. 올인 상황에서는 리버도 봅니다." }
+      - { text: "약 {{n:odds.flush.flop-river}}", why: "{{n:outs.flush}}아웃인 {{t:flush-draw|플러시 드로우}}의 확률입니다. 지금은 {{n:outs.oesd}}아웃입니다." }
+  - kind: choice
+    id: m2.exam.q4
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "플롭. {{t:oesd|OESD}}가 있고, 상대가 {{t:pot|팟}}의 절반을 {{t:bet|베팅}}합니다. 스택은 깊습니다. 가격과 비교할 적중 확률은 무엇입니까?"
+    table: { hand: "Qh Jc", board: "Td 9s 3c" }
+    options:
+      - { text: "약 {{n:odds.oesd.flop-turn}}, 턴 한 장만", correct: true, why: "{{t:call|콜}}로 사는 것은 카드 한 장입니다. 턴에서 상대가 다시 {{t:bet|베팅}}할 수 있으므로 한 장을 계산합니다: 규칙에 따른 근사치는 {{n:outs.oesd}} × 2 = {{n:odds.oesd.rule-next}}이고, 정확히는 {{n:cards.unseen.flop}}장 중 {{n:outs.oesd}}장, 즉 {{n:odds.oesd.flop-turn}}입니다." }
+      - { text: "약 {{n:odds.oesd.flop-river}}, 리버까지", why: "리버까지의 확률은 추가 {{t:bet|베팅}} 없이 두 장을 모두 확실히 볼 때, 즉 올인 상황에서만 씁니다." }
+  - kind: numeric
+    id: m2.exam.n2
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "턴. 거트샷({{n:outs.gutshot}}아웃)이 있습니다. 2와 4 규칙으로 계산하면 리버에서 맞힐 확률은 몇 퍼센트입니까? 숫자를 입력하세요."
+    answer: odds.gutshot.rule-turn
+    explanation: "카드가 한 장 남았으므로 2를 곱합니다: {{n:outs.gutshot}} × 2 = {{n:odds.gutshot.rule-turn}}(근사치). 정확히는 {{n:cards.unseen.turn}}장 중 {{n:outs.gutshot}}장, 즉 {{n:odds.gutshot.turn-river}}입니다."
+  - kind: choice
+    id: m2.exam.q5
+    family: m2.pot-odds
+    rules: [R-M2-003]
+    prompt: "{{t:pot|팟}} 크기는 {{n:exam.m2.half.pot}}입니다. 상대의 {{t:bet|베팅}}은 {{n:exam.m2.half.bet}}입니다. {{t:call|콜}}하려면 에퀴티가 얼마나 필요합니까?"
+    options:
+      - { text: "{{n:exam.m2.half.eq}}", correct: true, why: "추가로 내는 금액은 {{n:exam.m2.half.bet}}입니다. 내 {{t:call|콜}} 후 {{t:pot|팟}}은 {{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}입니다. {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}. 이는 {{t:pot|팟}}의 절반 크기 {{t:bet|베팅}}이므로 {{t:pot|팟}} 크기와 관계없이 결과가 같습니다." }
+      - { text: "{{n:exam.m2.half.wrong}}", why: "이는 내 {{t:call|콜}}을 빼고 계산한 {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}입니다. 추가 금액은 {{t:call|콜}} 후 전체 {{t:pot|팟}}으로 나눕니다: {{n:exam.m2.half.total}}." }
+      - { text: "{{n:exam.m2.half.wrong-pot}}", why: "이는 {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.pot}}, 즉 {{t:bet|베팅}}을 {{t:bet|베팅}} 전 {{t:pot|팟}}으로 나눈 값입니다. 분모는 내 {{t:call|콜}} 후 전체 {{t:pot|팟}}이어야 합니다." }
+  - kind: numeric
+    id: m2.exam.n3
+    family: m2.pot-odds
+    rules: [R-M2-004]
+    prompt: "{{t:pot|팟}} 크기는 {{n:exam.m2.pot.pot}}입니다. 상대의 {{t:bet|베팅}}은 {{n:exam.m2.pot.bet}}입니다. {{t:call|콜}}하려면 에퀴티가 몇 퍼센트 필요합니까? 숫자를 입력하세요."
+    answer: exam.m2.pot.eq
+    explanation: "{{t:pot|팟}} 크기 {{t:bet|베팅}}입니다. 추가로 내는 금액은 {{n:exam.m2.pot.bet}}입니다. 내 {{t:call|콜}} 후 {{t:pot|팟}}은 {{n:exam.m2.pot.pot}} + {{n:exam.m2.pot.bet}} + {{n:exam.m2.pot.bet}} = {{n:exam.m2.pot.total}}입니다. {{n:exam.m2.pot.bet}} ÷ {{n:exam.m2.pot.total}} = {{n:exam.m2.pot.eq}}, 즉 3분의 1입니다."
+  - kind: choice
+    id: m2.exam.q6
+    family: m2.draw-call
+    rules: [R-M2-004, R-M2-005]
+    prompt: "플롭. {{t:flush-draw|플러시 드로우}}가 있고, 스택은 깊으며, 상대가 {{t:pot|팟}} 전체를 {{t:bet|베팅}}합니다. 가격과 적중 확률만 계산하세요(임플라이드 오즈 제외). 어떻게 하겠습니까?"
+    table: { hand: "Js 6s", board: "Qs 4s 9d" }
+    options:
+      - { text: "{{t:fold|폴드합니다}}", correct: true, why: "필요한 에퀴티는 {{n:eq.bet-pot}}입니다. {{t:call|콜}}로 사는 것은 턴 한 장뿐이고, 턴에서 맞힐 확률은 약 {{n:odds.flush.flop-turn}}입니다. 확실히 부족합니다." }
+      - { text: "리버까지 약 {{n:odds.flush.flop-river}}의 확률이 있으므로 {{t:call|콜합니다}}", why: "리버까지의 확률은 추가 {{t:bet|베팅}} 없이 두 장을 모두 볼 때만 적용됩니다. 스택이 깊으면 상대가 턴에서 다시 {{t:bet|베팅}}할 수 있으므로, 이 가격으로 사는 것은 카드 한 장, 약 {{n:odds.flush.flop-turn}}입니다." }
+  - kind: choice
+    id: m2.exam.q7
+    family: m2.draw-call
+    rules: [R-M2-005]
+    prompt: "턴. {{t:oesd|OESD}}가 있습니다. {{t:pot|팟}} 크기는 {{n:exam.m2.third.pot}}입니다. 상대의 {{t:bet|베팅}}은 {{n:exam.m2.third.bet}}입니다. 가격과 적중 확률만 계산하세요. 어떻게 하겠습니까?"
+    table: { hand: "9h 8h", board: "Tc 7d 2s Kd" }
+    options:
+      - { text: "{{t:fold|폴드합니다}}", correct: true, why: "필요한 에퀴티는 {{n:exam.m2.third.bet}} ÷ {{n:exam.m2.third.total}} = {{n:exam.m2.third.eq}}입니다. {{t:straight|스트레이트}}까지 아웃은 {{n:outs.oesd}}개, 즉 {{n:cards.unseen.turn}}장 중 {{n:outs.oesd}}장으로 약 {{n:odds.oesd.turn-river}}입니다. 여기서는 작은 {{t:bet|베팅}}도 너무 비쌉니다." }
+      - { text: "{{t:bet|베팅}}이 작으므로 {{t:call|콜합니다}}", why: "작은 {{t:bet|베팅}}이 좋은 가격을 뜻하지는 않습니다. 필요한 에퀴티는 {{n:exam.m2.third.eq}}인데, 확률은 약 {{n:odds.oesd.turn-river}}입니다." }
+  - kind: choice
+    id: m2.exam.q8
+    family: m2.draw-call
+    rules: [R-M2-003, R-M2-002]
+    prompt: "플롭. 상대가 {{t:pot|팟}}의 절반 금액으로 올인했고, {{t:flush-draw|플러시 드로우}}가 있습니다. {{t:flush|플러시}}를 맞혀야만 이긴다고 가정하세요. 어떻게 하겠습니까?"
+    table: { hand: "Kc Tc", board: "8c 3c Jd" }
+    options:
+      - { text: "{{t:call|콜합니다}}", correct: true, why: "필요한 에퀴티는 {{n:eq.bet-half}}입니다. 상대가 올인했으므로 추가 {{t:bet|베팅}} 없이 턴과 리버를 모두 봅니다: {{n:outs.flush}}아웃이면 약 {{n:odds.flush.flop-river}}입니다. 필요한 것보다 많습니다." }
+      - { text: "턴에서는 약 {{n:odds.flush.flop-turn}}밖에 안 되므로 {{t:fold|폴드합니다}}", why: "카드 한 장 기준 확률은 상대가 아직 {{t:bet|베팅}}할 수 있을 때 계산합니다. 올인이면 두 장을 모두 보므로 리버까지 계산합니다: 약 {{n:odds.flush.flop-river}}." }

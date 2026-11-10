@@ -1,0 +1,483 @@
+# Ujednolicenie form (D-391) — zapisane
+
+Zamian: 468; wierszy w treści krytycznej m12: 6.
+
+## m12 (ponowna kontrola (a))
+- ko lessons/m12-l3-tilt.md:26
+- ko lessons/m12-l3-tilt.md:60
+- ko lessons/m12-l3-tilt.md:97
+- ko lessons/m12-l3-tilt.md:110
+- ko lessons/m12-l3-tilt.md:125
+- it lessons/m12-l3-tilt.md:22
+
+## 勝率 bez zmiany (inne znaczenie albo brak equity w en)
+
+## Zamiany
+- ko lessons/m10-l2-typy-graczy.md:70 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m10-l2-typy-graczy.md:137 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m10-l4-rake.md:76 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m10-l4-rake.md:76 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m10-l4-rake.md:76 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m10-l4-rake.md:77 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m10-l4-rake.md:77 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m10-l4-rake.md:77 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m10-l4-rake.md:78 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m10-l4-rake.md:121 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m11-l1-push-fold.md:17 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m11-l1-push-fold.md:24 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m12-l3-tilt.md:26 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m12-l3-tilt.md:60 {{t:variance|변동성}} → 분산: «{{t:variance|변동성}}» → «{{t:variance|분산}}»
+- ko lessons/m12-l3-tilt.md:97 {{t:variance|변동성}} → 분산: «{{t:variance|변동성}}» → «{{t:variance|분산}}»
+- ko lessons/m12-l3-tilt.md:97 {{t:variance|변동성}} → 분산: «{{t:variance|변동성}}» → «{{t:variance|분산}}»
+- ko lessons/m12-l3-tilt.md:110 {{t:variance|변동성}} → 분산: «{{t:variance|변동성}}» → «{{t:variance|분산}}»
+- ko lessons/m12-l3-tilt.md:125 {{t:variance|변동성}} → 분산: «{{t:variance|변동성}}» → «{{t:variance|분산}}»
+- ko lessons/m3-l1-pozycja.md:64 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m3-l3-zakresy-otwarc.md:43 프리플랍 → 프리플롭: «프리플랍» → «프리플롭»
+- ko lessons/m3-l3-zakresy-otwarc.md:71 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m3-l3-zakresy-otwarc.md:77 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m3-l3-zakresy-otwarc.md:87 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m4-l1-3bet.md:16 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m4-l1-3bet.md:28 프리플랍 → 프리플롭: «프리플랍» → «프리플롭»
+- ko lessons/m4-l2-obrona-bb.md:13 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m4-l2-obrona-bb.md:24 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m4-l2-obrona-bb.md:46 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m4-l2-obrona-bb.md:47 프리플랍 → 프리플롭: «프리플랍» → «프리플롭»
+- ko lessons/m4-l2-obrona-bb.md:73 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m4-l2-obrona-bb.md:83 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m4-l3-wobec-3betu.md:38 프리플랍 → 프리플롭: «프리플랍» → «프리플롭»
+- ko lessons/m4-l3-wobec-3betu.md:47 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m4-l3-wobec-3betu.md:68 프리플랍 → 프리플롭: «프리플랍» → «프리플롭»
+- ko lessons/m4-l3-wobec-3betu.md:77 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m4-l3-wobec-3betu.md:106 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m5-l4-bez-pozycji.md:13 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:16 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:17 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:17 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:32 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:35 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:43 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:46 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:48 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:56 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:56 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:57 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:57 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:63 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:65 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:67 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:72 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:72 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:83 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:84 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:85 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:90 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:90 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:91 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:99 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:99 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:103 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:103 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:103 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:103 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m5-l4-bez-pozycji.md:106 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l1-mdf-alpha.md:79 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l1-mdf-alpha.md:82 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l1-mdf-alpha.md:83 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l1-mdf-alpha.md:84 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l1-mdf-alpha.md:130 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l1-mdf-alpha.md:132 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l1-mdf-alpha.md:132 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l1-mdf-alpha.md:132 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l3-check-raise.md:6 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:13 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l3-check-raise.md:13 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:16 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l3-check-raise.md:16 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l3-check-raise.md:17 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l3-check-raise.md:18 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l3-check-raise.md:23 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:26 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:28 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l3-check-raise.md:33 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:33 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:36 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:36 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:36 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:52 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:54 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:59 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l3-check-raise.md:59 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:69 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l3-check-raise.md:69 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:72 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:79 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l3-check-raise.md:79 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:83 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:84 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:89 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l3-check-raise.md:89 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:92 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l3-check-raise.md:99 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:102 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:102 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:102 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:103 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:104 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:104 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:109 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l3-check-raise.md:109 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:116 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:116 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:125 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l3-check-raise.md:125 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:129 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:129 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:129 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:130 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l3-check-raise.md:131 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m6-l3-check-raise.md:135 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:135 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:135 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:135 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:135 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m6-l3-check-raise.md:138 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m7-l1-druga-beczka.md:17 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m7-l1-druga-beczka.md:36 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m7-l1-druga-beczka.md:118 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m7-l1-druga-beczka.md:123 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m7-l3-implied-odds.md:13 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m7-l3-implied-odds.md:15 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m7-l3-implied-odds.md:111 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m7-l3-implied-odds.md:134 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m8-l1-value.md:57 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m8-l1-value.md:67 씨벳 → C벳: «씨벳» → «C벳»
+- ko lessons/m8-l1-value.md:72 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m8-l2-ile-blefow.md:31 디펜스 → 방어: «디펜스» → «방어»
+- ko lessons/m9-l2-zaangazowanie.md:13 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m9-l2-zaangazowanie.md:20 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m9-l2-zaangazowanie.md:27 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m9-l2-zaangazowanie.md:70 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m9-l2-zaangazowanie.md:75 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m9-l2-zaangazowanie.md:82 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m9-l2-zaangazowanie.md:100 플랍 → 플롭: «플랍» → «플롭»
+- ko lessons/m9-l2-zaangazowanie.md:103 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m13.yaml:44 {{t:flush-draw|플러시 드로}} → 플러시 드로우: «{{t:flush-draw|플러시 드로}}» → «{{t:flush-draw|플러시 드로우}}»
+- ko exams/m13.yaml:45 {{t:flush-draw|플러시 드로}} → 플러시 드로우: «{{t:flush-draw|플러시 드로}}» → «{{t:flush-draw|플러시 드로우}}»
+- ko exams/m13.yaml:46 {{t:flush-draw|플러시 드로}} → 플러시 드로우: «{{t:flush-draw|플러시 드로}}» → «{{t:flush-draw|플러시 드로우}}»
+- ko exams/m13.yaml:51 디펜스 → 방어: «디펜스» → «방어»
+- ko exams/m13.yaml:51 디펜스 → 방어: «디펜스» → «방어»
+- ko exams/m13.yaml:54 디펜스 → 방어: «디펜스» → «방어»
+- ko exams/m13.yaml:72 프리플랍 → 프리플롭: «프리플랍» → «프리플롭»
+- ko exams/m3.yaml:9 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m3.yaml:11 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m3.yaml:12 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m3.yaml:13 프리플랍 → 프리플롭: «프리플랍» → «프리플롭»
+- ko exams/m3.yaml:13 프리플랍 → 프리플롭: «프리플랍» → «프리플롭»
+- ko exams/m3.yaml:13 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m3.yaml:18 프리플랍 → 프리플롭: «프리플랍» → «프리플롭»
+- ko exams/m3.yaml:49 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m3.yaml:59 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:9 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:12 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:12 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:13 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m5.yaml:13 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m5.yaml:14 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:19 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:22 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:22 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m5.yaml:23 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:24 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:24 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:29 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:38 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:40 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:47 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:52 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:59 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:60 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m5.yaml:61 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:61 디펜스 → 방어: «디펜스» → «방어»
+- ko exams/m5.yaml:80 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:85 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:88 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:89 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:90 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:95 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:98 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:99 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:99 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:99 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m5.yaml:100 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m6.yaml:8 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m6.yaml:18 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m6.yaml:24 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m6.yaml:24 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m6.yaml:27 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m6.yaml:27 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m6.yaml:27 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m6.yaml:27 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m6.yaml:28 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m6.yaml:28 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m6.yaml:28 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m6.yaml:28 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m6.yaml:29 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m6.yaml:29 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m6.yaml:29 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m6.yaml:29 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m6.yaml:38 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m6.yaml:44 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m6.yaml:47 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m6.yaml:54 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m6.yaml:54 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m6.yaml:57 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m6.yaml:58 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m6.yaml:64 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m6.yaml:64 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m6.yaml:73 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m6.yaml:73 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m6.yaml:83 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m6.yaml:91 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m6.yaml:91 디펜드 → 방어: «디펜드» → «방어»
+- ko exams/m6.yaml:94 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m6.yaml:95 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m6.yaml:96 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m8.yaml:17 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m8.yaml:79 디펜스 → 방어: «디펜스» → «방어»
+- ko exams/m8.yaml:88 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m9.yaml:8 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m9.yaml:17 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m9.yaml:26 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m9.yaml:33 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m9.yaml:43 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m9.yaml:43 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m9.yaml:52 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m9.yaml:57 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m9.yaml:62 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m9.yaml:62 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m9.yaml:65 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m9.yaml:75 플랍 → 플롭: «플랍» → «플롭»
+- ko exams/m9.yaml:82 플랍 → 플롭: «플랍» → «플롭»
+- it lessons/m1-l1-przebieg.md:33 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m1-l1-przebieg.md:33 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passi}}» → «{{t:fold|foldi}}»
+- it lessons/m1-l1-przebieg.md:49 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passato}}» → «{{t:fold|foldato}}»
+- it lessons/m1-l1-przebieg.md:53 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m1-l1-przebieg.md:53 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passare}}» → «{{t:fold|Foldare}}»
+- it lessons/m1-l1-przebieg.md:81 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passano}}» → «{{t:fold|foldano}}»
+- it lessons/m1-l1-przebieg.md:89 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m1-l1-przebieg.md:92 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passare}}» → «{{t:fold|foldare}}»
+- it lessons/m10-l2-typy-graczy.md:29 micro limiti → microlimiti: «micro limiti» → «microlimiti»
+- it lessons/m10-l3-odejscie-od-bazy.md:75 micro limiti → microlimiti: «micro limiti» → «microlimiti»
+- it lessons/m10-l3-odejscie-od-bazy.md:111 micro limiti → microlimiti: «micro limiti» → «microlimiti»
+- it lessons/m10-l3-odejscie-od-bazy.md:115 micro limiti → microlimiti: «micro limiti» → «microlimiti»
+- it lessons/m10-l4-rake.md:15 micro limiti → microlimiti: «micro limiti» → «microlimiti»
+- it lessons/m10-l4-rake.md:16 micro limiti → microlimiti: «micro limiti» → «microlimiti»
+- it lessons/m10-l4-rake.md:40 micro limiti → microlimiti: «micro limiti» → «microlimiti»
+- it lessons/m10-l4-rake.md:42 micro limiti → microlimiti: «micro limiti» → «microlimiti»
+- it lessons/m10-l4-rake.md:93 micro limiti → microlimiti: «micro limiti» → «microlimiti»
+- it lessons/m11-l3-icm.md:70 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m11-l3-icm.md:164 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passare}}» → «{{t:fold|foldare}}»
+- it lessons/m12-l3-tilt.md:22 bui → blind: «bui» → «blind»
+- it lessons/m2-l1-outy.md:131 la tua {{t:call}} → il tuo {{t:call}}: «la tua {{t:call}}» → «il tuo {{t:call}}»
+- it lessons/m3-l2-rece-startowe.md:25 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m3-l2-rece-startowe.md:26 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passino}}» → «{{t:fold|foldino}}»
+- it lessons/m3-l2-rece-startowe.md:37 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m3-l2-rece-startowe.md:37 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passi}}» → «{{t:fold|foldi}}»
+- it lessons/m3-l2-rece-startowe.md:42 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passato}}» → «{{t:fold|foldato}}»
+- it lessons/m3-l2-rece-startowe.md:45 bui → blind: «bui» → «blind»
+- it lessons/m3-l2-rece-startowe.md:46 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m3-l2-rece-startowe.md:46 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passare}}» → «{{t:fold|foldare}}»
+- it lessons/m3-l2-rece-startowe.md:47 bui → blind: «bui» → «blind»
+- it lessons/m3-l2-rece-startowe.md:56 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passa}}» → «{{t:fold|Folda}}»
+- it lessons/m4-l4-limperzy.md:61 micro limiti → microlimiti: «micro limiti» → «microlimiti»
+- it lessons/m5-l1-tekstury.md:48 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|lascia}}» → «{{t:fold|folda}}»
+- it lessons/m5-l1-tekstury.md:48 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|lascerà}}» → «{{t:fold|folderà}}»
+- it lessons/m6-l2-sprawdzenie.md:17 la tua {{t:call}} → il tuo {{t:call}}: «la tua {{t:call}}» → «il tuo {{t:call}}»
+- it lessons/m6-l2-sprawdzenie.md:127 la {{t:call}} → il {{t:call}}: «la {{t:call}}» → «il {{t:call}}»
+- it lessons/m6-l3-check-raise.md:18 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m6-l3-check-raise.md:18 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passare}}» → «{{t:fold|Foldare}}»
+- it lessons/m6-l3-check-raise.md:62 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passa}}» → «{{t:fold|folda}}»
+- it lessons/m6-l3-check-raise.md:64 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m6-l3-check-raise.md:74 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m6-l3-check-raise.md:84 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m6-l3-check-raise.md:84 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passare}}» → «{{t:fold|foldare}}»
+- it lessons/m6-l3-check-raise.md:92 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m6-l3-check-raise.md:92 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passi}}» → «{{t:fold|foldi}}»
+- it lessons/m6-l3-check-raise.md:93 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passeranno}}» → «{{t:fold|folderanno}}»
+- it lessons/m6-l3-check-raise.md:103 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passi}}» → «{{t:fold|foldi}}»
+- it lessons/m6-l3-check-raise.md:109 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passa}}» → «{{t:fold|folda}}»
+- it lessons/m6-l3-check-raise.md:112 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passa}}» → «{{t:fold|folda}}»
+- it lessons/m6-l3-check-raise.md:113 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passa}}» → «{{t:fold|folda}}»
+- it lessons/m6-l3-check-raise.md:114 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m6-l3-check-raise.md:123 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passa}}» → «{{t:fold|folda}}»
+- it lessons/m6-l3-check-raise.md:125 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passano}}» → «{{t:fold|foldano}}»
+- it lessons/m6-l3-check-raise.md:137 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passa}}» → «{{t:fold|folda}}»
+- it lessons/m6-l3-check-raise.md:138 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passa}}» → «{{t:fold|folda}}»
+- it lessons/m7-l3-implied-odds.md:41 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m7-l3-implied-odds.md:41 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passi}}» → «{{t:fold|foldi}}»
+- it lessons/m7-l3-implied-odds.md:67 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m7-l3-implied-odds.md:67 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passa}}» → «{{t:fold|folda}}»
+- it lessons/m7-l3-implied-odds.md:75 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m7-l3-implied-odds.md:77 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passerà}}» → «{{t:fold|folderà}}»
+- it lessons/m7-l3-implied-odds.md:85 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m7-l3-implied-odds.md:87 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passerà}}» → «{{t:fold|folderà}}»
+- it lessons/m8-l4-bluff-catching.md:32 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m8-l4-bluff-catching.md:34 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passano}}» → «{{t:fold|foldano}}»
+- it lessons/m8-l4-bluff-catching.md:42 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m8-l4-bluff-catching.md:43 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passano}}» → «{{t:fold|foldano}}»
+- it lessons/m8-l4-bluff-catching.md:50 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passare}}» → «{{t:fold|foldare}}»
+- it lessons/m8-l4-bluff-catching.md:50 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passando}}» → «{{t:fold|foldando}}»
+- it lessons/m8-l4-bluff-catching.md:80 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it lessons/m8-l4-bluff-catching.md:89 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passi}}» → «{{t:fold|Foldi}}»
+- it lessons/m8-l4-bluff-catching.md:98 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passano}}» → «{{t:fold|foldano}}»
+- it lessons/m8-l4-bluff-catching.md:99 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passeranno}}» → «{{t:fold|folderanno}}»
+- it lessons/m8-l4-bluff-catching.md:114 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passi}}» → «{{t:fold|foldi}}»
+- it lessons/m8-l4-bluff-catching.md:118 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passi}}» → «{{t:fold|foldi}}»
+- it lessons/m8-l4-bluff-catching.md:132 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passano}}» → «{{t:fold|foldano}}»
+- it lessons/m8-l4-bluff-catching.md:132 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passi}}» → «{{t:fold|foldi}}»
+- it lessons/m8-l4-bluff-catching.md:135 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passi}}» → «{{t:fold|foldi}}»
+- it lessons/m9-l1-spr.md:23 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|hanno passato}}» → «{{t:fold|hanno foldato}}»
+- it lessons/m9-l1-spr.md:45 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|ha passato}}» → «{{t:fold|ha foldato}}»
+- it lessons/m9-l1-spr.md:148 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|ha passato}}» → «{{t:fold|ha foldato}}»
+- it exams/m1.yaml:11 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passare}}» → «{{t:fold|foldare}}»
+- it exams/m1.yaml:19 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passare}}» → «{{t:fold|foldare}}»
+- it exams/m1.yaml:21 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passare}}» → «{{t:fold|Foldare}}»
+- it exams/m1.yaml:21 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passare}}» → «{{t:fold|Foldare}}»
+- it exams/m1.yaml:28 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passando}}» → «{{t:fold|Foldando}}»
+- it exams/m1.yaml:29 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it exams/m1.yaml:29 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passare}}» → «{{t:fold|foldare}}»
+- it exams/m1.yaml:37 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it exams/m1.yaml:38 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passare}}» → «{{t:fold|foldare}}»
+- it exams/m1.yaml:62 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passano}}» → «{{t:fold|foldano}}»
+- it exams/m6.yaml:10 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passi}}» → «{{t:fold|foldi}}»
+- it exams/m6.yaml:15 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passare}}» → «{{t:fold|foldare}}»
+- it exams/m6.yaml:17 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passi}}» → «{{t:fold|foldi}}»
+- it exams/m6.yaml:24 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passa}}» → «{{t:fold|folda}}»
+- it exams/m6.yaml:27 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passa}}» → «{{t:fold|folda}}»
+- it exams/m6.yaml:27 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passare}}» → «{{t:fold|foldare}}»
+- it exams/m6.yaml:29 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passa}}» → «{{t:fold|folda}}»
+- it exams/m6.yaml:37 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it exams/m6.yaml:37 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passi}}» → «{{t:fold|foldi}}»
+- it exams/m6.yaml:39 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passano}}» → «{{t:fold|foldano}}»
+- it exams/m6.yaml:57 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passi}}» → «{{t:fold|Foldi}}»
+- it exams/m6.yaml:58 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passo}}» → «{{t:fold|Foldo}}»
+- it exams/m6.yaml:58 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passi}}» → «{{t:fold|Foldi}}»
+- it exams/m6.yaml:68 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passi}}» → «{{t:fold|foldi}}»
+- it exams/m6.yaml:76 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passa}}» → «{{t:fold|folda}}»
+- it exams/m6.yaml:77 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passano}}» → «{{t:fold|foldano}}»
+- it exams/m8.yaml:10 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|lasciano}}» → «{{t:fold|foldano}}»
+- it exams/m8.yaml:11 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|lascerà}}» → «{{t:fold|folderà}}»
+- it exams/m8.yaml:12 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|lasciano}}» → «{{t:fold|foldano}}»
+- it exams/m8.yaml:21 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|lasceranno}}» → «{{t:fold|folderanno}}»
+- it exams/m8.yaml:29 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|lasciando}}» → «{{t:fold|foldando}}»
+- it exams/m8.yaml:72 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Lascio}}» → «{{t:fold|Foldo}}»
+- it exams/m8.yaml:73 la {{t:call}} → il {{t:call}}: «la {{t:call}}» → «il {{t:call}}»
+- it exams/m8.yaml:74 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|lasceranno}}» → «{{t:fold|folderanno}}»
+- it exams/m8.yaml:79 la {{t:call}} → il {{t:call}}: «la {{t:call}}» → «il {{t:call}}»
+- it exams/m8.yaml:91 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|lasceranno}}» → «{{t:fold|folderanno}}»
+- it exams/m8.yaml:93 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|lasci}}» → «{{t:fold|foldi}}»
+- it exams/m9.yaml:37 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passi}}» → «{{t:fold|foldi}}»
+- it exams/m9.yaml:37 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passare}}» → «{{t:fold|foldare}}»
+- it exams/m9.yaml:38 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passo}}» → «{{t:fold|foldo}}»
+- it exams/m9.yaml:38 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|Passare}}» → «{{t:fold|Foldare}}»
+- it exams/m9.yaml:55 it fold passare/lasciare → foldare (w znaczniku): «{{t:fold|passano}}» → «{{t:fold|foldano}}»
+- vi lessons/m1-l1-przebieg.md:81 bộ bài mạnh → tay bài mạnh: «bộ bài mạnh» → «tay bài mạnh»
+- vi lessons/m10-l4-rake.md:102 học phần → mô-đun: «học phần» → «mô-đun»
+- vi lessons/m10-l4-rake.md:108 học phần → mô-đun: «học phần» → «mô-đun»
+- vi lessons/m10-l4-rake.md:123 học phần → mô-đun: «học phần» → «mô-đun»
+- vi lessons/m13-l2-powtorki.md:44 học phần → mô-đun: «học phần» → «mô-đun»
+- vi lessons/m13-l2-powtorki.md:69 học phần → mô-đun: «học phần» → «mô-đun»
+- vi lessons/m13-l2-powtorki.md:69 học phần → mô-đun: «học phần» → «mô-đun»
+- vi lessons/m13-l2-powtorki.md:71 học phần → mô-đun: «học phần» → «mô-đun»
+- vi lessons/m13-l2-powtorki.md:89 học phần → mô-đun: «học phần» → «mô-đun»
+- vi lessons/m13-l2-powtorki.md:89 học phần → mô-đun: «học phần» → «mô-đun»
+- vi lessons/m13-l2-powtorki.md:89 học phần → mô-đun: «học phần» → «mô-đun»
+- vi lessons/m13-l2-powtorki.md:96 học phần → mô-đun: «học phần» → «mô-đun»
+- vi lessons/m3-l1-pozycja.md:17 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m3-l3-zakresy-otwarc.md:5 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m3-l3-zakresy-otwarc.md:35 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m3-l3-zakresy-otwarc.md:41 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m3-l3-zakresy-otwarc.md:43 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m3-l3-zakresy-otwarc.md:47 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m3-l3-zakresy-otwarc.md:55 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m3-l3-zakresy-otwarc.md:65 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m3-l3-zakresy-otwarc.md:71 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m3-l3-zakresy-otwarc.md:77 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m3-l3-zakresy-otwarc.md:77 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m3-l3-zakresy-otwarc.md:80 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l3-wobec-3betu.md:13 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l3-wobec-3betu.md:13 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l3-wobec-3betu.md:16 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l3-wobec-3betu.md:17 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l3-wobec-3betu.md:17 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l3-wobec-3betu.md:18 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l3-wobec-3betu.md:23 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l3-wobec-3betu.md:33 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l3-wobec-3betu.md:43 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l3-wobec-3betu.md:53 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l3-wobec-3betu.md:63 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l3-wobec-3betu.md:73 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l3-wobec-3betu.md:83 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l3-wobec-3betu.md:98 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l3-wobec-3betu.md:100 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l3-wobec-3betu.md:100 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l4-limperzy.md:18 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m4-l4-limperzy.md:18 mở bài → mở cược: «mở bài» → «mở cược»
+- vi lessons/m5-l1-tekstury.md:80 bộ bài mạnh → tay bài mạnh: «bộ bài mạnh» → «tay bài mạnh»
+- vi lessons/m7-l1-druga-beczka.md:58 học phần → mô-đun: «học phần» → «mô-đun»
+- vi lessons/m7-l3-implied-odds.md:134 học phần → mô-đun: «học phần» → «mô-đun»
+- vi lessons/m8-l2-ile-blefow.md:142 học phần → mô-đun: «học phần» → «mô-đun»
+- vi lessons/m8-l3-blokery.md:55 bích không thành. Big blind check → bích không thành. {{t:big-blind|Big blind}} check: «bích không thành. Big blind check» → «bích không thành. {{t:big-blind|Big blind}} check»
+- vi exams/m0.yaml:32 của bộ bài giống → của tay bài giống: «của bộ bài giống» → «của tay bài giống»
+- vi exams/m0.yaml:40 của bộ bài giống → của tay bài giống: «của bộ bài giống» → «của tay bài giống»
+- vi exams/m1.yaml:55 bộ bài mạnh → tay bài mạnh: «bộ bài mạnh» → «tay bài mạnh»
+- vi exams/m1.yaml:57 các bộ bài bằng nhau → các tay bài bằng nhau: «các bộ bài bằng nhau» → «các tay bài bằng nhau»
+- vi exams/m3.yaml:9 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m3.yaml:12 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m3.yaml:12 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m3.yaml:21 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m3.yaml:32 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m3.yaml:40 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m3.yaml:49 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m3.yaml:59 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m3.yaml:67 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m3.yaml:70 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m3.yaml:70 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m3.yaml:87 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m3.yaml:95 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:9 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:12 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:13 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:19 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:24 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:29 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:39 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:42 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:44 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:49 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:52 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:52 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:53 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:54 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:54 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:59 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:68 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:78 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m4.yaml:88 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m5.yaml:9 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m5.yaml:12 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m5.yaml:19 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m5.yaml:23 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m5.yaml:47 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m5.yaml:57 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m5.yaml:59 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m5.yaml:60 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m5.yaml:61 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m5.yaml:75 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m5.yaml:85 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m5.yaml:95 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m7.yaml:8 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m7.yaml:11 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m7.yaml:18 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m7.yaml:27 mở bài → mở cược: «mở bài» → «mở cược»
+- vi exams/m7.yaml:80 mở bài → mở cược: «mở bài» → «mở cược»

@@ -1,0 +1,93 @@
+# Pula pytań egzaminacyjnych modułu M8 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m8.*).
+module: m8
+drills:
+  - kind: choice
+    id: m8.exam.q1
+    family: m8.value.threshold
+    rules: [R-M8-001]
+    prompt: "River: l'avversario {{t:check|fa check}} e non può {{t:raise|rilanciarti}}. Nel suo {{t:range|range}} ci sono {{n:exam.m8.range.worse}} mani peggiori della tua, ma solo {{n:exam.m8.call.worse}} di queste {{t:call|chiameranno}} la tua puntata. Pagherà anche {{n:exam.m8.call.better}} volte con una mano migliore. Punti?"
+    options:
+      - { text: "No, {{t:check|faccio check}}", correct: true, why: "Giusto: conta solo le mani che pagheranno. La puntata vince {{n:exam.m8.call.worse}} volte e perde {{n:exam.m8.call.better}} volte, quindi in netto perde {{n:exam.m8.net.loss}} puntata. Le mani peggiori che {{t:fold|foldano}} avrebbero perso comunque contro di te dopo il {{t:check|check}}." }
+      - { text: "Sì, perché le mani peggiori sono più di quelle migliori", why: "L'avversario ha {{n:exam.m8.range.worse}} mani peggiori, ma la maggior parte di queste {{t:fold|folderà}} sulla puntata. Tra le mani che pagheranno, quelle migliori sono di più ({{n:exam.m8.call.better}} contro {{n:exam.m8.call.worse}})." }
+      - { text: "Sì, per capire a che punto sono", why: "Una puntata «per informazione» paga le mani migliori, mentre le peggiori {{t:fold|foldano}}. La stessa informazione la ottieni gratis dopo il {{t:check|check}}, allo showdown." }
+  - kind: choice
+    id: m8.exam.q2
+    family: m8.value.size
+    rules: [R-M8-003]
+    prompt: "Hai {{t:open|aperto}} dal Button e il {{t:big-blind}} ha {{t:call|chiamato}}. Al flop c-bet e {{t:call}}, al turn {{t:check|avete fatto check}} entrambi. River, il {{t:big-blind}} {{t:check|fa check}}. Hai {{t:top-pair|coppia massima}} con il nove e stimi di battere poco più della metà delle mani che pagheranno. Cosa fai?"
+    table: { hand: "Jh 9h", board: "Jc 7s 4d 2h 2c", position: BTN }
+    options:
+      - { text: "Punto circa 1/3 del {{t:pot|piatto}}", correct: true, why: "Giusto: è thin value. Una puntata piccola la {{t:call|chiameranno}} anche le mani con un sette, con un quattro e i fanti più deboli, quindi tra le {{t:call|chiamate}} restano più mani peggiori che migliori." }
+      - { text: "Punto tutto il {{t:pot|piatto}}", sizeError: true, why: "Azione giusta, misura sbagliata: su una puntata pari al {{t:pot|piatto}} le mani con un sette o un quattro {{t:fold|folderanno}}, e pagheranno soprattutto fanti migliori e mani più forti. Il thin value lo punti più piccolo, di solito circa 1/4–1/2 del {{t:pot|piatto}}." }
+      - { text: "{{t:check|Faccio check}}, perché la mano è troppo debole per puntare", why: "Perdi valore: batti più della metà delle mani che pagheranno una puntata piccola. Basta scegliere una misura minore." }
+  - kind: numeric
+    id: m8.exam.q3
+    family: m8.bluff.share
+    rules: [R-M8-004, R-M8-005]
+    prompt: "River. Nel {{t:pot|piatto}} ci sono {{n:exam.m8.pot}}, punti {{n:exam.m8.bet}} con un {{t:range|range}} composto da mani molto forti e {{t:bluff|bluff}}. In equilibrio, che parte delle tue puntate è costituita da {{t:bluff|bluff}}? Inserisci il numero in percentuale."
+    answer: exam.m8.share
+    explanation: "Quota di {{t:bluff|bluff}} = puntata ÷ ({{t:pot}} + 2·puntata) = {{n:exam.m8.bet}} ÷ ({{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}) = {{n:exam.m8.share}}. La stessa equity serve alla mano dell'avversario che cattura i {{t:bluff|bluff}}, quindi non guadagna né {{t:call|chiamando}} né {{t:fold|foldando}}."
+  - kind: choice
+    id: m8.exam.q4
+    family: m8.bluff.combos
+    rules: [R-M8-004]
+    prompt: "River. Nel {{t:pot|piatto}} ci sono {{n:exam.m8.pot}}, punti {{n:exam.m8.bet}} con un {{t:range|range}} di {{n:exam.m8.range}} {{t:combo|combo}}: valore e {{t:bluff|bluff}}. La quota di {{t:bluff|bluff}} in equilibrio è {{n:exam.m8.share}}. Quante {{t:combo|combo}} sono {{t:bluff|bluff}}?"
+    options:
+      - { text: "{{n:exam.m8.bluffs}}", correct: true, why: "Giusto: {{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}} {{t:bluff|bluff}} e {{n:exam.m8.value-combos}} {{t:combo|combo}} {{t:value|per valore}}." }
+      - { text: "{{n:exam.m8.bluffs.wrong-pot}}", why: "Tanti sarebbero con una puntata pari a tutto il {{t:pot|piatto}} (quota {{n:bluff.share.bet-pot}}). Con una puntata più piccola i {{t:bluff|bluff}} sono meno: {{n:exam.m8.share}}." }
+      - { text: "{{n:exam.m8.value-combos}}", why: "È il numero di {{t:combo|combo}} {{t:value|per valore}}. I {{t:bluff|bluff}} sono la parte minore: {{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}}." }
+  - kind: choice
+    id: m8.exam.q5
+    family: m8.bluff.hands
+    rules: [R-M8-006]
+    prompt: "Hai {{t:open|aperto}} dal Button, il {{t:big-blind}} ha {{t:call|chiamato}} e al river {{t:check|fa check}}. Con quale di queste mani conviene di più {{t:bluff|bluffare}}?"
+    table: { board: "Qs Tc 6d 3h 2s", position: BTN }
+    options:
+      - { text: "[[Kc Jc]]", correct: true, why: "Giusto: il {{t:oesd|progetto di scala bilaterale}} non è entrato e il re come carta più alta non vince quasi mai allo showdown. Una mano senza possibilità non perde nulla quando il {{t:bluff}} non riesce." }
+      - { text: "[[Ts 9s]]", why: "La {{t:second-pair|seconda coppia}} vince dopo il {{t:check|check}} contro i {{t:draw|progetti}} mancati e le mani più deboli. {{t:bluff|Bluffando}} rinunceresti a quella vincita." }
+      - { text: "[[Qd 8d]]", why: "La {{t:top-pair|coppia massima}} ha valore allo showdown. Non {{t:bluff|bluffi}} con una mano che vince spesso dopo il {{t:check|check}}." }
+  - kind: choice
+    id: m8.exam.q6
+    family: m8.blockers.bluff
+    rules: [R-M8-007]
+    prompt: "River. Il {{t:big-blind|big blind}} {{t:check|fa check}}. Su questo {{t:board|board}} fanno {{t:straight|scala}} KT e T8. Nessuna delle due mani qui sotto ha una {{t:pair|coppia}} né possibilità allo showdown. Quale conviene di più {{t:bluff|bluffare}}?"
+    table: { board: "Qd Jc 4s 2h 9d", position: BTN }
+    options:
+      - { text: "[[Ts 7s]]", correct: true, why: "Giusto: il dieci blocca entrambe le {{t:straight|scale}} (KT e T8), cioè le mani con cui l'avversario pagherà di sicuro. Ne ha meno {{t:combo|combo}}, quindi gli resta più spesso una mano da lasciare." }
+      - { text: "[[6s 5s]]", why: "Questa mano non blocca nessuna mano forte dell'avversario. Scegliendo tra {{t:bluff|bluff}} senza possibilità, preferisci quello che blocca il suo valore." }
+  - kind: numeric
+    id: m8.exam.q7
+    family: m8.blockers.combos
+    rules: [R-M8-009]
+    prompt: "Senza alcuna informazione, KQ ha {{n:combos.unpaired}} {{t:combo|combo}}. Hai [[Ad Qc]]. Quante {{t:combo|combo}} di KQ può avere l'avversario? Inserisci il numero."
+    table: { hand: "Ad Qc" }
+    answer: combos.unpaired.one-blocked
+    explanation: "Hai una donna, quindi all'avversario restano {{n:pair.outs.per-rank}} donne e tutti i {{n:cards.suits}} re: {{n:pair.outs.per-rank}} × {{n:cards.suits}} = {{n:combos.unpaired.one-blocked}}. L'asso non influisce sul numero di KQ."
+  - kind: choice
+    id: m8.exam.q8
+    family: m8.catch.math
+    rules: [R-M8-010]
+    prompt: "River. Nel {{t:pot|piatto}} ci sono {{n:exam.m8.pot}}, l'avversario {{t:bet|punta}} {{n:exam.m8.bet}}. Hai un bluff-catcher e stimi che i {{t:bluff|bluff}} siano circa {{n:exam.m8.bluffs.est}} delle sue puntate. Cosa fai?"
+    options:
+      - { text: "{{t:fold|Foldo}}", correct: true, why: "Giusto: ti serve {{n:exam.m8.bet}} ÷ ({{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}) = {{n:exam.m8.share}} di equity, e un bluff-catcher batte solo i {{t:bluff|bluff}}, cioè in circa {{n:exam.m8.bluffs.est}} dei casi. La {{t:call|chiamata}} perde." }
+      - { text: "{{t:call|Chiamo}}", why: "La tua equity è la quota di {{t:bluff|bluff}} nelle sue puntate: {{n:exam.m8.bluffs.est}}. È meno del {{n:exam.m8.share}} necessario, quindi il {{t:call}} perde." }
+      - { text: "{{t:raise|Rilancio}}", why: "Dopo il {{t:raise|rilancio}} i {{t:bluff|bluff}} {{t:fold|folderanno}} e pagheranno solo le mani migliori. Con un bluff-catcher non {{t:raise|rilanci}}." }
+  - kind: choice
+    id: m8.exam.q9
+    family: m8.catch.blockers
+    rules: [R-M8-011]
+    prompt: "Difendi il {{t:big-blind}}. I cuori non sono entrati e il river ha dato {{t:straight|scala}} alle mani T7 e 75. {{t:check|Fai check}} e il Button {{t:bet|punta}} tutto il {{t:pot|piatto}}. Hai {{t:top-pair|coppia massima}} con un kicker debole. Con quale di queste mani il {{t:call}} è migliore?"
+    table: { board: "Kh 9h 6c 2s 8d", position: BB }
+    options:
+      - { text: "[[Kc 7c]]", correct: true, why: "Giusto: il sette blocca entrambe le nuove {{t:straight|scale}} (T7 e 75), cioè parte del valore del Button, e senza cuori non blocchi i {{t:flush-draw|progetti di colore}} mancati, i suoi {{t:bluff|bluff}} principali. Nelle sue puntate restano più {{t:bluff|bluff}}." }
+      - { text: "[[Ks 3h]]", why: "La carta [[3h]] blocca parte dei {{t:flush-draw|progetti di colore}} mancati, cioè dei {{t:bluff|bluff}} del Button, e questa mano non blocca nessuna {{t:straight|scala}}. Nelle sue puntate resta più valore." }
+  - kind: choice
+    id: m8.exam.q10
+    family: m8.value.check
+    rules: [R-M8-002]
+    prompt: "Hai {{t:open|aperto}} dal Button e il {{t:big-blind}} ha {{t:call|chiamato}}. Al flop c-bet e {{t:call}}, al turn {{t:check|avete fatto check}} entrambi. River, il {{t:big-blind}} {{t:check|fa check}}. Hai una {{t:pair|coppia}} di sei. Cosa fai?"
+    table: { hand: "6d 6s", board: "Jc 8h 4d 3s Kc", position: BTN }
+    options:
+      - { text: "{{t:check|Faccio check}}", correct: true, why: "Giusto: la {{t:pair|coppia}} di sei batte i {{t:draw|progetti}} mancati e le carte alte, ma queste mani {{t:fold|folderanno}} sulla puntata. Pagheranno soprattutto le mani con fante, otto e re. {{t:check|Facendo check}}, vai allo showdown gratis." }
+      - { text: "Punto poco {{t:value|per valore}}", why: "Anche una puntata piccola la {{t:call|chiameranno}} soprattutto {{t:pair|coppie}} migliori. Le mani peggiori dell'avversario qui sono soprattutto mani senza {{t:pair|coppia}} e le {{t:pair|coppie}} più deboli, e queste pagano raramente." }
+      - { text: "Punto forte perché l'avversario {{t:fold|foldi}} una {{t:pair|coppia}} migliore", why: "La puntata trasforma una mano con valore allo showdown in un {{t:bluff}}. {{t:bluff|Bluffi}} con mani senza possibilità, e questa mano vince spesso dopo il {{t:check|check}}." }

@@ -1,0 +1,100 @@
+# Pula pytań egzaminacyjnych modułu M5 (te same reguły co lekcje, inne sytuacje). Klasyfikacja tekstury i decyzja
+# c-betu BTN vs BB trafiają na egzamin z generatorów lekcji (texture, cbet), więc tu ich nie powtarzamy.
+module: m5
+drills:
+  - kind: choice
+    id: m5.exam.q1
+    family: m5.advantage.who
+    rules: [R-M5-003]
+    prompt: "Bạn {{t:open|mở cược}} từ {{t:cutoff|CO}}, Button và {{t:small-blind|mù nhỏ}} {{t:fold|bỏ bài}}, {{t:big-blind}} {{t:call|theo}}. Flop: [[Ac Jd 5h]]. Ai có {{t:range-advantage|lợi thế dải bài}}?"
+    table: { position: CO, board: "Ac Jd 5h" }
+    options:
+      - { text: "Bạn, người {{t:open|mở cược}}", correct: true, why: "Đúng: trên flop có lá A, {{t:range|dải bài}} của bạn có đủ mọi AA, AK và AJ. {{t:big-blind|Mù lớn}} thường {{t:raise|tố}} những tay A mạnh nhất trước flop (3-bet), nên khi chỉ {{t:call|theo}}, họ có rất ít những tay này." }
+      - { text: "{{t:big-blind|Mù lớn}}, vì họ bảo vệ nhiều tay A", why: "Họ bảo vệ nhiều tay A, nhưng là tay A yếu (vd. A5, A8). Những tay A mạnh nhất họ chơi bằng 3-bet, nên trung bình các tay của họ ở đây yếu hơn của bạn." }
+      - { text: "Không ai: lá A tác động đến cả hai {{t:range|dải bài}} như nhau", why: "Lá A trên {{t:board|bài chung}} tác động đến cả hai {{t:range|dải bài}}, nhưng không như nhau: dải bài của bạn có nhiều tay A mạnh hơn, vì {{t:big-blind}} đã {{t:raise|tố}} những tay A tốt nhất trước flop." }
+  - kind: choice
+    id: m5.exam.q2
+    family: m5.advantage.who
+    rules: [R-M5-004]
+    prompt: "Bạn {{t:open|mở cược}} từ Button, {{t:big-blind}} {{t:call|theo}}. Trên flop nào dưới đây {{t:big-blind}} có {{t:two-pair}} hoặc {{t:straight|sảnh}} thường xuyên hơn bạn?"
+    table: { position: BTN }
+    options:
+      - { text: "[[8h 6d 5c]]", correct: true, why: "Đúng: flop thấp, {{t:connected}} trúng các {{t:connectors|bài liên tiếp}} và các tay có lá nhỏ, mà {{t:big-blind}} bảo vệ rất nhiều. Bạn ở Button có nhiều lá cao hơn, và chúng đã trượt ở đây. Đây là {{t:nuts-advantage}} của {{t:big-blind|mù lớn}}." }
+      - { text: "[[Kd Td 3s]]", why: "Không: flop cao có lợi cho người {{t:open|mở cược}}. Bạn có nhiều tay K với kicker tốt, KT và các {{t:pair|đôi}} cao hơn." }
+      - { text: "[[Ah Ad 7c]]", why: "Không: trên flop có {{t:pair|đôi}} A, bạn có nhiều tay A hơn, vì {{t:big-blind}} {{t:raise|tố}} những tay A mạnh nhất trước flop. Ở đây không ai có {{t:straight|sảnh}}." }
+  - kind: choice
+    id: m5.exam.q3
+    family: m5.advantage.why
+    rules: [R-M5-005]
+    prompt: "Trên flop, bạn đánh giá hai lợi thế: {{t:range-advantage|lợi thế dải bài}} và {{t:nuts-advantage|lợi thế nuts}}. Lợi thế nào gợi ý bạn nên cược bao nhiêu?"
+    options:
+      - { text: "{{t:nuts-advantage|Lợi thế nuts}}", correct: true, why: "Đúng: khi bạn có nhiều tay mạnh nhất hơn hẳn đối thủ, bạn hiếm khi gặp tay tốt hơn, nên có thể cược với mức lớn hơn. {{t:range-advantage|Lợi thế dải bài}} cho biết nên cược thường xuyên đến đâu." }
+      - { text: "{{t:range-advantage|Lợi thế dải bài}}", why: "Không: {{t:range-advantage}} cho biết bạn có thể cược thường xuyên. Không có {{t:nuts-advantage|lợi thế nuts}}, bạn cược nhỏ, vì một {{t:bet}} lớn rủi ro nhiều trước những tay mạnh nhất của đối thủ." }
+      - { text: "Không lợi thế nào: mức cược chỉ phụ thuộc vào tay bài của bạn", why: "Đối thủ không thấy tay bài của bạn, chỉ thấy {{t:range}}. Bạn chọn mức cược sao cho phù hợp với nhiều tay bài của bạn cùng lúc, và điều đó do các lợi thế quyết định." }
+  - kind: choice
+    id: m5.exam.q4
+    family: m5.math.miss
+    rules: [R-M5-006, R-M5-013]
+    prompt: "Một tay không có {{t:pair|đôi}} trượt flop trong khoảng {{n:flop.miss.unpaired}} trường hợp, còn hai tay cùng lúc trong khoảng {{n:flop.miss.two}}. Ba tay như vậy (sáu hạng bài khác nhau) cùng trượt thường xuyên đến đâu?"
+    options:
+      - { text: "Khoảng {{n:exam.m5.miss.three}}", correct: true, why: "Đúng: có {{n:exam.m5.pair.outs.three}} lá tạo đôi trong số {{n:exam.m5.unseen.three}} lá chưa biết (không tính bài của bạn). Khả năng không lá nào trong {{n:cards.board.flop}} lá flop nằm trong số đó là khoảng {{n:exam.m5.miss.three}}. Trước ba đối thủ, {{t:bluff}} hiếm khi qua được tất cả." }
+      - { text: "Khoảng {{n:flop.miss.two}}, giống như hai tay", why: "Không: đối thủ thứ ba là thêm {{n:pair.outs.unpaired}} lá có thể tạo đôi cho họ. Khả năng tất cả đều trượt giảm dần với mỗi người chơi." }
+      - { text: "Khoảng {{n:flop.miss.unpaired}}, chỉ tính một đối thủ", why: "Không: để {{t:bluff}} thắng {{t:pot|pot}}, tất cả đều phải trượt. Mỗi đối thủ thêm vào làm giảm khả năng đó." }
+  - kind: choice
+    id: m5.exam.q5
+    family: m5.math.alpha
+    rules: [R-M5-011]
+    prompt: "Bạn {{t:open|mở cược}} từ Button, {{t:big-blind}} {{t:call|theo}}. {{t:pot|Pot}} trên flop là {{n:bb.pot-after.vs-btn}}. Bạn c-bet {{n:cbet.btn.big}} với một tay không có cơ hội. {{t:big-blind}} phải {{t:fold|bỏ bài}} thường xuyên đến đâu để {{t:bet}} này hòa vốn?"
+    table: { position: BTN }
+    options:
+      - { text: "Hơn {{n:alpha.cbet.big}} số trường hợp", correct: true, why: "Đúng: {{n:cbet.btn.big}} là {{n:cbet.size.big}} {{t:pot|pot}}, và ngưỡng chỉ phụ thuộc vào tỉ lệ giữa cược và {{t:pot|pot}}: cược ÷ ({{t:pot}} + cược) = {{n:alpha.cbet.big}}. Giống hệt như khi tính {{t:pot|pot}} bằng {{t:chips|chip}}." }
+      - { text: "Hơn {{n:alpha.cbet.small}} số trường hợp", why: "Đó là ngưỡng cho c-bet nhỏ ({{n:cbet.size.small}} {{t:pot|pot}}, tức {{n:cbet.btn.small}}). Cược lớn hơn rủi ro nhiều hơn, nên phải hiệu quả thường xuyên hơn: {{n:alpha.cbet.big}}." }
+      - { text: "Hơn {{n:flop.miss.unpaired}} số trường hợp", why: "Đó là khả năng một tay không có {{t:pair|đôi}} không trúng flop, chứ không phải ngưỡng sinh lời của cược. Ngưỡng là cược ÷ ({{t:pot}} + cược) = {{n:alpha.cbet.big}}." }
+  - kind: choice
+    id: m5.exam.q6
+    family: m5.cbet.oop
+    rules: [R-M5-012]
+    prompt: "Trong tình huống nào dưới đây, với tư cách người {{t:open|mở cược}}, bạn c-bet ít nhất?"
+    options:
+      - { text: "Bạn {{t:open|mở cược}} từ {{t:hijack|HJ}}, Button {{t:call|theo}}, hai vị trí mù {{t:fold|bỏ bài}}", correct: true, why: "Đúng: Button {{t:call|theo}} khi có {{t:position|vị trí}}, nên {{t:range}} của họ mạnh (tay yếu thì họ {{t:fold|bỏ bài}}, một phần tay mạnh nhất thì họ {{t:raise|tố}}), còn bạn sau flop phải hành động trước ở mọi {{t:street|vòng cược}}." }
+      - { text: "Bạn {{t:open|mở cược}} từ Button, {{t:big-blind}} {{t:call|theo}}", why: "Ở đây bạn có {{t:position|vị trí}}, còn {{t:big-blind}} bảo vệ rộng, với nhiều tay yếu. Đây là thế bài mà bạn c-bet thường xuyên nhất." }
+      - { text: "Bạn {{t:open|mở cược}} từ {{t:cutoff|CO}}, {{t:big-blind}} {{t:call|theo}}", why: "Ở đây sau flop bạn cũng hành động sau {{t:big-blind|mù lớn}}, nên bạn có {{t:position|vị trí}}, còn cách bảo vệ rộng của họ có nhiều tay yếu." }
+  - kind: choice
+    id: m5.exam.q7
+    family: m5.cbet.oop
+    rules: [R-M5-012]
+    prompt: "{{t:out-of-position|Không có vị trí}} trước người chơi đã {{t:call|theo}} khi có {{t:position|vị trí}}, bạn thường {{t:check|xem bài}} cả với tay mạnh. Điều này có nghĩa là gì?"
+    options:
+      - { text: "Bạn không từ bỏ tay bài: sau khi {{t:check|xem bài}}, bạn sẽ {{t:call|theo}} {{t:bet}} của họ hoặc check-raise", correct: true, why: "Đúng: {{t:check|xem bài}} khi {{t:out-of-position}} không có nghĩa là nhường {{t:pot|pot}}. Tay mạnh bạn tiếp tục chơi bằng cách {{t:call|theo}} hoặc check-raise, còn {{t:range}} của đối thủ đã {{t:call|theo}} khi có {{t:position|vị trí}} thường sẽ tự {{t:bet|cược}}." }
+      - { text: "Sau khi {{t:check|xem bài}}, bạn {{t:fold|bỏ bài}} trước mọi {{t:bet}}", why: "Không: khi đó đối thủ sẽ thắng {{t:pot|pot}} với mọi {{t:bet|cược}}. Nhiều tay {{t:check|xem bài}} sẽ {{t:call|theo}} {{t:bet}} của đối thủ." }
+      - { text: "Bạn chỉ {{t:check|xem bài}} với tay không có {{t:pair|đôi}}", why: "Không: khi {{t:out-of-position}}, bạn thường {{t:check|xem bài}} với toàn bộ {{t:range|dải bài}}, kể cả tay mạnh. Nếu chỉ tay yếu mới {{t:check|xem bài}}, đối thủ sẽ dễ dàng khai thác điều đó." }
+  - kind: choice
+    id: m5.exam.q8
+    family: m5.cbet.multi
+    rules: [R-M5-013]
+    prompt: "Bạn {{t:open|mở cược}} từ {{t:hijack|HJ}}, Button và {{t:big-blind}} {{t:call|theo}}. Trước hai đối thủ, bạn ngừng c-bet với những tay nào trước tiên?"
+    table: { position: HJ }
+    options:
+      - { text: "Các tay {{t:bluff|tháu cáy}} không có {{t:pair|đôi}} và không có {{t:draw|bài chờ}}", correct: true, why: "Đúng: {{t:bluff}} phải qua được cả hai đối thủ, mà hai tay không có {{t:pair|đôi}} cùng trượt chỉ trong khoảng {{n:flop.miss.two}} trường hợp. Bạn cược ít, chủ yếu với tay mạnh và {{t:draw|bài chờ}} mạnh." }
+      - { text: "{{t:draw|Bài chờ}} mạnh", why: "Không: {{t:draw|bài chờ}} mạnh thuộc nhóm tay vẫn đôi khi cược trước nhiều đối thủ, vì chúng cũng thắng khi trúng bài." }
+      - { text: "Không tay nào: bạn c-bet như khi gặp một đối thủ", why: "Không: mỗi đối thủ thêm vào làm tăng khả năng có người trúng flop. Trước hai đối thủ, bạn c-bet ít hơn nhiều." }
+  - kind: choice
+    id: m5.exam.q9
+    family: m5.cbet.size
+    rules: [R-M5-008]
+    prompt: "Bạn {{t:open|mở cược}} từ Button, {{t:big-blind}} {{t:call|theo}} và {{t:check|xem bài}}. Flop này {{t:wet}}. Bạn có {{t:pair|đôi}} 7 kèm A, không có {{t:draw|bài chờ}}. Bạn làm gì?"
+    table: { hand: "As 7c", position: BTN, board: "Td 9d 7s" }
+    options:
+      - { text: "{{t:check|Xem bài}}", correct: true, why: "Đúng: trên flop {{t:wet|ướt}}, bạn cược ít thường xuyên hơn, chủ yếu với tay mạnh và {{t:draw|bài chờ}} mạnh. Với {{t:pair}} thấp nhất và không có {{t:draw|bài chờ}}, bạn cùng lắm chỉ có tay trung bình: {{t:bet}} của bạn sẽ chủ yếu bị các tay tốt hơn và các {{t:draw|bài chờ}} có nhiều equity trước nó {{t:call|theo}}." }
+      - { text: "C-bet {{n:cbet.size.big}} {{t:pot|pot}}", why: "Mức cược lớn trên flop {{t:wet|ướt}} dành cho tay mạnh và {{t:draw|bài chờ}} mạnh. Với {{t:pair|đôi}} thấp nhất, bạn xây {{t:pot|pot}} lớn trước những tay thường thắng bạn hoặc có nhiều equity." }
+      - { text: "C-bet {{n:cbet.size.small}} {{t:pot|pot}}", why: "Trên flop {{t:wet|ướt}}, tay trung bình không có {{t:draw|bài chờ}} thường {{t:check|xem bài}} hơn. Một {{t:bet}} nhỏ cho {{t:draw|bài chờ}} một lá bài rẻ, còn tay yếu hơn thì dù sao cũng hiếm khi trả tiền." }
+  - kind: choice
+    id: m5.exam.q10
+    family: m5.cbet.texture
+    rules: [R-M5-010]
+    prompt: "Bạn {{t:open|mở cược}} từ Button, {{t:big-blind}} {{t:call|theo}} và {{t:check|xem bài}}. Flop này {{t:monotone}}, nên theo cách chấm điểm của ứng dụng là {{t:wet}}. Khi đã c-bet, bạn dùng mức cược nào?"
+    table: { position: BTN, board: "Jd 7d 2d" }
+    options:
+      - { text: "Nhỏ", correct: true, why: "Đúng: người chơi nào cũng có thể đã có {{t:flush}}, nên {{t:nuts-advantage}} của bạn nhỏ hơn. Trên flop {{t:monotone|đồng chất}}, bạn cược ít thường xuyên hơn bình thường và với mức nhỏ, để không xây {{t:pot|pot}} lớn trước bài thùng." }
+      - { text: "Lớn, vì flop này {{t:wet}}", why: "“{{t:wet|Ướt}}” không có nghĩa là “cược lớn”. Mức cược lớn hơn áp dụng cho các flop {{t:wet|ướt}} không {{t:monotone|đồng chất}}. Trên flop {{t:monotone|đồng chất}}, {{t:pot}} lớn rất nguy hiểm, vì đối thủ có thể đã có sẵn {{t:flush}}." }
+      - { text: "Cả {{t:pot|pot}}, để {{t:draw|bài chờ}} phải trả giá đắt", why: "Trên flop {{t:monotone|đồng chất}}, nguy hiểm nhất không phải {{t:draw|bài chờ}}, mà là các tay thùng đã hoàn thành của đối thủ. Cược bằng cả pot rủi ro nhiều nhất chính trước những tay đó." }

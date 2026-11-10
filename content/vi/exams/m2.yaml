@@ -1,0 +1,99 @@
+# Pula egzaminacyjna M2 (outy, szanse, pot odds): te same reguły co lekcje m2.l1 i m2.l2, inne rozdania i liczby.
+module: m2
+drills:
+  - kind: choice
+    id: m2.exam.q1
+    family: m2.outs.flush
+    rules: [R-M2-001]
+    prompt: "Bạn chỉ có một lá rô trên tay, nhưng flop có ba lá rô. Bạn có bao nhiêu out để ra {{t:flush|thùng}}?"
+    table: { hand: "Ad Tc", board: "Kd 8d 3d" }
+    options:
+      - { text: "{{n:outs.flush}}", correct: true, why: "Điều cần đếm là tổng số lá cùng chất mà bạn nhìn thấy: 1 lá trên tay và 3 lá trên {{t:board|bàn}}, tổng cộng {{n:draw.flush.seen}}. Còn lại {{n:cards.per-suit}} − {{n:draw.flush.seen}} = {{n:outs.flush}} lá rô." }
+      - { text: "{{n:outs.oesd}}", why: "Đó là số out của {{t:oesd|OESD}}. Để ra {{t:flush|thùng}}, bạn cần một trong {{n:outs.flush}} lá rô còn lại." }
+      - { text: "{{n:cards.per-suit}}", why: "{{n:cards.per-suit}} là tất cả các lá rô trong bộ bài, nhưng bạn đã nhìn thấy {{n:draw.flush.seen}} lá trong số đó." }
+  - kind: choice
+    id: m2.exam.q2
+    family: m2.outs.gutshot
+    rules: [R-M2-002]
+    prompt: "Bạn có bao nhiêu out để ra {{t:straight|sảnh}}?"
+    table: { hand: "Jc 9d", board: "Ts 7h 2c" }
+    options:
+      - { text: "{{n:outs.gutshot}}", correct: true, why: "Bạn có J-10-9 và 7, thiếu lá 8 ở giữa (gutshot). Chỉ lá 8 cho bạn {{t:straight|sảnh}}: {{n:draw.gutshot.ranks}} hạng × {{n:cards.suits}} chất = {{n:outs.gutshot}} lá." }
+      - { text: "{{n:outs.oesd}}", why: "Đó là số out khi có bốn lá liên tiếp, hở cả hai đầu. Ở đây chỉ lá 8 hoàn thành {{t:straight}}." }
+      - { text: "{{n:draw.oesd.ranks}}", why: "Chỉ một hạng hoàn thành bài của bạn (lá 8), nhưng có ở bốn chất." }
+  - kind: numeric
+    id: m2.exam.n1
+    family: m2.outs.oesd
+    rules: [R-M2-002]
+    prompt: "Turn. Bạn có bao nhiêu out để ra {{t:straight|sảnh}}? Hãy nhập một số."
+    table: { hand: "Td 9d", board: "8c 7s 2h Ac" }
+    answer: outs.oesd
+    explanation: "Bạn có 10-9-8-7, bốn lá liên tiếp. Bất kỳ lá J nào và bất kỳ lá 6 nào cũng cho bạn {{t:straight|sảnh}}: {{n:draw.oesd.ranks}} hạng × {{n:cards.suits}} chất = {{n:outs.oesd}}."
+  - kind: choice
+    id: m2.exam.q3
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "Flop. Đối thủ all-in, còn bạn có {{t:oesd|OESD}} ({{n:outs.oesd}} out). Nếu bạn {{t:call|theo}}, cơ hội trúng đến river là bao nhiêu?"
+    options:
+      - { text: "Khoảng {{n:odds.oesd.flop-river}}", correct: true, why: "Đối thủ đã all-in, nên bạn sẽ thấy turn và river mà không còn {{t:bet|cược}} nào nữa. Bạn tính hai lá: ước lượng theo quy tắc là {{n:outs.oesd}} × 4 = {{n:odds.oesd.rule-flop}}, còn con số chính xác là {{n:odds.oesd.flop-river}}." }
+      - { text: "Khoảng {{n:odds.oesd.flop-turn}}", why: "Đó là cơ hội chỉ riêng ở turn. Khi có all-in, bạn sẽ thấy cả river." }
+      - { text: "Khoảng {{n:odds.flush.flop-river}}", why: "Đó là cơ hội của {{t:flush-draw|draw thùng}} với {{n:outs.flush}} out. Bạn có {{n:outs.oesd}}." }
+  - kind: choice
+    id: m2.exam.q4
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "Flop. Bạn có {{t:oesd|OESD}}, và đối thủ {{t:bet|cược}} nửa {{t:pot|pot}}. Stack sâu. Bạn so sánh cơ hội trúng nào với giá?"
+    table: { hand: "Qh Jc", board: "Td 9s 3c" }
+    options:
+      - { text: "Khoảng {{n:odds.oesd.flop-turn}}, chỉ ở turn", correct: true, why: "{{t:call|Theo}} chỉ mua được một lá. Ở turn đối thủ có thể {{t:bet|cược}} tiếp, nên bạn tính một lá: ước lượng theo quy tắc là {{n:outs.oesd}} × 2 = {{n:odds.oesd.rule-next}}, còn chính xác là {{n:outs.oesd}} trên {{n:cards.unseen.flop}}, tức {{n:odds.oesd.flop-turn}}." }
+      - { text: "Khoảng {{n:odds.oesd.flop-river}}, đến river", why: "Chỉ dùng cơ hội đến river khi bạn chắc chắn thấy cả hai lá mà không còn {{t:bet|cược}} nào nữa, tức là khi có all-in." }
+  - kind: numeric
+    id: m2.exam.n2
+    family: m2.odds
+    rules: [R-M2-002]
+    prompt: "Turn. Bạn có gutshot ({{n:outs.gutshot}} out). Quy tắc 2 và 4 cho bạn bao nhiêu phần trăm cơ hội trúng ở river? Hãy nhập một số."
+    answer: odds.gutshot.rule-turn
+    explanation: "Chỉ còn một lá, nên bạn nhân với 2: {{n:outs.gutshot}} × 2 = {{n:odds.gutshot.rule-turn}} (ước lượng). Chính xác: {{n:outs.gutshot}} trên {{n:cards.unseen.turn}}, tức {{n:odds.gutshot.turn-river}}."
+  - kind: choice
+    id: m2.exam.q5
+    family: m2.pot-odds
+    rules: [R-M2-003]
+    prompt: "Trong {{t:pot|pot}} có {{n:exam.m2.half.pot}}. Đối thủ {{t:bet|cược}} {{n:exam.m2.half.bet}}. Bạn cần bao nhiêu equity để {{t:call|theo}}?"
+    options:
+      - { text: "{{n:exam.m2.half.eq}}", correct: true, why: "Bạn bỏ thêm {{n:exam.m2.half.bet}}, và sau khi bạn {{t:call|theo}}, {{t:pot}} có {{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}. {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}. Đây là {{t:bet}} nửa {{t:pot|pot}}, nên kết quả như nhau với mọi kích thước {{t:pot|pot}}." }
+      - { text: "{{n:exam.m2.half.wrong}}", why: "Đó là {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}, chưa tính phần {{t:call|theo}} của bạn. Hãy chia số tiền bạn bỏ thêm cho toàn bộ {{t:pot|pot}} sau khi {{t:call|theo}}: {{n:exam.m2.half.total}}." }
+      - { text: "{{n:exam.m2.half.wrong-pot}}", why: "Đó là {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.pot}}: {{t:bet}} chia cho {{t:pot|pot}} trước khi có {{t:bet|cược}}. Mẫu số phải là toàn bộ {{t:pot}} sau khi bạn {{t:call|theo}}." }
+  - kind: numeric
+    id: m2.exam.n3
+    family: m2.pot-odds
+    rules: [R-M2-004]
+    prompt: "Trong {{t:pot|pot}} có {{n:exam.m2.pot.pot}}. Đối thủ {{t:bet|cược}} {{n:exam.m2.pot.bet}}. Bạn cần bao nhiêu phần trăm equity để {{t:call|theo}}? Hãy nhập một số."
+    answer: exam.m2.pot.eq
+    explanation: "{{t:bet|Cược}} bằng kích thước {{t:pot|pot}}. Bạn bỏ {{n:exam.m2.pot.bet}} vào {{t:pot|pot}}, và sau khi bạn {{t:call|theo}}, pot có {{n:exam.m2.pot.pot}} + {{n:exam.m2.pot.bet}} + {{n:exam.m2.pot.bet}} = {{n:exam.m2.pot.total}}. {{n:exam.m2.pot.bet}} ÷ {{n:exam.m2.pot.total}} = {{n:exam.m2.pot.eq}}, tức một phần ba."
+  - kind: choice
+    id: m2.exam.q6
+    family: m2.draw-call
+    rules: [R-M2-004, R-M2-005]
+    prompt: "Flop. Bạn có {{t:flush-draw|draw thùng}}, stack sâu, và đối thủ {{t:bet|cược}} bằng cả {{t:pot|pot}}. Chỉ tính giá và cơ hội trúng (không tính implied odds). Bạn làm gì?"
+    table: { hand: "Js 6s", board: "Qs 4s 9d" }
+    options:
+      - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Bạn cần {{n:eq.bet-pot}}. {{t:call|Theo}} chỉ mua được turn, và ở đó bạn trúng với cơ hội khoảng {{n:odds.flush.flop-turn}}. Rõ ràng là không đủ." }
+      - { text: "{{t:call|Theo}}, vì đến river tôi có khoảng {{n:odds.flush.flop-river}}", why: "Bạn chỉ có cơ hội đến river khi thấy cả hai lá mà không còn {{t:bet|cược}} nào nữa. Với stack sâu, đối thủ có thể {{t:bet|cược}} tiếp ở turn, nên với giá này bạn chỉ mua một lá: khoảng {{n:odds.flush.flop-turn}}." }
+  - kind: choice
+    id: m2.exam.q7
+    family: m2.draw-call
+    rules: [R-M2-005]
+    prompt: "Turn. Bạn có {{t:oesd|OESD}}. Trong {{t:pot|pot}} có {{n:exam.m2.third.pot}}, đối thủ {{t:bet|cược}} {{n:exam.m2.third.bet}}. Chỉ tính giá và cơ hội trúng. Bạn làm gì?"
+    table: { hand: "9h 8h", board: "Tc 7d 2s Kd" }
+    options:
+      - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Bạn cần {{n:exam.m2.third.bet}} ÷ {{n:exam.m2.third.total}} = {{n:exam.m2.third.eq}}. Bạn có {{n:outs.oesd}} out để ra {{t:straight|sảnh}}, tức {{n:outs.oesd}} trên {{n:cards.unseen.turn}}: khoảng {{n:odds.oesd.turn-river}}. Ở đây ngay cả {{t:bet}} nhỏ cũng quá đắt." }
+      - { text: "{{t:call|Theo}}, vì {{t:bet}} nhỏ", why: "{{t:bet}} nhỏ không đồng nghĩa với giá tốt. Bạn cần {{n:exam.m2.third.eq}}, còn bạn chỉ có khoảng {{n:odds.oesd.turn-river}}." }
+  - kind: choice
+    id: m2.exam.q8
+    family: m2.draw-call
+    rules: [R-M2-003, R-M2-002]
+    prompt: "Flop. Đối thủ all-in với mức nửa {{t:pot|pot}}, còn bạn có {{t:flush-draw|draw thùng}}. Hãy giả sử bạn chỉ thắng khi trúng {{t:flush|thùng}}. Bạn làm gì?"
+    table: { hand: "Kc Tc", board: "8c 3c Jd" }
+    options:
+      - { text: "{{t:call|Theo}}", correct: true, why: "Bạn cần {{n:eq.bet-half}}. Đối thủ đã all-in, nên bạn sẽ thấy turn và river mà không còn {{t:bet|cược}} nào nữa: {{n:outs.flush}} out cho bạn khoảng {{n:odds.flush.flop-river}}. Nhiều hơn mức bạn cần." }
+      - { text: "{{t:fold|Bỏ bài}}, vì ở turn tôi chỉ có khoảng {{n:odds.flush.flop-turn}}", why: "Bạn tính cơ hội cho một lá khi đối thủ vẫn còn có thể {{t:bet|cược}}. Khi có all-in, bạn sẽ thấy cả hai lá, nên bạn tính đến river: khoảng {{n:odds.flush.flop-river}}." }

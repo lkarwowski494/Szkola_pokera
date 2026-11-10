@@ -1,0 +1,75 @@
+# Pula egzaminacyjna M1 (przebieg rozdania): te same reguły co lekcja m1.l1, inne sytuacje i sformułowania.
+module: m1
+drills:
+  - kind: choice
+    id: m1.exam.q1
+    family: m1.actions
+    rules: [R-M1-001]
+    prompt: "Ở flop, đối thủ đã {{t:bet|cược}}, còn bạn đã {{t:call|theo}}. Ở turn, bạn hành động trước. Bạn có thể làm gì?"
+    options:
+      - { text: "{{t:check|Xem bài}} hoặc {{t:bet|cược}}", correct: true, why: "Turn là một {{t:betting-round|vòng cược}} mới. Trong vòng này chưa ai bỏ tiền vào, nên bạn có hai lựa chọn giống như khi bắt đầu mỗi vòng." }
+      - { text: "Chỉ {{t:call|theo}} hoặc {{t:fold|bỏ bài}}", why: "{{t:bet|Cược}} ở flop đã được theo đủ. Ở turn không có gì để {{t:call|theo}}." }
+      - { text: "{{t:raise|Tố}} lên {{t:bet|cược}} ở flop", why: "Bạn chỉ có thể {{t:raise|tố}} một {{t:bet|cược}} trong vòng hiện tại. Cược ở flop đã khép lại." }
+  - kind: choice
+    id: m1.exam.q2
+    family: m1.actions
+    rules: [R-M1-001]
+    prompt: "Đối thủ hành động trước bạn đã {{t:bet|cược}}. Bây giờ bạn không thể thực hiện nước đi nào?"
+    options:
+      - { text: "{{t:check|Xem bài}}", correct: true, why: "Bạn chỉ có thể {{t:check|xem bài}} khi trong vòng này chưa ai trước bạn {{t:bet|cược}} hoặc {{t:raise|tố}}. Lúc này bạn phải {{t:fold|bỏ bài}}, {{t:call|theo}} hoặc {{t:raise|tố}}." }
+      - { text: "{{t:raise|Tố}}", why: "Bạn {{t:raise|tố}} được chính là vì đang có một {{t:bet|cược}} để nâng lên." }
+      - { text: "{{t:fold|Bỏ bài}}", why: "{{t:fold|Bỏ bài}} luôn là lựa chọn có sẵn khi bạn phải trả thêm." }
+  - kind: choice
+    id: m1.exam.q3
+    family: m1.actions
+    rules: [R-M1-002]
+    prompt: "River. Đối thủ đã {{t:check|xem bài}}, và bài của bạn gần như chắc chắn đang thua. Bạn làm gì?"
+    options:
+      - { text: "{{t:check|Xem bài}}", correct: true, why: "{{t:check|Xem bài}} không tốn gì, và đối thủ cũng có thể đã trượt. {{t:fold|Bỏ bài}} sẽ nhường {{t:pot|pot}} mà không tranh giành." }
+      - { text: "{{t:fold|Bỏ bài}}", why: "Khi bạn có thể {{t:check|xem bài}} miễn phí, {{t:fold|bỏ bài}} chỉ khiến bạn mất cơ hội giành {{t:pot|pot}}. Bạn không được gì." }
+      - { text: "{{t:call|Theo}}", why: "Đối thủ chưa {{t:bet|cược}} gì, nên không có gì để {{t:call|theo}}." }
+  - kind: choice
+    id: m1.exam.q4
+    family: m1.actions
+    rules: [R-M1-003]
+    prompt: "Bạn đã {{t:bet|cược}} ở flop, và đối thủ đã {{t:raise|tố}}. Bạn không muốn chơi tiếp. Bạn làm gì?"
+    options:
+      - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Đang có một lần {{t:raise|tố}} cần theo, mà bạn không muốn trả. Bạn chỉ mất số tiền đã bỏ vào." }
+      - { text: "{{t:check|Xem bài}}", why: "Sau khi đối thủ {{t:raise|tố}}, bạn không thể {{t:check|xem bài}}: bạn phải trả thêm hoặc {{t:fold|bỏ bài}}." }
+      - { text: "{{t:call|Theo}} để xem lá turn", why: "Vì bạn không muốn chơi tiếp, mỗi khoản trả thêm là một khoản mất thêm." }
+  - kind: choice
+    id: m1.exam.q5
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "Có bao nhiêu {{t:community-cards|lá bài chung}} trên {{t:board|bàn}} trong lúc cược ở turn?"
+    options:
+      - { text: "4", correct: true, why: "Flop đã chia ba lá, turn thêm lá thứ tư. Lá thứ năm chỉ ra ở river." }
+      - { text: "3", why: "Ba lá là ở flop. Turn thêm một lá." }
+      - { text: "5", why: "Năm lá chỉ có ở river." }
+  - kind: choice
+    id: m1.exam.q6
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "Sau khi cược ở river, chỉ còn bạn và một đối thủ trong ván. Tiếp theo là gì?"
+    options:
+      - { text: "Hai bạn lật bài (showdown)", correct: true, why: "River là {{t:betting-round|vòng cược}} cuối cùng. Khi còn ít nhất hai người chơi, họ lật bài và tay bài mạnh nhất thắng {{t:pot|pot}}." }
+      - { text: "Chia thêm một lá nữa", why: "Trên {{t:board|bàn}} có tối đa năm lá. Sau river không còn lá nào nữa." }
+      - { text: "{{t:pot|Pot}} luôn được chia đều", why: "Chỉ chia khi các tay bài bằng nhau. Thường thì bài mạnh hơn sẽ thắng." }
+  - kind: choice
+    id: m1.exam.q7
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "Bạn {{t:bet|cược}} ở flop và tất cả những người còn lại đều {{t:fold|bỏ bài}}. Chuyện gì xảy ra?"
+    options:
+      - { text: "Bạn thắng {{t:pot|pot}} mà không cần lật bài", correct: true, why: "Showdown chỉ diễn ra khi sau river còn ít nhất hai người chơi. Khi chỉ còn mình bạn, ván bài kết thúc." }
+      - { text: "Chia turn và river, rồi bạn lật bài", why: "Không còn ai để chơi tiếp, nên không chia thêm lá nào." }
+      - { text: "Bạn phải lật bài để lấy {{t:pot|pot}}", why: "Bài được lật ở showdown, mà ván này không đi đến đó." }
+  - kind: choice
+    id: m1.exam.q8
+    family: m1.streets
+    rules: [R-M1-004]
+    prompt: "Ván bài đã đi đến showdown. Có bao nhiêu {{t:betting-round|vòng cược}} đã diễn ra, nếu tính cả preflop?"
+    options:
+      - { text: "4", correct: true, why: "Preflop, flop, turn và river. Showdown diễn ra sau vòng cuối cùng, ở river." }
+      - { text: "3", why: "Flop, turn và river là ba vòng, nhưng trước đó còn có preflop." }
+      - { text: "5", why: "Có năm {{t:community-cards|lá bài chung}}, nhưng có bốn {{t:betting-round|vòng cược}}: flop chia ba lá cùng lúc." }

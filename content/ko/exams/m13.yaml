@@ -1,0 +1,91 @@
+module: m13
+drills:
+  - kind: numeric
+    id: m13.exam.q1
+    family: m13.equity-loss
+    rules: [R-M13-001]
+    prompt: "{{t:equity}}가 {{n:exam.m13.eq}}인 상태로 {{n:exam.m13.n}}번 올인합니다. 이 핸드 중 평균 몇 핸드를 지게 됩니까? 숫자를 입력하세요."
+    answer: exam.m13.lose.of-n
+    explanation: "{{t:equity}}가 {{n:exam.m13.eq}}일 때는 이런 핸드의 1 − {{n:exam.m13.eq}} = {{n:exam.m13.lose}}만큼 집니다: {{n:exam.m13.n}} × {{n:exam.m13.lose}} = {{n:exam.m13.lose.of-n}}. 이 패배는 모두 계산에 포함된 것이며, 전략을 바꿀 이유가 아닙니다."
+  - kind: choice
+    id: m13.exam.q2
+    family: m13.equity-loss
+    rules: [R-M13-001]
+    prompt: "한 {{t:session|세션}}에서 {{t:equity}}가 {{n:exam.m13.eq.big}}인 올인을 두 번 졌습니다. 이것은 당신의 전략에 어떤 의미가 있습니까?"
+    options:
+      - { text: "아무 의미도 없습니다. 그만한 {{t:equity}}로도 약 {{n:exam.m13.lose.big}}의 핸드는 지며, 이 두 핸드가 거기에 속했습니다", correct: true, why: "{{t:equity}}는 같은 상황을 여러 번 반복했을 때 이기는 비율입니다. 약 {{n:exam.m13.lose.big}}의 경우에 지는 것도 그 일부이며, 패배가 연달아 나오더라도 마찬가지입니다." }
+      - { text: "이런 스팟에서는 더 조심스럽게 플레이해야 합니다", why: "{{t:equity}} {{n:exam.m13.eq.big}}로 내린 결정은 좋은 결정이었습니다. 결과 때문에 전략을 바꾸면 약 {{n:exam.m13.eq.big}}의 경우에 이기는 플레이를 포기한다는 뜻이 됩니다." }
+      - { text: "상대가 당신의 플레이를 더 잘 읽고 있습니다", why: "올인에서는 {{t:equity}}만 중요합니다. 상대의 읽기는 떨어질 카드를 바꾸지 않습니다. 매번 {{n:exam.m13.lose.big}}의 확률로 지는 상황에서 두 번 진 것은 {{t:variance}}입니다." }
+  - kind: choice
+    id: m13.exam.q3
+    family: m13.verdicts
+    rules: [R-M13-002]
+    prompt: "솔버는 당신의 핸드를 {{n:exam.m13.solver.main}}의 경우 {{t:raise|레이즈}}로, {{n:exam.m13.solver.rare}}의 경우 {{t:fold|폴드}}로 플레이합니다. 당신은 {{t:fold|폴드}}했습니다. 리포트는 이를 어떻게 평가합니까?"
+    options:
+      - { text: "허용", correct: true, why: "솔버는 {{n:exam.m13.solver.rare}}의 경우 {{t:fold}}를 선택합니다. {{n:range.mixed.min}} 이상이지만 {{n:range.mixed.low}}보다는 드뭅니다. {{t:mixed-hand|혼합 핸드}}의 드문 쪽 플레이이므로 실수가 아니라 허용되는 결정입니다." }
+      - { text: "일치", why: "일치는 솔버가 {{n:range.mixed.low}} 이상의 경우에 선택하는 액션입니다. {{n:exam.m13.solver.rare}}의 {{t:fold}}는 그보다 드뭅니다." }
+      - { text: "실수", why: "실수는 솔버가 전혀 선택하지 않는 액션입니다. {{n:exam.m13.solver.rare}}의 {{t:fold}}는 {{t:mixed-hand|혼합 핸드}}의 드문 쪽 플레이이므로 두 플레이 모두 올바릅니다." }
+  - kind: choice
+    id: m13.exam.q4
+    family: m13.verdicts
+    rules: [R-M13-002]
+    prompt: "솔버는 당신의 핸드로 {{n:exam.m13.solver.main2}}의 경우 {{t:fold|폴드}}하고, {{n:exam.m13.solver.tiny}}의 경우 {{t:call|콜}}합니다. 당신은 {{t:call|콜}}했습니다. 판정은 무엇입니까?"
+    options:
+      - { text: "부정확", correct: true, why: "{{n:exam.m13.solver.tiny}}의 경우에 하는 {{t:call}}은 {{n:range.mixed.min}}보다 적습니다. 리포트는 기준 미만의 액션을 부정확으로 판정하며 실수와 똑같이 취급합니다. 이는 이론이 아니라 앱의 기준입니다." }
+      - { text: "실수", why: "실수는 솔버가 전혀 선택하지 않는 액션입니다. 여기서 솔버는 {{n:exam.m13.solver.tiny}}의 경우 {{t:call|콜}}합니다." }
+      - { text: "허용, 솔버도 가끔 {{t:call|콜}}하므로", why: "허용은 {{n:range.mixed.min}} 이상의 경우에 선택되는 액션입니다. {{n:exam.m13.solver.tiny}}는 너무 적습니다." }
+      - { text: "평가 없음", why: "‘평가 없음’은 앱에 규칙도 솔버 결과도 없는 결정에 붙습니다. 여기에는 솔버 결과가 있습니다." }
+  - kind: choice
+    id: m13.exam.q5
+    family: m13.suit-swap
+    rules: [R-M13-003]
+    prompt: "게임에서 9♣ 8♦ 2♣ {{t:board|보드}}에서 J♣ T♣를 들고 있었습니다. 다음 중 같은 상황, 즉 올바른 결정이 같은 배치는 무엇입니까?"
+    options:
+      - { text: "9♦ 8♣ 2♦ {{t:board|보드}}의 J♦ T♦", correct: true, why: "클럽은 다이아몬드로, 다이아몬드는 클럽으로 모든 곳에서 동시에 바꿨습니다. 여전히 {{t:flush-draw|플러시 드로우}}와 {{t:oesd|OESD}}가 있으므로 결정은 바뀌지 않습니다." }
+      - { text: "9♦ 8♣ 2♦ {{t:board|보드}}의 J♣ T♣", why: "무늬를 {{t:board|보드}}에서만 바꿨습니다. 당신의 클럽은 더 이상 {{t:board|보드}}와 맞지 않고 {{t:flush-draw|플러시 드로우}}도 사라졌습니다. 다른 상황입니다." }
+      - { text: "9♣ 8♦ 2♣ {{t:board|보드}}의 J♥ T♥", why: "무늬를 당신의 핸드에서만 바꿨습니다. 하트는 {{t:board|보드}}의 클럽과 맞지 않으므로 더 이상 {{t:flush-draw|플러시 드로우}}가 없습니다." }
+  - kind: choice
+    id: m13.exam.q6
+    family: m13.sample
+    rules: [R-M13-004]
+    prompt: "일주일 동안 버튼의 {{t:open|오픈}}에 맞서 {{t:big-blind|빅 블라인드}}를 방어할 기회가 {{n:exam.m13.opps}}번 있었습니다. 방어 빈도에 대해 무엇을 말할 수 있습니까?"
+    options:
+      - { text: "이제 살펴볼 수는 있지만 확신할 수는 없습니다", correct: true, why: "세는 것은 핸드가 아니라 기회입니다. 통계는 약 {{n:hud.opps.look}}번의 기회부터 살펴보고, 약 {{n:hud.opps.sure}}번에서 확신을 얻습니다. {{n:exam.m13.opps}}번은 결론이 아니라 초기 신호입니다." }
+      - { text: "얼마나 자주 방어하는지 이미 압니다", why: "{{n:exam.m13.opps}}번의 기회는 여전히 확신을 얻는 약 {{n:hud.opps.sure}}번보다 적습니다." }
+      - { text: "아무것도 말할 수 없습니다. 통계에는 수천 핸드가 필요하기 때문입니다", why: "중요한 것은 바로 이 결정을 내릴 기회의 수입니다. 약 {{n:hud.opps.look}}번의 기회부터 통계를 살펴볼 수 있습니다." }
+  - kind: choice
+    id: m13.exam.q7
+    family: m13.review-when
+    rules: [R-M13-005]
+    prompt: "긴 {{t:session|세션}}을 마치는 중이고, 피곤하며, 표시해 둔 핸드가 몇 개 있습니다. 언제 분석합니까?"
+    options:
+      - { text: "몇 시간 뒤나 내일, 맑은 정신으로", correct: true, why: "피곤할 때나 큰 패배 직후의 분석은 감정에 물듭니다. 표시해 둔 핸드는 어디 가지 않습니다." }
+      - { text: "모든 것을 기억할 때 바로", why: "리뷰에는 핸드를 짧게 기록해 두는 것으로 충분합니다. 피로는 판단을 흐리므로 나중에 맑은 정신으로 검토하는 편이 낫습니다." }
+      - { text: "다음 {{t:session|세션}}의 핸드 사이사이에", why: "플레이 중에는 핸드를 표시만 합니다. 테이블에서 분석하면 다음 결정에 쓸 주의력을 빼앗깁니다." }
+  - kind: choice
+    id: m13.exam.q8
+    family: m13.review-which
+    rules: [R-M13-006]
+    prompt: "지난 {{t:session|세션}}의 다음 핸드 중 가장 리뷰할 가치가 있는 것은 무엇입니까?"
+    options:
+      - { text: "리버에서 {{t:call|콜}}하기 전에 오래 망설였던 큰 {{t:pot|팟}}", correct: true, why: "어려운 결정이 있었던 핸드는 리뷰할 가치가 있는 핸드에 속하며, 큰 {{t:pot|팟}}이 가장 비중이 큽니다. 망설였다는 것은 어떻게 해야 할지 몰랐다는 뜻입니다." }
+      - { text: "에이스 {{t:pair|페어}}로 킹 {{t:pair|페어}}를 상대로 한 프리플롭 올인, 리버에서 패배", why: "배드 비트입니다. 결정은 명백했고, 패배는 {{t:variance}}입니다. 이런 핸드에는 많은 시간을 쓰지 않습니다." }
+      - { text: "c-벳 후 쇼다운 없이 이긴 작은 {{t:pot|팟}}", why: "어려운 결정이 없는 작은 {{t:pot|팟}}에서는 배울 것이 적습니다. 리뷰 시간은 큰 {{t:pot|팟}}과 망설였던 결정에 쓰는 편이 낫습니다." }
+  - kind: choice
+    id: m13.exam.q9
+    family: m13.review-how
+    rules: [R-M13-008]
+    prompt: "리버 {{t:call|콜}}을 리뷰하고 있습니다. 상대 {{t:range|레인지}}에 대해 낙관적으로 가정하면({{t:bluff|블러프}}가 많음) {{t:call}}은 이익이고, 비관적으로 가정하면 손실입니다. 다음에는 무엇을 합니까?"
+    options:
+      - { text: "현실적인 {{t:range}}를 추정합니다. 평가는 그것에 달려 있습니다", correct: true, why: "극단적인 가정은 현실이 놓인 구간을 정해 줍니다. 결정이 한쪽 가정에서는 좋고 다른 쪽에서는 나쁠 때는 현실적인 가정이 판가름합니다." }
+      - { text: "낙관적인 가정에서 좋으므로 {{t:call}}을 좋은 결정으로 봅니다", why: "낙관적인 가정은 구간의 한쪽 끝일 뿐입니다. 비관적인 가정에서 {{t:call}}이 손실이므로, 평가는 상대가 실제로 어떻게 플레이하느냐에 달려 있습니다." }
+      - { text: "비관적인 가정에서 손실이므로 {{t:call}}을 실수로 봅니다", why: "비관적인 가정에서도 좋은 결정은 읽기 실수에 강하지만, 그 가정에서 나쁘다고 해서 반드시 실수인 것은 아닙니다. 현실적인 가정이 판가름합니다." }
+  - kind: choice
+    id: m13.exam.q10
+    family: m13.review-how
+    rules: [R-M13-007]
+    prompt: "한 친구는 핸드를 리뷰할 때 첫 반응을 적어 두지 않고 바로 에퀴티와 가격을 계산합니다. 그는 무엇을 놓치고 있습니까?"
+    options:
+      - { text: "어떤 결정에서 직관이 자신을 잘못 이끄는지 보지 못합니다", correct: true, why: "첫 반응과 계산의 차이는 직관이 어디서 틀리는지 보여 주고, 시간이 지나면서 직관을 개선합니다. 반응을 기록하지 않으면 그 차이가 보이지 않습니다." }
+      - { text: "아무것도 없습니다. 중요한 것은 계산 결과뿐입니다", why: "계산은 하나의 결정을 평가합니다. 첫 반응을 계산과 비교하면 직관이 어디서 당신을 잘못 이끄는지 알 수 있고, 시간이 지나면서 직관이 개선됩니다." }
+      - { text: "계산의 정확도입니다. 첫 반응이 계산을 개선하기 때문입니다", why: "첫 반응은 계산을 바꾸지 않습니다. 첫 반응의 가치는 계산과의 비교에 있으며, 이 비교가 직관이 어디서 당신을 잘못 이끄는지 보여 줍니다." }

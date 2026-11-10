@@ -1,0 +1,887 @@
+{
+  "tabs": {
+    "review": "Ôn tập",
+    "rules": "Quy tắc",
+    "progress": "Tiến độ",
+    "today": "Hôm nay"
+  },
+  "today": {
+    "title": "Hôm nay",
+    "lessonOf": "{{modul}}, bài {{nr}}",
+    "startLesson": "Bắt đầu bài học",
+    "continueLesson": "Tiếp tục bài học",
+    "courseDone": "Tất cả bài học đã hoàn thành. Luyện tập và ôn tập vẫn tiếp tục hoạt động.",
+    "exercises": "Luyện tập",
+    "practice": "Phiên luyện tập",
+    "practiceHint": "Quyết định có chấm điểm và giải thích",
+    "reviews": "Ôn tập hôm nay",
+    "reviewsDue_other": "{{count}}",
+    "allLessons": "Tất cả bài học",
+    "rowLabel": "{{tytul}}. {{opis}}.",
+    "rowDone": "Đã hoàn thành.",
+    "rowStarted": "Đã bắt đầu.",
+    "rowPassed": "Đã đạt.",
+    "rowScore": "Kết quả: {{dobre}} trên {{razem}}."
+  },
+  "welcome": {
+    "title": "PokerGym",
+    "what": "Bạn học cách ra quyết định trong poker: từ luật chơi đến chiến lược, mỗi quyết định đều được chấm điểm kèm giải thích lý do.",
+    "noMoney": "Đây là học tập, không chơi ăn tiền.",
+    "next": "Trước tiên, có vài câu hỏi về những gì bạn đã biết. Bạn có thể bỏ qua chúng.",
+    "continue": "Tiếp tục"
+  },
+  "placement": {
+    "of": "Câu hỏi {{n}} trên {{total}}",
+    "skip": "Bỏ qua",
+    "resultTitle": "Điểm xuất phát của bạn",
+    "startAt": "Bạn bắt đầu từ mô-đun {{modul}}: “{{lekcja}}”.",
+    "passed": "Các mô-đun đã đạt qua bài đánh giá: {{moduly}}. Bạn có thể quay lại chúng bất cứ lúc nào.",
+    "begin": "Bắt đầu học"
+  },
+  "purchase": {
+    "title": "Truy cập đầy đủ",
+    "unlocks": "Không giới hạn hằng ngày: phiên luyện tập, ôn tập và thi lại mỗi ngày. Bài học vẫn miễn phí.",
+    "loading": "Đang tải giá…",
+    "pricesUnavailable": "Không tải được giá. Hãy kiểm tra kết nối và thử lại.",
+    "retry": "Thử lại",
+    "plan": {
+      "quarter": "Quý",
+      "year": "Năm",
+      "lifetime": "Truy cập trọn đời"
+    },
+    "renewsQuarter": "Thanh toán 3 tháng một lần. Tự động gia hạn cho đến khi bị hủy.",
+    "renewsYear": "Thanh toán mỗi năm một lần. Tự động gia hạn cho đến khi bị hủy.",
+    "oneTime": "Mua một lần, không có khoản thanh toán tiếp theo.",
+    "cancelInfo": "Bạn hủy gói đăng ký trong phần cài đặt tài khoản Apple (Đăng ký). Sau khi hủy, gói sẽ không gia hạn, và quyền truy cập đầy đủ vẫn còn đến hết thời hạn đã thanh toán.",
+    "restore": "Khôi phục giao dịch mua",
+    "close": "Đóng",
+    "terms": "Điều khoản sử dụng (Terms of Use)",
+    "privacy": "Chính sách quyền riêng tư",
+    "noPurchases": "Chúng tôi không tìm thấy giao dịch mua nào trên tài khoản Apple này.",
+    "pending": "Giao dịch mua đang chờ phê duyệt. Quyền truy cập sẽ tự bật khi được phê duyệt.",
+    "failed": "Không thể hoàn tất giao dịch mua. Hãy thử lại.",
+    "restoreFailed": "Không thể khôi phục giao dịch mua. Hãy kiểm tra kết nối và thử lại."
+  },
+  "settings": {
+    "title": "Cài đặt",
+    "purchases": "Mua hàng",
+    "manage": "Quản lý gói đăng ký",
+    "other": "Khác",
+    "help": "Trợ giúp",
+    "reset": "Xóa tiến độ",
+    "resetTitle": "Xóa toàn bộ tiến độ?",
+    "resetBody": "Bài học, câu trả lời và ôn tập sẽ bị xóa khỏi điện thoại này. Các giao dịch mua vẫn được giữ. Nếu bạn muốn giữ tiến độ, hãy xuất nó trước.",
+    "resetConfirm": "Xóa",
+    "cancel": "Hủy",
+    "display": "Hiển thị",
+    "reminderSection": "Lời nhắc",
+    "reminder": "Lời nhắc hằng ngày",
+    "reminderHint": "Một thông báo mỗi ngày lúc {{pora}}. Khi bật, điện thoại sẽ hỏi bạn có cho phép gửi thông báo không.",
+    "reminderDenied": "Thông báo của ứng dụng này đang tắt trong cài đặt điện thoại. Hãy bật chúng ở đó để nhận lời nhắc.",
+    "reminderFailed": "Không thể đặt lời nhắc. Hãy thử lại.",
+    "general": "Chung",
+    "language": "Ngôn ngữ",
+    "restored": "Đã khôi phục giao dịch mua. Quyền truy cập đầy đủ đang bật.",
+    "fullAccess": "Truy cập đầy đủ"
+  },
+  "data": {
+    "title": "Dữ liệu",
+    "intro": "Tiến độ chỉ được lưu trên điện thoại này. Tệp xuất sẽ chuyển nó sang điện thoại khác hoặc lưu làm bản sao.",
+    "export": "Xuất tiến độ",
+    "neverExported": "Chưa từng xuất tiến độ.",
+    "lastExport": "Lần xuất gần nhất: {{data}}.",
+    "import": "Nhập tiến độ",
+    "importHint": "Hãy chọn tệp xuất từ ứng dụng này.",
+    "replaceTitle": "Thay thế tiến độ hiện tại?",
+    "replaceBody": "Tiến độ từ tệp sẽ thay thế tiến độ đã lưu trên điện thoại này. Không thể hoàn tác thay đổi này.",
+    "replaceConfirm": "Thay thế",
+    "exported": "Tệp xuất đã sẵn sàng.",
+    "exportFailed": "Không thể xuất tiến độ. Hãy thử lại.",
+    "badFile": "Tệp này bị lỗi hoặc không phải từ ứng dụng này. Tiến độ không thay đổi.",
+    "newerVersion": "Tệp này đến từ phiên bản mới hơn của ứng dụng. Hãy cập nhật ứng dụng và thử lại.",
+    "imported": "Đã tải tiến độ từ tệp.",
+    "importFailed": "Không thể lưu tiến độ từ tệp. Tiến độ hiện tại không thay đổi."
+  },
+  "feedback": {
+    "section": "Phản hồi",
+    "rate": "Đánh giá trên cửa hàng",
+    "write": "Viết cho chúng tôi",
+    "noMail": "Không thể mở ứng dụng thư. Hãy viết tới địa chỉ: {{adres}}",
+    "report": "Báo lỗi trong bài tập này",
+    "reportSubject": "Lỗi trong bài tập {{id}}",
+    "reportBody": "Bài tập: {{id}}\nPhiên bản ứng dụng: {{wersja}}\nNgôn ngữ: {{jezyk}}\n\nCó gì không ổn?\n",
+    "noMailReport": "Không thể mở ứng dụng thư. Hãy viết tới địa chỉ {{adres}} và ghi mã bài tập: {{id}}"
+  },
+  "start": {
+    "title": {
+      "practice": "Phiên luyện tập",
+      "reviews": "Ôn tập",
+      "scenario": "Kịch bản ván bài",
+      "exam": "Bài thi mô-đun"
+    },
+    "counter_other": "Giới hạn hằng ngày: {{count}} hoạt động miễn phí cho hôm nay.",
+    "renews": "Giới hạn sẽ được làm mới lúc nửa đêm ({{godzina}}).",
+    "reviewsWait_other": "Bạn có {{count}} bài ôn tập hôm nay. Chúng sẽ chờ đến khi giới hạn được làm mới và bạn không mất gì cả.",
+    "alwaysFree": "Bài học và lần thi đầu tiên luôn miễn phí.",
+    "begin": "Bắt đầu",
+    "fullAccess": "Truy cập đầy đủ",
+    "backToLesson": "Quay lại bài học"
+  },
+  "grade": {
+    "zgodne": "Phù hợp",
+    "dopuszczalne": "Chấp nhận được",
+    "niedokladnosc": "Thiếu chính xác",
+    "blad": "Sai lầm",
+    "label": "Đánh giá: {{slowo}}",
+    "announce": "{{ocena}}. {{opis}}"
+  },
+  "learn": {
+    "intro": "No-Limit Hold’em từ con số không. Hãy chọn bất kỳ bài học nào hoặc học theo thứ tự.",
+    "recommended": "Thứ tự gợi ý",
+    "soon": "Đang chuẩn bị",
+    "lessonsDone": "{{done}} trên {{total}} bài học",
+    "optional": "Tùy chọn"
+  },
+  "lesson": {
+    "start": "Luyện tập",
+    "exercises_other": "{{count}} bài tập",
+    "rulesTitle": "Quy tắc trong bài này",
+    "notFound": "Không có bài học này."
+  },
+  "rule": {
+    "if": "Nếu",
+    "then": "thì",
+    "because": "vì"
+  },
+  "level": {
+    "rules": "Luật chơi",
+    "math": "Toán",
+    "gto": "Lý thuyết (GTO)",
+    "heuristic": "Kinh nghiệm",
+    "exploit": "{{t:exploit|Khai thác}}"
+  },
+  "session": {
+    "of": "{{n}} trên {{total}}",
+    "next": "Tiếp",
+    "finish": "Kết thúc",
+    "correct": "Đúng",
+    "wrong": "Lần này chưa đúng",
+    "timeout": "Hết giờ",
+    "yourAnswer": "Câu trả lời của bạn",
+    "rightAnswer": "Đáp án đúng",
+    "resultTitle": "Kết quả",
+    "resultPerfect": "Đúng hết. Bạn có thể học tiếp.",
+    "resultRetry": "Hãy quay lại các bài làm sai: phần ôn tập sẽ nhắc lại chúng vào đúng lúc.",
+    "again": "Làm lại",
+    "speed": "Tính giờ",
+    "close": "Đóng",
+    "end": "Kết thúc",
+    "secondsLeft": "{{s}} giây",
+    "avgTime": "Thời gian quyết định trung bình: {{s}} giây",
+    "check": "Kiểm tra",
+    "clear": "Xóa",
+    "near": "Gần đúng",
+    "acceptable": "Chấp nhận được: solver hiếm khi chơi như vậy",
+    "yourAnswerAcceptable": "Câu trả lời của bạn: chấp nhận được nhưng hiếm",
+    "sizeError": "Thiếu chính xác: đúng hành động, sai kích cỡ",
+    "yourAnswerSize": "Câu trả lời của bạn: đúng hành động, sai kích cỡ",
+    "numberLabel": "Câu trả lời dạng số của bạn",
+    "saveFailed": "Không thể lưu câu trả lời. Hãy thử lại.",
+    "chooseAction": "Chọn hành động",
+    "chooseAnswer": "Chọn câu trả lời",
+    "saveNoSpace": "Không thể lưu câu trả lời: điện thoại hết dung lượng. Hãy giải phóng một ít dung lượng và thử lại."
+  },
+  "exam": {
+    "title": "Bài thi mô-đun",
+    "start": "Bài thi mô-đun",
+    "hint_other": "{{count}} bài tập từ mô-đun này và các bài học trước, không có gợi ý. Giải thích ở cuối.",
+    "of": "Bài thi: {{n}} trên {{total}}",
+    "empty": "Mô-đun này chưa có bài tập.",
+    "resultTitle": "Kết quả bài thi",
+    "passed": "Đạt (ngưỡng {{need}}). Các nhóm bài tập làm sai đã được đưa vào ôn tập.",
+    "failed": "Chưa đạt (ngưỡng {{need}}). Hãy xem lại phần giải thích bên dưới; các nhóm bài tập làm sai đã được đưa vào ôn tập.",
+    "again": "Bài thi mới",
+    "review": "Xem lại câu trả lời",
+    "best": "Kết quả tốt nhất: {{best}}/{{total}}",
+    "passedBadge": "đã đạt"
+  },
+  "review": {
+    "title": "Ôn tập",
+    "due_other": "{{count}} nhóm bài tập đang chờ ôn tập",
+    "none": "Không có gì cần ôn tập. Hãy học một bài mới hoặc quay lại sau.",
+    "start": "Bắt đầu ôn tập",
+    "speed": "Luyện tập tính giờ",
+    "speedHint": "Vẫn các bài tập đó nhưng có giới hạn thời gian. Rèn luyện quyết định theo phản xạ.",
+    "next": "Lần ôn tập tiếp theo: {{when}}"
+  },
+  "rules": {
+    "title": "Sổ tay quy tắc",
+    "search": "Tìm quy tắc",
+    "empty": "Không có quy tắc nào khớp với “{{q}}”.",
+    "source": "Nguồn",
+    "sources": "Các nguồn",
+    "sourceKind": {
+      "one": {
+        "math": "phép tính",
+        "rules": "luật chơi",
+        "solver-pub": "lời giải solver đã công bố",
+        "solver-app": "solver của ứng dụng",
+        "book": "sách lý thuyết poker",
+        "study": "nghiên cứu khoa học",
+        "reference": "bách khoa toàn thư",
+        "training": "trang đào tạo",
+        "population": "dữ liệu về tập người chơi"
+      },
+      "many": {
+        "math": "phép tính",
+        "rules": "luật chơi",
+        "solver-pub": "các lời giải solver đã công bố",
+        "solver-app": "solver của ứng dụng",
+        "book": "các sách lý thuyết poker",
+        "study": "các nghiên cứu khoa học",
+        "reference": "các bách khoa toàn thư",
+        "training": "các trang đào tạo",
+        "population": "dữ liệu về tập người chơi"
+      }
+    },
+    "sourceCount": "{{count}}",
+    "sourceIndependent_other": "{{count}} độc lập",
+    "singleSource": "một nguồn",
+    "population": "Tập người chơi: {{population}}"
+  },
+  "progress": {
+    "title": "Tiến độ",
+    "accuracy": "Độ chính xác",
+    "answers_other": "{{count}} câu trả lời",
+    "weakest": "Nhóm bài tập yếu nhất",
+    "noData": "Hãy làm những bài tập đầu tiên, số liệu thống kê của bạn sẽ xuất hiện ở đây.",
+    "streak_other": "Chuỗi: {{count}} ngày",
+    "fourColor": "Bộ bài bốn màu",
+    "fourColorHint": "♦ xanh dương, ♣ xanh lá. Ít nhầm lẫn chất bài hơn.",
+    "haptics": "Rung khi trả lời",
+    "contentVersion": "Phiên bản nội dung: {{hash}}",
+    "resetFailed": "Không thể xóa tiến độ. Dữ liệu của bạn không thay đổi. Hãy thử lại.",
+    "more": "Thêm"
+  },
+  "advancement": {
+    "title": "Chỉ số trình độ",
+    "outOf": "trên 100",
+    "outOfLong": "trên 100 điểm",
+    "openHint": "Hiển thị kết quả theo từng lĩnh vực của khóa học",
+    "knowledge": "Kiến thức",
+    "game": "Chơi",
+    "gamePending": "có sau khi có chế độ chơi",
+    "gamePendingLong": "Phần “chơi” sẽ có cùng với chế độ chơi: nó được đánh giá qua các quyết định của bạn tại bàn. Cho đến lúc đó, chỉ số chỉ thể hiện kiến thức.",
+    "explain": "Kiến thức là xác suất dự đoán rằng sau {{days}} ngày, không ôn tập, bạn sẽ giải được bài tập của mọi kỹ năng trong khóa học. Kỹ năng bạn chưa luyện được tính là 0. Kết quả tăng khi có bài học mới và ôn tập, và giảm khi bạn lâu không ôn.",
+    "practiced": "Đã luyện {{done}} trên {{total}} kỹ năng",
+    "areas": "Lĩnh vực",
+    "noLessons": "không có bài học",
+    "optional": "Mô-đun tùy chọn: không tính vào kết quả chung.",
+    "recalcTitle": "Bài học mới – chỉ số đã được tính lại",
+    "recalcBody": "Khóa học có kỹ năng mới. Cho đến khi bạn luyện chúng, chúng được tính là 0, vì vậy kết quả thấp hơn.",
+    "recalcDismiss": "Đóng",
+    "gameAreas": "{{n}} trên {{total}} lĩnh vực có điểm chơi",
+    "gameNone": "chưa chơi",
+    "gameTooLittle": "chơi quá ít: {{n}} trên {{min}} quyết định",
+    "gameProvisional": "{{score}} (tạm tính)",
+    "areaLine": "Kiến thức {{k}} · Chơi: {{g}}",
+    "gameExplain": "Chơi là tỷ lệ quyết định được đánh giá là phù hợp hoặc chấp nhận được trong {{window}} quyết định được đánh giá gần nhất của lĩnh vực, tại bàn 6 người với stack 100bb. Kết quả xuất hiện từ {{min}} quyết định (tạm tính cho đến {{window}}). Trong mỗi lĩnh vực, kiến thức và chơi được tính ngang nhau; kết quả các ván bài tính bằng {{t:chips|chip}} không tính vào chỉ số.",
+    "history": "Lịch sử",
+    "historyHint": "Mỗi cột là một ngày bạn đã dùng ứng dụng. Gần nhất: {{last}}.",
+    "historyEmpty": "Lịch sử sẽ xuất hiện sau vài ngày học tiếp theo."
+  },
+  "glossary": {
+    "title": "Bảng thuật ngữ",
+    "link": "Bảng thuật ngữ Việt–Anh",
+    "intro": "Các thuật ngữ trong khóa học và tên tiếng Anh của chúng, như trong solver, phần mềm và tài liệu tiếng Anh.",
+    "search": "Tìm bằng tiếng Việt hoặc tiếng Anh",
+    "empty": "Không có thuật ngữ nào khớp với “{{q}}”.",
+    "count_other": "{{count}} thuật ngữ",
+    "alsoEn": "cũng gọi: {{list}}",
+    "areas": {
+      "hands": "Thứ hạng tay bài",
+      "actions": "Hành động của người chơi",
+      "table": "Tại bàn",
+      "positions": "Chỗ ngồi tại bàn",
+      "math": "Tính toán và xác suất",
+      "preflop": "Trước flop",
+      "board": "Mô tả flop",
+      "strategy": "Chiến lược",
+      "mental": "Bankroll và tâm lý",
+      "tournament": "Chơi giải đấu"
+    }
+  },
+  "help": {
+    "title": "Trợ giúp",
+    "link": "Trợ giúp: khi việc chơi vượt khỏi tầm kiểm soát",
+    "intro": "Poker ăn tiền là cờ bạc. Nếu việc chơi bắt đầu vượt khỏi tầm kiểm soát, bạn có thể tìm đến sự trợ giúp dưới đây.",
+    "call": "Gọi: {{phone}}",
+    "callA11y": "Gọi số {{phone}}: {{name}}",
+    "openA11y": "{{label}}: mở {{host}} trong trình duyệt",
+    "openFailed": "Không thể mở: {{target}}. Hãy tự quay số hoặc nhập địa chỉ."
+  },
+  "diagnostics": {
+    "title": "Đo hiệu năng",
+    "link": "Đo hiệu năng",
+    "intro": "Tính equity của AA so với KK bằng phương pháp Monte Carlo ({{n}} lần thử) và đo thời gian. Yêu cầu: dưới {{ms}} ms.",
+    "run": "Đo",
+    "running": "Đang đo…",
+    "pass": "Đạt yêu cầu",
+    "fail": "Không đạt yêu cầu",
+    "equity": "Equity: trung vị {{ms}} ms (các lần đo: {{runs}} ms)",
+    "check": "Kiểm tra: equity của AA {{pct}}% (kỳ vọng khoảng 82%)",
+    "evals": "Đánh giá 7 lá: {{n}} lần mỗi giây",
+    "env": "Engine: {{engine}}, hệ thống: {{os}}, chế độ nhà phát triển: {{dev}}",
+    "devYes": "có (kết quả thấp hơn thực tế)",
+    "devNo": "không",
+    "note": "Trong bản development build, mã chạy chậm hơn bản phát hành; phép đo trong bản preview build mới đáng tin cậy. Hãy chụp màn hình kết quả."
+  },
+  "play": {
+    "title": "Chơi",
+    "entry": "Chơi",
+    "entryHint": "Các ván bài với đối thủ máy, không có gợi ý. Mọi quyết định được đánh giá sau {{t:session|phiên}}.",
+    "mode": "Chế độ",
+    "free": "Chơi tự do",
+    "freeHint": "Mọi tình huống, như khi chơi thật.",
+    "areas": "Luyện tập có mục tiêu",
+    "areasHint": "Mỗi lĩnh vực chỉ chia các tình huống từ một mô-đun. Lĩnh vực được mở khóa sau khi bạn hoàn thành tất cả bài học của mô-đun.",
+    "locked": "Đã khóa: hãy hoàn thành các bài học của mô-đun ({{done}} trên {{total}})",
+    "hands": "Số ván bài",
+    "opponents": "Đối thủ",
+    "advanced": "Cài đặt nâng cao: từng đối thủ riêng",
+    "seat": "Đối thủ {{n}}",
+    "timer": "Giới hạn thời gian quyết định",
+    "timerOff": "Không giới hạn",
+    "timerS": "{{s}} giây",
+    "timerHint": "Khi hết giờ, ứng dụng sẽ {{t:check|check}} nếu việc đó không tốn gì, còn không thì {{t:fold|bỏ bài}}. Quyết định như vậy không được tính vào đánh giá, nhưng sẽ quay lại trong ôn tập.",
+    "format": "Mỗi người chơi bắt đầu ván với 100bb. {{t:chips|Chip}} không có giá trị gì.",
+    "tableSize": "Số người chơi",
+    "tableSizeOpt": "{{n}} người chơi",
+    "tableSizeHint9": "Ở bàn 9 người, trước LJ còn ba {{t:position|vị trí}} đầu: {{t:utg}}, {{t:utg|UTG}}+1 và {{t:utg|UTG}}+2.",
+    "tableSizeAreas": "Các lĩnh vực luyện tập chơi ở bàn 6 người.",
+    "start": "Bắt đầu",
+    "recent": "Báo cáo gần đây",
+    "recentItem": "{{date}} · {{hands}} ván · đã đánh giá {{rated}} trên {{all}}",
+    "styles": {
+      "balanced": "Cân bằng",
+      "tight-passive": "Chặt thụ động",
+      "tight-aggressive": "Chặt hung hăng",
+      "loose-passive": "Lỏng thụ động",
+      "loose-aggressive": "Lỏng hung hăng"
+    },
+    "styleHints": {
+      "balanced": "Chơi gần với chiến lược nền tảng của solver.",
+      "tight-passive": "Chơi ít tay bài và hiếm khi tố.",
+      "tight-aggressive": "Chơi ít tay bài nhưng thường tố.",
+      "loose-passive": "Chơi nhiều tay bài và thường chỉ theo.",
+      "loose-aggressive": "Chơi nhiều tay bài và thường tố."
+    },
+    "tables": {
+      "balanced": "Cân bằng",
+      "loose-passive": "Lỏng thụ động",
+      "tight-aggressive": "Chặt hung hăng",
+      "loose-aggressive": "Lỏng hung hăng",
+      "mixed": "Hỗn hợp",
+      "custom": "Cài đặt riêng"
+    },
+    "tablesHint": {
+      "balanced": "Tất cả đối thủ đều chơi gần chiến lược nền tảng.",
+      "loose-passive": "Tất cả đều chơi nhiều tay bài và hiếm khi tố.",
+      "tight-aggressive": "Tất cả đều chơi ít tay bài và thường tố.",
+      "loose-aggressive": "Tất cả đều chơi nhiều tay bài và thường tố.",
+      "mixed": "Mỗi phong cách một đối thủ.",
+      "custom": "Phong cách của từng đối thủ được đặt riêng."
+    },
+    "handOf": "Ván {{n}} trên {{total}}",
+    "end": "Kết thúc",
+    "endConfirm": "Kết thúc {{t:session|phiên}}? Báo cáo sẽ gồm các ván đã chơi.",
+    "endYes": "Kết thúc",
+    "cancel": "Chơi tiếp",
+    "you": "Bạn",
+    "potLabel": "{{t:pot|Pot}}: {{bb}}bb",
+    "yourTurn": "Quyết định của bạn",
+    "waiting": "Đối thủ đang quyết định…",
+    "fold": "{{t:fold|Bỏ bài}}",
+    "check": "{{t:check|Check}}",
+    "call": "{{t:call|Theo}} {{bb}}bb",
+    "bet": "{{t:bet|Cược}} {{bb}}bb",
+    "betFrac": "{{t:bet|Cược}} {{pct}} {{t:pot|pot}} ({{bb}}bb)",
+    "raise": "{{t:raise|Tố}} lên {{bb}}bb",
+    "allin": "All-in {{bb}}bb",
+    "secondsLeft": "{{s}} giây",
+    "handWon": "Bạn thắng {{bb}}bb",
+    "handLost": "Bạn thua {{bb}}bb",
+    "handEven": "Không thay đổi",
+    "nextHand": "Ván tiếp theo",
+    "toReport": "Báo cáo",
+    "shown": "{{t:showdown|Showdown}}: lật bài",
+    "folded": "{{t:fold|bỏ bài}}",
+    "allInTag": "all-in",
+    "autoNote": "Ván bài từ lĩnh vực: các hành động trước quyết định của bạn do trình tạo thiết lập.",
+    "log": {
+      "fold": "{{pos}}: {{t:fold|bỏ bài}}",
+      "check": "{{pos}}: {{t:check|check}}",
+      "call": "{{pos}}: {{t:call|theo}} {{bb}}bb",
+      "bet": "{{pos}}: {{t:bet|cược}} {{bb}}bb",
+      "raise": "{{pos}}: {{t:raise|tố}} lên {{bb}}bb",
+      "allin": "{{pos}}: all-in {{bb}}bb",
+      "blinds": "Blind {{sb}}/{{bb}}bb"
+    },
+    "streets": {
+      "preflop": "{{t:preflop|Preflop}}",
+      "flop": "{{t:flop|Flop}}",
+      "turn": "{{t:turn|Turn}}",
+      "river": "{{t:river|River}}"
+    },
+    "report": {
+      "title": "Báo cáo {{t:session|phiên}}",
+      "rated": "Đã đánh giá {{rated}} trên {{all}} quyết định",
+      "ratedHint": "Ứng dụng chỉ đánh giá các quyết định mà nó có quy tắc kiểm chứng được hoặc kết quả solver. Quyết định không được đánh giá không có nghĩa là “đúng”.",
+      "verdicts": {
+        "compliant": "Phù hợp",
+        "compliant-exploit": "Phù hợp ({{t:exploit|khai thác}})",
+        "acceptable": "Chấp nhận được",
+        "inaccuracy": "Thiếu chính xác",
+        "mistake": "Sai lầm",
+        "unrated": "Không đánh giá",
+        "timeout": "Quá thời gian"
+      },
+      "verdictHints": {
+        "acceptable": "Solver hiếm khi chơi như vậy hoặc quy tắc nói về tần suất; đây không phải sai lầm.",
+        "inaccuracy": "Đúng hành động, sai kích cỡ. Được tính như sai lầm.",
+        "timeout": "Bạn không kịp quyết định. Tình huống này sẽ quay lại trong ôn tập."
+      },
+      "toFix": "Cần cải thiện",
+      "none": "Không có sai lầm nào trong các quyết định được đánh giá.",
+      "good": "Quyết định phù hợp và chấp nhận được",
+      "show": "Hiện ({{n}})",
+      "hide": "Ẩn",
+      "byModule": "Theo mô-đun",
+      "moduleLine": "{{ok}} trên {{rated}} không sai",
+      "yourAction": "Quyết định của bạn: {{action}}",
+      "ruleSays": "Quy tắc",
+      "level": "Độ chắc chắn: {{level}}",
+      "source": "Nguồn: {{source}}",
+      "lesson": "Đến bài học",
+      "replay": "Diễn biến ván bài",
+      "cards": "Thẻ ôn tập: {{n}} tình huống mới từ các sai lầm.",
+      "result": "Kết quả tính bằng {{t:chips|chip}}: {{bb}}bb",
+      "variance": "Vài chục ván là quá ít để kết quả nói lên điều gì về lối chơi của bạn; điều quan trọng là đánh giá các quyết định.",
+      "again": "Chơi lĩnh vực “{{area}}”",
+      "done": "Xong",
+      "detail": {
+        "solver": "Solver với tay bài này ({{hand}}): {{options}}.",
+        "solverFold": "{{t:fold|bỏ bài}}",
+        "size": "Kích cỡ theo quy tắc: {{expected}}bb, của bạn: {{actual}}bb.",
+        "cbet": "Kế hoạch cho flop này theo bài học: {{best}}. Lựa chọn của bạn: {{chosen}}.",
+        "cbetPlans": {
+          "check": "{{t:check|check}}",
+          "small": "{{t:c-bet|c-bet}} nhỏ",
+          "big": "{{t:c-bet|c-bet}} lớn"
+        },
+        "draw": "{{t:outs|Out}}: {{outs}} trên {{unseen}} lá chưa biết, xác suất trúng: {{hit}}. {{t:equity|Equity}} cần có: {{required}}.",
+        "implied": "{{t:implied-odds|Implied odds}}: sau khi trúng, bạn còn cần thắng thêm khoảng {{need}}bb, phía sau {{t:pot|pot}} còn {{have}}bb; {{t:spr|SPR}} {{spr}} (ngưỡng {{sprMin}}); {{nuts}}.",
+        "nutsYes": "bạn có {{t:draw}} tới tay bài mạnh nhất",
+        "nutsNo": "bạn không có {{t:draw|bài chờ}} tới tay bài mạnh nhất",
+        "freeCheck": "Bạn đã có thể {{t:check|check}} miễn phí.",
+        "limp": "Bạn là người đầu tiên vào ván chỉ bằng mức blind ({{t:limp|limp}}).",
+        "timeoutCheck": "Hết giờ: ứng dụng đã {{t:check|check}} thay bạn.",
+        "timeoutFold": "Hết giờ: ứng dụng đã {{t:fold|bỏ bài}} thay bạn."
+      }
+    },
+    "review": {
+      "entry_other": "{{count}} tình huống khi chơi đang chờ ôn tập",
+      "start": "Ôn lại tình huống khi chơi",
+      "title": "Tình huống khi chơi",
+      "hint": "Chính tình huống bạn đã mắc sai lầm, với chất bài được hoán đổi sao cho quyết định đúng không thay đổi.",
+      "of": "{{n}} trên {{total}}",
+      "next": "Tiếp",
+      "finish": "Kết thúc",
+      "empty": "Không có gì cần ôn tập."
+    }
+  },
+  "errors": {
+    "db": "Không thể mở cơ sở dữ liệu: {{message}}",
+    "render": {
+      "title": "Đã xảy ra lỗi",
+      "body": "Không thể hiển thị màn hình này. Hãy thử lại.",
+      "retry": "Thử lại"
+    }
+  },
+  "postep": {
+    "odczytNieudany": "Không thể tải tiến độ. Hãy thử lại.",
+    "ponow": "Thử lại"
+  },
+  "reminder": {
+    "title": "Một bài học ngắn cho hôm nay",
+    "body": "Vài phút là đủ để củng cố những gì bạn đang học."
+  },
+  "language": {
+    "title": "Ngôn ngữ",
+    "auto": "Giống điện thoại",
+    "name": "Tiếng Việt",
+    "selected": "Đã chọn",
+    "saveFailed": "Không thể lưu lựa chọn ngôn ngữ. Hãy thử lại."
+  },
+  "table": {
+    "label": "Tại bàn: {{list}}.",
+    "listAnd": "{{a}} và {{b}}",
+    "seatFold": "{{pos}} {{t:fold|bỏ bài}}",
+    "seatRaise": "{{pos}} {{t:raise|tố}}",
+    "seatHero": "bạn ở {{pos}} với {{hand}}",
+    "after": "sau bạn: {{list}}",
+    "pair": "{{t:pair|đôi}}",
+    "suited": "cùng chất",
+    "offsuit": "khác chất",
+    "folded_other": "{{list}} {{t:fold|bỏ bài}}",
+    "raised_other": "{{list}} {{t:raise|tố}}",
+    "yourPosition": "{{t:position|Vị trí}} của bạn: {{pos}}.",
+    "yourCards": "Bài của bạn: {{cards}}.",
+    "oppCards": "Bài của đối thủ: {{cards}}.",
+    "rowOpp": "Đối thủ",
+    "rowBoard": "Trên {{t:board|board}}",
+    "board": "Trên {{t:board|board}}: {{cards}}.",
+    "stateHero": "bạn",
+    "stateFold": "{{t:fold|bỏ bài}}",
+    "stateAfter": "sau bạn",
+    "stateRaise": "{{t:raise|tố}}"
+  },
+  "strategy": {
+    "label": "Chiến lược solver cho {{hand}}: {{list}}.",
+    "item": "{{action}} {{pct}} phần trăm",
+    "yourChoice": "Lựa chọn của bạn: {{action}}.",
+    "yourChoiceShort": "bạn chọn",
+    "pct": "{{pct}}%"
+  },
+  "scale": {
+    "below": "dưới {{x}}%",
+    "between": "{{a}}–{{b}}%",
+    "from": "từ {{x}}%",
+    "label": "Thang mức độ: hành động của bạn {{pct}} phần trăm, khoảng {{stopien}}."
+  },
+  "paint": {
+    "legendPlay": "bạn chơi",
+    "legendMiss": "− thiếu",
+    "legendExtra": "+ thừa",
+    "legendMixed": "• trộn",
+    "hint": "Chạm vào ô hoặc kéo ngón tay để tô.",
+    "cell": "{{hand}}, {{state}}",
+    "state": {
+      "painted": "đã chọn",
+      "fold": "{{t:fold|bỏ bài}}",
+      "hit": "đúng, bạn chơi",
+      "miss": "thiếu, solver chơi",
+      "extra": "thừa, solver {{t:fold|bỏ bài}}",
+      "mixed": "trộn, được tính đúng",
+      "none": "đúng, {{t:fold|bỏ bài}}"
+    }
+  },
+  "range": {
+    "label": "{{title}}. Chơi {{pct}} phần trăm tay bài.",
+    "playPercent": "Chơi {{pct}}% tay bài"
+  },
+  "card": {
+    "name": "{{rank}} {{suit}}",
+    "rank": {
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "T": "10",
+      "J": "bồi",
+      "Q": "đầm",
+      "K": "già",
+      "A": "át"
+    },
+    "suit": {
+      "s": "bích",
+      "h": "cơ",
+      "d": "rô",
+      "c": "nhép"
+    }
+  },
+  "nav": {
+    "back": "Quay lại"
+  },
+  "drill": {
+    "format": {
+      "percent": "{{n}}%"
+    },
+    "join": {
+      "sentence": "{{a}} {{b}}",
+      "list": ", "
+    },
+    "category": {
+      "straightFlush": "{{t:straight-flush}}",
+      "fourOfAKind": "{{t:four-of-a-kind}}",
+      "fullHouse": "{{t:full-house}}",
+      "flush": "{{t:flush}}",
+      "straight": "{{t:straight}}",
+      "threeOfAKind": "{{t:three-of-a-kind}}",
+      "twoPair": "{{t:two-pair}}",
+      "pair": "{{t:pair}}",
+      "highCard": "{{t:high-card}}",
+      "royalFlush": "{{t:royal-flush}}"
+    },
+    "categoryAcc": {
+      "straightFlush": "{{t:straight-flush}}",
+      "fourOfAKind": "{{t:four-of-a-kind}}",
+      "fullHouse": "{{t:full-house}}",
+      "flush": "{{t:flush}}",
+      "straight": "{{t:straight}}",
+      "threeOfAKind": "{{t:three-of-a-kind}}",
+      "twoPair": "{{t:two-pair}}",
+      "pair": "{{t:pair}}",
+      "highCard": "{{t:high-card}}",
+      "royalFlush": "{{t:royal-flush}}"
+    },
+    "paint": {
+      "explanation": "{{title}}. Ô màu xanh lá: bạn chơi và đã chọn. Dấu “−”: tay bài thuộc {{t:range|range}} nhưng bị thiếu. Dấu “+”: đã chọn, nhưng solver {{t:fold|bỏ bài}} với nó. Dấu chấm: {{t:mixed-hand|tay bài trộn}} (solver chỉ thỉnh thoảng chơi) hoặc tay gây tranh cãi (solver chơi khác các bảng công khai ở tay này), nên được tính đúng theo cả hai cách. Kết quả tính các {{t:combo|combo}} ({{t:pair}} {{pairCombos}}, cùng chất {{suitedCombos}}, khác chất {{offsuitCombos}}) chỉ trong những tay bài thuộc {{t:range|range}} hoặc đã chọn.",
+      "score": "Mức khớp với solver: {{score}} (đạt từ {{pass}})."
+    },
+    "numeric": {
+      "yours": "Câu trả lời của bạn: {{value}}",
+      "exact": "Chính xác: {{value}}",
+      "diffPp": "Chênh lệch: {{diff}} điểm %",
+      "diff": "Chênh lệch: {{diff}}"
+    },
+    "range": {
+      "fold": "{{t:fold|Bỏ bài}}",
+      "right": "Đúng. Solver chơi như vậy trong {{pct}} trường hợp.",
+      "acceptable": "Chấp nhận được. Solver chơi như vậy trong {{pct}} trường hợp, nên đây không phải sai lầm, nhưng nó thường chọn một hành động khác hơn. Tốt nhất hãy ghi nhớ hành động thường gặp hơn đó.",
+      "wrongRare": "Solver chỉ chơi như vậy trong {{pct}} trường hợp, tức là gần như không bao giờ.",
+      "wrongVeryRare": "Với tay bài này, solver chơi như vậy ít hơn {{pct}} trường hợp.",
+      "wrongNever": "Solver không bao giờ chơi như vậy với tay bài này.",
+      "freqs": "{{hand}}: {{freqs}}.",
+      "freq": "{{action}} {{pct}}",
+      "mixedNote": "Đây là tay bài ranh giới: solver trộn các hành động, nên ứng dụng chấp nhận là đúng mọi câu trả lời được chơi trong ít nhất {{low}} trường hợp.",
+      "acceptableNote": "Hành động được chơi ít hơn {{low}} nhưng ít nhất {{min}} trường hợp là chấp nhận được: đây không phải sai lầm, nhưng bài ôn tập sẽ quay lại sớm hơn."
+    },
+    "whoWins": {
+      "prompt": "Ai thắng ván bài này?",
+      "hero": "Bạn",
+      "villain": "Đối thủ",
+      "split": "{{t:split-pot|Chia pot}}",
+      "facts": "Năm lá tốt nhất của bạn: {{heroCards}} ({{heroHand}}). Đối thủ: {{villainCards}} ({{villainHand}}).",
+      "reason": {
+        "category": "{{winner}} xếp hạng cao hơn {{loser}}.",
+        "kicker": "Loại tay bài giống nhau, nên lá phụ (kicker) khác nhau đầu tiên trong năm lá tốt nhất sẽ quyết định.",
+        "higherSameCategory": "Cả hai đều có {{hand}}, nhưng một bên cao hơn.",
+        "boardPlays": "Năm lá tốt nhất của cả hai người chơi đều nằm trên {{t:board|board}}, nên cả hai “{{t:playing-the-board}}” và {{t:split-pot|pot được chia}}.",
+        "identical": "Năm lá tốt nhất có cùng thứ hạng, nên {{t:split-pot|pot được chia}}."
+      },
+      "yes": "Đúng.",
+      "no": "Không."
+    },
+    "bestHand": {
+      "prompt": "Tay bài tốt nhất của bạn là gì?",
+      "explanation": "Năm lá tốt nhất trong bảy lá: {{cards}}, tức là {{hand}}.",
+      "right": "Đúng, đó là tay bài tốt nhất của bạn.",
+      "tooHigh": "Bạn không có “{{hand}}”. Hãy kiểm tra xem có thực sự có 5 lá phù hợp không.",
+      "tooLow": "Bạn có tay bài tốt hơn “{{hand}}”. Hãy tìm tay bài cao nhất."
+    },
+    "outs": {
+      "promptFlush": "Bạn có bao nhiêu out tới {{t:flush|thùng}}?",
+      "promptStraight": "Bạn có bao nhiêu out tới {{t:straight|sảnh}}?",
+      "baseFlush": "Bạn có 4 lá cùng chất. Mỗi chất có 13 lá, nên còn lại 13 − 4 = 9.",
+      "baseOesd": "Bạn có 4 lá liên tiếp mở cả hai đầu. Mỗi hạng trong hai hạng còn thiếu đều tạo {{t:straight|sảnh}}, mỗi hạng 4 chất: 8 lá.",
+      "baseGutshot": "Bạn thiếu một lá ở giữa {{t:straight|sảnh}}. Chỉ một hạng hoàn thành nó, với 4 chất: 4 lá.",
+      "chanceFlop": "{{base}} Xác suất trên turn: {{next}} ({{outs}} × 2 ≈ {{outs2}}). Đến river, nếu bạn xem cả hai lá mà không phải trả thêm (ví dụ sau all-in): {{river}} ({{outs}} × 4 ≈ {{outs4}}).",
+      "chanceTurn": "{{base}} Xác suất trên river: {{next}} ({{outs}} × 2 ≈ {{outs2}}).",
+      "right": "Đúng.",
+      "wrongTooMany": "Không. {{n}} là quá nhiều trong tình huống này.",
+      "wrongTooFew": "Không. {{n}} là quá ít trong tình huống này."
+    },
+    "icm": {
+      "call": "{{t:call|Theo}}",
+      "fold": "{{t:fold|Bỏ bài}}",
+      "you": "Bạn",
+      "player": "Người chơi {{letter}}",
+      "stack": "{{name}} {{chips}}",
+      "table": "{{players}} người chơi, trả thưởng {{paid}} vị trí ({{payouts}} {{t:prize-pool|tổng giải thưởng}}). Stack: {{stacks}}.",
+      "callPrompt": "{{t:bubble|Bubble}}: {{table}} {{villain}} all-in, giữa hai bạn có {{atRisk}} {{t:chips|chip}} đang được đặt cược. Tay bài của bạn có {{equity}} equity so với {{t:range|range}} của đối thủ. Bỏ qua blind. Bạn làm gì?",
+      "callRight": "Đúng. {{equity}} nhiều hơn mức {{required}} cần có theo {{t:icm}}.",
+      "callWrong": "Không. Theo {{t:icm}}, bạn cần {{required}} equity, còn bạn có {{equity}}.",
+      "callWrongChips": "Không. Theo {{t:icm}}, bạn cần {{required}} equity, còn bạn có {{equity}}. Trong trò chơi tính bằng {{t:chips}}, {{t:call}} sẽ có lợi, nhưng ở đây thua mất nhiều tiền hơn so với số tiền thắng mang lại thêm.",
+      "foldRight": "Đúng. Theo {{t:icm}}, bạn cần {{required}} equity, còn bạn chỉ có {{equity}}.",
+      "foldRightChips": "Đúng. Theo {{t:icm}}, bạn cần {{required}} equity, còn bạn chỉ có {{equity}}. Trong trò chơi tính bằng {{t:chips}}, đây sẽ là một lần {{t:call|theo}}: đó chính là {{t:risk-premium}}.",
+      "foldWrong": "Không. {{equity}} equity là đủ: theo {{t:icm}}, ngưỡng là {{required}}.",
+      "callExplanation": "Equity của bạn trong {{t:prize-pool|tổng giải thưởng}}: hiện tại {{now}}, sau khi thắng {{win}}, sau khi thua {{lose}}. Bubble factor = mất ÷ được = {{loss}} ÷ {{gain}} ≈ {{bf}}, nên bạn cần BF ÷ (BF + 1) ≈ {{required}} equity. Trong trò chơi tính bằng {{t:chips}}, chỉ cần {{requiredChips}} là đủ.",
+      "equityPrompt": "{{table}} Theo {{t:icm}}, stack của bạn đáng giá bao nhiêu (phần của {{t:prize-pool|tổng giải thưởng}})?",
+      "equityRight": "Đúng. Đó là tổng theo từng vị trí: xác suất đạt vị trí × {{t:payout|tiền thưởng}} của vị trí đó.",
+      "equityChips": "Không. Đó là phần {{t:chips|chip}} của bạn. Trong {{t:tournament|giải đấu}} có {{t:payout|tiền thưởng}}, {{t:chips}} không quy đổi ra tiền theo tỷ lệ một đổi một.",
+      "equityFirstOnly": "Không. Đó chỉ là xác suất đạt hạng 1 × {{t:payout|tiền thưởng}} cho hạng 1. Hãy cộng thêm xác suất đạt các vị trí có thưởng tiếp theo.",
+      "equityExplanationMore": "Xác suất đạt hạng 1 là stack của bạn ÷ tổng số {{t:chips}} ({{share}}); các vị trí tiếp theo được tính tương tự trong số những người chơi còn lại. Tổng cộng {{icm}} {{t:prize-pool|tổng giải thưởng}}, nhiều hơn phần {{t:chips|chip}} của bạn.",
+      "equityExplanationLess": "Xác suất đạt hạng 1 là stack của bạn ÷ tổng số {{t:chips}} ({{share}}); các vị trí tiếp theo được tính tương tự trong số những người chơi còn lại. Tổng cộng {{icm}} {{t:prize-pool|tổng giải thưởng}}, ít hơn phần {{t:chips|chip}} của bạn."
+    },
+    "playerType": {
+      "name": {
+        "nit": "Nit",
+        "regular": "{{t:regular|Reg}}",
+        "passive": "{{t:recreational|Người chơi giải trí}} thụ động",
+        "maniac": "{{t:maniac|Maniac}}",
+        "unknown": "Quá ít tay bài để đánh giá"
+      },
+      "adjust": {
+        "nit": "Bạn tôn trọng các lần {{t:raise|tố}} và 3-bet của họ, {{t:fold|bỏ}} các tay bài ở đáy {{t:range|range}} thường xuyên hơn, và cướp blind của họ thường xuyên hơn.",
+        "regular": "Bạn chơi gần với nền tảng từ các mô-đun 3–9 và chỉ rời khỏi nó khi thống kê của họ cho thấy lỗi rõ ràng.",
+        "passive": "Nhiều {{t:value-bet|value bet}} hơn, kể cả mỏng hơn, và ít {{t:bluff|bluff}} hơn, nhất là trên river.",
+        "maniac": "Bạn không {{t:bluff|bluff}} họ, {{t:call|theo}} rộng hơn với các tay bài bắt {{t:bluff|bluff}}, và với tay bài rất mạnh thì bạn để họ cược.",
+        "unknown": "Bạn chơi với họ như với người chơi chưa biết, tức là theo nền tảng, và thu thập thêm tay bài."
+      },
+      "fact": {
+        "unknown": "Dưới {{minHands}} tay bài, thống kê là ngẫu nhiên; ở đây có {{hands}}.",
+        "nit": "Nit chơi tối đa {{nitMax}}% tay bài ({{t:vpip}}); người chơi này chơi {{vpip}}%.",
+        "regular": "{{t:regular|Reg}} chơi khoảng {{low}}–{{high}}% tay bài với chênh lệch {{t:vpip}} − {{t:pfr}} tối đa {{gapMax}}; ở đây {{vpip}}% và chênh lệch {{gap}}.",
+        "passive": "Người chơi lỏng thụ động chơi từ {{loose}}% tay bài với chênh lệch {{t:vpip}} − {{t:pfr}} trên {{gapMin}}; ở đây {{vpip}}% và chênh lệch {{gap}}.",
+        "maniac": "{{t:maniac|Maniac}} chơi từ {{loose}}% tay bài với chênh lệch {{t:vpip}} − {{t:pfr}} tối đa {{gapMax}}; ở đây {{vpip}}% và chênh lệch {{gap}}."
+      },
+      "sample_other": "{{count}} tay bài",
+      "prompt": "Đối thủ ở bàn 6-max, thống kê từ {{t:hud|HUD}}: {{t:vpip}} {{vpip}}%, {{t:pfr}} {{pfr}}%, mẫu {{sample}}. Đây là kiểu người chơi nào?",
+      "whyRight": "Đúng. {{fact}} {{adjust}}",
+      "whyWrong": "Không. {{fact}}",
+      "readFew": "ít hơn {{minHands}}, nên thống kê là ngẫu nhiên",
+      "readEnough": "ít nhất {{readHands}}, nên có thể đọc {{t:vpip}} và {{t:pfr}}",
+      "explanation": "Trước hết là mẫu: {{sample}} là {{read}}. {{fact}} {{adjust}}"
+    },
+    "points_other": "{{count}} điểm",
+    "potOdds": {
+      "prompt": "Trong {{t:pot|pot}} có {{pot}}. Đối thủ {{t:bet|cược}} {{bet}}. Bạn cần bao nhiêu equity để {{t:call|theo}}?",
+      "explanation": "{{t:pot|Pot}} sau {{t:bet|cược}} là {{potAfter}}, bạn bỏ thêm {{bet}}, tổng cộng {{total}}. {{bet}} ÷ {{total}} {{sign}} {{required}}.",
+      "right": "Đúng.",
+      "mistakeNoCall": "Không. Đó là {{t:bet|mức cược}} chia cho {{t:pot|pot}} sau {{t:bet|cược}}. Hãy cộng cả lượt {{t:call}} của bạn vào mẫu số.",
+      "mistakeBetOverPot": "Không. Đó là {{t:bet|mức cược}} chia cho {{t:pot|pot}} trước {{t:bet|cược}}. Hãy tính so với toàn bộ những gì bạn có thể thắng.",
+      "mistakeInverted": "Không. Đó là {{t:pot}} trước {{t:bet|cược}} chia cho {{t:pot}} sau {{t:bet|cược}}, tức là phân số bị đảo ngược. Ở trên phải là số bạn bỏ thêm, còn ở dưới là toàn bộ {{t:pot}} sau khi bạn {{t:call|theo}}."
+    },
+    "drawCall": {
+      "promptFlop": "Flop. Trong {{t:pot|pot}} có {{pot}}, đối thủ {{t:bet|cược}} {{bet}}. Bạn có {{draw}}. Bạn làm gì?",
+      "promptTurn": "Turn. Trong {{t:pot|pot}} có {{pot}}, đối thủ {{t:bet|cược}} {{bet}}. Bạn có {{draw}}. Bạn làm gì?",
+      "drawFlush": "{{t:flush-draw}}",
+      "drawOesd": "{{t:oesd}}",
+      "drawGutshot": "gutshot",
+      "call": "{{t:call|Theo}}",
+      "fold": "{{t:fold|Bỏ bài}}",
+      "outs_other": "{{count}} out",
+      "explanationFlop": "Bạn có {{outs}} trên {{unseen}} lá chưa biết, tức là {{chance}} cơ hội trên turn. {{why}} Bạn cần {{required}}. {{verdict}}",
+      "explanationTurn": "Bạn có {{outs}} trên {{unseen}} lá chưa biết, tức là {{chance}} cơ hội trên river. {{why}} Bạn cần {{required}}. {{verdict}}",
+      "whyFlop": "Điều quan trọng là xác suất trên một lá, vì bạn chỉ {{t:call|theo}} mức {{t:bet|cược}} này: trước river, thường bạn sẽ phải trả thêm một mức giá nữa.",
+      "whyTurn": "Điều quan trọng là xác suất trên một lá: chỉ còn lại một lá.",
+      "verdictGood": "Xác suất lớn hơn giá, nên {{t:call}} có lợi.",
+      "verdictNearFlop": "Xác suất hơi nhỏ hơn giá, nên chỉ {{t:call}} thôi thì lỗ. Nó chỉ có thể có lợi nhờ implied odds, tức là khi bạn thắng được nhiều hơn sau khi trúng, và với điều kiện mức giá tiếp theo trên turn cũng không quá cao.",
+      "verdictNearTurn": "Xác suất hơi nhỏ hơn giá, nên chỉ {{t:call}} thôi thì lỗ. Nó chỉ có thể có lợi nhờ implied odds, tức là khi bạn thắng được nhiều hơn sau khi trúng.",
+      "verdictBad": "Xác suất nhỏ hơn giá rõ rệt, nên {{t:call}} sẽ lỗ về lâu dài.",
+      "right": "Đúng.",
+      "wrong": "Không."
+    },
+    "texture": {
+      "label": {
+        "height": {
+          "high": "Cao",
+          "middle": "Trung bình",
+          "low": "Thấp"
+        },
+        "suits": {
+          "rainbow": "{{t:rainbow|Rainbow}}",
+          "twoTone": "{{t:two-tone|Hai chất}}",
+          "monotone": "{{t:monotone|Đồng chất}}"
+        },
+        "ranks": {
+          "paired": "{{t:paired|Có đôi}}",
+          "connected": "{{t:connected|Liên kết}}",
+          "semiConnected": "{{t:semi-connected|Bán liên kết}}",
+          "disconnected": "{{t:disconnected|Rời rạc}}"
+        },
+        "wetness": {
+          "dry": "{{t:dry|Khô}}",
+          "medium": "Trung gian",
+          "wet": "{{t:wet|Ướt}}"
+        }
+      },
+      "axis": {
+        "height": "Độ cao",
+        "suits": "Chất",
+        "ranks": "Hạng",
+        "wetness": "{{t:dry|Khô}} hay {{t:wet|ướt}}"
+      },
+      "scale": "Ta tính điểm: {{t:straight|sảnh}} có thể tạo theo nhiều cách (với ít nhất hai bộ hai hạng) {{made}}, {{t:straight|sảnh}} chỉ tạo được theo một cách {{madeOne}}, chỉ có {{t:straight-draw}} {{draw}}; flop {{t:two-tone|hai chất}} {{twoTone}}, {{t:monotone|đồng chất}} {{monotone}}. {{t:dry|Khô}} là 0–{{dryMax}}, trung gian {{medium}}, {{t:wet|ướt}} từ {{wet}} trở lên",
+      "range": "{{from}}–{{to}}",
+      "def": {
+        "height": {
+          "high": "flop cao có lá cao nhất là át, già hoặc đầm",
+          "middle": "flop trung bình có lá cao nhất là bồi hoặc 10",
+          "low": "flop thấp có lá cao nhất là 9 hoặc thấp hơn"
+        },
+        "suits": {
+          "rainbow": "flop {{t:rainbow}} có ba lá thuộc ba chất khác nhau, nên chưa ai có {{t:flush-draw}}",
+          "twoTone": "flop {{t:two-tone|hai chất}} có hai lá cùng một chất, nên hai lá của người chơi thuộc chất đó tạo thành {{t:flush-draw}}",
+          "monotone": "flop {{t:monotone|đồng chất}} có cả ba lá cùng một chất, nên {{t:flush|thùng}} đã có thể xảy ra"
+        },
+        "ranks": {
+          "paired": "flop {{t:paired|có đôi}} có hai hoặc ba lá cùng hạng; khi đó không thể có {{t:straight|sảnh}} dùng hai lá của người chơi, dù đôi khi vẫn có thể có {{t:straight-draw}}",
+          "connected": "flop {{t:connected|liên kết}} có ba hạng khác nhau nằm trong năm hạng liên tiếp, nên {{t:straight|sảnh}} đã có thể có ngay (át cũng được tính là một)",
+          "semiConnected": "flop {{t:semi-connected|bán liên kết}} có hai hạng nằm trong năm hạng liên tiếp, nhưng không phải ba: chưa có {{t:straight|sảnh}}, nhưng {{t:straight-draw}} (mở hai đầu hoặc gutshot) đã có thể có",
+          "disconnected": "flop {{t:disconnected|rời rạc}} có các hạng cách xa đến mức không có hai hạng nào nằm trong năm hạng liên tiếp, nên không ai có dù chỉ {{t:straight-draw}}"
+        },
+        "wetness": {
+          "dry": "flop {{t:dry|khô}} tạo ra ít {{t:draw|bài chờ}}. {{scale}}",
+          "medium": "flop trung gian tạo ra một số {{t:draw|bài chờ}}. {{scale}}",
+          "wet": "flop {{t:wet|ướt}} tạo ra nhiều {{t:draw|bài chờ}} hoặc {{t:straight|sảnh}} đã hoàn thành. {{scale}}"
+        }
+      },
+      "suitCount": {
+        "three": "ba chất khác nhau",
+        "two": "hai lá cùng một chất",
+        "one": "ba lá cùng một chất"
+      },
+      "rankFact": {
+        "connected": "Ở đây có thể có {{t:straight|sảnh}}, ví dụ với {{example}}.",
+        "pairedDraw": "Ở đây có hai lá cùng hạng; {{t:straight-draw}} có được, ví dụ, với {{example}}.",
+        "paired": "Ở đây có hai lá cùng hạng.",
+        "semiConnected": "Ở đây chưa có {{t:straight|sảnh}}, nhưng {{t:straight-draw}} có được, ví dụ, với {{example}}.",
+        "disconnected": "Ở đây không có hai lá nào của người chơi tạo được dù chỉ {{t:straight-draw}}."
+      },
+      "draws": {
+        "rainbow": "không có {{t:flush-draw}} (ba chất khác nhau)",
+        "twoTone": "có {{t:flush-draw}} (hai lá cùng một chất)",
+        "monotone": "{{t:flush|thùng}} đã có thể có (ba lá cùng một chất)",
+        "straightMade": "{{t:straight|sảnh}} có thể có theo nhiều cách, ví dụ với {{example}}",
+        "straightMadeOne": "{{t:straight|sảnh}} chỉ có thể có theo một cách, với {{example}}",
+        "straightDraw": "không có {{t:straight|sảnh}}, nhưng có {{t:straight-draw}}, ví dụ với {{example}}",
+        "straightNone": "không có {{t:straight|sảnh}} cũng không có {{t:straight-draw}}",
+        "total": "{{color}}: {{colorPoints}}; {{straight}}: {{straightPoints}}. Tổng cộng {{points}}"
+      },
+      "prompt": {
+        "height": "Flop này cao đến mức nào?",
+        "suits": "Flop này có bao nhiêu chất?",
+        "ranks": "Flop này {{t:paired|có đôi}}, {{t:connected|liên kết}}, {{t:semi-connected|bán liên kết}} hay {{t:disconnected|rời rạc}}?",
+        "wetness": "Flop này {{t:dry|khô}}, trung gian hay {{t:wet|ướt}}?",
+        "many": "Hãy đánh giá {{t:texture|kết cấu}} của flop ở từng hàng."
+      },
+      "whyRight": "Đúng: {{def}}. {{fact}}",
+      "whyWrong": "Không: {{def}}. {{fact}}",
+      "factHeight": "Lá cao nhất là {{card}}.",
+      "factSuits": "Ở đây: {{suits}}.",
+      "factWetness": "Ở đây {{draws}}.",
+      "summary": "Flop này {{height}}, {{suits}} và {{ranks}}, tức là {{wetness}} ({{points}} {{t:wetness|độ ướt}})."
+    },
+    "vocab": {
+      "promptPlEn": "“{{pl}}” trong tiếng Anh gọi là gì?",
+      "promptEnPl": "“{{en}}” trong tiếng Việt nghĩa là gì?",
+      "promptAbbr": "Từ viết tắt “{{abbr}}” nghĩa là gì?",
+      "promptDef": "Thuật ngữ nào khớp với mô tả? “{{def}}”",
+      "lineSame": "“{{pl}}”",
+      "lineSameAbbr": "“{{pl}}” (viết tắt {{abbr}})",
+      "line": "“{{pl}}” trong tiếng Anh là “{{en}}”",
+      "lineAbbr": "“{{pl}}” trong tiếng Anh là “{{en}}”, viết tắt {{abbr}}",
+      "right": "Đúng: {{line}}.",
+      "wrong": "Không: {{line}}.",
+      "end": "{{line}}.",
+      "meaning": "Nghĩa: {{def}}",
+      "alsoSeen": "Bạn cũng sẽ gặp: {{list}}."
+    }
+  }
+}

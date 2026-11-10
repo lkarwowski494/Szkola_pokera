@@ -1,0 +1,39 @@
+# Pomoc przy problemach z hazardem: jedno źródło prawdy (B-058). Decyzja właściciela D-158 (2026-11-04): bez numerów
+# krajowych; jedno ogólne zdanie (lekarz albo specjalista zdrowia psychicznego; w nagłym zagrożeniu lokalny numer
+# alarmowy, twierdzenie H-INT-2) i jeden link do międzynarodowej pomocy online (Gambling Therapy, H-INT-1). Zastępuje
+# D-142 (numery 9 rynków) i D-150–D-152, D-155 (wybór według regionu); dawne wpisy krajów mają w rejestrze
+# docs/tresci/rejestr/pomoc.json status „wycofane”. Pole `claim` = id twierdzenia; content-build przerywa budowanie,
+# gdy twierdzenie nie ma w rejestrze statusu „potwierdzone”.
+#
+# Korzystają z niego: ramka „Odpowiedzialna gra” w lekcji M12-L4 (znacznik {{helplines}}) oraz ekran „Pomoc”
+# (apps/mobile/src/data/content/helplines.generated.ts). Linki tylko do domen ze źródeł tego samego wpisu
+# (content-build to sprawdza). Bez nazw pokoi pokerowych (ADR-13).
+checked: '2026-11-04'
+review_by: '2027-11-04'
+pointer: '같은 연락처는 앱의 ‘도움말’ 화면에서도 확인할 수 있습니다.'
+fallback:
+  claim: H-INT-2
+  text: '자신에게서 도박 문제의 징후가 보이거나 확신이 서지 않는다면 의사나 정신건강 전문가와 상담하세요. 긴급한 위험이 있을 때, 그리고 본인이나 아는 사람이 스스로 목숨을 끊으려는 생각을 하고 있을 때에도 즉시 지역 긴급 전화번호로 전화하세요.'
+  online: [int-gambling-therapy]
+regions_label: '지역별 전화번호'
+regions: {}
+entries:
+  # --- pomoc międzynarodowa online ---
+  - id: int-gambling-therapy
+    claim: H-INT-1
+    country: '*'
+    kind: gambling
+    name: 'Gambling Therapy (Gordon Moody)'
+    info: '도박의 영향을 받는 누구에게나 무료 실질적 조언과 정서적 지원을 온라인으로 제공합니다. 비밀이 보장됩니다.'
+    links:
+      - label: 'Gambling Therapy'
+        url: https://www.gamblingtherapy.org/
+    # E3 2026-11-04 (A7): gordonmoody.org.uk nie odpowiada (zerwane połączenie); źródło: strona serwisu, odczyt 2026-11-04.
+    # Bez „ponad 200 językach” i „anonimowo”: tych zdań nie ma na przeczytanej stronie.
+    sources:
+      - url: https://www.gamblingtherapy.org/
+        quote: 'a global service offered by Gordon Moody, providing free practical advice and emotional support to anyone affected by gambling.'
+      - url: https://www.gamblingtherapy.org/
+        quote: 'Confidential, safe and delivered online'
+      - url: https://www.gamblingtherapy.org/
+        quote: 'a global service offered by Gordon Moody'

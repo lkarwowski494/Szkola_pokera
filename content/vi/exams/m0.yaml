@@ -1,0 +1,92 @@
+# Pula egzaminacyjna M0 (układy kart): te same reguły co lekcja m0.l1, inne rozdania i sformułowania.
+module: m0
+drills:
+  - kind: choice
+    id: m0.exam.q1
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "Đối thủ có {{t:three-of-a-kind|bộ ba}} A, còn bạn có {{t:straight|sảnh}} đến J. Ai thắng?"
+    table: { hand: "Th 9h", opp: "Ac Ad", board: "As 8c 7d Jh 2s" }
+    options:
+      - { text: "Bạn", correct: true, why: "Năm lá của bạn là J-10-9-8-7, tức là {{t:straight}}. {{t:straight|Sảnh}} xếp trên {{t:three-of-a-kind|bộ ba}}, nên bài của đối thủ cao đến đâu cũng không quan trọng." }
+      - { text: "Đối thủ, vì có A", why: "Lá A chỉ có ý nghĩa khi hai bên có cùng loại bài. Ở đây hai loại bài khác nhau: {{t:straight}} thắng {{t:three-of-a-kind|bộ ba}}." }
+      - { text: "{{t:split-pot|Chia pot}}", why: "Các loại bài khác nhau thì không hòa. Bài xếp hạng cao hơn sẽ thắng." }
+  - kind: choice
+    id: m0.exam.q2
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "Bạn có {{t:four-of-a-kind|tứ quý}} 9, đối thủ có {{t:full-house|cù lũ}} K. Ai thắng?"
+    table: { hand: "9c 9d", opp: "Kh 2c", board: "9h 9s Kd Kc 3h" }
+    options:
+      - { text: "Bạn", correct: true, why: "{{t:four-of-a-kind|Tứ quý}} đứng thứ 3 trong bảng xếp hạng, {{t:full-house}} đứng thứ 4. Các lá K của đối thủ không giúp được gì, vì hai loại bài khác nhau." }
+      - { text: "Đối thủ, vì K cao hơn 9", why: "Độ cao của lá bài chỉ được so khi cùng loại bài. {{t:four-of-a-kind|Tứ quý}} luôn thắng {{t:full-house|cù lũ}}." }
+      - { text: "{{t:split-pot|Chia pot}}, vì cả hai đều dùng lá trên {{t:board|bàn}}", why: "Cả hai đều dùng {{t:community-cards|bài chung}}, nhưng mỗi người ghép thành một bộ năm lá khác nhau: bạn có {{t:four-of-a-kind|tứ quý}}, đối thủ có {{t:full-house|cù lũ}}." }
+  - kind: choice
+    id: m0.exam.q3
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "Đối thủ có {{t:pair|đôi}} A, còn bạn có {{t:two-pair}}: đôi 7 và đôi 2. Ai thắng?"
+    options:
+      - { text: "Bạn", correct: true, why: "{{t:two-pair|Hai đôi}} xếp trên {{t:pair|đôi}}, kể cả khi là đôi thấp. Hạng của loại bài được so trước tiên." }
+      - { text: "Đối thủ, vì A là cao nhất", why: "{{t:pair|Đôi}} A vẫn chỉ là {{t:pair}}. Độ cao chỉ quyết định khi cùng loại bài." }
+      - { text: "Tùy vào kicker", why: "Kicker chỉ có ý nghĩa khi phần lõi của tay bài giống hệt nhau. Ở đây các loại bài khác nhau." }
+  - kind: choice
+    id: m0.exam.q4
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Cả hai đều có {{t:two-pair}}: Q và 8 từ {{t:board|bàn}}. Ai thắng?"
+    table: { hand: "Ah 3c", opp: "Kd 4s", board: "Qs Qd 8h 8c 2s" }
+    options:
+      - { text: "Bạn", correct: true, why: "Phần lõi của tay bài giống nhau (Q và 8), nên lá thứ năm quyết định. Lá A của bạn thắng lá K của đối thủ." }
+      - { text: "Đối thủ", why: "Lá thứ năm của đối thủ là K, còn của bạn là A. A cao hơn." }
+      - { text: "{{t:split-pot|Chia pot}}", why: "Chỉ chia pot khi năm lá giống hệt nhau. Ở đây lá thứ năm khác nhau: A so với K." }
+  - kind: choice
+    id: m0.exam.q5
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Cả hai đều có {{t:pair|đôi}} K và một lá A. Lá thứ hai của bạn (4) cao hơn lá thứ hai của đối thủ (3). Ai thắng?"
+    table: { hand: "Ac 4d", opp: "As 3h", board: "Kh Kd Qc Js 9h" }
+    options:
+      - { text: "{{t:split-pot|Chia pot}}", correct: true, why: "Năm lá tốt nhất của cả hai người chơi là K-K-A-Q-J. Lá 4 và lá 3 không lọt vào năm lá này, nên không thay đổi gì." }
+      - { text: "Bạn, vì 4 cao hơn 3", why: "Kicker chỉ có ý nghĩa khi nằm trong 5 lá tốt nhất. Ở đây Q và J đến từ {{t:board}}, nên lá 4 là lá thứ sáu." }
+      - { text: "Đối thủ", why: "Đối thủ có cùng năm lá như bạn: K-K-A-Q-J." }
+  - kind: choice
+    id: m0.exam.q6
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Cả hai đều có {{t:straight|sảnh}}. Ai thắng?"
+    table: { hand: "Ah 2c", opp: "6d 7s", board: "3s 4d 5h Kc 9d" }
+    options:
+      - { text: "Đối thủ", correct: true, why: "{{t:straight|Sảnh}} của bạn là A-2-3-4-5, tức là {{t:wheel}}, {{t:straight}} thấp nhất: ở đây A được tính là 1. Đối thủ có 3-4-5-6-7, nên {{t:straight}} của đối thủ cao hơn." }
+      - { text: "Bạn, vì có A", why: "Trong {{t:straight|sảnh}} từ A đến 5, A là lá thấp nhất. Khi cùng loại bài, {{t:straight}} cao hơn sẽ thắng: 7 thắng 5." }
+      - { text: "{{t:split-pot|Chia pot}}", why: "Cả hai đều có {{t:straight|sảnh}}, nhưng độ cao khác nhau. Chỉ chia pot khi năm lá giống hệt nhau." }
+  - kind: choice
+    id: m0.exam.q7
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Cả hai đều có {{t:flush|thùng}} cơ, với lá A trên {{t:board|bàn}}. Ai thắng?"
+    table: { hand: "Kh 4h", opp: "Qh Jh", board: "Ah 9h 3h 7c 2d" }
+    options:
+      - { text: "Bạn", correct: true, why: "Các bộ {{t:flush|thùng}} được so từ lá cao nhất. Lá A là lá chung, còn lá thứ hai là K của bạn so với Q của đối thủ." }
+      - { text: "Đối thủ, vì có hai lá cao", why: "Điều quyết định là lá cao nhất khác nhau, xét lần lượt. K của bạn thắng Q, nên các lá còn lại không quan trọng." }
+      - { text: "{{t:split-pot|Chia pot}}", why: "Hai bộ năm lá khác nhau: A-K-9-4-3 và A-Q-J-9-3." }
+  - kind: choice
+    id: m0.exam.q8
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "Trên {{t:board|bàn}} có {{t:full-house}}: ba lá A và hai lá K. Bạn có {{t:pair|đôi}} Q. Ai thắng?"
+    table: { hand: "Qc Qd", opp: "7s 2c", board: "Ah Ad Ac Ks Kh" }
+    options:
+      - { text: "{{t:split-pot|Chia pot}}", correct: true, why: "Năm lá tốt nhất của cả hai người chơi là A-A-A-K-K từ {{t:board|bàn}}. Đôi Q của bạn chỉ tạo ra {{t:full-house|cù lũ}} yếu hơn (ba A, đôi Q), nên không lọt vào năm lá." }
+      - { text: "Bạn, vì có {{t:pair|đôi}} Q", why: "Ba A với đôi Q yếu hơn ba A với đôi K đang nằm trên {{t:board|bàn}}. Vì vậy bạn chơi bằng {{t:board|bàn}}, giống như đối thủ." }
+      - { text: "Đối thủ", why: "Đối thủ cũng chơi bằng năm lá trên {{t:board|bàn}}. Bài của đối thủ không thêm được gì, giống như bài của bạn." }
+  - kind: choice
+    id: m0.exam.q9
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "Trên {{t:board|bàn}} có {{t:straight}} từ 9 đến K. Ai thắng?"
+    table: { hand: "Ac 2d", opp: "3c 3d", board: "Ts Jd Qc Kh 9s" }
+    options:
+      - { text: "Bạn", correct: true, why: "Lá A của bạn kéo dài {{t:straight|sảnh}} thành A-K-Q-J-10. Đối thủ chơi bằng năm lá trên {{t:board|bàn}} (K-Q-J-10-9), còn năm lá của bạn cao hơn." }
+      - { text: "{{t:split-pot|Chia pot}}", why: "Chỉ chia pot khi năm lá tốt nhất của cả hai người chơi đều nằm trên {{t:board|bàn}}. Bạn có năm lá tốt hơn nhờ lá A." }
+      - { text: "Đối thủ, vì có {{t:pair|đôi}}", why: "{{t:pair|Đôi}} 3 yếu hơn {{t:straight}} trên {{t:board|bàn}}, nên đối thủ chơi bằng {{t:board|bàn}}." }

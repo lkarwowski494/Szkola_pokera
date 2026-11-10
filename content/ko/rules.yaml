@@ -1,0 +1,1207 @@
+# Reguły odruchowe „Jeśli X, to Y, bo Z”. Poziom: rules (zasady gry), math, gto, heuristic, exploit.
+# Kryteria poziomów (S-05, audyt 4.10):
+#   math      – twierdzenie, które samo jest rachunkiem (outy, szanse, cena sprawdzenia, znak EV, dominacja jednej akcji nad drugą);
+#   heuristic – zalecenie wyprowadzone z rachunku albo z literatury, bez wyniku solvera;
+#   gto       – opublikowany wynik solvera albo rozwiązania równowagi;
+#   exploit   – dostosowanie do typu gracza; musi podać populację;
+#   rules     – zasady gry i definicje.
+# Reguła eksploatacyjna musi podać populację źródłową (walidacja w content-build).
+# Pole source: pełny opis źródeł z adresami i cytatami najwyżej 2 zdania, bez nazw serwisów i marek (decyzja właściciela
+# z 9.10.2026); zostaje w repozytorium. Pole sources: jedno niezależne źródło (organizacja albo autor) = jedna pozycja
+# { kind, url? }; kind: math, rules, solver-pub, solver-app, book, study, reference, training, population (SourceKind
+# w content-schema). Aplikacja pokazuje tylko rodzaj i liczbę źródeł, np. „serwisy szkoleniowe (3)”; jedno źródło inne
+# niż rachunek dostaje dopisek „jedno źródło”.
+# Pole check (tryb gry M13, dokument 14, 4.4.3 i 6.2 A): warunek sprawdzalny automatycznie w silniku oceny
+# (packages/poker-core/src/grading.ts). kind = rodzaj sprawdzenia, players/stackBb = konfiguracje stołu, których
+# dotyczy źródło reguły (5.5; brak = każda, reguły rachunkowe), streets, spots (spoty solvera), drill (przypadki
+# c-betu), params (liczby jako n:klucz). Reguły-zakazy (free-check-fold, no-limp) oceniają tylko naruszenie.
+
+- id: R-M0-001
+  module: m0
+  if: "두 플레이어의 족보가 서로 다를 때"
+  then: "카드 숫자의 높이와 관계없이 족보 순위가 더 높은 쪽이 이깁니다"
+  because: "족보 순위가 카드 높이보다 먼저 승부를 가릅니다. {{t:flush|플러시}}는 항상 {{t:straight|스트레이트}}를 이기고, {{t:full-house|풀하우스}}는 항상 {{t:flush|플러시}}를 이깁니다"
+  level: rules
+  source: "텍사스 홀덤 규칙: 캘리포니아 도박 규제 기관이 승인한 카지노 규정 (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), Card Values and Hand Rankings: “The ranking of hands for Texas Hold'em, in order from highest to lowest rank, shall be”; 규제 기관이 승인한 퍼스 카지노 포커 규정(RAG/551) (https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf), 10.1; 보조 자료: List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands) (문서 12 M0–M3)"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }, { kind: rules, url: "https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf" }, { kind: reference, url: "https://en.wikipedia.org/wiki/List_of_poker_hands" }]
+- id: R-M0-002
+  module: m0
+  if: "두 플레이어의 핵심 족보가 같을 때: 같은 {{t:pair|페어}}, 같은 {{t:three-of-a-kind|트리플}} 또는 같은 {{t:two-pair|투페어}}"
+  then: "키커로 승부를 가립니다. 가장 높은 것부터 차례로 비교하되, 최고의 5장 안에 들어가는 키커만 셉니다. 5장이 완전히 같으면 {{t:split-pot|스플릿 팟}}이 됩니다"
+  because: "먼저 족보의 순위, 다음으로 족보의 높이를 보고, 키커는 핵심 족보가 같을 때만 봅니다. 7장 중 최고의 5장만 셉니다"
+  level: rules
+  source: "텍사스 홀덤 규칙: 규제 기관이 승인한 퍼스 카지노 포커 규정(RAG/551) (https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf), 10.3–10.4: “all cards count, for example, Q:Q:7:7:9 shall lose to Q:Q:7:7:10”; Robert's Rules of Poker (https://briggsoft.com/docs/pmavens/Rules_Roberts.htm), 3절과 5절; 보조 자료(비교 순서): List of poker hands (https://en.wikipedia.org/wiki/List_of_poker_hands) (문서 12 M0–M3)"
+  sources: [{ kind: rules, url: "https://crownperth.com.au/getmedia/33f9b1ae-834f-4fdd-a74c-81ccc7411326/crown-perth-gaming-poker-rules.pdf" }, { kind: rules, url: "https://briggsoft.com/docs/pmavens/Rules_Roberts.htm" }, { kind: reference, url: "https://en.wikipedia.org/wiki/List_of_poker_hands" }]
+- id: R-M0-003
+  module: m0
+  if: "두 플레이어의 최고 5장이 모두 {{t:board|보드}}에 깔려 있을 때"
+  then: "{{t:split-pot|스플릿 팟}}이 됩니다"
+  because: "두 사람 모두 같은 5장으로 플레이합니다(“{{t:playing-the-board|보드 플레이}}”)"
+  level: rules
+  source: "텍사스 홀덤 규칙: Robert's Rules of Poker (https://briggsoft.com/docs/pmavens/Rules_Roberts.htm), 5절(“play the board”); 캘리포니아 도박 규제 기관이 승인한 카지노 규정 (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf): “the pot shall be split equally among all players with the winning hand”; 보조 자료: Texas hold 'em (https://en.wikipedia.org/wiki/Texas_hold_%27em) (문서 12 M0–M3)"
+  sources: [{ kind: rules, url: "https://briggsoft.com/docs/pmavens/Rules_Roberts.htm" }, { kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }, { kind: reference, url: "https://en.wikipedia.org/wiki/Texas_hold_%27em" }]
+
+- id: R-M1-001
+  module: m1
+  if: "이번 라운드에서 앞 순서의 누구도 {{t:bet|베팅}}하지 않았을 때"
+  then: "{{t:check|체크}}하거나 {{t:bet|베팅}}할 수 있습니다"
+  because: "{{t:call|콜}}과 {{t:raise|레이즈}}는 이미 나온 {{t:bet|베팅}}에 대해서만 할 수 있습니다"
+  level: rules
+  source: "텍사스 홀덤 규칙: Robert's Rules of Poker (https://briggsoft.com/docs/pmavens/Rules_Roberts.htm), 3절(“fold, check, bet, call, or raise”) (문서 12 M0–M3)"
+  sources: [{ kind: rules, url: "https://briggsoft.com/docs/pmavens/Rules_Roberts.htm" }]
+- id: R-M1-002
+  module: m1
+  if: "무료로 {{t:check|체크}}할 수 있을 때"
+  then: "절대 {{t:fold|폴드}}하지 않습니다"
+  because: "{{t:fold|폴드}}는 아무 이득 없이 {{t:pot|팟}}을 포기하는 것이고, {{t:check|체크}}는 비용이 들지 않습니다"
+  level: math
+  check: { kind: free-check-fold }
+  source: "계산: 체크는 비용이 0이고 팟을 가져갈 기회를 유지하므로 폴드보다 나쁠 수 없습니다"
+  sources: [{ kind: math }]
+- id: R-M1-003
+  module: m1
+  if: "누군가 {{t:bet|베팅}}했는데 더 플레이하고 싶지 않을 때"
+  then: "{{t:fold|폴드}}합니다"
+  because: "이미 낸 금액만 잃습니다. 이유 없는 {{t:call|콜}}은 모두 추가 손실입니다"
+  level: math
+  source: "계산: 폴드하면 더 이상 돈을 내지 않고 핸드에서 빠지므로 손실은 이미 낸 금액뿐입니다. 계속 플레이하지 않을 핸드로 콜하면 콜 금액만큼 손실이 늘어납니다"
+  sources: [{ kind: math }]
+- id: R-M1-004
+  module: m1
+  if: "핸드가 다음 {{t:betting-round|베팅 라운드}}로 넘어갈 때"
+  then: "플롭은 {{t:community-cards|커뮤니티 카드}} 3장, 턴과 리버는 각각 1장입니다. 리버 베팅이 끝나면 남은 플레이어(최소 2명)가 카드를 공개합니다(쇼다운)"
+  because: "텍사스 홀덤의 규칙이 그렇습니다. {{t:betting-round|베팅 라운드}}는 네 번이며 리버가 마지막입니다"
+  level: rules
+  source: "텍사스 홀덤 규칙: Robert's Rules of Poker (https://briggsoft.com/docs/pmavens/Rules_Roberts.htm), 5절(“Three boardcards are turned simultaneously … The next two boardcards are turned one at a time”); 위키백과, Texas hold 'em (문서 12 M0–M3)"
+  sources: [{ kind: rules, url: "https://briggsoft.com/docs/pmavens/Rules_Roberts.htm" }, { kind: rules }]
+
+- id: R-M2-001
+  module: m2
+  if: "플롭에서 {{t:flush|플러시}}를 만들 같은 무늬 카드가 {{n:draw.flush.seen}}장 있을 때"
+  then: "아웃은 {{n:outs.flush}}개입니다. 턴에 {{t:flush|플러시}}가 될 확률은 약 {{n:odds.flush.flop-turn}}이고, 리버까지는 약 {{n:odds.flush.flop-river}}이지만, 이는 추가 {{t:bet|베팅}} 없이 두 장을 모두 볼 수 있을 때(올인)만 해당합니다"
+  because: "한 무늬에는 카드가 {{n:cards.per-suit}}장 있고 그중 {{n:draw.flush.seen}}장이 보입니다. 플롭에서 {{t:bet|베팅}}에 {{t:call|콜}}하면 카드 한 장만 볼 수 있습니다"
+  level: math
+  source: "정확한 계산"
+  sources: [{ kind: math }]
+- id: R-M2-002
+  module: m2
+  if: "아웃 개수를 셌을 때"
+  then: "적중 확률을 추정합니다: 카드 한 장이면 아웃 × 2, 두 장이면 아웃 × 4. 플롭에서 {{t:bet|베팅}}을 받으면 한 장(× 2)으로 계산하고, × 4는 추가 {{t:bet|베팅}} 없이 턴과 리버를 모두 볼 때(올인)만 씁니다"
+  because: "리버 카드에 대해서는 상대가 따로 돈을 내게 할 수 있습니다. 2·4 규칙의 오차는 아웃 {{n:rule24.outs.max}}개까지 최대 약 {{n:rule24.error.max.pp}}퍼센트포인트입니다"
+  level: math
+  source: "교육 사이트, Poker drawing odds & outs explained (https://upswingpoker.com/poker-drawing-odds-outs-explained/): “For anything 10 outs or less, however, its accurate within 2% for the turn and river calculation”; 계산: 아웃 10개에서 최대 오차 1.7%p (문서 12 M0–M3)"
+  sources: [{ kind: training, url: "https://upswingpoker.com/poker-drawing-odds-outs-explained/" }, { kind: math }]
+- id: R-M2-003
+  module: m2
+  if: "상대가 {{t:pot|팟}}의 절반을 베팅할 때"
+  then: "{{t:call|콜}}하려면 에퀴티 {{n:eq.bet-half}}가 필요합니다"
+  because: "1만큼 내고, 내가 {{t:call|콜}}한 뒤의 {{t:pot|팟}}은 4가 됩니다({{t:pot|팟}} 2, 베팅 1, 내 {{t:call|콜}} 1). 그러니 4 중 1이 필요합니다"
+  level: math
+  source: "계산: 베팅/(팟+2·베팅)"
+  sources: [{ kind: math }]
+- id: R-M2-004
+  module: m2
+  if: "상대가 {{t:pot|팟}} 전체를 베팅할 때"
+  then: "{{t:call|콜}}하려면 에퀴티 {{n:eq.bet-pot}}가 필요합니다"
+  because: "1만큼 내고, 내가 {{t:call|콜}}한 뒤의 {{t:pot|팟}}은 3이 됩니다({{t:pot|팟}} 1, 베팅 1, 내 {{t:call|콜}} 1). 그러니 3 중 1이 필요합니다"
+  level: math
+  source: "계산: 베팅/(팟+2·베팅)"
+  sources: [{ kind: math }]
+- id: R-M2-005
+  module: m2
+  if: "내 에퀴티가 필요한 에퀴티보다 낮을 때({{t:draw|드로우}}라면: 이 가격으로 보게 될 카드에서 적중할 확률)"
+  then: "{{t:fold|폴드}}합니다(임플라이드 오즈 같은 추가 근거가 없다면)"
+  because: "그런 {{t:call|콜}}은 모두 장기적으로 돈을 잃습니다"
+  level: math
+  check: { kind: draw-price, streets: [flop] }
+  source: "계산: EV = 에퀴티 × (내 콜 이후의 팟) − 콜 금액. 에퀴티 < 콜 금액 ÷ 내 콜 이후의 팟이면 음수입니다"
+  sources: [{ kind: math }]
+
+- id: R-M3-001
+  module: m3
+  if: "버튼에 있고 앞 순서가 모두 {{t:fold|폴드}}했을 때"
+  then: "블라인드 앞의 모든 {{t:position|포지션}} 중 가장 넓게 {{t:open|오픈}}합니다. {{t:small-blind|스몰 블라인드}}만 비슷하게 넓게 {{t:open|오픈}}합니다"
+  because: "플롭부터 마지막에 행동하고, 뒤에는 블라인드만 남아 있습니다"
+  level: gto
+  source: "솔버 차트 사이트, 6-max 100bb NL500 (https://beyondgto.com/ranges/btn-open-6max-100bb, https://beyondgto.com/ranges/sb-open-6max-100bb): BTN 42%, SB 44%; 교육 사이트, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): SB가 버튼보다 약간 넓게, 40–50%; 프리플랍 차트 사이트, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): BTN 40–45%, SB 39–47% (문서 12, D2)"
+  sources: [{ kind: training, url: "https://upswingpoker.com/small-blind-poker-strategy-tips/" }, { kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub, url: "https://beyondgto.com/ranges/btn-open-6max-100bb" }]
+- id: R-M3-002
+  module: m3
+  if: "{{t:utg|UTG}}에 있는 나에게까지 모두 {{t:fold|폴드}}했을 때"
+  then: "핸드의 약 {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}}를 {{t:open|오픈}}합니다"
+  because: "뒤에 아직 다섯 명이 남아 있어 누군가 더 좋은 핸드를 가지고 있을 가능성이 높습니다"
+  level: gto
+  check: { kind: solver-spot, players: [6], stackBb: [100], spots: [rfi.utg] }
+  source: "상용 솔버 사이트, Range Morphology (https://blog.gtowizard.com/preflop-range-morphology/): UTG 17.6%; 솔버 차트 사이트 (NL500, https://beyondgto.com/ranges/lj-open-6max-100bb, …/hj-…, …/co-…, …/btn-open-6max-100bb): UTG 17%, HJ 22%, CO 28%, BTN 42%; 프리플랍 차트 사이트, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 15–17 / 19–22 / 25–28 / 40–45% (문서 12 M0–M3, D6)"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/preflop-range-morphology/" }, { kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub, url: "https://beyondgto.com/ranges/lj-open-6max-100bb" }]
+- id: R-M3-003
+  module: m3
+  if: "버튼에 있는 나에게까지 모두 {{t:fold|폴드}}했을 때"
+  then: "핸드의 약 {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}}를 {{t:open|오픈}}합니다"
+  because: "블라인드만 남았고, 플롭 이후에는 {{t:position|포지션}}을 가집니다"
+  level: gto
+  check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [rfi.btn, nine.rfi.btn] }
+  source: "솔버 차트 사이트, BTN open 6-max 100bb (https://beyondgto.com/ranges/btn-open-6max-100bb, NL500): 약 42%; 프리플랍 차트 사이트, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 40–45% (문서 12 M0–M3, D6)"
+  sources: [{ kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub, url: "https://beyondgto.com/ranges/btn-open-6max-100bb" }]
+- id: R-M3-004
+  module: m3
+  if: "가장 먼저 핸드에 참여할 때"
+  then: "{{t:raise|레이즈}}하거나 {{t:fold|폴드}}하며, 블라인드만 맞추는 콜(림프)은 하지 않습니다. {{t:small-blind|스몰 블라인드}}에서는 이것이 단순화입니다: 일부 솔버 해법은 일부 핸드를 림프합니다"
+  because: "{{t:raise|레이즈}}는 블라인드를 바로 가져올 수 있고 {{t:initiative|주도권}}을 줍니다. 림프는 둘 다 포기합니다"
+  level: heuristic
+  check: { kind: no-limp, players: [6, 9], stackBb: [100] }
+  source: "교육 사이트, Why limping is bad (https://upswingpoker.com/why-limping-in-poker-is-bad/): “If you make everyone fold preflop, you win 100% of the pot … You can't ever do that in a pot you've limped into”; 솔버 차트 사이트, open 6-max 100bb (https://beyondgto.com/ranges/lj-open-6max-100bb, HJ, CO, BTN도 동일): “raising rather than limping or jamming at this depth”, SB (https://beyondgto.com/ranges/sb-open-6max-100bb): “At 100bb the whole range plays as raise-or-fold”. 스몰 블라인드: 2단계 출처 간 상충, 솔버 차트를 제공하는 교육 사이트 (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics): “completes (limps) 20.5%”; SB의 레이즈 또는 폴드는 명시된 단순화입니다. 앱 솔버 트리에 림프가 없기 때문입니다(D-144; 문서 12 M0–M3)"
+  sources: [{ kind: training, url: "https://upswingpoker.com/why-limping-in-poker-is-bad/" }, { kind: solver-pub, url: "https://beyondgto.com/ranges/sb-open-6max-100bb" }, { kind: training, url: "https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics" }]
+- id: R-M3-005
+  module: m3
+  if: "같은 카드를 수티드와 오프수트 중에서 고를 수 있을 때"
+  then: "같은 무늬 핸드(수티드)가 더 강합니다"
+  because: "{{t:flush|플러시}}로 이길 수 있는 길이 하나 더 생깁니다"
+  level: math
+  source: "에퀴티 계산"
+  sources: [{ kind: math }]
+- id: R-M3-006
+  module: m3
+  if: "{{t:hijack|HJ}} 또는 {{t:cutoff|CO}}에 있는 나에게까지 모두 {{t:fold|폴드}}했을 때"
+  then: "{{t:utg|UTG}}보다 넓게, 버튼보다 좁게 {{t:open|오픈}}합니다. {{t:cutoff|CO}}에서는 {{t:hijack|HJ}}보다 넓게 오픈합니다"
+  because: "뒤에 남은 플레이어가 적을수록 누군가 더 좋은 핸드를 가질 확률이 낮아지고, 플롭 이후 {{t:position|포지션}}을 가질 때가 많아집니다"
+  level: gto
+  check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [rfi.hj, rfi.co, nine.rfi.hj, nine.rfi.co] }
+  source: "상용 솔버 사이트, Range Morphology (https://blog.gtowizard.com/preflop-range-morphology/): UTG 17.6%; 솔버 차트 사이트 (NL500, https://beyondgto.com/ranges/hj-open-6max-100bb, https://beyondgto.com/ranges/co-open-6max-100bb): UTG 17%, HJ 22%, CO 28%, BTN 42%; 프리플랍 차트 사이트, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): 15–17 / 19–22 / 25–28 / 40–45% (문서 12 M0–M3, D6): 오픈 레인지는 UTG에서 버튼으로 갈수록 넓어집니다"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/preflop-range-morphology/" }, { kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub, url: "https://beyondgto.com/ranges/hj-open-6max-100bb" }]
+- id: R-M3-007
+  module: m3
+  if: "{{t:raise|레이즈}}로 가장 먼저 핸드에 참여할 때"
+  then: "모든 {{t:position|포지션}}에서 {{n:pf.open-size}}로 {{t:raise|레이즈}}하고, {{t:small-blind|스몰 블라인드}}에서는 {{n:pf.open-size-sb}}로 레이즈합니다(단순화)"
+  because: "모든 {{t:position|포지션}}에서 같은 크기를 쓰면 간단하고 핸드 강도를 드러내지 않습니다. {{t:small-blind|스몰 블라인드}}에서는 {{t:out-of-position|아웃 오브 포지션}}으로 플레이하므로 조금 더 크게 {{t:raise|레이즈}}합니다"
+  level: heuristic
+  check: { kind: open-size, players: [6, 9], stackBb: [100], params: { open: "n:pf.open-size", openSb: "n:pf.open-size-sb" } }
+  source: "프리플랍 차트 사이트, 6-max charts (https://www.preflopwizard.app/blog/6-max-preflop-charts): “the standard open size is 2.5bb from all positions … 3bb from the small blind”; 상용 솔버 사이트, Range Morphology (https://blog.gtowizard.com/preflop-range-morphology/): UTG 2bb, CO 2.3bb, BTN 2.5bb, SB 3bb (단순화, 문서 12, D8)"
+  sources: [{ kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub, url: "https://blog.gtowizard.com/preflop-range-morphology/" }]
+- id: R-M3-008
+  module: m3
+  if: "가장 강한 핸드(AA, KK, QQ, AK)를 들고 있는데 앞에서 누군가 {{t:raise|레이즈}}했을 때"
+  then: "보통 그냥 {{t:call|콜}}하지 않고 {{t:value|밸류}}를 위해 다시 {{t:raise|레이즈}}(3벳)합니다"
+  because: "이 핸드들은 상대가 {{t:open|오픈}}하는 대부분의 핸드보다 유리합니다. 3벳은 {{t:pot|팟}}을 키우고 상대 수를 줄입니다"
+  level: heuristic
+  source: "3벳 차트 사이트, 3-bet ranges (https://pokerpro.tools/preflop/3-bet-ranges): 모든 포지션 상대로 QQ+와 AK가 밸류 영역에 포함(“Mostly 3-bet”); 프리플랍 차트 사이트, UTG strategy (https://www.preflopwizard.app/blog/poker-utg-strategy): AA–JJ와 AKs (문서 12, D9)"
+  sources: [{ kind: training, url: "https://pokerpro.tools/preflop/3-bet-ranges" }, { kind: training, url: "https://www.preflopwizard.app/blog/poker-utg-strategy" }]
+- id: R-M3-009
+  module: m3
+  if: "{{t:small-blind|스몰 블라인드}}에 있는 나에게까지 모두 {{t:fold|폴드}}했을 때"
+  then: "넓게, 핸드의 약 {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}}를 {{t:open|오픈}}하며, {{n:pf.open-size-sb}}로 {{t:raise|레이즈}}하거나 {{t:fold|폴드}}합니다(단순화: 일부 솔버 해법은 {{t:small-blind|스몰 블라인드}}에서 일부 핸드를 림프합니다)"
+  because: "이제 {{t:big-blind|빅 블라인드}}만 상대합니다. 플롭 이후에는 먼저 행동하므로 버튼과 비슷한 넓이로 {{t:open|오픈}}하고, 그보다 훨씬 넓게 하지는 않습니다"
+  level: gto
+  check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [rfi.sb, nine.rfi.sb] }
+  source: "솔버 차트 사이트, SB open 6-max 100bb NL500 (https://beyondgto.com/ranges/sb-open-6max-100bb): 약 44%, 레이즈 또는 폴드; 교육 사이트, Small Blind strategy (https://upswingpoker.com/small-blind-poker-strategy-tips/): 40–50%; 프리플랍 차트 사이트 (https://www.preflopwizard.app/blog/6-max-preflop-charts): 39–47%; 40–45% 구간은 림프 없는 전략들의 공통 부분입니다(문서 12, D3). 레이즈 또는 폴드 단순화(D-144): 솔버 차트를 제공하는 교육 사이트 (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics): “The small blind raises (3bb) 33.1% : completes (limps) 20.5%”"
+  sources: [{ kind: training, url: "https://upswingpoker.com/small-blind-poker-strategy-tips/" }, { kind: training, url: "https://www.preflopwizard.app/blog/6-max-preflop-charts" }, { kind: solver-pub, url: "https://beyondgto.com/ranges/sb-open-6max-100bb" }, { kind: training, url: "https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics" }]
+
+- id: R-M3-010
+  module: m3
+  if: "9인 테이블에서 플레이하고 앞 순서가 모두 {{t:fold|폴드}}했을 때"
+  then: "{{t:utg|UTG}}, {{t:utg|UTG}}+1, {{t:utg|UTG}}+2에서는 6인 테이블의 {{t:utg|UTG}}보다 좁게 {{t:open|오픈}}합니다. LJ부터는 6인 테이블처럼 플레이합니다(LJ는 {{t:utg|UTG}}처럼)"
+  because: "6인 테이블보다 뒤에 앉은 플레이어가 많아 누군가 더 좋은 핸드를 가진 경우가 많습니다. 앞 순서 플레이어들이 {{t:fold|폴드}}하면 LJ 뒤에는 6인 테이블의 {{t:utg|UTG}} 뒤와 같은 수의 플레이어가 남습니다"
+  level: heuristic
+  check: { kind: solver-spot, players: [9], stackBb: [100], spots: [nine.rfi.utg, nine.rfi.utg1, nine.rfi.utg2, nine.rfi.lj] }
+  source: "프로젝트의 프리플랍 솔버, 9인 테이블 100bb (ADR-20; 문서 10, “최종 N9a 측정”: N1–N4 부분 검증, NashConv 0.0094bb. UTG–UTG+2 구성은 미검증이고 빈도는 2단계 검증이 없으므로(D-153), 이 규칙은 솔버 수치 없이 방향만 제시합니다. heuristic 수준, D-144). 4단계 9-max 차트들의 공통 구간과 일치: UTG 약 9–13%, UTG+1 약 11–14% (프리플랍 차트 사이트, 9-Max Preflop Chart, https://preflopwizard.app/blog/9-max-preflop-chart; 두 번째 프리플랍 차트 사이트, https://about-poker.com/preflop-gto/preflop-range-chart-cash-game; 문서 10, “9-max 100bb 구성”). UTG–UTG+2가 폴드한 뒤의 플레이는 정확히 6-max 플레이와 같습니다(트리 테스트)"
+  sources: [{ kind: training, url: "https://preflopwizard.app/blog/9-max-preflop-chart" }, { kind: training, url: "https://about-poker.com/preflop-gto/preflop-range-chart-cash-game" }, { kind: solver-app }]
+# M4: gra wobec akcji preflop. Reguły „heuristic” pochodzą z literatury, nie z solvera aplikacji (dokument 11).
+- id: R-M4-001
+  module: m4
+  if: "누군가 {{t:open|오픈}}했고, {{t:in-position|인 포지션}}에서 {{t:raise|레이즈}}(3벳)하고 싶을 때"
+  then: "{{t:open|오픈}} 금액의 약 {{n:pf.3bet.size-ip}}로 {{t:raise|레이즈}}합니다. {{n:pf.open-size}} {{t:open|오픈}}이라면 {{n:pf.3bet.ip-total}}입니다"
+  because: "이 크기는 플롭에서 적절한 스택 대 팟 비율을 만들고 상대에게 싼 가격을 주지 않습니다"
+  level: heuristic
+  check: { kind: three-bet-size, players: [6, 9], stackBb: [100], params: { mult: "n:pf.3bet.size-ip", position: ip } }
+  source: "교육 사이트, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide); 앱 솔버 트리"
+  sources: [{ kind: training, url: "https://deepfold.co/en/blog/three-bet-strategy-guide" }, { kind: solver-app }]
+- id: R-M4-002
+  module: m4
+  if: "{{t:out-of-position|아웃 오브 포지션}}에서 {{t:open|오픈}}에 {{t:raise|레이즈}}(3벳)할 때, 예를 들어 블라인드에서 {{t:cutoff|CO}}나 버튼의 {{t:open|오픈}}에 대해"
+  then: "{{t:open|오픈}} 금액의 약 {{n:pf.3bet.size-oop}}로 {{t:raise|레이즈}}합니다. {{n:pf.open-size}} {{t:open|오픈}}이라면 {{n:pf.3bet.oop-total}}입니다"
+  because: "플롭 이후 먼저 행동하게 되므로, 더 큰 {{t:raise|레이즈}}로 상대가 {{t:in-position|인 포지션}}에서 싸게 {{t:call|콜}}하지 못하게 합니다"
+  level: heuristic
+  check: { kind: three-bet-size, players: [6, 9], stackBb: [100], params: { mult: "n:pf.3bet.size-oop", position: oop } }
+  source: "교육 사이트, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide); 앱 솔버 트리"
+  sources: [{ kind: training, url: "https://deepfold.co/en/blog/three-bet-strategy-guide" }, { kind: solver-app }]
+- id: R-M4-003
+  module: m4
+  if: "{{t:small-blind|스몰 블라인드}}에 있고 {{t:cutoff|CO}}나 버튼이 {{t:open|오픈}}했을 때"
+  then: "거의 {{t:call|콜}}하지 않고 3벳하거나 {{t:fold|폴드}}합니다({{t:cutoff|CO}} 상대로는 단순화입니다: 공개된 해법은 버튼 상대 스팟을 계산한 것입니다). 버튼 상대로는 {{t:range|레인지}} 상단을 3벳하고(핸드의 약 {{n:pf.3bet-freq.sb-vs-btn}}, 예: 77+(55와 66도 자주), AJo+, KQo, A5s, A4s, T9s), 나머지는 {{t:fold|폴드}}합니다"
+  because: "{{t:small-blind|스몰 블라인드}}에서 {{t:call|콜}}하면 {{t:out-of-position|아웃 오브 포지션}}으로 플레이하게 되고, 뒤에 있는 {{t:big-blind|빅 블라인드}}가 아직 {{t:raise|레이즈}}할 수 있습니다. 3벳은 {{t:initiative|주도권}}과 {{t:pot|팟}}을 바로 가져올 기회를 줍니다"
+  level: gto
+  check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [vs-open.sb-vs-btn, nine.vs-open.sb-vs-btn] }
+  source: "솔버 차트 사이트, SB vs BTN (https://beyondgto.com/defense/sb-vs-btn), NL500, 100bb: “GTO defends the Small Blind with about 18% of hands - roughly 5% as a flat call and 13% as a 3-bet”, 55 3벳 57%, 66 62%; 상용 솔버 사이트, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, SB vs BTN: “the SB barely calls anything. Instead, they almost exclusively 3-bet or fold”, 스몰 블라인드 전체로 일반화: “As a simplification, don’t cold-call from the SB: Play a 3-bet or fold strategy.”; 교육 사이트, 3-Bet Preflop Strategy (https://upswingpoker.com/3-bet-strategy-aggressive-preflop/): “3-bet-or-fold strategies from every position except the Big Blind” (문서 10, 결정 B-045: R-M4-015 내용을 R-M4-003에 통합; 그래픽의 14% 수치를 확인한 본문 수치로 대체, E1)"
+  sources: [{ kind: solver-pub, url: "https://beyondgto.com/defense/sb-vs-btn" }, { kind: solver-pub, url: "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/" }, { kind: training, url: "https://upswingpoker.com/3-bet-strategy-aggressive-preflop/" }]
+- id: R-M4-004
+  module: m4
+  if: "{{t:big-blind|빅 블라인드}}에 있고, 버튼이 {{n:pf.open-size}}로 {{t:open|오픈}}했으며 {{t:small-blind|스몰 블라인드}}가 {{t:fold|폴드}}했을 때"
+  then: "넓게 방어합니다. {{t:call|콜}}에 필요한 에퀴티가 약 {{n:eq.bb-vs-btn-open}}뿐이기 때문입니다"
+  because: "큰 {{t:pot|팟}}에 조금만 더 내면 됩니다. 공개된 솔버 해법은 여기서 핸드의 약 {{n:pf.bb-def.vs-btn.pub.low}}–{{n:pf.bb-def.vs-btn.pub.high}}를 방어합니다"
+  level: heuristic
+  check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [vs-open.bb-vs-btn, nine.vs-open.bb-vs-btn] }
+  source: "가격 계산; 솔버 차트 사이트, BB vs BTN (https://beyondgto.com/defense/bb-vs-btn), NL500: “GTO defends the Big Blind with about 45% of hands”; 솔버 결과를 공개하는 교육 기관 (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), NL200: “3-bets 11.5% to 11bb and calls 29.0%”; 프로젝트의 프리플랍 솔버(ADR-20)는 그리드와 플레이/폴드 평가에만 쓰며, 전체 디펜스 비율은 검증되지 않았습니다(D-153)"
+  sources: [{ kind: math }, { kind: solver-pub, url: "https://beyondgto.com/defense/bb-vs-btn" }, { kind: solver-pub, url: "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide" }, { kind: solver-app }]
+- id: R-M4-005
+  module: m4
+  if: "{{t:position|포지션}}을 가진 상태에서 {{t:cutoff|CO}}의 {{t:open|오픈}}에 {{t:raise|레이즈}}할 때"
+  then: "주로 상단의 가장 좋은 핸드를 3벳하고, 수티드 에이스(A5s, A4s)로 {{t:bluff|블러프}}를 몇 개 섞습니다. 중간 핸드(예: 77–99, AJs, ATs, 수티드 {{t:connectors|커넥터}})는 혼합으로 플레이합니다: 일부는 3벳, 일부는 {{t:call|콜}}합니다. 버튼은 {{t:cutoff|CO}} 상대로 보통 핸드의 약 {{n:pf.3bet-freq.btn-vs-co.low}}–{{n:pf.3bet-freq.btn-vs-co.high}}를 3벳하고, 약 {{n:pf.call-freq.btn-vs-co.low}}–{{n:pf.call-freq.btn-vs-co.high}}를 {{t:call|콜}}합니다"
+  because: "상대가 자주 {{t:call|콜}}하므로, {{t:call|콜}}된 뒤의 {{t:pot|팟}}에서 잘 플레이되는 핸드가 필요합니다"
+  level: gto
+  check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [vs-open.btn-vs-co, nine.vs-open.btn-vs-co] }
+  source: "상용 솔버 사이트, Playing Calls From the Button in Cash Games (https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/), NL500, 100bb: “Against a CO open, BTN will 3-bet ~12% of hands, while calling only 5%.”; 솔버 차트 사이트, BTN vs CO (https://beyondgto.com/defense/btn-vs-co), NL500, 100bb: “roughly 9% as a flat call and 10% as a 3-bet”; 솔버 결과를 공개하는 교육 기관 (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), NL200: “the solver 3-bets 12.5% of hands to 7.5bb and calls only 3.0%”, “55–22 most of the time” 폴드; 구간은 2단계 출처 세 곳을 포괄하고, 구성은 그 공통 부분입니다: 상단 3벳, 중간 혼합(D-144; 이전 결정 A2, 문서 10). 앱 솔버는 이 분할을 재현하지 못하므로(거의 콜하지 않음), 그리드와 게임 모드 평가는 “플레이 / 폴드”만 확인합니다; 교육 사이트, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide), BTN vs CO 표: “QQ+, AKs, AKo, AQs (mixed), A5s, A4s…”; 한 교육 사이트(https://gtogecko.com/blog/gto-preflop-strategy)는 이 레인지를 리니어라고 부르고, 프리플랍 차트 사이트는 폴라라이즈드라고 부릅니다(문서 12 M4–M6, D-02)"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/playing-calls-from-the-button-in-cash-games/" }, { kind: solver-pub, url: "https://beyondgto.com/defense/btn-vs-co" }, { kind: solver-pub, url: "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide" }, { kind: training, url: "https://deepfold.co/en/blog/three-bet-strategy-guide" }, { kind: training, url: "https://gtogecko.com/blog/gto-preflop-strategy" }, { kind: training }]
+- id: R-M4-006
+  module: m4
+  if: "{{t:big-blind|빅 블라인드}}에서 버튼의 {{t:open|오픈}}에 {{t:raise|레이즈}}할 때"
+  then: "가장 강한 핸드(TT+, AQ+, AJs+)에 더해 {{t:call|콜}} {{t:range|레인지}} 하단의 {{t:bluff|블러프}}를 3벳합니다: A5s, 때때로 A4s, 수티드 {{t:connectors|커넥터}}. 중간·작은 {{t:pair|페어}}, KQo, 오프수트 에이스(AJo–A9o)는 보통 {{t:call|콜}}합니다"
+  because: "{{t:big-blind|빅 블라인드}}에서는 싸게 {{t:call|콜}}하고 액션을 닫으므로 중간 핸드는 {{t:call|콜}}한 뒤 더 많이 법니다. 3벳은 큰 {{t:pot|팟}}을 원하는 핸드와 {{t:call|콜}}당했을 때 잘 플레이되는 {{t:bluff|블러프}}에 남겨 둡니다(수티드 에이스는 AA와 AK를 블록합니다)"
+  level: gto
+  source: "상용 솔버 사이트, Crush 3-Bet Pots OOP in Cash Games (https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/), NL500, BB vs BTN: “TT+, AJs+, and AQo+ are 3-bet purely”, 블러프는 “near the bottom of our calling range”; 솔버 차트 사이트, BB vs BTN (https://beyondgto.com/defense/bb-vs-btn): “A5s · 3-bet 100%”. 이 규칙은 버튼의 오픈에만 적용됩니다(D-144): 스몰 블라인드 상대로는 2단계 출처들이 블러프에 대해 일치하지 않으므로(https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics: “A5s calls 96% of the time rather than turning into a three-bet bluff”; https://beyondgto.com/defense/bb-vs-sb: “A5s · 3-bet 4% · call 96%”; 상용 솔버 사이트, Range Morphology, https://blog.gtowizard.com/preflop-range-morphology/: 레인지 맨 아래의 블러프), 레슨에서는 스몰 블라인드 상대로 주로 밸류를 위해 3벳하고 A5s와 수티드 커넥터는 보통 콜한다고만 설명합니다; 솔버 결과를 공개하는 교육 기관, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide)와 Big blind defence (https://poker.academy/blog/post/big-blind-basics-explained-useful-tips-for-poker-players), NL200 및 NL50 GG; 교육 사이트, Blind vs Blind Without a Solver (https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics), 해당 사이트의 차트; 교육 사이트, 3-Bet Preflop Strategy (https://upswingpoker.com/3-bet-strategy-aggressive-preflop/), 해당 사이트의 솔버 차트. 단순화: 구성은 레이크와 3벳 크기에 따라 달라지며, 99, KQo, AJo는 혼합되기도 합니다(문서 10, 결정 B-045)"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/crush-3-bet-pots-oop-in-cash-games/" }, { kind: solver-pub, url: "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide" }, { kind: solver-pub, url: "https://beyondgto.com/defense/bb-vs-btn" }, { kind: training, url: "https://thinkgto.com/blog/blind-vs-blind-without-a-solver-heuristics" }, { kind: training, url: "https://upswingpoker.com/3-bet-strategy-aggressive-preflop/" }]
+- id: R-M4-007
+  module: m4
+  if: "플롭 이후 {{t:position|포지션}}을 가질 플레이어에게 3벳을 받았을 때"
+  then: "{{t:open|오픈}}한 핸드의 약 {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}}는 {{t:fold|폴드}}, 약 {{n:pf.vs3bet.call.low}}–{{n:pf.vs3bet.call.high}}는 {{t:call|콜}}, 약 {{n:pf.vs3bet.4bet.low}}–{{n:pf.vs3bet.4bet.high}}는 4벳합니다"
+  because: "{{n:alpha.vs-3bet-ip-size}}보다 자주 폴드하면 상대는 어떤 핸드로 3벳해도 이익을 보므로, 이 기준 바로 아래로 {{t:fold|폴드}}합니다"
+  level: heuristic
+  source: "출처들에 가까운 구간으로, 폴드의 상한은 계산한 기준 바로 아래로 잡았습니다(ADR-24): 솔버 결과를 공개하는 교육 기관, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), 솔버 NL200, 버튼의 7.5bb 3벳을 받은 CO: 폴드 63.7%, 콜 17.2%, 4벳 19.1%; 간소화된 교육용 차트 사이트, 간소화된 교육용 차트 (https://pailiku.com/charts/co-vs-btn-3bet), CO 오픈 레인지 기준으로 환산: 약 66/23/11; HUD 약 55% 폴드; 교육 사이트 50–55/30–40/5–8 (4단계, 차이 있음); 기준은 계산에서 도출(문서 12 M4–M6, D-04)"
+  sources: [{ kind: solver-pub, url: "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide" }, { kind: training, url: "https://pailiku.com/charts/co-vs-btn-3bet" }, { kind: training }, { kind: math }]
+- id: R-M4-008
+  module: m4
+  if: "3벳을 받았고 플롭 이후 {{t:out-of-position|아웃 오브 포지션}}이 될 때"
+  then: "주로 수티드 하이카드, 강한 수티드 에이스, 중간·높은 {{t:pair|페어}}, 일부 수티드 {{t:connectors|커넥터}}로 {{t:call|콜}}합니다. 더 약한 오프수트 핸드(KJo, ATo, QTo)는 {{t:fold|폴드}}합니다"
+  because: "오프수트 핸드는 도미네이트당하는 경우가 많고, {{t:out-of-position|아웃 오브 포지션}}에서는 {{t:equity-realization|에퀴티 실현}}이 잘 되지 않습니다"
+  level: heuristic
+  source: "교육 사이트, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide), CO vs BTN 3-bet: “Call QQ, JJ, TT, 99, 88, AQs, AJs, KQs, KJs, QJs, JTs, T9s, 77, 66 Fold Marginal offsuit broadways”; 간소화된 교육용 차트 사이트 (https://pailiku.com/charts/co-vs-btn-3bet): “Call JJ-77, AQs-ATs, AKs, KQs-KJs, QJs, JTs, T9s, 98s, 87s, 76s, 65s”; 교육 사이트, How to Play vs 3-Bets (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/): “calling with fewer suited connectors, suited gappers and offsuit broadway hands”"
+  sources: [{ kind: training, url: "https://deepfold.co/en/blog/three-bet-strategy-guide" }, { kind: training, url: "https://pailiku.com/charts/co-vs-btn-3bet" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]
+- id: R-M4-009
+  module: m4
+  if: "3벳을 받았고 플롭 이후 {{t:position|포지션}}을 가질 때"
+  then: "더 넓게 {{t:call|콜}}합니다: 66부터 TT까지의 {{t:pair|페어}}, 하이카드가 있는 수티드 핸드, 수티드 {{t:connectors|커넥터}}. 가장 낮은 {{t:pair|페어}}는 {{t:fold|폴드}}합니다"
+  because: "{{t:in-position|인 포지션}}에서는 에퀴티를 실현하기 쉽고, 적중했을 때 큰 {{t:pot|팟}}을 이기기 쉽습니다"
+  level: heuristic
+  source: "교육 사이트, How to Play vs 3-Bets (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/): 가장 낮은 페어는 “even with position” 폴드; 한 교육 사이트는 포지션이 있을 때 작은 페어로 콜하는 것을 허용합니다(문서 12 M4–M6, D-05)"
+  sources: [{ kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }, { kind: training }]
+- id: R-M4-010
+  module: m4
+  if: "AA, KK 또는 AK로 3벳을 받았을 때"
+  then: "보통 4벳합니다({{t:value|밸류}}를 위해). AK는 {{t:call|콜}}하기도 합니다"
+  because: "이 핸드들은 스택 전체를 넣고 싶어 하며, 4벳에 {{t:call|콜}}할 대부분의 핸드를 도미네이트합니다"
+  level: heuristic
+  source: "교육 사이트, How to Play vs 3-Bets (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/): AK “should be 4-bet with 100% frequency” (Button vs BB); 교육 사이트, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide): “4-bet value KK+, AKs (mixed), AKo (mixed)”; 간소화된 교육용 차트 사이트 (https://pailiku.com/charts/co-vs-btn-3bet): “4-bet QQ+, AKo, A5s-A4s Call JJ-77, AQs-ATs, AKs”"
+  sources: [{ kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }, { kind: training, url: "https://deepfold.co/en/blog/three-bet-strategy-guide" }, { kind: training, url: "https://pailiku.com/charts/co-vs-btn-3bet" }]
+- id: R-M4-011
+  module: m4
+  if: "4벳할 때"
+  then: "{{t:in-position|인 포지션}}에서는 3벳 금액의 약 {{n:pf.4bet.size-ip.low}}–{{n:pf.4bet.size-ip.high}}, {{t:out-of-position|아웃 오브 포지션}}에서는 {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}}로 {{t:raise|레이즈}}합니다"
+  because: "이런 4벳이 {{t:call|콜}}되면 스택에 {{t:pot|팟}}의 약 {{n:spr.4bet.high}}–{{n:spr.4bet.oop}}배가 남습니다({{t:in-position|인 포지션}}, 예: {{t:small-blind|스몰 블라인드}}의 {{n:pf.3bet.oop-total}} 3벳에 버튼이 4벳: 약 {{n:spr.4bet.high}}–{{n:spr.4bet}}; {{t:out-of-position|아웃 오브 포지션}}, 예: 버튼의 {{n:pf.3bet.ip-total}} 3벳에 {{t:cutoff|CO}}가 4벳: 약 {{n:spr.4bet.oop}}). 그래서 좋은 핸드는 나머지를 쉽게 넣을 수 있습니다"
+  level: heuristic
+  source: "솔버 결과를 공개하는 교육 기관, What is a 3-bet in poker (https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide), 솔버 NL200: 포지션 없는 CO가 17.2bb로 4벳, 즉 7.5bb 3벳의 2.3배; 교육 사이트, The Complete 3-Bet Strategy (https://deepfold.co/en/blog/three-bet-strategy-guide): 포지션 있을 때 2.2–2.5배, 포지션 없을 때 2.5–3배(예시에서는 2.4배); SPR은 계산에서 도출(문서 12 M4–M6, D-06)"
+  sources: [{ kind: solver-pub, url: "https://poker.academy/blog/post/what-is-a-3-bet-in-poker-a-theoretical-and-strategic-guide" }, { kind: training, url: "https://deepfold.co/en/blog/three-bet-strategy-guide" }, { kind: math }]
+- id: R-M4-012
+  module: m4
+  if: "앞에서 한 명 이상이 {{t:big-blind|빅 블라인드}}만 맞췄을 때(림프)"
+  then: "{{n:pf.iso.base}}에 림퍼 한 명당 {{n:pf.iso.per-limper}}를 더한 크기로 {{t:raise|레이즈}}하고, {{t:out-of-position|아웃 오브 포지션}}에서는 {{n:pf.iso.oop-extra}} 더 크게 합니다"
+  because: "더 작은 {{t:raise|레이즈}}는 림퍼들에게 너무 좋은 가격을 주고 핸드를 빼앗지 못합니다"
+  level: heuristic
+  check: { kind: iso-size, players: [6, 9], stackBb: [100], params: { base: "n:pf.iso.base", perLimper: "n:pf.iso.per-limper", oopExtra: "n:pf.iso.oop-extra" } }
+  source: "교육 사이트, 10 Tips for Crushing Limpers (https://www.pokernews.com/strategy/10-tips-that-will-help-you-destroy-limpers-32206.htm): “Raise to 3bb+1bb per limper when playing online, and 4bb+1bb per limper when playing live”; 프리플랍 차트 사이트, ISO Raise Strategy (https://www.preflopwizard.app/blog/poker-iso-raise-strategy): “Base open size (3bb) + 1 big blind per limper”, “Add 1bb more from OOP positions”. 이 크기는 온라인 게임 기준입니다"
+  sources: [{ kind: training, url: "https://www.pokernews.com/strategy/10-tips-that-will-help-you-destroy-limpers-32206.htm" }, { kind: training, url: "https://www.preflopwizard.app/blog/poker-iso-raise-strategy" }]
+- id: R-M4-013
+  module: m4
+  if: "앞에서 여러 명이 림프했을 때"
+  then: "더 좁은 {{t:range|레인지}}로, 주로 {{t:value|밸류}}를 위해 {{t:raise|레이즈}}합니다. 투기적 핸드(작은 {{t:pair|페어}}, 수티드 {{t:connectors|커넥터}})는 {{t:in-position|인 포지션}}에서 따라 들어가도 됩니다"
+  because: "림퍼가 한 명 늘 때마다 누군가 {{t:call|콜}}할 확률이 높아지므로 프리플롭 {{t:bluff|블러프}}의 가치가 떨어집니다"
+  level: heuristic
+  source: "프리플랍 차트 사이트, ISO Raise Strategy (https://www.preflopwizard.app/blog/poker-iso-raise-strategy): “Against multiple limpers, tighten each range by roughly one tier”, 따라 들어가는 것에 대해: “This is almost always wrong”; 교육 사이트 (https://www.pokernews.com/strategy/three-ways-to-respond-versus-a-table-full-of-limpers-26839.htm): “limp behind with those suited connectors, small pairs”; 교육 사이트 (https://www.pokernews.com/strategy/10-tips-that-will-help-you-destroy-limpers-32206.htm): “over-limping, which can be fine”. 4단계에서 상충: 두 플레이 모두 올바릅니다(ADR-04, D-144)"
+  sources: [{ kind: training, url: "https://www.preflopwizard.app/blog/poker-iso-raise-strategy" }, { kind: training, url: "https://www.pokernews.com/strategy/three-ways-to-respond-versus-a-table-full-of-limpers-26839.htm" }]
+- id: R-M4-014
+  module: m4
+  if: "{{t:big-blind|빅 블라인드}}에 있고 {{t:small-blind|스몰 블라인드}}가 {{n:pf.open-size-sb}}로 {{t:open|오픈}}했을 때"
+  then: "{{t:call|콜}}에 약 {{n:eq.bb-vs-sb-open}} 에퀴티가 필요하지만, 넓게, 핸드의 절반 이상을 방어합니다. 3벳은 {{t:open|오픈}} 금액의 약 {{n:pf.3bet.size-ip}}입니다"
+  because: "플롭 이후 {{t:position|포지션}}을 가지므로 에퀴티를 더 많이 실현합니다. 공개된 솔버 해법은 여기서 핸드의 약 {{n:pf.bb-def.vs-sb.pub}}를 방어합니다"
+  level: heuristic
+  check: { kind: solver-spot, players: [6, 9], stackBb: [100], spots: [vs-open.bb-vs-sb, nine.vs-open.bb-vs-sb] }
+  source: "가격 계산; 프로젝트의 프리플랍 솔버(ADR-20); 솔버 트리(3벳 9bb); 솔버 차트 사이트, BB vs SB (https://beyondgto.com/defense/bb-vs-sb), NL500, 100bb: “GTO defends the Big Blind with about 56% of hands”"
+  sources: [{ kind: solver-pub, url: "https://beyondgto.com/defense/bb-vs-sb" }, { kind: math }, { kind: solver-app }]
+
+# M5: c-bet na flopie. Pula po otwarciu i jednym sprawdzeniu, 100bb. Definicje tekstur liczy poker-core (texture.ts),
+# punkty i progi mokrości są w numbers.yaml (tex.*). Reguły strategiczne według rejestru decyzji D-01–D-21
+# (dokument 12 M4–M6); bez częstotliwości w procentach.
+- id: R-M5-001
+  module: m5
+  if: "플롭의 {{t:wetness|웻니스}} 점수가 {{n:tex.threshold.medium}}점 미만일 때: 여러 방법으로 가능한 {{t:straight|스트레이트}}(두 랭크 조합이 두 개 이상)는 {{n:tex.points.straight.made}}점, 한 가지 방법으로만 가능한 {{t:straight|스트레이트}}는 {{n:tex.points.straight.made-one}}점, {{t:straight-draw|스트레이트 드로우}}만 있으면 {{n:tex.points.straight.draw}}점, 같은 무늬 두 장은 {{n:tex.points.suits.two-tone}}점, 같은 무늬 세 장은 {{n:tex.points.suits.monotone}}점"
+  then: "{{t:dry|드라이}} 플롭입니다: {{t:draw|드로우}}가 적고, 아직 아무도 완성된 {{t:straight|스트레이트}}나 {{t:flush|플러시}}를 갖고 있지 않습니다"
+  because: "다음 카드가 선두를 바꾸는 일이 드물어, 플롭에서 가장 좋은 핸드가 보통 끝까지 가장 좋은 핸드로 남습니다"
+  level: rules
+  source: "앱의 텍스처 정의(poker-core, texture.ts: WETNESS_POINTS, WETNESS_THRESHOLDS); 드라이 플랍의 개념: 교육 사이트, Sizing Your C-Bets; 교육 사이트, What Is a Continuation Bet; 드라이 플랍 예시: 교육 사이트(K72r, A94r), 교육 사이트(AA6r); 드라이/중간 경계는 앱에서 정한 기준입니다"
+  sources: [{ kind: training }, { kind: training }]
+- id: R-M5-002
+  module: m5
+  if: "플롭의 {{t:wetness|웻니스}} 점수가 {{n:tex.threshold.wet}}점 이상일 때(점수는 {{t:dry|드라이}} 플롭 정의와 같습니다)"
+  then: "{{t:wet|웻}} 플롭입니다: 상대가 {{t:draw|드로우}}를 가진 경우가 많고, 때로는 이미 {{t:straight|스트레이트}}나 {{t:flush|플러시}}를 갖고 있습니다"
+  because: "다음 카드가 선두를 자주 바꾸므로, 지금 가장 좋은 핸드도 덜 안전합니다"
+  level: rules
+  source: "앱의 텍스처 정의(poker-core, texture.ts: WETNESS_POINTS, WETNESS_THRESHOLDS); 웻 플랍의 개념: 교육 사이트, Sizing Your C-Bets; 교육 사이트, What Is a Continuation Bet; 웻 플랍 예시: 교육 사이트(987, QJT), 교육 사이트, Bet Sizing Strategy: 8 Rules (T954, https://upswingpoker.com/bet-size-strategy-tips-rules/); 중간/웻 경계는 앱에서 정한 기준입니다"
+  sources: [{ kind: training, url: "https://upswingpoker.com/bet-size-strategy-tips-rules/" }, { kind: training }]
+- id: R-M5-003
+  module: m5
+  if: "프리플롭에 {{t:open|오픈}}했고 {{t:big-blind|빅 블라인드}}가 {{t:call|콜}}했으며, 플롭에 에이스나 킹이 있을 때"
+  then: "{{t:range-advantage|레인지 우위}}가 있습니다: 평균적으로 내 핸드가 상대 핸드보다 강합니다"
+  because: "{{t:big-blind|빅 블라인드}}는 AA, KK, AK 대부분을 프리플롭에 {{t:raise|레이즈}}하므로, {{t:call|콜}}만 했다면 그런 핸드가 적습니다. 반면 나는 그 핸드를 모두 갖고 있습니다"
+  level: heuristic
+  source: "상용 솔버 사이트, Range advantage(용어집); 상용 솔버 사이트, The Turn Probe Bet(“BB lacks the stronger Ace-highs because they would have 3-bet with them preflop”)"
+  sources: [{ kind: solver-pub }]
+- id: R-M5-004
+  module: m5
+  if: "프리플롭에 {{t:open|오픈}}했고, 플롭이 낮으며 {{t:connected|커넥티드}}이거나 {{t:semi-connected|세미 커넥티드}}일 때(예: 7-6-5)"
+  then: "높은 플롭보다 C벳을 덜 하고, 많은 핸드로 {{t:check|체크}}합니다"
+  because: "{{t:big-blind|빅 블라인드}}는 수티드 {{t:connectors|커넥터}}와 작은 {{t:pair|페어}}를 많이 방어하므로 {{t:two-pair|투페어}}나 {{t:straight|스트레이트}}를 더 자주 가집니다: {{t:nuts-advantage|너츠 우위}}는 상대에게 있습니다"
+  level: heuristic
+  check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
+  source: "조합론: 버튼은 55–77 페어를 모두 오픈하고 빅 블라인드는 이를 콜하므로, 셋의 수는 양쪽이 비슷합니다; 상용 솔버 사이트, Bullying the Blinds(654r에서 버튼은 레인지의 절반 이상을 체크; “Even on 654r… BB has less than 52% equity”)"
+  sources: [{ kind: solver-pub }, { kind: math }]
+- id: R-M5-005
+  module: m5
+  if: "내 {{t:range|레인지}}에 가장 강한 핸드가 상대보다 훨씬 많을 때({{t:nuts-advantage|너츠 우위}})"
+  then: "더 큰 사이즈로 베팅할 수 있습니다. {{t:range-advantage|레인지 우위}}만 있을 때는 작게 베팅합니다"
+  because: "큰 {{t:bet|베팅}}은 상대의 중간 핸드에서 더 많이 뽑아내고, 나를 {{t:raise|레이즈}}할 더 좋은 핸드를 만나는 일은 드뭅니다"
+  level: heuristic
+  source: "상용 솔버 사이트, The Mechanics of C-Bet Sizing; 상용 솔버 사이트, Range advantage(용어집)"
+  sources: [{ kind: solver-pub }]
+- id: R-M5-006
+  module: m5
+  if: "상대가 {{t:pair|페어}}가 아닌 핸드를 가지고 있을 때"
+  then: "약 {{n:flop.miss.unpaired}}의 경우 플롭이 상대 카드 중 어느 것과도 페어를 만들지 않습니다"
+  because: "알 수 없는 카드 {{n:cards.unseen.preflop}}장 중 상대 핸드와 페어가 되는 카드는 {{n:pair.outs.unpaired}}장뿐이고, 플롭은 {{n:cards.board.flop}}장뿐입니다"
+  level: math
+  source: "정확한 계산(poker-core); 포커 계산기 사이트와 일치(28.96% + 2.02% + 1.45% = 적중 32.4%)"
+  sources: [{ kind: training }, { kind: math }]
+- id: R-M5-007
+  module: m5
+  if: "프리플롭 {{t:aggressor|어그레서}}로서 {{t:position|포지션}}을 가지고 있고, 플롭이 {{t:dry|드라이}}하며 높을 때(예: 무늬가 모두 다른 K-7-2)"
+  then: "자주, 작게, {{t:pot|팟}}의 약 {{n:cbet.size.small}}로 C벳합니다(단순화: 이런 플롭에서 솔버는 {{t:overbet|오버벳}}도 사용합니다)"
+  because: "{{t:range-advantage|레인지 우위}}가 있고 상대의 약한 핸드는 거의 승산이 없습니다: 작은 {{t:bet|베팅}}으로도 그 핸드들을 {{t:fold|폴드}}시키기에 충분하고, 더 약한 {{t:pair|페어}}는 여전히 {{t:call|콜}}합니다"
+  level: heuristic
+  check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
+  source: "상용 솔버 사이트, Flop Heuristics: IP C-Betting in Cash Games(33%); 교육 사이트, Bet Sizing Strategy: 8 Rules(“Bet small (25-35% pot) on dry, static board textures”, https://upswingpoker.com/bet-size-strategy-tips-rules/); 교육 사이트, What Is a Continuation Bet(K72r); 교육 사이트, Picking the Proper C-Bet Sizing on Ace-High Boards(팟의 1/3)"
+  sources: [{ kind: training, url: "https://upswingpoker.com/bet-size-strategy-tips-rules/" }, { kind: solver-pub }, { kind: training }, { kind: training }]
+- id: R-M5-008
+  module: m5
+  if: "프리플롭 {{t:aggressor|어그레서}}로서 {{t:position|포지션}}을 가지고 있고, 플롭이 상대에게 {{t:draw|드로우}}를 많이 주지만 아직 {{t:straight|스트레이트}}는 불가능할 때(예: {{t:two-tone|투톤}} K-J-7)"
+  then: "C벳 빈도는 줄이고 사이즈는 키웁니다(예: {{t:pot|팟}}의 {{n:cbet.size.big}}). {{t:draw|드로우}}가 없는 중간 핸드는 더 자주 {{t:check|체크}}합니다. 이미 {{t:straight|스트레이트}}가 가능하면(예: J-T-8) 솔버는 더 작은 사이즈로 베팅합니다"
+  because: "상대의 {{t:draw|드로우}}는 에퀴티가 많으므로, 큰 {{t:bet|베팅}}으로 다음 카드에 비싼 값을 치르게 합니다"
+  level: heuristic
+  source: "상용 솔버 사이트, Flop Heuristics: IP C-Betting in Cash Games(“increased use of the 66% pot bet size, but decreased overall betting frequency”); 교육 사이트, Bet Sizing Strategy: 8 Rules(55–80%, https://upswingpoker.com/bet-size-strategy-tips-rules/); 교육 사이트, Picking the Proper C-Bet Sizing on Ace-High Boards(팟의 2/3)"
+  sources: [{ kind: training, url: "https://upswingpoker.com/bet-size-strategy-tips-rules/" }, { kind: solver-pub }, { kind: training }]
+- id: R-M5-009
+  module: m5
+  if: "프리플롭 {{t:aggressor|어그레서}}로서 {{t:position|포지션}}을 가지고 있고, 플롭이 {{t:paired|페어드}}일 때(예: Q-Q-6)"
+  then: "자주, 작게 C벳합니다"
+  because: "{{t:range-advantage|레인지 우위}}가 있고 {{t:paired|페어드}} 플롭에서는 {{t:draw|드로우}}가 생기기 어려우므로, {{t:pair|페어}}가 없는 상대는 작은 {{t:bet|베팅}}에도 {{t:call|콜}}하기 어렵습니다. 큰 {{t:bet|베팅}}은 이득이 없습니다. 양쪽 누구든 {{t:three-of-a-kind|트리플}}을 가질 수 있기 때문입니다"
+  level: heuristic
+  check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
+  source: "상용 솔버 사이트, Flop Heuristics: IP C-Betting in Cash Games(“Paired flops are bet significantly more often… only be bet for small sizing… reduced nut advantage from trips being in both player's ranges”; “On paired boards, it's also much harder to have a draw”)"
+  sources: [{ kind: solver-pub }]
+- id: R-M5-010
+  module: m5
+  if: "프리플롭 {{t:aggressor|어그레서}}로서 {{t:position|포지션}}을 가지고 있고, 플롭이 {{t:monotone|모노톤}}일 때(같은 무늬 세 장)"
+  then: "평소보다 C벳을 덜 하고, 작게 합니다"
+  because: "어느 플레이어든 이미 {{t:flush|플러시}}를 가질 수 있어 {{t:aggressor|어그레서}}의 {{t:nuts-advantage|너츠 우위}}가 줄어들고, 큰 {{t:pot|팟}}에서는 상대의 {{t:flush|플러시}}에 크게 잃습니다"
+  level: heuristic
+  source: "상용 솔버 사이트, Flop Heuristics: IP C-Betting in Cash Games(“Monotone boards see a drastic decrease in betting frequency and sizing”, BTN vs BB, https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/); 상용 솔버 사이트, The Mechanics of C-Bet Sizing(“when a very wet board like Q♦8♦7♦ is dealt, the bet sizing comes down again”, https://blog.gtowizard.com/the-mechanics-of-c-bet-sizing/): 웻 플랍이라고 해서 큰 베팅을 뜻하지는 않습니다; 교육 사이트, Monotone Flops(Kanu7, 솔버 결과: “c-betting half the time for a 25-33% pot sizing”, https://upswingpoker.com/monotone-flops-kanu7/); 결정 D-39(문서 12 M4–M6, 보고서 12a-22)"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/" }, { kind: training, url: "https://upswingpoker.com/monotone-flops-kanu7/" }]
+- id: R-M5-011
+  module: m5
+  if: "핸드가 전혀 없이 상대의 {{t:fold|폴드}}만 노리고 C벳할 때"
+  then: "{{t:pot|팟}}의 {{n:cbet.size.small}} {{t:bet|베팅}}이면 상대가 {{n:alpha.cbet.small}}보다 자주 {{t:fold|폴드}}해야 하고, {{t:pot|팟}}의 {{n:cbet.size.big}}이면 {{n:alpha.cbet.big}}보다 자주 폴드해야 합니다"
+  because: "{{t:pot|팟}}을 얻으려고 베팅 금액을 겁니다: 기준은 베팅 ÷ ({{t:pot|팟}} + 베팅)입니다"
+  level: math
+  source: "계산: 알파 = 베팅 / (팟 + 베팅)"
+  sources: [{ kind: math }]
+- id: R-M5-012
+  module: m5
+  if: "프리플롭에 {{t:open|오픈}}했고 상대가 {{t:position|포지션}}을 가진 채 {{t:call|콜}}했을 때(예: {{t:cutoff|CO}}에서의 내 {{t:open|오픈}}에 버튼이 콜)"
+  then: "{{t:in-position|인 포지션}}일 때보다 C벳을 덜 하고, 좋은 핸드로도 더 자주 {{t:check|체크}}합니다"
+  because: "{{t:position|포지션}}에서 {{t:call|콜}}한 플레이어의 {{t:range|레인지}}는 {{t:condensed|컨덴스드}}입니다: 약한 핸드는 {{t:fold|폴드}}했고 가장 강한 핸드 일부는 {{t:raise|레이즈}}했으므로 주로 중간 핸드와 좋은 핸드가 남아 있습니다. 게다가 플롭 이후 모든 {{t:street|스트리트}}에서 내가 먼저 행동합니다"
+  level: heuristic
+  source: "상용 솔버 사이트, C-Betting As the OOP Preflop Raiser(UTG vs BTN c벳 28%; “Even a hand like top pair top kicker is preferred to be played as a check-call”); 교육 사이트, C-Betting On Ace-High Boards(CO vs BTN, A94r: “we will check over 96% of the time”)"
+  sources: [{ kind: solver-pub }, { kind: training }]
+- id: R-M5-013
+  module: m5
+  if: "플롭에서 상대가 두 명 이상일 때"
+  then: "C벳을 훨씬 덜 하고, 주로 강한 핸드와 강한 {{t:draw|드로우}}로 합니다. {{t:bluff|블러프}}는 적게 하고, 베팅할 때는 작게 합니다"
+  because: "상대가 한 명 늘 때마다 누군가 적중했을 확률이 높아집니다: {{t:pair|페어}}가 없는 두 핸드가 동시에 빗나가는 경우는 약 {{n:flop.miss.two}}뿐입니다"
+  level: heuristic
+  source: "교육 사이트, Multiway Pots in Poker; 교육 사이트, C-Betting in Multiway Pots(“Check even pocket kings… the solver checks its entire range”; “around a quarter to a third of pot”); 정확한 계산: C(36,3)/C(48,3)"
+  sources: [{ kind: training }, { kind: training }, { kind: math }]
+
+# M6: obrona na flopie. Matematyka z formuł (numbers.yaml); zalecenia według rejestru decyzji D-22–D-38 (dokument 12
+# M4–M6) i D1 (dokument 12 M7–M9).
+- id: R-M6-001
+  module: m6
+  if: "상대가 리버에서 {{t:pot|팟}}의 1/3을 베팅할 때"
+  then: "이론상 {{t:range|레인지}}의 약 {{n:mdf.bet-third}}를 방어합니다({{t:call|콜}} 또는 {{t:raise|레이즈}}). 이것이 {{t:mdf|MDF}}입니다"
+  because: "승산 없는 {{t:bluff|블러프}}는 3을 얻으려고 1을 겁니다. {{n:alpha.bet-third}}보다 자주 {{t:fold|폴드}}하면 상대는 아무 카드로나 {{t:bluff|블러프}}해도 이익을 봅니다"
+  level: math
+  source: "계산: MDF = 팟/(팟+베팅); 교육 사이트, MDF in Poker: Why Most Players Misuse It (https://pokercoaching.com/blog/mdf-poker: “The framework is a starting point, not a rule”)"
+  sources: [{ kind: training, url: "https://pokercoaching.com/blog/mdf-poker" }, { kind: math }]
+- id: R-M6-002
+  module: m6
+  if: "이길 가능성이 없는 핸드로 {{t:bluff|블러프}}할 때"
+  then: "상대가 알파 = 베팅/({{t:pot|팟}}+베팅)보다 자주 {{t:fold|폴드}}하면 {{t:bluff|블러프}}는 이익입니다. {{t:pot|팟}} 절반 베팅이면 {{n:alpha.bet-half}}입니다"
+  because: "{{t:pot|팟}}을 얻으려고 베팅 금액을 겁니다. 베팅이 클수록 상대가 더 자주 {{t:fold|폴드}}해야 합니다"
+  level: math
+  source: "계산: 알파 = 베팅/(팟+베팅); 상용 솔버 사이트, MDF & Alpha (https://blog.gtowizard.com/mdf-alpha)"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/mdf-alpha" }, { kind: math }]
+- id: R-M6-003
+  module: m6
+  if: "{{t:out-of-position|아웃 오브 포지션}}에서 플롭 베팅을 받았을 때"
+  then: "{{t:mdf|MDF}}가 가리키는 것보다 적게 방어해도 됩니다(디펜더에게 불리한 플롭에서는 눈에 띄게 적게). {{t:mdf|MDF}}는 의무가 아니라 기준점으로 삼되, 작은 C벳에 대량으로 {{t:fold|폴드}}하지는 않습니다"
+  because: "상대의 {{t:bluff|블러프}}도 아직 에퀴티가 있어 좋아질 수 있고, {{t:out-of-position|아웃 오브 포지션}}에서는 약한 핸드의 에퀴티를 모두 실현하지 못합니다"
+  level: heuristic
+  source: "상용 솔버 사이트, MDF & Alpha (https://blog.gtowizard.com/mdf-alpha: “On average, BB is consistently over-folding to all bet sizes on the flop”; 포지션이 있을 때는 “calls much closer to MDF on average”); 턴의 한 예시에서 솔버는 평균적으로 MDF에 가깝게 디펜드했습니다: 교육 사이트, What the Best Poker Pros Already Know About Playing vs. Double Barrels (https://upswingpoker.com/vs-double-barrels-turn/); 작은 c벳에 대한 디펜스: R-M6-006"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/mdf-alpha" }, { kind: training, url: "https://upswingpoker.com/vs-double-barrels-turn/" }]
+- id: R-M6-004
+  module: m6
+  if: "관찰해 보니 {{t:bluff|블러프}}를 거의 하지 않는 플레이어가 리버에서 크게 {{t:bet|베팅}}할 때"
+  then: "{{t:mdf|MDF}}가 가리키는 것보다 더 자주 {{t:fold|폴드}}하며, 중간 {{t:pair|페어}}도 폴드합니다"
+  because: "{{t:mdf|MDF}}는 상대가 충분히 자주 {{t:bluff|블러프}}한다고 가정합니다. {{t:bluff|블러프}}가 부족하면 약한 핸드로 한 {{t:call|콜}}은 주로 더 좋은 핸드에 돈을 내주는 것입니다"
+  level: exploit
+  population: "테이블에서 관찰한 특정 플레이어. 모집단 데이터(표본, 스테이크, 포커룸)가 없으므로, 이 규칙은 어떤 플레이어 집단 전체가 블러프를 적게 한다고 가정하지 않습니다. 두 교육 사이트의 코치들이 로우 스테이크의 수동적인 레크리에이션 플레이어(재미로 플레이하며 보통 단골 플레이어보다 약함)를 이렇게 묘사하지만, 핸드 데이터베이스 수치는 없습니다"
+  source: "교육 사이트, Bluff Catching: When to Call and When to Let It Go (https://deepfold.co/en/blog/bluff-catching-principles: 수동적인 레크리에이션 플레이어는 리버에서 큰 베팅으로 블러프하지 않습니다); 교육 사이트, MDF in Poker: Why Most Players Misuse It (https://pokercoaching.com/blog/mdf-poker: “In low-stakes games, most players will bluff way less”)"
+  sources: [{ kind: training, url: "https://deepfold.co/en/blog/bluff-catching-principles" }, { kind: training, url: "https://pokercoaching.com/blog/mdf-poker" }]
+- id: R-M6-005
+  module: m6
+  if: "상대가 더 크게 {{t:bet|베팅}}할 때"
+  then: "더 좁은 {{t:range|레인지}}로 방어합니다: {{t:pot|팟}}의 1/3 베팅이면 {{t:mdf|MDF}}는 {{n:mdf.bet-third}}, {{t:pot|팟}} 크기 베팅이면 {{n:mdf.bet-pot}}입니다"
+  because: "베팅이 클수록 가격이 나빠집니다: 필요 에퀴티가 {{n:eq.bet-third}}에서 {{n:eq.bet-pot}}로 올라갑니다"
+  level: math
+  source: "계산: MDF = 팟/(팟+베팅), 필요 에퀴티 = 베팅/(팟+2·베팅)"
+  sources: [{ kind: math }]
+- id: R-M6-006
+  module: m6
+  if: "{{t:big-blind|빅 블라인드}}에서 작은 C벳(약 {{t:pot|팟}}의 1/3)을 받았을 때"
+  then: "거의 모든 {{t:pair|페어}}, {{t:draw|드로우}}, 추가 {{t:draw|드로우}}(백도어)가 있는 하이카드, 그리고 보통 에이스 하이까지 계속합니다. {{t:pair|페어}}도 {{t:draw|드로우}}도 없는 가장 약한 핸드는 {{t:fold|폴드}}합니다"
+  because: "필요한 에퀴티가 약 {{n:eq.bet-third}}뿐이고, 이 핸드들은 이미 {{t:bluff|블러프}}를 이기거나 좋아질 수 있습니다"
+  level: heuristic
+  source: "교육 사이트, Defending the BB on High Card Boards(솔버: “we will continue with pretty much all pairs including the underpairs and even A-high hands”)"
+  sources: [{ kind: training }]
+- id: R-M6-007
+  module: m6
+  if: "{{t:pair|페어}}도 {{t:draw|드로우}}도 없는 하이카드 두 장을 가졌고, C벳이 클 때({{t:pot|팟}}의 3/4 이상)"
+  then: "보통 {{t:fold|폴드}}합니다(다만 킹이 있는 {{t:dry|드라이}} 플롭에서는 솔버가 에이스 핸드를 많이 {{t:call|콜}}합니다)"
+  because: "{{t:out-of-position|아웃 오브 포지션}}에서 이런 핸드는 쇼다운까지 가는 일이 드물고, 하이카드로 만든 {{t:pair|페어}}도 어차피 지는 경우가 많습니다. 추가 {{t:draw|드로우}}가 있을 때, 가능하면 가장 높은 {{t:flush|플러시}}를 향한 드로우일 때 {{t:call|콜}}하는 편이 낫습니다"
+  level: heuristic
+  source: "교육 사이트, When to Call With Ace-High(J42, 66%: “the solver does not call with any Ace-high hand that doesn't have a significant backdoor draw”); 교육 사이트, Defending the BB on High Card Boards(K84: 솔버는 팟의 2/3 베팅에도 일부 에이스로 콜합니다)"
+  sources: [{ kind: training }, { kind: training }]
+- id: R-M6-008
+  module: m6
+  if: "플롭에서 체크레이즈를 하고 싶을 때"
+  then: "주로 가장 강한 핸드({{t:two-pair|투페어}}, 셋)와 {{t:draw|드로우}}({{t:flush|플러시}}, {{t:oesd|OESD}})로 합니다. 중간 {{t:pair|페어}}는 보통 {{t:call|콜}}합니다(단순화: 작은 C벳에 대해 솔버는 보호를 위해 일부 {{t:top-pair|탑 페어}}와 약한 {{t:pair|페어}}도 {{t:raise|레이즈}}합니다)"
+  because: "체크레이즈 후 더 약한 핸드는 보통 {{t:fold|폴드}}하고 더 강한 핸드는 돈을 내므로, 중간 {{t:pair|페어}}는 체크레이즈로 얻는 것이 거의 없습니다. {{t:draw|드로우}}는 이기는 길이 두 가지입니다: 상대의 {{t:fold|폴드}} 또는 적중"
+  level: heuristic
+  source: "교육 사이트, 5 Winning Check-Raising Strategies(솔버는 “check-raise all sorts of top pairs versus small bets”); 교육 사이트(솔버 차트)(셋과 드로우로 체크레이즈, 보호를 위한 약한 페어)"
+  sources: [{ kind: training }]
+- id: R-M6-009
+  module: m6
+  if: "C벳이 작거나, 플롭이 낮고 {{t:connected|커넥티드}}일 때(예: 7-6-5)"
+  then: "체크레이즈를 더 자주 합니다. 레이저에게 유리한 높은 플롭(예: K-J-T, A-A-K)과 큰 C벳에 대해서는 덜 합니다"
+  because: "낮은 플롭에서는 {{t:big-blind|빅 블라인드}}가 가장 강한 족보를 더 많이 가지고({{t:nuts-advantage|너츠 우위}}), 작은 C벳은 {{t:raise|레이즈}}할 싼 기회를 줍니다"
+  level: heuristic
+  source: "교육 사이트, How to Check-Raise Like a High Stakes Juggernaut(레이즈하지 말아야 할 플랍: K♣J♥T♠, Q♥J♦T♠, A♥A♠K♥; 체크레이즈 비율은 팟 33% 베팅 상대 12.65%, 66% 베팅 상대 8.66%); 상용 솔버 사이트(“The larger the BTN bets, the less BB raises”)"
+  sources: [{ kind: solver-pub }, { kind: training }]
+- id: R-M6-010
+  module: m6
+  if: "플롭에서 체크레이즈할 때"
+  then: "C벳 금액의 약 {{n:xr.mult.low}}–{{n:xr.mult.example}}로 {{t:raise|레이즈}}하고, C벳이 작을수록 더 크게 합니다. 최소 레이즈는 하지 않습니다"
+  because: "C벳의 {{n:xr.mult.example}}로 체크레이즈하면 버튼은 {{t:call|콜}}에 약 {{n:eq.vs-xr.example}} 에퀴티가 필요하지만, C벳의 {{n:xr.too-small.mult}}면 {{n:eq.vs-xr.too-small}}만 있으면 됩니다. 그렇게 싸면 어떤 {{t:draw|드로우}}로든 콜합니다"
+  level: heuristic
+  source: "가격 계산: 콜 금액/(레이즈 후 팟 + 콜 금액); 교육 사이트, Level-Up Podcast ep. 1(Blackwood): 작은 c벳 상대 4.5배, 큰 c벳 상대 3.2배 (https://upswingpoker.com/podcast/ep1-check-raise/); 상용 솔버 사이트와 방향 일치: 베팅이 작을수록 배수가 큽니다"
+  sources: [{ kind: training, url: "https://upswingpoker.com/podcast/ep1-check-raise/" }, { kind: solver-pub }, { kind: math }]
+- id: R-M6-011
+  module: m6
+  if: "{{t:bluff|블러프}}나 {{t:semi-bluff|세미 블러프}}로 체크레이즈를 고려할 때"
+  then: "주로 강한 {{t:draw|드로우}}를 고릅니다. 상대가 {{t:fold|폴드}}를 덜 할수록 이런 {{t:bluff|블러프}}를 줄이고, 거의 {{t:fold|폴드}}하지 않는다면 주로 {{t:value|밸류}}를 위해 체크레이즈합니다"
+  because: "{{t:bluff|블러프}}는 상대가 알파보다 자주 {{t:fold|폴드}}할 때만 이익입니다(R-M6-002). 강한 {{t:draw|드로우}}는 적중해도 이기므로 {{t:fold|폴드}}가 부족할 때 손실이 가장 적습니다"
+  level: heuristic
+  source: "알파에서 도출(R-M6-002): 블러프에는 상대의 폴드가 필요합니다; 교육 사이트, 5 Winning Check-Raising Strategies(“tighten your bluffing range to include only strong draws”)"
+  sources: [{ kind: training }, { kind: math }]
+
+# M7: turn. Matematyka z formuł (numbers.yaml); zalecenia z literatury jako heurystyki, bez częstotliwości.
+# Źródła przeczytane i potwierdzone w dokumencie 12 „Weryfikacja źródeł — M7–M9” (decyzje D1–D9).
+- id: R-M7-001
+  module: m7
+  if: "{{t:position|포지션}}에서 플롭에 C벳했고 상대가 {{t:call|콜}}했는데, 낮은 {{t:board|보드}}에 턴으로 높은 카드(에이스나 킹)가 떨어졌을 때"
+  then: "{{t:second-barrel|세컨드 배럴}}을 더 자주 {{t:bet|베팅}}하며, {{t:bluff|블러프}}로도 합니다"
+  because: "이 카드는 보통 디펜더의 {{t:range|레인지}}보다 내 {{t:open|오픈}} {{t:range|레인지}}에 더 자주 맞고, 상대의 모든 {{t:pair|페어}}가 한 단계씩 밀려납니다"
+  level: heuristic
+  source: "상용 솔버 사이트, The Worst Turn Card; 교육 사이트, When to Fire a Second Barrel; 교육 사이트, When to Double Barrel the Turn as a Bluff"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
+- id: R-M7-002
+  module: m7
+  if: "턴에서 {{t:second-barrel|세컨드 배럴}}로 {{t:bluff|블러프}}할 때"
+  then: "상대가 주로 {{t:fold|폴드}}하거나 {{t:call|콜}}한다면 보통 아웃이 있는 핸드({{t:flush-draw|플러시 드로우}}, {{t:straight|스트레이트}} 드로우, 하이카드가 있는 거트샷)로 {{t:bluff|블러프}}합니다. 상대가 {{t:raise|레이즈}}할 수 있다면 솔버는 아웃 없는 핸드로도 {{t:bluff|블러프}}합니다(단순화: 선택은 상대의 대응 방식에 달려 있습니다)"
+  because: "{{t:semi-bluff|세미 블러프}}는 두 가지로 이깁니다: 상대가 {{t:fold|폴드}}할 때, 또는 리버에서 적중할 때. 아웃 없는 {{t:bluff|블러프}}는 첫 번째 길뿐입니다(스택 약 {{n:format.stack}})"
+  level: heuristic
+  source: "상용 솔버 사이트, From Gutshots to Airballs: Choosing Your Bluffs; 교육 사이트를 운영하는 코치, The Double Barrel Checklist; 교육 사이트, When to Double Barrel the Turn as a Bluff(약 100bb 기준)"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
+- id: R-M7-003
+  module: m7
+  if: "턴에서 중간 핸드(예: {{t:second-pair|세컨드 페어}}나 키커가 약한 {{t:top-pair|탑 페어}})를 가졌고, 상대가 이미 C벳에 {{t:call|콜}}했을 때"
+  then: "두 번째 베팅 대신 더 자주 {{t:check|체크}}합니다"
+  because: "플롭에서 {{t:call|콜}}한 뒤 상대의 {{t:range|레인지}}는 그 전보다 강합니다: 베팅하면 더 약한 핸드는 {{t:fold|폴드}}하고 더 강한 핸드는 돈을 냅니다. {{t:check|체크}}하면 {{t:pot|팟}}을 작게 유지하고 쇼다운까지 갑니다"
+  level: heuristic
+  source: "상용 솔버 사이트(Brokos), Principles of Turn Strategy; 교육 사이트, Poker Basics: Polarised Ranges; 상용 솔버 사이트, Poker: The Battle for Information"
+  sources: [{ kind: solver-pub }, { kind: training }]
+- id: R-M7-004
+  module: m7
+  if: "턴에서 혼자서는 거의 이길 수 없는 핸드로 {{t:bluff|블러프}}할 때"
+  then: "{{t:pot|팟}}의 3/4 베팅이면 상대가 {{n:alpha.bet-three-quarters}}보다, {{t:pot|팟}}의 절반 베팅이면 {{n:alpha.bet-half}}보다 자주 {{t:fold|폴드}}해야 합니다"
+  because: "{{t:pot|팟}}을 얻으려고 베팅 금액을 겁니다: 기준은 베팅 ÷ ({{t:pot|팟}} + 베팅)입니다. 가진 아웃이 있다면 이 기준이 낮아집니다"
+  level: math
+  source: "계산: 알파 = 베팅/(팟+베팅)"
+  sources: [{ kind: math }]
+- id: R-M7-005
+  module: m7
+  if: "턴에서 {{t:polarized|폴라라이즈드}} {{t:range|레인지}}로 베팅할 때(매우 강한 핸드와 {{t:draw|드로우}}가 있는 {{t:semi-bluff|세미 블러프}}, 중간 핸드 없음)"
+  then: "큰 사이즈(예: {{t:pot|팟}}의 3/4)를 고르고, 중간 핸드는 {{t:check|체크}}합니다"
+  because: "강한 핸드는 리버 전에 {{t:pot|팟}}을 키우고 싶어 하고, {{t:bluff|블러프}}에는 {{t:fold|폴드}}가 필요하며, 중간 핸드는 큰 {{t:pot|팟}}에서 얻는 것이 없습니다"
+  level: heuristic
+  source: "교육 사이트, Polarized vs Merged Ranges(정의); 교육 사이트, Polarised Ranges; 상용 솔버 사이트, The Worst Turn Card"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
+- id: R-M7-006
+  module: m7
+  if: "턴에서 강한 핸드를 가졌고 상대가 {{t:flush-draw|플러시 드로우}}를 가졌을 수 있을 때"
+  then: "크게 베팅합니다: {{t:pot|팟}}의 3/4 베팅에 {{t:draw|드로우}}는 에퀴티 {{n:eq.bet-three-quarters}}가 필요한데, 실제로는 약 {{n:odds.flush.turn-river}}입니다"
+  because: "{{t:pot|팟}}의 1/4 베팅이면 {{n:eq.bet-quarter}}로 충분하므로, 작은 베팅은 {{t:draw|드로우}}에 좋은 가격을 줍니다"
+  level: math
+  source: "계산: 필요 에퀴티 = 베팅/(팟+2·베팅), 확률 = 아웃 ÷ 알 수 없는 카드; 방향(강하지만 취약한 핸드는 크게 베팅): 교육 사이트, How Much Should You Bet on Connected Boards?"
+  sources: [{ kind: training }, { kind: math }]
+- id: R-M7-007
+  module: m7
+  if: "턴에서 {{t:draw|드로우}}를 가졌을 때"
+  then: "카드 한 장 기준으로 확률을 셉니다: {{t:flush|플러시}}는 약 {{n:odds.flush.turn-river}}이며, 플롭에서 리버까지처럼 {{n:odds.flush.flop-river}}가 아닙니다"
+  because: "리버까지 카드가 한 장 남았으므로, 플롭에서 두 장으로 계산한 확률의 대략 절반입니다"
+  level: math
+  check: { kind: draw-price, streets: [turn] }
+  source: "정확한 계산(poker-core)"
+  sources: [{ kind: math }]
+- id: R-M7-008
+  module: m7
+  if: "턴에서 {{t:draw|드로우}}의 가격이 너무 높을 때(필요한 것보다 에퀴티가 적을 때)"
+  then: "적중했을 때 합계로 최소 콜 금액 × (빗나가는 카드 ÷ 아웃)을 이길 수 있을 때만 {{t:call|콜}}합니다. {{t:pot|팟}}을 넘는 부분이 임플라이드 오즈입니다"
+  because: "그러면 적중했을 때의 이익이 빗나갔을 때의 손실을 메웁니다. 플러시 드로우로 {{t:pot|팟}} {{n:ex.third.pot}}에 베팅 {{n:io.flush.bet}}를 받았다면 {{t:pot|팟}}을 넘어 {{n:io.flush.extra}}가 필요합니다"
+  level: math
+  check: { kind: implied-odds, streets: [flop, turn], params: { sprMin: "n:spr.zone.mid" } }
+  source: "EV 계산: 에퀴티 × (팟 + 추가 이익) = (1 − 에퀴티) × 콜 금액"
+  sources: [{ kind: math }]
+- id: R-M7-009
+  module: m7
+  if: "임플라이드 오즈를 기대할 때"
+  then: "상대에게 {{t:chips|칩}}이 충분히 남아 있고(높은 {{t:spr|SPR}}), 내 {{t:draw|드로우}}가 최고의 핸드를 향하며, 적중이 눈에 띄지 않을 때만 믿습니다"
+  because: "추가 {{t:chips|칩}}은 상대가 더 내줘야 합니다. {{t:spr|SPR}}이 낮으면 받아낼 칩이 없고, 눈에 띄는 적중(예: {{t:board|보드}}의 세 번째 하트)은 상대를 겁먹게 합니다"
+  level: heuristic
+  source: "교육 사이트를 운영하는 코치, Implied Odds Calculator; 교육 사이트, Implied Odds"
+  sources: [{ kind: training }, { kind: training }]
+- id: R-M7-010
+  module: m7
+  if: "낮은 {{t:flush|플러시}}를 향한 {{t:draw|드로우}}를 가졌거나, {{t:board|보드}}에 {{t:flush|플러시}}가 생길 수 있는 상황에서 {{t:straight|스트레이트}}를 향한 드로우를 가졌을 때"
+  then: "더 신중하게 {{t:call|콜}}하고 아웃을 적게 셉니다"
+  because: "적중해도 더 좋은 핸드에 지는 경우가 있고, 그때 가장 많이 잃습니다(리버스 임플라이드 오즈)"
+  level: heuristic
+  source: "교육 사이트, Back to Basics (Part 2): Reverse Implied Odds; 교육 사이트를 운영하는 코치, Implied Odds Calculator"
+  sources: [{ kind: training }, { kind: training }]
+- id: R-M7-011
+  module: m7
+  if: "{{t:big-blind|빅 블라인드}}를 방어했는데, 버튼이 {{t:open|오픈}} 후 플롭에서 C벳하지 않았을 때({{t:check|체크}})"
+  then: "턴에서 직접 베팅하는 빈도를 높입니다(프로브 벳). 특히 낮은 보드에서 그렇고, 에이스나 킹이 있는 보드에서는 덜 합니다"
+  because: "버튼은 강한 핸드가 많으면 베팅했을 것이므로, {{t:check|체크}}한 뒤에는 그런 핸드가 적습니다. 다만 높은 보드에서는 {{t:range-advantage|레인지 우위}}가 여전히 버튼에게 있습니다"
+  level: heuristic
+  source: "상용 솔버 사이트, The Turn Probe Bet; 교육 사이트, Turn Probe(Kanu7); 교육 사이트, Probe Betting Explained"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
+- id: R-M7-012
+  module: m7
+  if: "턴에서 프로브 {{t:bet|베팅}}을 할 때"
+  then: "돈을 받고 싶고 보호가 필요한 {{t:pair|페어}}, 그리고 강한 {{t:draw|드로우}}로 베팅합니다. {{t:pair|페어}}도 아웃도 없는 핸드는 {{t:check|체크}}합니다"
+  because: "{{t:pair|페어}}는 버튼의 더 약한 핸드에서 이익을 얻고 공짜 카드를 주지 않습니다. {{t:draw|드로우}}는 두 가지로 이기고, 빈 핸드는 얻는 것이 없습니다"
+  level: heuristic
+  source: "상용 솔버 사이트, The Turn Probe Bet; 교육 사이트, Turn Probe(Kanu7); 교육 사이트, Probe Betting Explained"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
+- id: R-M7-013
+  module: m7
+  if: "플롭에서 C벳에 {{t:call|콜}}했는데 상대가 턴에서 다시 베팅할 때"
+  then: "플롭보다 좁게 방어합니다: {{t:draw|드로우}}는 가격이 좋거나 임플라이드 오즈가 있을 때만 {{t:call|콜}}하고, 아웃 없는 핸드와 가장 약한 {{t:pair|페어}}는 {{t:fold|폴드}}합니다"
+  because: "상대는 C벳보다 좁은 {{t:range|레인지}}로, 보통 더 큰 사이즈로 {{t:second-barrel|세컨드 배럴}}을 {{t:bet|베팅}}하며, {{t:draw|드로우}}에게는 카드가 한 장만 남았습니다"
+  level: heuristic
+  source: "교육 사이트, What the Best Poker Pros Already Know About Playing vs. Double Barrels"
+  sources: [{ kind: training }]
+
+# M8: river. Matematyka z formuł (numbers.yaml); zalecenia z literatury jako heurystyki, bez częstotliwości.
+# Źródła przeczytane i potwierdzone w dokumencie 12 (decyzje D10–D17). Reguł eksploatacyjnych brak (R-M6-004: obserwacja konkretnego gracza, bez danych o populacji, D-149).
+- id: R-M8-001
+  module: m8
+  if: "리버에서 {{t:in-position|인 포지션}}으로 {{t:value|밸류}} 베팅을 하고 싶고, 상대는 {{t:call|콜}}이나 {{t:fold|폴드}}만 할 수 있을 때"
+  then: "{{t:call|콜}}할 핸드의 {{n:value.threshold}} 넘게 내 핸드보다 약할 때 베팅합니다. 상대의 모든 핸드가 아니라 돈을 낼 핸드만 셉니다"
+  because: "더 약한 핸드의 {{t:call|콜}}마다 베팅 하나를 벌고, 더 강한 핸드의 {{t:call|콜}}마다 베팅 하나를 잃습니다. 상대가 더 약한 핸드로 {{t:fold|폴드}}하면 {{t:check|체크}}했을 때와 같은 {{t:pot|팟}}을 얻습니다"
+  level: math
+  source: "계산: 체크 대비 베팅의 기대값(M8 커리큘럼: 밸류 벳은 콜을 받았을 때 절반 넘게 이기는 베팅입니다)"
+  sources: [{ kind: math }]
+- id: R-M8-002
+  module: m8
+  if: "리버에서 {{t:in-position|인 포지션}}으로 중간 핸드를 가졌고, 상대의 더 약한 핸드가 베팅에 돈을 내지 않을 때"
+  then: "{{t:check|체크}}하고 무료로 쇼다운에 갑니다"
+  because: "베팅하면 더 약한 핸드는 {{t:fold|폴드}}하고 더 강한 핸드가 돈을 내므로(또는 {{t:raise|레이즈}}하므로), 베팅이 쇼다운 가치가 있는 핸드를 {{t:bluff|블러프}}로 바꿔 버립니다"
+  level: heuristic
+  source: "R-M8-001에서 도출; 상용 솔버 사이트, Mastering Thin Value Bets in Checked-Down Pots; 교육 사이트, River; 교육 사이트, Polarized vs Merged Ranges"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: training }, { kind: math }]
+- id: R-M8-003
+  module: m8
+  if: "리버에서 내 핸드가 {{t:call|콜}}할 수 있는 핸드의 절반을 조금 넘게만 이길 때(씬 밸류)"
+  then: "상대가 {{t:raise|레이즈}}를 거의 하지 않으면 강한 핸드보다 작게, 보통 {{t:pot|팟}}의 약 1/4–1/2로 베팅합니다(단순화: {{t:position|포지션}}이 있는 상태에서 체크레이즈 위험이 있으면 {{t:pot|팟}}의 1/2 아래로는 거의 내려가지 않습니다)"
+  because: "작은 베팅에는 상대의 더 약한 핸드도 {{t:call|콜}}합니다. 큰 베팅에는 주로 더 강한 핸드가 {{t:call|콜}}하므로, 더 약한 핸드의 {{t:call|콜}}이 더 강한 핸드의 콜보다 많지 않게 됩니다"
+  level: heuristic
+  source: "상용 솔버 사이트, River Refinements; 상용 솔버 사이트, Mastering Thin Value Bets in Checked-Down Pots; 교육 사이트, Bluff Catching Principles"
+  sources: [{ kind: solver-pub }, { kind: training }]
+- id: R-M8-004
+  module: m8
+  if: "리버에서 매우 강한 핸드와 {{t:bluff|블러프}}로 이루어진 {{t:range|레인지}}로 {{t:pot|팟}} 전체를 베팅할 때"
+  then: "균형 상태에서 베팅의 약 {{n:bluff.share.bet-pot}}가 {{t:bluff|블러프}}입니다. 일반적으로 {{t:bluff|블러프}} 비율 = 베팅 ÷ ({{t:pot|팟}} + 2·베팅)입니다"
+  because: "그러면 {{t:bluff|블러프}}만 이기는 상대 핸드가 정확히 필요한 에퀴티({{n:eq.bet-pot}})를 갖게 됩니다: {{t:call|콜}}로도 {{t:fold|폴드}}로도 이익이 없으므로 나를 익스플로잇할 수 없습니다"
+  level: math
+  source: "계산: 블러프 캐처 핸드의 무차별 조건(단순화 모델: 블러프 캐처를 상대하는 폴라라이즈드 레인지); 상용 솔버 사이트, How to Solve Toy Games"
+  sources: [{ kind: solver-pub }, { kind: math }]
+- id: R-M8-005
+  module: m8
+  if: "리버에서 {{t:polarized|폴라라이즈드}} {{t:range|레인지}}로 베팅 사이즈를 바꿀 때"
+  then: "베팅이 클수록 {{t:bluff|블러프}}를 많이, 작을수록 적게 넣습니다: {{t:pot|팟}}의 1/3이면 약 {{n:bluff.share.bet-third}}, {{t:pot|팟}} 전체면 약 {{n:bluff.share.bet-pot}}"
+  because: "베팅이 클수록 상대가 받는 가격이 나빠지므로, 상대의 {{t:call|콜}}이 이익이 되려면 내 {{t:range|레인지}}에 {{t:bluff|블러프}}가 더 많아야 합니다"
+  level: math
+  source: "계산: 블러프 비율 = 베팅/(팟+2·베팅)"
+  sources: [{ kind: math }]
+- id: R-M8-006
+  module: m8
+  if: "리버에서 어떤 핸드로 {{t:bluff|블러프}}할지 고를 때"
+  then: "쇼다운에서 이길 수 없는 가장 약한 핸드로 {{t:bluff|블러프}}합니다(예: 빗나간 {{t:straight|스트레이트}} {{t:draw|드로우}}나 승산 없는 하이카드). 쇼다운 가치가 있는 핸드는 {{t:check|체크}}합니다"
+  because: "{{t:check|체크}}하면 자주 이기는 핸드로 {{t:bluff|블러프}}하면 그 승리를 버리게 됩니다. 승산 없는 핸드는 {{t:bluff|블러프}}가 실패해도 잃을 것이 없습니다"
+  level: heuristic
+  source: "상용 솔버 사이트, We're At The River. Our Hand Can't Win. Now What?; 교육 사이트, Polarized vs Linear Ranges"
+  sources: [{ kind: solver-pub }, { kind: training }]
+- id: R-M8-007
+  module: m8
+  if: "쇼다운 가치가 없는 핸드 중에서 {{t:bluff|블러프}}를 고를 때"
+  then: "상대의 강한 핸드, 즉 돈을 낼 핸드를 블록하는 카드가 있는 핸드를 고릅니다(예: {{t:board|보드}}에 같은 무늬가 세 장 있을 때 그 무늬의 에이스)"
+  because: "상대의 가장 강한 핸드에 들어가는 카드를 내가 쥐고 있으면 그런 핸드의 {{t:combo|콤보}}가 줄어, 상대에게 폴드할 핸드가 남는 경우가 많아집니다"
+  level: heuristic
+  source: "M8 커리큘럼; 상용 솔버 사이트, Blockers & Unblockers: The Secret to Picking Great Bluffs; 교육 사이트, What is Unblocking in Poker"
+  sources: [{ kind: solver-pub }, { kind: training }]
+- id: R-M8-008
+  module: m8
+  if: "{{t:flush-draw|플러시 드로우}}가 빗나갔고 {{t:bluff|블러프}}를 고를 때"
+  then: "{{t:bluff|블러프}} 후보 중에서 고를 수 있다면, 그 무늬 카드가 없는 {{t:bluff|블러프}}를 선호합니다"
+  because: "상대는 빗나간 {{t:draw|드로우}}를 {{t:fold|폴드}}할 것입니다. 내 손에 그 무늬 카드가 있으면 상대가 폴드할 핸드가 줄어듭니다"
+  level: heuristic
+  source: "교육 사이트, What is Unblocking in Poker; 상용 솔버 사이트, Blockers & Unblockers: The Secret to Picking Great Bluffs"
+  sources: [{ kind: solver-pub }, { kind: training }]
+- id: R-M8-009
+  module: m8
+  if: "특정 랭크의 카드를 한 장 쥐고 있을 때"
+  then: "상대가 그 랭크로 만들 수 있는 {{t:combo|콤보}}가 줄어듭니다: AK는 {{n:combos.unpaired}}개 대신 {{n:combos.unpaired.one-blocked}}개, 에이스 {{t:pair|페어}}는 {{n:combos.pair}}개 대신 {{n:combos.pair.one-blocked}}개뿐입니다"
+  because: "내 손에 있는 카드는 상대 손에 있을 수 없습니다: 그 랭크의 네 장 중 상대에게는 {{n:pair.outs.per-rank}}장이 남습니다"
+  level: math
+  source: "조합론"
+  sources: [{ kind: math }]
+- id: R-M8-010
+  module: m8
+  if: "리버에서 상대의 {{t:bluff|블러프}}만 이기는 핸드(블러프 캐처)를 가졌을 때"
+  then: "{{t:bluff|블러프}} 비율이 필요 에퀴티보다 높을 때 {{t:call|콜}}합니다. 예를 들어 {{t:pot|팟}} 크기 베팅이라면 {{n:eq.bet-pot}} 넘게 블러프일 때입니다. {{t:bluff|블러프}}가 그보다 적으면 {{t:fold|폴드}}합니다"
+  because: "내 에퀴티는 상대 베팅 중 {{t:bluff|블러프}}의 비율입니다(모든 {{t:bluff|블러프}}를 이기고, {{t:value|밸류}}를 위한 모든 핸드에 집니다). 상대가 베팅 ÷ ({{t:pot|팟}} + 2·베팅) 비율로 {{t:bluff|블러프}}하면 {{t:call|콜}}의 손익은 0입니다"
+  level: math
+  source: "계산: 필요 에퀴티 = 베팅/(팟+2·베팅)"
+  sources: [{ kind: math }]
+- id: R-M8-011
+  module: m8
+  if: "어떤 블러프 캐처로 리버 베팅에 {{t:call|콜}}할지 고를 때"
+  then: "상대의 강한 핸드를 블록하는 카드가 있고, 상대의 {{t:bluff|블러프}}를 블록하는 카드는 없는 핸드를 선호합니다(예: 빗나간 {{t:draw|드로우}}의 무늬 카드가 없는 핸드)"
+  because: "상대의 밸류를 블록하면 베팅 {{t:range|레인지}}에 {{t:bluff|블러프}}가 더 많이 남고, 상대의 {{t:bluff|블러프}}를 블록하면 밸류가 더 많이 남습니다"
+  level: heuristic
+  source: "상용 솔버 사이트, Understanding Blockers; 교육 사이트; 교육 사이트, Bluff Catching Strategy"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: training }]
+- id: R-M8-012
+  module: m8
+  if: "리버에서 베팅을 받고 {{t:range|레인지}}로 방어할 때"
+  then: "가장 좋은 블러프 캐처로 {{t:call|콜}}합니다: 비슷한 강도의 핸드 중에서는 {{t:blocker|블로커}}가 더 좋은 것을 고릅니다. {{t:bluff|블러프}}에도 지는 핸드는 {{t:fold|폴드}}합니다"
+  because: "상대의 모든 베팅에 지는 핸드는 상대가 {{t:bluff|블러프}}를 많이 하더라도 {{t:call|콜}}로 이익을 얻지 못합니다"
+  level: heuristic
+  source: "MDF(R-M6-001)와 R-M8-010에서 도출; 상용 솔버 사이트, Principles of River Play; 교육 사이트, Bluff Catching Principles"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: math }]
+
+# M9: plan rozdania. Matematyka z liczb (numbers.yaml); progi stref SPR i liczba ulic wartości jako heurystyki
+# (uproszczenia nazwane w lekcjach). Źródła przeczytane i potwierdzone w dokumencie 12 (decyzje D18–D22).
+- id: R-M9-001
+  module: m9
+  if: "플롭에서 {{t:spr|SPR}}을 계산할 때"
+  then: "{{t:effective-stack|유효 스택}}(두 스택 중 작은 쪽, 이미 {{t:pot|팟}}에 들어간 금액 제외)을 {{t:pot|팟}}으로 나눕니다. {{t:open|오픈}}과 {{t:call|콜}} 후에는 약 {{n:spr.srp}}, {{t:in-position|인 포지션}} 3벳 후에는 약 {{n:spr.3bet-ip}}, 4벳 후에는 약 {{n:spr.4bet}}입니다"
+  because: "프리플롭의 {{t:raise|레이즈}}마다 {{t:pot|팟}}은 몇 배로 커지지만, 남은 스택은 훨씬 천천히 줄어듭니다"
+  level: math
+  source: "계산: SPR = 유효 스택 ÷ 플랍의 팟(스택과 팟은 M4 수치 기준)"
+  sources: [{ kind: math }]
+- id: R-M9-002
+  module: m9
+  if: "상대가 플롭에서 스택 전체로 올인할 때"
+  then: "{{t:call|콜}}하려면 스택 ÷ ({{t:pot|팟}} + 2·스택)의 에퀴티가 필요합니다: {{t:spr|SPR}} {{n:spr.commit}}이면 {{n:eq.jam.spr2}}, {{t:spr|SPR}} {{n:spr.srp}}이면 벌써 {{n:eq.jam.srp}}입니다"
+  because: "{{t:pot|팟}}과 상대 스택을 얻으려고 스택 전체를 냅니다. {{t:spr|SPR}}이 낮을수록 좋은 가격을 받습니다"
+  level: math
+  source: "계산: 필요 에퀴티 = 콜 금액/(팟 + 2·콜 금액)"
+  sources: [{ kind: math }]
+- id: R-M9-003
+  module: m9
+  if: "플롭의 {{t:spr|SPR}}이 약 {{n:spr.zone.low}}보다 낮고(예: {{n:spr.commit}}), {{t:top-pair|탑 페어}} 이상의 핸드를 가졌을 때"
+  then: "스택 전체를 걸고 플레이합니다: 전부 넣을 계획으로 베팅하거나 {{t:call|콜}}하고, 보통 올인에 {{t:fold|폴드}}하지 않습니다"
+  because: "{{t:spr|SPR}} {{n:spr.commit}}에서는 올인에 많아야 약 {{n:eq.jam.spr2}} 에퀴티가 필요하고, {{t:pot|팟}}의 약 {{n:geo.spr2.2}}인 {{t:bet|베팅}} 두 번이면 스택이 전부 들어갑니다. {{t:top-pair|탑 페어}}는 보통 {{t:value|밸류}} 스트리트 두 번을 감당합니다"
+  level: heuristic
+  source: "상용 솔버 사이트, Stack-to-Pot Ratio; 교육 사이트를 운영하는 코치, SPR Strategy; 레슨 m9.l2의 계산"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: math }]
+- id: R-M9-004
+  module: m9
+  if: "내가 {{t:bet|베팅}}한 뒤 남는 스택이, 상대가 {{t:call|콜}}한 뒤의 {{t:pot|팟}}보다 작아질 때"
+  then: "{{t:bet|베팅}}한 뒤 올인에 {{t:fold|폴드}}하는 계획은 세우지 않습니다: 스택 전체를 걸고 플레이하거나 {{t:check|체크}}합니다"
+  because: "{{t:spr|SPR}} {{n:spr.commit}}에서 {{t:pot|팟}} 크기 {{t:bet|베팅}} 후 올인에 필요한 에퀴티는 {{n:eq.commit.after-pot}}뿐이므로, {{t:fold|폴드}}는 보통 손해입니다"
+  level: math
+  source: "계산: 콜 금액/(초과분 이전의 팟 + 2·콜 금액)"
+  sources: [{ kind: math }]
+- id: R-M9-005
+  module: m9
+  if: "풀 스택({{t:spr|SPR}} 약 {{n:spr.srp}})의 싱글 레이즈 {{t:pot|팟}}에서 {{t:pair|페어}} 하나만 가지고 있을 때"
+  then: "밸류를 위해 플레이하지만, 보통 스택 전체를 넣을 계획은 세우지 않습니다"
+  because: "리버까지 스택 전체를 넣으려면 모든 {{t:street|스트리트}}에서 {{t:pot|팟}}보다 크게 베팅해야 하는데, 그만큼 돈을 넣는 상대가 {{t:pair|페어}} 하나보다 약한 핸드를 가진 경우는 드뭅니다"
+  level: heuristic
+  source: "기하학적 사이즈 계산(m9.l3); 상용 솔버 사이트, Stack-to-Pot Ratio; 교육 사이트, When to Check Top Pair"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: math }]
+- id: R-M9-006
+  module: m9
+  if: "리버까지 같은 크기의 {{t:bet|베팅}}으로 스택 전체를 넣고 싶을 때"
+  then: "모든 {{t:street|스트리트}}에서 {{t:pot|팟}}의 같은 비율 f로 베팅합니다. f는 (1 + 2f)의 {{t:street|스트리트}} 수 제곱 = 1 + 2·{{t:spr|SPR}}이 되는 값입니다. {{t:in-position|인 포지션}} 3벳 {{t:pot|팟}}에서는 {{t:pot|팟}}의 약 {{n:geo.3bet-ip.3}}입니다"
+  because: "f 크기의 {{t:bet|베팅}}과 {{t:call|콜}}은 {{t:pot|팟}}을 (1 + 2f)배로 키우며, {{t:pot|팟}}이 {{t:pot|팟}} + 2·스택이 될 때 올인이 됩니다"
+  level: math
+  source: "계산: 기하학적 사이즈; 교육 사이트, Geometric Bet Sizing; 상용 솔버 사이트, Pot Geometry"
+  sources: [{ kind: solver-pub }, { kind: training }, { kind: math }]
+- id: R-M9-007
+  module: m9
+  if: "{{n:format.stack}} 스택의 싱글 레이즈 {{t:pot|팟}}에서 세 {{t:street|스트리트}}에 걸쳐 베팅할 때"
+  then: "{{t:pot|팟}} 절반 {{t:bet|베팅}} 세 번은 {{n:spr.srp.stack}} 스택 중 {{n:srp.half.total}}만, {{t:pot|팟}} 크기 {{t:bet|베팅}} 세 번은 {{n:srp.potbet.total}}를 넣는다는 점을 기억합니다"
+  because: "플롭의 {{t:pot|팟}}은 스택에 비해 작습니다. 모든 {{t:street|스트리트}}에서 {{t:pot|팟}}의 약 {{n:geo.srp.3}}로 {{t:bet|베팅}}해야 스택 전체가 들어갑니다"
+  level: math
+  source: "계산: 베팅과 콜은 팟을 (1 + 2f)배로 키웁니다"
+  sources: [{ kind: math }]
+- id: R-M9-008
+  module: m9
+  if: "플롭에서 {{t:bet|베팅}}하기 전에 핸드를 계획할 때"
+  then: "핸드가 {{t:value|밸류}} 스트리트를 몇 번 감당할지 판단합니다({{t:street|스트리트}} 수는 단순화): 매우 강한 핸드(셋, {{t:straight|스트레이트}}, 높은 {{t:two-pair|투페어}})는 세 번, 키커가 좋은 {{t:top-pair|탑 페어}}나 {{t:overpair|오버페어}}는 보통 두 번이고, 상대가 더 약한 핸드로 돈을 낸다면 세 번째도 가능합니다. 더 약한 {{t:pair|페어}}는 한 번 또는 0번입니다"
+  because: "{{t:street|스트리트}}가 지날 때마다 상대의 더 약한 핸드는 {{t:fold|폴드}}하고, {{t:pot|팟}}에는 주로 내 핸드보다 강한 핸드가 남습니다"
+  level: heuristic
+  source: "종합: 교육 사이트, When to Check Top Pair (https://upswingpoker.com/when-to-check-top-pair/): “In single raised pots, the stack-to-pot ratio (SPR) is too high to comfortably get 3 streets of value with many top pair hands.”; 상용 솔버 사이트, Stack-to-Pot Ratio (https://blog.gtowizard.com/stack-to-pot-ratio/): “All top pairs and all nut flush draws are now indifferent between calling and folding”(SPR 16); 상용 솔버 사이트, Pot Geometry (https://blog.gtowizard.com/pot-geometry/): “Game theory optimal strategies typically use geometric bet sizes when they want to maximize value with a big nut advantage.”; 핸드별 스트리트 수(더 약한 페어 포함): 앱의 단순화(D-149)"
+  sources: [{ kind: training, url: "https://upswingpoker.com/when-to-check-top-pair/" }, { kind: solver-pub, url: "https://blog.gtowizard.com/stack-to-pot-ratio/" }]
+- id: R-M9-009
+  module: m9
+  if: "{{t:value|밸류}} 스트리트 세 번을 감당할 핸드를 가졌고, {{t:spr|SPR}} 구간상 스택 전체를 걸 수 있으며(R-M9-010), 스택 전체를 넣고 싶을 때"
+  then: "플롭부터 작은 사이즈가 아니라 기하학적 사이즈로 베팅합니다"
+  because: "3벳 {{t:pot|팟}}에서 {{t:pot|팟}}의 1/3 {{t:bet|베팅}} 세 번은 {{n:spr.3bet-ip.stack}} 스택 중 약 {{n:g3b.third.total}}만 넣어 스택 대부분이 남습니다. 모든 {{t:street|스트리트}}에서 {{t:pot|팟}}의 약 {{n:geo.3bet-ip.3}}로 베팅하면 전부 들어갑니다"
+  level: math
+  source: "계산: 베팅과 콜의 연쇄(numbers.yaml, 키 g3b.third.*, geo.3bet-ip.*)"
+  sources: [{ kind: math }]
+- id: R-M9-010
+  module: m9
+  if: "어떤 핸드로 스택 전체를 걸지 계획할 때"
+  then: "{{t:spr|SPR}} 구간을 봅니다(단순화): 약 {{n:spr.zone.low}} 미만이면 보통 {{t:top-pair|탑 페어}}로 충분하고, {{n:spr.zone.low}}에서 {{n:spr.zone.mid}}까지는 {{t:top-pair|탑 페어}}가 경계선 핸드이며, {{n:spr.zone.mid}}에서 {{n:spr.zone.deep}}까지는 보통 높은 {{t:two-pair|투페어}} 이상이, {{n:spr.zone.deep}} 초과면 셋, {{t:straight|스트레이트}} 또는 그보다 강한 핸드가 필요합니다"
+  because: "{{t:spr|SPR}}이 높을수록 스택 전체를 넣는 데 더 많은 {{t:bet|베팅}}이 필요하고, 끝까지 돈을 내는 상대는 주로 강한 핸드를 가지고 있습니다. {{t:spr|SPR}} {{n:spr.zone.deep}}에서는 {{t:pot|팟}} 크기 {{t:bet|베팅}} 세 번 뒤에야 스택 전체가 들어갑니다"
+  level: heuristic
+  source: "교육 사이트를 운영하는 코치, SPR Strategy (https://www.splitsuit.com/spr-poker-strategy): “less than 3 is an auto-stack off with top pair or better, between 3-6 is situational and based upon villain/board texture, and more than 6 SPR isn't a default stack-off”; 상용 솔버 사이트, Stack-to-Pot Ratio (https://blog.gtowizard.com/stack-to-pot-ratio/): “at this higher SPR, stacking off with top pair starts to get a bit dicey”; 6–13 구간: 두 교육 사이트의 공통 부분: SPR (https://www.thepokerbank.com/strategy/concepts/spr/): “Medium SPR = 7 - 16”, “Good hands for medium SPRs.”, “Top two pair. Sets.”; Poker SPR (https://pokercoaching.com/blog/poker-spr/): “High SPR (8+): Deep stacks favor hands that make nutted combinations (sets, straights, flushes) over one-pair holdings.”; 기준 13: 계산 (1+2·1)^3 = 1+2·13, 그리고 뉴스 사이트를 통한 Flynn, Mehta, Miller, Professional No-Limit Hold'em (https://www.pokernews.com/strategy/building-big-pots-with-big-hands-stack-to-pot-ratio-24847.htm): “if you're heads-up and the stack-to-pot ratio is 13 going to the flop, you and your opponent can each make exactly three pot-sized bets”; 구간 경계: 앱의 단순화(D-149)"
+  sources: [{ kind: training, url: "https://www.splitsuit.com/spr-poker-strategy" }, { kind: solver-pub, url: "https://blog.gtowizard.com/stack-to-pot-ratio/" }, { kind: training, url: "https://www.thepokerbank.com/strategy/concepts/spr/" }, { kind: training, url: "https://pokercoaching.com/blog/poker-spr/" }, { kind: math }, { kind: book, url: "https://www.pokernews.com/strategy/building-big-pots-with-big-hands-stack-to-pot-ratio-24847.htm" }]
+
+# M10: eksploatacja mikrostawek. Każde dostosowanie to odejście od bazy z M3–M9 (ADR-03). Definicje statystyk: rules;
+# błąd próby, próg blefu i wpływ rake'u na cenę: math; progi typów graczy i próby z serwisów szkoleniowych: heuristic;
+# wynik solvera: gto; dostosowanie do typu gracza: exploit z populacją (dane z analizy bazy rąk populacji albo odczyt HUD rywala z próbą).
+# Decyzje D-M10-01…14 w raporcie M10 (do dokumentu 12 „Weryfikacja źródeł — M10–M13”).
+- id: R-M10-001
+  module: m10
+  if: "상대의 {{t:vpip|VPIP}}와 {{t:pfr|PFR}}을 읽을 때"
+  then: "{{t:vpip|VPIP}}는 프리플롭에 자발적으로 {{t:chips|칩}}을 넣는 핸드의 비율({{t:call|콜}} 또는 {{t:raise|레이즈}}, 블라인드는 제외)이고, {{t:pfr|PFR}}은 프리플롭에 {{t:raise|레이즈}}하는 핸드의 비율({{t:open|오픈}}, 3벳, 4벳)입니다. {{t:pfr|PFR}}은 절대 {{t:vpip|VPIP}}를 넘지 않습니다"
+  because: "모든 {{t:raise|레이즈}}는 자발적으로 {{t:chips|칩}}을 넣는 것이기도 하므로, {{t:vpip|VPIP}} − {{t:pfr|PFR}} 차이는 상대가 {{t:call|콜}}만 했거나 림프한 핸드입니다"
+  level: rules
+  source: "상용 솔버 사이트 용어집 (https://gtowizard.com/en/glossary/): “VPIP: … a statistic that measures the frequency with which a player voluntarily puts money into the pot preflop.”; 교육 사이트, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): “Anytime a player makes a call or a raise before the flop, their VPIP goes up”, “a player’s PFR stat goes up anytime they make a raise before the flop, which includes all 3-bets and 4-bets as well as open raises”"
+  sources: [{ kind: training, url: "https://gtowizard.com/en/glossary/" }, { kind: training, url: "https://pokercoaching.com/blog/poker-stats/" }]
+- id: R-M10-002
+  module: m10
+  if: "상대의 통계가 n번의 기회를 바탕으로 할 때"
+  then: "표준 오차는 √(p × (1 − p) ÷ n)입니다: {{n:hud.se.ex.n}}핸드 후 {{t:vpip|VPIP}}가 {{n:hud.se.ex.p}}라면 약 {{n:hud.se.ex}}이므로, 실제 {{t:vpip|VPIP}}는 약 {{n:var.conf95}} 신뢰도로 {{n:hud.ci.ex.low}}에서 {{n:hud.ci.ex.high}} 사이에 있습니다"
+  because: "각 핸드는 상대 전략에서 뽑은 무작위 표본이며, 이런 평균의 오차는 기회 수의 제곱근에 비례해서만 줄어듭니다. 모듈 12의 윈레이트 오차와 같습니다"
+  level: math
+  source: "계산: 이항분포에서 비율의 표준 오차 √(p(1 − p) ÷ n)와 ±1.96 오차 구간(numbers.yaml, 키 hud.se.*, hud.ci.*)"
+  sources: [{ kind: math }]
+- id: R-M10-003
+  module: m10
+  if: "{{t:hud|HUD}} 통계로 상대를 판단할 때"
+  then: "약 {{n:hud.hands.random}}핸드 미만이면 통계를 우연으로 보고 모르는 상대처럼 플레이합니다. 플레이어 유형은 약 {{n:hud.hands.random}}–{{n:hud.hands.rough.high}}핸드부터 대략 보이고, {{t:vpip|VPIP}}와 {{t:pfr|PFR}}은 약 {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}}핸드, 3벳은 약 {{n:hud.hands.3bet.overall.low}}–{{n:hud.hands.3bet.high}}핸드, 폴드 투 3벳은 약 {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}핸드 후에 안정됩니다"
+  because: "{{t:vpip|VPIP}}는 매 핸드 기회가 하나씩 생기지만, 폴드 투 3벳은 상대가 {{t:open|오픈}}했다가 3벳을 받았을 때만 기회가 생기므로, 같은 핸드 수에서도 기회가 몇 배 적고 오차가 큽니다"
+  level: heuristic
+  source: "교육 사이트, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): “For VPIP and PFR, you need at least 100 to 200 hands before the numbers begin to stabilize.”, “For 3-bet and fold to 3-bet, closer to 500 hands is the threshold.”; 교육 사이트, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): “Below 30 hands, treat the HUD numbers as random and use hand-observation reads only.”, “VPIP / PFR 30-50 hands”, “3-bet % (overall) 100+ hands”, “Fold to 3-bet | 200+ hands”; VPIP와 PFR은 기준이 두 가지: 30–50핸드 후 대략적인 유형, 100–200핸드 후 안정화(같은 단계의 상충, docs/tresci/e1-m9-m11.md §3.1); 3벳과 폴드 투 3벳은 같은 표에서 하한을 따로(100+와 200+), 상한은 공통으로(D-M10-04; E3 2026-11-04)"
+  sources: [{ kind: training, url: "https://pokercoaching.com/blog/poker-stats/" }, { kind: training, url: "https://deepfold.co/en/blog/hud-stats-guide" }]
+- id: R-M10-004
+  module: m10
+  if: "상대의 {{t:vpip|VPIP}}가 {{t:pfr|PFR}}보다 {{n:hud.gap.passive}}퍼센트포인트 넘게 높을 때"
+  then: "수동적인 플레이어입니다: {{t:call|콜}}과 림프를 많이 하고 {{t:raise|레이즈}}는 적게 합니다"
+  because: "플레이하는 핸드 대부분을 {{t:call|콜}}로 {{t:pot|팟}}에 넣습니다. {{t:regular|레귤러}}는 거의 모든 핸드를 {{t:raise|레이즈}}로 시작하므로 차이가 작습니다"
+  level: heuristic
+  source: "교육 사이트, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): “When a player’s PFR is more than 10 points below their VPIP, I immediately flag them as a passive player who calls too much and raises too little.”; 교육 사이트, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): “Gap > 10 → Passive player. Lots of cold-calls and limps.”; 모집단 핸드 데이터베이스 분석의 검증용 데이터, 대형 온라인 포커룸 NL25 6-max: 레크리에이션 플레이어 42/18, 레귤러 23/18(mda.rec.*, mda.reg.*)"
+  sources: [{ kind: training, url: "https://pokercoaching.com/blog/poker-stats/" }, { kind: training, url: "https://deepfold.co/en/blog/hud-stats-guide" }, { kind: population }]
+- id: R-M10-005
+  module: m10
+  if: "{{t:vpip|VPIP}}와 {{t:pfr|PFR}}로 상대의 유형을 정할 때(6-max, 최소 약 {{n:hud.hands.vpip.low}}핸드)"
+  then: "{{t:nit|닛}}은 핸드의 약 {{n:hud.vpip.nit-max}}까지 플레이합니다. {{t:regular|레귤러}}는 약 {{n:hud.vpip.reg.low}}–{{n:hud.vpip.reg.high}}이며 {{t:vpip|VPIP}} − {{t:pfr|PFR}} 차이가 작습니다. 루즈한 플레이어는 약 {{n:hud.vpip.loose}}부터입니다: 차이가 {{n:hud.gap.passive}}포인트를 넘으면 수동적인 {{t:recreational|레크리에이션 플레이어}}({{t:calling-station|콜링 스테이션}})이고, 차이가 약 {{n:hud.gap.aggressive}}포인트 이하면 {{t:maniac|매니악}}입니다"
+  because: "유형은 상대가 기준 전략에서 어느 방향으로 벗어나는지 알려줍니다: 핸드를 너무 적게 또는 너무 많이 플레이하거나, 너무 자주 {{t:call|콜}}하거나, 너무 자주 {{t:raise|레이즈}}합니다"
+  level: heuristic
+  source: "교육 사이트, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/), 6-max 캐시 표: “22 to 28”, “35+”, “14 or below”; “a player playing a 45 VPIP is either a maniac or a calling station”; “When the gap is less than 3 points, I flag them as highly aggressive”; 교육 사이트, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): “10-15% | Very tight (nit)”, “18-22% | Tight-aggressive (TAG)”, “25-30% | Loose-aggressive (LAG)”, “35%+ | Loose (likely recreational)”, 프로필 “Nit (15/12/3%)”, “Whale / Recreational (45/8/2%)”, “Maniac (38/35/15%+)”; 모집단 핸드 데이터베이스 분석: Regulars “VPIP = 18-32”, Recreationals “VPIP > 40”; 기준은 공통 부분 또는 출처들을 포괄하는 구간으로 정했습니다(D-M10-03)"
+  sources: [{ kind: training, url: "https://pokercoaching.com/blog/poker-stats/" }, { kind: training, url: "https://deepfold.co/en/blog/hud-stats-guide" }, { kind: population }]
+- id: R-M10-006
+  module: m10
+  if: "수동적인 {{t:recreational|레크리에이션 플레이어}}({{t:vpip|VPIP}} 약 {{n:hud.vpip.loose}} 이상, {{t:vpip|VPIP}} − {{t:pfr|PFR}} 차이 {{n:hud.gap.passive}}포인트 초과)를 상대할 때"
+  then: "{{t:value|밸류}}를 위해 더 많은 핸드로, 더 얇은 핸드로도 베팅하고, 모듈 8의 기준보다 {{t:bluff|블러프}}를 덜 합니다. 특히 리버에서 그렇습니다"
+  because: "이런 플레이어는 쇼다운에 더 자주 가고 거기서 더 자주 집니다. 즉 더 약한 핸드로 {{t:call|콜}}합니다: 상대의 {{t:call|콜}} 중 내 핸드보다 약한 핸드가 더 많고(모듈 8의 밸류 벳 기준), {{t:bluff|블러프}}는 상대가 {{t:alpha|알파}}보다 자주 {{t:fold|폴드}}할 때만 이익입니다"
+  level: exploit
+  population: "대형 온라인 포커룸의 레크리에이션 플레이어, NL25–NL100 6-max(데이터베이스 정의: VPIP > 40, 결과 < −20bb/100): WTSD 32%(레귤러 28%), 쇼다운 승률 46%(레귤러 57%), 결과 −47bb/100. 2026년 10월 5일 이전 12개월간의 모든 핸드(모집단 핸드 데이터베이스 분석, 핸드 수 미공개)"
+  source: "모집단 핸드 데이터베이스 분석 사이트 (https://bluffaces.com/calculators/mda/), 필터: 대형 온라인 포커룸 NL25/NL50/NL100 6-max, Recreationals와 Regulars(mda.rec.*, mda.reg.*), 핸드 수 미공개; 교육 사이트, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): 높은 WTSD는 “instantly tells you to bluff them less and value bet them more across all betting streets, especially on the river.”; 교육 사이트, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): “>30% → Calling station. Value bet thinly, never bluff river.”(이 WTSD 기준은 가르치지 않습니다: 교육 사이트는 “In most cases, your WTSD% should be around 30”이라고 하며, 핸드 데이터베이스 분석에서는 레귤러 28%, 레크리에이션 플레이어 32%입니다; D-M10-07); R-M8-001의 밸류 벳 기준과 모듈 6의 알파는 그대로(D-M10-06)"
+  sources: [{ kind: population, url: "https://bluffaces.com/calculators/mda/" }, { kind: training, url: "https://pokercoaching.com/blog/poker-stats/" }, { kind: training, url: "https://deepfold.co/en/blog/hud-stats-guide" }]
+- id: R-M10-007
+  module: m10
+  if: "{{t:nit|닛}}(최소 약 {{n:hud.hands.vpip.low}}핸드에서 {{t:vpip|VPIP}} 약 {{n:hud.vpip.nit-max}} 이하)이 {{t:raise|레이즈}}하거나 3벳할 때"
+  then: "모듈 4의 기준보다 {{t:call|콜}} {{t:range|레인지}} 하단의 핸드를 더 자주 {{t:fold|폴드}}하고, 상대의 블라인드를 더 자주 훔칩니다"
+  because: "핸드를 이렇게 적게 플레이하는 사람은 주로 가장 강한 핸드로 {{t:raise|레이즈}}하므로, 내 중간 핸드가 도미네이트당하는 경우가 많습니다. 또 블라인드를 좁게 방어하므로 내 {{t:open|오픈}}이 바로 이기는 경우가 많습니다"
+  level: exploit
+  population: "단일 상대: 최소 약 100핸드의 HUD 기록(VPIP 14% 이하). 유형 기준은 두 교육 사이트(6-max 온라인 캐시)에서 가져왔습니다. 닛은 테이블의 소수이므로 전체 모집단 데이터는 없습니다(D-M10-02)"
+  source: "교육 사이트, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): “anyone significantly below is a nit whose raises you can nearly always fold to”; 교육 사이트, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): 닛 “Plays only premium hands. Steal their blinds relentlessly, fold to their 3-bets without thought, bluff-catch sparingly.”; “10-15% | Very tight (nit) | Folds preflop too much; bluff their open ranges, fold to their 3-bets”"
+  sources: [{ kind: training, url: "https://pokercoaching.com/blog/poker-stats/" }, { kind: training, url: "https://deepfold.co/en/blog/hud-stats-guide" }]
+- id: R-M10-008
+  module: m10
+  if: "{{t:maniac|매니악}}({{t:vpip|VPIP}} 약 {{n:hud.vpip.loose}} 이상, {{t:pfr|PFR}}이 {{t:vpip|VPIP}}와 거의 같음)을 상대할 때"
+  then: "상대에게 {{t:bluff|블러프}}하지 않고, {{t:bluff|블러프}}를 잡는 핸드로 더 넓게 {{t:call|콜}}하며, 매우 강한 핸드로는 상대가 베팅하게 둡니다"
+  because: "상대의 베팅과 {{t:raise|레이즈}}에는 기준보다 {{t:bluff|블러프}}가 많으므로, 기준에서는 {{t:call|콜}}의 경계선에 있는 핸드가 이익이 되고, 거의 {{t:fold|폴드}}하지 않는 상대에게 하는 {{t:bluff|블러프}}는 손해입니다"
+  level: exploit
+  population: "단일 상대: 최소 약 100핸드의 HUD 기록(VPIP 35% 이상, VPIP − PFR 3포인트 미만). 유형 기준은 두 교육 사이트(6-max 온라인 캐시)에서 가져왔습니다. 전체 모집단 데이터는 없습니다(D-M10-02)"
+  source: "교육 사이트, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): 매니악 “Trap with premium hands by flat-calling preflop and letting them stack off. Don't try to out-bluff them; just let them hang themselves.”; 교육 사이트, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): “a player playing a 45 VPIP is either a maniac or a calling station”; 혼합 핸드 원칙: 상용 솔버 사이트, Calling Down Over-Bluffed Lines in Lower Limits(R-M10-009)"
+  sources: [{ kind: training, url: "https://deepfold.co/en/blog/hud-stats-guide" }, { kind: training, url: "https://pokercoaching.com/blog/poker-stats/" }, { kind: solver-pub }]
+- id: R-M10-009
+  module: m10
+  if: "특정 라인에서 상대가 균형보다 {{t:bluff|블러프}}를 더 많이 또는 더 적게 한다는 것을 알 때"
+  then: "먼저 기준 전략에서 {{t:call|콜}}과 {{t:fold|폴드}}를 섞는 핸드의 결정을 바꿉니다: {{t:bluff|블러프}}가 많으면 그 핸드로 항상 {{t:call|콜}}하고, 적으면 항상 {{t:fold|폴드}}합니다"
+  because: "균형 상태에서 이 핸드들은 무차별합니다. 상대가 딱 필요한 만큼 {{t:bluff|블러프}}하기 때문입니다. 작은 과잉이나 부족만으로도 이 핸드들은 한쪽으로 기울고, 나머지 {{t:range|레인지}}는 차이가 클 때만 바뀝니다"
+  level: gto
+  source: "상용 솔버 사이트, Calling Down Over-Bluffed Lines in Lower Limits (https://blog.gtowizard.com/calling-down-the-over-bluffed-lines-in-lower-limits/), 노드락 분석: “Hands that mix calls and folds in theory do so because Villain’s bet size is strategically balanced, making them indifferent to calling and folding since no option is the best.”; “If they are bluffing just a single combo more than they should, all of our indifferent bluff catchers become profitable calls and vice versa (we always fold when they are under-bluffing even slightly).”; “I only changed Villain’s strategy to bluff ~31% instead of ~27% of the time for our strategy to shift completely to never folding.”"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/calling-down-the-over-bluffed-lines-in-lower-limits/" }]
+- id: R-M10-010
+  module: m10
+  if: "상대가 C벳에 내 사이즈의 {{t:alpha|알파}}보다 자주 {{t:fold|폴드}}할 때"
+  then: "핸드 없이 하는 C벳도 바로 이익입니다: {{t:pot|팟}}의 1/3 C벳이면 {{t:fold|폴드}}가 {{n:alpha.cbet.small}}를 넘으면 되고, {{t:pot|팟}}의 3/4 C벳이면 {{n:alpha.cbet.big}}를 넘으면 됩니다"
+  because: "{{t:bluff|블러프}}는 {{t:pot|팟}}을 얻으려고 베팅 금액을 겁니다. {{t:fold|폴드}} 비율이 베팅 ÷ ({{t:pot|팟}} + 베팅)을 넘으면 이익입니다. {{t:hud|HUD}}의 폴드 투 C벳은 모든 사이즈와 보드를 합친 값이므로 근사치일 뿐입니다"
+  level: math
+  source: "계산: 순수 블러프의 EV = 폴드 × 팟 − (1 − 폴드) × 베팅 > 0 ⇔ 폴드 > 베팅 ÷ (팟 + 베팅)(알파, 모듈 6; numbers.yaml alpha.cbet.*); 상용 솔버 사이트 용어집 (https://gtowizard.com/en/glossary/): “Alpha (α): The minimum frequency your opponent needs to fold to a bet, in order to break even with a pure (0% equity) bluff.”"
+  sources: [{ kind: training, url: "https://gtowizard.com/en/glossary/" }, { kind: math }]
+- id: R-M10-011
+  module: m10
+  if: "상대가 3벳에 거의 {{t:fold|폴드}}하지 않을 때(폴드 투 3벳 약 {{n:hud.f3b.low}} 미만), 예: 전형적인 {{t:recreational|레크리에이션 플레이어}}"
+  then: "{{t:linear|리니어}} {{t:range|레인지}}로 3벳합니다: {{t:value|밸류}}를 위한 강한 핸드를 늘리고, {{t:bluff|블러프}}는 거의 넣지 않습니다"
+  because: "{{t:in-position|인 포지션}}에서 {{n:pf.3bet.ip-total}}로 하는 3벳은 {{t:fold|폴드}}가 {{n:alpha.vs-3bet-ip-size}}를 넘어야 핸드 없이도 이익입니다. 상대가 {{t:fold|폴드}}를 거의 하지 않으면 {{t:bluff|블러프}}는 약한 핸드로 큰 {{t:pot|팟}}을 플레이하게 되고, 강한 핸드는 {{t:call|콜}}을 더 많이 받습니다"
+  level: exploit
+  population: "대형 온라인 포커룸, NL25–NL100 6-max(모집단 핸드 데이터베이스 분석, 2026년 10월 5일 이전 12개월, 핸드 수 미공개): 폴드 투 3벳은 레크리에이션 플레이어 31%(NL50 30%, NL100 32%), 레귤러 55%(NL50 57%, NL100 55%)"
+  source: "모집단 핸드 데이터베이스 분석 사이트 (https://bluffaces.com/calculators/mda/), Fold to 3bet(mda.rec.f3b, mda.reg.f3b), 핸드 수 미공개; 교육 사이트, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): “if a player has a low Fold to 3-Bet, you will want to adjust your 3-betting range against them and play a more linear range made up of almost solely value hands and very few bluffs.”; 교육 사이트, Essential HUD Stats Guide (https://deepfold.co/en/blog/hud-stats-guide): “<50% → They call 3-bets wide. Drop bluff 3-bets; value-bet thinner and exploit postflop.”; 모듈 4의 알파 기준(alpha.vs-3bet-ip-size)"
+  sources: [{ kind: population, url: "https://bluffaces.com/calculators/mda/" }, { kind: training, url: "https://pokercoaching.com/blog/poker-stats/" }, { kind: training, url: "https://deepfold.co/en/blog/hud-stats-guide" }]
+- id: R-M10-012
+  module: m10
+  if: "상대에 대한 표본이 작거나 모집단에 대한 일반적인 지식만 있을 때"
+  then: "통계가 보여 주는 방향으로만, 경계선 핸드로만 기준에서 벗어납니다. {{t:range|레인지}} 전체를 바꾸는 큰 이탈은 표본이 크고 상대의 실수가 뚜렷할 때만 합니다"
+  because: "표본이 작으면 통계의 오차가 크고, 기준 전략(가장 익스플로잇당하기 어려운 전략)에서 벗어나는 것 자체가 익스플로잇당할 수 있습니다"
+  level: heuristic
+  source: "교육 사이트, How to Use Poker HUD Stats (https://pokercoaching.com/blog/poker-stats/): “The directional signal (very high VPIP, very low PFR) may still be useful even with small samples, but specific exploitation based on percentage points requires a much larger hand history.”; 상용 솔버 사이트 용어집 (https://gtowizard.com/en/glossary/): “Exploit: To deviate from a baseline strategy in order to take advantage of a (future or prior) mistake in your opponent's strategy.”, “Game Theory Optimal (GTO) The least exploitable fixed strategy”; 표본 오차: R-M10-002"
+  sources: [{ kind: training, url: "https://pokercoaching.com/blog/poker-stats/" }, { kind: training, url: "https://gtowizard.com/en/glossary/" }]
+- id: R-M10-013
+  module: m10
+  if: "마이크로 스테이크(NL2–NL25)에서 6-max 캐시 게임을 할 때"
+  then: "{{t:rake|레이크}}를 뺀 결과로 계산합니다: 대형 온라인 포커룸은 약 {{n:rake.micro.low}}–{{n:rake.micro.high}}를 가져가며, 이는 전형적인 위닝 플레이어의 윈레이트({{n:var.wr.typical.low}}–{{n:var.wr.typical.high}})의 몇 배입니다"
+  because: "{{t:rake|레이크}}는 플롭까지 가는 모든 {{t:pot|팟}}에서 모든 플레이어가 냅니다. 이기려면 {{t:rake|레이크}}보다 더 큰 차이로 상대를 이겨야 합니다"
+  level: heuristic
+  source: "포커 계산기 사이트, Online Poker Rake Comparison 2026 (https://www.primedope.com/online-poker-rake-comparison-rake-calculator/), NLH 6-max, 대형 온라인 포커룸 두 곳 NL2–NL25(rake.micro.*); 모집단 검증용 데이터: Tombos21, 플레이어당 레이크 NL10 9.1bb/100, NL100 7.3bb/100(rake.pop.*); 뉴스 사이트, How Many Winning Cash Games Players Are There? It Depends on Rake (https://www.gipsyteam.com/news/12-12-2025/number-of-winning-cash-game-players), Tombos21: “Reminder that your biggest villain is the house.”, “Pre-rake winners 90% post-rake winners 53%”; 교육 블로그를 운영하는 코치(var.wr.typical.*, 모듈 12)"
+  sources: [{ kind: training, url: "https://www.primedope.com/online-poker-rake-comparison-rake-calculator/" }, { kind: population, url: "https://www.gipsyteam.com/news/12-12-2025/number-of-winning-cash-game-players" }, { kind: training }]
+- id: R-M10-014
+  module: m10
+  if: "플롭까지 간 {{t:pot|팟}}에서만 {{t:rake|레이크}}를 떼는 게임에서 {{t:open|오픈}}을 받았을 때"
+  then: "{{t:rake|레이크}}가 없는 게임보다 {{t:call|콜}}을 덜 합니다. {{t:rake|레이크}}가 없다면 {{t:call|콜}}했을 핸드 중 일부는 3벳하고, 나머지는 {{t:fold|폴드}}합니다"
+  because: "{{t:rake|레이크}}는 플롭 이후 {{t:pot|팟}}의 일부를 가져가고, 프리플롭에 끝난 {{t:pot|팟}}에서는 떼지 않습니다: {{t:call|콜}}은 보통 플롭으로 이어져 {{t:rake|레이크}}를 내고, 3벳은 {{t:rake|레이크}} 없이 프리플롭에 핸드를 끝내는 경우가 많으며, {{t:fold|폴드}}는 비용이 없습니다(일부 포커룸은 플롭 없이 끝난 3벳 {{t:pot|팟}}에서도 {{t:rake|레이크}}를 떼므로, 그곳에서는 3벳도 레이크를 냅니다)"
+  level: gto
+  source: "상용 솔버 사이트, Preflop Raise Sizing: Examining 2 Key Factors (https://blog.gtowizard.com/preflop-raise-sizing-examining-2-key-factors/), NL100 레이크를 적용한 200bb 6-max 해법: “Facing a LJ raise, the HJ, CO, and BTN all VPIP 25%-35% fewer hands in the raked game.”, “Rake makes calling raises considerably less appealing, leading to much lower VPIPs and somewhat higher 3-betting frequencies in ‘no flop, no drop’ games.”, “BB calls a min-raise in the raked game barely 60% as often as in the unraked game”; 단순화: 200bb 결과이며, 저자는 “many of the principles will generalize”라고 합니다; 포커룸별 레이크 구조: 포커 계산기 사이트, API /network-rake-list, rule 필드: 두 번째 대형 온라인 포커룸 “flop_drop”, 대형 온라인 포커룸 “flop_or_3b_drop”(2026년 10월 5일 확인)"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/preflop-raise-sizing-examining-2-key-factors/" }, { kind: training }]
+- id: R-M10-015
+  module: m10
+  if: "{{t:rake|레이크}}가 있는 게임에서 필요 에퀴티를 계산할 때"
+  then: "콜 금액을, {{t:call|콜}} 후 {{t:pot|팟}}에서 {{t:rake|레이크}}를 뺀 금액으로 나눕니다: {{t:pot|팟}} 절반 베팅과 {{t:rake|레이크}} {{n:rake.ex.pct}}에서는 {{n:eq.bet-half}} 대신 {{n:eq.bet-half.rake}}가 필요합니다"
+  because: "{{t:rake|레이크}}를 뺀 {{t:pot|팟}}을 얻지만, 콜 금액은 전부 냅니다. 마이크로 스테이크에서는 {{t:pot|팟}}이 {{t:rake-cap|레이크 상한}}에 닿는 일이 드물어 비율이 중요합니다"
+  level: math
+  source: "계산: 콜 금액 ÷ (콜 후 팟 × (1 − 레이크))(numbers.yaml eq.bet-half.rake); 포커 계산기 사이트, Online Poker Rake Comparison 2026 (https://www.primedope.com/online-poker-rake-comparison-rake-calculator/): “At microstakes, percentage drives the cost because pots rarely hit the cap.”"
+  sources: [{ kind: training, url: "https://www.primedope.com/online-poker-rake-comparison-rake-calculator/" }, { kind: math }]
+
+# M12: mental game i bankroll. Poziomy według ADR-24: rachunek = math, zalecenie oparte na rachunku lub literaturze = heuristic.
+- id: R-M12-001
+  module: m12
+  if: "핸드 표본으로 내 결과나 윈레이트를 판단할 때"
+  then: "구간을 계산합니다: 윈레이트 ± {{n:var.z95}} × SD ÷ √(핸드 수 ÷ 100)"
+  because: "SD가 {{n:var.sd}}이면 {{n:var.hands.k}},000핸드 후에도 {{n:var.conf95}} 구간은 약 ± {{n:var.ci.wr}}이므로, {{n:var.wr.ex}}라는 결과는 “약 {{n:var.wr.ci.low}}에서 {{n:var.wr.ci.high}} 사이”라는 뜻일 뿐입니다"
+  level: math
+  source: "계산: 평균의 표준 오차(정규분포); SD는 포커 계산기 사이트의 Examples and Impacts of Variance in Cash Games 및 Poker Variance Calculator에서"
+  sources: [{ kind: training }, { kind: math }]
+- id: R-M12-002
+  module: m12
+  if: "{{n:dd.bi.small}} {{t:buy-in|바이인}}의 {{t:downswing|다운스윙}}에 빠졌을 때"
+  then: "이를 잘못 플레이했다는 증거로 보지 않고, 진 핸드의 결정을 검토합니다"
+  because: "{{n:var.hands.k}},000핸드 동안 최고점에서 이런 {{t:downswing|다운스윙}}을 겪는 비율은 {{n:var.wr.ex}}로 이기는 플레이어(SD {{n:var.sd}})의 약 {{n:dd.p.small.100k}}입니다"
+  level: heuristic
+  source: "계산: 몬테카를로 시뮬레이션(numbers.yaml, 키 dd.*); 포커 계산기 사이트의 Examples and Impacts of Variance in Cash Games는 이 시나리오에 더 낮은 수치를 제시합니다(M12 보고서)"
+  sources: [{ kind: training }, { kind: math }]
+- id: R-M12-003
+  module: m12
+  if: "실제로 얼마나 이기는지 알고 싶을 때"
+  then: "수십만 핸드를 모읍니다: {{n:var.conf95}} 신뢰도로 ± {{n:var.target}} 정확도를 얻으려면 약 {{n:var.need.hands.k}},000핸드가 필요합니다"
+  because: "추정 오차는 핸드 수의 제곱근에 비례해 줄어듭니다: 필요한 100핸드 블록 수 = ({{n:var.z95}} × SD ÷ 정확도)²"
+  level: math
+  source: "계산: (1.96 × 80 ÷ 2)² 블록; 문서 08의 규모와 일치(약 615,000핸드)"
+  sources: [{ kind: math }]
+- id: R-M12-004
+  module: m12
+  if: "핸드가 끝난 뒤 내 플레이를 평가할 때"
+  then: "이겼는지가 아니라 결정(가격, 에퀴티, 당시 가진 정보)을 따집니다"
+  because: "좋은 결정도 자주 집니다: AA 대 KK 올인은 약 {{n:res.kk-wins}}의 경우 지며, 사람들은 그래서는 안 된다는 것을 알면서도 결과로 결정을 평가합니다"
+  level: heuristic
+  source: "Baron과 Hershey(1988), Outcome bias in decision evaluation, J Pers Soc Psychol 54(4); Annie Duke의 “resulting”(Masters in Business, Ritholtz 2018); AA–KK 에퀴티: 정확한 계산(문서 08)"
+  sources: [{ kind: math }, { kind: book }, { kind: study }]
+- id: R-M12-005
+  module: m12
+  if: "몇 {{t:session|세션}}의 결과 때문에 전략을 바꾸고 싶어질 때"
+  then: "결과만 보고 바꾸지 않고, 핸드를 검토한 뒤에만 바꿉니다"
+  because: "상위 {{n:skill.pct}} 플레이어가 하위 {{n:skill.pct}} 플레이어를 약 {{n:skill.ahead}}의 확률로 앞서는 데도 약 {{n:skill.hands}}핸드가 걸리며, 실력 차이가 더 작으면 훨씬 더 많은 핸드가 필요합니다"
+  level: heuristic
+  source: "van Loon, van den Assem, van Dolder(2015), Beyond Chance? The Persistence of Performance in Online Poker, PLoS ONE 10(3)"
+  sources: [{ kind: study }]
+- id: R-M12-006
+  module: m12
+  if: "내 프로필에 있는 틸트의 첫 신호를 알아챘을 때(예: 배드 비트 후의 분노, 상대를 혼내 주고 싶은 마음)"
+  then: "즉시 대응합니다: 심호흡을 하고, 이것이 왜 {{t:variance|분산}}이거나 배울 실수인지 상기시키는 미리 준비한 문장을 떠올립니다"
+  because: "틸트가 커지면 명확하게 생각하지 못하게 되고, 그때는 더 이상 통제할 수 없습니다"
+  level: heuristic
+  source: "Tendler, 뉴스 사이트 인터뷰(2014)(“When tilt becomes too intense, it shuts down your ability to think”, “you must begin correcting tilt when it's small”); Tendler와 Carter, The Mental Game of Poker(2011), “injecting logic” 기법"
+  sources: [{ kind: book }]
+- id: R-M12-007
+  module: m12
+  if: "연패 후 더 이상 차분하게 결정을 평가하지 못할 때(예: 본전 찾을 생각만 하거나, 평소라면 {{t:fold|폴드}}할 핸드를 플레이할 때)"
+  then: "{{t:session|세션}}을 끝냅니다"
+  because: "이 상태로 계속하는 것은 가장 낮은 수준(C-게임)으로 플레이하는 것이며, 목표는 명확하게 생각하는 능력을 잃기 전에 일찍 그만두는 것입니다"
+  level: heuristic
+  source: "Tendler와 Carter, The Mental Game of Poker(2011), “Inchworm” 발췌(온라인 공개 발췌): “quit sooner when it's no longer possible to recover a solid thought process”"
+  sources: [{ kind: book }]
+- id: R-M12-008
+  module: m12
+  if: "자신의 게임을 개선할 때"
+  then: "최고의 플레이를 다듬기보다 최악의 플레이(C-게임)를 고치는 것부터 시작합니다"
+  because: "최악의 게임을 개선하면 꾸준히 발전하고, 새로운 것을 배울 주의력이 생깁니다"
+  level: heuristic
+  source: "Tendler와 Carter, The Mental Game of Poker(2011), “Inchworm” 발췌(온라인 공개 발췌); Tendler, The Inchworm Concept(jaredtendler.com)"
+  sources: [{ kind: book }]
+- id: R-M12-009
+  module: m12
+  if: "{{t:risk-of-ruin|파산 위험}}, 즉 뱅크롤 전체를 잃을 위험을 계산할 때"
+  then: "RoR = e^(−2 × 윈레이트 × 뱅크롤 ÷ SD²) 공식을 쓰며, 뱅크롤은 bb 단위입니다. 윈레이트와 SD가 일정하다고 가정한 근사치입니다"
+  because: "윈레이트 {{n:var.wr.typical.high}}, SD {{n:var.sd}}에서 {{n:br.bi.base}} {{t:buy-in|바이인}}의 뱅크롤은 약 {{n:ror.base}}의 위험을, {{n:br.bi.move-down}} {{t:buy-in|바이인}}이면 벌써 약 {{n:ror.half}}의 위험을 줍니다"
+  level: math
+  source: "포커 계산기 사이트, Risk of Ruin Formula for Poker Players(“RoR = e^(-2 x WR x BR / SD^2)”); 값: 계산(numbers.yaml, 키 ror.*)"
+  sources: [{ kind: training }, { kind: math }]
+- id: R-M12-011
+  module: m12
+  if: "뱅크롤이 계획한 {{t:buy-in|바이인}} 수의 절반으로 떨어질 때({{n:br.bi.base}}에서 {{n:br.bi.move-down}}으로)"
+  then: "늦어도 그때 {{t:stakes|스테이크}}를 한 단계 내리고, 빨라도 상위 {{t:stakes|스테이크}}의 {{t:buy-in|바이인}} 기준으로 뱅크롤이 다 찼을 때 다시 올립니다"
+  because: "{{n:var.hands.k}},000핸드 동안 {{n:dd.bi.small}} {{t:buy-in|바이인}}의 {{t:downswing|다운스윙}}은 윈레이트 {{n:dd.wr-low}}~{{n:var.wr.ex}}로 이기는 거의 모든 플레이어에게 일어나며(SD {{n:var.sd}} 시뮬레이션), 일부 출처는 이 정도 손실에서 이미 내리라고 권합니다. 또 {{n:br.bi.move-down}} {{t:buy-in|바이인}}에서는 나머지를 잃을 위험이 약 {{n:ror.base}}에서 약 {{n:ror.half}}로 커집니다(윈레이트 {{n:var.wr.typical.high}}, SD {{n:var.sd}} 기준)"
+  level: heuristic
+  source: "교육 사이트, Bankroll Management(“half the roll, which is the point to move down a stake”); 교육 사이트, Poker Bankroll Management Strategy(3bb/100에서 30 바이인일 때 내림, 즉 뱅크롤이 다 찬 상태 기준); 포커 계산기 사이트, Risk of Ruin Formula for Poker Players(“Losing 10 should trigger a move down”); 파산 위험 계산과 다운스윙 시뮬레이션"
+  sources: [{ kind: training }, { kind: training }, { kind: training }, { kind: math }]
+- id: R-M12-012
+  module: m12
+  if: "포커에 쓸 시간을 계획할 때"
+  then: "처음에는 시간의 약 {{n:study.beginner}}를 공부에 씁니다. 자신의 {{t:stakes|스테이크}}에서 이기게 되면 약 {{n:study.winner}}로 하되, 절대 {{n:study.min}}보다 적게 하지는 않습니다"
+  because: "처음에는 따라잡을 것이 가장 많고, 자신의 {{t:stakes|스테이크}}에서 이기게 되면 더 많이 플레이해도 됩니다"
+  level: heuristic
+  source: "교육 사이트, What should your study-to-play ratio be(Dara O'Kearney의 글): “New players have so much catching up to do”; “Once you are beating the games you are in you can start to reduce the study and increase the grinding”"
+  sources: [{ kind: training }]
+
+# M11: turnieje i short stacki (moduł opcjonalny). Zakresy push/fold z własnego solvera (pushfold.json, heads-up mały
+# blind kontra duży blind, zwalidowany z równowagą Nasha, dokument 10); progi i pojęcia z przeczytanych źródeł (raport M11).
+- id: R-M11-001
+  module: m11
+  if: "{{t:tournament|토너먼트}}에서 약 {{n:m11.thr.pushfold}} 이하를 가지고 있고 앞 순서가 모두 {{t:fold|폴드}}했을 때"
+  then: "올인하거나 {{t:fold|폴드}}합니다(푸시/폴드). {{n:m11.thr.pushfold}}에서 {{n:m11.thr.upper}} 사이에서는 약한 핸드와 중간 핸드에 푸시/폴드가 주된 방법이고, 약 {{n:m11.thr.raise}}를 넘으면 보통 일반 레이즈를 합니다"
+  because: "{{t:short-stack|숏 스택}}에서는 레이즈한 뒤 상대의 {{t:raise|레이즈}}에 {{t:fold|폴드}}하면 {{t:chips|칩}}을 너무 많이 내주고, 올인은 상대에게서 가장 많은 {{t:fold|폴드}}를 끌어냅니다. 이것은 단순화입니다: 선택지가 더 많은 솔버는 일부 핸드를 림프하거나 최소 레이즈합니다"
+  level: heuristic
+  source: "교육 사이트, Short Stack Strategy (https://pokercoaching.com/blog/short-stack-strategy-2/): “At 10 big blinds or fewer, it is almost entirely push/fold”, “This approach simplifies decision-making and maximizes fold equity”, “At 15 big blinds, the landscape shifts significantly. Push/fold becomes your dominant framework for weak and medium holdings”; 교육 사이트, Push/Fold Tournament Strategy (https://upswingpoker.com/push-fold-tournament-strategy-charts/): “around 15 big blinds (bb) or fewer”, “larger than 20bb … Raising First In”; 상용 솔버 사이트, Short-Stacked Play in MTTs (https://blog.gtowizard.com/short-stacked-play-in-mtts/): “The standard advice for a 10bb stack is to play an all-in or fold strategy”; 단순화: 교육 사이트(같은 페이지): “the all-in or fold binary was grossly suboptimal”; 솔버 결과를 공개하는 교육 기관, 헤즈업 10bb (https://poker.academy/blog/post/how-to-play-heads-up-poker-in-tournaments): “61.1% limp, 28.8% all-in, 10.1% fold”"
+  sources: [{ kind: training, url: "https://pokercoaching.com/blog/short-stack-strategy-2/" }, { kind: training, url: "https://upswingpoker.com/push-fold-tournament-strategy-charts/" }, { kind: solver-pub, url: "https://blog.gtowizard.com/short-stacked-play-in-mtts/" }, { kind: solver-pub, url: "https://poker.academy/blog/post/how-to-play-heads-up-poker-in-tournaments" }]
+- id: R-M11-002
+  module: m11
+  if: "{{t:small-blind|스몰 블라인드}}에서 {{t:big-blind|빅 블라인드}}를 상대로 푸시/폴드를 할 때"
+  then: "스택이 짧을수록 더 많은 핸드로 올인 {{t:shove|푸시}}합니다: {{n:m11.depth.15}}에서 핸드의 약 {{n:m11.push.15}}, {{n:m11.depth.10}}에서 약 {{n:m11.push.10}}, {{n:m11.depth.5}}에서 약 {{n:m11.nash.push.5}}–{{n:m11.push.5}}"
+  because: "스택이 짧을수록 상대가 {{t:fold|폴드}}할 때 얻는 블라인드에 비해 거는 금액이 작고, 상대는 더 넓게 {{t:call|콜}}해야 합니다"
+  level: gto
+  source: "프로젝트의 푸시/폴드 솔버(content/ranges/pushfold.json; 헤즈업, 앤티 없음, 올인 또는 폴드 게임의 내시 균형, 문서 10에서 10bb 기준 검증; 5bb에서는 독립적으로 계산한 균형에서 얻은 구간, docs/tresci/e1b-solver.md, D-153); 비교: 교육 사이트, Push/Fold Play: Nash Ranges (https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/), 10bb: 푸시 “56.6%”"
+  sources: [{ kind: training, url: "https://www.pokerstrategy.com/strategy/sit-and-go/push-fold-play-nash-ranges/" }, { kind: solver-app }]
+- id: R-M11-003
+  module: m11
+  if: "{{t:pot|팟}}에 앤티가 있을 때"
+  then: "앤티가 없을 때보다 더 많은 핸드로 올인 {{t:shove|푸시}}합니다: {{n:m11.depth.10}}에 {{t:bb-ante|빅 블라인드 앤티}} {{n:m11.ante}}라면 {{n:m11.push.10}} 대신 약 {{n:m11.nash.push.10-ante}}–{{n:m11.push.10-ante}}"
+  because: "앤티는 상대가 {{t:fold|폴드}}할 때 가져가는 {{t:pot|팟}}을 키우지만, 올인의 위험은 그대로입니다"
+  level: gto
+  source: "프로젝트의 푸시/폴드 솔버(pushfold.json, 10bb-ante 변형: 헤즈업, 빅 블라인드 앤티 1bb); 검증: docs/tresci/e1b-solver.md(D-153), 같은 모델에서의 계산(가상 플레이 균형 71.05%, then의 구간 하한); 문헌과 방향 일치: 교육 사이트, Push Fold Charts (https://pokercoaching.com/push-fold-charts/): “When antes are in play, your preflop shoving range should be wider”"
+  sources: [{ kind: training, url: "https://pokercoaching.com/push-fold-charts/" }, { kind: solver-app }]
+- id: R-M11-004
+  module: m11
+  if: "가장 먼저 올인할 때"
+  then: "이기는 길은 두 가지입니다: 상대가 {{t:fold|폴드}}해서 {{t:pot|팟}}을 가져가거나, 상대가 {{t:call|콜}}한 뒤 쇼다운에서 이깁니다. 다만 승산 없는 핸드라면 {{n:m11.push.10.alpha}}를 넘는 확률로 {{t:fold|폴드}}가 나와야 합니다(앤티 없는 {{n:m11.depth.10}} 기준)"
+  because: "블라인드 {{n:m11.push.10.win}}를 얻기 위해 {{n:m11.push.10.risk}}를 겁니다. 그래서 폴드 에퀴티와, 상대가 {{t:call|콜}}했을 때 핸드의 에퀴티가 모두 중요합니다"
+  level: math
+  source: "계산: 알파 = 거는 금액 ÷ (팟 + 거는 금액)(M6); 폴드 에퀴티: 상용 솔버 사이트 용어집 (https://gtowizard.com/en/glossary/): “Fold equity The amount of value a player will win by making another player fold.”"
+  sources: [{ kind: training, url: "https://gtowizard.com/en/glossary/" }, { kind: math }]
+- id: R-M11-005
+  module: m11
+  if: "M(스택 ÷ 한 바퀴 비용: 블라인드와 앤티)이 약 {{n:m11.m.red}} 이하로 떨어질 때"
+  then: "올인 또는 {{t:fold|폴드}}만 하고, {{t:pot|팟}}에 가장 먼저 들어가려고 합니다"
+  because: "플레이하지 않으면 스택은 몇 바퀴밖에 버티지 못하고, 일반 레이즈는 {{t:chips|칩}}을 너무 많이 내줍니다"
+  level: heuristic
+  source: "Harrington(해설 자료를 통해): 위키백과, M-ratio (https://en.wikipedia.org/wiki/M-ratio): “The M-ratio is calculated by the formula”(분수 형태 공식: 스택 ÷ (스몰 블라인드 + 빅 블라인드 + 전체 앤티)), 구간 표에서 “Your only move is to move all-in or fold”; 교육 사이트, Dan Harrington M-Factor (https://www.pokerstrategy.com/strategy/mtt/dan-harrington-m-factor/): “Red zone: 1 < = M < = 5”, “your only and best option in this phase is to be the first to push in the pot”; 경계는 약 5 하나(D-147)"
+  sources: [{ kind: reference, url: "https://en.wikipedia.org/wiki/M-ratio" }, { kind: training, url: "https://www.pokerstrategy.com/strategy/mtt/dan-harrington-m-factor/" }]
+- id: R-M11-006
+  module: m11
+  if: "{{t:big-blind|빅 블라인드}}에서 스택 S로 {{t:small-blind|스몰 블라인드}}의 올인에 {{t:call|콜}}할 때(앤티 없음)"
+  then: "에퀴티 (S − {{n:pf.blind.bb}}) ÷ 2S가 필요합니다: {{n:m11.depth.10}}에서 {{n:m11.call.10.eq}}, {{n:m11.depth.5}}에서 {{n:m11.call.5.eq}}, {{n:m11.depth.15}}에서 {{n:m11.call.15.eq}}"
+  because: "블라인드가 이미 {{t:pot|팟}}에 있으므로 S − {{n:pf.blind.bb}}만 더 내고, {{t:call|콜}} 후 {{t:pot|팟}}은 2S가 됩니다"
+  level: math
+  source: "계산: 필요 에퀴티 = 콜 금액 ÷ 콜 후 팟(M2)"
+  sources: [{ kind: math }]
+- id: R-M11-007
+  module: m11
+  if: "상대가 올인했고 {{t:call|콜}}할지 결정할 때"
+  then: "직접 올인 {{t:shove|푸시}}할 때보다 좁은 {{t:range|레인지}}로 {{t:call|콜}}합니다: {{n:m11.depth.10}}에서 {{t:big-blind|BB}}는 핸드의 약 {{n:m11.call.10}}로 {{t:call|콜}}하고, {{t:small-blind|SB}}는 약 {{n:m11.push.10}}로 {{t:shove|푸시}}합니다"
+  because: "콜하는 쪽은 쇼다운에서만, 그것도 이미 무작위보다 강한 {{t:range|레인지}}를 상대로 이겨야 합니다. {{t:shove|푸시}}하는 쪽은 상대가 {{t:fold|폴드}}할 때도 이깁니다"
+  level: gto
+  source: "프로젝트의 푸시/폴드 솔버(pushfold.json); 교육 사이트, Push Fold Charts (https://pokercoaching.com/push-fold-charts/): “Calling ranges are tighter than shoving ranges”; 교육 사이트, The Gap Concept (https://www.pokerstrategy.com/news/content/Poker-Basics-The-Gap-Concept_116890/): “you need a better hand to call a raise with than you would need to open a pot with a raise”(Sklansky)"
+  sources: [{ kind: training, url: "https://pokercoaching.com/push-fold-charts/" }, { kind: training, url: "https://www.pokerstrategy.com/news/content/Poker-Basics-The-Gap-Concept_116890/" }, { kind: solver-app }]
+- id: R-M11-008
+  module: m11
+  if: "토너먼트 스택을 돈으로 환산하고 싶을 때({{t:icm|ICM}})"
+  then: "1위 확률 = 내 스택 ÷ 전체 {{t:chips|칩}}. 2위 확률은 가능한 각 우승자에 대해 남은 플레이어들 사이에서 같은 방식으로 계산합니다. 에퀴티 = 확률 × {{t:payout|상금}}의 합"
+  because: "이 모델은 모든 플레이어의 실력이 같다고 가정하므로, 순위는 스택만으로 정해집니다"
+  level: math
+  source: "상용 솔버 사이트, ICM Basics (https://blog.gtowizard.com/icm-basics/): “The Independent Chip Model assumes all players are equally skilled, and therefore the probability of winning is purely a function of stack sizes”, Limitations of ICM 절: “ICM doesn’t consider players’ positions.”, “ICM ignores blinds increasing.”(2026-11-09 확인), “divide their chips by the total amount of chips in play”, “Assume one of the other players wins, remove their chips from play, and divide our chips by the remaining chips in play”; 예시 스택으로 계산(E1 M9–M11 보고서)"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/icm-basics/" }, { kind: math }]
+- id: R-M11-009
+  module: m11
+  if: "{{t:icm|ICM}}이 적용되는 {{t:tournament|토너먼트}}에서 탈락할 수 있는 올인에 {{t:call|콜}}할 때"
+  then: "에퀴티 BF ÷ (BF + 1)이 필요합니다. 버블 팩터 BF = 졌을 때 잃는 에퀴티 ÷ 이겼을 때 얻는 에퀴티입니다. 레슨 예시에서는 {{t:chips|칩}} 기준 {{n:m11.bf.req-chips}} 대신 {{n:m11.bf.req}}입니다"
+  because: "{{t:payout|상금}}이 있는 {{t:tournament|토너먼트}}에서는 졌을 때 잃는 돈이 이겼을 때 얻는 돈보다 크므로, {{t:call|콜}}은 {{t:chips|칩}}만 걸린 게임보다 더 자주 이겨야 합니다"
+  level: math
+  source: "ICM 계산(numbers.yaml, 키 m11.bf.*); 상용 솔버 사이트, What Is the Bubble Factor (https://blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments/): “$EV lost when you lose / $EV gained when you win = Bubble Factor”, “Required Equity = Bubble Factor / (Bubble Factor + 1)”"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/what-is-the-bubble-factor-in-poker-tournaments/" }, { kind: math }]
+- id: R-M11-010
+  module: m11
+  if: "{{t:bubble|버블}}이나 {{t:final-table|파이널 테이블}}이고, 중간 스택을 가졌을 때"
+  then: "{{t:chips|칩}}만 걸린 게임보다 훨씬 타이트하게 올인에 {{t:call|콜}}하고, 나를 {{t:cover|커버}}하는 빅스택은 더 넓게 {{t:shove|푸시}}할 수 있습니다"
+  because: "{{t:risk-premium|리스크 프리미엄}}: 얻은 {{t:chips|칩}}은 잃은 칩보다 가치가 작고, 빅스택은 이 과정에서 나보다 위험을 적게 집니다"
+  level: heuristic
+  source: "상용 솔버 사이트, ICM Basics (https://blog.gtowizard.com/icm-basics/): “chips won are worth less than chips lost”(색상 표시 없는 본문), “Big stacks can threaten smaller stacks as they take on less risk when stacking off”; 교육 사이트, ICM at Final Tables (https://upswingpoker.com/icm-final-tables/): “When it comes to calling versus shoves, you have to tighten up dramatically when big money is on the line”; 교육 사이트, Big Stack Advantage (https://upswingpoker.com/big-stack-advantage-stone-bubble/): “Risk premiums are the additional equity needed to play for stacks. This means responding ranges tighten up considerably”; Ganzfried와 Sandholm, AAMAS 2008 (https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf), 표 2: 올인 두 번 뒤 빅 블라인드의 콜 비율은 토너먼트에서 “0.021”, 단일 핸드에서 “0.197”"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/icm-basics/" }, { kind: training, url: "https://upswingpoker.com/icm-final-tables/" }, { kind: study, url: "https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf" }]
+- id: R-M11-011
+  module: m11
+  if: "푸시/폴드를 하는데 뒤에 {{t:call|콜}}할 수 있는 플레이어가 더 많이 남아 있을 때"
+  then: "더 좁게 올인 {{t:shove|푸시}}합니다: 3명, {{n:m11.depth.3max}}에서 버튼은 핸드의 약 {{n:m11.3max.push.btn}}, 버튼이 폴드한 뒤 {{t:small-blind|스몰 블라인드}}는 약 {{n:m11.3max.push.sb}}"
+  because: "플레이어가 한 명 늘 때마다 누군가 강한 핸드를 받을 기회가 더해지므로, 모두가 {{t:fold|폴드}}하는 일은 더 드물어집니다"
+  level: gto
+  source: "프로젝트의 푸시/폴드 솔버(content/ranges/pushfold.json, 3명); Ganzfried와 Sandholm, AAMAS 2008 (https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf), 표 2, 단일 핸드와 일치: “Button jam … 0.355”, “SB jam after fold … 0.633”(노드 빈도 차이 1.2%p 이내, M11 보고서)"
+  sources: [{ kind: study, url: "https://www.cs.cmu.edu/~sandholm/3-player%20jam-fold.AAMAS08.pdf" }, { kind: solver-app }]
+- id: R-M11-012
+  module: m11
+  if: "올인에 {{t:call|콜}}하는데 뒤에 아직 플레이어가 있거나 누군가 이미 {{t:call|콜}}했을 때"
+  then: "더 좁게 {{t:call|콜}}합니다: 3명, {{n:m11.depth.3max}}에서 {{t:small-blind|스몰 블라인드}}는 버튼의 올인에 핸드의 약 {{n:m11.3max.call.sb}}로 {{t:call|콜}}하고, {{t:big-blind|빅 블라인드}}는({{t:small-blind|SB}}가 {{t:fold|폴드}}했을 때) 약 {{n:m11.3max.call.bb}}, 이미 두 명이 올인했다면 가격이 {{n:m11.3max.bb-two.eq}}로 떨어지는데도 약 {{n:m11.3max.call.bb-two}}뿐입니다"
+  because: "뒤의 플레이어가 강한 핸드로 합류할 수 있고, 두 {{t:range|레인지}}를 상대로는 내 핸드의 에퀴티가 빠르게 줄어듭니다. {{t:small-blind|SB}}와 {{t:big-blind|BB}}의 가격 차이는 작으므로, 차이는 주로 뒤에 있는 플레이어 때문에 생깁니다"
+  level: gto
+  source: "프로젝트의 푸시/폴드 솔버(pushfold.json, 3명); Ganzfried와 Sandholm, AAMAS 2008, 표 2, 단일 핸드와 일치: “SB jam after jam … 0.234”, “BB jam after jam/fold … 0.308”, “BB jam after jam/jam … 0.197”"
+  sources: [{ kind: solver-app }, { kind: study }]
+
+# M13: analiza własnej gry (dokument 14, sekcja 8; decyzje D-M13-12…15 w dokumencie „12 Weryfikacja źródeł — M10–M13”).
+# „Decyzja, nie wynik” uczy R-M12-004 (jedna reguła na jedno pojęcie); mechanika powtórek z gry to opis aplikacji,
+# więc jest w tekście lekcji, a nie w księdze reguł.
+- id: R-M13-001
+  module: m13
+  if: "상대보다 {{t:equity|에퀴티}}가 높은 상태에서 올인에 졌을 때"
+  then: "이 핸드 때문에 전략을 바꾸지 않습니다: {{t:equity|에퀴티}}가 e이면 이런 핸드의 평균 1 − e를 집니다. 예를 들어 {{n:m13.eq.example}}이면 약 {{n:m13.lose.example}}, 즉 {{n:m13.ten}}번 중 {{n:m13.lose.of-ten}}번입니다"
+  because: "{{t:equity|에퀴티}}는 같은 상황을 여러 번 반복했을 때의 승리 비율입니다. 패배도 이 계산 안에 포함됩니다"
+  level: math
+  source: "계산: P(패배) = 1 − 에퀴티(스플릿 팟이 있으면 그만큼 낮음)"
+  sources: [{ kind: math }]
+- id: R-M13-002
+  module: m13
+  if: "솔버가 특정 스팟에서 내 핸드를 두 가지 방식으로 플레이할 때({{t:mixed-hand|혼합 핸드}})"
+  then: "두 플레이 모두 올바릅니다. 솔버가 덜 자주 하는 플레이를 {{n:range.mixed.min}} 이상, {{n:range.mixed.low}} 미만으로 할 때 리포트는 그 플레이를 허용 가능으로 표시합니다"
+  because: "균형 상태에서 플레이어는 {{t:expected-value|기댓값}}이 같은 플레이끼리만 섞습니다"
+  level: gto
+  source: "상용 솔버 사이트, Principles of GTO (https://blog.gtowizard.com/principles-of-gto/): “Unexploitable play mixes between two or more options only when these options have the same EV.”; 드문 플레이 기준: 상용 솔버 사이트, Measure Performance (https://help.gtowizard.com/measure-performance/): “Inaccuracy – Moves that are taken less than 3.5% of the time in GTO, but don’t lose significant EV.”(ADR-26)"
+  sources: [{ kind: solver-pub, url: "https://blog.gtowizard.com/principles-of-gto/" }]
+- id: R-M13-003
+  module: m13
+  if: "모든 카드의 무늬를 하나의 규칙으로 바꿀 때(예: 하트를 스페이드로, 스페이드를 하트로)"
+  then: "올바른 결정은 바뀌지 않습니다"
+  because: "핸드와 {{t:draw|드로우}}의 강도는 무늬가 서로 일치하는지에 달려 있지, 어떤 무늬인지에 달려 있지 않습니다. 그래서 게임 복기는 같은 상황을 다른 무늬로 보여 줍니다"
+  level: math
+  source: "계산: 족보 순위는 무늬를 구분하지 않으며(텍사스 홀덤 규칙), 무늬 치환은 어떤 카드들이 같은 무늬인지를 보존합니다. poker-core에서 속성 테스트로 확인(문서 02, 문서 14, 5.6)"
+  sources: [{ kind: math }]
+- id: R-M13-004
+  module: m13
+  if: "한 {{t:session|세션}} 후 내 빈도를 평가하고 싶을 때(예: 얼마나 자주 팟에 참여하는지, 3벳에 얼마나 자주 {{t:fold|폴드}}하는지)"
+  then: "결론을 내리지 않습니다. 핸드가 아니라 기회를 셉니다: 통계는 약 {{n:hud.opps.look}}번의 기회부터 보고, 약 {{n:hud.opps.sure}}번에서 확신을 갖습니다"
+  because: "{{t:vpip|VPIP}}조차 약 {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}}핸드 후에야 읽을 수 있고(M10과 같음), 드문 상황은 한 {{t:session|세션}}에 몇 번밖에 나오지 않습니다"
+  level: heuristic
+  source: "교육 블로그를 운영하는 코치, Poker HUD Stats: The Sample Size You Need (https://www.blackrain79.com/2017/11/poker-hud-stat-sample-size.html): “For me personally I usually want at least 5 to even bother looking, and 10 to be sure.”; 핸드 표본은 R-M10-003과 같음(교육 사이트, 교육 사이트)"
+  sources: [{ kind: training, url: "https://www.blackrain79.com/2017/11/poker-hud-stat-sample-size.html" }, { kind: training }, { kind: training }]
+- id: R-M13-005
+  module: m13
+  if: "플레이 중 어떻게 할지 모르겠거나 핸드가 이상하게 느껴졌을 때"
+  then: "표시만 해 두고, 분석은 {{t:session|세션}}이 끝나고 몇 시간 또는 며칠 뒤 맑은 머리로 합니다"
+  because: "큰 패배 직후나 피곤할 때의 분석은 감정에 물듭니다"
+  level: heuristic
+  source: "핸드 분석 앱 블로그, How to Review Your Poker Hands (https://blog.checkreplay.com/poker-hand-review/): “Mark hands that felt interesting, confusing, or off. Don’t analyze them yet.”; “The best time to review is hours or days after the session, with a clear head.”; “What doesn’t work is reviewing while you’re still steaming or while you’re tired.”"
+  sources: [{ kind: training, url: "https://blog.checkreplay.com/poker-hand-review/" }]
+- id: R-M13-006
+  module: m13
+  if: "큰 {{t:pot|팟}}을 졌거나 핸드에서 어떻게 할지 몰랐을 때"
+  then: "그 핸드를 검토합니다. 쿨러(어느 쪽도 합리적으로 {{t:fold|폴드}}할 수 없었던 강한 핸드 두 개)와 배드 비트에는 시간을 많이 쓰지 않습니다"
+  because: "쿨러와 배드 비트는 누구에게나 일어나며, 어려운 결정이 있었던 핸드가 검토할 가치가 있는 핸드에 속합니다"
+  level: heuristic
+  source: "핸드 분석 앱 블로그, How to Review Your Poker Hands (https://blog.checkreplay.com/poker-hand-review/): “Big pots, especially the ones you lost.”; “Hands where you weren’t sure what to do.”; 교육 블로그를 운영하는 코치, How to Effectively Conduct Poker Hand Reviews (https://www.blackrain79.com/2014/02/how-to-effectively-conduct-poker.html): “Coolers and bad beats happen to everybody. Learn how to differentiate them from the hands that matter and don't spend much time on them”"
+  sources: [{ kind: training, url: "https://blog.checkreplay.com/poker-hand-review/" }, { kind: training, url: "https://www.blackrain79.com/2014/02/how-to-effectively-conduct-poker.html" }]
+- id: R-M13-007
+  module: m13
+  if: "어려운 결정을 검토할 때"
+  then: "먼저 첫 반응을 적고(예: “쉬운 {{t:call|콜}}이다”), 그다음에 계산합니다"
+  because: "첫 반응과 계산의 차이는 직관이 어디서 틀리는지 보여 주고, 시간이 지나면서 직관을 개선해 줍니다"
+  level: heuristic
+  source: "교육 사이트, 6 Steps to Analyze a Poker Hand (https://upswingpoker.com/analyze-poker-hand-techniques/): “Step 4: Take note of your gut reaction”; “be sure to take notes regarding the differences between your initial presumption––which is typically optimistic, in my experience––and the realistic result. This will help you improve your intuitive strategy over time.”"
+  sources: [{ kind: training, url: "https://upswingpoker.com/analyze-poker-hand-techniques/" }]
+- id: R-M13-008
+  module: m13
+  if: "상대가 어떻게 플레이하는지 모르는 상태에서 상대의 {{t:bet|베팅}}에 대한 결정을 검토할 때"
+  then: "상대 {{t:range|레인지}}에 대해 낙관적, 비관적, 현실적 가정을 각각 두고 평가합니다. 비관적 가정에서도 좋은 결정이라면 더 계산할 필요가 없습니다"
+  because: "극단적인 가정들이 현실이 놓인 범위를 정해 주므로, 양쪽 모두에서 좋은 결정은 상대를 잘못 읽어도 흔들리지 않습니다"
+  level: heuristic
+  source: "교육 사이트, 6 Steps to Analyze a Poker Hand (https://upswingpoker.com/analyze-poker-hand-techniques/): “The Optimist The Pessimist The Realist”; “I pick the extremes first, because they shape the polar ends of the spectrum.”; “When the Pessimist gets such a favorable result, I don’t bother analyzing the hand through the Realist’s eyes, because it will also be favorable.”"
+  sources: [{ kind: training, url: "https://upswingpoker.com/analyze-poker-hand-techniques/" }]

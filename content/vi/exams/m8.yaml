@@ -1,0 +1,93 @@
+# Pula pytań egzaminacyjnych modułu M8 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m8.*).
+module: m8
+drills:
+  - kind: choice
+    id: m8.exam.q1
+    family: m8.value.threshold
+    rules: [R-M8-001]
+    prompt: "River, đối thủ {{t:check|check}} và không thể {{t:raise|tố}} bạn. Trong {{t:range|range}} của đối thủ có {{n:exam.m8.range.worse}} tay yếu hơn tay bạn, nhưng chỉ {{n:exam.m8.call.worse}} tay trong số đó sẽ {{t:call|theo}} cược của bạn. Đối thủ cũng sẽ trả tiền {{n:exam.m8.call.better}} lần bằng tay mạnh hơn. Bạn có cược không?"
+    options:
+      - { text: "Không, tôi {{t:check|check}}", correct: true, why: "Đúng: chỉ tính những tay sẽ trả tiền. Cược thắng {{n:exam.m8.call.worse}} lần và thua {{n:exam.m8.call.better}} lần, tức lỗ ròng {{n:exam.m8.net.loss}} cược. Những tay yếu hơn sẽ {{t:fold|bỏ bài}} thì đằng nào cũng thua bạn sau khi {{t:check|check}}." }
+      - { text: "Có, vì tay yếu hơn nhiều hơn tay mạnh hơn", why: "Đối thủ có {{n:exam.m8.range.worse}} tay yếu hơn, nhưng phần lớn trong số đó sẽ {{t:fold|bỏ bài}} trước cược. Trong số những tay sẽ trả tiền, tay mạnh hơn lại nhiều hơn ({{n:exam.m8.call.better}} so với {{n:exam.m8.call.worse}})." }
+      - { text: "Có, để biết mình đang ở đâu", why: "Cược “để lấy thông tin” chỉ trả tiền cho tay mạnh hơn, còn tay yếu hơn thì {{t:fold|bỏ bài}}. Bạn nhận được cùng thông tin đó miễn phí sau khi {{t:check|check}}, lúc showdown." }
+  - kind: choice
+    id: m8.exam.q2
+    family: m8.value.size
+    rules: [R-M8-003]
+    prompt: "Bạn {{t:open|mở}} từ Button, {{t:big-blind}} {{t:call|theo}}. Trên flop: c-bet và {{t:call}}; trên turn cả hai cùng {{t:check|check}}. River, {{t:big-blind}} {{t:check|check}}. Bạn có {{t:top-pair|đôi cao nhất}} kèm quân 9 và ước tính rằng bạn thắng chỉ hơn một nửa số tay sẽ trả tiền. Bạn làm gì?"
+    table: { hand: "Jh 9h", board: "Jc 7s 4d 2h 2c", position: BTN }
+    options:
+      - { text: "Cược khoảng 1/3 {{t:pot|pot}}", correct: true, why: "Đúng: đây là thin value. Với cược nhỏ, cả các tay có quân 7, quân 4 và J yếu hơn cũng sẽ {{t:call|theo}}, nên trong số các lần {{t:call|theo}} có nhiều tay yếu hơn tay mạnh hơn." }
+      - { text: "Cược bằng cả {{t:pot|pot}}", sizeError: true, why: "Hành động đúng, kích cỡ sai: trước cược bằng {{t:pot|pot}}, các tay có quân 7 và quân 4 sẽ {{t:fold|bỏ bài}}, còn người trả tiền chủ yếu là J mạnh hơn và các tay mạnh hơn. Với thin value, bạn cược nhỏ hơn, thường khoảng 1/4–1/2 {{t:pot|pot}}." }
+      - { text: "{{t:check|Check}}, vì tay quá yếu để cược", why: "Bạn mất giá trị: bạn thắng hơn một nửa số tay sẽ trả cho một cược nhỏ. Chỉ cần chọn kích cỡ nhỏ hơn." }
+  - kind: numeric
+    id: m8.exam.q3
+    family: m8.bluff.share
+    rules: [R-M8-004, R-M8-005]
+    prompt: "River. Trong {{t:pot|pot}} có {{n:exam.m8.pot}}, bạn cược {{n:exam.m8.bet}} với {{t:range|range}} gồm các tay rất mạnh và {{t:bluff|bluff}}. Ở trạng thái cân bằng, {{t:bluff|bluff}} chiếm bao nhiêu phần trong các cược của bạn? Hãy nhập số theo phần trăm."
+    answer: exam.m8.share
+    explanation: "Tỷ lệ {{t:bluff|bluff}} = cược ÷ ({{t:pot}} + 2·cược) = {{n:exam.m8.bet}} ÷ ({{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}) = {{n:exam.m8.share}}. Tay bắt {{t:bluff|bluff}} của đối thủ cũng cần đúng mức equity đó, nên không có lời khi {{t:call|theo}} lẫn khi {{t:fold|bỏ bài}}."
+  - kind: choice
+    id: m8.exam.q4
+    family: m8.bluff.combos
+    rules: [R-M8-004]
+    prompt: "River. Trong {{t:pot|pot}} có {{n:exam.m8.pot}}, bạn cược {{n:exam.m8.bet}} với {{t:range|range}} gồm {{n:exam.m8.range}} {{t:combo|combo}}: tay giá trị và {{t:bluff|bluff}}. Tỷ lệ {{t:bluff|bluff}} ở trạng thái cân bằng là {{n:exam.m8.share}}. Có bao nhiêu {{t:combo|combo}} là {{t:bluff|bluff}}?"
+    options:
+      - { text: "{{n:exam.m8.bluffs}}", correct: true, why: "Đúng: {{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}} {{t:bluff|bluff}} và {{n:exam.m8.value-combos}} {{t:combo|combo}} {{t:value|lấy giá trị}}." }
+      - { text: "{{n:exam.m8.bluffs.wrong-pot}}", why: "Đó là số lượng khi cược bằng cả {{t:pot|pot}} (tỷ lệ {{n:bluff.share.bet-pot}}). Với cược nhỏ hơn, {{t:bluff|bluff}} ít hơn: {{n:exam.m8.share}}." }
+      - { text: "{{n:exam.m8.value-combos}}", why: "Đó là số {{t:combo|combo}} {{t:value|lấy giá trị}}. {{t:bluff|Bluff}} là phần nhỏ hơn: {{n:exam.m8.range}} × {{n:exam.m8.share}} = {{n:exam.m8.bluffs}}." }
+  - kind: choice
+    id: m8.exam.q5
+    family: m8.bluff.hands
+    rules: [R-M8-006]
+    prompt: "Bạn {{t:open|mở}} từ Button, {{t:big-blind}} {{t:call|theo}} và {{t:check|check}} ở river. Tay nào trong số này tốt nhất để {{t:bluff|bluff}}?"
+    table: { board: "Qs Tc 6d 3h 2s", position: BTN }
+    options:
+      - { text: "[[Kc Jc]]", correct: true, why: "Đúng: {{t:oesd|OESD}} không thành, và chỉ có K là lá cao nhất thì gần như không bao giờ thắng ở showdown. Tay không có cơ hội chẳng mất gì khi {{t:bluff}} thất bại." }
+      - { text: "[[Ts 9s]]", why: "{{t:second-pair|Đôi thứ hai}} thắng sau khi {{t:check|check}} trước các {{t:draw|draw}} trượt và các tay yếu hơn. Nếu {{t:bluff|bluff}}, bạn sẽ đánh mất phần thắng đó." }
+      - { text: "[[Qd 8d]]", why: "{{t:top-pair|Đôi cao nhất}} có giá trị showdown. Bạn không {{t:bluff|bluff}} bằng tay thường thắng sau khi {{t:check|check}}." }
+  - kind: choice
+    id: m8.exam.q6
+    family: m8.blockers.bluff
+    rules: [R-M8-007]
+    prompt: "River. {{t:big-blind|Big blind}} {{t:check|check}}. Trên {{t:board|bàn}} này, KT và T8 có {{t:straight}}. Cả hai tay dưới đây đều không có {{t:pair|đôi}} và không có cơ hội ở showdown. Tay nào tốt hơn để {{t:bluff|bluff}}?"
+    table: { board: "Qd Jc 4s 2h 9d", position: BTN }
+    options:
+      - { text: "[[Ts 7s]]", correct: true, why: "Đúng: quân 10 chặn cả hai {{t:straight|sảnh}} (KT và T8), tức những tay mà đối thủ chắc chắn sẽ trả tiền. Đối thủ có ít {{t:combo|combo}} của chúng hơn, nên thường xuyên hơn chỉ còn lại tay phải bỏ." }
+      - { text: "[[6s 5s]]", why: "Tay này không chặn tay mạnh nào của đối thủ. Khi chọn giữa các {{t:bluff|bluff}} không có cơ hội, bạn ưu tiên tay chặn giá trị của đối thủ." }
+  - kind: numeric
+    id: m8.exam.q7
+    family: m8.blockers.combos
+    rules: [R-M8-009]
+    prompt: "Khi không biết lá nào, KQ có {{n:combos.unpaired}} {{t:combo|combo}}. Bạn cầm [[Ad Qc]]. Đối thủ có thể có bao nhiêu {{t:combo|combo}} KQ? Hãy nhập số."
+    table: { hand: "Ad Qc" }
+    answer: combos.unpaired.one-blocked
+    explanation: "Bạn cầm một quân Q, nên đối thủ còn {{n:pair.outs.per-rank}} quân Q và đủ {{n:cards.suits}} quân K: {{n:pair.outs.per-rank}} × {{n:cards.suits}} = {{n:combos.unpaired.one-blocked}}. Quân A không ảnh hưởng đến số combo KQ."
+  - kind: choice
+    id: m8.exam.q8
+    family: m8.catch.math
+    rules: [R-M8-010]
+    prompt: "River. Trong {{t:pot|pot}} có {{n:exam.m8.pot}}, đối thủ {{t:bet|cược}} {{n:exam.m8.bet}}. Bạn có bluff-catcher và ước tính {{t:bluff|bluff}} chiếm khoảng {{n:exam.m8.bluffs.est}} số cược của đối thủ. Bạn làm gì?"
+    options:
+      - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Đúng: bạn cần {{n:exam.m8.bet}} ÷ ({{n:exam.m8.pot}} + {{n:exam.m8.bet}} + {{n:exam.m8.bet}}) = {{n:exam.m8.share}} equity, còn bluff-catcher chỉ thắng {{t:bluff|bluff}}, tức khoảng {{n:exam.m8.bluffs.est}} trường hợp. {{t:call|Theo}} là lỗ." }
+      - { text: "{{t:call|Theo}}", why: "Equity của bạn là tỷ lệ {{t:bluff|bluff}} trong các cược của đối thủ: {{n:exam.m8.bluffs.est}}. Con số này thấp hơn mức cần thiết {{n:exam.m8.share}}, nên {{t:call}} là lỗ." }
+      - { text: "{{t:raise|Tố}}", why: "Sau khi bị {{t:raise|tố}}, {{t:bluff|bluff}} sẽ {{t:fold|bỏ bài}}, chỉ còn tay mạnh hơn trả tiền. Bạn không {{t:raise|tố}} bằng bluff-catcher." }
+  - kind: choice
+    id: m8.exam.q9
+    family: m8.catch.blockers
+    rules: [R-M8-011]
+    prompt: "Bạn đang phòng thủ {{t:big-blind}}. Chất cơ không về, và river giúp T7 và 75 thành {{t:straight}}. Bạn {{t:check|check}}, Button {{t:bet|cược}} cả {{t:pot|pot}}. Bạn có {{t:top-pair|đôi cao nhất}} với kicker yếu. Với tay nào trong số này thì {{t:call}} tốt hơn?"
+    table: { board: "Kh 9h 6c 2s 8d", position: BB }
+    options:
+      - { text: "[[Kc 7c]]", correct: true, why: "Đúng: quân 7 chặn cả hai {{t:straight|sảnh}} mới (T7 và 75), tức một phần giá trị của Button, và vì không có chất cơ, bạn không chặn các {{t:flush-draw|draw thùng}} trượt, vốn là {{t:bluff|bluff}} chính của Button. Trong các cược của Button còn lại nhiều {{t:bluff|bluff}} hơn." }
+      - { text: "[[Ks 3h]]", why: "Lá [[3h]] chặn một phần các {{t:flush-draw|draw thùng}} trượt, tức {{t:bluff|bluff}} của Button, còn tay này không chặn {{t:straight|sảnh}} nào. Trong các cược của Button còn lại nhiều giá trị hơn." }
+  - kind: choice
+    id: m8.exam.q10
+    family: m8.value.check
+    rules: [R-M8-002]
+    prompt: "Bạn {{t:open|mở}} từ Button, {{t:big-blind}} {{t:call|theo}}. Trên flop: c-bet và {{t:call}}; trên turn cả hai cùng {{t:check|check}}. River, {{t:big-blind}} {{t:check|check}}. Bạn có {{t:pair|đôi}} 6. Bạn làm gì?"
+    table: { hand: "6d 6s", board: "Jc 8h 4d 3s Kc", position: BTN }
+    options:
+      - { text: "{{t:check|Check}}", correct: true, why: "Đúng: {{t:pair|đôi}} 6 thắng các {{t:draw|draw}} trượt và bài lá cao, nhưng những tay này sẽ {{t:fold|bỏ bài}} trước cược. Người trả tiền chủ yếu là các tay có J, 8 và K. Khi {{t:check|check}}, bạn vào showdown miễn phí." }
+      - { text: "Cược nhỏ {{t:value|lấy giá trị}}", why: "Cược nhỏ cũng chủ yếu bị các {{t:pair|đôi}} mạnh hơn {{t:call|theo}}. Tay yếu hơn của đối thủ ở đây chủ yếu là tay không có {{t:pair|đôi}} và các {{t:pair|đôi}} yếu nhất, và chúng hiếm khi trả tiền." }
+      - { text: "Cược lớn để đối thủ {{t:fold|bỏ}} {{t:pair|đôi}} mạnh hơn", why: "Cược biến tay có giá trị showdown thành {{t:bluff}}. Bạn {{t:bluff|bluff}} bằng tay không có cơ hội, còn tay này thường thắng sau khi {{t:check|check}}." }

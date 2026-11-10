@@ -1,0 +1,111 @@
+# Pula egzaminacyjna M4 (gra wobec akcji preflop): reguły lekcji m4.l1–m4.l4, inne pozycje, ręce i rozmiary.
+# Bez pytań o podział 3-bet/sprawdzenie w spotach BB vs SB i BTN vs CO (tam uczymy tylko gram/pas, ADR-26).
+module: m4
+drills:
+  - kind: choice
+    id: m4.exam.q1
+    family: m4.3bet.size
+    rules: [R-M4-002, R-M4-003]
+    prompt: "{{t:cutoff|CO}}가 {{n:pf.open-size}} 사이즈로 {{t:open|오픈}}했고, 버튼은 {{t:fold|폴드}}했습니다. {{t:small-blind|스몰 블라인드}}에 있고 3벳을 하려고 합니다. 얼마까지 하시겠습니까?"
+    table: { hand: "Ad Kd", position: SB }
+    options:
+      - { text: "{{n:pf.3bet.oop-total}}까지", correct: true, why: "플롭 이후 먼저 액션하게 되므로 {{t:open|오픈}}의 약 {{n:pf.3bet.size-oop}} 사이즈로 {{t:raise|레이즈}}합니다. 더 큰 사이즈는 {{t:cutoff|CO}}가 {{t:in-position|인 포지션}}에서 싸게 {{t:call|콜}}하는 것을 막습니다." }
+      - { text: "{{n:pf.3bet.ip-total}}까지", sizeError: true, why: "좋은 액션이지만, 이는 {{t:in-position|인 포지션}} 플레이어의 사이즈입니다({{t:open|오픈}}의 {{n:pf.3bet.size-ip}}). {{t:small-blind|스몰 블라인드}}에서는 {{n:pf.3bet.oop-total}}까지 {{t:raise|레이즈}}합니다." }
+      - { text: "{{t:call|콜}}만 합니다", why: "{{t:small-blind|스몰 블라인드}}에서 {{t:cutoff|CO}}를 상대로는 거의 {{t:call|콜}}하지 않습니다: {{t:out-of-position|아웃 오브 포지션}}으로 플레이하게 되고, 뒤에 있는 {{t:big-blind|빅 블라인드}}가 아직 {{t:raise|레이즈}}할 수 있습니다." }
+  - kind: choice
+    id: m4.exam.q2
+    family: m4.sb.vs-open
+    rules: [R-M4-003]
+    prompt: "버튼이 {{n:pf.open-size}} 사이즈로 {{t:open|오픈}}했습니다. {{t:small-blind|스몰 블라인드}}에 있습니다. 어떻게 하시겠습니까?"
+    table: { hand: "8c 8d", position: SB }
+    options:
+      - { text: "3벳", correct: true, why: "{{t:small-blind|스몰 블라인드}}에서 버튼을 상대로는 {{t:range|레인지}}의 상위, 약 {{n:pf.3bet-freq.sb-vs-btn}}의 핸드로 3벳하며, 77 이상의 {{t:pair|페어}}가 여기에 속합니다." }
+      - { text: "{{t:call|콜}}", why: "{{t:small-blind|스몰 블라인드}}에서 버튼을 상대로는 거의 {{t:call|콜}}하지 않습니다: 뒤에 {{t:big-blind|빅 블라인드}}를 두고 {{t:out-of-position|아웃 오브 포지션}}으로 플레이하게 됩니다. 3벳은 {{t:initiative|주도권}}과 바로 이길 기회를 줍니다." }
+      - { text: "{{t:fold|폴드}}", why: "너무 타이트합니다: 88은 버튼의 넓은 {{t:open|오픈}}에 맞서 3벳하는 {{t:range|레인지}}의 상위 부분에 속합니다." }
+  - kind: choice
+    id: m4.exam.q3
+    family: m4.3bet.shape
+    rules: [R-M4-006]
+    prompt: "{{t:big-blind|빅 블라인드}}에 있고, 버튼이 {{t:open|오픈}}했으며, {{t:small-blind|스몰 블라인드}}는 {{t:fold|폴드}}했습니다. 다음 중 전형적인 {{t:value|밸류}} 3벳 핸드는 무엇입니까?"
+    table: { position: BB }
+    options:
+      - { text: "JJ", correct: true, why: "{{t:big-blind|빅 블라인드}}에서는 가장 강한 핸드(TT+, AQ+, AJs+)로 3벳합니다. JJ는 큰 {{t:pot|팟}}을 원합니다." }
+      - { text: "A9 오프수트", why: "오프수트 에이스(AJo–A9o)는 {{t:big-blind|빅 블라인드}}에서 보통 {{t:call|콜}}만 합니다: 싸게 들어가고 액션을 마무리합니다." }
+      - { text: "66", why: "중간 및 작은 {{t:pair|페어}}는 {{t:big-blind|빅 블라인드}}에서 보통 {{t:call|콜}}합니다. 플롭 이후에 수익을 내며, 이런 핸드로 3벳하면 4벳에 잘 대응하지 못합니다." }
+  - kind: choice
+    id: m4.exam.q4
+    family: m4.bb.price
+    rules: [R-M4-004]
+    prompt: "{{t:cutoff|CO}}가 {{n:pf.open-size}} 사이즈로 {{t:open|오픈}}했고, 버튼과 {{t:small-blind|스몰 블라인드}}는 {{t:fold|폴드}}했습니다. {{t:big-blind|빅 블라인드}}에서 {{t:call|콜}}하려면 에퀴티가 얼마나 필요합니까(플롭 이후 플레이 제외)?"
+    table: { position: BB }
+    options:
+      - { text: "약 {{n:eq.bb-vs-btn-open}}", correct: true, why: "가격은 누가 {{t:open|오픈}}했는지가 아니라 금액에 따라 달라집니다. 추가로 넣는 금액은 {{n:bb.call.vs-btn}}, {{t:call|콜}} 후 {{t:pot|팟}}은 {{n:bb.pot-after.vs-btn}}입니다. 버튼을 상대할 때와 같습니다." }
+      - { text: "약 절반", why: "{{t:pot|팟}}에 상대의 {{t:bet|베팅}}만 있다면 절반이 필요했을 것입니다. {{t:pot|팟}}에 있는 블라인드가 가격을 개선해 줍니다." }
+      - { text: "약 {{n:eq.bb-vs-sb-open}}", why: "이는 {{t:small-blind|스몰 블라인드}}의 {{n:pf.open-size-sb}} 사이즈 {{t:open|오픈}}에 대한 가격입니다. 여기서는 {{t:open|오픈}}이 더 작습니다." }
+  - kind: choice
+    id: m4.exam.q5
+    family: m4.bb.3bet-size
+    rules: [R-M4-014]
+    prompt: "{{t:small-blind|스몰 블라인드}}가 {{n:pf.open-size-sb}} 사이즈로 {{t:open|오픈}}했습니다. {{t:big-blind|빅 블라인드}}에서 AA를 들고 3벳을 합니다. 얼마까지 하시겠습니까?"
+    table: { hand: "Ah Ad", position: BB }
+    options:
+      - { text: "{{n:exam.m4.bb-vs-sb.3bet}}까지", correct: true, why: "{{t:small-blind|스몰 블라인드}}를 상대로는 플롭 이후 {{t:position|포지션}}을 가지므로 3벳은 {{t:open|오픈}}의 약 {{n:pf.3bet.size-ip}} 수준이며, {{n:pf.open-size-sb}} 사이즈 {{t:open|오픈}}이라면 {{n:exam.m4.bb-vs-sb.3bet}}입니다." }
+      - { text: "{{n:exam.m4.bb-vs-sb.3bet-oop-size}}까지", sizeError: true, why: "좋은 액션이지만, {{t:open|오픈}}의 {{n:pf.3bet.size-oop}} 사이즈는 {{t:out-of-position|아웃 오브 포지션}}용입니다. {{t:small-blind|스몰 블라인드}}를 상대로는 {{t:big-blind|빅 블라인드}}가 {{t:position|포지션}}을 가지므로 더 작게 {{t:raise|레이즈}}합니다." }
+      - { text: "{{n:pf.3bet.ip-total}}까지", sizeError: true, why: "좋은 액션이지만, {{n:pf.3bet.ip-total}}까지의 3벳은 {{n:pf.open-size}} 사이즈 {{t:open|오픈}}에 맞춘 것입니다. {{t:small-blind|스몰 블라인드}}는 {{n:pf.open-size-sb}} 사이즈로 {{t:open|오픈}}했으므로 {{t:open|오픈}}의 {{n:pf.3bet.size-ip}} 사이즈는 {{n:exam.m4.bb-vs-sb.3bet}}입니다." }
+  - kind: choice
+    id: m4.exam.q6
+    family: m4.vs3bet.math
+    rules: [R-M4-007]
+    prompt: "플롭 이후 {{t:position|포지션}}을 가질 플레이어에게 3벳을 받았습니다. 보통 자신의 {{t:open|오픈}} 중 어느 정도를 {{t:fold|폴드}}합니까?"
+    options:
+      - { text: "약 {{n:pf.vs3bet.fold.low}}–{{n:pf.vs3bet.fold.high}}", correct: true, why: "솔버 솔루션과 차트가 대략 이만큼 {{t:fold|폴드}}합니다. 상한은 {{n:alpha.vs-3bet-ip-size}} 기준선 바로 아래에 있습니다: 이보다 자주 폴드하면 상대의 3벳은 어떤 핸드로든 이익을 냅니다." }
+      - { text: "AA와 KK를 제외한 거의 전부", why: "그러면 {{n:alpha.vs-3bet-ip-size}}보다 훨씬 자주 {{t:fold|폴드}}하므로, 상대는 아무 두 장의 카드로 3벳해도 이익을 냅니다." }
+      - { text: "4분의 1 미만", why: "{{t:fold|폴드}}가 너무 적습니다: 상대의 {{t:range|레인지}}에 지고 플롭 이후 플레이도 나쁜 핸드로 3벳에 돈을 내주게 됩니다." }
+  - kind: choice
+    id: m4.exam.q7
+    family: m4.vs3bet.oop
+    rules: [R-M4-008]
+    prompt: "{{t:hijack|HJ}}에서 {{n:pf.open-size}} 사이즈로 {{t:open|오픈}}했고, 버튼이 {{n:pf.3bet.ip-total}}까지 {{t:raise|레이즈}}했으며, 나머지는 {{t:fold|폴드}}했습니다. 어떻게 하시겠습니까?"
+    table: { hand: "Ah Tc", position: HJ }
+    options:
+      - { text: "{{t:fold|폴드}}", correct: true, why: "오프수트 AT는 {{t:out-of-position|아웃 오브 포지션}}에서 AJ, AQ, AK에 자주 도미네이트당하고, 플롭 이후 {{t:equity-realization|에퀴티 실현}}이 잘 되지 않습니다. 이런 핸드는 3벳을 받으면 {{t:fold|폴드}}합니다." }
+      - { text: "{{t:call|콜}}", why: "에이스가 끌리지만, {{t:out-of-position|아웃 오브 포지션}}에서는 수딧 핸드와 {{t:pair|페어}}로 {{t:call|콜}}합니다. ATo는 더 약한 키커로 에이스를 맞추는 경우가 너무 많습니다." }
+      - { text: "{{t:value|밸류}}로 4벳", why: "{{t:value|밸류}} 4벳은 보통 AA, KK, AK로 합니다. ATo는 이 핸드에 {{t:call|콜}}할 대부분의 핸드에 집니다." }
+  - kind: choice
+    id: m4.exam.q8
+    family: m4.vs3bet.ip
+    rules: [R-M4-009]
+    prompt: "버튼에서 {{n:pf.open-size}} 사이즈로 {{t:open|오픈}}했고, {{t:small-blind|스몰 블라인드}}가 {{n:pf.3bet.oop-total}}까지 {{t:raise|레이즈}}했으며, {{t:big-blind|빅 블라인드}}는 {{t:fold|폴드}}했습니다. 어떻게 하시겠습니까?"
+    table: { hand: "9s 9h", position: BTN }
+    options:
+      - { text: "{{t:call|콜}}", correct: true, why: "{{t:in-position|인 포지션}}에서는 66부터 TT까지의 {{t:pair|페어}}를 포함해 더 넓게 {{t:call|콜}}합니다. 99는 플롭 이후 플레이가 좋고 {{t:equity-realization|에퀴티 실현}}도 쉽습니다." }
+      - { text: "{{t:fold|폴드}}", why: "너무 타이트합니다: 가장 낮은 {{t:pair|페어}}는 {{t:fold|폴드}}하지만, 99는 {{t:in-position|인 포지션}} {{t:call|콜}} {{t:range|레인지}}에 속합니다." }
+      - { text: "{{t:value|밸류}}로 4벳", why: "{{t:value|밸류}} 4벳은 보통 AA, KK, AK로 합니다. 99는 플롭을 보는 편이 낫습니다." }
+  - kind: choice
+    id: m4.exam.q9
+    family: m4.vs3bet.value
+    rules: [R-M4-010, R-M4-011]
+    prompt: "{{t:hijack|HJ}}에서 {{n:pf.open-size}} 사이즈로 {{t:open|오픈}}했고, {{t:cutoff|CO}}가 {{n:pf.3bet.ip-total}}까지 {{t:raise|레이즈}}했으며, 나머지는 {{t:fold|폴드}}했습니다. 어떻게 하시겠습니까?"
+    table: { hand: "As Ac", position: HJ }
+    options:
+      - { text: "약 {{n:pf.4bet.oop-example.low}}–{{n:exam.m4.4bet.oop.high}}까지 4벳", correct: true, why: "AA는 {{t:value|밸류}}로 4벳합니다. {{t:out-of-position|아웃 오브 포지션}}에서 4벳은 3벳의 약 {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} 사이즈입니다: {{n:pf.3bet.ip-total}} × {{n:pf.4bet.size-oop.low}} ≈ {{n:pf.4bet.oop-example.low}}, × {{n:pf.4bet.size-oop.high}} ≈ {{n:exam.m4.4bet.oop.high}}." }
+      - { text: "{{t:call|콜}}", why: "AA는 스택 전부를 넣고 싶어 합니다. {{t:out-of-position|아웃 오브 포지션}}에서 {{t:call|콜}}하면 밸류와 {{t:initiative|주도권}}을 포기하게 됩니다." }
+      - { text: "{{n:format.stack}} 올인", why: "올인하면 상대가 일반적인 4벳에는 콜했을 약한 핸드를 밀어내게 됩니다. 3벳의 약 {{n:pf.4bet.size-oop.low}}–{{n:pf.4bet.size-oop.high}} 사이즈로 4벳한 뒤에도 남은 스택은 어차피 쉽게 넣을 수 있습니다." }
+  - kind: numeric
+    id: m4.exam.n1
+    family: m4.iso.size
+    rules: [R-M4-012]
+    prompt: "두 명이 림프했고, 버튼은 {{t:fold|폴드}}합니다. {{t:small-blind|스몰 블라인드}}에 있고 {{t:isolation|아이솔레이션}}하려고 합니다. 몇 bb까지 {{t:raise|레이즈}}하시겠습니까? 숫자를 입력하세요."
+    table: { hand: "Qs Qc", position: SB }
+    answer: exam.m4.iso.two-oop
+    explanation: "기본 {{n:pf.iso.base}}에 두 림퍼 각각 {{n:pf.iso.per-limper}}씩 추가, 플롭 이후 먼저 액션하므로 {{n:pf.iso.oop-extra}} 추가: 합계 {{n:exam.m4.iso.two-oop}}입니다."
+  - kind: choice
+    id: m4.exam.q10
+    family: m4.iso.many
+    rules: [R-M4-013, R-M4-012]
+    prompt: "앞의 세 플레이어가 {{t:big-blind|빅 블라인드}}만큼만 맞췄습니다. {{t:cutoff|CO}}에 있습니다. 어떻게 하시겠습니까?"
+    table: { hand: "Ad Kh", position: CO }
+    options:
+      - { text: "{{n:exam.m4.iso.three}}까지 {{t:raise|레이즈}}", correct: true, why: "림퍼가 많을 때는 주로 {{t:value|밸류}}를 위해 {{t:raise|레이즈}}하며, AK가 바로 그런 핸드입니다. 사이즈: 기본 {{n:pf.iso.base}}에 세 림퍼 각각 {{n:pf.iso.per-limper}}씩 추가." }
+      - { text: "{{n:pf.iso.one-limper}}까지 {{t:raise|레이즈}}", sizeError: true, why: "좋은 액션이지만, 이는 림퍼 한 명을 상대할 때의 사이즈입니다. 림퍼가 한 명 늘 때마다 {{n:pf.iso.per-limper}}씩 추가되므로 여기서는 {{n:exam.m4.iso.three}}입니다." }
+      - { text: "림프 비하인드", why: "림프 비하인드는 스페큘레이티브 핸드에 어울립니다. AK는 {{t:pot|팟}}을 키우고 상대 수를 줄이고 싶어 합니다." }

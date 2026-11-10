@@ -1,0 +1,95 @@
+# Pula egzaminacyjna M3 (pozycja, ręce startowe, zakresy otwarć): reguły lekcji m3.l1–m3.l3, inne ręce i pozycje.
+# Decyzje otwarcia zgodne ze spotami solvera aplikacji (rfi.*): ręce poza listą klas niepewnych, częstość 0 albo ≥ 0,94.
+module: m3
+drills:
+  - kind: choice
+    id: m3.exam.q1
+    family: m3.position
+    rules: [R-M3-001]
+    prompt: "Il Button {{t:open|ha aperto}}, lo {{t:small-blind|small blind}} {{t:fold|ha foldato}} e il {{t:big-blind|big blind}} {{t:call|ha chiamato}}. Chi parla per primo al flop?"
+    options:
+      - { text: "Il {{t:big-blind|big blind}}", correct: true, why: "Dal flop in poi i blind parlano per primi e il Button per ultimo. Per questo qui il Button ha {{t:position|posizione}} e il {{t:big-blind|big blind}} gioca {{t:out-of-position|fuori posizione}}." }
+      - { text: "Il Button, perché {{t:open|ha aperto}}", why: "L'ordine di parola dipende dal posto al tavolo, non da chi {{t:open|ha aperto}}. Dal flop in poi il Button parla sempre per ultimo." }
+      - { text: "Chi ha parlato per ultimo preflop", why: "Preflop i blind parlano per ultimi, ma dal flop in poi per primi. Ecco perché la {{t:position|posizione}} del Button è la migliore." }
+  - kind: choice
+    id: m3.exam.q2
+    family: m3.open-early
+    rules: [R-M3-002]
+    prompt: "Parli per primo preflop e nessuno è ancora entrato in gioco. Cosa fai?"
+    table: { hand: "Ac Td", position: UTG }
+    options:
+      - { text: "{{t:raise|Rilancio}}", correct: true, why: "AT di semi diversi rientra nel {{t:range|range}} di {{t:open|apertura}} da {{t:utg|UTG}} (circa {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} mani). Il solver dell'app qui la gioca sempre." }
+      - { text: "{{t:fold|Foldo}}", why: "Troppo stretto. Da {{t:utg|UTG}} giochi stretto, ma AT è ancora nel {{t:range|range}}." }
+      - { text: "Pago il {{t:big-blind|big blind}}", why: "Da primo a entrare {{t:raise|rilanci}} o {{t:fold|foldi}}. Il limp cede l'{{t:initiative|iniziativa}} e la possibilità di prendere subito i blind." }
+  - kind: choice
+    id: m3.exam.q3
+    family: m3.rfi.early
+    rules: [R-M3-006]
+    prompt: "{{t:utg|UTG}} {{t:fold|ha foldato}} e tu sei il prossimo. Cosa fai?"
+    table: { hand: "Ah 9d", position: HJ }
+    options:
+      - { text: "{{t:fold|Foldo}}", correct: true, why: "Dietro di te ci sono ancora quattro giocatori. A9 di semi diversi spesso fa coppia d'assi con un kicker più debole di AT, AJ o AQ degli avversari. Il solver dell'app la {{t:fold|folda}} sempre da {{t:hijack|HJ}}." }
+      - { text: "{{t:raise|Rilancio}}", why: "L'asso tenta, ma da {{t:hijack|HJ}} {{t:open|apri}} più stretto che da {{t:cutoff|CO}} e dal Button. A9o rientra solo nel {{t:range|range}} del {{t:cutoff|CO}}." }
+  - kind: choice
+    id: m3.exam.q4
+    family: m3.rfi.late
+    rules: [R-M3-006]
+    prompt: "Tutti prima di te {{t:fold|hanno foldato}}. Cosa fai?"
+    table: { hand: "Ah 9d", position: CO }
+    options:
+      - { text: "{{t:raise|Rilancio}}", correct: true, why: "Dietro di te restano solo il Button e i blind, quindi {{t:open|apri}} più largo che da {{t:hijack|HJ}}. Il solver dell'app qui gioca A9o quasi sempre." }
+      - { text: "{{t:fold|Foldo}}", why: "Così giochi questa mano da {{t:hijack|HJ}}. Da {{t:cutoff|CO}} dietro di te c'è un giocatore in meno e il {{t:range|range}} è più largo." }
+  - kind: choice
+    id: m3.exam.q5
+    family: m3.open-late
+    rules: [R-M3-003]
+    prompt: "Tutti {{t:fold|hanno foldato}} fino a te. Cosa fai?"
+    table: { hand: "Jd 9c", position: BTN }
+    options:
+      - { text: "{{t:raise|Rilancio}}", correct: true, why: "Sul Button {{t:open|apri}} circa {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} mani. Restano solo i blind e dopo il flop hai {{t:position|posizione}}, quindi J9 di semi diversi ci rientra." }
+      - { text: "{{t:fold|Foldo}}", why: "Da {{t:cutoff|CO}} il solver gioca questa mano di rado, ma sul Button sempre. Contro i soli blind è troppo stretto." }
+      - { text: "Pago il {{t:big-blind|big blind}}", why: "Il limp cede l'{{t:initiative|iniziativa}}. Un {{t:raise|rilancio}} spesso prende subito i blind." }
+  - kind: choice
+    id: m3.exam.q6
+    family: m3.rfi.sb
+    rules: [R-M3-004, R-M3-007, R-M3-009]
+    prompt: "Tutti {{t:fold|hanno foldato}} fino a te in {{t:small-blind|small blind}}. Cosa fai?"
+    table: { hand: "Td 8c", position: SB }
+    options:
+      - { text: "{{t:raise|Rilancio}} a {{n:pf.open-size-sb}}", correct: true, why: "Ormai giochi solo contro il {{t:big-blind|big blind}}, quindi {{t:open|apri}} largo, circa {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} mani. Dopo il flop parli per primo, per questo da {{t:small-blind|small blind}} {{t:raise|rilanci}} un po' di più che dalle altre {{t:position|posizioni}}." }
+      - { text: "{{t:raise|Rilancio}} a {{n:pf.open-size}}", sizeError: true, why: "Azione giusta, dimensione sbagliata: {{n:pf.open-size}} è l'{{t:open|apertura}} dalle altre {{t:position|posizioni}}. Da {{t:small-blind|small blind}} giochi {{t:out-of-position|fuori posizione}}, quindi {{t:raise|rilanci}} a {{n:pf.open-size-sb}}." }
+      - { text: "Pago il {{t:big-blind|big blind}}", why: "Quando entri per primo, {{t:raise|rilanci}} o {{t:fold|foldi}} (da {{t:small-blind|small blind}} è una semplificazione: alcune soluzioni dei solver qui pagano il big blind con una parte delle mani). Pagare il big blind cede l'{{t:initiative|iniziativa}} e la possibilità di prendere subito i blind." }
+      - { text: "{{t:fold|Foldo}}", why: "Troppo stretto: contro un solo avversario il solver dell'app gioca sempre T8o da {{t:small-blind|small blind}}." }
+  - kind: numeric
+    id: m3.exam.n1
+    family: m3.open-early
+    rules: [R-M3-007]
+    prompt: "Tutti prima di te {{t:fold|hanno foldato}}, sei in {{t:hijack|HJ}} e {{t:open|apri}}. A quanti bb {{t:raise|rilanci}}? Inserisci un numero."
+    table: { hand: "Kh Qh", position: HJ }
+    answer: pf.open-size
+    explanation: "{{t:open|Apri}} a {{n:pf.open-size}} da ogni {{t:position|posizione}} tranne lo {{t:small-blind|small blind}} (lì {{n:pf.open-size-sb}}). Una sola dimensione è semplice e non rivela la forza della mano. È una semplificazione: dalle {{t:early-position|posizioni iniziali}} i solver {{t:open|aprono}} un po' più piccolo."
+  - kind: choice
+    id: m3.exam.q7
+    family: m3.suited
+    rules: [R-M3-005]
+    prompt: "Perché T9 dello stesso seme rende meglio di T9 di semi diversi?"
+    options:
+      - { text: "Ha una strada in più per vincere: il {{t:flush|colore}}", correct: true, why: "I valori sono gli stessi, quindi fai {{t:pair|coppie}} e {{t:straight|scale}} con la stessa frequenza. Una mano dello stesso seme aggiunge la possibilità di fare {{t:flush|colore}}." }
+      - { text: "Fa {{t:pair|coppia}} più spesso", why: "La probabilità di fare {{t:pair|coppia}} dipende dai valori, e quelli sono gli stessi." }
+      - { text: "Fa {{t:straight|scala}} più spesso", why: "Le {{t:straight|scale}} dipendono dai valori delle carte, non dal fatto che le carte siano dello stesso seme." }
+  - kind: choice
+    id: m3.exam.q8
+    family: m3.premium
+    rules: [R-M3-008]
+    prompt: "{{t:utg|UTG}} {{t:raise|ha rilanciato}}, gli altri {{t:fold|hanno foldato}} fino a te. Cosa fai?"
+    table: { hand: "Ks Kd", position: BTN }
+    options:
+      - { text: "{{t:raise|Rilancio}} di nuovo (3-bet)", correct: true, why: "KK è una delle mani più forti e parte favorita contro la maggior parte delle mani con cui {{t:utg|UTG}} {{t:open|apre}}. Il 3-bet fa crescere il {{t:pot|piatto}} e di solito ti lascia contro un solo avversario." }
+      - { text: "Mi limito a {{t:call|chiamare}}", why: "A volte si gioca per ingannare l'avversario, ma come regola rinunci a valore e fai entrare i blind in gioco a poco prezzo." }
+      - { text: "{{t:fold|Foldo}}, perché {{t:utg|UTG}} ha un {{t:range|range}} forte", why: "Il {{t:range|range}} di {{t:utg|UTG}} è stretto, ma KK resta nettamente favorito contro di esso." }
+  - kind: paint
+    id: m3.exam.p-co
+    family: m3.paint.late
+    rules: [R-M3-006]
+    spot: rfi.co
+    prompt: "Tutti prima di te {{t:fold|hanno foldato}}, sei in {{t:cutoff|CO}}. Colora le mani con cui {{t:open|apri}}."

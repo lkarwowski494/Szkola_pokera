@@ -1,0 +1,92 @@
+# Pula egzaminacyjna M0 (układy kart): te same reguły co lekcja m0.l1, inne rozdania i sformułowania.
+module: m0
+drills:
+  - kind: choice
+    id: m0.exam.q1
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "L'avversario ha un {{t:three-of-a-kind|tris}} d'assi, tu una {{t:straight|scala}} al jack. Chi vince?"
+    table: { hand: "Th 9h", opp: "Ac Ad", board: "As 8c 7d Jh 2s" }
+    options:
+      - { text: "Tu", correct: true, why: "La tua cinquina è J-10-9-8-7, cioè una {{t:straight|scala}}. La {{t:straight|scala}} sta sopra il {{t:three-of-a-kind|tris}} in classifica, quindi quanto sono alte le carte dell'avversario non conta." }
+      - { text: "L'avversario, perché ha gli assi", why: "Gli assi contano solo a parità di combinazione. Qui le combinazioni sono diverse: la {{t:straight|scala}} batte il {{t:three-of-a-kind|tris}}." }
+      - { text: "{{t:split-pot|Piatto diviso}}", why: "Combinazioni diverse non pareggiano. Vince quella più alta in classifica." }
+  - kind: choice
+    id: m0.exam.q2
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "Tu hai un {{t:four-of-a-kind|poker}} di nove, l'avversario un {{t:full-house|full}} di re. Chi vince?"
+    table: { hand: "9c 9d", opp: "Kh 2c", board: "9h 9s Kd Kc 3h" }
+    options:
+      - { text: "Tu", correct: true, why: "Il {{t:four-of-a-kind|poker}} è al 3° posto in classifica, il {{t:full-house|full}} al 4°. I re dell'avversario non aiutano, perché le combinazioni sono diverse." }
+      - { text: "L'avversario, perché i re sono più alti dei nove", why: "L'altezza delle carte si confronta solo a parità di combinazione. Il {{t:four-of-a-kind|poker}} batte sempre il {{t:full-house|full}}." }
+      - { text: "{{t:split-pot|Piatto diviso}}, perché usate entrambi il {{t:board|board}}", why: "Usate entrambi le {{t:community-cards|carte comuni}}, ma ognuno costruisce una cinquina diversa: tu un {{t:four-of-a-kind|poker}}, l'avversario un {{t:full-house|full}}." }
+  - kind: choice
+    id: m0.exam.q3
+    family: m0.ranking
+    rules: [R-M0-001]
+    prompt: "L'avversario ha una {{t:pair|coppia}} d'assi, e tu una {{t:two-pair|doppia coppia}}: sette e due. Chi vince?"
+    options:
+      - { text: "Tu", correct: true, why: "La {{t:two-pair|doppia coppia}} sta sopra la {{t:pair|coppia}} in classifica, anche quando è bassa. Prima si confronta il rango della combinazione." }
+      - { text: "L'avversario, perché gli assi sono le carte più alte", why: "Una {{t:pair|coppia}} d'assi resta solo una {{t:pair|coppia}}. L'altezza decide solo a parità di combinazione." }
+      - { text: "Dipende dal kicker", why: "Il kicker conta solo quando il nucleo della combinazione è identico. Qui le combinazioni sono diverse." }
+  - kind: choice
+    id: m0.exam.q4
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Avete entrambi una {{t:two-pair|doppia coppia}}: donne e otto dal {{t:board|board}}. Chi vince?"
+    table: { hand: "Ah 3c", opp: "Kd 4s", board: "Qs Qd 8h 8c 2s" }
+    options:
+      - { text: "Tu", correct: true, why: "Il nucleo della combinazione è lo stesso (donne e otto), quindi decide la quinta carta. Il tuo asso batte il re dell'avversario." }
+      - { text: "L'avversario", why: "L'avversario ha un re come quinta carta, tu un asso. L'asso è più alto." }
+      - { text: "{{t:split-pot|Piatto diviso}}", why: "Il piatto si dividerebbe solo con una cinquina identica. Qui le quinte carte sono diverse: asso contro re." }
+  - kind: choice
+    id: m0.exam.q5
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Avete entrambi una {{t:pair|coppia}} di re e un asso. La tua seconda carta (4) è più alta della seconda carta dell'avversario (3). Chi vince?"
+    table: { hand: "Ac 4d", opp: "As 3h", board: "Kh Kd Qc Js 9h" }
+    options:
+      - { text: "{{t:split-pot|Piatto diviso}}", correct: true, why: "La cinquina migliore di entrambi i giocatori è K-K-A-Q-J. Il 4 e il 3 non entrano nella cinquina, quindi non cambiano nulla." }
+      - { text: "Tu, perché 4 è più alto di 3", why: "Il kicker conta solo quando entra nelle 5 carte migliori. Qui la donna e il jack li dà il {{t:board|board}}, quindi il quattro è la sesta carta." }
+      - { text: "L'avversario", why: "L'avversario ha la tua stessa cinquina: K-K-A-Q-J." }
+  - kind: choice
+    id: m0.exam.q6
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Avete entrambi una {{t:straight|scala}}. Chi vince?"
+    table: { hand: "Ah 2c", opp: "6d 7s", board: "3s 4d 5h Kc 9d" }
+    options:
+      - { text: "L'avversario", correct: true, why: "La tua {{t:straight|scala}} è A-2-3-4-5, cioè la {{t:wheel|wheel}}, la {{t:straight|scala}} più bassa: qui l'asso conta come uno. L'avversario ha 3-4-5-6-7, quindi la sua {{t:straight|scala}} è più alta." }
+      - { text: "Tu, perché hai l'asso", why: "Nella {{t:straight|scala}} dall'asso al cinque l'asso è la carta più bassa. A parità di combinazione vince la {{t:straight|scala}} più alta: 7 batte 5." }
+      - { text: "{{t:split-pot|Piatto diviso}}", why: "Avete entrambi una {{t:straight|scala}}, ma di altezza diversa. Il piatto si dividerebbe solo con una cinquina identica." }
+  - kind: choice
+    id: m0.exam.q7
+    family: m0.kicker
+    rules: [R-M0-002]
+    prompt: "Avete entrambi un {{t:flush|colore}} a cuori con l'asso sul {{t:board|board}}. Chi vince?"
+    table: { hand: "Kh 4h", opp: "Qh Jh", board: "Ah 9h 3h 7c 2d" }
+    options:
+      - { text: "Tu", correct: true, why: "I {{t:flush|colori}} si confrontano partendo dalla carta più alta. L'asso è in comune, e la seconda carta è il tuo re contro la donna dell'avversario." }
+      - { text: "L'avversario, perché ha due carte alte", why: "Conta, in ordine, la carta più alta che differisce. Il tuo re batte la donna, quindi le carte successive non contano." }
+      - { text: "{{t:split-pot|Piatto diviso}}", why: "Le cinquine sono diverse: A-K-9-4-3 e A-Q-J-9-3." }
+  - kind: choice
+    id: m0.exam.q8
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "Sul {{t:board|board}} c'è un {{t:full-house|full}}: tre assi e due re. Tu hai una {{t:pair|coppia}} di donne. Chi vince?"
+    table: { hand: "Qc Qd", opp: "7s 2c", board: "Ah Ad Ac Ks Kh" }
+    options:
+      - { text: "{{t:split-pot|Piatto diviso}}", correct: true, why: "La cinquina migliore di entrambi i giocatori è A-A-A-K-K dal {{t:board|board}}. Le tue donne darebbero un {{t:full-house|full}} più debole (assi con donne), quindi non entrano nella cinquina." }
+      - { text: "Tu, perché hai una {{t:pair|coppia}} di donne", why: "Assi con donne è più debole di assi con re, che è sul {{t:board|board}}. Quindi giochi il {{t:board|board}}, proprio come l'avversario." }
+      - { text: "L'avversario", why: "Anche l'avversario gioca la cinquina del {{t:board|board}}. Le sue carte non aggiungono nulla, proprio come le tue." }
+  - kind: choice
+    id: m0.exam.q9
+    family: m0.board-plays
+    rules: [R-M0-003]
+    prompt: "Sul {{t:board|board}} c'è una {{t:straight|scala}} dal nove al re. Chi vince?"
+    table: { hand: "Ac 2d", opp: "3c 3d", board: "Ts Jd Qc Kh 9s" }
+    options:
+      - { text: "Tu", correct: true, why: "Il tuo asso allunga la {{t:straight|scala}} fino a A-K-Q-J-10. L'avversario gioca la cinquina del {{t:board|board}} (K-Q-J-10-9), e la tua è più alta." }
+      - { text: "{{t:split-pot|Piatto diviso}}", why: "Il piatto si divide solo quando la cinquina migliore di entrambi i giocatori è sul {{t:board|board}}. Tu hai una cinquina migliore grazie all'asso." }
+      - { text: "L'avversario, perché ha una {{t:pair|coppia}}", why: "Una {{t:pair|coppia}} di tre è più debole della {{t:straight|scala}} sul {{t:board|board}}, quindi l'avversario gioca il {{t:board|board}}." }

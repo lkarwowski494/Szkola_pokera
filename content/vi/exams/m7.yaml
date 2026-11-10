@@ -1,0 +1,95 @@
+# Pula pytań egzaminacyjnych modułu M7 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m7.*).
+module: m7
+drills:
+  - kind: choice
+    id: m7.exam.q1
+    family: m7.barrel.card
+    rules: [R-M7-001]
+    prompt: "Bạn {{t:open|mở cược}} từ Button, {{t:big-blind}} {{t:call|theo}}. Trên flop [[9s 6d 2c]] bạn {{t:bet|cược}} c-bet, và đối thủ {{t:call|theo}}. Sau lá turn nào bạn {{t:bet|cược}} {{t:second-barrel|second barrel}} thường xuyên hơn?"
+    table: { position: BTN, board: "9s 6d 2c" }
+    options:
+      - { text: "[[Kh]]", correct: true, why: "Đúng: lá K trên {{t:board|bài chung}} thấp hơn thường trúng {{t:range}} {{t:open|mở cược}} của bạn (KQ, KJ, KT, AK) hơn là {{t:range}} của người phòng thủ, và mọi {{t:pair}} mà {{t:big-blind}} đã {{t:call|theo}} flop đều tụt xuống một bậc." }
+      - { text: "[[8c]]", why: "Lá 8 cùng với 9 và 6 cho {{t:straight|sảnh}} với T7 và 75, và {{t:two-pair}} với 98 và 86, tức là những tay mà {{t:big-blind}} phòng thủ. Lá này có xu hướng giúp đối thủ hơn." }
+      - { text: "[[5s]]", why: "Lá 5 cùng với 9, 6 và 2 cho {{t:straight|sảnh}} với 87 và 43, và {{t:big-blind}} phòng thủ với nhiều lá nhỏ. Đây không phải lá có lợi cho {{t:range}} của bạn." }
+  - kind: choice
+    id: m7.exam.q2
+    family: m7.barrel.bluff
+    rules: [R-M7-002]
+    prompt: "Bạn {{t:open|mở cược}} từ Button, {{t:big-blind}} {{t:call|theo}} c-bet trên flop. Turn là lá 2, đối thủ {{t:check}}. Bạn có một trong hai tay không có {{t:pair|đôi}}. Tay nào tốt hơn để {{t:bluff|tháu cáy}} bằng {{t:second-barrel|second barrel}}?"
+    table: { position: BTN, board: "Kc 9h 4h 2s" }
+    options:
+      - { text: "[[Qh Jh]]", correct: true, why: "Đúng: bạn có {{t:flush-draw}} và gutshot (lá 10). Đây là {{t:semi-bluff}}: bạn thắng khi đối thủ {{t:fold|bỏ bài}}, hoặc khi bạn trúng ở river." }
+      - { text: "[[8c 7c]]", why: "Tay này không có out: không lá river nào cho nó {{t:straight|sảnh}} hay {{t:flush|thùng}}. {{t:bluff|Tháu cáy}} không có out chỉ có một cách để thắng, nên bạn thường bỏ qua nó hơn." }
+  - kind: choice
+    id: m7.exam.q3
+    family: m7.barrel.value
+    rules: [R-M7-003]
+    prompt: "Bạn {{t:open|mở cược}} từ Button, {{t:big-blind}} {{t:call|theo}} c-bet trên flop. Turn là lá 5, đối thủ {{t:check}}. Bạn có {{t:second-pair|đôi thứ hai}} kèm lá A. Bạn làm gì?"
+    table: { hand: "Ad 7d", position: BTN, board: "Ts 7c 3d 5h" }
+    options:
+      - { text: "{{t:check|Check}}", correct: true, why: "Đúng: {{t:second-pair|đôi thứ hai}} là tay trung bình. Sau khi {{t:call|theo}} flop, {{t:range}} của đối thủ mạnh hơn: với cú bet thứ hai, các tay yếu hơn sẽ {{t:fold|bỏ bài}}, còn các tay có 10 trở lên sẽ trả tiền. Khi {{t:check}}, bạn giữ {{t:pot}} nhỏ và đi đến showdown." }
+      - { text: "Bet để lấy {{t:value|giá trị}}", why: "Bet bằng tay trung bình chỉ kiếm tiền khi tay yếu hơn trả tiền, mà sau khi {{t:call|theo}} flop đối thủ có ít tay như vậy hơn. Người trả tiền chủ yếu là các tay thắng bạn." }
+      - { text: "Bet lớn để bảo vệ tay bài", why: "Bet lớn với {{t:pair|đôi}} trung bình đẩy các tay yếu hơn ra, nhưng giữ lại các tay mạnh hơn. Bảo vệ không có ích khi người trả tiền chủ yếu là các tay vốn đã thắng." }
+  - kind: numeric
+    id: m7.exam.q4
+    family: m7.barrel.math
+    rules: [R-M7-004]
+    prompt: "Turn. Trong {{t:pot}} có {{n:exam.m7.pot}}. Bạn {{t:bluff|tháu cáy}} bằng một tay gần như không thể thắng và {{t:bet|cược}} {{n:exam.m7.bet.half}}. Đối thủ phải {{t:fold|bỏ bài}} thường xuyên đến mức nào để cú {{t:bluff}} này hòa vốn? Hãy nhập số theo phần trăm."
+    answer: exam.m7.alpha.half
+    explanation: "Ngưỡng là bet ÷ ({{t:pot}} + bet) = {{n:exam.m7.bet.half}} ÷ ({{n:exam.m7.pot}} + {{n:exam.m7.bet.half}}) = {{n:exam.m7.alpha.half}}. Khi bạn có out, ngưỡng này giảm xuống, vì đôi khi bạn vẫn thắng cả khi bị {{t:call|theo}}."
+  - kind: choice
+    id: m7.exam.q5
+    family: m7.polar.concept
+    rules: [R-M7-005]
+    prompt: "Trên turn bạn bet 3/4 {{t:pot}} với {{t:range}} {{t:polarized|phân cực}}. Khi đó những tay nào trong {{t:range}} của bạn sẽ {{t:check}}?"
+    options:
+      - { text: "Các tay trung bình, ví dụ {{t:second-pair|đôi thứ hai}}", correct: true, why: "Đúng: {{t:range}} {{t:polarized}} gồm các tay rất mạnh và các {{t:semi-bluff}}. Tay trung bình không được lợi từ {{t:pot}} lớn, nên chúng {{t:check}} và cố đi đến showdown." }
+      - { text: "Sám cô và {{t:two-pair}}", why: "Đây là cực trên của {{t:range}}: chúng muốn xây {{t:pot}} trước river, nên bet với kích thước lớn." }
+      - { text: "{{t:flush-draw|Draw thùng}}", why: "Đây là cực dưới: các {{t:semi-bluff}} cần đối thủ {{t:fold|bỏ bài}}, nên bet cùng kích thước lớn như các tay mạnh." }
+  - kind: choice
+    id: m7.exam.q6
+    family: m7.polar.price
+    rules: [R-M7-006]
+    prompt: "Turn. Bạn có {{t:two-pair}}, còn đối thủ có thể có {{t:flush-draw}} (khoảng {{n:odds.flush.turn-river}} ở river). Trong {{t:pot}} có {{n:exam.m7.pot}}, đối thủ {{t:check}}. Bạn làm gì?"
+    table: { hand: "Jc 8c", position: BTN, board: "Jh 8h 4s 2d" }
+    options:
+      - { text: "Bet {{n:exam.m7.bet.three-quarters}}", correct: true, why: "Đúng: với cú bet 3/4 {{t:pot}}, {{t:draw}} cần {{n:eq.bet-three-quarters}} equity, nhưng chỉ có khoảng {{n:odds.flush.turn-river}}. Đối thủ trả quá đắt, còn bạn xây {{t:pot}} bằng tay mạnh." }
+      - { text: "Bet {{n:exam.m7.bet.quarter}}", sizeError: true, why: "Hành động đúng, kích thước sai: với cú bet 1/4 {{t:pot}}, {{t:draw}} chỉ cần {{n:eq.bet-quarter}}, ít hơn khoảng {{n:odds.flush.turn-river}} mà nó có. Bet nhỏ cho đối thủ một mức giá tốt. Hãy bet lớn." }
+      - { text: "{{t:check|Check}}", why: "Lá bài miễn phí là món quà cho {{t:flush-draw}}, còn bạn mất giá trị của tay mạnh. Với {{t:two-pair}}, bạn bet." }
+  - kind: numeric
+    id: m7.exam.q7
+    family: m7.implied.math
+    rules: [R-M7-008]
+    prompt: "Turn. Trong {{t:pot}} có {{n:exam.m7.pot}}, đối thủ {{t:bet|cược}} {{n:exam.m7.bet.half}}. Bạn có {{t:oesd}}: {{n:outs.oesd}} out, {{n:miss.oesd.turn}} lá không trúng. Bạn phải thắng thêm bao nhiêu {{t:chips|chip}} ở river sau khi trúng (ngoài {{t:pot}} sau cú {{t:bet|cược}}) để {{t:call|theo}} hòa vốn? Hãy nhập số."
+    answer: exam.m7.io.extra
+    explanation: "Khi trúng, bạn phải thắng tổng cộng {{n:exam.m7.bet.half}} × {{n:miss.oesd.turn}} ÷ {{n:outs.oesd}} = {{n:exam.m7.io.need}}. Trong {{t:pot}} sau cú {{t:bet|cược}} có {{n:exam.m7.io.pot-after-bet}}, nên còn thiếu {{n:exam.m7.io.extra}}. Đó là implied odds của bạn: số tiền đối thủ còn phải trả cho bạn."
+  - kind: choice
+    id: m7.exam.q8
+    family: m7.implied.when
+    rules: [R-M7-010]
+    prompt: "Turn. Bạn có {{t:oesd}} (lá J hoặc lá 6), và trên {{t:board|bài chung}} có hai lá rô. Nếu tính thận trọng, bạn đếm bao nhiêu out?"
+    table: { hand: "9s 8s", board: "Td 7d 2c 3h" }
+    options:
+      - { text: "{{n:exam.m7.oesd.clean}}", correct: true, why: "Đúng: trong {{n:outs.oesd}} out, có hai lá ([[Jd]] và [[6d]]) đưa lá rô thứ ba lên {{t:board|bài chung}}. Khi đó đối thủ có hai lá rô sẽ có {{t:flush}}, còn bạn dù trúng vẫn thua và mất nhiều tiền nhất. Còn lại {{n:exam.m7.oesd.clean}} out sạch." }
+      - { text: "{{n:outs.oesd}}", why: "Đây là tất cả các out ra {{t:straight|sảnh}}, nhưng hai trong số đó tạo khả năng có {{t:flush}}. Khi {{t:board|bài chung}} có thể tạo {{t:flush|thùng}}, bạn đếm ít out hơn." }
+      - { text: "{{n:outs.gutshot}}", why: "Đó là số out của gutshot. Bạn có {{t:straight-draw}} mở hai đầu, và chỉ trừ đi hai lá rô." }
+  - kind: choice
+    id: m7.exam.q9
+    family: m7.probe.play
+    rules: [R-M7-011, R-M7-012]
+    prompt: "Bạn phòng thủ {{t:big-blind}} trước cú {{t:open|mở cược}} của Button. Trên flop cả hai đều {{t:check}}. Turn là lá 2. Bạn hành động trước. Bạn có {{t:second-pair|đôi thứ hai}} và gutshot (lá 4). Bạn làm gì?"
+    table: { hand: "6c 5d", position: BB, board: "9h 6s 3d 2c" }
+    options:
+      - { text: "Bet (probe bet)", correct: true, why: "Đúng: sau khi {{t:check}} trên flop, Button có ít tay mạnh hơn, và {{t:board}} thấp hợp với {{t:range}} của bạn. {{t:pair|Đôi}} muốn được tay yếu hơn trả tiền và được bảo vệ khỏi lá bài miễn phí, còn gutshot cho thêm out." }
+      - { text: "{{t:check|Check}} để xem Button làm gì", why: "Bạn cho Button một lá bài miễn phí, trong khi sau khi {{t:check}} trên flop, Button thường chỉ có bài cao. Trên {{t:board|bài chung}} thấp, bạn tự bet với {{t:pair|đôi}}." }
+      - { text: "{{t:check|Check}} với ý định check-raise", why: "Sau khi {{t:check}} trên flop, Button thường sẽ {{t:check}} tiếp, và khi đó bạn không kiếm được gì. Probe bet thu giá trị ngay từ các tay yếu hơn của Button." }
+  - kind: choice
+    id: m7.exam.q10
+    family: m7.defend.turn
+    rules: [R-M7-013]
+    prompt: "Bạn phòng thủ {{t:big-blind}}. Bạn đã {{t:call|theo}} c-bet của Button trên flop. Turn là lá 6, bạn {{t:check}}, và Button {{t:bet|cược}} 3/4 {{t:pot}}. Bạn có {{t:pair|đôi}} 4. Bạn làm gì?"
+    table: { hand: "4h 4d", position: BB, board: "Ks Jd 8c 6h" }
+    options:
+      - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Đúng: Button {{t:bet|cược}} {{t:second-barrel|second barrel}} với {{t:range}} hẹp hơn và kích thước lớn hơn so với c-bet. {{t:pair|Đôi}} yếu nhất, thấp hơn mọi lá trên {{t:board|bài chung}}, không có out nào ngoài hai lá 4, thua phần lớn các cú bet của Button." }
+      - { text: "{{t:call|Theo}}, vì tôi đã {{t:call|theo}} flop rồi", why: "Số tiền bạn đã bỏ vào trên flop sẽ không quay lại. Trên turn bạn đánh giá lại tay bài từ đầu: trước {{t:second-barrel|second barrel}}, các {{t:pair|đôi}} yếu nhất sẽ {{t:fold|bỏ bài}}." }
+      - { text: "{{t:raise|Tố}}", why: "Sau khi bạn {{t:raise|tố}}, các tay yếu hơn sẽ {{t:fold|bỏ bài}}, còn các tay mạnh hơn sẽ trả tiền. {{t:pair|Đôi}} 4 không phải tay để lấy {{t:value|giá trị}}, cũng không phải một cú {{t:bluff|tháu cáy}} tốt." }

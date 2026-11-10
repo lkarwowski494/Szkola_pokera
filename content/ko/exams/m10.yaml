@@ -1,0 +1,82 @@
+module: m10
+drills:
+  - kind: choice
+    id: m10.exam.q1
+    family: m10.hud.stats
+    rules: [R-M10-001]
+    prompt: "{{t:small-blind|스몰 블라인드}}에 있는 상대까지 모두 {{t:fold|폴드}}했습니다. 상대는 {{t:big-blind|빅 블라인드}}만큼 채워 넣었고, {{t:big-blind}}가 {{t:raise|레이즈}}하자 {{t:fold|폴드}}했습니다. 이 핸드는 상대의 통계를 어떻게 바꿉니까?"
+    options:
+      - { text: "{{t:vpip}}는 올리지만 {{t:pfr}}은 올리지 않습니다", correct: true, why: "{{t:big-blind|빅 블라인드}}까지 채워 넣는 것은 강제 블라인드를 넘어 {{t:chips|칩}}을 자발적으로 넣는 것이므로 {{t:vpip}}에 포함됩니다. 상대는 {{t:raise|레이즈}}하지 않았으므로 {{t:pfr}}은 오르지 않습니다." }
+      - { text: "{{t:small-blind|스몰 블라인드}}는 강제 납입이므로 어떤 통계도 바뀌지 않습니다", why: "강제인 것은 블라인드 자체뿐입니다. 온전한 {{t:big-blind|빅 블라인드}}까지 채워 넣는 것은 상대의 결정, 즉 자발적 납입이며 {{t:vpip}}를 올립니다." }
+      - { text: "{{t:vpip}}와 {{t:pfr}}을 모두 올립니다", why: "{{t:pfr}}은 상대가 플롭 전에 직접 {{t:raise|레이즈}}할 때만 오릅니다. 여기서는 {{t:big-blind}}가 {{t:raise|레이즈}}했고, 상대는 채워 넣은 뒤 {{t:fold|폴드}}했을 뿐입니다." }
+      - { text: "상대가 어차피 플롭 전에 {{t:fold|폴드}}했으므로 {{t:vpip}}는 오르지 않습니다", why: "{{t:vpip}}는 핸드가 플롭까지 갔는지가 아니라 자발적 납입을 셉니다. 상대는 스스로 채워 넣었으므로 이 핸드는 {{t:vpip}}에 포함됩니다." }
+  - kind: numeric
+    id: m10.exam.q2
+    family: m10.hud.sample
+    rules: [R-M10-002]
+    prompt: "상대는 c-bet을 {{n:exam.m10.se.n}}번 받았고 그중 {{n:exam.m10.se.p}}에서 {{t:fold|폴드}}했습니다. 상대의 폴드 투 c-bet 표준오차는 몇 퍼센트포인트입니까? 숫자를 입력하세요."
+    answer: exam.m10.se
+    explanation: "√(p × (1 − p) ÷ n) = √({{n:exam.m10.se.p}} × {{n:exam.m10.se.q}} ÷ {{n:exam.m10.se.n}}) ≈ {{n:exam.m10.se}}. 핸드가 아니라 기회(상대가 받은 c-bet)를 셉니다. 약 {{n:var.conf95}} 신뢰도로 실제 폴드 투 c-bet은 ± {{n:var.z95}} × {{n:exam.m10.se}} ≈ ± {{n:exam.m10.ci}} 범위, 즉 약 {{n:exam.m10.ci.low}}에서 {{n:exam.m10.ci.high}} 사이에 있습니다."
+  - kind: choice
+    id: m10.exam.q3
+    family: m10.hud.sample
+    rules: [R-M10-003]
+    prompt: "{{n:exam.m10.mid.hands}}핸드 후 상대의 {{t:vpip}}는 {{n:exam.m10.mid.vpip}}, {{t:pfr}}은 {{n:exam.m10.mid.pfr}}, 폴드 투 3-bet은 {{n:exam.m10.mid.f3b}}입니다. 이 중 어떤 숫자를 벌써 결정의 근거로 삼을 수 있습니까?"
+    options:
+      - { text: "{{t:vpip}}와 {{t:pfr}}입니다. 폴드 투 3-bet은 아직 우연입니다", correct: true, why: "{{t:vpip}}와 {{t:pfr}}은 약 {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}}핸드 후에 읽을 수 있지만, 폴드 투 3-bet은 약 {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}핸드가 지나야 읽을 수 있습니다. 그 기회는 {{t:open|오픈}}과 3-bet이 나온 뒤에만 생기기 때문입니다. {{n:exam.m10.mid.hands}}핸드로는 기회가 몇 번뿐입니다." }
+      - { text: "표본이 {{n:hud.hands.vpip.low}}핸드를 넘으므로 세 가지 모두입니다", why: "약 {{n:hud.hands.vpip.low}}핸드라는 기준은 모든 핸드에 기회가 있는 통계에 해당합니다. 폴드 투 3-bet은 기회가 몇 배나 적어 약 {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}핸드가 필요합니다." }
+      - { text: "하나도 없습니다. 천 핸드 전에는 통계가 무작위입니다", why: "무작위인 것은 약 {{n:hud.hands.random}}핸드 미만일 때입니다. {{n:exam.m10.mid.hands}}핸드 후에는 {{t:vpip}}와 {{t:pfr}}이 이미 무언가를 알려 줍니다." }
+      - { text: "가장 극단적이므로 폴드 투 3-bet만입니다", why: "작은 표본에서 나온 극단적인 숫자는 리드보다 우연인 경우가 더 많습니다. 신뢰도는 기회의 수로 정해지며, 여기서는 폴드 투 3-bet의 기회가 가장 적습니다." }
+  - kind: choice
+    id: m10.exam.q4
+    family: m10.types.adjust
+    rules: [R-M10-007]
+    prompt: "{{t:nit|닛}}({{t:vpip}} {{n:exam.m10.nit.vpip}}, {{t:pfr}} {{n:exam.m10.nit.pfr}}, {{n:exam.m10.nit.hands}}핸드)이 {{t:utg|UTG}}에서 {{t:open|오픈}}합니다. 당신은 버튼에 있고, 모듈 4 기본 전략에서 이런 {{t:open|오픈}}에 {{t:call|콜}}하는 {{t:range|레인지}}의 하단 핸드를 들고 있습니다. 어떻게 하시겠습니까?"
+    options:
+      - { text: "{{t:fold|폴드}}합니다", correct: true, why: "이렇게 적은 핸드를 플레이하는 플레이어는 주로 가장 강한 핸드로 {{t:raise|레이즈}}합니다. 당신의 {{t:call|콜}} {{t:range|레인지}} 하단 핸드는 이 상대에게 도미네이트되는 경우가 더 많으므로, 기본 전략보다 더 자주 {{t:fold|폴드}}합니다." }
+      - { text: "{{t:position|포지션}}이 있으므로 기본 전략대로 {{t:call|콜}}합니다", why: "{{t:position|포지션}}이 도미네이트된 핸드를 고쳐 주지는 않습니다. 기본 전략은 일반적인 {{t:open|오픈}} {{t:range|레인지}}를 가정하지만, 이 플레이어의 {{t:range|레인지}}는 훨씬 강합니다." }
+      - { text: "{{t:nit}}은 강한 핸드만 플레이하니 {{t:fold|폴드}}할 것이므로 {{t:bluff}}로 3-bet합니다", why: "상대의 {{t:open|오픈}} {{t:range|레인지}}는 대부분 가장 강한 핸드이고, 그런 핸드는 3-bet에 좀처럼 {{t:fold|폴드}}하지 않습니다. 여기서 {{t:bluff|블러프}}는 상대 플레이의 가장 강한 부분과 부딪칩니다." }
+  - kind: choice
+    id: m10.exam.q5
+    family: m10.types.adjust
+    rules: [R-M10-008]
+    prompt: "상대는 {{t:maniac|매니악}}입니다: {{t:vpip}} {{n:exam.m10.maniac.vpip}}, {{t:pfr}} {{n:exam.m10.maniac.pfr}}, {{n:exam.m10.long.hands}}핸드. 플롭에서 {{t:set|셋}}을 맞혔고, 상대가 {{t:bet|베팅}}합니다. 어떻게 하시겠습니까?"
+    options:
+      - { text: "{{t:call|콜}}하고 상대가 계속 베팅하게 둡니다", correct: true, why: "매우 강한 핸드로는 {{t:maniac|매니악}}이 베팅하게 둡니다. 그의 베팅에는 {{t:bluff|블러프}}와 약한 핸드가 많고, {{t:call}}은 그런 핸드를 다음 {{t:street|스트리트}}까지 게임에 남겨 둡니다." }
+      - { text: "곧바로 최대한 크게 {{t:raise|레이즈}}합니다", why: "{{t:raise|레이즈}}하면 상대의 {{t:bluff|블러프}}와 약한 핸드가 더 넣기 전에 {{t:fold|폴드}}합니다. 스스로 베팅하는 플레이어를 상대로는 그렇게 하도록 두는 편이 더 많이 법니다." }
+      - { text: "높은 {{t:pfr}}은 강한 핸드를 뜻하므로 {{t:fold|폴드}}합니다", why: "{{t:vpip}}가 이렇게 높을 때 {{t:pfr}}이 높다는 것은 강한 핸드를 가졌다는 뜻이 아니라 거의 모든 핸드로 {{t:raise|레이즈}}한다는 뜻입니다. 여기서 {{t:set}}은 가장 좋은 핸드 중 하나입니다." }
+  - kind: choice
+    id: m10.exam.q6
+    family: m10.types.adjust
+    rules: [R-M10-006]
+    prompt: "리버입니다. 상대는 수동적인 {{t:recreational|레크리에이션 플레이어}}입니다: {{t:vpip}} {{n:exam.m10.rec.vpip}}, {{t:pfr}} {{n:exam.m10.rec.pfr}}, {{n:exam.m10.long.hands}}핸드. 상대가 {{t:check|체크}}합니다. 당신은 모듈 8 기본 전략에서 여기서 가끔 {{t:value|밸류}}로 베팅하고 가끔 {{t:check|체크}}하는 핸드를 들고 있습니다. 어떻게 하시겠습니까?"
+    options:
+      - { text: "{{t:value|밸류}}로 베팅합니다", correct: true, why: "이런 플레이어는 기본 전략의 상대보다 더 많은 약한 핸드로 끝까지 {{t:call|콜}}하므로, 그의 {{t:call|콜}} 중 당신보다 약한 핸드가 더 많습니다. 이 상대에게는 더 얇은 핸드로도 {{t:value|밸류}} 베팅합니다." }
+      - { text: "수동적인 플레이어는 좋은 핸드로만 {{t:call|콜}}하므로 {{t:check|체크}}합니다", why: "그 반대입니다. {{t:vpip}} − {{t:pfr}} 차이가 큰 플레이어는 많은 핸드를 플레이하고 그 핸드로 끝까지 {{t:call|콜}}합니다. 바로 그래서 덜이 아니라 더 많이 베팅해야 합니다." }
+      - { text: "기본 전략과 똑같이 합니다: 가끔 베팅, 가끔 {{t:check}}", why: "기본 전략은 올바르게 방어하는 상대를 가정합니다. 이 상대는 너무 자주 {{t:call|콜}}하므로, 경계선 핸드는 {{t:value|밸류}} 베팅 쪽으로 이동합니다." }
+  - kind: choice
+    id: m10.exam.q7
+    family: m10.base.alpha
+    rules: [R-M10-010]
+    prompt: "{{n:exam.m10.long.hands}}핸드 후 상대의 폴드 투 c-bet은 {{n:exam.m10.fcb}}입니다. 플롭을 맞히지 못했고 {{t:draw|드로우}}도 없습니다. 핸드 없이 하는 c-bet 중 어느 것이 즉시 이익을 냅니까?"
+    options:
+      - { text: "{{t:pot|팟}}의 1/3인 작은 c-bet만", correct: true, why: "{{t:pot|팟}}의 1/3 c-bet은 {{n:alpha.cbet.small}} {{t:fold|폴드}}에서 본전이고, {{t:pot|팟}}의 3/4 c-bet은 {{n:alpha.cbet.big}}에서야 본전입니다. {{n:exam.m10.fcb}}는 작은 c-bet에만 충분합니다. 폴드 투 c-bet은 모든 사이즈와 테이블을 합친 값이므로 이것은 근사치입니다." }
+      - { text: "상대가 자주 {{t:fold|폴드}}하므로 둘 다", why: "큰 c-bet은 더 많이 걸고 {{n:alpha.cbet.big}}이 넘는 {{t:fold|폴드}}가 필요합니다. 상대는 {{n:exam.m10.fcb}}에서 {{t:fold|폴드}}하므로 너무 적습니다." }
+      - { text: "{{t:fold|폴드}}를 더 강하게 압박하므로 큰 c-bet만", why: "{{t:hud|HUD}}의 폴드 투 c-bet은 상대가 큰 베팅에 더 자주 {{t:fold|폴드}}한다는 것을 알려 주지 않습니다. {{n:exam.m10.fcb}} {{t:fold|폴드}}에서는 핸드 없는 큰 c-bet이 손해입니다. {{n:alpha.cbet.big}}이 필요하기 때문입니다." }
+      - { text: "상대가 절반 미만으로 {{t:fold|폴드}}하므로 어느 것도 아닙니다", why: "기준은 절반이 아니라 베팅 ÷ ({{t:pot}} + 베팅)입니다. {{t:pot|팟}}의 1/3 c-bet에서는 {{n:alpha.cbet.small}}이므로 {{n:exam.m10.fcb}}로 충분합니다." }
+  - kind: choice
+    id: m10.exam.q8
+    family: m10.base.3bet
+    rules: [R-M10-011]
+    prompt: "{{n:exam.m10.long.hands}}핸드 후 상대의 폴드 투 3-bet은 {{n:exam.m10.f3b.low}}입니다. 상대가 {{t:cutoff|CO}}에서 {{t:open|오픈}}하고, 당신은 버튼에서 기본 전략상 {{t:bluff}}로 3-bet하는 핸드를 들고 있습니다. 무엇을 바꾸겠습니까?"
+    options:
+      - { text: "이 핸드로는 3-bet하지 않고, 이 상대에게는 주로 강한 핸드로 3-bet합니다", correct: true, why: "{{n:pf.3bet.ip-total}}까지의 3-bet은 {{n:alpha.vs-3bet-ip-size}}가 넘는 {{t:fold|폴드}}가 있어야 핸드 없이 이익을 내는데, 이 상대는 {{n:exam.m10.f3b.low}}에서 {{t:fold|폴드}}합니다. {{t:bluff|블러프}}는 약한 핸드로 큰 {{t:pot|팟}}을 플레이하게 되고, 강한 핸드는 이 상대에게서 {{t:call|콜}}을 더 많이 받습니다: {{t:linear|리니어}} {{t:range}}입니다." }
+      - { text: "상대가 약하므로 이 핸드로 더 자주 3-bet합니다", why: "여기서 상대의 약점은 좀처럼 {{t:fold|폴드}}하지 않는다는 것입니다. {{t:bluff|블러프}}는 {{t:fold|폴드}}로 먹고사므로 이 상대에게는 손해입니다." }
+      - { text: "아무것도 바꾸지 않습니다: 폴드 투 3-bet은 아직 믿을 수 없습니다", why: "{{n:exam.m10.long.hands}}핸드 후에는 믿을 수 있습니다. 폴드 투 3-bet은 약 {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}}핸드 후에 읽습니다." }
+  - kind: numeric
+    id: m10.exam.q9
+    family: m10.rake.math
+    rules: [R-M10-015]
+    prompt: "현재 {{t:pot|팟}}: {{n:ex.pot}}. 상대가 {{t:pot|팟}} 전체를 {{t:bet|베팅}}합니다: {{n:ex.bet.pot}}. 하우스는 {{t:pot|팟}}의 {{n:rake.ex.pct}}를 가져가며, {{t:rake-cap|레이크 상한}}에는 닿지 않습니다. {{t:call|콜}}하려면 에퀴티가 얼마나 필요합니까? 퍼센트를 입력하세요."
+    answer: exam.m10.rake.eq
+    explanation: "{{t:call|콜}} 후 {{t:pot|팟}}은 {{n:exam.m10.rake.total}}, {{t:rake|레이크}}를 뺀 뒤에는 {{n:exam.m10.rake.after}}입니다. 당신이 넣는 금액은 {{n:ex.bet.pot}}입니다: {{n:ex.bet.pot}} ÷ {{n:exam.m10.rake.after}} ≈ {{n:exam.m10.rake.eq}}이며, {{t:rake|레이크}}가 없을 때는 {{n:eq.bet-pot}}입니다."

@@ -3716,6 +3716,24 @@
     "data": "2026-11-09",
     "sha": "bfdc9bd0ba49",
     "kontrola": "a"
+   },
+   "ko": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AJ: K1–K4, A-ko, D-388; skrót po nałożeniu i ujednoliceniu form w sesji AL, D-394, m12-l1 + R-M12-* ponownie)",
+    "data": "2026-11-10",
+    "sha": "6be13db80d1d",
+    "kontrola": "a"
+   },
+   "it": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AJ: I1–I3, A-it, D-388; skrót po nałożeniu i ujednoliceniu form w sesji AL, D-394, m12-l1 + R-M12-* ponownie)",
+    "data": "2026-11-10",
+    "sha": "1f5c2cda5bb2",
+    "kontrola": "a"
+   },
+   "vi": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AJ: V1–V3, A-vi, D-388; skrót po nałożeniu i ujednoliceniu form w sesji AL, D-394, m12-l1 + R-M12-* ponownie)",
+    "data": "2026-11-10",
+    "sha": "ce98a2aebf24",
+    "kontrola": "a"
    }
   }
  },
@@ -3945,6 +3963,24 @@
     "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AI: E1–E3, D-386; skrót po nałożeniu w sesji AK, m12-l1 + R-M12-* ponownie)",
     "data": "2026-11-09",
     "sha": "d05c0d02746f",
+    "kontrola": "a"
+   },
+   "ko": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AJ: K1–K4, A-ko, D-388; skrót po nałożeniu i ujednoliceniu form w sesji AL, D-394, m12-l1 + R-M12-* ponownie)",
+    "data": "2026-11-10",
+    "sha": "607d5496becf",
+    "kontrola": "a"
+   },
+   "it": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AJ: I1–I3, A-it, D-388; skrót po nałożeniu i ujednoliceniu form w sesji AL, D-394, m12-l1 + R-M12-* ponownie)",
+    "data": "2026-11-10",
+    "sha": "d92b360e0b93",
+    "kontrola": "a"
+   },
+   "vi": {
+    "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AJ: V1–V3, A-vi, D-388; skrót po nałożeniu i ujednoliceniu form w sesji AL, D-394, m12-l1 + R-M12-* ponownie)",
+    "data": "2026-11-10",
+    "sha": "a8e1ed6558dd",
     "kontrola": "a"
    }
   }

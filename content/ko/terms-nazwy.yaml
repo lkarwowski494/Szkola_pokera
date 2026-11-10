@@ -1,0 +1,164 @@
+# K-05 (D-367, D-372): nazwa terminu w języku ko dla znacznika {{t:klucz}} bez formy; null = skrót albo nazwa angielska.
+# Ze szkicu docs/lokalizacja/przygotowane/terms-nazwy-ko.yaml (przegląd K2 / D-388, sesja AJ, 2026-11-09; komentarze: formy tłumacza i źródła). Strażnik: tools/content-build/src/nazwy.ts.
+royal-flush: "로열 플러시"  # royal flush; bez formy 0; formy: 로열 플러시×3; źr. A, B, C
+straight-flush: "스트레이트 플러시"  # straight flush; bez formy 0; formy: 스트레이트 플러시×3; źr. A, B, C, D, E
+four-of-a-kind: "포카드"  # four of a kind; bez formy 0; formy: 포카드×8; źr. B, C, D, E, F
+full-house: "풀하우스"  # full house; bez formy 2; formy: 풀하우스×15; źr. C, D, E, F; [D] „풀 하우스”
+flush: "플러시"  # flush; bez formy 17; formy: 플러시×103; źr. A, B, C, D, E, F
+straight: "스트레이트"  # straight; bez formy 14; formy: 스트레이트×145, 스트레이트를×1; źr. A, B, C, D, E, F
+three-of-a-kind: "트리플"  # three of a kind; bez formy 0; formy: 트리플×19, 쓰리 오브 어 카인드×4; źr. A, B, C, D, E, F; tłumacz też „쓰리 오브 어 카인드”×4 ([D] hasło) [WIELE FORM]
+set: "셋"  # set; bez formy 1; formy: 셋×1; źr. A, C, D, F
+two-pair: "투 페어"  # two pair; bez formy 17; formy: 투 페어×32, 투페어×16; źr. A, B, C, D, E; tłumacz też „투페어”×16 (UI, m0, rules); źródła [A][C] „투 페어” [WIELE FORM]
+pair: "페어"  # pair; bez formy 20; formy: 페어×278, 페어를×2, 페어가×2, 원페어×2, 페어도×1, 페어는×1, 페어이며×1; źr. A, B, C, D, E, F;  [C] „원 페어” dla układu; „페어” w złożeniach (탑 페어, 포켓 페어)
+high-card: "하이카드"  # high card; bez formy 0; formy: 하이카드×3; źr. D, F; źródła [C][D] piszą „하이 카드” (spacja); tłumacz konsekwentnie „하이카드”
+kicker: "키커"  # kicker; bez formy 0; formy: —; źr. A, D, E, F; [C] „킥커”
+wheel: "휠"  # wheel; bez formy 1; formy: 휠×1; źr. D
+check: "체크"  # check; bez formy 12; formy: 체크×182, 체크합니다×48, 체크하자×9, 체크한×8, 체크하고×6, 체크하면×5, 체크했습니다×3, 체크할×3; źr. A, C, D, E, F
+bet: "베팅"  # bet; bez formy 52; formy: 베팅×295, 벳×29, 벳합니다×18, 베팅합니다×16, 벳했고×2, 베팅하는×2, 베팅했고×2, 베팅하지×2; źr. A, B, C, D, E, F; tłumacz też „벳”×~50; [C] „벳 Bet”, [E] „BETTING(베팅)” [WIELE FORM]
+call: "콜"  # call; bez formy 59; formy: 콜×655, 콜합니다×44, 콜했습니다×28, 콜한×18, 콜하는×9, 콜할×8, 콜하려면×7, 콜하면×5; źr. A, C, D, E, F
+raise: "레이즈"  # raise; bez formy 7; formy: 레이즈×241, 레이즈합니다×25, 레이즈했습니다×9, 레이즈했으며×6, 레이즈할×5, 레이즈하고×4, 레이즈합니까×3, 레이즈하거나×3; źr. A, C, D, E, F
+fold: "폴드"  # fold; bez formy 43; formy: 폴드×540, 폴드합니다×61, 폴드했습니다×15, 폴드하지×10, 폴드하고×9, 폴드해야×8, 폴드하면×7, 폴드했고×7; źr. A, C, D, E, F; bez formy często z „-하다” (폴드할까요) — pasuje
+check-raise: "체크레이즈"  # check-raise; bez formy 0; formy: —; źr. D, E, F; [C][D] „체크 레이즈”; tłumacz 62× bez spacji
+all-in: "올인"  # all-in; bez formy 0; formy: 올인×1; źr. A, C, D, E, F
+pot: "팟"  # pot; bez formy 64; formy: 팟×823, 팟에×3, 팟의×2; źr. A, C, D, E, F
+side-pot: "사이드 팟"  # side pot; bez formy 1; formy: 사이드 팟×1; źr. C, D, E
+split-pot: "스플릿 팟"  # split pot; bez formy 0; formy: 스플릿 팟×17; źr. A, D; [D] „스플릿”
+playing-the-board: "보드 플레이"  # playing the board; bez formy 0; formy: 보드 플레이×4; źr. C
+board: "보드"  # board; bez formy 3; formy: 보드×98, 보드에서×1; źr. A, C, D, E, F
+community-cards: "커뮤니티 카드"  # community cards; bez formy 2; formy: 커뮤니티 카드×10; źr. A, C, D, E
+hole-cards: "홀 카드"  # hole cards; bez formy 0; formy: 홀 카드×3; źr. A, C, D, E
+small-blind: "스몰 블라인드"  # small blind; bez formy 22; formy: 스몰 블라인드×108, SB×5; źr. A, C, D, E, F
+big-blind: "빅 블라인드"  # big blind; bez formy 80; formy: 빅 블라인드×195, BB×6, 빅 블라인드가×1; źr. A, C, D, E
+chips: "칩"  # chips; bez formy 24; formy: 칩×78; źr. A, C, D, E, F
+stack: "스택"  # stack; bez formy 0; formy: —; źr. C, D, E, F
+street: "스트리트"  # street; bez formy 0; formy: 스트리트×79; źr. A, C, D, F
+betting-round: "베팅 라운드"  # betting round; bez formy 2; formy: 베팅 라운드×6; źr. A, C, D, E, F
+preflop: "프리플롭"  # preflop; bez formy 0; formy: 프리플롭×1; źr. A, D, E, F; tłumacz: 프리플롭×22, 프리플랍×55 (terms-def, rules); [A][E] „프리플롭”, [C][D] „프리플랍” [WIELE FORM]
+flop: "플롭"  # flop; bez formy 0; formy: 플롭×1; źr. A, D, E, F; tłumacz: 플롭×425 (UI, większość lekcji), 플랍×289 (terms-def, rules, część lekcji); [A] 11× „플롭” wobec 1× „플랍”; [C][D] „플랍”; pisownia normatywna (외래어 표기법) „플롭” [WIELE FORM]
+turn: "턴"  # turn; bez formy 0; formy: 턴×1; źr. A, C, D, E, F
+river: "리버"  # river; bez formy 0; formy: 리버×1; źr. A, C, D, E, F
+showdown: "쇼다운"  # showdown; bez formy 0; formy: 쇼다운×1; źr. A, C, D, E, F
+position: "포지션"  # position; bez formy 3; formy: 포지션×92; źr. A, C, D, E, F
+in-position: "인 포지션"  # in position; bez formy 20; formy: 인 포지션×38; źr. C, D
+out-of-position: "아웃 오브 포지션"  # out of position; bez formy 27; formy: 아웃 오브 포지션×51, 포지션 없이×4; źr. C, D, E;  tłumacz też „포지션 없이”×4
+early-position: "얼리 포지션"  # early position; bez formy 0; formy: 얼리 포지션×2; źr. D, E
+late-position: "레이트 포지션"  # late position; bez formy 1; formy: —; źr. D, E
+utg: "UTG"  # under the gun; bez formy 29; formy: UTG×18; źr. C, D, F
+hijack: "하이잭"  # hijack; bez formy 0; formy: HJ×17; źr. C, D
+cutoff: "컷오프"  # cutoff; bez formy 0; formy: CO×54, 컷오프×1; źr. C, D, E
+button: "버튼"  # button; bez formy 0; formy: BTN×3; źr. A, C, D, E, F
+outs: "아웃"  # out; bez formy 0; formy: 아웃×1; źr. A, C, D, E, F; terms-def „아웃츠” — poprawka do „아웃”
+draw: "드로우"  # draw; bez formy 5; formy: 드로우×193, 드로×2, 드로우와×2; źr. A, C, D, E, F; tłumacz też „드로”×2
+flush-draw: "플러시 드로우"  # flush draw; bez formy 8; formy: 플러시 드로우×46, 플러시 드로×6, 플러시 드로우를×1; źr. C, D, E, F
+straight-draw: "스트레이트 드로우"  # straight draw; bez formy 1; formy: 스트레이트 드로우×18; źr. A, C, D, E, F
+oesd: "양방향 스트레이트 드로우"  # open-ended straight draw; bez formy 1; formy: OESD×10, 오픈엔디드 스트레이트 드로우×6, 양방향 스트레이트 드로우×3, 양방 스트레이트 드로우×2, OESD가×1; źr. C; tłumacz: OESD×10, 오픈엔디드 스트레이트 드로우×6, 양방향…×3, 양방 …×2; [C] „양방향 스트레이트 드로우”, [D] „오픈엔디드 스트레이트 드로우” [WIELE FORM]
+gutshot: "거트샷"  # gutshot; bez formy 0; formy: —; źr. C, D
+backdoor: "백도어"  # backdoor; bez formy 0; formy: —; źr. C, D, E, F
+pot-odds: "팟 오즈"  # pot odds; bez formy 0; formy: —; źr. C, D, F
+implied-odds: "임플라이드 오즈"  # implied odds; bez formy 0; formy: 임플라이드 오즈×2; źr. C, D, E
+equity: "에퀴티"  # equity; bez formy 14; formy: 에퀴티×5; źr. C, D, E, F; [D] też „에쿼티”
+equity-realization: "에퀴티 실현"  # equity realization; bez formy 0; formy: 에퀴티 실현×6, 에퀴티를 잘 실현합니다×1; źr. brak [DO USTALENIA]
+expected-value: "기댓값"  # expected value; bez formy 1; formy: 기댓값×6, 기대값×3, EV×2; źr. C, F; tłumacz też „기대값”×4 (nienormatywne)
+combo: "콤보"  # combo; bez formy 0; formy: 콤보×23, 콤보의×2, 콤보입니다×2, 콤보입니까×1, 콤보가×1, 콤보는×1; źr. C, D, F
+range: "레인지"  # range; bez formy 33; formy: 레인지×211, 레인지로×2, 레인지에는×1; źr. C, D, F
+mixed-hand: "혼합 핸드"  # mixing hand; bez formy 0; formy: 혼합 핸드×11, 믹스 핸드×1; źr. brak; tłumacz też „믹스 핸드”×1 [DO USTALENIA]
+open: "오픈"  # open; bez formy 3; formy: 오픈×188, 오픈했고×46, 오픈합니다×12, 오픈한×6, 오픈한 플레이어×4, 오픈하는×4, 오프너×2, 오픈하고×1; źr. A, B, C, D, E, F
+suited: "수티드"  # suited; bez formy 0; formy: —; źr. C, D
+offsuit: "오프수트"  # offsuit; bez formy 0; formy: —; źr. C, D, E
+pocket-pair: "포켓 페어"  # pocket pair; bez formy 0; formy: 포켓 페어×4; źr. A, C, D, E
+connectors: "커넥터"  # connectors; bez formy 0; formy: 커넥터×24; źr. C, D, E, F
+3-bet: "3벳"  # 3-bet; bez formy 0; formy: —; źr. C, D, F
+4-bet: "4벳"  # 4-bet; bez formy 0; formy: —; źr. C, D, F
+limp: "림프"  # limp; bez formy 1; formy: 림프×1; źr. C, D, E
+isolation: "아이솔레이션"  # isolation raise; bez formy 0; formy: 아이솔레이션×6, 아이솔레이션 레이즈×1; źr. brak; [D] tylko czasownik „아이솔레이트” [DO USTALENIA]
+texture: "텍스처"  # texture; bez formy 0; formy: 텍스처×8; źr. D, F
+dry: "드라이"  # dry; bez formy 0; formy: 드라이×41, 드라이한×9, 드라이하고×3; źr. C, D, F
+wet: "웻"  # wet; bez formy 3; formy: 웻×23, 웨트×3, 웨트한×1; źr. C, D, F; tłumacz też „웨트”×5 (m5-l3)
+rainbow: "레인보우"  # rainbow; bez formy 0; formy: 레인보우×4; źr. C, D, E
+two-tone: "투톤"  # two-tone; bez formy 0; formy: 투톤×7; źr. D, F
+monotone: "모노톤"  # monotone; bez formy 1; formy: 모노톤×18; źr. C, D, F
+paired: "페어드"  # paired; bez formy 0; formy: 페어드×17; źr. C, F
+connected: "커넥티드"  # connected; bez formy 3; formy: 커넥티드×10, 커넥티드한×5, 연결된×1; źr. D, F
+disconnected: "디스커넥티드"  # disconnected; bez formy 0; formy: 디스커넥티드×4; źr. brak [DO USTALENIA]
+semi-connected: "세미 커넥티드"  # semi-connected; bez formy 0; formy: 세미 커넥티드×7; źr. brak [DO USTALENIA]
+wetness: "웻니스"  # wetness; bez formy 0; formy: 웻니스×3, 웻 정도×1, 웨트니스×1; źr. brak; tłumacz też „웻 정도”, „웨트니스” [DO USTALENIA]
+top-pair: "탑 페어"  # top pair; bez formy 21; formy: 탑 페어×59, 탑 페어를×2, 톱 페어×1, 탑 페어는×1; źr. C, D, E, F; tłumacz też „톱 페어”×1
+second-pair: "세컨드 페어"  # second pair; bez formy 0; formy: 세컨드 페어×8, 세컨드 페어는×1; źr. brak; [E] „세컨 페어” [DO USTALENIA]
+overpair: "오버페어"  # overpair; bez formy 1; formy: 오버페어×9; źr. C, D, E, F
+c-bet: "C벳"  # c-bet; bez formy 0; formy: 씨벳×2; źr. C, D, F; tłumacz: 씨벳×42 (UI, m6-l3), C벳×39, c벳×33 (rules); [C] „C벳 Continuation bet”, [D] „컨티뉴에이션 벳(씨벳)” [WIELE FORM]
+aggressor: "어그레서"  # aggressor; bez formy 0; formy: 어그레서×10; źr. D, F
+initiative: "주도권"  # initiative; bez formy 1; formy: 주도권×8, 이니셔티브×8; źr. D, E; tłumacz 주도권×8 = 이니셔티브×8; „이니셔티브” nieznalezione w źródłach; 1 miejsce bez formy z „를” (m3-l2) do poprawy na „을”; konflikty partykuł: 1 [WIELE FORM]
+range-advantage: "레인지 우위"  # range advantage; bez formy 1; formy: 레인지 우위×31; źr. brak; źródła [D:blog cbet][F:127] „레인지 어드밴티지”; „레인지 우위” tylko w serwisie afiliacyjnym (nie liczę) [DO USTALENIA]
+nuts-advantage: "넛 우위"  # nuts advantage; bez formy 2; formy: 너츠 우위×19, 넛 어드밴티지×1, 넛 우위×1; źr. brak; tłumacz „너츠 우위”×19, „넛 우위”×1; źródła [F:127] „넛 어드밴티지”; nazwa spójna z nuts = „넛” [INNA NIŻ TŁUMACZ] [DO USTALENIA]
+nuts: "넛"  # nuts; bez formy 0; formy: 너츠×1; źr. C, D, E, F; tłumacz „너츠”×22 (nieznalezione w źródłach); [C] „넛 Nuts”, [E] „Nut, Nuts (넛)”, [E] też „넛츠” [INNA NIŻ TŁUMACZ]
+polarized: "폴라라이즈드"  # polarized; bez formy 1; formy: 폴라라이즈드×21, 양극화된×1; źr. D
+polarization: "폴라라이제이션"  # polarization; bez formy 0; formy: —; źr. D
+linear: "리니어"  # linear; bez formy 1; formy: 리니어×9; źr. D
+condensed: "컨덴스드"  # condensed; bez formy 0; formy: 컨덴스드×1, 압축된×1; źr. brak; tłumacz też „압축된” [DO USTALENIA]
+value: "밸류"  # value; bez formy 1; formy: 밸류×101, 밸류 스트리트×1, 밸류로×1; źr. C, D, F
+value-bet: "밸류 벳"  # value bet; bez formy 0; formy: 밸류 벳×1; źr. C, D
+bluff: "블러프"  # bluff; bez formy 51; formy: 블러프×401, 블러프는×4, 블러프합니다×3, 블러프하지×3, 블러프가×3, 블러프로×2, 블러프하는×2, 블러프하며×1; źr. A, B, C, D, E, F
+semi-bluff: "세미 블러프"  # semi-bluff; bez formy 2; formy: 세미 블러프×22; źr. C, D, E
+blocker: "블로커"  # blocker; bez formy 4; formy: 블로커×18; źr. C, D, F
+bluff-catcher: "블러프 캐처"  # bluff catcher; bez formy 0; formy: —; źr. brak; [D] „블러프 캐치” [DO USTALENIA]
+barrel: "배럴"  # barrel; bez formy 0; formy: —; źr. D, F
+second-barrel: "세컨드 배럴"  # second barrel; bez formy 3; formy: 세컨드 배럴×23; źr. brak; [D] „더블 배럴” [DO USTALENIA]
+probe-bet: "프로브 벳"  # probe bet; bez formy 0; formy: —; źr. brak; [D] indeks „프로브” [DO USTALENIA]
+donk-bet: "동크 벳"  # donk bet; bez formy 0; formy: —; źr. C
+overbet: "오버벳"  # overbet; bez formy 0; formy: 오버벳×2, 오버베팅×1; źr. C, D, F; [D] „오버베트”, [E] „오버 베팅”; tłumacz też „오버베팅”×1
+effective-stack: "유효 스택"  # effective stack; bez formy 1; formy: 유효 스택×3, 이펙티브 스택×2; źr. C; tłumacz też „이펙티브 스택”×4 (m9-l1) = [D] [WIELE FORM]
+spr: "SPR"  # stack-to-pot ratio; bez formy 140; formy: SPR×49; źr. C, D, F; konflikty partykuł: 1
+mdf: "MDF"  # minimum defense frequency; bez formy 22; formy: MDF×52; źr. D, F
+alpha: "알파"  # alpha; bez formy 4; formy: 알파×2; źr. brak [DO USTALENIA]
+variance: "분산"  # variance; bez formy 6; formy: 분산×14, 변동성×6; źr. D, F; tłumacz 분산×14, 변동성×6; [D:variance] „분산(베리언스)”; [C] „베리언스”, [F] „배리언스”, „변동성이 큰 게임”; zgodne z definicją standard-deviation („분산의 제곱근”) [WIELE FORM]
+buy-in: "바이인"  # buy-in; bez formy 0; formy: 바이인×83; źr. A, D, E, F
+bankroll: "뱅크롤"  # bankroll; bez formy 0; formy: 뱅크롤×1; źr. D, E, F
+tilt: "틸트"  # tilt; bez formy 0; formy: —; źr. C, E, F
+winrate: "윈레이트"  # win rate; bez formy 0; formy: 윈레이트×1; źr. F
+downswing: "다운스윙"  # downswing; bez formy 9; formy: 다운스윙×19; źr. F
+session: "세션"  # session; bez formy 3; formy: 세션×53; źr. F
+stakes: "스테이크"  # stakes; bez formy 1; formy: 스테이크×61, 마이크로 스테이크×1; źr. A, D, F
+standard-deviation: "표준편차"  # standard deviation; bez formy 2; formy: 표준편차×42; źr. F
+risk-of-ruin: "파산 위험"  # risk of ruin; bez formy 0; formy: 파산 위험×4; źr. brak [DO USTALENIA]
+mental-game: "멘탈 게임"  # mental game; bez formy 0; formy: 멘탈 게임×1; źr. brak [DO USTALENIA]
+tournament: "토너먼트"  # tournament; bez formy 1; formy: 토너먼트×17; źr. A, C, D, E, F
+push-fold: "푸시 폴드"  # push/fold; bez formy 0; formy: —; źr. C
+shove: "푸시"  # shove; bez formy 0; formy: 푸시×22, 푸시할×2; źr. C, D; [C] tylko w „푸시 폴드”
+icm: "ICM"  # Independent Chip Model; bez formy 21; formy: ICM×9; źr. C, D, F
+bubble: "버블"  # bubble; bez formy 0; formy: 버블×11; źr. C, D
+bubble-factor: "버블 팩터"  # bubble factor; bez formy 0; formy: —; źr. D
+cover: "커버"  # cover; bez formy 0; formy: 커버×2, 커버합니다×2, 커버하는×1; źr. D
+risk-premium: "리스크 프리미엄"  # risk premium; bez formy 2; formy: 리스크 프리미엄×6; źr. D
+m-ratio: "M 비율"  # M-ratio; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+red-zone: "레드 존"  # red zone; bez formy 1; formy: 레드 존×1; źr. brak [DO USTALENIA]
+green-zone: "그린 존"  # green zone; bez formy 0; formy: 그린 존×2; źr. brak [DO USTALENIA]
+ante: "앤티"  # ante; bez formy 0; formy: —; źr. C, D, E
+bb-ante: "빅 블라인드 앤티"  # big blind ante; bez formy 3; formy: 빅 블라인드 앤티×3; źr. brak; oba człony potwierdzone osobno (빅 블라인드 [A][C], 앤티 [C][E])
+fold-equity: "폴드 에퀴티"  # fold equity; bez formy 0; formy: —; źr. C, D; [D] „폴드 에쿼티”
+gap-concept: "갭 컨셉"  # gap concept; bez formy 0; formy: —; źr. D(indeks)
+chip-ev: "칩 EV"  # chip EV; bez formy 0; formy: —; źr. D
+tournament-equity: "토너먼트 에퀴티"  # tournament equity; bez formy 0; formy: 토너먼트 에퀴티×2; źr. brak [DO USTALENIA]
+prize-pool: "상금 풀"  # prize pool; bez formy 0; formy: 상금 풀×18; źr. A, D
+payout: "상금"  # payout; bez formy 1; formy: 상금×6, 페이아웃×4, 상금 지급×1; źr. A, C, D, F; tłumacz też „페이아웃”×4, „상금 지급” [WIELE FORM]
+pay-jump: "페이 점프"  # pay jump; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+final-table: "파이널 테이블"  # final table; bez formy 0; formy: 파이널 테이블×4; źr. C, D
+short-stack: "숏 스택"  # short stack; bez formy 1; formy: 숏 스택×11, 숏스택×1; źr. C, E; [D] „숏스택”; tłumacz też „숏스택”×2
+nash-equilibrium: "내시 균형"  # Nash equilibrium; bez formy 0; formy: —; źr. B; [D] „내쉬 균형”
+overcall: "오버콜"  # overcall; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+heads-up: "헤즈업"  # heads up; bez formy 0; formy: —; źr. A, C, D, E, F
+dead-money: "데드 머니"  # dead money; bez formy 0; formy: —; źr. E
+stack-off: "스택 오프"  # stack off; bez formy 0; formy: —; źr. brak [DO USTALENIA]
+exploit: "익스플로잇"  # exploit; bez formy 0; formy: 익스플로잇×9; źr. C, D, F
+hud: "HUD"  # heads-up display; bez formy 1; formy: HUD×13; źr. brak; skrót angielski jak w en (terms.yaml), czytany po koreańsku
+vpip: "VPIP"  # voluntarily put in pot; bez formy 67; formy: VPIP×23; źr. brak; skrót angielski jak w en (terms.yaml), czytany po koreańsku
+pfr: "PFR"  # preflop raise; bez formy 46; formy: PFR×15; źr. brak; skrót angielski jak w en (terms.yaml), czytany po koreańsku; konflikty partykuł: 2
+wtsd: "WTSD"  # went to showdown; bez formy 3; formy: —; źr. brak; skrót angielski jak w en (terms.yaml), czytany po koreańsku
+nit: "니트"  # nit; bez formy 8; formy: 니트×6, 닛×5; źr. D, F; tłumacz też „닛”×8 (m10-l1, rules, exams/m10); konflikty partykuł: 1 [WIELE FORM]
+regular: "레귤러"  # regular; bez formy 0; formy: 레귤러×12; źr. brak; tylko serwis afiliacyjny (nie liczę) [DO USTALENIA]
+tag: "TAG"  # tight aggressive; bez formy 1; formy: —; źr. brak; skrót angielski jak w en (terms.yaml), czytany po koreańsku
+lag: "LAG"  # loose aggressive; bez formy 1; formy: —; źr. brak; skrót angielski jak w en (terms.yaml), czytany po koreańsku
+recreational: "레크리에이션 플레이어"  # recreational player; bez formy 0; formy: 레크리에이션 플레이어×11, 레크리에이셔널 플레이어×10; źr. F; tłumacz też „레크리에이셔널 플레이어”×10 (m10-l2), nieznalezione w źródłach [WIELE FORM]
+calling-station: "콜링 스테이션"  # calling station; bez formy 1; formy: 콜링 스테이션×1; źr. E
+maniac: "매니악"  # maniac; bez formy 0; formy: 매니악×18; źr. D, E, F
+rake: "레이크"  # rake; bez formy 36; formy: 레이크×20; źr. D, E, F
+rake-cap: "레이크 캡"  # rake cap; bez formy 0; formy: 레이크 상한×6, 상한×1; źr. D; tłumacz „레이크 상한”×6; [D] „레이크 캡” [INNA NIŻ TŁUMACZ]

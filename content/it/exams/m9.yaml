@@ -1,0 +1,86 @@
+# Pula pytań egzaminacyjnych modułu M9 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m9.*).
+module: m9
+drills:
+  - kind: choice
+    id: m9.exam.q1
+    family: m9.spr
+    rules: [R-M9-001]
+    prompt: "Al flop nel {{t:pot|piatto}} ci sono {{n:exam.m9.pot}}. Dietro hai {{n:exam.m9.stack.you}}, il tuo avversario {{n:exam.m9.stack.opp}}. Quanto vale lo {{t:spr}}?"
+    options:
+      - { text: "{{n:exam.m9.spr}}", correct: true, why: "Sì: lo calcoli dallo {{t:effective-stack|stack effettivo}}, cioè il minore dei due: {{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}. In questa mano non puoi vincere né perdere più di quanto ha l'avversario." }
+      - { text: "{{n:exam.m9.spr.wrong}}", why: "Questo è il tuo stack ÷ {{t:pot|piatto}}. L'avversario ha meno, quindi nella mano possono entrare al massimo {{n:exam.m9.stack.opp}}: {{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}." }
+      - { text: "{{n:exam.m9.spr.inverted}}", why: "Al contrario: lo {{t:spr}} è lo stack diviso per il {{t:pot|piatto}}, non il {{t:pot|piatto}} diviso per lo stack." }
+  - kind: choice
+    id: m9.exam.q2
+    family: m9.spr-zone
+    rules: [R-M9-010]
+    prompt: "Lo {{t:spr}} al flop è {{n:exam.m9.spr}}. Secondo le zone di {{t:spr}}, quale di queste mani è al limite: la giochi {{t:value|per value}}, ma non sempre {{t:call|chiami}} l'all-in dell'avversario?"
+    options:
+      - { text: "{{t:top-pair|Top pair}} con un buon kicker", correct: true, why: "Sì: {{n:exam.m9.spr}} rientra nella zona da {{n:spr.zone.low}} a {{n:spr.zone.mid}}, in cui la {{t:top-pair|top pair}} è una mano al limite (è una semplificazione). Sotto {{n:spr.zone.low}} di solito giocherebbe per tutto lo stack." }
+      - { text: "Set", why: "Un set gioca per tutto lo stack anche con lo {{t:spr}} sopra {{n:spr.zone.deep}}. Con lo {{t:spr}} a {{n:exam.m9.spr}} è nettamente una mano da tutto lo stack." }
+      - { text: "{{t:two-pair|Doppia coppia}} con le due carte più alte del {{t:board}}", why: "Una {{t:two-pair|doppia coppia}} alta basta per giocare per lo stack anche nella zona da {{n:spr.zone.mid}} a {{n:spr.zone.deep}}. Con lo {{t:spr}} a {{n:exam.m9.spr}} è una mano da tutto lo stack, non al limite." }
+  - kind: numeric
+    id: m9.exam.q3
+    family: m9.spr-price
+    rules: [R-M9-002]
+    prompt: "Flop. Nel {{t:pot|piatto}} ci sono {{n:exam.m9.pot}}, l'avversario va all-in per {{n:exam.m9.stack.opp}} ({{t:spr}} {{n:exam.m9.spr}}). Quanta equity ti serve per {{t:call|chiamare}}? Inserisci il numero in percentuale."
+    answer: exam.m9.eq.jam
+    explanation: "Metti {{n:exam.m9.stack.opp}} per vincere il {{t:pot|piatto}} e lo stack dell'avversario: {{n:exam.m9.stack.opp}} ÷ ({{n:exam.m9.pot}} + 2·{{n:exam.m9.stack.opp}}) = {{n:exam.m9.eq.jam}}. Più basso è lo {{t:spr}}, migliore è il prezzo."
+  - kind: choice
+    id: m9.exam.q4
+    family: m9.commit-plan
+    rules: [R-M9-004, R-M9-003]
+    prompt: "Flop, {{t:spr}} {{n:spr.low}}: nel {{t:pot|piatto}} ci sono {{n:ex.pot}}, stack da {{n:spr.stack.low}} ciascuno. Hai un'{{t:overpair}}. Stai valutando un bet di mezzo {{t:pot|piatto}} ({{n:ex.bet.half}}), dopo il quale ti resteranno {{n:exam.m9.low.left}}. Qual è il piano?"
+    table: { hand: "Qh Qc", board: "Jd 7s 3c" }
+    options:
+      - { text: "Bet con il piano di giocare per tutto lo stack", correct: true, why: "Sì: dopo il bet e la {{t:call|chiamata}} nel {{t:pot|piatto}} ci sarebbero {{n:ex.half.total}}, più dei {{n:exam.m9.low.left}} che ti restano nello stack. Contro l'all-in dell'avversario ti servirebbe solo {{n:exam.m9.eq.low-after-half}} di equity, e un'{{t:overpair}} con uno {{t:spr}} così basso gioca per tutto lo stack." }
+      - { text: "Bet di {{n:ex.bet.half}} e {{t:fold|foldi}} se l'avversario va all-in", why: "Puntare e poi {{t:fold|foldare}} qui non ha senso: dopo il tuo bet, per {{t:call|chiamare}} l'all-in bastano {{n:exam.m9.eq.low-after-half}} di equity. O giochi per tutto lo stack, o {{t:check|fai check}}." }
+      - { text: "{{t:check|Faccio check}} e {{t:fold|foldo}} su qualsiasi bet", why: "Con lo {{t:spr}} sotto {{n:spr.zone.low}} un'{{t:overpair}} è una mano da tutto lo stack. {{t:fold|Foldare}} su un bet significa cedere il {{t:pot|piatto}} con una mano molto forte." }
+  - kind: choice
+    id: m9.exam.q5
+    family: m9.geo-size
+    rules: [R-M9-006]
+    prompt: "Lo {{t:spr}} al flop è {{n:exam.m9.spr}}. Vuoi mettere tutto lo stack con due {{t:bet|puntate}} uguali: al flop e al turn. Che frazione del {{t:pot|piatto}} punti?"
+    options:
+      - { text: "Circa {{n:exam.m9.geo.two}} del {{t:pot|piatto}}", correct: true, why: "Sì: (1 + 2f) al quadrato = 1 + 2·{{n:exam.m9.spr}}, quindi 1 + 2f = 3 e f = {{n:exam.m9.geo.two}}. Un bet pari al {{t:pot|piatto}} e una {{t:call|chiamata}} triplicano il {{t:pot|piatto}}, e un secondo bet così al turn è l'all-in." }
+      - { text: "Circa {{n:exam.m9.geo.three}} del {{t:pot|piatto}}", why: "È la misura per tre {{t:street|street}}: (1 + 2f) al cubo = 1 + 2·{{n:exam.m9.spr}}. Per due {{t:street|street}} ogni {{t:bet|puntata}} deve essere più grande." }
+      - { text: "Circa {{n:cbet.size.small}} del {{t:pot|piatto}}", why: "Due {{t:bet|puntate}} da 1/3 del {{t:pot|piatto}} mettono solo una piccola parte dello stack. La misura geometrica la calcoli con la formula (1 + 2f) elevato al numero di {{t:street|street}} = 1 + 2·{{t:spr}}." }
+  - kind: choice
+    id: m9.exam.q6
+    family: m9.plan-streets
+    rules: [R-M9-008]
+    prompt: "Hai {{t:open|aperto}} dal Button, il {{t:big-blind}} ha {{t:call|chiamato}}. Hai un'{{t:overpair}} di jack su un flop {{t:dry|secco}} e basso. Quante {{t:value|street di value}} regge di solito questa mano?"
+    table: { hand: "Jc Jd", board: "9h 5c 2d", position: BTN }
+    options:
+      - { text: "Di solito due, la terza quando l'avversario paga con mani più deboli", correct: true, why: "Sì: un'{{t:overpair}} la pagano i nove, i cinque e le {{t:pair|coppie}} più deboli, ma a ogni {{t:street}} le mani peggiori {{t:fold|foldano}} e nel {{t:pot|piatto}} restano soprattutto quelle migliori." }
+      - { text: "Tre, sempre", why: "Tre {{t:value|street di value}} le reggono di solito mani molto forti: set, {{t:straight|scale}}, {{t:two-pair|doppie coppie}} alte. Alla terza {{t:bet|puntata}} un'{{t:overpair}} di jack spesso paga mani migliori." }
+      - { text: "Nessuna: fai {{t:check}} fino allo showdown", why: "Troppo prudente: su un flop {{t:dry|secco}} un'{{t:overpair}} batte molte mani che pagheranno una o due {{t:bet|puntate}}." }
+  - kind: choice
+    id: m9.exam.q7
+    family: m9.geo-srp
+    rules: [R-M9-007]
+    prompt: "{{t:pot|Piatto}} con un solo rilancio, stack da {{n:format.stack}}: al flop il {{t:pot|piatto}} è {{n:bb.pot-after.vs-btn}}, e ciascuno di voi ha dietro {{n:spr.srp.stack}}. Punti tutto il {{t:pot|piatto}} al flop, al turn e al river, e l'avversario {{t:call|chiama}} sempre. Quanto metti in totale?"
+    table: { position: BTN }
+    options:
+      - { text: "{{n:srp.potbet.total}}: meno di tutto lo stack", correct: true, why: "Sì: {{n:srp.potbet.flop}} + {{n:srp.potbet.turn}} + {{n:srp.potbet.river}} = {{n:srp.potbet.total}} su uno stack di {{n:spr.srp.stack}}. Il {{t:pot|piatto}} al flop è piccolo rispetto allo stack, quindi tutto lo stack entra solo con {{t:bet|puntate}} di circa {{n:geo.srp.3}} del {{t:pot|piatto}} su ogni {{t:street}}." }
+      - { text: "Tutto lo stack: {{n:spr.srp.stack}}", why: "Tre bet pari al {{t:pot|piatto}} mettono {{n:srp.potbet.total}}. Per mettere tutto lo stack devi puntare più del {{t:pot|piatto}} su ogni {{t:street}}." }
+      - { text: "{{n:srp.half.total}}", why: "Tanto mettono tre bet da mezzo {{t:pot|piatto}}. I bet pari al {{t:pot|piatto}} mettono di più: {{n:srp.potbet.total}}." }
+  - kind: choice
+    id: m9.exam.q8
+    family: m9.geo-size
+    rules: [R-M9-009]
+    prompt: "{{t:pot|Piatto}} 3-bettato, sei in {{t:position|posizione}}, {{t:spr}} circa {{n:spr.3bet-ip}}. Hai una mano da tre {{t:value|street di value}} e vuoi mettere tutto lo stack. Un amico ti consiglia bet piccoli da 1/3 del {{t:pot|piatto}} su ogni {{t:street}}. Cosa succede se l'avversario {{t:call|chiama}} tre volte?"
+    table: { position: BTN }
+    options:
+      - { text: "Metterai solo circa {{n:g3b.third.total}} del tuo stack di {{n:spr.3bet-ip.stack}}", correct: true, why: "Sì: i bet piccoli lasciano un {{t:pot|piatto}} piccolo per le {{t:street}} successive. Tutto lo stack entra con circa {{n:geo.3bet-ip.3}} del {{t:pot|piatto}} su ogni {{t:street}}, quindi la misura geometrica la scegli già al flop." }
+      - { text: "Al river tutto lo stack sarà nel {{t:pot|piatto}}", why: "No: tre bet da 1/3 del {{t:pot|piatto}} mettono solo circa {{n:g3b.third.total}}. La maggior parte dello stack ({{n:spr.3bet-ip.stack}}) resta fuori." }
+      - { text: "Metterai tutto lo stack già al turn", why: "Al contrario: i bet piccoli crescono lentamente, perché il {{t:pot|piatto}} cresce per moltiplicazione. Solo una misura di circa {{n:geo.3bet-ip.3}} del {{t:pot|piatto}} mette tutto lo stack, e solo al river." }
+  - kind: choice
+    id: m9.exam.q9
+    family: m9.spr-zone
+    rules: [R-M9-010]
+    prompt: "Stack molto profondi: lo {{t:spr}} al flop è più alto di {{n:spr.zone.deep}}. Hai una {{t:two-pair|doppia coppia}} alta. Pianifichi di giocare per tutto lo stack?"
+    options:
+      - { text: "Di solito no: con uno {{t:spr}} così, per tutto lo stack ti serve un set, una {{t:straight|scala}} o una mano migliore", correct: true, why: "Sì: sopra {{n:spr.zone.deep}} tutto lo stack entra solo dopo più di tre {{t:bet|puntate}} pari al {{t:pot|piatto}}, e fino alla fine l'avversario paga soprattutto con mani molto forti (è una semplificazione delle zone di {{t:spr}})." }
+      - { text: "Sì: una {{t:two-pair|doppia coppia}} alta gioca sempre per lo stack", why: "Una {{t:two-pair|doppia coppia}} alta di solito basta nella zona da {{n:spr.zone.mid}} a {{n:spr.zone.deep}}. Più in alto, un avversario che mette tutto lo stack ha spesso un set o di meglio." }
+      - { text: "Sì, perché uno {{t:spr}} alto dà un buon prezzo sull'all-in", why: "Al contrario: più alto è lo {{t:spr}}, peggiore è il prezzo sull'all-in e più forte dev'essere la mano per giocare per tutto lo stack." }

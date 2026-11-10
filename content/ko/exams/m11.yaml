@@ -1,0 +1,86 @@
+module: m11
+drills:
+  - kind: choice
+    id: m11.exam.q1
+    family: m11.threshold
+    rules: [R-M11-001]
+    prompt: "{{t:tournament|토너먼트}}입니다. {{n:exam.m11.mid.stack}} 스택을 가지고 있고, 앞의 모든 플레이어가 {{t:fold|폴드}}했습니다. 핸드는 중간 정도입니다. 버리기에는 너무 좋고, 플롭 이후에 플레이하기에는 너무 약합니다. 자료들은 어떤 계획을 권장합니까?"
+    options:
+      - { text: "올인 또는 {{t:fold}}", correct: true, why: "{{n:m11.thr.pushfold}}에서 {{n:m11.thr.upper}} 사이에서는 약한 핸드와 중간 핸드에 푸시/폴드가 주된 방법입니다. 이런 스택에서는 올인이 상대의 {{t:fold|폴드}}를 가장 많이 이끌어 냅니다. 이는 단순화입니다. 솔버는 일부 핸드를 다르게 플레이하기도 합니다." }
+      - { text: "최소 레이즈 후 상대의 올인에는 {{t:fold}}", why: "{{n:exam.m11.mid.stack}}에서 레이즈한 뒤 {{t:raise|레이즈}}를 받고 {{t:fold}}하면 싸워 보지도 않고 스택의 상당 부분을 내주게 됩니다. 자료들은 일반적인 레이즈를 약 {{n:m11.thr.raise}}부터 권장합니다." }
+      - { text: "림프로 플롭을 싸게 보기", why: "림프로는 {{t:pot|팟}}을 바로 가져올 기회가 없으며, {{t:short-stack|숏 스택}}에서는 바로 상대의 {{t:fold|폴드}}가 주된 수익원입니다." }
+  - kind: numeric
+    id: m11.exam.q2
+    family: m11.m
+    rules: [R-M11-005]
+    prompt: "{{n:exam.m11.m.stack}} {{t:chips|칩}}을 가지고 있습니다. 블라인드는 {{n:exam.m11.m.sb}}/{{n:exam.m11.m.bb}}이며, {{t:big-blind}}가 앤티 {{n:exam.m11.m.ante}}도 추가로 냅니다. 당신의 M은 얼마입니까? 소수점 첫째 자리까지 숫자를 입력하세요."
+    answer: exam.m11.m.value
+    explanation: "한 바퀴 비용은 {{n:exam.m11.m.sb}} + {{n:exam.m11.m.bb}} + {{n:exam.m11.m.ante}} = {{n:exam.m11.m.orbit}}이므로 M = {{n:exam.m11.m.stack}} ÷ {{n:exam.m11.m.orbit}} = {{n:exam.m11.m.value}}입니다. 이는 약 {{n:m11.m.red}}보다 한참 낮습니다. 이제 올인 또는 {{t:fold}}만 하며, {{t:pot|팟}}에 가장 먼저 들어가도록 노력합니다."
+  - kind: choice
+    id: m11.exam.q3
+    family: m11.fold-equity
+    rules: [R-M11-004]
+    prompt: "{{t:small-blind|스몰 블라인드}}, {{n:exam.m11.fe.depth}}, 앤티 없음, 모두 {{t:fold|폴드}}했습니다. 승산이 전혀 없는 핸드로 올인해 본전이 되려면 {{t:big-blind}}는 얼마나 자주 {{t:fold|폴드}}해야 합니까?"
+    options:
+      - { text: "{{n:exam.m11.fe.alpha}}보다 자주", correct: true, why: "블라인드 {{n:m11.push.10.win}}를 얻기 위해 {{n:exam.m11.fe.risk}}를 더 넣습니다: {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha}}. 상대는 그만큼 자주 {{t:fold|폴드}}하지 않으므로, 올인에는 상대가 {{t:call|콜}}할 때를 위한 에퀴티도 필요합니다." }
+      - { text: "절반보다 자주", why: "얻는 것보다 훨씬 많이 겁니다: {{n:exam.m11.fe.risk}} 대 {{n:m11.push.10.win}}. 기준선은 리스크 ÷ (획득 + 리스크), 즉 약 {{n:exam.m11.fe.alpha}}입니다." }
+      - { text: "폴드할 필요가 전혀 없음: {{n:exam.m11.fe.depth}}에서는 올인이 항상 이득", why: "쇼다운에서 승산이 없는 핸드는 {{t:fold|폴드}}로만 이익을 내며, 그 폴드가 약 {{n:exam.m11.fe.alpha}} 필요합니다. 그래서 올인 {{t:range}}는 넓지만 모든 핸드를 포함하지는 않습니다." }
+  - kind: choice
+    id: m11.exam.q4
+    family: m11.ante
+    rules: [R-M11-003, R-M11-004]
+    prompt: "같은 {{n:exam.m11.fe.depth}} 스택으로 {{t:small-blind|스몰 블라인드}}에 있지만, {{t:big-blind}}가 앤티 {{n:m11.ante}}를 냈습니다. 승산 없는 핸드로 올인해 본전이 되려면 이제 얼마나 자주 {{t:fold|폴드}}해야 합니까?"
+    options:
+      - { text: "{{n:exam.m11.fe.alpha-ante}}보다 자주. 따라서 더 많은 핸드를 {{t:shove|푸시}}합니다", correct: true, why: "앤티는 {{t:fold|폴드}} 후 가져가는 {{t:pot|팟}}을 키웁니다: {{n:m11.push.10.win}} 대신 {{n:m11.push.10.win-ante}}이고, 리스크는 그대로({{n:exam.m11.fe.risk}})입니다. 계산하면 {{n:exam.m11.fe.alpha}} 대신 {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win-ante}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha-ante}}입니다." }
+      - { text: "앤티가 없을 때와 같음: {{n:exam.m11.fe.alpha}}보다 자주", why: "앤티는 {{t:pot|팟}}에 놓여 있으며, 상대가 {{t:fold|폴드}}하면 가져갑니다. 같은 리스크로 더 큰 보상을 얻으므로 기준선이 약 {{n:exam.m11.fe.alpha-ante}}로 낮아집니다." }
+      - { text: "더 자주. {{t:pot|팟}}에 잃을 것이 더 많기 때문", why: "앤티는 이미 {{t:pot|팟}}에 있으며 당신의 리스크가 아닙니다. 같은 금액을 넣고 더 많이 얻으므로 기준선이 내려갑니다." }
+  - kind: numeric
+    id: m11.exam.q5
+    family: m11.call.price
+    rules: [R-M11-006]
+    prompt: "스택은 각각 {{n:exam.m11.call.depth}}, 앤티 없음. 당신은 {{t:big-blind|빅 블라인드}}이고, {{t:small-blind}}가 올인했습니다. {{t:call}}이 이득이 되려면 에퀴티가 몇 퍼센트 필요합니까? 숫자를 입력하세요."
+    answer: exam.m11.call.eq
+    explanation: "블라인드는 이미 {{t:pot|팟}}에 있으므로 {{n:exam.m11.call.depth}} − {{n:pf.blind.bb}} = {{n:exam.m11.call.cost}}만 더 내면 됩니다. {{t:call|콜}} 후 {{t:pot|팟}}은 {{n:exam.m11.call.pot}}입니다: {{n:exam.m11.call.cost}} ÷ {{n:exam.m11.call.pot}} ≈ {{n:exam.m11.call.eq}}."
+  - kind: choice
+    id: m11.exam.q6
+    family: m11.call.gap
+    rules: [R-M11-007]
+    prompt: "스택은 각각 {{n:m11.depth.5}}, {{t:small-blind}}가 올인했고, 당신은 {{t:big-blind|빅 블라인드}}입니다. 친구가 조언합니다: “{{t:small-blind|스몰 블라인드}}에서 직접 올인 {{t:shove|푸시}}할 핸드라면 모두 {{t:call|콜}}하세요.” 솔버는 어떻게 말합니까?"
+    options:
+      - { text: "더 좁게 {{t:call|콜}}합니다: 올인 약 {{n:m11.nash.push.5}}–{{n:m11.push.5}} 대비 약 {{n:m11.call.5}}의 핸드", correct: true, why: "{{t:call|콜}}하는 쪽은 쇼다운에서만 이기며, 그것도 이미 걸러진 {{t:range|레인지}}를 상대로 합니다. {{t:shove|푸시}}하는 쪽은 상대가 {{t:fold|폴드}}할 때도 이깁니다. 이렇게 {{t:short-stack|숏 스택}}이고 가격이 좋아도 {{t:call|콜}} {{t:range}}는 더 좁습니다." }
+      - { text: "친구 말이 맞습니다: {{n:m11.depth.5}}에서는 두 {{t:range|레인지}}가 같습니다", why: "{{t:short-stack|숏 스택}}은 두 {{t:range|레인지}}를 모두 넓히지만 같게 만들지는 않습니다. 올인에는 폴드 에퀴티가 있지만 {{t:call}}에는 없습니다. 솔버는 약 {{n:m11.call.5}}의 핸드로 {{t:call|콜}}하고, 약 {{n:m11.nash.push.5}}–{{n:m11.push.5}}를 {{t:shove|푸시}}합니다(하한은 독립적인 균형 계산, 상한은 앱 솔버에서 나온 값입니다)." }
+      - { text: "가격이 좋으므로 더 넓게 {{t:call|콜}}합니다", why: "{{n:m11.depth.5}}에서 가격은 좋지만({{n:m11.call.5.eq}}), 상대는 무작위 핸드가 아니라 올인 {{t:range|레인지}}입니다. 솔버는 {{t:shove|푸시}}보다 좁게 {{t:call|콜}}합니다." }
+  - kind: numeric
+    id: m11.exam.q7
+    family: m11.bf
+    rules: [R-M11-009, R-M11-008]
+    prompt: "{{t:bubble|버블}}: 플레이어 4명, 3위까지 입상({{t:prize-pool|상금 풀}}의 {{n:m11.bf.p1}}, {{n:m11.bf.p2}}, {{n:m11.bf.p3}}). 스택: {{n:exam.m11.bf.s1}}, 당신 {{n:exam.m11.bf.s2}}, 올인한 상대 {{n:exam.m11.bf.s3}}, 그리고 {{n:exam.m11.bf.s4}}. {{t:icm}}에 따르면 {{t:call|콜}}해서 지면 {{t:prize-pool|상금 풀}}의 {{n:exam.m11.bf.loss}}를 잃고, 이기면 {{n:exam.m11.bf.gain}}를 얻습니다. 버블 팩터는 얼마입니까? 소수점 둘째 자리까지 숫자를 입력하세요."
+    answer: exam.m11.bf.value
+    explanation: "버블 팩터 = 손실 ÷ 이득 = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.gain}} ≈ {{n:exam.m11.bf.value}}. 현재 당신의 에퀴티는 {{n:exam.m11.bf.eq.now}}, 이기면 {{n:exam.m11.bf.eq.win}}, 지면 {{n:exam.m11.bf.eq.lose}}입니다: 질 때 잃는 것이 이길 때 얻는 것보다 큽니다. {{t:icm}}은 {{t:position|포지션}}이나 플레이어의 실력을 고려하지 않으므로 이 평가는 근사치입니다."
+  - kind: choice
+    id: m11.exam.q8
+    family: m11.bf
+    rules: [R-M11-009]
+    prompt: "같은 상황: 버블 팩터 {{n:exam.m11.bf.value}}. {{t:chips|칩}} 기준 게임이라면 {{t:call|콜}}에 {{n:exam.m11.bf.req-chips}}의 에퀴티면 충분합니다. {{t:icm}} 기준으로는 얼마나 필요합니까?"
+    options:
+      - { text: "약 {{n:exam.m11.bf.req}}", correct: true, why: "필요 에퀴티 = BF ÷ (BF + 1) = 손실 ÷ (손실 + 이득) = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.range}} ≈ {{n:exam.m11.bf.req}}. {{n:exam.m11.bf.req-chips}}와의 차이가 {{t:risk-premium|리스크 프리미엄}}입니다." }
+      - { text: "{{n:exam.m11.bf.req-chips}}, {{t:chips|칩}} 기준과 같음", why: "{{t:payout|상금 지급}}이 있는 {{t:tournament|토너먼트}}에서는 질 때 잃는 돈이 이길 때 얻는 돈보다 많으므로 {{t:call}}은 더 자주 이겨야 합니다: 약 {{n:exam.m11.bf.req}}." }
+      - { text: "{{n:exam.m11.bf.req-chips}}보다 적음. {{t:bubble|버블}}이 상대에게 {{t:bluff|블러프}}를 강요하기 때문", why: "버블 팩터가 1보다 크면 필요 에퀴티는 항상 {{t:chips|칩}} 기준 가격보다 높아집니다. 여기서는 약 {{n:exam.m11.bf.req}}까지 높아집니다." }
+  - kind: choice
+    id: m11.exam.q9
+    family: m11.icm.call
+    rules: [R-M11-010]
+    prompt: "{{t:tournament|토너먼트}}의 {{t:bubble|버블}}입니다. 당신은 평균 스택입니다. 당신을 {{t:cover|커버}}하는 테이블의 가장 큰 스택이 올인합니다. {{t:chips}} 기준 게임과 비교해 어떻게 {{t:call|콜}}합니까?"
+    options:
+      - { text: "확실히 더 타이트하게", correct: true, why: "지면 상금 직전에 탈락하고, 이길 때 얻는 것은 질 때 잃는 것보다 적습니다: 따는 {{t:chips}}은 잃는 칩보다 가치가 낮습니다. 그래서 {{t:chips}} 기준 게임보다 확실히 더 많은 에퀴티가 필요합니다." }
+      - { text: "더 넓게. 큰 스택이 많은 핸드를 {{t:shove|푸시}}하기 때문", why: "큰 스택은 실제로 더 넓게 {{t:shove|푸시}}할 수 있지만, 그 이유는 바로 당신이 타이트하게 {{t:call|콜}}해야 하기 때문입니다. {{t:risk-premium|리스크 프리미엄}}이 당신의 요구 조건을 높입니다." }
+      - { text: "같음: {{t:icm}}은 {{t:final-table|파이널 테이블}}에서만 중요", why: "더 신중한 {{t:call|콜}}은 {{t:final-table|파이널 테이블}}에서도, {{t:bubble|버블}}에서도 적용됩니다. 여기서는 당신의 생존에 따라 상금을 조금이라도 받을 수 있는지가 결정됩니다." }
+  - kind: choice
+    id: m11.exam.q10
+    family: m11.push.3max
+    rules: [R-M11-011]
+    prompt: "플레이어 3명, 스택은 각각 {{n:m11.depth.3max}}. 어디서 더 넓게 올인 {{t:shove|푸시}}합니까: 뒤에 블라인드 둘이 모두 있는 버튼에서입니까, 아니면 버튼이 {{t:fold|폴드}}한 뒤 {{t:small-blind|스몰 블라인드}}에서입니까?"
+    options:
+      - { text: "{{t:small-blind|스몰 블라인드}}에서: 버튼의 약 {{n:m11.3max.push.btn}} 대비 약 {{n:m11.3max.push.sb}}의 핸드", correct: true, why: "당신 뒤의 플레이어 한 명 한 명이 누군가 강한 핸드를 받을 추가 가능성입니다. 버튼에서는 두 명이 {{t:fold|폴드}}해야 하고, {{t:small-blind|스몰 블라인드}}에서는 한 명만 폴드하면 됩니다." }
+      - { text: "버튼에서. 가장 좋은 {{t:position|포지션}}이기 때문", why: "올인 후에는 아무도 플롭 이후 결정을 내리지 않으므로 여기서 {{t:position|포지션}}은 아무 도움이 되지 않습니다. 중요한 것은 {{t:call|콜}}할 수 있는 플레이어 수입니다: 버튼 뒤에는 두 명이 있습니다." }
+      - { text: "두 자리 모두 같음", why: "솔버는 버튼에서 약 {{n:m11.3max.push.btn}}, {{t:small-blind|스몰 블라인드}}에서 약 {{n:m11.3max.push.sb}}의 핸드를 {{t:shove|푸시}}합니다. 차이를 만드는 것은 당신 뒤에 있는 플레이어 수입니다." }

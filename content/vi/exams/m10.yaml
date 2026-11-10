@@ -1,0 +1,82 @@
+module: m10
+drills:
+  - kind: choice
+    id: m10.exam.q1
+    family: m10.hud.stats
+    rules: [R-M10-001]
+    prompt: "Mọi người đều {{t:fold|bỏ bài}} đến lượt đối thủ ở {{t:small-blind|small blind}}. Đối thủ bù thêm cho đủ {{t:big-blind|big blind}}, và khi {{t:big-blind}} {{t:raise|tố}}, đối thủ {{t:fold|bỏ bài}}. Ván bài này thay đổi chỉ số của đối thủ như thế nào?"
+    options:
+      - { text: "Làm tăng {{t:vpip}}, nhưng không tăng {{t:pfr}}", correct: true, why: "Bù cho đủ {{t:big-blind|big blind}} là tự nguyện bỏ thêm {{t:chips|chip}} ngoài blind bắt buộc, nên được tính vào {{t:vpip}}. Đối thủ không {{t:raise|tố}}, nên {{t:pfr}} không tăng." }
+      - { text: "Không thay đổi chỉ số nào, vì {{t:small-blind|small blind}} là khoản đặt bắt buộc", why: "Chỉ bản thân blind là bắt buộc. Bù cho đủ {{t:big-blind|big blind}} đã là quyết định của đối thủ, tức là một khoản đặt tự nguyện, làm tăng {{t:vpip}}." }
+      - { text: "Làm tăng {{t:vpip}} và {{t:pfr}}", why: "{{t:pfr}} chỉ tăng khi chính đối thủ {{t:raise|tố}} trước flop. Ở đây người {{t:raise|tố}} là {{t:big-blind}}, còn đối thủ chỉ bù thêm rồi {{t:fold|bỏ bài}}." }
+      - { text: "Không làm tăng {{t:vpip}}, vì dù sao đối thủ cũng đã {{t:fold|bỏ bài}} trước flop", why: "{{t:vpip}} tính các khoản đặt tự nguyện, chứ không tính việc ván bài có đi tới flop hay không. Đối thủ tự ý bù thêm, nên ván bài được tính vào {{t:vpip}}." }
+  - kind: numeric
+    id: m10.exam.q2
+    family: m10.hud.sample
+    rules: [R-M10-002]
+    prompt: "Đối thủ đã gặp c-bet {{n:exam.m10.se.n}} lần và {{t:fold|bỏ bài}} ở {{n:exam.m10.se.p}} số lần đó. Sai số chuẩn của chỉ số fold to c-bet của đối thủ là bao nhiêu điểm phần trăm? Hãy nhập một số."
+    answer: exam.m10.se
+    explanation: "√(p × (1 − p) ÷ n) = √({{n:exam.m10.se.p}} × {{n:exam.m10.se.q}} ÷ {{n:exam.m10.se.n}}) ≈ {{n:exam.m10.se}}. Bạn đếm số cơ hội (số c-bet đối thủ đã gặp), chứ không đếm số ván. Với độ tin cậy khoảng {{n:var.conf95}}, fold to c-bet thực sự nằm trong khoảng ± {{n:var.z95}} × {{n:exam.m10.se}} ≈ ± {{n:exam.m10.ci}}, tức là trong khoảng từ khoảng {{n:exam.m10.ci.low}} đến {{n:exam.m10.ci.high}}."
+  - kind: choice
+    id: m10.exam.q3
+    family: m10.hud.sample
+    rules: [R-M10-003]
+    prompt: "Sau {{n:exam.m10.mid.hands}} ván, đối thủ có {{t:vpip}} {{n:exam.m10.mid.vpip}}, {{t:pfr}} {{n:exam.m10.mid.pfr}} và fold to 3-bet {{n:exam.m10.mid.f3b}}. Bạn đã có thể dựa vào những con số nào trong số này để ra quyết định?"
+    options:
+      - { text: "{{t:vpip}} và {{t:pfr}}; fold to 3-bet vẫn còn là ngẫu nhiên", correct: true, why: "Bạn đọc được {{t:vpip}} và {{t:pfr}} sau khoảng {{n:hud.hands.vpip.low}}–{{n:hud.hands.vpip.high}} ván, còn fold to 3-bet thì phải sau khoảng {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}} ván, vì cơ hội cho chỉ số này chỉ xuất hiện sau một lần {{t:open|mở}} và một 3-bet. {{n:exam.m10.mid.hands}} ván chỉ cho vài cơ hội." }
+      - { text: "Cả ba, vì mẫu đã vượt quá {{n:hud.hands.vpip.low}} ván", why: "Ngưỡng khoảng {{n:hud.hands.vpip.low}} ván áp dụng cho các chỉ số có cơ hội ở mọi ván. Fold to 3-bet có ít cơ hội hơn nhiều lần và cần khoảng {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}} ván." }
+      - { text: "Không con số nào: trước một nghìn ván, các chỉ số đều ngẫu nhiên", why: "Chúng chỉ ngẫu nhiên khi dưới khoảng {{n:hud.hands.random}} ván. Sau {{n:exam.m10.mid.hands}} ván, {{t:vpip}} và {{t:pfr}} đã cho biết điều gì đó." }
+      - { text: "Chỉ fold to 3-bet, vì nó cực đoan nhất", why: "Một con số cực đoan từ mẫu nhỏ thường là ngẫu nhiên hơn là một nhận định đáng tin. Độ tin cậy phụ thuộc vào số cơ hội, và ở đây fold to 3-bet có ít cơ hội nhất." }
+  - kind: choice
+    id: m10.exam.q4
+    family: m10.types.adjust
+    rules: [R-M10-007]
+    prompt: "Một {{t:nit|nit}} ({{t:vpip}} {{n:exam.m10.nit.vpip}}, {{t:pfr}} {{n:exam.m10.nit.pfr}}, {{n:exam.m10.nit.hands}} ván) {{t:open|mở}} từ {{t:utg|UTG}}. Bạn ở Button với một tay bài thuộc phần dưới của {{t:range|range}} mà trong chiến lược cơ sở ở mô-đun 4 bạn dùng để {{t:call|theo}} lần {{t:open|mở}} như vậy. Bạn làm gì?"
+    options:
+      - { text: "{{t:fold|Bỏ bài}}", correct: true, why: "Người chơi ít tay bài như vậy chủ yếu {{t:raise|tố}} bằng những tay mạnh nhất. Các tay bài ở phần dưới {{t:range|range}} {{t:call|theo}} của bạn thường bị áp đảo hơn trước người này, nên bạn {{t:fold|bỏ}} chúng thường xuyên hơn so với chiến lược cơ sở." }
+      - { text: "{{t:call|Theo}} như trong chiến lược cơ sở, vì có {{t:position|vị trí}}", why: "{{t:position|Vị trí}} không cứu được một tay bài bị áp đảo. Chiến lược cơ sở giả định một {{t:range|range}} {{t:open|mở}} điển hình, còn {{t:range|range}} của người chơi này mạnh hơn nhiều." }
+      - { text: "3-bet như một {{t:bluff}}, vì {{t:nit}} chỉ chơi tay mạnh và sẽ {{t:fold|bỏ bài}}", why: "{{t:range|Range}} {{t:open|mở}} của người này chủ yếu là những tay mạnh nhất, và những tay đó hiếm khi {{t:fold|bỏ bài}} trước 3-bet. {{t:bluff|Bluff}} ở đây đụng phải phần mạnh nhất trong lối chơi của họ." }
+  - kind: choice
+    id: m10.exam.q5
+    family: m10.types.adjust
+    rules: [R-M10-008]
+    prompt: "Đối thủ là một {{t:maniac|maniac}}: {{t:vpip}} {{n:exam.m10.maniac.vpip}}, {{t:pfr}} {{n:exam.m10.maniac.pfr}}, {{n:exam.m10.long.hands}} ván. Bạn trúng {{t:set|set}} trên flop, đối thủ {{t:bet|cược}}. Bạn làm gì?"
+    options:
+      - { text: "{{t:call|Theo}} và để đối thủ tiếp tục cược", correct: true, why: "Với tay bài rất mạnh, bạn để {{t:maniac|maniac}} cược: các lần cược của họ chứa nhiều {{t:bluff|bluff}} và tay yếu, còn {{t:call}} giữ chúng lại trong ván cho các {{t:street|vòng cược}} tiếp theo." }
+      - { text: "{{t:raise|Tố}} ngay, càng lớn càng tốt", why: "{{t:raise|Tố}} khiến các {{t:bluff|bluff}} và tay yếu của họ {{t:fold|bỏ bài}} trước khi đặt thêm. Trước người chơi tự mình cược, bạn kiếm được nhiều hơn khi để họ làm điều đó." }
+      - { text: "{{t:fold|Bỏ bài}}, vì {{t:pfr}} cao nghĩa là tay mạnh", why: "{{t:pfr}} cao đi kèm {{t:vpip}} cao như vậy nghĩa là họ {{t:raise|tố}} với gần như mọi tay bài, chứ không phải là họ có tay mạnh. {{t:set}} ở đây là một trong những tay bài tốt nhất." }
+  - kind: choice
+    id: m10.exam.q6
+    family: m10.types.adjust
+    rules: [R-M10-006]
+    prompt: "River. Đối thủ là một {{t:recreational|người chơi giải trí}} thụ động: {{t:vpip}} {{n:exam.m10.rec.vpip}}, {{t:pfr}} {{n:exam.m10.rec.pfr}}, {{n:exam.m10.long.hands}} ván. Đối thủ {{t:check|check}}. Bạn có một tay bài mà trong chiến lược cơ sở ở mô-đun 8, đôi khi bạn cược {{t:value|lấy giá trị}} ở đây, đôi khi {{t:check|check}}. Bạn làm gì?"
+    options:
+      - { text: "Cược {{t:value|lấy giá trị}}", correct: true, why: "Kiểu người chơi này {{t:call|theo}} đến cùng với nhiều tay yếu hơn so với đối thủ trong chiến lược cơ sở, nên nhiều lần {{t:call|theo}} của họ là tay bài kém hơn tay của bạn. Trước họ, bạn cược {{t:value|lấy giá trị}} cả với những tay mỏng hơn." }
+      - { text: "{{t:check|Check}}, vì người chơi thụ động chỉ {{t:call|theo}} bằng tay tốt", why: "Ngược lại: người chơi có khoảng cách {{t:vpip}} − {{t:pfr}} lớn chơi nhiều tay bài và {{t:call|theo}} đến cùng với chúng. Đó chính là lý do để cược nhiều hơn, chứ không phải ít hơn." }
+      - { text: "Làm như trong chiến lược cơ sở: lúc cược, lúc {{t:check}}", why: "Chiến lược cơ sở giả định đối thủ phòng thủ đúng cách. Đối thủ này {{t:call|theo}} quá thường xuyên, nên tay bài ở ranh giới nghiêng về phía cược {{t:value|lấy giá trị}}." }
+  - kind: choice
+    id: m10.exam.q7
+    family: m10.base.alpha
+    rules: [R-M10-010]
+    prompt: "Đối thủ có fold to c-bet {{n:exam.m10.fcb}} sau {{n:exam.m10.long.hands}} ván. Bạn trượt flop và không có {{t:draw|draw}}. C-bet nào khi không có bài sẽ có lời ngay?"
+    options:
+      - { text: "Chỉ c-bet nhỏ, 1/3 {{t:pot|pot}}", correct: true, why: "C-bet 1/3 {{t:pot|pot}} hòa vốn ở tỷ lệ {{t:fold|bỏ bài}} {{n:alpha.cbet.small}}, còn c-bet 3/4 {{t:pot|pot}} phải tới {{n:alpha.cbet.big}}. {{n:exam.m10.fcb}} chỉ đủ cho c-bet nhỏ. Fold to c-bet gộp mọi kích cỡ cược và mọi bàn, nên đây là ước lượng gần đúng." }
+      - { text: "Cả hai, vì đối thủ {{t:fold|bỏ bài}} thường xuyên", why: "C-bet lớn mạo hiểm nhiều hơn và cần tỷ lệ {{t:fold|bỏ bài}} trên {{n:alpha.cbet.big}}. Đối thủ {{t:fold|bỏ bài}} ở mức {{n:exam.m10.fcb}}, tức là quá ít." }
+      - { text: "Chỉ c-bet lớn, vì nó ép {{t:fold|bỏ bài}} mạnh hơn", why: "Fold to c-bet từ {{t:hud|HUD}} không cho biết đối thủ {{t:fold|bỏ bài}} thường hơn trước cược lớn. Với tỷ lệ {{t:fold|bỏ bài}} {{n:exam.m10.fcb}}, c-bet lớn khi không có bài sẽ lỗ, vì nó cần {{n:alpha.cbet.big}}." }
+      - { text: "Không c-bet nào, vì đối thủ {{t:fold|bỏ bài}} ít hơn một nửa số lần", why: "Ngưỡng không phải là một nửa, mà là cược ÷ ({{t:pot}} + cược). Với c-bet 1/3 {{t:pot|pot}}, ngưỡng là {{n:alpha.cbet.small}}, nên {{n:exam.m10.fcb}} là đủ." }
+  - kind: choice
+    id: m10.exam.q8
+    family: m10.base.3bet
+    rules: [R-M10-011]
+    prompt: "Đối thủ có fold to 3-bet {{n:exam.m10.f3b.low}} sau {{n:exam.m10.long.hands}} ván. Đối thủ {{t:open|mở}} từ {{t:cutoff|CO}}, còn bạn ở Button với một tay bài mà trong chiến lược cơ sở bạn 3-bet như một {{t:bluff}}. Bạn thay đổi gì?"
+    options:
+      - { text: "Không 3-bet bằng tay này nữa; trước đối thủ này, chủ yếu 3-bet bằng tay mạnh", correct: true, why: "3-bet lên {{n:pf.3bet.ip-total}} khi không có bài chỉ có lời khi tỷ lệ {{t:fold|bỏ bài}} trên {{n:alpha.vs-3bet-ip-size}}, còn đối thủ này {{t:fold|bỏ bài}} ở mức {{n:exam.m10.f3b.low}}. {{t:bluff|Bluff}} sẽ phải chơi một {{t:pot|pot}} lớn với tay yếu, còn tay mạnh nhận được nhiều lần {{t:call|theo}} hơn từ họ: {{t:range}} {{t:linear|tuyến tính}}." }
+      - { text: "3-bet bằng tay này thường xuyên hơn, vì đối thủ yếu", why: "Điểm yếu của đối thủ ở đây là họ hiếm khi {{t:fold|bỏ bài}}. {{t:bluff|Bluff}} sống nhờ những lần {{t:fold|bỏ bài}}, nên trước họ nó sẽ lỗ." }
+      - { text: "Không thay đổi gì: fold to 3-bet chưa đáng tin", why: "Sau {{n:exam.m10.long.hands}} ván thì đã đáng tin: bạn đọc fold to 3-bet sau khoảng {{n:hud.hands.3bet.low}}–{{n:hud.hands.3bet.high}} ván." }
+  - kind: numeric
+    id: m10.exam.q9
+    family: m10.rake.math
+    rules: [R-M10-015]
+    prompt: "Trong {{t:pot|pot}} có {{n:ex.pot}}, đối thủ {{t:bet|cược}} bằng cả {{t:pot|pot}}: {{n:ex.bet.pot}}. Phòng chơi thu {{n:rake.ex.pct}} {{t:pot|pot}}, và {{t:rake-cap|mức trần rake}} nằm ngoài tầm. Bạn cần bao nhiêu equity để {{t:call|theo}}? Hãy nhập tỷ lệ phần trăm."
+    answer: exam.m10.rake.eq
+    explanation: "{{t:pot|Pot}} sau khi {{t:call|theo}} là {{n:exam.m10.rake.total}}, và sau khi trừ {{t:rake|rake}} còn {{n:exam.m10.rake.after}}. Bạn bỏ thêm {{n:ex.bet.pot}}: {{n:ex.bet.pot}} ÷ {{n:exam.m10.rake.after}} ≈ {{n:exam.m10.rake.eq}} thay vì {{n:eq.bet-pot}} khi không có {{t:rake|rake}}."

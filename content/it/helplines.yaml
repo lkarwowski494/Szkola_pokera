@@ -1,0 +1,39 @@
+# Pomoc przy problemach z hazardem: jedno źródło prawdy (B-058). Decyzja właściciela D-158 (2026-11-04): bez numerów
+# krajowych; jedno ogólne zdanie (lekarz albo specjalista zdrowia psychicznego; w nagłym zagrożeniu lokalny numer
+# alarmowy, twierdzenie H-INT-2) i jeden link do międzynarodowej pomocy online (Gambling Therapy, H-INT-1). Zastępuje
+# D-142 (numery 9 rynków) i D-150–D-152, D-155 (wybór według regionu); dawne wpisy krajów mają w rejestrze
+# docs/tresci/rejestr/pomoc.json status „wycofane”. Pole `claim` = id twierdzenia; content-build przerywa budowanie,
+# gdy twierdzenie nie ma w rejestrze statusu „potwierdzone”.
+#
+# Korzystają z niego: ramka „Odpowiedzialna gra” w lekcji M12-L4 (znacznik {{helplines}}) oraz ekran „Pomoc”
+# (apps/mobile/src/data/content/helplines.generated.ts). Linki tylko do domen ze źródeł tego samego wpisu
+# (content-build to sprawdza). Bez nazw pokoi pokerowych (ADR-13).
+checked: '2026-11-04'
+review_by: '2027-11-04'
+pointer: "Trovi lo stesso contatto nell'app, nella schermata «Aiuto»."
+fallback:
+  claim: H-INT-2
+  text: "Se riconosci in te segnali di un problema con il gioco d'azzardo o hai dei dubbi, parla con un medico o con uno specialista della salute mentale. In caso di pericolo immediato, anche quando tu o una persona che conosci pensate di togliervi la vita, chiama subito il numero di emergenza locale."
+  online: [int-gambling-therapy]
+regions_label: 'Numeri per regione'
+regions: {}
+entries:
+  # --- pomoc międzynarodowa online ---
+  - id: int-gambling-therapy
+    claim: H-INT-1
+    country: '*'
+    kind: gambling
+    name: 'Gambling Therapy (Gordon Moody)'
+    info: "Consigli pratici gratuiti e supporto emotivo online per chiunque sia colpito dal gioco d'azzardo; in forma riservata."
+    links:
+      - label: 'Gambling Therapy'
+        url: https://www.gamblingtherapy.org/
+    # E3 2026-11-04 (A7): gordonmoody.org.uk nie odpowiada (zerwane połączenie); źródło: strona serwisu, odczyt 2026-11-04.
+    # Bez „ponad 200 językach” i „anonimowo”: tych zdań nie ma na przeczytanej stronie.
+    sources:
+      - url: https://www.gamblingtherapy.org/
+        quote: 'a global service offered by Gordon Moody, providing free practical advice and emotional support to anyone affected by gambling.'
+      - url: https://www.gamblingtherapy.org/
+        quote: 'Confidential, safe and delivered online'
+      - url: https://www.gamblingtherapy.org/
+        quote: 'a global service offered by Gordon Moody'

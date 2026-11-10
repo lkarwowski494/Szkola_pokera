@@ -1,0 +1,86 @@
+module: m11
+drills:
+  - kind: choice
+    id: m11.exam.q1
+    family: m11.threshold
+    rules: [R-M11-001]
+    prompt: "{{t:tournament|Giải đấu}}. Bạn có {{n:exam.m11.mid.stack}}, tất cả người chơi trước bạn đã {{t:fold|bỏ bài}}. Tay bài của bạn ở mức trung bình: quá tốt để bỏ, nhưng quá yếu để chơi sau flop. Các nguồn khuyên kế hoạch nào?"
+    options:
+      - { text: "All-in hoặc {{t:fold}}", correct: true, why: "Trong khoảng từ {{n:m11.thr.pushfold}} đến {{n:m11.thr.upper}}, push/fold là phương pháp chính cho các tay bài yếu hơn và trung bình. Với stack như vậy, all-in khiến đối thủ {{t:fold|bỏ bài}} nhiều nhất. Đây là cách đơn giản hóa: solver cũng chơi một số tay bài theo cách khác." }
+      - { text: "Tố tối thiểu, rồi {{t:fold}} trước all-in của đối thủ", why: "Với {{n:exam.m11.mid.stack}}, tố rồi {{t:fold}} sau khi bị {{t:raise|tố lại}} sẽ mất một phần đáng kể stack mà không chiến đấu. Các nguồn khuyên tố thông thường từ khoảng {{n:m11.thr.raise}}." }
+      - { text: "Limp để xem flop với giá rẻ", why: "Limp không cho bạn cơ hội thắng {{t:pot|pot}} ngay lập tức, mà với {{t:short-stack|short stack}}, chính việc đối thủ {{t:fold|bỏ bài}} là nguồn lợi nhuận chính." }
+  - kind: numeric
+    id: m11.exam.q2
+    family: m11.m
+    rules: [R-M11-005]
+    prompt: "Bạn có {{n:exam.m11.m.stack}} {{t:chips|chip}}. Blind là {{n:exam.m11.m.sb}}/{{n:exam.m11.m.bb}}, và {{t:big-blind}} còn đặt thêm ante {{n:exam.m11.m.ante}}. M của bạn là bao nhiêu? Hãy nhập một số với một chữ số thập phân."
+    answer: exam.m11.m.value
+    explanation: "Một vòng tốn {{n:exam.m11.m.sb}} + {{n:exam.m11.m.bb}} + {{n:exam.m11.m.ante}} = {{n:exam.m11.m.orbit}}, nên M = {{n:exam.m11.m.stack}} ÷ {{n:exam.m11.m.orbit}} = {{n:exam.m11.m.value}}. Mức này thấp hơn nhiều so với khoảng {{n:m11.m.red}}: bạn chỉ còn chơi all-in hoặc {{t:fold}} và cố gắng là người đầu tiên vào {{t:pot|pot}}."
+  - kind: choice
+    id: m11.exam.q3
+    family: m11.fold-equity
+    rules: [R-M11-004]
+    prompt: "{{t:small-blind|Small blind}}, {{n:exam.m11.fe.depth}}, không có ante, tất cả đã {{t:fold|bỏ bài}}. {{t:big-blind}} phải {{t:fold|bỏ bài}} thường xuyên đến mức nào để all-in với một tay bài hoàn toàn không có cơ hội hòa vốn?"
+    options:
+      - { text: "Hơn {{n:exam.m11.fe.alpha}} số lần", correct: true, why: "Bạn bỏ thêm {{n:exam.m11.fe.risk}} để thắng {{n:m11.push.10.win}} blind: {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha}}. Đối thủ không {{t:fold|bỏ bài}} thường xuyên như vậy, nên all-in cũng cần equity khi đối thủ {{t:call|theo}}." }
+      - { text: "Hơn một nửa số lần", why: "Bạn mạo hiểm nhiều hơn hẳn so với phần thắng: {{n:exam.m11.fe.risk}} so với {{n:m11.push.10.win}}. Ngưỡng là rủi ro ÷ (phần thắng + rủi ro), tức khoảng {{n:exam.m11.fe.alpha}}." }
+      - { text: "Không bao giờ cần: với {{n:exam.m11.fe.depth}}, all-in luôn có lời", why: "Tay bài không có cơ hội ở showdown chỉ kiếm lời khi đối thủ {{t:fold|bỏ bài}}, và cần điều đó xảy ra khoảng {{n:exam.m11.fe.alpha}} số lần. Vì thế {{t:range}} all-in, dù rộng, không bao gồm mọi tay bài." }
+  - kind: choice
+    id: m11.exam.q4
+    family: m11.ante
+    rules: [R-M11-003, R-M11-004]
+    prompt: "Vẫn stack {{n:exam.m11.fe.depth}} ở {{t:small-blind|small blind}}, nhưng {{t:big-blind}} đã đặt ante {{n:m11.ante}}. Giờ đối thủ phải {{t:fold|bỏ bài}} thường xuyên đến mức nào để all-in với tay bài không có cơ hội hòa vốn?"
+    options:
+      - { text: "Hơn {{n:exam.m11.fe.alpha-ante}} số lần, nên bạn {{t:shove|đẩy all-in}} nhiều tay bài hơn", correct: true, why: "Ante làm {{t:pot|pot}} mà bạn giành được khi đối thủ {{t:fold|bỏ bài}} lớn hơn: {{n:m11.push.10.win-ante}} thay vì {{n:m11.push.10.win}}, còn rủi ro vẫn như cũ ({{n:exam.m11.fe.risk}}). {{n:exam.m11.fe.risk}} ÷ ({{n:m11.push.10.win-ante}} + {{n:exam.m11.fe.risk}}) ≈ {{n:exam.m11.fe.alpha-ante}} thay vì {{n:exam.m11.fe.alpha}}." }
+      - { text: "Như khi không có ante: hơn {{n:exam.m11.fe.alpha}}", why: "Ante nằm trong {{t:pot|pot}} và bạn giành được nó khi đối thủ {{t:fold|bỏ bài}}. Phần thưởng lớn hơn với cùng mức rủi ro hạ ngưỡng xuống khoảng {{n:exam.m11.fe.alpha-ante}}." }
+      - { text: "Thường xuyên hơn, vì trong {{t:pot|pot}} có nhiều thứ hơn để mất", why: "Ante đã nằm trong {{t:pot|pot}}, không thuộc phần rủi ro của bạn. Bạn bỏ thêm một lượng như cũ mà thắng được nhiều hơn, nên ngưỡng giảm." }
+  - kind: numeric
+    id: m11.exam.q5
+    family: m11.call.price
+    rules: [R-M11-006]
+    prompt: "Mỗi stack {{n:exam.m11.call.depth}}, không có ante. Bạn ở {{t:big-blind|big blind}}, và {{t:small-blind}} đã all-in. Bạn cần bao nhiêu phần trăm equity để {{t:call}} có lời? Hãy nhập một số."
+    answer: exam.m11.call.eq
+    explanation: "Blind của bạn đã nằm trong {{t:pot|pot}}, nên bạn bỏ thêm {{n:exam.m11.call.depth}} − {{n:pf.blind.bb}} = {{n:exam.m11.call.cost}}. {{t:pot|Pot}} sau khi {{t:call|theo}} có {{n:exam.m11.call.pot}}: {{n:exam.m11.call.cost}} ÷ {{n:exam.m11.call.pot}} ≈ {{n:exam.m11.call.eq}}."
+  - kind: choice
+    id: m11.exam.q6
+    family: m11.call.gap
+    rules: [R-M11-007]
+    prompt: "Mỗi stack {{n:m11.depth.5}}, {{t:small-blind}} đã all-in, còn bạn ở {{t:big-blind|big blind}}. Một người bạn khuyên: “Hãy {{t:call|theo}} với mọi tay bài mà chính bạn sẽ {{t:shove|đẩy}} all-in từ {{t:small-blind|small blind}}”. Solver nói gì về điều này?"
+    options:
+      - { text: "Bạn {{t:call|theo}} hẹp hơn: khoảng {{n:m11.call.5}} tay bài so với khoảng {{n:m11.nash.push.5}}–{{n:m11.push.5}} khi all-in", correct: true, why: "Người {{t:call|theo}} chỉ thắng ở showdown, và là trước một {{t:range|range}} đã qua chọn lọc. Người {{t:shove|đẩy}} all-in còn thắng khi đối thủ {{t:fold|bỏ bài}}. Ngay cả với {{t:short-stack|short stack}} như vậy và mức giá tốt, {{t:range}} {{t:call|theo}} vẫn hẹp hơn." }
+      - { text: "Bạn ấy đúng: với {{n:m11.depth.5}}, cả hai {{t:range|range}} đều như nhau", why: "{{t:short-stack|Short stack}} mở rộng cả hai {{t:range|range}} nhưng không làm chúng bằng nhau: all-in có fold equity, còn {{t:call}} thì không. Solver {{t:call|theo}} với khoảng {{n:m11.call.5}} tay bài và {{t:shove|đẩy}} khoảng {{n:m11.nash.push.5}}–{{n:m11.push.5}} (cận dưới từ một phép tính cân bằng độc lập, cận trên từ solver của ứng dụng)." }
+      - { text: "Bạn {{t:call|theo}} rộng hơn, vì giá tốt", why: "Giá với {{n:m11.depth.5}} là tốt ({{n:m11.call.5.eq}}), nhưng bạn chơi với {{t:range|range}} all-in, không phải với một tay bài ngẫu nhiên. Solver {{t:call|theo}} hẹp hơn so với khi {{t:shove|đẩy}}." }
+  - kind: numeric
+    id: m11.exam.q7
+    family: m11.bf
+    rules: [R-M11-009, R-M11-008]
+    prompt: "{{t:bubble|Bubble}}: bốn người chơi, trả thưởng ba vị trí ({{n:m11.bf.p1}}, {{n:m11.bf.p2}}, {{n:m11.bf.p3}} {{t:prize-pool|quỹ giải thưởng}}). Stack: {{n:exam.m11.bf.s1}}, của bạn {{n:exam.m11.bf.s2}}, đối thủ all-in {{n:exam.m11.bf.s3}} và {{n:exam.m11.bf.s4}}. Theo {{t:icm}}, nếu {{t:call|theo}} và thua, bạn mất {{n:exam.m11.bf.loss}} {{t:prize-pool|quỹ giải thưởng}}, còn nếu thắng, bạn được thêm {{n:exam.m11.bf.gain}}. Bubble factor bằng bao nhiêu? Hãy nhập một số với hai chữ số thập phân."
+    answer: exam.m11.bf.value
+    explanation: "Bubble factor = phần mất ÷ phần được = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.gain}} ≈ {{n:exam.m11.bf.value}}. Equity hiện tại của bạn là {{n:exam.m11.bf.eq.now}}, sau khi thắng là {{n:exam.m11.bf.eq.win}}, sau khi thua là {{n:exam.m11.bf.eq.lose}}: thua mất nhiều hơn so với thắng được thêm. {{t:icm}} không tính đến {{t:position|vị trí}} hay kỹ năng của người chơi, nên cách định giá này chỉ là gần đúng."
+  - kind: choice
+    id: m11.exam.q8
+    family: m11.bf
+    rules: [R-M11-009]
+    prompt: "Cùng tình huống: bubble factor {{n:exam.m11.bf.value}}. Khi chơi vì {{t:chips}}, chỉ cần {{n:exam.m11.bf.req-chips}} equity là đủ để {{t:call|theo}}. Theo {{t:icm}}, bạn cần bao nhiêu?"
+    options:
+      - { text: "Khoảng {{n:exam.m11.bf.req}}", correct: true, why: "Equity cần thiết = BF ÷ (BF + 1) = phần mất ÷ (phần mất + phần được) = {{n:exam.m11.bf.loss}} ÷ {{n:exam.m11.bf.range}} ≈ {{n:exam.m11.bf.req}}. Phần chênh lệch so với {{n:exam.m11.bf.req-chips}} chính là {{t:risk-premium|risk premium}}." }
+      - { text: "{{n:exam.m11.bf.req-chips}}, giống như khi tính bằng {{t:chips|chip}}", why: "Trong {{t:tournament|giải đấu}} có {{t:payout|trả thưởng}}, thua mất nhiều tiền hơn so với thắng được thêm, nên {{t:call}} phải thắng thường xuyên hơn: khoảng {{n:exam.m11.bf.req}}." }
+      - { text: "Ít hơn {{n:exam.m11.bf.req-chips}}, vì {{t:bubble|bubble}} buộc đối thủ phải {{t:bluff|bluff}}", why: "Bubble factor lớn hơn 1 luôn nâng equity cần thiết lên trên mức giá tính bằng {{t:chips|chip}}. Ở đây là lên khoảng {{n:exam.m11.bf.req}}." }
+  - kind: choice
+    id: m11.exam.q9
+    family: m11.icm.call
+    rules: [R-M11-010]
+    prompt: "{{t:bubble|Bubble}} của {{t:tournament|giải đấu}}. Bạn có stack trung bình. Stack lớn nhất bàn, đang {{t:cover|cover}} bạn, all-in. So với khi chơi vì {{t:chips}}, bạn {{t:call|theo}} như thế nào?"
+    options:
+      - { text: "Chặt hơn rõ rệt", correct: true, why: "Thua sẽ loại bạn ngay trước khi vào vùng giải thưởng, còn thắng thì được thêm ít hơn so với thua bị mất: {{t:chips}} thắng được có giá trị thấp hơn số thua đi. Vì thế bạn cần nhiều equity hơn rõ rệt so với khi chơi vì {{t:chips}}." }
+      - { text: "Rộng hơn, vì stack lớn {{t:shove|đẩy}} rất nhiều tay bài", why: "Stack lớn quả thực có thể {{t:shove|đẩy}} rộng hơn, nhưng chính là vì bạn phải {{t:call|theo}} chặt. {{t:risk-premium|Risk premium}} nâng yêu cầu của bạn lên." }
+      - { text: "Như nhau: {{t:icm}} chỉ có ý nghĩa ở {{t:final-table|bàn chung kết}}", why: "Việc {{t:call|theo}} thận trọng hơn áp dụng cả ở {{t:final-table|bàn chung kết}} lẫn ở {{t:bubble|bubble}}: ở đây, việc bạn có giành được gì hay không phụ thuộc vào việc bạn sống sót." }
+  - kind: choice
+    id: m11.exam.q10
+    family: m11.push.3max
+    rules: [R-M11-011]
+    prompt: "Ba người chơi, mỗi stack {{n:m11.depth.3max}}. Bạn {{t:shove|đẩy}} all-in rộng hơn từ đâu: từ Button, khi cả hai blind ở phía sau bạn, hay từ {{t:small-blind|small blind}} sau khi Button {{t:fold|bỏ bài}}?"
+    options:
+      - { text: "Từ {{t:small-blind|small blind}}: khoảng {{n:m11.3max.push.sb}} tay bài so với khoảng {{n:m11.3max.push.btn}} từ Button", correct: true, why: "Mỗi người chơi phía sau bạn là thêm một khả năng có ai đó cầm được tay bài mạnh. Từ Button, hai người chơi phải {{t:fold|bỏ bài}}, từ {{t:small-blind|small blind}} chỉ một người." }
+      - { text: "Từ Button, vì đây là {{t:position|vị trí}} tốt nhất", why: "Sau all-in, không ai còn phải ra quyết định sau flop nữa, nên {{t:position|vị trí}} không mang lại gì ở đây. Điều quan trọng là bao nhiêu người chơi có thể {{t:call|theo}}: phía sau Button có hai người." }
+      - { text: "Như nhau ở cả hai vị trí", why: "Solver {{t:shove|đẩy}} khoảng {{n:m11.3max.push.btn}} tay bài từ Button và khoảng {{n:m11.3max.push.sb}} từ {{t:small-blind|small blind}}. Sự khác biệt nằm ở số người chơi phía sau bạn." }

@@ -1,0 +1,93 @@
+module: m12
+drills:
+  - kind: choice
+    id: m12.exam.q1
+    family: m12.result-range
+    rules: [R-M12-001]
+    prompt: "Bạn thắng trung bình {{n:var.wr.typical.high}} với {{t:standard-deviation|độ lệch chuẩn}} {{n:var.sd}} và sẽ chơi {{n:exam.m12.hands.k}} nghìn tay ({{n:exam.m12.blocks}} khối, mỗi khối 100 tay). Với độ tin cậy khoảng {{n:var.conf95}}, kết quả của bạn sẽ nằm trong khoảng nào?"
+    options:
+      - { text: "Từ khoảng {{n:exam.m12.ci.low.bi}} đến khoảng {{n:exam.m12.ci.high.bi}} {{t:buy-in|buy-in}}", correct: true, why: "Bạn kỳ vọng {{n:var.wr.typical.high}} × {{n:exam.m12.blocks}} = {{n:exam.m12.exp.bb}}, tức là {{n:exam.m12.exp.bi}} {{t:buy-in|buy-in}}. {{t:standard-deviation|Độ lệch chuẩn}} của kết quả là {{n:var.sd}} × √{{n:exam.m12.blocks}} ≈ {{n:exam.m12.sd.bb}}, tức là khoảng {{n:exam.m12.sd.bi}} {{t:buy-in|buy-in}}. Khoảng: {{n:exam.m12.exp.bi}} ± {{n:var.z95}} × {{n:exam.m12.sd.bi}} ≈ ± {{n:exam.m12.ci.half.bi}}." }
+      - { text: "Đúng {{n:exam.m12.exp.bi}} {{t:buy-in|buy-in}}", why: "{{n:exam.m12.exp.bi}} {{t:buy-in|buy-in}} là kết quả kỳ vọng, tức là mức trung bình. {{t:standard-deviation|Độ lệch chuẩn}} của kết quả sau {{n:exam.m12.hands.k}} nghìn tay là khoảng {{n:exam.m12.sd.bi}} {{t:buy-in|buy-in}}, nên kết quả thực tế có thể cách xa mức trung bình." }
+      - { text: "Từ khoảng {{n:exam.m12.exp.bi}} đến khoảng {{n:exam.m12.ci.high.bi}} {{t:buy-in|buy-in}}: người chơi thắng không kết thúc với số âm", why: "Người chơi thắng vẫn có thể kết thúc với số âm: với các thông số này, cận dưới của khoảng là khoảng {{n:exam.m12.ci.low.bi}} {{t:buy-in|buy-in}}." }
+  - kind: choice
+    id: m12.exam.q2
+    family: m12.winrate-sample
+    rules: [R-M12-001]
+    prompt: "Sau {{n:exam.m12.hands.k}} nghìn tay, winrate của bạn là {{n:var.wr.typical.high}}, {{t:standard-deviation|độ lệch chuẩn}} là {{n:var.sd}}. Bạn biết gì về winrate thực của mình?"
+    options:
+      - { text: "Với độ tin cậy khoảng {{n:var.conf95}}, nó nằm giữa khoảng {{n:exam.m12.wr.ci.low}} và khoảng {{n:exam.m12.wr.ci.high}}", correct: true, why: "Sai số của winrate là SD ÷ √(số khối) = {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ {{n:exam.m12.se.wr}}. Khoảng: {{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:exam.m12.se.wr}} ≈ ± {{n:exam.m12.ci.wr}}. Sau {{n:exam.m12.hands.k}} nghìn tay, bạn thậm chí còn không biết mình có đang thắng hay không." }
+      - { text: "Rằng bạn đang thắng, vì kết quả dương sau một mẫu lớn", why: "{{n:exam.m12.hands.k}} nghìn tay là mẫu nhỏ đối với winrate: khoảng {{n:var.conf95}} trải từ khoảng {{n:exam.m12.wr.ci.low}} đến khoảng {{n:exam.m12.wr.ci.high}}, nên nó cũng bao gồm cả trường hợp bạn chơi lỗ." }
+      - { text: "Rằng nó rất gần {{n:var.wr.typical.high}}, vì mẫu lớn", why: "Không thể rút ra một khoảng hẹp như vậy từ {{n:exam.m12.hands.k}} nghìn tay. Bạn tính {{n:var.wr.typical.high}} ± {{n:var.z95}} × {{n:var.sd}} ÷ {{n:exam.m12.sqrt-blocks}} ≈ ± {{n:exam.m12.ci.wr}}." }
+  - kind: choice
+    id: m12.exam.q3
+    family: m12.winrate-sample
+    rules: [R-M12-003]
+    prompt: "Bạn chơi hung hăng và {{t:standard-deviation|độ lệch chuẩn}} của bạn là {{n:var.sd.high}}. Bạn muốn biết winrate với độ chính xác ± {{n:var.target}} ở độ tin cậy {{n:var.conf95}}. Bạn cần bao nhiêu tay?"
+    options:
+      - { text: "Khoảng {{n:exam.m12.need.hands.k}} nghìn", correct: true, why: "Số khối = ({{n:var.z95}} × {{n:var.sd.high}} ÷ {{n:var.target}})² = {{n:exam.m12.need.ratio}}² ≈ {{n:exam.m12.need.blocks}}, tức là khoảng {{n:exam.m12.need.hands.k}} nghìn tay. {{t:standard-deviation|Độ lệch chuẩn}} cao hơn đòi hỏi mẫu lớn hơn nhiều." }
+      - { text: "Khoảng {{n:var.need.hands.k}} nghìn, bằng với khi {{t:standard-deviation|độ lệch chuẩn}} là {{n:var.sd}}", why: "{{t:standard-deviation|Độ lệch chuẩn}} nằm trong công thức ở dạng bình phương, nên với {{n:var.sd.high}} thay vì {{n:var.sd}} bạn cần nhiều tay hơn rõ rệt: khoảng {{n:exam.m12.need.hands.k}} nghìn." }
+      - { text: "Vài chục nghìn tay là đủ", why: "Sai số chỉ giảm theo căn bậc hai của số tay. Với {{n:var.sd.high}} và độ chính xác ± {{n:var.target}}, bạn cần khoảng {{n:exam.m12.need.blocks}} khối 100 tay." }
+  - kind: choice
+    id: m12.exam.q4
+    family: m12.sample-size
+    rules: [R-M12-005, R-M12-001]
+    prompt: "Bạn đã thay đổi lối chơi và sau {{n:exam.m12.style.hands.k}} nghìn tay bạn có {{n:exam.m12.style.wr}}. {{t:standard-deviation|Độ lệch chuẩn}} là {{n:var.sd}}. Đây có phải là bằng chứng cho thấy lối chơi mới tốt hơn không?"
+    options:
+      - { text: "Không: khoảng {{n:var.conf95}} là ± khoảng {{n:exam.m12.style.ci}}; bạn đánh giá các nước đi mới khi xem lại ván bài", correct: true, why: "Sai số winrate sau {{n:exam.m12.style.blocks}} khối là {{n:var.sd}} ÷ {{n:exam.m12.style.sqrt}} ≈ {{n:exam.m12.style.se}}, nên khoảng là ± {{n:var.z95}} × {{n:exam.m12.style.se}} ≈ ± {{n:exam.m12.style.ci}}. Kết quả như vậy phù hợp với cả lối chơi tốt hơn lẫn tệ hơn. Chiến lược được quyết định bằng việc xem lại các quyết định." }
+      - { text: "Có: {{n:exam.m12.style.wr}} cao hơn nhiều so với winrate thông thường", why: "Với {{n:exam.m12.style.hands.k}} nghìn tay, khoảng {{n:var.conf95}} là khoảng ± {{n:exam.m12.style.ci}}. Kết quả cao từ một mẫu nhỏ chủ yếu là {{t:variance|phương sai}}." }
+      - { text: "Có, nếu bạn đã thắng ở phần lớn các {{t:session|phiên chơi}}", why: "Số {{t:session|phiên chơi}} thắng vẫn là chính kết quả đó, chỉ bị cắt thành từng phần. Nó vẫn dựa trên {{n:exam.m12.style.hands.k}} nghìn tay và không cho biết các quyết định có tốt hơn hay không." }
+  - kind: choice
+    id: m12.exam.q5
+    family: m12.resulting
+    rules: [R-M12-004]
+    prompt: "Turn. Bạn có {{t:flush-draw|draw thùng}} sạch, trong {{t:pot|pot}} có {{n:ex.pot}}. Đối thủ all-in {{n:ex.bet.half}}, không thể thắng thêm gì nữa. Bạn {{t:call|theo}}, {{t:flush|thùng}} về ở river và bạn thắng. Bạn đánh giá lần {{t:call|theo}} này thế nào?"
+    options:
+      - { text: "Đó là quyết định sai, dù bạn thắng", correct: true, why: "Bạn cần {{n:eq.bet-half}} equity, còn {{t:flush-draw|draw thùng}} trúng ở river trong khoảng {{n:odds.flush.turn-river}} trường hợp. Đối thủ đã all-in, nên sau đó sẽ không trả thêm cho bạn gì nữa. Qua nhiều lần lặp lại, kiểu {{t:call|theo}} này sẽ lỗ." }
+      - { text: "Đó là quyết định đúng, vì bạn đã thắng {{t:pot|pot}}", why: "Kết quả của một ván không thay đổi giá. Việc đánh giá liên quan đến quyết định dựa trên thông tin bạn có: {{n:odds.flush.turn-river}} equity so với {{n:eq.bet-half}} cần thiết." }
+      - { text: "Không thể đánh giá nếu không biết bài của đối thủ", why: "Những gì bạn biết là đủ để đánh giá: đối thủ đã all-in, tay bài của bạn chỉ thắng khi trúng {{t:flush|thùng}}, và giá đòi hỏi {{n:eq.bet-half}}." }
+  - kind: choice
+    id: m12.exam.q6
+    family: m12.tilt-type
+    rules: [R-M12-006]
+    prompt: "Bạn vừa thua một {{t:pot|pot}} lớn. Bạn biết mình đã chơi tốt và đó là {{t:variance|phương sai}}, còn đối thủ cũng chơi đúng. Dù vậy, chính việc thua khiến bạn tức giận đến mức không thể tập trung. Theo cách phân loại trong bài học về tilt, đây là loại tilt nào?"
+    options:
+      - { text: "Tilt vì ghét thua", correct: true, why: "Tác nhân là chính việc thua, ngay cả khi bạn biết đó là {{t:variance|phương sai}}. Bạn không đổ lỗi cho vận may, cho bản thân hay cho đối thủ." }
+      - { text: "Tilt vì bất công", why: "Loại này bị kích hoạt bởi cảm giác poker không công bằng: bad beat, cooler, đối thủ trúng bài ở river. Ở đây bạn biết mọi thứ diễn ra bình thường, và điều khiến bạn tức giận là chính việc thua." }
+      - { text: "Tilt vì sai lầm", why: "Tilt vì sai lầm là sự tức giận với lỗi của chính mình. Ở đây bạn biết mình đã chơi tốt." }
+      - { text: "Tilt vì trả thù", why: "Trả thù nhắm vào đối thủ, ví dụ sau khi bị thiếu tôn trọng. Ở đây đối thủ chơi đúng và không phải là lý do khiến bạn tức giận." }
+  - kind: choice
+    id: m12.exam.q7
+    family: m12.tilt-response
+    rules: [R-M12-007]
+    prompt: "Sau ba lần thua {{t:pot|pot}} lớn, bạn không còn đánh giá được lần {{t:call|theo}} gần nhất của mình có tốt không, và đang nghĩ đến việc lên {{t:stakes|mức cược}} cao hơn để gỡ lại khoản thua nhanh hơn. Bạn làm gì?"
+    options:
+      - { text: "Tôi kết thúc {{t:session|phiên chơi}}", correct: true, why: "Mất khả năng bình tĩnh đánh giá quyết định và muốn gỡ thua là những dấu hiệu cho thấy bạn đã đang chơi ở mức tệ nhất (C-game). Mục tiêu là dừng sớm, trước khi bạn mất thêm nữa." }
+      - { text: "Tôi hít thở vài lần và chơi tiếp ở {{t:stakes|mức cược}} cao hơn", why: "Hít thở có ích khi xuất hiện những dấu hiệu tilt đầu tiên, lúc bạn vẫn còn suy nghĩ sáng suốt. Ở đây tilt đã tăng lên, và {{t:stakes|mức cược}} cao hơn chỉ làm tăng khoản thua." }
+      - { text: "Tôi chơi tiếp ở cùng {{t:stakes|mức cược}}, nhưng chỉ chơi tay bài mạnh", why: "Khi bạn không còn bình tĩnh đánh giá được quyết định, chơi tiếp nghĩa là chơi ở mức tệ nhất của bạn (C-game), bất kể bạn chọn tay bài nào. Bạn kết thúc {{t:session|phiên chơi}}." }
+  - kind: choice
+    id: m12.exam.q8
+    family: m12.risk-of-ruin
+    rules: [R-M12-009]
+    prompt: "Bạn thắng {{n:dd.wr-low}} với {{t:standard-deviation|độ lệch chuẩn}} {{n:var.sd}} và có {{n:exam.m12.ror.bi}} {{t:buy-in|buy-in}} ({{n:exam.m12.ror.bb}}). Rủi ro mất toàn bộ bankroll là bao nhiêu nếu bạn không bao giờ xuống {{t:stakes|mức cược}}?"
+    options:
+      - { text: "Khoảng {{n:exam.m12.ror}}", correct: true, why: "Số mũ: 2 × winrate × bankroll ÷ SD² = {{n:ror.two}} × {{n:dd.wr-low}} × {{n:exam.m12.ror.bb}} ÷ {{n:var.sd.sq}} = {{n:exam.m12.ror.x}}, nên RoR = e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}." }
+      - { text: "Bằng 0, vì bạn đang thắng", why: "Winrate dương không bảo vệ bạn khỏi {{t:variance|phương sai}}. Với bankroll và winrate này, rủi ro là khoảng {{n:exam.m12.ror}}: lớn hơn 0 rõ rệt." }
+      - { text: "Khoảng một nửa, vì winrate thấp", why: "Rủi ro giảm theo hàm mũ khi bankroll tăng. Với {{n:exam.m12.ror.bi}} {{t:buy-in|buy-in}}, số mũ là {{n:exam.m12.ror.x}}, và e^(−{{n:exam.m12.ror.x}}) ≈ {{n:exam.m12.ror}}." }
+  - kind: choice
+    id: m12.exam.q9
+    family: m12.move-down
+    rules: [R-M12-011]
+    prompt: "Bạn đã đặt bankroll là {{n:br.bi.beginner}} {{t:buy-in|buy-in}}. Sau một {{t:downswing|downswing}}, bạn còn {{n:exam.m12.md.now}}. Bạn làm gì?"
+    options:
+      - { text: "Tôi xuống thấp hơn một {{t:stakes|mức cược}}", correct: true, why: "Ngưỡng xuống mức là một nửa số {{t:buy-in|buy-in}} đã đặt: với {{n:br.bi.beginner}} thì đó là {{n:exam.m12.md.half}}. Bạn có {{n:exam.m12.md.now}}, tức là ít hơn. Ở {{t:stakes|mức cược}} thấp hơn một nửa, cùng bankroll đó lại gần bằng đủ số {{t:buy-in|buy-in}} của mức đó. Đây là hướng dẫn chung; nếu việc chơi bắt đầu vượt khỏi tầm kiểm soát, hãy xem màn hình “Trợ giúp”." }
+      - { text: "Tôi ở lại, vì {{n:exam.m12.md.now}} nhiều hơn ngưỡng {{n:br.bi.move-down}}", why: "Ngưỡng {{n:br.bi.move-down}} là một nửa của bankroll {{n:br.bi.base}} {{t:buy-in|buy-in}}. Bạn tính ngưỡng từ bankroll mà chính bạn đã đặt. Bạn đã đặt {{n:br.bi.beginner}}, nên bạn xuống mức muộn nhất khi còn {{n:exam.m12.md.half}}." }
+      - { text: "Tôi ở lại và chơi nhiều hơn để gỡ thua", why: "Gỡ thua là dấu hiệu cảnh báo, không phải kế hoạch. Bankroll đã giảm dưới ngưỡng {{n:exam.m12.md.half}}, nên bạn xuống {{t:stakes|mức cược}} thấp hơn." }
+  - kind: choice
+    id: m12.exam.q10
+    family: m12.risk-of-ruin
+    rules: [R-M12-009]
+    prompt: "Winrate của bạn hóa ra chỉ bằng một nửa so với bạn giả định, còn {{t:standard-deviation|độ lệch chuẩn}} không thay đổi. Bạn cần bao nhiêu {{t:buy-in|buy-in}} để {{t:risk-of-ruin|rủi ro phá sản}} giữ nguyên?"
+    options:
+      - { text: "Gấp đôi", correct: true, why: "Trong công thức RoR = e^(−2 × winrate × bankroll ÷ SD²), winrate và bankroll đứng cạnh nhau dưới dạng tích. Khi winrate giảm một nửa, chỉ bankroll lớn gấp đôi mới cho cùng số mũ." }
+      - { text: "Vẫn như cũ, vì rủi ro chỉ phụ thuộc vào bankroll", why: "Winrate nằm trong số mũ cạnh bankroll. Với winrate thấp hơn, cùng bankroll đó cho rủi ro cao hơn." }
+      - { text: "Gấp bốn lần", why: "Thứ được bình phương là {{t:standard-deviation|độ lệch chuẩn}}, không phải winrate. Winrate và bankroll tạo thành tích, nên chỉ cần gấp đôi số {{t:buy-in|buy-in}}." }

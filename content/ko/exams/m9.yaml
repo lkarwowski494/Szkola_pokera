@@ -1,0 +1,86 @@
+# Pula pytań egzaminacyjnych modułu M9 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m9.*).
+module: m9
+drills:
+  - kind: choice
+    id: m9.exam.q1
+    family: m9.spr
+    rules: [R-M9-001]
+    prompt: "플롭에서 {{t:pot|팟}}은 {{n:exam.m9.pot}}입니다. 내 남은 스택은 {{n:exam.m9.stack.you}}, 상대의 남은 스택은 {{n:exam.m9.stack.opp}}입니다. {{t:spr|SPR}}은 얼마입니까?"
+    options:
+      - { text: "{{n:exam.m9.spr}}", correct: true, why: "맞습니다. {{t:effective-stack|유효 스택}}, 즉 둘 중 더 작은 스택으로 계산합니다: {{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}. 이 핸드에서는 상대가 가진 것보다 더 많이 이기거나 잃을 수 없습니다." }
+      - { text: "{{n:exam.m9.spr.wrong}}", why: "그것은 내 스택 ÷ {{t:pot|팟}}입니다. 상대의 스택이 더 적으므로 이 핸드에 들어갈 수 있는 금액은 최대 {{n:exam.m9.stack.opp}}입니다: {{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}." }
+      - { text: "{{n:exam.m9.spr.inverted}}", why: "반대입니다. {{t:spr|SPR}}은 스택을 {{t:pot|팟}}으로 나눈 값이지, {{t:pot|팟}}을 스택으로 나눈 값이 아닙니다." }
+  - kind: choice
+    id: m9.exam.q2
+    family: m9.spr-zone
+    rules: [R-M9-010]
+    prompt: "플롭의 {{t:spr|SPR}}은 {{n:exam.m9.spr}}입니다. {{t:spr|SPR}} 구간에 따르면 다음 중 경계선에 있는 핸드는 무엇입니까? {{t:value|밸류}}로 플레이하지만 상대의 올인에 항상 {{t:call|콜하지는}} 않는 핸드입니다."
+    options:
+      - { text: "좋은 키커를 가진 {{t:top-pair|탑 페어}}", correct: true, why: "맞습니다. {{n:exam.m9.spr}}의 값은 {{n:spr.zone.low}}부터 {{n:spr.zone.mid}}까지의 구간에 속하며, 이 구간에서 {{t:top-pair|탑 페어}}는 경계선 핸드입니다(단순화한 기준입니다). {{n:spr.zone.low}} 미만에서는 보통 스택 전체를 걸고 플레이합니다." }
+      - { text: "셋", why: "셋은 {{t:spr|SPR}}이 {{n:spr.zone.deep}}보다 높아도 스택 전체를 걸고 플레이합니다. {{t:spr|SPR}}이 {{n:exam.m9.spr}}일 때는 확실히 스택 전체를 걸 핸드입니다." }
+      - { text: "{{t:board|보드}}의 가장 높은 카드 두 장으로 만든 {{t:two-pair|투 페어}}", why: "높은 {{t:two-pair|투 페어}}는 {{n:spr.zone.mid}}부터 {{n:spr.zone.deep}}까지의 구간에서도 스택을 걸고 플레이하기에 충분합니다. {{t:spr|SPR}}이 {{n:exam.m9.spr}}일 때는 경계선이 아니라 스택 전체를 걸 핸드입니다." }
+  - kind: numeric
+    id: m9.exam.q3
+    family: m9.spr-price
+    rules: [R-M9-002]
+    prompt: "플롭입니다. {{t:pot|팟}}은 {{n:exam.m9.pot}}이고, 상대가 올인합니다(금액 {{n:exam.m9.stack.opp}}, {{t:spr|SPR}} {{n:exam.m9.spr}}). {{t:call|콜하려면}} 에퀴티가 얼마나 필요합니까? 퍼센트 숫자로 입력하세요."
+    answer: exam.m9.eq.jam
+    explanation: "{{n:exam.m9.stack.opp}}만큼 더 내서 {{t:pot|팟}}과 상대의 스택을 얻습니다: {{n:exam.m9.stack.opp}} ÷ ({{n:exam.m9.pot}} + 2·{{n:exam.m9.stack.opp}}) = {{n:exam.m9.eq.jam}}. {{t:spr|SPR}}이 낮을수록 가격이 좋아집니다."
+  - kind: choice
+    id: m9.exam.q4
+    family: m9.commit-plan
+    rules: [R-M9-004, R-M9-003]
+    prompt: "플롭, {{t:spr|SPR}} {{n:spr.low}}: {{t:pot|팟}}은 {{n:ex.pot}}, 양쪽 스택은 각각 {{n:spr.stack.low}}입니다. 내 핸드는 {{t:overpair|오버페어}}입니다. {{t:pot|팟}}의 절반({{n:ex.bet.half}})을 베팅하는 것을 고려하고 있으며, 베팅 후 남는 스택은 {{n:exam.m9.low.left}}입니다. 어떤 계획을 세워야 합니까?"
+    table: { hand: "Qh Qc", board: "Jd 7s 3c" }
+    options:
+      - { text: "스택 전체를 걸 계획으로 베팅", correct: true, why: "맞습니다. 베팅과 {{t:call|콜}} 후의 {{t:pot|팟}}({{n:ex.half.total}})은 스택에 남는 {{n:exam.m9.low.left}}보다 큽니다. 상대의 올인에는 {{n:exam.m9.eq.low-after-half}}의 에퀴티만 있으면 되고, 이렇게 낮은 {{t:spr|SPR}}에서 {{t:overpair|오버페어}}는 스택 전체를 걸고 플레이합니다." }
+      - { text: "{{n:ex.bet.half}} 베팅 후 상대가 올인하면 {{t:fold|폴드}}", why: "베팅 후 {{t:fold|폴드}}는 여기서 의미가 없습니다. 내가 베팅한 뒤에는 올인에 {{t:call|콜}}하는 데 {{n:exam.m9.eq.low-after-half}}의 에퀴티면 충분합니다. 스택 전체를 걸고 플레이하거나, 아니면 {{t:check|체크합니다}}." }
+      - { text: "{{t:check|체크}}하고 모든 베팅에 {{t:fold|폴드}}", why: "{{t:spr|SPR}}이 {{n:spr.zone.low}} 미만일 때 {{t:overpair|오버페어}}는 스택 전체를 걸 핸드입니다. 베팅에 {{t:fold|폴드}}하면 매우 강한 핸드로 {{t:pot|팟}}을 포기하게 됩니다." }
+  - kind: choice
+    id: m9.exam.q5
+    family: m9.geo-size
+    rules: [R-M9-006]
+    prompt: "플롭의 {{t:spr|SPR}}은 {{n:exam.m9.spr}}입니다. 플롭과 턴에서 같은 크기의 {{t:bet|베팅}} 두 번으로 스택 전체를 넣으려고 합니다. {{t:pot|팟}}의 몇 분의 몇을 베팅합니까?"
+    options:
+      - { text: "약 {{t:pot|팟}}의 {{n:exam.m9.geo.two}}", correct: true, why: "맞습니다. (1 + 2f)의 제곱 = 1 + 2·{{n:exam.m9.spr}}이므로 1 + 2f = 3, f = {{n:exam.m9.geo.two}}입니다. {{t:pot|팟}} 크기의 베팅과 {{t:call|콜}}은 {{t:pot|팟}}을 세 배로 만들고, 턴에서 같은 크기로 한 번 더 베팅하면 올인입니다." }
+      - { text: "약 {{t:pot|팟}}의 {{n:exam.m9.geo.three}}", why: "그것은 세 {{t:street|스트리트}}용 크기입니다: (1 + 2f)의 세제곱 = 1 + 2·{{n:exam.m9.spr}}. 두 {{t:street|스트리트}}라면 각 {{t:bet|베팅}}이 더 커야 합니다." }
+      - { text: "약 {{t:pot|팟}}의 {{n:cbet.size.small}}", why: "{{t:pot|팟}}의 1/3씩 두 번 {{t:bet|베팅}}해도 스택의 작은 일부만 들어갑니다. 기하학적 크기는 (1 + 2f)의 {{t:street|스트리트}} 수 제곱 = 1 + 2·{{t:spr|SPR}} 공식으로 계산합니다." }
+  - kind: choice
+    id: m9.exam.q6
+    family: m9.plan-streets
+    rules: [R-M9-008]
+    prompt: "버튼에서 {{t:open|오픈했고}}, {{t:big-blind|빅 블라인드}}가 {{t:call|콜했습니다}}. {{t:dry|드라이한}} 낮은 플롭에서 잭 {{t:overpair|오버페어}}를 들고 있습니다. 이 핸드는 보통 몇 스트리트의 {{t:value|밸류}}를 감당할 수 있습니까?"
+    table: { hand: "Jc Jd", board: "9h 5c 2d", position: BTN }
+    options:
+      - { text: "보통 두 스트리트, 상대가 더 약한 핸드로 지불할 때는 세 번째 스트리트까지", correct: true, why: "맞습니다. 9 페어, 5 페어와 더 약한 {{t:pair|페어}}가 {{t:overpair|오버페어}}에 지불하지만, {{t:street|스트리트}}가 지날 때마다 더 약한 핸드는 {{t:fold|폴드하고}} {{t:pot|팟}}에는 주로 더 강한 핸드가 남습니다." }
+      - { text: "항상 세 스트리트", why: "세 스트리트의 {{t:value|밸류}}는 보통 매우 강한 핸드가 감당합니다: 셋, {{t:straight|스트레이트}}, 높은 {{t:two-pair|투 페어}}. 세 번째 {{t:bet|베팅}} 후에는 잭 {{t:overpair|오버페어}}가 더 강한 핸드에 지불하는 경우가 많습니다." }
+      - { text: "없음: 쇼다운까지 {{t:check|체크}}로 플레이", why: "너무 소극적입니다. {{t:dry|드라이한}} 플롭에서 {{t:overpair|오버페어}}는 {{t:bet|베팅}}을 한두 번 지불할 많은 핸드를 이깁니다." }
+  - kind: choice
+    id: m9.exam.q7
+    family: m9.geo-srp
+    rules: [R-M9-007]
+    prompt: "싱글 레이즈 {{t:pot|팟}}, 스택은 각각 {{n:format.stack}}: 플롭에서 {{t:pot|팟}}은 {{n:bb.pot-after.vs-btn}}이고, 두 사람의 남은 스택은 각각 {{n:spr.srp.stack}}입니다. 플롭, 턴, 리버에서 {{t:pot|팟}} 전체를 베팅하고 상대는 매번 {{t:call|콜합니다}}. 총 얼마를 넣게 됩니까?"
+    table: { position: BTN }
+    options:
+      - { text: "{{n:srp.potbet.total}}: 스택 전체보다 적음", correct: true, why: "맞습니다. 스택 {{n:spr.srp.stack}} 중 {{n:srp.potbet.flop}} + {{n:srp.potbet.turn}} + {{n:srp.potbet.river}} = {{n:srp.potbet.total}}입니다. 플롭의 {{t:pot|팟}}이 스택에 비해 작기 때문에, 각 {{t:street|스트리트}}에서 {{t:pot|팟}}의 약 {{n:geo.srp.3}} 크기로 {{t:bet|베팅}}해야 비로소 스택 전체가 들어갑니다." }
+      - { text: "스택 전체: {{n:spr.srp.stack}}", why: "{{t:pot|팟}} 크기의 베팅 세 번으로 들어가는 금액은 {{n:srp.potbet.total}}입니다. 스택 전체를 넣으려면 각 {{t:street|스트리트}}에서 {{t:pot|팟}}보다 크게 베팅해야 합니다." }
+      - { text: "{{n:srp.half.total}}", why: "그것은 {{t:pot|팟}}의 절반 베팅 세 번으로 들어가는 금액입니다. {{t:pot|팟}} 크기 베팅은 더 많이 들어갑니다: {{n:srp.potbet.total}}." }
+  - kind: choice
+    id: m9.exam.q8
+    family: m9.geo-size
+    rules: [R-M9-009]
+    prompt: "3벳 {{t:pot|팟}}, 내가 {{t:position|포지션}}을 가지고 있고, {{t:spr|SPR}}은 약 {{n:spr.3bet-ip}}입니다. 세 스트리트의 {{t:value|밸류}}를 받을 수 있는 핸드로 스택 전체를 넣고 싶습니다. 친구가 각 {{t:street|스트리트}}에서 {{t:pot|팟}}의 1/3씩 작게 베팅하라고 조언합니다. 상대가 세 번 {{t:call|콜하면}} 어떻게 됩니까?"
+    table: { position: BTN }
+    options:
+      - { text: "스택 {{n:spr.3bet-ip.stack}} 중 약 {{n:g3b.third.total}}만 들어갑니다", correct: true, why: "맞습니다. 작은 베팅은 이후 {{t:street|스트리트}}에 작은 {{t:pot|팟}}을 남깁니다. 각 {{t:street|스트리트}}에서 {{t:pot|팟}}의 약 {{n:geo.3bet-ip.3}} 크기로 베팅해야 스택 전체가 들어가므로, 기하학적 크기는 이미 플롭에서 선택합니다." }
+      - { text: "리버에서는 스택 전체가 {{t:pot|팟}}에 들어가 있습니다", why: "아닙니다. {{t:pot|팟}}의 1/3씩 세 번 베팅하면 약 {{n:g3b.third.total}}만 들어갑니다. 스택({{n:spr.3bet-ip.stack}})의 대부분은 들어가지 않고 남습니다." }
+      - { text: "턴에서 이미 스택 전체가 들어갑니다", why: "반대입니다. {{t:pot|팟}}이 곱셈으로 커지기 때문에 작은 베팅은 천천히 커집니다. {{t:pot|팟}}의 약 {{n:geo.3bet-ip.3}} 크기여야 비로소 스택 전체가 들어가며, 그것도 리버에서입니다." }
+  - kind: choice
+    id: m9.exam.q9
+    family: m9.spr-zone
+    rules: [R-M9-010]
+    prompt: "매우 깊은 스택: 플롭의 {{t:spr|SPR}}이 {{n:spr.zone.deep}}보다 높습니다. 높은 {{t:two-pair|투 페어}}를 들고 있습니다. 스택 전체를 걸고 플레이할 계획입니까?"
+    options:
+      - { text: "보통 아닙니다: 이런 {{t:spr|SPR}}에서 스택 전체를 걸려면 셋, {{t:straight|스트레이트}} 또는 그보다 좋은 핸드가 필요합니다", correct: true, why: "맞습니다. {{n:spr.zone.deep}}보다 높으면 {{t:pot|팟}} 크기 {{t:bet|베팅}}을 세 번 넘게 해야 비로소 스택 전체가 들어가고, 끝까지 상대가 지불하는 핸드는 주로 매우 강한 핸드입니다({{t:spr|SPR}} 구간을 단순화한 기준입니다)." }
+      - { text: "예: 높은 {{t:two-pair|투 페어}}는 항상 스택을 걸고 플레이합니다", why: "높은 {{t:two-pair|투 페어}}는 보통 {{n:spr.zone.mid}}부터 {{n:spr.zone.deep}}까지의 구간에서 충분합니다. 그보다 높으면 스택 전체를 넣는 상대는 셋 이상을 가진 경우가 많습니다." }
+      - { text: "예, 높은 {{t:spr|SPR}}은 올인에 좋은 가격을 주기 때문입니다", why: "반대입니다. {{t:spr|SPR}}이 높을수록 올인 가격은 나빠지고, 스택 전체를 걸고 플레이하려면 더 강한 핸드가 필요합니다." }

@@ -1,0 +1,86 @@
+# Pula pytań egzaminacyjnych modułu M9 (te same reguły co lekcje, inne sytuacje i inne liczby: exam.m9.*).
+module: m9
+drills:
+  - kind: choice
+    id: m9.exam.q1
+    family: m9.spr
+    rules: [R-M9-001]
+    prompt: "Trên flop, {{t:pot|pot}} có {{n:exam.m9.pot}}. Bạn còn {{n:exam.m9.stack.you}} phía sau, đối thủ còn {{n:exam.m9.stack.opp}}. {{t:spr}} bằng bao nhiêu?"
+    options:
+      - { text: "{{n:exam.m9.spr}}", correct: true, why: "Đúng: bạn tính từ {{t:effective-stack|stack hiệu dụng}}, tức stack nhỏ hơn trong hai stack: {{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}. Trong ván này, bạn không thể thắng hay thua nhiều hơn số đối thủ có." }
+      - { text: "{{n:exam.m9.spr.wrong}}", why: "Đó là stack của bạn ÷ {{t:pot}}. Đối thủ có ít hơn, nên trong ván này tối đa chỉ {{n:exam.m9.stack.opp}} có thể được đưa vào: {{n:exam.m9.stack.opp}} ÷ {{n:exam.m9.pot}} = {{n:exam.m9.spr}}." }
+      - { text: "{{n:exam.m9.spr.inverted}}", why: "Ngược lại: {{t:spr}} là stack chia cho {{t:pot|pot}}, không phải {{t:pot}} chia cho stack." }
+  - kind: choice
+    id: m9.exam.q2
+    family: m9.spr-zone
+    rules: [R-M9-010]
+    prompt: "{{t:spr}} trên flop là {{n:exam.m9.spr}}. Theo các vùng {{t:spr}}, tay bài nào sau đây là tay bài ở ranh giới: bạn chơi nó để lấy {{t:value|giá trị}}, nhưng không phải lúc nào cũng {{t:call|theo}} all-in của đối thủ?"
+    options:
+      - { text: "{{t:top-pair|Đôi lớn nhất}} với kicker tốt", correct: true, why: "Đúng: {{n:exam.m9.spr}} nằm trong vùng từ {{n:spr.zone.low}} đến {{n:spr.zone.mid}}, nơi {{t:top-pair}} là tay bài ở ranh giới (đây là cách đơn giản hóa). Dưới {{n:spr.zone.low}}, nó thường sẽ chơi cho cả stack." }
+      - { text: "Set", why: "Set chơi cho cả stack ngay cả khi {{t:spr}} trên {{n:spr.zone.deep}}. Với {{t:spr}} {{n:exam.m9.spr}}, đây rõ ràng là tay bài chơi cho cả stack." }
+      - { text: "{{t:two-pair|Hai đôi}} từ hai lá cao nhất trên {{t:board|bài chung}}", why: "{{t:two-pair}} cao đủ để chơi cho stack ngay cả trong vùng từ {{n:spr.zone.mid}} đến {{n:spr.zone.deep}}. Với {{t:spr}} {{n:exam.m9.spr}}, đây là tay bài chơi cho cả stack, không phải tay bài ở ranh giới." }
+  - kind: numeric
+    id: m9.exam.q3
+    family: m9.spr-price
+    rules: [R-M9-002]
+    prompt: "Flop. {{t:pot|Pot}} có {{n:exam.m9.pot}}, đối thủ all-in {{n:exam.m9.stack.opp}} ({{t:spr}} {{n:exam.m9.spr}}). Bạn cần bao nhiêu equity để {{t:call|theo}}? Hãy nhập số theo phần trăm."
+    answer: exam.m9.eq.jam
+    explanation: "Bạn bỏ thêm {{n:exam.m9.stack.opp}} để thắng {{t:pot|pot}} và stack của đối thủ: {{n:exam.m9.stack.opp}} ÷ ({{n:exam.m9.pot}} + 2·{{n:exam.m9.stack.opp}}) = {{n:exam.m9.eq.jam}}. {{t:spr}} càng thấp, giá càng tốt."
+  - kind: choice
+    id: m9.exam.q4
+    family: m9.commit-plan
+    rules: [R-M9-004, R-M9-003]
+    prompt: "Flop, {{t:spr}} {{n:spr.low}}: {{t:pot|pot}} có {{n:ex.pot}}, mỗi bên có stack {{n:spr.stack.low}}. Bạn có {{t:overpair}}. Bạn đang cân nhắc cược nửa {{t:pot|pot}} ({{n:ex.bet.half}}), sau đó bạn còn lại {{n:exam.m9.low.left}}. Kế hoạch là gì?"
+    table: { hand: "Qh Qc", board: "Jd 7s 3c" }
+    options:
+      - { text: "Cược với kế hoạch chơi cho cả stack", correct: true, why: "Đúng: sau cược và lần {{t:call|theo}}, {{t:pot|pot}} sẽ là {{n:ex.half.total}}, nhiều hơn {{n:exam.m9.low.left}} còn lại trong stack của bạn. Trước all-in của đối thủ, bạn chỉ cần {{n:exam.m9.eq.low-after-half}} equity, và {{t:overpair}} với {{t:spr}} thấp như vậy chơi cho cả stack." }
+      - { text: "Cược {{n:ex.bet.half}} rồi {{t:fold|bỏ bài}} nếu đối thủ all-in", why: "Cược rồi {{t:fold|bỏ bài}} không có ý nghĩa ở đây: sau khi bạn cược, chỉ cần {{n:exam.m9.eq.low-after-half}} equity là đủ để {{t:call|theo}} all-in. Hoặc bạn chơi cho cả stack, hoặc bạn {{t:check|check}}." }
+      - { text: "{{t:check|Check}} và {{t:fold|bỏ bài}} trước mọi cược", why: "{{t:overpair}} với {{t:spr}} dưới {{n:spr.zone.low}} là tay bài chơi cho cả stack. {{t:fold|Bỏ bài}} trước một cược là nhường {{t:pot|pot}} khi đang có tay bài rất mạnh." }
+  - kind: choice
+    id: m9.exam.q5
+    family: m9.geo-size
+    rules: [R-M9-006]
+    prompt: "{{t:spr}} trên flop là {{n:exam.m9.spr}}. Bạn muốn đưa cả stack vào bằng hai {{t:bet|lần cược}} bằng nhau: trên flop và trên turn. Bạn cược bao nhiêu phần {{t:pot|pot}}?"
+    options:
+      - { text: "Khoảng {{n:exam.m9.geo.two}} {{t:pot|pot}}", correct: true, why: "Đúng: (1 + 2f) bình phương = 1 + 2·{{n:exam.m9.spr}}, nên 1 + 2f = 3 và f = {{n:exam.m9.geo.two}}. Một cược bằng {{t:pot|pot}} cùng một lần {{t:call}} làm {{t:pot|pot}} tăng gấp ba, và cược thứ hai như vậy trên turn là all-in." }
+      - { text: "Khoảng {{n:exam.m9.geo.three}} {{t:pot|pot}}", why: "Đó là kích cỡ cho ba {{t:street|vòng cược}}: (1 + 2f) lũy thừa ba = 1 + 2·{{n:exam.m9.spr}}. Với hai {{t:street|vòng cược}}, mỗi {{t:bet}} phải lớn hơn." }
+      - { text: "Khoảng {{n:cbet.size.small}} {{t:pot|pot}}", why: "Hai {{t:bet|lần cược}} mỗi lần 1/3 {{t:pot|pot}} chỉ đưa vào một phần nhỏ của stack. Bạn tính kích cỡ hình học theo công thức (1 + 2f) lũy thừa số {{t:street|vòng cược}} = 1 + 2·{{t:spr}}." }
+  - kind: choice
+    id: m9.exam.q6
+    family: m9.plan-streets
+    rules: [R-M9-008]
+    prompt: "Bạn {{t:open|mở}} từ Button, {{t:big-blind}} {{t:call|theo}}. Bạn có {{t:overpair}} đôi J trên flop thấp, {{t:dry|khô}}. Tay bài này thường chịu được bao nhiêu {{t:value|vòng cược giá trị}}?"
+    table: { hand: "Jc Jd", board: "9h 5c 2d", position: BTN }
+    options:
+      - { text: "Thường là hai, vòng thứ ba khi đối thủ trả tiền bằng các tay bài yếu hơn", correct: true, why: "Đúng: các tay có 9, có 5 và các {{t:pair|đôi}} yếu hơn sẽ trả tiền cho {{t:overpair}}, nhưng qua mỗi {{t:street|vòng cược}}, các tay bài kém hơn {{t:fold|bỏ bài}}, và trong {{t:pot|pot}} chủ yếu còn lại các tay bài mạnh hơn." }
+      - { text: "Ba, luôn luôn", why: "Ba {{t:value|vòng cược giá trị}} thường dành cho các tay bài rất mạnh: set, {{t:straight|sảnh}}, {{t:two-pair}} cao. Sau {{t:bet|lần cược}} thứ ba, {{t:overpair}} đôi J thường trả tiền cho các tay bài mạnh hơn." }
+      - { text: "Không vòng nào: bạn chỉ {{t:check|check}} đến showdown", why: "Quá thận trọng: trên flop {{t:dry|khô}}, {{t:overpair}} thắng nhiều tay bài sẽ trả một hoặc hai {{t:bet|lần cược}}." }
+  - kind: choice
+    id: m9.exam.q7
+    family: m9.geo-srp
+    rules: [R-M9-007]
+    prompt: "{{t:pot|Pot}} chỉ có một lần raise, stack mỗi bên {{n:format.stack}}: trên flop {{t:pot}} là {{n:bb.pot-after.vs-btn}}, mỗi người còn {{n:spr.srp.stack}} phía sau. Bạn cược toàn bộ {{t:pot|pot}} trên flop, turn và river, và đối thủ luôn {{t:call|theo}}. Tổng cộng bạn đưa vào bao nhiêu?"
+    table: { position: BTN }
+    options:
+      - { text: "{{n:srp.potbet.total}}: ít hơn cả stack", correct: true, why: "Đúng: {{n:srp.potbet.flop}} + {{n:srp.potbet.turn}} + {{n:srp.potbet.river}} = {{n:srp.potbet.total}} trên stack {{n:spr.srp.stack}}. {{t:pot|Pot}} trên flop nhỏ so với stack, nên cả stack chỉ được đưa vào khi {{t:bet|cược}} khoảng {{n:geo.srp.3}} {{t:pot|pot}} trên mỗi {{t:street|vòng cược}}." }
+      - { text: "Cả stack: {{n:spr.srp.stack}}", why: "Ba cược bằng {{t:pot|pot}} đưa vào {{n:srp.potbet.total}}. Để đưa cả stack vào, bạn phải cược nhiều hơn {{t:pot|pot}} trên mỗi {{t:street|vòng cược}}." }
+      - { text: "{{n:srp.half.total}}", why: "Đó là số mà ba cược nửa {{t:pot|pot}} đưa vào. Cược bằng {{t:pot|pot}} đưa vào nhiều hơn: {{n:srp.potbet.total}}." }
+  - kind: choice
+    id: m9.exam.q8
+    family: m9.geo-size
+    rules: [R-M9-009]
+    prompt: "{{t:pot|Pot}} 3-bet, bạn có {{t:position|vị trí}}, {{t:spr}} khoảng {{n:spr.3bet-ip}}. Bạn có tay bài đáng ba {{t:value|vòng cược giá trị}} và muốn đưa cả stack vào. Một người bạn khuyên cược nhỏ 1/3 {{t:pot|pot}} trên mỗi {{t:street|vòng cược}}. Điều gì xảy ra khi đối thủ {{t:call|theo}} ba lần?"
+    table: { position: BTN }
+    options:
+      - { text: "Bạn chỉ đưa vào khoảng {{n:g3b.third.total}} trong stack {{n:spr.3bet-ip.stack}}", correct: true, why: "Đúng: cược nhỏ để lại {{t:pot|pot}} nhỏ cho các {{t:street|vòng cược}} sau. Cả stack được đưa vào ở mức khoảng {{n:geo.3bet-ip.3}} {{t:pot|pot}} trên mỗi {{t:street|vòng cược}}, nên bạn chọn kích cỡ hình học ngay từ flop." }
+      - { text: "Đến river, cả stack sẽ nằm trong {{t:pot|pot}}", why: "Không: ba cược 1/3 {{t:pot|pot}} chỉ đưa vào khoảng {{n:g3b.third.total}}. Phần lớn stack ({{n:spr.3bet-ip.stack}}) vẫn chưa được đưa vào." }
+      - { text: "Bạn sẽ đưa cả stack vào ngay trên turn", why: "Ngược lại: cược nhỏ tăng chậm, vì {{t:pot}} tăng theo phép nhân. Chỉ kích cỡ khoảng {{n:geo.3bet-ip.3}} {{t:pot|pot}} mới đưa cả stack vào, và là trên river." }
+  - kind: choice
+    id: m9.exam.q9
+    family: m9.spr-zone
+    rules: [R-M9-010]
+    prompt: "Stack rất sâu: {{t:spr}} trên flop cao hơn {{n:spr.zone.deep}}. Bạn có {{t:two-pair}} cao. Bạn có định chơi cho cả stack không?"
+    options:
+      - { text: "Thường là không: với {{t:spr}} như vậy, để chơi cho cả stack bạn cần set, {{t:straight|sảnh}} hoặc tay bài mạnh hơn", correct: true, why: "Đúng: trên {{n:spr.zone.deep}}, cả stack chỉ được đưa vào sau hơn ba {{t:bet|lần cược}} bằng {{t:pot|pot}}, và đến cuối, đối thủ chủ yếu trả tiền bằng các tay bài rất mạnh (đây là cách đơn giản hóa các vùng {{t:spr}})." }
+      - { text: "Có: {{t:two-pair}} cao luôn chơi cho stack", why: "{{t:two-pair}} cao thường đủ trong vùng từ {{n:spr.zone.mid}} đến {{n:spr.zone.deep}}. Cao hơn nữa, đối thủ đưa cả stack vào thường có set hoặc mạnh hơn." }
+      - { text: "Có, vì {{t:spr}} cao cho giá tốt khi all-in", why: "Ngược lại: {{t:spr}} càng cao, giá cho all-in càng tệ và bạn càng cần tay bài mạnh hơn để chơi cho cả stack." }

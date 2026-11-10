@@ -1,0 +1,91 @@
+module: m13
+drills:
+  - kind: numeric
+    id: m13.exam.q1
+    family: m13.equity-loss
+    rules: [R-M13-001]
+    prompt: "Bạn all-in {{n:exam.m13.n}} lần với {{t:equity}} {{n:exam.m13.eq}}. Trung bình bạn sẽ thua bao nhiêu ván trong số đó? Hãy nhập một số."
+    answer: exam.m13.lose.of-n
+    explanation: "Với {{t:equity}} {{n:exam.m13.eq}}, bạn thua 1 − {{n:exam.m13.eq}} = {{n:exam.m13.lose}} số ván như vậy: {{n:exam.m13.n}} × {{n:exam.m13.lose}} = {{n:exam.m13.lose.of-n}}. Mỗi ván thua này đều nằm trong phép tính và không phải lý do để thay đổi chiến lược."
+  - kind: choice
+    id: m13.exam.q2
+    family: m13.equity-loss
+    rules: [R-M13-001]
+    prompt: "Hai lần trong một {{t:session|phiên chơi}}, bạn thua all-in dù có {{t:equity}} {{n:exam.m13.eq.big}}. Điều này có ý nghĩa gì với chiến lược của bạn?"
+    options:
+      - { text: "Không gì cả: với {{t:equity}} như vậy, bạn thua khoảng {{n:exam.m13.lose.big}} số ván, và hai ván này nằm trong số đó", correct: true, why: "{{t:equity}} là tỷ lệ thắng qua nhiều lần lặp lại cùng một tình huống. Thua trong khoảng {{n:exam.m13.lose.big}} trường hợp là một phần của nó, kể cả khi các ván thua đến sát nhau." }
+      - { text: "Rằng cần chơi thận trọng hơn ở những spot này", why: "Quyết định với {{t:equity}} {{n:exam.m13.eq.big}} là đúng. Thay đổi chiến lược vì kết quả đồng nghĩa với từ bỏ những nước đi thắng trong khoảng {{n:exam.m13.eq.big}} trường hợp." }
+      - { text: "Rằng đối thủ đọc lối chơi của bạn tốt hơn", why: "Trong all-in, chỉ {{t:equity}} là quan trọng: việc đối thủ đọc bài không thay đổi những lá bài sẽ ra. Hai lần thua, mỗi lần với {{n:exam.m13.lose.big}} khả năng, là {{t:variance|phương sai}}." }
+  - kind: choice
+    id: m13.exam.q3
+    family: m13.verdicts
+    rules: [R-M13-002]
+    prompt: "Solver chơi tay bài của bạn bằng {{t:raise|tố}} trong {{n:exam.m13.solver.main}} trường hợp và {{t:fold|bỏ bài}} trong {{n:exam.m13.solver.rare}}. Bạn đã {{t:fold|bỏ bài}}. Báo cáo sẽ đánh giá thế nào?"
+    options:
+      - { text: "Chấp nhận được", correct: true, why: "Solver {{t:fold|bỏ bài}} trong {{n:exam.m13.solver.rare}} trường hợp: ít nhất {{n:range.mixed.min}}, nhưng ít hơn {{n:range.mixed.low}}. Đây là lối chơi ít gặp hơn của một {{t:mixed-hand|tay bài hỗn hợp}}, nên không phải lỗi mà là quyết định chấp nhận được." }
+      - { text: "Khớp", why: "Hành động khớp là hành động solver chơi trong ít nhất {{n:range.mixed.low}} trường hợp. {{t:fold|Bỏ bài}} ở mức {{n:exam.m13.solver.rare}} hiếm hơn." }
+      - { text: "Lỗi", why: "Lỗi là hành động solver hoàn toàn không chơi. {{t:fold|Bỏ bài}} ở mức {{n:exam.m13.solver.rare}} là lối chơi ít gặp hơn của {{t:mixed-hand|tay bài hỗn hợp}}, nên cả hai lối chơi đều đúng." }
+  - kind: choice
+    id: m13.exam.q4
+    family: m13.verdicts
+    rules: [R-M13-002]
+    prompt: "Solver {{t:fold|bỏ bài}} với tay bài của bạn trong {{n:exam.m13.solver.main2}} trường hợp và {{t:call|theo}} trong {{n:exam.m13.solver.tiny}}. Bạn đã {{t:call|theo}}. Phán quyết là gì?"
+    options:
+      - { text: "Thiếu chính xác", correct: true, why: "{{t:call|Theo}} trong {{n:exam.m13.solver.tiny}} trường hợp là ít hơn {{n:range.mixed.min}}. Báo cáo tính hành động dưới ngưỡng là thiếu chính xác, tức như lỗi: đây là ngưỡng của ứng dụng, không phải lý thuyết." }
+      - { text: "Lỗi", why: "Lỗi là hành động solver hoàn toàn không chơi. Ở đây solver {{t:call|theo}} trong {{n:exam.m13.solver.tiny}} trường hợp." }
+      - { text: "Chấp nhận được, vì solver đôi khi cũng {{t:call|theo}}", why: "Hành động chấp nhận được là hành động được chơi trong ít nhất {{n:range.mixed.min}} trường hợp. {{n:exam.m13.solver.tiny}} là quá ít." }
+      - { text: "Không đánh giá", why: "“Không đánh giá” là kết quả dành cho quyết định mà ứng dụng không có quy tắc cũng như kết quả solver. Ở đây có kết quả solver." }
+  - kind: choice
+    id: m13.exam.q5
+    family: m13.suit-swap
+    rules: [R-M13-003]
+    prompt: "Trong ván chơi, bạn có J♣ T♣ trên {{t:board|bài chung}} 9♣ 8♦ 2♣. Thế bài nào dưới đây là cùng một tình huống, tức có cùng quyết định đúng?"
+    options:
+      - { text: "J♦ T♦ trên {{t:board|bài chung}} 9♦ 8♣ 2♦", correct: true, why: "Nhép được đổi thành rô và rô thành nhép, ở mọi nơi cùng lúc. Bạn vẫn có {{t:flush-draw|draw thùng}} và {{t:oesd|OESD}}, nên quyết định không thay đổi." }
+      - { text: "J♣ T♣ trên {{t:board|bài chung}} 9♦ 8♣ 2♦", why: "Chất chỉ được đổi trên {{t:board|bài chung}}: các lá nhép của bạn không còn khớp với {{t:board|bài chung}} và {{t:flush-draw|draw thùng}} biến mất. Đây là tình huống khác." }
+      - { text: "J♥ T♥ trên {{t:board|bài chung}} 9♣ 8♦ 2♣", why: "Chất chỉ được đổi trong tay bạn: các lá cơ không khớp với các lá nhép trên {{t:board|bài chung}}, nên không còn {{t:flush-draw|draw thùng}}." }
+  - kind: choice
+    id: m13.exam.q6
+    family: m13.sample
+    rules: [R-M13-004]
+    prompt: "Trong một tuần, bạn có {{n:exam.m13.opps}} cơ hội bảo vệ {{t:big-blind|mù lớn}} trước {{t:open|lượt mở}} từ Button. Bạn có thể nói gì về tần suất bảo vệ của mình?"
+    options:
+      - { text: "Tôi đã có thể xem xét nó, nhưng chưa chắc chắn", correct: true, why: "Bạn đếm cơ hội, không phải số ván. Bạn bắt đầu xem chỉ số từ khoảng {{n:hud.opps.look}} cơ hội, và trở nên chắc chắn ở khoảng {{n:hud.opps.sure}}. {{n:exam.m13.opps}} là tín hiệu ban đầu, không phải kết luận." }
+      - { text: "Tôi đã biết mình bảo vệ thường xuyên thế nào", why: "{{n:exam.m13.opps}} cơ hội vẫn ít hơn khoảng {{n:hud.opps.sure}} cơ hội mà ở đó bạn trở nên chắc chắn." }
+      - { text: "Không gì cả, vì chỉ số cần hàng nghìn ván", why: "Điều quan trọng là số cơ hội cho quyết định cụ thể này. Từ khoảng {{n:hud.opps.look}} cơ hội, bạn đã có thể xem chỉ số." }
+  - kind: choice
+    id: m13.exam.q7
+    family: m13.review-when
+    rules: [R-M13-005]
+    prompt: "Bạn đang kết thúc một {{t:session|phiên chơi}} dài, bạn mệt và có vài ván đã đánh dấu. Khi nào bạn phân tích chúng?"
+    options:
+      - { text: "Vài giờ nữa hoặc ngày mai, với đầu óc tỉnh táo", correct: true, why: "Phân tích khi mệt hoặc ngay sau một trận thua lớn sẽ bị cảm xúc chi phối. Các ván đã đánh dấu sẽ không mất đi đâu." }
+      - { text: "Ngay lập tức, khi tôi còn nhớ mọi thứ", why: "Một ghi chép ngắn về ván bài là đủ để xem lại. Sự mệt mỏi làm hỏng khả năng đánh giá, nên tốt hơn là xem lại sau, với đầu óc tỉnh táo." }
+      - { text: "Giữa các ván của {{t:session|phiên chơi}} tiếp theo", why: "Trong lúc chơi, bạn chỉ đánh dấu ván bài. Phân tích ngay tại bàn làm bạn mất tập trung vào các quyết định tiếp theo." }
+  - kind: choice
+    id: m13.exam.q8
+    family: m13.review-which
+    rules: [R-M13-006]
+    prompt: "Ván nào trong {{t:session|phiên chơi}} gần nhất là đáng xem lại nhất?"
+    options:
+      - { text: "Một {{t:pot|pot}} lớn mà bạn đã do dự lâu trước khi {{t:call|theo}} ở river", correct: true, why: "Những ván có quyết định khó nằm trong số đáng xem lại, và {{t:pot|pot}} lớn có sức nặng nhất. Sự do dự cho thấy bạn không biết phải làm gì." }
+      - { text: "All-in trước flop với {{t:pair|đôi}} A gặp {{t:pair|đôi}} K, thua ở river", why: "Đây là bad beat: quyết định là hiển nhiên, còn việc thua là {{t:variance|phương sai}}. Bạn không dành nhiều thời gian cho những ván như vậy." }
+      - { text: "Một {{t:pot|pot}} nhỏ thắng mà không cần showdown sau c-bet", why: "{{t:pot|Pot}} nhỏ không có quyết định khó thì dạy được ít điều. Thời gian xem lại nên dành cho các {{t:pot|pot}} lớn và những quyết định bạn đã do dự." }
+  - kind: choice
+    id: m13.exam.q9
+    family: m13.review-how
+    rules: [R-M13-008]
+    prompt: "Bạn đang xem lại một lần {{t:call|theo}} ở river. Với giả định lạc quan về {{t:range|dải bài}} của đối thủ (nhiều {{t:bluff|tháu cáy}}), việc {{t:call|theo}} có lãi; với giả định bi quan thì lỗ. Tiếp theo thế nào?"
+    options:
+      - { text: "Tôi ước tính {{t:range|dải bài}} thực tế: đánh giá phụ thuộc vào nó", correct: true, why: "Các giả định cực đoan vạch ra khoảng mà thực tế nằm trong đó. Khi quyết định tốt theo giả định này nhưng tệ theo giả định kia, giả định thực tế sẽ quyết định." }
+      - { text: "Tôi coi việc {{t:call|theo}} là tốt, vì nó tốt theo giả định lạc quan", why: "Giả định lạc quan chỉ là một đầu của khoảng. Vì theo giả định bi quan việc {{t:call|theo}} bị lỗ, đánh giá phụ thuộc vào cách đối thủ thực sự chơi." }
+      - { text: "Tôi coi việc {{t:call|theo}} là lỗi, vì nó lỗ theo giả định bi quan", why: "Quyết định tốt theo giả định bi quan thì vững trước việc đọc sai, nhưng quyết định tệ theo giả định đó không nhất thiết là lỗi. Giả định thực tế sẽ quyết định." }
+  - kind: choice
+    id: m13.exam.q10
+    family: m13.review-how
+    rules: [R-M13-007]
+    prompt: "Một người bạn xem lại các ván bài bằng cách tính ngay equity và giá, không ghi lại phản ứng đầu tiên. Bạn ấy đánh mất điều gì?"
+    options:
+      - { text: "Bạn ấy không thấy được ở quyết định nào trực giác đánh lừa mình", correct: true, why: "Sự khác biệt giữa phản ứng đầu tiên và phép tính cho thấy trực giác sai ở đâu, và theo thời gian sẽ cải thiện nó. Không ghi lại phản ứng thì không thấy được sự khác biệt đó." }
+      - { text: "Không gì cả: chỉ kết quả phép tính là quan trọng", why: "Phép tính đánh giá một quyết định. So sánh phản ứng đầu tiên với phép tính cho thấy trực giác đánh lừa bạn ở đâu, và theo thời gian sẽ cải thiện nó." }
+      - { text: "Độ chính xác của phép tính, vì phản ứng đầu tiên cải thiện nó", why: "Phản ứng đầu tiên không thay đổi phép tính. Giá trị của nó nằm ở việc so sánh với phép tính, điều cho thấy trực giác đánh lừa bạn ở đâu." }

@@ -36,6 +36,10 @@ const slowo = (stare, nowe, opis) => ({
   zamien: () => nowe,
 });
 
+// Jak slowo, ale kropka kończąca zdanie nie blokuje zamiany („플랍.”, „học phần.”) — sesja AL (ko, it, vi);
+// wcześniejsze języki bez zmian (idempotencja ich przebiegów).
+const slowoK = (stare, nowe, opis) => ({ ...slowo(stare, nowe, opis), re: new RegExp(`(?<![:./\\w-])${stare}(?![\\w/-]|\\.\\w)`, 'g') });
+
 // pt-BR: fold jako czasownik → formy „desistir” (P1, P3; rules.yaml przyjęte wcześniej w próbie).
 const PT_FOLD = {
   folda: 'desiste', foldar: 'desistir', foldaram: 'desistiram', foldarem: 'desistirem', foldou: 'desistiu',
@@ -72,6 +76,13 @@ const ptFold = {
     return `${otw ?? ''}${nowa}${zam ?? ''}${ogon}`;
   },
 };
+
+// Forma w znaczniku {{t:klucz|forma}} wg słownika (małe litery; wielka litera zachowana).
+const wFold = (klucz, mapa) => ({
+  opis: `it ${klucz} passare/lasciare → foldare (w znaczniku)`,
+  re: new RegExp(`\\{\\{t:${klucz}\\|([^}|]+)\\}\\}`, 'g'),
+  zamien: (m, forma) => { const n = mapa[forma.toLowerCase()]; return n ? `{{t:${klucz}|${wielka(forma, n)}}}` : m; },
+});
 
 const REGULY = {
   fr: [
@@ -124,6 +135,38 @@ const REGULY = {
     tag('top-pair', 'pareja máxima', 'pareja mayor'), tag('top-pair', 'Pareja máxima', 'Pareja mayor'),
     tag('top-pair', 'parejas máximas', 'parejas mayores'), tag('top-pair', 'Parejas máximas', 'Parejas mayores'),
   ],
+  // ko (sesja AL, D-394; D-388, plan-de-es-ko-it-vi §3): 플롭, C벳, 방어, 분산 (tylko m12-l3), 플러시 드로우.
+  // Wszystkie pary kończą się tą samą klasą głoski (samogłoska / spółgłoska), więc partykuły zostają poprawne.
+  ko: [
+    slowoK('프리플랍', '프리플롭'), slowoK('플랍', '플롭'),
+    slowoK('[cC]벳', 'C벳', 'c벳 → C벳'), slowoK('씨벳', 'C벳'),
+    slowoK('디펜드', '방어'), slowoK('디펜스', '방어'),
+    { ...tag('variance', '변동성', '분산'), tylko: /^lessons\/m12-l3-/ },
+    lit('완성되지 않았습니다. 빅 블라인드가 리버에서', '완성되지 않았습니다. {{t:big-blind|빅 블라인드}}가 리버에서'), // m8-l3:55 jak vi
+    tag('flush-draw', '플러시 드로', '플러시 드로우'), slowoK('플러시 드로(?!우)', '플러시 드로우', '플러시 드로 → 플러시 드로우 (tekst)'),
+  ],
+  // it (sesja AL, D-394): fold „foldare” — passare/lasciare tylko w znaczniku {{t:fold|…}} (znacznik rozstrzyga sens;
+  // w tekście wolnym „passare” bywa checkiem — bez zmian, raport); „il call” (rodzaj męski K-05); microlimiti; „i blind”.
+  it: [
+    wFold('fold', {
+      passo: 'foldo', passi: 'foldi', passa: 'folda', passare: 'foldare', passano: 'foldano', passino: 'foldino',
+      'passerà': 'folderà', passeranno: 'folderanno', passato: 'foldato', passando: 'foldando',
+      'ha passato': 'ha foldato', 'hanno passato': 'hanno foldato',
+      lascio: 'foldo', lasci: 'foldi', lascia: 'folda', lasciano: 'foldano', lasciando: 'foldando',
+      'lascerà': 'folderà', lasceranno: 'folderanno',
+    }),
+    lit('la tua {{t:call}}', 'il tuo {{t:call}}'), lit('la {{t:call}}', 'il {{t:call}}'), lit('una {{t:call}}', 'un {{t:call}}'),
+    slowoK('micro limiti', 'microlimiti'), slowoK('Micro limiti', 'Microlimiti'),
+    slowoK('bui', 'blind'),
+  ],
+  // vi (sesja AL, D-394; D-387/D-388): open „mở cược”, ręka „tay bài” (tylko 6 miejsc w znaczeniu ręki —
+  // „bộ bài” = talia zostaje), „mô-đun”, m8-l3:55 zgubiony znacznik big blind.
+  vi: [
+    slowoK('mở bài', 'mở cược'), slowoK('Mở bài', 'Mở cược'),
+    lit('bộ bài mạnh', 'tay bài mạnh'), lit('của bộ bài giống', 'của tay bài giống'), lit('các bộ bài bằng nhau', 'các tay bài bằng nhau'),
+    slowoK('học phần', 'mô-đun'), slowoK('Học phần', 'Mô-đun'),
+    lit('bích không thành. Big blind check', 'bích không thành. {{t:big-blind|Big blind}} check'),
+  ],
 };
 const EQUITY_WIERSZ = { 'zh-Hant': '權益', ja: 'エクイティ' };
 
@@ -155,6 +198,7 @@ for (const jezyk of Object.keys(REGULY).filter((j) => !JEZYKI || JEZYKI.includes
       // Pola `source:` (cytaty dosłowne « … » i tytuły źródeł, często po angielsku) — bez zmian (kontrola (a) AH, ŚREDNIE).
       if (/^\s*-?\s*source:/.test(l)) continue;
       for (const r of REGULY[jezyk]) {
+        if (r.tylko && !r.tylko.test(rel)) continue;
         l = l.replace(r.re, (...a) => {
           const nowy = r.zamien(...a);
           if (nowy !== a[0]) { raport.push(`${jezyk} ${rel}:${i + 1} ${r.opis}: «${a[0]}» → «${nowy}»`); zmiany++; }

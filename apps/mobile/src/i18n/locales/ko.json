@@ -1,0 +1,887 @@
+{
+  "tabs": {
+    "review": "복습",
+    "rules": "규칙",
+    "progress": "진도",
+    "today": "오늘"
+  },
+  "today": {
+    "title": "오늘",
+    "lessonOf": "{{modul}}, 레슨 {{nr}}",
+    "startLesson": "레슨 시작",
+    "continueLesson": "레슨 계속하기",
+    "courseDone": "모든 레슨을 마쳤습니다. 연습과 복습은 계속 이용할 수 있습니다.",
+    "exercises": "연습",
+    "practice": "연습 세션",
+    "practiceHint": "평가와 해설이 있는 결정 연습",
+    "reviews": "오늘의 복습",
+    "reviewsDue_other": "{{count}}",
+    "allLessons": "전체 레슨",
+    "rowLabel": "{{tytul}}. {{opis}}.",
+    "rowDone": "완료.",
+    "rowStarted": "시작함.",
+    "rowPassed": "합격.",
+    "rowScore": "점수: {{razem}}개 중 {{dobre}}개."
+  },
+  "welcome": {
+    "title": "PokerGym",
+    "what": "포커에서 결정을 내리는 법을 배웁니다. 게임 규칙부터 전략까지, 모든 결정을 평가하고 그 이유를 설명합니다.",
+    "noMoney": "실제 돈을 걸지 않는 학습입니다.",
+    "next": "먼저 이미 알고 있는 내용에 대해 몇 가지 질문을 드립니다. 건너뛸 수도 있습니다.",
+    "continue": "계속"
+  },
+  "placement": {
+    "of": "질문 {{n}} / {{total}}",
+    "skip": "건너뛰기",
+    "resultTitle": "나의 시작 지점",
+    "startAt": "{{modul}} 모듈부터 시작합니다: “{{lekcja}}”.",
+    "passed": "평가로 통과한 모듈: {{moduly}}. 언제든지 다시 돌아갈 수 있습니다.",
+    "begin": "학습 시작"
+  },
+  "purchase": {
+    "title": "전체 이용",
+    "unlocks": "일일 한도 없음: 연습 세션, 복습, 시험 재응시를 매일 이용할 수 있습니다. 레슨은 계속 무료입니다.",
+    "loading": "가격 불러오는 중…",
+    "pricesUnavailable": "가격을 불러오지 못했습니다. 연결을 확인하고 다시 시도하세요.",
+    "retry": "다시 시도",
+    "plan": {
+      "quarter": "분기",
+      "year": "1년",
+      "lifetime": "평생 이용"
+    },
+    "renewsQuarter": "3개월마다 결제됩니다. 해지할 때까지 자동으로 갱신됩니다.",
+    "renewsYear": "1년에 한 번 결제됩니다. 해지할 때까지 자동으로 갱신됩니다.",
+    "oneTime": "1회 구매이며 추가 결제는 없습니다.",
+    "cancelInfo": "구독은 Apple 계정 설정(구독)에서 해지하세요. 해지하면 더 이상 갱신되지 않으며, 결제한 기간이 끝날 때까지 전체 이용이 유지됩니다.",
+    "restore": "구매 복원",
+    "close": "닫기",
+    "terms": "이용 약관(Terms of Use)",
+    "privacy": "개인정보 처리방침",
+    "noPurchases": "이 Apple 계정에서 구매 내역을 찾지 못했습니다.",
+    "pending": "구매 승인을 기다리고 있습니다. 승인되면 이용이 자동으로 활성화됩니다.",
+    "failed": "구매를 완료하지 못했습니다. 다시 시도하세요.",
+    "restoreFailed": "구매를 복원하지 못했습니다. 연결을 확인하고 다시 시도하세요."
+  },
+  "settings": {
+    "title": "설정",
+    "purchases": "구매",
+    "manage": "구독 관리",
+    "other": "기타",
+    "help": "도움말",
+    "reset": "진도 삭제",
+    "resetTitle": "모든 진도를 삭제할까요?",
+    "resetBody": "이 휴대폰에서 레슨, 답변, 복습이 삭제됩니다. 구매 내역은 유지됩니다. 진도를 보관하려면 먼저 내보내세요.",
+    "resetConfirm": "삭제",
+    "cancel": "취소",
+    "display": "화면",
+    "reminderSection": "알림",
+    "reminder": "매일 알림",
+    "reminderHint": "하루에 한 번 {{pora}}에 알림을 보냅니다. 켜면 휴대폰에서 알림 허용 여부를 묻습니다.",
+    "reminderDenied": "휴대폰 설정에서 이 앱의 알림이 꺼져 있습니다. 알림을 받으려면 설정에서 켜세요.",
+    "reminderFailed": "알림을 설정하지 못했습니다. 다시 시도하세요.",
+    "general": "일반",
+    "language": "언어",
+    "restored": "구매를 복원했습니다. 전체 이용이 활성화되었습니다.",
+    "fullAccess": "전체 이용"
+  },
+  "data": {
+    "title": "데이터",
+    "intro": "진도는 이 휴대폰에만 저장됩니다. 내보내기 파일로 다른 휴대폰에 옮기거나 백업으로 보관할 수 있습니다.",
+    "export": "진도 내보내기",
+    "neverExported": "아직 진도를 내보낸 적이 없습니다.",
+    "lastExport": "마지막 내보내기: {{data}}.",
+    "import": "진도 가져오기",
+    "importHint": "이 앱에서 만든 내보내기 파일을 선택하세요.",
+    "replaceTitle": "현재 진도를 대체할까요?",
+    "replaceBody": "파일의 진도가 이 휴대폰에 저장된 진도를 대체합니다. 이 작업은 되돌릴 수 없습니다.",
+    "replaceConfirm": "대체",
+    "exported": "내보내기 파일이 준비되었습니다.",
+    "exportFailed": "진도를 내보내지 못했습니다. 다시 시도하세요.",
+    "badFile": "이 파일은 잘못되었거나 이 앱에서 만든 파일이 아닙니다. 진도는 바뀌지 않았습니다.",
+    "newerVersion": "이 파일은 더 새로운 버전의 앱에서 만들어졌습니다. 앱을 업데이트하고 다시 시도하세요.",
+    "imported": "파일의 진도를 불러왔습니다.",
+    "importFailed": "파일의 진도를 저장하지 못했습니다. 현재 진도는 바뀌지 않았습니다."
+  },
+  "feedback": {
+    "section": "의견",
+    "rate": "스토어에서 평가하기",
+    "write": "문의하기",
+    "noMail": "메일 앱을 열지 못했습니다. 다음 주소로 보내 주세요: {{adres}}",
+    "report": "이 문제의 오류 신고",
+    "reportSubject": "문제 {{id}}의 오류",
+    "reportBody": "문제: {{id}}\n앱 버전: {{wersja}}\n언어: {{jezyk}}\n\n어떤 점이 잘못되었나요?\n",
+    "noMailReport": "메일 앱을 열지 못했습니다. {{adres}} 주소로 보내면서 문제 ID를 적어 주세요: {{id}}"
+  },
+  "start": {
+    "title": {
+      "practice": "연습 세션",
+      "reviews": "복습",
+      "scenario": "핸드 시나리오",
+      "exam": "모듈 시험"
+    },
+    "counter_other": "일일 한도: 오늘 무료 활동 {{count}}회.",
+    "renews": "한도는 자정({{godzina}})에 갱신됩니다.",
+    "reviewsWait_other": "오늘 복습할 항목이 {{count}}개 있습니다. 복습은 한도가 갱신될 때까지 기다리며, 잃는 것은 없습니다.",
+    "alwaysFree": "레슨과 시험 첫 응시는 항상 무료입니다.",
+    "begin": "시작",
+    "fullAccess": "전체 이용",
+    "backToLesson": "레슨으로 돌아가기"
+  },
+  "grade": {
+    "zgodne": "일치",
+    "dopuszczalne": "허용",
+    "niedokladnosc": "부정확",
+    "blad": "실수",
+    "label": "평가: {{slowo}}",
+    "announce": "{{ocena}}. {{opis}}"
+  },
+  "learn": {
+    "intro": "노리밋 홀덤을 처음부터 배웁니다. 원하는 레슨을 고르거나 순서대로 진행하세요.",
+    "recommended": "추천 순서",
+    "soon": "준비 중",
+    "lessonsDone": "레슨 {{total}}개 중 {{done}}개",
+    "optional": "선택"
+  },
+  "lesson": {
+    "start": "연습",
+    "exercises_other": "문제 {{count}}개",
+    "rulesTitle": "이 레슨의 규칙",
+    "notFound": "해당 레슨이 없습니다."
+  },
+  "rule": {
+    "if": "만약",
+    "then": "그러면",
+    "because": "이유"
+  },
+  "level": {
+    "rules": "게임 규칙",
+    "math": "수학",
+    "gto": "이론(GTO)",
+    "heuristic": "휴리스틱",
+    "exploit": "{{t:exploit|익스플로잇}}"
+  },
+  "session": {
+    "of": "{{n}} / {{total}}",
+    "next": "다음",
+    "finish": "마치기",
+    "correct": "정답",
+    "wrong": "이번엔 아닙니다",
+    "timeout": "시간 초과",
+    "yourAnswer": "내 답",
+    "rightAnswer": "정답",
+    "resultTitle": "결과",
+    "resultPerfect": "만점입니다. 다음으로 넘어가도 됩니다.",
+    "resultRetry": "틀린 문제를 다시 살펴보세요. 복습이 알맞은 때에 다시 알려 줍니다.",
+    "again": "한 번 더",
+    "speed": "시간제한",
+    "close": "닫기",
+    "end": "종료",
+    "secondsLeft": "{{s}}초",
+    "avgTime": "평균 결정 시간: {{s}}초",
+    "check": "확인",
+    "clear": "지우기",
+    "near": "아깝습니다",
+    "acceptable": "허용: 솔버가 드물게 하는 플레이",
+    "yourAnswerAcceptable": "내 답: 허용되지만 드묾",
+    "sizeError": "부정확: 액션은 맞지만 사이즈가 틀림",
+    "yourAnswerSize": "내 답: 액션은 맞지만 사이즈가 틀림",
+    "numberLabel": "숫자로 입력한 답",
+    "saveFailed": "답을 저장하지 못했습니다. 다시 시도하세요.",
+    "chooseAction": "액션을 선택하세요",
+    "chooseAnswer": "답을 선택하세요",
+    "saveNoSpace": "답을 저장하지 못했습니다. 휴대폰 저장 공간이 부족합니다. 공간을 확보하고 다시 시도하세요."
+  },
+  "exam": {
+    "title": "모듈 시험",
+    "start": "모듈 시험",
+    "hint_other": "이 모듈과 이전 레슨에서 {{count}}문제, 힌트 없음. 해설은 마지막에 나옵니다.",
+    "of": "시험: {{n}} / {{total}}",
+    "empty": "이 모듈에는 아직 문제가 없습니다.",
+    "resultTitle": "시험 결과",
+    "passed": "합격(합격선 {{need}}). 틀린 문제 유형은 복습에 추가되었습니다.",
+    "failed": "아직 아닙니다(합격선 {{need}}). 아래 해설을 살펴보세요. 틀린 문제 유형은 복습에 추가되었습니다.",
+    "again": "새 시험",
+    "review": "답 검토",
+    "best": "최고 점수: {{best}}/{{total}}",
+    "passedBadge": "합격"
+  },
+  "review": {
+    "title": "복습",
+    "due_other": "복습할 문제 유형 {{count}}개",
+    "none": "복습할 항목이 없습니다. 새 레슨을 하거나 나중에 다시 오세요.",
+    "start": "복습 시작",
+    "speed": "시간제한 연습",
+    "speedHint": "같은 문제를 시간제한을 두고 풉니다. 반사적인 결정을 기릅니다.",
+    "next": "다음 복습: {{when}}"
+  },
+  "rules": {
+    "title": "규칙집",
+    "search": "규칙 검색",
+    "empty": "“{{q}}”에 맞는 규칙이 없습니다.",
+    "source": "출처",
+    "sources": "출처",
+    "sourceKind": {
+      "one": {
+        "math": "계산",
+        "rules": "게임 규칙",
+        "solver-pub": "공개된 솔버 해법",
+        "solver-app": "앱 솔버",
+        "book": "포커 이론서",
+        "study": "학술 연구",
+        "reference": "백과사전",
+        "training": "교육 사이트",
+        "population": "플레이어 풀 데이터"
+      },
+      "many": {
+        "math": "계산",
+        "rules": "게임 규칙",
+        "solver-pub": "공개된 솔버 해법",
+        "solver-app": "앱 솔버",
+        "book": "포커 이론서",
+        "study": "학술 연구",
+        "reference": "백과사전",
+        "training": "교육 사이트",
+        "population": "플레이어 풀 데이터"
+      }
+    },
+    "sourceCount": "{{count}}",
+    "sourceIndependent_other": "독립 출처 {{count}}개",
+    "singleSource": "단일 출처",
+    "population": "플레이어 풀: {{population}}"
+  },
+  "progress": {
+    "title": "진도",
+    "accuracy": "정확도",
+    "answers_other": "답변 {{count}}개",
+    "weakest": "가장 약한 문제 유형",
+    "noData": "첫 연습을 하면 여기에 통계가 표시됩니다.",
+    "streak_other": "연속 학습: {{count}}일",
+    "fourColor": "4색 덱",
+    "fourColorHint": "♦ 파란색, ♣ 초록색. 무늬를 덜 헷갈립니다.",
+    "haptics": "답할 때 진동",
+    "contentVersion": "콘텐츠 버전: {{hash}}",
+    "resetFailed": "진도를 삭제하지 못했습니다. 데이터는 바뀌지 않았습니다. 다시 시도하세요.",
+    "more": "더 보기"
+  },
+  "advancement": {
+    "title": "실력 지수",
+    "outOf": "/ 100",
+    "outOfLong": "100점 만점",
+    "openHint": "강의 영역별 점수를 보여 줍니다",
+    "knowledge": "지식",
+    "game": "플레이",
+    "gamePending": "플레이 모드와 함께 제공",
+    "gamePendingLong": "“플레이” 항목은 플레이 모드와 함께 추가됩니다. 테이블에서 내린 결정으로 평가합니다. 그때까지 지수는 지식만 보여 줍니다.",
+    "explain": "지식은 {{days}}일 후 복습 없이 강의의 모든 기술에서 문제를 풀 것으로 예상되는 확률입니다. 아직 연습하지 않은 기술은 0으로 계산합니다. 점수는 새 레슨과 복습으로 오르고, 오랫동안 복습하지 않으면 내려갑니다.",
+    "practiced": "기술 {{total}}개 중 {{done}}개 연습함",
+    "areas": "영역",
+    "noLessons": "레슨 없음",
+    "optional": "선택 모듈: 전체 점수에 포함되지 않습니다.",
+    "recalcTitle": "새 레슨 – 지수 재계산",
+    "recalcBody": "강의에 새 기술이 추가되었습니다. 연습하기 전까지는 0으로 계산되므로 점수가 낮아졌습니다.",
+    "recalcDismiss": "닫기",
+    "gameAreas": "영역 {{total}}개 중 {{n}}개에 플레이 점수 있음",
+    "gameNone": "플레이 없음",
+    "gameTooLittle": "플레이 부족: 결정 {{min}}개 중 {{n}}개",
+    "gameProvisional": "{{score}}(잠정)",
+    "areaLine": "지식 {{k}} · 플레이: {{g}}",
+    "gameExplain": "플레이는 해당 영역에서 최근 평가된 결정 {{window}}개 가운데 일치 또는 허용으로 평가된 결정의 비율이며, 6인 테이블과 100bb 스택 기준입니다. 점수는 결정 {{min}}개부터 표시되며 {{window}}개가 될 때까지는 잠정 점수입니다. 영역 안에서 지식과 플레이는 같은 비중으로 계산되며, {{t:chips|칩}}으로 본 핸드 결과는 지수에 포함되지 않습니다.",
+    "history": "기록",
+    "historyHint": "앱을 사용한 날마다 막대 하나가 표시됩니다. 마지막: {{last}}.",
+    "historyEmpty": "학습한 날이 쌓이면 기록이 표시됩니다."
+  },
+  "glossary": {
+    "title": "용어집",
+    "link": "용어집(한–영)",
+    "intro": "강의에 나오는 한국어 용어와 영어 이름입니다. 솔버, 프로그램, 영어 자료에서 쓰는 이름 그대로입니다.",
+    "search": "한국어나 영어로 검색",
+    "empty": "“{{q}}”에 맞는 용어가 없습니다.",
+    "count_other": "용어 {{count}}개",
+    "alsoEn": "다른 이름: {{list}}",
+    "areas": {
+      "hands": "족보",
+      "actions": "플레이어 액션",
+      "table": "테이블에서",
+      "positions": "테이블 자리",
+      "math": "계산과 확률",
+      "preflop": "플롭 전",
+      "board": "플롭 설명",
+      "strategy": "전략",
+      "mental": "뱅크롤과 멘탈",
+      "tournament": "토너먼트 플레이"
+    }
+  },
+  "help": {
+    "title": "도움말",
+    "link": "도움말: 도박을 통제하기 어려울 때",
+    "intro": "돈을 건 포커는 도박입니다. 도박을 통제하기 어려워지고 있다면 아래 도움을 받을 수 있습니다.",
+    "call": "전화: {{phone}}",
+    "callA11y": "{{phone}}번으로 전화: {{name}}",
+    "openA11y": "{{label}}: 브라우저에서 {{host}} 열기",
+    "openFailed": "열지 못했습니다: {{target}}. 번호나 주소를 직접 입력하세요."
+  },
+  "diagnostics": {
+    "title": "성능 측정",
+    "link": "성능 측정",
+    "intro": "몬테카를로 방법({{n}}회 시행)으로 AA 대 KK의 에퀴티를 계산하고 시간을 측정합니다. 요구 사항: {{ms}}ms 미만.",
+    "run": "측정",
+    "running": "측정 중…",
+    "pass": "요구 사항 충족",
+    "fail": "요구 사항 미충족",
+    "equity": "에퀴티: 중앙값 {{ms}}ms(측정값: {{runs}}ms)",
+    "check": "검증: AA 에퀴티 {{pct}}%(예상 약 82%)",
+    "evals": "7장 평가: 초당 {{n}}회",
+    "env": "엔진: {{engine}}, 시스템: {{os}}, 개발자 모드: {{dev}}",
+    "devYes": "예(결과가 낮게 나옴)",
+    "devNo": "아니요",
+    "note": "development 빌드에서는 코드가 출시 버전보다 느리게 실행됩니다. 신뢰할 수 있는 것은 preview 빌드의 측정값입니다. 결과 화면을 캡처하세요."
+  },
+  "play": {
+    "title": "플레이",
+    "entry": "플레이",
+    "entryHint": "컴퓨터 상대와 힌트 없이 핸드를 플레이합니다. {{t:session|세션}}이 끝나면 모든 결정을 평가합니다.",
+    "mode": "모드",
+    "free": "자유 플레이",
+    "freeHint": "실제 게임처럼 모든 상황이 나옵니다.",
+    "areas": "집중 훈련",
+    "areasHint": "영역은 한 모듈의 상황만 딜합니다. 모듈의 모든 레슨을 마치면 열립니다.",
+    "locked": "잠김: 모듈 레슨을 마치세요({{total}}개 중 {{done}}개)",
+    "hands": "핸드 수",
+    "opponents": "상대",
+    "advanced": "고급 설정: 상대별 개별 설정",
+    "seat": "상대 {{n}}",
+    "timer": "결정 시간제한",
+    "timerOff": "제한 없음",
+    "timerS": "{{s}}초",
+    "timerHint": "시간이 지나면 앱은 비용이 들지 않을 때는 {{t:check|체크}}하고, 그렇지 않으면 {{t:fold|폴드}}합니다. 이런 결정은 평가에 포함되지 않지만 복습에 다시 나옵니다.",
+    "format": "모든 플레이어는 핸드를 100bb로 시작합니다. {{t:chips|칩}}에는 아무 가치가 없습니다.",
+    "tableSize": "플레이어 수",
+    "tableSizeOpt": "{{n}}인",
+    "tableSizeHint9": "9인 테이블에서는 LJ 앞에 얼리 {{t:position|포지션}}이 세 개 더 있습니다: {{t:utg|UTG}}, {{t:utg|UTG}}+1, {{t:utg|UTG}}+2.",
+    "tableSizeAreas": "훈련 영역은 6인 테이블에서 플레이합니다.",
+    "start": "시작",
+    "recent": "최근 보고서",
+    "recentItem": "{{date}} · 핸드 {{hands}}개 · {{all}}개 중 {{rated}}개 평가",
+    "styles": {
+      "balanced": "균형형",
+      "tight-passive": "타이트 패시브",
+      "tight-aggressive": "타이트 어그레시브",
+      "loose-passive": "루즈 패시브",
+      "loose-aggressive": "루즈 어그레시브"
+    },
+    "styleHints": {
+      "balanced": "솔버의 기본 전략에 가깝게 플레이합니다.",
+      "tight-passive": "적은 핸드를 플레이하고 레이즈를 거의 하지 않습니다.",
+      "tight-aggressive": "적은 핸드를 플레이하지만 자주 레이즈합니다.",
+      "loose-passive": "많은 핸드를 플레이하고 주로 콜만 합니다.",
+      "loose-aggressive": "많은 핸드를 플레이하고 자주 레이즈합니다."
+    },
+    "tables": {
+      "balanced": "균형형",
+      "loose-passive": "루즈 패시브",
+      "tight-aggressive": "타이트 어그레시브",
+      "loose-aggressive": "루즈 어그레시브",
+      "mixed": "혼합",
+      "custom": "사용자 설정"
+    },
+    "tablesHint": {
+      "balanced": "모든 상대가 기본 전략에 가깝게 플레이합니다.",
+      "loose-passive": "모두 많은 핸드를 플레이하고 레이즈를 거의 하지 않습니다.",
+      "tight-aggressive": "모두 적은 핸드를 플레이하고 자주 레이즈합니다.",
+      "loose-aggressive": "모두 많은 핸드를 플레이하고 자주 레이즈합니다.",
+      "mixed": "스타일마다 상대가 한 명씩 있습니다.",
+      "custom": "상대마다 스타일을 따로 설정합니다."
+    },
+    "handOf": "핸드 {{n}} / {{total}}",
+    "end": "종료",
+    "endConfirm": "{{t:session|세션}}을 종료할까요? 보고서에는 플레이한 핸드가 포함됩니다.",
+    "endYes": "종료",
+    "cancel": "계속 플레이",
+    "you": "나",
+    "potLabel": "{{t:pot|팟}}: {{bb}}bb",
+    "yourTurn": "내 결정",
+    "waiting": "상대가 결정하는 중…",
+    "fold": "{{t:fold|폴드}}",
+    "check": "{{t:check|체크}}",
+    "call": "{{t:call|콜}} {{bb}}bb",
+    "bet": "{{t:bet|벳}} {{bb}}bb",
+    "betFrac": "{{t:bet|벳}} {{t:pot|팟}}의 {{pct}}({{bb}}bb)",
+    "raise": "{{bb}}bb로 {{t:raise|레이즈}}",
+    "allin": "올인 {{bb}}bb",
+    "secondsLeft": "{{s}}초",
+    "handWon": "{{bb}}bb 획득",
+    "handLost": "{{bb}}bb 잃음",
+    "handEven": "변동 없음",
+    "nextHand": "다음 핸드",
+    "toReport": "보고서",
+    "shown": "{{t:showdown|쇼다운}}: 카드 공개",
+    "folded": "{{t:fold|폴드}}",
+    "allInTag": "올인",
+    "autoNote": "영역 핸드: 내 결정 전까지의 액션은 생성기가 정했습니다.",
+    "log": {
+      "fold": "{{pos}}: {{t:fold|폴드}}",
+      "check": "{{pos}}: {{t:check|체크}}",
+      "call": "{{pos}}: {{t:call|콜}} {{bb}}bb",
+      "bet": "{{pos}}: {{t:bet|벳}} {{bb}}bb",
+      "raise": "{{pos}}: {{bb}}bb로 {{t:raise|레이즈}}",
+      "allin": "{{pos}}: 올인 {{bb}}bb",
+      "blinds": "블라인드 {{sb}}/{{bb}}bb"
+    },
+    "streets": {
+      "preflop": "{{t:preflop|프리플롭}}",
+      "flop": "{{t:flop|플롭}}",
+      "turn": "{{t:turn|턴}}",
+      "river": "{{t:river|리버}}"
+    },
+    "report": {
+      "title": "{{t:session|세션}} 보고서",
+      "rated": "결정 {{all}}개 중 {{rated}}개 평가",
+      "ratedHint": "앱은 검증 가능한 규칙이나 솔버 결과가 있는 결정만 평가합니다. 평가가 없는 결정이 “맞음”을 뜻하지는 않습니다.",
+      "verdicts": {
+        "compliant": "일치",
+        "compliant-exploit": "일치({{t:exploit|익스플로잇}})",
+        "acceptable": "허용",
+        "inaccuracy": "부정확",
+        "mistake": "실수",
+        "unrated": "평가 없음",
+        "timeout": "시간 초과"
+      },
+      "verdictHints": {
+        "acceptable": "솔버가 드물게 하는 플레이이거나 규칙이 빈도에 관한 것입니다. 실수가 아닙니다.",
+        "inaccuracy": "액션은 맞지만 사이즈가 틀렸습니다. 실수로 계산합니다.",
+        "timeout": "제시간에 결정하지 못했습니다. 이 상황은 복습에 다시 나옵니다."
+      },
+      "toFix": "개선할 점",
+      "none": "평가된 결정에 실수가 없습니다.",
+      "good": "일치 및 허용 결정",
+      "show": "보기({{n}})",
+      "hide": "숨기기",
+      "byModule": "모듈별",
+      "moduleLine": "{{rated}}개 중 {{ok}}개 실수 없음",
+      "yourAction": "내 결정: {{action}}",
+      "ruleSays": "규칙",
+      "level": "확실성: {{level}}",
+      "source": "출처: {{source}}",
+      "lesson": "레슨으로 이동",
+      "replay": "핸드 진행",
+      "cards": "복습 카드: 실수에서 나온 새 상황 {{n}}개.",
+      "result": "{{t:chips|칩}} 결과: {{bb}}bb",
+      "variance": "수십 핸드로는 결과가 내 플레이에 대해 아무것도 말해 주지 않습니다. 중요한 것은 결정 평가입니다.",
+      "again": "“{{area}}” 영역 플레이",
+      "done": "완료",
+      "detail": {
+        "solver": "이 핸드({{hand}})에서 솔버: {{options}}.",
+        "solverFold": "{{t:fold|폴드}}",
+        "size": "규칙상 사이즈: {{expected}}bb, 내 사이즈: {{actual}}bb.",
+        "cbet": "레슨에 따른 이 플롭의 계획: {{best}}. 내 선택: {{chosen}}.",
+        "cbetPlans": {
+          "check": "{{t:check|체크}}",
+          "small": "작은 {{t:c-bet|C벳}}",
+          "big": "큰 {{t:c-bet|C벳}}"
+        },
+        "draw": "{{t:outs|아웃}}: 보이지 않는 카드 {{unseen}}장 중 {{outs}}장, 맞힐 확률: {{hit}}. 필요한 {{t:equity|에퀴티}}: {{required}}.",
+        "implied": "{{t:implied-odds|임플라이드 오즈}}: 맞힌 뒤 약 {{need}}bb를 더 따야 하고, {{t:pot|팟}} 뒤에 남은 칩은 {{have}}bb입니다. {{t:spr|SPR}} {{spr}}(기준 {{sprMin}}); {{nuts}}.",
+        "nutsYes": "최고 핸드로 가는 {{t:draw|드로우}}가 있음",
+        "nutsNo": "최고 핸드로 가는 {{t:draw|드로우}}가 없음",
+        "freeCheck": "무료로 {{t:check|체크}}할 수 있었습니다.",
+        "limp": "블라인드만 맞춰 첫 번째로 핸드에 참여했습니다({{t:limp|림프}}).",
+        "timeoutCheck": "시간 초과: 앱이 대신 {{t:check|체크}}했습니다.",
+        "timeoutFold": "시간 초과: 앱이 대신 {{t:fold|폴드}}했습니다."
+      }
+    },
+    "review": {
+      "entry_other": "복습할 플레이 상황 {{count}}개",
+      "start": "플레이 상황 복습",
+      "title": "플레이 상황",
+      "hint": "실수했던 바로 그 상황을, 정답이 바뀌지 않도록 카드 무늬만 바꿔서 보여 줍니다.",
+      "of": "{{n}} / {{total}}",
+      "next": "다음",
+      "finish": "마치기",
+      "empty": "복습할 항목이 없습니다."
+    }
+  },
+  "errors": {
+    "db": "데이터베이스를 열지 못했습니다: {{message}}",
+    "render": {
+      "title": "문제가 발생했습니다",
+      "body": "이 화면을 표시하지 못했습니다. 다시 시도하세요.",
+      "retry": "다시 시도"
+    }
+  },
+  "postep": {
+    "odczytNieudany": "진도를 불러오지 못했습니다. 다시 시도하세요.",
+    "ponow": "다시 시도"
+  },
+  "reminder": {
+    "title": "오늘의 짧은 레슨",
+    "body": "몇 분이면 배우고 있는 내용을 다질 수 있습니다."
+  },
+  "language": {
+    "title": "언어",
+    "auto": "휴대폰 설정과 같게",
+    "name": "한국어",
+    "selected": "선택됨",
+    "saveFailed": "언어 선택을 저장하지 못했습니다. 다시 시도하세요."
+  },
+  "table": {
+    "label": "테이블: {{list}}.",
+    "listAnd": "{{a}} 및 {{b}}",
+    "seatFold": "{{pos}} {{t:fold|폴드}}",
+    "seatRaise": "{{pos}} {{t:raise|레이즈}}",
+    "seatHero": "나: {{pos}}, 핸드 {{hand}}",
+    "after": "내 뒤 순서: {{list}}",
+    "pair": "{{t:pair|페어}}",
+    "suited": "같은 무늬",
+    "offsuit": "다른 무늬",
+    "folded_other": "{{list}} {{t:fold|폴드}}",
+    "raised_other": "{{list}} {{t:raise|레이즈}}",
+    "yourPosition": "내 {{t:position|포지션}}: {{pos}}.",
+    "yourCards": "내 카드: {{cards}}.",
+    "oppCards": "상대 카드: {{cards}}.",
+    "rowOpp": "상대",
+    "rowBoard": "{{t:board|보드}}",
+    "board": "{{t:board|보드}}: {{cards}}.",
+    "stateHero": "나",
+    "stateFold": "{{t:fold|폴드}}",
+    "stateAfter": "내 뒤 순서",
+    "stateRaise": "{{t:raise|레이즈}}"
+  },
+  "strategy": {
+    "label": "{{hand}}에 대한 솔버 전략: {{list}}.",
+    "item": "{{action}} {{pct}}퍼센트",
+    "yourChoice": "내 선택: {{action}}.",
+    "yourChoiceShort": "내 선택",
+    "pct": "{{pct}}%"
+  },
+  "scale": {
+    "below": "{{x}}% 미만",
+    "between": "{{a}}–{{b}}%",
+    "from": "{{x}}% 이상",
+    "label": "평가 척도: 내 액션 {{pct}}퍼센트, 구간 {{stopien}}."
+  },
+  "paint": {
+    "legendPlay": "플레이",
+    "legendMiss": "− 누락",
+    "legendExtra": "+ 초과",
+    "legendMixed": "• 혼합",
+    "hint": "칸을 탭하거나 손가락으로 끌어서 칠하세요.",
+    "cell": "{{hand}}, {{state}}",
+    "state": {
+      "painted": "선택됨",
+      "fold": "{{t:fold|폴드}}",
+      "hit": "정답, 플레이함",
+      "miss": "누락, 솔버는 플레이함",
+      "extra": "초과, 솔버는 {{t:fold|폴드}}함",
+      "mixed": "혼합, 정답 처리",
+      "none": "정답, {{t:fold|폴드}}"
+    }
+  },
+  "range": {
+    "label": "{{title}}. 핸드의 {{pct}}퍼센트를 플레이합니다.",
+    "playPercent": "핸드의 {{pct}}% 플레이"
+  },
+  "card": {
+    "name": "{{suit}} {{rank}}",
+    "rank": {
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "T": "10",
+      "J": "잭",
+      "Q": "퀸",
+      "K": "킹",
+      "A": "에이스"
+    },
+    "suit": {
+      "s": "스페이드",
+      "h": "하트",
+      "d": "다이아몬드",
+      "c": "클로버"
+    }
+  },
+  "nav": {
+    "back": "뒤로"
+  },
+  "drill": {
+    "format": {
+      "percent": "{{n}}%"
+    },
+    "join": {
+      "sentence": "{{a}} {{b}}",
+      "list": ", "
+    },
+    "category": {
+      "straightFlush": "{{t:straight-flush|스트레이트 플러시}}",
+      "fourOfAKind": "{{t:four-of-a-kind|포카드}}",
+      "fullHouse": "{{t:full-house|풀하우스}}",
+      "flush": "{{t:flush|플러시}}",
+      "straight": "{{t:straight|스트레이트}}",
+      "threeOfAKind": "{{t:three-of-a-kind|트리플}}",
+      "twoPair": "{{t:two-pair|투 페어}}",
+      "pair": "{{t:pair|원페어}}",
+      "highCard": "{{t:high-card|하이카드}}",
+      "royalFlush": "{{t:royal-flush|로열 플러시}}"
+    },
+    "categoryAcc": {
+      "straightFlush": "{{t:straight-flush|스트레이트 플러시}}",
+      "fourOfAKind": "{{t:four-of-a-kind|포카드}}",
+      "fullHouse": "{{t:full-house|풀하우스}}",
+      "flush": "{{t:flush|플러시}}",
+      "straight": "{{t:straight|스트레이트}}",
+      "threeOfAKind": "{{t:three-of-a-kind|트리플}}",
+      "twoPair": "{{t:two-pair|투 페어}}",
+      "pair": "{{t:pair|원페어}}",
+      "highCard": "{{t:high-card|하이카드}}",
+      "royalFlush": "{{t:royal-flush|로열 플러시}}"
+    },
+    "paint": {
+      "explanation": "{{title}}. 초록색 칸: 플레이하는 핸드이고 선택했습니다. “−” 표시: {{t:range|레인지}}에 있지만 빠진 핸드입니다. “+” 표시: 선택했지만 솔버는 {{t:fold|폴드}}하는 핸드입니다. 점: {{t:mixed-hand|혼합 핸드}}(솔버가 가끔만 플레이함)이거나 논쟁이 있는 핸드(솔버가 공개 차트와 다르게 플레이함)이므로 어느 쪽이든 정답으로 처리합니다. 점수는 {{t:range|레인지}}에 있거나 선택한 핸드 중에서만 {{t:combo|콤보}}로 계산합니다({{t:pair|페어}} {{pairCombos}}개, 수티드 {{suitedCombos}}개, 오프수트 {{offsuitCombos}}개).",
+      "score": "솔버와의 일치도: {{score}}(합격 기준 {{pass}})."
+    },
+    "numeric": {
+      "yours": "내 답: {{value}}",
+      "exact": "정확한 값: {{value}}",
+      "diffPp": "차이: {{diff}}%p",
+      "diff": "차이: {{diff}}"
+    },
+    "range": {
+      "fold": "{{t:fold|폴드}}",
+      "right": "맞습니다. 솔버는 {{pct}}의 확률로 이렇게 플레이합니다.",
+      "acceptable": "허용됩니다. 솔버는 {{pct}}의 확률로 이렇게 플레이하므로 실수는 아니지만, 다른 액션을 더 자주 선택합니다. 더 자주 쓰는 쪽을 기억하는 것이 가장 좋습니다.",
+      "wrongRare": "솔버는 {{pct}}의 확률로만 이렇게 플레이합니다. 거의 하지 않는다는 뜻입니다.",
+      "wrongVeryRare": "솔버가 이 핸드로 이렇게 플레이하는 비율은 {{pct}} 미만입니다.",
+      "wrongNever": "솔버는 이 핸드로 절대 이렇게 플레이하지 않습니다.",
+      "freqs": "{{hand}}: {{freqs}}.",
+      "freq": "{{action}} {{pct}}",
+      "mixedNote": "경계에 있는 핸드입니다. 솔버가 액션을 섞기 때문에 앱은 {{low}} 이상 플레이되는 답을 모두 정답으로 인정합니다.",
+      "acceptableNote": "{{low}} 미만이지만 {{min}} 이상 플레이되는 액션은 허용됩니다. 실수는 아니지만 복습이 더 빨리 돌아옵니다."
+    },
+    "whoWins": {
+      "prompt": "이 핸드는 누가 이기나요?",
+      "hero": "나",
+      "villain": "상대",
+      "split": "{{t:split-pot|스플릿 팟}}",
+      "facts": "나의 최고 다섯 장: {{heroCards}}({{heroHand}}). 상대: {{villainCards}}({{villainHand}}).",
+      "reason": {
+        "category": "{{winner}} 족보가 {{loser}} 족보보다 서열이 높습니다.",
+        "kicker": "족보가 같으므로 최고 다섯 장에서 처음으로 다른 사이드 카드(키커)가 승부를 가릅니다.",
+        "higherSameCategory": "둘 다 {{hand}} 족보이지만 한쪽이 더 높습니다.",
+        "boardPlays": "두 플레이어의 최고 다섯 장이 모두 {{t:board|보드}}에 있으므로 “{{t:playing-the-board|보드 플레이}}”이고 {{t:split-pot|스플릿 팟}}입니다.",
+        "identical": "최고 다섯 장의 랭크가 같으므로 {{t:split-pot|스플릿 팟}}입니다."
+      },
+      "yes": "맞습니다.",
+      "no": "아닙니다."
+    },
+    "bestHand": {
+      "prompt": "나의 최고 족보는 무엇인가요?",
+      "explanation": "일곱 장 중 최고 다섯 장: {{cards}}, 즉 {{hand}}입니다.",
+      "right": "맞습니다. 그것이 나의 최고 족보입니다.",
+      "tooHigh": "“{{hand}}” 족보가 없습니다. 맞는 카드 5장이 정말 있는지 확인하세요.",
+      "tooLow": "“{{hand}}”보다 좋은 족보가 있습니다. 가장 높은 족보를 찾으세요."
+    },
+    "outs": {
+      "promptFlush": "{{t:flush|플러시}}까지 아웃이 몇 장인가요?",
+      "promptStraight": "{{t:straight|스트레이트}}까지 아웃이 몇 장인가요?",
+      "baseFlush": "같은 무늬 카드가 4장 있습니다. 한 무늬는 13장이므로 13 − 4 = 9장이 남았습니다.",
+      "baseOesd": "양쪽이 열린 연속 카드 4장이 있습니다. 빠진 두 랭크가 각각 무늬 4개씩 {{t:straight|스트레이트}}를 만듭니다: 8장.",
+      "baseGutshot": "{{t:straight|스트레이트}} 가운데 카드 한 장이 빠졌습니다. 완성하는 랭크는 하나뿐이고 무늬는 4개: 4장.",
+      "chanceFlop": "{{base}} 턴에서 맞힐 확률: {{next}}({{outs}} × 2 ≈ {{outs2}}). 추가 비용 없이 두 장을 모두 볼 경우(예: 올인 후) 리버까지: {{river}}({{outs}} × 4 ≈ {{outs4}}).",
+      "chanceTurn": "{{base}} 리버에서 맞힐 확률: {{next}}({{outs}} × 2 ≈ {{outs2}}).",
+      "right": "맞습니다.",
+      "wrongTooMany": "아닙니다. 이 상황에서 {{n}}장은 너무 많습니다.",
+      "wrongTooFew": "아닙니다. 이 상황에서 {{n}}장은 너무 적습니다."
+    },
+    "icm": {
+      "call": "{{t:call|콜}}",
+      "fold": "{{t:fold|폴드}}",
+      "you": "나",
+      "player": "플레이어 {{letter}}",
+      "stack": "{{name}} {{chips}}",
+      "table": "플레이어 {{players}}명, 상금 지급 {{paid}}자리({{t:prize-pool|상금 풀}}의 {{payouts}}). 스택: {{stacks}}.",
+      "callPrompt": "{{t:bubble|버블}}: {{table}} {{villain}}의 올인입니다. 두 사람 사이에 걸린 {{t:chips|칩}}은 {{atRisk}}입니다. 내 핸드는 상대 {{t:range|레인지}}에 대해 에퀴티 {{equity}}입니다. 블라인드는 무시합니다. 어떻게 하시겠습니까?",
+      "callRight": "맞습니다. {{equity}}는 {{t:icm|ICM}} 기준으로 필요한 {{required}}보다 많습니다.",
+      "callWrong": "아닙니다. {{t:icm|ICM}} 기준으로 필요한 에퀴티는 {{required}}인데, 내 에퀴티는 {{equity}}입니다.",
+      "callWrongChips": "아닙니다. {{t:icm|ICM}} 기준으로 필요한 에퀴티는 {{required}}인데, 내 에퀴티는 {{equity}}입니다. {{t:chips|칩}} 게임이라면 {{t:call|콜}}이 이득이지만, 여기서는 질 때 잃는 돈이 이길 때 얻는 돈보다 큽니다.",
+      "foldRight": "맞습니다. {{t:icm|ICM}} 기준으로 필요한 에퀴티는 {{required}}인데, 내 에퀴티는 {{equity}}뿐입니다.",
+      "foldRightChips": "맞습니다. {{t:icm|ICM}} 기준으로 필요한 에퀴티는 {{required}}인데, 내 에퀴티는 {{equity}}뿐입니다. {{t:chips|칩}} 게임이라면 {{t:call|콜}}할 상황입니다. 이것이 바로 {{t:risk-premium|리스크 프리미엄}}입니다.",
+      "foldWrong": "아닙니다. 에퀴티 {{equity}}면 충분합니다. {{t:icm|ICM}} 기준 문턱은 {{required}}입니다.",
+      "callExplanation": "{{t:prize-pool|상금 풀}}에서 내 에퀴티: 현재 {{now}}, 이기면 {{win}}, 지면 {{lose}}. Bubble factor = 손실 ÷ 이득 = {{loss}} ÷ {{gain}} ≈ {{bf}}이므로 필요한 에퀴티는 BF ÷ (BF + 1) ≈ {{required}}입니다. {{t:chips|칩}} 게임이라면 {{requiredChips}}면 충분합니다.",
+      "equityPrompt": "{{table}} {{t:icm|ICM}} 기준으로 내 스택의 가치({{t:prize-pool|상금 풀}}에서 차지하는 비율)는 얼마인가요?",
+      "equityRight": "맞습니다. 순위별 합계입니다: 해당 순위 확률 × 해당 순위 {{t:payout|상금}}.",
+      "equityChips": "아닙니다. 그것은 {{t:chips|칩}} 점유율입니다. {{t:payout|상금}} 구조가 있는 {{t:tournament|토너먼트}}에서는 {{t:chips|칩}}이 돈으로 1:1 환산되지 않습니다.",
+      "equityFirstOnly": "아닙니다. 그것은 1위 확률 × 1위 {{t:payout|상금}}뿐입니다. 다른 상금 순위의 확률도 더하세요.",
+      "equityExplanationMore": "1위 확률은 내 스택 ÷ 전체 {{t:chips|칩}}({{share}})입니다. 다음 순위도 남은 플레이어 사이에서 같은 방식으로 계산합니다. 합계는 {{t:prize-pool|상금 풀}}의 {{icm}}로, {{t:chips|칩}} 점유율보다 많습니다.",
+      "equityExplanationLess": "1위 확률은 내 스택 ÷ 전체 {{t:chips|칩}}({{share}})입니다. 다음 순위도 남은 플레이어 사이에서 같은 방식으로 계산합니다. 합계는 {{t:prize-pool|상금 풀}}의 {{icm}}로, {{t:chips|칩}} 점유율보다 적습니다."
+    },
+    "playerType": {
+      "name": {
+        "nit": "니트",
+        "regular": "{{t:regular|레귤러}}",
+        "passive": "패시브 {{t:recreational|레크리에이션 플레이어}}",
+        "maniac": "{{t:maniac|매니악}}",
+        "unknown": "판단하기에 핸드가 너무 적음"
+      },
+      "adjust": {
+        "nit": "상대의 {{t:raise|레이즈}}와 3벳은 존중하고, {{t:range|레인지}} 하단 핸드는 더 자주 {{t:fold|폴드}}하며, 상대의 블라인드는 더 자주 스틸합니다.",
+        "regular": "모듈 3–9의 기본 전략에 가깝게 플레이하고, 상대 통계에 명확한 실수가 보일 때만 벗어납니다.",
+        "passive": "더 얇은 것까지 포함해 {{t:value-bet|밸류 벳}}을 늘리고, 특히 리버에서 {{t:bluff|블러프}}를 줄입니다.",
+        "maniac": "상대에게 {{t:bluff|블러프}}하지 않고, {{t:bluff|블러프}}를 잡는 핸드로 더 넓게 {{t:call|콜}}하며, 매우 강한 핸드로는 상대가 벳하게 둡니다.",
+        "unknown": "모르는 플레이어처럼, 즉 기본 전략대로 플레이하면서 핸드를 더 모읍니다."
+      },
+      "fact": {
+        "unknown": "{{minHands}}핸드 미만에서는 통계가 우연에 좌우됩니다. 여기서는 {{hands}}입니다.",
+        "nit": "니트는 핸드의 {{nitMax}}%까지 플레이합니다({{t:vpip|VPIP}}). 이 플레이어는 {{vpip}}%를 플레이합니다.",
+        "regular": "{{t:regular|레귤러}}는 핸드의 약 {{low}}–{{high}}%를 플레이하며 {{t:vpip|VPIP}} − {{t:pfr|PFR}} 차이는 {{gapMax}} 이하입니다. 여기서는 {{vpip}}%, 차이 {{gap}}입니다.",
+        "passive": "패시브 루즈 플레이어는 핸드의 {{loose}}% 이상을 플레이하며 {{t:vpip|VPIP}} − {{t:pfr|PFR}} 차이가 {{gapMin}} 초과입니다. 여기서는 {{vpip}}%, 차이 {{gap}}입니다.",
+        "maniac": "{{t:maniac|매니악}}은 핸드의 {{loose}}% 이상을 플레이하며 {{t:vpip|VPIP}} − {{t:pfr|PFR}} 차이는 {{gapMax}} 이하입니다. 여기서는 {{vpip}}%, 차이 {{gap}}입니다."
+      },
+      "sample_other": "{{count}}핸드",
+      "prompt": "6맥스 테이블의 상대, {{t:hud|HUD}} 통계: {{t:vpip|VPIP}} {{vpip}}%, {{t:pfr|PFR}} {{pfr}}%, 표본 {{sample}}. 어떤 유형의 플레이어인가요?",
+      "whyRight": "맞습니다. {{fact}} {{adjust}}",
+      "whyWrong": "아닙니다. {{fact}}",
+      "readFew": "{{minHands}} 미만이므로 통계가 우연에 좌우됩니다",
+      "readEnough": "{{readHands}} 이상이므로 {{t:vpip|VPIP}}와 {{t:pfr|PFR}}을 읽을 수 있습니다",
+      "explanation": "먼저 표본: {{sample}}는 {{read}}. {{fact}} {{adjust}}"
+    },
+    "points_other": "{{count}}포인트",
+    "potOdds": {
+      "prompt": "{{t:pot|팟}}은 {{pot}}입니다. 상대가 {{bet}} {{t:bet|벳}}합니다. {{t:call|콜}}하려면 에퀴티가 얼마나 필요한가요?",
+      "explanation": "{{t:bet|벳}} 후 {{t:pot|팟}}은 {{potAfter}}, 내가 내는 금액은 {{bet}}, 합계는 {{total}}입니다. {{bet}} ÷ {{total}} {{sign}} {{required}}.",
+      "right": "맞습니다.",
+      "mistakeNoCall": "아닙니다. 그것은 {{t:bet|벳}}을 {{t:bet|벳}} 후 {{t:pot|팟}}으로 나눈 값입니다. 분모에 내 {{t:call|콜}}도 더하세요.",
+      "mistakeBetOverPot": "아닙니다. 그것은 {{t:bet|벳}}을 {{t:bet|벳}} 전 {{t:pot|팟}}으로 나눈 값입니다. 이길 수 있는 전체 금액과 비교해야 합니다.",
+      "mistakeInverted": "아닙니다. 그것은 {{t:bet|벳}} 전 {{t:pot|팟}}을 {{t:bet|벳}} 후 {{t:pot|팟}}으로 나눈 값으로, 분수가 뒤집혔습니다. 분자에는 내가 내는 금액, 분모에는 내 {{t:call|콜}} 후 전체 {{t:pot|팟}}이 와야 합니다."
+    },
+    "drawCall": {
+      "promptFlop": "플롭. {{t:pot|팟}}은 {{pot}}이고, 상대가 {{bet}} {{t:bet|벳}}합니다. 내 핸드: {{draw}}. 어떻게 하시겠습니까?",
+      "promptTurn": "턴. {{t:pot|팟}}은 {{pot}}이고, 상대가 {{bet}} {{t:bet|벳}}합니다. 내 핸드: {{draw}}. 어떻게 하시겠습니까?",
+      "drawFlush": "{{t:flush-draw|플러시 드로우}}",
+      "drawOesd": "{{t:oesd|양방향 스트레이트 드로우}}",
+      "drawGutshot": "거트샷",
+      "call": "{{t:call|콜}}",
+      "fold": "{{t:fold|폴드}}",
+      "outs_other": "아웃 {{count}}장",
+      "explanationFlop": "보이지 않는 카드 {{unseen}}장 중 {{outs}}이므로 턴에서 맞힐 확률은 {{chance}}입니다. {{why}} 필요한 값은 {{required}}입니다. {{verdict}}",
+      "explanationTurn": "보이지 않는 카드 {{unseen}}장 중 {{outs}}이므로 리버에서 맞힐 확률은 {{chance}}입니다. {{why}} 필요한 값은 {{required}}입니다. {{verdict}}",
+      "whyFlop": "이번 {{t:bet|벳}}에만 {{t:call|콜}}하는 것이므로 카드 한 장에 대한 확률이 중요합니다. 리버 전에 보통 한 번 더 대가를 치르게 됩니다.",
+      "whyTurn": "카드 한 장에 대한 확률이 중요합니다. 남은 카드가 한 장뿐이기 때문입니다.",
+      "verdictGood": "확률이 가격보다 크므로 {{t:call|콜}}이 이득입니다.",
+      "verdictNearFlop": "확률이 가격보다 조금 작으므로 단순 {{t:call|콜}}은 손해입니다. 맞힌 뒤 더 많이 따는 경우, 즉 임플라이드 오즈 덕분에만 이득이 될 수 있으며, 턴에서 다음 가격도 너무 높지 않아야 합니다.",
+      "verdictNearTurn": "확률이 가격보다 조금 작으므로 단순 {{t:call|콜}}은 손해입니다. 맞힌 뒤 더 많이 따는 경우, 즉 임플라이드 오즈 덕분에만 이득이 될 수 있습니다.",
+      "verdictBad": "확률이 가격보다 확실히 작으므로 {{t:call|콜}}은 장기적으로 손해입니다.",
+      "right": "맞습니다.",
+      "wrong": "아닙니다."
+    },
+    "texture": {
+      "label": {
+        "height": {
+          "high": "높음",
+          "middle": "중간",
+          "low": "낮음"
+        },
+        "suits": {
+          "rainbow": "{{t:rainbow|레인보우}}",
+          "twoTone": "{{t:two-tone|투톤}}",
+          "monotone": "{{t:monotone|모노톤}}"
+        },
+        "ranks": {
+          "paired": "{{t:paired|페어드}}",
+          "connected": "{{t:connected|커넥티드}}",
+          "semiConnected": "{{t:semi-connected|세미 커넥티드}}",
+          "disconnected": "{{t:disconnected|디스커넥티드}}"
+        },
+        "wetness": {
+          "dry": "{{t:dry|드라이}}",
+          "medium": "중간",
+          "wet": "{{t:wet|웻}}"
+        }
+      },
+      "axis": {
+        "height": "높이",
+        "suits": "무늬",
+        "ranks": "랭크",
+        "wetness": "{{t:dry|드라이}} 또는 {{t:wet|웻}}"
+      },
+      "scale": "포인트를 셉니다: 여러 방법으로 가능한 {{t:straight|스트레이트}}(두 랭크 조합이 두 개 이상) {{made}}, 한 가지 방법으로만 가능한 {{t:straight|스트레이트}} {{madeOne}}, {{t:straight-draw|스트레이트 드로우}}만 있음 {{draw}}; {{t:two-tone|투톤}} 플롭 {{twoTone}}, {{t:monotone|모노톤}} {{monotone}}. {{t:dry|드라이}}는 0–{{dryMax}}, 중간은 {{medium}}, {{t:wet|웻}}은 {{wet}} 이상",
+      "range": "{{from}}–{{to}}",
+      "def": {
+        "height": {
+          "high": "높은 플롭은 가장 높은 카드가 에이스, 킹 또는 퀸입니다",
+          "middle": "중간 플롭은 가장 높은 카드가 잭 또는 10입니다",
+          "low": "낮은 플롭은 가장 높은 카드가 9 이하입니다"
+        },
+        "suits": {
+          "rainbow": "{{t:rainbow|레인보우}} 플롭은 세 장이 모두 다른 무늬이므로 아직 아무도 {{t:flush-draw|플러시 드로우}}가 없습니다",
+          "twoTone": "{{t:two-tone|투톤}} 플롭은 두 장이 같은 무늬이므로, 그 무늬의 카드 두 장을 가진 플레이어는 {{t:flush-draw|플러시 드로우}}가 됩니다",
+          "monotone": "{{t:monotone|모노톤}} 플롭은 세 장이 모두 같은 무늬이므로 {{t:flush|플러시}}가 이미 가능합니다"
+        },
+        "ranks": {
+          "paired": "{{t:paired|페어드}} 플롭은 같은 랭크 카드가 두 장 또는 세 장입니다. 이때 플레이어의 카드 두 장으로 {{t:straight|스트레이트}}를 만들 수는 없지만, {{t:straight-draw|스트레이트 드로우}}는 가능할 때가 있습니다",
+          "connected": "{{t:connected|커넥티드}} 플롭은 서로 다른 세 랭크가 연속된 다섯 랭크 안에 있으므로 지금 바로 {{t:straight|스트레이트}}가 가능합니다(에이스는 1로도 셉니다)",
+          "semiConnected": "{{t:semi-connected|세미 커넥티드}} 플롭은 연속된 다섯 랭크 안에 두 랭크가 있지만 세 랭크는 아닙니다. {{t:straight|스트레이트}}는 아직 없지만 {{t:straight-draw|스트레이트 드로우}}(양방향 또는 거트샷)는 이미 가능합니다",
+          "disconnected": "{{t:disconnected|디스커넥티드}} 플롭은 랭크가 멀리 떨어져 있어 어떤 두 장도 연속된 다섯 랭크 안에 들지 않으므로, 아무도 {{t:straight-draw|스트레이트 드로우}}조차 없습니다"
+        },
+        "wetness": {
+          "dry": "{{t:dry|드라이}} 플롭은 {{t:draw|드로우}}가 적습니다. {{scale}}",
+          "medium": "중간 플롭은 {{t:draw|드로우}}가 어느 정도 있습니다. {{scale}}",
+          "wet": "{{t:wet|웻}} 플롭은 {{t:draw|드로우}}가 많거나 완성된 {{t:straight|스트레이트}}가 있습니다. {{scale}}"
+        }
+      },
+      "suitCount": {
+        "three": "세 가지 다른 무늬",
+        "two": "같은 무늬 카드 두 장",
+        "one": "같은 무늬 카드 세 장"
+      },
+      "rankFact": {
+        "connected": "여기서는 {{t:straight|스트레이트}}가 가능합니다. 예: {{example}}.",
+        "pairedDraw": "여기서는 두 장의 랭크가 같습니다. {{t:straight-draw|스트레이트 드로우}}의 예: {{example}}.",
+        "paired": "여기서는 두 장의 랭크가 같습니다.",
+        "semiConnected": "여기서는 아직 {{t:straight|스트레이트}}가 없지만 {{t:straight-draw|스트레이트 드로우}}는 있습니다. 예: {{example}}.",
+        "disconnected": "여기서는 플레이어의 어떤 카드 두 장으로도 {{t:straight-draw|스트레이트 드로우}}조차 만들 수 없습니다."
+      },
+      "draws": {
+        "rainbow": "{{t:flush-draw|플러시 드로우}} 없음(세 가지 다른 무늬)",
+        "twoTone": "{{t:flush-draw|플러시 드로우}} 있음(같은 무늬 카드 두 장)",
+        "monotone": "{{t:flush|플러시}} 이미 가능(같은 무늬 카드 세 장)",
+        "straightMade": "{{t:straight|스트레이트}} 여러 방법으로 가능(예: {{example}})",
+        "straightMadeOne": "{{t:straight|스트레이트}} 한 가지 방법으로만 가능({{example}})",
+        "straightDraw": "{{t:straight|스트레이트}} 없음, {{t:straight-draw|스트레이트 드로우}} 있음(예: {{example}})",
+        "straightNone": "{{t:straight|스트레이트}}도 {{t:straight-draw|스트레이트 드로우}}도 없음",
+        "total": "{{color}}: {{colorPoints}}; {{straight}}: {{straightPoints}}. 합계 {{points}}"
+      },
+      "prompt": {
+        "height": "이 플롭은 얼마나 높나요?",
+        "suits": "이 플롭에는 무늬가 몇 가지인가요?",
+        "ranks": "이 플롭은 {{t:paired|페어드}}, {{t:connected|커넥티드}}, {{t:semi-connected|세미 커넥티드}}, {{t:disconnected|디스커넥티드}} 중 무엇인가요?",
+        "wetness": "이 플롭은 {{t:dry|드라이}}, 중간, {{t:wet|웻}} 중 무엇인가요?",
+        "many": "각 줄에서 플롭의 {{t:texture|텍스처}}를 평가하세요."
+      },
+      "whyRight": "맞습니다: {{def}}. {{fact}}",
+      "whyWrong": "아닙니다: {{def}}. {{fact}}",
+      "factHeight": "가장 높은 카드는 {{card}}입니다.",
+      "factSuits": "여기: {{suits}}.",
+      "factWetness": "여기: {{draws}}.",
+      "summary": "이 플롭은 {{height}}, {{suits}}, {{ranks}}이므로 {{wetness}}입니다({{t:wetness|웻니스}} {{points}})."
+    },
+    "vocab": {
+      "promptPlEn": "“{{pl}}”을(를) 영어로 무엇이라고 하나요?",
+      "promptEnPl": "“{{en}}”은(는) 한국어로 무슨 뜻인가요?",
+      "promptAbbr": "약어 “{{abbr}}”은(는) 무엇을 뜻하나요?",
+      "promptDef": "설명에 맞는 용어는 무엇인가요? “{{def}}”",
+      "lineSame": "“{{pl}}”",
+      "lineSameAbbr": "“{{pl}}”(약어 {{abbr}})",
+      "line": "“{{pl}}”은(는) 영어로 “{{en}}”입니다",
+      "lineAbbr": "“{{pl}}”은(는) 영어로 “{{en}}”이며, 약어는 {{abbr}}입니다",
+      "right": "맞습니다: {{line}}.",
+      "wrong": "아닙니다: {{line}}.",
+      "end": "{{line}}.",
+      "meaning": "뜻: {{def}}",
+      "alsoSeen": "다른 표기: {{list}}."
+    }
+  }
+}

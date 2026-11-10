@@ -1,0 +1,164 @@
+# K-05 (D-367, D-372): nazwa terminu w języku it dla znacznika {{t:klucz}} bez formy; null = skrót albo nazwa angielska.
+# Ze szkicu docs/lokalizacja/przygotowane/terms-nazwy-it.yaml (przegląd I2 / D-388, sesja AJ, 2026-11-09; komentarze: formy tłumacza i źródła). Strażnik: tools/content-build/src/nazwy.ts.
+royal-flush: "scala reale"  # royal flush; r. f; bez formy 2; formy: Scala reale×1; źr. P (lista „Scala reale”, „scala reale massima (in inglese royal flush)”); C:Royal-Flush (tylko „Royal Flush”); [P] w treści nazywa „scala reale” straight flush, a royal flush „scala reale massima” — w aplikacji „scala reale” = royal flush, „scala colore” = straight flush (lista [P]: Scala reale, Scala colore) [DO USTALENIA]
+straight-flush: "scala colore"  # straight flush; r. f; bez formy 2; formy: Scala colore×1; źr. P (lista „Scala colore”); C:Straight-flush (tylko „straight flush”); zob. royal-flush; [P] „La scala reale (in inglese straight flush )” [DO USTALENIA]
+four-of-a-kind: "poker"  # four of a kind; r. m; bez formy 2; formy: poker×5, Poker×1; źr. P; C:4oak
+full-house: "full"  # full house; r. m; bez formy 2; formy: full×14, Full×1; źr. P; A; C:Full-house
+flush: "colore"  # flush; r. m; bez formy 6; formy: colore×107, Colore×5, colori×2; źr. P; A; C:Flush
+straight: "scala"  # straight; r. f; bez formy 12; formy: scala×130, scale×14, Scala×4; źr. P; C:Straight
+three-of-a-kind: "tris"  # three of a kind; r. m; bez formy 3; formy: tris×18, Tris×2; źr. P; C:3oak; C:Trips_91
+set: "set"  # set; r. m; bez formy 1; formy: set×1; źr. P; C:Set
+two-pair: "doppia coppia"  # two pair; r. f; bez formy 10; formy: doppia coppia×40, doppie coppie×11, Doppia coppia×3; źr. P; C:Two-Pair
+pair: "coppia"  # pair; r. f; bez formy 7; formy: coppia×207, coppie×89, Coppia×3, Coppie×2; źr. P; C:Pair
+high-card: "carta alta"  # high card; r. f; bez formy 2; formy: Carta alta×1; źr. C:Scare-card („Una carta alta oppure una carta che completa un progetto”, inne znaczenie); C:High-card (tylko ang. „high card”); nazwa układu po włosku bez przeczytanego źródła [DO USTALENIA]
+kicker: "kicker"  # kicker; r. m; bez formy 0; formy: —; źr. P; A; C:Kicker
+wheel: "wheel"  # wheel; r. m; bez formy 0; formy: wheel×2; źr. C:Straight (tylko odnośnik „Wheel”); częściowo
+check: "check"  # check; r. m; bez formy 73; formy: check×61, fa check×39, Faccio check×33, fai check×19, Check×12, fatto check×9; źr. A („Check (bussare)”); C:Check („Fare check (italiano: cip, bussare)”); [A] używa też „passa” dla check („Bob passa, Carol passa”) — w aplikacji „passare” tylko dla fold (UI), stąd zalecenie „fold/foldare”
+bet: "puntata"  # bet; r. f; bez formy 17; formy: puntata×170, punta×92, puntate×73, puntato×19, puntare×16, punti×12; źr. A; C:Bet („Fare una bet (italiano: puntare)”)
+call: "call"  # call; r. m; bez formy 40; formy: chiamata×217, chiamare×107, chiama×88, chiami×83, Chiamo×75, ha chiamato×52; źr. C:Call („Un call è una delle possibili azioni”, „Fare call (italiano: vedere , chiamare)”); A („Call (vedere o chiamare)”, „alla semplice chiamata ( call )”); bez formy rzeczownik: m. 13× („il/un {{t:call}}”, lekcje i egzaminy), ż. 12× („la tua/una/la sola {{t:call}}”: UI 7 → poprawki I2; m2-l1, m6-l2 ×2, egzamin m8 ×2 → do sesji lekcji/egzaminów); „chiamata” (forma tłumacza ×217, [A]) dałaby 13 konfliktów „il chiamata”; definicje i tekst bez znacznika też „il call” [WIELE FORM]
+raise: "rilancio"  # raise; r. m; bez formy 3; formy: rilancio×76, rilanci×63, Rilancio×49, rilanciare×35, rilancia×34, rilanciato×27; źr. A („Raise ( rilanciare )”); C:Raise; C:Rilanciare
+fold: "fold"  # fold; r. m; bez formy 63; formy: folda×101, foldi×78, fold×75, foldato×67, foldare×55, foldano×51; źr. A („Fold : abbandonare la mano”); C:Fold („fa fold (italiano: passa)”); bez formy rzeczownik m. („il/un/i {{t:fold}}”, „All-in o {{t:fold}}”); lekcje: foldare ×~560, passare ×~110; UI: passare ×13, fold ×6 → poprawki UI [WIELE FORM]
+check-raise: "check-raise"  # check-raise; r. m; bez formy 0; formy: —; źr. C:check-raise
+all-in: "all-in"  # all-in; r. m; bez formy 1; formy: —; źr. A; C:All-in
+pot: "piatto"  # pot; r. m; bez formy 24; formy: piatto×814, piatti×28, Piatto×27; źr. A; C:Pot
+side-pot: "piatto secondario"  # side pot; r. m; bez formy 0; formy: piatto laterale×2; źr. C:Side-Pot („Il side pot è un piatto secondario”); A (side pot); tłumacz w lekcjach „piatto laterale”×2 — brak w źródłach (terms-def: „piatto secondario”) [WIELE FORM]
+split-pot: "piatto diviso"  # split pot; r. m; bez formy 0; formy: Piatto diviso×11, piatto viene diviso×4, il piatto viene diviso×1, vi dividete il piatto×1; źr. C:Split-pot („un piatto che viene suddiviso”); A (split pot); częściowo
+playing-the-board: "giocare il board"  # playing the board; r. m; bez formy 0; formy: giocare il board×3, giocando il board×1; źr. brak; [DO USTALENIA]
+board: "board"  # board; r. m; bez formy 34; formy: board×66, tavolo×2; źr. A; C:Board
+community-cards: "carte comuni"  # community cards; r. f lm; bez formy 0; formy: carte comuni×11, carta comune×1; źr. A („community cards ( carte comunitarie , o comuni )”); C:Board („carte comuni”)
+hole-cards: "carte personali"  # hole cards; r. f lm; bez formy 0; formy: carte personali×2, carte coperte×1; źr. A („sulle carte personali ( hole cards )”)
+small-blind: "small blind"  # small blind; r. m; bez formy 45; formy: small blind×72, Small blind×13, SB×5; źr. C:Small-blind („Lo small blind”); A („small blind ( piccolo buio )”)
+big-blind: "big blind"  # big blind; r. m; bez formy 158; formy: big blind×107, Big blind×12, BB×6; źr. C:Big-blind („Il big blind”); A („big blind ( grande buio o controbuio )”)
+chips: "fiches"  # chips; r. f lm; bez formy 23; formy: fiches×68, fiche×8, chip×3; źr. A („fiche”); C:Chipleader („chip”); [A] pisze „fiche” (lm bez -s); tłumacz fiches×85, fiche×8 [DO USTALENIA]
+stack: "stack"  # stack; r. m; bez formy 0; formy: —; źr. C:Stack; A
+street: "street"  # street; r. f; bez formy 40; formy: street×39, Street×1; źr. A („4th Street”); C:Drawy_1951 („carte delle street successive”)
+betting-round: "giro di puntate"  # betting round; r. m; bez formy 0; formy: giro di puntate×4, giri di puntate×4; źr. A („Un giro di puntate si intende concluso”); C:3bet
+preflop: "preflop"  # preflop; r. m; bez formy 0; formy: Preflop×1; źr. A; C (Preflop)
+flop: "flop"  # flop; r. m; bez formy 0; formy: Flop×1; źr. A
+turn: "turn"  # turn; r. m; bez formy 0; formy: Turn×1; źr. A
+river: "river"  # river; r. m; bez formy 0; formy: River×1; źr. A
+showdown: "showdown"  # showdown; r. m; bez formy 0; formy: Showdown×1; źr. A; C:Showdown
+position: "posizione"  # position; r. f; bez formy 5; formy: posizione×77, posizioni×11, Posizioni×1, Posizione×1; źr. A; C:In-position
+in-position: "in posizione"  # in position; r. —; bez formy 27; formy: in posizione×23, In posizione×8; źr. C:In-position („Un giocatore si trova in posizione”)
+out-of-position: "fuori posizione"  # out of position; r. —; bez formy 33; formy: fuori posizione×27, Fuori posizione×22; źr. brak (C: tylko „Out of Position”); [DO USTALENIA]
+early-position: "posizioni iniziali"  # early position; r. f lm; bez formy 0; formy: posizioni iniziali×2; źr. A („ulteriori posizioni iniziali”); C:Early-Position („definisce le posizioni iniziali”)
+late-position: "posizione avanzata"  # late position; r. f; bez formy 0; formy: posizione avanzata×1; źr. brak; C:Late-position tylko ang. „late position”; [DO USTALENIA]
+utg: "UTG"  # under the gun; r. m; bez formy 21; formy: UTG×26; źr. A (Under the gun); C:Under-the-Gun („Under the Gun (UTG)”)
+hijack: "hijack"  # hijack; r. m; bez formy 0; formy: HJ×17; źr. A; C:Hijack_2049 („L' hijack è la posizione prima del cut-off.”)
+cutoff: "cutoff"  # cutoff; r. m; bez formy 0; formy: CO×55; źr. A („Cutoff”); C:Cutoff (cut-off)
+button: "button"  # button; r. m; bez formy 0; formy: BTN×3; źr. C:Button („Il button o il dealer-button”); A („bottone dealer”)
+outs: "out"  # out; r. m lm; bez formy 0; formy: Out×1; źr. C:Odds („outs, o carte utili”); nazwa lp/lm nieodmienna „out” (tłumacz); [C] „outs”
+draw: "progetto"  # draw; r. m; bez formy 4; formy: progetti×98, progetto×95, Progetto×2, Progetti×1, draw×1; źr. C:Flush-Draw („Un flush draw è un progetto”); C:Backdoor-draw
+flush-draw: "progetto di colore"  # flush draw; r. m; bez formy 7; formy: progetto di colore×43, progetti di colore×8, Progetto di colore×2, Progetti di colore×1; źr. C:Flush-Draw („progetto … per completare un flush (colore)”)
+straight-draw: "progetto di scala"  # straight draw; r. m; bez formy 7; formy: progetto di scala×12; źr. C:Insight-Straight-Draw („è un progetto di scala a cui manca una carta interna”)
+oesd: "OESD"  # open-ended straight draw; r. m; bez formy 4; formy: progetto di scala bilaterale×9, OESD×5, scala bilaterale×2, Progetto di scala bilaterale×2, progetti di scala bilaterali×1; źr. C:OESD; tłumacz „progetto di scala bilaterale”×12 — brak w źródłach [WIELE FORM]
+gutshot: "gutshot"  # gutshot; r. m; bez formy 0; formy: —; źr. C:Gutshot; C:Insight-Straight-Draw
+backdoor: "backdoor"  # backdoor; r. m; bez formy 0; formy: —; źr. C:Backdoor-draw
+pot-odds: "pot odds"  # pot odds; r. m lm; bez formy 0; formy: —; źr. C:Pot-Odds („I pot odds indicano”); rodzaj: [C] m („I pot odds”), tłumacz ż. („le implied odds”) — bez znaczników bez formy
+implied-odds: "implied odds"  # implied odds; r. m lm; bez formy 0; formy: implied odds×1, Implied odds×1; źr. C:Implied-odds; jw.
+equity: "equity"  # equity; r. f; bez formy 7; formy: equity×11, Equity×1; źr. C:Equity
+equity-realization: "realizzazione dell'equity"  # equity realization; r. f; bez formy 0; formy: realizza l'equity×2, realizzazione dell'equity×2, realizzano l'equity×1, realizzare la sua equity×1, realizza la sua equity×1; źr. brak; [DO USTALENIA]
+expected-value: "valore atteso"  # expected value; r. m; bez formy 3; formy: valore atteso×7, EV×2; źr. A („specialmente il valore atteso”); C:Expected-Value („(valore atteso, …)”)
+combo: "combo"  # combo; r. f; bez formy 0; formy: combo×26, combinazioni×4; źr. brak; [DO USTALENIA]
+range: "range"  # range; r. m; bez formy 124; formy: range×117, Range×5; źr. C:Range („Il range di un giocatore”)
+mixed-hand: "mano mista"  # mixing hand; r. f; bez formy 0; formy: mano mista×7, mani miste×4, Mano mista×1; źr. brak; [DO USTALENIA]
+open: "apertura"  # open; r. f; bez formy 0; formy: apertura×98, aperto×61, Hai aperto×31, apre×26, apri×22, ha aperto×10; źr. brak (C: tylko „Open Raise”); [DO USTALENIA]
+suited: "dello stesso seme"  # suited; r. —; bez formy 0; formy: —; źr. C:Suited („sono suited se sono dello stesso seme”)
+offsuit: "di semi diversi"  # offsuit; r. —; bez formy 0; formy: —; źr. C:Connector („Se sono di colore diverso prendono il nome di offsuited connectors”); częściowo
+pocket-pair: "coppia servita"  # pocket pair; r. f; bez formy 0; formy: coppie servite×2, coppia servita×1, pocket pair×1; źr. brak; [DO USTALENIA]
+connectors: "connettori"  # connectors; r. m lm; bez formy 0; formy: connettori×23, connettore×1; źr. C:Connector („I connectors, o connettori”)
+3-bet: "3-bet"  # 3-bet; r. f; bez formy 0; formy: —; źr. C:3bet („Una 3-bet (controrilancio)”); tłumacz używa m. („il/un 3-bet”) w tekście bez znacznika — bez konfliktu (0 znaczników)
+4-bet: "4-bet"  # 4-bet; r. f; bez formy 0; formy: —; źr. C:4bet („Una 4-bet”); jw.
+limp: "limp"  # limp; r. m; bez formy 1; formy: limp×1; źr. C:Limp („un giocatore fa limp”)
+isolation: "isolamento"  # isolation raise; r. m; bez formy 0; formy: isolamento×4, isola×1, isoli×1, isolare×1; źr. brak; [DO USTALENIA]
+texture: "texture"  # texture; r. f; bez formy 2; formy: texture×5, Texture×1; źr. C:Texture_1952 („La texture del board”)
+dry: "secco"  # dry; r. m; bez formy 2; formy: secco×27, asciutto×15, Secco×4, secchi×3, asciutti×2; źr. brak (C:Dry_2031 tylko ang. „dry”); tłumacz secco×34, asciutto×17 (terms-def „asciutto”) [WIELE FORM] [DO USTALENIA]
+wet: "bagnato"  # wet; r. m; bez formy 4; formy: bagnato×19, bagnati×5, Bagnato×2; źr. brak (C:Drawy_1951 „wet board”, C:Texture_1952 „coordinato”); [DO USTALENIA]
+rainbow: "rainbow"  # rainbow; r. m; bez formy 1; formy: rainbow×2, Rainbow×1; źr. C:Dry_2031 („ed è rainbow, ovvero ha tre diversi suits”)
+two-tone: "bicolore"  # two-tone; r. m; bez formy 2; formy: bicolore×4, Bicolore×1; źr. brak; [DO USTALENIA]
+monotone: "monocolore"  # monotone; r. m; bez formy 2; formy: monocolore×16, Monocolore×1; źr. brak; [DO USTALENIA]
+paired: "accoppiato"  # paired; r. m; bez formy 2; formy: accoppiato×13, Accoppiato×2; źr. brak; [DO USTALENIA]
+connected: "connesso"  # connected; r. m; bez formy 2; formy: connesso×14, connessi×2, Connesso×1; źr. brak (C:Dry_2031 tylko ang. „connected”); [DO USTALENIA]
+disconnected: "sconnesso"  # disconnected; r. m; bez formy 2; formy: sconnesso×1, Sconnesso×1; źr. brak; [DO USTALENIA]
+semi-connected: "semi-connesso"  # semi-connected; r. m; bez formy 0; formy: semi-connesso×5, semi-connessi×1, Semi-connesso×1; źr. brak; [DO USTALENIA]
+wetness: "bagnatura"  # wetness; r. f; bez formy 0; formy: bagnatura×3, umidità×2; źr. brak (C:Texture_1952 „coordinato”); tłumacz bagnatura×3, umidità×2 [WIELE FORM] [DO USTALENIA]
+top-pair: "top pair"  # top pair; r. f; bez formy 24; formy: coppia massima×34, top pair×21, Top pair×4, coppie massime×1; źr. C:Top-Pair („una top pair è una coppia”); tłumacz „coppia massima”×35 — brak w źródłach [WIELE FORM]
+second-pair: "seconda coppia"  # second pair; r. f; bez formy 0; formy: seconda coppia×9; źr. brak (C:Middle-pair „middle pair”); [DO USTALENIA]
+overpair: "overpair"  # overpair; r. f; bez formy 9; formy: overpair×1; źr. C:Pair (odnośnik „Overpair”); bez formy „un'{{t:overpair}}” 7× — wymaga ż.
+c-bet: "c-bet"  # c-bet; r. f; bez formy 0; formy: c-bet×2; źr. C:Continuation-Bet („continuation bet , una puntata continuativa”)
+aggressor: "aggressore"  # aggressor; r. m; bez formy 3; formy: aggressore×7; źr. C:Float („l´aggressore viene soltanto visto”)
+initiative: "iniziativa"  # initiative; r. f; bez formy 0; formy: iniziativa×17; źr. C:Aggressor („il giocatore che ha l'iniziativa”)
+range-advantage: "vantaggio di range"  # range advantage; r. m; bez formy 4; formy: vantaggio di range×26, Vantaggio di range×2; źr. brak; [DO USTALENIA]
+nuts-advantage: "vantaggio di nuts"  # nuts advantage; r. m; bez formy 0; formy: vantaggio di nuts×21, Vantaggio di nuts×2; źr. brak; [DO USTALENIA]
+nuts: "nuts"  # nuts; r. m; bez formy 1; formy: —; źr. C:Nuts („Con nuts o lock si definisce la miglior mano possibile”)
+polarized: "polarizzato"  # polarized; r. m; bez formy 1; formy: polarizzato×20, Polarizzato×2; źr. C:Polarizzare_2023 („Un range è polarizzato”)
+polarization: "polarizzazione"  # polarization; r. f; bez formy 0; formy: —; źr. C:Polarizzare_2023 („descrive la polarizzazione di un range”)
+linear: "lineare"  # linear; r. m; bez formy 0; formy: lineare×8, Lineare×2; źr. brak; [DO USTALENIA]
+condensed: "condensato"  # condensed; r. m; bez formy 0; formy: condensato×2; źr. brak; [DO USTALENIA]
+value: "valore"  # value; r. m; bez formy 0; formy: per valore×45, street di valore×22, valore×20, di valore×9, street di value×3, da valore×2; źr. C:Value („Value (ingl. per valore)”)
+value-bet: "value bet"  # value bet; r. f; bez formy 0; formy: value bet×1; źr. C:Value-bet („è una puntata effettuata per aumentare la propria vincita netta”)
+bluff: "bluff"  # bluff; r. m; bez formy 136; formy: bluff×254, bluffa×41, bluffi×21, bluffare×11, Bluffi×6, bluffando×4; źr. C:Bluff („Un bluff è una mossa”)
+semi-bluff: "semi-bluff"  # semi-bluff; r. m; bez formy 7; formy: semi-bluff×17; źr. C:Bluff („ed i semibluff”); pisownia [C] „semibluff”
+blocker: "blocker"  # blocker; r. m; bez formy 7; formy: blocker×14, Blocker×1; źr. C:Blocker („I blocker sono carte”)
+bluff-catcher: "bluff catcher"  # bluff catcher; r. m; bez formy 0; formy: —; źr. C:Bluff-catcher („Un bluff catcher è una mano”)
+barrel: "barrel"  # barrel; r. m; bez formy 0; formy: —; źr. C:Second-barrel („(barrel: canna del fucile)”)
+second-barrel: "second barrel"  # second barrel; r. m; bez formy 11; formy: second barrel×15; źr. C:Second-barrel
+probe-bet: "probe bet"  # probe bet; r. f; bez formy 0; formy: —; źr. C:Probe-bet_168 (hasło tylko po angielsku); częściowo
+donk-bet: "donk bet"  # donk bet; r. f; bez formy 0; formy: —; źr. brak; [DO USTALENIA]
+overbet: "overbet"  # overbet; r. m; bez formy 2; formy: overbet×1; źr. C:Polarizzare_2023 („un'over-bet”, ż.); bez formy „Un {{t:overbet}}” 1× wymaga m.; [C] ż. — rozbieżność rodzaju, bez konfliktu przy m.
+effective-stack: "stack effettivo"  # effective stack; r. m; bez formy 0; formy: stack effettivo×6; źr. brak; [DO USTALENIA]
+spr: "SPR"  # stack-to-pot ratio; r. m; bez formy 160; formy: SPR×29; źr. C:SPR (hasło „SPR (Stack to Pot Ratio)”); rodzajnik w przekładzie: „l'SPR”×42, „lo SPR”×10 — oba poprawne, niespójne (NISKIE)
+mdf: "MDF"  # minimum defense frequency; r. f; bez formy 60; formy: MDF×14; źr. brak; [DO USTALENIA]
+alpha: "alpha"  # alpha; r. m; bez formy 2; formy: alpha×4; źr. brak; [DO USTALENIA]
+variance: "varianza"  # variance; r. f; bez formy 7; formy: varianza×19; źr. C:Varianza
+buy-in: "buy-in"  # buy-in; r. m; bez formy 0; formy: buy-in×83; źr. C:Buy-in
+bankroll: "bankroll"  # bankroll; r. m; bez formy 1; formy: —; źr. C:Bankroll („Il bankroll è la cassa di poker”)
+tilt: "tilt"  # tilt; r. m; bez formy 0; formy: —; źr. C:Tilt
+winrate: "winrate"  # win rate; r. m; bez formy 1; formy: —; źr. brak; [DO USTALENIA]
+downswing: "downswing"  # downswing; r. m; bez formy 15; formy: downswing×11, Downswing×2; źr. C:Upswing („Il contrario dell´upswing è un downswing”)
+session: "sessione"  # session; r. f; bez formy 2; formy: sessione×44, sessioni×10; źr. brak; [DO USTALENIA]
+stakes: "limite"  # stakes; r. m; bez formy 0; formy: limite×50, limiti×12, Limite×1; źr. C:Micro-limit („i limiti molto piccoli”); C:TAG („ai limiti più bassi”)
+standard-deviation: "deviazione standard"  # standard deviation; r. f; bez formy 0; formy: deviazione standard×22, deviazione×20, deviazioni×1, deviazioni standard×1; źr. brak; [DO USTALENIA]
+risk-of-ruin: "rischio di rovina"  # risk of ruin; r. m; bez formy 0; formy: rischio di rovina×3, Rischio di rovina×1; źr. brak; [DO USTALENIA]
+mental-game: "mental game"  # mental game; r. m; bez formy 1; formy: —; źr. brak; [DO USTALENIA]
+tournament: "torneo"  # tournament; r. m; bez formy 1; formy: torneo×14, Torneo×2, tornei×1; źr. C:Torneo („Un torneo di poker è una forma di gioco”)
+push-fold: "push/fold"  # push/fold; r. m; bez formy 0; formy: —; źr. C:push; częściowo
+shove: "push"  # shove; r. m; bez formy 0; formy: pushi×8, pusha×8, pushare×4, pusheresti×2, push×2; źr. C:push („Un giocatore fa un push se va all-in”)
+icm: "ICM"  # Independent Chip Model; r. m; bez formy 28; formy: ICM×2; źr. C:EV_2044 („Il $EV, che è importante per l'ICM”)
+bubble: "bolla"  # bubble; r. f; bez formy 0; formy: Bolla×6, bolla×5; źr. C:Hand-for-hand_2048 („prima che scoppi la bolla”); C:Bubble (bubble)
+bubble-factor: "bubble factor"  # bubble factor; r. m; bez formy 0; formy: —; źr. C:Bubble-factor („Il Bubble factor è il fattore”)
+cover: "coprire"  # cover; r. —; bez formy 0; formy: copre×3, copri×2; źr. C:Covered („Avere un giocatore covered significa avere più chip/soldi di lui”); częściowo [DO USTALENIA]
+risk-premium: "risk premium"  # risk premium; r. m; bez formy 3; formy: risk premium×4, Risk premium×1; źr. brak; [DO USTALENIA]
+m-ratio: "M-ratio"  # M-ratio; r. m; bez formy 0; formy: —; źr. brak; [DO USTALENIA]
+red-zone: "zona rossa"  # red zone; r. f; bez formy 0; formy: Zona rossa×1, zona rossa×1; źr. brak; [DO USTALENIA]
+green-zone: "zona verde"  # green zone; r. f; bez formy 0; formy: Zona verde×1, zona verde×1; źr. brak; [DO USTALENIA]
+ante: "ante"  # ante; r. m; bez formy 0; formy: —; źr. C:Ante („L' ante è una forma di puntata obbligatoria”); A
+bb-ante: "big blind ante"  # big blind ante; r. m; bez formy 5; formy: big blind ante×1; źr. brak; [DO USTALENIA]
+fold-equity: "fold equity"  # fold equity; r. f; bez formy 0; formy: —; źr. C:Fold-equity
+gap-concept: "gap concept"  # gap concept; r. m; bez formy 0; formy: —; źr. C:Gap-Concept („Il Gap Concept o concetto di margine”)
+chip-ev: "chip EV"  # chip EV; r. m; bez formy 0; formy: —; źr. brak; [DO USTALENIA]
+tournament-equity: "equity di torneo"  # tournament equity; r. f; bez formy 0; formy: equity di torneo×2; źr. brak; [DO USTALENIA]
+prize-pool: "montepremi"  # prize pool; r. m; bez formy 0; formy: montepremi×18; źr. C:Buy-in („va a finire nel montepremi finale”); C:In-the-money
+payout: "premio"  # payout; r. m; bez formy 3; formy: premi×5, pagamenti×3, Pagamenti×1; źr. C:Bubble („vanno ai premi”); tłumacz premi×5, pagamenti×3 [WIELE FORM]; częściowo
+pay-jump: "salto di premio"  # pay jump; r. m; bez formy 0; formy: —; źr. brak; [DO USTALENIA]
+final-table: "tavolo finale"  # final table; r. m; bez formy 0; formy: tavolo finale×4; źr. C:Final-Table („Si tratta dell´ultimo tavolo di un torneo”); częściowo (hasło „Final Table”)
+short-stack: "short stack"  # short stack; r. m; bez formy 0; formy: short stack×13; źr. C:Shortstack
+nash-equilibrium: "equilibrio di Nash"  # Nash equilibrium; r. m; bez formy 0; formy: —; źr. brak; [DO USTALENIA]
+overcall: "overcall"  # overcall; r. m; bez formy 0; formy: —; źr. C:Call (odnośnik „Overcall”); częściowo
+heads-up: "heads-up"  # heads up; r. m; bez formy 0; formy: —; źr. C:Heads-up („L´heads-up è forse la forma più difficile”)
+dead-money: "dead money"  # dead money; r. m; bez formy 0; formy: —; źr. C:Dead-money
+stack-off: "stack off"  # stack off; r. m; bez formy 0; formy: —; źr. brak; [DO USTALENIA]
+exploit: "exploit"  # exploit; r. m; bez formy 3; formy: sfruttamento×3, Lo sfruttamento×1, Exploit×1, exploit×1; źr. C:Exploiting-Sfruttare („Exploiting si riferisce al processo”); bez formy „L'/all'/un {{t:exploit}}” — „sfruttamento” dałoby „l'sfruttamento”; lekcje sfruttamento×4 [WIELE FORM]
+hud: "HUD"  # heads-up display; r. m; bez formy 7; formy: HUD×7; źr. brak; [DO USTALENIA]
+vpip: "VPIP"  # voluntarily put in pot; r. m; bez formy 73; formy: VPIP×17; źr. C:VPIP („Il VPIP o VP$IP”)
+pfr: "PFR"  # preflop raise; r. m; bez formy 51; formy: PFR×10; źr. C:PFR („Il PFR (sta per Pre-flop Raise )”)
+wtsd: "WTSD"  # went to showdown; r. m; bez formy 3; formy: —; źr. C:WTSD („Il WTSD (Went to Showdown )”)
+nit: "nit"  # nit; r. m; bez formy 14; formy: nit×3, Nit×2; źr. C:Weak-tight („viene definito in generale anche come nit”)
+regular: "regular"  # regular; r. m; bez formy 1; formy: regular×6, Regular×3, Reg×1, reg×1; źr. brak; [DO USTALENIA]
+tag: "TAG"  # tight aggressive; r. m; bez formy 1; formy: —; źr. C:TAG („TAG sta per Tight-Aggressive”)
+lag: "LAG"  # loose aggressive; r. m; bez formy 1; formy: —; źr. C:LAG („LAG sta per Loose-Aggressive”)
+recreational: "giocatore ricreativo"  # recreational player; r. m; bez formy 0; formy: giocatore ricreativo×10, giocatori ricreativi×8, Giocatori ricreativi×2, Giocatore ricreativo×1; źr. brak (C: „fish”); [DO USTALENIA]
+calling-station: "calling station"  # calling station; r. f; bez formy 1; formy: calling station×1; źr. C:Calling-station („Con calling station (in breve, station) si definisce un giocatore”)
+maniac: "maniac"  # maniac; r. m; bez formy 2; formy: maniaco×14, Maniac×1, maniac×1; źr. C:Maniac („Un maniac è un giocatore estremamente aggressivo”); lekcje: maniac×45, maniaco×16 [WIELE FORM]
+rake: "rake"  # rake; r. m; bez formy 39; formy: rake×17; źr. C:Rake („Il rake oppure il "chop"”)
+rake-cap: "tetto del rake"  # rake cap; r. m; bez formy 0; formy: tetto del rake×5, tetto×1, rake cap×1; źr. brak; [DO USTALENIA]
