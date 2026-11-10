@@ -1,0 +1,11 @@
+# Recenzja niezależna AW — bd965be (baza 40e5cef)
+
+Podsumowanie subagenta poprzedniego koordynatora (session_01T66VBzpecX1cLyGgZbrkbu), przekazane dosłownie 2026-11-10 09:52 UTC; pełny raport został w jego scratchpadzie (niedostępny). Scalenie 31347bd (128a089) nie było w zakresie — osobna recenzja: `recenzja-aw-31347bd.md`.
+
+Liczby: KRYT 0, WYS 0, ŚR 2, NISKIE 6. Werdykt: nie blokuje wydania testowego.
+
+- ŚR-1 `docs/sklep/asc-reczne-wartosci.md:115` (i `:100`): tekst Notes do ręcznego wklejenia w ASC nadal mówi „"Skip" works on every question” i powołuje się na `placement.skip`; pliki `store/` są poprawione. Poprawić przed App Review.
+- ŚR-2 `apps/mobile/src/components/__tests__/Stol-08.test.tsx:81-90`: test nie łapie usunięcia `aspectRatio: undefined` (`Stol.tsx:53`) ani pominięcia rozmiaru board z układu (`Stol.tsx:70`). Pozostałe 5 mutacji złapane („Nie wiem” jako poprawna, brak porzucenia aktywności, stary kształt zapisu, wysokość bez paddingu, „Nie wiem” jako odpowiedź 0).
+- NISKIE: (1) układ 2 rzędów zmienił się też w lekcjach/egzaminach/sesji: 390 pt +10 pt, 320 pt +52 pt, board 5 kart schodzi do „sm” (poprawa, ale poza opisem D-476; 1 rząd i stół z miejscami bez zmian); (2) skok wysokości 177→310 pt po pierwszej klatce na każdym pytaniu; (3) możliwa osierocona aktywność `w_toku` przy szybkim dotknięciu obu przycisków powitania lub nieudanym porzuceniu (`PierwszeUruchomienie.tsx:121-125`, `ocenaPoziomu.ts:140-146`), bez utraty danych; (4) `lista-telefonu-en.md:52` każe sprawdzić ponowną ocenę z ustawień, której w UI nie ma (także w bazie); (5) „Nie wiem” liczy się w statystykach rodzin i serii dni jak dotąd błędne odpowiedzi; (6) drobne komentarze/kontekst.
+- Bez znalezisk: `{"nieWiem":true}` nie psuje odczytu/eksportu/importu/powtórek (jedyny parser `parsujWybor` zwraca null i nie dotyczy `ocena_poziomu`); same „Nie wiem” → M0; testy dostosowane, nie osłabione; 2+5+2 mieści się przy 320 i 390 pt (przeliczone, zapas rogów 2,7 pt przy 320) i przy powiększonym tekście; 12 języków kompletnych, `placement.skip` nieużywany; flowy Maestro i `store/` spójne.
+- Uruchomione przez recenzenta: jest (ocena-poziomu, stol, components), `asc.test.mjs`, `e2e-flowy.test.mjs`, k11, `pnpm typecheck`, `i18n:kod` — zielone. Pełnego `pnpm run ci` i renderu na urządzeniu nie sprawdzał.
