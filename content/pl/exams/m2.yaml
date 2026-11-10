@@ -77,7 +77,7 @@ drills:
     prompt: "Flop. Masz {{t:flush-draw|draw do koloru}}, stacki są głębokie, a rywal {{t:bet|stawia}} całą {{t:pot|pulę}}. Licz tylko cenę i szansę trafienia (bez implied odds). Co robisz?"
     table: { hand: "Js 6s", board: "Qs 4s 9d" }
     options:
-      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Potrzebujesz {{n:eq.bet-pot}}. {{t:call|Sprawdzenie}} kupuje tylko turn, a na nim trafisz z szansą ok. {{n:odds.flush.flop-turn}}. To wyraźnie za mało." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Masz {{t:flush-draw|draw do koloru}} na flopie, a rywal {{t:bet|stawia}} całą {{t:pot|pulę}}: {{t:fold|pasujesz}}, bo {{t:call|sprawdzenie}} kupuje tylko turn (przy głębokich stackach rywal może {{t:bet|postawić}} znowu), a na nim {{t:flush|kolor}} trafia za rzadko. Ta cena wymaga wygrywania mniej więcej co trzeciego rozdania ({{n:eq.bet-pot}}), a {{t:flush|kolor}} wchodzi na turnie mniej więcej co piąte (ok. {{n:odds.flush.flop-turn}})." }
       - { text: "{{t:call|Sprawdzam}}, bo do rivera mam ok. {{n:odds.flush.flop-river}}", why: "Szansę do rivera masz tylko wtedy, gdy zobaczysz obie karty bez dalszych {{t:bet|zakładów}}. Przy głębokich stackach rywal może {{t:bet|postawić}} znowu na turnie, więc za tę cenę kupujesz jedną kartę: ok. {{n:odds.flush.flop-turn}}." }
   - kind: choice
     id: m2.exam.q7
@@ -86,7 +86,7 @@ drills:
     prompt: "Turn. Masz {{t:oesd|OESD}}. W {{t:pot|puli}} jest {{n:exam.m2.third.pot}}, rywal {{t:bet|stawia}} {{n:exam.m2.third.bet}}. Licz tylko cenę i szansę trafienia. Co robisz?"
     table: { hand: "9h 8h", board: "Tc 7d 2s Kd" }
     options:
-      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Potrzebujesz {{n:exam.m2.third.bet}} ÷ {{n:exam.m2.third.total}} = {{n:exam.m2.third.eq}}. {{t:straight|Strit}} daje {{n:outs.oesd}} outów, czyli {{n:outs.oesd}} z {{n:cards.unseen.turn}}: ok. {{n:odds.oesd.turn-river}}. Nawet mały {{t:bet}} jest tu za drogi." }
+      - { text: "{{t:fold|Pasuję}}", correct: true, why: "Masz {{t:oesd|OESD}} na turnie i została jedna karta: {{t:fold|pasujesz}}, bo nawet ten mały {{t:bet}} wymaga trafiania częściej, niż trafia twój draw. Cena wymaga wygrywania mniej więcej co piątego rozdania ({{n:exam.m2.third.bet}} ÷ {{n:exam.m2.third.total}} = {{n:exam.m2.third.eq}}), a {{t:straight|strit}} wchodzi rzadziej: {{n:outs.oesd}} outów z {{n:cards.unseen.turn}} kart, ok. {{n:odds.oesd.turn-river}}." }
       - { text: "{{t:call|Sprawdzam}}, bo {{t:bet}} jest mały", why: "Mały {{t:bet}} to nie to samo co dobra cena. Potrzebujesz {{n:exam.m2.third.eq}}, a masz ok. {{n:odds.oesd.turn-river}}." }
   - kind: choice
     id: m2.exam.q8
@@ -95,5 +95,5 @@ drills:
     prompt: "Flop. Rywal wchodzi all-in za pół {{t:pot|puli}}, a ty masz {{t:flush-draw|draw do koloru}}. Załóż, że wygrywasz tylko wtedy, gdy trafisz {{t:flush|kolor}}. Co robisz?"
     table: { hand: "Kc Tc", board: "8c 3c Jd" }
     options:
-      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Potrzebujesz {{n:eq.bet-half}}. Rywal jest all-in, więc zobaczysz turn i rivera bez dalszych {{t:bet|zakładów}}: {{n:outs.flush}} outów daje ok. {{n:odds.flush.flop-river}}. To więcej niż potrzebujesz." }
+      - { text: "{{t:call|Sprawdzam}}", correct: true, why: "Rywal jest all-in, więc za jedną dopłatę zobaczysz turn i rivera bez dalszych {{t:bet|zakładów}}: {{t:call|sprawdzasz}}, bo na dwóch kartach {{t:flush|kolor}} wchodzi częściej, niż wymaga cena. Cena wymaga wygrywania mniej więcej co czwartego rozdania ({{n:eq.bet-half}}), a {{n:outs.flush}} outów na dwóch kartach daje ponad co trzecie (ok. {{n:odds.flush.flop-river}})." }
       - { text: "{{t:fold|Pasuję}}, bo na turnie mam tylko ok. {{n:odds.flush.flop-turn}}", why: "Szansę na jedną kartę liczysz, gdy rywal może jeszcze {{t:bet|postawić}}. Przy all-inie zobaczysz obie karty, więc liczysz do rivera: ok. {{n:odds.flush.flop-river}}." }

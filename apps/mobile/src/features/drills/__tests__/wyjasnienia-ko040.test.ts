@@ -42,11 +42,12 @@ describe('KO-040: wyjaśnienia generatorów decyzji', () => {
     const spot: RangeSpot = { id: 'rfi.utg', title: 'UTG, nikt jeszcze nie wszedł do gry', hero: 'UTG', path: '', playPercent: 0.1, groups: [{ name: 'Przebicie', freqs }] };
     for (const raw of instantiate(gen('rangeDecision', { spots: 'rfi.utg' }, 60), 'l', createRng(3), undefined, { range: () => spot })) {
       const x = choice(raw);
-      expect(x.explanation).toMatch(/^Masz \S+\. Sytuacja: UTG/);
-      const bo = x.explanation.indexOf(', bo ');
+      const e = x.explanation ?? '';
+      expect(e).toMatch(/^Masz \S+\. Sytuacja: UTG/);
+      const bo = e.indexOf(', bo ');
       expect(bo).toBeGreaterThan(0);
-      expect(firstPct(x.explanation)).toBeGreaterThan(bo);
-      expect(x.explanation).toContain('pięciu graczy');
+      expect(firstPct(e)).toBeGreaterThan(bo);
+      expect(e).toContain('pięciu graczy');
       for (const o of x.options) {
         expect(o.why).toMatch(/w tej sytuacji ta ręka|na granicy/);
         expect(o.why).not.toMatch(/^Solver/);
@@ -57,11 +58,12 @@ describe('KO-040: wyjaśnienia generatorów decyzji', () => {
   it.each(['flop', 'turn'])('drawCall (%s): sytuacja z drawem i zakładem, decyzja „bo” przed liczbą, powód przy obu opcjach', (street) => {
     for (const raw of instantiate(gen('drawCall', { street }), 'l', createRng(11))) {
       const x = choice(raw);
-      expect(x.explanation).toMatch(new RegExp(`^Masz .+ na ${street === 'flop' ? 'flopie' : 'turnie'}, rywal`));
-      const bo = x.explanation.indexOf(', bo ');
+      const e = x.explanation ?? '';
+      expect(e).toMatch(new RegExp(`^Masz .+ na ${street === 'flop' ? 'flopie' : 'turnie'}, rywal`));
+      const bo = e.indexOf(', bo ');
       expect(bo).toBeGreaterThan(0);
-      expect(firstPct(x.explanation)).toBeGreaterThan(bo);
-      expect(x.explanation).toMatch(/mniej więcej raz na \d/);
+      expect(firstPct(e)).toBeGreaterThan(bo);
+      expect(e).toMatch(/mniej więcej raz na \d/);
       for (const o of x.options) expect(o.why.length).toBeGreaterThan(25);
     }
   });

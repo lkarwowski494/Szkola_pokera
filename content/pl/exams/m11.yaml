@@ -83,4 +83,4 @@ drills:
     options:
       - { text: "Z {{t:small-blind|małego blinda}}: ok. {{n:m11.3max.push.sb}} rąk wobec ok. {{n:m11.3max.push.btn}} z Buttona", correct: true, why: "Każdy gracz za tobą to dodatkowa szansa, że ktoś obudzi się z silną ręką. Z Buttona {{t:fold|spasować}} muszą dwaj gracze, z {{t:small-blind|małego blinda}} tylko jeden." }
       - { text: "Z Buttona, bo ma najlepszą {{t:position|pozycję}}", why: "Po all-inie nikt już nie podejmuje decyzji po flopie, więc {{t:position|pozycja}} nic tu nie daje. Liczy się, ilu graczy może {{t:call|sprawdzić}}: za Buttonem jest ich dwóch." }
-      - { text: "Tak samo z obu miejsc", why: "Solver {{t:shove|pushuje}} z Buttona ok. {{n:m11.3max.push.btn}}, a z {{t:small-blind|małego blinda}} ok. {{n:m11.3max.push.sb}} rąk. Różnicę robi liczba graczy za tobą." }
+      - { text: "Tak samo z obu miejsc", why: "Liczba graczy za tobą zmienia, jak często wszyscy {{t:fold|spasują}}: z Buttona muszą {{t:fold|spasować}} dwaj gracze, z {{t:small-blind|małego blinda}} tylko jeden. Dlatego solver {{t:shove|pushuje}} z Buttona ok. {{n:m11.3max.push.btn}}, a z {{t:small-blind|małego blinda}} ok. {{n:m11.3max.push.sb}} rąk." }
