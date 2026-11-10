@@ -58,7 +58,7 @@ drills:
     id: m2.exam.q5
     family: m2.pot-odds
     rules: [R-M2-003]
-    prompt: "W {{t:pot|puli}} jest {{n:exam.m2.half.pot}}. Rywal {{t:bet|stawia}} {{n:exam.m2.half.bet}}. Ile equity potrzebujesz do {{t:call|sprawdzenia}}?"
+    prompt: "Przed {{t:bet|zakładem}} rywala w {{t:pot|puli}} jest {{n:exam.m2.half.pot}} {{t:chips|żetonów}}. Rywal {{t:bet|stawia}} {{n:exam.m2.half.bet}}. Jakiej szansy na wygranie {{t:pot|puli}} ({{t:equity}}) potrzebujesz co najmniej, żeby {{t:call|sprawdzić}}?"
     options:
       - { text: "{{n:exam.m2.half.eq}}", correct: true, why: "Dopłacasz {{n:exam.m2.half.bet}}, a {{t:pot}} po twoim {{t:call|sprawdzeniu}} ma {{n:exam.m2.half.pot}} + {{n:exam.m2.half.bet}} + {{n:exam.m2.half.bet}} = {{n:exam.m2.half.total}}. {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.total}} = {{n:exam.m2.half.eq}}. To {{t:bet}} pół {{t:pot|puli}}, więc wynik jest ten sam przy każdej wielkości {{t:pot|puli}}." }
       - { text: "{{n:exam.m2.half.wrong}}", why: "To {{n:exam.m2.half.bet}} ÷ {{n:exam.m2.half.after-bet}}, bez twojego {{t:call|sprawdzenia}}. Dopłatę dzielisz przez całą {{t:pot|pulę}} po {{t:call|sprawdzeniu}}: {{n:exam.m2.half.total}}." }

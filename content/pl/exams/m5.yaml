@@ -16,7 +16,7 @@ drills:
     id: m5.exam.q2
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "{{t:open|Otworzyłeś}} z Buttona, {{t:big-blind}} {{t:call|sprawdził}}. Na którym z tych flopów to {{t:big-blind}} częściej niż ty ma {{t:two-pair}} albo {{t:straight|strita}}?"
+    prompt: "{{t:open|Otworzyłeś}} grę z Buttona, a gracz na {{t:big-blind|dużym blindzie}} {{t:call|sprawdził}}. Na którym z tych flopów (pierwszych trzech {{t:community-cards|kart wspólnych}}) ten gracz częściej niż ty ma {{t:two-pair}} albo {{t:straight|strita}}?"
     table: { position: BTN }
     options:
       - { text: "[[8h 6d 5c]]", correct: true, why: "Tak: niski, {{t:connected}} flop trafia {{t:connectors|konektory}} i ręce z małymi kartami, których {{t:big-blind}} broni dużo. Ty z Buttona masz więcej wysokich kart, które tu chybiły. To {{t:nuts-advantage}} {{t:big-blind|dużego blinda}}." }

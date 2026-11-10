@@ -6,7 +6,7 @@ drills:
     id: m4.exam.q1
     family: m4.3bet.size
     rules: [R-M4-002, R-M4-003]
-    prompt: "{{t:cutoff|CO}} {{t:open|otworzył}} na {{n:pf.open-size}}, Button {{t:fold|spasował}}. Jesteś na {{t:small-blind|małym blindzie}} i chcesz 3-betować. Do ilu?"
+    prompt: "{{t:cutoff|CO}} {{t:open|otworzył}} grę, {{t:raise|przebijając}} do {{n:pf.open-size}}, a Button {{t:fold|spasował}}. Jesteś na {{t:small-blind|małym blindzie}} i chcesz {{t:raise|przebić}} jeszcze raz ({{t:3-bet}}). Do ilu {{t:raise|przebijasz}}?"
     table: { hand: "Ad Kd", position: SB }
     options:
       - { text: "Do {{n:pf.3bet.oop-total}}", correct: true, why: "Po flopie będziesz mówić pierwszy, więc {{t:raise|przebijasz}} ok. {{n:pf.3bet.size-oop}} {{t:open|otwarcia}}. Większy rozmiar odbiera {{t:cutoff|CO}} tanie {{t:call}} {{t:in-position}}." }

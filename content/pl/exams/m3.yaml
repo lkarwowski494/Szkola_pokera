@@ -15,12 +15,12 @@ drills:
     id: m3.exam.q2
     family: m3.open-early
     rules: [R-M3-002]
-    prompt: "Mówisz pierwszy preflop, nikt jeszcze nie wszedł do gry. Co robisz?"
+    prompt: "Gracie w sześć osób, karty właśnie rozdane. Decydujesz jako pierwszy, przed tobą nikt jeszcze nie zagrał. Co robisz?"
     table: { hand: "Ac Td", position: UTG }
     options:
-      - { text: "{{t:raise|Przebijam}}", correct: true, why: "AT w różnych kolorach mieści się w {{t:range|zakresie}} {{t:open|otwarcia}} z {{t:utg}} (ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk). Solver aplikacji gra ją tu zawsze." }
+      - { text: "{{t:raise|Przebijam}} {{t:big-blind|duży blind}}", correct: true, why: "AT w różnych kolorach mieści się w {{t:range|zakresie}} {{t:open|otwarcia}} z {{t:utg}} (ok. {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} rąk). Solver aplikacji gra ją tu zawsze." }
       - { text: "{{t:fold|Pasuję}}", why: "Za ciasno. Z {{t:utg}} grasz wąsko, ale AT jest jeszcze w {{t:range|zakresie}}." }
-      - { text: "Dopłacam do {{t:big-blind|dużego blinda}}", why: "Jako pierwszy {{t:raise|przebijasz}} albo {{t:fold|pasujesz}}. Limp oddaje {{t:initiative|inicjatywę}} i szansę na zgarnięcie blindów od razu." }
+      - { text: "{{t:call|Sprawdzam}} {{t:big-blind|duży blind}}", why: "Jako pierwszy {{t:raise|przebijasz}} albo {{t:fold|pasujesz}}. Samo {{t:call|sprawdzenie}} {{t:big-blind|dużego blinda}} to {{t:limp}}: oddaje {{t:initiative|inicjatywę}} i szansę na zgarnięcie blindów od razu." }
   - kind: choice
     id: m3.exam.q3
     family: m3.rfi.early

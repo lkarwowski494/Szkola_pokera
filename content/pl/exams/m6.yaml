@@ -41,7 +41,7 @@ drills:
     id: m6.exam.q5
     family: m6.flop.price
     rules: [R-M6-005]
-    prompt: "Flop. W {{t:pot|puli}} jest {{n:exam.m6.pot}}. Button {{t:bet|stawia}} raz {{n:exam.m6.bet.quarter}}, a w innym rozdaniu {{n:exam.m6.bet.three-quarters}}. Ile equity potrzebujesz do {{t:call|sprawdzenia}} w każdym z tych przypadków?"
+    prompt: "Jesteś na {{t:big-blind|dużym blindzie}}, jest flop. Przed {{t:bet|zakładem}} w {{t:pot|puli}} jest {{n:exam.m6.pot}} {{t:chips|żetonów}}. Button {{t:bet|stawia}} w jednym rozdaniu {{n:exam.m6.bet.quarter}}, a w innym {{n:exam.m6.bet.three-quarters}}. Jakiej szansy na wygranie {{t:pot|puli}} ({{t:equity}}) potrzebujesz co najmniej, żeby {{t:call|sprawdzić}}, w każdym z tych rozdań?"
     table: { position: BB }
     options:
       - { text: "Ok. {{n:eq.bet-quarter}} i {{n:eq.bet-three-quarters}}", correct: true, why: "Tak: bet ÷ ({{t:pot}} + 2·bet). {{n:exam.m6.bet.quarter}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.quarter}} + {{n:exam.m6.bet.quarter}}) = {{n:eq.bet-quarter}}, a {{n:exam.m6.bet.three-quarters}} ÷ ({{n:exam.m6.pot}} + {{n:exam.m6.bet.three-quarters}} + {{n:exam.m6.bet.three-quarters}}) = {{n:eq.bet-three-quarters}}. Przy większym becie bronisz węższym {{t:range|zakresem}}." }

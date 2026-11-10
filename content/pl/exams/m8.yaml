@@ -5,9 +5,9 @@ drills:
     id: m8.exam.q1
     family: m8.value.threshold
     rules: [R-M8-001]
-    prompt: "River, rywal {{t:check|czeka}} i nie może cię {{t:raise|przebić}}. W jego {{t:range|zakresie}} jest {{n:exam.m8.range.worse}} rąk gorszych od twojej, ale twój bet {{t:call|sprawdzi}} tylko {{n:exam.m8.call.worse}} z nich. Zapłaci też {{n:exam.m8.call.better}} razy lepszą ręką. Betujesz?"
+    prompt: "River, ostatnia {{t:betting-round|runda licytacji}}. Rywal {{t:check|czeka}}. Załóż, że na twój {{t:bet|zakład}} może już tylko {{t:call|sprawdzić}} albo {{t:fold|spasować}}. W jego {{t:range|zakresie}} (wśród rąk, które może mieć) jest {{n:exam.m8.range.worse}} rąk gorszych od twojej, ale tylko {{n:exam.m8.call.worse}} z nich {{t:call|sprawdzą}} twój {{t:bet|zakład}}. {{t:call|Sprawdzą}} go też {{n:exam.m8.call.better}} ręce lepsze od twojej. {{t:bet|Stawiasz}} {{t:bet|zakład}}?"
     options:
-      - { text: "Nie, {{t:check|czekam}}", correct: true, why: "Tak: liczysz tylko ręce, które zapłacą. Bet wygrywa {{n:exam.m8.call.worse}} razy i przegrywa {{n:exam.m8.call.better}} razy, czyli na czysto traci {{n:exam.m8.net.loss}} bet. Gorsze ręce, które {{t:fold|spasują}}, i tak przegrałyby z tobą po {{t:check|czekaniu}}." }
+      - { text: "Nie, {{t:check|czekam}}", correct: true, why: "Dobrze: liczysz tylko ręce, które zapłacą. Bet wygrywa {{n:exam.m8.call.worse}} razy i przegrywa {{n:exam.m8.call.better}} razy, czyli na czysto traci {{n:exam.m8.net.loss}} bet. Gorsze ręce, które {{t:fold|spasują}}, i tak przegrałyby z tobą po {{t:check|czekaniu}}." }
       - { text: "Tak, bo gorszych rąk jest więcej niż lepszych", why: "Rywal ma {{n:exam.m8.range.worse}} gorszych rąk, ale większość z nich na bet {{t:fold|spasuje}}. Wśród rąk, które zapłacą, lepszych jest więcej ({{n:exam.m8.call.better}} wobec {{n:exam.m8.call.worse}})." }
       - { text: "Tak, żeby się dowiedzieć, gdzie jestem", why: "Bet „dla informacji” płaci lepszym rękom, a gorsze {{t:fold|pasują}}. Tę samą informację dostajesz za darmo po {{t:check|czekaniu}}, przy showdownie." }
   - kind: choice
