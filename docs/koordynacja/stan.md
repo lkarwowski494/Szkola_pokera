@@ -46,7 +46,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 | BI | session_01T66VBxqKjeRa2iEfMd7EaY | 08 build, kod (sonnet) | sesja-bi-menu @ 0c24cb6 (start) | — | — | w toku od 15:55: krok G — menu W2, zębatka, Wskaźnik w Postępie (polecenie d29fef1, pula D-580…D-594); cmp identyczne |
 | BJ | session_01T66VBzVpXwyryyHjJHWX9z | 08 audit, kod (opus/high) | sesja-bj-recenzja @ 53ca690 | 27,2 | 5,31 | **gotowe 16:16**: „przyjąć z warunkiem” — KRYT 0, WYS 1 (decyzja zmienia się w wariantach, BR-GEN-003; test czerwony eae60e3), ŚR 2, NIS 1; warstwa danych bez uwag (migracja v2, kopia v1, UPSERT, eksport/import); zarchiwizowana 16:19 |
 | BK | session_01T66VBzrp5dgx1vJNBbE4Sm | 06 audit, treść (opus/high) | sesja-bk-recenzja @ 7b159bd | 30,9 | 5,58 | **gotowe 16:13**: „przyjąć z warunkiem” — KRYT 0, WYS 1 (powód R-M11-011 przy SB 3-max), ŚR 2, NIS 3; content:build 0, ci 0 wg sesji; zarchiwizowana 16:17 |
-| BL | (start przez subagenta) | 08 audit, kod (opus/high) | sesja-bl-recenzja @ 5f17558 | — | — | recenzja niezależna BI (polecenie dda4ee2) |
+| BL | session_01T66VBySX4GqBWoncw6wZ5T | 08 audit, kod (opus/high) | sesja-bl-recenzja @ 5f17558 | — | — | recenzja niezależna BI (polecenie dda4ee2); start 16:17, effort high; cmp identyczne |
 Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%), AT (7,32 USD, 26,4%), AU (5,37 USD, 32,4%), AV (0,85 USD, 15,4%), BA (13,39 USD, 29,1% → BB), BB (8,34 USD, 23,4% → BC). Litery użyte dotąd: A…Z, AA…AT ; następna litera: **BM**. Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
 ## Plan 24 h (UTC)
