@@ -6,7 +6,7 @@ import { dlugaOperacja, type PortBazy, type Tx, type Wartosc } from './port';
 
 export type PowodZapisu = 'zapis_nieudany' | 'brak_miejsca' | 'przerwano_w_tle';
 
-// Kolumny tabel postępu i ich typy = docs/architektura/schemat.sql (strażnik: test kolumny-eksportu w dane-08). Zamknięta lista, bo
+// Kolumny tabel postępu i ich typy = docs/architektura/schemat.sql + schemat-v2.sql (strażnik: test kolumny-eksportu w dane-08). Zamknięta lista, bo
 // nazwy kolumn z pliku importu trafiają do SQL (D-202), a SQLite przy afinicji INTEGER/REAL przyjmuje tekst bez błędu (przegląd
 // D-043, P1). i = liczba całkowita, r = liczba, t = tekst; „?” = dopuszcza NULL.
 type TypKolumny = 'i' | 'i?' | 'r' | 't';
@@ -20,17 +20,19 @@ export const TYPY_KOLUMN: Record<TabelaEksportu, Readonly<Record<string, TypKolu
   karta: { rodzina_id: 't', termin_ms: 'i', stabilnosc: 'r', trudnosc: 'r', dni_zaplanowane: 'r', kroki_nauki: 'i', powtorzenia: 'i',
     zapomnienia: 'i', stan: 'i', ostatnia_powtorka_ms: 'i?', zmieniono_ms: 'i' },
   log_powtorki: { id: 'i', rodzina_id: 't', odpowiedz_id: 'i?', ocena_fsrs: 'i', stan_przed: 'i', termin_przed_ms: 'i', powtorzono_ms: 'i' },
+  wariant_historia: { id: 'i', szablon_id: 't', poziom: 't', odcisk: 't', ziarno: 'i', zagrano_ms: 'i' }, // schemat-v2.sql (D-532)
 };
 export const KOLUMNY_EKSPORTU: Record<TabelaEksportu, readonly string[]> = {
   ustawienie: Object.keys(TYPY_KOLUMN.ustawienie), postep_lekcji: Object.keys(TYPY_KOLUMN.postep_lekcji),
   aktywnosc: Object.keys(TYPY_KOLUMN.aktywnosc), odpowiedz: Object.keys(TYPY_KOLUMN.odpowiedz),
   wynik_testu: Object.keys(TYPY_KOLUMN.wynik_testu), karta: Object.keys(TYPY_KOLUMN.karta), log_powtorki: Object.keys(TYPY_KOLUMN.log_powtorki),
+  wariant_historia: Object.keys(TYPY_KOLUMN.wariant_historia),
 };
 const KLUCZ: Record<TabelaEksportu, string> = {
-  ustawienie: 'klucz', postep_lekcji: 'lekcja_id', aktywnosc: 'id', odpowiedz: 'id', wynik_testu: 'aktywnosc_id', karta: 'rodzina_id', log_powtorki: 'id',
+  ustawienie: 'klucz', postep_lekcji: 'lekcja_id', aktywnosc: 'id', odpowiedz: 'id', wynik_testu: 'aktywnosc_id', karta: 'rodzina_id', log_powtorki: 'id', wariant_historia: 'id',
 };
 // Dzieci przed rodzicami (klucze obce): kolejność usuwania; wstawianie w kolejności odwrotnej (TABELE_EKSPORTU).
-const DZIECI_PRZED_RODZICAMI: readonly TabelaEksportu[] = ['log_powtorki', 'karta', 'wynik_testu', 'odpowiedz', 'aktywnosc', 'postep_lekcji', 'ustawienie'];
+const DZIECI_PRZED_RODZICAMI: readonly TabelaEksportu[] = ['wariant_historia', 'log_powtorki', 'karta', 'wynik_testu', 'odpowiedz', 'aktywnosc', 'postep_lekcji', 'ustawienie'];
 
 function zgodnaZTypem(typ: TypKolumny | undefined, v: unknown): v is Wartosc {
   switch (typ) {

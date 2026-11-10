@@ -3,8 +3,12 @@ import type { Wynik } from './typy';
 
 export const FORMAT_EKSPORTU = 'szkola-pokera-postep';
 // Tabele postępu w pliku (dane.md: bez uprawnienie_cache i dziennika), w kolejności rodzic → dziecko.
-export const TABELE_EKSPORTU = ['ustawienie', 'postep_lekcji', 'aktywnosc', 'odpowiedz', 'wynik_testu', 'karta', 'log_powtorki'] as const;
+// `wariant_historia` (D-532, migracja v2) dopisana na końcu; wersja_formatu zostaje 1.
+export const TABELE_EKSPORTU = ['ustawienie', 'postep_lekcji', 'aktywnosc', 'odpowiedz', 'wynik_testu', 'karta', 'log_powtorki', 'wariant_historia'] as const;
 export type TabelaEksportu = (typeof TABELE_EKSPORTU)[number];
+// Tabele, których brak w pliku oznacza pustą tabelę: pliki sprzed ich dodania (v1 bez `wariant_historia`) muszą się importować.
+// Pozostałe tabele są wymagane (brak = utrata danych przy imporcie, który kasuje i wstawia). Nowa tabela opcjonalna: tylko z decyzją.
+const TABELE_OPCJONALNE: readonly TabelaEksportu[] = ['wariant_historia'];
 export interface KopertaV1 {
   format: typeof FORMAT_EKSPORTU;
   wersja_formatu: 1;
@@ -16,14 +20,14 @@ export type KopertaDowolna = { format: string; wersja_formatu: number } & Record
 
 const czyObiekt = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
 
-// Koperta v1 z danych spoza aplikacji albo null, gdy struktura się nie zgadza (każda z 7 tabel to tablica obiektów;
-// brak tabeli = utrata danych przy imporcie, który kasuje i wstawia). Kolumny wierszy sprawdza import (pakiet postep).
+// Koperta v1 z danych spoza aplikacji albo null, gdy struktura się nie zgadza (każda z 7 tabel wymaganych to tablica obiektów;
+// brak tabeli = utrata danych przy imporcie, który kasuje i wstawia; wyjątek: TABELE_OPCJONALNE, brak = pusta tablica). Kolumny wierszy sprawdza import (pakiet postep).
 function kopertaV1(k: Record<string, unknown>): KopertaV1 | null {
   if (k.format !== FORMAT_EKSPORTU || k.wersja_formatu !== 1) return null;
   if (typeof k.utworzono !== 'string' || typeof k.aplikacja !== 'string' || !czyObiekt(k.dane)) return null;
   const dane: Record<string, Record<string, unknown>[]> = {};
   for (const t of TABELE_EKSPORTU) {
-    const wiersze = k.dane[t];
+    const wiersze = k.dane[t] === undefined && TABELE_OPCJONALNE.includes(t) ? [] : k.dane[t];
     if (!Array.isArray(wiersze)) return null;
     const sprawdzone: Record<string, unknown>[] = [];
     for (const w of wiersze) {

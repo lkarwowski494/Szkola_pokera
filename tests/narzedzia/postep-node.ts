@@ -31,7 +31,7 @@ export const integralnosc = (db: DatabaseSync) => ({
   integrity: (db.prepare('PRAGMA integrity_check').get() as { integrity_check: string }).integrity_check,
   kluczeObce: db.prepare('PRAGMA foreign_key_check').all().length,
 });
-export const TABELE_EKSPORTU = ['ustawienie', 'postep_lekcji', 'aktywnosc', 'odpowiedz', 'wynik_testu', 'karta', 'log_powtorki'] as const;
-export const KLUCZ: Record<string, string> = { ustawienie: 'klucz', postep_lekcji: 'lekcja_id', aktywnosc: 'id', odpowiedz: 'id', wynik_testu: 'aktywnosc_id', karta: 'rodzina_id', log_powtorki: 'id' };
+export const TABELE_EKSPORTU = ['ustawienie', 'postep_lekcji', 'aktywnosc', 'odpowiedz', 'wynik_testu', 'karta', 'log_powtorki', 'wariant_historia'] as const; // + D-532 (migracja v2)
+export const KLUCZ: Record<string, string> = { ustawienie: 'klucz', postep_lekcji: 'lekcja_id', aktywnosc: 'id', odpowiedz: 'id', wynik_testu: 'aktywnosc_id', karta: 'rodzina_id', log_powtorki: 'id', wariant_historia: 'id' };
 export const zawartosc = (db: DatabaseSync, tabele: readonly string[] = TABELE_EKSPORTU) =>
   Object.fromEntries(tabele.map((t) => [t, db.prepare(`SELECT * FROM ${t} ORDER BY ${KLUCZ[t] ?? 'rowid'}`).all().map((w) => ({ ...w }))]));
