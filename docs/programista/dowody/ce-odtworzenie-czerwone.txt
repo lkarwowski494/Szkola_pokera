@@ -1,0 +1,28 @@
+$ CE_CZERWONE=1 npx vitest run test/recenzja-ce-odtworzenie.test.ts
+     × sc-fx-icm-call trudny: odpowiedź zgodna z rachunkiem ICM z blindami (gracz BB wobec all-inu SB, stos efektywny 10 bb) 397ms
+     × sc-fx-allin-draw: zakład = stos BB za pulą przy martwych blindach z pozycji (BB wobec BTN) 1846ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/recenzja-ce-odtworzenie.test.ts > recenzja CE 08-programista-001: icm-call pomija blindy wpłacone przez gracza w BB (pozycje szablonu) > sc-fx-icm-call trudny: odpowiedź zgodna z rachunkiem ICM z blindami (gracz BB wobec all-inu SB, stos efektywny 10 bb)
+AssertionError: expected [ …(3) ] to deeply equal []
+ FAIL  test/recenzja-ce-odtworzenie.test.ts > recenzja CE 08-programista-002: all-in rywala nie większy niż stos gracza, gdy gracz albo rywal jest blindem > sc-fx-allin-draw: zakład = stos BB za pulą przy martwych blindach z pozycji (BB wobec BTN)
+AssertionError: expected [ …(3) ] to deeply equal []
+      Tests  2 failed (2)
+exit=1
+
+$ npx vitest run test/recenzja-ce-odtworzenie.test.ts  (it.fails)
+ Test Files  1 passed (1)
+      Tests  2 expected fail (2)
+exit=0
+
+$ pnpm typecheck (content-build)
+exit=0
+   ❯ recenzja CE 08-programista-001: icm-call pomija blindy wpłacone przez gracza w BB (pozycje szablonu) (1)
+   ❯ recenzja CE 08-programista-002: all-in rywala nie większy niż stos gracza, gdy gracz albo rywal jest blindem (1)
+ FAIL  test/recenzja-ce-odtworzenie.test.ts > recenzja CE 08-programista-001: icm-call pomija blindy wpłacone przez gracza w BB (pozycje szablonu) > sc-fx-icm-call trudny: odpowiedź zgodna z rachunkiem ICM z blindami (gracz BB wobec all-inu SB, stos efektywny 10 bb)
++   "6: AQo equity 0.627, próg z blindami 0.613: call, generator fold",
++   "8: A3s equity 0.533, próg z blindami 0.528: call, generator fold",
++   "9: 66 equity 0.569, próg z blindami 0.549: call, generator fold",
++ Received
++ [
++   "1: pula 36, all-in 17.75, stos za pulą 17.25",
+(sonda 3000 wariantów/poziom, scratchpad: latwy 0, sredni 0, trudny 1239 odwróconych)
