@@ -1,0 +1,9 @@
+Źródło: MCP GitHub actions_list list_workflow_runs branch=main (odczyt 2026-11-10), 30 najnowszych z 81.
+CI (ci.yml) ostatni na main: run 42764138635 @ ddb0108 2026-11-10 05:45 — success
+Pages: run 42764138515 @ ddb0108 — success
+ASC lokalizacje produktów (asc-iap-localizations.yml) run 42702503780 @ 388dacc (dispatch z ref main) — failure
+ASC produkty zakupu (asc-produkty.yml) run 42699812656 @ 388dacc (dispatch z ref main) — failure
+  (commit 970c4d3: „uruchamianie --ref claude/sleepy-brahmagupta-2065nu (z main przebieg pada przed kluczem)” — zamierzone, D-348/D-364)
+E2E (e2e.yml, Maestro) na main: przebiegi #7–#18 (2026-10-08..2026-10-20) — wszystkie failure; później brak przebiegów na main (plik e2e.yml nie istnieje na badanym SHA; jest e2e-ios.yml)
+TestFlight run 37639316123 @ 8c6ac76 2026-10-07 — success
+Uwaga: main to gałąź publikacji (site/, workflowy); kod aplikacji rozwijany na claude/sleepy-brahmagupta-2065nu (badany SHA bca751e).
