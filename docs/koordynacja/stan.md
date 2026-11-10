@@ -55,6 +55,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 | BL | session_01T66VBySX4GqBWoncw6wZ5T | 08 audit, kod (opus/high) | sesja-bl-recenzja @ 4ad6dc2 | 30,2 | 7,09 | **zarchiwizowana 16:37**; gotowe 16:29: „przyjąć z warunkiem” — WYS 1 (flowy E2E 02/03/04 czekają na learn.intro na „Dziś” → 3/9 padną; test c6697d7), ŚR 3, NIS 6; react-native-svg 15.16.0 zgodny z Expo, licencje OK, limit bez obejścia; do archiwizacji (koszt odczytać) |
 | BM | session_01T66VBywhEkNRbZGPX4Q4pu | 08 fix, kod (sonnet) | sesja-bf-generator @ 8b5db83 | — | — | poprawki BJ-001…004 (polecenie 059bac9, pula D-556…D-564); następca BF; start 16:24, cmp identyczne |
 | BN | session_01T66VByBYtzqiWmjp98BCJe | 06 build, treść (opus/high) | sesja-bn-wyjasnienia @ 02b1fe1 | — | — | 06-tresci-002 + pozostałe B/C KO-040 (polecenie 162edc5, pula D-595…D-609); następca BG; start 16:26, effort high; cmp: linia 417 (regex LICZBA, nbsp) — poprawka wysłana |
+| BO | session_01T66VBvFGoJmyx12kawhqkh | 08 audit, kod (opus/high) | sesja-bo-recenzja @ 49654a6 (start) | — | — | recenzja niezależna BM 8b5db83..49654a6 (polecenie BO.md @ 9e2498f); start 16:52, cmp identyczne |
 Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%), AT (7,32 USD, 26,4%), AU (5,37 USD, 32,4%), AV (0,85 USD, 15,4%), BA (13,39 USD, 29,1% → BB), BB (8,34 USD, 23,4% → BC). Litery użyte dotąd: A…Z, AA…AT ; następna litera: **BQ**. Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
 ## Plan 24 h (UTC)
