@@ -1,0 +1,56 @@
+[
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/rules.yaml",
+    "stary": "khi họ bluff thừa, bạn luôn",
+    "nowy": "khi họ {{t:bluff|bluff}} thừa, bạn luôn",
+    "waga": "WYS",
+    "powod": "R-M10-009 then: zgubiony znacznik {{t:bluff|…}} (pl: „przy nadmiarze {{t:bluff|blefów}}”); poprawka przywraca znacznik",
+    "grupa": "vi-R3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/rules.yaml",
+    "stary": "nhiều lần {{t:call|theo}} của họ hơn là tay kém hơn tay bạn",
+    "nowy": "trong các lần {{t:call|theo}} của họ có nhiều tay kém hơn tay bạn hơn",
+    "waga": "ŚR",
+    "powod": "R-M10-006 because: niezrozumiała kalka („więcej jego sprawdzeń to ręce gorsze od twojej”); podwójne „hơn” czyta się jak „raczej … niż”",
+    "grupa": "vi-R3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/rules.yaml",
+    "stary": "sau bạn còn nhiều người chơi có thể",
+    "nowy": "sau bạn còn nhiều người chơi hơn có thể",
+    "waga": "ŚR",
+    "powod": "R-M11-011 if: pl „zostało więcej graczy” (porównanie: więcej niż w heads-up), przekład ma „wielu graczy”",
+    "grupa": "vi-R3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/rules.yaml",
+    "stary": "phần chơi lại từ ván đã chơi hiển thị",
+    "nowy": "phần ôn tập từ ván chơi hiển thị",
+    "waga": "ŚR",
+    "powod": "R-M13-003 because: „powtórka z gry” to powtórka (SRS), w lekcji m13-l2 nazwana „Ôn tập từ ván chơi”; „chơi lại” znaczy „odtworzenie/ponowne zagranie” — niespójny termin",
+    "grupa": "vi-R3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/rules.yaml",
+    "stary": "bạn vào ván thường đến đâu",
+    "nowy": "bạn vào ván thường xuyên đến mức nào",
+    "waga": "NISKIE",
+    "powod": "R-M13-004 if: niezręczne „thường đến đâu” (pl „jak często wchodzisz do gry”)",
+    "grupa": "vi-R3"
+  },
+  {
+    "jezyk": "vi",
+    "cel": "content/vi/rules.yaml",
+    "stary": "khớp với cấp độ lớn trong tài liệu 08",
+    "nowy": "khớp với bậc độ lớn trong tài liệu 08",
+    "waga": "NISKIE",
+    "powod": "R-M12-003 source: „rząd wielkości” to po wietnamsku „bậc độ lớn”; „cấp độ lớn” czyta się jak „duży poziom”",
+    "grupa": "vi-R3"
+  }
+]
