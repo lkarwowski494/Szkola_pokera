@@ -48,6 +48,44 @@ describe('odczyty na wzorcu v1', () => {
   });
 });
 
+// Decyzja właściciela 2026-11-10 (D-477): ocena poziomu (rodzaj `ocena_poziomu`) nie liczy się do statystyk ekranu „Postęp”
+// (trafność, najsłabsze rodziny) ani do serii dni; zapisane odpowiedzi zostają w bazie (tylko filtr odczytu, bez migracji).
+const OCENA = (dzien: string): AktywnoscWToku => ({
+  stan: 'w_toku', rodzaj: 'ocena_poziomu', zLimitu: false, dzienLokalny: dzien, strefa: 'Europe/Warsaw', startMs: T0, krok: 0,
+  plan: { liczbaKrokow: 3, trescId: null, zadania: [{ id: 'a', ziarno: 0 }, { id: 'b', ziarno: 0 }, { id: 'c', ziarno: 0 }] },
+});
+const nieWiem = (krok: number, rodzina: string): OdpowiedzKroku => ({ ...odp(krok, 0, rodzina), wybor: '{"nieWiem":true}' });
+describe('ocena poziomu poza statystykami i serią (D-477)', () => {
+  it('same „Nie wiem” w ocenie: brak rodzin w statystykach i brak dni serii; odpowiedzi nadal w bazie', async () => {
+    const { port, db } = await przygotuj('pusta');
+    await zacznijAktywnosc(port, 'o1', OCENA('2026-11-08'));
+    for (let k = 0; k < 3; k++) await zapiszKrok(port, 'o1', nieWiem(k, `r${k}`), k + 1);
+    expect(await statystykiRodzin(port)).toEqual({ ok: true, wartosc: [] });
+    expect(await dniZOdpowiedzia(port)).toEqual({ ok: true, wartosc: [] });
+    expect(db.prepare('SELECT COUNT(*) AS n FROM odpowiedz').get()).toEqual({ n: 3 });
+  });
+  it('mieszane: odpowiedzi oceny (poprawne i „Nie wiem”) nie zmieniają liczb zwykłej aktywności ani serii', async () => {
+    const { port } = await przygotuj('pusta');
+    await zacznijAktywnosc(port, 'o1', OCENA('2026-11-08'));
+    await zapiszKrok(port, 'o1', odp(0, 1, 'r1'), 1);
+    await zapiszKrok(port, 'o1', nieWiem(1, 'r1'), 2);
+    await zapiszKrok(port, 'o1', odp(2, 1, 'r2'), 3);
+    await zacznijAktywnosc(port, 'l1', LEKCJA('m01-l1', '2026-11-09'));
+    await zapiszKrok(port, 'l1', odp(0, 1, 'r1'), 1);
+    await zapiszKrok(port, 'l1', odp(1, 0, 'r1'), 2);
+    expect(await statystykiRodzin(port)).toEqual({ ok: true, wartosc: [{ rodzinaId: 'r1', wszystkie: 2, zaliczone: 1 }] });
+    expect(await dniZOdpowiedzia(port)).toEqual({ ok: true, wartosc: ['2026-11-09'] });
+  });
+  it('ten sam dzień: dzień z oceną i lekcją liczy się raz (z lekcji)', async () => {
+    const { port } = await przygotuj('pusta');
+    await zacznijAktywnosc(port, 'o1', OCENA('2026-11-09'));
+    await zapiszKrok(port, 'o1', nieWiem(0, 'r1'), 1);
+    await zacznijAktywnosc(port, 'l1', LEKCJA('m01-l1', '2026-11-09'));
+    await zapiszKrok(port, 'l1', odp(0, 1, 'r1'), 1);
+    expect(await dniZOdpowiedzia(port)).toEqual({ ok: true, wartosc: ['2026-11-09'] });
+  });
+});
+
 describe('wyniki lekcji', () => {
   it('najlepszy wynik ukończonej lekcji; lekcja w toku i porzucona się nie liczą', async () => {
     const { port } = await przygotuj('pusta');
