@@ -47,3 +47,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | BG | 06 build (książki + KO-040) | — | 17,92 | 36,6 | 15:35 → 15:40 → … → 07eba39 CI 15:57 → 02b1fe1 CI 16:24 → 16:30 | 0 | kontekst ponad 30% bez przekazania |
 | BL | 08 audit (recenzja BI) | — | 7,09 | 30,2 | 16:15 → 16:17 → 16:29 (4ad6dc2; test c6697d7) → — (docs/test, bez CI) → 16:37 | 0 | „przyjąć z warunkiem” WYS 1; zarchiwizowana 16:37 |
 | BI | 08 build (menu W2, zębatka; krok G) | — | 5,12 | 35,0 | 15:53 → 15:55 → 524e569 16:08 → 5f17558 CI 16:25 → 1f69723 CI 16:40 → 16:48 | 0 | kontekst ponad 30% przy końcu |
+| BN | 06 build (06-tresci-002 + B/C KO-040) | — | 14,21 | 39,3 | 16:24 → 16:26 → … → 5cd9d8c 17:08 → CI w toku → (recenzja BP) | 0 | kontekst ponad 30% (WG kandydat: 06 opus, 2. raz dziś po BG) |
