@@ -39,7 +39,7 @@ Soczewki: recenzent szukający ścieżki bez testu (001, 004), programista czyta
 | Kod gałęzi BT, BS, BU, BY poza stykami | nie (zrecenzowane wcześniej, poza zakresem) | — |
 
 ## Kontrola dowodów i sekretów
-`node sprawdz-raport.mjs docs/programista/recenzje/recenzja-cd-07b04fb.md . --rola 08-programista` → `OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 08-programista` (kod 0). CI: stan wyjściowy dowody/ch-ci-wyjsciowe.txt (kod 0); po dodaniu testu odtwarzającego `docs/programista/dowody/ch-ci-<sha>.txt` (kod 0, SHA w nazwie pliku).
+`node sprawdz-raport.mjs docs/programista/recenzje/recenzja-cd-07b04fb.md . --rola 08-programista` → `OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 08-programista` (kod 0). CI: stan wyjściowy dowody/ch-ci-wyjsciowe.txt (kod 0); po dodaniu testu odtwarzającego `docs/programista/dowody/ch-ci-840e7e2.txt` (kod 0; 818 testów mobile, w tym `recenzja-ch-stos.test.ts`).
 
 ## Stosowalność listy kontrolnej
 | Pozycja | Status | Wynik |

@@ -1,0 +1,17 @@
+# komenda: pnpm run ci @ 840e7e2 (2026-11-10T22:49:44Z), node v22.23.4
+packages/srs test:  Test Files  3 passed (3)
+packages/jezyki test:  Test Files  6 passed (6)
+packages/poker-core test:  Test Files  14 passed (14)
+packages/domena test:  Test Files  24 passed (24)
+tools/preflop-solver test:  Test Files  9 passed (9)
+packages/postep test:  Test Files  18 passed (18)
+tools/content-build test:  Test Files  25 passed (25)
+apps/mobile test: PASS src/features/scenariusz/__tests__/recenzja-ch-stos.test.ts (6.214 s)
+apps/mobile test: Tests:       818 passed, 818 total
+# Subtest: poprawny plik (z identyfikatorem UUID): 0 błędów
+ok 152 - poprawny plik (z identyfikatorem UUID): 0 błędów
+# Subtest: D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+ok 159 - D-532: stary plik v1 bez tabeli wariant_historia → 0 błędów; z poprawną tabelą też; ze złą kolumną → błąd
+ Test Files  6 passed (6)
+0 błędów, 0 uwag
+kod wyjścia: 0
