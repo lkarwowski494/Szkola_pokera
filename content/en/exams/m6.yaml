@@ -91,6 +91,6 @@ drills:
     prompt: "You defend the {{t:big-blind}} against a Button {{t:open}}. On which flop do you check-raise most often?"
     table: { position: BB }
     options:
-      - { text: "[[8d 6c 5h]]", correct: true, why: "Yes: on a low, {{t:connected}} flop the {{t:big-blind}} has more of the strongest hands ({{t:two-pair}}, {{t:straight|straights}}) than the Button, so it check-raises more often here." }
+      - { text: "[[8d 6c 5h]]", correct: true, why: "Yes: on a low, {{t:connected}} flop the {{t:big-blind}} has {{t:straight|straights}} and {{t:two-pair|two pair}} in its {{t:range}}, and the Button usually doesn't have a {{t:nuts-advantage}}, so you check-raise more often here." }
       - { text: "[[Ks Qd Jh]]", why: "A high flop with cards close together hits the Button’s {{t:range}} well (AK, AQ, KQ, high {{t:pair|pairs}}). Here you check-raise less often." }
       - { text: "[[Ah Ad Qc]]", why: "On a flop with a {{t:pair}} of aces, the Button, who {{t:open|opened}} with many aces, more often has the strongest hands. You rarely check-raise here." }

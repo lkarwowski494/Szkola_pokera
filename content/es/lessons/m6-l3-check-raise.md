@@ -13,7 +13,7 @@ drills:
     prompt: "Defiendes la {{t:big-blind|ciega grande}} contra la {{t:open|apertura}} del botón. En el flop {{t:check|pasas}} y el botón {{t:bet|apuesta}} un c-bet de 1/3 del {{t:pot|bote}}. ¿Qué haces?"
     table: { hand: "6c 5c", board: "7h 6d 5s", position: BB }
     options:
-      - { text: "Check-raise", correct: true, why: "{{t:two-pair|Dobles parejas}} en un flop bajo y {{t:connected|conectado}} es una mano {{t:value|de valor}}. En flops así, la {{t:big-blind|ciega grande}} tiene más manos de las más fuertes que el botón. Al {{t:raise|subir}} construyes el {{t:pot|bote}} y haces pagar a las {{t:pair|parejas}} y a los {{t:draw|proyectos}}." }
+      - { text: "Check-raise", correct: true, why: "{{t:two-pair|Dobles parejas}} en un flop bajo y {{t:connected|conectado}} es una mano {{t:value|de valor}}. En flops así, la {{t:big-blind|ciega grande}} tiene en su {{t:range|rango}} {{t:straight|escaleras}} y {{t:two-pair|dobles parejas}}, y el botón normalmente no tiene {{t:nuts-advantage|ventaja de nuts}}. Al {{t:raise|subir}} construyes el {{t:pot|bote}} y haces pagar a las {{t:pair|parejas}} y a los {{t:draw|proyectos}}." }
       - { text: "{{t:call|Igualo}}", correct: true, why: "También es buena: en un flop muy {{t:connected|conectado}}, con parte de las {{t:two-pair|dobles parejas}} el solver se limita a {{t:call|igualar}}. El check-raise construye el {{t:pot|bote}} y protege la mano con más frecuencia." }
       - { text: "{{t:fold|Me retiro}}", why: "{{t:two-pair|Dobles parejas}} es una de las manos más fuertes en este flop. {{t:fold|Retirarse}} es un gran error." }
   - kind: choice
@@ -127,7 +127,7 @@ Con manos medias, como {{t:top-pair|pareja mayor}} con kicker débil, normalment
 ## Cuándo con más frecuencia
 
 - **Frente a un c-bet pequeño.** La {{t:raise|subida}} es barata y el botón {{t:bet|apuesta}} el c-bet pequeño con un {{t:range|rango}} amplio. Frente a un c-bet grande {{t:raise|subes}} con menos frecuencia y con un rango más ajustado: sobre todo sets y {{t:two-pair|dobles parejas}}, menos {{t:bluff|faroles}}.
-- **En flops bajos y {{t:connected|conectados}}** (p. ej., [[7h 6d 5s]]). La {{t:big-blind|ciega grande}} defiende muchas manos bajas, así que aquí suele tener más {{t:two-pair|dobles parejas}} y {{t:straight|escaleras}} que el botón, es decir, {{t:nuts-advantage|ventaja de nuts}}.
+- **En flops bajos y {{t:connected|conectados}}** (p. ej., [[7h 6d 5s]]). La {{t:big-blind|ciega grande}} defiende muchas manos bajas, que aquí ligan {{t:straight|escaleras}} y {{t:two-pair|dobles parejas}}, así que el botón normalmente no tiene aquí {{t:nuts-advantage|ventaja de nuts}}.
 - **Con menos frecuencia en flops altos favorables al botón**, p. ej., K-J-T o A-A-K: ahí es él quien tiene más manos de las más fuertes.
 
 ## Qué tamaño

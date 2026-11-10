@@ -16,12 +16,12 @@ drills:
     id: m5.exam.q2
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "你從按鈕位{{t:open|開池}}，{{t:big-blind|大盲}}位的玩家{{t:call|跟注}}。在下列哪個翻牌（最先發出的三張{{t:community-cards|公共牌}}）上，那位玩家比你更常拿到{{t:two-pair}}或{{t:straight|順子}}？"
+    prompt: "你從按鈕位{{t:open|開池}}，{{t:big-blind|大盲}}位的玩家{{t:call|跟注}}。在下列哪個翻牌（最先發出的三張{{t:community-cards|公共牌}}）上，你沒有{{t:nuts-advantage|堅果優勢}}，也就是最強的牌沒有明顯比對手多？"
     table: { position: BTN }
     options:
-      - { text: "[[8h 6d 5c]]", correct: true, why: "對：低張、{{t:connected}}的翻牌會擊中{{t:connectors|連張}}和小牌手牌，而{{t:big-blind}}防守很多這類牌。你從按鈕位開池，高牌較多，這些牌在這裡都沒擊中。這是{{t:big-blind|大盲}}的{{t:nuts-advantage}}。" }
-      - { text: "[[Kd Td 3s]]", why: "不對：高張翻牌對{{t:open|開池者}}有利。你有更多帶好踢腳的 K、KT 和高{{t:pair|對子}}。" }
-      - { text: "[[Ah Ad 7c]]", why: "不對：在有一{{t:pair|對}} A 的翻牌上，你的 A 更多，因為{{t:big-blind}}在翻牌前會把最強的 A {{t:raise|加注}}。這裡沒有人有{{t:straight|順子}}。" }
+      - { text: "[[8h 6d 5c]]", correct: true, why: "對：低張、{{t:connected}}的翻牌會擊中{{t:connectors|連張}}和小牌手牌，而{{t:big-blind}}防守很多這類牌，所以他在這裡也有{{t:straight|順子}}和{{t:two-pair|兩對}}。你的高牌在這裡都沒擊中，所以你的最強牌通常並沒有明顯比較多。" }
+      - { text: "[[Kd Td 3s]]", why: "不對：有兩張高牌的翻牌給{{t:open|開池者}}{{t:nuts-advantage|堅果優勢}}。你在這裡有更多最強的牌，例如 KK，因為{{t:big-blind}}翻牌前會把大部分 KK {{t:raise|加注}}。" }
+      - { text: "[[Ah Qd 7c]]", why: "不對：在有 A 和 Q 的翻牌上，是你有更多最強的牌，例如 AA 和 AQ，因為{{t:big-blind}}翻牌前通常會把最強的 A {{t:raise|加注}}。" }
   - kind: choice
     id: m5.exam.q3
     family: m5.advantage.why

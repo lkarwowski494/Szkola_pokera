@@ -357,11 +357,11 @@
   module: m5
   if: "você {{t:open|abriu}} antes do flop, e o flop é baixo e {{t:connected|conectado}} ou {{t:semi-connected|semiconectado}}, por exemplo 7-6-5"
   then: "você dá c-bet com menos frequência que em flops altos, e muitas mãos {{t:check|dão check}}"
-  because: "o {{t:big-blind}} defende muitos {{t:connectors|conectores}} do mesmo naipe e {{t:pair|pares}} pequenos, então mais vezes tem {{t:two-pair|dois pares}} ou uma {{t:straight|sequência}}: é ele que tem {{t:nuts-advantage|vantagem de nuts}}"
+  because: "o {{t:big-blind}} defende muitos {{t:connectors|conectores}} e mãos com cartas baixas, que acertam o flop baixo, e suas cartas altas erraram; em um flop {{t:connected|conectado}}, ele também tem {{t:straight|sequências}} e {{t:two-pair|dois pares}}, então geralmente você não tem {{t:nuts-advantage|vantagem de nuts}}"
   level: heuristic
   check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
-  source: "combinatória: o Button abre todos os pares 55–77, e o big blind paga com eles, então os dois têm sets em quantidade parecida; site de solver comercial, Bullying the Blinds (em 654r o Button dá check com mais da metade do range; “Even on 654r… BB has less than 52% equity”)"
-  sources: [{ kind: solver-pub }, { kind: math }]
+  source: "site de solver comercial, Flop Heuristics: IP C-Betting in Cash Games (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/, BTN vs BB: “a large portion of their range consists of low-card holdings because of the preflop discount posed by the blinds. We connect better with high-card boards and get to bet more.”; “flopped straights often being in the BB’s range”; “Size down and bet less on flops that complete straights and flushes in your opponent’s range”); site de solver comercial, Flop Heuristics: IP C-Betting in MTTs (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-mtts/; outro spot: BTN vs SB, 40bb; em flops conectados “the raiser generally does not have a nuts advantage”; simplificação: transferido de forma direcional para BTN vs BB no cash game, de acordo com o artigo sobre cash game); site de solver comercial, Bullying the Blinds (https://blog.gtowizard.com/bullying-the-blinds-with-continuation-bets/, 20bb, 654r: “BB’s advantage at the top end”, o Button dá check com mais da metade do range); site de treinamento, 3 Concepts That Should Shape Your Postflop Strategy (“the Big Blind will often have the nut advantage”, https://upswingpoker.com/nut-range-positional-advantage/)"
+  sources: [{ kind: solver-pub }, { kind: training, url: "https://upswingpoker.com/nut-range-positional-advantage/" }]
 - id: R-M5-005
   module: m5
   if: "no seu {{t:range}} há muito mais mãos fortíssimas do que no do adversário ({{t:nuts-advantage}})"
@@ -508,9 +508,9 @@
   module: m6
   if: "o c-bet é pequeno ou o flop é baixo e {{t:connected|conectado}} (por exemplo 7-6-5)"
   then: "você dá check-raise com mais frequência; em flops altos bons para quem aumentou pré-flop (por exemplo K-J-T, A-A-K) e contra c-bets grandes, com menos frequência"
-  because: "em flops baixos o {{t:big-blind}} tem mais das combinações mais fortes ({{t:nuts-advantage}}), e um c-bet pequeno dá uma oportunidade barata de {{t:raise|aumentar}}"
+  because: "em flops baixos e {{t:connected|conectados}} o {{t:big-blind}} tem no {{t:range|range}} {{t:straight|sequências}} e {{t:two-pair|dois pares}}, e o Button geralmente não tem {{t:nuts-advantage|vantagem de nuts}}; um c-bet pequeno dá uma oportunidade barata de {{t:raise|aumentar}}"
   level: heuristic
-  source: "site de treinamento, How to Check-Raise Like a High Stakes Juggernaut (flops em que não aumentar: K♣J♥T♠, Q♥J♦T♠, A♥A♠K♥; check-raise 12,65% contra 33% e 8,66% contra 66% do pote); site de solver comercial (“The larger the BTN bets, the less BB raises”)"
+  source: "site de treinamento, How to Check-Raise Like a High Stakes Juggernaut (flops em que não aumentar: K♣J♥T♠, Q♥J♦T♠, A♥A♠K♥; check-raise 12,65% contra 33% e 8,66% contra 66% do pote); site de solver comercial (“The larger the BTN bets, the less BB raises”); site de solver comercial, Flop Heuristics: IP C-Betting in Cash Games (“flopped straights often being in the BB’s range”)"
   sources: [{ kind: solver-pub }, { kind: training }]
 - id: R-M6-010
   module: m6

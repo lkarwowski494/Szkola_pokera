@@ -1,0 +1,64 @@
+diff --git a/content/pl/exams/m5.yaml b/content/pl/exams/m5.yaml
+index 5d4df0b..ceeca0f 100644
+--- a/content/pl/exams/m5.yaml
++++ b/content/pl/exams/m5.yaml
+@@ -22,2 +22,2 @@ drills:
+-      - { text: "[[8h 6d 5c]]", correct: true, why: "Tak: niski, {{t:connected}} flop trafia {{t:connectors|konektory}} i ręce z małymi kartami, których {{t:big-blind}} broni dużo, więc {{t:straight|strity}} i {{t:two-pair|dwie pary}} ma tu także on. Twoje wysokie karty tu chybiły, więc najsilniejszych rąk nie masz wyraźnie więcej." }
+-      - { text: "[[Kd Td 3s]]", why: "Nie: flop z dwiema wysokimi kartami daje {{t:nuts-advantage|przewagę nutsów}} {{t:open|otwierającemu}}. Masz tu więcej najsilniejszych rąk, np. KK i KT, bo {{t:big-blind}} większość KK {{t:raise|przebija}} przed flopem." }
++      - { text: "[[8h 6d 5c]]", correct: true, why: "Tak: niski, {{t:connected}} flop trafia {{t:connectors|konektory}} i ręce z małymi kartami, których {{t:big-blind}} broni dużo, więc {{t:straight|strity}} i {{t:two-pair|dwie pary}} ma tu także on. Twoje wysokie karty tu chybiły, więc zwykle najsilniejszych rąk nie masz wyraźnie więcej." }
++      - { text: "[[Kd Td 3s]]", why: "Nie: flop z dwiema wysokimi kartami daje {{t:nuts-advantage|przewagę nutsów}} {{t:open|otwierającemu}}. Masz tu więcej najsilniejszych rąk, np. KK, bo {{t:big-blind}} większość KK {{t:raise|przebija}} przed flopem." }
+diff --git a/content/pl/exams/m6.yaml b/content/pl/exams/m6.yaml
+index 41ef501..0f6fc56 100644
+--- a/content/pl/exams/m6.yaml
++++ b/content/pl/exams/m6.yaml
+@@ -94 +94 @@ drills:
+-      - { text: "[[8d 6c 5h]]", correct: true, why: "Tak: na niskim, {{t:connected|połączonym}} flopie {{t:big-blind}} ma w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a Button nie ma {{t:nuts-advantage|przewagi nutsów}}, więc check-raise robisz tu częściej." }
++      - { text: "[[8d 6c 5h]]", correct: true, why: "Tak: na niskim, {{t:connected|połączonym}} flopie {{t:big-blind}} ma w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a Button zwykle nie ma {{t:nuts-advantage|przewagi nutsów}}, więc check-raise robisz tu częściej." }
+diff --git a/content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md b/content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md
+index 7f10bac..d97b680 100644
+--- a/content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md
++++ b/content/pl/lessons/m5-l3-czestotliwosc-rozmiar.md
+@@ -38,3 +38,3 @@ drills:
+-          check: "Tak: niski flop z kartami blisko siebie trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}: ma tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a ty nie masz {{t:nuts-advantage|przewagi nutsów}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|drawy}}."
+-          small: "Za często: na niskim flopie z kartami blisko siebie nie masz {{t:nuts-advantage|przewagi nutsów}}. Częste c-bety, nawet małe, dają {{t:big-blind|dużemu blindowi}} okazję do {{t:raise|przebicia}} po wcześniejszym {{t:check|czekaniu}} (check-raise) najsilniejszymi rękami."
+-          big: "Za często i za drogo: {{t:big-blind}} ma tu w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}. Częsty duży c-bet ryzykuje dużo, gdy sam zwykle masz tylko wysokie karty."
++          check: "Tak: niski flop z kartami blisko siebie trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}: broni on wielu rąk z małymi kartami, a twoje wysokie karty tu chybiły. Na flopie {{t:connected|połączonym}} ma on też {{t:straight|strity}} i {{t:two-pair|dwie pary}}, więc zwykle nie masz {{t:nuts-advantage|przewagi nutsów}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|drawy}}."
++          small: "Za często: niski flop z kartami blisko siebie trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}, a na {{t:connected|połączonym}} zwykle nie masz {{t:nuts-advantage|przewagi nutsów}}. Częste c-bety, nawet małe, dają {{t:big-blind|dużemu blindowi}} okazję do {{t:raise|przebicia}} po wcześniejszym {{t:check|czekaniu}} (check-raise) najsilniejszymi rękami."
++          big: "Za często i za drogo: ten flop trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}, a na {{t:connected|połączonym}} ma on też {{t:straight|strity}} i {{t:two-pair|dwie pary}}. Częsty duży c-bet ryzykuje dużo, gdy sam zwykle masz tylko wysokie karty."
+@@ -126 +126 @@ Uwaga: „{{t:wet}}” nie znaczy „duży bet”. {{t:monotone|Jednokolorowy}}
+-Na [[7s 6h 5d]] {{t:big-blind}} ma w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a ty nie masz {{t:nuts-advantage|przewagi nutsów}} (lekcja o przewagach). Podobnie na innych niskich flopach {{t:connected|połączonych}} i {{t:semi-connected|półpołączonych}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie bardzo silne ręce i mocne {{t:draw|drawy}}.
++Na [[7s 6h 5d]] {{t:big-blind}} ma w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a ty nie masz {{t:nuts-advantage|przewagi nutsów}} (lekcja o przewagach). Zwykle podobnie jest na innych niskich flopach {{t:connected|połączonych}}. Na niskim flopie {{t:semi-connected|półpołączonym}} {{t:straight|strita}} jeszcze nie ma, ale flop i tak trafia ręce z małymi kartami, których {{t:big-blind}} broni dużo, a twoje wysokie karty chybiły. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie bardzo silne ręce i mocne {{t:draw|drawy}}.
+diff --git a/content/pl/lessons/m5-l4-bez-pozycji.md b/content/pl/lessons/m5-l4-bez-pozycji.md
+index 0187cd0..d9890b7 100644
+--- a/content/pl/lessons/m5-l4-bez-pozycji.md
++++ b/content/pl/lessons/m5-l4-bez-pozycji.md
+@@ -90,3 +90,3 @@ drills:
+-          check: "Tak: niski flop z kartami blisko siebie trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}: ma tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a ty nie masz {{t:nuts-advantage|przewagi nutsów}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|drawy}}."
+-          small: "Za często: na niskim flopie z kartami blisko siebie nie masz {{t:nuts-advantage|przewagi nutsów}}. Częste c-bety, nawet małe, dają {{t:big-blind|dużemu blindowi}} okazję do {{t:raise|przebicia}} (check-raise) najsilniejszymi rękami."
+-          big: "Za często i za drogo: {{t:big-blind}} ma tu w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}. Częsty duży c-bet ryzykuje dużo, gdy sam zwykle masz tylko wysokie karty."
++          check: "Tak: niski flop z kartami blisko siebie trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}: broni on wielu rąk z małymi kartami, a twoje wysokie karty tu chybiły. Na flopie {{t:connected|połączonym}} ma on też {{t:straight|strity}} i {{t:two-pair|dwie pary}}, więc zwykle nie masz {{t:nuts-advantage|przewagi nutsów}}. C-betujesz rzadziej niż na wysokich flopach: wiele rąk {{t:check|czeka}}, a betują głównie silne ręce i mocne {{t:draw|drawy}}."
++          small: "Za często: niski flop z kartami blisko siebie trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}, a na {{t:connected|połączonym}} zwykle nie masz {{t:nuts-advantage|przewagi nutsów}}. Częste c-bety, nawet małe, dają {{t:big-blind|dużemu blindowi}} okazję do {{t:raise|przebicia}} (check-raise) najsilniejszymi rękami."
++          big: "Za często i za drogo: ten flop trafia {{t:range|zakres}} {{t:big-blind|dużego blinda}}, a na {{t:connected|połączonym}} ma on też {{t:straight|strity}} i {{t:two-pair|dwie pary}}. Częsty duży c-bet ryzykuje dużo, gdy sam zwykle masz tylko wysokie karty."
+diff --git a/content/pl/lessons/m6-l3-check-raise.md b/content/pl/lessons/m6-l3-check-raise.md
+index bc01174..dd02b33 100644
+--- a/content/pl/lessons/m6-l3-check-raise.md
++++ b/content/pl/lessons/m6-l3-check-raise.md
+@@ -16 +16 @@ drills:
+-      - { text: "Check-raise", correct: true, why: "{{t:two-pair|Dwie pary}} na niskim, {{t:connected|połączonym}} flopie to ręka {{t:value|dla wartości}}. Na takich flopach {{t:big-blind}} ma w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a Button nie ma {{t:nuts-advantage|przewagi nutsów}}. {{t:raise|Przebiciem}} budujesz {{t:pot|pulę}} i każesz płacić {{t:pair|parom}} i {{t:draw|drawom}}." }
++      - { text: "Check-raise", correct: true, why: "{{t:two-pair|Dwie pary}} na niskim, {{t:connected|połączonym}} flopie to ręka {{t:value|dla wartości}}. Na takich flopach {{t:big-blind}} ma w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a Button zwykle nie ma {{t:nuts-advantage|przewagi nutsów}}. {{t:raise|Przebiciem}} budujesz {{t:pot|pulę}} i każesz płacić {{t:pair|parom}} i {{t:draw|drawom}}." }
+@@ -130 +130 @@ Check-raise robisz z dwóch powodów:
+-- **Na niskich, {{t:connected|połączonych}} flopach** (np. [[7h 6d 5s]]). {{t:big-blind|Duży blind}} broni wielu niskich rąk, które trafiają tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}, więc Button nie ma tu {{t:nuts-advantage|przewagi nutsów}}.
++- **Na niskich, {{t:connected|połączonych}} flopach** (np. [[7h 6d 5s]]). {{t:big-blind|Duży blind}} broni wielu niskich rąk, które trafiają tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}, więc Button zwykle nie ma tu {{t:nuts-advantage|przewagi nutsów}}.
+diff --git a/content/pl/rules.yaml b/content/pl/rules.yaml
+index dc788bb..2026b66 100644
+--- a/content/pl/rules.yaml
++++ b/content/pl/rules.yaml
+@@ -360 +360 @@
+-  because: "{{t:big-blind}} broni wielu {{t:connectors|konektorów}} i rąk z małymi kartami, które trafiają tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a twoje wysokie karty chybiły: nie masz {{t:nuts-advantage|przewagi nutsów}}"
++  because: "{{t:big-blind}} broni wielu {{t:connectors|konektorów}} i rąk z małymi kartami, które trafiają niski flop, a twoje wysokie karty chybiły; na flopie {{t:connected|połączonym}} ma też {{t:straight|strity}} i {{t:two-pair|dwie pary}}, więc zwykle nie masz {{t:nuts-advantage|przewagi nutsów}}"
+@@ -363 +363 @@
+-  source: "serwis komercyjnego solvera, Flop Heuristics: IP C-Betting in Cash Games (BTN vs BB: „flopped straights often being in the BB’s range”; „Size down and bet less on flops that complete straights and flushes in your opponent’s range”); serwis komercyjnego solvera, Flop Heuristics: IP C-Betting in MTTs (na flopach połączonych „the raiser generally does not have a nuts advantage”); serwis komercyjnego solvera, Bullying the Blinds (20bb, 654r: „BB’s advantage at the top end”, Button czeka ponad połowę zakresu); serwis szkoleniowy, 3 Concepts That Should Shape Your Postflop Strategy („the Big Blind will often have the nut advantage”, https://upswingpoker.com/nut-range-positional-advantage/)"
++  source: "serwis komercyjnego solvera, Flop Heuristics: IP C-Betting in Cash Games (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/, BTN vs BB: „a large portion of their range consists of low-card holdings because of the preflop discount posed by the blinds. We connect better with high-card boards and get to bet more.”; „flopped straights often being in the BB’s range”; „Size down and bet less on flops that complete straights and flushes in your opponent’s range”); serwis komercyjnego solvera, Flop Heuristics: IP C-Betting in MTTs (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-mtts/; inny spot: BTN vs SB, 40bb; na flopach połączonych „the raiser generally does not have a nuts advantage”; uproszczenie: przeniesione kierunkowo na BTN vs BB w grze gotówkowej, zgodnie z artykułem o grze gotówkowej); serwis komercyjnego solvera, Bullying the Blinds (https://blog.gtowizard.com/bullying-the-blinds-with-continuation-bets/, 20bb, 654r: „BB’s advantage at the top end”, Button czeka ponad połowę zakresu); serwis szkoleniowy, 3 Concepts That Should Shape Your Postflop Strategy („the Big Blind will often have the nut advantage”, https://upswingpoker.com/nut-range-positional-advantage/)"
+@@ -511 +511 @@
+-  because: "na niskich, {{t:connected|połączonych}} flopach {{t:big-blind}} ma w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a Button nie ma {{t:nuts-advantage|przewagi nutsów}}; mały c-bet daje tanią okazję do {{t:raise|przebicia}}"
++  because: "na niskich, {{t:connected|połączonych}} flopach {{t:big-blind}} ma w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a Button zwykle nie ma {{t:nuts-advantage|przewagi nutsów}}; mały c-bet daje tanią okazję do {{t:raise|przebicia}}"

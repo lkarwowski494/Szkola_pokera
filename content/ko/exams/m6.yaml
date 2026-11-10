@@ -91,6 +91,6 @@ drills:
     prompt: "버튼의 {{t:open|오픈}}에 맞서 {{t:big-blind}}를 방어합니다. 어느 플롭에서 체크레이즈를 가장 자주 합니까?"
     table: { position: BB }
     options:
-      - { text: "[[8d 6c 5h]]", correct: true, why: "맞습니다: 낮고 {{t:connected|커넥티드한}} 플롭에서는 {{t:big-blind}}가 버튼보다 가장 강한 조합({{t:two-pair}}, {{t:straight|스트레이트}})을 더 많이 가지고 있으므로, 여기서 체크레이즈를 더 자주 합니다." }
+      - { text: "[[8d 6c 5h]]", correct: true, why: "맞습니다: 낮고 {{t:connected|커넥티드한}} 플롭에서는 {{t:big-blind}}의 {{t:range|레인지}}에 {{t:straight|스트레이트}}와 {{t:two-pair|투 페어}}가 있고 버튼에게는 보통 {{t:nuts-advantage|넛 우위}}가 없으므로, 여기서 체크레이즈를 더 자주 합니다." }
       - { text: "[[Ks Qd Jh]]", why: "카드가 서로 가까운 높은 플롭은 버튼의 {{t:range}}에 잘 맞습니다(AK, AQ, KQ, 높은 {{t:pair|페어}}). 여기서는 체크레이즈를 덜 자주 합니다." }
       - { text: "[[Ah Ad Qc]]", why: "에이스 {{t:pair|페어}}가 깔린 플롭에서는 에이스를 많이 들고 {{t:open|오픈한}} 버튼이 가장 강한 핸드를 더 자주 가집니다. 여기서는 체크레이즈를 드물게 합니다." }

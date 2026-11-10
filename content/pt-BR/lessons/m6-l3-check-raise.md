@@ -13,7 +13,7 @@ drills:
     prompt: "Você defende o {{t:big-blind|big blind}} contra a {{t:open|abertura}} do Button. No flop, você {{t:check|dá check}}, e o Button {{t:bet|aposta}} um c-bet de 1/3 do {{t:pot|pote}}. O que você faz?"
     table: { hand: "6c 5c", board: "7h 6d 5s", position: BB }
     options:
-      - { text: "Check-raise", correct: true, why: "{{t:two-pair|Dois pares}} em um flop baixo e {{t:connected|conectado}} é uma mão de {{t:value|valor}}. Em flops assim, o {{t:big-blind|big blind}} tem mais das combinações mais fortes que o Button. Com o {{t:raise|aumento}}, você constrói o {{t:pot|pote}} e faz {{t:pair|pares}} e {{t:draw|projetos}} pagarem." }
+      - { text: "Check-raise", correct: true, why: "{{t:two-pair|Dois pares}} em um flop baixo e {{t:connected|conectado}} é uma mão de {{t:value|valor}}. Em flops assim, o {{t:big-blind|big blind}} tem no {{t:range|range}} {{t:straight|sequências}} e {{t:two-pair|dois pares}}, e o Button geralmente não tem {{t:nuts-advantage|vantagem de nuts}}. Com o {{t:raise|aumento}}, você constrói o {{t:pot|pote}} e faz {{t:pair|pares}} e {{t:draw|projetos}} pagarem." }
       - { text: "{{t:call|Pago}}", correct: true, why: "Também é bom: em um flop muito {{t:connected|conectado}}, o solver apenas {{t:call|paga}} com parte dos {{t:two-pair|dois pares}}. O check-raise constrói o {{t:pot|pote}} e protege a mão com mais frequência." }
       - { text: "{{t:fold|Desisto}}", why: "{{t:two-pair|Dois pares}} é uma das mãos mais fortes neste flop. {{t:fold|Desistir}} é um erro grave." }
   - kind: choice
@@ -127,7 +127,7 @@ Com mãos médias, como {{t:top-pair}} com kicker fraco, você normalmente {{t:c
 ## Quando com mais frequência
 
 - **Contra um c-bet pequeno.** O {{t:raise|aumento}} é barato, e o Button {{t:bet|aposta}} o c-bet pequeno com um {{t:range}} amplo. Contra um c-bet grande, você {{t:raise|aumenta}} com menos frequência e de forma mais estreita: principalmente sets e {{t:two-pair|dois pares}}, menos {{t:bluff|blefes}}.
-- **Em flops baixos e {{t:connected|conectados}}** (por exemplo, [[7h 6d 5s]]). O {{t:big-blind|big blind}} defende muitas mãos baixas, então costuma ter aqui mais {{t:two-pair|dois pares}} e {{t:straight|sequências}} que o Button, ou seja, {{t:nuts-advantage|vantagem de nuts}}.
+- **Em flops baixos e {{t:connected|conectados}}** (por exemplo, [[7h 6d 5s]]). O {{t:big-blind|big blind}} defende muitas mãos baixas, que aqui fazem {{t:straight|sequências}} e {{t:two-pair|dois pares}}, então o Button geralmente não tem aqui {{t:nuts-advantage|vantagem de nuts}}.
 - **Com menos frequência em flops altos favoráveis ao Button**, por exemplo, K-J-T ou A-A-K: ali é ele quem tem mais das mãos mais fortes.
 
 ## Qual tamanho

@@ -357,11 +357,11 @@
   module: m5
   if: "{{t:open|otworzyłeś}} przed flopem, a flop jest niski i {{t:connected}} albo {{t:semi-connected|półpołączony}}, np. 7-6-5"
   then: "c-betujesz rzadziej niż na wysokich flopach, a wiele rąk {{t:check|czeka}}"
-  because: "{{t:big-blind}} broni wielu {{t:connectors|konektorów}} w kolorze i małych {{t:pair|par}}, więc częściej ma {{t:two-pair}} albo {{t:straight|strita}}: to on ma {{t:nuts-advantage|przewagę nutsów}}"
+  because: "{{t:big-blind}} broni wielu {{t:connectors|konektorów}} i rąk z małymi kartami, które trafiają niski flop, a twoje wysokie karty chybiły; na flopie {{t:connected|połączonym}} ma też {{t:straight|strity}} i {{t:two-pair|dwie pary}}, więc zwykle nie masz {{t:nuts-advantage|przewagi nutsów}}"
   level: heuristic
   check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
-  source: "kombinatoryka: Button otwiera wszystkie pary 55–77, a duży blind je sprawdza, więc setów obaj mają podobnie; serwis komercyjnego solvera, Bullying the Blinds (na 654r Button czeka ponad połowę zakresu; „Even on 654r… BB has less than 52% equity”)"
-  sources: [{ kind: solver-pub }, { kind: math }]
+  source: "serwis komercyjnego solvera, Flop Heuristics: IP C-Betting in Cash Games (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/, BTN vs BB: „a large portion of their range consists of low-card holdings because of the preflop discount posed by the blinds. We connect better with high-card boards and get to bet more.”; „flopped straights often being in the BB’s range”; „Size down and bet less on flops that complete straights and flushes in your opponent’s range”); serwis komercyjnego solvera, Flop Heuristics: IP C-Betting in MTTs (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-mtts/; inny spot: BTN vs SB, 40bb; na flopach połączonych „the raiser generally does not have a nuts advantage”; uproszczenie: przeniesione kierunkowo na BTN vs BB w grze gotówkowej, zgodnie z artykułem o grze gotówkowej); serwis komercyjnego solvera, Bullying the Blinds (https://blog.gtowizard.com/bullying-the-blinds-with-continuation-bets/, 20bb, 654r: „BB’s advantage at the top end”, Button czeka ponad połowę zakresu); serwis szkoleniowy, 3 Concepts That Should Shape Your Postflop Strategy („the Big Blind will often have the nut advantage”, https://upswingpoker.com/nut-range-positional-advantage/)"
+  sources: [{ kind: solver-pub }, { kind: training, url: "https://upswingpoker.com/nut-range-positional-advantage/" }]
 - id: R-M5-005
   module: m5
   if: "w twoim {{t:range|zakresie}} jest dużo więcej najsilniejszych rąk niż u rywala ({{t:nuts-advantage}})"
@@ -508,9 +508,9 @@
   module: m6
   if: "c-bet jest mały albo flop jest niski i {{t:connected}} (np. 7-6-5)"
   then: "robisz check-raise częściej; na wysokich flopach dobrych dla przebijającego (np. K-J-T, A-A-K) i wobec dużych c-betów rzadziej"
-  because: "na niskich flopach {{t:big-blind}} ma więcej najsilniejszych układów ({{t:nuts-advantage}}), a mały c-bet daje tanią okazję do {{t:raise|przebicia}}"
+  because: "na niskich, {{t:connected|połączonych}} flopach {{t:big-blind}} ma w {{t:range|zakresie}} {{t:straight|strity}} i {{t:two-pair|dwie pary}}, a Button zwykle nie ma {{t:nuts-advantage|przewagi nutsów}}; mały c-bet daje tanią okazję do {{t:raise|przebicia}}"
   level: heuristic
-  source: "serwis szkoleniowy, How to Check-Raise Like a High Stakes Juggernaut (flopy, na których nie przebijać: K♣J♥T♠, Q♥J♦T♠, A♥A♠K♥; check-raise 12,65% wobec 33% i 8,66% wobec 66% puli); serwis komercyjnego solvera („The larger the BTN bets, the less BB raises”)"
+  source: "serwis szkoleniowy, How to Check-Raise Like a High Stakes Juggernaut (flopy, na których nie przebijać: K♣J♥T♠, Q♥J♦T♠, A♥A♠K♥; check-raise 12,65% wobec 33% i 8,66% wobec 66% puli); serwis komercyjnego solvera („The larger the BTN bets, the less BB raises”); serwis komercyjnego solvera, Flop Heuristics: IP C-Betting in Cash Games („flopped straights often being in the BB’s range”)"
   sources: [{ kind: solver-pub }, { kind: training }]
 - id: R-M6-010
   module: m6

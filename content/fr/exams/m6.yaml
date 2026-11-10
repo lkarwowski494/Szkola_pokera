@@ -91,6 +91,6 @@ drills:
     prompt: "Vous défendez la {{t:big-blind|grosse blinde}} contre une {{t:open|ouverture}} du Bouton. Sur quel flop faites-vous le plus souvent un check-raise ?"
     table: { position: BB }
     options:
-      - { text: "[[8d 6c 5h]]", correct: true, why: "Oui : sur un flop bas et {{t:connected|connecté}}, la {{t:big-blind|grosse blinde}} a plus de mains très fortes ({{t:two-pair|doubles paires}}, {{t:straight|quintes}}) que le Bouton, donc elle y fait plus souvent un check-raise." }
+      - { text: "[[8d 6c 5h]]", correct: true, why: "Oui : sur un flop bas et {{t:connected|connecté}}, la {{t:big-blind|grosse blinde}} a dans sa {{t:range|range}} des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}, et le Bouton n'a généralement pas l'{{t:nuts-advantage|avantage de nuts}}, donc vous y faites plus souvent un check-raise." }
       - { text: "[[Ks Qd Jh]]", why: "Un flop haut avec des cartes proches les unes des autres touche bien la {{t:range|range}} du Bouton (AK, AQ, KQ, {{t:pair|paires}} hautes). Ici, vous faites moins souvent un check-raise." }
       - { text: "[[Ah Ad Qc]]", why: "Sur un flop avec une {{t:pair|paire}} d’as, c’est plus souvent le Bouton, qui a {{t:open|ouvert}} avec beaucoup d’as, qui a les mains les plus fortes. Vous faites rarement un check-raise ici." }

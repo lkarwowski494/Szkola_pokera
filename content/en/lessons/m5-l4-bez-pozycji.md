@@ -87,9 +87,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Yes: a low flop with cards close together favors the {{t:big-blind}}, who more often has {{t:two-pair}} or a {{t:straight}} here. You c-bet less often than on high flops: many hands {{t:check}}, and mainly strong hands and strong {{t:draw|draws}} bet."
-          small: "Too often: on a low flop with cards close together, the {{t:big-blind}} has the {{t:nuts-advantage}}. Frequent c-bets, even small ones, give them the chance to {{t:raise}} (check-raise) with their strongest hands."
-          big: "Too often and too expensive: the {{t:big-blind}} has more often hit {{t:two-pair}} or a {{t:straight}} here. A frequent big c-bet risks a lot when you usually have only high cards yourself."
+          check: "Yes: a low flop with cards close together hits the {{t:big-blind}}'s {{t:range}}: they defend many small-card hands, and your high cards missed here. On a {{t:connected}} flop they also have {{t:straight|straights}} and {{t:two-pair|two pair}}, so you usually don't have a {{t:nuts-advantage}}. You c-bet less often than on high flops: many hands {{t:check}}, and mainly strong hands and strong {{t:draw|draws}} bet."
+          small: "Too often: a low flop with cards close together hits the {{t:big-blind}}'s {{t:range}}, and on a {{t:connected}} flop you usually don't have a {{t:nuts-advantage}}. Frequent c-bets, even small ones, give the {{t:big-blind}} the chance to {{t:raise}} (check-raise) with their strongest hands."
+          big: "Too often and too expensive: this flop hits the {{t:big-blind}}'s {{t:range}}, and on a {{t:connected}} flop they also have {{t:straight|straights}} and {{t:two-pair|two pair}}. A frequent big c-bet risks a lot when you usually have only high cards yourself."
     count: 3
 ---
 So far you've played {{t:in-position}} against one opponent. {{t:out-of-position|Out of position}} and against several players, you c-bet less often.

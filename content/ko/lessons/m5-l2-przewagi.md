@@ -20,12 +20,12 @@ drills:
     id: m5.l2.q-765
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind|빅 블라인드}}가 {{t:call|콜했습니다}}. 플롭: [[7s 6h 5d]]. 여기서 매우 강한 핸드({{t:two-pair|투 페어}} 또는 {{t:straight|스트레이트}})를 더 자주 가진 쪽은 누구입니까?"
+    prompt: "버튼에서 {{t:open|오픈했고}} {{t:big-blind|빅 블라인드}}가 {{t:call|콜했습니다}}. 플롭: [[7s 6h 5d]]. 여기서 당신에게 {{t:nuts-advantage|넛 우위}}가 있습니까? 즉, 가장 강한 핸드를 상대보다 뚜렷하게 더 많이 가지고 있습니까?"
     table: { position: BTN, board: "7s 6h 5d" }
     options:
-      - { text: "{{t:big-blind|빅 블라인드}}", correct: true, why: "맞습니다. {{t:big-blind|빅 블라인드}}는 수티드 {{t:connectors|커넥터}}와 6이나 7이 든 핸드를 많이 방어합니다. 버튼의 당신은 여기서 빗나간 높은 카드가 더 많습니다. 이것이 {{t:big-blind|빅 블라인드}}의 {{t:nuts-advantage|넛 우위}}입니다." }
-      - { text: "버튼에서 {{t:open|오픈한}} 당신", why: "아닙니다. 당신의 {{t:range|레인지}}는 높은 카드로 가득합니다. {{t:overpair|오버페어}}({{t:board|보드}}의 모든 카드보다 높은 {{t:pocket-pair|포켓 페어}}, 예: TT, JJ)는 더 많지만 {{t:two-pair|투 페어}}와 {{t:straight|스트레이트}}는 더 적습니다. 셋({{t:pocket-pair|포켓 페어}}로 만든 트리플)은 두 사람 모두 비슷하게 많이 가지고 있습니다." }
-      - { text: "두 사람 모두 똑같이 자주", why: "아닙니다. 두 {{t:range|레인지}}는 구성이 다릅니다. {{t:big-blind|빅 블라인드}}의 넓은 방어 범위에는 낮은 카드가 많고, 당신의 {{t:range|레인지}}에는 높은 카드가 많습니다." }
+      - { text: "아니요: 여기서는 {{t:big-blind|빅 블라인드}}도 {{t:straight|스트레이트}}와 {{t:two-pair|투 페어}}를 가지고 있습니다", correct: true, why: "맞습니다. {{t:big-blind|빅 블라인드}}는 수티드 {{t:connectors|커넥터}}와 6이나 7이 든 핸드를 많이 방어하는데, 이 핸드들은 여기서 {{t:straight|스트레이트}}와 {{t:two-pair|투 페어}}가 됩니다. 당신의 높은 카드는 여기서 빗나갔으므로, 가장 강한 핸드를 뚜렷하게 더 많이 가지고 있지 않습니다." }
+      - { text: "예, 플롭 전에 {{t:open|오픈했으니까요}}", why: "아닙니다. {{t:open|오픈}}은 높은 플롭에서 우위를 줍니다. 낮고 {{t:connected|커넥티드한}} 플롭에서는 당신의 높은 카드가 빗나갔고, 상대의 {{t:range|레인지}}는 여기서 {{t:straight|스트레이트}}와 {{t:two-pair|투 페어}}를 맞힙니다." }
+      - { text: "예, 높은 {{t:pair|페어}}가 더 많으니까요", why: "아닙니다. {{t:overpair|오버페어}}({{t:board|보드}}의 모든 카드보다 높은 {{t:pocket-pair|포켓 페어}}, 예: TT, JJ)는 더 많지만, 이런 플롭에서 {{t:overpair|오버페어}}는 가장 강한 핸드에 속하지 않습니다. {{t:straight|스트레이트}}, 셋, {{t:two-pair|투 페어}}에 집니다." }
   - kind: choice
     id: m5.l2.q-capped
     family: m5.advantage.why
@@ -85,7 +85,7 @@ drills:
 
 어떤 플롭에서 당신의 핸드가 평균적으로 상대의 핸드보다 강하면 당신에게 {{t:range-advantage|레인지 우위}}가 있습니다. 버튼에서 {{t:open|오픈}}한 뒤 [[Ks 7d 2c]]에서는 좋은 키커를 가진 킹과 높은 {{t:pair|페어}}를 더 많이 가진 쪽이 당신입니다. {{t:big-blind|빅 블라인드}}는 여기서 빗나간 핸드가 많습니다.
 
-[[7s 6h 5d]]처럼 낮고 {{t:connected|커넥티드한}} 플롭에서는 {{t:range-advantage|레인지 우위}}가 거의 사라지고, 가장 강한 핸드는 {{t:big-blind|빅 블라인드}}가 더 자주 가집니다. 수티드 {{t:connectors|커넥터}}와 6이나 7이 든 핸드를 많이 방어하므로 {{t:two-pair|투 페어}}나 {{t:straight|스트레이트}}를 더 자주 가집니다.
+[[7s 6h 5d]]처럼 낮고 {{t:connected|커넥티드한}} 플롭에서는 {{t:range-advantage|레인지 우위}}가 거의 사라집니다. {{t:big-blind|빅 블라인드}}는 수티드 {{t:connectors|커넥터}}와 6이나 7이 든 핸드를 많이 방어하는데, 이 핸드들은 여기서 {{t:straight|스트레이트}}와 {{t:two-pair|투 페어}}가 되고, 당신의 높은 카드는 빗나갔습니다.
 
 ## {{t:nuts-advantage|넛 우위}}
 

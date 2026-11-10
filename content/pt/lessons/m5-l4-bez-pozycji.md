@@ -87,9 +87,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Sim: um flop baixo com cartas próximas favorece o {{t:big-blind}}, que aqui tem mais vezes {{t:two-pair|dois pares}} ou {{t:straight|sequência}}. Faz c-bet menos vezes do que em flops altos: muitas mãos {{t:check|passam}}, e apostam sobretudo as mãos fortes e os {{t:draw|draws}} fortes."
-          small: "Demasiado frequente: num flop baixo com cartas próximas, é o {{t:big-blind}} que tem a {{t:nuts-advantage|vantagem de nuts}}. C-bets frequentes, mesmo pequenos, dão-lhe a oportunidade de {{t:raise|aumentar}} (check-raise) com as mãos mais fortes."
-          big: "Demasiado frequente e demasiado caro: o {{t:big-blind}} acertou aqui mais vezes {{t:two-pair|dois pares}} ou {{t:straight|sequência}}. Um c-bet grande e frequente arrisca muito quando normalmente só tem cartas altas."
+          check: "Sim: um flop baixo com cartas próximas acerta no {{t:range|range}} do {{t:big-blind}}: ele defende muitas mãos com cartas pequenas, e as suas cartas altas falharam aqui. Num flop {{t:connected|conectado}}, ele também tem {{t:straight|sequências}} e {{t:two-pair|dois pares}}, por isso a si normalmente falta {{t:nuts-advantage|vantagem de nuts}}. Faz c-bet menos vezes do que em flops altos: muitas mãos {{t:check|passam}}, e apostam sobretudo as mãos fortes e os {{t:draw|draws}} fortes."
+          small: "Demasiado frequente: um flop baixo com cartas próximas acerta no {{t:range|range}} do {{t:big-blind}}, e num flop {{t:connected|conectado}} a si normalmente falta {{t:nuts-advantage|vantagem de nuts}}. C-bets frequentes, mesmo pequenos, dão ao {{t:big-blind}} a oportunidade de {{t:raise|aumentar}} (check-raise) com as mãos mais fortes."
+          big: "Demasiado frequente e demasiado caro: este flop acerta no {{t:range|range}} do {{t:big-blind}}, e num flop {{t:connected|conectado}} ele também tem {{t:straight|sequências}} e {{t:two-pair|dois pares}}. Um c-bet grande e frequente arrisca muito quando normalmente só tem cartas altas."
     count: 3
 ---
 Até agora jogou {{t:in-position}} contra um adversário. {{t:out-of-position|Fora de posição}} e contra vários jogadores, faz c-bet menos vezes.

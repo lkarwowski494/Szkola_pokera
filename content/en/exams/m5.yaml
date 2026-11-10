@@ -16,12 +16,12 @@ drills:
     id: m5.exam.q2
     family: m5.advantage.who
     rules: [R-M5-004]
-    prompt: "You {{t:open|opened}} from the Button, and the player in the {{t:big-blind}} {{t:call|called}}. On which of these flops (the first three {{t:community-cards|community cards}}) is that player more likely than you to have {{t:two-pair}} or a {{t:straight}}?"
+    prompt: "You {{t:open|opened}} from the Button, and the player in the {{t:big-blind}} {{t:call|called}}. On which of these flops (the first three {{t:community-cards|community cards}}) do you not have a {{t:nuts-advantage}}, meaning clearly more of the strongest hands than your opponent?"
     table: { position: BTN }
     options:
-      - { text: "[[8h 6d 5c]]", correct: true, why: "Yes: a low, {{t:connected}} flop hits {{t:connectors}} and small-card hands, which the {{t:big-blind}} defends a lot. From the Button you have more high cards, which missed here. This is a {{t:nuts-advantage}} for the {{t:big-blind}}." }
-      - { text: "[[Kd Td 3s]]", why: "No: a high flop favors the {{t:open|opener}}. You have more kings with a good kicker, KT and high {{t:pair|pairs}}." }
-      - { text: "[[Ah Ad 7c]]", why: "No: on a flop with a {{t:pair}} of aces, you have more aces, because the {{t:big-blind}} {{t:raise|raises}} the strongest aces before the flop. Nobody has a {{t:straight}} here." }
+      - { text: "[[8h 6d 5c]]", correct: true, why: "Yes: a low, {{t:connected}} flop hits {{t:connectors}} and small-card hands, which the {{t:big-blind}} defends a lot, so they also have {{t:straight|straights}} and {{t:two-pair|two pair}} here. Your high cards missed here, so you usually don't have clearly more of the strongest hands." }
+      - { text: "[[Kd Td 3s]]", why: "No: a flop with two high cards gives the {{t:open|opener}} the {{t:nuts-advantage}}. You have more of the strongest hands here, e.g. KK, because the {{t:big-blind}} {{t:raise|raises}} most KK before the flop." }
+      - { text: "[[Ah Qd 7c]]", why: "No: on a flop with an ace and a queen, it's you who has more of the strongest hands, e.g. AA and AQ, because the {{t:big-blind}} usually {{t:raise|raises}} the strongest aces before the flop." }
   - kind: choice
     id: m5.exam.q3
     family: m5.advantage.why

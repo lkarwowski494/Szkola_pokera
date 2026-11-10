@@ -14,3 +14,13 @@ Stan: 2026-11-10. Jak: świeża instalacja (albo Ustawienia → Dane → „Usu�
 ## Sesja AZ: nazwa pozycji przy stole (KO-028, D-495)
 - [ ] Zadanie z pozycją bez przebiegu akcji (np. pytanie oceny z UTG): linia „Twoja pozycja (position): UTG (under the gun).”; dla BB „duży blind (big blind, BB)”, dla SB „mały blind (small blind, SB)”, dla BTN „Button (BTN)”. Linia nie jest ucięta; na iPhone SE i przy największym tekście zawija się na granicy słów.
 - [ ] VoiceOver czyta tę samą linię z nazwą pozycji.
+
+## Sesja BA: przewaga nutsów na niskim flopie (KO-029, D-500)
+
+Stan: 2026-11-10. Język pl. Wynik: ✅ / ❌ + zrzut.
+
+| # | Co sprawdzić | Wynik |
+|---|---|---|
+| T-ba-1 | „Sprawdź poziom” → pytanie z flopami 8-6-5 / K-10-3 / A-Q-7: „…nie masz przewagi nutsów, czyli wyraźnie więcej najsilniejszych rąk niż rywal?” — trzy flopy pokazane jako karty, zrozumiałe; po wyborze 8-6-5 wyjaśnienie „Tak: niski, połączony flop…” | |
+| T-ba-2 | Lekcja M5 „Przewagi”: zadanie na 7-6-5 „Czy masz tu przewagę nutsów…?” — trzy odpowiedzi mieszczą się na przyciskach (iPhone SE, największy tekst) | |
+| T-ba-3 | Lekcja M5 (c-bet) i M6 (check-raise): na niskim połączonym flopie wyjaśnienie mówi „nie masz przewagi nutsów” / „Button nie ma przewagi nutsów”, a nie „duży blind częściej ma…” | |

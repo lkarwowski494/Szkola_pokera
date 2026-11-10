@@ -1,0 +1,7 @@
+diff --git a/content/pl/lessons/m5-l2-przewagi.md b/content/pl/lessons/m5-l2-przewagi.md
+index 8ec29dc..d56aee5 100644
+--- a/content/pl/lessons/m5-l2-przewagi.md
++++ b/content/pl/lessons/m5-l2-przewagi.md
+@@ -26 +26 @@ drills:
+-      - { text: "Nie: {{t:straight|strity}} i {{t:two-pair|dwie pary}} ma tu też {{t:big-blind}}", correct: true, why: "Tak: {{t:big-blind}} broni wielu {{t:connectors|konektorów}} w kolorze i rąk z szóstką albo siódemką, które trafiają tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}. Twoje wysokie karty tu chybiły, więc najsilniejszych rąk nie masz wyraźnie więcej." }
++      - { text: "Nie: {{t:straight|strity}} i {{t:two-pair|dwie pary}} ma tu też {{t:big-blind}}", correct: true, why: "Dobrze: {{t:big-blind}} broni wielu {{t:connectors|konektorów}} w kolorze i rąk z szóstką albo siódemką, które trafiają tu {{t:straight|strity}} i {{t:two-pair|dwie pary}}. Twoje wysokie karty tu chybiły, więc najsilniejszych rąk nie masz wyraźnie więcej." }

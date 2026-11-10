@@ -87,9 +87,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Oui : un flop bas avec des cartes proches favorise la {{t:big-blind|grosse blinde}}, qui a plus souvent ici une {{t:two-pair|double paire}} ou une {{t:straight|quinte}}. Vous faites un c-bet moins souvent que sur les flops hauts : beaucoup de mains {{t:check|checkent}}, et ce sont surtout les mains fortes et les gros {{t:draw|tirages}} qui misent."
-          small: "Trop souvent : sur un flop bas avec des cartes proches, c'est la {{t:big-blind|grosse blinde}} qui a l'{{t:nuts-advantage|avantage de nuts}}. Des c-bets fréquents, même petits, lui donnent l'occasion de {{t:raise|relancer}} (check-raise) avec ses mains les plus fortes."
-          big: "Trop souvent et trop cher : la {{t:big-blind|grosse blinde}} a plus souvent touché ici une {{t:two-pair|double paire}} ou une {{t:straight|quinte}}. Un gros c-bet fréquent risque beaucoup alors que vous-même n'avez généralement que des cartes hautes."
+          check: "Oui : un flop bas avec des cartes proches touche la {{t:range|range}} de la {{t:big-blind|grosse blinde}} : elle défend beaucoup de mains à petites cartes, et vos cartes hautes ont raté ici. Sur un flop {{t:connected|connecté}}, elle a aussi des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}, donc vous n'avez généralement pas l'{{t:nuts-advantage|avantage de nuts}}. Vous faites un c-bet moins souvent que sur les flops hauts : beaucoup de mains {{t:check|checkent}}, et ce sont surtout les mains fortes et les gros {{t:draw|tirages}} qui misent."
+          small: "Trop souvent : un flop bas avec des cartes proches touche la {{t:range|range}} de la {{t:big-blind|grosse blinde}}, et sur un flop {{t:connected|connecté}} vous n'avez généralement pas l'{{t:nuts-advantage|avantage de nuts}}. Des c-bets fréquents, même petits, donnent à la {{t:big-blind|grosse blinde}} l'occasion de {{t:raise|relancer}} (check-raise) avec ses mains les plus fortes."
+          big: "Trop souvent et trop cher : ce flop touche la {{t:range|range}} de la {{t:big-blind|grosse blinde}}, et sur un flop {{t:connected|connecté}} elle a aussi des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}. Un gros c-bet fréquent risque beaucoup alors que vous-même n'avez généralement que des cartes hautes."
     count: 3
 ---
 Jusqu'ici, vous avez joué {{t:in-position|en position}} contre un seul adversaire. {{t:out-of-position|Hors position}} et contre plusieurs joueurs, vous faites un c-bet moins souvent.

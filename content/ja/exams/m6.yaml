@@ -91,6 +91,6 @@ drills:
     prompt: "{{t:big-blind}}で、ボタンの{{t:open|オープン}}に対してディフェンスしています。最も頻繁にチェックレイズするのはどのフロップですか？"
     table: { position: BB }
     options:
-      - { text: "[[8d 6c 5h]]", correct: true, why: "正解です。低くて{{t:connected|コネクテッド}}なフロップでは、{{t:big-blind}}のほうがボタンより最も強い役（{{t:two-pair}}、{{t:straight|ストレート}}）を多く持つので、ここではより頻繁にチェックレイズします。" }
+      - { text: "[[8d 6c 5h]]", correct: true, why: "正解です。低くて{{t:connected|コネクテッド}}なフロップでは、{{t:big-blind}}の{{t:range|レンジ}}には{{t:straight|ストレート}}と{{t:two-pair|ツーペア}}があり、ボタンにはたいてい{{t:nuts-advantage|ナッツアドバンテージ}}がないので、ここではより頻繁にチェックレイズします。" }
       - { text: "[[Ks Qd Jh]]", why: "カードが近い高いフロップは、ボタンの{{t:range}}によく当たります（AK、AQ、KQ、高い{{t:pair|ペア}}）。ここではチェックレイズの頻度は低くなります。" }
       - { text: "[[Ah Ad Qc]]", why: "エースの{{t:pair|ペア}}があるフロップでは、多くのエースで{{t:open|オープン}}したボタンのほうが最も強いハンドを多く持っています。ここではめったにチェックレイズしません。" }
