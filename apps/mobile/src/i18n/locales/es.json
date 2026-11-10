@@ -723,7 +723,7 @@
         "rfiSb": "Ya solo juegas contra la {{t:big-blind|ciega grande}}, pero después del flop hablas primero.",
         "nineEarly": "En una mesa de 9 jugadores tienes detrás a más jugadores que en una de 6, así que es más frecuente que alguien tenga una mano mejor.",
         "nineLj": "Desde el LJ juegas como desde el {{t:utg|UTG}} en una mesa de 6 jugadores, porque detrás de ti quedan los mismos jugadores.",
-        "btnVsCo": "El rival {{t:call|iguala}} a menudo, así que quieres una mano que juegue bien en un {{t:pot|bote}} tras {{t:call|igualar}}.",
+        "btnVsCo": "El {{t:cutoff|CO}} {{t:call|iguala}} a menudo tu 3-bet, así que quieres una mano que juegue bien en un {{t:pot|bote}} tras {{t:call|igualar}}.",
         "sbVsBtn": "Si {{t:call|igualas}} desde la {{t:small-blind|ciega pequeña}}, juegas {{t:out-of-position|fuera de posición}}, y la {{t:big-blind|ciega grande}}, detrás de ti, aún puede {{t:raise|subir}}; el 3-bet te da la {{t:initiative|iniciativa}} y la opción de ganar el {{t:pot|bote}} de inmediato.",
         "bbVsBtn": "Pones poco más en un {{t:pot|bote}} grande, así que defiendes amplio.",
         "bbVsSb": "Después del flop tienes {{t:position|posición}}, así que realizas más {{t:equity}}.",
@@ -733,7 +733,20 @@
         "callBb": "Quien iguala solo gana en el showdown, y contra un {{t:range|rango}} que ya es más fuerte que uno aleatorio; quien hace {{t:shove|push}} gana también cuando el rival se {{t:fold|retira}}.",
         "call3max": "El jugador detrás de ti puede tener una mano fuerte y entrar, y contra dos {{t:range|rangos}} la {{t:equity}} de tu mano baja rápido.",
         "call3maxTwo": "Contra dos {{t:range|rangos}} la {{t:equity}} de tu mano baja rápido.",
-        "pushSb3max": "El Button ya {{t:fold|se ha retirado}}, así que basta con que {{t:fold|se retire}} la {{t:big-blind|ciega grande}}; desde el Button tienen que {{t:fold|retirarse}} dos jugadores."
+        "pushSb3max": "El Button ya {{t:fold|se ha retirado}}, así que basta con que {{t:fold|se retire}} la {{t:big-blind|ciega grande}}; desde el Button tienen que {{t:fold|retirarse}} dos jugadores.",
+        "pushSbDeep": "Con un stack más profundo arriesgas más en relación con las ciegas que te llevas cuando el rival se {{t:fold|retira}}, así que haces {{t:shove|push}} con menos manos que con un stack más corto."
+      },
+      "hand": {
+        "pair": "Tienes una {{t:pair|pareja}}, una mano hecha ya antes del flop: una mano sin {{t:pair|pareja}} necesita ayuda de las {{t:community-cards}} para ganarle.",
+        "high": "Las dos cartas son altas: si ligas {{t:pair|pareja}}, será alta, y tu otra carta es un {{t:kicker}} alto que gana a las manos más débiles con la misma carta.",
+        "suited": "Tus cartas son del mismo palo: es una vía extra para ganar con {{t:flush|color}}.",
+        "connected_one": "Tus cartas están cerca entre sí: juntas pueden formar {{t:straight|escalera}} de {{count}} manera.",
+        "connected_many": "Tus cartas están cerca entre sí: juntas pueden formar {{t:straight|escalera}} de {{count}} maneras.",
+        "connected_other": "Tus cartas están cerca entre sí: juntas pueden formar {{t:straight|escalera}} de {{count}} maneras.",
+        "highAllIn": "En un all-in ya no hay más {{t:bet|apuestas}} tras el flop: si nadie liga {{t:pair|pareja}}, gana la carta más alta, y tu carta más alta es {{rank}}.",
+        "dominated": "Si ligas {{t:pair|pareja}} con tu carta más alta ({{rank}}), un rival con la misma carta y mejor {{t:kicker}} te gana: es una mano dominada.",
+        "overcards": "Las dos cartas son bajas: en el {{pct}} de los flops ({{often}}) sale al menos una carta más alta que las tuyas, y el rival que la ligue tendrá una {{t:pair|pareja}} más alta que cualquier pareja con tus cartas.",
+        "overcardsPair": "Tu {{t:pair|pareja}} es baja: en el {{pct}} de los flops ({{often}}) sale al menos una carta más alta, y el rival que la ligue tendrá una {{t:pair|pareja}} más alta."
       },
       "acceptableFreq": "El solver juega así en el {{pct}} de los casos, así que no es un error, pero elige más a menudo otra acción. Lo mejor es que recuerdes la más frecuente."
     },

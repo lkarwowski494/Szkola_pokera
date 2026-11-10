@@ -723,7 +723,7 @@
         "rfiSb": "Já só joga contra o {{t:big-blind|big blind}}, mas depois do flop fala primeiro.",
         "nineEarly": "Numa mesa de 9 jogadores há mais jogadores atrás de si do que numa de 6, por isso é mais frequente alguém ter uma mão melhor.",
         "nineLj": "Do LJ joga como do {{t:utg|UTG}} numa mesa de 6 jogadores, porque ficam atrás de si tantos jogadores como lá.",
-        "btnVsCo": "O adversário {{t:call|paga}} muitas vezes, por isso quer uma mão que jogue bem num {{t:pot|pote}} depois de um {{t:call|call}}.",
+        "btnVsCo": "O {{t:cutoff|CO}} {{t:call|paga}} muitas vezes o seu 3-bet, por isso quer uma mão que jogue bem num {{t:pot|pote}} depois de um {{t:call|call}}.",
         "sbVsBtn": "Depois de um {{t:call|call}} do {{t:small-blind|small blind}}, joga {{t:out-of-position|fora de posição}}, e o {{t:big-blind|big blind}} atrás de si ainda pode {{t:raise|aumentar}}; o 3-bet dá-lhe a {{t:initiative|iniciativa}} e a hipótese de ganhar o {{t:pot|pote}} de imediato.",
         "bbVsBtn": "Acrescenta pouco a um {{t:pot|pote}} grande, por isso defende de forma larga.",
         "bbVsSb": "Depois do flop tem {{t:position|posição}}, por isso realiza mais {{t:equity}}.",
@@ -733,7 +733,20 @@
         "callBb": "Quem paga só ganha no showdown, e contra um {{t:range|range}} que já é mais forte do que um aleatório; quem faz {{t:shove|shove}} ganha também quando o adversário {{t:fold|desiste}}.",
         "call3max": "O jogador atrás de si pode ter uma mão forte e entrar, e contra dois {{t:range|ranges}} a {{t:equity}} da sua mão desce depressa.",
         "call3maxTwo": "Contra dois {{t:range|ranges}} a {{t:equity}} da sua mão desce depressa.",
-        "pushSb3max": "O Button já {{t:fold|desistiu}}, por isso basta que o {{t:big-blind|big blind}} {{t:fold|desista}}; a partir do Button, têm de {{t:fold|desistir}} dois jogadores."
+        "pushSb3max": "O Button já {{t:fold|desistiu}}, por isso basta que o {{t:big-blind|big blind}} {{t:fold|desista}}; a partir do Button, têm de {{t:fold|desistir}} dois jogadores.",
+        "pushSbDeep": "Com um stack mais profundo arrisca mais em relação às blinds que ganha quando o adversário {{t:fold|desiste}}, por isso faz {{t:shove|shove}} com menos mãos do que com um stack mais curto."
+      },
+      "hand": {
+        "pair": "Tem um {{t:pair|par}}, uma mão já feita antes do flop: uma mão sem {{t:pair|par}} precisa da ajuda das {{t:community-cards}} para o bater.",
+        "high": "As duas cartas são altas: se fizer {{t:pair|par}}, será alto, e a outra carta é um {{t:kicker}} alto que bate mãos mais fracas com a mesma carta.",
+        "suited": "As suas cartas são do mesmo naipe: é um caminho extra para ganhar com um {{t:flush|flush}}.",
+        "connected_one": "As suas cartas estão próximas: juntas podem formar uma {{t:straight|sequência}} de {{count}} maneira.",
+        "connected_many": "As suas cartas estão próximas: juntas podem formar uma {{t:straight|sequência}} de {{count}} maneiras.",
+        "connected_other": "As suas cartas estão próximas: juntas podem formar uma {{t:straight|sequência}} de {{count}} maneiras.",
+        "highAllIn": "Num all-in já não há {{t:bet|apostas}} depois do flop: se ninguém fizer {{t:pair|par}}, ganha a carta mais alta, e a sua carta mais alta é {{rank}}.",
+        "dominated": "Se fizer {{t:pair|par}} com a sua carta mais alta ({{rank}}), um adversário com a mesma carta e um {{t:kicker}} melhor ganha-lhe: é uma mão dominada.",
+        "overcards": "As duas cartas são baixas: em {{pct}} dos flops ({{often}}) sai pelo menos uma carta mais alta do que as suas, e o adversário que a acertar tem um {{t:pair|par}} mais alto do que qualquer par com as suas cartas.",
+        "overcardsPair": "O seu {{t:pair|par}} é baixo: em {{pct}} dos flops ({{often}}) sai pelo menos uma carta mais alta, e o adversário que a acertar tem um {{t:pair|par}} mais alto."
       },
       "acceptableFreq": "O solver joga assim em {{pct}} dos casos, por isso não é um erro, mas escolhe mais vezes outra ação. O melhor é memorizar a mais frequente."
     },

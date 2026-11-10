@@ -205,6 +205,38 @@
   check: { kind: solver-spot, players: [9], stackBb: [100], spots: [nine.rfi.utg, nine.rfi.utg1, nine.rfi.utg2, nine.rfi.lj] }
   source: "Preflop-Solver des Projekts, 9er-Tisch 100bb (ADR-20; Dokument 10, „Abschließende Messung N9a“: Teilvalidierung N1–N4, NashConv 0,0094bb; Zusammensetzung UTG–UTG+2 nicht verifiziert und Häufigkeiten ohne Validierung auf Stufe 2 (D-153), daher gibt die Regel nur die Richtung an, ohne Solver-Zahlen; Level heuristic, D-144). Übereinstimmend mit der Schnittmenge der 9-max-Tabellen der Stufe 4: UTG etwa 9–13%, UTG+1 etwa 11–14% (Seite mit Preflop-Tabellen, 9-Max Preflop Chart, https://preflopwizard.app/blog/9-max-preflop-chart; zweite Seite mit Preflop-Tabellen, https://about-poker.com/preflop-gto/preflop-range-chart-cash-game; Dokument 10, „Konfiguration 9-max 100bb“). Das Spiel nach Folds von UTG–UTG+2 ist genau das 6-max-Spiel (Baumtest)"
   sources: [{ kind: training, url: "https://preflopwizard.app/blog/9-max-preflop-chart" }, { kind: training, url: "https://about-poker.com/preflop-gto/preflop-range-chart-cash-game" }, { kind: solver-app }]
+- id: R-M3-011
+  module: m3
+  if: "du hast zwei verschiedene Karten und prüfst, ob sie zusammen eine {{t:straight|Straße}} bilden können"
+  then: "je näher sie beieinander liegen, desto mehr Möglichkeiten: benachbarte Karten von 5-4 bis J-T sind in vier verschiedenen {{t:straight|Straßen}}, Karten mit einer Lücke in drei, und Karten mit fünf oder mehr Rängen Abstand (z. B. 7-2) in keiner"
+  because: "eine {{t:straight|Straße}} sind fünf aufeinanderfolgende Ränge; je größer die Lücke zwischen den Karten, desto weniger solche Fünfer enthalten beide (das Ass zählt auch als Eins)"
+  level: math
+  source: "Berechnung: alle zehn Straßen von A-2-3-4-5 bis 10-J-Q-K-A für jede der 169 Handklassen geprüft; Definition der Straße: vom kalifornischen Regulator genehmigte Kartenraumregeln (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf)"
+  sources: [{ kind: math }, { kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
+- id: R-M3-012
+  module: m3
+  if: "du hast eine hohe Karte mit einer schwächeren zweiten Karte (z. B. K5 oder A7), und ein Gegner kann dieselbe hohe Karte mit einem besseren {{t:kicker}} haben"
+  then: "wenn ihr beide mit dieser Karte ein {{t:pair|Paar}} trefft, schlägt dich der Gegner mit dem besseren {{t:kicker}} (deine Hand ist dominiert); zwei hohe Karten wirken umgekehrt: ein hoher {{t:kicker}} schlägt schwächere Hände mit derselben Karte"
+  because: "beim selben {{t:pair|Paar}} entscheidet der {{t:kicker}}, also gewinnt eine dominierte Hand vor dem Flop seltener als die Hand, die sie dominiert; deshalb ist sie schwer zu spielen (Vereinfachung: die Trainingsquelle sagt das über die Verteidigung gegen eine 3-Bet)"
+  level: heuristic
+  source: "Regeln: der Kicker entscheidet beim selben Kern der Hand (R-M0-002); Berechnung: Equity der dominierten Hand unter einhalb in jeder Paarung; Poker-Glossar (https://www.pokerskill.com/poker-glossary/dominated-hand/); Trainingsseite (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)"
+  sources: [{ kind: rules }, { kind: math }, { kind: reference, url: "https://www.pokerskill.com/poker-glossary/dominated-hand/" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]
+- id: R-M3-013
+  module: m3
+  if: "beide Karten sind niedrig (Neun oder tiefer), auch bei einem niedrigen {{t:pair|Paar}}"
+  then: "auf dem Flop kommt meistens mindestens eine Karte, die höher ist als beide, und ein Gegner, der sie trifft, hat ein höheres {{t:pair|Paar}} als ein Paar aus deinen Karten"
+  because: "der Flop hat drei Karten, und im Deck gibt es viele Karten über einer niedrigen Hand: je niedriger deine höhere Karte, desto öfter kommt eine davon"
+  level: math
+  source: "Berechnung: Wahrscheinlichkeit = 1 − C(m, 3) ÷ C(50, 3), m = Karten nicht höher als die höhere Karte der Hand, ohne die zwei Handkarten; geprüft an allen 19 600 Flops für jede der 169 Klassen"
+  sources: [{ kind: math }]
+- id: R-M3-014
+  module: m3
+  if: "du hast vor dem Flop ein {{t:pair|Paar}} auf der Hand"
+  then: "du hast schon eine fertige Hand: eine Hand ohne {{t:pair|Paar}} braucht die {{t:community-cards}}, um sie zu schlagen"
+  because: "ein {{t:pair|Paar}} steht in der Rangfolge über {{t:high-card}}, und vor dem Flop hat eine Hand ohne Paar nur eine hohe Karte"
+  level: rules
+  source: "Texas-Hold'em-Regeln: vom kalifornischen Regulator genehmigte Kartenraumregeln (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), One Pair steht über High Card"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M4: gra wobec akcji preflop. Reguły „heuristic” pochodzą z literatury, nie z solvera aplikacji (dokument 11).
 - id: R-M4-001
   module: m4
@@ -1138,6 +1170,14 @@
   source: "Push/Fold-Solver des Projekts (pushfold.json, drei Spieler); übereinstimmend mit Ganzfried und Sandholm, AAMAS 2008, Tabelle 2, single hand: „SB jam after jam … 0.234“, „BB jam after jam/fold … 0.308“, „BB jam after jam/jam … 0.197“"
   sources: [{ kind: solver-app }, { kind: study }]
 
+- id: R-M11-013
+  module: m11
+  if: "alle Spieler im {{t:pot|Pot}} sind vor dem Flop all-in"
+  then: "es gibt keine {{t:bet|Einsätze}} mehr: die Hand entscheidet sich nach dem Austeilen der {{t:community-cards}}, und hat niemand ein {{t:pair|Paar}} oder Besseres, gewinnt die höhere Karte"
+  because: "ohne weitere {{t:bet|Einsätze}} kann niemand mehr {{t:fold|folden}}, also zählt nur die Rangfolge der Hände; bei reinen hohen Karten entscheidet die höchste"
+  level: rules
+  source: "Texas-Hold'em-Regeln: vom kalifornischen Regulator genehmigte Kartenraumregeln (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), High Card"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M13: analiza własnej gry (dokument 14, sekcja 8; decyzje D-M13-12…15 w dokumencie „12 Weryfikacja źródeł — M10–M13”).
 # „Decyzja, nie wynik” uczy R-M12-004 (jedna reguła na jedno pojęcie); mechanika powtórek z gry to opis aplikacji,
 # więc jest w tekście lekcji, a nie w księdze reguł.

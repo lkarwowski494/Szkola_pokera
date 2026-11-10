@@ -1,0 +1,148 @@
+[
+ {
+  "id": "R-M3-011",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "masz dwie różne karty i sprawdzasz, czy razem mogą złożyć strita → im bliżej siebie leżą, tym na więcej sposobów: sąsiednie karty od 5-4 do J-T są w czterech różnych stritach, karty z jedną luką w trzech, a karty odległe o pięć rang i więcej (np. 7-2) w żadnym, bo straight to pięć kolejnych rang; im większa luka między kartami, tym mniej takich piątek mieści obie (as liczy się też jako jedynka)",
+  "zrodla": [
+   {
+    "adres": "rachunek: liczba stritów (5 kolejnych rang, as także jako 1) zawierających obie karty ręki",
+    "miejsce": "apps/mobile/src/features/drills/__tests__/hand-reasons.test.ts, test „liczba stritów z obiema kartami”",
+    "cytat": "zgodne z przeglądem 10 stritów dla 169 klas; 98s: 4, A5o: 1, 72o: 0",
+    "odczyt": "2026-11-10",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf",
+    "miejsce": "Card Values and Hand Rankings, Straight",
+    "cytat": "A hand that consists of five cards that are in consecutive ranking, but that are not the same suit.",
+    "odczyt": "2026-11-10",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": null,
+  "poprawka": null,
+  "uwagi": "sesja BN, KO-040 (06-tresci-002), D-595"
+ },
+ {
+  "id": "R-M3-012",
+  "rodzaj": "regula",
+  "level": "heuristic",
+  "twierdzenie": "masz wysoką kartę ze słabszą drugą kartą (np. K5 albo A7), a rywal może mieć tę samą wysoką kartę z lepszym kickerem → gdy obaj traficie parę z tej karty, rywal z lepszym kickerem cię bije (twoja ręka jest zdominowana); dwie wysokie karty działają odwrotnie: wysoki kicker bije słabsze ręce z tą samą kartą, bo przy tej samej parze decyduje kicker, więc przed flopem ręka zdominowana wygrywa z ręką, która ją dominuje, rzadziej niż ona; przez to taką rękę trudno rozgrywać (uproszczenie: źródło szkoleniowe mówi to o obronie przed 3-betem)",
+  "zrodla": [
+   {
+    "adres": "rachunek: equity ręki zdominowanej (ta sama wysoka karta 10–A, niższy kicker, różne kolory) wobec ręki dominującej, Monte Carlo",
+    "miejsce": "apps/mobile/src/features/drills/__tests__/hand-reasons.test.ts, test „ręka zdominowana … wygrywa rzadziej”",
+    "cytat": "we wszystkich 230 parach poniżej 0,5; w sesji BN od ok. 0,25 (A9o vs AKo) do ok. 0,48 (J2o vs J3o)",
+    "odczyt": "2026-11-10",
+    "szczebel": 1
+   },
+   {
+    "adres": "https://www.pokerskill.com/poker-glossary/dominated-hand/",
+    "miejsce": "hasło Dominated Hand",
+    "cytat": "A dominated hand occurs when two players share a high card, but one has a worse kicker.",
+    "odczyt": "2026-11-10",
+    "szczebel": 4
+   },
+   {
+    "adres": "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/",
+    "miejsce": "Offsuit hands with big gaps (obrona przed 3-betem)",
+    "cytat": "Despite such combinations having a high amount of raw equity, the frequency at which they are dominated makes them very difficult to play.",
+    "odczyt": "2026-11-10",
+    "szczebel": 4
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": "źródło szkoleniowe mówi o obronie przed 3-betem; aplikacja używa pojęcia dominacji przy otwarciach i push/fold jako powodu słabości ręki poza zakresem solvera (kierunek zgodny z decyzją solvera, szczebel 2); uproszczenie nazwane w because",
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": null,
+  "poprawka": null,
+  "uwagi": "sesja BN, KO-040 (06-tresci-002), D-595"
+ },
+ {
+  "id": "R-M3-013",
+  "rodzaj": "regula",
+  "level": "math",
+  "twierdzenie": "obie twoje karty są niskie (dziewiątka lub niżej), także gdy to niska para → na flopie zwykle pada co najmniej jedna karta wyższa od obu, a rywal, który ją trafi, ma wyższą parę niż para z twoich kart, bo flop to trzy karty, a kart wyższych od niskiej ręki jest w talii dużo: im niższa twoja wyższa karta, tym częściej któraś z nich pada",
+  "zrodla": [
+   {
+    "adres": "rachunek: 1 − C(m, 3) ÷ C(50, 3), m = karty nie wyższe od wyższej karty ręki bez kart ręki",
+    "miejsce": "apps/mobile/src/features/drills/__tests__/hand-reasons.test.ts, test „szansa karty wyższej … 19 600 flopów”",
+    "cytat": "zgodne z przeglądem flopów dla 169 klas; przy dziewiątce ok. 0,79, niżej więcej",
+    "odczyt": "2026-11-10",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": null,
+  "poprawka": null,
+  "uwagi": "sesja BN, KO-040 (06-tresci-002), D-595"
+ },
+ {
+  "id": "R-M3-014",
+  "rodzaj": "regula",
+  "level": "rules",
+  "twierdzenie": "masz parę w ręce przed flopem → masz już gotowy układ: ręka bez pary, żeby ją pobić, potrzebuje pomocy kart wspólnych, bo pair stoi w rankingu wyżej niż high-card, a przed flopem ręka bez pary ma tylko wysoką kartę",
+  "zrodla": [
+   {
+    "adres": "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf",
+    "miejsce": "Card Values and Hand Rankings, One Pair i High Card",
+    "cytat": "A hand that consists of two cards of the same rank.",
+    "odczyt": "2026-11-10",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": null,
+  "poprawka": null,
+  "uwagi": "sesja BN, KO-040 (06-tresci-002), D-595"
+ },
+ {
+  "id": "R-M11-013",
+  "rodzaj": "regula",
+  "level": "rules",
+  "twierdzenie": "wszyscy gracze w puli są all-in przed flopem → nie ma już zakładów: rozdanie rozstrzyga sam układ po wyłożeniu kart wspólnych, a gdy nikt nie ma pary ani lepszego układu, wygrywa wyższa karta, bo bez dalszych zakładów nikt nie może już spasować, więc liczy się tylko ranking układów; przy samych wysokich kartach decyduje najwyższa",
+  "zrodla": [
+   {
+    "adres": "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf",
+    "miejsce": "Card Values and Hand Rankings, High Card",
+    "cytat": "A hand that consists of five cards that do not make any of the hands listed above.",
+    "odczyt": "2026-11-10",
+    "szczebel": 1
+   }
+  ],
+  "status": "potwierdzone",
+  "uproszczenie": null,
+  "krytyczne": false,
+  "przeglad": null,
+  "wielkosc": null,
+  "wartosc": null,
+  "jednostka": null,
+  "werdykt_tekstu": null,
+  "poprawka": null,
+  "uwagi": "sesja BN, KO-040 (06-tresci-002), D-595"
+ }
+]

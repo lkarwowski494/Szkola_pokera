@@ -205,6 +205,38 @@
   check: { kind: solver-spot, players: [9], stackBb: [100], spots: [nine.rfi.utg, nine.rfi.utg1, nine.rfi.utg2, nine.rfi.lj] }
   source: "solver de pré-flop do projeto, mesa de 9 jogadores 100bb (ADR-20; documento 10, «Medição N9a final»: validação parcial N1–N4, NashConv 0,0094bb; composição de UTG–UTG+2 não verificada e frequências sem validação de nível 2 (D-153), por isso a regra indica apenas a direção, sem números do solver; nível heuristic, D-144). Consistente com o intervalo comum das tabelas 9-max de nível 4: UTG cerca de 9–13%, UTG+1 cerca de 11–14% (site de tabelas de pré-flop, 9-Max Preflop Chart, https://preflopwizard.app/blog/9-max-preflop-chart; segundo site de tabelas de pré-flop, https://about-poker.com/preflop-gto/preflop-range-chart-cash-game; documento 10, «Configuração 9-max 100bb»). O jogo depois de UTG–UTG+2 desistirem é exatamente o jogo 6-max (teste da árvore)"
   sources: [{ kind: training, url: "https://preflopwizard.app/blog/9-max-preflop-chart" }, { kind: training, url: "https://about-poker.com/preflop-gto/preflop-range-chart-cash-game" }, { kind: solver-app }]
+- id: R-M3-011
+  module: m3
+  if: "tem duas cartas diferentes e verifica se juntas podem formar uma {{t:straight|sequência}}"
+  then: "quanto mais próximas, mais maneiras: cartas vizinhas de 5-4 a J-T estão em quatro {{t:straight|sequências}} diferentes, com um intervalo em três, e a cinco ou mais valores de distância (p. ex. 7-2) em nenhuma"
+  because: "uma {{t:straight|sequência}} são cinco valores seguidos; quanto maior o intervalo entre as cartas, menos quinas assim contêm as duas (o ás também conta como um)"
+  level: math
+  source: "cálculo: as dez sequências de A-2-3-4-5 a 10-J-Q-K-A verificadas para cada uma das 169 classes de mãos; definição: regulamento aprovado pelo regulador da Califórnia (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf)"
+  sources: [{ kind: math }, { kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
+- id: R-M3-012
+  module: m3
+  if: "tem uma carta alta com uma segunda carta mais fraca (p. ex. K5 ou A7), e um adversário pode ter a mesma carta alta com um {{t:kicker}} melhor"
+  then: "se ambos fizerem {{t:pair|par}} com essa carta, o adversário com o {{t:kicker}} melhor ganha (a sua mão está dominada); duas cartas altas funcionam ao contrário: um {{t:kicker}} alto bate mãos mais fracas com a mesma carta"
+  because: "com o mesmo {{t:pair|par}} decide o {{t:kicker}}, por isso antes do flop uma mão dominada ganha menos vezes do que a mão que a domina; por isso é difícil de jogar (simplificação: a fonte de treino diz isto sobre a defesa contra um 3-bet)"
+  level: heuristic
+  source: "regras: o kicker decide com o mesmo núcleo de mão (R-M0-002); cálculo: equity da mão dominada abaixo de metade em cada confronto; glossário de póquer (https://www.pokerskill.com/poker-glossary/dominated-hand/); site de treino (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)"
+  sources: [{ kind: rules }, { kind: math }, { kind: reference, url: "https://www.pokerskill.com/poker-glossary/dominated-hand/" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]
+- id: R-M3-013
+  module: m3
+  if: "as suas duas cartas são baixas (nove ou menos), também com um {{t:pair|par}} baixo"
+  then: "no flop costuma sair pelo menos uma carta mais alta do que as duas, e o adversário que a acertar tem um {{t:pair|par}} mais alto do que um par com as suas cartas"
+  because: "o flop são três cartas e o baralho tem muitas cartas mais altas do que uma mão baixa: quanto mais baixa a sua carta alta, mais vezes sai uma delas"
+  level: math
+  source: "cálculo: probabilidade = 1 − C(m, 3) ÷ C(50, 3), m = cartas não mais altas do que a carta alta da mão, sem as duas cartas da mão; verificado nos 19 600 flops para cada uma das 169 classes"
+  sources: [{ kind: math }]
+- id: R-M3-014
+  module: m3
+  if: "tem um {{t:pair|par}} na mão antes do flop"
+  then: "já tem uma mão feita: uma mão sem {{t:pair|par}} precisa das {{t:community-cards}} para a bater"
+  because: "o {{t:pair|par}} está acima da {{t:high-card}} no ranking, e antes do flop uma mão sem par só tem carta alta"
+  level: rules
+  source: "regras do Texas Hold'em: regulamento aprovado pelo regulador da Califórnia (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), One Pair acima de High Card"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M4: gra wobec akcji preflop. Reguły „heuristic” pochodzą z literatury, nie z solvera aplikacji (dokument 11).
 - id: R-M4-001
   module: m4
@@ -1138,6 +1170,14 @@
   source: "solver push/fold do projeto (pushfold.json, três jogadores); consistente com Ganzfried e Sandholm, AAMAS 2008, tabela 2, mão isolada: «SB jam after jam … 0.234», «BB jam after jam/fold … 0.308», «BB jam after jam/jam … 0.197»"
   sources: [{ kind: solver-app }, { kind: study }]
 
+- id: R-M11-013
+  module: m11
+  if: "todos os jogadores no {{t:pot|pote}} estão all-in antes do flop"
+  then: "já não há {{t:bet|apostas}}: a mão decide-se depois das {{t:community-cards}}, e se ninguém tiver {{t:pair|par}} ou melhor, ganha a carta mais alta"
+  because: "sem mais {{t:bet|apostas}} ninguém pode {{t:fold|desistir}}, por isso só conta o ranking das mãos; só com cartas altas decide a mais alta"
+  level: rules
+  source: "regras do Texas Hold'em: regulamento aprovado pelo regulador da Califórnia (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), High Card"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M13: analiza własnej gry (dokument 14, sekcja 8; decyzje D-M13-12…15 w dokumencie „12 Weryfikacja źródeł — M10–M13”).
 # „Decyzja, nie wynik” uczy R-M12-004 (jedna reguła na jedno pojęcie); mechanika powtórek z gry to opis aplikacji,
 # więc jest w tekście lekcji, a nie w księdze reguł.

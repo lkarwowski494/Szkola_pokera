@@ -736,7 +736,7 @@
         "rfiSb": "Grasz już tylko przeciw {{t:big-blind|dużemu blindowi}}, ale po flopie mówisz pierwszy.",
         "nineEarly": "Przy stole 9-osobowym za tobą siedzi więcej graczy niż przy 6-osobowym, więc częściej ktoś ma lepszą rękę.",
         "nineLj": "Z LJ grasz jak z {{t:utg|UTG}} przy stole 6-osobowym, bo zostaje za tobą tylu samo graczy.",
-        "btnVsCo": "Rywal często {{t:call|sprawdza}}, więc chcesz mieć rękę, która dobrze gra w {{t:pot|puli}} po {{t:call|sprawdzeniu}}.",
+        "btnVsCo": "{{t:cutoff|CO}} często {{t:call|sprawdza}} twój 3-bet, więc chcesz mieć rękę, która dobrze gra w {{t:pot|puli}} po {{t:call|sprawdzeniu}}.",
         "sbVsBtn": "Po {{t:call|sprawdzeniu}} z {{t:small-blind|małego blinda}} grasz {{t:out-of-position}}, a {{t:big-blind|duży blind}} za tobą może jeszcze {{t:raise|przebić}}; 3-bet daje {{t:initiative|inicjatywę}} i szansę wygrania {{t:pot|puli}} od razu.",
         "bbVsBtn": "Dopłacasz niewiele do dużej {{t:pot|puli}}, więc bronisz szeroko.",
         "bbVsSb": "Po flopie masz {{t:position|pozycję}}, więc realizujesz więcej {{t:equity}}.",
@@ -746,7 +746,21 @@
         "callBb": "Sprawdzający wygrywa tylko na showdownie i to przeciw {{t:range|zakresowi}}, który już jest silniejszy niż losowy; {{t:shove|pushujący}} wygrywa też wtedy, gdy rywal {{t:fold|spasuje}}.",
         "call3max": "Gracz za tobą może mieć silną rękę i dołączyć, a przeciw dwóm {{t:range|zakresom}} {{t:equity}} twojej ręki szybko maleje.",
         "call3maxTwo": "Przeciw dwóm {{t:range|zakresom}} {{t:equity}} twojej ręki szybko maleje.",
-        "pushSb3max": "Button już {{t:fold|spasował}}, więc wystarczy, że {{t:fold|spasuje}} tylko {{t:big-blind|duży blind}}; z Buttona muszą {{t:fold|spasować}} dwaj gracze."
+        "pushSb3max": "Button już {{t:fold|spasował}}, więc wystarczy, że {{t:fold|spasuje}} tylko {{t:big-blind|duży blind}}; z Buttona muszą {{t:fold|spasować}} dwaj gracze.",
+        "pushSbDeep": "Przy głębszym stacku ryzykujesz więcej względem blindów, które zgarniasz, gdy rywal {{t:fold|spasuje}}, więc {{t:shove|pushujesz}} węziej niż przy krótszym."
+      },
+      "hand": {
+        "pair": "Masz {{t:pair|parę}}, czyli gotowy układ już przed flopem: ręka bez {{t:pair|pary}}, żeby ją pobić, potrzebuje pomocy {{t:community-cards|kart wspólnych}}.",
+        "high": "Obie karty są wysokie: gdy trafisz {{t:pair|parę}}, będzie wysoka, a druga karta to wysoki {{t:kicker}}, który bije słabsze ręce z tą samą kartą.",
+        "suited": "Karty są w jednym kolorze: to dodatkowa droga do wygranej przez {{t:flush}}.",
+        "connected_one": "Karty leżą blisko siebie: razem mogą złożyć {{t:straight|strita}} na {{count}} sposób.",
+        "connected_few": "Karty leżą blisko siebie: razem mogą złożyć {{t:straight|strita}} na {{count}} sposoby.",
+        "connected_many": "Karty leżą blisko siebie: razem mogą złożyć {{t:straight|strita}} na {{count}} sposobów.",
+        "connected_other": "Karty leżą blisko siebie: razem mogą złożyć {{t:straight|strita}} na {{count}} sposobu.",
+        "highAllIn": "Przy all-in nie ma już {{t:bet|zakładów}} po flopie: gdy nikt nie trafi {{t:pair|pary}}, wygrywa wyższa karta, a twoja wyższa karta to {{rank}}.",
+        "dominated": "Gdy trafisz {{t:pair|parę}} z wyższej karty ({{rank}}), rywal z tą samą kartą i lepszym {{t:kicker|kickerem}} cię bije: to ręka zdominowana.",
+        "overcards": "Obie karty są niskie: na flopie w {{pct}} przypadków ({{often}}) pada co najmniej jedna karta wyższa od obu twoich, a rywal, który ją trafi, ma {{t:pair|parę}} wyższą niż {{t:pair|para}} z twoich kart.",
+        "overcardsPair": "Twoja {{t:pair|para}} jest niska: na flopie w {{pct}} przypadków ({{often}}) pada co najmniej jedna wyższa karta, a rywal, który ją trafi, ma wyższą {{t:pair|parę}}."
       },
       "acceptableFreq": "Solver gra tak w {{pct}} przypadków, więc to nie błąd, ale częściej wybiera inną akcję. Najlepiej zapamiętaj tę częstszą."
     },

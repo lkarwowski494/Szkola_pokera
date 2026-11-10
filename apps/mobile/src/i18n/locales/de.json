@@ -710,7 +710,7 @@
         "rfiSb": "Du spielst nur noch gegen den {{t:big-blind|Big Blind}}, aber nach dem Flop handelst du zuerst.",
         "nineEarly": "An einem Tisch mit 9 Spielern sitzen mehr Spieler hinter dir als an einem mit 6, also hat öfter jemand eine bessere Hand.",
         "nineLj": "Aus dem LJ spielst du wie aus {{t:utg|UTG}} an einem Tisch mit 6 Spielern, denn hinter dir bleiben gleich viele Spieler.",
-        "btnVsCo": "Der Gegner {{t:call|callt}} oft, also willst du eine Hand, die sich in einem {{t:pot|Pot}} nach einem {{t:call|Call}} gut spielt.",
+        "btnVsCo": "Der {{t:cutoff|CO}} {{t:call|callt}} deine 3-Bet oft, also willst du eine Hand, die sich in einem {{t:pot|Pot}} nach einem {{t:call|Call}} gut spielt.",
         "sbVsBtn": "Nach einem {{t:call|Call}} aus dem {{t:small-blind|Small Blind}} spielst du {{t:out-of-position|out of Position}}, und der {{t:big-blind|Big Blind}} hinter dir kann noch {{t:raise|raisen}}; eine 3-Bet gibt dir die {{t:initiative|Initiative}} und die Chance, den {{t:pot|Pot}} sofort zu gewinnen.",
         "bbVsBtn": "Du zahlst nur wenig in einen großen {{t:pot|Pot}} nach, also verteidigst du breit.",
         "bbVsSb": "Nach dem Flop hast du {{t:position|Position}}, also realisierst du mehr {{t:equity|Equity}}.",
@@ -720,7 +720,19 @@
         "callBb": "Wer callt, gewinnt nur im Showdown, und zwar gegen eine {{t:range|Range}}, die schon stärker ist als eine zufällige; wer {{t:shove|pusht}}, gewinnt auch, wenn der Gegner {{t:fold|foldet}}.",
         "call3max": "Der Spieler hinter dir kann eine starke Hand haben und einsteigen, und gegen zwei {{t:range|Ranges}} sinkt die {{t:equity|Equity}} deiner Hand schnell.",
         "call3maxTwo": "Gegen zwei {{t:range|Ranges}} sinkt die {{t:equity|Equity}} deiner Hand schnell.",
-        "pushSb3max": "Der Button hat schon {{t:fold|gefoldet}}, also muss nur noch der {{t:big-blind|Big Blind}} {{t:fold|folden}}; vom Button aus müssen zwei Spieler {{t:fold|folden}}."
+        "pushSb3max": "Der Button hat schon {{t:fold|gefoldet}}, also muss nur noch der {{t:big-blind|Big Blind}} {{t:fold|folden}}; vom Button aus müssen zwei Spieler {{t:fold|folden}}.",
+        "pushSbDeep": "Mit einem tieferen Stack riskierst du mehr im Verhältnis zu den Blinds, die du gewinnst, wenn der Gegner {{t:fold|foldet}}, also {{t:shove|pushst}} du weniger Hände als mit einem kürzeren Stack."
+      },
+      "hand": {
+        "pair": "Du hast ein {{t:pair|Paar}}, also schon vor dem Flop eine fertige Hand: Eine Hand ohne {{t:pair|Paar}} braucht die {{t:community-cards}}, um es zu schlagen.",
+        "high": "Beide Karten sind hoch: Triffst du ein {{t:pair|Paar}}, ist es hoch, und deine andere Karte ist ein hoher {{t:kicker}}, der schwächere Hände mit derselben Karte schlägt.",
+        "suited": "Deine Karten haben dieselbe Farbe: Das ist ein zusätzlicher Weg, mit einem {{t:flush|Flush}} zu gewinnen.",
+        "connected_one": "Deine Karten liegen nah beieinander: Zusammen können sie auf {{count}} Art eine {{t:straight|Straße}} bilden.",
+        "connected_other": "Deine Karten liegen nah beieinander: Zusammen können sie auf {{count}} Arten eine {{t:straight|Straße}} bilden.",
+        "highAllIn": "Beim All-in gibt es nach dem Flop keine {{t:bet|Einsätze}} mehr: Trifft niemand ein {{t:pair|Paar}}, gewinnt die höhere Karte, und deine höhere Karte ist {{rank}}.",
+        "dominated": "Triffst du ein {{t:pair|Paar}} mit deiner höheren Karte ({{rank}}), schlägt dich ein Gegner mit derselben Karte und einem besseren {{t:kicker}}: Diese Hand ist dominiert.",
+        "overcards": "Beide Karten sind niedrig: Auf {{pct}} der Flops ({{often}}) kommt mindestens eine Karte, die höher ist als deine beiden, und ein Gegner, der sie trifft, hat ein höheres {{t:pair|Paar}} als jedes Paar aus deinen Karten.",
+        "overcardsPair": "Dein {{t:pair|Paar}} ist niedrig: Auf {{pct}} der Flops ({{often}}) kommt mindestens eine höhere Karte, und ein Gegner, der sie trifft, hat ein höheres {{t:pair|Paar}}."
       },
       "acceptableFreq": "Der Solver spielt das in {{pct}} der Fälle, also ist es kein Fehler, aber er wählt häufiger eine andere Aktion. Merk dir am besten die häufigere."
     },

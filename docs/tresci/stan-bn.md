@@ -6,6 +6,12 @@ Aktualizacja: 2026-11-10 · Gałąź `sesja-bn-wyjasnienia` · Start 02b1fe1 (= 
 - Inwentarz 06-tresci-002: `docs/tresci/dowody/bn-e0-inwentarz-rangeDecision.txt` (skrypt na bazie pl, MIXED_HIGH 0,75, bez klas niepewnych): 2396 z 5541 par spot × klasa (43%) dostaje dziś tylko „bo ręka jest w/poza zakresem”. Spoty `tight` (rfi.utg, nine early/lj, call.*, push.btn-3max): brak powodu przy rękach w zakresie; spoty `wide`: przy rękach poza zakresem.
 - Zadanie 2: wyjaśnienia egzaminów M6 (alpha, MDF, cena), M9 (SPR, geometria), M11 (fold equity, BF), M12 (wariancja, RoR, bankroll) zaczynają się od wzoru: ok. 20 opcji do odwrócenia kolejności (sens → liczba), bez nowych twierdzeń. R-M2-005 `because` tautologia.
 
+## Partia 1 (06-tresci-002 + NIS 004) — zrobione
+- `apps/mobile/src/features/drills/hand-reasons.ts` + `text.ts`: powód z klasy ręki, gdy powód spotu nie wspiera decyzji (D-595); btnVsCo z podmiotem, push.sb-15 → `pushSbDeep` (D-596).
+- Reguły R-M3-011…014, R-M11-013 (pl + 11 języków), rejestr: `docs/tresci/rejestr/bn.json`.
+- Testy: `powody-reki-bn.test.ts` (czerwony na 02b1fe1: `docs/tresci/dowody/bn-002-test-czerwony.txt`; zielony po), `hand-reasons.test.ts`. Pokrycie: 2396 par spot × klasa → 0 bez powodu, wyjątki nazwane: 0.
+- Do przeglądu 09 (przekład agenta, bez native speakera): klucze `drill.range.hand.*` (pair, high, suited, connected_*, highAllIn, dominated, overcards, overcardsPair), `drill.range.reason.pushSbDeep`, zmieniony `drill.range.reason.btnVsCo`, w 11 językach; reguły R-M3-011…014 i R-M11-013 w `content/<język>/rules.yaml`.
+
 ## Plan
 1. Powód z klasy ręki (`apps/mobile/src/features/drills/hand-reasons.ts`, cechy: para, kolor, połączenie, wysokie karty, słaby kicker) — tylko w kierunku zgodnym z decyzją; twierdzenia jako reguły w `content/pl/rules.yaml`: rachunek (szczebel 1, liczony w teście: strity z dwiema kartami, equity ręki zdominowanej), R-M3-005 (kolor), R-M0-002 (kicker); źródła szczebla 2–4 tylko po przeczytaniu. Czego nie potwierdzę → lista wyjątków w teście + otwarte pytania.
 2. Test: dla każdego spotu × statusu × klasy wyjaśnienie ma zdanie powodu inne niż `range.status.*` (wyjątki nazwane).

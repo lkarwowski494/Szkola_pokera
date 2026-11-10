@@ -205,6 +205,38 @@
   check: { kind: solver-spot, players: [9], stackBb: [100], spots: [nine.rfi.utg, nine.rfi.utg1, nine.rfi.utg2, nine.rfi.lj] }
   source: "プロジェクトのプリフロップソルバー、9人テーブル100bb (ADR-20；ドキュメント10、「N9a最終測定」：N1–N4の部分的な検証、NashConv 0.0094bb；UTG–UTG+2の構成は未検証で、頻度は第2段階の検証がない (D-153) ため、このルールは方向だけを示し、ソルバーの数値は示さない；レベルheuristic、D-144)。第4段階の9-maxチャートの共通範囲と一致：UTG約9–13%、UTG+1約11–14% (プリフロップチャートのサイト、9-Max Preflop Chart、https://preflopwizard.app/blog/9-max-preflop-chart; 2つ目のプリフロップチャートのサイト、https://about-poker.com/preflop-gto/preflop-range-chart-cash-game; ドキュメント10、「9-max 100bbの構成」)。UTG–UTG+2がフォールドした後のプレイは6-maxのプレイとまったく同じ (ツリーのテスト)"
   sources: [{ kind: training, url: "https://preflopwizard.app/blog/9-max-preflop-chart" }, { kind: training, url: "https://about-poker.com/preflop-gto/preflop-range-chart-cash-game" }, { kind: solver-app }]
+- id: R-M3-011
+  module: m3
+  if: "異なる2枚のカードがあり、一緒に{{t:straight|ストレート}}を作れるかを確認する場合"
+  then: "近いほど作り方が多くなります。5-4からJ-Tまでの隣り合うカードは4通りの{{t:straight|ストレート}}に入り、1つ空いたカードは3通り、5ランク以上離れたカード（例：7-2）はどれにも入りません"
+  because: "{{t:straight|ストレート}}は連続する5つのランクです。カードの間が空くほど、両方を含む5枚の並びは少なくなります（エースは1としても数えます）"
+  level: math
+  source: "計算：A-2-3-4-5から10-J-Q-K-Aまでの10通りのストレートを169のハンドクラスすべてで確認。定義：カリフォルニア州規制当局承認のカードルーム規則（https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf）"
+  sources: [{ kind: math }, { kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
+- id: R-M3-012
+  module: m3
+  if: "高いカードと弱い2枚目（例：K5やA7）を持っていて、相手が同じ高いカードとより良い{{t:kicker}}を持っている可能性がある場合"
+  then: "二人ともそのカードで{{t:pair|ペア}}になると、より良い{{t:kicker}}を持つ相手が勝ちます（あなたのハンドはドミネートされています）。高いカード2枚なら逆に、高い{{t:kicker}}が同じカードを持つ弱いハンドに勝ちます"
+  because: "同じ{{t:pair|ペア}}なら{{t:kicker}}で決まるので、フロップ前、ドミネートされたハンドはそれをドミネートするハンドより勝つ回数が少なく、プレイが難しくなります（単純化：トレーニング資料は3ベットへの対応についてこう述べています）"
+  level: heuristic
+  source: "ルール：同じ役ならキッカーで決まる（R-M0-002）。計算：ドミネートされたハンドのエクイティはどの組み合わせでも半分未満。ポーカー用語集（https://www.pokerskill.com/poker-glossary/dominated-hand/）、トレーニングサイト（https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/）"
+  sources: [{ kind: rules }, { kind: math }, { kind: reference, url: "https://www.pokerskill.com/poker-glossary/dominated-hand/" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]
+- id: R-M3-013
+  module: m3
+  if: "2枚とも低いカード（9以下）の場合（低い{{t:pair|ペア}}も含む）"
+  then: "フロップではたいてい2枚より高いカードが少なくとも1枚出て、それを当てた相手はあなたのカードで作るペアより高い{{t:pair|ペア}}になります"
+  because: "フロップは3枚で、デッキには低いハンドより高いカードがたくさんあります。あなたの高いほうのカードが低いほど、そのどれかが出やすくなります"
+  level: math
+  source: "計算：確率 = 1 − C(m, 3) ÷ C(50, 3)、m = ハンドの高いほうのカード以下のカード（ハンドの2枚を除く）。169クラスすべてで19,600通りのフロップと照合"
+  sources: [{ kind: math }]
+- id: R-M3-014
+  module: m3
+  if: "フロップ前に{{t:pair|ペア}}を持っている場合"
+  then: "すでに完成した役があります。{{t:pair|ペア}}のないハンドがこれに勝つには{{t:community-cards}}の助けが必要です"
+  because: "{{t:pair|ペア}}は役の順位で{{t:high-card}}より上で、フロップ前にペアのないハンドはハイカードしかありません"
+  level: rules
+  source: "テキサスホールデムのルール：カリフォルニア州規制当局承認のカードルーム規則（https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf）、One PairはHigh Cardより上"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M4: gra wobec akcji preflop. Reguły „heuristic” pochodzą z literatury, nie z solvera aplikacji (dokument 11).
 - id: R-M4-001
   module: m4
@@ -1138,6 +1170,14 @@
   source: "プロジェクトのプッシュ/フォールドソルバー (pushfold.json、3人)；Ganzfried と Sandholm、AAMAS 2008、表2、single hand：「SB jam after jam … 0.234」、「BB jam after jam/fold … 0.308」、「BB jam after jam/jam … 0.197」と一致"
   sources: [{ kind: solver-app }, { kind: study }]
 
+- id: R-M11-013
+  module: m11
+  if: "{{t:pot|ポット}}にいる全員がフロップ前にオールインしている場合"
+  then: "もう{{t:bet|ベット}}はありません。{{t:community-cards}}が配られた後の役で決まり、誰も{{t:pair|ペア}}以上を持っていなければ高いカードが勝ちます"
+  because: "これ以上{{t:bet|ベット}}がないので誰も{{t:fold|フォールド}}できず、役の順位だけが意味を持ちます。ハイカード同士なら最も高いカードで決まります"
+  level: rules
+  source: "テキサスホールデムのルール：カリフォルニア州規制当局承認のカードルーム規則（https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf）、High Card"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M13: analiza własnej gry (dokument 14, sekcja 8; decyzje D-M13-12…15 w dokumencie „12 Weryfikacja źródeł — M10–M13”).
 # „Decyzja, nie wynik” uczy R-M12-004 (jedna reguła na jedno pojęcie); mechanika powtórek z gry to opis aplikacji,
 # więc jest w tekście lekcji, a nie w księdze reguł.

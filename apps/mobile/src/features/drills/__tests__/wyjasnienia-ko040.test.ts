@@ -90,7 +90,7 @@ describe('KO-040: wyjaśnienia generatorów decyzji', () => {
   // Recenzja BK 06-tresci-001: reguła źródłowa powodu musi obejmować spot (warunek `if`); tabela spot → reguła.
   it('powód spotu pochodzi z reguły, której warunek obejmuje spot (BK 06-tresci-001)', () => {
     const REGULA: Record<string, string> = {
-      pushSb: 'R-M11-002', pushAnte: 'R-M11-003', push3max: 'R-M11-011', pushSb3max: 'R-M11-011',
+      pushSb: 'R-M11-002', pushSbDeep: 'R-M11-002', pushAnte: 'R-M11-003', push3max: 'R-M11-011', pushSb3max: 'R-M11-011',
       callBb: 'R-M11-007', call3max: 'R-M11-012', call3maxTwo: 'R-M11-012',
     };
     // za małym blindem zostaje tylko duży blind: „każdy kolejny gracz za tobą” (push3max) tu nie obowiązuje

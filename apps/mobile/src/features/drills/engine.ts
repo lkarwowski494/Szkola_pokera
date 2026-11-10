@@ -456,9 +456,9 @@ function rangeDecision(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: 
     return opcjaZakresu(v, f, false);
   });
   function opcjaZakresu(v: (typeof verdict)[number], f: { name: string; f: number }, pas: boolean): DrillOption {
-    if (v === 'correct') return { text: f.name, correct: true, why: t.range.right(f.f, status, spot!.id), czestosc: f.f };
-    if (v === 'acceptable') return { text: f.name, correct: false, acceptable: true, why: t.range.acceptable(f.f, status, spot!.id), czestosc: f.f };
-    return { text: f.name, correct: false, why: t.range.wrong(f.f, status, spot!.id, pas), czestosc: f.f };
+    if (v === 'correct') return { text: f.name, correct: true, why: t.range.right(f.f, status, spot!.id, hc), czestosc: f.f };
+    if (v === 'acceptable') return { text: f.name, correct: false, acceptable: true, why: t.range.acceptable(f.f, status, spot!.id, hc), czestosc: f.f };
+    return { text: f.name, correct: false, why: t.range.wrong(f.f, status, spot!.id, pas, hc), czestosc: f.f };
   }
   // błędne rozmiary dokładamy na końcu listy (kolejność opcji generatora jest stała: grupy, pas, złe rozmiary)
   spot.groups.forEach((g, gi) => {
@@ -468,7 +468,7 @@ function rangeDecision(d: GeneratedDrill, lessonId: string | null, rng: Rng, i: 
         // rozmiar spoza strategii solvera: częstość 0 (pasek strategii pokazuje go jako twój wybór z 0%)
         verdict[gi] !== 'wrong'
           ? { text: w.text, correct: false, sizeError: true, why: w.why, czestosc: 0 }
-          : { text: w.text, correct: false, why: zdania(t.range.wrong(f, status, spot.id, false), w.why), czestosc: 0 },
+          : { text: w.text, correct: false, why: zdania(t.range.wrong(f, status, spot.id, false, hc), w.why), czestosc: 0 },
       );
     }
   });

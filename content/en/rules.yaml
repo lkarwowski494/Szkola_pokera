@@ -205,6 +205,38 @@
   check: { kind: solver-spot, players: [9], stackBb: [100], spots: [nine.rfi.utg, nine.rfi.utg1, nine.rfi.utg2, nine.rfi.lj] }
   source: "the project's preflop solver, 9-handed table 100bb (ADR-20; document 10, “Final N9a measurement”: partial validation N1–N4, NashConv 0.0094bb; the UTG–UTG+2 composition is unverified, and the frequencies lack tier-2 validation (D-153), so the rule gives only the direction, without solver numbers; heuristic level, D-144). Consistent with the overlap of tier-4 9-max charts: UTG about 9–13%, UTG+1 about 11–14% (preflop chart site, 9-Max Preflop Chart, https://preflopwizard.app/blog/9-max-preflop-chart; second preflop chart site, https://about-poker.com/preflop-gto/preflop-range-chart-cash-game; document 10, “9-max 100bb configuration”). Play after UTG–UTG+2 fold is exactly 6-max play (tree test)"
   sources: [{ kind: training, url: "https://preflopwizard.app/blog/9-max-preflop-chart" }, { kind: training, url: "https://about-poker.com/preflop-gto/preflop-range-chart-cash-game" }, { kind: solver-app }]
+- id: R-M3-011
+  module: m3
+  if: "you have two different cards and check whether together they can make a {{t:straight}}"
+  then: "the closer they are, the more ways: adjacent cards from 5-4 to J-T are in four different {{t:straight|straights}}, cards with one gap in three, and cards five or more ranks apart (e.g. 7-2) in none"
+  because: "a {{t:straight}} is five consecutive ranks; the bigger the gap between the cards, the fewer such fives contain both (the ace also counts as one)"
+  level: math
+  source: "calculation: all ten straights from A-2-3-4-5 to 10-J-Q-K-A checked for each of the 169 hand classes; straight definition: California-approved card room rules (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), Card Values and Hand Rankings"
+  sources: [{ kind: math }, { kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
+- id: R-M3-012
+  module: m3
+  if: "you have a high card with a weaker second card (e.g. K5 or A7), and an opponent may hold the same high card with a better {{t:kicker}}"
+  then: "when you both make a {{t:pair}} with that card, the opponent with the better {{t:kicker}} beats you (your hand is dominated); two high cards work the other way: a high {{t:kicker}} beats weaker hands with the same card"
+  because: "with the same {{t:pair}} the {{t:kicker}} decides, so before the flop a dominated hand wins less often than the hand that dominates it; this makes such a hand hard to play (simplification: the training source says this about defending against a 3-bet)"
+  level: heuristic
+  source: "rules: the kicker decides with the same hand core (R-M0-002); calculation: equity of a dominated hand against the same high card with a higher kicker, below one half in every pairing; poker glossary (https://www.pokerskill.com/poker-glossary/dominated-hand/); training site, Facing a 3-Bet (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)"
+  sources: [{ kind: rules }, { kind: math }, { kind: reference, url: "https://www.pokerskill.com/poker-glossary/dominated-hand/" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]
+- id: R-M3-013
+  module: m3
+  if: "both your cards are low (nine or lower), also when it's a low {{t:pair}}"
+  then: "on the flop at least one card higher than both usually comes, and an opponent who pairs it has a higher {{t:pair}} than a pair from your cards"
+  because: "the flop is three cards, and the deck holds many cards higher than a low hand: the lower your higher card, the more often one of them comes"
+  level: math
+  source: "calculation: probability = 1 − C(m, 3) ÷ C(50, 3), m = cards not higher than the hand's higher card, excluding the hand's two cards; checked against all 19,600 flops for each of the 169 classes"
+  sources: [{ kind: math }]
+- id: R-M3-014
+  module: m3
+  if: "you have a {{t:pair}} in your hand before the flop"
+  then: "you already have a made hand: a hand without a {{t:pair}} needs help from the {{t:community-cards}} to beat it"
+  because: "a {{t:pair}} ranks above {{t:high-card}}, and before the flop a hand without a pair has only a high card"
+  level: rules
+  source: "Texas Hold'em rules: California-approved card room rules (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), Card Values and Hand Rankings: One Pair ranks above High Card"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M4: gra wobec akcji preflop. Reguły „heuristic” pochodzą z literatury, nie z solvera aplikacji (dokument 11).
 - id: R-M4-001
   module: m4
@@ -1138,6 +1170,14 @@
   source: "the project's push/fold solver (pushfold.json, three players); consistent with Ganzfried and Sandholm, AAMAS 2008, table 2, single hand: “SB jam after jam … 0.234”, “BB jam after jam/fold … 0.308”, “BB jam after jam/jam … 0.197”"
   sources: [{ kind: solver-app }, { kind: study }]
 
+- id: R-M11-013
+  module: m11
+  if: "all players in the {{t:pot}} are all-in before the flop"
+  then: "there are no more {{t:bet|bets}}: the hand is decided by the made hand once the {{t:community-cards}} are dealt, and if nobody has a {{t:pair}} or better, the higher card wins"
+  because: "with no further {{t:bet|bets}} nobody can {{t:fold}} anymore, so only the hand ranking counts; with high cards only, the highest decides"
+  level: rules
+  source: "Texas Hold'em rules: California-approved card room rules (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), Card Values and Hand Rankings: High Card"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M13: analiza własnej gry (dokument 14, sekcja 8; decyzje D-M13-12…15 w dokumencie „12 Weryfikacja źródeł — M10–M13”).
 # „Decyzja, nie wynik” uczy R-M12-004 (jedna reguła na jedno pojęcie); mechanika powtórek z gry to opis aplikacji,
 # więc jest w tekście lekcji, a nie w księdze reguł.

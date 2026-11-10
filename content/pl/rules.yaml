@@ -205,6 +205,39 @@
   check: { kind: solver-spot, players: [9], stackBb: [100], spots: [nine.rfi.utg, nine.rfi.utg1, nine.rfi.utg2, nine.rfi.lj] }
   source: "solver preflop projektu, stół 9-osobowy 100bb (ADR-20; dokument 10, „Pomiar N9a końcowy”: walidacja częściowa N1–N4, NashConv 0,0094bb; skład UTG–UTG+2 niezweryfikowany, a częstości bez walidacji szczebla 2 (D-153), więc reguła podaje tylko kierunek, bez liczb solvera; poziom heuristic, D-144). Zgodne z przedziałem wspólnym tabel 9-max szczebla 4: UTG ok. 9–13%, UTG+1 ok. 11–14% (serwis z tabelami preflop, 9-Max Preflop Chart, https://preflopwizard.app/blog/9-max-preflop-chart; drugi serwis z tabelami preflop, https://about-poker.com/preflop-gto/preflop-range-chart-cash-game; dokument 10, „Konfiguracja 9-max 100bb”). Gra po pasach UTG–UTG+2 to dokładnie gra 6-max (test drzewa)"
   sources: [{ kind: training, url: "https://preflopwizard.app/blog/9-max-preflop-chart" }, { kind: training, url: "https://about-poker.com/preflop-gto/preflop-range-chart-cash-game" }, { kind: solver-app }]
+# M3: powody z klasy ręki w ćwiczeniu zakresów (KO-040, sesja BN, D-595). Rachunki: apps/mobile/src/features/drills/__tests__/hand-reasons.test.ts.
+- id: R-M3-011
+  module: m3
+  if: "masz dwie różne karty i sprawdzasz, czy razem mogą złożyć {{t:straight|strita}}"
+  then: "im bliżej siebie leżą, tym na więcej sposobów: sąsiednie karty od 5-4 do J-T są w czterech różnych {{t:straight|stritach}}, karty z jedną luką w trzech, a karty odległe o pięć rang i więcej (np. 7-2) w żadnym"
+  because: "{{t:straight}} to pięć kolejnych rang; im większa luka między kartami, tym mniej takich piątek mieści obie (as liczy się też jako jedynka)"
+  level: math
+  source: "obliczenie: przegląd dziesięciu stritów od A-2-3-4-5 do 10-J-Q-K-A dla każdej z 169 klas rąk (test hand-reasons.test.ts); definicja strita: regulamin kasyna zatwierdzony przez kalifornijskiego regulatora hazardu (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), Card Values and Hand Rankings: „A hand that consists of five cards that are in consecutive ranking, but that are not the same suit”, „a 5, 4, 3, 2 and Ace is the lowest ranked Straight”"
+  sources: [{ kind: math }, { kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
+- id: R-M3-012
+  module: m3
+  if: "masz wysoką kartę ze słabszą drugą kartą (np. K5 albo A7), a rywal może mieć tę samą wysoką kartę z lepszym {{t:kicker|kickerem}}"
+  then: "gdy obaj traficie {{t:pair|parę}} z tej karty, rywal z lepszym {{t:kicker|kickerem}} cię bije (twoja ręka jest zdominowana); dwie wysokie karty działają odwrotnie: wysoki {{t:kicker}} bije słabsze ręce z tą samą kartą"
+  because: "przy tej samej {{t:pair|parze}} decyduje {{t:kicker}}, więc przed flopem ręka zdominowana wygrywa z ręką, która ją dominuje, rzadziej niż ona; przez to taką rękę trudno rozgrywać (uproszczenie: źródło szkoleniowe mówi to o obronie przed 3-betem)"
+  level: heuristic
+  source: "zasady: kicker rozstrzyga przy tym samym rdzeniu układu (R-M0-002); obliczenie: equity ręki zdominowanej wobec ręki z tą samą wysoką kartą i wyższym kickerem, Monte Carlo, wszystkie pary rąk w różnych kolorach z wyższą kartą od 10 do asa: poniżej połowy w każdej (test hand-reasons.test.ts; w sesji BN od ok. 0,25 do ok. 0,48); słownik pokera (https://www.pokerskill.com/poker-glossary/dominated-hand/): „A dominated hand occurs when two players share a high card, but one has a worse kicker.”; serwis szkoleniowy, Facing a 3-Bet (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/), o rękach A6o-A9o, K2o-K8o: „Despite such combinations having a high amount of raw equity, the frequency at which they are dominated makes them very difficult to play.”"
+  sources: [{ kind: rules }, { kind: math }, { kind: reference, url: "https://www.pokerskill.com/poker-glossary/dominated-hand/" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]
+- id: R-M3-013
+  module: m3
+  if: "obie twoje karty są niskie (dziewiątka lub niżej), także gdy to niska {{t:pair|para}}"
+  then: "na flopie zwykle pada co najmniej jedna karta wyższa od obu, a rywal, który ją trafi, ma wyższą {{t:pair|parę}} niż {{t:pair|para}} z twoich kart"
+  because: "flop to trzy karty, a kart wyższych od niskiej ręki jest w talii dużo: im niższa twoja wyższa karta, tym częściej któraś z nich pada"
+  level: math
+  source: "obliczenie: szansa = 1 − C(m, 3) ÷ C(50, 3), m = karty nie wyższe od wyższej karty ręki bez dwóch kart ręki; zgodne z przeglądem wszystkich 19 600 flopów dla każdej z 169 klas (test hand-reasons.test.ts); przy dziewiątce ok. 0,79, przy niższych więcej; aplikacja podaje wartość dla ręki z zadania"
+  sources: [{ kind: math }]
+- id: R-M3-014
+  module: m3
+  if: "masz {{t:pair|parę}} w ręce przed flopem"
+  then: "masz już gotowy układ: ręka bez {{t:pair|pary}}, żeby ją pobić, potrzebuje pomocy {{t:community-cards|kart wspólnych}}"
+  because: "{{t:pair}} stoi w rankingu wyżej niż {{t:high-card}}, a przed flopem ręka bez {{t:pair|pary}} ma tylko wysoką kartę"
+  level: rules
+  source: "zasady Texas Hold'em: regulamin kasyna zatwierdzony przez kalifornijskiego regulatora hazardu (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), Card Values and Hand Rankings: One Pair „A hand that consists of two cards of the same rank.” stoi w tabeli nad High Card „A hand that consists of five cards that do not make any of the hands listed above.”"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M4: gra wobec akcji preflop. Reguły „heuristic” pochodzą z literatury, nie z solvera aplikacji (dokument 11).
 - id: R-M4-001
   module: m4
@@ -1137,6 +1170,15 @@
   level: gto
   source: "solver push/fold projektu (pushfold.json, trzech graczy); zgodny z Ganzfried i Sandholm, AAMAS 2008, tabela 2, single hand: „SB jam after jam … 0.234”, „BB jam after jam/fold … 0.308”, „BB jam after jam/jam … 0.197”"
   sources: [{ kind: solver-app }, { kind: study }]
+
+- id: R-M11-013
+  module: m11
+  if: "wszyscy gracze w {{t:pot|puli}} są all-in przed flopem"
+  then: "nie ma już {{t:bet|zakładów}}: rozdanie rozstrzyga sam układ po wyłożeniu {{t:community-cards|kart wspólnych}}, a gdy nikt nie ma {{t:pair|pary}} ani lepszego układu, wygrywa wyższa karta"
+  because: "bez dalszych {{t:bet|zakładów}} nikt nie może już {{t:fold|spasować}}, więc liczy się tylko ranking układów; przy samych wysokich kartach decyduje najwyższa"
+  level: rules
+  source: "zasady Texas Hold'em: regulamin kasyna zatwierdzony przez kalifornijskiego regulatora hazardu (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), Card Values and Hand Rankings: High Card „A hand that consists of five cards that do not make any of the hands listed above. An Ace, King, Queen, Jack and 9 is the highest ranked High Card hand”"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 
 # M13: analiza własnej gry (dokument 14, sekcja 8; decyzje D-M13-12…15 w dokumencie „12 Weryfikacja źródeł — M10–M13”).
 # „Decyzja, nie wynik” uczy R-M12-004 (jedna reguła na jedno pojęcie); mechanika powtórek z gry to opis aplikacji,

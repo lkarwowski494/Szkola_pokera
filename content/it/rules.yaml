@@ -205,6 +205,38 @@
   check: { kind: solver-spot, players: [9], stackBb: [100], spots: [nine.rfi.utg, nine.rfi.utg1, nine.rfi.utg2, nine.rfi.lj] }
   source: "solver preflop del progetto, tavolo da 9 100bb (ADR-20; documento 10, «Misurazione N9a finale»: validazione parziale N1–N4, NashConv 0,0094bb; composizione UTG–UTG+2 non verificata, e frequenze senza validazione di livello 2 (D-153), quindi la regola indica solo la direzione, senza numeri del solver; livello heuristic, D-144). Coerente con l'intervallo comune delle tabelle 9-max di livello 4: UTG circa 9–13%, UTG+1 circa 11–14% (sito con tabelle preflop, 9-Max Preflop Chart, https://preflopwizard.app/blog/9-max-preflop-chart; secondo sito con tabelle preflop, https://about-poker.com/preflop-gto/preflop-range-chart-cash-game; documento 10, «Configurazione 9-max 100bb»). Il gioco dopo i fold di UTG–UTG+2 è esattamente il gioco 6-max (test dell'albero)"
   sources: [{ kind: training, url: "https://preflopwizard.app/blog/9-max-preflop-chart" }, { kind: training, url: "https://about-poker.com/preflop-gto/preflop-range-chart-cash-game" }, { kind: solver-app }]
+- id: R-M3-011
+  module: m3
+  if: "hai due carte diverse e controlli se insieme possono formare una {{t:straight|scala}}"
+  then: "più sono vicine, più modi ci sono: carte adiacenti da 5-4 a J-T stanno in quattro {{t:straight|scale}} diverse, con un buco in tre, e a cinque o più ranghi di distanza (es. 7-2) in nessuna"
+  because: "una {{t:straight|scala}} sono cinque ranghi consecutivi; più grande è il buco tra le carte, meno cinquine così le contengono entrambe (l'asso conta anche come uno)"
+  level: math
+  source: "calcolo: le dieci scale da A-2-3-4-5 a 10-J-Q-K-A verificate per ognuna delle 169 classi di mani; definizione: regolamento approvato dal regolatore californiano (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf)"
+  sources: [{ kind: math }, { kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
+- id: R-M3-012
+  module: m3
+  if: "hai una carta alta con una seconda carta più debole (es. K5 o A7), e un avversario può avere la stessa carta alta con un {{t:kicker}} migliore"
+  then: "se fate entrambi {{t:pair|coppia}} con quella carta, l'avversario con il {{t:kicker}} migliore ti batte (la tua mano è dominata); due carte alte funzionano al contrario: un {{t:kicker}} alto batte le mani più deboli con la stessa carta"
+  because: "con la stessa {{t:pair|coppia}} decide il {{t:kicker}}, quindi prima del flop una mano dominata vince meno spesso della mano che la domina; per questo è difficile da giocare (semplificazione: la fonte formativa lo dice sulla difesa contro un 3-bet)"
+  level: heuristic
+  source: "regole: il kicker decide a parità di nucleo della mano (R-M0-002); calcolo: equity della mano dominata sotto la metà in ogni accoppiamento; glossario di poker (https://www.pokerskill.com/poker-glossary/dominated-hand/); sito di formazione (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)"
+  sources: [{ kind: rules }, { kind: math }, { kind: reference, url: "https://www.pokerskill.com/poker-glossary/dominated-hand/" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]
+- id: R-M3-013
+  module: m3
+  if: "entrambe le tue carte sono basse (nove o meno), anche con una {{t:pair|coppia}} bassa"
+  then: "sul flop di solito esce almeno una carta più alta di entrambe, e l'avversario che la prende ha una {{t:pair|coppia}} più alta di una coppia fatta con le tue carte"
+  because: "il flop sono tre carte e nel mazzo ci sono molte carte più alte di una mano bassa: più è bassa la tua carta alta, più spesso ne esce una"
+  level: math
+  source: "calcolo: probabilità = 1 − C(m, 3) ÷ C(50, 3), m = carte non più alte della carta alta della mano, senza le due carte della mano; verificato su tutti i 19 600 flop per ognuna delle 169 classi"
+  sources: [{ kind: math }]
+- id: R-M3-014
+  module: m3
+  if: "hai una {{t:pair|coppia}} in mano prima del flop"
+  then: "hai già una mano fatta: una mano senza {{t:pair|coppia}} ha bisogno delle {{t:community-cards}} per batterla"
+  because: "la {{t:pair|coppia}} sta sopra la {{t:high-card}} nella classifica, e prima del flop una mano senza coppia ha solo una carta alta"
+  level: rules
+  source: "regole del Texas Hold'em: regolamento approvato dal regolatore californiano (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), One Pair sopra High Card"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M4: gra wobec akcji preflop. Reguły „heuristic” pochodzą z literatury, nie z solvera aplikacji (dokument 11).
 - id: R-M4-001
   module: m4
@@ -1138,6 +1170,14 @@
   source: "solver push/fold del progetto (pushfold.json, tre giocatori); coerente con Ganzfried e Sandholm, AAMAS 2008, tabella 2, single hand: «SB jam after jam … 0.234», «BB jam after jam/fold … 0.308», «BB jam after jam/jam … 0.197»"
   sources: [{ kind: solver-app }, { kind: study }]
 
+- id: R-M11-013
+  module: m11
+  if: "tutti i giocatori nel {{t:pot|piatto}} sono all-in prima del flop"
+  then: "non ci sono più {{t:bet|puntate}}: la mano si decide dopo le {{t:community-cards}}, e se nessuno ha {{t:pair|coppia}} o meglio, vince la carta più alta"
+  because: "senza altre {{t:bet|puntate}} nessuno può più {{t:fold|foldare}}, quindi conta solo la classifica delle mani; con sole carte alte decide la più alta"
+  level: rules
+  source: "regole del Texas Hold'em: regolamento approvato dal regolatore californiano (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), High Card"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M13: analiza własnej gry (dokument 14, sekcja 8; decyzje D-M13-12…15 w dokumencie „12 Weryfikacja źródeł — M10–M13”).
 # „Decyzja, nie wynik” uczy R-M12-004 (jedna reguła na jedno pojęcie); mechanika powtórek z gry to opis aplikacji,
 # więc jest w tekście lekcji, a nie w księdze reguł.

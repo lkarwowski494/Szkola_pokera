@@ -205,6 +205,38 @@
   check: { kind: solver-spot, players: [9], stackBb: [100], spots: [nine.rfi.utg, nine.rfi.utg1, nine.rfi.utg2, nine.rfi.lj] }
   source: "本專案的翻前求解器，9 人桌 100bb（ADR-20；文件 10，「N9a 最終測量」：部分驗證 N1–N4，NashConv 0.0094bb；UTG–UTG+2 的組成未經驗證，頻率也未經第 2 層級驗證（D-153），所以本規則只給方向，不給求解器數字；heuristic 層級，D-144）。與第 4 層級 9-max 圖表的交集一致：UTG 約 9–13%，UTG+1 約 11–14%（翻前圖表網站，9-Max Preflop Chart，https://preflopwizard.app/blog/9-max-preflop-chart；第二個翻前圖表網站，https://about-poker.com/preflop-gto/preflop-range-chart-cash-game；文件 10，「9-max 100bb 配置」）。UTG–UTG+2 棄牌後的打法與 6-max 完全相同（樹測試）"
   sources: [{ kind: training, url: "https://preflopwizard.app/blog/9-max-preflop-chart" }, { kind: training, url: "https://about-poker.com/preflop-gto/preflop-range-chart-cash-game" }, { kind: solver-app }]
+- id: R-M3-011
+  module: m3
+  if: "你有兩張不同的牌，想知道它們能否一起組成{{t:straight|順子}}"
+  then: "離得越近，方式越多：從 5-4 到 J-T 的相鄰牌在四種不同的{{t:straight|順子}}裡，隔一張的在三種，相差五個點數以上的（例如 7-2）一種也沒有"
+  because: "{{t:straight|順子}}是五個連續點數；兩張牌差得越遠，同時包含兩張的五張組合越少（A 也可當作 1）"
+  level: math
+  source: "計算：對 169 種手牌逐一檢查從 A-2-3-4-5 到 10-J-Q-K-A 的十種順子；定義：加州監管機構核准的牌室規則（https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf）"
+  sources: [{ kind: math }, { kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
+- id: R-M3-012
+  module: m3
+  if: "你有一張大牌和一張較弱的第二張牌（例如 K5 或 A7），而對手可能有同一張大牌和更好的{{t:kicker}}"
+  then: "兩人都用這張牌中{{t:pair|對子}}時，{{t:kicker}}較好的對手會贏你（你的手牌被壓制）；兩張大牌則相反：大的{{t:kicker}}能贏同一張牌的較弱手牌"
+  because: "對子相同時由{{t:kicker}}決定，所以翻牌前被壓制的手牌贏的次數比壓制它的手牌少，因此很難打（簡化：訓練資料是在談防守 3-bet 時這樣說的）"
+  level: heuristic
+  source: "規則：牌型核心相同時由踢腳決定（R-M0-002）；計算：被壓制手牌在每種對戰中的權益都低於一半；撲克詞彙表（https://www.pokerskill.com/poker-glossary/dominated-hand/）；訓練網站（https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/）"
+  sources: [{ kind: rules }, { kind: math }, { kind: reference, url: "https://www.pokerskill.com/poker-glossary/dominated-hand/" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]
+- id: R-M3-013
+  module: m3
+  if: "你的兩張牌都很小（9 或更小），小{{t:pair|對子}}也算"
+  then: "翻牌通常至少會出現一張比兩張都大的牌，中了這張牌的對手會有比你的牌所組成對子更大的{{t:pair|對子}}"
+  because: "翻牌有三張，而牌堆裡比小手牌大的牌很多：你較大的那張牌越小，就越常出現其中一張"
+  level: math
+  source: "計算：機率 = 1 − C(m, 3) ÷ C(50, 3)，m = 不大於手牌較大那張的牌（不含手上兩張）；對 169 種手牌逐一與全部 19,600 種翻牌核對"
+  sources: [{ kind: math }]
+- id: R-M3-014
+  module: m3
+  if: "翻牌前你手上有一{{t:pair|對子}}"
+  then: "你已經有成牌：沒有{{t:pair|對子}}的手牌要靠{{t:community-cards}}幫忙才能贏你"
+  because: "{{t:pair|對子}}在牌型排名中高於{{t:high-card}}，而翻牌前沒有對子的手牌只有高牌"
+  level: rules
+  source: "德州撲克規則：加州監管機構核准的牌室規則（https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf），One Pair 高於 High Card"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M4: gra wobec akcji preflop. Reguły „heuristic” pochodzą z literatury, nie z solvera aplikacji (dokument 11).
 - id: R-M4-001
   module: m4
@@ -1138,6 +1170,14 @@
   source: "本專案的 push/fold 求解器（pushfold.json，三人）；與 Ganzfried 與 Sandholm，AAMAS 2008，表 2，single hand 一致：「SB jam after jam … 0.234」、「BB jam after jam/fold … 0.308」、「BB jam after jam/jam … 0.197」"
   sources: [{ kind: solver-app }, { kind: study }]
 
+- id: R-M11-013
+  module: m11
+  if: "翻牌前{{t:pot|底池}}裡所有玩家都已全下"
+  then: "已經沒有{{t:bet|下注}}了：發完{{t:community-cards}}後由牌型決定，如果沒人有{{t:pair|對子}}或更好的牌，大牌獲勝"
+  because: "沒有更多{{t:bet|下注}}，誰也不能再{{t:fold|棄牌}}，只看牌型排名；只有高牌時由最大的牌決定"
+  level: rules
+  source: "德州撲克規則：加州監管機構核准的牌室規則（https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf），High Card"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M13: analiza własnej gry (dokument 14, sekcja 8; decyzje D-M13-12…15 w dokumencie „12 Weryfikacja źródeł — M10–M13”).
 # „Decyzja, nie wynik” uczy R-M12-004 (jedna reguła na jedno pojęcie); mechanika powtórek z gry to opis aplikacji,
 # więc jest w tekście lekcji, a nie w księdze reguł.

@@ -4,6 +4,7 @@ import { formatujLiczbe, jestJezykiem, ZRODLO, type Jezyk } from '@szkola/jezyki
 import i18n from '@/i18n';
 import { MIXED_LOW, MIXED_MIN } from './thresholds';
 import { RANGE_REASON, REASON_DIRECTION } from './range-reasons';
+import { handFeatures, handReasonKey, overcardFlop } from './hand-reasons';
 import { tr } from './terms';
 
 /**
@@ -133,12 +134,28 @@ const sample = (n: number) => r('playerType.sample', { count: n });
 export type RangeStatus = 'in' | 'out' | 'mixed';
 
 /** Powód z reguły spotu, tylko gdy wspiera decyzję: wąski zakres przy ręce poza nim, szeroki przy ręce w nim. */
-const rangeReason = (spot: string, st: RangeStatus): string | null => {
+const spotReason = (spot: string, st: RangeStatus): string | null => {
   const k = RANGE_REASON[spot];
   if (!k) return null;
   const dir = REASON_DIRECTION[k];
   return st === 'mixed' || (st === 'in' && dir === 'wide') || (st === 'out' && dir === 'tight') ? r(`range.reason.${k}`) : null;
 };
+/** Powód z klasy ręki (cecha siły przy ręce w zakresie, słabości poza nim; `hand-reasons.ts`, KO-040 sesja BN). */
+export const handReason = (hc: string, st: 'in' | 'out', spot: string): string | null => {
+  const k = handReasonKey(hc, st, spot);
+  if (!k) return null;
+  const f = handFeatures(hc);
+  const rank = f.high === 10 ? '10' : RANKS[f.high - 2]!; // symbol rangi jak w zapisie rąk (AKs), bez słowa spoza słownika drill.*
+  if (k === 'connected') return r('range.hand.connected', { count: f.straights });
+  if (k === 'overcards' || k === 'overcardsPair') {
+    const p = overcardFlop(f);
+    return r(`range.hand.${k}`, { pct: pct(p), often: r(`range.often.${oftenKey(p)}`) });
+  }
+  return r(`range.hand.${k}`, { rank });
+};
+/** Powód decyzji: z reguły spotu, a gdy ta nie wspiera decyzji, z klasy ręki. */
+const rangeReason = (spot: string, st: RangeStatus, hc: string): string | null =>
+  spotReason(spot, st) ?? (st === 'mixed' ? null : handReason(hc, st, spot));
 /** Częstość słowami (dodatek po „bo”): ≥ 99,5% zawsze, ≥ 95% prawie zawsze, ≥ 75% zwykle, ≥ 55% częściej niż co drugi raz, 45–55% mniej więcej co drugi raz (BK 06-tresci-003), niżej rzadziej. */
 export const oftenKey = (f: number) =>
   f >= 0.995 ? 'always' : f >= 0.95 ? 'almostAlways' : f >= 0.75 ? 'usually' : f >= 0.55 ? 'overHalf' : f >= 0.45 ? 'half' : 'underHalf';
@@ -161,15 +178,15 @@ export const t = {
     get fold() {
       return L('range.fold');
     },
-    right: (f: number, st: RangeStatus, spot: string) =>
-      trJ(zdania(r('range.right', { status: r(`range.status.${st}`) }), rangeReason(spot, st), r('range.freqRight', { pct: pct(f), often: r(`range.often.${oftenKey(f)}`) }))),
-    acceptable: (f: number, st: RangeStatus, spot: string) =>
-      trJ(zdania(r('range.acceptable', { status: r(`range.status.${st}`) }), rangeReason(spot, st), r('range.acceptableFreq', { pct: pct(f) }))),
-    wrong: (f: number, st: RangeStatus, spot: string, chosenFold: boolean) =>
+    right: (f: number, st: RangeStatus, spot: string, hc: string) =>
+      trJ(zdania(r('range.right', { status: r(`range.status.${st}`) }), rangeReason(spot, st, hc), r('range.freqRight', { pct: pct(f), often: r(`range.often.${oftenKey(f)}`) }))),
+    acceptable: (f: number, st: RangeStatus, spot: string, hc: string) =>
+      trJ(zdania(r('range.acceptable', { status: r(`range.status.${st}`) }), rangeReason(spot, st, hc), r('range.acceptableFreq', { pct: pct(f) }))),
+    wrong: (f: number, st: RangeStatus, spot: string, chosenFold: boolean, hc: string) =>
       trJ(
         zdania(
           r(chosenFold && st === 'in' ? 'range.wrongTight' : !chosenFold && st === 'out' ? 'range.wrongLoose' : 'range.wrongOther', { status: r(`range.status.${st}`) }),
-          rangeReason(spot, st),
+          rangeReason(spot, st, hc),
           f >= 0.005 ? r('range.wrongRare', { pct: pct(f) }) : f > 0 ? r('range.wrongVeryRare', { pct: pct(0.005, 1) }) : r('range.wrongNever'),
         ),
       ),
@@ -181,7 +198,7 @@ export const t = {
           ctx.status === 'in'
             ? r('range.playIn', { action: ctx.action.toLowerCase(), status: r('range.status.in') })
             : r(ctx.status === 'out' ? 'range.playOut' : 'range.playMixed', { status: r(`range.status.${ctx.status}`) }),
-          rangeReason(ctx.spot, ctx.status),
+          rangeReason(ctx.spot, ctx.status, hc),
           r('range.freqs', { hand: hc, freqs: lista(freqs.filter((x) => x.f >= 0.005).map((x) => r('range.freq', { action: x.name.toLowerCase(), pct: pct(x.f) }))) }),
           mixed && r('range.mixedNote', { low: pct(MIXED_LOW) }),
           freqs.some((x) => x.f >= MIXED_MIN && x.f < MIXED_LOW) && r('range.acceptableNote', { low: pct(MIXED_LOW), min: pct(MIXED_MIN, 1) }),

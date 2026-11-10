@@ -205,6 +205,38 @@
   check: { kind: solver-spot, players: [9], stackBb: [100], spots: [nine.rfi.utg, nine.rfi.utg1, nine.rfi.utg2, nine.rfi.lj] }
   source: "solver preflop del proyecto, mesa de 9 jugadores 100bb (ADR-20; documento 10, «Medición N9a final»: validación parcial N1–N4, NashConv 0,0094bb; la composición UTG–UTG+2 no está verificada y las frecuencias no tienen validación de nivel 2 (D-153), así que la regla solo da la dirección, sin cifras del solver; nivel heuristic, D-144). Coherente con la parte común de las tablas 9-max de nivel 4: UTG aprox. 9–13%, UTG+1 aprox. 11–14% (web con tablas preflop, 9-Max Preflop Chart, https://preflopwizard.app/blog/9-max-preflop-chart; segunda web con tablas preflop, https://about-poker.com/preflop-gto/preflop-range-chart-cash-game; documento 10, «Configuración 9-max 100bb»). El juego tras retirarse UTG–UTG+2 es exactamente el juego 6-max (prueba del árbol)"
   sources: [{ kind: training, url: "https://preflopwizard.app/blog/9-max-preflop-chart" }, { kind: training, url: "https://about-poker.com/preflop-gto/preflop-range-chart-cash-game" }, { kind: solver-app }]
+- id: R-M3-011
+  module: m3
+  if: "tienes dos cartas distintas y miras si juntas pueden formar {{t:straight|escalera}}"
+  then: "cuanto más cerca están, de más maneras: las cartas contiguas de 5-4 a J-T están en cuatro {{t:straight|escaleras}} distintas, las que tienen un hueco en tres, y las que están a cinco o más rangos (p. ej. 7-2) en ninguna"
+  because: "una {{t:straight|escalera}} son cinco rangos seguidos; cuanto mayor el hueco entre las cartas, menos quintetos así contienen a ambas (el as también cuenta como uno)"
+  level: math
+  source: "cálculo: las diez escaleras de A-2-3-4-5 a 10-J-Q-K-A revisadas para cada una de las 169 clases de manos; definición de escalera: reglamento aprobado por el regulador de California (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf)"
+  sources: [{ kind: math }, { kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
+- id: R-M3-012
+  module: m3
+  if: "tienes una carta alta con una segunda carta más débil (p. ej. K5 o A7), y un rival puede tener la misma carta alta con mejor {{t:kicker}}"
+  then: "si los dos ligáis {{t:pair|pareja}} con esa carta, el rival con mejor {{t:kicker}} te gana (tu mano está dominada); dos cartas altas funcionan al revés: un {{t:kicker}} alto gana a las manos más débiles con la misma carta"
+  because: "con la misma {{t:pair|pareja}} decide el {{t:kicker}}, así que antes del flop una mano dominada gana menos que la mano que la domina; por eso es difícil de jugar (simplificación: la fuente de formación lo dice sobre la defensa ante un 3-bet)"
+  level: heuristic
+  source: "reglas: el kicker decide con el mismo núcleo de mano (R-M0-002); cálculo: equity de la mano dominada por debajo de la mitad en cada emparejamiento; glosario de póker (https://www.pokerskill.com/poker-glossary/dominated-hand/); web de formación (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)"
+  sources: [{ kind: rules }, { kind: math }, { kind: reference, url: "https://www.pokerskill.com/poker-glossary/dominated-hand/" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]
+- id: R-M3-013
+  module: m3
+  if: "tus dos cartas son bajas (nueve o menos), también si es una {{t:pair|pareja}} baja"
+  then: "en el flop suele salir al menos una carta más alta que las dos, y el rival que la ligue tendrá una {{t:pair|pareja}} más alta que una pareja con tus cartas"
+  because: "el flop son tres cartas y en la baraja hay muchas cartas más altas que una mano baja: cuanto más baja tu carta alta, más a menudo sale alguna"
+  level: math
+  source: "cálculo: probabilidad = 1 − C(m, 3) ÷ C(50, 3), m = cartas no más altas que la carta alta de la mano, sin las dos cartas de la mano; comprobado con los 19 600 flops para cada una de las 169 clases"
+  sources: [{ kind: math }]
+- id: R-M3-014
+  module: m3
+  if: "tienes una {{t:pair|pareja}} en la mano antes del flop"
+  then: "ya tienes una mano hecha: una mano sin {{t:pair|pareja}} necesita ayuda de las {{t:community-cards}} para ganarte"
+  because: "la {{t:pair|pareja}} está por encima de la {{t:high-card}} en el ranking, y antes del flop una mano sin pareja solo tiene carta alta"
+  level: rules
+  source: "reglas de Texas Hold'em: reglamento aprobado por el regulador de California (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), One Pair por encima de High Card"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M4: gra wobec akcji preflop. Reguły „heuristic” pochodzą z literatury, nie z solvera aplikacji (dokument 11).
 - id: R-M4-001
   module: m4
@@ -1138,6 +1170,14 @@
   source: "solver push/fold del proyecto (pushfold.json, tres jugadores); coherente con Ganzfried y Sandholm, AAMAS 2008, tabla 2, single hand: «SB jam after jam … 0.234», «BB jam after jam/fold … 0.308», «BB jam after jam/jam … 0.197»"
   sources: [{ kind: solver-app }, { kind: study }]
 
+- id: R-M11-013
+  module: m11
+  if: "todos los jugadores del {{t:pot|bote}} están all-in antes del flop"
+  then: "ya no hay más {{t:bet|apuestas}}: la mano se decide al repartir las {{t:community-cards}}, y si nadie tiene {{t:pair|pareja}} o algo mejor, gana la carta más alta"
+  because: "sin más {{t:bet|apuestas}} nadie puede {{t:fold|retirarse}}, así que solo cuenta el ranking de manos; con solo cartas altas decide la más alta"
+  level: rules
+  source: "reglas de Texas Hold'em: reglamento aprobado por el regulador de California (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), High Card"
+  sources: [{ kind: rules, url: "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf" }]
 # M13: analiza własnej gry (dokument 14, sekcja 8; decyzje D-M13-12…15 w dokumencie „12 Weryfikacja źródeł — M10–M13”).
 # „Decyzja, nie wynik” uczy R-M12-004 (jedna reguła na jedno pojęcie); mechanika powtórek z gry to opis aplikacji,
 # więc jest w tekście lekcji, a nie w księdze reguł.

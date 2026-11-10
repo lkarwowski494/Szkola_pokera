@@ -723,7 +723,7 @@
         "rfiSb": "Você já só joga contra o {{t:big-blind|big blind}}, mas depois do flop age primeiro.",
         "nineEarly": "Numa mesa de 9 jogadores há mais jogadores atrás de você do que numa de 6, então é mais comum alguém ter uma mão melhor.",
         "nineLj": "Do LJ você joga como do {{t:utg|UTG}} numa mesa de 6 jogadores, porque fica atrás de você o mesmo número de jogadores.",
-        "btnVsCo": "O adversário {{t:call|paga}} com frequência, então você quer uma mão que jogue bem num {{t:pot|pote}} depois de {{t:call|pagar}}.",
+        "btnVsCo": "O {{t:cutoff|CO}} {{t:call|paga}} com frequência o seu 3-bet, então você quer uma mão que jogue bem num {{t:pot|pote}} depois de {{t:call|pagar}}.",
         "sbVsBtn": "Se você {{t:call|paga}} do {{t:small-blind|small blind}}, joga {{t:out-of-position|fora de posição}}, e o {{t:big-blind|big blind}} atrás de você ainda pode {{t:raise|aumentar}}; o 3-bet te dá a {{t:initiative|iniciativa}} e a chance de ganhar o {{t:pot|pote}} na hora.",
         "bbVsBtn": "Você coloca pouco a mais num {{t:pot|pote}} grande, então defende amplo.",
         "bbVsSb": "Depois do flop você tem {{t:position|posição}}, então realiza mais {{t:equity}}.",
@@ -733,7 +733,20 @@
         "callBb": "Quem paga só ganha no showdown, e contra um {{t:range|range}} que já é mais forte que um aleatório; quem {{t:shove|dá shove}} ganha também quando o adversário {{t:fold|desiste}}.",
         "call3max": "O jogador atrás de você pode ter uma mão forte e entrar, e contra dois {{t:range|ranges}} a {{t:equity}} da sua mão cai rápido.",
         "call3maxTwo": "Contra dois {{t:range|ranges}} a {{t:equity}} da sua mão cai rápido.",
-        "pushSb3max": "O Button já {{t:fold|foldou}}, então basta o {{t:big-blind|big blind}} {{t:fold|foldar}}; do Button, dois jogadores precisam {{t:fold|foldar}}."
+        "pushSb3max": "O Button já {{t:fold|foldou}}, então basta o {{t:big-blind|big blind}} {{t:fold|foldar}}; do Button, dois jogadores precisam {{t:fold|foldar}}.",
+        "pushSbDeep": "Com um stack mais profundo você arrisca mais em relação aos blinds que leva quando o adversário {{t:fold|desiste}}, então você dá {{t:shove|shove}} com menos mãos do que com um stack mais curto."
+      },
+      "hand": {
+        "pair": "Você tem um {{t:pair|par}}, uma mão já feita antes do flop: uma mão sem {{t:pair|par}} precisa da ajuda das {{t:community-cards}} para vencê-lo.",
+        "high": "As duas cartas são altas: se você fizer {{t:pair|par}}, ele será alto, e a outra carta é um {{t:kicker}} alto que vence mãos mais fracas com a mesma carta.",
+        "suited": "Suas cartas são do mesmo naipe: é um caminho extra para ganhar com um {{t:flush|flush}}.",
+        "connected_one": "Suas cartas estão próximas: juntas podem formar uma {{t:straight|sequência}} de {{count}} jeito.",
+        "connected_many": "Suas cartas estão próximas: juntas podem formar uma {{t:straight|sequência}} de {{count}} jeitos.",
+        "connected_other": "Suas cartas estão próximas: juntas podem formar uma {{t:straight|sequência}} de {{count}} jeitos.",
+        "highAllIn": "Num all-in não há mais {{t:bet|apostas}} depois do flop: se ninguém fizer {{t:pair|par}}, ganha a carta mais alta, e a sua carta mais alta é {{rank}}.",
+        "dominated": "Se você fizer {{t:pair|par}} com sua carta mais alta ({{rank}}), um adversário com a mesma carta e um {{t:kicker}} melhor vence você: é uma mão dominada.",
+        "overcards": "As duas cartas são baixas: em {{pct}} dos flops ({{often}}) sai pelo menos uma carta mais alta que as suas, e o adversário que acertá-la tem um {{t:pair|par}} mais alto que qualquer par com as suas cartas.",
+        "overcardsPair": "Seu {{t:pair|par}} é baixo: em {{pct}} dos flops ({{often}}) sai pelo menos uma carta mais alta, e o adversário que acertá-la tem um {{t:pair|par}} mais alto."
       },
       "acceptableFreq": "O solver joga assim em {{pct}} dos casos, então não é um erro, mas ele escolhe outra ação com mais frequência. O melhor é memorizar a mais frequente."
     },
