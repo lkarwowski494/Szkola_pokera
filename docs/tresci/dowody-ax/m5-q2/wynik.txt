@@ -1,0 +1,18 @@
+8h 6d 5c 
+  BTN: zakres 496.4 komb., dwie pary 5.1, strit 3.7, razem 8.8 = 1.8% | trójka 9.0, full 0.0
+  BB: zakres 417.8 komb., dwie pary 4.1, strit 4.1, razem 8.2 = 2.0% | trójka 3.6, full 0.0
+Kd Td 3s 
+  BTN: zakres 481.1 komb., dwie pary 11.0, strit 0.0, razem 11.0 = 2.3% | trójka 9.0, full 0.0
+  BB: zakres 414.1 komb., dwie pary 8.2, strit 0.0, razem 8.2 = 2.0% | trójka 2.3, full 0.0
+Ah Ad 7c 
+  BTN: zakres 450.5 komb., dwie pary 96.5, strit 0.0, razem 96.5 = 21.4% | trójka 69.7, full 7.8
+  BB: zakres 394.8 komb., dwie pary 61.1, strit 0.0, razem 61.1 = 15.5% | trójka 50.4, full 7.1
+--- wariant: BB = call + raise10 (obrona łącznie, spot zwalidowany)
+8h 6d 5c BTN 1.8% (dwie pary 5.1, strit 3.7, sety/trójki 9.0) / 496
+8h 6d 5c BBdef 1.8% (dwie pary 6.0, strit 4.7, sety/trójki 9.0) / 593
+Kd Td 3s BTN 2.3% (dwie pary 11.0, strit 0.0, sety/trójki 9.0) / 481
+Kd Td 3s BBdef 1.9% (dwie pary 11.2, strit 0.0, sety/trójki 9.0) / 578
+Ah Ad 7c BTN 21.4% (dwie pary 96.5, strit 0.0, sety/trójki 69.7) / 451
+Ah Ad 7c BBdef 21.6% (dwie pary 117.9, strit 0.0, sety/trójki 76.9) / 546
+BB call 55,66,88,76s,75s,64s,97s: [('55', 0.82, 0.18), ('66', 0.38, 0.62), ('77', 0.56, 0.44), ('88', 0.0, 1.0), ('76s', 0.38, 0.62), ('75s', 0.0, 1.0), ('64s', 0.98, 0.01), ('97s', 0.84, 0.16), ('74s', 0.18, 0), ('43s', 1.0, 0), ('65s', 0.4, 0.6), ('87s', 0.01, 0.99)]
+BTN open: [('55', 1), ('66', 1), ('76s', 1), ('75s', 1), ('64s', 1.0), ('97s', 0.88), ('74s', 0.03), ('43s', 0.09), ('65s', 1.0), ('87s', 0.99), ('76o', 0.01), ('97o', 0), ('A7o', 0.75), ('K7o', 1.0), ('Q7o', 0), ('J7o', 0), ('T7o', 0.01), ('97o', 0), ('87o', 0), ('77', 1), ('A7s', 1.0), ('K7s', 1), ('Q7s', 1.0), ('J7s', 0.99), ('T7s', 1)]
