@@ -1,0 +1,21 @@
+$ cd <worktree 886b2be>/packages/postep && npx vitest run test/sonda-bj.test.ts --reporter=verbose --silent=false  (źródło: bj-sonda-dane.test.ts.txt; eksport_old.ts = git show 8cba034:packages/domena/src/eksport.ts)
+
+ RUN  v5.0.3 /tmp/claude-0/-home-user-Szkola-pokera/192b1161-1b5e-5549-9968-364a0472ad16/scratchpad/wt/packages/postep
+
+(node:1603) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+stdout | test/sonda-bj.test.ts > sonda BJ dane > zegar cofnięty (zmiana daty w telefonie): nowo zagrany odcisk znika przy przycięciu okna
+ZEGAR zapis {"ok":true} nowy w historii: false liczba 20
+
+stdout | test/sonda-bj.test.ts > sonda BJ dane > plik eksportu nowej wersji (z wariant_historia) w walidacji starej aplikacji (8cba034)
+STARA_APKA ok= true ustawienie,postep_lekcji,aktywnosc,odpowiedz,wynik_testu,karta,log_powtorki
+
+ ✓ test/sonda-bj.test.ts > sonda BJ dane > zegar cofnięty (zmiana daty w telefonie): nowo zagrany odcisk znika przy przycięciu okna 36ms
+ ✓ test/sonda-bj.test.ts > sonda BJ dane > plik eksportu nowej wersji (z wariant_historia) w walidacji starej aplikacji (8cba034) 109ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  16:01:12
+   Duration  770ms (transform 59%, tests 23%, import 15%, worker 3%)
+
+EXIT 0

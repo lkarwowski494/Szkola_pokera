@@ -1,0 +1,24 @@
+$ cd <worktree 886b2be>/packages/poker-core && npx vitest run test/sonda-bj.test.ts --reporter=verbose  (źródło: bj-sonda-generator.test.ts.txt)
+
+ RUN  v5.0.3 /tmp/claude-0/-home-user-Szkola-pokera/192b1161-1b5e-5549-9968-364a0472ad16/scratchpad/wt/packages/poker-core
+
+stdout | test/sonda-bj.test.ts > sonda BJ > rozkład poprawnej decyzji w wariantach jednego poziomu (szablony testowe autora)
+ROZKLAD {"A/latwy":{"fold":2000},"A/sredni":{"fold":1882,"call":118},"A/trudny":{"fold":1039,"call":961},"B/latwy":{"fold>fold":2000},"B/sredni":{"fold>fold":1806,"fold>call":91,"call>call":29,"call>fold":74}}
+
+ ✓ test/sonda-bj.test.ts > sonda BJ > rozkład poprawnej decyzji w wariantach jednego poziomu (szablony testowe autora) 1868ms
+stdout | test/sonda-bj.test.ts > sonda BJ > różnicowo: generateOuts przed (8cba034) i po (886b2be) zmianie, 3 rodzaje × 2 ulice × 2000 ziaren
+ROZNICOWO porownan 12000
+
+ ✓ test/sonda-bj.test.ts > sonda BJ > różnicowo: generateOuts przed (8cba034) i po (886b2be) zmianie, 3 rodzaje × 2 ulice × 2000 ziaren 3594ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  16:00:30
+   Duration  5.92s (tests 94%, transform 5%, import 1%)
+
+npm notice
+npm notice New major version of npm available! 10.9.9 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+EXIT 0

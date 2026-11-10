@@ -1,0 +1,33 @@
+// @ts-nocheck
+import { describe, expect, it } from 'vitest';
+import { BET_FRACTIONS, generateVariant, generateOuts, createRng, type GeneratorTemplate, type ScenarioLevel } from '../src';
+import { generateOuts as staryGenerateOuts } from '../src/drills_old';
+const POZ = {
+  latwy: { draws: ['flush','oesd','gutshot'], marginMin: 0.1, marginMax: null, reject: ['rywal-ma-out-gracza','stol-sparowany'] },
+  sredni: { draws: ['flush','oesd','gutshot'], marginMin: 0.02, marginMax: 0.1, reject: ['rywal-ma-out-gracza','stol-sparowany'] },
+  trudny: { draws: ['flush','oesd','gutshot'], marginMin: 0.0001, marginMax: 0.02, reject: ['rywal-ma-out-gracza','stol-sparowany'] },
+} as const;
+const A: GeneratorTemplate = { id: 'test-a', levels: POZ, decisions: [{ street: 'flop', pots: [20,40,60,100], fractions: BET_FRACTIONS }] };
+const B: GeneratorTemplate = { id: 'test-b', levels: { latwy: POZ.latwy, sredni: POZ.sredni }, decisions: [{ street: 'flop', pots: [20,40,60], fractions: BET_FRACTIONS }, { street: 'turn', pots: [], fractions: BET_FRACTIONS }] };
+describe('sonda BJ', () => {
+  it('rozkład poprawnej decyzji w wariantach jednego poziomu (szablony testowe autora)', () => {
+    const wynik: Record<string, Record<string, number>> = {};
+    for (const [n, t] of [['A', A], ['B', B]] as const) for (const p of ['latwy','sredni','trudny'] as ScenarioLevel[]) {
+      if (!t.levels[p]) continue;
+      for (let s = 1; s <= 2000; s++) {
+        const v = generateVariant(t, p, s);
+        const k = `${n}/${p}`; wynik[k] ??= {};
+        const klucz = v.decisions.map((d) => d.correct).join('>');
+        wynik[k][klucz] = (wynik[k][klucz] ?? 0) + 1;
+      }
+    }
+    console.log('ROZKLAD', JSON.stringify(wynik));
+  }, 600_000);
+  it('różnicowo: generateOuts przed (8cba034) i po (886b2be) zmianie, 3 rodzaje × 2 ulice × 2000 ziaren', () => {
+    let n = 0;
+    for (const kind of ['flush','oesd','gutshot'] as const) for (const street of ['flop','turn'] as const) for (let s = 1; s <= 2000; s++) {
+      expect(generateOuts(createRng(s), kind, street)).toEqual(staryGenerateOuts(createRng(s), kind, street)); n++;
+    }
+    console.log('ROZNICOWO porownan', n);
+  }, 600_000);
+});

@@ -1,0 +1,4 @@
+$ git diff --name-only 8cba034..886b2be | grep -E "\.(env|p8|p12|pem|key|jks|keystore|mobileprovision)$"; echo kod $?
+kod 1
+$ git diff 8cba034..886b2be | grep -nE "BEGIN [A-Z ]*PRIVATE KEY|sk-[A-Za-z0-9_-]{20,}|AIza[0-9A-Za-z_-]{30,}|AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{30,}|api_key|apiKey"
+kod 1 (1 = brak trafień)

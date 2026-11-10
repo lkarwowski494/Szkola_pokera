@@ -1,0 +1,24 @@
+// @ts-nocheck
+import { afterEach, describe, expect, it } from 'vitest';
+import { eksportuj, odczytajOdciski, zapiszOdcisk } from '../src';
+import { walidujEksport as staryWaliduj } from '../../domena/src/eksport_old';
+import { T0 } from '../../../tests/narzedzia/wzorzec-bazy';
+import { przygotuj, sprzatnij } from './wspolne';
+afterEach(sprzatnij);
+describe('sonda BJ dane', () => {
+  it('zegar cofnięty (zmiana daty w telefonie): nowo zagrany odcisk znika przy przycięciu okna', async () => {
+    const { port } = await przygotuj('pusta');
+    for (let i = 0; i < 20; i++) await zapiszOdcisk(port, { szablonId: 's01', poziom: 'latwy', odcisk: `o${i}`, ziarno: i, terazMs: T0 + i });
+    const w = await zapiszOdcisk(port, { szablonId: 's01', poziom: 'latwy', odcisk: 'nowy', ziarno: 99, terazMs: T0 - 86_400_000 });
+    const h = await odczytajOdciski(port, 's01', 'latwy');
+    console.log('ZEGAR zapis', JSON.stringify(w), 'nowy w historii:', h.ok && h.wartosc.some((x) => x.odcisk === 'nowy'), 'liczba', h.ok && h.wartosc.length);
+  });
+  it('plik eksportu nowej wersji (z wariant_historia) w walidacji starej aplikacji (8cba034)', async () => {
+    const { port } = await przygotuj('wzorzec');
+    await zapiszOdcisk(port, { szablonId: 's01', poziom: 'latwy', odcisk: 'a', ziarno: 1, terazMs: T0 });
+    const e = await eksportuj(port, { terazMs: T0, aplikacja: '1.0.0' });
+    if (!e.ok) throw new Error(e.powod);
+    const r = staryWaliduj(e.wartosc, 1);
+    console.log('STARA_APKA ok=', r.ok, r.ok ? Object.keys(r.wartosc.dane).join(',') : JSON.stringify(r));
+  });
+});
