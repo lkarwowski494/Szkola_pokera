@@ -63,3 +63,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | BX | 06 fix M12 | — | 5,53 | 23,0 | 20:34 → 20:35 → … → CI 21:00 → przyjęte 22:08 | odbiór czekał na recenzję (lineage, CC start 21:50) | |
 | CC | 06 audit (recenzja BX) | — | 2,62 | 19,7 | 21:50 → 21:50 → 22:05 → — → 22:08 | — | docs |
 | CD | 08 build (scalenie) | — | 1,07 | 15,6 | 21:50 → 21:50 → 22:21 → CI w toku → (CH) | — | |
+| CE | 08 audit (recenzja CA) | — | 4,61 | 24,9 | 21:55 → 21:55 → 22:22 → — → 22:30 | — | |
