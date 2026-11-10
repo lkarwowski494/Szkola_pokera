@@ -22,7 +22,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
-- Koordynator session_01T66VBzpecX1cLyGgZbrkbu przejął 06:40. `add_repo prompts` odrzucony przez klasyfikator (jak 05:20) → prośba do właściciela; do zgody nowe sesje tylko z promptem roli złożonym dziś przez poprzednika (09 build z pierwszej wiadomości AS — wyjątek nazwany, KO-023).
+- Koordynator session_01T66VBzpecX1cLyGgZbrkbu przejął 06:40. Biblioteka `prompts` dołączona po słowach właściciela „Zgoda na prompts” (ok. 07:00) — klon /home/user/prompts @ f701ce9; KO-023 zamknięte.
 - AP: kontekst 33,7% (get_session 06:38), koszt 139,35 USD — wysłane polecenie PRZEKAZANIA 06:39.
 - Gałąź robocza @ **66aa8cc**: AM (016317e, CI 42766336909 success) + AN (docs) + AQ i AR (pełny przegląd it/es/pt-BR i fr/de/vi — tylko pliki w `docs/lokalizacja/dowody/przeglad-pelny-2026-11-10/`, scalenia `[skip ci]`). Szczyt z dowodem E2E nadal 6afa34d.
 - Aktywne: **AP** (przegląd ja, zh-Hant, ko; ja i zh-Hant gotowe wg raportu 06:22, ko w toku) i **AS** (pt-PT po AO, gałąź `sesja-ao-pt-pt`).
@@ -107,3 +107,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-10 06:38 | koordynator | przekazane do session_01T66VBzpecX1cLyGgZbrkbu (create_session bez błędu, WORKING tuż po starcie; prompt przepisany przez subagenta); własne przypomnienia kontrola/14:00/05:00 usunięte — tworzy je następca; zostaje „kontrola przekazania” za 30 min | PRZEJĄŁEM → archiwizacja poprzednika |
 | 11-10 06:40 | koordynator (session_01T66VBzpecX1cLyGgZbrkbu) | przejęcie E6 pkt 5: przypomnienia własne (ID w „Przypomnienia”); wiadomość o zmianie do AP (+ polecenie PRZEKAZANIA, 33,7%) i AS; list_events poprzednika po 06:30: brak wiadomości od sesji i właściciela; add_repo prompts: odrzucony przez klasyfikator | PRZEJĄŁEM; prośba o bibliotekę; odbiór AS |
 | 11-10 06:55 | koordynator | AT wystartowała (session_01T66VBw7z352UvDDkynn3JP, opus, auto, sesja-ao-pt-pt); pierwsza wiadomość odebrana bajt w bajt (cmp, 59 583 B; prompt 09 build sha256 8f1444b4… z AS, KO-023). AS zarchiwizowana: koszt 17,33 USD, kontekst 24,9%; 3 commity AS autor „Claude <noreply@anthropic.com>” → poprawka autora przy scaleniu (E3) | PRZEKAZANIE AP → AU |
+| 11-10 07:00 | właściciel → koordynator | „Zgoda na prompts” → add_repo OK, klon @ f701ce9. Porównanie promptu AT ze świeżo złożonym 09 build: 2 różnice (linia 398 brak U+202F w klasie regex funkcji porównania liczb; linia 615 znane `06-tresci`) — AT powiadomiona | PRZEKAZANIE AP → AU |
