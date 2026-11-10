@@ -209,7 +209,7 @@
 - id: R-M3-011
   module: m3
   if: "masz dwie różne karty i sprawdzasz, czy razem mogą złożyć {{t:straight|strita}}"
-  then: "im bliżej siebie leżą, tym na więcej sposobów: sąsiednie karty od 5-4 do J-T są w czterech różnych {{t:straight|stritach}}, karty z jedną luką w trzech, a karty odległe o pięć rang i więcej (np. 7-2) w żadnym"
+  then: "im bliżej siebie leżą, tym na więcej sposobów: sąsiednie karty od 5-4 do J-T są w czterech różnych {{t:straight|stritach}}, karty z jedną luką od 5-3 do Q-T w trzech, a karty odległe o pięć rang i więcej (np. 7-2) w żadnym"
   because: "{{t:straight}} to pięć kolejnych rang; im większa luka między kartami, tym mniej takich piątek mieści obie (as liczy się też jako jedynka)"
   level: math
   source: "obliczenie: przegląd dziesięciu stritów od A-2-3-4-5 do 10-J-Q-K-A dla każdej z 169 klas rąk (test hand-reasons.test.ts); definicja strita: regulamin kasyna zatwierdzony przez kalifornijskiego regulatora hazardu (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), Card Values and Hand Rankings: „A hand that consists of five cards that are in consecutive ranking, but that are not the same suit”, „a 5, 4, 3, 2 and Ace is the lowest ranked Straight”"

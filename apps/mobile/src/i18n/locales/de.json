@@ -710,7 +710,7 @@
         "rfiSb": "Du spielst nur noch gegen den {{t:big-blind|Big Blind}}, aber nach dem Flop handelst du zuerst.",
         "nineEarly": "An einem Tisch mit 9 Spielern sitzen mehr Spieler hinter dir als an einem mit 6, also hat öfter jemand eine bessere Hand.",
         "nineLj": "Aus dem LJ spielst du wie aus {{t:utg|UTG}} an einem Tisch mit 6 Spielern, denn hinter dir bleiben gleich viele Spieler.",
-        "btnVsCo": "Der {{t:cutoff|CO}} {{t:call|callt}} deine 3-Bet oft, also willst du eine Hand, die sich in einem {{t:pot|Pot}} nach einem {{t:call|Call}} gut spielt.",
+        "btnVsCo": "Der Gegner {{t:call|callt}} oft, also willst du eine Hand, die sich in einem {{t:pot|Pot}} nach einem {{t:call|Call}} gut spielt.",
         "sbVsBtn": "Nach einem {{t:call|Call}} aus dem {{t:small-blind|Small Blind}} spielst du {{t:out-of-position|out of Position}}, und der {{t:big-blind|Big Blind}} hinter dir kann noch {{t:raise|raisen}}; eine 3-Bet gibt dir die {{t:initiative|Initiative}} und die Chance, den {{t:pot|Pot}} sofort zu gewinnen.",
         "bbVsBtn": "Du zahlst nur wenig in einen großen {{t:pot|Pot}} nach, also verteidigst du breit.",
         "bbVsSb": "Nach dem Flop hast du {{t:position|Position}}, also realisierst du mehr {{t:equity|Equity}}.",
@@ -729,7 +729,7 @@
         "suited": "Deine Karten haben dieselbe Farbe: Das ist ein zusätzlicher Weg, mit einem {{t:flush|Flush}} zu gewinnen.",
         "connected_one": "Deine Karten liegen nah beieinander: Zusammen können sie auf {{count}} Art eine {{t:straight|Straße}} bilden.",
         "connected_other": "Deine Karten liegen nah beieinander: Zusammen können sie auf {{count}} Arten eine {{t:straight|Straße}} bilden.",
-        "highAllIn": "Beim All-in gibt es nach dem Flop keine {{t:bet|Einsätze}} mehr: Trifft niemand ein {{t:pair|Paar}}, gewinnt die höhere Karte, und deine höhere Karte ist {{rank}}.",
+        "highAllIn": "Beim All-in gibt es nach dem Flop keine {{t:bet|Einsätze}} mehr: Hat niemand ein {{t:pair|Paar}} oder Besseres, gewinnt die höhere Karte, und deine höhere Karte ist {{rank}}.",
         "dominated": "Triffst du ein {{t:pair|Paar}} mit deiner höheren Karte ({{rank}}), schlägt dich ein Gegner mit derselben Karte und einem besseren {{t:kicker}}: Diese Hand ist dominiert.",
         "overcards": "Beide Karten sind niedrig: Auf {{pct}} der Flops ({{often}}) kommt mindestens eine Karte, die höher ist als deine beiden, und ein Gegner, der sie trifft, hat ein höheres {{t:pair|Paar}} als jedes Paar aus deinen Karten.",
         "overcardsPair": "Dein {{t:pair|Paar}} ist niedrig: Auf {{pct}} der Flops ({{often}}) kommt mindestens eine höhere Karte, und ein Gegner, der sie trifft, hat ein höheres {{t:pair|Paar}}."

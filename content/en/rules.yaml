@@ -208,7 +208,7 @@
 - id: R-M3-011
   module: m3
   if: "you have two different cards and check whether together they can make a {{t:straight}}"
-  then: "the closer they are, the more ways: adjacent cards from 5-4 to J-T are in four different {{t:straight|straights}}, cards with one gap in three, and cards five or more ranks apart (e.g. 7-2) in none"
+  then: "the closer they are, the more ways: adjacent cards from 5-4 to J-T are in four different {{t:straight|straights}}, cards with one gap from 5-3 to Q-T in three, and cards five or more ranks apart (e.g. 7-2) in none"
   because: "a {{t:straight}} is five consecutive ranks; the bigger the gap between the cards, the fewer such fives contain both (the ace also counts as one)"
   level: math
   source: "calculation: all ten straights from A-2-3-4-5 to 10-J-Q-K-A checked for each of the 169 hand classes; straight definition: California-approved card room rules (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf), Card Values and Hand Rankings"

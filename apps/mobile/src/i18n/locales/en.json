@@ -710,7 +710,7 @@
         "rfiSb": "You're now playing only against the {{t:big-blind}}, but after the flop you act first.",
         "nineEarly": "At a 9-handed table there are more players behind you than at a 6-handed one, so someone more often has a better hand.",
         "nineLj": "From the LJ you play as from {{t:utg|UTG}} at a 6-handed table, because the same number of players is left behind you.",
-        "btnVsCo": "The {{t:cutoff|CO}} often {{t:call|calls}} your 3-bet, so you want a hand that plays well in a {{t:pot}} after a {{t:call}}.",
+        "btnVsCo": "Your opponent often {{t:call|calls}}, so you want a hand that plays well in a {{t:pot}} after a {{t:call}}.",
         "sbVsBtn": "After a {{t:call}} from the {{t:small-blind}} you play {{t:out-of-position}}, and the {{t:big-blind}} behind you can still {{t:raise}}; a 3-bet gives you the {{t:initiative}} and a chance to win the {{t:pot}} right away.",
         "bbVsBtn": "You add only a little to a big {{t:pot}}, so you defend wide.",
         "bbVsSb": "After the flop you have {{t:position}}, so you realize more {{t:equity}}.",
@@ -729,7 +729,7 @@
         "suited": "Your cards are suited: that is an extra way to win with a {{t:flush}}.",
         "connected_one": "Your cards are close together: they can make a {{t:straight}} together in {{count}} way.",
         "connected_other": "Your cards are close together: they can make a {{t:straight}} together in {{count}} ways.",
-        "highAllIn": "In an all-in there are no more {{t:bet|bets}} after the flop: if nobody makes a {{t:pair}}, the higher card wins, and your higher card is {{rank}}.",
+        "highAllIn": "In an all-in there are no more {{t:bet|bets}} after the flop: if nobody has a {{t:pair}} or better, the higher card wins, and your higher card is {{rank}}.",
         "dominated": "When you make a {{t:pair}} with your higher card ({{rank}}), an opponent with the same card and a better {{t:kicker}} beats you: this hand is dominated.",
         "overcards": "Both cards are low: in {{pct}} of flops ({{often}}) at least one card higher than both of yours comes, and an opponent who pairs it has a higher {{t:pair}} than any pair from your cards.",
         "overcardsPair": "Your {{t:pair}} is low: in {{pct}} of flops ({{often}}) at least one higher card comes, and an opponent who pairs it has a higher {{t:pair}}."

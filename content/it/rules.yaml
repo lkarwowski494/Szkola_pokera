@@ -208,7 +208,7 @@
 - id: R-M3-011
   module: m3
   if: "hai due carte diverse e controlli se insieme possono formare una {{t:straight|scala}}"
-  then: "più sono vicine, più modi ci sono: carte adiacenti da 5-4 a J-T stanno in quattro {{t:straight|scale}} diverse, con un buco in tre, e a cinque o più ranghi di distanza (es. 7-2) in nessuna"
+  then: "più sono vicine, più modi ci sono: carte adiacenti da 5-4 a J-T stanno in quattro {{t:straight|scale}} diverse, con un buco da 5-3 a Q-T in tre, e a cinque o più ranghi di distanza (es. 7-2) in nessuna"
   because: "una {{t:straight|scala}} sono cinque ranghi consecutivi; più grande è il buco tra le carte, meno cinquine così le contengono entrambe (l'asso conta anche come uno)"
   level: math
   source: "calcolo: le dieci scale da A-2-3-4-5 a 10-J-Q-K-A verificate per ognuna delle 169 classi di mani; definizione: regolamento approvato dal regolatore californiano (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf)"

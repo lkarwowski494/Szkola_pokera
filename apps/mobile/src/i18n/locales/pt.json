@@ -723,7 +723,7 @@
         "rfiSb": "Já só joga contra o {{t:big-blind|big blind}}, mas depois do flop fala primeiro.",
         "nineEarly": "Numa mesa de 9 jogadores há mais jogadores atrás de si do que numa de 6, por isso é mais frequente alguém ter uma mão melhor.",
         "nineLj": "Do LJ joga como do {{t:utg|UTG}} numa mesa de 6 jogadores, porque ficam atrás de si tantos jogadores como lá.",
-        "btnVsCo": "O {{t:cutoff|CO}} {{t:call|paga}} muitas vezes o seu 3-bet, por isso quer uma mão que jogue bem num {{t:pot|pote}} depois de um {{t:call|call}}.",
+        "btnVsCo": "O adversário {{t:call|paga}} muitas vezes, por isso quer uma mão que jogue bem num {{t:pot|pote}} depois de um {{t:call|call}}.",
         "sbVsBtn": "Depois de um {{t:call|call}} do {{t:small-blind|small blind}}, joga {{t:out-of-position|fora de posição}}, e o {{t:big-blind|big blind}} atrás de si ainda pode {{t:raise|aumentar}}; o 3-bet dá-lhe a {{t:initiative|iniciativa}} e a hipótese de ganhar o {{t:pot|pote}} de imediato.",
         "bbVsBtn": "Acrescenta pouco a um {{t:pot|pote}} grande, por isso defende de forma larga.",
         "bbVsSb": "Depois do flop tem {{t:position|posição}}, por isso realiza mais {{t:equity}}.",
@@ -743,7 +743,7 @@
         "connected_one": "As suas cartas estão próximas: juntas podem formar uma {{t:straight|sequência}} de {{count}} maneira.",
         "connected_many": "As suas cartas estão próximas: juntas podem formar uma {{t:straight|sequência}} de {{count}} maneiras.",
         "connected_other": "As suas cartas estão próximas: juntas podem formar uma {{t:straight|sequência}} de {{count}} maneiras.",
-        "highAllIn": "Num all-in já não há {{t:bet|apostas}} depois do flop: se ninguém fizer {{t:pair|par}}, ganha a carta mais alta, e a sua carta mais alta é {{rank}}.",
+        "highAllIn": "Num all-in já não há {{t:bet|apostas}} depois do flop: se ninguém tiver {{t:pair|par}} ou melhor, ganha a carta mais alta, e a sua carta mais alta é {{rank}}.",
         "dominated": "Se fizer {{t:pair|par}} com a sua carta mais alta ({{rank}}), um adversário com a mesma carta e um {{t:kicker}} melhor ganha-lhe: é uma mão dominada.",
         "overcards": "As duas cartas são baixas: em {{pct}} dos flops ({{often}}) sai pelo menos uma carta mais alta do que as suas, e o adversário que a acertar tem um {{t:pair|par}} mais alto do que qualquer par com as suas cartas.",
         "overcardsPair": "O seu {{t:pair|par}} é baixo: em {{pct}} dos flops ({{often}}) sai pelo menos uma carta mais alta, e o adversário que a acertar tem um {{t:pair|par}} mais alto."

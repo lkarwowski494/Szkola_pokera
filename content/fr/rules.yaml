@@ -208,7 +208,7 @@
 - id: R-M3-011
   module: m3
   if: "vous avez deux cartes différentes et vérifiez si ensemble elles peuvent former une {{t:straight|quinte}}"
-  then: "plus elles sont proches, plus il y a de façons : des cartes voisines de 5-4 à J-T sont dans quatre {{t:straight|quintes}} différentes, avec un écart dans trois, et à cinq rangs ou plus (p. ex. 7-2) dans aucune"
+  then: "plus elles sont proches, plus il y a de façons : des cartes voisines de 5-4 à J-T sont dans quatre {{t:straight|quintes}} différentes, avec un écart de 5-3 à Q-T dans trois, et à cinq rangs ou plus (p. ex. 7-2) dans aucune"
   because: "une {{t:straight|quinte}}, ce sont cinq rangs consécutifs ; plus l'écart entre les cartes est grand, moins de telles suites contiennent les deux (l'as compte aussi pour un)"
   level: math
   source: "calcul : les dix quintes de A-2-3-4-5 à 10-J-Q-K-A vérifiées pour chacune des 169 classes de mains ; définition : règlement approuvé par le régulateur californien (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf)"

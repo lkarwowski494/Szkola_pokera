@@ -736,7 +736,7 @@
         "rfiSb": "Grasz już tylko przeciw {{t:big-blind|dużemu blindowi}}, ale po flopie mówisz pierwszy.",
         "nineEarly": "Przy stole 9-osobowym za tobą siedzi więcej graczy niż przy 6-osobowym, więc częściej ktoś ma lepszą rękę.",
         "nineLj": "Z LJ grasz jak z {{t:utg|UTG}} przy stole 6-osobowym, bo zostaje za tobą tylu samo graczy.",
-        "btnVsCo": "{{t:cutoff|CO}} często {{t:call|sprawdza}} twój 3-bet, więc chcesz mieć rękę, która dobrze gra w {{t:pot|puli}} po {{t:call|sprawdzeniu}}.",
+        "btnVsCo": "Rywal często {{t:call|sprawdza}}, więc chcesz mieć rękę, która dobrze gra w {{t:pot|puli}} po {{t:call|sprawdzeniu}}.",
         "sbVsBtn": "Po {{t:call|sprawdzeniu}} z {{t:small-blind|małego blinda}} grasz {{t:out-of-position}}, a {{t:big-blind|duży blind}} za tobą może jeszcze {{t:raise|przebić}}; 3-bet daje {{t:initiative|inicjatywę}} i szansę wygrania {{t:pot|puli}} od razu.",
         "bbVsBtn": "Dopłacasz niewiele do dużej {{t:pot|puli}}, więc bronisz szeroko.",
         "bbVsSb": "Po flopie masz {{t:position|pozycję}}, więc realizujesz więcej {{t:equity}}.",
@@ -757,7 +757,7 @@
         "connected_few": "Karty leżą blisko siebie: razem mogą złożyć {{t:straight|strita}} na {{count}} sposoby.",
         "connected_many": "Karty leżą blisko siebie: razem mogą złożyć {{t:straight|strita}} na {{count}} sposobów.",
         "connected_other": "Karty leżą blisko siebie: razem mogą złożyć {{t:straight|strita}} na {{count}} sposobu.",
-        "highAllIn": "Przy all-in nie ma już {{t:bet|zakładów}} po flopie: gdy nikt nie trafi {{t:pair|pary}}, wygrywa wyższa karta, a twoja wyższa karta to {{rank}}.",
+        "highAllIn": "Przy all-in nie ma już {{t:bet|zakładów}} po flopie: gdy nikt nie ma {{t:pair|pary}} ani lepszego układu, wygrywa wyższa karta, a twoja wyższa karta to {{rank}}.",
         "dominated": "Gdy trafisz {{t:pair|parę}} z wyższej karty ({{rank}}), rywal z tą samą kartą i lepszym {{t:kicker|kickerem}} cię bije: to ręka zdominowana.",
         "overcards": "Obie karty są niskie: na flopie w {{pct}} przypadków ({{often}}) pada co najmniej jedna karta wyższa od obu twoich, a rywal, który ją trafi, ma {{t:pair|parę}} wyższą niż {{t:pair|para}} z twoich kart.",
         "overcardsPair": "Twoja {{t:pair|para}} jest niska: na flopie w {{pct}} przypadków ({{often}}) pada co najmniej jedna wyższa karta, a rywal, który ją trafi, ma wyższą {{t:pair|parę}}."

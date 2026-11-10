@@ -208,7 +208,7 @@
 - id: R-M3-011
   module: m3
   if: "bạn có hai lá khác nhau và xem chúng có thể cùng tạo {{t:straight|sảnh}} không"
-  then: "càng gần nhau càng nhiều cách: hai lá liền nhau từ 5-4 đến J-T nằm trong bốn {{t:straight|sảnh}} khác nhau, cách một lá thì ba, còn cách năm bậc trở lên (ví dụ 7-2) thì không có sảnh nào"
+  then: "càng gần nhau càng nhiều cách: hai lá liền nhau từ 5-4 đến J-T nằm trong bốn {{t:straight|sảnh}} khác nhau, cách một lá từ 5-3 đến Q-T thì ba, còn cách năm bậc trở lên (ví dụ 7-2) thì không có sảnh nào"
   because: "{{t:straight|Sảnh}} là năm bậc liên tiếp; khoảng cách giữa hai lá càng lớn thì càng ít bộ năm như vậy chứa cả hai (A cũng được tính là 1)"
   level: math
   source: "tính toán: kiểm tra mười sảnh từ A-2-3-4-5 đến 10-J-Q-K-A cho cả 169 loại tay; định nghĩa: quy định phòng bài được cơ quan quản lý California phê duyệt (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf)"

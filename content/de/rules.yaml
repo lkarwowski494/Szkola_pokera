@@ -208,7 +208,7 @@
 - id: R-M3-011
   module: m3
   if: "du hast zwei verschiedene Karten und prüfst, ob sie zusammen eine {{t:straight|Straße}} bilden können"
-  then: "je näher sie beieinander liegen, desto mehr Möglichkeiten: benachbarte Karten von 5-4 bis J-T sind in vier verschiedenen {{t:straight|Straßen}}, Karten mit einer Lücke in drei, und Karten mit fünf oder mehr Rängen Abstand (z. B. 7-2) in keiner"
+  then: "je näher sie beieinander liegen, desto mehr Möglichkeiten: benachbarte Karten von 5-4 bis J-T sind in vier verschiedenen {{t:straight|Straßen}}, Karten mit einer Lücke von 5-3 bis Q-T in drei, und Karten mit fünf oder mehr Rängen Abstand (z. B. 7-2) in keiner"
   because: "eine {{t:straight|Straße}} sind fünf aufeinanderfolgende Ränge; je größer die Lücke zwischen den Karten, desto weniger solche Fünfer enthalten beide (das Ass zählt auch als Eins)"
   level: math
   source: "Berechnung: alle zehn Straßen von A-2-3-4-5 bis 10-J-Q-K-A für jede der 169 Handklassen geprüft; Definition der Straße: vom kalifornischen Regulator genehmigte Kartenraumregeln (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf)"

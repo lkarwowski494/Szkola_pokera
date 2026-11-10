@@ -697,7 +697,7 @@
         "rfiSb": "你只剩下{{t:big-blind|大盲}}一個對手，但翻牌後你要先行動。",
         "nineEarly": "在 9 人桌，你後面坐的玩家比 6 人桌多，所以更常有人拿著更好的牌。",
         "nineLj": "從 LJ 打就像 6 人桌從 {{t:utg|UTG}} 打，因為你後面剩下的玩家一樣多。",
-        "btnVsCo": "{{t:cutoff|CO}}常常{{t:call|跟注}}你的3-bet，所以你要的是被{{t:call|跟注}}後在{{t:pot|底池}}中好打的手牌。",
+        "btnVsCo": "對手常常{{t:call|跟注}}，所以你要的是被{{t:call|跟注}}後在{{t:pot|底池}}中好打的手牌。",
         "sbVsBtn": "從{{t:small-blind|小盲}}{{t:call|跟注}}後，你要在{{t:out-of-position|無位置}}的情況下打，而且後面的{{t:big-blind|大盲}}還可以{{t:raise|加注}}；3-bet 能取得{{t:initiative|主動權}}，也有機會立刻贏下{{t:pot|底池}}。",
         "bbVsBtn": "你只需往大{{t:pot|底池}}裡補一點錢，所以要寬廣地防守。",
         "bbVsSb": "翻牌後你有{{t:position|位置}}，所以能實現更多{{t:equity|權益}}。",
@@ -715,7 +715,7 @@
         "high": "兩張牌都很大：中了{{t:pair|對子}}就是大對子，另一張則是大的{{t:kicker}}，能贏同一張牌但踢腳較弱的手牌。",
         "suited": "兩張牌同花色：多了一條靠{{t:flush|同花}}獲勝的路。",
         "connected_other": "兩張牌點數接近：一起組成{{t:straight|順子}}的方式有{{count}}種。",
-        "highAllIn": "全下之後翻牌後就沒有{{t:bet|下注}}了：如果沒人中{{t:pair|對子}}，大牌獲勝，而你較大的牌是{{rank}}。",
+        "highAllIn": "全下之後翻牌後就沒有{{t:bet|下注}}了：如果沒人有{{t:pair|對子}}或更好的牌，大牌獲勝，而你較大的牌是{{rank}}。",
         "dominated": "你用較大的牌（{{rank}}）中了{{t:pair|對子}}時，有同一張牌且{{t:kicker}}更好的對手會贏你：這是被壓制（dominated）的手牌。",
         "overcards": "兩張牌都很小：{{pct}}的翻牌（{{often}}）至少會出現一張比你兩張牌都大的牌，中了這張牌的對手，對子會比你的牌能組成的任何{{t:pair|對子}}都大。",
         "overcardsPair": "你的{{t:pair|對子}}很小：{{pct}}的翻牌（{{often}}）至少會出現一張更大的牌，中了這張牌的對手會有更大的{{t:pair|對子}}。"

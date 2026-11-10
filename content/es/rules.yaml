@@ -208,7 +208,7 @@
 - id: R-M3-011
   module: m3
   if: "tienes dos cartas distintas y miras si juntas pueden formar {{t:straight|escalera}}"
-  then: "cuanto más cerca están, de más maneras: las cartas contiguas de 5-4 a J-T están en cuatro {{t:straight|escaleras}} distintas, las que tienen un hueco en tres, y las que están a cinco o más rangos (p. ej. 7-2) en ninguna"
+  then: "cuanto más cerca están, de más maneras: las cartas contiguas de 5-4 a J-T están en cuatro {{t:straight|escaleras}} distintas, las que tienen un hueco de 5-3 a Q-T en tres, y las que están a cinco o más rangos (p. ej. 7-2) en ninguna"
   because: "una {{t:straight|escalera}} son cinco rangos seguidos; cuanto mayor el hueco entre las cartas, menos quintetos así contienen a ambas (el as también cuenta como uno)"
   level: math
   source: "cálculo: las diez escaleras de A-2-3-4-5 a 10-J-Q-K-A revisadas para cada una de las 169 clases de manos; definición de escalera: reglamento aprobado por el regulador de California (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf)"

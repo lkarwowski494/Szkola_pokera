@@ -208,7 +208,7 @@
 - id: R-M3-011
   module: m3
   if: "você tem duas cartas diferentes e verifica se juntas podem formar uma {{t:straight|sequência}}"
-  then: "quanto mais próximas, mais maneiras: cartas vizinhas de 5-4 a J-T estão em quatro {{t:straight|sequências}} diferentes, com um intervalo em três, e a cinco ou mais valores de distância (p. ex. 7-2) em nenhuma"
+  then: "quanto mais próximas, mais maneiras: cartas vizinhas de 5-4 a J-T estão em quatro {{t:straight|sequências}} diferentes, com um intervalo de 5-3 a Q-T em três, e a cinco ou mais valores de distância (p. ex. 7-2) em nenhuma"
   because: "uma {{t:straight|sequência}} são cinco valores seguidos; quanto maior o intervalo entre as cartas, menos quinas assim contêm as duas (o ás também conta como um)"
   level: math
   source: "cálculo: as dez sequências de A-2-3-4-5 a 10-J-Q-K-A verificadas para cada uma das 169 classes de mãos; definição: regulamento aprovado pelo regulador da Califórnia (https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf)"

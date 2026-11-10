@@ -208,7 +208,7 @@
 - id: R-M3-011
   module: m3
   if: "你有兩張不同的牌，想知道它們能否一起組成{{t:straight|順子}}"
-  then: "離得越近，方式越多：從 5-4 到 J-T 的相鄰牌在四種不同的{{t:straight|順子}}裡，隔一張的在三種，相差五個點數以上的（例如 7-2）一種也沒有"
+  then: "離得越近，方式越多：從 5-4 到 J-T 的相鄰牌在四種不同的{{t:straight|順子}}裡，從 5-3 到 Q-T 隔一張的在三種，相差五個點數以上的（例如 7-2）一種也沒有"
   because: "{{t:straight|順子}}是五個連續點數；兩張牌差得越遠，同時包含兩張的五張組合越少（A 也可當作 1）"
   level: math
   source: "計算：對 169 種手牌逐一檢查從 A-2-3-4-5 到 10-J-Q-K-A 的十種順子；定義：加州監管機構核准的牌室規則（https://www.oag.ca.gov/sites/all/files/agweb/pdfs/gambling/oasis_cardroom.pdf）"

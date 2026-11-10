@@ -3,7 +3,7 @@
   "id": "R-M3-011",
   "rodzaj": "regula",
   "level": "math",
-  "twierdzenie": "masz dwie różne karty i sprawdzasz, czy razem mogą złożyć strita → im bliżej siebie leżą, tym na więcej sposobów: sąsiednie karty od 5-4 do J-T są w czterech różnych stritach, karty z jedną luką w trzech, a karty odległe o pięć rang i więcej (np. 7-2) w żadnym, bo straight to pięć kolejnych rang; im większa luka między kartami, tym mniej takich piątek mieści obie (as liczy się też jako jedynka)",
+  "twierdzenie": "masz dwie różne karty i sprawdzasz, czy razem mogą złożyć strita → im bliżej siebie leżą, tym na więcej sposobów: sąsiednie karty od 5-4 do J-T są w czterech różnych stritach, karty z jedną luką od 5-3 do Q-T w trzech, a karty odległe o pięć rang i więcej (np. 7-2) w żadnym, bo straight to pięć kolejnych rang; im większa luka między kartami, tym mniej takich piątek mieści obie (as liczy się też jako jedynka)",
   "zrodla": [
    {
     "adres": "rachunek: liczba stritów (5 kolejnych rang, as także jako 1) zawierających obie karty ręki",

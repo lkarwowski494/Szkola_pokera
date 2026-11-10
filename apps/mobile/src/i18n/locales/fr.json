@@ -723,7 +723,7 @@
         "rfiSb": "Vous ne jouez plus que contre la {{t:big-blind|grosse blinde}}, mais après le flop vous parlez en premier.",
         "nineEarly": "À une table de 9 joueurs, il y a plus de joueurs derrière vous qu'à une table de 6, donc quelqu'un a plus souvent une meilleure main.",
         "nineLj": "Depuis le LJ, vous jouez comme depuis l'{{t:utg|UTG}} à une table de 6 joueurs, car il reste autant de joueurs derrière vous.",
-        "btnVsCo": "Le {{t:cutoff|CO}} {{t:call|suit}} souvent votre 3-bet, donc vous voulez une main qui se joue bien dans un {{t:pot|pot}} après avoir été {{t:call|suivi}}.",
+        "btnVsCo": "L'adversaire {{t:call|suit}} souvent, donc vous voulez une main qui se joue bien dans un {{t:pot|pot}} après avoir été {{t:call|suivi}}.",
         "sbVsBtn": "Si vous {{t:call|suivez}} depuis la {{t:small-blind|petite blinde}}, vous jouez {{t:out-of-position|hors de position}}, et la {{t:big-blind|grosse blinde}} derrière vous peut encore {{t:raise|relancer}} ; un 3-bet vous donne l'{{t:initiative|initiative}} et une chance de gagner le {{t:pot|pot}} tout de suite.",
         "bbVsBtn": "Vous ajoutez peu à un gros {{t:pot|pot}}, donc vous défendez large.",
         "bbVsSb": "Après le flop, vous avez la {{t:position|position}}, donc vous réalisez davantage d'{{t:equity|équité}}.",
@@ -743,7 +743,7 @@
         "connected_one": "Vos cartes sont proches l'une de l'autre : ensemble, elles peuvent former une {{t:straight|quinte}} de {{count}} façon.",
         "connected_many": "Vos cartes sont proches l'une de l'autre : ensemble, elles peuvent former une {{t:straight|quinte}} de {{count}} façons.",
         "connected_other": "Vos cartes sont proches l'une de l'autre : ensemble, elles peuvent former une {{t:straight|quinte}} de {{count}} façons.",
-        "highAllIn": "À tapis, il n'y a plus de {{t:bet|mises}} après le flop : si personne ne touche de {{t:pair|paire}}, la carte la plus haute gagne, et votre carte la plus haute est {{rank}}.",
+        "highAllIn": "À tapis, il n'y a plus de {{t:bet|mises}} après le flop : si personne n'a de {{t:pair|paire}} ou mieux, la carte la plus haute gagne, et votre carte la plus haute est {{rank}}.",
         "dominated": "Si vous touchez une {{t:pair|paire}} avec votre carte la plus haute ({{rank}}), un adversaire avec la même carte et un meilleur {{t:kicker}} vous bat : c'est une main dominée.",
         "overcards": "Les deux cartes sont basses : sur {{pct}} des flops ({{often}}), au moins une carte plus haute que les vôtres tombe, et l'adversaire qui la touche a une {{t:pair|paire}} plus haute que toute paire faite avec vos cartes.",
         "overcardsPair": "Votre {{t:pair|paire}} est basse : sur {{pct}} des flops ({{often}}), au moins une carte plus haute tombe, et l'adversaire qui la touche a une {{t:pair|paire}} plus haute."
