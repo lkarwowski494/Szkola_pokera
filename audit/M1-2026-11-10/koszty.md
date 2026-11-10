@@ -6,3 +6,4 @@
 | Plan razem (wariant głęboki) | 6,6–13,4 mln | w toku | — |
 | soczewka nowy użytkownik (subagent) | ~0,12 mln | 103 665 tokenów, 10 wywołań, 2,1 min | ~0,9 |
 | soczewka recenzent sklepu (subagent) | ~0,12 mln | 117 252 tokenów, 17 wywołań, 2,8 min | ~1,0 |
+| soczewka praktyk (subagent) | ~0,12 mln | 114 996 tokenów, 34 wywołania, 3,8 min | ~1,0 |
