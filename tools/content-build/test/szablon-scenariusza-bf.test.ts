@@ -90,6 +90,12 @@ describe('walidacja szablonu w budowaniu', () => {
       expect(e.join('\n')).toMatch(/sc-test-draw.*punkt decyzji 1.*call.*nieznany znacznik wariantu/);
     }
   });
+  it('08-programista-105: kropka w kluczu {{n:a.b}} nie ucina zdania sytuacji; „。” kończy je w językach CJK', () => {
+    const ok = kopia((b) => { b.decisions[0]!.actions[0]!.explanation = 'Masz {{n:outs.flush}} outów: {{w:reka}} na {{w:pozycja}}, na {{t:board|stole}} {{w:stol}}. Gram.'; });
+    expect(checkScenarioTemplate(t(ok), 'sc-test-draw.yaml', ctx)).toEqual([]);
+    const cjk = kopia((b) => { b.decisions[0]!.actions[0]!.explanation = 'フロップでドローがあります。{{w:reka}} {{w:pozycja}} {{w:stol}} でコールします。'; });
+    expect(checkScenarioTemplate(t(cjk), 'sc-test-draw.yaml', ctx).join('\n')).toMatch(/punkt decyzji 1.*call.*zdanie sytuacji/);
+  });
   it('typ rywala wymaga reguły exploit', () => {
     const z = { ...BAZA, villainType: 'nit' };
     expect(checkScenarioTemplate(t(z), 'sc-test-draw.yaml', ctx).join()).toMatch(/exploit/);

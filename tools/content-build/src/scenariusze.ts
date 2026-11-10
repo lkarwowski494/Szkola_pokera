@@ -63,7 +63,10 @@ export function checkScenarioTemplate(t: ScenarioTemplate, file: string, ctx: Sc
     if (akcje !== 'call,fold') e.push(`${p} akcje to dokładnie call i fold, każda z własnym wyjaśnieniem (BR-OCE-002)`);
     for (const a of d.actions) {
       // BR-OCE-001/002, D-557: pierwsze zdanie wymienia rękę, pozycję i stół z wariantu (znaczniki), a nie z przykładu w treści
-      const zdanie = a.explanation.split(/[.!?\n]/)[0] ?? '';
+      // koniec zdania szukany poza znacznikami {{…}} (kropka w kluczu {{n:a.b}} nie kończy zdania), także „。！？” (CJK); 08-programista-105
+      const maska = a.explanation.replace(/\{\{[^{}]*\}\}/g, (m) => 'x'.repeat(m.length));
+      const koniec = maska.search(/[.!?。！？\n]/);
+      const zdanie = koniec < 0 ? a.explanation : a.explanation.slice(0, koniec);
       const znane = findVariantMarkers(a.explanation);
       const nieznane = znane.filter((m) => !(VARIANT_MARKERS as readonly string[]).includes(m));
       if (nieznane.length) e.push(`${p} akcja ${a.action}: nieznany znacznik wariantu ${nieznane.map((m) => `{{w:${m}}}`).join(', ')} (dozwolone: ${VARIANT_MARKERS.join(', ')})`);
