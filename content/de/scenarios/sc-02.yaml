@@ -1,0 +1,34 @@
+# sc-02: German text of content/pl/scenarios/sc-02.yaml (role 06, session BS, 2026-11-10); machine translation in session, for review by role 09.
+id: sc-02
+module: m2
+situation: "Mit kurzen Stacks hast du nach einer {{t:3-bet}} einen {{t:oesd}}; dein Gegner {{t:bet|setzt}} auf dem Flop wenig und am Turn viel."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 35
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [oesd], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+  sredni: { draws: [oesd], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [16, 18, 20, 22]
+    fractions: [0.05, 0.1, 0.2, 0.25]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - action: call
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} im Verhältnis zum {{t:pot}} wenig. Du {{t:call|callst}}, weil du nur für eine Karte zahlst und dein {{t:oesd}} mit dieser Karte öfter trifft, als ein so niedriger Preis verlangt. Du hast {{n:outs.oesd}} Outs, also kommt die {{t:straight}} am Turn in etwa {{n:odds.oesd.flop-turn}} der Fälle, ungefähr jede sechste Karte."
+      - action: fold
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} im Verhältnis zum {{t:pot}} wenig. Ein {{t:fold}} gibt einen {{t:pot}} auf, an dem ein {{t:call}} verdient: Gegen einen so kleinen {{t:bet|Einsatz}} trifft dein {{t:oesd}} öfter, als der Preis verlangt."
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.5, 0.6667, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: call
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}: Der Turn hat die {{t:straight}} nicht gebracht, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} viel. Ein {{t:call}} verliert: Du zahlst für die letzte Karte, und sie trifft seltener, als der Preis verlangt. {{t:implied-odds|Implied Odds}} gleichen das nicht aus, weil mit kurzen Stacks zu wenige {{t:chips}} hinter dem {{t:pot}} übrig sind: Selbst wenn du nach einem Treffer alle gewinnst, decken sie die verlorenen {{t:call|Calls}} nicht."
+      - action: fold
+        explanation: "Du hast {{w:reka}} am {{w:pozycja}}, das {{t:board}} ist {{w:stol}}: Der Turn hat die {{t:straight}} nicht gebracht, und dein Gegner im {{w:rywal}} {{t:bet|setzt}} viel. Du {{t:fold|foldest}}, weil du für die letzte Karte zahlst, sie seltener trifft, als der Preis verlangt, und hinter dem {{t:pot}} zu wenige {{t:chips}} übrig sind, damit ein Treffer das ausgleicht. Die {{t:straight}} kommt am River in etwa {{n:odds.oesd.turn-river}} der Fälle, ungefähr jede sechste Karte."

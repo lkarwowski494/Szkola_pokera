@@ -1,0 +1,34 @@
+# sc-19: Portuguese text of content/pl/scenarios/sc-19.yaml (role 06, session BS, 2026-11-10); machine translation in session, for review by role 09.
+id: sc-19
+module: m7
+situation: "Com stacks curtos, depois de um {{t:3-bet}} tem um {{t:flush-draw}}; o adversário {{t:bet|aposta}} pouco no flop e muito no turn."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 35
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+  sredni: { draws: [flush], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [16, 18, 20, 22]
+    fractions: [0.1, 0.2, 0.25]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - action: call
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} pouco em relação ao {{t:pot}}. {{t:call|Paga}}, porque só está a pagar por uma carta, e o seu {{t:flush-draw}} acerta nela mais vezes do que um preço tão baixo exige. O {{t:flush}} sai no turn em cerca de {{n:odds.flush.flop-turn}} dos casos, mais ou menos uma carta em cada cinco."
+      - action: fold
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} pouco em relação ao {{t:pot}}. {{t:fold|Desistir}} entrega um {{t:pot}} em que {{t:call|pagar}} dá lucro: contra uma {{t:bet}} tão pequena, o seu {{t:flush-draw}} acerta mais vezes do que o preço exige."
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.6667, 0.75, 1]
+    villain: bet
+    rule: R-M7-008
+    actions:
+      - action: call
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}: o turn não trouxe o {{t:flush}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} muito. {{t:call|Pagar}} conta com as {{t:implied-odds}}, e aqui elas não existem: com um {{t:spr}} baixo restam tão poucas {{t:chips}} atrás do {{t:pot}} que, mesmo que ao acertar ganhe todas, não cobrem os {{t:call|pagamentos}} perdidos. As implied odds só contam quando o adversário ainda tem com que lhe pagar."
+      - action: fold
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}: o turn não trouxe o {{t:flush}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} muito. {{t:fold|Desiste}}, porque a última carta acerta menos vezes do que o preço exige, e as {{t:implied-odds}} não mudam isso: com um {{t:spr}} baixo restam demasiado poucas {{t:chips}} atrás do {{t:pot}} para que o ganho ao acertar compense os {{t:call|pagamentos}} perdidos. O {{t:flush}} sai no river em cerca de {{n:odds.flush.turn-river}} dos casos, mais ou menos uma carta em cada cinco."

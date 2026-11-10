@@ -1,0 +1,34 @@
+# sc-02: Italian text of content/pl/scenarios/sc-02.yaml (role 06, session BS, 2026-11-10); machine translation in session, for review by role 09.
+id: sc-02
+module: m2
+situation: "Con stack corti, dopo un {{t:3-bet}} hai un {{t:oesd}}; il tuo avversario {{t:bet|punta}} poco al flop e molto al turn."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 35
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [oesd], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+  sredni: { draws: [oesd], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [16, 18, 20, 22]
+    fractions: [0.05, 0.1, 0.2, 0.25]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - action: call
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} poco rispetto al {{t:pot}}. {{t:call|Chiami}}, perché paghi solo per una carta, e il tuo {{t:oesd}} chiude con questa carta più spesso di quanto richieda un prezzo così basso. Hai {{n:outs.oesd}} out, quindi la {{t:straight}} arriva al turn in circa il {{n:odds.oesd.flop-turn}} dei casi, più o meno una carta su sei."
+      - action: fold
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} poco rispetto al {{t:pot}}. Un {{t:fold}} rinuncia a un {{t:pot}} in cui una {{t:call|chiamata}} guadagna: contro una {{t:bet}} così piccola, il tuo {{t:oesd}} chiude più spesso di quanto richieda il prezzo."
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.5, 0.6667, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: call
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}: il turn non ha portato la {{t:straight}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} molto. Una {{t:call|chiamata}} perde: paghi per l'ultima carta, e questa chiude meno spesso di quanto richieda il prezzo. Le {{t:implied-odds}} non lo compensano, perché con stack corti dietro al {{t:pot}} restano troppo poche {{t:chips}}: anche se dopo aver chiuso le vinci tutte, non coprono le {{t:call|chiamate}} perse."
+      - action: fold
+        explanation: "Hai {{w:reka}} in {{w:pozycja}}, il {{t:board}} è {{w:stol}}: il turn non ha portato la {{t:straight}}, e il tuo avversario in {{w:rywal}} {{t:bet|punta}} molto. {{t:fold|Foldi}}, perché paghi per l'ultima carta, questa chiude meno spesso di quanto richieda il prezzo, e dietro al {{t:pot}} restano troppo poche {{t:chips}} perché chiudere lo compensi. La {{t:straight}} arriva al river in circa il {{n:odds.oesd.turn-river}} dei casi, più o meno una carta su sei."

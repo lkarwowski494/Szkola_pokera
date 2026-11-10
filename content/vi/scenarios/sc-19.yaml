@@ -1,0 +1,34 @@
+# sc-19: Vietnamese text of content/pl/scenarios/sc-19.yaml (role 06, session BS, 2026-11-10); machine translation in session, for review by role 09.
+id: sc-19
+module: m7
+situation: "Khi stack ngắn, sau một {{t:3-bet|3-bet}} bạn có {{t:flush-draw|bài chờ thùng}}; đối thủ {{t:bet|cược}} nhỏ ở flop và lớn ở turn."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 35
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [flush], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+  sredni: { draws: [flush], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [16, 18, 20, 22]
+    fractions: [0.1, 0.2, 0.25]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - action: call
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} nhỏ so với {{t:pot|pot}}. Bạn {{t:call|theo}}, vì bạn chỉ trả tiền cho một lá, và {{t:flush-draw|bài chờ thùng}} trúng ở lá đó thường xuyên hơn mức mà giá thấp như vậy đòi hỏi. {{t:flush|Thùng}} ra ở turn trong khoảng {{n:odds.flush.flop-turn}} trường hợp, nghĩa là khoảng một lá trong năm lá."
+      - action: fold
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} nhỏ so với {{t:pot|pot}}. {{t:fold|Bỏ bài}} là bỏ đi một {{t:pot|pot}} mà việc {{t:call|theo}} mang lại lợi nhuận: trước mức {{t:bet|cược}} nhỏ như vậy, {{t:flush-draw|bài chờ thùng}} trúng thường xuyên hơn mức giá đòi hỏi."
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.6667, 0.75, 1]
+    villain: bet
+    rule: R-M7-008
+    actions:
+      - action: call
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}: turn không mang lại {{t:flush|thùng}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} lớn. {{t:call|Theo}} là trông vào {{t:implied-odds|implied odds}}, nhưng ở đây không có: với {{t:spr|SPR}} thấp, ngoài {{t:pot|pot}} chỉ còn ít {{t:chips|chip}} đến mức ngay cả khi bạn thắng hết số đó lúc trúng, chúng cũng không bù được những lần {{t:call|theo}} bị thua. Implied odds chỉ có ý nghĩa khi đối thủ vẫn còn thứ để trả cho bạn."
+      - action: fold
+        explanation: "Bạn có {{w:reka}} ở vị trí {{w:pozycja}}, {{t:board|board}} là {{w:stol}}: turn không mang lại {{t:flush|thùng}}, còn đối thủ ở {{w:rywal}} {{t:bet|cược}} lớn. Bạn {{t:fold|bỏ bài}}, vì lá cuối cùng trúng ít thường xuyên hơn mức giá đòi hỏi, và {{t:implied-odds|implied odds}} không thay đổi được điều đó: với {{t:spr|SPR}} thấp, ngoài {{t:pot|pot}} còn quá ít {{t:chips|chip}} để tiền thắng sau khi trúng bù lại được những lần {{t:call|theo}} bị thua. {{t:flush|Thùng}} ra ở river trong khoảng {{n:odds.flush.turn-river}} trường hợp, nghĩa là khoảng một lá trong năm lá."

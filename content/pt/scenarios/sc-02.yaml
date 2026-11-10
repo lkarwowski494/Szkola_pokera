@@ -1,0 +1,34 @@
+# sc-02: Portuguese text of content/pl/scenarios/sc-02.yaml (role 06, session BS, 2026-11-10); machine translation in session, for review by role 09.
+id: sc-02
+module: m2
+situation: "Com stacks curtos, depois de um {{t:3-bet}} tem um {{t:oesd}}; o adversário {{t:bet|aposta}} pouco no flop e muito no turn."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 35
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [oesd], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+  sredni: { draws: [oesd], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [16, 18, 20, 22]
+    fractions: [0.05, 0.1, 0.2, 0.25]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - action: call
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} pouco em relação ao {{t:pot}}. {{t:call|Paga}}, porque só está a pagar por uma carta, e o seu {{t:oesd}} acerta nela mais vezes do que um preço tão baixo exige. Tem {{n:outs.oesd}} outs, por isso a {{t:straight}} sai no turn em cerca de {{n:odds.oesd.flop-turn}} dos casos, mais ou menos uma carta em cada seis."
+      - action: fold
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} pouco em relação ao {{t:pot}}. {{t:fold|Desistir}} entrega um {{t:pot}} em que {{t:call|pagar}} dá lucro: contra uma {{t:bet}} tão pequena, o seu {{t:oesd}} acerta mais vezes do que o preço exige."
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.5, 0.6667, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: call
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}: o turn não trouxe a {{t:straight}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} muito. {{t:call|Pagar}} perde: paga pela última carta, e ela acerta menos vezes do que o preço exige. As {{t:implied-odds}} não compensam isso, porque com stacks curtos restam demasiado poucas {{t:chips}} atrás do {{t:pot}}: mesmo que, ao acertar, ganhe todas, não cobrem os {{t:call|pagamentos}} perdidos."
+      - action: fold
+        explanation: "Tem {{w:reka}} no {{w:pozycja}}, na {{t:board}} há {{w:stol}}: o turn não trouxe a {{t:straight}}, e o adversário no {{w:rywal}} {{t:bet|aposta}} muito. {{t:fold|Desiste}}, porque paga pela última carta, ela acerta menos vezes do que o preço exige, e restam demasiado poucas {{t:chips}} atrás do {{t:pot}} para que acertar compense isso. A {{t:straight}} sai no river em cerca de {{n:odds.oesd.turn-river}} dos casos, mais ou menos uma carta em cada seis."

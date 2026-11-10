@@ -1,0 +1,34 @@
+# sc-02: Spanish text of content/pl/scenarios/sc-02.yaml (role 06, session BS, 2026-11-10); machine translation in session, for review by role 09.
+id: sc-02
+module: m2
+situation: "Con stacks cortos, tras un {{t:3-bet}} tienes un {{t:oesd|proyecto de escalera abierta}}; tu rival {{t:bet|apuesta}} poco en el flop y mucho en el turn."
+table: 6max
+positions: { hero: BTN, villain: BB }
+stackBb: 35
+levels: [latwy, sredni]
+bounds:
+  latwy: { draws: [oesd], marginMin: 0.1, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+  sredni: { draws: [oesd], marginMin: 0.02, marginMax: 0.1, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [call, fold] }
+decisions:
+  - street: flop
+    kind: draw-call
+    pots: [16, 18, 20, 22]
+    fractions: [0.05, 0.1, 0.2, 0.25]
+    villain: bet
+    rule: R-M2-005
+    actions:
+      - action: call
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} poco en relación con el {{t:pot}}. {{t:call|Igualas}}, porque solo pagas por una carta, y tu {{t:oesd|proyecto de escalera abierta}} liga con ella más a menudo de lo que exige un precio tan bajo. Tienes {{n:outs.oesd}} outs, así que la {{t:straight}} llega en el turn en aproximadamente el {{n:odds.oesd.flop-turn}} de los casos, más o menos una carta de cada seis."
+      - action: fold
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} poco en relación con el {{t:pot}}. {{t:fold|Retirarte}} es renunciar a un {{t:pot}} en el que {{t:call|igualar}} da dinero: contra una {{t:bet}} tan pequeña, tu {{t:oesd|proyecto de escalera abierta}} liga más a menudo de lo que exige el precio."
+  - street: turn
+    kind: draw-call
+    pots: []
+    fractions: [0.5, 0.6667, 0.75, 1]
+    villain: bet
+    rule: R-M7-007
+    actions:
+      - action: call
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}: el turn no ha traído la {{t:straight}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} mucho. {{t:call|Igualar}} pierde: pagas por la última carta, y esta liga con menos frecuencia de lo que exige el precio. Las {{t:implied-odds}} no lo compensan, porque con stacks cortos quedan demasiado pocas {{t:chips}} detrás del {{t:pot}}: aunque las ganes todas al ligar, no cubren los {{t:call|pagos}} que pierdes."
+      - action: fold
+        explanation: "Tienes {{w:reka}} en el {{w:pozycja}}, en la {{t:board}} hay {{w:stol}}: el turn no ha traído la {{t:straight}}, y tu rival en el {{w:rywal}} {{t:bet|apuesta}} mucho. Te {{t:fold|retiras}}, porque pagas por la última carta, esta liga con menos frecuencia de lo que exige el precio, y detrás del {{t:pot}} quedan demasiado pocas {{t:chips}} para que ligar lo compense. La {{t:straight}} llega en el river en aproximadamente el {{n:odds.oesd.turn-river}} de los casos, más o menos una carta de cada seis."
