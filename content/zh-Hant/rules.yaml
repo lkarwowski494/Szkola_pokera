@@ -217,7 +217,7 @@
   module: m3
   if: "你有一張大牌和一張較弱的第二張牌（例如 K5 或 A7），而對手可能有同一張大牌和更好的{{t:kicker}}"
   then: "兩人都用這張牌中{{t:pair|對子}}時，{{t:kicker}}較好的對手會贏你（你的手牌被壓制）；兩張大牌則相反：大的{{t:kicker}}能贏同一張牌的較弱手牌"
-  because: "對子相同時由{{t:kicker}}決定，所以翻牌前被壓制的手牌贏的次數比壓制它的手牌少，因此很難打（簡化：訓練資料是在談防守 3-bet 時這樣說的）"
+  because: "對子相同時由{{t:kicker}}決定，所以翻牌前，兩手牌都是不同花色時，被壓制的手牌贏的次數比壓制它的手牌少；被壓制的手牌若是同花色（suited），有時與它大致勢均力敵（例如 A2s 對 A3o）。因此很難打（簡化：訓練資料是在談防守 3-bet 時這樣說的）"
   level: heuristic
   source: "規則：牌型核心相同時由踢腳決定（R-M0-002）；計算：被壓制手牌在每種對戰中的權益都低於一半；撲克詞彙表（https://www.pokerskill.com/poker-glossary/dominated-hand/）；訓練網站（https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/）"
   sources: [{ kind: rules }, { kind: math }, { kind: reference, url: "https://www.pokerskill.com/poker-glossary/dominated-hand/" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]

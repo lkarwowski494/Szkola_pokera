@@ -217,7 +217,7 @@
   module: m3
   if: "você tem uma carta alta com uma segunda carta mais fraca (p. ex. K5 ou A7), e um adversário pode ter a mesma carta alta com um {{t:kicker}} melhor"
   then: "se ambos fizerem {{t:pair|par}} com essa carta, o adversário com o {{t:kicker}} melhor ganha (sua mão está dominada); duas cartas altas funcionam ao contrário: um {{t:kicker}} alto bate mãos mais fracas com a mesma carta"
-  because: "com o mesmo {{t:pair|par}} decide o {{t:kicker}}, por isso antes do flop uma mão dominada ganha menos vezes do que a mão que a domina; por isso é difícil de jogar (simplificação: a fonte de treino diz isto sobre a defesa contra um 3-bet)"
+  because: "com o mesmo {{t:pair|par}} decide o {{t:kicker}}, por isso antes do flop, quando as duas mãos são de naipes diferentes, uma mão dominada ganha menos vezes do que a mão que a domina; uma mão dominada do mesmo naipe (suited) às vezes fica mais ou menos empatada com ela (por exemplo, A2s contra A3o); por isso é difícil de jogar (simplificação: a fonte de treino diz isto sobre a defesa contra um 3-bet)"
   level: heuristic
   source: "regras: o kicker decide com o mesmo núcleo de mão (R-M0-002); cálculo: equity da mão dominada abaixo de metade em cada confronto; glossário de pôquer (https://www.pokerskill.com/poker-glossary/dominated-hand/); site de treino (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)"
   sources: [{ kind: rules }, { kind: math }, { kind: reference, url: "https://www.pokerskill.com/poker-glossary/dominated-hand/" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]

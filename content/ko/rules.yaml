@@ -217,7 +217,7 @@
   module: m3
   if: "높은 카드와 약한 두 번째 카드(예: K5, A7)를 가지고 있고, 상대가 같은 높은 카드에 더 좋은 {{t:kicker}}를 가질 수 있을 때"
   then: "둘 다 그 카드로 {{t:pair|페어}}가 되면 더 좋은 {{t:kicker}}를 가진 상대가 이깁니다(당신의 핸드는 도미네이트된 것입니다). 높은 카드 두 장은 반대로, 높은 {{t:kicker}}가 같은 카드를 가진 약한 핸드를 이깁니다"
-  because: "같은 {{t:pair|페어}}라면 {{t:kicker}}로 결정되므로, 플롭 전 도미네이트된 핸드는 그것을 도미네이트하는 핸드보다 덜 자주 이깁니다. 그래서 플레이하기 어렵습니다(단순화: 트레이닝 자료는 3벳 방어에 대해 이렇게 말합니다)"
+  because: "같은 {{t:pair|페어}}라면 {{t:kicker}}로 결정되므로, 플롭 전 두 핸드가 모두 오프수트라면 도미네이트된 핸드는 그것을 도미네이트하는 핸드보다 덜 자주 이깁니다. 도미네이트된 핸드가 수티드라면 거의 비슷할 때도 있습니다(예: A2s 대 A3o). 그래서 플레이하기 어렵습니다(단순화: 트레이닝 자료는 3벳 방어에 대해 이렇게 말합니다)"
   level: heuristic
   source: "규칙: 같은 족보면 키커로 결정(R-M0-002); 계산: 도미네이트된 핸드의 에퀴티는 모든 조합에서 절반 미만; 포커 용어집(https://www.pokerskill.com/poker-glossary/dominated-hand/); 트레이닝 사이트(https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)"
   sources: [{ kind: rules }, { kind: math }, { kind: reference, url: "https://www.pokerskill.com/poker-glossary/dominated-hand/" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]

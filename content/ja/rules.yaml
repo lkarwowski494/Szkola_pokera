@@ -217,7 +217,7 @@
   module: m3
   if: "高いカードと弱い2枚目（例：K5やA7）を持っていて、相手が同じ高いカードとより良い{{t:kicker}}を持っている可能性がある場合"
   then: "二人ともそのカードで{{t:pair|ペア}}になると、より良い{{t:kicker}}を持つ相手が勝ちます（あなたのハンドはドミネートされています）。高いカード2枚なら逆に、高い{{t:kicker}}が同じカードを持つ弱いハンドに勝ちます"
-  because: "同じ{{t:pair|ペア}}なら{{t:kicker}}で決まるので、フロップ前、ドミネートされたハンドはそれをドミネートするハンドより勝つ回数が少なく、プレイが難しくなります（単純化：トレーニング資料は3ベットへの対応についてこう述べています）"
+  because: "同じ{{t:pair|ペア}}なら{{t:kicker}}で決まるので、フロップ前、両方のハンドが異なるスートなら、ドミネートされたハンドはそれをドミネートするハンドより勝つ回数が少なくなります。ドミネートされたハンドが同じスート（スーテッド）なら、ほぼ互角になることもあります（例：A2s対A3o）。このため、プレイが難しくなります（単純化：トレーニング資料は3ベットへの対応についてこう述べています）"
   level: heuristic
   source: "ルール：同じ役ならキッカーで決まる（R-M0-002）。計算：ドミネートされたハンドのエクイティはどの組み合わせでも半分未満。ポーカー用語集（https://www.pokerskill.com/poker-glossary/dominated-hand/）、トレーニングサイト（https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/）"
   sources: [{ kind: rules }, { kind: math }, { kind: reference, url: "https://www.pokerskill.com/poker-glossary/dominated-hand/" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]

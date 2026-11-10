@@ -217,7 +217,7 @@
   module: m3
   if: "bạn có một lá cao với lá thứ hai yếu hơn (ví dụ K5 hoặc A7), và đối thủ có thể có cùng lá cao đó với {{t:kicker}} tốt hơn"
   then: "khi cả hai cùng bắt {{t:pair|đôi}} bằng lá đó, đối thủ có {{t:kicker}} tốt hơn thắng bạn (tay bạn bị áp đảo); hai lá cao thì ngược lại: {{t:kicker}} cao thắng các tay yếu hơn có cùng lá đó"
-  because: "khi cùng {{t:pair|đôi}}, {{t:kicker}} quyết định, nên trước flop tay bị áp đảo thắng ít hơn tay áp đảo nó; vì vậy tay này khó chơi (đơn giản hóa: nguồn đào tạo nói điều này về việc phòng thủ trước 3-bet)"
+  because: "khi cùng {{t:pair|đôi}}, {{t:kicker}} quyết định, nên trước flop, khi cả hai tay đều khác chất, tay bị áp đảo thắng ít hơn tay áp đảo nó; tay bị áp đảo đồng chất (suited) đôi khi gần như ngang ngửa với nó (ví dụ A2s gặp A3o); vì vậy tay này khó chơi (đơn giản hóa: nguồn đào tạo nói điều này về việc phòng thủ trước 3-bet)"
   level: heuristic
   source: "luật: kicker quyết định khi cùng bộ bài (R-M0-002); tính toán: equity của tay bị áp đảo dưới một nửa trong mọi cặp đấu; từ điển poker (https://www.pokerskill.com/poker-glossary/dominated-hand/); trang đào tạo (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)"
   sources: [{ kind: rules }, { kind: math }, { kind: reference, url: "https://www.pokerskill.com/poker-glossary/dominated-hand/" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]

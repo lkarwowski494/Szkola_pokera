@@ -35,12 +35,19 @@
   "id": "R-M3-012",
   "rodzaj": "regula",
   "level": "heuristic",
-  "twierdzenie": "masz wysoką kartę ze słabszą drugą kartą (np. K5 albo A7), a rywal może mieć tę samą wysoką kartę z lepszym kickerem → gdy obaj traficie parę z tej karty, rywal z lepszym kickerem cię bije (twoja ręka jest zdominowana); dwie wysokie karty działają odwrotnie: wysoki kicker bije słabsze ręce z tą samą kartą, bo przy tej samej parze decyduje kicker, więc przed flopem ręka zdominowana wygrywa z ręką, która ją dominuje, rzadziej niż ona; przez to taką rękę trudno rozgrywać (uproszczenie: źródło szkoleniowe mówi to o obronie przed 3-betem)",
+  "twierdzenie": "masz wysoką kartę ze słabszą drugą kartą (np. K5 albo A7), a rywal może mieć tę samą wysoką kartę z lepszym kickerem → gdy obaj traficie parę z tej karty, rywal z lepszym kickerem cię bije (twoja ręka jest zdominowana); dwie wysokie karty działają odwrotnie: wysoki kicker bije słabsze ręce z tą samą kartą, bo przy tej samej parze decyduje kicker, więc przed flopem, gdy obie ręce są w różnych kolorach, ręka zdominowana wygrywa z ręką, która ją dominuje, rzadziej niż ona; ręka zdominowana w kolorze bywa z nią mniej więcej na równi (np. A2s wobec A3o); przez to taką rękę trudno rozgrywać (uproszczenie: źródło szkoleniowe mówi to o obronie przed 3-betem)",
   "zrodla": [
    {
     "adres": "rachunek: equity ręki zdominowanej (ta sama wysoka karta 10–A, niższy kicker, różne kolory) wobec ręki dominującej, Monte Carlo",
     "miejsce": "apps/mobile/src/features/drills/__tests__/hand-reasons.test.ts, test „ręka zdominowana … wygrywa rzadziej”",
     "cytat": "we wszystkich 230 parach poniżej 0,5; w sesji BN od ok. 0,25 (A9o vs AKo) do ok. 0,48 (J2o vs J3o)",
+    "odczyt": "2026-11-10",
+    "szczebel": 1
+   },
+   {
+    "adres": "rachunek dokładny: equity ręki zdominowanej wobec ręki dominującej, wszystkie C(48, 5) = 1 712 304 boardy (handEquity, exactLimit 2 000 000)",
+    "miejsce": "apps/mobile/src/features/drills/__tests__/bq-dominacja-001.test.ts; docs/tresci/dowody/bq-001-equity.txt",
+    "cytat": "obie ręce w różnych kolorach (10–A, sąsiednie kickery, 5 układów kolorów): najwyżej 0,4738 (Ah2c wobec As3h); ręka zdominowana w kolorze As2s wobec Ad3c: 0,5009",
     "odczyt": "2026-11-10",
     "szczebel": 1
    },
@@ -68,7 +75,7 @@
   "jednostka": null,
   "werdykt_tekstu": null,
   "poprawka": null,
-  "uwagi": "sesja BN, KO-040 (06-tresci-002), D-595"
+  "uwagi": "sesja BN, KO-040 (06-tresci-002), D-595 | sesja BQ 06-tresci-001 (recenzja BP): because zawężone do rąk w różnych kolorach, zastrzeżenie dla ręki w kolorze (rachunek dokładny)"
  },
  {
   "id": "R-M3-013",

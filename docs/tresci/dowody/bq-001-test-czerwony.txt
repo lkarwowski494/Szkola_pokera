@@ -1,0 +1,56 @@
+FAIL src/features/drills/__tests__/bq-dominacja-001.test.ts
+  06-tresci-001 (BQ, KO-048): R-M3-012 zawężone do rąk w różnych kolorach, z zastrzeżeniem dla ręki w kolorze
+    ✓ rachunek: w różnych kolorach ręka zdominowana wygrywa rzadziej (najbliższe przypadki, dokładnie) (2370 ms)
+    ✓ rachunek: przykład z treści (A2s wobec A3o) jest mniej więcej na równi (|equity − 0,5| < 0,01) (567 ms)
+    ✕ treść w każdym języku podaje przykład ręki w kolorze (A2s wobec A3o) (4 ms)
+    ✕ treść polska: twierdzenie dotyczy rąk w różnych kolorach, ręka w kolorze bywa na równi (1 ms)
+
+  ● 06-tresci-001 (BQ, KO-048): R-M3-012 zawężone do rąk w różnych kolorach, z zastrzeżeniem dla ręki w kolorze › treść w każdym języku podaje przykład ręki w kolorze (A2s wobec A3o)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Array [
+        "de",
+        true,
+    -   true,
+    -   true,
+    +   false,
+    +   false,
+      ]
+
+      49 |     for (const l of JEZYKI) {
+      50 |       const b = because(l, 'R-M3-012');
+    > 51 |       expect([l, b.length > 0, b.includes('A2s'), b.includes('A3o')]).toEqual([l, true, true, true]);
+         |                                                                       ^
+      52 |     }
+      53 |   });
+      54 |
+
+      at Object.toEqual (src/features/drills/__tests__/bq-dominacja-001.test.ts:51:71)
+
+  ● 06-tresci-001 (BQ, KO-048): R-M3-012 zawężone do rąk w różnych kolorach, z zastrzeżeniem dla ręki w kolorze › treść polska: twierdzenie dotyczy rąk w różnych kolorach, ręka w kolorze bywa na równi
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /gdy obie ręce są w różnych kolorach, ręka zdominowana wygrywa/
+    Received string:  "przy tej samej {{t:pair|parze}} decyduje {{t:kicker}}, więc przed flopem ręka zdominowana wygrywa z ręką, która ją dominuje, rzadziej niż ona; przez to taką rękę trudno rozgrywać (uproszczenie: źródło szkoleniowe mówi to o obronie przed 3-betem)"
+
+      55 |   it('treść polska: twierdzenie dotyczy rąk w różnych kolorach, ręka w kolorze bywa na równi', () => {
+      56 |     const b = because('pl', 'R-M3-012');
+    > 57 |     expect(b).toMatch(/gdy obie ręce są w różnych kolorach, ręka zdominowana wygrywa/);
+         |               ^
+      58 |     expect(b).toMatch(/w kolorze bywa z nią mniej więcej na równi/);
+      59 |   });
+      60 | });
+
+      at Object.toMatch (src/features/drills/__tests__/bq-dominacja-001.test.ts:57:15)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 2 passed, 4 total
+Snapshots:   0 total
+Time:        3.78 s
+Ran all test suites matching /src\/features\/drills\/__tests__\/bq-dominacja-001.test.ts/i.
+kod 1

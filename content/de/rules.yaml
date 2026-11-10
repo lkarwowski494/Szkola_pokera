@@ -217,7 +217,7 @@
   module: m3
   if: "du hast eine hohe Karte mit einer schwächeren zweiten Karte (z. B. K5 oder A7), und ein Gegner kann dieselbe hohe Karte mit einem besseren {{t:kicker}} haben"
   then: "wenn ihr beide mit dieser Karte ein {{t:pair|Paar}} trefft, schlägt dich der Gegner mit dem besseren {{t:kicker}} (deine Hand ist dominiert); zwei hohe Karten wirken umgekehrt: ein hoher {{t:kicker}} schlägt schwächere Hände mit derselben Karte"
-  because: "beim selben {{t:pair|Paar}} entscheidet der {{t:kicker}}, also gewinnt eine dominierte Hand vor dem Flop seltener als die Hand, die sie dominiert; deshalb ist sie schwer zu spielen (Vereinfachung: die Trainingsquelle sagt das über die Verteidigung gegen eine 3-Bet)"
+  because: "beim selben {{t:pair|Paar}} entscheidet der {{t:kicker}}, also gewinnt eine dominierte Hand vor dem Flop, wenn beide Hände verschiedenfarbig sind, seltener als die Hand, die sie dominiert; eine gleichfarbige (suited) dominierte Hand liegt mit ihr manchmal etwa gleichauf (z. B. A2s gegen A3o); deshalb ist sie schwer zu spielen (Vereinfachung: die Trainingsquelle sagt das über die Verteidigung gegen eine 3-Bet)"
   level: heuristic
   source: "Regeln: der Kicker entscheidet beim selben Kern der Hand (R-M0-002); Berechnung: Equity der dominierten Hand unter einhalb in jeder Paarung; Poker-Glossar (https://www.pokerskill.com/poker-glossary/dominated-hand/); Trainingsseite (https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/)"
   sources: [{ kind: rules }, { kind: math }, { kind: reference, url: "https://www.pokerskill.com/poker-glossary/dominated-hand/" }, { kind: training, url: "https://upswingpoker.com/vs-3-bet-pre-flop-position-strategy-revealed/" }]
