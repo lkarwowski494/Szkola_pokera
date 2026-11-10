@@ -1,0 +1,14 @@
+# Sesja CL: scalenie CK+CJ+CG+CC do roboczej, zamiennik limitu D-720 — Szkoła Pokera
+Koordynator: session_01T66VBwSdwmmCy2rQJHrxEQ (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; przy zmianie koordynatora pisz do nowego). Gałąź stanu: koordynacja (tylko odczyt).
+
+1. Rola: 08-programista w trybie build (scalenie). Prompt roli w pierwszej wiadomości po linii `=== PROMPT ROLI ===`; jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź robocza `claude/sleepy-brahmagupta-2065nu` @ 07b04fb (CI 42913863290 i E2E 42913863149 zielone; inny HEAD: zgłoś). `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md (Łukasz Karwowski <336954459+lkarwowski494@users.noreply.github.com>; obowiązuje mimo hooka sesji).
+3. Zadania:
+   1. `git merge --ff-only origin/sesja-ck-ekran` (5952fc5; potomek 07b04fb, CI 42922336190 zielone).
+   2. Scal `--no-ff` po kolei: `origin/sesja-cj-poprawki` (2e9c358; zawiera CA 1533486 i raport CE; CI 42920804179 zielone), `origin/sesja-cg-recenzja` (71e3320; zawiera CF 1b7db3c; CI CF 42913543499 zielone), `origin/sesja-cc-recenzja` (0f18993; zawiera BX 178cf97; CI 42911410446 zielone). Konflikty rozwiązuj tak, by zachować oba zamiary; pliki generowane tylko przez `pnpm content:build`, nie ręcznie; `docs/decyzje.md` — obie strony. Szczególnie: CJ zmienił formułę all-in i dodał opcję `kontrolaGeneratora` (D-752) w `tools/content-build`, CK dodał `checkScenarioNaEkran` i przekazanie `stackBb` na ekranie — po scaleniu testy CH (`recenzja-ch-stos.test.ts`), CE (`recenzja-ce-odtworzenie.test.ts`), CG (`cg-recenzja-powtorka.test.ts`, `it.fails` zostaje) mają przechodzić bez osłabienia.
+   3. ŚR-003 recenzji CH (`docs/programista/recenzje/recenzja-cd-07b04fb.md`): przywróć limit testu deterministyczności do 30 s (cofnięcie D-720) przy tej samej asercji (hash/równość wyników), zmniejszając liczbę prób generatora albo dzieląc test, oraz dodaj test budżetu czasu na szablon, jeśli recenzja go zaleca i jest wykonalny bez kruchości. Zmierz czas przed/po; liczba testów nie maleje.
+   4. `pnpm run ci` kod 0, dowód `docs/programista/dowody/cl-ci-<sha>.txt`, stan `docs/programista/stan-cl.md`, decyzje `docs/decyzje/CL.md`; jeden push na gałąź roboczą (fast-forward od 07b04fb, bez force).
+4. Zakazy: nie scalasz do `main`, nie tworzysz/archiwizujesz sesji, nie piszesz na `koordynacja`, nie zmieniasz workflowów, bez --no-verify i force-push, nie podnosisz limitów czasu, nie osłabiasz asercji, bez AskUserQuestion; STOP-y roli → raport do koordynatora.
+5. Decyzje: tryb analogia (repo lkarwowski494/trening, oczko, piekarz; `repo:plik:linia`; do weta). Pula **D-765…D-774**.
+6. Kontekst: od 30% kończysz krok, stan, push, PRZEKAZANIE. Bez pułapu kosztu.
+7. Raport ≤ 10 linii przez send_message: SHA wyniku, konflikty i jak rozwiązane (z decyzjami), czasy testu deterministyczności, ci, otwarte.
