@@ -1,0 +1,74 @@
+[
+ {
+  "plik": "content/fr/exams/m2.yaml",
+  "id": "m2.exam.q5",
+  "pole": "prompt",
+  "stare": "Le {{t:pot|pot}} contient {{n:exam.m2.half.pot}}. Votre adversaire {{t:bet|mise}} {{n:exam.m2.half.bet}}. De combien d'equity avez-vous besoin pour {{t:call|suivre}} ?",
+  "nowe": "Avant la {{t:bet|mise}} de votre adversaire, le {{t:pot|pot}} contient {{n:exam.m2.half.pot}} {{t:chips|jetons}}. Votre adversaire {{t:bet|mise}} {{n:exam.m2.half.bet}}. De quelle chance minimale de remporter le {{t:pot|pot}} ({{t:equity|équité}}) avez-vous besoin pour {{t:call|suivre}} ?",
+  "powod": "nowy pl: pula nazwana jako stan PRZED zakładem rywala (żetony) i „equity” opisane jako szansa na wygranie puli (definicja z glosariusza); przekład tego nie miał (rozjazd sensu, ten sam problem co pl)"
+ },
+ {
+  "plik": "content/fr/exams/m3.yaml",
+  "id": "m3.exam.q2",
+  "pole": "prompt",
+  "stare": "Vous parlez en premier préflop, personne n'est encore entré dans le coup. Que faites-vous ?",
+  "nowe": "Six joueurs sont à la table et les cartes viennent d'être distribuées. Vous décidez en premier : personne n'a encore joué avant vous. Que faites-vous ?",
+  "powod": "nowy pl: sześciu graczy, karty rozdane, decydujesz pierwszy, nikt przed tobą nie zagrał; przekład miał kalkę „pierwszy preflop, nikt nie wszedł do gry” (ten sam problem co pl)"
+ },
+ {
+  "plik": "content/fr/exams/m3.yaml",
+  "id": "m3.exam.q2",
+  "pole": "option:2.text",
+  "stare": "Je complète la {{t:big-blind|grosse blinde}}",
+  "nowe": "Je {{t:call|suis}} la {{t:big-blind|grosse blinde}}",
+  "powod": "opcja brzmiała jak „dopełnienie” (complete, ruch małego blinda) albo niejasna dopłata — ten sam problem co pl „Dopłacam do dużego blinda”; teraz nazwany ruch call dużego blinda, jak w pl"
+ },
+ {
+  "plik": "content/fr/exams/m3.yaml",
+  "id": "m3.exam.q2",
+  "pole": "option:2.why",
+  "stare": "En premier, vous {{t:raise|relancez}} ou vous {{t:fold|vous couchez}}. Le limp cède l'{{t:initiative}} et la chance de remporter les blindes tout de suite.",
+  "nowe": "En premier, vous {{t:raise|relancez}} ou vous {{t:fold|vous couchez}}. Vous contenter de {{t:call|suivre}} la {{t:big-blind|grosse blinde}}, c'est faire un {{t:limp|limp}} : vous cédez l'{{t:initiative}} et la chance de remporter les blindes tout de suite.",
+  "powod": "nowy pl objaśnia limp jako samo sprawdzenie dużego blinda; przekład używał „limp” bez związku z treścią odpowiedzi"
+ },
+ {
+  "plik": "content/fr/exams/m4.yaml",
+  "id": "m4.exam.q1",
+  "pole": "prompt",
+  "stare": "Le {{t:cutoff|CO}} a {{t:open|ouvert}} à {{n:pf.open-size}}, le Bouton s'est {{t:fold|couché}}. Vous êtes à la {{t:small-blind|petite blinde}} et voulez 3-better. À combien ?",
+  "nowe": "Le {{t:cutoff|CO}} a {{t:open|ouvert}} en relançant à {{n:pf.open-size}}, le Bouton s'est {{t:fold|couché}}. Vous êtes à la {{t:small-blind|petite blinde}} et voulez relancer une nouvelle fois ({{t:3-bet|3-bet}}). À combien {{t:raise|relancez}}-vous ?",
+  "powod": "nowy pl: otwarcie nazwane jako przebicie do X, 3-bet jako ponowne przebicie z terminem w nawiasie, pytanie „do ilu przebijasz”; przekład miał samo „3-bet” bez opisu"
+ },
+ {
+  "plik": "content/fr/exams/m5.yaml",
+  "id": "m5.exam.q2",
+  "pole": "prompt",
+  "stare": "Vous avez {{t:open|ouvert}} depuis le Bouton, la {{t:big-blind}} a {{t:call|payé}}. Sur lequel de ces flops est-ce la {{t:big-blind}} qui, plus souvent que vous, a une {{t:two-pair}} ou une {{t:straight|quinte}} ?",
+  "nowe": "Vous avez {{t:open|ouvert}} depuis le Bouton, et le joueur en {{t:big-blind|grosse blinde}} a {{t:call|payé}}. Sur lequel de ces flops (les trois premières {{t:community-cards|cartes communes}}) ce joueur a-t-il plus souvent que vous une {{t:two-pair}} ou une {{t:straight|quinte}} ?",
+  "powod": "nowy pl: „gracz na dużym blindzie” (osoba, nie stawka) i flop objaśniony jako trzy pierwsze karty wspólne"
+ },
+ {
+  "plik": "content/fr/exams/m6.yaml",
+  "id": "m6.exam.q5",
+  "pole": "prompt",
+  "stare": "Flop. Le {{t:pot|pot}} est de {{n:exam.m6.pot}}. Le Bouton {{t:bet|mise}} une fois {{n:exam.m6.bet.quarter}}, et dans une autre main {{n:exam.m6.bet.three-quarters}}. De combien d’équité avez-vous besoin pour {{t:call|suivre}} dans chacun de ces cas ?",
+  "nowe": "Vous êtes à la {{t:big-blind|grosse blinde}}, c'est le flop. Avant la {{t:bet|mise}}, le {{t:pot|pot}} contient {{n:exam.m6.pot}} {{t:chips|jetons}}. Le Bouton {{t:bet|mise}} {{n:exam.m6.bet.quarter}} dans une main et {{n:exam.m6.bet.three-quarters}} dans une autre. De quelle chance minimale de remporter le {{t:pot|pot}} ({{t:equity|équité}}) avez-vous besoin pour {{t:call|suivre}} dans chacune de ces mains ?",
+  "powod": "nowy pl: pozycja gracza (duży blind), pula przed zakładem (żetony), opis equity; przekład zaczynał od samego „Flop.” i nie mówił, że pula jest przed zakładem"
+ },
+ {
+  "plik": "content/fr/exams/m8.yaml",
+  "id": "m8.exam.q1",
+  "pole": "prompt",
+  "stare": "River, l'adversaire {{t:check|checke}} et ne peut pas vous {{t:raise|relancer}}. Sa {{t:range|range}} contient {{n:exam.m8.range.worse}} mains moins bonnes que la vôtre, mais seules {{n:exam.m8.call.worse}} d'entre elles {{t:call|suivront}} votre mise. Il paiera aussi {{n:exam.m8.call.better}} fois avec une meilleure main. Misez-vous ?",
+  "nowe": "River, le dernier {{t:betting-round|tour d'enchères}}. L'adversaire {{t:check|checke}}. Supposez que, face à votre {{t:bet|mise}}, il ne puisse que {{t:call|suivre}} ou {{t:fold|se coucher}}. Sa {{t:range|range}} (les mains qu'il peut avoir) contient {{n:exam.m8.range.worse}} mains moins bonnes que la vôtre, mais seules {{n:exam.m8.call.worse}} d'entre elles {{t:call|suivront}} votre mise. Votre mise sera aussi suivie par {{n:exam.m8.call.better}} mains meilleures que la vôtre. Misez-vous ?",
+  "powod": "nowy pl: założenie „może tylko sprawdzić albo spasować”, zakres objaśniony, „4 ręce lepsze” zamiast dwuznacznego „4 razy lepszą ręką”; przekład miał tę samą dwuznaczność"
+ },
+ {
+  "plik": "content/fr/exams/m8.yaml",
+  "id": "m8.exam.q1",
+  "pole": "option:0.why",
+  "stare": "Oui : ne comptez que les mains qui paieront. La mise gagne {{n:exam.m8.call.worse}} fois et perd {{n:exam.m8.call.better}} fois, soit une perte nette de {{n:exam.m8.net.loss}} mise. Les mains moins bonnes qui {{t:fold|se coucheront}} auraient de toute façon perdu contre vous après un {{t:check|check}}.",
+  "nowe": "Exact : ne comptez que les mains qui paieront. La mise gagne {{n:exam.m8.call.worse}} fois et perd {{n:exam.m8.call.better}} fois, soit une perte nette de {{n:exam.m8.net.loss}} mise. Les mains moins bonnes qui {{t:fold|se coucheront}} auraient de toute façon perdu contre vous après un {{t:check|check}}.",
+  "powod": "wyjaśnienie poprawnej odpowiedzi „Nie” zaczynało się od „Tak/Yes/Oui/Sim” — ten sam problem co pl (zmienione na „Dobrze:”)"
+ }
+]

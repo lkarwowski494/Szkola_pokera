@@ -1,0 +1,66 @@
+[
+ {
+  "plik": "content/vi/exams/m2.yaml",
+  "id": "m2.exam.q5",
+  "pole": "prompt",
+  "stare": "Trong {{t:pot|pot}} có {{n:exam.m2.half.pot}}. Đối thủ {{t:bet|cược}} {{n:exam.m2.half.bet}}. Bạn cần bao nhiêu equity để {{t:call|theo}}?",
+  "nowe": "Trước khi đối thủ {{t:bet|cược}}, trong {{t:pot|pot}} có {{n:exam.m2.half.pot}} {{t:chips|chip}}. Đối thủ {{t:bet|cược}} {{n:exam.m2.half.bet}}. Bạn cần tối thiểu bao nhiêu cơ hội thắng {{t:pot|pot}} ({{t:equity|equity}}) để {{t:call|theo}}?",
+  "powod": "nowy pl: pula nazwana jako stan PRZED zakładem rywala (żetony) i „equity” opisane jako szansa na wygranie puli (definicja z glosariusza); przekład tego nie miał (rozjazd sensu, ten sam problem co pl)"
+ },
+ {
+  "plik": "content/vi/exams/m3.yaml",
+  "id": "m3.exam.q2",
+  "pole": "prompt",
+  "stare": "Bạn hành động đầu tiên ở preflop, chưa ai vào ván. Bạn làm gì?",
+  "nowe": "Bàn có sáu người chơi và bài vừa được chia. Bạn là người quyết định đầu tiên: trước bạn chưa ai chơi. Bạn làm gì?",
+  "powod": "nowy pl: sześciu graczy, karty rozdane, decydujesz pierwszy, nikt przed tobą nie zagrał; przekład miał kalkę „pierwszy preflop, nikt nie wszedł do gry” (ten sam problem co pl)"
+ },
+ {
+  "plik": "content/vi/exams/m3.yaml",
+  "id": "m3.exam.q2",
+  "pole": "option:2.text",
+  "stare": "Bù cho bằng {{t:big-blind|big blind}}",
+  "nowe": "{{t:call|Theo}} {{t:big-blind|big blind}}",
+  "powod": "opcja brzmiała jak „dopełnienie” (complete, ruch małego blinda) albo niejasna dopłata — ten sam problem co pl „Dopłacam do dużego blinda”; teraz nazwany ruch call dużego blinda, jak w pl"
+ },
+ {
+  "plik": "content/vi/exams/m3.yaml",
+  "id": "m3.exam.q2",
+  "pole": "option:2.why",
+  "stare": "Khi vào ván đầu tiên, bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}}. Limp làm mất {{t:initiative|thế chủ động}} và cơ hội ăn các blind ngay lập tức.",
+  "nowe": "Khi vào ván đầu tiên, bạn {{t:raise|tố}} hoặc {{t:fold|bỏ bài}}. Chỉ {{t:call|theo}} {{t:big-blind|big blind}} là {{t:limp|limp}}: làm mất {{t:initiative|thế chủ động}} và cơ hội ăn các blind ngay lập tức.",
+  "powod": "nowy pl objaśnia limp jako samo sprawdzenie dużego blinda; przekład używał „limp” bez związku z treścią odpowiedzi"
+ },
+ {
+  "plik": "content/vi/exams/m4.yaml",
+  "id": "m4.exam.q1",
+  "pole": "prompt",
+  "stare": "{{t:cutoff|CO}} {{t:open|mở cược}} {{n:pf.open-size}}, Button {{t:fold|bỏ bài}}. Bạn ở {{t:small-blind|small blind}} và muốn 3-bet. Lên bao nhiêu?",
+  "nowe": "{{t:cutoff|CO}} {{t:open|mở cược}} bằng cách {{t:raise|tố}} lên {{n:pf.open-size}}, Button {{t:fold|bỏ bài}}. Bạn ở {{t:small-blind|small blind}} và muốn tố thêm lần nữa ({{t:3-bet|3-bet}}). Bạn {{t:raise|tố}} lên bao nhiêu?",
+  "powod": "nowy pl: otwarcie nazwane jako przebicie do X, 3-bet jako ponowne przebicie z terminem w nawiasie, pytanie „do ilu przebijasz”; przekład miał samo „3-bet” bez opisu"
+ },
+ {
+  "plik": "content/vi/exams/m5.yaml",
+  "id": "m5.exam.q2",
+  "pole": "prompt",
+  "stare": "Bạn {{t:open|mở cược}} từ Button, {{t:big-blind}} {{t:call|theo}}. Trên flop nào dưới đây {{t:big-blind}} có {{t:two-pair}} hoặc {{t:straight|sảnh}} thường xuyên hơn bạn?",
+  "nowe": "Bạn {{t:open|mở cược}} từ Button, người chơi ở {{t:big-blind}} {{t:call|theo}}. Trên flop nào dưới đây (ba {{t:community-cards|lá bài chung}} đầu tiên) người chơi đó có {{t:two-pair}} hoặc {{t:straight|sảnh}} thường xuyên hơn bạn?",
+  "powod": "nowy pl: „gracz na dużym blindzie” (osoba, nie stawka) i flop objaśniony jako trzy pierwsze karty wspólne"
+ },
+ {
+  "plik": "content/vi/exams/m6.yaml",
+  "id": "m6.exam.q5",
+  "pole": "prompt",
+  "stare": "Flop. Trong {{t:pot}} có {{n:exam.m6.pot}}. Một lần Button {{t:bet|cược}} {{n:exam.m6.bet.quarter}}, còn ở một ván khác là {{n:exam.m6.bet.three-quarters}}. Bạn cần bao nhiêu equity để {{t:call|theo}} trong mỗi trường hợp?",
+  "nowe": "Bạn ở {{t:big-blind}}, đang ở flop. Trước khi có cược, trong {{t:pot}} có {{n:exam.m6.pot}} {{t:chips|chip}}. Button {{t:bet|cược}} {{n:exam.m6.bet.quarter}} ở một ván và {{n:exam.m6.bet.three-quarters}} ở một ván khác. Trong mỗi ván đó, bạn cần tối thiểu bao nhiêu cơ hội thắng {{t:pot}} ({{t:equity|equity}}) để {{t:call|theo}}?",
+  "powod": "nowy pl: pozycja gracza (duży blind), pula przed zakładem (żetony), opis equity; przekład zaczynał od samego „Flop.” i nie mówił, że pula jest przed zakładem"
+ },
+ {
+  "plik": "content/vi/exams/m8.yaml",
+  "id": "m8.exam.q1",
+  "pole": "prompt",
+  "stare": "River, đối thủ {{t:check|check}} và không thể {{t:raise|tố}} bạn. Trong {{t:range|range}} của đối thủ có {{n:exam.m8.range.worse}} tay yếu hơn tay bạn, nhưng chỉ {{n:exam.m8.call.worse}} tay trong số đó sẽ {{t:call|theo}} cược của bạn. Đối thủ cũng sẽ trả tiền {{n:exam.m8.call.better}} lần bằng tay mạnh hơn. Bạn có cược không?",
+  "nowe": "River, {{t:betting-round|vòng cược}} cuối cùng. Đối thủ {{t:check|check}}. Giả sử trước cược của bạn, đối thủ chỉ có thể {{t:call|theo}} hoặc {{t:fold|bỏ bài}}. Trong {{t:range|range}} của đối thủ (những tay đối thủ có thể có) có {{n:exam.m8.range.worse}} tay yếu hơn tay bạn, nhưng chỉ {{n:exam.m8.call.worse}} tay trong số đó sẽ theo cược của bạn. Ngoài ra, {{n:exam.m8.call.better}} tay mạnh hơn tay bạn cũng sẽ theo. Bạn có cược không?",
+  "powod": "nowy pl: założenie „może tylko sprawdzić albo spasować”, zakres objaśniony, „4 ręce lepsze” zamiast dwuznacznego „4 razy lepszą ręką”; przekład miał tę samą dwuznaczność"
+ }
+]

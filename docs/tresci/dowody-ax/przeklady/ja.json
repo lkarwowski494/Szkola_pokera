@@ -1,0 +1,58 @@
+[
+ {
+  "plik": "content/ja/exams/m2.yaml",
+  "id": "m2.exam.q5",
+  "pole": "prompt",
+  "stare": "{{t:pot|ポット}}には{{n:exam.m2.half.pot}}あります。相手が{{n:exam.m2.half.bet}}を{{t:bet|ベット}}します。{{t:call|コール}}するには、どれだけのエクイティが必要ですか？",
+  "nowe": "相手の{{t:bet|ベット}}の前、{{t:pot|ポット}}には{{n:exam.m2.half.pot}}{{t:chips|チップ}}あります。相手が{{n:exam.m2.half.bet}}を{{t:bet|ベット}}します。{{t:call|コール}}するには、{{t:pot|ポット}}を勝ち取る確率（{{t:equity|エクイティ}}）が最低どれだけ必要ですか？",
+  "powod": "nowy pl: pula nazwana jako stan PRZED zakładem rywala (żetony) i „equity” opisane jako szansa na wygranie puli (definicja z glosariusza); przekład tego nie miał (rozjazd sensu, ten sam problem co pl)"
+ },
+ {
+  "plik": "content/ja/exams/m3.yaml",
+  "id": "m3.exam.q2",
+  "pole": "prompt",
+  "stare": "プリフロップで最初にアクションします。まだ誰もゲームに参加していません。どうしますか？",
+  "nowe": "テーブルには6人のプレイヤーがいて、カードが配られたところです。あなたが最初に判断します。あなたより前には、まだ誰もプレイしていません。どうしますか？",
+  "powod": "nowy pl: sześciu graczy, karty rozdane, decydujesz pierwszy, nikt przed tobą nie zagrał; przekład miał kalkę „pierwszy preflop, nikt nie wszedł do gry” (ten sam problem co pl)"
+ },
+ {
+  "plik": "content/ja/exams/m3.yaml",
+  "id": "m3.exam.q2",
+  "pole": "option:2.why",
+  "stare": "最初に参加するなら、{{t:raise|レイズ}}か{{t:fold|フォールド}}です。リンプは{{t:initiative|イニシアチブ}}と、すぐにブラインドを獲得するチャンスを手放します。",
+  "nowe": "最初に参加するなら、{{t:raise|レイズ}}か{{t:fold|フォールド}}です。{{t:big-blind|ビッグブラインド}}の額を{{t:call|コール}}するだけなのは{{t:limp|リンプ}}で、{{t:initiative|イニシアチブ}}と、すぐにブラインドを獲得するチャンスを手放します。",
+  "powod": "nowy pl objaśnia limp jako samo sprawdzenie dużego blinda; przekład używał „limp” bez związku z treścią odpowiedzi"
+ },
+ {
+  "plik": "content/ja/exams/m4.yaml",
+  "id": "m4.exam.q1",
+  "pole": "prompt",
+  "stare": "{{t:cutoff|CO}}が{{n:pf.open-size}}に{{t:open|オープン}}し、ボタンは{{t:fold|フォールド}}しました。あなたは{{t:small-blind|スモールブラインド}}で、3ベットしたいと考えています。どのサイズにしますか？",
+  "nowe": "{{t:cutoff|CO}}が{{n:pf.open-size}}に{{t:raise|レイズ}}して{{t:open|オープン}}し、ボタンは{{t:fold|フォールド}}しました。あなたは{{t:small-blind|スモールブラインド}}で、もう一度レイズ（{{t:3-bet|3ベット}}）したいと考えています。いくらまで{{t:raise|レイズ}}しますか？",
+  "powod": "nowy pl: otwarcie nazwane jako przebicie do X, 3-bet jako ponowne przebicie z terminem w nawiasie, pytanie „do ilu przebijasz”; przekład miał samo „3-bet” bez opisu"
+ },
+ {
+  "plik": "content/ja/exams/m5.yaml",
+  "id": "m5.exam.q2",
+  "pole": "prompt",
+  "stare": "ボタンから{{t:open|オープン}}し、{{t:big-blind}}が{{t:call|コール}}しました。次のうち、{{t:big-blind}}のほうがあなたより{{t:two-pair}}や{{t:straight|ストレート}}を持っていることが多いフロップはどれですか？",
+  "nowe": "ボタンから{{t:open|オープン}}し、{{t:big-blind|ビッグブラインド}}のプレイヤーが{{t:call|コール}}しました。次のうち、そのプレイヤーのほうがあなたより{{t:two-pair}}や{{t:straight|ストレート}}を持っていることが多いフロップ（最初の3枚の{{t:community-cards|コミュニティカード}}）はどれですか？",
+  "powod": "nowy pl: „gracz na dużym blindzie” (osoba, nie stawka) i flop objaśniony jako trzy pierwsze karty wspólne"
+ },
+ {
+  "plik": "content/ja/exams/m6.yaml",
+  "id": "m6.exam.q5",
+  "pole": "prompt",
+  "stare": "フロップです。{{t:pot|ポット}}は{{n:exam.m6.pot}}です。ボタンがある回では{{n:exam.m6.bet.quarter}}、別の回では{{n:exam.m6.bet.three-quarters}}を{{t:bet|ベット}}します。それぞれの場合、{{t:call|コール}}するのに必要なエクイティはどれくらいですか？",
+  "nowe": "あなたは{{t:big-blind|ビッグブラインド}}で、いまはフロップです。{{t:bet|ベット}}の前、{{t:pot|ポット}}には{{n:exam.m6.pot}}{{t:chips|チップ}}あります。ボタンがある手では{{n:exam.m6.bet.quarter}}、別の手では{{n:exam.m6.bet.three-quarters}}を{{t:bet|ベット}}します。それぞれの手で{{t:call|コール}}するには、{{t:pot|ポット}}を勝ち取る確率（{{t:equity|エクイティ}}）が最低どれだけ必要ですか？",
+  "powod": "nowy pl: pozycja gracza (duży blind), pula przed zakładem (żetony), opis equity; przekład zaczynał od samego „Flop.” i nie mówił, że pula jest przed zakładem"
+ },
+ {
+  "plik": "content/ja/exams/m8.yaml",
+  "id": "m8.exam.q1",
+  "pole": "prompt",
+  "stare": "リバーで相手が{{t:check|チェック}}し、相手はあなたに{{t:raise|レイズ}}できません。相手の{{t:range|レンジ}}にはあなたより弱いハンドが{{n:exam.m8.range.worse}}個ありますが、あなたのベットに{{t:call|コール}}するのはそのうち{{n:exam.m8.call.worse}}個だけです。また、より強いハンドでも{{n:exam.m8.call.better}}回支払ってきます。ベットしますか？",
+  "nowe": "リバー、最後の{{t:betting-round|ベッティングラウンド}}です。相手が{{t:check|チェック}}しました。あなたの{{t:bet|ベット}}に対して、相手は{{t:call|コール}}か{{t:fold|フォールド}}しかできないとします。相手の{{t:range|レンジ}}（相手が持ちうるハンド）には、あなたより弱いハンドが{{n:exam.m8.range.worse}}個ありますが、あなたのベットにコールするのはそのうち{{n:exam.m8.call.worse}}個だけです。あなたより強いハンド{{n:exam.m8.call.better}}個もコールしてきます。ベットしますか？",
+  "powod": "nowy pl: założenie „może tylko sprawdzić albo spasować”, zakres objaśniony, „4 ręce lepsze” zamiast dwuznacznego „4 razy lepszą ręką”; przekład miał tę samą dwuznaczność"
+ }
+]

@@ -1,0 +1,58 @@
+[
+ {
+  "plik": "content/pt-BR/exams/m2.yaml",
+  "id": "m2.exam.q5",
+  "pole": "prompt",
+  "stare": "Há {{n:exam.m2.half.pot}} no {{t:pot|pote}}. O adversário {{t:bet|aposta}} {{n:exam.m2.half.bet}}. De quanta equity você precisa para {{t:call|pagar}}?",
+  "nowe": "Antes da {{t:bet|aposta}} do adversário, há {{n:exam.m2.half.pot}} {{t:chips|fichas}} no {{t:pot|pote}}. O adversário {{t:bet|aposta}} {{n:exam.m2.half.bet}}. De qual chance mínima de ganhar o {{t:pot|pote}} ({{t:equity|equity}}) você precisa para {{t:call|pagar}}?",
+  "powod": "nowy pl: pula nazwana jako stan PRZED zakładem rywala (żetony) i „equity” opisane jako szansa na wygranie puli (definicja z glosariusza); przekład tego nie miał (rozjazd sensu, ten sam problem co pl)"
+ },
+ {
+  "plik": "content/pt-BR/exams/m3.yaml",
+  "id": "m3.exam.q2",
+  "pole": "prompt",
+  "stare": "Você é o primeiro a agir no preflop e ninguém entrou na mão ainda. O que você faz?",
+  "nowe": "Há seis jogadores na mesa e as cartas acabaram de ser distribuídas. Você é o primeiro a decidir: ninguém jogou antes de você ainda. O que você faz?",
+  "powod": "nowy pl: sześciu graczy, karty rozdane, decydujesz pierwszy, nikt przed tobą nie zagrał; przekład miał kalkę „pierwszy preflop, nikt nie wszedł do gry” (ten sam problem co pl)"
+ },
+ {
+  "plik": "content/pt-BR/exams/m3.yaml",
+  "id": "m3.exam.q2",
+  "pole": "option:2.why",
+  "stare": "Sendo o primeiro, você {{t:raise|aumenta}} ou {{t:fold|desiste}}. O limp entrega a {{t:initiative}} e a chance de levar os blinds na hora.",
+  "nowe": "Sendo o primeiro, você {{t:raise|aumenta}} ou {{t:fold|desiste}}. Só {{t:call|pagar}} o {{t:big-blind|big blind}} é dar {{t:limp|limp}}: isso entrega a {{t:initiative}} e a chance de levar os blinds na hora.",
+  "powod": "nowy pl objaśnia limp jako samo sprawdzenie dużego blinda; przekład używał „limp” bez związku z treścią odpowiedzi"
+ },
+ {
+  "plik": "content/pt-BR/exams/m4.yaml",
+  "id": "m4.exam.q1",
+  "pole": "prompt",
+  "stare": "O {{t:cutoff|CO}} {{t:open|abriu}} para {{n:pf.open-size}}, o Button {{t:fold|desistiu}}. Você está no {{t:small-blind|small blind}} e quer dar 3-bet. Para quanto?",
+  "nowe": "O {{t:cutoff|CO}} {{t:open|abriu}} aumentando para {{n:pf.open-size}}, o Button {{t:fold|desistiu}}. Você está no {{t:small-blind|small blind}} e quer aumentar de novo ({{t:3-bet|3-bet}}). Para quanto você {{t:raise|aumenta}}?",
+  "powod": "nowy pl: otwarcie nazwane jako przebicie do X, 3-bet jako ponowne przebicie z terminem w nawiasie, pytanie „do ilu przebijasz”; przekład miał samo „3-bet” bez opisu"
+ },
+ {
+  "plik": "content/pt-BR/exams/m5.yaml",
+  "id": "m5.exam.q2",
+  "pole": "prompt",
+  "stare": "Você {{t:open|abriu}} do Button, e o {{t:big-blind}} {{t:call|pagou}}. Em qual destes flops é o {{t:big-blind}} quem tem {{t:two-pair|dois pares}} ou {{t:straight|sequência}} com mais frequência que você?",
+  "nowe": "Você {{t:open|abriu}} do Button, e o jogador no {{t:big-blind|big blind}} {{t:call|pagou}}. Em qual destes flops (as três primeiras {{t:community-cards|cartas comunitárias}}) esse jogador tem {{t:two-pair|dois pares}} ou {{t:straight|sequência}} com mais frequência que você?",
+  "powod": "nowy pl: „gracz na dużym blindzie” (osoba, nie stawka) i flop objaśniony jako trzy pierwsze karty wspólne"
+ },
+ {
+  "plik": "content/pt-BR/exams/m6.yaml",
+  "id": "m6.exam.q5",
+  "pole": "prompt",
+  "stare": "Flop. No {{t:pot|pote}} há {{n:exam.m6.pot}}. O Button {{t:bet|aposta}} {{n:exam.m6.bet.quarter}} em uma mão e, em outra, {{n:exam.m6.bet.three-quarters}}. De quanta equity você precisa para {{t:call|pagar}} em cada um desses casos?",
+  "nowe": "Você está no {{t:big-blind|big blind}} e é o flop. Antes da {{t:bet|aposta}}, há {{n:exam.m6.pot}} {{t:chips|fichas}} no {{t:pot|pote}}. O Button {{t:bet|aposta}} {{n:exam.m6.bet.quarter}} em uma mão e {{n:exam.m6.bet.three-quarters}} em outra. De qual chance mínima de ganhar o {{t:pot|pote}} ({{t:equity|equity}}) você precisa para {{t:call|pagar}} em cada uma dessas mãos?",
+  "powod": "nowy pl: pozycja gracza (duży blind), pula przed zakładem (żetony), opis equity; przekład zaczynał od samego „Flop.” i nie mówił, że pula jest przed zakładem"
+ },
+ {
+  "plik": "content/pt-BR/exams/m8.yaml",
+  "id": "m8.exam.q1",
+  "pole": "prompt",
+  "stare": "River: o adversário {{t:check|dá check}} e não pode {{t:raise|aumentar}}. No {{t:range}} dele há {{n:exam.m8.range.worse}} mãos piores que a sua, mas só {{n:exam.m8.call.worse}} delas vão {{t:call|pagar}} a sua aposta. Ele também vai pagar {{n:exam.m8.call.better}} vezes com uma mão melhor. Você aposta?",
+  "nowe": "River, a última {{t:betting-round|rodada de apostas}}. O adversário {{t:check|dá check}}. Suponha que, diante da sua {{t:bet|aposta}}, ele só possa {{t:call|pagar}} ou {{t:fold|desistir}}. No {{t:range}} dele (as mãos que ele pode ter) há {{n:exam.m8.range.worse}} mãos piores que a sua, mas só {{n:exam.m8.call.worse}} delas vão {{t:call|pagar}} a sua aposta. Também vão pagá-la {{n:exam.m8.call.better}} mãos melhores que a sua. Você aposta?",
+  "powod": "nowy pl: założenie „może tylko sprawdzić albo spasować”, zakres objaśniony, „4 ręce lepsze” zamiast dwuznacznego „4 razy lepszą ręką”; przekład miał tę samą dwuznaczność"
+ }
+]

@@ -1,0 +1,66 @@
+[
+ {
+  "plik": "content/zh-Hant/exams/m2.yaml",
+  "id": "m2.exam.q5",
+  "pole": "prompt",
+  "stare": "{{t:pot|底池}}裡有 {{n:exam.m2.half.pot}}。對手{{t:bet|下注}} {{n:exam.m2.half.bet}}。你需要多少權益才能{{t:call|跟注}}？",
+  "nowe": "對手{{t:bet|下注}}前，{{t:pot|底池}}裡有 {{n:exam.m2.half.pot}} {{t:chips|籌碼}}。對手{{t:bet|下注}} {{n:exam.m2.half.bet}}。你至少需要多少贏下{{t:pot|底池}}的機會（{{t:equity|權益}}）才能{{t:call|跟注}}？",
+  "powod": "nowy pl: pula nazwana jako stan PRZED zakładem rywala (żetony) i „equity” opisane jako szansa na wygranie puli (definicja z glosariusza); przekład tego nie miał (rozjazd sensu, ten sam problem co pl)"
+ },
+ {
+  "plik": "content/zh-Hant/exams/m3.yaml",
+  "id": "m3.exam.q2",
+  "pole": "prompt",
+  "stare": "翻牌前你第一個行動，還沒有人入池。你怎麼做？",
+  "nowe": "桌上有六位玩家，牌剛發完。你第一個做決定：在你之前還沒有人行動。你怎麼做？",
+  "powod": "nowy pl: sześciu graczy, karty rozdane, decydujesz pierwszy, nikt przed tobą nie zagrał; przekład miał kalkę „pierwszy preflop, nikt nie wszedł do gry” (ten sam problem co pl)"
+ },
+ {
+  "plik": "content/zh-Hant/exams/m3.yaml",
+  "id": "m3.exam.q2",
+  "pole": "option:2.text",
+  "stare": "補齊{{t:big-blind|大盲}}",
+  "nowe": "{{t:call|跟注}}{{t:big-blind|大盲}}",
+  "powod": "opcja brzmiała jak „dopełnienie” (complete, ruch małego blinda) albo niejasna dopłata — ten sam problem co pl „Dopłacam do dużego blinda”; teraz nazwany ruch call dużego blinda, jak w pl"
+ },
+ {
+  "plik": "content/zh-Hant/exams/m3.yaml",
+  "id": "m3.exam.q2",
+  "pole": "option:2.why",
+  "stare": "第一個入池時，你要嘛{{t:raise|加注}}，要嘛{{t:fold|棄牌}}。溜入會交出{{t:initiative|主動權}}，也失去立刻拿下盲注的機會。",
+  "nowe": "第一個入池時，你要嘛{{t:raise|加注}}，要嘛{{t:fold|棄牌}}。只{{t:call|跟注}}{{t:big-blind|大盲}}就是{{t:limp|溜入}}：這會交出{{t:initiative|主動權}}，也失去立刻拿下盲注的機會。",
+  "powod": "nowy pl objaśnia limp jako samo sprawdzenie dużego blinda; przekład używał „limp” bez związku z treścią odpowiedzi"
+ },
+ {
+  "plik": "content/zh-Hant/exams/m4.yaml",
+  "id": "m4.exam.q1",
+  "pole": "prompt",
+  "stare": "{{t:cutoff|CO}} 以 {{n:pf.open-size}} {{t:open|開池}}，按鈕位{{t:fold|棄牌}}。你在{{t:small-blind|小盲}}，想要 3-bet。要加到多少？",
+  "nowe": "{{t:cutoff|CO}} {{t:raise|加注}}到 {{n:pf.open-size}} {{t:open|開池}}，按鈕位{{t:fold|棄牌}}。你在{{t:small-blind|小盲}}，想再加注一次（{{t:3-bet|3-bet}}）。你要{{t:raise|加注}}到多少？",
+  "powod": "nowy pl: otwarcie nazwane jako przebicie do X, 3-bet jako ponowne przebicie z terminem w nawiasie, pytanie „do ilu przebijasz”; przekład miał samo „3-bet” bez opisu"
+ },
+ {
+  "plik": "content/zh-Hant/exams/m5.yaml",
+  "id": "m5.exam.q2",
+  "pole": "prompt",
+  "stare": "你從按鈕位{{t:open|開池}}，{{t:big-blind}}{{t:call|跟注}}。在下列哪個翻牌上，{{t:big-blind}}比你更常拿到{{t:two-pair}}或{{t:straight|順子}}？",
+  "nowe": "你從按鈕位{{t:open|開池}}，{{t:big-blind|大盲}}位的玩家{{t:call|跟注}}。在下列哪個翻牌（最先發出的三張{{t:community-cards|公共牌}}）上，那位玩家比你更常拿到{{t:two-pair}}或{{t:straight|順子}}？",
+  "powod": "nowy pl: „gracz na dużym blindzie” (osoba, nie stawka) i flop objaśniony jako trzy pierwsze karty wspólne"
+ },
+ {
+  "plik": "content/zh-Hant/exams/m6.yaml",
+  "id": "m6.exam.q5",
+  "pole": "prompt",
+  "stare": "翻牌圈。{{t:pot|底池}}有 {{n:exam.m6.pot}}。按鈕位在一手牌中{{t:bet|下注}} {{n:exam.m6.bet.quarter}}，在另一手牌中下注 {{n:exam.m6.bet.three-quarters}}。這兩種情況下，你各需要多少權益才能{{t:call|跟注}}？",
+  "nowe": "你在{{t:big-blind|大盲}}，現在是翻牌圈。{{t:bet|下注}}前，{{t:pot|底池}}有 {{n:exam.m6.pot}} {{t:chips|籌碼}}。按鈕位在一手牌中{{t:bet|下注}} {{n:exam.m6.bet.quarter}}，在另一手牌中下注 {{n:exam.m6.bet.three-quarters}}。在這兩手牌中，你各至少需要多少贏下{{t:pot|底池}}的機會（{{t:equity|權益}}）才能{{t:call|跟注}}？",
+  "powod": "nowy pl: pozycja gracza (duży blind), pula przed zakładem (żetony), opis equity; przekład zaczynał od samego „Flop.” i nie mówił, że pula jest przed zakładem"
+ },
+ {
+  "plik": "content/zh-Hant/exams/m8.yaml",
+  "id": "m8.exam.q1",
+  "pole": "prompt",
+  "stare": "河牌，對手{{t:check|過牌}}，而且無法{{t:raise|加注}}你。他的{{t:range|範圍}}中有{{n:exam.m8.range.worse}}手比你差的牌，但其中只有{{n:exam.m8.call.worse}}手會{{t:call|跟注}}你的下注。他也會有{{n:exam.m8.call.better}}次用比你好的牌付錢。你要下注嗎？",
+  "nowe": "河牌，最後一個{{t:betting-round|下注輪}}。對手{{t:check|過牌}}。假設面對你的{{t:bet|下注}}，他只能{{t:call|跟注}}或{{t:fold|棄牌}}。他的{{t:range|範圍}}（他可能拿到的牌）中有{{n:exam.m8.range.worse}}手比你差的牌，但其中只有{{n:exam.m8.call.worse}}手會跟注你的下注。另外也有{{n:exam.m8.call.better}}手比你好的牌會跟注。你要下注嗎？",
+  "powod": "nowy pl: założenie „może tylko sprawdzić albo spasować”, zakres objaśniony, „4 ręce lepsze” zamiast dwuznacznego „4 razy lepszą ręką”; przekład miał tę samą dwuznaczność"
+ }
+]

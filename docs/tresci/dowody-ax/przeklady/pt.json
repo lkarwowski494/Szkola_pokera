@@ -1,0 +1,74 @@
+[
+ {
+  "plik": "content/pt/exams/m2.yaml",
+  "id": "m2.exam.q5",
+  "pole": "prompt",
+  "stare": "O {{t:pot|pote}} tem {{n:exam.m2.half.pot}}. O adversário {{t:bet|aposta}} {{n:exam.m2.half.bet}}. Quanta equity precisa para {{t:call|pagar}}?",
+  "nowe": "Antes da {{t:bet|aposta}} do adversário, o {{t:pot|pote}} tem {{n:exam.m2.half.pot}} {{t:chips|fichas}}. O adversário {{t:bet|aposta}} {{n:exam.m2.half.bet}}. De que probabilidade mínima de ganhar o {{t:pot|pote}} ({{t:equity|equity}}) precisa para {{t:call|pagar}}?",
+  "powod": "nowy pl: pula nazwana jako stan PRZED zakładem rywala (żetony) i „equity” opisane jako szansa na wygranie puli (definicja z glosariusza); przekład tego nie miał (rozjazd sensu, ten sam problem co pl)"
+ },
+ {
+  "plik": "content/pt/exams/m3.yaml",
+  "id": "m3.exam.q2",
+  "pole": "prompt",
+  "stare": "Age primeiro no preflop e ainda ninguém entrou no jogo. O que faz?",
+  "nowe": "Estão seis jogadores à mesa e as cartas acabaram de ser distribuídas. É o primeiro a decidir: antes de si, ainda ninguém jogou. O que faz?",
+  "powod": "nowy pl: sześciu graczy, karty rozdane, decydujesz pierwszy, nikt przed tobą nie zagrał; przekład miał kalkę „pierwszy preflop, nikt nie wszedł do gry” (ten sam problem co pl)"
+ },
+ {
+  "plik": "content/pt/exams/m3.yaml",
+  "id": "m3.exam.q2",
+  "pole": "option:2.text",
+  "stare": "Completo o {{t:big-blind|big blind}}",
+  "nowe": "{{t:call|Pago}} o {{t:big-blind|big blind}}",
+  "powod": "opcja brzmiała jak „dopełnienie” (complete, ruch małego blinda) albo niejasna dopłata — ten sam problem co pl „Dopłacam do dużego blinda”; teraz nazwany ruch call dużego blinda, jak w pl"
+ },
+ {
+  "plik": "content/pt/exams/m3.yaml",
+  "id": "m3.exam.q2",
+  "pole": "option:2.why",
+  "stare": "Sendo o primeiro, {{t:raise|aumenta}} ou {{t:fold|desiste}}. O limp cede a {{t:initiative|iniciativa}} e a hipótese de ganhar os blinds de imediato.",
+  "nowe": "Sendo o primeiro, {{t:raise|aumenta}} ou {{t:fold|desiste}}. Limitar-se a {{t:call|pagar}} o {{t:big-blind|big blind}} é fazer {{t:limp|limp}}: cede a {{t:initiative|iniciativa}} e a hipótese de ganhar os blinds de imediato.",
+  "powod": "nowy pl objaśnia limp jako samo sprawdzenie dużego blinda; przekład używał „limp” bez związku z treścią odpowiedzi"
+ },
+ {
+  "plik": "content/pt/exams/m4.yaml",
+  "id": "m4.exam.q1",
+  "pole": "prompt",
+  "stare": "O {{t:cutoff|CO}} {{t:open|abriu}} para {{n:pf.open-size}}, o Button {{t:fold|desistiu}}. Está no {{t:small-blind|small blind}} e quer fazer 3-bet. Para quanto?",
+  "nowe": "O {{t:cutoff|CO}} {{t:open|abriu}} com um aumento para {{n:pf.open-size}}, o Button {{t:fold|desistiu}}. Está no {{t:small-blind|small blind}} e quer voltar a aumentar ({{t:3-bet|3-bet}}). Para quanto {{t:raise|aumenta}}?",
+  "powod": "nowy pl: otwarcie nazwane jako przebicie do X, 3-bet jako ponowne przebicie z terminem w nawiasie, pytanie „do ilu przebijasz”; przekład miał samo „3-bet” bez opisu"
+ },
+ {
+  "plik": "content/pt/exams/m5.yaml",
+  "id": "m5.exam.q2",
+  "pole": "prompt",
+  "stare": "{{t:open|Abriu}} do Button e o {{t:big-blind}} {{t:call|pagou}}. Em qual destes flops é o {{t:big-blind}} que tem {{t:two-pair}} ou {{t:straight|sequência}} com mais frequência do que si?",
+  "nowe": "{{t:open|Abriu}} do Button e o jogador no {{t:big-blind|big blind}} {{t:call|pagou}}. Em qual destes flops (as três primeiras {{t:community-cards|cartas comunitárias}}) é esse jogador que tem {{t:two-pair}} ou {{t:straight|sequência}} com mais frequência do que si?",
+  "powod": "nowy pl: „gracz na dużym blindzie” (osoba, nie stawka) i flop objaśniony jako trzy pierwsze karty wspólne"
+ },
+ {
+  "plik": "content/pt/exams/m6.yaml",
+  "id": "m6.exam.q5",
+  "pole": "prompt",
+  "stare": "Flop. No {{t:pot|pote}} estão {{n:exam.m6.pot}}. Numa mão, o Button {{t:bet|aposta}} {{n:exam.m6.bet.quarter}} e, noutra, {{n:exam.m6.bet.three-quarters}}. De quanta equity precisa para {{t:call|pagar}} em cada um destes casos?",
+  "nowe": "Está no {{t:big-blind|big blind}} e é o flop. Antes da {{t:bet|aposta}}, o {{t:pot|pote}} tem {{n:exam.m6.pot}} {{t:chips|fichas}}. O Button {{t:bet|aposta}} {{n:exam.m6.bet.quarter}} numa mão e {{n:exam.m6.bet.three-quarters}} noutra. De que probabilidade mínima de ganhar o {{t:pot|pote}} ({{t:equity|equity}}) precisa para {{t:call|pagar}} em cada uma destas mãos?",
+  "powod": "nowy pl: pozycja gracza (duży blind), pula przed zakładem (żetony), opis equity; przekład zaczynał od samego „Flop.” i nie mówił, że pula jest przed zakładem"
+ },
+ {
+  "plik": "content/pt/exams/m8.yaml",
+  "id": "m8.exam.q1",
+  "pole": "prompt",
+  "stare": "River: o adversário {{t:check|passa}} e não o pode {{t:raise|aumentar}}. No {{t:range|range}} dele há {{n:exam.m8.range.worse}} mãos piores do que a sua, mas apenas {{n:exam.m8.call.worse}} delas vão {{t:call|pagar}} a sua aposta. Também pagará {{n:exam.m8.call.better}} vezes com uma mão melhor. Aposta?",
+  "nowe": "River, a última {{t:betting-round|ronda de apostas}}. O adversário {{t:check|passa}}. Suponha que, perante a sua {{t:bet|aposta}}, ele só pode {{t:call|pagar}} ou {{t:fold|desistir}}. No {{t:range|range}} dele (as mãos que pode ter) há {{n:exam.m8.range.worse}} mãos piores do que a sua, mas apenas {{n:exam.m8.call.worse}} delas vão {{t:call|pagar}} a sua aposta. Também vão pagá-la {{n:exam.m8.call.better}} mãos melhores do que a sua. Aposta?",
+  "powod": "nowy pl: założenie „może tylko sprawdzić albo spasować”, zakres objaśniony, „4 ręce lepsze” zamiast dwuznacznego „4 razy lepszą ręką”; przekład miał tę samą dwuznaczność"
+ },
+ {
+  "plik": "content/pt/exams/m8.yaml",
+  "id": "m8.exam.q1",
+  "pole": "option:0.why",
+  "stare": "Sim: conte apenas as mãos que vão pagar. A aposta ganha {{n:exam.m8.call.worse}} vezes e perde {{n:exam.m8.call.better}} vezes, ou seja, perde em termos líquidos {{n:exam.m8.net.loss}} aposta. As mãos piores que {{t:fold|desistem}} perderiam de qualquer forma contra si após o {{t:check|check}}.",
+  "nowe": "Certo: conte apenas as mãos que vão pagar. A aposta ganha {{n:exam.m8.call.worse}} vezes e perde {{n:exam.m8.call.better}} vezes, ou seja, perde em termos líquidos {{n:exam.m8.net.loss}} aposta. As mãos piores que {{t:fold|desistem}} perderiam de qualquer forma contra si após o {{t:check|check}}.",
+  "powod": "wyjaśnienie poprawnej odpowiedzi „Nie” zaczynało się od „Tak/Yes/Oui/Sim” — ten sam problem co pl (zmienione na „Dobrze:”)"
+ }
+]
