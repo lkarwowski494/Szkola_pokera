@@ -1,0 +1,11 @@
+# Sesja BH: następca BE — menu W2 wg KO-045, D-546 react-native-svg — Szkoła Pokera (PokerGym)
+Koordynator: session_01T66VByNdf5NRAj2XqmVkw1 (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: `koordynacja` (tylko do odczytu).
+
+1. Rola: 04-studio-projektowe w trybie build. Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `sesja-be-projekt` @ 008753c (kontynuacja BE; inny HEAD: zgłoś). Instalacja: `pnpm install --frozen-lockfile`. Tożsamość commitów według CLAUDE.md.
+3. Zadanie: przeczytaj `docs/design/stan-be.md` (sekcja „Następny krok”, 7 kroków) i wykonaj je w całości. Decyzja właściciela KO-045 (`git show origin/koordynacja:docs/koordynacja/decyzje.md`): „W2 + Wskaźnik w Postępie” — W2 z porównania @ be3d801 (`docs/design/wzorce-zrzuty/menu/porownanie-w1-w2-dark.png`): pasek Dziś · Lekcje · Postęp; „Dziś” = karta Kontynuuj lekcję + kafelki Powtórki (z liczbą), Sesja ćwiczeń, Scenariusze; Wskaźnik zaawansowania na ekranie Postęp; zębatka zostaje (KO-036, D-540). BR-MENU-001 zmienia errata ER-16 (lekcje z zakładki, bez duplikatu kafelka). Część B (ekrany scenariusza i oceny, 8c4ecc6) jest gotowa — nie ruszaj jej poza spójnością z W2.
+4. Gotowe: spec `docs/design/menu-i-zebatka.md` i D-541 przepisane na KO-045; zrzuty finalne 390 pt i 320 pt AX5 + stany (nowy, w trakcie, wszystko zrobione, limit) z pomiarami (kontrast, mieści się, przepełnienie — narzędzia BE w `docs/design/`); D-546 (react-native-svg: analogia Trening `package.json:64`, licencja odczytana z pakietu); ER-16.
+5. Zakazy: nie scalasz do integracji ani `main`, nie tworzysz i nie archiwizujesz sesji, nie piszesz na `koordynacja`, nie zmieniasz kodu aplikacji, workflowów ani `content/`, nigdy --no-verify ani force-push, nie pytasz właściciela bezpośrednio. STOP-y i punkt czyszczenia → raport do koordynatora. Zrzuty oglądaj oszczędnie (kontekst).
+6. Decyzje: pula D-546…D-549 (D-540…D-545 użyte przez BE).
+7. Kontekst: od 30% okna kończysz krok, stan w `docs/design/stan-be.md`, push, PRZEKAZANIE.
+8. Raporty (≤ 10 linii): PRZEKAZANIE: SHA, pliki, ścieżki zrzutów finalnych, decyzje do weta, otwarte.
