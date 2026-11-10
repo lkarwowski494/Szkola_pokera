@@ -131,3 +131,35 @@ test('Z2 (E2E 42800500800): „Nie wiem” na pytaniu ze stołem jest pod ekrane
     });
   }
 });
+
+// Recenzja BL @ 5f17558 (08-programista-001, WYSOKIE): po D-542 tekst wstępu listy lekcji (`learn.intro`, „No-Limit Hold’em od
+// zera…”) renderuje tylko zakładka, której plik w app/(tabs)/ go używa (dziś: „Lekcje”). Flow, który czeka na ten tekst na
+// „Dziś” (zaraz po powitaniu), pada na runnerze po 30 s, a bramka TestFlight czeka na zielony e2e-ios.yml (D-170).
+// Kontrola: każde extendedWaitUntil/assertVisible z tym tekstem stoi po przejściu na zakładkę, która go renderuje.
+test('tekst wstępu listy lekcji (learn.intro) sprawdzany we flowach tylko na zakładce, która go renderuje (D-542)', () => {
+  const SRC = join(E2E, '../src');
+  const pl = JSON.parse(readFileSync(join(SRC, 'i18n/locales/pl.json'), 'utf8'));
+  const poczatek = pl.learn.intro.split('.')[0]; // „No-Limit Hold’em od zera”
+  const ZAKLADKI = { index: { id: 'zakladka-dzis', tekst: pl.tabs.today }, lessons: { id: 'zakladka-lekcje', tekst: pl.tabs.lessons }, progress: { id: 'zakladka-postep', tekst: pl.tabs.progress } };
+  const renderuja = Object.keys(ZAKLADKI).filter((z) => {
+    const p = join(SRC, 'app/(tabs)', `${z}.tsx`);
+    return existsSync(p) && readFileSync(p, 'utf8').includes("t('learn.intro')");
+  });
+  assert.ok(renderuja.length > 0, 'żadna zakładka nie renderuje learn.intro');
+  const bledy = [];
+  for (const f of wszystkie.filter((x) => !x.includes('/oczekujace/') && !x.includes('/wspolne/'))) {
+    const kroki = parseAllDocuments(readFileSync(f, 'utf8')).at(-1).toJSON();
+    let zakladka = 'index'; // po launchApp i powitaniu aplikacja stoi na „Dziś”
+    kroki.forEach((k, i) => {
+      if (k === 'launchApp' || (k && typeof k === 'object' && ('launchApp' in k || 'runFlow' in k))) zakladka = 'index';
+      if (!k || typeof k !== 'object') return;
+      const tap = k.tapOn;
+      if (tap !== undefined) for (const [z, { id, tekst }] of Object.entries(ZAKLADKI)) if ((typeof tekst === 'string' && tap === tekst) || (tap && typeof tap === 'object' && tap.id === id)) zakladka = z;
+      const cel = k.extendedWaitUntil?.visible ?? k.assertVisible;
+      const tekstCelu = typeof cel === 'string' ? cel : cel?.text;
+      if (typeof tekstCelu === 'string' && tekstCelu.startsWith(poczatek) && !renderuja.includes(zakladka))
+        bledy.push(`${relative(E2E, f)}, krok ${i + 1}: czeka na „${tekstCelu}” na zakładce ${zakladka}.tsx, a tekst renderuje tylko ${renderuja.join(', ')}.tsx`);
+    });
+  }
+  assert.deepEqual(bledy, []);
+});
