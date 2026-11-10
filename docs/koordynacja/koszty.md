@@ -36,3 +36,5 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | AW (końcowy) | 08 build (sonnet) | — | 4,86 | 28,6 | … → 0a89f70 10:15 → w bca751e (E2E czerwone 11:42, regresja ramy stołu) → naprawa AZ → E2E 42812007468 na 57a83bf zielone 13:11 → przyjęte i zarchiwizowane 13:31 | kolejka macos-26 ok. 25 min (11:59→12:24) + 1 przebieg E2E stracony (66 min) | regresja nie wykryta przez 2 recenzje |
 | AX (końcowy) | 06 fix (opus) | — | 16,56 | 28,5 | … → przyjęte 13:31 (E2E 57a83bf) | jw. | — |
 | BB/BA (KO-029) | 06 fix (opus) | — | — | — | fbb2d15 w 57a83bf → E2E zielone 13:11 | — | przyjęte |
+| BC | 06 fix (opus) | — | 7,78 | 28,8 | 11:42 → 7e8c376 11:59 → recenzja 12:25 → ff 00b0566 14:03 → CI+E2E zielone 14:55 → przyjęte 15:10 | czekanie na build 1010 (zakaz push na roboczą) ok. 1 h 35 min | — |
+| AZ (końcowy) | 08 fix (sonnet) | — | 3,25 | 26,3 | … → Z4 00b0566 12:28 → E2E zielone 14:55 → przyjęte 15:10 | jw. | — |
