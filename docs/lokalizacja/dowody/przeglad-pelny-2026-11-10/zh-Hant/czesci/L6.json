@@ -1,0 +1,252 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 129,
+  "stary": "當你想在河牌前投入整個籌碼時",
+  "nowy": "當你想到河牌為止投入整個籌碼時",
+  "waga": "ŚR",
+  "powod": "pl: „wpłacić cały stack do rivera” (do rivera włącznie: zakłady na flopie, turnie i riverze); „在河牌前” znaczy „przed riverem” i przeczy linii z betem na riverze; w tej samej części to samo wyrażenie oddano „到河牌為止”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 53,
+  "stary": "想在河牌前投入整個籌碼",
+  "nowy": "想到河牌為止投入整個籌碼",
+  "waga": "ŚR",
+  "powod": "pl: „wpłacić cały stack do rivera” (do rivera włącznie: zakłady na flopie, turnie i riverze); „在河牌前” znaczy „przed riverem” i przeczy linii z betem na riverze; w tej samej części to samo wyrażenie oddano „到河牌為止”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l1-statystyki.md",
+  "linia": 13,
+  "stary": "兩名玩家平跟",
+  "nowy": "兩名玩家溜入",
+  "waga": "ŚR",
+  "powod": "pl: „limpuje / zalimpował” (termin limp); terms-nazwy zh-Hant: limp = „溜入”, a tu „平跟” (w zh-Hant także „flat call”, więc dwuznaczne obok {{t:call|跟注}}). Ujednolicenie do nazwy z terms-nazwy.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l1-statystyki.md",
+  "linia": 33,
+  "stary": "{{t:call|跟注}}或平跟：這就是",
+  "nowy": "{{t:call|跟注}}或溜入：這就是",
+  "waga": "ŚR",
+  "powod": "pl: „limpuje / zalimpował” (termin limp); terms-nazwy zh-Hant: limp = „溜入”, a tu „平跟” (w zh-Hant także „flat call”, więc dwuznaczne obok {{t:call|跟注}}). Ujednolicenie do nazwy z terms-nazwy.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l1-statystyki.md",
+  "linia": 33,
+  "stary": "：平跟，或{{t:call|跟注}}別人的",
+  "nowy": "：溜入，或{{t:call|跟注}}別人的",
+  "waga": "ŚR",
+  "powod": "pl: „limpuje / zalimpował” (termin limp); terms-nazwy zh-Hant: limp = „溜入”, a tu „平跟” (w zh-Hant także „flat call”, więc dwuznaczne obok {{t:call|跟注}}). Ujednolicenie do nazwy z terms-nazwy.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l1-statystyki.md",
+  "linia": 35,
+  "stary": "差距是只{{t:call|跟注}}或平跟的手牌",
+  "nowy": "差距是只{{t:call|跟注}}或溜入的手牌",
+  "waga": "ŚR",
+  "powod": "pl: „limpuje / zalimpował” (termin limp); terms-nazwy zh-Hant: limp = „溜入”, a tu „平跟” (w zh-Hant także „flat call”, więc dwuznaczne obok {{t:call|跟注}}). Ujednolicenie do nazwy z terms-nazwy.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l1-statystyki.md",
+  "linia": 98,
+  "stary": "就是玩家只{{t:call|跟注}}或平跟的手牌",
+  "nowy": "就是玩家只{{t:call|跟注}}或溜入的手牌",
+  "waga": "ŚR",
+  "powod": "pl: „limpuje / zalimpował” (termin limp); terms-nazwy zh-Hant: limp = „溜入”, a tu „平跟” (w zh-Hant także „flat call”, więc dwuznaczne obok {{t:call|跟注}}). Ujednolicenie do nazwy z terms-nazwy.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l2-typy-graczy.md",
+  "linia": 22,
+  "stary": "大多數牌只{{t:call|跟注}}或平跟",
+  "nowy": "大多數牌只{{t:call|跟注}}或溜入",
+  "waga": "ŚR",
+  "powod": "pl: „limpuje / zalimpował” (termin limp); terms-nazwy zh-Hant: limp = „溜入”, a tu „平跟” (w zh-Hant także „flat call”, więc dwuznaczne obok {{t:call|跟注}}). Ujednolicenie do nazwy z terms-nazwy.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l1-statystyki.md",
+  "linia": 69,
+  "stary": "因為大多數玩家都是岩石玩家",
+  "nowy": "因為大多數玩家都是岩石型玩家",
+  "waga": "NISKIE",
+  "powod": "pl: „większość graczy to nity”; terms-nazwy: nit = „岩石型玩家” (tak też w znaczniku w tym samym zdaniu); „岩石玩家” to druga nazwa tego samego pojęcia.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l1-statystyki.md",
+  "linia": 130,
+  "stary": "誤差公式則是計算結果。",
+  "nowy": "誤差公式則是數學計算。",
+  "waga": "ŚR",
+  "powod": "pl: „Wzór na błąd to rachunek” (wzór jest matematyką, nie zaleceniem trenerów); „計算結果” = „wynik obliczenia”, co o wzorze jest nieścisłe; „數學計算” oddaje sens pl.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l2-typy-graczy.md",
+  "linia": 6,
+  "stary": "sub: \"岩石玩家、常客、被動玩家、瘋子\"",
+  "nowy": "sub: \"岩石型玩家、常規玩家、被動玩家、瘋子\"",
+  "waga": "ŚR",
+  "powod": "pl: „Nit, reg, gracz pasywny, maniak”; terms-nazwy: nit = „岩石型玩家”, regular = „常規玩家” i tak brzmią w całej lekcji; podtytuł używa innych nazw („岩石玩家”, „常客”).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l2-typy-graczy.md",
+  "linia": 80,
+  "stary": "面對詐唬比基準策略更多的玩家",
+  "nowy": "面對{{t:bluff|詐唬}}比基準策略更多的玩家",
+  "waga": "ŚR",
+  "powod": "pl: „Wobec gracza, który {{t:bluff|blefuje}} więcej niż w bazie” — w przekładzie zgubiony znacznik {{t:bluff|…}} (liczba znaczników w zdaniu inna niż w pl); przywrócony bez zmiany tekstu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l2-typy-graczy.md",
+  "linia": 116,
+  "stary": "且勝率高於{{n:mda.reg.def.wr}}",
+  "nowy": "且贏率高於{{n:mda.reg.def.wr}}",
+  "waga": "ŚR",
+  "powod": "pl: „wynik” w bb/100 (numbers: mda.*.wr, unit bb100 = winrate); terms-nazwy: winrate = „贏率”, a „勝率” jest w przekładzie dawną nazwą equity (kolizja pojęć); w m10-l4 to samo pojęcie to „贏率”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l2-typy-graczy.md",
+  "linia": 116,
+  "stary": "且勝率低於{{n:mda.rec.def.wr}}",
+  "nowy": "且贏率低於{{n:mda.rec.def.wr}}",
+  "waga": "ŚR",
+  "powod": "pl: „wynik” w bb/100 (numbers: mda.*.wr, unit bb100 = winrate); terms-nazwy: winrate = „贏率”, a „勝率” jest w przekładzie dawną nazwą equity (kolizja pojęć); w m10-l4 to samo pojęcie to „贏率”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l2-typy-graczy.md",
+  "linia": 124,
+  "stary": "| 勝率 | {{n:mda.reg.wr}}",
+  "nowy": "| 贏率 | {{n:mda.reg.wr}}",
+  "waga": "ŚR",
+  "powod": "pl: „wynik” w bb/100 (numbers: mda.*.wr, unit bb100 = winrate); terms-nazwy: winrate = „贏率”, a „勝率” jest w przekładzie dawną nazwą equity (kolizja pojęć); w m10-l4 to samo pojęcie to „贏率”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l2-typy-graczy.md",
+  "linia": 41,
+  "stary": "（第8單元的門檻）",
+  "nowy": "（第8模組的門檻）",
+  "waga": "NISKIE",
+  "powod": "pl: „moduł N”; interfejs zh-Hant i pozostałe lekcje tej części (m9-l4, m10-l1, m10-l3) mają „模組”, tu „單元” — jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l2-typy-graczy.md",
+  "linia": 52,
+  "stary": "在基準策略（第8單元）中",
+  "nowy": "在基準策略（第8模組）中",
+  "waga": "NISKIE",
+  "powod": "pl: „moduł N”; interfejs zh-Hant i pozostałe lekcje tej części (m9-l4, m10-l1, m10-l3) mają „模組”, tu „單元” — jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l2-typy-graczy.md",
+  "linia": 61,
+  "stary": "你要比第4單元的基準策略更常{{t:fold|棄牌}}。\" }",
+  "nowy": "你要比第4模組的基準策略更常{{t:fold|棄牌}}。\" }",
+  "waga": "NISKIE",
+  "powod": "pl: „moduł N”; interfejs zh-Hant i pozostałe lekcje tej części (m9-l4, m10-l1, m10-l3) mają „模組”, tu „單元” — jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l2-typy-graczy.md",
+  "linia": 137,
+  "stary": "所以你要比第4單元的基準策略更常用這些牌",
+  "nowy": "所以你要比第4模組的基準策略更常用這些牌",
+  "waga": "NISKIE",
+  "powod": "pl: „moduł N”; interfejs zh-Hant i pozostałe lekcje tej części (m9-l4, m10-l1, m10-l3) mają „模組”, tu „單元” — jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l2-typy-graczy.md",
+  "linia": 130,
+  "stary": "第8單元的基準策略不變",
+  "nowy": "第8模組的基準策略不變",
+  "waga": "NISKIE",
+  "powod": "pl: „moduł N”; interfejs zh-Hant i pozostałe lekcje tej części (m9-l4, m10-l1, m10-l3) mają „模組”, tu „單元” — jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l4-rake.md",
+  "linia": 102,
+  "stary": "（第 12 單元）",
+  "nowy": "（第 12 模組）",
+  "waga": "NISKIE",
+  "powod": "pl: „moduł N”; interfejs zh-Hant i pozostałe lekcje tej części (m9-l4, m10-l1, m10-l3) mają „模組”, tu „單元” — jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l4-rake.md",
+  "linia": 108,
+  "stary": "第 2 單元的所需權益",
+  "nowy": "第 2 模組的所需權益",
+  "waga": "NISKIE",
+  "powod": "pl: „moduł N”; interfejs zh-Hant i pozostałe lekcje tej części (m9-l4, m10-l1, m10-l3) mają „模組”, tu „單元” — jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l4-rake.md",
+  "linia": 123,
+  "stary": "第 3 單元中你在",
+  "nowy": "第 3 模組中你在",
+  "waga": "NISKIE",
+  "powod": "pl: „moduł N”; interfejs zh-Hant i pozostałe lekcje tej części (m9-l4, m10-l1, m10-l3) mają „模組”, tu „單元” — jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 49,
+  "stary": "綜合了所有下注尺度和牌桌",
+  "nowy": "綜合了所有下注尺度和牌面",
+  "waga": "ŚR",
+  "powod": "pl: „Fold to c-bet łączy wszystkie rozmiary i stoły” — „stół” = board (karty wspólne; dalej w lekcji „wszystkie rozmiary i flopy”); „牌桌” to stół do gry, nie karty; „牌面” jest formą terminu board używaną w przekładzie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 66,
+  "stary": "{{t:cutoff|關煞位}}",
+  "nowy": "{{t:cutoff|CO}}",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:cutoff|CO}}”; terms-nazwy: cutoff = „CO” (tak w m10-l2 w tej części); „關煞位” to jedyne takie wystąpienie, inna nazwa tej samej pozycji.",
+  "grupa": "L6"
+ }
+]

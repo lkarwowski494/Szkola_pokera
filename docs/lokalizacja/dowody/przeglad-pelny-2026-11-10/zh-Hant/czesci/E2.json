@@ -1,0 +1,142 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m7.yaml",
+  "linia": 30,
+  "stary": "付錢的則是 10 以上的牌",
+  "nowy": "付錢的則是一對 10 或更好的牌",
+  "waga": "ŚR",
+  "powod": "pl: „zapłaci dziesiątkami i lepszymi” (parą dziesiątek i lepszymi rękami). „10 以上的牌” czyta się jak „karty od dziesiątki wzwyż”, co jest nieścisłe; nowy tekst mówi o parze dziesiątek i lepszych rękach.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m7.yaml",
+  "linia": 56,
+  "stary": "的 equity，而它約有",
+  "nowy": "的權益，而它約有",
+  "waga": "ŚR",
+  "powod": "pl: „potrzebuje … equity”. W przekładzie zostało angielskie „equity”, a nazwa terminu wg terms-nazwy to 權益 (tak też w m8, m9, m11, m13).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m7.yaml",
+  "linia": 57,
+  "stary": "低於它約 {{n:odds.flush.turn-river}} 的勝率",
+  "nowy": "低於它約 {{n:odds.flush.turn-river}} 的權益",
+  "waga": "ŚR",
+  "powod": "pl: „mniej niż jego ok. {{n:odds.flush.turn-river}}” (chodzi o equity z poprzedniej opcji). 勝率 to forma do ujednolicenia; termin equity wg terms-nazwy = 權益.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m10.yaml",
+  "linia": 34,
+  "stary": "{{t:utg|槍口位}}",
+  "nowy": "{{t:utg|UTG}}",
+  "waga": "ŚR",
+  "powod": "pl: „z {{t:utg|UTG}}”. terms-nazwy: utg = null (zostaje skrót UTG); 槍口位 to pojedyncza forma niezgodna z resztą przekładu (UTG).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m10.yaml",
+  "linia": 63,
+  "stary": "混合了所有尺寸與牌桌",
+  "nowy": "混合了所有尺寸與牌面",
+  "waga": "ŚR",
+  "powod": "pl: „Fold to c-bet łączy wszystkie rozmiary i stoły” — „stoły” to tutaj boardy (karty wspólne, termin board), nie stoły do gry. 牌桌 = stół pokerowy; poprawnie 牌面.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m11.yaml",
+  "linia": 50,
+  "stary": "即使籌碼這麼短、價格也好",
+  "nowy": "即使拿著這樣的{{t:short-stack|短籌碼}}、價格也好",
+  "waga": "ŚR",
+  "powod": "pl: „Nawet przy tak {{t:short-stack|short stacku}} i dobrej cenie” — w przekładzie zgubiony znacznik {{t:short-stack|…}} (klucze znaczników mają być jak w pl); nowy tekst przywraca znacznik z formą 短籌碼 z terms-nazwy.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m11.yaml",
+  "linia": 68,
+  "stary": "泡沫因子大於 1，所需權益",
+  "nowy": "泡沫因子大於 1 時，所需權益",
+  "waga": "NISKIE",
+  "powod": "pl: „Bubble factor powyżej 1 zawsze podnosi potrzebne equity” (warunek ogólny). Bez „時” zdanie brzmi jak stwierdzenie faktu o tym spocie; „時” oddaje warunek.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m12.yaml",
+  "linia": 45,
+  "stary": "的 equity，而{{t:flush-draw|同花聽牌}}",
+  "nowy": "的權益，而{{t:flush-draw|同花聽牌}}",
+  "waga": "ŚR",
+  "powod": "pl: „Potrzebowałeś {{n:eq.bet-half}} equity”. Resztka angielskiego „equity”; termin wg terms-nazwy = 權益. Liczby i sens bez zmian.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m12.yaml",
+  "linia": 46,
+  "stary": "的 equity 對上所需的",
+  "nowy": "的權益對上所需的",
+  "waga": "ŚR",
+  "powod": "pl: „{{n:odds.flush.turn-river}} equity wobec potrzebnych {{n:eq.bet-half}}”. Resztka angielskiego „equity”; termin wg terms-nazwy = 權益. Liczby i sens bez zmian.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m13.yaml",
+  "linia": 26,
+  "stary": "text: \"一致\"",
+  "nowy": "text: \"吻合\"",
+  "waga": "ŚR",
+  "powod": "pl: „Zgodna” — nazwa werdyktu z raportu. W interfejsie zh-Hant werdykt nazywa się 吻合 (locales/zh-Hant.json: grade.zgodne, verdicts.compliant), nie 一致; odpowiedź ma cytować etykietę z ekranu.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m13.yaml",
+  "linia": 26,
+  "stary": "採用的動作才算一致",
+  "nowy": "採用的動作才算吻合",
+  "waga": "ŚR",
+  "powod": "pl: „Zgodna jest akcja grana przez solver w co najmniej …”. Nazwa werdyktu jak w interfejsie zh-Hant: 吻合.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m13.yaml",
+  "linia": 37,
+  "stary": "text: \"不評分\"",
+  "nowy": "text: \"未評分\"",
+  "waga": "ŚR",
+  "powod": "pl: „Bez oceny” — nazwa werdyktu. W interfejsie zh-Hant (verdicts.unrated) i w lekcji m13-l1 to 未評分, nie 不評分.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m13.yaml",
+  "linia": 37,
+  "stary": "決策才會得到「不評分」",
+  "nowy": "決策才會得到「未評分」",
+  "waga": "ŚR",
+  "powod": "pl: „„Bez oceny” dostaje decyzja…”. Nazwa werdyktu jak w interfejsie i lekcji: 未評分.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/exams/m13.yaml",
+  "linia": 87,
+  "stary": "直接計算 equity 和價格",
+  "nowy": "直接計算權益和價格",
+  "waga": "ŚR",
+  "powod": "pl: „od razu liczy equity i cenę”. Resztka angielskiego „equity”; w tym samym pliku termin to {{t:equity|權益}}.",
+  "grupa": "E2"
+ }
+]

@@ -1,0 +1,202 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m8-l2-ile-blefow.md",
+  "linia": 31,
+  "stary": "這是{{t:mdf|最低防守頻率}}，也就是",
+  "nowy": "這是 {{t:mdf}}，也就是",
+  "waga": "ŚR",
+  "powod": "pl: „To {{t:mdf}}, czyli ile rywal powinien bronić”. W terms-nazwy mdf = null (zostaje skrót MDF); forma „最低防守頻率” nie jest postacią nazwy i jest jedynym takim miejscem w przekładzie (wszędzie indziej, np. m8-l4, stoi „{{t:mdf}}”). Znacznik bez formy wyświetla MDF, jak w reszcie kursu.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m8-l3-blokery.md",
+  "linia": 110,
+  "stary": "選沒有沒中{{t:draw|聽牌}}花色的那一手",
+  "nowy": "選手中不帶沒中{{t:draw|聽牌}}花色的那一手",
+  "waga": "NISKIE",
+  "powod": "pl: „wybierasz ten bez kart w kolorze nietrafionego drawa”. Zbitka „沒有沒中” czyta się jak pomyłka (podwójne 沒); nowy tekst mówi to samo bez zacięcia.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l1-spr.md",
+  "linia": 107,
+  "stary": "也就是在任何人{{t:bet|下注}}、還沒有{{t:bet}}之前",
+  "nowy": "也就是還沒有人{{t:bet|下注}}之前",
+  "waga": "NISKIE",
+  "powod": "pl: „zanim ktoś {{t:bet|postawi}} {{t:bet}}”. Kalka dwóch znaczników daje po wyświetleniu „在任何人下注、還沒有下注之前” (powtórzenie, zdanie niegramatyczne); w ćwiczeniu q-when tej samej lekcji to samo zdanie brzmi poprawnie „還沒有人下注之前”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 13,
+  "stary": "{{n:commit.after-pot.call}}。你需要多少 equity 才能",
+  "nowy": "{{n:commit.after-pot.call}}。你需要多少權益才能",
+  "waga": "ŚR",
+  "powod": "pl: „equity” (zwykły tekst). W terms-nazwy equity = „權益” i tak piszą pozostałe lekcje części (m8-l2, m8-l4, m9-l1: „所需權益”); w tej lekcji zostało łacińskie „equity” (15 miejsc) — jedna nazwa na pojęcie.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 15,
+  "stary": "需 equity =",
+  "nowy": "需權益 =",
+  "waga": "ŚR",
+  "powod": "pl: „equity” (zwykły tekst). W terms-nazwy equity = „權益” i tak piszą pozostałe lekcje części (m8-l2, m8-l4, m9-l1: „所需權益”); w tej lekcji zostało łacińskie „equity” (15 miejsc) — jedna nazwa na pojęcie.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 20,
+  "stary": "{{n:commit.after-half.call}}。你需要多少 equity 才能",
+  "nowy": "{{n:commit.after-half.call}}。你需要多少權益才能",
+  "waga": "ŚR",
+  "powod": "pl: „equity” (zwykły tekst). W terms-nazwy equity = „權益” i tak piszą pozostałe lekcje części (m8-l2, m8-l4, m9-l1: „所需權益”); w tej lekcji zostało łacińskie „equity” (15 miejsc) — jedna nazwa na pojęcie.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 27,
+  "stary": "的 equity 才",
+  "nowy": "的權益才",
+  "waga": "ŚR",
+  "powod": "pl: „equity” (zwykły tekst). W terms-nazwy equity = „權益” i tak piszą pozostałe lekcje części (m8-l2, m8-l4, m9-l1: „所需權益”); w tej lekcji zostało łacińskie „equity” (15 miejsc) — jedna nazwa na pojęcie.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 30,
+  "stary": " 的 equity。它",
+  "nowy": " 的權益。它",
+  "waga": "ŚR",
+  "powod": "pl: „equity” (zwykły tekst). W terms-nazwy equity = „權益” i tak piszą pozostałe lekcje części (m8-l2, m8-l4, m9-l1: „所需權益”); w tej lekcji zostało łacińskie „equity” (15 miejsc) — jedna nazwa na pojęcie.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 39,
+  "stary": "的 equity（",
+  "nowy": "的權益（",
+  "waga": "ŚR",
+  "powod": "pl: „equity” (zwykły tekst). W terms-nazwy equity = „權益” i tak piszą pozostałe lekcje części (m8-l2, m8-l4, m9-l1: „所需權益”); w tej lekcji zostało łacińskie „equity” (15 miejsc) — jedna nazwa na pojęcie.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 49,
+  "stary": "{{n:eq.jam.4bet}} 的 equity，而帶",
+  "nowy": "{{n:eq.jam.4bet}} 的權益，而帶",
+  "waga": "ŚR",
+  "powod": "pl: „equity” (zwykły tekst). W terms-nazwy equity = „權益” i tak piszą pozostałe lekcje części (m8-l2, m8-l4, m9-l1: „所需權益”); w tej lekcji zostało łacińskie „equity” (15 miejsc) — jedna nazwa na pojęcie.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 58,
+  "stary": "{{n:eq.jam.spr2}} 的 equity，而兩",
+  "nowy": "{{n:eq.jam.spr2}} 的權益，而兩",
+  "waga": "ŚR",
+  "powod": "pl: „equity” (zwykły tekst). W terms-nazwy equity = „權益” i tak piszą pozostałe lekcje części (m8-l2, m8-l4, m9-l1: „所需權益”); w tej lekcji zostało łacińskie „equity” (15 miejsc) — jedna nazwa na pojęcie.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 60,
+  "stary": " 的 equity。\"",
+  "nowy": " 的權益。\"",
+  "waga": "ŚR",
+  "powod": "pl: „equity” (zwykły tekst). W terms-nazwy equity = „權益” i tak piszą pozostałe lekcje części (m8-l2, m8-l4, m9-l1: „所需權益”); w tej lekcji zostało łacińskie „equity” (15 miejsc) — jedna nazwa na pojęcie.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 79,
+  "stary": "的 equity 也",
+  "nowy": "的權益也",
+  "waga": "ŚR",
+  "powod": "pl: „equity” (zwykły tekst). W terms-nazwy equity = „權益” i tak piszą pozostałe lekcje części (m8-l2, m8-l4, m9-l1: „所需權益”); w tej lekcji zostało łacińskie „equity” (15 miejsc) — jedna nazwa na pojęcie.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 86,
+  "stary": " 的 equity。如",
+  "nowy": " 的權益。如",
+  "waga": "ŚR",
+  "powod": "pl: „equity” (zwykły tekst). W terms-nazwy equity = „權益” i tak piszą pozostałe lekcje części (m8-l2, m8-l4, m9-l1: „所需權益”); w tej lekcji zostało łacińskie „equity” (15 miejsc) — jedna nazwa na pojęcie.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 88,
+  "stary": "需 equity |",
+  "nowy": "需權益 |",
+  "waga": "ŚR",
+  "powod": "pl: „equity” (zwykły tekst). W terms-nazwy equity = „權益” i tak piszą pozostałe lekcje części (m8-l2, m8-l4, m9-l1: „所需權益”); w tej lekcji zostało łacińskie „equity” (15 miejsc) — jedna nazwa na pojęcie.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 96,
+  "stary": "需的 equity，比",
+  "nowy": "需的權益，比",
+  "waga": "ŚR",
+  "powod": "pl: „equity” (zwykły tekst). W terms-nazwy equity = „權益” i tak piszą pozostałe lekcje części (m8-l2, m8-l4, m9-l1: „所需權益”); w tej lekcji zostało łacińskie „equity” (15 miejsc) — jedna nazwa na pojęcie.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 102,
+  "stary": " 的 equity，自",
+  "nowy": " 的權益，自",
+  "waga": "ŚR",
+  "powod": "pl: „equity” (zwykły tekst). W terms-nazwy equity = „權益” i tak piszą pozostałe lekcje części (m8-l2, m8-l4, m9-l1: „所需權益”); w tej lekcji zostało łacińskie „equity” (15 miejsc) — jedna nazwa na pojęcie.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 106,
+  "stary": "的 equity 夠",
+  "nowy": "的權益夠",
+  "waga": "ŚR",
+  "powod": "pl: „equity” (zwykły tekst). W terms-nazwy equity = „權益” i tak piszą pozostałe lekcje części (m8-l2, m8-l4, m9-l1: „所需權益”); w tej lekcji zostało łacińskie „equity” (15 miejsc) — jedna nazwa na pojęcie.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 110,
+  "stary": "要在河牌前把整個籌碼量打進去",
+  "nowy": "要在河牌結束前把整個籌碼量打進去",
+  "waga": "NISKIE",
+  "powod": "pl: „Żeby wpłacić cały stack do rivera, trzeba by betować … na każdej ulicy” (do rivera włącznie, trzy ulice). „在河牌前” znaczy „przed riverem” (tylko flop i turn); „河牌結束前” obejmuje zakład na riverze.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m9-l2-zaangazowanie.md",
+  "linia": 110,
+  "stary": "見幾何下注尺度那一課",
+  "nowy": "見幾何下注尺寸那一課",
+  "waga": "NISKIE",
+  "powod": "pl: „lekcja o rozmiarze geometrycznym”. Lekcja m9-l3 ma w przekładzie tytuł „幾何下注尺寸”; „尺度” to inna nazwa tej samej lekcji (jedna nazwa na pojęcie).",
+  "grupa": "L5"
+ }
+]

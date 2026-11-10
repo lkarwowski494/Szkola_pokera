@@ -1,0 +1,92 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m2-l2-pot-odds.md",
+  "linia": 97,
+  "stary": "預期在這手牌之後還能贏到的",
+  "nowy": "預期在這手牌後續還能贏到的",
+  "waga": "ŚR",
+  "powod": "pl: „żetony, które spodziewasz się wygrać później w rozdaniu” = później w tym samym rozdaniu; „在這手牌之後” znaczy „po tym rozdaniu”, co zmienia definicję implied odds. „後續” = w dalszej części tego rozdania.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m3-l3-zakresy-otwarc.md",
+  "linia": 47,
+  "stary": "對角線上方是同花手牌（例如 AKs），下方是非同花手牌（例如 AKo）",
+  "nowy": "對角線上方是同花色手牌（例如 AKs），下方是不同花色手牌（例如 AKo）",
+  "waga": "ŚR",
+  "powod": "pl: „ręce w jednym kolorze … w różnych kolorach”; w poprzedniej lekcji (m3-l2) i w reszcie przekładu suited/offsuit to „同花色/不同花色”, a „同花” jest nazwą układu flush (terms-nazwy). Ujednolicenie nazwy pojęcia.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m3-l3-zakresy-otwarc.md",
+  "linia": 84,
+  "stary": "哪些同花 A，以及非同花手牌從哪張牌開始",
+  "nowy": "哪些同花色 A，以及不同花色手牌從哪張牌開始",
+  "waga": "ŚR",
+  "powod": "pl: „które asy w kolorze i od której karty zaczynają się ręce w różnych kolorach”; ujednolicenie z m3-l2 („同花色/不同花色”), „同花” = flush.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m3-l3-zakresy-otwarc.md",
+  "linia": 87,
+  "stary": "有間隔的同花手牌（例如 75s、97s）和較弱的非同花手牌",
+  "nowy": "有間隔的同花色手牌（例如 75s、97s）和較弱的不同花色手牌",
+  "waga": "ŚR",
+  "powod": "pl: „ręce w kolorze z luką … słabe ręce w różnych kolorach”; ujednolicenie z m3-l2 („同花色/不同花色”), „同花” = flush.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m3-l3-zakresy-otwarc.md",
+  "linia": 43,
+  "stary": "本 App 的翻前求解器",
+  "nowy": "本 App 的翻牌前求解器",
+  "waga": "NISKIE",
+  "powod": "pl: „solver preflop”; nazwa ulicy w terms-nazwy i w całej części to „翻牌前”, skrót „翻前” jest niezgodny z przyjętą nazwą.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m1-l1-przebieg.md",
+  "linia": 16,
+  "stary": "因為沒有人下過任何注。",
+  "nowy": "因為沒有人{{t:bet|下注}}。",
+  "waga": "NISKIE",
+  "powod": "pl: „bo nikt nic nie {{t:bet|postawił}}” — w przekładzie zgubiony znacznik {{t:bet|…}} (termin bez podpowiedzi); przywrócony z formą z terms-nazwy.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m1-l1-przebieg.md",
+  "linia": 96,
+  "stary": "**{{t:side-pot|邊池}}**，只有他們能爭奪",
+  "nowy": "**{{t:side-pot|邊池}}**（side pot），只有他們能爭奪",
+  "waga": "NISKIE",
+  "powod": "pl: „do **puli bocznej** (side pot)” — pominięta nazwa angielska w nawiasie, którą pl podaje (obok „全下（all-in）” w tym samym akapicie).",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m3-l1-pozycja.md",
+  "linia": 69,
+  "stary": "（那是 {{t:limp}}，也就是",
+  "nowy": "（那是{{t:limp}}，也就是",
+  "waga": "NISKIE",
+  "powod": "Znacznik {{t:limp}} bez formy wyświetla nazwę z terms-nazwy „溜入”; spacja przed chińskim wyrazem jest zbędna (została po łacińskim „limp”).",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m3-l2-rece-startowe.md",
+  "linia": 45,
+  "stary": "攻擊盲注的好牌",
+  "nowy": "攻擊盲注的很好的牌",
+  "waga": "NISKIE",
+  "powod": "pl: „to bardzo dobra ręka do ataku na blindy” — zgubione „bardzo”.",
+  "grupa": "L1"
+ }
+]

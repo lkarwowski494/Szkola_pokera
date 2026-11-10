@@ -1,0 +1,72 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m12-l4-bankroll.md",
+  "linia": 51,
+  "stary": "這是出於絕望的上頭。",
+  "nowy": "這是絕望型上頭。",
+  "waga": "ŚR",
+  "powod": "pl: „To tilt z desperacji” — nazwa typu tiltu z lekcji m12.l3; w m12-l3 ten typ nazywa się wszędzie „絕望型上頭” (tabela i ćwiczenia), tu użyto innej postaci „出於絕望的上頭”. Jedna nazwa na pojęcie.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m12-l3-tilt.md",
+  "linia": 133,
+  "stary": "想把輸的追回來，或用輸不起的錢在打牌",
+  "nowy": "追輸，或用輸不起的錢在打牌",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna (odesłanie do ramki „Odpowiedzialna gra”). pl: „odgrywasz się” — opis zachowania, nie zamiaru; przekład „想把輸的追回來” („chcesz się odegrać”) zmienia warunek z faktu na chęć. „追輸” to termin użyty dla „odgrywanie strat” w m12-l4 (linie 102–103), więc sygnał brzmi tak samo w obu lekcjach.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m12-l3-tilt.md",
+  "linia": 100,
+  "stary": "上頭是在負面情緒影響下失去控制",
+  "nowy": "上頭（tilt）是在負面情緒影響下失去控制",
+  "waga": "ŚR",
+  "powod": "pl: „Tilt to utrata kontroli…”. terms-nazwy.yaml ma tilt: null (nazwa angielska „tilt”), rules.yaml pisze „情緒失控（tilt）”, a lekcja używa wyłącznie „上頭” i nigdzie nie łączy tego słowa z „tilt”, które czytelnik zobaczy w słowniku, regułach i ćwiczeniach słownictwa. Dopisanie nazwy angielskiej przy definicji wiąże obie nazwy, bez zmiany sensu.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m12-l2-decyzja-wynik.md",
+  "linia": 86,
+  "stary": "只檢討輸的{{t:session|場次}}，會漏掉一半的錯誤",
+  "nowy": "只檢討輸的場次，會漏掉一半的錯誤",
+  "waga": "NISKIE",
+  "powod": "pl: „Analiza samych przegranych pomija połowę błędów” — w tym zdaniu pl nie ma znacznika {{t:session}}; przekład dodał trzeci znacznik w linii (pl ma dwa). Zostaje zwykły tekst, znaczniki jak w pl.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m12-l2-decyzja-wynik.md",
+  "linia": 97,
+  "stary": "全下，是最好的決策，但仍有約",
+  "nowy": "全下，是所能做出的最好決策，但仍有約",
+  "waga": "NISKIE",
+  "powod": "pl: „to najlepsza możliwa decyzja” — w przekładzie zgubione „możliwa” („最好的決策” = „najlepsza decyzja”). Uzupełnione bez zmiany reszty zdania.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m12-l2-decyzja-wynik.md",
+  "linia": 22,
+  "stary": "即使做了最好的決策，你仍會",
+  "nowy": "即使做了所能做出的最好決策，你仍會",
+  "waga": "NISKIE",
+  "powod": "pl: „mimo najlepszej możliwej decyzji” — zgubione „możliwej”; ujednolicone z poprawką w linii 97.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m12-l4-bankroll.md",
+  "linia": 123,
+  "stary": "贏率和 SD 以 bb/100 輸入，資金以 bb 輸入。",
+  "nowy": "贏率和 SD 以 bb/100 表示，資金以 bb 表示。",
+  "waga": "NISKIE",
+  "powod": "pl: „Winrate i SD podajesz w bb/100, bankroll w bb” — chodzi o jednostkę, w której wyraża się wielkości we wzorze; „輸入” znaczy „wpisujesz (w pole)” i sugeruje kalkulator, którego w lekcji nie ma. „表示” = „wyrażasz/podajesz w”.",
+  "grupa": "L8"
+ }
+]

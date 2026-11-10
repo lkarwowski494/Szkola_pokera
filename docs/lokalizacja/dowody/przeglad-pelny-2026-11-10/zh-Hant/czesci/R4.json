@@ -1,0 +1,62 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 995,
+  "stary": "你注意到自己檔案中情緒失控（tilt）的第一個徵兆",
+  "nowy": "你注意到自己上頭側寫中的最初訊號",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna (R-M12-006), pl: „pierwsze sygnały tiltu ze swojego profilu”. Lekcja m12-l3, egzamin m12 i terms-def nazywają tilt „上頭”, profil „側寫”, sygnały „訊號”; reguła używa innych nazw („情緒失控（tilt）”, „檔案” = plik, „徵兆”) i liczby pojedynczej („第一個” zamiast „pierwsze sygnały”). Jedna nazwa na pojęcie; sens bez zmian.",
+  "grupa": "R4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 997,
+  "stary": "情緒失控一旦加劇",
+  "nowy": "上頭一旦加劇",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna (R-M12-006), pl: „gdy tilt urośnie”. Tilt w lekcji m12-l3, egzaminie i terms-def to „上頭”; „情緒失控” występuje tylko w tej regule. Ujednolicenie terminu, sens bez zmian.",
+  "grupa": "R4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 1112,
+  "stary": "必須比打{{t:chips|籌碼}}時更常贏",
+  "nowy": "必須比在以{{t:chips|籌碼}}計價的遊戲中更常贏",
+  "waga": "ŚR",
+  "powod": "pl: „częściej niż w grze o {{t:chips}}”. „打籌碼時” jest niejasną kalką; lekcja m11-l3 (linia 62) oddaje „gra o żetony” jako „以{{t:chips|籌碼}}計價的遊戲”. Ujednolicenie z lekcją.",
+  "grupa": "R4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 1119,
+  "stary": "比打{{t:chips|籌碼}}時緊很多",
+  "nowy": "比在以{{t:chips|籌碼}}計價的遊戲中緊很多",
+  "waga": "ŚR",
+  "powod": "pl: „wyraźnie ciaśniej niż w grze o {{t:chips}}”. „打籌碼時” jest niejasną kalką; lekcja m11-l3 używa „以{{t:chips|籌碼}}計價的遊戲”. Ujednolicenie z lekcją.",
+  "grupa": "R4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 1164,
+  "stary": "所以遊戲重播會用",
+  "nowy": "所以對局複習會用",
+  "waga": "ŚR",
+  "powod": "pl: „dlatego powtórka z gry pokazuje tę samą sytuację w innych kolorach”. „遊戲重播” znaczy „odtworzenie (replay) gry”; chodzi o powtórki (karty SRS) z gry, w lekcji m13-l2 nazwane „對局複習” / „複習”. „遊戲重播” występuje w całym przekładzie tylko tutaj.",
+  "grupa": "R4"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 1188,
+  "stary": "才是值得檢討的那類",
+  "nowy": "屬於值得檢討的那類",
+  "waga": "NISKIE",
+  "powod": "pl: „rozdania z trudną decyzją są wśród tych, które warto przeglądać”. „才是” wzmacnia do „to właśnie te (jedyne)”; „屬於” oddaje „są wśród”.",
+  "grupa": "R4"
+ }
+]

@@ -1,0 +1,32 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 568,
+  "stary": "{{t:polarized|兩極化}}的{{t:range|範圍}}下注（非常強的牌",
+  "nowy": "{{t:polarized|極化}}的{{t:range|範圍}}下注（非常強的牌",
+  "waga": "ŚR",
+  "powod": "R-M7-005 if: pl „{{t:range|zakresem}} {{t:polarized|spolaryzowanym}}”; forma znacznika ma być postacią nazwy z terms-nazwy (polarized: „極化”, w treści 12× 極化 wobec 3× 兩極化). Jedna nazwa na pojęcie.",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 472,
+  "stary": "通常比常客弱",
+  "nowy": "通常比常規玩家弱",
+  "waga": "ŚR",
+  "powod": "R-M6-004 population: pl „zwykle słabiej od stałych bywalców” = pojęcie regular; terms-nazwy regular: „常規玩家” (w treści 16× 常規玩家, 常客 oznaczone do ujednolicenia). Jedna nazwa na pojęcie.",
+  "grupa": "R2"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/rules.yaml",
+  "linia": 620,
+  "stary": "按鈕位拿很多強牌時會下注",
+  "nowy": "按鈕位的很多強牌本來會下注",
+  "waga": "NISKIE",
+  "powod": "R-M7-011 because: pl „Button z wieloma silnymi rękami by betował” (wieloma ze swoich silnych rąk zagrałby bet); przekład brzmi „gdy Button trzyma wiele silnych rąk, betuje”, co jest nieścisłe i nienaturalne; nowy tekst oddaje tryb przypuszczający i sens zakresu, wniosek bez zmian.",
+  "grupa": "R2"
+ }
+]

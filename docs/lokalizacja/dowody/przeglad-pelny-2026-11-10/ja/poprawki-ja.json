@@ -1,0 +1,1472 @@
+[
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "linia": 96,
+  "stary": "ファイルの進捗が、このスマートフォンに保存されている進捗に置き換わります。",
+  "nowy": "このスマートフォンに保存されている進捗が、ファイルの進捗に置き換わります。",
+  "waga": "WYS",
+  "powod": "data.replaceBody: pl „Postęp z pliku zastąpi postęp zapisany w tym telefonie”. W ja „AがBに置き換わります” znaczy „A zostaje zastąpione przez B”, czyli obecne zdanie mówi, że postęp z pliku zostanie zastąpiony postępem z telefonu (kierunek odwrócony) w oknie potwierdzenia nieodwracalnej operacji na danych. Po zamianie podmiotu i dopełnienia sens jak w pl.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "linia": 794,
+  "stary": "\"connected\": \"{{t:connected|コネクト}}\"",
+  "nowy": "\"connected\": \"{{t:connected|コネクテッド}}\"",
+  "waga": "ŚR",
+  "powod": "drill.texture.label.ranks.connected: pl „{{t:connected|Połączony}}”; nazwa terminu w content/ja/terms-nazwy.yaml to „コネクテッド” (jedna forma przymiotnikowa dla tekstur, także w interfejsie), a nie „コネクト”.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "linia": 796,
+  "stary": "\"disconnected\": \"{{t:disconnected|ディスコネクト}}\"",
+  "nowy": "\"disconnected\": \"{{t:disconnected|ディスコネクテッド}}\"",
+  "waga": "ŚR",
+  "powod": "drill.texture.label.ranks.disconnected: pl „{{t:disconnected|Niepołączony}}”; nazwa w content/ja/terms-nazwy.yaml to „ディスコネクテッド”, nie „ディスコネクト”.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "linia": 825,
+  "stary": "{{t:connected|コネクト}}のフロップは",
+  "nowy": "{{t:connected|コネクテッド}}のフロップは",
+  "waga": "ŚR",
+  "powod": "drill.texture.def.ranks.connected: pl „flop {{t:connected}}”; forma ma być nazwą z content/ja/terms-nazwy.yaml („コネクテッド”).",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "linia": 827,
+  "stary": "{{t:disconnected|ディスコネクト}}のフロップは",
+  "nowy": "{{t:disconnected|ディスコネクテッド}}のフロップは",
+  "waga": "ŚR",
+  "powod": "drill.texture.def.ranks.disconnected: pl „flop {{t:disconnected}}”; forma ma być nazwą z content/ja/terms-nazwy.yaml („ディスコネクテッド”).",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "linia": 860,
+  "stary": "{{t:connected|コネクト}}、{{t:semi-connected|セミコネクト}}、{{t:disconnected|ディスコネクト}}",
+  "nowy": "{{t:connected|コネクテッド}}、{{t:semi-connected|セミコネクト}}、{{t:disconnected|ディスコネクテッド}}",
+  "waga": "ŚR",
+  "powod": "drill.texture.prompt.ranks: pl „{{t:paired}}, {{t:connected}}, {{t:semi-connected|półpołączony}} czy {{t:disconnected}}”; formy connected i disconnected niezgodne z content/ja/terms-nazwy.yaml („コネクテッド”, „ディスコネクテッド”); semi-connected „セミコネクト” jest zgodne i zostaje.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "apps/mobile/src/i18n/locales/ja.json",
+  "linia": 862,
+  "stary": "{{t:texture|テクスチャ}}",
+  "nowy": "{{t:texture|テクスチャー}}",
+  "waga": "ŚR",
+  "powod": "drill.texture.prompt.many: pl „{{t:texture|teksturę}}”; nazwa w content/ja/terms-nazwy.yaml to „テクスチャー” (z długą samogłoską), tak jak w lekcjach (7 wystąpień); „テクスチャ” to druga pisownia tego samego terminu.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m10.yaml",
+  "linia": 63,
+  "stary": "すべてのサイズとテーブルをまとめた数値",
+  "nowy": "すべてのサイズとボードをまとめた数値",
+  "waga": "ŚR",
+  "powod": "pl: „Fold to c-bet łączy wszystkie rozmiary i stoły” — „stół” to w pl nazwa terminu board (lekcja m10-l3:109 mówi o tym samym: „wszystkie rozmiary i flopy”); „テーブル” znaczy stół do gry, powinno być „ボード” (terms-nazwy: board = ボード).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m10.yaml",
+  "linia": 80,
+  "stary": "{{t:rake-cap|レーキキャップ}}には届きません",
+  "nowy": "{{t:rake-cap|レーキ上限}}には届きません",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:rake-cap|limit}} jest poza zasięgiem” — forma znacznika niezgodna z terms-nazwy (rake-cap = „レーキ上限”); jedna nazwa na pojęcie.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m12.yaml",
+  "linia": 62,
+  "stary": "を3回続けて失い",
+  "nowy": "を3回失い",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna (m12). pl: „Po trzech przegranych dużych pulach” — bez „z rzędu”; „続けて” dodaje warunek, którego nie ma w źródle.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m3.yaml",
+  "linia": 21,
+  "stary": "オフスーツのATは",
+  "nowy": "オフスートのATは",
+  "waga": "ŚR",
+  "powod": "pl: „w różnych kolorach” (offsuit). W przekładzie dwa warianty: „オフスーツ” (tu) i „オフスート” (m4 i lekcje: 18 wystąpień wobec 6); jedna nazwa na pojęcie, więc ujednolicenie do dominującego „オフスート”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m3.yaml",
+  "linia": 31,
+  "stary": "オフスーツのA9は",
+  "nowy": "オフスートのA9は",
+  "waga": "ŚR",
+  "powod": "pl: „w różnych kolorach” (offsuit). W przekładzie dwa warianty: „オフスーツ” (tu) i „オフスート” (m4 i lekcje: 18 wystąpień wobec 6); jedna nazwa na pojęcie, więc ujednolicenie do dominującego „オフスート”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m3.yaml",
+  "linia": 49,
+  "stary": "オフスーツのJ9も",
+  "nowy": "オフスートのJ9も",
+  "waga": "ŚR",
+  "powod": "pl: „w różnych kolorach” (offsuit). W przekładzie dwa warianty: „オフスーツ” (tu) i „オフスート” (m4 i lekcje: 18 wystąpień wobec 6); jedna nazwa na pojęcie, więc ujednolicenie do dominującego „オフスート”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 47,
+  "stary": "勝ち目のない手で",
+  "nowy": "勝ち目のないハンドで",
+  "waga": "ŚR",
+  "powod": "pl: „ręka”. Cały egzamin m5 używa „手” (37 razy), reszta przekładu „ハンド” (ponad 1500 wystąpień, w m5 ani razu); jedna nazwa na pojęcie — przykład, pełna lista w uwagach („Do ujednolicenia skryptem”). W m6 to samo zdanie brzmi „勝ち目のないハンドで”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 68,
+  "stary": "text: \"手を諦めるわけではない",
+  "nowy": "text: \"ハンドを諦めるわけではない",
+  "waga": "ŚR",
+  "powod": "pl: „ręka”. Cały egzamin m5 używa „手” (37 razy), reszta przekładu „ハンド” (ponad 1500 wystąpień, w m5 ani razu); jedna nazwa na pojęcie — przykład, pełna lista w uwagach („Do ujednolicenia skryptem”).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 75,
+  "stary": "やめるのはどの手ですか",
+  "nowy": "やめるのはどのハンドですか",
+  "waga": "ŚR",
+  "powod": "pl: „ręka”. Cały egzamin m5 używa „手” (37 razy), reszta przekładu „ハンド” (ponad 1500 wystąpień, w m5 ani razu); jedna nazwa na pojęcie — przykład, pełna lista w uwagach („Do ujednolicenia skryptem”).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m6.yaml",
+  "linia": 59,
+  "stary": "このハンドには価値も",
+  "nowy": "このハンドにはバリューも",
+  "waga": "ŚR",
+  "powod": "pl: „Ta ręka nie ma ani wartości, ani drawa” — „wartość” w sensie pokerowym (value). W terms-nazwy value = „バリュー” i tak jest w reszcie przekładu (np. m3 „バリューを失い” dla „oddajesz wartość”); „価値” to inna nazwa tego samego pojęcia.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m7.yaml",
+  "linia": 44,
+  "stary": "ポットの3/4をベットします",
+  "nowy": "{{t:pot|ポット}}の3/4をベットします",
+  "waga": "ŚR",
+  "powod": "pl: „betujesz 3/4 {{t:pot|puli}}” — w przekładzie zgubiony znacznik terminu {{t:pot|…}} (zwykły tekst „ポット”); przywrócony znacznik z formą zgodną z terms-nazwy (ポット).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 75,
+  "stary": "への{{t:in-position|インポジション}}の3ベットは、",
+  "nowy": "への{{t:position|インポジション}}の3ベットは、",
+  "waga": "ŚR",
+  "powod": "Klucz znacznika zmieniony względem pl: pl „3-bet z {{t:position|pozycji}}”, ja ma {{t:in-position|…}}. Klucz ma być jak w pl; widoczny tekst „インポジション” zostaje (forma zawiera nazwę ポジション, używana już pod kluczem position).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 92,
+  "stary": "## まずは{{t:mixed-hand|混合ハンド}}から",
+  "nowy": "## まずは{{t:mixed-hand|ミックスハンド}}から",
+  "waga": "ŚR",
+  "powod": "Forma terminu niezgodna z terms-nazwy.yaml: mixed-hand = „ミックスハンド” (tak w m3-l3, m13-l1, rules.yaml); „混合ハンド” występuje tylko w tym pliku. pl: „ręce mieszane”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 96,
+  "stary": "多すぎる：{{t:mixed-hand|混合ハンド}}",
+  "nowy": "多すぎる：{{t:mixed-hand|ミックスハンド}}",
+  "waga": "ŚR",
+  "powod": "Forma terminu niezgodna z terms-nazwy.yaml: mixed-hand = „ミックスハンド” (tak w m3-l3, m13-l1, rules.yaml); „混合ハンド” występuje tylko w tym pliku. pl: „ręce mieszane”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 97,
+  "stary": "少なすぎる：{{t:mixed-hand|混合ハンド}}",
+  "nowy": "少なすぎる：{{t:mixed-hand|ミックスハンド}}",
+  "waga": "ŚR",
+  "powod": "Forma terminu niezgodna z terms-nazwy.yaml: mixed-hand = „ミックスハンド” (tak w m3-l3, m13-l1, rules.yaml); „混合ハンド” występuje tylko w tym pliku. pl: „ręce mieszane”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 115,
+  "stary": "への{{t:in-position|インポジション}}の3ベットが、",
+  "nowy": "への{{t:position|インポジション}}の3ベットが、",
+  "waga": "ŚR",
+  "powod": "Klucz znacznika zmieniony względem pl: pl „3-bet z {{t:position|pozycji}}”, ja ma {{t:in-position|…}}. Klucz ma być jak w pl; widoczny tekst „インポジション” zostaje (forma zawiera nazwę ポジション, używana już pod kluczem position).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 129,
+  "stary": "{{t:mixed-hand|混合ハンド}}の原則",
+  "nowy": "{{t:mixed-hand|ミックスハンド}}の原則",
+  "waga": "ŚR",
+  "powod": "Forma terminu niezgodna z terms-nazwy.yaml: mixed-hand = „ミックスハンド” (tak w m3-l3, m13-l1, rules.yaml); „混合ハンド” występuje tylko w tym pliku. pl: „ręce mieszane”.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m11-l3-icm.md",
+  "linia": 29,
+  "stary": "{{t:payout|ペイアウト}}：1位に",
+  "nowy": "{{t:payout|賞金}}：1位に",
+  "waga": "ŚR",
+  "powod": "pl „{{t:payout|…}}” (wypłaty): forma ペイアウト nie jest postacią nazwy z terms-nazwy (payout: \"賞金\"); w tej samej lekcji {{t:payout}} bez formy wyświetla 賞金, a m11-l2 używa {{t:payout|賞金}} — jedno pojęcie, dwie nazwy. Ujednolicenie do 賞金.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m11-l3-icm.md",
+  "linia": 39,
+  "stary": "の{{t:payout|ペイアウト}}では、",
+  "nowy": "の{{t:payout|賞金}}では、",
+  "waga": "ŚR",
+  "powod": "pl „{{t:payout|…}}” (wypłaty): forma ペイアウト nie jest postacią nazwy z terms-nazwy (payout: \"賞金\"); w tej samej lekcji {{t:payout}} bez formy wyświetla 賞金, a m11-l2 używa {{t:payout|賞金}} — jedno pojęcie, dwie nazwy. Ujednolicenie do 賞金.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m11-l3-icm.md",
+  "linia": 71,
+  "stary": "{{t:payout|ペイアウト}}のある{{t:tournament|トーナメント}}で重要",
+  "nowy": "{{t:payout|賞金}}のある{{t:tournament|トーナメント}}で重要",
+  "waga": "ŚR",
+  "powod": "pl „{{t:payout|…}}” (wypłaty): forma ペイアウト nie jest postacią nazwy z terms-nazwy (payout: \"賞金\"); w tej samej lekcji {{t:payout}} bez formy wyświetla 賞金, a m11-l2 używa {{t:payout|賞金}} — jedno pojęcie, dwie nazwy. Ujednolicenie do 賞金.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m11-l3-icm.md",
+  "linia": 161,
+  "stary": "{{t:payout|ペイアウト}}のある{{t:tournament|トーナメント}}では{{n:",
+  "nowy": "{{t:payout|賞金}}のある{{t:tournament|トーナメント}}では{{n:",
+  "waga": "ŚR",
+  "powod": "pl „{{t:payout|…}}” (wypłaty): forma ペイアウト nie jest postacią nazwy z terms-nazwy (payout: \"賞金\"); w tej samej lekcji {{t:payout}} bez formy wyświetla 賞金, a m11-l2 używa {{t:payout|賞金}} — jedno pojęcie, dwie nazwy. Ujednolicenie do 賞金.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l4-bankroll.md",
+  "linia": 141,
+  "stary": "理想は約{{n:study.winner}}ですが、学習が{{n:study.min}}を下回ることはないようにします。",
+  "nowy": "理想は約{{n:study.winner}}ですが、学習は決して{{n:study.min}}を下回らないようにします。",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna (M12): pl „ale nigdy mniej niż {{n:study.min}} nauki” — w przekładzie zgubione „nigdy” (jest tylko „żeby nie spadła poniżej”); ćwiczenie w tej samej lekcji (linia 94) ma „決して…下回らない”. Nowy tekst przywraca „nigdy” i ujednolica z linią 94.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m13-l1-raport.md",
+  "linia": 61,
+  "stary": "レポート：「30件中14件の判断を評価しました」",
+  "nowy": "レポート：「判断30件中14件を評価」",
+  "waga": "ŚR",
+  "powod": "pl cytuje napis z raportu „Oceniono 14 z 30 decyzji” dokładnie jak w interfejsie pl (game.report.rated „Oceniono {{rated}} z {{all}} decyzji”); w ja interfejs pokazuje „判断{{all}}件中{{rated}}件を評価” (ja.json), a lekcja cytuje inne brzmienie. Cytat ma odpowiadać temu, co użytkownik widzi na ekranie.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m13-l1-raport.md",
+  "linia": 97,
+  "stary": "「Y件中X件の判断を評価しました」",
+  "nowy": "「判断Y件中X件を評価」",
+  "waga": "ŚR",
+  "powod": "pl „Oceniono X z Y decyzji” = napis interfejsu; w ja interfejs ma „判断{{all}}件中{{rated}}件を評価” (ja.json). Cytat dopasowany do ekranu raportu.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m2-l1-outy.md",
+  "linia": 106,
+  "stary": "**アウト**とは",
+  "nowy": "**アウツ**とは",
+  "waga": "ŚR",
+  "powod": "Termin outs ma w terms-nazwy.yaml nazwę „アウツ” i tak jest w całej lekcji (tytuł, ćwiczenia, tabela); tylko definicja (pl: „**Out** to karta, która poprawia twoją rękę”) używa innej postaci „アウト”, przez co definiowane słowo różni się od słowa używanego dalej. Jedna nazwa na pojęcie.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m2-l2-pot-odds.md",
+  "linia": 97,
+  "stary": "ハンドが完成した場合にその後のハンドで勝てると見込める",
+  "nowy": "役が完成した場合に、同じハンドの中でその後に勝てると見込める",
+  "waga": "ŚR",
+  "powod": "pl: „żetony, które spodziewasz się wygrać później w rozdaniu, jeśli trafisz swój układ”. „その後のハンドで” czyta się jako „w kolejnych rozdaniach”, a implied odds dotyczą dalszej części tego samego rozdania; „ハンドが完成” zamienione na „役が完成” (układ), żeby „ハンド” nie znaczyło w jednym zdaniu i ręki, i rozdania.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m3-l3-zakresy-otwarc.md",
+  "linia": 47,
+  "stary": "下はオフスーツハンド",
+  "nowy": "下はオフスートハンド",
+  "waga": "ŚR",
+  "powod": "pl: „pod nią w różnych kolorach (np. AKo)”. W przekładzie ja pojęcie offsuit ma postać „オフスート” (18 wystąpień, m.in. sąsiednia lekcja m3-l2); „オフスーツ” to druga pisownia tego samego terminu. Jedna nazwa na pojęcie.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m3-l3-zakresy-otwarc.md",
+  "linia": 80,
+  "stary": "9人テーブルの前方の{{t:position|ポジション}}",
+  "nowy": "9人テーブルのアーリー{{t:position|ポジション}}",
+  "waga": "ŚR",
+  "powod": "pl: „Dla wczesnych pozycji przy stole 9-osobowym”. Pojęcie early position ma w terms-nazwy.yaml nazwę „アーリーポジション” (tak w m3-l1, notatka o rozmiarze otwarcia); „前方のポジション” to inna nazwa tego samego pojęcia i nie jest przyjętym określeniem.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m3-l3-zakresy-otwarc.md",
+  "linia": 84,
+  "stary": "そしてオフスーツハンドは",
+  "nowy": "そしてオフスートハンドは",
+  "waga": "ŚR",
+  "powod": "pl: „od której karty zaczynają się ręce w różnych kolorach”. Ujednolicenie pisowni terminu offsuit do „オフスート” (jak w m3-l2 i większości przekładu).",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m3-l3-zakresy-otwarc.md",
+  "linia": 87,
+  "stary": "弱いオフスーツハンド",
+  "nowy": "弱いオフスートハンド",
+  "waga": "ŚR",
+  "powod": "pl: „słabe ręce w różnych kolorach (np. A4o, K7o)”. Ujednolicenie pisowni terminu offsuit do „オフスート” (jak w m3-l2 i większości przekładu).",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m4-l3-wobec-3betu.md",
+  "linia": 13,
+  "stary": "ボタンがどのハンドで3ベットしても利益を出せないようにするには",
+  "nowy": "ボタンがどんなハンドの3ベットでも利益を出せる状態にしないためには",
+  "waga": "ŚR",
+  "powod": "pl: „żeby Button nie zarabiał na 3-becie z każdą ręką” (zaprzeczenie dotyczy „z każdą ręką”). Przekład mówi „żeby Button nie mógł zarobić, jakąkolwiek ręką 3-betuje” (żadna ręka nie zarabia), co jest za mocne; nowy tekst: „żeby nie powstał stan, w którym 3-bet zarabia dowolną ręką”.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m4-l4-limperzy.md",
+  "linia": 46,
+  "stary": "弱いプレイヤーがリンプする多くのハンドを支配しており",
+  "nowy": "弱いプレイヤーがリンプする多くのハンドをドミネートしており",
+  "waga": "ŚR",
+  "powod": "pl: „dominuje wiele rąk”. W reszcie przekładu (m4-l3 i dalej) dominacja to konsekwentnie ドミネート; 支配 pojawia się tylko w tej lekcji. Jedna nazwa na pojęcie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m4-l4-limperzy.md",
+  "linia": 48,
+  "stary": "リンパーを支配するハンドなら",
+  "nowy": "リンパーをドミネートするハンドなら",
+  "waga": "ŚR",
+  "powod": "pl: „Z ręką, która dominuje limpera”. Ujednolicenie z ドミネート używanym w pozostałych lekcjach (支配 tylko tutaj).",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l1-tekstury.md",
+  "linia": 74,
+  "stary": "連続する5つのランクの中に自分のカードが2枚だけ収まっています",
+  "nowy": "フロップのカードのうち2枚だけが連続する5つのランクの中に収まっています",
+  "waga": "ŚR",
+  "powod": "pl: „ma w obrębie pięciu kolejnych rang tylko dwie swoje karty” (swoje = karty flopa). 自分のカード czyta się jako „twoje (gracza) karty”, co myli definicję; nowy tekst mówi wprost o kartach flopa.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l1-tekstury.md",
+  "linia": 74,
+  "stary": "**{{t:semi-connected|セミコネクテッド}}**なフロップは",
+  "nowy": "**{{t:semi-connected|セミコネクト}}**なフロップは",
+  "waga": "ŚR",
+  "powod": "Forma znacznika niezgodna z terms-nazwy (semi-connected: „セミコネクト”); reszta przekładu używa セミコネクト.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l1-tekstury.md",
+  "linia": 84,
+  "stary": "（{{t:semi-connected|セミコネクテッド}}なフロップ、または",
+  "nowy": "（{{t:semi-connected|セミコネクト}}なフロップ、または",
+  "waga": "ŚR",
+  "powod": "Forma znacznika niezgodna z terms-nazwy (semi-connected: „セミコネクト”).",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l2-przewagi.md",
+  "linia": 88,
+  "stary": "低くて{{t:connected|コネクトした}}フロップでは",
+  "nowy": "低くて{{t:connected|コネクテッド}}なフロップでは",
+  "waga": "ŚR",
+  "powod": "pl: „Na niskim, {{t:connected|połączonym}} flopie”. Forma コネクトした nie jest postacią nazwy z terms-nazwy (connected: „コネクテッド”, jedna forma przymiotnikowa); lekcja m5-l1 definiuje pojęcie jako コネクテッド.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 116,
+  "stary": "ソルバーはそこで小さなサイズでベットします",
+  "nowy": "ソルバーはそこではより小さなサイズでベットします",
+  "waga": "ŚR",
+  "powod": "pl: „solvery betują tam mniejszym rozmiarem” (stopień wyższy: mniejszym niż na flopie z drawami bez gotowego strita); ja mówi „małym rozmiarem”. Nowy tekst oddaje porównanie.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 122,
+  "stary": "{{t:wetness|ウェットさ}}",
+  "nowy": "{{t:wetness|ウェット度}}",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy: wetness = „ウェット度” (tak też w interfejsie: summary „{{t:wetness|ウェット度}}”); tu jedyne w korpusie „ウェットさ”. pl: „Rozmiar rośnie z {{t:wetness|mokrością}}”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 122,
+  "stary": "（アプリでは通常、中程度のもの）",
+  "nowy": "（アプリでは通常、中間のもの）",
+  "waga": "ŚR",
+  "powod": "pl: „(w aplikacji zwykle pośrednich)” odsyła do kategorii mokrości „Pośredni” z interfejsu; w ja.json ta kategoria nazywa się „中間” (drill.texture wetness.medium), a nie „中程度” — czytelnik nie skojarzy z etykietą w aplikacji.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m6-l1-mdf-alpha.md",
+  "linia": 94,
+  "stary": "強いハンドは支払い、弱いハンドは{{t:fold|フォールド}}します。",
+  "nowy": "より強いハンドはコールし、より弱いハンドは{{t:fold|フォールド}}します。",
+  "waga": "ŚR",
+  "powod": "pl: „Lepsze ręce zapłacą, gorsze {{t:fold|spasują}}” — porównanie z twoją ręką (lepsze/gorsze od niej), w ja „silne/słabe ręce”; do tego „支払い” bez dopełnienia jest niejasne (zapłacą = sprawdzą przebicie).",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m6-l2-sprawdzenie.md",
+  "linia": 76,
+  "stary": "このサイズでは弱いハンドは降りてしまい、払ってくるのは強いハンドだけです。",
+  "nowy": "このサイズではより弱いハンドは降りてしまい、払ってくるのはより強いハンドだけです。",
+  "waga": "ŚR",
+  "powod": "pl: „Taki rozmiar wypycha słabsze ręce, a płacą tylko lepsze” — słabsze/lepsze od twojej ręki; ja „słabe/silne”. W tej samej lekcji (w. 46) jest poprawnie „より強いハンド”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l3-implied-odds.md",
+  "linia": 54,
+  "stary": "{{t:oesd|オープンエンド・ストレートドロー}}",
+  "nowy": "{{t:oesd|OESD}}",
+  "waga": "ŚR",
+  "powod": "pl: „Masz {{t:oesd}}”. W terms-nazwy.yaml oesd = null (zostaje skrót OESD); w m7-l2 i m7-l4 tego samego modułu jest OESD, forma rozwinięta jest niezgodna z nazwą terminu.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l3-implied-odds.md",
+  "linia": 134,
+  "stary": "「ハンドの計画」モジュール",
+  "nowy": "「ハンドのプラン」モジュール",
+  "waga": "ŚR",
+  "powod": "pl: „w module „Plan rozdania” (M9)”. Tytuł modułu M9 w content/ja/modules.yaml to „ハンドのプラン”; cytowana nazwa modułu ma być taka jak na ekranie.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l1-value.md",
+  "linia": 107,
+  "stary": "{{t:position|ポジション}}からベットし",
+  "nowy": "{{t:position|ポジション}}がある状態でベットし",
+  "waga": "ŚR",
+  "powod": "pl: „Gdy betujesz z pozycji” (= mając pozycję). „ポジションからベット” to kalka niejasna po japońsku w zdaniu definiującym warunek progu; w tej samej lekcji (linia 89) jest poprawne „ポジションがあるので”.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l2-ile-blefow.md",
+  "linia": 65,
+  "stary": "あなたが{{t:bluff|ブラフ}}したときにちょうど勝つから",
+  "nowy": "あなたが{{t:bluff|ブラフ}}しているときにだけ勝つから",
+  "waga": "ŚR",
+  "powod": "pl: „wygrywa dokładnie wtedy, gdy {{t:bluff|blefujesz}}” (wtedy i tylko wtedy). „ちょうど勝つ” czyta się jak „wygrywa na styk/akurat”, nie „dokładnie wtedy”; to kluczowe zdanie poprawnej odpowiedzi. Nowy tekst jak w m8-l4 („勝つのは、相手がブラフしているときだけです”).",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l2-ile-blefow.md",
+  "linia": 107,
+  "stary": "## {{t:polarized|ポラライズド}}{{t:range|レンジ}}",
+  "nowy": "## {{t:polarized|ポラライズ}}された{{t:range|レンジ}}",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy i resztą przekładu: `polarized` = „ポラライズ”, w pozostałych lekcjach ja wszędzie „{{t:polarized|ポラライズ}}された{{t:range|レンジ}}” (15×), forma „ポラライズド” występuje tylko w tej lekcji (3×). pl: „{{t:range|Zakres}} {{t:polarized}}”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l2-ile-blefow.md",
+  "linia": 109,
+  "stary": "**{{t:polarized|ポラライズド}}{{t:range|レンジ}}**",
+  "nowy": "**{{t:polarized|ポラライズ}}された{{t:range|レンジ}}**",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy i resztą przekładu: `polarized` = „ポラライズ”, w pozostałych lekcjach ja wszędzie „{{t:polarized|ポラライズ}}された{{t:range|レンジ}}” (15×), forma „ポラライズド” występuje tylko w tej lekcji (3×). pl: „{{t:range|Zakres}} {{t:polarized}}”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l2-ile-blefow.md",
+  "linia": 119,
+  "stary": "あなたが{{t:bluff|ブラフ}}したときにちょうど勝つので",
+  "nowy": "あなたが{{t:bluff|ブラフ}}しているときにだけ勝つので",
+  "waga": "ŚR",
+  "powod": "pl: „bluff-catcher wygrywa dokładnie wtedy, gdy {{t:bluff|blefujesz}}”. „ちょうど勝つ” = „wygrywa akurat/na styk”, nienaturalne i mylące; poprawnie „しているときにだけ勝つ” (jak w m8-l4).",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l2-ile-blefow.md",
+  "linia": 142,
+  "stary": "{{t:polarized|ポラライズド}}{{t:range}}（",
+  "nowy": "{{t:polarized|ポラライズ}}された{{t:range}}（",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy i resztą przekładu: `polarized` = „ポラライズ”, w pozostałych lekcjach ja wszędzie „{{t:polarized|ポラライズ}}された{{t:range|レンジ}}” (15×), forma „ポラライズド” występuje tylko w tej lekcji (3×). pl: „{{t:range|Zakres}} {{t:polarized}}”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l3-blokery.md",
+  "linia": 55,
+  "stary": "ビッグブラインドはリバーでチェックしました",
+  "nowy": "{{t:big-blind|ビッグブラインド}}はリバーでチェックしました",
+  "waga": "ŚR",
+  "powod": "Zgubiony znacznik terminu: pl „{{t:big-blind|Duży blind}} czeka na riverze” ma {{t:big-blind|…}}, w ja zwykły tekst bez znacznika (w sąsiednich ćwiczeniach znacznik jest). „czeka” w pl też bez znacznika, więc チェック zostaje zwykłym tekstem.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l4-bluff-catching.md",
+  "linia": 80,
+  "stary": "（スペードのクイーン、スペードのジャック）",
+  "nowy": "（スペード2枚のクイーンハイ、スペード2枚のジャックハイ）",
+  "waga": "ŚR",
+  "powod": "pl: „(dama z pikami, walet z pikami)” = ręce z damą/waletem i pikami, czyli nietrafione drawy do koloru (en: „queen with spades, jack with spades”). ja „スペードのクイーン” znaczy pojedynczą kartę „dama pik”, co nie opisuje ręki-blefu, z którą przegrywa siódemka jako najwyższa karta.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l1-spr.md",
+  "linia": 84,
+  "stary": "最後まで払ってくるのは主に強いハンドです",
+  "nowy": "最後まで払ってくるのは主により強いハンドです",
+  "waga": "ŚR",
+  "powod": "pl: „do końca płacą głównie silniejsze ręce” (stopień wyższy: silniejsze od twojej najwyższej pary). ja „強いハンド” gubi porównanie, a ono jest powodem, dla którego nie grasz zawsze o stack.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l2-zaangazowanie.md",
+  "linia": 65,
+  "stary": "シングルレイズの{{t:pot|ポット}}、スタック",
+  "nowy": "レイズが1回の{{t:pot|ポット}}、スタック",
+  "waga": "ŚR",
+  "powod": "Jedna nazwa na pojęcie: pl „{{t:pot|Pula}} z jednym podbiciem” w m9-l1 oddano 5× jako „レイズが1回の{{t:pot|ポット}}”; „シングルレイズの” występuje w całej treści ja tylko 2× (ta lekcja).",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l2-zaangazowanie.md",
+  "linia": 110,
+  "stary": "シングルレイズの{{t:pot|ポット}}では",
+  "nowy": "レイズが1回の{{t:pot|ポット}}では",
+  "waga": "ŚR",
+  "powod": "Jedna nazwa na pojęcie: pl „W {{t:pot|puli}} z jednym podbiciem”; w m9-l1 5× „レイズが1回の{{t:pot|ポット}}”, tu inna nazwa tej samej sytuacji.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 97,
+  "stary": "| Flop | {{n:ex.pot}}",
+  "nowy": "| フロップ | {{n:ex.pot}}",
+  "waga": "ŚR",
+  "powod": "Wiersz tabeli zostawiony po angielsku (pl: „Flop/Turn/River” to w pl zwykłe nazwy ulic); reszta przekładu ja używa フロップ/ターン/リバー, także w tym pliku. Resztka tekstu nieprzełożonego.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 98,
+  "stary": "| Turn | {{n:ex.pot.after-pot-call}}",
+  "nowy": "| ターン | {{n:ex.pot.after-pot-call}}",
+  "waga": "ŚR",
+  "powod": "Wiersz tabeli zostawiony po angielsku (pl: „Flop/Turn/River” to w pl zwykłe nazwy ulic); reszta przekładu ja używa フロップ/ターン/リバー, także w tym pliku. Resztka tekstu nieprzełożonego.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 99,
+  "stary": "| River | {{n:geo.ex.turn-after}}",
+  "nowy": "| リバー | {{n:geo.ex.turn-after}}",
+  "waga": "ŚR",
+  "powod": "Wiersz tabeli zostawiony po angielsku (pl: „Flop/Turn/River” to w pl zwykłe nazwy ulic); reszta przekładu ja używa フロップ/ターン/リバー, także w tym pliku. Resztka tekstu nieprzełożonego.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 113,
+  "stary": "## よくある{{t:pot|ポット}}のサイズ",
+  "nowy": "## よくある{{t:pot|ポット}}でのサイズ",
+  "waga": "ŚR",
+  "powod": "pl: „Rozmiary dla typowych pul” = rozmiary zakładu dla typowych pul. Obecny nagłówek czyta się jako „typowe wielkości puli”; „でのサイズ” oddaje sens pl.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 72,
+  "stary": "シングルレイズ{{t:pot|ポット}}で、{{t:spr}}は約",
+  "nowy": "シングルレイズド{{t:pot|ポット}}で、{{t:spr}}は約",
+  "waga": "ŚR",
+  "powod": "Niespójna nazwa „puli z jednym podbiciem”: tu „シングルレイズポット”, w m9-l3 i reszcie przekładu ja „シングルレイズドポット” (7 wystąpień). Jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 113,
+  "stary": "シングルレイズ{{t:pot|ポット}}（{{t:spr}}約{{n:spr.srp}}）では、バリュー",
+  "nowy": "シングルレイズド{{t:pot|ポット}}（{{t:spr}}約{{n:spr.srp}}）では、バリュー",
+  "waga": "ŚR",
+  "powod": "Niespójna nazwa „puli z jednym podbiciem”: tu „シングルレイズポット”, w m9-l3 i reszcie przekładu ja „シングルレイズドポット” (7 wystąpień). Jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 115,
+  "stary": "シングルレイズ{{t:pot|ポット}}（{{t:spr}}約{{n:spr.srp}}、",
+  "nowy": "シングルレイズド{{t:pot|ポット}}（{{t:spr}}約{{n:spr.srp}}、",
+  "waga": "ŚR",
+  "powod": "Niespójna nazwa „puli z jednym podbiciem”: tu „シングルレイズポット”, w m9-l3 i reszcie przekładu ja „シングルレイズドポット” (7 wystąpień). Jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l4-plan-trzech-ulic.md",
+  "linia": 130,
+  "stary": "シングルレイズ{{t:pot|ポット}}では{{t:spr}}が高すぎて",
+  "nowy": "シングルレイズド{{t:pot|ポット}}では{{t:spr}}が高すぎて",
+  "waga": "ŚR",
+  "powod": "Niespójna nazwa „puli z jednym podbiciem”: tu „シングルレイズポット”, w m9-l3 i reszcie przekładu ja „シングルレイズドポット” (7 wystąpień). Jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "linia": 947,
+  "stary": "{{t:rake-cap|レーキキャップ}}",
+  "nowy": "{{t:rake-cap|レーキ上限}}",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:rake-cap|limitu rake'u}}”; nazwa terminu rake-cap w content/ja/terms-nazwy.yaml to „レーキ上限” (tak też 4 razy w lekcji m10-l4-rake), a forma w znaczniku ma być postacią tej nazwy; „レーキキャップ” to druga nazwa tego samego pojęcia.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "linia": 973,
+  "stary": "ハンド数の平方根に比例してしか小さくならないからです",
+  "nowy": "ハンド数の平方根に比例して小さくなるからです",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna (R-M12-003): pl „błąd oszacowania maleje z pierwiastkiem z liczby rąk” nie zawiera ograniczenia „tylko”; przekład dodaje „しか…ない” (wzmocnienie). Nowy tekst mówi to samo co pl i zgadza się z lekcją m12-l1 (linia 118: 平方根に比例して小さくなります).",
+  "grupa": "R4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "linia": 996,
+  "stary": "これは{{t:variance}}か学ぶべきミスだと思い出させる",
+  "nowy": "なぜこれが{{t:variance}}か学ぶべきミスなのかを思い出させる",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna (R-M12-006): pl „zdanie, które przypomina, dlaczego to {{t:variance}} albo błąd do nauki”; w przekładzie zgubione „dlaczego” (jest „przypomina, że to…”). Nowy tekst oddaje „dlaczego”; znacznik bez zmian.",
+  "grupa": "R4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "linia": 1164,
+  "stary": "プレイからの復習では",
+  "nowy": "実戦の復習では",
+  "waga": "ŚR",
+  "powod": "R-M13-003: pl „powtórka z gry”; w lekcji m13-l2 ta funkcja nazywa się 実戦の復習 (tytuł, linia 5; „実戦からの新しいカード”, linia 81), a „プレイからの復習” występuje w całym przekładzie tylko tutaj. Jedna nazwa na pojęcie.",
+  "grupa": "R4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 14,
+  "stary": "kicker: null  #",
+  "nowy": "kicker: \"キッカー\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „kicker” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „キッカー” (ok. 63 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 21,
+  "stary": "check-raise: null  #",
+  "nowy": "check-raise: \"チェックレイズ\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „check-raise” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „チェックレイズ” (ok. 65 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 33,
+  "stary": "stack: null  #",
+  "nowy": "stack: \"スタック\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „stack” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „スタック” (ok. 397 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 49,
+  "stary": "button: \"BTN\"",
+  "nowy": "button: \"ボタン\"",
+  "waga": "ŚR",
+  "powod": "pl „Button” (pełna nazwa, skrót BTN osobno w polu abbr). Przekład nazywa to miejsce „ボタン” (ok. 390 wystąpień, m.in. tytuły spotów i definicje small-blind/cutoff/hijack), a „BTN” jako forma znacznika pada 3 razy; nazwa lokalna „BTN” dubluje tylko skrót pokazywany i tak przy nazwie angielskiej.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 55,
+  "stary": "gutshot: null  #",
+  "nowy": "gutshot: \"ガットショット\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „gutshot” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „ガットショット” (ok. 30 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 56,
+  "stary": "backdoor: null  #",
+  "nowy": "backdoor: \"バックドア\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „backdoor” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „バックドア” (ok. 12 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 57,
+  "stary": "pot-odds: null  #",
+  "nowy": "pot-odds: \"ポットオッズ\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „pot-odds” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „ポットオッズ” (ok. 8 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 66,
+  "stary": "suited: null  #",
+  "nowy": "suited: \"スーテッド\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „suited” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „スーテッド” (ok. 50 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 67,
+  "stary": "offsuit: null  #",
+  "nowy": "offsuit: \"オフスート\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „offsuit” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „オフスート” (ok. 18 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 70,
+  "stary": "3-bet: null  #",
+  "nowy": "3-bet: \"3ベット\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „3-bet” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „3ベット” (ok. 261 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 71,
+  "stary": "4-bet: null  #",
+  "nowy": "4-bet: \"4ベット\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „4-bet” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „4ベット” (ok. 74 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 83,
+  "stary": "semi-connected: \"セミコネクト\"",
+  "nowy": "semi-connected: \"セミコネクテッド\"",
+  "waga": "ŚR",
+  "powod": "Niespójna trójka nazw jednej osi tekstury: connected = „コネクテッド”, disconnected = „ディスコネクテッド”, a semi-connected = „セミコネクト” (pl: połączony / niepołączony / półpołączony, jedna forma przymiotnikowa). Forma „セミコネクテッド” jest już używana w tekście (znaczniki z tą formą) i zgadza się z pozostałymi dwiema.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 103,
+  "stary": "bluff-catcher: null  #",
+  "nowy": "bluff-catcher: \"ブラフキャッチャー\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „bluff-catcher” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „ブラフキャッチャー” (ok. 31 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 104,
+  "stary": "barrel: null  #",
+  "nowy": "barrel: \"バレル\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „barrel” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „バレル” (ok. 27 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 106,
+  "stary": "probe-bet: null  #",
+  "nowy": "probe-bet: \"プローブベット\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „probe-bet” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „プローブベット” (ok. 19 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 116,
+  "stary": "tilt: null  #",
+  "nowy": "tilt: \"ティルト\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „tilt” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „ティルト” (ok. 59 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 125,
+  "stary": "push-fold: null  #",
+  "nowy": "push-fold: \"プッシュ/フォールド\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „push-fold” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „プッシュ/フォールド” (ok. 12 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 129,
+  "stary": "bubble-factor: null  #",
+  "nowy": "bubble-factor: \"バブルファクター\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „bubble-factor” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „バブルファクター” (ok. 17 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 135,
+  "stary": "ante: null  #",
+  "nowy": "ante: \"アンティ\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „ante” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „アンティ” (ok. 50 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 137,
+  "stary": "fold-equity: null  #",
+  "nowy": "fold-equity: \"フォールドエクイティ\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „fold-equity” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „フォールドエクイティ” (ok. 12 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 148,
+  "stary": "heads-up: null  #",
+  "nowy": "heads-up: \"ヘッズアップ\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „heads-up” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „ヘッズアップ” (ok. 4 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "store/app-store-metadata.json",
+  "linia": 29,
+  "stary": "• 判断を4段階で評価\\n",
+  "nowy": "• 判断を4段階で評価：一致、許容、不正確、ミス\\n",
+  "waga": "ŚR",
+  "powod": "Opis sklepu (ja): pl „Decyzje z oceną w czterech stopniach: zgodna, dopuszczalna, niedokładność, błąd” (en: „correct, acceptable, inaccuracy, mistake”). W ja pominięto wyliczenie czterech stopni; dopisane nazwami z interfejsu (grade.*: 一致, 許容, 不正確, ミス).",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "store/app-store-metadata.json",
+  "linia": 29,
+  "stary": "または1回限りの買い切り（無期限）。",
+  "nowy": "または1回限りの購入の永久アクセス。",
+  "waga": "ŚR",
+  "powod": "Opis sklepu (ja): pl „jednorazowy dostęp dożywotni”. W interfejsie produkt nazywa się „永久アクセス” (purchase.plan.lifetime), a zakup „1回限りの購入” (purchase.oneTime); „買い切り（無期限）” to inna nazwa tego samego produktu. Jedna nazwa na pojęcie.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m10.yaml",
+  "linia": 27,
+  "stary": "機会が何分の一も少なく",
+  "nowy": "機会が何倍も少なく",
+  "waga": "NISKIE",
+  "powod": "pl: „ma ich wielokrotnie mniej” — „何分の一も少なく” jest niegramatyczne/niejasne; „何倍も少なく” oddaje „wielokrotnie mniej”.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m3.yaml",
+  "linia": 70,
+  "stary": "オープン}}します（そこでは{{n:pf.open-size-sb}}）",
+  "nowy": "オープン}}します（スモールブラインドでは{{n:pf.open-size-sb}}）",
+  "waga": "NISKIE",
+  "powod": "pl: „poza małym blindem (tam {{n:pf.open-size-sb}})”. W ja nawias stoi po orzeczeniu, więc „そこでは” nie ma jasnego odniesienia (najbliżej jest „wszystkie pozycje”); nazwanie małego blinda wprost usuwa dwuznaczność, liczba i znaczniki bez zmian.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m4.yaml",
+  "linia": 92,
+  "stary": "{{t:value|バリュー}}と{{t:initiative|イニシアチブ}}を手放します",
+  "nowy": "バリューと{{t:initiative|イニシアチブ}}を手放します",
+  "waga": "NISKIE",
+  "powod": "pl: „oddaje wartość i {{t:initiative|inicjatywę}}” — w pl słowo „wartość” nie ma znacznika; przekład dodał {{t:value|…}}, którego nie ma w źródle (zestaw znaczników ma być jak w pl). Tekst widoczny bez zmian.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 22,
+  "stary": "低く{{t:connected}}のフロップは",
+  "nowy": "低くて{{t:connected}}なフロップは",
+  "waga": "NISKIE",
+  "powod": "pl: „niski, {{t:connected}} flop”. „低くコネクテッドのフロップ” jest niegramatyczne (przysłówkowe „低く” nie łączy się z rzeczownikiem); „低くてコネクテッドなフロップ” jest poprawne, znacznik bez zmian.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m7.yaml",
+  "linia": 75,
+  "stary": "引くのはダイヤの2枚だけです",
+  "nowy": "差し引くのはダイヤの2枚だけです",
+  "waga": "NISKIE",
+  "powod": "pl: „odejmujesz tylko dwie karty w kolorze karo” — „引く” przy kartach czyta się jak „dobierasz” (draw); „差し引く” jednoznacznie znaczy „odejmujesz”.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l1-statystyki.md",
+  "linia": 87,
+  "stary": "あなたの{{t:stakes|ステークス}}のプレイヤー層のデータ",
+  "nowy": "あなたの{{t:stakes|ステークス}}の母集団データ",
+  "waga": "NISKIE",
+  "powod": "pl: „dane o populacji”. W tym pliku „プレイヤー層”, w m10-l2, m10-l3, m10-l4 i rules.yaml „母集団” (25 linii). Jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l1-statystyki.md",
+  "linia": 130,
+  "stary": "自分の{{t:stakes|ステークス}}のプレイヤー層のデータ",
+  "nowy": "自分の{{t:stakes|ステークス}}の母集団データ",
+  "waga": "NISKIE",
+  "powod": "pl: „dane o populacji”. W tym pliku „プレイヤー層”, w m10-l2, m10-l3, m10-l4 i rules.yaml „母集団” (25 linii). Jedna nazwa na pojęcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l2-typy-graczy.md",
+  "linia": 82,
+  "stary": "text: \"オールインに{{t:raise|レイズ}}\"",
+  "nowy": "text: \"オールインで{{t:raise|レイズ}}\"",
+  "waga": "NISKIE",
+  "powod": "pl: „Przebijam all-in”. „オールインにレイズ” czyta się jak „przebijam czyjś all-in”; „オールインでレイズ” = przebijam all-inem.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l2-typy-graczy.md",
+  "linia": 132,
+  "stary": "{{t:street|ストリート}}にわたって；",
+  "nowy": "{{t:street|ストリート}}にわたって。",
+  "waga": "NISKIE",
+  "powod": "Punkt listy kończy się średnikiem przeniesionym z pl („…na trzech ulicach;”); w japońskim zdanie kończy „。”, jak w następnym punkcie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 42,
+  "stary": "explanation: \"閾値は",
+  "nowy": "explanation: \"しきい値は",
+  "waga": "NISKIE",
+  "powod": "pl: „próg”. Zapis „閾値” tylko w tym pliku (5 linii); reszta przekładu ja pisze „しきい値” (34 linie, m.in. m10-l2, m9-l1, rules.yaml). Ujednolicenie zapisu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 101,
+  "stary": "## 閾値で計算する",
+  "nowy": "## しきい値で計算する",
+  "waga": "NISKIE",
+  "powod": "pl: „próg”. Zapis „閾値” tylko w tym pliku (5 linii); reszta przekładu ja pisze „しきい値” (34 linie, m.in. m10-l2, m9-l1, rules.yaml). Ujednolicenie zapisu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 109,
+  "stary": "相手がこの閾値より上か下か",
+  "nowy": "相手がこのしきい値より上か下か",
+  "waga": "NISKIE",
+  "powod": "pl: „próg”. Zapis „閾値” tylko w tym pliku (5 linii); reszta przekładu ja pisze „しきい値” (34 linie, m.in. m10-l2, m9-l1, rules.yaml). Ujednolicenie zapisu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 111,
+  "stary": "母集団の平均が閾値を上回っている",
+  "nowy": "母集団の平均がしきい値を上回っている",
+  "waga": "NISKIE",
+  "powod": "pl: „próg”. Zapis „閾値” tylko w tym pliku (5 linii); reszta przekładu ja pisze „しきい値” (34 linie, m.in. m10-l2, m9-l1, rules.yaml). Ujednolicenie zapisu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m10-l3-odejscie-od-bazy.md",
+  "linia": 129,
+  "stary": "{{t:alpha|アルファ}}の閾値は",
+  "nowy": "{{t:alpha|アルファ}}のしきい値は",
+  "waga": "NISKIE",
+  "powod": "pl: „próg”. Zapis „閾値” tylko w tym pliku (5 linii); reszta przekładu ja pisze „しきい値” (34 linie, m.in. m10-l2, m9-l1, rules.yaml). Ujednolicenie zapisu.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l2-decyzja-wynik.md",
+  "linia": 97,
+  "stary": "{{t:pot|ポット}}全額に対して{{t:call}}するのは悪い判断です",
+  "nowy": "{{t:pot|ポット}}全額のベットに{{t:call}}するのは悪い判断です",
+  "waga": "NISKIE",
+  "powod": "pl „call z drawem do koloru za całą pulę na turnie” = sprawdzenie zakładu wielkości puli; „ポット全額に対してコールする” jest nieprecyzyjne (nie wiadomo, że chodzi o zakład rywala wielkości puli). „ポット全額のベットにコールする” mówi to samo co pl i co ćwiczenie w linii 38 („ポット全額の…をベット”).",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m13-l2-powtorki.md",
+  "linia": 52,
+  "stary": "プレースタイル",
+  "nowy": "プレイスタイル",
+  "waga": "NISKIE",
+  "powod": "pisownia: w całym przekładzie ja „プレイ” (740 wystąpień) wobec „プレー” (7); pl „styl” — sens bez zmian, ujednolicenie zapisu.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m13-l2-powtorki.md",
+  "linia": 53,
+  "stary": "上手くプレーしています",
+  "nowy": "上手くプレイしています",
+  "waga": "NISKIE",
+  "powod": "pisownia: w całym przekładzie ja „プレイ” (740) wobec „プレー” (7); pl „Grasz dobrze” — sens bez zmian, ujednolicenie zapisu.",
+  "grupa": "L7"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m2-l2-pot-odds.md",
+  "linia": 27,
+  "stary": "上級者にとってはプレイになることもありますが",
+  "nowy": "上級者なら有効なプレイになることもありますが",
+  "waga": "NISKIE",
+  "powod": "pl: „U zaawansowanych bywa to zagraniem”. Kalka „プレイになる” jest niejasna po japońsku; „有効なプレイになる” oddaje sens (bywa sensownym zagraniem) bez zmiany treści.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m3-l2-rece-startowe.md",
+  "linia": 45,
+  "stary": "{{t:position|ポジション}}からブラインドを攻める",
+  "nowy": "{{t:position|ポジション}}を持ってブラインドを攻める",
+  "waga": "NISKIE",
+  "powod": "pl: „do ataku na blindy z pozycji” = mając pozycję (przewagę pozycji), nie „z jakiegoś miejsca”. „ポジションから” jest kalką; w tej samej lekcji i w m3-l1 przewagę oddaje „ポジションを持って/があります”.",
+  "grupa": "L1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m4-l2-obrona-bb.md",
+  "linia": 13,
+  "stary": "フロップ以降のプレーは考慮しません",
+  "nowy": "フロップ以降のプレイは考慮しません",
+  "waga": "NISKIE",
+  "powod": "Pisownia: w całym przekładzie プレイ (ok. 800 wystąpień), プレー tylko w kilku miejscach; ujednolicenie.",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m4-l2-obrona-bb.md",
+  "linia": 34,
+  "stary": "最後までプレーした場合",
+  "nowy": "最後までプレイした場合",
+  "waga": "NISKIE",
+  "powod": "Pisownia プレー → プレイ (ujednolicenie z resztą przekładu).",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m4-l2-obrona-bb.md",
+  "linia": 46,
+  "stary": "をプレーしたいわけではありません",
+  "nowy": "をプレイしたいわけではありません",
+  "waga": "NISKIE",
+  "powod": "Pisownia プレー → プレイ (ujednolicenie z resztą przekładu).",
+  "grupa": "L2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m5-l4-bez-pozycji.md",
+  "linia": 47,
+  "stary": "{{t:bluff}}が2人とも通らなければなりません",
+  "nowy": "{{t:bluff}}が2人の両方に通らなければなりません",
+  "waga": "NISKIE",
+  "powod": "pl: „{{t:bluff}} musi przejść przez obu”. W ja niezgodność podmiotu („ブラフが2人とも通る”); naturalnie: ブラフが（相手）に通る.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m6-l1-mdf-alpha.md",
+  "linia": 13,
+  "stary": "勝ち目のない相手の{{t:bluff|ブラフ}}が",
+  "nowy": "相手の勝ち目のない{{t:bluff|ブラフ}}が",
+  "waga": "NISKIE",
+  "powod": "pl: „jego {{t:bluff}} bez szans” — „bez szans” dotyczy blefu; szyk „勝ち目のない相手の” da się odczytać jako „rywala bez szans”. Reszta lekcji ma „勝ち目のない{{t:bluff|ブラフ}}”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m6-l1-mdf-alpha.md",
+  "linia": 92,
+  "stary": "主に強いハンド（KQ、セット）に支払うことになります",
+  "nowy": "主により強いハンド（KQ、セット）に支払うことになります",
+  "waga": "NISKIE",
+  "powod": "pl: „płaci głównie lepszym rękom (KQ, sety)” — lepszym od twojej pary, nie „silnym”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m6-l1-mdf-alpha.md",
+  "linia": 135,
+  "stary": "主に強いハンドに支払うことになるからです",
+  "nowy": "主により強いハンドに支払うことになるからです",
+  "waga": "NISKIE",
+  "powod": "pl: „płaci głównie lepszym rękom” — stopień wyższy (lepszym od twojej słabszej pary).",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m6-l3-check-raise.md",
+  "linia": 93,
+  "stary": "完成しても勝てる{{t:draw|ドロー}}",
+  "nowy": "完成させて勝つこともできる{{t:draw|ドロー}}",
+  "waga": "NISKIE",
+  "powod": "pl: „{{t:draw|drawami}} …, które wygrywają też po trafieniu” (druga droga do wygranej). „完成しても勝てる” brzmi jak ustępstwo („wygrywają nawet gdy trafią”).",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l1-druga-beczka.md",
+  "linia": 75,
+  "stary": "ミディアムハンドです",
+  "nowy": "中程度のハンドです",
+  "waga": "NISKIE",
+  "powod": "Jedna nazwa na pojęcie: pl „średnia ręka” w tej lekcji oddano „ミディアム…”, a w m7-l2, m8-l1 i reszcie przekładu „中程度の…” (23 wystąpienia wobec 4); ujednolicenie do formy dominującej.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l1-druga-beczka.md",
+  "linia": 94,
+  "stary": "。ミディアムハンドは{{t:check|チェック}}\", correct",
+  "nowy": "。中程度のハンドは{{t:check|チェック}}\", correct",
+  "waga": "NISKIE",
+  "powod": "Jedna nazwa na pojęcie: pl „średnia ręka” w tej lekcji oddano „ミディアム…”, a w m7-l2, m8-l1 i reszcie przekładu „中程度の…” (23 wystąpienia wobec 4); ujednolicenie do formy dominującej.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l1-druga-beczka.md",
+  "linia": 94,
+  "stary": "ミディアムハンドは次の",
+  "nowy": "中程度のハンドは次の",
+  "waga": "NISKIE",
+  "powod": "Jedna nazwa na pojęcie: pl „średnia ręka” w tej lekcji oddano „ミディアム…”, a w m7-l2, m8-l1 i reszcie przekładu „中程度の…” (23 wystąpienia wobec 4); ujednolicenie do formy dominującej.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l1-druga-beczka.md",
+  "linia": 95,
+  "stary": "ミディアム{{t:pair|ペア}}",
+  "nowy": "中程度の{{t:pair|ペア}}",
+  "waga": "NISKIE",
+  "powod": "Jedna nazwa na pojęcie: pl „średnia ręka” w tej lekcji oddano „ミディアム…”, a w m7-l2, m8-l1 i reszcie przekładu „中程度の…” (23 wystąpienia wobec 4); ujednolicenie do formy dominującej. (pl: „średnie pary”).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l1-druga-beczka.md",
+  "linia": 132,
+  "stary": "## ミディアムハンドは{{t:check|チェック}}",
+  "nowy": "## 中程度のハンドは{{t:check|チェック}}",
+  "waga": "NISKIE",
+  "powod": "Jedna nazwa na pojęcie: pl „średnia ręka” w tej lekcji oddano „ミディアム…”, a w m7-l2, m8-l1 i reszcie przekładu „中程度の…” (23 wystąpienia wobec 4); ujednolicenie do formy dominującej. Nagłówek odpowiada nagłówkowi „中程度のハンドは…” w m8-l1.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l1-druga-beczka.md",
+  "linia": 137,
+  "stary": "ミディアムハンドは{{t:check|チェック}}）は",
+  "nowy": "中程度のハンドは{{t:check|チェック}}）は",
+  "waga": "NISKIE",
+  "powod": "Jedna nazwa na pojęcie: pl „średnia ręka” w tej lekcji oddano „ミディアム…”, a w m7-l2, m8-l1 i reszcie przekładu „中程度の…” (23 wystąpienia wobec 4); ujednolicenie do formy dominującej.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m7-l4-probe-obrona.md",
+  "linia": 136,
+  "stary": "。ブラフの一部をあきらめているからです",
+  "nowy": "。{{t:bluff|ブラフ}}の一部をあきらめているからです",
+  "waga": "NISKIE",
+  "powod": "pl: „część {{t:bluff|blefów}} odpuścił” ma znacznik terminu; w przekładzie znacznik zgubiono (zwykły tekst „ブラフ”). Przywrócenie znacznika z tym samym kluczem.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l1-value.md",
+  "linia": 72,
+  "stary": "多くディフェンドしています",
+  "nowy": "多くディフェンスしています",
+  "waga": "NISKIE",
+  "powod": "pl: „broni wielu par”. Jedyne „ディフェンド” w całym przekładzie ja; wszędzie indziej „ディフェンス(する)” (124 wystąpienia).",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l1-value.md",
+  "linia": 131,
+  "stary": "{{t:position|ポジション}}からは{{t:pot|ポット}}の1/2を",
+  "nowy": "{{t:position|ポジション}}がある場合は{{t:pot|ポット}}の1/2を",
+  "waga": "NISKIE",
+  "powod": "pl: „z pozycji rzadko schodzi poniżej 1/2 puli”. Ta sama kalka „ポジションから”; naturalnie „ポジションがある場合は”.",
+  "grupa": "L4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l2-zaangazowanie.md",
+  "linia": 41,
+  "stary": "スタック全部をかけたくないときにも合理的です",
+  "nowy": "これも、スタック全部をかけたくないときには合理的です",
+  "waga": "NISKIE",
+  "powod": "pl: „Też rozsądne, gdy nie chcesz grać o cały stack” — „też” odnosi się do planu (też rozsądny, jak all-in wyżej), a w ja „ときにも” przenosi je na warunek („rozsądne także wtedy, gdy…”).",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 45,
+  "stary": "フロップ、ターン、リバーで一定のどの{{t:bet|ベット}}サイズなら、スタック全額が入りますか？",
+  "nowy": "フロップ、ターン、リバーで毎回同じ{{t:bet|ベット}}サイズにするなら、どのサイズでスタック全額が入りますか？",
+  "waga": "NISKIE",
+  "powod": "pl: „Jaki stały rozmiar zakładu na flopie, turnie i riverze wpłaca cały stack?”. „一定のどのベットサイズなら” to niegramatyczny szyk; nowy tekst mówi to samo naturalnie.",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l3-rozmiar-geometryczny.md",
+  "linia": 89,
+  "stary": "{{t:pot|ポット}}を何倍にもします",
+  "nowy": "{{t:pot|ポット}}を掛け算で増やします",
+  "waga": "NISKIE",
+  "powod": "pl: „nie dodają do puli stałej kwoty, tylko ją mnożą”. „何倍にもします” znaczy „zwiększają wielokrotnie” (przesada); chodzi o mnożenie zamiast dodawania, jak w m9-l4 („掛け算で大きくなります”).",
+  "grupa": "L6"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "linia": 649,
+  "stary": "コールされたときに半分以上勝つベット",
+  "nowy": "コールされたときに半分を超えて勝つベット",
+  "waga": "NISKIE",
+  "powod": "pl (pole source): „value bet to ponad połowa wygranych przy sprawdzeniu”; „半分以上” znaczy „co najmniej połowa” (włącznie z 50%), a próg w regule to „ponad” ({{n:value.threshold}}超 w polu then); „半分を超えて” zgadza granicę.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "linia": 839,
+  "stary": "機会の数の平方根に比例してしか",
+  "nowy": "機会の数の平方根に反比例してしか",
+  "waga": "NISKIE",
+  "powod": "pl: „błąd takiej średniej maleje dopiero z pierwiastkiem z liczby okazji” (błąd = √(p(1−p)÷n), czyli odwrotnie proporcjonalny do pierwiastka); „比例して…小さくなる” jest matematycznie nieścisłe, „反比例して” oddaje zależność z reguły.",
+  "grupa": "R3"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "linia": 981,
+  "stary": "良い判断でも定期的に負けるからです",
+  "nowy": "良い判断でも一定の割合で負けるからです",
+  "waga": "NISKIE",
+  "powod": "R-M12-004: pl „dobra decyzja regularnie przegrywa”; 定期的に znaczy „w stałych odstępach czasu, okresowo” i jest tu kalką; 一定の割合で („w stałej części przypadków”) oddaje sens pl i pasuje do podanego dalej procentu.",
+  "grupa": "R4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "linia": 1036,
+  "stary": "{{n:study.min}}を下回ることはありません",
+  "nowy": "決して{{n:study.min}}を下回らないようにします",
+  "waga": "NISKIE",
+  "powod": "Treść krytyczna (R-M12-012): pl „ale nigdy mniej niż {{n:study.min}}” to zalecenie; „下回ることはありません” brzmi jak opis faktu („nie zdarza się”), bez wyraźnego „nigdy”. Nowy tekst ma jawne 決して i formę zalecenia; liczba i znacznik bez zmian.",
+  "grupa": "R4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "linia": 1048,
+  "stary": "レイズしてから{{t:raise|レイズ}}に{{t:fold}}すると",
+  "nowy": "レイズしてから相手の{{t:raise|レイズ}}に{{t:fold}}すると",
+  "waga": "NISKIE",
+  "powod": "R-M11-001: pl „podbicie i {{t:fold}} po {{t:raise|przebiciu}}” (pas po przebiciu rywala); „レイズしてからレイズにフォールド” jest niejasne (czyje podbicie). Dodane 相手の; znaczniki bez zmian.",
+  "grupa": "R4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/rules.yaml",
+  "linia": 1147,
+  "stary": "そのようなハンドの平均1 − eで負けます",
+  "nowy": "そのようなハンドのうち平均して1 − eの割合で負けます",
+  "waga": "NISKIE",
+  "powod": "R-M13-001: pl „przegrywasz średnio w 1 − e takich rozdań”; „ハンドの平均1 − eで負けます” jest trudne do odczytania (brak słowa „część/odsetek”). Nowy tekst: „przegrywasz średnio w części 1 − e takich rozdań”.",
+  "grupa": "R4"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-def.yaml",
+  "linia": 12,
+  "stary": "引き分けを決めます。",
+  "nowy": "同じ役どうしの勝敗を決めます。",
+  "waga": "NISKIE",
+  "powod": "pl „rozstrzyga remis”: kicker rozstrzyga, kto wygrywa przy równych układach. „引き分けを決めます” czyta się jak „ustala remis” (odwrotne skojarzenie); nowy tekst mówi wprost, że rozstrzyga wygraną przy tym samym układzie.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-def.yaml",
+  "linia": 91,
+  "stary": "そのボードでその時点で最も強い手です。",
+  "nowy": "そのボードでその時点でありうる最も強い手です。",
+  "waga": "NISKIE",
+  "powod": "pl „Najsilniejsza możliwa ręka na danym stole w danej chwili”: w przekładzie zgubione „możliwa” (bez tego zdanie można czytać jako najsilniejszą rękę wśród graczy w rozdaniu).",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-def.yaml",
+  "linia": 107,
+  "stary": "プレイヤーが複数いるときは",
+  "nowy": "プレイヤーが3人以上いるときは",
+  "waga": "NISKIE",
+  "powod": "pl „Przy kilku graczach” w opozycji do „W rozdaniu dwóch graczy”. „複数” obejmuje też dwóch, więc zdanie nie odróżnia się od poprzedniego; „3人以上” oddaje sens pl.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "store/app-store-metadata.json",
+  "linia": 29,
+  "stary": "四半期または年間のサブスクリプション",
+  "nowy": "3か月または1年のサブスクリプション",
+  "waga": "NISKIE",
+  "powod": "Opis sklepu (ja): pl „subskrypcja kwartalna albo roczna”. W interfejsie plany nazywają się „3か月” i „1年” (purchase.plan.quarter/year); „四半期” brzmi księgowo i różni się od nazwy na ekranie zakupu.",
+  "grupa": "U1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "store/app-store-metadata.json",
+  "linia": 29,
+  "stary": "上達度スコア",
+  "nowy": "上達スコア",
+  "waga": "NISKIE",
+  "powod": "Opis sklepu (ja): pl „wskaźnik zaawansowania”; w interfejsie ta sama rzecz to „上達スコア” (advancement.title). Ujednolicenie nazwy.",
+  "grupa": "U1"
+ }
+]

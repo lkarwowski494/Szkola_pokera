@@ -1,0 +1,122 @@
+[
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m5-l3-czestotliwosc-rozmiar.md",
+  "linia": 130,
+  "stary": "沒成對的手牌約有",
+  "nowy": "沒有{{t:pair|對子}}的手牌約有",
+  "waga": "NISKIE",
+  "powod": "pl: „Ręka bez {{t:pair|pary}} chybia flop” – w przekładzie zgubiony znacznik {{t:pair}}; nowy tekst przywraca znacznik i brzmi jak to samo zdanie w m5-l4 (一手沒有{{t:pair|對子}}的牌).",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m5-l4-bez-pozycji.md",
+  "linia": 27,
+  "stary": "改變的是你能多容易實現它的 equity",
+  "nowy": "改變的是你能多容易實現它的權益",
+  "waga": "ŚR",
+  "powod": "pl: „jak łatwo zrealizujesz jej equity” – w przekładzie zostało angielskie „equity”; nazwa terminu w terms-nazwy to 權益 (tak też w m6-l1, m6-l2).",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m5-l4-bez-pozycji.md",
+  "linia": 47,
+  "stary": "{{t:bluff}}必須讓兩人都買單",
+  "nowy": "{{t:bluff}}必須讓兩人都棄牌",
+  "waga": "ŚR",
+  "powod": "pl: „blef musi przejść przez obu” (obaj muszą spasować). 買單 w języku pokerowym znaczy zwykle „zapłacić/sprawdzić”, więc zdanie daje się odczytać odwrotnie; 棄牌 jest jednoznaczne.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m5-l4-bez-pozycji.md",
+  "linia": 103,
+  "stary": "{{t:bluff|詐唬}}必須讓所有人都買單",
+  "nowy": "{{t:bluff|詐唬}}必須讓所有人都棄牌",
+  "waga": "ŚR",
+  "powod": "pl: „Blef musi przejść przez wszystkich” (wszyscy muszą spasować). 買單 w pokerze czyta się jako „zapłacić/sprawdzić” – sens dwuznaczny, możliwy odwrotny; 棄牌 jest jednoznaczne.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m5-l4-bez-pozycji.md",
+  "linia": 99,
+  "stary": "{{t:out-of-position}}時你會更常{{t:check|過牌}}，常常是",
+  "nowy": "{{t:out-of-position}}時你{{t:check|過牌}}的頻率高得多，常常是",
+  "waga": "NISKIE",
+  "powod": "pl: „czekasz dużo częściej” – w przekładzie tylko „częściej” (更常), zgubione „dużo”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l1-mdf-alpha.md",
+  "linia": 94,
+  "stary": "{{t:raise|加注}} all-in",
+  "nowy": "{{t:raise|加注}}全下",
+  "waga": "NISKIE",
+  "powod": "pl: „Przebijam all-in” – w przekładzie została angielska nazwa; terms-nazwy: all-in = 全下 (tak w m6-l2: 過牌加注全下).",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l2-sprawdzenie.md",
+  "linia": 35,
+  "stary": "面對底池大小的下注",
+  "nowy": "面對{{t:pot|底池}}大小的下注",
+  "waga": "NISKIE",
+  "powod": "pl: „Przy becie wielkości {{t:pot|puli}}” – w przekładzie zgubiony znacznik {{t:pot}} (tekst bez zmian, przywrócony znacznik).",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l2-sprawdzenie.md",
+  "linia": 134,
+  "stary": "持續下注越大，次弱的手牌就會從",
+  "nowy": "持續下注越大，就有越多最弱的手牌從",
+  "waga": "NISKIE",
+  "powod": "pl: „Gdy c-bet rośnie, kolejne najsłabsze ręce przechodzą ze sprawdzenia do pasa” – 次弱 znaczy „drugie od najsłabszych”, a chodzi o kolejne najsłabsze ręce (coraz więcej z dołu zakresu).",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 53,
+  "stary": "時他需要的勝率",
+  "nowy": "時他需要的權益",
+  "waga": "ŚR",
+  "powod": "pl: „Tyle potrzebowałby [equity]” – w tym samym ćwiczeniu pytanie i reszta lekcji mają 權益; 勝率 to inna nazwa (koliduje z winrate), terms-nazwy: equity = 權益.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 54,
+  "stary": "c-bet 所需的勝率",
+  "nowy": "c-bet 所需的權益",
+  "waga": "ŚR",
+  "powod": "pl: „Tyle [equity] potrzebowałeś ty, żeby sprawdzić c-bet” – 勝率 zamiast 權益 (terms-nazwy: equity = 權益; pytanie ćwiczenia ma 權益).",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 99,
+  "stary": "面對莊位哪一種 c-bet",
+  "nowy": "面對按鈕位哪一種 c-bet",
+  "waga": "ŚR",
+  "powod": "pl: „Wobec którego c-betu Buttona” – Button w tej lekcji to 莊位, w pozostałych lekcjach części (i w całej treści, 335×) 按鈕位; jedna nazwa na pojęcie. Przykład – pełna zamiana w sekcji „Do ujednolicenia skryptem”.",
+  "grupa": "L3"
+ },
+ {
+  "jezyk": "zh-Hant",
+  "cel": "content/zh-Hant/lessons/m6-l3-check-raise.md",
+  "linia": 109,
+  "stary": "的莊位。他{{t:bet|下注}}",
+  "nowy": "的按鈕位。他{{t:bet|下注}}",
+  "waga": "ŚR",
+  "powod": "pl: „Grasz z Buttonem” – 莊位 zamiast 按鈕位 używanego w reszcie treści (jedna nazwa na pojęcie). Przykład – pełna zamiana w sekcji „Do ujednolicenia skryptem”.",
+  "grupa": "L3"
+ }
+]
