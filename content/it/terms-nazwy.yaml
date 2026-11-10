@@ -43,7 +43,7 @@ in-position: "in posizione"  # in position; r. —; bez formy 27; formy: in posi
 out-of-position: "fuori posizione"  # out of position; r. —; bez formy 33; formy: fuori posizione×27, Fuori posizione×22; źr. brak (C: tylko „Out of Position”); [DO USTALENIA]
 early-position: "posizioni iniziali"  # early position; r. f lm; bez formy 0; formy: posizioni iniziali×2; źr. A („ulteriori posizioni iniziali”); C:Early-Position („definisce le posizioni iniziali”)
 late-position: "posizione avanzata"  # late position; r. f; bez formy 0; formy: posizione avanzata×1; źr. brak; C:Late-position tylko ang. „late position”; [DO USTALENIA]
-utg: "UTG"  # under the gun; r. m; bez formy 21; formy: UTG×26; źr. A (Under the gun); C:Under-the-Gun („Under the Gun (UTG)”)
+utg: "under the gun"  # under the gun; r. m; w treści forma UTG; źr. https://www.pokerstrategy.com/it/glossary/Under-the-Gun/ („Under the Gun (UTG) … definisce un giocatore che si trova alla sinistra dei blind”); D-520, odczyt 2026-11-10
 hijack: "hijack"  # hijack; r. m; bez formy 0; formy: HJ×17; źr. A; C:Hijack_2049 („L' hijack è la posizione prima del cut-off.”)
 cutoff: "cutoff"  # cutoff; r. m; bez formy 0; formy: CO×55; źr. A („Cutoff”); C:Cutoff (cut-off)
 button: "button"  # button; r. m; bez formy 0; formy: BTN×3; źr. C:Button („Il button o il dealer-button”); A („bottone dealer”)

@@ -43,7 +43,7 @@ in-position: "en posición"  # in position; bez formy 10; formy: en posición×4
 out-of-position: "fuera de posición"  # out of position; bez formy 20; formy: fuera de posición×35, Fuera de posición×19, sin posición×5, Sin posición×3; źr. C:Fuera-de-posicion; E:PN-art;  (sin posición×8) [WIELE FORM]
 early-position: "primeras posiciones"  # early position; bez formy 0; formy: posiciones tempranas×2; źr. C:Primeras-posiciones; tłumacz „posiciones tempranas”×2 — brak w źródłach [WIELE FORM]
 late-position: "posición tardía"  # late position; bez formy 0; formy: posición tardía×1; źr. brak; [C:Late-Position] tylko ang. „late positions” [DO USTALENIA]
-utg: "UTG"  # under the gun; bez formy 21; formy: UTG×26; źr. C:Under-the-Gun; D:PN-reglas
+utg: "under the gun"  # under the gun; w treści forma UTG; źr. https://www.pokerstrategy.com/es/glossary/Under-the-Gun/ („Under the Gun ( UTG ) se refiere a la posición justo a la izquierda de las ciegas”); D-520, odczyt 2026-11-10
 hijack: "hijack"  # hijack; bez formy 0; formy: HJ×17; źr. C:Hijack_2049
 cutoff: "cutoff"  # cutoff; bez formy 0; formy: CO×54, cutoff×1; źr. C:Cutoff
 button: "botón"  # button; bez formy 0; formy: BTN×3; źr. A:Texas_hold_em; D:PN-reglas; C:Boton

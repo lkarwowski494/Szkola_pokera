@@ -43,9 +43,9 @@ in-position: "有位置"  # in position; bez formy 29; formy: 有位置×27, 有
 out-of-position: "無位置"  # out of position; bez formy 37; formy: 無位置×24, 沒有位置×17, 不利位置×4 [WIELE FORM]
 early-position: "前位"  # early position; bez formy 0; formy: 前位×2
 late-position: "後位"  # late position; bez formy 0; formy: 後位×1
-utg: null  # under the gun; bez formy 30; formy: UTG×16, 槍口位×1 [SKRÓT UTG]
-hijack: "HJ"  # hijack; bez formy 0; formy: HJ×17
-cutoff: "CO"  # cutoff; bez formy 0; formy: CO×54, 關煞位×1 [WIELE FORM]
+utg: "槍口位"  # under the gun; w treści forma UTG; źr. https://pokerqz.com/zh-TW/tools/glossary/under-the-gun (nagłówek „槍口位（UTG）”); PF https://pokerfans.jp/poker-word?_lang=zh_TW („UTG(under the gun)（槍口位）”); D-520, odczyt 2026-11-10
+hijack: "Hijack"  # hijack; w treści forma HJ; źr. https://pokerqz.com/zh-TW/tools/glossary/hijack (nagłówek „Hijack（HJ）” — nazwa angielska, chińskiej w źródłach brak); D-520, odczyt 2026-11-10
+cutoff: "關煞位"  # cutoff; w treści forma CO; źr. PF https://pokerfans.jp/poker-word?_lang=zh_TW („Cut off（關煞位）… 關煞位在按鈕位的右邊”); inna nazwa: 截止位 (pokerqz zh-TW /cutoff); D-520, odczyt 2026-11-10
 button: "按鈕位"  # button; bez formy 0; formy: BTN×3
 outs: "補牌"  # out; bez formy 0; formy: 補牌×1
 draw: "聽牌"  # draw; bez formy 23; formy: 聽牌×178

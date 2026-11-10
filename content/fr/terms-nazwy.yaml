@@ -43,6 +43,7 @@ in-position: "en position"  # in position; bez formy 10; formy: en position×40,
 out-of-position: "hors de position"  # out of position; bez formy 17; formy: hors de position×26, hors position×17, Hors de position×11, Hors position×11; źr. A:Hors-position_186 (hors position; synonyme hors de position) [WIELE FORM]
 early-position: "début de parole"  # early position; bez formy 0; formy: premières positions×1, positions précoces×1; źr. A:Debut-de-parole [WIELE FORM]
 late-position: "fin de parole"  # late position; bez formy 0; formy: position tardive×1; źr. A:Fin-de-parole [WIELE FORM]
+utg: "under the gun"  # under the gun; w treści forma UTG; źr. https://www.pokerstrategy.com/fr/glossary/Under-the-Gun/ („Under The Gun ( UTG , expression anglaise …) on se réfère aux positions … à la gauche immédiate des blinds”); D-520, odczyt 2026-11-10
 hijack: "hijack"  # hijack; bez formy 0; formy: HJ×17; źr. A:Hijack_2049
 cutoff: "cutoff"  # cutoff; bez formy 0; formy: CO×54, cutoff×1; źr. A:Fin-de-parole (le cutoff et le button)
 button: "bouton"  # button; bez formy 0; formy: BTN×3; źr. A:Bouton_315
