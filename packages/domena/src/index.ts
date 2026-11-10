@@ -9,3 +9,5 @@ export * from './przypomnienie';
 export * from './kurs';
 export * from './scenariusz';
 export * from './wyjasnienie';
+
+export * from './wariant';
