@@ -36,9 +36,9 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 | AX | session_01T66VBvoHtBam11taia24sJ | 06 fix, treść (opus) | sesja-ax-pytania @ e0ab3d2 | 28,5 | 16,56 | PRZEKAZANIE; recenzja niezależna w toku; m5.q2 (KO-029) → następca 06 fix (wymaga promptu roli) |
 | AY | session_01T66VBxDrn9MsYLfXN2UPju | M1 audit, docs (opus) | sesja-ay-audyt @ 9c742d6 | — | — | STOP 1 10:56: plan `audit/M1-2026-11-10/plan-audytu.md`; czeka na: wariant od właściciela (a/b/c), bibliotekę prompts (zgoda właściciela w czacie AY albo opcja b), SHA buildu |
 | AZ | session_01T66VBxGWXqGK1XtGySmLKn | 08 fix, kod (sonnet) | sesja-az-pozycja @ f6d0565 | <28 | — | PRZEKAZANIE 2 po recenzji; gotowe do scalenia po uruchomieniu buildu z bca751e (potem CI+E2E, archiwum) |
-| BA | session_01T66VBystJCmhtUHaoL8t6C | 06 fix, treść (opus) | sesja-ba-m5q2 @ 02ec8c4 | 29,1 | 13,39 | PRZEKAZANIE; recenzja: przyjąć po poprawkach (WYS 2) → następca BB na tej samej gałęzi; archiwum po starcie BB |
+| BB | session_01T66VBxw9yix1MayL1tNzji | 06 fix, treść (opus) | sesja-ba-m5q2 @ 02ec8c4 (start) | — | — | w toku od 11:22: część A poprawki recenzji BA (Z-1…Z-5), część B nazwy pozycji; cmp: tylko linia 374 (WG-07, 5. raz — sekwencje \u dekodowane w transporcie parametru mimo ostrzeżenia) |
 
-Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%), AT (7,32 USD, 26,4%), AU (5,37 USD, 32,4%), AV (0,85 USD, 15,4%). Litery użyte dotąd: A…Z, AA…AT ; następna litera: **BB**. Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
+Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%), AT (7,32 USD, 26,4%), AU (5,37 USD, 32,4%), AV (0,85 USD, 15,4%), BA (13,39 USD, 29,1% → BB). Litery użyte dotąd: A…Z, AA…AT ; następna litera: **BC**. Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
 ## Plan 24 h (UTC)
 | Kiedy | Co | Kto | Zależy od | Od właściciela |
@@ -75,7 +75,7 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 
 ## Pule numerów decyzji
 - Rejestr aplikacji `docs/decyzje.md`: ostatni D-394. Pule: AM D-395…D-399, AN D-400…D-404, AO D-405…D-419, AP D-420…D-429, AQ D-430…D-439, AR D-440…D-449; AT D-408…D-419 (reszta puli AO/AS); AU zarezerwowana D-450…D-469; następny wolny **D-470**.
-- KO następny: **KO-032**. Pule: AV D-470…D-474, AW D-475…D-484, AX D-485…D-494; AZ D-495…D-499, BA D-500…D-509; następny wolny **D-510**. Uwaga: AV wpisała D-470 na końcu tabeli `docs/decyzje.md` (numeracja pul, nie ciągła).
+- KO następny: **KO-032**. Pule: AV D-470…D-474, AW D-475…D-484, AX D-485…D-494; AZ D-495…D-499, BA D-500…D-509, BB D-510…D-519; następny wolny **D-520**. Uwaga: AV wpisała D-470 na końcu tabeli `docs/decyzje.md` (numeracja pul, nie ciągła).
 
 ## Dziennik (najnowsze na dole; starszy w `docs/programista/plan-08.md` „Koordynacja”)
 | UTC | Sesja | Zdarzenie z dowodem | Następny krok |
@@ -161,3 +161,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-10 11:06 | AZ → koordynator | PRZEKAZANIE 2 **f6d0565** (poprawki recenzji: AZ-01 4 testy + mutacja 5 czerwonych, AZ-05 granica słowa + mutacja, AZ-02 D-495/plan-08, AZ-07 log z SHA 20fe9c1, `pnpm run ci` 0 wg sesji); commity i autor sprawdzone (git log), diff po recenzji tylko uklad.ts, testy, docs — poprawki recenzji nie przechodziły drugiej recenzji (jeden audyt bez pętli; dowodem testy mutacyjne i CI na roboczej) | scalenie po buildzie |
 | 11-10 11:08 | BA → koordynator | PRZEKAZANIE **02ec8c4** (wg sesji): R-M5-004 `because` → część wspólna źródeł (GTO Wizard ×4 cytaty, Upswing szczebel 4), m5.q2 → „nie masz przewagi nutsów, czyli wyraźnie więcej najsilniejszych rąk niż rywal?” (8-6-5 / K-10-3 / A-Q-7), to samo w R-M6-009, m5-l2/l3/l4, m6-l3, m6.exam.q10 (24 linie pl × 12 języków, recenzenci poprawili 17 linii), D-500, `pnpm run ci` 0 na 9f35c91; wpisy do dok. 12/13 w `docs/tresci/dowody-ba/wpisy-dokumenty-12-13.md`; Z-3 → „Sprawdzam duży blind”. Autor commitów sprawdzony. Recenzja niezależna zlecona → `recenzje/recenzja-ba-02ec8c4.md` | wynik recenzji; kontrola 11:28 |
 | 11-10 11:20 | koordynator | recenzja niezależna BA **02ec8c4**: KRYT 0, **WYS 2**, ŚR 3, NIS 4, „przyjąć po poprawkach” — `recenzje/recenzja-ba-02ec8c4.md`. Z-1/Z-2: nowe „strity i dwie pary… nie masz przewagi nutsów” jest wyjaśnieniem także flopów półpołączonych (`rules.yaml:358-360`, m5-l3:38-40, m5-l4:90-92 + 11 języków), gdzie strit niemożliwy, a źródło autora mówi o 973r odwrotnie; cytaty z 5 stron potwierdzone dosłownie; m5.q2 poprawne (jedna odpowiedź, ID bez zmian); kontrole kod 0. **BA nie scalana.** Polecenie BB @ 65d015d (06 fix, opus, ta sama gałąź `sesja-ba-m5q2`; część A: Z-1…Z-5, część B: nazwy pozycji), start przez subagenta. BA: 29,1%, 13,39 USD | start BB → archiwum BA; kontrola 11:28 |
+| 11-10 11:23 | koordynator | BB wystartowała (session_01T66VBxw9yix1MayL1tNzji; cmp: różnica tylko w linii 374, równoważna); BA zarchiwizowana (wynik 02ec8c4 na GitHubie, następca działa; 13,39 USD, 29,1%) | plan części A od BB; kontrola 11:28 |
