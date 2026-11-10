@@ -42,3 +42,4 @@ Pełny przegląd w sesjach (KO-018): ok. 33–40 USD na język (AQ 98,37 / 3, AR
 | BE | 04 build (opus) | — | 9,38 | 34,4 | 15:10 → be3d801 15:20 → 8c4ecc6 15:30 → następca BH 16:00 | wybór właściciela 15:45 | szacunek sesji 70% vs pomiar 34,4% |
 | BK | 06 audit (recenzja BG) | — | 5,58 | 30,9 | 15:58 → 16:01 → 16:13 (7b159bd) → — → 16:17 | ok. 3 min start subagentem | recenzja niezależna treści |
 | BH | 04 build (menu KO-045) | — | 2,51 | 19,4 | 15:37 → 15:37 → 0c24cb6 → — (docs) → 15:48 | — | |
+| BJ | 08 audit (recenzja BF) | — | 5,31 | 27,2 | 15:55 → 15:58 → 16:16 (53ca690) → — → 16:19 | — | |
