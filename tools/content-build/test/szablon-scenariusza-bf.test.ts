@@ -129,7 +129,7 @@ describe('compileContent z szablonami scenariuszy', () => {
     try {
       cpSync(contentDir, join(root, 'content'), { recursive: true });
       // fikstura bez szablonów z prawdziwej treści (od sesji BS content/*/scenarios istnieje): test sprawdza tylko szablony z `pliki`
-      for (const j of readdirSync(join(root, 'content'))) rmSync(join(root, 'content', j, 'scenarios'), { recursive: true, force: true });
+      for (const j of readdirSync(join(root, 'content'), { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name)) rmSync(join(root, 'content', j, 'scenarios'), { recursive: true, force: true });
       symlinkSync(join(contentDir, '..', 'tools'), join(root, 'tools'));
       symlinkSync(join(contentDir, '..', 'docs'), join(root, 'docs'));
       if (Object.keys(pliki).length) mkdirSync(join(root, 'content/pl/scenarios'), { recursive: true });
