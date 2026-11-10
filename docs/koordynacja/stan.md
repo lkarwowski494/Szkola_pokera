@@ -32,10 +32,9 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| AT | session_01T66VBw7z352UvDDkynn3JP | 09 build, kod | sesja-ao-pt-pt @ a28b48e (start) | 0 (06:55) | — | w toku: kroki 3d–3g pt-PT (polecenie AT @ 4e864e7) |
 | AU | session_01T66VBwPmJmtteuLqtue8Ga | 09 build, kod (sonnet) | sesja-au-poprawki @ f8272c1 (start) | 0 (07:12) | — | w toku: WYS (ja.json:96, es m4-l4:33, 13 znaczników), nałożenie 9 języków, KO-020/021/024 (polecenie AU @ d25f936) |
 
-Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%). Litery użyte dotąd: A…Z, AA…AT ; AU startuje 07:10 (następna: **AV**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
+Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%), AT (7,32 USD, 26,4%; odbiór warunkowy: CI/E2E/recenzja). Litery użyte dotąd: A…Z, AA…AT ; AU startuje 07:10 (następna: **AV**). Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
 ## Plan 24 h (UTC)
 | Kiedy | Co | Kto | Zależy od | Od właściciela |
@@ -113,3 +112,5 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-10 07:10 | właściciel | podtytuł ko: „Zmienić na 판돈 없음 (Recommended)” → KO-024, do przekazania AU | — |
 | 11-10 07:14 | koordynator | AU wystartowała (session_01T66VBwPmJmtteuLqtue8Ga); cmp pierwszej wiadomości: różnica tylko U+00A0/U+202F → spacje w linii 400 (sprawdzone Pythonem) — AU dostała poprawkę i KO-024 przez send_message; WG-07 | kontrola 07:05→ następna ok. 08:15 |
 | 11-10 06:59 | AU → koordynator | zad. 1: 15 WYS (ja replaceBody, es m4-l4:33, 13 znaczników) — test `przeglad-pelny-wys-09.test.ts` 15 ✕ → 15 ✓ wg sesji, e43fb7f lokalnie (niesprawdzone, bez push); reszta 2849 poprawek szac. 2–3 h | kontrola ok. 08:15 |
+| 11-10 07:02 | AT → koordynator | PRZEKAZANIE: a655dd2 — nałożenie 245+128 poprawek (0 pominiętych), D-406 571 zamian, K-05 151 kluczy, kontrola (a) m12 zaliczona, wydanie pt-PT w kodzie, `pnpm run ci` 0 wg sesji; D-408, D-409 do weta | odbiór |
+| 11-10 07:05 | koordynator | scalenie pt do roboczej @ **1db8449**: 6 commitów AO/AS/AT przeniesione z `--reset-author` (treść = a655dd2, `git diff` pusty), konflikt `docs/decyzje.md` rozłączne wiersze — oba zachowane. CI 42772729222 i E2E 42772729272 na 1db8449 w toku; recenzja niezależna kodu (subagent, świeży kontekst, D-043 app.json) w toku. AT zarchiwizowana (7,32 USD). AU pracuje od f8272c1 — przy jej scaleniu konflikt baz .db: rebase/scalenie zleci się AU z jedną przebudową baz | wynik CI/E2E/recenzji |
