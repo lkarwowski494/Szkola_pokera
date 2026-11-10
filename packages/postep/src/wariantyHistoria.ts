@@ -16,10 +16,15 @@ export interface Odcisk { odcisk: string; ziarno: number; zagranoMs: number }
 export function zapiszOdcisk(port: PortBazy, z: ZapisOdcisku): Promise<Wynik<void, PowodZapisu>> {
   return jakoWynik(async () => {
     await port.transakcja(async (tx) => {
+      // Kolejność okna = kolejność zapisu, nie zegara urządzenia (08-programista-003, D-559): przy cofniętym zegarze czas wpisu
+      // to największy dotychczasowy + 1 ms (czas przybliżony, ale monotoniczny); ten sam znacznik dwóch zapisów rozstrzyga id.
+      const [maks] = await tx.all<unknown>('SELECT MAX(zagrano_ms) AS maks FROM wariant_historia WHERE szablon_id = ? AND poziom = ?', [z.szablonId, z.poziom]);
+      const dotychczasowy = typeof maks === 'object' && maks !== null && 'maks' in maks && typeof maks.maks === 'number' ? maks.maks : null;
+      const zagranoMs = dotychczasowy !== null && dotychczasowy >= z.terazMs ? dotychczasowy + 1 : z.terazMs;
       await tx.run(
         `INSERT INTO wariant_historia (szablon_id, poziom, odcisk, ziarno, zagrano_ms) VALUES (?, ?, ?, ?, ?)
          ON CONFLICT (szablon_id, poziom, odcisk) DO UPDATE SET ziarno = excluded.ziarno, zagrano_ms = excluded.zagrano_ms`,
-        [z.szablonId, z.poziom, z.odcisk, z.ziarno, z.terazMs],
+        [z.szablonId, z.poziom, z.odcisk, z.ziarno, zagranoMs],
       );
       await tx.run(
         `DELETE FROM wariant_historia WHERE szablon_id = ? AND poziom = ? AND id NOT IN (

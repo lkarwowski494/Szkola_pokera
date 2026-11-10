@@ -38,6 +38,25 @@ describe('D-532 okno historii', () => {
     ] });
   });
 
+  it('08-programista-003: zapis przy cofniętym zegarze trafia na koniec listy i nie wypada z okna (kolejność zapisu, nie zegara)', async () => {
+    const { port } = await przygotuj('pusta');
+    for (let i = 0; i < OKNO; i++) await zapiszOdcisk(port, zapis({ odcisk: `o${String(i).padStart(2, '0')}`, ziarno: i, terazMs: T0 + i }));
+    const DZIEN_MS = 86_400_000;
+    expect(await zapiszOdcisk(port, zapis({ odcisk: 'nowy', ziarno: 777, terazMs: T0 - DZIEN_MS }))).toEqual({ ok: true, wartosc: undefined });
+    const w = await odczytajOdciski(port, 's01', 'latwy');
+    if (!w.ok) throw new Error('odczyt');
+    expect(w.wartosc).toHaveLength(OKNO);
+    expect(w.wartosc[OKNO - 1]).toMatchObject({ odcisk: 'nowy', ziarno: 777 }); // ostatni zapisany = ostatni na liście (czyPowtorkaWariantu)
+    expect(w.wartosc.some((o) => o.odcisk === 'o00')).toBe(false); // wypadł najstarszy, nie nowy
+    expect(w.wartosc.map((o) => o.zagranoMs)).toEqual([...w.wartosc.map((o) => o.zagranoMs)].sort((a, b) => a - b)); // czas monotoniczny
+  });
+  it('08-programista-003: ten sam znacznik czasu dwóch zapisów nie zmienia kolejności zapisu', async () => {
+    const { port } = await przygotuj('pusta');
+    await zapiszOdcisk(port, zapis({ odcisk: 'a', terazMs: T0 }));
+    await zapiszOdcisk(port, zapis({ odcisk: 'b', terazMs: T0 }));
+    const w = await odczytajOdciski(port, 's01', 'latwy');
+    expect(w.ok && w.wartosc.map((o) => o.odcisk)).toEqual(['a', 'b']);
+  });
   it('przycięcie: po 25 różnych odciskach zostaje 20 najnowszych (najstarsze znikają)', async () => {
     const { db, port } = await przygotuj('pusta');
     for (let i = 0; i < 25; i++) await zapiszOdcisk(port, zapis({ odcisk: `o${String(i).padStart(2, '0')}`, ziarno: i, terazMs: T0 + i }));
