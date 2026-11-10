@@ -1,0 +1,162 @@
+import { useState, type ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import type { OcenaOdpowiedzi } from '@szkola/domena';
+import { CardRow } from '@/components/PlayingCard';
+import { RichText } from '@/components/RichText';
+import StopienOceny, { ZNAK } from '@/features/ocena/StopienOceny';
+import { nazwaKarty } from '@/features/stol/uklad';
+import { odstep, promien, styl, useTokens } from '@/theme/tokens';
+import type { Blok, RodzajBloku } from './wariant';
+import type { Akcja } from './wariant';
+import type { WyborPoziomu } from './poziom';
+
+/**
+ * Elementy ekranu scenariusza (PR-05; makieta 04: `docs/design/ekrany/scenariusz.html`, opis `docs/design/scenariusz-i-ocena.md`,
+ * D-543…D-545). Wygląd tylko z tokenów i komponentów systemu (`StopienOceny`, `CardRow`, `Stol`-owa rama i sukno, złoto
+ * wyłącznie dla „ty”); nowych kolorów brak. Komponenty są prezentacyjne: dane i zapis w `EkranScenariusza` i `app/scenario.tsx`.
+ */
+type TFn = (k: string, o?: Record<string, unknown>) => string;
+
+const CEL_DOTYKU = 44; // design-spec: cel dotyku ≥ 44 pt
+
+/** Kontrolka segmentowa poziomu (radiogroup; wybór nie tylko kolorem: znak „✓” przy wybranym). */
+export function WyborPoziomuUI({ wybor, dostepne, onWybierz }: { wybor: WyborPoziomu; dostepne: readonly WyborPoziomu[]; onWybierz: (w: WyborPoziomu) => void }): React.JSX.Element {
+  const tk = useTokens();
+  const { t } = useTranslation();
+  return (
+    <View accessibilityRole="radiogroup" accessibilityLabel={t('scenario.level.group')} style={[styles.segmenty, { borderColor: tk.separator, backgroundColor: tk.surface }]}>
+      {dostepne.map((w, i) => {
+        const aktywny = w === wybor;
+        return (
+          <Pressable
+            key={w}
+            testID={`poziom-${w}`}
+            accessibilityRole="radio"
+            accessibilityState={{ checked: aktywny }}
+            onPress={() => onWybierz(w)}
+            style={[styles.segment, { minHeight: CEL_DOTYKU, borderLeftWidth: i === 0 ? 0 : StyleSheet.hairlineWidth * 2, borderColor: tk.separator, backgroundColor: aktywny ? tk.primaryBg : 'transparent' }]}
+          >
+            <Text style={[styl.drobny, { fontWeight: aktywny ? '700' : '400', color: aktywny ? tk.primaryInk : tk.ink, textAlign: 'center' }]}>{t(`scenario.level.${w}`)}</Text>
+          </Pressable>
+        );
+      })}
+    </View>
+  );
+}
+
+/** Stół z góry, jeden rywal (makieta „hu”): ty na dole ze złotą obwódką, rywal u góry, karty wspólne pośrodku, bez żetonów i kwot na stole. */
+export function StolRozdania({ stol, reka, pozycjaTy, pozycjaRywal, stosBb }: { stol: readonly string[]; reka: readonly string[]; pozycjaTy: string; pozycjaRywal: string; stosBb: number }): React.JSX.Element {
+  const tk = useTokens();
+  const { t } = useTranslation();
+  const etykieta = t('scenario.table.label', {
+    ty: pozycjaTy, rywal: pozycjaRywal, reka: reka.map((c) => nazwaKarty(c, t)).join(', '), stol: stol.map((c) => nazwaKarty(c, t)).join(', '),
+  });
+  return (
+    <View accessible accessibilityRole="image" accessibilityLabel={etykieta} style={[styles.rama, { backgroundColor: tk.frame }]}>
+      <View style={[styles.sukno, { backgroundColor: tk.felt1, borderColor: tk.felt2 }]}>
+        <View style={[styles.miejsce, { borderColor: tk.onFeltMuted }]}>
+          <Text style={[styl.drobny, { color: tk.onFelt, fontWeight: '600' }]}>{t('scenario.table.seat', { pozycja: pozycjaRywal, rola: t('scenario.table.villain'), bb: stosBb })}</Text>
+        </View>
+        <CardRow cards={stol} size="md" />
+        <CardRow cards={reka} size="lg" />
+        <View style={[styles.miejsce, { borderColor: tk.gold, borderWidth: 2 }]}>
+          <Text style={[styl.drobny, { color: tk.goldText, fontWeight: '700' }]}>{t('scenario.table.seat', { pozycja: pozycjaTy, rola: t('scenario.table.you'), bb: stosBb })}</Text>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+export interface WpisDziennika { ulica: string; tekst: string; ocena?: OcenaOdpowiedzi; teraz?: boolean }
+/** Dziennik akcji: jeden wiersz na ulicę, ocena jako znak + słowo (nie sam kolor). Nowy wpis ogłasza VoiceOver (aria-live → liveRegion). */
+export function Dziennik({ wpisy }: { wpisy: readonly WpisDziennika[] }): React.JSX.Element {
+  const tk = useTokens();
+  const { t } = useTranslation();
+  return (
+    <View accessibilityRole="list" accessibilityLabel={t('scenario.log.label')} style={{ gap: odstep.s }}>
+      {wpisy.map((w) => (
+        <View key={w.ulica} accessibilityRole="none" accessibilityLiveRegion={w.teraz ? 'polite' : 'none'} style={[styles.wiersz, { borderColor: tk.separator }]}>
+          <Text style={[styl.drobny, { color: tk.muted, fontWeight: '700', width: 64 }]}>{w.ulica}</Text>
+          <View style={{ flex: 1 }}>
+            <RichText text={w.tekst} style={styl.drobny} />
+          </View>
+          {w.ocena ? <Text style={[styl.drobny, { color: tk.ink, fontWeight: '700' }]}>{`${ZNAK[w.ocena]} ${t(`grade.${w.ocena}`)}`}</Text> : null}
+        </View>
+      ))}
+    </View>
+  );
+}
+
+/** Pasek ocen akcji po decyzji: słowo stopnia przy każdej akcji, twój wybór w złotej obwódce z dopiskiem; bez procentów (D-544). */
+export function PasekOcenAkcji({ akcje, wybor, nazwy }: { akcje: Readonly<Record<Akcja, OcenaOdpowiedzi>>; wybor: Akcja; nazwy: Readonly<Record<Akcja, string>> }): React.JSX.Element {
+  const tk = useTokens();
+  const { t } = useTranslation();
+  const lista = (Object.keys(nazwy) as Akcja[]).map((a) => `${nazwy[a]} ${t(`grade.${akcje[a]}`).toLowerCase()}${a === wybor ? `, ${t('scenario.scale.yourChoice')}` : ''}`).join(', ');
+  return (
+    <View accessible accessibilityRole="image" accessibilityLabel={t('scenario.scale.label', { lista })} style={styles.pasekOcen}>
+      {(Object.keys(nazwy) as Akcja[]).map((a) => (
+        <View key={a} style={[styles.segmentOceny, { borderColor: a === wybor ? tk.gold : tk.separator, borderWidth: a === wybor ? 2 : 1, backgroundColor: tk.surface }]}>
+          <Text style={[styl.naglowek, { color: tk.ink, textAlign: 'center' }]}>{nazwy[a]}</Text>
+          <Text style={[styl.drobny, { color: tk.ink, textAlign: 'center' }]}>{`${ZNAK[akcje[a]]} ${t(`grade.${akcje[a]}`)}`}</Text>
+          {a === wybor ? <Text style={[styl.drobny, { color: tk.goldOnBg, fontWeight: '700', textAlign: 'center' }]}>{t('scenario.scale.yourChoice')}</Text> : null}
+        </View>
+      ))}
+    </View>
+  );
+}
+
+/** Wiersz rozwijany („Liczby”, „Dlaczego nie …”): domyślnie zwinięty, stan dla czytnika w `accessibilityState.expanded`. */
+export function Rozwijany({ tytul, children, testID }: { tytul: string; children: ReactNode; testID?: string }): React.JSX.Element {
+  const tk = useTokens();
+  const [otwarty, ustaw] = useState(false);
+  return (
+    <View style={{ gap: odstep.s }}>
+      <Pressable testID={testID} accessibilityRole="button" accessibilityState={{ expanded: otwarty }} onPress={() => ustaw((o) => !o)} style={[styles.rozwin, { borderColor: tk.separator, minHeight: CEL_DOTYKU }]}>
+        <Text style={[styl.naglowek, { color: tk.ink, flex: 1 }]}>{tytul}</Text>
+        <Text accessibilityElementsHidden importantForAccessibility="no" style={[styl.naglowek, { color: tk.muted }]}>{otwarty ? '⌃' : '⌄'}</Text>
+      </Pressable>
+      {otwarty ? children : null}
+    </View>
+  );
+}
+
+const TYTUL_BLOKU: Record<RodzajBloku, string> = { slabsza: 'scenario.why.weaker', lepsza: 'scenario.why.better', dobrze: 'scenario.why.good', dlaczego_nie: 'scenario.why.whyNot' };
+
+/** Blok „dlaczego” (BR-OCE-002): zdanie sytuacji na pierwszym planie (tekst z wariantu), potem „grasz …, bo …”. */
+export function BlokDlaczego({ blok, nazwa, t }: { blok: Blok; nazwa: string; t: TFn }): React.JSX.Element {
+  const tk = useTokens();
+  const tresc = <RichText text={blok.tekst} style={styl.tresc} />;
+  if (blok.rodzaj === 'dlaczego_nie') return <Rozwijany tytul={t(TYTUL_BLOKU[blok.rodzaj], { akcja: nazwa })} testID="dlaczego-nie">{tresc}</Rozwijany>;
+  return (
+    <View style={{ gap: odstep.s }}>
+      <Text accessibilityRole="header" style={[styl.naglowek, { color: tk.ink }]}>{t(TYTUL_BLOKU[blok.rodzaj], { akcja: nazwa })}</Text>
+      {tresc}
+    </View>
+  );
+}
+
+/** Werdykt na suknie (D-544): znak + słowo stopnia i zdanie „Twój wybór …”. */
+export function Werdykt({ ocena, zdanie }: { ocena: OcenaOdpowiedzi; zdanie: string }): React.JSX.Element {
+  const tk = useTokens();
+  return (
+    <View accessibilityLiveRegion="polite" style={[styles.rama, { backgroundColor: tk.frame }]}>
+      <View style={[styles.sukno, { backgroundColor: tk.felt1, borderColor: tk.felt2, alignItems: 'flex-start', gap: odstep.s }]}>
+        <StopienOceny ocena={ocena} naSuknie />
+        <Text style={[styl.tresc, { color: tk.onFelt }]}>{zdanie}</Text>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  segmenty: { flexDirection: 'row', borderWidth: StyleSheet.hairlineWidth * 2, borderRadius: promien.przycisk, overflow: 'hidden' },
+  segment: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstep.s },
+  rama: { borderRadius: promien.rama, padding: odstep.m },
+  sukno: { borderRadius: promien.sukno, borderWidth: StyleSheet.hairlineWidth * 2, padding: odstep.l, gap: odstep.m, alignItems: 'center' },
+  miejsce: { borderWidth: 1, borderRadius: 999, paddingHorizontal: odstep.m, paddingVertical: odstep.xs },
+  wiersz: { flexDirection: 'row', alignItems: 'flex-start', gap: odstep.s, borderBottomWidth: StyleSheet.hairlineWidth * 2, paddingBottom: odstep.s },
+  pasekOcen: { flexDirection: 'row', flexWrap: 'wrap', gap: odstep.s },
+  segmentOceny: { flexGrow: 1, flexBasis: 96, borderRadius: promien.przycisk, padding: odstep.m, gap: odstep.xs },
+  rozwin: { flexDirection: 'row', alignItems: 'center', borderTopWidth: StyleSheet.hairlineWidth * 2, paddingVertical: odstep.s },
+});

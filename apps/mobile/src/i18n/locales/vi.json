@@ -43,7 +43,9 @@
   },
   "scenarios": {
     "title": "Tình huống",
-    "soon": "Tình huống sẽ sớm có mặt. Trong lúc chờ, hãy luyện các quyết định trong phiên luyện tập."
+    "soon": "Tình huống sẽ sớm có mặt. Trong lúc chờ, hãy luyện các quyết định trong phiên luyện tập.",
+    "levels": "Cấp độ: {{lista}}",
+    "locked": "Sau bài học đầu tiên của mô-đun {{n}}"
   },
   "welcome": {
     "title": "PokerGym",
@@ -971,6 +973,91 @@
       "end": "{{line}}.",
       "meaning": "Nghĩa: {{def}}",
       "alsoSeen": "Bạn cũng sẽ gặp: {{list}}."
+    }
+  },
+  "scenario": {
+    "missing": "Kịch bản này không tồn tại hoặc chưa được mở khóa.",
+    "nav": {
+      "back": "Kịch bản",
+      "title": "Kịch bản",
+      "finish": "Kết thúc"
+    },
+    "level": {
+      "label": "Cấp độ",
+      "group": "Mức độ khó",
+      "auto": "Tự động",
+      "latwy": "Dễ",
+      "sredni": "Trung bình",
+      "trudny": "Khó"
+    },
+    "start": {
+      "about": "Bạn chơi ở vị trí {{ty}}, đối thủ: {{rywal}}. Độ sâu {{bb}} bb.",
+      "nowAuto": "Hiện tại: {{poziom}}. Cấp độ tự điều chỉnh theo kết quả của bạn.",
+      "nowManual": "Cấp độ đã chọn: {{poziom}}.",
+      "missing": "Ván này không có cấp độ “{{wybrany}}”. Bạn sẽ chơi ở cấp “{{poziom}}”.",
+      "hint": "Mỗi ván có lá bài mới. Kết quả là điểm đánh giá các quyết định, không phải thắng thua.",
+      "begin": "Bắt đầu ván"
+    },
+    "street": {
+      "preflop": "Preflop",
+      "flop": "Flop",
+      "turn": "Turn",
+      "river": "River"
+    },
+    "streets": {
+      "label": "Các vòng"
+    },
+    "table": {
+      "label": "Bàn: bạn ở {{ty}} với {{reka}}, đối thủ ở {{rywal}}. Bài chung: {{stol}}.",
+      "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
+      "you": "bạn",
+      "villain": "đối thủ"
+    },
+    "pot": "Pot {{pula}} bb · cần theo {{kwota}} bb",
+    "log": {
+      "label": "Diễn biến ván",
+      "villainBet": "{{rywal}} cược {{bb}} bb",
+      "youCall": "bạn theo",
+      "youFold": "bạn bỏ bài"
+    },
+    "yourMove": "Lượt của bạn",
+    "action": {
+      "fold": "Bỏ bài",
+      "call": "Theo",
+      "callAmount": "Theo {{bb}} bb"
+    },
+    "verdict": {
+      "yours": "Lựa chọn của bạn: {{akcja}}. Tốt hơn: {{lepiej}}.",
+      "yoursGood": "Lựa chọn của bạn: {{akcja}}."
+    },
+    "why": {
+      "weaker": "Vì sao “{{akcja}}” là nước đi yếu hơn",
+      "better": "Vì sao “{{akcja}}” là nước đi tốt hơn",
+      "good": "Vì sao “{{akcja}}” là nước đi tốt",
+      "whyNot": "Vì sao không phải “{{akcja}}”"
+    },
+    "scale": {
+      "label": "Đánh giá các hành động: {{lista}}.",
+      "yourChoice": "lựa chọn của bạn"
+    },
+    "numbers": {
+      "title": "Con số",
+      "line": "Pot là {{pula}} bb và theo tốn {{kwota}} bb, nên bạn cần {{potrzeba}} equity, tức là thắng khoảng 1 lần trong {{razPotrzeba}}. Outs: {{outy}} trên {{nieznane}} lá chưa thấy: bạn hoàn thành bài ở {{trafisz}} số trường hợp, khoảng 1 lần trong {{razTrafisz}}."
+    },
+    "next": {
+      "street": "Tiếp: {{ulica}}",
+      "summary": "Xem tóm tắt"
+    },
+    "end": {
+      "title": "Ván đã kết thúc",
+      "better": "Tốt hơn: {{akcja}}.",
+      "score": "Quyết định tốt: {{dobre}} trên {{wszystkie}}.",
+      "newDeal": "Ván mới",
+      "again": "Chơi lại đúng ván này",
+      "close": "Đóng",
+      "showdownYou": "River là {{river}}. Đối thủ lật {{karty}}: bài của bạn cao hơn.",
+      "showdownVillain": "River là {{river}}. Đối thủ lật {{karty}}: bài của đối thủ cao hơn.",
+      "showdownTie": "River là {{river}}. Đối thủ lật {{karty}}: hai bài ngang nhau."
     }
   }
 }

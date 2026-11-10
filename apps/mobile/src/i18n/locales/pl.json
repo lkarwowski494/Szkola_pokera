@@ -49,7 +49,9 @@
   },
   "scenarios": {
     "title": "Scenariusze",
-    "soon": "Scenariusze będą dostępne wkrótce. Do tego czasu ćwicz decyzje w sesji ćwiczeń."
+    "soon": "Scenariusze będą dostępne wkrótce. Do tego czasu ćwicz decyzje w sesji ćwiczeń.",
+    "levels": "Poziomy: {{lista}}",
+    "locked": "Po pierwszej lekcji modułu {{n}}"
   },
   "welcome": {
     "title": "PokerGym",
@@ -1025,6 +1027,91 @@
       "end": "{{line}}.",
       "meaning": "Znaczenie: {{def}}",
       "alsoSeen": "Spotkasz też: {{list}}."
+    }
+  },
+  "scenario": {
+    "missing": "Tego scenariusza nie ma albo jeszcze go nie odblokowano.",
+    "nav": {
+      "back": "Scenariusze",
+      "title": "Scenariusz",
+      "finish": "Zakończ"
+    },
+    "level": {
+      "label": "Poziom",
+      "group": "Poziom trudności",
+      "auto": "Automatycznie",
+      "latwy": "Łatwy",
+      "sredni": "Średni",
+      "trudny": "Trudny"
+    },
+    "start": {
+      "about": "Grasz z pozycji {{ty}}, rywal: {{rywal}}. Głębokość {{bb}} bb.",
+      "nowAuto": "Teraz: {{poziom}}. Poziom dobiera się sam z twoich wyników.",
+      "nowManual": "Wybrany poziom: {{poziom}}.",
+      "missing": "Tego rozdania nie ma na poziomie „{{wybrany}}”. Zagrasz je na poziomie „{{poziom}}”.",
+      "hint": "Każde rozdanie ma nowe karty. Wynik to oceny decyzji, nie wygrana.",
+      "begin": "Zacznij rozdanie"
+    },
+    "street": {
+      "preflop": "Preflop",
+      "flop": "Flop",
+      "turn": "Turn",
+      "river": "River"
+    },
+    "streets": {
+      "label": "Ulice"
+    },
+    "table": {
+      "label": "Stół: ty na pozycji {{ty}} z kartami {{reka}}, rywal na pozycji {{rywal}}. Na stole: {{stol}}.",
+      "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
+      "you": "ty",
+      "villain": "rywal"
+    },
+    "pot": "W puli {{pula}} bb · do sprawdzenia {{kwota}} bb",
+    "log": {
+      "label": "Przebieg rozdania",
+      "villainBet": "{{rywal}} zakłada {{bb}} bb",
+      "youCall": "ty sprawdzasz",
+      "youFold": "ty pasujesz"
+    },
+    "yourMove": "Twój ruch",
+    "action": {
+      "fold": "Pas",
+      "call": "Sprawdzenie",
+      "callAmount": "Sprawdzenie {{bb}} bb"
+    },
+    "verdict": {
+      "yours": "Twój wybór: {{akcja}}. Lepiej: {{lepiej}}.",
+      "yoursGood": "Twój wybór: {{akcja}}."
+    },
+    "why": {
+      "weaker": "Dlaczego „{{akcja}}” to słabsze zagranie",
+      "better": "Dlaczego „{{akcja}}” to lepsze zagranie",
+      "good": "Dlaczego „{{akcja}}” to dobre zagranie",
+      "whyNot": "Dlaczego nie „{{akcja}}”"
+    },
+    "scale": {
+      "label": "Oceny akcji: {{lista}}.",
+      "yourChoice": "twój wybór"
+    },
+    "numbers": {
+      "title": "Liczby",
+      "line": "Pula to {{pula}} bb, a sprawdzenie kosztuje {{kwota}} bb, więc potrzebujesz {{potrzeba}} szans, czyli wygrać mniej więcej raz na {{razPotrzeba}}. Outy to {{outy}} z {{nieznane}} niewidzianych kart: układ trafisz w {{trafisz}} przypadków, czyli mniej więcej raz na {{razTrafisz}}."
+    },
+    "next": {
+      "street": "Dalej: {{ulica}}",
+      "summary": "Zobacz podsumowanie"
+    },
+    "end": {
+      "title": "Rozdanie zakończone",
+      "better": "Lepiej: {{akcja}}.",
+      "score": "Dobre decyzje: {{dobre}} z {{wszystkie}}.",
+      "newDeal": "Nowe rozdanie",
+      "again": "Zagraj to samo jeszcze raz",
+      "close": "Zamknij",
+      "showdownYou": "Na riverze wychodzi {{river}}. Rywal pokazuje {{karty}}: twój układ jest wyższy.",
+      "showdownVillain": "Na riverze wychodzi {{river}}. Rywal pokazuje {{karty}}: układ rywala jest wyższy.",
+      "showdownTie": "Na riverze wychodzi {{river}}. Rywal pokazuje {{karty}}: układy są równe."
     }
   }
 }

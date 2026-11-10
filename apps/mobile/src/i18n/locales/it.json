@@ -47,7 +47,9 @@
   },
   "scenarios": {
     "title": "Scenari",
-    "soon": "Gli scenari arriveranno presto. Nel frattempo allena le decisioni nella sessione di esercizi."
+    "soon": "Gli scenari arriveranno presto. Nel frattempo allena le decisioni nella sessione di esercizi.",
+    "levels": "Livelli: {{lista}}",
+    "locked": "Dopo la prima lezione del modulo {{n}}"
   },
   "welcome": {
     "title": "PokerGym",
@@ -1007,6 +1009,91 @@
       "end": "{{line}}.",
       "meaning": "Significato: {{def}}",
       "alsoSeen": "Lo troverai anche come: {{list}}."
+    }
+  },
+  "scenario": {
+    "missing": "Questo scenario non esiste o non è ancora sbloccato.",
+    "nav": {
+      "back": "Scenari",
+      "title": "Scenario",
+      "finish": "Termina"
+    },
+    "level": {
+      "label": "Livello",
+      "group": "Livello di difficoltà",
+      "auto": "Automatico",
+      "latwy": "Facile",
+      "sredni": "Medio",
+      "trudny": "Difficile"
+    },
+    "start": {
+      "about": "Giochi da {{ty}}, avversario: {{rywal}}. Profondità {{bb}} bb.",
+      "nowAuto": "Ora: {{poziom}}. Il livello si adatta ai tuoi risultati.",
+      "nowManual": "Livello scelto: {{poziom}}.",
+      "missing": "Questa mano non ha il livello «{{wybrany}}». La giocherai a «{{poziom}}».",
+      "hint": "Ogni mano ha carte nuove. Il risultato sono le valutazioni delle decisioni, non una vincita.",
+      "begin": "Inizia la mano"
+    },
+    "street": {
+      "preflop": "Preflop",
+      "flop": "Flop",
+      "turn": "Turn",
+      "river": "River"
+    },
+    "streets": {
+      "label": "Giri di puntata"
+    },
+    "table": {
+      "label": "Tavolo: tu in {{ty}} con {{reka}}, avversario in {{rywal}}. Board: {{stol}}.",
+      "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
+      "you": "tu",
+      "villain": "avversario"
+    },
+    "pot": "Piatto {{pula}} bb · per chiamare {{kwota}} bb",
+    "log": {
+      "label": "Svolgimento della mano",
+      "villainBet": "{{rywal}} punta {{bb}} bb",
+      "youCall": "tu chiami",
+      "youFold": "tu foldi"
+    },
+    "yourMove": "Tocca a te",
+    "action": {
+      "fold": "Fold",
+      "call": "Call",
+      "callAmount": "Call {{bb}} bb"
+    },
+    "verdict": {
+      "yours": "La tua scelta: {{akcja}}. Meglio: {{lepiej}}.",
+      "yoursGood": "La tua scelta: {{akcja}}."
+    },
+    "why": {
+      "weaker": "Perché «{{akcja}}» è la giocata più debole",
+      "better": "Perché «{{akcja}}» è la giocata migliore",
+      "good": "Perché «{{akcja}}» è una buona giocata",
+      "whyNot": "Perché non «{{akcja}}»"
+    },
+    "scale": {
+      "label": "Valutazione delle azioni: {{lista}}.",
+      "yourChoice": "la tua scelta"
+    },
+    "numbers": {
+      "title": "Numeri",
+      "line": "Il piatto è {{pula}} bb e chiamare costa {{kwota}} bb, quindi ti serve il {{potrzeba}} di equity, cioè vincere circa una volta su {{razPotrzeba}}. Out: {{outy}} su {{nieznane}} carte non viste: completi il progetto nel {{trafisz}} dei casi, circa una volta su {{razTrafisz}}."
+    },
+    "next": {
+      "street": "Avanti: {{ulica}}",
+      "summary": "Vedi il riepilogo"
+    },
+    "end": {
+      "title": "Mano conclusa",
+      "better": "Meglio: {{akcja}}.",
+      "score": "Decisioni corrette: {{dobre}} su {{wszystkie}}.",
+      "newDeal": "Nuova mano",
+      "again": "Gioca di nuovo la stessa mano",
+      "close": "Chiudi",
+      "showdownYou": "Il river è {{river}}. L’avversario mostra {{karty}}: la tua mano è più alta.",
+      "showdownVillain": "Il river è {{river}}. L’avversario mostra {{karty}}: la sua mano è più alta.",
+      "showdownTie": "Il river è {{river}}. L’avversario mostra {{karty}}: le mani sono uguali."
     }
   }
 }

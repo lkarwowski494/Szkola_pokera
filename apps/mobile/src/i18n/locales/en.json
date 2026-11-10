@@ -45,7 +45,9 @@
   },
   "scenarios": {
     "title": "Scenarios",
-    "soon": "Scenarios are coming soon. Until then, practice decisions in a practice session."
+    "soon": "Scenarios are coming soon. Until then, practice decisions in a practice session.",
+    "levels": "Levels: {{lista}}",
+    "locked": "After the first lesson of module {{n}}"
   },
   "welcome": {
     "title": "PokerGym",
@@ -989,6 +991,91 @@
       "end": "{{line}}.",
       "meaning": "Meaning: {{def}}",
       "alsoSeen": "You'll also see: {{list}}."
+    }
+  },
+  "scenario": {
+    "missing": "This scenario does not exist or is not unlocked yet.",
+    "nav": {
+      "back": "Scenarios",
+      "title": "Scenario",
+      "finish": "Finish"
+    },
+    "level": {
+      "label": "Level",
+      "group": "Difficulty level",
+      "auto": "Automatic",
+      "latwy": "Easy",
+      "sredni": "Medium",
+      "trudny": "Hard"
+    },
+    "start": {
+      "about": "You play from {{ty}}, opponent: {{rywal}}. Depth {{bb}} bb.",
+      "nowAuto": "Now: {{poziom}}. The level adapts to your results.",
+      "nowManual": "Chosen level: {{poziom}}.",
+      "missing": "This hand has no “{{wybrany}}” level. You will play it at “{{poziom}}”.",
+      "hint": "Every hand deals new cards. The result is a grade for each decision, not a win.",
+      "begin": "Start the hand"
+    },
+    "street": {
+      "preflop": "Preflop",
+      "flop": "Flop",
+      "turn": "Turn",
+      "river": "River"
+    },
+    "streets": {
+      "label": "Streets"
+    },
+    "table": {
+      "label": "Table: you in {{ty}} with {{reka}}, opponent in {{rywal}}. Board: {{stol}}.",
+      "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
+      "you": "you",
+      "villain": "opponent"
+    },
+    "pot": "Pot {{pula}} bb · to call {{kwota}} bb",
+    "log": {
+      "label": "Hand history",
+      "villainBet": "{{rywal}} bets {{bb}} bb",
+      "youCall": "you call",
+      "youFold": "you fold"
+    },
+    "yourMove": "Your move",
+    "action": {
+      "fold": "Fold",
+      "call": "Call",
+      "callAmount": "Call {{bb}} bb"
+    },
+    "verdict": {
+      "yours": "Your choice: {{akcja}}. Better: {{lepiej}}.",
+      "yoursGood": "Your choice: {{akcja}}."
+    },
+    "why": {
+      "weaker": "Why “{{akcja}}” is the weaker play",
+      "better": "Why “{{akcja}}” is the better play",
+      "good": "Why “{{akcja}}” is a good play",
+      "whyNot": "Why not “{{akcja}}”"
+    },
+    "scale": {
+      "label": "Grades of the actions: {{lista}}.",
+      "yourChoice": "your choice"
+    },
+    "numbers": {
+      "title": "Numbers",
+      "line": "The pot is {{pula}} bb and calling costs {{kwota}} bb, so you need {{potrzeba}} equity, that is, to win about once in {{razPotrzeba}}. Outs: {{outy}} of {{nieznane}} unseen cards: you complete your draw in {{trafisz}} of cases, about once in {{razTrafisz}}."
+    },
+    "next": {
+      "street": "Next: {{ulica}}",
+      "summary": "See the summary"
+    },
+    "end": {
+      "title": "Hand finished",
+      "better": "Better: {{akcja}}.",
+      "score": "Good decisions: {{dobre}} of {{wszystkie}}.",
+      "newDeal": "New hand",
+      "again": "Play the same hand again",
+      "close": "Close",
+      "showdownYou": "The river is {{river}}. Your opponent shows {{karty}}: your hand ranks higher.",
+      "showdownVillain": "The river is {{river}}. Your opponent shows {{karty}}: their hand ranks higher.",
+      "showdownTie": "The river is {{river}}. Your opponent shows {{karty}}: the hands are equal."
     }
   }
 }

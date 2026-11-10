@@ -93,7 +93,7 @@ export function wartosciZnacznikow(v: ScenarioVariant, s: ScenarioTemplate, inde
     reka: karty(v.hero.map(cardToString)),
     stol: karty(widokDecyzji(v, indeks).stol),
     pozycja: pozycja(s.positions.hero, t),
-    rywal: pozycja(s.positions.villain, t),
+    rywal: s.positions.villain, // skrót (D-650): w szablonie stoi po przyimku („rywal z BB”), pełna nazwa zepsułaby odmianę
   };
 }
 

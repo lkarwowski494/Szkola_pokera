@@ -43,7 +43,9 @@
   },
   "scenarios": {
     "title": "시나리오",
-    "soon": "시나리오는 곧 제공됩니다. 그때까지는 연습 세션에서 판단을 연습하세요."
+    "soon": "시나리오는 곧 제공됩니다. 그때까지는 연습 세션에서 판단을 연습하세요.",
+    "levels": "난이도: {{lista}}",
+    "locked": "모듈 {{n}}의 첫 레슨 후"
   },
   "welcome": {
     "title": "PokerGym",
@@ -971,6 +973,91 @@
       "end": "{{line}}.",
       "meaning": "뜻: {{def}}",
       "alsoSeen": "다른 표기: {{list}}."
+    }
+  },
+  "scenario": {
+    "missing": "이 시나리오가 없거나 아직 열리지 않았습니다.",
+    "nav": {
+      "back": "시나리오",
+      "title": "시나리오",
+      "finish": "종료"
+    },
+    "level": {
+      "label": "난이도",
+      "group": "난이도 선택",
+      "auto": "자동",
+      "latwy": "쉬움",
+      "sredni": "보통",
+      "trudny": "어려움"
+    },
+    "start": {
+      "about": "당신은 {{ty}}, 상대는 {{rywal}}입니다. 스택 깊이 {{bb}}bb.",
+      "nowAuto": "현재: {{poziom}}. 난이도는 결과에 따라 자동으로 조정됩니다.",
+      "nowManual": "선택한 난이도: {{poziom}}.",
+      "missing": "이 핸드에는 “{{wybrany}}” 난이도가 없습니다. “{{poziom}}”로 진행합니다.",
+      "hint": "핸드마다 새 카드가 나옵니다. 결과는 판단에 대한 평가이며 승패가 아닙니다.",
+      "begin": "핸드 시작"
+    },
+    "street": {
+      "preflop": "프리플롭",
+      "flop": "플롭",
+      "turn": "턴",
+      "river": "리버"
+    },
+    "streets": {
+      "label": "스트리트"
+    },
+    "table": {
+      "label": "테이블: 당신은 {{ty}}에서 {{reka}}, 상대는 {{rywal}}. 보드: {{stol}}.",
+      "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
+      "you": "나",
+      "villain": "상대"
+    },
+    "pot": "팟 {{pula}}bb · 콜 금액 {{kwota}}bb",
+    "log": {
+      "label": "핸드 진행",
+      "villainBet": "{{rywal}}이(가) {{bb}}bb 베팅",
+      "youCall": "당신은 콜",
+      "youFold": "당신은 폴드"
+    },
+    "yourMove": "내 차례",
+    "action": {
+      "fold": "폴드",
+      "call": "콜",
+      "callAmount": "콜 {{bb}}bb"
+    },
+    "verdict": {
+      "yours": "내 선택: {{akcja}}. 더 나은 선택: {{lepiej}}.",
+      "yoursGood": "내 선택: {{akcja}}."
+    },
+    "why": {
+      "weaker": "“{{akcja}}”이(가) 더 약한 이유",
+      "better": "“{{akcja}}”이(가) 더 나은 이유",
+      "good": "“{{akcja}}”이(가) 좋은 이유",
+      "whyNot": "왜 “{{akcja}}”이(가) 아닌가"
+    },
+    "scale": {
+      "label": "행동별 평가: {{lista}}.",
+      "yourChoice": "내 선택"
+    },
+    "numbers": {
+      "title": "숫자",
+      "line": "팟은 {{pula}}bb이고 콜에 {{kwota}}bb가 들어서 필요한 승률은 {{potrzeba}}, 즉 약 {{razPotrzeba}}번에 한 번 이겨야 합니다. 아웃츠는 보이지 않는 {{nieznane}}장 중 {{outy}}장이며, 완성될 확률은 {{trafisz}}, 약 {{razTrafisz}}번에 한 번입니다."
+    },
+    "next": {
+      "street": "다음: {{ulica}}",
+      "summary": "요약 보기"
+    },
+    "end": {
+      "title": "핸드 종료",
+      "better": "더 나은 선택: {{akcja}}.",
+      "score": "좋은 판단: {{wszystkie}}번 중 {{dobre}}번.",
+      "newDeal": "새 핸드",
+      "again": "같은 핸드 다시 하기",
+      "close": "닫기",
+      "showdownYou": "리버는 {{river}}. 상대가 {{karty}}을(를) 보여 줍니다. 당신의 핸드가 더 높습니다.",
+      "showdownVillain": "리버는 {{river}}. 상대가 {{karty}}을(를) 보여 줍니다. 상대의 핸드가 더 높습니다.",
+      "showdownTie": "리버는 {{river}}. 상대가 {{karty}}을(를) 보여 줍니다. 두 핸드가 같습니다."
     }
   }
 }

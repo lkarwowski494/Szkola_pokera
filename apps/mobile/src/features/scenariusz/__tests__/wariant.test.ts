@@ -65,6 +65,11 @@ describe('znaczniki wariantu w wyjaśnieniach (D-557)', () => {
     expect(dobrze.map((b) => [b.rodzaj, b.akcja])).toEqual([['dobrze', 'call'], ['dlaczego_nie', 'fold']]);
     expect(dobrze[1]!.tekst).toContain('Pas oddaje pulę');
   });
+  it('D-650: {{w:rywal}} to skrót pozycji (np. „BB”), bo szablon odmienia zdanie („rywal z …”), a pełna nazwa psuje gramatykę; {{w:pozycja}} to nazwa', () => {
+    const w = wartosciZnacznikow(wariant(), SC01, 0, (k) => (k === 'table.position.btn' ? 'Button' : k));
+    expect(w.rywal).toBe('BB');
+    expect(w.pozycja).toContain('Button');
+  });
   it('turn: stół z czterema kartami', () => {
     const v = wariant();
     expect(wartosciZnacznikow(v, SC01, 1, t).stol.split(' ')).toHaveLength(4);
