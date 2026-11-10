@@ -1856,9 +1856,9 @@
         "kontrola": "a"
       },
       "ko": {
-        "kto": "weryfikacja zastępcza (subagent): przekład zwrotny w świeżej sesji + porównanie sensu + drugi przegląd (rola 09, sesja AJ: K1–K4, A-ko, D-388; skrót po nałożeniu i ujednoliceniu form w sesji AL, D-394, m12-l1 + R-M12-* ponownie)",
+        "kto": "weryfikacja zastępcza (subagent): przekład zwrotny przed otwarciem pl + porównanie sensu (rola 09, sesja AU, pełny przegląd 2026-11-10; dowód: docs/lokalizacja/dowody/nalozenie-AU/kontrola-a/)",
         "data": "2026-11-10",
-        "sha": "200e3af62e5b",
+        "sha": "1df2107babac",
         "kontrola": "a"
       },
       "it": {

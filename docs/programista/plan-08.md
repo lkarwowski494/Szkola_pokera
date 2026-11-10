@@ -1017,6 +1017,24 @@ Rola: `node prompts/tools/assemble.mjs 09-lokalizacja --tryb build` (repo `promp
 - vi: nazwy K-05 małą literą na początku zdania (plan §6, [DO USTALENIA]); terms-nazwy [DO USTALENIA] ko 25, it 52, vi 48.
 - Metadane fali 2 do `store/` — po decyzji właściciela.
 
+## Sesja AU — nałożenie pełnego przeglądu 9 języków (2026-11-10, rola 09 build, D-450–D-453)
+Rola: prompt złożony przez koordynatora (pierwsza wiadomość sesji). Gałąź `sesja-au-poprawki` od f8272c1.
+
+| Krok | Test / dowód (czerwony przed → zielony po) | Decyzja |
+|---|---|---|
+| 1. WYS: ja replaceBody, es m4-l4:33, 13 znaczników fr/de/vi | `przeglad-pelny-wys-09.test.ts` 15 ✕ → 15 ✓ | D-450 |
+| 2. Nałożenie 2849 poprawek (0 pominiętych) + 14 `sed` AP | `naloz-pliki.mjs`; `nalozenie-przeglad-pelny-2026-11-10.md` | D-450 |
+| 3. Decyzje przeglądu (D-420, D-430–432, D-440–442), ujednolicenie 384 zamian, KO-022 | `ujednolic-formy.mjs` drugi przebieg 0 | D-451 |
+| 4. Metadane sklepu: stopnie oceny ×9, de i ko podtytuł | `sprawdz-metadane-aso.py` kod 0; recenzja subagenta | D-452 |
+| 5. Kontrola (a) 203 miejsc; `przeglad_jezyki` ×60 | `nalozenie-AU/kontrola-a/` | D-453 |
+
+### Zostaje
+- Lista telefonu: sekcje „Sesja AU” w `lista-telefonu-4.md`, `-de-es.md`, `-ko-it-vi.md`.
+- NISKIE: zh-Hant „課程” (kurs/lekcje) w opisie sklepu; ja „購入の永久アクセス”; ko 플롭/플랍 w słowach kluczowych; fr m12-l3:78, it m12-l2:42, es m12-l4:85.
+- Otwarte z README przeglądu (rodzimy użytkownik): vi check/xem bài, pot/hũ, board, street; fr board/tableau; de Two Pair, Bet/Einsatz; it royal/straight flush; ko 벳/베팅, 나/당신.
+- Rola 10: en-US opis „correct” vs interfejs „Aligned”; `store/asc-kontrola.json` bez zmian (sprawdzone w CI).
+- Błędy źródła pl do roli 06: `exams/m2.yaml:89`, `lessons/m10-l3:49` „stoły”, `{{n:m11.push.10.win}} blindów` (podwójna jednostka), `features/drills/text.ts:152` `toLowerCase()`.
+
 ## Koordynacja (decyzja właściciela 2026-11-08 ok. 20:20 UTC)
 Od teraz sesja koordynująca tylko zleca, odbiera wyniki i archiwizuje; pracę robią osobne sesje. Prompt koordynatora: `docs/programista/koordynator.md`.
 

@@ -9,3 +9,12 @@ Wzór: `lista-telefonu-4.md`. Każdy punkt: telefon w danym języku (Ustawienia 
 - **T-e-2** es: lekcja m3 lub m5 — „igualar” (nie „pagar”) przy zagraniu call; „pareja mayor” przy top pair.
 - **T-5-1** Ramka „Odpowiedzialna gra” (m12-l4) i ekran Pomoc w de („Hilfe”) i es («Ayuda»): numery pomocy widoczne, link działa.
 - **T-5-2** Zmiana języka w Ustawieniach pl → de → es → pl bez restartu; postęp bez zmian.
+
+## Sesja AU: poprawki pełnego przeglądu (de, es)
+
+Stan: 2026-11-10, sesja AU (rola 09): nałożenie pełnego przeglądu (`docs/lokalizacja/dowody/nalozenie-przeglad-pelny-2026-11-10.md`). Sprawdź w aplikacji po nowym buildzie.
+
+| # | Ustawienie | Co sprawdzić | Wynik |
+|---|---|---|---|
+| T-au-de | de, m8-l1 i R-M6-001 | terminy kliknięte w zdaniach: „foldet”, „gecallt” z podkreśleniem słowniczka; „Straße” zamiast „Straight” | |
+| T-au-es | es, m4-l4 | zdanie „todos se retiran hasta ti” (fold; wcześniej „pasan” = check) | |

@@ -484,7 +484,7 @@
       "source": "Source : {{source}}",
       "lesson": "Aller à la leçon",
       "replay": "Déroulé de la main",
-      "cards": "Cartes de révision : {{n}} nouvelles situations issues des erreurs.",
+      "cards": "Fiches de révision : {{n}} nouvelles situations issues des erreurs.",
       "result": "Résultat en {{t:chips|jetons}} : {{bb}}bb",
       "variance": "Quelques dizaines de mains, c'est trop peu pour que le résultat dise quoi que ce soit de votre jeu ; ce qui compte, c'est l'évaluation des décisions.",
       "again": "Jouer le domaine « {{area}} »",

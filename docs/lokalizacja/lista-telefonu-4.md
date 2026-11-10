@@ -18,3 +18,14 @@ Jak: Ustawienia iOS → Ogólne → Język i region (język telefonu) albo Ustaw
 | T-pf-5 | pt-BR i fr | ekran pomocy i ramka „Odpowiedzialna gra” jak w `helplines.yaml`; m12-l4 „no mais tardar” / „au plus tard” | |
 | T-pf-6 | pt-BR i fr; potem ja | słowniczek: nazwa lokalna pogrubiona, angielska pod spodem; szukanie „pote”/„pot”, „quinte”/„straight”, „コール”/„call” znajduje ten sam termin; gdy nazwa = angielska (pot, call w fr) — jedna linia | |
 | T-pf-7 | fr i pt-BR, największy tekst, 320 pt | tytuły i przyciski („Continuer”, „Continuar”) bez obcięć — obcięcia do roli 04 | |
+
+## Sesja AU: poprawki pełnego przeglądu (ja, zh-Hant, pt-BR, fr)
+
+Stan: 2026-11-10, sesja AU (rola 09): nałożenie pełnego przeglądu (`docs/lokalizacja/dowody/nalozenie-przeglad-pelny-2026-11-10.md`). Sprawdź w aplikacji po nowym buildzie.
+
+| # | Ustawienie | Co sprawdzić | Wynik |
+|---|---|---|---|
+| T-au-ja | ja, Ustawienia → Dane → import pliku | okno potwierdzenia: „Postęp z TELEFONU zostanie zastąpiony postępem Z PLIKU” (  ja `data.replaceBody` odwrócone w poprzedniej wersji) — porównaj z pl | |
+| T-au-zh | zh-Hant, m6-l3 | „按鈕位” zamiast „莊位” w pytaniach; Ustawienia → „訓練網站” | |
+| T-au-fr | fr, ekran powtórek | napis „Fiches de révision : N nouvelles situations” (KO-022, do weta); lekcje: „le Bouton” | |
+| T-au-pt | pt-BR, m11-l3 | „prêmios” / „Bolha” bez zmian sensu; terminy po poprawkach | |

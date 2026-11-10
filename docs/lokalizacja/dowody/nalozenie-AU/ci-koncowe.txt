@@ -1,0 +1,9 @@
+# Kontrole końcowe sesji AU (2026-11-10)
+pnpm content:build: kod 0 (35 baz)
+pnpm i18n: 0 błędów, 284 uwagi
+pnpm run ci: kod 0
+apps/mobile test: Test Suites: 87 passed, 87 total
+apps/mobile test: Tests:       586 passed, 586 total
+# pass 189
+# fail 0
+0 błędów, 0 uwag

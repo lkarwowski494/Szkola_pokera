@@ -15,3 +15,13 @@ Jak: Ustawienia iOS → Ogólne → Język i region (język telefonu) albo Ustaw
 | T-v-2 | vi, największy tekst | wielkie litery z podwójnym znakiem (Ấ, Ể) w tytułach bez przycięcia | |
 | T-kiv-1 | ko, it, vi, największy tekst (XXXL, AX5), 320 pt | przyciski i tytuły bez obcięć | |
 | T-kiv-2 | ko, it, vi | ramka „Odpowiedzialna gra” i numery pomocy (nakładka `helplines.yaml`) | |
+
+## Sesja AU: poprawki pełnego przeglądu (ko, it, vi)
+
+Stan: 2026-11-10, sesja AU (rola 09): nałożenie pełnego przeglądu (`docs/lokalizacja/dowody/nalozenie-przeglad-pelny-2026-11-10.md`). Sprawdź w aplikacji po nowym buildzie.
+
+| # | Ustawienie | Co sprawdzić | Wynik |
+|---|---|---|---|
+| T-au-ko | ko | „C벳” i „,000핸드” w m12-l1 / m13; podtytuł sklepu nie dotyczy telefonu | |
+| T-au-it | it, m10-l2 | „maniac” (nie „maniaco”), „foldare”; ramka m12 | |
+| T-au-vi | vi, m8-l3 i egzamin m5 | terminy „big blind”, „bluff”, „range”, „bài chờ” spójne; znaczniki przy zdaniach z termem (dotknięcie otwiera słowniczek) | |
