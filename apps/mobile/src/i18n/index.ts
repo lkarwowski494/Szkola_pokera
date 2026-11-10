@@ -3,7 +3,7 @@ import './polyfille';
 import { getLocales } from 'expo-localization';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import { jestJezykiem, opcjeI18next, sprawdzIntl, wybierzJezyk, ZRODLO, type Jezyk } from '@szkola/jezyki';
+import { jestJezykiem, opcjeI18next, regulyLiczbyMnogiej, sprawdzIntl, znacznikIntl, wybierzJezyk, ZRODLO, type Jezyk } from '@szkola/jezyki';
 import { trDeep } from '@/features/drills/terms';
 import { SLOWNIKI, WYDANE } from './slowniki';
 
@@ -32,7 +32,7 @@ const slowniki = Object.fromEntries(
   Object.entries(SLOWNIKI).map(([j, { drill, ...reszta }]) => [j, { ...trDeep(reszta, j), ...(drill === undefined ? {} : { drill }) }]),
 );
 
-void i18n.use(initReactI18next).init(opcjeI18next(slowniki, jezykDlaUstawienia('auto', tagiSystemu()), { scisle: __DEV__ }));
+void i18n.use(initReactI18next).use(regulyLiczbyMnogiej).init(opcjeI18next(slowniki, jezykDlaUstawienia('auto', tagiSystemu()), { scisle: __DEV__ }));
 
 /** Zmiana języka w trakcie działania (ustawienia): bez restartu i bez dotykania danych użytkownika (dane to kody, ADR 0005). */
 export async function ustawJezyk(ustawienie: UstawienieJezyka): Promise<Jezyk> {
@@ -41,7 +41,7 @@ export async function ustawJezyk(ustawienie: UstawienieJezyka): Promise<Jezyk> {
   return j;
 }
 
-const problemy = sprawdzIntl(WYDANE);
+const problemy = sprawdzIntl(WYDANE.map(znacznikIntl));
 if (problemy.length) {
   const komunikat = `Intl.PluralRules: ${problemy.join('; ')}`;
   if (__DEV__) throw new Error(komunikat);

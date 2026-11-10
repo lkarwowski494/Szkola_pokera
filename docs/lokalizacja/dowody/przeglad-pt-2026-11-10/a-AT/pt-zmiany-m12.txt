@@ -1,0 +1,53 @@
+[Z1] prompt: "Turn. Tem um {{t:flush-draw|flush draw}} limpo ({{n:outs.flush}} outs), o {{t:pot|pote}} é de {{n:ex.pot}} e o adversário {{t:bet|aposta}} {{n:ex.bet.quarter}}. {{t:call|Paga}}, o {{t:flush|flush}} não sai e perde {{n:ex.bet.quarter}}. Como avalia o {{t:call|call}}?"
+
+[Z2] - { text: "Foi mau, porque o {{t:flush|flush}} não saiu", why: "O {{t:flush|flush}} só sai em cerca de {{n:odds.flush.turn-river}} dos casos, por isso falhar era o resultado mais provável. Avalia a decisão pelo preço, e o preço era bom." }
+
+[Z3] - { text: "Só seria bom se o {{t:flush|flush}} tivesse saído", why: "É a definição de avaliar pelo resultado. A mesma decisão não muda de qualidade consoante a carta que saiu depois." }
+
+[Z4] prompt: "Turn. {{t:flush-draw|Flush draw}} limpo, o {{t:pot|pote}} é de {{n:ex.pot}} e o adversário {{t:bet|aposta}} o {{t:pot|pote}} inteiro: {{n:ex.bet.pot}}. {{t:call|Paga}} e o {{t:flush|flush}} sai no river. Como avalia o {{t:call|call}}?"
+
+[Z5] - { text: "Foi bom, porque o {{t:flush|flush}} é a melhor mão", why: "A força da mão depois de acertar não muda o preço. O que conta é a comparação: {{n:odds.flush.turn-river}} de probabilidade contra {{n:eq.bet-pot}} necessários." }
+
+[Z6] - { text: "Com a informação que tinha, a decisão tinha {{t:expected-value|EV}} positivo?", correct: true, why: "É a única pergunta que distingue um erro do azar. Calcula o preço, a equity contra o {{t:range|range}} do adversário e o que sabia no momento da decisão." }
+
+[Z7] Ir all-in com um {{t:pair|par}} de ases contra um {{t:pair|par}} de reis é a melhor decisão possível e, ainda assim, perde em cerca de **{{n:res.kk-wins}}** dos casos. Por outro lado, um {{t:call|call}} com um {{t:flush-draw|flush draw}} pelo {{t:pot|pote}} inteiro no turn é mau (precisa de {{n:eq.bet-pot}}, tem cerca de {{n:odds.flush.turn-river}}) e, mesmo assim, ganha aproximadamente uma vez em cada cinco.
+
+[Z8] 2. Calcule o preço e a equity contra o {{t:range|range}} do adversário (M2, M6).
+
+[Z9] Cada pessoa entra em tilt de forma um pouco diferente. Escreva o seu **perfil de tilt**: o que o desencadeia, o que pensa e sente nesse momento, o que faz à mesa (p. ex. {{t:call|paga}} com um range demasiado largo, {{t:raise|aumenta}} por vingança). Quanto melhor conhecer os seus sinais, mais cedo os detetará.
+
+[Z10] - { text: "Sobe para um {{t:stakes|limite}} mais alto para recuperar mais depressa", why: "Isso é tilt de desespero. Um {{t:stakes|limite}} mais alto com um bankroll menor em {{t:buy-in|buy-ins}} aumenta bruscamente o {{t:risk-of-ruin|risco de ruína}}." }
+
+[Z11] - { text: "Desce de {{t:stakes|limite}} de imediato", correct: true, why: "Também é uma boa decisão: algumas fontes aconselham descer logo após perder {{n:dd.bi.small}} {{t:buy-in|buy-ins}}. Descer antes de o bankroll chegar à metade não é um erro, mas descer só depois disso já é um erro." }
+
+[Z12] - { text: "Mais ou menos meio a meio, mas nunca menos de {{n:study.min}} de estudo", correct: true, why: "Também quando ganha, o ideal é cerca de {{n:study.winner}} de estudo, e o mínimo é {{n:study.min}}." }
+
+[Z13] - { text: "Não: o intervalo de {{n:var.conf95}} é de cerca de ± {{n:exam.m12.style.ci}}; avalia as novas jogadas na revisão de mãos", correct: true, why: "O erro do winrate após {{n:exam.m12.style.blocks}} blocos é {{n:var.sd}} ÷ {{n:exam.m12.style.sqrt}} ≈ {{n:exam.m12.style.se}}, pelo que o intervalo é ± {{n:var.z95}} × {{n:exam.m12.style.se}} ≈ ± {{n:exam.m12.style.ci}}. Um resultado assim cabe tanto num estilo melhor como num pior. A estratégia decide-se pela revisão das decisões." }
+
+[Z14] prompt: "Turn. Tem um {{t:flush-draw}} limpo e o {{t:pot|pote}} é de {{n:ex.pot}}. O adversário vai all-in por {{n:ex.bet.half}}, e já não é possível ganhar mais nada. {{t:call|Paga}}, o {{t:flush}} sai no river e ganha. Como avalia o {{t:call}}?"
+
+[Z15] - { text: "Tilt de ódio a perder", correct: true, why: "O gatilho é a própria derrota, mesmo quando sabe que é {{t:variance}}. Não culpa a sorte, a si próprio nem o adversário." }
+
+[Z16] - { text: "Tilt de injustiça", why: "Este tipo é desencadeado pela sensação de que o póquer é injusto: bad beats, coolers, adversários a acertar no river. Aqui sabe que tudo decorreu normalmente, e o que lhe causa irritação é a própria derrota." }
+
+[Z17] - { text: "Tilt de erro", why: "O tilt de erro é a irritação com os próprios erros. Aqui sabe que jogou bem." }
+
+[Z18] prompt: "Depois de perder três {{t:pot|potes}} grandes, já não consegue avaliar se o seu último {{t:call}} foi bom, e pensa em subir para um {{t:stakes|limite}} mais alto para recuperar as perdas mais depressa. O que faz?"
+
+[Z19] - { text: "Respiro fundo algumas vezes e continuo a jogar num {{t:stakes|limite}} mais alto", why: "A respiração ajuda nos primeiros sinais de tilt, enquanto ainda pensa com clareza. Aqui o tilt já cresceu, e um {{t:stakes|limite}} mais alto só aumenta as perdas." }
+
+[Z20] - { text: "Continuo a jogar no mesmo {{t:stakes|limite}}, mas apenas com mãos fortes", why: "Quando já não consegue avaliar as decisões com calma, continuar a jogar é jogar no seu pior nível de jogo (C-game), independentemente das mãos que escolhe. Termina a {{t:session|sessão}}." }
+
+[Z21] prompt: "Ganha {{n:dd.wr-low}} com um {{t:standard-deviation|desvio-padrão}} de {{n:var.sd}} e tem {{n:exam.m12.ror.bi}} {{t:buy-in|buy-ins}} ({{n:exam.m12.ror.bb}}). Qual é o risco de perder todo o bankroll se nunca descer de {{t:stakes|limite}}?"
+
+[Z22] - { text: "Desço um {{t:stakes|limite}}", correct: true, why: "O limiar de descida é metade do número de {{t:buy-in|buy-ins}} definido: com {{n:br.bi.beginner}}, são {{n:exam.m12.md.half}}. Tem {{n:exam.m12.md.now}}, ou seja, menos. Num {{t:stakes|limite}} duas vezes mais baixo, o mesmo bankroll volta a corresponder a quase o número completo de {{t:buy-in|buy-ins}} desse limite. Esta é uma indicação geral; se o jogo deixar de estar sob controlo, consulte o ecrã «Ajuda»." }
+
+[Z23] - { text: "Fico e jogo mais para recuperar as perdas", why: "Tentar recuperar as perdas é um sinal de alerta, e não um plano. O bankroll caiu abaixo do limiar de {{n:exam.m12.md.half}}, pelo que desce um {{t:stakes|limite}}." }
+
+[Z24] because: "mesmo os melhores {{n:skill.pct}} dos jogadores só ao fim de cerca de {{n:skill.hands}} mãos ficam à frente dos piores {{n:skill.pct}} em cerca de {{n:skill.ahead}} dos casos, e diferenças menores de habilidade precisam de muito mais mãos"
+
+[Z25] then: "desce um {{t:stakes|limite}} o mais tardar nesse momento, e só volta a subir quando tiver o bankroll completo em {{t:buy-in|buy-ins}} do {{t:stakes|limite}} superior"
+
+[Z26] then: "no início dedica cerca de {{n:study.beginner}} do tempo ao estudo; quando já ganha no seu {{t:stakes|limite}}, cerca de {{n:study.winner}}, mas nunca menos de {{n:study.min}}"
+
+[Z27] because: "no início é quando tem mais terreno a recuperar, e quando já ganha no seu {{t:stakes|limite}} pode jogar mais"

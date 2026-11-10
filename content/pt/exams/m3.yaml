@@ -1,0 +1,95 @@
+# Pula egzaminacyjna M3 (pozycja, ręce startowe, zakresy otwarć): reguły lekcji m3.l1–m3.l3, inne ręce i pozycje.
+# Decyzje otwarcia zgodne ze spotami solvera aplikacji (rfi.*): ręce poza listą klas niepewnych, częstość 0 albo ≥ 0,94.
+module: m3
+drills:
+  - kind: choice
+    id: m3.exam.q1
+    family: m3.position
+    rules: [R-M3-001]
+    prompt: "O Button {{t:open|abriu}}, o {{t:small-blind|small blind}} {{t:fold|desistiu}} e o {{t:big-blind|big blind}} {{t:call|pagou}}. Quem age primeiro no flop?"
+    options:
+      - { text: "O {{t:big-blind|big blind}}", correct: true, why: "A partir do flop, os blinds agem primeiro e o Button age em último. Por isso, aqui o Button tem {{t:position|posição}} e o {{t:big-blind|big blind}} joga {{t:out-of-position|fora de posição}}." }
+      - { text: "O Button, porque {{t:open|abriu}}", why: "A ordem de ação depende do lugar à mesa, e não de quem {{t:open|abriu}}. A partir do flop, o Button age sempre em último." }
+      - { text: "Quem agiu em último no preflop", why: "No preflop, os blinds agem em último, mas a partir do flop agem primeiro. É por isso que a {{t:position|posição}} do Button é a melhor." }
+  - kind: choice
+    id: m3.exam.q2
+    family: m3.open-early
+    rules: [R-M3-002]
+    prompt: "Age primeiro no preflop e ainda ninguém entrou no jogo. O que faz?"
+    table: { hand: "Ac Td", position: UTG }
+    options:
+      - { text: "{{t:raise|Aumento}}", correct: true, why: "AT de naipes diferentes está dentro do {{t:range|range}} de {{t:open|abertura}} a partir de {{t:utg|UTG}} (cerca de {{n:pf.rfi.utg.low}}–{{n:pf.rfi.utg.high}} mãos). O solver da aplicação joga-a aqui sempre." }
+      - { text: "{{t:fold|Desisto}}", why: "Demasiado apertado. De {{t:utg|UTG}} joga de forma estreita, mas AT ainda está no {{t:range|range}}." }
+      - { text: "Completo o {{t:big-blind|big blind}}", why: "Sendo o primeiro, {{t:raise|aumenta}} ou {{t:fold|desiste}}. O limp cede a {{t:initiative|iniciativa}} e a hipótese de ganhar os blinds de imediato." }
+  - kind: choice
+    id: m3.exam.q3
+    family: m3.rfi.early
+    rules: [R-M3-006]
+    prompt: "O {{t:utg|UTG}} {{t:fold|desistiu}} e a seguir é a sua vez. O que faz?"
+    table: { hand: "Ah 9d", position: HJ }
+    options:
+      - { text: "{{t:fold|Desisto}}", correct: true, why: "Ainda há quatro jogadores atrás de si. A9 de naipes diferentes faz muitas vezes um ás com kicker mais fraco do que AT, AJ ou AQ dos adversários. O solver da aplicação {{t:fold|desiste}} sempre com esta mão a partir do {{t:hijack|HJ}}." }
+      - { text: "{{t:raise|Aumento}}", why: "O ás é tentador, mas do {{t:hijack|HJ}} {{t:open|abre}} de forma mais estreita do que do {{t:cutoff|CO}} e do Button. A9o só entra no {{t:range|range}} do {{t:cutoff|CO}}." }
+  - kind: choice
+    id: m3.exam.q4
+    family: m3.rfi.late
+    rules: [R-M3-006]
+    prompt: "Todos antes de si {{t:fold|desistiram}}. O que faz?"
+    table: { hand: "Ah 9d", position: CO }
+    options:
+      - { text: "{{t:raise|Aumento}}", correct: true, why: "Atrás de si ficaram apenas o Button e os blinds, por isso {{t:open|abre}} de forma mais larga do que do {{t:hijack|HJ}}. O solver da aplicação joga aqui A9o quase sempre." }
+      - { text: "{{t:fold|Desisto}}", why: "É assim que se joga esta mão do {{t:hijack|HJ}}. Do {{t:cutoff|CO}} há menos um jogador atrás de si e o {{t:range|range}} é mais largo." }
+  - kind: choice
+    id: m3.exam.q5
+    family: m3.open-late
+    rules: [R-M3-003]
+    prompt: "Todos {{t:fold|desistiram}} até si. O que faz?"
+    table: { hand: "Jd 9c", position: BTN }
+    options:
+      - { text: "{{t:raise|Aumento}}", correct: true, why: "No Button {{t:open|abre}} cerca de {{n:pf.rfi.btn.low}}–{{n:pf.rfi.btn.high}} mãos. Restam apenas os blinds e, depois do flop, tem {{t:position|posição}}, por isso J9 de naipes diferentes entra no range." }
+      - { text: "{{t:fold|Desisto}}", why: "Do {{t:cutoff|CO}} o solver joga esta mão raramente, mas no Button joga-a sempre. Contra apenas os blinds, isto é demasiado apertado." }
+      - { text: "Completo o {{t:big-blind|big blind}}", why: "O limp cede a {{t:initiative|iniciativa}}. Um {{t:raise|aumento}} ganha muitas vezes os blinds de imediato." }
+  - kind: choice
+    id: m3.exam.q6
+    family: m3.rfi.sb
+    rules: [R-M3-004, R-M3-007, R-M3-009]
+    prompt: "Todos {{t:fold|desistiram}} até si no {{t:small-blind|small blind}}. O que faz?"
+    table: { hand: "Td 8c", position: SB }
+    options:
+      - { text: "{{t:raise|Aumento}} para {{n:pf.open-size-sb}}", correct: true, why: "Já só joga contra o {{t:big-blind|big blind}}, por isso {{t:open|abre}} de forma larga, cerca de {{n:pf.rfi.sb.low}}–{{n:pf.rfi.sb.high}} mãos. Depois do flop age primeiro, por isso, do {{t:small-blind|small blind}}, {{t:raise|aumenta}} um pouco mais do que de outras {{t:position|posições}}." }
+      - { text: "{{t:raise|Aumento}} para {{n:pf.open-size}}", sizeError: true, why: "Ação certa, tamanho errado: {{n:pf.open-size}} é a {{t:open|abertura}} das restantes {{t:position|posições}}. Do {{t:small-blind|small blind}} joga {{t:out-of-position|fora de posição}}, por isso {{t:raise|aumenta}} para {{n:pf.open-size-sb}}." }
+      - { text: "Completo o {{t:big-blind|big blind}}", why: "Ao entrar primeiro, {{t:raise|aumenta}} ou {{t:fold|desiste}} (do {{t:small-blind|small blind}} isto é uma simplificação: algumas soluções de solvers completam aqui parte das mãos). Completar cede a {{t:initiative|iniciativa}} e a hipótese de ganhar os blinds de imediato." }
+      - { text: "{{t:fold|Desisto}}", why: "Demasiado apertado: contra um único adversário, o solver da aplicação joga sempre T8o do {{t:small-blind|small blind}}." }
+  - kind: numeric
+    id: m3.exam.n1
+    family: m3.open-early
+    rules: [R-M3-007]
+    prompt: "Todos antes de si {{t:fold|desistiram}}, está no {{t:hijack|HJ}} e {{t:open|abre}}. Para quantos bb {{t:raise|aumenta}}? Introduza um número."
+    table: { hand: "Kh Qh", position: HJ }
+    answer: pf.open-size
+    explanation: "{{t:open|Abre}} para {{n:pf.open-size}} a partir de qualquer {{t:position|posição}} exceto do {{t:small-blind|small blind}} (aí, {{n:pf.open-size-sb}}). Um único tamanho é simples e não revela a força da mão. Isto é uma simplificação: a partir de {{t:early-position|posições iniciais}}, os solvers {{t:open|abrem}} um pouco mais pequeno."
+  - kind: choice
+    id: m3.exam.q7
+    family: m3.suited
+    rules: [R-M3-005]
+    prompt: "Porque é que T9 do mesmo naipe joga melhor do que T9 de naipes diferentes?"
+    options:
+      - { text: "Tem uma via adicional para ganhar: o {{t:flush|flush}}", correct: true, why: "Os valores são os mesmos, por isso acerta {{t:pair|pares}} e {{t:straight|sequências}} com a mesma frequência. A mão do mesmo naipe acrescenta a isso a hipótese de fazer {{t:flush|flush}}." }
+      - { text: "Acerta {{t:pair|par}} mais vezes", why: "A hipótese de fazer {{t:pair|par}} depende dos valores, e estes são os mesmos." }
+      - { text: "Acerta {{t:straight|sequência}} mais vezes", why: "As {{t:straight|sequências}} dependem dos valores das cartas, e não de as cartas serem do mesmo naipe." }
+  - kind: choice
+    id: m3.exam.q8
+    family: m3.premium
+    rules: [R-M3-008]
+    prompt: "O {{t:utg|UTG}} {{t:raise|aumentou}} e os restantes {{t:fold|desistiram}} até si. O que faz?"
+    table: { hand: "Ks Kd", position: BTN }
+    options:
+      - { text: "{{t:raise|Aumento}} novamente (3-bet)", correct: true, why: "KK é uma das mãos mais fortes e é favorita contra a maioria das mãos com que o {{t:utg|UTG}} {{t:open|abre}}. O 3-bet faz crescer o {{t:pot|pote}} e normalmente deixa-o contra um único adversário." }
+      - { text: "Apenas {{t:call|pago}}", why: "Por vezes joga-se assim para enganar, mas, como regra, abdica de valor e deixa os blinds entrar no jogo de forma barata." }
+      - { text: "{{t:fold|Desisto}}, porque o {{t:utg|UTG}} tem um {{t:range|range}} forte", why: "O {{t:range|range}} do {{t:utg|UTG}} é estreito, mas KK continua a ser claramente favorito contra ele." }
+  - kind: paint
+    id: m3.exam.p-co
+    family: m3.paint.late
+    rules: [R-M3-006]
+    spot: rfi.co
+    prompt: "Todos antes de si {{t:fold|desistiram}} e está no {{t:cutoff|CO}}. Pinte as mãos com que {{t:open|abre}}."

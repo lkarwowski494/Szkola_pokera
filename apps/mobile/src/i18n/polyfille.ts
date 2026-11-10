@@ -11,5 +11,6 @@ import '@formatjs/intl-pluralrules/locale-data/ja.js';
 import '@formatjs/intl-pluralrules/locale-data/ko.js';
 import '@formatjs/intl-pluralrules/locale-data/pl.js';
 import '@formatjs/intl-pluralrules/locale-data/pt.js';
+import '@formatjs/intl-pluralrules/locale-data/pt-PT.js'; // pt aplikacji = pt-PT (znacznikIntl, D-405)
 import '@formatjs/intl-pluralrules/locale-data/vi.js';
 import '@formatjs/intl-pluralrules/locale-data/zh.js';

@@ -1,7 +1,7 @@
 // Ścieżka Hermesa: Intl.PluralRules z polyfillu formatjs (polyfill-force + locale-data), nie z ICU Node.
 // Test w Node potwierdza dane polyfillu; działanie w silniku Hermes sprawdza samosprawdzenie przy starcie aplikacji (telefon).
 import { beforeAll, describe, expect, it } from 'vitest';
-import { JEZYKI, sprawdzIntl } from '../src/index';
+import { JEZYKI, sprawdzIntl, znacznikIntl } from '../src/index';
 import { WEKTORY } from './wektory';
 
 const natywny = Intl.PluralRules;
@@ -14,6 +14,7 @@ const ZNANE_ROZNICE_ULAMKI = ['bg', 'da', 'el', 'es', 'es-419', 'hu', 'lt', 'lv'
 beforeAll(async () => {
   await import('@formatjs/intl-pluralrules/polyfill-force.js');
   for (const j of new Set(JEZYKI.map((x) => x.split('-')[0]))) await import(`@formatjs/intl-pluralrules/locale-data/${j}.js`);
+  await import('@formatjs/intl-pluralrules/locale-data/pt-PT.js'); // pt aplikacji = pt-PT (D-405), jak w polyfille.ts
 });
 
 describe('polyfill formatjs dla 35 języków', () => {
@@ -22,6 +23,10 @@ describe('polyfill formatjs dla 35 języków', () => {
   });
   it('sprawdzIntl: 0 problemów po załadowaniu danych', () => {
     expect(sprawdzIntl(JEZYKI)).toEqual([]);
+  });
+  it('znaczniki Intl (pt → pt-PT, D-405): 0 problemów, pt-PT 0 → other', () => {
+    expect(sprawdzIntl(JEZYKI.map(znacznikIntl))).toEqual([]);
+    expect(new Intl.PluralRules('pt-PT').select(0)).toBe('other');
   });
   for (const [jezyk, wektory] of Object.entries(WEKTORY)) {
     for (const [n, kategoria] of wektory) {
