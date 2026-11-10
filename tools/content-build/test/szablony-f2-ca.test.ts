@@ -53,7 +53,7 @@ describe('F2: cbet-case', () => {
     expect(cbetCases.length).toBeGreaterThan(0);
   });
   for (const { template: t } of fx) {
-    const g = { id: t.id, stackBb: t.stackBb, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+    const g = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
     for (const level of t.levels as ScenarioLevel[]) {
       it(`${t.id} ${level}: ${LOSOWANIA} wariantów, ocena silnika gry zgodna z oczekiwaną akcją`, () => {
         const b = t.bounds[level]!;

@@ -7,16 +7,16 @@ import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { analyseOutsSpot, generateVariant, requiredEquity, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 import { loadScenarioTemplates } from '../src/scenariusze';
+import { martweBlindy } from './martwe-blindy-wyrocznia';
 
 const contentDir = join(resolve(import.meta.dirname, '../../..'), 'content');
 const pl = loadScenarioTemplates(join(contentDir, 'pl', 'scenarios'));
 const LOSOWANIA = 10_000;
-/** Martwe blindy w puli przed flopem (SB 0,5 + BB 1): wkład gracza preflop ≥ (pula − 1,5) ÷ 2, więc stos za pulą liczony z nadmiarem. */
-const MARTWE_BB = 1.5;
+/** Martwe blindy z pozycji szablonu (martwe-blindy-wyrocznia.ts): wkład gracza preflop = (pula − martwe) ÷ 2. */
 
 /** Stos za pulą po sprawdzeniu punktu decyzji: górna granica (najwięcej, co gracz może jeszcze wygrać po trafieniu). */
-function zaPula(stackBb: number, pulaFlop: number, zaklady: number): number {
-  return Math.max(0, stackBb - (pulaFlop - MARTWE_BB) / 2 - zaklady);
+function zaPula(stackBb: number, pulaFlop: number, zaklady: number, p: { hero: string; villain: string }): number {
+  return Math.max(0, stackBb - (pulaFlop - martweBlindy(p)) / 2 - zaklady);
 }
 
 describe('szablony scenariuszy z treści: decyzja niezmienna i oceny zgodne z rachunkiem (BR-GEN-003, D-630)', () => {
@@ -49,7 +49,7 @@ describe('szablony scenariuszy z treści: decyzja niezmienna i oceny zgodne z ra
               const potrzeba = (d.bet * (nieznane - spot.outs)) / spot.outs - (d.pot + d.bet);
               // pojedyncza decyzja na flopie: gracz mógłby zobaczyć turn i river, więc liczona szansa na dwie karty (hojnie)
               if (d.street === 'flop' && v.decisions.length === 1) bledy.push(`${seed}#${i + 1}: pas na flopie bez rachunku na dwie karty (D-630)`);
-              const dostepne = zaPula(t.stackBb, v.decisions[0]!.pot, zaklady);
+              const dostepne = zaPula(t.stackBb, v.decisions[0]!.pot, zaklady, t.positions);
               if (potrzeba <= dostepne) bledy.push(`${seed}#${i + 1}: pas nieodporny: implied odds ${potrzeba.toFixed(1)} ≤ ${dostepne.toFixed(1)} bb za pulą`);
             }
           });

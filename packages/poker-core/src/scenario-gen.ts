@@ -8,7 +8,7 @@ import { analyseOutsSpot, type DrawKind } from './drills';
 import { nutOutsShare, NUT_DRAW_MIN_SHARE, rangeVerdict } from './grading';
 import { classifyHolding, type HoldingClass } from './holding';
 import { hitProbability, requiredEquity } from './math';
-import { equityAfter, ICM_STRUCTURES, icmEquities, randomStacks } from './icm';
+import { equityAfter, ICM_STRUCTURES, randomStacks } from './icm';
 import { createRng, pick } from './rng';
 import { SUIT_PERMUTATIONS } from './situation';
 import { classifyFlop, textureMatches, type TextureFilter } from './texture';
@@ -125,6 +125,8 @@ export interface GeneratorTemplate {
   id: string;
   /** Głębokość w bb: potrzebna tylko przy linii `all-in` (F5). */
   stackBb?: number;
+  /** Pozycje gracza i rywala (nazwy jak w szablonie): martwe blindy i blindy gracza liczone z nich (CJ WYS-001/002). Wymagane przy stackBb w punkcie draw-call i przy icm-call. */
+  positions?: { hero: string; villain: string };
   levels: Partial<Record<ScenarioLevel, LevelBounds>>;
   decisions: readonly DecisionSpec[];
 }
@@ -210,8 +212,14 @@ export class TemplateError extends Error {}
 /** Po ilu odrzuceniach z rzędu generator zgłasza błąd szablonu (BR-GEN-003). */
 export const MAX_CONSECUTIVE_REJECTIONS = 5000; // BR-GEN-003 mówi 1000; po odrzuceniu gotowych rąk (06-tresci-201) sc-19 miał ok. 0,5% rozdań dla poziomu, więc 1000 kończyło się sporadycznym błędem szablonu (D-665, do weta)
 
-/** Martwe blindy w puli przed flopem (SB 0,5 + BB 1): wkład gracza preflop ≈ (pula − 1,5) ÷ 2 (F5, linia all-in; jak test szablony-bs). */
-const MARTWE_BLINDY_BB = 1.5;
+/** Blindy wpłacone przez miejsce przy stole w bb (SB 0,5, BB 1; reszta 0). */
+export function blindBb(position: string): number {
+  return position === 'SB' ? 0.5 : position === 'BB' ? 1 : 0;
+}
+/** Martwe blindy w puli przed flopem: blindy graczy spoza rozdania (SB 0,5 + BB 1 pomniejszone o blindy gracza i rywala). Wkład gracza preflop = (pula − martwe) ÷ 2 (F5, limit stosu ŚR-203). */
+export function deadBlindsBb(positions: { hero: string; villain: string }): number {
+  return 1.5 - blindBb(positions.hero) - blindBb(positions.villain);
+}
 const IDENTITY: readonly number[] = [0, 1, 2, 3];
 /** F3: złe rozmiary do wyboru jako ułamek rozmiaru standardowego (0,8 ≥ min-raise dla otwarć 2,5–3 bb i 3-betów; 1,6 mieści się w stosie 100 bb); odległość od standardu > 0,05 bb (near, grading.ts). D-695. */
 export const SIZE_SMALL_FACTOR = 0.8;
@@ -356,6 +364,9 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       const spot = ctx.spots.find((x) => x.id === spec.spot);
       const shove = spot?.actions.find((a) => a.label === 'all-in');
       if (!spot || !shove) throw new TemplateError(`${t.id}: spot ${spec.spot} nie ma akcji all-in (zakres all-inu rywala)`);
+      const pos = t.positions;
+      if (!pos || typeof t.stackBb !== 'number' || !(t.stackBb > 0)) throw new TemplateError(`${t.id}: punkt icm-call wymaga positions i stackBb (blindy gracza wchodzą do progu ICM)`);
+      if (deadBlindsBb(pos) !== 0) throw new TemplateError(`${t.id}: icm-call: pozycje ${pos.hero} wobec ${pos.villain} mają martwe blindy trzecich graczy (nieobsługiwane; dozwolone SB wobec BB)`);
       const handClass = classOf(hero[0], hero[1]);
       const handEquity = equityVsRange(ctx.equity169, handClass, shove.freqs);
       const structure = pick(rng, ICM_STRUCTURES);
@@ -364,10 +375,13 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
       const villainIndex = (heroIndex + 1 + Math.floor(rng() * (structure.players - 1))) % structure.players;
       const atRisk = Math.min(stacks[heroIndex]!, stacks[villainIndex]!);
       const after = (delta: number) => stacks.map((x, j) => (j === heroIndex ? x + delta : j === villainIndex ? x - delta : x));
-      const eqNow = icmEquities(stacks, structure.payouts)[heroIndex]!;
       const eqWin = equityAfter(after(atRisk), structure.payouts, heroIndex);
       const eqLose = equityAfter(after(-atRisk), structure.payouts, heroIndex);
-      const required = (eqNow - eqLose) / (eqWin - eqLose);
+      // pas = strata blinda gracza na rzecz rywala (blindy w puli i w stosach): próg liczony od stanu po pasie, nie sprzed blindów (CJ WYS-001)
+      const heroBlind = blindBb(pos.hero);
+      const bb = atRisk / t.stackBb!;
+      const eqFold = equityAfter(after(-heroBlind * bb), structure.payouts, heroIndex);
+      const required = (eqFold - eqLose) / (eqWin - eqLose);
       const margin = Math.abs(handEquity - required);
       const correct = handEquity >= required ? 'call' : 'fold';
       if (!inMargin(margin, b, i) || correct !== b.expected[i]) return null; // BR-GEN-003: tylko oczekiwana akcja
@@ -431,9 +445,11 @@ function tryVariant(t: GeneratorTemplate, level: ScenarioLevel, b: LevelBounds, 
     const allIn = spec.villain === 'all-in';
     const hit = allIn && spec.street === 'flop' ? hitProbability(spot.outs, 52 - 2 - stol.length, 2) : spot.hitNextCard;
     // all-in = dokładnie stos gracza za pulą, bez zaokrąglenia (KO-056 ŚR-002: zaokrąglenie w górę dawało zakład większy niż stos o do 0,5 bb)
-    const linie = allIn ? [t.stackBb! - (pot - MARTWE_BLINDY_BB) / 2] : spec.fractions.map((f) => Math.round(pot * f));
+    if (typeof t.stackBb === 'number' && !t.positions) throw new TemplateError(`${t.id}: stackBb w punkcie draw-call wymaga positions (martwe blindy z pozycji)`);
+    const martwe = t.positions ? deadBlindsBb(t.positions) : 0;
+    const linie = allIn ? [t.stackBb! - (pot - martwe) / 2] : spec.fractions.map((f) => Math.round(pot * f));
     // ŚR-203: zakład nie jest większy niż stos gracza za pulą (stackBb − wkład przed flopem − wcześniejsze zakłady); bez stackBb bez ograniczenia
-    const stosGracza = typeof t.stackBb === 'number' ? t.stackBb - ((k === 0 ? pot : draws[0]!.pot) - MARTWE_BLINDY_BB) / 2 - draws.reduce((sum, x) => sum + x.bet, 0) : Infinity;
+    const stosGracza = typeof t.stackBb === 'number' ? t.stackBb - ((k === 0 ? pot : draws[0]!.pot) - martwe) / 2 - draws.reduce((sum, x) => sum + x.bet, 0) : Infinity;
     const ok = linie
       .filter((bet) => allIn || bet <= stosGracza) // all-in to z definicji cały stos (zaokrąglony)
       .map((bet) => ({ fraction: bet / pot, bet, margin: bet > 0 ? Math.abs(hit - requiredEquity(pot, bet)) : 0 }))

@@ -1,6 +1,5 @@
-// Recenzja CE (rola 08, audit) zmian CA 6a5ca17..1533486: testy odtwarzające znalezisk WYS, celowo CZERWONE (bez naprawy).
-// Raport: docs/programista/recenzje/recenzja-ca-1533486.md. Oznaczone `it.fails`, żeby `pnpm run ci` zostało zielone, dopóki
-// błąd trwa; z CE_CZERWONE=1 to zwykłe `it` (dowód czerwieni). Naprawa: zamień `przypadek` na `it` (test ma przejść).
+// Testy odtwarzające recenzji CE (rola 08, audit) zmian CA 6a5ca17..1533486, WYS-001 i WYS-002; naprawione w sesji CJ (zwykłe `it`).
+// Raport: docs/programista/recenzje/recenzja-ca-1533486.md.
 // Wyrocznie liczone od zera z pozycji szablonu, bez stałych i modelu generatora (ŚR-204).
 import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -9,14 +8,14 @@ import { generateVariant, type GeneratorTemplate, type ScenarioLevel } from '@sz
 import { compileRanges } from '../src/ranges';
 import { loadScenarioTemplates } from '../src/scenariusze';
 
-const przypadek = process.env.CE_CZERWONE ? it : it.fails;
+const przypadek = it; // CJ: błędy naprawione, testy zwykłe (wcześniej it.fails)
 const root = resolve(import.meta.dirname, '../../..');
 const fixtures = join(resolve(import.meta.dirname), 'fixtures');
 const BLIND = { SB: 0.5, BB: 1 } as Record<string, number>;
 /** Martwe blindy: wpłacone przez graczy spoza rozdania (pozycje szablonu). */
 const martwe = (hero: string, villain: string) => Object.entries(BLIND).filter(([p]) => p !== hero && p !== villain).reduce((s, [, v]) => s + v, 0);
-const generator = (t: { id: string; stackBb?: number; bounds: unknown; decisions: unknown }) =>
-  ({ id: t.id, stackBb: t.stackBb, levels: t.bounds, decisions: t.decisions }) as GeneratorTemplate;
+const generator = (t: { id: string; stackBb?: number; positions: { hero: string; villain: string }; bounds: unknown; decisions: unknown }) =>
+  ({ id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions }) as GeneratorTemplate;
 
 /** ICM Malmutha-Harville'a z definicji; gracz z zerem odpada. */
 function icm(stacks: number[], payouts: readonly number[], who: number): number {

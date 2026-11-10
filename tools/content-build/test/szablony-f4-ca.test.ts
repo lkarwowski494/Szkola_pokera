@@ -7,6 +7,7 @@ import { describe, expect, it } from 'vitest';
 import { classOf, generateVariant, ICM_STACK_STEP, ICM_STRUCTURES, ICM_TOTAL_CHIPS, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 import { compileRanges } from '../src/ranges';
 import { loadScenarioTemplates } from '../src/scenariusze';
+import { blindMiejsca } from './martwe-blindy-wyrocznia';
 
 const root = resolve(import.meta.dirname, '../../..');
 const fx = loadScenarioTemplates(join(resolve(import.meta.dirname), 'fixtures', 'icm-call'));
@@ -54,7 +55,7 @@ describe('F4: icm-call', () => {
     expect(fx.map((x) => x.template.id)).toEqual(['sc-fx-icm-call']);
   });
   for (const { template: t } of fx) {
-    const g = { id: t.id, stackBb: t.stackBb, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+    const g = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
     for (const level of t.levels as ScenarioLevel[]) {
       it(`${t.id} ${level}: ${LOSOWANIA} wariantów, equity z kart i ICM zgodne z wyrocznią`, () => {
         const b = t.bounds[level]!;
@@ -70,7 +71,9 @@ describe('F4: icm-call', () => {
           if (p.stacks.reduce((a, x) => a + x, 0) !== ICM_TOTAL_CHIPS || p.stacks.some((x) => x < 2 * ICM_STACK_STEP || x % ICM_STACK_STEP !== 0)) bledy.push(`${seed}: stacki ${p.stacks}`);
           if (p.heroIndex === p.villainIndex) bledy.push(`${seed}: hero = villain`);
           const atRisk = Math.min(p.stacks[p.heroIndex]!, p.stacks[p.villainIndex]!);
-          const teraz = eqPo(p.stacks, p.payouts, p.heroIndex);
+          // pas = strata blinda gracza na rzecz rywala; bb = stos efektywny ÷ stackBb (CJ WYS-001: wcześniej wyrocznia liczyła stan sprzed blindów, jak generator)
+          const bb = atRisk / t.stackBb!;
+          const teraz = eqPo(po(p.stacks, p.heroIndex, p.villainIndex, -blindMiejsca(t.positions.hero) * bb), p.payouts, p.heroIndex);
           const wygrana = eqPo(po(p.stacks, p.heroIndex, p.villainIndex, atRisk), p.payouts, p.heroIndex);
           const przegrana = eqPo(po(p.stacks, p.heroIndex, p.villainIndex, -atRisk), p.payouts, p.heroIndex);
           const wymagane = (teraz - przegrana) / (wygrana - przegrana);

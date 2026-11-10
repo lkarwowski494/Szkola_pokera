@@ -50,7 +50,7 @@ describe('F3: size-spot', () => {
     expect(fx.map((x) => x.template.id).sort()).toEqual(Object.keys(SCENA).sort());
   });
   for (const { template: t } of fx) {
-    const g = { id: t.id, stackBb: t.stackBb, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+    const g = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
     const d = t.decisions[0] as { rule: string };
     for (const level of t.levels as ScenarioLevel[]) {
       it(`${t.id} ${level}: ${LOSOWANIA} wariantów, ocena silnika gry zgodna z oczekiwaną akcją`, () => {

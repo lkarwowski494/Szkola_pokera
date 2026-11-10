@@ -5,18 +5,18 @@ import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { analyseOutsSpot, generateVariant, hitProbability, nutOutsShare, NUT_DRAW_MIN_SHARE, requiredEquity, type GeneratorTemplate, type ScenarioLevel } from '@szkola/poker-core';
 import { loadScenarioTemplates } from '../src/scenariusze';
+import { martweBlindy } from './martwe-blindy-wyrocznia';
 
 const fx = loadScenarioTemplates(join(resolve(import.meta.dirname), 'fixtures', 'scenariusze'));
 const LOSOWANIA = 10_000;
-const MARTWE_BB = 1.5;
-const wkladGracza = (pula: number) => (pula - MARTWE_BB) / 2; // jak w szablony-bs.test.ts (D-630)
+const wkladGracza = (pula: number, p: { hero: string; villain: string }) => (pula - martweBlindy(p)) / 2; // martwe blindy z pozycji szablonu (CJ WYS-002)
 
 describe('F5: rozszerzenia draw-call', () => {
   it('fixture ładują się przez schemat', () => {
     expect(fx.map((f) => f.template.id).sort()).toEqual(['sc-fx-allin-draw', 'sc-fx-margines', 'sc-fx-turn-gutshot']);
   });
   for (const { template: t } of fx) {
-    const g = { id: t.id, stackBb: t.stackBb, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
+    const g = { id: t.id, stackBb: t.stackBb, positions: t.positions, levels: t.bounds, decisions: t.decisions } as GeneratorTemplate;
     for (const level of t.levels as ScenarioLevel[]) {
       it(`${t.id} ${level}: ${LOSOWANIA} wariantów zgodnych z wyrocznią`, () => {
         const b = t.bounds[level]!;
@@ -40,7 +40,7 @@ describe('F5: rozszerzenia draw-call', () => {
             const margines = Math.abs(hit - cena);
             if (!(margines > 0 && margines >= m.min && (m.max === null || margines < m.max))) bledy.push(`${seed}#${i + 1}: margines ${margines} poza [${m.min}, ${m.max}]`);
             if (spec.villain === 'all-in') {
-              const stosZaPula = t.stackBb - wkladGracza(d.pot) // KO-056 ŚR-002: all-in to dokładnie stos, bez zaokrąglenia (wcześniej oracle powtarzał zaokrąglenie z generatora);
+              const stosZaPula = t.stackBb - wkladGracza(d.pot, t.positions) // KO-056 ŚR-002: all-in to dokładnie stos, bez zaokrąglenia (wcześniej oracle powtarzał zaokrąglenie z generatora);
               if (d.bet !== stosZaPula) bledy.push(`${seed}#${i + 1}: all-in ${d.bet}, oczekiwano ${stosZaPula}`);
             }
           });
