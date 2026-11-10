@@ -1,4 +1,4 @@
-# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 15:50 UTC)
+# Koordynacja Szkoła Pokera (PokerGym) — stan (aktualizacja 2026-11-10 16:32 UTC)
 
 Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T66VBzPr7MhGZ3A6RPdfBG`. Dawne pliki stanu zostają na gałęzi roboczej: `docs/programista/koordynator.md` (prompt i kolejka nocy), `docs/programista/plan-08.md` sekcja „Koordynacja” (dziennik od 2026-11-08, ostatni wpis 01:51 UTC 10.11), `docs/decyzje.md` (rejestr D-NNN aplikacji, ostatni D-394).
 
@@ -22,7 +22,11 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 - Gałąź robocza: `claude/sleepy-brahmagupta-2065nu`; gałąź stanu: `koordynacja` (utworzona 2026-11-10 od ab820a8).
 
 ## Teraz
-- **Koordynator session_01T66VBzjJPhrAnrqHvxsogb od 15:45** (przejęcie od session_01T66VByNdf5NRAj2XqmVkw1, 36,5%, 26,75 USD). **Biblioteka prompts niedołączona** (add_repo odrzucone przez klasyfikator) — prośba do właściciela o „Możesz dołączyć repo prompts”; do tego czasu bez nowych sesji (kroki C, G czekają).
+- **Przekazanie koordynatora w toku (16:32; kontekst session_01T66VBzjJPhrAnrqHvxsogb 27%, koszt 11,22 USD).** Biblioteka prompts dołączona (`/home/user/prompts` @ f701ce9; właściciel 15:56 „Możesz dołączyć repo prompts”) — następca: add_repo prompts read, klon `--depth 1` do `/home/user/prompts` (jeśli klasyfikator odrzuci — prośba do właściciela o to zdanie).
+- **W toku:** BM (08 fix: poprawki generatora BJ-001…004 na `sesja-bf-generator` @ 8b5db83; plan przyjęty 16:26; szac. 2,5–3 h; potem **recenzja niezależna** — ścieżki wrażliwe), BN (06 build: wyjaśnienia na intuicję 06-tresci-002 + B/C, `sesja-bn-wyjasnienia` @ 02b1fe1, zawiera BG), BL (08 audit: recenzja BI 5f17558 na `sesja-bl-recenzja`). AY wstrzymana.
+- **Przyjęte dziś po przejęciu:** BH (docs menu 0c24cb6), BG (02b1fe1, CI 42853574324). BI 5f17558 — CI 42852231632 zielone, czeka na recenzję BL. Krok C (06: 14 szablonów „umie”) czeka na format z BM (BJ-001: oczekiwana decyzja w szablonie).
+- **Scalenie do roboczej (po BM+recenzji i BL):** sesja-bf-generator, sesja-bn-wyjasnienia (⊃ BG), sesja-bi-menu (⊃ BD, BE/BH) — wszystkie od 8cba034; konflikt możliwy w `apps/mobile/src/i18n/locales` → scalenie z konfliktem zlecić sesji; potem CI + E2E (e2e-ios.yml, maszyna macOS) na wyniku.
+- **Otwarte do właściciela:** lista książek wysłana w czacie 15:47 (KO-044: Acevedo MPT, Janda AoNLHE, Chen/Ankenman MoP, Flynn/Mehta/Miller PNLHE I, Brokos POP2) — czeka na odpowiedź, co udało się kupić; M10 bez danych populacji (decyzja po liście); BR-SCN-003 „po błędzie: dalej” do potwierdzenia. Do weta: KO-046, KO-047; D-556…D-609 w pulach sesji.
 - **Kierunek właściciela 10.11 po buildzie 1010 (KO-035…KO-045):** scenariusze całego rozdania w 1.0, pełny zestaw (34 szablony, plan BD `docs/zakres/scenariusze-plan.md` @ 8cba034), szablony + generator wariantów bez powtórzeń, 3 poziomy (auto + przełącznik), ocena „dlaczego dobrze / dlaczego źle” na intuicję (KO-040), menu W2 (pasek Dziś·Lekcje·Postęp, Wskaźnik w Postępie; KO-045), zębatka (KO-036). **Audyt M1 wstrzymany** do ukończenia scenariuszy i nowego buildu (AY bezczynna, stan `audit/M1-2026-11-10/stan.md` @ 999dcf3 na `sesja-ay-audyt`).
 - **Robocza @ 00b0566** (CI + E2E zielone 14:55). Build TestFlight 1010 = 57a83bf (13:48). Właściciel testuje 1010 na telefonie.
 - **W toku:** BF (08, generator — krok B, gałąź `sesja-bf-generator` od 8cba034), BG (06, lista książek KO-044 ~16:40 → przekazać właścicielowi; potem przeróbka wyjaśnień KO-040 — krok H), BH (04, menu W2 wg KO-045 na `sesja-be-projekt` od 008753c). Część B projektu (ekrany scenariusza i oceny) gotowa @ 8c4ecc6.
@@ -78,7 +82,7 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 - Decyzje nocy nieomówione pojedynczo (techniczne i wykonawcze z listy D-343–D-394): zostają „do weta”.
 
 ## Przypomnienia
-- **Koordynatora session_01T66VBzjJPhrAnrqHvxsogb (aktywne):** trig_01AM7UWvLC8bnUjsLqgKjqpv „…: kontrola” 16:40 · trig_01NjY8pGiWE64YV5voyn87Js „…: linia 14:00” 11.11 · trig_01M6oZ4T7ZMdtAU8db8c2uu4 „…: linia 05:00” 11.11. Poprzednika: tylko „kontrola przekazania” trig_01PFann4nhuAfNnuYs2Ak8Z7 16:13 (usuwa on sam).
+- **Koordynatora session_01T66VBzjJPhrAnrqHvxsogb (usuwa je ta sesja po starcie następcy):** trig_01AM7UWvLC8bnUjsLqgKjqpv „…: kontrola” 16:40 · trig_01NjY8pGiWE64YV5voyn87Js „…: linia 14:00” 11.11 · trig_01M6oZ4T7ZMdtAU8db8c2uu4 „…: linia 05:00” 11.11. Następca tworzy własne: kontrola ok. 17:10 (BL, BM), linia 05:00 11.11, linia 14:00 11.11.
 - **Koordynatora session_01T66VByNdf5NRAj2XqmVkw1 (aktywne):** trig_01CT9nwt7aL61Y5GX9Li2WZN „…: kontrola” 12:46 · trig_01U8suhxu8x2t4TkiP1esKjM „…: linia 14:00” 10.11 · trig_01M5zCVWhPQ4jkVoF5wRUeYw „…: linia 05:00” 11.11. Poprzednika session_01T66VBzWo4nU2Czir22NNVy (usuwa on sam): trig_01BCmxP397ztS6qnQCTveMqY, trig_01SewEvnz5TL8hxUJTZfYfRk, trig_01PboMBDv66pY1EoBxv5VFGv.
 - **Koordynatora session_01T66VBzWo4nU2Czir22NNVy (aktywne):** trig_01ArAQUx3wBNbLYVafwP3Hte „…: kontrola” 10:21 · trig_01SewEvnz5TL8hxUJTZfYfRk „…: linia 14:00” 10.11 · trig_01PboMBDv66pY1EoBxv5VFGv „…: linia 05:00” 11.11.
 - Poprzednika session_01T66VBzpecX1cLyGgZbrkbu (usuwa on sam; o 09:50 jeszcze: trig_01QU6DmMpZX3pKeZrvimWofp kontrola 10:37, trig_01QH4Q5cgzpF8gTNwjZ2H7HF 14:00, trig_01MvY3c1633qgKD4DiT3xZNA 05:00) — niżej dawny wpis:
@@ -88,7 +92,7 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 
 ## Pule numerów decyzji
 - Rejestr aplikacji `docs/decyzje.md`: ostatni D-394. Pule: AM D-395…D-399, AN D-400…D-404, AO D-405…D-419, AP D-420…D-429, AQ D-430…D-439, AR D-440…D-449; AT D-408…D-419 (reszta puli AO/AS); AU zarezerwowana D-450…D-469; następny wolny **D-470**.
-- KO następny: **KO-035**. Pule: AV D-470…D-474, AW D-475…D-484, AX D-485…D-494; AZ D-495…D-499, BA D-500…D-509, BB D-510…D-519, BC D-520…D-529; następny wolny **D-530**. Uwaga: AV wpisała D-470 na końcu tabeli `docs/decyzje.md` (numeracja pul, nie ciągła).
+- KO następny: **KO-048**. Pule po 15:45: BF/BM D-550…D-564, BG D-565…D-579, BI D-580…D-594, BN D-595…D-609; następny wolny **D-610**. Starsze: Pule: AV D-470…D-474, AW D-475…D-484, AX D-485…D-494; AZ D-495…D-499, BA D-500…D-509, BB D-510…D-519, BC D-520…D-529; następny wolny **D-530**. Uwaga: AV wpisała D-470 na końcu tabeli `docs/decyzje.md` (numeracja pul, nie ciągła).
 
 ## Dziennik (najnowsze na dole; starszy w `docs/programista/plan-08.md` „Koordynacja”)
 | UTC | Sesja | Zdarzenie z dowodem | Następny krok |
