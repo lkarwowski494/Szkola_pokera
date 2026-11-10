@@ -81,6 +81,7 @@ export function handReasonKey(hc: string, status: 'in' | 'out', spot: string): H
     return null;
   }
   if (f.high <= 9) return f.pair ? 'overcardsPair' : 'overcards';
-  if (!f.pair) return 'dominated';
+  // R-M3-012 tylko przy słabszej drugiej karcie (≤ 9); dwie wysokie karty to w regule przypadek odwrotny (06-tresci-002, BQ)
+  if (!f.pair && f.low <= 9) return 'dominated';
   return null;
 }

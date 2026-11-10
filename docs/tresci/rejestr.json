@@ -15559,7 +15559,7 @@
   "jednostka": null,
   "werdykt_tekstu": null,
   "poprawka": null,
-  "uwagi": "sesja BN, KO-040 (06-tresci-002), D-595 | sesja BQ 06-tresci-001 (recenzja BP): because zawężone do rąk w różnych kolorach, zastrzeżenie dla ręki w kolorze (rachunek dokładny)",
+  "uwagi": "sesja BN, KO-040 (06-tresci-002), D-595 | sesja BQ 06-tresci-001 (recenzja BP): because zawężone do rąk w różnych kolorach, zastrzeżenie dla ręki w kolorze (rachunek dokładny) | sesja BQ 06-tresci-002: powód `dominated` w aplikacji tylko przy drugiej karcie ≤ 9 (warunek reguły); dwie wysokie karty poza zakresem (18 par) bez powodu z klasy ręki, wyjątki nazwane w powody-reki-bn.test.ts",
   "partia": [
    "bn"
   ]

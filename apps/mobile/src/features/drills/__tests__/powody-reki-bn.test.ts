@@ -23,9 +23,30 @@ const spots: RangeSpot[] = (
 
 /**
  * Wyjątki nazwane (spot:klasa), w których żadna cecha ręki z potwierdzonym twierdzeniem nie wspiera decyzji: zostaje
- * dotychczasowe wyjaśnienie, a para trafia do otwartych pytań (`docs/tresci/stan-bn.md`). Stan 2026-11-10: brak.
+ * dotychczasowe wyjaśnienie, a para trafia do otwartych pytań (`docs/tresci/stan-bn.md`, `docs/tresci/stan-bq.md`).
+ * Stan 2026-11-10 (sesja BQ, 06-tresci-002): dwie wysokie karty w różnych kolorach poza zakresem. R-M3-012 wyłącza je
+ * z „ręki zdominowanej” (warunek reguły), a przeczytanego źródła innego powodu ich słabości w tych spotach brak (otwarte).
  */
-const WYJATKI_BEZ_POWODU: readonly string[] = [];
+const WYJATKI_BEZ_POWODU: readonly string[] = [
+  'nine.rfi.hj:JTo',
+  'nine.rfi.hj:QJo',
+  'nine.vs-open.btn-vs-co:JTo',
+  'nine.vs-open.btn-vs-co:KTo',
+  'nine.vs-open.btn-vs-co:QJo',
+  'nine.vs-open.btn-vs-co:QTo',
+  'nine.vs-open.sb-vs-btn:JTo',
+  'nine.vs-open.sb-vs-btn:KTo',
+  'nine.vs-open.sb-vs-btn:QJo',
+  'rfi.hj:JTo',
+  'rfi.hj:QJo',
+  'vs-open.btn-vs-co:JTo',
+  'vs-open.btn-vs-co:KTo',
+  'vs-open.btn-vs-co:QJo',
+  'vs-open.btn-vs-co:QTo',
+  'vs-open.sb-vs-btn:JTo',
+  'vs-open.sb-vs-btn:KTo',
+  'vs-open.sb-vs-btn:QJo',
+];
 
 /** Tekst między zdaniem zagrania („…w zakresie.”, „…poza zakresem.”) a częstościami solvera. */
 const powod = (e: string): string => {
