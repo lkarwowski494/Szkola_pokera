@@ -1,0 +1,7 @@
+# pnpm install --frozen-lockfile; pnpm content:build; git status --porcelain; pnpm run ci (2026-11-10, HEAD 5cd9d8c)
+Done in 6.7s using pnpm v10.28.0
+install exit 0
+(node:489) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+content:build exit 0
+git status --porcelain po content:build: 0 linii

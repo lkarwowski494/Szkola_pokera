@@ -1,0 +1,10 @@
+import { compareHands } from '/home/user/Szkola_pokera/packages/poker-core/src/evaluate.ts';
+import { parseCard } from '/home/user/Szkola_pokera/packages/poker-core/src/cards.ts';
+const [h1, h2] = process.argv.slice(2).map((x) => [parseCard(x.slice(0, 2)), parseCard(x.slice(2, 4))]);
+const used = new Set([...h1!, ...h2!]); const d: number[] = []; for (let i = 0; i < 52; i++) if (!used.has(i)) d.push(i);
+let w = 0, l = 0, t = 0;
+for (let i = 0; i < 48; i++) for (let j = i + 1; j < 48; j++) for (let k = j + 1; k < 48; k++) for (let m = k + 1; m < 48; m++) for (let n = m + 1; n < 48; n++) {
+  const b = [d[i]!, d[j]!, d[k]!, d[m]!, d[n]!]; const c = compareHands([...h1!, ...b], [...h2!, ...b]) as unknown;
+  if (c === 1 || c === 'a' || (typeof c === 'number' && c > 0)) w++; else if (c === 0 || c === 'tie') t++; else l++;
+}
+console.log(process.argv.slice(2).join(' vs '), 'wygrane', w, 'przegrane', l, 'remisy', t, 'equity', ((w + t / 2) / (w + l + t)).toFixed(4));
