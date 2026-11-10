@@ -39,7 +39,9 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 | AZ | session_01T66VBxGWXqGK1XtGySmLKn | 08 fix, kod (sonnet) | sesja-az-pozycja @ 1d5ae8c | <30 | — | PRZEKAZANIE 3 (naprawa E2E); na roboczej w 57a83bf; archiwum po zielonym E2E |
 | BC | session_01T66VBwoBUWuJtuhuG26K6h | 06 fix, treść (opus) | sesja-bc-pozycje @ 7e8c376 | — | — | **PRZEKAZANIE 11:59 (nieodebrane: recenzja niezależna, test AZ → sesja kodu)**; start 11:42: nazwy pozycji 6 × 12 (KO-028 część 06); cmp: tylko linia 374 (WG-07) |
 
-Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%), AT (7,32 USD, 26,4%), AU (5,37 USD, 32,4%), AV (0,85 USD, 15,4%), BA (13,39 USD, 29,1% → BB), BB (8,34 USD, 23,4% → BC). Litery użyte dotąd: A…Z, AA…AT ; następna litera: **BD**. Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
+| BD | session_01T66VByXNGjk6SnGDy2oyZK | 03 build, docs (opus) | sesja-bd-zakres @ 00b0566 (start) | — | — | w toku od 15:05: wymagania scenariuszy/oceny/menu, plan szablonów; cmp identyczne |
+| BE | session_01T66VBwGCdsgQrYxtfGFcF6 | 04 build, docs (opus) | sesja-be-projekt @ 00b0566 (start) | — | — | w toku od 15:10: część A zębatka + menu (2 warianty → właściciel); część B po BD; cmp identyczne |
+Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%), AT (7,32 USD, 26,4%), AU (5,37 USD, 32,4%), AV (0,85 USD, 15,4%), BA (13,39 USD, 29,1% → BB), BB (8,34 USD, 23,4% → BC). Litery użyte dotąd: A…Z, AA…AT ; następna litera: **BF**. Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
 ## Plan 24 h (UTC)
 | Kiedy | Co | Kto | Zależy od | Od właściciela |
@@ -189,3 +191,4 @@ Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33
 | 11-10 15:00 | właściciel → koordynator | KO-038 szablony + generator scenariuszy (3 poziomy, bez powtórzeń), KO-039 poziom auto + przełącznik; szac. 5–8 dni agentów [OCENA]. AY wstrzymana (stan 999dcf3) | po prompts: 03/04 (zakres i ekran), 06 (szablony), 08 (generator + walidator) |
 | 11-10 15:10 | właściciel → koordynator | KO-040 ocena „dlaczego” na intuicję, KO-041 menu kafelkowe, „Pracuj nad tym”. add_repo prompts **przeszło** (klon f701ce9, `/home/user/prompts`). Polecenia BD (03 build, zakres) i BE (04 build, zębatka + menu, potem ekrany scenariusza i oceny) — KO-042 | start BD, BE |
 | 11-10 15:10 | koordynator | **CI 42830325400 i E2E 42830325508 na 00b0566 success** (14:09, 14:55) → **BC i AZ przyjęte** (commit, autor, CI+E2E na SHA, recenzja niezależna BC, mutacje AZ), zarchiwizowane (7,78 i 3,25 USD). BD wystartowała (session_01T66VByXNGjk6SnGDy2oyZK), E0: ziarno wariantu (powtórka = te same karty) i postflop tylko na regułach/rachunku — przyjęte; start BE przez subagenta w toku | PRZEKAZANIE BD ok. 17:30; BE część A |
+| 11-10 15:12 | koordynator | BE wystartowała (session_01T66VBwGCdsgQrYxtfGFcF6); cmp BD i BE identyczne (54 081 i 74 047 znaków). Sesje aktywne: AY (wstrzymana), BD, BE | kontrola ok. 16:15 |
