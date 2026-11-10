@@ -111,7 +111,7 @@
   module: m2
   if: "your equity is lower than the required equity (with a {{t:draw}}: the chance of hitting on the cards you will see for this price)"
   then: "you {{t:fold}} (without additional arguments, e.g. implied odds)"
-  because: "every such {{t:call}} loses money in the long run"
+  because: "a {{t:call}} pays off only if you win at least as often as the price requires; winning less often, you put in more on average with every such {{t:call}} than you get back from the {{t:pot}}"
   level: math
   check: { kind: draw-price, streets: [flop] }
   source: "calculation: EV = equity × (pot after your call) − call; negative when equity < call ÷ pot after your call"

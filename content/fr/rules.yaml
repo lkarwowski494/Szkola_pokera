@@ -111,7 +111,7 @@
   module: m2
   if: "votre équité est inférieure à l'équité requise (avec un {{t:draw|tirage}} : la probabilité de toucher sur les cartes que vous verrez pour ce prix)"
   then: "vous vous {{t:fold|couchez}} (sans arguments supplémentaires, p. ex. les implied odds)"
-  because: "chaque {{t:call|call}} de ce type perd de l'argent sur le long terme"
+  because: "un {{t:call|call}} n'est rentable que si vous gagnez au moins aussi souvent que le prix l'exige ; en gagnant moins souvent, à chaque {{t:call|call}} de ce type vous mettez en moyenne plus que ce que vous récupérez du {{t:pot|pot}}"
   level: math
   check: { kind: draw-price, streets: [flop] }
   source: "calcul : EV = équité × (pot après votre call) − call ; négative quand équité < call ÷ pot après votre call"

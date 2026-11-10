@@ -111,7 +111,7 @@
   module: m2
   if: "sua equity é menor que a equity necessária (com um {{t:draw}}: a chance de acertar nas cartas que você vai ver por esse preço)"
   then: "você {{t:fold|desiste}} (sem argumentos adicionais, por exemplo implied odds)"
-  because: "cada {{t:call}} assim perde dinheiro no longo prazo"
+  because: "um {{t:call}} só compensa se você ganhar pelo menos tantas vezes quanto o preço exige; ganhando menos, a cada {{t:call}} assim você põe em média mais do que recupera do {{t:pot|pote}}"
   level: math
   check: { kind: draw-price, streets: [flop] }
   source: "cálculo: EV = equity × (pote depois do seu call) − call; negativo quando equity < call ÷ pote depois do seu call"

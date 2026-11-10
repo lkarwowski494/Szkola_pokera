@@ -111,7 +111,7 @@
   module: m2
   if: "equity của bạn nhỏ hơn equity cần thiết (với {{t:draw|bài chờ}}: cơ hội trúng trên những lá bạn sẽ được xem với giá này)"
   then: "bạn {{t:fold|bỏ bài}} (khi không có lý lẽ bổ sung, ví dụ implied odds)"
-  because: "mỗi lần {{t:call|theo}} như vậy đều mất tiền về lâu dài"
+  because: "{{t:call|theo}} chỉ có lời khi bạn thắng ít nhất thường xuyên như mức giá đòi hỏi; thắng ít hơn thì mỗi lần {{t:call|theo}} như vậy, trung bình bạn bỏ vào nhiều hơn số lấy lại từ {{t:pot|pot}}"
   level: math
   check: { kind: draw-price, streets: [flop] }
   source: "tính toán: EV = equity × (pot sau khi bạn theo) − khoản theo; âm khi equity < khoản theo ÷ pot sau khi bạn theo"

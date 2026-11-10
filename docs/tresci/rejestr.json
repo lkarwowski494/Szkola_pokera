@@ -16044,7 +16044,7 @@
   "id": "R-M2-005",
   "rodzaj": "regula",
   "level": "math",
-  "twierdzenie": "twoje equity jest mniejsze niż potrzebne equity (przy drawie: szansa trafienia na kartach, które zobaczysz za tę cenę) → pasujesz (bez dodatkowych argumentów, np. implied odds), bo każde takie call traci pieniądze w długim terminie",
+  "twierdzenie": "twoje equity jest mniejsze niż potrzebne equity (przy drawie: szansa trafienia na kartach, które zobaczysz za tę cenę) → pasujesz (bez dodatkowych argumentów, np. implied odds), bo sprawdzenie zwraca się tylko wtedy, gdy wygrywasz co najmniej tak często, jak wymaga cena; wygrywając rzadziej, przy każdym takim sprawdzeniu wpłacasz średnio więcej, niż z puli odzyskujesz",
   "zrodla": [
    {
     "adres": "rachunek: EV(call) = eq·(P + 2B) − B; EV < 0 ⇔ eq < B/(P + 2B)",
@@ -16063,7 +16063,7 @@
   "jednostka": null,
   "werdykt_tekstu": "POPARTE",
   "poprawka": null,
-  "uwagi": "",
+  "uwagi": "BN 2026-11-10: because bez tautologii (KO-040, ocena-wyjasnien nr 41), ten sam rachunek EV(call) = eq·(P + 2B) − B.",
   "partia": [
    "m0-m4"
   ]

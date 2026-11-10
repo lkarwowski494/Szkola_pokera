@@ -111,7 +111,7 @@
   module: m2
   if: "twoje equity jest mniejsze niż potrzebne equity (przy {{t:draw|drawie}}: szansa trafienia na kartach, które zobaczysz za tę cenę)"
   then: "{{t:fold|pasujesz}} (bez dodatkowych argumentów, np. implied odds)"
-  because: "każde takie {{t:call}} traci pieniądze w długim terminie"
+  because: "{{t:call|sprawdzenie}} zwraca się tylko wtedy, gdy wygrywasz co najmniej tak często, jak wymaga cena; wygrywając rzadziej, przy każdym takim {{t:call|sprawdzeniu}} wpłacasz średnio więcej, niż z {{t:pot|puli}} odzyskujesz"
   level: math
   check: { kind: draw-price, streets: [flop] }
   source: "obliczenie: EV = equity × (pula po twoim sprawdzeniu) − sprawdzenie; ujemne, gdy equity < sprawdzenie ÷ pula po twoim sprawdzeniu"

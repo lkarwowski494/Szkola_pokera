@@ -111,7 +111,7 @@
   module: m2
   if: "tu equity es menor que la equity necesaria (con un {{t:draw|proyecto}}: la probabilidad de ligar en las cartas que verás a ese precio)"
   then: "te {{t:fold|retiras}} (sin argumentos adicionales, p. ej. implied odds)"
-  because: "cada vez que {{t:call|igualas}} así pierdes dinero a largo plazo"
+  because: "{{t:call|igualar}} solo compensa si ganas al menos tan a menudo como exige el precio; si ganas menos, en cada vez que {{t:call|igualas}} así pones de media más de lo que recuperas del {{t:pot|bote}}"
   level: math
   check: { kind: draw-price, streets: [flop] }
   source: "cálculo: EV = equity × (bote después de igualar) − lo que igualas; negativo cuando equity < lo que igualas ÷ bote después de igualar"

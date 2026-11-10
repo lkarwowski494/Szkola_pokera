@@ -111,7 +111,7 @@
   module: m2
   if: "deine Equity ist kleiner als die benötigte Equity (bei einem {{t:draw|Draw}}: die Trefferchance mit den Karten, die du für diesen Preis siehst)"
   then: "du {{t:fold|foldest}} (ohne zusätzliche Argumente, z. B. Implied Odds)"
-  because: "jeder solche {{t:call|Call}} verliert auf lange Sicht Geld"
+  because: "ein {{t:call|Call}} lohnt sich nur, wenn du mindestens so oft gewinnst, wie der Preis verlangt; gewinnst du seltener, zahlst du bei jedem solchen {{t:call|Call}} im Schnitt mehr ein, als du aus dem {{t:pot|Pot}} zurückbekommst"
   level: math
   check: { kind: draw-price, streets: [flop] }
   source: "Berechnung: EV = Equity × (Pot nach deinem Call) − Call; negativ, wenn Equity < Call ÷ Pot nach deinem Call"
