@@ -1,0 +1,20 @@
+# Fixture testu BU (F5): linia all-in rywala (cały stos za pulą), filtr „draw do najlepszej ręki”, pas draw-em do najlepszej ręki. Poziom tylko średni: drawToBest zawęża pulę rąk do ok. 4% rozdań, więc granice poziomu muszą przepuszczać prawie całą pulę (limit 1000 odrzuceń, BR-GEN-003). Nie jest treścią aplikacji.
+id: sc-fx-allin-draw
+module: m2
+situation: "Fixture: nutowy draw wobec all-inu."
+table: 6max
+positions: { hero: BB, villain: BTN }
+stackBb: 35
+levels: [sredni]
+bounds:
+  sredni: { draws: [flush, oesd, gutshot], drawToBest: true, marginMin: 0.02, marginMax: null, reject: [rywal-ma-out-gracza, stol-sparowany], expected: [fold] }
+decisions:
+  - street: turn
+    kind: draw-call
+    pots: [30, 36, 40, 44]
+    fractions: [1]
+    villain: all-in
+    rule: R-M7-007
+    actions:
+      - { action: call, explanation: "Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}, a rywal z {{w:rywal}} stawia. Sprawdzasz, bo szansa na trafienie jest wyższa niż cena." }
+      - { action: fold, explanation: "Masz {{w:reka}} na {{w:pozycja}}, na stole {{w:stol}}, a rywal z {{w:rywal}} stawia dużo. Pasujesz, bo szansa na trafienie jest niższa niż cena." }

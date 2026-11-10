@@ -7,7 +7,7 @@ export * from './terms';
  * Kontrakt treści: wspólny dla potoku content-build (walidacja) i aplikacji (typy).
  * Zmiana tego pliku = zmiana wersji schematu (CONTENT_SCHEMA_VERSION).
  */
-export const CONTENT_SCHEMA_VERSION = 6;
+export const CONTENT_SCHEMA_VERSION = 7; // 7: tabela scenarios w bazie treści (KO-050, D-664)
 
 const id = z.string().regex(/^[a-z0-9][a-z0-9.\-]*$/i, 'identyfikator: litery, cyfry, kropki, myślniki');
 const cardsText = z.string().regex(/^([2-9TJQKA][shdc])( [2-9TJQKA][shdc])*$/, 'karty w formacie "As Kd"');
@@ -500,14 +500,22 @@ export const ScenarioReject = z.enum(['rywal-ma-out-gracza', 'stol-sparowany']);
 /** Granice losowania poziomu: z czego losuje ręka gracza i stół, margines od progu decyzji, warunki odrzucenia. */
 export const ScenarioLevelBounds = z
   .object({
-    draws: z.array(ScenarioDraw).min(1),
+    /** Rodzaje drawów dla punktów draw-call; pusta lista dopuszczalna w szablonie bez takich punktów (sprawdza build). */
+    draws: z.array(ScenarioDraw).default([]),
     flop: TextureFilter.optional(),
+    /** F5: tylko draw „do najlepszej ręki” (udział nutowych outów ≥ NUT_DRAW_MIN_SHARE, R-M7-009). */
+    drawToBest: z.boolean().optional(),
+    /** F5: margines osobno na punkt decyzji (po jednym na punkt, kolejność jak w decisions); zastępuje marginMin/marginMax. */
+    margins: z.array(z.object({ min: z.number().min(0).max(1), max: z.number().min(0).max(1).nullable() }).strict()).min(1).max(2).optional(),
     /** Odległość szansy od ceny jako ułamek (0,10 = 10 pp): marginMin ≤ odległość < marginMax (null = bez górnej granicy). */
-    marginMin: z.number().min(0).max(1),
-    marginMax: z.number().min(0).max(1).nullable(),
-    reject: z.array(ScenarioReject),
+    marginMin: z.number().min(0).max(1).default(0),
+    marginMax: z.number().min(0).max(1).nullable().default(null),
+    /** F1: przedział częstości akcji oczekiwanej w spocie solvera na punkt decyzji (null = punkt nie jest range-spot); min ≤ f ≤ max. */
+    freqs: z.array(z.object({ min: z.number().min(0).max(1), max: z.number().min(0).max(1) }).strict().nullable()).min(1).max(2).optional(),
+    reject: z.array(ScenarioReject).default([]),
     /** Poprawna akcja w każdym punkcie decyzji tego poziomu, po jednej na punkt (BR-SZB-001, BR-GEN-003, D-556). */
-    expected: z.array(z.enum(['call', 'fold'])).min(1).max(2),
+    /** draw-call: `call` albo `fold`; range-spot: etykieta akcji węzła solvera spotu (np. `raise 2.5`, `fold`; sprawdza build). */
+    expected: z.array(z.string().min(1)).min(1).max(2),
   })
   .strict()
   .refine((b) => b.marginMax === null || b.marginMax > b.marginMin, 'marginMax musi być większy od marginMin');
@@ -515,22 +523,43 @@ export const ScenarioLevelBounds = z
 /** Wyjaśnienie własnej odpowiedzi (BR-OCE-002): sytuacja → zagranie → „bo” (BR-OCE-001); liczby tylko jako {{n:klucz}}. */
 export const ScenarioActionText = z.object({ action: z.enum(['call', 'fold']), explanation: z.string().min(1) }).strict();
 
-export const ScenarioDecision = z
+const oneSource = (d: { rule?: string | undefined; calc?: string | undefined }) => (d.rule === undefined) !== (d.calc === undefined);
+const ONE_SOURCE_MSG = 'podaj dokładnie jedno źródło oceny: rule albo calc';
+
+export const ScenarioDrawCallDecision = z
   .object({
     street: z.enum(['flop', 'turn']),
     kind: z.literal('draw-call'),
     /** Pule do wylosowania na pierwszej decyzji; kolejne wynikają z linii (pula + 2 × zakład). */
     pots: z.array(z.number().positive()),
-    fractions: z.array(z.number().positive()).min(1),
-    /** Linia rywala przed decyzją (D-109): w tym kroku rywal zawsze stawia ułamek puli z `fractions`. */
-    villain: z.literal('bet'),
+    /** Ułamki puli przy linii `bet`; przy `all-in` ignorowane (zakład = stos za pulą), może być puste. */
+    fractions: z.array(z.number().positive()),
+    /** Linia rywala przed decyzją (D-109): `bet` = ułamek puli z `fractions`; `all-in` (F5) = cały stos za pulą (stackBb − wkład gracza). */
+    villain: z.enum(['bet', 'all-in']),
     /** Źródło oceny (RD-11, ADR-24): reguła z rules.yaml albo rachunek z numbers.yaml; dokładnie jedno. */
     rule: id.optional(),
     calc: id.optional(),
     actions: z.array(ScenarioActionText).length(2),
   })
   .strict()
-  .refine((d) => (d.rule === undefined) !== (d.calc === undefined), 'podaj dokładnie jedno źródło oceny: rule albo calc');
+  .refine(oneSource, ONE_SOURCE_MSG);
+
+/** F1: punkt decyzji preflop oceniany częstościami solvera (ADR-26, rangeVerdict); akcje to etykiety węzła spotu, każda z wyjaśnieniem. */
+export const ScenarioRangeSpotDecision = z
+  .object({
+    street: z.literal('preflop'),
+    kind: z.literal('range-spot'),
+    /** Spot z content/ranges/spots.yaml (hero i ścieżka akcji z węzła solvera). */
+    spot: id,
+    rule: id.optional(),
+    calc: id.optional(),
+    actions: z.array(z.object({ action: z.string().min(1), explanation: z.string().min(1) }).strict()).min(2),
+  })
+  .strict()
+  .refine(oneSource, ONE_SOURCE_MSG);
+
+export const ScenarioDecision = z.discriminatedUnion('kind', [ScenarioDrawCallDecision, ScenarioRangeSpotDecision]);
+export type ScenarioDecision = z.infer<typeof ScenarioDecision>;
 
 export const ScenarioTemplate = z
   .object({

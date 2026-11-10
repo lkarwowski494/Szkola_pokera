@@ -29,7 +29,7 @@ import {
   type ScenarioTemplate,
 } from '@szkola/content-schema';
 import { KONFIGURACJA, nazwaPlikuTresci } from '@szkola/domena';
-import { checkScenarioGenerator, checkScenarioTemplate, loadScenarioTemplates } from './scenariusze';
+import { checkScenarioGenerator, checkScenarioSet, checkScenarioTemplate, loadScenarioTemplates } from './scenariusze';
 import { JEZYKI, jestJezykiem, lancuchTresci } from '@szkola/jezyki';
 import { classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, textureMatches, type TextureFilter } from '@szkola/poker-core';
 import { expandHelplines, loadHelplines, type Helplines } from './helplines';
@@ -386,16 +386,19 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
   const scenarios: ScenarioTemplate[] = [];
   const scenarioFiles = loadScenarioTemplates(join(localeDir, 'scenarios'));
   const seenScenarioIds = new Set<string>();
+  // progi oceny z zakresów (ADR-26) dla generatora punktów range-spot; brak liczb = punkty range-spot nie przejdą sprawdzenia generatora
+  const scenarioThresholds = { mixedMin: numbers.get('range.mixed.min')?.value ?? 0.035, mixedLow: numbers.get('range.mixed.low')?.value ?? 0.25 };
   for (const { file, template } of scenarioFiles) {
     fileCtx = `${tekst}/scenarios/${file}`;
     const errs = checkScenarioTemplate(template, file, {
       ruleLevels: new Map(rules.map((r) => [r.id, r.level])),
       numberKeys: new Set(numbers.keys()),
       moduleIds,
+      spots: new Map(ranges.map((r) => [r.id, r.actions.map((a) => a.label)])),
     });
     if (seenScenarioIds.has(template.id)) errs.push(`szablon ${template.id}: powtórzony identyfikator`);
     seenScenarioIds.add(template.id);
-    if (locale === 'pl' && errs.length === 0) errs.push(...checkScenarioGenerator(template));
+    if (locale === 'pl' && errs.length === 0) errs.push(...checkScenarioGenerator(template, undefined, undefined, { spots: ranges, thresholds: scenarioThresholds }));
     if (errs.length) throw new Error(errs.join('\n'));
     template.decisions.forEach((d, i) => {
       const gdzie = `${template.id}#${i + 1}`;
@@ -408,9 +411,12 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
       decisions: template.decisions.map((d, i) => ({
         ...d,
         actions: d.actions.map((a) => ({ ...a, explanation: sub(a.explanation, `${template.id}#${i + 1}.${a.action}`) })),
-      })),
+      }) as typeof d),
     });
   }
+
+  const setErrors = checkScenarioSet(scenarios);
+  if (setErrors.length) throw new Error(setErrors.join('\n'));
 
   for (const m of modules) {
     if (!lessons.some((l) => l.module === m.id) && m.phase === 'mvp') warnings.push(`moduł ${m.id} (MVP) nie ma lekcji`);
@@ -619,6 +625,7 @@ export function writeContentDb(content: CompiledContent, outDir: string, wersja 
     CREATE TABLE ranges (id TEXT PRIMARY KEY, title TEXT NOT NULL, hero TEXT NOT NULL, path TEXT NOT NULL, play_percent REAL NOT NULL, groups TEXT NOT NULL, uncertain TEXT NOT NULL, solver TEXT NOT NULL, actions TEXT NOT NULL);
     CREATE TABLE game_kit (key TEXT PRIMARY KEY, value TEXT NOT NULL);
     CREATE TABLE terms (key TEXT PRIMARY KEY, pl TEXT NOT NULL, en TEXT NOT NULL, en_alt TEXT NOT NULL, abbr TEXT, area TEXT NOT NULL);
+    CREATE TABLE scenarios (id TEXT PRIMARY KEY, module_id TEXT NOT NULL REFERENCES modules(id), ord INTEGER NOT NULL, data TEXT NOT NULL);
   `);
   const tx = (fn: () => void) => {
     db.exec('BEGIN');
@@ -660,6 +667,9 @@ export function writeContentDb(content: CompiledContent, outDir: string, wersja 
     kit.run('areas', JSON.stringify(content.areas));
     const te = db.prepare('INSERT INTO terms VALUES (?, ?, ?, ?, ?, ?)');
     for (const t of content.terms) te.run(t.key, t.pl, t.en, JSON.stringify(t.enAlt), t.abbr ?? null, t.area);
+    // KO-050: szablony scenariuszy (BR-SZB-001), jeden wiersz na szablon; data = JSON jak w compileContent().scenarios
+    const sc = db.prepare('INSERT INTO scenarios VALUES (?, ?, ?, ?)');
+    (content.scenarios ?? []).forEach((t, i) => sc.run(t.id, t.module, i, JSON.stringify(t)));
   });
   db.exec('VACUUM');
   db.close();
