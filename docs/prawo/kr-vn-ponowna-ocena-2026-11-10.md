@@ -1,5 +1,7 @@
 # Ponowna ocena storefrontów KR i VN (2026-11-10)
 
+> **Decyzja właściciela 2026-11-10 (D-400 W, §6):** KR i VN **zostają wyłączone w 1.0** (166 storefrontów bez zmian). KR: warunek K-1 niespełniony (ASC pokazał KR 19+). VN: „nie teraz” + pytanie do Apple (§7).
+>
 > **To nie jest opinia prawna** (OP-13). Agent (rola 10, sesja AN) przeczytał przepisy i dokumentację Apple i zestawił je z aplikacją. Wynik to rekomendacja; decyzję podejmuje właściciel (pytanie przez koordynatora). Miejsca, gdzie potrzebny prawnik, są oznaczone **[prawnik]**.
 
 - Zlecenie: właściciel 2026-11-10 „Zleć ponowną ocenę KR i VN” (przekład ko i vi jest wydany w kodzie: `apps/mobile/app.json` `supportedLocales`, D-385/D-388; storefronty KOR i VNM wyłączone w D-362).
@@ -101,3 +103,61 @@ Gdy **K-1 nie przejdzie** (KR pokazuje 19+ albo żąda RCN): albo KR „nie tera
 | V-1 | Licencja gier dla Education w VN | Apple Developer Support (właściciel) |
 | V-2 | Art. 41 przy komisancie; dożywotni jako usługa ciągła | Apple Developer Support, ostatecznie **[prawnik]** |
 | V-3 | Rozporządzenie 55/2024 (szczegóły art. 41) | nie przeczytano (plik niedostępny z kontenera) |
+
+## 6. Decyzja właściciela 2026-11-10 i skutek
+
+- **KR.** Właściciel (przez koordynatora, dosłownie): „Korea dostala w ASC 19+ z automatu wczoraj.” To wynik K-1: odczyt w ASC 2026-11-09 przy ręcznym override 18+ (D-310). Warunek opcji A nie jest spełniony, więc **KOR zostaje wyłączony w 1.0**; lista 166 storefrontów (D-362) bez zmian. K-1 zamknięte; K-2, K-3 bez znaczenia do czasu zmiany warunków.
+- **VN.** Właściciel: „Nie teraz + pytanie do Apple (zalecane)”. **VNM zostaje wyłączony**; tekst pytania i kroki w §7.
+- `store/` i kod bez zmian (polecenie koordynatora).
+
+### 6.1 Co musiałoby się zmienić, żeby KR był dostępny (opcje na później, D-310 bez zmian)
+
+Podstawa: A1, A2, A4, A6, K5 (`dowody/kr-vn-cytaty-2026-11-10.md`). Od 2026-11-10 aplikacja ma kategorię dodatkową **Games** (D-395), a Apple pisze, że ocenę regionalną KR pokazuje się aplikacjom „in the Games or Entertainment categories (primary or secondary)” (A2), a pole numeru GRAC „will display if your app is in the Games or Entertainment category with a rating of 17+, but is only required if your app meets the above criteria” (A4). Z kategorią Games aplikacja jest więc w KR traktowana jak gra, a dla gry z oceną dla dorosłych samoklasyfikacja sklepu nie wystarcza (K5: wyłączone gry z art. 21 ust. 2 pkt 4, „청소년이용불가”).
+
+| Opcja na później | Co się zmienia | Skutek w KR według przeczytanych źródeł | Koszt i ryzyko |
+|---|---|---|---|
+| L1. Bez ręcznego override 18+ | zmiana D-310 (decyzja produktowa właściciela) | z ankiety: KR **12+** (A1: „Infrequent medical or treatment information”, „Infrequent mature or suggestive themes” → 12+); żadna cecha z A4 nie jest spełniona, numer GRAC niepotrzebny | override działa we wszystkich krajach (A6: „The override will apply in all regions where your app is available”), więc globalnie 13+ zamiast 18+ — wraca argument D-310 o grupie docelowej i ryzyku 2.3.6 |
+| L2. Zostaje 18+, numer klasyfikacji od GRAC (RCN) | wniosek do GRAC, wpis „Add RCN” w ASC (A7) i nowa wersja do recenzji | aplikacja dostępna w KR z oceną nadaną przez GRAC (A4: RCN „is required in order to offer it on the App Store in the Republic of Korea”) | procedura i koszt wniosku dla dewelopera z PL `[DO USTALENIA]`; prawdopodobnie potrzebny pośrednik albo **[prawnik]** w Korei; nie rekomenduję przy nieznanej wartości rynku |
+| L3. Zostaje 18+, bez kategorii Games (powrót do D-360) | zmiana D-395 | A4 wymaga numeru dla Games/Entertainment; czy aplikacja Education z KR 19+ wynikającym tylko z override jest dostępna bez numeru — Apple **nie pisze** | niepewne; sprawdzalne tylko odczytem w ASC po zmianie kategorii (`[DO USTALENIA]`) |
+
+Rekomendacja na później: L1 ma jedyną ścieżkę potwierdzoną źródłem, ale zmienia D-310 — wraca tylko z decyzją właściciela o ocenie wiekowej, nie z powodu samej Korei.
+
+## 7. VN: pytanie do Apple Developer Support
+
+### 7.1 Kroki właściciela (ok. 10 min)
+
+Ścieżka kontaktu z przeczytanej dziś strony Apple https://developer.apple.com/support/ (odczyt 2026-11-10): sekcja „Tell us how we can help” → „Contact us by phone or email” („If you have questions about membership, your account, or app management, we can help.”) → przycisk „Get started”, który prowadzi do https://developer.apple.com/contact/. Ta strona wymaga zalogowania („Sign In - Apple”), więc dalszych pozycji menu agent nie przeczytał — nie podaję ich z pamięci.
+
+1. Otwórz https://developer.apple.com/support/ i kliknij „Get started” pod „Contact us by phone or email”.
+2. Zaloguj się kontem Apple Developer (Account Holder).
+3. Wybierz temat najbliższy „App Store Connect” / dostępności aplikacji w kraju i kontakt **e-mailem** (odpowiedź na piśmie jest dowodem; telefon nie).
+4. Wklej tekst z §7.2 (podmień `<…>` na dane z ASC: nazwę aplikacji i Apple ID — to nie są sekrety, ale nie trafiają do repo).
+5. Odpowiedź Apple przekaż koordynatorowi (bez danych osobowych); agent zapisze ją w tym pliku i wróci do decyzji o VN.
+
+### 7.2 Tekst do wklejenia (en)
+
+```text
+Subject: Vietnam storefront availability - education app (game licence and Consumer Protection Law Art. 41)
+
+Hello,
+
+I am an individual developer based in the European Union. My app <APP NAME> (Apple ID <APP ID>) is not yet released. Before enabling the Vietnam storefront I would like to confirm two points.
+
+About the app:
+- Primary category: Education; secondary category: Games (subcategory Card).
+- It teaches poker strategy through lessons and decision exercises. There is no real-money play, no betting or wagering, no chips or virtual currency, no prizes, and no play against other people. Age rating questionnaire: Gambling - None, Simulated Gambling - None.
+- In-App Purchases: auto-renewable subscriptions (3 months and 1 year) and a one-time non-consumable "lifetime" access.
+- The app collects no user data.
+
+Question 1 - Game licence:
+The App Information help page says that "Vietnamese regulators require games distributed in Vietnam to be licensed to remain available on the App Store in Vietnam." Does this requirement, and the "Availability in Vietnam" field, apply to an app with the categories above? If yes, what does Apple need from the developer for the app to remain available in Vietnam?
+
+Question 2 - Consumer Protection Law No. 19/2023/QH15, Article 41:
+Article 41 requires a business providing a "continuous service" (3 months or longer, or for an indefinite term) in Vietnam to designate an authorized representative in Vietnam. Under Schedule 2 of the Apple Developer Program License Agreement, Apple Distribution International Ltd. acts as my commissionaire for sales to customers in Vietnam. Does Apple, as commissionaire, handle this obligation for In-App Purchase subscriptions sold on the Vietnam storefront, or is the developer expected to appoint a representative in Vietnam?
+
+I understand that Apple may not give legal advice; any guidance on Apple's own requirements for this case would help.
+
+Thank you.
+```
+
+Uwagi do tekstu: komisant dla VN to według DPLA **Apple Distribution International Ltd.** (Schedule 2, Exhibit A, sekcja 2: lista po „You appoint Apple Distribution International Ltd. as Your commissionaire” zawiera „Vietnam*”; odczyt 2026-11-10, zgodnie z `VN.md` wiersz 4a); dla KR komisantem jest Apple Services Pte. Ltd. (A10). Kategoria dodatkowa Games według D-395.
