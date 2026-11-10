@@ -45,7 +45,7 @@ Migracja na M9 (moduł „migracja”, D-056) z koordynatora bez M9 `session_01T
 | BH | session_01T66VBvcHM7i3GoaSdpjQAR | 04 build, docs (opus) | sesja-be-projekt @ 0c24cb6 | 19,4 | 2,51 | **przyjęta 15:48** (autor 3/3 zgodny, diff 008753c..0c24cb6 tylko `docs/` 34 pliki; CI na SHA — brak, gałąź docs: verify przy scaleniu do roboczej); zarchiwizowana |
 | BI | session_01T66VBxqKjeRa2iEfMd7EaY | 08 build, kod (sonnet) | sesja-bi-menu @ 0c24cb6 (start) | — | — | w toku od 15:55: krok G — menu W2, zębatka, Wskaźnik w Postępie (polecenie d29fef1, pula D-580…D-594); cmp identyczne |
 | BJ | session_01T66VBzVpXwyryyHjJHWX9z | 08 audit, kod (opus/high) | sesja-bj-recenzja @ 886b2be | — | — | recenzja niezależna BF (polecenie a6adbc8); start 16:00, effort high widoczny; cmp: brak 1 pustej linii (403) — poprawka wysłana (WG-07, 3. raz dziś) |
-| BK | (start przez subagenta) | 06 audit, treść (opus/high) | sesja-bk-recenzja @ 07eba39 | — | — | recenzja niezależna BG (polecenie be30f63) |
+| BK | session_01T66VBzrp5dgx1vJNBbE4Sm | 06 audit, treść (opus/high) | sesja-bk-recenzja @ 07eba39 | — | — | recenzja niezależna BG (polecenie be30f63); start 16:02, effort high; cmp: linia 390 (spacje w regex LICZBA zamienione na nbsp) — poprawka wysłana |
 Zarchiwizowane dziś (przyjęte): AM, AN, AO (→ AS), AQ, AR, AS (→ AT; 17,33 USD), AP (152,60 USD, kontekst 37,1%), AT (7,32 USD, 26,4%), AU (5,37 USD, 32,4%), AV (0,85 USD, 15,4%), BA (13,39 USD, 29,1% → BB), BB (8,34 USD, 23,4% → BC). Litery użyte dotąd: A…Z, AA…AT ; następna litera: **BL**. Polecenia: `docs/koordynacja/polecenia/<litera>.md`.
 
 ## Plan 24 h (UTC)
