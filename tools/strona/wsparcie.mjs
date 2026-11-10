@@ -1,7 +1,7 @@
 // Strona wsparcia (K-10, D-308; Apple 1.5: „easy way to contact you”): site/support.html, pl i en jak Trening site/support.html
 // (2e4b0f8, odczyt 2026-11-09). Zdanie pomocy przy hazardzie i link: z content/helplines.yaml (jedno źródło, D-158 — bez
 // numerów krajowych); wersja en = roboczy przekład do roli 09 (jak etykiety w en.md). Etykiety przycisków pl = pl.json.
-// Kontakt: [DO USTALENIA] (W-04) — strony nie publikujemy przed wpisaniem adresu (D-308). Użycie: node tools/strona/wsparcie.mjs [--zapisz]
+// Kontakt: support@apps4brew.com (W-04, 2026-11-10); publikacja tylko za zgodą właściciela (D-308). Użycie: node tools/strona/wsparcie.mjs [--zapisz]
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -33,12 +33,12 @@ ${STYL}
 <body>
 <main>
 <!-- Plik generowany: node tools/strona/wsparcie.mjs --zapisz. Pomoc przy hazardzie z content/helplines.yaml (H-INT-1, H-INT-2).
-     Przed publikacją: adres poczty (W-04) zamiast [DO USTALENIA]; publikacja i włączenie Pages tylko za zgodą właściciela (D-308). -->
+     Adres poczty (W-04) wpisany 2026-11-10; publikacja i włączenie Pages tylko za zgodą właściciela (D-308). -->
 <nav><a href="privacy.html">Prywatność / Privacy</a><a href="#en">English</a></nav>
 <section lang="pl" id="pl">
 <h1>PokerGym — wsparcie</h1>
 <h2>Kontakt</h2>
-<p>Pytania, błędy i pomysły: [DO USTALENIA: adres poczty, W-04]. Aplikacja niczego nie wysyła sama — e-mail wysyłasz Ty, ze swojej poczty.
+<p>Pytania, błędy i pomysły: support@apps4brew.com. Aplikacja niczego nie wysyła sama — e-mail wysyłasz Ty, ze swojej poczty.
 Błąd w konkretnym zadaniu zgłosisz też przyciskiem „Zgłoś błąd w tym zadaniu” pod oceną.</p>
 <p>Jak przetwarzamy wiadomości, które do nas wysyłasz, opisuje <a href="privacy.html">polityka prywatności</a> (sekcja „Gdy do nas piszesz”).</p>
 <h2>Pomoc przy problemie z hazardem</h2>
@@ -63,7 +63,7 @@ Błąd w konkretnym zadaniu zgłosisz też przyciskiem „Zgłoś błąd w tym z
 <!-- Roboczy przekład (rola 09 ustali brzmienie i etykiety przycisków po przekładzie aplikacji). -->
 <h1>PokerGym — Support</h1>
 <h2>Contact</h2>
-<p>Questions, bugs and ideas: [DO USTALENIA: email address, W-04]. The app never sends anything by itself — you send the email, from your own mail app.
+<p>Questions, bugs and ideas: support@apps4brew.com. The app never sends anything by itself — you send the email, from your own mail app.
 You can also report a mistake in a specific task with “Report a problem with this task” below the grade.</p>
 <p>How we handle the messages you send us is described in the <a href="privacy.html#en">privacy policy</a> (section “When you write to us”).</p>
 <h2>Help with gambling problems</h2>

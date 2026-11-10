@@ -235,7 +235,7 @@ Równolegle (poza ścieżką): D-01, D-02, D-06 dokumenty; K-06–K-10 kod; W-04
 | W-03 | Zgoda na kwotę przekładu i przeglądu ja, pt-BR, fr, zh-Hant: łącznie ok. 30–40 USD [OCENA], limit 15 USD na przebieg (jak D-295) | do 14.11 | 2 min |
 | P-2 | **Adres polityki prywatności i wsparcia** (08-F20, rano „zostaw [DO USTALENIA]”, D-281). Opcje: A (rekomendacja) GitHub Pages tego publicznego repo (`lkarwowski494.github.io/Szkola_pokera/…`), 0 USD, tak zaczynał Trening (`docs/41:162`); B podstrona apps4brew.com (aplikacja poza portfelem); C własna domena (koszt, później). Krok: włączenie Pages w ustawieniach repo | do 17.11 | 10–15 min |
 | W-04 | Adres poczty do opinii i zgłoszeń (Support URL musi prowadzić do kontaktu) | do 17.11 | 5 min |
-| W-05 | App Store ID (numer „Apple ID” z App Information w ASC; rekord aplikacji już jest, bo są buildy TestFlight) | do 17.11 | 2 min |
+| W-05 | App Store ID (numer „Apple ID” z App Information w ASC): **6819977165** (właściciel, 2026-11-10; wpis do aplikacji = kod, rola 08) | do 17.11 | 2 min |
 | W-06 | ASC: produkty i ceny (B1), Small Business Program, Family Sharing wyłączone, kategoria i wiek (D2), App Privacy, 166 storefrontów (D3), język główny (D4), DSA (E1), Copyright, kontakt dla recenzenta | 20–24.11 | 1,5–2 h |
 | W-07 | JP: dane sprzedawcy wg 特定商取引法 albo zapisany wyjątek (10-JP-02); warianty przygotuje rola 10 | do 20.11 | 15–30 min |
 | W-08 | Zgoda na TestFlight kandydata; telefon: lista D-04 (T-01–T-10, języki, piaskownica, U-2, U-5) | 23–25.11 | 3–4 h |

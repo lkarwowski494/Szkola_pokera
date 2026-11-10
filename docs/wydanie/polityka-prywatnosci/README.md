@@ -3,7 +3,7 @@
 Zadanie: 08-F20, P-2 (`docs/wydanie/plan-1.0.md:236`), W2 z D-297/D-301, K-10. Pliki: `pl.md` (źródło), `en.md`; ja, pt-BR, fr, zh-Hant (D-303) po przekładzie przez rolę 09. **Nie opublikowano. To nie jest opinia prawna** (OP-13: opinia prawna „nie teraz”); przy wątpliwości porada prawnika.
 
 ## 1. Stan
-- Treść gotowa do publikacji poza polami `[DO USTALENIA]`: data wejścia w życie, adres poczty (W-04), administrator — imię i nazwisko lub nazwa i adres sprzedawcy (fakt właściciela; ten sam fakt co J2 z D-301 i DSA E1), dostawca poczty i podstawa przekazania poza EOG (zależne od adresu W-04).
+- Treść gotowa do publikacji poza polami `[DO USTALENIA]`: data wejścia w życie, wersja aplikacji, forma prawna i adres administratora (imię i nazwisko oraz adres poczty W-04 wpisane 2026-11-10, sesja CB; adres to ten sam fakt co J2 z D-301 i DSA E1) oraz mechanizm przekazania poza EOG dla konta Google Workspace (źródło: `docs/decyzje/CB.md` D-712).
 - Etykiety przycisków w `en.md` („Delete progress”, „Write to us”, „Report a problem with this task”, „Export/Import progress”) to robocze przekłady: `apps/mobile/src/i18n/locales/` ma dziś tylko `pl.json`; po przekładzie (09) brzmienie na stronie = brzmienie w aplikacji.
 - Odpowiedzi App Privacy i porównanie z manifestem: `docs/wydanie/app-privacy.md`.
 
