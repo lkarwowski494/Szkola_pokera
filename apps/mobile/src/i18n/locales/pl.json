@@ -1045,7 +1045,7 @@
       "trudny": "Trudny"
     },
     "start": {
-      "about": "Grasz z pozycji {{ty}}, rywal: {{rywal}}. Głębokość {{bb}} bb.",
+      "about": "Ty: {{ty}}, rywal: {{rywal}}. Głębokość {{bb}} bb.",
       "nowAuto": "Teraz: {{poziom}}. Poziom dobiera się sam z twoich wyników.",
       "nowManual": "Wybrany poziom: {{poziom}}.",
       "missing": "Tego rozdania nie ma na poziomie „{{wybrany}}”. Zagrasz je na poziomie „{{poziom}}”.",
@@ -1059,27 +1059,19 @@
       "river": "River"
     },
     "streets": {
-      "label": "Ulice"
+      "label": "Etapy rozdania"
     },
     "table": {
-      "label": "Stół: ty na pozycji {{ty}} z kartami {{reka}}, rywal na pozycji {{rywal}}. Na stole: {{stol}}.",
+      "label": "Ty: {{ty}}, karty {{reka}}. Rywal: {{rywal}}. Odkryte karty: {{stol}}.",
       "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
       "you": "ty",
       "villain": "rywal"
     },
-    "pot": "W puli {{pula}} bb · do sprawdzenia {{kwota}} bb",
+    "pot": "W {{t:pot|puli}} {{pula}} bb · do {{t:call|sprawdzenia}} {{kwota}} bb",
     "log": {
-      "label": "Przebieg rozdania",
-      "villainBet": "{{rywal}} zakłada {{bb}} bb",
-      "youCall": "ty sprawdzasz",
-      "youFold": "ty pasujesz"
+      "label": "Przebieg rozdania"
     },
     "yourMove": "Twój ruch",
-    "action": {
-      "fold": "Pas",
-      "call": "Sprawdzenie",
-      "callAmount": "Sprawdzenie {{bb}} bb"
-    },
     "verdict": {
       "yours": "Twój wybór: {{akcja}}. Lepiej: {{lepiej}}.",
       "yoursGood": "Twój wybór: {{akcja}}."
@@ -1096,7 +1088,7 @@
     },
     "numbers": {
       "title": "Liczby",
-      "line": "Pula to {{pula}} bb, a sprawdzenie kosztuje {{kwota}} bb, więc potrzebujesz {{potrzeba}} szans, czyli wygrać mniej więcej raz na {{razPotrzeba}}. Outy to {{outy}} z {{nieznane}} niewidzianych kart: układ trafisz w {{trafisz}} przypadków, czyli mniej więcej raz na {{razTrafisz}}."
+      "line": "{{t:pot|Pula}} to {{pula}} bb, a {{t:call|sprawdzenie}} kosztuje {{kwota}} bb, więc potrzebujesz {{potrzeba}} szans, czyli wygrać mniej więcej raz na {{razPotrzeba}}. Outy to {{outy}} z {{nieznane}} niewidzianych kart: układ trafisz w {{trafisz}} przypadków, czyli mniej więcej raz na {{razTrafisz}}."
     },
     "next": {
       "street": "Dalej: {{ulica}}",

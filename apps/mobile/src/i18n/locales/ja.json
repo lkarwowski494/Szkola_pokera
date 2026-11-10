@@ -991,7 +991,7 @@
       "trudny": "むずかしい"
     },
     "start": {
-      "about": "あなたは{{ty}}、相手は{{rywal}}。スタック{{bb}}bb。",
+      "about": "あなた：{{ty}}、相手：{{rywal}}。スタック{{bb}}bb。",
       "nowAuto": "現在：{{poziom}}。成績に合わせてレベルが自動で変わります。",
       "nowManual": "選択中のレベル：{{poziom}}。",
       "missing": "このハンドには「{{wybrany}}」はありません。「{{poziom}}」で遊びます。",
@@ -1005,27 +1005,19 @@
       "river": "リバー"
     },
     "streets": {
-      "label": "ストリート"
+      "label": "ハンドの段階"
     },
     "table": {
-      "label": "テーブル：あなたは{{ty}}で{{reka}}、相手は{{rywal}}。ボード：{{stol}}。",
+      "label": "あなた：{{ty}}、カード{{reka}}。相手：{{rywal}}。公開カード：{{stol}}。",
       "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
       "you": "あなた",
       "villain": "相手"
     },
-    "pot": "ポット{{pula}}bb ・ コールに{{kwota}}bb",
+    "pot": "{{t:pot|ポット}}{{pula}}bb ・ {{t:call|コール}}に{{kwota}}bb",
     "log": {
-      "label": "ハンドの流れ",
-      "villainBet": "{{rywal}}が{{bb}}bbをベット",
-      "youCall": "あなたはコール",
-      "youFold": "あなたはフォールド"
+      "label": "ハンドの流れ"
     },
     "yourMove": "あなたの番",
-    "action": {
-      "fold": "フォールド",
-      "call": "コール",
-      "callAmount": "コール {{bb}}bb"
-    },
     "verdict": {
       "yours": "あなたの選択：{{akcja}}。より良い選択：{{lepiej}}。",
       "yoursGood": "あなたの選択：{{akcja}}。"
@@ -1042,7 +1034,7 @@
     },
     "numbers": {
       "title": "数字",
-      "line": "ポットは{{pula}}bb、コールに{{kwota}}bbかかるので、必要な勝率は{{potrzeba}}、つまり約{{razPotrzeba}}回に1回勝てればよい計算です。アウツは見えていない{{nieznane}}枚中{{outy}}枚で、完成するのは{{trafisz}}、約{{razTrafisz}}回に1回です。"
+      "line": "{{t:pot|ポット}}は{{pula}}bb、{{t:call|コール}}に{{kwota}}bbかかるので、必要な勝率は{{potrzeba}}、つまり約{{razPotrzeba}}回に1回勝てればよい計算です。アウツは見えていない{{nieznane}}枚中{{outy}}枚で、完成するのは{{trafisz}}、約{{razTrafisz}}回に1回です。"
     },
     "next": {
       "street": "次へ：{{ulica}}",

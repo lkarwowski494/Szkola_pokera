@@ -1027,7 +1027,7 @@
       "trudny": "Difficile"
     },
     "start": {
-      "about": "Tu joues depuis {{ty}}, adversaire : {{rywal}}. Profondeur {{bb}} bb.",
+      "about": "Toi : {{ty}}, adversaire : {{rywal}}. Profondeur {{bb}} bb.",
       "nowAuto": "Maintenant : {{poziom}}. Le niveau s’adapte à tes résultats.",
       "nowManual": "Niveau choisi : {{poziom}}.",
       "missing": "Cette main n’existe pas au niveau « {{wybrany}} ». Tu la joueras au niveau « {{poziom}} ».",
@@ -1041,27 +1041,19 @@
       "river": "River"
     },
     "streets": {
-      "label": "Tours de mise"
+      "label": "Étapes de la main"
     },
     "table": {
-      "label": "Table : toi en {{ty}} avec {{reka}}, adversaire en {{rywal}}. Board : {{stol}}.",
+      "label": "Toi : {{ty}}, cartes {{reka}}. Adversaire : {{rywal}}. Cartes découvertes : {{stol}}.",
       "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
       "you": "toi",
       "villain": "adversaire"
     },
-    "pot": "Pot {{pula}} bb · à suivre {{kwota}} bb",
+    "pot": "{{t:pot|Pot}} {{pula}} bb · à {{t:call|suivre}} {{kwota}} bb",
     "log": {
-      "label": "Déroulement de la main",
-      "villainBet": "{{rywal}} mise {{bb}} bb",
-      "youCall": "tu suis",
-      "youFold": "tu te couches"
+      "label": "Déroulement de la main"
     },
     "yourMove": "À toi de jouer",
-    "action": {
-      "fold": "Se coucher",
-      "call": "Suivre",
-      "callAmount": "Suivre {{bb}} bb"
-    },
     "verdict": {
       "yours": "Ton choix : {{akcja}}. Mieux : {{lepiej}}.",
       "yoursGood": "Ton choix : {{akcja}}."
@@ -1078,7 +1070,7 @@
     },
     "numbers": {
       "title": "Chiffres",
-      "line": "Le pot est de {{pula}} bb et suivre coûte {{kwota}} bb, donc il te faut {{potrzeba}} d’équité, soit gagner environ une fois sur {{razPotrzeba}}. Outs : {{outy}} sur {{nieznane}} cartes non vues : tu touches ton tirage dans {{trafisz}} des cas, environ une fois sur {{razTrafisz}}."
+      "line": "Le {{t:pot|pot}} est de {{pula}} bb et {{t:call|suivre}} coûte {{kwota}} bb, donc il te faut {{potrzeba}} d’équité, soit gagner environ une fois sur {{razPotrzeba}}. Outs : {{outy}} sur {{nieznane}} cartes non vues : tu touches ton tirage dans {{trafisz}} des cas, environ une fois sur {{razTrafisz}}."
     },
     "next": {
       "street": "Suite : {{ulica}}",

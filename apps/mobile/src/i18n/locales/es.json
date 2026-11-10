@@ -1027,7 +1027,7 @@
       "trudny": "Difícil"
     },
     "start": {
-      "about": "Juegas desde {{ty}}, rival: {{rywal}}. Profundidad {{bb}} bb.",
+      "about": "Tú: {{ty}}, rival: {{rywal}}. Profundidad {{bb}} bb.",
       "nowAuto": "Ahora: {{poziom}}. El nivel se adapta a tus resultados.",
       "nowManual": "Nivel elegido: {{poziom}}.",
       "missing": "Esta mano no tiene el nivel «{{wybrany}}». La jugarás en «{{poziom}}».",
@@ -1041,27 +1041,19 @@
       "river": "River"
     },
     "streets": {
-      "label": "Calles"
+      "label": "Etapas de la mano"
     },
     "table": {
-      "label": "Mesa: tú en {{ty}} con {{reka}}, rival en {{rywal}}. En la mesa: {{stol}}.",
+      "label": "Tú: {{ty}}, cartas {{reka}}. Rival: {{rywal}}. Cartas descubiertas: {{stol}}.",
       "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
       "you": "tú",
       "villain": "rival"
     },
-    "pot": "Bote {{pula}} bb · para igualar {{kwota}} bb",
+    "pot": "{{t:pot|Bote}} {{pula}} bb · para {{t:call|igualar}} {{kwota}} bb",
     "log": {
-      "label": "Desarrollo de la mano",
-      "villainBet": "{{rywal}} apuesta {{bb}} bb",
-      "youCall": "tú igualas",
-      "youFold": "tú te retiras"
+      "label": "Desarrollo de la mano"
     },
     "yourMove": "Tu jugada",
-    "action": {
-      "fold": "Retirarse",
-      "call": "Igualar",
-      "callAmount": "Igualar {{bb}} bb"
-    },
     "verdict": {
       "yours": "Tu elección: {{akcja}}. Mejor: {{lepiej}}.",
       "yoursGood": "Tu elección: {{akcja}}."
@@ -1078,7 +1070,7 @@
     },
     "numbers": {
       "title": "Números",
-      "line": "El bote es de {{pula}} bb e igualar cuesta {{kwota}} bb, así que necesitas {{potrzeba}} de equity, es decir, ganar una de cada {{razPotrzeba}} veces. Outs: {{outy}} de {{nieznane}} cartas que no ves: completas tu proyecto en el {{trafisz}} de los casos, una de cada {{razTrafisz}} veces."
+      "line": "El {{t:pot|bote}} es de {{pula}} bb e {{t:call|igualar}} cuesta {{kwota}} bb, así que necesitas {{potrzeba}} de equity, es decir, ganar una de cada {{razPotrzeba}} veces. Outs: {{outy}} de {{nieznane}} cartas que no ves: completas tu proyecto en el {{trafisz}} de los casos, una de cada {{razTrafisz}} veces."
     },
     "next": {
       "street": "Siguiente: {{ulica}}",

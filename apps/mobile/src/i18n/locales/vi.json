@@ -991,7 +991,7 @@
       "trudny": "Khó"
     },
     "start": {
-      "about": "Bạn chơi ở vị trí {{ty}}, đối thủ: {{rywal}}. Độ sâu {{bb}} bb.",
+      "about": "Bạn: {{ty}}, đối thủ: {{rywal}}. Độ sâu {{bb}} bb.",
       "nowAuto": "Hiện tại: {{poziom}}. Cấp độ tự điều chỉnh theo kết quả của bạn.",
       "nowManual": "Cấp độ đã chọn: {{poziom}}.",
       "missing": "Ván này không có cấp độ “{{wybrany}}”. Bạn sẽ chơi ở cấp “{{poziom}}”.",
@@ -1005,27 +1005,19 @@
       "river": "River"
     },
     "streets": {
-      "label": "Các vòng"
+      "label": "Các giai đoạn của ván"
     },
     "table": {
-      "label": "Bàn: bạn ở {{ty}} với {{reka}}, đối thủ ở {{rywal}}. Bài chung: {{stol}}.",
+      "label": "Bạn: {{ty}}, bài {{reka}}. Đối thủ: {{rywal}}. Bài đã mở: {{stol}}.",
       "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
       "you": "bạn",
       "villain": "đối thủ"
     },
-    "pot": "Pot {{pula}} bb · cần theo {{kwota}} bb",
+    "pot": "{{t:pot|Pot}} {{pula}} bb · cần {{t:call|theo}} {{kwota}} bb",
     "log": {
-      "label": "Diễn biến ván",
-      "villainBet": "{{rywal}} cược {{bb}} bb",
-      "youCall": "bạn theo",
-      "youFold": "bạn bỏ bài"
+      "label": "Diễn biến ván"
     },
     "yourMove": "Lượt của bạn",
-    "action": {
-      "fold": "Bỏ bài",
-      "call": "Theo",
-      "callAmount": "Theo {{bb}} bb"
-    },
     "verdict": {
       "yours": "Lựa chọn của bạn: {{akcja}}. Tốt hơn: {{lepiej}}.",
       "yoursGood": "Lựa chọn của bạn: {{akcja}}."
@@ -1042,7 +1034,7 @@
     },
     "numbers": {
       "title": "Con số",
-      "line": "Pot là {{pula}} bb và theo tốn {{kwota}} bb, nên bạn cần {{potrzeba}} equity, tức là thắng khoảng 1 lần trong {{razPotrzeba}}. Outs: {{outy}} trên {{nieznane}} lá chưa thấy: bạn hoàn thành bài ở {{trafisz}} số trường hợp, khoảng 1 lần trong {{razTrafisz}}."
+      "line": "{{t:pot|Pot}} là {{pula}} bb và {{t:call|theo}} tốn {{kwota}} bb, nên bạn cần {{potrzeba}} equity, tức là thắng khoảng 1 lần trong {{razPotrzeba}}. Outs: {{outy}} trên {{nieznane}} lá chưa thấy: bạn hoàn thành bài ở {{trafisz}} số trường hợp, khoảng 1 lần trong {{razTrafisz}}."
     },
     "next": {
       "street": "Tiếp: {{ulica}}",

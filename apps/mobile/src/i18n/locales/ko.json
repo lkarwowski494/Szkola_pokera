@@ -991,7 +991,7 @@
       "trudny": "어려움"
     },
     "start": {
-      "about": "당신은 {{ty}}, 상대는 {{rywal}}입니다. 스택 깊이 {{bb}}bb.",
+      "about": "나: {{ty}}, 상대: {{rywal}}. 스택 깊이 {{bb}}bb.",
       "nowAuto": "현재: {{poziom}}. 난이도는 결과에 따라 자동으로 조정됩니다.",
       "nowManual": "선택한 난이도: {{poziom}}.",
       "missing": "이 핸드에는 “{{wybrany}}” 난이도가 없습니다. “{{poziom}}”로 진행합니다.",
@@ -1005,27 +1005,19 @@
       "river": "리버"
     },
     "streets": {
-      "label": "스트리트"
+      "label": "핸드 단계"
     },
     "table": {
-      "label": "테이블: 당신은 {{ty}}에서 {{reka}}, 상대는 {{rywal}}. 보드: {{stol}}.",
+      "label": "나: {{ty}}, 카드 {{reka}}. 상대: {{rywal}}. 공개된 카드: {{stol}}.",
       "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
       "you": "나",
       "villain": "상대"
     },
-    "pot": "팟 {{pula}}bb · 콜 금액 {{kwota}}bb",
+    "pot": "{{t:pot|팟}} {{pula}}bb · {{t:call|콜}} 금액 {{kwota}}bb",
     "log": {
-      "label": "핸드 진행",
-      "villainBet": "{{rywal}}이(가) {{bb}}bb 베팅",
-      "youCall": "당신은 콜",
-      "youFold": "당신은 폴드"
+      "label": "핸드 진행"
     },
     "yourMove": "내 차례",
-    "action": {
-      "fold": "폴드",
-      "call": "콜",
-      "callAmount": "콜 {{bb}}bb"
-    },
     "verdict": {
       "yours": "내 선택: {{akcja}}. 더 나은 선택: {{lepiej}}.",
       "yoursGood": "내 선택: {{akcja}}."
@@ -1042,7 +1034,7 @@
     },
     "numbers": {
       "title": "숫자",
-      "line": "팟은 {{pula}}bb이고 콜에 {{kwota}}bb가 들어서 필요한 승률은 {{potrzeba}}, 즉 약 {{razPotrzeba}}번에 한 번 이겨야 합니다. 아웃츠는 보이지 않는 {{nieznane}}장 중 {{outy}}장이며, 완성될 확률은 {{trafisz}}, 약 {{razTrafisz}}번에 한 번입니다."
+      "line": "{{t:pot|팟}}은 {{pula}}bb이고 {{t:call|콜}}에 {{kwota}}bb가 들어서 필요한 승률은 {{potrzeba}}, 즉 약 {{razPotrzeba}}번에 한 번 이겨야 합니다. 아웃츠는 보이지 않는 {{nieznane}}장 중 {{outy}}장이며, 완성될 확률은 {{trafisz}}, 약 {{razTrafisz}}번에 한 번입니다."
     },
     "next": {
       "street": "다음: {{ulica}}",

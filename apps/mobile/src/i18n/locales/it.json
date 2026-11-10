@@ -1027,7 +1027,7 @@
       "trudny": "Difficile"
     },
     "start": {
-      "about": "Giochi da {{ty}}, avversario: {{rywal}}. Profondità {{bb}} bb.",
+      "about": "Tu: {{ty}}, avversario: {{rywal}}. Profondità {{bb}} bb.",
       "nowAuto": "Ora: {{poziom}}. Il livello si adatta ai tuoi risultati.",
       "nowManual": "Livello scelto: {{poziom}}.",
       "missing": "Questa mano non ha il livello «{{wybrany}}». La giocherai a «{{poziom}}».",
@@ -1041,27 +1041,19 @@
       "river": "River"
     },
     "streets": {
-      "label": "Giri di puntata"
+      "label": "Fasi della mano"
     },
     "table": {
-      "label": "Tavolo: tu in {{ty}} con {{reka}}, avversario in {{rywal}}. Board: {{stol}}.",
+      "label": "Tu: {{ty}}, carte {{reka}}. Avversario: {{rywal}}. Carte scoperte: {{stol}}.",
       "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
       "you": "tu",
       "villain": "avversario"
     },
-    "pot": "Piatto {{pula}} bb · per chiamare {{kwota}} bb",
+    "pot": "{{t:pot|Piatto}} {{pula}} bb · per {{t:call|chiamata}} {{kwota}} bb",
     "log": {
-      "label": "Svolgimento della mano",
-      "villainBet": "{{rywal}} punta {{bb}} bb",
-      "youCall": "tu chiami",
-      "youFold": "tu foldi"
+      "label": "Svolgimento della mano"
     },
     "yourMove": "Tocca a te",
-    "action": {
-      "fold": "Fold",
-      "call": "Call",
-      "callAmount": "Call {{bb}} bb"
-    },
     "verdict": {
       "yours": "La tua scelta: {{akcja}}. Meglio: {{lepiej}}.",
       "yoursGood": "La tua scelta: {{akcja}}."
@@ -1078,7 +1070,7 @@
     },
     "numbers": {
       "title": "Numeri",
-      "line": "Il piatto è {{pula}} bb e chiamare costa {{kwota}} bb, quindi ti serve il {{potrzeba}} di equity, cioè vincere circa una volta su {{razPotrzeba}}. Out: {{outy}} su {{nieznane}} carte non viste: completi il progetto nel {{trafisz}} dei casi, circa una volta su {{razTrafisz}}."
+      "line": "Il {{t:pot|piatto}} è {{pula}} bb e la {{t:call|chiamata}} costa {{kwota}} bb, quindi ti serve il {{potrzeba}} di equity, cioè vincere circa una volta su {{razPotrzeba}}. Out: {{outy}} su {{nieznane}} carte non viste: completi il progetto nel {{trafisz}} dei casi, circa una volta su {{razTrafisz}}."
     },
     "next": {
       "street": "Avanti: {{ulica}}",

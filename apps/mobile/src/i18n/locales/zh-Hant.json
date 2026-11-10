@@ -991,7 +991,7 @@
       "trudny": "困難"
     },
     "start": {
-      "about": "你在 {{ty}}，對手在 {{rywal}}。籌碼深度 {{bb}} bb。",
+      "about": "你：{{ty}}，對手：{{rywal}}。籌碼深度 {{bb}} bb。",
       "nowAuto": "目前：{{poziom}}。難度會依你的成績自動調整。",
       "nowManual": "已選難度：{{poziom}}。",
       "missing": "這手牌沒有「{{wybrany}}」難度，將以「{{poziom}}」進行。",
@@ -1005,27 +1005,19 @@
       "river": "河牌"
     },
     "streets": {
-      "label": "街"
+      "label": "牌局階段"
     },
     "table": {
-      "label": "牌桌：你在 {{ty}}，手牌 {{reka}}；對手在 {{rywal}}。公共牌：{{stol}}。",
+      "label": "你：{{ty}}，手牌 {{reka}}。對手：{{rywal}}。已翻開的牌：{{stol}}。",
       "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
       "you": "你",
       "villain": "對手"
     },
-    "pot": "底池 {{pula}} bb · 跟注需 {{kwota}} bb",
+    "pot": "{{t:pot|底池}} {{pula}} bb · {{t:call|跟注}}需 {{kwota}} bb",
     "log": {
-      "label": "牌局過程",
-      "villainBet": "{{rywal}} 下注 {{bb}} bb",
-      "youCall": "你跟注",
-      "youFold": "你棄牌"
+      "label": "牌局過程"
     },
     "yourMove": "輪到你",
-    "action": {
-      "fold": "棄牌",
-      "call": "跟注",
-      "callAmount": "跟注 {{bb}} bb"
-    },
     "verdict": {
       "yours": "你的選擇：{{akcja}}。更好的是：{{lepiej}}。",
       "yoursGood": "你的選擇：{{akcja}}。"
@@ -1042,7 +1034,7 @@
     },
     "numbers": {
       "title": "數字",
-      "line": "底池是 {{pula}} bb，跟注要 {{kwota}} bb，所以你需要 {{potrzeba}} 的勝率，也就是大約每 {{razPotrzeba}} 次贏 1 次。補牌數是未見的 {{nieznane}} 張中的 {{outy}} 張：成牌機率 {{trafisz}}，大約每 {{razTrafisz}} 次 1 次。"
+      "line": "{{t:pot|底池}}是 {{pula}} bb，{{t:call|跟注}}要 {{kwota}} bb，所以你需要 {{potrzeba}} 的勝率，也就是大約每 {{razPotrzeba}} 次贏 1 次。補牌數是未見的 {{nieznane}} 張中的 {{outy}} 張：成牌機率 {{trafisz}}，大約每 {{razTrafisz}} 次 1 次。"
     },
     "next": {
       "street": "下一步：{{ulica}}",

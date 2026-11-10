@@ -1027,7 +1027,7 @@
       "trudny": "Difícil"
     },
     "start": {
-      "about": "Jogas de {{ty}}, adversário: {{rywal}}. Profundidade {{bb}} bb.",
+      "about": "Tu: {{ty}}, adversário: {{rywal}}. Profundidade {{bb}} bb.",
       "nowAuto": "Agora: {{poziom}}. O nível ajusta-se aos teus resultados.",
       "nowManual": "Nível escolhido: {{poziom}}.",
       "missing": "Esta mão não tem o nível “{{wybrany}}”. Vais jogá-la em “{{poziom}}”.",
@@ -1041,27 +1041,19 @@
       "river": "River"
     },
     "streets": {
-      "label": "Ruas"
+      "label": "Etapas da mão"
     },
     "table": {
-      "label": "Mesa: tu em {{ty}} com {{reka}}, adversário em {{rywal}}. Board: {{stol}}.",
+      "label": "Tu: {{ty}}, cartas {{reka}}. Adversário: {{rywal}}. Cartas viradas: {{stol}}.",
       "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
       "you": "tu",
       "villain": "adversário"
     },
-    "pot": "Pote {{pula}} bb · para pagar {{kwota}} bb",
+    "pot": "{{t:pot|Pote}} {{pula}} bb · para {{t:call|pagar}} {{kwota}} bb",
     "log": {
-      "label": "Andamento da mão",
-      "villainBet": "{{rywal}} aposta {{bb}} bb",
-      "youCall": "tu pagas",
-      "youFold": "tu desistes"
+      "label": "Andamento da mão"
     },
     "yourMove": "A tua vez",
-    "action": {
-      "fold": "Desistir",
-      "call": "Pagar",
-      "callAmount": "Pagar {{bb}} bb"
-    },
     "verdict": {
       "yours": "A tua escolha: {{akcja}}. Melhor: {{lepiej}}.",
       "yoursGood": "A tua escolha: {{akcja}}."
@@ -1078,7 +1070,7 @@
     },
     "numbers": {
       "title": "Números",
-      "line": "O pote é de {{pula}} bb e pagar custa {{kwota}} bb, por isso precisas de {{potrzeba}} de equity, ou seja, ganhar cerca de uma vez em {{razPotrzeba}}. Outs: {{outy}} de {{nieznane}} cartas não vistas: completas o draw em {{trafisz}} dos casos, cerca de uma vez em {{razTrafisz}}."
+      "line": "O {{t:pot|pote}} é de {{pula}} bb e {{t:call|pagar}} custa {{kwota}} bb, por isso precisas de {{potrzeba}} de equity, ou seja, ganhar cerca de uma vez em {{razPotrzeba}}. Outs: {{outy}} de {{nieznane}} cartas não vistas: completas o draw em {{trafisz}} dos casos, cerca de uma vez em {{razTrafisz}}."
     },
     "next": {
       "street": "Seguinte: {{ulica}}",

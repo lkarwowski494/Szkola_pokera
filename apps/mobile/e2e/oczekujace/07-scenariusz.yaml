@@ -1,5 +1,8 @@
-# PR-05, R-45: scenariusz pokazuje tylko akcje z oceną w treści (D-109); bez żetonów, puli i wygranej na ekranie
-# (design-spec.md „Znaczenie kolorów”: bez hazardu). Treść scenariuszy: rola 06 (dopóki jej nie ma, flow nie przejdzie).
+# PR-05, R-45: scenariusz całego rozdania (krok F, sesja BT): kafelek → lista → start z poziomem → decyzja (pas, błąd w SC-01) →
+# ocena „dlaczego źle / dlaczego dobrze” → podsumowanie → „Zagraj to samo jeszcze raz”. Na ekranie decyzji i oceny bez żetonów,
+# salda i wygranej (design-spec.md „Znaczenie kolorów”: bez hazardu); zdanie „nie wygrana” na ekranie startu jest w projekcie (D-545).
+# Zostaje w oczekujace/ (poza bramką CI, D-189) do kroku J (rola 07): wymaga (a) szablonów w bazie treści (zapis tabeli `scenarios`
+# w content-build) i (b) stanu z ukończoną lekcją modułu 2, żeby SC-01 był odblokowany (D-647); stan przygotuje krok J.
 appId: pl.lkarwowski.szkolapokera
 name: Scenariusz
 ---
@@ -10,15 +13,32 @@ name: Scenariusz
 - runFlow: ../wspolne/za-powitaniem.yaml
 - tapOn:
     id: 'dzis-scenariusz'
-- tapOn: 'Zacznij.*'
+- tapOn:
+    id: 'scenariusz-sc-01'
+- assertVisible: 'Automatycznie'
+- tapOn:
+    id: 'poziom-latwy'
+- tapOn: 'Zacznij rozdanie'
 - extendedWaitUntil:
     visible:
-      id: 'akcja-0'
+      id: 'option-0'
     timeout: 30000
-- assertNotVisible: '.*(wygran|żeton|\$|€).*'
+- assertNotVisible: '.*(wygran|żeton|\$|€|saldo).*'
+- assertVisible: '.* bb.*'
 - takeScreenshot: 07-przed-decyzja
 - tapOn:
-    id: 'akcja-0'
-- assertVisible: 'Dalej'
+    id: 'option-0'
+- assertVisible: 'Błąd'
+- assertVisible: 'Dlaczego .* słabsze zagranie'
+- assertVisible: 'Dlaczego .* lepsze zagranie'
 - assertVisible: 'Zgłoś błąd.*'
 - takeScreenshot: 07-ocena
+- tapOn: 'Zobacz podsumowanie'
+- assertVisible: 'Rozdanie zakończone'
+- assertVisible: 'Dobre decyzje: .*'
+- assertNotVisible: '.*(wygran|żeton|\$|€|saldo).*'
+- tapOn: 'Zagraj to samo jeszcze raz'
+- extendedWaitUntil:
+    visible:
+      id: 'option-0'
+    timeout: 30000

@@ -1009,7 +1009,7 @@
       "trudny": "Schwer"
     },
     "start": {
-      "about": "Du spielst auf {{ty}}, Gegner: {{rywal}}. Tiefe {{bb}} bb.",
+      "about": "Du: {{ty}}, Gegner: {{rywal}}. Tiefe {{bb}} bb.",
       "nowAuto": "Jetzt: {{poziom}}. Die Stufe passt sich deinen Ergebnissen an.",
       "nowManual": "Gewählte Stufe: {{poziom}}.",
       "missing": "Diese Hand gibt es nicht auf Stufe „{{wybrany}}“. Du spielst sie auf „{{poziom}}“.",
@@ -1023,27 +1023,19 @@
       "river": "River"
     },
     "streets": {
-      "label": "Setzrunden"
+      "label": "Etappen der Hand"
     },
     "table": {
-      "label": "Tisch: du auf {{ty}} mit {{reka}}, Gegner auf {{rywal}}. Board: {{stol}}.",
+      "label": "Du: {{ty}}, Karten {{reka}}. Gegner: {{rywal}}. Aufgedeckte Karten: {{stol}}.",
       "seat": "{{pozycja}} · {{rola}} · {{bb}} bb",
       "you": "du",
       "villain": "Gegner"
     },
-    "pot": "Im Pot {{pula}} bb · zum Callen {{kwota}} bb",
+    "pot": "Im {{t:pot|Pot}} {{pula}} bb · zum {{t:call|Call}} {{kwota}} bb",
     "log": {
-      "label": "Handverlauf",
-      "villainBet": "{{rywal}} setzt {{bb}} bb",
-      "youCall": "du callst",
-      "youFold": "du foldest"
+      "label": "Handverlauf"
     },
     "yourMove": "Dein Zug",
-    "action": {
-      "fold": "Fold",
-      "call": "Call",
-      "callAmount": "Call {{bb}} bb"
-    },
     "verdict": {
       "yours": "Deine Wahl: {{akcja}}. Besser: {{lepiej}}.",
       "yoursGood": "Deine Wahl: {{akcja}}."
@@ -1060,7 +1052,7 @@
     },
     "numbers": {
       "title": "Zahlen",
-      "line": "Der Pot beträgt {{pula}} bb und der Call kostet {{kwota}} bb, du brauchst also {{potrzeba}} Equity, also etwa jedes {{razPotrzeba}}. Mal zu gewinnen. Outs: {{outy}} von {{nieznane}} unbekannten Karten: Du triffst in {{trafisz}} der Fälle, etwa jedes {{razTrafisz}}. Mal."
+      "line": "Der {{t:pot|Pot}} beträgt {{pula}} bb und der {{t:call|Call}} kostet {{kwota}} bb, du brauchst also {{potrzeba}} Equity, also etwa jedes {{razPotrzeba}}. Mal zu gewinnen. Outs: {{outy}} von {{nieznane}} unbekannten Karten: Du triffst in {{trafisz}} der Fälle, etwa jedes {{razTrafisz}}. Mal."
     },
     "next": {
       "street": "Weiter: {{ulica}}",

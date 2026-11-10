@@ -69,14 +69,14 @@ export function StolRozdania({ stol, reka, pozycjaTy, pozycjaRywal, stosBb }: { 
 }
 
 export interface WpisDziennika { ulica: string; tekst: string; ocena?: OcenaOdpowiedzi; teraz?: boolean }
-/** Dziennik akcji: jeden wiersz na ulicę, ocena jako znak + słowo (nie sam kolor). Nowy wpis ogłasza VoiceOver (aria-live → liveRegion). */
+/** Dziennik akcji: jeden wiersz na ulicę, ocena jako znak + słowo (nie sam kolor). Nowy wpis ogłasza `useAnnounce` w ekranie (strażnik D-283: ogłoszenia tylko przez pomocnik). */
 export function Dziennik({ wpisy }: { wpisy: readonly WpisDziennika[] }): React.JSX.Element {
   const tk = useTokens();
   const { t } = useTranslation();
   return (
     <View accessibilityRole="list" accessibilityLabel={t('scenario.log.label')} style={{ gap: odstep.s }}>
       {wpisy.map((w) => (
-        <View key={w.ulica} accessibilityRole="none" accessibilityLiveRegion={w.teraz ? 'polite' : 'none'} style={[styles.wiersz, { borderColor: tk.separator }]}>
+        <View key={w.ulica} accessibilityRole="none" style={[styles.wiersz, { borderColor: tk.separator }]}>
           <Text style={[styl.drobny, { color: tk.muted, fontWeight: '700', width: 64 }]}>{w.ulica}</Text>
           <View style={{ flex: 1 }}>
             <RichText text={w.tekst} style={styl.drobny} />
@@ -140,7 +140,7 @@ export function BlokDlaczego({ blok, nazwa, t }: { blok: Blok; nazwa: string; t:
 export function Werdykt({ ocena, zdanie }: { ocena: OcenaOdpowiedzi; zdanie: string }): React.JSX.Element {
   const tk = useTokens();
   return (
-    <View accessibilityLiveRegion="polite" style={[styles.rama, { backgroundColor: tk.frame }]}>
+    <View style={[styles.rama, { backgroundColor: tk.frame }]}>
       <View style={[styles.sukno, { backgroundColor: tk.felt1, borderColor: tk.felt2, alignItems: 'flex-start', gap: odstep.s }]}>
         <StopienOceny ocena={ocena} naSuknie />
         <Text style={[styl.tresc, { color: tk.onFelt }]}>{zdanie}</Text>

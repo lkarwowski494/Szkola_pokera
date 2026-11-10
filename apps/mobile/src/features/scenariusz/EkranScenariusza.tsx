@@ -24,9 +24,8 @@ const POZYCJE_6MAX = ['UTG', 'HJ', 'CO', 'BTN', 'SB', 'BB'] as const;
 const pozycjaTekst = (p: string, t: TFn): string => ((POZYCJE_6MAX as readonly string[]).includes(p) ? nazwaPozycji(p as (typeof POZYCJE_6MAX)[number], t) : p);
 const ULICE = ['preflop', 'flop', 'turn', 'river'] as const;
 
-/** Nazwa akcji z kwotą do sprawdzenia w bb (jednostka bb, jak w całym scenariuszu). */
-export const nazwaAkcji = (a: Akcja, t: TFn, bb: number): string => (a === 'call' ? t('scenario.action.callAmount', { bb }) : t('scenario.action.fold'));
-const nazwaKrotka = (a: Akcja, t: TFn): string => t(`scenario.action.${a}`);
+/** Nazwa akcji z kwotą do sprawdzenia w bb (jednostka bb); nazwy i terminy z istniejących kluczy `play.*` (wspólne z trybem gry). */
+export const nazwaAkcji = (a: Akcja, t: TFn, bb: number): string => (a === 'call' ? t('play.call', { bb }) : t('play.fold'));
 
 // ---------- Start ----------
 export type LimitEkranuScenariusza = { bezLimitu: true } | { bezLimitu: false; pozostalo: number; odnowienieMs: number };
@@ -109,10 +108,10 @@ function wpisyDziennika(s: SesjaScenariusza, doIndeksu: number, t: TFn, oceny: r
     if (!d) break;
     const karta = d.street === 'turn' ? `[[${cardToString(s.wariant.board[3] as number)}]] ` : '';
     const odp = s.wybory[i];
-    const reakcja = odp ? `, ${t(odp === 'call' ? 'scenario.log.youCall' : 'scenario.log.youFold')}` : '';
+    const reakcja = odp ? `, ${odp === 'call' ? t('play.log.call', { pos: s.szablon.positions.hero, bb: w.doSprawdzeniaBb }) : t('play.log.fold', { pos: s.szablon.positions.hero })}` : '';
     wpisy.push({
       ulica: t(`scenario.street.${d.street}`),
-      tekst: `${karta}${t('scenario.log.villainBet', { rywal: s.szablon.positions.villain, bb: w.doSprawdzeniaBb })}${reakcja}`,
+      tekst: `${karta}${t('play.log.bet', { pos: s.szablon.positions.villain, bb: w.doSprawdzeniaBb })}${reakcja}`,
       ...(oceny[i] ? { ocena: oceny[i] } : {}),
       teraz: i === doIndeksu,
     });
@@ -144,12 +143,15 @@ export function PrzebiegScenariusza(p: PropsPrzebiegu): React.JSX.Element {
   const widok = d ? widokDecyzji(s.wariant, indeks) : null;
   const wybor = ocenaMode ? s.wybory[indeks] : undefined;
   const ocenaWyboru = ocenaMode ? oceny[indeks] : undefined;
+  const ulicaDecyzji = d?.street;
   const ocenyAk = ocenaMode && d ? ocenyAkcjiSesji(s, indeks) : null;
   const nastepna = s.wariant.decisions[indeks + 1];
-  useAnnounce(ocenaMode && ocenaWyboru ? t('grade.label', { slowo: t(`grade.${ocenaWyboru}`) }) : null);
+  // VoiceOver: po decyzji ocena z werdyktem, przed decyzją nowy wpis rywala (ulica i jego zakład, A04-11/D-283)
+  const opisRywala = d && ulicaDecyzji ? `${t(`scenario.street.${ulicaDecyzji}`)}. ${t('play.log.bet', { pos: s.szablon.positions.villain, bb: d.bet })}` : null;
+  useAnnounce(ocenaMode && ocenaWyboru && wybor ? t('grade.announce', { ocena: t('grade.label', { slowo: t(`grade.${ocenaWyboru}`) }), opis: t('scenario.verdict.yours', { akcja: nazwaAkcji(wybor, t, d?.bet ?? 0), lepiej: d ? nazwaAkcji(d.correct, t, d.bet) : '' }) }) : ocenaMode ? null : opisRywala);
   if (!d || !widok) return <Screen>{null}</Screen>;
   const bb = widok.doSprawdzeniaBb;
-  const nazwy: Record<Akcja, string> = { fold: nazwaKrotka('fold', t), call: nazwaAkcji('call', t, bb) };
+  const nazwy: Record<Akcja, string> = { fold: nazwaAkcji('fold', t, bb), call: nazwaAkcji('call', t, bb) };
   const najlepsza: Akcja = d.correct;
   const idxUlicy = ULICE.indexOf(widok.ulica);
   const doDziennika = wpisyDziennika(s, indeks, t, ocenaMode ? oceny : oceny.slice(0, indeks));
@@ -244,8 +246,8 @@ export function KoniecScenariusza(p: PropsKonca): React.JSX.Element {
           return (
             <View key={i} style={{ flexDirection: 'row', justifyContent: 'space-between', gap: odstep.m }}>
               <View style={{ flex: 1 }}>
-                <Text style={[styl.tresc, { color: tk.ink }]}>{`${t(`scenario.street.${d.street}`)}: ${nazwaKrotka(wyb, t).toLowerCase()}`}</Text>
-                {lepiej ? <Text style={[styl.przypis, { color: tk.muted }]}>{t('scenario.end.better', { akcja: nazwaKrotka(d.correct, t).toLowerCase() })}</Text> : null}
+                <Text style={[styl.tresc, { color: tk.ink }]}>{`${t(`scenario.street.${d.street}`)}: ${nazwaAkcji(wyb, t, d.bet)}`}</Text>
+                {lepiej ? <Text style={[styl.przypis, { color: tk.muted }]}>{t('scenario.end.better', { akcja: nazwaAkcji(d.correct, t, d.bet) })}</Text> : null}
               </View>
               <Text style={[styl.naglowek, { color: tk.ink }]}>{`${t(`grade.${k.ocena}`)}`}</Text>
             </View>
