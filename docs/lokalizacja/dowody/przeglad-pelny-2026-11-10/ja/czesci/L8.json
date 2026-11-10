@@ -1,0 +1,22 @@
+[
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l4-bankroll.md",
+  "linia": 141,
+  "stary": "理想は約{{n:study.winner}}ですが、学習が{{n:study.min}}を下回ることはないようにします。",
+  "nowy": "理想は約{{n:study.winner}}ですが、学習は決して{{n:study.min}}を下回らないようにします。",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna (M12): pl „ale nigdy mniej niż {{n:study.min}} nauki” — w przekładzie zgubione „nigdy” (jest tylko „żeby nie spadła poniżej”); ćwiczenie w tej samej lekcji (linia 94) ma „決して…下回らない”. Nowy tekst przywraca „nigdy” i ujednolica z linią 94.",
+  "grupa": "L8"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m12-l2-decyzja-wynik.md",
+  "linia": 97,
+  "stary": "{{t:pot|ポット}}全額に対して{{t:call}}するのは悪い判断です",
+  "nowy": "{{t:pot|ポット}}全額のベットに{{t:call}}するのは悪い判断です",
+  "waga": "NISKIE",
+  "powod": "pl „call z drawem do koloru za całą pulę na turnie” = sprawdzenie zakładu wielkości puli; „ポット全額に対してコールする” jest nieprecyzyjne (nie wiadomo, że chodzi o zakład rywala wielkości puli). „ポット全額のベットにコールする” mówi to samo co pl i co ćwiczenie w linii 38 („ポット全額の…をベット”).",
+  "grupa": "L8"
+ }
+]

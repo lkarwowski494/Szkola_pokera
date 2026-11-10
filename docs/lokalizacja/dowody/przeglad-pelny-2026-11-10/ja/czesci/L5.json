@@ -1,0 +1,112 @@
+[
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l2-ile-blefow.md",
+  "linia": 107,
+  "stary": "## {{t:polarized|ポラライズド}}{{t:range|レンジ}}",
+  "nowy": "## {{t:polarized|ポラライズ}}された{{t:range|レンジ}}",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy i resztą przekładu: `polarized` = „ポラライズ”, w pozostałych lekcjach ja wszędzie „{{t:polarized|ポラライズ}}された{{t:range|レンジ}}” (15×), forma „ポラライズド” występuje tylko w tej lekcji (3×). pl: „{{t:range|Zakres}} {{t:polarized}}”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l2-ile-blefow.md",
+  "linia": 109,
+  "stary": "**{{t:polarized|ポラライズド}}{{t:range|レンジ}}**",
+  "nowy": "**{{t:polarized|ポラライズ}}された{{t:range|レンジ}}**",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy i resztą przekładu: `polarized` = „ポラライズ”, w pozostałych lekcjach ja wszędzie „{{t:polarized|ポラライズ}}された{{t:range|レンジ}}” (15×), forma „ポラライズド” występuje tylko w tej lekcji (3×). pl: „{{t:range|Zakres}} {{t:polarized}}”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l2-ile-blefow.md",
+  "linia": 142,
+  "stary": "{{t:polarized|ポラライズド}}{{t:range}}（",
+  "nowy": "{{t:polarized|ポラライズ}}された{{t:range}}（",
+  "waga": "ŚR",
+  "powod": "Termin niezgodny z terms-nazwy i resztą przekładu: `polarized` = „ポラライズ”, w pozostałych lekcjach ja wszędzie „{{t:polarized|ポラライズ}}された{{t:range|レンジ}}” (15×), forma „ポラライズド” występuje tylko w tej lekcji (3×). pl: „{{t:range|Zakres}} {{t:polarized}}”.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l2-ile-blefow.md",
+  "linia": 65,
+  "stary": "あなたが{{t:bluff|ブラフ}}したときにちょうど勝つから",
+  "nowy": "あなたが{{t:bluff|ブラフ}}しているときにだけ勝つから",
+  "waga": "ŚR",
+  "powod": "pl: „wygrywa dokładnie wtedy, gdy {{t:bluff|blefujesz}}” (wtedy i tylko wtedy). „ちょうど勝つ” czyta się jak „wygrywa na styk/akurat”, nie „dokładnie wtedy”; to kluczowe zdanie poprawnej odpowiedzi. Nowy tekst jak w m8-l4 („勝つのは、相手がブラフしているときだけです”).",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l2-ile-blefow.md",
+  "linia": 119,
+  "stary": "あなたが{{t:bluff|ブラフ}}したときにちょうど勝つので",
+  "nowy": "あなたが{{t:bluff|ブラフ}}しているときにだけ勝つので",
+  "waga": "ŚR",
+  "powod": "pl: „bluff-catcher wygrywa dokładnie wtedy, gdy {{t:bluff|blefujesz}}”. „ちょうど勝つ” = „wygrywa akurat/na styk”, nienaturalne i mylące; poprawnie „しているときにだけ勝つ” (jak w m8-l4).",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l3-blokery.md",
+  "linia": 55,
+  "stary": "ビッグブラインドはリバーでチェックしました",
+  "nowy": "{{t:big-blind|ビッグブラインド}}はリバーでチェックしました",
+  "waga": "ŚR",
+  "powod": "Zgubiony znacznik terminu: pl „{{t:big-blind|Duży blind}} czeka na riverze” ma {{t:big-blind|…}}, w ja zwykły tekst bez znacznika (w sąsiednich ćwiczeniach znacznik jest). „czeka” w pl też bez znacznika, więc チェック zostaje zwykłym tekstem.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m8-l4-bluff-catching.md",
+  "linia": 80,
+  "stary": "（スペードのクイーン、スペードのジャック）",
+  "nowy": "（スペード2枚のクイーンハイ、スペード2枚のジャックハイ）",
+  "waga": "ŚR",
+  "powod": "pl: „(dama z pikami, walet z pikami)” = ręce z damą/waletem i pikami, czyli nietrafione drawy do koloru (en: „queen with spades, jack with spades”). ja „スペードのクイーン” znaczy pojedynczą kartę „dama pik”, co nie opisuje ręki-blefu, z którą przegrywa siódemka jako najwyższa karta.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l1-spr.md",
+  "linia": 84,
+  "stary": "最後まで払ってくるのは主に強いハンドです",
+  "nowy": "最後まで払ってくるのは主により強いハンドです",
+  "waga": "ŚR",
+  "powod": "pl: „do końca płacą głównie silniejsze ręce” (stopień wyższy: silniejsze od twojej najwyższej pary). ja „強いハンド” gubi porównanie, a ono jest powodem, dla którego nie grasz zawsze o stack.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l2-zaangazowanie.md",
+  "linia": 65,
+  "stary": "シングルレイズの{{t:pot|ポット}}、スタック",
+  "nowy": "レイズが1回の{{t:pot|ポット}}、スタック",
+  "waga": "ŚR",
+  "powod": "Jedna nazwa na pojęcie: pl „{{t:pot|Pula}} z jednym podbiciem” w m9-l1 oddano 5× jako „レイズが1回の{{t:pot|ポット}}”; „シングルレイズの” występuje w całej treści ja tylko 2× (ta lekcja).",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l2-zaangazowanie.md",
+  "linia": 110,
+  "stary": "シングルレイズの{{t:pot|ポット}}では",
+  "nowy": "レイズが1回の{{t:pot|ポット}}では",
+  "waga": "ŚR",
+  "powod": "Jedna nazwa na pojęcie: pl „W {{t:pot|puli}} z jednym podbiciem”; w m9-l1 5× „レイズが1回の{{t:pot|ポット}}”, tu inna nazwa tej samej sytuacji.",
+  "grupa": "L5"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/lessons/m9-l2-zaangazowanie.md",
+  "linia": 41,
+  "stary": "スタック全部をかけたくないときにも合理的です",
+  "nowy": "これも、スタック全部をかけたくないときには合理的です",
+  "waga": "NISKIE",
+  "powod": "pl: „Też rozsądne, gdy nie chcesz grać o cały stack” — „też” odnosi się do planu (też rozsądny, jak all-in wyżej), a w ja „ときにも” przenosi je na warunek („rozsądne także wtedy, gdy…”).",
+  "grupa": "L5"
+ }
+]

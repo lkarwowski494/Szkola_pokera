@@ -1,0 +1,102 @@
+[
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m3.yaml",
+  "linia": 21,
+  "stary": "オフスーツのATは",
+  "nowy": "オフスートのATは",
+  "waga": "ŚR",
+  "powod": "pl: „w różnych kolorach” (offsuit). W przekładzie dwa warianty: „オフスーツ” (tu) i „オフスート” (m4 i lekcje: 18 wystąpień wobec 6); jedna nazwa na pojęcie, więc ujednolicenie do dominującego „オフスート”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m3.yaml",
+  "linia": 31,
+  "stary": "オフスーツのA9は",
+  "nowy": "オフスートのA9は",
+  "waga": "ŚR",
+  "powod": "pl: „w różnych kolorach” (offsuit). W przekładzie dwa warianty: „オフスーツ” (tu) i „オフスート” (m4 i lekcje: 18 wystąpień wobec 6); jedna nazwa na pojęcie, więc ujednolicenie do dominującego „オフスート”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m3.yaml",
+  "linia": 49,
+  "stary": "オフスーツのJ9も",
+  "nowy": "オフスートのJ9も",
+  "waga": "ŚR",
+  "powod": "pl: „w różnych kolorach” (offsuit). W przekładzie dwa warianty: „オフスーツ” (tu) i „オフスート” (m4 i lekcje: 18 wystąpień wobec 6); jedna nazwa na pojęcie, więc ujednolicenie do dominującego „オフスート”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m3.yaml",
+  "linia": 70,
+  "stary": "オープン}}します（そこでは{{n:pf.open-size-sb}}）",
+  "nowy": "オープン}}します（スモールブラインドでは{{n:pf.open-size-sb}}）",
+  "waga": "NISKIE",
+  "powod": "pl: „poza małym blindem (tam {{n:pf.open-size-sb}})”. W ja nawias stoi po orzeczeniu, więc „そこでは” nie ma jasnego odniesienia (najbliżej jest „wszystkie pozycje”); nazwanie małego blinda wprost usuwa dwuznaczność, liczba i znaczniki bez zmian.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m4.yaml",
+  "linia": 92,
+  "stary": "{{t:value|バリュー}}と{{t:initiative|イニシアチブ}}を手放します",
+  "nowy": "バリューと{{t:initiative|イニシアチブ}}を手放します",
+  "waga": "NISKIE",
+  "powod": "pl: „oddaje wartość i {{t:initiative|inicjatywę}}” — w pl słowo „wartość” nie ma znacznika; przekład dodał {{t:value|…}}, którego nie ma w źródle (zestaw znaczników ma być jak w pl). Tekst widoczny bez zmian.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 22,
+  "stary": "低く{{t:connected}}のフロップは",
+  "nowy": "低くて{{t:connected}}なフロップは",
+  "waga": "NISKIE",
+  "powod": "pl: „niski, {{t:connected}} flop”. „低くコネクテッドのフロップ” jest niegramatyczne (przysłówkowe „低く” nie łączy się z rzeczownikiem); „低くてコネクテッドなフロップ” jest poprawne, znacznik bez zmian.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 47,
+  "stary": "勝ち目のない手で",
+  "nowy": "勝ち目のないハンドで",
+  "waga": "ŚR",
+  "powod": "pl: „ręka”. Cały egzamin m5 używa „手” (37 razy), reszta przekładu „ハンド” (ponad 1500 wystąpień, w m5 ani razu); jedna nazwa na pojęcie — przykład, pełna lista w uwagach („Do ujednolicenia skryptem”). W m6 to samo zdanie brzmi „勝ち目のないハンドで”.",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 68,
+  "stary": "text: \"手を諦めるわけではない",
+  "nowy": "text: \"ハンドを諦めるわけではない",
+  "waga": "ŚR",
+  "powod": "pl: „ręka”. Cały egzamin m5 używa „手” (37 razy), reszta przekładu „ハンド” (ponad 1500 wystąpień, w m5 ani razu); jedna nazwa na pojęcie — przykład, pełna lista w uwagach („Do ujednolicenia skryptem”).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m5.yaml",
+  "linia": 75,
+  "stary": "やめるのはどの手ですか",
+  "nowy": "やめるのはどのハンドですか",
+  "waga": "ŚR",
+  "powod": "pl: „ręka”. Cały egzamin m5 używa „手” (37 razy), reszta przekładu „ハンド” (ponad 1500 wystąpień, w m5 ani razu); jedna nazwa na pojęcie — przykład, pełna lista w uwagach („Do ujednolicenia skryptem”).",
+  "grupa": "E1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m6.yaml",
+  "linia": 59,
+  "stary": "このハンドには価値も",
+  "nowy": "このハンドにはバリューも",
+  "waga": "ŚR",
+  "powod": "pl: „Ta ręka nie ma ani wartości, ani drawa” — „wartość” w sensie pokerowym (value). W terms-nazwy value = „バリュー” i tak jest w reszcie przekładu (np. m3 „バリューを失い” dla „oddajesz wartość”); „価値” to inna nazwa tego samego pojęcia.",
+  "grupa": "E1"
+ }
+]

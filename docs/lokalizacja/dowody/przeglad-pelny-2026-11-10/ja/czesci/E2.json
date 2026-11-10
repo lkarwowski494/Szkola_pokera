@@ -1,0 +1,62 @@
+[
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m7.yaml",
+  "linia": 44,
+  "stary": "ポットの3/4をベットします",
+  "nowy": "{{t:pot|ポット}}の3/4をベットします",
+  "waga": "ŚR",
+  "powod": "pl: „betujesz 3/4 {{t:pot|puli}}” — w przekładzie zgubiony znacznik terminu {{t:pot|…}} (zwykły tekst „ポット”); przywrócony znacznik z formą zgodną z terms-nazwy (ポット).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m7.yaml",
+  "linia": 75,
+  "stary": "引くのはダイヤの2枚だけです",
+  "nowy": "差し引くのはダイヤの2枚だけです",
+  "waga": "NISKIE",
+  "powod": "pl: „odejmujesz tylko dwie karty w kolorze karo” — „引く” przy kartach czyta się jak „dobierasz” (draw); „差し引く” jednoznacznie znaczy „odejmujesz”.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m10.yaml",
+  "linia": 27,
+  "stary": "機会が何分の一も少なく",
+  "nowy": "機会が何倍も少なく",
+  "waga": "NISKIE",
+  "powod": "pl: „ma ich wielokrotnie mniej” — „何分の一も少なく” jest niegramatyczne/niejasne; „何倍も少なく” oddaje „wielokrotnie mniej”.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m10.yaml",
+  "linia": 63,
+  "stary": "すべてのサイズとテーブルをまとめた数値",
+  "nowy": "すべてのサイズとボードをまとめた数値",
+  "waga": "ŚR",
+  "powod": "pl: „Fold to c-bet łączy wszystkie rozmiary i stoły” — „stół” to w pl nazwa terminu board (lekcja m10-l3:109 mówi o tym samym: „wszystkie rozmiary i flopy”); „テーブル” znaczy stół do gry, powinno być „ボード” (terms-nazwy: board = ボード).",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m10.yaml",
+  "linia": 80,
+  "stary": "{{t:rake-cap|レーキキャップ}}には届きません",
+  "nowy": "{{t:rake-cap|レーキ上限}}には届きません",
+  "waga": "ŚR",
+  "powod": "pl: „{{t:rake-cap|limit}} jest poza zasięgiem” — forma znacznika niezgodna z terms-nazwy (rake-cap = „レーキ上限”); jedna nazwa na pojęcie.",
+  "grupa": "E2"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/exams/m12.yaml",
+  "linia": 62,
+  "stary": "を3回続けて失い",
+  "nowy": "を3回失い",
+  "waga": "ŚR",
+  "powod": "Treść krytyczna (m12). pl: „Po trzech przegranych dużych pulach” — bez „z rzędu”; „続けて” dodaje warunek, którego nie ma w źródle.",
+  "grupa": "E2"
+ }
+]

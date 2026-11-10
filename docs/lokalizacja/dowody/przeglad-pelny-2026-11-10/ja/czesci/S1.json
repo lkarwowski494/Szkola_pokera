@@ -1,0 +1,242 @@
+[
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 14,
+  "stary": "kicker: null  #",
+  "nowy": "kicker: \"キッカー\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „kicker” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „キッカー” (ok. 63 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 21,
+  "stary": "check-raise: null  #",
+  "nowy": "check-raise: \"チェックレイズ\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „check-raise” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „チェックレイズ” (ok. 65 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 33,
+  "stary": "stack: null  #",
+  "nowy": "stack: \"スタック\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „stack” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „スタック” (ok. 397 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 55,
+  "stary": "gutshot: null  #",
+  "nowy": "gutshot: \"ガットショット\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „gutshot” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „ガットショット” (ok. 30 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 56,
+  "stary": "backdoor: null  #",
+  "nowy": "backdoor: \"バックドア\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „backdoor” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „バックドア” (ok. 12 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 57,
+  "stary": "pot-odds: null  #",
+  "nowy": "pot-odds: \"ポットオッズ\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „pot-odds” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „ポットオッズ” (ok. 8 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 66,
+  "stary": "suited: null  #",
+  "nowy": "suited: \"スーテッド\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „suited” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „スーテッド” (ok. 50 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 67,
+  "stary": "offsuit: null  #",
+  "nowy": "offsuit: \"オフスート\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „offsuit” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „オフスート” (ok. 18 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 70,
+  "stary": "3-bet: null  #",
+  "nowy": "3-bet: \"3ベット\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „3-bet” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „3ベット” (ok. 261 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 71,
+  "stary": "4-bet: null  #",
+  "nowy": "4-bet: \"4ベット\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „4-bet” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „4ベット” (ok. 74 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 103,
+  "stary": "bluff-catcher: null  #",
+  "nowy": "bluff-catcher: \"ブラフキャッチャー\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „bluff-catcher” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „ブラフキャッチャー” (ok. 31 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 104,
+  "stary": "barrel: null  #",
+  "nowy": "barrel: \"バレル\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „barrel” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „バレル” (ok. 27 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 106,
+  "stary": "probe-bet: null  #",
+  "nowy": "probe-bet: \"プローブベット\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „probe-bet” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „プローブベット” (ok. 19 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 116,
+  "stary": "tilt: null  #",
+  "nowy": "tilt: \"ティルト\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „tilt” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „ティルト” (ok. 59 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 125,
+  "stary": "push-fold: null  #",
+  "nowy": "push-fold: \"プッシュ/フォールド\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „push-fold” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „プッシュ/フォールド” (ok. 12 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 129,
+  "stary": "bubble-factor: null  #",
+  "nowy": "bubble-factor: \"バブルファクター\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „bubble-factor” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „バブルファクター” (ok. 17 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 135,
+  "stary": "ante: null  #",
+  "nowy": "ante: \"アンティ\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „ante” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „アンティ” (ok. 50 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 137,
+  "stary": "fold-equity: null  #",
+  "nowy": "fold-equity: \"フォールドエクイティ\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „fold-equity” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „フォールドエクイティ” (ok. 12 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 148,
+  "stary": "heads-up: null  #",
+  "nowy": "heads-up: \"ヘッズアップ\"  #",
+  "waga": "ŚR",
+  "powod": "Nazwa terminu „heads-up” ma null (w słowniczku ja tylko nazwa angielska, wyszukiwanie po japońsku nie trafia), a przekład sam konsekwentnie używa przyjętej nazwy katakaną „ヘッズアップ” (ok. 4 wystąpień w content/ja i interfejsie, także w definicjach terms-def). Jedna nazwa na pojęcie: nazwa lokalna powinna być tą, której uczy tekst.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 49,
+  "stary": "button: \"BTN\"",
+  "nowy": "button: \"ボタン\"",
+  "waga": "ŚR",
+  "powod": "pl „Button” (pełna nazwa, skrót BTN osobno w polu abbr). Przekład nazywa to miejsce „ボタン” (ok. 390 wystąpień, m.in. tytuły spotów i definicje small-blind/cutoff/hijack), a „BTN” jako forma znacznika pada 3 razy; nazwa lokalna „BTN” dubluje tylko skrót pokazywany i tak przy nazwie angielskiej.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-nazwy.yaml",
+  "linia": 83,
+  "stary": "semi-connected: \"セミコネクト\"",
+  "nowy": "semi-connected: \"セミコネクテッド\"",
+  "waga": "ŚR",
+  "powod": "Niespójna trójka nazw jednej osi tekstury: connected = „コネクテッド”, disconnected = „ディスコネクテッド”, a semi-connected = „セミコネクト” (pl: połączony / niepołączony / półpołączony, jedna forma przymiotnikowa). Forma „セミコネクテッド” jest już używana w tekście (znaczniki z tą formą) i zgadza się z pozostałymi dwiema.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-def.yaml",
+  "linia": 12,
+  "stary": "引き分けを決めます。",
+  "nowy": "同じ役どうしの勝敗を決めます。",
+  "waga": "NISKIE",
+  "powod": "pl „rozstrzyga remis”: kicker rozstrzyga, kto wygrywa przy równych układach. „引き分けを決めます” czyta się jak „ustala remis” (odwrotne skojarzenie); nowy tekst mówi wprost, że rozstrzyga wygraną przy tym samym układzie.",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-def.yaml",
+  "linia": 91,
+  "stary": "そのボードでその時点で最も強い手です。",
+  "nowy": "そのボードでその時点でありうる最も強い手です。",
+  "waga": "NISKIE",
+  "powod": "pl „Najsilniejsza możliwa ręka na danym stole w danej chwili”: w przekładzie zgubione „możliwa” (bez tego zdanie można czytać jako najsilniejszą rękę wśród graczy w rozdaniu).",
+  "grupa": "S1"
+ },
+ {
+  "jezyk": "ja",
+  "cel": "content/ja/terms-def.yaml",
+  "linia": 107,
+  "stary": "プレイヤーが複数いるときは",
+  "nowy": "プレイヤーが3人以上いるときは",
+  "waga": "NISKIE",
+  "powod": "pl „Przy kilku graczach” w opozycji do „W rozdaniu dwóch graczy”. „複数” obejmuje też dwóch, więc zdanie nie odróżnia się od poprzedniego; „3人以上” oddaje sens pl.",
+  "grupa": "S1"
+ }
+]

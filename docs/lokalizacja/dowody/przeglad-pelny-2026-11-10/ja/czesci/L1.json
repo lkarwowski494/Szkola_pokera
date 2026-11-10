@@ -1,0 +1,82 @@
+[
+  {
+    "jezyk": "ja",
+    "cel": "content/ja/lessons/m2-l1-outy.md",
+    "linia": 106,
+    "stary": "**アウト**とは",
+    "nowy": "**アウツ**とは",
+    "waga": "ŚR",
+    "powod": "Termin outs ma w terms-nazwy.yaml nazwę „アウツ” i tak jest w całej lekcji (tytuł, ćwiczenia, tabela); tylko definicja (pl: „**Out** to karta, która poprawia twoją rękę”) używa innej postaci „アウト”, przez co definiowane słowo różni się od słowa używanego dalej. Jedna nazwa na pojęcie.",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "ja",
+    "cel": "content/ja/lessons/m2-l2-pot-odds.md",
+    "linia": 97,
+    "stary": "ハンドが完成した場合にその後のハンドで勝てると見込める",
+    "nowy": "役が完成した場合に、同じハンドの中でその後に勝てると見込める",
+    "waga": "ŚR",
+    "powod": "pl: „żetony, które spodziewasz się wygrać później w rozdaniu, jeśli trafisz swój układ”. „その後のハンドで” czyta się jako „w kolejnych rozdaniach”, a implied odds dotyczą dalszej części tego samego rozdania; „ハンドが完成” zamienione na „役が完成” (układ), żeby „ハンド” nie znaczyło w jednym zdaniu i ręki, i rozdania.",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "ja",
+    "cel": "content/ja/lessons/m2-l2-pot-odds.md",
+    "linia": 27,
+    "stary": "上級者にとってはプレイになることもありますが",
+    "nowy": "上級者なら有効なプレイになることもありますが",
+    "waga": "NISKIE",
+    "powod": "pl: „U zaawansowanych bywa to zagraniem”. Kalka „プレイになる” jest niejasna po japońsku; „有効なプレイになる” oddaje sens (bywa sensownym zagraniem) bez zmiany treści.",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "ja",
+    "cel": "content/ja/lessons/m3-l2-rece-startowe.md",
+    "linia": 45,
+    "stary": "{{t:position|ポジション}}からブラインドを攻める",
+    "nowy": "{{t:position|ポジション}}を持ってブラインドを攻める",
+    "waga": "NISKIE",
+    "powod": "pl: „do ataku na blindy z pozycji” = mając pozycję (przewagę pozycji), nie „z jakiegoś miejsca”. „ポジションから” jest kalką; w tej samej lekcji i w m3-l1 przewagę oddaje „ポジションを持って/があります”.",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "ja",
+    "cel": "content/ja/lessons/m3-l3-zakresy-otwarc.md",
+    "linia": 47,
+    "stary": "下はオフスーツハンド",
+    "nowy": "下はオフスートハンド",
+    "waga": "ŚR",
+    "powod": "pl: „pod nią w różnych kolorach (np. AKo)”. W przekładzie ja pojęcie offsuit ma postać „オフスート” (18 wystąpień, m.in. sąsiednia lekcja m3-l2); „オフスーツ” to druga pisownia tego samego terminu. Jedna nazwa na pojęcie.",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "ja",
+    "cel": "content/ja/lessons/m3-l3-zakresy-otwarc.md",
+    "linia": 84,
+    "stary": "そしてオフスーツハンドは",
+    "nowy": "そしてオフスートハンドは",
+    "waga": "ŚR",
+    "powod": "pl: „od której karty zaczynają się ręce w różnych kolorach”. Ujednolicenie pisowni terminu offsuit do „オフスート” (jak w m3-l2 i większości przekładu).",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "ja",
+    "cel": "content/ja/lessons/m3-l3-zakresy-otwarc.md",
+    "linia": 87,
+    "stary": "弱いオフスーツハンド",
+    "nowy": "弱いオフスートハンド",
+    "waga": "ŚR",
+    "powod": "pl: „słabe ręce w różnych kolorach (np. A4o, K7o)”. Ujednolicenie pisowni terminu offsuit do „オフスート” (jak w m3-l2 i większości przekładu).",
+    "grupa": "L1"
+  },
+  {
+    "jezyk": "ja",
+    "cel": "content/ja/lessons/m3-l3-zakresy-otwarc.md",
+    "linia": 80,
+    "stary": "9人テーブルの前方の{{t:position|ポジション}}",
+    "nowy": "9人テーブルのアーリー{{t:position|ポジション}}",
+    "waga": "ŚR",
+    "powod": "pl: „Dla wczesnych pozycji przy stole 9-osobowym”. Pojęcie early position ma w terms-nazwy.yaml nazwę „アーリーポジション” (tak w m3-l1, notatka o rozmiarze otwarcia); „前方のポジション” to inna nazwa tego samego pojęcia i nie jest przyjętym określeniem.",
+    "grupa": "L1"
+  }
+]
