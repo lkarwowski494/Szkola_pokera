@@ -26,8 +26,10 @@ import {
   type Drill,
   type ModuleDef,
   type RuleDef,
+  type ScenarioTemplate,
 } from '@szkola/content-schema';
 import { KONFIGURACJA, nazwaPlikuTresci } from '@szkola/domena';
+import { checkScenarioGenerator, checkScenarioTemplate, loadScenarioTemplates } from './scenariusze';
 import { JEZYKI, jestJezykiem, lancuchTresci } from '@szkola/jezyki';
 import { classifyFlop, FULL_DECK, HUD_PARAMS, hudThresholdsFromParams, parseCards, textureMatches, type TextureFilter } from '@szkola/poker-core';
 import { expandHelplines, loadHelplines, type Helplines } from './helplines';
@@ -86,6 +88,8 @@ export interface CompiledContent {
   /** Obszary trybu gry (areas.yaml). */
   areas: AreaDef[];
   terms: (CompiledTerm & { forms?: string[]; skip?: string[] })[];
+  /** Szablony scenariuszy (BR-SZB-001); brak pola, gdy treść ich nie ma. */
+  scenarios?: ScenarioTemplate[];
   /** Telefony pomocy (content/helplines.yaml): do modułu TS ekranu „Pomoc”; w lekcji już rozwinięte. */
   helplines: Helplines;
   hash: string;
@@ -378,6 +382,36 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
     }
   }
 
+  // szablony scenariuszy (content/<tekst>/scenarios/<id>.yaml, BR-SZB-001): źródła ocen, poziomy, wyjaśnienia; generator tylko w bazie (pl)
+  const scenarios: ScenarioTemplate[] = [];
+  const scenarioFiles = loadScenarioTemplates(join(localeDir, 'scenarios'));
+  const seenScenarioIds = new Set<string>();
+  for (const { file, template } of scenarioFiles) {
+    fileCtx = `${tekst}/scenarios/${file}`;
+    const errs = checkScenarioTemplate(template, file, {
+      ruleLevels: new Map(rules.map((r) => [r.id, r.level])),
+      numberKeys: new Set(numbers.keys()),
+      moduleIds,
+    });
+    if (seenScenarioIds.has(template.id)) errs.push(`szablon ${template.id}: powtórzony identyfikator`);
+    seenScenarioIds.add(template.id);
+    if (locale === 'pl' && errs.length === 0) errs.push(...checkScenarioGenerator(template));
+    if (errs.length) throw new Error(errs.join('\n'));
+    template.decisions.forEach((d, i) => {
+      const gdzie = `${template.id}#${i + 1}`;
+      if (d.rule) registryUses.push({ plik: fileCtx, gdzie, id: d.rule });
+      if (d.calc) registryUses.push({ plik: fileCtx, gdzie, id: `n:${d.calc}` });
+    });
+    scenarios.push({
+      ...template,
+      situation: sub(template.situation, `${template.id}.situation`),
+      decisions: template.decisions.map((d, i) => ({
+        ...d,
+        actions: d.actions.map((a) => ({ ...a, explanation: sub(a.explanation, `${template.id}#${i + 1}.${a.action}`) })),
+      })),
+    });
+  }
+
   for (const m of modules) {
     if (!lessons.some((l) => l.module === m.id) && m.phase === 'mvp') warnings.push(`moduł ${m.id} (MVP) nie ma lekcji`);
   }
@@ -441,7 +475,8 @@ export function compileContent(contentDir: string, locale = 'pl', opts: CompileO
 
   const { ranking: handRanking } = compileHandRanking(join(contentDir, '..', 'tools', 'equity', 'equity169.json'));
   exams.sort((a, b) => modules.find((m) => m.id === a.module)!.order - modules.find((m) => m.id === b.module)!.order);
-  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, tekst, modules, lessons, exams, rules, numbers: numbersOut, ranges, evalRules, handRanking, areas, terms: terms.compiled };
+  // `scenarios` tylko gdy są szablony: treść bez nich ma ten sam hash co dotąd (zapis szablonów do bazy treści: krok F)
+  const payload = { schemaVersion: CONTENT_SCHEMA_VERSION, locale, tekst, modules, lessons, exams, rules, numbers: numbersOut, ranges, evalRules, handRanking, areas, terms: terms.compiled, ...(scenarios.length ? { scenarios } : {}) };
   const hash = createHash('sha256').update(JSON.stringify(payload)).digest('hex').slice(0, 16);
   return { ...payload, helplines, hash, warnings };
 }

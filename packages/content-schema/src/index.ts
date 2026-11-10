@@ -482,3 +482,69 @@ export type Block =
   | { t: 'note'; title: string; c: Block[] }
   | { t: 'formula'; v: string }
   | { t: 'range'; spot: string };
+
+// ---------- Szablony scenariuszy (BR-SZB-001) ----------
+
+// Szablon scenariusza całego rozdania (BR-SZB-001, D-531…D-533): opis sytuacji i granic losowania, nie jedno rozdanie.
+// Wariant (karty) powstaje z szablonu, poziomu i ziarna w generatorze poker-core (generateVariant); `levels`, `bounds` i `decisions`
+// mają kształt GeneratorTemplate z poker-core (jedna definicja granic dla treści i generatora). Pisze go rola 06 w
+// content/<język>/scenarios/<id>.yaml; w tym kroku obsługiwany rodzaj oceny: draw-call (rachunek ceny wobec szansy na draw).
+
+export const ScenarioLevel = z.enum(['latwy', 'sredni', 'trudny']);
+export type ScenarioLevel = z.infer<typeof ScenarioLevel>;
+export const SCENARIO_LEVELS_LIST = ScenarioLevel.options;
+export const ScenarioPosition = z.enum(['UTG', 'UTG1', 'UTG2', 'LJ', 'HJ', 'CO', 'BTN', 'SB', 'BB']);
+export const ScenarioDraw = z.enum(['flush', 'oesd', 'gutshot']);
+export const ScenarioReject = z.enum(['rywal-ma-out-gracza', 'stol-sparowany']);
+
+/** Granice losowania poziomu: z czego losuje ręka gracza i stół, margines od progu decyzji, warunki odrzucenia. */
+export const ScenarioLevelBounds = z
+  .object({
+    draws: z.array(ScenarioDraw).min(1),
+    flop: TextureFilter.optional(),
+    /** Odległość szansy od ceny jako ułamek (0,10 = 10 pp): marginMin ≤ odległość < marginMax (null = bez górnej granicy). */
+    marginMin: z.number().min(0).max(1),
+    marginMax: z.number().min(0).max(1).nullable(),
+    reject: z.array(ScenarioReject),
+  })
+  .strict()
+  .refine((b) => b.marginMax === null || b.marginMax > b.marginMin, 'marginMax musi być większy od marginMin');
+
+/** Wyjaśnienie własnej odpowiedzi (BR-OCE-002): sytuacja → zagranie → „bo” (BR-OCE-001); liczby tylko jako {{n:klucz}}. */
+export const ScenarioActionText = z.object({ action: z.enum(['call', 'fold']), explanation: z.string().min(1) }).strict();
+
+export const ScenarioDecision = z
+  .object({
+    street: z.enum(['flop', 'turn']),
+    kind: z.literal('draw-call'),
+    /** Pule do wylosowania na pierwszej decyzji; kolejne wynikają z linii (pula + 2 × zakład). */
+    pots: z.array(z.number().positive()),
+    fractions: z.array(z.number().positive()).min(1),
+    /** Linia rywala przed decyzją (D-109): w tym kroku rywal zawsze stawia ułamek puli z `fractions`. */
+    villain: z.literal('bet'),
+    /** Źródło oceny (RD-11, ADR-24): reguła z rules.yaml albo rachunek z numbers.yaml; dokładnie jedno. */
+    rule: id.optional(),
+    calc: id.optional(),
+    actions: z.array(ScenarioActionText).length(2),
+  })
+  .strict()
+  .refine((d) => (d.rule === undefined) !== (d.calc === undefined), 'podaj dokładnie jedno źródło oceny: rule albo calc');
+
+export const ScenarioTemplate = z
+  .object({
+    id,
+    /** Moduł M2–M11; M0, M1, M12 i M13 nie mają scenariuszy (plan §2). */
+    module: z.enum(['m2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9', 'm10', 'm11']),
+    situation: z.string().min(1),
+    table: z.enum(['6max', '9max']),
+    positions: z.object({ hero: ScenarioPosition, villain: ScenarioPosition }).strict(),
+    /** Głębokość w bb, bez wartości do wygrania (BR-SCN-002). */
+    stackBb: z.number().positive(),
+    /** Typ rywala: tylko z regułą exploit z populacją (ADR-24 szczebel 5); sprawdza budowanie treści. */
+    villainType: id.optional(),
+    levels: z.array(ScenarioLevel).min(1),
+    bounds: z.object({ latwy: ScenarioLevelBounds.optional(), sredni: ScenarioLevelBounds.optional(), trudny: ScenarioLevelBounds.optional() }).strict(),
+    decisions: z.array(ScenarioDecision).min(1).max(2),
+  })
+  .strict();
+export type ScenarioTemplate = z.infer<typeof ScenarioTemplate>;
