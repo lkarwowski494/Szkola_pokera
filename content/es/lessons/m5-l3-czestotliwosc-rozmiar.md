@@ -35,9 +35,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Sí: un flop bajo con cartas cercanas entre sí conecta con el {{t:range|rango}} de la {{t:big-blind|ciega grande}}: tiene aquí {{t:straight|escaleras}} y {{t:two-pair|dobles parejas}}, y tú no tienes {{t:nuts-advantage|ventaja de nuts}}. Haces c-bet menos a menudo que en flops altos: muchas manos {{t:check|pasan}}, y apuestan sobre todo las manos fuertes y los {{t:draw|proyectos}} fuertes."
-          small: "Demasiado a menudo: en un flop bajo con cartas cercanas entre sí no tienes {{t:nuts-advantage|ventaja de nuts}}. Los c-bets frecuentes, aunque sean pequeños, dan a la {{t:big-blind|ciega grande}} la ocasión de {{t:raise|subir}} después de haber {{t:check|pasado}} (check-raise) con sus manos más fuertes."
-          big: "Demasiado a menudo y demasiado caro: la {{t:big-blind|ciega grande}} tiene aquí en su {{t:range|rango}} {{t:straight|escaleras}} y {{t:two-pair|dobles parejas}}. Un c-bet grande y frecuente arriesga mucho cuando tú sueles tener solo cartas altas."
+          check: "Sí: un flop bajo con cartas cercanas entre sí conecta con el {{t:range|rango}} de la {{t:big-blind|ciega grande}}: defiende muchas manos con cartas pequeñas, y tus cartas altas han fallado aquí. En un flop {{t:connected|conectado}} también tiene {{t:straight|escaleras}} y {{t:two-pair|dobles parejas}}, así que normalmente no tienes {{t:nuts-advantage|ventaja de nuts}}. Haces c-bet menos a menudo que en flops altos: muchas manos {{t:check|pasan}}, y apuestan sobre todo las manos fuertes y los {{t:draw|proyectos}} fuertes."
+          small: "Demasiado a menudo: un flop bajo con cartas cercanas entre sí conecta con el {{t:range|rango}} de la {{t:big-blind|ciega grande}}, y en uno {{t:connected|conectado}} normalmente no tienes {{t:nuts-advantage|ventaja de nuts}}. Los c-bets frecuentes, aunque sean pequeños, dan a la {{t:big-blind|ciega grande}} la ocasión de {{t:raise|subir}} después de haber {{t:check|pasado}} (check-raise) con sus manos más fuertes."
+          big: "Demasiado a menudo y demasiado caro: este flop conecta con el {{t:range|rango}} de la {{t:big-blind|ciega grande}}, y en uno {{t:connected|conectado}} también tiene {{t:straight|escaleras}} y {{t:two-pair|dobles parejas}}. Un c-bet grande y frecuente arriesga mucho cuando tú sueles tener solo cartas altas."
     count: 6
   - kind: choice
     id: m5.l3.q-kj
@@ -123,7 +123,7 @@ Atención: «{{t:wet|húmedo}}» no significa «apuesta grande». En la aplicaci
 
 ## Bajo con cartas cercanas entre sí: {{t:check|pasas}} más a menudo
 
-En [[7s 6h 5d]] la {{t:big-blind|ciega grande}} tiene en su {{t:range|rango}} {{t:straight|escaleras}} y {{t:two-pair|dobles parejas}}, y tú no tienes {{t:nuts-advantage|ventaja de nuts}} (lección sobre las ventajas). Lo mismo ocurre en otros flops bajos {{t:connected|conectados}} y {{t:semi-connected|semiconectados}}. Haces c-bet menos a menudo que en flops altos: muchas manos {{t:check|pasan}}, y apuestan sobre todo las manos muy fuertes y los {{t:draw|proyectos}} fuertes.
+En [[7s 6h 5d]] la {{t:big-blind|ciega grande}} tiene en su {{t:range|rango}} {{t:straight|escaleras}} y {{t:two-pair|dobles parejas}}, y tú no tienes {{t:nuts-advantage|ventaja de nuts}} (lección sobre las ventajas). Normalmente ocurre lo mismo en otros flops bajos {{t:connected|conectados}}. En un flop bajo {{t:semi-connected|semiconectado}} todavía no hay {{t:straight|escalera}}, pero el flop igualmente le va bien a las manos con cartas pequeñas, que la {{t:big-blind|ciega grande}} defiende mucho, y tus cartas altas han fallado. Haces c-bet menos a menudo que en flops altos: muchas manos {{t:check|pasan}}, y apuestan sobre todo las manos muy fuertes y los {{t:draw|proyectos}} fuertes.
 
 ## Cuántas veces tiene que {{t:fold|retirarse}} el rival
 

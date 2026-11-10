@@ -87,9 +87,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Ja: Ein niedriger Flop mit nah beieinanderliegenden Karten trifft die {{t:range|Range}} des {{t:big-blind|Big Blinds}}: Er hat hier {{t:straight|Straßen}} und {{t:two-pair|zwei Paare}}, und du hast keinen {{t:nuts-advantage|Nuts-Vorteil}}. Du spielst seltener C-Bets als auf hohen Flops: Viele Hände {{t:check|checken}}, gesetzt wird vor allem mit starken Händen und starken {{t:draw|Draws}}."
-          small: "Zu oft: Auf einem niedrigen Flop mit nah beieinanderliegenden Karten hast du keinen {{t:nuts-advantage|Nuts-Vorteil}}. Häufige C-Bets, selbst kleine, geben dem {{t:big-blind|Big Blind}} die Gelegenheit zum {{t:raise|Raise}} (Check-Raise) mit seinen stärksten Händen."
-          big: "Zu oft und zu teuer: Der {{t:big-blind|Big Blind}} hat hier {{t:straight|Straßen}} und {{t:two-pair|zwei Paare}} in seiner {{t:range|Range}}. Eine häufige große C-Bet riskiert viel, wenn du selbst meist nur hohe Karten hast."
+          check: "Ja: Ein niedriger Flop mit nah beieinanderliegenden Karten trifft die {{t:range|Range}} des {{t:big-blind|Big Blinds}}: Er verteidigt viele Hände mit kleinen Karten, und deine hohen Karten haben hier verfehlt. Auf einem {{t:connected|verbundenen}} Flop hat er auch {{t:straight|Straßen}} und {{t:two-pair|zwei Paare}}, also hast du meist keinen {{t:nuts-advantage|Nuts-Vorteil}}. Du spielst seltener C-Bets als auf hohen Flops: Viele Hände {{t:check|checken}}, gesetzt wird vor allem mit starken Händen und starken {{t:draw|Draws}}."
+          small: "Zu oft: Ein niedriger Flop mit nah beieinanderliegenden Karten trifft die {{t:range|Range}} des {{t:big-blind|Big Blinds}}, und auf einem {{t:connected|verbundenen}} hast du meist keinen {{t:nuts-advantage|Nuts-Vorteil}}. Häufige C-Bets, selbst kleine, geben dem {{t:big-blind|Big Blind}} die Gelegenheit zum {{t:raise|Raise}} (Check-Raise) mit seinen stärksten Händen."
+          big: "Zu oft und zu teuer: Dieser Flop trifft die {{t:range|Range}} des {{t:big-blind|Big Blinds}}, und auf einem {{t:connected|verbundenen}} hat er auch {{t:straight|Straßen}} und {{t:two-pair|zwei Paare}}. Eine häufige große C-Bet riskiert viel, wenn du selbst meist nur hohe Karten hast."
     count: 3
 ---
 Bisher hast du {{t:in-position}} gegen einen Gegner gespielt. {{t:out-of-position|Out of Position}} und gegen mehrere Spieler spielst du seltener C-Bets.

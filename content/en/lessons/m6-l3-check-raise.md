@@ -13,7 +13,7 @@ drills:
     prompt: "You defend the {{t:big-blind|big blind}} against the Button's {{t:open}}. On the flop you {{t:check}}, and the Button {{t:bet|bets}} a 1/3-{{t:pot}} c-bet. What do you do?"
     table: { hand: "6c 5c", board: "7h 6d 5s", position: BB }
     options:
-      - { text: "Check-raise", correct: true, why: "{{t:two-pair|Two pair}} on a low, {{t:connected}} flop is a hand for {{t:value}}. On flops like this, the {{t:big-blind|big blind}} has {{t:straight|straights}} and {{t:two-pair|two pair}} in its {{t:range}}, and the Button doesn't have a {{t:nuts-advantage}}. By {{t:raise|raising}}, you build the {{t:pot}} and make {{t:pair|pairs}} and {{t:draw|draws}} pay." }
+      - { text: "Check-raise", correct: true, why: "{{t:two-pair|Two pair}} on a low, {{t:connected}} flop is a hand for {{t:value}}. On flops like this, the {{t:big-blind|big blind}} has {{t:straight|straights}} and {{t:two-pair|two pair}} in its {{t:range}}, and the Button usually doesn't have a {{t:nuts-advantage}}. By {{t:raise|raising}}, you build the {{t:pot}} and make {{t:pair|pairs}} and {{t:draw|draws}} pay." }
       - { text: "{{t:call|Call}}", correct: true, why: "Also good: on a very {{t:connected}} flop, the solver just {{t:call|calls}} with some {{t:two-pair}} hands. A check-raise builds the {{t:pot}} and protects your hand more often." }
       - { text: "{{t:fold|Fold}}", why: "{{t:two-pair|Two pair}} is one of the strongest hands on this flop. {{t:fold|Folding}} is a big mistake." }
   - kind: choice
@@ -127,7 +127,7 @@ You usually {{t:call}} with medium hands, such as {{t:top-pair}} with a weak kic
 ## When more often
 
 - **Against a small c-bet.** A {{t:raise}} is cheap, and the Button {{t:bet|bets}} a small c-bet with a wide {{t:range}}. Against a big c-bet, you {{t:raise}} less often and narrower: mostly sets and {{t:two-pair}}, fewer {{t:bluff|bluffs}}.
-- **On low, {{t:connected}} flops** (e.g. [[7h 6d 5s]]). The {{t:big-blind|big blind}} defends many low hands, which hit {{t:straight|straights}} and {{t:two-pair|two pair}} here, so the Button doesn't have a {{t:nuts-advantage}} here.
+- **On low, {{t:connected}} flops** (e.g. [[7h 6d 5s]]). The {{t:big-blind|big blind}} defends many low hands, which hit {{t:straight|straights}} and {{t:two-pair|two pair}} here, so the Button usually doesn't have a {{t:nuts-advantage}} here.
 - **Less often on high flops that favor the Button**, e.g. K-J-T or A-A-K: there, the Button has more of the strongest hands.
 
 ## What size

@@ -35,9 +35,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Oui : un flop bas aux cartes proches touche la {{t:range|range}} de la {{t:big-blind|grosse blinde}} : elle a ici des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}, et vous n'avez pas l'{{t:nuts-advantage|avantage de nuts}}. Vous faites des c-bets moins souvent que sur les flops hauts : beaucoup de mains {{t:check|checkent}}, et ce sont surtout les mains fortes et les gros {{t:draw|tirages}} qui misent."
-          small: "Trop souvent : sur un flop bas aux cartes proches, vous n'avez pas l'{{t:nuts-advantage|avantage de nuts}}. Des c-bets fréquents, même petits, donnent à la {{t:big-blind|grosse blinde}} l'occasion de {{t:raise|relancer}} après avoir d'abord {{t:check|checké}} (check-raise) avec ses mains les plus fortes."
-          big: "Trop souvent et trop cher : la {{t:big-blind|grosse blinde}} a ici dans sa {{t:range|range}} des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}. Un gros c-bet fréquent risque beaucoup alors que vous n'avez le plus souvent que des cartes hautes."
+          check: "Oui : un flop bas aux cartes proches touche la {{t:range|range}} de la {{t:big-blind|grosse blinde}} : elle défend beaucoup de mains à petites cartes, et vos cartes hautes ont raté ici. Sur un flop {{t:connected|connecté}}, elle a aussi des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}, donc vous n'avez généralement pas l'{{t:nuts-advantage|avantage de nuts}}. Vous faites des c-bets moins souvent que sur les flops hauts : beaucoup de mains {{t:check|checkent}}, et ce sont surtout les mains fortes et les gros {{t:draw|tirages}} qui misent."
+          small: "Trop souvent : un flop bas aux cartes proches touche la {{t:range|range}} de la {{t:big-blind|grosse blinde}}, et sur un flop {{t:connected|connecté}} vous n'avez généralement pas l'{{t:nuts-advantage|avantage de nuts}}. Des c-bets fréquents, même petits, donnent à la {{t:big-blind|grosse blinde}} l'occasion de {{t:raise|relancer}} après avoir d'abord {{t:check|checké}} (check-raise) avec ses mains les plus fortes."
+          big: "Trop souvent et trop cher : ce flop touche la {{t:range|range}} de la {{t:big-blind|grosse blinde}}, et sur un flop {{t:connected|connecté}} elle a aussi des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}. Un gros c-bet fréquent risque beaucoup alors que vous n'avez le plus souvent que des cartes hautes."
     count: 6
   - kind: choice
     id: m5.l3.q-kj
@@ -123,7 +123,7 @@ Attention : « {{t:wet|wet}} » ne veut pas dire « grosse mise ». Dans l'
 
 ## Bas aux cartes proches : vous {{t:check|checkez}} plus souvent
 
-Sur [[7s 6h 5d]], la {{t:big-blind|grosse blinde}} a dans sa {{t:range|range}} des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}, et vous n'avez pas l'{{t:nuts-advantage|avantage de nuts}} (leçon sur les avantages). De même sur les autres flops bas {{t:connected|connectés}} et {{t:semi-connected|semi-connectés}}. Vous faites des c-bets moins souvent que sur les flops hauts : beaucoup de mains {{t:check|checkent}}, et ce sont surtout les mains très fortes et les gros {{t:draw|tirages}} qui misent.
+Sur [[7s 6h 5d]], la {{t:big-blind|grosse blinde}} a dans sa {{t:range|range}} des {{t:straight|quintes}} et des {{t:two-pair|doubles paires}}, et vous n'avez pas l'{{t:nuts-advantage|avantage de nuts}} (leçon sur les avantages). C'est généralement pareil sur les autres flops bas {{t:connected|connectés}}. Sur un flop bas {{t:semi-connected|semi-connecté}}, il n'y a pas encore de {{t:straight|quinte}}, mais le flop touche quand même les mains à petites cartes, que la {{t:big-blind|grosse blinde}} défend beaucoup, et vos cartes hautes ont raté. Vous faites des c-bets moins souvent que sur les flops hauts : beaucoup de mains {{t:check|checkent}}, et ce sont surtout les mains très fortes et les gros {{t:draw|tirages}} qui misent.
 
 ## À quelle fréquence l'adversaire doit se {{t:fold|coucher}}
 

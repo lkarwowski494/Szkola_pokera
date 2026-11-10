@@ -357,10 +357,10 @@
   module: m5
   if: "you {{t:open|opened}} preflop, and the flop is low and {{t:connected}} or {{t:semi-connected}}, e.g. 7-6-5"
   then: "you c-bet less often than on high flops, and many hands {{t:check}}"
-  because: "the {{t:big-blind|big blind}} defends many {{t:connectors}} and small-card hands, which hit {{t:straight|straights}} and {{t:two-pair|two pair}} here, and your high cards missed: you don't have a {{t:nuts-advantage}}"
+  because: "the {{t:big-blind|big blind}} defends many {{t:connectors}} and small-card hands, which hit a low flop, and your high cards missed; on a {{t:connected}} flop they also have {{t:straight|straights}} and {{t:two-pair|two pair}}, so you usually don't have a {{t:nuts-advantage}}"
   level: heuristic
   check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
-  source: "commercial solver site, Flop Heuristics: IP C-Betting in Cash Games (BTN vs BB: “flopped straights often being in the BB’s range”; “Size down and bet less on flops that complete straights and flushes in your opponent’s range”); commercial solver site, Flop Heuristics: IP C-Betting in MTTs (on connected flops “the raiser generally does not have a nuts advantage”); commercial solver site, Bullying the Blinds (20bb, 654r: “BB’s advantage at the top end”, the Button checks more than half its range); training site, 3 Concepts That Should Shape Your Postflop Strategy (“the Big Blind will often have the nut advantage”, https://upswingpoker.com/nut-range-positional-advantage/)"
+  source: "commercial solver site, Flop Heuristics: IP C-Betting in Cash Games (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/, BTN vs BB: “a large portion of their range consists of low-card holdings because of the preflop discount posed by the blinds. We connect better with high-card boards and get to bet more.”; “flopped straights often being in the BB’s range”; “Size down and bet less on flops that complete straights and flushes in your opponent’s range”); commercial solver site, Flop Heuristics: IP C-Betting in MTTs (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-mtts/; a different spot: BTN vs SB, 40bb; on connected flops “the raiser generally does not have a nuts advantage”; simplification: carried over directionally to BTN vs BB in cash games, consistent with the cash-game article); commercial solver site, Bullying the Blinds (https://blog.gtowizard.com/bullying-the-blinds-with-continuation-bets/, 20bb, 654r: “BB’s advantage at the top end”, the Button checks more than half its range); training site, 3 Concepts That Should Shape Your Postflop Strategy (“the Big Blind will often have the nut advantage”, https://upswingpoker.com/nut-range-positional-advantage/)"
   sources: [{ kind: solver-pub }, { kind: training, url: "https://upswingpoker.com/nut-range-positional-advantage/" }]
 - id: R-M5-005
   module: m5
@@ -508,7 +508,7 @@
   module: m6
   if: "the c-bet is small or the flop is low and {{t:connected}} (e.g. 7-6-5)"
   then: "you check-raise more often; on high flops good for the preflop raiser (e.g. K-J-T, A-A-K) and against big c-bets less often"
-  because: "on low, {{t:connected}} flops the {{t:big-blind|big blind}} has {{t:straight|straights}} and {{t:two-pair|two pair}} in its {{t:range}}, and the Button doesn't have a {{t:nuts-advantage}}; a small c-bet gives a cheap opportunity to {{t:raise}}"
+  because: "on low, {{t:connected}} flops the {{t:big-blind|big blind}} has {{t:straight|straights}} and {{t:two-pair|two pair}} in its {{t:range}}, and the Button usually doesn't have a {{t:nuts-advantage}}; a small c-bet gives a cheap opportunity to {{t:raise}}"
   level: heuristic
   source: "training site, How to Check-Raise Like a High Stakes Juggernaut (flops on which not to raise: K♣J♥T♠, Q♥J♦T♠, A♥A♠K♥; check-raise 12.65% against 33% and 8.66% against 66% pot); commercial solver site (“The larger the BTN bets, the less BB raises”); commercial solver site, Flop Heuristics: IP C-Betting in Cash Games (“flopped straights often being in the BB’s range”)"
   sources: [{ kind: solver-pub }, { kind: training }]

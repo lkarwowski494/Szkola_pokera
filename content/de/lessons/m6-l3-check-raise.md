@@ -13,7 +13,7 @@ drills:
     prompt: "Du verteidigst den {{t:big-blind|Big Blind}} gegen das {{t:open|Open}} des Buttons. Auf dem Flop {{t:check|checkst}} du, der Button {{t:bet|setzt}} eine C-Bet von 1/3 {{t:pot|Pot}}. Was machst du?"
     table: { hand: "6c 5c", board: "7h 6d 5s", position: BB }
     options:
-      - { text: "Check-Raise", correct: true, why: "{{t:two-pair|Two Pair}} auf einem niedrigen, {{t:connected|verbundenen}} Flop ist eine Hand für {{t:value|Value}}. Auf solchen Flops hat der {{t:big-blind|Big Blind}} {{t:straight|Straßen}} und {{t:two-pair|Two Pairs}} in seiner {{t:range|Range}}, und der Button hat keinen {{t:nuts-advantage|Nuts-Vorteil}}. Mit dem {{t:raise|Raise}} baust du den {{t:pot|Pot}} auf und lässt {{t:pair|Paare}} und {{t:draw|Draws}} bezahlen." }
+      - { text: "Check-Raise", correct: true, why: "{{t:two-pair|Two Pair}} auf einem niedrigen, {{t:connected|verbundenen}} Flop ist eine Hand für {{t:value|Value}}. Auf solchen Flops hat der {{t:big-blind|Big Blind}} {{t:straight|Straßen}} und {{t:two-pair|Two Pairs}} in seiner {{t:range|Range}}, und der Button hat meist keinen {{t:nuts-advantage|Nuts-Vorteil}}. Mit dem {{t:raise|Raise}} baust du den {{t:pot|Pot}} auf und lässt {{t:pair|Paare}} und {{t:draw|Draws}} bezahlen." }
       - { text: "{{t:call|Callen}}", correct: true, why: "Auch gut: Auf einem sehr {{t:connected|verbundenen}} Flop {{t:call|callt}} der Solver einen Teil seiner {{t:two-pair|Two Pairs}} nur. Ein Check-Raise baut den {{t:pot|Pot}} häufiger auf und schützt die Hand." }
       - { text: "{{t:fold|Folden}}", why: "{{t:two-pair|Two Pair}} ist eine der stärksten Hände auf diesem Flop. Ein {{t:fold|Fold}} ist ein großer Fehler." }
   - kind: choice
@@ -127,7 +127,7 @@ Mittlere Hände, z. B. {{t:top-pair|Top Pair}} mit schwachem Kicker, {{t:call|ca
 ## Wann häufiger
 
 - **Gegen eine kleine C-Bet.** Ein {{t:raise|Raise}} ist billig, und der Button {{t:bet|setzt}} eine kleine C-Bet mit einer breiten {{t:range|Range}}. Gegen eine große C-Bet {{t:raise|raist}} du seltener und enger: vor allem mit Sets und {{t:two-pair|Two Pair}}, mit weniger {{t:bluff|Bluffs}}.
-- **Auf niedrigen, {{t:connected|verbundenen}} Flops** (z. B. [[7h 6d 5s]]). Der {{t:big-blind|Big Blind}} verteidigt viele niedrige Hände, die hier {{t:straight|Straßen}} und {{t:two-pair|Two Pairs}} treffen, daher hat der Button hier keinen {{t:nuts-advantage|Nuts-Vorteil}}.
+- **Auf niedrigen, {{t:connected|verbundenen}} Flops** (z. B. [[7h 6d 5s]]). Der {{t:big-blind|Big Blind}} verteidigt viele niedrige Hände, die hier {{t:straight|Straßen}} und {{t:two-pair|Two Pairs}} treffen, daher hat der Button hier meist keinen {{t:nuts-advantage|Nuts-Vorteil}}.
 - **Seltener auf hohen Flops, die dem Button liegen**, z. B. K-J-T oder A-A-K: Dort hat er mehr der stärksten Hände.
 
 ## Welche Größe

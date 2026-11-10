@@ -91,6 +91,6 @@ drills:
     prompt: "Defiendes la {{t:big-blind}} contra una {{t:open|apertura}} del Botón. ¿En qué flop haces check-raise con más frecuencia?"
     table: { position: BB }
     options:
-      - { text: "[[8d 6c 5h]]", correct: true, why: "Sí: en un flop bajo y {{t:connected|conectado}}, la {{t:big-blind}} tiene en su {{t:range|rango}} {{t:straight|escaleras}} y {{t:two-pair|dobles parejas}}, y el Botón no tiene {{t:nuts-advantage|ventaja de nuts}}, así que aquí haces check-raise más a menudo." }
+      - { text: "[[8d 6c 5h]]", correct: true, why: "Sí: en un flop bajo y {{t:connected|conectado}}, la {{t:big-blind}} tiene en su {{t:range|rango}} {{t:straight|escaleras}} y {{t:two-pair|dobles parejas}}, y el Botón normalmente no tiene {{t:nuts-advantage|ventaja de nuts}}, así que aquí haces check-raise más a menudo." }
       - { text: "[[Ks Qd Jh]]", why: "Un flop alto con cartas cercanas entre sí conecta bien con el {{t:range|rango}} del Botón (AK, AQ, KQ, {{t:pair|parejas}} altas). Aquí haces check-raise con menos frecuencia." }
       - { text: "[[Ah Ad Qc]]", why: "En un flop con {{t:pair|pareja}} de ases, las manos más fuertes las tiene más a menudo el Botón, que {{t:open|abría}} con muchos ases. Aquí rara vez haces check-raise." }
