@@ -19,8 +19,8 @@ drills:
     prompt: "{{t:open|Abriu}} do Button e o jogador no {{t:big-blind|big blind}} {{t:call|pagou}}. Em qual destes flops (as três primeiras {{t:community-cards|cartas comunitárias}}) não tem {{t:nuts-advantage|vantagem de nuts}}, ou seja, claramente mais mãos das mais fortes do que esse jogador?"
     table: { position: BTN }
     options:
-      - { text: "[[8h 6d 5c]]", correct: true, why: "Sim: um flop baixo e {{t:connected}} acerta em {{t:connectors|conectores}} e em mãos com cartas pequenas, que o {{t:big-blind}} defende muito, por isso também ele tem aqui {{t:straight|sequências}} e {{t:two-pair|dois pares}}. As suas cartas altas falharam aqui, por isso não tem claramente mais mãos das mais fortes." }
-      - { text: "[[Kd Td 3s]]", why: "Não: um flop com duas cartas altas dá a {{t:nuts-advantage|vantagem de nuts}} a quem {{t:open|abre}}. Aqui tem mais mãos das mais fortes, p. ex. KK e KT, porque o {{t:big-blind}} {{t:raise|aumenta}} com a maioria dos KK antes do flop." }
+      - { text: "[[8h 6d 5c]]", correct: true, why: "Sim: um flop baixo e {{t:connected}} acerta em {{t:connectors|conectores}} e em mãos com cartas pequenas, que o {{t:big-blind}} defende muito, por isso também ele tem aqui {{t:straight|sequências}} e {{t:two-pair|dois pares}}. As suas cartas altas falharam aqui, por isso normalmente não tem claramente mais mãos das mais fortes." }
+      - { text: "[[Kd Td 3s]]", why: "Não: um flop com duas cartas altas dá a {{t:nuts-advantage|vantagem de nuts}} a quem {{t:open|abre}}. Aqui tem mais mãos das mais fortes, p. ex. KK, porque o {{t:big-blind}} {{t:raise|aumenta}} com a maioria dos KK antes do flop." }
       - { text: "[[Ah Qd 7c]]", why: "Não: num flop com ás e dama, tem mais mãos das mais fortes do que o adversário, p. ex. AA e AQ, porque o {{t:big-blind}} costuma {{t:raise|aumentar}} com os ases mais fortes antes do flop." }
   - kind: choice
     id: m5.exam.q3

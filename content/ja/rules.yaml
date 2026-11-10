@@ -357,10 +357,10 @@
   module: m5
   if: "プリフロップで{{t:open|オープン}}し、フロップが低くて{{t:connected|コネクテッド}}または{{t:semi-connected|セミコネクテッド}}である場合（例：7-6-5）"
   then: "高いフロップより低い頻度でCベットし、多くのハンドで{{t:check|チェック}}します"
-  because: "{{t:big-blind}}は多くの{{t:connectors|コネクター}}や小さいカードのハンドでディフェンスし、それらはここで{{t:straight|ストレート}}や{{t:two-pair|ツーペア}}になり、あなたの高いカードは外れているからです：あなたには{{t:nuts-advantage|ナッツアドバンテージ}}がありません"
+  because: "{{t:big-blind}}は多くの{{t:connectors|コネクター}}や小さいカードのハンドでディフェンスし、それらは低いフロップに当たり、あなたの高いカードは外れているからです。{{t:connected|コネクテッド}}なフロップでは相手に{{t:straight|ストレート}}や{{t:two-pair|ツーペア}}もあるので、あなたにはたいてい{{t:nuts-advantage|ナッツアドバンテージ}}がありません"
   level: heuristic
   check: { kind: cbet-case, players: [6, 9], stackBb: [100], drill: m5.l3.c-btn }
-  source: "商用ソルバーのサイト、Flop Heuristics: IP C-Betting in Cash Games (BTN vs BB：「flopped straights often being in the BB’s range」；「Size down and bet less on flops that complete straights and flushes in your opponent’s range」)；商用ソルバーのサイト、Flop Heuristics: IP C-Betting in MTTs (コネクテッドなフロップでは「the raiser generally does not have a nuts advantage」)；商用ソルバーのサイト、Bullying the Blinds (20bb、654r：「BB’s advantage at the top end」、ボタンはレンジの半分以上をチェック)；トレーニングサイト、3 Concepts That Should Shape Your Postflop Strategy (「the Big Blind will often have the nut advantage」、https://upswingpoker.com/nut-range-positional-advantage/)"
+  source: "商用ソルバーのサイト、Flop Heuristics: IP C-Betting in Cash Games (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-cash-games/、BTN vs BB：「a large portion of their range consists of low-card holdings because of the preflop discount posed by the blinds. We connect better with high-card boards and get to bet more.」；「flopped straights often being in the BB’s range」；「Size down and bet less on flops that complete straights and flushes in your opponent’s range」)；商用ソルバーのサイト、Flop Heuristics: IP C-Betting in MTTs (https://blog.gtowizard.com/flop-heuristics-ip-c-betting-in-mtts/；別のスポット：BTN vs SB、40bb；コネクテッドなフロップでは「the raiser generally does not have a nuts advantage」；簡略化：キャッシュゲームの記事に沿って、キャッシュゲームのBTN vs BBに方向性として当てはめたもの)；商用ソルバーのサイト、Bullying the Blinds (https://blog.gtowizard.com/bullying-the-blinds-with-continuation-bets/、20bb、654r：「BB’s advantage at the top end」、ボタンはレンジの半分以上をチェック)；トレーニングサイト、3 Concepts That Should Shape Your Postflop Strategy (「the Big Blind will often have the nut advantage」、https://upswingpoker.com/nut-range-positional-advantage/)"
   sources: [{ kind: solver-pub }, { kind: training, url: "https://upswingpoker.com/nut-range-positional-advantage/" }]
 - id: R-M5-005
   module: m5
@@ -508,7 +508,7 @@
   module: m6
   if: "Cベットが小さい、またはフロップが低くて{{t:connected|コネクテッド}}である場合（例：7-6-5）"
   then: "チェックレイズの頻度を上げます。レイザーに有利な高いフロップ（例：K-J-T、A-A-K）や、大きなCベットに対しては頻度を下げます"
-  because: "低くて{{t:connected|コネクテッド}}なフロップでは{{t:big-blind}}の{{t:range|レンジ}}に{{t:straight|ストレート}}と{{t:two-pair|ツーペア}}があってボタンには{{t:nuts-advantage|ナッツアドバンテージ}}がなく、小さなCベットは安く{{t:raise|レイズ}}するチャンスになるからです"
+  because: "低くて{{t:connected|コネクテッド}}なフロップでは{{t:big-blind}}の{{t:range|レンジ}}に{{t:straight|ストレート}}と{{t:two-pair|ツーペア}}があってボタンにはたいてい{{t:nuts-advantage|ナッツアドバンテージ}}がなく、小さなCベットは安く{{t:raise|レイズ}}するチャンスになるからです"
   level: heuristic
   source: "トレーニングサイト、How to Check-Raise Like a High Stakes Juggernaut (レイズしないフロップ：K♣J♥T♠、Q♥J♦T♠、A♥A♠K♥；チェックレイズは33%ポットに対して12.65%、66%ポットに対して8.66%)；商用ソルバーのサイト (「The larger the BTN bets, the less BB raises」)；商用ソルバーのサイト、Flop Heuristics: IP C-Betting in Cash Games (「flopped straights often being in the BB’s range」)"
   sources: [{ kind: solver-pub }, { kind: training }]

@@ -87,9 +87,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Đúng: flop thấp với các lá gần nhau trúng {{t:range|range}} của {{t:big-blind}}: họ có {{t:straight|sảnh}} và {{t:two-pair|hai đôi}} ở đây, còn bạn không có {{t:nuts-advantage|lợi thế nuts}}. Bạn c-bet ít hơn so với trên flop cao: nhiều tay bài {{t:check|xem bài}}, còn cược chủ yếu là các tay mạnh và {{t:draw|bài chờ}} mạnh."
-          small: "Quá thường xuyên: trên flop thấp với các lá gần nhau, bạn không có {{t:nuts-advantage|lợi thế nuts}}. C-bet thường xuyên, dù nhỏ, cho {{t:big-blind}} cơ hội {{t:raise|tố}} (check-raise) với các tay mạnh nhất."
-          big: "Quá thường xuyên và quá đắt: {{t:big-blind}} có {{t:straight|sảnh}} và {{t:two-pair|hai đôi}} trong {{t:range|range}} ở đây. C-bet lớn thường xuyên có rủi ro cao khi bản thân bạn thường chỉ có bài cao."
+          check: "Đúng: flop thấp với các lá gần nhau trúng {{t:range|range}} của {{t:big-blind}}: họ bảo vệ nhiều tay có lá nhỏ, còn các lá cao của bạn đã trượt ở đây. Trên flop {{t:connected|liên kết}}, họ còn có {{t:straight|sảnh}} và {{t:two-pair|hai đôi}}, nên thường bạn không có {{t:nuts-advantage|lợi thế nuts}}. Bạn c-bet ít hơn so với trên flop cao: nhiều tay bài {{t:check|xem bài}}, còn cược chủ yếu là các tay mạnh và {{t:draw|bài chờ}} mạnh."
+          small: "Quá thường xuyên: flop thấp với các lá gần nhau trúng {{t:range|range}} của {{t:big-blind}}, còn trên flop {{t:connected|liên kết}} thường bạn không có {{t:nuts-advantage|lợi thế nuts}}. C-bet thường xuyên, dù nhỏ, cho {{t:big-blind}} cơ hội {{t:raise|tố}} (check-raise) với các tay mạnh nhất."
+          big: "Quá thường xuyên và quá đắt: flop này trúng {{t:range|range}} của {{t:big-blind}}, còn trên flop {{t:connected|liên kết}} họ còn có {{t:straight|sảnh}} và {{t:two-pair|hai đôi}}. C-bet lớn thường xuyên có rủi ro cao khi bản thân bạn thường chỉ có bài cao."
     count: 3
 ---
 Cho đến giờ bạn đã chơi khi {{t:in-position}} với một đối thủ. Khi {{t:out-of-position|không có vị trí}} và khi đấu nhiều người chơi, bạn c-bet ít hơn.

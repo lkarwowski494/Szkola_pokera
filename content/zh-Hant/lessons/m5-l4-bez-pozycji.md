@@ -87,9 +87,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "對：牌點相近的低牌翻牌會擊中{{t:big-blind|大盲}}的{{t:range|範圍}}：他在這裡有{{t:straight|順子}}和{{t:two-pair|兩對}}，而你沒有{{t:nuts-advantage|堅果優勢}}。你 C-bet 的頻率比在高牌翻牌上低：很多牌{{t:check|過牌}}，下注的主要是強牌和強{{t:draw|聽牌}}。"
-          small: "太頻繁：在牌點相近的低牌翻牌上，你沒有{{t:nuts-advantage|堅果優勢}}。頻繁的 C-bet，即使是小額，也會給{{t:big-blind|大盲}}用最強的牌{{t:raise|加注}}（check-raise）的機會。"
-          big: "太頻繁也太貴：{{t:big-blind}}在這裡的{{t:range|範圍}}裡有{{t:straight|順子}}和{{t:two-pair|兩對}}。當你自己通常只有高牌時，頻繁的大額 C-bet 風險很高。"
+          check: "對：牌點相近的低牌翻牌會擊中{{t:big-blind|大盲}}的{{t:range|範圍}}：他防守很多小牌手牌，而你的高牌在這裡沒擊中。在{{t:connected|連張}}翻牌上，他還有{{t:straight|順子}}和{{t:two-pair|兩對}}，所以你通常沒有{{t:nuts-advantage|堅果優勢}}。你 C-bet 的頻率比在高牌翻牌上低：很多牌{{t:check|過牌}}，下注的主要是強牌和強{{t:draw|聽牌}}。"
+          small: "太頻繁：牌點相近的低牌翻牌會擊中{{t:big-blind|大盲}}的{{t:range|範圍}}，而在{{t:connected|連張}}翻牌上你通常沒有{{t:nuts-advantage|堅果優勢}}。頻繁的 C-bet，即使是小額，也會給{{t:big-blind|大盲}}用最強的牌{{t:raise|加注}}（check-raise）的機會。"
+          big: "太頻繁也太貴：這個翻牌會擊中{{t:big-blind|大盲}}的{{t:range|範圍}}，而在{{t:connected|連張}}翻牌上他還有{{t:straight|順子}}和{{t:two-pair|兩對}}。當你自己通常只有高牌時，頻繁的大額 C-bet 風險很高。"
     count: 3
 ---
 到目前為止，你都是{{t:in-position}}對抗一名對手。{{t:out-of-position|沒有位置}}以及對抗多名玩家時，你 C-bet 的頻率會更低。

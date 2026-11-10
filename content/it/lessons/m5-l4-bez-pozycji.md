@@ -87,9 +87,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Sì: un flop basso con carte vicine tra loro colpisce il {{t:range}} del {{t:big-blind|big blind}}: qui ha {{t:straight|scale}} e {{t:two-pair|doppie coppie}}, e tu non hai il {{t:nuts-advantage|vantaggio di nuts}}. Fai c-bet meno spesso che sui flop alti: molte mani {{t:check|fanno check}}, e puntano soprattutto le mani forti e i {{t:draw|progetti}} forti."
-          small: "Troppo spesso: su un flop basso con carte vicine tra loro non hai il {{t:nuts-advantage|vantaggio di nuts}}. C-bet frequenti, anche piccole, danno al {{t:big-blind|big blind}} l'occasione di {{t:raise|rilanciare}} (check-raise) con le sue mani più forti."
-          big: "Troppo spesso e troppo cara: il {{t:big-blind}} qui ha nel suo {{t:range}} {{t:straight|scale}} e {{t:two-pair|doppie coppie}}. Una c-bet grande e frequente rischia molto, quando tu di solito hai solo carte alte."
+          check: "Sì: un flop basso con carte vicine tra loro colpisce il {{t:range}} del {{t:big-blind|big blind}}: difende molte mani con carte piccole, e le tue carte alte qui hanno mancato il flop. Su un flop {{t:connected|connesso}} ha anche {{t:straight|scale}} e {{t:two-pair|doppie coppie}}, quindi di solito non hai il {{t:nuts-advantage|vantaggio di nuts}}. Fai c-bet meno spesso che sui flop alti: molte mani {{t:check|fanno check}}, e puntano soprattutto le mani forti e i {{t:draw|progetti}} forti."
+          small: "Troppo spesso: un flop basso con carte vicine tra loro colpisce il {{t:range}} del {{t:big-blind|big blind}}, e su un flop {{t:connected|connesso}} di solito non hai il {{t:nuts-advantage|vantaggio di nuts}}. C-bet frequenti, anche piccole, danno al {{t:big-blind|big blind}} l'occasione di {{t:raise|rilanciare}} (check-raise) con le sue mani più forti."
+          big: "Troppo spesso e troppo cara: questo flop colpisce il {{t:range}} del {{t:big-blind|big blind}}, e su un flop {{t:connected|connesso}} ha anche {{t:straight|scale}} e {{t:two-pair|doppie coppie}}. Una c-bet grande e frequente rischia molto, quando tu di solito hai solo carte alte."
     count: 3
 ---
 Finora hai giocato {{t:in-position}} contro un solo avversario. {{t:out-of-position|Fuori posizione}} e contro più giocatori fai c-bet meno spesso.

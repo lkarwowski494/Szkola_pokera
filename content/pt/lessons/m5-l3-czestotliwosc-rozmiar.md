@@ -35,9 +35,9 @@ drills:
         best: check
         rule: R-M5-004
         why:
-          check: "Sim: um flop baixo com cartas próximas acerta no {{t:range|range}} do {{t:big-blind}}: ele tem aqui {{t:straight|sequências}} e {{t:two-pair|dois pares}}, e a si falta {{t:nuts-advantage|vantagem de nuts}}. Faz c-bet menos vezes do que em flops altos: muitas mãos {{t:check|passam}}, e apostam sobretudo as mãos fortes e os {{t:draw|draws}} fortes."
-          small: "Demasiadas vezes: num flop baixo com cartas próximas, não tem {{t:nuts-advantage|vantagem de nuts}}. C-bets frequentes, mesmo pequenos, dão ao {{t:big-blind}} a oportunidade de {{t:raise|aumentar}} depois de {{t:check|passar}} primeiro (check-raise) com as mãos mais fortes."
-          big: "Demasiadas vezes e demasiado caro: o {{t:big-blind}} tem aqui no {{t:range|range}} {{t:straight|sequências}} e {{t:two-pair|dois pares}}. Um c-bet grande e frequente arrisca muito quando, na maioria das vezes, tem apenas cartas altas."
+          check: "Sim: um flop baixo com cartas próximas acerta no {{t:range|range}} do {{t:big-blind}}: ele defende muitas mãos com cartas pequenas, e as suas cartas altas falharam aqui. Num flop {{t:connected|conectado}}, ele também tem {{t:straight|sequências}} e {{t:two-pair|dois pares}}, por isso a si normalmente falta {{t:nuts-advantage|vantagem de nuts}}. Faz c-bet menos vezes do que em flops altos: muitas mãos {{t:check|passam}}, e apostam sobretudo as mãos fortes e os {{t:draw|draws}} fortes."
+          small: "Demasiadas vezes: um flop baixo com cartas próximas acerta no {{t:range|range}} do {{t:big-blind}}, e num flop {{t:connected|conectado}} a si normalmente falta {{t:nuts-advantage|vantagem de nuts}}. C-bets frequentes, mesmo pequenos, dão ao {{t:big-blind}} a oportunidade de {{t:raise|aumentar}} depois de {{t:check|passar}} primeiro (check-raise) com as mãos mais fortes."
+          big: "Demasiadas vezes e demasiado caro: este flop acerta no {{t:range|range}} do {{t:big-blind}}, e num flop {{t:connected|conectado}} ele também tem {{t:straight|sequências}} e {{t:two-pair|dois pares}}. Um c-bet grande e frequente arrisca muito quando, na maioria das vezes, tem apenas cartas altas."
     count: 6
   - kind: choice
     id: m5.l3.q-kj
@@ -123,7 +123,7 @@ Atenção: «{{t:wet|molhado}}» não significa «aposta grande». Na aplicaçã
 
 ## Baixo com cartas próximas: {{t:check|passa}} mais vezes
 
-Em [[7s 6h 5d]] o {{t:big-blind}} tem no {{t:range|range}} {{t:straight|sequências}} e {{t:two-pair|dois pares}}, e a si falta {{t:nuts-advantage|vantagem de nuts}} (lição sobre vantagens). O mesmo acontece noutros flops baixos {{t:connected|conectados}} e {{t:semi-connected|semiconectados}}. Faz c-bet menos vezes do que em flops altos: muitas mãos {{t:check|passam}}, e apostam sobretudo as mãos muito fortes e os {{t:draw|draws}} fortes.
+Em [[7s 6h 5d]] o {{t:big-blind}} tem no {{t:range|range}} {{t:straight|sequências}} e {{t:two-pair|dois pares}}, e a si falta {{t:nuts-advantage|vantagem de nuts}} (lição sobre vantagens). Normalmente, o mesmo acontece noutros flops baixos {{t:connected|conectados}}. Num flop baixo {{t:semi-connected|semiconectado}} ainda não há {{t:straight|sequência}}, mas o flop acerta na mesma em mãos com cartas pequenas, que o {{t:big-blind}} defende muito, e as suas cartas altas falharam. Faz c-bet menos vezes do que em flops altos: muitas mãos {{t:check|passam}}, e apostam sobretudo as mãos muito fortes e os {{t:draw|draws}} fortes.
 
 ## Com que frequência o adversário tem de {{t:fold|desistir}}
 

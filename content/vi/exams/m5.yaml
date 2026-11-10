@@ -19,8 +19,8 @@ drills:
     prompt: "Bạn {{t:open|mở cược}} từ Button, người chơi ở {{t:big-blind}} {{t:call|theo}}. Trên flop nào dưới đây (ba {{t:community-cards|lá bài chung}} đầu tiên) bạn không có {{t:nuts-advantage|lợi thế nuts}}, tức là không có nhiều tay mạnh nhất hơn hẳn đối thủ?"
     table: { position: BTN }
     options:
-      - { text: "[[8h 6d 5c]]", correct: true, why: "Đúng: flop thấp, {{t:connected}} trúng các {{t:connectors|bài liên tiếp}} và các tay có lá nhỏ, mà {{t:big-blind}} bảo vệ rất nhiều, nên ở đây họ cũng có {{t:straight|sảnh}} và {{t:two-pair|hai đôi}}. Các lá cao của bạn đã trượt ở đây, nên bạn không có nhiều tay mạnh nhất hơn hẳn." }
-      - { text: "[[Kd Td 3s]]", why: "Không: flop có hai lá cao mang lại {{t:nuts-advantage|lợi thế nuts}} cho người {{t:open|mở cược}}. Ở đây bạn có nhiều tay mạnh nhất hơn, ví dụ KK và KT, vì {{t:big-blind}} {{t:raise|tố}} phần lớn KK trước flop." }
+      - { text: "[[8h 6d 5c]]", correct: true, why: "Đúng: flop thấp, {{t:connected}} trúng các {{t:connectors|bài liên tiếp}} và các tay có lá nhỏ, mà {{t:big-blind}} bảo vệ rất nhiều, nên ở đây họ cũng có {{t:straight|sảnh}} và {{t:two-pair|hai đôi}}. Các lá cao của bạn đã trượt ở đây, nên thường bạn không có nhiều tay mạnh nhất hơn hẳn." }
+      - { text: "[[Kd Td 3s]]", why: "Không: flop có hai lá cao mang lại {{t:nuts-advantage|lợi thế nuts}} cho người {{t:open|mở cược}}. Ở đây bạn có nhiều tay mạnh nhất hơn, ví dụ KK, vì {{t:big-blind}} {{t:raise|tố}} phần lớn KK trước flop." }
       - { text: "[[Ah Qd 7c]]", why: "Không: trên flop có A và Q, chính bạn mới có nhiều tay mạnh nhất hơn, ví dụ AA và AQ, vì {{t:big-blind}} thường {{t:raise|tố}} những tay A mạnh nhất trước flop." }
   - kind: choice
     id: m5.exam.q3

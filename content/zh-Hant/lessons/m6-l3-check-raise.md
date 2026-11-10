@@ -13,7 +13,7 @@ drills:
     prompt: "你在{{t:big-blind|大盲}}位防守按鈕位的{{t:open|開池}}。翻牌你{{t:check|過牌}}，按鈕位{{t:bet|下注}} 1/3 {{t:pot|底池}}的 c-bet。你怎麼做？"
     table: { hand: "6c 5c", board: "7h 6d 5s", position: BB }
     options:
-      - { text: "過牌加注", correct: true, why: "在低張、{{t:connected|相連}}的翻牌上，{{t:two-pair|兩對}}是打{{t:value|價值}}的牌。在這類翻牌上，{{t:big-blind|大盲}}的{{t:range|範圍}}裡有{{t:straight|順子}}和{{t:two-pair|兩對}}，而按鈕位沒有{{t:nuts-advantage|堅果優勢}}。用{{t:raise|加注}}做大{{t:pot|底池}}，讓{{t:pair|對子}}和{{t:draw|聽牌}}付錢。" }
+      - { text: "過牌加注", correct: true, why: "在低張、{{t:connected|相連}}的翻牌上，{{t:two-pair|兩對}}是打{{t:value|價值}}的牌。在這類翻牌上，{{t:big-blind|大盲}}的{{t:range|範圍}}裡有{{t:straight|順子}}和{{t:two-pair|兩對}}，而按鈕位通常沒有{{t:nuts-advantage|堅果優勢}}。用{{t:raise|加注}}做大{{t:pot|底池}}，讓{{t:pair|對子}}和{{t:draw|聽牌}}付錢。" }
       - { text: "{{t:call|跟注}}", correct: true, why: "也不錯：在非常{{t:connected|相連}}的翻牌上，求解器拿部分{{t:two-pair|兩對}}只會{{t:call|跟注}}。過牌加注更常能做大{{t:pot|底池}}並保護你的牌。" }
       - { text: "{{t:fold|棄牌}}", why: "{{t:two-pair|兩對}}是這個翻牌上最強的牌之一。{{t:fold|棄牌}}是大錯。" }
   - kind: choice
@@ -127,7 +127,7 @@ drills:
 ## 什麼時候更常用
 
 - **面對小 c-bet。** {{t:raise|加注}}很便宜，而按鈕位用很寬的{{t:range|範圍}}打小 c-bet。面對大 c-bet，你{{t:raise|加注}}得更少也更窄：主要是暗三條和{{t:two-pair|兩對}}，{{t:bluff|詐唬}}較少。
-- **在低張、{{t:connected|相連}}的翻牌上**（例如 [[7h 6d 5s]]）。{{t:big-blind|大盲}}會防守很多小牌，這些牌在這裡會擊中{{t:straight|順子}}和{{t:two-pair|兩對}}，所以按鈕位在這裡沒有{{t:nuts-advantage|堅果優勢}}。
+- **在低張、{{t:connected|相連}}的翻牌上**（例如 [[7h 6d 5s]]）。{{t:big-blind|大盲}}會防守很多小牌，這些牌在這裡會擊中{{t:straight|順子}}和{{t:two-pair|兩對}}，所以按鈕位在這裡通常沒有{{t:nuts-advantage|堅果優勢}}。
 - **在對按鈕位有利的高張翻牌上較少用**，例如 K-J-T 或 A-A-K：在那裡，最強的牌是他比較多。
 
 ## 尺寸多大

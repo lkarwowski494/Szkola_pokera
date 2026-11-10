@@ -19,8 +19,8 @@ drills:
     prompt: "Hai {{t:open|aperto}} dal Button e il giocatore in {{t:big-blind|big blind}} {{t:call|ha chiamato}}. Su quale di questi flop (le prime tre {{t:community-cards|carte comuni}}) non hai il {{t:nuts-advantage|vantaggio di nuts}}, cioè nettamente più mani tra le più forti rispetto all'avversario?"
     table: { position: BTN }
     options:
-      - { text: "[[8h 6d 5c]]", correct: true, why: "Sì: un flop basso e {{t:connected|connesso}} colpisce i {{t:connectors|connettori}} e le mani con carte piccole, che il {{t:big-blind}} difende in gran numero, quindi anche lui qui ha {{t:straight|scale}} e {{t:two-pair|doppie coppie}}. Le tue carte alte qui hanno mancato il flop, quindi non hai nettamente più mani tra le più forti." }
-      - { text: "[[Kd Td 3s]]", why: "No: un flop con due carte alte dà il {{t:nuts-advantage|vantaggio di nuts}} a chi ha {{t:open|aperto}}. Qui hai più mani tra le più forti, ad es. KK e KT, perché il {{t:big-blind}} {{t:raise|rilancia}} la maggior parte dei KK prima del flop." }
+      - { text: "[[8h 6d 5c]]", correct: true, why: "Sì: un flop basso e {{t:connected|connesso}} colpisce i {{t:connectors|connettori}} e le mani con carte piccole, che il {{t:big-blind}} difende in gran numero, quindi anche lui qui ha {{t:straight|scale}} e {{t:two-pair|doppie coppie}}. Le tue carte alte qui hanno mancato il flop, quindi di solito non hai nettamente più mani tra le più forti." }
+      - { text: "[[Kd Td 3s]]", why: "No: un flop con due carte alte dà il {{t:nuts-advantage|vantaggio di nuts}} a chi ha {{t:open|aperto}}. Qui hai più mani tra le più forti, ad es. KK, perché il {{t:big-blind}} {{t:raise|rilancia}} la maggior parte dei KK prima del flop." }
       - { text: "[[Ah Qd 7c]]", why: "No: su un flop con un asso e una donna sei tu ad avere più mani tra le più forti, ad es. AA e AQ, perché il {{t:big-blind}} di solito {{t:raise|rilancia}} gli assi più forti prima del flop." }
   - kind: choice
     id: m5.exam.q3
